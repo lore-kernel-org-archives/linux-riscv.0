@@ -4,89 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8825EEB64DD
-	for <linux-riscv@archiver.kernel.org>; Tue,  1 Aug 2023 07:09:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D248EB64DD
+	for <linux-riscv@archiver.kernel.org>; Tue,  1 Aug 2023 07:15:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ijx0Gk8+qVLHxhruL/NWhqEz5yHGe27z2sNVzybWJvw=; b=OhTb5XzoddFXxi
-	TX2HHR2cttm0sVII1bmh6w8cV6ELR5klwhLAjszg2zDxDCjLT0R/O86FG+UdrwIo6VBbFk+6rSBef
-	sKaxaG9GKXnp71j5O2BAgUfRonOKJOl2LKtHK9eubqdXaagTOY87ID3gESX0x0CoMpku5MJ+cKv4x
-	z/o0dJVFAl/eVRExMCerv2x8sUE9HFkHZVpQr+Ehx4JsSnbNCGzPI0M4YUwNWDDz/aeGZYiAtrAef
-	O12iqf5ncGGY2RvYF87l9ko4o3QkgT/d5HOzymARhVvTEhhc3hxLGgk7X5g1ltEqQb10rb876NrdR
-	xhyPKJpaeLZUtI36mR/w==;
+	List-Owner; bh=2YmJa0q7CiAK+XmXhl925c0Gd4S8uE4RFVBiUQ8A/M0=; b=Dyou61NJlCRpkx
+	5furL3rrsSIH2x7tvs74XrVzaEynE4+WS026Ht7Mwau4GLBKpIW6tsKlfqgJg5Mgm8wRFvZuYqR+F
+	p3qB2XT8th5pkKmlwM8tr9QnYJ/3goqYDHAU2yw0vuCRecyWzNvMQyBXUWLGtE0Qm7BzxJK6WEj3z
+	VC4I/TXKxgiEUZ8IuRn2qGD4NWT6Z2tKsNTQ0yUOtAfyPK8VuLkwvaPm/ResfY5d2m9arh9Adc7g6
+	bHWkEI2JxYGkY0pYxB4yEqXBdhjhf0kFT5hibqpsxnbSLgBlgR37LRTBiR3asYR1YOoR8OX6BT06q
+	c9Eov8oqOAcJXhFEETdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qQjVx-000Wpn-1s;
-	Tue, 01 Aug 2023 07:09:53 +0000
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+	id 1qQjaw-000XNx-2E;
+	Tue, 01 Aug 2023 07:15:02 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qQjVu-000WoU-15
+	id 1qQjas-000XMd-1v
 	for linux-riscv@lists.infradead.org;
-	Tue, 01 Aug 2023 07:09:52 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-31792ac0fefso2422841f8f.2
-        for <linux-riscv@lists.infradead.org>; Tue, 01 Aug 2023 00:09:49 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1690873788; x=1691478588;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=UGo71aOuZXwwURci+soWYsCVOvbsKQpoaAxtdIvWqfY=;
-        b=BSOivDUzCxZKUNC5L8sjje0+zge0a2fc5YHdfi85DNeAOoRGEgIGTcqx33zDhehXUy
-         Tt7V7oc7AXdyS4Z07ugpljCXzaHo07NLhCEc602JhEH2CrfZfj4V0JSY/u1pusKsKRCi
-         3dEAS1vw4Dlspgd8HsbvQ9iEZ6aQLEU6awYAAQi0ftreMsSfzRQQcq/2zZk5E08Hf5c6
-         O9/NC6WVNl9Dac+7/xznC6syWSbXtyGgyqW66SJZRzYFLqJpjuknRtiBNA3FKRuPdYh2
-         XLD9xTw//wf03tk4ufzIT/vJea+X5Amu/1ATkiBezk7738bCYN8ekEHG5rmHGE10cMUx
-         LktQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1690873788; x=1691478588;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=UGo71aOuZXwwURci+soWYsCVOvbsKQpoaAxtdIvWqfY=;
-        b=kbDBWurch49bVwsJOzul4FlQK8iziekKCavDdH/rAPUGDHnLtXij9aPRYcK2bEUq2p
-         LkHfhWBwLLsTmD7MCaCtLQDWX8jKlcttjdcln1XK6Jr0id95rO6JhXDPFmFIWscnS0jM
-         QUqUjJpdNXFd+EsmFkGHLA7/AslTaUYd8X9zW7+DKjX5onyP7DRa0n5M/mUdCwdirr7l
-         nmHqxMh42sVQsbZ/9mW89RWL7W7vK7lf7YKTEw7h7eHvrXQFenLRstaDUT4AjrpuThFj
-         Wk4vcFtAG8L0hORn5/DlXkZ7WrUEhO6z4QQ370OxZuovUfPA3BT5p0YiEZSKUZCpp0JY
-         iiMQ==
-X-Gm-Message-State: ABy/qLbdWbO1okVlYZ1YvYMe3x2WUeyzcPHtZ8y/zaImIXNqe0Lu7gmd
-	XJaVVrzGSRSMBZ8Q8nj9jMwn6erIZILfs2tt792rpg==
-X-Google-Smtp-Source: APBJJlEHOxpMX2BydZ4uFDoFLk1ucgaqo7z7bX7/yWGkeNeAipORRLEs8hijy/gGxbs9QHLEWT50Wsq1EHzWXJzVaTU=
-X-Received: by 2002:a5d:44c5:0:b0:317:5d3d:d387 with SMTP id
- z5-20020a5d44c5000000b003175d3dd387mr1456159wrr.25.1690873787797; Tue, 01 Aug
- 2023 00:09:47 -0700 (PDT)
+	Tue, 01 Aug 2023 07:15:00 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id F3F23614A7;
+	Tue,  1 Aug 2023 07:14:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 062ABC433C8;
+	Tue,  1 Aug 2023 07:14:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1690874097;
+	bh=gPwAbo86LLQU6U1a8yUG1H5lS0lBmxDkHINKahtp7dA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=hipvex/JUh2IqzRD7YQx3cOihcKrpYjMvDIamQZp08wLDO2FysHNlgTTvhbCeqQqp
+	 srW5ttcbmRh5x0BbPyJ/jQd+Z00FCu+oEo3RImBLxjtu321BRpcdZoOkklawrcn1x0
+	 HaXcc+iT43c60luRRCrb4BW9+PyEOc8u5G8oVXwq59vL6yXEOi5oiFNHMLCSumFMOa
+	 C3T6DLtmE0L+IbBONZrn5BjcwaP5aY9oi4ora089nU8OFgKmsT40IS4MlMNzK8Biv2
+	 pazbd0wBnPiMLjFjH40oh5bJFoZ5UU1InYmJUD9KtP9gNsCNqIXYXj3KBK/yZD2mh5
+	 /M5yp/n+ANNgw==
+Received: by pali.im (Postfix)
+	id 13405AB2; Tue,  1 Aug 2023 09:14:54 +0200 (CEST)
+Date: Tue, 1 Aug 2023 09:14:53 +0200
+From: Pali =?utf-8?B?Um9ow6Fy?= <pali@kernel.org>
+To: Kevin Xie <kevin.xie@starfivetech.com>
+Cc: Bjorn Helgaas <helgaas@kernel.org>,
+	Minda Chen <minda.chen@starfivetech.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	Conor Dooley <conor@kernel.org>, Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-pci@vger.kernel.org,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Mason Huo <mason.huo@starfivetech.com>,
+	Leyfoon Tan <leyfoon.tan@starfivetech.com>,
+	Mika Westerberg <mika.westerberg@linux.intel.com>,
+	"Maciej W. Rozycki" <macro@orcam.me.uk>,
+	Marek =?utf-8?B?QmVow7pu?= <kabel@kernel.org>
+Subject: Re: [PATCH v1 8/9] PCI: PLDA: starfive: Add JH7110 PCIe controller
+Message-ID: <20230801071453.afaulygpczpyhopk@pali>
+References: <20230731231223.GA14721@bhelgaas>
+ <79e417ee-ef47-3e4b-6b51-bd7f10ac3643@starfivetech.com>
 MIME-Version: 1.0
-References: <20230727141428.962286-1-alexghiti@rivosinc.com>
- <20230727141428.962286-10-alexghiti@rivosinc.com> <CAP-5=fU5XYXrVnRUidpwjV2LiTsdebfidL43_Qo4Z7TBxMsVGA@mail.gmail.com>
- <CAHVXubgVAe1WsiZx5Ay+3KPK4u24k_vsnTwFFmBeVsHrGXwhfw@mail.gmail.com>
- <CAHVXubj80rQRShuDS09BeTrfR6nux0A68EMWLbeat8fd_Y3YdA@mail.gmail.com>
- <CAP-5=fWwzuGZ6a6Z38ndsb7gw7_uwS0a2VGXx08hMeiK8eZ91w@mail.gmail.com>
- <CAHVXubjhM9C1fw_Us=8+RuSJbW0pacFAk9gp7j2=BtMUPy_Byw@mail.gmail.com> <CAP-5=fUbiaVwSAhTbymyhdUPcVAXHiQZZexAOnrqid0LsPmfpw@mail.gmail.com>
-In-Reply-To: <CAP-5=fUbiaVwSAhTbymyhdUPcVAXHiQZZexAOnrqid0LsPmfpw@mail.gmail.com>
-From: Alexandre Ghiti <alexghiti@rivosinc.com>
-Date: Tue, 1 Aug 2023 09:09:36 +0200
-Message-ID: <CAHVXubgmbz4+Mhg4A9ziRtxSTOjLvx1=p2JPyGujBT7ervPZhQ@mail.gmail.com>
-Subject: Re: [PATCH v4 09/10] tools: lib: perf: Implement riscv mmap support
-To: Ian Rogers <irogers@google.com>
-Cc: Brendan Sweeney <brs@rivosinc.com>, Palmer Dabbelt <palmer@rivosinc.com>, 
-	Jonathan Corbet <corbet@lwn.net>, Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
-	Arnaldo Carvalho de Melo <acme@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
-	Namhyung Kim <namhyung@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Atish Patra <atishp@atishpatra.org>, Anup Patel <anup@brainfault.org>, 
-	Will Deacon <will@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Andrew Jones <ajones@ventanamicro.com>, =?UTF-8?Q?R=C3=A9mi_Denis=2DCourmont?= <remi@remlab.net>, 
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-perf-users@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, Atish Patra <atishp@rivosinc.com>
+Content-Disposition: inline
+In-Reply-To: <79e417ee-ef47-3e4b-6b51-bd7f10ac3643@starfivetech.com>
+User-Agent: NeoMutt/20180716
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230801_000950_575390_06F1E624 
-X-CRM114-Status: GOOD (  61.96  )
+X-CRM114-CacheID: sfid-20230801_001458_719156_C4DE8CC8 
+X-CRM114-Status: GOOD (  70.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,189 +92,190 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCBKdWwgMzEsIDIwMjMgYXQgNjo0NuKAr1BNIElhbiBSb2dlcnMgPGlyb2dlcnNAZ29v
-Z2xlLmNvbT4gd3JvdGU6Cj4KPiBPbiBNb24sIEp1bCAzMSwgMjAyMyBhdCA5OjA24oCvQU0gQWxl
-eGFuZHJlIEdoaXRpIDxhbGV4Z2hpdGlAcml2b3NpbmMuY29tPiB3cm90ZToKPiA+Cj4gPiBPbiBN
-b24sIEp1bCAzMSwgMjAyMyBhdCA1OjEw4oCvUE0gSWFuIFJvZ2VycyA8aXJvZ2Vyc0Bnb29nbGUu
-Y29tPiB3cm90ZToKPiA+ID4KPiA+ID4gT24gTW9uLCBKdWwgMzEsIDIwMjMgYXQgMzoyN+KAr0FN
-IEFsZXhhbmRyZSBHaGl0aSA8YWxleGdoaXRpQHJpdm9zaW5jLmNvbT4gd3JvdGU6Cj4gPiA+ID4K
-PiA+ID4gPiBPbiBNb24sIEp1bCAzMSwgMjAyMyBhdCAxMjoxNeKAr1BNIEFsZXhhbmRyZSBHaGl0
-aSA8YWxleGdoaXRpQHJpdm9zaW5jLmNvbT4gd3JvdGU6Cj4gPiA+ID4gPgo+ID4gPiA+ID4gSGkg
-SWFuLAo+ID4gPiA+ID4KPiA+ID4gPiA+IE9uIEZyaSwgSnVsIDI4LCAyMDIzIGF0IDc6NTPigK9Q
-TSBJYW4gUm9nZXJzIDxpcm9nZXJzQGdvb2dsZS5jb20+IHdyb3RlOgo+ID4gPiA+ID4gPgo+ID4g
-PiA+ID4gPiBPbiBUaHUsIEp1bCAyNywgMjAyMyBhdCA3OjI44oCvQU0gQWxleGFuZHJlIEdoaXRp
-IDxhbGV4Z2hpdGlAcml2b3NpbmMuY29tPiB3cm90ZToKPiA+ID4gPiA+ID4gPgo+ID4gPiA+ID4g
-PiA+IHJpc2N2IG5vdyBzdXBwb3J0cyBtbWFwaW5nIGhhcmR3YXJlIGNvdW50ZXJzIHNvIGFkZCB3
-aGF0J3MgbmVlZGVkIHRvCj4gPiA+ID4gPiA+ID4gdGFrZSBhZHZhbnRhZ2Ugb2YgdGhhdCBpbiBs
-aWJwZXJmLgo+ID4gPiA+ID4gPiA+Cj4gPiA+ID4gPiA+ID4gU2lnbmVkLW9mZi1ieTogQWxleGFu
-ZHJlIEdoaXRpIDxhbGV4Z2hpdGlAcml2b3NpbmMuY29tPgo+ID4gPiA+ID4gPiA+IFJldmlld2Vk
-LWJ5OiBBbmRyZXcgSm9uZXMgPGFqb25lc0B2ZW50YW5hbWljcm8uY29tPgo+ID4gPiA+ID4gPiA+
-IFJldmlld2VkLWJ5OiBBdGlzaCBQYXRyYSA8YXRpc2hwQHJpdm9zaW5jLmNvbT4KPiA+ID4gPiA+
-ID4gPiAtLS0KPiA+ID4gPiA+ID4gPiAgdG9vbHMvbGliL3BlcmYvbW1hcC5jIHwgNjUgKysrKysr
-KysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKwo+ID4gPiA+ID4gPiA+ICAxIGZp
-bGUgY2hhbmdlZCwgNjUgaW5zZXJ0aW9ucygrKQo+ID4gPiA+ID4gPiA+Cj4gPiA+ID4gPiA+ID4g
-ZGlmZiAtLWdpdCBhL3Rvb2xzL2xpYi9wZXJmL21tYXAuYyBiL3Rvb2xzL2xpYi9wZXJmL21tYXAu
-Ywo+ID4gPiA+ID4gPiA+IGluZGV4IDBkMTYzNGNlZGY0NC4uMzc4YTE2M2YwNTU0IDEwMDY0NAo+
-ID4gPiA+ID4gPiA+IC0tLSBhL3Rvb2xzL2xpYi9wZXJmL21tYXAuYwo+ID4gPiA+ID4gPiA+ICsr
-KyBiL3Rvb2xzL2xpYi9wZXJmL21tYXAuYwo+ID4gPiA+ID4gPiA+IEBAIC0zOTIsNiArMzkyLDcx
-IEBAIHN0YXRpYyB1NjQgcmVhZF9wZXJmX2NvdW50ZXIodW5zaWduZWQgaW50IGNvdW50ZXIpCj4g
-PiA+ID4gPiA+ID4KPiA+ID4gPiA+ID4gPiAgc3RhdGljIHU2NCByZWFkX3RpbWVzdGFtcCh2b2lk
-KSB7IHJldHVybiByZWFkX3N5c3JlZyhjbnR2Y3RfZWwwKTsgfQo+ID4gPiA+ID4gPiA+Cj4gPiA+
-ID4gPiA+ID4gKyNlbGlmIF9fcmlzY3ZfeGxlbiA9PSA2NAo+ID4gPiA+ID4gPgo+ID4gPiA+ID4g
-PiBUaGlzIGlzIHNvbWV0aGluZyBvZiBhbiBvZGQgZ3VhcmQsIHBlcmhhcHM6Cj4gPiA+ID4gPiA+
-ICNlbGlmIGRlZmluZWQoX19yaXNjdikgJiYgX19yaXNjdl94bGVuID09IDY0Cj4gPiA+ID4gPiA+
-Cj4gPiA+ID4gPiA+IFRoYXQgd2F5IGl0IGlzIG1vcmUgaW50ZW50aW9uIHJldmVhbGluZyB0aGF0
-IHRoaXMgaXMgcmlzY3YgY29kZS4gQ291bGQKPiA+ID4gPiA+ID4geW91IGFkZCBhIGNvbW1lbnQg
-cmVsYXRpbmcgdG8gdGhlIF9fcmlzY3ZfeGxlbiA/Cj4gPiA+ID4gPgo+ID4gPiA+ID4gSSBndWVz
-cyBBbmRyZXcgYW5zd2VyZWQgdGhhdCBhbHJlYWR5Lgo+ID4gPiA+ID4KPiA+ID4KPiA+ID4gTm90
-IHN1cmUuIEkgc3RpbGwgdGhpbmsgaXQgbG9va3Mgd2VpcmQ6Cj4gPiA+IC4uLgo+ID4gPiAjaWYg
-ZGVmaW5lZChfX2kzODZfXykgfHwgZGVmaW5lZChfX3g4Nl82NF9fKQo+ID4gPiAuLi4KPiA+ID4g
-I2VsaWYgZGVmaW5lZChfX2FhcmNoNjRfXykKPiA+ID4gLi4uCj4gPiA+ICNlbGlmIF9fcmlzY3Zf
-eGxlbiA9PSA2NAo+ID4gPiAuLi4KPiA+ID4gI2Vsc2UKPiA+ID4gc3RhdGljIHU2NCByZWFkX3Bl
-cmZfY291bnRlcih1bnNpZ25lZCBpbnQgY291bnRlciBfX21heWJlX3VudXNlZCkgeyByZXR1cm4g
-MDsgfQo+ID4gPiBzdGF0aWMgdTY0IHJlYWRfdGltZXN0YW1wKHZvaWQpIHsgcmV0dXJuIDA7IH0K
-PiA+ID4gI2VuZGlmCj4gPiA+Cj4gPiA+IFRoZSBmaXJzdCB0d28gYXJlIGNsZWFybHkgI2lmZGVm
-LWluZyBhcmNoaXRlY3R1cmUgc3BlY2lmaWMgYXNzZW1ibHkKPiA+ID4gY29kZSwgdW5kZXIgd2hh
-dCBjb25kaXRpb25zIEkgZ2V0IFJJU0MtViBjb2RlICDCr1wo44OEKS/CryBBdCBsZWFzdCB3b3J0
-aAo+ID4gPiBhIGNvbW1lbnQgbGlrZSAiY3NyciBpcyBvbmx5IGF2YWlsYWJsZSB3aGVuIHlvdSBo
-YXZlIHhsZW5zIG9mIDY0Cj4gPiA+IGJlY2F1c2UgLi4uIgo+ID4KPiA+IF9fcmlzY3ZfeGxlbiBp
-bmRpY2F0ZXMgcmlzY3Y2NCwgd2hpY2ggaXMgdGhlIG9ubHkgdGFyZ2V0IG9mIHRoaXMKPiA+IHBh
-dGNoc2V0LiBCdXQgaWYgeW91IHByZWZlciwgSSBkb24ndCBtaW5kIGFkZGluZyBiYWNrIHRoZQo+
-ID4gZGVmaW5lZChfX3Jpc2N2KSBpZiBJIHJlLXNwaW4gYSBuZXcgdmVyc2lvbi4KPgo+IFRoaXMg
-a2luZCBvZiBiZWdzIHRoZSBxdWVzdGlvbiBhcyB0byB3aHkgdGhlcmUgaXMgbm8gX19yaXNjdjY0
-IGlmZGVmLgo+IFRoZSBpc3N1ZSB3aXRoIHhsZW4gaXMgaXQgaXNuJ3QgaW50ZW50aW9uIHJldmVh
-bGluZyBzbyBmb3IgcmVndWxhcgo+IHBlb3BsZSB0cnlpbmcgdG8gdW5kZXJzdGFuZCB0aGUgY29k
-ZSBpdCB3b3VsZCBiZSBuaWNlIHRvIGRvY3VtZW50IGl0LgoKSSB1bmRlcnN0YW5kLCBJJ2xsIGFk
-ZCB0aGUgZGVmaW5lZChfX3Jpc2N2KSBhbmQgYSBjb21tZW50IHRvIGV4cGxhaW4KdGhlIF9fcmlz
-Y3ZfeGxlbi4KCj4KPiA+ID4KPiA+ID4gPiA+ID4KPiA+ID4gPiA+ID4gPiArCj4gPiA+ID4gPiA+
-ID4gKy8qIFRPRE86IGltcGxlbWVudCBydjMyIHN1cHBvcnQgKi8KPiA+ID4gPiA+ID4gPiArCj4g
-PiA+ID4gPiA+ID4gKyNkZWZpbmUgQ1NSX0NZQ0xFICAgICAgMHhjMDAKPiA+ID4gPiA+ID4gPiAr
-I2RlZmluZSBDU1JfVElNRSAgICAgICAweGMwMQo+ID4gPiA+ID4gPiA+ICsKPiA+ID4gPiA+ID4g
-PiArI2RlZmluZSBjc3JfcmVhZChjc3IpICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgXAo+ID4gPiA+ID4gPiA+ICsoeyAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcCj4gPiA+ID4gPiA+ID4gKyAgICAgICBy
-ZWdpc3RlciB1bnNpZ25lZCBsb25nIF9fdjsgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFwK
-PiA+ID4gPiA+ID4gPiArICAgICAgICAgICAgICAgX19hc21fXyBfX3ZvbGF0aWxlX18gKCJjc3Jy
-ICUwLCAiICNjc3IgICAgICAgICAgXAo+ID4gPiA+ID4gPiA+ICsgICAgICAgICAgICAgICAgOiAi
-PXIiIChfX3YpIDogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcCj4gPiA+ID4gPiA+
-ID4gKyAgICAgICAgICAgICAgICA6ICJtZW1vcnkiKTsgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgIFwKPiA+ID4gPiA+ID4KPiA+ID4gPiA+ID4gVG8gYXZvaWQgdGhlIG1hY3JvIHBh
-c3RpbmcgdGhhdCBjb3VsZCBwb3RlbnRpYWxseSBnbyB3ZWlyZCwgY291bGQgdGhpcyBiZToKPiA+
-ID4gPiA+ID4KPiA+ID4gPiA+ID4gX19hc21fXyBfX3ZvbGF0aWxlX18gKCJjc3JyICUwLCAlMSIs
-Cj4gPiA+ID4gPiA+ICAgOiAiPXIiKF9fdikgLyogb3V0cHV0cyAqLwo+ID4gPiA+ID4gPiAgIDog
-ImkiKGNzcikgLyogaW5wdXRzICovCj4gPiA+ID4gPiA+ICAgOiAibWVtb3J5IiAvKiBjbG9iYmVy
-cyAqLykKPiA+ID4gPgo+ID4gPiA+IEZvcmdvdCB0byBhbnN3ZXIgdGhpcyBvbmU6IGl0IGNvbXBp
-bGVzLCBidXQgSSBoYXZlIHRvIGFkbWl0IHRoYXQgSQo+ID4gPiA+IGRvbid0IHVuZGVyc3RhbmQg
-dGhlIGRpZmZlcmVuY2UgYW5kIGlmIHRoYXQncyBjb3JyZWN0IChhbGwgbWFjcm9zIGluCj4gPiA+
-ID4gYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9jc3IuaCB1c2UgIyB0byBkbyB0aGlzKSBhbmQgd2hh
-dCBiZW5lZml0cyBpdAo+ID4gPiA+IGJyaW5ncy4gQ2FuIHlvdSBlbGFib3JhdGUgbW9yZSBvbiB0
-aGluZ3MgdGhhdCBjb3VsZCAiZ28gd2VpcmQiPwo+ID4gPgo+ID4gPiBTbyByYXRoZXIgdGhhbiB1
-c2UgYW4gaW5wdXQgY29uc3RyYWludCBmb3IgdGhlIGFzbSBibG9jayB5b3UgYXJlIHVzaW5nCj4g
-PiA+IHRoZSBDIHByZXByb2Nlc3NvciB0byBwYXN0ZSBpbiB0aGUgY3NyIGFyZ3VtZW50LiBJZiBj
-c3IgaXMgc29tZXRoaW5nCj4gPiA+IGxpa2UgIjEiIHRoZW4gaXQgbG9va3MgZ29vZCBhbmQgeW91
-J2xsIGdldCAiY3NyciAlMCwxIi4gSWYgeW91IHBhc3MKPiA+ID4gc29tZXRoaW5nIGxpa2UgIjEg
-PDwgMzEiIHRoZW4gdGhhdCB3aWxsIGJlIHBhc3RlZCBhcyAiY3NyciAlMCwgMSA8PAo+ID4gPiAz
-MSIgYW5kIHRoYXQgc3RhcnRzIHRvIGdldCB3ZWlyZCBpbiB0aGUgY29udGV4dCBvZiBiZWluZyBp
-biB0aGUKPiA+ID4gYXNzZW1ibGVyIHdoZXJlIGl0IGlzIHVubGlrZWx5IHRoZSBDIG9wZXJhdG9y
-cyB3b3JrLiBVc2luZyB0aGUgaW5wdXQKPiA+ID4gY29uc3RyYWludCBhdm9pZHMgdGhpcywgY2F1
-c2VzIHRoZSBDIGNvbXBpbGVyIHRvIGNoZWNrIHRoZSB0eXBlIG9mIHRoZQo+ID4gPiBhcmd1bWVu
-dCBhbmQgeW91J2xsIHByb2JhYmx5IGdldCBtb3JlIGludGVsbGlnaWJsZSBlcnJvciBtZXNzYWdl
-cyBhcyBhCj4gPiA+IGNvbnNlcXVlbmNlLgo+ID4gPgo+ID4KPiA+IFRoYW5rcy4gU28gaWYgSSdt
-IG5vdCBtaXN0YWtlbiwgaW4gdGhpcyBleGFjdCBjb250ZXh0LCBnaXZlbiB3ZSBvbmx5Cj4gPiB1
-c2UgY3NyX3JlYWQoKSB0aHJvdWdoIHRoZSBjc3JfcmVhZF9udW0oKSBmdW5jdGlvbiwgaXQgc2Vl
-bXMgb2sgcmlnaHQ/Cj4KPiBTbyB5b3UndmUgZm9ybWVkIGEgY2FyZ28gY3VsdCBhbmQgdGhlIGp1
-c3RpZmljYXRpb24gaXMgbm90IHdhbnRpbmcgdG8KPiBzdG9wIGEgY29weS1wYXN0ZSBjaGFpbiBm
-cm9tIHNvbWV3aGVyZSBlbHNlLiBUaGlzIGNvZGUgaXRzZWxmIHdpbGwgYmUKPiBjb3B5LXBhc3Rl
-ZCBhbmQgd2UgZ28gdG8gc29tZSBlbmRzIHRvIGVuY291cmFnZSB0aGF0IGJ5IHBsYWNpbmcgcGFy
-dHMKPiBvZiBpdCBpbiBpbmNsdWRlL3VhcGkvbGludXgvcGVyZl9ldmVudC5oLiBJdCBzZWVtcyBi
-ZXR0ZXIgdG8gY2F0Y2gKPiB0aGlzIGlzc3VlIGVhcmx5IHJhdGhlciB0aGFuIHByb3BhZ2F0ZSBp
-dC4KCk9LLCBub3RoaW5nIHRvIGFyZ3VlIGhlcmUsIEknbGwgdXNlIHlvdXIgZmlyc3QgcHJvcG9z
-aXRpb24gaW4gdGhlIG5leHQgdmVyc2lvbi4KCj4KPiA+ID4gPgo+ID4gPiA+IFRoYW5rcyBhZ2Fp
-biwKPiA+ID4gPgo+ID4gPiA+IEFsZXgKPiA+ID4gPgo+ID4gPiA+ID4gPgo+ID4gPiA+ID4gPiBB
-bHNvLCB3aHkgaXMgdGhpcyBjbG9iYmVyaW5nIG1lbW9yeT8gV29ydGggYWRkaW5nIGEgY29tbWVu
-dC4KPiA+ID4gPiA+Cj4gPiA+ID4gPiBObyBpZGVhLCBJIHNlZSB0aGF0IGl0IGlzIGFsc28gZG9u
-ZSB0aGlzIHdheSBpbgo+ID4gPiA+ID4gYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9jc3IuaC4gQEF0
-aXNoIEt1bWFyIFBhdHJhICwgQFBhbG1lciBEYWJiZWx0ID8KPiA+ID4KPiA+ID4gSXQgd291bGQg
-c2VlbSB0byBtYWtlIHNlbnNlIHRoZW4gbm90IHRvIGhhdmUgYSBtZW1vcnkgY29uc3RyYWludCB1
-bnRpbAo+ID4gPiB3ZSBrbm93IHdoeSB3ZSdyZSBkb2luZyBpdD8KPiA+ID4KPiA+Cj4gPiBJIGhh
-dmUganVzdCBoYWQgdGhlIGFuc3dlciBpbnRlcm5hbGx5ICh0aGFua3MgdG8gQEJyZW5kYW4gU3dl
-ZW5leSk6Cj4gPiBjc3IgbW9kaWZpY2F0aW9ucyBjYW4gYWx0ZXIgaG93IHRoZSBtZW1vcnkgaXMg
-YWNjZXNzZWQgKHNhdHAgd2hpY2gKPiA+IGNoYW5nZXMgdGhlIGFkZHJlc3Mgc3BhY2UsIHN1bSB3
-aGljaCBhbGxvd3MvZGlzYWxsb3dzIHVzZXJzcGFjZQo+ID4gYWNjZXNzLi4uKSwgc28gd2UgbmVl
-ZCB0aGUgbWVtb3J5IGJhcnJpZXIgdG8gbWFrZSBzdXJlIHRoZSBjb21waWxlcgo+ID4gZG9lcyBu
-b3QgcmVvcmRlciB0aGUgbWVtb3J5IGFjY2Vzc2VzLgo+Cj4gVGhlIGNvbmRpdGlvbnMgeW91IG1l
-bnRpb24gc2hvdWxkbid0IGFwcGx5IGhlcmUgdGhvdWdoPyBFdmVuIGlmIHlvdQo+IGFkZCBhIG1l
-bW9yeSBiYXJyaWVyIGZvciB0aGUgY29tcGlsZXIgd2hhdCBpcyBzdG9wcGluZyB0aGUgaGFyZHdh
-cmUKPiByZW9yZGVyaW5nIGxvYWRzIGFuZCBzdG9yZXM/IElmIGl0IGFic29sdXRlbHkgaGFzIHRv
-IGJlIHRoZXJlIHRoZW4gYQo+IGNvbW1lbnQgc29tZXRoaW5nIGxpa2UgIlRoZXJlIGlzIGEgYnVn
-IGlzIHJpc2N2IHdoZXJlIHRoZSBjc3JyCj4gaW5zdHJ1Y3Rpb24gY2FuIGNsb2JiZXIgbWVtb3J5
-IGJyZWFraW5nIGZ1dHVyZSByZWFkcyBhbmQgc29tZSBob3cgdGhpcwo+IGNvbnN0cmFpbnQgZml4
-ZXMgaXQgYnkgLi4uICIuCgpZb3UncmUgcmlnaHQsIGl0IGRvZXMgbm90IGFwcGx5IGhlcmUsIHNv
-IEkgY2FuIHJlbW92ZSB0aGlzIG1lbW9yeQpiYXJyaWVyLiBSZWdhcmRpbmcgdGhlIGhhcmR3YXJl
-IHRoYXQgY291bGQgc3BlY3VsYXRlIGFjcm9zcyBhIGNzcgppbnN0cnVjdGlvbiwgdGhhdCdzIGRl
-YWx0IHdpdGggaW4gdGhlIHJpc2N2IHNwZWM6CgoiSW4gcGFydGljdWxhciwgYSBDU1IgYWNjZXNz
-IGlzIHBlcmZvcm1lZCBhZnRlciB0aGUgZXhlY3V0aW9uIG9mIGFueQpwcmlvciBpbnN0cnVjdGlv
-bnMgaW4gcHJvZ3JhbSBvcmRlciB3aG9zZSBiZWhhdmlvciBtb2RpZmllcyBvciBpcwptb2RpZmll
-ZCBieSB0aGUgQ1NSIHN0YXRlIGFuZCBiZWZvcmUgdGhlIGV4ZWN1dGlvbiBvZiBhbnkgc3Vic2Vx
-dWVudAppbnN0cnVjdGlvbnMgaW4gcHJvZ3JhbSBvcmRlciB3aG9zZSBiZWhhdmlvciBtb2RpZmll
-cyBvciBpcyBtb2RpZmllZApieSB0aGUgQ1NSIHN0YXRlIgoKVGhhbmtzIGZvciB5b3VyIGNvbW1l
-bnRzLAoKQWxleAoKPgo+IFRoYW5rcywKPiBJYW4KPgo+ID4gVGhhbmtzLAo+ID4KPiA+IEFsZXgK
-PiA+Cj4gPiA+IFRoYW5rcywKPiA+ID4gSWFuCj4gPiA+Cj4gPiA+ID4gPgo+ID4gPiA+ID4gVGhh
-bmtzIGZvciB5b3VyIGNvbW1lbnRzIQo+ID4gPiA+ID4KPiA+ID4gPiA+IEFsZXgKPiA+ID4gPiA+
-Cj4gPiA+ID4gPiA+Cj4gPiA+ID4gPiA+IFRoYW5rcywKPiA+ID4gPiA+ID4gSWFuCj4gPiA+ID4g
-PiA+Cj4gPiA+ID4gPiA+ID4gKyAgICAgICAgICAgICAgICBfX3Y7ICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgIFwKPiA+ID4gPiA+ID4gPiArfSkKPiA+ID4gPiA+ID4g
-PiArCj4gPiA+ID4gPiA+ID4gK3N0YXRpYyB1bnNpZ25lZCBsb25nIGNzcl9yZWFkX251bShpbnQg
-Y3NyX251bSkKPiA+ID4gPiA+ID4gPiArewo+ID4gPiA+ID4gPiA+ICsjZGVmaW5lIHN3aXRjaGNh
-c2VfY3NyX3JlYWQoX19jc3JfbnVtLCBfX3ZhbCkgICAgICAgICAgIHtcCj4gPiA+ID4gPiA+ID4g
-KyAgICAgICBjYXNlIF9fY3NyX251bTogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBc
-Cj4gPiA+ID4gPiA+ID4gKyAgICAgICAgICAgICAgIF9fdmFsID0gY3NyX3JlYWQoX19jc3JfbnVt
-KTsgICAgICAgICAgICBcCj4gPiA+ID4gPiA+ID4gKyAgICAgICAgICAgICAgIGJyZWFrOyB9Cj4g
-PiA+ID4gPiA+ID4gKyNkZWZpbmUgc3dpdGNoY2FzZV9jc3JfcmVhZF8yKF9fY3NyX251bSwgX192
-YWwpICAgICAgICAge1wKPiA+ID4gPiA+ID4gPiArICAgICAgIHN3aXRjaGNhc2VfY3NyX3JlYWQo
-X19jc3JfbnVtICsgMCwgX192YWwpICAgICAgICBcCj4gPiA+ID4gPiA+ID4gKyAgICAgICBzd2l0
-Y2hjYXNlX2Nzcl9yZWFkKF9fY3NyX251bSArIDEsIF9fdmFsKX0KPiA+ID4gPiA+ID4gPiArI2Rl
-ZmluZSBzd2l0Y2hjYXNlX2Nzcl9yZWFkXzQoX19jc3JfbnVtLCBfX3ZhbCkgICAgICAgICB7XAo+
-ID4gPiA+ID4gPiA+ICsgICAgICAgc3dpdGNoY2FzZV9jc3JfcmVhZF8yKF9fY3NyX251bSArIDAs
-IF9fdmFsKSAgICAgIFwKPiA+ID4gPiA+ID4gPiArICAgICAgIHN3aXRjaGNhc2VfY3NyX3JlYWRf
-MihfX2Nzcl9udW0gKyAyLCBfX3ZhbCl9Cj4gPiA+ID4gPiA+ID4gKyNkZWZpbmUgc3dpdGNoY2Fz
-ZV9jc3JfcmVhZF84KF9fY3NyX251bSwgX192YWwpICAgICAgICAge1wKPiA+ID4gPiA+ID4gPiAr
-ICAgICAgIHN3aXRjaGNhc2VfY3NyX3JlYWRfNChfX2Nzcl9udW0gKyAwLCBfX3ZhbCkgICAgICBc
-Cj4gPiA+ID4gPiA+ID4gKyAgICAgICBzd2l0Y2hjYXNlX2Nzcl9yZWFkXzQoX19jc3JfbnVtICsg
-NCwgX192YWwpfQo+ID4gPiA+ID4gPiA+ICsjZGVmaW5lIHN3aXRjaGNhc2VfY3NyX3JlYWRfMTYo
-X19jc3JfbnVtLCBfX3ZhbCkgICAgICAgIHtcCj4gPiA+ID4gPiA+ID4gKyAgICAgICBzd2l0Y2hj
-YXNlX2Nzcl9yZWFkXzgoX19jc3JfbnVtICsgMCwgX192YWwpICAgICAgXAo+ID4gPiA+ID4gPiA+
-ICsgICAgICAgc3dpdGNoY2FzZV9jc3JfcmVhZF84KF9fY3NyX251bSArIDgsIF9fdmFsKX0KPiA+
-ID4gPiA+ID4gPiArI2RlZmluZSBzd2l0Y2hjYXNlX2Nzcl9yZWFkXzMyKF9fY3NyX251bSwgX192
-YWwpICAgICAgICB7XAo+ID4gPiA+ID4gPiA+ICsgICAgICAgc3dpdGNoY2FzZV9jc3JfcmVhZF8x
-NihfX2Nzcl9udW0gKyAwLCBfX3ZhbCkgICAgIFwKPiA+ID4gPiA+ID4gPiArICAgICAgIHN3aXRj
-aGNhc2VfY3NyX3JlYWRfMTYoX19jc3JfbnVtICsgMTYsIF9fdmFsKX0KPiA+ID4gPiA+ID4gPiAr
-Cj4gPiA+ID4gPiA+ID4gKyAgICAgICB1bnNpZ25lZCBsb25nIHJldCA9IDA7Cj4gPiA+ID4gPiA+
-ID4gKwo+ID4gPiA+ID4gPiA+ICsgICAgICAgc3dpdGNoIChjc3JfbnVtKSB7Cj4gPiA+ID4gPiA+
-ID4gKyAgICAgICBzd2l0Y2hjYXNlX2Nzcl9yZWFkXzMyKENTUl9DWUNMRSwgcmV0KQo+ID4gPiA+
-ID4gPiA+ICsgICAgICAgZGVmYXVsdDoKPiA+ID4gPiA+ID4gPiArICAgICAgICAgICAgICAgYnJl
-YWs7Cj4gPiA+ID4gPiA+ID4gKyAgICAgICB9Cj4gPiA+ID4gPiA+ID4gKwo+ID4gPiA+ID4gPiA+
-ICsgICAgICAgcmV0dXJuIHJldDsKPiA+ID4gPiA+ID4gPiArI3VuZGVmIHN3aXRjaGNhc2VfY3Ny
-X3JlYWRfMzIKPiA+ID4gPiA+ID4gPiArI3VuZGVmIHN3aXRjaGNhc2VfY3NyX3JlYWRfMTYKPiA+
-ID4gPiA+ID4gPiArI3VuZGVmIHN3aXRjaGNhc2VfY3NyX3JlYWRfOAo+ID4gPiA+ID4gPiA+ICsj
-dW5kZWYgc3dpdGNoY2FzZV9jc3JfcmVhZF80Cj4gPiA+ID4gPiA+ID4gKyN1bmRlZiBzd2l0Y2hj
-YXNlX2Nzcl9yZWFkXzIKPiA+ID4gPiA+ID4gPiArI3VuZGVmIHN3aXRjaGNhc2VfY3NyX3JlYWQK
-PiA+ID4gPiA+ID4gPiArfQo+ID4gPiA+ID4gPiA+ICsKPiA+ID4gPiA+ID4gPiArc3RhdGljIHU2
-NCByZWFkX3BlcmZfY291bnRlcih1bnNpZ25lZCBpbnQgY291bnRlcikKPiA+ID4gPiA+ID4gPiAr
-ewo+ID4gPiA+ID4gPiA+ICsgICAgICAgcmV0dXJuIGNzcl9yZWFkX251bShDU1JfQ1lDTEUgKyBj
-b3VudGVyKTsKPiA+ID4gPiA+ID4gPiArfQo+ID4gPiA+ID4gPiA+ICsKPiA+ID4gPiA+ID4gPiAr
-c3RhdGljIHU2NCByZWFkX3RpbWVzdGFtcCh2b2lkKQo+ID4gPiA+ID4gPiA+ICt7Cj4gPiA+ID4g
-PiA+ID4gKyAgICAgICByZXR1cm4gY3NyX3JlYWRfbnVtKENTUl9USU1FKTsKPiA+ID4gPiA+ID4g
-PiArfQo+ID4gPiA+ID4gPiA+ICsKPiA+ID4gPiA+ID4gPiAgI2Vsc2UKPiA+ID4gPiA+ID4gPiAg
-c3RhdGljIHU2NCByZWFkX3BlcmZfY291bnRlcih1bnNpZ25lZCBpbnQgY291bnRlciBfX21heWJl
-X3VudXNlZCkgeyByZXR1cm4gMDsgfQo+ID4gPiA+ID4gPiA+ICBzdGF0aWMgdTY0IHJlYWRfdGlt
-ZXN0YW1wKHZvaWQpIHsgcmV0dXJuIDA7IH0KPiA+ID4gPiA+ID4gPiAtLQo+ID4gPiA+ID4gPiA+
-IDIuMzkuMgo+ID4gPiA+ID4gPiA+CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMu
-aW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZv
-L2xpbnV4LXJpc2N2Cg==
+On Tuesday 01 August 2023 15:05:46 Kevin Xie wrote:
+> 
+> 
+> On 2023/8/1 7:12, Bjorn Helgaas wrote:
+> > [+cc Pali, Marek because I used f76b36d40bee ("PCI: aardvark: Fix link
+> > training") as an example]
+> > 
+> > On Mon, Jul 31, 2023 at 01:52:35PM +0800, Kevin Xie wrote:
+> >> On 2023/7/28 5:40, Bjorn Helgaas wrote:
+> >> > On Tue, Jul 25, 2023 at 03:46:35PM -0500, Bjorn Helgaas wrote:
+> >> >> On Mon, Jul 24, 2023 at 06:48:47PM +0800, Kevin Xie wrote:
+> >> >> > On 2023/7/21 0:15, Bjorn Helgaas wrote:
+> >> >> > > On Thu, Jul 20, 2023 at 06:11:59PM +0800, Kevin Xie wrote:
+> >> >> > >> On 2023/7/20 0:48, Bjorn Helgaas wrote:
+> >> >> > >> > On Wed, Jul 19, 2023 at 06:20:56PM +0800, Minda Chen wrote:
+> >> >> > >> >> Add StarFive JH7110 SoC PCIe controller platform
+> >> >> > >> >> driver codes.
+> >> >> 
+> >> >> > >> However, in the compatibility testing with several NVMe SSD, we
+> >> >> > >> found that Lenovo Thinklife ST8000 NVMe can not get ready in 100ms,
+> >> >> > >> and it actually needs almost 200ms.  Thus, we increased the T_PVPERL
+> >> >> > >> value to 300ms for the better device compatibility.
+> >> >> > > ...
+> >> >> > > 
+> >> >> > > Thanks for this valuable information!  This NVMe issue potentially
+> >> >> > > affects many similar drivers, and we may need a more generic fix so
+> >> >> > > this device works well with all of them.
+> >> >> > > 
+> >> >> > > T_PVPERL is defined to start when power is stable.  Do you have a way
+> >> >> > > to accurately determine that point?  I'm guessing this:
+> >> >> > > 
+> >> >> > >   gpiod_set_value_cansleep(pcie->power_gpio, 1)
+> >> >> > > 
+> >> >> > > turns the power on?  But of course that doesn't mean it is instantly
+> >> >> > > stable.  Maybe your testing is telling you that your driver should
+> >> >> > > have a hardware-specific 200ms delay to wait for power to become
+> >> >> > > stable, followed by the standard 100ms for T_PVPERL?
+> >> >> > 
+> >> >> > You are right, we did not take the power stable cost into account.
+> >> >> > T_PVPERL is enough for Lenovo Thinklife ST8000 NVMe SSD to get ready,
+> >> >> > and the extra cost is from the power circuit of a PCIe to M.2 connector,
+> >> >> > which is used to verify M.2 SSD with our EVB at early stage.
+> >> >> 
+> >> >> Hmm.  That sounds potentially interesting.  I assume you're talking
+> >> >> about something like this: https://www.amazon.com/dp/B07JKH5VTL
+> >> >> 
+> >> >> I'm not familiar with the timing requirements for something like this.
+> >> >> There is a PCIe M.2 spec with some timing requirements, but I don't
+> >> >> know whether or how software is supposed to manage this.  There is a
+> >> >> T_PVPGL (power valid to PERST# inactive) parameter, but it's
+> >> >> implementation specific, so I don't know what the point of that is.
+> >> >> And I don't see a way for software to even detect the presence of such
+> >> >> an adapter.
+> >> > 
+> >> > I intended to ask about this on the PCI-SIG forum, but after reading
+> >> > this thread [1], I don't think we would learn anything.  The question
+> >> > was:
+> >> > 
+> >> >   The M.2 device has 5 voltage rails generated from the 3.3V input
+> >> >   supply voltage
+> >> >   -------------------------------------------
+> >> >   This is re. Table 17 in PCI Express M.2 Specification Revision 1.1
+> >> >   Power Valid* to PERST# input inactive : Implementation specific;
+> >> >   recommended 50 ms
+> >> > 
+> >> >   What exactly does this mean ?
+> >> > 
+> >> >   The Note says
+> >> > 
+> >> >     *Power Valid when all the voltage supply rails have reached their
+> >> >     respective Vmin.
+> >> > 
+> >> >   Does this mean that the 50ms to PERSTn is counted from the instant
+> >> >   when all *5 voltage rails* on the M.2 device have become "good" ?
+> >> > 
+> >> > and the answer was:
+> >> > 
+> >> >   You wrote;
+> >> >   Does this mean that the 50ms to PERSTn is counted from the instant
+> >> >   when all 5 voltage rails on the M.2 device have become "good" ?
+> >> > 
+> >> >   Reply:
+> >> >   This means that counting the recommended 50 ms begins from the time
+> >> >   when the power rails coming to the device/module, from the host, are
+> >> >   stable *at the device connector*.
+> >> > 
+> >> >   As for the time it takes voltages derived inside the device from any
+> >> >   of the host power rails (e.g., 3.3V rail) to become stable, that is
+> >> >   part of the 50ms the host should wait before de-asserting PERST#, in
+> >> >   order ensure that most devices will be ready by then.
+> >> > 
+> >> >   Strictly speaking, nothing disastrous happens if a host violates the
+> >> >   50ms. If it de-asserts too soon, the device may not be ready, but
+> >> >   most hosts will try again. If the host de-asserts too late, the
+> >> >   device has even more time to stabilize. This is why the WG felt that
+> >> >   an exact minimum number for >>Tpvpgl, was not valid in practice, and
+> >> >   we made it a recommendation.
+> >> > 
+> >> > Since T_PVPGL is implementation-specific, we can't really base
+> >> > anything in software on the 50ms recommendation.  It sounds to me like
+> >> > they are counting on software to retry config reads when enumerating.
+> >> > 
+> >> > I guess the delays we *can* observe are:
+> >> > 
+> >> >   100ms T_PVPERL "Power stable to PERST# inactive" (CEM 2.9.2)
+> >> >   100ms software delay between reset and config request (Base 6.6.1)
+> >> 
+> >> Refer to Figure2-10 in CEM Spec V2.0, I guess this two delays are T2 & T4?
+> >> In the PATCH v2[4/4], T2 is the msleep(100) for T_PVPERL,
+> >> and T4 is done by starfive_pcie_host_wait_for_link().
+> > 
+> > Yes, I think "T2" is T_PVPERL.  The CEM r2.0 Figure 2-10 note is
+> > "2. Minimum time from power rails within specified tolerance to
+> > PERST# inactive (T_PVPERL)."
+> > 
+> > As far as T4 ("Minimum PERST# inactive to PCI Express link out of
+> > electrical idle"), I don't see a name or a value for that parameter,
+> > and I don't think it is the delay required by PCIe r6.0, sec 6.6.1.
+> > 
+> > The delay required by sec 6.6.1 is a minimum of 100ms following exit
+> > from reset or, for fast links, 100ms after link training completes.
+> > 
+> > The comment at the call of advk_pcie_wait_for_link() [2] says it is
+> > the delay required by sec 6.6.1, but that doesn't seem right to me.
+> > 
+> > For one thing, I don't think 6.6.1 says anything about "link up" being
+> > the end of a delay.  So if we want to do the delay required by 6.6.1,
+> > "wait_for_link()" doesn't seem like quite the right name.
+> > 
+> > For another, all the *_wait_for_link() functions can return success
+> > after 0ms, 90ms, 180ms, etc.  They're unlikely to return after 0ms,
+> > but 90ms is quite possible.  If we avoided the 0ms return and
+> > LINK_WAIT_USLEEP_MIN were 100ms instead of 90ms, that should be enough
+> > for slow links, where we need 100ms following "exit from reset."
+> > 
+> > But it's still not enough for fast links where we need 100ms "after
+> > link training completes" because we don't know when training
+> > completed.  If training completed 89ms into *_wait_for_link(), we only
+> > delay 1ms after that.
+> > 
+> 
+> That's the point, we will add a extra 100ms after PERST# de-assert
+> in the patch-v3 according to Base Spec r6.0 - 6.6.1:
+>         msleep(100);
+>         gpiod_set_value_cansleep(pcie->reset_gpio, 0);
+> 
+> +       /* As the requirement in PCIe base spec r6.0, system must wait a
+> +        * minimum of 100 ms following exit from a Conventional Reset
+> +        * before sending a Configuration Request to the device.*/
+> +       msleep(100);
+> +
+>         if (starfive_pcie_host_wait_for_link(pcie))
+>                 return -EIO;
+> 
+
+Maybe this information can be useful here:
+https://lore.kernel.org/linux-pci/20211022183808.jdeo7vntnagqkg7g@pali/
+
+> >> > The PCI core doesn't know how to assert PERST#, so the T_PVPERL delay
+> >> > definitely has to be in the host controller driver.
+> >> > 
+> >> > The PCI core observes the second 100ms delay after a reset in
+> >> > pci_bridge_wait_for_secondary_bus().  But this 100ms delay does not
+> >> > happen during initial enumeration.  I think the assumption of the PCI
+> >> > core is that when the host controller driver calls pci_host_probe(),
+> >> > we can issue config requests immediately.
+> >> > 
+> >> > So I think that to be safe, we probably need to do both of those 100ms
+> >> > delays in the host controller driver.  Maybe there's some hope of
+> >> > supporting the latter one in the PCI core someday, but that's not
+> >> > today.
+> >> > 
+> >> > Bjorn
+> >> > 
+> >> > [1] https://forum.pcisig.com/viewtopic.php?f=74&t=1037
+> > 
+> > [2] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/pci/controller/pci-aardvark.c?id=v6.4#n433
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
