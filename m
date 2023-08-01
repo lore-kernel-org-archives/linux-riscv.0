@@ -4,60 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B054C04A94
-	for <linux-riscv@archiver.kernel.org>; Tue,  1 Aug 2023 10:45:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 124F8C001DF
+	for <linux-riscv@archiver.kernel.org>; Tue,  1 Aug 2023 10:59:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=oB9o/TIMKA2oq5DSAb5zdnmW3ZPosLPJRNynmbVy0hs=; b=KGod5whbvIUBQE
-	bqbGhbjXbEsKncOrPWZHmN5Sp/Sj6Z4cb4FcWl5uNPsqhSoaY5T/AUOAlq183sI5rswZqcRAXBOfT
-	nh3JNL6zQ/c4qv5CT6IOWQv2QBD26Ijosgt5rUZuT5Ttaw4RphXh6rS014BZ9FV/3zrLvrUT6A4qB
-	lZGhtFyx54oEOh9AB4AUotE4gVtRL+8wNovi0CHU+O4/2ntmVAo4NIMm0KLK/UcCtZWUrwAsGnL4S
-	6JDOyxZI/jKnMqJ9pMEmbT4SdER99Jp6ux91KxO5UC/dzBU+c+htqbcPLgLaG4VHYDUi5p0z+dtxr
-	Ktpz7g9F/W7YXh40Ri0A==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Ttprm/WmOCXYBlGv5rpCbPLQ4aot/gKSQQYdzhlijSE=; b=bK5p444CZCOYcZ
+	6Zd4JBLEYzp6Wt8za1j4UxuhdCqSq8ebFf6zW2IH47zq0c4zmweApZ0vB5K+8oZ8ByAXwdpLOPL5R
+	xrMnLUQ8+Vj4Yk3aoQSKQGi9a7ww8nZFOptdnhihrfL8jkcOFsnU/32F3rJ0czxhoyMq1NSa/iqey
+	E94pjZMvIXukxVKal4y/QFZCSi8ueCrR8KE9L0h6s7EqtLtIPNq67VoxS4ENqHBOHsRecTH/vAExu
+	YWQLJ7YGJRtV2pKz9elAeRMdrJFkYQ2nTlZ7qTb8qK2bzPjWxcm3nvVya1YPuaxO/1mr/eNDSoE9j
+	Z/l+A6IDAesREpmkvi9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qQmsV-001z5O-2C;
-	Tue, 01 Aug 2023 10:45:23 +0000
-Received: from 60-248-80-70.hinet-ip.hinet.net ([60.248.80.70] helo=Atcsqr.andestech.com)
+	id 1qQn6V-00228V-30;
+	Tue, 01 Aug 2023 10:59:51 +0000
+Received: from mail-lj1-x231.google.com ([2a00:1450:4864:20::231])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qQlj6-001S5E-1e
+	id 1qQn6T-00227j-01
 	for linux-riscv@lists.infradead.org;
-	Tue, 01 Aug 2023 09:31:39 +0000
-Received: from Atcsqr.andestech.com (localhost [127.0.0.2] (may be forged))
-	by Atcsqr.andestech.com with ESMTP id 3719FXbd068899
-	for <linux-riscv@lists.infradead.org>; Tue, 1 Aug 2023 17:15:33 +0800 (+08)
-	(envelope-from dylan@andestech.com)
-Received: from mail.andestech.com (ATCPCS16.andestech.com [10.0.1.222])
-	by Atcsqr.andestech.com with ESMTP id 37199auJ066580;
-	Tue, 1 Aug 2023 17:09:36 +0800 (+08)
-	(envelope-from dylan@andestech.com)
-Received: from atctrx.andestech.com (10.0.15.173) by ATCPCS16.andestech.com
- (10.0.1.222) with Microsoft SMTP Server id 14.3.498.0; Tue, 1 Aug 2023
- 17:09:32 +0800
-From: Dylan Jhong <dylan@andestech.com>
-To: <linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
-        <wangkefeng.wang@huawei.com>, <tongtiangen@huawei.com>,
-        <guoren@kernel.org>, <sergey.matyukevich@syntacore.com>,
-        <gregkh@linuxfoundation.org>, <ajones@ventanamicro.com>,
-        <aou@eecs.berkeley.edu>, <palmer@dabbelt.com>,
-        <paul.walmsley@sifive.com>, <conor.dooley@microchip.com>
-CC: <x5710999x@gmail.com>, <tim609@andestech.com>, <cl634@andestech.com>,
-        <ycliang@andestech.com>, Dylan Jhong <dylan@andestech.com>
-Subject: [PATCH] riscv: Flush stale TLB entry with VMAP_STACK enabled
-Date: Tue, 1 Aug 2023 17:09:27 +0800
-Message-ID: <20230801090927.2018653-1-dylan@andestech.com>
-X-Mailer: git-send-email 2.34.1
+	Tue, 01 Aug 2023 10:59:50 +0000
+Received: by mail-lj1-x231.google.com with SMTP id 38308e7fff4ca-2b9b50be31aso83122761fa.3
+        for <linux-riscv@lists.infradead.org>; Tue, 01 Aug 2023 03:59:46 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sifive.com; s=google; t=1690887585; x=1691492385;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=F76i/7vGNisrChJeRqvuEQPeFIPFgiCjw08O3STlUnc=;
+        b=BPClByZTHs7jw3OZmeyJAD4PsN3zyPlaDbDLMU+3gZiyPb9Y5o8jW2P8Tlh5p6s+9r
+         BlAORineS72jryyv1aMOR7CAQ2QvqCqS/FShXPD9ckwFFobrBr11l6md0DRF8LeRFIz4
+         HCPs+ezWMsz/3i8x1k5giQ/4TLSXcYfFz1qdugHdRSJaAktMjWW27OnYbTbc26pq+uaA
+         TAsAgdfii8Q3g3jqkVlVDBMDeEzhdfHKh2CjtXZISoVLj3TOFhG4UACU0RVa8Uv6rnCE
+         j2R5L0KAqpYyOdyThqIB0o+bIGvj9QVRG1oJPwOhFBE6PomEkl6xWZjSuOSkBoTarhIp
+         0tuA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1690887585; x=1691492385;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=F76i/7vGNisrChJeRqvuEQPeFIPFgiCjw08O3STlUnc=;
+        b=QW3NRXReVbpLlr79xIMUZpd8WPJKO2F/6zL0WhAkn1naFGwW9A9X43ka6F9EUCPrl8
+         3mg7Lrk6l3qQjBvN1SWp54u3o6tzM/apD71wQkbncFjuh/kdh5AoOWsSiLkLA/CYeFpl
+         B+5OfUxxYtWy0fzE2cc+DwyftRAOHXEfOsHrIdG74b0oyy7ENCovb1Q036MbjXFfcZPJ
+         3LaEuFkRVC+fkTy1IRJdtqovgERR4eD40e2iXAYH++2NN0DuG05Oe7mpyHgcG5mhbtLI
+         pvL0/vlJULj22SXFv4erIor9Z4RMWh0F1MznZ1thc7T0Jo6J84CEfPHvBreOZ68srwjy
+         BvbA==
+X-Gm-Message-State: ABy/qLYBC7llSQ9KS8rY2fQlHhO7bcViVAsFiYRodvFZMog49001+Zgc
+	wt6sRLk9wK4UJgNfv/c1YTDpnM4fn7WrCvg8nRJkfQ==
+X-Google-Smtp-Source: APBJJlFNZI1VOiwUF6e/KUPHc2Zx0vZxESwSvI5tKYuKGB7IyFDDEb7la65niBvb/xQFqiAfDcQvct1KidT8ZF2BKmc=
+X-Received: by 2002:a2e:b0c1:0:b0:2b9:e93e:65d9 with SMTP id
+ g1-20020a2eb0c1000000b002b9e93e65d9mr2272839ljl.40.1690887585321; Tue, 01 Aug
+ 2023 03:59:45 -0700 (PDT)
 MIME-Version: 1.0
-X-Originating-IP: [10.0.15.173]
-X-DNSRBL: 
-X-MAIL: Atcsqr.andestech.com 3719FXbd068899
+References: <20230720135125.21240-1-eric.lin@sifive.com> <20230720135125.21240-2-eric.lin@sifive.com>
+ <cbf0a8fd-3479-1684-fe90-81f2159804ef@linaro.org> <CAPqJEFr5h+5+F4TdNuRMaWsrmeedbfGgbgd9wh8sUUQsj2Pw-A@mail.gmail.com>
+ <be748338-987b-d474-d040-82af7cfb5f01@linaro.org> <CAPqJEFpYOgaEiSJ4HJwxMtpu1MZeUg9=tARTWa7hwTkjsQ3UAA@mail.gmail.com>
+ <f7df407e-1deb-f667-912c-81415fffcbfd@linaro.org>
+In-Reply-To: <f7df407e-1deb-f667-912c-81415fffcbfd@linaro.org>
+From: Eric Lin <eric.lin@sifive.com>
+Date: Tue, 1 Aug 2023 18:59:34 +0800
+Message-ID: <CAPqJEFrYrbH2H5F=V4D4-exLjmnuJybj8L2GKPzqhTrDsqe-gA@mail.gmail.com>
+Subject: Re: [PATCH v2 1/3] dt-bindings: riscv: sifive: Add SiFive Private L2
+ cache controller
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: robh+dt@kernel.org, krzysztof.kozlowski+dt@linaro.org, conor+dt@kernel.org, 
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, zong.li@sifive.com, greentime.hu@sifive.com, 
+	vincent.chen@sifive.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230801_023136_999835_A5209C06 
-X-CRM114-Status: GOOD (  16.60  )
+X-CRM114-CacheID: sfid-20230801_035949_097106_0B76FF7E 
+X-CRM114-Status: GOOD (  20.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,82 +89,50 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-When VMAP_STACK is enabled, the kernel stack will be obtained through
-vmalloc(). Normally, we rely on the logic in vmalloc_fault() to update stale
-P*D entries covering the vmalloc space in a task's page tables when it first
-accesses the problematic region. Unfortunately, this is not sufficient when
-the kernel stack resides in the vmalloc region, because vmalloc_fault() is a
-C function that needs a stack to run. So we need to ensure that these P*D
-entries are up to date *before* the MM switch.
-
-Here's our symptom:
-core 0: A speculative load lead the kernel stack load to the TLB before the
-        corresponding kernel stack's page table is created.
-core 1: Create page table mapping of that kernel stack.
-core 0: After a context switch, the kernel attempts to use the stack region.
-        However, even if the page table is correct, the stack address mapping
-        in the TLB is invalid, leading to subsequent nested exceptions.
-
-This fix is inspired by ARM's approach[*1], commit a1c510d0adc6 ("ARM:
-implement support for vmap'ed stacks"), it also performs a TLB flush after
-setting up the page tables in vmalloc().
-
-Fixes: 31da94c25aea ("riscv: add VMAP_STACK overflow detection")
-Signed-off-by: Dylan Jhong <dylan@andestech.com>
----
- arch/riscv/include/asm/page.h |  4 ++++
- arch/riscv/mm/tlbflush.c      | 16 ++++++++++++++++
- 2 files changed, 20 insertions(+)
-
-diff --git a/arch/riscv/include/asm/page.h b/arch/riscv/include/asm/page.h
-index 349fad5e35de..c9b080a72855 100644
---- a/arch/riscv/include/asm/page.h
-+++ b/arch/riscv/include/asm/page.h
-@@ -21,6 +21,10 @@
- #define HPAGE_MASK              (~(HPAGE_SIZE - 1))
- #define HUGETLB_PAGE_ORDER      (HPAGE_SHIFT - PAGE_SHIFT)
- 
-+#ifdef CONFIG_VMAP_STACK
-+#define ARCH_PAGE_TABLE_SYNC_MASK	PGTBL_PTE_MODIFIED
-+#endif
-+
- /*
-  * PAGE_OFFSET -- the first address of the first page of memory.
-  * When not using MMU this corresponds to the first free page in
-diff --git a/arch/riscv/mm/tlbflush.c b/arch/riscv/mm/tlbflush.c
-index ef701fa83f36..0799978913ee 100644
---- a/arch/riscv/mm/tlbflush.c
-+++ b/arch/riscv/mm/tlbflush.c
-@@ -86,3 +86,19 @@ void flush_pmd_tlb_range(struct vm_area_struct *vma, unsigned long start,
- 	__sbi_tlb_flush_range(vma->vm_mm, start, end - start, PMD_SIZE);
- }
- #endif
-+
-+#ifdef CONFIG_VMAP_STACK
-+/*
-+ * Normally, we rely on the logic in vmalloc_fault() to update stale P*D
-+ * entries covering the vmalloc space in a task's page tables when it first
-+ * accesses the problematic region. Unfortunately, this is not sufficient when
-+ * the kernel stack resides in the vmalloc region, because vmalloc_fault() is a
-+ * C function that needs a stack to run. So we need to ensure that these P*D
-+ * entries are up to date *before* the MM switch.
-+ */
-+void arch_sync_kernel_mappings(unsigned long start, unsigned long end)
-+{
-+	if (start < VMALLOC_END && end > VMALLOC_START)
-+		flush_tlb_all();
-+}
-+#endif
--- 
-2.34.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gRnJpLCBKdWwgMjgsIDIwMjMgYXQgNTozOeKAr1BNIEtyenlzenRvZiBLb3psb3dza2kKPGty
+enlzenRvZi5rb3psb3dza2lAbGluYXJvLm9yZz4gd3JvdGU6Cj4KPiBPbiAyOC8wNy8yMDIzIDEx
+OjA0LCBFcmljIExpbiB3cm90ZToKPiA+IE9uIEZyaSwgSnVsIDI4LCAyMDIzIGF0IDI6NTjigK9Q
+TSBLcnp5c3p0b2YgS296bG93c2tpCj4gPiA8a3J6eXN6dG9mLmtvemxvd3NraUBsaW5hcm8ub3Jn
+PiB3cm90ZToKPiA+Pgo+ID4+IE9uIDI4LzA3LzIwMjMgMDg6MDEsIEVyaWMgTGluIHdyb3RlOgo+
+ID4+PiBIaSBLcnp5c3p0b2YsCj4gPj4+Cj4gPj4+IE9uIEZyaSwgSnVsIDIxLCAyMDIzIGF0IDQ6
+MzXigK9QTSBLcnp5c3p0b2YgS296bG93c2tpCj4gPj4+IDxrcnp5c3p0b2Yua296bG93c2tpQGxp
+bmFyby5vcmc+IHdyb3RlOgo+ID4+Pj4KPiA+Pj4+IE9uIDIwLzA3LzIwMjMgMTU6NTEsIEVyaWMg
+TGluIHdyb3RlOgo+ID4+Pj4+IFRoaXMgYWRkIFlBTUwgRFQgYmluZGluZyBkb2N1bWVudGF0aW9u
+IGZvciBTaUZpdmUgUHJpdmF0ZSBMMgo+ID4+Pj4+IGNhY2hlIGNvbnRyb2xsZXIKPiA+Pj4+Pgo+
+ID4+Pj4+IFNpZ25lZC1vZmYtYnk6IEVyaWMgTGluIDxlcmljLmxpbkBzaWZpdmUuY29tPgo+ID4+
+Pj4+IFJldmlld2VkLWJ5OiBab25nIExpIDx6b25nLmxpQHNpZml2ZS5jb20+Cj4gPj4+Pj4gUmV2
+aWV3ZWQtYnk6IE5pY2sgSHUgPG5pY2suaHVAc2lmaXZlLmNvbT4KPiA+Pj4+Cj4gPj4+Pgo+ID4+
+Pj4gLi4uCj4gPj4+Pgo+ID4+Pj4+ICtwcm9wZXJ0aWVzOgo+ID4+Pj4+ICsgIGNvbXBhdGlibGU6
+Cj4gPj4+Pj4gKyAgICBpdGVtczoKPiA+Pj4+PiArICAgICAgLSBjb25zdDogc2lmaXZlLHBsMmNh
+Y2hlMQo+ID4+Pj4KPiA+Pj4+IEkgc3RpbGwgaGF2ZSBkb3VidHMgdGhhdCBpdCBpcyBub3QgdXNl
+ZCBpbiBhbnkgU29DLiBUaGlzIGlzIHdoYXQgeW91Cj4gPj4+PiBzYWlkIGxhc3QgdGltZTogImlz
+IG5vdCBwYXJ0IG9mIGFueSBTb0MuIgo+ID4+Pj4gSWYgbm90IHBhcnQgb2YgYW55IFNvQywgdGhl
+biB3aGVyZSBpcyBpdD8gV2h5IGFyZSB5b3UgYWRkaW5nIGl0IHRvIHRoZQo+ID4+Pj4ga2VybmVs
+Pwo+ID4+Pj4KPiA+Pj4KPiA+Pj4gU29ycnkgZm9yIHRoZSBsYXRlIHJlcGx5LiBJIGRpZG4ndCBk
+ZXNjcmliZSBpdCBjbGVhcmx5IGxhc3QgdGltZS4KPiA+Pj4gQ3VycmVudGx5LCB3ZSBoYXZlIHR3
+byBoYXJkd2FyZSB2ZXJzaW9ucyBvZiBwbDJjYWNoZTogcGwyY2FjaGUwIGFuZCBwbDJjYWNoZTEu
+Cj4gPj4+IFRoZSBwbDJjYWNoZTAgaXMgdXNlZCBpbiB1bm1hdGNoZWQgYm9hcmQgU29DLiBUaGUg
+cGwyY2FjaGUxIGlzCj4gPj4+IHV0aWxpemVkIGluIG91ciBpbnRlcm5hbCBGUEdBIHBsYXRmb3Jt
+IGZvciBldmFsdWF0aW9uOyBpdCdzIG91ciBjb3JlCj4gPj4+IElQLgo+ID4+Cj4gPj4gQW5kIHdo
+eSBkbyB5b3UgYWRkIGJpbmRpbmdzIGZvciBzb21lIGludGVybmFsIEZQR0EgSVAgYmxvY2sgd2hp
+Y2ggZG9lcwo+ID4+IG5vdCBpbnRlcmZhY2Ugd2l0aCBhbnkgU1c/Cj4gPj4KPiA+Cj4gPiBIaSBL
+cnp5c3p0b2YsCj4gPiBUaGUgcGwyY2FjaGUgaGFzIG1taW8gaW50ZXJmYWNlIGZvciBTVy4gVGhh
+bmtzLgo+Cj4gVGhlbiBkaWQgeW91IG1lYW4gdGhhdCBGUEdBIHJlcHJlc2VudGVkIHNvbWUgbW9k
+ZWwgb2YgeW91ciBTb0M/IElmIHNvLAo+IHdoYXQgYXJlIG90aGVyIGJpbmRpbmdzIGZvciB0aGF0
+IEZQR0EgY29tcG9uZW50cz8KPgpIaSBLcnp5c3p0b2YsCgpTb3JyeSBmb3IgdGhlIGxhdGUgcmVw
+bHkuClllcywgaGVyZSBhcmUgdGhlIGRldmljZXMgZHQtYmluZGluZyB0aGF0IHdlIHVzZSBvbiB0
+aGUgaW50ZXJuYWwgRlBHQQpTb0MgcGxhdGZvcm0uIFRoYW5rcy4KCnVhcnQ6CkRvY3VtZW50YXRp
+b24vZGV2aWNldHJlZS9iaW5kaW5ncy9zZXJpYWwvc2lmaXZlLXNlcmlhbC55YW1sCgpncGlvOgpE
+b2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3MvZ3Bpby9zaWZpdmUsZ3Bpby55YW1sCgpk
+bWE6CkRvY3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy9kbWEvc2lmaXZlLGZ1NTQwLWMw
+MDAtcGRtYS55YW1sCgpzcGk6CkRvY3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy9zcGkv
+c3BpLXNpZml2ZS55YW1sCgpCZXN0IHJlZ2FyZHMsCkVyaWMgTGluCgo+IEJlc3QgcmVnYXJkcywK
+PiBLcnp5c3p0b2YKPgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVh
+ZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1y
+aXNjdgo=
