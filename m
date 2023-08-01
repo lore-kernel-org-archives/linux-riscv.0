@@ -4,81 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9465C04FE1
-	for <linux-riscv@archiver.kernel.org>; Tue,  1 Aug 2023 17:03:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13156C00528
+	for <linux-riscv@archiver.kernel.org>; Tue,  1 Aug 2023 17:06:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JuBRvkHWMUfuDfYy3gMH5nHp5kgvhoSeV3OfMcWtVU4=; b=iuIN15OhV4KiPh
-	hgI/9yRelVMcQXS299zCHvzc3DjqweYVsi0litN7Igg8DwbS7vlfSk8ncIZ97hKMSQ+fj/xyW4Wkq
-	whFijCp9el3lfm4t1rpjhA/W5A8K1NC0oZx6PkW1CzcXhvq6aGQMT+AX+chJOwFfqXT8EpkNXsJeF
-	p3Bii+E4Q3cgRLAYBCy4N2Oei3KKwZja/8r12TbtmjELbN1pKHEeJGqh/RdnB9pYqIjlIV27JaLzU
-	foqVK14Q1/2nVgG2f6buGdz3GqY5p+Q+oJMG2C9EzGF4ZkD8pOg/2ClOH5ebNZueIQANGNteb+rIS
-	EGauc9m4v+LzyFcCcLbg==;
+	List-Owner; bh=CXt9nQdES0obvhbKuvbr1zmxOadtIjY6JmusCfG8I0o=; b=hpQvXDrJl/u88G
+	/URm2k4hD1V7IDzKx0PUthNQrOK6WC6QhpxgBieQ+Jz+zuVBD0jtaCS+WljUeKbJXyLpGI6xxUxuB
+	Ry2FFz/Aq8TPMlTzmXUGcTmUIsRw2S5rdkM+0bW+nA8geQJBkYIAnzgBCyJJqGBrnz0972DGazncM
+	MkFmqIVGDsuSiHdo8yc/xmwpGp+a8OqIRdw9Kx1LIBBeCt6jlrqc2hbf2M3wiVVtBrLDscfvsmrnt
+	YnVItZ4x9eU8TjWyP/d+DDRBhjerPx+adubWaam6ldtdfvmyGlKzuaZGy90csFBnOr21l3GJU4kQf
+	6Znk4GvsIBVI99B7lWXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qQsmK-002s65-1h;
-	Tue, 01 Aug 2023 17:03:24 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1qQsp7-002syh-2f;
+	Tue, 01 Aug 2023 17:06:17 +0000
+Received: from [2001:4d48:ad52:32c8:5054:ff:fe00:142] (helo=pandora.armlinux.org.uk)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qQsmH-002s4H-36;
-	Tue, 01 Aug 2023 17:03:23 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 7EDDC61633;
-	Tue,  1 Aug 2023 17:03:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 14158C433C8;
-	Tue,  1 Aug 2023 17:03:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1690909400;
-	bh=n2/9ktpmINrFVuBWg1KAR2bAcG2NpG4kfEtaUDByDfs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=AA0UkNhQxwECDyCEaDtc6JhBhvuvyCYYCaSh4HblOm5/sFOqJy8oy4lzt1PHsqe/d
-	 TNp/HD+vd9HlKtv5qMTIS+koyMnH6IxwcAdwNwXp4F5+zwZgvrnFbpNoU+QmQ8b5J3
-	 ddlGURjkJRGzvvXYAv/2/xdGEsvIazcCS7ipemT/wemv7xW5NPdaO+scLqNwkzr3kd
-	 QYfygusILQtsW8OYGbFyAk8m/i1xYFxg47ufEb41rqQx5La8ZysCvnd1hWLGpVELSo
-	 6atnVwdyqVnvxRrlqLIxYCR2TAHb6qdezWZ2QfOYTjqX/DgeT6WtV9UpJOx4DAmJz+
-	 ldxqcY8ezOQig==
-Date: Tue, 1 Aug 2023 20:02:31 +0300
-From: Mike Rapoport <rppt@kernel.org>
-To: Mark Brown <broonie@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	James Morse <james.morse@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Arnd Bergmann <arnd@arndb.de>, Oleg Nesterov <oleg@redhat.com>,
-	Eric Biederman <ebiederm@xmission.com>,
-	Kees Cook <keescook@chromium.org>, Shuah Khan <shuah@kernel.org>,
-	"Rick P. Edgecombe" <rick.p.edgecombe@intel.com>,
-	Deepak Gupta <debug@rivosinc.com>, Ard Biesheuvel <ardb@kernel.org>,
-	Szabolcs Nagy <Szabolcs.Nagy@arm.com>,
-	"H.J. Lu" <hjl.tools@gmail.com>,
+	id 1qQsp4-002sxV-0x
+	for linux-riscv@lists.infradead.org;
+	Tue, 01 Aug 2023 17:06:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=32t8KzBiPK91q9EniM+EKlgz5Oc7/DEkMGke2ASM5EU=; b=unxIrnLNyLPXcSABko4H/SUNuQ
+	mzeaJHPhKbDEH9rWd7Ynct9vQoFC82GeOjKSWTrwiWN3t/A7A/Q9p98WGawABwzWrv+TM4VGn3IeK
+	P8yfGK2FJ92R/tI6iB7lucI9N2VUPXN7w7wDmYS1Q4OED6HgRyoe7B4QXHXdgC+l489GJVabErUMX
+	48FQQp4ZRfu6OVgc/0wBFzUQN5jxzzg9M/ta0sIyBJw3FWzvd/4Sl/wLR3NjFMkrU0KJBvUNIIbFs
+	Qbkb4B03q3lfczTN0gEftqY7RStyietmGv1OJ/d5dI6WwCTsArlAzbITWyW5yUi3S8gr+U0qly+py
+	1fgWWNBQ==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:38416)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1qQsok-0004Oc-1r;
+	Tue, 01 Aug 2023 18:05:54 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.94.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1qQsoi-0000rc-EW; Tue, 01 Aug 2023 18:05:52 +0100
+Date: Tue, 1 Aug 2023 18:05:52 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Arnd Bergmann <arnd@kernel.org>
+Cc: Thomas Zimmermann <tzimmermann@suse.de>, javierm@redhat.com,
+	linux-fbdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+	dri-devel@lists.freedesktop.org, Ard Biesheuvel <ardb@kernel.org>,
+	Helge Deller <deller@gmx.de>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Arnd Bergmann <arnd@arndb.de>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
-	kvmarm@lists.linux.dev, linux-fsdevel@vger.kernel.org,
-	linux-arch@vger.kernel.org, linux-mm@kvack.org,
-	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v3 11/36] arm64/mm: Map pages for guarded control stack
-Message-ID: <20230801170231.GC2607694@kernel.org>
-References: <20230731-arm64-gcs-v3-0-cddf9f980d98@kernel.org>
- <20230731-arm64-gcs-v3-11-cddf9f980d98@kernel.org>
+	Albert Ou <aou@eecs.berkeley.edu>, Guo Ren <guoren@kernel.org>,
+	linux-riscv@lists.infradead.org, linux-csky@vger.kernel.org
+Subject: Re: [PATCH 1/4] vgacon: rework Kconfig dependencies
+Message-ID: <ZMk7cMgZXgZVobq2@shell.armlinux.org.uk>
+References: <20230707095415.1449376-1-arnd@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20230731-arm64-gcs-v3-11-cddf9f980d98@kernel.org>
+In-Reply-To: <20230707095415.1449376-1-arnd@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230801_100322_083966_4BA88C59 
-X-CRM114-Status: GOOD (  23.30  )
+X-CRM114-CacheID: sfid-20230801_100614_332309_959DDB62 
+X-CRM114-Status: GOOD (  13.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,60 +86,29 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 31, 2023 at 02:43:20PM +0100, Mark Brown wrote:
-> Map pages flagged as being part of a GCS as such rather than using the
-> full set of generic VM flags.
+On Fri, Jul 07, 2023 at 11:52:23AM +0200, Arnd Bergmann wrote:
+> From: Arnd Bergmann <arnd@arndb.de>
 > 
-> This is done using a conditional rather than extending the size of
-> protection_map since that would make for a very sparse array.
+> The list of dependencies here is phrased as an opt-out, but this is missing
+> a lot of architectures that don't actually support VGA consoles, and some
+> of the entries are stale:
 > 
-> Signed-off-by: Mark Brown <broonie@kernel.org>
-> ---
->  arch/arm64/mm/mmap.c | 17 ++++++++++++++++-
->  1 file changed, 16 insertions(+), 1 deletion(-)
+>  - powerpc used to support VGA consoles in the old arch/ppc codebase, but
+>    the merged arch/powerpc never did
 > 
-> diff --git a/arch/arm64/mm/mmap.c b/arch/arm64/mm/mmap.c
-> index 8f5b7ce857ed..e2ca770920ed 100644
-> --- a/arch/arm64/mm/mmap.c
-> +++ b/arch/arm64/mm/mmap.c
-> @@ -79,8 +79,23 @@ arch_initcall(adjust_protection_map);
->  
->  pgprot_t vm_get_page_prot(unsigned long vm_flags)
->  {
-> -	pteval_t prot = pgprot_val(protection_map[vm_flags &
-> +	pteval_t prot;
-> +
-> +	/*
-> +	 * If this is a GCS then only interpret VM_WRITE.
-> +	 *
-> +	 * TODO: Just make protection_map[] bigger?  Nothing seems
-> +	 * ideal here.
-> +	 */
+>  - arm lists footbridge, integrator and netwinder, but netwinder is actually
+>    part of footbridge, and integrator does not appear to have an actual
+>    VGA hardware, or list it in its ATAG or DT.
 
-I think extending protection_map and updating adjust_protection_map() is
-cleaner and probably faster.
+Integrator/AP has PCI, and I have had PCI VGA cards plugged in to that
+hardware when I've had it.
 
-> +	if (system_supports_gcs() && (vm_flags & VM_SHADOW_STACK)) {
-> +		if (vm_flags & VM_WRITE)
-> +			prot = _PAGE_GCS;
-> +		else
-> +			prot = _PAGE_GCS_RO;
-> +	} else {
-> +		prot = pgprot_val(protection_map[vm_flags &
->  				   (VM_READ|VM_WRITE|VM_EXEC|VM_SHARED)]);
-> +	}
->  
->  	if (vm_flags & VM_ARM64_BTI)
->  		prot |= PTE_GP;
-> 
-> -- 
-> 2.30.2
-> 
-> 
+Provided any platform sets up PCI in a compatible way, and can run the
+VGA's BIOS to initialise the card, then vgacon is supportable.
 
 -- 
-Sincerely yours,
-Mike.
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
 _______________________________________________
 linux-riscv mailing list
