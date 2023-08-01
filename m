@@ -4,50 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86CDDC001DF
-	for <linux-riscv@archiver.kernel.org>; Tue,  1 Aug 2023 17:57:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07498C41513
+	for <linux-riscv@archiver.kernel.org>; Tue,  1 Aug 2023 18:03:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LnMr3kkqEvjcj1p7SXwq7r/OHTzllKE47ql+ximq43Y=; b=pnNcWTHQnAMMTtMTa1uA4DB3QX
-	2aV0sOojPdesbDCMuTxEdnomKTNEJmCqEJxUSI5AgWyz4YcAZPueNAZz92KAtEK+Q/A6pmStNGBzQ
-	/4wZRuGQ3ANKawJMMvEPbs24Dwtv2sVmur0+QKY1DQb3LUFHowdJ+bZBsVy6jb2EA395L4FoEA73k
-	Shya7hn0bDajNYTBR0I9wM7E0Rr3AlfixCcaL+UCVyPhKzYo1z21cFuWonHbTQmy1K0s0kw3/zqvo
-	kgFQkstt6bQu8ZlUTZHDXG0V+ovsiyWwoY3mmXUlUDjCXY1RNtTOaRYQZtviIwdwj3eIcAvL765un
-	eM6MHo+w==;
+	bh=a4LOZB02YqoXqnH8M2RU+FwlGIujCX5EMAAOMkqeqLo=; b=b6/Y/qwv3K/GgiRYrv5t2H7xe1
+	Grw86Ieu9RKz8RhSpVvyqhT5TqbFC+SLDdwNTvySL14rg0UKCUYie91R3v2iXyF9l1v4cClbggxi4
+	ZWY+O5AtwcONe647fteTiUWPJUx/fFAPV3BVG7hMacSB25Y0L5l/zfjvXAIBmKLfXTYc0UZgWzLsR
+	Jyy0lOREsRKm/Np/aZ85Tg+NcgshB8oKL8EK4/JjzLHf9sfi1FB8Y+QWT9GuzE82NIKQ5thck4zOp
+	Oq4xMI1DsG8slMKo3SIbr/SuwFsE5nEpRVcoBJ0gNGa77rv6Yg2oPSI97gCQbTj5KFJlxEMwubyPm
+	zhivFfWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qQtcZ-002ybF-1p;
-	Tue, 01 Aug 2023 17:57:23 +0000
+	id 1qQtij-002zMh-0S;
+	Tue, 01 Aug 2023 18:03:45 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qQtcW-002yZK-13;
-	Tue, 01 Aug 2023 17:57:21 +0000
+	id 1qQtig-002zM5-0G;
+	Tue, 01 Aug 2023 18:03:43 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 879EC6165A;
-	Tue,  1 Aug 2023 17:57:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A047AC433C8;
-	Tue,  1 Aug 2023 17:57:12 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 6B78C6165F;
+	Tue,  1 Aug 2023 18:03:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CA578C433C7;
+	Tue,  1 Aug 2023 18:03:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1690912639;
-	bh=F8CAARuNUeaGEa3yA1waQoVFs2zc6rvh3zubyIWd+RI=;
+	s=k20201202; t=1690913020;
+	bh=t4H5U4PdS9V7b/INAz2Uy/vEVIT0Xt3TQ516E4LoedE=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=JZJMaAT42SQFAM85RnUbpnm4my8uLLOgrzrpv9ey5F7iOsTiCZBEwwsQMLRUS80/H
-	 gICFBbZERF2JfuNbCyCasY1N2jUMSPr8iIihwDf950iYsquKfhXkKiL5b+msCXfHuc
-	 B0hu58CMAQA41AZ35HEN4GzCtnJS9SRnAzeUVfmqmxuG8PriXB+8iNnYQ9IBFlhh0g
-	 5LHahWPZHyPVmmgOLHdeR6Ip9wxGlCVC4KZ6u6/MqfCxXMrpYZItw3hBiaTqg1xfTN
-	 tUOKRiTjydZGF6wuuwu94EdSvPU1tYZYsAoggPLjahr6Dr1QtlFVqW2D4lr8QT0Spn
-	 skZg6nLYjJM5w==
-Date: Tue, 1 Aug 2023 18:57:08 +0100
+	b=eb+N0V+12cPD0i8TS0jZxiFvWkwxmipgCkdOFw6ouNtBI/NQVs2BFc7sHUmrpwyCh
+	 VuoPO7d74PzyBkkFiDMg3YcFzKCgYOEr01eQHqzHDI9cESZlowMv4HcxuyUscedv6w
+	 S1CAHXieY6gOG3NZLDdYRyuIxU6uHN5a1douIJAOmXNjepUt5/KdUwH1d/CL2758rE
+	 dQeE/68pY2slNKM6bss4odlurVY3vXKs4+gbUXXzYCpz4QGJBcUcjx9ChA26G6Tgm3
+	 MNL8f8jAH07J0XewHxoZ5jsLgMq+M+ewSxv/p30AaJ5aQACGjnfruGfm5XA0k+CruF
+	 cD3DmFo0iCa3g==
+Date: Tue, 1 Aug 2023 19:03:31 +0100
 From: Mark Brown <broonie@kernel.org>
-To: "Edgecombe, Rick P" <rick.p.edgecombe@intel.com>
-Cc: "corbet@lwn.net" <corbet@lwn.net>, "ardb@kernel.org" <ardb@kernel.org>,
+To: Mike Rapoport <rppt@kernel.org>
+Cc: "Edgecombe, Rick P" <rick.p.edgecombe@intel.com>,
+	"corbet@lwn.net" <corbet@lwn.net>,
+	"ardb@kernel.org" <ardb@kernel.org>,
 	"keescook@chromium.org" <keescook@chromium.org>,
 	"Szabolcs.Nagy@arm.com" <Szabolcs.Nagy@arm.com>,
 	"shuah@kernel.org" <shuah@kernel.org>,
@@ -76,7 +78,7 @@ Cc: "corbet@lwn.net" <corbet@lwn.net>, "ardb@kernel.org" <ardb@kernel.org>,
 	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
 	"palmer@dabbelt.com" <palmer@dabbelt.com>
 Subject: Re: [PATCH v3 21/36] arm64/mm: Implement map_shadow_stack()
-Message-ID: <55c629cc-0545-460b-91cb-2ebdb8ae9051@sirena.org.uk>
+Message-ID: <1237441e-3e1a-4682-b3bf-face931640d3@sirena.org.uk>
 References: <20230731-arm64-gcs-v3-0-cddf9f980d98@kernel.org>
  <20230731-arm64-gcs-v3-21-cddf9f980d98@kernel.org>
  <5461c56cf4896f18bddaa66c3beec7b909fc8fb9.camel@intel.com>
@@ -84,12 +86,13 @@ References: <20230731-arm64-gcs-v3-0-cddf9f980d98@kernel.org>
  <e827138f9d8800e3db158831bca88d1ea8b559af.camel@intel.com>
  <21d7e814-8608-40ce-b5d3-401f2110ad91@sirena.org.uk>
  <a9ea33d31aad0c45eab41b0dcbd4913d863cc930.camel@intel.com>
+ <20230801172814.GD2607694@kernel.org>
 MIME-Version: 1.0
-In-Reply-To: <a9ea33d31aad0c45eab41b0dcbd4913d863cc930.camel@intel.com>
+In-Reply-To: <20230801172814.GD2607694@kernel.org>
 X-Cookie: I thought YOU silenced the guard!
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230801_105720_446989_F52D08BE 
-X-CRM114-Status: GOOD (  35.48  )
+X-CRM114-CacheID: sfid-20230801_110342_220374_2200E059 
+X-CRM114-Status: GOOD (  15.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,95 +104,53 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1369181522467772723=="
+Content-Type: multipart/mixed; boundary="===============1138156443017794105=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============1369181522467772723==
+--===============1138156443017794105==
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="WYhsHyqynSPadbUB"
+	protocol="application/pgp-signature"; boundary="p8glKsiXtjodSLAk"
 Content-Disposition: inline
 
 
---WYhsHyqynSPadbUB
-Content-Type: text/plain; charset=iso-8859-1
+--p8glKsiXtjodSLAk
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
 
-On Tue, Aug 01, 2023 at 05:07:00PM +0000, Edgecombe, Rick P wrote:
-> On Tue, 2023-08-01 at 15:01 +0100, Mark Brown wrote:
+On Tue, Aug 01, 2023 at 08:28:14PM +0300, Mike Rapoport wrote:
+> On Tue, Aug 01, 2023 at 05:07:00PM +0000, Edgecombe, Rick P wrote:
 
-> > > It could be a different flag, like SHADOW_STACK_SET_TOKEN_MARKER,
-> > > or it
-> > > could be SHADOW_STACK_SET_MARKER, and callers could pass
-> > > (SHADOW_STACK_SET_TOKEN | SHADOW_STACK_SET_MARKER) to get what you
-> > > have
-> > > implemented here. What do you think?
+> > So the question is not what mode should arm support, but should we have
+> > the flags match between x86 and ARM?
 
-> > For arm64 code this would mean that it would be possible (and fairly
-> > easy) to create stacks which don't have a termination record which
-> > would
-> > make life harder for unwinders to rely on.=A0 I don't think this is
-> > insurmountable, creating manually shouldn't be the standard and it'll
-> > already be an issue on x86 anyway.
+> What if the flag will be called, say, SHADOW_STACK_DEFAULT_INIT?
+> Then each arch can push whatever it likes to and from the userspace
+> perspective the shadow stack will have some basic init state, no matter
+> what architecture it is.
 
-> If you are going to support optionally writing to shadow stacks (which
-> x86 needed for CRIU, and also seems like a nice thing for several other
-> reasons), you are already at that point. Can't you also do a bunch of
-> gcspopm's to the top of the GCS stack, and have no marker to hit before
-> the end of the stack? (maybe not in GCS, I don't know...)
+x86 might have some fun with that and the existing userspace binaries...
 
-It's definitely possible to use writes or pops to achive the same
-effect, it's just that it's less likely to be something that happens
-through simple oversight than missing a flag off the initial map call
-would be.
-
-> > The other minor issue is that the current arm64 marker is all bits 0
-> > so by itself for arm64 _MARKER would have no perceptible impact, it
-> > would only serve to push the token down a slot in the stack (I'm
-> > guessing that's the intended meaning?).
-
-> Pushing the token down a frame is what flags=3D=3D0 does in this patch,
-> right?
-
-Yes, exactly - if we make the top of stack record optional then if that
-flag is omitted we'd not do that.
-
-> You don't have to support all the flags actually, you could just
-> support the one mode you already have and reject all other
-> combinations... Then it matches between arch's, and you still have the
-> guaranteed-ish end marker.
-
-Sure, though if we're going to the trouble of checking for the flag we
-probably may as well implement it.  I guess x86 is locked in at this
-point by existing userspace.  I guess I'll implement it assuming nobody
-=66rom userspace complains, it's trivial for a kernel.
-
-> So the question is not what mode should arm support, but should we have
-> the flags match between x86 and ARM?
-
-The flags should definitely match, no disagreement there.
-
---WYhsHyqynSPadbUB
+--p8glKsiXtjodSLAk
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmTJR3QACgkQJNaLcl1U
-h9D+HQf/dMO4oPMfSYgpJfSkqjyeMhvngNszJ/vg3XKaq4EJAEMgOh+p9YWNYPyv
-uBQnGou+Mr2N+ymg2pLC4+WNybCoXsyaVeF/84elK+awSuCxD9GhjtrjqnteBAWg
-Cjy3FqvlmXwV2AHcXeYANCjGN6BJhmbUKcJp+jwyEU+PNxMrGY4Fyos1o7DlgcDo
-udN5QQnR8fZ4Xjyv5ZcHWeUX0e5TsB+1e9MK8AOIRkpI52cfHU8u/HSNfOHs5an7
-Ugb2wl/4tUWdslzaD4LLg+znjSCYjZ2c0uuIuigxAeFfSDhsFG9C2CiIEaa13iCj
-rrMq656MkRtw4gwfJ7HGsycFpraatg==
-=HHRV
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmTJSPIACgkQJNaLcl1U
+h9BcMwf+KLcNdiJZ3DEJDS8jRNNMVfxtKYOXlc4QIY6Iix9aZ5E6QB8ZJoOmkK4Y
+qzBMySqHh+SYZsz1IZrt/AhsMcuw1HiwbzI+Y53c+2QIMGd+u5Zfc+mSWY9chJwB
+DCahxNQc58D+byBBjeLqKGO4v+/3LNP/Nd/EaTGd0zUHqlAS7oR6akGoHXOJy7or
+5ZdHWcz7zRa3UazK6OiMaZYx8SifMmktj3HWTWgAapS+8ChVCEGkfSGgb4gvY80w
+zz2JPXJH2eXtVtUQGw4kzcc8pSO6kV/PPQPKeNLuA5py1yTRZrGGF4O8r7xNmr6r
+Qlx6pESKFYL7k0n9AKbLsqetNG4l7w==
+=b0mD
 -----END PGP SIGNATURE-----
 
---WYhsHyqynSPadbUB--
+--p8glKsiXtjodSLAk--
 
 
---===============1369181522467772723==
+--===============1138156443017794105==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -200,5 +161,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============1369181522467772723==--
+--===============1138156443017794105==--
 
