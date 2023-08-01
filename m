@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16C36C04A6A
-	for <linux-riscv@archiver.kernel.org>; Tue,  1 Aug 2023 22:26:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A192EC00528
+	for <linux-riscv@archiver.kernel.org>; Tue,  1 Aug 2023 22:26:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9Rndzeg5n4kzBwGk0QqSLLjHTJZ0Um2wDIBv87Wjiqk=; b=j/TYwMHwmCDv2s
-	b/0eWqk0aO01uwYz5Ar440pEsWzb5fVlYLupRphYqhad4z0LG3lQJMeWcDikvmvSvIfgY6XUwREXu
-	k/R7ZUUxLVd7aBS6OwXjhO0mXaLE4eYupMmj312ZfhdZXRfGmeR/lx97qkgVvNZPapdEOdzxAswAG
-	fB4W4ITQtKyQ94W2K5m3qjITGBtXG7Y5lPmU+FkicE/L6x6LUg5BRB2+0dyrU8GyHoJBt3ex1fJpl
-	M8BN+QHx0+gqD9qBEUzbkqMPQPs5kpygENymp6jiDdv6gARbeynORUGy1A9ieuEedt9gdWJLo9sU5
-	37oX0kSOdJ3WjbwkS/sg==;
+	List-Owner; bh=klVMTWAx7DiRln9EPvmp7zkQ4WijDYaQqjRMgi0fLq0=; b=gynFpJS2uKRh1h
+	GvoUPaMo3xwTcbOg5ZDYhF3QRgabHGdEzg4cyjXAR5okgurwc1GBb8OrQpVdA+7VlYq3fO2RZ6eQK
+	z7g6aBS+sE2ln2SWlPRZIhqJvazCDqPBYI3pde/4VLP4gWMzM9KOdI3xbgZrz21ZIs0G5dPfYODBJ
+	o7CNCFdJ+1y60Kg+IQWlN/NWVXPWw3l3kmJx1ry+EgcmhyNFV8dTGQLp4muRxFRIzJUXZETWM+P0U
+	bcHleyeBrurP84JoRItmhpYwxst1iND6WwQn95h2McICoMM5KCFexXnSHhiNqEb4OLbsi702ATEUX
+	3XWrO+7iPOW+DW+/NNkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qQxpL-003Qvu-2W;
-	Tue, 01 Aug 2023 22:26:51 +0000
-Received: from mail-ot1-x334.google.com ([2607:f8b0:4864:20::334])
+	id 1qQxpO-003Qyb-1k;
+	Tue, 01 Aug 2023 22:26:54 +0000
+Received: from mail-ot1-x32f.google.com ([2607:f8b0:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qQxpJ-003Qr2-01
+	id 1qQxpM-003QwC-0s
 	for linux-riscv@lists.infradead.org;
-	Tue, 01 Aug 2023 22:26:50 +0000
-Received: by mail-ot1-x334.google.com with SMTP id 46e09a7af769-6bc93523162so3144300a34.2
-        for <linux-riscv@lists.infradead.org>; Tue, 01 Aug 2023 15:26:46 -0700 (PDT)
+	Tue, 01 Aug 2023 22:26:53 +0000
+Received: by mail-ot1-x32f.google.com with SMTP id 46e09a7af769-6bca5c71a6aso2256501a34.3
+        for <linux-riscv@lists.infradead.org>; Tue, 01 Aug 2023 15:26:52 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1690928806; x=1691533606;
+        d=ventanamicro.com; s=google; t=1690928811; x=1691533611;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=fgDQfKgZT9Ai5Y6MxDXe+dFoAViK+yC0G5UtB2DQuPI=;
-        b=di5SkeicRbmXIcOnY2hN20hVOPJQfmwRGNAJoH5+d+qNpiwhIyMqpN5ANQLK6ntmdT
-         TtESBGIrvbNnSaLMcAl4oGaHHwcE4pAWpBW0p5Pvj2gOS1T4FTzKa87WPCOa3/cQyqF3
-         4p9o7vX3yPG1q2tYdUrUsjgxYcvdg3tU1eSn6DOaij9S2nl0MU/bpgOhiL2yaUVyPciF
-         zqv6MXwvcaXud2GbBMFMSL3+19S5+Cd27+qjGTb8C0LW/1LhNb1r8oWoT9bsZiDyJwHX
-         +w8RrTx3ZlNARP707X3WpGb/+kfrh2LzBNlvpq/XV75UtV/2jD9vAcMBzlmDtOOgYg2p
-         9nKw==
+        bh=kOO1y6rFtOUhSmw3x6tvYmkLxmP/yHG5NyhRapfW0cw=;
+        b=Kd2ObS4PBSVlc3KE0i7AOupNIkfPC0ojkymUuEs/RpkO7vw+pShEUn4xuiVqwfabzD
+         FZ9JLaRVMxavQUj8C38DHrMaq3++WltjtYm8Z8E92/f66OfKLxSgG66NCbuo1MFyJ1cS
+         KDkCTx06TvjUI1Yn1jyBlAgFnxsPFBB264zddxxbMpYsetlHE4tLVyFihpj+jewmc0tn
+         Xhry03XR+F8kcm6YvPLhywmhHSKp3GX/I4QbCKJeWAWJNLyza7aVLbYs3YkPrkbRUQtn
+         y75QrNhqLRkqpRUbNsCQeADseO8OdVK4aPJrFwu1gZoj4ArU/b/x4gJmk295AWswAf2s
+         EW2w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1690928806; x=1691533606;
+        d=1e100.net; s=20221208; t=1690928811; x=1691533611;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=fgDQfKgZT9Ai5Y6MxDXe+dFoAViK+yC0G5UtB2DQuPI=;
-        b=HReHYbhUgYiQrwj1ohYwDW0WO/mWlNN2Q1Z1DkSftDYwhtsqZ0O3DIUkhmgrPezwoR
-         zfGrm6kbYhFpTopdqRy1cklfi74kNkLSRC5ABGf7xSMjJ8C8PXuPkwNvk5ko6XD/forx
-         AS77rl6JX/M8aM2dcobD7XloO6IQtJumnD/ugG80APT3WkYuDP2oybx5pJyNaXOFdv/p
-         CTB58BS81J+ECTqTs4ZPXWgJCq29fdbga30Cck0B7ek2VKvwPsbukOZN9vJd+jKZSjsR
-         PHHsV/CepfLMjgdlflurU+k3NEjLWhoYtBfPEHFd2ZM9OW9LplTE70KVnKwNM0/h6lTQ
-         qApw==
-X-Gm-Message-State: ABy/qLbzsyOEA+8gF0eztLm3Wc0H/Bz+bja+TB0tToLol8f9Grnu+ApR
-	hyXhkQPyNOTMBQETqOgiHJhWqw==
-X-Google-Smtp-Source: APBJJlEm/6GXbm7Xxy1xuZrkRoGgwoBa808/7qLXZh26/RqiFuT1qXfEHNTzxUwP073mbwT37pr5dw==
-X-Received: by 2002:a9d:7399:0:b0:6b9:b1a7:1f92 with SMTP id j25-20020a9d7399000000b006b9b1a71f92mr15220073otk.8.1690928806005;
-        Tue, 01 Aug 2023 15:26:46 -0700 (PDT)
+        bh=kOO1y6rFtOUhSmw3x6tvYmkLxmP/yHG5NyhRapfW0cw=;
+        b=gEQhIsLnGk9jM7SvwBVi7NdPCDDrttvngPMDm1kkc6VtSuL5x48trHEl9z8W4D5PpL
+         SeU+U/vR0DQoR8Nc4kEJN1g7fL5GmIEfe4kxZKRojQowmnvXTgTXFhDg3JjFBvNuvks5
+         4Bwz63JAC1NT6TXHcWCi4Zr1M2BXMfi6y3FBCv8umWJztIc3oQYPX6ptuSoRMITw9WsI
+         xnnAuSq1elFlrkXOi7lPQHzIzn0jYvljMeLOD+pMEztq+JiJEYeWJ6In1upr439Fvo5+
+         gPzQue4yYzAw9McNKcXKiFJ93D+kuQxXEyjlegN+yKYaArID0qIKLBLB3zCtAZunrqKV
+         mR3g==
+X-Gm-Message-State: ABy/qLYwBFrjMcnWhHd5kiRo2vTdY5VxF2isa2hq8z9hql7TB0pgjWbe
+	1a6IM8VaWtysNqSv4qPM+6KkjA==
+X-Google-Smtp-Source: APBJJlG4GWvMNowYo03XJ1piFonad21+/f7KwUq/B2gZi+XYLHHwgDZK/4ISSAWIkcafFvWJ1jjiDA==
+X-Received: by 2002:a05:6830:1016:b0:6b9:9129:dddf with SMTP id a22-20020a056830101600b006b99129dddfmr16236457otp.16.1690928811545;
+        Tue, 01 Aug 2023 15:26:51 -0700 (PDT)
 Received: from grind.. ([187.11.154.63])
-        by smtp.gmail.com with ESMTPSA id e15-20020a9d6e0f000000b006b94904baf5sm5422429otr.74.2023.08.01.15.26.43
+        by smtp.gmail.com with ESMTPSA id e15-20020a9d6e0f000000b006b94904baf5sm5422429otr.74.2023.08.01.15.26.49
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 01 Aug 2023 15:26:45 -0700 (PDT)
+        Tue, 01 Aug 2023 15:26:51 -0700 (PDT)
 From: Daniel Henrique Barboza <dbarboza@ventanamicro.com>
 To: kvm-riscv@lists.infradead.org,
 	linux-riscv@lists.infradead.org,
@@ -70,16 +70,16 @@ Cc: anup@brainfault.org,
 	atishp@atishpatra.org,
 	ajones@ventanamicro.com,
 	Daniel Henrique Barboza <dbarboza@ventanamicro.com>
-Subject: [PATCH v2 4/9] RISC-V: KVM: do not EOPNOTSUPP in set KVM_REG_RISCV_TIMER_REG
-Date: Tue,  1 Aug 2023 19:26:24 -0300
-Message-ID: <20230801222629.210929-5-dbarboza@ventanamicro.com>
+Subject: [PATCH v2 6/9] RISC-V: KVM: avoid EBUSY when writing same ISA val
+Date: Tue,  1 Aug 2023 19:26:26 -0300
+Message-ID: <20230801222629.210929-7-dbarboza@ventanamicro.com>
 X-Mailer: git-send-email 2.41.0
 In-Reply-To: <20230801222629.210929-1-dbarboza@ventanamicro.com>
 References: <20230801222629.210929-1-dbarboza@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230801_152649_045046_2B22F3BC 
-X-CRM114-Status: GOOD (  10.56  )
+X-CRM114-CacheID: sfid-20230801_152652_309368_28A9A832 
+X-CRM114-Status: GOOD (  11.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,33 +96,40 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The KVM_REG_RISCV_TIMER_REG can be read via get_one_reg(). But trying to
-write anything in this reg via set_one_reg() results in an EOPNOTSUPP.
+kvm_riscv_vcpu_set_reg_config() will return -EBUSY if the ISA config reg
+is being written after the VCPU ran at least once.
 
-Change the API to behave like cbom_block_size: instead of always
-erroring out with EOPNOTSUPP, allow userspace to write the same value
-(riscv_timebase) back, throwing an EINVAL if a different value is
-attempted.
+The same restriction isn't placed in kvm_riscv_vcpu_get_reg_config(), so
+there's a chance that we'll -EBUSY out on an ISA config reg write even
+if the userspace intended no changes to it.
+
+We'll allow the same form of 'lazy writing' that registers such as
+zicbom/zicboz_block_size supports: avoid erroring out if userspace made
+no changes to the ISA config reg.
 
 Signed-off-by: Daniel Henrique Barboza <dbarboza@ventanamicro.com>
 ---
- arch/riscv/kvm/vcpu_timer.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+ arch/riscv/kvm/vcpu_onereg.c | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-diff --git a/arch/riscv/kvm/vcpu_timer.c b/arch/riscv/kvm/vcpu_timer.c
-index 527d269cafff..75486b25ac45 100644
---- a/arch/riscv/kvm/vcpu_timer.c
-+++ b/arch/riscv/kvm/vcpu_timer.c
-@@ -218,7 +218,8 @@ int kvm_riscv_vcpu_set_reg_timer(struct kvm_vcpu *vcpu,
+diff --git a/arch/riscv/kvm/vcpu_onereg.c b/arch/riscv/kvm/vcpu_onereg.c
+index 67e1e9b0fd7e..b0821f75cc61 100644
+--- a/arch/riscv/kvm/vcpu_onereg.c
++++ b/arch/riscv/kvm/vcpu_onereg.c
+@@ -187,6 +187,13 @@ static int kvm_riscv_vcpu_set_reg_config(struct kvm_vcpu *vcpu,
+ 		if (fls(reg_val) >= RISCV_ISA_EXT_BASE)
+ 			return -EINVAL;
  
- 	switch (reg_num) {
- 	case KVM_REG_RISCV_TIMER_REG(frequency):
--		ret = -EOPNOTSUPP;
-+		if (reg_val != riscv_timebase)
-+			return -EINVAL;
- 		break;
- 	case KVM_REG_RISCV_TIMER_REG(time):
- 		gt->time_delta = reg_val - get_cycles64();
++		/*
++		 * Return early (i.e. do nothing) if reg_val is the same
++		 * value retrievable via kvm_riscv_vcpu_get_reg_config().
++		 */
++		if (reg_val == (vcpu->arch.isa[0] & KVM_RISCV_BASE_ISA_MASK))
++			break;
++
+ 		if (!vcpu->arch.ran_atleast_once) {
+ 			/* Ignore the enable/disable request for certain extensions */
+ 			for (i = 0; i < RISCV_ISA_EXT_BASE; i++) {
 -- 
 2.41.0
 
