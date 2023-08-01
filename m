@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A192EC00528
-	for <linux-riscv@archiver.kernel.org>; Tue,  1 Aug 2023 22:26:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8CEAC001E0
+	for <linux-riscv@archiver.kernel.org>; Tue,  1 Aug 2023 22:27:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=klVMTWAx7DiRln9EPvmp7zkQ4WijDYaQqjRMgi0fLq0=; b=gynFpJS2uKRh1h
-	GvoUPaMo3xwTcbOg5ZDYhF3QRgabHGdEzg4cyjXAR5okgurwc1GBb8OrQpVdA+7VlYq3fO2RZ6eQK
-	z7g6aBS+sE2ln2SWlPRZIhqJvazCDqPBYI3pde/4VLP4gWMzM9KOdI3xbgZrz21ZIs0G5dPfYODBJ
-	o7CNCFdJ+1y60Kg+IQWlN/NWVXPWw3l3kmJx1ry+EgcmhyNFV8dTGQLp4muRxFRIzJUXZETWM+P0U
-	bcHleyeBrurP84JoRItmhpYwxst1iND6WwQn95h2McICoMM5KCFexXnSHhiNqEb4OLbsi702ATEUX
-	3XWrO+7iPOW+DW+/NNkw==;
+	List-Owner; bh=e5kb7yoQaQgF608WQeXcfkIRr7BDd6PzFTuz8WIAcDw=; b=LwTI8T1bufUC9G
+	jbedg7jhYZ5OaEQdc8Nf8bkaDpClGB1YhFn8mruTG7lbxo5TLctH5l+ZZ+XlmrCi0NGJFIglDIIaw
+	T3YnZ99nV2IF85IeceupM05SX4bTxfknmCzJ2aqDA3v2awGyUjmV5GsuulMDy0dQAIMrycTz5mInJ
+	gt3Xf6x8fD/U2fuIk4h3QGwdyktVNAXt99mYCn420xyRpbAtLqRBAyYXn26WETIiGhsM9QxbobG/T
+	G72hXX5GHDCg1Ons2O4SlImaiqND9GEvzpfymLWL3pyDu1TUAPqJep8Qd1MlWS9OPiGFBPt8HjLHu
+	C++CrneuzfD72kRFKILA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qQxpO-003Qyb-1k;
-	Tue, 01 Aug 2023 22:26:54 +0000
-Received: from mail-ot1-x32f.google.com ([2607:f8b0:4864:20::32f])
+	id 1qQxpM-003Qwf-1H;
+	Tue, 01 Aug 2023 22:26:52 +0000
+Received: from mail-ot1-x32b.google.com ([2607:f8b0:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qQxpM-003QwC-0s
+	id 1qQxpJ-003Qtn-2F
 	for linux-riscv@lists.infradead.org;
-	Tue, 01 Aug 2023 22:26:53 +0000
-Received: by mail-ot1-x32f.google.com with SMTP id 46e09a7af769-6bca5c71a6aso2256501a34.3
-        for <linux-riscv@lists.infradead.org>; Tue, 01 Aug 2023 15:26:52 -0700 (PDT)
+	Tue, 01 Aug 2023 22:26:50 +0000
+Received: by mail-ot1-x32b.google.com with SMTP id 46e09a7af769-6bca3311b4fso2153866a34.0
+        for <linux-riscv@lists.infradead.org>; Tue, 01 Aug 2023 15:26:49 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1690928811; x=1691533611;
+        d=ventanamicro.com; s=google; t=1690928809; x=1691533609;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=kOO1y6rFtOUhSmw3x6tvYmkLxmP/yHG5NyhRapfW0cw=;
-        b=Kd2ObS4PBSVlc3KE0i7AOupNIkfPC0ojkymUuEs/RpkO7vw+pShEUn4xuiVqwfabzD
-         FZ9JLaRVMxavQUj8C38DHrMaq3++WltjtYm8Z8E92/f66OfKLxSgG66NCbuo1MFyJ1cS
-         KDkCTx06TvjUI1Yn1jyBlAgFnxsPFBB264zddxxbMpYsetlHE4tLVyFihpj+jewmc0tn
-         Xhry03XR+F8kcm6YvPLhywmhHSKp3GX/I4QbCKJeWAWJNLyza7aVLbYs3YkPrkbRUQtn
-         y75QrNhqLRkqpRUbNsCQeADseO8OdVK4aPJrFwu1gZoj4ArU/b/x4gJmk295AWswAf2s
-         EW2w==
+        bh=7YX68cKaF4vnEW+We5lKkwIPc6M0gbxoD0/Pl/wnYmY=;
+        b=NnH3ZwjR+6ym79ufxj3REHVCVWAeZnzD6sE/KtDoPaGASei6BgOjGnOIrHQLFwAy3U
+         XVSGEs+KVi0Doy801frFsvgI2DyT9wCKY3XW7IwWeqiMpgI8bI9eDTfdmOtbBPLE6klE
+         O1JtG42w3iQC8kxerAhiebSICsKy6mL2MTlKv2o+Oc1oigPJmIgEvd0pgOaedovQOtLL
+         S5Shw/AyR9huvVM7ZudNzKO8cyLbPf9A5p7lyJGQNzStSZUnmB28HFpyr1Q6Bm59EF3S
+         iJkE5nutwowPiFjH/RrZYOEVloZpHL2/HulBHzD01JITmtkpEKG10+6BXPxW/zVNgTzb
+         9hJg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1690928811; x=1691533611;
+        d=1e100.net; s=20221208; t=1690928809; x=1691533609;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=kOO1y6rFtOUhSmw3x6tvYmkLxmP/yHG5NyhRapfW0cw=;
-        b=gEQhIsLnGk9jM7SvwBVi7NdPCDDrttvngPMDm1kkc6VtSuL5x48trHEl9z8W4D5PpL
-         SeU+U/vR0DQoR8Nc4kEJN1g7fL5GmIEfe4kxZKRojQowmnvXTgTXFhDg3JjFBvNuvks5
-         4Bwz63JAC1NT6TXHcWCi4Zr1M2BXMfi6y3FBCv8umWJztIc3oQYPX6ptuSoRMITw9WsI
-         xnnAuSq1elFlrkXOi7lPQHzIzn0jYvljMeLOD+pMEztq+JiJEYeWJ6In1upr439Fvo5+
-         gPzQue4yYzAw9McNKcXKiFJ93D+kuQxXEyjlegN+yKYaArID0qIKLBLB3zCtAZunrqKV
-         mR3g==
-X-Gm-Message-State: ABy/qLYwBFrjMcnWhHd5kiRo2vTdY5VxF2isa2hq8z9hql7TB0pgjWbe
-	1a6IM8VaWtysNqSv4qPM+6KkjA==
-X-Google-Smtp-Source: APBJJlG4GWvMNowYo03XJ1piFonad21+/f7KwUq/B2gZi+XYLHHwgDZK/4ISSAWIkcafFvWJ1jjiDA==
-X-Received: by 2002:a05:6830:1016:b0:6b9:9129:dddf with SMTP id a22-20020a056830101600b006b99129dddfmr16236457otp.16.1690928811545;
-        Tue, 01 Aug 2023 15:26:51 -0700 (PDT)
+        bh=7YX68cKaF4vnEW+We5lKkwIPc6M0gbxoD0/Pl/wnYmY=;
+        b=FXSUENP92nKMxM4tIFThTDOYnB6fSkDc/dHv5Vp23j4juF3D/CYj27tKFbRWtnfMDT
+         2dm+O5UgW9HE1lcUlvAUKXFrMmXHqIUvChWqG72Mj1GGwhBWK0lw/YoNxH11+aX8VrSs
+         lFkhodwNkZCzYN4wmQHbrr1E2oay2b/G4W0P5spyxQH8zBs2lo1v3H1eEG0fdeRVsRka
+         D/DgeCw3rciLeMG7CAy0g5ZevvIqFHQA46JZuDJ5tt6Wm0ojY7KCKl2RUd3pggbafTeu
+         ZnsxPHTxQ8MoikCklocarwI4pLCFwt6usRAvTMC/hsQkIl7dRLpAfaDB1Kul5EjTm3/b
+         0Wkg==
+X-Gm-Message-State: ABy/qLYiaJBfbJeFo9/quTYbkwuYMdAnB1eS1VYoVjWvnh9F8bWe8t43
+	cv21TITLhJgNJsyzY4slD7VypA==
+X-Google-Smtp-Source: APBJJlG0JXAwYbBXteC+AdyNoGZj3thfQ5xcgBrMbS00AErUZEJPmh0buonf9MaVmGH4Fi/5TqTGWA==
+X-Received: by 2002:a9d:7d85:0:b0:6bc:8aca:ae53 with SMTP id j5-20020a9d7d85000000b006bc8acaae53mr12449074otn.12.1690928808861;
+        Tue, 01 Aug 2023 15:26:48 -0700 (PDT)
 Received: from grind.. ([187.11.154.63])
-        by smtp.gmail.com with ESMTPSA id e15-20020a9d6e0f000000b006b94904baf5sm5422429otr.74.2023.08.01.15.26.49
+        by smtp.gmail.com with ESMTPSA id e15-20020a9d6e0f000000b006b94904baf5sm5422429otr.74.2023.08.01.15.26.46
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 01 Aug 2023 15:26:51 -0700 (PDT)
+        Tue, 01 Aug 2023 15:26:48 -0700 (PDT)
 From: Daniel Henrique Barboza <dbarboza@ventanamicro.com>
 To: kvm-riscv@lists.infradead.org,
 	linux-riscv@lists.infradead.org,
@@ -70,16 +70,16 @@ Cc: anup@brainfault.org,
 	atishp@atishpatra.org,
 	ajones@ventanamicro.com,
 	Daniel Henrique Barboza <dbarboza@ventanamicro.com>
-Subject: [PATCH v2 6/9] RISC-V: KVM: avoid EBUSY when writing same ISA val
-Date: Tue,  1 Aug 2023 19:26:26 -0300
-Message-ID: <20230801222629.210929-7-dbarboza@ventanamicro.com>
+Subject: [PATCH v2 5/9] RISC-V: KVM: use EBUSY when !vcpu->arch.ran_atleast_once
+Date: Tue,  1 Aug 2023 19:26:25 -0300
+Message-ID: <20230801222629.210929-6-dbarboza@ventanamicro.com>
 X-Mailer: git-send-email 2.41.0
 In-Reply-To: <20230801222629.210929-1-dbarboza@ventanamicro.com>
 References: <20230801222629.210929-1-dbarboza@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230801_152652_309368_28A9A832 
-X-CRM114-Status: GOOD (  11.94  )
+X-CRM114-CacheID: sfid-20230801_152649_733718_621A0B97 
+X-CRM114-Status: GOOD (  11.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,40 +96,44 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-kvm_riscv_vcpu_set_reg_config() will return -EBUSY if the ISA config reg
-is being written after the VCPU ran at least once.
+vcpu_set_reg_config() and vcpu_set_reg_isa_ext() is throwing an
+EOPNOTSUPP error when !vcpu->arch.ran_atleast_once. In similar cases
+we're throwing an EBUSY error, like in mvendorid/marchid/mimpid
+set_reg().
 
-The same restriction isn't placed in kvm_riscv_vcpu_get_reg_config(), so
-there's a chance that we'll -EBUSY out on an ISA config reg write even
-if the userspace intended no changes to it.
+EOPNOTSUPP has a conotation of finality. EBUSY is more adequate in this
+case since its a condition/error related to the vcpu lifecycle.
 
-We'll allow the same form of 'lazy writing' that registers such as
-zicbom/zicboz_block_size supports: avoid erroring out if userspace made
-no changes to the ISA config reg.
+Change these EOPNOTSUPP instances to EBUSY.
 
+Suggested-by: Andrew Jones <ajones@ventanamicro.com>
 Signed-off-by: Daniel Henrique Barboza <dbarboza@ventanamicro.com>
 ---
- arch/riscv/kvm/vcpu_onereg.c | 7 +++++++
- 1 file changed, 7 insertions(+)
+ arch/riscv/kvm/vcpu_onereg.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/arch/riscv/kvm/vcpu_onereg.c b/arch/riscv/kvm/vcpu_onereg.c
-index 67e1e9b0fd7e..b0821f75cc61 100644
+index bd4998c3897b..67e1e9b0fd7e 100644
 --- a/arch/riscv/kvm/vcpu_onereg.c
 +++ b/arch/riscv/kvm/vcpu_onereg.c
-@@ -187,6 +187,13 @@ static int kvm_riscv_vcpu_set_reg_config(struct kvm_vcpu *vcpu,
- 		if (fls(reg_val) >= RISCV_ISA_EXT_BASE)
+@@ -209,7 +209,7 @@ static int kvm_riscv_vcpu_set_reg_config(struct kvm_vcpu *vcpu,
+ 			vcpu->arch.isa[0] = reg_val;
+ 			kvm_riscv_vcpu_fp_reset(vcpu);
+ 		} else {
+-			return -EOPNOTSUPP;
++			return -EBUSY;
+ 		}
+ 		break;
+ 	case KVM_REG_RISCV_CONFIG_REG(zicbom_block_size):
+@@ -477,7 +477,7 @@ static int riscv_vcpu_set_isa_ext_single(struct kvm_vcpu *vcpu,
  			return -EINVAL;
+ 		kvm_riscv_vcpu_fp_reset(vcpu);
+ 	} else {
+-		return -EOPNOTSUPP;
++		return -EBUSY;
+ 	}
  
-+		/*
-+		 * Return early (i.e. do nothing) if reg_val is the same
-+		 * value retrievable via kvm_riscv_vcpu_get_reg_config().
-+		 */
-+		if (reg_val == (vcpu->arch.isa[0] & KVM_RISCV_BASE_ISA_MASK))
-+			break;
-+
- 		if (!vcpu->arch.ran_atleast_once) {
- 			/* Ignore the enable/disable request for certain extensions */
- 			for (i = 0; i < RISCV_ISA_EXT_BASE; i++) {
+ 	return 0;
 -- 
 2.41.0
 
