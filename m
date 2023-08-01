@@ -4,91 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73D12EB64DD
-	for <linux-riscv@archiver.kernel.org>; Tue,  1 Aug 2023 08:58:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E456C41513
+	for <linux-riscv@archiver.kernel.org>; Tue,  1 Aug 2023 09:46:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:From:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=B/VJ6TafbUVnVb9iqU/AxRgCXhaIQxfKK+YvXHd3EYE=; b=sXf1LG8uZ/sXAZ
-	tsfD7eenuOB2jH5AStbleLHRtQ62Y+8iGOxaZJapjeM2qr3u11JI11ZByhbhx6jRQfCOwMA+YFrvy
-	3NXbVCQ1VkGOI+vhH2YOX2FPg5CH2eLpEaXOFUd/mpyqFZ7PX2Ipi0TeIZgUhjhq3Cq0BO/8pV+92
-	JHiqwbiQH3veqKaeJmTL/rLJHSCGfPBptticjBB/0lq83a8l9iA5xuJkD0lCMnmNnROyBGQFhchQt
-	amdD4aKN3qjEKcejutTq9jE7/9ALTmWbgNVA8XwJvmtj2qVOAMvi2Gha5MoxjlR7rlT9tY5vXnzzC
-	FZVIBRI+Wno7WCMmQlaQ==;
+	List-Owner; bh=d/Zi6NPl5IT6G0gBy05yHM+tuIZKOcIKYcv1yCuyQ2Q=; b=KDtnIE2F/xuwow
+	s1fKgx6crouxrYwqXm5FWLIKCYpKcT2K+8tVKJZk3EJEF//4FhGfCubrBtHLn2zP45ALrX4M0HMHr
+	QfgTnJ5bopp9fMZMVHk447ZbL9IUbnvlpGarrVaFx2Nh68t6HdH2aAqsRE0lVkD/Z1/MPzTN3pQ/q
+	odsnTbcygg4armfW37JFZY4wE8qe1Z6p/7xWBfnBQJyiuBC5PwfXZUiqGaQ+xY+3oQx7zACQ2v6ix
+	v68M/BJVjFIniPU7B3RRofomnAa0ZaUMzUKkDrmI1Oj9J0Q0aSmY6N4k0nWN2lT+iyeslJ60Nx4Bn
+	T0SZ+t5/2WjP6u9XYlRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qQlCq-000hme-0H;
-	Tue, 01 Aug 2023 08:58:16 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1qQlxL-001etG-1z;
+	Tue, 01 Aug 2023 09:46:19 +0000
+Received: from [14.137.139.154] (helo=frasgout12.his.huawei.com)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qQlCn-000hlS-0B
-	for linux-riscv@lists.infradead.org;
-	Tue, 01 Aug 2023 08:58:14 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-3fe2bc27029so1143465e9.3
-        for <linux-riscv@lists.infradead.org>; Tue, 01 Aug 2023 01:58:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1690880291; x=1691485091;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=OMcN1+GqTG/8Na8yFouBO/VVBZef6ZJ3qQN1SPpRTO4=;
-        b=L6MD/IpkJ8ijD8AQNDxVBvTARXP1lNuZC1nsssVE1h3LiyUW7vd/sEKLX+4vvj3bC3
-         GAbuOy4LDXQWnyB80R1g/cm5UVJhCHHyfh/rUGwrJGyuUad+i3gBhRlknE+R4jdD/+UG
-         gJbmECUiJGhTG0NacduUsWtak+tjx/jnkdY9FXJnlH4HxB82s4ORT/QIdYV9z/xkF4/K
-         faM3GF13ygpkXHTDnFrYgoD4HcG2BZgiqUceZvmSv87fyDS6JjKD1dRjiDQCznsNu2lQ
-         vwHMBsfaVvBqKLKQp+D/dRJqukzaNyIX1DRhPPpk8LawOxtRUH/BOPeGyUTtn+4Myb5q
-         oRog==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1690880291; x=1691485091;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=OMcN1+GqTG/8Na8yFouBO/VVBZef6ZJ3qQN1SPpRTO4=;
-        b=AEmGA5oPp4a8fMomTxSXPdh+ghtvg0f5uIV1mMpE8rFKLfYoyKYGL8Q8mkTWaYXjXt
-         81z/4IRclaJGWfyeQEOqSk3nFkuDzkA5lozPQ+xiTBwQArTS/IviJfZzPAOolvPXRc9n
-         0E8tBLvNWnEHLU3sPsyrywNKKAQosidQhTRxJ9yEY+DO3/FEYuollGE7GL6z5IugnSnN
-         WeTDXFUchnZ94hMvgNu+IA28RI/0hi57qjLGbn+Saw+UYUy0shhUQ9Y+eXIoTj0ULsSH
-         T1V1I1rnMHKMNCitljqjmHsrR3g7Wk80v+NYfLDuJdhMzbVJ8+sy+RgcCK4261cNZPMr
-         Cf0w==
-X-Gm-Message-State: ABy/qLZrnedXqHE2on+aFVNsK2EefeUuds8XromEQ31byUC2CJ+c1WAe
-	/ZLYM8JrE1u9lSdxyDQ4Pwxlpw==
-X-Google-Smtp-Source: APBJJlEF2Zvw+ZslWuFsVPPOKTzS3UA31UlJYffINUkSj0yPwhIPAXHFC54ECs88TtNi5FfcGYso9w==
-X-Received: by 2002:a05:600c:285:b0:3fe:1d13:4664 with SMTP id 5-20020a05600c028500b003fe1d134664mr1898359wmk.6.1690880290827;
-        Tue, 01 Aug 2023 01:58:10 -0700 (PDT)
-Received: from alex-rivos.ba.rivosinc.com (amontpellier-656-1-456-62.w92-145.abo.wanadoo.fr. [92.145.124.62])
-        by smtp.gmail.com with ESMTPSA id c6-20020a05600c0ac600b003fe20db88e2sm5255370wmr.18.2023.08.01.01.58.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 01 Aug 2023 01:58:10 -0700 (PDT)
-From: Alexandre Ghiti <alexghiti@rivosinc.com>
-To: Will Deacon <will@kernel.org>,
-	"Aneesh Kumar K . V" <aneesh.kumar@linux.ibm.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Nick Piggin <npiggin@gmail.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Mayuresh Chitale <mchitale@ventanamicro.com>,
-	Vincent Chen <vincent.chen@sifive.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	linux-arch@vger.kernel.org,
-	linux-mm@kvack.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Andrew Jones <ajones@ventanamicro.com>
-Subject: [PATCH v3 4/4] riscv: Improve flush_tlb_kernel_range()
-Date: Tue,  1 Aug 2023 10:54:02 +0200
-Message-Id: <20230801085402.1168351-5-alexghiti@rivosinc.com>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20230801085402.1168351-1-alexghiti@rivosinc.com>
-References: <20230801085402.1168351-1-alexghiti@rivosinc.com>
+	id 1qQlxI-001es2-0J;
+	Tue, 01 Aug 2023 09:46:18 +0000
+Received: from mail02.huawei.com (unknown [172.18.147.227])
+	by frasgout12.his.huawei.com (SkyGuard) with ESMTP id 4RFTvl1cGXz9v7bZ;
+	Tue,  1 Aug 2023 17:14:43 +0800 (CST)
+Received: from [10.81.220.249] (unknown [10.81.220.249])
+	by APP1 (Coremail) with SMTP id LxC2BwC3abkK0Mhkbs4ZAA--.15467S2;
+	Tue, 01 Aug 2023 10:27:51 +0100 (CET)
+Message-ID: <c1b125d6-7031-d0aa-bcaa-8fb3875ac64f@huaweicloud.com>
+Date: Tue, 1 Aug 2023 11:27:35 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 0/3] RISC-V: Fix a few kexec_file_load(2) failures
+Content-Language: en-US
+From: Petr Tesarik <petrtesarik@huaweicloud.com>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Conor Dooley <conor.dooley@microchip.com>, Li Huafei <lihuafei1@huawei.com>,
+ Liao Chang <liaochang1@huawei.com>, Masahiro Yamada <masahiroy@kernel.org>,
+ Kees Cook <keescook@chromium.org>, Andrew Morton
+ <akpm@linux-foundation.org>, Heiko Stuebner <heiko@sntech.de>,
+ Ricardo Ribalda <ribalda@chromium.org>, Alyssa Ross <hi@alyssa.is>,
+ Li Zhengyu <lizhengyu3@huawei.com>,
+ "open list:RISC-V ARCHITECTURE" <linux-riscv@lists.infradead.org>,
+ kexec@lists.infradead.org, open list <linux-kernel@vger.kernel.org>
+Cc: Torsten Duwe <duwe@suse.de>, Roberto Sassu
+ <roberto.sassu@huaweicloud.com>, petr@tesarici.cz
+References: <cover.1690365011.git.petr.tesarik.ext@huawei.com>
+In-Reply-To: <cover.1690365011.git.petr.tesarik.ext@huawei.com>
+X-CM-TRANSID: LxC2BwC3abkK0Mhkbs4ZAA--.15467S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7ury7CFyUKw1fWF1ktF45GFg_yoW8Jw4rpr
+	WfC3ZrG348G3409r1xtw1Du34fGa17Cw15Jr4qvw1rAr1YvrW5AF1Igw40yFyDGryI93s0
+	qryFgr98Zw1kArDanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUkK14x267AKxVW5JVWrJwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26r1j6r1xM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
+	6F4UM28EF7xvwVC2z280aVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv6xkF7I0E14v26F4UJV
+	W0owAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
+	I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r
+	4UM4x0Y48IcVAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628vn2kI
+	c2xKxwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14
+	v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_GFv_WrylIxkG
+	c2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI
+	0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6rW3Jr0E3s1lIxAIcVC2z280aVAFwI0_Gr0_
+	Cr1lIxAIcVC2z280aVCY1x0267AKxVWxJr0_GcJvcSsGvfC2KfnxnUUI43ZEXa7VUbQVy7
+	UUUUU==
+X-CM-SenderInfo: hshw23xhvd2x3n6k3tpzhluzxrxghudrp/
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230801_015813_099022_0BE0C05B 
-X-CRM114-Status: GOOD (  18.39  )
+X-CRM114-CacheID: sfid-20230801_024616_418453_96BECC0A 
+X-CRM114-Status: GOOD (  15.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,118 +91,46 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This function used to simply flush the whole tlb of all harts, be more
-subtile and try to only flush the range.
+Hi,
 
-The problem is that we can only use PAGE_SIZE as stride since we don't know
-the size of the underlying mapping and then this function will be improved
-only if the size of the region to flush is < threshold * PAGE_SIZE.
+On 7/26/2023 11:53 AM, Petr Tesarik wrote:
+> From: Petr Tesarik <petr.tesarik.ext@huawei.com>
+> 
+> The kexec_file_load(2) syscall does not work at least in some kernel
+> builds. For details see the relevant section in this blog post:
+> 
+> https://sigillatum.tesarici.cz/2023-07-21-state-of-riscv64-kdump.html
+> 
+> This patch series handles an additional relocation types, removes the need
+> to implement a Global Offset Table (GOT) for the purgatory and fixes the
+> placement of initrd.
 
-Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
----
- arch/riscv/include/asm/tlbflush.h | 11 +++++-----
- arch/riscv/mm/tlbflush.c          | 34 +++++++++++++++++++++++--------
- 2 files changed, 31 insertions(+), 14 deletions(-)
+It seems there are no objections, but what is the plan here? Take it
+into 6.5 as a fix, or let it go through for-next?
 
-diff --git a/arch/riscv/include/asm/tlbflush.h b/arch/riscv/include/asm/tlbflush.h
-index f5c4fb0ae642..7426fdcd8ec5 100644
---- a/arch/riscv/include/asm/tlbflush.h
-+++ b/arch/riscv/include/asm/tlbflush.h
-@@ -37,6 +37,7 @@ void flush_tlb_mm_range(struct mm_struct *mm, unsigned long start,
- void flush_tlb_page(struct vm_area_struct *vma, unsigned long addr);
- void flush_tlb_range(struct vm_area_struct *vma, unsigned long start,
- 		     unsigned long end);
-+void flush_tlb_kernel_range(unsigned long start, unsigned long end);
- #ifdef CONFIG_TRANSPARENT_HUGEPAGE
- #define __HAVE_ARCH_FLUSH_PMD_TLB_RANGE
- void flush_pmd_tlb_range(struct vm_area_struct *vma, unsigned long start,
-@@ -53,15 +54,15 @@ static inline void flush_tlb_range(struct vm_area_struct *vma,
- 	local_flush_tlb_all();
- }
- 
--#define flush_tlb_mm(mm) flush_tlb_all()
--#define flush_tlb_mm_range(mm, start, end, page_size) flush_tlb_all()
--#endif /* !CONFIG_SMP || !CONFIG_MMU */
--
- /* Flush a range of kernel pages */
- static inline void flush_tlb_kernel_range(unsigned long start,
- 	unsigned long end)
- {
--	flush_tlb_all();
-+	local_flush_tlb_all();
- }
- 
-+#define flush_tlb_mm(mm) flush_tlb_all()
-+#define flush_tlb_mm_range(mm, start, end, page_size) flush_tlb_all()
-+#endif /* !CONFIG_SMP || !CONFIG_MMU */
-+
- #endif /* _ASM_RISCV_TLBFLUSH_H */
-diff --git a/arch/riscv/mm/tlbflush.c b/arch/riscv/mm/tlbflush.c
-index 0c955c474f3a..687808013758 100644
---- a/arch/riscv/mm/tlbflush.c
-+++ b/arch/riscv/mm/tlbflush.c
-@@ -120,18 +120,27 @@ static void __flush_tlb_range(struct mm_struct *mm, unsigned long start,
- 			      unsigned long size, unsigned long stride)
- {
- 	struct flush_tlb_range_data ftd;
--	struct cpumask *cmask = mm_cpumask(mm);
--	unsigned int cpuid;
-+	struct cpumask *cmask, full_cmask;
- 	bool broadcast;
- 
--	if (cpumask_empty(cmask))
--		return;
-+	if (mm) {
-+		unsigned int cpuid;
-+
-+		cmask = mm_cpumask(mm);
-+		if (cpumask_empty(cmask))
-+			return;
-+
-+		cpuid = get_cpu();
-+		/* check if the tlbflush needs to be sent to other CPUs */
-+		broadcast = cpumask_any_but(cmask, cpuid) < nr_cpu_ids;
-+	} else {
-+		cpumask_setall(&full_cmask);
-+		cmask = &full_cmask;
-+		broadcast = true;
-+	}
- 
--	cpuid = get_cpu();
--	/* check if the tlbflush needs to be sent to other CPUs */
--	broadcast = cpumask_any_but(cmask, cpuid) < nr_cpu_ids;
- 	if (static_branch_unlikely(&use_asid_allocator)) {
--		unsigned long asid = atomic_long_read(&mm->context.id) & asid_mask;
-+		unsigned long asid = mm ? atomic_long_read(&mm->context.id) & asid_mask : 0;
- 
- 		if (broadcast) {
- 			if (riscv_use_ipi_for_rfence()) {
-@@ -165,7 +174,8 @@ static void __flush_tlb_range(struct mm_struct *mm, unsigned long start,
- 		}
- 	}
- 
--	put_cpu();
-+	if (mm)
-+		put_cpu();
- }
- 
- void flush_tlb_mm(struct mm_struct *mm)
-@@ -196,6 +206,12 @@ void flush_tlb_range(struct vm_area_struct *vma, unsigned long start,
- 
- 	__flush_tlb_range(vma->vm_mm, start, end - start, stride_size);
- }
-+
-+void flush_tlb_kernel_range(unsigned long start, unsigned long end)
-+{
-+	__flush_tlb_range(NULL, start, end, PAGE_SIZE);
-+}
-+
- #ifdef CONFIG_TRANSPARENT_HUGEPAGE
- void flush_pmd_tlb_range(struct vm_area_struct *vma, unsigned long start,
- 			unsigned long end)
--- 
-2.39.2
+Petr T
+
+> Changelog
+> =========
+> 
+> Changes from v1:
+> - Replace memcmp() with a for loop.
+> - Drop handling of 16-bit add/subtract relocations. They were used only
+>   by alternatives in strcmp(), which was referenced only by string.o.
+> - Add the initrd placement fix.
+> 
+> Petr Tesarik (1):
+>   riscv/purgatory: do not link with string.o and its dependencies
+> 
+> Torsten Duwe (2):
+>   riscv/kexec: handle R_RISCV_CALL_PLT relocation type
+>   riscv/kexec: load initrd high in available memory
+> 
+>  arch/riscv/kernel/elf_kexec.c    |  3 ++-
+>  arch/riscv/purgatory/Makefile    | 26 +-------------------------
+>  arch/riscv/purgatory/purgatory.c |  6 ++++--
+>  3 files changed, 7 insertions(+), 28 deletions(-)
+> 
 
 
 _______________________________________________
