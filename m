@@ -4,82 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56230EB64DD
-	for <linux-riscv@archiver.kernel.org>; Tue,  1 Aug 2023 23:31:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61E27C0015E
+	for <linux-riscv@archiver.kernel.org>; Tue,  1 Aug 2023 23:33:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1aFYq1G+294eo6IfLLksJ/fErrn4Fjd7AfPHniITR3k=; b=M9zF8DieY5Z3JO
-	tbRbQOmyr3g4zaD/lt1zQM8Jpg7q/fG4tb/+e8pKMHYrAEiRRautrudmKlocvBY2HHYqlBt3MQhys
-	c29L/g74Tew99mgyRiEJBJK4AI+xVeFKNd9s810V4eOUaJv4FJCYWjVf3rzWxLjGSTYgRCKqZ2eLz
-	qFxWWEt8s3CNw7NrxRLfpHXEY1f+2O5dG3O1Ky5bC2CJuahA9S8WWwEMT7cHilmqdHrPPJhwhirOB
-	s3Dixp50FlYfIxQOzKWq6XYwmNd8bPhVXFDKsgB7ya0wIkzca1n5PKuU0//CHQQ4H8I9CqEDQUa6Z
-	eQOe01mVq+s7272obbig==;
+	List-Owner; bh=32vsBn4+pz+KM21dWo2iKsYgZZFwn4DhCKzL+bleRTk=; b=C2OwVYTMRjOdZl
+	fP14Aa55W1nrdJE1C66xu5EotMopTP+Ck7yOb3GCMlHYvENCYXJLy6ucqjxc7v5pL1TRhXNDWSEwc
+	PFoTMgIouSrxIiqoGmvPRHhsdIy8fHyZUe6Tq/tB1Df9LjRyeyuHLU1BKVVPl4rTXqwq8liT3x+UQ
+	vP2rNQbs4AbKy78mVqF4EmJBymFwew+02y499IAOtyuknthQEN+Y90BpCdJ2KvcN2AFU/oCGIIVG4
+	JEhYJYmuS2C966C6uJnIalDlFaskrGduOHkRcxNGZ8SqLC7HO3VSLmf9Yx6HQ0RAaMrT/3PxiT2s/
+	9HrqEPgNKnn44MbOZk3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qQypM-003WO9-01;
-	Tue, 01 Aug 2023 23:30:56 +0000
-Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
+	id 1qQyrx-003Wdv-2m;
+	Tue, 01 Aug 2023 23:33:37 +0000
+Received: from mail-oi1-x235.google.com ([2607:f8b0:4864:20::235])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qQypJ-003WMw-1Q
+	id 1qQyru-003Wci-0H
 	for linux-riscv@lists.infradead.org;
-	Tue, 01 Aug 2023 23:30:54 +0000
-Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-1b9c368f4b5so2335575ad.0
-        for <linux-riscv@lists.infradead.org>; Tue, 01 Aug 2023 16:30:50 -0700 (PDT)
+	Tue, 01 Aug 2023 23:33:35 +0000
+Received: by mail-oi1-x235.google.com with SMTP id 5614622812f47-3a5ac8717c6so4768100b6e.2
+        for <linux-riscv@lists.infradead.org>; Tue, 01 Aug 2023 16:33:31 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1690932650; x=1691537450;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=86m4GR9B2OpRjtzGq0slUUGfFWMp1qBl7r1sdnV44Zs=;
-        b=oXOhuADoyGWQ0CpVMkCDvFuSa4MXFW5gBBca+inDX7DNEkDMKdcSKpP8pXSZcsbbO+
-         EIOlo1oFFw1605QRbVWA9tfP9iBqWxz3Xu+rhDQw5/MNdKajZBtt3x5na7aGFaHYwOC5
-         wrb8HxEp7OxMNzzJzwG4X/qfizVI2QJMmqjSI=
+        d=chromium.org; s=google; t=1690932810; x=1691537610;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=zCkQNzwB2gjKN8HzeKzRdzAYqUq5vKXd54Q6a0LF4go=;
+        b=llYOMIymJ7D0P1UHh5d2DIeLcDZ2XjDRfXWUyJVnYwXI2RXfhXZTGXofH9u2AnfK29
+         A+QSfC1D5qT9dffgoJ1lX9WVnOvS5R1He7bicE8aoEWQT4jR1wjFZCP6u+9Ff/k9NAjM
+         E/tIluPe16o2sxAoUpLUSKCW6TXWlRFpIA590=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1690932650; x=1691537450;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=86m4GR9B2OpRjtzGq0slUUGfFWMp1qBl7r1sdnV44Zs=;
-        b=L1oQ9NqnGkAegWzDAOUtLMduM+E5DryJGRf0E+epS7WTCjlcTWZkPYE4xrL8Ns3NVr
-         ziBPQP/CNJYDhLFk9I2RUOwvFFP+59EEAdrRyThIA8vLEAYmbVW8TrmQmIkTicsB2/Jv
-         +D6xr4b2zkbnDu7Ye6NyopEG6dU3C2QlaM6HBo/zVdEjottUhcK7iGBgQNqmemvNhriW
-         LiSvr8txdR2hR6CqLIL/k/pRGxDm4ZYgK/A2F0mpgonMo7VwNwzyyA/0Tbow2JUW78JL
-         6QVn7iKI65YeK82Frs8Z1155hxrxqED2N4V6Yp88nX1ZNnSze1+XcT/prRNFiqEsuTKn
-         W3RQ==
-X-Gm-Message-State: ABy/qLa6g7GnTrIBvCUOZR01LPoj8C/6w3NycUUj3zzBz7tYC5ClAF0J
-	oxkC9dnUozX+1HCkSkrXhtY0qA==
-X-Google-Smtp-Source: APBJJlF+gVNSruf2vthO1DrYzubB+mB7El3VzV9i7PDZy0XViadbu4f6RZq+Mn8fxhqwRga5R1HwMQ==
-X-Received: by 2002:a17:902:d4c3:b0:1b8:a936:1915 with SMTP id o3-20020a170902d4c300b001b8a9361915mr15677302plg.22.1690932649870;
-        Tue, 01 Aug 2023 16:30:49 -0700 (PDT)
+        d=1e100.net; s=20221208; t=1690932810; x=1691537610;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=zCkQNzwB2gjKN8HzeKzRdzAYqUq5vKXd54Q6a0LF4go=;
+        b=VCfWokFUzKCLMNdCT/IeiYMYaXRYwWbRnQt8J31Fc3XwEjXi7Gr2MciEgRuRfVs4+r
+         hEbNUgr9vN144UiaZ+GRGQcGeTn1CnwjFdPkeddqRAc9yaz4Ik+qiUITuq4ACCX4k4q1
+         /no25tfa7+AK7iDCZcIIjg5j1lNjbXFAVWzNo43lYyZZq6YvkuQ5XYiGwsUHSDBFLmqW
+         2CIEIUwvZV1fifpxF6RhdCbSKaKceUXd9dSloEWLv8QBpDet+YGDCfrz6gZd9k70tmoC
+         kbsLHORxTwgqVy1RSWO4CPbGyryoapvZubKnhAbO4yrMd1ysYs/Bbu78QpHqgmNiyXSo
+         9P6g==
+X-Gm-Message-State: ABy/qLajIO0axELE7n6KZIM0HLrGEbeQ8j59AOEFzdPQ6XoLUVfFfBG9
+	Kqgk7ROXlAQOkVT4cLlCigOyIw==
+X-Google-Smtp-Source: APBJJlFrpp1hvJWJsN7jGZ4rNvDLwtV6UmEEp4hMcXxE7Q6csK0l002Jq1VU9vdPg4FFJxeLfaLOwQ==
+X-Received: by 2002:a05:6808:138f:b0:3a7:55cb:c831 with SMTP id c15-20020a056808138f00b003a755cbc831mr946264oiw.18.1690932810710;
+        Tue, 01 Aug 2023 16:33:30 -0700 (PDT)
 Received: from www.outflux.net (198-0-35-241-static.hfc.comcastbusiness.net. [198.0.35.241])
-        by smtp.gmail.com with ESMTPSA id jh3-20020a170903328300b001b8b6a19bd6sm11021366plb.63.2023.08.01.16.30.49
+        by smtp.gmail.com with ESMTPSA id d5-20020a633605000000b00563da87a52dsm10579412pga.40.2023.08.01.16.33.30
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 01 Aug 2023 16:30:49 -0700 (PDT)
-Date: Tue, 1 Aug 2023 16:30:48 -0700
+        Tue, 01 Aug 2023 16:33:30 -0700 (PDT)
+Date: Tue, 1 Aug 2023 16:33:29 -0700
 From: Kees Cook <keescook@chromium.org>
-To: Jessica Clarke <jrtc27@jrtc27.com>
-Cc: Justin Stitt <justinstitt@google.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
+To: Justin Stitt <justinstitt@google.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	linux-riscv <linux-riscv@lists.infradead.org>,
-	LKML <linux-kernel@vger.kernel.org>,
+	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
 	Nick Desaulniers <ndesaulniers@google.com>,
 	linux-hardening@vger.kernel.org
 Subject: Re: [PATCH] RISC-V: cpu: refactor deprecated strncpy
-Message-ID: <202308011630.913CE919@keescook>
+Message-ID: <202308011631.BDCD5CE33A@keescook>
 References: <20230801-arch-riscv-kernel-v1-1-2b3f2dc0bc61@google.com>
- <61DD603A-3D86-462F-B795-7EDE3A59ABBE@jrtc27.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <61DD603A-3D86-462F-B795-7EDE3A59ABBE@jrtc27.com>
+In-Reply-To: <20230801-arch-riscv-kernel-v1-1-2b3f2dc0bc61@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230801_163053_518724_4AEC1D83 
-X-CRM114-Status: GOOD (  23.09  )
+X-CRM114-CacheID: sfid-20230801_163334_135915_7730CEBB 
+X-CRM114-Status: GOOD (  27.76  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,39 +87,114 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCBBdWcgMDIsIDIwMjMgYXQgMTI6MDI6MTFBTSArMDEwMCwgSmVzc2ljYSBDbGFya2Ug
-d3JvdGU6Cj4gT24gMSBBdWcgMjAyMywgYXQgMjI6MTQsIEp1c3RpbiBTdGl0dCA8anVzdGluc3Rp
-dHRAZ29vZ2xlLmNvbT4gd3JvdGU6Cj4gPiAKPiA+IGBzdHJuY3B5YCBpcyBkZXByZWNhdGVkIGZv
-ciB1c2Ugb24gTlVMLXRlcm1pbmF0ZWQgZGVzdGluYXRpb24gc3RyaW5ncyBbMV0uCj4gPiAKPiA+
-IEEgc3VpdGFibGUgcmVwbGFjZW1lbnQgaXMgYHN0cnNjcHlgIFsyXSBkdWUgdG8gdGhlIGZhY3Qg
-dGhhdCBpdAo+ID4gZ3VhcmFudGVlcyBOVUwtdGVybWluYXRpb24gb24gaXRzIGRlc3RpbmF0aW9u
-IGJ1ZmZlciBhcmd1bWVudCB3aGljaCBpcwo+ID4gX25vdF8gdGhlIGNhc2UgZm9yIGBzdHJuY3B5
-YCEKPiA+IAo+ID4gVGhlIGBzdl90eXBlYCBidWZmZXIgaXMgZGVjbGFyZWQgd2l0aCBhIHNpemUg
-b2YgMTYgd2hpY2ggaXMgdGhlbgo+ID4gZm9sbG93ZWQgYnkgc29tZSBgc3RybmNweWAgY2FsbHMg
-dG8gcG9wdWxhdGUgdGhlIGJ1ZmZlciB3aXRoIG9uZSBvZjoKPiA+ICJzdjMyIiwgInN2NTciLCAi
-c3Y0OCIsICJzdjM5IiBvciAibm9uZSIuIEhhcmQtY29kaW5nIHRoZSBtYXggbGVuZ3RoIGFzIDUg
-aXMKPiA+IGVycm9yLXByb25lIGFuZCBpbnZvbHZlcyBjb3VudGluZyB0aGUgbnVtYmVyIG9mIGNo
-YXJhY3RlcnMgKGFuZAo+ID4gaG9wZWZ1bGx5IG5vdCBmb3JnZXR0aW5nIHRvIGNvdW50IHRoZSBO
-VUwtYnl0ZSkgaW4gdGhlIHJhdyBzdHJpbmcuCj4gPiAKPiA+IFVzaW5nIGEgcHJlLWRldGVybWlu
-ZWQgbWF4IGxlbmd0aCBpbiBjb21iaW5hdGlvbiB3aXRoIGBzdHJzY3B5YCBwcm92aWRlcwo+ID4g
-YSBjbGVhbmVyLCBsZXNzIGVycm9yLXByb25lIGFzIHdlbGwgYXMgYSBsZXNzIGFtYmlndW91cyBp
-bXBsZW1lbnRhdGlvbi4KPiA+IGBzdHJzY3B5YCBndWFyYW50ZWVzIHRoYXQgaXQncyBkZXN0aW5h
-dGlvbiBidWZmZXIgaXMgTlVMLXRlcm1pbmF0ZWQgZXZlbgo+ID4gaWYgaXQncyBzb3VyY2UgYXJn
-dW1lbnQgZXhjZWVkcyB0aGUgbWF4IGxlbmd0aCBhcyBkZWZpbmVkIGJ5IHRoZSB0aGlyZAo+ID4g
-YXJndW1lbnQuCj4gCj4gSSB3b3VsZCBpbWFnaW5lIHlvdeKAmWQgd2FudCBhIEJVR19PTigpIHJh
-dGhlciB0aGFuIHNpbGVudCB0cnVuY2F0aW9uIGlmCj4gdGhhdCBldmVyIGhhcHBlbmVkICh3ZWxs
-LCBzaWxlbnQgaWYgeW91IGlnbm9yZSBpdCB0aGVuIHByaW50aW5nIHRoZQo+IHRydW5jYXRlZCBz
-dHJpbmcpLgo+IAo+IFRob3VnaCByZWFsbHkgeW91IGp1c3Qgd2FudCBhIHN0YXRpY19zdHJjcHkg
-dGhhdCBsb29rcyBhdCBzaXplb2YqIGZvcgo+IHNvdXJjZSBhbmQgZGVzdGluYXRpb24gYW5kIGZh
-aWxzIHRvIGJ1aWxkIGlmIGl0IGRvZXNu4oCZdCBmaXQ7IHRoZXJl4oCZcyBubwo+IHJlYXNvbiB0
-aGlzIG5lZWRzIHRvIGJlIGZvdW5kIGF0IHJ1biB0aW1lLgoKRldJVywgdW5kZXIgQ09ORklHX0ZP
-UlRJRllfU09VUkNFLCBzdHJzY3B5KCkgZG9lcyB0cnkgdG8ganVzdCBmb2xkIGF3YXkKdG8gYSBz
-dGF0aWMgc3RyY3B5IHdoZW4gc2l6ZXMgYXJlIHByb3ZhYmx5IHNhZmUsIGV0Yy4KCi0tIApLZWVz
-IENvb2sKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxp
-bnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0
-dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On Tue, Aug 01, 2023 at 09:14:56PM +0000, Justin Stitt wrote:
+> `strncpy` is deprecated for use on NUL-terminated destination strings [1].
+> 
+> A suitable replacement is `strscpy` [2] due to the fact that it
+> guarantees NUL-termination on its destination buffer argument which is
+> _not_ the case for `strncpy`!
+> 
+> The `sv_type` buffer is declared with a size of 16 which is then
+> followed by some `strncpy` calls to populate the buffer with one of:
+> "sv32", "sv57", "sv48", "sv39" or "none". Hard-coding the max length as 5 is
+> error-prone and involves counting the number of characters (and
+> hopefully not forgetting to count the NUL-byte) in the raw string.
+> 
+> Using a pre-determined max length in combination with `strscpy` provides
+> a cleaner, less error-prone as well as a less ambiguous implementation.
+> `strscpy` guarantees that it's destination buffer is NUL-terminated even
+> if it's source argument exceeds the max length as defined by the third
+> argument.
+> 
+> To be clear, there is no bug (i think?) in the current implementation
+> but the current hard-coded values in combination with using a deprecated
+> interface make this a worthwhile change, IMO.
+> 
+> [1]: www.kernel.org/doc/html/latest/process/deprecated.html#strncpy-on-nul-terminated-strings
+> [2]: manpages.debian.org/testing/linux-manual-4.8/strscpy.9.en.html
+> 
+> Link: https://github.com/KSPP/linux/issues/90
+> Cc: linux-hardening@vger.kernel.org
+> Signed-off-by: Justin Stitt <justinstitt@google.com>
+> ---
+>  arch/riscv/kernel/cpu.c | 14 ++++++++------
+>  1 file changed, 8 insertions(+), 6 deletions(-)
+> 
+> diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
+> index a2fc952318e9..1c576e4ec171 100644
+> --- a/arch/riscv/kernel/cpu.c
+> +++ b/arch/riscv/kernel/cpu.c
+> @@ -17,6 +17,8 @@
+>  #include <asm/smp.h>
+>  #include <asm/pgtable.h>
+>  
+> +#define SV_TYPE_MAX_LENGTH 16
+> +
+>  /*
+>   * Returns the hart ID of the given device tree node, or -ENODEV if the node
+>   * isn't an enabled and valid RISC-V hart node.
+> @@ -271,21 +273,21 @@ static void print_isa(struct seq_file *f, const char *isa)
+>  
+>  static void print_mmu(struct seq_file *f)
+>  {
+> -	char sv_type[16];
+> +	char sv_type[SV_TYPE_MAX_LENGTH];
+>  
+>  #ifdef CONFIG_MMU
+>  #if defined(CONFIG_32BIT)
+> -	strncpy(sv_type, "sv32", 5);
+> +	strscpy(sv_type, "sv32", SV_TYPE_MAX_LENGTH);
+>  #elif defined(CONFIG_64BIT)
+>  	if (pgtable_l5_enabled)
+> -		strncpy(sv_type, "sv57", 5);
+> +		strscpy(sv_type, "sv57", SV_TYPE_MAX_LENGTH);
+>  	else if (pgtable_l4_enabled)
+> -		strncpy(sv_type, "sv48", 5);
+> +		strscpy(sv_type, "sv48", SV_TYPE_MAX_LENGTH);
+>  	else
+> -		strncpy(sv_type, "sv39", 5);
+> +		strscpy(sv_type, "sv39", SV_TYPE_MAX_LENGTH);
+>  #endif
+>  #else
+> -	strncpy(sv_type, "none", 5);
+> +	strscpy(sv_type, "none", SV_TYPE_MAX_LENGTH);
+>  #endif /* CONFIG_MMU */
+>  	seq_printf(f, "mmu\t\t: %s\n", sv_type);
+>  }
+
+I'd say just throw the whole buffer away and just avoid copying the
+.rodata strings onto the stack for no reason. They can be used directly:
+
+static void print_mmu(struct seq_file *f)
+{
+        const char *sv_type;
+
+#ifdef CONFIG_MMU
+#if defined(CONFIG_32BIT)
+	sv_type = "sv32";
+#elif defined(CONFIG_64BIT)
+	if (pgtable_l5_enabled)
+		sv_type = "sv57";
+	else if (pgtable_l4_enabled)
+		sv_type = "sv48";
+	else
+		sv_type = "sv39";
+#endif
+#else
+	sv_type = "none";
+#endif /* CONFIG_MMU */
+	seq_printf(f, "mmu\t\t: %s\n", sv_type);
+}
+
+-- 
+Kees Cook
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
