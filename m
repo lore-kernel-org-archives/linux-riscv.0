@@ -4,90 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 028D4C0015E
-	for <linux-riscv@archiver.kernel.org>; Tue,  1 Aug 2023 14:02:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9CA1C001E0
+	for <linux-riscv@archiver.kernel.org>; Tue,  1 Aug 2023 14:03:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jKaTz8QyXrn54UWIoJAVBYN3QJ9sLFMptSTp+BlDxKU=; b=dr3AIkFq1y9+bxYk9rdVVXpaax
-	L4aspampOJr6LZVXiftDDVa2AGw1irZLN5PPJwSI3alIBJw90BHuK+fboncUDXwEmZtTQkXt6MHYx
-	YPrJkG8FjoFGPZm+hjim7A2y/OQ4cb8MasGSp81FgCVsvDanC9sxtXL5DpbBGopJJP+ClKiiKZl86
-	pWt6BRrjV5OmqVoVaBVAY90RvO2txaDJGqxx/W26jE8kkYtcESKYz855WsEN7fgKSFRqKXFj6l1Ee
-	LYwRssOcMVaS9FksVMHLAq3t3mLUBPmTNaqQGgxRga4Rpq6C7rt/aYJ0pe9gK6QaUDM2DMVdVIBqh
-	0kItr0MQ==;
+	bh=p3iubVlkuHzfUZWEkjiCjtwIzqjyLtPJYGZwS0YGWP8=; b=VOir0AV8b1aKQGA58GlwORfeQm
+	XQ3DNU1PKawYFXI3C2DFL+/5zrMXV6FwVn+qbIBEZer7Eoni6SXe8kdyrJ09dzF/oHCT9KO8XiWJW
+	JgGs8oDDuw09Hd53i/oxYCjzeJIHASAg4t8lbh2S4px6oeOvR0VWHcdaobCKKXxVPfcqV28ALM3bD
+	Rfgnto+Q0AzZYqVFj8p/NDVlWtfiHbHHyauDIOhoqbkgJ9ka1N0clCt4JCNyZU6N8tmBmEY3J+zdv
+	Q5CKsETfFpDb91atbg7G97C8/ACFG6BTjQnqtUnUIrOSoJ0DHdHNMy3iXaq6FSV389FI7GZFUJ5oS
+	5ACeStlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qQpx0-002W4k-2f;
-	Tue, 01 Aug 2023 14:02:14 +0000
+	id 1qQpyO-002WHz-0W;
+	Tue, 01 Aug 2023 14:03:40 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qQpwx-002W32-0w;
-	Tue, 01 Aug 2023 14:02:12 +0000
+	id 1qQpyK-002WHR-2y
+	for linux-riscv@lists.infradead.org;
+	Tue, 01 Aug 2023 14:03:38 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 368BF615B9;
-	Tue,  1 Aug 2023 14:02:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C64B6C433C7;
-	Tue,  1 Aug 2023 14:02:02 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 5A6B6615B9;
+	Tue,  1 Aug 2023 14:03:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2D135C433C8;
+	Tue,  1 Aug 2023 14:03:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1690898528;
-	bh=VNvAGs+RJC/wWP8NPciLgTw7gNKF8Q+/ePEXF/moAHc=;
+	s=k20201202; t=1690898615;
+	bh=J1Kv0/7tNUUdsgbJSV348cn2wjwWWI28VoiCD919J1w=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=lR/o/rPJ09W+mjAX+ibUzyjhGjZT2i3QTLa7TI+URr1LjPnvTY2iC6GPqYl/n4r/3
-	 WI/UNzJxW35Q0DDQTuxLw1RSoUoPpdFiCbT65gTE9ERpwX6uJ/Jw1QBGc/dTSkYPJx
-	 FNA/RjX6qX7wwn/QnanU4oUFJADcz/1x2My8leQsMuZiS57cY8v120f7Yc2vmUiJfX
-	 vtvf4FafJWxsU0fipTM5jzne4OEw4wkHM0zMUZ0QMFQkRlqHkhB82tojzXjPQ815fU
-	 iQJjqbsqrrEYQWPmSD+mSbB2ySB0Q0+NzwHtr7edz91j3ub2TQM8/Oy+P0v2YI51MP
-	 gpWzFmzYQSEUw==
-Date: Tue, 1 Aug 2023 15:01:59 +0100
-From: Mark Brown <broonie@kernel.org>
-To: "Edgecombe, Rick P" <rick.p.edgecombe@intel.com>
-Cc: "corbet@lwn.net" <corbet@lwn.net>, "ardb@kernel.org" <ardb@kernel.org>,
-	"keescook@chromium.org" <keescook@chromium.org>,
-	"shuah@kernel.org" <shuah@kernel.org>,
-	"Szabolcs.Nagy@arm.com" <Szabolcs.Nagy@arm.com>,
-	"maz@kernel.org" <maz@kernel.org>,
-	"james.morse@arm.com" <james.morse@arm.com>,
-	"debug@rivosinc.com" <debug@rivosinc.com>,
-	"akpm@linux-foundation.org" <akpm@linux-foundation.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"catalin.marinas@arm.com" <catalin.marinas@arm.com>,
-	"hjl.tools@gmail.com" <hjl.tools@gmail.com>,
-	"paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
-	"linux-mm@kvack.org" <linux-mm@kvack.org>,
-	"aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
-	"oleg@redhat.com" <oleg@redhat.com>,
-	"arnd@arndb.de" <arnd@arndb.de>,
-	"ebiederm@xmission.com" <ebiederm@xmission.com>,
-	"will@kernel.org" <will@kernel.org>,
-	"suzuki.poulose@arm.com" <suzuki.poulose@arm.com>,
-	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
-	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
-	"linux-fsdevel@vger.kernel.org" <linux-fsdevel@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-kselftest@vger.kernel.org" <linux-kselftest@vger.kernel.org>,
-	"linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>,
-	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
-	"palmer@dabbelt.com" <palmer@dabbelt.com>
-Subject: Re: [PATCH v3 21/36] arm64/mm: Implement map_shadow_stack()
-Message-ID: <21d7e814-8608-40ce-b5d3-401f2110ad91@sirena.org.uk>
-References: <20230731-arm64-gcs-v3-0-cddf9f980d98@kernel.org>
- <20230731-arm64-gcs-v3-21-cddf9f980d98@kernel.org>
- <5461c56cf4896f18bddaa66c3beec7b909fc8fb9.camel@intel.com>
- <0a6c90d6-f790-4036-a364-d4761fdd0e95@sirena.org.uk>
- <e827138f9d8800e3db158831bca88d1ea8b559af.camel@intel.com>
+	b=cRKTjP5gMBMuoyifvof5VTmSNc6vDWI9l5DkvIxTqN4QHv+XXe7n40Rbnar0jyB4E
+	 rhzGXQd0Q8thtuaf289xIFb0DvaVXzgJVlzdMSSBd/iKa+Qsk6cZ4BASCYKiYFl7Lv
+	 4LeI9+5CILuHfqT6mu+1xMMp4xTeO/aq+4C5lV+nn+MyUx9K2nZm5fqbFE0jMorNaY
+	 F4Y0KAz2vf1Y5mAyR0sUaDzx6kSNKGJcFwA2RFubIphJqnavP/xqSqNA6BPYP0PgPL
+	 xsAaz/2mMR9o2fYVFrN8Ywj0stbVbxxK9a6VfXgdK5h9RXbPUX4BczmD/9tT+6NkRX
+	 7BnuQyIex18Pw==
+Date: Tue, 1 Aug 2023 15:03:27 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Keith Zhao <keith.zhao@starfivetech.com>
+Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-media@vger.kernel.org, linaro-mm-sig@lists.linaro.org,
+	David Airlie <airlied@gmail.com>, Daniel Vetter <daniel@ffwll.ch>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Sumit Semwal <sumit.semwal@linaro.org>, christian.koenig@amd.com,
+	Bjorn Andersson <andersson@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>, Shawn Guo <shawnguo@kernel.org>,
+	Jagan Teki <jagan@edgeble.ai>,
+	Chris Morgan <macromorgan@hotmail.com>,
+	Jack Zhu <jack.zhu@starfivetech.com>,
+	Shengyang Chen <shengyang.chen@starfivetech.com>,
+	Changhuang Liang <changhuang.liang@starfivetech.com>
+Subject: Re: [PATCH v1 v1 2/7] dt-bindings: display: Add yamls for JH7110
+ display system
+Message-ID: <20230801-cash-squad-8a2e9154af8b@spud>
+References: <20230801101030.2040-1-keith.zhao@starfivetech.com>
+ <20230801101030.2040-3-keith.zhao@starfivetech.com>
 MIME-Version: 1.0
-In-Reply-To: <e827138f9d8800e3db158831bca88d1ea8b559af.camel@intel.com>
-X-Cookie: I thought YOU silenced the guard!
+In-Reply-To: <20230801101030.2040-3-keith.zhao@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230801_070211_434275_B7F33719 
-X-CRM114-Status: GOOD (  21.95  )
+X-CRM114-CacheID: sfid-20230801_070337_044575_5191CD45 
+X-CRM114-Status: GOOD (  27.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,70 +92,268 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1592919805140412615=="
+Content-Type: multipart/mixed; boundary="===============6734463449370286278=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============1592919805140412615==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="Nwti0jdLm79TUUP+"
+--===============6734463449370286278==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="e6NUZOkjskRZqTKd"
 Content-Disposition: inline
 
 
---Nwti0jdLm79TUUP+
+--e6NUZOkjskRZqTKd
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-On Mon, Jul 31, 2023 at 11:19:34PM +0000, Edgecombe, Rick P wrote:
+On Tue, Aug 01, 2023 at 06:10:25PM +0800, Keith Zhao wrote:
+> StarFive SoCs JH7110 display system:
+> lcd-controller bases verisilicon dc8200 IP,
+> and hdmi bases Innosilicon IP.
+> Add bindings for them.
 
-> The thing I was trying to get at was, we have this shared syscall that
-> means create shadow stack memory and prepopulate it like this flag
-> says. On x86 we optionally support SHADOW_STACK_SET_TOKEN which means
-> put a token right at the end of size. So maybe arm should have a
-> different flag value that includes putting the marker and then the
-> token, and x86 could match it someday if we get markers too.
+Please, you can use more than 46 characters in a line!
 
-Oh, I see.  My mental model was that this was controlling the whole
-thing we put at the top rather than treating the terminator and the cap
-separately.
+Also, "v1 v1" does not a v2 make.
 
-> It could be a different flag, like SHADOW_STACK_SET_TOKEN_MARKER, or it
-> could be SHADOW_STACK_SET_MARKER, and callers could pass
-> (SHADOW_STACK_SET_TOKEN | SHADOW_STACK_SET_MARKER) to get what you have
-> implemented here. What do you think?
+>=20
+> Signed-off-by: Keith Zhao <keith.zhao@starfivetech.com>
+> ---
+>  .../starfive/starfive,display-subsystem.yaml  |  41 +++++++
+>  .../starfive/starfive,jh7110-dc8200.yaml      | 107 ++++++++++++++++++
+>  .../starfive/starfive,jh7110-inno-hdmi.yaml   |  92 +++++++++++++++
+>  3 files changed, 240 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/display/starfive/st=
+arfive,display-subsystem.yaml
+>  create mode 100644 Documentation/devicetree/bindings/display/starfive/st=
+arfive,jh7110-dc8200.yaml
+>  create mode 100644 Documentation/devicetree/bindings/display/starfive/st=
+arfive,jh7110-inno-hdmi.yaml
+>=20
+> diff --git a/Documentation/devicetree/bindings/display/starfive/starfive,=
+display-subsystem.yaml b/Documentation/devicetree/bindings/display/starfive=
+/starfive,display-subsystem.yaml
+> new file mode 100644
+> index 000000000..86018a8e6
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/display/starfive/starfive,display=
+-subsystem.yaml
+> @@ -0,0 +1,41 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/display/starfive/starfive,display-sub=
+system.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Starfive DRM master device
+> +
+> +maintainers:
+> +  - Keith Zhao <keith.zhao@starfivetech.com>
+> +  - ShengYang Chen <shengyang.chen@starfivetech.com>
+> +
+> +description:
+> +  The Starfive DRM master device is a virtual device needed to list all
+> +  display controller or other display interface nodes that comprise the
+> +  graphics subsystem.
+> +
+> +properties:
+> +  compatible:
+> +    const: starfive,display-subsystem
+> +
+> +  ports:
+> +    $ref: /schemas/graph.yaml#/properties/ports
+> +    description: |
 
-For arm64 code this would mean that it would be possible (and fairly
-easy) to create stacks which don't have a termination record which would
-make life harder for unwinders to rely on.  I don't think this is
-insurmountable, creating manually shouldn't be the standard and it'll
-already be an issue on x86 anyway.
+A | is not needed when you do not have formatting to preserve.
 
-The other minor issue is that the current arm64 marker is all bits 0
-so by itself for arm64 _MARKER would have no perceptible impact, it
-would only serve to push the token down a slot in the stack (I'm
-guessing that's the intended meaning?).  I'm not sure that's a
-particularly big deal though.
+> +      Should contain a list of phandles pointing to display interface po=
+rts
+> +      of display controller devices. Display controller definitions as d=
+efined
+> +      in Documentation/devicetree/bindings/display/starfive/
+> +      starfive,jh7110-dc8200.yaml
+> +
+> +required:
+> +  - compatible
+> +  - ports
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    display-subsystem {
+> +        compatible =3D "starfive,display-subsystem";
+> +        ports =3D <&dc_out>;
+> +    };
 
---Nwti0jdLm79TUUP+
+Given Rob's bot complains, it looks like you never tested this.
+
+> diff --git a/Documentation/devicetree/bindings/display/starfive/starfive,=
+jh7110-dc8200.yaml b/Documentation/devicetree/bindings/display/starfive/sta=
+rfive,jh7110-dc8200.yaml
+> new file mode 100644
+> index 000000000..bebe2050c
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/display/starfive/starfive,jh7110-=
+dc8200.yaml
+> @@ -0,0 +1,107 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/display/starfive/starfive,jh7110-dc82=
+00.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: StarFive display controller
+> +
+> +description:
+> +  The StarFive SoC uses the display controller based on Verisilicon IP
+> +  to transfer the image data from a video memory
+> +  buffer to an external LCD interface.
+> +
+> +maintainers:
+> +  - Keith Zhao <keith.zhao@starfivetech.com>
+> +
+> +properties:
+> +  compatible:
+> +    const: starfive,jh7110-dc8200
+> +
+> +  reg:
+> +    maxItems: 3
+
+What do each of these represent?
+
+> +
+> +  interrupts:
+> +    items:
+> +      - description: The interrupt will be generated when DC finish one =
+frame
+> +
+> +  clocks:
+> +    items:
+> +      - description: Clock for display system noc bus.
+> +      - description: Pixel clock for display channel 0.
+> +      - description: Pixel clock for display channel 1.
+> +      - description: Clock for axi interface of display controller.
+> +      - description: Core clock for display controller.
+> +      - description: Clock for ahb interface of display controller.
+> +      - description: External HDMI pixel clock.
+> +      - description: Parent clock for pixel clock
+> +
+> +  clock-names:
+> +    items:
+> +      - const: vout_noc_disp
+> +      - const: vout_pix0
+> +      - const: vout_pix1
+> +      - const: vout_axi
+> +      - const: vout_core
+> +      - const: vout_vout_ahb
+> +      - const: hdmitx0_pixel
+> +      - const: vout_dc8200
+> +
+> +  resets:
+> +    items:
+> +      - description: Reset for axi interface of display controller.
+> +      - description: Reset for ahb interface of display controller.
+> +      - description: Core reset of display controller.
+> +
+> +  reset-names:
+> +    items:
+> +      - const: vout_axi
+> +      - const: vout_ahb
+> +      - const: vout_core
+
+Please trim all the vouts from here & the clocks - especially the one
+named "vout_vout_ahb".
+
+> +
+> +  port:
+> +    $ref: /schemas/graph.yaml#/properties/port
+> +    description:
+> +      A port node with endpoint definitions as defined in
+> +      Documentation/devicetree/bindings/media/video-interfaces.txt.
+
+This file is empty, it has been converted to yaml.
+
+> diff --git a/Documentation/devicetree/bindings/display/starfive/starfive,=
+jh7110-inno-hdmi.yaml b/Documentation/devicetree/bindings/display/starfive/=
+starfive,jh7110-inno-hdmi.yaml
+> new file mode 100644
+> index 000000000..f6927acf6
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/display/starfive/starfive,jh7110-=
+inno-hdmi.yaml
+> @@ -0,0 +1,92 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/display/starfive/starfive,jh7110-inno=
+-hdmi.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Starfive JH7110 HDMI controller
+> +
+> +description:
+> +  The StarFive JH7110 SoC uses the HDMI signal transmiter based on innos=
+ilicon IP
+> +  to generate HDMI signal from its input and transmit the signal to the =
+screen.
+> +
+> +maintainers:
+> +  - Keith Zhao <keith.zhao@starfivetech.com>
+> +
+> +properties:
+> +  compatible:
+> +    const: "starfive,jh7110-inno-hdmi"
+> +
+> +  reg:
+> +    minItems: 1
+> +
+> +  interrupts:
+> +    items:
+> +      - description: The HDMI hot plug detection interrupt.
+> +
+> +  clocks:
+> +    items:
+> +      - description: System clock of HDMI module.
+> +      - description: Mclk clock of HDMI audio.
+> +      - description: Bclk clock of HDMI audio.
+> +      - description: Pixel clock generated by HDMI module.
+> +
+> +  clock-names:
+> +    items:
+> +      - const: sysclk
+> +      - const: mclk
+> +      - const: bclk
+> +      - const: pclk
+> +
+> +  resets:
+> +    items:
+> +      - description: Reset for HDMI module.
+
+For this & resets, you don't have a list & don't need items:
+
+Cheers,
+Conor.
+
+--e6NUZOkjskRZqTKd
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmTJEFYACgkQJNaLcl1U
-h9DMNgf+P37hKhxkgQQ2bx5n4uZZFxfRehguU/iRyfY2v786eRp6cHggr3v5zNbn
-YpYL5VP9uY+etSRtnZI8rksKaS4bR/OnIchJ1WVCyFEZOV+IiJrKgRpXYTFH4wd6
-TJBjdEQtaeU7zIyikLOVb7gstveQddLzsUBDcAOoEwjUnd6alGbDGn262PKDeapK
-hu+THENIjRxbrDkn9An5Uuca6c4XeWL/KbLQLP8uGKbz1FiCPUGDAF1i8FkoVxnL
-IZW9d2IOzqXh0G/ZXwQhw9+9QNtN7zIDXIs2WS29VU2QoGJAZdNP9rJFhdK4C+/y
-ih1/WTOQ+rJxgjVUggW+96FlbhxWZg==
-=fLYM
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZMkQrwAKCRB4tDGHoIJi
+0hF/AQC/1GTXuwyc+w2g9RKifKromVQFlvBvFI0JlmYNLu6I9gEAqVJE6rLiklf3
+jktEbPFxEUmQR4+8/IvlY0DbYWbksgw=
+=bnBb
 -----END PGP SIGNATURE-----
 
---Nwti0jdLm79TUUP+--
+--e6NUZOkjskRZqTKd--
 
 
---===============1592919805140412615==
+--===============6734463449370286278==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -173,5 +364,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============1592919805140412615==--
+--===============6734463449370286278==--
 
