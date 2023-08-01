@@ -4,59 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF07AC0015E
-	for <linux-riscv@archiver.kernel.org>; Tue,  1 Aug 2023 18:56:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47661C41513
+	for <linux-riscv@archiver.kernel.org>; Tue,  1 Aug 2023 19:05:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=f+Z/v1lcDw6RCfWkDXaaYbejsFJpqf1gsGYnWSh9Zpg=; b=nAcKvRvq2HcU+k
-	6lInrNpEAIZPGdWWszMocofDsauKCLPL9xJewO0GZtffFxrFtZ7BbqSfc/5MzqntD4E52ycojCzSw
-	4kS4/74TwR84BCks2KSaLhZ30nGDLh/2UHPaOTWN5YjmKMwjpK1jcAM4NOoApMyHHL3TI3iorHqWc
-	MwT8yjGWLve+Skm7KIRdc3aVxH4ihuZvT25CbWJJsC+VZsU958oXx77iF/pp7aEQSY2tcDHidI24m
-	fEZK81jbkJ9QAfypugVQqZUVA4GOEHa3i34qTBZl9QUMBPQypK5IeM1X8cY9oEFy3ggncll6cXVbb
-	Jp4tG13/7me/NXY9aD8g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7WhEb1IO00eYdyi3zpM5LeFMZozYgI9yTDpWS4lY880=; b=xnEeGyh29OoCDqpoZyQi6MTH17
+	QxqxsDpIgtOR2B+D7whITw9bOuIZFblE9UH9FhIDdp+PQg/EibsWDVAwlqO+l7uFU7o6ppOvx+X5+
+	KGaepTZXxjMEvzxPw7IF+G/RoD4l9DpVJOjgP+fHtnSpCYKnzjUmYc9u947bPl+eNlzJmbr182ho7
+	8gWreA4c848OeAbz/j0Cp+lRepIB6W5M6avY6FY9ENGqyZXtqkw6KEnhAG5Bvh5W8ZLeWNwRMUskk
+	W9CRDD9urbLstFfiTiqk3Ha90G3P5+MXkvaY1ZMmg8XWZSAU4eVdPApAHmm7f4140THmCcUEL4srk
+	RKgnPEKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qQuXC-0034zn-2i;
-	Tue, 01 Aug 2023 18:55:54 +0000
-Received: from [2601:1c2:980:9ec0::2764]
-	by bombadil.infradead.org with esmtpsa (Exim 4.96 #2 (Red Hat Linux))
-	id 1qQuXA-0034zE-0r;
-	Tue, 01 Aug 2023 18:55:52 +0000
-Message-ID: <6286077f-bd7e-8a78-deca-3442bd987ad4@infradead.org>
-Date: Tue, 1 Aug 2023 11:55:50 -0700
+	id 1qQugT-0036IP-2S;
+	Tue, 01 Aug 2023 19:05:29 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1qQugQ-0036Hn-30;
+	Tue, 01 Aug 2023 19:05:28 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 3A5136168C;
+	Tue,  1 Aug 2023 19:05:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A61AAC433C8;
+	Tue,  1 Aug 2023 19:05:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1690916725;
+	bh=XaEyLOjcTNwc9YeWlOJYScuIZzeMlhSmUXhkTyWOcdo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=grHpsCade+4hhBefcy1y7pfmLc1TAcGI5yfjr3ji+PPlfsj7KES8fDhea9q6wXLgD
+	 xrGOW3viFBiZ2vyLfNwKC2X7e0UTc1/jdT+BIQoV/8PnGuJGh7RiYNNQpAaJGGf11f
+	 CdB8b0Gn5nYSkS4o8WfpNo99u2ppuAN14a1C5I5IwjPlP7/PUzBYiYFueK9jOe6o1g
+	 wKWlPPFaossUwjpE/h96bWJrEMfGbGHML66oQ9wJRkAletVZCNSjo4mwx9aKbjnxmW
+	 /wU5qh51gu/TWRN8ejWFeGscGFLY08HjeLHMeUYNUquMcFllxGCj3PCG7S0rJoDSlE
+	 IMkXmWaTTxdrg==
+Date: Tue, 1 Aug 2023 20:05:16 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Mike Rapoport <rppt@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	James Morse <james.morse@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Arnd Bergmann <arnd@arndb.de>, Oleg Nesterov <oleg@redhat.com>,
+	Eric Biederman <ebiederm@xmission.com>,
+	Kees Cook <keescook@chromium.org>, Shuah Khan <shuah@kernel.org>,
+	"Rick P. Edgecombe" <rick.p.edgecombe@intel.com>,
+	Deepak Gupta <debug@rivosinc.com>, Ard Biesheuvel <ardb@kernel.org>,
+	Szabolcs Nagy <Szabolcs.Nagy@arm.com>,
+	"H.J. Lu" <hjl.tools@gmail.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+	kvmarm@lists.linux.dev, linux-fsdevel@vger.kernel.org,
+	linux-arch@vger.kernel.org, linux-mm@kvack.org,
+	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v3 11/36] arm64/mm: Map pages for guarded control stack
+Message-ID: <1cbd6d5a-0e58-4a3f-b7e5-bbab09f03c5d@sirena.org.uk>
+References: <20230731-arm64-gcs-v3-0-cddf9f980d98@kernel.org>
+ <20230731-arm64-gcs-v3-11-cddf9f980d98@kernel.org>
+ <20230801170231.GC2607694@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.13.0
-Subject: Re: [PATCH v1 v1 1/7] MAINTAINERS: Update starfive maintainers
-Content-Language: en-US
-To: Keith Zhao <keith.zhao@starfivetech.com>,
- dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-media@vger.kernel.org, linaro-mm-sig@lists.linaro.org
-Cc: David Airlie <airlied@gmail.com>, Daniel Vetter <daniel@ffwll.ch>,
- Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Conor Dooley <conor+dt@kernel.org>, Emil Renner Berthing <kernel@esmil.dk>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Sumit Semwal <sumit.semwal@linaro.org>, christian.koenig@amd.com,
- Bjorn Andersson <andersson@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Shawn Guo <shawnguo@kernel.org>, Jagan Teki <jagan@edgeble.ai>,
- Chris Morgan <macromorgan@hotmail.com>, Jack Zhu
- <jack.zhu@starfivetech.com>, Shengyang Chen
- <shengyang.chen@starfivetech.com>,
- Changhuang Liang <changhuang.liang@starfivetech.com>
-References: <20230801101030.2040-1-keith.zhao@starfivetech.com>
- <20230801101030.2040-2-keith.zhao@starfivetech.com>
-From: Randy Dunlap <rdunlap@infradead.org>
-In-Reply-To: <20230801101030.2040-2-keith.zhao@starfivetech.com>
+In-Reply-To: <20230801170231.GC2607694@kernel.org>
+X-Cookie: I thought YOU silenced the guard!
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20230801_120527_070622_5283D11C 
+X-CRM114-Status: GOOD (  16.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,47 +91,70 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============6746010038739771896=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
+--===============6746010038739771896==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="zPbhvjZzJERchlQs"
+Content-Disposition: inline
 
-On 8/1/23 03:10, Keith Zhao wrote:
-> update starfive maintainers
-> 
-> Signed-off-by: Keith Zhao <keith.zhao@starfivetech.com>
-> ---
->  MAINTAINERS | 7 +++++++
->  1 file changed, 7 insertions(+)
-> 
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 3be1bdfe8..daadd1707 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -6760,6 +6760,13 @@ S:	Supported
->  T:	git git://anongit.freedesktop.org/drm/drm-misc
->  F:	drivers/gpu/drm/udl/
->  
 
-This new entry should be in alphabetical order (hint: it's not).
+--zPbhvjZzJERchlQs
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-> +DRM DRIVERS FOR STARFIVE
-> +M:	Keith Zhao <keith.zhao@starfivetech.com>
-> +L:	dri-devel@lists.freedesktop.org
-> +S:	Maintained
-> +T:	git git://anongit.freedesktop.org/drm/drm-misc
-> +F:	Documentation/devicetree/bindings/display/starfive/
-> +
->  DRM DRIVER FOR VIRTUAL KERNEL MODESETTING (VKMS)
->  M:	Rodrigo Siqueira <rodrigosiqueiramelo@gmail.com>
->  M:	Melissa Wen <melissa.srw@gmail.com>
+On Tue, Aug 01, 2023 at 08:02:31PM +0300, Mike Rapoport wrote:
+> On Mon, Jul 31, 2023 at 02:43:20PM +0100, Mark Brown wrote:
 
--- 
-~Randy
+> >  {
+> > -	pteval_t prot = pgprot_val(protection_map[vm_flags &
+> > +	pteval_t prot;
+> > +
+> > +	/*
+> > +	 * If this is a GCS then only interpret VM_WRITE.
+> > +	 *
+> > +	 * TODO: Just make protection_map[] bigger?  Nothing seems
+> > +	 * ideal here.
+> > +	 */
+
+> I think extending protection_map and updating adjust_protection_map() is
+> cleaner and probably faster.
+
+That was my initial thought but then I immediately started second
+guessing myself about review comments.  Hopefully Will or Catalin will
+weigh in.
+
+--zPbhvjZzJERchlQs
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmTJV2sACgkQJNaLcl1U
+h9AlrwgAheuf8ghyBKWYbkyMEXdB+oQMSgcGlnFgC7nJJfw06f2XaVrBNE+6Swjh
+pgt+0RrRPIXZHhZXP3vHWP0yM/pgwS3o0K+/jolpahP+ieFfiJa5X4GTuGzPYZiq
+6XYZEXkdOtuuyx3McLXU4Eet7PsnmqDolbBcr2pV1oyvRj6zWbdfv+SYoL8DX6bA
+kUGWitWitEXi8bMTvWWg23s1MoFXLYxUWDZVwCl89aIipWnICzUze6O9FVMsfYJ1
+h8ITi9V3QFo5uKkn1MySOUPaK7TI+VKZhAJMaNEQmCHMFXTkQhpp1jJvY4FFRVi2
+rUxmpnOLBLA3hsMLGXV+tSV8S9P65g==
+=kTpO
+-----END PGP SIGNATURE-----
+
+--zPbhvjZzJERchlQs--
+
+
+--===============6746010038739771896==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============6746010038739771896==--
+
