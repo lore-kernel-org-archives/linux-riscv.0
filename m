@@ -4,70 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06196C001DE
-	for <linux-riscv@archiver.kernel.org>; Wed,  2 Aug 2023 08:33:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8EBFC00528
+	for <linux-riscv@archiver.kernel.org>; Wed,  2 Aug 2023 08:43:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YTft7ty3tAQIWYFEapAs+kmS0qvIl+3Cc2AS/N+BApk=; b=hzT12VEXvW/0aF
-	lybjvWGGdsgujhkzN/OPheuIAoV314TtynQN5l8mWJOqwUykF+zmS1dQ0Ix4QtRL3tEMspHHbcylZ
-	zLnoHU9nz2qcpzYTYguQDFUdcIgwKnBSyufupQvAIgJsMp3/9ecBp/m/HYCR0Li63LPHKhLWUN8Bt
-	MJFnFtT+k98Qwo22Cb3k2GZCW8g15MlBm+MFneYGVEeYYEjImdLeQTBUJNcFCNzIsmuXvkVaNroXk
-	5ALtEb840eAJvw40AicY0XhGVGvT39BIDACNbhn2yRdUNmjJWe9/82noKHhdfGsU1WM8jGQArGCWV
-	FqRCrhxLXgvRcUWhO/Eg==;
+	List-Owner; bh=oEYcQZU08kXLrwnrdboMY56foHGo7uPLgxakusWvsE8=; b=LncEkF4uUux6wS
+	VBX/ox3aVnqZdJUXDq3+f9iUTc1C6oMZaQsdWMlCVsq40d5exFZVWJOXcZc5TpPkN33SdEDQdEMxZ
+	JZdGIAp4+djxpwOkTC255GH+l9vf0mSuiAktb3Vn1fDzFuUqByKNLofmF88MClnBAe80zJSRKFbv+
+	6OrqEg8pzneMMEyeHm3AwWrXDurLuxifZ7ucPKI3kpd8Wb6aZuzde7HkLJAffLOswV+3mCeldacZg
+	UDrJJGV9OU5Mak1C6q6dieuWLe7IJnHn/Lxwe8gDfT4aYbao0vVGuVUg8J46qPFCK4GUbUSjGohJ1
+	vyUjAAAKRYLBmqFVDAVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qR7IV-004NVI-1s;
-	Wed, 02 Aug 2023 08:33:35 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qR7IT-004NUa-1j
+	id 1qR7S1-004OJB-1L;
+	Wed, 02 Aug 2023 08:43:25 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1qR7Rw-004OFC-1l
 	for linux-riscv@lists.infradead.org;
-	Wed, 02 Aug 2023 08:33:34 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 165126185F;
-	Wed,  2 Aug 2023 08:33:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EF834C433C7;
-	Wed,  2 Aug 2023 08:33:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1690965210;
-	bh=6L87WFqpRWoyspDs3L6KZduy9PxJ66o4a4lAQyjQVr4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=YYxMnfhfp/hn8Iri+SxArk/uuPg4mGzMWdOpzu5oZn5Pl5CNy8ezbaDd8McBJ203o
-	 7uOOUooPxq83PZsOSkVUDxZtrWzX1UDk3HR1+FGCP3YJJKYI8Av65YNjiKhedbM25m
-	 jgI2e0TgWX7c+FRdsmJ8yJ6LLy+35xiTC7jd5P4k=
-Date: Wed, 2 Aug 2023 10:33:27 +0200
-From: Greg KH <gregkh@linuxfoundation.org>
-To: Minda Chen <minda.chen@starfivetech.com>
-Cc: Conor Dooley <conor.dooley@microchip.com>,
-	Conor Dooley <conor@kernel.org>, Jisheng Zhang <jszhang@kernel.org>,
-	Samuel Holland <samuel@sholland.org>, Dao Lu <daolu@rivosinc.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Mason Huo <mason.huo@starfivetech.com>, stable@vger.kernel.org
-Subject: Re: [PATCH v1] riscv: Using TOOLCHAIN_HAS_ZIHINTPAUSE marco replace
- zihintpause
-Message-ID: <2023080253-headache-moneybags-a833@gregkh>
-References: <20230802064215.31111-1-minda.chen@starfivetech.com>
- <20230802-sharpness-spoon-f9b8804fb66f@wendy>
- <d64874cb-8628-a6d2-d2f4-8af4d0ebf8b2@starfivetech.com>
- <20230802-seismic-gallstone-fca0f4b17076@wendy>
- <c42bd997-8795-8bf7-eee1-3ac8b153371a@starfivetech.com>
+	Wed, 02 Aug 2023 08:43:23 +0000
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id BABD824E275;
+	Wed,  2 Aug 2023 16:43:03 +0800 (CST)
+Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 2 Aug
+ 2023 16:43:03 +0800
+Received: from localhost.localdomain (183.27.98.54) by EXMBX061.cuchost.com
+ (172.16.6.61) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 2 Aug
+ 2023 16:43:02 +0800
+From: Xingyu Wu <xingyu.wu@starfivetech.com>
+To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, "Maxim
+ Kochetkov" <fido_max@inbox.ru>, Rob Herring <robh+dt@kernel.org>, "Krzysztof
+ Kozlowski" <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley
+	<conor.dooley@microchip.com>, Emil Renner Berthing
+	<emil.renner.berthing@canonical.com>
+CC: Jose Abreu <joabreu@synopsys.com>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Walker Chen <walker.chen@starfivetech.com>, "Xingyu
+ Wu" <xingyu.wu@starfivetech.com>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <alsa-devel@alsa-project.org>,
+	<linux-riscv@lists.infradead.org>
+Subject: [PATCH v1 1/5] ASoC: dwc: Use ops to get platform data
+Date: Wed, 2 Aug 2023 16:42:57 +0800
+Message-ID: <20230802084301.134122-2-xingyu.wu@starfivetech.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20230802084301.134122-1-xingyu.wu@starfivetech.com>
+References: <20230802084301.134122-1-xingyu.wu@starfivetech.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <c42bd997-8795-8bf7-eee1-3ac8b153371a@starfivetech.com>
+X-Originating-IP: [183.27.98.54]
+X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX061.cuchost.com
+ (172.16.6.61)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230802_013333_661701_53531B8A 
-X-CRM114-Status: GOOD (  25.71  )
+X-CRM114-CacheID: sfid-20230802_014320_749366_9645FBBA 
+X-CRM114-Status: GOOD (  13.05  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,61 +81,29 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 02, 2023 at 04:17:51PM +0800, Minda Chen wrote:
-> 
-> 
-> On 2023/8/2 15:48, Conor Dooley wrote:
-> > On Wed, Aug 02, 2023 at 03:32:15PM +0800, Minda Chen wrote:
-> >> 
-> >> 
-> >> On 2023/8/2 14:54, Conor Dooley wrote:
-> >> > Hey Minda,
-> >> > 
-> >> > On Wed, Aug 02, 2023 at 02:42:15PM +0800, Minda Chen wrote:
-> >> >> Actually it is a part of Conor's
-> >> >> commit aae538cd03bc ("riscv: fix detection of toolchain
-> >> >> Zihintpause support").
-> >> >> It is looks like a merge issue.
-> >> > 
-> >> > Yup, spot on.
-> >> > 
-> >> >> Samuel's
-> >> >> commit 0b1d60d6dd9e ("riscv: Fix build with
-> >> >> CONFIG_CC_OPTIMIZE_FOR_SIZE=y") do not base on Conor's commit and
-> >> >> revert to __riscv_zihintpause. So this patch can fix it.
-> >> >> 
-> >> >> Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
-> >> > 
-> >> > Did you actually manage to trigger this, or was this by inspection?
-> >> > clang-15 + binutils 2.35 was, IIRC, how we spotted this because that's
-> >> > what the clang-built-linux CI uses to test the LTS kernels from before
-> >> > LLVM's IAS was supported for RISC-V. Seemingly all that needs to be
-> >> > satisfied there is that zihintpause doesn't appear in -march so this has
-> >> > gone unnoticed.
-> >> > 
-> >> > Fixes: 3c349eacc559 ("Merge patch "riscv: Fix build with CONFIG_CC_OPTIMIZE_FOR_SIZE=y"")
-> >> > Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-> >> > 
-> >> > Thanks,
-> >> > Conor.
-> >> > 
-> >> Thanks, Conor. I found this just by inspection. I found a issue that vdso.so call cpu_relax
-> >> cause application core dump in kernel 6.1.31. I need Samuel'patch to fix this. And I search the log
-> >> of processor.h found this issue.
-> > 
-> > That doesn't look like it is fixed in later stable kernels (we are at
-> > 6.1.42-rcN right now I think). It sounds we should ask Greg to backport
-> > 0b1d60d6dd9e ("riscv: Fix build with CONFIG_CC_OPTIMIZE_FOR_SIZE=y")
-> > to 6.1. Does that make sense to you?
-> Yes. 6.1 is lts kernel. Starfive will use this kernel for a long time. Thanks.
+Use of_device_get_match_data() to get platform data.
 
-What is preventing you from moving to a newer kernel version?  All of
-your kernel changes are already properly merged into Linus's tree,
-right?
+Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
+---
+ sound/soc/dwc/dwc-i2s.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-thanks,
+diff --git a/sound/soc/dwc/dwc-i2s.c b/sound/soc/dwc/dwc-i2s.c
+index 1f1ee14b04e6..c076090a9864 100644
+--- a/sound/soc/dwc/dwc-i2s.c
++++ b/sound/soc/dwc/dwc-i2s.c
+@@ -690,7 +690,7 @@ static int dw_i2s_dai_probe(struct snd_soc_dai *dai)
+ 
+ static int dw_i2s_probe(struct platform_device *pdev)
+ {
+-	const struct i2s_platform_data *pdata = pdev->dev.platform_data;
++	const struct i2s_platform_data *pdata = of_device_get_match_data(&pdev->dev);
+ 	struct dw_i2s_dev *dev;
+ 	struct resource *res;
+ 	int ret, irq;
+-- 
+2.25.1
 
-greg k-h
 
 _______________________________________________
 linux-riscv mailing list
