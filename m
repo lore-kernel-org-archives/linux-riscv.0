@@ -4,79 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4E04C001DF
-	for <linux-riscv@archiver.kernel.org>; Wed,  2 Aug 2023 08:17:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D18EFC41513
+	for <linux-riscv@archiver.kernel.org>; Wed,  2 Aug 2023 08:18:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xhLNYxpzTNQExRtlJwuhij/TeM/ov8Gt5hkNhJ13Ecs=; b=X9Iut54FUlG/NJ
-	kqMCqfb4rTp8I3JyBNXhr2t+k4srL0+1lrCwIe4m1kyIM6rNb7s2HOlLNj/0R+gdGZmnntWpIGvL8
-	trUa6tk45db49X84OJrzKmiPsmuzLp4Di/heGPf+W8gZFSexs6KRZ9qmAzjSW5vwzEp9F4sJ/5W+h
-	BNLc92qt9ptJ2NWb+7suzQfHFZ5dN/BlETdlTpr+aMwrNcXEEzYCbLqRgketToSC09ecJ6YS4vMYJ
-	J00M0352j5VJsEA8v1K6BUt26foB5qr9nZ5j30hL8n3GG8SZTrQMbvnYgY1UsVlaqqh8c4Nb8JNO5
-	T4hzaKq+SVq8G/k+BOsw==;
+	List-Owner; bh=9KsmtEBR5kQodDqygnVwMpQsIip0k10z1DCxpdM+1OE=; b=x90vGOCHrOVTgY
+	02AmOlPEUvT1OJUbavCG8Y9qTLg2Cc9jQBLsyXoTxHG7BWmuoLkG8OjV0FoCw9BdYl7Ao6yKwU8ku
+	K0uWFy+/YKLGqjnAQCKLxWA86pG7Rv2EXphF+cs0RjevWH2RJsLh4SGcaRspPejIhjhMg8VkcLc7r
+	R3Um67d6/m9Q33Cfg5ofLJmVOGkHLXG2cQ5A/2geclIEoaGcTWAOfU+kw5RXVNSQLRUthrhuJ05mh
+	qd/sCoV3HA8R8q8jvsS3/O2Vs/hbMYFTyRNeTn60Oqb8iYx5o9PVKCmhxpYvQwQr15Wfp69efrHHW
+	/CGooyvYPTgHG06EnFdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qR72u-004M4M-1r;
-	Wed, 02 Aug 2023 08:17:28 +0000
-Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qR72r-004M2x-2A
+	id 1qR747-004MCw-0Z;
+	Wed, 02 Aug 2023 08:18:43 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1qR741-004MAU-1k
 	for linux-riscv@lists.infradead.org;
-	Wed, 02 Aug 2023 08:17:26 +0000
-Received: by mail-ej1-x636.google.com with SMTP id a640c23a62f3a-99c0cb7285fso467123166b.0
-        for <linux-riscv@lists.infradead.org>; Wed, 02 Aug 2023 01:17:23 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1690964242; x=1691569042;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=1ldftGtGE3zBMdAsfK66SnrRKaY4BxtS34znrPguj00=;
-        b=VZqg9aULNEJ7UAIeUZOwVIpEb7J/gAa6BbzIysq7Qjg2B9i6MmbL+iJ60H+mEFeXwO
-         7+xUEszd8iITALIH9uNbRd230JgmuGEdOgIcHcoQXy8XHBMUwuDC0LWzoAky73O0QTDE
-         IK88InVrjSBCb7Smd0ockQwMZ+jN0jOJhAL/oUvyo3VLBhj11Yx6rgBjirBPF3gNpvql
-         VnLkA8pYwpIQoZHuaaj3iEqDeC9dmb6s5trPnFhpRiNySbdp+i8/UaG7vpEzM2DJLNnJ
-         K9GPMwod2L+xnnD7JQwHpzQ/+/yFdbJScFCkjmOQpf5t8q6mbraixrpnNxbtEVKLyltB
-         We2A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1690964242; x=1691569042;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=1ldftGtGE3zBMdAsfK66SnrRKaY4BxtS34znrPguj00=;
-        b=Q9tbBUrmalVb2gX6Hgm5EF9D8ZlYKZF/U6iHkbZSxJhLI+vSQylMIDAxiO5buSOBlt
-         Xu2kuf0HTMOJDqoLpihTbwUTkdiRwjd3TVarS79hf9qmGjb5HnG+ZIdZdxctUZT0YRpP
-         DQqaI1WB7vg3gPFNkG9eFwRiod12oEMAiepGSahg60txmMNLlN3h2FCQIOiP+2Hfoml+
-         sIP/FQH2yq+WhBxqaIhQrjunTaGjs94WgPaG3S6qDzec431Gca8KkGBepVpu8vZliRb7
-         MXwjebWFM55OhPW8iPjWaB1JFW46RT0VPzakNEotA6T/MIu8MXGl9hzDJwcASAtL/W7h
-         aRGg==
-X-Gm-Message-State: ABy/qLbo2jXoaf6TfGT0VEHytTFB/N+J58HfH1FEjIUD3aQ+cuALwoCR
-	QIPs8nJ/ySzXJzY/WwtMJ+meqg==
-X-Google-Smtp-Source: APBJJlE4se+P1KQKrNIWrSJYRpYsIXMW3uMaA4HkJOuaP9fCZ8JPzwkKO0enEcgnoSzjZqUYJquFHA==
-X-Received: by 2002:a17:907:7893:b0:989:450:e585 with SMTP id ku19-20020a170907789300b009890450e585mr3875932ejc.45.1690964242457;
-        Wed, 02 Aug 2023 01:17:22 -0700 (PDT)
-Received: from localhost (212-5-140-29.ip.btc-net.bg. [212.5.140.29])
-        by smtp.gmail.com with ESMTPSA id u7-20020a170906408700b009786ae9ed50sm8651597ejj.194.2023.08.02.01.17.21
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 02 Aug 2023 01:17:21 -0700 (PDT)
-Date: Wed, 2 Aug 2023 11:17:20 +0300
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Daniel Henrique Barboza <dbarboza@ventanamicro.com>
-Cc: kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
-	kvm@vger.kernel.org, anup@brainfault.org, atishp@atishpatra.org
-Subject: Re: [PATCH v2 9/9] docs: kvm: riscv: document EBUSY in
- KVM_SET_ONE_REG
-Message-ID: <20230802-4751804e563fb13903ef6277@orel>
-References: <20230801222629.210929-1-dbarboza@ventanamicro.com>
- <20230801222629.210929-10-dbarboza@ventanamicro.com>
+	Wed, 02 Aug 2023 08:18:40 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id 998FF24E282;
+	Wed,  2 Aug 2023 16:17:53 +0800 (CST)
+Received: from EXMBX171.cuchost.com (172.16.6.91) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 2 Aug
+ 2023 16:17:53 +0800
+Received: from [192.168.125.127] (183.27.98.54) by EXMBX171.cuchost.com
+ (172.16.6.91) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 2 Aug
+ 2023 16:17:52 +0800
+Message-ID: <c42bd997-8795-8bf7-eee1-3ac8b153371a@starfivetech.com>
+Date: Wed, 2 Aug 2023 16:17:51 +0800
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230801222629.210929-10-dbarboza@ventanamicro.com>
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.13.0
+Subject: Re: [PATCH v1] riscv: Using TOOLCHAIN_HAS_ZIHINTPAUSE marco replace
+ zihintpause
+Content-Language: en-US
+To: Conor Dooley <conor.dooley@microchip.com>
+CC: Conor Dooley <conor@kernel.org>, Jisheng Zhang <jszhang@kernel.org>,
+	Samuel Holland <samuel@sholland.org>, Dao Lu <daolu@rivosinc.com>, "Heiko
+ Stuebner" <heiko@sntech.de>, Paul Walmsley <paul.walmsley@sifive.com>,
+	"Palmer Dabbelt" <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>, Mason Huo
+	<mason.huo@starfivetech.com>, <stable@vger.kernel.org>
+References: <20230802064215.31111-1-minda.chen@starfivetech.com>
+ <20230802-sharpness-spoon-f9b8804fb66f@wendy>
+ <d64874cb-8628-a6d2-d2f4-8af4d0ebf8b2@starfivetech.com>
+ <20230802-seismic-gallstone-fca0f4b17076@wendy>
+From: Minda Chen <minda.chen@starfivetech.com>
+In-Reply-To: <20230802-seismic-gallstone-fca0f4b17076@wendy>
+X-Originating-IP: [183.27.98.54]
+X-ClientProxiedBy: EXCAS061.cuchost.com (172.16.6.21) To EXMBX171.cuchost.com
+ (172.16.6.91)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230802_011725_728231_99784DBE 
-X-CRM114-Status: GOOD (  15.98  )
+X-CRM114-CacheID: sfid-20230802_011837_722798_2348BB7A 
+X-CRM114-Status: GOOD (  18.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,32 +82,52 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 01, 2023 at 07:26:29PM -0300, Daniel Henrique Barboza wrote:
-> The EBUSY errno is being used for KVM_SET_ONE_REG as a way to tell
-> userspace that a given reg can't be written after the vcpu started.
-> 
-> Signed-off-by: Daniel Henrique Barboza <dbarboza@ventanamicro.com>
-> ---
->  Documentation/virt/kvm/api.rst | 2 ++
->  1 file changed, 2 insertions(+)
-> 
-> diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
-> index c0ddd3035462..229e7cc091c8 100644
-> --- a/Documentation/virt/kvm/api.rst
-> +++ b/Documentation/virt/kvm/api.rst
-> @@ -2259,6 +2259,8 @@ Errors:
->    EINVAL   invalid register ID, or no such register or used with VMs in
->             protected virtualization mode on s390
->    EPERM    (arm64) register access not allowed before vcpu finalization
-> +  EBUSY    (riscv) register access not allowed after the vcpu has run
-> +           at least once
 
-We allow access (reading, even before, and now also writing when the value
-is the same), so this should be worded in a way that conveys the register
-may not be changed after the vcpu has run once.
 
-Thanks,
-drew
+On 2023/8/2 15:48, Conor Dooley wrote:
+> On Wed, Aug 02, 2023 at 03:32:15PM +0800, Minda Chen wrote:
+>> 
+>> 
+>> On 2023/8/2 14:54, Conor Dooley wrote:
+>> > Hey Minda,
+>> > 
+>> > On Wed, Aug 02, 2023 at 02:42:15PM +0800, Minda Chen wrote:
+>> >> Actually it is a part of Conor's
+>> >> commit aae538cd03bc ("riscv: fix detection of toolchain
+>> >> Zihintpause support").
+>> >> It is looks like a merge issue.
+>> > 
+>> > Yup, spot on.
+>> > 
+>> >> Samuel's
+>> >> commit 0b1d60d6dd9e ("riscv: Fix build with
+>> >> CONFIG_CC_OPTIMIZE_FOR_SIZE=y") do not base on Conor's commit and
+>> >> revert to __riscv_zihintpause. So this patch can fix it.
+>> >> 
+>> >> Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
+>> > 
+>> > Did you actually manage to trigger this, or was this by inspection?
+>> > clang-15 + binutils 2.35 was, IIRC, how we spotted this because that's
+>> > what the clang-built-linux CI uses to test the LTS kernels from before
+>> > LLVM's IAS was supported for RISC-V. Seemingly all that needs to be
+>> > satisfied there is that zihintpause doesn't appear in -march so this has
+>> > gone unnoticed.
+>> > 
+>> > Fixes: 3c349eacc559 ("Merge patch "riscv: Fix build with CONFIG_CC_OPTIMIZE_FOR_SIZE=y"")
+>> > Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+>> > 
+>> > Thanks,
+>> > Conor.
+>> > 
+>> Thanks, Conor. I found this just by inspection. I found a issue that vdso.so call cpu_relax
+>> cause application core dump in kernel 6.1.31. I need Samuel'patch to fix this. And I search the log
+>> of processor.h found this issue.
+> 
+> That doesn't look like it is fixed in later stable kernels (we are at
+> 6.1.42-rcN right now I think). It sounds we should ask Greg to backport
+> 0b1d60d6dd9e ("riscv: Fix build with CONFIG_CC_OPTIMIZE_FOR_SIZE=y")
+> to 6.1. Does that make sense to you?
+Yes. 6.1 is lts kernel. Starfive will use this kernel for a long time. Thanks.
 
 _______________________________________________
 linux-riscv mailing list
