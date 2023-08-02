@@ -4,67 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 251B4C001DE
-	for <linux-riscv@archiver.kernel.org>; Wed,  2 Aug 2023 08:43:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70D2FC00528
+	for <linux-riscv@archiver.kernel.org>; Wed,  2 Aug 2023 08:53:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BSK7g0kUTLpdmD3WQEEtdnM9jpDVLM3nRtt6/yHarl4=; b=zYGzGe+i+pj71j
-	gM/LsKfFsqC5Bd844wS5xgdiNtDoKsp8W2KpSkCKRI09ujB6kXnusPN5d6OOHSGOBkshG8gE8UUvU
-	1qNUGre3IYoaNEW0rvp7tHRLsu3ir6pkVqXe3pmmK4hWLEcZAE4Fjfz2oHXUFgIZI5g8019JRfhgR
-	YKhWcrZY6ZLzHzIPmDRL/3tm5JIwMkdFJeG35rzsSNpjw5OmxNjpLSbKsIBOIEE1J7BXgTtbT1MNl
-	dUkYl81+TEHYlOQRL5GNx37ESYCXvZW0+AeE9mJLS7nNkBbRjF4xU8mSQdDPPq4EZp5/FIVOJESbA
-	RfIKK9V+iqLjt9dMJ1mQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KhElINnV2A4lqDHOcm+8Qu1xFR39NzHMiX2tLV4uHY4=; b=saAQsBp4arXH70g+ld9nJSDJPx
+	MJqg+4zsK2BiyRVVpHbi756VEW/HSvdpOm6vmvYIRJ88U4EioAmROzQjewbM+lKReJOxZh8MwcWID
+	Jbqf5zhVEdKWdXaG+nzNVLwQvg5LVCWIYeVXyW6IEYmCGVpLfZZdAGa74ZuDhfxJZ75iD3YaCJL0o
+	+d7vw427haPrZO/urmJiFSPhizstHN/vVIkEjJXJw+YyhPxqoYsnsqcQXZ8htGYrUfi4movjRPBZY
+	jSZxEHiLCTeIbCkGjizi6tv4YHpPsXxj1IpK7Mh3u+yU2MvohIqSJKqNG8om4Y5isDe1+dyqBCVZA
+	qOUTyJHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qR7SQ-004OQL-2W;
-	Wed, 02 Aug 2023 08:43:50 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qR7SM-004OIk-2T
+	id 1qR7bw-004Q0G-09;
+	Wed, 02 Aug 2023 08:53:40 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1qR7bt-004Pzb-1J
 	for linux-riscv@lists.infradead.org;
-	Wed, 02 Aug 2023 08:43:49 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 8C4298308;
-	Wed,  2 Aug 2023 16:43:05 +0800 (CST)
-Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 2 Aug
- 2023 16:43:05 +0800
-Received: from localhost.localdomain (183.27.98.54) by EXMBX061.cuchost.com
- (172.16.6.61) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 2 Aug
- 2023 16:43:04 +0800
-From: Xingyu Wu <xingyu.wu@starfivetech.com>
-To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, "Maxim
- Kochetkov" <fido_max@inbox.ru>, Rob Herring <robh+dt@kernel.org>, "Krzysztof
- Kozlowski" <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley
-	<conor.dooley@microchip.com>, Emil Renner Berthing
-	<emil.renner.berthing@canonical.com>
-CC: Jose Abreu <joabreu@synopsys.com>, Paul Walmsley
+	Wed, 02 Aug 2023 08:53:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1690966417; x=1722502417;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=Tv4M0P+a0kjE58sJhnwrk9HUNB9uEWwAlkNuhiNh6pg=;
+  b=HbVkbt7MWj+p0JpeBgWt2cjwffRPQKz3AY+Z2H1ixbA99cyNEsybgseW
+   Nf2Gl23d1uie79vPx8cRkFnnC720xnD0HSvkm+NIBIvIVf9VccVJPkxJ4
+   Hil8IK76W47JglnqhLOR9xJdkpYJibED4k+AE4mGW42+XXmvrcHLReAQs
+   /Ve2DNSdGo/ZB4ERaKortCiIox0z86UtYVzr6TQ6I0sX5nR6Cy1NNAl55
+   6nA7tZQ4V86LDQ5BNX2Z1UjApgwWQZZcutf5KLzlfJeswGotsTx0oPpRN
+   TyQy4CaKpQH+HY5oWmNdRO4RB+VLUsoeKhvBK6CZ9ti3uq7WVzocBxf3m
+   g==;
+X-IronPort-AV: E=Sophos;i="6.01,248,1684825200"; 
+   d="asc'?scan'208";a="223448015"
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa4.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 02 Aug 2023 01:53:32 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.21; Wed, 2 Aug 2023 01:53:23 -0700
+Received: from wendy (10.10.115.15) by chn-vm-ex01.mchp-main.com
+ (10.10.85.143) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
+ Transport; Wed, 2 Aug 2023 01:53:21 -0700
+Date: Wed, 2 Aug 2023 09:52:45 +0100
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Greg KH <gregkh@linuxfoundation.org>
+CC: Minda Chen <minda.chen@starfivetech.com>, Conor Dooley <conor@kernel.org>,
+	Jisheng Zhang <jszhang@kernel.org>, Samuel Holland <samuel@sholland.org>, Dao
+ Lu <daolu@rivosinc.com>, Heiko Stuebner <heiko@sntech.de>, Paul Walmsley
 	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, Walker Chen <walker.chen@starfivetech.com>, "Xingyu
- Wu" <xingyu.wu@starfivetech.com>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <alsa-devel@alsa-project.org>,
-	<linux-riscv@lists.infradead.org>
-Subject: [PATCH v1 3/5] ASoC: dwc: i2s: Add StarFive JH7110 SoC support
-Date: Wed, 2 Aug 2023 16:42:59 +0800
-Message-ID: <20230802084301.134122-4-xingyu.wu@starfivetech.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20230802084301.134122-1-xingyu.wu@starfivetech.com>
-References: <20230802084301.134122-1-xingyu.wu@starfivetech.com>
+	<aou@eecs.berkeley.edu>, <linux-kernel@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, Mason Huo <mason.huo@starfivetech.com>,
+	<stable@vger.kernel.org>
+Subject: Re: [PATCH v1] riscv: Using TOOLCHAIN_HAS_ZIHINTPAUSE marco replace
+ zihintpause
+Message-ID: <20230802-decibel-unshaved-fde1cfba2d20@wendy>
+References: <20230802064215.31111-1-minda.chen@starfivetech.com>
+ <20230802-sharpness-spoon-f9b8804fb66f@wendy>
+ <d64874cb-8628-a6d2-d2f4-8af4d0ebf8b2@starfivetech.com>
+ <20230802-seismic-gallstone-fca0f4b17076@wendy>
+ <c42bd997-8795-8bf7-eee1-3ac8b153371a@starfivetech.com>
+ <2023080253-headache-moneybags-a833@gregkh>
 MIME-Version: 1.0
-X-Originating-IP: [183.27.98.54]
-X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX061.cuchost.com
- (172.16.6.61)
-X-YovoleRuleAgent: yovoleflag
+In-Reply-To: <2023080253-headache-moneybags-a833@gregkh>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230802_014347_337009_0F2644EA 
-X-CRM114-Status: GOOD (  27.79  )
+X-CRM114-CacheID: sfid-20230802_015337_612015_70A76BA9 
+X-CRM114-Status: GOOD (  28.49  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,476 +89,109 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============8965456915549300805=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add StarFive JH7110(TX0/TX1/RX channels) SoC support in the
-designware I2S driver and a flag to check if it is on the JH7110 SoC.
+--===============8965456915549300805==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="FW1Kj+nV7cDQRX/N"
+Content-Disposition: inline
 
-These channels need to enable clocks, resets and syscon register on the
-JH7110 SoC. So add init ops in platform data for the JH7110 SoC to do this.
-Their resets should be deassert before changing the parent of clocks so
-these are done in the init ops of platform data. The I2S controllers use
-DMA controller by platform data on the JH7110 and these settings about
-snd_dmaengine_dai_dma_data() should be added in the
-dw_configure_dai_by_pd(). And use dmaengine PCM registration if these
-do not have IRQ on the JH7110 SoC.
+--FW1Kj+nV7cDQRX/N
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
----
- include/sound/designware_i2s.h |   3 +
- sound/soc/dwc/dwc-i2s.c        | 316 ++++++++++++++++++++++++++++++---
- sound/soc/dwc/local.h          |   1 +
- 3 files changed, 299 insertions(+), 21 deletions(-)
+On Wed, Aug 02, 2023 at 10:33:27AM +0200, Greg KH wrote:
+> On Wed, Aug 02, 2023 at 04:17:51PM +0800, Minda Chen wrote:
+> >=20
+> >=20
+> > On 2023/8/2 15:48, Conor Dooley wrote:
+> > > On Wed, Aug 02, 2023 at 03:32:15PM +0800, Minda Chen wrote:
+> > >>=20
+> > >>=20
+> > >> On 2023/8/2 14:54, Conor Dooley wrote:
+> > >> > Hey Minda,
+> > >> >=20
+> > >> > On Wed, Aug 02, 2023 at 02:42:15PM +0800, Minda Chen wrote:
+> > >> >> Actually it is a part of Conor's
+> > >> >> commit aae538cd03bc ("riscv: fix detection of toolchain
+> > >> >> Zihintpause support").
+> > >> >> It is looks like a merge issue.
+> > >> >=20
+> > >> > Yup, spot on.
+> > >> >=20
+> > >> >> Samuel's
+> > >> >> commit 0b1d60d6dd9e ("riscv: Fix build with
+> > >> >> CONFIG_CC_OPTIMIZE_FOR_SIZE=3Dy") do not base on Conor's commit a=
+nd
+> > >> >> revert to __riscv_zihintpause. So this patch can fix it.
+> > >> >>=20
+> > >> >> Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
+> > >> >=20
+> > >> > Did you actually manage to trigger this, or was this by inspection?
+> > >> > clang-15 + binutils 2.35 was, IIRC, how we spotted this because th=
+at's
+> > >> > what the clang-built-linux CI uses to test the LTS kernels from be=
+fore
+> > >> > LLVM's IAS was supported for RISC-V. Seemingly all that needs to be
+> > >> > satisfied there is that zihintpause doesn't appear in -march so th=
+is has
+> > >> > gone unnoticed.
+> > >> >=20
+> > >> > Fixes: 3c349eacc559 ("Merge patch "riscv: Fix build with CONFIG_CC=
+_OPTIMIZE_FOR_SIZE=3Dy"")
+> > >> > Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+> > >> >=20
+> > >> > Thanks,
+> > >> > Conor.
+> > >> >=20
+> > >> Thanks, Conor. I found this just by inspection. I found a issue that=
+ vdso.so call cpu_relax
+> > >> cause application core dump in kernel 6.1.31. I need Samuel'patch to=
+ fix this. And I search the log
+> > >> of processor.h found this issue.
+> > >=20
+> > > That doesn't look like it is fixed in later stable kernels (we are at
+> > > 6.1.42-rcN right now I think). It sounds we should ask Greg to backpo=
+rt
+> > > 0b1d60d6dd9e ("riscv: Fix build with CONFIG_CC_OPTIMIZE_FOR_SIZE=3Dy")
+> > > to 6.1. Does that make sense to you?
+> > Yes. 6.1 is lts kernel. Starfive will use this kernel for a long time. =
+Thanks.
+>=20
+> What is preventing you from moving to a newer kernel version?  All of
+> your kernel changes are already properly merged into Linus's tree,
+> right?
 
-diff --git a/include/sound/designware_i2s.h b/include/sound/designware_i2s.h
-index 80d275b9ae0d..f6803205a9fb 100644
---- a/include/sound/designware_i2s.h
-+++ b/include/sound/designware_i2s.h
-@@ -21,6 +21,8 @@ struct i2s_clk_config_data {
- 	u32 sample_rate;
- };
- 
-+struct dw_i2s_dev;
-+
- struct i2s_platform_data {
- 	#define DWC_I2S_PLAY	(1 << 0)
- 	#define DWC_I2S_RECORD	(1 << 1)
-@@ -42,6 +44,7 @@ struct i2s_platform_data {
- 	void *capture_dma_data;
- 	bool (*filter)(struct dma_chan *chan, void *slave);
- 	int (*i2s_clk_cfg)(struct i2s_clk_config_data *config);
-+	int (*i2s_pd_init)(struct dw_i2s_dev *dev);
- };
- 
- struct i2s_dma_data {
-diff --git a/sound/soc/dwc/dwc-i2s.c b/sound/soc/dwc/dwc-i2s.c
-index c076090a9864..4dfbd8ddbcf5 100644
---- a/sound/soc/dwc/dwc-i2s.c
-+++ b/sound/soc/dwc/dwc-i2s.c
-@@ -16,6 +16,7 @@
- #include <linux/init.h>
- #include <linux/io.h>
- #include <linux/interrupt.h>
-+#include <linux/mfd/syscon.h>
- #include <linux/module.h>
- #include <linux/reset.h>
- #include <linux/slab.h>
-@@ -198,7 +199,7 @@ static void i2s_start(struct dw_i2s_dev *dev,
- 	else
- 		i2s_write_reg(dev->i2s_base, IRER, 1);
- 
--	if (dev->use_pio)
-+	if (dev->use_pio || dev->is_jh7110)
- 		i2s_enable_irqs(dev, substream->stream, config->chan_nr);
- 	else
- 		i2s_enable_dma(dev, substream->stream);
-@@ -216,7 +217,7 @@ static void i2s_stop(struct dw_i2s_dev *dev,
- 	else
- 		i2s_write_reg(dev->i2s_base, IRER, 0);
- 
--	if (dev->use_pio)
-+	if (dev->use_pio || dev->is_jh7110)
- 		i2s_disable_irqs(dev, substream->stream, 8);
- 	else
- 		i2s_disable_dma(dev, substream->stream);
-@@ -227,6 +228,21 @@ static void i2s_stop(struct dw_i2s_dev *dev,
- 	}
- }
- 
-+static int dw_i2s_startup(struct snd_pcm_substream *substream,
-+			  struct snd_soc_dai *cpu_dai)
-+{
-+	struct dw_i2s_dev *dev = snd_soc_dai_get_drvdata(cpu_dai);
-+
-+	if (dev->is_jh7110) {
-+		struct snd_soc_pcm_runtime *rtd = asoc_substream_to_rtd(substream);
-+		struct snd_soc_dai_link *dai_link = rtd->dai_link;
-+
-+		dai_link->trigger_stop = SND_SOC_TRIGGER_ORDER_LDC;
-+	}
-+
-+	return 0;
-+}
-+
- static void dw_i2s_config(struct dw_i2s_dev *dev, int stream)
- {
- 	u32 ch_reg;
-@@ -267,6 +283,11 @@ static int dw_i2s_hw_params(struct snd_pcm_substream *substream,
- 		config->data_width = 16;
- 		dev->ccr = 0x00;
- 		dev->xfer_resolution = 0x02;
-+		/* Set DMA buswidth on JH7110 */
-+		if (dev->is_jh7110) {
-+			dev->play_dma_data.dt.addr_width = DMA_SLAVE_BUSWIDTH_2_BYTES;
-+			dev->capture_dma_data.dt.addr_width = DMA_SLAVE_BUSWIDTH_2_BYTES;
-+		}
- 		break;
- 
- 	case SNDRV_PCM_FORMAT_S24_LE:
-@@ -279,6 +300,11 @@ static int dw_i2s_hw_params(struct snd_pcm_substream *substream,
- 		config->data_width = 32;
- 		dev->ccr = 0x10;
- 		dev->xfer_resolution = 0x05;
-+		/* Set DMA buswidth on JH7110 */
-+		if (dev->is_jh7110) {
-+			dev->play_dma_data.dt.addr_width = DMA_SLAVE_BUSWIDTH_4_BYTES;
-+			dev->capture_dma_data.dt.addr_width = DMA_SLAVE_BUSWIDTH_4_BYTES;
-+		}
- 		break;
- 
- 	default:
-@@ -444,6 +470,7 @@ static int dw_i2s_set_tdm_slot(struct snd_soc_dai *cpu_dai,	unsigned int tx_mask
- }
- 
- static const struct snd_soc_dai_ops dw_i2s_dai_ops = {
-+	.startup	= dw_i2s_startup,
- 	.hw_params	= dw_i2s_hw_params,
- 	.prepare	= dw_i2s_prepare,
- 	.trigger	= dw_i2s_trigger,
-@@ -628,17 +655,43 @@ static int dw_configure_dai_by_pd(struct dw_i2s_dev *dev,
- 
- 	if (dev->quirks & DW_I2S_QUIRK_16BIT_IDX_OVERRIDE)
- 		idx = 1;
--	/* Set DMA slaves info */
--	dev->play_dma_data.pd.data = pdata->play_dma_data;
--	dev->capture_dma_data.pd.data = pdata->capture_dma_data;
--	dev->play_dma_data.pd.addr = res->start + I2S_TXDMA;
--	dev->capture_dma_data.pd.addr = res->start + I2S_RXDMA;
--	dev->play_dma_data.pd.max_burst = 16;
--	dev->capture_dma_data.pd.max_burst = 16;
--	dev->play_dma_data.pd.addr_width = bus_widths[idx];
--	dev->capture_dma_data.pd.addr_width = bus_widths[idx];
--	dev->play_dma_data.pd.filter = pdata->filter;
--	dev->capture_dma_data.pd.filter = pdata->filter;
-+
-+	if (!dev->is_jh7110) {
-+		/* Set DMA slaves info */
-+		dev->play_dma_data.pd.data = pdata->play_dma_data;
-+		dev->capture_dma_data.pd.data = pdata->capture_dma_data;
-+		dev->play_dma_data.pd.addr = res->start + I2S_TXDMA;
-+		dev->capture_dma_data.pd.addr = res->start + I2S_RXDMA;
-+		dev->play_dma_data.pd.max_burst = 16;
-+		dev->capture_dma_data.pd.max_burst = 16;
-+		dev->play_dma_data.pd.addr_width = bus_widths[idx];
-+		dev->capture_dma_data.pd.addr_width = bus_widths[idx];
-+		dev->play_dma_data.pd.filter = pdata->filter;
-+		dev->capture_dma_data.pd.filter = pdata->filter;
-+	} else {
-+		/* Use platform data and use snd_dmaengine_dai_dma_data on JH7110 SoC */
-+		u32 comp2 = i2s_read_reg(dev->i2s_base, I2S_COMP_PARAM_2);
-+		u32 idx2;
-+
-+		if (COMP1_TX_ENABLED(comp1)) {
-+			idx2 = COMP1_TX_WORDSIZE_0(comp1);
-+
-+			dev->play_dma_data.dt.addr = res->start + I2S_TXDMA;
-+			dev->play_dma_data.dt.addr_width = bus_widths[idx];
-+			dev->play_dma_data.dt.fifo_size = dev->fifo_th * 2 *
-+				(fifo_width[idx2]) >> 8;
-+			dev->play_dma_data.dt.maxburst = 16;
-+		}
-+		if (COMP1_RX_ENABLED(comp1)) {
-+			idx2 = COMP2_RX_WORDSIZE_0(comp2);
-+
-+			dev->capture_dma_data.dt.addr = res->start + I2S_RXDMA;
-+			dev->capture_dma_data.dt.addr_width = bus_widths[idx];
-+			dev->capture_dma_data.dt.fifo_size = dev->fifo_th * 2 *
-+				(fifo_width[idx2] >> 8);
-+			dev->capture_dma_data.dt.maxburst = 16;
-+		}
-+	}
- 
- 	return 0;
- }
-@@ -680,6 +733,189 @@ static int dw_configure_dai_by_dt(struct dw_i2s_dev *dev,
- 
- }
- 
-+/* clocks initialization with master mode on JH7110 SoC */
-+static int jh7110_i2s_crg_master_init(struct dw_i2s_dev *dev)
-+{
-+	static struct clk_bulk_data clks[] = {
-+		{ .id = "mclk" },
-+		{ .id = "mclk_ext" },
-+		{ .id = "mclk_inner" },
-+		{ .id = "apb" },
-+		{ .id = "i2sclk" },
-+	};
-+	struct reset_control *resets = devm_reset_control_array_get_exclusive(dev->dev);
-+	int ret;
-+	struct clk *pclk;
-+	struct clk *bclk_mst;
-+	struct clk *mclk;
-+	struct clk *mclk_ext;
-+	struct clk *mclk_inner;
-+
-+	if (IS_ERR(resets))
-+		return dev_err_probe(dev->dev, PTR_ERR(resets), "failed to get i2s resets\n");
-+
-+	ret = clk_bulk_get(dev->dev, ARRAY_SIZE(clks), clks);
-+	if (ret)
-+		return dev_err_probe(dev->dev, ret, "failed to get i2s clocks\n");
-+
-+	mclk = clks[0].clk;
-+	mclk_ext = clks[1].clk;
-+	mclk_inner = clks[2].clk;
-+	pclk = clks[3].clk;
-+	bclk_mst = clks[4].clk;
-+
-+	ret = clk_prepare_enable(pclk);
-+	if (ret)
-+		goto exit;
-+
-+	/* Use inner mclk first and avoid uninitialized gpio for external mclk */
-+	ret = clk_set_parent(mclk, mclk_inner);
-+	if (ret)
-+		goto err_dis_pclk;
-+
-+	ret = clk_prepare_enable(bclk_mst);
-+	if (ret)
-+		goto err_dis_pclk;
-+
-+	/* deassert resets before set clock parent */
-+	ret = reset_control_deassert(resets);
-+	if (ret)
-+		goto err_dis_all;
-+
-+	/* external clock (12.288MHz) for Audio */
-+	ret = clk_set_parent(mclk, mclk_ext);
-+	if (ret)
-+		goto err_dis_all;
-+
-+	/* i2sclk will be got and enabled repeatedly later and should be disabled now. */
-+	clk_disable_unprepare(bclk_mst);
-+	clk_bulk_put(ARRAY_SIZE(clks), clks);
-+	dev->is_jh7110 = true;
-+
-+	return 0;
-+
-+err_dis_all:
-+	clk_disable_unprepare(bclk_mst);
-+err_dis_pclk:
-+	clk_disable_unprepare(pclk);
-+exit:
-+	clk_bulk_put(ARRAY_SIZE(clks), clks);
-+	return ret;
-+}
-+
-+/* clocks initialization with slave mode on JH7110 SoC */
-+static int jh7110_i2s_crg_slave_init(struct dw_i2s_dev *dev)
-+{
-+	static struct clk_bulk_data clks[] = {
-+		{ .id = "mclk" },
-+		{ .id = "mclk_ext" },
-+		{ .id = "apb" },
-+		{ .id = "bclk_ext" },
-+		{ .id = "lrck_ext" },
-+		{ .id = "bclk" },
-+		{ .id = "lrck" },
-+		{ .id = "mclk_inner" },
-+		{ .id = "i2sclk" },
-+	};
-+	struct reset_control *resets = devm_reset_control_array_get_exclusive(dev->dev);
-+	int ret;
-+	struct clk *pclk;
-+	struct clk *bclk_mst;
-+	struct clk *bclk_ext;
-+	struct clk *lrck_ext;
-+	struct clk *bclk;
-+	struct clk *lrck;
-+	struct clk *mclk;
-+	struct clk *mclk_ext;
-+	struct clk *mclk_inner;
-+
-+	if (IS_ERR(resets))
-+		return dev_err_probe(dev->dev, PTR_ERR(resets), "failed to get i2s resets\n");
-+
-+	ret = clk_bulk_get(dev->dev, ARRAY_SIZE(clks), clks);
-+	if (ret)
-+		return dev_err_probe(dev->dev, ret, "failed to get i2s clocks\n");
-+
-+	mclk = clks[0].clk;
-+	mclk_ext = clks[1].clk;
-+	pclk = clks[2].clk;
-+	bclk_ext = clks[3].clk;
-+	lrck_ext = clks[4].clk;
-+	bclk = clks[5].clk;
-+	lrck = clks[6].clk;
-+	mclk_inner = clks[7].clk;
-+	bclk_mst = clks[8].clk;
-+
-+	ret = clk_prepare_enable(pclk);
-+	if (ret)
-+		goto exit;
-+
-+	ret = clk_set_parent(mclk, mclk_inner);
-+	if (ret)
-+		goto err_dis_pclk;
-+
-+	ret = clk_prepare_enable(bclk_mst);
-+	if (ret)
-+		goto err_dis_pclk;
-+
-+	ret = reset_control_deassert(resets);
-+	if (ret)
-+		goto err_dis_all;
-+
-+	ret = clk_set_parent(bclk, bclk_ext);
-+	if (ret)
-+		goto err_dis_all;
-+
-+	ret = clk_set_parent(lrck, lrck_ext);
-+	if (ret)
-+		goto err_dis_all;
-+
-+	ret = clk_set_parent(mclk, mclk_ext);
-+	if (ret)
-+		goto err_dis_all;
-+
-+	/* i2sclk will be got and enabled repeatedly later and should be disabled now. */
-+	clk_disable_unprepare(bclk_mst);
-+	clk_bulk_put(ARRAY_SIZE(clks), clks);
-+	dev->is_jh7110 = true;
-+
-+	return 0;
-+
-+err_dis_all:
-+	clk_disable_unprepare(bclk_mst);
-+err_dis_pclk:
-+	clk_disable_unprepare(pclk);
-+exit:
-+	clk_bulk_put(ARRAY_SIZE(clks), clks);
-+	return ret;
-+}
-+
-+/* Special syscon initialization about RX channel with slave mode on JH7110 SoC */
-+static int jh7110_i2srx_crg_init(struct dw_i2s_dev *dev)
-+{
-+	struct regmap *regmap;
-+	unsigned int args[2];
-+
-+	regmap = syscon_regmap_lookup_by_phandle_args(dev->dev->of_node,
-+						      "starfive,syscon",
-+						      2, args);
-+	if (IS_ERR(regmap))
-+		return dev_err_probe(dev->dev, PTR_ERR(regmap), "getting the regmap failed\n");
-+
-+	/* Enable I2Srx with syscon register, args[0]: offset, args[1]: mask */
-+	regmap_update_bits(regmap, args[0], args[1], args[1]);
-+
-+	return jh7110_i2s_crg_slave_init(dev);
-+}
-+
-+static int jh7110_i2stx0_clk_cfg(struct i2s_clk_config_data *config)
-+{
-+	struct dw_i2s_dev *dev = container_of(config, struct dw_i2s_dev, config);
-+	u32 bclk_rate = config->sample_rate * 64;
-+
-+	return clk_set_rate(dev->clk, bclk_rate);
-+}
-+
- static int dw_i2s_dai_probe(struct snd_soc_dai *dai)
- {
- 	struct dw_i2s_dev *dev = snd_soc_dai_get_drvdata(dai);
-@@ -712,15 +948,25 @@ static int dw_i2s_probe(struct platform_device *pdev)
- 	if (IS_ERR(dev->i2s_base))
- 		return PTR_ERR(dev->i2s_base);
- 
--	dev->reset = devm_reset_control_array_get_optional_shared(&pdev->dev);
--	if (IS_ERR(dev->reset))
--		return PTR_ERR(dev->reset);
-+	dev->dev = &pdev->dev;
-+	dev->is_jh7110 = false;
-+	if (pdata) {
-+		if (pdata->i2s_pd_init) {
-+			ret = pdata->i2s_pd_init(dev);
-+			if (ret)
-+				return ret;
-+		}
-+	}
- 
--	ret = reset_control_deassert(dev->reset);
--	if (ret)
--		return ret;
-+	if (!dev->is_jh7110) {
-+		dev->reset = devm_reset_control_array_get_optional_shared(&pdev->dev);
-+		if (IS_ERR(dev->reset))
-+			return PTR_ERR(dev->reset);
- 
--	dev->dev = &pdev->dev;
-+		ret = reset_control_deassert(dev->reset);
-+		if (ret)
-+			return ret;
-+	}
- 
- 	irq = platform_get_irq_optional(pdev, 0);
- 	if (irq >= 0) {
-@@ -779,7 +1025,7 @@ static int dw_i2s_probe(struct platform_device *pdev)
- 		goto err_clk_disable;
- 	}
- 
--	if (!pdata) {
-+	if (!pdata || dev->is_jh7110) {
- 		if (irq >= 0) {
- 			ret = dw_pcm_register(pdev);
- 			dev->use_pio = true;
-@@ -821,8 +1067,36 @@ static void dw_i2s_remove(struct platform_device *pdev)
- }
- 
- #ifdef CONFIG_OF
-+static const struct i2s_platform_data jh7110_i2stx0_data = {
-+	.cap = DWC_I2S_PLAY | DW_I2S_MASTER,
-+	.channel = TWO_CHANNEL_SUPPORT,
-+	.snd_fmts = SNDRV_PCM_FMTBIT_S16_LE | SNDRV_PCM_FMTBIT_S32_LE,
-+	.snd_rates = SNDRV_PCM_RATE_32000 | SNDRV_PCM_RATE_48000,
-+	.i2s_clk_cfg = jh7110_i2stx0_clk_cfg,
-+	.i2s_pd_init = jh7110_i2s_crg_master_init,
-+};
-+
-+static const struct i2s_platform_data jh7110_i2stx1_data = {
-+	.cap = DWC_I2S_PLAY | DW_I2S_SLAVE,
-+	.channel = TWO_CHANNEL_SUPPORT,
-+	.snd_fmts = SNDRV_PCM_FMTBIT_S16_LE | SNDRV_PCM_FMTBIT_S32_LE,
-+	.snd_rates = SNDRV_PCM_RATE_8000_192000,
-+	.i2s_pd_init = jh7110_i2s_crg_slave_init,
-+};
-+
-+static const struct i2s_platform_data jh7110_i2srx_data = {
-+	.cap = DWC_I2S_RECORD | DW_I2S_SLAVE,
-+	.channel = TWO_CHANNEL_SUPPORT,
-+	.snd_fmts = SNDRV_PCM_FMTBIT_S16_LE | SNDRV_PCM_FMTBIT_S32_LE,
-+	.snd_rates = SNDRV_PCM_RATE_8000_192000,
-+	.i2s_pd_init = jh7110_i2srx_crg_init,
-+};
-+
- static const struct of_device_id dw_i2s_of_match[] = {
- 	{ .compatible = "snps,designware-i2s",	 },
-+	{ .compatible = "starfive,jh7110-i2stx0", .data = &jh7110_i2stx0_data, },
-+	{ .compatible = "starfive,jh7110-i2stx1", .data = &jh7110_i2stx1_data,},
-+	{ .compatible = "starfive,jh7110-i2srx", .data = &jh7110_i2srx_data,},
- 	{},
- };
- 
-diff --git a/sound/soc/dwc/local.h b/sound/soc/dwc/local.h
-index 4ce96bac2f39..dce88c9ad5f3 100644
---- a/sound/soc/dwc/local.h
-+++ b/sound/soc/dwc/local.h
-@@ -123,6 +123,7 @@ struct dw_i2s_dev {
- 	u32 fifo_th;
- 	u32 l_reg;
- 	u32 r_reg;
-+	bool is_jh7110; /* Flag for StarFive JH7110 SoC */
- 
- 	/* data related to DMA transfers b/w i2s and DMAC */
- 	union dw_i2s_snd_dma_data play_dma_data;
--- 
-2.25.1
+Regardless of their reasons, "vdso.so call cpu_relax cause application
+core dump" is something that we should fix in stable kernels, no?
 
+--FW1Kj+nV7cDQRX/N
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZMoZXQAKCRB4tDGHoIJi
+0oRWAP9BTGH3q07+XeBW8yRULD9PA1MB/TiLZFZTyMSVwZ+k7gEAkN5bfTlTj2Bu
+4J2aZnx6QsteTBSDwjAzsIcBaqYmGQU=
+=deFA
+-----END PGP SIGNATURE-----
+
+--FW1Kj+nV7cDQRX/N--
+
+
+--===============8965456915549300805==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============8965456915549300805==--
+
