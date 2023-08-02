@@ -4,75 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F50CC04A6A
-	for <linux-riscv@archiver.kernel.org>; Wed,  2 Aug 2023 14:37:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C555AC04E69
+	for <linux-riscv@archiver.kernel.org>; Wed,  2 Aug 2023 14:49:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	References:In-Reply-To:MIME-Version:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=x9tlEywB6Ro5vuRww4ESsvGTttqyZjC9C/F/sxX9XDM=; b=esNdSfSaemGygy
-	fKG6d/04tdUsVyPXFURNjM4Pd+RSDpYXAzqnhvbqL+ggq78QaWsrytwxDBtElIokIanAq5ni41U94
-	b+G9J869RLtBkg/y3OSm6vHZwwBh3Es4LG7gPI5MztJYfh2ENom3TvBIzR9jSrMPGve5PNjNkpVuy
-	DZPl7nC4hmdQw4RUXbqmZMZPdGsRRgMr3s+uh9PLOxvV8vt6BUtxZZ7hgNDRaOOn0W3MS5vqGToNn
-	gxsn6pZ8QA6FwnsjU3n1XSbFkYQcQHZoiB2ZxRC+1zsWzSuHtF5XVkXB97DQW9VdtN1pYFpNsw58T
-	k68lCGvf6M5a9IXxAunw==;
+	List-Owner; bh=lnOaTtIJXedpMexDYdCFKFfaWI6O3WACJ7NRj4RmPFA=; b=OwtIOdvVQhOKBX
+	ndxpLnvy2ofBKSjMiVqpMbKfCFUKXrtXaPgYc4wWEUPl7uUACajTvMk1jxO6J14wEARiNWI6F4TeP
+	HWPe3x2g/lay5DEaXAIZxH2w1RsKlHBrtGWaSfeMHUitpU8++vpEx0Psd9csq+1GDZI4PFHE6AY+f
+	L/kQga3tiMVII3Lsnn1ycDHlnUVKU1Xms/fcfQPB8ZCOtSnzcJQExWPvn3zc9TinBnCUqx060hN0p
+	AOUjI7fCSrctvQY/r0WeBgm0/9UEjDEWlapqKMA+srGNTzopUmfSEB69mWLVtl6Q4SyB9xaM6wz5x
+	PB0XYtmRrfNSpm0wlPXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qRCz3-0056DD-1U;
-	Wed, 02 Aug 2023 14:37:53 +0000
-Received: from mail-lj1-x235.google.com ([2a00:1450:4864:20::235])
+	id 1qRDAH-0057sS-0M;
+	Wed, 02 Aug 2023 14:49:29 +0000
+Received: from relay9-d.mail.gandi.net ([217.70.183.199])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qRCz0-0056Cu-1u
+	id 1qRDAC-0057nZ-2V
 	for linux-riscv@lists.infradead.org;
-	Wed, 02 Aug 2023 14:37:51 +0000
-Received: by mail-lj1-x235.google.com with SMTP id 38308e7fff4ca-2b9bb097c1bso106553351fa.0
-        for <linux-riscv@lists.infradead.org>; Wed, 02 Aug 2023 07:37:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20221208; t=1690987069; x=1691591869;
-        h=cc:to:subject:message-id:date:from:references:in-reply-to
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=WncrNnvFQyyfsztP2Iwrl3jRrmLhWxhdL3w/s+ItBds=;
-        b=hrC4HuB38uP8Dqr9BfP5b/XQC8PUZXttdbZNB9cSapc6d3trmP8GMVi8d6SEVgUSHk
-         bpO+pIedWMTEkgoW9tM+UJZGSx23yeSbsoGv3pbBWom3SKnEVHyiVB8B6aU1zBTK+5oR
-         kw9RT8DqWgIl7UoeK7kNwJK3LZJTkqqlZIkfvAIRH7WS/93Uu4V/NeVHzn/4Hw/N3k0S
-         x9Qx6iotKwbvasEyDuhB7+MJvAoQbzFJn2Eey5rr6B1PSsk7DDSMckPhCcq2QXpy5rm4
-         7zvFuwNq+MiAMsq3+ITbAGjpgGGiKWSd++/kY3Pkn9IOLObkSgDgy5MvJH/Mn4faVyDV
-         xerA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1690987069; x=1691591869;
-        h=cc:to:subject:message-id:date:from:references:in-reply-to
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=WncrNnvFQyyfsztP2Iwrl3jRrmLhWxhdL3w/s+ItBds=;
-        b=enNPcwqrS5QI7Ga2jL7cugKEoumWptuuIaxPzs8vaOi7wm/hK0vgCh5UjJS4VbA2Ym
-         Iy5fJgM+V7fo4fYQxE+LwSjIacpH/AeNlxRWJLT0v6Bqg1C0XXjx/ZQBWNC7EnW2Ya5K
-         vq2izzww66ET2vKJvoUNp+4ZZzXfB2MdGVgA8XRWtcbFmnSLDGSfstC7U/Jj+2RvooH3
-         Pm7cvdZTYcqJe9ZUWxfj3ulcu6tjZbr5vxM9HejShjEXSDgLdEqfxzg8Elqc6kg2UmI8
-         vzltqWv10sY4JYPBbBpM/mxo8NYJPmHYP+ip2s5kWaTpUWsZk4AnVqLZbCt/GwRRu772
-         bawA==
-X-Gm-Message-State: ABy/qLaFU/UQt2CiK0IiS9BfRuiGnlrQp6sXBjNgPgYAu312JHhOmtTL
-	AahTZNvCJp5PqgKavSWUH2nhGkJom6d68Oe3K7A=
-X-Google-Smtp-Source: APBJJlG94bbaHKCsJAZntxx4NQQLJHpCxfH6x7RhpcRxTSCGNpFlM72WHCAvu/b1JA8gLmalBU4U3MWkyUAXsl0SXSA=
-X-Received: by 2002:a2e:a411:0:b0:2b8:39e4:2e2c with SMTP id
- p17-20020a2ea411000000b002b839e42e2cmr5217164ljn.1.1690987068676; Wed, 02 Aug
- 2023 07:37:48 -0700 (PDT)
+	Wed, 02 Aug 2023 14:49:27 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 32544FF80B;
+	Wed,  2 Aug 2023 14:49:13 +0000 (UTC)
+Message-ID: <28b1549f-d0de-f9e0-f1bd-57509136cf4a@ghiti.fr>
+Date: Wed, 2 Aug 2023 16:49:13 +0200
 MIME-Version: 1.0
-Received: by 2002:a2e:9cd5:0:b0:2b7:787:e49d with HTTP; Wed, 2 Aug 2023
- 07:37:48 -0700 (PDT)
-In-Reply-To: <CAPm8-H5d_Hp0zaYh+uX6=KhB2GHGHTkaB6tu6Q82AgR4zK-4xw@mail.gmail.com>
-References: <CAPm8-H43P4WrgibV2MGNFZt7ommkchAeom4m0Kt3N-CsG6D9RA@mail.gmail.com>
- <20230802-palpitate-defection-4908b4cbd142@spud> <CAPm8-H5d_Hp0zaYh+uX6=KhB2GHGHTkaB6tu6Q82AgR4zK-4xw@mail.gmail.com>
-From: Laurentiu-Cristian Duca <laurentiu.duca@gmail.com>
-Date: Wed, 2 Aug 2023 17:37:48 +0300
-Message-ID: <CAPm8-H6A9HoJF6B8U5WP2ucqZQrszN-avV6ETX=iPWXq4EvaoA@mail.gmail.com>
-Subject: Re: dts - linux,usable-memory
-To: Conor Dooley <conor@kernel.org>
-Cc: linux-riscv@lists.infradead.org
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.13.0
+Subject: Re: [PATCH] riscv: Flush stale TLB entry with VMAP_STACK enabled
+Content-Language: en-US
+To: dylan <dylan@andestech.com>
+Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ wangkefeng.wang@huawei.com, tongtiangen@huawei.com, guoren@kernel.org,
+ sergey.matyukevich@syntacore.com, gregkh@linuxfoundation.org,
+ ajones@ventanamicro.com, aou@eecs.berkeley.edu, palmer@dabbelt.com,
+ paul.walmsley@sifive.com, conor.dooley@microchip.com, x5710999x@gmail.com,
+ tim609@andestech.com, cl634@andestech.com, ycliang@andestech.com
+References: <20230801090927.2018653-1-dylan@andestech.com>
+ <dc26625b-6658-c078-76d2-7e975a04b1d4@ghiti.fr>
+ <ZMpQIXXfFLCFeOtg@atctrx.andestech.com>
+From: Alexandre Ghiti <alex@ghiti.fr>
+In-Reply-To: <ZMpQIXXfFLCFeOtg@atctrx.andestech.com>
+X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230802_073750_631647_9C9DFF14 
-X-CRM114-Status: GOOD (  15.85  )
+X-CRM114-CacheID: sfid-20230802_074925_077692_51C15449 
+X-CRM114-Status: GOOD (  57.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,64 +63,208 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 8/2/23, Laurentiu-Cristian Duca <laurentiu.duca@gmail.com> wrote:
-> On 8/2/23, Conor Dooley <conor@kernel.org> wrote:
->> Hey,
+
+On 02/08/2023 14:46, dylan wrote:
+> On Tue, Aug 01, 2023 at 03:56:06PM +0200, Alexandre Ghiti wrote:
+>
+> Hi Alex,
+>
+> Thanks for the comment.
+>
+>> Hi Dylan,
 >>
->> On Wed, Aug 02, 2023 at 04:51:47PM +0300, Laurentiu-Cristian Duca wrote:
->>>   my name is laurentiu-cristian duca and i am an open-source enthusiast.
->>> lately i have tried to use the linux,usable-memory in the dts memory
->>> node
->>> and linux freezes.
->>>   if i use only reg, linux boots fine.
->>>   does anybody used linux,usable-memory and can you show a working
->>> example.
+>>
+>> On 01/08/2023 11:09, Dylan Jhong wrote:
+>>> When VMAP_STACK is enabled, the kernel stack will be obtained through
+>>> vmalloc(). Normally, we rely on the logic in vmalloc_fault() to update stale
+>>> P*D entries covering the vmalloc space in a task's page tables when it first
+>>> accesses the problematic region.
+>>
+>> I guess that's for rv32 right? Because vmalloc_fault() has been removed for
+>> rv64 in 6.5.
+>>
+>> Here you describe the issue as being caused by the vmap stack being in a new
+>> PGD which then needs a page table synchronization in vmalloc_fault(), which
+>> can't happen since vmalloc_fault() needs this same stack in the current page
+>> table.
+>>
+> No. This problem only occurs on rv64. It is triggered when the kernel stack is
+> allocated via vmalloc(), which is only eligible if VMAP_STACK is enabled.
+> According to riscv/Kconfig, VMAP_STACK can only be enabled under rv64.
+>
+> Sorry I forgot to mention that I was developing on Linux 6.1 LTS, And I did not
+> notice that vmalloc_fault() was removed in Linux 6.5. But this should not impact
+> the problem this patch aims to solve, as the kernel stack is accessed in
+> handle_exception()[1] long before vmalloc_fault() is called.
+>
+> To verify this, I also backported the "remove vmalloc_fault()" patch [2] to
+> Linux 6.1 LTS. The experiment revealed that the problem still persists.
+>
+> [*1]: https://github.com/torvalds/linux/blob/master/arch/riscv/kernel/entry.S#L42
+> [*2]: https://lore.kernel.org/linux-mm/871qiyfhpe.fsf@all.your.base.are.belong.to.us/T/
+>
+>>>    Unfortunately, this is not sufficient when
+>>> the kernel stack resides in the vmalloc region, because vmalloc_fault() is a
+>>> C function that needs a stack to run. So we need to ensure that these P*D
+>>> entries are up to date *before* the MM switch.
 >>>
->>>   here is what i tried
->>>         memory@80000000 {
->>>                 device_type = "memory";
->>>                 reg = <0x0 0x80000000 0x0 0x700000>;
->>>                 //linux,usable-memory = <0x80000000 0x700000>;
->>>         };
+>>> Here's our symptom:
+>>> core 0: A speculative load lead the kernel stack load to the TLB before the
+>>>           corresponding kernel stack's page table is created.
+>>> core 1: Create page table mapping of that kernel stack.
+>>> core 0: After a context switch, the kernel attempts to use the stack region.
+>>>           However, even if the page table is correct, the stack address mapping
+>>>           in the TLB is invalid, leading to subsequent nested exceptions.
 >>
->> What are you actually doing when you freeze? A normal boot? Kexec?
->> What hardware is this?
->> Are you using OpenSBI, and if so what version?
->> What version of the kernel is this?
+>> But here the problem you describe is different since it seems to be caused
+>> by the TLB caching invalid entries which then needs a sfence.vma for the
+>> page table walker to see the new correct entry.
+>>
+> TLB caching invalid entries is exactly the problem we encountered, so my modification
+> is trying to update the TLB through the arch_sync_kernel_mappings() after vmalloc
+> creates the page table.
 >
->   linux5.13.19 with busybox minimal rootfs, bbl (berkeley boot loader),
-> hardware fpga board with only uart and memory 8MB
-> i simulate in verilator the verilog sources and i have success if the
-> dts has reg.
->  when it freezes, i can not see any message in simulation
-[    0.000000] Linux version 5.13.19 (laur@laurPC-100)
-(riscv32-linux-gcc.br_real (Buildroot 2021.08) 11.1.0, GNU ld (GNU
-Binutils) 2.37) #402 SMP Wed Aug 2 15:27:14 EEST 2023
-[    0.000000] OF: fdt: memory scan node memory@80000000, reg size 8,
-[    0.000000] Machine model: kise-lab,simrv
-[    0.000000] earlycon: sbi0 at I/O port 0x0 (options '')
-[    0.000000] printk: bootconsole [sbi0] enabled
-[    0.000000] printk: debug: ignoring loglevel setting.
-from here i can not see anything
+> let me describe the situation we encountered more clearly:
+>
+> When we execute a multi-threaded user space program on rv64 SMP CPU, we eventually
+> encounter the issue of nested exceptions caused by the TLB not being updated.
+>
+>
+> CPU0                                           CPU1
+> - (Thread 1) Create page table
+> - (Thread 1) Do plist_check_list() to
+>    check the kernel stack used by thread 1
+>    is valid. But a speculative load will
+>    be triggered here, causing the kernel
+>    stack address of thread 2 to be loaded
+>    to the TLB of CPU0, and thread 2 has
+>    not yet been established at this time.
+>                                                 - (Thread 2) Create page table
+>                                                 - (Thread 2) Do plist_check_list().
+>                                                 - Switch MM
+> - (Thread 2) Keep executing user program
+>    (thread 2) Enter handle_exception().
+>    In Handle_excption() will try to access
+>    kernel stack to store registers. But the
+>    kernel stack mapping in TLB is invalid.
+>    So another page fault exception is raised.
+>    The nested exception occurs here. System hang.
+>
+> Therefore, the main intention of this patch is to flush the TLB of all CPUs
+> after the page table created by vmalloc() before switching MM.
+>
+>>> This fix is inspired by ARM's approach[*1], commit a1c510d0adc6 ("ARM:
+>>> implement support for vmap'ed stacks"), it also performs a TLB flush after
+>>> setting up the page tables in vmalloc().
+>>> Fixes: 31da94c25aea ("riscv: add VMAP_STACK overflow detection")
+>>> Signed-off-by: Dylan Jhong <dylan@andestech.com>
+>>> ---
+>>>    arch/riscv/include/asm/page.h |  4 ++++
+>>>    arch/riscv/mm/tlbflush.c      | 16 ++++++++++++++++
+>>>    2 files changed, 20 insertions(+)
+>>>
+>>> diff --git a/arch/riscv/include/asm/page.h b/arch/riscv/include/asm/page.h
+>>> index 349fad5e35de..c9b080a72855 100644
+>>> --- a/arch/riscv/include/asm/page.h
+>>> +++ b/arch/riscv/include/asm/page.h
+>>> @@ -21,6 +21,10 @@
+>>>    #define HPAGE_MASK              (~(HPAGE_SIZE - 1))
+>>>    #define HUGETLB_PAGE_ORDER      (HPAGE_SHIFT - PAGE_SHIFT)
+>>> +#ifdef CONFIG_VMAP_STACK
+>>> +#define ARCH_PAGE_TABLE_SYNC_MASK	PGTBL_PTE_MODIFIED
+>>> +#endif
+>>> +
+>>>    /*
+>>>     * PAGE_OFFSET -- the first address of the first page of memory.
+>>>     * When not using MMU this corresponds to the first free page in
+>>> diff --git a/arch/riscv/mm/tlbflush.c b/arch/riscv/mm/tlbflush.c
+>>> index ef701fa83f36..0799978913ee 100644
+>>> --- a/arch/riscv/mm/tlbflush.c
+>>> +++ b/arch/riscv/mm/tlbflush.c
+>>> @@ -86,3 +86,19 @@ void flush_pmd_tlb_range(struct vm_area_struct *vma, unsigned long start,
+>>>    	__sbi_tlb_flush_range(vma->vm_mm, start, end - start, PMD_SIZE);
+>>>    }
+>>>    #endif
+>>> +
+>>> +#ifdef CONFIG_VMAP_STACK
+>>> +/*
+>>> + * Normally, we rely on the logic in vmalloc_fault() to update stale P*D
+>>> + * entries covering the vmalloc space in a task's page tables when it first
+>>> + * accesses the problematic region. Unfortunately, this is not sufficient when
+>>> + * the kernel stack resides in the vmalloc region, because vmalloc_fault() is a
+>>> + * C function that needs a stack to run. So we need to ensure that these P*D
+>>> + * entries are up to date *before* the MM switch.
+>>> + */
+>>> +void arch_sync_kernel_mappings(unsigned long start, unsigned long end)
+>>> +{
+>>> +	if (start < VMALLOC_END && end > VMALLOC_START)
+>>> +		flush_tlb_all();
+>>> +}
+>>> +#endif
+>>
+>> And if that works for you, I'd say the problem is the latter: the TLB
+>> caching invalid entries, since you don't synchronize the page tables here.
+>> That looks a lot like the patch I proposed here https://patchwork.kernel.org/project/linux-riscv/patch/20230725132246.817726-1-alexghiti@rivosinc.com/
+>> that implements flush_cache_vmap().
+>>
+> Updating the TLB in flush_cache_vmap() might address the problem I encountered,
+> And I noticed that ARM accomplishes this through arch_sync_kernel_mappings()[3].
+> As a result, I chose to adopt a similar approach to ARM's solution.
+>
+> [3]: https://github.com/torvalds/linux/blob/5d0c230f1de8c7515b6567d9afba1f196fb4e2f4/arch/arm/kernel/traps.c#L962
 
 
-> if you want to, i can send you the sources
+That being said, the problem is more general than the one you are trying 
+to fix here, we should not restrict arch_sync_kernel_mappings() to 
+VMAP_STACK as any vmalloc mapping could lead to such bug (even more 
+since the removal of vmalloc_fault()). For microarchitectures that allow 
+the caching of invalid entries in the TLB, at any new kernel mapping we 
+must emit a "preventive" sfence.vma (unfortunately on all cores) since 
+we would not be able to recover the kernel page fault (unless we find 
+another solution, but given 6.5 is approaching, I doubt it).
+
+I don't know which patch is "better" than the other, I'm looking into 
+that. Maybe you could send a v2 in the meantime, where the commit log 
+does not mention vmalloc_fault() and the synchronization of PGD entries, 
+and which removes the #ifdef CONFIG_VMAP_STACK?
+
+Thanks,
+
+Alex
+
+
 >
->   please tell me if the dts memory property is written correctly for
-> linux,usable-memory
->
-> thank you,
-> laurentiu
+>> So I'm not mistaken, we have another problem in 32-bit: I guess that in your
+>> example core 0 and core 1 execute in the same address space (ie the same
+>> page table) and a simple sfence.vma gets rid of the invalid entry and things
+>> can go on. But what if 2 page tables are created with the same vmalloc
+>> mappings, one adds a PGD in the vmalloc mapping, then the other one does not
+>> have it in its page table but still allocates its vmap stack in this new PGD
+>> => the latter would never be able to recover from the vmalloc fault since it
+>> needs to update its page table with the new PGD and it needs the new PGD for
+>> that.
+>>
+>> Let me know if I'm completely wrong here!
 >>
 >> Thanks,
->> Conor.
 >>
+>> Alex
+>>
+>>
+> Best regards,
+> Dylan Jhong
 >
+>
+>
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
