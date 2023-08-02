@@ -4,61 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1385FC04A6A
-	for <linux-riscv@archiver.kernel.org>; Wed,  2 Aug 2023 15:55:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8B85C001DF
+	for <linux-riscv@archiver.kernel.org>; Wed,  2 Aug 2023 15:58:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=e5xu3SKZlAUwv/JlYNtiNli3NknVAmf38hOpCasQXxk=; b=y7VdGELnVlMS0c
-	XQdHhrML86htjdUXZvBbxZ7md6yQHFETpDbLJOKsPCXXbGL62+npkDOSrgbCGHlbqp6Xs9sCX1x/R
-	eSLmJr+o7ZO6Gv8yfBwE7ayMuOHzDb6Cfq7EdbGbkhvSntZsbxzxUbWo9JKaj2DzUOCoMTZlye9NP
-	VUunntF0FlCpheY1acBfgClCpef8B3TeuYSiUXHIg/bYo5jkK75OVxdbRtmKKHOS/9a2sr6tipl69
-	8Cpr2OHWbmxE2997WwoTK2X+XVC5Kd2lUTEoA/rpTNGUastaD8b/fAoqfi4dbjnRPdkkX2jgMGBdw
-	58FqFGnhn6OrbkUnKqog==;
+	List-Owner; bh=gusp8pc50r9AnHr5J7SNHq8esbcVZLYpaV23kUg+ONc=; b=FvsSAHGJnGiEZs
+	maaJIwBIPtxqSQVbaMsnHzxANG8m+Y+9qXU4XUK4wct34YOEWpVIxru5adpZqhTS4Z7wZ8lLeY9m1
+	crdZ+dg4bhbnzZ8IU7rRxDYaxTABJDBPOHA4ledDUXWHxDMlWSD9bUNq9zjzfFz5W8kwRBtlZwc8f
+	M0P8hJYAjnj1pt3zQRTtkSuB8iuVeUeZ3C1ADzVl/7agrQn2KVR7lmZYsl2My7tkZpwKzeIaWdZzM
+	VTbvzvVlLL9gwHcvqC8fgKyVoI3bHyFkFJB9Bz43M64LWkKI6nKuxe1ou9YRDY8Y5YmM7iFxs8H/S
+	rnMk8ibEY1n/ItnPKIug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qREBx-005Hoh-2k;
-	Wed, 02 Aug 2023 15:55:17 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1qREF7-005IKj-2i;
+	Wed, 02 Aug 2023 15:58:33 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qREBu-005Hnk-1i;
-	Wed, 02 Aug 2023 15:55:15 +0000
+	id 1qREF4-005IIO-0r;
+	Wed, 02 Aug 2023 15:58:31 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id D190161A10;
-	Wed,  2 Aug 2023 15:55:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 371B5C433C8;
-	Wed,  2 Aug 2023 15:55:13 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 7CC9C61A22;
+	Wed,  2 Aug 2023 15:58:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D5C42C433C7;
+	Wed,  2 Aug 2023 15:58:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1690991713;
-	bh=vmS3y3vEprt4Ee9EVdT/KBotedRLV0L1wK1C8giiJQ0=;
+	s=k20201202; t=1690991908;
+	bh=Efu/dr3jOn1VaTX57cLLSWiNYnjtaqySwrOSZDjUPqQ=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=WeiXGksNCeqBY0D4Z/8Ow3J9XqjC9OJyQu+88uQz8TQaiKoIgPzO9Yl9TRNFTlF3D
-	 N39NOOXy/Mz33yVrblUjCuLOvbkllNtHrbplC8Lqq3XEZb+5b6hwCMns6zjmiGDiR5
-	 WyKju8MvL8RFMV0pD03r+FySvZn1XdniQk0Eq3w2KYJ+neD3VaPmcPNIxN2Y2gg+sv
-	 DUsm6xoKz5G2XuJa48wmKk8Acu4wfo23otwQde0jhhtejTCMbDPpc0JiEX4uvF0xoL
-	 oztN3yS/UAXRXhwX7BD0euPVgBUKmEnA+m7EZc5otPguhtVvE1+tJsa8wHuWBmvo03
-	 IzWfXQNHWVpaQ==
+	b=ZBXCXaWsYZ6ZlQct9rxxSKisWvEYggis2ghmHQxOrF9tMav+Gdntp6izvzlrlpDy/
+	 3rfy+IZKA07S0dDz4QSel+uFToUD58bYVI+A/Hsp9mE5NOGx+VIQ+nIiJL7YJedIQf
+	 GyhChNxbwFGapOZVy+M3mY32pow7Jaw/vMovuLQziwJ+1d9IPY/p9f5yksZ1kTieId
+	 NRWMw5FWyj+QAGevBlLdsE1hGaG1j6PIhQSlw8roYCbk/AoJYlZUcvcQllbw2Q8vAQ
+	 9/jtQ2BpLI+ns2GEXvOQjqPkIwRtIFzPw9xIVYduJxEiSe/cOqo26To4TQ9K9txDeL
+	 gf6EGg97hnJ9A==
 Received: from [104.132.1.99] (helo=wait-a-minute.misterjones.org)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1qREBq-001PtL-B3;
-	Wed, 02 Aug 2023 16:55:10 +0100
-Date: Wed, 02 Aug 2023 16:55:05 +0100
-Message-ID: <877cqdqw12.wl-maz@kernel.org>
+	id 1qREF0-001Pz2-E9;
+	Wed, 02 Aug 2023 16:58:26 +0100
+Date: Wed, 02 Aug 2023 16:58:21 +0100
+Message-ID: <875y5xqvvm.wl-maz@kernel.org>
 From: Marc Zyngier <maz@kernel.org>
-To: Sean Christopherson <seanjc@google.com>
-Cc: Raghavendra Rao Ananta <rananta@google.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
+To: Raghavendra Rao Ananta <rananta@google.com>
+Cc: Oliver Upton <oliver.upton@linux.dev>,
 	James Morse <james.morse@arm.com>,
 	Suzuki K Poulose <suzuki.poulose@arm.com>,
 	Paolo Bonzini <pbonzini@redhat.com>,
+	Sean Christopherson <seanjc@google.com>,
 	Huacai Chen <chenhuacai@kernel.org>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	Anup Patel <anup@brainfault.org>,
@@ -73,24 +73,27 @@ Cc: Raghavendra Rao Ananta <rananta@google.com>,
 	kvm-riscv@lists.infradead.org,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	kvm@vger.kernel.org
-Subject: Re: [PATCH v7 02/12] KVM: arm64: Use kvm_arch_flush_remote_tlbs()
-In-Reply-To: <ZMgsjx8dwKd4xBGe@google.com>
+	kvm@vger.kernel.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Gavin Shan <gshan@redhat.com>,
+	Shaoqin Huang <shahuang@redhat.com>
+Subject: Re: [PATCH v7 06/12] arm64: tlb: Refactor the core flush algorithm of __flush_tlb_range
+In-Reply-To: <CAJHc60zqOeWXf3kh5hKL6DL3g4znmHaH-TqC0QDcBrWPsHAEXQ@mail.gmail.com>
 References: <20230722022251.3446223-1-rananta@google.com>
-	<20230722022251.3446223-3-rananta@google.com>
-	<87tttpr6qy.wl-maz@kernel.org>
-	<ZMgsjx8dwKd4xBGe@google.com>
+	<20230722022251.3446223-7-rananta@google.com>
+	<87r0otr579.wl-maz@kernel.org>
+	<CAJHc60zqOeWXf3kh5hKL6DL3g4znmHaH-TqC0QDcBrWPsHAEXQ@mail.gmail.com>
 User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
  FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/28.2
  (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
 MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
 X-SA-Exim-Connect-IP: 104.132.1.99
-X-SA-Exim-Rcpt-To: seanjc@google.com, rananta@google.com, oliver.upton@linux.dev, james.morse@arm.com, suzuki.poulose@arm.com, pbonzini@redhat.com, chenhuacai@kernel.org, yuzenghui@huawei.com, anup@brainfault.org, atishp@atishpatra.org, jingzhangos@google.com, reijiw@google.com, coltonlewis@google.com, dmatlack@google.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-mips@vger.kernel.org, kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, kvm@vger.kernel.org
+X-SA-Exim-Rcpt-To: rananta@google.com, oliver.upton@linux.dev, james.morse@arm.com, suzuki.poulose@arm.com, pbonzini@redhat.com, seanjc@google.com, chenhuacai@kernel.org, yuzenghui@huawei.com, anup@brainfault.org, atishp@atishpatra.org, jingzhangos@google.com, reijiw@google.com, coltonlewis@google.com, dmatlack@google.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-mips@vger.kernel.org, kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, kvm@vger.kernel.org, catalin.marinas@arm.com, gshan@redhat.com, shahuang@redhat.com
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230802_085514_661358_9BD31DAE 
-X-CRM114-Status: GOOD (  20.05  )
+X-CRM114-CacheID: sfid-20230802_085830_391159_B30EE2EA 
+X-CRM114-Status: GOOD (  23.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,45 +105,51 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 31 Jul 2023 22:50:07 +0100,
-Sean Christopherson <seanjc@google.com> wrote:
-> 
-> On Thu, Jul 27, 2023, Marc Zyngier wrote:
-> > On Sat, 22 Jul 2023 03:22:41 +0100,
-> > Raghavendra Rao Ananta <rananta@google.com> wrote:
-> > > 
-> > > Stop depending on CONFIG_HAVE_KVM_ARCH_TLB_FLUSH_ALL and opt to
-> > > standardize on kvm_arch_flush_remote_tlbs() since it avoids
-> > > duplicating the generic TLB stats across architectures that implement
-> > > their own remote TLB flush.
-> > > 
-> > > This adds an extra function call to the ARM64 kvm_flush_remote_tlbs()
-> > > path, but that is a small cost in comparison to flushing remote TLBs.
-> > 
-> > Well, there is no such thing as a "remote TLB" anyway. We either have
-> > a non-shareable or inner-shareable invalidation. The notion of remote
-> > would imply that we track who potentially has a TLB, which we
-> > obviously don't.
-> 
-> Maybe kvm_arch_flush_vm_tlbs()?  The "remote" part is misleading even on x86 when
-> running on Hyper-V, as the flush may be done via a single hypercall and by kicking
-> "remote" vCPUs.
-
-Yup, this would be much better.
-
-Thanks,
-
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gTW9uLCAzMSBKdWwgMjAyMyAxODozNjo0NyArMDEwMCwKUmFnaGF2ZW5kcmEgUmFvIEFuYW50
+YSA8cmFuYW50YUBnb29nbGUuY29tPiB3cm90ZToKPiAKPiBPbiBUaHUsIEp1bCAyNywgMjAyMyBh
+dCAzOjU44oCvQU0gTWFyYyBaeW5naWVyIDxtYXpAa2VybmVsLm9yZz4gd3JvdGU6Cj4gPgo+ID4g
+T24gU2F0LCAyMiBKdWwgMjAyMyAwMzoyMjo0NSArMDEwMCwKPiA+IFJhZ2hhdmVuZHJhIFJhbyBB
+bmFudGEgPHJhbmFudGFAZ29vZ2xlLmNvbT4gd3JvdGU6Cj4gPiA+Cj4gPiA+IEN1cnJlbnRseSwg
+dGhlIGNvcmUgVExCIGZsdXNoIGZ1bmN0aW9uYWxpdHkgb2YgX19mbHVzaF90bGJfcmFuZ2UoKQo+
+ID4gPiBoYXJkY29kZXMgdmFlMWlzIChhbmQgdmFyaWFudHMpIGZvciB0aGUgZmx1c2ggb3BlcmF0
+aW9uLiBJbiB0aGUKPiA+ID4gdXBjb21pbmcgcGF0Y2hlcywgdGhlIEtWTSBjb2RlIHJldXNlcyB0
+aGlzIGNvcmUgYWxnb3JpdGhtIHdpdGgKPiA+ID4gaXBhczJlMWlzIGZvciByYW5nZSBiYXNlZCBU
+TEIgaW52YWxpZGF0aW9ucyBiYXNlZCBvbiB0aGUgSVBBLgo+ID4gPiBIZW5jZSwgZXh0cmFjdCB0
+aGUgY29yZSBmbHVzaCBmdW5jdGlvbmFsaXR5IG9mIF9fZmx1c2hfdGxiX3JhbmdlKCkKPiA+ID4g
+aW50byBpdHMgb3duIG1hY3JvIHRoYXQgYWNjZXB0cyBhbiAnb3AnIGFyZ3VtZW50IHRvIHBhc3Mg
+YW55Cj4gPiA+IFRMQkkgb3BlcmF0aW9uLCBzdWNoIHRoYXQgb3RoZXIgY2FsbGVycyAoS1ZNKSBj
+YW4gYmVuZWZpdC4KPiA+ID4KPiA+ID4gTm8gZnVuY3Rpb25hbCBjaGFuZ2VzIGludGVuZGVkLgo+
+ID4gPgo+ID4gPiBTaWduZWQtb2ZmLWJ5OiBSYWdoYXZlbmRyYSBSYW8gQW5hbnRhIDxyYW5hbnRh
+QGdvb2dsZS5jb20+Cj4gPiA+IFJldmlld2VkLWJ5OiBDYXRhbGluIE1hcmluYXMgPGNhdGFsaW4u
+bWFyaW5hc0Bhcm0uY29tPgo+ID4gPiBSZXZpZXdlZC1ieTogR2F2aW4gU2hhbiA8Z3NoYW5AcmVk
+aGF0LmNvbT4KPiA+ID4gUmV2aWV3ZWQtYnk6IFNoYW9xaW4gSHVhbmcgPHNoYWh1YW5nQHJlZGhh
+dC5jb20+Cj4gPiA+IC0tLQo+ID4gPiAgYXJjaC9hcm02NC9pbmNsdWRlL2FzbS90bGJmbHVzaC5o
+IHwgMTA5ICsrKysrKysrKysrKysrKy0tLS0tLS0tLS0tLS0tLQo+ID4gPiAgMSBmaWxlIGNoYW5n
+ZWQsIDU2IGluc2VydGlvbnMoKyksIDUzIGRlbGV0aW9ucygtKQo+ID4gPgo+ID4gPiBkaWZmIC0t
+Z2l0IGEvYXJjaC9hcm02NC9pbmNsdWRlL2FzbS90bGJmbHVzaC5oIGIvYXJjaC9hcm02NC9pbmNs
+dWRlL2FzbS90bGJmbHVzaC5oCj4gPiA+IGluZGV4IDQxMmEzYjlhM2MyNS4uZjdmYWZiYTI1YWRk
+IDEwMDY0NAo+ID4gPiAtLS0gYS9hcmNoL2FybTY0L2luY2x1ZGUvYXNtL3RsYmZsdXNoLmgKPiA+
+ID4gKysrIGIvYXJjaC9hcm02NC9pbmNsdWRlL2FzbS90bGJmbHVzaC5oCj4gPiA+IEBAIC0yNzgs
+MTQgKzI3OCw2MiBAQCBzdGF0aWMgaW5saW5lIHZvaWQgZmx1c2hfdGxiX3BhZ2Uoc3RydWN0IHZt
+X2FyZWFfc3RydWN0ICp2bWEsCj4gPiA+ICAgKi8KPiA+ID4gICNkZWZpbmUgTUFYX1RMQklfT1BT
+IFBUUlNfUEVSX1BURQo+ID4gPgo+ID4gPiArLyogV2hlbiB0aGUgQ1BVIGRvZXMgbm90IHN1cHBv
+cnQgVExCIHJhbmdlIG9wZXJhdGlvbnMsIGZsdXNoIHRoZSBUTEIKPiA+ID4gKyAqIGVudHJpZXMg
+b25lIGJ5IG9uZSBhdCB0aGUgZ3JhbnVsYXJpdHkgb2YgJ3N0cmlkZScuIElmIHRoZSBUTEIKPiA+
+ID4gKyAqIHJhbmdlIG9wcyBhcmUgc3VwcG9ydGVkLCB0aGVuOgo+ID4KPiA+IENvbW1lbnQgZm9y
+bWF0ICh0aGUgb3JpZ2luYWwgd2FzIGNvcnJlY3QpLgo+ID4KPiBJc24ndCB0aGUgZm9ybWF0IHRo
+ZSBzYW1lIGFzIG9yaWdpbmFsPyBPciBhcmUgeW91IHJlZmVycmluZyB0byB0aGUKPiBmYWN0IHRo
+YXQgaXQgbmVlZHMgdG8gYmUgcGxhY2VkIGluc2lkZSB0aGUgbWFjcm8gZGVmaW5pdGlvbj8KCk5v
+LCBJJ20gcmVmZXJyaW5nIHRvIHRoZSBtdWx0aWxpbmUgY29tbWVudCB0aGF0IHN0YXJ0cyB3aXRo
+OgoKCS8qICBXaGVuIHRoZSBDUFUgZG9lcyBub3Qgc3VwcG9ydCBUTEIgcmFuZ2Ugb3BlcmF0aW9u
+cy4uLgoKaW5zdGVhZCBvZiB0aGUgcmVxdWlyZWQ6CgoJLyoKCSAqIFdoZW4gdGhlIENQVSBkb2Vz
+IG5vdCBzdXBwb3J0IFRMQiByYW5nZSBvcGVyYXRpb25zCgp3aGljaCB3YXMgY29ycmVjdCBiZWZv
+cmUgdGhlIGNvbWVudCB3YXMgbW92ZWQuCgpUaGFua3MsCgoJTS4KCi0tIApXaXRob3V0IGRldmlh
+dGlvbiBmcm9tIHRoZSBub3JtLCBwcm9ncmVzcyBpcyBub3QgcG9zc2libGUuCgpfX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5n
+IGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFk
+ZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
