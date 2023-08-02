@@ -4,47 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5552AC001E0
-	for <linux-riscv@archiver.kernel.org>; Wed,  2 Aug 2023 16:51:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8296C001E0
+	for <linux-riscv@archiver.kernel.org>; Wed,  2 Aug 2023 16:52:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TBOMmODZ2vrG62aFhBQkzk/aHuZfClU2C9IB8TdzrNg=; b=taWLOuWFVJH9NN
-	oVqiD8UiIdKkb43OtJ+72SmguZ9AOgYxOdhaWJ3j3pEn9LydBIWVIpCOcY1MePYRJlUqx1ufEcf0B
-	s5iwkI8LfMBop4IfH7/rjLdIWGNAFjHSVkZjvLlK/QBf/fc+hDoABrHiCguVD3JlgD1Yt70tD9c7B
-	HObbBUP69XLh+Oc6QQRmNzb7So2qRzlEg0XywE5T0rsluRQnZWSNnFTi7yr1SCa2udotxV/cdp/fb
-	GXEa8xw/YsRBn6crT4NOalCaFkZtQPTi+Dj2y6EDKKqqqqegZ2GrIOKXP4VMrO75mz0rAc51e9qQu
-	4S9+u20MNsh6eQihVljg==;
+	List-Owner; bh=ACrKO1m7tJSFIcjFeIiBnjuqRJcUPhhhqPxHAixeQbg=; b=bg/7BmKXF+587N
+	lwjM8ln8qHl6Cb1LSc6ui8uUZwddv/IQSuN4XJHmZmATaEAW6HjYQv1FZhXnv4emZZ4rCDL8OgUi6
+	ZCelk2jQ0XyD9WuFFcskyKzRQBIO7alZyLE+XSjFbZu5mdc16R95LfS7XE8WGcwhwVM+Zug5Koj3e
+	G51JYTUsIIk0QNosrDyQoHBZ9Giid+u5v28oBg3ZIHt5HausCRNjdYpimUHs6iDFaQ1GNbozr5jGL
+	mPw3HmYVV6nVvbnUxe8F+WIU1uYsRTWyOixRMX4PyFHL2DmBtZvA+dGnWlX7NhzRhPBMkNUlPo8EP
+	X6AQePCGKSz0Oo2AYGnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qRF4b-005PXE-32;
-	Wed, 02 Aug 2023 16:51:45 +0000
+	id 1qRF4s-005PfJ-0Q;
+	Wed, 02 Aug 2023 16:52:02 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qRF4a-005PW9-0R
+	id 1qRF4p-005Pdf-2w
 	for linux-riscv@lists.infradead.org;
-	Wed, 02 Aug 2023 16:51:45 +0000
+	Wed, 02 Aug 2023 16:52:01 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 9D97E61A0D;
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 671B361A40;
+	Wed,  2 Aug 2023 16:51:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 17FD1C433C8;
 	Wed,  2 Aug 2023 16:51:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B8079C433C8;
-	Wed,  2 Aug 2023 16:51:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1690995103;
-	bh=JHp6Qjv2j2L5yGDwaLMLoclwEyHeCzWtLnvdae52dY8=;
+	s=k20201202; t=1690995118;
+	bh=//LTBV3xtswilX9AAt8SaQJo9J60NYzf9Q4p8qd3nq0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=XGxIQYG3X/Qxf61mdxd0nkNtxlOKIqUxTzKy2Iy5j9R40n6pMtZuxEMoTnmWzPFal
-	 6erBZnxtXplixtxjAI14gHKWh7bWpa+VYQnSylkL8twtIZeBjO9M0mQN8lqqbhSkUm
-	 rM51X8dPdeolxLSAOeSQTFOT1WC9gSfUIiKTue36Dswah4389rsBzD7Mp67PcCVRZq
-	 nLiD0M2LIXm0Xib4XjMwxXVBCgkRVCNvq/y/XCkHgQA3b7flv1XlZgfv1nzyUnrkM3
-	 W6T5DBCZCxBxhktENBH7MTh3tvUN99FApLkFhO6yITo5mBMZMsZIuBi7bEMHDk3ijR
-	 miiinner3tOnw==
+	b=ec6jPCAuR3FS/NUe+ahVBDwwzJtZT0QQx4PS1ef6BZOb0kZD/ocsGIn873rcg1aCT
+	 MWEqlqSuKzbbkoYLVzOfNKiPREf+rHk7IrgySkp7nO5mnusalgpof9DWuqunetYYtm
+	 FaYi6LjVpusePPnVQMcBZPyO+I+2iyFf9vezvM+xOOsEFDvGSnVbvVxQNTA+WHssLO
+	 VJFkpJfObVNT7vGwiRAg2HTPJG3CUOEhrh+yQDjMaKZMvsSV1dujW2vwC814Y+dRvJ
+	 s9dCGuyyt9dVGl4bHJIrQXCVb8nVp8JDSzeLvom7te0x87nFPR7bmFcbiyikd54Nn+
+	 G8435ns6CyMDw==
 From: guoren@kernel.org
 To: paul.walmsley@sifive.com,
 	anup@brainfault.org,
@@ -77,16 +77,17 @@ Cc: linux-arch@vger.kernel.org,
 	linux-csky@vger.kernel.org,
 	Guo Ren <guoren@linux.alibaba.com>,
 	Guo Ren <guoren@kernel.org>
-Subject: [PATCH V10 15/19] RISC-V: paravirt: pvqspinlock: Add SBI implementation
-Date: Wed,  2 Aug 2023 12:46:57 -0400
-Message-Id: <20230802164701.192791-16-guoren@kernel.org>
+Subject: [PATCH V10 16/19] RISC-V: paravirt: pvqspinlock: Add kconfig entry
+Date: Wed,  2 Aug 2023 12:46:58 -0400
+Message-Id: <20230802164701.192791-17-guoren@kernel.org>
 X-Mailer: git-send-email 2.36.1
 In-Reply-To: <20230802164701.192791-1-guoren@kernel.org>
 References: <20230802164701.192791-1-guoren@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230802_095144_260374_3A7130B7 
-X-CRM114-Status: GOOD (  11.63  )
+X-CRM114-CacheID: sfid-20230802_095200_007233_012B0959 
+X-CRM114-Status: UNSURE (   9.88  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,72 +106,46 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Guo Ren <guoren@linux.alibaba.com>
 
-Implement pv_kick with SBI implementation, and add SBI_EXT_PVLOCK
-extension detection.
+Add kconfig entry for paravirt_spinlock, an unfair qspinlock
+virtualization-friendly backend, by halting the virtual CPU rather
+than spinning.
 
 Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
 Signed-off-by: Guo Ren <guoren@kernel.org>
 ---
- arch/riscv/include/asm/sbi.h | 6 ++++++
- arch/riscv/kernel/paravirt.c | 7 ++++++-
- 2 files changed, 12 insertions(+), 1 deletion(-)
+ arch/riscv/Kconfig | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
 
-diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
-index b7ced34b79a3..26b4ec039f32 100644
---- a/arch/riscv/include/asm/sbi.h
-+++ b/arch/riscv/include/asm/sbi.h
-@@ -31,6 +31,7 @@ enum sbi_ext_id {
- 	SBI_EXT_SRST = 0x53525354,
- 	SBI_EXT_PMU = 0x504D55,
- 	SBI_EXT_STA = 0x535441,
-+	SBI_EXT_PVLOCK = 0xAB0401,
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index 42ae45c42b4d..13f345b54581 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -770,6 +770,7 @@ config RELOCATABLE
+ config PARAVIRT
+ 	bool "Enable paravirtualization code"
+ 	depends on RISCV_SBI
++	select PARAVIRT_SPINLOCKS
+ 	default y
+ 	help
+ 	  This changes the kernel so it can modify itself when it is run
+@@ -788,6 +789,17 @@ config PARAVIRT_TIME_ACCOUNTING
  
- 	/* Experimentals extensions must lie within this range */
- 	SBI_EXT_EXPERIMENTAL_START = 0x08000000,
-@@ -244,6 +245,11 @@ enum sbi_pmu_ctr_type {
- /* Flags defined for counter stop function */
- #define SBI_PMU_STOP_FLAG_RESET (1 << 0)
+ 	  If in doubt, say N here.
  
-+/* SBI PVLOCK (kick cpu out of wfi) */
-+enum sbi_ext_pvlock_fid {
-+	SBI_EXT_PVLOCK_KICK_CPU = 0,
-+};
++config PARAVIRT_SPINLOCKS
++	bool "Paravirtualization layer for spinlocks"
++	depends on PARAVIRT && SMP
++	help
++	  Paravirtualized spinlocks allow a unfair qspinlock to replace the
++	  test-set kvm-guest virt spinlock implementation with something
++	  virtualization-friendly, for example, halt the virtual CPU rather
++	  than spinning.
 +
- /* SBI STA (steal-time accounting) extension */
- enum sbi_ext_sta_fid {
- 	SBI_EXT_STA_STEAL_TIME_SET_SHMEM = 0,
-diff --git a/arch/riscv/kernel/paravirt.c b/arch/riscv/kernel/paravirt.c
-index b55c3d3c0c17..564d64f11e4f 100644
---- a/arch/riscv/kernel/paravirt.c
-+++ b/arch/riscv/kernel/paravirt.c
-@@ -136,6 +136,8 @@ int __init pv_time_init(void)
- 
- void pv_kick(int cpu)
- {
-+	sbi_ecall(SBI_EXT_PVLOCK, SBI_EXT_PVLOCK_KICK_CPU,
-+		  cpuid_to_hartid_map(cpu), 0, 0, 0, 0, 0);
- 	return;
- }
- 
-@@ -150,7 +152,7 @@ void pv_wait(u8 *ptr, u8 val)
- 	if (READ_ONCE(*ptr) != val)
- 		goto out;
- 
--	/* wait_for_interrupt(); */
-+	wait_for_interrupt();
- out:
- 	local_irq_restore(flags);
- }
-@@ -186,6 +188,9 @@ void __init pv_qspinlock_init(void)
- 	if(sbi_get_firmware_id() != SBI_EXT_BASE_IMPL_ID_KVM)
- 		return;
- 
-+	if (!sbi_probe_extension(SBI_EXT_PVLOCK))
-+		return;
++	  If you are unsure how to answer this question, answer Y.
 +
- 	pr_info("PV qspinlocks enabled\n");
- 	__pv_init_lock_hash();
+ endmenu # "Kernel features"
  
+ menu "Boot options"
 -- 
 2.36.1
 
