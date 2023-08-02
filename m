@@ -4,80 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70D2FC00528
-	for <linux-riscv@archiver.kernel.org>; Wed,  2 Aug 2023 08:53:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8BD4C001DE
+	for <linux-riscv@archiver.kernel.org>; Wed,  2 Aug 2023 09:04:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KhElINnV2A4lqDHOcm+8Qu1xFR39NzHMiX2tLV4uHY4=; b=saAQsBp4arXH70g+ld9nJSDJPx
-	MJqg+4zsK2BiyRVVpHbi756VEW/HSvdpOm6vmvYIRJ88U4EioAmROzQjewbM+lKReJOxZh8MwcWID
-	Jbqf5zhVEdKWdXaG+nzNVLwQvg5LVCWIYeVXyW6IEYmCGVpLfZZdAGa74ZuDhfxJZ75iD3YaCJL0o
-	+d7vw427haPrZO/urmJiFSPhizstHN/vVIkEjJXJw+YyhPxqoYsnsqcQXZ8htGYrUfi4movjRPBZY
-	jSZxEHiLCTeIbCkGjizi6tv4YHpPsXxj1IpK7Mh3u+yU2MvohIqSJKqNG8om4Y5isDe1+dyqBCVZA
-	qOUTyJHw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gBjLdi0ie7YrWSTXL5+1NhOQggjY4DmkWrluQgnhvOA=; b=cZzjZbynbkFIa4IBGzPn3FMxSR
+	0UMrPbUsem6vZ8KsueoBCfP1qsehnAVo6bcbxz1aP0Kmbnt0J6TnUx5tqoJhvA7SQTgBWAvSZKJtk
+	FbRGb6BBHY57eQ8TMW/2lUM3fdzbun3e/0McYZi4JRsJCMVDJAuc5EalCVx5zpavx/dTcVmr7SH2P
+	hbnRA2liME2qHH7Vjtv7zacrqANq/1y1YZgVO9VzuTakzrm9ofW/h+gpsevbwMsdMUhmyd+sSMVqg
+	JVsyGZBamVAq/P/lgYOVF0FLYIIN0XPEGf3Jbzy7+IaWHKuUPb7OEYxAjV6/Jk1KH7+9tykRjFpf1
+	88xmmMaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qR7bw-004Q0G-09;
-	Wed, 02 Aug 2023 08:53:40 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1qR7mR-004R6z-34;
+	Wed, 02 Aug 2023 09:04:31 +0000
+Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qR7bt-004Pzb-1J
+	id 1qR7mN-004R5t-33
 	for linux-riscv@lists.infradead.org;
-	Wed, 02 Aug 2023 08:53:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1690966417; x=1722502417;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=Tv4M0P+a0kjE58sJhnwrk9HUNB9uEWwAlkNuhiNh6pg=;
-  b=HbVkbt7MWj+p0JpeBgWt2cjwffRPQKz3AY+Z2H1ixbA99cyNEsybgseW
-   Nf2Gl23d1uie79vPx8cRkFnnC720xnD0HSvkm+NIBIvIVf9VccVJPkxJ4
-   Hil8IK76W47JglnqhLOR9xJdkpYJibED4k+AE4mGW42+XXmvrcHLReAQs
-   /Ve2DNSdGo/ZB4ERaKortCiIox0z86UtYVzr6TQ6I0sX5nR6Cy1NNAl55
-   6nA7tZQ4V86LDQ5BNX2Z1UjApgwWQZZcutf5KLzlfJeswGotsTx0oPpRN
-   TyQy4CaKpQH+HY5oWmNdRO4RB+VLUsoeKhvBK6CZ9ti3uq7WVzocBxf3m
-   g==;
-X-IronPort-AV: E=Sophos;i="6.01,248,1684825200"; 
-   d="asc'?scan'208";a="223448015"
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa4.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 02 Aug 2023 01:53:32 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Wed, 2 Aug 2023 01:53:23 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex01.mchp-main.com
- (10.10.85.143) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
- Transport; Wed, 2 Aug 2023 01:53:21 -0700
-Date: Wed, 2 Aug 2023 09:52:45 +0100
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Greg KH <gregkh@linuxfoundation.org>
-CC: Minda Chen <minda.chen@starfivetech.com>, Conor Dooley <conor@kernel.org>,
-	Jisheng Zhang <jszhang@kernel.org>, Samuel Holland <samuel@sholland.org>, Dao
- Lu <daolu@rivosinc.com>, Heiko Stuebner <heiko@sntech.de>, Paul Walmsley
-	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, <linux-kernel@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, Mason Huo <mason.huo@starfivetech.com>,
-	<stable@vger.kernel.org>
-Subject: Re: [PATCH v1] riscv: Using TOOLCHAIN_HAS_ZIHINTPAUSE marco replace
- zihintpause
-Message-ID: <20230802-decibel-unshaved-fde1cfba2d20@wendy>
-References: <20230802064215.31111-1-minda.chen@starfivetech.com>
- <20230802-sharpness-spoon-f9b8804fb66f@wendy>
- <d64874cb-8628-a6d2-d2f4-8af4d0ebf8b2@starfivetech.com>
- <20230802-seismic-gallstone-fca0f4b17076@wendy>
- <c42bd997-8795-8bf7-eee1-3ac8b153371a@starfivetech.com>
- <2023080253-headache-moneybags-a833@gregkh>
+	Wed, 02 Aug 2023 09:04:29 +0000
+Received: by mail-ed1-x52e.google.com with SMTP id 4fb4d7f45d1cf-51d95aed33aso8721143a12.3
+        for <linux-riscv@lists.infradead.org>; Wed, 02 Aug 2023 02:04:26 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1690967065; x=1691571865;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=ouPK2KJi67vZ4+DazLQNIekPlY+Em6WKOY3ll8nIJTo=;
+        b=avRoIvITiCXaNDk1V0Q8ow5ADNYjeOQ/Y78OYvsXOLXA93mYhtTLx+lPqw+ZBHEIk7
+         6Qgh4SnghY7kb0rBhiwJGsmS1CQM0YJZIwAmVzP9thskxv/vu0MlS8auA+RAj9bPW3AK
+         hOULmqVdness1Evx1Ap6XmvAPljldPmiIyV4C37kdci+DPXYuD7JgwjXRot0B8RHoeFP
+         8x1DU3Wbt85sC0a0wTmJ8WgWBHckAWMDNIn/bZ/PLSRIjXns/Qp8AoCRg1+smbEk54+j
+         ZVbXg0MDcCYvq5fo/2vhEdgH+me6QDtAhFiRy+YgeATAnmnJMmKYfR7/G8Fk1ertz5Gf
+         Wr2w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1690967065; x=1691571865;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ouPK2KJi67vZ4+DazLQNIekPlY+Em6WKOY3ll8nIJTo=;
+        b=fEZYZJi4NQmN+Gbsx2uErJ/uz4+s/LkURKu6MpPxcdHl72pA3yt49u7TC4/ekjvWMe
+         9OR7E4yyFBGkX8B+2kXG6h4EbJldNg27NLNoaPdV8XF92r7YNBtBNsGaWdqCIFzIgsul
+         DNWoust408Mj0+JnCSu6lZUgaYBRemkCN7rAXpR6EvoDXCnLEqtCv01WJa1inlIXLpG7
+         mCIwdwjr7nMDuMwzIjtqYD6FwmhGgHZbADP7hSAZhEfHLPHcG7aKuKifOu3V84fg2USn
+         A9YJ8m04eV1YMNXk743odZ7/XJdTJ3bwQGClxYjl8jyEtutHjlRnnpEOYaaXt1Q1tnl3
+         Ov3w==
+X-Gm-Message-State: ABy/qLZUwp4CAb2VHwDXYMg9wdGDs5YMLEPARU6bmZfq2H3HzjFY5nKM
+	jF3Zgg5qleXMSPusB3uVgDbGeQ==
+X-Google-Smtp-Source: APBJJlGQchtF2nEzUyzuxibZJ09Ooz5deEtspRMuzg6Fizy0i+L0zWRLZBxu3ArgSWn2Kdd+golNLA==
+X-Received: by 2002:a50:fa8d:0:b0:522:38cb:d8cb with SMTP id w13-20020a50fa8d000000b0052238cbd8cbmr4052708edr.20.1690967065461;
+        Wed, 02 Aug 2023 02:04:25 -0700 (PDT)
+Received: from localhost (212-5-140-29.ip.btc-net.bg. [212.5.140.29])
+        by smtp.gmail.com with ESMTPSA id ba4-20020a0564021ac400b00522572f323dsm8110660edb.16.2023.08.02.02.04.24
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 02 Aug 2023 02:04:24 -0700 (PDT)
+Date: Wed, 2 Aug 2023 12:04:22 +0300
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Daniel Henrique Barboza <dbarboza@ventanamicro.com>
+Cc: kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
+	kvm@vger.kernel.org, anup@brainfault.org, atishp@atishpatra.org
+Subject: Re: [PATCH v2 0/9] RISC-V: KVM: change get_reg/set_reg error codes
+Message-ID: <20230802-c76d712d088bc4b3057e3095@orel>
+References: <20230801222629.210929-1-dbarboza@ventanamicro.com>
 MIME-Version: 1.0
-In-Reply-To: <2023080253-headache-moneybags-a833@gregkh>
+Content-Type: multipart/mixed; boundary="yl3c3zcid6wp62ty"
+Content-Disposition: inline
+In-Reply-To: <20230801222629.210929-1-dbarboza@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230802_015337_612015_70A76BA9 
-X-CRM114-Status: GOOD (  28.49  )
+X-CRM114-CacheID: sfid-20230802_020428_009333_B536C6FE 
+X-CRM114-Status: GOOD (  30.62  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,100 +87,219 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8965456915549300805=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============8965456915549300805==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="FW1Kj+nV7cDQRX/N"
-Content-Disposition: inline
 
---FW1Kj+nV7cDQRX/N
+--yl3c3zcid6wp62ty
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
 
-On Wed, Aug 02, 2023 at 10:33:27AM +0200, Greg KH wrote:
-> On Wed, Aug 02, 2023 at 04:17:51PM +0800, Minda Chen wrote:
-> >=20
-> >=20
-> > On 2023/8/2 15:48, Conor Dooley wrote:
-> > > On Wed, Aug 02, 2023 at 03:32:15PM +0800, Minda Chen wrote:
-> > >>=20
-> > >>=20
-> > >> On 2023/8/2 14:54, Conor Dooley wrote:
-> > >> > Hey Minda,
-> > >> >=20
-> > >> > On Wed, Aug 02, 2023 at 02:42:15PM +0800, Minda Chen wrote:
-> > >> >> Actually it is a part of Conor's
-> > >> >> commit aae538cd03bc ("riscv: fix detection of toolchain
-> > >> >> Zihintpause support").
-> > >> >> It is looks like a merge issue.
-> > >> >=20
-> > >> > Yup, spot on.
-> > >> >=20
-> > >> >> Samuel's
-> > >> >> commit 0b1d60d6dd9e ("riscv: Fix build with
-> > >> >> CONFIG_CC_OPTIMIZE_FOR_SIZE=3Dy") do not base on Conor's commit a=
-nd
-> > >> >> revert to __riscv_zihintpause. So this patch can fix it.
-> > >> >>=20
-> > >> >> Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
-> > >> >=20
-> > >> > Did you actually manage to trigger this, or was this by inspection?
-> > >> > clang-15 + binutils 2.35 was, IIRC, how we spotted this because th=
-at's
-> > >> > what the clang-built-linux CI uses to test the LTS kernels from be=
-fore
-> > >> > LLVM's IAS was supported for RISC-V. Seemingly all that needs to be
-> > >> > satisfied there is that zihintpause doesn't appear in -march so th=
-is has
-> > >> > gone unnoticed.
-> > >> >=20
-> > >> > Fixes: 3c349eacc559 ("Merge patch "riscv: Fix build with CONFIG_CC=
-_OPTIMIZE_FOR_SIZE=3Dy"")
-> > >> > Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-> > >> >=20
-> > >> > Thanks,
-> > >> > Conor.
-> > >> >=20
-> > >> Thanks, Conor. I found this just by inspection. I found a issue that=
- vdso.so call cpu_relax
-> > >> cause application core dump in kernel 6.1.31. I need Samuel'patch to=
- fix this. And I search the log
-> > >> of processor.h found this issue.
-> > >=20
-> > > That doesn't look like it is fixed in later stable kernels (we are at
-> > > 6.1.42-rcN right now I think). It sounds we should ask Greg to backpo=
-rt
-> > > 0b1d60d6dd9e ("riscv: Fix build with CONFIG_CC_OPTIMIZE_FOR_SIZE=3Dy")
-> > > to 6.1. Does that make sense to you?
-> > Yes. 6.1 is lts kernel. Starfive will use this kernel for a long time. =
-Thanks.
->=20
-> What is preventing you from moving to a newer kernel version?  All of
-> your kernel changes are already properly merged into Linus's tree,
-> right?
+On Tue, Aug 01, 2023 at 07:26:20PM -0300, Daniel Henrique Barboza wrote:
+> Hi,
+> 
+> In this new version 3 new patches (6, 7, 8) were added by Andrew's
+> request during the v1 review.
+> 
+> We're now avoiding throwing an -EBUSY error if a reg write is done after
+> the vcpu started spinning if the value being written is the same as KVM
+> already uses. This follows the design choice made in patch 3, allowing
+> for userspace 'lazy write' of registers.
+> 
+> I decided to add 3 patches instead of one because the no-op check made
+> in patches 6 and 8 aren't just a matter of doing reg_val = host_val.
+> They can be squashed in a single patch if required.
+> 
+> Please check the version 1 cover-letter [1] for the motivation behind
+> this work. Patches were based on top of riscv_kvm_queue.
+> 
+> Changes from v1:
+> - patches 6,7, 8 (new):
+>   - make reg writes a no-op, regardless of vcpu->arch.ran_atleast_once
+>     state, if the value being written is the same as the host
+> - v1 link: https://lore.kernel.org/kvm/20230731120420.91007-1-dbarboza@ventanamicro.com/
+> 
+> [1] https://lore.kernel.org/kvm/20230731120420.91007-1-dbarboza@ventanamicro.com/
+>
 
-Regardless of their reasons, "vdso.so call cpu_relax cause application
-core dump" is something that we should fix in stable kernels, no?
+I found three missing conversions, which are in the diff below. Also, I
+saw that the vector registers were lacking good error returns, so I reworked
+that and attached a completely (not even compile) tested patch for them.
+Please work that patch into this series.
 
---FW1Kj+nV7cDQRX/N
-Content-Type: application/pgp-signature; name="signature.asc"
+Thanks,
+drew
 
------BEGIN PGP SIGNATURE-----
+diff --git a/arch/riscv/kvm/vcpu_onereg.c b/arch/riscv/kvm/vcpu_onereg.c
+index c88b0c7f7f01..6ca90c04ba61 100644
+--- a/arch/riscv/kvm/vcpu_onereg.c
++++ b/arch/riscv/kvm/vcpu_onereg.c
+@@ -506,7 +506,7 @@ static int riscv_vcpu_get_isa_ext_multi(struct kvm_vcpu *vcpu,
+        unsigned long i, ext_id, ext_val;
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZMoZXQAKCRB4tDGHoIJi
-0oRWAP9BTGH3q07+XeBW8yRULD9PA1MB/TiLZFZTyMSVwZ+k7gEAkN5bfTlTj2Bu
-4J2aZnx6QsteTBSDwjAzsIcBaqYmGQU=
-=deFA
------END PGP SIGNATURE-----
+        if (reg_num > KVM_REG_RISCV_ISA_MULTI_REG_LAST)
+-               return -EINVAL;
++               return -ENOENT;
 
---FW1Kj+nV7cDQRX/N--
+        for (i = 0; i < BITS_PER_LONG; i++) {
+                ext_id = i + reg_num * BITS_PER_LONG;
+@@ -529,7 +529,7 @@ static int riscv_vcpu_set_isa_ext_multi(struct kvm_vcpu *vcpu,
+        unsigned long i, ext_id;
+
+        if (reg_num > KVM_REG_RISCV_ISA_MULTI_REG_LAST)
+-               return -EINVAL;
++               return -ENOENT;
+
+        for_each_set_bit(i, &reg_val, BITS_PER_LONG) {
+                ext_id = i + reg_num * BITS_PER_LONG;
+@@ -644,7 +644,7 @@ int kvm_riscv_vcpu_set_reg(struct kvm_vcpu *vcpu,
+                break;
+        }
+
+-       return -EINVAL;
++       return -ENOENT;
+ }
+
+ int kvm_riscv_vcpu_get_reg(struct kvm_vcpu *vcpu,
 
 
---===============8965456915549300805==
+--yl3c3zcid6wp62ty
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: attachment; filename="vec-errno.patch"
+
+From b1472501677ea6bd73689e0f947149f5f86da9cc Mon Sep 17 00:00:00 2001
+From: Andrew Jones <ajones@ventanamicro.com>
+Date: Wed, 2 Aug 2023 11:52:04 +0300
+Subject: [PATCH] riscv: KVM: Improve vector save/restore errors
+Content-type: text/plain
+
+---
+ arch/riscv/kvm/vcpu_vector.c | 60 ++++++++++++++++++++----------------
+ 1 file changed, 33 insertions(+), 27 deletions(-)
+
+diff --git a/arch/riscv/kvm/vcpu_vector.c b/arch/riscv/kvm/vcpu_vector.c
+index edd2eecbddc2..39c5bceb4d1b 100644
+--- a/arch/riscv/kvm/vcpu_vector.c
++++ b/arch/riscv/kvm/vcpu_vector.c
+@@ -91,44 +91,44 @@ void kvm_riscv_vcpu_free_vector_context(struct kvm_vcpu *vcpu)
+ }
+ #endif
+ 
+-static void *kvm_riscv_vcpu_vreg_addr(struct kvm_vcpu *vcpu,
++static int kvm_riscv_vcpu_vreg_addr(struct kvm_vcpu *vcpu,
+ 				      unsigned long reg_num,
+-				      size_t reg_size)
++				      size_t reg_size,
++				      void **reg_val)
+ {
+ 	struct kvm_cpu_context *cntx = &vcpu->arch.guest_context;
+-	void *reg_val;
+ 	size_t vlenb = riscv_v_vsize / 32;
+ 
+ 	if (reg_num < KVM_REG_RISCV_VECTOR_REG(0)) {
+ 		if (reg_size != sizeof(unsigned long))
+-			return NULL;
++			return -EINVAL;
+ 		switch (reg_num) {
+ 		case KVM_REG_RISCV_VECTOR_CSR_REG(vstart):
+-			reg_val = &cntx->vector.vstart;
++			*reg_val = &cntx->vector.vstart;
+ 			break;
+ 		case KVM_REG_RISCV_VECTOR_CSR_REG(vl):
+-			reg_val = &cntx->vector.vl;
++			*reg_val = &cntx->vector.vl;
+ 			break;
+ 		case KVM_REG_RISCV_VECTOR_CSR_REG(vtype):
+-			reg_val = &cntx->vector.vtype;
++			*reg_val = &cntx->vector.vtype;
+ 			break;
+ 		case KVM_REG_RISCV_VECTOR_CSR_REG(vcsr):
+-			reg_val = &cntx->vector.vcsr;
++			*reg_val = &cntx->vector.vcsr;
+ 			break;
+ 		case KVM_REG_RISCV_VECTOR_CSR_REG(datap):
+ 		default:
+-			return NULL;
++			return -ENOENT;
+ 		}
+ 	} else if (reg_num <= KVM_REG_RISCV_VECTOR_REG(31)) {
+ 		if (reg_size != vlenb)
+-			return NULL;
+-		reg_val = cntx->vector.datap
++			return -EINVAL;
++		*reg_val = cntx->vector.datap
+ 			  + (reg_num - KVM_REG_RISCV_VECTOR_REG(0)) * vlenb;
+ 	} else {
+-		return NULL;
++		return -ENOENT;
+ 	}
+ 
+-	return reg_val;
++	return 0;
+ }
+ 
+ int kvm_riscv_vcpu_get_reg_vector(struct kvm_vcpu *vcpu,
+@@ -141,17 +141,20 @@ int kvm_riscv_vcpu_get_reg_vector(struct kvm_vcpu *vcpu,
+ 	unsigned long reg_num = reg->id & ~(KVM_REG_ARCH_MASK |
+ 					    KVM_REG_SIZE_MASK |
+ 					    rtype);
+-	void *reg_val = NULL;
+ 	size_t reg_size = KVM_REG_SIZE(reg->id);
++	void *reg_val;
++	int rc;
+ 
+-	if (rtype == KVM_REG_RISCV_VECTOR &&
+-	    riscv_isa_extension_available(isa, v)) {
+-		reg_val = kvm_riscv_vcpu_vreg_addr(vcpu, reg_num, reg_size);
+-	}
+-
+-	if (!reg_val)
++	if (rtype != KVM_REG_RISCV_VECTOR)
+ 		return -EINVAL;
+ 
++	if (!riscv_isa_extension_available(isa, v))
++		return -ENOENT;
++
++	rc = kvm_riscv_vcpu_vreg_addr(vcpu, reg_num, reg_size, &reg_val);
++	if (rc)
++		return rc;
++
+ 	if (copy_to_user(uaddr, reg_val, reg_size))
+ 		return -EFAULT;
+ 
+@@ -168,17 +171,20 @@ int kvm_riscv_vcpu_set_reg_vector(struct kvm_vcpu *vcpu,
+ 	unsigned long reg_num = reg->id & ~(KVM_REG_ARCH_MASK |
+ 					    KVM_REG_SIZE_MASK |
+ 					    rtype);
+-	void *reg_val = NULL;
+ 	size_t reg_size = KVM_REG_SIZE(reg->id);
++	void *reg_val;
++	int rc;
+ 
+-	if (rtype == KVM_REG_RISCV_VECTOR &&
+-	    riscv_isa_extension_available(isa, v)) {
+-		reg_val = kvm_riscv_vcpu_vreg_addr(vcpu, reg_num, reg_size);
+-	}
+-
+-	if (!reg_val)
++	if (rtype != KVM_REG_RISCV_VECTOR)
+ 		return -EINVAL;
+ 
++	if (!riscv_isa_extension_available(isa, v))
++		return -ENOENT;
++
++	rc = kvm_riscv_vcpu_vreg_addr(vcpu, reg_num, reg_size, &reg_val);
++	if (rc)
++		return rc;
++
+ 	if (copy_from_user(reg_val, uaddr, reg_size))
+ 		return -EFAULT;
+ 
+-- 
+2.41.0
+
+
+--yl3c3zcid6wp62ty
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -193,5 +310,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============8965456915549300805==--
+--yl3c3zcid6wp62ty--
 
