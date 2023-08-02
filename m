@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77224C04A6A
-	for <linux-riscv@archiver.kernel.org>; Wed,  2 Aug 2023 15:01:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D560CC001DF
+	for <linux-riscv@archiver.kernel.org>; Wed,  2 Aug 2023 15:01:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Hm5/I63Ctg4GWFOHm6z/fIugiOkYXtGdPZrus4BFSr8=; b=BDIN+czoIuiVFL
-	Px/7ROzOhMDEc2zvTb4eBIAsrfI5wBuctdfYf2d2WYc4nqCsEf5zQyPCPdZTaCU7DIbJCdpvZXTl9
-	logI0Dq0SKel6q6rJSXj9q9OKL8myfBfx6EDIUGIchbbPXklDi2YmpTf9LJS6Ifi5wV3yB0S637WI
-	WTE7zyrbnPPbxvZAFpuX45ltMjuqjg0Ya0HpChWjeoqkU5Too9mD/RC+5tKfIDMcNw8/eehWUSYXw
-	nsCVWUVTND2yG2XcE/JsCRT5tC2M5Fdl78dKqp/8Pr7yhMdkcSSF2YA39VUVD7Ewc4XbAIg6NXeXO
-	uRitlnclVyPfZu0ZT02w==;
+	List-Owner; bh=EWnc+lFaS96RpARN4yZ97I/SFSAhuSAXvQQtN8HFYT0=; b=SLvjVtdJ64FNq6
+	YfhCuf+0bSIKvfEzjGqJOzvmjy5TLasIfIvK3v4cFI3COJBg8kkqgpoR8wYGngOqR7vnVu3qtn2t9
+	gvuCmZzHO18Yhv/728ep/fFwKXoh4QRy6kLJbmg00OgpLDkNR3OaLx7sJRggl+b3/jfDontqNYstI
+	lITDqy+S48aI+Lx234/esLLSMGZ/OPLiTKUm1kz6kZTT6CE/T9enFheEOa/pHlsdG+r+6qowieVXL
+	1c3Wnbsf0FskkawLm854aL72Kf6H+EWRI6QyWgpEDWFbwFz/t7COHnoATMcEZZ1FMsSUkqL6OrB/K
+	lumNGVX+jEDZEXIfYcbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qRDLe-0059jx-1K;
-	Wed, 02 Aug 2023 15:01:14 +0000
-Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
+	id 1qRDLk-0059mf-0S;
+	Wed, 02 Aug 2023 15:01:20 +0000
+Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qRDLb-0059he-2K
+	id 1qRDLh-0059l7-03
 	for linux-riscv@lists.infradead.org;
-	Wed, 02 Aug 2023 15:01:13 +0000
-Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-1bbf8cb61aeso29201015ad.2
-        for <linux-riscv@lists.infradead.org>; Wed, 02 Aug 2023 08:01:10 -0700 (PDT)
+	Wed, 02 Aug 2023 15:01:18 +0000
+Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-1b8ad8383faso59071315ad.0
+        for <linux-riscv@lists.infradead.org>; Wed, 02 Aug 2023 08:01:16 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1690988470; x=1691593270;
+        d=ventanamicro.com; s=google; t=1690988476; x=1691593276;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=VKnkNq9mHXbpDqEgJF2mGpUUpQc6aLvqIlFOdqDcBBw=;
-        b=cPNW5uKbbO57D4rsKk1kcASZLXLSTInnQ/7hwa+23F859w8h1FA2JvSgyBYhIpdrz1
-         vYPwzAEicH8mdGSTfbMY/ZnxChf/bt1j9v5tSqS1fwOVwV5eeIeDX8SjcBn3TuLRwtOl
-         ZhDW6hzVr8pjqd/OI4VsiBYp3M2Bivv07pyK2CxXmDOBE0ybJ7PJ90CTZBJPjMcMl54A
-         QYRpDuR6WLtYoFKCRJLos56B9wrCf0/xz2vFcKd7RAbf3If6dVd9W32sgkomiMdfqeNA
-         qevf0RO9IRX/r9ggk9x9l6QnaBgEVRkLdi/UJXotopxnJUBDmqsDPo8rSqbNY+W2360Y
-         cF3g==
+        bh=ZOjDepVi55uZJQ1rIBBnqb1diEnF/zfemFV4q9wl2F4=;
+        b=Og60fnxRV1qFz3PNS4Ii9ojAf7Luky+y7DztdKctmv08sAehDPi56Dr/dznHDAlHBz
+         n5+egDLLCzF0X+SJGRw/WcwZ/dDm4lbg1qtT8bHx28u5DX3x0mBqnons6b6xbWp2zoXk
+         dvVbnwM7ZOOft7MmfiSIP0taIUpxPG0ujYaIzoK+s33ZR/BQ36omYE1V9dEeNOHx1FCq
+         zr6kJtuB/Hrz6O0/Y5WLr72a691FWRk67tkbFvyrKJUbi071w7K/dtGhbW6R661onERc
+         Tf03xnJQ6lqMHqnm5v1XzvKAMhp5wy7gbodeQ6/VpHM+vjBUd7eQ5jICa84rutmKSRGR
+         tD8w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1690988470; x=1691593270;
+        d=1e100.net; s=20221208; t=1690988476; x=1691593276;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=VKnkNq9mHXbpDqEgJF2mGpUUpQc6aLvqIlFOdqDcBBw=;
-        b=dqFISsjO8zotips0IeZpe5E1E5IHzRCPztqgZzvyCAXjPXW/i36Lnhbt6FKjGqTNPD
-         v22zxqYsCK9TIRcGP3M8l8iW3x9EBw39CmwNln/zfNLPXzIv2yl+9A1O/GgG9YTzDrA0
-         WNnaahEz8tkOPZFMLizAgKKg2Sivm/UTXeHD3G8CT1WxqgI2q32Mq5mHKpM4QdBw6kvu
-         M8eXlqK1VDzLQFzOBYfX/m2hHcVk/ReSQtI9+p9S0EjQKk5lw5He9WERCfLhbx9n8bwd
-         vvnjQVQbZ6YQwWiAU9uau0yqq4e+xUp27+P8oy5Yk9WK/HsAagNClF0O0u2cLEslkEU5
-         QqDg==
-X-Gm-Message-State: ABy/qLbtduq+uhLjSx7xtD8XpHJClqdL94WLqyFqE8xBzrM6IcrzjQq5
-	/5snDM0n0s4m9AjDAsLyZhredg==
-X-Google-Smtp-Source: APBJJlEJravBKwN/7shsEYuXL01uLpmauUOzN4CqF8LhW3ObOtY0jZNiAr7N2OIh60lGxz2X1USnlw==
-X-Received: by 2002:a17:902:c20d:b0:1bb:9bc8:d22d with SMTP id 13-20020a170902c20d00b001bb9bc8d22dmr14427707pll.16.1690988470174;
-        Wed, 02 Aug 2023 08:01:10 -0700 (PDT)
+        bh=ZOjDepVi55uZJQ1rIBBnqb1diEnF/zfemFV4q9wl2F4=;
+        b=F6+4J+3Sqc5lkhLsnzWrj5QRBysQOL+z3nKS/pFbtHoctOAZMPLYTMXzSlQKR5XZBJ
+         JKB4E6Fm8RX2B1fdJf6WyKJpmlV3LpYGREs83g++ZPNhaVte1phHlH0vaKnTDCtNjRBE
+         F9C3vOZRgEy9MpzFPbDY0iRn1SiJl4r1roJn1EKMYOw0WahzYNg0POMd0VTPrE6gPxdD
+         xeTdFoTMPy/GDIwldHsLOVAhzlcTbQIS6FjlvaVbV1quPtalOdZoGfUWUn0Zdp3eQylf
+         j0LXq0Q5wh4i7buXijvBjSK98TFADNDBcRSzGn+vs5IPYN36BgzoeDV8odiH5+IS9gGV
+         s0XQ==
+X-Gm-Message-State: ABy/qLaTDU55awIdH31lQvYhZF86ZtMKYq/oCJegeM93uBd719oKHRsi
+	EceP9oO3SCmFx/nXyAJF42lQzQ==
+X-Google-Smtp-Source: APBJJlHCPisYAvjWZC24a5C+2J1o+vc3KOyna+elhjTUBDHDgs+OtNULGgBhM7H33Fzl3SC+2PXxqA==
+X-Received: by 2002:a17:902:c382:b0:1b9:cb8b:3bd3 with SMTP id g2-20020a170902c38200b001b9cb8b3bd3mr16921877plg.31.1690988476325;
+        Wed, 02 Aug 2023 08:01:16 -0700 (PDT)
 Received: from anup-ubuntu-vm.localdomain ([103.97.165.210])
-        by smtp.gmail.com with ESMTPSA id v11-20020a1709028d8b00b001bb99e188fcsm12503963plo.194.2023.08.02.08.01.05
+        by smtp.gmail.com with ESMTPSA id v11-20020a1709028d8b00b001bb99e188fcsm12503963plo.194.2023.08.02.08.01.10
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 02 Aug 2023 08:01:09 -0700 (PDT)
+        Wed, 02 Aug 2023 08:01:15 -0700 (PDT)
 From: Anup Patel <apatel@ventanamicro.com>
 To: Palmer Dabbelt <palmer@dabbelt.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
@@ -71,16 +71,16 @@ To: Palmer Dabbelt <palmer@dabbelt.com>,
 	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
 	Frank Rowand <frowand.list@gmail.com>,
 	Conor Dooley <conor+dt@kernel.org>
-Subject: [PATCH v7 06/15] irqchip/riscv-intc: Add support for RISC-V AIA
-Date: Wed,  2 Aug 2023 20:30:09 +0530
-Message-Id: <20230802150018.327079-7-apatel@ventanamicro.com>
+Subject: [PATCH v7 07/15] dt-bindings: interrupt-controller: Add RISC-V incoming MSI controller
+Date: Wed,  2 Aug 2023 20:30:10 +0530
+Message-Id: <20230802150018.327079-8-apatel@ventanamicro.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20230802150018.327079-1-apatel@ventanamicro.com>
 References: <20230802150018.327079-1-apatel@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230802_080111_770094_AAD34854 
-X-CRM114-Status: GOOD (  14.39  )
+X-CRM114-CacheID: sfid-20230802_080117_055833_5C87E86B 
+X-CRM114-Status: GOOD (  18.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,111 +92,202 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Anup Patel <apatel@ventanamicro.com>, devicetree@vger.kernel.org, Saravana Kannan <saravanak@google.com>, Anup Patel <anup@brainfault.org>, linux-kernel@vger.kernel.org, Atish Patra <atishp@atishpatra.org>, linux-riscv@lists.infradead.org, Andrew Jones <ajones@ventanamicro.com>
+Cc: Anup Patel <apatel@ventanamicro.com>, devicetree@vger.kernel.org, Saravana Kannan <saravanak@google.com>, Anup Patel <anup@brainfault.org>, linux-kernel@vger.kernel.org, Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, Conor Dooley <conor.dooley@microchip.com>, Atish Patra <atishp@atishpatra.org>, linux-riscv@lists.infradead.org, Andrew Jones <ajones@ventanamicro.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The RISC-V advanced interrupt architecture (AIA) extends the per-HART
-local interrupts in following ways:
-1. Minimum 64 local interrupts for both RV32 and RV64
-2. Ability to process multiple pending local interrupts in same
-   interrupt handler
-3. Priority configuration for each local interrupts
-4. Special CSRs to configure/access the per-HART MSI controller
-
-We add support for #1 and #2 described above in the RISC-V intc driver.
+We add DT bindings document for the RISC-V incoming MSI controller
+(IMSIC) defined by the RISC-V advanced interrupt architecture (AIA)
+specification.
 
 Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 ---
- drivers/irqchip/irq-riscv-intc.c | 34 ++++++++++++++++++++++++++------
- 1 file changed, 28 insertions(+), 6 deletions(-)
+ .../interrupt-controller/riscv,imsics.yaml    | 172 ++++++++++++++++++
+ 1 file changed, 172 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/interrupt-controller/riscv,imsics.yaml
 
-diff --git a/drivers/irqchip/irq-riscv-intc.c b/drivers/irqchip/irq-riscv-intc.c
-index 4e2704bc25fb..1a0fc87152c5 100644
---- a/drivers/irqchip/irq-riscv-intc.c
-+++ b/drivers/irqchip/irq-riscv-intc.c
-@@ -17,6 +17,7 @@
- #include <linux/module.h>
- #include <linux/of.h>
- #include <linux/smp.h>
-+#include <asm/hwcap.h>
- 
- static struct irq_domain *intc_domain;
- 
-@@ -30,6 +31,15 @@ static asmlinkage void riscv_intc_irq(struct pt_regs *regs)
- 	generic_handle_domain_irq(intc_domain, cause);
- }
- 
-+static asmlinkage void riscv_intc_aia_irq(struct pt_regs *regs)
-+{
-+	unsigned long topi;
+diff --git a/Documentation/devicetree/bindings/interrupt-controller/riscv,imsics.yaml b/Documentation/devicetree/bindings/interrupt-controller/riscv,imsics.yaml
+new file mode 100644
+index 000000000000..84976f17a4a1
+--- /dev/null
++++ b/Documentation/devicetree/bindings/interrupt-controller/riscv,imsics.yaml
+@@ -0,0 +1,172 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/interrupt-controller/riscv,imsics.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-+	while ((topi = csr_read(CSR_TOPI)))
-+		generic_handle_domain_irq(intc_domain,
-+					  topi >> TOPI_IID_SHIFT);
-+}
++title: RISC-V Incoming MSI Controller (IMSIC)
 +
- /*
-  * On RISC-V systems local interrupts are masked or unmasked by writing
-  * the SIE (Supervisor Interrupt Enable) CSR.  As CSRs can only be written
-@@ -39,12 +49,18 @@ static asmlinkage void riscv_intc_irq(struct pt_regs *regs)
- 
- static void riscv_intc_irq_mask(struct irq_data *d)
- {
--	csr_clear(CSR_IE, BIT(d->hwirq));
-+	if (IS_ENABLED(CONFIG_32BIT) && d->hwirq >= BITS_PER_LONG)
-+		csr_clear(CSR_IEH, BIT(d->hwirq - BITS_PER_LONG));
-+	else
-+		csr_clear(CSR_IE, BIT(d->hwirq));
- }
- 
- static void riscv_intc_irq_unmask(struct irq_data *d)
- {
--	csr_set(CSR_IE, BIT(d->hwirq));
-+	if (IS_ENABLED(CONFIG_32BIT) && d->hwirq >= BITS_PER_LONG)
-+		csr_set(CSR_IEH, BIT(d->hwirq - BITS_PER_LONG));
-+	else
-+		csr_set(CSR_IE, BIT(d->hwirq));
- }
- 
- static void riscv_intc_irq_eoi(struct irq_data *d)
-@@ -115,16 +131,20 @@ static struct fwnode_handle *riscv_intc_hwnode(void)
- 
- static int __init riscv_intc_init_common(struct fwnode_handle *fn)
- {
--	int rc;
-+	int rc, nr_irqs = riscv_isa_extension_available(NULL, SxAIA) ?
-+			  64 : BITS_PER_LONG;
- 
--	intc_domain = irq_domain_create_linear(fn, BITS_PER_LONG,
-+	intc_domain = irq_domain_create_linear(fn, nr_irqs,
- 					       &riscv_intc_domain_ops, NULL);
- 	if (!intc_domain) {
- 		pr_err("unable to add IRQ domain\n");
- 		return -ENXIO;
- 	}
- 
--	rc = set_handle_irq(&riscv_intc_irq);
-+	if (riscv_isa_extension_available(NULL, SxAIA))
-+		rc = set_handle_irq(&riscv_intc_aia_irq);
-+	else
-+		rc = set_handle_irq(&riscv_intc_irq);
- 	if (rc) {
- 		pr_err("failed to set irq handler\n");
- 		return rc;
-@@ -132,7 +152,9 @@ static int __init riscv_intc_init_common(struct fwnode_handle *fn)
- 
- 	riscv_set_intc_hwnode_fn(riscv_intc_hwnode);
- 
--	pr_info("%d local interrupts mapped\n", BITS_PER_LONG);
-+	pr_info("%d local interrupts mapped%s\n",
-+		nr_irqs, riscv_isa_extension_available(NULL, SxAIA) ?
-+			 " using AIA" : "");
- 
- 	return 0;
- }
++maintainers:
++  - Anup Patel <anup@brainfault.org>
++
++description: |
++  The RISC-V advanced interrupt architecture (AIA) defines a per-CPU incoming
++  MSI controller (IMSIC) for handling MSIs in a RISC-V platform. The RISC-V
++  AIA specification can be found at https://github.com/riscv/riscv-aia.
++
++  The IMSIC is a per-CPU (or per-HART) device with separate interrupt file
++  for each privilege level (machine or supervisor). The configuration of
++  a IMSIC interrupt file is done using AIA CSRs and it also has a 4KB MMIO
++  space to receive MSIs from devices. Each IMSIC interrupt file supports a
++  fixed number of interrupt identities (to distinguish MSIs from devices)
++  which is same for given privilege level across CPUs (or HARTs).
++
++  The device tree of a RISC-V platform will have one IMSIC device tree node
++  for each privilege level (machine or supervisor) which collectively describe
++  IMSIC interrupt files at that privilege level across CPUs (or HARTs).
++
++  The arrangement of IMSIC interrupt files in MMIO space of a RISC-V platform
++  follows a particular scheme defined by the RISC-V AIA specification. A IMSIC
++  group is a set of IMSIC interrupt files co-located in MMIO space and we can
++  have multiple IMSIC groups (i.e. clusters, sockets, chiplets, etc) in a
++  RISC-V platform. The MSI target address of a IMSIC interrupt file at given
++  privilege level (machine or supervisor) encodes group index, HART index,
++  and guest index (shown below).
++
++  XLEN-1            > (HART Index MSB)                  12    0
++  |                  |                                  |     |
++  -------------------------------------------------------------
++  |xxxxxx|Group Index|xxxxxxxxxxx|HART Index|Guest Index|  0  |
++  -------------------------------------------------------------
++
++allOf:
++  - $ref: /schemas/interrupt-controller.yaml#
++  - $ref: /schemas/interrupt-controller/msi-controller.yaml#
++
++properties:
++  compatible:
++    items:
++      - enum:
++          - qemu,imsics
++      - const: riscv,imsics
++
++  reg:
++    minItems: 1
++    maxItems: 16384
++    description:
++      Base address of each IMSIC group.
++
++  interrupt-controller: true
++
++  "#interrupt-cells":
++    const: 0
++
++  msi-controller: true
++
++  "#msi-cells":
++    const: 0
++
++  interrupts-extended:
++    minItems: 1
++    maxItems: 16384
++    description:
++      This property represents the set of CPUs (or HARTs) for which given
++      device tree node describes the IMSIC interrupt files. Each node pointed
++      to should be a riscv,cpu-intc node, which has a CPU node (i.e. RISC-V
++      HART) as parent.
++
++  riscv,num-ids:
++    $ref: /schemas/types.yaml#/definitions/uint32
++    minimum: 63
++    maximum: 2047
++    description:
++      Number of interrupt identities supported by IMSIC interrupt file.
++
++  riscv,num-guest-ids:
++    $ref: /schemas/types.yaml#/definitions/uint32
++    minimum: 63
++    maximum: 2047
++    description:
++      Number of interrupt identities are supported by IMSIC guest interrupt
++      file. When not specified it is assumed to be same as specified by the
++      riscv,num-ids property.
++
++  riscv,guest-index-bits:
++    minimum: 0
++    maximum: 7
++    default: 0
++    description:
++      Number of guest index bits in the MSI target address.
++
++  riscv,hart-index-bits:
++    minimum: 0
++    maximum: 15
++    description:
++      Number of HART index bits in the MSI target address. When not
++      specified it is calculated based on the interrupts-extended property.
++
++  riscv,group-index-bits:
++    minimum: 0
++    maximum: 7
++    default: 0
++    description:
++      Number of group index bits in the MSI target address.
++
++  riscv,group-index-shift:
++    $ref: /schemas/types.yaml#/definitions/uint32
++    minimum: 0
++    maximum: 55
++    default: 24
++    description:
++      The least significant bit position of the group index bits in the
++      MSI target address.
++
++required:
++  - compatible
++  - reg
++  - interrupt-controller
++  - msi-controller
++  - "#msi-cells"
++  - interrupts-extended
++  - riscv,num-ids
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    // Example 1 (Machine-level IMSIC files with just one group):
++
++    interrupt-controller@24000000 {
++      compatible = "qemu,imsics", "riscv,imsics";
++      interrupts-extended = <&cpu1_intc 11>,
++                            <&cpu2_intc 11>,
++                            <&cpu3_intc 11>,
++                            <&cpu4_intc 11>;
++      reg = <0x28000000 0x4000>;
++      interrupt-controller;
++      #interrupt-cells = <0>;
++      msi-controller;
++      #msi-cells = <0>;
++      riscv,num-ids = <127>;
++    };
++
++  - |
++    // Example 2 (Supervisor-level IMSIC files with two groups):
++
++    interrupt-controller@28000000 {
++      compatible = "qemu,imsics", "riscv,imsics";
++      interrupts-extended = <&cpu1_intc 9>,
++                            <&cpu2_intc 9>,
++                            <&cpu3_intc 9>,
++                            <&cpu4_intc 9>;
++      reg = <0x28000000 0x2000>, /* Group0 IMSICs */
++            <0x29000000 0x2000>; /* Group1 IMSICs */
++      interrupt-controller;
++      #interrupt-cells = <0>;
++      msi-controller;
++      #msi-cells = <0>;
++      riscv,num-ids = <127>;
++      riscv,group-index-bits = <1>;
++      riscv,group-index-shift = <24>;
++    };
++...
 -- 
 2.34.1
 
