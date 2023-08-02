@@ -4,84 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D0BAC001DF
-	for <linux-riscv@archiver.kernel.org>; Wed,  2 Aug 2023 15:02:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D355FC001DF
+	for <linux-riscv@archiver.kernel.org>; Wed,  2 Aug 2023 15:13:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7ZvPYgF1rfePPA0litYSedS8xfe68nefF1rFKHPJCjU=; b=iWmsosoa0j2oo5
-	m2hnbncF3wAhhtZfWZCy97TwDXbwFRuRJm6MtW20W5Fshp0ITQS4l4aufWQptE5f9VM30NNadnjG2
-	SQVP223dulaLdw6t6GeGfZ8p/w0eXBAY2Ge2R8kILCFujSuITQ0OrLzdnzIUCk3JDSb9AsAZHgyyB
-	3mN6nzAwd2lBOCy5n69HVROyiuii7/RcDajgMkLDTTW7IWGDNIR6yCLfiVSVc5XkPlEnHGM+aNJEV
-	hP1fouppizo0rrNWKqrBmnOfC1nWBp1ijgR4oiRLZ5FUsDC8VRGvZf0rnMr2nSioEsLjh4NQOzB9Q
-	3MRvQqnQpnKZN0S1YosA==;
+	List-Owner; bh=npklxiNBDUEdjR4Pum+/cZj2q8TqX87h+sMW0/JWIh0=; b=FWjHRlREn0wWsf
+	vcfQifBjFRH4sFSS9MRcVbcCv+T+blb5zz9v5FTbJGk7IQPcBMs0+KAqMxZikTOhzyFlIRh59VrfF
+	Lrd1YduEnFqADRg/YpIOxrCeSFel4XF/iZc9hT9Ob+1YAK8oDKwHNzHDiYxgVXqkQhnEk2fynqR06
+	pk2RwEjT8mrZW584BmjsyWpHjDBrzZLr9SZbB/+T2kwhAy0cngIAAVLhQ/Rl6sqOXpB4X2NAq47xe
+	0x+KsTB/JIsJMPISO0kDDfIdhWVJtMNp0mb5kquIZK+137HXRUoU/u6lGbBGW6n08QTUBqwG2qo89
+	BzWAk3Kx0rH/nvqGq8pg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qRDMZ-005A7v-0I;
-	Wed, 02 Aug 2023 15:02:11 +0000
-Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
+	id 1qRDXK-005C3t-1L;
+	Wed, 02 Aug 2023 15:13:18 +0000
+Received: from mail-qt1-x834.google.com ([2607:f8b0:4864:20::834])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qRDMW-005A6J-2Q
+	id 1qRDXH-005C2V-0r
 	for linux-riscv@lists.infradead.org;
-	Wed, 02 Aug 2023 15:02:09 +0000
-Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-1b8b2b60731so41822335ad.2
-        for <linux-riscv@lists.infradead.org>; Wed, 02 Aug 2023 08:02:07 -0700 (PDT)
+	Wed, 02 Aug 2023 15:13:16 +0000
+Received: by mail-qt1-x834.google.com with SMTP id d75a77b69052e-40fbf360a9cso21486501cf.3
+        for <linux-riscv@lists.infradead.org>; Wed, 02 Aug 2023 08:13:14 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1690988527; x=1691593327;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=WzjEf8gdmshIPz1UCPWBPDv9bSpwWIxt6/009doAlF0=;
-        b=T3iwGETj4wk8BsrroMxNokL4un5cyLJxMkS0Yghktf+HS8BezQltxIZ0BfQvA68mka
-         llJH8OFFMgrFDx5TDUnTJzKxZ4HrQdZ6Fr9y/2oNs6mf/6LUgN2jyb11T/B6TWF/D/wu
-         GupSTBzd5zCUcj+LpHiXgl/WuEbfWQwdTGDAhy+tPxzpFXqEdCBS/17WhpZ0YDJPvEUP
-         oJfqbUH8YCSSxXHPtW7akxZYPB186+u3GCnSB+A1zLaIccK4F+lDLKmOw8Xir51qJnS5
-         QDO1I9r1Te3WvQNBkYTOQebaDyhRtykY7Ge9oJ5+kHlQagRLSTG4+v3fBLmg3zwhl0pz
-         wtIg==
+        d=sifive.com; s=google; t=1690989193; x=1691593993;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=hVI5JsCHMJSGtKkijTAXqZDZkWTAdbsjY/9SJVukayA=;
+        b=JZ4fB5monA+6WPOwYfK5G0qJoT2ZedkThiZdAj7pz3BkBhB2l6WMMhuvZC5rvZoR8i
+         OfxvSkR/gztJl3V7XiRPOIbNvzOQMIs7hSi1fejXqCv5359wGZhYf21Ef3nihQxLDvQy
+         Fkkt4GdRaHGxUJ1Cx5WspKVpN0X40H7hK6K1jk1H99K0j2QqmsX8bwByMbUsT+NFIYex
+         qLlKbPYy/58/H0tus3vf86yspuHAAm2SIwlTvOiEMcCnc6z3Eyl8Ur9bGHA035eAmyeS
+         FOLlFMMmShRE3nui3TrYEuG0SHA95BQOA6bsXUJBPIEZCof69AXqj1iBQg5+XuPLj/df
+         UzPA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1690988527; x=1691593327;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=WzjEf8gdmshIPz1UCPWBPDv9bSpwWIxt6/009doAlF0=;
-        b=JT1XFB9yWCqFplW07fVSqeQ/xfl2U+QAu8rdz54Fkrg928ZZ3CmwNxyYQS+95MeUuO
-         VgHvvhsRUHNQ38+643yY5K325lHTZH0VFwRxBqNvcyDjyflFf3Jg0BFeHRqZazgOzray
-         y7dZpDqzz7DXsEbk25+Lp1STh95EK8VhVA6S+70C0k1XsI1T2iJQ8KPFooOmJsWTRomi
-         lsgDM3hyoACxuWhLo7GiClK9nGM7za321SiRbOv8Jvb8JqjIqILHPgu5AFT7OnVQqp75
-         5rS3nJVyoSAlDJv5JrjAvMBzbu+xRSu8GJlXdqUzQsp6Qo+2+l4UFo92s7jqKZESv2RO
-         Xh3g==
-X-Gm-Message-State: ABy/qLYjr57TmBtbDbzCqR+XVL4vPycJj3QoPLTxD+WjcE0VieQgoy+P
-	iP/xyXvWa5QE/HNPgejjRKD2/w==
-X-Google-Smtp-Source: APBJJlGNZTsOk79JzcpgWFDkaYvrxpw9ast6LoWe4ciQrJMbBZi7SOXmTU9v4q3t9h7VBETnKKPJiQ==
-X-Received: by 2002:a17:902:8207:b0:1b8:b464:fa1d with SMTP id x7-20020a170902820700b001b8b464fa1dmr13027165pln.69.1690988526530;
-        Wed, 02 Aug 2023 08:02:06 -0700 (PDT)
-Received: from anup-ubuntu-vm.localdomain ([103.97.165.210])
-        by smtp.gmail.com with ESMTPSA id v11-20020a1709028d8b00b001bb99e188fcsm12503963plo.194.2023.08.02.08.02.00
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 02 Aug 2023 08:02:05 -0700 (PDT)
-From: Anup Patel <apatel@ventanamicro.com>
-To: Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Marc Zyngier <maz@kernel.org>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Frank Rowand <frowand.list@gmail.com>,
-	Conor Dooley <conor+dt@kernel.org>
-Subject: [PATCH v7 15/15] MAINTAINERS: Add entry for RISC-V AIA drivers
-Date: Wed,  2 Aug 2023 20:30:18 +0530
-Message-Id: <20230802150018.327079-16-apatel@ventanamicro.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20230802150018.327079-1-apatel@ventanamicro.com>
-References: <20230802150018.327079-1-apatel@ventanamicro.com>
+        d=1e100.net; s=20221208; t=1690989193; x=1691593993;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=hVI5JsCHMJSGtKkijTAXqZDZkWTAdbsjY/9SJVukayA=;
+        b=ING4l/nfS0ZJiPeRjQlOmZjtv4RO8xq0oWCY1NdVGjHBvRRZXqDn7PlSt4TSGWwje8
+         VaQSolf5DP0EeYmEh1kEJNkfeW8pZCFuf+OEW3mVjqMMMfMXaoTUkKh0+lJ/SD8sgHlk
+         MDf77XH9sADcN9XZ0B33+jjzhTuvqEmMT4/GIdgSCgE1Rcn9OK/SQiyjebXRJZOp44GE
+         3lW1cIHhg0L3/rl3+/kyikMiJvZAJgBKgD4iUGRwwHqLk/+FenLXWK246E7eHDtgPx81
+         UsvXMbXfm9G1eUDvwO7f98viLLiIX8yxqEDh01WTKPyJygyqLx52yIF5XSVJXA0+mQ79
+         oz6g==
+X-Gm-Message-State: ABy/qLYl1NjmmIUmdzmsCPpd48OAgk8AzNjuxYQkoYId7ofLlzgKxV1F
+	2zs1EZK6qAWHGUUWvUWvJodtRQ==
+X-Google-Smtp-Source: APBJJlGYTuOuGFNZvsAG1WFY2w6e/pOV6+DxLXCtY/uhO3o+Qr3lFAv+U+eaPpvUbDTjWgJqM7N27Q==
+X-Received: by 2002:ac8:5d8a:0:b0:403:e3ce:565b with SMTP id d10-20020ac85d8a000000b00403e3ce565bmr17920564qtx.4.1690989193587;
+        Wed, 02 Aug 2023 08:13:13 -0700 (PDT)
+Received: from ?IPV6:2600:1700:2000:b002:b9cf:51fb:f73:15c5? ([2600:1700:2000:b002:b9cf:51fb:f73:15c5])
+        by smtp.gmail.com with ESMTPSA id r2-20020ac87ee2000000b003ff1f891206sm5330344qtc.61.2023.08.02.08.13.12
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 02 Aug 2023 08:13:13 -0700 (PDT)
+Message-ID: <1e5419bc-049b-cd4b-a820-f75f57c59c6d@sifive.com>
+Date: Wed, 2 Aug 2023 10:13:12 -0500
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: dts - linux,usable-memory
+Content-Language: en-US
+To: Laurentiu-Cristian Duca <laurentiu.duca@gmail.com>
+Cc: linux-riscv@lists.infradead.org, Conor Dooley <conor@kernel.org>
+References: <CAPm8-H43P4WrgibV2MGNFZt7ommkchAeom4m0Kt3N-CsG6D9RA@mail.gmail.com>
+ <20230802-palpitate-defection-4908b4cbd142@spud>
+ <CAPm8-H5d_Hp0zaYh+uX6=KhB2GHGHTkaB6tu6Q82AgR4zK-4xw@mail.gmail.com>
+ <CAPm8-H6A9HoJF6B8U5WP2ucqZQrszN-avV6ETX=iPWXq4EvaoA@mail.gmail.com>
+From: Samuel Holland <samuel.holland@sifive.com>
+In-Reply-To: <CAPm8-H6A9HoJF6B8U5WP2ucqZQrszN-avV6ETX=iPWXq4EvaoA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230802_080208_784741_2ACCB49E 
-X-CRM114-Status: UNSURE (   9.62  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230802_081315_334748_E00F7A40 
+X-CRM114-Status: GOOD (  14.04  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,47 +90,70 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Anup Patel <apatel@ventanamicro.com>, devicetree@vger.kernel.org, Saravana Kannan <saravanak@google.com>, Anup Patel <anup@brainfault.org>, linux-kernel@vger.kernel.org, Atish Patra <atishp@atishpatra.org>, linux-riscv@lists.infradead.org, Andrew Jones <ajones@ventanamicro.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add myself as maintainer for RISC-V AIA drivers including the
-RISC-V INTC driver which supports both AIA and non-AIA platforms.
+Hi Laurentiu,
 
-Signed-off-by: Anup Patel <apatel@ventanamicro.com>
----
- MAINTAINERS | 14 ++++++++++++++
- 1 file changed, 14 insertions(+)
+On 2023-08-02 9:37 AM, Laurentiu-Cristian Duca wrote:
+> On 8/2/23, Laurentiu-Cristian Duca <laurentiu.duca@gmail.com> wrote:
+>> On 8/2/23, Conor Dooley <conor@kernel.org> wrote:
+>>> Hey,
+>>>
+>>> On Wed, Aug 02, 2023 at 04:51:47PM +0300, Laurentiu-Cristian Duca wrote:
+>>>>   my name is laurentiu-cristian duca and i am an open-source enthusiast.
+>>>> lately i have tried to use the linux,usable-memory in the dts memory
+>>>> node
+>>>> and linux freezes.
+>>>>   if i use only reg, linux boots fine.
+>>>>   does anybody used linux,usable-memory and can you show a working
+>>>> example.
+>>>>
+>>>>   here is what i tried
+>>>>         memory@80000000 {
+>>>>                 device_type = "memory";
+>>>>                 reg = <0x0 0x80000000 0x0 0x700000>;
+>>>>                 //linux,usable-memory = <0x80000000 0x700000>;
+>>>>         };
+>>>
+>>> What are you actually doing when you freeze? A normal boot? Kexec?
+>>> What hardware is this?
+>>> Are you using OpenSBI, and if so what version?
+>>> What version of the kernel is this?
+>>
+>>   linux5.13.19 with busybox minimal rootfs, bbl (berkeley boot loader),
+>> hardware fpga board with only uart and memory 8MB
+>> i simulate in verilator the verilog sources and i have success if the
+>> dts has reg.
+>>  when it freezes, i can not see any message in simulation
+> [    0.000000] Linux version 5.13.19 (laur@laurPC-100)
+> (riscv32-linux-gcc.br_real (Buildroot 2021.08) 11.1.0, GNU ld (GNU
+> Binutils) 2.37) #402 SMP Wed Aug 2 15:27:14 EEST 2023
+> [    0.000000] OF: fdt: memory scan node memory@80000000, reg size 8,
+> [    0.000000] Machine model: kise-lab,simrv
+> [    0.000000] earlycon: sbi0 at I/O port 0x0 (options '')
+> [    0.000000] printk: bootconsole [sbi0] enabled
+> [    0.000000] printk: debug: ignoring loglevel setting.
+> from here i can not see anything
+> 
+> 
+>> if you want to, i can send you the sources
+>>
+>>   please tell me if the dts memory property is written correctly for
+>> linux,usable-memory
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 53b7ca804465..8e315aaa20bc 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -18259,6 +18259,20 @@ S:	Maintained
- F:	drivers/mtd/nand/raw/r852.c
- F:	drivers/mtd/nand/raw/r852.h
- 
-+RISC-V AIA DRIVERS
-+M:	Anup Patel <anup@brainfault.org>
-+L:	linux-riscv@lists.infradead.org
-+S:	Maintained
-+F:	Documentation/devicetree/bindings/interrupt-controller/riscv,aplic.yaml
-+F:	Documentation/devicetree/bindings/interrupt-controller/riscv,imsics.yaml
-+F:	drivers/irqchip/irq-riscv-aplic-*.c
-+F:	drivers/irqchip/irq-riscv-aplic-*.h
-+F:	drivers/irqchip/irq-riscv-imsic-*.c
-+F:	drivers/irqchip/irq-riscv-imsic-*.h
-+F:	drivers/irqchip/irq-riscv-intc.c
-+F:	include/linux/irqchip/riscv-aplic.h
-+F:	include/linux/irqchip/riscv-imsic.h
-+
- RISC-V ARCHITECTURE
- M:	Paul Walmsley <paul.walmsley@sifive.com>
- M:	Palmer Dabbelt <palmer@dabbelt.com>
--- 
-2.34.1
+It is not. The number of cells you need is given by the #address-cells and
+#size-cells properties of the root node (see early_init_dt_scan_memory()). You
+didn't include that part of the DTS in your example, but I am guessing the "reg"
+property is correct, and it has two cells each. linux,usable-memory should look
+the same. So the correct format would be:
+
+        linux,usable-memory = <0x0 0x80000000 0x0 0x700000>;
+
+Regards,
+Samuel
 
 
 _______________________________________________
