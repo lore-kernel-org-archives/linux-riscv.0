@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8EBFC00528
-	for <linux-riscv@archiver.kernel.org>; Wed,  2 Aug 2023 08:43:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9294C001DE
+	for <linux-riscv@archiver.kernel.org>; Wed,  2 Aug 2023 08:43:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=oEYcQZU08kXLrwnrdboMY56foHGo7uPLgxakusWvsE8=; b=LncEkF4uUux6wS
-	VBX/ox3aVnqZdJUXDq3+f9iUTc1C6oMZaQsdWMlCVsq40d5exFZVWJOXcZc5TpPkN33SdEDQdEMxZ
-	JZdGIAp4+djxpwOkTC255GH+l9vf0mSuiAktb3Vn1fDzFuUqByKNLofmF88MClnBAe80zJSRKFbv+
-	6OrqEg8pzneMMEyeHm3AwWrXDurLuxifZ7ucPKI3kpd8Wb6aZuzde7HkLJAffLOswV+3mCeldacZg
-	UDrJJGV9OU5Mak1C6q6dieuWLe7IJnHn/Lxwe8gDfT4aYbao0vVGuVUg8J46qPFCK4GUbUSjGohJ1
-	vyUjAAAKRYLBmqFVDAVw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Tr6jWezcgMDUGWF9bUDl/FMgDFSLx9DmFIDn6Ic8f3E=; b=TJm77vUC3fPt+T
+	RF1tmxdK+vqkTBPwaieZxIi9lgYU1QrA4S3EXqY6flJiBJE81g+gboqHre/36Tym01+yeMDYvrAux
+	19Hp1kTS53a79f3bI6PbMiucDsYDEUvztB30lTSTRBqfARg5wRgDAfIrtSLShK9wfc7VccAVT/67o
+	lz2LEXUSJMJ3p+Hy3ydiTiV3WC9eNKGpuszuH4FH1o7e6HQ2Gh4YRLJSZb1DG/p0EgOBya06Pm1lq
+	8BviSwND8P7oL3po8qXBNvSzYXPm16I966uQll8IUSpevnD/zApU5S5rvvIY1AS8jQhMMCf9VT0fT
+	cpcVPv1CMTpCaiJ51BnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qR7S1-004OJB-1L;
+	id 1qR7S1-004OJX-38;
 	Wed, 02 Aug 2023 08:43:25 +0000
 Received: from ex01.ufhost.com ([61.152.239.75])
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qR7Rw-004OFC-1l
+	id 1qR7Rw-004OFB-0s
 	for linux-riscv@lists.infradead.org;
-	Wed, 02 Aug 2023 08:43:23 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	Wed, 02 Aug 2023 08:43:24 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id BABD824E275;
-	Wed,  2 Aug 2023 16:43:03 +0800 (CST)
-Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 2 Aug
- 2023 16:43:03 +0800
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id E2A9924E199;
+	Wed,  2 Aug 2023 16:43:02 +0800 (CST)
+Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 2 Aug
+ 2023 16:43:02 +0800
 Received: from localhost.localdomain (183.27.98.54) by EXMBX061.cuchost.com
  (172.16.6.61) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 2 Aug
- 2023 16:43:02 +0800
+ 2023 16:43:01 +0800
 From: Xingyu Wu <xingyu.wu@starfivetech.com>
 To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
 	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, "Maxim
@@ -51,20 +51,18 @@ CC: Jose Abreu <joabreu@synopsys.com>, Paul Walmsley
  Wu" <xingyu.wu@starfivetech.com>, <devicetree@vger.kernel.org>,
 	<linux-kernel@vger.kernel.org>, <alsa-devel@alsa-project.org>,
 	<linux-riscv@lists.infradead.org>
-Subject: [PATCH v1 1/5] ASoC: dwc: Use ops to get platform data
-Date: Wed, 2 Aug 2023 16:42:57 +0800
-Message-ID: <20230802084301.134122-2-xingyu.wu@starfivetech.com>
+Subject: [PATCH v1 0/5] Add I2S support for the StarFive JH7110 SoC
+Date: Wed, 2 Aug 2023 16:42:56 +0800
+Message-ID: <20230802084301.134122-1-xingyu.wu@starfivetech.com>
 X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20230802084301.134122-1-xingyu.wu@starfivetech.com>
-References: <20230802084301.134122-1-xingyu.wu@starfivetech.com>
 MIME-Version: 1.0
 X-Originating-IP: [183.27.98.54]
 X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX061.cuchost.com
  (172.16.6.61)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230802_014320_749366_9645FBBA 
-X-CRM114-Status: GOOD (  13.05  )
+X-CRM114-CacheID: sfid-20230802_014320_483327_E1C32300 
+X-CRM114-Status: GOOD (  14.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,26 +79,48 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Use of_device_get_match_data() to get platform data.
+This patch series adds I2S support for the StarFive JH7110 RISC-V
+SoC based on Designware I2S controller. There has three I2S channels
+(RX/TX0/TX1) on the JH7110 SoC, one of which is for record(RX) and
+two for playback(TX).
 
-Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
----
- sound/soc/dwc/dwc-i2s.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+The first patch adds the ops to get data from platform bus in the
+I2S driver.
+The second patch adds support for the StarFive JH7110 SoC in
+the Designware I2S bindings.
+The third patch adds support for the StarFive JH7110 SoC in
+the Designware I2S driver. 
+The fourth patch fixes the name of I2STX1 pinmux.
+The last patch adds device node of I2S RX/TX0/TX1 in JH7110 dts.
 
-diff --git a/sound/soc/dwc/dwc-i2s.c b/sound/soc/dwc/dwc-i2s.c
-index 1f1ee14b04e6..c076090a9864 100644
---- a/sound/soc/dwc/dwc-i2s.c
-+++ b/sound/soc/dwc/dwc-i2s.c
-@@ -690,7 +690,7 @@ static int dw_i2s_dai_probe(struct snd_soc_dai *dai)
- 
- static int dw_i2s_probe(struct platform_device *pdev)
- {
--	const struct i2s_platform_data *pdata = pdev->dev.platform_data;
-+	const struct i2s_platform_data *pdata = of_device_get_match_data(&pdev->dev);
- 	struct dw_i2s_dev *dev;
- 	struct resource *res;
- 	int ret, irq;
+This patch series is based on Linux-next which is merge clock,
+syscon and dma nodes for the StarFive JH7110 SoC. And these
+should be applied after the following patchset:
+https://lore.kernel.org/all/20230724055440.100947-1-xingyu.wu@starfivetech.com/
+
+The series has been tested and works normally on the VisionFive 2
+board by plugging an audio expansion board.
+
+Xingyu Wu (5):
+  ASoC: dwc: Use ops to get platform data
+  ASoC: dt-bindings: snps,designware-i2s: Add StarFive JH7110 SoC
+    support
+  ASoC: dwc: i2s: Add StarFive JH7110 SoC support
+  riscv: dts: starfive: pinfunc: Fix the pins name of I2STX1
+  riscv: dts: starfive: Add the nodes and pins of I2Srx/I2Stx0/I2Stx1
+
+ .../bindings/sound/snps,designware-i2s.yaml   | 101 +++++-
+ arch/riscv/boot/dts/starfive/jh7110-pinfunc.h |   4 +-
+ .../jh7110-starfive-visionfive-2.dtsi         |  58 ++++
+ arch/riscv/boot/dts/starfive/jh7110.dtsi      |  65 ++++
+ include/sound/designware_i2s.h                |   3 +
+ sound/soc/dwc/dwc-i2s.c                       | 318 ++++++++++++++++--
+ sound/soc/dwc/local.h                         |   1 +
+ 7 files changed, 523 insertions(+), 27 deletions(-)
+
+
+base-commit: 0fee53365d051781156b75c6f6e6015757e71fd8
+prerequisite-patch-id: 0159f09bb0a1ff711a00ae17ef5b12662c9c7d3d
 -- 
 2.25.1
 
