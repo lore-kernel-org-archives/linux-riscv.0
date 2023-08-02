@@ -4,81 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 826CCC001DF
-	for <linux-riscv@archiver.kernel.org>; Wed,  2 Aug 2023 12:25:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCEB1C001E0
+	for <linux-riscv@archiver.kernel.org>; Wed,  2 Aug 2023 12:48:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=T25/D4Vg5hE/Sl8K6cS0a2qIWJTJVDy5PzJR6tgvZY8=; b=dvXPCDePfGG4fh
-	trxw8j/2Zw9uqVgtNU04/e/zei4ah0QjtRBXcA5nfEwUvj8O8/VTFcEzbchJlXz0D+8CdGXssiUrq
-	3BFZzyun121NeBjKEU0fbuaZiHpxK+pWFJtwkvrHLW2QJYlIwlZcqlF432/ITdDAzcatfYqHLXKrS
-	jjqPAfl2rF3Tw8ydxB6r/Jnv2t7wmc8wPzy8J08ICcKMptkrUOlxr+qZUU9sGbYa6chHZDUOLOhx4
-	sZgqclkkA8BTSfWFxBI1d/2ykaV8HQ0MB1rvRjDLCyJN+2fT+VGwrLCfXpNLnfkTFDKg008d5ZlV5
-	lSXVpyvZcNrILxagoQTQ==;
+	List-Owner; bh=n8zQfQjopaqGtvp80iGhOLtEaS3byfyiCXlYFoYiJBs=; b=M0rJCNDJJcfe6a
+	vRKJZYGPPpWvuvHi0GZbGhmWDYW7Bmkbruxn61PyfH58cJZvFQRtr1iLrxk78R/4rgyb8nPzYsiPJ
+	vDmuZQEPEVgDQNHlpCrs7MvcO8eUeOErGW4SEzVCSj3lOMuZNr+vO8zae2o2NZUs9uGVF3L3aBpnX
+	a8beCVBoZYz+Fjzwe+rVJoryaoiAw91s2wPsBLfraxX0r5c7oZTSKhNS9/eCx+7FmY099pNCuHak0
+	qcSSwuSo0JWIHmzl5Hlq/mTuZOGzBA7+jnbo6JBThfYEUOZpKkBYa6BK8i/Pmi6eSVY0uyQ3DHCDR
+	lad1BYnHUERrRSyZjT6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qRAuz-004tIC-1k;
-	Wed, 02 Aug 2023 12:25:33 +0000
-Received: from mail-pg1-x532.google.com ([2607:f8b0:4864:20::532])
+	id 1qRBHC-004w33-2S;
+	Wed, 02 Aug 2023 12:48:30 +0000
+Received: from 60-248-80-70.hinet-ip.hinet.net ([60.248.80.70] helo=Atcsqr.andestech.com)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qRAux-004tHR-0J
+	id 1qRBH7-004w2L-2v
 	for linux-riscv@lists.infradead.org;
-	Wed, 02 Aug 2023 12:25:32 +0000
-Received: by mail-pg1-x532.google.com with SMTP id 41be03b00d2f7-563df158ecaso4989420a12.0
-        for <linux-riscv@lists.infradead.org>; Wed, 02 Aug 2023 05:25:29 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1690979129; x=1691583929;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=xGDC2y4/GIKVyQuDTwjWu7bIkr4WAVPjV1MNJFYZAjA=;
-        b=nOrlb/8WnlhynD/pHfW0h8qOPk7RMA24QDem/0k7GCeTk/ljDpmBN8So1cycaItDz9
-         uOxh06BSqHjejpoSDX1cl6Gs55wYBgUlOUFA+Ma6RJOhjSwE6q+uAlzuWfvCYOhk2E58
-         u1hLVhzsXzFNbWWgFz4Zl+fQaiInZ8ZUnS3S7JSJ1INckJsgj3hIcgzORAF4DUv0fGSL
-         LGeiEeqYyfrnKenp41WH6BJalcWhBF3ROEJujqpUx6AONi36hp+S0uCN6/gyCCj5nXb/
-         YfCnqVepvLEFluA3el4BN+rPxuksWUg5gjh2pZ/MlmK6GX/cuezGRzu1z795CFA4ooef
-         9tyg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1690979129; x=1691583929;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=xGDC2y4/GIKVyQuDTwjWu7bIkr4WAVPjV1MNJFYZAjA=;
-        b=AJu1HajDUbvMM/TPnbqNkmdOO3il6p0h7bbJoZ/e/LXih9pYNuD3KVaFEso2H3Sinv
-         adclhuV2zo+Ujv3gxCUOoC/9ugblRIGWnS0dQqcxx1bXv9wMj11Tu3J9MPa2X1HFZNUO
-         4asvBCTS7APHPIpdpc1nOHKzCebJ7JtedKP7lDo8hhoRYu9k7CxAGsCXaKgB8sKRh7Wv
-         qrBFtqIIaNU5oyahBO25CEArK2WerdSC35RNiOyzpyrxB0QSQPABS4zaa45+zqtezx8G
-         Rg1j+NBsR7N4+TtnzFrB0Uq1KvuRlWONlUQGtQ14Bf4jPcdi4DLV/clViKr4NkYUPvlF
-         wAjA==
-X-Gm-Message-State: ABy/qLYzAvQ+b1jkSRd5gxJ81Vu/UndVfwgs5N0kW+EIzmu5xiDD2Kkj
-	fb/w0K4kpa5wyzJmuM/2k2IWW7nAxV69h/R6KdYYhg==
-X-Google-Smtp-Source: APBJJlH5Cwhcg/8nWFbj+FX9DBv3vahHDq1M42mj6hRfUzLh/NvzrUJjro6gAeiu1hCV1zqKA17KOHwD54Hn9AKnikU=
-X-Received: by 2002:a17:90b:2551:b0:268:5620:cfc7 with SMTP id
- nw17-20020a17090b255100b002685620cfc7mr14458070pjb.30.1690979129249; Wed, 02
- Aug 2023 05:25:29 -0700 (PDT)
+	Wed, 02 Aug 2023 12:48:29 +0000
+Received: from mail.andestech.com (ATCPCS16.andestech.com [10.0.1.222])
+	by Atcsqr.andestech.com with ESMTP id 372CkPZs081155;
+	Wed, 2 Aug 2023 20:46:25 +0800 (+08)
+	(envelope-from dylan@andestech.com)
+Received: from atctrx.andestech.com (10.0.15.173) by ATCPCS16.andestech.com
+ (10.0.1.222) with Microsoft SMTP Server id 14.3.498.0; Wed, 2 Aug 2023
+ 20:46:25 +0800
+Date: Wed, 2 Aug 2023 20:46:25 +0800
+From: dylan <dylan@andestech.com>
+To: Alexandre Ghiti <alex@ghiti.fr>
+CC: <linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+        <wangkefeng.wang@huawei.com>, <tongtiangen@huawei.com>,
+        <guoren@kernel.org>, <sergey.matyukevich@syntacore.com>,
+        <gregkh@linuxfoundation.org>, <ajones@ventanamicro.com>,
+        <aou@eecs.berkeley.edu>, <palmer@dabbelt.com>,
+        <paul.walmsley@sifive.com>, <conor.dooley@microchip.com>,
+        <x5710999x@gmail.com>, <tim609@andestech.com>, <cl634@andestech.com>,
+        <ycliang@andestech.com>
+Subject: Re: [PATCH] riscv: Flush stale TLB entry with VMAP_STACK enabled
+Message-ID: <ZMpQIXXfFLCFeOtg@atctrx.andestech.com>
+References: <20230801090927.2018653-1-dylan@andestech.com>
+ <dc26625b-6658-c078-76d2-7e975a04b1d4@ghiti.fr>
 MIME-Version: 1.0
-References: <20230719113542.2293295-1-apatel@ventanamicro.com>
- <20230719113542.2293295-5-apatel@ventanamicro.com> <ZMItuhqTCJCirg4s@sunil-laptop>
-In-Reply-To: <ZMItuhqTCJCirg4s@sunil-laptop>
-From: Anup Patel <apatel@ventanamicro.com>
-Date: Wed, 2 Aug 2023 17:55:17 +0530
-Message-ID: <CAK9=C2V_Pf2JAKRvufU9J2OmFkaAO3MuonDBvZDKTJGNb=vBOw@mail.gmail.com>
-Subject: Re: [PATCH v6 04/14] irqchip/sifive-plic: Use platform driver probing
- for PLIC
-To: Sunil V L <sunilvl@ventanamicro.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, Rob Herring <robh+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Frank Rowand <frowand.list@gmail.com>, 
-	Conor Dooley <conor+dt@kernel.org>, Atish Patra <atishp@atishpatra.org>, 
-	Andrew Jones <ajones@ventanamicro.com>, Saravana Kannan <saravanak@google.com>, 
-	Anup Patel <anup@brainfault.org>, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
+Content-Disposition: inline
+In-Reply-To: <dc26625b-6658-c078-76d2-7e975a04b1d4@ghiti.fr>
+User-Agent: Mutt/2.1.4 (2021-12-11)
+X-Originating-IP: [10.0.15.173]
+X-DNSRBL: 
+X-MAIL: Atcsqr.andestech.com 372CkPZs081155
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230802_052531_159376_203EFA29 
-X-CRM114-Status: GOOD (  26.08  )
+X-CRM114-CacheID: sfid-20230802_054826_388429_59C68289 
+X-CRM114-Status: GOOD (  56.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,128 +70,192 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgU3VuaWwsCgpPbiBUaHUsIEp1bCAyNywgMjAyMyBhdCAyOjEx4oCvUE0gU3VuaWwgViBMIDxz
-dW5pbHZsQHZlbnRhbmFtaWNyby5jb20+IHdyb3RlOgo+Cj4gSGkgQW51cCwKPgo+IE9uIFdlZCwg
-SnVsIDE5LCAyMDIzIGF0IDA1OjA1OjMyUE0gKzA1MzAsIEFudXAgUGF0ZWwgd3JvdGU6Cj4gPiBU
-aGUgUExJQyBkcml2ZXIgZG9lcyBub3QgcmVxdWlyZSB2ZXJ5IGVhcmx5IGluaXRpYWxpemF0aW9u
-IHNvIGxldCB1cwo+ID4gcmVwbGFjZSB1c2Ugb2YgSVJRQ0hJUF9ERUNMQVJFKCkgd2l0aCBJUlFD
-SElQX1BMQVRGT1JNX0RSSVZFUl94eXooKQo+ID4gc28gdGhhdCBQTElDIGlzIHByb2JlZCB0aHJv
-dWdoIHBsYXRmb3JtIGRyaXZlciBwcm9iaW5nLgo+ID4KPiA+IFNpZ25lZC1vZmYtYnk6IEFudXAg
-UGF0ZWwgPGFwYXRlbEB2ZW50YW5hbWljcm8uY29tPgo+ID4gLS0tCj4gPiAgZHJpdmVycy9pcnFj
-aGlwL2lycS1zaWZpdmUtcGxpYy5jIHwgMTIgKysrKysrKystLS0tCj4gPiAgMSBmaWxlIGNoYW5n
-ZWQsIDggaW5zZXJ0aW9ucygrKSwgNCBkZWxldGlvbnMoLSkKPiA+Cj4gPiBkaWZmIC0tZ2l0IGEv
-ZHJpdmVycy9pcnFjaGlwL2lycS1zaWZpdmUtcGxpYy5jIGIvZHJpdmVycy9pcnFjaGlwL2lycS1z
-aWZpdmUtcGxpYy5jCj4gPiBpbmRleCA1NmIwNTQ0YjFmMjcuLmRjMDJmMDc2MWNlZCAxMDA2NDQK
-PiA+IC0tLSBhL2RyaXZlcnMvaXJxY2hpcC9pcnEtc2lmaXZlLXBsaWMuYwo+ID4gKysrIGIvZHJp
-dmVycy9pcnFjaGlwL2lycS1zaWZpdmUtcGxpYy5jCj4gPiBAQCAtNTY5LDggKzU2OSwxMCBAQCBz
-dGF0aWMgaW50IF9faW5pdCBwbGljX2luaXQoc3RydWN0IGRldmljZV9ub2RlICpub2RlLAo+ID4g
-ICAgICAgcmV0dXJuIF9fcGxpY19pbml0KG5vZGUsIHBhcmVudCwgMCk7Cj4gPiAgfQo+ID4KPiA+
-IC1JUlFDSElQX0RFQ0xBUkUoc2lmaXZlX3BsaWMsICJzaWZpdmUscGxpYy0xLjAuMCIsIHBsaWNf
-aW5pdCk7Cj4gPiAtSVJRQ0hJUF9ERUNMQVJFKHJpc2N2X3BsaWMwLCAicmlzY3YscGxpYzAiLCBw
-bGljX2luaXQpOyAvKiBmb3IgbGVnYWN5IHN5c3RlbXMgKi8KPiA+ICtJUlFDSElQX1BMQVRGT1JN
-X0RSSVZFUl9CRUdJTihzaWZpdmVfcGxpYykKPiA+ICtJUlFDSElQX01BVENIKCJzaWZpdmUscGxp
-Yy0xLjAuMCIsIHBsaWNfaW5pdCkKPiA+ICtJUlFDSElQX01BVENIKCJyaXNjdixwbGljMCIsIHBs
-aWNfaW5pdCkgLyogZm9yIGxlZ2FjeSBzeXN0ZW1zICovCj4gPiArSVJRQ0hJUF9QTEFURk9STV9E
-UklWRVJfRU5EKHNpZml2ZV9wbGljKQo+ID4KPiBGZXcgb2JzZXJ2YXRpb25zLi4KPgo+IDEpIElS
-UUNISVBfUExBVEZPUk1fRFJJVkVSX3h5eiB3b3JrIG9ubHkgZm9yIERULiBDYW4gd2UgaGF2ZSBt
-b3JlIGdlbmVyaWMKPiBwbGF0Zm9ybSBkcml2ZXIgcHJvYmUgc2ltaWxhciB0byBBUExJQyBkcml2
-ZXI/CgpPa2F5LCBJIHdpbGwgY29udmVydCBpdCBpbnRvIGdlbmVyaWMgcGxhdGZvcm0gZHJpdmVy
-IHdoaWNoCndpbGwgd29yayBmb3IgQUNQSSBhcyB3ZWxsLgoKPgo+IDIpIFdpdGggcGxhdGZvcm0g
-ZHJpdmVyIG1vZGVsLCB0aGVyZSBpcyBhIGNyYXNoIHNvbWUgdGltZXMuCj4KPiBbICAgIDAuMTk4
-NjY1XSBDUFU6IDQgUElEOiAzMiBDb21tOiBjcHVocC80IE5vdCB0YWludGVkCj4gNi41LjAtcmMz
-LTAwMDM4LWc3ODI0NDA3MTFjZGIgIzQyCj4gWyAgICAwLjE5ODk0NF0gSGFyZHdhcmUgbmFtZTog
-cmlzY3YtdmlydGlvLHFlbXUgKERUKQo+IFsgICAgMC4xOTkxMjVdIGVwYyA6IHBsaWNfc3RhcnRp
-bmdfY3B1KzB4NjAvMHhhNgo+IFsgICAgMC4xOTk1NDVdICByYSA6IHBsaWNfc3RhcnRpbmdfY3B1
-KzB4NTgvMHhhNgo+IFsgICAgMC4xOTk2NzZdIGVwYyA6IGZmZmZmZmZmODA0NzM5NmUgcmEgOiBm
-ZmZmZmZmZjgwNDczOTY2IHNwIDoKPiBmZjIwMDAwMDAwMTczZDgwCj4gWyAgICAwLjE5OTg5OV0g
-IGdwIDogZmZmZmZmZmY4MTUwMTc0MCB0cCA6IGZmNjAwMDAwMDE5YmRlMDAgdDAgOgo+IGZmZmZm
-ZmZmODEyMDA4MDAKPiBbICAgIDAuMjAwMTEyXSAgdDEgOiAwMDAwMDAwMDAwMDAwMDAwIHQyIDog
-MDAwMDAwMDAwMDAwMTAwMCBzMCA6Cj4gZmYyMDAwMDAwMDE3M2RiMAo+IFsgICAgMC4yMDAzMjRd
-ICBzMSA6IGZmNjAwMDAwN2VmOTFlYjAgYTAgOiBmZjYwMDAwMDAxOTY5MGIwIGExIDoKPiAwMDAw
-MDAwMjAwMDAwMDIwCj4gWyAgICAwLjIwMDUwMl0gIGEyIDogMDAwMDAwMDAwMDAwMDAwMCBhMyA6
-IDAwMDAwMDAwMDAwMDAwMDAgYTQgOgo+IDAwMDAwMDAwMDAwMDAwMDAKPiBbICAgIDAuMjAwNjc4
-XSAgYTUgOiAwMDAwMDAwMDAwMDAwMDAwIGE2IDogZmY2MDAwMDAwMTg0YTEwOCBhNyA6Cj4gZmY2
-MDAwMDAwMTg0YTEwMAo+IFsgICAgMC4yMDA4NTVdICBzMiA6IDAwMDAwMDAwMDAwMDAwMGIgczMg
-OiBmZmZmZmZmZjgxNTNhNTUwIHM0IDoKPiAwMDAwMDAwMDAwMDAwMDA0Cj4gWyAgICAwLjIwMTAz
-Ml0gIHM1IDogMDAwMDAwMDAwMDAwMDAwMSBzNiA6IDAwMDAwMDAwMDAwMDAwMDIgczcgOgo+IGZm
-ZmZmZmZmODA0NzM5MGUKPiBbICAgIDAuMjAxMjEwXSAgczggOiBmZmZmZmZmZjgwMDMzZjhhIHM5
-IDogZmZmZmZmZmY4MDAzM2Y2NCBzMTA6Cj4gMDAwMDAwMDAwMDAwMDAwMAo+IFsgICAgMC4yMDEz
-OTJdICBzMTE6IDAwMDAwMDAwMDAwMDAwMDAgdDMgOiAwMDAwMDAwMDAwMDAwMDAwIHQ0IDoKPiBm
-ZmZmZmZmZjgxNDg2YzIwCj4gWyAgICAwLjIwMTU2N10gIHQ1IDogMDAwMDAwMDAwMDAwMDAwMiB0
-NiA6IDAwMDAwMDAwMDAwMDAwMDIKPiBbICAgIDAuMjAxNzAyXSBzdGF0dXM6IDAwMDAwMDAyMDAw
-MDAxMDAgYmFkYWRkcjogMDAwMDAwMDAwMDAwMDAwMCBjYXVzZToKPiAwMDAwMDAwMDAwMDAwMDBm
-Cj4gWyAgICAwLjIwMTk2Ml0gWzxmZmZmZmZmZjgwNDczOTZlPl0gcGxpY19zdGFydGluZ19jcHUr
-MHg2MC8weGE2Cj4gWyAgICAwLjIwMjE4NF0gWzxmZmZmZmZmZjgwMDEwNjllPl0gY3B1aHBfaW52
-b2tlX2NhbGxiYWNrKzB4YjQvMHgxNjQKPiBbICAgIDAuMjAyMzQ2XSBbPGZmZmZmZmZmODAwMTA5
-NzI+XSBjcHVocF90aHJlYWRfZnVuKzB4OGEvMHgxMWMKPiBbICAgIDAuMjAyNDkzXSBbPGZmZmZm
-ZmZmODAwMzNmNjI+XSBzbXBib290X3RocmVhZF9mbisweGU0LzB4MWJlCj4gWyAgICAwLjIwMjYz
-OV0gWzxmZmZmZmZmZjgwMDMwNDJhPl0ga3RocmVhZCsweGM0LzB4ZTAKPiBbICAgIDAuMjAyNzU5
-XSBbPGZmZmZmZmZmODAwMDM1NWU+XSByZXRfZnJvbV9mb3JrKzB4YS8weDFjCj4gWyAgICAwLjIw
-MzAzOF0gQ29kZTogODliZCA4NTRhIDMwOTcgZmZiZiA4MGU3IDUxZTAgMDAwZiAwMTQwIDQ3ODEg
-NjQ5OAo+IChjMzFjKSAyNzAzCgpUaGUgY3B1aHAgc2V0dXAgbmVlZGVkIHRvIGNoYW5nZSBzaW5j
-ZSBhcyBwbGF0Zm9ybSBkcml2ZXIgdGhlClBMSUMgaXMgcHJvYmVkIGFmdGVyIGFsbCBDUFVzIGFy
-ZSBicm91Z2h0LXVwLiBJIHdpbGwgZml4IHRoaXMgaW4KdGhlIG5leHQgcmV2aXNpb24uCgo+Cj4g
-MykgTG9va3MgbGlrZSBhbiBleGlzdGluZyBpc3N1ZSBidXQgSSBnZXQgYmVsb3cgd2FybmluZyBh
-bHNvLgo+Cj4gWyAgICAwLjIwNzY3N10gbGlzdF9hZGQgZG91YmxlIGFkZDogbmV3PWZmZmZmZmZm
-ODE0YTA3OTgsCj4gcHJldj1mZmZmZmZmZjgxNGEwNzk4LCBuZXh0PWZmZmZmZmZmODE0YmU2Mzgu
-Cj4gWyAgICAwLjIwODI0M10gV0FSTklORzogQ1BVOiA0IFBJRDogMSBhdCBsaWIvbGlzdF9kZWJ1
-Zy5jOjMzCj4gX19saXN0X2FkZF92YWxpZCsweDQ2LzB4YWMKPiBbICAgIDAuMjA4Njc3XSBNb2R1
-bGVzIGxpbmtlZCBpbjoKPiBbICAgIDAuMjA4NzgwXSBDUFU6IDQgUElEOiAxIENvbW06IHN3YXBw
-ZXIvMCBOb3QgdGFpbnRlZAo+IDYuNS4wLXJjMy0wMDAzOC1nNzgyNDQwNzExY2RiICMyOAo+IFsg
-ICAgMC4yMDg4NjJdIEhhcmR3YXJlIG5hbWU6IHJpc2N2LXZpcnRpbyxxZW11IChEVCkKPiBbICAg
-IDAuMjA4OTI2XSBlcGMgOiBfX2xpc3RfYWRkX3ZhbGlkKzB4NDYvMHhhYwo+IFsgICAgMC4yMDg5
-NjFdICByYSA6IF9fbGlzdF9hZGRfdmFsaWQrMHg0Ni8weGFjCj4gWyAgICAwLjIwODk4M10gZXBj
-IDogZmZmZmZmZmY4MDNjYjM1NiByYSA6IGZmZmZmZmZmODAzY2IzNTYgc3AgOgo+IGZmMjAwMDAw
-MDAwNDM5ZjAKPiBbICAgIDAuMjA4OTk0XSAgZ3AgOiBmZmZmZmZmZjgxNTAxNzQwIHRwIDogZmY2
-MDAwMDAwMThmMDAwMCB0MCA6Cj4gMjAwMDAwMDAwMDAwMDAwMAo+IFsgICAgMC4yMDkwMDVdICB0
-MSA6IDAwMDAwMDAwMDAwMDAwNmMgdDIgOiAyMDY0NjQ2MTVmNzQ3MzY5IHMwIDoKPiBmZjIwMDAw
-MDAwMDQzYTAwCj4gWyAgICAwLjIwOTAxNV0gIHMxIDogZmZmZmZmZmY4MTRhMDc5OCBhMCA6IDAw
-MDAwMDAwMDAwMDAwNTggYTEgOgo+IGZmZmZmZmZmODE0ODY4MjgKPiBbICAgIDAuMjA5MDI1XSAg
-YTIgOiAwMDAwMDAwMDAwMDAwMDAwIGEzIDogZmZmZmZmZmZmZmZmZmZmZSBhNCA6Cj4gMDAwMDAw
-MDAwMDAwMDAwMAo+IFsgICAgMC4yMDkwMzRdICBhNSA6IDAwMDAwMDAwMDAwMDAwMDAgYTYgOiAw
-MDAwMDAwMDAwMDAwMDY4IGE3IDoKPiAwMDAwMDAwMDAwMDAwMDM4Cj4gWyAgICAwLjIwOTA0NF0g
-IHMyIDogZmZmZmZmZmY4MTRiZTVmOCBzMyA6IGZmZmZmZmZmODE0YTA3OTggczQgOgo+IGZmZmZm
-ZmZmODE0YmU2MzgKPiBbICAgIDAuMjA5MDUzXSAgczUgOiBmZjYwMDAwMDdmZmY3NWMwIHM2IDog
-MDAwMDAwMDAwMDAwMDA2MCBzNyA6Cj4gZmZmZmZmZmY4MGMyMGViMAo+IFsgICAgMC4yMDkwNjNd
-ICBzOCA6IDAwMDAwMDAwMDAwMDAwMDggczkgOiAwMDAwMDAwMDAwMDAwMDA0IHMxMDoKPiBmZmZm
-ZmZmZjgwYzIwZWIwCj4gWyAgICAwLjIwOTA3Ml0gIHMxMTogZmZmZmZmZmY4MTAzOGU4MCB0MyA6
-IGZmZmZmZmZmODE1MTU5ZDcgdDQgOgo+IGZmZmZmZmZmODE1MTU5ZDcKPiBbICAgIDAuMjA5MDgx
-XSAgdDUgOiBmZmZmZmZmZjgxNTE1OWQ4IHQ2IDogZmYyMDAwMDAwMDA0MzdmOAo+IFsgICAgMC4y
-MDkwOTBdIHN0YXR1czogMDAwMDAwMDIwMDAwMDEyMCBiYWRhZGRyOiAwMDAwMDAwMDAwMDAwMDAw
-IGNhdXNlOgo+IDAwMDAwMDAwMDAwMDAwMDMKPiBbICAgIDAuMjA5MTY3XSBbPGZmZmZmZmZmODAz
-Y2IzNTY+XSBfX2xpc3RfYWRkX3ZhbGlkKzB4NDYvMHhhYwo+IFsgICAgMC4yMDkyMTldIFs8ZmZm
-ZmZmZmY4MDU4MTJkND5dIHJlZ2lzdGVyX3N5c2NvcmVfb3BzKzB4M2UvMHg3MAo+IFsgICAgMC4y
-MDkyNDVdIFs8ZmZmZmZmZmY4MGExZmQwYz5dIF9fcGxpY19pbml0LmlzcmEuMCsweDNlMC8weDRl
-Mgo+IFsgICAgMC4yMDkyNjddIFs8ZmZmZmZmZmY4MGExZmUzYT5dIHBsaWNfaW5pdCsweDEyLzB4
-MWEKPiBbICAgIDAuMjA5MjgxXSBbPGZmZmZmZmZmODA0NzBjMTA+XSBwbGF0Zm9ybV9pcnFjaGlw
-X3Byb2JlKzB4ODIvMHhiNAo+IFsgICAgMC4yMDkyOTJdIFs8ZmZmZmZmZmY4MDU4MmFhOD5dIHBs
-YXRmb3JtX3Byb2JlKzB4NGUvMHhhNgo+IFsgICAgMC4yMDkzMDFdIFs8ZmZmZmZmZmY4MDU4MDVh
-ND5dIHJlYWxseV9wcm9iZSsweDg2LzB4MjQyCj4gWyAgICAwLjIwOTMwOF0gWzxmZmZmZmZmZjgw
-NTgwN2JjPl0gX19kcml2ZXJfcHJvYmVfZGV2aWNlKzB4NWMvMHhkYQo+IFsgICAgMC4yMDkzMTZd
-IFs8ZmZmZmZmZmY4MDU4MDg2Nj5dIGRyaXZlcl9wcm9iZV9kZXZpY2UrMHgyYy8weGIyCj4gWyAg
-ICAwLjIwOTMyNF0gWzxmZmZmZmZmZjgwNTgwOWU2Pl0gX19kcml2ZXJfYXR0YWNoKzB4NmMvMHgx
-MWEKPiBbICAgIDAuMjA5MzMxXSBbPGZmZmZmZmZmODA1N2U3M2E+XSBidXNfZm9yX2VhY2hfZGV2
-KzB4NjAvMHhhZQo+IFsgICAgMC4yMDkzNDNdIFs8ZmZmZmZmZmY4MDU3ZmZmNj5dIGRyaXZlcl9h
-dHRhY2grMHgxYS8weDIyCj4gWyAgICAwLjIwOTM1Ml0gWzxmZmZmZmZmZjgwNTdmOTU2Pl0gYnVz
-X2FkZF9kcml2ZXIrMHhkMC8weDFiYQo+IFsgICAgMC4yMDkzNjJdIFs8ZmZmZmZmZmY4MDU4MTYz
-ND5dIGRyaXZlcl9yZWdpc3RlcisweDNlLzB4ZDgKPiBbICAgIDAuMjA5MzcwXSBbPGZmZmZmZmZm
-ODA1ODI3YzA+XSBfX3BsYXRmb3JtX2RyaXZlcl9yZWdpc3RlcisweDFjLzB4MjQKPiBbICAgIDAu
-MjA5Mzc4XSBbPGZmZmZmZmZmODBhMWY5MDI+XSBzaWZpdmVfcGxpY19kcml2ZXJfaW5pdCsweDFh
-LzB4MjIKPiBbICAgIDAuMjA5Mzg5XSBbPGZmZmZmZmZmODAwMDIxMmM+XSBkb19vbmVfaW5pdGNh
-bGwrMHg1OC8weDE5Ywo+IFsgICAgMC4yMDkzOTldIFs8ZmZmZmZmZmY4MGEwMTA1Nj5dIGtlcm5l
-bF9pbml0X2ZyZWVhYmxlKzB4MjBjLzB4Mjc2Cj4gWyAgICAwLjIwOTQxMF0gWzxmZmZmZmZmZjgw
-OGQ2Njg2Pl0ga2VybmVsX2luaXQrMHgxZS8weDEwYQo+IFsgICAgMC4yMDk0MjFdIFs8ZmZmZmZm
-ZmY4MDAwMzU1ZT5dIHJldF9mcm9tX2ZvcmsrMHhhLzB4MWMKPiBbICAgIDAuMjA5NDc3XSAtLS1b
-IGVuZCB0cmFjZSAwMDAwMDAwMDAwMDAwMDAwIF0tLS0KClRoaXMgaXMgYSBidWcgaW4gY3VycmVu
-dCBQTElDIGRyaXZlciB3aGVyZSBpdCB1bmNvbmRpdGlvbmFsbHkKcmVnaXN0ZXJzIHN5c2NvcmUg
-b3BzIHdoaWNoIGJyZWFrcyBvbiBtdWx0aS1zb2NrZXQgc3lzdGVtcwpoYXZpbmcgbXVsdGlwbGUg
-UExJQ3MuIEkgd2lsbCBhZGQgYSBzZXBhcmF0ZSBwYXRjaCBpbiB0aGUKbmV4dCByZXZpc2lvbiB0
-byBmaXggdGhpcyBpc3N1ZS4KClJlZ2FyZHMsCkFudXAKCl9fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1y
-aXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxt
-YW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On Tue, Aug 01, 2023 at 03:56:06PM +0200, Alexandre Ghiti wrote:
+
+Hi Alex,
+
+Thanks for the comment.
+
+> Hi Dylan,
+> 
+> 
+> On 01/08/2023 11:09, Dylan Jhong wrote:
+> > When VMAP_STACK is enabled, the kernel stack will be obtained through
+> > vmalloc(). Normally, we rely on the logic in vmalloc_fault() to update stale
+> > P*D entries covering the vmalloc space in a task's page tables when it first
+> > accesses the problematic region.
+> 
+> 
+> I guess that's for rv32 right? Because vmalloc_fault() has been removed for
+> rv64 in 6.5.
+> 
+> Here you describe the issue as being caused by the vmap stack being in a new
+> PGD which then needs a page table synchronization in vmalloc_fault(), which
+> can't happen since vmalloc_fault() needs this same stack in the current page
+> table.
+> 
+
+No. This problem only occurs on rv64. It is triggered when the kernel stack is
+allocated via vmalloc(), which is only eligible if VMAP_STACK is enabled.
+According to riscv/Kconfig, VMAP_STACK can only be enabled under rv64.
+
+Sorry I forgot to mention that I was developing on Linux 6.1 LTS, And I did not
+notice that vmalloc_fault() was removed in Linux 6.5. But this should not impact
+the problem this patch aims to solve, as the kernel stack is accessed in
+handle_exception()[1] long before vmalloc_fault() is called.
+
+To verify this, I also backported the "remove vmalloc_fault()" patch [2] to
+Linux 6.1 LTS. The experiment revealed that the problem still persists.
+
+[*1]: https://github.com/torvalds/linux/blob/master/arch/riscv/kernel/entry.S#L42
+[*2]: https://lore.kernel.org/linux-mm/871qiyfhpe.fsf@all.your.base.are.belong.to.us/T/
+
+> 
+> >   Unfortunately, this is not sufficient when
+> > the kernel stack resides in the vmalloc region, because vmalloc_fault() is a
+> > C function that needs a stack to run. So we need to ensure that these P*D
+> > entries are up to date *before* the MM switch.
+> > 
+> > Here's our symptom:
+> > core 0: A speculative load lead the kernel stack load to the TLB before the
+> >          corresponding kernel stack's page table is created.
+> > core 1: Create page table mapping of that kernel stack.
+> > core 0: After a context switch, the kernel attempts to use the stack region.
+> >          However, even if the page table is correct, the stack address mapping
+> >          in the TLB is invalid, leading to subsequent nested exceptions.
+> 
+> 
+> But here the problem you describe is different since it seems to be caused
+> by the TLB caching invalid entries which then needs a sfence.vma for the
+> page table walker to see the new correct entry.
+> 
+
+TLB caching invalid entries is exactly the problem we encountered, so my modification
+is trying to update the TLB through the arch_sync_kernel_mappings() after vmalloc
+creates the page table.
+
+let me describe the situation we encountered more clearly:
+
+When we execute a multi-threaded user space program on rv64 SMP CPU, we eventually
+encounter the issue of nested exceptions caused by the TLB not being updated.
+
+
+CPU0                                           CPU1
+- (Thread 1) Create page table
+- (Thread 1) Do plist_check_list() to
+  check the kernel stack used by thread 1
+  is valid. But a speculative load will
+  be triggered here, causing the kernel
+  stack address of thread 2 to be loaded
+  to the TLB of CPU0, and thread 2 has
+  not yet been established at this time.
+                                               - (Thread 2) Create page table
+                                               - (Thread 2) Do plist_check_list().
+                                               - Switch MM
+- (Thread 2) Keep executing user program
+  (thread 2) Enter handle_exception().
+  In Handle_excption() will try to access
+  kernel stack to store registers. But the
+  kernel stack mapping in TLB is invalid.
+  So another page fault exception is raised.
+  The nested exception occurs here. System hang.
+
+Therefore, the main intention of this patch is to flush the TLB of all CPUs
+after the page table created by vmalloc() before switching MM.
+
+> 
+> > 
+> > This fix is inspired by ARM's approach[*1], commit a1c510d0adc6 ("ARM:
+> > implement support for vmap'ed stacks"), it also performs a TLB flush after
+> > setting up the page tables in vmalloc().
+> > Fixes: 31da94c25aea ("riscv: add VMAP_STACK overflow detection")
+> > Signed-off-by: Dylan Jhong <dylan@andestech.com>
+> > ---
+> >   arch/riscv/include/asm/page.h |  4 ++++
+> >   arch/riscv/mm/tlbflush.c      | 16 ++++++++++++++++
+> >   2 files changed, 20 insertions(+)
+> > 
+> > diff --git a/arch/riscv/include/asm/page.h b/arch/riscv/include/asm/page.h
+> > index 349fad5e35de..c9b080a72855 100644
+> > --- a/arch/riscv/include/asm/page.h
+> > +++ b/arch/riscv/include/asm/page.h
+> > @@ -21,6 +21,10 @@
+> >   #define HPAGE_MASK              (~(HPAGE_SIZE - 1))
+> >   #define HUGETLB_PAGE_ORDER      (HPAGE_SHIFT - PAGE_SHIFT)
+> > +#ifdef CONFIG_VMAP_STACK
+> > +#define ARCH_PAGE_TABLE_SYNC_MASK	PGTBL_PTE_MODIFIED
+> > +#endif
+> > +
+> >   /*
+> >    * PAGE_OFFSET -- the first address of the first page of memory.
+> >    * When not using MMU this corresponds to the first free page in
+> > diff --git a/arch/riscv/mm/tlbflush.c b/arch/riscv/mm/tlbflush.c
+> > index ef701fa83f36..0799978913ee 100644
+> > --- a/arch/riscv/mm/tlbflush.c
+> > +++ b/arch/riscv/mm/tlbflush.c
+> > @@ -86,3 +86,19 @@ void flush_pmd_tlb_range(struct vm_area_struct *vma, unsigned long start,
+> >   	__sbi_tlb_flush_range(vma->vm_mm, start, end - start, PMD_SIZE);
+> >   }
+> >   #endif
+> > +
+> > +#ifdef CONFIG_VMAP_STACK
+> > +/*
+> > + * Normally, we rely on the logic in vmalloc_fault() to update stale P*D
+> > + * entries covering the vmalloc space in a task's page tables when it first
+> > + * accesses the problematic region. Unfortunately, this is not sufficient when
+> > + * the kernel stack resides in the vmalloc region, because vmalloc_fault() is a
+> > + * C function that needs a stack to run. So we need to ensure that these P*D
+> > + * entries are up to date *before* the MM switch.
+> > + */
+> > +void arch_sync_kernel_mappings(unsigned long start, unsigned long end)
+> > +{
+> > +	if (start < VMALLOC_END && end > VMALLOC_START)
+> > +		flush_tlb_all();
+> > +}
+> > +#endif
+> 
+> 
+> And if that works for you, I'd say the problem is the latter: the TLB
+> caching invalid entries, since you don't synchronize the page tables here.
+> That looks a lot like the patch I proposed here https://patchwork.kernel.org/project/linux-riscv/patch/20230725132246.817726-1-alexghiti@rivosinc.com/
+> that implements flush_cache_vmap().
+> 
+
+Updating the TLB in flush_cache_vmap() might address the problem I encountered,
+And I noticed that ARM accomplishes this through arch_sync_kernel_mappings()[3].
+As a result, I chose to adopt a similar approach to ARM's solution.
+
+[3]: https://github.com/torvalds/linux/blob/5d0c230f1de8c7515b6567d9afba1f196fb4e2f4/arch/arm/kernel/traps.c#L962
+
+> So I'm not mistaken, we have another problem in 32-bit: I guess that in your
+> example core 0 and core 1 execute in the same address space (ie the same
+> page table) and a simple sfence.vma gets rid of the invalid entry and things
+> can go on. But what if 2 page tables are created with the same vmalloc
+> mappings, one adds a PGD in the vmalloc mapping, then the other one does not
+> have it in its page table but still allocates its vmap stack in this new PGD
+> => the latter would never be able to recover from the vmalloc fault since it
+> needs to update its page table with the new PGD and it needs the new PGD for
+> that.
+> 
+> Let me know if I'm completely wrong here!
+> 
+> Thanks,
+> 
+> Alex
+> 
+> 
+
+Best regards,
+Dylan Jhong
+
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
