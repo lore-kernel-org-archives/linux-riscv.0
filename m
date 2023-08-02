@@ -4,100 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4145C00528
-	for <linux-riscv@archiver.kernel.org>; Wed,  2 Aug 2023 08:14:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4E04C001DF
+	for <linux-riscv@archiver.kernel.org>; Wed,  2 Aug 2023 08:17:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=S39Qu0xQGApbdxirLc5/bsgBznehg746vSvdErjl/RM=; b=yNv6wIQH3GaHvu
-	rNcqhaM6jrbQlBSgwVM3uuBJaNDgCanoNkCMDNNqH5Z559pbceck9tDsf8n2FmdqmPSWyPT1ygp9b
-	aSZgFp3OsqySKdXu3FTTaUW+AT2A9RYyWcJagboP9ZXAqSXSqQMkToBw2CNLFPucYtiNkJFESe2UM
-	iM6lmiaLK/gYmR2RmLpBNvqtausjTiaTf9gxvIuX1DnVrGGHpdNq7BAq0vAyaRtk684vIeNDZdXog
-	EzJqmkJPvOcuO1EDE76L+vXiDUQ6bkvBUxTY400/IIn5S8k2R4ag33Hc/FfcOHmE9F38OZtRA6GT2
-	O/VUfPIHH3rfaqoWxL/Q==;
+	List-Owner; bh=xhLNYxpzTNQExRtlJwuhij/TeM/ov8Gt5hkNhJ13Ecs=; b=X9Iut54FUlG/NJ
+	kqMCqfb4rTp8I3JyBNXhr2t+k4srL0+1lrCwIe4m1kyIM6rNb7s2HOlLNj/0R+gdGZmnntWpIGvL8
+	trUa6tk45db49X84OJrzKmiPsmuzLp4Di/heGPf+W8gZFSexs6KRZ9qmAzjSW5vwzEp9F4sJ/5W+h
+	BNLc92qt9ptJ2NWb+7suzQfHFZ5dN/BlETdlTpr+aMwrNcXEEzYCbLqRgketToSC09ecJ6YS4vMYJ
+	J00M0352j5VJsEA8v1K6BUt26foB5qr9nZ5j30hL8n3GG8SZTrQMbvnYgY1UsVlaqqh8c4Nb8JNO5
+	T4hzaKq+SVq8G/k+BOsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qR6zr-004LfW-1h;
-	Wed, 02 Aug 2023 08:14:19 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1qR72u-004M4M-1r;
+	Wed, 02 Aug 2023 08:17:28 +0000
+Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qR6zn-004LeL-2e
+	id 1qR72r-004M2x-2A
 	for linux-riscv@lists.infradead.org;
-	Wed, 02 Aug 2023 08:14:17 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-3fbc12181b6so69946245e9.2
-        for <linux-riscv@lists.infradead.org>; Wed, 02 Aug 2023 01:14:15 -0700 (PDT)
+	Wed, 02 Aug 2023 08:17:26 +0000
+Received: by mail-ej1-x636.google.com with SMTP id a640c23a62f3a-99c0cb7285fso467123166b.0
+        for <linux-riscv@lists.infradead.org>; Wed, 02 Aug 2023 01:17:23 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1690964054; x=1691568854;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=vjQVCQzw/foc3dsQkAiySfY58yT/va7beD4yh0w30/c=;
-        b=LVFQ2dZGP21fC/kUACk7CYGiwQnTmTdEMNpsVOwilpWSU+otD0Tl3tdGDllj7tXr1W
-         jhKu7YfUMIsWFCxb+4ETnF5P6/3sgg3A8MZYT7Q9MQPJDOZDjk8/0XpWOjlQJpGFGSxn
-         rcYkG6fylsTc+/K5y38AtKdbl/emEf0U9Jzni7oIVRNeq4OSYQnuEaK3bZU/4qMEESW0
-         PwrTdMeseO38VBX2C4ycjFvlxVegWLgWpMQkROEpwdsUzl2Yrhzufa8Oc76mYFKCFdwo
-         +7al1faTYq/Z4RNiHU+SgKQQJVzCV2A97XGxIZam5EIhhXwTzkvb71s8vWM97pDy60+Y
-         t09Q==
+        d=ventanamicro.com; s=google; t=1690964242; x=1691569042;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=1ldftGtGE3zBMdAsfK66SnrRKaY4BxtS34znrPguj00=;
+        b=VZqg9aULNEJ7UAIeUZOwVIpEb7J/gAa6BbzIysq7Qjg2B9i6MmbL+iJ60H+mEFeXwO
+         7+xUEszd8iITALIH9uNbRd230JgmuGEdOgIcHcoQXy8XHBMUwuDC0LWzoAky73O0QTDE
+         IK88InVrjSBCb7Smd0ockQwMZ+jN0jOJhAL/oUvyo3VLBhj11Yx6rgBjirBPF3gNpvql
+         VnLkA8pYwpIQoZHuaaj3iEqDeC9dmb6s5trPnFhpRiNySbdp+i8/UaG7vpEzM2DJLNnJ
+         K9GPMwod2L+xnnD7JQwHpzQ/+/yFdbJScFCkjmOQpf5t8q6mbraixrpnNxbtEVKLyltB
+         We2A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1690964054; x=1691568854;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=vjQVCQzw/foc3dsQkAiySfY58yT/va7beD4yh0w30/c=;
-        b=fByNMLY70wwQGIp02nOWH4KQ3UhUXGri8z4Mv53VaN79RPUtTpR1F4+A87yqeAs2i/
-         c++t8s/Ms/CMgOKU/1PYpUxkdDWDOLMM2qN4FDOjgCOtoIHUWKZZmsZ7AWYV+6YegHiK
-         ax0BznWMn9/syCj1/k32uTZRKgAf0H5SZLPg8WPKebhwKeohrCJoN1sQ3uTdP2b3NwpG
-         QMy2DBeaJtZhibSbHkmNFObKGP6kAPhIf5Eoj5DUiWHsLQ/ed07l7fBarAdsiOfltFFm
-         ANnuTA4rdrexmhiJE0Jo8CQQAaI4k4XI33CjtRPZW8r/GnHa3aOWomgg+AO7M2KB3qjs
-         VLyA==
-X-Gm-Message-State: ABy/qLYWl0DlyPqx5oj3HmB0wdKrfLq2GxB2DJxMueJjHaVI9lvShBOE
-	hpEFNJrdoYUNk/nY6B8R4mZ8eA==
-X-Google-Smtp-Source: APBJJlErLwgoDP8iDix/tr5UDLAhtyf8g2R724EpAdETX/89BVYhEkQwSGG2X1rV+vouEBYxHEJVHg==
-X-Received: by 2002:a05:600c:214d:b0:3fe:20b6:41b2 with SMTP id v13-20020a05600c214d00b003fe20b641b2mr4228012wml.4.1690964054306;
-        Wed, 02 Aug 2023 01:14:14 -0700 (PDT)
-Received: from alex-rivos.ba.rivosinc.com (amontpellier-656-1-456-62.w92-145.abo.wanadoo.fr. [92.145.124.62])
-        by smtp.gmail.com with ESMTPSA id o10-20020a1c750a000000b003fe2f3a89d4sm1040419wmc.7.2023.08.02.01.14.13
+        d=1e100.net; s=20221208; t=1690964242; x=1691569042;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=1ldftGtGE3zBMdAsfK66SnrRKaY4BxtS34znrPguj00=;
+        b=Q9tbBUrmalVb2gX6Hgm5EF9D8ZlYKZF/U6iHkbZSxJhLI+vSQylMIDAxiO5buSOBlt
+         Xu2kuf0HTMOJDqoLpihTbwUTkdiRwjd3TVarS79hf9qmGjb5HnG+ZIdZdxctUZT0YRpP
+         DQqaI1WB7vg3gPFNkG9eFwRiod12oEMAiepGSahg60txmMNLlN3h2FCQIOiP+2Hfoml+
+         sIP/FQH2yq+WhBxqaIhQrjunTaGjs94WgPaG3S6qDzec431Gca8KkGBepVpu8vZliRb7
+         MXwjebWFM55OhPW8iPjWaB1JFW46RT0VPzakNEotA6T/MIu8MXGl9hzDJwcASAtL/W7h
+         aRGg==
+X-Gm-Message-State: ABy/qLbo2jXoaf6TfGT0VEHytTFB/N+J58HfH1FEjIUD3aQ+cuALwoCR
+	QIPs8nJ/ySzXJzY/WwtMJ+meqg==
+X-Google-Smtp-Source: APBJJlE4se+P1KQKrNIWrSJYRpYsIXMW3uMaA4HkJOuaP9fCZ8JPzwkKO0enEcgnoSzjZqUYJquFHA==
+X-Received: by 2002:a17:907:7893:b0:989:450:e585 with SMTP id ku19-20020a170907789300b009890450e585mr3875932ejc.45.1690964242457;
+        Wed, 02 Aug 2023 01:17:22 -0700 (PDT)
+Received: from localhost (212-5-140-29.ip.btc-net.bg. [212.5.140.29])
+        by smtp.gmail.com with ESMTPSA id u7-20020a170906408700b009786ae9ed50sm8651597ejj.194.2023.08.02.01.17.21
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 02 Aug 2023 01:14:14 -0700 (PDT)
-From: Alexandre Ghiti <alexghiti@rivosinc.com>
-To: Jonathan Corbet <corbet@lwn.net>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Ian Rogers <irogers@google.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Atish Patra <atishp@atishpatra.org>,
-	Anup Patel <anup@brainfault.org>,
-	Will Deacon <will@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	=?UTF-8?q?R=C3=A9mi=20Denis-Courmont?= <remi@remlab.net>,
-	linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-perf-users@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org
-Cc: Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Atish Patra <atishp@rivosinc.com>
-Subject: [PATCH v6 10/10] perf: tests: Adapt mmap-basic.c for riscv
-Date: Wed,  2 Aug 2023 10:03:28 +0200
-Message-Id: <20230802080328.1213905-11-alexghiti@rivosinc.com>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20230802080328.1213905-1-alexghiti@rivosinc.com>
-References: <20230802080328.1213905-1-alexghiti@rivosinc.com>
+        Wed, 02 Aug 2023 01:17:21 -0700 (PDT)
+Date: Wed, 2 Aug 2023 11:17:20 +0300
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Daniel Henrique Barboza <dbarboza@ventanamicro.com>
+Cc: kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
+	kvm@vger.kernel.org, anup@brainfault.org, atishp@atishpatra.org
+Subject: Re: [PATCH v2 9/9] docs: kvm: riscv: document EBUSY in
+ KVM_SET_ONE_REG
+Message-ID: <20230802-4751804e563fb13903ef6277@orel>
+References: <20230801222629.210929-1-dbarboza@ventanamicro.com>
+ <20230801222629.210929-10-dbarboza@ventanamicro.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20230801222629.210929-10-dbarboza@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230802_011415_857248_4D8CA22E 
-X-CRM114-Status: GOOD (  10.91  )
+X-CRM114-CacheID: sfid-20230802_011725_728231_99784DBE 
+X-CRM114-Status: GOOD (  15.98  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,43 +93,32 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-riscv now supports mmaping hardware counters to userspace so adapt the test
-to run on this architecture.
+On Tue, Aug 01, 2023 at 07:26:29PM -0300, Daniel Henrique Barboza wrote:
+> The EBUSY errno is being used for KVM_SET_ONE_REG as a way to tell
+> userspace that a given reg can't be written after the vcpu started.
+> 
+> Signed-off-by: Daniel Henrique Barboza <dbarboza@ventanamicro.com>
+> ---
+>  Documentation/virt/kvm/api.rst | 2 ++
+>  1 file changed, 2 insertions(+)
+> 
+> diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
+> index c0ddd3035462..229e7cc091c8 100644
+> --- a/Documentation/virt/kvm/api.rst
+> +++ b/Documentation/virt/kvm/api.rst
+> @@ -2259,6 +2259,8 @@ Errors:
+>    EINVAL   invalid register ID, or no such register or used with VMs in
+>             protected virtualization mode on s390
+>    EPERM    (arm64) register access not allowed before vcpu finalization
+> +  EBUSY    (riscv) register access not allowed after the vcpu has run
+> +           at least once
 
-Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
-Reviewed-by: Atish Patra <atishp@rivosinc.com>
----
- tools/perf/tests/mmap-basic.c | 6 ++++--
- 1 file changed, 4 insertions(+), 2 deletions(-)
+We allow access (reading, even before, and now also writing when the value
+is the same), so this should be worded in a way that conveys the register
+may not be changed after the vcpu has run once.
 
-diff --git a/tools/perf/tests/mmap-basic.c b/tools/perf/tests/mmap-basic.c
-index e68ca6229756..886a13a77a16 100644
---- a/tools/perf/tests/mmap-basic.c
-+++ b/tools/perf/tests/mmap-basic.c
-@@ -284,7 +284,8 @@ static struct test_case tests__basic_mmap[] = {
- 			 "permissions"),
- 	TEST_CASE_REASON("User space counter reading of instructions",
- 			 mmap_user_read_instr,
--#if defined(__i386__) || defined(__x86_64__) || defined(__aarch64__)
-+#if defined(__i386__) || defined(__x86_64__) || defined(__aarch64__) || \
-+			 (defined(__riscv) && __riscv_xlen == 64)
- 			 "permissions"
- #else
- 			 "unsupported"
-@@ -292,7 +293,8 @@ static struct test_case tests__basic_mmap[] = {
- 		),
- 	TEST_CASE_REASON("User space counter reading of cycles",
- 			 mmap_user_read_cycles,
--#if defined(__i386__) || defined(__x86_64__) || defined(__aarch64__)
-+#if defined(__i386__) || defined(__x86_64__) || defined(__aarch64__) || \
-+			 (defined(__riscv) && __riscv_xlen == 64)
- 			 "permissions"
- #else
- 			 "unsupported"
--- 
-2.39.2
-
+Thanks,
+drew
 
 _______________________________________________
 linux-riscv mailing list
