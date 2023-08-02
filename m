@@ -4,105 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1EECC001E0
-	for <linux-riscv@archiver.kernel.org>; Wed,  2 Aug 2023 20:31:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81511C00528
+	for <linux-riscv@archiver.kernel.org>; Wed,  2 Aug 2023 20:36:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tit/bHTsNDwPzE754CrrvesbFohm0haT6gFDTvGc/HY=; b=xuz5NpnA/HHtDZ
-	0OWUyKQS7S7VeVXM0M78eVE+C14cpZObvrNwD4FKrx5GA5Eit8q0cG4juY6YowRqXA+1vpQHiuIWb
-	L1KpvZ++EYHFwNHL5OE25NmnGUr71feQH+LjhCXsgqt120Sb7yLuRsTrxntSpJ9VwsVVKW+RWaBGJ
-	z0UvQCuTh4l22ISCAAKVf4FvR8bzSMXgpK4ezOpddZ/h/FNX5cGrVffuFUUEZnyRsLEXybgy0VavB
-	GnbA4gpWYZVopQhVV0Y3HjFoiRUQfCZYba097H3MeoqRnzCn1PK81dH+KQNisJu7h2/5a5PWIA1xe
-	DzhrM9H1+b2WxLzX0tPg==;
+	List-Owner; bh=uUc58Yp/ZHpzOFJrkf7v9yMFbttIwNttcjwuCA4H3ZM=; b=xZczxUYa3gzDwV
+	s5vJWdeexDBhKYl5JFgtHILkueb+90XTSSTH+zGs9Rhcm4/aIZHBMahqS9vKqWYfFYHOHTStk1Mol
+	IGRsiybvNgQU7ldRyvwJjvuU3LYFJ7Bx6ebq4ROBIpjb26M0CY4sotBES009a2rJJ+eKiBMMr6uew
+	1lgfW3TVSPXUOhGygOTEHd/0okd4062OfbTBNkI+oQjpYYKprJ/3An/KaG5vcU/I0i0sX3/WM2JYU
+	FvLtGsbgzutH4QcDcvHzPngfc8a/sJ/LyrBBcln3GZ5Nor02PYr8+bWYKtX8/O3jaz2R4FH9PBbYG
+	8bZQtaUA+t+9rd4irKQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qRIVE-005ptm-38;
-	Wed, 02 Aug 2023 20:31:28 +0000
-Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
+	id 1qRIZn-005qKr-25;
+	Wed, 02 Aug 2023 20:36:11 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qRIVA-005prV-0V;
-	Wed, 02 Aug 2023 20:31:26 +0000
-Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-1b8b4748fe4so2174495ad.1;
-        Wed, 02 Aug 2023 13:31:22 -0700 (PDT)
+	id 1qRIZi-005qKC-1r
+	for linux-riscv@lists.infradead.org;
+	Wed, 02 Aug 2023 20:36:10 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-1bb775625e2so1894625ad.1
+        for <linux-riscv@lists.infradead.org>; Wed, 02 Aug 2023 13:36:05 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20221208; t=1691008282; x=1691613082;
+        d=chromium.org; s=google; t=1691008564; x=1691613364;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=cVig7nVxAJnz5d000l87J4rtopwFhxXB+8Ok4r23Ka4=;
-        b=s0Oex2eG7H06LbU+BJqKNRoDqdq6SwVlGg4mAPjExi760G3nVDGKHuQFwhOJMnirV1
-         OKLik+MpcS8+IwYl3s3OejRgjqA6HtoV3QPNm1DEUoL3SzgMjQ00TPFsndCxIr3QW0RC
-         WMDpGULuovGmqc69bhPGdXoIqbkhph2K3YUyE2dv1mhYnFSkQTtUqrpUma604U38aYr8
-         9D7AXW+fVMz7xVm7jYpK10dbpi3cq8a3mFqPaCSb6NPtySxN/EUHo7wfBVJFWm+nWHlq
-         kM91bY5x3tn/x/mUvpEp/WaK2AzxKcjD7XsK+rbwt0j14lHtrq8Pfrb4rvf3q+69F+Ed
-         fwOw==
+        bh=bWr3jcRSEU+gA9r0PBD80WJbMi+ArPrQmYYMKJHmB6U=;
+        b=nzPAChC03qv+JjeCfHD3Xsgh7kOt1lPa9r4xyzDxMcstE90i2vukMw/8sXH/02aje3
+         2otS1qRbhNkAjWyhIbAU++WUZ6yCQqFvvwE0SM4I+99qUJEqDvwnleDRCjb4+gIWskpm
+         kT/uFCmzfT6YzJ6Qh64mXRXv8r01SRYwdq9n8=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1691008282; x=1691613082;
+        d=1e100.net; s=20221208; t=1691008564; x=1691613364;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=cVig7nVxAJnz5d000l87J4rtopwFhxXB+8Ok4r23Ka4=;
-        b=Eimu2ucJ2CNis9IN9bcf4f3OErkYVQ3yaGg7eeVWbF0iV2zUDw7VEdG1oXDywCn66p
-         19PWYNBt4W/hI9VdoVQ39JnUXudSDv9//T+16HsLErtoR4/KLOWtNra7dfMZSXYmHUBC
-         ZXnySsdyxJsPtslz+QONdKUTDsRNtS8X8g8OuZsJTQZF3Q0+OPaUP3I2Pwd4/QGOKeIZ
-         YyZxJ8xW/KscQD1W6noij29msq0aynfnGuVti20v8xlkiMxH8lCv3bRjhqbslefxaqrO
-         b1SP6hseI70AKb3oFEotKyCsi0UvBzmzh6QdQ6dnKqWp3xAnhBwXcKU7vjnoecOtRYPF
-         o07w==
-X-Gm-Message-State: ABy/qLb+GwShn2FLQHe69DCx1ZN9PLq2h+K+WcqnD9ibwEBYgHVxQesv
-	uQ7rt+TdWhTh8pO8EIv9dW8oVQo/MD1srw==
-X-Google-Smtp-Source: APBJJlH5VQArJpLE0EyDQ3184KjZD6X3n94sC4DtbCtW1G2/IJAuWETgKgCABnbhQeEGgLwzvu5Ecw==
-X-Received: by 2002:a17:903:485:b0:1b6:649b:92cc with SMTP id jj5-20020a170903048500b001b6649b92ccmr12847995plb.69.1691008281960;
-        Wed, 02 Aug 2023 13:31:21 -0700 (PDT)
-Received: from localhost ([192.55.55.51])
-        by smtp.gmail.com with ESMTPSA id iy7-20020a170903130700b001b898595be7sm12815534plb.291.2023.08.02.13.31.20
+        bh=bWr3jcRSEU+gA9r0PBD80WJbMi+ArPrQmYYMKJHmB6U=;
+        b=DfGixJxZWya1RaS1VapUvr1DvaljOgB40Fh6DD7oRT5U3AD7NX+f9HHKMB5Ve8aXdv
+         AunWh3LBneGCrjHQbvzH950TgTYHTVcjVx7/nbf+HrZGrJGdM0T0vlOFBOi5N+iSoVtg
+         up1AFRYpqkr4Mf0eZFe2KKgMN8S6b4CUI/gED80OxdSov0BanIPYcvx55GW3KldmYSb8
+         X3GTGy0LrJJfO2rGU2BBS0x4j1Hzl/x0nPYxAxucYLI6+LgN9CFrOhsbtGh6fPQFdn9x
+         OrZqelZYrtwTDbG8X4mIIhqFL4lYAdT06ZBtDm13NvvtizUYffwtVPvsfgN0rcELq1G4
+         +mRQ==
+X-Gm-Message-State: ABy/qLYEVuRcyPOUj7IGbNG81YKwDmU3BLr5kEY05nLkfOAXaJAOmsyn
+	fQ5wpEd0RS0nfzXXTAPEZgWzQQ==
+X-Google-Smtp-Source: APBJJlHH8aWxfFwHQY80htCurxfVMh/0WroGpPj2sjy9e7ql/D3TXKv/ojhEZ6OgabqItgbTCA1eOA==
+X-Received: by 2002:a17:902:c404:b0:1b9:c61c:4c01 with SMTP id k4-20020a170902c40400b001b9c61c4c01mr23391628plk.9.1691008564550;
+        Wed, 02 Aug 2023 13:36:04 -0700 (PDT)
+Received: from www.outflux.net (198-0-35-241-static.hfc.comcastbusiness.net. [198.0.35.241])
+        by smtp.gmail.com with ESMTPSA id jn13-20020a170903050d00b001b895a18472sm12772104plb.117.2023.08.02.13.36.03
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 02 Aug 2023 13:31:21 -0700 (PDT)
-Date: Wed, 2 Aug 2023 13:31:19 -0700
-From: Isaku Yamahata <isaku.yamahata@gmail.com>
-To: Sean Christopherson <seanjc@google.com>
-Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Anup Patel <anup@brainfault.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
+        Wed, 02 Aug 2023 13:36:04 -0700 (PDT)
+Date: Wed, 2 Aug 2023 13:36:03 -0700
+From: Kees Cook <keescook@chromium.org>
+To: Justin Stitt <justinstitt@google.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	"Matthew Wilcox (Oracle)" <willy@infradead.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Paul Moore <paul@paul-moore.com>, James Morris <jmorris@namei.org>,
-	"Serge E. Hallyn" <serge@hallyn.com>, kvm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
-	linux-fsdevel@vger.kernel.org, linux-mm@kvack.org,
-	linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Chao Peng <chao.p.peng@linux.intel.com>,
-	Fuad Tabba <tabba@google.com>, Jarkko Sakkinen <jarkko@kernel.org>,
-	Yu Zhang <yu.c.zhang@linux.intel.com>,
-	Vishal Annapurve <vannapurve@google.com>,
-	Ackerley Tng <ackerleytng@google.com>,
-	Maciej Szmigiero <mail@maciej.szmigiero.name>,
-	Vlastimil Babka <vbabka@suse.cz>,
-	David Hildenbrand <david@redhat.com>,
-	Quentin Perret <qperret@google.com>,
-	Michael Roth <michael.roth@amd.com>, Wang <wei.w.wang@intel.com>,
-	Liam Merwick <liam.merwick@oracle.com>,
-	Isaku Yamahata <isaku.yamahata@gmail.com>,
-	"Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
-Subject: Re: [RFC PATCH v11 08/29] KVM: Introduce per-page memory attributes
-Message-ID: <20230802203119.GB2021422@ls.amr.corp.intel.com>
-References: <20230718234512.1690985-1-seanjc@google.com>
- <20230718234512.1690985-9-seanjc@google.com>
+	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	linux-hardening@vger.kernel.org
+Subject: Re: [PATCH v2] RISC-V: cpu: refactor deprecated strncpy
+Message-ID: <202308021335.8010D08B@keescook>
+References: <20230802-arch-riscv-kernel-v2-1-24266e85bc96@google.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20230718234512.1690985-9-seanjc@google.com>
+In-Reply-To: <20230802-arch-riscv-kernel-v2-1-24266e85bc96@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230802_133124_203519_8E6C4F5F 
-X-CRM114-Status: GOOD (  46.16  )
+X-CRM114-CacheID: sfid-20230802_133606_651644_777E33FB 
+X-CRM114-Status: UNSURE (   8.97  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,450 +93,23 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 18, 2023 at 04:44:51PM -0700,
-Sean Christopherson <seanjc@google.com> wrote:
-
-> From: Chao Peng <chao.p.peng@linux.intel.com>
+On Wed, Aug 02, 2023 at 12:21:58AM +0000, Justin Stitt wrote:
+> `strncpy` is deprecated for use on NUL-terminated destination strings [1].
 > 
-> In confidential computing usages, whether a page is private or shared is
-> necessary information for KVM to perform operations like page fault
-> handling, page zapping etc. There are other potential use cases for
-> per-page memory attributes, e.g. to make memory read-only (or no-exec,
-> or exec-only, etc.) without having to modify memslots.
+> Favor not copying strings onto stack and instead use strings directly.
+> This avoids hard-coding sizes and buffer lengths all together.
 > 
-> Introduce two ioctls (advertised by KVM_CAP_MEMORY_ATTRIBUTES) to allow
-> userspace to operate on the per-page memory attributes.
->   - KVM_SET_MEMORY_ATTRIBUTES to set the per-page memory attributes to
->     a guest memory range.
->   - KVM_GET_SUPPORTED_MEMORY_ATTRIBUTES to return the KVM supported
->     memory attributes.
-> 
-> Use an xarray to store the per-page attributes internally, with a naive,
-> not fully optimized implementation, i.e. prioritize correctness over
-> performance for the initial implementation.
-> 
-> Because setting memory attributes is roughly analogous to mprotect() on
-> memory that is mapped into the guest, zap existing mappings prior to
-> updating the memory attributes.  Opportunistically provide an arch hook
-> for the post-set path (needed to complete invalidation anyways) in
-> anticipation of x86 needing the hook to update metadata related to
-> determining whether or not a given gfn can be backed with various sizes
-> of hugepages.
-> 
-> It's possible that future usages may not require an invalidation, e.g.
-> if KVM ends up supporting RWX protections and userspace grants _more_
-> protections, but again opt for simplicity and punt optimizations to
-> if/when they are needed.
-> 
-> Suggested-by: Sean Christopherson <seanjc@google.com>
-> Link: https://lore.kernel.org/all/Y2WB48kD0J4VGynX@google.com
-> Cc: Fuad Tabba <tabba@google.com>
-> Signed-off-by: Chao Peng <chao.p.peng@linux.intel.com>
-> Co-developed-by: Sean Christopherson <seanjc@google.com>
-> Signed-off-by: Sean Christopherson <seanjc@google.com>
-> ---
->  Documentation/virt/kvm/api.rst |  60 ++++++++++++
->  include/linux/kvm_host.h       |  14 +++
->  include/uapi/linux/kvm.h       |  14 +++
->  virt/kvm/Kconfig               |   4 +
->  virt/kvm/kvm_main.c            | 170 +++++++++++++++++++++++++++++++++
->  5 files changed, 262 insertions(+)
-> 
-> diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
-> index 34d4ce66e0c8..0ca8561775ac 100644
-> --- a/Documentation/virt/kvm/api.rst
-> +++ b/Documentation/virt/kvm/api.rst
-> @@ -6068,6 +6068,56 @@ writes to the CNTVCT_EL0 and CNTPCT_EL0 registers using the SET_ONE_REG
->  interface. No error will be returned, but the resulting offset will not be
->  applied.
->  
-> +4.139 KVM_GET_SUPPORTED_MEMORY_ATTRIBUTES
-> +-----------------------------------------
-> +
-> +:Capability: KVM_CAP_MEMORY_ATTRIBUTES
-> +:Architectures: x86
-> +:Type: vm ioctl
-> +:Parameters: u64 memory attributes bitmask(out)
-> +:Returns: 0 on success, <0 on error
-> +
-> +Returns supported memory attributes bitmask. Supported memory attributes will
-> +have the corresponding bits set in u64 memory attributes bitmask.
-> +
-> +The following memory attributes are defined::
-> +
-> +  #define KVM_MEMORY_ATTRIBUTE_PRIVATE           (1ULL << 3)
-> +
-> +4.140 KVM_SET_MEMORY_ATTRIBUTES
-> +-----------------------------------------
-> +
-> +:Capability: KVM_CAP_MEMORY_ATTRIBUTES
-> +:Architectures: x86
-> +:Type: vm ioctl
-> +:Parameters: struct kvm_memory_attributes(in/out)
-> +:Returns: 0 on success, <0 on error
-> +
-> +Sets memory attributes for pages in a guest memory range. Parameters are
-> +specified via the following structure::
-> +
-> +  struct kvm_memory_attributes {
-> +	__u64 address;
-> +	__u64 size;
-> +	__u64 attributes;
-> +	__u64 flags;
-> +  };
-> +
-> +The user sets the per-page memory attributes to a guest memory range indicated
-> +by address/size, and in return KVM adjusts address and size to reflect the
-> +actual pages of the memory range have been successfully set to the attributes.
-> +If the call returns 0, "address" is updated to the last successful address + 1
-> +and "size" is updated to the remaining address size that has not been set
-> +successfully. The user should check the return value as well as the size to
-> +decide if the operation succeeded for the whole range or not. The user may want
-> +to retry the operation with the returned address/size if the previous range was
-> +partially successful.
-> +
-> +Both address and size should be page aligned and the supported attributes can be
-> +retrieved with KVM_GET_SUPPORTED_MEMORY_ATTRIBUTES.
-> +
-> +The "flags" field may be used for future extensions and should be set to 0s.
-> +
->  5. The kvm_run structure
->  ========================
->  
-> @@ -8494,6 +8544,16 @@ block sizes is exposed in KVM_CAP_ARM_SUPPORTED_BLOCK_SIZES as a
->  64-bit bitmap (each bit describing a block size). The default value is
->  0, to disable the eager page splitting.
->  
-> +8.41 KVM_CAP_MEMORY_ATTRIBUTES
-> +------------------------------
-> +
-> +:Capability: KVM_CAP_MEMORY_ATTRIBUTES
-> +:Architectures: x86
-> +:Type: vm
-> +
-> +This capability indicates KVM supports per-page memory attributes and ioctls
-> +KVM_GET_SUPPORTED_MEMORY_ATTRIBUTES/KVM_SET_MEMORY_ATTRIBUTES are available.
-> +
->  9. Known KVM API problems
->  =========================
->  
-> diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
-> index e9ca49d451f3..97db63da6227 100644
-> --- a/include/linux/kvm_host.h
-> +++ b/include/linux/kvm_host.h
-> @@ -264,6 +264,7 @@ struct kvm_gfn_range {
->  	gfn_t end;
->  	union {
->  		pte_t pte;
-> +		unsigned long attributes;
->  		u64 raw;
->  	} arg;
->  	bool may_block;
-> @@ -809,6 +810,9 @@ struct kvm {
->  
->  #ifdef CONFIG_HAVE_KVM_PM_NOTIFIER
->  	struct notifier_block pm_notifier;
-> +#endif
-> +#ifdef CONFIG_KVM_GENERIC_MEMORY_ATTRIBUTES
-> +	struct xarray mem_attr_array;
->  #endif
->  	char stats_id[KVM_STATS_NAME_SIZE];
->  };
-> @@ -2301,4 +2305,14 @@ static inline void kvm_account_pgtable_pages(void *virt, int nr)
->  /* Max number of entries allowed for each kvm dirty ring */
->  #define  KVM_DIRTY_RING_MAX_ENTRIES  65536
->  
-> +#ifdef CONFIG_KVM_GENERIC_MEMORY_ATTRIBUTES
-> +static inline unsigned long kvm_get_memory_attributes(struct kvm *kvm, gfn_t gfn)
-> +{
-> +	return xa_to_value(xa_load(&kvm->mem_attr_array, gfn));
-> +}
-> +
-> +bool kvm_arch_post_set_memory_attributes(struct kvm *kvm,
-> +					 struct kvm_gfn_range *range);
-> +#endif /* CONFIG_KVM_GENERIC_MEMORY_ATTRIBUTES */
-> +
->  #endif
-> diff --git a/include/uapi/linux/kvm.h b/include/uapi/linux/kvm.h
-> index 6c6ed214b6ac..f065c57db327 100644
-> --- a/include/uapi/linux/kvm.h
-> +++ b/include/uapi/linux/kvm.h
-> @@ -1211,6 +1211,7 @@ struct kvm_ppc_resize_hpt {
->  #define KVM_CAP_ARM_EAGER_SPLIT_CHUNK_SIZE 228
->  #define KVM_CAP_ARM_SUPPORTED_BLOCK_SIZES 229
->  #define KVM_CAP_USER_MEMORY2 230
-> +#define KVM_CAP_MEMORY_ATTRIBUTES 231
->  
->  #ifdef KVM_CAP_IRQ_ROUTING
->  
-> @@ -2270,4 +2271,17 @@ struct kvm_s390_zpci_op {
->  /* flags for kvm_s390_zpci_op->u.reg_aen.flags */
->  #define KVM_S390_ZPCIOP_REGAEN_HOST    (1 << 0)
->  
-> +/* Available with KVM_CAP_MEMORY_ATTRIBUTES */
-> +#define KVM_GET_SUPPORTED_MEMORY_ATTRIBUTES    _IOR(KVMIO,  0xd2, __u64)
-> +#define KVM_SET_MEMORY_ATTRIBUTES              _IOW(KVMIO,  0xd3, struct kvm_memory_attributes)
-> +
-> +struct kvm_memory_attributes {
-> +	__u64 address;
-> +	__u64 size;
-> +	__u64 attributes;
-> +	__u64 flags;
-> +};
-> +
-> +#define KVM_MEMORY_ATTRIBUTE_PRIVATE           (1ULL << 3)
-> +
->  #endif /* __LINUX_KVM_H */
-> diff --git a/virt/kvm/Kconfig b/virt/kvm/Kconfig
-> index 2fa11bd26cfc..8375bc49f97d 100644
-> --- a/virt/kvm/Kconfig
-> +++ b/virt/kvm/Kconfig
-> @@ -99,3 +99,7 @@ config KVM_GENERIC_HARDWARE_ENABLING
->  config KVM_GENERIC_MMU_NOTIFIER
->         select MMU_NOTIFIER
->         bool
-> +
-> +config KVM_GENERIC_MEMORY_ATTRIBUTES
-> +       select KVM_GENERIC_MMU_NOTIFIER
-> +       bool
-> diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
-> index c14adf93daec..1a31bfa025b0 100644
-> --- a/virt/kvm/kvm_main.c
-> +++ b/virt/kvm/kvm_main.c
-> @@ -530,6 +530,7 @@ struct kvm_mmu_notifier_range {
->  	u64 end;
->  	union {
->  		pte_t pte;
-> +		unsigned long attributes;
->  		u64 raw;
->  	} arg;
->  	gfn_handler_t handler;
-> @@ -1175,6 +1176,9 @@ static struct kvm *kvm_create_vm(unsigned long type, const char *fdname)
->  	spin_lock_init(&kvm->mn_invalidate_lock);
->  	rcuwait_init(&kvm->mn_memslots_update_rcuwait);
->  	xa_init(&kvm->vcpu_array);
-> +#ifdef CONFIG_KVM_GENERIC_MEMORY_ATTRIBUTES
-> +	xa_init(&kvm->mem_attr_array);
-> +#endif
->  
->  	INIT_LIST_HEAD(&kvm->gpc_list);
->  	spin_lock_init(&kvm->gpc_lock);
-> @@ -1346,6 +1350,9 @@ static void kvm_destroy_vm(struct kvm *kvm)
->  		kvm_free_memslots(kvm, &kvm->__memslots[i][0]);
->  		kvm_free_memslots(kvm, &kvm->__memslots[i][1]);
->  	}
-> +#ifdef CONFIG_KVM_GENERIC_MEMORY_ATTRIBUTES
-> +	xa_destroy(&kvm->mem_attr_array);
-> +#endif
->  	cleanup_srcu_struct(&kvm->irq_srcu);
->  	cleanup_srcu_struct(&kvm->srcu);
->  	kvm_arch_free_vm(kvm);
-> @@ -2346,6 +2353,145 @@ static int kvm_vm_ioctl_clear_dirty_log(struct kvm *kvm,
->  }
->  #endif /* CONFIG_KVM_GENERIC_DIRTYLOG_READ_PROTECT */
->  
-> +#ifdef CONFIG_KVM_GENERIC_MEMORY_ATTRIBUTES
-> +static u64 kvm_supported_mem_attributes(struct kvm *kvm)
-> +{
-> +	return 0;
-> +}
-> +
-> +static __always_inline void kvm_handle_gfn_range(struct kvm *kvm,
-> +						 struct kvm_mmu_notifier_range *range)
-> +{
-> +	struct kvm_gfn_range gfn_range;
-> +	struct kvm_memory_slot *slot;
-> +	struct kvm_memslots *slots;
-> +	struct kvm_memslot_iter iter;
-> +	bool locked = false;
-> +	bool ret = false;
-> +	int i;
-> +
-> +	gfn_range.arg.raw = range->arg.raw;
-> +	gfn_range.may_block = range->may_block;
-> +
-> +	for (i = 0; i < KVM_ADDRESS_SPACE_NUM; i++) {
-> +		slots = __kvm_memslots(kvm, i);
-> +
-> +		kvm_for_each_memslot_in_gfn_range(&iter, slots, range->start, range->end) {
-> +			slot = iter.slot;
-> +			gfn_range.slot = slot;
-> +
-> +			gfn_range.start = max(range->start, slot->base_gfn);
-> +			gfn_range.end = min(range->end, slot->base_gfn + slot->npages);
-> +			if (gfn_range.start >= gfn_range.end)
-> +				continue;
-> +
-> +			if (!locked) {
-> +				locked = true;
-> +				KVM_MMU_LOCK(kvm);
-> +				if (!IS_KVM_NULL_FN(range->on_lock))
-> +					range->on_lock(kvm);
-> +			}
-> +
-> +			ret |= range->handler(kvm, &gfn_range);
-> +		}
-> +	}
-> +
-> +	if (range->flush_on_ret && ret)
-> +		kvm_flush_remote_tlbs(kvm);
-> +
-> +	if (locked) {
-> +		KVM_MMU_UNLOCK(kvm);
-> +		if (!IS_KVM_NULL_FN(range->on_unlock))
-> +			range->on_unlock(kvm);
-> +	}
-> +}
-> +
-> +static int kvm_vm_set_mem_attributes(struct kvm *kvm, unsigned long attributes,
-> +				     gfn_t start, gfn_t end)
-> +{
-> +	struct kvm_mmu_notifier_range unmap_range = {
-> +		.start = start,
-> +		.end = end,
-> +		.handler = kvm_mmu_unmap_gfn_range,
-> +		.on_lock = kvm_mmu_invalidate_begin,
-> +		.on_unlock = (void *)kvm_null_fn,
-> +		.flush_on_ret = true,
-> +		.may_block = true,
-> +	};
-> +	struct kvm_mmu_notifier_range post_set_range = {
-> +		.start = start,
-> +		.end = end,
-> +		.arg.attributes = attributes,
-> +		.handler = kvm_arch_post_set_memory_attributes,
-> +		.on_lock = (void *)kvm_null_fn,
-> +		.on_unlock = kvm_mmu_invalidate_end,
+> Link: https://github.com/KSPP/linux/issues/90
+> Cc: linux-hardening@vger.kernel.org
+> Suggested-by: Kees Cook <keescook@chromium.org>
+> Signed-off-by: Justin Stitt <justinstitt@google.com>
 
+I like it! ;)
 
-on_unlock is called after unlocking mmu_lock. So kvm::mmu_invalidate_in_progress
-is touched out side of it.  Here is a quick fix.
-
- WARNING: CPU: 108 PID: 62218 at arch/x86/kvm/../../../virt/kvm/kvm_main.c:757 kvm_mmu_unmap_gfn_range+0x32/0x70 [kvm]
-  ...
- RIP: 0010:kvm_mmu_unmap_gfn_range+0x32/0x70 [kvm]
-  ...
- Call Trace:
-  <TASK>
-  kvm_gmem_invalidate_begin+0xd0/0x130 [kvm]
-  kvm_gmem_fallocate+0x134/0x290 [kvm]
-  vfs_fallocate+0x151/0x380
-  __x64_sys_fallocate+0x3c/0x70
-  do_syscall_64+0x40/0x90
-  entry_SYSCALL_64_after_hwframe+0x6e/0xd8
-
-
-From c06084048271278d3508f534479b356f49f619ce Mon Sep 17 00:00:00 2001
-Message-Id: <c06084048271278d3508f534479b356f49f619ce.1690873712.git.isaku.yamahata@intel.com>
-From: Isaku Yamahata <isaku.yamahata@intel.com>
-Date: Mon, 31 Jul 2023 22:58:15 -0700
-Subject: [PATCH] KVM: guest_memfd(): protect kvm_mmu_invalidate_end()
-
-kvm_mmu_invalidate_end() updates struct kvm::mmu_invalidate_in_progress
-and it's protected by kvm::mmu_lock.  call kvm_mmu_invalidate_end() before
-unlocking it. Not after the unlock.
-
-Fixes: edd048ffeaf6 ("KVM: Introduce per-page memory attributes")
-Signed-off-by: Isaku Yamahata <isaku.yamahata@intel.com>
----
- virt/kvm/kvm_main.c | 15 ++++++++++++++-
- 1 file changed, 14 insertions(+), 1 deletion(-)
-
-diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
-index 9b4759b6dd87..6947f776851b 100644
---- a/virt/kvm/kvm_main.c
-+++ b/virt/kvm/kvm_main.c
-@@ -548,6 +548,7 @@ struct kvm_mmu_notifier_range {
- 	} arg;
- 	gfn_handler_t handler;
- 	on_lock_fn_t on_lock;
-+	on_unlock_fn_t before_unlock;
- 	on_unlock_fn_t on_unlock;
- 	bool flush_on_ret;
- 	bool may_block;
-@@ -644,6 +645,8 @@ static __always_inline int __kvm_handle_hva_range(struct kvm *kvm,
- 		kvm_flush_remote_tlbs(kvm);
- 
- 	if (locked) {
-+		if (!IS_KVM_NULL_FN(range->before_unlock))
-+			range->before_unlock(kvm);
- 		KVM_MMU_UNLOCK(kvm);
- 		if (!IS_KVM_NULL_FN(range->on_unlock))
- 			range->on_unlock(kvm);
-@@ -668,6 +671,7 @@ static __always_inline int kvm_handle_hva_range(struct mmu_notifier *mn,
- 		.arg.pte	= pte,
- 		.handler	= handler,
- 		.on_lock	= (void *)kvm_null_fn,
-+		.before_unlock	= (void *)kvm_null_fn,
- 		.on_unlock	= (void *)kvm_null_fn,
- 		.flush_on_ret	= true,
- 		.may_block	= false,
-@@ -687,6 +691,7 @@ static __always_inline int kvm_handle_hva_range_no_flush(struct mmu_notifier *mn
- 		.end		= end,
- 		.handler	= handler,
- 		.on_lock	= (void *)kvm_null_fn,
-+		.before_unlock	= (void *)kvm_null_fn,
- 		.on_unlock	= (void *)kvm_null_fn,
- 		.flush_on_ret	= false,
- 		.may_block	= false,
-@@ -791,6 +796,7 @@ static int kvm_mmu_notifier_invalidate_range_start(struct mmu_notifier *mn,
- 		.end		= range->end,
- 		.handler	= kvm_mmu_unmap_gfn_range,
- 		.on_lock	= kvm_mmu_invalidate_begin,
-+		.before_unlock	= (void *)kvm_null_fn,
- 		.on_unlock	= kvm_arch_guest_memory_reclaimed,
- 		.flush_on_ret	= true,
- 		.may_block	= mmu_notifier_range_blockable(range),
-@@ -830,6 +836,8 @@ static int kvm_mmu_notifier_invalidate_range_start(struct mmu_notifier *mn,
- 
- void kvm_mmu_invalidate_end(struct kvm *kvm)
- {
-+	lockdep_assert_held_write(&kvm->mmu_lock);
-+
- 	/*
- 	 * This sequence increase will notify the kvm page fault that
- 	 * the page that is going to be mapped in the spte could have
-@@ -861,6 +869,7 @@ static void kvm_mmu_notifier_invalidate_range_end(struct mmu_notifier *mn,
- 		.end		= range->end,
- 		.handler	= (void *)kvm_null_fn,
- 		.on_lock	= kvm_mmu_invalidate_end,
-+		.before_unlock	= (void *)kvm_null_fn,
- 		.on_unlock	= (void *)kvm_null_fn,
- 		.flush_on_ret	= false,
- 		.may_block	= mmu_notifier_range_blockable(range),
-@@ -2466,6 +2475,8 @@ static __always_inline void kvm_handle_gfn_range(struct kvm *kvm,
- 		kvm_flush_remote_tlbs(kvm);
- 
- 	if (locked) {
-+		if (!IS_KVM_NULL_FN(range->before_unlock))
-+			range->before_unlock(kvm);
- 		KVM_MMU_UNLOCK(kvm);
- 		if (!IS_KVM_NULL_FN(range->on_unlock))
- 			range->on_unlock(kvm);
-@@ -2480,6 +2491,7 @@ static int kvm_vm_set_mem_attributes(struct kvm *kvm, unsigned long attributes,
- 		.end = end,
- 		.handler = kvm_mmu_unmap_gfn_range,
- 		.on_lock = kvm_mmu_invalidate_begin,
-+		.before_unlock	= (void *)kvm_null_fn,
- 		.on_unlock = (void *)kvm_null_fn,
- 		.flush_on_ret = true,
- 		.may_block = true,
-@@ -2490,7 +2502,8 @@ static int kvm_vm_set_mem_attributes(struct kvm *kvm, unsigned long attributes,
- 		.arg.attributes = attributes,
- 		.handler = kvm_arch_post_set_memory_attributes,
- 		.on_lock = (void *)kvm_null_fn,
--		.on_unlock = kvm_mmu_invalidate_end,
-+		.before_unlock = kvm_mmu_invalidate_end,
-+		.on_unlock = (void *)kvm_null_fn,
- 		.may_block = true,
- 	};
- 	unsigned long i;
--- 
-2.25.1
-
+Reviewed-by: Kees Cook <keescook@chromium.org>
 
 -- 
-Isaku Yamahata <isaku.yamahata@gmail.com>
+Kees Cook
 
 _______________________________________________
 linux-riscv mailing list
