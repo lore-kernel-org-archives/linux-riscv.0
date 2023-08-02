@@ -4,79 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81511C00528
-	for <linux-riscv@archiver.kernel.org>; Wed,  2 Aug 2023 20:36:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15A75C001E0
+	for <linux-riscv@archiver.kernel.org>; Wed,  2 Aug 2023 20:42:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=uUc58Yp/ZHpzOFJrkf7v9yMFbttIwNttcjwuCA4H3ZM=; b=xZczxUYa3gzDwV
-	s5vJWdeexDBhKYl5JFgtHILkueb+90XTSSTH+zGs9Rhcm4/aIZHBMahqS9vKqWYfFYHOHTStk1Mol
-	IGRsiybvNgQU7ldRyvwJjvuU3LYFJ7Bx6ebq4ROBIpjb26M0CY4sotBES009a2rJJ+eKiBMMr6uew
-	1lgfW3TVSPXUOhGygOTEHd/0okd4062OfbTBNkI+oQjpYYKprJ/3An/KaG5vcU/I0i0sX3/WM2JYU
-	FvLtGsbgzutH4QcDcvHzPngfc8a/sJ/LyrBBcln3GZ5Nor02PYr8+bWYKtX8/O3jaz2R4FH9PBbYG
-	8bZQtaUA+t+9rd4irKQA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=vi2nBixPYR1fRQvydFpF1ID5orFqysxW90O6V+YLNWs=; b=TABUXTFPHQ3bZRPv4vldRXney0
+	QPzAEkvLdknxgIcgrbkKLX8QwGTVpDgTAUX7sD9srnGSShnGvdbynS0Qy7J2ZGpxOK6c4as4vfpXD
+	Yy20+n3X6R1FfHm4TJXq4WC+qbTGmo39k6tDfUCAxrsunaMEwYzm1g22UU2eb6kFfvKVt6E+tmzgU
+	+Gd+Ap+f0/KoQelp13AsjP5LZt+B2A8jiPyPB3m8C6bXGKO8EvJdCDcnKy4TONMmlCh6fftR6yOWf
+	FJAiw3hvtn/obwb597Yfi5Rr1XTjCKCklEMcCVBL96ehI6M/WCufPC1+HO5g1NNpfpY7AWtahUkg2
+	oNpxez7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qRIZn-005qKr-25;
-	Wed, 02 Aug 2023 20:36:11 +0000
-Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	id 1qRIfa-005qkr-1g;
+	Wed, 02 Aug 2023 20:42:10 +0000
+Received: from mail-oi1-x22a.google.com ([2607:f8b0:4864:20::22a])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qRIZi-005qKC-1r
+	id 1qRIfV-005qiM-12
 	for linux-riscv@lists.infradead.org;
-	Wed, 02 Aug 2023 20:36:10 +0000
-Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-1bb775625e2so1894625ad.1
-        for <linux-riscv@lists.infradead.org>; Wed, 02 Aug 2023 13:36:05 -0700 (PDT)
+	Wed, 02 Aug 2023 20:42:09 +0000
+Received: by mail-oi1-x22a.google.com with SMTP id 5614622812f47-3a741f46fadso152298b6e.0
+        for <linux-riscv@lists.infradead.org>; Wed, 02 Aug 2023 13:41:54 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1691008564; x=1691613364;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=bWr3jcRSEU+gA9r0PBD80WJbMi+ArPrQmYYMKJHmB6U=;
-        b=nzPAChC03qv+JjeCfHD3Xsgh7kOt1lPa9r4xyzDxMcstE90i2vukMw/8sXH/02aje3
-         2otS1qRbhNkAjWyhIbAU++WUZ6yCQqFvvwE0SM4I+99qUJEqDvwnleDRCjb4+gIWskpm
-         kT/uFCmzfT6YzJ6Qh64mXRXv8r01SRYwdq9n8=
+        d=dabbelt-com.20221208.gappssmtp.com; s=20221208; t=1691008913; x=1691613713;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=XOTW7tSWYTyx7UDF6T+TXg8EIzNOXTAibUlBcE38vs8=;
+        b=NG+5rMrhgt8ajv9MPHJRkksDamIASvOjqTTUPHyRoobNVDQSWi0PwWWph2HSzMcdMl
+         A9HE9kmImry6AtWp2gUbGM/jK8r16N1j7DiuzIHODeQu+mzVZ4Nc5x80Zx5JkiFmSnHO
+         uOPUvvmMKURIHUCoWtfp9Rlg7pLfP0EZa3t0rZOpEmSucSQRceq09vtlxx1NioyJNNkD
+         4fSrS7ibFXvZGGzqE3oJeBJyMSPtz7hFdkn4SO1BzNbBZRtfBvnbzCIbSBnhKY/50gMF
+         g9/Y7yRXXe9yhQWo6eyNbq0BU8fTMdr0BTKZOgC0cNhC2TxijnG1xbfqy5nF/bsinVyn
+         22ZA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1691008564; x=1691613364;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20221208; t=1691008913; x=1691613713;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=bWr3jcRSEU+gA9r0PBD80WJbMi+ArPrQmYYMKJHmB6U=;
-        b=DfGixJxZWya1RaS1VapUvr1DvaljOgB40Fh6DD7oRT5U3AD7NX+f9HHKMB5Ve8aXdv
-         AunWh3LBneGCrjHQbvzH950TgTYHTVcjVx7/nbf+HrZGrJGdM0T0vlOFBOi5N+iSoVtg
-         up1AFRYpqkr4Mf0eZFe2KKgMN8S6b4CUI/gED80OxdSov0BanIPYcvx55GW3KldmYSb8
-         X3GTGy0LrJJfO2rGU2BBS0x4j1Hzl/x0nPYxAxucYLI6+LgN9CFrOhsbtGh6fPQFdn9x
-         OrZqelZYrtwTDbG8X4mIIhqFL4lYAdT06ZBtDm13NvvtizUYffwtVPvsfgN0rcELq1G4
-         +mRQ==
-X-Gm-Message-State: ABy/qLYEVuRcyPOUj7IGbNG81YKwDmU3BLr5kEY05nLkfOAXaJAOmsyn
-	fQ5wpEd0RS0nfzXXTAPEZgWzQQ==
-X-Google-Smtp-Source: APBJJlHH8aWxfFwHQY80htCurxfVMh/0WroGpPj2sjy9e7ql/D3TXKv/ojhEZ6OgabqItgbTCA1eOA==
-X-Received: by 2002:a17:902:c404:b0:1b9:c61c:4c01 with SMTP id k4-20020a170902c40400b001b9c61c4c01mr23391628plk.9.1691008564550;
-        Wed, 02 Aug 2023 13:36:04 -0700 (PDT)
-Received: from www.outflux.net (198-0-35-241-static.hfc.comcastbusiness.net. [198.0.35.241])
-        by smtp.gmail.com with ESMTPSA id jn13-20020a170903050d00b001b895a18472sm12772104plb.117.2023.08.02.13.36.03
+        bh=XOTW7tSWYTyx7UDF6T+TXg8EIzNOXTAibUlBcE38vs8=;
+        b=HLpL8v4KV1yFzt3U6kmhsE0GoXyNE5ldEG2yZXCF5i2wSyApn91mW5tmU/R2SXN2Bf
+         DLmi4Q+RbwibJ9lfJP7AkKofJa55duFFyvTqabhwg06iXwdR3GC+DL12DOvvdy5N0E88
+         bAtoIIskzxYGeP+HjTY+b+Zt7BOxJz6eZ20+CN/5CqsVPE1EDsxsV3iKO578KmbC5Ss5
+         xXMra1JTvdIxBQsoLTrwOCd+cakeqkrzJFu8syQ3ZSb/9vYKefqWFDRB4Hu0H9Kkzssd
+         Q0FU20B9leYBlDocqrwWbJCAe3joZFrROBIOkflwsuz9v+rPJpJFGox/mff0eKmu1ZjR
+         Ynvw==
+X-Gm-Message-State: ABy/qLabiVlyu1nJGYsEMgog8/6p/vDcJcbqDCGKmIc6K+KrOQ4324g7
+	WbmJWAJaW+IpOjOEWMeJ05P6sA==
+X-Google-Smtp-Source: APBJJlEXOupr/w6qEt7CH3EMjhe/cVyQh8/dfxz/mVjhJayN0odRX4LdG0uM3l2H+YiBj1QobSkLpg==
+X-Received: by 2002:a05:6808:21aa:b0:3a3:dc0e:4d0f with SMTP id be42-20020a05680821aa00b003a3dc0e4d0fmr20856581oib.22.1691008913338;
+        Wed, 02 Aug 2023 13:41:53 -0700 (PDT)
+Received: from localhost ([135.180.227.0])
+        by smtp.gmail.com with ESMTPSA id l4-20020a63be04000000b0055386b1415dsm10930827pgf.51.2023.08.02.13.41.52
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 02 Aug 2023 13:36:04 -0700 (PDT)
-Date: Wed, 2 Aug 2023 13:36:03 -0700
-From: Kees Cook <keescook@chromium.org>
-To: Justin Stitt <justinstitt@google.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	linux-hardening@vger.kernel.org
+        Wed, 02 Aug 2023 13:41:52 -0700 (PDT)
+Date: Wed, 02 Aug 2023 13:41:52 -0700 (PDT)
+X-Google-Original-Date: Wed, 02 Aug 2023 13:41:50 PDT (-0700)
 Subject: Re: [PATCH v2] RISC-V: cpu: refactor deprecated strncpy
-Message-ID: <202308021335.8010D08B@keescook>
-References: <20230802-arch-riscv-kernel-v2-1-24266e85bc96@google.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230802-arch-riscv-kernel-v2-1-24266e85bc96@google.com>
+In-Reply-To: <202308021335.8010D08B@keescook>
+CC: justinstitt@google.com, Paul Walmsley <paul.walmsley@sifive.com>,
+  aou@eecs.berkeley.edu, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+  ndesaulniers@google.com, linux-hardening@vger.kernel.org
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: keescook@chromium.org
+Message-ID: <mhng-93dd039a-f342-4239-a0a8-f1e31f7d8b5e@palmer-ri-x1c9>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230802_133606_651644_777E33FB 
-X-CRM114-Status: UNSURE (   8.97  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230802_134205_570031_91398A24 
+X-CRM114-Status: GOOD (  12.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,28 +87,35 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 02, 2023 at 12:21:58AM +0000, Justin Stitt wrote:
-> `strncpy` is deprecated for use on NUL-terminated destination strings [1].
-> 
-> Favor not copying strings onto stack and instead use strings directly.
-> This avoids hard-coding sizes and buffer lengths all together.
-> 
-> Link: https://github.com/KSPP/linux/issues/90
-> Cc: linux-hardening@vger.kernel.org
-> Suggested-by: Kees Cook <keescook@chromium.org>
-> Signed-off-by: Justin Stitt <justinstitt@google.com>
+On Wed, 02 Aug 2023 13:36:03 PDT (-0700), keescook@chromium.org wrote:
+> On Wed, Aug 02, 2023 at 12:21:58AM +0000, Justin Stitt wrote:
+>> `strncpy` is deprecated for use on NUL-terminated destination strings [1].
+>>
+>> Favor not copying strings onto stack and instead use strings directly.
+>> This avoids hard-coding sizes and buffer lengths all together.
+>>
+>> Link: https://github.com/KSPP/linux/issues/90
+>> Cc: linux-hardening@vger.kernel.org
+>> Suggested-by: Kees Cook <keescook@chromium.org>
+>> Signed-off-by: Justin Stitt <justinstitt@google.com>
+>
+> I like it! ;)
+>
+> Reviewed-by: Kees Cook <keescook@chromium.org>
 
-I like it! ;)
+Thanks, I just queue it up for fixes (might take a bit to build test, 
+I'm a bit backed up).
 
-Reviewed-by: Kees Cook <keescook@chromium.org>
+Reviewed-by: Palmer Dabbelt <palmer@rivosinc.com>
+Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
 
--- 
-Kees Cook
+If you wanted to take it for some hardening thing, though -- otherwise 
+it'll likely end up on my fixes later today.
 
 _______________________________________________
 linux-riscv mailing list
