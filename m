@@ -4,71 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92EB8C001E0
-	for <linux-riscv@archiver.kernel.org>; Wed,  2 Aug 2023 13:52:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EDB0C04A6A
+	for <linux-riscv@archiver.kernel.org>; Wed,  2 Aug 2023 14:24:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	MIME-Version:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=LvEzcr8ZueLM5rtwNCwyATbuQfoQRpQsx2e1FntdySo=; b=Npk
-	i70pJkhQ07CorK3FqcxD/9AXS3wxQY2sIdBk2p4uTqxzQmXQ5G1Fsr/OtNWhrGFP50RZBS5lftFHC
-	1mJ3tFFi3w4ogHpQSTFiAGxbHRnACoJYCqpFAZxliAGtgPV/B0KFedhNkKT3dJ8Vd2HVc8aSpfV+o
-	8dKLQT6/ykD1q7+hMgAm+ktZrmDWeCDvzIy91YI/DTjZh5PCArSamVBo5P/BiH4kR+iNkv8swOSdP
-	Qvz/WzzWcVK87gZRzgHRhWuVNswBX6msoc5XgEuuW188O3xFvLsId7oMBiW2yoGlMyDKu9KcWNuU+
-	4icJ7JfHDaGtH2OyY15DuszNFyQ5+qQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MsxmpGL0d+SU4lMLVeBhrJWf7ge/ZVZHLXaKvoc82ho=; b=QJ393Ma1U9XsGgMWzYhwDJp52E
+	TExKVvXGT6FmCOw9D7tcsWIk4TyLuA9ig8CEfqJ8ffCZU6+u2wpZ6aygfeEOzOlsDk4oCjyCN8vEC
+	gWhv+UUu8h+mdAMhh2evi9I+DpsF+A+z7T5FWHb0EmnoHolBb2QMPdb5x+3nDbaLIk49oNjx9KaYA
+	QXQjRH3DV3203WT6KKW28RS6GtU1CIhrW1lopdmaeo4b3UOZJT9vwoATod45ZP5t/t6Z8oSEwuN2H
+	kDMm0U0bqvrZATOFbqQqgrorouCE107UNqqnqqs9UxZfl4ApJaMjSPLWNlJVtlQs8JFc7GZoo7AWS
+	TDQUUpqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qRCGW-0051L6-2s;
-	Wed, 02 Aug 2023 13:51:52 +0000
-Received: from mail-lj1-x231.google.com ([2a00:1450:4864:20::231])
+	id 1qRCli-0054ug-1P;
+	Wed, 02 Aug 2023 14:24:06 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qRCGU-0051KT-2u
+	id 1qRCld-0054uI-2n
 	for linux-riscv@lists.infradead.org;
-	Wed, 02 Aug 2023 13:51:52 +0000
-Received: by mail-lj1-x231.google.com with SMTP id 38308e7fff4ca-2b9ba3d6157so106114731fa.3
-        for <linux-riscv@lists.infradead.org>; Wed, 02 Aug 2023 06:51:49 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20221208; t=1690984308; x=1691589108;
-        h=to:subject:message-id:date:from:mime-version:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=iYHXuTq6JA9sdszLQjK/2FAnATmn+MPHQp0NstlHDjg=;
-        b=N3gb8F+F+9+mn5uHp3eGC+K6xJDnbjXPCiPokZCXy8no9VQDpJ6ASU+aFy7v/uQ3eB
-         HbmafPa6+L6nv8t95F8NiqHg/0pakX/7LXx3jyXwz95QRAkYs4z+pDRmihg4OAwrWMhX
-         LoY+7mv8hrASFR6e1oQVycnVkrABOgAPPg2ny0s/xk8QyweL9DZQ7LnCWphCJX7su81B
-         OdgyXyAyq2qFkki+JGLmTOBEpPrg+9shT69g9B93LLaQhMt9kCY+qq0v6fskPGGuAJto
-         6reTWhlN4at9xspPvX8+B/ZgvmiXunBMjR5AmZNURUeFC2s6KNwVjfrK2VeyVs/ME0Ql
-         tFgg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1690984308; x=1691589108;
-        h=to:subject:message-id:date:from:mime-version:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=iYHXuTq6JA9sdszLQjK/2FAnATmn+MPHQp0NstlHDjg=;
-        b=geWsmJB6mptpKC/W4f/7E7PcWsWrz4G/ZG2/uVHaTooaYUHtFWDr2AUpLsUgEhUTqj
-         cqtUzJRdvYvHyn4EMGtUX3ACnWZBlmXMUEv5WOrNTs3bewEU6MYbWAuwVJ4lJ4A30FL0
-         QddWvDtsacotL6y8WcIF8T12OVSf6cl6nzQGoFOzR9Rdo4JZJNd1AkDj2QmIytL5wuWo
-         5d2ibH1cvLtDcaNfV5/rBSwc6mh8JcGx+qI1M/FOKWZttsl5e1N7lAQLuDvwNiGP2tGA
-         a/xaFJpX/xgUz7EAVVjLqZOca/Uywf3u+F+o3zwQqyGFpdJJTUMynRV9MPp3yytgZ5Dy
-         VzkQ==
-X-Gm-Message-State: ABy/qLZ1ei/x0uBLHLe7v387Y+nSPCzFPogIxiaW7oMLetvdGX0uT2kg
-	+OZFs6LAmxF4g4CT5LlFDUB7L0/NZPj4cR9PXieMK8SR
-X-Google-Smtp-Source: APBJJlFWtXqWkAT57ThwyLsU6elz3hHJ+j3RmtOccDAiV0pSY+rU6s/BiayABpOeKi8Q4zSIu3JIq1179iXfqPcCR8A=
-X-Received: by 2002:a2e:850b:0:b0:2b6:9f95:46d3 with SMTP id
- j11-20020a2e850b000000b002b69f9546d3mr5275947lji.9.1690984308318; Wed, 02 Aug
- 2023 06:51:48 -0700 (PDT)
+	Wed, 02 Aug 2023 14:24:03 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 51957619BA;
+	Wed,  2 Aug 2023 14:24:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 19625C433C7;
+	Wed,  2 Aug 2023 14:23:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1690986240;
+	bh=alQXP1plDlIzOdPZ+hOczPUVcy4kkL/UaJLqAUyH47g=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=BMIJi8fm3pMwHyeqUDAsjK403YwJY+Tk2UDg/cRjWERPxVBabUYf8ZGBtafjdbz0y
+	 h4BiZNQvWMtw8LN3tiWKc1tyYt67nReqTy9A4DYUfpdfb9LhCjvalzgJGrYUvMJeVI
+	 HKDJtxoBUGeZdGVxgH+Ve4CVskJLaftkrqukzYQHK7tS+Z5RNwgNku8WOZS7ciBrv1
+	 bH1PP3N0y83HZPz/Szfpk5xKlaPP9qWZCdsrV8Q1pRrVQ8SX8dWC3neCWYTHT4HsGK
+	 Lw6iTj9tLp4Dj3uABG2RBq0UWrPYGJJjuLZQaCpswgbMXoyrpBFl9UNwcssZX+hhiB
+	 QzQ+X/HqgPvsw==
+Date: Wed, 2 Aug 2023 15:23:57 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Laurentiu-Cristian Duca <laurentiu.duca@gmail.com>
+Cc: linux-riscv@lists.infradead.org
+Subject: Re: dts - linux,usable-memory
+Message-ID: <20230802-palpitate-defection-4908b4cbd142@spud>
+References: <CAPm8-H43P4WrgibV2MGNFZt7ommkchAeom4m0Kt3N-CsG6D9RA@mail.gmail.com>
 MIME-Version: 1.0
-Received: by 2002:a2e:9cd5:0:b0:2b7:787:e49d with HTTP; Wed, 2 Aug 2023
- 06:51:47 -0700 (PDT)
-From: Laurentiu-Cristian Duca <laurentiu.duca@gmail.com>
-Date: Wed, 2 Aug 2023 16:51:47 +0300
-Message-ID: <CAPm8-H43P4WrgibV2MGNFZt7ommkchAeom4m0Kt3N-CsG6D9RA@mail.gmail.com>
-Subject: dts - linux,usable-memory
-To: linux-riscv@lists.infradead.org
+In-Reply-To: <CAPm8-H43P4WrgibV2MGNFZt7ommkchAeom4m0Kt3N-CsG6D9RA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230802_065150_936783_898E46E0 
-X-CRM114-Status: UNSURE (   4.20  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230802_072401_947195_7445E0AE 
+X-CRM114-Status: GOOD (  13.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,30 +68,71 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============6797283013612178944=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-hello,
 
-  my name is laurentiu-cristian duca and i am an open-source enthusiast.
-lately i have tried to use the linux,usable-memory in the dts memory node
-and linux freezes.
-  if i use only reg, linux boots fine.
-  does anybody used linux,usable-memory and can you show a working example.
+--===============6797283013612178944==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="d7ZWR+zi0uZWHrll"
+Content-Disposition: inline
 
-  here is what i tried
-        memory@80000000 {
-                device_type = "memory";
-                reg = <0x0 0x80000000 0x0 0x700000>;
-                //linux,usable-memory = <0x80000000 0x700000>;
-        };
 
-thank you,
-laurentiu
+--d7ZWR+zi0uZWHrll
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+Hey,
+
+On Wed, Aug 02, 2023 at 04:51:47PM +0300, Laurentiu-Cristian Duca wrote:
+>   my name is laurentiu-cristian duca and i am an open-source enthusiast.
+> lately i have tried to use the linux,usable-memory in the dts memory node
+> and linux freezes.
+>   if i use only reg, linux boots fine.
+>   does anybody used linux,usable-memory and can you show a working exampl=
+e.
+>=20
+>   here is what i tried
+>         memory@80000000 {
+>                 device_type =3D "memory";
+>                 reg =3D <0x0 0x80000000 0x0 0x700000>;
+>                 //linux,usable-memory =3D <0x80000000 0x700000>;
+>         };
+
+What are you actually doing when you freeze? A normal boot? Kexec?
+What hardware is this?
+Are you using OpenSBI, and if so what version?
+What version of the kernel is this?
+
+Thanks,
+Conor.
+
+--d7ZWR+zi0uZWHrll
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZMpm/QAKCRB4tDGHoIJi
+0q7OAP9tpQzMroAOoOl45vL7M1/GEOT2AOrec6qWy1kv73vY8AEAuWG/c5yq478n
+AFZCmi1f2o4oMMi2xXHCBCy8naipOQs=
+=KdHt
+-----END PGP SIGNATURE-----
+
+--d7ZWR+zi0uZWHrll--
+
+
+--===============6797283013612178944==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============6797283013612178944==--
+
