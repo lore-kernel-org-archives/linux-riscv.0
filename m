@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAB6EC04A94
-	for <linux-riscv@archiver.kernel.org>; Wed,  2 Aug 2023 09:29:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61C08C001DE
+	for <linux-riscv@archiver.kernel.org>; Wed,  2 Aug 2023 09:32:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ilTtAch3nEpINrzlKVdVHg4V2mummq1mWWdObIOJ+OU=; b=HbwPCgXqEjsl7T
-	QBOletXVHVee3J6V6tIJGMVFD2z01wffhEjQd9x+x693b81w4RYbm8QKmw8Cp1RBS2pMS+evd2R33
-	mhiD3M58iEWcF0H78K2l19KaLCgH3rwpvMcSnbRs8mSq+iEtzYMSpqCset3Udcgw2jojvYF68Mv1G
-	GdSomsxg+G+RztI3JSblFsX6sArCC8GBl67WUj6VKcDTpkByJEYQcFkQ0MFQwbC/LvoQN8dMCZoEK
-	736jrcvnBokUxKtjBJx2/eOYG1Wd9IvlB9tZAqGf3Tg94IWLw1j2IDr72RuEJj6LVMR/BuvwHsH2s
-	XHA9855RUs5p57LgujiA==;
+	List-Owner; bh=wZBdLVhkikKFXFX8NsTcXQzTKhQAg+f+7CassksdQnQ=; b=RjMG16NoCKCMYw
+	gDWuQ0+a39bKgfUUP4FztnsyK0cQ0z+OXiJSB/mu6unisOvBd4WEwK5ZMPcHmfjB1u3a3vZzk0F7f
+	RFdGnNVu7Tgk7izT0j9K3zLUDfjZM1DWOaQeWW/e7Tndv+kQZhc3zwAbbLuzrAKWQT+hFJ5Xz2Nra
+	zEVKQPEUpoEOt4skSKlOUSP142eanV61xEwpnUkhUrKxBKNNQF30Z7duNJWCo1P0rkvx6u6qn/8BI
+	BjJGP2cJ7hLCQ1PSFhsSL98c3wiJO1kxsEYWOJlk6VkJPND4FBiNhwcbyP20lK/ik/IiMwnl2xuYE
+	+6RwrhZUtG+rmyaaCdZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qR8AM-004TnP-2T;
-	Wed, 02 Aug 2023 09:29:14 +0000
-Received: from mail-ed1-x534.google.com ([2a00:1450:4864:20::534])
+	id 1qR8DM-004UDP-09;
+	Wed, 02 Aug 2023 09:32:20 +0000
+Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qR8AJ-004TmF-23
+	id 1qR8DI-004UC0-2T
 	for linux-riscv@lists.infradead.org;
-	Wed, 02 Aug 2023 09:29:13 +0000
-Received: by mail-ed1-x534.google.com with SMTP id 4fb4d7f45d1cf-5222b917e0cso9573977a12.0
-        for <linux-riscv@lists.infradead.org>; Wed, 02 Aug 2023 02:29:11 -0700 (PDT)
+	Wed, 02 Aug 2023 09:32:18 +0000
+Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-977e0fbd742so914082466b.2
+        for <linux-riscv@lists.infradead.org>; Wed, 02 Aug 2023 02:32:16 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1690968550; x=1691573350;
+        d=ventanamicro.com; s=google; t=1690968735; x=1691573535;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=CEvdWKJwrirYDhttDd02rTV33tBJG9g5L+9AxNoea3M=;
-        b=WgRojBwticTI7tlGP4WhwryjFIOTSb45MoUr2Xomsnj5dZNimXNpbmwdtt7+Je4qpn
-         TomUFaMgXy0jF9o3axmIL0HPy8hlV/4x5aXy3r2c9bn6YJ4Hg7Y3TQJOh9mvhHpCkZF8
-         7ecMIM/3KehtF2nSe519/VXcRJJFE9OgiygnF2jZAItbssoFLRktIhrcyO3vZ6DDgpdV
-         dZ6Egnhrxr0Ai+PK8gXu4AFGUD8fO+2tjft3pOngaYXwvwcqHQnUS0k7z43PXF3UlNDS
-         DnjnF9Id5ixdw5KIBQOPhR5RtIGtjK2hpEWreQ9AW+PUrojmjfUTyccBFY2LjXFzMA12
-         1DPw==
+        bh=qF0aEgee+FPFz+iaQY2LrH7Juz8N6fO4KHzo5d0J5po=;
+        b=WK07xQ3FGA5WcpC5zdx0uDh/Lh1f8FHSywlLFabT48BunC8cffyAwiJnKW6W9ZHRhv
+         bdiDZKh6i0P4XosyLhKvMsVWmygqgp4Nn80eYXDBOUZZTPbZk/2eUYXuKJaH7TpmOyts
+         uouA7nAqrPVIUuVFeiYhOUUhrv3QHDWqOuZx2kCNJDNh2aH2eXWJ9YAiQWrdJMqwx2oh
+         9t1va6KIgdxlTSaxnMg37rZ9D2boo1lpHhH6ebbDqA3WQFowchWEJzIXd+bS1suntkFe
+         z/mJYKfIdrEi0/aoJC3VfeRW0y2kGAdMru/7TdNZy1piXEQ2WKmynJZBN+YHfGfUccEv
+         Txrg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1690968550; x=1691573350;
+        d=1e100.net; s=20221208; t=1690968735; x=1691573535;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=CEvdWKJwrirYDhttDd02rTV33tBJG9g5L+9AxNoea3M=;
-        b=YuXrfW0fuBHg2UsPXVKKElmj/AeYO1cEJL52svn47NO6Z9vVa1lphWu1c0DKysYa6R
-         SOjS0uaiC52fZJOCBnkFZnWduo9GZwS7Kg9EmXt1mvvMRU1+PxQki37ffZm9aAuS6YlY
-         sdTsOAWF2odPZokcqAGVl3LGZkhBuIhcLyd6vURZFs/IoPfqOGeeDsmz1HpuiKWC27cM
-         EGMJKUOMrJKMfn8fkT5lMMSRKvMhLakrG+yTtVMhOb+T15YCVCQy3sTRIQKoywMxet6Z
-         79R0B246e6P97cSR2da5cY0hM+eUMa5rcRhXeLQHV39yfl7EHcccm3IBHAYy/OxYnhFW
-         m1Bg==
-X-Gm-Message-State: ABy/qLa9M+UOCyNWF3knmRuD0ln/km7RjjBQ5pURDIx4h4zMJjhZVUJI
-	Y12O0/h52KmTr1SztOZ+XR2+0A==
-X-Google-Smtp-Source: APBJJlFoWQnCKbhEbTUrZCJqYYVW6s4vDSWfgPkrwNS0ATxL1doB6I6qe6yB2sD40AZ6C/w2onWycw==
-X-Received: by 2002:a17:906:305b:b0:99b:cb78:8537 with SMTP id d27-20020a170906305b00b0099bcb788537mr4084494ejd.11.1690968549860;
-        Wed, 02 Aug 2023 02:29:09 -0700 (PDT)
+        bh=qF0aEgee+FPFz+iaQY2LrH7Juz8N6fO4KHzo5d0J5po=;
+        b=XgzD6194GCzsB4v55yp9oBHKEsG9LJsNLR0ofCO0oOxL2S5/UBcr7EP+S6VLBs/0im
+         xZwInahv+Hc5gq8LBOtLajXgNM+SN6OZ4vWqJ+Oh+z40Of02EdWI6PaLOS8uG/b2vwo8
+         ST1EDgushROxG5bNiACSZ/cKcfi2Z2dOnJHGlMQPcXP2fU1S6MD7ZfodQj5/iVyrekog
+         lvUuIAT41G0lGGAlglJLKaFhdqkx/rlUo/a04dHSvTp/3h/b6Wc0iA5Bg/WMf5Qwcpzz
+         gbsJR2W14M7S3Ms3R5KiYb4+oUEZLpRiSSS9CQf4hg1sXpv9cHsMOeC+Ci8GXY4m+XIg
+         0Y2g==
+X-Gm-Message-State: ABy/qLYnDVC1+mhKBx7YmCpg/SAhAh0k+UiEZsGGxSHoWqTcUoq44Fbd
+	lecPUNpAdMS/8Z8WQP1N1Ym3sQ==
+X-Google-Smtp-Source: APBJJlFF191bxevEKrX048Spx8AHXhdbVnhFYercC2XbYZV/VYGT7ptsY6UpNsEbfdmWvraciuM69A==
+X-Received: by 2002:a17:907:2bd7:b0:96f:e5af:ac5f with SMTP id gv23-20020a1709072bd700b0096fe5afac5fmr4440341ejc.47.1690968735457;
+        Wed, 02 Aug 2023 02:32:15 -0700 (PDT)
 Received: from localhost (212-5-140-29.ip.btc-net.bg. [212.5.140.29])
-        by smtp.gmail.com with ESMTPSA id um6-20020a170906cf8600b009930c61dc0esm8823130ejb.92.2023.08.02.02.29.07
+        by smtp.gmail.com with ESMTPSA id v8-20020a17090690c800b00997e99a662bsm8741929ejw.20.2023.08.02.02.32.13
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 02 Aug 2023 02:29:09 -0700 (PDT)
-Date: Wed, 2 Aug 2023 12:29:05 +0300
+        Wed, 02 Aug 2023 02:32:15 -0700 (PDT)
+Date: Wed, 2 Aug 2023 12:32:12 +0300
 From: Andrew Jones <ajones@ventanamicro.com>
 To: Alexandre Ghiti <alexghiti@rivosinc.com>
 Cc: Jonathan Corbet <corbet@lwn.net>, 
@@ -76,15 +76,15 @@ Cc: Jonathan Corbet <corbet@lwn.net>,
 	linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
 	Atish Patra <atishp@rivosinc.com>
 Subject: Re: [PATCH v6 09/10] tools: lib: perf: Implement riscv mmap support
-Message-ID: <20230802-11f1b3d1ff4cc987bb58bfa4@orel>
+Message-ID: <20230802-7c19a712ae071f68030ab5f2@orel>
 References: <20230802080328.1213905-1-alexghiti@rivosinc.com>
  <20230802080328.1213905-10-alexghiti@rivosinc.com>
 MIME-Version: 1.0
 Content-Disposition: inline
 In-Reply-To: <20230802080328.1213905-10-alexghiti@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230802_022911_681913_106A915A 
-X-CRM114-Status: GOOD (  23.21  )
+X-CRM114-CacheID: sfid-20230802_023216_825040_264E5B8E 
+X-CRM114-Status: GOOD (  16.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,100 +124,25 @@ On Wed, Aug 02, 2023 at 10:03:27AM +0200, Alexandre Ghiti wrote:
 > +#elif defined(__riscv) && __riscv_xlen == 64
 > +
 > +/* TODO: implement rv32 support */
-
-It'd be easy to implement the rv32 support now (even if it's premature for
-use), in order to avoid the TODO (which will likely be forgotten). I think
-we just need to drop the __riscv_xlen == 64 above and then extend the
-csr_read() macro something like the untested code below. (I'm not sure if
-a TODO or premature, likely untested, code is worse though.)
-
 > +
 > +#define CSR_CYCLE	0xc00
 > +#define CSR_TIME	0xc01
 > +
 > +#define csr_read(csr)						\
 > +({								\
-
-u64 __value;
-
 > +	register unsigned long __v;				\
 > +		__asm__ __volatile__ ("csrr %0, %1"		\
 > +		 : "=r" (__v)					\
 > +		 : "i" (csr) : );				\
+> +		 __v;						\
 
-__value = __v;
+nit: no need for the indentation or line wrap,
 
-#if __riscv_xlen == 32
-{
-  int csrh = (csr) - CSR_CYCLE + CSR_CYCLEH;
-
-  __asm__ __volatile__ ("csrr %0, %1" : "=r" (__v) : "i" (csrh));
-  __value |= (u64)__v << 32;
-}
-#endif
-
-__value;
-
-> +})
-> +
-> +static unsigned long csr_read_num(int csr_num)
-
-static u64 csr_read_num(int csr_num)
-
-> +{
-> +#define switchcase_csr_read(__csr_num, __val)           {\
-> +	case __csr_num:                                 \
-> +		__val = csr_read(__csr_num);            \
-> +		break; }
-> +#define switchcase_csr_read_2(__csr_num, __val)         {\
-> +	switchcase_csr_read(__csr_num + 0, __val)        \
-> +	switchcase_csr_read(__csr_num + 1, __val)}
-> +#define switchcase_csr_read_4(__csr_num, __val)         {\
-> +	switchcase_csr_read_2(__csr_num + 0, __val)      \
-> +	switchcase_csr_read_2(__csr_num + 2, __val)}
-> +#define switchcase_csr_read_8(__csr_num, __val)         {\
-> +	switchcase_csr_read_4(__csr_num + 0, __val)      \
-> +	switchcase_csr_read_4(__csr_num + 4, __val)}
-> +#define switchcase_csr_read_16(__csr_num, __val)        {\
-> +	switchcase_csr_read_8(__csr_num + 0, __val)      \
-> +	switchcase_csr_read_8(__csr_num + 8, __val)}
-> +#define switchcase_csr_read_32(__csr_num, __val)        {\
-> +	switchcase_csr_read_16(__csr_num + 0, __val)     \
-> +	switchcase_csr_read_16(__csr_num + 16, __val)}
-> +
-> +	unsigned long ret = 0;
-> +
-> +	switch (csr_num) {
-> +	switchcase_csr_read_32(CSR_CYCLE, ret)
-> +	default:
-> +		break;
-> +	}
-> +
-> +	return ret;
-> +#undef switchcase_csr_read_32
-> +#undef switchcase_csr_read_16
-> +#undef switchcase_csr_read_8
-> +#undef switchcase_csr_read_4
-> +#undef switchcase_csr_read_2
-> +#undef switchcase_csr_read
-> +}
-> +
-> +static u64 read_perf_counter(unsigned int counter)
-> +{
-> +	return csr_read_num(CSR_CYCLE + counter);
-> +}
-> +
-> +static u64 read_timestamp(void)
-> +{
-> +	return csr_read_num(CSR_TIME);
-> +}
-> +
->  #else
->  static u64 read_perf_counter(unsigned int counter __maybe_unused) { return 0; }
->  static u64 read_timestamp(void) { return 0; }
-> -- 
-> 2.39.2
->
+({
+	register unsigned long __v;
+	__asm__ __volatile__ ("csrr %0, %1" : "=r" (__v) : "i" (csr));
+	__v;
+})
 
 Thanks,
 drew
