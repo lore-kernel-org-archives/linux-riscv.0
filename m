@@ -4,87 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61C08C001DE
-	for <linux-riscv@archiver.kernel.org>; Wed,  2 Aug 2023 09:32:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 826E1C001DE
+	for <linux-riscv@archiver.kernel.org>; Wed,  2 Aug 2023 09:43:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wZBdLVhkikKFXFX8NsTcXQzTKhQAg+f+7CassksdQnQ=; b=RjMG16NoCKCMYw
-	gDWuQ0+a39bKgfUUP4FztnsyK0cQ0z+OXiJSB/mu6unisOvBd4WEwK5ZMPcHmfjB1u3a3vZzk0F7f
-	RFdGnNVu7Tgk7izT0j9K3zLUDfjZM1DWOaQeWW/e7Tndv+kQZhc3zwAbbLuzrAKWQT+hFJ5Xz2Nra
-	zEVKQPEUpoEOt4skSKlOUSP142eanV61xEwpnUkhUrKxBKNNQF30Z7duNJWCo1P0rkvx6u6qn/8BI
-	BjJGP2cJ7hLCQ1PSFhsSL98c3wiJO1kxsEYWOJlk6VkJPND4FBiNhwcbyP20lK/ik/IiMwnl2xuYE
-	+6RwrhZUtG+rmyaaCdZQ==;
+	List-Owner; bh=5qFvnuJj1vwe4SkBBmf8obH0BPHw/o9Otfj4uILnjMg=; b=rBqplXx/PUJDxs
+	U1seZPeUBxH3KtBEE4VCDxahmMGnKVS+oVv0oOB0qDdveCUcEdx7YGu3Oow5RVqkUciBFUB8bBUaY
+	MPyGcyW5eUV7SuODzr1G/ke9Lc7Xitsp8tzjKVrrRglJcTaTvvLaCUr366LxCcSIQxLm6VKaySnUo
+	2adjLRWv7/7o1IJ9MfYa677lZAjkDdlkFGFZYHcg0EhOLL4XzgaZeQesWG52mWShpxkiw9pdpVaIN
+	Qz1kmiPS46peyU4/tJNWf91ajr0Bjzpi3GHktrvMoBTOyl7Op++iXfONveBu+8l8PMd3DPqPFk9Cw
+	1ATHUluHUyXQAIbFVPyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qR8DM-004UDP-09;
-	Wed, 02 Aug 2023 09:32:20 +0000
-Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
+	id 1qR8Nl-004Vb5-0i;
+	Wed, 02 Aug 2023 09:43:05 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qR8DI-004UC0-2T
+	id 1qR8Nj-004Vae-0M
 	for linux-riscv@lists.infradead.org;
-	Wed, 02 Aug 2023 09:32:18 +0000
-Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-977e0fbd742so914082466b.2
-        for <linux-riscv@lists.infradead.org>; Wed, 02 Aug 2023 02:32:16 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1690968735; x=1691573535;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=qF0aEgee+FPFz+iaQY2LrH7Juz8N6fO4KHzo5d0J5po=;
-        b=WK07xQ3FGA5WcpC5zdx0uDh/Lh1f8FHSywlLFabT48BunC8cffyAwiJnKW6W9ZHRhv
-         bdiDZKh6i0P4XosyLhKvMsVWmygqgp4Nn80eYXDBOUZZTPbZk/2eUYXuKJaH7TpmOyts
-         uouA7nAqrPVIUuVFeiYhOUUhrv3QHDWqOuZx2kCNJDNh2aH2eXWJ9YAiQWrdJMqwx2oh
-         9t1va6KIgdxlTSaxnMg37rZ9D2boo1lpHhH6ebbDqA3WQFowchWEJzIXd+bS1suntkFe
-         z/mJYKfIdrEi0/aoJC3VfeRW0y2kGAdMru/7TdNZy1piXEQ2WKmynJZBN+YHfGfUccEv
-         Txrg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1690968735; x=1691573535;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=qF0aEgee+FPFz+iaQY2LrH7Juz8N6fO4KHzo5d0J5po=;
-        b=XgzD6194GCzsB4v55yp9oBHKEsG9LJsNLR0ofCO0oOxL2S5/UBcr7EP+S6VLBs/0im
-         xZwInahv+Hc5gq8LBOtLajXgNM+SN6OZ4vWqJ+Oh+z40Of02EdWI6PaLOS8uG/b2vwo8
-         ST1EDgushROxG5bNiACSZ/cKcfi2Z2dOnJHGlMQPcXP2fU1S6MD7ZfodQj5/iVyrekog
-         lvUuIAT41G0lGGAlglJLKaFhdqkx/rlUo/a04dHSvTp/3h/b6Wc0iA5Bg/WMf5Qwcpzz
-         gbsJR2W14M7S3Ms3R5KiYb4+oUEZLpRiSSS9CQf4hg1sXpv9cHsMOeC+Ci8GXY4m+XIg
-         0Y2g==
-X-Gm-Message-State: ABy/qLYnDVC1+mhKBx7YmCpg/SAhAh0k+UiEZsGGxSHoWqTcUoq44Fbd
-	lecPUNpAdMS/8Z8WQP1N1Ym3sQ==
-X-Google-Smtp-Source: APBJJlFF191bxevEKrX048Spx8AHXhdbVnhFYercC2XbYZV/VYGT7ptsY6UpNsEbfdmWvraciuM69A==
-X-Received: by 2002:a17:907:2bd7:b0:96f:e5af:ac5f with SMTP id gv23-20020a1709072bd700b0096fe5afac5fmr4440341ejc.47.1690968735457;
-        Wed, 02 Aug 2023 02:32:15 -0700 (PDT)
-Received: from localhost (212-5-140-29.ip.btc-net.bg. [212.5.140.29])
-        by smtp.gmail.com with ESMTPSA id v8-20020a17090690c800b00997e99a662bsm8741929ejw.20.2023.08.02.02.32.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 02 Aug 2023 02:32:15 -0700 (PDT)
-Date: Wed, 2 Aug 2023 12:32:12 +0300
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Alexandre Ghiti <alexghiti@rivosinc.com>
-Cc: Jonathan Corbet <corbet@lwn.net>, 
-	Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
-	Arnaldo Carvalho de Melo <acme@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
-	Ian Rogers <irogers@google.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Atish Patra <atishp@atishpatra.org>, Anup Patel <anup@brainfault.org>, Will Deacon <will@kernel.org>, 
-	Rob Herring <robh@kernel.org>, =?utf-8?B?UsOpbWk=?= Denis-Courmont <remi@remlab.net>, 
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	Atish Patra <atishp@rivosinc.com>
-Subject: Re: [PATCH v6 09/10] tools: lib: perf: Implement riscv mmap support
-Message-ID: <20230802-7c19a712ae071f68030ab5f2@orel>
-References: <20230802080328.1213905-1-alexghiti@rivosinc.com>
- <20230802080328.1213905-10-alexghiti@rivosinc.com>
+	Wed, 02 Aug 2023 09:43:04 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 9D6E4618B9;
+	Wed,  2 Aug 2023 09:43:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7A921C433C7;
+	Wed,  2 Aug 2023 09:43:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+	s=korg; t=1690969382;
+	bh=Ahh8H/gyVuYF7DCBuylVCGTcZI7sUWJfuVSuCl6pES8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=nm3xvdLaAazprOBjffCFthDr0i6RHwcnjKOpwyhLnEZrb0OPtjg3AtZxnBY0EjMOR
+	 ymZ9jgB/AgdUUDtKJ8csOhP1WpvehTD9GU7z7PR44J731iRADWeWOyTyaXVRIAlJXu
+	 WgHGNiClMprKb7exqsOv4OY1BWNtqlAMEZjNVPew=
+Date: Wed, 2 Aug 2023 11:42:59 +0200
+From: Greg KH <gregkh@linuxfoundation.org>
+To: Conor Dooley <conor.dooley@microchip.com>
+Cc: Minda Chen <minda.chen@starfivetech.com>,
+	Conor Dooley <conor@kernel.org>, Jisheng Zhang <jszhang@kernel.org>,
+	Samuel Holland <samuel@sholland.org>, Dao Lu <daolu@rivosinc.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Mason Huo <mason.huo@starfivetech.com>, stable@vger.kernel.org
+Subject: Re: [PATCH v1] riscv: Using TOOLCHAIN_HAS_ZIHINTPAUSE marco replace
+ zihintpause
+Message-ID: <2023080255-stomp-smell-43ae@gregkh>
+References: <20230802064215.31111-1-minda.chen@starfivetech.com>
+ <20230802-sharpness-spoon-f9b8804fb66f@wendy>
+ <d64874cb-8628-a6d2-d2f4-8af4d0ebf8b2@starfivetech.com>
+ <20230802-seismic-gallstone-fca0f4b17076@wendy>
+ <c42bd997-8795-8bf7-eee1-3ac8b153371a@starfivetech.com>
+ <2023080253-headache-moneybags-a833@gregkh>
+ <20230802-decibel-unshaved-fde1cfba2d20@wendy>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20230802080328.1213905-10-alexghiti@rivosinc.com>
+In-Reply-To: <20230802-decibel-unshaved-fde1cfba2d20@wendy>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230802_023216_825040_264E5B8E 
-X-CRM114-Status: GOOD (  16.83  )
+X-CRM114-CacheID: sfid-20230802_024303_234564_57C35D5F 
+X-CRM114-Status: GOOD (  30.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,51 +86,65 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 02, 2023 at 10:03:27AM +0200, Alexandre Ghiti wrote:
-> riscv now supports mmaping hardware counters so add what's needed to
-> take advantage of that in libperf.
+On Wed, Aug 02, 2023 at 09:52:45AM +0100, Conor Dooley wrote:
+> On Wed, Aug 02, 2023 at 10:33:27AM +0200, Greg KH wrote:
+> > On Wed, Aug 02, 2023 at 04:17:51PM +0800, Minda Chen wrote:
+> > > 
+> > > 
+> > > On 2023/8/2 15:48, Conor Dooley wrote:
+> > > > On Wed, Aug 02, 2023 at 03:32:15PM +0800, Minda Chen wrote:
+> > > >> 
+> > > >> 
+> > > >> On 2023/8/2 14:54, Conor Dooley wrote:
+> > > >> > Hey Minda,
+> > > >> > 
+> > > >> > On Wed, Aug 02, 2023 at 02:42:15PM +0800, Minda Chen wrote:
+> > > >> >> Actually it is a part of Conor's
+> > > >> >> commit aae538cd03bc ("riscv: fix detection of toolchain
+> > > >> >> Zihintpause support").
+> > > >> >> It is looks like a merge issue.
+> > > >> > 
+> > > >> > Yup, spot on.
+> > > >> > 
+> > > >> >> Samuel's
+> > > >> >> commit 0b1d60d6dd9e ("riscv: Fix build with
+> > > >> >> CONFIG_CC_OPTIMIZE_FOR_SIZE=y") do not base on Conor's commit and
+> > > >> >> revert to __riscv_zihintpause. So this patch can fix it.
+> > > >> >> 
+> > > >> >> Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
+> > > >> > 
+> > > >> > Did you actually manage to trigger this, or was this by inspection?
+> > > >> > clang-15 + binutils 2.35 was, IIRC, how we spotted this because that's
+> > > >> > what the clang-built-linux CI uses to test the LTS kernels from before
+> > > >> > LLVM's IAS was supported for RISC-V. Seemingly all that needs to be
+> > > >> > satisfied there is that zihintpause doesn't appear in -march so this has
+> > > >> > gone unnoticed.
+> > > >> > 
+> > > >> > Fixes: 3c349eacc559 ("Merge patch "riscv: Fix build with CONFIG_CC_OPTIMIZE_FOR_SIZE=y"")
+> > > >> > Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+> > > >> > 
+> > > >> > Thanks,
+> > > >> > Conor.
+> > > >> > 
+> > > >> Thanks, Conor. I found this just by inspection. I found a issue that vdso.so call cpu_relax
+> > > >> cause application core dump in kernel 6.1.31. I need Samuel'patch to fix this. And I search the log
+> > > >> of processor.h found this issue.
+> > > > 
+> > > > That doesn't look like it is fixed in later stable kernels (we are at
+> > > > 6.1.42-rcN right now I think). It sounds we should ask Greg to backport
+> > > > 0b1d60d6dd9e ("riscv: Fix build with CONFIG_CC_OPTIMIZE_FOR_SIZE=y")
+> > > > to 6.1. Does that make sense to you?
+> > > Yes. 6.1 is lts kernel. Starfive will use this kernel for a long time. Thanks.
+> > 
+> > What is preventing you from moving to a newer kernel version?  All of
+> > your kernel changes are already properly merged into Linus's tree,
+> > right?
 > 
-> Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-> Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
-> Reviewed-by: Atish Patra <atishp@rivosinc.com>
-> ---
->  tools/lib/perf/mmap.c | 66 +++++++++++++++++++++++++++++++++++++++++++
->  1 file changed, 66 insertions(+)
-> 
-> diff --git a/tools/lib/perf/mmap.c b/tools/lib/perf/mmap.c
-> index 0d1634cedf44..2184814b37dd 100644
-> --- a/tools/lib/perf/mmap.c
-> +++ b/tools/lib/perf/mmap.c
-> @@ -392,6 +392,72 @@ static u64 read_perf_counter(unsigned int counter)
->  
->  static u64 read_timestamp(void) { return read_sysreg(cntvct_el0); }
->  
-> +/* __riscv_xlen contains the witdh of the native base integer, here 64-bit */
-> +#elif defined(__riscv) && __riscv_xlen == 64
-> +
-> +/* TODO: implement rv32 support */
-> +
-> +#define CSR_CYCLE	0xc00
-> +#define CSR_TIME	0xc01
-> +
-> +#define csr_read(csr)						\
-> +({								\
-> +	register unsigned long __v;				\
-> +		__asm__ __volatile__ ("csrr %0, %1"		\
-> +		 : "=r" (__v)					\
-> +		 : "i" (csr) : );				\
-> +		 __v;						\
+> Regardless of their reasons, "vdso.so call cpu_relax cause application
+> core dump" is something that we should fix in stable kernels, no?
 
-nit: no need for the indentation or line wrap,
+Yes.
 
-({
-	register unsigned long __v;
-	__asm__ __volatile__ ("csrr %0, %1" : "=r" (__v) : "i" (csr));
-	__v;
-})
-
-Thanks,
-drew
 
 _______________________________________________
 linux-riscv mailing list
