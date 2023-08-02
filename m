@@ -4,96 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4BBBC001DF
-	for <linux-riscv@archiver.kernel.org>; Wed,  2 Aug 2023 23:25:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F858C001DE
+	for <linux-riscv@archiver.kernel.org>; Wed,  2 Aug 2023 23:27:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=m9a+7Z/Sorme36GKtqvyoH6K6Rwv7AJ1XCHx499SLO0=; b=F/1igljchmycMz
-	ldfLfhJ/jiyPDee8WTXdQ9jOe6A9pSc+BhsESiX+hULhQAqmoIFtKNOzaojubG1wZ+rY/ldUGGLlC
-	x9DJ4PE/HU/m5okMt2yVsa8XM3f6C1mDvhy4br1680CvWoOxXlccVoRJrHDxtTl1R+N+p5s0TCw7/
-	xzpcOx4qVHCpSBgZEtzoTUNDqtPQjhBnFbhIPpZNAQVUZOwHriO2uirv+CA41H6GQpoaFwWVcLAQT
-	g4T10neF6TLIhTwEhpqT8gsCIQjfhvQaU5ltbj0NPeL9XoqXty47fNcSI2VgOWglE8Uyvp66fUoHk
-	KLb1rnPFfYbLYS/z/QoA==;
+	List-Owner; bh=EsPeuV72Jyr8aILAcUvzk5NsPA0Zh89ks6odHW7LiZs=; b=ijKhNUa5xXDahA
+	c+5K45fXqNSY0h3FQWOnxHBZ+sHdybVmrSqNViTjUyHnQ5RDkOjuaopSML/Ga3YxTICZhp69cUHsA
+	V2epIKyb2qq+3qEmw6DOi5wGDhRTno0+zk1b8P6EFEgnhJQIDAoKn9jA6aFFLtZUnT+mlvM4evA5N
+	MxtlZkxXfrrcvTwU23Ypjrj0uo2bpfis5EgCODThZDeIcLYdbWLYex74LaYaLjvKBUNDPlAeEKw3+
+	oAY52rrzjqNNJx5XBbK63AhQ4drU/WJGybtbnOYjUt8X8OKufFpqtMAwsBnoCOZvHxqnLagj2Yb5K
+	f+w91fgnwHv/8G1jsx/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qRLDs-0067EB-2q;
-	Wed, 02 Aug 2023 23:25:44 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1qRLFF-0067XU-2l;
+	Wed, 02 Aug 2023 23:27:09 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qRLDp-0067Cm-0E;
-	Wed, 02 Aug 2023 23:25:42 +0000
+	id 1qRLFB-0067WG-2N;
+	Wed, 02 Aug 2023 23:27:07 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id A5A4B61A55;
-	Wed,  2 Aug 2023 23:25:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 053E6C433C8;
-	Wed,  2 Aug 2023 23:25:38 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 3070061A39;
+	Wed,  2 Aug 2023 23:27:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9D7D3C433C8;
+	Wed,  2 Aug 2023 23:26:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1691018738;
-	bh=Zx3cU1AZGQaxXPGcCJrj5p1vHuj6co3/D60PUthhRSM=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=vKnBfzTb81DgZpoziNV0oB22VyDwO1WFiZhXntDBeusTiG8UdC5Z2OBiQnbAP1ShY
-	 qcuVlWga2yTSL9HcGToI/faLHDLtyqdkcwgrnVTv0MeEqPqiEBtXPKl6+Eukjy7qty
-	 c9qlVnmi43y4FVC5mIhwmWAGEPylLQWbxx21TFKR2ZfzElIbR5PnIVSf3qFhbGyqlN
-	 JZ2zTwgl97buvmko9yGDiH2GvZFPoFmBLQ6Senku43wvuASp8IQU/sNScOMUfc75dv
-	 QbQjPqFkxNRUe4FslUdhHpAR2Qr2cVW0rUL2ZigJTMP5rHkKx6JfytnjvMFSE6X3gc
-	 GjBlx97VwG1XQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1qRLDj-001Vp2-FV;
-	Thu, 03 Aug 2023 00:25:35 +0100
-Date: Thu, 03 Aug 2023 00:25:35 +0100
-Message-ID: <86h6ph58nk.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Raghavendra Rao Ananta <rananta@google.com>
-Cc: Oliver Upton <oliver.upton@linux.dev>,
-	James Morse <james.morse@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Sean Christopherson <seanjc@google.com>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Anup Patel <anup@brainfault.org>,
-	Atish Patra <atishp@atishpatra.org>,
-	Jing Zhang <jingzhangos@google.com>,
-	Reiji Watanabe <reijiw@google.com>,
-	Colton Lewis <coltonlewis@google.com>,
-	David Matlack <dmatlack@google.com>,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-mips@vger.kernel.org,
-	kvm-riscv@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	kvm@vger.kernel.org,
-	Gavin Shan <gshan@redhat.com>,
-	Shaoqin Huang <shahuang@redhat.com>
-Subject: Re: [PATCH v7 08/12] KVM: arm64: Define kvm_tlb_flush_vmid_range()
-In-Reply-To: <CAJHc60xC-Bs-0uoqkytDVcwHTxVnW7eyVxfHhO0mRrupVbdaYg@mail.gmail.com>
-References: <20230722022251.3446223-1-rananta@google.com>
-	<20230722022251.3446223-9-rananta@google.com>
-	<87o7jxr06t.wl-maz@kernel.org>
-	<87lef1qzim.wl-maz@kernel.org>
-	<CAJHc60xC-Bs-0uoqkytDVcwHTxVnW7eyVxfHhO0mRrupVbdaYg@mail.gmail.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/28.2
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: rananta@google.com, oliver.upton@linux.dev, james.morse@arm.com, suzuki.poulose@arm.com, pbonzini@redhat.com, seanjc@google.com, chenhuacai@kernel.org, yuzenghui@huawei.com, anup@brainfault.org, atishp@atishpatra.org, jingzhangos@google.com, reijiw@google.com, coltonlewis@google.com, dmatlack@google.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-mips@vger.kernel.org, kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, kvm@vger.kernel.org, gshan@redhat.com, shahuang@redhat.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	s=k20201202; t=1691018824;
+	bh=dXUKJkIoed37jDapmTPT1iaAXLQDtDHU7xnQ/I2jPX4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=r36CHzo/3Rel1ZN9XWIqQf01FiFkSXD9cibk6aala4tUTnRnWsLR5rkNltHuJyo8K
+	 VXQe6iAhFI525JSKYD4PNa3tje4+23vN4i5GKCxQrTUd5H3UXJhKSJ9L8gaU+4yhRo
+	 rn1Pla9y6Qxycb0W1m/ZWcp+7xKFtCJyybL3pYH3U6qnjupxsb9D4IFjtdMZvdzRHl
+	 7xLCboZ/auYcUmDMLwcoRNE/cwCaYgDFlMFLPI9eaAmI7kL+GAOdO/2ZFQ1OEyUvDH
+	 VUMwPHA2kXg2bNtsEpNgNRON2i09m8alugVvH0zjERT3CXnwVNbBj26SoKUfRd/ACS
+	 JmhymbqtDf0dA==
+Date: Wed, 2 Aug 2023 19:26:53 -0400
+From: Guo Ren <guoren@kernel.org>
+To: Andrew Jones <ajones@ventanamicro.com>
+Cc: kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+	virtualization@lists.linux-foundation.org,
+	'Paul Walmsley ' <paul.walmsley@sifive.com>,
+	'Albert Ou ' <aou@eecs.berkeley.edu>,
+	'Palmer Dabbelt ' <palmer@dabbelt.com>,
+	'Paolo Bonzini ' <pbonzini@redhat.com>,
+	'Juergen Gross ' <jgross@suse.com>,
+	"'Srivatsa S . Bhat '" <srivatsa@csail.mit.edu>,
+	'Anup Patel ' <anup@brainfault.org>,
+	'Atish Patra ' <atishp@atishpatra.org>
+Subject: Re: [RFC PATCH 03/14] RISC-V: paravirt: Implement steal-time support
+Message-ID: <ZMrmPbJYeROizR7u@gmail.com>
+References: <20230417103402.798596-1-ajones@ventanamicro.com>
+ <20230417103402.798596-4-ajones@ventanamicro.com>
+ <245mmbzeqcap7i6cjmoaaitpmecefjo2ul63qjmodjv77uz54e@tizorx3p64fz>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <245mmbzeqcap7i6cjmoaaitpmecefjo2ul63qjmodjv77uz54e@tizorx3p64fz>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230802_162541_221711_861105D8 
-X-CRM114-Status: GOOD (  30.94  )
+X-CRM114-CacheID: sfid-20230802_162705_864685_9D466C7E 
+X-CRM114-Status: GOOD (  28.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,84 +79,138 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCAzMSBKdWwgMjAyMyAxOTowMTo1MyArMDEwMCwKUmFnaGF2ZW5kcmEgUmFvIEFuYW50
-YSA8cmFuYW50YUBnb29nbGUuY29tPiB3cm90ZToKPiAKPiBPbiBUaHUsIEp1bCAyNywgMjAyMyBh
-dCA2OjAx4oCvQU0gTWFyYyBaeW5naWVyIDxtYXpAa2VybmVsLm9yZz4gd3JvdGU6Cj4gPgo+ID4g
-T24gVGh1LCAyNyBKdWwgMjAyMyAxMzo0NzowNiArMDEwMCwKPiA+IE1hcmMgWnluZ2llciA8bWF6
-QGtlcm5lbC5vcmc+IHdyb3RlOgo+ID4gPgo+ID4gPiBPbiBTYXQsIDIyIEp1bCAyMDIzIDAzOjIy
-OjQ3ICswMTAwLAo+ID4gPiBSYWdoYXZlbmRyYSBSYW8gQW5hbnRhIDxyYW5hbnRhQGdvb2dsZS5j
-b20+IHdyb3RlOgo+ID4gPiA+Cj4gPiA+ID4gSW1wbGVtZW50IHRoZSBoZWxwZXIga3ZtX3RsYl9m
-bHVzaF92bWlkX3JhbmdlKCkgdGhhdCBhY3RzCj4gPiA+ID4gYXMgYSB3cmFwcGVyIGZvciByYW5n
-ZS1iYXNlZCBUTEIgaW52YWxpZGF0aW9ucy4gRm9yIHRoZQo+ID4gPiA+IGdpdmVuIFZNSUQsIHVz
-ZSB0aGUgcmFuZ2UtYmFzZWQgVExCSSBpbnN0cnVjdGlvbnMgdG8gZG8KPiA+ID4gPiB0aGUgam9i
-IG9yIGZhbGxiYWNrIHRvIGludmFsaWRhdGluZyBhbGwgdGhlIFRMQiBlbnRyaWVzLgo+ID4gPiA+
-Cj4gPiA+ID4gU2lnbmVkLW9mZi1ieTogUmFnaGF2ZW5kcmEgUmFvIEFuYW50YSA8cmFuYW50YUBn
-b29nbGUuY29tPgo+ID4gPiA+IFJldmlld2VkLWJ5OiBHYXZpbiBTaGFuIDxnc2hhbkByZWRoYXQu
-Y29tPgo+ID4gPiA+IFJldmlld2VkLWJ5OiBTaGFvcWluIEh1YW5nIDxzaGFodWFuZ0ByZWRoYXQu
-Y29tPgo+ID4gPiA+IC0tLQo+ID4gPiA+ICBhcmNoL2FybTY0L2luY2x1ZGUvYXNtL2t2bV9wZ3Rh
-YmxlLmggfCAxMCArKysrKysrKysrCj4gPiA+ID4gIGFyY2gvYXJtNjQva3ZtL2h5cC9wZ3RhYmxl
-LmMgICAgICAgICB8IDIwICsrKysrKysrKysrKysrKysrKysrCj4gPiA+ID4gIDIgZmlsZXMgY2hh
-bmdlZCwgMzAgaW5zZXJ0aW9ucygrKQo+ID4gPiA+Cj4gPiA+ID4gZGlmZiAtLWdpdCBhL2FyY2gv
-YXJtNjQvaW5jbHVkZS9hc20va3ZtX3BndGFibGUuaCBiL2FyY2gvYXJtNjQvaW5jbHVkZS9hc20v
-a3ZtX3BndGFibGUuaAo+ID4gPiA+IGluZGV4IDgyOTRhOWE3ZTU2Ni4uNWU4YjFmZjA3ODU0IDEw
-MDY0NAo+ID4gPiA+IC0tLSBhL2FyY2gvYXJtNjQvaW5jbHVkZS9hc20va3ZtX3BndGFibGUuaAo+
-ID4gPiA+ICsrKyBiL2FyY2gvYXJtNjQvaW5jbHVkZS9hc20va3ZtX3BndGFibGUuaAo+ID4gPiA+
-IEBAIC03NTQsNCArNzU0LDE0IEBAIGVudW0ga3ZtX3BndGFibGVfcHJvdCBrdm1fcGd0YWJsZV9z
-dGFnZTJfcHRlX3Byb3Qoa3ZtX3B0ZV90IHB0ZSk7Cj4gPiA+ID4gICAqICAgIGt2bV9wZ3RhYmxl
-X3Byb3QgZm9ybWF0Lgo+ID4gPiA+ICAgKi8KPiA+ID4gPiAgZW51bSBrdm1fcGd0YWJsZV9wcm90
-IGt2bV9wZ3RhYmxlX2h5cF9wdGVfcHJvdChrdm1fcHRlX3QgcHRlKTsKPiA+ID4gPiArCj4gPiA+
-ID4gKy8qKgo+ID4gPiA+ICsgKiBrdm1fdGxiX2ZsdXNoX3ZtaWRfcmFuZ2UoKSAtIEludmFsaWRh
-dGUvZmx1c2ggYSByYW5nZSBvZiBUTEIgZW50cmllcwo+ID4gPiA+ICsgKgo+ID4gPiA+ICsgKiBA
-bW11OiAgIFN0YWdlLTIgS1ZNIE1NVSBzdHJ1Y3QKPiA+ID4gPiArICogQGFkZHI6ICBUaGUgYmFz
-ZSBJbnRlcm1lZGlhdGUgcGh5c2ljYWwgYWRkcmVzcyBmcm9tIHdoaWNoIHRvIGludmFsaWRhdGUK
-PiA+ID4gPiArICogQHNpemU6ICBTaXplIG9mIHRoZSByYW5nZSBmcm9tIHRoZSBiYXNlIHRvIGlu
-dmFsaWRhdGUKPiA+ID4gPiArICovCj4gPiA+ID4gK3ZvaWQga3ZtX3RsYl9mbHVzaF92bWlkX3Jh
-bmdlKHN0cnVjdCBrdm1fczJfbW11ICptbXUsCj4gPiA+ID4gKyAgICAgICAgICAgICAgICAgICAg
-ICAgICAgIHBoeXNfYWRkcl90IGFkZHIsIHNpemVfdCBzaXplKTsKPiA+ID4gPiAgI2VuZGlmICAg
-ICAvKiBfX0FSTTY0X0tWTV9QR1RBQkxFX0hfXyAqLwo+ID4gPiA+IGRpZmYgLS1naXQgYS9hcmNo
-L2FybTY0L2t2bS9oeXAvcGd0YWJsZS5jIGIvYXJjaC9hcm02NC9rdm0vaHlwL3BndGFibGUuYwo+
-ID4gPiA+IGluZGV4IGFhNzQwYTk3NGUwMi4uNWQxNGQ1ZDU4MTlhIDEwMDY0NAo+ID4gPiA+IC0t
-LSBhL2FyY2gvYXJtNjQva3ZtL2h5cC9wZ3RhYmxlLmMKPiA+ID4gPiArKysgYi9hcmNoL2FybTY0
-L2t2bS9oeXAvcGd0YWJsZS5jCj4gPiA+ID4gQEAgLTY3MCw2ICs2NzAsMjYgQEAgc3RhdGljIGJv
-b2wgc3RhZ2UyX2hhc19md2Ioc3RydWN0IGt2bV9wZ3RhYmxlICpwZ3QpCj4gPiA+ID4gICAgIHJl
-dHVybiAhKHBndC0+ZmxhZ3MgJiBLVk1fUEdUQUJMRV9TMl9OT0ZXQik7Cj4gPiA+ID4gIH0KPiA+
-ID4gPgo+ID4gPiA+ICt2b2lkIGt2bV90bGJfZmx1c2hfdm1pZF9yYW5nZShzdHJ1Y3Qga3ZtX3My
-X21tdSAqbW11LAo+ID4gPiA+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICBwaHlzX2FkZHJf
-dCBhZGRyLCBzaXplX3Qgc2l6ZSkKPiA+ID4gPiArewo+ID4gPiA+ICsgICB1bnNpZ25lZCBsb25n
-IHBhZ2VzLCBpbnZhbF9wYWdlczsKPiA+ID4gPiArCj4gPiA+ID4gKyAgIGlmICghc3lzdGVtX3N1
-cHBvcnRzX3RsYl9yYW5nZSgpKSB7Cj4gPiA+ID4gKyAgICAgICAgICAga3ZtX2NhbGxfaHlwKF9f
-a3ZtX3RsYl9mbHVzaF92bWlkLCBtbXUpOwo+ID4gPiA+ICsgICAgICAgICAgIHJldHVybjsKPiA+
-ID4gPiArICAgfQo+ID4gPiA+ICsKPiA+ID4gPiArICAgcGFnZXMgPSBzaXplID4+IFBBR0VfU0hJ
-RlQ7Cj4gPiA+ID4gKyAgIHdoaWxlIChwYWdlcyA+IDApIHsKPiA+ID4gPiArICAgICAgICAgICBp
-bnZhbF9wYWdlcyA9IG1pbihwYWdlcywgTUFYX1RMQklfUkFOR0VfUEFHRVMpOwo+ID4gPiA+ICsg
-ICAgICAgICAgIGt2bV9jYWxsX2h5cChfX2t2bV90bGJfZmx1c2hfdm1pZF9yYW5nZSwgbW11LCBh
-ZGRyLCBpbnZhbF9wYWdlcyk7Cj4gPiA+ID4gKwo+ID4gPiA+ICsgICAgICAgICAgIGFkZHIgKz0g
-aW52YWxfcGFnZXMgPDwgUEFHRV9TSElGVDsKPiA+ID4gPiArICAgICAgICAgICBwYWdlcyAtPSBp
-bnZhbF9wYWdlczsKPiA+ID4gPiArICAgfQo+ID4gPiA+ICt9Cj4gPiA+ID4gKwo+ID4gPgo+ID4g
-PiBUaGlzIHJlYWxseSBzaG91bGRuJ3QgbGl2ZSBpbiBwZ3RhYmxlLmMuIFRoaXMgY29kZSBnZXRz
-IGxpbmtlZCBpbnRvCj4gPiA+IHRoZSBFTDIgb2JqZWN0LiBXaGF0IGRvIHlvdSB0aGluayBoYXBw
-ZW5zIGlmLCBmb3Igc29tZSByZWFzb24sIHRoaXMKPiA+ID4gZ2V0cyBjYWxsZWQgKmZyb20gRUwy
-Kj8KPiA+Cj4gPiBBaCwgYWN0dWFsbHksIG5vdGhpbmcgdG9vIGJhZCB3b3VsZCBoYXBwZW4sIGFz
-IHdlIGNvbnZlcnQgdGhlCj4gPiBrdm1fY2FsbF9oeXAoKSBpbnRvIGEgZnVuY3Rpb24gY2FsbC4K
-PiA+Cj4gPiBCdXQgc3RpbGwsIHdlIGRvbid0IG5lZWQgdHdvIGNvcGllcyBvZiB0aGlzIHN0dWZm
-LCBhbmQgaXQgY2FuIGxpdmUgaW4KPiA+IG1tdS5jLgo+ID4KPiBCdXQgc2luY2Ugd2UgaGF2ZSBh
-IGNvdXBsZSBvZiByZWZlcmVuY2VzIGluIHBndGFibGUuYyB0bwo+IGt2bV90bGJfZmx1c2hfdm1p
-ZF9yYW5nZSgpLCB3b3VsZG4ndCB0aGF0IGJlIGFuIChsaW5raW5nKSBpc3N1ZSBpZiB3ZQo+IG1v
-dmVkIHRoZSBkZWZpbml0aW9uIHRvIG1tdS5jPwo+IAo+IGxkOiBlcnJvcjogdW5kZWZpbmVkIHN5
-bWJvbDogX19rdm1fbnZoZV9rdm1fdGxiX2ZsdXNoX3ZtaWRfcmFuZ2UKPiA+Pj4gcmVmZXJlbmNl
-ZCBieSBwZ3RhYmxlLmM6MTE0OCAoLi9hcmNoL2FybTY0L2t2bS9oeXAvbnZoZS8uLi9wZ3RhYmxl
-LmM6MTE0OCkKPiA+Pj4gICAgICAgICAgICAgICBhcmNoL2FybTY0L2t2bS9oeXAvbnZoZS9rdm1f
-bnZoZS5vOihfX2t2bV9udmhlX2t2bV9wZ3RhYmxlX3N0YWdlMl91bm1hcCkgaW4gYXJjaGl2ZSB2
-bWxpbnV4LmEKPiAuLi4KCkFoIGNyYXAsIEkgbWlzc2VkIHRoYXQuIFdoYXQgYSBtZXNzLiBGb3Jn
-ZXQgaXQgdGhlbi4gSXQgcmVhbGx5IGlzIGEKc2hhbWUgdGhhdCBhbGwgdGhlIG5lYXQgc2VwYXJh
-dGlvbiBiZXR3ZWVuIG1tdS5jIGFuZCBwZ3RhYmxlLmMgdGhhdCB3ZQp3ZXJlIGFpbWluZyBmb3Ig
-aXMgdWx0aW1hdGVseSBsb3N0LgoKCU0uCgotLSAKV2l0aG91dCBkZXZpYXRpb24gZnJvbSB0aGUg
-bm9ybSwgcHJvZ3Jlc3MgaXMgbm90IHBvc3NpYmxlLgoKX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJp
-c2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1h
-bi9saXN0aW5mby9saW51eC1yaXNjdgo=
+On Wed, Apr 19, 2023 at 10:42:16AM +0200, Andrew Jones wrote:
+> On Mon, Apr 17, 2023 at 12:33:51PM +0200, Andrew Jones wrote:
+> > When the SBI STA extension exists we can use it to implement
+> > paravirt steal-time support. Fill in the empty pv-time functions
+> > with an SBI STA implementation.
+> > 
+> > Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
+> > ---
+> >  arch/riscv/kernel/paravirt.c | 56 ++++++++++++++++++++++++++++++++++--
+> >  1 file changed, 53 insertions(+), 3 deletions(-)
+> > 
+> > diff --git a/arch/riscv/kernel/paravirt.c b/arch/riscv/kernel/paravirt.c
+> > index 141dbcc36fa2..5f8d96b919e4 100644
+> > --- a/arch/riscv/kernel/paravirt.c
+> > +++ b/arch/riscv/kernel/paravirt.c
+> > @@ -6,12 +6,21 @@
+> >  #define pr_fmt(fmt) "riscv-pv: " fmt
+> >  
+> >  #include <linux/cpuhotplug.h>
+> > +#include <linux/compiler.h>
+> > +#include <linux/errno.h>
+> >  #include <linux/init.h>
+> >  #include <linux/jump_label.h>
+> > +#include <linux/kconfig.h>
+> > +#include <linux/kernel.h>
+> > +#include <linux/percpu-defs.h>
+> >  #include <linux/printk.h>
+> >  #include <linux/static_call.h>
+> >  #include <linux/types.h>
+> >  
+> > +#include <asm/barrier.h>
+> > +#include <asm/page.h>
+> > +#include <asm/sbi.h>
+> > +
+> >  struct static_key paravirt_steal_enabled;
+> >  struct static_key paravirt_steal_rq_enabled;
+> >  
+> > @@ -31,24 +40,65 @@ static int __init parse_no_stealacc(char *arg)
+> >  
+> >  early_param("no-steal-acc", parse_no_stealacc);
+> >  
+> > +DEFINE_PER_CPU(struct sbi_sta_struct, steal_time) __aligned(64);
+> > +
+> >  static bool __init has_pv_steal_clock(void)
+> >  {
+> > +	if (sbi_probe_extension(SBI_EXT_STA) > 0) {
+> > +		pr_info("SBI STA extension detected\n");
+> > +		return true;
+> > +	}
+> > +
+> >  	return false;
+> >  }
+> >  
+> > -static int pv_time_cpu_online(unsigned int cpu)
+> > +static int sbi_sta_set_steal_time_shmem(unsigned long lo, unsigned long hi,
+> > +					unsigned long flags)
+> >  {
+> > +	struct sbiret ret;
+> > +
+> > +	ret = sbi_ecall(SBI_EXT_STA, SBI_EXT_STA_SET_STEAL_TIME_SHMEM,
+> > +			lo, hi, flags, 0, 0, 0);
+> > +	if (ret.error) {
+> > +		if (lo == -1 && hi == -1)
+> > +			pr_warn("Failed to disable steal-time shmem");
+> > +		else
+> > +			pr_warn("Failed to set steal-time shmem");
+> > +		return -ENOMEM;
+> > +	}
+> > +
+> >  	return 0;
+> >  }
+> >  
+> > +static int pv_time_cpu_online(unsigned int cpu)
+> > +{
+> > +	struct sbi_sta_struct *st = this_cpu_ptr(&steal_time);
+> > +	phys_addr_t pa = __pa(st);
+> > +	unsigned long lo = (unsigned long)pa;
+> > +	unsigned long hi = IS_ENABLED(CONFIG_32BIT) ? upper_32_bits((u64)pa) : 0;
+> > +
+> > +	return sbi_sta_set_steal_time_shmem(lo, hi, 0);
+> > +}
+> > +
+> >  static int pv_time_cpu_down_prepare(unsigned int cpu)
+> >  {
+> > -	return 0;
+> > +	return sbi_sta_set_steal_time_shmem(-1, -1, 0);
+> >  }
+> >  
+> >  static u64 pv_time_steal_clock(int cpu)
+> >  {
+> > -	return 0;
+> > +	struct sbi_sta_struct *st = per_cpu_ptr(&steal_time, cpu);
+> > +	u32 sequence;
+> > +	u64 steal;
+> > +
+> > +	do {
+> > +		sequence = st->sequence;
+> > +		virt_rmb();
+> > +		steal = st->steal;
+> > +		virt_rmb();
+> > +	} while ((sequence & 1) || (sequence != st->sequence));
+> > +
+> > +	return steal;
+> >  }
+> 
+> So anybody poking around the implementations for other architectures will
+> see that I shamelessly ripped this off from x86's implementation. However,
+> looking at it again, I think all the references to the steal-time info
+> should be wrapped in READ_ONCE(). I'll write a patch for x86/kvm to
+> add READ_ONCE's and also update this patch for rfc-v2.
+Hello, what's the status of rfc-v2? The riscv paravirt_qspinlock is
+based on your series to reuse the paravirt.c and CONFIG_PARAVIRT.
+
+https://lore.kernel.org/linux-riscv/20230802164701.192791-10-guoren@kernel.org/
+https://lore.kernel.org/linux-riscv/20230802164701.192791-17-guoren@kernel.org/
+
+> 
+> Thanks,
+> drew
+> 
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
+> 
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
