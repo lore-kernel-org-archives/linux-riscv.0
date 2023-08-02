@@ -4,81 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D355FC001DF
-	for <linux-riscv@archiver.kernel.org>; Wed,  2 Aug 2023 15:13:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF1C2C04FE2
+	for <linux-riscv@archiver.kernel.org>; Wed,  2 Aug 2023 15:14:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=npklxiNBDUEdjR4Pum+/cZj2q8TqX87h+sMW0/JWIh0=; b=FWjHRlREn0wWsf
-	vcfQifBjFRH4sFSS9MRcVbcCv+T+blb5zz9v5FTbJGk7IQPcBMs0+KAqMxZikTOhzyFlIRh59VrfF
-	Lrd1YduEnFqADRg/YpIOxrCeSFel4XF/iZc9hT9Ob+1YAK8oDKwHNzHDiYxgVXqkQhnEk2fynqR06
-	pk2RwEjT8mrZW584BmjsyWpHjDBrzZLr9SZbB/+T2kwhAy0cngIAAVLhQ/Rl6sqOXpB4X2NAq47xe
-	0x+KsTB/JIsJMPISO0kDDfIdhWVJtMNp0mb5kquIZK+137HXRUoU/u6lGbBGW6n08QTUBqwG2qo89
-	BzWAk3Kx0rH/nvqGq8pg==;
+	List-Owner; bh=yMIZDaqRJf6a1G+QDPm11nYYvupiSm4bfOGDvG1kUSA=; b=rMGjHc5hSekOCz
+	VOFCtcLS7MIjEIp4ImqjdM865h32HqL7SvGNAYfIGS1sTE5KgWjH+OBdRQtbQdWxV61Zgi+p8uQ3V
+	yRkb7vwZH69ulJupH+lmM/jrlxNE29YnG9h9401DYJoa8L2FJg4jqkLWfKG9YHfKsMFE82eHtdLlQ
+	oCd16m/4/3rALwhT8xyOWdytWl2JuhkBi+0aTLaqLz6ezOYhOq10fZIXWj3I8TES1K2UQrVT3qttu
+	EwPNcS42+hoTd/+L/2O9n1Hil4W2Q0jdCCk7EJ9XNgPKs/WbjqVoCi4WO/uTLboQnV+xjJLmyL4RF
+	o8VdZyS2xDqZCXTZjduA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qRDXK-005C3t-1L;
-	Wed, 02 Aug 2023 15:13:18 +0000
-Received: from mail-qt1-x834.google.com ([2607:f8b0:4864:20::834])
+	id 1qRDYD-005CGN-1v;
+	Wed, 02 Aug 2023 15:14:13 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qRDXH-005C2V-0r
-	for linux-riscv@lists.infradead.org;
-	Wed, 02 Aug 2023 15:13:16 +0000
-Received: by mail-qt1-x834.google.com with SMTP id d75a77b69052e-40fbf360a9cso21486501cf.3
-        for <linux-riscv@lists.infradead.org>; Wed, 02 Aug 2023 08:13:14 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1690989193; x=1691593993;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=hVI5JsCHMJSGtKkijTAXqZDZkWTAdbsjY/9SJVukayA=;
-        b=JZ4fB5monA+6WPOwYfK5G0qJoT2ZedkThiZdAj7pz3BkBhB2l6WMMhuvZC5rvZoR8i
-         OfxvSkR/gztJl3V7XiRPOIbNvzOQMIs7hSi1fejXqCv5359wGZhYf21Ef3nihQxLDvQy
-         Fkkt4GdRaHGxUJ1Cx5WspKVpN0X40H7hK6K1jk1H99K0j2QqmsX8bwByMbUsT+NFIYex
-         qLlKbPYy/58/H0tus3vf86yspuHAAm2SIwlTvOiEMcCnc6z3Eyl8Ur9bGHA035eAmyeS
-         FOLlFMMmShRE3nui3TrYEuG0SHA95BQOA6bsXUJBPIEZCof69AXqj1iBQg5+XuPLj/df
-         UzPA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1690989193; x=1691593993;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=hVI5JsCHMJSGtKkijTAXqZDZkWTAdbsjY/9SJVukayA=;
-        b=ING4l/nfS0ZJiPeRjQlOmZjtv4RO8xq0oWCY1NdVGjHBvRRZXqDn7PlSt4TSGWwje8
-         VaQSolf5DP0EeYmEh1kEJNkfeW8pZCFuf+OEW3mVjqMMMfMXaoTUkKh0+lJ/SD8sgHlk
-         MDf77XH9sADcN9XZ0B33+jjzhTuvqEmMT4/GIdgSCgE1Rcn9OK/SQiyjebXRJZOp44GE
-         3lW1cIHhg0L3/rl3+/kyikMiJvZAJgBKgD4iUGRwwHqLk/+FenLXWK246E7eHDtgPx81
-         UsvXMbXfm9G1eUDvwO7f98viLLiIX8yxqEDh01WTKPyJygyqLx52yIF5XSVJXA0+mQ79
-         oz6g==
-X-Gm-Message-State: ABy/qLYl1NjmmIUmdzmsCPpd48OAgk8AzNjuxYQkoYId7ofLlzgKxV1F
-	2zs1EZK6qAWHGUUWvUWvJodtRQ==
-X-Google-Smtp-Source: APBJJlGYTuOuGFNZvsAG1WFY2w6e/pOV6+DxLXCtY/uhO3o+Qr3lFAv+U+eaPpvUbDTjWgJqM7N27Q==
-X-Received: by 2002:ac8:5d8a:0:b0:403:e3ce:565b with SMTP id d10-20020ac85d8a000000b00403e3ce565bmr17920564qtx.4.1690989193587;
-        Wed, 02 Aug 2023 08:13:13 -0700 (PDT)
-Received: from ?IPV6:2600:1700:2000:b002:b9cf:51fb:f73:15c5? ([2600:1700:2000:b002:b9cf:51fb:f73:15c5])
-        by smtp.gmail.com with ESMTPSA id r2-20020ac87ee2000000b003ff1f891206sm5330344qtc.61.2023.08.02.08.13.12
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 02 Aug 2023 08:13:13 -0700 (PDT)
-Message-ID: <1e5419bc-049b-cd4b-a820-f75f57c59c6d@sifive.com>
-Date: Wed, 2 Aug 2023 10:13:12 -0500
+	id 1qRDYC-005CF9-0c
+	for linux-riscv@bombadil.infradead.org;
+	Wed, 02 Aug 2023 15:14:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=lra2fB+YHc96ACY3dbv8lvpjxWPteFT2BS95kIPe3b4=; b=P1Ugc6QH9gTChMuLT0QfxQ1dLa
+	KQ8+MhNqQRsyoiYOO3L2MeR7Vwv4GnSHDnHekG4/+BaQ52HuJOihetjTh9d9fyGIhHoGKBGu3DOEp
+	BvJrgdL8iQqEdBf1RIp/c7jRrYxuOZ/nL0u/baPpyRwMKvAqjvrmCYFGRCoWXMvfHacuXFCvuFTLi
+	gswKMWoFTcoAJIrye1XJn+DStzq2iD3qaZKE88tOGAVmAAyJdivf7JHXK95tMvz4Aoj4hmkwov7Ez
+	Wwyuib95p9kokZVaEyzQ2h4gExZ1gUlxzHDJ5ZQOQAqVvBJWEfewZ4Eto4TQNdKpGumOGB5l2IYZZ
+	pvhFqDhw==;
+Received: from willy by casper.infradead.org with local (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1qRDYA-00FfkP-GG; Wed, 02 Aug 2023 15:14:10 +0000
+From: "Matthew Wilcox (Oracle)" <willy@infradead.org>
+To: Andrew Morton <akpm@linux-foundation.org>
+Cc: "Matthew Wilcox (Oracle)" <willy@infradead.org>,
+	linux-arch@vger.kernel.org,
+	linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org,
+	Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Mike Rapoport <rppt@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH v6 22/38] riscv: Implement the new page table range API
+Date: Wed,  2 Aug 2023 16:13:50 +0100
+Message-Id: <20230802151406.3735276-23-willy@infradead.org>
+X-Mailer: git-send-email 2.37.1
+In-Reply-To: <20230802151406.3735276-1-willy@infradead.org>
+References: <20230802151406.3735276-1-willy@infradead.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: dts - linux,usable-memory
-Content-Language: en-US
-To: Laurentiu-Cristian Duca <laurentiu.duca@gmail.com>
-Cc: linux-riscv@lists.infradead.org, Conor Dooley <conor@kernel.org>
-References: <CAPm8-H43P4WrgibV2MGNFZt7ommkchAeom4m0Kt3N-CsG6D9RA@mail.gmail.com>
- <20230802-palpitate-defection-4908b4cbd142@spud>
- <CAPm8-H5d_Hp0zaYh+uX6=KhB2GHGHTkaB6tu6Q82AgR4zK-4xw@mail.gmail.com>
- <CAPm8-H6A9HoJF6B8U5WP2ucqZQrszN-avV6ETX=iPWXq4EvaoA@mail.gmail.com>
-From: Samuel Holland <samuel.holland@sifive.com>
-In-Reply-To: <CAPm8-H6A9HoJF6B8U5WP2ucqZQrszN-avV6ETX=iPWXq4EvaoA@mail.gmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230802_081315_334748_E00F7A40 
-X-CRM114-Status: GOOD (  14.04  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,65 +74,180 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Laurentiu,
+Add set_ptes(), update_mmu_cache_range() and flush_dcache_folio().
+Change the PG_dcache_clean flag from being per-page to per-folio.
 
-On 2023-08-02 9:37 AM, Laurentiu-Cristian Duca wrote:
-> On 8/2/23, Laurentiu-Cristian Duca <laurentiu.duca@gmail.com> wrote:
->> On 8/2/23, Conor Dooley <conor@kernel.org> wrote:
->>> Hey,
->>>
->>> On Wed, Aug 02, 2023 at 04:51:47PM +0300, Laurentiu-Cristian Duca wrote:
->>>>   my name is laurentiu-cristian duca and i am an open-source enthusiast.
->>>> lately i have tried to use the linux,usable-memory in the dts memory
->>>> node
->>>> and linux freezes.
->>>>   if i use only reg, linux boots fine.
->>>>   does anybody used linux,usable-memory and can you show a working
->>>> example.
->>>>
->>>>   here is what i tried
->>>>         memory@80000000 {
->>>>                 device_type = "memory";
->>>>                 reg = <0x0 0x80000000 0x0 0x700000>;
->>>>                 //linux,usable-memory = <0x80000000 0x700000>;
->>>>         };
->>>
->>> What are you actually doing when you freeze? A normal boot? Kexec?
->>> What hardware is this?
->>> Are you using OpenSBI, and if so what version?
->>> What version of the kernel is this?
->>
->>   linux5.13.19 with busybox minimal rootfs, bbl (berkeley boot loader),
->> hardware fpga board with only uart and memory 8MB
->> i simulate in verilator the verilog sources and i have success if the
->> dts has reg.
->>  when it freezes, i can not see any message in simulation
-> [    0.000000] Linux version 5.13.19 (laur@laurPC-100)
-> (riscv32-linux-gcc.br_real (Buildroot 2021.08) 11.1.0, GNU ld (GNU
-> Binutils) 2.37) #402 SMP Wed Aug 2 15:27:14 EEST 2023
-> [    0.000000] OF: fdt: memory scan node memory@80000000, reg size 8,
-> [    0.000000] Machine model: kise-lab,simrv
-> [    0.000000] earlycon: sbi0 at I/O port 0x0 (options '')
-> [    0.000000] printk: bootconsole [sbi0] enabled
-> [    0.000000] printk: debug: ignoring loglevel setting.
-> from here i can not see anything
-> 
-> 
->> if you want to, i can send you the sources
->>
->>   please tell me if the dts memory property is written correctly for
->> linux,usable-memory
+Signed-off-by: Matthew Wilcox (Oracle) <willy@infradead.org>
+Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+Acked-by: Mike Rapoport (IBM) <rppt@kernel.org>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Albert Ou <aou@eecs.berkeley.edu>
+Cc: linux-riscv@lists.infradead.org
+---
+ arch/riscv/include/asm/cacheflush.h | 19 +++++++--------
+ arch/riscv/include/asm/pgtable.h    | 37 +++++++++++++++++++----------
+ arch/riscv/mm/cacheflush.c          | 13 +++-------
+ 3 files changed, 36 insertions(+), 33 deletions(-)
 
-It is not. The number of cells you need is given by the #address-cells and
-#size-cells properties of the root node (see early_init_dt_scan_memory()). You
-didn't include that part of the DTS in your example, but I am guessing the "reg"
-property is correct, and it has two cells each. linux,usable-memory should look
-the same. So the correct format would be:
-
-        linux,usable-memory = <0x0 0x80000000 0x0 0x700000>;
-
-Regards,
-Samuel
+diff --git a/arch/riscv/include/asm/cacheflush.h b/arch/riscv/include/asm/cacheflush.h
+index 8091b8bf4883..0d8c92c5dfb7 100644
+--- a/arch/riscv/include/asm/cacheflush.h
++++ b/arch/riscv/include/asm/cacheflush.h
+@@ -15,20 +15,19 @@ static inline void local_flush_icache_all(void)
+ 
+ #define PG_dcache_clean PG_arch_1
+ 
+-static inline void flush_dcache_page(struct page *page)
++static inline void flush_dcache_folio(struct folio *folio)
+ {
+-	/*
+-	 * HugeTLB pages are always fully mapped and only head page will be
+-	 * set PG_dcache_clean (see comments in flush_icache_pte()).
+-	 */
+-	if (PageHuge(page))
+-		page = compound_head(page);
+-
+-	if (test_bit(PG_dcache_clean, &page->flags))
+-		clear_bit(PG_dcache_clean, &page->flags);
++	if (test_bit(PG_dcache_clean, &folio->flags))
++		clear_bit(PG_dcache_clean, &folio->flags);
+ }
++#define flush_dcache_folio flush_dcache_folio
+ #define ARCH_IMPLEMENTS_FLUSH_DCACHE_PAGE 1
+ 
++static inline void flush_dcache_page(struct page *page)
++{
++	flush_dcache_folio(page_folio(page));
++}
++
+ /*
+  * RISC-V doesn't have an instruction to flush parts of the instruction cache,
+  * so instead we just flush the whole thing.
+diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+index 01e4aabc8898..ac42e9121e52 100644
+--- a/arch/riscv/include/asm/pgtable.h
++++ b/arch/riscv/include/asm/pgtable.h
+@@ -445,8 +445,9 @@ static inline pte_t pte_modify(pte_t pte, pgprot_t newprot)
+ 
+ 
+ /* Commit new configuration to MMU hardware */
+-static inline void update_mmu_cache(struct vm_area_struct *vma,
+-	unsigned long address, pte_t *ptep)
++static inline void update_mmu_cache_range(struct vm_fault *vmf,
++		struct vm_area_struct *vma, unsigned long address,
++		pte_t *ptep, unsigned int nr)
+ {
+ 	/*
+ 	 * The kernel assumes that TLBs don't cache invalid entries, but
+@@ -455,8 +456,11 @@ static inline void update_mmu_cache(struct vm_area_struct *vma,
+ 	 * Relying on flush_tlb_fix_spurious_fault would suffice, but
+ 	 * the extra traps reduce performance.  So, eagerly SFENCE.VMA.
+ 	 */
+-	local_flush_tlb_page(address);
++	while (nr--)
++		local_flush_tlb_page(address + nr * PAGE_SIZE);
+ }
++#define update_mmu_cache(vma, addr, ptep) \
++	update_mmu_cache_range(NULL, vma, addr, ptep, 1)
+ 
+ #define __HAVE_ARCH_UPDATE_MMU_TLB
+ #define update_mmu_tlb update_mmu_cache
+@@ -487,8 +491,7 @@ static inline void set_pte(pte_t *ptep, pte_t pteval)
+ 
+ void flush_icache_pte(pte_t pte);
+ 
+-static inline void __set_pte_at(struct mm_struct *mm,
+-	unsigned long addr, pte_t *ptep, pte_t pteval)
++static inline void __set_pte_at(pte_t *ptep, pte_t pteval)
+ {
+ 	if (pte_present(pteval) && pte_exec(pteval))
+ 		flush_icache_pte(pteval);
+@@ -496,17 +499,25 @@ static inline void __set_pte_at(struct mm_struct *mm,
+ 	set_pte(ptep, pteval);
+ }
+ 
+-static inline void set_pte_at(struct mm_struct *mm,
+-	unsigned long addr, pte_t *ptep, pte_t pteval)
++static inline void set_ptes(struct mm_struct *mm, unsigned long addr,
++		pte_t *ptep, pte_t pteval, unsigned int nr)
+ {
+-	page_table_check_ptes_set(mm, ptep, pteval, 1);
+-	__set_pte_at(mm, addr, ptep, pteval);
++	page_table_check_ptes_set(mm, ptep, pteval, nr);
++
++	for (;;) {
++		__set_pte_at(ptep, pteval);
++		if (--nr == 0)
++			break;
++		ptep++;
++		pte_val(pteval) += 1 << _PAGE_PFN_SHIFT;
++	}
+ }
++#define set_ptes set_ptes
+ 
+ static inline void pte_clear(struct mm_struct *mm,
+ 	unsigned long addr, pte_t *ptep)
+ {
+-	__set_pte_at(mm, addr, ptep, __pte(0));
++	__set_pte_at(ptep, __pte(0));
+ }
+ 
+ #define __HAVE_ARCH_PTEP_SET_ACCESS_FLAGS
+@@ -515,7 +526,7 @@ static inline int ptep_set_access_flags(struct vm_area_struct *vma,
+ 					pte_t entry, int dirty)
+ {
+ 	if (!pte_same(*ptep, entry))
+-		set_pte_at(vma->vm_mm, address, ptep, entry);
++		__set_pte_at(ptep, entry);
+ 	/*
+ 	 * update_mmu_cache will unconditionally execute, handling both
+ 	 * the case that the PTE changed and the spurious fault case.
+@@ -688,14 +699,14 @@ static inline void set_pmd_at(struct mm_struct *mm, unsigned long addr,
+ 				pmd_t *pmdp, pmd_t pmd)
+ {
+ 	page_table_check_pmd_set(mm, pmdp, pmd);
+-	return __set_pte_at(mm, addr, (pte_t *)pmdp, pmd_pte(pmd));
++	return __set_pte_at((pte_t *)pmdp, pmd_pte(pmd));
+ }
+ 
+ static inline void set_pud_at(struct mm_struct *mm, unsigned long addr,
+ 				pud_t *pudp, pud_t pud)
+ {
+ 	page_table_check_pud_set(mm, pudp, pud);
+-	return __set_pte_at(mm, addr, (pte_t *)pudp, pud_pte(pud));
++	return __set_pte_at((pte_t *)pudp, pud_pte(pud));
+ }
+ 
+ #ifdef CONFIG_PAGE_TABLE_CHECK
+diff --git a/arch/riscv/mm/cacheflush.c b/arch/riscv/mm/cacheflush.c
+index fbc59b3f69f2..f1387272a551 100644
+--- a/arch/riscv/mm/cacheflush.c
++++ b/arch/riscv/mm/cacheflush.c
+@@ -82,18 +82,11 @@ void flush_icache_mm(struct mm_struct *mm, bool local)
+ #ifdef CONFIG_MMU
+ void flush_icache_pte(pte_t pte)
+ {
+-	struct page *page = pte_page(pte);
++	struct folio *folio = page_folio(pte_page(pte));
+ 
+-	/*
+-	 * HugeTLB pages are always fully mapped, so only setting head page's
+-	 * PG_dcache_clean flag is enough.
+-	 */
+-	if (PageHuge(page))
+-		page = compound_head(page);
+-
+-	if (!test_bit(PG_dcache_clean, &page->flags)) {
++	if (!test_bit(PG_dcache_clean, &folio->flags)) {
+ 		flush_icache_all();
+-		set_bit(PG_dcache_clean, &page->flags);
++		set_bit(PG_dcache_clean, &folio->flags);
+ 	}
+ }
+ #endif /* CONFIG_MMU */
+-- 
+2.40.1
 
 
 _______________________________________________
