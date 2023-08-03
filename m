@@ -4,86 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43518EB64DD
-	for <linux-riscv@archiver.kernel.org>; Thu,  3 Aug 2023 13:53:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B88DC04A94
+	for <linux-riscv@archiver.kernel.org>; Thu,  3 Aug 2023 14:00:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=69BJSzQxjIAboFPoDaygo7ZbjmDlsq2fjB+RYoGOSU0=; b=fO7uQ9mBmLAyaP
-	+dt824lDCevogJcG7o33Kk3TPQyH+THaOrX/g1YJ0+o5/2/cOY3wtliNj42SKzLFioigavHY6wqRH
-	VwAfWE9kAhOOgrsAmNinhzn3S1N9+h2yvPh41VVhOHizKzN3ELwjaqsRMeMZTWHaQ0iLIrEnB8Dl8
-	Dq0Dn2C38siEzis6aHP+ckhsddR6ZZDQ9s9FqBN/HUnWtn5IGW30uiTur1hjG5Peoq6Jq+S7RUIXq
-	B2jdygFftxop3705LqinHFKT7kXT6XZy3IVAHxtoCgk6URpKF9BHiOJ9JKMA+4+YfB+MD1bWtZeJI
-	HO/cjIXrjf67VkYi3yWA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=mixJ5ZCzFxK03kHRSXCinDaSFjzRUBY2rv/Cw4KGeQA=; b=YKX27tPq2nq73e
+	bS+Eb3sTmPw4gYlFtIOcBezNAHIIXAyhxu5MXT3tDWDKNoVXo/iqAjrWrr+uhQy3E842beBjXB6mC
+	66z5LNFCKnWuVGuavHBw9gJOfvIRY7prahi/W9l6z/giNP7mqyNewIpnjyJIvsa9YCA73rq3Gd2Id
+	mZ96yQ+0bRrjGvmOIcxrAQeGvT7H18op3W+LCBhrgHsV2x9Nn7mJJSwg9skvh6Lb8txrV8ptvVRBO
+	RaaKSpshwBUPLCOYyUrRq4Tdec/9pjJz+gY+Zn0TIDIX2M95KQJoSO1C4sAM37u2ChOOL89RcaqIc
+	CwbE5tkJr0Bi4Z1ko4PA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qRYlw-009HVH-1G;
-	Thu, 03 Aug 2023 13:53:48 +0000
-Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
+	id 1qRYsV-009LxG-2x;
+	Thu, 03 Aug 2023 14:00:35 +0000
+Received: from mail-ot1-x335.google.com ([2607:f8b0:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qRYlt-009HSC-2D
+	id 1qRYsS-009LrO-1h
 	for linux-riscv@lists.infradead.org;
-	Thu, 03 Aug 2023 13:53:47 +0000
-Received: by mail-ej1-x62e.google.com with SMTP id a640c23a62f3a-9891c73e0fbso218489666b.1
-        for <linux-riscv@lists.infradead.org>; Thu, 03 Aug 2023 06:53:45 -0700 (PDT)
+	Thu, 03 Aug 2023 14:00:33 +0000
+Received: by mail-ot1-x335.google.com with SMTP id 46e09a7af769-6bcc5c86b20so927277a34.3
+        for <linux-riscv@lists.infradead.org>; Thu, 03 Aug 2023 07:00:29 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20221208; t=1691070824; x=1691675624;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Ejd3tpdC1zaV/w7ewmBn4nRM+R1O4uRxApY6GI0ypWU=;
-        b=MrSf1vv9VKN509zhlwdLejJnhpoBtnZEiwJpWn2QCVgcbHDN1t95geCJd7z/xyVvcd
-         zjc3ycorHtrZUUBopYNEQy2wfxaT72wQ8vBuDiNQmGprRNcuW67Ce4c18tW2SD4u415H
-         Wyu2qc4+2APAz/kXJo8c/rqU3rQ4nkUuP13P+x1ZlD4pKX1ta6a3mqOaczr1FnVdhbB4
-         49GCdSsjdyZZkeQcco9vcUhgvFptGP5EbR4zPc3TATosuK1+DdWEHhfPAMjItY82lUSx
-         NFpoiOE963jvsAsWTJRIw6s9C7svICTxPyR1Y+f7HLpVqqKxqfn6JLBRdho9HW5DUDt8
-         ns1w==
+        d=ventanamicro.com; s=google; t=1691071229; x=1691676029;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=NQaNaGtQ40+Jka02M1oSRNm1RIoWACu+SlEJicdyxEM=;
+        b=DlSRoqeENBrFcwX9dE6OwcY6K7wFkfwe7L/ho8wPYFmLeomO/RZNObL/mmx0PMPfg1
+         6OJPycAzpOaJSr1NduIbCap+p/ciW0Ldzsm6UewhAAbGap9Uur0wTyH6hX56M6/UoWsv
+         yAyV/rgOwhjfW57lcOVSR9Ty5T81agjAaskH1qlrB5mrbAjE4AX1NmwZxu3jvHmbcdjj
+         eQct/88s/att3lrA9ziYQGqn7/xDYQjCsxBZzBXxlj/PK5v+kv1O2i3Ty/AwkwAFX/vr
+         UuFiwkpFY6jWiz+knrKg1ETtXSHLtCY6j30fbCecoXgMyENNonNfKMrU4rO1lsgjpNW0
+         Rl4Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1691070824; x=1691675624;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Ejd3tpdC1zaV/w7ewmBn4nRM+R1O4uRxApY6GI0ypWU=;
-        b=ZocNUc8l+pAwGMKpL93SzKK8tK49GY0gxPWjcKvpdo5ZuPJIrs1hT7vOJq5oU8NgZp
-         f8kEmO4CrwUIg3LAq3d+yosX/pBBymw6rHXbvJoAPq+LuGjWyZ76fQGzgEzs9CGUvjBr
-         8TRS+dnPIAU1kajcAnGVzGkx1rMUND66LNg/GN8MbJ9o0ZHN8c6fPSqbEAsnsBs7gaVo
-         xlsrDLBlVubhTlAkPSdnnCGzlq9JoJ4VkUhv7Ecmps3C5t0G5wOBRAcUQ94IywMZEWUf
-         6lvP7PfFSuuzAcxn+emngQT5DGfaualWCNOXodGqCF8DBywR7rMpTQ+x+X7cbyBS8QOo
-         xD2A==
-X-Gm-Message-State: ABy/qLZXJioT7elW8Uf+to0Kd3GOe8A1nQoB9KeiOeVrAnDnp7P95c0z
-	GQSWG9M3hhMSFTnkkBEctzY=
-X-Google-Smtp-Source: APBJJlHuIoaTBbpnUrcFFXT7fPGxu/0lXWN0OwVoj+05bI0S+IwQ8VVonMPQFmEKY5BIDHPRexQbLA==
-X-Received: by 2002:a17:906:974b:b0:988:8efc:54fa with SMTP id o11-20020a170906974b00b009888efc54famr10650437ejy.37.1691070823469;
-        Thu, 03 Aug 2023 06:53:43 -0700 (PDT)
-Received: from andrea (host-82-57-177-142.retail.telecomitalia.it. [82.57.177.142])
-        by smtp.gmail.com with ESMTPSA id a11-20020a17090680cb00b0099b921de301sm10561131ejx.159.2023.08.03.06.53.41
+        d=1e100.net; s=20221208; t=1691071229; x=1691676029;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=NQaNaGtQ40+Jka02M1oSRNm1RIoWACu+SlEJicdyxEM=;
+        b=gFFpGUzSHFKqrE9jnScPuJt8hzZZokuP5a8wsd1pryumRtZyqGygk8dQU9ds1wW2S4
+         Vzk8/6jI9oabvark+ZdlF4wbU1EUxP4wwJcEaEHdCvFv4Rdwd9j9YBdo8PiHxNsbBqY0
+         7rszKJn+mlmMgN01epG6zmhGoHi93uUeenTNFGWFu+3iWpXFmw6yVwI//DfLoX2XTlFr
+         0+VPZICgODT/WW6qon9Nu0IHfPt1wvKvVDtJ5+qx95CvwJBytripanH5HdUAgHvdrZjt
+         M660z0PHsxN82Q7v9HsKumbwjRtn4ccSA2CUAtcYuQ40cyf/ZQnH55hS5dm3i5WT/UBa
+         H78g==
+X-Gm-Message-State: ABy/qLaG8OjrSxuQNcupahEVwQqNjnTGeuV/+oWr1+sqp7mV1/xiUXhJ
+	NcZ5ZqG4StGkJjFvQrdV04CeEQ==
+X-Google-Smtp-Source: APBJJlFFP2zIvK0oB3QfIua9uP4ZwDxCuwMJLNe7KcVfKUFXQF0/e91jR8mHMyJZjtc0Omqqx4ZKjw==
+X-Received: by 2002:a05:6830:1250:b0:6b4:5ed3:8246 with SMTP id s16-20020a056830125000b006b45ed38246mr19720778otp.2.1691071228829;
+        Thu, 03 Aug 2023 07:00:28 -0700 (PDT)
+Received: from grind.. ([187.11.154.63])
+        by smtp.gmail.com with ESMTPSA id e14-20020a0568301e4e00b006b29a73efb5sm11628otj.7.2023.08.03.07.00.26
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 03 Aug 2023 06:53:42 -0700 (PDT)
-Date: Thu, 3 Aug 2023 15:53:37 +0200
-From: Andrea Parri <parri.andrea@gmail.com>
-To: Leonardo Bras <leobras@redhat.com>
-Cc: Will Deacon <will@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
-	Boqun Feng <boqun.feng@gmail.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Andrzej Hajda <andrzej.hajda@intel.com>,
-	Arnd Bergmann <arnd@arndb.de>, Ingo Molnar <mingo@kernel.org>,
-	Palmer Dabbelt <palmer@rivosinc.com>, Guo Ren <guoren@kernel.org>,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [RFC PATCH v2 0/3] Deduplicate RISCV cmpxchg.h and atomic.c
- macros
-Message-ID: <ZMuxYXQgR446JwUp@andrea>
-References: <20230803051401.710236-2-leobras@redhat.com>
+        Thu, 03 Aug 2023 07:00:28 -0700 (PDT)
+From: Daniel Henrique Barboza <dbarboza@ventanamicro.com>
+To: kvm-riscv@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	kvm@vger.kernel.org
+Cc: anup@brainfault.org,
+	atishp@atishpatra.org,
+	ajones@ventanamicro.com,
+	Daniel Henrique Barboza <dbarboza@ventanamicro.com>
+Subject: [PATCH v3 00/10] RISC-V: KVM: change get_reg/set_reg error codes
+Date: Thu,  3 Aug 2023 11:00:12 -0300
+Message-ID: <20230803140022.399333-1-dbarboza@ventanamicro.com>
+X-Mailer: git-send-email 2.41.0
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230803051401.710236-2-leobras@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230803_065345_723909_19ED649A 
-X-CRM114-Status: GOOD (  21.83  )
+X-CRM114-CacheID: sfid-20230803_070032_593528_69E75F78 
+X-CRM114-Status: UNSURE (   9.33  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,62 +94,48 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 03, 2023 at 02:13:57AM -0300, Leonardo Bras wrote:
-> I unified previous patchsets into a single one, since the work is related.
-> 
-> While studying riscv's cmpxchg.h file, I got really interested in
-> understanding how RISCV asm implemented the different versions of
-> {cmp,}xchg.
-> 
-> When I understood the pattern, it made sense for me to remove the
-> duplications and create macros to make it easier to understand what exactly
-> changes between the versions: Instruction sufixes & barriers.
-> 
-> Also, did the same kind of work on atomic.c.
-> 
-> Note to Guo Ren:
-> I did some further improvement after your previous reviews, so I ended
-> up afraid including your Reviewed-by before cheching if the changes are
-> ok for you. Please check it out again, I just removed some helper macros
-> that were not being used elsewhere in the kernel.
-> 
-> Thanks!
-> Leo
-> 
-> 
-> Changes since squashed cmpxchg:
-> - Unified with atomic.c patchset 
-> - Rebased on top of torvalds/master (thanks Andrea Parri!)
-> - Removed helper macros that were not being used elsewhere in the kernel.
-> 
-> Changes since (cmpxchg) RFCv3:
-> - Squashed the 6 original patches in 2: one for cmpxchg and one for xchg
-> https://lore.kernel.org/all/20230404163741.2762165-1-leobras@redhat.com/
-> 
-> Changes since (cmpxchg) RFCv2:
-> - Fixed  macros that depend on having a local variable with a magic name
-> - Previous cast to (long) is now only applied on 4-bytes cmpxchg
-> https://lore.kernel.org/all/20230321074249.2221674-1-leobras@redhat.com/
-> 
-> Changes since (cmpxchg) RFCv1:
-> - Fixed patch 4/6 suffix from 'w.aqrl' to '.w.aqrl', to avoid build error
-> https://lore.kernel.org/all/20230318080059.1109286-1-leobras@redhat.com/
-> 
-> 
-> Leonardo Bras (3):
->   riscv/cmpxchg: Deduplicate xchg() asm functions
->   riscv/cmpxchg: Deduplicate cmpxchg() asm and macros
->   riscv/atomic.h : Deduplicate arch_atomic.*
-> 
->  arch/riscv/include/asm/atomic.h  | 164 ++++++++--------
->  arch/riscv/include/asm/cmpxchg.h | 318 +++++--------------------------
->  2 files changed, 123 insertions(+), 359 deletions(-)
+Hi,
 
-LGTM.  For the series,
+This version has changes in the document patch, as suggested by Andrew
+in v2. It also has a new patch (patch 9) that handles error code changes
+in vcpu_vector.c.
 
-Reviewed-by: Andrea Parri <parri.andrea@gmail.com>
+Patches rebased on top of kvm_riscv_queue.
 
-  Andrea
+Changes from v2:
+- patch 9 (new):
+  - change kvm error codes for vector registers
+- patch 10 (former 9):
+  - rewrite EBUSY doc to mention that the error code indicates that it
+    is not allowed to change the reg val after the vcpu started.
+- v2 link: https://lore.kernel.org/kvm/20230801222629.210929-1-dbarboza@ventanamicro.com/
+
+Andrew Jones (1):
+  RISC-V: KVM: Improve vector save/restore errors
+
+Daniel Henrique Barboza (9):
+  RISC-V: KVM: return ENOENT in *_one_reg() when reg is unknown
+  RISC-V: KVM: use ENOENT in *_one_reg() when extension is unavailable
+  RISC-V: KVM: do not EOPNOTSUPP in set_one_reg() zicbo(m|z)
+  RISC-V: KVM: do not EOPNOTSUPP in set KVM_REG_RISCV_TIMER_REG
+  RISC-V: KVM: use EBUSY when !vcpu->arch.ran_atleast_once
+  RISC-V: KVM: avoid EBUSY when writing same ISA val
+  RISC-V: KVM: avoid EBUSY when writing the same machine ID val
+  RISC-V: KVM: avoid EBUSY when writing the same isa_ext val
+  docs: kvm: riscv: document EBUSY in KVM_SET_ONE_REG
+
+ Documentation/virt/kvm/api.rst |  2 +
+ arch/riscv/kvm/aia.c           |  4 +-
+ arch/riscv/kvm/vcpu_fp.c       | 12 +++---
+ arch/riscv/kvm/vcpu_onereg.c   | 68 +++++++++++++++++++++++-----------
+ arch/riscv/kvm/vcpu_sbi.c      | 16 ++++----
+ arch/riscv/kvm/vcpu_timer.c    | 11 +++---
+ arch/riscv/kvm/vcpu_vector.c   | 60 ++++++++++++++++--------------
+ 7 files changed, 104 insertions(+), 69 deletions(-)
+
+-- 
+2.41.0
+
 
 _______________________________________________
 linux-riscv mailing list
