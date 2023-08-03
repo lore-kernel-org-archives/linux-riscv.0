@@ -4,74 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E90DC001DF
-	for <linux-riscv@archiver.kernel.org>; Thu,  3 Aug 2023 12:02:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75928EB64DD
+	for <linux-riscv@archiver.kernel.org>; Thu,  3 Aug 2023 13:29:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ruj4GCagtNyag5xbST2FK6sfayJymPvARgHJWxcWCYA=; b=B6l7boNHb96LZzXEk0N7w278FD
-	mdTvSfQcHf5F0svFmSyyYJ69/iwqn9VB2hz4jQsl+PsKnfa85gNqlVqXcN4dF/cxpDrw2YPxE4C3F
-	V1SdYZ3qQ9RShQaa330FFzmym4dOHcc8H5rBBgTtUu/vHVcusF7SQIZu2MSlb7u9/IqyMQRxO2F3g
-	//kOcjxQIUdJjaT7MSUV2+R1604yh9StqrpAvWMXjOoFVvb+TAAjYqYvpkd6faNpjic0sr0k/Lwo5
-	fGo00QC3SXsWzdhr+KU8QCj8r576962dSCROuN6T5Y6sBgcx5K9p5u5IYf9dlvO/034MBR0gJ4zyM
-	egmg+cQg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=OmeMFKa9FRVJpxLRuJ+b2ZWA3zHE3Jx2pos0Ii9vS78=; b=3iwRUNvvbausIA
+	YJIB8nx1Gd/bCwOdwtAADoghskfW4+8AnD2vPJZEzpL5qgVU+ULmvqIxkHmAfK+Yjh3Ziy7TsxL/P
+	sjy0TlT1X0HMtQQKv4HW0mNgTjEYYsNeXvy21CEkUhJvGmmBZC3PjFDRwLwDR5FCxFB5bRxrY8Bsb
+	vXSoRLmprCxh+MjAnwXa0EvFhvk2jpWEBYxXEDy2fwzcKTj4hnwDgmW5exj5XD0WqO4/HX5LhKNWO
+	GiWBIhHYsFQhtJIk2QCKdtNwQpvzgx6hSLfZFR87dLI9iJfysSSKnPEWuEMG+oMA6OairJSnlwwc9
+	Kcv44vzDf7SkrexGkDmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qRX2Y-008AJE-2H;
-	Thu, 03 Aug 2023 12:02:50 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1qRYOK-0090J6-0H;
+	Thu, 03 Aug 2023 13:29:24 +0000
+Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qRX2S-008ADb-1z;
-	Thu, 03 Aug 2023 12:02:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1691064164; x=1722600164;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=aMtDvkkThoSLeILYJB44dM6LSzvz/cqPa1KYyjStjvY=;
-  b=qKEZVheuiCNlN1m+ETy8AW9aadQWrvo+QnOCDvWxGZK/pNzvhbykJMD7
-   SzbbKYg/aULaSanel+d7XlizAfPmVC9+YvC57tEbCXHOwFGGoRGaz/FtA
-   pG0AY5P8KuwFzW7780e6FllqbU7tzbXdarSXSqHlv7Q8v5iKc2kxRMn9H
-   JuAGf3If20hIqm7AYKGOU7zXeWAANJFtFFZfz1sTLYjYX04+1YPy7p5Ey
-   K/oQHUjStgBPYZtFvkg+KhMeurOg6Y0DP/2mbxii9ng9LtJOD4wI25IY9
-   8TEPRXwi4wKZzBSVqPmxegLFSWj40jf+MmiHZWoBaWwRyqoZdHLxCUtm/
-   A==;
-X-IronPort-AV: E=Sophos;i="6.01,252,1684825200"; 
-   d="asc'?scan'208";a="227996472"
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa2.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 03 Aug 2023 05:02:37 -0700
-Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Thu, 3 Aug 2023 05:02:36 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex03.mchp-main.com
- (10.10.85.151) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
- Transport; Thu, 3 Aug 2023 05:02:33 -0700
-Date: Thu, 3 Aug 2023 13:01:57 +0100
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Mayuresh Chitale <mchitale@ventanamicro.com>
-CC: Palmer Dabbelt <palmer@dabbelt.com>, Anup Patel <anup@brainfault.org>,
-	Andrew Jones <ajones@ventanamicro.com>, Atish Patra <atishp@atishpatra.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
-	<linux-riscv@lists.infradead.org>, <kvm-riscv@lists.infradead.org>, Conor
- Dooley <conor@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Rob Herring <robh+dt@kernel.org>,
-	<devicetree@vger.kernel.org>
-Subject: Re: [PATCH v4 1/7] RISC-V: Detect Smstateen extension
-Message-ID: <20230803-till-rented-b4546a9b868c@wendy>
-References: <20230726084352.2136377-1-mchitale@ventanamicro.com>
- <20230726084352.2136377-2-mchitale@ventanamicro.com>
+	id 1qRYOG-0090BS-1i
+	for linux-riscv@lists.infradead.org;
+	Thu, 03 Aug 2023 13:29:22 +0000
+Received: by mail-pf1-x42a.google.com with SMTP id d2e1a72fcca58-686be3cbea0so1438575b3a.0
+        for <linux-riscv@lists.infradead.org>; Thu, 03 Aug 2023 06:29:12 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bytedance.com; s=google; t=1691069351; x=1691674151;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=ntEvLFlRpNT+qR6jlJekxZXF9ONqBaZB8tTPc8hJxHo=;
+        b=aq/S7/aTPM+jsQtw76McH/TkFHY/hJfftBjXoaty8AFCiu52VNsFuIa2y/jT+iW6rG
+         qY0TwLe48wBcbUlPMpFNxWv67kyywoGrwj8xJxu3AkhYZRAYf6Wfbt5RFwMpPf9VVQAr
+         2pxdC+LjsS1A/x3VvS81QlMwp5FaNPh/y+PHOFG8GmogYfpQ9cA557fuxP9q4bHl+RkZ
+         Qy1r5R3kh9wBgwX6cveOxF17KilSfhAlOXlWVBY29U2SIM5XLujru4yVDXHaGrGEYC9W
+         25mnc+PIC+/ubhs+UNho4VDIdw+jaA/YTihXZ+CHEH4uwT+iRXdFShji4NOBpL+hopF6
+         qyVQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1691069351; x=1691674151;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=ntEvLFlRpNT+qR6jlJekxZXF9ONqBaZB8tTPc8hJxHo=;
+        b=T9YNd0RNRFcTi1noH/qvnl+pVvQ1DwzrQoIEzyrnaeeFmP2zwHIOkeLMv4ImAATt5y
+         QTpWlhtBWC2V4FI58jmNejoS+Ag+I8umvejPeRehp+dfTYmfd2UErTzHeMJErdus9bRL
+         NI1sVKpJYsfE1T1/r3q4o0w/L0+gSKgB9LOEe6uoZFgziE3m9cpXiunq4cmuU3pM6Gbx
+         amVVKeCOrI7r0TMPB11AFC7tqXNnKl/Nn9CyvcguWKW/UhvshkkaI6ez3XVMdp7a9kTY
+         70eFgPkIOGDTi/036kVFLp9lmqsMIxOpL7S7o8fZHdYWKZ5UwFTvzUhTq5B2ETSLTMGN
+         JTjg==
+X-Gm-Message-State: ABy/qLaFBBPgjR/t2iylnGYBdJluCkt0893Uv3Qw3LhrUSD8oiGA3CW2
+	w0GD7InFVAdJgusGHHcpMdC3Mw==
+X-Google-Smtp-Source: APBJJlHIzo4MqHS+k/JCdqgT16BcRk/5v7ytqHftiDKKZXbIZ4AikfQny7La+e94VmPdHMof8J0Wrg==
+X-Received: by 2002:a05:6a21:32a1:b0:130:a400:1d65 with SMTP id yt33-20020a056a2132a100b00130a4001d65mr24223360pzb.14.1691069351683;
+        Thu, 03 Aug 2023 06:29:11 -0700 (PDT)
+Received: from n26-073-040.byted.org ([106.38.226.44])
+        by smtp.gmail.com with ESMTPSA id q23-20020a637517000000b0055b4307963dsm6901376pgc.23.2023.08.03.06.28.36
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 03 Aug 2023 06:28:46 -0700 (PDT)
+From: Xu Lu <luxu.kernel@bytedance.com>
+To: paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu
+Cc: linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Xu Lu <luxu.kernel@bytedance.com>
+Subject: [PATCH RESEND] riscv: Fix local irq restore when flags indicates irq disabled
+Date: Thu,  3 Aug 2023 21:28:18 +0800
+Message-Id: <20230803132818.2092166-1-luxu.kernel@bytedance.com>
+X-Mailer: git-send-email 2.20.1
 MIME-Version: 1.0
-In-Reply-To: <20230726084352.2136377-2-mchitale@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230803_050244_742105_D30682AF 
-X-CRM114-Status: GOOD (  18.39  )
+X-CRM114-CacheID: sfid-20230803_062920_877977_872745A3 
+X-CRM114-Status: GOOD (  11.53  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,111 +87,47 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5923889003751676995=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============5923889003751676995==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="rG9uLjivbYWQzDHh"
-Content-Disposition: inline
+When arch_local_irq_restore() is called with flags indicating irqs
+disabled, we need to clear SR_IE bit in CSR_STATUS, whereas current
+implementation based on csr_set() function only sets SR_IE bit of
+CSR_STATUS when SR_IE bit of flags is high and does nothing when
+SR_IE bit of flags is low.
 
---rG9uLjivbYWQzDHh
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+This commit supplies csr clear operation when calling irq restore
+function with flags indicating irq disabled.
 
-Palmer, Anup,
+Fixes: 6d60b6ee0c97 ("RISC-V: Device, timer, IRQs, and the SBI")
+Signed-off-by: Xu Lu <luxu.kernel@bytedance.com>
+---
+ arch/riscv/include/asm/irqflags.h | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
 
-On Wed, Jul 26, 2023 at 02:13:46PM +0530, Mayuresh Chitale wrote:
-> Extend the ISA string parsing to detect the Smstateen extension. If the
-> extension is enabled then access to certain 'state' such as AIA CSRs in
-> VS mode is controlled by *stateen0 registers.
->=20
-> Signed-off-by: Mayuresh Chitale <mchitale@ventanamicro.com>
-> Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+diff --git a/arch/riscv/include/asm/irqflags.h b/arch/riscv/include/asm/irqflags.h
+index 08d4d6a5b7e9..7c31fc3c3559 100644
+--- a/arch/riscv/include/asm/irqflags.h
++++ b/arch/riscv/include/asm/irqflags.h
+@@ -49,7 +49,10 @@ static inline int arch_irqs_disabled(void)
+ /* set interrupt enabled status */
+ static inline void arch_local_irq_restore(unsigned long flags)
+ {
+-	csr_set(CSR_STATUS, flags & SR_IE);
++	if (flags & SR_IE)
++		csr_set(CSR_STATUS, SR_IE);
++	else
++		csr_clear(CSR_STATUS, SR_IE);
+ }
+ 
+ #endif /* _ASM_RISCV_IRQFLAGS_H */
+-- 
+2.20.1
 
-While I think of it, this patch may have to be shared with the riscv
-tree to avoid generating a conflict with the reworking going in this
-area.
-I ran into a similar one during one of my rebases that was not too
-difficult to solve, but generated a horrible looking confict.
-
-Cheers,
-Conor.
-
-> ---
->  arch/riscv/include/asm/hwcap.h | 1 +
->  arch/riscv/kernel/cpu.c        | 1 +
->  arch/riscv/kernel/cpufeature.c | 1 +
->  3 files changed, 3 insertions(+)
->=20
-> diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwca=
-p.h
-> index f041bfa7f6a0..fad1fd1fcd05 100644
-> --- a/arch/riscv/include/asm/hwcap.h
-> +++ b/arch/riscv/include/asm/hwcap.h
-> @@ -53,6 +53,7 @@
->  #define RISCV_ISA_EXT_ZICSR		40
->  #define RISCV_ISA_EXT_ZIFENCEI		41
->  #define RISCV_ISA_EXT_ZIHPM		42
-> +#define RISCV_ISA_EXT_SMSTATEEN		43
-> =20
->  #define RISCV_ISA_EXT_MAX		64
->  #define RISCV_ISA_EXT_NAME_LEN_MAX	32
-> diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
-> index a2fc952318e9..fb0df651bc48 100644
-> --- a/arch/riscv/kernel/cpu.c
-> +++ b/arch/riscv/kernel/cpu.c
-> @@ -217,6 +217,7 @@ static struct riscv_isa_ext_data isa_ext_arr[] =3D {
->  	__RISCV_ISA_EXT_DATA(zbb, RISCV_ISA_EXT_ZBB),
->  	__RISCV_ISA_EXT_DATA(zbs, RISCV_ISA_EXT_ZBS),
->  	__RISCV_ISA_EXT_DATA(smaia, RISCV_ISA_EXT_SMAIA),
-> +	__RISCV_ISA_EXT_DATA(smstateen, RISCV_ISA_EXT_SMSTATEEN),
->  	__RISCV_ISA_EXT_DATA(ssaia, RISCV_ISA_EXT_SSAIA),
->  	__RISCV_ISA_EXT_DATA(sscofpmf, RISCV_ISA_EXT_SSCOFPMF),
->  	__RISCV_ISA_EXT_DATA(sstc, RISCV_ISA_EXT_SSTC),
-> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeatur=
-e.c
-> index a8f66c015229..c3742a765f8b 100644
-> --- a/arch/riscv/kernel/cpufeature.c
-> +++ b/arch/riscv/kernel/cpufeature.c
-> @@ -301,6 +301,7 @@ void __init riscv_fill_hwcap(void)
->  			} else {
->  				/* sorted alphabetically */
->  				SET_ISA_EXT_MAP("smaia", RISCV_ISA_EXT_SMAIA);
-> +				SET_ISA_EXT_MAP("smstateen", RISCV_ISA_EXT_SMSTATEEN);
->  				SET_ISA_EXT_MAP("ssaia", RISCV_ISA_EXT_SSAIA);
->  				SET_ISA_EXT_MAP("sscofpmf", RISCV_ISA_EXT_SSCOFPMF);
->  				SET_ISA_EXT_MAP("sstc", RISCV_ISA_EXT_SSTC);
-> --=20
-> 2.34.1
->=20
-
---rG9uLjivbYWQzDHh
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZMuXNQAKCRB4tDGHoIJi
-0mZJAP94GLPaEObBTZka8JnAh+Y2+i36/nr6M7zDycWn8FK3hgEAxtJPPErBwR6N
-KxtNugvKX0suZ9P4K7i7HRukiYZ/fQ0=
-=NJwv
------END PGP SIGNATURE-----
-
---rG9uLjivbYWQzDHh--
-
-
---===============5923889003751676995==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============5923889003751676995==--
-
