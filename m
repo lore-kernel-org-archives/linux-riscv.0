@@ -4,60 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D7B8C001DF
-	for <linux-riscv@archiver.kernel.org>; Thu,  3 Aug 2023 20:28:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1219C001DF
+	for <linux-riscv@archiver.kernel.org>; Thu,  3 Aug 2023 20:54:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZeyzHD1BxI5jbyTSluZn90WU13sF5LuJKB1wyRsXTXs=; b=XD63r+nMQ/XxMa
-	p/O8eUTj7HI9nVXmmduDGc7TD6R5FYL04LB5hVWhFF1H5chdTtnnh16MSuO2pHg90Hw0v37T/Mzhs
-	swYaT+UybZhA7mqvOrWpTdupjoo4lCwQPx4ftp5bz4JysYfCKjNw6nHljpYrHZ5S4+DE21e9RoCxc
-	+zRl0nAlMoWFWo3zt8z+1hUPAsDwE3q89foqNGQ9Ex1creN4P2pcGKcJS0N5OGetXXWbXAxEOuM8B
-	tPJK2PwHjxttdGW1KWUhLNQ24NKq2U5QVqf34ovAlM8tAe0kXbQ2plEK/57Z8TjkQuLBlCR8RFTgZ
-	WdLtMEaV34l+QsuDpjnA==;
+	List-Owner; bh=odUw8/02zOjESyykPZPAQmd6X42U05VrXlBdPiS2QUY=; b=qxBGs2vyK2ax4r
+	GHgwuj083V5QlR3v0R73i8Q0ekqfH2ZgHWyWe07eFgPzjhJSxaldChazgLNuCPAt5Ys5PcMtW7Kld
+	4LJRVEHl24Ct2O9QmZGBCzHDzdT2jY77jydefUGOUVtYICVbgf02rjp64YmQn23XT3cXTpQAIMfUK
+	bgWtMbhYPB/bRkXfBTFlExWNulZ8SqXagADJWU82oyu/16mPtYjUQEotkWM96iR6rP1wM2KhJYDi/
+	2183X8YTn8Yjb/My29WqerpjQr4d9wMXTCnw+aahVZKWdY5C1FW7e5VsKMQHzv9fR7QaU/jdj1LCX
+	eLW9ZhiGzQSnXE0xk0eQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qRevO-00Ap8i-2c;
-	Thu, 03 Aug 2023 20:27:58 +0000
-Received: from smtpout.efficios.com ([167.114.26.122])
+	id 1qRfKr-00ArhU-0n;
+	Thu, 03 Aug 2023 20:54:17 +0000
+Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qRevL-00Ap8E-0i
-	for linux-riscv@lists.infradead.org;
-	Thu, 03 Aug 2023 20:27:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=efficios.com;
-	s=smtpout1; t=1691094474;
-	bh=u1lt9tMIgYVhdDY1Tv7aqcW7LU2YS85yFCEbSSPFIik=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=xR44LSieM2jVKrgBndvTW1FeNVa6kBgxkyS8VIPns4u+ojdcQRUJPCeRVnPVthaQU
-	 boV914OUnkbHUiNwBh8k95jQHGs6JY5k+A+bvW9WsSvAtfEe8qRVfQMhJA3w6isbVT
-	 /nWQLfYYpBGo7VoSOOfWmHeW+WaUJeZmHIdqJ+FsEx0UdZ0yJDLnhRqx2u+p4jmaAz
-	 zpc7IeDfuOgoFhXA8WToHcAOdkR9o2blahIIGSakcr7JYBRiuuKH2/D19Yc43Oaobk
-	 brCGKKrbdOV3t+i3sYwm2YXAmD/lIWqI/xi3oC+Id+EKlW0euhaLV5kRpIq9BY+cEx
-	 OeodwnAXBqUzA==
-Received: from [IPV6:2605:59c8:2711:c800::c66] (unknown [IPv6:2605:59c8:2711:c800::c66])
-	by smtpout.efficios.com (Postfix) with ESMTPSA id 4RH0lY3csfz1Kgj;
-	Thu,  3 Aug 2023 16:27:53 -0400 (EDT)
-Message-ID: <4bf79f06-4593-134a-04dd-b8f89e96a1b8@efficios.com>
-Date: Thu, 3 Aug 2023 16:28:46 -0400
+	id 1qRfKo-00Argz-2B;
+	Thu, 03 Aug 2023 20:54:15 +0000
+Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-3110ab7110aso1294468f8f.3;
+        Thu, 03 Aug 2023 13:54:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20221208; t=1691096050; x=1691700850;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=gf1shgUQGecS6+2Jrf1Rltefiiin3z+1dw5kwESQLOE=;
+        b=I6Svwboa/Lf/XyjqjzLySQ9kXd+YTlRJ8bqidzr0kT/mN0bm9TJmPdDtGmjQcXnC0g
+         zBQcpCDi35SqsW4FPFXJHJj1RZUVxAG9y3+pn5FcNg+hMxFImMO4JlkCc7O3h49ok1V8
+         G/20JB9KiEbch9eu2VgRw53YLAthzMbfB9hN0mvkNqWW9kQrPE/hV2NIulEL5VRoAnXS
+         evmwhdHh7JDKmSF6Y/M4AdK9qWhx3PFjZO4y4hKiuXkoQ6gxswG6Axdus7k3PRoWYMTP
+         4D7au3z7X+c80V1G7thDEkn34K/tsUprsXm94oz75+/9csJ5cy2vfl5U+fW7nNy78IwX
+         KCLA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1691096050; x=1691700850;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=gf1shgUQGecS6+2Jrf1Rltefiiin3z+1dw5kwESQLOE=;
+        b=mAunjTloZBTi/s/KF/8O3vCutwtamV8dOidr0Z5sezCGdojqq9XUxHQa5hiD/nPQPN
+         vBA00XETrwjZqod+R5HXAMUrjD26QRMKrO5eC5sp6lKrA8nnJO+gYypeMhnPjOtGW0JE
+         b6qpTv/hwfwoJNKOF1boChoO07uday73AKJYFoJVj5jby1VbS8r1p9PJEiY8K6XqvGx1
+         REsB8oKXFjnbul+NSQuw4YV5MQzgYyjD4w+BNjZ54HheJesrkFjvYrgdJbkkBjASaOV3
+         O8UWzH3QTyMw3AJzXOu2VWuRSOtlOnxhmQWWb3c17MWRu4hLaOJ9tArzR6rv3nNymMT+
+         z6JA==
+X-Gm-Message-State: ABy/qLZoSFS33VPKuXkcFzPXsD4jRx+J3TKcDtqw0v8kByGRCAL+q4Hg
+	pGGxXgINu4AQmouvDfpjMw8=
+X-Google-Smtp-Source: APBJJlFSz8tLD3zPBalpC68JbS4T65s5zlyPapVF+FrzONfDahN32ei4XWvdQHLX7eTvk9Ddujpkrg==
+X-Received: by 2002:adf:e105:0:b0:314:11f3:ca94 with SMTP id t5-20020adfe105000000b0031411f3ca94mr8109045wrz.41.1691096050225;
+        Thu, 03 Aug 2023 13:54:10 -0700 (PDT)
+Received: from jernej-laptop.localnet (82-149-1-233.dynamic.telemach.net. [82.149.1.233])
+        by smtp.gmail.com with ESMTPSA id d6-20020adff2c6000000b003172510d19dsm743046wrp.73.2023.08.03.13.54.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 03 Aug 2023 13:54:09 -0700 (PDT)
+From: Jernej =?utf-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
+To: linux-sunxi@lists.linux.dev, John Watts <contact@jookia.org>
+Subject: Re: [PATCH] riscv: dts: allwinner: d1: Specify default CAN pins
+Date: Thu, 03 Aug 2023 22:54:08 +0200
+Message-ID: <2151031.irdbgypaU6@jernej-laptop>
+In-Reply-To: <20230731023701.2581713-1-contact@jookia.org>
+References: <20230731023701.2581713-1-contact@jookia.org>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.13.0
-Subject: Re: [RFC PATCH] membarrier: riscv: Provide core serializing command
-Content-Language: en-US
-To: Andrea Parri <parri.andrea@gmail.com>, paulmck@kernel.org,
- paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- mmaas@google.com, hboehm@google.com, striker@us.ibm.com
-References: <20230803040111.5101-1-parri.andrea@gmail.com>
- <ZMvLoI6PxLR8RJvR@andrea>
-From: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-In-Reply-To: <ZMvLoI6PxLR8RJvR@andrea>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230803_132755_350033_BE30FBFD 
-X-CRM114-Status: GOOD (  19.15  )
+X-CRM114-CacheID: sfid-20230803_135414_717866_27155CCD 
+X-CRM114-Status: GOOD (  13.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,138 +83,49 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, Samuel Holland <samuel@sholland.org>, linux-kernel@vger.kernel.org, Rob Herring <robh+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, John Watts <contact@jookia.org>, Palmer Dabbelt <palmer@dabbelt.com>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley <paul.walmsley@sifive.com>, Maksim Kiselev <bigunclemax@gmail.com>, linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 8/3/23 11:45, Andrea Parri wrote:
-> Adding Martin, Hans and Derek to the Cc: list,
+Dne ponedeljek, 31. julij 2023 ob 04:36:59 CEST je John Watts napisal(a):
+> There are only one set of CAN pins available on these chips.
+> Specify these as the default to avoid redundancy in board device trees.
 > 
->    Andrea
+> Signed-off-by: John Watts <contact@jookia.org>
+> ---
+>  arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi | 4 ++++
+>  1 file changed, 4 insertions(+)
 > 
+> diff --git a/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi
+> b/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi index
+> 4086c0cc0f9d..b27c3fc13b0d 100644
+> --- a/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi
+> +++ b/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi
+> @@ -898,6 +898,8 @@ can0: can@2504000 {
+>  			interrupts = <SOC_PERIPHERAL_IRQ(21) 
+IRQ_TYPE_LEVEL_HIGH>;
+>  			clocks = <&ccu CLK_BUS_CAN0>;
+>  			resets = <&ccu RST_BUS_CAN0>;
+> +			pinctrl-names = "default";
+> +			pinctrl-0 = <&can0_pins>;
+>  			status = "disabled";
+>  		};
 > 
-> On Thu, Aug 03, 2023 at 06:01:11AM +0200, Andrea Parri wrote:
->> Signed-off-by: Andrea Parri <parri.andrea@gmail.com>
->> Suggested-by: Palmer Dabbelt <palmer@dabbelt.com>
->> ---
->> For the MEMBARRIER maintainers:  RISC-V does not have "core serializing
->> instructions", meaning that there is no occurence of such a term in the
->> RISC-V ISA.  The discussion and git history about the SYNC_CORE command
->> suggested the implementation below: a FENCE.I instruction "synchronizes
->> the instruction and data streams" [1] on a CPU; in litmus parlance,
->>
-
-Can you double-check that riscv switch_mm() implies a fence.i or 
-equivalent on the CPU doing the switch_mm ?
-
-AFAIR membarrier use of sync_core_before_usermode relies on switch_mm 
-issuing a core serializing instruction.
-
-Thanks,
-
-Mathieu
+> @@ -907,6 +909,8 @@ can1: can@2504400 {
+>  			interrupts = <SOC_PERIPHERAL_IRQ(22) 
+IRQ_TYPE_LEVEL_HIGH>;
+>  			clocks = <&ccu CLK_BUS_CAN1>;
+>  			resets = <&ccu RST_BUS_CAN1>;
+> +			pinctrl-names = "default";
+> +			pinctrl-0 = <&can1_pins>;
+>  			status = "disabled";
+>  		};
+>  	};
 
 
->>    (single-hart test)
->>
->>    CPU0
->>
->>    UPDATE text   ;
->>    FENCE.I       ;
->>    EXECUTE text  ;  /* <-- will execute the updated/new text */
->>
->>
->>    (message-passing test)
->>
->>    CPU0             CPU1
->>
->>    UPDATE text   |  IF (flag) {     ;
->>    WMB           |    FENCE.I       ;
->>    SET flag      |    EXECUTE text  ;  /* execute the new text */
->>                  |  }               ;
->>
->>
->>    (and many others, including "maybe"s!  ;-) )
->>
->> How do these remarks resonate with the semantics of "a core serializing
->> instruction" (to be issued before returning to user-space)?
->>
->> RISCV maintainers, I'm missing some paths to user-space? (besides xRET)
->>
->>    Andrea
->>
->> [1] https://github.com/riscv/riscv-isa-manual/blob/main/src/zifencei.adoc
->>
->>
->>   .../sched/membarrier-sync-core/arch-support.txt   |  2 +-
->>   arch/riscv/Kconfig                                |  2 ++
->>   arch/riscv/include/asm/sync_core.h                | 15 +++++++++++++++
->>   3 files changed, 18 insertions(+), 1 deletion(-)
->>   create mode 100644 arch/riscv/include/asm/sync_core.h
->>
->> diff --git a/Documentation/features/sched/membarrier-sync-core/arch-support.txt b/Documentation/features/sched/membarrier-sync-core/arch-support.txt
->> index 23260ca449468..a17117d76e6d8 100644
->> --- a/Documentation/features/sched/membarrier-sync-core/arch-support.txt
->> +++ b/Documentation/features/sched/membarrier-sync-core/arch-support.txt
->> @@ -44,7 +44,7 @@
->>       |    openrisc: | TODO |
->>       |      parisc: | TODO |
->>       |     powerpc: |  ok  |
->> -    |       riscv: | TODO |
->> +    |       riscv: |  ok  |
->>       |        s390: |  ok  |
->>       |          sh: | TODO |
->>       |       sparc: | TODO |
->> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
->> index 4c07b9189c867..ed7ddaedc692e 100644
->> --- a/arch/riscv/Kconfig
->> +++ b/arch/riscv/Kconfig
->> @@ -27,6 +27,7 @@ config RISCV
->>   	select ARCH_HAS_GCOV_PROFILE_ALL
->>   	select ARCH_HAS_GIGANTIC_PAGE
->>   	select ARCH_HAS_KCOV
->> +	select ARCH_HAS_MEMBARRIER_SYNC_CORE
->>   	select ARCH_HAS_MMIOWB
->>   	select ARCH_HAS_NON_OVERLAPPING_ADDRESS_SPACE
->>   	select ARCH_HAS_PMEM_API
->> @@ -35,6 +36,7 @@ config RISCV
->>   	select ARCH_HAS_SET_MEMORY if MMU
->>   	select ARCH_HAS_STRICT_KERNEL_RWX if MMU && !XIP_KERNEL
->>   	select ARCH_HAS_STRICT_MODULE_RWX if MMU && !XIP_KERNEL
->> +	select ARCH_HAS_SYNC_CORE_BEFORE_USERMODE
->>   	select ARCH_HAS_TICK_BROADCAST if GENERIC_CLOCKEVENTS_BROADCAST
->>   	select ARCH_HAS_UBSAN_SANITIZE_ALL
->>   	select ARCH_HAS_VDSO_DATA
->> diff --git a/arch/riscv/include/asm/sync_core.h b/arch/riscv/include/asm/sync_core.h
->> new file mode 100644
->> index 0000000000000..d3ec6ac47ac9b
->> --- /dev/null
->> +++ b/arch/riscv/include/asm/sync_core.h
->> @@ -0,0 +1,15 @@
->> +/* SPDX-License-Identifier: GPL-2.0 */
->> +#ifndef _ASM_RISCV_SYNC_CORE_H
->> +#define _ASM_RISCV_SYNC_CORE_H
->> +
->> +/*
->> + * Ensure that a core serializing instruction is issued before returning
->> + * to user-mode.  RISC-V implements return to user-space through an xRET
->> + * instruction, which is not core serializing.
->> + */
->> +static inline void sync_core_before_usermode(void)
->> +{
->> +	asm volatile ("fence.i" ::: "memory");
->> +}
->> +
->> +#endif /* _ASM_RISCV_SYNC_CORE_H */
->> -- 
->> 2.34.1
->>
 
--- 
-Mathieu Desnoyers
-EfficiOS Inc.
-https://www.efficios.com
 
 
 _______________________________________________
