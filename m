@@ -4,77 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EC6FC0015E
-	for <linux-riscv@archiver.kernel.org>; Thu,  3 Aug 2023 10:06:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 627C0C0015E
+	for <linux-riscv@archiver.kernel.org>; Thu,  3 Aug 2023 10:16:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BbQwTpEdQLu7nu9GH2ZovOfxY4Vp9EfjmEuV7UN+9eQ=; b=kL11WcRIVRmsWODr72gsklCpnj
-	CwA38cpheQnJRiBIgod4RosAzCHVy9QnY99ljbadhsQSXYYZf8ywRnHNOC+xmYLMofG5X/4dEpkhi
-	rHoQWC2IDpelm+mln2FYr3/55gNjdc7Ko+GJoQRLv5TEe/otQeYiA7utJUTFbFPpbtKO/visIuCbd
-	oaVqMeOoO/zkeajTB4NFErQoEYqJ+2n+hlqx6LTmAt0zYi8CWwb+tNn543urGnGIAW+/uB66vP37Y
-	89yNS9vzHIFprkVQODX3mAR/VR1WVllRfCJqCewrfMqBdhVwgYXP9ia1TCU6SDMacd4UMZXQ23kOc
-	0Ksk0uNA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=fIEu4Md6Fl44OAoUzF9DCOBiJvZaauT1YC97YmbVT+g=; b=lcGwnpS9Lyiozx
+	B5WT39MHIPBL96zmtsKve4Smg5B9SDzxC9kUopX0wEx1wzEi3oyetVa450LC9yskUFLecFrk0MKO5
+	YnPBkK96vIhAo/NJAdegRs+8Ims+QeithTxhLpoAb8TW8trk1H+jQ8ObzV5qmReA6RB1Z6OmzS1As
+	qp7qrd3CYdQIyLDDAYBIacbvJFji/6xgn1+N8ab+u1I7/JIDsQuczfTL+4ALrsoik0Vktsa1OAxW0
+	Pp938BcxCw9aLW5iMzPPcwyWIxOdHQAtFpChZY7L8+3c6qw/5ypE9wQbiGmBAG53Qi2VyBJgyDwbs
+	GA7/+mdbAP+gdLVTU0ZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qRVDc-007ISe-26;
-	Thu, 03 Aug 2023 10:06:08 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1qRVN5-007KHE-0j;
+	Thu, 03 Aug 2023 10:15:55 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qRVDY-007IS2-0g
-	for linux-riscv@lists.infradead.org;
-	Thu, 03 Aug 2023 10:06:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1691057163; x=1722593163;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=aOqpJ84Ym1QwOIt6SBmTi8DnDwzr1ZYox/0f92CTJp8=;
-  b=a7HMRDuc4RErmGfROhlZ12FikF6zOThjNDzWU+fuiXqVI059Cq2NVRsS
-   ZfSsjGWg7ViGba5VaOAO4cOmRfOEQLPqKMVeDw3vMgHBN+nA0DFrgoxHI
-   F7lsgMrmyMf7p2TuU/0bF73iMhHkp8ySfUsujwWGu1219dfuI0A+qqBwD
-   5IgGsPmenNi0RwpFxppS5NWCklk08KaTAWu0kDRsNFV3zEJ2deeSiSFY2
-   2t9TceRs5mWlurUZo2Oc+u01MW5E2LsQPM/xICO13gkZsW/jqWu57BKqD
-   AoIxfqCIg/GIMg/ZdXiCtKcxN+gFBUa9djWOvIy2SFhQqDI3P4r7jsTuI
-   w==;
-X-IronPort-AV: E=Sophos;i="6.01,251,1684825200"; 
-   d="asc'?scan'208";a="226932287"
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa3.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 03 Aug 2023 03:06:03 -0700
-Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Thu, 3 Aug 2023 03:05:58 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex03.mchp-main.com
- (10.10.85.151) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
- Transport; Thu, 3 Aug 2023 03:05:56 -0700
-Date: Thu, 3 Aug 2023 11:05:20 +0100
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Alexandre Ghiti <alexghiti@rivosinc.com>
-CC: dylan <dylan@andestech.com>, Guo Ren <guoren@kernel.org>, Paul Walmsley
-	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, =?iso-8859-1?Q?Bj=F6rn_T=F6pel?=
-	<bjorn@rivosinc.com>, <linux-riscv@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>
+	id 1qRUQI-0079Jm-14
+	for linux-riscv@bombadil.infradead.org;
+	Thu, 03 Aug 2023 09:15:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=/P3JSbQ5B0NSJAuHeE2g8Wm0ulaaLaGIgFBuN0gi4fA=; b=OV3D/0ruZLsl54i8rrMpa63lo0
+	wbydw/jgV6x9B6WgOvHsGiOIeMo9YqavH6De2PgKT8ZQ/H9ZPpAW1lbihNEsrvNk4fFpiGfi/gg9c
+	u20yBMcnxAiLZVseOzXMBix/XaiCt7amGQpYLJoMRnVYsvnZltu94VxaILT8xSS6kA/BXwfWhbfGX
+	pwnd+p2MvbcBrAmeNGwsWnYzcZHijBsl9kVCoR0ojNY+sHelfaUFVxv9QOuH2MywS5CBpEcsUIU9P
+	rJP9TZu7aocBJ/XXeJuCngX9yHJd3W3DNnQpzs7qZvPHEJD2NEwDQaovmdFjymaIBaf0m6mozpsp7
+	z6SEu+JA==;
+Received: from 60-248-80-70.hinet-ip.hinet.net ([60.248.80.70] helo=Atcsqr.andestech.com)
+	by casper.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1qRUQC-002j60-Jo
+	for linux-riscv@lists.infradead.org; Thu, 03 Aug 2023 09:15:07 +0000
+Received: from mail.andestech.com (ATCPCS16.andestech.com [10.0.1.222])
+	by Atcsqr.andestech.com with ESMTP id 3739EJV0017070;
+	Thu, 3 Aug 2023 17:14:19 +0800 (+08)
+	(envelope-from dylan@andestech.com)
+Received: from atctrx.andestech.com (10.0.15.173) by ATCPCS16.andestech.com
+ (10.0.1.222) with Microsoft SMTP Server id 14.3.498.0; Thu, 3 Aug 2023
+ 17:14:16 +0800
+Date: Thu, 3 Aug 2023 17:14:15 +0800
+From: dylan <dylan@andestech.com>
+To: Guo Ren <guoren@kernel.org>
+CC: Alexandre Ghiti <alexghiti@rivosinc.com>,
+        Paul Walmsley
+	<paul.walmsley@sifive.com>,
+        Palmer Dabbelt <palmer@dabbelt.com>,
+        Albert Ou
+	<aou@eecs.berkeley.edu>,
+        =?utf-8?B?QmrDtnJuIFTDtnBlbA==?=
+	<bjorn@rivosinc.com>,
+        <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>
 Subject: Re: [PATCH -fixes] riscv: Implement flush_cache_vmap()
-Message-ID: <20230803-chatty-scorpion-0311b40b915b@wendy>
+Message-ID: <ZMtv5+ut5z3pjlFJ@atctrx.andestech.com>
 References: <20230725132246.817726-1-alexghiti@rivosinc.com>
  <CAJF2gTRm59RAJvSf=L2uqbb3rHnANVheO+yLqrJGuVBh1w8Oug@mail.gmail.com>
- <ZMtv5+ut5z3pjlFJ@atctrx.andestech.com>
- <20230803-stadium-unusable-6cf00e35ec22@wendy>
- <CAHVXubiz-7LaxCJLW=-ekr7TBFswXojr1ODU4mo59Z1OBmjieg@mail.gmail.com>
- <CAHVXubg_7GwsdVpA_tPNYk2PUuQVheSfa31YbQPJg46enh2cfQ@mail.gmail.com>
 MIME-Version: 1.0
-In-Reply-To: <CAHVXubg_7GwsdVpA_tPNYk2PUuQVheSfa31YbQPJg46enh2cfQ@mail.gmail.com>
+Content-Disposition: inline
+In-Reply-To: <CAJF2gTRm59RAJvSf=L2uqbb3rHnANVheO+yLqrJGuVBh1w8Oug@mail.gmail.com>
+User-Agent: Mutt/2.1.4 (2021-12-11)
+X-Originating-IP: [10.0.15.173]
+X-DNSRBL: 
+X-MAIL: Atcsqr.andestech.com 3739EJV0017070
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230803_030604_388883_C7AB7A65 
-X-CRM114-Status: GOOD (  53.86  )
+X-CRM114-CacheID: sfid-20230803_101505_185645_A08E2DA5 
+X-CRM114-Status: GOOD (  22.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,207 +85,64 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6481636362567381408=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============6481636362567381408==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="wgEZWvV03h9AGeOU"
-Content-Disposition: inline
-
---wgEZWvV03h9AGeOU
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Thu, Aug 03, 2023 at 11:58:41AM +0200, Alexandre Ghiti wrote:
-> On Thu, Aug 3, 2023 at 11:48=E2=80=AFAM Alexandre Ghiti <alexghiti@rivosi=
-nc.com> wrote:
-> >
-> > On Thu, Aug 3, 2023 at 11:25=E2=80=AFAM Conor Dooley <conor.dooley@micr=
-ochip.com> wrote:
-> > >
-> > > On Thu, Aug 03, 2023 at 05:14:15PM +0800, dylan wrote:
-> > > > On Sun, Jul 30, 2023 at 01:08:17AM -0400, Guo Ren wrote:
-> > > > > On Tue, Jul 25, 2023 at 9:22=E2=80=AFAM Alexandre Ghiti <alexghit=
-i@rivosinc.com> wrote:
-> > > > > >
-> > > > > > The RISC-V kernel needs a sfence.vma after a page table modific=
-ation: we
-> > > > > > used to rely on the vmalloc fault handling to emit an sfence.vm=
-a, but
-> > > > > > commit 7d3332be011e ("riscv: mm: Pre-allocate PGD entries for
-> > > > > > vmalloc/modules area") got rid of this path for 64-bit kernels,=
- so now we
-> > > > > > need to explicitly emit a sfence.vma in flush_cache_vmap().
-> > > > > >
-> > > > > > Note that we don't need to implement flush_cache_vunmap() as th=
-e generic
-> > > > > > code should emit a flush tlb after unmapping a vmalloc region.
-> > > > > >
-> > > > > > Fixes: 7d3332be011e ("riscv: mm: Pre-allocate PGD entries for v=
-malloc/modules area")
-> > > > > > Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-> > > > > > ---
-> > > > > >  arch/riscv/include/asm/cacheflush.h | 4 ++++
-> > > > > >  1 file changed, 4 insertions(+)
-> > > > > >
-> > > > > > diff --git a/arch/riscv/include/asm/cacheflush.h b/arch/riscv/i=
-nclude/asm/cacheflush.h
-> > > > > > index 8091b8bf4883..b93ffddf8a61 100644
-> > > > > > --- a/arch/riscv/include/asm/cacheflush.h
-> > > > > > +++ b/arch/riscv/include/asm/cacheflush.h
-> > > > > > @@ -37,6 +37,10 @@ static inline void flush_dcache_page(struct =
-page *page)
-> > > > > >  #define flush_icache_user_page(vma, pg, addr, len) \
-> > > > > >         flush_icache_mm(vma->vm_mm, 0)
-> > > > > >
-> > > > > > +#ifdef CONFIG_64BIT
-> > > > > > +#define flush_cache_vmap(start, end)   flush_tlb_kernel_range(=
-start, end)
-> > > > > Sorry, I couldn't agree with the above in a PIPT cache machine. I=
-t's
-> > > > > not worth for.
-> > > > >
-> > > > > It would reduce the performance of vmap_pages_range,
-> > > > > ioremap_page_range ... API, which may cause some drivers' perform=
-ance
-> > > > > issues when they install/uninstall memory frequently.
-> > > > >
-> > > >
-> > > > Hi All,
-> > > >
-> > > > I think functional correctness should be more important than system=
- performance
-> > > > in this case. The "preventive" SFENCE.VMA became necessary due to t=
-he RISC-V
-> > > > specification allowing invalidation entries to be cached in the TLB.
-> > >
-> > > We are at -rc4 and this stuff is broken. Taking the bigger hammer, wh=
-ich
-> > > can be reverted later when a more targeted fix shows up, to make sure
-> > > that v6.5 doesn't end up broken, sounds rather prudent. Otherwise, the
-> > > original commit should probably be reverted.
-> >
-> > The original commit that removed vmalloc_fault() is required, handling
-> > vmalloc faults in the page fault path is not possible (see the links
-> > in the description of 7d3332be011e and the example that I gave in the
-> > thread https://lore.kernel.org/linux-riscv/dc26625b-6658-c078-76d2-7e97=
-5a04b1d4@ghiti.fr/).
->=20
-> Actually the problem was there before this commit (Dylan has the issue
-> in 6.1), so no faulty commit to revert :)
-
-Ah, my bad - I was focusing on 7d3332be011e ("riscv: mm: Pre-allocate PGD
-entries for vmalloc/modules area") from your commit message. Big hammer,
-followed by tweaks or a replacement sounds like the way forward to me
-so!
-
-Cheers,
-Conor.
-
-> > I totally agree with Dylan that we'll work (I'm currently working on
-> > that) on the performance side of the problem in the next release, we
-> > need correctness and for that we need a preventive global sfence.vma
-> > as we have no means (for now) to distinguish between uarch that cache
-> > or not invalid entries.
-> >
-> > >
-> > > > The problem[1] we are currently encountering is caused by not updat=
-ing the TLB
-> > > > after the page table is created, and the solution to this problem c=
-an only be
-> > > > solved by updating the TLB immediately after the page table is crea=
-ted.
-> > > >
-> > > > There are currently two possible approaches to flush TLB:
-> > > > 1. Flush TLB in flush_cache_vmap()
-> > > > 2. Flush TLB in arch_sync_kernel_mappings()
-> > > >
-> > > > But I'm not quite sure if it's a good idea to operate on the TLB in=
-side flush_cache_vmap().
-> > > > The name of this function indicates that it should be related to ca=
-che operations, maybe
-> > > > it would be more appropriate to do TLB flush in arch_sync_kernel_ma=
-ppings()?
-> >
-> > TLDR: The downsides to implementing arch_sync_kernel_mappings()
-> > instead of flush_cache_vmap():
-> >
-> > - 2 global flushes for vunmap instead of 1 for flush_cache_vmap()
-> > - flushes the tlb in the noflush suffixed functions so it prevents any
-> > flush optimization (ie: a loop of vmap_range_noflush() without flush
-> > and then a final flush afterwards)
-> >
-> > So I'd favour the flush_cache_vmap() implementation which seems
-> > lighter. powerpc does that
-> > https://elixir.bootlin.com/linux/latest/source/arch/powerpc/include/asm=
-/cacheflush.h#L27
-> > (but admits that it may not be the right place)
-> >
-> > Here is the long story (my raw notes):
-> >
-> > * arch_sync_kernel_mappings() is called from:
-> > - _apply_to_page_range(): would only emit global sfence.vma if vmalloc
-> > addresses, I guess that's ok.
-> > - __vunmap_range_noflush(): it is noted here
-> > https://elixir.bootlin.com/linux/latest/source/mm/vmalloc.c#L406 that
-> > any caller must call flush_tlb_kernel_range(). Then the implementation
-> > of arch_sync_kernel_mappings() would result in 2 global tlb flushes.
-> > - vmap_range_noflush(): does not fit well with the noflush() suffix.
-> >
-> > * flush_cache_vmap() is called from:
-> > - kasan_populate_vmalloc(): legit since it bypasses vmap api (but
-> > called right a apply_to_page_range() so your patch would work here)
-> > - kmsan_vunmap_range_noflush(): called twice for the mappings kmsan
-> > establishes and flush_tlb_kernel_range() must be called afterwards =3D>
-> > 3 global tlb flushes but the 3 are needed as they target different
-> > addresses. Implementing only arch_sync_kernel_mappings() would result
-> > in way more global flushes (see the loop here
-> > https://elixir.bootlin.com/linux/latest/source/mm/kmsan/hooks.c#L151
-> > where  __vmap_pages_range_noflush() would result in more
-> > flush_tlb_all())
-> > - kmsan_vmap_pages_range_noflush(): here we would flush twice, but
-> > same thing for the arch_sync_kernel_mappings() implementation.
-> > - ioremap_page_range(): legit, same as arch_sync_kernel_mappings()
-> > implementation.
-> > - vmap_pages_range(): legit, same as arch_sync_kernel_mappings() implem=
-entation.
-> >
-> > Let me know what you think!
-> >
-> > Alex
-> >
-> > > >
-> > > > [1]: http://lists.infradead.org/pipermail/linux-riscv/2023-August/0=
-37503.html
-> > >
-
---wgEZWvV03h9AGeOU
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZMt74AAKCRB4tDGHoIJi
-0n9AAP9p8wSLc34+foGsl1TI2vO9fjUdR9X21aZKeqBsiZYk4gEApOS7Mpbacvcn
-kOBIpwMehsrvBZ3u1ifukyTc5xYqEwQ=
-=5rST
------END PGP SIGNATURE-----
-
---wgEZWvV03h9AGeOU--
-
-
---===============6481636362567381408==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============6481636362567381408==--
-
+T24gU3VuLCBKdWwgMzAsIDIwMjMgYXQgMDE6MDg6MTdBTSAtMDQwMCwgR3VvIFJlbiB3cm90ZToK
+PiBPbiBUdWUsIEp1bCAyNSwgMjAyMyBhdCA5OjIy4oCvQU0gQWxleGFuZHJlIEdoaXRpIDxhbGV4
+Z2hpdGlAcml2b3NpbmMuY29tPiB3cm90ZToKPiA+Cj4gPiBUaGUgUklTQy1WIGtlcm5lbCBuZWVk
+cyBhIHNmZW5jZS52bWEgYWZ0ZXIgYSBwYWdlIHRhYmxlIG1vZGlmaWNhdGlvbjogd2UKPiA+IHVz
+ZWQgdG8gcmVseSBvbiB0aGUgdm1hbGxvYyBmYXVsdCBoYW5kbGluZyB0byBlbWl0IGFuIHNmZW5j
+ZS52bWEsIGJ1dAo+ID4gY29tbWl0IDdkMzMzMmJlMDExZSAoInJpc2N2OiBtbTogUHJlLWFsbG9j
+YXRlIFBHRCBlbnRyaWVzIGZvcgo+ID4gdm1hbGxvYy9tb2R1bGVzIGFyZWEiKSBnb3QgcmlkIG9m
+IHRoaXMgcGF0aCBmb3IgNjQtYml0IGtlcm5lbHMsIHNvIG5vdyB3ZQo+ID4gbmVlZCB0byBleHBs
+aWNpdGx5IGVtaXQgYSBzZmVuY2Uudm1hIGluIGZsdXNoX2NhY2hlX3ZtYXAoKS4KPiA+Cj4gPiBO
+b3RlIHRoYXQgd2UgZG9uJ3QgbmVlZCB0byBpbXBsZW1lbnQgZmx1c2hfY2FjaGVfdnVubWFwKCkg
+YXMgdGhlIGdlbmVyaWMKPiA+IGNvZGUgc2hvdWxkIGVtaXQgYSBmbHVzaCB0bGIgYWZ0ZXIgdW5t
+YXBwaW5nIGEgdm1hbGxvYyByZWdpb24uCj4gPgo+ID4gRml4ZXM6IDdkMzMzMmJlMDExZSAoInJp
+c2N2OiBtbTogUHJlLWFsbG9jYXRlIFBHRCBlbnRyaWVzIGZvciB2bWFsbG9jL21vZHVsZXMgYXJl
+YSIpCj4gPiBTaWduZWQtb2ZmLWJ5OiBBbGV4YW5kcmUgR2hpdGkgPGFsZXhnaGl0aUByaXZvc2lu
+Yy5jb20+Cj4gPiAtLS0KPiA+ICBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2NhY2hlZmx1c2guaCB8
+IDQgKysrKwo+ID4gIDEgZmlsZSBjaGFuZ2VkLCA0IGluc2VydGlvbnMoKykKPiA+Cj4gPiBkaWZm
+IC0tZ2l0IGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9jYWNoZWZsdXNoLmggYi9hcmNoL3Jpc2N2
+L2luY2x1ZGUvYXNtL2NhY2hlZmx1c2guaAo+ID4gaW5kZXggODA5MWI4YmY0ODgzLi5iOTNmZmRk
+ZjhhNjEgMTAwNjQ0Cj4gPiAtLS0gYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2NhY2hlZmx1c2gu
+aAo+ID4gKysrIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9jYWNoZWZsdXNoLmgKPiA+IEBAIC0z
+Nyw2ICszNywxMCBAQCBzdGF0aWMgaW5saW5lIHZvaWQgZmx1c2hfZGNhY2hlX3BhZ2Uoc3RydWN0
+IHBhZ2UgKnBhZ2UpCj4gPiAgI2RlZmluZSBmbHVzaF9pY2FjaGVfdXNlcl9wYWdlKHZtYSwgcGcs
+IGFkZHIsIGxlbikgXAo+ID4gICAgICAgICBmbHVzaF9pY2FjaGVfbW0odm1hLT52bV9tbSwgMCkK
+PiA+Cj4gPiArI2lmZGVmIENPTkZJR182NEJJVAo+ID4gKyNkZWZpbmUgZmx1c2hfY2FjaGVfdm1h
+cChzdGFydCwgZW5kKSAgIGZsdXNoX3RsYl9rZXJuZWxfcmFuZ2Uoc3RhcnQsIGVuZCkKPiBTb3Jy
+eSwgSSBjb3VsZG4ndCBhZ3JlZSB3aXRoIHRoZSBhYm92ZSBpbiBhIFBJUFQgY2FjaGUgbWFjaGlu
+ZS4gSXQncwo+IG5vdCB3b3J0aCBmb3IuCj4gCj4gSXQgd291bGQgcmVkdWNlIHRoZSBwZXJmb3Jt
+YW5jZSBvZiB2bWFwX3BhZ2VzX3JhbmdlLAo+IGlvcmVtYXBfcGFnZV9yYW5nZSAuLi4gQVBJLCB3
+aGljaCBtYXkgY2F1c2Ugc29tZSBkcml2ZXJzJyBwZXJmb3JtYW5jZQo+IGlzc3VlcyB3aGVuIHRo
+ZXkgaW5zdGFsbC91bmluc3RhbGwgbWVtb3J5IGZyZXF1ZW50bHkuCj4gCgpIaSBBbGwsCgpJIHRo
+aW5rIGZ1bmN0aW9uYWwgY29ycmVjdG5lc3Mgc2hvdWxkIGJlIG1vcmUgaW1wb3J0YW50IHRoYW4g
+c3lzdGVtIHBlcmZvcm1hbmNlCmluIHRoaXMgY2FzZS4gVGhlICJwcmV2ZW50aXZlIiBTRkVOQ0Uu
+Vk1BIGJlY2FtZSBuZWNlc3NhcnkgZHVlIHRvIHRoZSBSSVNDLVYKc3BlY2lmaWNhdGlvbiBhbGxv
+d2luZyBpbnZhbGlkYXRpb24gZW50cmllcyB0byBiZSBjYWNoZWQgaW4gdGhlIFRMQi4KClRoZSBw
+cm9ibGVtWzFdIHdlIGFyZSBjdXJyZW50bHkgZW5jb3VudGVyaW5nIGlzIGNhdXNlZCBieSBub3Qg
+dXBkYXRpbmcgdGhlIFRMQgphZnRlciB0aGUgcGFnZSB0YWJsZSBpcyBjcmVhdGVkLCBhbmQgdGhl
+IHNvbHV0aW9uIHRvIHRoaXMgcHJvYmxlbSBjYW4gb25seSBiZQpzb2x2ZWQgYnkgdXBkYXRpbmcg
+dGhlIFRMQiBpbW1lZGlhdGVseSBhZnRlciB0aGUgcGFnZSB0YWJsZSBpcyBjcmVhdGVkLgoKVGhl
+cmUgYXJlIGN1cnJlbnRseSB0d28gcG9zc2libGUgYXBwcm9hY2hlcyB0byBmbHVzaCBUTEI6CjEu
+IEZsdXNoIFRMQiBpbiBmbHVzaF9jYWNoZV92bWFwKCkKMi4gRmx1c2ggVExCIGluIGFyY2hfc3lu
+Y19rZXJuZWxfbWFwcGluZ3MoKQoKQnV0IEknbSBub3QgcXVpdGUgc3VyZSBpZiBpdCdzIGEgZ29v
+ZCBpZGVhIHRvIG9wZXJhdGUgb24gdGhlIFRMQiBpbnNpZGUgZmx1c2hfY2FjaGVfdm1hcCgpLgpU
+aGUgbmFtZSBvZiB0aGlzIGZ1bmN0aW9uIGluZGljYXRlcyB0aGF0IGl0IHNob3VsZCBiZSByZWxh
+dGVkIHRvIGNhY2hlIG9wZXJhdGlvbnMsIG1heWJlCml0IHdvdWxkIGJlIG1vcmUgYXBwcm9wcmlh
+dGUgdG8gZG8gVExCIGZsdXNoIGluIGFyY2hfc3luY19rZXJuZWxfbWFwcGluZ3MoKT8KClsxXTog
+aHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvcGlwZXJtYWlsL2xpbnV4LXJpc2N2LzIwMjMtQXVn
+dXN0LzAzNzUwMy5odG1sCgpCZXN0IHJlZ2FyZHMsCkR5bGFuCgo+ID4gKyNlbmRpZgo+ID4gKwo+
+ID4gICNpZm5kZWYgQ09ORklHX1NNUAo+ID4KPiA+ICAjZGVmaW5lIGZsdXNoX2ljYWNoZV9hbGwo
+KSBsb2NhbF9mbHVzaF9pY2FjaGVfYWxsKCkKPiA+IC0tCj4gPiAyLjM5LjIKPiA+Cj4gCj4gCj4g
+LS0gCj4gQmVzdCBSZWdhcmRzCj4gIEd1byBSZW4KPiAKPiBfX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fXwo+IGxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdAo+IGxp
+bnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKPiBodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9y
+Zy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2CgpfX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlz
+Y3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFu
+L2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
