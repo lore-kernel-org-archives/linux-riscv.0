@@ -4,78 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B629C04A6A
-	for <linux-riscv@archiver.kernel.org>; Thu,  3 Aug 2023 04:28:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7718FEB64DD
+	for <linux-riscv@archiver.kernel.org>; Thu,  3 Aug 2023 04:35:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=I9tuh1LhiMQuLVHPZnlv+Dhr3ZK3UtO5LZw9rQmNdwM=; b=YkeZttOxcY9NKf
-	FwJ/C9061a6eHYz+fVjKyqoCPsqUoVRJ0NClqwClirtN2Yg9cm20YOtK+RCS+SYPFjmI9GgaeLktT
-	WUTZMA/24UcuLFmsX2cRXq9/+rF3DiTsrnah2afJPnoDshaSkXXxOewvL9A23WcPqugrlD3G46AVO
-	93Q8BeKFGdG2vASa1i1i7nXxP9MM7bpw4wi1mm3C829fbx5lcHZUxK9mW8a701OjGkxYUHPHZmKCm
-	MdZj4O7MdjUFxFRcvBmV5aCh8YcutfJs4KbCWV8E48N93eqN/yOZJQJ6UkmlcpgHFhgWdcRzxTyWT
-	JjHJ70xaK3GpCUrlHWJg==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=p3B9VIxtbOwIN6yLOvikL7gtHGoLprH2XOgdZ3PDwj0=; b=TlQQPVsIDRXwkc
+	Bac5rc/t1esnu39PehhX/tq1mXoI0GmVlpWILVRep3DHzYh4jfOKN+nmTzC/l39lellXl0fMhDfik
+	zvq6GolxtqBK3oniVM10TLK5YSiL8TotPPsq9blOmK6uXnmHcM9mImmVKWoUy0twDZRdXKpaxlD6/
+	56FIag4lYibV5S7O6YrxUbVhlEgUysqFLh2Y8pSau6GSYdiB1akeUgf5GVKR1cCYbaJLx5HlkPc9s
+	I2Q7aCspa9BYR0KE44nEf2ZJKWhRzLnljjj8gWW/sMIPAEhu1Q8Nj+cH85ze17wqUH0C3WR86nYCN
+	Zn6pOkvl+ZU6Q0VjlLKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qRPwI-006cZx-2w;
-	Thu, 03 Aug 2023 04:27:54 +0000
-Received: from mail-ed1-x52d.google.com ([2a00:1450:4864:20::52d])
+	id 1qRQ3g-006dE4-2h;
+	Thu, 03 Aug 2023 04:35:32 +0000
+Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qRPwF-006cWM-1R
+	id 1qRQ3d-006dDG-1O
 	for linux-riscv@lists.infradead.org;
-	Thu, 03 Aug 2023 04:27:53 +0000
-Received: by mail-ed1-x52d.google.com with SMTP id 4fb4d7f45d1cf-5221cf2bb8cso567925a12.1
-        for <linux-riscv@lists.infradead.org>; Wed, 02 Aug 2023 21:27:47 -0700 (PDT)
+	Thu, 03 Aug 2023 04:35:30 +0000
+Received: by mail-ej1-x62d.google.com with SMTP id a640c23a62f3a-977e0fbd742so64981566b.2
+        for <linux-riscv@lists.infradead.org>; Wed, 02 Aug 2023 21:35:25 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20221208; t=1691036866; x=1691641666;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=zc4fKZpvtCamX6sgBaS463wBLKH4MpwEP9vDGVPDIZs=;
-        b=Egl2+MgBN+YIyuX/3RSTHmzC4j0m+vmprmny8glLiHeN3qb4t9FK2El2eXAxeBFwf2
-         BpU1zJX2iFbwLXkQRVmHH59VKITRjWahkpsgR8BaH46srfiIsDLpjSsOLfuUMwOfs33h
-         KRqYCz4Mjcx06EoWWyH6ZG+sYmKzy6kzp5llzggEA+mRoL4yfLzeHmYLVYUXxcU4hF0U
-         9XcD140gRuVq6swTilOXJPNehGezj/UhSROAmF6OkF9QiicPc8f8Swv9nDGpqYnJMpu2
-         lirINJYQVBWT+aEZCscGvBEQPXhJ6mUp0TN8wpzYIVXimXPZb8S29OwcVQa3mkk+mSlY
-         PQNA==
+        d=brainfault-org.20221208.gappssmtp.com; s=20221208; t=1691037324; x=1691642124;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Fr6MNDVhgEvRAnXNj84to/nh4ypRKkg1CDzy7x9Q7fA=;
+        b=0Pr70O6uN52tYzz4OSDLnSJn+VV5q/W+cvIMtDbYW04msr5UU+AE7vH8anl5DrdbEs
+         TzfpDy36OKA2M0cC6KVoqgR2TVPem8wNvhsul9ubo4w9tj/wbYFvUdRox2gnwaxyzirB
+         JDbLgfRV5+VrqXVIsHhaB4Xmzvu/xBi8/5qMbe/pVnQr6If7z251daGdQTFBTSo9Voqh
+         IC/Yri0MqVAmfuImDCgULppJGyyairsk/V+JruinRpqBtXK862yuqbMEzFmoQzK6IWCp
+         4nHDtQmSdqTFhOzf1xRYMK71rfJyb+ZX3p9Z6UEIE8YrCPcxTHjLFKR1QwbBxTwn3W37
+         rmXQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1691036866; x=1691641666;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=zc4fKZpvtCamX6sgBaS463wBLKH4MpwEP9vDGVPDIZs=;
-        b=EGt6gAo12O2NU99Kgka81p3ZMHch7ZlKsxyCr1d+N0kWbpVLMJhPF3mdd3/LrKOyeX
-         N4HmfY7tjAw8jjYOTmmxnFmGdjVx2gUyQX1zqdkkM0iWEf44yxhxO0RYiL3F6jGaAvE+
-         FElZphN9Ul3rgv1Z7vrJveY+MdXLzF7uqcacIvHP/WSIr/p5uLkW766en6H5LbSrlKA/
-         AAPcAbVOSQh0zLdatEzR5GKMw54vapYAN9SToJU1rMt3iDEHabNoWyZp7/DICVTOQJ4Q
-         KW1xQJO/BpXCK4Ljc2CZs3SR0PPI1jNjTB0EUGmc5xtDecpZOIs+AkTKkn9El0rdbvp1
-         dStg==
-X-Gm-Message-State: AOJu0YwRAyvIHw0ynWVBhArVyYp/8xpgBJRKSWonVB9jjB2M3eWeizfM
-	Ig7KB3ixS7Mr/+ZOSB0VT5c=
-X-Google-Smtp-Source: AGHT+IGv7afoJa7YCQjcrnx3h7TVpsBXcfQhpdU+L/BetHl7PXElFdOIgObMjCHWcm6S4ULc2zSMmQ==
-X-Received: by 2002:a05:6402:1b08:b0:523:73d:84c8 with SMTP id by8-20020a0564021b0800b00523073d84c8mr1608703edb.12.1691036865844;
-        Wed, 02 Aug 2023 21:27:45 -0700 (PDT)
-Received: from andrea.. (host-82-57-177-142.retail.telecomitalia.it. [82.57.177.142])
-        by smtp.gmail.com with ESMTPSA id u12-20020aa7d54c000000b0052217b3a10dsm9337094edr.63.2023.08.02.21.27.43
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 02 Aug 2023 21:27:44 -0700 (PDT)
-From: Andrea Parri <parri.andrea@gmail.com>
-To: paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu
-Cc: linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Andrea Parri <parri.andrea@gmail.com>
-Subject: [PATCH v2] riscv,mmio: Fix readX()-to-delay() ordering
-Date: Thu,  3 Aug 2023 06:27:38 +0200
-Message-Id: <20230803042738.5937-1-parri.andrea@gmail.com>
-X-Mailer: git-send-email 2.34.1
+        d=1e100.net; s=20221208; t=1691037324; x=1691642124;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Fr6MNDVhgEvRAnXNj84to/nh4ypRKkg1CDzy7x9Q7fA=;
+        b=OZErWhX8jm0USvbBfT9E0Viwtjt+4dYNNyBq48e/rk+CX+7h8JjzC5Id30B378TLsw
+         SQ60ezNjn4pBwek+FeuQUAaaCn7zus78Yr1fmeuVtfP6a6UKYhqPLWKG7ioDKjA8H6S+
+         YpgfvNlCVhm2dIlc3OKsBebcr3dVV07SnDwlybrFk69h+aMvI0OxRca3p4oN3LtYFLnn
+         4JS8FevFhnZdXk1X36epbydI7esJ664RtaqPHF9hQp9gKDozVstMwVE6ok1uhQYuyiRG
+         zeIXf0QXbBTVrN8o0tB0QfyLlf4tiRqjXItwNM5HRgAboGt9tcKzbg/NAOAtjkCpLX71
+         qY3Q==
+X-Gm-Message-State: ABy/qLbiRp87Uf2kSOFJgEdLVkgadHSxScanKUj5n1wBFCN1hYTf3mMb
+	bnAAmUHObrzovNLoRj9kiQw+aL3bEfIcoENB7hUhdg==
+X-Google-Smtp-Source: APBJJlGZT2a4IIAjkkcSEhL6E4SzgR5Ue5FpgKLD2cz/AP+7iHLTSUwKqbhsi7I/7DuDzkmAIzbrz6Xo1VXwTk9rk/o=
+X-Received: by 2002:a17:906:3f5b:b0:99b:5abb:8caf with SMTP id
+ f27-20020a1709063f5b00b0099b5abb8cafmr5849495ejj.44.1691037324159; Wed, 02
+ Aug 2023 21:35:24 -0700 (PDT)
 MIME-Version: 1.0
+References: <20230802150018.327079-1-apatel@ventanamicro.com>
+ <20230802150018.327079-2-apatel@ventanamicro.com> <20230802-deviancy-vengeful-cbecf4350526@spud>
+In-Reply-To: <20230802-deviancy-vengeful-cbecf4350526@spud>
+From: Anup Patel <anup@brainfault.org>
+Date: Thu, 3 Aug 2023 10:05:12 +0530
+Message-ID: <CAAhSdy1K-Bh80_h1b9OiSMEjZmw+ghL27EY-Dx_4-Jbq27sLow@mail.gmail.com>
+Subject: Re: [PATCH v7 01/15] RISC-V: Add riscv_get_intc_hartid() function
+To: Conor Dooley <conor@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230802_212751_489027_F4BA23E9 
-X-CRM114-Status: GOOD (  13.40  )
+X-CRM114-CacheID: sfid-20230802_213529_689922_6206EE48 
+X-CRM114-Status: GOOD (  12.93  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,79 +82,26 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: Anup Patel <apatel@ventanamicro.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Saravana Kannan <saravanak@google.com>, Marc Zyngier <maz@kernel.org>, Atish Patra <atishp@atishpatra.org>, linux-kernel@vger.kernel.org, Rob Herring <robh+dt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley <paul.walmsley@sifive.com>, Thomas Gleixner <tglx@linutronix.de>, Frank Rowand <frowand.list@gmail.com>, linux-riscv@lists.infradead.org, Andrew Jones <ajones@ventanamicro.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Section 2.1 of the Platform Specification [1] states:
-
-  Unless otherwise specified by a given I/O device, I/O devices are on
-  ordering channel 0 (i.e., they are point-to-point strongly ordered).
-
-which is not sufficient to guarantee that a readX() by a hart completes
-before a subsequent delay() on the same hart (cf. memory-barriers.txt,
-"Kernel I/O barrier effects").
-
-Set the I(nput) bit in __io_ar() to restore the ordering, align inline
-comments.
-
-[1] https://github.com/riscv/riscv-platform-specs
-
-Signed-off-by: Andrea Parri <parri.andrea@gmail.com>
----
-Changes since v1:
-  https://lore.kernel.org/lkml/20230711133348.151383-1-parri.andrea@gmail.com/
-
-  - surrendered to the intricacies of NOMMU/RV32 builds: dropping #2
-    (takers are welcome! ;-) )
-
-
- arch/riscv/include/asm/mmio.h | 16 ++++++++--------
- 1 file changed, 8 insertions(+), 8 deletions(-)
-
-diff --git a/arch/riscv/include/asm/mmio.h b/arch/riscv/include/asm/mmio.h
-index aff6c33ab0c08..4c58ee7f95ecf 100644
---- a/arch/riscv/include/asm/mmio.h
-+++ b/arch/riscv/include/asm/mmio.h
-@@ -101,9 +101,9 @@ static inline u64 __raw_readq(const volatile void __iomem *addr)
-  * Relaxed I/O memory access primitives. These follow the Device memory
-  * ordering rules but do not guarantee any ordering relative to Normal memory
-  * accesses.  These are defined to order the indicated access (either a read or
-- * write) with all other I/O memory accesses. Since the platform specification
-- * defines that all I/O regions are strongly ordered on channel 2, no explicit
-- * fences are required to enforce this ordering.
-+ * write) with all other I/O memory accesses to the same peripheral. Since the
-+ * platform specification defines that all I/O regions are strongly ordered on
-+ * channel 0, no explicit fences are required to enforce this ordering.
-  */
- /* FIXME: These are now the same as asm-generic */
- #define __io_rbr()		do {} while (0)
-@@ -125,14 +125,14 @@ static inline u64 __raw_readq(const volatile void __iomem *addr)
- #endif
- 
- /*
-- * I/O memory access primitives. Reads are ordered relative to any
-- * following Normal memory access. Writes are ordered relative to any prior
-- * Normal memory access.  The memory barriers here are necessary as RISC-V
-+ * I/O memory access primitives.  Reads are ordered relative to any following
-+ * Normal memory read and delay() loop.  Writes are ordered relative to any
-+ * prior Normal memory write.  The memory barriers here are necessary as RISC-V
-  * doesn't define any ordering between the memory space and the I/O space.
-  */
- #define __io_br()	do {} while (0)
--#define __io_ar(v)	__asm__ __volatile__ ("fence i,r" : : : "memory")
--#define __io_bw()	__asm__ __volatile__ ("fence w,o" : : : "memory")
-+#define __io_ar(v)	({ __asm__ __volatile__ ("fence i,ir" : : : "memory"); })
-+#define __io_bw()	({ __asm__ __volatile__ ("fence w,o" : : : "memory"); })
- #define __io_aw()	mmiowb_set_pending()
- 
- #define readb(c)	({ u8  __v; __io_br(); __v = readb_cpu(c); __io_ar(__v); __v; })
--- 
-2.34.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gV2VkLCBBdWcgMiwgMjAyMyBhdCAxMDo1MeKAr1BNIENvbm9yIERvb2xleSA8Y29ub3JAa2Vy
+bmVsLm9yZz4gd3JvdGU6Cj4KPiBPbiBXZWQsIEF1ZyAwMiwgMjAyMyBhdCAwODozMDowNFBNICsw
+NTMwLCBBbnVwIFBhdGVsIHdyb3RlOgo+Cj4gPiArLyogRmluZCBoYXJ0IElEIG9mIHRoZSBJTlRD
+IGZ3bm9kZS4gKi8KPiA+ICtpbnQgcmlzY3ZfZ2V0X2ludGNfaGFydGlkKHN0cnVjdCBmd25vZGVf
+aGFuZGxlICpub2RlLCB1bnNpZ25lZCBsb25nICpoYXJ0aWQpCj4gPiArewo+ID4gKyAgICAgaW50
+IHJjOwo+ID4gKyAgICAgdTY0IHRlbXA7Cj4gPiArCj4gPiArICAgICBpZiAoIWlzX29mX25vZGUo
+bm9kZSkpIHsKPiA+ICsgICAgICAgICAgICAgcmMgPSBmd25vZGVfcHJvcGVydHlfcmVhZF91NjRf
+YXJyYXkobm9kZSwgImhhcnRpZCIsICZ0ZW1wLCAxKTsKPiA+ICsgICAgICAgICAgICAgaWYgKCFy
+YykKPiA+ICsgICAgICAgICAgICAgICAgICAgICAqaGFydGlkID0gdGVtcDsKPiA+ICsgICAgIH0g
+ZWxzZQo+ID4gKyAgICAgICAgICAgICByYyA9IHJpc2N2X29mX3BhcmVudF9oYXJ0aWQodG9fb2Zf
+bm9kZShub2RlKSwgaGFydGlkKTsKPgo+IFRoaXMgYnJhbmNoIG5lZWRzIHRvIGJlIGVuY2xvc2Vk
+IGluIGJyYWNlcyB0b28uCgpPa2F5LCBJIHdpbGwgdXBkYXRlIGluIHRoZSBuZXh0IHJldmlzaW9u
+LgoKPgo+ID4gKwo+ID4gKyAgICAgcmV0dXJuIHJjOwo+ID4gK30KPiA+ICsKPiA+ICBERUZJTkVf
+UEVSX0NQVShzdHJ1Y3QgcmlzY3ZfY3B1aW5mbywgcmlzY3ZfY3B1aW5mbyk7Cj4KClJlZ2FyZHMs
+CkFudXAKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxp
+bnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0
+dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
