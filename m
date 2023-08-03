@@ -4,69 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5903C00528
-	for <linux-riscv@archiver.kernel.org>; Thu,  3 Aug 2023 08:38:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF13DC00528
+	for <linux-riscv@archiver.kernel.org>; Thu,  3 Aug 2023 08:57:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=d61cCT2T53Sk5/3SUGSbuJJVtHkogTEprVbDDSXeNGA=; b=gLJXxbN89mXF1F
-	WAqNbvo+XiOyizB6P9qjR/QUlTs7qY973vjRWwXcizc1iqaWQ6mRRZJzG6M9//hVM2A7BPqsWx9VA
-	Ox3CcsX//sVDukc6Y9rGOo9sTHl5fD/S3w5OqNVHjXlEOCwatum/tc465yKRg/l+/6yPNmzA7NRYZ
-	vwlO27JHkovd/wghDGuEXkvAgO7CKFvgaBio586No/F0T4Sd0yZDNfFH1AYWRE+1t5nvA0JcXPOeT
-	jPWT9LFeq/fV81/JjiAZEQ3ULCC7SRBqsV/q2e6gl/rJwiLHKSVm+fXfiKOYUxzBRcfCll3APouH/
-	ggR/YHQen5a9/JYBaJKQ==;
+	List-Owner; bh=yyS9bAoR8rC8IwRC9MVvGC6UDFWFxQcs+SkTKTKxDfQ=; b=lGuy1TUq63eWiV
+	f5QpyVxFcAGn16JC9sTkNfnfTYT1g/21eJUf3sZDrrS/NylgG2y21hQ/S0khLo0FF1gTnay1v0Hkt
+	TSG8ViXThsaUR6phHFc3fYChhWMkxX/Tit5iAX/xhV7YBZeo/NX07p5ZjY2r0OUA4ay4rZG0JH2OF
+	LBA++Cfbjyhiw4x3/PnZB0qlqblqcBQyHRHiQl6l7v8sZepgivgjPO1AvYHm1J2EugcXQejqDxf3M
+	i9qO+Nwh8wmnvpglu/trS3lTh/cDwWfjYhNYXHLWKzCoV1sGUnNwJJWcXnFJKpp53oKrIbLEpJDg2
+	NE7Dz69rG5WIh/CAGzFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qRTqx-0073Ih-0E;
-	Thu, 03 Aug 2023 08:38:39 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qRTqq-0073Fi-2K
+	id 1qRU9X-0075gX-16;
+	Thu, 03 Aug 2023 08:57:51 +0000
+Received: from mail-oi1-x233.google.com ([2607:f8b0:4864:20::233])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1qRU9U-0075fa-1g
 	for linux-riscv@lists.infradead.org;
-	Thu, 03 Aug 2023 08:38:37 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id AC5BE8067;
-	Thu,  3 Aug 2023 16:37:52 +0800 (CST)
-Received: from EXMBX172.cuchost.com (172.16.6.92) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 3 Aug
- 2023 16:37:52 +0800
-Received: from [192.168.125.84] (183.27.98.54) by EXMBX172.cuchost.com
- (172.16.6.92) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 3 Aug
- 2023 16:37:51 +0800
-Message-ID: <34c8c9d5-fad0-52ce-d1e6-798546005bfd@starfivetech.com>
-Date: Thu, 3 Aug 2023 16:37:50 +0800
+	Thu, 03 Aug 2023 08:57:50 +0000
+Received: by mail-oi1-x233.google.com with SMTP id 5614622812f47-3a76d882080so148634b6e.2
+        for <linux-riscv@lists.infradead.org>; Thu, 03 Aug 2023 01:57:48 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sifive.com; s=google; t=1691053067; x=1691657867;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=B8jNn+NP9j7pIA4Gvr3RjVfWCo1xNEk9xbLxp+U9DEU=;
+        b=dUCjuE/YmR0/8JPJZVzOLMSntUMrvBHBGDA65WMxmJlES6nUM2VmooTuiNK1OE1tzU
+         OGO7KiY7VKkwRh1umpSTkMAtVnIx+K2N4ppj7+D3/SiDMMZnvXnwMzMq+shLT9uFC+ye
+         5X27QK9DK2d49JR1JJUZFRL4LKEupHJrs3tD9Ea8tvc1cuysV9juAhWG/b5dcz75o7t2
+         +aJ7K/AscsGiLN9vgISi/Ow02ITDPLV/njd6G8MUDlJsoPDl8Yx/ckP07QKMYG11AnHk
+         MtqjIJbDVWa06b4Z4DDW+xgCuHWdjnGzIYq5VyfTGu6UMZcBSJnOqbCPK8XaFElkD21W
+         QVvw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1691053067; x=1691657867;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=B8jNn+NP9j7pIA4Gvr3RjVfWCo1xNEk9xbLxp+U9DEU=;
+        b=aE43IAFiUNszvasYCn8pIcRrEDrgHdxm+jZxzIlam4pqsIT4Pz18v3jvDMscYnTTSy
+         GB9CQowzFK+mqDL217dNQl95zn2S6JAg7Kzljz138s1vbPV3tcC4yCcuVvUjDgvhDber
+         Ec2Up9pukZp/anB4mEt4762Yu5NlKR1gW+KFuAGnDB0kDvnc9DKjWaRDYOLEkDTLFDX/
+         B2mr6eYWrfnZh5QWooN9gcedL28tcFUbBNlEMFYOeExzD3JpHgbvjZpFl6yQkqn5VHYL
+         F4tEN0nTBi9NnWDXC7U6sUGy/HgDnT6nA+G4I8WqWwmxbz8dspXK7Omw6/WX1Ev5juGZ
+         1XvA==
+X-Gm-Message-State: ABy/qLb1zk3I8WKi5RZthmbB2DJXEqCWDSui9jwF3AqO5qTvnd6dE2Ej
+	X9n2/F46q8lz9/+K9/K2zEnT5Q==
+X-Google-Smtp-Source: APBJJlHYkyaQstJnkzI/nrMEdCFBI7JwgG/Clj2L5mYZWErvDAJf7HkkrBz83mlUGVdkJrUB3++vPw==
+X-Received: by 2002:a05:6358:5e0a:b0:133:a8e:6feb with SMTP id q10-20020a0563585e0a00b001330a8e6febmr8982344rwn.12.1691053067366;
+        Thu, 03 Aug 2023 01:57:47 -0700 (PDT)
+Received: from hsinchu15.internal.sifive.com (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
+        by smtp.gmail.com with ESMTPSA id i6-20020a633c46000000b0056334a7b9b2sm12941735pgn.33.2023.08.03.01.57.44
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 03 Aug 2023 01:57:47 -0700 (PDT)
+From: Nylon Chen <nylon.chen@sifive.com>
+To: linux-kernel@vger.kernel.org
+Cc: devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	geert+renesas@glider.be,
+	pavel@ucw.cz,
+	vincent.chen@sifive.com,
+	nylon.chen@sifive.com,
+	emil.renner.berthing@canonical.com,
+	aou@eecs.berkeley.edu,
+	palmer@dabbelt.com,
+	paul.walmsley@sifive.com,
+	krzysztof.kozlowski+dt@linaro.org,
+	robh+dt@kernel.org,
+	conor@kernel.org,
+	zong.li@sifive.com,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: [PATCH v4 1/1] riscv: dts: sifive: unleashed/unmatched: Remove PWM controlled LED's active-low properties
+Date: Thu,  3 Aug 2023 16:57:34 +0800
+Message-Id: <20230803085734.340-2-nylon.chen@sifive.com>
+X-Mailer: git-send-email 2.40.1
+In-Reply-To: <20230803085734.340-1-nylon.chen@sifive.com>
+References: <20230803085734.340-1-nylon.chen@sifive.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.3.2
-Subject: Re: [PATCH v2 2/3] ASoC: starfive: Add JH7110 PWM-DAC driver
-Content-Language: en-US
-To: Mark Brown <broonie@kernel.org>
-CC: Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>, Claudiu Beznea <claudiu.beznea@microchip.com>,
-	Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor+dt@kernel.org>,
-	Walker Chen <walker.chen@starfivetech.com>, Xingyu Wu
-	<xingyu.wu@starfivetech.com>, Emil Renner Berthing
-	<emil.renner.berthing@canonical.com>, <alsa-devel@alsa-project.org>,
-	<devicetree@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>
-References: <20230731032829.127864-1-hal.feng@starfivetech.com>
- <20230731032829.127864-3-hal.feng@starfivetech.com>
- <9b03c7ed-845c-494b-8c40-10d1fe923b15@sirena.org.uk>
-From: Hal Feng <hal.feng@starfivetech.com>
-In-Reply-To: <9b03c7ed-845c-494b-8c40-10d1fe923b15@sirena.org.uk>
-X-Originating-IP: [183.27.98.54]
-X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX172.cuchost.com
- (172.16.6.92)
-X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230803_013833_106905_FEFB797C 
-X-CRM114-Status: GOOD (  20.68  )
+X-CRM114-CacheID: sfid-20230803_015748_577920_1F9C3703 
+X-CRM114-Status: UNSURE (   8.90  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,76 +106,94 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 31 Jul 2023 20:14:38 +0100, Mark Brown wrote:
-> On Mon, Jul 31, 2023 at 11:28:28AM +0800, Hal Feng wrote:
-> 
->> +static const struct jh7110_ct_pwmdac pwmdac_ct_data_shift[] = {
->> +	{ .name = "left 0 bit", .vals = PWMDAC_DATA_LEFT_SHIFT_BIT_0 },
->> +	{ .name = "left 1 bit", .vals = PWMDAC_DATA_LEFT_SHIFT_BIT_1 },
->> +	{ .name = "left 2 bit", .vals = PWMDAC_DATA_LEFT_SHIFT_BIT_2 },
->> +	{ .name = "left 3 bit", .vals = PWMDAC_DATA_LEFT_SHIFT_BIT_3 },
->> +	{ .name = "left 4 bit", .vals = PWMDAC_DATA_LEFT_SHIFT_BIT_4 },
->> +	{ .name = "left 5 bit", .vals = PWMDAC_DATA_LEFT_SHIFT_BIT_5 },
->> +	{ .name = "left 6 bit", .vals = PWMDAC_DATA_LEFT_SHIFT_BIT_6 },
->> +	{ .name = "left 7 bit", .vals = PWMDAC_DATA_LEFT_SHIFT_BIT_7 }
->> +};
-> 
-> It's not clear to me why this is user selectable - what does the control
-> do?
+This removes the active-low properties of the PWM-controlled LEDs in
+the HiFive Unmatched device tree.
 
-It's convenient to change the register values in user space with the
-control. But actually using fixed register configuration is enough.
-I will drop all these control in the next version.
+The reference is hifive-unleashed-a00.pdf[0] and hifive-unmatched-schematics-v3.pdf[1].
 
-> 
->> +static int jh7110_pwmdac_put(struct snd_kcontrol *kcontrol,
->> +			     struct snd_ctl_elem_value *ucontrol,
->> +			     int pwmdac_ct)
->> +{
->> +	struct snd_soc_component *component = snd_kcontrol_chip(kcontrol);
->> +	struct jh7110_pwmdac_dev *dev = snd_soc_component_get_drvdata(component);
->> +	int sel = ucontrol->value.enumerated.item[0];
->> +	unsigned int items;
-> 
->> +	if (pwmdac_ct == PWMDAC_CT_SHIFT)
->> +		dev->shift = pwmdac_ct_shift[sel].vals;
->> +	else if (pwmdac_ct == PWMDAC_CT_DUTY_CYCLE)
->> +		dev->duty_cycle = pwmdac_ct_duty_cycle[sel].vals;
->> +	else if (pwmdac_ct == PWMDAC_CT_DATA_CHANGE)
->> +		dev->data_change = pwmdac_ct_data_change[sel].vals;
->> +	else if (pwmdac_ct == PWMDAC_CT_DATA_MODE)
->> +		dev->data_mode = pwmdac_ct_data_mode[sel].vals;
->> +	else if (pwmdac_ct == PWMDAC_CT_DATA_SHIFT)
->> +		dev->data_shift = pwmdac_ct_data_shift[sel].vals;
->> +
->> +	return 0;
->> +}
-> 
-> _put() operations should return 1 if the control value changes so event
-> generation works - please test a card using this driver with the
-> mixer-test selftest, it'll identify this and a bunch of other potential
-> issues.
+Link: https://sifive.cdn.prismic.io/sifive/c52a8e32-05ce-4aaf-95c8-7bf8453f8698_hifive-unleashed-a00-schematics-1.pdf [0]
+Link: https://sifive.cdn.prismic.io/sifive/6a06d6c0-6e66-49b5-8e9e-e68ce76f4192_hifive-unmatched-schematics-v3.pdf [1]
 
-Thanks for the correct, but it doesn't matter as I will drop these control
-later.
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+Signed-off-by: Vincent Chen <vincent.chen@sifive.com>
+Signed-off-by: Nylon Chen <nylon.chen@sifive.com>
+---
+ arch/riscv/boot/dts/sifive/hifive-unleashed-a00.dts | 4 ----
+ arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts | 4 ----
+ 2 files changed, 8 deletions(-)
 
-> 
->> +static int jh7110_pwmdac_component_probe(struct snd_soc_component *component)
->> +{
->> +	snd_soc_add_component_controls(component, jh7110_pwmdac_snd_controls,
->> +				       ARRAY_SIZE(jh7110_pwmdac_snd_controls));
->> +	return 0;
->> +}
-> 
-> The driver can just point to the controls from the _driver struct and
-> skip having a probe() function.
+diff --git a/arch/riscv/boot/dts/sifive/hifive-unleashed-a00.dts b/arch/riscv/boot/dts/sifive/hifive-unleashed-a00.dts
+index 900a50526d77..7a9f336a391c 100644
+--- a/arch/riscv/boot/dts/sifive/hifive-unleashed-a00.dts
++++ b/arch/riscv/boot/dts/sifive/hifive-unleashed-a00.dts
+@@ -50,7 +50,6 @@ led-controller {
+ 
+ 		led-d1 {
+ 			pwms = <&pwm0 0 7812500 PWM_POLARITY_INVERTED>;
+-			active-low;
+ 			color = <LED_COLOR_ID_GREEN>;
+ 			max-brightness = <255>;
+ 			label = "d1";
+@@ -58,7 +57,6 @@ led-d1 {
+ 
+ 		led-d2 {
+ 			pwms = <&pwm0 1 7812500 PWM_POLARITY_INVERTED>;
+-			active-low;
+ 			color = <LED_COLOR_ID_GREEN>;
+ 			max-brightness = <255>;
+ 			label = "d2";
+@@ -66,7 +64,6 @@ led-d2 {
+ 
+ 		led-d3 {
+ 			pwms = <&pwm0 2 7812500 PWM_POLARITY_INVERTED>;
+-			active-low;
+ 			color = <LED_COLOR_ID_GREEN>;
+ 			max-brightness = <255>;
+ 			label = "d3";
+@@ -74,7 +71,6 @@ led-d3 {
+ 
+ 		led-d4 {
+ 			pwms = <&pwm0 3 7812500 PWM_POLARITY_INVERTED>;
+-			active-low;
+ 			color = <LED_COLOR_ID_GREEN>;
+ 			max-brightness = <255>;
+ 			label = "d4";
+diff --git a/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts b/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts
+index 07387f9c135c..11f08a545ee6 100644
+--- a/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts
++++ b/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts
+@@ -52,7 +52,6 @@ led-controller-1 {
+ 
+ 		led-d12 {
+ 			pwms = <&pwm0 0 7812500 PWM_POLARITY_INVERTED>;
+-			active-low;
+ 			color = <LED_COLOR_ID_GREEN>;
+ 			max-brightness = <255>;
+ 			label = "d12";
+@@ -69,19 +68,16 @@ multi-led {
+ 
+ 			led-red {
+ 				pwms = <&pwm0 2 7812500 PWM_POLARITY_INVERTED>;
+-				active-low;
+ 				color = <LED_COLOR_ID_RED>;
+ 			};
+ 
+ 			led-green {
+ 				pwms = <&pwm0 1 7812500 PWM_POLARITY_INVERTED>;
+-				active-low;
+ 				color = <LED_COLOR_ID_GREEN>;
+ 			};
+ 
+ 			led-blue {
+ 				pwms = <&pwm0 3 7812500 PWM_POLARITY_INVERTED>;
+-				active-low;
+ 				color = <LED_COLOR_ID_BLUE>;
+ 			};
+ 		};
+-- 
+2.40.1
 
-Thanks for your advice, but I would like to drop these control later.
-
-Thanks again for your review.
-
-Best regards,
-Hal
 
 _______________________________________________
 linux-riscv mailing list
