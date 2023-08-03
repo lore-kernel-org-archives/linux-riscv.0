@@ -4,98 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC096EB64DD
-	for <linux-riscv@archiver.kernel.org>; Thu,  3 Aug 2023 05:14:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7173DEB64DD
+	for <linux-riscv@archiver.kernel.org>; Thu,  3 Aug 2023 05:16:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4eLuVd3F7NGPjfdgSuyQN5AWfyB2zrhJ38g3EttoA10=; b=XdJ2dEJXUgNu9p
-	28p59SO3WLU76k+C7QmjDXj40wy1wwosyHZRC4obJzX47I4p6dimT5uClEFCqsRX9c4m9fzRJuv7V
-	nO4zW5DnF+oFMeZ04L3h80/aMnQaHKUaT2wm82kZ8kaGyuar9jh/lyqYhDMx1obJrbiB0DGxzLEy2
-	Sxqv4IgNaTwBLWZbkoI7LlZNGLTrD1CFMYnn1k+n0gfn+wXj4oKuXqaw79xniDDIlcieZ24PiaNYT
-	d5BRAifQaUMNfXbYUfpse0cXtoZ3KFzNt1hhydtAbnrbrv3wwGqk3KPtRL/fyRCxLzyAa80U8eN5s
-	/WIhb2qDDiZX6HfAqZ8A==;
+	List-Owner; bh=nw4R2dg51yTt+Hm8XQ3EDUCrwjuWpwnRo/jhfUkz1KM=; b=oVEH723aHTgAa1
+	RXhr1r5mGrEsV8ALiCQrlK2EEcmG54NTjzpNatFowQdR7sMP2QPjFYNyJmAfsz0vVkZNoLmQ92khp
+	2Cf5pWEc0BgQhFVzLaKPPyWWKIajKsfB426KmGF1tVY1CgkJGlAA0r1KuJjkEn+J8S1s5/qnT0qH2
+	V/4e5aHNx1nuCh3buF3IKQvjcXAM+Xx9OaMlmkGmkZ1+D7dWSQoT/e3tyauAwlsNMjtk+E/dPwIHP
+	uXVfXkP3TxVkGBpRcUVldvlRt/2qn20ALqFXV66X1TVm4je2xJztTCP4/egu4wo3kAEbMt0L5MJf2
+	AtnTLYwK9QhSavIWSxfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qRQfg-006fRD-26;
-	Thu, 03 Aug 2023 05:14:48 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1qRQhG-006fhQ-1V;
+	Thu, 03 Aug 2023 05:16:26 +0000
+Received: from smtpng3.i.mail.ru ([94.100.177.149])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qRQfd-006fNu-1Y
+	id 1qRQhB-006ffu-0p
 	for linux-riscv@lists.infradead.org;
-	Thu, 03 Aug 2023 05:14:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1691039678;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=wZcGwtCjzhW0OBBycEUaxWbT2VDTB4yqfuLafpABV3I=;
-	b=Qn7bbrB9UPJGR/2tGKA8JDFGm2ZvoM1/H1a3A+IvDeFOFneq7QECCd0pFycGCR8LpQnZh9
-	+2aNIC2MQG/ZIwjd+qzacz13eTQetdqJ6rGN+lXRLnnLgZm6l6y7hWwrL4KZtxjfGKn2mL
-	qMkpKtED6/WTdJQIk24ZUSNizlRSo94=
-Received: from mail-oi1-f197.google.com (mail-oi1-f197.google.com
- [209.85.167.197]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-600-qmC_roWvM6q5hKJ52UbJLg-1; Thu, 03 Aug 2023 01:14:35 -0400
-X-MC-Unique: qmC_roWvM6q5hKJ52UbJLg-1
-Received: by mail-oi1-f197.google.com with SMTP id 5614622812f47-39cdf9f9d10so623359b6e.3
-        for <linux-riscv@lists.infradead.org>; Wed, 02 Aug 2023 22:14:35 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1691039674; x=1691644474;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=wZcGwtCjzhW0OBBycEUaxWbT2VDTB4yqfuLafpABV3I=;
-        b=cJO7rRdFcbyBMSH0smm/mW+RBSLQBY4psw553RmwejbdexEBSET3Etx4KeBtiGIyUq
-         Z0TgEkNGOXmfLy6fcSepfB4o2C8ra9cx06avpbdxIpciWYXSpsDNK6T50i/ipZqxHDBH
-         rcFWTTdHKw5RLscYhq0BhoYkbuRX18j9ZtymVKUD5vXucgalCc7waetJ+/2HOVfUmzQR
-         g8aR+mRZcQhX7Xxuo8423hLBDD6p2jMnaQmbdrY/7oBBD4tGdLEbLEgtySkdCVx01ODo
-         PZSC6xG/xduXvpx82ZBUlRjGbl4iX1yXtHbqeJpF0qX0IklpWcFuU+es79dyCqCg5tc+
-         e8Wg==
-X-Gm-Message-State: ABy/qLYYdrKDv67dowLbPhVPYU0ZIsJWUZJCrbJgeAd3bWFC9uX+VQ3N
-	hbl1ukJxw2sZ1EUemA05623n+4W8D3qD2/wdBnXuEubZ63Zrb5Kiz60rAokfTx1wqtQ9xj3MHkO
-	fBrgUeTGMTLHa5js4g95kqTpXH99e
-X-Received: by 2002:a05:6808:b08:b0:3a7:5314:e572 with SMTP id s8-20020a0568080b0800b003a75314e572mr5934118oij.53.1691039674424;
-        Wed, 02 Aug 2023 22:14:34 -0700 (PDT)
-X-Google-Smtp-Source: APBJJlEfiz2uOFuhiqR6748NuQ/vIPQxwC/CwbLPbjx+5B22xsQA9uZm1XAzQNvPTBTAb3fsMZ+03g==
-X-Received: by 2002:a05:6808:b08:b0:3a7:5314:e572 with SMTP id s8-20020a0568080b0800b003a75314e572mr5934111oij.53.1691039674128;
-        Wed, 02 Aug 2023 22:14:34 -0700 (PDT)
-Received: from localhost.localdomain ([2804:1b3:a801:d380:694f:4f52:764c:4b7f])
-        by smtp.gmail.com with ESMTPSA id g51-20020a0568080df300b003a75593746asm1675473oic.57.2023.08.02.22.14.30
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 02 Aug 2023 22:14:33 -0700 (PDT)
-From: Leonardo Bras <leobras@redhat.com>
-To: Will Deacon <will@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Boqun Feng <boqun.feng@gmail.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Leonardo Bras <leobras@redhat.com>,
-	Andrzej Hajda <andrzej.hajda@intel.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Ingo Molnar <mingo@kernel.org>,
-	Palmer Dabbelt <palmer@rivosinc.com>,
-	Guo Ren <guoren@kernel.org>
-Cc: linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: [RFC PATCH v2 1/3] riscv/cmpxchg: Deduplicate xchg() asm functions
-Date: Thu,  3 Aug 2023 02:13:58 -0300
-Message-ID: <20230803051401.710236-3-leobras@redhat.com>
-X-Mailer: git-send-email 2.41.0
-In-Reply-To: <20230803051401.710236-2-leobras@redhat.com>
-References: <20230803051401.710236-2-leobras@redhat.com>
+	Thu, 03 Aug 2023 05:16:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=inbox.ru; s=mail4;
+	h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:From:Subject:Content-Type:Content-Transfer-Encoding:To:Cc; bh=7SF+07K71ohh0WDQNef5po3x/ysEktiM4oUVhWKFpQ4=;
+	t=1691039781;x=1691129781; 
+	b=CsJcovHvX2ALYvKeRzKtusUctZHJgZBKSzqL/ZQ18naNSItW0g/sD5vHQ8ED/nGWL+gilVm8FNnxmagsSywcW8s+sXgEjkpMTzTPBhgW9UrBxviV+MEWzmYmFfTClSp70D1m8O0M2g2e40jscEV2bDAIvZOvKOtHe+5dPSnAq3AMiNYQpFs+5K/uUHUOnY+LbBdhSg7CSSJnpST6jmKc6gFglywoGzdbb52TZqtuJTeABITYu5dn5wN8Tr2W6Jr5Fzh3yxYkm2U+LDRRTXFZD5/2jUyJdKNBMj7j4WNqmkg5GWcGzyiYyg/5nYOsgNk1mEg5Y0CKWPyT/7EEW0wNyg==;
+Received: by smtpng3.m.smailru.net with esmtpa (envelope-from <fido_max@inbox.ru>)
+	id 1qRQgx-0003YR-Rj; Thu, 03 Aug 2023 08:16:09 +0300
+Message-ID: <fdd771cc-9354-208b-e8be-50d2ec6a40c9@inbox.ru>
+Date: Thu, 3 Aug 2023 08:16:06 +0300
 MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.13.0
+Subject: Re: [PATCH v1 3/5] ASoC: dwc: i2s: Add StarFive JH7110 SoC support
+To: Xingyu Wu <xingyu.wu@starfivetech.com>,
+ Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
+ Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
+ Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Conor Dooley <conor.dooley@microchip.com>,
+ Emil Renner Berthing <emil.renner.berthing@canonical.com>
+Cc: Jose Abreu <joabreu@synopsys.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Walker Chen <walker.chen@starfivetech.com>, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, alsa-devel@alsa-project.org,
+ linux-riscv@lists.infradead.org
+References: <20230802084301.134122-1-xingyu.wu@starfivetech.com>
+ <20230802084301.134122-4-xingyu.wu@starfivetech.com>
+Content-Language: en-US
+From: Maxim Kochetkov <fido_max@inbox.ru>
+In-Reply-To: <20230802084301.134122-4-xingyu.wu@starfivetech.com>
+Authentication-Results: smtpng3.m.smailru.net; auth=pass smtp.auth=fido_max@inbox.ru smtp.mailfrom=fido_max@inbox.ru
+X-Mailru-Src: smtp
+X-7564579A: 78E4E2B564C1792B
+X-77F55803: 4F1203BC0FB41BD93761F2630DFFAF419FF9F36511838303579425D3053CF375182A05F538085040A43AEB9EE471BF590BA4D0903507B565CF94DF8359E0D3D1F5C007C0E5B44D8E
+X-7FA49CB5: FF5795518A3D127A4AD6D5ED66289B5278DA827A17800CE7BBC4AF2A01A27A06EA1F7E6F0F101C67BD4B6F7A4D31EC0BCC500DACC3FED6E28638F802B75D45FF8AA50765F79006371E4BC0E00C009995EA1F7E6F0F101C6723150C8DA25C47586E58E00D9D99D84E1BDDB23E98D2D38BE5CCB53A13BC8DBA926EDEA9C8C4A220F6A49BED6FC8378E20879F7C8C5043D14489FFFB0AA5F4BF176DF2183F8FC7C091DAD9F922AA71188941B15DA834481FA18204E546F3947C7AE820D2C17D0E56F6B57BC7E64490618DEB871D839B7333395957E7521B51C2DFABB839C843B9C08941B15DA834481F8AA50765F7900637990DCC27F6719F98389733CBF5DBD5E9B5C8C57E37DE458B9E9CE733340B9D5F3BBE47FD9DD3FB595F5C1EE8F4F765FC72CEEB2601E22B093A03B725D353964B0B7D0EA88DDEDAC722CA9DD8327EE4930A3850AC1BE2E73557739F23D657EF2BB5C8C57E37DE458BEDA766A37F9254B7
+X-C1DE0DAB: 0D63561A33F958A568B3C69D00CF7EA59AFF425838D6083DF6F5AD3B11D1C70CF87CCE6106E1FC07E67D4AC08A07B9B0AD0E433DBF1FBFA3CB5012B2E24CD356
+X-C8649E89: 1C3962B70DF3F0ADE00A9FD3E00BEEDF77DD89D51EBB7742D3581295AF09D3DF87807E0823442EA2ED31085941D9CD0AF7F820E7B07EA4CF047F6813025EDDE9D08033DDC88F3ED78B8B6229CDE5AA3EA12E2341A1FE79787D7FE2FA29F577878553022043D0BC9A5D4881C73C9D659B10E80BB90F46987DE4EB81C25D25832B4C41F94D744909CEE921556F0E976A29E6EC0772259F8F8F8815B87D7EC76CB9
+X-D57D3AED: 3ZO7eAau8CL7WIMRKs4sN3D3tLDjz0dLbV79QFUyzQ2Ujvy7cMT6pYYqY16iZVKkSc3dCLJ7zSJH7+u4VD18S7Vl4ZUrpaVfd2+vE6kuoey4m4VkSEu530nj6fImhcD4MUrOEAnl0W826KZ9Q+tr5ycPtXkTV4k65bRjmOUUP8cvGozZ33TWg5HZplvhhXbhDGzqmQDTd6OAevLeAnq3Ra9uf7zvY2zzsIhlcp/Y7m53TZgf2aB4JOg4gkr2biojcir52QaMQ83GZmVOKMR6Fw==
+X-Mailru-Sender: 689FA8AB762F73930F533AC2B33E986BABA8A15A10676D7D60F49567370C77E298CC072019C18A892CA7F8C7C9492E1F2F5E575105D0B01ADBE2EF17B331888EEAB4BC95F72C04283CDA0F3B3F5B9367
+X-Mras: Ok
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230802_221445_631565_CB6B00E2 
-X-CRM114-Status: GOOD (  12.70  )
+X-CRM114-CacheID: sfid-20230802_221621_932036_3652BBCB 
+X-CRM114-Status: GOOD (  15.60  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,200 +81,100 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-In this header every xchg define (_relaxed, _acquire, _release, vanilla)
-contain it's own asm file, both for 4-byte variables an 8-byte variables,
-on a total of 8 versions of mostly the same asm.
 
-This is usually bad, as it means any change may be done in up to 8
-different places.
 
-Unify those versions by creating a new define with enough parameters to
-generate any version of the previous 8.
+On 02.08.2023 11:42, Xingyu Wu wrote:
 
-Then unify the result under a more general define, and simplify
-arch_xchg* generation.
+> diff --git a/sound/soc/dwc/dwc-i2s.c b/sound/soc/dwc/dwc-i2s.c
+> index c076090a9864..4dfbd8ddbcf5 100644
+> --- a/sound/soc/dwc/dwc-i2s.c
+> +++ b/sound/soc/dwc/dwc-i2s.c
+> @@ -16,6 +16,7 @@
+>   #include <linux/init.h>
+>   #include <linux/io.h>
+>   #include <linux/interrupt.h>
+> +#include <linux/mfd/syscon.h>
+>   #include <linux/module.h>
+>   #include <linux/reset.h>
+>   #include <linux/slab.h>
+> @@ -198,7 +199,7 @@ static void i2s_start(struct dw_i2s_dev *dev,
+>   	else
+>   		i2s_write_reg(dev->i2s_base, IRER, 1);
+>   
+> -	if (dev->use_pio)
+> +	if (dev->use_pio || dev->is_jh7110)
+>   		i2s_enable_irqs(dev, substream->stream, config->chan_nr);
+>   	else
+>   		i2s_enable_dma(dev, substream->stream);
+> @@ -216,7 +217,7 @@ static void i2s_stop(struct dw_i2s_dev *dev,
+>   	else
+>   		i2s_write_reg(dev->i2s_base, IRER, 0);
+>   
+> -	if (dev->use_pio)
+> +	if (dev->use_pio || dev->is_jh7110)
+>   		i2s_disable_irqs(dev, substream->stream, 8);
+>   	else
+>   		i2s_disable_dma(dev, substream->stream);
 
-(This did not cause any change in generated asm)
+Why do we need to enable interrupts for DMA mode?
 
-Signed-off-by: Leonardo Bras <leobras@redhat.com>
----
- arch/riscv/include/asm/cmpxchg.h | 136 +++++--------------------------
- 1 file changed, 22 insertions(+), 114 deletions(-)
+> @@ -227,6 +228,21 @@ static void i2s_stop(struct dw_i2s_dev *dev,
+>   	}
+>   }
+>   
+> +static int dw_i2s_startup(struct snd_pcm_substream *substream,
+> +			  struct snd_soc_dai *cpu_dai)
+> +{
+> +	struct dw_i2s_dev *dev = snd_soc_dai_get_drvdata(cpu_dai);
+> +
+> +	if (dev->is_jh7110) {
+> +		struct snd_soc_pcm_runtime *rtd = asoc_substream_to_rtd(substream);
+> +		struct snd_soc_dai_link *dai_link = rtd->dai_link;
+> +
+> +		dai_link->trigger_stop = SND_SOC_TRIGGER_ORDER_LDC;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+>   static void dw_i2s_config(struct dw_i2s_dev *dev, int stream)
+>   {
+>   	u32 ch_reg;
+> @@ -267,6 +283,11 @@ static int dw_i2s_hw_params(struct snd_pcm_substream *substream,
+>   		config->data_width = 16;
+>   		dev->ccr = 0x00;
+>   		dev->xfer_resolution = 0x02;
+> +		/* Set DMA buswidth on JH7110 */
+> +		if (dev->is_jh7110) {
+> +			dev->play_dma_data.dt.addr_width = DMA_SLAVE_BUSWIDTH_2_BYTES;
+> +			dev->capture_dma_data.dt.addr_width = DMA_SLAVE_BUSWIDTH_2_BYTES;
+> +		}
 
-diff --git a/arch/riscv/include/asm/cmpxchg.h b/arch/riscv/include/asm/cmpxchg.h
-index 2f4726d3cfcc..ec4ea4f3f908 100644
---- a/arch/riscv/include/asm/cmpxchg.h
-+++ b/arch/riscv/include/asm/cmpxchg.h
-@@ -11,60 +11,30 @@
- #include <asm/barrier.h>
- #include <asm/fence.h>
- 
--#define __xchg_relaxed(ptr, new, size)					\
-+#define __arch_xchg(sfx, prepend, append, r, p, n)			\
- ({									\
--	__typeof__(ptr) __ptr = (ptr);					\
--	__typeof__(new) __new = (new);					\
--	__typeof__(*(ptr)) __ret;					\
--	switch (size) {							\
--	case 4:								\
--		__asm__ __volatile__ (					\
--			"	amoswap.w %0, %2, %1\n"			\
--			: "=r" (__ret), "+A" (*__ptr)			\
--			: "r" (__new)					\
--			: "memory");					\
--		break;							\
--	case 8:								\
--		__asm__ __volatile__ (					\
--			"	amoswap.d %0, %2, %1\n"			\
--			: "=r" (__ret), "+A" (*__ptr)			\
--			: "r" (__new)					\
--			: "memory");					\
--		break;							\
--	default:							\
--		BUILD_BUG();						\
--	}								\
--	__ret;								\
--})
--
--#define arch_xchg_relaxed(ptr, x)					\
--({									\
--	__typeof__(*(ptr)) _x_ = (x);					\
--	(__typeof__(*(ptr))) __xchg_relaxed((ptr),			\
--					    _x_, sizeof(*(ptr)));	\
-+	__asm__ __volatile__ (						\
-+		prepend							\
-+		"	amoswap" sfx " %0, %2, %1\n"			\
-+		append							\
-+		: "=r" (r), "+A" (*(p))					\
-+		: "r" (n)						\
-+		: "memory");						\
- })
- 
--#define __xchg_acquire(ptr, new, size)					\
-+#define _arch_xchg(ptr, new, sfx, prepend, append)			\
- ({									\
--	__typeof__(ptr) __ptr = (ptr);					\
--	__typeof__(new) __new = (new);					\
-+	__typeof__(*(ptr)) __new = (new);				\
- 	__typeof__(*(ptr)) __ret;					\
--	switch (size) {							\
-+	__typeof__(ptr) __ptr = (ptr);					\
-+	switch (sizeof(*__ptr)) {					\
- 	case 4:								\
--		__asm__ __volatile__ (					\
--			"	amoswap.w %0, %2, %1\n"			\
--			RISCV_ACQUIRE_BARRIER				\
--			: "=r" (__ret), "+A" (*__ptr)			\
--			: "r" (__new)					\
--			: "memory");					\
-+		__arch_xchg(".w" sfx, prepend, append,			\
-+			      __ret, __ptr, __new);			\
- 		break;							\
- 	case 8:								\
--		__asm__ __volatile__ (					\
--			"	amoswap.d %0, %2, %1\n"			\
--			RISCV_ACQUIRE_BARRIER				\
--			: "=r" (__ret), "+A" (*__ptr)			\
--			: "r" (__new)					\
--			: "memory");					\
-+		__arch_xchg(".d" sfx, prepend, append,			\
-+			      __ret, __ptr, __new);			\
- 		break;							\
- 	default:							\
- 		BUILD_BUG();						\
-@@ -72,79 +42,17 @@
- 	__ret;								\
- })
- 
--#define arch_xchg_acquire(ptr, x)					\
--({									\
--	__typeof__(*(ptr)) _x_ = (x);					\
--	(__typeof__(*(ptr))) __xchg_acquire((ptr),			\
--					    _x_, sizeof(*(ptr)));	\
--})
-+#define arch_xchg_relaxed(ptr, x)					\
-+	_arch_xchg(ptr, x, "", "", "")
- 
--#define __xchg_release(ptr, new, size)					\
--({									\
--	__typeof__(ptr) __ptr = (ptr);					\
--	__typeof__(new) __new = (new);					\
--	__typeof__(*(ptr)) __ret;					\
--	switch (size) {							\
--	case 4:								\
--		__asm__ __volatile__ (					\
--			RISCV_RELEASE_BARRIER				\
--			"	amoswap.w %0, %2, %1\n"			\
--			: "=r" (__ret), "+A" (*__ptr)			\
--			: "r" (__new)					\
--			: "memory");					\
--		break;							\
--	case 8:								\
--		__asm__ __volatile__ (					\
--			RISCV_RELEASE_BARRIER				\
--			"	amoswap.d %0, %2, %1\n"			\
--			: "=r" (__ret), "+A" (*__ptr)			\
--			: "r" (__new)					\
--			: "memory");					\
--		break;							\
--	default:							\
--		BUILD_BUG();						\
--	}								\
--	__ret;								\
--})
-+#define arch_xchg_acquire(ptr, x)					\
-+	_arch_xchg(ptr, x, "", "", RISCV_ACQUIRE_BARRIER)
- 
- #define arch_xchg_release(ptr, x)					\
--({									\
--	__typeof__(*(ptr)) _x_ = (x);					\
--	(__typeof__(*(ptr))) __xchg_release((ptr),			\
--					    _x_, sizeof(*(ptr)));	\
--})
--
--#define __arch_xchg(ptr, new, size)					\
--({									\
--	__typeof__(ptr) __ptr = (ptr);					\
--	__typeof__(new) __new = (new);					\
--	__typeof__(*(ptr)) __ret;					\
--	switch (size) {							\
--	case 4:								\
--		__asm__ __volatile__ (					\
--			"	amoswap.w.aqrl %0, %2, %1\n"		\
--			: "=r" (__ret), "+A" (*__ptr)			\
--			: "r" (__new)					\
--			: "memory");					\
--		break;							\
--	case 8:								\
--		__asm__ __volatile__ (					\
--			"	amoswap.d.aqrl %0, %2, %1\n"		\
--			: "=r" (__ret), "+A" (*__ptr)			\
--			: "r" (__new)					\
--			: "memory");					\
--		break;							\
--	default:							\
--		BUILD_BUG();						\
--	}								\
--	__ret;								\
--})
-+	_arch_xchg(ptr, x, "", RISCV_RELEASE_BARRIER, "")
- 
- #define arch_xchg(ptr, x)						\
--({									\
--	__typeof__(*(ptr)) _x_ = (x);					\
--	(__typeof__(*(ptr))) __arch_xchg((ptr), _x_, sizeof(*(ptr)));	\
--})
-+	_arch_xchg(ptr, x, ".aqrl", "", "")
- 
- #define xchg32(ptr, x)							\
- ({									\
--- 
-2.41.0
+Not needed.
+See: 
+https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/commit/?h=next-20230802&id=6f80197f40515853814d0f22e5209d53f899ab91
+Proper bus width calculations is performed by 
+snd_hwparams_to_dma_slave_config()
+
+>   		break;
+>   
+>   	case SNDRV_PCM_FORMAT_S24_LE:
+> @@ -279,6 +300,11 @@ static int dw_i2s_hw_params(struct snd_pcm_substream *substream,
+>   		config->data_width = 32;
+>   		dev->ccr = 0x10;
+>   		dev->xfer_resolution = 0x05;
+> +		/* Set DMA buswidth on JH7110 */
+> +		if (dev->is_jh7110) {
+> +			dev->play_dma_data.dt.addr_width = DMA_SLAVE_BUSWIDTH_4_BYTES;
+> +			dev->capture_dma_data.dt.addr_width = DMA_SLAVE_BUSWIDTH_4_BYTES;
+> +		}
+
+Not needed.
 
 
 _______________________________________________
