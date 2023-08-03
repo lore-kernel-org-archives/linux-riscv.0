@@ -4,67 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DAF1C04A6A
-	for <linux-riscv@archiver.kernel.org>; Thu,  3 Aug 2023 15:17:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 455F1EB64DD
+	for <linux-riscv@archiver.kernel.org>; Thu,  3 Aug 2023 15:21:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WLbLOReXbBVBc3rfud3YlseAFh/LdZHbjM83Lc5+ux8=; b=OVpW0mpbP982IK+tnTZPi6zCWe
-	DKbf5+3dUO8csxzHWgFuNKy83ARB4luscfuQhcYd4Ljwh6TdR6172Zh4svr/KhjukWaHCEvvYsjKi
-	kPT2V470Vp/r2f4bho5GEW8M1HOZtcrdh3LPm22qKOY3SlWlA2pZVSEXsXR0IVNs+MA2HMGp/GK5x
-	nXFKQ1PtJpl5t9HiGBQknmeVyA9SZn0sbuGvYNR9SibVF4r1hxMVgk9P+PLre50aLdz47zB/yniYG
-	z0UVFcUnuZucvEYV9sH6338r8tDTLCz4AAisNgKqryjorKPsYbu6OLUPh/ecxialUvyvZ//u+rJik
-	ryOryhhQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=nzNQjj73kSYz2K+5PKNReyaMyiWsX05KtgvxcfdTQqQ=; b=1KQ/vWNiViR957
+	cYgNq4Ib7YyEVzBxePAb1RFuPVNdsgIF+j9uPL5QyeHjtWeH4LOR87xqnQvJcdGQyfrpsn1sXfGm4
+	NWvxIK9vZrCGzFnXXR+OaEq53Q15OrEcXhAv9ZBdWVtR5C/TL1acR+q5NnNPTijgKhV0OKxG87rPn
+	bacxVCDFoN87mmtct+YNpCTZ1Fq1enyZKZLO0wOlBYQ0mkkoB95k/w1WHknNw4zzJqoKTBAjfNSZR
+	Sz46VybcpJetl07ew64LwC6K+nfR5bLSEE3rYJL3ufFQffV2qSj52kyj4B15XRscaB2HYsgZuchwd
+	ogxpPmjP07XlAnVhVUAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qRa53-00A9GE-0G;
-	Thu, 03 Aug 2023 15:17:37 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1qRa8Y-00ABW7-17;
+	Thu, 03 Aug 2023 15:21:14 +0000
+Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qRa4z-00A9D1-23;
-	Thu, 03 Aug 2023 15:17:35 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 2549761DF1;
-	Thu,  3 Aug 2023 15:17:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A5B6EC433C8;
-	Thu,  3 Aug 2023 15:17:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1691075852;
-	bh=JOtFsu4qKmc9AW5VOUQjU18SjRDgCLlAIYX0MJ1PV5U=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=O69IF48qzzndoTOv9OXwlGg9LS5RbsTklNaedcNctCKKvUzLOj22sDlOq/FXNjj+e
-	 VYD8tfdH9weG0OucMALKPFLSJSegdIeNmqoZU3LU78trZn5szQyuPXI8u9EmIcMgA2
-	 GqHdzbax5G5U5N41PsTZM1HJeloSmhKhYGMneR15BEdrNleuafAneq3utGvK3LyC5Q
-	 VQZZSS45877+WeDlRihmWibGFWaoUS8/kYzTHZfknAOCnAMeV73YxjVvCcywoaVXXu
-	 VLxjhPUM0X+vGftlUtVz+Pb+OCAx3YbhI6/vZb4JFDc0JIWkr9W/yvKJlTSPnMQDAa
-	 8t2V43ROmh+Pw==
-Date: Thu, 3 Aug 2023 16:17:26 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: petrtesarik@huaweicloud.com, Paul Walmsley <paul.walmsley@sifive.com>,
-	aou@eecs.berkeley.edu, Conor Dooley <conor.dooley@microchip.com>,
-	lihuafei1@huawei.com, liaochang1@huawei.com, masahiroy@kernel.org,
-	keescook@chromium.org, akpm@linux-foundation.org, heiko@sntech.de,
-	ribalda@chromium.org, hi@alyssa.is, lizhengyu3@huawei.com,
-	linux-riscv@lists.infradead.org, kexec@lists.infradead.org,
-	linux-kernel@vger.kernel.org, duwe@suse.de,
-	roberto.sassu@huaweicloud.com, petr@tesarici.cz
-Subject: Re: [PATCH v2 2/3] riscv/purgatory: do not link with string.o and
- its dependencies
-Message-ID: <20230803-buddhism-hardwood-eea45fdedd6e@spud>
-References: <20230726-excavate-swoosh-424ede98f63d@spud>
- <mhng-45e67c5d-6969-43da-9147-b53dc9a78612@palmer-ri-x1c9>
+	id 1qRa8U-00ABT1-17
+	for linux-riscv@lists.infradead.org;
+	Thu, 03 Aug 2023 15:21:13 +0000
+Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-1bba48b0bd2so7488815ad.3
+        for <linux-riscv@lists.infradead.org>; Thu, 03 Aug 2023 08:21:10 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bytedance.com; s=google; t=1691076069; x=1691680869;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=kHMLZFWHP4GSNpR79JtI8BrtGsCZ/YdpbJ6vEHW5Cqk=;
+        b=j0okR7Fs8lVyMVctOaIoaw6mtP82u97YDeY6hQKkHRlYYdwwOPp1zfY0aEaLhvzT8S
+         yHUuGum8HruKQXCdWqcBCZO4rs7DNNzBfEa/PYfVQGOSXxRjy5uSnzX3Jr6xpl980kRt
+         HeJ4iv2gp3xsJ7p8sD4ThOlAbRMZ/MTyozb0DbQrd+FGvbuTLBrMehm/mrNdiKZOd2Hm
+         8T++RZSFxGrWCSSiF0oCnIh8qaYis1BJ3VktbhTrDXA/2IfsGA/4AL+QZssxHsklgcYP
+         tjNGnh7wDV1q2/vGros9xW4zRLEPOTXXYz5UzccTFZMG+pkWAl8ivhK+QTZyFYHD+cWI
+         9QKA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1691076069; x=1691680869;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=kHMLZFWHP4GSNpR79JtI8BrtGsCZ/YdpbJ6vEHW5Cqk=;
+        b=SXr2jLXFtC1OF/oDvIDGB2XI4JKAnlgI9PDCRzTBwhyjxcN7kNvrHB/hiVzI7iX05D
+         aXeyn9VzBkKWamykJBD+VMg1SWraLtjts80q1c0sWgFSW9SdgthZpW/ZzNVEO4FF1Tlz
+         0RGGJMv52kG8Out0J6m1HIypzGUGXHhLrM5EuP8f+JpQZccIe39Qry63poF7WUSX7yLT
+         d2hAWIzkPZe0c9ZNsMe5rPN/rjkVEMWkutBzpU5diGN2YC/p4t5nzjc7AaXhtJbdesc0
+         HABMlbVC9e1xSloJOly5LbqbT+LcAQjPfIdesxUBa7S/KXGW2kYXy/9KQv8THGioqxTp
+         n3gw==
+X-Gm-Message-State: ABy/qLZuJ0AvS4TLVdG7ZeGomKM0dFu7uf0Ah4ojLx+mMRcrPOOVFtFm
+	4wrNZEn0AbGvb3eMwOmeR81kwLg2iyTCfb55sOCVYA==
+X-Google-Smtp-Source: APBJJlFiySFGocXSADBXguYYyEKkxDN7ynIC7VKd86S/kjKPkvXKr753AS8x+xBTAP8ioj+8F1+9/vUOJxVXcB04k4w=
+X-Received: by 2002:a17:902:c246:b0:1b8:59f0:c748 with SMTP id
+ 6-20020a170902c24600b001b859f0c748mr17350585plg.2.1691076069560; Thu, 03 Aug
+ 2023 08:21:09 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <mhng-45e67c5d-6969-43da-9147-b53dc9a78612@palmer-ri-x1c9>
+References: <20230803132818.2092166-1-luxu.kernel@bytedance.com> <20230803-curtly-sandbox-9ff8c7aafb85@spud>
+In-Reply-To: <20230803-curtly-sandbox-9ff8c7aafb85@spud>
+From: =?UTF-8?B?5pet6Lev?= <luxu.kernel@bytedance.com>
+Date: Thu, 3 Aug 2023 23:20:53 +0800
+Message-ID: <CAPYmKFsbGMRY7S6WguDHkkY1futTS7+piKf83Pb+aktO2yLXpw@mail.gmail.com>
+Subject: Re: [External] Re: [PATCH RESEND] riscv: Fix local irq restore when
+ flags indicates irq disabled
+To: Conor Dooley <conor@kernel.org>
+Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230803_081733_761993_C30C0FCB 
-X-CRM114-Status: GOOD (  28.48  )
+X-CRM114-CacheID: sfid-20230803_082110_390919_1A63A202 
+X-CRM114-Status: GOOD (  25.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,131 +84,48 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8747426366324370120=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============8747426366324370120==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="Nf/A7HXcD+iE9Bxb"
-Content-Disposition: inline
-
-
---Nf/A7HXcD+iE9Bxb
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Thu, Aug 03, 2023 at 08:13:48AM -0700, Palmer Dabbelt wrote:
-> On Wed, 26 Jul 2023 09:33:49 PDT (-0700), Conor Dooley wrote:
-> > On Wed, Jul 26, 2023 at 11:54:00AM +0200, Petr Tesarik wrote:
-> > > From: Petr Tesarik <petr.tesarik.ext@huawei.com>
-> > >=20
-> > > Linking with this object file makes kexec_file_load(2) fail because of
-> > > multiple unknown relocation types:
-> > >=20
-> > > - R_RISCV_ADD16, R_RISCV_SUB16: used by alternatives in strcmp()
-> > > - R_RISCV_GOT_HI20: used to resolve _ctype in strcasecmp()
-> > >=20
-> > > All this hassle is needed for one single call to memcmp() from
-> > > verify_sha256_digest() to compare 32 bytes of SHA256 checksum.
-> > >=20
-> > > Simply replace this memcmp() call with an explicit loop over those 32=
- bytes
-> > > and remove the need to link with string.o and all the other object fi=
-les
-> > > that provide undefined symbols from that object file.
-> > >=20
-> > > Fixes: 838b3e28488f ("RISC-V: Load purgatory in kexec_file")
-> > > Signed-off-by: Petr Tesarik <petr.tesarik.ext@huawei.com>
-> >=20
-> > This version keeps the automation happy,
-> > Acked-by: Conor Dooley <conor.dooley@microchip.com>
->=20
-> Oddly enough, this breaks my builds.  I tried fixing the first one with
-> something like
-
-You say "tried", does that mean it also didn't work?
-What's the config?
-
-Cheers,
-Conor.
-
->=20
->    From 41c5a952f77e53bf4201296abff0132725aa19e6 Mon Sep 17 00:00:00 2001
->    From: Palmer Dabbelt <palmer@rivosinc.com>
->    Date: Wed, 2 Aug 2023 20:22:33 -0700
->    Subject: [PATCH] RISC-V: Include io from timex
->    Without this I get some implicit declarations.
->      CC      arch/riscv/kernel/asm-offsets.s
->    In file included from linux/include/linux/timex.h:67,
->                     from linux/include/linux/time32.h:13,
->                     from linux/include/linux/time.h:60,
->                     from linux/include/linux/ktime.h:24,
->                     from linux/include/linux/timer.h:6,
->                     from linux/include/linux/workqueue.h:9,
->                     from linux/include/linux/mm_types.h:19,
->                     from linux/include/linux/mmzone.h:22,
->                     from linux/include/linux/gfp.h:7,
->                     from linux/include/linux/mm.h:7,
->                     from linux/arch/riscv/kernel/asm-offsets.c:10:
->    linux/arch/riscv/include/asm/timex.h: In function 'get_cycles':
->    linux/arch/riscv/include/asm/timex.h:25:16: error: implicit declaratio=
-n of function 'readl_relaxed' [-Werror=3Dimplicit-function-declaration]
->       25 |         return readl_relaxed(((u32 *)clint_time_val));
->          |
->    Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
->    ---
->     arch/riscv/include/asm/timex.h | 1 +
->     1 file changed, 1 insertion(+)
->    diff --git a/arch/riscv/include/asm/timex.h b/arch/riscv/include/asm/t=
-imex.h
->    index a06697846e69..1a4d181193e0 100644
->    --- a/arch/riscv/include/asm/timex.h
->    +++ b/arch/riscv/include/asm/timex.h
->    @@ -7,6 +7,7 @@
->     #define _ASM_RISCV_TIMEX_H
->     #include <asm/csr.h>
->    +#include <asm/io.h>
->     typedef unsigned long cycles_t;
->=20
->    --    2.41.0
->=20
-> The other two look fine and are somewhat independent, so I've picked thos=
-e up
-> for fixes.
->=20
-> Thanks!
->=20
-> >=20
-> > Thanks,
-> > Conor.
-
---Nf/A7HXcD+iE9Bxb
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZMvFBgAKCRB4tDGHoIJi
-0krhAPsHeWuR7/VBvITrvcsf0/CMFwYy6FCA83Pn8tfUoHHlAwD/XbC/Sm5QCAXk
-tXpKIgYHUYa+igPS8LCenkLVW9qHyQs=
-=/RnV
------END PGP SIGNATURE-----
-
---Nf/A7HXcD+iE9Bxb--
-
-
---===============8747426366324370120==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============8747426366324370120==--
-
+T24gVGh1LCBBdWcgMywgMjAyMyBhdCAxMDozNuKAr1BNIENvbm9yIERvb2xleSA8Y29ub3JAa2Vy
+bmVsLm9yZz4gd3JvdGU6Cj4KPiBIZXksCj4KPiBPbiBUaHUsIEF1ZyAwMywgMjAyMyBhdCAwOToy
+ODoxOFBNICswODAwLCBYdSBMdSB3cm90ZToKPiA+IFdoZW4gYXJjaF9sb2NhbF9pcnFfcmVzdG9y
+ZSgpIGlzIGNhbGxlZCB3aXRoIGZsYWdzIGluZGljYXRpbmcgaXJxcwo+ID4gZGlzYWJsZWQsIHdl
+IG5lZWQgdG8gY2xlYXIgU1JfSUUgYml0IGluIENTUl9TVEFUVVMsIHdoZXJlYXMgY3VycmVudAo+
+ID4gaW1wbGVtZW50YXRpb24gYmFzZWQgb24gY3NyX3NldCgpIGZ1bmN0aW9uIG9ubHkgc2V0cyBT
+Ul9JRSBiaXQgb2YKPiA+IENTUl9TVEFUVVMgd2hlbiBTUl9JRSBiaXQgb2YgZmxhZ3MgaXMgaGln
+aCBhbmQgZG9lcyBub3RoaW5nIHdoZW4KPiA+IFNSX0lFIGJpdCBvZiBmbGFncyBpcyBsb3cuCj4g
+Pgo+ID4gVGhpcyBjb21taXQgc3VwcGxpZXMgY3NyIGNsZWFyIG9wZXJhdGlvbiB3aGVuIGNhbGxp
+bmcgaXJxIHJlc3RvcmUKPiA+IGZ1bmN0aW9uIHdpdGggZmxhZ3MgaW5kaWNhdGluZyBpcnEgZGlz
+YWJsZWQuCj4gPgo+ID4gRml4ZXM6IDZkNjBiNmVlMGM5NyAoIlJJU0MtVjogRGV2aWNlLCB0aW1l
+ciwgSVJRcywgYW5kIHRoZSBTQkkiKQo+ID4gU2lnbmVkLW9mZi1ieTogWHUgTHUgPGx1eHUua2Vy
+bmVsQGJ5dGVkYW5jZS5jb20+Cj4gPiAtLS0KPgo+IFRoZXJlJ3Mgbm8gY2hhbmdlbG9nIG9yIGV4
+cGxhbmF0aW9uLCBzbyB3aGF0IGlzIHRoZSByZWFzb24gZm9yIHRoZQo+IHJlc2VuZD8KPgo+IENo
+ZWVycywKPiBDb25vci4KClNvcnJ5IGZvciBkaXN0dXJiaW5nIHlvdS4KCkkgaGF2ZW4ndCByZWNl
+aXZlZCBhbnkgcmVzcG9uc2Ugc2luY2UgdGhlIHBhdGNoIHdhcyBzZW50IGxhc3Qgd2Vlay4gSQp0
+aGluayBtYWludGFpbmVycyBhcmUgYnVzeSBhbmQgdGh1cyBJIHdhbnQgdG8gaGF2ZSBhIHBpbmcu
+IFRoaXMgcGF0Y2gKd2FzIHJlc2VudCBiZWNhdXNlIEkgZm91bmQgaXQgaXMgc2FpZCB0aGF0IHJl
+c2VuZGluZyBwYXRjaCBpcyBvbmUgb2YKdGhlIG1ldGhvZHMgdG8gcGluZyBtYWludGFpbmVycyBp
+biB0aGlzIGtlcm5lbCBkb2M6Cmh0dHBzOi8vd3d3Lmtlcm5lbC5vcmcvZG9jL2h0bWwvbGF0ZXN0
+L3Byb2Nlc3Mvc3VibWl0dGluZy1wYXRjaGVzLmh0bWwuCgo+ID4gIGFyY2gvcmlzY3YvaW5jbHVk
+ZS9hc20vaXJxZmxhZ3MuaCB8IDUgKysrKy0KPiA+ICAxIGZpbGUgY2hhbmdlZCwgNCBpbnNlcnRp
+b25zKCspLCAxIGRlbGV0aW9uKC0pCj4gPgo+ID4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvaW5j
+bHVkZS9hc20vaXJxZmxhZ3MuaCBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vaXJxZmxhZ3MuaAo+
+ID4gaW5kZXggMDhkNGQ2YTViN2U5Li43YzMxZmMzYzM1NTkgMTAwNjQ0Cj4gPiAtLS0gYS9hcmNo
+L3Jpc2N2L2luY2x1ZGUvYXNtL2lycWZsYWdzLmgKPiA+ICsrKyBiL2FyY2gvcmlzY3YvaW5jbHVk
+ZS9hc20vaXJxZmxhZ3MuaAo+ID4gQEAgLTQ5LDcgKzQ5LDEwIEBAIHN0YXRpYyBpbmxpbmUgaW50
+IGFyY2hfaXJxc19kaXNhYmxlZCh2b2lkKQo+ID4gIC8qIHNldCBpbnRlcnJ1cHQgZW5hYmxlZCBz
+dGF0dXMgKi8KPiA+ICBzdGF0aWMgaW5saW5lIHZvaWQgYXJjaF9sb2NhbF9pcnFfcmVzdG9yZSh1
+bnNpZ25lZCBsb25nIGZsYWdzKQo+ID4gIHsKPiA+IC0gICAgIGNzcl9zZXQoQ1NSX1NUQVRVUywg
+ZmxhZ3MgJiBTUl9JRSk7Cj4gPiArICAgICBpZiAoZmxhZ3MgJiBTUl9JRSkKPiA+ICsgICAgICAg
+ICAgICAgY3NyX3NldChDU1JfU1RBVFVTLCBTUl9JRSk7Cj4gPiArICAgICBlbHNlCj4gPiArICAg
+ICAgICAgICAgIGNzcl9jbGVhcihDU1JfU1RBVFVTLCBTUl9JRSk7Cj4gPiAgfQo+ID4KPiA+ICAj
+ZW5kaWYgLyogX0FTTV9SSVNDVl9JUlFGTEFHU19IICovCj4gPiAtLQo+ID4gMi4yMC4xCj4gPgo+
+ID4KPiA+IF9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCj4g
+PiBsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKPiA+IGxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVh
+ZC5vcmcKPiA+IGh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGlu
+dXgtcmlzY3YKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+CmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3Jn
+Cmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
