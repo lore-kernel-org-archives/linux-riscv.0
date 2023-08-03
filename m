@@ -4,80 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 439F8C0015E
-	for <linux-riscv@archiver.kernel.org>; Thu,  3 Aug 2023 09:29:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C934AC00528
+	for <linux-riscv@archiver.kernel.org>; Thu,  3 Aug 2023 09:44:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dh3L3OP7Onm/D7UGjq1iRXZfXBwMKOYYKi2FmBgqvr0=; b=SHmNXfOhDWiv/n
-	FTaEUQ9geTXeoNsZEATcYohJaWZcCpDVxpDopQFtcf446L+airM733cjqwGtCmxnXMFNHmXdgJGr7
-	V2Dhswq6iiD9G/KcWyuePSKmJwpQ8vQX+nsJmD1z6yIjr85gcrxOWH/BU2i9zJG6L9wNJtYxbJNfc
-	0SIbWRbbYLFqty3M64vC4kB2SmXBFrLDooD0uL6eO8ck3lsURmRzW5L0/iLBh6VvGSDoKCBcuYVQG
-	1fKXhkAQH3/NpPaB6Whmng4y0qVwU1Hd+CYGjxQg9QzN9hJqeZzK73fhN4K0a5Y5nO7W1/KegHSeU
-	V9Ku2xm/yvB0h4TLj5xw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GQyhuQDqUsaVb7TYmJ1LGLPy6LvvBGRnbkylDoMGZi0=; b=nVmX6A4LcT2bSVKE9SsuHtokST
+	zsyZIVtkpCr11cHw0R5e5fKN1eGeS3VIPlUZqIC+CM9WFa0XS0tva3yezkzgebhD/3Zix5INxfjJF
+	Rfe1W8kUEsC6qHlsQ881Zq/XFAwfuRXY8MxUfYUe1wNSTUkurCletoPO3CMwLfOyqbz4IVC98kVMt
+	/1R6S4gpN3PDteXJrXZ6z9DpTDGYG8db2TbMjBZRpADLuih6HdG5ZSwv+8gzeJWCwMIy0g6bK1PFC
+	RlDhj4YsT6m/b405djbvz0ZBM0c4AVsQih9dtUy6ooIebE8XxZGaZjGpQHGedao7CBBZrXawffC7o
+	BXQuVyuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qRUdZ-007CoJ-2l;
-	Thu, 03 Aug 2023 09:28:53 +0000
-Received: from mail-yw1-x112d.google.com ([2607:f8b0:4864:20::112d])
+	id 1qRUsm-007FBU-32;
+	Thu, 03 Aug 2023 09:44:36 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qRUdX-007Cmk-0H
+	id 1qRUsk-007FAp-0I
 	for linux-riscv@lists.infradead.org;
-	Thu, 03 Aug 2023 09:28:52 +0000
-Received: by mail-yw1-x112d.google.com with SMTP id 00721157ae682-58451f0fefeso7844917b3.3
-        for <linux-riscv@lists.infradead.org>; Thu, 03 Aug 2023 02:28:49 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1691054928; x=1691659728;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=bPf/DhBfYOXvHBKonH2IymFP4pV5nyzM2qqAWXWq22A=;
-        b=nvRhlx3RKrMSDt0Zuc+myu9tFV2g0lK7zhUf5+vgZoGn04BXuqG2K4hQzoOyzZVdT9
-         2crnCI2OM7vbmiQbRXPS5TqxCO2VUOfR2SJXWMpJc3kYMB1mhi2iJWxTuWK/8B1EAbhv
-         l3fy+treICAr4vKN0PWbxMCyspG1oeVBlww6JTdpwRZaswn9FVMXc1Lxah9zUYEm0aIc
-         p1/sxFrBm4W7dqN+NnIMGSx+Sr3iTy6DiuagqT4+fqxYxwkrSMJ5Sa4iUMoErrtGUcyW
-         KzdXSTU4VPNWj/2xvu3G+2I4qiDHYYvsbj+SJU5amUBbn3AY7IixJmDZq/Ak2IGSvxwF
-         Gh4g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1691054928; x=1691659728;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=bPf/DhBfYOXvHBKonH2IymFP4pV5nyzM2qqAWXWq22A=;
-        b=Ke6TpcLbyrLGxvaJcPx2yVawYyU/8YSkE8A2LMbWMzrMiR9U4rQ2DyFJas2wZmL9AQ
-         Cl/SabdnnxYBJ929lnpcN1rLan2oLS++eVpRBjDKMqWYIvefncCh7e4lnG1a5kSUiI+D
-         GzgNp/Yc5kcI6MuB+nHmofUEgTcIBKHQoZ2zQI19gp80DAzFz/Ymv+54oScNq90GQE+k
-         LbIXuzezeiFCHOtMHOP1AjOi04sqZGA2yhF6RiNaDtApSoWqbbvnApnx6XYfxBzSKNwG
-         AwNLVH7Bt//ldkctliL+0TqQg2mkayWMAPhpu8uE2s5NJnoM1yXGVhBYTil5yqyXsTGs
-         Y02g==
-X-Gm-Message-State: ABy/qLbcKOXe+KJ2BRH0hXQy94sxSCaJlFjL7Zhw72bc3a8Y2P3XGMjk
-	nKTg9uFe+knzo6avopE/ZkJ90veq6JimNVJnxIafSQ==
-X-Google-Smtp-Source: APBJJlFp3C9muFBq6D0MrZecgIa2l1jTs2IKHm59WpOG88pYICmMaCXa10IkEqz/8+2ECNYlmZL4zUSVMdMAzlJFvhA=
-X-Received: by 2002:a81:9242:0:b0:583:9c78:9a84 with SMTP id
- j63-20020a819242000000b005839c789a84mr17812965ywg.43.1691054928381; Thu, 03
- Aug 2023 02:28:48 -0700 (PDT)
+	Thu, 03 Aug 2023 09:44:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1691055874; x=1722591874;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=PM/FfZ0vfzEPppWtxflf4gMuWXsZGV2oeDBfvYpCndY=;
+  b=oMK7QgHW09/398Jq2CPr89NiSg4E8vYTVCrzaZIgjniJeMisPdoEsKMs
+   9Lz80oryOUjaC0VtzrO/fmRsuCFat6x4TujqtTV8SHgCn6z1q/aV5UEhP
+   zv1Syr5L5TatwJZliHl+qN/l3WpZeQuZPSBcfrVeiTlT4qM7DZ4TtpuIK
+   iz6KfG9LKeifGqx9cwdjT/775InIdg42LgAMgbMu2jNq1HCPaMS/hiZH/
+   Cuveq4bZGtAjxBKreMTb9gJ+Jv5un/kzFxin1AWaruzQ+nvijo9+VZLM8
+   Ais5iTE0MLlJluevPSwgO5o1xqGFic0vpLvp3wIX3MNTNMNew4B1NFHml
+   Q==;
+X-IronPort-AV: E=Sophos;i="6.01,251,1684825200"; 
+   d="asc'?scan'208";a="227978460"
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa2.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 03 Aug 2023 02:44:30 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.21; Thu, 3 Aug 2023 02:44:05 -0700
+Received: from wendy (10.10.115.15) by chn-vm-ex03.mchp-main.com
+ (10.10.85.151) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
+ Transport; Thu, 3 Aug 2023 02:44:03 -0700
+Date: Thu, 3 Aug 2023 10:43:26 +0100
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Nylon Chen <nylon.chen@sifive.com>
+CC: <linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, <geert+renesas@glider.be>, <pavel@ucw.cz>,
+	<vincent.chen@sifive.com>, <emil.renner.berthing@canonical.com>,
+	<aou@eecs.berkeley.edu>, <palmer@dabbelt.com>, <paul.walmsley@sifive.com>,
+	<krzysztof.kozlowski+dt@linaro.org>, <robh+dt@kernel.org>,
+	<conor@kernel.org>, <zong.li@sifive.com>
+Subject: Re: [PATCH v4 0/1] Change PWM-controlled LED pin active mode and
+ algorithm
+Message-ID: <20230803-caretaker-voicing-e982f2334067@wendy>
+References: <20230803085734.340-1-nylon.chen@sifive.com>
+ <20230803-vehicular-leggings-2830239f818a@wendy>
 MIME-Version: 1.0
-References: <20230803085734.340-1-nylon.chen@sifive.com> <20230803085734.340-2-nylon.chen@sifive.com>
- <20230803-avenge-vaporizer-8258cd3ed423@wendy>
-In-Reply-To: <20230803-avenge-vaporizer-8258cd3ed423@wendy>
-From: Nylon Chen <nylon.chen@sifive.com>
-Date: Thu, 3 Aug 2023 17:28:37 +0800
-Message-ID: <CAHh=Yk8Y0VFcSKVGTREcQtHVTyyha93k8N5FsYG970Gg=JeijQ@mail.gmail.com>
-Subject: Re: [PATCH v4 1/1] riscv: dts: sifive: unleashed/unmatched: Remove
- PWM controlled LED's active-low properties
-To: Conor Dooley <conor.dooley@microchip.com>
-Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, geert+renesas@glider.be, pavel@ucw.cz, 
-	vincent.chen@sifive.com, emil.renner.berthing@canonical.com, 
-	aou@eecs.berkeley.edu, palmer@dabbelt.com, paul.walmsley@sifive.com, 
-	krzysztof.kozlowski+dt@linaro.org, robh+dt@kernel.org, conor@kernel.org, 
-	zong.li@sifive.com
+In-Reply-To: <20230803-vehicular-leggings-2830239f818a@wendy>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230803_022851_157924_705C10B3 
-X-CRM114-Status: GOOD (  13.86  )
+X-CRM114-CacheID: sfid-20230803_024434_192490_27B8564D 
+X-CRM114-Status: GOOD (  22.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,36 +84,104 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============1457401270180200897=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgQ29ub3IsCgpJIGFwb2xvZ2l6ZSBmb3IgZm9yZ2V0dGluZyBhYm91dCB0aGlzIHVwZGF0ZSBl
-YXJsaWVyLiBKdXN0IG5vdywKSSB0cmllZCB0byBwdWxsIHJlYmFzZSBtYXN0ZXIgYW5kIG5vdGlj
-ZWQgdGhhdCBvdGhlciBkZXZlbG9wZXJzIHNlZW0KdG8gaGF2ZSBtYWRlIHNvbWUgZml4ZXMgdG8g
-dGhlIGFsZ29yaXRobS4gVXBvbiBjbG9zZXIgaW5zcGVjdGlvbiwgSQpmb3VuZCB0aGF0IHRoZXkg
-YWRkcmVzc2VkIHRoZSBwYXJ0IHdlIHByZXZpb3VzbHkgZGlzY3Vzc2VkIHdpdGggRW1pbAphbmQg
-VXdlLCBzdWNoIGFzICJmaXJzdCBwd21fYXBwbHlfc3RhdGUuIgoKVGhlcmVmb3JlLCBteSBpbnN0
-aW5jdCB0ZWxscyBtZSB0aGF0IHRoZXkgaGF2ZSBhbHJlYWR5IHRha2VuIGNhcmUgb2YKdGhlIGlz
-c3VlcyB3ZSBkaXNjdXNzZWQgYmVmb3JlLgoKSSB3aWxsIHJldmlldyB0aGUgY29uZmxpY3Rpbmcg
-cGFydHMgaW4gdGhlIHB3bS1zaWZpdmUuYyBjb2RlIGluIG15IHY0CnZlcnNpb24gb25jZSBhZ2Fp
-biB0byBlbnN1cmUgdGhlcmUgYXJlIG5vIG9taXNzaW9ucy4gSWYgSSBmaW5kIGFueSwgSQp3aWxs
-IHN1Ym1pdCB2NSBhY2NvcmRpbmdseS4KCkNvbm9yIERvb2xleSA8Y29ub3IuZG9vbGV5QG1pY3Jv
-Y2hpcC5jb20+IOaWvCAyMDIz5bm0OOaciDPml6Ug6YCx5ZubIOS4i+WNiDU6MTnlr6vpgZPvvJoK
-Pgo+IE9uIFRodSwgQXVnIDAzLCAyMDIzIGF0IDA0OjU3OjM0UE0gKzA4MDAsIE55bG9uIENoZW4g
-d3JvdGU6Cj4gPiBUaGlzIHJlbW92ZXMgdGhlIGFjdGl2ZS1sb3cgcHJvcGVydGllcyBvZiB0aGUg
-UFdNLWNvbnRyb2xsZWQgTEVEcyBpbgo+ID4gdGhlIEhpRml2ZSBVbm1hdGNoZWQgZGV2aWNlIHRy
-ZWUuCj4gPgo+ID4gVGhlIHJlZmVyZW5jZSBpcyBoaWZpdmUtdW5sZWFzaGVkLWEwMC5wZGZbMF0g
-YW5kIGhpZml2ZS11bm1hdGNoZWQtc2NoZW1hdGljcy12My5wZGZbMV0uCj4gPgo+ID4gTGluazog
-aHR0cHM6Ly9zaWZpdmUuY2RuLnByaXNtaWMuaW8vc2lmaXZlL2M1MmE4ZTMyLTA1Y2UtNGFhZi05
-NWM4LTdiZjg0NTNmODY5OF9oaWZpdmUtdW5sZWFzaGVkLWEwMC1zY2hlbWF0aWNzLTEucGRmIFsw
-XQo+ID4gTGluazogaHR0cHM6Ly9zaWZpdmUuY2RuLnByaXNtaWMuaW8vc2lmaXZlLzZhMDZkNmMw
-LTZlNjYtNDliNS04ZTllLWU2OGNlNzZmNDE5Ml9oaWZpdmUtdW5tYXRjaGVkLXNjaGVtYXRpY3Mt
-djMucGRmIFsxXQo+ID4KPgo+ID4gQWNrZWQtYnk6IENvbm9yIERvb2xleSA8Y29ub3IuZG9vbGV5
-QG1pY3JvY2hpcC5jb20+Cj4KPiBTaW5jZSB0aGVyZSBpcyBubyBQV00gZHJpdmVyIHBhdGNoIGZv
-ciB0aGlzIHRvIGdvIGFsb25nIHdpdGgsIHRoaXMgYWNrCj4gZG9lc24ndCBtZWFuIGFueXRoaW5n
-IGFueW1vcmUuIFBsZWFzZSBkcm9wIGl0IGlmIHlvdSByZXN1Ym1pdC4KPgoKX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBs
-aXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVh
-ZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+--===============1457401270180200897==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="tzX8viRnXMQ13hWc"
+Content-Disposition: inline
+
+--tzX8viRnXMQ13hWc
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+Hey Nylon,
+
+(I yoinked the reply to 1/1 to here, as it makes more sense in this
+context)
+
+> On Thu, Aug 03, 2023 at 10:15:10AM +0100, Conor Dooley wrote:
+> > On Thu, Aug 03, 2023 at 04:57:33PM +0800, Nylon Chen wrote:
+> > > According to the circuit diagram of User LEDs - RGB described in them=
+anual hifive-unleashed-a00.pdf[0] and hifive-unmatched-schematics-v3.pdf[1].
+> > >=20
+> > > The behavior of PWM is acitve-high.
+> > >=20
+> > > Removed patches: 1
+> > > New patches: (none)
+> > >=20
+> > > Links:
+> > > - [0]:  https://sifive.cdn.prismic.io/sifive/c52a8e32-05ce-4aaf-95c8-=
+7bf8453f8698_hifive-unleashed-a00-schematics-1.pdf
+> > > - [1]:  https://sifive.cdn.prismic.io/sifive/6a06d6c0-6e66-49b5-8e9e-=
+e68ce76f4192_hifive-unmatched-schematics-v3.pdf
+> > > - [2]:  https://sifive.cdn.prismic.io/sifive/1a82e600-1f93-4f41-b2d8-=
+86ed8b16acba_fu740-c000-manual-v1p6.pdf
+> > >=20
+> > > Changed in v4:
+> > >  - Remove previous updates to the PWM algorithm.
+> >=20
+> > Why? I don't recall the conclusion on the previous version being that
+> > that patch was not needed.
+>
+> I apologize for forgetting about this update earlier. Just now,
+> I tried to pull rebase master and noticed that other developers seem
+> to have made some fixes to the algorithm. Upon closer inspection, I
+> found that they addressed the part we previously discussed with Emil
+> and Uwe, such as "first pwm_apply_state."
+>=20
+> Therefore, my instinct tells me that they have already taken care of
+> the issues we discussed before.
+
+I didn't see anything in linux-next that would solve this problem of
+inversion. The last meaningful change is:
+	commit 334c7b13d38321e47d1a51dba0bef9f4c403ec75
+	Author:     Emil Renner Berthing <emil.renner.berthing@canonical.com>
+	AuthorDate: Wed Nov 9 12:37:24 2022 +0100
+	Commit:     Thierry Reding <thierry.reding@gmail.com>
+	CommitDate: Mon Jan 30 16:42:45 2023 +0100
+=09
+	    pwm: sifive: Always let the first pwm_apply_state succeed
+
+which predates your v3 by quite a bit.
+
+> I will review the conflicting parts in the pwm-sifive.c code in my v4
+> version once again to ensure there are no omissions. If I find any, I
+> will submit v5 accordingly.
+
+And if this patch is okay in isolation, please reply here explaining
+which commit fixed the algorithm, so that I can pick it up.
+
+Thanks,
+Conor.
+
+--tzX8viRnXMQ13hWc
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZMt2vgAKCRB4tDGHoIJi
+0o+tAP9T2YoYk//o5k7MVQwS/3aSXKAO4fwzn4VO7kYKb3jOPgD+KA7Bv5tRvwou
+PaimuCQYfr42wST7wH8mSiR9MZA7zQ4=
+=Sx/n
+-----END PGP SIGNATURE-----
+
+--tzX8viRnXMQ13hWc--
+
+
+--===============1457401270180200897==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============1457401270180200897==--
+
