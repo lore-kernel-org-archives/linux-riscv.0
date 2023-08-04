@@ -4,136 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85566C001DB
-	for <linux-riscv@archiver.kernel.org>; Fri,  4 Aug 2023 04:43:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CAC0C001DE
+	for <linux-riscv@archiver.kernel.org>; Fri,  4 Aug 2023 05:17:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
-	References:Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=o6ooMDrpn/PBPt2TuASS8HiBFaBvXY3zgSzy6EPxi0o=; b=PnrlexA5hXy1m4
-	rw5bJE8yEPQUNdiB/jBElkI0pzyIIM/RjaQPj1CglvdUMRx6dRWs/Y3WZHqLnYi619GVyfTOs+WBJ
-	T99cTL3iwTUh9Cox5IPRYoNZwto0ktJkECHD9tOQ6S7lUxHbGC0oxRoUG1+FOj0ftCJxNDMGCbi8i
-	xWba4AKecr83t/v25LZYHEn1GZZ4gtSb/4S9BWTHtmHdc8eSdtqbJCPSJM4WndXwZNjHKg5cpg2tT
-	hS+Pd+y5DU6Jj4y+2gLhexGxMmc5ibou7rkN8KaOuxw6BIKsPPK/Ne8fsuCEAA9cLuST/tkR9E3Qr
-	c2Ymh4ARAqeQ9mqn7u2w==;
+	List-Owner; bh=qu+uqJ2J4zAGNEOPS2rHpag6K1Y+qfhC5rN6absTO+I=; b=W4wR/zN09STlIv
+	rwtaKZRel7ewF0dH6u+NgNqQI1zIhA0fqKteBInuLbyRi75y4LqHIcelcgrqxsugUO7pWK6Ck4osz
+	elRSTEZ6JMMYVdLdJs+8xMDyKG6PNJk3CQcSJgcbz+FD75cNpG11T5Qtyj9mexFwxf8N99qGjNqE2
+	QE62XLcr8L/ZkM/H6Hky0PHbqFMeLt5yk39/xSTTaqUTd9NwC64MBP+B0nrk628Z2ZlxZbehVkzjs
+	1eNQPMyEzzlSbgy78BpuqokZkXlQVWpLu5iGFzKUwH+8IuqdxUMwvcbGLy5SUwnKRvja467dfDkTV
+	GvNn7tur1/33vN1XbSmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qRmeO-00BXz9-2h;
-	Fri, 04 Aug 2023 04:42:56 +0000
-Received: from mail-os0jpn01on20612.outbound.protection.outlook.com ([2a01:111:f403:700c::612] helo=JPN01-OS0-obe.outbound.protection.outlook.com)
+	id 1qRnBc-00BaSP-2p;
+	Fri, 04 Aug 2023 05:17:16 +0000
+Received: from mgamail.intel.com ([192.55.52.136])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qRmeK-00BXxq-0g;
-	Fri, 04 Aug 2023 04:42:54 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=TrcIj8fE6XM+vcFEB0rEe96+bayw47+VaA3GL9hz8KKIya5Y6P2GXiJShGuER0X6mu97pHAPexi+VapgnYk8bVwi8X2RQ6EyXh5rsyGINGZ+HR1nbUY+deTBzj2okwdAP9M37VKZTB0EJA9EG+WVt656vRNmdRVlBFIT0NyHamEp/1jo/1M16Dr6oPjOiGVBjZ/srHNwdUyX3yAUt+CbCHrz9qmkkBkQHlX++5N8O6/lRI9LHGgkgzoiE5raVhUjXCQjM2V/RIynrYpAp2s4AhyjtCnMNDgZRDPA2zhbLT6mV2VHdXbzFkiCFDy70WaXhbrW0T0/Dm0h+QU+I5vdXQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Rv0ZlREemN0i6TZM2slZPJOnMu0UI4kj0mMPR94gpIY=;
- b=Xq+FmMh3ihfy1XCLlxahJsKyfhUP8zi5O7FMsq4QQ/D/4E5hV3xLLmywChCDitU2yncu18sKSJvHUwTUVh1BKFDO6P64IdqxzHF5kHSmjGD5tWhqmnKQYH3IDOiPz2HkpzBLQd7gnD+AxuYd+Ml7kUk7d1jAJkth0Hh1o9JXIJZ8/60LAisT8tcCocAavmtlpBDDGIsgP/TUN6ddDLM983pSkzwxbosHZMokpVTNU9nMcbTbirg2mwIjvQMTWkGWHTE4rCAh6KDRsAWCpoFL5110Txq+aIj3UUG4m6EHRIpZv59dFtzR7rGyt3M9Y28NZrIMeb+oFYASRSF9UGbYVA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nec.com; dmarc=pass action=none header.from=nec.com; dkim=pass
- header.d=nec.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nec.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Rv0ZlREemN0i6TZM2slZPJOnMu0UI4kj0mMPR94gpIY=;
- b=iRmigrid6p/67Q9Ru5yDtfNOwBV2RgjIE9jUKr0KKU8Z9O6WgH15f8zLGSlZUFaasm7kT/kDwqavGLNc6emHFC6OTmDDGUzHnVcFijPyhsFjySFlFbtspQ/ZExSXpzU2ZM3z49LWthbpSQNGkpBUe5NCqeSmipv/aEvcAPfQSCw=
-Received: from TYYPR01MB6777.jpnprd01.prod.outlook.com (2603:1096:400:cc::9)
- by OSYPR01MB5318.jpnprd01.prod.outlook.com (2603:1096:604:87::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6652.20; Fri, 4 Aug
- 2023 04:42:35 +0000
-Received: from TYYPR01MB6777.jpnprd01.prod.outlook.com
- ([fe80::706e:4b73:60be:9f33]) by TYYPR01MB6777.jpnprd01.prod.outlook.com
- ([fe80::706e:4b73:60be:9f33%7]) with mapi id 15.20.6652.020; Fri, 4 Aug 2023
- 04:42:35 +0000
-From: =?utf-8?B?SEFHSU8gS0FaVUhJVE8o6JCp5bC+44CA5LiA5LuBKQ==?=
-	<k-hagio-ab@nec.com>
-To: Song Shuai <suagrfillet@gmail.com>
-CC: "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
-	"kexec@lists.infradead.org" <kexec@lists.infradead.org>,
-	"crash-utility@redhat.com" <crash-utility@redhat.com>,
-	"xianting.tian@linux.alibaba.com" <xianting.tian@linux.alibaba.com>,
-	"mick@ics.forth.gr" <mick@ics.forth.gr>, "heinrich.schuchardt@canonical.com"
-	<heinrich.schuchardt@canonical.com>, "guoren@kernel.org" <guoren@kernel.org>,
-	"yixun.lan@gmail.com" <yixun.lan@gmail.com>, "lijiang@redhat.com"
-	<lijiang@redhat.com>
-Subject: Re: [Crash-utility] RISCV64: Use va_kernel_pa_offset in VTOP()
-Thread-Topic: [Crash-utility] RISCV64: Use va_kernel_pa_offset in VTOP()
-Thread-Index: AQHZveSFlwQ0V9bm1EKGUd0cO25FXK/ZoGIA
-Date: Fri, 4 Aug 2023 04:42:35 +0000
-Message-ID: <378ea919-5149-fb1a-02ec-3c0b41ebecc3@nec.com>
-References: <20230724040649.220279-1-suagrfillet@gmail.com>
-In-Reply-To: <20230724040649.220279-1-suagrfillet@gmail.com>
-Accept-Language: ja-JP, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nec.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: TYYPR01MB6777:EE_|OSYPR01MB5318:EE_
-x-ms-office365-filtering-correlation-id: f5fa7781-9a49-497e-187d-08db94a5392b
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: HDuk7ba6fLtEQjHoKC8dEUMyyWtAWh/JTy/vWNtG8xQRrExGNNlZcot9IUzKna11+xECSSG5odLrrjLlmwOVCZZCZvMUjrCQPETH/a8PJ9actwNVd+x6FUQlhQocezOn9YdD/02GppP055A3eLwHMmOPC1n9UBtttb38aVKBQX0Sc9q1CNBq1mHZ+UGH6BHYQBCJ33+KFYK8wQmKUjD0JoKIeoPCvt+E6WgH4h3m2CbwoC37rnAPjsFftAuIE2ditcE7vQNJxAlJzo8NXn3q0yUyfin21I8c6KuvCafDmznSFOorlg5p1oDJFJCZTSffjMffCBC2xedrEpEIQpY71D3Z9TKcm4itQXm2R8gjYZtLbiYumkGCJusJcE+J9zHqc98nsGsp5iJGPIT5mwc/gzqJIrpSL9sTHFhEPws6aBna5VaKdDkZNxzdkWaksCD525HF5xGIX3hmKTx6O935sjcu5la3TYcykBtJvSPaBjxiSQvcTfr5YLOUgVCvFfIa4BdVGNftbP6scr9ckjGbpwplj+NhP3koLO5fddgZn9qzGP/1OC77ZMbVkY6ShUYfMPESkc7dLcBqdPx7ToOiZhqg2OKDoQY6OL3DNUVLUEh489o6hb7BG1pVdV9vuVX+1TOdr0U0IkMLqfrmzp3N7w==
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYYPR01MB6777.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230028)(4636009)(39860400002)(346002)(376002)(136003)(366004)(396003)(451199021)(1800799003)(186006)(2616005)(53546011)(8676002)(26005)(6506007)(83380400001)(66476007)(2906002)(316002)(76116006)(4326008)(66946007)(5660300002)(6916009)(66446008)(64756008)(66556008)(8936002)(7416002)(41300700001)(966005)(71200400001)(6486002)(6512007)(478600001)(54906003)(38100700002)(82960400001)(122000001)(31696002)(36756003)(85182001)(86362001)(38070700005)(31686004)(45980500001);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?SkdoRzFoK1BqMWoyT1Z6R1R3bksvZnExdTVHNzIvNEhqZkhnVGJXQTZWTE5U?=
- =?utf-8?B?REJCenY5QU1QVjAzTnlCeDhiUUY0S0syaE5aM0RDTE8xek1XbkFETzZicGhC?=
- =?utf-8?B?dFBsZ29kR01ZQ2Z6WUlGMWZOWmc4bTFidjh5YU53MGhYVnpGUDNLTTN5MTEx?=
- =?utf-8?B?RE0yeFVaOStlRWpjTGZtMS9zRy9yWlhzWDg2dkVnWWRVdUFaV2JXYVlJS2pY?=
- =?utf-8?B?OHR4QUhwaGRDQWNnQkJFb2FId3J4VmNYeWFhOE5xV25TVCtxbkpYaWxDVnBi?=
- =?utf-8?B?RGkzaGc2WWtCaDkzUEZqdDJ0T1ZtRzYxYVp1blppeHVVTk5nS0FyRGVYK3Ux?=
- =?utf-8?B?am8xOHorakx0UXBTWmFmMWpSYkloWDR6cWo4NGEra1kySlJLR0E4eUxTTnNU?=
- =?utf-8?B?TUxkMkJUeU9BVTFDMUNTMzBobFBLaGxTQzRQdnhQZkVWTWkxMUFpamVNQzND?=
- =?utf-8?B?emIxU1ZTbERmZXNNY044TE5RODEydHlaQllUWUZxS0JSNTJ4Mm1KYzRYV3hR?=
- =?utf-8?B?RmZBZWhZTFdYN3B5b1lmaXlGZXh4SmpHRy96TjEva0duQmVSNzRVY1JSSDFE?=
- =?utf-8?B?TXkremRkSGpKRW1hQUtNdU5YaDF5emFvSU5mbW9Qb01pRzNzSWRqV1NydGRQ?=
- =?utf-8?B?bldoNzlDbUtpbitYbmdRWk9HR0lmeHNBRDlwV3BhTUJPQVU1T1BDajBBUUZi?=
- =?utf-8?B?dU5lbmh4dkxLS1dpUmJmajEyWEZ5ODZpVWgvc09YSDErQ0RqT2VLVDc4ZERz?=
- =?utf-8?B?eXhFYUtEaTJWVGNKNVRUQ2RPUXh6cHhTY0E4S0ZIUW9oQ0h4d2k4NWNubWFT?=
- =?utf-8?B?MEw1NFdHeVJBa0I3Y0lVQm1nT2tjUnZ6R1hiY3lacllGZ0hHZUljOTBocDFt?=
- =?utf-8?B?d3huc0o3eER6aWRYU2RkV3JEc01UVXZZeUVmamRFTXhhcUZkR2VYVjBpWWF3?=
- =?utf-8?B?bURRQmxIV3FjN1lCOGRxQ2FZM2x0a3hSN09vMHIyTnNQSFl4b2YzNzBPSTBw?=
- =?utf-8?B?dndKbjlVcklLTWFMbWNWS283b291TFZpblNNWVF2UzFtbnZuRitPcGxNQmFh?=
- =?utf-8?B?QU1CVUZkRHBvZ21tU29CUUR0TjRRRWZacGkweklyUWdNOS9rWVh2Y0Mya3hO?=
- =?utf-8?B?QzJDNkVycEx3ZlRoaitzM3hteUtrMWpqRWF6WlRaNE5LVWwzZmYwaGdVQ2c1?=
- =?utf-8?B?RTlEMjRma29mck9RSW0xbDg2TUhkTFZXcTVoVVgxZCsrWlFXdUgvVlBYc3No?=
- =?utf-8?B?dGlzUFFiUzJlVXFWU1BnbVFxbmlSNk1IVU1PL01LUjhRV0lJYnFSQjkyQlZr?=
- =?utf-8?B?cVJ3VDF4dXhvREtmdGxWWDBEVG0weWFvL3FUaGM1K3dnZUZ6cmtwSUhyRVBV?=
- =?utf-8?B?UHBqYU15VEljaitoSmFLOVByUW5KTGNkWEtNN1NkQ2swQlF5TENPY3JqNzVJ?=
- =?utf-8?B?R2JvLzhteWFPWFprZGZpY3FscFAyTkVsditJL1J3Y1Q4VjRVbEpXaDRKOWx3?=
- =?utf-8?B?UVZVc3cwaVM1WlhZUG1sNDF3OEtwRm5YQWdrcGh5QTJiU0o4VmZWU2lCQm9R?=
- =?utf-8?B?UlczaWFVSE9pNWVTdjNWZWY0RjhqbVNyS09ROFZWcWVLSEhGWStnQXJqaVZV?=
- =?utf-8?B?V0o1T24xUzd4YTE5YWhkRzdVVXFnT0Yzb08raUpJbnFuaThrd2lkMWlNbnFw?=
- =?utf-8?B?OHpCYkxQV0d1VVdRK0hma0lleFRLYVpZczI5UzBucDZ4TnkyZ2lIcUFCazFX?=
- =?utf-8?B?dFpVWmpydFJqcXNjUDBXWlJzTmMxa0s2a0pQQnArbklWanZRME9xcURHSlZj?=
- =?utf-8?B?a2dBd25DUFkrcXd2Zk5lZjBJVnBaM0lHZXh6U2VZdExjbkMvWDhSQWp6VWcx?=
- =?utf-8?B?YnZia2FWYWE2UGRGQ1kyMm1VdWRscFVvYVVmZnlZR1AzQmMyOFhLb1QrQjV2?=
- =?utf-8?B?UmpuQStwWE1WTkU5bVFzWkNKQkRDUWduaExaSlZaU1JVUVJQM2Y5eVFPMnA0?=
- =?utf-8?B?ZWs5WnhjdVYvMHhuUHg2R1lxV29ONHJhRHdSUmFJK1lNQlR3R0UvS3NtOHo1?=
- =?utf-8?B?NktQY0N2M2kra01OQU8yUG1vTkFSWW9lU3p3NEt3a1ZJNVY5Q3ZuVWhxbWlH?=
- =?utf-8?Q?m1aSnsiJcMUFNnLavXOrxxtsa?=
-Content-ID: <796A88C6011BDF44ACEC1B8567630029@jpnprd01.prod.outlook.com>
+	id 1qRnBZ-00BaRY-24;
+	Fri, 04 Aug 2023 05:17:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1691126233; x=1722662233;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=e1cpoVNcGs0kUXxIvP1Pk1UFLtW1Z3PkHvbpqT0KCQE=;
+  b=Uc1TKH2xsKJlLcFid5zCBV872WTzkmaI84NZGNedaAc4auUh489LcRzE
+   3TrcrmXowmU7t6774yGrEQWQnmUbZ854FFp1/66SlU+Fx++OESJNty4tc
+   rffmxjtSZBrkjCD1P64Yn4ygpXmAhj3y02vLrwKls6Cavhxb1j1ikimal
+   kJOGAeV4Vv140rESP4zCq7ktPN0/0dv/7S/4d/3YZDj6UsH2h6nID1iSq
+   BlflAlNyZxvlTe95nNZT9k4En3ls4nV0KTi+FmKpU1xeJIqn6TjoFkDNl
+   bC7yRfFY+0k/7GmfImRbkoEotaM47SiA6RoMnaMMnjyEzkMoSXqTo2mE6
+   Q==;
+X-IronPort-AV: E=McAfee;i="6600,9927,10791"; a="349660672"
+X-IronPort-AV: E=Sophos;i="6.01,254,1684825200"; 
+   d="scan'208";a="349660672"
+Received: from fmsmga005.fm.intel.com ([10.253.24.32])
+  by fmsmga106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Aug 2023 22:17:12 -0700
+X-ExtLoop1: 1
+X-IronPort-AV: E=McAfee;i="6600,9927,10791"; a="1060583122"
+X-IronPort-AV: E=Sophos;i="6.01,254,1684825200"; 
+   d="scan'208";a="1060583122"
+Received: from lkp-server01.sh.intel.com (HELO d1ccc7e87e8f) ([10.239.97.150])
+  by fmsmga005.fm.intel.com with ESMTP; 03 Aug 2023 22:17:05 -0700
+Received: from kbuild by d1ccc7e87e8f with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1qRnBQ-0002dU-1y;
+	Fri, 04 Aug 2023 05:17:04 +0000
+Date: Fri, 4 Aug 2023 13:16:55 +0800
+From: kernel test robot <lkp@intel.com>
+To: Charlie Jenkins <charlie@rivosinc.com>, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org, bpf@vger.kernel.org
+Cc: oe-kbuild-all@lists.linux.dev, Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Josh Poimboeuf <jpoimboe@kernel.org>,
+	Jason Baron <jbaron@akamai.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Ard Biesheuvel <ardb@kernel.org>, Anup Patel <anup@brainfault.org>,
+	Atish Patra <atishp@atishpatra.org>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>,
+	Yonghong Song <yhs@fb.com>,
+	John Fastabend <john.fastabend@gmail.com>,
+	KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@google.com>,
+	Hao Luo <haoluo@google.com>, Jiri Olsa <jolsa@kernel.org>,
+	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@kernel.org>,
+	Luke Nelson <luke.r.nels@gmail.com>, Xi Wang <xi.wang@gmail.com>,
+	Nam Cao <namcaov@gmail.com>
+Subject: Re: [PATCH 10/10] RISC-V: Refactor bug and traps instructions
+Message-ID: <202308041213.o49SRQWZ-lkp@intel.com>
+References: <20230803-master-refactor-instructions-v4-v1-10-2128e61fa4ff@rivosinc.com>
 MIME-Version: 1.0
-X-OriginatorOrg: nec.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: TYYPR01MB6777.jpnprd01.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f5fa7781-9a49-497e-187d-08db94a5392b
-X-MS-Exchange-CrossTenant-originalarrivaltime: 04 Aug 2023 04:42:35.2265
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: e67df547-9d0d-4f4d-9161-51c6ed1f7d11
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: mmJNclko14qxrDW9vD6B7umzeVTdK0KCkQVB/+bnJsOqmJWLVTdFcVCW2X7RzI0NwP+HCmGNyWydmg3Hax8iUw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: OSYPR01MB5318
+Content-Disposition: inline
+In-Reply-To: <20230803-master-refactor-instructions-v4-v1-10-2128e61fa4ff@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230803_214252_528781_EFB321E9 
-X-CRM114-Status: GOOD (  26.07  )
+X-CRM114-CacheID: sfid-20230803_221713_688470_66FA9E7C 
+X-CRM114-Status: GOOD (  10.76  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,102 +104,64 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2023/07/24 13:06, Song Shuai wrote:
-> Since RISC-V Linux v6.4, the commit 3335068f8721 ("riscv: Use
-> PUD/P4D/PGD pages for the linear mapping") changes the
-> phys_ram_base from the kernel_map.phys_addr to the start of DRAM.
-> 
-> The Crash's VTOP() still uses phys_ram_base and kernel_map.virt_addr
-> to translate kernel virtual address, that made Crash boot failed with
-> Linux v6.4 and later version.
-> 
-> Let Linux export kernel_map.va_kernel_pa_offset in v6.5 and Crash can
-> use "va_kernel_pa_offset" to translate the kernel virtual address in
-> VTOP() correctly.
-> 
-> Signed-off-by: Song Shuai <suagrfillet@gmail.com>
-> ---
-> You can check/test the Linux changes from this link:
-> https://github.com/sugarfillet/linux/commits/6.5-rc3-crash
-> 
-> And I'll send the Linux changes to riscv/for-next If you're ok with this patch.
-> ---
->   defs.h    |  4 ++--
->   riscv64.c | 22 ++++++++++++++++++++++
->   2 files changed, 24 insertions(+), 2 deletions(-)
-> 
-> diff --git a/defs.h b/defs.h
-> index 358f365..46b9857 100644
-> --- a/defs.h
-> +++ b/defs.h
-> @@ -3662,8 +3662,7 @@ typedef signed int s32;
->   	ulong _X = X;									\
->   	(THIS_KERNEL_VERSION >= LINUX(5,13,0) &&					\
->   		(_X) >= machdep->machspec->kernel_link_addr) ?				\
-> -		(((unsigned long)(_X)-(machdep->machspec->kernel_link_addr)) +		\
-> -		 machdep->machspec->phys_base):						\
-> +		((unsigned long)(_X)-(machdep->machspec->va_kernel_pa_offset)): 	\
->   		(((unsigned long)(_X)-(machdep->kvbase)) +				\
->   		 machdep->machspec->phys_base);						\
->   	})
-> @@ -7021,6 +7020,7 @@ struct machine_specific {
->   	ulong modules_vaddr;
->   	ulong modules_end;
->   	ulong kernel_link_addr;
-> +	ulong va_kernel_pa_offset;
->   
->   	ulong _page_present;
->   	ulong _page_read;
-> diff --git a/riscv64.c b/riscv64.c
-> index 6b9a688..b9e50b4 100644
-> --- a/riscv64.c
-> +++ b/riscv64.c
-> @@ -418,6 +418,27 @@ error:
->   	error(FATAL, "cannot get vm layout\n");
->   }
->   
-> +static void
-> +riscv64_get_va_kernel_pa_offset(struct machine_specific *ms)
-> +{
-> +	unsigned long kernel_version = riscv64_get_kernel_version();
-> +
-> +	/*
-> +	 * va_kernel_pa_offset is defined in Linux kernel since 6.5.
-> +	 */
-> +	if (kernel_version >= LINUX(6,5,0)) {
+Hi Charlie,
 
-The kernel patches look accepted, so for the crash patch detail,
+kernel test robot noticed the following build warnings:
 
-I think this first version check is not necessary, we can just use the 
-vmcoreinfo entry if available.  With it, backporting the kernel patches 
-to e.g. 6.4.0 will also be supported.
+[auto build test WARNING on 5d0c230f1de8c7515b6567d9afba1f196fb4e2f4]
 
-Thanks,
-Kazu
+url:    https://github.com/intel-lab-lkp/linux/commits/Charlie-Jenkins/RISC-V-Expand-instruction-definitions/20230804-101437
+base:   5d0c230f1de8c7515b6567d9afba1f196fb4e2f4
+patch link:    https://lore.kernel.org/r/20230803-master-refactor-instructions-v4-v1-10-2128e61fa4ff%40rivosinc.com
+patch subject: [PATCH 10/10] RISC-V: Refactor bug and traps instructions
+config: riscv-allyesconfig (https://download.01.org/0day-ci/archive/20230804/202308041213.o49SRQWZ-lkp@intel.com/config)
+compiler: riscv64-linux-gcc (GCC) 12.3.0
+reproduce: (https://download.01.org/0day-ci/archive/20230804/202308041213.o49SRQWZ-lkp@intel.com/reproduce)
 
-> +		char *string;
-> +		if ((string = pc->read_vmcoreinfo("NUMBER(va_kernel_pa_offset)"))) {
-> +			ms->va_kernel_pa_offset = htol(string, QUIET, NULL);
-> +			free(string);
-> +		} else
-> +			error(FATAL, "cannot read va_kernel_pa_offset\n");
-> +	} else if (kernel_version >= LINUX(6,4,0))
-> +		error(FATAL, "cannot determine va_kernel_pa_offset since Linux 6.4\n");
-> +	else
-> +		ms->va_kernel_pa_offset = ms->kernel_link_addr - ms->phys_base;
-> +}
-> +
->   static int
->   riscv64_is_kvaddr(ulong vaddr)
->   {
-> @@ -1352,6 +1373,7 @@ riscv64_init(int when)
->   		riscv64_get_struct_page_size(machdep->machspec);
->   		riscv64_get_va_bits(machdep->machspec);
->   		riscv64_get_va_range(machdep->machspec);
-> +		riscv64_get_va_kernel_pa_offset(machdep->machspec);
->   
->   		pt_level_alloc(&machdep->pgd, "cannot malloc pgd space.");
->   		pt_level_alloc(&machdep->machspec->p4d, "cannot malloc p4d space.");
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202308041213.o49SRQWZ-lkp@intel.com/
+
+All warnings (new ones prefixed by >>):
+
+>> arch/riscv/kernel/elf_kexec.c:326: warning: "RV_X" redefined
+     326 | #define RV_X(x, s, n)  (((x) >> (s)) & ((1 << (n)) - 1))
+         | 
+   In file included from arch/riscv/include/asm/bug.h:14,
+                    from include/linux/bug.h:5,
+                    from include/linux/thread_info.h:13,
+                    from include/asm-generic/preempt.h:5,
+                    from ./arch/riscv/include/generated/asm/preempt.h:1,
+                    from include/linux/preempt.h:79,
+                    from include/linux/spinlock.h:56,
+                    from include/linux/ipc.h:5,
+                    from include/uapi/linux/sem.h:5,
+                    from include/linux/sem.h:5,
+                    from include/linux/compat.h:14,
+                    from arch/riscv/include/asm/elf.h:12,
+                    from include/linux/elf.h:6,
+                    from arch/riscv/kernel/elf_kexec.c:15:
+   arch/riscv/include/asm/insn.h:1915: note: this is the location of the previous definition
+    1915 | #define RV_X(X, s, mask)  (((X) >> (s)) & (mask))
+         | 
+
+
+vim +/RV_X +326 arch/riscv/kernel/elf_kexec.c
+
+6261586e0c91db1 Liao Chang 2022-04-08  325  
+838b3e28488f702 Li Zhengyu 2022-04-08 @326  #define RV_X(x, s, n)  (((x) >> (s)) & ((1 << (n)) - 1))
+838b3e28488f702 Li Zhengyu 2022-04-08  327  #define RISCV_IMM_BITS 12
+838b3e28488f702 Li Zhengyu 2022-04-08  328  #define RISCV_IMM_REACH (1LL << RISCV_IMM_BITS)
+838b3e28488f702 Li Zhengyu 2022-04-08  329  #define RISCV_CONST_HIGH_PART(x) \
+838b3e28488f702 Li Zhengyu 2022-04-08  330  	(((x) + (RISCV_IMM_REACH >> 1)) & ~(RISCV_IMM_REACH - 1))
+838b3e28488f702 Li Zhengyu 2022-04-08  331  #define RISCV_CONST_LOW_PART(x) ((x) - RISCV_CONST_HIGH_PART(x))
+838b3e28488f702 Li Zhengyu 2022-04-08  332  
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
+
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
