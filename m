@@ -4,74 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0034C001DB
-	for <linux-riscv@archiver.kernel.org>; Fri,  4 Aug 2023 09:11:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0F59C001DB
+	for <linux-riscv@archiver.kernel.org>; Fri,  4 Aug 2023 09:16:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=M4dI686RFoji0zpc8R4E0FWZIPd8idVC849hXeRlZ/g=; b=pc846POJ1eymbO
-	L448cM7KQDt0JMGHPFVOfnPwGGIPX5wJ+J+/W8Q6UJbkfjutG3C71gu+JFlEKtgL3YlH/byzxx+pM
-	UmOQ7Ai9rPC0EjKgmzVa+7WHFq4zAFYRjcay+zSa4WU7To6NU2SYsB7F4UFFSUgwuvMkmt2/KYB2D
-	kpOdlNukSTsazpHeKuQCDaO3jT/V8qrvvBk+tj/5FweIX9VAO31srtY2c0Y3uPFFBP24C0D2ZJ+/w
-	HdHdx5lLeEKhtC5cPERUCEIhFG/EspFJ5J5DFVftN4XgdsKpIbHhYlafGs+WV7pJHhDlvSQY8L9a/
-	p5a4Q68YHiU2Ik/ohEDw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=hNDYZlFBEQB/7QvWoLv6kdXH6SbXuuC99QnNFEHNq9g=; b=rBKtfF6m6mwwrP
+	TvR8/BOs+DO8klvN8tsBn1jN+aAwdRHx4hjqDef6GuN12tkEWUpIpPbECjWiUIRf6fVpzOmly3szu
+	fPYXGs9YUS0bj6dH173xLrRO64Wc1EYd2Doz0437ew9bYfMTNYrK577wKiFoeNBBUtzPP6XuBzr7f
+	fSxUSsSnUnTWUdgEuWoLsjbKfsQraSri5O/b6kGCEBOyj22E9S6mejzUNGh46WldQAIHw0xCT13jC
+	0q+nqkF6VudoneXPdFQ8J38BgW6VEUT8A6rBQe/peYVUpjdW0EtYCKbQM3gf6vIS8C8SXuuBXcfuX
+	Aq0exTxOLW/U2SBz4/Wg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qRqqP-00ByaA-0V;
-	Fri, 04 Aug 2023 09:11:37 +0000
-Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
+	id 1qRquw-00Bz9A-1Z;
+	Fri, 04 Aug 2023 09:16:18 +0000
+Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qRqqM-00ByZH-1b
-	for linux-riscv@lists.infradead.org;
-	Fri, 04 Aug 2023 09:11:36 +0000
-Received: by mail-ed1-x533.google.com with SMTP id 4fb4d7f45d1cf-5222bc916acso2318794a12.3
-        for <linux-riscv@lists.infradead.org>; Fri, 04 Aug 2023 02:11:33 -0700 (PDT)
+	id 1qRqut-00Bz8G-1Y;
+	Fri, 04 Aug 2023 09:16:16 +0000
+Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-1bbc06f830aso13439305ad.0;
+        Fri, 04 Aug 2023 02:16:14 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=brainfault-org.20221208.gappssmtp.com; s=20221208; t=1691140292; x=1691745092;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ZCLrMIcrmxPkYa4R7qfeQvE0tPVOXSV4boHfMs5CXCw=;
-        b=e7TjRfOyN4hnGmNqQDqDk2MoCCyGYJlKRtgX8kcspaBT9rO0VX/9xDn1We+detSqQ0
-         65OL305lzPVJxdiHn4qeII8Hsc6nRLfWzwoz8DJevMvoJpym3NrVxxtEfD1yOJZdhvfG
-         wByQjNIP7InMrnTq2G9APZbXSNJqWkpZQjbs5r7naeqtwvZ5N4nGICruwbZpjTLkta4a
-         +c/w33gcfCcH4NJ2SWspuHn3wBuIKgLUul/0ihqQ2V/IJHbZ/bm2pakiXJlKPzSBwsV+
-         T7qgV2Zh+vIkbJdK7UcA1Y0+padUgmtl4e7yvby1v8TQgNnOU9M4X+sLb7/xbSHAT6j/
-         /yXQ==
+        d=gmail.com; s=20221208; t=1691140574; x=1691745374;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=UrjG9rnH2NzTSctzZIvkOvwr1uRZUx+aymjSrHb5yT4=;
+        b=J5Fii411FDOFOVqMoeCwM4rXnVKKuG5itOI2EgfdPtx4pBv4yfe8VwmQKRChb6WrKr
+         RXF3+IA/ZVrP4wVghO9A8AGTUOvz2FVM2AzP3rxzWPRTgleKnjUdf/Ae7GiB3VxqRhtz
+         r8yVJOfba783a4NX0Em3fviXKA57GA5hUv4VzEKcA2Qdtm0LAPFgoxZtgU5elTRKN9rT
+         8ugSMgh6IvS1R/7etfJxoJ7vZf9Ck0r6tlG1VoesLwATVOsKMQmMRvnSlFyMoAFH9cfE
+         dQc589fD5ZET9IuOshJXFKt+fzpXs11MUZ/yhvr+VtGuNR+76TVz/CDAA5txsetPipcE
+         A9oQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1691140292; x=1691745092;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=ZCLrMIcrmxPkYa4R7qfeQvE0tPVOXSV4boHfMs5CXCw=;
-        b=NbrfP5s9+tRpHM+Aw/aiCQCX0hWeEcDmYSTPod9nHYn4M1dMzu0GeB607ZQlJLTDKa
-         G2zJ/GNZgxlLcJdzj+Ziv7J9A57etAQ1D5lAlj1LEHhghME8H9gaILzj3FodYnKXtO/P
-         rYJXaSnF2LBZqP5ITJvZx1DyozllwgPGlvBfbXk7KPxqwhXedY6mZpHCMWYjFJNWPBVf
-         ruIUDcW0KHfAoYU2LIv6XAZwekA7NGZYXMS0uoqul5gWNY+O2kPNcWGBHJq3RbgTwb+O
-         8IVQhSFJdt4WraW3FfaW/8qi2LUPfILz8cdBa7ARjiGWns2NNdDAkwyhnMs55IMMi/yP
-         dHdg==
-X-Gm-Message-State: AOJu0Yxra2MHbBC2qYTPNwxEMNKqCAtrasJLQBBJMbYe6OfdhM2xy8l7
-	TUS9NlwZAgdkhchMfiR1cStZXQjngvRGwNvJ95hNnw==
-X-Google-Smtp-Source: AGHT+IG0L5EQE0VXMUNJlUQFay1dJwjekRL8tawBeRTK1zsdM3y6pPSjp/CooI8XEt894peGJueURTR8hnSRzdvc2Lc=
-X-Received: by 2002:aa7:cb57:0:b0:522:bc01:47ab with SMTP id
- w23-20020aa7cb57000000b00522bc0147abmr1100082edt.29.1691140292458; Fri, 04
- Aug 2023 02:11:32 -0700 (PDT)
+        d=1e100.net; s=20221208; t=1691140574; x=1691745374;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=UrjG9rnH2NzTSctzZIvkOvwr1uRZUx+aymjSrHb5yT4=;
+        b=CODjE4duoXA9DHs4bfEim6p2RZhdP+YnaTMdCa9a28Mxv0+eZtA3/5OkovIYJO/+Px
+         OSF0Ec9kPvxo24vlwYuCp81apKG6p+Tj82Xs0tSfTYdB/epnJXSBaHR0Hz4GpyQGkFIt
+         ReAsn4BcVYILmAnD5epBb4HPmCCt4VPRJb4REgEYPuO/RPmQq/LIEMoWdJRY9jAWBUjk
+         f+ekudbp4YL4eiDiccjTKrBcfYhJljsJ4thNQMyLpOOnnuxMWhKEXZ85w0/tYkjSko3Z
+         wcIGDVtG3q4kMPSO9gRHvJLm0peGSL31ujXKMZlmy/mDXGcZCmsFO8J0Ey80H7woUitl
+         Z/9A==
+X-Gm-Message-State: AOJu0YxPtsHMG9GGWz9b82QyAoftrBhu9JnSaXmTu0ZbHIMj+nv4662K
+	LvRJHSuZ8+Gn4+A6JR8gMKs=
+X-Google-Smtp-Source: AGHT+IGOo/8nQx5lnqtY++gVvvtI8ONaHpiJgRZeRc8p6gTLm5RJIluatJIAabgFdQ2xuZZiaYNfsA==
+X-Received: by 2002:a17:902:d4c5:b0:1b8:7613:594d with SMTP id o5-20020a170902d4c500b001b87613594dmr1867250plg.24.1691140574150;
+        Fri, 04 Aug 2023 02:16:14 -0700 (PDT)
+Received: from localhost.localdomain ([2408:843e:c90:213e:379:7882:d981:bf4c])
+        by smtp.gmail.com with ESMTPSA id r1-20020a63e501000000b00564250660f3sm923322pgh.78.2023.08.04.02.16.07
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 04 Aug 2023 02:16:13 -0700 (PDT)
+From: Song Shuai <suagrfillet@gmail.com>
+To: xianting.tian@linux.alibaba.com,
+	mick@ics.forth.gr,
+	heinrich.schuchardt@canonical.com,
+	guoren@kernel.org,
+	k-hagio-ab@nec.com,
+	yixun.lan@gmail.com,
+	lijiang@redhat.com
+Cc: linux-riscv@lists.infradead.org,
+	kexec@lists.infradead.org,
+	crash-utility@redhat.com,
+	Song Shuai <suagrfillet@gmail.com>
+Subject: [Crash-utility PATCH V2] RISCV64: Use va_kernel_pa_offset in VTOP()
+Date: Fri,  4 Aug 2023 17:15:59 +0800
+Message-Id: <20230804091559.3005820-1-suagrfillet@gmail.com>
+X-Mailer: git-send-email 2.20.1
 MIME-Version: 1.0
-References: <20230803163302.445167-1-dbarboza@ventanamicro.com>
-In-Reply-To: <20230803163302.445167-1-dbarboza@ventanamicro.com>
-From: Anup Patel <anup@brainfault.org>
-Date: Fri, 4 Aug 2023 14:41:21 +0530
-Message-ID: <CAAhSdy0PoG=AwvcavJxuS1Y6nbFE8pcX5vXDuzFr6+vjhpAMkQ@mail.gmail.com>
-Subject: Re: [PATCH v4 00/10] RISC-V: KVM: change get_reg/set_reg error code
-To: Daniel Henrique Barboza <dbarboza@ventanamicro.com>
-Cc: kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
-	kvm@vger.kernel.org, atishp@atishpatra.org, ajones@ventanamicro.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230804_021134_734388_00385C63 
-X-CRM114-Status: GOOD (  14.34  )
+X-CRM114-CacheID: sfid-20230804_021615_518002_6CA93105 
+X-CRM114-Status: GOOD (  15.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,42 +91,101 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVGh1LCBBdWcgMywgMjAyMyBhdCAxMDowM+KAr1BNIERhbmllbCBIZW5yaXF1ZSBCYXJib3ph
-CjxkYmFyYm96YUB2ZW50YW5hbWljcm8uY29tPiB3cm90ZToKPgo+IEhpLAo+Cj4gVGhpcyB2ZXJz
-aW9uIGluY2x1ZGVzIGEgZGlmZiB0aGF0IEFuZHJldyBtZW50aW9uZWQgaW4gdjIgWzFdIHRoYXQg
-SQo+IG1pc3NlZC4gVGhleSB3ZXJlIHNxdWFzaGVkIGludG8gcGF0Y2ggMS4KPgo+IE5vIG90aGVy
-IGNoYW5nZXMgbWFkZS4gUGF0Y2hlcyByZWJhc2VkIG9uIHRvcCBvZiByaXNjdl9rdm1fcXVldWUu
-Cj4KPiBDaGFuZ2VzIGZyb20gdjM6Cj4gLSBwYXRjaCAxOgo+ICAgLSBhZGRlZCBtaXNzaW5nIEVJ
-TlZBTCAtIEVOT0VOVCBjb252ZXJzaW9ucwo+IC0gdjMgbGluazogaHR0cHM6Ly9sb3JlLmtlcm5l
-bC5vcmcva3ZtLzIwMjMwODAzMTQwMDIyLjM5OTMzMy0xLWRiYXJib3phQHZlbnRhbmFtaWNyby5j
-b20vCj4KPiBbMV0gaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcva3ZtLzIwMjMwODAxMjIyNjI5LjIx
-MDkyOS0xLWRiYXJib3phQHZlbnRhbmFtaWNyby5jb20vCj4KPgo+IEFuZHJldyBKb25lcyAoMSk6
-Cj4gICBSSVNDLVY6IEtWTTogSW1wcm92ZSB2ZWN0b3Igc2F2ZS9yZXN0b3JlIGVycm9ycwo+Cj4g
-RGFuaWVsIEhlbnJpcXVlIEJhcmJvemEgKDkpOgo+ICAgUklTQy1WOiBLVk06IHJldHVybiBFTk9F
-TlQgaW4gKl9vbmVfcmVnKCkgd2hlbiByZWcgaXMgdW5rbm93bgo+ICAgUklTQy1WOiBLVk06IHVz
-ZSBFTk9FTlQgaW4gKl9vbmVfcmVnKCkgd2hlbiBleHRlbnNpb24gaXMgdW5hdmFpbGFibGUKPiAg
-IFJJU0MtVjogS1ZNOiBkbyBub3QgRU9QTk9UU1VQUCBpbiBzZXRfb25lX3JlZygpIHppY2JvKG18
-eikKPiAgIFJJU0MtVjogS1ZNOiBkbyBub3QgRU9QTk9UU1VQUCBpbiBzZXQgS1ZNX1JFR19SSVND
-Vl9USU1FUl9SRUcKPiAgIFJJU0MtVjogS1ZNOiB1c2UgRUJVU1kgd2hlbiAhdmNwdS0+YXJjaC5y
-YW5fYXRsZWFzdF9vbmNlCj4gICBSSVNDLVY6IEtWTTogYXZvaWQgRUJVU1kgd2hlbiB3cml0aW5n
-IHNhbWUgSVNBIHZhbAo+ICAgUklTQy1WOiBLVk06IGF2b2lkIEVCVVNZIHdoZW4gd3JpdGluZyB0
-aGUgc2FtZSBtYWNoaW5lIElEIHZhbAo+ICAgUklTQy1WOiBLVk06IGF2b2lkIEVCVVNZIHdoZW4g
-d3JpdGluZyB0aGUgc2FtZSBpc2FfZXh0IHZhbAo+ICAgZG9jczoga3ZtOiByaXNjdjogZG9jdW1l
-bnQgRUJVU1kgaW4gS1ZNX1NFVF9PTkVfUkVHCgpJIGhhdmUgcXVldWVkIGFsbCBwYXRjaGVzIGV4
-Y2VwdCBQQVRDSDkgZm9yIExpbnV4LTYuNi4KCkRyZXcsIHBsZWFzZSBzZW5kIHY1IG9mIFBBVENI
-LgoKVGhhbmtzLApBbnVwCgo+Cj4gIERvY3VtZW50YXRpb24vdmlydC9rdm0vYXBpLnJzdCB8ICAy
-ICsKPiAgYXJjaC9yaXNjdi9rdm0vYWlhLmMgICAgICAgICAgIHwgIDQgKy0KPiAgYXJjaC9yaXNj
-di9rdm0vdmNwdV9mcC5jICAgICAgIHwgMTIgKysrLS0tCj4gIGFyY2gvcmlzY3Yva3ZtL3ZjcHVf
-b25lcmVnLmMgICB8IDc0ICsrKysrKysrKysrKysrKysrKysrKystLS0tLS0tLS0tLS0KPiAgYXJj
-aC9yaXNjdi9rdm0vdmNwdV9zYmkuYyAgICAgIHwgMTYgKysrKy0tLS0KPiAgYXJjaC9yaXNjdi9r
-dm0vdmNwdV90aW1lci5jICAgIHwgMTEgKystLS0KPiAgYXJjaC9yaXNjdi9rdm0vdmNwdV92ZWN0
-b3IuYyAgIHwgNjAgKysrKysrKysrKysrKystLS0tLS0tLS0tLS0tCj4gIDcgZmlsZXMgY2hhbmdl
-ZCwgMTA3IGluc2VydGlvbnMoKyksIDcyIGRlbGV0aW9ucygtKQo+Cj4gLS0KPiAyLjQxLjAKPgoK
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlz
-Y3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xp
-c3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+Since RISC-V Linux v6.4, the commit 3335068f8721 ("riscv: Use
+PUD/P4D/PGD pages for the linear mapping") changes phys_ram_base from
+the physical start of the kernel to the actual start of the DRAM.
+
+The Crash's VTOP() still uses phys_ram_base and kernel_map.virt_addr
+to translate kernel virtual address, that made Crash boot failed with
+Linux v6.4 and later version.
+
+Let Linux export kernel_map.va_kernel_pa_offset in v6.5 and backported
+v6.4.0 stable, so Crash can use "va_kernel_pa_offset" to translate the
+kernel virtual address in VTOP() correctly.
+
+Signed-off-by: Song Shuai <suagrfillet@gmail.com>
+---
+Changes since V1:
+  - remove unnecessary first kernel version check as Kazu suggested
+  - amend the commit-msg as Alex suggested
+---
+ defs.h    |  4 ++--
+ riscv64.c | 23 +++++++++++++++++++++++
+ 2 files changed, 25 insertions(+), 2 deletions(-)
+
+diff --git a/defs.h b/defs.h
+index 5ee60f1..c07e6d7 100644
+--- a/defs.h
++++ b/defs.h
+@@ -3662,8 +3662,7 @@ typedef signed int s32;
+ 	ulong _X = X;									\
+ 	(THIS_KERNEL_VERSION >= LINUX(5,13,0) &&					\
+ 		(_X) >= machdep->machspec->kernel_link_addr) ?				\
+-		(((unsigned long)(_X)-(machdep->machspec->kernel_link_addr)) +		\
+-		 machdep->machspec->phys_base):						\
++		((unsigned long)(_X)-(machdep->machspec->va_kernel_pa_offset)): 	\
+ 		(((unsigned long)(_X)-(machdep->kvbase)) +				\
+ 		 machdep->machspec->phys_base);						\
+ 	})
+@@ -7021,6 +7020,7 @@ struct machine_specific {
+ 	ulong modules_vaddr;
+ 	ulong modules_end;
+ 	ulong kernel_link_addr;
++	ulong va_kernel_pa_offset;
+ 
+ 	ulong _page_present;
+ 	ulong _page_read;
+diff --git a/riscv64.c b/riscv64.c
+index 6b9a688..7b5dd3d 100644
+--- a/riscv64.c
++++ b/riscv64.c
+@@ -418,6 +418,28 @@ error:
+ 	error(FATAL, "cannot get vm layout\n");
+ }
+ 
++static void
++riscv64_get_va_kernel_pa_offset(struct machine_specific *ms)
++{
++	unsigned long kernel_version = riscv64_get_kernel_version();
++
++	/*
++	 * Since Linux v6.4 phys_base is not the physical start of the kernel,
++	 * trying to use "va_kernel_pa_offset" to determine the offset between
++	 * kernel virtual and physical addresses.
++	 */
++	if (kernel_version >= LINUX(6,4,0)) {
++		char *string;
++		if ((string = pc->read_vmcoreinfo("NUMBER(va_kernel_pa_offset)"))) {
++			ms->va_kernel_pa_offset = htol(string, QUIET, NULL);
++			free(string);
++		} else
++			error(FATAL, "cannot read va_kernel_pa_offset\n");
++	}
++	else
++		ms->va_kernel_pa_offset = ms->kernel_link_addr - ms->phys_base;
++}
++
+ static int
+ riscv64_is_kvaddr(ulong vaddr)
+ {
+@@ -1352,6 +1374,7 @@ riscv64_init(int when)
+ 		riscv64_get_struct_page_size(machdep->machspec);
+ 		riscv64_get_va_bits(machdep->machspec);
+ 		riscv64_get_va_range(machdep->machspec);
++		riscv64_get_va_kernel_pa_offset(machdep->machspec);
+ 
+ 		pt_level_alloc(&machdep->pgd, "cannot malloc pgd space.");
+ 		pt_level_alloc(&machdep->machspec->p4d, "cannot malloc p4d space.");
+-- 
+2.20.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
