@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E6E5EB64DD
-	for <linux-riscv@archiver.kernel.org>; Fri,  4 Aug 2023 02:11:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AF81C04A6A
+	for <linux-riscv@archiver.kernel.org>; Fri,  4 Aug 2023 02:11:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xJrc+TzGzUKlEMmmf3xWBQOb+r/3yoG58eKGy8f8ZgY=; b=HzUA4r6ZQq+JZD
-	kjjzizjie7ohyGZct245UfQSAW6LJx7/Uxud8RUf7sUJUilx265yuQQNHTS+ngl6b18aBXhNkRz8q
-	kPkTk12n3wSIudH8S/aBW1SviRX6xMHcx+WmVe8wtf64/eUx99VIUP/aTSwmiHbDkWqDTDBCW7Njm
-	3qeZtpjyW1qIQdOgjwiDFY8DMqiuyiHoeKuZ6iGOXXtIlZChAGPeiMWFD4YMT3zPP9NbxcOmgN7Cb
-	aPx8e7Jhu7Uts0Hjxe4lcCepSvMnTBgGJTSY6KS+oN9x/0+sRPXBVL3nwX4bRP1DGoVtjhg3KIKoY
-	VzBUlYxFuB7FzXg/zAkg==;
+	List-Owner; bh=+JBekGlVK/euOXhkaMuawsGXVJY/mkgRPWeJ06QjpOE=; b=4CwB0LDje69H2E
+	iBgMEbo3m928jc8NaOfXsaQwUGdR3wngG3oUpR/r3NpmrLi/hRE15TY6PtdqutK5Exsi4iw9fYSLu
+	nesHSRKbXmWC/+ulyt3blCikK89M9URMtijNdzQelxryMbM6KFd56Je9USE0PXZooUdwa3aSad6Dk
+	qe3KiIigz4vvSjV1m9fK+N+beg62yjNqMrd+P9yhlxhTYj+B2x86fRM9GgdfIXc7kLzUbha/WpSaR
+	ZakVoNPLvMIco4GNVFDnWksiyqHNzSGIr/XGu/reXO6IFfq8VUtu5DxJWLbADajyE4FM5F0y6BXLX
+	/HnK/85PaPDc9SnyEq4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qRkHR-00BL1Q-0v;
-	Fri, 04 Aug 2023 02:11:05 +0000
-Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
+	id 1qRkHU-00BL4Q-2B;
+	Fri, 04 Aug 2023 02:11:08 +0000
+Received: from mail-pf1-x430.google.com ([2607:f8b0:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qRkHM-00BKw4-2M
+	id 1qRkHP-00BKzO-2W
 	for linux-riscv@lists.infradead.org;
-	Fri, 04 Aug 2023 02:11:03 +0000
-Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-1bc3bec2c95so11704525ad.0
-        for <linux-riscv@lists.infradead.org>; Thu, 03 Aug 2023 19:10:59 -0700 (PDT)
+	Fri, 04 Aug 2023 02:11:06 +0000
+Received: by mail-pf1-x430.google.com with SMTP id d2e1a72fcca58-686c06b806cso1153564b3a.2
+        for <linux-riscv@lists.infradead.org>; Thu, 03 Aug 2023 19:11:03 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1691115058; x=1691719858;
+        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1691115063; x=1691719863;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=k6HgGLGtG7M3LESpN5nTWoHfsSRrv8ioEMKugiOnOTw=;
-        b=tu7avlotyozMV/l8NRFA0DJ9nnNC6Iq43LymSGWeqaIFo+4SOLemWteCRxuxVqX1vN
-         v5bb3l0plvTmmo2yGXB6uIC1F/QI4lTwiO69NqjpKxuMRfL+xYAnS4u+tegfJm0NuEKP
-         0kChJuxf5ozsMipWf8xNnVMnHYeK7CIXvxUiE3DuPC17GkDDWyzdDHCq7v8KNNMZN3aR
-         E+nUQYwRE0MLaL/LwTWHQGSQHIoxQ1RLPR4iRDtmnbokti7RepO5Ri/GxUt3bdFA6/dP
-         pyxnjsEJpHF1MQS3xf8YsV6SjjvC5Eyd4tgBsMQxdwZBNR6xOFws8g38Zn3skjbBCBfO
-         Im3A==
+        bh=xL4SUrFC0SEjwT2Aq0+zll5WmXviuZuzcvI35+EgLbI=;
+        b=pl/wAP3GSnmzUj0rIIA7pNZsP1pu/x7DAz3UUDociqK/9ym2Q/7lCLccZpyr/oGnOq
+         mazjRlgtR9P6+ZibckgI161WdRt3n/X0e4AyL3oo6I9i3eGF0JfSd+Qu5lrFriErxi4u
+         eA09Q6fGr4ajJpvqenrJ8LYLM17C9sM55cijEYZBSFpwzQik+AqRUbz4uGL2W5TiYd3E
+         s5XjBCiBrptpAxA12KHT+YPsl/nKK/hqYXObmPljinTzetAoAON5K7krRBGRTUXKcpan
+         x4ezXngz/kpvx3dDGBgRcigjlgo9pkBfD4Yz7/V9NdppOdCEcN6rRhHL+ZmGvt1yYP8R
+         LssA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1691115059; x=1691719859;
+        d=1e100.net; s=20221208; t=1691115063; x=1691719863;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=k6HgGLGtG7M3LESpN5nTWoHfsSRrv8ioEMKugiOnOTw=;
-        b=aNM0fypLHrpI2ieLndU1FQOtOJ1U4BGqcds+wwpPwOJfxbikkn5RRkfa0UbkypY12/
-         DBOFTfZhwHVSnC+22sInDqMLkLKILZucY2GZ9JRpVx4GQjAQ4P5Iqi2kZam/endGubOU
-         pPJ7FDcuRvnfkZ4Y7Hga4L7dfHkedNkkTahaovNLoqhNcis5SJWdhBBRfgzkItfGHDhZ
-         pqMdv7ueNHqBTqMhwLsKF5jpCa6tMiRogdrf8Y/kqLOrXoZj25jUYcw47tmVxvWEH+D9
-         c52/ZRF0nSayqNfF5bRePIfNmHqa+kvG14OzC8niwlXcwn9RYs8Qkc5ZAvRMjELBcu4w
-         1XqQ==
-X-Gm-Message-State: AOJu0Yxkm0nfzStt892Bm1HdFig2oWQcWRteJfHpPKBDpfKu+HiqTL94
-	BK2Ay7CiKpbR8j8kovcgNhgqEw==
-X-Google-Smtp-Source: AGHT+IEN0Jt5wwNuskL0qGGhhGkOeUg3t8WkQm4o7XfOAfqqqzUJqOVX9dt6wxX88cfzTtEYQSuJcg==
-X-Received: by 2002:a17:902:ab48:b0:1bc:e37:aa76 with SMTP id ij8-20020a170902ab4800b001bc0e37aa76mr516147plb.6.1691115058660;
-        Thu, 03 Aug 2023 19:10:58 -0700 (PDT)
+        bh=xL4SUrFC0SEjwT2Aq0+zll5WmXviuZuzcvI35+EgLbI=;
+        b=QjUxd0GCQuolPbeweTte0+sRRbvnIm9sM9nkwM1Tpt5m6BHRYp4P5vdCA/8vxp4i6q
+         ly9qVnvhtyrWWj/RWl8k1mTDCsuNDprA94cjChjmU/3XBXHBn1vD2o+HmWK5UdGNdQNm
+         aeEFyTz2luLEpAvi5s9ONaaGduqSODrqrys3Qq3kyCjSZSw9TwwXf1v6R26RzGCFYsT8
+         jl3dINtM8+Ib3qgnaPby0zy2kGhuWWKB4d2VQoGCuIjn9sbyZW5syZry3sjADxTRavzK
+         qEtqa97NIu7AwnaGX6gg3o3JspWKnQooXObjIfcTetRgXWNLSNmMuXom0G1bod3YSv/j
+         2+YA==
+X-Gm-Message-State: AOJu0YycSTi0LZyNhle3bfJsS+Aqwnd8OxLJzNGSmr7tgINfsPtAf1gm
+	EdlIxWSh+6lst9yf+QkoVL4IXA==
+X-Google-Smtp-Source: AGHT+IEWMGG8I7Bx8vxPRq5vbS6bzyhi8Am9MK0LkQRTff8vwoXnpjEoBIXTfO5sLYuNOOcKckXAfw==
+X-Received: by 2002:a05:6a00:18a2:b0:666:81ae:fec0 with SMTP id x34-20020a056a0018a200b0066681aefec0mr463394pfh.25.1691115062994;
+        Thu, 03 Aug 2023 19:11:02 -0700 (PDT)
 Received: from charlie.ba.rivosinc.com ([66.220.2.162])
-        by smtp.gmail.com with ESMTPSA id g6-20020a655806000000b0055c558ac4edsm369499pgr.46.2023.08.03.19.10.56
+        by smtp.gmail.com with ESMTPSA id g6-20020a655806000000b0055c558ac4edsm369499pgr.46.2023.08.03.19.11.01
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 03 Aug 2023 19:10:58 -0700 (PDT)
+        Thu, 03 Aug 2023 19:11:02 -0700 (PDT)
 From: Charlie Jenkins <charlie@rivosinc.com>
-Date: Thu, 03 Aug 2023 19:10:29 -0700
-Subject: [PATCH 04/10] RISC-V: KGDB: Refactor instructions
+Date: Thu, 03 Aug 2023 19:10:31 -0700
+Subject: [PATCH 06/10] RISC-V: Refactor patch instructions
 MIME-Version: 1.0
-Message-Id: <20230803-master-refactor-instructions-v4-v1-4-2128e61fa4ff@rivosinc.com>
+Message-Id: <20230803-master-refactor-instructions-v4-v1-6-2128e61fa4ff@rivosinc.com>
 References: <20230803-master-refactor-instructions-v4-v1-0-2128e61fa4ff@rivosinc.com>
 In-Reply-To: <20230803-master-refactor-instructions-v4-v1-0-2128e61fa4ff@rivosinc.com>
 To: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
@@ -87,8 +87,8 @@ Cc: Paul Walmsley <paul.walmsley@sifive.com>,
  Nam Cao <namcaov@gmail.com>, Charlie Jenkins <charlie@rivosinc.com>
 X-Mailer: b4 0.12.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230803_191100_771354_1474BF71 
-X-CRM114-Status: GOOD (  12.55  )
+X-CRM114-CacheID: sfid-20230803_191103_846361_86885580 
+X-CRM114-Status: GOOD (  16.80  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,62 +109,245 @@ Use shared instruction definitions in insn.h.
 
 Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
 ---
- arch/riscv/kernel/kgdb.c | 11 +++++------
- 1 file changed, 5 insertions(+), 6 deletions(-)
+ arch/riscv/kernel/patch.c                |  3 +-
+ arch/riscv/kernel/probes/kprobes.c       | 13 +++----
+ arch/riscv/kernel/probes/simulate-insn.c | 61 +++++++-------------------------
+ arch/riscv/kernel/probes/uprobes.c       |  5 +--
+ 4 files changed, 25 insertions(+), 57 deletions(-)
 
-diff --git a/arch/riscv/kernel/kgdb.c b/arch/riscv/kernel/kgdb.c
-index 2393342ab362..e1305706120e 100644
---- a/arch/riscv/kernel/kgdb.c
-+++ b/arch/riscv/kernel/kgdb.c
-@@ -5,7 +5,6 @@
+diff --git a/arch/riscv/kernel/patch.c b/arch/riscv/kernel/patch.c
+index 575e71d6c8ae..df51f5155673 100644
+--- a/arch/riscv/kernel/patch.c
++++ b/arch/riscv/kernel/patch.c
+@@ -12,6 +12,7 @@
+ #include <asm/cacheflush.h>
+ #include <asm/fixmap.h>
+ #include <asm/ftrace.h>
++#include <asm/insn.h>
+ #include <asm/patch.h>
  
+ struct patch_insn {
+@@ -118,7 +119,7 @@ static int patch_text_cb(void *data)
+ 
+ 	if (atomic_inc_return(&patch->cpu_count) == num_online_cpus()) {
+ 		for (i = 0; ret == 0 && i < patch->ninsns; i++) {
+-			len = GET_INSN_LENGTH(patch->insns[i]);
++			len = INSN_LEN(patch->insns[i]);
+ 			ret = patch_text_nosync(patch->addr + i * len,
+ 						&patch->insns[i], len);
+ 		}
+diff --git a/arch/riscv/kernel/probes/kprobes.c b/arch/riscv/kernel/probes/kprobes.c
+index 2f08c14a933d..501c6ae4d803 100644
+--- a/arch/riscv/kernel/probes/kprobes.c
++++ b/arch/riscv/kernel/probes/kprobes.c
+@@ -12,6 +12,7 @@
+ #include <asm/cacheflush.h>
+ #include <asm/bug.h>
+ #include <asm/patch.h>
++#include <asm/insn.h>
+ 
+ #include "decode-insn.h"
+ 
+@@ -24,7 +25,7 @@ post_kprobe_handler(struct kprobe *, struct kprobe_ctlblk *, struct pt_regs *);
+ static void __kprobes arch_prepare_ss_slot(struct kprobe *p)
+ {
+ 	u32 insn = __BUG_INSN_32;
+-	unsigned long offset = GET_INSN_LENGTH(p->opcode);
++	unsigned long offset = INSN_LEN(p->opcode);
+ 
+ 	p->ainsn.api.restore = (unsigned long)p->addr + offset;
+ 
+@@ -58,7 +59,7 @@ static bool __kprobes arch_check_kprobe(struct kprobe *p)
+ 		if (tmp == addr)
+ 			return true;
+ 
+-		tmp += GET_INSN_LENGTH(*(u16 *)tmp);
++		tmp += INSN_LEN(*(u16 *)tmp);
+ 	}
+ 
+ 	return false;
+@@ -76,7 +77,7 @@ int __kprobes arch_prepare_kprobe(struct kprobe *p)
+ 
+ 	/* copy instruction */
+ 	p->opcode = (kprobe_opcode_t)(*insn++);
+-	if (GET_INSN_LENGTH(p->opcode) == 4)
++	if (INSN_LEN(p->opcode) == 4)
+ 		p->opcode |= (kprobe_opcode_t)(*insn) << 16;
+ 
+ 	/* decode instruction */
+@@ -117,8 +118,8 @@ void *alloc_insn_page(void)
+ /* install breakpoint in text */
+ void __kprobes arch_arm_kprobe(struct kprobe *p)
+ {
+-	u32 insn = (p->opcode & __INSN_LENGTH_MASK) == __INSN_LENGTH_32 ?
+-		   __BUG_INSN_32 : __BUG_INSN_16;
++	u32 insn = INSN_IS_C(p->opcode) ?
++		   __BUG_INSN_16 : __BUG_INSN_32;
+ 
+ 	patch_text(p->addr, &insn, 1);
+ }
+@@ -344,7 +345,7 @@ kprobe_single_step_handler(struct pt_regs *regs)
+ 	struct kprobe *cur = kprobe_running();
+ 
+ 	if (cur && (kcb->kprobe_status & (KPROBE_HIT_SS | KPROBE_REENTER)) &&
+-	    ((unsigned long)&cur->ainsn.api.insn[0] + GET_INSN_LENGTH(cur->opcode) == addr)) {
++	    ((unsigned long)&cur->ainsn.api.insn[0] + INSN_LEN(cur->opcode) == addr)) {
+ 		kprobes_restore_local_irqflag(kcb, regs);
+ 		post_kprobe_handler(cur, kcb, regs);
+ 		return true;
+diff --git a/arch/riscv/kernel/probes/simulate-insn.c b/arch/riscv/kernel/probes/simulate-insn.c
+index 994edb4bd16a..f9671bb864a3 100644
+--- a/arch/riscv/kernel/probes/simulate-insn.c
++++ b/arch/riscv/kernel/probes/simulate-insn.c
+@@ -1,5 +1,6 @@
+ // SPDX-License-Identifier: GPL-2.0+
+ 
++#include <asm/insn.h>
+ #include <asm/reg.h>
+ #include <linux/bitops.h>
+ #include <linux/kernel.h>
+@@ -16,19 +17,16 @@ bool __kprobes simulate_jal(u32 opcode, unsigned long addr, struct pt_regs *regs
+ 	 *     1         10          1           8       5    JAL/J
+ 	 */
+ 	bool ret;
+-	u32 imm;
+-	u32 index = (opcode >> 7) & 0x1f;
++	s32 imm;
++	u32 index = riscv_insn_extract_rd(opcode);
+ 
+ 	ret = rv_insn_reg_set_val((unsigned long *)regs, index, addr + 4);
+ 	if (!ret)
+ 		return ret;
+ 
+-	imm  = ((opcode >> 21) & 0x3ff) << 1;
+-	imm |= ((opcode >> 20) & 0x1)   << 11;
+-	imm |= ((opcode >> 12) & 0xff)  << 12;
+-	imm |= ((opcode >> 31) & 0x1)   << 20;
++	imm = riscv_insn_extract_jtype_imm(opcode);
+ 
+-	instruction_pointer_set(regs, addr + sign_extend32((imm), 20));
++	instruction_pointer_set(regs, addr + imm);
+ 
+ 	return ret;
+ }
+@@ -42,9 +40,9 @@ bool __kprobes simulate_jalr(u32 opcode, unsigned long addr, struct pt_regs *reg
+ 	 */
+ 	bool ret;
+ 	unsigned long base_addr;
+-	u32 imm = (opcode >> 20) & 0xfff;
+-	u32 rd_index = (opcode >> 7) & 0x1f;
+-	u32 rs1_index = (opcode >> 15) & 0x1f;
++	s32 imm = riscv_insn_extract_itype_imm(opcode);
++	u32 rd_index = riscv_insn_extract_rd(opcode);
++	u32 rs1_index = riscv_insn_extract_rs1(opcode);
+ 
+ 	ret = rv_insn_reg_get_val((unsigned long *)regs, rs1_index, &base_addr);
+ 	if (!ret)
+@@ -54,25 +52,11 @@ bool __kprobes simulate_jalr(u32 opcode, unsigned long addr, struct pt_regs *reg
+ 	if (!ret)
+ 		return ret;
+ 
+-	instruction_pointer_set(regs, (base_addr + sign_extend32((imm), 11))&~1);
++	instruction_pointer_set(regs, (base_addr + imm) & ~1);
+ 
+ 	return ret;
+ }
+ 
+-#define auipc_rd_idx(opcode) \
+-	((opcode >> 7) & 0x1f)
+-
+-#define auipc_imm(opcode) \
+-	((((opcode) >> 12) & 0xfffff) << 12)
+-
+-#if __riscv_xlen == 64
+-#define auipc_offset(opcode)	sign_extend64(auipc_imm(opcode), 31)
+-#elif __riscv_xlen == 32
+-#define auipc_offset(opcode)	auipc_imm(opcode)
+-#else
+-#error "Unexpected __riscv_xlen"
+-#endif
+-
+ bool __kprobes simulate_auipc(u32 opcode, unsigned long addr, struct pt_regs *regs)
+ {
+ 	/*
+@@ -82,35 +66,16 @@ bool __kprobes simulate_auipc(u32 opcode, unsigned long addr, struct pt_regs *re
+ 	 *        20       5     7
+ 	 */
+ 
+-	u32 rd_idx = auipc_rd_idx(opcode);
+-	unsigned long rd_val = addr + auipc_offset(opcode);
++	u32 rd_idx = riscv_insn_extract_rd(opcode);
++	unsigned long rd_val = addr + riscv_insn_extract_utype_imm(opcode);
+ 
+ 	if (!rv_insn_reg_set_val((unsigned long *)regs, rd_idx, rd_val))
+ 		return false;
+ 
+ 	instruction_pointer_set(regs, addr + 4);
+-
+ 	return true;
+ }
+ 
+-#define branch_rs1_idx(opcode) \
+-	(((opcode) >> 15) & 0x1f)
+-
+-#define branch_rs2_idx(opcode) \
+-	(((opcode) >> 20) & 0x1f)
+-
+-#define branch_funct3(opcode) \
+-	(((opcode) >> 12) & 0x7)
+-
+-#define branch_imm(opcode) \
+-	(((((opcode) >>  8) & 0xf ) <<  1) | \
+-	 ((((opcode) >> 25) & 0x3f) <<  5) | \
+-	 ((((opcode) >>  7) & 0x1 ) << 11) | \
+-	 ((((opcode) >> 31) & 0x1 ) << 12))
+-
+-#define branch_offset(opcode) \
+-	sign_extend32((branch_imm(opcode)), 12)
+-
+ bool __kprobes simulate_branch(u32 opcode, unsigned long addr, struct pt_regs *regs)
+ {
+ 	/*
+@@ -135,8 +100,8 @@ bool __kprobes simulate_branch(u32 opcode, unsigned long addr, struct pt_regs *r
+ 	    !rv_insn_reg_get_val((unsigned long *)regs, riscv_insn_extract_rs2(opcode), &rs2_val))
+ 		return false;
+ 
+-	offset_tmp = branch_offset(opcode);
+-	switch (branch_funct3(opcode)) {
++	offset_tmp = riscv_insn_extract_btype_imm(opcode);
++	switch (riscv_insn_extract_funct3(opcode)) {
+ 	case RVG_FUNCT3_BEQ:
+ 		offset = (rs1_val == rs2_val) ? offset_tmp : 4;
+ 		break;
+diff --git a/arch/riscv/kernel/probes/uprobes.c b/arch/riscv/kernel/probes/uprobes.c
+index 194f166b2cc4..f2511cbaf931 100644
+--- a/arch/riscv/kernel/probes/uprobes.c
++++ b/arch/riscv/kernel/probes/uprobes.c
+@@ -1,5 +1,6 @@
+ // SPDX-License-Identifier: GPL-2.0-only
+ 
++#include <asm/insn.h>
+ #include <linux/highmem.h>
  #include <linux/ptrace.h>
- #include <linux/kdebug.h>
--#include <linux/bug.h>
- #include <linux/kgdb.h>
- #include <linux/irqflags.h>
- #include <linux/string.h>
-@@ -25,12 +24,12 @@ static unsigned int stepped_opcode;
+ #include <linux/uprobes.h>
+@@ -29,7 +30,7 @@ int arch_uprobe_analyze_insn(struct arch_uprobe *auprobe, struct mm_struct *mm,
  
- static int decode_register_index(unsigned long opcode, int offset)
- {
--	return (opcode >> offset) & 0x1F;
-+	return (opcode >> offset) & RV_STANDARD_REG_MASK;
- }
+ 	opcode = *(probe_opcode_t *)(&auprobe->insn[0]);
  
- static int decode_register_index_short(unsigned long opcode, int offset)
- {
--	return ((opcode >> offset) & 0x7) + 8;
-+	return ((opcode >> offset) & RV_COMPRESSED_REG_MASK) + 8;
- }
+-	auprobe->insn_size = GET_INSN_LENGTH(opcode);
++	auprobe->insn_size = INSN_LEN(opcode);
  
- /* Calculate the new address for after a step */
-@@ -43,7 +42,7 @@ static int get_step_address(struct pt_regs *regs, unsigned long *next_addr)
+ 	switch (riscv_probe_decode_insn(&opcode, &auprobe->api)) {
+ 	case INSN_REJECTED:
+@@ -166,7 +167,7 @@ void arch_uprobe_copy_ixol(struct page *page, unsigned long vaddr,
  
- 	if (get_kernel_nofault(op_code, (void *)pc))
- 		return -EINVAL;
--	if ((op_code & __INSN_LENGTH_MASK) != INSN_C_MASK) {
-+	if (INSN_IS_C(op_code)) {
- 		if (riscv_insn_is_c_jalr(op_code) ||
- 		    riscv_insn_is_c_jr(op_code)) {
- 			rs1_num = decode_register_index(op_code, RVC_C2_RS1_OPOFF);
-@@ -55,14 +54,14 @@ static int get_step_address(struct pt_regs *regs, unsigned long *next_addr)
- 			rs1_num = decode_register_index_short(op_code,
- 							      RVC_C1_RS1_OPOFF);
- 			if (!rs1_num || regs_ptr[rs1_num] == 0)
--				*next_addr = RVC_EXTRACT_BTYPE_IMM(op_code) + pc;
-+				*next_addr = RVC_EXTRACT_BZ_IMM(op_code) + pc;
- 			else
- 				*next_addr = pc + 2;
- 		} else if (riscv_insn_is_c_bnez(op_code)) {
- 			rs1_num =
- 			    decode_register_index_short(op_code, RVC_C1_RS1_OPOFF);
- 			if (rs1_num && regs_ptr[rs1_num] != 0)
--				*next_addr = RVC_EXTRACT_BTYPE_IMM(op_code) + pc;
-+				*next_addr = RVC_EXTRACT_BZ_IMM(op_code) + pc;
- 			else
- 				*next_addr = pc + 2;
- 		} else {
+ 	/* Add ebreak behind opcode to simulate singlestep */
+ 	if (vaddr) {
+-		dst += GET_INSN_LENGTH(*(probe_opcode_t *)src);
++		dst += INSN_LEN(*(probe_opcode_t *)src);
+ 		*(uprobe_opcode_t *)dst = __BUG_INSN_32;
+ 	}
+ 
 
 -- 
 2.34.1
