@@ -4,82 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0F59C001DB
-	for <linux-riscv@archiver.kernel.org>; Fri,  4 Aug 2023 09:16:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2BBDC001DB
+	for <linux-riscv@archiver.kernel.org>; Fri,  4 Aug 2023 09:20:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=hNDYZlFBEQB/7QvWoLv6kdXH6SbXuuC99QnNFEHNq9g=; b=rBKtfF6m6mwwrP
-	TvR8/BOs+DO8klvN8tsBn1jN+aAwdRHx4hjqDef6GuN12tkEWUpIpPbECjWiUIRf6fVpzOmly3szu
-	fPYXGs9YUS0bj6dH173xLrRO64Wc1EYd2Doz0437ew9bYfMTNYrK577wKiFoeNBBUtzPP6XuBzr7f
-	fSxUSsSnUnTWUdgEuWoLsjbKfsQraSri5O/b6kGCEBOyj22E9S6mejzUNGh46WldQAIHw0xCT13jC
-	0q+nqkF6VudoneXPdFQ8J38BgW6VEUT8A6rBQe/peYVUpjdW0EtYCKbQM3gf6vIS8C8SXuuBXcfuX
-	Aq0exTxOLW/U2SBz4/Wg==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=k1EpyuI1Z0GOKEyl0gRAy4x059MeuQMkt5JMLcpqMAo=; b=RU6dUHM7awbhf4
+	bs74/cTaglH8MCdbCif8AdKVBNHTLC9lbTKIE8nXRxSG0gIwgfqme3uhzTqiB391GXq1z81xgbCUV
+	+yd7pkWN4T+UNhVZz/BNVuXXmATijTE9cOiHmTkk/ZdL94AD6QpBg0LvogtW5p1V4Z5jRXChz0v1e
+	2rF5r1sCjrPcd3GgmxK+7y0lwX7TbeCkT6M5PLyM0XzzzEtbubXaGqUhtRsqyFhpvzswBxfoHgTT7
+	GoQuneg9WKBJuF2gbG7wEErHzyV4cGk1UZ82qa74upwMGEB6wBoL5M/pxW+ryKQjg/SiwhnurK0aa
+	9/7FCR/5eCoXVufDcBbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qRquw-00Bz9A-1Z;
-	Fri, 04 Aug 2023 09:16:18 +0000
-Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
+	id 1qRqzK-00Bzdc-0w;
+	Fri, 04 Aug 2023 09:20:50 +0000
+Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qRqut-00Bz8G-1Y;
-	Fri, 04 Aug 2023 09:16:16 +0000
-Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-1bbc06f830aso13439305ad.0;
-        Fri, 04 Aug 2023 02:16:14 -0700 (PDT)
+	id 1qRqzH-00BzcN-0R
+	for linux-riscv@lists.infradead.org;
+	Fri, 04 Aug 2023 09:20:48 +0000
+Received: by mail-pf1-x42f.google.com with SMTP id d2e1a72fcca58-686daaa5f1fso1400911b3a.3
+        for <linux-riscv@lists.infradead.org>; Fri, 04 Aug 2023 02:20:46 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20221208; t=1691140574; x=1691745374;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=UrjG9rnH2NzTSctzZIvkOvwr1uRZUx+aymjSrHb5yT4=;
-        b=J5Fii411FDOFOVqMoeCwM4rXnVKKuG5itOI2EgfdPtx4pBv4yfe8VwmQKRChb6WrKr
-         RXF3+IA/ZVrP4wVghO9A8AGTUOvz2FVM2AzP3rxzWPRTgleKnjUdf/Ae7GiB3VxqRhtz
-         r8yVJOfba783a4NX0Em3fviXKA57GA5hUv4VzEKcA2Qdtm0LAPFgoxZtgU5elTRKN9rT
-         8ugSMgh6IvS1R/7etfJxoJ7vZf9Ck0r6tlG1VoesLwATVOsKMQmMRvnSlFyMoAFH9cfE
-         dQc589fD5ZET9IuOshJXFKt+fzpXs11MUZ/yhvr+VtGuNR+76TVz/CDAA5txsetPipcE
-         A9oQ==
+        d=ventanamicro.com; s=google; t=1691140845; x=1691745645;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=p2ObDLhJobQ9FX8zrDm+LEp86QCexPfSdnjmPctJdSo=;
+        b=F4/McMixxcOMhEI5apZ4RiT+M6GQ3Y1FulhZiK9GD9FMHjwnXxiH1LCf65R0H6ghim
+         181Yd5r0KpK7HXoP32NBwHOYeWls/+uSmkIpeDfegw8IW8DZfjy03nWwt9rgWRIyuI7K
+         k0FfY0LXSfohvE+hpFPhEQIto13y1R6sxgyePSF4Wb6uS3VoXHeJc5Ik9Ef3JLKkAkbo
+         MKYwmaVdVpb54LANPaVIcAm3fzWPKuymwQfADR5qJvbx/m+63ttr9aehvptKX7mRMI4n
+         wCCoonjfQkU0eK2kop4Az5gc3o07/UL/tdLRdyIXTHzwD+QkF8LxjejSrhXoajObwFiJ
+         ZWkg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1691140574; x=1691745374;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=UrjG9rnH2NzTSctzZIvkOvwr1uRZUx+aymjSrHb5yT4=;
-        b=CODjE4duoXA9DHs4bfEim6p2RZhdP+YnaTMdCa9a28Mxv0+eZtA3/5OkovIYJO/+Px
-         OSF0Ec9kPvxo24vlwYuCp81apKG6p+Tj82Xs0tSfTYdB/epnJXSBaHR0Hz4GpyQGkFIt
-         ReAsn4BcVYILmAnD5epBb4HPmCCt4VPRJb4REgEYPuO/RPmQq/LIEMoWdJRY9jAWBUjk
-         f+ekudbp4YL4eiDiccjTKrBcfYhJljsJ4thNQMyLpOOnnuxMWhKEXZ85w0/tYkjSko3Z
-         wcIGDVtG3q4kMPSO9gRHvJLm0peGSL31ujXKMZlmy/mDXGcZCmsFO8J0Ey80H7woUitl
-         Z/9A==
-X-Gm-Message-State: AOJu0YxPtsHMG9GGWz9b82QyAoftrBhu9JnSaXmTu0ZbHIMj+nv4662K
-	LvRJHSuZ8+Gn4+A6JR8gMKs=
-X-Google-Smtp-Source: AGHT+IGOo/8nQx5lnqtY++gVvvtI8ONaHpiJgRZeRc8p6gTLm5RJIluatJIAabgFdQ2xuZZiaYNfsA==
-X-Received: by 2002:a17:902:d4c5:b0:1b8:7613:594d with SMTP id o5-20020a170902d4c500b001b87613594dmr1867250plg.24.1691140574150;
-        Fri, 04 Aug 2023 02:16:14 -0700 (PDT)
-Received: from localhost.localdomain ([2408:843e:c90:213e:379:7882:d981:bf4c])
-        by smtp.gmail.com with ESMTPSA id r1-20020a63e501000000b00564250660f3sm923322pgh.78.2023.08.04.02.16.07
+        d=1e100.net; s=20221208; t=1691140845; x=1691745645;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=p2ObDLhJobQ9FX8zrDm+LEp86QCexPfSdnjmPctJdSo=;
+        b=GX/PLNo8OnKxgYXj09xXRj8Veu6GRxYj/E7u8GwT2oUdqcRpKJtZinXBgTrZjkrLKl
+         62CHUDSU233o+/DWLVjWXU2w6R8DkgcTaKw6fy5f7d9TtyGM8Vyg2Y+LV52bY4xmQLw6
+         MP5SaTNievb+CXom96XKqae0fNBuEwrZEGjfNLZxnSnB2E+B2ZLJebYJuApZKnAgfo/h
+         Ojc1M32UflxfnYs/JG0XqW5WvaYmJwSZ1nnY9LgyHQcQFtsRus7UidblBA45crb2Z4d/
+         8qyZtBoZd+8FZeLLanQuQLD7U5pvvKSksUraGqprMDxFJv4+suti6r0k+xAXIInKJvTk
+         zDpA==
+X-Gm-Message-State: AOJu0YwGDU8F3zgOb9Adk/giDjvUB6rNNr7EIDJYB80+mqMEz0fLhvTT
+	aFyt3/Xc7CtbYJcG7qnB7C4sMw==
+X-Google-Smtp-Source: AGHT+IH2yLk3kVTwlVX2pFEM7MDeX5YS0pIZvWjo5KAsJ2OCrs9SAbu2ByBxMEsWLIv7WIsy+kk+YA==
+X-Received: by 2002:a05:6a00:1252:b0:687:9a0b:9265 with SMTP id u18-20020a056a00125200b006879a0b9265mr1122535pfi.29.1691140845486;
+        Fri, 04 Aug 2023 02:20:45 -0700 (PDT)
+Received: from sunil-laptop ([106.51.190.143])
+        by smtp.gmail.com with ESMTPSA id u2-20020aa78482000000b00666b3706be6sm1171935pfn.107.2023.08.04.02.20.37
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 04 Aug 2023 02:16:13 -0700 (PDT)
-From: Song Shuai <suagrfillet@gmail.com>
-To: xianting.tian@linux.alibaba.com,
-	mick@ics.forth.gr,
-	heinrich.schuchardt@canonical.com,
-	guoren@kernel.org,
-	k-hagio-ab@nec.com,
-	yixun.lan@gmail.com,
-	lijiang@redhat.com
-Cc: linux-riscv@lists.infradead.org,
-	kexec@lists.infradead.org,
-	crash-utility@redhat.com,
-	Song Shuai <suagrfillet@gmail.com>
-Subject: [Crash-utility PATCH V2] RISCV64: Use va_kernel_pa_offset in VTOP()
-Date: Fri,  4 Aug 2023 17:15:59 +0800
-Message-Id: <20230804091559.3005820-1-suagrfillet@gmail.com>
-X-Mailer: git-send-email 2.20.1
+        Fri, 04 Aug 2023 02:20:45 -0700 (PDT)
+Date: Fri, 4 Aug 2023 14:50:34 +0530
+From: Sunil V L <sunilvl@ventanamicro.com>
+To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Cc: linux-doc@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-acpi@vger.kernel.org, linux-pci@vger.kernel.org,
+	Jonathan Corbet <corbet@lwn.net>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Len Brown <lenb@kernel.org>, Daniel Scally <djrscally@gmail.com>,
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Anup Patel <anup@brainfault.org>, Marc Zyngier <maz@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Robert Moore <robert.moore@intel.com>,
+	Haibo Xu <haibo1.xu@intel.com>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Atish Kumar Patra <atishp@rivosinc.com>
+Subject: Re: [RFC PATCH v1 09/21] RISC-V: cacheflush: Initialize CBO
+ variables on ACPI systems
+Message-ID: <ZMzC4nHOJOfp0vaa@sunil-laptop>
+References: <20230803175916.3174453-1-sunilvl@ventanamicro.com>
+ <20230803175916.3174453-10-sunilvl@ventanamicro.com>
+ <ZMyTDcffqXYT29JX@smile.fi.intel.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <ZMyTDcffqXYT29JX@smile.fi.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230804_021615_518002_6CA93105 
-X-CRM114-Status: GOOD (  15.36  )
+X-CRM114-CacheID: sfid-20230804_022047_203854_6FE04E88 
+X-CRM114-Status: GOOD (  12.99  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,94 +115,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Since RISC-V Linux v6.4, the commit 3335068f8721 ("riscv: Use
-PUD/P4D/PGD pages for the linear mapping") changes phys_ram_base from
-the physical start of the kernel to the actual start of the DRAM.
+On Fri, Aug 04, 2023 at 08:56:29AM +0300, Andy Shevchenko wrote:
+> On Thu, Aug 03, 2023 at 11:29:04PM +0530, Sunil V L wrote:
+> > Using new interface to get the CBO block size information in
+> > RHCT, initialize the variables on ACPI platforms.
+> 
+> ...
+> 
+> >  #include <linux/of.h>
+> > +#include <linux/acpi.h>
+> 
+> Can you keep it sorted (to some extent)?
+> 
+Sure.
 
-The Crash's VTOP() still uses phys_ram_base and kernel_map.virt_addr
-to translate kernel virtual address, that made Crash boot failed with
-Linux v6.4 and later version.
+> > +#include <asm/acpi.h>
+> 
+> What do you need this for?
+> 
+> >  #include <asm/cacheflush.h>
+> 
+When CONFIG_ACPI is disabled, this include is required to get
+acpi_get_cbo_block_size().
 
-Let Linux export kernel_map.va_kernel_pa_offset in v6.5 and backported
-v6.4.0 stable, so Crash can use "va_kernel_pa_offset" to translate the
-kernel virtual address in VTOP() correctly.
-
-Signed-off-by: Song Shuai <suagrfillet@gmail.com>
----
-Changes since V1:
-  - remove unnecessary first kernel version check as Kazu suggested
-  - amend the commit-msg as Alex suggested
----
- defs.h    |  4 ++--
- riscv64.c | 23 +++++++++++++++++++++++
- 2 files changed, 25 insertions(+), 2 deletions(-)
-
-diff --git a/defs.h b/defs.h
-index 5ee60f1..c07e6d7 100644
---- a/defs.h
-+++ b/defs.h
-@@ -3662,8 +3662,7 @@ typedef signed int s32;
- 	ulong _X = X;									\
- 	(THIS_KERNEL_VERSION >= LINUX(5,13,0) &&					\
- 		(_X) >= machdep->machspec->kernel_link_addr) ?				\
--		(((unsigned long)(_X)-(machdep->machspec->kernel_link_addr)) +		\
--		 machdep->machspec->phys_base):						\
-+		((unsigned long)(_X)-(machdep->machspec->va_kernel_pa_offset)): 	\
- 		(((unsigned long)(_X)-(machdep->kvbase)) +				\
- 		 machdep->machspec->phys_base);						\
- 	})
-@@ -7021,6 +7020,7 @@ struct machine_specific {
- 	ulong modules_vaddr;
- 	ulong modules_end;
- 	ulong kernel_link_addr;
-+	ulong va_kernel_pa_offset;
- 
- 	ulong _page_present;
- 	ulong _page_read;
-diff --git a/riscv64.c b/riscv64.c
-index 6b9a688..7b5dd3d 100644
---- a/riscv64.c
-+++ b/riscv64.c
-@@ -418,6 +418,28 @@ error:
- 	error(FATAL, "cannot get vm layout\n");
- }
- 
-+static void
-+riscv64_get_va_kernel_pa_offset(struct machine_specific *ms)
-+{
-+	unsigned long kernel_version = riscv64_get_kernel_version();
-+
-+	/*
-+	 * Since Linux v6.4 phys_base is not the physical start of the kernel,
-+	 * trying to use "va_kernel_pa_offset" to determine the offset between
-+	 * kernel virtual and physical addresses.
-+	 */
-+	if (kernel_version >= LINUX(6,4,0)) {
-+		char *string;
-+		if ((string = pc->read_vmcoreinfo("NUMBER(va_kernel_pa_offset)"))) {
-+			ms->va_kernel_pa_offset = htol(string, QUIET, NULL);
-+			free(string);
-+		} else
-+			error(FATAL, "cannot read va_kernel_pa_offset\n");
-+	}
-+	else
-+		ms->va_kernel_pa_offset = ms->kernel_link_addr - ms->phys_base;
-+}
-+
- static int
- riscv64_is_kvaddr(ulong vaddr)
- {
-@@ -1352,6 +1374,7 @@ riscv64_init(int when)
- 		riscv64_get_struct_page_size(machdep->machspec);
- 		riscv64_get_va_bits(machdep->machspec);
- 		riscv64_get_va_range(machdep->machspec);
-+		riscv64_get_va_kernel_pa_offset(machdep->machspec);
- 
- 		pt_level_alloc(&machdep->pgd, "cannot malloc pgd space.");
- 		pt_level_alloc(&machdep->machspec->p4d, "cannot malloc p4d space.");
--- 
-2.20.1
-
+Thanks,
+Sunil
 
 _______________________________________________
 linux-riscv mailing list
