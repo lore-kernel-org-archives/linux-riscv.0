@@ -4,94 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D84AC001DE
-	for <linux-riscv@archiver.kernel.org>; Fri,  4 Aug 2023 06:11:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B777CC001DB
+	for <linux-riscv@archiver.kernel.org>; Fri,  4 Aug 2023 06:31:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pIM2JBMJT1deQkBZr58f9on7CB9GPPTXkX3j+IvMA7c=; b=dN8fGCn/d84jCH
-	XTI2m7zJ9zVuThySOHo8llRfCMH0On/6APpNBmUxXbVcZCq9G1Vak4Jmab9VxihehZd5+oDYbytjS
-	llmVxTd6rnV01yrrLTmw5LRXO3b4dhCe8JwGGJdaXW8N/G0mP+3K9w/UHEx3ZU4htjI6/tSqzbMoQ
-	lwi+GlSoQRBmRApe1M0iRfRnSEdlyM+KNj6vZgtg9r9L1DitLu6UbMRKP+XP7GI3aW6meKkpa99xL
-	I1gc+eVI5+Fuzo/zaHZPywlMD8h93ikDhieG4zUsGSClKxaiF0WKIq06bQ4gFODIUl9JkkTgVaDb4
-	21jmaDY9gz5lPm6ZnOVw==;
+	List-Owner; bh=tP9g5HQTkS/IfgSYgHcfnc9fwTQFxKLwbZ28JjmmL0M=; b=D/8X9eMpkOQSmo
+	cMhBGvV0em/z0ec94EjgOJ+7SY9L9xEZ0ctlAvt/R/xpcQUJo9skiDSZnlOs2jDBZUDs15UkaTUr2
+	pqGIablF4l8vo1QE8DyTseT+Z2ed2GPO65kzpbTHtKO2HHPqEMi3y8hzynVj1DH7dz83eycdeuYEh
+	+oVMjhoIKt46rUIXCkzPd702VhWAbasqRy7HFKGus4lPXRKkVL6+NFmy8NQJggKVpAlzttN5UDFS6
+	8Dl7SS9gRdncLnRiLjv4QrkupXJ5Ax27ti0gks1XXwC4WPcBgi5IeIk0etsHo6Cean8MiReQOajye
+	eLr+nNG+qienzqnFO+dw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qRo1c-00BePz-15;
-	Fri, 04 Aug 2023 06:11:00 +0000
-Received: from mgamail.intel.com ([134.134.136.31])
+	id 1qRoKw-00BgN9-10;
+	Fri, 04 Aug 2023 06:30:58 +0000
+Received: from out-119.mta0.migadu.com ([2001:41d0:1004:224b::77])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qRo1Y-00BePM-33;
-	Fri, 04 Aug 2023 06:10:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1691129456; x=1722665456;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=+G9GSNfDAvX+Kh/QKq5xmMGn8Ir1PIpjRkZ3yB2HDaQ=;
-  b=HLL+bB9AgTRhuEHF4fqHPTPgAearR3PMnxR2SiMLYwQoUM0etJsTw2fI
-   aJsxN2Pk0qLi/is8PsPpxwiOI6KHx3dnwz5GfzIh/hZIotMfAJVO8iQgm
-   plvf/8IARn58bIkce85VKgdDYFjaedcsgYcUXmpjFDDg0ZrPYVskypRqt
-   XL3cAnIlQ0UcJcknp1PO4Fh8iQj6nSRSsfLWoUSuHz5FRiyax1N+YmPXt
-   7uUxMC7vSG4tXkIYKijGOS0Rkz1uGv+Jdle5dNPGccuu3zAiSClw4FFqC
-   AFgr8ugtZAzn1xVY1B3dIIZ8oJtgWaB/GVIqnAYzXX/WAcYxIcjGCDj7J
-   g==;
-X-IronPort-AV: E=McAfee;i="6600,9927,10791"; a="433927381"
-X-IronPort-AV: E=Sophos;i="6.01,254,1684825200"; 
-   d="scan'208";a="433927381"
-Received: from fmsmga001.fm.intel.com ([10.253.24.23])
-  by orsmga104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Aug 2023 23:09:26 -0700
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.01,202,1684825200"; 
-   d="scan'208";a="873237868"
-Received: from smile.fi.intel.com ([10.237.72.54])
-  by fmsmga001.fm.intel.com with ESMTP; 03 Aug 2023 23:09:22 -0700
-Received: from andy by smile.fi.intel.com with local (Exim 4.96)
-	(envelope-from <andriy.shevchenko@linux.intel.com>)
-	id 1qRnzw-00Cx13-2f;
-	Fri, 04 Aug 2023 09:09:16 +0300
-Date: Fri, 4 Aug 2023 09:09:16 +0300
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Sunil V L <sunilvl@ventanamicro.com>
-Cc: linux-doc@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-acpi@vger.kernel.org, linux-pci@vger.kernel.org,
-	Jonathan Corbet <corbet@lwn.net>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Len Brown <lenb@kernel.org>, Daniel Scally <djrscally@gmail.com>,
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Anup Patel <anup@brainfault.org>, Marc Zyngier <maz@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Robert Moore <robert.moore@intel.com>,
-	Haibo Xu <haibo1.xu@intel.com>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Atish Kumar Patra <atishp@rivosinc.com>,
-	Anup Patel <apatel@ventanamicro.com>
-Subject: Re: [RFC PATCH v1 11/21] swnode: Add support to create early during
- boot
-Message-ID: <ZMyWDDD6Lw8REd1r@smile.fi.intel.com>
-References: <20230803175916.3174453-1-sunilvl@ventanamicro.com>
- <20230803175916.3174453-12-sunilvl@ventanamicro.com>
+	id 1qRoKs-00BgK0-1n
+	for linux-riscv@lists.infradead.org;
+	Fri, 04 Aug 2023 06:30:56 +0000
+Date: Fri, 4 Aug 2023 16:25:42 +1000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jookia.org; s=key1;
+	t=1691130632;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=fnyyMjp6/z58rKII/Rp2mOpVsSyBs8OQVRiCTOvwHzg=;
+	b=rU5Afm+UogipGA1Ghu8dxKZ9+UgBF3vyzWvmBEaKnN76hnXKL3M7yZ+l8cSQasw3LtH/Bd
+	BvMHgwnV0Dglp2WwL+J2xzkGh5fOtpFDIRgMxGDke8IUmWOtuDs1S3rSB0cZb7LUNfswYQ
+	0pWAn3ewJ5Sw4dTiJGpqeVO0A3uI2Zqj901+ynSCkaEBpCMzjtj5psdXq8Emyz39UKaRhm
+	DB4sssEAUyAxeWryzNAFHD6FCr3WbpN6L6tALdwc8uxdtAXxvRgkxQ5j0eBTNGszgZL9EL
+	A7JYumZdKXnUbJEviPMcnMRGSLr6lAbaUTLUVER/RmASJN9Fz/KxHsiuVQMWPA==
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: John Watts <contact@jookia.org>
+To: Jernej =?utf-8?Q?=C5=A0krabec?= <jernej.skrabec@gmail.com>
+Subject: Re: [PATCH] riscv: dts: allwinner: d1: Specify default CAN pins
+Message-ID: <ZMyZ5kZSiiJHtdeS@titan>
+References: <20230731023701.2581713-1-contact@jookia.org>
+ <3248110.44csPzL39Z@jernej-laptop>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20230803175916.3174453-12-sunilvl@ventanamicro.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
+In-Reply-To: <3248110.44csPzL39Z@jernej-laptop>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230803_231057_056132_2A6497CD 
-X-CRM114-Status: GOOD (  18.58  )
+X-CRM114-CacheID: sfid-20230803_233054_756293_2EB77BCE 
+X-CRM114-Status: GOOD (  11.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,95 +65,21 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, Samuel Holland <samuel@sholland.org>, linux-kernel@vger.kernel.org, Chen-Yu Tsai <wens@csie.org>, Rob Herring <robh+dt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley <paul.walmsley@sifive.com>, Maksim Kiselev <bigunclemax@gmail.com>, linux-riscv@lists.infradead.org, mkl@pengutronix.de, linux-sunxi@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 03, 2023 at 11:29:06PM +0530, Sunil V L wrote:
-> From: Anup Patel <apatel@ventanamicro.com>
-> 
-> swnode framework can be used to create fwnode for interrupt
-> controllers.
-
-Why? What is this for?
-Can you elaborate? This commit message is poorly written...
-
-And why firmware node is not enough for ACPI case?
-I assume the fwnode in DT case is already provided by OF.
-
-> This helps in keeping the drivers same for both
-> DT and ACPI. To enable this, enhance the swnode framework so
-> that it can be created early during boot without dependency
-> on sysfs.
-
-...
-
-> -	swnode->kobj.kset = swnode_kset;
-> +	swnode->kobj.kset = (!early) ? swnode_kset : NULL;
-
-Too many unneeded characters. Why parentheses? Why negative check?
-
-...
-
-> +	if (early) {
-> +		ret = 0;
-> +		kobject_init(&swnode->kobj, &software_node_type_early);
-> +		swnode->kobj.parent = parent ? &parent->kobj : NULL;
-> +		if (node->name)
-> +			ret = kobject_set_name(&swnode->kobj,
-> +					       "%s", node->name);
-> +		else
-> +			ret = kobject_set_name(&swnode->kobj,
-> +					       "node%d", swnode->id);
-> +		if (!ret) {
-> +			spin_lock(&swnode_early_lock);
-> +			list_add_tail(&swnode->early, &swnode_early_list);
-> +			spin_unlock(&swnode_early_lock);
-> +		}
-> +	} else {
-> +		if (node->name)
-> +			ret = kobject_init_and_add(&swnode->kobj, &software_node_type,
-> +						   parent ? &parent->kobj : NULL,
-
-This looks like have a duplication.
-
-> +						   "%s", node->name);
-> +		else
-> +			ret = kobject_init_and_add(&swnode->kobj, &software_node_type,
-> +						   parent ? &parent->kobj : NULL,
-> +						   "node%d", swnode->id);
-> +	}
-
-Maybe it's possible to refactor this piece to be more compact?
-
-...
-
-> -	return PTR_ERR_OR_ZERO(swnode_register(node, parent, 0));
-> +	return PTR_ERR_OR_ZERO(swnode_register(node, parent, 0, 0));
-
-In one case you use boolean, here is unsigned int for early flag, why is the
-inconsistency added?
-
-...
-
-> -struct fwnode_handle *
-> -fwnode_create_software_node(const struct property_entry *properties,
-> -			    const struct fwnode_handle *parent)
-> +static struct fwnode_handle *
-> +fwnode_create_software_node_common(const struct property_entry *properties,
-> +				   const struct fwnode_handle *parent,
-> +				   bool early)
-
-Why would you need this API in early stages?
-
--- 
-With Best Regards,
-Andy Shevchenko
-
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVGh1LCBBdWcgMDMsIDIwMjMgYXQgMTA6NTk6MzBQTSArMDIwMCwgSmVybmVqIMWga3JhYmVj
+IHdyb3RlOgo+IHBpbmN0cmwtbmFtZXMgYW5kIHBpbmN0cmwtMCBhcmUgdXN1YWxseSBhdCB0aGUg
+dG9wLiBIb3dldmVyLCBzaW5jZSB0aGVyZSBpcyBubyAKPiBoYXJkIHJ1bGUgKEkndmUgc2VlbiBp
+dCBtaXhlZCksIEknbSBmaW5lIHdpdGggaXQuCgpIYXBweSB0byBjaGFuZ2UgaWYgbmVlZGVkLgoK
+PiBTaW5jZSBvcmlnaW5hbCBEVCBub2RlIGVudHJ5IGdvZXMgdGhyb3VnaCBuZXRkZXYgdHJlZSwg
+dGhpcyBzaG91bGQgYmUgcGlja2VkIAo+IHRoZXJlIG9yIGl0IGNhbiBiZSBkcm9wcGVkIHRoZXJl
+IGFuZCBJIHBpY2sgYm90aCBwYXRjaGVzIG9yIEkgY2FuIHBpY2sgcGF0Y2ggCj4gZm9yIGxhdGVy
+IGtlcm5lbCB2ZXJzaW9uLgoKRG8gSSBoYXZlIHRvIGRvIHNvbWV0aGluZyBiYXNlZCBvbiB0aGlz
+LCBsaWtlIHJlc2VuZCBteSBwYXRjaD8KCj4gQmVzdCByZWdhcmRzLAo+IEplcm5lagoKSm9obgoK
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlz
+Y3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xp
+c3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
