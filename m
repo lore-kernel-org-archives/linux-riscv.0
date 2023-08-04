@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A220C0015E
-	for <linux-riscv@archiver.kernel.org>; Fri,  4 Aug 2023 02:11:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6432CC0015E
+	for <linux-riscv@archiver.kernel.org>; Fri,  4 Aug 2023 02:14:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6XAS3V/MwULgPqPA66KZiSRT6lywXrrqUSzW2LnPoWg=; b=t2Lkee0Q4sCO4S
-	NYPQ2pZrdZEKwiM0wMH9pLT/Cb3JHAcnhO3V+zDk3J+hagPaMXyeMTt9f9t1XvNVSnZQbf4wkxpK5
-	tS5CxMcUj+Ou823KXmYN2Iewqmmvhd7G43Hpo/MiO0LwWrRvRygTtEdliayxlKP6gVAWlM1ogKqlK
-	TfHVXUwPG9PQWcm+6xZj+fQfG/zEC8Cg9rDhHh4eSApqW9STQrAgXKZ1McKpoJEFQ5ZihM8va90xb
-	wHah4ln89bJN47Ffe9dnVNg3qJc7qoQ6GAu9SgeUjCxPdfZFDQdWdyA23GdY0lZ950v4Xh2dgnrpd
-	QbGfZ10kHjOqOXcKBMXA==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=COIGQPXdXmld0My8wUvCb2VhfBmOE5uXj5jvEOceL5M=; b=yurhqolJTvRoZA
+	dbEpbTbn44d537gZOHUPWVBoN/9Ld/WZEO8GEvUW4dZZoG5VaAqK7aBOA62py5dabVhO3iz1OEvbw
+	PnZ3sUPovogknpq8XuRxnCEgjgJbXtBY0uRMLFy94drh/Sv68YZ8rPbXQq2FJpZug88vYfUYXimcp
+	38cr9NrUp98+2IUun5hXsWWWyI4/+jRZ++swKiQsuL1QA0Y2EsdnzQKzdt+0jN9paoDpxldFOSTG5
+	+quvQPA8WoRa/V+P5yyPxFE5wVa36QKbUUPcO878z8L2MuIxOE82K3t0X6n0eTwpYEecTFYrwmvd2
+	fmHLINqQCo3bEqMzcaog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qRkHh-00BLHI-05;
-	Fri, 04 Aug 2023 02:11:21 +0000
-Received: from mail-pf1-x432.google.com ([2607:f8b0:4864:20::432])
+	id 1qRkKf-00BM3H-2O;
+	Fri, 04 Aug 2023 02:14:25 +0000
+Received: from mail-ot1-x32d.google.com ([2607:f8b0:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qRkHY-00BL5z-1P
+	id 1qRkKc-00BKt0-2g
 	for linux-riscv@lists.infradead.org;
-	Fri, 04 Aug 2023 02:11:18 +0000
-Received: by mail-pf1-x432.google.com with SMTP id d2e1a72fcca58-686c06b806cso1153611b3a.2
-        for <linux-riscv@lists.infradead.org>; Thu, 03 Aug 2023 19:11:09 -0700 (PDT)
+	Fri, 04 Aug 2023 02:14:24 +0000
+Received: by mail-ot1-x32d.google.com with SMTP id 46e09a7af769-6bcd4b5ebbaso274913a34.1
+        for <linux-riscv@lists.infradead.org>; Thu, 03 Aug 2023 19:10:50 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1691115069; x=1691719869;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=/9x+TFVnCGe2WU5RlGvKxqVtj4tmROvC82ze+5KJL3U=;
-        b=IkJmUMf16prXQkjP4lj5rTDJLv7FD4/XceOUaKRy9nwYg1AbjR/4hACj7L4bdWnNht
-         i/68KOTrShtWhocen7puRJ0ZaDPHRmsWFaBrqaPGdFnd0H1vvz0dIffzYNiC4Sgx5nZl
-         sOvmRmlJ+e0a66iwtno4OqFeMbZ6mHXcj5Xi/jbqbEpgrG75Gt1Mz8kXrKk4nIcFtlVh
-         bLy9PqCz8rm0g2iU/gPweYHr5CSnbe/J5MA5IoTzLIHYkq3S4sx80FZgJyF51i4nK1wG
-         JSKBN38+oh9vdwZG72hCVhOSiz6e7xSAoKkN3cE2pEDlaVUDrUaQBnQXT2hZ1YjnL+3c
-         44Hg==
+        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1691115050; x=1691719850;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=aKI9/8r29fiRcdK5stgXJjwhW7P4T9bJiQbL+zxyBRE=;
+        b=AkhJfOQFM1pGb6BlPUy06oljjiN78H7icu0FCH4lB+bXHw/LwEgE5WfUHUrhk68xKT
+         VZ9dam0/U64TWA5t9TdKruXPJ3X0H+Sf0d6VfdGQUmlqqGKLC8z8Yvh7+P06WeYSaRF6
+         7tff9KQinoC1Hs5opB6YqN+4f3XkGXDoNcN0XTyYvtwmEI6i78JSWRjapxttsIFecIL3
+         TCvudV8tBM9EoNig/xmiY7igTYmcPHx0ukaFkc/TJlPFpGWB16NSmemF6Z9bDb7+PdFN
+         fVb3cD33kRf2q8frdWvDdZU0s40iHWB50DKpovfgMWF8buP9mcXSJ1u8dbQjRbyQHCxf
+         UWXQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1691115069; x=1691719869;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=/9x+TFVnCGe2WU5RlGvKxqVtj4tmROvC82ze+5KJL3U=;
-        b=B3G67QWGBaK8EwtSfDK9Novg923D/QoFlUuSHxwTn0mNlbsImxMBaTEK5E56XZ6JOz
-         t+rdJBisk2zlriGNxF3pWLMzWw3+wmv7FNt5kKp7sSF2jhzlLIHnLfYm/MMwNN+7RClO
-         4AArNSGmIWM3vQVB9JHwpbZSed0WAh1N+DLhh9v4mviVZCi5kpfEe3ayt2FTE5BoaRS2
-         bFjEhqpDubAHZ/uA5vedS212qsMNLS37XzfJfdLCTUFP4q3+qVAxLjl/b5YkaGk6kmj6
-         iM6vxrMATCGVsjRq0uvcdS94gykAx8MHRI7mdH8rIxYNd2D1MBaJF7qd0fAHlw3dLKgy
-         v61g==
-X-Gm-Message-State: AOJu0Yzvx/KDyTDbs7dC7Q/Z1JhdhZdgvkaCtlCf4hxQ7+Lut8SlDne+
-	OLKKbpWE6Ka8w4MDrvIzWG4LHQ==
-X-Google-Smtp-Source: AGHT+IFkJti/J73gi8xVh6nlOFT/LodI5/N609ojJyoF75AUYfW9T3mL2OZpJIfMNG8tpG29DJWNVA==
-X-Received: by 2002:a05:6a00:228f:b0:666:ecf4:ed6d with SMTP id f15-20020a056a00228f00b00666ecf4ed6dmr469564pfe.18.1691115069170;
-        Thu, 03 Aug 2023 19:11:09 -0700 (PDT)
+        d=1e100.net; s=20221208; t=1691115050; x=1691719850;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=aKI9/8r29fiRcdK5stgXJjwhW7P4T9bJiQbL+zxyBRE=;
+        b=K155whRvBsbj4nDHK1xz83yK0PGTtm+rq1Re0N7hpPhqJO3ybZB4+h3b2Eoi8emPiv
+         5tQtBhxaC2e4kS76Mh0KXlkrrZ65P9KzntgAN3zQz4iYfrdA3AAIJDLifESGX7FPO26z
+         yyRi2PwYI7XVFaRF2Hq4ihgHEearLH4cICYykP6jnoZl4pG/cT/YTbH7aBT7aI5dsReG
+         32A0RuGmhYkZCuUNhc66jzF0nrVv8KlyEhAm+2PIgR4H10EhdciQgnEnXjuVy5d2/9ce
+         bM2rP1oaG0LWtaQ+Pom4BEYFd6IGtnnujWMRn+FpqseuOEg5mSyBcE5JOHmd7w7P/qzp
+         KTag==
+X-Gm-Message-State: AOJu0YzcNlhE47Jg8u/8RR0AeCppiBGfoqK/+P6JFyxILER5NwQiT4nr
+	mHHcxiAY+hkDGLJ82n7SayuB+w==
+X-Google-Smtp-Source: AGHT+IGEhqmUxc1mmFiSsBDUL26nAWIZW9KyBf1DeJ5CThKaab1yi3ouqz1V6OLbD8yYEm2oPVP2Jw==
+X-Received: by 2002:a05:6871:707:b0:19f:aee0:e169 with SMTP id f7-20020a056871070700b0019faee0e169mr420658oap.30.1691115050056;
+        Thu, 03 Aug 2023 19:10:50 -0700 (PDT)
 Received: from charlie.ba.rivosinc.com ([66.220.2.162])
-        by smtp.gmail.com with ESMTPSA id g6-20020a655806000000b0055c558ac4edsm369499pgr.46.2023.08.03.19.11.07
+        by smtp.gmail.com with ESMTPSA id g6-20020a655806000000b0055c558ac4edsm369499pgr.46.2023.08.03.19.10.48
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 03 Aug 2023 19:11:08 -0700 (PDT)
+        Thu, 03 Aug 2023 19:10:49 -0700 (PDT)
 From: Charlie Jenkins <charlie@rivosinc.com>
-Date: Thu, 03 Aug 2023 19:10:34 -0700
-Subject: [PATCH 09/10] RISC-V: bpf: Refactor instructions
+Subject: [PATCH 00/10] RISC-V: Refactor instructions
+Date: Thu, 03 Aug 2023 19:10:25 -0700
+Message-Id: <20230803-master-refactor-instructions-v4-v1-0-2128e61fa4ff@rivosinc.com>
 MIME-Version: 1.0
-Message-Id: <20230803-master-refactor-instructions-v4-v1-9-2128e61fa4ff@rivosinc.com>
-References: <20230803-master-refactor-instructions-v4-v1-0-2128e61fa4ff@rivosinc.com>
-In-Reply-To: <20230803-master-refactor-instructions-v4-v1-0-2128e61fa4ff@rivosinc.com>
+X-B4-Tracking: v=1; b=H4sIABJezGQC/x2NQQqDQAxFryJZG4jOLMSrlC7CmNYsHEsyFUG8e
+ 0OXD/777wIXU3GYuwtMDnXda8DQd1BWrm9BXYJhpDHRRANu7E0MTV5c2m6o1Zt9SwvP8ciYU2K
+ mTAtTgnj5xFLPf+HxvO8foTEC2nEAAAA=
 To: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
  kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, bpf@vger.kernel.org
 Cc: Paul Walmsley <paul.walmsley@sifive.com>, 
@@ -87,8 +87,8 @@ Cc: Paul Walmsley <paul.walmsley@sifive.com>,
  Nam Cao <namcaov@gmail.com>, Charlie Jenkins <charlie@rivosinc.com>
 X-Mailer: b4 0.12.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230803_191112_544921_7BEF1E37 
-X-CRM114-Status: UNSURE (   9.91  )
+X-CRM114-CacheID: sfid-20230803_191422_874878_94B6974B 
+X-CRM114-Status: UNSURE (   9.17  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -106,742 +106,82 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Use shared instruction definitions in insn.h instead of manually
-constructing them.
+There are numerous systems in the kernel that rely on directly
+modifying, creating, and reading instructions. Many of these systems
+have rewritten code to do this. This patch will delegate all instruction
+handling into insn.h and reg.h. All of the compressed instructions, RVI,
+Zicsr, M, A instructions are included, as well as a subset of the F,D,Q
+extensions.
+
+---
+This is modifying code that https://lore.kernel.org/lkml/20230731183925.152145-1-namcaov@gmail.com/
+is also touching.
+
+---
+Testing:
+
+There are a lot of subsystems touched and I have not tested every
+individual instruction. I did a lot of copy-pasting from the RISC-V spec
+so opcodes and such should be correct, but the construction of every
+instruction is not fully tested.
+
+vector: Compiled and booted
+
+jump_label: Ensured static keys function as expected.
+
+kgdb: Attempted to run the provided tests but they failed even without
+my changes
+
+module: Loaded and unloaded modules
+
+patch.c: Ensured kernel booted
+
+kprobes: Used a kprobing module to probe jalr, auipc, and branch
+instructions
+
+nommu misaligned addresses: Kernel boots
+
+kvm: Ran KVM selftests
+
+bpf: Kernel boots. Most of the instructions are exclusively used by BPF
+but I am unsure of the best way of testing BPF.
 
 Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
+
 ---
- arch/riscv/net/bpf_jit.h | 707 +----------------------------------------------
- 1 file changed, 2 insertions(+), 705 deletions(-)
+Charlie Jenkins (10):
+      RISC-V: Expand instruction definitions
+      RISC-V: vector: Refactor instructions
+      RISC-V: Refactor jump label instructions
+      RISC-V: KGDB: Refactor instructions
+      RISC-V: module: Refactor instructions
+      RISC-V: Refactor patch instructions
+      RISC-V: nommu: Refactor instructions
+      RISC-V: kvm: Refactor instructions
+      RISC-V: bpf: Refactor instructions
+      RISC-V: Refactor bug and traps instructions
 
-diff --git a/arch/riscv/net/bpf_jit.h b/arch/riscv/net/bpf_jit.h
-index 2717f5490428..3f79c938166d 100644
---- a/arch/riscv/net/bpf_jit.h
-+++ b/arch/riscv/net/bpf_jit.h
-@@ -12,58 +12,8 @@
- #include <linux/bpf.h>
- #include <linux/filter.h>
- #include <asm/cacheflush.h>
--
--static inline bool rvc_enabled(void)
--{
--	return IS_ENABLED(CONFIG_RISCV_ISA_C);
--}
--
--enum {
--	RV_REG_ZERO =	0,	/* The constant value 0 */
--	RV_REG_RA =	1,	/* Return address */
--	RV_REG_SP =	2,	/* Stack pointer */
--	RV_REG_GP =	3,	/* Global pointer */
--	RV_REG_TP =	4,	/* Thread pointer */
--	RV_REG_T0 =	5,	/* Temporaries */
--	RV_REG_T1 =	6,
--	RV_REG_T2 =	7,
--	RV_REG_FP =	8,	/* Saved register/frame pointer */
--	RV_REG_S1 =	9,	/* Saved register */
--	RV_REG_A0 =	10,	/* Function argument/return values */
--	RV_REG_A1 =	11,	/* Function arguments */
--	RV_REG_A2 =	12,
--	RV_REG_A3 =	13,
--	RV_REG_A4 =	14,
--	RV_REG_A5 =	15,
--	RV_REG_A6 =	16,
--	RV_REG_A7 =	17,
--	RV_REG_S2 =	18,	/* Saved registers */
--	RV_REG_S3 =	19,
--	RV_REG_S4 =	20,
--	RV_REG_S5 =	21,
--	RV_REG_S6 =	22,
--	RV_REG_S7 =	23,
--	RV_REG_S8 =	24,
--	RV_REG_S9 =	25,
--	RV_REG_S10 =	26,
--	RV_REG_S11 =	27,
--	RV_REG_T3 =	28,	/* Temporaries */
--	RV_REG_T4 =	29,
--	RV_REG_T5 =	30,
--	RV_REG_T6 =	31,
--};
--
--static inline bool is_creg(u8 reg)
--{
--	return (1 << reg) & (BIT(RV_REG_FP) |
--			     BIT(RV_REG_S1) |
--			     BIT(RV_REG_A0) |
--			     BIT(RV_REG_A1) |
--			     BIT(RV_REG_A2) |
--			     BIT(RV_REG_A3) |
--			     BIT(RV_REG_A4) |
--			     BIT(RV_REG_A5));
--}
-+#include <asm/reg.h>
-+#include <asm/insn.h>
- 
- struct rv_jit_context {
- 	struct bpf_prog *prog;
-@@ -221,659 +171,6 @@ static inline int rv_offset(int insn, int off, struct rv_jit_context *ctx)
- 	return ninsns_rvoff(to - from);
- }
- 
--/* Instruction formats. */
--
--static inline u32 rv_r_insn(u8 funct7, u8 rs2, u8 rs1, u8 funct3, u8 rd,
--			    u8 opcode)
--{
--	return (funct7 << 25) | (rs2 << 20) | (rs1 << 15) | (funct3 << 12) |
--		(rd << 7) | opcode;
--}
--
--static inline u32 rv_i_insn(u16 imm11_0, u8 rs1, u8 funct3, u8 rd, u8 opcode)
--{
--	return (imm11_0 << 20) | (rs1 << 15) | (funct3 << 12) | (rd << 7) |
--		opcode;
--}
--
--static inline u32 rv_s_insn(u16 imm11_0, u8 rs2, u8 rs1, u8 funct3, u8 opcode)
--{
--	u8 imm11_5 = imm11_0 >> 5, imm4_0 = imm11_0 & 0x1f;
--
--	return (imm11_5 << 25) | (rs2 << 20) | (rs1 << 15) | (funct3 << 12) |
--		(imm4_0 << 7) | opcode;
--}
--
--static inline u32 rv_b_insn(u16 imm12_1, u8 rs2, u8 rs1, u8 funct3, u8 opcode)
--{
--	u8 imm12 = ((imm12_1 & 0x800) >> 5) | ((imm12_1 & 0x3f0) >> 4);
--	u8 imm4_1 = ((imm12_1 & 0xf) << 1) | ((imm12_1 & 0x400) >> 10);
--
--	return (imm12 << 25) | (rs2 << 20) | (rs1 << 15) | (funct3 << 12) |
--		(imm4_1 << 7) | opcode;
--}
--
--static inline u32 rv_u_insn(u32 imm31_12, u8 rd, u8 opcode)
--{
--	return (imm31_12 << 12) | (rd << 7) | opcode;
--}
--
--static inline u32 rv_j_insn(u32 imm20_1, u8 rd, u8 opcode)
--{
--	u32 imm;
--
--	imm = (imm20_1 & 0x80000) | ((imm20_1 & 0x3ff) << 9) |
--		((imm20_1 & 0x400) >> 2) | ((imm20_1 & 0x7f800) >> 11);
--
--	return (imm << 12) | (rd << 7) | opcode;
--}
--
--static inline u32 rv_amo_insn(u8 funct5, u8 aq, u8 rl, u8 rs2, u8 rs1,
--			      u8 funct3, u8 rd, u8 opcode)
--{
--	u8 funct7 = (funct5 << 2) | (aq << 1) | rl;
--
--	return rv_r_insn(funct7, rs2, rs1, funct3, rd, opcode);
--}
--
--/* RISC-V compressed instruction formats. */
--
--static inline u16 rv_cr_insn(u8 funct4, u8 rd, u8 rs2, u8 op)
--{
--	return (funct4 << 12) | (rd << 7) | (rs2 << 2) | op;
--}
--
--static inline u16 rv_ci_insn(u8 funct3, u32 imm6, u8 rd, u8 op)
--{
--	u32 imm;
--
--	imm = ((imm6 & 0x20) << 7) | ((imm6 & 0x1f) << 2);
--	return (funct3 << 13) | (rd << 7) | op | imm;
--}
--
--static inline u16 rv_css_insn(u8 funct3, u32 uimm, u8 rs2, u8 op)
--{
--	return (funct3 << 13) | (uimm << 7) | (rs2 << 2) | op;
--}
--
--static inline u16 rv_ciw_insn(u8 funct3, u32 uimm, u8 rd, u8 op)
--{
--	return (funct3 << 13) | (uimm << 5) | ((rd & 0x7) << 2) | op;
--}
--
--static inline u16 rv_cl_insn(u8 funct3, u32 imm_hi, u8 rs1, u32 imm_lo, u8 rd,
--			     u8 op)
--{
--	return (funct3 << 13) | (imm_hi << 10) | ((rs1 & 0x7) << 7) |
--		(imm_lo << 5) | ((rd & 0x7) << 2) | op;
--}
--
--static inline u16 rv_cs_insn(u8 funct3, u32 imm_hi, u8 rs1, u32 imm_lo, u8 rs2,
--			     u8 op)
--{
--	return (funct3 << 13) | (imm_hi << 10) | ((rs1 & 0x7) << 7) |
--		(imm_lo << 5) | ((rs2 & 0x7) << 2) | op;
--}
--
--static inline u16 rv_ca_insn(u8 funct6, u8 rd, u8 funct2, u8 rs2, u8 op)
--{
--	return (funct6 << 10) | ((rd & 0x7) << 7) | (funct2 << 5) |
--		((rs2 & 0x7) << 2) | op;
--}
--
--static inline u16 rv_cb_insn(u8 funct3, u32 imm6, u8 funct2, u8 rd, u8 op)
--{
--	u32 imm;
--
--	imm = ((imm6 & 0x20) << 7) | ((imm6 & 0x1f) << 2);
--	return (funct3 << 13) | (funct2 << 10) | ((rd & 0x7) << 7) | op | imm;
--}
--
--/* Instructions shared by both RV32 and RV64. */
--
--static inline u32 rv_addi(u8 rd, u8 rs1, u16 imm11_0)
--{
--	return rv_i_insn(imm11_0, rs1, 0, rd, 0x13);
--}
--
--static inline u32 rv_andi(u8 rd, u8 rs1, u16 imm11_0)
--{
--	return rv_i_insn(imm11_0, rs1, 7, rd, 0x13);
--}
--
--static inline u32 rv_ori(u8 rd, u8 rs1, u16 imm11_0)
--{
--	return rv_i_insn(imm11_0, rs1, 6, rd, 0x13);
--}
--
--static inline u32 rv_xori(u8 rd, u8 rs1, u16 imm11_0)
--{
--	return rv_i_insn(imm11_0, rs1, 4, rd, 0x13);
--}
--
--static inline u32 rv_slli(u8 rd, u8 rs1, u16 imm11_0)
--{
--	return rv_i_insn(imm11_0, rs1, 1, rd, 0x13);
--}
--
--static inline u32 rv_srli(u8 rd, u8 rs1, u16 imm11_0)
--{
--	return rv_i_insn(imm11_0, rs1, 5, rd, 0x13);
--}
--
--static inline u32 rv_srai(u8 rd, u8 rs1, u16 imm11_0)
--{
--	return rv_i_insn(0x400 | imm11_0, rs1, 5, rd, 0x13);
--}
--
--static inline u32 rv_lui(u8 rd, u32 imm31_12)
--{
--	return rv_u_insn(imm31_12, rd, 0x37);
--}
--
--static inline u32 rv_auipc(u8 rd, u32 imm31_12)
--{
--	return rv_u_insn(imm31_12, rd, 0x17);
--}
--
--static inline u32 rv_add(u8 rd, u8 rs1, u8 rs2)
--{
--	return rv_r_insn(0, rs2, rs1, 0, rd, 0x33);
--}
--
--static inline u32 rv_sub(u8 rd, u8 rs1, u8 rs2)
--{
--	return rv_r_insn(0x20, rs2, rs1, 0, rd, 0x33);
--}
--
--static inline u32 rv_sltu(u8 rd, u8 rs1, u8 rs2)
--{
--	return rv_r_insn(0, rs2, rs1, 3, rd, 0x33);
--}
--
--static inline u32 rv_and(u8 rd, u8 rs1, u8 rs2)
--{
--	return rv_r_insn(0, rs2, rs1, 7, rd, 0x33);
--}
--
--static inline u32 rv_or(u8 rd, u8 rs1, u8 rs2)
--{
--	return rv_r_insn(0, rs2, rs1, 6, rd, 0x33);
--}
--
--static inline u32 rv_xor(u8 rd, u8 rs1, u8 rs2)
--{
--	return rv_r_insn(0, rs2, rs1, 4, rd, 0x33);
--}
--
--static inline u32 rv_sll(u8 rd, u8 rs1, u8 rs2)
--{
--	return rv_r_insn(0, rs2, rs1, 1, rd, 0x33);
--}
--
--static inline u32 rv_srl(u8 rd, u8 rs1, u8 rs2)
--{
--	return rv_r_insn(0, rs2, rs1, 5, rd, 0x33);
--}
--
--static inline u32 rv_sra(u8 rd, u8 rs1, u8 rs2)
--{
--	return rv_r_insn(0x20, rs2, rs1, 5, rd, 0x33);
--}
--
--static inline u32 rv_mul(u8 rd, u8 rs1, u8 rs2)
--{
--	return rv_r_insn(1, rs2, rs1, 0, rd, 0x33);
--}
--
--static inline u32 rv_mulhu(u8 rd, u8 rs1, u8 rs2)
--{
--	return rv_r_insn(1, rs2, rs1, 3, rd, 0x33);
--}
--
--static inline u32 rv_divu(u8 rd, u8 rs1, u8 rs2)
--{
--	return rv_r_insn(1, rs2, rs1, 5, rd, 0x33);
--}
--
--static inline u32 rv_remu(u8 rd, u8 rs1, u8 rs2)
--{
--	return rv_r_insn(1, rs2, rs1, 7, rd, 0x33);
--}
--
--static inline u32 rv_jal(u8 rd, u32 imm20_1)
--{
--	return rv_j_insn(imm20_1, rd, 0x6f);
--}
--
--static inline u32 rv_jalr(u8 rd, u8 rs1, u16 imm11_0)
--{
--	return rv_i_insn(imm11_0, rs1, 0, rd, 0x67);
--}
--
--static inline u32 rv_beq(u8 rs1, u8 rs2, u16 imm12_1)
--{
--	return rv_b_insn(imm12_1, rs2, rs1, 0, 0x63);
--}
--
--static inline u32 rv_bne(u8 rs1, u8 rs2, u16 imm12_1)
--{
--	return rv_b_insn(imm12_1, rs2, rs1, 1, 0x63);
--}
--
--static inline u32 rv_bltu(u8 rs1, u8 rs2, u16 imm12_1)
--{
--	return rv_b_insn(imm12_1, rs2, rs1, 6, 0x63);
--}
--
--static inline u32 rv_bgtu(u8 rs1, u8 rs2, u16 imm12_1)
--{
--	return rv_bltu(rs2, rs1, imm12_1);
--}
--
--static inline u32 rv_bgeu(u8 rs1, u8 rs2, u16 imm12_1)
--{
--	return rv_b_insn(imm12_1, rs2, rs1, 7, 0x63);
--}
--
--static inline u32 rv_bleu(u8 rs1, u8 rs2, u16 imm12_1)
--{
--	return rv_bgeu(rs2, rs1, imm12_1);
--}
--
--static inline u32 rv_blt(u8 rs1, u8 rs2, u16 imm12_1)
--{
--	return rv_b_insn(imm12_1, rs2, rs1, 4, 0x63);
--}
--
--static inline u32 rv_bgt(u8 rs1, u8 rs2, u16 imm12_1)
--{
--	return rv_blt(rs2, rs1, imm12_1);
--}
--
--static inline u32 rv_bge(u8 rs1, u8 rs2, u16 imm12_1)
--{
--	return rv_b_insn(imm12_1, rs2, rs1, 5, 0x63);
--}
--
--static inline u32 rv_ble(u8 rs1, u8 rs2, u16 imm12_1)
--{
--	return rv_bge(rs2, rs1, imm12_1);
--}
--
--static inline u32 rv_lw(u8 rd, u16 imm11_0, u8 rs1)
--{
--	return rv_i_insn(imm11_0, rs1, 2, rd, 0x03);
--}
--
--static inline u32 rv_lbu(u8 rd, u16 imm11_0, u8 rs1)
--{
--	return rv_i_insn(imm11_0, rs1, 4, rd, 0x03);
--}
--
--static inline u32 rv_lhu(u8 rd, u16 imm11_0, u8 rs1)
--{
--	return rv_i_insn(imm11_0, rs1, 5, rd, 0x03);
--}
--
--static inline u32 rv_sb(u8 rs1, u16 imm11_0, u8 rs2)
--{
--	return rv_s_insn(imm11_0, rs2, rs1, 0, 0x23);
--}
--
--static inline u32 rv_sh(u8 rs1, u16 imm11_0, u8 rs2)
--{
--	return rv_s_insn(imm11_0, rs2, rs1, 1, 0x23);
--}
--
--static inline u32 rv_sw(u8 rs1, u16 imm11_0, u8 rs2)
--{
--	return rv_s_insn(imm11_0, rs2, rs1, 2, 0x23);
--}
--
--static inline u32 rv_amoadd_w(u8 rd, u8 rs2, u8 rs1, u8 aq, u8 rl)
--{
--	return rv_amo_insn(0, aq, rl, rs2, rs1, 2, rd, 0x2f);
--}
--
--static inline u32 rv_amoand_w(u8 rd, u8 rs2, u8 rs1, u8 aq, u8 rl)
--{
--	return rv_amo_insn(0xc, aq, rl, rs2, rs1, 2, rd, 0x2f);
--}
--
--static inline u32 rv_amoor_w(u8 rd, u8 rs2, u8 rs1, u8 aq, u8 rl)
--{
--	return rv_amo_insn(0x8, aq, rl, rs2, rs1, 2, rd, 0x2f);
--}
--
--static inline u32 rv_amoxor_w(u8 rd, u8 rs2, u8 rs1, u8 aq, u8 rl)
--{
--	return rv_amo_insn(0x4, aq, rl, rs2, rs1, 2, rd, 0x2f);
--}
--
--static inline u32 rv_amoswap_w(u8 rd, u8 rs2, u8 rs1, u8 aq, u8 rl)
--{
--	return rv_amo_insn(0x1, aq, rl, rs2, rs1, 2, rd, 0x2f);
--}
--
--static inline u32 rv_lr_w(u8 rd, u8 rs2, u8 rs1, u8 aq, u8 rl)
--{
--	return rv_amo_insn(0x2, aq, rl, rs2, rs1, 2, rd, 0x2f);
--}
--
--static inline u32 rv_sc_w(u8 rd, u8 rs2, u8 rs1, u8 aq, u8 rl)
--{
--	return rv_amo_insn(0x3, aq, rl, rs2, rs1, 2, rd, 0x2f);
--}
--
--static inline u32 rv_fence(u8 pred, u8 succ)
--{
--	u16 imm11_0 = pred << 4 | succ;
--
--	return rv_i_insn(imm11_0, 0, 0, 0, 0xf);
--}
--
--static inline u32 rv_nop(void)
--{
--	return rv_i_insn(0, 0, 0, 0, 0x13);
--}
--
--/* RVC instrutions. */
--
--static inline u16 rvc_addi4spn(u8 rd, u32 imm10)
--{
--	u32 imm;
--
--	imm = ((imm10 & 0x30) << 2) | ((imm10 & 0x3c0) >> 4) |
--		((imm10 & 0x4) >> 1) | ((imm10 & 0x8) >> 3);
--	return rv_ciw_insn(0x0, imm, rd, 0x0);
--}
--
--static inline u16 rvc_lw(u8 rd, u32 imm7, u8 rs1)
--{
--	u32 imm_hi, imm_lo;
--
--	imm_hi = (imm7 & 0x38) >> 3;
--	imm_lo = ((imm7 & 0x4) >> 1) | ((imm7 & 0x40) >> 6);
--	return rv_cl_insn(0x2, imm_hi, rs1, imm_lo, rd, 0x0);
--}
--
--static inline u16 rvc_sw(u8 rs1, u32 imm7, u8 rs2)
--{
--	u32 imm_hi, imm_lo;
--
--	imm_hi = (imm7 & 0x38) >> 3;
--	imm_lo = ((imm7 & 0x4) >> 1) | ((imm7 & 0x40) >> 6);
--	return rv_cs_insn(0x6, imm_hi, rs1, imm_lo, rs2, 0x0);
--}
--
--static inline u16 rvc_addi(u8 rd, u32 imm6)
--{
--	return rv_ci_insn(0, imm6, rd, 0x1);
--}
--
--static inline u16 rvc_li(u8 rd, u32 imm6)
--{
--	return rv_ci_insn(0x2, imm6, rd, 0x1);
--}
--
--static inline u16 rvc_addi16sp(u32 imm10)
--{
--	u32 imm;
--
--	imm = ((imm10 & 0x200) >> 4) | (imm10 & 0x10) | ((imm10 & 0x40) >> 3) |
--		((imm10 & 0x180) >> 6) | ((imm10 & 0x20) >> 5);
--	return rv_ci_insn(0x3, imm, RV_REG_SP, 0x1);
--}
--
--static inline u16 rvc_lui(u8 rd, u32 imm6)
--{
--	return rv_ci_insn(0x3, imm6, rd, 0x1);
--}
--
--static inline u16 rvc_srli(u8 rd, u32 imm6)
--{
--	return rv_cb_insn(0x4, imm6, 0, rd, 0x1);
--}
--
--static inline u16 rvc_srai(u8 rd, u32 imm6)
--{
--	return rv_cb_insn(0x4, imm6, 0x1, rd, 0x1);
--}
--
--static inline u16 rvc_andi(u8 rd, u32 imm6)
--{
--	return rv_cb_insn(0x4, imm6, 0x2, rd, 0x1);
--}
--
--static inline u16 rvc_sub(u8 rd, u8 rs)
--{
--	return rv_ca_insn(0x23, rd, 0, rs, 0x1);
--}
--
--static inline u16 rvc_xor(u8 rd, u8 rs)
--{
--	return rv_ca_insn(0x23, rd, 0x1, rs, 0x1);
--}
--
--static inline u16 rvc_or(u8 rd, u8 rs)
--{
--	return rv_ca_insn(0x23, rd, 0x2, rs, 0x1);
--}
--
--static inline u16 rvc_and(u8 rd, u8 rs)
--{
--	return rv_ca_insn(0x23, rd, 0x3, rs, 0x1);
--}
--
--static inline u16 rvc_slli(u8 rd, u32 imm6)
--{
--	return rv_ci_insn(0, imm6, rd, 0x2);
--}
--
--static inline u16 rvc_lwsp(u8 rd, u32 imm8)
--{
--	u32 imm;
--
--	imm = ((imm8 & 0xc0) >> 6) | (imm8 & 0x3c);
--	return rv_ci_insn(0x2, imm, rd, 0x2);
--}
--
--static inline u16 rvc_jr(u8 rs1)
--{
--	return rv_cr_insn(0x8, rs1, RV_REG_ZERO, 0x2);
--}
--
--static inline u16 rvc_mv(u8 rd, u8 rs)
--{
--	return rv_cr_insn(0x8, rd, rs, 0x2);
--}
--
--static inline u16 rvc_jalr(u8 rs1)
--{
--	return rv_cr_insn(0x9, rs1, RV_REG_ZERO, 0x2);
--}
--
--static inline u16 rvc_add(u8 rd, u8 rs)
--{
--	return rv_cr_insn(0x9, rd, rs, 0x2);
--}
--
--static inline u16 rvc_swsp(u32 imm8, u8 rs2)
--{
--	u32 imm;
--
--	imm = (imm8 & 0x3c) | ((imm8 & 0xc0) >> 6);
--	return rv_css_insn(0x6, imm, rs2, 0x2);
--}
--
--/*
-- * RV64-only instructions.
-- *
-- * These instructions are not available on RV32.  Wrap them below a #if to
-- * ensure that the RV32 JIT doesn't emit any of these instructions.
-- */
--
--#if __riscv_xlen == 64
--
--static inline u32 rv_addiw(u8 rd, u8 rs1, u16 imm11_0)
--{
--	return rv_i_insn(imm11_0, rs1, 0, rd, 0x1b);
--}
--
--static inline u32 rv_slliw(u8 rd, u8 rs1, u16 imm11_0)
--{
--	return rv_i_insn(imm11_0, rs1, 1, rd, 0x1b);
--}
--
--static inline u32 rv_srliw(u8 rd, u8 rs1, u16 imm11_0)
--{
--	return rv_i_insn(imm11_0, rs1, 5, rd, 0x1b);
--}
--
--static inline u32 rv_sraiw(u8 rd, u8 rs1, u16 imm11_0)
--{
--	return rv_i_insn(0x400 | imm11_0, rs1, 5, rd, 0x1b);
--}
--
--static inline u32 rv_addw(u8 rd, u8 rs1, u8 rs2)
--{
--	return rv_r_insn(0, rs2, rs1, 0, rd, 0x3b);
--}
--
--static inline u32 rv_subw(u8 rd, u8 rs1, u8 rs2)
--{
--	return rv_r_insn(0x20, rs2, rs1, 0, rd, 0x3b);
--}
--
--static inline u32 rv_sllw(u8 rd, u8 rs1, u8 rs2)
--{
--	return rv_r_insn(0, rs2, rs1, 1, rd, 0x3b);
--}
--
--static inline u32 rv_srlw(u8 rd, u8 rs1, u8 rs2)
--{
--	return rv_r_insn(0, rs2, rs1, 5, rd, 0x3b);
--}
--
--static inline u32 rv_sraw(u8 rd, u8 rs1, u8 rs2)
--{
--	return rv_r_insn(0x20, rs2, rs1, 5, rd, 0x3b);
--}
--
--static inline u32 rv_mulw(u8 rd, u8 rs1, u8 rs2)
--{
--	return rv_r_insn(1, rs2, rs1, 0, rd, 0x3b);
--}
--
--static inline u32 rv_divuw(u8 rd, u8 rs1, u8 rs2)
--{
--	return rv_r_insn(1, rs2, rs1, 5, rd, 0x3b);
--}
--
--static inline u32 rv_remuw(u8 rd, u8 rs1, u8 rs2)
--{
--	return rv_r_insn(1, rs2, rs1, 7, rd, 0x3b);
--}
--
--static inline u32 rv_ld(u8 rd, u16 imm11_0, u8 rs1)
--{
--	return rv_i_insn(imm11_0, rs1, 3, rd, 0x03);
--}
--
--static inline u32 rv_lwu(u8 rd, u16 imm11_0, u8 rs1)
--{
--	return rv_i_insn(imm11_0, rs1, 6, rd, 0x03);
--}
--
--static inline u32 rv_sd(u8 rs1, u16 imm11_0, u8 rs2)
--{
--	return rv_s_insn(imm11_0, rs2, rs1, 3, 0x23);
--}
--
--static inline u32 rv_amoadd_d(u8 rd, u8 rs2, u8 rs1, u8 aq, u8 rl)
--{
--	return rv_amo_insn(0, aq, rl, rs2, rs1, 3, rd, 0x2f);
--}
--
--static inline u32 rv_amoand_d(u8 rd, u8 rs2, u8 rs1, u8 aq, u8 rl)
--{
--	return rv_amo_insn(0xc, aq, rl, rs2, rs1, 3, rd, 0x2f);
--}
--
--static inline u32 rv_amoor_d(u8 rd, u8 rs2, u8 rs1, u8 aq, u8 rl)
--{
--	return rv_amo_insn(0x8, aq, rl, rs2, rs1, 3, rd, 0x2f);
--}
--
--static inline u32 rv_amoxor_d(u8 rd, u8 rs2, u8 rs1, u8 aq, u8 rl)
--{
--	return rv_amo_insn(0x4, aq, rl, rs2, rs1, 3, rd, 0x2f);
--}
--
--static inline u32 rv_amoswap_d(u8 rd, u8 rs2, u8 rs1, u8 aq, u8 rl)
--{
--	return rv_amo_insn(0x1, aq, rl, rs2, rs1, 3, rd, 0x2f);
--}
--
--static inline u32 rv_lr_d(u8 rd, u8 rs2, u8 rs1, u8 aq, u8 rl)
--{
--	return rv_amo_insn(0x2, aq, rl, rs2, rs1, 3, rd, 0x2f);
--}
--
--static inline u32 rv_sc_d(u8 rd, u8 rs2, u8 rs1, u8 aq, u8 rl)
--{
--	return rv_amo_insn(0x3, aq, rl, rs2, rs1, 3, rd, 0x2f);
--}
--
--/* RV64-only RVC instructions. */
--
--static inline u16 rvc_ld(u8 rd, u32 imm8, u8 rs1)
--{
--	u32 imm_hi, imm_lo;
--
--	imm_hi = (imm8 & 0x38) >> 3;
--	imm_lo = (imm8 & 0xc0) >> 6;
--	return rv_cl_insn(0x3, imm_hi, rs1, imm_lo, rd, 0x0);
--}
--
--static inline u16 rvc_sd(u8 rs1, u32 imm8, u8 rs2)
--{
--	u32 imm_hi, imm_lo;
--
--	imm_hi = (imm8 & 0x38) >> 3;
--	imm_lo = (imm8 & 0xc0) >> 6;
--	return rv_cs_insn(0x7, imm_hi, rs1, imm_lo, rs2, 0x0);
--}
--
--static inline u16 rvc_subw(u8 rd, u8 rs)
--{
--	return rv_ca_insn(0x27, rd, 0, rs, 0x1);
--}
--
--static inline u16 rvc_addiw(u8 rd, u32 imm6)
--{
--	return rv_ci_insn(0x1, imm6, rd, 0x1);
--}
--
--static inline u16 rvc_ldsp(u8 rd, u32 imm9)
--{
--	u32 imm;
--
--	imm = ((imm9 & 0x1c0) >> 6) | (imm9 & 0x38);
--	return rv_ci_insn(0x3, imm, rd, 0x2);
--}
--
--static inline u16 rvc_sdsp(u32 imm9, u8 rs2)
--{
--	u32 imm;
--
--	imm = (imm9 & 0x38) | ((imm9 & 0x1c0) >> 6);
--	return rv_css_insn(0x7, imm, rs2, 0x2);
--}
--
--#endif /* __riscv_xlen == 64 */
--
- /* Helper functions that emit RVC instructions when possible. */
- 
- static inline void emit_jalr(u8 rd, u8 rs, s32 imm, struct rv_jit_context *ctx)
-
+ arch/riscv/include/asm/bug.h             |   18 +-
+ arch/riscv/include/asm/insn.h            | 2744 +++++++++++++++++++++++++++---
+ arch/riscv/include/asm/reg.h             |   88 +
+ arch/riscv/kernel/jump_label.c           |   13 +-
+ arch/riscv/kernel/kgdb.c                 |   13 +-
+ arch/riscv/kernel/module.c               |   80 +-
+ arch/riscv/kernel/patch.c                |    3 +-
+ arch/riscv/kernel/probes/kprobes.c       |   13 +-
+ arch/riscv/kernel/probes/simulate-insn.c |  100 +-
+ arch/riscv/kernel/probes/uprobes.c       |    5 +-
+ arch/riscv/kernel/traps.c                |    9 +-
+ arch/riscv/kernel/traps_misaligned.c     |  218 +--
+ arch/riscv/kernel/vector.c               |    5 +-
+ arch/riscv/kvm/vcpu_insn.c               |  281 +--
+ arch/riscv/net/bpf_jit.h                 |  707 +-------
+ 15 files changed, 2825 insertions(+), 1472 deletions(-)
+---
+base-commit: 5d0c230f1de8c7515b6567d9afba1f196fb4e2f4
+change-id: 20230801-master-refactor-instructions-v4-433aa040da03
 -- 
-2.34.1
+- Charlie
 
 
 _______________________________________________
