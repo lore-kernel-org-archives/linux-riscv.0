@@ -4,95 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17A36C001DE
-	for <linux-riscv@archiver.kernel.org>; Fri,  4 Aug 2023 17:10:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BC10C001DE
+	for <linux-riscv@archiver.kernel.org>; Fri,  4 Aug 2023 17:23:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AtW0ONvqj0LMCGoakd+6R9YnqmeZKutXrs8bK9TexTs=; b=hF+6tx+Yra3N4UcUb4vKpdYx5t
-	Qy4I/o7d+4TN+fWFWfu+BLDFk0tOffFiu4Hpd7TQWb8CuR645mArWifIn7cypBdMqs4OqJ9QX2X3Y
-	LpnNeQ1PXaT8PVE8mMCAUS9l9K08Vpvrf3hFS3ZX02ICxcnf9y8+7B32WbTv8XC5woP2BIeYd/g1z
-	7Dqy5c09wSmP6T04JGNvCw6RiDBVkO9WjZtHP8F+xnM6ol/QdJPOwlquJINY2lP/5n/7F6s6grH5I
-	DN2/8SW5sRZaHku9vU9M2SNBVYt7PNtJV5sEq0TFnLur3xmckVIVP8AIECVT5rx2sWC+S8Sgxeios
-	VJNe0ZPw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=/Ruz423ldE9GG8pNZccDSGwhvjzSw9RPNSqbjqtEzUc=; b=bQhQOh79+YAen9
+	w2K3zPODe7Pmx/149CcO/Znf2QVlPoQUUixPOtt5jAIOYlur/hBDZIxluO85dUWLu+O+iYKD4L2ne
+	Xhfz+Kb4Ihd5q2zTDpglPjqq1NeQcDDrSSIzIQdBhO6XuVUIUvfuOQOG+hLnbaBUSR3Mo15VKLuzX
+	2W4R/fzpdB+/iHfuPl3JOj5wKW6W8e4xBMwhxYMgrIiYuxYci00jEdBDgBKdRkzkmWPVFgCLD9Qf8
+	DErnNetXSrMdwTEpU4QTQfKwFA2IiocbDyXBg9H2FBzEq7kdDHbaMuLNQdu65JPoTW3cGWLJAZkGE
+	7jNnhFsb7p4QaEnZ+Z7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qRyJp-00Cs7g-1g;
-	Fri, 04 Aug 2023 17:10:29 +0000
+	id 1qRyWi-00CtNj-26;
+	Fri, 04 Aug 2023 17:23:48 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qRyJm-00Cs74-03;
-	Fri, 04 Aug 2023 17:10:27 +0000
+	id 1qRyWf-00CtNC-0l
+	for linux-riscv@lists.infradead.org;
+	Fri, 04 Aug 2023 17:23:46 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 2A57C620B2;
-	Fri,  4 Aug 2023 17:10:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BC834C433C8;
-	Fri,  4 Aug 2023 17:10:18 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 96B3D620D3
+	for <linux-riscv@lists.infradead.org>; Fri,  4 Aug 2023 17:23:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 87D7FC43395
+	for <linux-riscv@lists.infradead.org>; Fri,  4 Aug 2023 17:23:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1691169024;
-	bh=LpOa1+W78YUI0pP3gtmRJrUFbY+NCvdbjWtUDqJpXsA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=odzz0itV4ygxP67SjWWwGwJbZ+soQiIp2Nu9jCWBEfj3D/H4s4Cg42NjQayVI/v/c
-	 rfl4CMrAL55C4xBuns5HH6CDsDSXjVTmzVGpLcWKAFNdqfZF/+OKsunzRoTDsPEALm
-	 8zjEvR35b/L0bUGT4PmP21opHbOasTDlAzGoxEVmIZLgks52lxfeHAJ7ifnscRW0f9
-	 Ep0jlMvgK9OsmEZsX9+EC8AUw9TC16+TinjXMtxRPiZtJ5+y1G5SWMD+tapWERVh5m
-	 ofBJ+gLeyTi06fNQf2F8DGj1KxkD3yTdRk8Ar/CdNjYmDkxgDMUxWNBfTyXAJd+WUd
-	 +mrVR0T+A5zYg==
-Date: Fri, 4 Aug 2023 18:10:15 +0100
-From: Mark Brown <broonie@kernel.org>
-To: "Edgecombe, Rick P" <rick.p.edgecombe@intel.com>
-Cc: "corbet@lwn.net" <corbet@lwn.net>, "ardb@kernel.org" <ardb@kernel.org>,
-	"keescook@chromium.org" <keescook@chromium.org>,
-	"Szabolcs.Nagy@arm.com" <Szabolcs.Nagy@arm.com>,
-	"shuah@kernel.org" <shuah@kernel.org>,
-	"maz@kernel.org" <maz@kernel.org>,
-	"james.morse@arm.com" <james.morse@arm.com>,
-	"debug@rivosinc.com" <debug@rivosinc.com>,
-	"aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
-	"akpm@linux-foundation.org" <akpm@linux-foundation.org>,
-	"catalin.marinas@arm.com" <catalin.marinas@arm.com>,
-	"hjl.tools@gmail.com" <hjl.tools@gmail.com>,
-	"paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
-	"linux-mm@kvack.org" <linux-mm@kvack.org>,
-	"palmer@dabbelt.com" <palmer@dabbelt.com>,
-	"oleg@redhat.com" <oleg@redhat.com>,
-	"arnd@arndb.de" <arnd@arndb.de>,
-	"ebiederm@xmission.com" <ebiederm@xmission.com>,
-	"will@kernel.org" <will@kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"suzuki.poulose@arm.com" <suzuki.poulose@arm.com>,
-	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
-	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
-	"linux-fsdevel@vger.kernel.org" <linux-fsdevel@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-kselftest@vger.kernel.org" <linux-kselftest@vger.kernel.org>,
-	"linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>,
-	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
-Subject: Re: [PATCH v3 21/36] arm64/mm: Implement map_shadow_stack()
-Message-ID: <21a7b7ab-acbc-4778-bf2c-f4e7346c3dd9@sirena.org.uk>
-References: <5461c56cf4896f18bddaa66c3beec7b909fc8fb9.camel@intel.com>
- <0a6c90d6-f790-4036-a364-d4761fdd0e95@sirena.org.uk>
- <e827138f9d8800e3db158831bca88d1ea8b559af.camel@intel.com>
- <21d7e814-8608-40ce-b5d3-401f2110ad91@sirena.org.uk>
- <a9ea33d31aad0c45eab41b0dcbd4913d863cc930.camel@intel.com>
- <55c629cc-0545-460b-91cb-2ebdb8ae9051@sirena.org.uk>
- <7d03be1277a5f4be23df35ca96f4d6cd77735e2b.camel@intel.com>
- <475f31e1-0f6f-44a9-b93a-540c1d43e1bb@sirena.org.uk>
- <9902dd7e-1427-4c7e-b602-c1fbf6512f10@sirena.org.uk>
- <a21ab778704d02b8539e5c459750f8a2f771bede.camel@intel.com>
+	s=k20201202; t=1691169823;
+	bh=pX4JO8cUMPFX/7eqCt97XOCu1Qwjs6jTjWKwADOJ3hM=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=eXx/hocet7GcuQXmEnd8oc8WA31nITE5YL0fB8/IVAofYd3M8Qorx70SE7ytCAghe
+	 nTtiDW3K+i7SFDqsiRkjLbI4etNMh61X11ya/Qzussiod+4K2wfBWeteoZM/Kwn9xf
+	 EwA07/pBieD75nXplqq9YIgBUuZGfboSDT+E7oVd0Of5qNmPNuYG+AgX3DEb+XZVn6
+	 38GBb0TTQMm81sYAiz3Xh8kqu7GUCNomOdqFemGINap9QwHSSBqjLnR6uwmkdg+zsX
+	 DEOP8l5DB/5bA4O5L2dPx/9ixFSY8jbFPnq0OwtfsI7fSg+Ot2rSOJV7DCsMh2lSGj
+	 cfCDKaf6Lgw/g==
+Received: by mail-lj1-f182.google.com with SMTP id 38308e7fff4ca-2b9bf52cd08so36439351fa.2
+        for <linux-riscv@lists.infradead.org>; Fri, 04 Aug 2023 10:23:43 -0700 (PDT)
+X-Gm-Message-State: AOJu0YzGtt2pHMHISBd1YPttZ/UTmjdMi6VaAHOJww9SZfdV1uaxywrA
+	njSQ6sHja0tFnH11LbPYzrm9wiRg7g9TrP/6tQ==
+X-Google-Smtp-Source: AGHT+IF0j6TlCYvGUVtXd1S/Q0iv1iISN2MYMAf+QAGxO0EdffC7eK6t++9XFQxUNAzy2RqY402LhHUiQr0RNIifL8o=
+X-Received: by 2002:a2e:88d6:0:b0:2b9:cb50:7043 with SMTP id
+ a22-20020a2e88d6000000b002b9cb507043mr1896653ljk.2.1691169821442; Fri, 04 Aug
+ 2023 10:23:41 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <a21ab778704d02b8539e5c459750f8a2f771bede.camel@intel.com>
-X-Cookie: I'm hungry, time to eat lunch.
+References: <20230728195022.1198555-1-robh@kernel.org> <20230729-twerp-avert-70577ff7d952@spud>
+In-Reply-To: <20230729-twerp-avert-70577ff7d952@spud>
+From: Rob Herring <robh@kernel.org>
+Date: Fri, 4 Aug 2023 11:23:29 -0600
+X-Gmail-Original-Message-ID: <CAL_JsqJip=r-xObhCOnL0sue67Pems8wO1FP3x=rCGXARCA1sw@mail.gmail.com>
+Message-ID: <CAL_JsqJip=r-xObhCOnL0sue67Pems8wO1FP3x=rCGXARCA1sw@mail.gmail.com>
+Subject: Re: [PATCH] watchdog: Enable COMPILE_TEST for more drivers
+To: Conor Dooley <conor@kernel.org>
+Cc: Wim Van Sebroeck <wim@linux-watchdog.org>, Guenter Roeck <linux@roeck-us.net>, 
+	Keguang Zhang <keguang.zhang@gmail.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	linux-watchdog@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-mips@vger.kernel.org, linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230804_101026_143187_5A22D25F 
-X-CRM114-Status: GOOD (  23.15  )
+X-CRM114-CacheID: sfid-20230804_102345_316224_A22D3F91 
+X-CRM114-Status: GOOD (  11.14  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,77 +81,24 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============7818747507042311369=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============7818747507042311369==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="pNJflhZYfBsbzGQE"
-Content-Disposition: inline
-
-
---pNJflhZYfBsbzGQE
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Fri, Aug 04, 2023 at 04:43:45PM +0000, Edgecombe, Rick P wrote:
-> On Fri, 2023-08-04 at 14:38 +0100, Mark Brown wrote:
-
-> > BTW are you planning to repost the series for this release?=A0 We're
-> > almost at -rc5 which is pretty late and I didn't see anything yet.=A0
-
-> There were a few patches I posted on top of the last series after your
-> comments, but I wasn't planning on reposting the whole thing. Why do
-> you ask? Just trying to figure out the best version to base off of?
-
-> > It
-> > looks like there's a branch in tip that's getting some updates but
-> > it's
-> > not getting merged for -next.
-
-> Hmm, not sure why it's not in -next anymore. I'll look into that.
-> Thanks for pointing it out.
-
-Mainly it was the inclusion in -next with a view to it getting merged
-that prompted me to ask, for the last release cycle had seemed to be
-gated on it being posted on the list (which is a standard workflow).
-
-Due to issues in mainline I really need a -rc3, and ideally -rc4, base
-but other than occasionally having to pull new bits out of your series
-it's not causing me any serious issues and I don't anticipate the arm64
-stuff getting in this time round.
-
---pNJflhZYfBsbzGQE
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmTNMPYACgkQJNaLcl1U
-h9Df8wf/TEg2LpbxxUNsAzZ3/r+uWmICEGa9AkGhiRS5KriCkO6ASDIEBMN4m//n
-1axQnkGLfUqNjHbkHyhegN5yGxXY7LSsrb6xVyWTRJTQ6zYOlzoDFYmvvhsezc7r
-qZrwqduFAB2BNGSDJVO+ni/ceEZ7/bmioIjhTd1anN7C0Ps9JFnZN8AnhW+s/hNd
-iceyRHZm/Z9goHQARi1RWwCMum3cOYsJT6YBpTxdVPnIZlb9M3QDLA5IMyVPHZG+
-MfibKT1HEeLWqo4w6ZjIluc/yqMrQEBfYq8ghZfa9F1IcB48w+5q6+iPl8LZBmVy
-OCOMl1GumMBem4Q8UZ/yo4ImOaRNHw==
-=N/z3
------END PGP SIGNATURE-----
-
---pNJflhZYfBsbzGQE--
-
-
---===============7818747507042311369==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============7818747507042311369==--
-
+T24gU2F0LCBKdWwgMjksIDIwMjMgYXQgNDoyMuKAr0FNIENvbm9yIERvb2xleSA8Y29ub3JAa2Vy
+bmVsLm9yZz4gd3JvdGU6Cj4KPiBPbiBGcmksIEp1bCAyOCwgMjAyMyBhdCAwMTo1MDoyMVBNIC0w
+NjAwLCBSb2IgSGVycmluZyB3cm90ZToKPiA+IFRoZXJlJ3MgcXVpdGUgYSBmZXcgd2F0Y2hkb2cg
+ZHJpdmVycyB3aGljaCBhcmUgZWFzaWx5IGVuYWJsZWQgZm9yCj4gPiBDT01QSUxFX1RFU1QsIHNv
+IGxldCdzIGVuYWJsZSB0aGVtLgo+ID4KPiA+IFNpZ25lZC1vZmYtYnk6IFJvYiBIZXJyaW5nIDxy
+b2JoQGtlcm5lbC5vcmc+Cj4gPiAtLS0KPiA+IFBhc3NlZCBhbGx5ZXNjb25maWcgYnVpbGRzIG9u
+IGFybSwgYXJtNjQsIHg4NiwgcmlzY3YsIHBvd2VycGMsIHNwYXJjCj4KPiBEb2luZyBpdHMgam9i
+IEkgc3VwcG9zZSwgdGhlIHJpc2N2IHBhdGNod29yayBhdXRvbWF0aW9uIHN0dWZmIGhhcwo+IHNw
+b3R0ZWQgb25lIG5ldyBjb21wbGFpbnQgZm9yIGFsbG1vZGNvbmZpZzoKPiBzdG0zMl9pd2RnLmM6
+Nzc6MTk6IHdhcm5pbmc6IHVudXNlZCBmdW5jdGlvbiAncmVnX3JlYWQnIFstV3VudXNlZC1mdW5j
+dGlvbl0KCkxvb2tzIGxpa2UgdGhhdCdzIGEgY2xhbmcgVz0xIHdhcm5pbmcgb25seS4gUHJlc3Vt
+YWJseSBpdCB3YXMgYWxyZWFkeQp0aGVyZSBiZWZvcmUgdGhpcyBwYXRjaCB3aXRoIHRoZSByaWdo
+dCBjb25maWcuCgpSb2IKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRl
+YWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgt
+cmlzY3YK
