@@ -4,66 +4,133 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5555C001DF
-	for <linux-riscv@archiver.kernel.org>; Fri,  4 Aug 2023 19:04:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1128C04A6A
+	for <linux-riscv@archiver.kernel.org>; Fri,  4 Aug 2023 19:07:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Message-Id:Subject:
-	References:In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PMDDWJCYYue5I3JtUj0Sjo/CEJghSlm0E8OFBEaKEf4=; b=lCZjryRpyRFmGx
-	kXdau0I15L71VWslDP5QBJmON7TAumKWZSpOLBv0uvTUw/kCblvY4AhUtDl7z4jzjVco0wbD7LjnF
-	FzN/BI2HzKwvG0Zfg5653g8ddlQaxwNvOIPhbdMsxnohP656x1DlXLYOoPU4lnzwg3B4mBuG5osnP
-	mBBqwrZZVhWwJUgoU/27wbz/3FsmY1LPECRL4mOkkGiNW7QaUo8754awGFppn3SB7wZNtM/DcK7X2
-	MMQLEm0z9fRTzgZRiMHAR+PiGjVZb6nx4Q3+LgcMq0SaIPqm1/mht+3X3rcA9qaOgQS4YwmnXmLb+
-	aZqSa/pRza+GiYoyHjlA==;
+	List-Owner; bh=AmBlc/5CpwIUWulGVbGDPuiU/kwvLKIX+H4PGwmiR2U=; b=cGeZRhVqvivVqy
+	wATO5Ipb9SPGIjvHq3UHQmW2Gxbvne8zTz7L2UKnnLLC9ys7/JuxRFkvA6VT3jorEoY/kef7Had2f
+	dEOw1DoifXZFi6/yjJ0sqRy6Lt0zGrqTjFxBxdbBvZXazldk7qG+OP927q5x7BrlbBfL9v8q2wztr
+	2Dgd8EP4tDiPN3N7N7QcRu7ze4hvx5wPyvwC4lb51EF7Dc/NDAqkum44pfpUNa9dF5WXjguVCFRcF
+	2+D6twmWcc0B1xY6jsarOfaCoTvXy5JW32VRD5kxqdxT0V/MYhoqBVpxcRy2H8kibc6EWJsBja8h9
+	++7fWvcOue/9OXfQabag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qS069-00D3jz-0E;
-	Fri, 04 Aug 2023 19:04:29 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1qS08b-00D4vg-38;
+	Fri, 04 Aug 2023 19:07:01 +0000
+Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qS066-00D3j8-0H
-	for linux-riscv@lists.infradead.org;
-	Fri, 04 Aug 2023 19:04:27 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 096E9620DB;
-	Fri,  4 Aug 2023 19:04:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 70199C433C8;
-	Fri,  4 Aug 2023 19:04:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1691175864;
-	bh=XMTezqvymRRGa6uQfNjBW5bjIP0HMTwJ3LtgBovjjSE=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=COGoj0OdFoIEJi2QYRfvoSQHUthA8PyQ85mHlOyZdkezATN6cQfhNGnJyXdtd6uPI
-	 Ok5F8FfBkZ9/AK7Rrd10sauFJvBk6uzLHV2baijkaxbxX1jpA/kikTf1hFktoaZDoe
-	 wREtlq7s6mukcEKxGolgJtI98wlO4UTujFIARPPw1yOgM1SBXkIz09S6kvMwtvwtoi
-	 YLH8eQihOTMBcfhDbzWG4+wJvLv38kH8D2K3AgpBGUXA2jFaImJuRfLANfkvrPslqj
-	 yGWu3clTUCH9mXSppgI1uvgqLyjHxRikUTGilyBadBo1/5MQN7O0CJjqBIiXVsAIV6
-	 TKR74fldlCVeQ==
-From: Mark Brown <broonie@kernel.org>
-To: devicetree@vger.kernel.org, linux-spi@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
- William Qiu <william.qiu@starfivetech.com>
-Cc: Rob Herring <robh+dt@kernel.org>, 
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
- Conor Dooley <conor+dt@kernel.org>, Emil Renner Berthing <kernel@esmil.dk>, 
- Ziv Xu <ziv.xu@starfivetech.com>
-In-Reply-To: <20230602084925.215411-1-william.qiu@starfivetech.com>
-References: <20230602084925.215411-1-william.qiu@starfivetech.com>
-Subject: Re: (subset) [PATCH v2 0/3] Add initialization of clock for
- StarFive JH7110 SoC
-Message-Id: <169117586216.140468.7908360235133521316.b4-ty@kernel.org>
-Date: Fri, 04 Aug 2023 20:04:22 +0100
+	id 1qS08V-00D4s4-1N;
+	Fri, 04 Aug 2023 19:06:57 +0000
+Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-31768ce2e81so2146817f8f.1;
+        Fri, 04 Aug 2023 12:06:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20221208; t=1691176012; x=1691780812;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=c+mKs9GVqXrgLKiydu37dkxuWRwX9m6vUvXBGA4iGEQ=;
+        b=pJXcyaij59wykiKOA9tCEB8S4gg3Z1GHrOT8L9w9quvTeK3CJwd93TcMmgeH9qsTmX
+         jA5YMPXtem49OKIeZuBW/B7z7dS8WFJdH65DKww5XyYHLXhgTnbsAwscbEHTb6mbtrZZ
+         BZa8BIBGOH4Q+SkpavEdH0otXnzRijACuCopeESvO+XHcmL3ZXNW9EGslJl77px9Boeb
+         GqQnVqw0k6HMm2l7+XHIGKAPYRVqgCsnRSsJE1fnLs2Nj797U07C0NurMSGCn8/yNgCc
+         lDyCVZnGxxnzNo6RW2GsgNpucmHIvVKiEjxprA51NTiam2O4cd25vg7MKR2tt8ini3Xu
+         IdIg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1691176012; x=1691780812;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=c+mKs9GVqXrgLKiydu37dkxuWRwX9m6vUvXBGA4iGEQ=;
+        b=FWE3UYcycPOkIN+bH/Nra0DKI2O1uNdJ9d1PrFZtO6V3fwnBpRP+xZcSNODdTGWHxz
+         +2lHkLbNEFPSKGglVHxcwOA6FlL8I5eNBgewKdLzbmA9dQFqASZZyRmE7xCPqfNHsx9b
+         /Th6kZJM8yEc27amKnNI6U+1nJsd35uyXXf15/e4FIfvjqKFOM9N9tzYLlXhe+Nno2cg
+         D9IC09ljHOjfHPVz3rxp/H60L+DGkKX7SLLHzYgU8tuhFHhhXr4N9+H1YG3drAf+WZgq
+         kJpxC6NKF8Tb7KzHuE1drJ7FQMvmm5RJH3wuzzsBs1i/eEw+VTRyJd/UOBtkdVQG0r1q
+         Bw+w==
+X-Gm-Message-State: AOJu0YwL0/GmGclzL0qZsxmSr0Bmt0yqK5QSHQ8bkETjS1gZ8ovQUHM4
+	VFCveG3fn1m/RhOY9mdHCyw=
+X-Google-Smtp-Source: AGHT+IHpybGIS5pubkiM9vt8iNkqlu2gS6LosaHfJR1MT91WNa9XG7Bef9hWZF/8p1yMJF9KzrDRaA==
+X-Received: by 2002:a5d:4a4a:0:b0:317:6175:95fd with SMTP id v10-20020a5d4a4a000000b00317617595fdmr1855584wrs.43.1691176011920;
+        Fri, 04 Aug 2023 12:06:51 -0700 (PDT)
+Received: from jernej-laptop.localnet (82-149-1-233.dynamic.telemach.net. [82.149.1.233])
+        by smtp.gmail.com with ESMTPSA id x12-20020adfec0c000000b0031274a184d5sm3143402wrn.109.2023.08.04.12.06.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 04 Aug 2023 12:06:51 -0700 (PDT)
+From: Jernej =?utf-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
+To: Thierry Reding <thierry.reding@gmail.com>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Uwe =?ISO-8859-1?Q?Kleine=2DK=F6nig?= <u.kleine-koenig@pengutronix.de>
+Cc: Linus Walleij <linus.walleij@linaro.org>,
+ Bartosz Golaszewski <brgl@bgdev.pl>, Andy Shevchenko <andy@kernel.org>,
+ Douglas Anderson <dianders@chromium.org>,
+ Andrzej Hajda <andrzej.hajda@intel.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
+ Jonas Karlman <jonas@kwiboo.se>, David Airlie <airlied@gmail.com>,
+ Daniel Vetter <daniel@ffwll.ch>, Pavel Machek <pavel@ucw.cz>,
+ Lee Jones <lee@kernel.org>, Hector Martin <marcan@marcan.st>,
+ Sven Peter <sven@svenpeter.dev>, Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+ Nicolas Ferre <nicolas.ferre@microchip.com>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ Claudiu Beznea <claudiu.beznea@microchip.com>, Ray Jui <rjui@broadcom.com>,
+ Scott Branden <sbranden@broadcom.com>,
+ Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+ Florian Fainelli <florian.fainelli@broadcom.com>,
+ Alexander Shiyan <shc_work@mail.ru>, Benson Leung <bleung@chromium.org>,
+ Guenter Roeck <groeck@chromium.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, NXP Linux Team <linux-imx@nxp.com>,
+ Paul Cercueil <paul@crapouillou.net>, Vladimir Zapolskiy <vz@mleia.com>,
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ Conor Dooley <conor.dooley@microchip.com>,
+ Daire McNamara <daire.mcnamara@microchip.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Jonathan =?ISO-8859-1?Q?Neusch=E4fer?= <j.neuschaefer@gmx.net>,
+ Heiko Stuebner <heiko@sntech.de>,
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+ Alim Akhtar <alim.akhtar@samsung.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Michael Walle <michael@walle.cc>,
+ Orson Zhai <orsonzhai@gmail.com>,
+ Baolin Wang <baolin.wang@linux.alibaba.com>,
+ Chunyan Zhang <zhang.lyra@gmail.com>,
+ Fabrice Gasnier <fabrice.gasnier@foss.st.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Chen-Yu Tsai <wens@csie.org>, Samuel Holland <samuel@sholland.org>,
+ Hammer Hsieh <hammerh0314@gmail.com>, Jonathan Hunter <jonathanh@nvidia.com>,
+ Nobuhiro Iwamatsu <nobuhiro1.iwamatsu@toshiba.co.jp>,
+ Sean Anderson <sean.anderson@seco.com>, Michal Simek <michal.simek@amd.com>,
+ Johan Hovold <johan@kernel.org>, Alex Elder <elder@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Anjelique Melendez <quic_amelende@quicinc.com>,
+ Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, Luca Weiss <luca@z3ntu.xyz>,
+ Bjorn Andersson <quic_bjorande@quicinc.com>, linux-pwm@vger.kernel.org,
+ linux-gpio@vger.kernel.org, dri-devel@lists.freedesktop.org,
+ linux-leds@vger.kernel.org, asahi@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-rpi-kernel@lists.infradead.org,
+ chrome-platform@lists.linux.dev, linux-mips@vger.kernel.org,
+ linux-amlogic@lists.infradead.org, linux-riscv@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-sunxi@lists.linux.dev, linux-tegra@vger.kernel.org,
+ greybus-dev@lists.linaro.org, linux-staging@lists.linux.dev
+Subject: Re: [PATCH v2 1/2] pwm: Manage owner assignment implicitly for drivers
+Date: Fri, 04 Aug 2023 21:06:45 +0200
+Message-ID: <4820522.GXAFRqVoOG@jernej-laptop>
+In-Reply-To: <20230804142707.412137-2-u.kleine-koenig@pengutronix.de>
+References: <20230804142707.412137-1-u.kleine-koenig@pengutronix.de>
+ <20230804142707.412137-2-u.kleine-koenig@pengutronix.de>
 MIME-Version: 1.0
-X-Mailer: b4 0.13-dev-034f2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230804_120426_184998_F0F91742 
-X-CRM114-Status: GOOD (  14.95  )
+X-CRM114-CacheID: sfid-20230804_120655_477390_B6DFB107 
+X-CRM114-Status: GOOD (  14.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,50 +142,104 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 02 Jun 2023 16:49:22 +0800, William Qiu wrote:
-> This patchset adds initial rudimentary support for the StarFive
-> Quad SPI controller driver. And this driver will be used in
-> StarFive's VisionFive 2 board. In 6.4, the QSPI_AHB and QSPI_APB
-> clocks changed from the default ON state to the default OFF state,
-> so these clocks need to be enabled in the driver.At the same time,
-> dts patch is added to this series.
-> 
-> [...]
+Dne petek, 04. avgust 2023 ob 16:27:06 CEST je Uwe Kleine-K=F6nig napisal(a=
+):
+> Instead of requiring each driver to care for assigning the owner member
+> of struct pwm_ops, handle that implicitly using a macro. Note that the
+> owner member has to be moved to struct pwm_chip, as the ops structure
+> usually lives in read-only memory and so cannot be modified.
+> =
 
-Applied to
+> The upside is that new lowlevel drivers cannot forget the assignment and
+> save one line each. The pwm-crc driver didn't assign .owner, that's not
+> a problem in practise though as the driver cannot be compiled as a
+> module.
+> =
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-next
+> Signed-off-by: Uwe Kleine-K=F6nig <u.kleine-koenig@pengutronix.de>
+> ---
+>  drivers/gpio/gpio-mvebu.c             |  1 -
+>  drivers/gpu/drm/bridge/ti-sn65dsi86.c |  1 -
+>  drivers/leds/rgb/leds-qcom-lpg.c      |  1 -
+>  drivers/pwm/core.c                    | 24 ++++++++++++++----------
+>  drivers/pwm/pwm-ab8500.c              |  1 -
+>  drivers/pwm/pwm-apple.c               |  1 -
+>  drivers/pwm/pwm-atmel-hlcdc.c         |  1 -
+>  drivers/pwm/pwm-atmel-tcb.c           |  1 -
+>  drivers/pwm/pwm-atmel.c               |  1 -
+>  drivers/pwm/pwm-bcm-iproc.c           |  1 -
+>  drivers/pwm/pwm-bcm-kona.c            |  1 -
+>  drivers/pwm/pwm-bcm2835.c             |  1 -
+>  drivers/pwm/pwm-berlin.c              |  1 -
+>  drivers/pwm/pwm-brcmstb.c             |  1 -
+>  drivers/pwm/pwm-clk.c                 |  1 -
+>  drivers/pwm/pwm-clps711x.c            |  1 -
+>  drivers/pwm/pwm-cros-ec.c             |  1 -
+>  drivers/pwm/pwm-dwc.c                 |  1 -
+>  drivers/pwm/pwm-ep93xx.c              |  1 -
+>  drivers/pwm/pwm-fsl-ftm.c             |  1 -
+>  drivers/pwm/pwm-hibvt.c               |  1 -
+>  drivers/pwm/pwm-img.c                 |  1 -
+>  drivers/pwm/pwm-imx-tpm.c             |  1 -
+>  drivers/pwm/pwm-imx1.c                |  1 -
+>  drivers/pwm/pwm-imx27.c               |  1 -
+>  drivers/pwm/pwm-intel-lgm.c           |  1 -
+>  drivers/pwm/pwm-iqs620a.c             |  1 -
+>  drivers/pwm/pwm-jz4740.c              |  1 -
+>  drivers/pwm/pwm-keembay.c             |  1 -
+>  drivers/pwm/pwm-lp3943.c              |  1 -
+>  drivers/pwm/pwm-lpc18xx-sct.c         |  1 -
+>  drivers/pwm/pwm-lpc32xx.c             |  1 -
+>  drivers/pwm/pwm-lpss.c                |  1 -
+>  drivers/pwm/pwm-mediatek.c            |  1 -
+>  drivers/pwm/pwm-meson.c               |  1 -
+>  drivers/pwm/pwm-microchip-core.c      |  1 -
+>  drivers/pwm/pwm-mtk-disp.c            |  1 -
+>  drivers/pwm/pwm-mxs.c                 |  1 -
+>  drivers/pwm/pwm-ntxec.c               |  1 -
+>  drivers/pwm/pwm-omap-dmtimer.c        |  1 -
+>  drivers/pwm/pwm-pca9685.c             |  1 -
+>  drivers/pwm/pwm-pxa.c                 |  1 -
+>  drivers/pwm/pwm-raspberrypi-poe.c     |  1 -
+>  drivers/pwm/pwm-rcar.c                |  1 -
+>  drivers/pwm/pwm-renesas-tpu.c         |  1 -
+>  drivers/pwm/pwm-rockchip.c            |  1 -
+>  drivers/pwm/pwm-rz-mtu3.c             |  1 -
+>  drivers/pwm/pwm-samsung.c             |  1 -
+>  drivers/pwm/pwm-sifive.c              |  1 -
+>  drivers/pwm/pwm-sl28cpld.c            |  1 -
+>  drivers/pwm/pwm-spear.c               |  1 -
+>  drivers/pwm/pwm-sprd.c                |  1 -
+>  drivers/pwm/pwm-sti.c                 |  1 -
+>  drivers/pwm/pwm-stm32-lp.c            |  1 -
+>  drivers/pwm/pwm-stm32.c               |  1 -
+>  drivers/pwm/pwm-stmpe.c               |  1 -
+>  drivers/pwm/pwm-sun4i.c               |  1 -
 
-Thanks!
+For sun4i:
+Acked-by: Jernej Skrabec <jernej.skrabec@gmail.com>
 
-[1/3] dt-bindings: qspi: cdns,qspi-nor: Add clocks for StarFive JH7110 SoC
-      commit: 0d2b6a1b8515204924b9174ae0135e1f4ff29b21
-[2/3] spi: cadence-quadspi: Add clock configuration for StarFive JH7110 QSPI
-      commit: 33f1ef6d4eb6bca726608ed939c9fd94d96ceefd
+Best regards,
+Jernej
 
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
+>  drivers/pwm/pwm-sunplus.c             |  1 -
+>  drivers/pwm/pwm-tegra.c               |  1 -
+>  drivers/pwm/pwm-tiecap.c              |  1 -
+>  drivers/pwm/pwm-tiehrpwm.c            |  1 -
+>  drivers/pwm/pwm-twl-led.c             |  2 --
+>  drivers/pwm/pwm-twl.c                 |  2 --
+>  drivers/pwm/pwm-visconti.c            |  1 -
+>  drivers/pwm/pwm-vt8500.c              |  1 -
+>  drivers/pwm/pwm-xilinx.c              |  1 -
+>  drivers/staging/greybus/pwm.c         |  1 -
+>  include/linux/pwm.h                   | 10 ++++++----
 
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
 
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-Thanks,
-Mark
 
 
 _______________________________________________
