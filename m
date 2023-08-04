@@ -4,80 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DC81C001DB
-	for <linux-riscv@archiver.kernel.org>; Fri,  4 Aug 2023 09:06:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA015C001DE
+	for <linux-riscv@archiver.kernel.org>; Fri,  4 Aug 2023 09:10:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ogGY45YbuexfqnS9ZV079f1S81XpEvUPP3H2T6sAenQ=; b=iNFzjZBSSNQXrNEPfkVGXdjSIn
-	KfGishd20ioLvCo3FLtoqWP7r5rzHmQo5ycF098GwvCoSEzeHy+2ZSPQczAFuf0kARZIxnVPWJZaM
-	5dI7xoG9VQuFRAWY8tHX+qZQAFvKbIUsEywPU21TFHM0NqEjKe6J0JtCYiK+cNvCp3NimgLSTnGoo
-	TJMn/Vxj2E7CCMMMAeSpOVI+X8D6BMuIo4aX7dGhSkEEA2/1EMdbwG+k3KpO1cMNisfkEwDk1CgpS
-	XrCVcQgNj0BlUvzUGdMrQI+SqZLesPqNTyPXtGI16rv3VhJyfrjfWYA5czaN9s9/eoUp8IxKQcpzi
-	xKbJ1pcA==;
+	bh=PkJMUaPrZ+bxSdvT45EoHFLhn96ptds0n6TpjnqCxy4=; b=1m3NhQ62z9MS/m/VbXyL8x1vC8
+	Mvmc2AO4t0Sj0W9ycTm2aj3sYslAySuh2iZpePwKR3GYKWU9122tEOfFX91ySH6X1spmsReSFWZhh
+	csAkqCgxl3kn7Ssqc8GMaaK5Wf3HVdoNyTL1/mWjl7QJihh270GO9QDny2Q/OerbG9hupNDUVOgLJ
+	i67ip4tsDP/fyKfmECqHPzlHxQnvuModK066QyDD2RL035S0jFrwpxl8wEpbmIIcBvA8e0kbzmCPA
+	N9K2H+L9G6js0/CPQDKKIzFi1vb2YtTO2YwS5faqCdURv9dXFTw0ZqIIm1kift+9c85/WsD0tOJ7J
+	2p3PYNyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qRqlE-00Bxrf-2h;
-	Fri, 04 Aug 2023 09:06:16 +0000
+	id 1qRqp1-00ByQZ-0W;
+	Fri, 04 Aug 2023 09:10:11 +0000
 Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qRqlC-00Bxqt-0L
+	id 1qRqox-00ByQ3-34
 	for linux-riscv@lists.infradead.org;
-	Fri, 04 Aug 2023 09:06:15 +0000
+	Fri, 04 Aug 2023 09:10:09 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1691139973; x=1722675973;
+  t=1691140207; x=1722676207;
   h=date:from:to:cc:subject:message-id:references:
    mime-version:in-reply-to;
-  bh=HRKkBCsgZa2tr3CPFdaWMT/tn1Xo0mpaNu//7DKF8jQ=;
-  b=CEdvuyCbk3712IcfORiXBwDCZ/RE6Bd+pjhf1Oe4T07EhheBKNHT1ZU1
-   h2Nn1kW757SkCwSNh/7tdxIxDdJdAbOToTo/DKAnIN0+pNDWpKTrAiPiH
-   vZl0x9cMT8TAv9qzoWphH0SVylh7uV5IYrzOR9YDWlyi36u6gHTRAeBeC
-   8N1gWNFxychRxH2SD5pwgcYHCdP/B5nudUE9ZdhP01xVRDHQQPziA/epa
-   4KUITGR2FZPcTs4qNiIF/GqKBrLf/+G82dB9cRlIWmBGnq8CiyP3RVtku
-   bXX6H+7RHuOWmFi2nay64b6BErjC66e/AkHM2hkYtczCCVQWCrgVhVGXe
+  bh=OU7g0r3M/XB9LzgVs7uLjBcYUCr80nlIE17NRVSfSeI=;
+  b=NLiUML3tVpFmH5CrATbvGByH9lM1ZoGUMq1G3uopGd3bqFdnHX+lxkFn
+   YGc/xRazVu6wKD961cqpqnKPaTcjKJMXJsP//py3R188alENAiP9B/Y9a
+   QG+XIEaTJ223tbqpaVbWpMXfVPqEohSkY7JTzFZPhMMzhr5ahJhnO+mdF
+   gdSfQexizj7tgjy42Lk4fjJViVDMoWqGI3qBpTdz6zXKySwmMaJMC7nDv
+   2mYM77er8oR8K25+WOrl+5W0fhZ49CPnNISVbjpddrTd14PF3p3u2fs4q
+   qbMNfv8VWVAxSrSffSYbYxxq7V41OFWI4bCjkMSCElGawFaxoOPtBHajx
    w==;
 X-IronPort-AV: E=Sophos;i="6.01,254,1684825200"; 
-   d="asc'?scan'208";a="239780302"
+   d="asc'?scan'208";a="239780977"
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa1.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 04 Aug 2023 02:06:08 -0700
-Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+  by esa1.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 04 Aug 2023 02:10:06 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Fri, 4 Aug 2023 02:06:06 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex04.mchp-main.com
- (10.10.85.152) with Microsoft SMTP Server (version=TLS1_2,
+ 15.1.2507.21; Fri, 4 Aug 2023 02:10:06 -0700
+Received: from wendy (10.10.115.15) by chn-vm-ex03.mchp-main.com
+ (10.10.85.151) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
- Transport; Fri, 4 Aug 2023 02:06:01 -0700
-Date: Fri, 4 Aug 2023 10:05:25 +0100
+ Transport; Fri, 4 Aug 2023 02:10:03 -0700
+Date: Fri, 4 Aug 2023 10:09:27 +0100
 From: Conor Dooley <conor.dooley@microchip.com>
-To: <guoren@kernel.org>
-CC: <paul.walmsley@sifive.com>, <anup@brainfault.org>, <peterz@infradead.org>,
-	<mingo@redhat.com>, <will@kernel.org>, <palmer@rivosinc.com>,
-	<longman@redhat.com>, <boqun.feng@gmail.com>, <tglx@linutronix.de>,
-	<paulmck@kernel.org>, <rostedt@goodmis.org>, <rdunlap@infradead.org>,
-	<catalin.marinas@arm.com>, <xiaoguang.xing@sophgo.com>, <bjorn@rivosinc.com>,
-	<alexghiti@rivosinc.com>, <keescook@chromium.org>, <greentime.hu@sifive.com>,
-	<ajones@ventanamicro.com>, <jszhang@kernel.org>, <wefu@redhat.com>,
-	<wuwei2016@iscas.ac.cn>, <linux-arch@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, <linux-doc@vger.kernel.org>,
-	<kvm@vger.kernel.org>, <virtualization@lists.linux-foundation.org>,
-	<linux-csky@vger.kernel.org>, Guo Ren <guoren@linux.alibaba.com>
-Subject: Re: [PATCH V10 07/19] riscv: qspinlock: errata: Introduce
- ERRATA_THEAD_QSPINLOCK
-Message-ID: <20230804-refract-avalanche-9adb6b4b74e9@wendy>
-References: <20230802164701.192791-1-guoren@kernel.org>
- <20230802164701.192791-8-guoren@kernel.org>
+To: Nylon Chen <nylon.chen@sifive.com>
+CC: <linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, <geert+renesas@glider.be>, <pavel@ucw.cz>,
+	<vincent.chen@sifive.com>, <emil.renner.berthing@canonical.com>,
+	<aou@eecs.berkeley.edu>, <palmer@dabbelt.com>, <paul.walmsley@sifive.com>,
+	<krzysztof.kozlowski+dt@linaro.org>, <robh+dt@kernel.org>,
+	<conor@kernel.org>, <zong.li@sifive.com>
+Subject: Re: [PATCH v4 0/1] Change PWM-controlled LED pin active mode and
+ algorithm
+Message-ID: <20230804-jaundice-outpost-b8fbc9044e0d@wendy>
+References: <20230803085734.340-1-nylon.chen@sifive.com>
+ <20230803-vehicular-leggings-2830239f818a@wendy>
+ <20230803-caretaker-voicing-e982f2334067@wendy>
+ <CAHh=Yk9A3MP4Zgz53+s_ugvMtnv57igY=+Yccbp9Om9jBuxXqg@mail.gmail.com>
+ <CAHh=Yk842gFpR1a3=KiB-Yb7T1Dqbg627MBK+hntjgMtd5z6-w@mail.gmail.com>
 MIME-Version: 1.0
-In-Reply-To: <20230802164701.192791-8-guoren@kernel.org>
+In-Reply-To: <CAHh=Yk842gFpR1a3=KiB-Yb7T1Dqbg627MBK+hntjgMtd5z6-w@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230804_020614_260679_07B8F092 
-X-CRM114-Status: GOOD (  28.24  )
+X-CRM114-CacheID: sfid-20230804_021007_995532_A0CDFD18 
+X-CRM114-Status: GOOD (  18.62  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,109 +87,74 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============0592387340423948914=="
+Content-Type: multipart/mixed; boundary="===============6808256540573892337=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============0592387340423948914==
+--===============6808256540573892337==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="ElWjm7UHbiNPE9YP"
+	protocol="application/pgp-signature"; boundary="drXNa9U6BVDiMxxh"
 Content-Disposition: inline
 
---ElWjm7UHbiNPE9YP
+--drXNa9U6BVDiMxxh
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-Hey Guo Ren,
-
-On Wed, Aug 02, 2023 at 12:46:49PM -0400, guoren@kernel.org wrote:
-> From: Guo Ren <guoren@linux.alibaba.com>
+On Fri, Aug 04, 2023 at 02:54:33PM +0800, Nylon Chen wrote:
+> Hi Conor,
 >=20
-> According to qspinlock requirements, RISC-V gives out a weak LR/SC
-> forward progress guarantee which does not satisfy qspinlock. But
-> many vendors could produce stronger forward guarantee LR/SC to
-> ensure the xchg_tail could be finished in time on any kind of
-> hart. T-HEAD is the vendor which implements strong forward
-> guarantee LR/SC instruction pairs, so enable qspinlock for T-HEAD
-> with errata help.
+> Thank you for patiently giving me advice. I appreciate your help.
 >=20
-> T-HEAD early version of processors has the merge buffer delay
-> problem, so we need ERRATA_WRITEONCE to support qspinlock.
+> Not long ago, I said, "This patch needs to be accompanied by
+> modifications to the pwm_sifive_apply() function to make sense."
 >=20
-> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-> Signed-off-by: Guo Ren <guoren@kernel.org>
-> ---
->  arch/riscv/Kconfig.errata              | 13 +++++++++++++
->  arch/riscv/errata/thead/errata.c       | 24 ++++++++++++++++++++++++
->  arch/riscv/include/asm/errata_list.h   | 20 ++++++++++++++++++++
->  arch/riscv/include/asm/vendorid_list.h |  3 ++-
->  arch/riscv/kernel/cpufeature.c         |  3 ++-
->  5 files changed, 61 insertions(+), 2 deletions(-)
+> I recently reviewed the v3 version, and after discussing it with Emil,
+> there are several areas that require modification. I will provide the
+> necessary changes for each of them:
 >=20
-> diff --git a/arch/riscv/Kconfig.errata b/arch/riscv/Kconfig.errata
-> index 4745a5c57e7c..eb43677b13cc 100644
-> --- a/arch/riscv/Kconfig.errata
-> +++ b/arch/riscv/Kconfig.errata
-> @@ -96,4 +96,17 @@ config ERRATA_THEAD_WRITE_ONCE
-> =20
->  	  If you don't know what to do here, say "Y".
-> =20
-> +config ERRATA_THEAD_QSPINLOCK
-> +	bool "Apply T-Head queued spinlock errata"
-> +	depends on ERRATA_THEAD
-> +	default y
-> +	help
-> +	  The T-HEAD C9xx processors implement strong fwd guarantee LR/SC to
-> +	  match the xchg_tail requirement of qspinlock.
-> +
-> +	  This will apply the QSPINLOCK errata to handle the non-standard
-> +	  behavior via using qspinlock instead of ticket_lock.
+> 1. polarity check. (Suggestion from Uwe)
+> - if (state->polarity !=3D PWM_POLARITY_INVERSED)
+> + if (state->polarity !=3D PWM_POLARITY_NORMAL)
+> 2. avoid using old periodperiod, not state->period
+> - period =3D max(state->period, ddata->approx_period);
+> - frac =3D DIV64_U64_ROUND_CLOSEST(num, state->period);
+> + frac =3D DIV64_U64_ROUND_CLOSEST(num, period);
+> 3. add a conditional check can be added in the code to set
+> ddata->approx_period to state->period when state->period is smaller
+> than ddata->approx_period
+>   if (state->period !=3D ddata->approx_period) {
+>   ...
+> +       if (state->period < ddata->approx_period) {
+> +               ddata->approx_period =3D state->period;
+> +       }
+> -       ddata->approx_period =3D state->period;
+> +       period =3D ddata->approx_period;
+>=20
 
-Whatever about the acceptability of anything else in this series,
-having _stronger_ guarantees is not an erratum, is it? We should not
-abuse the errata stuff for this IMO.
+> I will use 'unmatched' on my end to verify again. If there are any
+> other errors, feel free to point them out. Thank you.
 
-> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeatur=
-e.c
-> index f8dbbe1bbd34..d9694fe40a9a 100644
-> --- a/arch/riscv/kernel/cpufeature.c
-> +++ b/arch/riscv/kernel/cpufeature.c
-> @@ -342,7 +342,8 @@ void __init riscv_fill_hwcap(void)
->  		 * spinlock value, the only way is to change from queued_spinlock to
->  		 * ticket_spinlock, but can not be vice.
->  		 */
-> -		if (!force_qspinlock) {
-> +		if (!force_qspinlock &&
-> +		    !riscv_has_errata_thead_qspinlock()) {
->  			set_bit(RISCV_ISA_EXT_XTICKETLOCK, isainfo->isa);
+I'm not sure of the driver details without going and looking into the
+code itself, but this sounds like it makes a lot more sense than just
+flipping the polarity in the dts. Thanks for taking another look!
 
-Is this a generic vendor extension (lol @ that misnomer) or is it an
-erratum? Make your mind up please. As has been said on other series, NAK
-to using march/vendor/imp IDs for feature probing.
 
-I've got some thoughts on other parts of this series too, but I'm not
-going to spend time on it unless the locking people and Palmer ascent
-to this series.
-
-Cheers,
-Conor.
-
---ElWjm7UHbiNPE9YP
+--drXNa9U6BVDiMxxh
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZMy/VQAKCRB4tDGHoIJi
-0i4WAQCzkmqln57/kLaRZPtx560Zn+aRbe3oPrmbNsnASM/znAEAsOJHnqt7ygoV
-utG4AXklmHWnwsLM0Qs5463EGKimzwY=
-=9hTn
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZMzARwAKCRB4tDGHoIJi
+0qDdAQCi6vcuaP29QFEGbJjRy3gSuS59BLhmOBTY1CNGgezTMQEA56t+2koBs6Of
+s0vx0OPO9U9ugfjxAQT1KVCC/BlxBQw=
+=fu/T
 -----END PGP SIGNATURE-----
 
---ElWjm7UHbiNPE9YP--
+--drXNa9U6BVDiMxxh--
 
 
---===============0592387340423948914==
+--===============6808256540573892337==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -202,5 +165,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============0592387340423948914==--
+--===============6808256540573892337==--
 
