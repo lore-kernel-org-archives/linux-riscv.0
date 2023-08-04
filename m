@@ -4,60 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FA07C04A94
-	for <linux-riscv@archiver.kernel.org>; Fri,  4 Aug 2023 09:40:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92ECFC00528
+	for <linux-riscv@archiver.kernel.org>; Fri,  4 Aug 2023 09:53:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:Cc:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Or6mODl2R3k70RGJ4B7PQhVCl6wF19fgt0LMoO1519s=; b=SZtUw3u0lASAsdVL5Vss/IPWtI
-	G8kXyvnGFPR4XdqetX/u0g7qwcoIXAoYiZVBgrY9skJaVlms950YkLfn2v0dpYaBvfmJXxlfAeHgR
-	QeWEtarTOGf+NfsrCkLlhwEQW2EJDuxBbcqNK/CkGADKbZqzoftUzOJHQ5eQIcTOj8HdlYGRB+BOv
-	osOvjkiYmFRr93jYU4Xmm2DCtuZkDP+yVdDnglPDNpJ361vj2E5IYry0L7vI+eBD7kdVdUs6UxAS1
-	kFa2F2eTLhQu9sfgZRP77Qi2X/Ml0B3TwoaBcKzsqRp9EE3citMEs69WKtQ5pxrL9R2vSzlrenkUS
-	2GgKawOQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=SUeeJb41/rjNkOtQ4OHcBcfHuoP4FIoPGVfL11eNg1s=; b=Vst66bUVP1cT/4
+	MJ8uA/DzoTyCY4BTFzL3kaa9sOJNxYNkMsiYTH2TDvF4pEjmwLHdDwZ8WcwHY2Yi4T8T1UUn/xSwf
+	4HX/jc+PKfF8nQ/gn/VtS71j2WUm1oxc4h6kRxPUEa9QpKn6hsLDNsqBGbQnjijFs32lYgun1e5Sn
+	MSoxILc3nwyt/ze0fAokCGMux3QhEGhlynUjQp7zDG16pANy1CCSW4tDQ3kTeKbxUPd6AQZ3dX+wI
+	dGSoXT1XpRLR7KMQLeD0Q86ybCvoJopQPGVATMjYIQPyDXIyuRobiQWSPK11nQLleu4LKlW4zWvsn
+	5lg4u4Fb8WTjzvK+L9fw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qRrIJ-00C2rR-1q;
-	Fri, 04 Aug 2023 09:40:27 +0000
-Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
+	id 1qRrVL-00C40z-0E;
+	Fri, 04 Aug 2023 09:53:55 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qRrIF-00C2q5-2k
+	id 1qRrVI-00C3zl-0Q
 	for linux-riscv@lists.infradead.org;
-	Fri, 04 Aug 2023 09:40:26 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.ext.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <ukl@pengutronix.de>)
-	id 1qRrHo-00014K-Jj; Fri, 04 Aug 2023 11:39:56 +0200
-Received: from [2a0a:edc0:0:900:1d::77] (helo=ptz.office.stw.pengutronix.de)
-	by drehscheibe.grey.stw.pengutronix.de with esmtp (Exim 4.94.2)
-	(envelope-from <ukl@pengutronix.de>)
-	id 1qRrHl-0012YL-7A; Fri, 04 Aug 2023 11:39:53 +0200
-Received: from ukl by ptz.office.stw.pengutronix.de with local (Exim 4.94.2)
-	(envelope-from <ukl@pengutronix.de>)
-	id 1qRrHj-00AM8Y-W4; Fri, 04 Aug 2023 11:39:52 +0200
-Date: Fri, 4 Aug 2023 11:39:51 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
-To: =?utf-8?B?0JDQu9C10LrRgdCw0L3QtNGAINCo0YPQsdC40L0=?= <privatesub2@gmail.com>
-Subject: Re: [PATCH v3 2/3] pwm: Add Allwinner's D1/T113-S3/R329 SoCs PWM
- support
-Message-ID: <20230804093951.rsjuz5itn62ltqy5@pengutronix.de>
-References: <20230627082334.1253020-1-privatesub2@gmail.com>
- <20230627082334.1253020-3-privatesub2@gmail.com>
- <20230710091413.fdl7j6eb3ln7uj4g@pengutronix.de>
- <CAF4idNmUn3G0=MU+PxTMNVb7u0xmQX4i5Z3zO6azUDBb1BezfQ@mail.gmail.com>
+	Fri, 04 Aug 2023 09:53:53 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id A976F61F89
+	for <linux-riscv@lists.infradead.org>; Fri,  4 Aug 2023 09:53:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8F124C43395
+	for <linux-riscv@lists.infradead.org>; Fri,  4 Aug 2023 09:53:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1691142830;
+	bh=lFjC4WLEGW/Lxj/DKzfS0u7bd1MtVnM5jRt8bx/kdNk=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=j/VzISMGkKFqczwmYJ4NAmOw3dS0sIOEO0ctYzxw9EQ6Kko8QvOjgIE8opzZOBZbR
+	 cX4y+S/JUHzaynL1Q16fkyqqYCTZd9tDFAblMvFU+216yOBP/0Q2EK2PiwXYpse50c
+	 RoAlXihP8eWkF0xwhCdnXwZ/U28pTyDnwZ4rbTMKc9N5sPyhdHmYzBI9o1SqwXUdC7
+	 zAV0xUK9j42iWztIu+R3CEgGOCx3aCUZb+rPYJPRvV2QAyhjSvzwI72eO7DxWrMwJM
+	 kg5zYCCtKaBaaNLGGUIHq9Odtc/K+JgHJv8HRRvvnlgwQRO8p7NZ7DpqJcRfAqT4wD
+	 DFJg/1LqDbr7w==
+Received: by mail-ed1-f50.google.com with SMTP id 4fb4d7f45d1cf-5231f439968so354539a12.0
+        for <linux-riscv@lists.infradead.org>; Fri, 04 Aug 2023 02:53:50 -0700 (PDT)
+X-Gm-Message-State: AOJu0YysvvUXfZWhx6pZ0hC8FlxDlPqtZZJrRF6VF6CDVPRf5Tra8SSq
+	xRwdZI4p4UJ1Me1PFxUNHbNJBJIQ8ZAEGjl/iOg=
+X-Google-Smtp-Source: AGHT+IF8AAzraBkBm5B+nYL1Q5LtSEgdlWGk+4YKUvg6xeg0Cs+wG7JxM0ZjqXkqLm7lj5kiuhRQcz1AnJfqJltrKHY=
+X-Received: by 2002:aa7:dd14:0:b0:523:10c7:317c with SMTP id
+ i20-20020aa7dd14000000b0052310c7317cmr1120233edv.41.1691142828721; Fri, 04
+ Aug 2023 02:53:48 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <CAF4idNmUn3G0=MU+PxTMNVb7u0xmQX4i5Z3zO6azUDBb1BezfQ@mail.gmail.com>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: ukl@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
+References: <20230802164701.192791-1-guoren@kernel.org> <20230802164701.192791-8-guoren@kernel.org>
+ <20230804-refract-avalanche-9adb6b4b74e9@wendy>
+In-Reply-To: <20230804-refract-avalanche-9adb6b4b74e9@wendy>
+From: Guo Ren <guoren@kernel.org>
+Date: Fri, 4 Aug 2023 17:53:35 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTTfLmCe7eDhfPU1qFTBoVZN8oFACEd4NmTyZaAVtdMK-w@mail.gmail.com>
+Message-ID: <CAJF2gTTfLmCe7eDhfPU1qFTBoVZN8oFACEd4NmTyZaAVtdMK-w@mail.gmail.com>
+Subject: Re: [PATCH V10 07/19] riscv: qspinlock: errata: Introduce ERRATA_THEAD_QSPINLOCK
+To: Conor Dooley <conor.dooley@microchip.com>
+Cc: paul.walmsley@sifive.com, anup@brainfault.org, peterz@infradead.org, 
+	mingo@redhat.com, will@kernel.org, palmer@rivosinc.com, longman@redhat.com, 
+	boqun.feng@gmail.com, tglx@linutronix.de, paulmck@kernel.org, 
+	rostedt@goodmis.org, rdunlap@infradead.org, catalin.marinas@arm.com, 
+	xiaoguang.xing@sophgo.com, bjorn@rivosinc.com, alexghiti@rivosinc.com, 
+	keescook@chromium.org, greentime.hu@sifive.com, ajones@ventanamicro.com, 
+	jszhang@kernel.org, wefu@redhat.com, wuwei2016@iscas.ac.cn, 
+	linux-arch@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	linux-doc@vger.kernel.org, kvm@vger.kernel.org, 
+	virtualization@lists.linux-foundation.org, linux-csky@vger.kernel.org, 
+	Guo Ren <guoren@linux.alibaba.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230804_024024_208798_3A269CE1 
-X-CRM114-Status: GOOD (  46.71  )
+X-CRM114-CacheID: sfid-20230804_025352_253222_EE23B3DE 
+X-CRM114-Status: GOOD (  35.44  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,508 +88,78 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-arm-kernel@lists.infradead.org, linux-pwm@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, Philipp Zabel <p.zabel@pengutronix.de>, Samuel Holland <samuel@sholland.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-kernel@vger.kernel.org, Rob Herring <robh+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, Thierry Reding <thierry.reding@gmail.com>, Palmer Dabbelt <palmer@dabbelt.com>, Jernej Skrabec <jernej.skrabec@gmail.com>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org, linux-sunxi@lists.linux.dev, devicetree@vger.kernel.org
-Content-Type: multipart/mixed; boundary="===============4161525459089843349=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============4161525459089843349==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="rc7sp6r7dmnv5adg"
-Content-Disposition: inline
-
-
---rc7sp6r7dmnv5adg
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-Hello,
-
-On Fri, Aug 04, 2023 at 10:19:26AM +0300, =D0=90=D0=BB=D0=B5=D0=BA=D1=81=D0=
-=B0=D0=BD=D0=B4=D1=80 =D0=A8=D1=83=D0=B1=D0=B8=D0=BD wrote:
-> =D0=BF=D0=BD, 10 =D0=B8=D1=8E=D0=BB. 2023=E2=80=AF=D0=B3. =D0=B2 12:14, U=
-we Kleine-K=C3=B6nig <u.kleine-koenig@pengutronix.de>:
-> > On Tue, Jun 27, 2023 at 11:23:25AM +0300, Aleksandr Shubin wrote:
-> > > Allwinner's D1, T113-S3 and R329 SoCs have a quite different PWM
-> > > controllers with ones supported by pwm-sun4i driver.
-> > >
-> > > This patch adds a PWM controller driver for Allwinner's D1,
-> > > T113-S3 and R329 SoCs. The main difference between these SoCs
-> > > is the number of channels defined by the DT property.
-> > >
-> > > Signed-off-by: Aleksandr Shubin <privatesub2@gmail.com>
-> > > ---
-> > >  drivers/pwm/Kconfig      |  10 ++
-> > >  drivers/pwm/Makefile     |   1 +
-> > >  drivers/pwm/pwm-sun20i.c | 322 +++++++++++++++++++++++++++++++++++++=
-++
-> > >  3 files changed, 333 insertions(+)
-> > >  create mode 100644 drivers/pwm/pwm-sun20i.c
-> > >
-> > > diff --git a/drivers/pwm/Kconfig b/drivers/pwm/Kconfig
-> > > index 8df861b1f4a3..05c48a36969e 100644
-> > > --- a/drivers/pwm/Kconfig
-> > > +++ b/drivers/pwm/Kconfig
-> > > @@ -594,6 +594,16 @@ config PWM_SUN4I
-> > >         To compile this driver as a module, choose M here: the module
-> > >         will be called pwm-sun4i.
-> > >
-> > > +config PWM_SUN20I
-> > > +     tristate "Allwinner D1/T113s/R329 PWM support"
-> > > +     depends on ARCH_SUNXI || COMPILE_TEST
-> > > +     depends on COMMON_CLK
-> > > +     help
-> > > +       Generic PWM framework driver for Allwinner D1/T113s/R329 SoCs.
-> > > +
-> > > +       To compile this driver as a module, choose M here: the module
-> > > +       will be called pwm-sun20i.
-> > > +
-> > >  config PWM_SUNPLUS
-> > >       tristate "Sunplus PWM support"
-> > >       depends on ARCH_SUNPLUS || COMPILE_TEST
-> > > diff --git a/drivers/pwm/Makefile b/drivers/pwm/Makefile
-> > > index 19899b912e00..cea872e22c78 100644
-> > > --- a/drivers/pwm/Makefile
-> > > +++ b/drivers/pwm/Makefile
-> > > @@ -55,6 +55,7 @@ obj-$(CONFIG_PWM_STM32)             +=3D pwm-stm32.o
-> > >  obj-$(CONFIG_PWM_STM32_LP)   +=3D pwm-stm32-lp.o
-> > >  obj-$(CONFIG_PWM_STMPE)              +=3D pwm-stmpe.o
-> > >  obj-$(CONFIG_PWM_SUN4I)              +=3D pwm-sun4i.o
-> > > +obj-$(CONFIG_PWM_SUN20I)     +=3D pwm-sun20i.o
-> > >  obj-$(CONFIG_PWM_SUNPLUS)    +=3D pwm-sunplus.o
-> > >  obj-$(CONFIG_PWM_TEGRA)              +=3D pwm-tegra.o
-> > >  obj-$(CONFIG_PWM_TIECAP)     +=3D pwm-tiecap.o
-> > > diff --git a/drivers/pwm/pwm-sun20i.c b/drivers/pwm/pwm-sun20i.c
-> > > new file mode 100644
-> > > index 000000000000..63e9c64e0e18
-> > > --- /dev/null
-> > > +++ b/drivers/pwm/pwm-sun20i.c
-> > > @@ -0,0 +1,322 @@
-> > > +// SPDX-License-Identifier: GPL-2.0
-> > > +/*
-> > > + * PWM Controller Driver for sunxi platforms (D1, T113-S3 and R329)
-> > > + *
-> > > + * Limitations:
-> > > + * - When the parameters change, current running period will not be =
-completed
-> > > + *   and run new settings immediately.
-> > > + * - It output HIGH-Z state when PWM channel disabled.
-> > > + *
-> > > + * Copyright (c) 2023 Aleksandr Shubin <privatesub2@gmail.com>
-> > > + */
-> > > +
-> > > +#include <linux/bitfield.h>
-> > > +#include <linux/clk.h>
-> > > +#include <linux/err.h>
-> > > +#include <linux/io.h>
-> > > +#include <linux/module.h>
-> > > +#include <linux/of_device.h>
-> > > +#include <linux/pwm.h>
-> > > +#include <linux/reset.h>
-> > > +
-> > > +#define PWM_CLK_CFG_REG(chan)                (0x20 + (((chan) >> 1) =
-* 0x4))
-> > > +#define PWM_CLK_SRC                  GENMASK(8, 7)
-> > > +#define PWM_CLK_DIV_M                        GENMASK(3, 0)
-> > > +
-> > > +#define PWM_CLK_GATE_REG             0x40
-> > > +#define PWM_CLK_BYPASS(chan)         BIT((chan) - 16)
-> > > +#define PWM_CLK_GATING(chan)         BIT(chan)
-> > > +
-> > > +#define PWM_ENABLE_REG                       0x80
-> > > +#define PWM_EN(chan)                 BIT(chan)
-> > > +
-> > > +#define PWM_CTL_REG(chan)            (0x100 + (chan) * 0x20)
-> > > +#define PWM_ACT_STA                  BIT(8)
-> > > +#define PWM_PRESCAL_K                        GENMASK(7, 0)
-> > > +
-> > > +#define PWM_PERIOD_REG(chan)         (0x104 + (chan) * 0x20)
-> > > +#define PWM_ENTIRE_CYCLE             GENMASK(31, 16)
-> > > +#define PWM_ACT_CYCLE                        GENMASK(15, 0)
-> >
-> > Can you please adapt the register field names to include the register
-> > name? I'd use:
-> >
-> > #define PWM_CTL(chan)           (0x100 + (chan) * 0x20)
-> > #define PWM_CTL_ACT_STA                 BIT(8)
-> > #define PWM_CTL_PRESCAL_K               GENMASK(7, 0)
-> >
-> > then you get a chance to spot when PWM_CLK_BYPASS(x) is written to
-> > PWM_CLK_CFG.
-> >
-> >
-> > > +struct sun20i_pwm_chip {
-> > > +     struct pwm_chip chip;
-> > > +     struct clk *clk_bus, *clk_hosc;
-> > > +     struct reset_control *rst;
-> > > +     void __iomem *base;
-> > > +     /* Mutex to protect pwm apply state */
-> > > +     struct mutex mutex;
-> > > +};
-> > > +
-> > > +static inline struct sun20i_pwm_chip *to_sun20i_pwm_chip(struct pwm_=
-chip *chip)
-> > > +{
-> > > +     return container_of(chip, struct sun20i_pwm_chip, chip);
-> > > +}
-> > > +
-> > > +static inline u32 sun20i_pwm_readl(struct sun20i_pwm_chip *chip,
-> > > +                                unsigned long offset)
-> > > +{
-> > > +     return readl(chip->base + offset);
-> > > +}
-> > > +
-> > > +static inline void sun20i_pwm_writel(struct sun20i_pwm_chip *chip,
-> > > +                                  u32 val, unsigned long offset)
-> > > +{
-> > > +     writel(val, chip->base + offset);
-> > > +}
-> > > +
-> > > +static int sun20i_pwm_get_state(struct pwm_chip *chip,
-> > > +                             struct pwm_device *pwm,
-> > > +                             struct pwm_state *state)
-> > > +{
-> > > +     struct sun20i_pwm_chip *sun20i_chip =3D to_sun20i_pwm_chip(chip=
-);
-> > > +     u64 clk_rate, tmp;
-> > > +     u32 val;
-> > > +     u16 ent_cycle, act_cycle;
-> > > +     u8 prescal, div_id;
-> > > +
-> > > +     mutex_lock(&sun20i_chip->mutex);
-> > > +
-> > > +     val =3D sun20i_pwm_readl(sun20i_chip, PWM_CLK_CFG_REG(pwm->hwpw=
-m));
-> > > +     div_id =3D FIELD_GET(PWM_CLK_DIV_M, val);
-> > > +     if (FIELD_GET(PWM_CLK_SRC, val) =3D=3D 0)
-> > > +             clk_rate =3D clk_get_rate(sun20i_chip->clk_hosc);
-> > > +     else
-> > > +             clk_rate =3D clk_get_rate(sun20i_chip->clk_bus);
-> > > +
-> > > +     val =3D sun20i_pwm_readl(sun20i_chip, PWM_CTL_REG(pwm->hwpwm));
-> > > +     state->polarity =3D (PWM_ACT_STA & val) ? PWM_POLARITY_NORMAL :=
- PWM_POLARITY_INVERSED;
-> > > +
-> > > +     prescal =3D FIELD_GET(PWM_PRESCAL_K, val) + 1;
-> >
-> > If PWM_PRESCAL_K is 0xff, prescal ends up being 0. This isn't right, is
-> > it?
-> >
-> > > +     val =3D sun20i_pwm_readl(sun20i_chip, PWM_ENABLE_REG);
-> > > +     state->enabled =3D (PWM_EN(pwm->hwpwm) & val) ? true : false;
-> > > +
-> > > +     val =3D sun20i_pwm_readl(sun20i_chip, PWM_PERIOD_REG(pwm->hwpwm=
-));
-> > > +     act_cycle =3D FIELD_GET(PWM_ACT_CYCLE, val);
-> > > +     ent_cycle =3D FIELD_GET(PWM_ENTIRE_CYCLE, val);
-> > > +     if (act_cycle > ent_cycle)
-> > > +             act_cycle =3D ent_cycle;
-> > > +
-> >
-> > A comment that with the width of the used factors this cannot overflow
-> > would be nice here.
-> >
-> > > +     tmp =3D (u64)(act_cycle) * prescal * (1U << div_id) * NSEC_PER_=
-SEC;
-> >
-> > Can be simplified to:
-> >
-> >         tmp =3D (u64)act_cycle * prescal << div_id * NSEC_PER_SEC;
-> >
-> > > +     state->duty_cycle =3D DIV_ROUND_UP_ULL(tmp, clk_rate);
-> > > +     tmp =3D (u64)(ent_cycle) * prescal * (1U << div_id) * NSEC_PER_=
-SEC;
-> > > +     state->period =3D DIV_ROUND_UP_ULL(tmp, clk_rate);
-> > > +     mutex_unlock(&sun20i_chip->mutex);
-> > > +
-> > > +     return 0;
-> > > +}
-> > > +
-> > > +static int sun20i_pwm_apply(struct pwm_chip *chip, struct pwm_device=
- *pwm,
-> > > +                         const struct pwm_state *state)
-> > > +{
-> > > +     int ret =3D 0;
-> > > +     u32 clk_gate, clk_cfg, pwm_en, ctl, period;
-> > > +     u64 bus_rate, hosc_rate, clk_div, val;
-> > > +     u16 prescaler, div_m;
-> > > +     bool use_bus_clk, calc_div_m;
-> > > +     struct sun20i_pwm_chip *sun20i_chip =3D to_sun20i_pwm_chip(chip=
-);
-> > > +
-> > > +     mutex_lock(&sun20i_chip->mutex);
-> > > +
-> > > +     pwm_en =3D sun20i_pwm_readl(sun20i_chip, PWM_ENABLE_REG);
-> > > +
-> > > +     if (state->enabled !=3D pwm->state.enabled)
-> > > +             clk_gate =3D sun20i_pwm_readl(sun20i_chip, PWM_CLK_GATE=
-_REG);
-> > > +
-> > > +     if (state->enabled !=3D pwm->state.enabled && !state->enabled) {
-> > > +             clk_gate &=3D ~PWM_CLK_GATING(pwm->hwpwm);
-> > > +             pwm_en &=3D ~PWM_EN(pwm->hwpwm);
-> > > +             sun20i_pwm_writel(sun20i_chip, pwm_en, PWM_ENABLE_REG);
-> > > +             sun20i_pwm_writel(sun20i_chip, clk_gate, PWM_CLK_GATE_R=
-EG);
-> > > +     }
-> > > +
-> > > +     if (state->polarity !=3D pwm->state.polarity ||
-> > > +         state->duty_cycle !=3D pwm->state.duty_cycle ||
-> > > +         state->period !=3D pwm->state.period) {
-> > > +             ctl =3D sun20i_pwm_readl(sun20i_chip, PWM_CTL_REG(pwm->=
-hwpwm));
-> > > +             clk_cfg =3D sun20i_pwm_readl(sun20i_chip, PWM_CLK_CFG_R=
-EG(pwm->hwpwm));
-> > > +             hosc_rate =3D clk_get_rate(sun20i_chip->clk_hosc);
-> > > +             bus_rate =3D clk_get_rate(sun20i_chip->clk_bus);
-> > > +             if (pwm_en & PWM_EN(pwm->hwpwm ^ 1)) {
-> > > +                     /* if the neighbor channel is enable, check per=
-iod only */
-> > > +                     use_bus_clk =3D FIELD_GET(PWM_CLK_SRC, clk_cfg)=
- !=3D 0;
-> > > +                     if (use_bus_clk)
-> > > +                             val =3D state->period * bus_rate;
-> > > +                     else
-> > > +                             val =3D state->period * hosc_rate;
-> > > +                     do_div(val, NSEC_PER_SEC);
-> > > +
-> > > +                     div_m =3D FIELD_GET(PWM_CLK_DIV_M, clk_cfg);
-> > > +                     calc_div_m =3D false;
-> > > +             } else {
-> > > +                     /* check period and select clock source */
-> > > +                     use_bus_clk =3D false;
-> > > +                     val =3D state->period * hosc_rate;
-> > > +                     do_div(val, NSEC_PER_SEC);
-> > > +                     if (val <=3D 1) {
-> > > +                             use_bus_clk =3D true;
-> > > +                             val =3D state->period * bus_rate;
-> > > +                             do_div(val, NSEC_PER_SEC);
-> > > +                             if (val <=3D 1) {
-> > > +                                     ret =3D -EINVAL;
-> > > +                                     goto unlock_mutex;
-> > > +                             }
-> > > +                     }
-> > > +                     div_m =3D 0;
-> > > +                     calc_div_m =3D true;
-> > > +
-> > > +                     /* set up the CLK_DIV_M and clock CLK_SRC */
-> > > +                     clk_cfg =3D FIELD_PREP(PWM_CLK_DIV_M, div_m);
-> > > +                     clk_cfg |=3D FIELD_PREP(PWM_CLK_SRC, use_bus_cl=
-k ? 1 : 0);
-> > > +
-> > > +                     sun20i_pwm_writel(sun20i_chip, clk_cfg, PWM_CLK=
-_CFG_REG(pwm->hwpwm));
-> > > +             }
-> > > +
-> > > +             /* calculate prescaler, M factor, PWM entire cycle */
-> > > +             clk_div =3D val;
-> >
-> > This assignment is useless as it is overwritten in the loop below, isn't
-> > it?
-> >
-> > > +             for (prescaler =3D 0;; prescaler++) {
-> > > +                     if (prescaler >=3D 256) {
-> > > +                             if (calc_div_m) {
-> > > +                                     prescaler =3D 0;
-> > > +                                     div_m++;
-> > > +                                     if (div_m >=3D 9) {
-> > > +                                             ret =3D -EINVAL;
-> > > +                                             goto unlock_mutex;
-> > > +                                     }
-> > > +                             } else {
-> > > +                                     ret =3D -EINVAL;
-> > > +                                     goto unlock_mutex;
-> > > +                             }
-> > > +                     }
-> > > +
-> > > +                     clk_div =3D val >> div_m;
-> > > +                     do_div(clk_div, prescaler + 1);
-> > > +                     if (clk_div <=3D 65534)
-> > > +                             break;
-> >
-> > This can be calculated without a loop.
->=20
-> Point me please where can I see the calculation of two divisors without a=
- loop?
-
-for a given value of div_m you search the smallest prescaler such that
-
-	(val >> div_m) // (prescaler + 1) =E2=89=A4 65534
-
-(Using Python syntax where // denotes the usual
-round-down-to-next-integer division and / normal exact division.)
-
-This is equivalent to:
-
-	  (val >> div_m) // (prescaler + 1) =E2=89=A4 65534
-	=E2=9F=BA (val >> div_m) =E2=89=A4 65534 * (prescaler + 1) + prescaler
-	=E2=9F=BA (val >> div_m) =E2=89=A4 65535 * prescaler + 65534
-=E2=9F=BA (val >> div_m) - 65534 =E2=89=A4 65535 * prescaler
-	=E2=9F=BA ((val >> div_m) - 65534) / 65535 =E2=89=A4 prescaler
-
-And as prescaler is integer, this is
-
-	  ...
-	=E2=9F=BA ((val >> div_m) - 65534) // 65535 =E2=89=A4 prescaler
-
-So the prescaler value you're looking for is:
-
-	 ((val >> div_m) - 65534) // 65535
-
-And then you have to pick the smallest div_m such that prescaler =E2=89=A4 =
-255:
-
-	  ((val >> div_m) - 65534) // 65535 =E2=89=A4 255
-	=E2=9F=BA (val >> div_m) - 65534 =E2=89=A4 255 * 65535 + 65534
-	=E2=9F=BA val >> div_m =E2=89=A4 255 * 65535 + 2 * 65534
-	=E2=9F=BA val >> div_m =E2=89=A4 16842493
-	=E2=9F=BA val >> div_m < 16842494
-
-so div_m is fls((val) / 16842494).
-
-You might want to double check this and explain the algorithm in a
-comment similar to the above calculation.
-
-> > > +             }
-> > > +
-> > > +             period =3D FIELD_PREP(PWM_ENTIRE_CYCLE, clk_div);
-> > > +
-> > > +             /* set duty cycle */
-> > > +             if (use_bus_clk)
-> > > +                     val =3D state->duty_cycle * bus_rate;
-> > > +             else
-> > > +                     val =3D state->duty_cycle * hosc_rate;
-
-maybe better use:
-
-	if (use_bus_clk)
-		rate =3D bus_rate;
-	else
-		rate =3D hosc_rate;
-
-	val =3D state->duty_cycle * rate
-
-> > > +             do_div(val, NSEC_PER_SEC);
-> > > +             clk_div =3D val >> div_m;
-> > > +             do_div(clk_div, prescaler + 1);
-> > > +
-> > > +             if (state->duty_cycle =3D=3D state->period)
-> > > +                     clk_div++;
-> >
-> > I don't understand that one. Can you explain that in a comment please?
->=20
-> The formula of the output period and the duty-cycle for PWM are as follow=
-s.
-> T period =3D (PWM01_CLK / PWM0_PRESCALE_K)^-1 * (PPR0.PWM_ENTIRE_CYCLE + =
-1)
-
-That can be simpler written as:
-
-	Tperiod =3D PWM0_PRESCALE_K / PWM01_CLK * (PPR0.PWM_ENTIRE_CYCLE + 1)
-
-right?
-
-> T high-level =3D (PWM01_CLK / PWM0_PRESCALE_K)^-1 * PPR0.PWM_ACT_CYCLE
-
-simlar:
-
-	Thigh =3D PWM0_PRESCALE_K / PWM01_CLK * PPR0.PWM_ACT_CYCLE
-
-> Duty-cycle =3D T high-level / T period
-> In accordance with this formula, in order to set the duty-cycle to 100%,
-> it is necessary that PWM_ACT_CYCLE >=3D PWM_ENTIRE_CYCLE + 1
-
-The +1 is also relevant for duty_cycles other than state->period, right?
-
-> > > +             period |=3D FIELD_PREP(PWM_ACT_CYCLE, clk_div);
-> > > +             sun20i_pwm_writel(sun20i_chip, period, PWM_PERIOD_REG(p=
-wm->hwpwm));
-> > > +
-> > > +             ctl =3D FIELD_PREP(PWM_PRESCAL_K, prescaler);
-> > > +             if (state->polarity =3D=3D PWM_POLARITY_NORMAL)
-> > > +                     ctl |=3D PWM_ACT_STA;
-> > > +
-> > > +             sun20i_pwm_writel(sun20i_chip, ctl, PWM_CTL_REG(pwm->hw=
-pwm));
-> >
-> > Is this racy? I.e. does the write to PWM_PERIOD_REG(pwm->hwpwm) above
-> > already has an effect before PWM_CTL_REG(pwm->hwpwm) is written?
-> >
-> > > +     }
-> > > +
-> > > +     if (state->enabled !=3D pwm->state.enabled && state->enabled) {
-> > > +             clk_gate &=3D ~PWM_CLK_BYPASS(pwm->hwpwm);
-> > > +             clk_gate |=3D PWM_CLK_GATING(pwm->hwpwm);
-> > > +             pwm_en |=3D PWM_EN(pwm->hwpwm);
-> > > +             sun20i_pwm_writel(sun20i_chip, pwm_en, PWM_ENABLE_REG);
-> > > +             sun20i_pwm_writel(sun20i_chip, clk_gate, PWM_CLK_GATE_R=
-EG);
-> >
-> > This is (I guess) racy. If your PWM is running with
-> >
-> >         .period =3D 10000
-> >         .duty_cyle =3D 0
-> >         .enabled =3D true
-> >
-> > and you configure it to
-> >
-> >         .period =3D 10000
-> >         .duty_cyle =3D 10000
-> >         .enabled =3D false
-> >
-> > you get a short spike. For a enabled=3Dtrue -> enabled=3Dfalse transiti=
-on
-> > you should disable first before configuring duty+period (or skip the
-> > latter completely).
->=20
-> When switching enabled=3Dtrue -> enabled=3Dfalse then before setting the =
-period,
-> the enable register will be written false and the pvm will become inactiv=
-e.
-> this is the place:
-> if (state->enabled !=3D pwm->state.enabled && !state->enabled) {
-
-Ah, it seems I missed that (or I just don't understand any more what
-meant back then :-)
-
-Best regards
-Uwe
-
---=20
-Pengutronix e.K.                           | Uwe Kleine-K=C3=B6nig         =
-   |
-Industrial Linux Solutions                 | https://www.pengutronix.de/ |
-
---rc7sp6r7dmnv5adg
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmTMx2cACgkQj4D7WH0S
-/k4GhwgAkV9eyJPfkP1zrJF7Yqg8WMHmqY/oF2Zv33+JJJB+YAl9YH2wejwF+ZDB
-kKdKC0jrTtGdqiKL+56+PUVN+sfUIrF950/hn7PGnhWkWU9KDoei/V5p9RhsFpcK
-TN5yfg5BblgKClokAckrxRhuNrhazKcbwX+mBKK/o1eVQJ3yiN3TMeBhsDBD6MWd
-lm9msUKJkR/vd1HoDPfBvFVDYRt4yJvs3szUpym3Pa+NYI8gwxsFXzuHVi0vbyHq
-vufpMo5DVYDbY0oQ5OQJ72QBPw0BM1wYLwIOAJkJPmV2QV+hCBRZTVM2/oUw50ZF
-T5cE6bqOyVxpAZB5jSb9nVD2BXxz0A==
-=JpIj
------END PGP SIGNATURE-----
-
---rc7sp6r7dmnv5adg--
-
-
---===============4161525459089843349==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============4161525459089843349==--
-
+T24gRnJpLCBBdWcgNCwgMjAyMyBhdCA1OjA24oCvUE0gQ29ub3IgRG9vbGV5IDxjb25vci5kb29s
+ZXlAbWljcm9jaGlwLmNvbT4gd3JvdGU6Cj4KPiBIZXkgR3VvIFJlbiwKPgo+IE9uIFdlZCwgQXVn
+IDAyLCAyMDIzIGF0IDEyOjQ2OjQ5UE0gLTA0MDAsIGd1b3JlbkBrZXJuZWwub3JnIHdyb3RlOgo+
+ID4gRnJvbTogR3VvIFJlbiA8Z3VvcmVuQGxpbnV4LmFsaWJhYmEuY29tPgo+ID4KPiA+IEFjY29y
+ZGluZyB0byBxc3BpbmxvY2sgcmVxdWlyZW1lbnRzLCBSSVNDLVYgZ2l2ZXMgb3V0IGEgd2VhayBM
+Ui9TQwo+ID4gZm9yd2FyZCBwcm9ncmVzcyBndWFyYW50ZWUgd2hpY2ggZG9lcyBub3Qgc2F0aXNm
+eSBxc3BpbmxvY2suIEJ1dAo+ID4gbWFueSB2ZW5kb3JzIGNvdWxkIHByb2R1Y2Ugc3Ryb25nZXIg
+Zm9yd2FyZCBndWFyYW50ZWUgTFIvU0MgdG8KPiA+IGVuc3VyZSB0aGUgeGNoZ190YWlsIGNvdWxk
+IGJlIGZpbmlzaGVkIGluIHRpbWUgb24gYW55IGtpbmQgb2YKPiA+IGhhcnQuIFQtSEVBRCBpcyB0
+aGUgdmVuZG9yIHdoaWNoIGltcGxlbWVudHMgc3Ryb25nIGZvcndhcmQKPiA+IGd1YXJhbnRlZSBM
+Ui9TQyBpbnN0cnVjdGlvbiBwYWlycywgc28gZW5hYmxlIHFzcGlubG9jayBmb3IgVC1IRUFECj4g
+PiB3aXRoIGVycmF0YSBoZWxwLgo+ID4KPiA+IFQtSEVBRCBlYXJseSB2ZXJzaW9uIG9mIHByb2Nl
+c3NvcnMgaGFzIHRoZSBtZXJnZSBidWZmZXIgZGVsYXkKPiA+IHByb2JsZW0sIHNvIHdlIG5lZWQg
+RVJSQVRBX1dSSVRFT05DRSB0byBzdXBwb3J0IHFzcGlubG9jay4KPiA+Cj4gPiBTaWduZWQtb2Zm
+LWJ5OiBHdW8gUmVuIDxndW9yZW5AbGludXguYWxpYmFiYS5jb20+Cj4gPiBTaWduZWQtb2ZmLWJ5
+OiBHdW8gUmVuIDxndW9yZW5Aa2VybmVsLm9yZz4KPiA+IC0tLQo+ID4gIGFyY2gvcmlzY3YvS2Nv
+bmZpZy5lcnJhdGEgICAgICAgICAgICAgIHwgMTMgKysrKysrKysrKysrKwo+ID4gIGFyY2gvcmlz
+Y3YvZXJyYXRhL3RoZWFkL2VycmF0YS5jICAgICAgIHwgMjQgKysrKysrKysrKysrKysrKysrKysr
+KysrCj4gPiAgYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9lcnJhdGFfbGlzdC5oICAgfCAyMCArKysr
+KysrKysrKysrKysrKysrKwo+ID4gIGFyY2gvcmlzY3YvaW5jbHVkZS9hc20vdmVuZG9yaWRfbGlz
+dC5oIHwgIDMgKystCj4gPiAgYXJjaC9yaXNjdi9rZXJuZWwvY3B1ZmVhdHVyZS5jICAgICAgICAg
+fCAgMyArKy0KPiA+ICA1IGZpbGVzIGNoYW5nZWQsIDYxIGluc2VydGlvbnMoKyksIDIgZGVsZXRp
+b25zKC0pCj4gPgo+ID4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvS2NvbmZpZy5lcnJhdGEgYi9h
+cmNoL3Jpc2N2L0tjb25maWcuZXJyYXRhCj4gPiBpbmRleCA0NzQ1YTVjNTdlN2MuLmViNDM2Nzdi
+MTNjYyAxMDA2NDQKPiA+IC0tLSBhL2FyY2gvcmlzY3YvS2NvbmZpZy5lcnJhdGEKPiA+ICsrKyBi
+L2FyY2gvcmlzY3YvS2NvbmZpZy5lcnJhdGEKPiA+IEBAIC05Niw0ICs5NiwxNyBAQCBjb25maWcg
+RVJSQVRBX1RIRUFEX1dSSVRFX09OQ0UKPiA+Cj4gPiAgICAgICAgIElmIHlvdSBkb24ndCBrbm93
+IHdoYXQgdG8gZG8gaGVyZSwgc2F5ICJZIi4KPiA+Cj4gPiArY29uZmlnIEVSUkFUQV9USEVBRF9R
+U1BJTkxPQ0sKPiA+ICsgICAgIGJvb2wgIkFwcGx5IFQtSGVhZCBxdWV1ZWQgc3BpbmxvY2sgZXJy
+YXRhIgo+ID4gKyAgICAgZGVwZW5kcyBvbiBFUlJBVEFfVEhFQUQKPiA+ICsgICAgIGRlZmF1bHQg
+eQo+ID4gKyAgICAgaGVscAo+ID4gKyAgICAgICBUaGUgVC1IRUFEIEM5eHggcHJvY2Vzc29ycyBp
+bXBsZW1lbnQgc3Ryb25nIGZ3ZCBndWFyYW50ZWUgTFIvU0MgdG8KPiA+ICsgICAgICAgbWF0Y2gg
+dGhlIHhjaGdfdGFpbCByZXF1aXJlbWVudCBvZiBxc3BpbmxvY2suCj4gPiArCj4gPiArICAgICAg
+IFRoaXMgd2lsbCBhcHBseSB0aGUgUVNQSU5MT0NLIGVycmF0YSB0byBoYW5kbGUgdGhlIG5vbi1z
+dGFuZGFyZAo+ID4gKyAgICAgICBiZWhhdmlvciB2aWEgdXNpbmcgcXNwaW5sb2NrIGluc3RlYWQg
+b2YgdGlja2V0X2xvY2suCj4KPiBXaGF0ZXZlciBhYm91dCB0aGUgYWNjZXB0YWJpbGl0eSBvZiBh
+bnl0aGluZyBlbHNlIGluIHRoaXMgc2VyaWVzLAo+IGhhdmluZyBfc3Ryb25nZXJfIGd1YXJhbnRl
+ZXMgaXMgbm90IGFuIGVycmF0dW0sIGlzIGl0PyBXZSBzaG91bGQgbm90Cj4gYWJ1c2UgdGhlIGVy
+cmF0YSBzdHVmZiBmb3IgdGhpcyBJTU8uCj4KPiA+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2tl
+cm5lbC9jcHVmZWF0dXJlLmMgYi9hcmNoL3Jpc2N2L2tlcm5lbC9jcHVmZWF0dXJlLmMKPiA+IGlu
+ZGV4IGY4ZGJiZTFiYmQzNC4uZDk2OTRmZTQwYTlhIDEwMDY0NAo+ID4gLS0tIGEvYXJjaC9yaXNj
+di9rZXJuZWwvY3B1ZmVhdHVyZS5jCj4gPiArKysgYi9hcmNoL3Jpc2N2L2tlcm5lbC9jcHVmZWF0
+dXJlLmMKPiA+IEBAIC0zNDIsNyArMzQyLDggQEAgdm9pZCBfX2luaXQgcmlzY3ZfZmlsbF9od2Nh
+cCh2b2lkKQo+ID4gICAgICAgICAgICAgICAgKiBzcGlubG9jayB2YWx1ZSwgdGhlIG9ubHkgd2F5
+IGlzIHRvIGNoYW5nZSBmcm9tIHF1ZXVlZF9zcGlubG9jayB0bwo+ID4gICAgICAgICAgICAgICAg
+KiB0aWNrZXRfc3BpbmxvY2ssIGJ1dCBjYW4gbm90IGJlIHZpY2UuCj4gPiAgICAgICAgICAgICAg
+ICAqLwo+ID4gLSAgICAgICAgICAgICBpZiAoIWZvcmNlX3FzcGlubG9jaykgewo+ID4gKyAgICAg
+ICAgICAgICBpZiAoIWZvcmNlX3FzcGlubG9jayAmJgo+ID4gKyAgICAgICAgICAgICAgICAgIXJp
+c2N2X2hhc19lcnJhdGFfdGhlYWRfcXNwaW5sb2NrKCkpIHsKPiA+ICAgICAgICAgICAgICAgICAg
+ICAgICBzZXRfYml0KFJJU0NWX0lTQV9FWFRfWFRJQ0tFVExPQ0ssIGlzYWluZm8tPmlzYSk7Cj4K
+PiBJcyB0aGlzIGEgZ2VuZXJpYyB2ZW5kb3IgZXh0ZW5zaW9uIChsb2wgQCB0aGF0IG1pc25vbWVy
+KSBvciBpcyBpdCBhbgo+IGVycmF0dW0/IE1ha2UgeW91ciBtaW5kIHVwIHBsZWFzZS4gQXMgaGFz
+IGJlZW4gc2FpZCBvbiBvdGhlciBzZXJpZXMsIE5BSwo+IHRvIHVzaW5nIG1hcmNoL3ZlbmRvci9p
+bXAgSURzIGZvciBmZWF0dXJlIHByb2JpbmcuClRoZSBSSVNDVl9JU0FfRVhUX1hUSUNLRVRMT0NL
+IGlzIGEgZmVhdHVyZSBleHRlbnNpb24gbnVtYmVyLCBhbmQgaXQncwpzZXQgYnkgZGVmYXVsdCBm
+b3IgZm9yd2FyZC1jb21wYXRpYmxlLiBXZSBhbHNvIGRlZmluZSBhIHZlbmRvcgpleHRlbnNpb24g
+KHJpc2N2X2hhc19lcnJhdGFfdGhlYWRfcXNwaW5sb2NrKSB0byBmb3JjZSBhbGwgb3VyCnByb2Nl
+c3NvcnMgdG8gdXNlIHFzcGlubG9jazsgb3RoZXJzIHN0aWxsIHN0YXkgb24gdGlja2V0X2xvY2su
+CgpUaGUgb25seSBwb3NzaWJsZSBjaGFuZ2luZyBkaXJlY3Rpb24gaXMgZnJvbSBxc3BpbmxvY2sg
+dG8gdGlja2V0X2xvY2sKYmVjYXVzZSB0aWNrZXRfbG9jayB3b3VsZCBkaXJ0eSB0aGUgbG9jayB2
+YWx1ZSwgd2hpY2ggcHJldmVudHMKY2hhbmdpbmcgdG8gcXNwaW5sb2NrIG5leHQuIFNvIHN0YXJ0
+dXAgd2l0aCBxc3BpbmxvY2sgYW5kIGNoYW5nZSB0bwp0aWNrZXRfbG9jayBiZWZvcmUgc21wIHVw
+LiBZb3UgYWxzbyBjb3VsZCB1c2UgY21kbGluZSB0byB0cnkgcXNwaW5sb2NrCihmb3JjZV9xc3Bp
+bmxvY2spLgoKPgo+IEkndmUgZ290IHNvbWUgdGhvdWdodHMgb24gb3RoZXIgcGFydHMgb2YgdGhp
+cyBzZXJpZXMgdG9vLCBidXQgSSdtIG5vdAo+IGdvaW5nIHRvIHNwZW5kIHRpbWUgb24gaXQgdW5s
+ZXNzIHRoZSBsb2NraW5nIHBlb3BsZSBhbmQgUGFsbWVyIGFzY2VudAo+IHRvIHRoaXMgc2VyaWVz
+Lgo+Cj4gQ2hlZXJzLAo+IENvbm9yLgoKCgotLSAKQmVzdCBSZWdhcmRzCiBHdW8gUmVuCgpfX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBt
+YWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMu
+aW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
