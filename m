@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC675C04FE2
-	for <linux-riscv@archiver.kernel.org>; Sat,  5 Aug 2023 03:15:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39C48C04FE1
+	for <linux-riscv@archiver.kernel.org>; Sat,  5 Aug 2023 03:15:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SfZGpxZEKwB2nGzhuADozqrHDhsHbBSNX9LC5i9/Tws=; b=HIHvuEkUyftCF3
-	Vber8ZUcGSNh7IYpwAGiLWXxkFDtjnqkBJunSnzcBI9V8vzhHT803/xA9o/a69r8qYPIKuOutXlHg
-	ngE2okOYebXvX2gCLtS9DYDB0j03ip17n21TnRqQ2bq6BxVwr+OHwNl437g+gipgZkKOjOeikMbJy
-	zGVVPaV7iVRvfY4Z/MoRQO7pl/te2+I/yZS+mbZ5EMAR6NPZ1AKscTObcUecVReLEXXZxp2lbaMtS
-	yqP8BbDLfaWd6AecPfNRMOpMYtFlflsEc3ad7X+3FWYHpWEF2Y9c15Ek1PRDeHHPu64+KlbXpvQ3e
-	nA09fQUEGOmkxpjPCh8w==;
+	List-Owner; bh=BhUnHBFsU3rTzNm6gF/wNvDz6X6Z+rC1na2KexTR6kc=; b=D3u1649KLvApTw
+	4IrWT2AY6irELHxR0/bf/M4TGa7TvhYI2AwYEvwRo0rxHgQ566MWPqAFCgw89t/psBVdEpVItruH/
+	i29NR/Db2P97naDS5mHmBTCJ1KHuVoRkKBDbg2Auu9GX47VT+e5/MsAgph6zTGN7B+nvQohFXyU0E
+	LjsM0YC29cGur/vSwC6j6hcpk9a1xbRL8KHRhSuGqOIwTXHqQ/fyKrtTBvbtj5ZbSLlV5HWrOUvIE
+	cKdxshtyrkB8M9ZYccEhu1amzNrENCdEujC3yJT5X1FZpAeNEtteU/l/dHaufY+j1XC+iSsvP/902
+	tjKr/udOx38GR+B8lo9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qS7l9-00DcGN-2a;
-	Sat, 05 Aug 2023 03:15:19 +0000
-Received: from mail-pj1-x1033.google.com ([2607:f8b0:4864:20::1033])
+	id 1qS7lE-00DcIX-2h;
+	Sat, 05 Aug 2023 03:15:24 +0000
+Received: from mail-oo1-xc2f.google.com ([2607:f8b0:4864:20::c2f])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qS7l7-00DcFH-0A
+	id 1qS7lB-00DcFj-2L
 	for linux-riscv@lists.infradead.org;
-	Sat, 05 Aug 2023 03:15:18 +0000
-Received: by mail-pj1-x1033.google.com with SMTP id 98e67ed59e1d1-267fabc8465so1534354a91.1
-        for <linux-riscv@lists.infradead.org>; Fri, 04 Aug 2023 20:15:16 -0700 (PDT)
+	Sat, 05 Aug 2023 03:15:22 +0000
+Received: by mail-oo1-xc2f.google.com with SMTP id 006d021491bc7-56c8757d45bso1832031eaf.2
+        for <linux-riscv@lists.infradead.org>; Fri, 04 Aug 2023 20:15:17 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20221208.gappssmtp.com; s=20221208; t=1691205315; x=1691810115;
+        d=baylibre-com.20221208.gappssmtp.com; s=20221208; t=1691205317; x=1691810117;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=vubcOJoroAr2qpLW2iybw1ATfvK07sgIvUXsKV/dGPo=;
-        b=LGi433l6mQveKcXNQ8Y6j78ExcqR03n9k/L1OfAkKCahAze79pGB2Y0MtDi+Qw2ASm
-         TGGI52rMyq1PqT+SDascgrZ0puWjgRaeKAJiCu0az0PNrCWar3wxPKuj3bqESF/h8M04
-         4BnrkLTJKlfz/VPflWWXAogpG6iiX2SgThVZ7Ub3QIYAQUL5yq69XHRDoGNsas2g1/A3
-         wxa0tae5d0GklpUV0QEsamn4dIH92PGzVJU56JXTjjz1Bv8CGfqmWm0nPsdLNRVy7w8x
-         Nf/KASp9qZXbh9hdRR8t4GCzUJ9Wr3kQBjiUbHbBzQAw58vjah38p0gU6N1IEi+yrvl3
-         QEyg==
+        bh=HdRLfV4DSjo6NuAp3G0Z9YBsmLluT1U9pYT+QCm2Ogw=;
+        b=Sirb95geXOpdF+w/pVzPoQoiCURDTSuciOvn/xUei5K3StbbKfG9M9SWWEJA6J8KXW
+         2Pdu8HvmQP+5V+NXfwzERYjQ7of36NJWN65NM7hwyB1fdGhyXt2V2nzzPNo7sc3dKOUj
+         H9ETNR/cjSxuMB4y9dkfqhV84Ch1c7BEnDmaWD0I8kXJ/r6kvINdyrx1D97Aw7kLMlok
+         1FBUpcFV0j54uWg0DwZpQAeAU2kgJnCz+3GeIEKCC6l4QckkNfOvi/klhWAZ5/Z+UpGz
+         RQG+9MdYLIa289mgJtDhKk1PhXLXDpk7FaRD9y0QS2xEhxi0Ee2vHnOVwB15DQyy7ZSu
+         l9sw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1691205315; x=1691810115;
+        d=1e100.net; s=20221208; t=1691205317; x=1691810117;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=vubcOJoroAr2qpLW2iybw1ATfvK07sgIvUXsKV/dGPo=;
-        b=MtW+/jScjBeRoWKDZkC6ZxcIxw5FRBIA+yzJZM70GSmL9w29xViHdSbkhHJz7EbUAt
-         J6ng4bqoMkr4w5zfkAEGxU84fZI8raSi+6l1mRQsA9gl7Qr8ix9ACZEgi6UakbeW1NbV
-         dM822MKOfRxhiB5hcjcv0XRRv1qaLWSafjRXBWyghfvg3KfuQksxNNEiuLDYF4dAXckR
-         Y9byv2/HTVuTAjNbvZYcznyTpUPD2gqaTCyy+GS5fxJVHyOJHpDfTj2V+SR9Bs7rMJMw
-         QG7Iyh0cwQMw0BSrPkwPZGVpB2KO6EZxTf5Qai18lA9QHq/U0rtWd22dUk5b96ueCHkL
-         95BQ==
-X-Gm-Message-State: AOJu0YwT+Ps3y5lMNpR48M+8waySnddwXdCec2N6aS7+5RXE9HqOgvv5
-	KB7+wNEegoVA8/DDpc5HaSC3dg==
-X-Google-Smtp-Source: AGHT+IEIzLB+gYXvTfu96OP5IFhwtudwRxj3fhEs95i9tpZr2KcI4/UpG4tDELxFQG5+CJGzpt3jYw==
-X-Received: by 2002:a05:6a21:3384:b0:13f:e0b0:359e with SMTP id yy4-20020a056a21338400b0013fe0b0359emr3791190pzb.21.1691205315615;
-        Fri, 04 Aug 2023 20:15:15 -0700 (PDT)
+        bh=HdRLfV4DSjo6NuAp3G0Z9YBsmLluT1U9pYT+QCm2Ogw=;
+        b=AjCYZmAqSqmTjK6pm5qoQfTFmP9J5mG4kcbW9XbxI1yBFTDBh6glpjf/J5A1GhupW2
+         T+MLXEc3PQeBfeu3UIbEtp6W0bJybHpaEIhrSHmYPHQ9iggzVhea9vVTWpL2Bs/UT8rf
+         zxeWCFS6HAAWK6wL/2UgC7A8oaDY+xqX92pPXz9vkYMzEVegynnfHy2L9DR5SYnO1t5Y
+         Vkm6+g+w+RhrD6kq47f4RnSbp5Cijh5N/4QDWR74pWLZsuNSLEobalZqLGOpGi8Z+sS0
+         kXu9JPVSAnA6kbzloFeggYwUty3ILvG0NYZ33XQMzT9ygATpf+1Eck+pdbskR5A9g6pQ
+         pbcA==
+X-Gm-Message-State: AOJu0YzfJ94CX1zvVmh7D7nhmPwRHXKDUqoFMNaHyFQ+JMOq8eaF9a1E
+	ItRaDiUeGQL0YRG954OJPFwfxg==
+X-Google-Smtp-Source: AGHT+IHzW5Dh9evbuaAvm6UO7LWse/VuKTkLwUY6Eyif2RtvDcFf9wUdYu+dWABgQoDwdkeE2gAtHw==
+X-Received: by 2002:a05:6358:5284:b0:134:c682:213f with SMTP id g4-20020a056358528400b00134c682213fmr3883804rwa.31.1691205316886;
+        Fri, 04 Aug 2023 20:15:16 -0700 (PDT)
 Received: from [127.0.1.1] ([2601:1c2:1800:f680:e1a0:2f9c:e6f9:e66c])
-        by smtp.gmail.com with ESMTPSA id h17-20020a170902f55100b001b864add154sm2412145plf.154.2023.08.04.20.15.14
+        by smtp.gmail.com with ESMTPSA id h17-20020a170902f55100b001b864add154sm2412145plf.154.2023.08.04.20.15.15
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 04 Aug 2023 20:15:15 -0700 (PDT)
+        Fri, 04 Aug 2023 20:15:16 -0700 (PDT)
 From: Drew Fustini <dfustini@baylibre.com>
-Date: Fri, 04 Aug 2023 20:14:46 -0700
-Subject: [PATCH RFC v2 2/4] riscv: dts: thead: Add TH1520 mmc controller
- and sdhci clock
+Date: Fri, 04 Aug 2023 20:14:47 -0700
+Subject: [PATCH RFC v2 3/4] riscv: dts: thead: Enable BeagleV Ahead eMMC
+ controller
 MIME-Version: 1.0
-Message-Id: <20230724-th1520-emmc-v2-2-132ed2e2171e@baylibre.com>
+Message-Id: <20230724-th1520-emmc-v2-3-132ed2e2171e@baylibre.com>
 References: <20230724-th1520-emmc-v2-0-132ed2e2171e@baylibre.com>
 In-Reply-To: <20230724-th1520-emmc-v2-0-132ed2e2171e@baylibre.com>
 To: Jisheng Zhang <jszhang@kernel.org>, Guo Ren <guoren@kernel.org>, 
@@ -84,16 +84,16 @@ Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
  Jason Kridner <jkridner@beagleboard.org>, 
  Drew Fustini <dfustini@baylibre.com>
 X-Mailer: b4 0.12.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1691205312; l=1329;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1691205312; l=980;
  i=dfustini@baylibre.com; s=20230430; h=from:subject:message-id;
- bh=6awbEzIrA6nzn4c2XYrw0EelLQcw8R2AyCuPywQYMDA=;
- b=yodqPE95p3HGw9U3//UMHr6pYcoh/zakm5zTVZxn/1bJrKKT3nNtZ9e5+RoS1Tgq4z2WdjHvU
- p3qCwUW8rCaB1WF8p8UPtz5Gqr2FgzDdCmAlV7h7Q/M9lVY/FUJNe1J
+ bh=fq1uqgjhziV70k9ct30okgNDov04CSkcqVTv+e1VQgM=;
+ b=xot9eapxH2cUSYpXQoibI8Z4Ff4UD4GK5A3fDmYWMiila2+9XbnG2Rse6zZNWn3UKb70c0va1
+ AiqYKQdIC4iBvQL1X269HN0jdo6Y/rlkz5B+PqnyS6gCAcsFHaH9S3n
 X-Developer-Key: i=dfustini@baylibre.com; a=ed25519;
  pk=p3GKE9XFmjhwAayAHG4U108yag7V8xQVd4zJLdW0g7g=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230804_201517_086128_194EE6F0 
-X-CRM114-Status: UNSURE (   9.54  )
+X-CRM114-CacheID: sfid-20230804_201521_763885_80DDB750 
+X-CRM114-Status: UNSURE (   8.56  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -111,49 +111,46 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add nodes for the SDHCI fixed clock and the first mmc controller which
-is typically connected to the eMMC device.
+Add properties to the emmc node and enable it and set the frequency for
+the sdhci clock.
 
 Signed-off-by: Drew Fustini <dfustini@baylibre.com>
 ---
- arch/riscv/boot/dts/thead/th1520.dtsi | 17 +++++++++++++++++
+ arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts | 17 +++++++++++++++++
  1 file changed, 17 insertions(+)
 
-diff --git a/arch/riscv/boot/dts/thead/th1520.dtsi b/arch/riscv/boot/dts/thead/th1520.dtsi
-index 56a73134b49e..b33bfb04c955 100644
---- a/arch/riscv/boot/dts/thead/th1520.dtsi
-+++ b/arch/riscv/boot/dts/thead/th1520.dtsi
-@@ -134,6 +134,13 @@ uart_sclk: uart-sclk-clock {
- 		#clock-cells = <0>;
- 	};
+diff --git a/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts b/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
+index c315e5bd3d2d..f93c11754639 100644
+--- a/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
++++ b/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
+@@ -52,6 +52,10 @@ &uart_sclk {
+ 	clock-frequency = <100000000>;
+ };
  
-+	sdhci_clk: sdhci-clock {
-+		compatible = "fixed-clock";
-+		clock-frequency = <198000000>;
-+		clock-output-names = "sdhci_clk";
-+		#clock-cells = <0>;
-+	};
++&sdhci_clk {
++	clock-frequency = <198000000>;
++};
 +
- 	soc {
- 		compatible = "simple-bus";
- 		interrupt-parent = <&plic>;
-@@ -291,6 +298,16 @@ dmac0: dma-controller@ffefc00000 {
- 			status = "disabled";
- 		};
- 
-+		mmc0: mmc@ffe7080000 {
-+			compatible = "thead,th1520-dwcmshc";
-+			reg = <0xff 0xe7080000 0x0 0x10000
-+			       0xff 0xef014060 0x0 0x4>;
-+			interrupts = <62 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-names = "sdhciirq";
-+			clocks = <&sdhci_clk>;
-+			clock-names = "core";
-+		};
+ &dmac0 {
+ 	status = "okay";
+ };
+@@ -59,3 +63,16 @@ &dmac0 {
+ &uart0 {
+ 	status = "okay";
+ };
 +
- 		timer0: timer@ffefc32000 {
- 			compatible = "snps,dw-apb-timer";
- 			reg = <0xff 0xefc32000 0x0 0x14>;
++&mmc0 {
++	max-frequency = <198000000>;
++	non-removable;
++	mmc-hs400-1_8v;
++	thead,io-fixed-1v8;
++	no-sdio;
++	no-sd;
++	thead,pull-up;
++	bus-width = <8>;
++	status = "okay";
++
++};
 
 -- 
 2.34.1
