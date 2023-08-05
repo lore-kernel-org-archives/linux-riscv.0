@@ -4,133 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D75D1C001DB
-	for <linux-riscv@archiver.kernel.org>; Sat,  5 Aug 2023 20:36:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE000C001DE
+	for <linux-riscv@archiver.kernel.org>; Sat,  5 Aug 2023 21:02:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8E50ad17cJzNj9WaLm33+8XLvpwwPgv44RWWoHjYhA0=; b=ns97CtJEcYxrQC
-	eyDTUx/pzUmzWtUtqC71Nw+Bjc7tdiJlS0Uo1MfyxYAqsGEHr2GYPH2WQR+cNaIpkY7iLbLsV4fRd
-	wIXOmFyOlAGukM0FcRUIvaOSUQbTRFrEuttDT7xGngUu4H4mLa0nK9eRjeQG4IhlYbvix5B3bwbhz
-	Jz930FaS9onFezWjklT+NFqkBxzJfPFT+X4yIerMcHypH0TZi4f1WFpTQ7sWveFH3nrsaJk0DR5t4
-	KMmGUog7Z7Ib9ugq159Qh/H/TGO/mdpNHfv8QEOMeAnYio1yNA+6IlQvoYYzaIXEBckMT4URnMd6W
-	89gkameVM9mSGUBzcVjg==;
+	List-Owner; bh=rQhtZp0o/KkUNCezGmX5T2LZHcF7nP62Z8bLGwKmV0I=; b=bS5o38q+liEGUH
+	h0eGCbrxK9hAwdWETplTNeLkLqumTLQoFp7gVZZK6NStqxHlpXOiqK+G0zS8oM1eO59R9opCdcnIk
+	Wcy/gesOSTQPI22epKo+PamPK8NchBNUl2BAJaUcWJ43Ge8QUB4kb3D1Vu+q0D99K2fSueJ62k0r2
+	/0Xh1sFeqpb9ZhiIntWe6bX/IRBAPARqipbDLRqqyRmoDunQfpGZQAovjQrQfcR8hAVixkkI7hONr
+	D0QjqS3XfFeD8AFoeBoKl/8ARNxNEKJMPJv/veyxRd3t43pfvbWSDrG3sMv2hnw66X6tVnSvOh49H
+	i1cVaJSq8hx14a8vEs7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qSO0b-00EXno-1S;
-	Sat, 05 Aug 2023 20:36:21 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1qSOPc-00EZ3c-2d;
+	Sat, 05 Aug 2023 21:02:12 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qSO0X-00EXmh-21;
-	Sat, 05 Aug 2023 20:36:18 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id AA75960ED2;
-	Sat,  5 Aug 2023 20:36:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8402EC433C7;
-	Sat,  5 Aug 2023 20:36:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1691267773;
-	bh=HV9N1662vFNg45/injmUeZzoXqqRaYKc6xS67ObhrCE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=T8b37KpHrfdrHcPTjbp9eehNf/qy/zQ094uspwpe3knxbV/SAwFyOO+iL6poGeRt5
-	 mmN2THgQL8TANiBbUZTIqmUiv0S7zyq3SAoSc1CzwM7lN991SYLqic8rCimc7bWwRI
-	 Vu7ZXvkbMfRfxqG+wpJINgbL+2KpSYU+uMd2Pk44r5RPsQzRq94XsuoRFZfLcF3djQ
-	 F5MggUSz0nkmmAejuORlF5VcmTYFbpwgyjqW04dzJAO9QAMzfqz5myArTvUzYEHRfd
-	 0AdEI801aM4xbN8FAEhz4+QIYaCxO1e4lYxIngw3YRdHEiuSSaRBpD/K+KyiSmsD0z
-	 8QDHViYep2Zwg==
-Date: Sat, 5 Aug 2023 22:36:10 +0200
-From: Andi Shyti <andi.shyti@kernel.org>
-To: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
-Cc: Thierry Reding <thierry.reding@gmail.com>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	Andy Shevchenko <andy@kernel.org>,
-	Douglas Anderson <dianders@chromium.org>,
-	Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>, Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	David Airlie <airlied@gmail.com>, Daniel Vetter <daniel@ffwll.ch>,
-	Pavel Machek <pavel@ucw.cz>, Lee Jones <lee@kernel.org>,
-	Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>,
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@microchip.com>,
-	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Alexander Shiyan <shc_work@mail.ru>,
-	Benson Leung <bleung@chromium.org>,
-	Guenter Roeck <groeck@chromium.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	NXP Linux Team <linux-imx@nxp.com>,
-	Paul Cercueil <paul@crapouillou.net>,
-	Vladimir Zapolskiy <vz@mleia.com>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Jonathan =?utf-8?Q?Neusch=C3=A4fer?= <j.neuschaefer@gmx.net>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Michael Walle <michael@walle.cc>, Orson Zhai <orsonzhai@gmail.com>,
-	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	Chunyan Zhang <zhang.lyra@gmail.com>,
-	Fabrice Gasnier <fabrice.gasnier@foss.st.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Chen-Yu Tsai <wens@csie.org>, Samuel Holland <samuel@sholland.org>,
-	Hammer Hsieh <hammerh0314@gmail.com>,
-	Jonathan Hunter <jonathanh@nvidia.com>,
-	Nobuhiro Iwamatsu <nobuhiro1.iwamatsu@toshiba.co.jp>,
-	Sean Anderson <sean.anderson@seco.com>,
-	Michal Simek <michal.simek@amd.com>,
-	Johan Hovold <johan@kernel.org>, Alex Elder <elder@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Anjelique Melendez <quic_amelende@quicinc.com>,
-	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
-	Luca Weiss <luca@z3ntu.xyz>,
-	Bjorn Andersson <quic_bjorande@quicinc.com>,
-	linux-pwm@vger.kernel.org, linux-gpio@vger.kernel.org,
-	dri-devel@lists.freedesktop.org, linux-leds@vger.kernel.org,
-	asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-rpi-kernel@lists.infradead.org,
-	chrome-platform@lists.linux.dev, linux-mips@vger.kernel.org,
-	linux-amlogic@lists.infradead.org, linux-riscv@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-sunxi@lists.linux.dev, linux-tegra@vger.kernel.org,
-	greybus-dev@lists.linaro.org, linux-staging@lists.linux.dev
-Subject: Re: [PATCH v2 1/2] pwm: Manage owner assignment implicitly for
- drivers
-Message-ID: <20230805203610.jl7eea2lasmg2as2@intel.intel>
-References: <20230804142707.412137-1-u.kleine-koenig@pengutronix.de>
- <20230804142707.412137-2-u.kleine-koenig@pengutronix.de>
+	id 1qSOPZ-00EZ34-23
+	for linux-riscv@lists.infradead.org;
+	Sat, 05 Aug 2023 21:02:11 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-3fe4a89e8c4so12998195e9.3
+        for <linux-riscv@lists.infradead.org>; Sat, 05 Aug 2023 14:02:06 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1691269325; x=1691874125;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=KbvfI0fLsFlB/xRYqDFhF1GRIPCNZdIym6zPJmUh4vQ=;
+        b=LOtzuv3SuN0B4PkixubrxbsOeLlUbqyMJc3yJCvIpzuydQG9bdGn7jY3D32/rIXdmt
+         ztkBsdLiqkz6W5SZfAf6c3heNK87LTPVi9E/tMyaO+iEPYSYOblRVDac0jDsxpvTo4WG
+         URfWY0b/QgIIIEyMzFXV763mY5KgOfmRLIdkn444n2dZGt0IklB3OpeyHjNV719v4szo
+         IWNIDTd9PW6+fymfIIBrF+FM3IZ0UtvivblDOSX28RvlBhzVokwT/lf+ME+lb/2fYpRr
+         fe7iG1zrIdUm2uCIvFXA8yjqAuifuZ0I0gJddzRZUOiSeWS4snSu3QmyWI4nzwG3KHsV
+         RGHQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1691269325; x=1691874125;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=KbvfI0fLsFlB/xRYqDFhF1GRIPCNZdIym6zPJmUh4vQ=;
+        b=YBXaebOv381GtQEfhhMLQEQMwEWnEfLpqkX7fJzcnQ5O3T3ZxgP9pd97E5NT3s6THE
+         UjwK3ueLFYTAjTlvYTtaq9PhsH0j37PkGQp2IETBpBclEjGKqBzJ75A6t2SYmR7Tvo3W
+         YGMlSs5qUMfqpF6i+abKtyNUhryeX6Uy7DwQOZhSsV6ALWj4/MLVUYqEMGkn5hocESlR
+         rMkRYM8sg6DurfVvAEG3qj+iMnYV8ULJX8kLeWNQn2t2o85Uvw7p5/JUKoTKlaCoBh+1
+         Lz7WQcYZ0nf+c0+RefzoxY0xr8I9aeDD2dB6+Z7jb2J0Up1ypqoBLUr+NCAU64pzD2Lf
+         qPAw==
+X-Gm-Message-State: AOJu0YyqWJvpNa2U7NDa6mxjOAV2DCj+EJcgIFAMksTB0azHrb8jdzC3
+	sCv1QGN9g6y/QMKfxx0hCSGL9g==
+X-Google-Smtp-Source: AGHT+IE63dFNf2CGjHbciT/HZuHu+h2YzjvFPIM0aIWKNMwJ2fvnAGhmQ7btvX284ZjXv1M6dmsSQQ==
+X-Received: by 2002:a05:600c:364f:b0:3fe:4900:db95 with SMTP id y15-20020a05600c364f00b003fe4900db95mr3609592wmq.37.1691269325144;
+        Sat, 05 Aug 2023 14:02:05 -0700 (PDT)
+Received: from [192.168.1.20] ([178.197.222.245])
+        by smtp.gmail.com with ESMTPSA id z10-20020a5d640a000000b003178dc2371bsm5503421wru.7.2023.08.05.14.02.03
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sat, 05 Aug 2023 14:02:04 -0700 (PDT)
+Message-ID: <37a636dd-fbd8-d475-8814-e0cc6d5cc812@linaro.org>
+Date: Sat, 5 Aug 2023 23:02:02 +0200
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230804142707.412137-2-u.kleine-koenig@pengutronix.de>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.14.0
+Subject: Re: [PATCH v1 2/5] ASoC: dt-bindings: snps,designware-i2s: Add
+ StarFive JH7110 SoC support
+Content-Language: en-US
+To: Xingyu Wu <xingyu.wu@starfivetech.com>,
+ Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
+ Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
+ Maxim Kochetkov <fido_max@inbox.ru>, Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Conor Dooley <conor.dooley@microchip.com>,
+ Emil Renner Berthing <emil.renner.berthing@canonical.com>
+Cc: Jose Abreu <joabreu@synopsys.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Walker Chen <walker.chen@starfivetech.com>, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, alsa-devel@alsa-project.org,
+ linux-riscv@lists.infradead.org
+References: <20230802084301.134122-1-xingyu.wu@starfivetech.com>
+ <20230802084301.134122-3-xingyu.wu@starfivetech.com>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+In-Reply-To: <20230802084301.134122-3-xingyu.wu@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230805_133617_775269_7A2631D5 
-X-CRM114-Status: GOOD (  15.82  )
+X-CRM114-CacheID: sfid-20230805_140209_682066_A38FD286 
+X-CRM114-Status: GOOD (  11.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,36 +101,133 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-15"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Uwe,
+On 02/08/2023 10:42, Xingyu Wu wrote:
+> Add the StarFive JH7110 (TX0/TX1/RX channel) SoC support in the bindings
+> of Designware I2S controller. The I2S controller needs two reset items''
 
-On Fri, Aug 04, 2023 at 04:27:06PM +0200, Uwe Kleine-K=F6nig wrote:
-> Instead of requiring each driver to care for assigning the owner member
-> of struct pwm_ops, handle that implicitly using a macro. Note that the
-> owner member has to be moved to struct pwm_chip, as the ops structure
-> usually lives in read-only memory and so cannot be modified.
-> =
+Thank you for your patch. There is something to discuss/improve.
 
-> The upside is that new lowlevel drivers cannot forget the assignment and
-> save one line each. The pwm-crc driver didn't assign .owner, that's not
-> a problem in practise though as the driver cannot be compiled as a
+>  
+>    resets:
+>      items:
+>        - description: Optional controller resets
+> +      - description: controller reset of Sampling rate
+> +    minItems: 1
+>  
+>    dmas:
+>      items:
+> @@ -51,6 +75,17 @@ properties:
+>        - const: rx
+>      minItems: 1
+>  
+> +  starfive,syscon:
+> +    $ref: /schemas/types.yaml#/definitions/phandle-array
+> +    items:
+> +      - items:
+> +          - description: phandle to System Register Controller sys_syscon node.
+> +          - description: I2S-rx enabled control offset of SYS_SYSCONSAIF__SYSCFG register.
+> +          - description: I2S-rx enabled control mask
+> +    description:
+> +      The phandle to System Register Controller syscon node and the I2S-rx(ADC)
+> +      enabled control offset and mask of SYS_SYSCONSAIF__SYSCFG register.
+> +
+>  allOf:
+>    - $ref: dai-common.yaml#
+>    - if:
+> @@ -66,6 +101,66 @@ allOf:
+>        properties:
+>          "#sound-dai-cells":
+>            const: 0
 
-/practise/practice/
+You need to constrain clocks and resets also for all other existing
+variants.
 
-> module.
-> =
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            const: snps,designware-i2s
+> +    then:
+> +      properties:
+> +        clocks:
+> +          maxItems: 1
+> +        clock-names:
+> +          maxItems: 1
+> +        resets:
+> +          maxItems: 1
+> +    else:
+> +      properties:
+> +        resets:
+> +          minItems: 2
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            const: starfive,jh7110-i2stx0
+> +    then:
+> +      properties:
+> +        clocks:
+> +          minItems: 5
 
-> Signed-off-by: Uwe Kleine-K=F6nig <u.kleine-koenig@pengutronix.de>
+Also maxItems
 
-Acked-by: Andi Shyti <andi.shyti@kernel.org> =
+> +        clock-names:
+> +          minItems: 5
 
+Also maxItems
 
-Thanks,
-Andi
+What about resets? 1 or 2 items?
+
+> +      required:
+> +        - resets
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            const: starfive,jh7110-i2stx1
+> +    then:
+> +      properties:
+> +        clocks:
+> +          minItems: 9
+> +        clock-names:
+> +          minItems: 9
+
+resets?
+
+> +      required:
+> +        - resets
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            const: starfive,jh7110-i2srx
+> +    then:
+> +      properties:
+> +        clocks:
+> +          minItems: 9
+> +        clock-names:
+> +          minItems: 9
+
+resets?
+
+> +      required:
+> +        - resets
+> +        - starfive,syscon
+> +    else:
+> +      properties:
+> +        starfive,syscon: false
+>  
+>  required:
+>    - compatible
+
+Best regards,
+Krzysztof
+
 
 _______________________________________________
 linux-riscv mailing list
