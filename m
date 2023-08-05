@@ -4,73 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75657C001DB
-	for <linux-riscv@archiver.kernel.org>; Sat,  5 Aug 2023 09:09:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AEAEC0015E
+	for <linux-riscv@archiver.kernel.org>; Sat,  5 Aug 2023 10:46:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vcaEkoNtnsjUTa+gPuNKMQ2Xc4mD9rdKiGajt06pID8=; b=gjwb3iZLVWR7Tu
-	oMEQat8CmUkDJS50kV/nFtbVGwXQGuSwyVMMFlrP2hruF0OQZYc60fYINEetoOZPtLBDYkn6QkRWh
-	f0VLo6eTQiRkaPh3jPH9craljQMwJf437x4UP0EXBB4I8agpRq3dGilxkPKgRY0x9czERazb8qwM6
-	kLQEWL0/GGxl5ElUCSMvmZYtU5AS0d7Q+bRU6dzWbqkwn2s9RlDD7CPicZjJu/AdekUVFcs/V/QNl
-	OJZY6sx9jL+xf9ZykV4WaKFcnh2Rpzak7KU+I9FhlRzwzAYERC6ti/572uaDAZ/R5+qvoX6BVybko
-	30zMI1QK571QoYw5KBow==;
+	List-Owner; bh=umuJ1vxuUeiDJKqskbxxIMJxfoHJnjXJZQuGNAdEmO0=; b=KjtrKru81MQozK
+	VLVR4hppt2FHu+P/T9UhWMIa+NUEVSZ+ABfQmO+YhFr9wuuBl0mzvNEefzvk2zEttZlwCO7okOGz/
+	DYMPWARtZTu1S6YEdduqVjdDVp61qF1msuWF06p77IipPUgwtacq4D5FBqUVG0UThnHpaUN3Q7h4B
+	zvRqpjSHjjiS1Kfz66NctN3aw6/SkpLyITOgLaidDJ6Yz++tgVfTLe1RRhjYYE6kTiw+ls5sDImPW
+	NyPeKRL1wDowPYSmnZ5HfQB4WJ/V9hoKdq0WETI7FXuNWAY2fJzLdadV3EkEBWvmVlM8oN+WgbZzp
+	mlcCAekondvXsHtG1RTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qSDHp-00DsJZ-1y;
-	Sat, 05 Aug 2023 09:09:25 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1qSEnF-00DykC-0I;
+	Sat, 05 Aug 2023 10:45:57 +0000
+Received: from out-92.mta1.migadu.com ([95.215.58.92])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qSDHn-00DsJD-1L
+	id 1qSEnB-00DyaR-2c
 	for linux-riscv@lists.infradead.org;
-	Sat, 05 Aug 2023 09:09:24 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 6E3D260C1F;
-	Sat,  5 Aug 2023 09:09:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 32CE8C433C7;
-	Sat,  5 Aug 2023 09:09:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1691226561;
-	bh=xB1qV0PaGAB6f8kCo0AnFgu5p9Cp/WAx3pDQIkj8gvw=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=TSDTIZwLIkaJcXHl8Jm/Q5FAMwzyUKv/7XjD+IoTDfF5y8Hwiz2TmlbCSRzXn+e85
-	 fANhCb4VJC543oXGUNbTuqbUWyjje2r6d8V3Ep7DBaFxPZoCtzPZJ+6iL0r1Zn80l0
-	 of+rl87SEt/z8Ca+CDW01Qr1SpC8Y26T8bgMLNowAdaFat0slLBcHe4VVHCpeT3SkR
-	 D0l3YZV8k5YdaBKxxic+52OUJaNrZRCcQ+sJlw4yQYuEddjM+pO8JzhCMVc7zVCPfO
-	 gM+1af20AohCgXT0FvIuVi0tWADQk6guBPTigCOR8Xpi4U9MCwL4oxfGA33Cu2BpHS
-	 6O7jOBomHYGiQ==
-From: Conor Dooley <conor@kernel.org>
-To: devicetree@vger.kernel.org,
-	linux-spi@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	William Qiu <william.qiu@starfivetech.com>
-Cc: conor@kernel.org,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Mark Brown <broonie@kernel.org>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Emil Renner Berthing <kernel@esmil.dk>,
-	Ziv Xu <ziv.xu@starfivetech.com>
-Subject: Re: (subset) [PATCH v6 0/3] Add initialization of clock for StarFive JH7110 SoC
-Date: Sat,  5 Aug 2023 10:09:04 +0100
-Message-Id: <20230805-imaginary-paramedic-deb52367e36a@spud>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20230804020254.291239-1-william.qiu@starfivetech.com>
-References: <20230804020254.291239-1-william.qiu@starfivetech.com>
+	Sat, 05 Aug 2023 10:45:55 +0000
+Date: Sat, 5 Aug 2023 20:42:59 +1000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jookia.org; s=key1;
+	t=1691232338;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=FpB0D3mxI9kO/4n6kQP6vW7np01C4MPqEWX1agkDUuM=;
+	b=gHfgjkGCHQ9obOeEfPj+rXReZOqs6s5Y3WfqT1BD5VbUn7wfUCTkIR1nmCvI4aTXO4b9Q3
+	x+yNXqQkoCwG0YtlsPF7gPzZWnB93RJw0EnB+NnPGg6ABVyL8ZZXLwV29Dj/y6xwiVttd7
+	ybaOzUh12C2oICB8d1EHO0Aof1e+7NaFFGwEJCWbGP3MVS01sQWOVFB/2zZI7TKQ4Bfwt6
+	xk86AXc6c/yH/a6l5Cp5yhrQOqQpOqooqL6QHJB6DjVsgyzZN5SqVOv0ePnOFZrptXlCsu
+	iB4nR3ob1y3DOFsDGM2FBZJGhI8GDfeLAD67J9k6P8RccZgR1A8N/z2bwUMAAQ==
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: John Watts <contact@jookia.org>
+To: Jernej =?utf-8?Q?=C5=A0krabec?= <jernej.skrabec@gmail.com>
+Subject: Re: [PATCH] riscv: dts: allwinner: d1: Specify default CAN pins
+Message-ID: <ZM4nswDuc5YBfEyV@titan>
+References: <20230731023701.2581713-1-contact@jookia.org>
+ <3248110.44csPzL39Z@jernej-laptop>
+ <ZMyZ5kZSiiJHtdeS@titan>
+ <5696365.DvuYhMxLoT@jernej-laptop>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=636; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=zMQM4BLLWfbMwoqkkncDlkVcxjGVicpsbkXv343HcXM=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDCnnBNcJHhfYa9mb+u0f+58DGy48nlB7clXLsV9TM5Q2x XXMK9lwsqOUhUGMg0FWTJEl8XZfi9T6Py47nHvewsxhZQIZwsDFKQATKcxm+Gf9Ku6Nb6z17/oO V+5riQxfD8+L5tx6KClSNPwVw42yidMYGfb0Wd1NZ783ue7Jwvdf6xPb88ojOZUfrq6bdXmd/Nw eFk4A
-X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
+Content-Disposition: inline
+In-Reply-To: <5696365.DvuYhMxLoT@jernej-laptop>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230805_020923_499394_00A50BAC 
-X-CRM114-Status: GOOD (  11.05  )
+X-CRM114-CacheID: sfid-20230805_034554_008354_99728B7B 
+X-CRM114-Status: UNSURE (   7.40  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,32 +68,25 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, Samuel Holland <samuel@sholland.org>, linux-kernel@vger.kernel.org, Chen-Yu Tsai <wens@csie.org>, Rob Herring <robh+dt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley <paul.walmsley@sifive.com>, Maksim Kiselev <bigunclemax@gmail.com>, linux-riscv@lists.infradead.org, mkl@pengutronix.de, linux-sunxi@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Conor Dooley <conor.dooley@microchip.com>
-
-On Fri, 04 Aug 2023 10:02:51 +0800, William Qiu wrote:
-> This patchset adds initial rudimentary support for the StarFive
-> Quad SPI controller driver. And this driver will be used in
-> StarFive's VisionFive 2 board. In 6.4, the QSPI_AHB and QSPI_APB
-> clocks changed from the default ON state to the default OFF state,
-> so these clocks need to be enabled in the driver.At the same time,
-> dts patch is added to this series.
-> 
-> [...]
-
-Applied to riscv-dt-for-next, thanks!
-
-[3/3] riscv: dts: starfive: Add QSPI controller node for StarFive JH7110 SoC
-      https://git.kernel.org/conor/c/fc3d49f970d2
-
-Thanks,
-Conor.
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gRnJpLCBBdWcgMDQsIDIwMjMgYXQgMDQ6Mzk6NDFQTSArMDIwMCwgSmVybmVqIMWga3JhYmVj
+IHdyb3RlOgo+IElmIHlvdSBkb24ndCBtaW5kLCBwbGVhc2UgZG8uCgpKdXN0IHRvIGNsYXJpZnks
+IHNvbWV0aGluZyBsaWtlIHRoaXM6CgogICAgICAgICAgICAgICAgY2FuMDogY2FuQDI1MDQwMDAg
+ewogICAgICAgICAgICAgICAgICAgICAgICBwaW5jdHJsLW5hbWVzID0gImRlZmF1bHQiOwogICAg
+ICAgICAgICAgICAgICAgICAgICBwaW5jdHJsLTAgPSA8JmNhbjBfcGlucz47CiAgICAgICAgICAg
+ICAgICAgICAgICAgIGNvbXBhdGlibGUgPSAiYWxsd2lubmVyLHN1bjIwaS1kMS1jYW4iOwogICAg
+ICAgICAgICAgICAgICAgICAgICByZWcgPSA8MHgwMjUwNDAwMCAweDQwMD47CiAgICAgICAgICAg
+ICAgICAgICAgICAgIGludGVycnVwdHMgPSA8U09DX1BFUklQSEVSQUxfSVJRKDIxKSBJUlFfVFlQ
+RV9MRVZFTF9ISUdIPjsKICAgICAgICAgICAgICAgICAgICAgICAgY2xvY2tzID0gPCZjY3UgQ0xL
+X0JVU19DQU4wPjsKICAgICAgICAgICAgICAgICAgICAgICAgcmVzZXRzID0gPCZjY3UgUlNUX0JV
+U19DQU4wPjsKICAgICAgICAgICAgICAgICAgICAgICAgc3RhdHVzID0gImRpc2FibGVkIjsKICAg
+ICAgICAgICAgICAgIH07CgpJIGNvdWxkbid0IGZpbmQgYW55IGR0c2kgZmlsZXMgdGhhdCBwdXQg
+cGluY3RybCBzdHVmZiBhdCB0aGUgdG9wLgoKSm9obi4KCl9fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1y
+aXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxt
+YW4vbGlzdGluZm8vbGludXgtcmlzY3YK
