@@ -4,89 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 340C7C001DB
-	for <linux-riscv@archiver.kernel.org>; Sat,  5 Aug 2023 03:15:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A44CFC00528
+	for <linux-riscv@archiver.kernel.org>; Sat,  5 Aug 2023 03:15:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=v/49l5/MvC+fKBjtIW4zeWOPGTr4+gZ89Ndd3dUm+eg=; b=uxGN91Lg+8DLbs
-	hPDb7ebxdpYy5eCVAkyQLbygUjx0qW1UfCRAJUaIFqJFTcSDHRXWGbXQlkurMQSck/kPBVwkoQhGk
-	5A13dcQzGSwWfixke8bh3yG5alkBYoXkIaDRjUP2EPOnBISFFIfQSeapgXzCdZ3/0dENTeNhAjUv/
-	vLi5Rn9HzkNyK8o8K5VkeL4zZNG6BtI0FD7mz+g7q5r7SYR93QOvpnGBzYASTQpqH4vTRF2nZ8JRk
-	24Dmss/Fzpi4qLDVZJrzakPUyJ1vLcStU1BPKh8CmxN2HywvOJvvqwvjrRCzEIXDKhdKxLzh131ds
-	zkZJ4voMZXpvbFcV3yGg==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=htlCkwr8sszAB5AcMDhiMrRxnk7oH5AZvFS9O6KGOSc=; b=gPeM/hr7n/XlJ3
+	3QKI+LOWCiHqSjX6AsSgg0gk8jHbJ8m1eUubE1B+FdklOyiEjEgCDZtr3aBS9/FrAlMNxf6dLcfbb
+	WaDu3pUzZe+g5mpotrku8ddrad9ZYkggK/vaeRXMUKt7DnElsIjM4P6yY+RkunyqKSPPV+xyFMCrS
+	/ktxXhVLqqlfGPmVfKLjQdZbeNc5jkGiqFiuMRSxhw9vejwCtOpECUMFw5K3KEiyYvdhEDxoqMhtQ
+	LQFfDc9VZJYGYPAuZQU82V6Y00qOYbrGAIvs5x3RNLD6pqsSwjYZYd6IQIVl1HjgS7Jbeev+QuRXx
+	dDWT3pt8Elir5AaGdBfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qS7kj-00DcDa-06;
-	Sat, 05 Aug 2023 03:14:53 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1qS7l9-00DcG4-0n;
+	Sat, 05 Aug 2023 03:15:19 +0000
+Received: from mail-oi1-x229.google.com ([2607:f8b0:4864:20::229])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qS7kf-00DcCj-2H
+	id 1qS7l5-00DcEn-1c
 	for linux-riscv@lists.infradead.org;
-	Sat, 05 Aug 2023 03:14:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1691205285;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=cbOnpetRdksvYmHQrc1VnOUvWL6pFOiaAZEA/zz5j+M=;
-	b=T70zeuibdO4ec1aKBTqg0d/JLC4VHLzCuVdJviPUVP7LXflrzod7RF7tCowW72+TR1Gm/6
-	fkUtllspWQozxplPwAvD6r/MMaJ5+dGepfmATrYnrGiR19dvTIHE/kH0Ncs1Y20fpZhVLr
-	crYjW4Sb2uQzfyC4DoKAjygzqIACDQE=
-Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com
- [209.85.222.200]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-437-_hpBfiekOv-J9424KU58gA-1; Fri, 04 Aug 2023 23:14:43 -0400
-X-MC-Unique: _hpBfiekOv-J9424KU58gA-1
-Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-767564705f5so307920785a.1
-        for <linux-riscv@lists.infradead.org>; Fri, 04 Aug 2023 20:14:43 -0700 (PDT)
+	Sat, 05 Aug 2023 03:15:18 +0000
+Received: by mail-oi1-x229.google.com with SMTP id 5614622812f47-3a78a29bca3so40917b6e.0
+        for <linux-riscv@lists.infradead.org>; Fri, 04 Aug 2023 20:15:14 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20221208.gappssmtp.com; s=20221208; t=1691205313; x=1691810113;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=wY6Qt1tAikNugWjQbI8lPvA/5LjhxOjzsVL1TcMtfGQ=;
+        b=VUDPufE0qnsNjRNmMFNmGkO/KZ1iM8USBm7tTVJUN+t2lBBLWjhTpcSIc4zRrrmhK2
+         +g+0dMsvRVZWdSIspTynGRO84gAMGxdVTb3wac+Iv+ahtByPo6CtpdYmw7zo7cxW1fLC
+         bIkRLEK0u+kyfQbcLdou3zsN9VbBP74f9Z+c9yIE3/wR2Lh4qdNyyA3u1zHWLSPeMeqE
+         WqPNBCoXhP0VsdvdGhMKQKANf52T2tQMZNeZDJPAs7Ni0CJ9oZDXQzOMslpn0bHn6mlw
+         RA/w78OksTGfh0EO5YG6HhP7xsLQWEPOjKhrJmd8v8D4FMRnN+A6/0gg8lnCZdUA9d5l
+         Yu+A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1691205283; x=1691810083;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=cbOnpetRdksvYmHQrc1VnOUvWL6pFOiaAZEA/zz5j+M=;
-        b=cR+b4eiLLaqmvLoKE9A7if90KgYQv73dRwSKxIRfsavD40FZoUQo/wcdLGlh60rjHo
-         N1G5k/2WyNmF230tPbMk3DFjuxyx2srHfr7FNVB+yzz+WPky3A6YsP8zMSQK4Fb4dRyX
-         yE9g+xSMMdH95w8+w25tIDtP/Jl6P+3jvnJWAKmTiTOa3aRri87j/OYhV5ZOugN4cFzQ
-         lG/0Oug33ttZRQv6AQDAi0ftWDDpKkp47zrrAmI7wwaIJqEEeKiuCBSPuVOYZnDkAuF1
-         A9lZhYh+GALkQITWk3SmPZSjHSrUYN8lHAOy85tLGDf4gEQAnA42Uv0XQYgzOb3aWax5
-         wDgA==
-X-Gm-Message-State: AOJu0YyiP+oUNeSLj7ifitJhk6Oy4jWrRygXbWRm5+TmgCsOEsBxDe7w
-	O6BalrXGRbcaoTv3Wumem1NqHwKtbS0OurJVN4yjaCLkbLcLwzc+XNnPVITQqXUe9TtQUXRLHGs
-	u+QB0+tZSOkt88L5SUt/VDlGNlbHvAvvs6PtZpHkD3QK1
-X-Received: by 2002:a05:622a:199f:b0:403:b869:9d37 with SMTP id u31-20020a05622a199f00b00403b8699d37mr4911923qtc.0.1691205283332;
-        Fri, 04 Aug 2023 20:14:43 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IF9hCtZkKsNcH3RInYQsyPY9FuS0uXfJQ8KVHGGSVyrOAym5sd9HYXY78yRP/LQTvr/kqaCKw2GiWRDw7MDG+o=
-X-Received: by 2002:a05:622a:199f:b0:403:b869:9d37 with SMTP id
- u31-20020a05622a199f00b00403b8699d37mr4911908qtc.0.1691205283091; Fri, 04 Aug
- 2023 20:14:43 -0700 (PDT)
+        d=1e100.net; s=20221208; t=1691205313; x=1691810113;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=wY6Qt1tAikNugWjQbI8lPvA/5LjhxOjzsVL1TcMtfGQ=;
+        b=fq5FCJPG3LTPN2xeC9NeGL1lydqWt0VaPlsSUXJ/osQBvG2+korYnkTIgvLqQWKjkT
+         ukz8v6k5mSFGQ1x7K6rGTj+nsht5ZSmPDmz59/J2lHIzYqnAcRB6GfXnxhEAoqrduUhW
+         +VYtGpNGU+YZ7efnTkSf1k9VhEBNH9P3BnVHhrgM83HLfYupuKRaBKLzx2AXSFfzV/1v
+         BGVLU+1ZsNpkrP7HX/69vs3fCydBhEr/ei2dpcwXUnk1qJmBAUQtDOE95v1rYDLkZSau
+         dP7e3zY9D0FfGDaBRwcStfKjgYUu3RGiyfsIK0K8BJAYS2k2PbBB2tAbsigvE1M5FUmh
+         fq0A==
+X-Gm-Message-State: AOJu0YzhFedtE7HDu4F7VnvvTgBxoDlIowingfJ2PDKP2Uru5LrTTFt7
+	TDUva2vqDKy6sI5lQCH+8vejXA==
+X-Google-Smtp-Source: AGHT+IHL8VoBkjiy6ix6rUaziMQ7E0AbDt4CLGJy+4lZeUtAQqUNnPPxmUVzSmsimNjPpF87HkxP8w==
+X-Received: by 2002:a05:6358:70e:b0:135:99fa:a118 with SMTP id e14-20020a056358070e00b0013599faa118mr3869509rwj.4.1691205313617;
+        Fri, 04 Aug 2023 20:15:13 -0700 (PDT)
+Received: from [127.0.1.1] ([2601:1c2:1800:f680:e1a0:2f9c:e6f9:e66c])
+        by smtp.gmail.com with ESMTPSA id h17-20020a170902f55100b001b864add154sm2412145plf.154.2023.08.04.20.15.12
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 04 Aug 2023 20:15:13 -0700 (PDT)
+From: Drew Fustini <dfustini@baylibre.com>
+Subject: [PATCH RFC v2 0/4] RISC-V: Add basic eMMC support for BeagleV
+ Ahead
+Date: Fri, 04 Aug 2023 20:14:44 -0700
+Message-Id: <20230724-th1520-emmc-v2-0-132ed2e2171e@baylibre.com>
 MIME-Version: 1.0
-References: <20230804084900.1135660-2-leobras@redhat.com> <20230804084900.1135660-6-leobras@redhat.com>
- <CAJF2gTTOT3_3K_cWNY9n_DgRoPhYEhBLno=bh57r9D--OavREQ@mail.gmail.com>
-In-Reply-To: <CAJF2gTTOT3_3K_cWNY9n_DgRoPhYEhBLno=bh57r9D--OavREQ@mail.gmail.com>
-From: Leonardo Bras Soares Passos <leobras@redhat.com>
-Date: Sat, 5 Aug 2023 00:14:31 -0300
-Message-ID: <CAJ6HWG4gy7HV11-cdoB0VAP2z1Zw-zyJhNRpJ1eDMmrkvnob3w@mail.gmail.com>
-Subject: Re: [RFC PATCH v3 4/5] riscv/cmpxchg: Implement cmpxchg for variables
- of size 1 and 2
-To: Guo Ren <guoren@kernel.org>
-Cc: Will Deacon <will@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
-	Boqun Feng <boqun.feng@gmail.com>, Mark Rutland <mark.rutland@arm.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Andrea Parri <parri.andrea@gmail.com>, 
-	Geert Uytterhoeven <geert@linux-m68k.org>, Andrzej Hajda <andrzej.hajda@intel.com>, 
-	Palmer Dabbelt <palmer@rivosinc.com>, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
+X-B4-Tracking: v=1; b=H4sIAKS+zWQC/22Oyw6CMBBFf4XM2iGltYCuTEz8ALeGRR+jbWLBt
+ IRICP9uYe3yvnLuAomipwTnYoFIk09+6LPghwKMU/2L0NusgTMuWMOPOLpKcoYUgsFGGEuntmX
+ S1pAXWiVCHVVv3LYJKo0UsS4lRiO2wifS03933APutyt02XQ+jUOc9wtTtUd/aVOFDI1RleZSC
+ Kv4Rav57XWk0gwBunVdfzwVCL/PAAAA
+To: Jisheng Zhang <jszhang@kernel.org>, Guo Ren <guoren@kernel.org>, 
+ Fu Wei <wefu@redhat.com>, Rob Herring <robh+dt@kernel.org>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Conor Dooley <conor@kernel.org>, Adrian Hunter <adrian.hunter@intel.com>, 
+ Ulf Hansson <ulf.hansson@linaro.org>
+Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-mmc@vger.kernel.org, 
+ Robert Nelson <robertcnelson@beagleboard.org>, 
+ Jason Kridner <jkridner@beagleboard.org>, 
+ Drew Fustini <dfustini@baylibre.com>
+X-Mailer: b4 0.12.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1691205312; l=3402;
+ i=dfustini@baylibre.com; s=20230430; h=from:subject:message-id;
+ bh=MDLsxhc5w3dyfm/SSn/2wE/4REaaADp4oj0jvET2NTw=;
+ b=438X54c0dRVAnrP9QJgUt1TUf9yWkmyAhDMglNZx0q12/H3btZjjYx6J4ca3FyvqtD4jty8/G
+ qOq286cmPc9Ct35GAf2WWHC4bLrczRXFAAUC0G8dwY5Rljr2Qrw19yN
+X-Developer-Key: i=dfustini@baylibre.com; a=ed25519;
+ pk=p3GKE9XFmjhwAayAHG4U108yag7V8xQVd4zJLdW0g7g=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230804_201449_832303_74D7A481 
-X-CRM114-Status: GOOD (  24.01  )
+X-CRM114-CacheID: sfid-20230804_201515_723368_BA616A34 
+X-CRM114-Status: GOOD (  20.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,95 +106,86 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGVsbG8gR3VvIFJlbiwgdGhhbmtzIGZvciB0aGUgZmVlZGJhY2shCgpPbiBGcmksIEF1ZyA0LCAy
-MDIzIGF0IDI6NDXigK9QTSBHdW8gUmVuIDxndW9yZW5Aa2VybmVsLm9yZz4gd3JvdGU6Cj4KPiBP
-biBGcmksIEF1ZyA0LCAyMDIzIGF0IDQ6NDnigK9BTSBMZW9uYXJkbyBCcmFzIDxsZW9icmFzQHJl
-ZGhhdC5jb20+IHdyb3RlOgo+ID4KPiA+IGNtcHhjaGcgZm9yIHZhcmlhYmxlcyBvZiBzaXplIDEt
-Ynl0ZSBhbmQgMi1ieXRlcyBpcyBub3QgeWV0IGF2YWlsYWJsZSBmb3IKPiA+IHJpc2N2LCBldmVu
-IHRob3VnaCBpdHMgcHJlc2VudCBpbiBvdGhlciBhcmNoaXRlY3R1cmVzIHN1Y2ggYXMgYXJtNjQg
-YW5kCj4gPiB4ODYuIFRoaXMgY291bGQgbGVhZCB0byBub3QgYmVpbmcgYWJsZSB0byBpbXBsZW1l
-bnQgc29tZSBsb2NraW5nIG1lY2hhbmlzbXMKPiA+IG9yIHJlcXVpcmluZyBzb21lIHJld29yayB0
-byBtYWtlIGl0IHdvcmsgcHJvcGVybHkuCj4gPgo+ID4gSW1wbGVtZW50IDEtYnl0ZSBhbmQgMi1i
-eXRlcyBjbXB4Y2hnIGluIG9yZGVyIHRvIGFjaGlldmUgcGFyaXR5IHdpdGggb3RoZXIKPiA+IGFy
-Y2hpdGVjdHVyZXMuCj4gPgo+ID4gU2lnbmVkLW9mZi1ieTogTGVvbmFyZG8gQnJhcyA8bGVvYnJh
-c0ByZWRoYXQuY29tPgo+ID4gLS0tCj4gPiAgYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9jbXB4Y2hn
-LmggfCAzNSArKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKwo+ID4gIDEgZmlsZSBjaGFu
-Z2VkLCAzNSBpbnNlcnRpb25zKCspCj4gPgo+ID4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvaW5j
-bHVkZS9hc20vY21weGNoZy5oIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9jbXB4Y2hnLmgKPiA+
-IGluZGV4IDVhMDc2NDZmYWU2NS4uZGZiNDMzYWM1NDRmIDEwMDY0NAo+ID4gLS0tIGEvYXJjaC9y
-aXNjdi9pbmNsdWRlL2FzbS9jbXB4Y2hnLmgKPiA+ICsrKyBiL2FyY2gvcmlzY3YvaW5jbHVkZS9h
-c20vY21weGNoZy5oCj4gPiBAQCAtNzIsNiArNzIsMzYgQEAKPiA+ICAgKiBpbmRpY2F0ZWQgYnkg
-Y29tcGFyaW5nIFJFVFVSTiB3aXRoIE9MRC4KPiA+ICAgKi8KPiA+Cj4gPiArI2RlZmluZSBfX2Fy
-Y2hfY21weGNoZ19tYXNrKHNjX3NmeCwgcHJlcGVuZCwgYXBwZW5kLCByLCBwLCBvLCBuKSAgICAg
-ICBcCj4gPiArKHsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICBcCj4gPiArICAgICAgIC8qIERlcGVuZHMgb24gMi1ieXRl
-IHZhcmlhYmxlcyBiZWluZyAyLWJ5dGUgYWxpZ25lZCAqLyAgICAgICAgICBcCj4gPiArICAgICAg
-IHVsb25nIF9fcyA9ICgodWxvbmcpKHApICYgMHgzKSAqIEJJVFNfUEVSX0JZVEU7ICAgICAgICAg
-ICAgICAgICBcCj4gPiArICAgICAgIHVsb25nIF9fbWFzayA9IEdFTk1BU0soKChzaXplb2YoKnAp
-KSAqIEJJVFNfUEVSX0JZVEUpIC0gMSwgMCkgICBcCj4gPiArICAgICAgICAgICAgICAgICAgICAg
-ICA8PCBfX3M7ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcCj4gPiAr
-ICAgICAgIHVsb25nIF9fbmV3eCA9ICh1bG9uZykobikgPDwgX19zOyAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICBcCj4gPiArICAgICAgIHVsb25nIF9fb2xkeCA9ICh1bG9uZykobykgPDwg
-X19zOyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcCj4gPiArICAgICAgIHVsb25nIF9f
-cmV0eDsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBc
-Cj4gPiArICAgICAgIHJlZ2lzdGVyIHVuc2lnbmVkIGludCBfX3JjOyAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICBcCj4gPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcCj4gPiArICAgICAgIF9f
-YXNtX18gX192b2xhdGlsZV9fICggICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICBcCj4gPiArICAgICAgICAgICAgICAgcHJlcGVuZCAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICBcCj4gPiArICAgICAgICAgICAgICAgIjA6ICAgICBs
-ci53ICUwLCAlMlxuIiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcCj4gPiArICAg
-ICAgICAgICAgICAgIiAgICAgICBhbmQgICUwLCAlMCwgJXo1XG4iICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICBcCj4gPiArICAgICAgICAgICAgICAgIiAgICAgICBibmUgICUwLCAlejMsIDFm
-XG4iICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcCgo+IGJ1ZzoKPiAtICAgICAgICAgICAg
-ICAgIiAgICAgICBhbmQgICUwLCAlMCwgJXo1XG4iICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICBcCj4gLSAgICAgICAgICAgICAgICIgICAgICAgYm5lICAlMCwgJXozLCAxZlxuIiAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgXAo+ICsgICAgICAgICAgICAgICAiICAgICAgIGFuZCAgJTEs
-ICUwLCAlejVcbiIgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFwKPiArICAgICAgICAgICAg
-ICAgIiAgICAgICBibmUgICUxLCAlejMsIDFmXG4iICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICBcCj4gWW91ciBjb2RlIGJyZWFrcyB0aGUgJTAuCgpXaGF0IGRvIHlvdSBtZWFuIGJ5IGJyZWFr
-cyBoZXJlPwoKSW4gdGhlIGVuZCBvZiB0aGlzIG1hY3JvLCBJIGludGVuZGVkICB0byBoYXZlIF9f
-cmV0eCA9ICgqcCAmIF9fbWFzaykKd2hpY2ggbWVhbnMgdGhlIHZhbHVlIGlzIGNsZWFuIHRvIGJl
-IHJvdGF0ZWQgYXQgdGhlIGVuZCBvZiB0aGUgbWFjcm8KKG5vIG5lZWQgdG8gYXBwbHkgdGhlIG1h
-c2sgYWdhaW4pOiByID0gX19yZXQgPj4gX19zOwoKQWxzbywgSSBhc3N1bWVkIHdlIGFyZSBzdXBw
-b3NlZCB0byByZXR1cm4gdGhlIHNhbWUgdmFyaWFibGUgdHlwZQphcyB0aGUgcG9pbnRlciwgc28g
-dGhpcyBpcyB2YWxpZDoKdTggYSwgKmIsIGM7CmEgPSB4Y2hnKGIsIGMpOwoKSXMgdGhpcyBjb3Jy
-ZWN0PwoKPiA+ICsgICAgICAgICAgICAgICBhcHBlbmQgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgIFwKPiA+ICsgICAgICAgICAgICAgICAiMTpcbiIgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFwKPiA+ICsgICAg
-ICAgICAgICAgICA6ICI9JnIiIChfX3JldHgpLCAiPSZyIiAoX19yYyksICIrQSIgKCoocCkpICAg
-ICAgICAgICAgIFwKPiA+ICsgICAgICAgICAgICAgICA6ICJySiIgKChsb25nKV9fb2xkeCksICJy
-SiIgKF9fbmV3eCksICAgICAgICAgICAgICAgICAgIFwKPiA+ICsgICAgICAgICAgICAgICAgICJy
-SiIgKF9fbWFzayksICJySiIgKH5fX21hc2spICAgICAgICAgICAgICAgICAgICAgICAgIFwKPiA+
-ICsgICAgICAgICAgICAgICA6ICJtZW1vcnkiKTsgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgIFwKPiA+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFwKPiA+ICsgICAgICAgciA9IChf
-X3R5cGVvZl9fKCoocCkpKShfX3JldHggPj4gX19zKTsgICAgICAgICAgICAgICAgICAgICAgICAg
-IFwKPiA+ICt9KQo+ID4gKwo+ID4KPiA+ICAjZGVmaW5lIF9fYXJjaF9jbXB4Y2hnKGxyX3NmeCwg
-c2Nfc2Z4LCBwcmVwZW5kLCBhcHBlbmQsIHIsIHAsIGNvLCBvLCBuKSAgICAgICAgXAo+ID4gICh7
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgXAo+ID4gQEAgLTk4LDYgKzEyOCwxMSBAQAo+ID4gICAgICAgICBfX3R5cGVv
-Zl9fKCoocHRyKSkgX19yZXQ7ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-XAo+ID4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgXAo+ID4gICAgICAgICBzd2l0Y2ggKHNpemVvZigqX19wdHIp
-KSB7ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXAo+ID4gKyAgICAgICBj
-YXNlIDE6ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgXAo+ID4gKyAgICAgICBjYXNlIDI6ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgXAo+ID4gKyAgICAgICAgICAgICAgIF9fYXJjaF9j
-bXB4Y2hnX21hc2soc2Nfc2Z4LCBwcmVwZW5kLCBhcHBlbmQsICAgICAgICAgICAgXAo+ID4gKyAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIF9fcmV0LCBfX3B0ciwgX19vbGQs
-IF9fbmV3KTsgICAgXAo+ID4gKyAgICAgICAgICAgICAgIGJyZWFrOyAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXAo+ID4gICAgICAgICBjYXNlIDQ6ICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXAo+
-ID4gICAgICAgICAgICAgICAgIF9fYXJjaF9jbXB4Y2hnKCIudyIsICIudyIgc2Nfc2Z4LCBwcmVw
-ZW5kLCBhcHBlbmQsICAgICAgXAo+ID4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBf
-X3JldCwgX19wdHIsIChsb25nKSwgX19vbGQsIF9fbmV3KTsgICAgXAo+ID4gLS0KPiA+IDIuNDEu
-MAo+ID4KPgo+Cj4gLS0KPiBCZXN0IFJlZ2FyZHMKPiAgR3VvIFJlbgo+CgoKX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBs
-aXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVh
-ZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+This series adds initial support for the eMMC on the BeagleV Ahead
+board. This allows the kernel to boot with the root fs on eMMC.
+
+I tested [1] on top of v6.5-rc3 with this config [2] along with the
+prerequisite series [3] that adds the BeagleV Ahead dts file.
+
+I am submitting this as an RFC for other people that want to test
+booting from the eMMC with mainline. There are several issues that need
+to be resolved before this code can progress beyond an RFC:
+
+  - Only the MMC controller connected to the eMMC is enabled. I did
+    not yet attempt to configure or use the microSD card slot.
+
+  - The thead,th1520-dwcmshc compatible sets quirks which disable DMA
+    and forces the use of inefficient PIO mode. I need to determine the
+    correct configuration for the SDMA and ADMA modes.
+
+  - th1520-specific code is needed in dwcmshc_set_uhs_signaling() for
+    MMC_TIMING_MMC_HS400. I have not figured out add proper way to make
+    that code conditional so that it only runs on th1520. One method
+    could be to add a th1520 flag to dwcmshc_priv but that seems like a
+    hack. Alternatively, set_uhs_signaling in sdhci_dwcmshc_th1520_ops
+    could point to a th1520-specific function, but that new function
+    would have to duplicate all the code in the current
+    dwcmshc_set_uhs_signaling().
+
+NOTE: I combined schema, dts and driver patches into this one series to
+simplify review and testing of this RFC.
+
+References:
+[1] https://gist.github.com/pdp7/09995be1e30df0a04b9b9cd31420f9d5
+[2] https://gist.github.com/pdp7/e4585311eb2cd27df7b50c87babc15fd
+[3] https://lore.kernel.org/linux-riscv/20230722-upstream-beaglev-ahead-dts-v2-0-a470ab8fe806@baylibre.com/
+
+Changes in v2:
+- Expand dwcmshc_priv based on driver in the T-Head 5.10 kernel:
+  delay_line, non_removable, pull_up_en, io_fixed_1v8
+- New boolean property "thead,pull-up" indicates phy pull-up config
+- New boolean property "thead,io-fixed-1v8" indicates that io voltage
+  should be set to 1.8V during reset
+- Add th1520_phy_1_8v_init() as voltage_switch op
+- Add th1520_execute_tuning() as the platform_execute_tuning op
+- Added th1520_sdhci_reset() as the .reset op. This function will set
+  io voltage to 1.8V after calling the standard sdhci_reset() function.
+- Modified dwcmshc_set_uhs_signaling() to enable SDHCI_CTRL_VDD_180 when
+  io_fixed_1v8 is true
+- Add many defines for register offsets and settings based on the mmc
+  support in the T-Head downstream v5.10 kernel
+
+v1 series:
+https://lore.kernel.org/r/20230724-th1520-emmc-v1-0-cca1b2533da2@baylibre.com
+
+Signed-off-by: Drew Fustini <dfustini@baylibre.com>
+---
+Drew Fustini (4):
+      dt-bindings: mmc: sdhci-of-dwcmhsc: Add T-Head TH1520 support
+      riscv: dts: thead: Add TH1520 mmc controller and sdhci clock
+      riscv: dts: thead: Enable BeagleV Ahead eMMC controller
+      mmc: sdhci-of-dwcmshc: Add support for T-Head TH1520
+
+ .../bindings/mmc/snps,dwcmshc-sdhci.yaml           |   9 +
+ arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts |  17 ++
+ arch/riscv/boot/dts/thead/th1520.dtsi              |  17 ++
+ drivers/mmc/host/sdhci-of-dwcmshc.c                | 336 +++++++++++++++++++++
+ 4 files changed, 379 insertions(+)
+---
+base-commit: cb8c874afdc063290797ae1776a5d410fecb06cb
+change-id: 20230724-th1520-emmc-73cde98805d6
+
+Best regards,
+-- 
+Drew Fustini <dfustini@baylibre.com>
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
