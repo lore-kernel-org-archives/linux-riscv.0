@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE000C001DE
-	for <linux-riscv@archiver.kernel.org>; Sat,  5 Aug 2023 21:02:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DE0CC00528
+	for <linux-riscv@archiver.kernel.org>; Sat,  5 Aug 2023 21:05:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rQhtZp0o/KkUNCezGmX5T2LZHcF7nP62Z8bLGwKmV0I=; b=bS5o38q+liEGUH
-	h0eGCbrxK9hAwdWETplTNeLkLqumTLQoFp7gVZZK6NStqxHlpXOiqK+G0zS8oM1eO59R9opCdcnIk
-	Wcy/gesOSTQPI22epKo+PamPK8NchBNUl2BAJaUcWJ43Ge8QUB4kb3D1Vu+q0D99K2fSueJ62k0r2
-	/0Xh1sFeqpb9ZhiIntWe6bX/IRBAPARqipbDLRqqyRmoDunQfpGZQAovjQrQfcR8hAVixkkI7hONr
-	D0QjqS3XfFeD8AFoeBoKl/8ARNxNEKJMPJv/veyxRd3t43pfvbWSDrG3sMv2hnw66X6tVnSvOh49H
-	i1cVaJSq8hx14a8vEs7A==;
+	List-Owner; bh=x+Few8pC37AWNimu2Ct3DaJEzsPjjinK5krZw3WBRu0=; b=WNgjVnkO4KRC9T
+	v5mr8we4126fXCi7+x4TK2QfQYPTmlRGPO4e5o8LurTYulRX6+3s8jq71vup8RoMyPHnUAlA+TkTK
+	Ip56QMj2YEDF07Nv0X2wk46a7unrAd7rk8zIZj15WwPj/bc7lVYjJP+VYhUbbMFm68O/j0vEsekFL
+	YC57Ltaxm7anu3UF42DjoMvyoVXdI3lEkpAkGI6zvM/w79blA1pkSaoA3CD22Qd6gNvbaDMHsZW5F
+	SpTlDDZcbkU4JRSYCMMJ2SW3LNI1R+Hj8GTb45HY5VR7wwqYxFvc7jhQX9IxBMgG540dH9RVb4ULm
+	iYX9LVT0Z8TlvGcdGQxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qSOPc-00EZ3c-2d;
-	Sat, 05 Aug 2023 21:02:12 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1qSOSI-00EZF3-27;
+	Sat, 05 Aug 2023 21:04:58 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qSOPZ-00EZ34-23
+	id 1qSOSF-00EZEU-2u
 	for linux-riscv@lists.infradead.org;
-	Sat, 05 Aug 2023 21:02:11 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-3fe4a89e8c4so12998195e9.3
-        for <linux-riscv@lists.infradead.org>; Sat, 05 Aug 2023 14:02:06 -0700 (PDT)
+	Sat, 05 Aug 2023 21:04:57 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-3fb4146e8deso32001245e9.0
+        for <linux-riscv@lists.infradead.org>; Sat, 05 Aug 2023 14:04:55 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1691269325; x=1691874125;
+        d=linaro.org; s=google; t=1691269494; x=1691874294;
         h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=KbvfI0fLsFlB/xRYqDFhF1GRIPCNZdIym6zPJmUh4vQ=;
-        b=LOtzuv3SuN0B4PkixubrxbsOeLlUbqyMJc3yJCvIpzuydQG9bdGn7jY3D32/rIXdmt
-         ztkBsdLiqkz6W5SZfAf6c3heNK87LTPVi9E/tMyaO+iEPYSYOblRVDac0jDsxpvTo4WG
-         URfWY0b/QgIIIEyMzFXV763mY5KgOfmRLIdkn444n2dZGt0IklB3OpeyHjNV719v4szo
-         IWNIDTd9PW6+fymfIIBrF+FM3IZ0UtvivblDOSX28RvlBhzVokwT/lf+ME+lb/2fYpRr
-         fe7iG1zrIdUm2uCIvFXA8yjqAuifuZ0I0gJddzRZUOiSeWS4snSu3QmyWI4nzwG3KHsV
-         RGHQ==
+        bh=VXgvu4PdDcYeSWEAGjMAQ6aaokT2QYB0Ybt1pTFSg+A=;
+        b=vgA2xqtfz8HfxCtetsIBocLLjd+CLI0pMJbGIsNa719wEia2zfDrrFeco3WOGOjdSY
+         xknRMHN1PzoOC8IQ6NkL2zK9YbRpg0mTfhvmVBrr6qMg+SAMdEUgdRIrcfZOn/stw7Ad
+         YU65yACHGJ5q9kgo1bJ5nPv/wBq99EBKt8PR0G8TfGNmQELNtbZ5YB6XFUemHO4cjgMm
+         NKtu4fyKR71+0TxvQM9EThPmFS5y1eooJ7p1qQFuf8Ze3ORPqVZyz1T5MMe61zssWh1H
+         3u9nlASTQlrBtIT/Hrq6biV8jwr7CwaklGNoxp85xPrW0NkfbWQ8qD9zUUQym5fsXmiI
+         Ac3g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1691269325; x=1691874125;
+        d=1e100.net; s=20221208; t=1691269494; x=1691874294;
         h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=KbvfI0fLsFlB/xRYqDFhF1GRIPCNZdIym6zPJmUh4vQ=;
-        b=YBXaebOv381GtQEfhhMLQEQMwEWnEfLpqkX7fJzcnQ5O3T3ZxgP9pd97E5NT3s6THE
-         UjwK3ueLFYTAjTlvYTtaq9PhsH0j37PkGQp2IETBpBclEjGKqBzJ75A6t2SYmR7Tvo3W
-         YGMlSs5qUMfqpF6i+abKtyNUhryeX6Uy7DwQOZhSsV6ALWj4/MLVUYqEMGkn5hocESlR
-         rMkRYM8sg6DurfVvAEG3qj+iMnYV8ULJX8kLeWNQn2t2o85Uvw7p5/JUKoTKlaCoBh+1
-         Lz7WQcYZ0nf+c0+RefzoxY0xr8I9aeDD2dB6+Z7jb2J0Up1ypqoBLUr+NCAU64pzD2Lf
-         qPAw==
-X-Gm-Message-State: AOJu0YyqWJvpNa2U7NDa6mxjOAV2DCj+EJcgIFAMksTB0azHrb8jdzC3
-	sCv1QGN9g6y/QMKfxx0hCSGL9g==
-X-Google-Smtp-Source: AGHT+IE63dFNf2CGjHbciT/HZuHu+h2YzjvFPIM0aIWKNMwJ2fvnAGhmQ7btvX284ZjXv1M6dmsSQQ==
-X-Received: by 2002:a05:600c:364f:b0:3fe:4900:db95 with SMTP id y15-20020a05600c364f00b003fe4900db95mr3609592wmq.37.1691269325144;
-        Sat, 05 Aug 2023 14:02:05 -0700 (PDT)
+        bh=VXgvu4PdDcYeSWEAGjMAQ6aaokT2QYB0Ybt1pTFSg+A=;
+        b=IumjYADTuvXWb1VdkxlfBQCE4ms6OVnx/SzChdswcuO+eBH3Mygyd3ltOaBSMldxXe
+         fNeJ1En3OTe71zxdlKXzAMjuOr/Bes4OUaU4usyuF+1QlLr7L/LLQWRe02FhmqaMR6dm
+         OUR/w+HER44MHMlMeJ213484iVipnYH/6yk8YQZiyt/WnadZkd44T8qBvWs/SnXC6Db/
+         gDOidQ0pExsB9/96erTSqbTxxrKQ8wN+DbYFb5+GToowQqdjl+5xk6JPoKRgVvbVbD3H
+         cbZRGQ72XH+qJT0JCkapUOf7UtuqsW5uo6zXb55oLeGk1pxgh99T66oKVfgP5u4JQRCp
+         ILCQ==
+X-Gm-Message-State: AOJu0YxgB2WQePnIsdJJo9VWcByv0XCRl/9GJyB4zHGWRc7rI+xDEZzt
+	ptWo5FewkMtQ9NKR+egn3HEEPA==
+X-Google-Smtp-Source: AGHT+IELrrb3HMZVfrxFaUMcQP1kpcJAAxcbzg8Tw9gdaGgOuScyzdpPV8YzQuwVSlRpdWDtYUKKxQ==
+X-Received: by 2002:a5d:6812:0:b0:314:3740:7f69 with SMTP id w18-20020a5d6812000000b0031437407f69mr3812846wru.37.1691269494423;
+        Sat, 05 Aug 2023 14:04:54 -0700 (PDT)
 Received: from [192.168.1.20] ([178.197.222.245])
-        by smtp.gmail.com with ESMTPSA id z10-20020a5d640a000000b003178dc2371bsm5503421wru.7.2023.08.05.14.02.03
+        by smtp.gmail.com with ESMTPSA id w14-20020adfec4e000000b003141e629cb6sm5892063wrn.101.2023.08.05.14.04.52
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 05 Aug 2023 14:02:04 -0700 (PDT)
-Message-ID: <37a636dd-fbd8-d475-8814-e0cc6d5cc812@linaro.org>
-Date: Sat, 5 Aug 2023 23:02:02 +0200
+        Sat, 05 Aug 2023 14:04:53 -0700 (PDT)
+Message-ID: <8fc27960-fa82-c900-0414-75b10a118f15@linaro.org>
+Date: Sat, 5 Aug 2023 23:04:51 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
  Thunderbird/102.14.0
-Subject: Re: [PATCH v1 2/5] ASoC: dt-bindings: snps,designware-i2s: Add
- StarFive JH7110 SoC support
+Subject: Re: [PATCH v1 5/5] riscv: dts: starfive: Add the nodes and pins of
+ I2Srx/I2Stx0/I2Stx1
 Content-Language: en-US
 To: Xingyu Wu <xingyu.wu@starfivetech.com>,
  Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
@@ -84,12 +84,12 @@ Cc: Jose Abreu <joabreu@synopsys.com>,
  linux-kernel@vger.kernel.org, alsa-devel@alsa-project.org,
  linux-riscv@lists.infradead.org
 References: <20230802084301.134122-1-xingyu.wu@starfivetech.com>
- <20230802084301.134122-3-xingyu.wu@starfivetech.com>
+ <20230802084301.134122-6-xingyu.wu@starfivetech.com>
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <20230802084301.134122-3-xingyu.wu@starfivetech.com>
+In-Reply-To: <20230802084301.134122-6-xingyu.wu@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230805_140209_682066_A38FD286 
-X-CRM114-Status: GOOD (  11.72  )
+X-CRM114-CacheID: sfid-20230805_140455_943200_AE90CA5C 
+X-CRM114-Status: GOOD (  12.56  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,124 +106,88 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 02/08/2023 10:42, Xingyu Wu wrote:
-> Add the StarFive JH7110 (TX0/TX1/RX channel) SoC support in the bindings
-> of Designware I2S controller. The I2S controller needs two reset items''
+On 02/08/2023 10:43, Xingyu Wu wrote:
+> Add I2Srx/I2Stx0/I2Stx1 nodes and pins configuration for the
+> StarFive JH7110 SoC.
+> 
+> Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
+> ---
 
-Thank you for your patch. There is something to discuss/improve.
+...
 
->  
->    resets:
->      items:
->        - description: Optional controller resets
-> +      - description: controller reset of Sampling rate
-> +    minItems: 1
->  
->    dmas:
->      items:
-> @@ -51,6 +75,17 @@ properties:
->        - const: rx
->      minItems: 1
->  
-> +  starfive,syscon:
-> +    $ref: /schemas/types.yaml#/definitions/phandle-array
-> +    items:
-> +      - items:
-> +          - description: phandle to System Register Controller sys_syscon node.
-> +          - description: I2S-rx enabled control offset of SYS_SYSCONSAIF__SYSCFG register.
-> +          - description: I2S-rx enabled control mask
-> +    description:
-> +      The phandle to System Register Controller syscon node and the I2S-rx(ADC)
-> +      enabled control offset and mask of SYS_SYSCONSAIF__SYSCFG register.
 > +
->  allOf:
->    - $ref: dai-common.yaml#
->    - if:
-> @@ -66,6 +101,66 @@ allOf:
->        properties:
->          "#sound-dai-cells":
->            const: 0
-
-You need to constrain clocks and resets also for all other existing
-variants.
-
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            const: snps,designware-i2s
-> +    then:
-> +      properties:
-> +        clocks:
-> +          maxItems: 1
-> +        clock-names:
-> +          maxItems: 1
-> +        resets:
-> +          maxItems: 1
-> +    else:
-> +      properties:
-> +        resets:
-> +          minItems: 2
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            const: starfive,jh7110-i2stx0
-> +    then:
-> +      properties:
-> +        clocks:
-> +          minItems: 5
-
-Also maxItems
-
-> +        clock-names:
-> +          minItems: 5
-
-Also maxItems
-
-What about resets? 1 or 2 items?
-
-> +      required:
-> +        - resets
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            const: starfive,jh7110-i2stx1
-> +    then:
-> +      properties:
-> +        clocks:
-> +          minItems: 9
-> +        clock-names:
-> +          minItems: 9
-
-resets?
-
-> +      required:
-> +        - resets
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            const: starfive,jh7110-i2srx
-> +    then:
-> +      properties:
-> +        clocks:
-> +          minItems: 9
-> +        clock-names:
-> +          minItems: 9
-
-resets?
-
-> +      required:
-> +        - resets
-> +        - starfive,syscon
-> +    else:
-> +      properties:
-> +        starfive,syscon: false
+>  	spi0_pins: spi0-0 {
+>  		mosi-pins {
+>  			pinmux = <GPIOMUX(52, GPOUT_SYS_SPI0_TXD,
+> diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+> index 05f843b8ca03..507312eb6053 100644
+> --- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
+> +++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+> @@ -512,6 +512,30 @@ tdm: tdm@10090000 {
+>  			status = "disabled";
+>  		};
 >  
->  required:
->    - compatible
+> +		i2srx: i2srx@100e0000 {
+
+Node names should be generic, so:
+i2s@
+
+> +			compatible = "starfive,jh7110-i2srx";
+> +			reg = <0x0 0x100e0000 0x0 0x1000>;
+> +			clocks = <&syscrg JH7110_SYSCLK_I2SRX_BCLK_MST>,
+> +				 <&syscrg JH7110_SYSCLK_I2SRX_APB>,
+> +				 <&syscrg JH7110_SYSCLK_MCLK>,
+> +				 <&syscrg JH7110_SYSCLK_MCLK_INNER>,
+> +				 <&mclk_ext>,
+> +				 <&syscrg JH7110_SYSCLK_I2SRX_BCLK>,
+> +				 <&syscrg JH7110_SYSCLK_I2SRX_LRCK>,
+> +				 <&i2srx_bclk_ext>,
+> +				 <&i2srx_lrck_ext>;
+> +			clock-names = "i2sclk", "apb", "mclk",
+> +				      "mclk_inner", "mclk_ext", "bclk",
+> +				      "lrck", "bclk_ext", "lrck_ext";
+> +			resets = <&syscrg JH7110_SYSRST_I2SRX_APB>,
+> +				 <&syscrg JH7110_SYSRST_I2SRX_BCLK>;
+> +			dmas = <0>, <&dma 24>;
+> +			dma-names = "tx", "rx";
+> +			starfive,syscon = <&sys_syscon 0x18 0x2>;
+> +			#sound-dai-cells = <0>;
+> +			status = "disabled";
+> +		};
+> +
+>  		usb0: usb@10100000 {
+>  			compatible = "starfive,jh7110-usb";
+>  			ranges = <0x0 0x0 0x10100000 0x100000>;
+> @@ -736,6 +760,47 @@ spi6: spi@120a0000 {
+>  			status = "disabled";
+>  		};
+>  
+> +		i2stx0: i2stx0@120b0000 {
+
+i2s@
+
+> +			compatible = "starfive,jh7110-i2stx0";
+> +			reg = <0x0 0x120b0000 0x0 0x1000>;
+> +			clocks = <&syscrg JH7110_SYSCLK_I2STX0_BCLK_MST>,
+> +				 <&syscrg JH7110_SYSCLK_I2STX0_APB>,
+> +				 <&syscrg JH7110_SYSCLK_MCLK>,
+> +				 <&syscrg JH7110_SYSCLK_MCLK_INNER>,
+> +				 <&mclk_ext>;
+> +			clock-names = "i2sclk", "apb", "mclk",
+> +				      "mclk_inner","mclk_ext";
+> +			resets = <&syscrg JH7110_SYSRST_I2STX0_APB>,
+> +				 <&syscrg JH7110_SYSRST_I2STX0_BCLK>;
+> +			dmas = <&dma 47>;
+> +			dma-names = "tx";
+> +			#sound-dai-cells = <0>;
+> +			status = "disabled";
+> +		};
+> +
+> +		i2stx1: i2stx1@120c0000 {
+
+i2s@
+
+
 
 Best regards,
 Krzysztof
