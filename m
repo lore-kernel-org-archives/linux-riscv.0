@@ -4,96 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A80AC001DB
-	for <linux-riscv@archiver.kernel.org>; Sat,  5 Aug 2023 03:15:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78FCDC04A94
+	for <linux-riscv@archiver.kernel.org>; Sat,  5 Aug 2023 04:24:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wkvLfUTbZJvsvgVRSR7RsAKCtBrbmCAsknXzf1VeMDM=; b=TQkKIaophFbQJj
-	mi1JlXYSgA//8uf77ErPxJowxP7k0pH3zFuJQk2TR9KQBizqcUQjbl3hFr1RZleDOkDOpCMEiv8nV
-	HwPm5M7ka0sdE29HHlVgpupzBTUJkuisWViwIWgzpZ+yq08Psg4hcExQGCZoMjVsHvM2tmHXADHUl
-	PTZdTEeBq7lg7HOqdDF/1NxUoBERXtUJooFS0u4dun33vV2qnHSNBH+0DhSo6cZ5Tb7IBwTJ9DP7n
-	bER1P9HMvlFyfTbolUkEwFLY3GlyQH572rN9uV8U/mauUGkNM+8PL2LPOZvrAJE5/+6zRtB/tpxmA
-	h83NAupg+ZA8KRiCasWQ==;
+	List-Owner; bh=oTySA0iLs7FOV+MxSRlbJ4EGRESzCggVHQ6LixrAwoM=; b=ouPBcT+Yu8G+t9
+	jo2X+3ffr3wEeUW9pgMINgvAdVP6ck5+3+CD4okHN1WPwMzA+HBnmUBJDsKOA067mwxxFBDJ/EXSB
+	UwLJc78Ah6vxxZY+SFFa0Czf8et23OKU0F+pobmJNd7z98Hl1lwYvBy6hUCi1lBOikYsnM3YKPAlV
+	off07CNS9vaQo/7K8SgQg9Gzqks7xX3z4mhcnWDvPxc5B1swVEAEO+uglPj1b/telMh56XLlFhTK/
+	q/suCQyua/cyAqhiyEtm114KwQ+T68wtczO5z4j1PvyRLiZiuJqeXW1DdvBkkupsQSWHbwtQGGrOa
+	SnJY0O/y1S2lgOjg+uPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qS7lF-00DcIr-1F;
-	Sat, 05 Aug 2023 03:15:25 +0000
-Received: from mail-yw1-x1131.google.com ([2607:f8b0:4864:20::1131])
+	id 1qS8qF-00DgF4-0l;
+	Sat, 05 Aug 2023 04:24:39 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qS7lB-00DcG0-0H
+	id 1qS8qB-00DgEV-2F
 	for linux-riscv@lists.infradead.org;
-	Sat, 05 Aug 2023 03:15:23 +0000
-Received: by mail-yw1-x1131.google.com with SMTP id 00721157ae682-58653c9bed3so31216587b3.2
-        for <linux-riscv@lists.infradead.org>; Fri, 04 Aug 2023 20:15:18 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20221208.gappssmtp.com; s=20221208; t=1691205318; x=1691810118;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=ZEssXYylfcRLmvvX1PZG2lu6ghbesKpJSC9p5adyHlA=;
-        b=m9TtZJ1YmohVrBqx1ywbr5GBxv0KyDKRkVTU5LjuOxCDvyGTtIRPk8eDBsCnXpaTv6
-         bDOVdW47NOTUB/o+ONbX1F3pk31OVZ4mpauAPhPjw3sdXoMx8A94F3T0eqjaZrl6fvOu
-         XzQh37oi/b1Ax7rxktrIIhr8xf0B4vTDsmo95LxxLXBbO8194iIEvzUhZAlSYCGaD0o1
-         QBPdht05rks7sguZNvMQkvL8ryiE2tZiwntkqXPCTHgR6/z08sUYmMjEgotsIcDIDlOK
-         7uAGUgx66thNik6NJeSg+5xkOyW2xGBijCedZXlkn59t5W2jZ0a2+56EMVBO1be6x/9I
-         fEug==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1691205318; x=1691810118;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=ZEssXYylfcRLmvvX1PZG2lu6ghbesKpJSC9p5adyHlA=;
-        b=g2DXotn2oAzTfX7BD6yIPs3YwEdm9GEJk5MFNFG11jll6PUQ1JFx3Ytwh0BOo5J5FC
-         QxRwq8D05AVItpYYsq7f4zv7NPkxJusRSvG+gKZL+63Ml3mTmqAjyNpkQ5EVRkK4oNuS
-         CkgjkHfMx0Lah7RegUWRJedIAsc1C++V08mC8KqewyEtInQxzwuOXxi/6bB9PVtiK5Q9
-         n3vPkor4RDRBiWMsLYr93FE78JoskKugt3qngduZCbcZMUljfVTDjYJn2dkW8zbUY3Db
-         rW7Ba1AlkEYpNS3oBfRd28DFurxRxVPBuWUZxqVQtpQF6evtWweNW3T7KjR0HVcAxqXZ
-         29oQ==
-X-Gm-Message-State: AOJu0Yw9UEAJofE7MpKGcW049eqdOItjx6iZS7aw2kzgSP6YSGlAjWEC
-	9bGpNPhnPOEJx2xh7OBrnystsw==
-X-Google-Smtp-Source: AGHT+IFAXu64bzecYiS+zN/VXMBk3AC5ZlmcVnM+1xblHJbWf+j87Akk84lYhrAdjvR++C3mLJEyiw==
-X-Received: by 2002:a81:73c1:0:b0:584:3140:fcae with SMTP id o184-20020a8173c1000000b005843140fcaemr3730178ywc.26.1691205317838;
-        Fri, 04 Aug 2023 20:15:17 -0700 (PDT)
-Received: from [127.0.1.1] ([2601:1c2:1800:f680:e1a0:2f9c:e6f9:e66c])
-        by smtp.gmail.com with ESMTPSA id h17-20020a170902f55100b001b864add154sm2412145plf.154.2023.08.04.20.15.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 04 Aug 2023 20:15:17 -0700 (PDT)
-From: Drew Fustini <dfustini@baylibre.com>
-Date: Fri, 04 Aug 2023 20:14:48 -0700
-Subject: [PATCH RFC v2 4/4] mmc: sdhci-of-dwcmshc: Add support for T-Head
- TH1520
+	Sat, 05 Aug 2023 04:24:37 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id A4287603F6
+	for <linux-riscv@lists.infradead.org>; Sat,  5 Aug 2023 04:24:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7BC8DC43391
+	for <linux-riscv@lists.infradead.org>; Sat,  5 Aug 2023 04:24:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1691209473;
+	bh=ewtEDcg34QoYbGgN5Vr123G5dU4FHcWD9MrlE/jZp5w=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=PeEN7uSMlA5XhVAHthnzVZtzO0e0Rg9wt6WEm86JL2MwUrlAhOzZOj3nezx3nsVXp
+	 +2Bizf66P21zt+dZUYeo4TLwxOVWVix9HXtPHNC1sK6amjAmpORxEhP/j5+DHf7ozk
+	 l8D/Y0z7KcdqNuSPDVcM2MRR/B+QQo9VlsiUkzpDju87dlJiX9yqfY5rskMNrPN5hM
+	 p0+77nUnnhSJ7a81qxkuCroSrIUPzdzTRsbr34hnfhe3jndG1AO2P1QrtbiPS/fg+Y
+	 sGlJ7XcljdyR8J5F9wCoiPKXB3MuHLoeo1wPJIx+es0jgRnHzrL/+jJRZlfb28hTut
+	 Chgg0RlBnrk3Q==
+Received: by mail-ed1-f42.google.com with SMTP id 4fb4d7f45d1cf-52256241c66so5836871a12.1
+        for <linux-riscv@lists.infradead.org>; Fri, 04 Aug 2023 21:24:33 -0700 (PDT)
+X-Gm-Message-State: AOJu0YwkSv31nJjgfaF8pN56UJFxA/HrnJxC08MDk2w7sevCKFLs979F
+	0zrVEgmBGsUx7iE/QR/rA3whdZTwhfE+mE5aboI=
+X-Google-Smtp-Source: AGHT+IHM3/0cnah9HbCYv1j+tlNf6izw+zb33C1aQ3wTKFaLvihKs2cBxKaqkSshwhEJOfXCGvMY9LtuPZRfl26gSUc=
+X-Received: by 2002:a05:6402:2747:b0:51e:2c4b:6f1e with SMTP id
+ z7-20020a056402274700b0051e2c4b6f1emr1841498edd.14.1691209471650; Fri, 04 Aug
+ 2023 21:24:31 -0700 (PDT)
 MIME-Version: 1.0
-Message-Id: <20230724-th1520-emmc-v2-4-132ed2e2171e@baylibre.com>
-References: <20230724-th1520-emmc-v2-0-132ed2e2171e@baylibre.com>
-In-Reply-To: <20230724-th1520-emmc-v2-0-132ed2e2171e@baylibre.com>
-To: Jisheng Zhang <jszhang@kernel.org>, Guo Ren <guoren@kernel.org>, 
- Fu Wei <wefu@redhat.com>, Rob Herring <robh+dt@kernel.org>, 
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Conor Dooley <conor@kernel.org>, Adrian Hunter <adrian.hunter@intel.com>, 
- Ulf Hansson <ulf.hansson@linaro.org>
-Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-mmc@vger.kernel.org, 
- Robert Nelson <robertcnelson@beagleboard.org>, 
- Jason Kridner <jkridner@beagleboard.org>, 
- Drew Fustini <dfustini@baylibre.com>
-X-Mailer: b4 0.12.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1691205312; l=13837;
- i=dfustini@baylibre.com; s=20230430; h=from:subject:message-id;
- bh=2qncJ7KYiC6cdlh9U1u79nbaJbz5Do2OWKzGmquv4Hg=;
- b=x18Ag9S9tpvglqxWeMu1+55X8RMK2dlAxP4Wck4uOyOeduvak2HIHLu/kPuICDq1QsaM5FjJU
- SmigiE0+XY+AvLIODqc73iGWveWL60ijMzNMO6Iq58nJRmiHI0Jxn/K
-X-Developer-Key: i=dfustini@baylibre.com; a=ed25519;
- pk=p3GKE9XFmjhwAayAHG4U108yag7V8xQVd4zJLdW0g7g=
+References: <20230804084900.1135660-2-leobras@redhat.com> <20230804084900.1135660-6-leobras@redhat.com>
+ <CAJF2gTTOT3_3K_cWNY9n_DgRoPhYEhBLno=bh57r9D--OavREQ@mail.gmail.com> <CAJ6HWG4gy7HV11-cdoB0VAP2z1Zw-zyJhNRpJ1eDMmrkvnob3w@mail.gmail.com>
+In-Reply-To: <CAJ6HWG4gy7HV11-cdoB0VAP2z1Zw-zyJhNRpJ1eDMmrkvnob3w@mail.gmail.com>
+From: Guo Ren <guoren@kernel.org>
+Date: Sat, 5 Aug 2023 12:24:20 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTQY5RX87Zo8HcM1Og-Oc6vd5Vyj97KL-o6UcqMaT4oxng@mail.gmail.com>
+Message-ID: <CAJF2gTQY5RX87Zo8HcM1Og-Oc6vd5Vyj97KL-o6UcqMaT4oxng@mail.gmail.com>
+Subject: Re: [RFC PATCH v3 4/5] riscv/cmpxchg: Implement cmpxchg for variables
+ of size 1 and 2
+To: Leonardo Bras Soares Passos <leobras@redhat.com>
+Cc: Will Deacon <will@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
+	Boqun Feng <boqun.feng@gmail.com>, Mark Rutland <mark.rutland@arm.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Andrea Parri <parri.andrea@gmail.com>, 
+	Geert Uytterhoeven <geert@linux-m68k.org>, Andrzej Hajda <andrzej.hajda@intel.com>, 
+	Palmer Dabbelt <palmer@rivosinc.com>, linux-kernel@vger.kernel.org, 
+	linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230804_201521_129590_302DA1C9 
-X-CRM114-Status: GOOD (  21.19  )
+X-CRM114-CacheID: sfid-20230804_212435_846827_1819E9C3 
+X-CRM114-Status: GOOD (  33.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,445 +85,156 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add basic support for the T-Head TH1520 SoC mmc controller with the new
-compatible "thead,th1520-dwcmshc".
-
-However, quirks are currently set to disable DMA and use PIO. The proper
-settings for DMA support still need to be determined.
-
-Another issue is th1520-specific code for MMC_TIMING_MMC_HS400 in
-dwcmshc_set_uhs_signaling() will run on all platforms which is not
-correct. One solution could be to add a th1520 flag to dwcmshc_priv but
-that is hacky. Another solution could be to set the set_uhs_signaling op
-in sdhci_dwcmshc_th1520_ops to a th1520-specific function. However, that
-new function would have to duplicate all the code in the current
-dwcmshc_set_uhs_signaling().
-
-Signed-off-by: Drew Fustini <dfustini@baylibre.com>
----
- drivers/mmc/host/sdhci-of-dwcmshc.c | 336 ++++++++++++++++++++++++++++++++++++
- 1 file changed, 336 insertions(+)
-
-diff --git a/drivers/mmc/host/sdhci-of-dwcmshc.c b/drivers/mmc/host/sdhci-of-dwcmshc.c
-index e68cd87998c8..d35e204cdb16 100644
---- a/drivers/mmc/host/sdhci-of-dwcmshc.c
-+++ b/drivers/mmc/host/sdhci-of-dwcmshc.c
-@@ -71,6 +71,63 @@
- 	(((x) & DWCMSHC_EMMC_DLL_TIMEOUT) == 0))
- #define RK35xx_MAX_CLKS 3
- 
-+/* T-Head specific registers */
-+#define DWC_MSHC_PTR_PHY_R	0x300
-+#define PHY_CNFG_R		(DWC_MSHC_PTR_PHY_R + 0x00)
-+#define PHY_RSTN		0x0
-+#define PAD_SP			0x10
-+#define PAD_SN			0x14
-+
-+#define PHY_CMDPAD_CNFG_R	(DWC_MSHC_PTR_PHY_R + 0x04)
-+#define PHY_DATAPAD_CNFG_R	(DWC_MSHC_PTR_PHY_R + 0x06)
-+#define PHY_CLKPAD_CNFG_R	(DWC_MSHC_PTR_PHY_R + 0x08)
-+#define PHY_STBPAD_CNFG_R	(DWC_MSHC_PTR_PHY_R + 0x0a)
-+#define PHY_RSTNPAD_CNFG_R	(DWC_MSHC_PTR_PHY_R + 0x0c)
-+#define RXSEL			0x0
-+#define WEAKPULL_EN		0x3
-+#define TXSLEW_CTRL_P		0x5
-+#define TXSLEW_CTRL_N		0x9
-+
-+#define PHY_PADTEST_CNFG_R	(DWC_MSHC_PTR_PHY_R + 0x0e)
-+#define PHY_PADTEST_OUT_R	(DWC_MSHC_PTR_PHY_R + 0x10)
-+#define PHY_PADTEST_IN_R	(DWC_MSHC_PTR_PHY_R + 0x12)
-+#define PHY_PRBS_CNFG_R		(DWC_MSHC_PTR_PHY_R + 0x18)
-+#define PHY_PHYLBK_CNFG_R	(DWC_MSHC_PTR_PHY_R + 0x1a)
-+#define PHY_COMMDL_CNFG_R	(DWC_MSHC_PTR_PHY_R + 0x1c)
-+
-+#define PHY_SDCLKDL_CNFG_R	(DWC_MSHC_PTR_PHY_R + 0x1d)
-+#define UPDATE_DC		0x4
-+
-+#define PHY_SDCLKDL_DC_R	(DWC_MSHC_PTR_PHY_R + 0x1e)
-+#define PHY_SMPLDL_CNFG_R	(DWC_MSHC_PTR_PHY_R + 0x20)
-+#define PHY_ATDL_CNFG_R		(DWC_MSHC_PTR_PHY_R + 0x21)
-+#define INPSEL_CNFG		2
-+
-+#define PHY_DLL_CTRL_R		(DWC_MSHC_PTR_PHY_R + 0x24)
-+#define DLL_EN			0x0
-+
-+#define PHY_DLL_CNFG1_R		(DWC_MSHC_PTR_PHY_R + 0x25)
-+#define PHY_DLL_CNFG2_R		(DWC_MSHC_PTR_PHY_R + 0x26)
-+#define PHY_DLLDL_CNFG_R	(DWC_MSHC_PTR_PHY_R + 0x28)
-+#define SLV_INPSEL		0x5
-+
-+#define P_VENDOR_SPECIFIC_AREA	0x500
-+#define EMMC_CTRL_R		(P_VENDOR_SPECIFIC_AREA + 0x2c)
-+#define AT_CTRL_R		(P_VENDOR_SPECIFIC_AREA + 0x40)
-+#define AT_EN			0x0
-+#define CI_SEL			0x1
-+#define SWIN_TH_EN		0x2
-+#define RPT_TUNE_ERR		0x3
-+#define SW_TUNE_EN		0x4
-+#define WIN_EDGE_SEL		0x8
-+#define TUNE_CLK_STOP_EN	0x10
-+#define PRE_CHANGE_DLY		0x11
-+#define POST_CHANGE_DLY		0x13
-+#define SWIN_TH_VAL		0x18
-+
-+#define DELAY_LINE_HS400	24
-+#define DELAY_LINE_DEFAULT	50
-+
- #define BOUNDARY_OK(addr, len) \
- 	((addr | (SZ_128M - 1)) == ((addr + len - 1) | (SZ_128M - 1)))
- 
-@@ -91,6 +148,10 @@ struct dwcmshc_priv {
- 	struct clk	*bus_clk;
- 	int vendor_specific_area1; /* P_VENDOR_SPECIFIC_AREA reg */
- 	void *priv; /* pointer to SoC private stuff */
-+	uint32_t delay_line;
-+	bool non_removable;
-+	bool pull_up_en;
-+	bool io_fixed_1v8;
- };
- 
- /*
-@@ -156,11 +217,171 @@ static void dwcmshc_request(struct mmc_host *mmc, struct mmc_request *mrq)
- 	sdhci_request(mmc, mrq);
- }
- 
-+static void sdhci_phy_1_8v_init_no_pull(struct sdhci_host *host)
-+{
-+	uint32_t val;
-+	sdhci_writel(host, 1, DWC_MSHC_PTR_PHY_R);
-+	sdhci_writeb(host, 1 << 4, PHY_SDCLKDL_CNFG_R);
-+	sdhci_writeb(host, 0x40, PHY_SDCLKDL_DC_R);
-+
-+	val = sdhci_readb(host, PHY_SDCLKDL_CNFG_R);
-+	val &= ~(1 << 4);
-+	sdhci_writeb(host, val, PHY_SDCLKDL_CNFG_R);
-+
-+
-+	val = sdhci_readw(host, PHY_CMDPAD_CNFG_R);
-+	sdhci_writew(host, val | 1, PHY_CMDPAD_CNFG_R);
-+
-+	val = sdhci_readw(host, PHY_DATAPAD_CNFG_R);
-+	sdhci_writew(host, val | 1, PHY_DATAPAD_CNFG_R);
-+
-+	val = sdhci_readw(host, PHY_RSTNPAD_CNFG_R);
-+	sdhci_writew(host, val | 1, PHY_RSTNPAD_CNFG_R);
-+
-+	val = sdhci_readw(host, PHY_STBPAD_CNFG_R);
-+	sdhci_writew(host, val | 1, PHY_STBPAD_CNFG_R);
-+
-+	val = sdhci_readb(host, PHY_DLL_CTRL_R);
-+	sdhci_writeb(host, val | 1, PHY_DLL_CTRL_R);
-+}
-+
-+static void sdhci_phy_3_3v_init_no_pull(struct sdhci_host *host)
-+{
-+	uint32_t val;
-+
-+	sdhci_writel(host, 1, DWC_MSHC_PTR_PHY_R);
-+	sdhci_writeb(host, 1 << 4, PHY_SDCLKDL_CNFG_R);
-+	sdhci_writeb(host, 0x40, PHY_SDCLKDL_DC_R);
-+
-+	val = sdhci_readb(host, PHY_SDCLKDL_CNFG_R);
-+	val &= ~(1 << 4);
-+	sdhci_writeb(host, val, PHY_SDCLKDL_CNFG_R);
-+
-+	val = sdhci_readw(host, PHY_CMDPAD_CNFG_R);
-+	sdhci_writew(host, val | 2, PHY_CMDPAD_CNFG_R);
-+
-+	val = sdhci_readw(host, PHY_DATAPAD_CNFG_R);
-+	sdhci_writew(host, val | 2, PHY_DATAPAD_CNFG_R);
-+
-+	val = sdhci_readw(host, PHY_RSTNPAD_CNFG_R);
-+	sdhci_writew(host, val | 2, PHY_RSTNPAD_CNFG_R);
-+
-+	val = sdhci_readw(host, PHY_STBPAD_CNFG_R);
-+	sdhci_writew(host, val | 2, PHY_STBPAD_CNFG_R);
-+
-+	val = sdhci_readb(host, PHY_DLL_CTRL_R);
-+	sdhci_writeb(host, val | 1, PHY_DLL_CTRL_R);
-+}
-+
-+static void th1520_phy_1_8v_init(struct sdhci_host *host)
-+{
-+	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
-+	struct dwcmshc_priv *priv = sdhci_pltfm_priv(pltfm_host);
-+	u32 val;
-+
-+	if (!priv)
-+		return;
-+
-+	if (priv->pull_up_en == 0) {
-+		sdhci_phy_1_8v_init_no_pull(host);
-+		return;
-+	}
-+
-+	/* set driving force */
-+	sdhci_writel(host, (1 << PHY_RSTN) | (0xc << PAD_SP) | (0xc << PAD_SN), PHY_CNFG_R);
-+
-+	/* disable delay lane */
-+	sdhci_writeb(host, 1 << UPDATE_DC, PHY_SDCLKDL_CNFG_R);
-+
-+	/* set delay lane */
-+	sdhci_writeb(host, priv->delay_line, PHY_SDCLKDL_DC_R);
-+	sdhci_writeb(host, 0xa, PHY_DLL_CNFG2_R);
-+
-+	/* enable delay lane */
-+	val = sdhci_readb(host, PHY_SDCLKDL_CNFG_R);
-+	val &= ~(1 << UPDATE_DC);
-+	sdhci_writeb(host, val, PHY_SDCLKDL_CNFG_R);
-+
-+	val = (1 << RXSEL) | (1 << WEAKPULL_EN) | (3 << TXSLEW_CTRL_P) | (3 << TXSLEW_CTRL_N);
-+	sdhci_writew(host, val, PHY_CMDPAD_CNFG_R);
-+	sdhci_writew(host, val, PHY_DATAPAD_CNFG_R);
-+	sdhci_writew(host, val, PHY_RSTNPAD_CNFG_R);
-+
-+	val = (3 << TXSLEW_CTRL_P) | (3 << TXSLEW_CTRL_N);
-+	sdhci_writew(host, val, PHY_CLKPAD_CNFG_R);
-+
-+	val = (1 << RXSEL) | (2 << WEAKPULL_EN) | (3 << TXSLEW_CTRL_P) | (3 << TXSLEW_CTRL_N);
-+	sdhci_writew(host, val, PHY_STBPAD_CNFG_R);
-+
-+	/* enable data strobe mode */
-+	sdhci_writeb(host, 3 << SLV_INPSEL, PHY_DLLDL_CNFG_R);
-+	sdhci_writeb(host, (1 << DLL_EN),  PHY_DLL_CTRL_R);
-+}
-+
-+static void th1520_phy_3_3v_init(struct sdhci_host *host)
-+{
-+	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
-+	struct dwcmshc_priv *priv = sdhci_pltfm_priv(pltfm_host);
-+	u32 val;
-+
-+	if (priv->pull_up_en == 0) {
-+		sdhci_phy_3_3v_init_no_pull(host);
-+		return;
-+	}
-+
-+	/* set driving force */
-+	sdhci_writel(host, (1 << PHY_RSTN) | (0xc << PAD_SP) | (0xc << PAD_SN), PHY_CNFG_R);
-+
-+	/* disable delay lane */
-+	sdhci_writeb(host, 1 << UPDATE_DC, PHY_SDCLKDL_CNFG_R);
-+
-+	/* set delay lane */
-+	sdhci_writeb(host, priv->delay_line, PHY_SDCLKDL_DC_R);
-+	sdhci_writeb(host, 0xa, PHY_DLL_CNFG2_R);
-+
-+	/* enable delay lane */
-+	val = sdhci_readb(host, PHY_SDCLKDL_CNFG_R);
-+	val &= ~(1 << UPDATE_DC);
-+	sdhci_writeb(host, val, PHY_SDCLKDL_CNFG_R);
-+
-+	val = (2 << RXSEL) | (1 << WEAKPULL_EN) | (3 << TXSLEW_CTRL_P) | (3 << TXSLEW_CTRL_N);
-+	sdhci_writew(host, val, PHY_CMDPAD_CNFG_R);
-+	sdhci_writew(host, val, PHY_DATAPAD_CNFG_R);
-+	sdhci_writew(host, val, PHY_RSTNPAD_CNFG_R);
-+
-+	val = (3 << TXSLEW_CTRL_P) | (3 << TXSLEW_CTRL_N);
-+	sdhci_writew(host, val, PHY_CLKPAD_CNFG_R);
-+
-+	val = (2 << RXSEL) | (2 << WEAKPULL_EN) | (3 << TXSLEW_CTRL_P) | (3 << TXSLEW_CTRL_N);
-+	sdhci_writew(host, val, PHY_STBPAD_CNFG_R);
-+}
-+
-+
-+static void th1520_sdhci_set_phy(struct sdhci_host *host)
-+{
-+	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
-+	struct dwcmshc_priv *priv = sdhci_pltfm_priv(pltfm_host);
-+	u8 emmc_ctl;
-+
-+	/* Before power on, set PHY configs */
-+	emmc_ctl = sdhci_readw(host, EMMC_CTRL_R);
-+	if (priv->non_removable) {
-+		th1520_phy_1_8v_init(host);
-+		emmc_ctl |= (1 << DWCMSHC_CARD_IS_EMMC);
-+	} else {
-+		th1520_phy_3_3v_init(host);
-+		emmc_ctl &=~(1 << DWCMSHC_CARD_IS_EMMC);
-+	}
-+	sdhci_writeb(host, emmc_ctl, EMMC_CTRL_R);
-+	sdhci_writeb(host, 0x25, PHY_DLL_CNFG1_R);
-+}
-+
- static void dwcmshc_set_uhs_signaling(struct sdhci_host *host,
- 				      unsigned int timing)
- {
- 	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
- 	struct dwcmshc_priv *priv = sdhci_pltfm_priv(pltfm_host);
-+
- 	u16 ctrl, ctrl_2;
- 
- 	ctrl_2 = sdhci_readw(host, SDHCI_HOST_CONTROL2);
-@@ -188,7 +409,22 @@ static void dwcmshc_set_uhs_signaling(struct sdhci_host *host,
- 		ctrl_2 |= DWCMSHC_CTRL_HS400;
- 	}
- 
-+	if (priv->io_fixed_1v8)
-+		ctrl_2 |= SDHCI_CTRL_VDD_180;
-+
- 	sdhci_writew(host, ctrl_2, SDHCI_HOST_CONTROL2);
-+
-+	/* TODO: add check so that this only runs on th1520  */
-+	if (timing == MMC_TIMING_MMC_HS400) {
-+		/* disable auto tuning */
-+		u32 reg = sdhci_readl(host, AT_CTRL_R);
-+		reg &= ~1;
-+		sdhci_writel(host, reg, AT_CTRL_R);
-+		priv->delay_line = DELAY_LINE_HS400;
-+		th1520_sdhci_set_phy(host);
-+	} else {
-+		sdhci_writeb(host, 0, PHY_DLLDL_CNFG_R);
-+	}
- }
- 
- static void dwcmshc_hs400_enhanced_strobe(struct mmc_host *mmc,
-@@ -337,6 +573,49 @@ static void rk35xx_sdhci_reset(struct sdhci_host *host, u8 mask)
- 	sdhci_reset(host, mask);
- }
- 
-+static int th1520_execute_tuning(struct sdhci_host *host, u32 opcode)
-+{
-+	u32 val = 0;
-+
-+	sdhci_writeb(host, 3 << INPSEL_CNFG, PHY_ATDL_CNFG_R);
-+
-+	val = sdhci_readl(host, AT_CTRL_R);
-+	val &= ~((1 << CI_SEL) | (1 << RPT_TUNE_ERR) \
-+	    | (1 << SW_TUNE_EN) |(0xf << WIN_EDGE_SEL));
-+	val |= (1 << AT_EN) | (1 << SWIN_TH_EN) | (1 << TUNE_CLK_STOP_EN)\
-+	    | (1 << PRE_CHANGE_DLY) | (3 << POST_CHANGE_DLY) | (9 << SWIN_TH_VAL);
-+
-+	sdhci_writel(host, val, AT_CTRL_R);
-+
-+	val = sdhci_readl(host, AT_CTRL_R);
-+	if(!(val & (1 << AT_EN))) {
-+		pr_warn("%s(): auto tuning is not enabled", __func__);
-+		return -1;
-+	}
-+
-+	val &= ~(1 << AT_EN);
-+	sdhci_writel(host, val, AT_CTRL_R);
-+
-+	return 0;
-+}
-+
-+static void th1520_sdhci_reset(struct sdhci_host *host, u8 mask)
-+{
-+	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
-+	struct dwcmshc_priv *priv = sdhci_pltfm_priv(pltfm_host);
-+	u16 ctrl_2;
-+
-+	sdhci_reset(host, mask);
-+
-+	if(priv->io_fixed_1v8){
-+		ctrl_2 = sdhci_readw(host, SDHCI_HOST_CONTROL2);
-+		if(! (ctrl_2 & SDHCI_CTRL_VDD_180)){
-+			ctrl_2 |= SDHCI_CTRL_VDD_180;
-+			sdhci_writew(host, ctrl_2, SDHCI_HOST_CONTROL2);
-+		}
-+	}
-+}
-+
- static const struct sdhci_ops sdhci_dwcmshc_ops = {
- 	.set_clock		= sdhci_set_clock,
- 	.set_bus_width		= sdhci_set_bus_width,
-@@ -355,6 +634,17 @@ static const struct sdhci_ops sdhci_dwcmshc_rk35xx_ops = {
- 	.adma_write_desc	= dwcmshc_adma_write_desc,
- };
- 
-+static const struct sdhci_ops sdhci_dwcmshc_th1520_ops = {
-+	.set_clock		= sdhci_set_clock,
-+	.set_bus_width		= sdhci_set_bus_width,
-+	.set_uhs_signaling	= dwcmshc_set_uhs_signaling,
-+	.get_max_clock		= dwcmshc_get_max_clock,
-+	.reset			= th1520_sdhci_reset,
-+	.adma_write_desc	= dwcmshc_adma_write_desc,
-+	.voltage_switch		= th1520_phy_1_8v_init,
-+	.platform_execute_tuning = &th1520_execute_tuning,
-+};
-+
- static const struct sdhci_pltfm_data sdhci_dwcmshc_pdata = {
- 	.ops = &sdhci_dwcmshc_ops,
- 	.quirks = SDHCI_QUIRK_CAP_CLOCK_BASE_BROKEN,
-@@ -378,6 +668,15 @@ static const struct sdhci_pltfm_data sdhci_dwcmshc_rk35xx_pdata = {
- 		   SDHCI_QUIRK2_CLOCK_DIV_ZERO_BROKEN,
- };
- 
-+static const struct sdhci_pltfm_data sdhci_dwcmshc_th1520_pdata = {
-+	.ops = &sdhci_dwcmshc_th1520_ops,
-+
-+	.quirks = SDHCI_QUIRK_CAP_CLOCK_BASE_BROKEN |
-+		  SDHCI_QUIRK_BROKEN_DMA |
-+		  SDHCI_QUIRK_BROKEN_ADMA,
-+	.quirks2 = SDHCI_QUIRK2_PRESET_VALUE_BROKEN,
-+};
-+
- static int dwcmshc_rk35xx_init(struct sdhci_host *host, struct dwcmshc_priv *dwc_priv)
- {
- 	int err;
-@@ -434,6 +733,10 @@ static void dwcmshc_rk35xx_postinit(struct sdhci_host *host, struct dwcmshc_priv
- }
- 
- static const struct of_device_id sdhci_dwcmshc_dt_ids[] = {
-+	{
-+		.compatible = "thead,th1520-dwcmshc",
-+		.data = &sdhci_dwcmshc_th1520_pdata,
-+	},
- 	{
- 		.compatible = "rockchip,rk3588-dwcmshc",
- 		.data = &sdhci_dwcmshc_rk35xx_pdata,
-@@ -541,6 +844,39 @@ static int dwcmshc_probe(struct platform_device *pdev)
- 			goto err_clk;
- 	}
- 
-+	if (pltfm_data == &sdhci_dwcmshc_th1520_pdata) {
-+
-+		priv->delay_line = DELAY_LINE_DEFAULT;
-+
-+		if (device_property_present(&pdev->dev, "non-removable"))
-+			priv->non_removable = 1;
-+		else
-+			priv->non_removable = 0;
-+
-+		if (device_property_present(&pdev->dev, "thead,pull-up"))
-+			priv->pull_up_en = 1;
-+		else
-+			priv->pull_up_en = 0;
-+
-+		if (device_property_present(&pdev->dev, "thead,io-fixed-1v8"))
-+			priv->io_fixed_1v8 = true;
-+		else
-+			priv->io_fixed_1v8 = false;
-+
-+		/*
-+		 * start_signal_voltage_switch() will try 3.3V first
-+		 * then 1.8V. Use SDHCI_SIGNALING_180 ranther than
-+		 * SDHCI_SIGNALING_330 to avoid setting voltage to 3.3V
-+		 * in sdhci_start_signal_voltage_switch().
-+		 */
-+		if(priv->io_fixed_1v8){
-+			host->flags &=~SDHCI_SIGNALING_330;
-+			host->flags |= SDHCI_SIGNALING_180;
-+		}
-+
-+		sdhci_enable_v4_mode(host);
-+	}
-+
- #ifdef CONFIG_ACPI
- 	if (pltfm_data == &sdhci_dwcmshc_bf3_pdata)
- 		sdhci_enable_v4_mode(host);
-
--- 
-2.34.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gU2F0LCBBdWcgNSwgMjAyMyBhdCAxMToxNOKAr0FNIExlb25hcmRvIEJyYXMgU29hcmVzIFBh
+c3Nvcwo8bGVvYnJhc0ByZWRoYXQuY29tPiB3cm90ZToKPgo+IEhlbGxvIEd1byBSZW4sIHRoYW5r
+cyBmb3IgdGhlIGZlZWRiYWNrIQo+Cj4gT24gRnJpLCBBdWcgNCwgMjAyMyBhdCAyOjQ14oCvUE0g
+R3VvIFJlbiA8Z3VvcmVuQGtlcm5lbC5vcmc+IHdyb3RlOgo+ID4KPiA+IE9uIEZyaSwgQXVnIDQs
+IDIwMjMgYXQgNDo0OeKAr0FNIExlb25hcmRvIEJyYXMgPGxlb2JyYXNAcmVkaGF0LmNvbT4gd3Jv
+dGU6Cj4gPiA+Cj4gPiA+IGNtcHhjaGcgZm9yIHZhcmlhYmxlcyBvZiBzaXplIDEtYnl0ZSBhbmQg
+Mi1ieXRlcyBpcyBub3QgeWV0IGF2YWlsYWJsZSBmb3IKPiA+ID4gcmlzY3YsIGV2ZW4gdGhvdWdo
+IGl0cyBwcmVzZW50IGluIG90aGVyIGFyY2hpdGVjdHVyZXMgc3VjaCBhcyBhcm02NCBhbmQKPiA+
+ID4geDg2LiBUaGlzIGNvdWxkIGxlYWQgdG8gbm90IGJlaW5nIGFibGUgdG8gaW1wbGVtZW50IHNv
+bWUgbG9ja2luZyBtZWNoYW5pc21zCj4gPiA+IG9yIHJlcXVpcmluZyBzb21lIHJld29yayB0byBt
+YWtlIGl0IHdvcmsgcHJvcGVybHkuCj4gPiA+Cj4gPiA+IEltcGxlbWVudCAxLWJ5dGUgYW5kIDIt
+Ynl0ZXMgY21weGNoZyBpbiBvcmRlciB0byBhY2hpZXZlIHBhcml0eSB3aXRoIG90aGVyCj4gPiA+
+IGFyY2hpdGVjdHVyZXMuCj4gPiA+Cj4gPiA+IFNpZ25lZC1vZmYtYnk6IExlb25hcmRvIEJyYXMg
+PGxlb2JyYXNAcmVkaGF0LmNvbT4KPiA+ID4gLS0tCj4gPiA+ICBhcmNoL3Jpc2N2L2luY2x1ZGUv
+YXNtL2NtcHhjaGcuaCB8IDM1ICsrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrCj4gPiA+
+ICAxIGZpbGUgY2hhbmdlZCwgMzUgaW5zZXJ0aW9ucygrKQo+ID4gPgo+ID4gPiBkaWZmIC0tZ2l0
+IGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9jbXB4Y2hnLmggYi9hcmNoL3Jpc2N2L2luY2x1ZGUv
+YXNtL2NtcHhjaGcuaAo+ID4gPiBpbmRleCA1YTA3NjQ2ZmFlNjUuLmRmYjQzM2FjNTQ0ZiAxMDA2
+NDQKPiA+ID4gLS0tIGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9jbXB4Y2hnLmgKPiA+ID4gKysr
+IGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9jbXB4Y2hnLmgKPiA+ID4gQEAgLTcyLDYgKzcyLDM2
+IEBACj4gPiA+ICAgKiBpbmRpY2F0ZWQgYnkgY29tcGFyaW5nIFJFVFVSTiB3aXRoIE9MRC4KPiA+
+ID4gICAqLwo+ID4gPgo+ID4gPiArI2RlZmluZSBfX2FyY2hfY21weGNoZ19tYXNrKHNjX3NmeCwg
+cHJlcGVuZCwgYXBwZW5kLCByLCBwLCBvLCBuKSAgICAgICBcCj4gPiA+ICsoeyAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+IFwKPiA+ID4gKyAgICAgICAvKiBEZXBlbmRzIG9uIDItYnl0ZSB2YXJpYWJsZXMgYmVpbmcgMi1i
+eXRlIGFsaWduZWQgKi8gICAgICAgICAgXAo+ID4gPiArICAgICAgIHVsb25nIF9fcyA9ICgodWxv
+bmcpKHApICYgMHgzKSAqIEJJVFNfUEVSX0JZVEU7ICAgICAgICAgICAgICAgICBcCj4gPiA+ICsg
+ICAgICAgdWxvbmcgX19tYXNrID0gR0VOTUFTSygoKHNpemVvZigqcCkpICogQklUU19QRVJfQllU
+RSkgLSAxLCAwKSAgIFwKPiA+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgPDwgX19zOyAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXAo+ID4gPiArICAgICAgIHVsb25n
+IF9fbmV3eCA9ICh1bG9uZykobikgPDwgX19zOyAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICBcCj4gPiA+ICsgICAgICAgdWxvbmcgX19vbGR4ID0gKHVsb25nKShvKSA8PCBfX3M7ICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgIFwKPiA+ID4gKyAgICAgICB1bG9uZyBfX3JldHg7ICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXAo+ID4gPiAr
+ICAgICAgIHJlZ2lzdGVyIHVuc2lnbmVkIGludCBfX3JjOyAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICBcCj4gPiA+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFwKPiA+ID4gKyAgICAgICBfX2Fz
+bV9fIF9fdm9sYXRpbGVfXyAoICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgXAo+ID4gPiArICAgICAgICAgICAgICAgcHJlcGVuZCAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICBcCj4gPiA+ICsgICAgICAgICAgICAgICAiMDogICAg
+IGxyLncgJTAsICUyXG4iICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFwKPiA+ID4g
+KyAgICAgICAgICAgICAgICIgICAgICAgYW5kICAlMCwgJTAsICV6NVxuIiAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgXAo+ID4gPiArICAgICAgICAgICAgICAgIiAgICAgICBibmUgICUwLCAl
+ejMsIDFmXG4iICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcCj4KPiA+IGJ1ZzoKPiA+IC0g
+ICAgICAgICAgICAgICAiICAgICAgIGFuZCAgJTAsICUwLCAlejVcbiIgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgIFwKPiA+IC0gICAgICAgICAgICAgICAiICAgICAgIGJuZSAgJTAsICV6Mywg
+MWZcbiIgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFwKPiA+ICsgICAgICAgICAgICAgICAi
+ICAgICAgIGFuZCAgJTEsICUwLCAlejVcbiIgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFwK
+PiA+ICsgICAgICAgICAgICAgICAiICAgICAgIGJuZSAgJTEsICV6MywgMWZcbiIgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgIFwKPiA+IFlvdXIgY29kZSBicmVha3MgdGhlICUwLgo+Cj4gV2hh
+dCBkbyB5b3UgbWVhbiBieSBicmVha3MgaGVyZT8KPgo+IEluIHRoZSBlbmQgb2YgdGhpcyBtYWNy
+bywgSSBpbnRlbmRlZCAgdG8gaGF2ZSBfX3JldHggPSAoKnAgJiBfX21hc2spCj4gd2hpY2ggbWVh
+bnMgdGhlIHZhbHVlIGlzIGNsZWFuIHRvIGJlIHJvdGF0ZWQgYXQgdGhlIGVuZCBvZiB0aGUgbWFj
+cm8KPiAobm8gbmVlZCB0byBhcHBseSB0aGUgbWFzayBhZ2Fpbik6IHIgPSBfX3JldCA+PiBfX3M7
+Cj4KPiBBbHNvLCBJIGFzc3VtZWQgd2UgYXJlIHN1cHBvc2VkIHRvIHJldHVybiB0aGUgc2FtZSB2
+YXJpYWJsZSB0eXBlCj4gYXMgdGhlIHBvaW50ZXIsIHNvIHRoaXMgaXMgdmFsaWQ6Cj4gdTggYSwg
+KmIsIGM7Cj4gYSA9IHhjaGcoYiwgYyk7Cj4KPiBJcyB0aGlzIGNvcnJlY3Q/CkkgbWlzc2VkIHlv
+dXIgcmVtb3ZpbmcgIl9fcmV0ICYgbWFzayIgYXQgdGhlIGVuZC4gU28gdGhpcyBtYXkgbm90IHRo
+ZSBwcm9ibGVtLgoKWW91ciBwYXRjaCBjYW4ndCBib290LiBBZnRlciBjaGV3aW5nIHlvdXIgY29k
+ZSBmb3Igc2V2ZXJhbCBob3VycywgSQpmb3VuZCBhIHByb2JsZW06CmRpZmYgLS1naXQgYS9hcmNo
+L3Jpc2N2L2luY2x1ZGUvYXNtL2NtcHhjaGcuaCBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vY21w
+eGNoZy5oCmluZGV4IDk0M2YwOTQzNzVjNy4uNjdiY2NlNjNiMjY3IDEwMDY0NAotLS0gYS9hcmNo
+L3Jpc2N2L2luY2x1ZGUvYXNtL2NtcHhjaGcuaAorKysgYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNt
+L2NtcHhjaGcuaApAQCAtMTQsNiArMTQsNyBAQAogI2RlZmluZSBfX2FyY2hfeGNoZ19tYXNrKHBy
+ZXBlbmQsIGFwcGVuZCwgciwgcCwgbikgICAgICAgICAgICAgICAgICAgICBcCiAoeyAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgIFwKICAgICAgICAvKiBEZXBlbmRzIG9uIDItYnl0ZSB2YXJpYWJsZXMgYmVpbmcgMi1ieXRl
+IGFsaWduZWQgKi8gICAgICAgICAgXAorICAgICAgIHZvbGF0aWxlIHVsb25nICpfX3AgPSAodWxv
+bmcgKikoKHVsb25nKShwKSAmIH4weDMpOyAgICAgICAgICAgICBcCiAgICAgICAgdWxvbmcgX19z
+ID0gKCh1bG9uZykocCkgJiAweDMpICogQklUU19QRVJfQllURTsgICAgICAgICAgICAgICAgIFwK
+ICAgICAgICB1bG9uZyBfX21hc2sgPSBHRU5NQVNLKCgoc2l6ZW9mKCpwKSkgKiBCSVRTX1BFUl9C
+WVRFKSAtIDEsIDApICAgXAogICAgICAgICAgICAgICAgICAgICAgICA8PCBfX3M7ICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcCkBAIC0yOSw3ICszMCw3IEBACiAgICAg
+ICAgICAgICAgICIgICAgICAgIHNjLncgJTEsICUxLCAlMlxuIiAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgIFwKICAgICAgICAgICAgICAgIiAgICAgICAgYm5leiAlMSwgMGJcbiIgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgXAogICAgICAgICAgICAgICBhcHBlbmQgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcCi0gICAgICAgICAg
+ICAgIDogIj0mciIgKF9fcmV0eCksICI9JnIiIChfX3JjKSwgIitBIiAoKihwKSkgICAgICAgICAg
+ICAgIFwKKyAgICAgICAgICAgICAgOiAiPSZyIiAoX19yZXR4KSwgIj0mciIgKF9fcmMpLCAiK0Ei
+ICgqKF9fcCkpICAgICAgICAgICAgXAogICAgICAgICAgICAgICA6ICJySiIgKF9fbmV3eCksICJy
+SiIgKH5fX21hc2spICAgICAgICAgICAgICAgICAgICAgICAgICBcCiAgICAgICAgICAgICAgIDog
+Im1lbW9yeSIpOyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFwK
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgXApAQCAtMTA2LDYgKzEwNyw3IEBACiAjZGVmaW5lIF9fYXJjaF9jbXB4
+Y2hnX21hc2soc2Nfc2Z4LCBwcmVwZW5kLCBhcHBlbmQsIHIsIHAsIG8sIG4pICAgICAgIFwKICh7
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgXAogICAgICAgIC8qIERlcGVuZHMgb24gMi1ieXRlIHZhcmlhYmxlcyBiZWlu
+ZyAyLWJ5dGUgYWxpZ25lZCAqLyAgICAgICAgICBcCisgICAgICAgdm9sYXRpbGUgdWxvbmcgKl9f
+cCA9ICh1bG9uZyAqKSgodWxvbmcpKHApICYgfjB4Myk7ICAgICAgICAgICAgIFwKICAgICAgICB1
+bG9uZyBfX3MgPSAoKHVsb25nKShwKSAmIDB4MykgKiBCSVRTX1BFUl9CWVRFOyAgICAgICAgICAg
+ICAgICAgXAogICAgICAgIHVsb25nIF9fbWFzayA9IEdFTk1BU0soKChzaXplb2YoKnApKSAqIEJJ
+VFNfUEVSX0JZVEUpIC0gMSwgMCkgICBcCiAgICAgICAgICAgICAgICAgICAgICAgIDw8IF9fczsg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFwKQEAgLTEyNSw3ICsxMjcs
+NyBAQAogICAgICAgICAgICAgICAgIiAgICAgICBibmV6ICUxLCAwYlxuIiAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICBcCiAgICAgICAgICAgICAgICBhcHBlbmQgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFwKICAgICAgICAgICAgICAgICIx
+OlxuIiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXAot
+ICAgICAgICAgICAgICAgOiAiPSZyIiAoX19yZXR4KSwgIj0mciIgKF9fcmMpLCAiK0EiICgqKHAp
+KSAgICAgICAgICAgICBcCisgICAgICAgICAgICAgICA6ICI9JnIiIChfX3JldHgpLCAiPSZyIiAo
+X19yYyksICIrQSIgKCooX19wKSkgICAgICAgICAgIFwKICAgICAgICAgICAgICAgIDogInJKIiAo
+KGxvbmcpX19vbGR4KSwgInJKIiAoX19uZXd4KSwgICAgICAgICAgICAgICAgICAgXAogICAgICAg
+ICAgICAgICAgICAickoiIChfX21hc2spLCAickoiICh+X19tYXNrKSAgICAgICAgICAgICAgICAg
+ICAgICAgICBcCiAgICAgICAgICAgICAgICA6ICJtZW1vcnkiKTsgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgIFwKCkJ1dCB0aGUgbGt2bS1zdGF0aWMgc3RpbGwgY2Fu
+J3QgYm9vdCB3aXRoIHBhcmF2aXJ0X3NwaW5sb2NrIC4uLi4gQXJlCnRoZXJlIGFueSBhdG9taWMg
+dGVzdHMgaW4gdGhlIExpbnV4PwoKSSBmb3VuZCB5b3UgdXNlIHNvbWUgInJlZ2lzdGVyIGludCB2
+YXJpYWJsZXMiLiBXb3VsZCBpdCBjYXVzZSB0aGUgcHJvYmxlbT8KCllvdSBjYW4gcmVmZXJlbmNl
+IHRoaXMgZmlsZSwgYW5kIGl0IGhhcyBwYXNzZWQgdGhlIGxvY2sgdG9ydHVyZSB0ZXN0OgpodHRw
+czovL2dpdGh1Yi5jb20vZ3VvcmVuODMvbGludXgvYmxvYi9zZzIwNDItbWFzdGVyLXFzcGlubG9j
+ay02NGlscDMyX3Y0L2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vY21weGNoZy5oCgpJIGFsc28gbWVy
+Z2VkIHlvdXIgcGF0Y2hlcyB3aXRoIHRoZSBxc3BpbmxvY2sgc2VyaWVzOiAoVXNlIHRoZSBhYm92
+ZQpjbXB4Y2hnLmggdGhlIGxrdm0gd291bGQgcnVuIG5vcm1hbGx5LikKaHR0cHM6Ly9naXRodWIu
+Y29tL2d1b3JlbjgzL2xpbnV4L3RyZWUvcXNwaW5sb2NrX3YxMQoKCgo+Cj4gPiA+ICsgICAgICAg
+ICAgICAgICBhcHBlbmQgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgIFwKPiA+ID4gKyAgICAgICAgICAgICAgICIxOlxuIiAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXAo+ID4gPiArICAgICAgICAgICAgICAgOiAi
+PSZyIiAoX19yZXR4KSwgIj0mciIgKF9fcmMpLCAiK0EiICgqKHApKSAgICAgICAgICAgICBcCj4g
+PiA+ICsgICAgICAgICAgICAgICA6ICJySiIgKChsb25nKV9fb2xkeCksICJySiIgKF9fbmV3eCks
+ICAgICAgICAgICAgICAgICAgIFwKPiA+ID4gKyAgICAgICAgICAgICAgICAgInJKIiAoX19tYXNr
+KSwgInJKIiAofl9fbWFzaykgICAgICAgICAgICAgICAgICAgICAgICAgXAo+ID4gPiArICAgICAg
+ICAgICAgICAgOiAibWVtb3J5Iik7ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICBcCj4gPiA+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFwKPiA+ID4gKyAgICAgICByID0gKF9fdHlw
+ZW9mX18oKihwKSkpKF9fcmV0eCA+PiBfX3MpOyAgICAgICAgICAgICAgICAgICAgICAgICAgXAo+
+ID4gPiArfSkKPiA+ID4gKwo+ID4gPgo+ID4gPiAgI2RlZmluZSBfX2FyY2hfY21weGNoZyhscl9z
+ZngsIHNjX3NmeCwgcHJlcGVuZCwgYXBwZW5kLCByLCBwLCBjbywgbywgbikgICAgICAgIFwKPiA+
+ID4gICh7ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgXAo+ID4gPiBAQCAtOTgsNiArMTI4LDExIEBACj4gPiA+ICAgICAg
+ICAgX190eXBlb2ZfXygqKHB0cikpIF9fcmV0OyAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgIFwKPiA+ID4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXAo+ID4gPiAgICAgICAgIHN3aXRjaCAo
+c2l6ZW9mKCpfX3B0cikpIHsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBc
+Cj4gPiA+ICsgICAgICAgY2FzZSAxOiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgIFwKPiA+ID4gKyAgICAgICBjYXNlIDI6ICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXAo+ID4gPiArICAg
+ICAgICAgICAgICAgX19hcmNoX2NtcHhjaGdfbWFzayhzY19zZngsIHByZXBlbmQsIGFwcGVuZCwg
+ICAgICAgICAgICBcCj4gPiA+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICBfX3JldCwgX19wdHIsIF9fb2xkLCBfX25ldyk7ICAgIFwKPiA+ID4gKyAgICAgICAgICAgICAg
+IGJyZWFrOyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+XAo+ID4gPiAgICAgICAgIGNhc2UgNDogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICBcCj4gPiA+ICAgICAgICAgICAgICAgICBfX2FyY2hfY21w
+eGNoZygiLnciLCAiLnciIHNjX3NmeCwgcHJlcGVuZCwgYXBwZW5kLCAgICAgIFwKPiA+ID4gICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICBfX3JldCwgX19wdHIsIChsb25nKSwgX19vbGQs
+IF9fbmV3KTsgICAgXAo+ID4gPiAtLQo+ID4gPiAyLjQxLjAKPiA+ID4KPiA+Cj4gPgo+ID4gLS0K
+PiA+IEJlc3QgUmVnYXJkcwo+ID4gIEd1byBSZW4KPiA+Cj4KCgotLQpCZXN0IFJlZ2FyZHMKIEd1
+byBSZW4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxp
+bnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0
+dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
