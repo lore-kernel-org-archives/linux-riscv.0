@@ -4,69 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C4C6C001DE
-	for <linux-riscv@archiver.kernel.org>; Sun,  6 Aug 2023 06:36:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28189C00528
+	for <linux-riscv@archiver.kernel.org>; Sun,  6 Aug 2023 09:04:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fRuO7cz1ysZDkfZwQOg/xpCNtpjVaoNe/WPPQ811l2U=; b=gfA8/d2u3EG1oG
-	rPSdD+UHtaiEdEPFBAqt3v34dDGhw/jdGXR9IvDVb8KtTE4hxjYwo8iMoOIWjlHWToDqwNIvGRsez
-	1DWmbQcuQShoYsH9zjccqmA5sds9FUTyLwE0CNDWa7Dy1Xw674P9VAMsoQbB9P/K3vHyIHyi8fVCD
-	sAjlNHBHSNFpMl4iqPKp7lXPbkMzxALIP4tbvp4cQYvVY+Ibas5kPUWJ42f3sEdvoQ9PASjRH/E5f
-	ghofuU+JR2gwlSZhP32DmXSyWh0a0d7+klAY/plbAhq5EeTE393U6ZzXiTD84SB+Ux5oPOmwG76aD
-	OAyebFa3CQxqVyMPTOfQ==;
+	List-Owner; bh=KSL6yBdzmxv4ERHRcExe8fqJ7/AGEbiF0Uf/5iMTHi4=; b=GUhRtcf4iYPaQr
+	hwiBite4wubvJ1riHw2HvniqpEbzA7arR3Ql1LHJVXTyD1+t4cQPC+nvAMoBJ4JhIF0CGmR/lPvZD
+	V0DPIQe4kIXth+6A/odt+TOQSDE1X6+m759T4z+XI0LvFkyLSCX8h2ZW5pL7KmC3/xL8SFPpIUBil
+	T4A1/GW7TnA5AVeXoxYLCgFvxJff0r9JPtloGz63o3T9FA02RngC3M2TtEd4lkXmkH5xwZrPnYtNe
+	IJSnP5vPmyWhRHOOxysQa4w/+JEJtOYmMMBK053KG+Anu2gTE8tUKjgSqDbOg3n4DzpwiMVvswfIu
+	wZLDxbAaX6OKvX/t2vbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qSXMi-00F0mU-0T;
-	Sun, 06 Aug 2023 06:35:48 +0000
-Received: from out-127.mta1.migadu.com ([95.215.58.127])
+	id 1qSZfy-00F7r8-1u;
+	Sun, 06 Aug 2023 09:03:50 +0000
+Received: from relay2-d.mail.gandi.net ([217.70.183.194])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qSXMf-00F0lq-0k
+	id 1qSZfv-00F7q2-1N
 	for linux-riscv@lists.infradead.org;
-	Sun, 06 Aug 2023 06:35:47 +0000
-Date: Sun, 6 Aug 2023 16:33:45 +1000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jookia.org; s=key1;
-	t=1691303741;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=5QcmFk87OSOnLQz2aC/rzCVz9SI5NqtxQgcc/xuSFnA=;
-	b=LO2GkUBlLmae2f6NePMseHTBEkOx1tEX3Yh/67CHOPK6ihrmJRjULSCAwvj14677WkG0qT
-	7COuiuLJW7wr4nYYQa+EzPAzxWSUxZ7vga+KLjBqeqkm0pttUvzjLNMUgzghEmohDlhhei
-	YdJxam8rOiLsBK8F5Rt7wAPHwc3zQYeicMhrWYj+/04OMt+2YzWvs+v8vP1900mSbuNMUa
-	F4mt7aFnA/RuP2aAi8FI26v7Havt2VjuUy73zzQrgyY6JWvsWCAT5TX9IZjc7VLorDKy3f
-	/YgmTjXbgrgtHZy87OmgUAOxHnEFQZ965CsSdbYcurOl89yc4rtzvg8NPK0VIA==
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: John Watts <contact@jookia.org>
-To: Jernej =?utf-8?Q?=C5=A0krabec?= <jernej.skrabec@gmail.com>
-Cc: Maksim Kiselev <bigunclemax@gmail.com>, aou@eecs.berkeley.edu,
-	conor+dt@kernel.org, davem@davemloft.net,
-	devicetree@vger.kernel.org, edumazet@google.com,
-	krzysztof.kozlowski+dt@linaro.org, kuba@kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-can@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-sunxi@lists.linux.dev, mkl@pengutronix.de,
-	netdev@vger.kernel.org, pabeni@redhat.com, palmer@dabbelt.com,
-	paul.walmsley@sifive.com, robh+dt@kernel.org, samuel@sholland.org,
-	wens@csie.org, wg@grandegger.com
-Subject: Re: [PATCH v2 2/4] riscv: dts: allwinner: d1: Add CAN controller
- nodes
-Message-ID: <ZM8-yfRVscYjxp2p@titan>
-References: <20230721221552.1973203-4-contact@jookia.org>
- <20230805164052.669184-1-bigunclemax@gmail.com>
- <ZM5-Ke-59o0R5AtY@titan>
- <2690764.mvXUDI8C0e@jernej-laptop>
+	Sun, 06 Aug 2023 09:03:49 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 011BF40002;
+	Sun,  6 Aug 2023 09:03:37 +0000 (UTC)
+Message-ID: <c1fca971-6993-09cc-0cf6-a60bd5fd684e@ghiti.fr>
+Date: Sun, 6 Aug 2023 11:03:37 +0200
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <2690764.mvXUDI8C0e@jernej-laptop>
-X-Migadu-Flow: FLOW_OUT
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.13.0
+Subject: Re: [RFT 1/2] RISC-V: handle missing "no-map" properties for
+ OpenSBI's PMP protected regions
+Content-Language: en-US
+To: Conor Dooley <conor.dooley@microchip.com>, palmer@dabbelt.com
+Cc: conor@kernel.org, Paul Walmsley <paul.walmsley@sifive.com>,
+ Atish Patra <atishp@rivosinc.com>, Anup Patel <apatel@ventanamicro.com>,
+ Alexandre Ghiti <alexghiti@rivosinc.com>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?=
+ <bjorn@rivosinc.com>, Song Shuai <suagrfillet@gmail.com>,
+ JeeHeng Sia <jeeheng.sia@starfivetech.com>,
+ Petr Tesarik <petrtesarik@huaweicloud.com>, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, stable@vger.kernel.org
+References: <20230802-purse-hydrant-6f44f77364b0@wendy>
+ <20230802-detention-second-82ab2b53e07a@wendy>
+From: Alexandre Ghiti <alex@ghiti.fr>
+In-Reply-To: <20230802-detention-second-82ab2b53e07a@wendy>
+X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230805_233546_012893_D5246313 
-X-CRM114-Status: GOOD (  14.75  )
+X-CRM114-CacheID: sfid-20230806_020347_751368_A0055B00 
+X-CRM114-Status: GOOD (  28.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,26 +64,176 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gU2F0LCBBdWcgMDUsIDIwMjMgYXQgMDc6NDk6NTFQTSArMDIwMCwgSmVybmVqIMWga3JhYmVj
-IHdyb3RlOgo+IERuZSBzb2JvdGEsIDA1LiBhdmd1c3QgMjAyMyBvYiAxODo1MTo1MyBDRVNUIGpl
-IEpvaG4gV2F0dHMgbmFwaXNhbChhKToKPiA+IE9uIFNhdCwgQXVnIDA1LCAyMDIzIGF0IDA3OjQw
-OjUyUE0gKzAzMDAsIE1ha3NpbSBLaXNlbGV2IHdyb3RlOgo+ID4gPiBIaSBKb2huLCBKZXJuZWoK
-PiA+ID4gU2hvdWxkIHdlIGFsc28ga2VlcCBhIHBpbmN0cmwgbm9kZXMgaXRzZWxmIGluIGFscGhh
-YmV0aWNhbCBvcmRlcj8KPiA+ID4gSSBtZWFuIHBsYWNpbmcgYSBDQU4gbm9kZXMgYmVmb3JlIGBj
-bGtfcGcxMV9waW5gIG5vZGU/Cj4gPiA+IExvb2tzIGxpa2UgdGhlIG90aGVyIG5vZGVzIHNvcnRl
-ZCBpbiB0aGlzIHdheS4uLgo+ID4gCj4gPiBHb29kIGNhdGNoLiBOb3cgdGhhdCB5b3UgbWVudGlv
-biBpdCwgdGhlIGRldmljZSB0cmVlIG5vZGVzIGFyZSBzb3J0ZWQKPiA+IGJ5IG1lbW9yeSBvcmRl
-ciB0b28hIFRoZXNlIHNob3VsZCBiZSBhZnRlciBpMmMzLgo+ID4gCj4gPiBJdCBsb29rcyBsaWtl
-IEkgbWlnaHQgbmVlZCB0byBkbyBhIHBhdGNoIHRvIHJlLW9yZGVyIHRob3NlIHRvby4KPiAKPiBJ
-dCB3b3VsZCBiZSBiZXR0ZXIgaWYgRFQgcGF0Y2hlcyBhcmUgZHJvcHBlZCBmcm9tIG5ldGRldiB0
-cmVlIGFuZCB0aGVuIHBvc3QgCj4gbmV3IHZlcnNpb25zLgo+IAo+IEJlc3QgcmVnYXJkcywKPiBK
-ZXJuZWoKCkFncmVlZC4gSXMgdGhlcmUgYSB3YXkgdG8gcmVxdWVzdCB0aGF0PyBPciB3aWxsIHRo
-ZSBtYWludGFpbmVyIGp1c3QgcmVhZCB0aGlzPwoKSm9obi4KCl9fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51
-eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21h
-aWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+Hi Conor,
+
+On 02/08/2023 13:12, Conor Dooley wrote:
+> Add an erratum for versions [v0.8 to v1.3) of OpenSBI which fail to add
+> the "no-map" property to the reserved memory nodes for the regions it
+> has protected using PMPs.
+>
+> Our existing fix sweeping hibernation under the carpet by marking it
+> NONPORTABLE is insufficient as there are other ways to generate
+> accesses to these reserved memory regions, as Petr discovered [1]
+> while testing crash kernels & kdump.
+>
+> Intercede during the boot process when the afflicted versions of OpenSBI
+> are present & set the "no-map" property in all "mmode_resv" nodes before
+> the kernel does its reserved memory region initialisation.
+>
+> Reported-by: Song Shuai <suagrfillet@gmail.com>
+> Link: https://lore.kernel.org/all/CAAYs2=gQvkhTeioMmqRDVGjdtNF_vhB+vm_1dHJxPNi75YDQ_Q@mail.gmail.com/
+> Reported-by: JeeHeng Sia <jeeheng.sia@starfivetech.com>
+> Link: https://groups.google.com/a/groups.riscv.org/g/sw-dev/c/ITXwaKfA6z8
+> Reported-by: Petr Tesarik <petrtesarik@huaweicloud.com>
+> Closes: https://lore.kernel.org/linux-riscv/76ff0f51-d6c1-580d-f943-061e93073306@huaweicloud.com/ [1]
+> CC: stable@vger.kernel.org
+> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+> ---
+>   arch/riscv/include/asm/sbi.h |  5 +++++
+>   arch/riscv/kernel/sbi.c      | 42 +++++++++++++++++++++++++++++++++++-
+>   arch/riscv/mm/init.c         |  3 +++
+>   3 files changed, 49 insertions(+), 1 deletion(-)
+>
+> diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
+> index 5b4a1bf5f439..5360f3476278 100644
+> --- a/arch/riscv/include/asm/sbi.h
+> +++ b/arch/riscv/include/asm/sbi.h
+> @@ -252,6 +252,9 @@ enum sbi_pmu_ctr_type {
+>   #define SBI_ERR_ALREADY_STARTED -7
+>   #define SBI_ERR_ALREADY_STOPPED -8
+>   
+> +/* SBI implementation IDs */
+> +#define SBI_IMP_OPENSBI	1
+> +
+>   extern unsigned long sbi_spec_version;
+>   struct sbiret {
+>   	long error;
+> @@ -259,6 +262,8 @@ struct sbiret {
+>   };
+>   
+>   void sbi_init(void);
+> +void sbi_apply_reserved_mem_erratum(void *dtb_va);
+> +
+>   struct sbiret sbi_ecall(int ext, int fid, unsigned long arg0,
+>   			unsigned long arg1, unsigned long arg2,
+>   			unsigned long arg3, unsigned long arg4,
+> diff --git a/arch/riscv/kernel/sbi.c b/arch/riscv/kernel/sbi.c
+> index c672c8ba9a2a..aeb27263fa53 100644
+> --- a/arch/riscv/kernel/sbi.c
+> +++ b/arch/riscv/kernel/sbi.c
+> @@ -5,8 +5,10 @@
+>    * Copyright (c) 2020 Western Digital Corporation or its affiliates.
+>    */
+>   
+> +#include <linux/acpi.h>
+>   #include <linux/bits.h>
+>   #include <linux/init.h>
+> +#include <linux/libfdt.h>
+>   #include <linux/pm.h>
+>   #include <linux/reboot.h>
+>   #include <asm/sbi.h>
+> @@ -583,6 +585,40 @@ long sbi_get_mimpid(void)
+>   }
+>   EXPORT_SYMBOL_GPL(sbi_get_mimpid);
+>   
+> +static long sbi_firmware_id;
+> +static long sbi_firmware_version;
+> +
+> +/*
+> + * For devicetrees patched by OpenSBI a "mmode_resv" node is added to cover
+> + * the region OpenSBI has protected by means of a PMP. Some versions of OpenSBI,
+> + * [v0.8 to v1.3), omitted the "no-map" property, but this trips up hibernation
+> + * among other things.
+> + */
+> +void __init sbi_apply_reserved_mem_erratum(void *dtb_pa)
+> +{
+> +	int child, reserved_mem;
+> +
+> +	if (sbi_firmware_id != SBI_IMP_OPENSBI)
+> +		return;
+> +
+> +	if (!acpi_disabled)
+> +		return;
+> +
+> +	if (sbi_firmware_version >= 0x10003 || sbi_firmware_version < 0x8)
+> +		return;
+> +
+> +	reserved_mem = fdt_path_offset((void *)dtb_pa, "/reserved-memory");
+> +	if (reserved_mem < 0)
+> +		return;
+> +
+> +	fdt_for_each_subnode(child, (void *)dtb_pa, reserved_mem) {
+> +		const char *name = fdt_get_name((void *)dtb_pa, child, NULL);
+> +
+> +		if (!strncmp(name, "mmode_resv", 10))
+
+
+I would check that name != NULL before strncmp.
+
+
+> +			fdt_setprop((void *)dtb_pa, child, "no-map", NULL, 0);
+> +	}
+> +};
+> +
+>   void __init sbi_init(void)
+>   {
+>   	int ret;
+> @@ -596,8 +632,12 @@ void __init sbi_init(void)
+>   		sbi_major_version(), sbi_minor_version());
+>   
+>   	if (!sbi_spec_is_0_1()) {
+> +		sbi_firmware_id = sbi_get_firmware_id();
+> +		sbi_firmware_version = sbi_get_firmware_version();
+> +
+>   		pr_info("SBI implementation ID=0x%lx Version=0x%lx\n",
+> -			sbi_get_firmware_id(), sbi_get_firmware_version());
+> +			sbi_firmware_id, sbi_firmware_version);
+> +
+>   		if (sbi_probe_extension(SBI_EXT_TIME)) {
+>   			__sbi_set_timer = __sbi_set_timer_v02;
+>   			pr_info("SBI TIME extension detected\n");
+> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+> index 70fb31960b63..cb16bfdeacdb 100644
+> --- a/arch/riscv/mm/init.c
+> +++ b/arch/riscv/mm/init.c
+> @@ -29,6 +29,7 @@
+>   #include <asm/tlbflush.h>
+>   #include <asm/sections.h>
+>   #include <asm/soc.h>
+> +#include <asm/sbi.h>
+>   #include <asm/io.h>
+>   #include <asm/ptdump.h>
+>   #include <asm/numa.h>
+> @@ -253,6 +254,8 @@ static void __init setup_bootmem(void)
+>   	 * in the device tree, otherwise the allocation could end up in a
+>   	 * reserved region.
+>   	 */
+> +
+> +	sbi_apply_reserved_mem_erratum(dtb_early_va);
+>   	early_init_fdt_scan_reserved_mem();
+>   
+>   	/*
+
+
+Otherwise the patch looks good to me:
+
+You can add:
+
+Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+
+I just have one question though (that we discussed privately already): 
+should we fix openSBI in the kernel? If yes, what makes a bug worth 
+being fixed in the kernel?
+
+Thanks,
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
