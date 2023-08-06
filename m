@@ -4,55 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28189C00528
-	for <linux-riscv@archiver.kernel.org>; Sun,  6 Aug 2023 09:04:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF899C00528
+	for <linux-riscv@archiver.kernel.org>; Sun,  6 Aug 2023 09:39:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KSL6yBdzmxv4ERHRcExe8fqJ7/AGEbiF0Uf/5iMTHi4=; b=GUhRtcf4iYPaQr
-	hwiBite4wubvJ1riHw2HvniqpEbzA7arR3Ql1LHJVXTyD1+t4cQPC+nvAMoBJ4JhIF0CGmR/lPvZD
-	V0DPIQe4kIXth+6A/odt+TOQSDE1X6+m759T4z+XI0LvFkyLSCX8h2ZW5pL7KmC3/xL8SFPpIUBil
-	T4A1/GW7TnA5AVeXoxYLCgFvxJff0r9JPtloGz63o3T9FA02RngC3M2TtEd4lkXmkH5xwZrPnYtNe
-	IJSnP5vPmyWhRHOOxysQa4w/+JEJtOYmMMBK053KG+Anu2gTE8tUKjgSqDbOg3n4DzpwiMVvswfIu
-	wZLDxbAaX6OKvX/t2vbQ==;
+	List-Owner; bh=Liw4iKHCRx2uTJ9Ru/L4SsQrgmzX1W07VG3G/31EeVY=; b=Q0WckHO3d5gmaK
+	DGs9/ROrZIPFhTcent/m7KpqjjHdmW4XCc5FB5e6hSVzYpudBr9pt/LVXT7JjdzA5jL0rCy6aSUiH
+	bR+q2pER0bOTfzB2yghNkkCUiJy6b7k6VXOuOpX72Q2+kl7X5daZltiPTezSZikRF+VnvIqgOI02e
+	d74XFcf3WSzwRIl1OvjxOOWloo4OiTNSnFWiurp1GqLzux4c6wwJGTUBXju+/XH/i29J58NDffrhZ
+	NAt+lCXB7zZCrSP75j/lzqPUXXslbBA81Tm48CnHGXMNWBWpzzRJPZ5icdRw8ebj1ChZJ1HYp/Kqq
+	tAueHW/s8Z7ZJunfnYMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qSZfy-00F7r8-1u;
-	Sun, 06 Aug 2023 09:03:50 +0000
-Received: from relay2-d.mail.gandi.net ([217.70.183.194])
+	id 1qSaE2-00F8zs-1v;
+	Sun, 06 Aug 2023 09:39:02 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qSZfv-00F7q2-1N
+	id 1qSaE0-00F8zX-0d
 	for linux-riscv@lists.infradead.org;
-	Sun, 06 Aug 2023 09:03:49 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 011BF40002;
-	Sun,  6 Aug 2023 09:03:37 +0000 (UTC)
-Message-ID: <c1fca971-6993-09cc-0cf6-a60bd5fd684e@ghiti.fr>
-Date: Sun, 6 Aug 2023 11:03:37 +0200
+	Sun, 06 Aug 2023 09:39:02 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 89C7A61012
+	for <linux-riscv@lists.infradead.org>; Sun,  6 Aug 2023 09:38:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EEAB7C433C9
+	for <linux-riscv@lists.infradead.org>; Sun,  6 Aug 2023 09:38:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1691314739;
+	bh=mbtkeapvpDWstkDVi3o2PUu8Y0FTJpcS0ZZq1b7ahk8=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=qFrFYZTNlSJWUBn23uqeUOFw9tiKbiczpoChHfOA/oNGNuuRBcCOt2ker6Y8F7Qrg
+	 HGZhgS7fzpdW0UK8yIJSaKtioPOtBlGg6FAiZasnMXjV2l5WAM/QxWQcKVvdxUePMs
+	 J4cYhCqKXaEnkOrXZrCwfIDdyhcTBUG4EMYC0yeoSu5Vly3UIIknV8sZFr4jEfVcJ4
+	 Kl3Vf+fBxPfvCtHCyusNSYLXXDC1V5gY7qGYn0Jlnkc5kgFgxcd3kDCE+PQ9aPYBrB
+	 fFh997HGStKN7PcO0wBPPNllWpYvbdS9OHeXlIllmul8x8Qtb82euydqdAjWCNyV8u
+	 yjrHtmCCZhkJw==
+Received: by mail-lj1-f181.google.com with SMTP id 38308e7fff4ca-2b9b5ee9c5aso55335531fa.1
+        for <linux-riscv@lists.infradead.org>; Sun, 06 Aug 2023 02:38:58 -0700 (PDT)
+X-Gm-Message-State: AOJu0Yy8MaSPxzmfqnaOVMIuPaXIq73fuo2OhwcCJ35tgskZb3X3Uq2W
+	cCLhr/UiFa2vCFkyJscKcyzMOZk1wF+mHqPLLeM=
+X-Google-Smtp-Source: AGHT+IEG4tGUdT6tMKUifQt6qnCl1AVJpHTHuWE1cO6PThE3+66SNDorgT/av0ZYoInayB2VIDYQsys6SpsUzqg8au4=
+X-Received: by 2002:a19:7b02:0:b0:4fe:19ef:879e with SMTP id
+ w2-20020a197b02000000b004fe19ef879emr3367165lfc.28.1691314736862; Sun, 06 Aug
+ 2023 02:38:56 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.13.0
-Subject: Re: [RFT 1/2] RISC-V: handle missing "no-map" properties for
- OpenSBI's PMP protected regions
-Content-Language: en-US
-To: Conor Dooley <conor.dooley@microchip.com>, palmer@dabbelt.com
-Cc: conor@kernel.org, Paul Walmsley <paul.walmsley@sifive.com>,
- Atish Patra <atishp@rivosinc.com>, Anup Patel <apatel@ventanamicro.com>,
- Alexandre Ghiti <alexghiti@rivosinc.com>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?=
- <bjorn@rivosinc.com>, Song Shuai <suagrfillet@gmail.com>,
- JeeHeng Sia <jeeheng.sia@starfivetech.com>,
- Petr Tesarik <petrtesarik@huaweicloud.com>, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, stable@vger.kernel.org
-References: <20230802-purse-hydrant-6f44f77364b0@wendy>
- <20230802-detention-second-82ab2b53e07a@wendy>
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <20230802-detention-second-82ab2b53e07a@wendy>
-X-GND-Sasl: alex@ghiti.fr
+References: <20230806024715.3061589-1-xiao.w.wang@intel.com>
+In-Reply-To: <20230806024715.3061589-1-xiao.w.wang@intel.com>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Sun, 6 Aug 2023 11:38:45 +0200
+X-Gmail-Original-Message-ID: <CAMj1kXHicVpT7PDSB=BgYEuhBxgufHqd9X8ZCg19k0_U+rjvEg@mail.gmail.com>
+Message-ID: <CAMj1kXHicVpT7PDSB=BgYEuhBxgufHqd9X8ZCg19k0_U+rjvEg@mail.gmail.com>
+Subject: Re: [PATCH] RISC-V: Optimize bitops with Zbb extension
+To: Xiao Wang <xiao.w.wang@intel.com>
+Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
+	anup@brainfault.org, haicheng.li@intel.com, linux-riscv@lists.infradead.org, 
+	linux-efi@vger.kernel.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230806_020347_751368_A0055B00 
-X-CRM114-Status: GOOD (  28.10  )
+X-CRM114-CacheID: sfid-20230806_023900_596098_8F6F88DC 
+X-CRM114-Status: GOOD (  29.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,174 +79,337 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Conor,
+On Sun, 6 Aug 2023 at 04:39, Xiao Wang <xiao.w.wang@intel.com> wrote:
+>
+> This patch leverages the alternative mechanism to dynamically optimize
+> bitops (including __ffs, __fls, ffs, fls) with Zbb instructions. When
+> Zbb ext is not supported by the runtime CPU, legacy implementation is
+> used. If Zbb is supported, then the optimized variants will be selected
+> via alternative patching.
+>
+> The legacy bitops support is taken from the generic C implementation as
+> fallback.
+>
+> If the parameter is a build-time constant, we leverage compiler builtin to
+> calculate the result directly, this approach is inspired by x86 bitops
+> implementation.
+>
+> EFI stub runs before the kernel, so alternative mechanism should not be
+> used there, this patch introduces a macro EFI_NO_ALTERNATIVE for this
+> purpose.
+>
 
-On 02/08/2023 13:12, Conor Dooley wrote:
-> Add an erratum for versions [v0.8 to v1.3) of OpenSBI which fail to add
-> the "no-map" property to the reserved memory nodes for the regions it
-> has protected using PMPs.
->
-> Our existing fix sweeping hibernation under the carpet by marking it
-> NONPORTABLE is insufficient as there are other ways to generate
-> accesses to these reserved memory regions, as Petr discovered [1]
-> while testing crash kernels & kdump.
->
-> Intercede during the boot process when the afflicted versions of OpenSBI
-> are present & set the "no-map" property in all "mmode_resv" nodes before
-> the kernel does its reserved memory region initialisation.
->
-> Reported-by: Song Shuai <suagrfillet@gmail.com>
-> Link: https://lore.kernel.org/all/CAAYs2=gQvkhTeioMmqRDVGjdtNF_vhB+vm_1dHJxPNi75YDQ_Q@mail.gmail.com/
-> Reported-by: JeeHeng Sia <jeeheng.sia@starfivetech.com>
-> Link: https://groups.google.com/a/groups.riscv.org/g/sw-dev/c/ITXwaKfA6z8
-> Reported-by: Petr Tesarik <petrtesarik@huaweicloud.com>
-> Closes: https://lore.kernel.org/linux-riscv/76ff0f51-d6c1-580d-f943-061e93073306@huaweicloud.com/ [1]
-> CC: stable@vger.kernel.org
-> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+Why? The unpatched sequences work fine, no?
+
+
+> Signed-off-by: Xiao Wang <xiao.w.wang@intel.com>
 > ---
->   arch/riscv/include/asm/sbi.h |  5 +++++
->   arch/riscv/kernel/sbi.c      | 42 +++++++++++++++++++++++++++++++++++-
->   arch/riscv/mm/init.c         |  3 +++
->   3 files changed, 49 insertions(+), 1 deletion(-)
+>  arch/riscv/include/asm/bitops.h       | 266 +++++++++++++++++++++++++-
+>  drivers/firmware/efi/libstub/Makefile |   2 +-
+>  2 files changed, 264 insertions(+), 4 deletions(-)
 >
-> diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
-> index 5b4a1bf5f439..5360f3476278 100644
-> --- a/arch/riscv/include/asm/sbi.h
-> +++ b/arch/riscv/include/asm/sbi.h
-> @@ -252,6 +252,9 @@ enum sbi_pmu_ctr_type {
->   #define SBI_ERR_ALREADY_STARTED -7
->   #define SBI_ERR_ALREADY_STOPPED -8
->   
-> +/* SBI implementation IDs */
-> +#define SBI_IMP_OPENSBI	1
+> diff --git a/arch/riscv/include/asm/bitops.h b/arch/riscv/include/asm/bitops.h
+> index 3540b690944b..f727f6489cd5 100644
+> --- a/arch/riscv/include/asm/bitops.h
+> +++ b/arch/riscv/include/asm/bitops.h
+> @@ -15,13 +15,273 @@
+>  #include <asm/barrier.h>
+>  #include <asm/bitsperlong.h>
+>
+> +#if !defined(CONFIG_RISCV_ISA_ZBB) || defined(EFI_NO_ALTERNATIVE)
+>  #include <asm-generic/bitops/__ffs.h>
+> -#include <asm-generic/bitops/ffz.h>
+> -#include <asm-generic/bitops/fls.h>
+>  #include <asm-generic/bitops/__fls.h>
+> +#include <asm-generic/bitops/ffs.h>
+> +#include <asm-generic/bitops/fls.h>
 > +
->   extern unsigned long sbi_spec_version;
->   struct sbiret {
->   	long error;
-> @@ -259,6 +262,8 @@ struct sbiret {
->   };
->   
->   void sbi_init(void);
-> +void sbi_apply_reserved_mem_erratum(void *dtb_va);
+> +#else
+> +#include <asm/alternative-macros.h>
+> +#include <asm/hwcap.h>
 > +
->   struct sbiret sbi_ecall(int ext, int fid, unsigned long arg0,
->   			unsigned long arg1, unsigned long arg2,
->   			unsigned long arg3, unsigned long arg4,
-> diff --git a/arch/riscv/kernel/sbi.c b/arch/riscv/kernel/sbi.c
-> index c672c8ba9a2a..aeb27263fa53 100644
-> --- a/arch/riscv/kernel/sbi.c
-> +++ b/arch/riscv/kernel/sbi.c
-> @@ -5,8 +5,10 @@
->    * Copyright (c) 2020 Western Digital Corporation or its affiliates.
->    */
->   
-> +#include <linux/acpi.h>
->   #include <linux/bits.h>
->   #include <linux/init.h>
-> +#include <linux/libfdt.h>
->   #include <linux/pm.h>
->   #include <linux/reboot.h>
->   #include <asm/sbi.h>
-> @@ -583,6 +585,40 @@ long sbi_get_mimpid(void)
->   }
->   EXPORT_SYMBOL_GPL(sbi_get_mimpid);
->   
-> +static long sbi_firmware_id;
-> +static long sbi_firmware_version;
+> +#if (BITS_PER_LONG == 64)
+> +#define CTZW   "ctzw "
+> +#define CLZW   "clzw "
+> +#elif (BITS_PER_LONG == 32)
+> +#define CTZW   "ctz "
+> +#define CLZW   "clz "
+> +#else
+> +#error "Unexpected BITS_PER_LONG"
+> +#endif
 > +
-> +/*
-> + * For devicetrees patched by OpenSBI a "mmode_resv" node is added to cover
-> + * the region OpenSBI has protected by means of a PMP. Some versions of OpenSBI,
-> + * [v0.8 to v1.3), omitted the "no-map" property, but this trips up hibernation
-> + * among other things.
-> + */
-> +void __init sbi_apply_reserved_mem_erratum(void *dtb_pa)
+> +static __always_inline unsigned long variable__ffs(unsigned long word)
 > +{
-> +	int child, reserved_mem;
+> +       int num;
 > +
-> +	if (sbi_firmware_id != SBI_IMP_OPENSBI)
-> +		return;
+> +       asm_volatile_goto(
+> +               ALTERNATIVE("j %l[legacy]", "nop", 0, RISCV_ISA_EXT_ZBB, 1)
+> +               : : : : legacy);
 > +
-> +	if (!acpi_disabled)
-> +		return;
+> +       asm volatile (
+> +               ".option push\n"
+> +               ".option arch,+zbb\n"
+> +               "ctz %0, %1\n"
+> +               ".option pop\n"
+> +               : "=r" (word) : "r" (word) :);
 > +
-> +	if (sbi_firmware_version >= 0x10003 || sbi_firmware_version < 0x8)
-> +		return;
+> +       return word;
 > +
-> +	reserved_mem = fdt_path_offset((void *)dtb_pa, "/reserved-memory");
-> +	if (reserved_mem < 0)
-> +		return;
+> +legacy:
+> +       num = 0;
+> +#if BITS_PER_LONG == 64
+> +       if ((word & 0xffffffff) == 0) {
+> +               num += 32;
+> +               word >>= 32;
+> +       }
+> +#endif
+> +       if ((word & 0xffff) == 0) {
+> +               num += 16;
+> +               word >>= 16;
+> +       }
+> +       if ((word & 0xff) == 0) {
+> +               num += 8;
+> +               word >>= 8;
+> +       }
+> +       if ((word & 0xf) == 0) {
+> +               num += 4;
+> +               word >>= 4;
+> +       }
+> +       if ((word & 0x3) == 0) {
+> +               num += 2;
+> +               word >>= 2;
+> +       }
+> +       if ((word & 0x1) == 0)
+> +               num += 1;
+> +       return num;
+> +}
 > +
-> +	fdt_for_each_subnode(child, (void *)dtb_pa, reserved_mem) {
-> +		const char *name = fdt_get_name((void *)dtb_pa, child, NULL);
+> +/**
+> + * __ffs - find first set bit in a long word
+> + * @word: The word to search
+> + *
+> + * Undefined if no set bit exists, so code should check against 0 first.
+> + */
+> +#define __ffs(word)                            \
+> +       (__builtin_constant_p(word) ?           \
+> +        (unsigned long)__builtin_ctzl(word) :  \
+> +        variable__ffs(word))
 > +
-> +		if (!strncmp(name, "mmode_resv", 10))
-
-
-I would check that name != NULL before strncmp.
-
-
-> +			fdt_setprop((void *)dtb_pa, child, "no-map", NULL, 0);
-> +	}
-> +};
+> +static __always_inline unsigned long variable__fls(unsigned long word)
+> +{
+> +       int num;
 > +
->   void __init sbi_init(void)
->   {
->   	int ret;
-> @@ -596,8 +632,12 @@ void __init sbi_init(void)
->   		sbi_major_version(), sbi_minor_version());
->   
->   	if (!sbi_spec_is_0_1()) {
-> +		sbi_firmware_id = sbi_get_firmware_id();
-> +		sbi_firmware_version = sbi_get_firmware_version();
+> +       asm_volatile_goto(
+> +               ALTERNATIVE("j %l[legacy]", "nop", 0, RISCV_ISA_EXT_ZBB, 1)
+> +               : : : : legacy);
 > +
->   		pr_info("SBI implementation ID=0x%lx Version=0x%lx\n",
-> -			sbi_get_firmware_id(), sbi_get_firmware_version());
-> +			sbi_firmware_id, sbi_firmware_version);
+> +       asm volatile (
+> +               ".option push\n"
+> +               ".option arch,+zbb\n"
+> +               "clz %0, %1\n"
+> +               ".option pop\n"
+> +               : "=r" (word) : "r" (word) :);
 > +
->   		if (sbi_probe_extension(SBI_EXT_TIME)) {
->   			__sbi_set_timer = __sbi_set_timer_v02;
->   			pr_info("SBI TIME extension detected\n");
-> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-> index 70fb31960b63..cb16bfdeacdb 100644
-> --- a/arch/riscv/mm/init.c
-> +++ b/arch/riscv/mm/init.c
-> @@ -29,6 +29,7 @@
->   #include <asm/tlbflush.h>
->   #include <asm/sections.h>
->   #include <asm/soc.h>
-> +#include <asm/sbi.h>
->   #include <asm/io.h>
->   #include <asm/ptdump.h>
->   #include <asm/numa.h>
-> @@ -253,6 +254,8 @@ static void __init setup_bootmem(void)
->   	 * in the device tree, otherwise the allocation could end up in a
->   	 * reserved region.
->   	 */
+> +       return BITS_PER_LONG - 1 - word;
 > +
-> +	sbi_apply_reserved_mem_erratum(dtb_early_va);
->   	early_init_fdt_scan_reserved_mem();
->   
->   	/*
-
-
-Otherwise the patch looks good to me:
-
-You can add:
-
-Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-
-I just have one question though (that we discussed privately already): 
-should we fix openSBI in the kernel? If yes, what makes a bug worth 
-being fixed in the kernel?
-
-Thanks,
-
+> +legacy:
+> +       num = BITS_PER_LONG - 1;
+> +#if BITS_PER_LONG == 64
+> +       if (!(word & (~0ul << 32))) {
+> +               num -= 32;
+> +               word <<= 32;
+> +       }
+> +#endif
+> +       if (!(word & (~0ul << (BITS_PER_LONG-16)))) {
+> +               num -= 16;
+> +               word <<= 16;
+> +       }
+> +       if (!(word & (~0ul << (BITS_PER_LONG-8)))) {
+> +               num -= 8;
+> +               word <<= 8;
+> +       }
+> +       if (!(word & (~0ul << (BITS_PER_LONG-4)))) {
+> +               num -= 4;
+> +               word <<= 4;
+> +       }
+> +       if (!(word & (~0ul << (BITS_PER_LONG-2)))) {
+> +               num -= 2;
+> +               word <<= 2;
+> +       }
+> +       if (!(word & (~0ul << (BITS_PER_LONG-1))))
+> +               num -= 1;
+> +       return num;
+> +}
+> +
+> +/**
+> + * __fls - find last set bit in a long word
+> + * @word: the word to search
+> + *
+> + * Undefined if no set bit exists, so code should check against 0 first.
+> + */
+> +#define __fls(word)                                                    \
+> +       (__builtin_constant_p(word) ?                                   \
+> +        (unsigned long)(BITS_PER_LONG - 1 - __builtin_clzl(word)) :    \
+> +        variable__fls(word))
+> +
+> +static __always_inline int variable_ffs(int x)
+> +{
+> +       int r;
+> +
+> +       asm_volatile_goto(
+> +               ALTERNATIVE("j %l[legacy]", "nop", 0, RISCV_ISA_EXT_ZBB, 1)
+> +               : : : : legacy);
+> +
+> +       asm volatile (
+> +               ".option push\n"
+> +               ".option arch,+zbb\n"
+> +               "bnez %1, 1f\n"
+> +               "li %0, 0\n"
+> +               "j 2f\n"
+> +               "1:\n"
+> +               CTZW "%0, %1\n"
+> +               "addi %0, %0, 1\n"
+> +               "2:\n"
+> +               ".option pop\n"
+> +               : "=r" (r) : "r" (x) :);
+> +
+> +       return r;
+> +
+> +legacy:
+> +       r = 1;
+> +       if (!x)
+> +               return 0;
+> +       if (!(x & 0xffff)) {
+> +               x >>= 16;
+> +               r += 16;
+> +       }
+> +       if (!(x & 0xff)) {
+> +               x >>= 8;
+> +               r += 8;
+> +       }
+> +       if (!(x & 0xf)) {
+> +               x >>= 4;
+> +               r += 4;
+> +       }
+> +       if (!(x & 3)) {
+> +               x >>= 2;
+> +               r += 2;
+> +       }
+> +       if (!(x & 1)) {
+> +               x >>= 1;
+> +               r += 1;
+> +       }
+> +       return r;
+> +}
+> +
+> +/**
+> + * ffs - find first set bit in a word
+> + * @x: the word to search
+> + *
+> + * This is defined the same way as the libc and compiler builtin ffs routines.
+> + *
+> + * ffs(value) returns 0 if value is 0 or the position of the first set bit if
+> + * value is nonzero. The first (least significant) bit is at position 1.
+> + */
+> +#define ffs(x) (__builtin_constant_p(x) ? __builtin_ffs(x) : variable_ffs(x))
+> +
+> +static __always_inline int variable_fls(unsigned int x)
+> +{
+> +       int r;
+> +
+> +       asm_volatile_goto(
+> +               ALTERNATIVE("j %l[legacy]", "nop", 0, RISCV_ISA_EXT_ZBB, 1)
+> +               : : : : legacy);
+> +
+> +       asm volatile (
+> +               ".option push\n"
+> +               ".option arch,+zbb\n"
+> +               "bnez %1, 1f\n"
+> +               "li %0, 0\n"
+> +               "j 2f\n"
+> +               "1:\n"
+> +               CLZW "%0, %1\n"
+> +               "neg %0, %0\n"
+> +               "addi %0, %0, 32\n"
+> +               "2:\n"
+> +               ".option pop\n"
+> +               : "=r" (r) : "r" (x) :);
+> +
+> +       return r;
+> +
+> +legacy:
+> +       r = 32;
+> +       if (!x)
+> +               return 0;
+> +       if (!(x & 0xffff0000u)) {
+> +               x <<= 16;
+> +               r -= 16;
+> +       }
+> +       if (!(x & 0xff000000u)) {
+> +               x <<= 8;
+> +               r -= 8;
+> +       }
+> +       if (!(x & 0xf0000000u)) {
+> +               x <<= 4;
+> +               r -= 4;
+> +       }
+> +       if (!(x & 0xc0000000u)) {
+> +               x <<= 2;
+> +               r -= 2;
+> +       }
+> +       if (!(x & 0x80000000u)) {
+> +               x <<= 1;
+> +               r -= 1;
+> +       }
+> +       return r;
+> +}
+> +
+> +/**
+> + * fls - find last set bit in a word
+> + * @x: the word to search
+> + *
+> + * This is defined in a similar way as ffs, but returns the position of the most
+> + * significant set bit.
+> + *
+> + * fls(value) returns 0 if value is 0 or the position of the last set bit if
+> + * value is nonzero. The last (most significant) bit is at position 32.
+> + */
+> +#define fls(x)                                                         \
+> +       (__builtin_constant_p(x) ?                                      \
+> +        (int)(((x) != 0) ?                                             \
+> +         (sizeof(unsigned int) * 8 - __builtin_clz(x)) : 0) :          \
+> +        variable_fls(x))
+> +
+> +#endif
+> +
+> +#include <asm-generic/bitops/ffz.h>
+>  #include <asm-generic/bitops/fls64.h>
+>  #include <asm-generic/bitops/sched.h>
+> -#include <asm-generic/bitops/ffs.h>
+>
+>  #include <asm-generic/bitops/hweight.h>
+>
+> diff --git a/drivers/firmware/efi/libstub/Makefile b/drivers/firmware/efi/libstub/Makefile
+> index 16d64a34d1e1..b0f8c495c10f 100644
+> --- a/drivers/firmware/efi/libstub/Makefile
+> +++ b/drivers/firmware/efi/libstub/Makefile
+> @@ -28,7 +28,7 @@ cflags-$(CONFIG_ARM)          += -DEFI_HAVE_STRLEN -DEFI_HAVE_STRNLEN \
+>                                    -DEFI_HAVE_MEMCHR -DEFI_HAVE_STRRCHR \
+>                                    -DEFI_HAVE_STRCMP -fno-builtin -fpic \
+>                                    $(call cc-option,-mno-single-pic-base)
+> -cflags-$(CONFIG_RISCV)         += -fpic
+> +cflags-$(CONFIG_RISCV)         += -fpic -DEFI_NO_ALTERNATIVE
+>  cflags-$(CONFIG_LOONGARCH)     += -fpie
+>
+>  cflags-$(CONFIG_EFI_PARAMS_FROM_FDT)   += -I$(srctree)/scripts/dtc/libfdt
+> --
+> 2.25.1
+>
 
 _______________________________________________
 linux-riscv mailing list
