@@ -4,67 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 366D6C41513
-	for <linux-riscv@archiver.kernel.org>; Sun,  6 Aug 2023 10:04:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2ABE4C0015E
+	for <linux-riscv@archiver.kernel.org>; Sun,  6 Aug 2023 10:07:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tLoR1NeBC3bsrNcfo2xjcR8zVf3346GsLJMLWC87gpE=; b=Vz7DJU0BAhdVCR
-	kj2NgFJlXbk7S6Lv3ozG8QZUdC5qRj2VoOsMZjkRsraHlyS4A7ldNirsxlk60M2+7k5BL59E/4vI+
-	sc0ToSecfMazI2PjbwVLTgmKUhzr9oKmzUUvW4IwBXkrAcFdYs2z5n5M5rW1CbTadzNiTTt1k8nYG
-	N6/qZQ1YiFwMyY9qm+PcQkYUOn7lKgvjaoshxU8zqkQAYD/vdaJoDdD/Xv52z6pc/EUepD+YgXgUI
-	Mxh3Aa0aR5Z/ppuH0PaPnUNMqsbZQjpjgrvKdTHkSlow+jlot1ceNvOpvN4ywxoNLDXBEL2GUVt4N
-	QJLYEsHIxwt/OR6OiJ2w==;
+	List-Owner; bh=sYjRWr1OovA5yau9TrjGe0Xd/6iwPJWsdz+Tti4T4f4=; b=cQPjjLwBBgWXY+
+	aY7TeXDVA+0pFqzOSzOeAhjILgj8E+q1b3XoCMHe5I9u1vp/45xuHX+NTx6ukC0+9lvRIyeRFOYf4
+	d9ZJKSJtqGxoUovvYrEYoutfoxIVKKzS3MW209PQOa4dWjnOd6zA28sdlUFaVy50gR/L38RzSrHvm
+	iR7HfZhXyeND0ZmuCAHVf5X4+NZ0f8fQqjwvGy0Rl4TuU9dOhoZDqurTShvgXt/uinyCmXU1XIU1H
+	gLh+sSdeRRLYo7dMovr0qHgxXrQycb2jlzYrDdUxk/+oYePz8I48LaH8y20mIkDv6XRfR9MSHGd+s
+	ei7L3c6ZriqDDR45ulIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qSacW-00FANX-1L;
-	Sun, 06 Aug 2023 10:04:20 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1qSaf8-00FAbq-0S;
+	Sun, 06 Aug 2023 10:07:02 +0000
+Received: from relay6-d.mail.gandi.net ([2001:4b98:dc4:8::226])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qSacT-00FALs-0y
+	id 1qSaf4-00FAZe-1s
 	for linux-riscv@lists.infradead.org;
-	Sun, 06 Aug 2023 10:04:18 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 3465261016;
-	Sun,  6 Aug 2023 10:03:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7FDD0C433C7;
-	Sun,  6 Aug 2023 10:03:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1691316236;
-	bh=qQdlDvWcY55UI4xJZRVgfN/DeT4JnF2lo47IlKtWxBk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Fhstg5yZNrU6Mr63+O2DUHYI61MkDUhbHygY9MOVisRC5TpCh0P33b6bZnVOAka0v
-	 KDLZ7CCsw/USQ6c6aJvH9vBbsidxD75f5QGsnI4X/GvbbxGimOsv1WlWwX8uw8whIW
-	 OHrUHPeOX10w87kA4tuRWX9KWv3GMsbfecxCuZe6w0Ae2+FzzvJ0Pg5YLaMf/UNh4u
-	 fx3LM8byNZsr3uzv79s/3Q0Ep76blL4BmT/2XzVRFuotXYkwL5S/JoLmDcJCiKojUx
-	 s01l9brhiR3ulcENLKHstfHnBcShjIX+Cg35Cn52HisMlIyXdlM3lV5cRMzVDqVyAn
-	 sgpGuGGu9SLLg==
-Date: Sun, 6 Aug 2023 17:52:16 +0800
-From: Jisheng Zhang <jszhang@kernel.org>
-To: Drew Fustini <dfustini@baylibre.com>
-Cc: Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] riscv: dts: change TH1520 files to dual license
-Message-ID: <ZM9tUFddbRUglwfG@xhacker>
-References: <20230724182129.843687-1-dfustini@baylibre.com>
+	Sun, 06 Aug 2023 10:07:00 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 991BEC0004;
+	Sun,  6 Aug 2023 10:06:49 +0000 (UTC)
+Message-ID: <a96afa52-14aa-28f8-d4e5-34bbd3e400ef@ghiti.fr>
+Date: Sun, 6 Aug 2023 12:06:49 +0200
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230724182129.843687-1-dfustini@baylibre.com>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.13.0
+Subject: Re: [PATCH v8 2/4] RISC-V: mm: Add tests for RISC-V mm
+Content-Language: en-US
+To: Charlie Jenkins <charlie@rivosinc.com>, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Cc: conor@kernel.org, paul.walmsley@sifive.com, palmer@rivosinc.com,
+ aou@eecs.berkeley.edu, anup@brainfault.org, konstantin@linuxfoundation.org,
+ linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ linux-mm@kvack.org, mick@ics.forth.gr, jrtc27@jrtc27.com,
+ rdunlap@infradead.org, alexghiti@rivosinc.com
+References: <20230727212647.4182407-1-charlie@rivosinc.com>
+ <20230727212647.4182407-3-charlie@rivosinc.com>
+From: Alexandre Ghiti <alex@ghiti.fr>
+In-Reply-To: <20230727212647.4182407-3-charlie@rivosinc.com>
+X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230806_030417_446856_9A4ABBE8 
-X-CRM114-Status: GOOD (  17.35  )
+X-CRM114-CacheID: sfid-20230806_030658_899558_A4AC3956 
+X-CRM114-Status: GOOD (  23.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,68 +62,264 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 24, 2023 at 11:21:29AM -0700, Drew Fustini wrote:
-> Modify the SPDX-License-Identifier for dual license of GPL-2.0 OR MIT.
-> 
-> Signed-off-by: Drew Fustini <dfustini@baylibre.com>
+
+On 27/07/2023 23:26, Charlie Jenkins wrote:
+> Add tests that enforce mmap hint address behavior. mmap should default
+> to sv48. mmap will provide an address at the highest address space that
+> can fit into the hint address, unless the hint address is less than sv39
+> and not 0, then it will return a sv39 address.
+>
+> These tests are split into two files: mmap_default.c and mmap_bottomup.c
+> because a new process must be exec'd in order to change the mmap layout.
+> The run_mmap.sh script sets the stack to be unlimited for the
+> mmap_bottomup.c test which triggers a bottomup layout.
+>
+> Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
 > ---
->  arch/riscv/boot/dts/thead/th1520-lichee-module-4a.dtsi | 2 +-
->  arch/riscv/boot/dts/thead/th1520-lichee-pi-4a.dts      | 2 +-
->  arch/riscv/boot/dts/thead/th1520.dtsi                  | 2 +-
->  3 files changed, 3 insertions(+), 3 deletions(-)
-> 
-> Jisheng Zhang and Guo Ren - I thought I would post this patch based on
-> the discussion in the thread about the BeagleV Ahead patches.
+>   tools/testing/selftests/riscv/Makefile        |  2 +-
+>   tools/testing/selftests/riscv/mm/.gitignore   |  2 +
+>   tools/testing/selftests/riscv/mm/Makefile     | 15 +++++
+>   .../riscv/mm/testcases/mmap_bottomup.c        | 35 ++++++++++
+>   .../riscv/mm/testcases/mmap_default.c         | 35 ++++++++++
+>   .../selftests/riscv/mm/testcases/mmap_test.h  | 64 +++++++++++++++++++
+>   .../selftests/riscv/mm/testcases/run_mmap.sh  | 12 ++++
+>   7 files changed, 164 insertions(+), 1 deletion(-)
+>   create mode 100644 tools/testing/selftests/riscv/mm/.gitignore
+>   create mode 100644 tools/testing/selftests/riscv/mm/Makefile
+>   create mode 100644 tools/testing/selftests/riscv/mm/testcases/mmap_bottomup.c
+>   create mode 100644 tools/testing/selftests/riscv/mm/testcases/mmap_default.c
+>   create mode 100644 tools/testing/selftests/riscv/mm/testcases/mmap_test.h
+>   create mode 100755 tools/testing/selftests/riscv/mm/testcases/run_mmap.sh
+>
+> diff --git a/tools/testing/selftests/riscv/Makefile b/tools/testing/selftests/riscv/Makefile
+> index f4b3d5c9af5b..4a9ff515a3a0 100644
+> --- a/tools/testing/selftests/riscv/Makefile
+> +++ b/tools/testing/selftests/riscv/Makefile
+> @@ -5,7 +5,7 @@
+>   ARCH ?= $(shell uname -m 2>/dev/null || echo not)
+>   
+>   ifneq (,$(filter $(ARCH),riscv))
+> -RISCV_SUBTARGETS ?= hwprobe vector
+> +RISCV_SUBTARGETS ?= hwprobe vector mm
+>   else
+>   RISCV_SUBTARGETS :=
+>   endif
+> diff --git a/tools/testing/selftests/riscv/mm/.gitignore b/tools/testing/selftests/riscv/mm/.gitignore
+> new file mode 100644
+> index 000000000000..5c2c57cb950c
+> --- /dev/null
+> +++ b/tools/testing/selftests/riscv/mm/.gitignore
+> @@ -0,0 +1,2 @@
+> +mmap_bottomup
+> +mmap_default
+> diff --git a/tools/testing/selftests/riscv/mm/Makefile b/tools/testing/selftests/riscv/mm/Makefile
+> new file mode 100644
+> index 000000000000..11e0f0568923
+> --- /dev/null
+> +++ b/tools/testing/selftests/riscv/mm/Makefile
+> @@ -0,0 +1,15 @@
+> +# SPDX-License-Identifier: GPL-2.0
+> +# Copyright (C) 2021 ARM Limited
+> +# Originally tools/testing/arm64/abi/Makefile
+> +
+> +# Additional include paths needed by kselftest.h and local headers
+> +CFLAGS += -D_GNU_SOURCE -std=gnu99 -I.
+> +
+> +TEST_GEN_FILES := testcases/mmap_default testcases/mmap_bottomup
+> +
+> +TEST_PROGS := testcases/run_mmap.sh
+> +
+> +include ../../lib.mk
+> +
+> +$(OUTPUT)/mm: testcases/mmap_default.c testcases/mmap_bottomup.c testcases/mmap_tests.h
+> +	$(CC) -o$@ $(CFLAGS) $(LDFLAGS) $^
+> diff --git a/tools/testing/selftests/riscv/mm/testcases/mmap_bottomup.c b/tools/testing/selftests/riscv/mm/testcases/mmap_bottomup.c
+> new file mode 100644
+> index 000000000000..b29379f7e478
+> --- /dev/null
+> +++ b/tools/testing/selftests/riscv/mm/testcases/mmap_bottomup.c
+> @@ -0,0 +1,35 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +#include <sys/mman.h>
+> +#include <testcases/mmap_test.h>
+> +
+> +#include "../../kselftest_harness.h"
+> +
+> +TEST(infinite_rlimit)
+> +{
+> +// Only works on 64 bit
+> +#if __riscv_xlen == 64
+> +	struct addresses mmap_addresses;
+> +
+> +	EXPECT_EQ(BOTTOM_UP, memory_layout());
+> +
+> +	do_mmaps(&mmap_addresses);
+> +
+> +	EXPECT_NE(MAP_FAILED, mmap_addresses.no_hint);
+> +	EXPECT_NE(MAP_FAILED, mmap_addresses.on_37_addr);
+> +	EXPECT_NE(MAP_FAILED, mmap_addresses.on_38_addr);
+> +	EXPECT_NE(MAP_FAILED, mmap_addresses.on_46_addr);
+> +	EXPECT_NE(MAP_FAILED, mmap_addresses.on_47_addr);
+> +	EXPECT_NE(MAP_FAILED, mmap_addresses.on_55_addr);
+> +	EXPECT_NE(MAP_FAILED, mmap_addresses.on_56_addr);
+> +
+> +	EXPECT_GT(1UL << 47, (unsigned long)mmap_addresses.no_hint);
 
-I need Guo's ack to this patch. Hi Guo Ren, are you OK with this patch?
 
-Thanks
+This test ^ will only work on sv48+ systems, if launched on a sv39 
+system, it will fail
 
-> 
-> Message-ID:
-> 20230722-upstream-beaglev-ahead-dts-v1-0-ccda511357f4@baylibre.com
-> 
-> Thanks,
-> Drew
-> 
-> diff --git a/arch/riscv/boot/dts/thead/th1520-lichee-module-4a.dtsi b/arch/riscv/boot/dts/thead/th1520-lichee-module-4a.dtsi
-> index 4b0249ac710f..a802ab110429 100644
-> --- a/arch/riscv/boot/dts/thead/th1520-lichee-module-4a.dtsi
-> +++ b/arch/riscv/boot/dts/thead/th1520-lichee-module-4a.dtsi
-> @@ -1,4 +1,4 @@
-> -// SPDX-License-Identifier: GPL-2.0
-> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
->  /*
->   * Copyright (C) 2023 Jisheng Zhang <jszhang@kernel.org>
->   */
-> diff --git a/arch/riscv/boot/dts/thead/th1520-lichee-pi-4a.dts b/arch/riscv/boot/dts/thead/th1520-lichee-pi-4a.dts
-> index a1248b2ee3a3..9a3884a73e13 100644
-> --- a/arch/riscv/boot/dts/thead/th1520-lichee-pi-4a.dts
-> +++ b/arch/riscv/boot/dts/thead/th1520-lichee-pi-4a.dts
-> @@ -1,4 +1,4 @@
-> -// SPDX-License-Identifier: GPL-2.0
-> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
->  /*
->   * Copyright (C) 2023 Jisheng Zhang <jszhang@kernel.org>
->   */
-> diff --git a/arch/riscv/boot/dts/thead/th1520.dtsi b/arch/riscv/boot/dts/thead/th1520.dtsi
-> index 56a73134b49e..ce708183b6f6 100644
-> --- a/arch/riscv/boot/dts/thead/th1520.dtsi
-> +++ b/arch/riscv/boot/dts/thead/th1520.dtsi
-> @@ -1,4 +1,4 @@
-> -// SPDX-License-Identifier: GPL-2.0
-> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
->  /*
->   * Copyright (C) 2021 Alibaba Group Holding Limited.
->   * Copyright (C) 2023 Jisheng Zhang <jszhang@kernel.org>
-> -- 
-> 2.34.1
-> 
+
+> +	EXPECT_GT(1UL << 38, (unsigned long)mmap_addresses.on_37_addr);
+> +	EXPECT_GT(1UL << 38, (unsigned long)mmap_addresses.on_38_addr);
+> +	EXPECT_GT(1UL << 38, (unsigned long)mmap_addresses.on_46_addr);
+> +	EXPECT_GT(1UL << 47, (unsigned long)mmap_addresses.on_47_addr);
+> +	EXPECT_GT(1UL << 47, (unsigned long)mmap_addresses.on_55_addr);
+> +	EXPECT_GT(1UL << 56, (unsigned long)mmap_addresses.on_56_addr);
+> +#endif
+> +}
+> +
+> +TEST_HARNESS_MAIN
+> diff --git a/tools/testing/selftests/riscv/mm/testcases/mmap_default.c b/tools/testing/selftests/riscv/mm/testcases/mmap_default.c
+> new file mode 100644
+> index 000000000000..d1accb91b726
+> --- /dev/null
+> +++ b/tools/testing/selftests/riscv/mm/testcases/mmap_default.c
+> @@ -0,0 +1,35 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +#include <sys/mman.h>
+> +#include <testcases/mmap_test.h>
+> +
+> +#include "../../kselftest_harness.h"
+> +
+> +TEST(default_rlimit)
+> +{
+> +// Only works on 64 bit
+> +#if __riscv_xlen == 64
+> +	struct addresses mmap_addresses;
+> +
+> +	EXPECT_EQ(TOP_DOWN, memory_layout());
+> +
+> +	do_mmaps(&mmap_addresses);
+> +
+> +	EXPECT_NE(MAP_FAILED, mmap_addresses.no_hint);
+> +	EXPECT_NE(MAP_FAILED, mmap_addresses.on_37_addr);
+> +	EXPECT_NE(MAP_FAILED, mmap_addresses.on_38_addr);
+> +	EXPECT_NE(MAP_FAILED, mmap_addresses.on_46_addr);
+> +	EXPECT_NE(MAP_FAILED, mmap_addresses.on_47_addr);
+> +	EXPECT_NE(MAP_FAILED, mmap_addresses.on_55_addr);
+> +	EXPECT_NE(MAP_FAILED, mmap_addresses.on_56_addr);
+> +
+> +	EXPECT_GT(1UL << 47, (unsigned long)mmap_addresses.no_hint);
+> +	EXPECT_GT(1UL << 38, (unsigned long)mmap_addresses.on_37_addr);
+> +	EXPECT_GT(1UL << 38, (unsigned long)mmap_addresses.on_38_addr);
+> +	EXPECT_GT(1UL << 38, (unsigned long)mmap_addresses.on_46_addr);
+> +	EXPECT_GT(1UL << 47, (unsigned long)mmap_addresses.on_47_addr);
+> +	EXPECT_GT(1UL << 47, (unsigned long)mmap_addresses.on_55_addr);
+> +	EXPECT_GT(1UL << 56, (unsigned long)mmap_addresses.on_56_addr);
+> +#endif
+> +}
+> +
+> +TEST_HARNESS_MAIN
+> diff --git a/tools/testing/selftests/riscv/mm/testcases/mmap_test.h b/tools/testing/selftests/riscv/mm/testcases/mmap_test.h
+> new file mode 100644
+> index 000000000000..98a892de5d19
+> --- /dev/null
+> +++ b/tools/testing/selftests/riscv/mm/testcases/mmap_test.h
+> @@ -0,0 +1,64 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only */
+> +#ifndef _TESTCASES_MMAP_TEST_H
+> +#define _TESTCASES_MMAP_TEST_H
+> +#include <sys/mman.h>
+> +#include <sys/resource.h>
+> +#include <stddef.h>
+> +
+> +#define TOP_DOWN 0
+> +#define BOTTOM_UP 1
+> +
+> +struct addresses {
+> +	int *no_hint;
+> +	int *on_37_addr;
+> +	int *on_38_addr;
+> +	int *on_46_addr;
+> +	int *on_47_addr;
+> +	int *on_55_addr;
+> +	int *on_56_addr;
+> +};
+> +
+> +void do_mmaps(struct addresses *mmap_addresses)
+
+
+I would static inline this function definition since you are in a header 
+file.
+
+
+> +{
+> +	/*
+> +	 * Place all of the hint addresses on the boundaries of mmap
+> +	 * sv39, sv48, sv57
+> +	 * User addresses end at 1<<38, 1<<47, 1<<56 respectively
+> +	 */
+> +	void *on_37_bits = (void *)(1UL << 37);
+> +	void *on_38_bits = (void *)(1UL << 38);
+> +	void *on_46_bits = (void *)(1UL << 46);
+> +	void *on_47_bits = (void *)(1UL << 47);
+> +	void *on_55_bits = (void *)(1UL << 55);
+> +	void *on_56_bits = (void *)(1UL << 56);
+> +
+> +	int prot = PROT_READ | PROT_WRITE;
+> +	int flags = MAP_PRIVATE | MAP_ANONYMOUS;
+> +
+> +	mmap_addresses->no_hint =
+> +		mmap(NULL, 5 * sizeof(int), prot, flags, 0, 0);
+> +	mmap_addresses->on_37_addr =
+> +		mmap(on_37_bits, 5 * sizeof(int), prot, flags, 0, 0);
+> +	mmap_addresses->on_38_addr =
+> +		mmap(on_38_bits, 5 * sizeof(int), prot, flags, 0, 0);
+> +	mmap_addresses->on_46_addr =
+> +		mmap(on_46_bits, 5 * sizeof(int), prot, flags, 0, 0);
+> +	mmap_addresses->on_47_addr =
+> +		mmap(on_47_bits, 5 * sizeof(int), prot, flags, 0, 0);
+> +	mmap_addresses->on_55_addr =
+> +		mmap(on_55_bits, 5 * sizeof(int), prot, flags, 0, 0);
+> +	mmap_addresses->on_56_addr =
+> +		mmap(on_56_bits, 5 * sizeof(int), prot, flags, 0, 0);
+> +}
+> +
+> +int memory_layout(void)
+> +{
+> +	int prot = PROT_READ | PROT_WRITE;
+> +	int flags = MAP_PRIVATE | MAP_ANONYMOUS;
+> +
+> +	void *value1 = mmap(NULL, sizeof(int), prot, flags, 0, 0);
+> +	void *value2 = mmap(NULL, sizeof(int), prot, flags, 0, 0);
+> +
+> +	return value2 > value1;
+> +}
+> +#endif /* _TESTCASES_MMAP_TEST_H */
+> diff --git a/tools/testing/selftests/riscv/mm/testcases/run_mmap.sh b/tools/testing/selftests/riscv/mm/testcases/run_mmap.sh
+> new file mode 100755
+> index 000000000000..ca5ad7c48bad
+> --- /dev/null
+> +++ b/tools/testing/selftests/riscv/mm/testcases/run_mmap.sh
+> @@ -0,0 +1,12 @@
+> +#!/bin/sh
+> +# SPDX-License-Identifier: GPL-2.0
+> +
+> +original_stack_limit=$(ulimit -s)
+> +
+> +./mmap_default
+> +
+> +# Force mmap_bottomup to be ran with bottomup memory due to
+> +# the unlimited stack
+> +ulimit -s unlimited
+> +./mmap_bottomup
+> +ulimit -s $original_stack_limit
 
 _______________________________________________
 linux-riscv mailing list
