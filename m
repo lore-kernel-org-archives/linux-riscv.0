@@ -4,92 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DE0CC00528
-	for <linux-riscv@archiver.kernel.org>; Sat,  5 Aug 2023 21:05:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6ED0C001DB
+	for <linux-riscv@archiver.kernel.org>; Sun,  6 Aug 2023 02:39:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=x+Few8pC37AWNimu2Ct3DaJEzsPjjinK5krZw3WBRu0=; b=WNgjVnkO4KRC9T
-	v5mr8we4126fXCi7+x4TK2QfQYPTmlRGPO4e5o8LurTYulRX6+3s8jq71vup8RoMyPHnUAlA+TkTK
-	Ip56QMj2YEDF07Nv0X2wk46a7unrAd7rk8zIZj15WwPj/bc7lVYjJP+VYhUbbMFm68O/j0vEsekFL
-	YC57Ltaxm7anu3UF42DjoMvyoVXdI3lEkpAkGI6zvM/w79blA1pkSaoA3CD22Qd6gNvbaDMHsZW5F
-	SpTlDDZcbkU4JRSYCMMJ2SW3LNI1R+Hj8GTb45HY5VR7wwqYxFvc7jhQX9IxBMgG540dH9RVb4ULm
-	iYX9LVT0Z8TlvGcdGQxg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=iNrX7ZThd1PjZV0xyjjt2m+2IpamKlq8KD7O+5c1k9U=; b=RRj1dGNxZAjzMN
+	qQ1V9Zx+D+/ThhT4twi444PGIJreFMcRiMmofIxi46Gkh43RDs12nHAR0neqdYObouiPxrfZZAEBU
+	kvGJwxwpzDu/fgoOa9FMzIkXqiRU+bGD8v8+W23Hn26nJ875EmzrNufVOUB8uG1hpVBp5f9LlT5dh
+	3a931USQFwJg+siqlltWOrw5SpJr/M/TUrwQOmzgdHlElHCS6ph9CjkXkLIOXVqKOJpVvVnWY6+r3
+	qXe00dt3eLKBMmj7CNtD/ZmmRab9gwSHvWXtsAcxiahaJVOIQrfM4F+nQvXjAkCnkD3SLp+lO4fn4
+	SQj1h4eZr17PASyZQTQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qSOSI-00EZF3-27;
-	Sat, 05 Aug 2023 21:04:58 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1qSTg2-00EnBf-0Z;
+	Sun, 06 Aug 2023 02:39:30 +0000
+Received: from mgamail.intel.com ([134.134.136.24])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qSOSF-00EZEU-2u
+	id 1qSTfy-00EnBD-2G
 	for linux-riscv@lists.infradead.org;
-	Sat, 05 Aug 2023 21:04:57 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-3fb4146e8deso32001245e9.0
-        for <linux-riscv@lists.infradead.org>; Sat, 05 Aug 2023 14:04:55 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1691269494; x=1691874294;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=VXgvu4PdDcYeSWEAGjMAQ6aaokT2QYB0Ybt1pTFSg+A=;
-        b=vgA2xqtfz8HfxCtetsIBocLLjd+CLI0pMJbGIsNa719wEia2zfDrrFeco3WOGOjdSY
-         xknRMHN1PzoOC8IQ6NkL2zK9YbRpg0mTfhvmVBrr6qMg+SAMdEUgdRIrcfZOn/stw7Ad
-         YU65yACHGJ5q9kgo1bJ5nPv/wBq99EBKt8PR0G8TfGNmQELNtbZ5YB6XFUemHO4cjgMm
-         NKtu4fyKR71+0TxvQM9EThPmFS5y1eooJ7p1qQFuf8Ze3ORPqVZyz1T5MMe61zssWh1H
-         3u9nlASTQlrBtIT/Hrq6biV8jwr7CwaklGNoxp85xPrW0NkfbWQ8qD9zUUQym5fsXmiI
-         Ac3g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1691269494; x=1691874294;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=VXgvu4PdDcYeSWEAGjMAQ6aaokT2QYB0Ybt1pTFSg+A=;
-        b=IumjYADTuvXWb1VdkxlfBQCE4ms6OVnx/SzChdswcuO+eBH3Mygyd3ltOaBSMldxXe
-         fNeJ1En3OTe71zxdlKXzAMjuOr/Bes4OUaU4usyuF+1QlLr7L/LLQWRe02FhmqaMR6dm
-         OUR/w+HER44MHMlMeJ213484iVipnYH/6yk8YQZiyt/WnadZkd44T8qBvWs/SnXC6Db/
-         gDOidQ0pExsB9/96erTSqbTxxrKQ8wN+DbYFb5+GToowQqdjl+5xk6JPoKRgVvbVbD3H
-         cbZRGQ72XH+qJT0JCkapUOf7UtuqsW5uo6zXb55oLeGk1pxgh99T66oKVfgP5u4JQRCp
-         ILCQ==
-X-Gm-Message-State: AOJu0YxgB2WQePnIsdJJo9VWcByv0XCRl/9GJyB4zHGWRc7rI+xDEZzt
-	ptWo5FewkMtQ9NKR+egn3HEEPA==
-X-Google-Smtp-Source: AGHT+IELrrb3HMZVfrxFaUMcQP1kpcJAAxcbzg8Tw9gdaGgOuScyzdpPV8YzQuwVSlRpdWDtYUKKxQ==
-X-Received: by 2002:a5d:6812:0:b0:314:3740:7f69 with SMTP id w18-20020a5d6812000000b0031437407f69mr3812846wru.37.1691269494423;
-        Sat, 05 Aug 2023 14:04:54 -0700 (PDT)
-Received: from [192.168.1.20] ([178.197.222.245])
-        by smtp.gmail.com with ESMTPSA id w14-20020adfec4e000000b003141e629cb6sm5892063wrn.101.2023.08.05.14.04.52
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 05 Aug 2023 14:04:53 -0700 (PDT)
-Message-ID: <8fc27960-fa82-c900-0414-75b10a118f15@linaro.org>
-Date: Sat, 5 Aug 2023 23:04:51 +0200
+	Sun, 06 Aug 2023 02:39:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1691289566; x=1722825566;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=tay5dkvntw3AjcFDhiXZE3t/h3WXy5Q2ggqsZ9PrX0o=;
+  b=WM/Y042WxB9iv4FcYw0BxjdEfpUufWwtgnK7XKG9Y+Ine2A3hMCOtKuf
+   qUSBSRlz7680sTQjuZM+JdiEZcunUa7Wn25LfWzSAvEXxrnYfmoKChJkn
+   g9LUuNCiZkfob8kKiNO0DqkrADQibmuiTCFFOPTj+KyYpuXnPC5W7tGS/
+   dMjsYqSekvC7uPqaRJyVm6kEbojw+KZ9ZG0Ct/hHVMcp8McqbEIejxeKe
+   eYDI0sOLI4TtK0HauT/JVnqEaTtyJSmYiiOZhwEbjB8LeIxrEqZndBHuQ
+   XBGlw8oyOT1S7yXNUTHNWdBmk22Gl7aQIxTS4mkEQv9GAbaGlWo/bnqLD
+   A==;
+X-IronPort-AV: E=McAfee;i="6600,9927,10793"; a="373100371"
+X-IronPort-AV: E=Sophos;i="6.01,259,1684825200"; 
+   d="scan'208";a="373100371"
+Received: from orsmga007.jf.intel.com ([10.7.209.58])
+  by orsmga102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Aug 2023 19:39:23 -0700
+X-ExtLoop1: 1
+X-IronPort-AV: E=McAfee;i="6600,9927,10793"; a="724106192"
+X-IronPort-AV: E=Sophos;i="6.01,259,1684825200"; 
+   d="scan'208";a="724106192"
+Received: from xiao-desktop.sh.intel.com ([10.239.46.158])
+  by orsmga007.jf.intel.com with ESMTP; 05 Aug 2023 19:39:20 -0700
+From: Xiao Wang <xiao.w.wang@intel.com>
+To: paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	ardb@kernel.org
+Cc: anup@brainfault.org,
+	haicheng.li@intel.com,
+	linux-riscv@lists.infradead.org,
+	linux-efi@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Xiao Wang <xiao.w.wang@intel.com>
+Subject: [PATCH] RISC-V: Optimize bitops with Zbb extension
+Date: Sun,  6 Aug 2023 10:47:15 +0800
+Message-Id: <20230806024715.3061589-1-xiao.w.wang@intel.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.14.0
-Subject: Re: [PATCH v1 5/5] riscv: dts: starfive: Add the nodes and pins of
- I2Srx/I2Stx0/I2Stx1
-Content-Language: en-US
-To: Xingyu Wu <xingyu.wu@starfivetech.com>,
- Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
- Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
- Maxim Kochetkov <fido_max@inbox.ru>, Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Conor Dooley <conor.dooley@microchip.com>,
- Emil Renner Berthing <emil.renner.berthing@canonical.com>
-Cc: Jose Abreu <joabreu@synopsys.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Walker Chen <walker.chen@starfivetech.com>, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, alsa-devel@alsa-project.org,
- linux-riscv@lists.infradead.org
-References: <20230802084301.134122-1-xingyu.wu@starfivetech.com>
- <20230802084301.134122-6-xingyu.wu@starfivetech.com>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <20230802084301.134122-6-xingyu.wu@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230805_140455_943200_AE90CA5C 
-X-CRM114-Status: GOOD (  12.56  )
+X-CRM114-CacheID: sfid-20230805_193926_834472_A3666657 
+X-CRM114-Status: GOOD (  18.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,91 +86,325 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 02/08/2023 10:43, Xingyu Wu wrote:
-> Add I2Srx/I2Stx0/I2Stx1 nodes and pins configuration for the
-> StarFive JH7110 SoC.
-> 
-> Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
-> ---
+This patch leverages the alternative mechanism to dynamically optimize
+bitops (including __ffs, __fls, ffs, fls) with Zbb instructions. When
+Zbb ext is not supported by the runtime CPU, legacy implementation is
+used. If Zbb is supported, then the optimized variants will be selected
+via alternative patching.
 
-...
+The legacy bitops support is taken from the generic C implementation as
+fallback.
 
-> +
->  	spi0_pins: spi0-0 {
->  		mosi-pins {
->  			pinmux = <GPIOMUX(52, GPOUT_SYS_SPI0_TXD,
-> diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-> index 05f843b8ca03..507312eb6053 100644
-> --- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
-> +++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-> @@ -512,6 +512,30 @@ tdm: tdm@10090000 {
->  			status = "disabled";
->  		};
->  
-> +		i2srx: i2srx@100e0000 {
+If the parameter is a build-time constant, we leverage compiler builtin to
+calculate the result directly, this approach is inspired by x86 bitops
+implementation.
 
-Node names should be generic, so:
-i2s@
+EFI stub runs before the kernel, so alternative mechanism should not be
+used there, this patch introduces a macro EFI_NO_ALTERNATIVE for this
+purpose.
 
-> +			compatible = "starfive,jh7110-i2srx";
-> +			reg = <0x0 0x100e0000 0x0 0x1000>;
-> +			clocks = <&syscrg JH7110_SYSCLK_I2SRX_BCLK_MST>,
-> +				 <&syscrg JH7110_SYSCLK_I2SRX_APB>,
-> +				 <&syscrg JH7110_SYSCLK_MCLK>,
-> +				 <&syscrg JH7110_SYSCLK_MCLK_INNER>,
-> +				 <&mclk_ext>,
-> +				 <&syscrg JH7110_SYSCLK_I2SRX_BCLK>,
-> +				 <&syscrg JH7110_SYSCLK_I2SRX_LRCK>,
-> +				 <&i2srx_bclk_ext>,
-> +				 <&i2srx_lrck_ext>;
-> +			clock-names = "i2sclk", "apb", "mclk",
-> +				      "mclk_inner", "mclk_ext", "bclk",
-> +				      "lrck", "bclk_ext", "lrck_ext";
-> +			resets = <&syscrg JH7110_SYSRST_I2SRX_APB>,
-> +				 <&syscrg JH7110_SYSRST_I2SRX_BCLK>;
-> +			dmas = <0>, <&dma 24>;
-> +			dma-names = "tx", "rx";
-> +			starfive,syscon = <&sys_syscon 0x18 0x2>;
-> +			#sound-dai-cells = <0>;
-> +			status = "disabled";
-> +		};
-> +
->  		usb0: usb@10100000 {
->  			compatible = "starfive,jh7110-usb";
->  			ranges = <0x0 0x0 0x10100000 0x100000>;
-> @@ -736,6 +760,47 @@ spi6: spi@120a0000 {
->  			status = "disabled";
->  		};
->  
-> +		i2stx0: i2stx0@120b0000 {
+Signed-off-by: Xiao Wang <xiao.w.wang@intel.com>
+---
+ arch/riscv/include/asm/bitops.h       | 266 +++++++++++++++++++++++++-
+ drivers/firmware/efi/libstub/Makefile |   2 +-
+ 2 files changed, 264 insertions(+), 4 deletions(-)
 
-i2s@
-
-> +			compatible = "starfive,jh7110-i2stx0";
-> +			reg = <0x0 0x120b0000 0x0 0x1000>;
-> +			clocks = <&syscrg JH7110_SYSCLK_I2STX0_BCLK_MST>,
-> +				 <&syscrg JH7110_SYSCLK_I2STX0_APB>,
-> +				 <&syscrg JH7110_SYSCLK_MCLK>,
-> +				 <&syscrg JH7110_SYSCLK_MCLK_INNER>,
-> +				 <&mclk_ext>;
-> +			clock-names = "i2sclk", "apb", "mclk",
-> +				      "mclk_inner","mclk_ext";
-> +			resets = <&syscrg JH7110_SYSRST_I2STX0_APB>,
-> +				 <&syscrg JH7110_SYSRST_I2STX0_BCLK>;
-> +			dmas = <&dma 47>;
-> +			dma-names = "tx";
-> +			#sound-dai-cells = <0>;
-> +			status = "disabled";
-> +		};
-> +
-> +		i2stx1: i2stx1@120c0000 {
-
-i2s@
-
-
-
-Best regards,
-Krzysztof
+diff --git a/arch/riscv/include/asm/bitops.h b/arch/riscv/include/asm/bitops.h
+index 3540b690944b..f727f6489cd5 100644
+--- a/arch/riscv/include/asm/bitops.h
++++ b/arch/riscv/include/asm/bitops.h
+@@ -15,13 +15,273 @@
+ #include <asm/barrier.h>
+ #include <asm/bitsperlong.h>
+ 
++#if !defined(CONFIG_RISCV_ISA_ZBB) || defined(EFI_NO_ALTERNATIVE)
+ #include <asm-generic/bitops/__ffs.h>
+-#include <asm-generic/bitops/ffz.h>
+-#include <asm-generic/bitops/fls.h>
+ #include <asm-generic/bitops/__fls.h>
++#include <asm-generic/bitops/ffs.h>
++#include <asm-generic/bitops/fls.h>
++
++#else
++#include <asm/alternative-macros.h>
++#include <asm/hwcap.h>
++
++#if (BITS_PER_LONG == 64)
++#define CTZW	"ctzw "
++#define CLZW	"clzw "
++#elif (BITS_PER_LONG == 32)
++#define CTZW	"ctz "
++#define CLZW	"clz "
++#else
++#error "Unexpected BITS_PER_LONG"
++#endif
++
++static __always_inline unsigned long variable__ffs(unsigned long word)
++{
++	int num;
++
++	asm_volatile_goto(
++		ALTERNATIVE("j %l[legacy]", "nop", 0, RISCV_ISA_EXT_ZBB, 1)
++		: : : : legacy);
++
++	asm volatile (
++		".option push\n"
++		".option arch,+zbb\n"
++		"ctz %0, %1\n"
++		".option pop\n"
++		: "=r" (word) : "r" (word) :);
++
++	return word;
++
++legacy:
++	num = 0;
++#if BITS_PER_LONG == 64
++	if ((word & 0xffffffff) == 0) {
++		num += 32;
++		word >>= 32;
++	}
++#endif
++	if ((word & 0xffff) == 0) {
++		num += 16;
++		word >>= 16;
++	}
++	if ((word & 0xff) == 0) {
++		num += 8;
++		word >>= 8;
++	}
++	if ((word & 0xf) == 0) {
++		num += 4;
++		word >>= 4;
++	}
++	if ((word & 0x3) == 0) {
++		num += 2;
++		word >>= 2;
++	}
++	if ((word & 0x1) == 0)
++		num += 1;
++	return num;
++}
++
++/**
++ * __ffs - find first set bit in a long word
++ * @word: The word to search
++ *
++ * Undefined if no set bit exists, so code should check against 0 first.
++ */
++#define __ffs(word)				\
++	(__builtin_constant_p(word) ?		\
++	 (unsigned long)__builtin_ctzl(word) :	\
++	 variable__ffs(word))
++
++static __always_inline unsigned long variable__fls(unsigned long word)
++{
++	int num;
++
++	asm_volatile_goto(
++		ALTERNATIVE("j %l[legacy]", "nop", 0, RISCV_ISA_EXT_ZBB, 1)
++		: : : : legacy);
++
++	asm volatile (
++		".option push\n"
++		".option arch,+zbb\n"
++		"clz %0, %1\n"
++		".option pop\n"
++		: "=r" (word) : "r" (word) :);
++
++	return BITS_PER_LONG - 1 - word;
++
++legacy:
++	num = BITS_PER_LONG - 1;
++#if BITS_PER_LONG == 64
++	if (!(word & (~0ul << 32))) {
++		num -= 32;
++		word <<= 32;
++	}
++#endif
++	if (!(word & (~0ul << (BITS_PER_LONG-16)))) {
++		num -= 16;
++		word <<= 16;
++	}
++	if (!(word & (~0ul << (BITS_PER_LONG-8)))) {
++		num -= 8;
++		word <<= 8;
++	}
++	if (!(word & (~0ul << (BITS_PER_LONG-4)))) {
++		num -= 4;
++		word <<= 4;
++	}
++	if (!(word & (~0ul << (BITS_PER_LONG-2)))) {
++		num -= 2;
++		word <<= 2;
++	}
++	if (!(word & (~0ul << (BITS_PER_LONG-1))))
++		num -= 1;
++	return num;
++}
++
++/**
++ * __fls - find last set bit in a long word
++ * @word: the word to search
++ *
++ * Undefined if no set bit exists, so code should check against 0 first.
++ */
++#define __fls(word)							\
++	(__builtin_constant_p(word) ?					\
++	 (unsigned long)(BITS_PER_LONG - 1 - __builtin_clzl(word)) :	\
++	 variable__fls(word))
++
++static __always_inline int variable_ffs(int x)
++{
++	int r;
++
++	asm_volatile_goto(
++		ALTERNATIVE("j %l[legacy]", "nop", 0, RISCV_ISA_EXT_ZBB, 1)
++		: : : : legacy);
++
++	asm volatile (
++		".option push\n"
++		".option arch,+zbb\n"
++		"bnez %1, 1f\n"
++		"li %0, 0\n"
++		"j 2f\n"
++		"1:\n"
++		CTZW "%0, %1\n"
++		"addi %0, %0, 1\n"
++		"2:\n"
++		".option pop\n"
++		: "=r" (r) : "r" (x) :);
++
++	return r;
++
++legacy:
++	r = 1;
++	if (!x)
++		return 0;
++	if (!(x & 0xffff)) {
++		x >>= 16;
++		r += 16;
++	}
++	if (!(x & 0xff)) {
++		x >>= 8;
++		r += 8;
++	}
++	if (!(x & 0xf)) {
++		x >>= 4;
++		r += 4;
++	}
++	if (!(x & 3)) {
++		x >>= 2;
++		r += 2;
++	}
++	if (!(x & 1)) {
++		x >>= 1;
++		r += 1;
++	}
++	return r;
++}
++
++/**
++ * ffs - find first set bit in a word
++ * @x: the word to search
++ *
++ * This is defined the same way as the libc and compiler builtin ffs routines.
++ *
++ * ffs(value) returns 0 if value is 0 or the position of the first set bit if
++ * value is nonzero. The first (least significant) bit is at position 1.
++ */
++#define ffs(x) (__builtin_constant_p(x) ? __builtin_ffs(x) : variable_ffs(x))
++
++static __always_inline int variable_fls(unsigned int x)
++{
++	int r;
++
++	asm_volatile_goto(
++		ALTERNATIVE("j %l[legacy]", "nop", 0, RISCV_ISA_EXT_ZBB, 1)
++		: : : : legacy);
++
++	asm volatile (
++		".option push\n"
++		".option arch,+zbb\n"
++		"bnez %1, 1f\n"
++		"li %0, 0\n"
++		"j 2f\n"
++		"1:\n"
++		CLZW "%0, %1\n"
++		"neg %0, %0\n"
++		"addi %0, %0, 32\n"
++		"2:\n"
++		".option pop\n"
++		: "=r" (r) : "r" (x) :);
++
++	return r;
++
++legacy:
++	r = 32;
++	if (!x)
++		return 0;
++	if (!(x & 0xffff0000u)) {
++		x <<= 16;
++		r -= 16;
++	}
++	if (!(x & 0xff000000u)) {
++		x <<= 8;
++		r -= 8;
++	}
++	if (!(x & 0xf0000000u)) {
++		x <<= 4;
++		r -= 4;
++	}
++	if (!(x & 0xc0000000u)) {
++		x <<= 2;
++		r -= 2;
++	}
++	if (!(x & 0x80000000u)) {
++		x <<= 1;
++		r -= 1;
++	}
++	return r;
++}
++
++/**
++ * fls - find last set bit in a word
++ * @x: the word to search
++ *
++ * This is defined in a similar way as ffs, but returns the position of the most
++ * significant set bit.
++ *
++ * fls(value) returns 0 if value is 0 or the position of the last set bit if
++ * value is nonzero. The last (most significant) bit is at position 32.
++ */
++#define fls(x)								\
++	(__builtin_constant_p(x) ?					\
++	 (int)(((x) != 0) ?						\
++	  (sizeof(unsigned int) * 8 - __builtin_clz(x)) : 0) :		\
++	 variable_fls(x))
++
++#endif
++
++#include <asm-generic/bitops/ffz.h>
+ #include <asm-generic/bitops/fls64.h>
+ #include <asm-generic/bitops/sched.h>
+-#include <asm-generic/bitops/ffs.h>
+ 
+ #include <asm-generic/bitops/hweight.h>
+ 
+diff --git a/drivers/firmware/efi/libstub/Makefile b/drivers/firmware/efi/libstub/Makefile
+index 16d64a34d1e1..b0f8c495c10f 100644
+--- a/drivers/firmware/efi/libstub/Makefile
++++ b/drivers/firmware/efi/libstub/Makefile
+@@ -28,7 +28,7 @@ cflags-$(CONFIG_ARM)		+= -DEFI_HAVE_STRLEN -DEFI_HAVE_STRNLEN \
+ 				   -DEFI_HAVE_MEMCHR -DEFI_HAVE_STRRCHR \
+ 				   -DEFI_HAVE_STRCMP -fno-builtin -fpic \
+ 				   $(call cc-option,-mno-single-pic-base)
+-cflags-$(CONFIG_RISCV)		+= -fpic
++cflags-$(CONFIG_RISCV)		+= -fpic -DEFI_NO_ALTERNATIVE
+ cflags-$(CONFIG_LOONGARCH)	+= -fpie
+ 
+ cflags-$(CONFIG_EFI_PARAMS_FROM_FDT)	+= -I$(srctree)/scripts/dtc/libfdt
+-- 
+2.25.1
 
 
 _______________________________________________
