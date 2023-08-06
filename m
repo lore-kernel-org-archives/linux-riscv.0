@@ -4,70 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF899C00528
-	for <linux-riscv@archiver.kernel.org>; Sun,  6 Aug 2023 09:39:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FBB3C001DE
+	for <linux-riscv@archiver.kernel.org>; Sun,  6 Aug 2023 09:54:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Liw4iKHCRx2uTJ9Ru/L4SsQrgmzX1W07VG3G/31EeVY=; b=Q0WckHO3d5gmaK
-	DGs9/ROrZIPFhTcent/m7KpqjjHdmW4XCc5FB5e6hSVzYpudBr9pt/LVXT7JjdzA5jL0rCy6aSUiH
-	bR+q2pER0bOTfzB2yghNkkCUiJy6b7k6VXOuOpX72Q2+kl7X5daZltiPTezSZikRF+VnvIqgOI02e
-	d74XFcf3WSzwRIl1OvjxOOWloo4OiTNSnFWiurp1GqLzux4c6wwJGTUBXju+/XH/i29J58NDffrhZ
-	NAt+lCXB7zZCrSP75j/lzqPUXXslbBA81Tm48CnHGXMNWBWpzzRJPZ5icdRw8ebj1ChZJ1HYp/Kqq
-	tAueHW/s8Z7ZJunfnYMg==;
+	List-Owner; bh=20VLvbcs868rZX5dZu8fiw43XQaldfbHNUZCNmAp67c=; b=3s6l1viq635dwR
+	HgTSJ98YIXMhUvo66swryhwmjsdKoFivufisInwPY8mS1+XSHwQwT4B4MUaE6VsKC7y65aWeqDBlk
+	M3EfJqeoFdfk9pcjOEYyfqU6EFlcL0JPJPy6C9aySZ/n7uBN0G4yubuiQLeJFvMzvYvlG51cp3AC9
+	l4dd9lJ/tlUELvpqBu3EWqbpkaDdVdX5EwtsythVCL5Lz12GXSM3Tuu1bVFCdReSR7vejpt8wHVoX
+	K+oB9bU7vrPwXoA9qwzVhEIDF5mDSSrSGd5LeSEz/qbrjVMIOzFZ8iHdSgwyjCGN+i8PweN1pXKz1
+	uN9rQEvK2f2jW+Mu6hog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qSaE2-00F8zs-1v;
-	Sun, 06 Aug 2023 09:39:02 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1qSaSh-00FA4Y-0U;
+	Sun, 06 Aug 2023 09:54:11 +0000
+Received: from relay1-d.mail.gandi.net ([2001:4b98:dc4:8::221])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qSaE0-00F8zX-0d
+	id 1qSaSd-00FA2Y-25
 	for linux-riscv@lists.infradead.org;
-	Sun, 06 Aug 2023 09:39:02 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 89C7A61012
-	for <linux-riscv@lists.infradead.org>; Sun,  6 Aug 2023 09:38:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EEAB7C433C9
-	for <linux-riscv@lists.infradead.org>; Sun,  6 Aug 2023 09:38:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1691314739;
-	bh=mbtkeapvpDWstkDVi3o2PUu8Y0FTJpcS0ZZq1b7ahk8=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=qFrFYZTNlSJWUBn23uqeUOFw9tiKbiczpoChHfOA/oNGNuuRBcCOt2ker6Y8F7Qrg
-	 HGZhgS7fzpdW0UK8yIJSaKtioPOtBlGg6FAiZasnMXjV2l5WAM/QxWQcKVvdxUePMs
-	 J4cYhCqKXaEnkOrXZrCwfIDdyhcTBUG4EMYC0yeoSu5Vly3UIIknV8sZFr4jEfVcJ4
-	 Kl3Vf+fBxPfvCtHCyusNSYLXXDC1V5gY7qGYn0Jlnkc5kgFgxcd3kDCE+PQ9aPYBrB
-	 fFh997HGStKN7PcO0wBPPNllWpYvbdS9OHeXlIllmul8x8Qtb82euydqdAjWCNyV8u
-	 yjrHtmCCZhkJw==
-Received: by mail-lj1-f181.google.com with SMTP id 38308e7fff4ca-2b9b5ee9c5aso55335531fa.1
-        for <linux-riscv@lists.infradead.org>; Sun, 06 Aug 2023 02:38:58 -0700 (PDT)
-X-Gm-Message-State: AOJu0Yy8MaSPxzmfqnaOVMIuPaXIq73fuo2OhwcCJ35tgskZb3X3Uq2W
-	cCLhr/UiFa2vCFkyJscKcyzMOZk1wF+mHqPLLeM=
-X-Google-Smtp-Source: AGHT+IEG4tGUdT6tMKUifQt6qnCl1AVJpHTHuWE1cO6PThE3+66SNDorgT/av0ZYoInayB2VIDYQsys6SpsUzqg8au4=
-X-Received: by 2002:a19:7b02:0:b0:4fe:19ef:879e with SMTP id
- w2-20020a197b02000000b004fe19ef879emr3367165lfc.28.1691314736862; Sun, 06 Aug
- 2023 02:38:56 -0700 (PDT)
+	Sun, 06 Aug 2023 09:54:09 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id D0277240005;
+	Sun,  6 Aug 2023 09:53:51 +0000 (UTC)
+Message-ID: <4c692993-86ab-fdce-8c78-f676cf90e861@ghiti.fr>
+Date: Sun, 6 Aug 2023 11:53:51 +0200
 MIME-Version: 1.0
-References: <20230806024715.3061589-1-xiao.w.wang@intel.com>
-In-Reply-To: <20230806024715.3061589-1-xiao.w.wang@intel.com>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Sun, 6 Aug 2023 11:38:45 +0200
-X-Gmail-Original-Message-ID: <CAMj1kXHicVpT7PDSB=BgYEuhBxgufHqd9X8ZCg19k0_U+rjvEg@mail.gmail.com>
-Message-ID: <CAMj1kXHicVpT7PDSB=BgYEuhBxgufHqd9X8ZCg19k0_U+rjvEg@mail.gmail.com>
-Subject: Re: [PATCH] RISC-V: Optimize bitops with Zbb extension
-To: Xiao Wang <xiao.w.wang@intel.com>
-Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
-	anup@brainfault.org, haicheng.li@intel.com, linux-riscv@lists.infradead.org, 
-	linux-efi@vger.kernel.org, linux-kernel@vger.kernel.org
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.13.0
+Subject: Re: [PATCH v8 1/4] RISC-V: mm: Restrict address space for
+ sv39,sv48,sv57
+Content-Language: en-US
+To: Charlie Jenkins <charlie@rivosinc.com>, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Cc: conor@kernel.org, paul.walmsley@sifive.com, palmer@rivosinc.com,
+ aou@eecs.berkeley.edu, anup@brainfault.org, konstantin@linuxfoundation.org,
+ linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ linux-mm@kvack.org, mick@ics.forth.gr, jrtc27@jrtc27.com,
+ rdunlap@infradead.org, alexghiti@rivosinc.com
+References: <20230727212647.4182407-1-charlie@rivosinc.com>
+ <20230727212647.4182407-2-charlie@rivosinc.com>
+From: Alexandre Ghiti <alex@ghiti.fr>
+In-Reply-To: <20230727212647.4182407-2-charlie@rivosinc.com>
+X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230806_023900_596098_8F6F88DC 
-X-CRM114-Status: GOOD (  29.22  )
+X-CRM114-CacheID: sfid-20230806_025407_964102_0C394064 
+X-CRM114-Status: GOOD (  21.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,337 +63,171 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, 6 Aug 2023 at 04:39, Xiao Wang <xiao.w.wang@intel.com> wrote:
->
-> This patch leverages the alternative mechanism to dynamically optimize
-> bitops (including __ffs, __fls, ffs, fls) with Zbb instructions. When
-> Zbb ext is not supported by the runtime CPU, legacy implementation is
-> used. If Zbb is supported, then the optimized variants will be selected
-> via alternative patching.
->
-> The legacy bitops support is taken from the generic C implementation as
-> fallback.
->
-> If the parameter is a build-time constant, we leverage compiler builtin to
-> calculate the result directly, this approach is inspired by x86 bitops
-> implementation.
->
-> EFI stub runs before the kernel, so alternative mechanism should not be
-> used there, this patch introduces a macro EFI_NO_ALTERNATIVE for this
-> purpose.
->
 
-Why? The unpatched sequences work fine, no?
-
-
-> Signed-off-by: Xiao Wang <xiao.w.wang@intel.com>
+On 27/07/2023 23:26, Charlie Jenkins wrote:
+> Make sv48 the default address space for mmap as some applications
+> currently depend on this assumption. A hint address passed to mmap will
+> cause the largest address space that fits entirely into the hint to be
+> used. If the hint is less than or equal to 1<<38, an sv39 address will
+> be used. An exception is that if the hint address is 0, then a sv48
+> address will be used. After an address space is completely full, the next
+> smallest address space will be used.
+>
+> Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
 > ---
->  arch/riscv/include/asm/bitops.h       | 266 +++++++++++++++++++++++++-
->  drivers/firmware/efi/libstub/Makefile |   2 +-
->  2 files changed, 264 insertions(+), 4 deletions(-)
+>   arch/riscv/include/asm/elf.h       |  2 +-
+>   arch/riscv/include/asm/pgtable.h   | 20 +++++++++++-
+>   arch/riscv/include/asm/processor.h | 52 ++++++++++++++++++++++++++----
+>   3 files changed, 66 insertions(+), 8 deletions(-)
 >
-> diff --git a/arch/riscv/include/asm/bitops.h b/arch/riscv/include/asm/bitops.h
-> index 3540b690944b..f727f6489cd5 100644
-> --- a/arch/riscv/include/asm/bitops.h
-> +++ b/arch/riscv/include/asm/bitops.h
-> @@ -15,13 +15,273 @@
->  #include <asm/barrier.h>
->  #include <asm/bitsperlong.h>
->
-> +#if !defined(CONFIG_RISCV_ISA_ZBB) || defined(EFI_NO_ALTERNATIVE)
->  #include <asm-generic/bitops/__ffs.h>
-> -#include <asm-generic/bitops/ffz.h>
-> -#include <asm-generic/bitops/fls.h>
->  #include <asm-generic/bitops/__fls.h>
-> +#include <asm-generic/bitops/ffs.h>
-> +#include <asm-generic/bitops/fls.h>
+> diff --git a/arch/riscv/include/asm/elf.h b/arch/riscv/include/asm/elf.h
+> index c24280774caf..5d3368d5585c 100644
+> --- a/arch/riscv/include/asm/elf.h
+> +++ b/arch/riscv/include/asm/elf.h
+> @@ -49,7 +49,7 @@ extern bool compat_elf_check_arch(Elf32_Ehdr *hdr);
+>    * the loader.  We need to make sure that it is out of the way of the program
+>    * that it will "exec", and that there is sufficient room for the brk.
+>    */
+> -#define ELF_ET_DYN_BASE		((TASK_SIZE / 3) * 2)
+> +#define ELF_ET_DYN_BASE		((DEFAULT_MAP_WINDOW / 3) * 2)
+>   
+>   #ifdef CONFIG_64BIT
+>   #ifdef CONFIG_COMPAT
+> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+> index 75970ee2bda2..c76a1ef094a4 100644
+> --- a/arch/riscv/include/asm/pgtable.h
+> +++ b/arch/riscv/include/asm/pgtable.h
+> @@ -63,8 +63,26 @@
+>    * position vmemmap directly below the VMALLOC region.
+>    */
+>   #ifdef CONFIG_64BIT
+> +#define VA_BITS_SV39 39
+> +#define VA_BITS_SV48 48
+> +#define VA_BITS_SV57 57
+> +
+> +#define VA_USER_SV39 (UL(1) << (VA_BITS_SV39 - 1))
+> +#define VA_USER_SV48 (UL(1) << (VA_BITS_SV48 - 1))
+> +#define VA_USER_SV57 (UL(1) << (VA_BITS_SV57 - 1))
+> +
+>   #define VA_BITS		(pgtable_l5_enabled ? \
+> -				57 : (pgtable_l4_enabled ? 48 : 39))
+> +				VA_BITS_SV57 : (pgtable_l4_enabled ? VA_BITS_SV48 : VA_BITS_SV39))
+> +
+> +#ifdef CONFIG_COMPAT
+> +#define MMAP_VA_BITS_64 ((VA_BITS >= VA_BITS_SV48) ? VA_BITS_SV48 : VA_BITS)
+> +#define MMAP_MIN_VA_BITS_64 ((VA_BITS >= VA_BITS_SV39) ? VA_BITS_SV39 : VA_BITS)
+
+
+Here the condition is always true right?
+
+
+> +#define MMAP_VA_BITS (test_thread_flag(TIF_32BIT) ? 32 : MMAP_VA_BITS_64)
+> +#define MMAP_MIN_VA_BITS (test_thread_flag(TIF_32BIT) ? 32 : MMAP_MIN_VA_BITS_64)
+
+
+I think you should use is_compat_task() here instead of 
+test_thread_flag(TIF_32BIT). And what about introducing VA_BITS_SV32 
+instead of hardcoding 32?
+
+
+> +#else
+> +#define MMAP_VA_BITS ((VA_BITS >= VA_BITS_SV48) ? VA_BITS_SV48 : VA_BITS)
+> +#define MMAP_MIN_VA_BITS ((VA_BITS >= VA_BITS_SV39) ? VA_BITS_SV39 : VA_BITS)
+
+
+Ditto here.
+
+
+> +#endif
+>   #else
+>   #define VA_BITS		32
+>   #endif
+> diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/processor.h
+> index c950a8d9edef..e810244ea951 100644
+> --- a/arch/riscv/include/asm/processor.h
+> +++ b/arch/riscv/include/asm/processor.h
+> @@ -13,19 +13,59 @@
+>   
+>   #include <asm/ptrace.h>
+>   
+> +#ifdef CONFIG_64BIT
+> +#define DEFAULT_MAP_WINDOW	(UL(1) << (MMAP_VA_BITS - 1))
+> +#define STACK_TOP_MAX		TASK_SIZE_64
+> +
+> +#define arch_get_mmap_end(addr, len, flags)	\
+> +({	\
+> +	unsigned long mmap_end;	\
+> +	typeof(addr) _addr = (addr); \
+> +	if ((_addr) == 0 || (IS_ENABLED(CONFIG_COMPAT) && test_thread_flag(TIF_32BIT))) \
+> +		mmap_end = DEFAULT_MAP_WINDOW;	\
+
+
+Wouldn't that prevent a sv57 system to allocate sv57 addresses when sv48 
+is full unless explicitly asked?
+
+
+> +	else if ((_addr) >= VA_USER_SV57)	\
+> +		mmap_end = STACK_TOP_MAX;	\
+> +	else if ((((_addr) >= VA_USER_SV48)) && (VA_BITS >= VA_BITS_SV48))	\
+> +		mmap_end = VA_USER_SV48;	\
+> +	else	\
+> +		mmap_end = VA_USER_SV39;	\
+> +	mmap_end;	\
+> +})
+> +
+> +#define arch_get_mmap_base(addr, base) \
+> +({ \
+> +	unsigned long mmap_base; \
+> +	typeof(addr) _addr = (addr); \
+> +	typeof(base) _base = (base); \
+> +	unsigned long rnd_gap = (_base) - DEFAULT_MAP_WINDOW; \
+> +	if ((_addr) == 0 || (IS_ENABLED(CONFIG_COMPAT) && test_thread_flag(TIF_32BIT))) \
+> +		mmap_base = (_base); \
+> +	else if (((_addr) >= VA_USER_SV57) && (VA_BITS >= VA_BITS_SV57)) \
+> +		mmap_base = VA_USER_SV57 + rnd_gap; \
+
+
+Shouldn't it be mmap_base = VA_USER_SV57 - rnd_gap?
+
+
+> +	else if ((((_addr) >= VA_USER_SV48)) && (VA_BITS >= VA_BITS_SV48)) \
+> +		mmap_base = VA_USER_SV48 + rnd_gap; \
+> +	else \
+> +		mmap_base = VA_USER_SV39 + rnd_gap; \
+> +	mmap_base; \
+> +})
 > +
 > +#else
-> +#include <asm/alternative-macros.h>
-> +#include <asm/hwcap.h>
-> +
-> +#if (BITS_PER_LONG == 64)
-> +#define CTZW   "ctzw "
-> +#define CLZW   "clzw "
-> +#elif (BITS_PER_LONG == 32)
-> +#define CTZW   "ctz "
-> +#define CLZW   "clz "
-> +#else
-> +#error "Unexpected BITS_PER_LONG"
+> +#define DEFAULT_MAP_WINDOW	TASK_SIZE
+> +#define STACK_TOP_MAX		TASK_SIZE
 > +#endif
+> +#define STACK_ALIGN		16
 > +
-> +static __always_inline unsigned long variable__ffs(unsigned long word)
-> +{
-> +       int num;
+> +#define STACK_TOP		DEFAULT_MAP_WINDOW
 > +
-> +       asm_volatile_goto(
-> +               ALTERNATIVE("j %l[legacy]", "nop", 0, RISCV_ISA_EXT_ZBB, 1)
-> +               : : : : legacy);
-> +
-> +       asm volatile (
-> +               ".option push\n"
-> +               ".option arch,+zbb\n"
-> +               "ctz %0, %1\n"
-> +               ".option pop\n"
-> +               : "=r" (word) : "r" (word) :);
-> +
-> +       return word;
-> +
-> +legacy:
-> +       num = 0;
-> +#if BITS_PER_LONG == 64
-> +       if ((word & 0xffffffff) == 0) {
-> +               num += 32;
-> +               word >>= 32;
-> +       }
-> +#endif
-> +       if ((word & 0xffff) == 0) {
-> +               num += 16;
-> +               word >>= 16;
-> +       }
-> +       if ((word & 0xff) == 0) {
-> +               num += 8;
-> +               word >>= 8;
-> +       }
-> +       if ((word & 0xf) == 0) {
-> +               num += 4;
-> +               word >>= 4;
-> +       }
-> +       if ((word & 0x3) == 0) {
-> +               num += 2;
-> +               word >>= 2;
-> +       }
-> +       if ((word & 0x1) == 0)
-> +               num += 1;
-> +       return num;
-> +}
-> +
-> +/**
-> + * __ffs - find first set bit in a long word
-> + * @word: The word to search
-> + *
-> + * Undefined if no set bit exists, so code should check against 0 first.
-> + */
-> +#define __ffs(word)                            \
-> +       (__builtin_constant_p(word) ?           \
-> +        (unsigned long)__builtin_ctzl(word) :  \
-> +        variable__ffs(word))
-> +
-> +static __always_inline unsigned long variable__fls(unsigned long word)
-> +{
-> +       int num;
-> +
-> +       asm_volatile_goto(
-> +               ALTERNATIVE("j %l[legacy]", "nop", 0, RISCV_ISA_EXT_ZBB, 1)
-> +               : : : : legacy);
-> +
-> +       asm volatile (
-> +               ".option push\n"
-> +               ".option arch,+zbb\n"
-> +               "clz %0, %1\n"
-> +               ".option pop\n"
-> +               : "=r" (word) : "r" (word) :);
-> +
-> +       return BITS_PER_LONG - 1 - word;
-> +
-> +legacy:
-> +       num = BITS_PER_LONG - 1;
-> +#if BITS_PER_LONG == 64
-> +       if (!(word & (~0ul << 32))) {
-> +               num -= 32;
-> +               word <<= 32;
-> +       }
-> +#endif
-> +       if (!(word & (~0ul << (BITS_PER_LONG-16)))) {
-> +               num -= 16;
-> +               word <<= 16;
-> +       }
-> +       if (!(word & (~0ul << (BITS_PER_LONG-8)))) {
-> +               num -= 8;
-> +               word <<= 8;
-> +       }
-> +       if (!(word & (~0ul << (BITS_PER_LONG-4)))) {
-> +               num -= 4;
-> +               word <<= 4;
-> +       }
-> +       if (!(word & (~0ul << (BITS_PER_LONG-2)))) {
-> +               num -= 2;
-> +               word <<= 2;
-> +       }
-> +       if (!(word & (~0ul << (BITS_PER_LONG-1))))
-> +               num -= 1;
-> +       return num;
-> +}
-> +
-> +/**
-> + * __fls - find last set bit in a long word
-> + * @word: the word to search
-> + *
-> + * Undefined if no set bit exists, so code should check against 0 first.
-> + */
-> +#define __fls(word)                                                    \
-> +       (__builtin_constant_p(word) ?                                   \
-> +        (unsigned long)(BITS_PER_LONG - 1 - __builtin_clzl(word)) :    \
-> +        variable__fls(word))
-> +
-> +static __always_inline int variable_ffs(int x)
-> +{
-> +       int r;
-> +
-> +       asm_volatile_goto(
-> +               ALTERNATIVE("j %l[legacy]", "nop", 0, RISCV_ISA_EXT_ZBB, 1)
-> +               : : : : legacy);
-> +
-> +       asm volatile (
-> +               ".option push\n"
-> +               ".option arch,+zbb\n"
-> +               "bnez %1, 1f\n"
-> +               "li %0, 0\n"
-> +               "j 2f\n"
-> +               "1:\n"
-> +               CTZW "%0, %1\n"
-> +               "addi %0, %0, 1\n"
-> +               "2:\n"
-> +               ".option pop\n"
-> +               : "=r" (r) : "r" (x) :);
-> +
-> +       return r;
-> +
-> +legacy:
-> +       r = 1;
-> +       if (!x)
-> +               return 0;
-> +       if (!(x & 0xffff)) {
-> +               x >>= 16;
-> +               r += 16;
-> +       }
-> +       if (!(x & 0xff)) {
-> +               x >>= 8;
-> +               r += 8;
-> +       }
-> +       if (!(x & 0xf)) {
-> +               x >>= 4;
-> +               r += 4;
-> +       }
-> +       if (!(x & 3)) {
-> +               x >>= 2;
-> +               r += 2;
-> +       }
-> +       if (!(x & 1)) {
-> +               x >>= 1;
-> +               r += 1;
-> +       }
-> +       return r;
-> +}
-> +
-> +/**
-> + * ffs - find first set bit in a word
-> + * @x: the word to search
-> + *
-> + * This is defined the same way as the libc and compiler builtin ffs routines.
-> + *
-> + * ffs(value) returns 0 if value is 0 or the position of the first set bit if
-> + * value is nonzero. The first (least significant) bit is at position 1.
-> + */
-> +#define ffs(x) (__builtin_constant_p(x) ? __builtin_ffs(x) : variable_ffs(x))
-> +
-> +static __always_inline int variable_fls(unsigned int x)
-> +{
-> +       int r;
-> +
-> +       asm_volatile_goto(
-> +               ALTERNATIVE("j %l[legacy]", "nop", 0, RISCV_ISA_EXT_ZBB, 1)
-> +               : : : : legacy);
-> +
-> +       asm volatile (
-> +               ".option push\n"
-> +               ".option arch,+zbb\n"
-> +               "bnez %1, 1f\n"
-> +               "li %0, 0\n"
-> +               "j 2f\n"
-> +               "1:\n"
-> +               CLZW "%0, %1\n"
-> +               "neg %0, %0\n"
-> +               "addi %0, %0, 32\n"
-> +               "2:\n"
-> +               ".option pop\n"
-> +               : "=r" (r) : "r" (x) :);
-> +
-> +       return r;
-> +
-> +legacy:
-> +       r = 32;
-> +       if (!x)
-> +               return 0;
-> +       if (!(x & 0xffff0000u)) {
-> +               x <<= 16;
-> +               r -= 16;
-> +       }
-> +       if (!(x & 0xff000000u)) {
-> +               x <<= 8;
-> +               r -= 8;
-> +       }
-> +       if (!(x & 0xf0000000u)) {
-> +               x <<= 4;
-> +               r -= 4;
-> +       }
-> +       if (!(x & 0xc0000000u)) {
-> +               x <<= 2;
-> +               r -= 2;
-> +       }
-> +       if (!(x & 0x80000000u)) {
-> +               x <<= 1;
-> +               r -= 1;
-> +       }
-> +       return r;
-> +}
-> +
-> +/**
-> + * fls - find last set bit in a word
-> + * @x: the word to search
-> + *
-> + * This is defined in a similar way as ffs, but returns the position of the most
-> + * significant set bit.
-> + *
-> + * fls(value) returns 0 if value is 0 or the position of the last set bit if
-> + * value is nonzero. The last (most significant) bit is at position 32.
-> + */
-> +#define fls(x)                                                         \
-> +       (__builtin_constant_p(x) ?                                      \
-> +        (int)(((x) != 0) ?                                             \
-> +         (sizeof(unsigned int) * 8 - __builtin_clz(x)) : 0) :          \
-> +        variable_fls(x))
-> +
-> +#endif
-> +
-> +#include <asm-generic/bitops/ffz.h>
->  #include <asm-generic/bitops/fls64.h>
->  #include <asm-generic/bitops/sched.h>
-> -#include <asm-generic/bitops/ffs.h>
->
->  #include <asm-generic/bitops/hweight.h>
->
-> diff --git a/drivers/firmware/efi/libstub/Makefile b/drivers/firmware/efi/libstub/Makefile
-> index 16d64a34d1e1..b0f8c495c10f 100644
-> --- a/drivers/firmware/efi/libstub/Makefile
-> +++ b/drivers/firmware/efi/libstub/Makefile
-> @@ -28,7 +28,7 @@ cflags-$(CONFIG_ARM)          += -DEFI_HAVE_STRLEN -DEFI_HAVE_STRNLEN \
->                                    -DEFI_HAVE_MEMCHR -DEFI_HAVE_STRRCHR \
->                                    -DEFI_HAVE_STRCMP -fno-builtin -fpic \
->                                    $(call cc-option,-mno-single-pic-base)
-> -cflags-$(CONFIG_RISCV)         += -fpic
-> +cflags-$(CONFIG_RISCV)         += -fpic -DEFI_NO_ALTERNATIVE
->  cflags-$(CONFIG_LOONGARCH)     += -fpie
->
->  cflags-$(CONFIG_EFI_PARAMS_FROM_FDT)   += -I$(srctree)/scripts/dtc/libfdt
-> --
-> 2.25.1
->
+>   /*
+>    * This decides where the kernel will search for a free chunk of vm
+>    * space during mmap's.
+>    */
+> -#define TASK_UNMAPPED_BASE	PAGE_ALIGN(TASK_SIZE / 3)
+> -
+> -#define STACK_TOP		TASK_SIZE
+>   #ifdef CONFIG_64BIT
+> -#define STACK_TOP_MAX		TASK_SIZE_64
+> +#define TASK_UNMAPPED_BASE	PAGE_ALIGN((UL(1) << MMAP_MIN_VA_BITS) / 3)
+>   #else
+> -#define STACK_TOP_MAX		TASK_SIZE
+> +#define TASK_UNMAPPED_BASE	PAGE_ALIGN(TASK_SIZE / 3)
+>   #endif
+> -#define STACK_ALIGN		16
+>   
+>   #ifndef __ASSEMBLY__
+>   
 
 _______________________________________________
 linux-riscv mailing list
