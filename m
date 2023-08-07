@@ -4,104 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3982EB64DD
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Aug 2023 05:24:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7FE7EB64DD
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Aug 2023 06:29:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Date:References:
-	In-Reply-To:Message-Id:Mime-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tC62GPZgXjZE07eSFTNUzguw5y8a20kzUS3VcK1adJM=; b=gXUrIeZPiQniNU
-	5kcn8jWkd/nA9SOjTqaKaAzzfQxmrOPgDSIqwd0WdsVpxSaPfoB6bovbT66JoBCXMtf9Ho6KaFKB+
-	0pt2JE0DLom+e9oxGP/ArcEKXa2HfRhHiHMLWMuqipiEqiimH7cbmFT71yo2NDssGvuyRFdI980w/
-	MRXRVNcCpN7drhEa6mwLqRVvc6J0EinIG/1jLyo2JslQMzxXjoUmrXEYrnDG4P24TYKm/0zfA/A5J
-	371ZRxANvIDDqJKW67zkQeMj17vOhnRGIR+gh/iT5TPYBqUefp2Q+lbS4rnhcZWH79lHtUDOoZl2/
-	3TNI7gs+04WKLSKJXDVg==;
+	List-Owner; bh=xFA7bngIpRaNVwiwytlTdpZdKUsoLqJmXPyjEXupCyA=; b=AFfHvHb8K1hn9o
+	EhgFHN2Y7hce3iamJV2vm6m7XW4IjmlwvfQfmmot/zEzzjCZBg1zO00Sdm2CV5EdTT17vRjv4hHtH
+	SEd37lPvpXrJlkVCn+7dUVwQGSQP5SaxS8yEHYeO0UMa3oMFr7CdJ4GgqS/ToLO9hvfQqh8zwODqO
+	8hv4sWYhf8EBScVD5rZLY99NVCedZAygqgsSF3HHcBT39XEWVEXe6y8nyh6TbkO+v41c0ehuLBBqL
+	r51k8it9aIF3kj4nNThFnJ53mV1IpfGQFB2jCjdx9L7DgXth6VO+EeMsOciErExKXE9RwrYYXtJvx
+	3BAwTzRMet9aqiuUyiug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qSsix-00GB4Z-2u;
-	Mon, 07 Aug 2023 05:24:11 +0000
-Received: from wout1-smtp.messagingengine.com ([64.147.123.24])
+	id 1qStkA-00GGmo-0M;
+	Mon, 07 Aug 2023 06:29:30 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qSsiu-00GB38-2b
+	id 1qStk7-00GGm8-2a
 	for linux-riscv@lists.infradead.org;
-	Mon, 07 Aug 2023 05:24:10 +0000
-Received: from compute1.internal (compute1.nyi.internal [10.202.2.41])
-	by mailout.west.internal (Postfix) with ESMTP id 12A4A320090C;
-	Mon,  7 Aug 2023 01:23:57 -0400 (EDT)
-Received: from imap50 ([10.202.2.100])
-  by compute1.internal (MEProxy); Mon, 07 Aug 2023 01:24:00 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fastmail.com; h=
-	cc:cc:content-type:content-type:date:date:from:from:in-reply-to
-	:in-reply-to:message-id:mime-version:references:reply-to:sender
-	:subject:subject:to:to; s=fm3; t=1691385837; x=1691472237; bh=x5
-	qNGeXXt3ERHXs7RLt7yAgmwQ1o1sx5LtjKah3J7y8=; b=MDiVnkj16mwLH6ukoz
-	vMS5bOVlCaCqEFlHHvaym8PoDAwodNR3fkGUBFrr5zd2PC7YRHC3xE2IECdpxT3r
-	ZmTzpB+xK8wD/Tq7WY/gLJUEovyz70AG58TtfulE/zdqDeNuAjhpnN0Ct++bVyoR
-	M4I0aII+nbVFxfVCg/d8z8ttHZe3T8Vd4WEoZWDglyIssXySbFizDiQiWoJSkLhC
-	hu5cyu+HA3+SFGL1DzrxW34MGBxy8YDTczMlWBiqmtHzi3FiiZA4nu0AjhTEE6tM
-	GUraRMtCBnf6yPoaigs28r2+PhRJcig80qk99/TdDeULIJUcRPrgKOS+oCrdlqlK
-	O33Q==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-type:content-type:date:date
-	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
-	:message-id:mime-version:references:reply-to:sender:subject
-	:subject:to:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender
-	:x-sasl-enc; s=fm3; t=1691385837; x=1691472237; bh=x5qNGeXXt3ERH
-	Xs7RLt7yAgmwQ1o1sx5LtjKah3J7y8=; b=cFrk0/+YVO09szURCvFez9RcbRDkJ
-	W1LdYGvBt0RHCTuQ8LAG+AcUbH2b4XDCUDOV4qVpMzavyWXMifXAvcMs/mmpT311
-	XEQQIxTL0Bps5TS1hjXCAOZ16cvH6LBDGSWwHszmKU3nCNhj1jRlacxs4xDeusPY
-	9k8jLM6CiQLMMI/0Az5Wi3fenpY8r0UI41arpEIrvYk/aNsFH9Dn/pCjUmlWfGSm
-	o2Zgbd0pe8Wixfx5NJyO4mE+mInfLPrE0czOtO9g+jFCitxBD3+OsaYEZ0LzXpcI
-	uDUG8UQbxFpZLsZ2eyFNKbg5hrovf6+1CH6webb5tCCtw2NtrpKg+CjuA==
-X-ME-Sender: <xms:6n_QZBhIM_o7WJErxnO3ZgYA6c-WTYgLOn-kUqs-H5iRzp-DHhDf1g>
-    <xme:6n_QZGBesSgwGOzTPzVD7PcCEJEkje3Ks9FyA9Q-c0LevH2jEPokojPLex354PD6V
-    IPPnO4RBaB5hfquIg>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedviedrkeelgdelgecutefuodetggdotefrodftvf
-    curfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfghnecu
-    uegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenuc
-    fjughrpefofgggkfgjfhffhffvvefutgesthdtredtreertdenucfhrhhomhepfdfuthgv
-    fhgrnhcuqfdktfgvrghrfdcuoehsohhrvggrrhesfhgrshhtmhgrihhlrdgtohhmqeenuc
-    ggtffrrghtthgvrhhnpeejueehgedtueetgefhheejjeeigffhieefjeehuddvueegtdfh
-    heevgfeggfektdenucffohhmrghinhepihhnfhhrrgguvggrugdrohhrghenucevlhhush
-    htvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpehsohhrvggrrhesfhgr
-    shhtmhgrihhlrdgtohhm
-X-ME-Proxy: <xmx:6n_QZBHHL-ZOlYctLzv3WollQNvKcNjfKZa_akHiW3mjXwNQhzUYEA>
-    <xmx:6n_QZGR0wHWCHc1KuEDJpIx5R3iNXNReyB-pS7ahPvuXnCGY-gBzTA>
-    <xmx:6n_QZOwq90uK7dj8SBKnjSST29F-FuwgeyW0_roJz17ZMe_whaM0HQ>
-    <xmx:7X_QZGdWP5hvG2ufh70_oX0vRGWGHXdNHCwGDwPtsfM0cx2kQ5v2Tw>
-Feedback-ID: i84414492:Fastmail
-Received: by mailuser.nyi.internal (Postfix, from userid 501)
-	id 9BE931700089; Mon,  7 Aug 2023 01:23:54 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
-User-Agent: Cyrus-JMAP/3.9.0-alpha0-624-g7714e4406d-fm-20230801.001-g7714e440
-Mime-Version: 1.0
-Message-Id: <ae320af5-6cca-4689-aa66-9d0193713d40@app.fastmail.com>
-In-Reply-To: <20230802164701.192791-8-guoren@kernel.org>
-References: <20230802164701.192791-1-guoren@kernel.org>
- <20230802164701.192791-8-guoren@kernel.org>
-Date: Mon, 07 Aug 2023 01:23:34 -0400
-From: "Stefan O'Rear" <sorear@fastmail.com>
-To: guoren <guoren@kernel.org>, paul.walmsley@sifive.com,
- "Anup Patel" <anup@brainfault.org>, peterz@infradead.org, mingo@redhat.com,
- will@kernel.org, "Palmer Dabbelt" <palmer@rivosinc.com>, longman@redhat.com,
- boqun.feng@gmail.com, tglx@linutronix.de, paulmck@kernel.org,
- rostedt@goodmis.org, rdunlap@infradead.org, catalin.marinas@arm.com,
- "Conor Dooley" <conor.dooley@microchip.com>, xiaoguang.xing@sophgo.com,
- =?UTF-8?Q?Bj=C3=B6rn_T=C3=B6pel?= <bjorn@rivosinc.com>,
- alexghiti@rivosinc.com, "Kees Cook" <keescook@chromium.org>,
- greentime.hu@sifive.com, "Andrew Jones" <ajones@ventanamicro.com>,
- jszhang@kernel.org, wefu@redhat.com, wuwei2016@iscas.ac.cn
-Cc: linux-arch@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-doc@vger.kernel.org, kvm@vger.kernel.org,
- virtualization@lists.linux-foundation.org, linux-csky@vger.kernel.org,
- "Guo Ren" <guoren@linux.alibaba.com>
-Subject: Re: [PATCH V10 07/19] riscv: qspinlock: errata: Introduce
- ERRATA_THEAD_QSPINLOCK
+	Mon, 07 Aug 2023 06:29:29 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-3fe4b45a336so19112675e9.1
+        for <linux-riscv@lists.infradead.org>; Sun, 06 Aug 2023 23:29:25 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1691389764; x=1691994564;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=Z7rnWNHFUneQ3py2i1MBfIqg4WaLvrT3ZVmHSN5iKRs=;
+        b=f8insg7X86ppQ5F6Ftef+QhplHoXoRQAMzFMVl2RdeVQ2Cn675LFV6uigapurhe9JF
+         HldFfIEGHpm9b5MvBSH7/C8CfgQfXb8onmWizItMbRzFPNLH3NxRQxq2YoAxV/QUj+gj
+         Xq/Plk9HWec7x3LlQUT7TSRVzSUprBMMD8NPtiMDhZybAJ00NaRZGmqzJvPR8Gk0Lxbr
+         Uyl7qo33UrJBbDk3TSZiA2siPMr1VQVzjZH8dyblNByvz3N/Qc/V+KcDivWTUqazW/N+
+         k8TCdZah0Ccmqhavl0s9AF+IwPvXKNFH+mx+WROAMFNaWNvOy4uRJJ1zIA+VaI+NQv/q
+         Qlmg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1691389764; x=1691994564;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=Z7rnWNHFUneQ3py2i1MBfIqg4WaLvrT3ZVmHSN5iKRs=;
+        b=NkrUltba0BiHkt4EPNeGldWZTMowwJPbPicN8TBzG+EED1oL3VwS4QAvuSNmTZcO+g
+         YcBidu7LU1CwaQXijtAaoV1h0ZVqjOJA5PtZsUwMV68FjwwjXTYnC+9Qs9kRo/Fp/Ih7
+         cDe2Fvy2GSdp9U6H2x6/sdY9nn0JJgeEb2/Eqg9Uu3mkZWsvZJ/q0TYMDAgdmIGj61Iv
+         Nhlf370Lw3/yUKqthV3jfz+ngRkwP5bm1aYtsvGIOLJvQ9+BVXJMLWW8QP/avzAzbWbU
+         B++fjNtS/2bKgBe5Z0zJlXueiFL6jsELpWzHEEcYfuxoulnA4RcZnBSTL3jRLGGmHBbD
+         88OQ==
+X-Gm-Message-State: AOJu0Yw8Iac+oneBu0ED2SznI+yhYd5K3V/t0BLtRYdFixqkGFGM2KIr
+	BkWg/cDXC17tkvlgh3NlP/lDaQ==
+X-Google-Smtp-Source: AGHT+IHoV4+y4ygwE201jI1n35hdg8Xn3ESUU/xDOlVSMzH8Nm0HJsqGqZvTNuNydoy+mLFZinL9WQ==
+X-Received: by 2002:a5d:6509:0:b0:313:ef57:5bde with SMTP id x9-20020a5d6509000000b00313ef575bdemr4758869wru.42.1691389764237;
+        Sun, 06 Aug 2023 23:29:24 -0700 (PDT)
+Received: from [192.168.1.20] ([178.197.222.113])
+        by smtp.gmail.com with ESMTPSA id b3-20020adfee83000000b0031773e3cf46sm9393070wro.61.2023.08.06.23.29.22
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 06 Aug 2023 23:29:23 -0700 (PDT)
+Message-ID: <ca0b9a19-d7d7-80e5-f47e-f74615cdac86@linaro.org>
+Date: Mon, 7 Aug 2023 08:29:21 +0200
+MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.14.0
+Subject: Re: [PATCH RFC v2 1/4] dt-bindings: mmc: sdhci-of-dwcmhsc: Add T-Head
+ TH1520 support
+Content-Language: en-US
+To: Drew Fustini <dfustini@baylibre.com>, Jisheng Zhang <jszhang@kernel.org>,
+ Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>,
+ Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Conor Dooley <conor+dt@kernel.org>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Conor Dooley <conor@kernel.org>,
+ Adrian Hunter <adrian.hunter@intel.com>, Ulf Hansson <ulf.hansson@linaro.org>
+Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-mmc@vger.kernel.org,
+ Robert Nelson <robertcnelson@beagleboard.org>,
+ Jason Kridner <jkridner@beagleboard.org>
+References: <20230724-th1520-emmc-v2-0-132ed2e2171e@baylibre.com>
+ <20230724-th1520-emmc-v2-1-132ed2e2171e@baylibre.com>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+In-Reply-To: <20230724-th1520-emmc-v2-1-132ed2e2171e@baylibre.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230806_222408_886154_2B44A34A 
-X-CRM114-Status: GOOD (  30.37  )
+X-CRM114-CacheID: sfid-20230806_232927_863628_1463C678 
+X-CRM114-Status: GOOD (  14.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,181 +105,57 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 2, 2023, at 12:46 PM, guoren@kernel.org wrote:
-> From: Guo Ren <guoren@linux.alibaba.com>
->
-> According to qspinlock requirements, RISC-V gives out a weak LR/SC
-> forward progress guarantee which does not satisfy qspinlock. But
-> many vendors could produce stronger forward guarantee LR/SC to
-> ensure the xchg_tail could be finished in time on any kind of
-> hart. T-HEAD is the vendor which implements strong forward
-> guarantee LR/SC instruction pairs, so enable qspinlock for T-HEAD
-> with errata help.
->
-> T-HEAD early version of processors has the merge buffer delay
-> problem, so we need ERRATA_WRITEONCE to support qspinlock.
->
-> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-> Signed-off-by: Guo Ren <guoren@kernel.org>
+On 05/08/2023 05:14, Drew Fustini wrote:
+> Add compatible value for the T-Head TH1520 dwcmshc controller and
+> thead,io-fixed-1v8 and thead,pull-up properties.
+> 
+> Signed-off-by: Drew Fustini <dfustini@baylibre.com>
 > ---
->  arch/riscv/Kconfig.errata              | 13 +++++++++++++
->  arch/riscv/errata/thead/errata.c       | 24 ++++++++++++++++++++++++
->  arch/riscv/include/asm/errata_list.h   | 20 ++++++++++++++++++++
->  arch/riscv/include/asm/vendorid_list.h |  3 ++-
->  arch/riscv/kernel/cpufeature.c         |  3 ++-
->  5 files changed, 61 insertions(+), 2 deletions(-)
->
-> diff --git a/arch/riscv/Kconfig.errata b/arch/riscv/Kconfig.errata
-> index 4745a5c57e7c..eb43677b13cc 100644
-> --- a/arch/riscv/Kconfig.errata
-> +++ b/arch/riscv/Kconfig.errata
-> @@ -96,4 +96,17 @@ config ERRATA_THEAD_WRITE_ONCE
+>  Documentation/devicetree/bindings/mmc/snps,dwcmshc-sdhci.yaml | 9 +++++++++
+>  1 file changed, 9 insertions(+)
 > 
->  	  If you don't know what to do here, say "Y".
-> 
-> +config ERRATA_THEAD_QSPINLOCK
-> +	bool "Apply T-Head queued spinlock errata"
-> +	depends on ERRATA_THEAD
-> +	default y
-> +	help
-> +	  The T-HEAD C9xx processors implement strong fwd guarantee LR/SC to
-> +	  match the xchg_tail requirement of qspinlock.
-> +
-> +	  This will apply the QSPINLOCK errata to handle the non-standard
-> +	  behavior via using qspinlock instead of ticket_lock.
-> +
-> +	  If you don't know what to do here, say "Y".
+> diff --git a/Documentation/devicetree/bindings/mmc/snps,dwcmshc-sdhci.yaml b/Documentation/devicetree/bindings/mmc/snps,dwcmshc-sdhci.yaml
+> index a43eb837f8da..57602c345cab 100644
+> --- a/Documentation/devicetree/bindings/mmc/snps,dwcmshc-sdhci.yaml
+> +++ b/Documentation/devicetree/bindings/mmc/snps,dwcmshc-sdhci.yaml
+> @@ -19,6 +19,7 @@ properties:
+>        - rockchip,rk3568-dwcmshc
+>        - rockchip,rk3588-dwcmshc
+>        - snps,dwcmshc-sdhci
+> +      - thead,th1520-dwcmshc
+>  
+>    reg:
+>      maxItems: 1
+> @@ -60,6 +61,14 @@ properties:
+>      description: Specify the number of delay for tx sampling.
+>      $ref: /schemas/types.yaml#/definitions/uint8
+>  
+> +  thead,io-fixed-1v8:
+> +    description: SoC PHY pad is fixed 1.8V
+> +    type: boolean
 
-If this is to be applied, I would like to see a detailed explanation somewhere,
-preferably with citations, of:
-
-(a) The memory model requirements for qspinlock
-(b) Why, with arguments, RISC-V does not architecturally meet (a)
-(c) Why, with arguments, T-HEAD C9xx meets (a)
-(d) Why at least one other architecture which defines ARCH_USE_QUEUED_SPINLOCKS
-    meets (a)
-
-As far as I can tell, the RISC-V guarantees concerning constrained LR/SC loops
-(livelock freedom but no starvation freedom) are exactly the same as those in
-Armv8 (as of 0487F.c) for equivalent loops, and xchg_tail compiles to a
-constrained LR/SC loop with guaranteed eventual success (with -O1).  Clearly you
-disagree; I would like to see your perspective.
-
--s
+Isn't this duplicating existing properties for MMC modes with 1.8 V?
 
 > +
->  endmenu # "CPU errata selection"
-> diff --git a/arch/riscv/errata/thead/errata.c b/arch/riscv/errata/thead/errata.c
-> index 881729746d2e..d560dc45c0e7 100644
-> --- a/arch/riscv/errata/thead/errata.c
-> +++ b/arch/riscv/errata/thead/errata.c
-> @@ -86,6 +86,27 @@ static bool errata_probe_write_once(unsigned int stage,
->  	return false;
->  }
+> +  thead,pull-up:
+> +    description: True if pull-up, false if pull-down
+
+This explains me nothing. No clue what you are pulling and why do you
+need it. Pin pulls should be done via pin controller, not MMC.
+
+Anyway you should have here allOf:if:then (move the allOf: from top to
+behind "required:") which will disallow these properties for other variants.
+
+> +    type: boolean
+> +
+>  
+>  required:
+>    - compatible
 > 
-> +static bool errata_probe_qspinlock(unsigned int stage,
-> +				   unsigned long arch_id, unsigned long impid)
-> +{
-> +	if (!IS_ENABLED(CONFIG_ERRATA_THEAD_QSPINLOCK))
-> +		return false;
-> +
-> +	/*
-> +	 * The queued_spinlock torture would get in livelock without
-> +	 * ERRATA_THEAD_WRITE_ONCE fixup for the early versions of T-HEAD
-> +	 * processors.
-> +	 */
-> +	if (arch_id == 0 && impid == 0 &&
-> +	    !IS_ENABLED(CONFIG_ERRATA_THEAD_WRITE_ONCE))
-> +		return false;
-> +
-> +	if (stage == RISCV_ALTERNATIVES_EARLY_BOOT)
-> +		return true;
-> +
-> +	return false;
-> +}
-> +
->  static u32 thead_errata_probe(unsigned int stage,
->  			      unsigned long archid, unsigned long impid)
->  {
-> @@ -103,6 +124,9 @@ static u32 thead_errata_probe(unsigned int stage,
->  	if (errata_probe_write_once(stage, archid, impid))
->  		cpu_req_errata |= BIT(ERRATA_THEAD_WRITE_ONCE);
-> 
-> +	if (errata_probe_qspinlock(stage, archid, impid))
-> +		cpu_req_errata |= BIT(ERRATA_THEAD_QSPINLOCK);
-> +
->  	return cpu_req_errata;
->  }
-> 
-> diff --git a/arch/riscv/include/asm/errata_list.h 
-> b/arch/riscv/include/asm/errata_list.h
-> index fbb2b8d39321..a696d18d1b0d 100644
-> --- a/arch/riscv/include/asm/errata_list.h
-> +++ b/arch/riscv/include/asm/errata_list.h
-> @@ -141,6 +141,26 @@ asm volatile(ALTERNATIVE(						\
->  	: "=r" (__ovl) :						\
->  	: "memory")
-> 
-> +static __always_inline bool
-> +riscv_has_errata_thead_qspinlock(void)
-> +{
-> +	if (IS_ENABLED(CONFIG_RISCV_ALTERNATIVE)) {
-> +		asm_volatile_goto(
-> +		ALTERNATIVE(
-> +		"j	%l[l_no]", "nop",
-> +		THEAD_VENDOR_ID,
-> +		ERRATA_THEAD_QSPINLOCK,
-> +		CONFIG_ERRATA_THEAD_QSPINLOCK)
-> +		: : : : l_no);
-> +	} else {
-> +		goto l_no;
-> +	}
-> +
-> +	return true;
-> +l_no:
-> +	return false;
-> +}
-> +
->  #endif /* __ASSEMBLY__ */
-> 
->  #endif
-> diff --git a/arch/riscv/include/asm/vendorid_list.h 
-> b/arch/riscv/include/asm/vendorid_list.h
-> index 73078cfe4029..1f1d03877f5f 100644
-> --- a/arch/riscv/include/asm/vendorid_list.h
-> +++ b/arch/riscv/include/asm/vendorid_list.h
-> @@ -19,7 +19,8 @@
->  #define	ERRATA_THEAD_CMO 1
->  #define	ERRATA_THEAD_PMU 2
->  #define	ERRATA_THEAD_WRITE_ONCE 3
-> -#define	ERRATA_THEAD_NUMBER 4
-> +#define	ERRATA_THEAD_QSPINLOCK 4
-> +#define	ERRATA_THEAD_NUMBER 5
->  #endif
-> 
->  #endif
-> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-> index f8dbbe1bbd34..d9694fe40a9a 100644
-> --- a/arch/riscv/kernel/cpufeature.c
-> +++ b/arch/riscv/kernel/cpufeature.c
-> @@ -342,7 +342,8 @@ void __init riscv_fill_hwcap(void)
->  		 * spinlock value, the only way is to change from queued_spinlock to
->  		 * ticket_spinlock, but can not be vice.
->  		 */
-> -		if (!force_qspinlock) {
-> +		if (!force_qspinlock &&
-> +		    !riscv_has_errata_thead_qspinlock()) {
->  			set_bit(RISCV_ISA_EXT_XTICKETLOCK, isainfo->isa);
->  		}
->  #endif
-> -- 
-> 2.36.1
->
->
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+Best regards,
+Krzysztof
+
 
 _______________________________________________
 linux-riscv mailing list
