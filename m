@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF57BC001B0
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Aug 2023 22:02:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3B9CC001B0
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Aug 2023 22:03:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CvSXX8yr+L6c+icBoOuY6Wj7Z9Zw9DliA3dGnvidRi0=; b=SPrsdzkpZUVm3m
-	lE0pO+rSPmOGVNrZx5e8KJc6f4+ND0rtWiaitBNvqVB9XQD/pRC5oHtTJmNr6vQ5VXA2W/q/tSchF
-	/EDRf7fAr/lGeyTr8dQVoQj92J/zbbbnUNIJvRChn4T+YB+tNgVTNAeCJDAzVSVY1PwE1TQ5UbWk/
-	Grof+03P902PC+t52fVTrAQsVXf+Ncd2zn4GKoSAA0tJJYv5BLmVMP/FT8yxYOUY6ahYJXZnjo/XQ
-	33QKgqcy9/japUcjlZD8P1ZIEfYZ2CUq32AXpV1CbFqEjNjmtTZh6HawuP5f3dWYzQ9/+kivf9zyN
-	7Qja18jBBYqFd/NYSEKQ==;
+	List-Owner; bh=KQA3+hdR9HhlmDflLzHN/Cc25gJHYaeMIZJ7to1koK4=; b=UpTTj/e2SIaYE0
+	jfaJopfEUY/nl31zEv7VhIX/BanSvkho6PzTjLJA5Wv0WK8jUn/sOY+QoKo3jVegXXfLsV6+n/YI1
+	Iwf4X6jh6fnGkxDDS87hUH7IZU0Zw+3ELFetqz2j2xRLm5IWPR73OKlFWtRvaZImfAKJ+ptOeHBBY
+	HEDjYmDKIoVl2tUy3A92HJmuKIfOa+TpvV+qxcB/liaXdtWlF/Z+4wtURyeAXMlwAvMfoxnDmdBcS
+	Ht/WFFgN7+MCIydcSgFZPSOLfbhFZl/dofdBJv0cb/XmwMI6bC+/4usdfdbb+C7Mf+B96YMZDNnBr
+	Y0dtvxgLJhgs/ux8m0Mw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qT8JM-000qhx-03;
-	Mon, 07 Aug 2023 22:02:48 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1qT8JX-000quJ-0S;
+	Mon, 07 Aug 2023 22:02:59 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qT8JE-000qbB-2W;
-	Mon, 07 Aug 2023 22:02:43 +0000
+	id 1qT8JQ-000qoG-2Q;
+	Mon, 07 Aug 2023 22:02:54 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 0FA48622A1;
-	Mon,  7 Aug 2023 22:02:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B665AC433CB;
-	Mon,  7 Aug 2023 22:02:33 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 0ABDA6229B;
+	Mon,  7 Aug 2023 22:02:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1F93EC43395;
+	Mon,  7 Aug 2023 22:02:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1691445759;
-	bh=aGB9MytFbopKILsUP0kPuxTbIpt9GJuR7uXvXLP6vLo=;
+	s=k20201202; t=1691445771;
+	bh=S97P7xSs7G2VtUJIV0J+B0XZVXkpwW1tCMSo+ZYUeDw=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=B7+8io7JEg/LIWoZNhiKlYaOzexSqBArV056/ScJvMpxGs2kYB4Okzkzol5kScHYE
-	 55HMmJFzcyF8LtgXCBJKWR7eLCptLh/oMa3OwoCIW/lmiSswqdleH9vkIljQqqI1NG
-	 HLehvcCG393fnl1siFCS/s7UzNZzDQUk8j/IEVppVkDJ+oI6SfDcO/ioLRso4uqmWd
-	 0nFYrpM45VWM6oql/4rbBGH9Bwejm80beYj84++Sz29XVXXPZ08K9bNizQdES4ri9s
-	 TnarJsT6SfHg4wd1fb/cH2kV7WdxLpv3PjSjRekkZcxhPwSttByrH0KzubjmRIB62N
-	 obTS3NSXeRxEw==
+	b=LmByAeAoBQ6Sp+qeln7IRkPK8b8wrlI6vP0ofLetjqcYdI6c9SbhWyBuSYq2RoSwN
+	 3JO0aAXKdoRD23voxo/lqdNaqV57fxooeda4xnKjr+wxZMXRxhLSwT+Hbj5gtWUnjx
+	 jcnvujnN9lwpXcPbHCmcgom37ArWn78GbgkBNUaTWEcASiIxCK5juxR+QU6y+Kc2Ie
+	 ODoPlpYmz279tMnFraV0cvT/MNMrXmEqJDxYzbicOy1+2iSSFUfgVRsbtBQmHqrzl5
+	 mptrmONoM/Fx4ZkkVJSzCKJ0RK86o7Ht6ePo21JzNnm6bong7aocdDash7K7cQThJ0
+	 JXlxq+OTI4P9g==
 From: Mark Brown <broonie@kernel.org>
-Date: Mon, 07 Aug 2023 23:00:16 +0100
-Subject: [PATCH v4 11/36] arm64/mm: Map pages for guarded control stack
+Date: Mon, 07 Aug 2023 23:00:18 +0100
+Subject: [PATCH v4 13/36] arm64/gcs: Allow GCS usage at EL0 and EL1
 MIME-Version: 1.0
-Message-Id: <20230807-arm64-gcs-v4-11-68cfa37f9069@kernel.org>
+Message-Id: <20230807-arm64-gcs-v4-13-68cfa37f9069@kernel.org>
 References: <20230807-arm64-gcs-v4-0-68cfa37f9069@kernel.org>
 In-Reply-To: <20230807-arm64-gcs-v4-0-68cfa37f9069@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
@@ -70,20 +70,20 @@ Cc: "H.J. Lu" <hjl.tools@gmail.com>,
  linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-riscv@lists.infradead.org, Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.13-dev-034f2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1124; i=broonie@kernel.org;
- h=from:subject:message-id; bh=aGB9MytFbopKILsUP0kPuxTbIpt9GJuR7uXvXLP6vLo=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBk0WmgYE5sTjIW0s7MSSUHBmNdoL8mADFajoHMlxxa
- sLCcTiKJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZNFpoAAKCRAk1otyXVSH0CQmB/
- 4hCrLHpUMmcfdaL24W2A5mDkcuuBM88bAHrKma9GqNW27peedUqdX7QojJVVcc8Pti+JDlRJQlF6eA
- QZEKYM3bKTE3mosdO+93NlHTPGn7gi26Pt1S42K8kRxwwm3mJo1gL/HQE1ao9d0KZg9o9LHWjR9UsG
- hAoZdZeodWYeIhnbOvuyIXIfGKTlRPnEOtzr//cVzV6vxPF3kggLcSNXBGXhBYJxComChKV/1oWfxG
- tHKcsX37YMulc8njZNNNcc7c79OcVYO4TFDHmUNkosm8ee1zIH4H+rIteZ0Pyhx3nAnQLUDe23kVjg
- n0K3NwP/ZpHSz6lX1gqzfW1nyN7hWy
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2248; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=S97P7xSs7G2VtUJIV0J+B0XZVXkpwW1tCMSo+ZYUeDw=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBk0Wmid4tbAShf3/PL65tMRoJhAzK985+MbY4zQtG4
+ AWS8TpmJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZNFpogAKCRAk1otyXVSH0CFGB/
+ 42uOHFOxkOrcFRMVwpLJPgCLRzodl3cgSROjQsafe2+XD0+fK02+FgoeVHgdLqtPqq5N3sdA2m1NFC
+ wKkpNYS34teaHEl9hOZ0klAa3BxjU0mX8SkxQJs42+1wjLmkrDfqn27T8AU7+TwyMyEfw8yYhl54k2
+ P3snTqZ5i361G8meD0Aj6L3se3eWta4/vr/VfdRFPdYtq6Nhlyrr+CahCp26Cif+4KISBrWrxkESkd
+ 0UX9I+tKDTWYEBnx+8P7Acc54KBHUof2annb0trLelaSOAmRXdcwMrbujlRLpqVY1gWF1kibG9ytG1
+ pKhWa7ssyTMMZyk+OqAVU/vr6HACcs
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230807_150241_821221_5BCFB2CA 
-X-CRM114-Status: GOOD (  13.46  )
+X-CRM114-CacheID: sfid-20230807_150252_934012_C424ADC0 
+X-CRM114-Status: GOOD (  13.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,41 +100,67 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Map pages flagged as being part of a GCS as such rather than using the
-full set of generic VM flags.
-
-This is done using a conditional rather than extending the size of
-protection_map since that would make for a very sparse array.
+There is a control HCRX_EL2.GCSEn which must be set to allow GCS
+features to take effect at lower ELs and also fine grained traps for GCS
+usage at EL0 and EL1.  Configure all these to allow GCS usage by EL0 and
+EL1.
 
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- arch/arm64/mm/mmap.c | 12 +++++++++++-
- 1 file changed, 11 insertions(+), 1 deletion(-)
+ arch/arm64/include/asm/el2_setup.h | 17 +++++++++++++++++
+ arch/arm64/include/asm/kvm_arm.h   |  4 ++--
+ 2 files changed, 19 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm64/mm/mmap.c b/arch/arm64/mm/mmap.c
-index 8f5b7ce857ed..8f40198cd44e 100644
---- a/arch/arm64/mm/mmap.c
-+++ b/arch/arm64/mm/mmap.c
-@@ -79,8 +79,18 @@ arch_initcall(adjust_protection_map);
- 
- pgprot_t vm_get_page_prot(unsigned long vm_flags)
- {
--	pteval_t prot = pgprot_val(protection_map[vm_flags &
-+	pteval_t prot;
+diff --git a/arch/arm64/include/asm/el2_setup.h b/arch/arm64/include/asm/el2_setup.h
+index 8e5ffb58f83e..45f3a7dcfd95 100644
+--- a/arch/arm64/include/asm/el2_setup.h
++++ b/arch/arm64/include/asm/el2_setup.h
+@@ -27,6 +27,14 @@
+ 	ubfx	x0, x0, #ID_AA64MMFR1_EL1_HCX_SHIFT, #4
+ 	cbz	x0, .Lskip_hcrx_\@
+ 	mov_q	x0, HCRX_HOST_FLAGS
 +
-+	/* If this is a GCS then only interpret VM_WRITE. */
-+	if (system_supports_gcs() && (vm_flags & VM_SHADOW_STACK)) {
-+		if (vm_flags & VM_WRITE)
-+			prot = _PAGE_GCS;
-+		else
-+			prot = _PAGE_GCS_RO;
-+	} else {
-+		prot = pgprot_val(protection_map[vm_flags &
- 				   (VM_READ|VM_WRITE|VM_EXEC|VM_SHARED)]);
-+	}
++        /* Enable GCS if supported */
++	mrs_s	x1, SYS_ID_AA64PFR1_EL1
++	ubfx	x1, x1, #ID_AA64PFR1_EL1_GCS_SHIFT, #4
++	cbz	x1, .Lset_hcrx_\@
++	orr	x0, x0, #HCRX_EL2_GCSEn
++
++.Lset_hcrx_\@:
+ 	msr_s	SYS_HCRX_EL2, x0
+ .Lskip_hcrx_\@:
+ .endm
+@@ -186,6 +194,15 @@
+ 	orr	x0, x0, #HFGxTR_EL2_nPIR_EL1
+ 	orr	x0, x0, #HFGxTR_EL2_nPIRE0_EL1
  
- 	if (vm_flags & VM_ARM64_BTI)
- 		prot |= PTE_GP;
++	/* GCS depends on PIE so we don't check it if PIE is absent */
++	mrs_s	x1, SYS_ID_AA64PFR1_EL1
++	ubfx	x1, x1, #ID_AA64PFR1_EL1_GCS_SHIFT, #4
++	cbz	x1, .Lset_fgt_\@
++
++	/* Disable traps of access to GCS registers at EL0 and EL1 */
++	orr	x0, x0, #HFGxTR_EL2_nGCS_EL1_MASK
++	orr	x0, x0, #HFGxTR_EL2_nGCS_EL0_MASK
++
+ .Lset_fgt_\@:
+ 	msr_s	SYS_HFGRTR_EL2, x0
+ 	msr_s	SYS_HFGWTR_EL2, x0
+diff --git a/arch/arm64/include/asm/kvm_arm.h b/arch/arm64/include/asm/kvm_arm.h
+index 58e5eb27da68..9c84e200217b 100644
+--- a/arch/arm64/include/asm/kvm_arm.h
++++ b/arch/arm64/include/asm/kvm_arm.h
+@@ -94,8 +94,8 @@
+ #define HCR_HOST_NVHE_PROTECTED_FLAGS (HCR_HOST_NVHE_FLAGS | HCR_TSC)
+ #define HCR_HOST_VHE_FLAGS (HCR_RW | HCR_TGE | HCR_E2H)
+ 
+-#define HCRX_GUEST_FLAGS (HCRX_EL2_SMPME | HCRX_EL2_TCR2En)
+-#define HCRX_HOST_FLAGS (HCRX_EL2_MSCEn | HCRX_EL2_TCR2En)
++#define HCRX_GUEST_FLAGS (HCRX_EL2_SMPME | HCRX_EL2_TCR2En | HCRX_EL2_GCSEn)
++#define HCRX_HOST_FLAGS (HCRX_EL2_MSCEn | HCRX_EL2_TCR2En | HCRX_EL2_GCSEn)
+ 
+ /* TCR_EL2 Registers bits */
+ #define TCR_EL2_RES1		((1U << 31) | (1 << 23))
 
 -- 
 2.30.2
