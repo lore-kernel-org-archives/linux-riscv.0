@@ -4,36 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7C34EB64DD
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Aug 2023 08:23:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05CEFC001DE
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Aug 2023 08:23:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=fk+uF1e3pTdtwJFrcgsBX92ce34Cdys87owOrFPz+TM=; b=u26qGlu0X7PbcY
-	bl/VT5t0gwSfs6CIWRsc3RUgh+nx4+pVhFuxRGleuViNlU3WOK2xFJe5MJHNKiLiD1XNCV7ldca4l
-	nfPbwdF6dbuFJhjeBgvqnT64sxB7LXX6c31WTWiHm2xhsK0PySnldVp1PKiiwTp2KApU0igxeQxn2
-	AOcpmqNV4ZG22LBBNszFIuir8VZWnDTn051QcJ+/yiCauFIXbVwL55uLW8+uNHAqZEEh0gfMgEjQd
-	y74ZJFkezge/qR1CRNrJheYy7aeS+3UYS/6Z48yOjSn1Hl2KdwKc/VNdCiayQ7c1qGtDzQLiFPIDr
-	rp2pwjDO0NBKklDbXPoQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=N4IBxQO9KSJsVMXZEd4kfIOP5liFzzF6y4dSDTn3E0I=; b=4t6GIrfXa217A+
+	yHGedDwZecrAFKyJa0hqdGZX9lv9P74/5QSQ+ZvQbqIVV3GO0+erqDMZOeNBCThjg2K1p+2PtAFDV
+	NDaIz8WTrrB2NhB+aTDRUocoAhyfD8VvtLrdAkQAQeon7dQQjB3DePzHTTGjn2g/pdQJYBR5JCp9I
+	7qrjxYg67+BjCZ6+mKUfLRPcfkRkxSxcZwJHMewP2geetbHWZjnDX3gpIqGQzITG1gfTL1UsiQ+TA
+	XHwcu7MJJ1qEb2u/uY0FdJcECx9VjNY+9Uwjk8umi4pJlKGAF6K8WBRUE3iS6b1DjA94veTgnAPCj
+	oXA9ZYMv3Tw5JUBxMU8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qSvWk-00GRDx-2X;
+	id 1qSvWk-00GRDa-0V;
 	Mon, 07 Aug 2023 08:23:46 +0000
 Received: from 60-248-80-70.hinet-ip.hinet.net ([60.248.80.70] helo=Atcsqr.andestech.com)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qSvWh-00GRC2-1n
+	id 1qSvWh-00GRBr-0V
 	for linux-riscv@lists.infradead.org;
 	Mon, 07 Aug 2023 08:23:45 +0000
 Received: from mail.andestech.com (ATCPCS16.andestech.com [10.0.1.222])
-	by Atcsqr.andestech.com with ESMTP id 3778N83c098807;
-	Mon, 7 Aug 2023 16:23:08 +0800 (+08)
+	by Atcsqr.andestech.com with ESMTP id 3778NDqf098860;
+	Mon, 7 Aug 2023 16:23:13 +0800 (+08)
 	(envelope-from dylan@andestech.com)
 Received: from atctrx.andestech.com (10.0.15.173) by ATCPCS16.andestech.com
  (10.0.1.222) with Microsoft SMTP Server id 14.3.498.0; Mon, 7 Aug 2023
- 16:23:07 +0800
+ 16:23:10 +0800
 From: Dylan Jhong <dylan@andestech.com>
 To: <paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
         <ajones@ventanamicro.com>, <alexghiti@rivosinc.com>,
@@ -43,18 +43,19 @@ To: <paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
         <conor.dooley@microchip.com>, <linux-kernel@vger.kernel.org>
 CC: <ycliang@andestech.com>, <x5710999x@gmail.com>, <tim609@andestech.com>,
         Dylan Jhong <dylan@andestech.com>
-Subject: [PATCH 0/1] Enhanced TLB flushing for vmap/vmalloc()
-Date: Mon, 7 Aug 2023 16:23:04 +0800
-Message-ID: <20230807082305.198784-1-dylan@andestech.com>
+Subject: [PATCH 1/1] riscv: Implement arch_sync_kernel_mappings() for "preventive" TLB flush
+Date: Mon, 7 Aug 2023 16:23:05 +0800
+Message-ID: <20230807082305.198784-2-dylan@andestech.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20230807082305.198784-1-dylan@andestech.com>
+References: <20230807082305.198784-1-dylan@andestech.com>
 MIME-Version: 1.0
 X-Originating-IP: [10.0.15.173]
 X-DNSRBL: 
-X-MAIL: Atcsqr.andestech.com 3778N83c098807
+X-MAIL: Atcsqr.andestech.com 3778NDqf098860
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230807_012344_048343_9A486895 
-X-CRM114-Status: UNSURE (   5.74  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230807_012343_663300_C5B099C3 
+X-CRM114-Status: GOOD (  11.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,30 +72,53 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patch is actually the v2 version of the this patch[1]. In the v1 version,
-Alexandre suggested that I should make the patch more general, so I even changed
-the title accordingly. Many thanks to Alexandre.
+Since RISC-V is a microarchitecture that allows caching invalid entries in the TLB,
+it is necessary to issue a "preventive" SFENCE.VMA to ensure that each core obtains
+the correct kernel mapping.
 
-And Alexandre also submitted a similar patch[2] recently, in which he implemented
-TLB flushing via flush_cache_vmap() instead. However, it seems that flush_cache_vmap()
-does not cover every place where arch_sync_kernel_mappings() performs TLB flushing.
-IMHO, arch_sync_kernel_mappings() cannot be replaced by flush_cache_vmap().
-Please correct me if I'm wrong!
+The patch implements TLB flushing in arch_sync_kernel_mappings(), ensuring that kernel
+page table mappings created via vmap/vmalloc() are updated before switching MM.
 
-[1]: [PATCH] riscv: Flush stale TLB entry with VMAP_STACK enabled
-     http://lists.infradead.org/pipermail/linux-riscv/2023-August/037503.html
-
-[2]: [PATCH -fixes] riscv: Implement flush_cache_vmap()
-     https://www.spinics.net/lists/kernel/msg4873712.html
-
-Dylan Jhong (1):
-  riscv: Implement arch_sync_kernel_mappings() for "preventive" TLB
-    flush
-
+Signed-off-by: Dylan Jhong <dylan@andestech.com>
+---
  arch/riscv/include/asm/page.h |  2 ++
  arch/riscv/mm/tlbflush.c      | 12 ++++++++++++
  2 files changed, 14 insertions(+)
 
+diff --git a/arch/riscv/include/asm/page.h b/arch/riscv/include/asm/page.h
+index b55ba20903ec..6c86ab69687e 100644
+--- a/arch/riscv/include/asm/page.h
++++ b/arch/riscv/include/asm/page.h
+@@ -21,6 +21,8 @@
+ #define HPAGE_MASK              (~(HPAGE_SIZE - 1))
+ #define HUGETLB_PAGE_ORDER      (HPAGE_SHIFT - PAGE_SHIFT)
+ 
++#define ARCH_PAGE_TABLE_SYNC_MASK	PGTBL_PTE_MODIFIED
++
+ /*
+  * PAGE_OFFSET -- the first address of the first page of memory.
+  * When not using MMU this corresponds to the first free page in
+diff --git a/arch/riscv/mm/tlbflush.c b/arch/riscv/mm/tlbflush.c
+index 77be59aadc73..d63364948c85 100644
+--- a/arch/riscv/mm/tlbflush.c
++++ b/arch/riscv/mm/tlbflush.c
+@@ -149,3 +149,15 @@ void flush_pmd_tlb_range(struct vm_area_struct *vma, unsigned long start,
+ 	__flush_tlb_range(vma->vm_mm, start, end - start, PMD_SIZE);
+ }
+ #endif
++
++/*
++ * Since RISC-V is a microarchitecture that allows caching invalid entries in the TLB,
++ * it is necessary to issue a "preventive" SFENCE.VMA to ensure that each core obtains
++ * the correct kernel mapping. arch_sync_kernel_mappings() will ensure that kernel
++ * page table mappings created via vmap/vmalloc() are updated before switching MM.
++ */
++void arch_sync_kernel_mappings(unsigned long start, unsigned long end)
++{
++	if (start < VMALLOC_END && end > VMALLOC_START)
++		flush_tlb_all();
++}
+\ No newline at end of file
 -- 
 2.34.1
 
