@@ -4,79 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15E95EB64DD
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Aug 2023 09:36:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C46EC001B0
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Aug 2023 09:38:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JA8Ij2Sm5Kl6zSCxKpRMQMwQ4g5KaMA5gkLEFkMhEOA=; b=uSapcnJgB7NLSh
-	In8vWjydg42S04wngq+M2EnLbExvqT66qUKHiB0ZK30eMFPABCevPD8IFmHuP834EgSOnQM+EIQZC
-	gfPnSwVfzSXOS3+xyoB1EcnzyNhop37FDfyFV3O9zwZ8qpGebILhV/HRTfAbX2rp1XciGCx0sbCeS
-	1UgLn6l6VUALO069YUJGmeSdvfQU4I+FCnWnlTS+EU8ATlsAnj/W6JVW5aZy+ZIYcZGCDJ7IZAcwp
-	oH4/s3M/M5xQCd3xXZ6n7dR+EHhdjqAx+7LA6GWUMo7BMhhabyFdzXn/8tDO1ncPPspXU24kGoLkj
-	hJS5IjZj/462SeiqOzeg==;
+	List-Owner; bh=5F/kUB/8rP1KZt8dMwOBe22QdJjXI8urXpS1zCpANho=; b=IOS5dZ2//e+5Gj
+	VqjhefXxB7ENci+koaUAO1EaPGdL5b288reP4v1or6JRtab6E5034BWZb1V1Dftova5ZxwLM9U2Wu
+	+nG38qKZTrqhu4gxTonpxhqF+ordzgk6qpfuHXyt1N3PTtu+Ic9P2y7aom+ZMjaJG3vFHFWlu8Rsj
+	xaQzKX6Ed2zfNGoZfJfM0tt1sPzG8JZ4ZQJqDYSe1mnNLQFG6/x5T3J3qA0Eeh4pNZjWHFOsMzpiE
+	iPNDetERYqiosda7NCbdOe4nhuvG5o96HmWHPj/caN8fC9mI7SNFWrL929cuvL6pVUR8Zyq+sJOQj
+	X7lDMGLJFyeFP4wsViwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qSwef-00GZmV-1V;
-	Mon, 07 Aug 2023 09:36:01 +0000
-Received: from mgamail.intel.com ([192.55.52.136])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qSwec-00GZm9-0O
+	id 1qSwgw-00Ga5S-0K;
+	Mon, 07 Aug 2023 09:38:22 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1qSwgs-00Ga3m-1o
 	for linux-riscv@lists.infradead.org;
-	Mon, 07 Aug 2023 09:35:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1691400958; x=1722936958;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=qMW43ds/GMoPc3kZKkSLfKnoG98LT0/FA99fXV4M2+0=;
-  b=aVipR5iOMedHaawQdHeoCfeuqBWp685aV38U0lpVDVdOOPp7sNjXjM60
-   R96seeKvLRKbJkN41s+v4Ld/chwaKVLC2vXyIrh8YRfd7oRBBqUtsdHq9
-   eAt0289ykFx9weGJersRApR5oQupxeUmJNNrDLxcS9lr9tPsu18Xk6oim
-   IHDaUIraPWzYYUJmBXxIll2z/nvK2L3HF1z52YfDSXAu87aeEnUp0o+Ft
-   16Wdu1dLnhCJVM7BsAA1SZ6E9v6Fi3yOOmQIujTj3crxahOl5YWGQE028
-   LS7Y2UY+yKK3hOTrIpGEBuofDNg2GBIqtPcHr1oQiRo1rrmk6bQiIQ5aM
-   Q==;
-X-IronPort-AV: E=McAfee;i="6600,9927,10794"; a="350092973"
-X-IronPort-AV: E=Sophos;i="6.01,261,1684825200"; 
-   d="scan'208";a="350092973"
-Received: from orsmga008.jf.intel.com ([10.7.209.65])
-  by fmsmga106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 Aug 2023 02:35:55 -0700
-X-ExtLoop1: 1
-X-IronPort-AV: E=McAfee;i="6600,9927,10794"; a="760408927"
-X-IronPort-AV: E=Sophos;i="6.01,261,1684825200"; 
-   d="scan'208";a="760408927"
-Received: from lkp-server01.sh.intel.com (HELO d1ccc7e87e8f) ([10.239.97.150])
-  by orsmga008.jf.intel.com with ESMTP; 07 Aug 2023 02:35:50 -0700
-Received: from kbuild by d1ccc7e87e8f with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1qSweU-0004dP-02;
-	Mon, 07 Aug 2023 09:35:50 +0000
-Date: Mon, 7 Aug 2023 17:35:43 +0800
-From: kernel test robot <lkp@intel.com>
-To: Dylan Jhong <dylan@andestech.com>, paul.walmsley@sifive.com,
-	palmer@dabbelt.com, aou@eecs.berkeley.edu, ajones@ventanamicro.com,
-	alexghiti@rivosinc.com, anup@brainfault.org, rppt@kernel.org,
-	samuel@sholland.org, panqinglin2020@iscas.ac.cn,
-	sergey.matyukevich@syntacore.com, maz@kernel.org,
-	linux-riscv@lists.infradead.org, conor.dooley@microchip.com,
-	linux-kernel@vger.kernel.org
-Cc: oe-kbuild-all@lists.linux.dev, ycliang@andestech.com,
-	x5710999x@gmail.com, tim609@andestech.com,
-	Dylan Jhong <dylan@andestech.com>
-Subject: Re: [PATCH 1/1] riscv: Implement arch_sync_kernel_mappings() for
- "preventive" TLB flush
-Message-ID: <202308071710.irjERWVF-lkp@intel.com>
-References: <20230807082305.198784-2-dylan@andestech.com>
+	Mon, 07 Aug 2023 09:38:20 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 7F62F7FD3;
+	Mon,  7 Aug 2023 17:37:40 +0800 (CST)
+Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 7 Aug
+ 2023 17:37:40 +0800
+Received: from [192.168.125.128] (113.72.146.246) by EXMBX061.cuchost.com
+ (172.16.6.61) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 7 Aug
+ 2023 17:37:39 +0800
+Message-ID: <80d6ac43-2b78-97e4-9905-38bf8440ffb9@starfivetech.com>
+Date: Mon, 7 Aug 2023 17:33:07 +0800
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230807082305.198784-2-dylan@andestech.com>
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.14.0
+Subject: Re: [PATCH v1 2/5] ASoC: dt-bindings: snps,designware-i2s: Add
+ StarFive JH7110 SoC support
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, Liam Girdwood
+	<lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, Jaroslav Kysela
+	<perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, Maxim Kochetkov
+	<fido_max@inbox.ru>, Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Conor Dooley
+	<conor.dooley@microchip.com>, Emil Renner Berthing
+	<emil.renner.berthing@canonical.com>
+CC: Jose Abreu <joabreu@synopsys.com>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Walker Chen <walker.chen@starfivetech.com>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<alsa-devel@alsa-project.org>, <linux-riscv@lists.infradead.org>
+References: <20230802084301.134122-1-xingyu.wu@starfivetech.com>
+ <20230802084301.134122-3-xingyu.wu@starfivetech.com>
+ <37a636dd-fbd8-d475-8814-e0cc6d5cc812@linaro.org>
+ <12a9bfda-9c9f-6baf-3e5f-ce7cc7d79aee@starfivetech.com>
+ <f0744dfd-00fe-2f58-065e-6828b6bd3450@linaro.org>
+Content-Language: en-US
+From: Xingyu Wu <xingyu.wu@starfivetech.com>
+In-Reply-To: <f0744dfd-00fe-2f58-065e-6828b6bd3450@linaro.org>
+X-Originating-IP: [113.72.146.246]
+X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX061.cuchost.com
+ (172.16.6.61)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230807_023558_199431_CDEC2354 
-X-CRM114-Status: GOOD (  12.50  )
+X-CRM114-CacheID: sfid-20230807_023818_937525_FC971586 
+X-CRM114-Status: GOOD (  11.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,50 +88,72 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Dylan,
+On 2023/8/7 17:17, Krzysztof Kozlowski wrote:
+> On 07/08/2023 11:03, Xingyu Wu wrote:
+>>>>> +  - if:
+>>>> +      properties:
+>>>> +        compatible:
+>>>> +          contains:
+>>>> +            const: snps,designware-i2s
+>>>> +    then:
+>>>> +      properties:
+>>>> +        clocks:
+>>>> +          maxItems: 1
+>>>> +        clock-names:
+>>>> +          maxItems: 1
+>>>> +        resets:
+>>>> +          maxItems: 1
+>>>> +    else:
+>>>> +      properties:
+>>>> +        resets:
+>>>> +          minItems: 2
+>> 
+>> The resets of TX0/TX1/RX on JH7110 SoC are mentioned in 'else' here.
+> 
+> Ah, its fine. Clocks seem to be also constrained.
 
-kernel test robot noticed the following build warnings:
+OK, I will keep it here.
 
-[auto build test WARNING on linus/master]
-[also build test WARNING on v6.5-rc5 next-20230807]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+> 
+>> 
+>>>> +  - if:
+>>>> +      properties:
+>>>> +        compatible:
+>>>> +          contains:
+>>>> +            const: starfive,jh7110-i2stx0
+>>>> +    then:
+>>>> +      properties:
+>>>> +        clocks:
+>>>> +          minItems: 5
+>>>
+>>> Also maxItems
+>> 
+>> Will add.
+>> 
+>>>
+>>>> +        clock-names:
+>>>> +          minItems: 5
+>>>
+>>> Also maxItems
+>> 
+>> Will add.
+>> 
+>>>
+>>> What about resets? 1 or 2 items?
+>> 
+>> Mentioned it in the 'else'.
+>> Or do you mean I should drop the 'else' and add the resets in here?
+>> And is the same for TX1 and RX?
+> 
+> It won't be easy to read... probably the binding should be split.
+> Anyway, it's fine as is, except the maxItems above.
+> 
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Dylan-Jhong/riscv-Implement-arch_sync_kernel_mappings-for-preventive-TLB-flush/20230807-162922
-base:   linus/master
-patch link:    https://lore.kernel.org/r/20230807082305.198784-2-dylan%40andestech.com
-patch subject: [PATCH 1/1] riscv: Implement arch_sync_kernel_mappings() for "preventive" TLB flush
-config: riscv-allyesconfig (https://download.01.org/0day-ci/archive/20230807/202308071710.irjERWVF-lkp@intel.com/config)
-compiler: riscv64-linux-gcc (GCC) 12.3.0
-reproduce: (https://download.01.org/0day-ci/archive/20230807/202308071710.irjERWVF-lkp@intel.com/reproduce)
+So I will keep it and just add the maxItems in next version.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202308071710.irjERWVF-lkp@intel.com/
+Thanks,
+Xingyu Wu
 
-All warnings (new ones prefixed by >>):
-
->> arch/riscv/mm/tlbflush.c:159:6: warning: no previous prototype for 'arch_sync_kernel_mappings' [-Wmissing-prototypes]
-     159 | void arch_sync_kernel_mappings(unsigned long start, unsigned long end)
-         |      ^~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-vim +/arch_sync_kernel_mappings +159 arch/riscv/mm/tlbflush.c
-
-   152	
-   153	/*
-   154	 * Since RISC-V is a microarchitecture that allows caching invalid entries in the TLB,
-   155	 * it is necessary to issue a "preventive" SFENCE.VMA to ensure that each core obtains
-   156	 * the correct kernel mapping. arch_sync_kernel_mappings() will ensure that kernel
-   157	 * page table mappings created via vmap/vmalloc() are updated before switching MM.
-   158	 */
- > 159	void arch_sync_kernel_mappings(unsigned long start, unsigned long end)
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
 
 _______________________________________________
 linux-riscv mailing list
