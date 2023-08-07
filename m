@@ -4,83 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5174FC001DB
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Aug 2023 22:42:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 324F3C001DF
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Aug 2023 23:05:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=Qq/UWsVCAMKmj+E3t/3TgFg2KzYKW2TsCaas3+lgGmI=; b=ldVos15ppGCcuq
-	H25BohTjUEYJt83g9d6wTR/UFpAf+sB1rgQnAOrhXooSgyxXnAonsg0MnQPKaEkKAAtsmmkY6mHp0
-	jAduhpx43bdUTroXf7AzFqoHpS69GOi+fxBRcjpzNIKIumYCQv8d6b9akCuaj8qLMauNjDZmgcpFs
-	WKkdzVB3Zv7X/KNzPDEbeWgafj0YEidLCWeUHtpXzezUVj7nAnZc1UvQE54AD6cVDKbaFId1t1QdY
-	vdKdQMsaPUTxHTVq/bIk0Ok+qMdFKeZHTL4hRKpT6ARX+OVzFgkby5JKm7WCNewosqIbOpYF8z54C
-	sbpU0nV636wdoOVE7+Hg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=inzpFtcpigW5wDgiHJ0u+dnuSekpsiByDY2wMtViFGE=; b=Y2wwMmcS0fziIX
+	X/XFEB//XIm38ke+pnxA5tH6t5D5XXf7lmKwl/aAb1UJysdWu0mLyn1EqkJV6+0xy6BYqNenOmWiN
+	QDmzDBQH/tE32+6IhM4FKkaTK9kNRJwC1C0/QH7fpRkFeiQOcGmEhx4QrHGemPX/QEAY0Lr/NJP8R
+	wvibu9oE0Z2EEmRlf9w/TKAGl96f48Z9+mOqYH6OMssIFdTlprQIvsIMwj+75Q8i7Qidl24wmMcm1
+	SoHpi6eQcCMa7KnC+Zzu73B0aNbJVKNOmro2C2YUqLt20UIvAUnpH1zPNaX8Ebh8pRrFzHMC5Nmc8
+	Axw2U0ibRc+bEbASN2qA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qT8vS-0010i0-0E;
-	Mon, 07 Aug 2023 22:42:10 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1qT9Hx-0014Q5-15;
+	Mon, 07 Aug 2023 23:05:25 +0000
+Received: from mail-oi1-x230.google.com ([2607:f8b0:4864:20::230])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qT8vN-0010eL-0I;
-	Mon, 07 Aug 2023 22:42:07 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 1FD2C6226C;
-	Mon,  7 Aug 2023 22:41:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3DB88C433C7;
-	Mon,  7 Aug 2023 22:41:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1691448114;
-	bh=/wqwxDzojgw9myRfOZV564yc0J8qMQhJKtSUll8LP68=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=Vto2ACVmYOtKrWbtwRsyoqYdXTD8QSqVm8z+hf0KtmIVU72Eb6ewshTEg26/gd0XE
-	 BerjH6Lzq5bu8HPW+skCACpfVrrH+8Y1EOxOnwEASJViWHyR3cMoCSt/jvzPiWIgS5
-	 P/f1B5s74dhXm+ya5L++o6/8YvuPorxWeh5F2t3XtDbq1qA0LYCQR0H7UYnlqkUjAb
-	 bPzcj/9jkML6UTYuux0i2oeMgp+mDyFi404BTE4f3mCB7AjAlcoFFXgp0bLiEwIk3h
-	 JVoHoB5WTIhshJwf10e+0acMiMuZMxQ1OE8SoDRMtB9rHXJN32FaTjr8cOpx97LTpG
-	 R2dpJFe4Xf0fw==
-Date: Mon, 7 Aug 2023 17:41:52 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Sunil V L <sunilvl@ventanamicro.com>
-Cc: linux-doc@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-acpi@vger.kernel.org, linux-pci@vger.kernel.org,
-	Jonathan Corbet <corbet@lwn.net>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
+	id 1qT9Hs-0014Nf-3A;
+	Mon, 07 Aug 2023 23:05:22 +0000
+Received: by mail-oi1-x230.google.com with SMTP id 5614622812f47-3a6f87b2993so3744655b6e.3;
+        Mon, 07 Aug 2023 16:05:19 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20221208; t=1691449518; x=1692054318;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=BgGe0Il0C7dlkrriaFCN0meYItalZZUDKy884yxXSME=;
+        b=kkOLGueMrzxHvvdT5O8JIC8nC89W6/6UqoBnx7sB0VLAWpoO0/QHm5tLARAi96zyvU
+         EAiiieHkpJTC9s5qvXPj39j6R2OQuCyqiEOwPTIq50/LHvV7fjReDxpsCX5Ya8M70FRF
+         Bv+KZVFj7Mytss2brk2EH7Z9tHAP9yxEVCzntaEZzdSmQz9vPa1mUTDeJlBFV79lhO4m
+         YdB4aoA79x9pkxJ/XBt7ZG1CR58HGrAi0v/zgewNhzm8aq6TJsefwLnAAAHjOqkPytFk
+         EiZRzEbAgPBMpklpMOtlFM2muNSx1qBww2MBrDwGN8Akv7FqeHgJ4R5d3wn1SAH6io9W
+         CEdA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1691449518; x=1692054318;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=BgGe0Il0C7dlkrriaFCN0meYItalZZUDKy884yxXSME=;
+        b=G9s5HuB3sGHnm817sixn9qF5FqLDvNBqvFMJrTOnlnwsN3Eljco9SkAnEGth+iDSZC
+         TGd8h+9RSpGUY9NGrpSqlIstnuIrLI7M7CjJeVjsez1oMv05u2r90+1d3OzhhcTo6KF2
+         ks0s9EejROmKQi2OwWzrKVAGvon3eR2KKKLqqMUFhq4x5x9mbvlbu2i5XPhG2R/qvGsL
+         XkhFqH8cDwzfMPYYZWJM4ptODL14FDjCJ3QL4NVyHiPVe8+UrJFZizfOsmNDVZoAj+LF
+         lmKB+xGCoGOctARIPQsjo0Gl0YZXFnw2qe5baPKUq8FNOTCtwm5W13VIgswWZtEJGaBk
+         9yBQ==
+X-Gm-Message-State: AOJu0YzXtbrqYG8dspS1W0G2CBDUUtQOTxqV7/VUlqoxa583VvzwD8Bm
+	Crt1r+wtapn3tj3aduUDrPw=
+X-Google-Smtp-Source: AGHT+IHI1CCxgU6LoWPuJYJEyHtYip1YJBCUFIlnO8SlV49xsFZp+VSY6a51skH1ZTqS0RRAJqit6Q==
+X-Received: by 2002:aca:d12:0:b0:3a1:f237:ec62 with SMTP id 18-20020aca0d12000000b003a1f237ec62mr10346742oin.48.1691449518360;
+        Mon, 07 Aug 2023 16:05:18 -0700 (PDT)
+Received: from unknowna0e70b2ca394.attlocal.net ([2600:1700:2f7d:1800::16])
+        by smtp.googlemail.com with ESMTPSA id d190-20020a25cdc7000000b00d3596aca5bcsm2545203ybf.34.2023.08.07.16.05.15
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 07 Aug 2023 16:05:17 -0700 (PDT)
+From: "Vishal Moola (Oracle)" <vishal.moola@gmail.com>
+To: Andrew Morton <akpm@linux-foundation.org>,
+	Matthew Wilcox <willy@infradead.org>
+Cc: linux-mm@kvack.org,
+	linux-arch@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-csky@vger.kernel.org,
+	linux-hexagon@vger.kernel.org,
+	loongarch@lists.linux.dev,
+	linux-m68k@lists.linux-m68k.org,
+	linux-mips@vger.kernel.org,
+	linux-openrisc@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	linux-sh@vger.kernel.org,
+	sparclinux@vger.kernel.org,
+	linux-um@lists.infradead.org,
+	xen-devel@lists.xenproject.org,
+	kvm@vger.kernel.org,
+	Hugh Dickins <hughd@google.com>,
+	"Vishal Moola (Oracle)" <vishal.moola@gmail.com>,
 	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Len Brown <lenb@kernel.org>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Daniel Scally <djrscally@gmail.com>,
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Anup Patel <anup@brainfault.org>, Marc Zyngier <maz@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Robert Moore <robert.moore@intel.com>,
-	Haibo Xu <haibo1.xu@intel.com>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Atish Kumar Patra <atishp@rivosinc.com>
-Subject: Re: [RFC PATCH v1 05/21] arm64: PCI: Migrate ACPI related functions
- to pci-acpi.c
-Message-ID: <20230807224152.GA274647@bhelgaas>
+	Huacai Chen <chenhuacai@kernel.org>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Dinh Nguyen <dinguyen@kernel.org>,
+	Jonas Bonn <jonas@southpole.se>,
+	David Hildenbrand <david@redhat.com>,
+	Claudio Imbrenda <imbrenda@linux.ibm.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Richard Weinberger <richard@nod.at>,
+	Yoshinori Sato <ysato@users.sourceforge.jp>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>
+Subject: [PATCH mm-unstable v9 00/31] Split ptdesc from struct page
+Date: Mon,  7 Aug 2023 16:04:42 -0700
+Message-Id: <20230807230513.102486-1-vishal.moola@gmail.com>
+X-Mailer: git-send-email 2.40.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230803175916.3174453-6-sunilvl@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230807_154205_235102_16796796 
-X-CRM114-Status: GOOD (  32.54  )
+X-CRM114-CacheID: sfid-20230807_160521_024750_F93B75FF 
+X-CRM114-Status: GOOD (  11.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,439 +121,102 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 03, 2023 at 11:29:00PM +0530, Sunil V L wrote:
-> The functions defined in arm64 for ACPI support are required
-> for RISC-V also. To avoid duplication, copy these functions
-> to common location.
+The MM subsystem is trying to shrink struct page. This patchset
+introduces a memory descriptor for page table tracking - struct ptdesc.
 
-I assume this is a "move" (not a copy) and the code being moved isn't
-being changed.
+This patchset introduces ptdesc, splits ptdesc from struct page, and
+converts many callers of page table constructor/destructors to use ptdescs.
 
-If so,
+Ptdesc is a foundation to further standardize page tables, and eventually
+allow for dynamic allocation of page tables independent of struct page.
+However, the use of pages for page table tracking is quite deeply
+ingrained and varied across archictectures, so there is still a lot of
+work to be done before that can happen.
 
-  Acked-by: Bjorn Helgaas <bhelgaas@google.com>
+This applies cleanly onto the current unstable after dropping v8 of this
+series.
 
-> Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
-> ---
->  arch/arm64/kernel/pci.c | 193 ----------------------------------------
->  drivers/pci/pci-acpi.c  | 182 +++++++++++++++++++++++++++++++++++++
->  2 files changed, 182 insertions(+), 193 deletions(-)
-> 
-> diff --git a/arch/arm64/kernel/pci.c b/arch/arm64/kernel/pci.c
-> index 2276689b5411..fd9a7bed83ce 100644
-> --- a/arch/arm64/kernel/pci.c
-> +++ b/arch/arm64/kernel/pci.c
-> @@ -6,30 +6,7 @@
->   * Copyright (C) 2014 ARM Ltd.
->   */
->  
-> -#include <linux/acpi.h>
-> -#include <linux/init.h>
-> -#include <linux/io.h>
-> -#include <linux/kernel.h>
-> -#include <linux/mm.h>
-> -#include <linux/of_pci.h>
-> -#include <linux/of_platform.h>
->  #include <linux/pci.h>
-> -#include <linux/pci-acpi.h>
-> -#include <linux/pci-ecam.h>
-> -#include <linux/slab.h>
-> -
-> -#ifdef CONFIG_ACPI
-> -/*
-> - * Try to assign the IRQ number when probing a new device
-> - */
-> -int pcibios_alloc_irq(struct pci_dev *dev)
-> -{
-> -	if (!acpi_disabled)
-> -		acpi_pci_irq_enable(dev);
-> -
-> -	return 0;
-> -}
-> -#endif
->  
->  /*
->   * raw_pci_read/write - Platform-specific PCI config space access.
-> @@ -63,173 +40,3 @@ int pcibus_to_node(struct pci_bus *bus)
->  EXPORT_SYMBOL(pcibus_to_node);
->  
->  #endif
-> -
-> -#ifdef CONFIG_ACPI
-> -
-> -struct acpi_pci_generic_root_info {
-> -	struct acpi_pci_root_info	common;
-> -	struct pci_config_window	*cfg;	/* config space mapping */
-> -};
-> -
-> -int acpi_pci_bus_find_domain_nr(struct pci_bus *bus)
-> -{
-> -	struct pci_config_window *cfg = bus->sysdata;
-> -	struct acpi_device *adev = to_acpi_device(cfg->parent);
-> -	struct acpi_pci_root *root = acpi_driver_data(adev);
-> -
-> -	return root->segment;
-> -}
-> -
-> -int pcibios_root_bridge_prepare(struct pci_host_bridge *bridge)
-> -{
-> -	struct pci_config_window *cfg;
-> -	struct acpi_device *adev;
-> -	struct device *bus_dev;
-> -
-> -	if (acpi_disabled)
-> -		return 0;
-> -
-> -	cfg = bridge->bus->sysdata;
-> -
-> -	/*
-> -	 * On Hyper-V there is no corresponding ACPI device for a root bridge,
-> -	 * therefore ->parent is set as NULL by the driver. And set 'adev' as
-> -	 * NULL in this case because there is no proper ACPI device.
-> -	 */
-> -	if (!cfg->parent)
-> -		adev = NULL;
-> -	else
-> -		adev = to_acpi_device(cfg->parent);
-> -
-> -	bus_dev = &bridge->bus->dev;
-> -
-> -	ACPI_COMPANION_SET(&bridge->dev, adev);
-> -	set_dev_node(bus_dev, acpi_get_node(acpi_device_handle(adev)));
-> -
-> -	return 0;
-> -}
-> -
-> -static int pci_acpi_root_prepare_resources(struct acpi_pci_root_info *ci)
-> -{
-> -	struct resource_entry *entry, *tmp;
-> -	int status;
-> -
-> -	status = acpi_pci_probe_root_resources(ci);
-> -	resource_list_for_each_entry_safe(entry, tmp, &ci->resources) {
-> -		if (!(entry->res->flags & IORESOURCE_WINDOW))
-> -			resource_list_destroy_entry(entry);
-> -	}
-> -	return status;
-> -}
-> -
-> -/*
-> - * Lookup the bus range for the domain in MCFG, and set up config space
-> - * mapping.
-> - */
-> -static struct pci_config_window *
-> -pci_acpi_setup_ecam_mapping(struct acpi_pci_root *root)
-> -{
-> -	struct device *dev = &root->device->dev;
-> -	struct resource *bus_res = &root->secondary;
-> -	u16 seg = root->segment;
-> -	const struct pci_ecam_ops *ecam_ops;
-> -	struct resource cfgres;
-> -	struct acpi_device *adev;
-> -	struct pci_config_window *cfg;
-> -	int ret;
-> -
-> -	ret = pci_mcfg_lookup(root, &cfgres, &ecam_ops);
-> -	if (ret) {
-> -		dev_err(dev, "%04x:%pR ECAM region not found\n", seg, bus_res);
-> -		return NULL;
-> -	}
-> -
-> -	adev = acpi_resource_consumer(&cfgres);
-> -	if (adev)
-> -		dev_info(dev, "ECAM area %pR reserved by %s\n", &cfgres,
-> -			 dev_name(&adev->dev));
-> -	else
-> -		dev_warn(dev, FW_BUG "ECAM area %pR not reserved in ACPI namespace\n",
-> -			 &cfgres);
-> -
-> -	cfg = pci_ecam_create(dev, &cfgres, bus_res, ecam_ops);
-> -	if (IS_ERR(cfg)) {
-> -		dev_err(dev, "%04x:%pR error %ld mapping ECAM\n", seg, bus_res,
-> -			PTR_ERR(cfg));
-> -		return NULL;
-> -	}
-> -
-> -	return cfg;
-> -}
-> -
-> -/* release_info: free resources allocated by init_info */
-> -static void pci_acpi_generic_release_info(struct acpi_pci_root_info *ci)
-> -{
-> -	struct acpi_pci_generic_root_info *ri;
-> -
-> -	ri = container_of(ci, struct acpi_pci_generic_root_info, common);
-> -	pci_ecam_free(ri->cfg);
-> -	kfree(ci->ops);
-> -	kfree(ri);
-> -}
-> -
-> -/* Interface called from ACPI code to setup PCI host controller */
-> -struct pci_bus *pci_acpi_scan_root(struct acpi_pci_root *root)
-> -{
-> -	struct acpi_pci_generic_root_info *ri;
-> -	struct pci_bus *bus, *child;
-> -	struct acpi_pci_root_ops *root_ops;
-> -	struct pci_host_bridge *host;
-> -
-> -	ri = kzalloc(sizeof(*ri), GFP_KERNEL);
-> -	if (!ri)
-> -		return NULL;
-> -
-> -	root_ops = kzalloc(sizeof(*root_ops), GFP_KERNEL);
-> -	if (!root_ops) {
-> -		kfree(ri);
-> -		return NULL;
-> -	}
-> -
-> -	ri->cfg = pci_acpi_setup_ecam_mapping(root);
-> -	if (!ri->cfg) {
-> -		kfree(ri);
-> -		kfree(root_ops);
-> -		return NULL;
-> -	}
-> -
-> -	root_ops->release_info = pci_acpi_generic_release_info;
-> -	root_ops->prepare_resources = pci_acpi_root_prepare_resources;
-> -	root_ops->pci_ops = (struct pci_ops *)&ri->cfg->ops->pci_ops;
-> -	bus = acpi_pci_root_create(root, root_ops, &ri->common, ri->cfg);
-> -	if (!bus)
-> -		return NULL;
-> -
-> -	/* If we must preserve the resource configuration, claim now */
-> -	host = pci_find_host_bridge(bus);
-> -	if (host->preserve_config)
-> -		pci_bus_claim_resources(bus);
-> -
-> -	/*
-> -	 * Assign whatever was left unassigned. If we didn't claim above,
-> -	 * this will reassign everything.
-> -	 */
-> -	pci_assign_unassigned_root_bus_resources(bus);
-> -
-> -	list_for_each_entry(child, &bus->children, node)
-> -		pcie_bus_configure_settings(child);
-> -
-> -	return bus;
-> -}
-> -
-> -void pcibios_add_bus(struct pci_bus *bus)
-> -{
-> -	acpi_pci_add_bus(bus);
-> -}
-> -
-> -void pcibios_remove_bus(struct pci_bus *bus)
-> -{
-> -	acpi_pci_remove_bus(bus);
-> -}
-> -
-> -#endif
-> diff --git a/drivers/pci/pci-acpi.c b/drivers/pci/pci-acpi.c
-> index a05350a4e49c..d6b2d64b8237 100644
-> --- a/drivers/pci/pci-acpi.c
-> +++ b/drivers/pci/pci-acpi.c
-> @@ -15,6 +15,7 @@
->  #include <linux/pci_hotplug.h>
->  #include <linux/module.h>
->  #include <linux/pci-acpi.h>
-> +#include <linux/pci-ecam.h>
->  #include <linux/pm_runtime.h>
->  #include <linux/pm_qos.h>
->  #include <linux/rwsem.h>
-> @@ -1517,4 +1518,185 @@ static int __init acpi_pci_init(void)
->  
->  	return 0;
->  }
-> +
->  arch_initcall(acpi_pci_init);
-> +
-> +#if defined(CONFIG_ARM64)
-> +/*
-> + * Try to assign the IRQ number when probing a new device
-> + */
-> +int pcibios_alloc_irq(struct pci_dev *dev)
-> +{
-> +	if (!acpi_disabled)
-> +		acpi_pci_irq_enable(dev);
-> +
-> +	return 0;
-> +}
-> +
-> +struct acpi_pci_generic_root_info {
-> +	struct acpi_pci_root_info	common;
-> +	struct pci_config_window	*cfg;	/* config space mapping */
-> +};
-> +
-> +int acpi_pci_bus_find_domain_nr(struct pci_bus *bus)
-> +{
-> +	struct pci_config_window *cfg = bus->sysdata;
-> +	struct acpi_device *adev = to_acpi_device(cfg->parent);
-> +	struct acpi_pci_root *root = acpi_driver_data(adev);
-> +
-> +	return root->segment;
-> +}
-> +
-> +int pcibios_root_bridge_prepare(struct pci_host_bridge *bridge)
-> +{
-> +	struct pci_config_window *cfg;
-> +	struct acpi_device *adev;
-> +	struct device *bus_dev;
-> +
-> +	if (acpi_disabled)
-> +		return 0;
-> +
-> +	cfg = bridge->bus->sysdata;
-> +
-> +	/*
-> +	 * On Hyper-V there is no corresponding ACPI device for a root bridge,
-> +	 * therefore ->parent is set as NULL by the driver. And set 'adev' as
-> +	 * NULL in this case because there is no proper ACPI device.
-> +	 */
-> +	if (!cfg->parent)
-> +		adev = NULL;
-> +	else
-> +		adev = to_acpi_device(cfg->parent);
-> +
-> +	bus_dev = &bridge->bus->dev;
-> +
-> +	ACPI_COMPANION_SET(&bridge->dev, adev);
-> +	set_dev_node(bus_dev, acpi_get_node(acpi_device_handle(adev)));
-> +
-> +	return 0;
-> +}
-> +
-> +static int pci_acpi_root_prepare_resources(struct acpi_pci_root_info *ci)
-> +{
-> +	struct resource_entry *entry, *tmp;
-> +	int status;
-> +
-> +	status = acpi_pci_probe_root_resources(ci);
-> +	resource_list_for_each_entry_safe(entry, tmp, &ci->resources) {
-> +		if (!(entry->res->flags & IORESOURCE_WINDOW))
-> +			resource_list_destroy_entry(entry);
-> +	}
-> +	return status;
-> +}
-> +
-> +/*
-> + * Lookup the bus range for the domain in MCFG, and set up config space
-> + * mapping.
-> + */
-> +static struct pci_config_window *
-> +pci_acpi_setup_ecam_mapping(struct acpi_pci_root *root)
-> +{
-> +	struct device *dev = &root->device->dev;
-> +	struct resource *bus_res = &root->secondary;
-> +	u16 seg = root->segment;
-> +	const struct pci_ecam_ops *ecam_ops;
-> +	struct resource cfgres;
-> +	struct acpi_device *adev;
-> +	struct pci_config_window *cfg;
-> +	int ret;
-> +
-> +	ret = pci_mcfg_lookup(root, &cfgres, &ecam_ops);
-> +	if (ret) {
-> +		dev_err(dev, "%04x:%pR ECAM region not found\n", seg, bus_res);
-> +		return NULL;
-> +	}
-> +
-> +	adev = acpi_resource_consumer(&cfgres);
-> +	if (adev)
-> +		dev_info(dev, "ECAM area %pR reserved by %s\n", &cfgres,
-> +			 dev_name(&adev->dev));
-> +	else
-> +		dev_warn(dev, FW_BUG "ECAM area %pR not reserved in ACPI namespace\n",
-> +			 &cfgres);
-> +
-> +	cfg = pci_ecam_create(dev, &cfgres, bus_res, ecam_ops);
-> +	if (IS_ERR(cfg)) {
-> +		dev_err(dev, "%04x:%pR error %ld mapping ECAM\n", seg, bus_res,
-> +			PTR_ERR(cfg));
-> +		return NULL;
-> +	}
-> +
-> +	return cfg;
-> +}
-> +
-> +/* release_info: free resources allocated by init_info */
-> +static void pci_acpi_generic_release_info(struct acpi_pci_root_info *ci)
-> +{
-> +	struct acpi_pci_generic_root_info *ri;
-> +
-> +	ri = container_of(ci, struct acpi_pci_generic_root_info, common);
-> +	pci_ecam_free(ri->cfg);
-> +	kfree(ci->ops);
-> +	kfree(ri);
-> +}
-> +
-> +/* Interface called from ACPI code to setup PCI host controller */
-> +struct pci_bus *pci_acpi_scan_root(struct acpi_pci_root *root)
-> +{
-> +	struct acpi_pci_generic_root_info *ri;
-> +	struct pci_bus *bus, *child;
-> +	struct acpi_pci_root_ops *root_ops;
-> +	struct pci_host_bridge *host;
-> +
-> +	ri = kzalloc(sizeof(*ri), GFP_KERNEL);
-> +	if (!ri)
-> +		return NULL;
-> +
-> +	root_ops = kzalloc(sizeof(*root_ops), GFP_KERNEL);
-> +	if (!root_ops) {
-> +		kfree(ri);
-> +		return NULL;
-> +	}
-> +
-> +	ri->cfg = pci_acpi_setup_ecam_mapping(root);
-> +	if (!ri->cfg) {
-> +		kfree(ri);
-> +		kfree(root_ops);
-> +		return NULL;
-> +	}
-> +
-> +	root_ops->release_info = pci_acpi_generic_release_info;
-> +	root_ops->prepare_resources = pci_acpi_root_prepare_resources;
-> +	root_ops->pci_ops = (struct pci_ops *)&ri->cfg->ops->pci_ops;
-> +	bus = acpi_pci_root_create(root, root_ops, &ri->common, ri->cfg);
-> +	if (!bus)
-> +		return NULL;
-> +
-> +	/* If we must preserve the resource configuration, claim now */
-> +	host = pci_find_host_bridge(bus);
-> +	if (host->preserve_config)
-> +		pci_bus_claim_resources(bus);
-> +
-> +	/*
-> +	 * Assign whatever was left unassigned. If we didn't claim above,
-> +	 * this will reassign everything.
-> +	 */
-> +	pci_assign_unassigned_root_bus_resources(bus);
-> +
-> +	list_for_each_entry(child, &bus->children, node)
-> +		pcie_bus_configure_settings(child);
-> +
-> +	return bus;
-> +}
-> +
-> +void pcibios_add_bus(struct pci_bus *bus)
-> +{
-> +	acpi_pci_add_bus(bus);
-> +}
-> +
-> +void pcibios_remove_bus(struct pci_bus *bus)
-> +{
-> +	acpi_pci_remove_bus(bus);
-> +}
-> +
-> +#endif
-> -- 
-> 2.39.2
-> 
-> 
-> _______________________________________________
-> linux-arm-kernel mailing list
-> linux-arm-kernel@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-arm-kernel
+v9:
+  Fix build errors for NOMMU configs - trying to define ptdesc before
+spinlock_t and struct page were defined.
+  Moved definition of struct ptdesc to include/linux/mm_types.h instead
+include/linux/pgtable.h
+
+Vishal Moola (Oracle) (31):
+  mm: Add PAGE_TYPE_OP folio functions
+  pgtable: create struct ptdesc
+  mm: add utility functions for ptdesc
+  mm: Convert pmd_pgtable_page() callers to use pmd_ptdesc()
+  mm: Convert ptlock_alloc() to use ptdescs
+  mm: Convert ptlock_ptr() to use ptdescs
+  mm: Convert pmd_ptlock_init() to use ptdescs
+  mm: Convert ptlock_init() to use ptdescs
+  mm: Convert pmd_ptlock_free() to use ptdescs
+  mm: Convert ptlock_free() to use ptdescs
+  mm: Create ptdesc equivalents for pgtable_{pte,pmd}_page_{ctor,dtor}
+  powerpc: Convert various functions to use ptdescs
+  x86: Convert various functions to use ptdescs
+  s390: Convert various pgalloc functions to use ptdescs
+  mm: remove page table members from struct page
+  pgalloc: Convert various functions to use ptdescs
+  arm: Convert various functions to use ptdescs
+  arm64: Convert various functions to use ptdescs
+  csky: Convert __pte_free_tlb() to use ptdescs
+  hexagon: Convert __pte_free_tlb() to use ptdescs
+  loongarch: Convert various functions to use ptdescs
+  m68k: Convert various functions to use ptdescs
+  mips: Convert various functions to use ptdescs
+  nios2: Convert __pte_free_tlb() to use ptdescs
+  openrisc: Convert __pte_free_tlb() to use ptdescs
+  riscv: Convert alloc_{pmd, pte}_late() to use ptdescs
+  sh: Convert pte_free_tlb() to use ptdescs
+  sparc64: Convert various functions to use ptdescs
+  sparc: Convert pgtable_pte_page_{ctor, dtor}() to ptdesc equivalents
+  um: Convert {pmd, pte}_free_tlb() to use ptdescs
+  mm: Remove pgtable_{pmd, pte}_page_{ctor, dtor}() wrappers
+
+ Documentation/mm/split_page_table_lock.rst    |  12 +-
+ .../zh_CN/mm/split_page_table_lock.rst        |  14 +-
+ arch/arm/include/asm/tlb.h                    |  12 +-
+ arch/arm/mm/mmu.c                             |   7 +-
+ arch/arm64/include/asm/tlb.h                  |  14 +-
+ arch/arm64/mm/mmu.c                           |   7 +-
+ arch/csky/include/asm/pgalloc.h               |   4 +-
+ arch/hexagon/include/asm/pgalloc.h            |   8 +-
+ arch/loongarch/include/asm/pgalloc.h          |  27 ++--
+ arch/loongarch/mm/pgtable.c                   |   7 +-
+ arch/m68k/include/asm/mcf_pgalloc.h           |  47 +++---
+ arch/m68k/include/asm/sun3_pgalloc.h          |   8 +-
+ arch/m68k/mm/motorola.c                       |   4 +-
+ arch/mips/include/asm/pgalloc.h               |  32 ++--
+ arch/mips/mm/pgtable.c                        |   8 +-
+ arch/nios2/include/asm/pgalloc.h              |   8 +-
+ arch/openrisc/include/asm/pgalloc.h           |   8 +-
+ arch/powerpc/mm/book3s64/mmu_context.c        |  10 +-
+ arch/powerpc/mm/book3s64/pgtable.c            |  32 ++--
+ arch/powerpc/mm/pgtable-frag.c                |  58 +++----
+ arch/riscv/include/asm/pgalloc.h              |   8 +-
+ arch/riscv/mm/init.c                          |  16 +-
+ arch/s390/include/asm/pgalloc.h               |   4 +-
+ arch/s390/include/asm/tlb.h                   |   4 +-
+ arch/s390/mm/pgalloc.c                        | 128 +++++++--------
+ arch/sh/include/asm/pgalloc.h                 |   9 +-
+ arch/sparc/mm/init_64.c                       |  17 +-
+ arch/sparc/mm/srmmu.c                         |   5 +-
+ arch/um/include/asm/pgalloc.h                 |  18 +--
+ arch/x86/mm/pgtable.c                         |  47 +++---
+ arch/x86/xen/mmu_pv.c                         |   2 +-
+ include/asm-generic/pgalloc.h                 |  88 +++++-----
+ include/asm-generic/tlb.h                     |  11 ++
+ include/linux/mm.h                            | 151 +++++++++++++-----
+ include/linux/mm_types.h                      |  97 ++++++++---
+ include/linux/page-flags.h                    |  30 +++-
+ mm/memory.c                                   |   8 +-
+ 37 files changed, 585 insertions(+), 385 deletions(-)
+
+-- 
+2.40.1
+
 
 _______________________________________________
 linux-riscv mailing list
