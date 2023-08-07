@@ -4,158 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC727C001DE
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Aug 2023 10:22:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3761C001B0
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Aug 2023 12:30:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=k1EMMG0k+Lbep5wKLQkdZ/k+nluRxUP8GqoCfaxHDn4=; b=ROK0DmdIJZjzKk
-	tSBecdtmay+5tpe1djZi/4BuDIdmKN0ElC/GC20lpJu6cwwOQPTJubiGZ3wHA6lVWmHQNLIPaWQg+
-	X5GEH68y4cmLdgtHepMQ0Vo2FHl5pLRMetMFMv8YaiCSTpT5l5MhMdWDacE7JJNViQdNYvJ5z8TlX
-	NII8ELMlK8H3Kacwe+v/IwOky1tjgn2Uz3olrtdwDU6Az1z3A8H/YDA7mdUfLoe30AxcTVUNW3/7m
-	SlEGzvE60Si3w+aJ3Z2BYPqKHQaoRevs9AVsv+hfXskUyxBXi5owqCN3mQNk4gsEAZUDp5aByBD3Z
-	Puy32yOrLsEkcoV+V/xA==;
+	List-Owner; bh=wm6DHIot42mw802Y4ga63SZQEp7HFITOM2Y188pOwbw=; b=kZG6dsF2zulja1
+	nDAsCYTpTloWaQDYc/ebVGRjsPFDhAQTdNdX/ABTC+cThahR6sEsHBnvHaTtpQWy1hqclmFqUefp9
+	kZ1t+zLzr/D+1bjCrLX0oA1bribllzuItHNvZIggCf20yZgXg3CaD7gdwv1FStNijr/qRzl1OVkYe
+	vuUxnVCrCn7cwijEiHpzOJqH+I0XkR0s7+4MXTHDZSOcXsHBUQWCJtG6Nv0P/sGcU5bMDl9k5ClFB
+	V8einfDuksYgQv8opMNAiYF+50Uu1KcEtjYCA62pdH+59ju8x4ay5j4pO7p65lsjgTLOFszq0Qxan
+	TTPsKChS9WLit5jHPDPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qSxN6-00Gk6H-0s;
-	Mon, 07 Aug 2023 10:21:56 +0000
-Received: from mail-vi1eur04on0612.outbound.protection.outlook.com ([2a01:111:f400:fe0e::612] helo=EUR04-VI1-obe.outbound.protection.outlook.com)
+	id 1qSzNX-00HDGj-19;
+	Mon, 07 Aug 2023 12:30:31 +0000
+Received: from mgamail.intel.com ([134.134.136.100])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qSxN3-00Gjzc-0o;
-	Mon, 07 Aug 2023 10:21:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=armh.onmicrosoft.com;
- s=selector2-armh-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Mrs6y9Ptah9WPIEcrIb0ZeASDoxywYFtpPwtKfqhMWE=;
- b=oQyNepHlSzcZkHsVl1gWTKObuR6WipAgDDDyaUwJjBOR5TvLMEJzz0NHus7CsbcjMobDo62Wi1+X58GzYj/qVIek0EQKSgLSIQxi5D3pS8Gtl997RYuBnTyyNQ/dBPybVU/12SuNTphNaWHyc3/6RB34oJwKGVqb8K4TtEJDAU8=
-Received: from AS9PR06CA0230.eurprd06.prod.outlook.com (2603:10a6:20b:45e::26)
- by AM7PR08MB5432.eurprd08.prod.outlook.com (2603:10a6:20b:10b::23) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6652.26; Mon, 7 Aug
- 2023 10:21:26 +0000
-Received: from AM7EUR03FT045.eop-EUR03.prod.protection.outlook.com
- (2603:10a6:20b:45e:cafe::79) by AS9PR06CA0230.outlook.office365.com
- (2603:10a6:20b:45e::26) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6652.26 via Frontend
- Transport; Mon, 7 Aug 2023 10:21:26 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 63.35.35.123)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=armh.onmicrosoft.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 63.35.35.123 as permitted sender) receiver=protection.outlook.com;
- client-ip=63.35.35.123; helo=64aa7808-outbound-1.mta.getcheckrecipient.com;
- pr=C
-Received: from 64aa7808-outbound-1.mta.getcheckrecipient.com (63.35.35.123) by
- AM7EUR03FT045.mail.protection.outlook.com (100.127.140.150) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.6678.15 via Frontend Transport; Mon, 7 Aug 2023 10:21:25 +0000
-Received: ("Tessian outbound f9124736ff4f:v145"); Mon, 07 Aug 2023 10:21:25 +0000
-X-CheckRecipientChecked: true
-X-CR-MTA-CID: d6abb263343ff9e9
-X-CR-MTA-TID: 64aa7808
-Received: from 7876b55f53d8.2
-	by 64aa7808-outbound-1.mta.getcheckrecipient.com id 9065A3D3-B4AC-44BB-8CEB-3887A004694F.1;
-	Mon, 07 Aug 2023 10:21:15 +0000
-Received: from EUR04-VI1-obe.outbound.protection.outlook.com
-    by 64aa7808-outbound-1.mta.getcheckrecipient.com with ESMTPS id 7876b55f53d8.2
-    (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384);
-    Mon, 07 Aug 2023 10:21:15 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=WDVtEsOp0ZspyDEtXDuyt2lDuf5M3rqll2Hidi63YbB2TTEh4Vb/wasdd4uwIuPYy2q//Zf5O2L8DksZmVVpaN3VYLpZ5y54Z6Z4tXVZWReNB3xqmVnj0WVmW5Pw0Ubd5/o8DM+V9k7DFXiucOx9FpiSJTvjakD7vWRpUAMKMwkuaKJXRJjuj6T9OzKHZKy4h47bRrmOaykvGUCcI36hDW7A9QnjAPzzNXvF26QG/J+JI1zoXaWVTnkO7mEaKN/4NX2E5JfewoF94wtTtiIGgm3YYZTtuYCDWTo1+Hb+xYdCGcFKNJYVRJt0ZF6leXny8pNevr0kVY6BWAKXbukVyg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Mrs6y9Ptah9WPIEcrIb0ZeASDoxywYFtpPwtKfqhMWE=;
- b=cMABMlLUSQEgcDRC48dwh12XE/QqL/SgrUWPWlNMDnISJYswVit6whfTZo4umx96pGT1DLzJxydfn9MrgyqmtXjNIm38FSbcQ86VNuxYuLHO2cXumpMRTO9tsbeiRE7DVFiE0AwkpF79HAeLS+vY846I2qltkFbwiX+OK8DMdNsTYw2/VCfjGzOp2I9NuHaYI+kHClPUtqmwqax9dgeFXGXahuBCFtCqvGnlK2kYbZbSWnJmedvXcvRWCXLmUwbXBDs/F3B41JLf1Q58FZoMyJfT8pQTu7pMQPaoSwkIavJOD4Dzht3PMVWC+/F1LyifYl9c3Nd0aKluTzOsZuKphw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=armh.onmicrosoft.com;
- s=selector2-armh-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Mrs6y9Ptah9WPIEcrIb0ZeASDoxywYFtpPwtKfqhMWE=;
- b=oQyNepHlSzcZkHsVl1gWTKObuR6WipAgDDDyaUwJjBOR5TvLMEJzz0NHus7CsbcjMobDo62Wi1+X58GzYj/qVIek0EQKSgLSIQxi5D3pS8Gtl997RYuBnTyyNQ/dBPybVU/12SuNTphNaWHyc3/6RB34oJwKGVqb8K4TtEJDAU8=
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-Received: from DB9PR08MB7179.eurprd08.prod.outlook.com (2603:10a6:10:2cc::19)
- by AS8PR08MB10151.eurprd08.prod.outlook.com (2603:10a6:20b:628::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6652.26; Mon, 7 Aug
- 2023 10:21:12 +0000
-Received: from DB9PR08MB7179.eurprd08.prod.outlook.com
- ([fe80::adb0:61cb:8733:6db2]) by DB9PR08MB7179.eurprd08.prod.outlook.com
- ([fe80::adb0:61cb:8733:6db2%7]) with mapi id 15.20.6652.026; Mon, 7 Aug 2023
- 10:21:12 +0000
-Date: Mon, 7 Aug 2023 11:20:58 +0100
-From: Szabolcs Nagy <Szabolcs.Nagy@arm.com>
-To: Mark Brown <broonie@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	James Morse <james.morse@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Arnd Bergmann <arnd@arndb.de>, Oleg Nesterov <oleg@redhat.com>,
-	Eric Biederman <ebiederm@xmission.com>,
-	Kees Cook <keescook@chromium.org>, Shuah Khan <shuah@kernel.org>,
-	"Rick P. Edgecombe" <rick.p.edgecombe@intel.com>,
-	Deepak Gupta <debug@rivosinc.com>, Ard Biesheuvel <ardb@kernel.org>
-Cc: "H.J. Lu" <hjl.tools@gmail.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
-	kvmarm@lists.linux.dev, linux-fsdevel@vger.kernel.org,
-	linux-arch@vger.kernel.org, linux-mm@kvack.org,
-	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v3 21/36] arm64/mm: Implement map_shadow_stack()
-Message-ID: <ZNDFioFIM34VcsuV@arm.com>
-References: <20230731-arm64-gcs-v3-0-cddf9f980d98@kernel.org>
- <20230731-arm64-gcs-v3-21-cddf9f980d98@kernel.org>
-Content-Disposition: inline
-In-Reply-To: <20230731-arm64-gcs-v3-21-cddf9f980d98@kernel.org>
-X-ClientProxiedBy: LO6P123CA0017.GBRP123.PROD.OUTLOOK.COM
- (2603:10a6:600:313::7) To DB9PR08MB7179.eurprd08.prod.outlook.com
- (2603:10a6:10:2cc::19)
+	id 1qSzNN-00HD8V-1a
+	for linux-riscv@lists.infradead.org;
+	Mon, 07 Aug 2023 12:30:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1691411421; x=1722947421;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=FXJTq45AIqsfuwWwSJ2t/zwiSaFYQ3Xi7vuToBn1yV0=;
+  b=isl/mWCCKkKJ18rJ/iVHG6Af10NEQGgx+4KBuuQ5xog8zMfTiZAndCdq
+   2tgEWsIOgd5Cqy/swO/LiGuvdq1gyJp+V9Eyd7gnp9EPLI3toQpKqGYQF
+   ovweBkJp4z1zde38GHric/UoweVk8CMYhGmUXhtvz7EOldW7RtvsLSPiU
+   c3YedD5UBAHKNxhy4xGu4TKd6Fhc33RjW6SlPtQ/f9zcpdLOUiztrLNmt
+   DBUt67tsrjzzEC0wmFiEgAr8ANFIn1Lq57x09OmawbIK0g1NO2TAFLnXW
+   AF841GgzWwj1u1uXr9/DrSXNM/JjcwoLX/Jme1KuHKCF8QobkWReDOB5c
+   g==;
+X-IronPort-AV: E=McAfee;i="6600,9927,10794"; a="436861970"
+X-IronPort-AV: E=Sophos;i="6.01,262,1684825200"; 
+   d="scan'208";a="436861970"
+Received: from orsmga006.jf.intel.com ([10.7.209.51])
+  by orsmga105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 Aug 2023 05:28:58 -0700
+X-ExtLoop1: 1
+X-IronPort-AV: E=McAfee;i="6600,9927,10794"; a="707852437"
+X-IronPort-AV: E=Sophos;i="6.01,262,1684825200"; 
+   d="scan'208";a="707852437"
+Received: from lkp-server01.sh.intel.com (HELO d1ccc7e87e8f) ([10.239.97.150])
+  by orsmga006.jf.intel.com with ESMTP; 07 Aug 2023 05:28:54 -0700
+Received: from kbuild by d1ccc7e87e8f with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1qSzLx-0004fz-0D;
+	Mon, 07 Aug 2023 12:28:53 +0000
+Date: Mon, 7 Aug 2023 20:28:35 +0800
+From: kernel test robot <lkp@intel.com>
+To: Dylan Jhong <dylan@andestech.com>, paul.walmsley@sifive.com,
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, ajones@ventanamicro.com,
+	alexghiti@rivosinc.com, anup@brainfault.org, rppt@kernel.org,
+	samuel@sholland.org, panqinglin2020@iscas.ac.cn,
+	sergey.matyukevich@syntacore.com, maz@kernel.org,
+	linux-riscv@lists.infradead.org, conor.dooley@microchip.com,
+	linux-kernel@vger.kernel.org
+Cc: oe-kbuild-all@lists.linux.dev, ycliang@andestech.com,
+	x5710999x@gmail.com, tim609@andestech.com,
+	Dylan Jhong <dylan@andestech.com>
+Subject: Re: [PATCH 1/1] riscv: Implement arch_sync_kernel_mappings() for
+ "preventive" TLB flush
+Message-ID: <202308072050.0T0FlSpT-lkp@intel.com>
+References: <20230807082305.198784-2-dylan@andestech.com>
 MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: DB9PR08MB7179:EE_|AS8PR08MB10151:EE_|AM7EUR03FT045:EE_|AM7PR08MB5432:EE_
-X-MS-Office365-Filtering-Correlation-Id: a0712e99-a0db-43ad-15d0-08db97300e75
-x-checkrecipientrouted: true
-NoDisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;
-X-Microsoft-Antispam-Message-Info-Original: CTRobn5o9nqHHhogJ7n8JBCHnbaaCwFAgnJ1NMXylevQ6J4xtiPtYYyAvqQCiRG/rMlJ5OGosHgNx6zVzMwOE46qZ6ysELCvpfVTxVKI1xYrVYjM0IjDYfsk6TgFFehNoHe/t03778ZtffFy70hdIXk24wXL+PjrFtjJ3LowlG4JD/wySKmJEJVAKC98NbAh453Eibky/SExOELBrzoGxTMT+XVxAbd02vXqLgI5+tsYi3uFU0BRQb7ZSPZvdnRI4dtqKL9+o2uuSLJUgRCDAJL0h4+3c+M+7pNhdxAVhRgU9yVxRCFLa2uIMJCHgqeKrxwqfqIS2Mu3zGMjkvOA3K6t91e/JDGg8wMRn+Kv2nf0KnOp6hu/WDAy0d4wASwNbeeGZyQpFEVYjQrLwD0U7heWx8BRW1wYJh4Z9RWpXMhlvskb8YMl6zabT/a8WF7kOSwHpD3T55kjTUbnbogY+Ly3nKfeigmXV8nLWBAeC0I0gBaTk4pbdxXkHfZ4lFfpkdjzK6KRyuGI8pt6altuAOvwyl6w/FHbUmeF8WgNdp+JlfSFwdYFG8kILSugIySaEpx71QCDaSX4CZoZeM3U9KIzZdTbB2XIZT2ceyeX4W0=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR08MB7179.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230028)(4636009)(396003)(346002)(366004)(39860400002)(376002)(136003)(451199021)(1800799003)(186006)(6512007)(26005)(6506007)(36756003)(110136005)(54906003)(38100700002)(5660300002)(7416002)(86362001)(4744005)(4326008)(2906002)(66476007)(66556008)(66946007)(41300700001)(316002)(8936002)(8676002)(6666004)(478600001)(921005)(2616005)(6486002);DIR:OUT;SFP:1101;
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR08MB10151
-Original-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: AM7EUR03FT045.eop-EUR03.prod.protection.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: fbe038b5-8ae4-4c9f-ce87-08db973005e5
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: XhKBzD4wCicgYecgkbrua/XZiDI/hK3TGp17fe+wlI3HwHuDslAdEy8Yja0ddgUtMUv7CIE8Ihon6tdQBJzg1Svfg99kbkjAWZwJqLF6ob95cnPFcLE+x8vuchCxiuFnaj53s6T7Kzj6OTKOl1f3L7VMaaVRDgztbEZJ8yCyxcYvIlozdYe1bMPPxrlp8/dmlLV0N7og+hxilPIykK4Jv5AefCRYL9iWDQCLWuiO3oRncrJJkaXm90aUYwCEWHWgVl4OW/uXkGVf0O4rkRtVaz8yVE64wXY+veF6xFLb8+Ty40bydFGfRomKEBoWR/diDSFtGQzOSfY/15vnF8c6lhmrzs590JLqpeBXILzvkSBer6rtHscXu21YUc9ohHG5qYpwRpZif42mJi20Ne12RGd1TSVZbfmgm25Ut6yvSEupVNL9G/VXn6cqBtQc7/KnAhbb15L1mK6qEwIG3pDd6biZqlq36z2z3BflPdXVjk98J35MBzRwOO/tBTFGn8nq465/0gYHK1bB9+hmvnoPGn1hmkogEN5epKHJUPTCWucDlQhl/wYtaac+tOUWUL1sUby9VpxF+Jsw2I2cWEgHb4x/m09xYP8oQpZJY3Mz1uPgi7tKF6HRa8OqSkpftx/gHTfkPYmg/YcHVi/dzfeOfuReH9gwhAFMH5U1U3PpOcHL6Iny+BL0lIBgjtzw/W8rqX3b7tvakr3zrKYH+AWzpZ1CJGk97XooHJBVuksVdp8=
-X-Forefront-Antispam-Report: CIP:63.35.35.123;CTRY:IE;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:64aa7808-outbound-1.mta.getcheckrecipient.com;PTR:ec2-63-35-35-123.eu-west-1.compute.amazonaws.com;CAT:NONE;SFS:(13230028)(4636009)(396003)(346002)(376002)(39850400004)(136003)(451199021)(186006)(1800799003)(82310400008)(46966006)(36840700001)(40480700001)(336012)(2616005)(36756003)(6512007)(4326008)(316002)(86362001)(81166007)(921005)(478600001)(54906003)(110136005)(356005)(70206006)(70586007)(6666004)(6486002)(450100002)(82740400003)(6506007)(41300700001)(26005)(8676002)(8936002)(47076005)(4744005)(36860700001)(2906002)(5660300002);DIR:OUT;SFP:1101;
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Aug 2023 10:21:25.9054
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: a0712e99-a0db-43ad-15d0-08db97300e75
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[63.35.35.123];Helo=[64aa7808-outbound-1.mta.getcheckrecipient.com]
-X-MS-Exchange-CrossTenant-AuthSource: AM7EUR03FT045.eop-EUR03.prod.protection.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM7PR08MB5432
+Content-Disposition: inline
+In-Reply-To: <20230807082305.198784-2-dylan@andestech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230807_032153_311392_DFCF6B88 
-X-CRM114-Status: UNSURE (   7.84  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230807_053021_582354_7979BD5C 
+X-CRM114-Status: GOOD (  10.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -172,32 +93,43 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The 07/31/2023 14:43, Mark Brown wrote:
-> +SYSCALL_DEFINE3(map_shadow_stack, unsigned long, addr, unsigned long, size, unsigned int, flags)
-> +{
-> +	unsigned long alloc_size;
-> +	unsigned long __user *cap_ptr;
-> +	unsigned long cap_val;
-> +	int ret;
-> +
-> +	if (!system_supports_gcs())
-> +		return -EOPNOTSUPP;
-> +
-> +	if (flags)
-> +		return -EINVAL;
-> +
-> +	if (addr % 16)
-> +		return -EINVAL;
+Hi Dylan,
 
-mmap addr must be page aligned (and there is no align req on size).
+kernel test robot noticed the following build errors:
 
-i'd expect similar api here.
+[auto build test ERROR on linus/master]
+[also build test ERROR on v6.5-rc5 next-20230807]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-> +
-> +	if (size == 16 || size % 16)
-> +		return -EINVAL;
+url:    https://github.com/intel-lab-lkp/linux/commits/Dylan-Jhong/riscv-Implement-arch_sync_kernel_mappings-for-preventive-TLB-flush/20230807-162922
+base:   linus/master
+patch link:    https://lore.kernel.org/r/20230807082305.198784-2-dylan%40andestech.com
+patch subject: [PATCH 1/1] riscv: Implement arch_sync_kernel_mappings() for "preventive" TLB flush
+config: riscv-allnoconfig (https://download.01.org/0day-ci/archive/20230807/202308072050.0T0FlSpT-lkp@intel.com/config)
+compiler: riscv64-linux-gcc (GCC) 12.3.0
+reproduce: (https://download.01.org/0day-ci/archive/20230807/202308072050.0T0FlSpT-lkp@intel.com/reproduce)
 
-why %16 and not %8 ?
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202308072050.0T0FlSpT-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+   riscv64-linux-ld: mm/memory.o: in function `.L1539':
+>> memory.c:(.text+0x3b5c): undefined reference to `arch_sync_kernel_mappings'
+   riscv64-linux-ld: mm/vmalloc.o: in function `.L301':
+>> vmalloc.c:(.text+0xd24): undefined reference to `arch_sync_kernel_mappings'
+   riscv64-linux-ld: mm/vmalloc.o: in function `vb_alloc.constprop.0':
+   vmalloc.c:(.text+0x2c4e): undefined reference to `arch_sync_kernel_mappings'
+   riscv64-linux-ld: mm/vmalloc.o: in function `.L0 ':
+   vmalloc.c:(.text+0x2f2c): undefined reference to `arch_sync_kernel_mappings'
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
 _______________________________________________
 linux-riscv mailing list
