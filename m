@@ -4,80 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D412C001DB
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Aug 2023 18:37:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD478C001B0
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Aug 2023 19:21:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=eEMQazeTR4KapOI+o4lF5homO47Y/YRTUHiyyg9QRvI=; b=qJchM3IR+ReMuO
-	bXRjc5hGfjBB+NiasdvYtykRwDjTp71e4dGYKUZf9lFkClw4btDhuflSyh1n7+ca+EMdBE4DfMvCv
-	bIi3OgPcehI033zTc/bYiHZFS4fP1mIfDAtV2NlsEss44kQzU/JU9J96kXvNyvobGDYBdAEbqXtoI
-	4ZNxs4Xj4cwVYMOQjTY/MjajYYlcX6iCOd/Sb6StsfIemJsYDuFtVmmibNqba/2vftuW+rXhwXOXG
-	KFnpHoLIy1gBUt6IJvA63v/M82Vsz18fxolRnOvwYi90BsCCjdez26JEJRKgtvBDT+05uBcRXdGpL
-	NPCBnwa5apfOqIdt+IRQ==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=R2Zok0ErewZZPk7aF2ktULaINFOt6B0xyFTwj3WdBzU=; b=pDQlVgYm5CRVWw
+	JndNGwpFC5ILBHoobXiqY2RuYpcD9Rc90nQoRNF1TP6kX+ZjVdjZrr9zyxCiHWP+c4hjkb0tCyqGv
+	8RmwYz2j79B7xp1V43Kchh+YRx/fHEagqXcn/BDALxsVrG5MNRXvFhrsZtgmeo79vDF4Xp10aEl8i
+	kBYLK0OCxK4xy67rqiBZYcHuxIPUwSNtfu3NKnjEMNDuPlqB+9lk156Aqp9geFYn5FjpEJsPScRQe
+	YLpns2xHpPFFrjjW8ZWzk7hDfPxbUchfOI18QXXzpyPC/FvhbHsRzDLpQ0ObiTE/RJacRFMAHcXcc
+	TCpI6RnTQdYk1TKLB1HQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qT56S-000QKk-0O;
-	Mon, 07 Aug 2023 18:37:16 +0000
-Received: from mail-lf1-x136.google.com ([2a00:1450:4864:20::136])
+	id 1qT5mi-000UV2-0S;
+	Mon, 07 Aug 2023 19:20:56 +0000
+Received: from out-94.mta1.migadu.com ([95.215.58.94])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qT56O-000QJH-1I
+	id 1qT5mf-000USm-1E
 	for linux-riscv@lists.infradead.org;
-	Mon, 07 Aug 2023 18:37:14 +0000
-Received: by mail-lf1-x136.google.com with SMTP id 2adb3069b0e04-4fe0d5f719dso7975001e87.2
-        for <linux-riscv@lists.infradead.org>; Mon, 07 Aug 2023 11:37:00 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20221208; t=1691433419; x=1692038219;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=+8Yj5qVDFXyAwTzwIhUHgilERDq5+y/zb0F33+hQJss=;
-        b=aC7i6pch1TzHViEGULhCEXWGI4hxO2x6M7+ndIV80XDAQwJ0tZrwKMxEKKvR9QIF0Q
-         SC/zpjyjOdvLv9V5BTdm46CpIOh6ipPKDr8laEK8Hb/0MzVMDH16eyQIOLE6X3XDxoQ6
-         n47m0dGkG2Bzh0oZHRyqQDLDaTlnfdDFqMtwoCcLIUmnFb+NlFlDKzCW349+3H6fFwkh
-         q10K2LDvEz6z+75odwoYtFyUq4xTxKJ9IoXDo30GFHgtZI7yw2czpabwz312NZj4ft2x
-         830GPizrX0eb2VfTZyAw/n8whJ6RAiHKktl27kj74swBF53oBppcCIDHW4LU0FhoZTjI
-         ZQvw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1691433419; x=1692038219;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=+8Yj5qVDFXyAwTzwIhUHgilERDq5+y/zb0F33+hQJss=;
-        b=G3Y0/b2K92f7geYoduSY9T5X9aJ7pWy+1JYj7a8vU/uhx0z1qTD592Cd8SMTIY0+of
-         fOeG4/l/7L2be6+FluaDH4AVnW2Z/xoz2Z8AoZsvKq/eMaPXk/t4Z1arnnPdeKn+hZkf
-         QF8Y8Zt/Dz5qf4ZbqR7S1JHNTbdQ2CHOIrMKlNtjEaZhY6oKHQq4OLUjPczW+ywKBgeW
-         PChzcqQXe02A3vYOhhxJItSJRyKRfaWK/3ZzpGlbjtdwXZ5bvokM/7GusDKDIFXOT4qG
-         HrvszQN51FHKh2lXAEXvg6246nYRdvFe55w/k4hyiLfgMxG3QqZTjhuEWfWsQ6EeQ3yz
-         rtkQ==
-X-Gm-Message-State: AOJu0Ywll3utIEJyT67jLXtvafmmqL0mmreIeBb91Br0vs+Py0FFhODF
-	/9yaV9htT+taeR06vL11kpo=
-X-Google-Smtp-Source: AGHT+IH3qxFu9sZKMc/iwCfmahwlUDyDWE0sqNuD9k9uePaao6ObXkQBAJPG9IeQt4jjirXZzaPEcg==
-X-Received: by 2002:ac2:5e23:0:b0:4fb:7675:1c16 with SMTP id o3-20020ac25e23000000b004fb76751c16mr6284536lfg.49.1691433418994;
-        Mon, 07 Aug 2023 11:36:58 -0700 (PDT)
-Received: from f (cst-prg-21-219.cust.vodafone.cz. [46.135.21.219])
-        by smtp.gmail.com with ESMTPSA id a25-20020a50ff19000000b0050488d1d376sm5523914edu.0.2023.08.07.11.36.57
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 07 Aug 2023 11:36:58 -0700 (PDT)
-Date: Mon, 7 Aug 2023 20:36:55 +0200
-From: Mateusz Guzik <mjguzik@gmail.com>
-To: guoren@kernel.org
-Cc: David.Laight@ACULAB.COM, will@kernel.org, peterz@infradead.org,
-	mingo@redhat.com, longman@redhat.com, linux-arch@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	Guo Ren <guoren@linux.alibaba.com>
-Subject: Re: [PATCH V2] asm-generic: ticket-lock: Optimize
- arch_spin_value_unlocked
-Message-ID: <20230807183655.kbnjtvbi4jfrcrce@f>
-References: <20230731023308.3748432-1-guoren@kernel.org>
+	Mon, 07 Aug 2023 19:20:54 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jookia.org; s=key1;
+	t=1691436036;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=3MO64bm8DFoP+FtMNEmWQlPXqTMO4IBSAv4wntQ0uL4=;
+	b=vDj1LhgzTqUvdYIJ+GyYNE/S8OovxIjbJAVnxEAJfbetB2Bs8LgZrUgjIh5e9wb2/CSec/
+	T6ClYlSomL585prfZpsCyjU1Yf/RigIoIk+BSNJa2xVEEKj2i7zjsCd5wgKlFmVeLFL16c
+	Pv6WpVr/YpPZFiTE4Am8W7lEnPOghWTv1sxC+jaamcOwz9wwpAdnRvdIvEPjV2woQ7R6y5
+	aJfWJlt+sUyrZhv1yYqMACRb618Kmg5tbsYnLkserZbGzBHulv4rkNDXMUvmX90psWhoEe
+	ViGgRiWSf+46Dgz+GRls+3yOA/18n9rNoU36Av4tPtBbttJEViMFeW1B/VphVA==
+From: John Watts <contact@jookia.org>
+To: linux-sunxi@lists.linux.dev
+Subject: [PATCH v3] riscv: dts: allwinner: d1: Add CAN controller nodes
+Date: Tue,  8 Aug 2023 05:19:52 +1000
+Message-ID: <20230807191952.2019208-1-contact@jookia.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230731023308.3748432-1-guoren@kernel.org>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230807_113712_439325_969519BF 
-X-CRM114-Status: GOOD (  15.54  )
+X-CRM114-CacheID: sfid-20230807_122053_584688_5C483DF8 
+X-CRM114-Status: UNSURE (   9.70  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,70 +61,86 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, Samuel Holland <samuel@sholland.org>, linux-kernel@vger.kernel.org, Jernej Skrabec <jernej.skrabec@gmail.com>, John Watts <contact@jookia.org>, Chen-Yu Tsai <wens@csie.org>, Rob Herring <robh+dt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley <paul.walmsley@sifive.com>, Maksim Kiselev <bigunclemax@gmail.com>, linux-riscv@lists.infradead.org, Marc Kleine-Budde <mkl@pengutronix.de>, linux-arm-kernel@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jul 30, 2023 at 10:33:08PM -0400, guoren@kernel.org wrote:
-> From: Guo Ren <guoren@linux.alibaba.com>
-> 
-> The arch_spin_value_unlocked would cause an unnecessary memory
-> access to the contended value. Although it won't cause a significant
-> performance gap in most architectures, the arch_spin_value_unlocked
-> argument contains enough information. Thus, remove unnecessary
-> atomic_read in arch_spin_value_unlocked().
-> 
-> The caller of arch_spin_value_unlocked() could benefit from this
-> change. Currently, the only caller is lockref.
-> 
+The Allwinner D1, T113 provide two CAN controllers that are variants
+of the R40 controller.
 
-Have you verified you are getting an extra memory access from this in
-lockref? What architecture is it?
+I have tested support for these controllers on two boards:
 
-I have no opinion about the patch itself, I will note though that the
-argument to the routine is *not* the actual memory-shared lockref,
-instead it's something from the local copy obtained with READ_ONCE
-from the real thing. So I would be surprised if the stock routine was
-generating accesses to that sucker.
+- A Lichee Panel RV 86 Panel running a D1 chip
+- A Mango Pi MQ Dual running a T113-s3 chip
 
-Nonetheless, if the patched routine adds nasty asm, that would be nice
-to sort out.
+Both of these fully support both CAN controllers.
 
-FWIW on x86-64 qspinlock is used (i.e. not the stuff you are patching)
-and I verified there are only 2 memory accesses -- the initial READ_ONCE
-and later cmpxchg. I don't know which archs *don't* use qspinlock.
+Signed-off-by: John Watts <contact@jookia.org>
+---
+Changes in v3:
+- Set default pinctrl for can controller
+- Moved can nodes to proper location
+- Moved can pins to proper location
 
-It also turns out generated asm is quite atrocious and cleaning it up
-may yield a small win under more traffic. Maybe I'll see about it later
-this week.
+ .../boot/dts/allwinner/sunxi-d1s-t113.dtsi    | 34 +++++++++++++++++++
+ 1 file changed, 34 insertions(+)
 
-For example, disassembling lockref_put_return:
-<+0>:     mov    (%rdi),%rax            <-- initial load, expected
-<+3>:     mov    $0x64,%r8d
-<+9>:     mov    %rax,%rdx
-<+12>:    test   %eax,%eax              <-- retries loop back here
-					<-- this is also the unlocked
-					    check
-<+14>:    jne    0xffffffff8157aba3 <lockref_put_return+67>
-<+16>:    mov    %rdx,%rsi
-<+19>:    mov    %edx,%edx
-<+21>:    sar    $0x20,%rsi
-<+25>:    lea    -0x1(%rsi),%ecx        <-- new.count--;
-<+28>:    shl    $0x20,%rcx
-<+32>:    or     %rcx,%rdx
-<+35>:    test   %esi,%esi
-<+37>:    jle    0xffffffff8157aba3 <lockref_put_return+67>
-<+39>:    lock cmpxchg %rdx,(%rdi)      <-- the attempt to change
-<+44>:    jne    0xffffffff8157ab9a <lockref_put_return+58>
-<+46>:    shr    $0x20,%rdx
-<+50>:    mov    %rdx,%rax
-<+53>:    jmp    0xffffffff81af8540 <__x86_return_thunk>
-<+58>:    mov    %rax,%rdx
-<+61>:    sub    $0x1,%r8d              <-- retry count check
-<+65>:    jne    0xffffffff8157ab6c <lockref_put_return+12> <-- go back
-<+67>:    mov    $0xffffffff,%eax
-<+72>:    jmp    0xffffffff81af8540 <__x86_return_thunk>
+diff --git a/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi b/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi
+index d59b4acf183a..24f2e70d5886 100644
+--- a/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi
++++ b/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi
+@@ -52,6 +52,18 @@ pio: pinctrl@2000000 {
+ 			#gpio-cells = <3>;
+ 			#interrupt-cells = <3>;
+ 
++			/omit-if-no-ref/
++			can0_pins: can0-pins {
++				pins = "PB2", "PB3";
++				function = "can0";
++			};
++
++			/omit-if-no-ref/
++			can1_pins: can1-pins {
++				pins = "PB4", "PB5";
++				function = "can1";
++			};
++
+ 			/omit-if-no-ref/
+ 			clk_pg11_pin: clk-pg11-pin {
+ 				pins = "PG11";
+@@ -356,6 +368,28 @@ i2c3: i2c@2502c00 {
+ 			#size-cells = <0>;
+ 		};
+ 
++		can0: can@2504000 {
++			pinctrl-names = "default";
++			pinctrl-0 = <&can0_pins>;
++			compatible = "allwinner,sun20i-d1-can";
++			reg = <0x02504000 0x400>;
++			interrupts = <SOC_PERIPHERAL_IRQ(21) IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&ccu CLK_BUS_CAN0>;
++			resets = <&ccu RST_BUS_CAN0>;
++			status = "disabled";
++		};
++
++		can1: can@2504400 {
++			pinctrl-names = "default";
++			pinctrl-0 = <&can1_pins>;
++			compatible = "allwinner,sun20i-d1-can";
++			reg = <0x02504400 0x400>;
++			interrupts = <SOC_PERIPHERAL_IRQ(22) IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&ccu CLK_BUS_CAN1>;
++			resets = <&ccu RST_BUS_CAN1>;
++			status = "disabled";
++		};
++
+ 		syscon: syscon@3000000 {
+ 			compatible = "allwinner,sun20i-d1-system-control";
+ 			reg = <0x3000000 0x1000>;
+-- 
+2.41.0
 
 
 _______________________________________________
