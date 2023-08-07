@@ -4,91 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7FE7EB64DD
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Aug 2023 06:29:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C402CEB64DD
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Aug 2023 07:15:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xFA7bngIpRaNVwiwytlTdpZdKUsoLqJmXPyjEXupCyA=; b=AFfHvHb8K1hn9o
-	EhgFHN2Y7hce3iamJV2vm6m7XW4IjmlwvfQfmmot/zEzzjCZBg1zO00Sdm2CV5EdTT17vRjv4hHtH
-	SEd37lPvpXrJlkVCn+7dUVwQGSQP5SaxS8yEHYeO0UMa3oMFr7CdJ4GgqS/ToLO9hvfQqh8zwODqO
-	8hv4sWYhf8EBScVD5rZLY99NVCedZAygqgsSF3HHcBT39XEWVEXe6y8nyh6TbkO+v41c0ehuLBBqL
-	r51k8it9aIF3kj4nNThFnJ53mV1IpfGQFB2jCjdx9L7DgXth6VO+EeMsOciErExKXE9RwrYYXtJvx
-	3BAwTzRMet9aqiuUyiug==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:Cc:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MGdOvuzqpRpUlAIX8+3vun962QcR5VlaJgbr+Q1WtlI=; b=nZ+gZ1oTjR0jusIDBvbAxXf0RY
+	tWzfkWnGRcJK0XojDBnnW8fWoTTpAmCPVX4RZbLXnZRgRC5STC3vhs8hyFhvd7mUrGGrSv2S7yhIu
+	pLLWp8/G3u9/K+S9Utr22L2z+dDORmLOWsIpVPrailp9pMY9PiCg1idJyE48rxT9dQmJQ5bII7gtZ
+	rKn0PWUcHps9RTWFn6cNeAiv4me5saf2VWaObzCOLCKykynOzNQ+enXK+/zzeguR+gQzJEDeUZvHB
+	LbysFhb3I2MH0aN0PNyfU0GNzC2/WETDySjWnEfXCbVU2Hzr2fY6DxeVmPp8gV75e1AhW8v+MV2Ry
+	Ix8R+nzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qStkA-00GGmo-0M;
-	Mon, 07 Aug 2023 06:29:30 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1qSuSD-00GLGK-1x;
+	Mon, 07 Aug 2023 07:15:01 +0000
+Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qStk7-00GGm8-2a
+	id 1qSuS9-00GLDd-0E
 	for linux-riscv@lists.infradead.org;
-	Mon, 07 Aug 2023 06:29:29 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-3fe4b45a336so19112675e9.1
-        for <linux-riscv@lists.infradead.org>; Sun, 06 Aug 2023 23:29:25 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1691389764; x=1691994564;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=Z7rnWNHFUneQ3py2i1MBfIqg4WaLvrT3ZVmHSN5iKRs=;
-        b=f8insg7X86ppQ5F6Ftef+QhplHoXoRQAMzFMVl2RdeVQ2Cn675LFV6uigapurhe9JF
-         HldFfIEGHpm9b5MvBSH7/C8CfgQfXb8onmWizItMbRzFPNLH3NxRQxq2YoAxV/QUj+gj
-         Xq/Plk9HWec7x3LlQUT7TSRVzSUprBMMD8NPtiMDhZybAJ00NaRZGmqzJvPR8Gk0Lxbr
-         Uyl7qo33UrJBbDk3TSZiA2siPMr1VQVzjZH8dyblNByvz3N/Qc/V+KcDivWTUqazW/N+
-         k8TCdZah0Ccmqhavl0s9AF+IwPvXKNFH+mx+WROAMFNaWNvOy4uRJJ1zIA+VaI+NQv/q
-         Qlmg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1691389764; x=1691994564;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Z7rnWNHFUneQ3py2i1MBfIqg4WaLvrT3ZVmHSN5iKRs=;
-        b=NkrUltba0BiHkt4EPNeGldWZTMowwJPbPicN8TBzG+EED1oL3VwS4QAvuSNmTZcO+g
-         YcBidu7LU1CwaQXijtAaoV1h0ZVqjOJA5PtZsUwMV68FjwwjXTYnC+9Qs9kRo/Fp/Ih7
-         cDe2Fvy2GSdp9U6H2x6/sdY9nn0JJgeEb2/Eqg9Uu3mkZWsvZJ/q0TYMDAgdmIGj61Iv
-         Nhlf370Lw3/yUKqthV3jfz+ngRkwP5bm1aYtsvGIOLJvQ9+BVXJMLWW8QP/avzAzbWbU
-         B++fjNtS/2bKgBe5Z0zJlXueiFL6jsELpWzHEEcYfuxoulnA4RcZnBSTL3jRLGGmHBbD
-         88OQ==
-X-Gm-Message-State: AOJu0Yw8Iac+oneBu0ED2SznI+yhYd5K3V/t0BLtRYdFixqkGFGM2KIr
-	BkWg/cDXC17tkvlgh3NlP/lDaQ==
-X-Google-Smtp-Source: AGHT+IHoV4+y4ygwE201jI1n35hdg8Xn3ESUU/xDOlVSMzH8Nm0HJsqGqZvTNuNydoy+mLFZinL9WQ==
-X-Received: by 2002:a5d:6509:0:b0:313:ef57:5bde with SMTP id x9-20020a5d6509000000b00313ef575bdemr4758869wru.42.1691389764237;
-        Sun, 06 Aug 2023 23:29:24 -0700 (PDT)
-Received: from [192.168.1.20] ([178.197.222.113])
-        by smtp.gmail.com with ESMTPSA id b3-20020adfee83000000b0031773e3cf46sm9393070wro.61.2023.08.06.23.29.22
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 06 Aug 2023 23:29:23 -0700 (PDT)
-Message-ID: <ca0b9a19-d7d7-80e5-f47e-f74615cdac86@linaro.org>
-Date: Mon, 7 Aug 2023 08:29:21 +0200
+	Mon, 07 Aug 2023 07:15:00 +0000
+Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
+	by metis.ext.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <mkl@pengutronix.de>)
+	id 1qSuRu-000883-Pg; Mon, 07 Aug 2023 09:14:42 +0200
+Received: from pengutronix.de (unknown [172.20.34.65])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(Client did not present a certificate)
+	(Authenticated sender: mkl-all@blackshift.org)
+	by smtp.blackshift.org (Postfix) with ESMTPSA id 1A506205885;
+	Mon,  7 Aug 2023 07:14:39 +0000 (UTC)
+Date: Mon, 7 Aug 2023 09:14:38 +0200
+From: Marc Kleine-Budde <mkl@pengutronix.de>
+To: Jernej =?utf-8?Q?=C5=A0krabec?= <jernej.skrabec@gmail.com>
+Subject: Re: [PATCH] riscv: dts: allwinner: d1: Specify default CAN pins
+Message-ID: <20230807-leverage-manatee-687c46db39f8-mkl@pengutronix.de>
+References: <20230731023701.2581713-1-contact@jookia.org>
+ <3248110.44csPzL39Z@jernej-laptop>
+ <ZMyZ5kZSiiJHtdeS@titan>
+ <5696365.DvuYhMxLoT@jernej-laptop>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.14.0
-Subject: Re: [PATCH RFC v2 1/4] dt-bindings: mmc: sdhci-of-dwcmhsc: Add T-Head
- TH1520 support
-Content-Language: en-US
-To: Drew Fustini <dfustini@baylibre.com>, Jisheng Zhang <jszhang@kernel.org>,
- Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>,
- Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Conor Dooley <conor+dt@kernel.org>, Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Conor Dooley <conor@kernel.org>,
- Adrian Hunter <adrian.hunter@intel.com>, Ulf Hansson <ulf.hansson@linaro.org>
-Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-mmc@vger.kernel.org,
- Robert Nelson <robertcnelson@beagleboard.org>,
- Jason Kridner <jkridner@beagleboard.org>
-References: <20230724-th1520-emmc-v2-0-132ed2e2171e@baylibre.com>
- <20230724-th1520-emmc-v2-1-132ed2e2171e@baylibre.com>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <20230724-th1520-emmc-v2-1-132ed2e2171e@baylibre.com>
+In-Reply-To: <5696365.DvuYhMxLoT@jernej-laptop>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:b01:1d::7b
+X-SA-Exim-Mail-From: mkl@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230806_232927_863628_1463C678 
-X-CRM114-Status: GOOD (  14.63  )
+X-CRM114-CacheID: sfid-20230807_001457_112264_5C44C1E8 
+X-CRM114-Status: GOOD (  21.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,64 +68,87 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, Samuel Holland <samuel@sholland.org>, linux-kernel@vger.kernel.org, Rob Herring <robh+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, John Watts <contact@jookia.org>, Palmer Dabbelt <palmer@dabbelt.com>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley <paul.walmsley@sifive.com>, Maksim Kiselev <bigunclemax@gmail.com>, linux-riscv@lists.infradead.org, linux-sunxi@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Content-Type: multipart/mixed; boundary="===============0886567918276716620=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 05/08/2023 05:14, Drew Fustini wrote:
-> Add compatible value for the T-Head TH1520 dwcmshc controller and
-> thead,io-fixed-1v8 and thead,pull-up properties.
-> 
-> Signed-off-by: Drew Fustini <dfustini@baylibre.com>
-> ---
->  Documentation/devicetree/bindings/mmc/snps,dwcmshc-sdhci.yaml | 9 +++++++++
->  1 file changed, 9 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/mmc/snps,dwcmshc-sdhci.yaml b/Documentation/devicetree/bindings/mmc/snps,dwcmshc-sdhci.yaml
-> index a43eb837f8da..57602c345cab 100644
-> --- a/Documentation/devicetree/bindings/mmc/snps,dwcmshc-sdhci.yaml
-> +++ b/Documentation/devicetree/bindings/mmc/snps,dwcmshc-sdhci.yaml
-> @@ -19,6 +19,7 @@ properties:
->        - rockchip,rk3568-dwcmshc
->        - rockchip,rk3588-dwcmshc
->        - snps,dwcmshc-sdhci
-> +      - thead,th1520-dwcmshc
->  
->    reg:
->      maxItems: 1
-> @@ -60,6 +61,14 @@ properties:
->      description: Specify the number of delay for tx sampling.
->      $ref: /schemas/types.yaml#/definitions/uint8
->  
-> +  thead,io-fixed-1v8:
-> +    description: SoC PHY pad is fixed 1.8V
-> +    type: boolean
 
-Isn't this duplicating existing properties for MMC modes with 1.8 V?
+--===============0886567918276716620==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="xgydx3hdd5gawx7l"
+Content-Disposition: inline
 
-> +
-> +  thead,pull-up:
-> +    description: True if pull-up, false if pull-down
 
-This explains me nothing. No clue what you are pulling and why do you
-need it. Pin pulls should be done via pin controller, not MMC.
+--xgydx3hdd5gawx7l
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Anyway you should have here allOf:if:then (move the allOf: from top to
-behind "required:") which will disallow these properties for other variants.
+On 04.08.2023 16:39:41, Jernej =C5=A0krabec wrote:
+> Dne petek, 04. avgust 2023 ob 08:25:42 CEST je John Watts napisal(a):
+> > On Thu, Aug 03, 2023 at 10:59:30PM +0200, Jernej =C5=A0krabec wrote:
+> > > pinctrl-names and pinctrl-0 are usually at the top. However, since th=
+ere
+> > > is no hard rule (I've seen it mixed), I'm fine with it.
+> >=20
+> > Happy to change if needed.
+>=20
+> If you don't mind, please do.
+>=20
+> >=20
+> > > Since original DT node entry goes through netdev tree, this should be
+> > > picked there or it can be dropped there and I pick both patches or I =
+can
+> > > pick patch for later kernel version.
+> >=20
+> > Do I have to do something based on this, like resend my patch?
+>=20
+> Nothing on your side.
+>=20
+> Marc, since you took original patch through netdev tree, what is your dec=
+ision=20
+> here?
 
-> +    type: boolean
-> +
->  
->  required:
->    - compatible
-> 
+I'll take the DT patches though linux-can-next to net-next.
 
-Best regards,
-Krzysztof
+regards,
+Marc
 
+--=20
+Pengutronix e.K.                 | Marc Kleine-Budde          |
+Embedded Linux                   | https://www.pengutronix.de |
+Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
+Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
+
+--xgydx3hdd5gawx7l
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEDs2BvajyNKlf9TJQvlAcSiqKBOgFAmTQmdoACgkQvlAcSiqK
+BOgNigf/WQ0j4jhWfbYXaY/33E7hWV8x/a7lA0uFjqImrlzx6N9e9haXbCDz8Prm
+wlqXv10RoPcam5UnDHoDmeg7RASAIkLBKAFiuTpWZnOEiV77CB8H7sHELLiT8hOg
+W1R26KjIU0a3TFrBy3vfRZc+lRL3Jxcu7X/eh+dMUM9N+bMf0x7h+MW5Wx4CbC6k
+SR0j4D5Cxgi5EcXjGl8SJxatOmfGxBkjlKgJmiw0vUI5ISgluQrZF3m9adflXAza
+IoPSI+WPU7uMHIvMvRv0Ed4MvNhZabRATEAjOTvJsmq0grjT4rk9xYv4ZGEET/Rm
+xSbfq22jvd65w0kOt5NvtJs/NzZxVQ==
+=MX/Y
+-----END PGP SIGNATURE-----
+
+--xgydx3hdd5gawx7l--
+
+
+--===============0886567918276716620==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============0886567918276716620==--
+
