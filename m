@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65FADC001B0
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Aug 2023 23:20:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B54CC001B0
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Aug 2023 23:25:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
 	Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	References:List-Owner; bh=VLgwD4aSemimpU7uC4187vLaZ4MDsc68AstvIkKrsok=; b=StB
-	i7jZ9sMR8WxqHfut0VGmRKXa3EEbzXL900EqpPwYEd12JtSZGFOJD568e0F8YEfp9UgtFBITQhEY/
-	AcR8yXYYKd1WsUy/RtpqcanbEslb4njkn31oi1agdgo2qoamnDYP3NM+b0/2cMSC1JTTHRPCRmtVr
-	SZGY7gPhwiBPu8poie946k20hU5hGsI/WV2FAGg/XfK8NPC3mkTlNlql8HzHa3KGyckJu+kneRXSe
-	mAcAwlX59F1mTdat7MdLXIoexJyQnqW1CYOqjeFHz6Sz/Z+Ct3a12ggTRvgQ1oxX0bEUCyXw86JcP
-	SFHPWSmGOcIYHGBNB6/qYLLF+HtbPmw==;
+	References:List-Owner; bh=OEEd/+koELbdFAKXkJjklnxVL2vSaU5pZSAemweqauA=; b=Bmy
+	eGr3TEtJQLjeNhe6IiuzdrRO07PWyBoyY0OJ3zmP2/S8Kq1YOubNjoa+AnSy+7z8FETxKYLBWXrnT
+	Jllib2vQ1PecwTDI8CsROtBGKqI62n+Q2XyhLBdRMEVHMM5AQecGXLu/pjGTAF2kAPuR4p1dH9gVd
+	nlXO/emfWvb0clf39I/wcORKhlnecXaTnIwB7YJqKVFbg7fV+T1xcr/Ff7x59aVy6wEE3/kcCu7Yr
+	Z6ePWM+n4f58YwsZlz6rF72UxInyYEKw6ZZoV6Nc1QdDUpnXvg+yE2LzZrCZYXokpLiOa2CDtROV8
+	9fVGPxEtuTtjiV8PFetteoh5Wyq8GEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qT9WO-001Buy-1b;
-	Mon, 07 Aug 2023 23:20:20 +0000
-Received: from mail-yw1-x114a.google.com ([2607:f8b0:4864:20::114a])
+	id 1qT9b3-001Cup-2H;
+	Mon, 07 Aug 2023 23:25:09 +0000
+Received: from mail-yb1-xb4a.google.com ([2607:f8b0:4864:20::b4a])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qT9WL-001Bt5-1y
+	id 1qT9b0-001CsW-0X
 	for linux-riscv@lists.infradead.org;
-	Mon, 07 Aug 2023 23:20:18 +0000
-Received: by mail-yw1-x114a.google.com with SMTP id 00721157ae682-5868992ddd4so58933757b3.0
-        for <linux-riscv@lists.infradead.org>; Mon, 07 Aug 2023 16:20:17 -0700 (PDT)
+	Mon, 07 Aug 2023 23:25:08 +0000
+Received: by mail-yb1-xb4a.google.com with SMTP id 3f1490d57ef6-d437624b9c1so3991621276.0
+        for <linux-riscv@lists.infradead.org>; Mon, 07 Aug 2023 16:25:05 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20221208; t=1691450416; x=1692055216;
+        d=google.com; s=20221208; t=1691450704; x=1692055504;
         h=cc:to:from:subject:message-id:mime-version:in-reply-to:date:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=1Ut/hDJ+qFMS0sDMssVLi/Qh1tossNoTViyk+Sv5I6I=;
-        b=OnbGVA8IPnrsdTREsUm581mRdehgXJT0uL+ALPcn3gfxErJrXCtKmSomsOKaQATGMh
-         f0VvgjqMIW5HLukSt/TZqta9FHSpbW8xuPg/WJY9Y8dBtzBXk68FxKvGTf0SBMt/xuPE
-         yb72/yaLEWHxd2i86q/oL/iyLDDk998ORMSoUHaZduqRHpQmcSBeRXdyojnyjv3Pm4Gp
-         0hyU2N4jgt9pJV3/SHK5m7Gafo6teeA6CAaXNJJ1Z5NngK3Yas1VVpJwsDY8b342oTWb
-         +N+E2aHGEdoYFXjyTrvdzsHzrQ8RpCJH9Ba/1//rKN61ZJdF3SLJ42ybI7Ydk3RiGWfT
-         qyWQ==
+        bh=iwb23aAhSO8tTiEFGOvNlQCsoOox6vBjb8gCypJE4mI=;
+        b=R4PwviCR8DjVobdiirsmlaUW+2G2OreWXDR1oudY0WdYIlf/tRBxovHV7VVaY5H2D7
+         s6z9nsA/hZZOzOlAXwj0GlLszUfPpUcqxoVPBkJopNIVm5p7oN0Kjjk8CNCU0uvTetel
+         32HvbTwQx+uTw/DQ0hiV2GccLkJL/LCqkzOCOWamh7kng72/soRCwM6up6P8iJdnPSBO
+         x/GLCUjk6m180XrAeVCUYgLoKf2lX03dUyg16yLerbR/XPy1Dd0ljJbOlBwH8tdW8OEH
+         2D0Guisqm80uErrMhMIOa5wS5t40qQeuRJl0ljw9a+5siKs8Y3hopoVBYIWmqvB1hWx2
+         ivOw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1691450416; x=1692055216;
+        d=1e100.net; s=20221208; t=1691450704; x=1692055504;
         h=cc:to:from:subject:message-id:mime-version:in-reply-to:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=1Ut/hDJ+qFMS0sDMssVLi/Qh1tossNoTViyk+Sv5I6I=;
-        b=U03WsCsr0FMTuS3pkim5nDyd78z6iZCSGE/csLQUmguJf2ViE7uFzpeuFk+M0rM8/Q
-         prg9W6ypnf/rhm8PuUjUfujHaa+3Wka3QAECUPrl4bnUmPaaiZTDi3qNxEsZtMSEHGtu
-         UHEgR2/XAyVi8YaT8I6SzEJxOjV1W3bwZXM2NVja2CtXxZmf9MJBtTKcZen/cssAaohd
-         P8IEr4WySg7FJ1no36t2ugvMLfa8v9MpV5h1sOtdjqE/pcp6Bty4EXQfge2BdW/Rra1m
-         Me7vbVaXuGnSlxd0RzLZdHm3Q/rWWF3x7LhiMFixIqGorOUfETKgH9mcHXzcUlDS+peo
-         za1Q==
-X-Gm-Message-State: AOJu0YyqWbbc9nunRq56qQGR6tG8YbggRRKyCANwbfmdPmMPvLb7G3I+
-	DS0qcFohUVC3QLBPo8TxHd7UHeDZvx2KLvfYpg==
-X-Google-Smtp-Source: AGHT+IGdVk9oJYWbSpXuFj0KYecexGvmGzQrsUIUE7DdG+7VjOx16xy0jF3toasrtnWqbigopnLRYvJP03sO+CW+ag==
+        bh=iwb23aAhSO8tTiEFGOvNlQCsoOox6vBjb8gCypJE4mI=;
+        b=N3ArIgkjmT0wQND5UvHxQ7aaftmthpVX4pOBP3xlkwFkDMMXNIPfuoGe5K7DDT353N
+         x+SwO5VBj2b/hcv+luzJie3poA744qVRxdrPZjaVXYGiXHNvKvc5ScVX/AM3ASmHrZ91
+         0y4HCgR9B1dp2dM/k2uKA1Fcs/U3Hrz/XQXJgo3HRvI5ZBmVso85dpEMqT/cyo8epKed
+         ze9XfhhEIXpVhtdxmkuSiGRDyicaNRxgV7UqxyBbRpy2fGPn9M6OeN+WFn5dbQvxpIrc
+         HMSnnmcIpA6d1ZPgxcsT+7jU2ufT0tgr2OTPvOf+9cRepYpLQ9O9FWtFhgfG9uCr+Y8j
+         0Vgw==
+X-Gm-Message-State: AOJu0YwohcUm+I0d0eGwt7oByPx7mb/oiCaXjtKuAO23AflmteKCsec9
+	eyQmKicfHz2I2TIPz4DTnxGfO1+lrhwmUbuRzA==
+X-Google-Smtp-Source: AGHT+IFETd5g4M85TFzvRFwf955/8WReyRF2E8l7BIM0KMZjnxLWho58vfoUb+v3YvXkNVl+0ZtvnZ9xmC/A9UkLTg==
 X-Received: from ackerleytng-ctop.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:13f8])
- (user=ackerleytng job=sendgmr) by 2002:a81:af45:0:b0:581:7b58:5e70 with SMTP
- id x5-20020a81af45000000b005817b585e70mr85942ywj.5.1691450416406; Mon, 07 Aug
- 2023 16:20:16 -0700 (PDT)
-Date: Mon, 07 Aug 2023 23:20:15 +0000
+ (user=ackerleytng job=sendgmr) by 2002:a25:445:0:b0:d4c:2a34:aeab with SMTP
+ id 66-20020a250445000000b00d4c2a34aeabmr47419ybe.11.1691450704306; Mon, 07
+ Aug 2023 16:25:04 -0700 (PDT)
+Date: Mon, 07 Aug 2023 23:25:02 +0000
 In-Reply-To: <20230718234512.1690985-29-seanjc@google.com> (message from Sean
  Christopherson on Tue, 18 Jul 2023 16:45:11 -0700)
 Mime-Version: 1.0
-Message-ID: <diqzo7ji30eo.fsf@ackerleytng-ctop.c.googlers.com>
+Message-ID: <diqzleem306p.fsf@ackerleytng-ctop.c.googlers.com>
 Subject: Re: [RFC PATCH v11 28/29] KVM: selftests: Add basic selftest for guest_memfd()
 From: Ackerley Tng <ackerleytng@google.com>
 To: Sean Christopherson <seanjc@google.com>
@@ -82,9 +82,8 @@ Cc: pbonzini@redhat.com, maz@kernel.org, oliver.upton@linux.dev,
 	wei.w.wang@intel.com, liam.merwick@oracle.com, isaku.yamahata@gmail.com, 
 	kirill.shutemov@linux.intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230807_162017_650572_50AAEA5B 
-X-CRM114-Status: UNSURE (   9.87  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230807_162506_205859_F84E0DF2 
+X-CRM114-Status: GOOD (  12.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,59 +104,93 @@ Sean Christopherson <seanjc@google.com> writes:
 
 > Add a selftest to verify the basic functionality of guest_memfd():
 >
-> + file descriptor created with the guest_memfd() ioctl does not allow
->   read/write/mmap operations
-> + file size and block size as returned from fstat are as expected
-> + fallocate on the fd checks that offset/length on
->   fallocate(FALLOC_FL_PUNCH_HOLE) should be page aligned
->
-
 > <snip>
 
-> +
-> +static void test_fallocate(int fd, size_t page_size, size_t total_size)
-> +{
-> +	int ret;
-> +
-> +	ret = fallocate(fd, FALLOC_FL_KEEP_SIZE, 0, total_size);
-> +	TEST_ASSERT(!ret, "fallocate with aligned offset and size should succeed");
-> +
-> +	ret = fallocate(fd, FALLOC_FL_KEEP_SIZE | FALLOC_FL_PUNCH_HOLE,
-> +			page_size - 1, page_size);
-> +	TEST_ASSERT(ret, "fallocate with unaligned offset should fail");
-> +
-> +	ret = fallocate(fd, FALLOC_FL_KEEP_SIZE, total_size, page_size);
-> +	TEST_ASSERT(ret, "fallocate beginning at total_size should fail");
-> +
-> +	ret = fallocate(fd, FALLOC_FL_KEEP_SIZE, total_size + page_size, page_size);
-> +	TEST_ASSERT(ret, "fallocate beginning at total_size should fail");
+Here's one more test:
 
-This should be
+From 72dc6836f01bdd613d64d4c6a4f2af8f2b777ba2 Mon Sep 17 00:00:00 2001
+From: Ackerley Tng <ackerleytng@google.com>
+Date: Tue, 1 Aug 2023 18:02:50 +0000
+Subject: [PATCH] KVM: selftests: Add tests - invalid inputs for
+ KVM_CREATE_GUEST_MEMFD
 
-TEST_ASSERT(ret, "fallocate beginning after total_size should fail");
+Test that invalid inputs for KVM_CREATE_GUEST_MEMFD, such as
+non-page-aligned page size and invalid flags, are rejected by the
+KVM_CREATE_GUEST_MEMFD with EINVAL
 
-> +
-> +	ret = fallocate(fd, FALLOC_FL_KEEP_SIZE | FALLOC_FL_PUNCH_HOLE,
-> +			total_size, page_size);
-> +	TEST_ASSERT(!ret, "fallocate(PUNCH_HOLE) at total_size should succeed");
-> +
-> +	ret = fallocate(fd, FALLOC_FL_KEEP_SIZE | FALLOC_FL_PUNCH_HOLE,
-> +			total_size + page_size, page_size);
-> +	TEST_ASSERT(!ret, "fallocate(PUNCH_HOLE) after total_size should succeed");
-> +
-> +	ret = fallocate(fd, FALLOC_FL_KEEP_SIZE | FALLOC_FL_PUNCH_HOLE,
-> +			page_size, page_size - 1);
-> +	TEST_ASSERT(ret, "fallocate with unaligned size should fail");
-> +
-> +	ret = fallocate(fd, FALLOC_FL_KEEP_SIZE | FALLOC_FL_PUNCH_HOLE,
-> +			page_size, page_size);
-> +	TEST_ASSERT(!ret, "fallocate(PUNCH_HOLE) with aligned offset and size should succeed");
-> +
-> +	ret = fallocate(fd, FALLOC_FL_KEEP_SIZE, page_size, page_size);
-> +	TEST_ASSERT(!ret, "fallocate to restore punched hole should succeed");
-> +}
+Signed-off-by: Ackerley Tng <ackerleytng@google.com>
+---
+ tools/testing/selftests/kvm/guest_memfd_test.c  | 17 +++++++++++++++++
+ .../selftests/kvm/include/kvm_util_base.h       | 11 +++++++++--
+ 2 files changed, 26 insertions(+), 2 deletions(-)
 
-> <snip>
+diff --git a/tools/testing/selftests/kvm/guest_memfd_test.c b/tools/testing/selftests/kvm/guest_memfd_test.c
+index eb93c608a7e0..ad20f11b2d2c 100644
+--- a/tools/testing/selftests/kvm/guest_memfd_test.c
++++ b/tools/testing/selftests/kvm/guest_memfd_test.c
+@@ -90,6 +90,21 @@ static void test_fallocate(int fd, size_t page_size, size_t total_size)
+ 	TEST_ASSERT(!ret, "fallocate to restore punched hole should succeed");
+ }
+ 
++static void test_create_guest_memfd_invalid(struct kvm_vm *vm, size_t page_size)
++{
++	int fd;
++
++	/* Non-page-aligned page_size */
++	fd = __vm_create_guest_memfd(vm, 1, 0);
++	ASSERT_EQ(fd, -1);
++	ASSERT_EQ(errno, EINVAL);
++
++	/* Invalid flags */
++	fd = __vm_create_guest_memfd(vm, page_size, 99);
++	ASSERT_EQ(fd, -1);
++	ASSERT_EQ(errno, EINVAL);
++}
++
+ 
+ int main(int argc, char *argv[])
+ {
+@@ -103,6 +118,8 @@ int main(int argc, char *argv[])
+ 
+ 	vm = vm_create_barebones();
+ 
++	test_create_guest_memfd_invalid(vm, page_size);
++
+ 	fd = vm_create_guest_memfd(vm, total_size, 0);
+ 
+ 	test_file_read_write(fd);
+diff --git a/tools/testing/selftests/kvm/include/kvm_util_base.h b/tools/testing/selftests/kvm/include/kvm_util_base.h
+index 39b38c75b99c..8bdfadd72349 100644
+--- a/tools/testing/selftests/kvm/include/kvm_util_base.h
++++ b/tools/testing/selftests/kvm/include/kvm_util_base.h
+@@ -474,7 +474,8 @@ static inline uint64_t vm_get_stat(struct kvm_vm *vm, const char *stat_name)
+ }
+ 
+ void vm_create_irqchip(struct kvm_vm *vm);
+-static inline int vm_create_guest_memfd(struct kvm_vm *vm, uint64_t size,
++
++static inline int __vm_create_guest_memfd(struct kvm_vm *vm, uint64_t size,
+ 					uint64_t flags)
+ {
+ 	struct kvm_create_guest_memfd gmem = {
+@@ -482,7 +483,13 @@ static inline int vm_create_guest_memfd(struct kvm_vm *vm, uint64_t size,
+ 		.flags = flags,
+ 	};
+ 
+-	int fd = __vm_ioctl(vm, KVM_CREATE_GUEST_MEMFD, &gmem);
++	return __vm_ioctl(vm, KVM_CREATE_GUEST_MEMFD, &gmem);
++}
++
++static inline int vm_create_guest_memfd(struct kvm_vm *vm, uint64_t size,
++					uint64_t flags)
++{
++	int fd = __vm_create_guest_memfd(vm, size, flags);
+ 
+ 	TEST_ASSERT(fd >= 0, KVM_IOCTL_ERROR(KVM_CREATE_GUEST_MEMFD, fd));
+ 	return fd;
+-- 
+2.41.0.640.ga95def55d0-goog
+
 
 _______________________________________________
 linux-riscv mailing list
