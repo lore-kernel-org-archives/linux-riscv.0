@@ -4,79 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3761C001B0
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Aug 2023 12:30:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62D70C001B0
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Aug 2023 13:01:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wm6DHIot42mw802Y4ga63SZQEp7HFITOM2Y188pOwbw=; b=kZG6dsF2zulja1
-	nDAsCYTpTloWaQDYc/ebVGRjsPFDhAQTdNdX/ABTC+cThahR6sEsHBnvHaTtpQWy1hqclmFqUefp9
-	kZ1t+zLzr/D+1bjCrLX0oA1bribllzuItHNvZIggCf20yZgXg3CaD7gdwv1FStNijr/qRzl1OVkYe
-	vuUxnVCrCn7cwijEiHpzOJqH+I0XkR0s7+4MXTHDZSOcXsHBUQWCJtG6Nv0P/sGcU5bMDl9k5ClFB
-	V8einfDuksYgQv8opMNAiYF+50Uu1KcEtjYCA62pdH+59ju8x4ay5j4pO7p65lsjgTLOFszq0Qxan
-	TTPsKChS9WLit5jHPDPg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=925EITkp3Fn8En9J3eWvgy/cDIwlGd6yPCUgK55v/K0=; b=VdjKPNwtZdsB4lAQUCiPoPfsCo
+	oLt7c65VUMFkZAJKCHeVX80PVeDSIgHLfSA29j6EU6Fni8VM3l80N8G3jtO4jbF98k1TuKkWbDiZC
+	QvMdFTIdQubd3FV7aqGC/z1mjljhPU+NMPOlk7IN/Mw5AMW39zGGnAA86yEsIejYA4h8C+oFilbap
+	XSA9Wzzffd3K4VNdTq5XEVC1rF4KUI15PeFHHIPYTd+sMzVKjq2VH5odr3XHD//n3gteG2Zpj5jv0
+	s7De9WTwavt7TEfzfq3TtZTe0hIub0mTTbyfcbN1hFGYmzbxKP94HGba/YZCysx8CBWW/RLX0HOtL
+	6p9Ur5PA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qSzNX-00HDGj-19;
-	Mon, 07 Aug 2023 12:30:31 +0000
-Received: from mgamail.intel.com ([134.134.136.100])
+	id 1qSzr0-00HHxR-22;
+	Mon, 07 Aug 2023 13:00:58 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qSzNN-00HD8V-1a
-	for linux-riscv@lists.infradead.org;
-	Mon, 07 Aug 2023 12:30:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1691411421; x=1722947421;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=FXJTq45AIqsfuwWwSJ2t/zwiSaFYQ3Xi7vuToBn1yV0=;
-  b=isl/mWCCKkKJ18rJ/iVHG6Af10NEQGgx+4KBuuQ5xog8zMfTiZAndCdq
-   2tgEWsIOgd5Cqy/swO/LiGuvdq1gyJp+V9Eyd7gnp9EPLI3toQpKqGYQF
-   ovweBkJp4z1zde38GHric/UoweVk8CMYhGmUXhtvz7EOldW7RtvsLSPiU
-   c3YedD5UBAHKNxhy4xGu4TKd6Fhc33RjW6SlPtQ/f9zcpdLOUiztrLNmt
-   DBUt67tsrjzzEC0wmFiEgAr8ANFIn1Lq57x09OmawbIK0g1NO2TAFLnXW
-   AF841GgzWwj1u1uXr9/DrSXNM/JjcwoLX/Jme1KuHKCF8QobkWReDOB5c
-   g==;
-X-IronPort-AV: E=McAfee;i="6600,9927,10794"; a="436861970"
-X-IronPort-AV: E=Sophos;i="6.01,262,1684825200"; 
-   d="scan'208";a="436861970"
-Received: from orsmga006.jf.intel.com ([10.7.209.51])
-  by orsmga105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 Aug 2023 05:28:58 -0700
-X-ExtLoop1: 1
-X-IronPort-AV: E=McAfee;i="6600,9927,10794"; a="707852437"
-X-IronPort-AV: E=Sophos;i="6.01,262,1684825200"; 
-   d="scan'208";a="707852437"
-Received: from lkp-server01.sh.intel.com (HELO d1ccc7e87e8f) ([10.239.97.150])
-  by orsmga006.jf.intel.com with ESMTP; 07 Aug 2023 05:28:54 -0700
-Received: from kbuild by d1ccc7e87e8f with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1qSzLx-0004fz-0D;
-	Mon, 07 Aug 2023 12:28:53 +0000
-Date: Mon, 7 Aug 2023 20:28:35 +0800
-From: kernel test robot <lkp@intel.com>
-To: Dylan Jhong <dylan@andestech.com>, paul.walmsley@sifive.com,
-	palmer@dabbelt.com, aou@eecs.berkeley.edu, ajones@ventanamicro.com,
-	alexghiti@rivosinc.com, anup@brainfault.org, rppt@kernel.org,
-	samuel@sholland.org, panqinglin2020@iscas.ac.cn,
-	sergey.matyukevich@syntacore.com, maz@kernel.org,
-	linux-riscv@lists.infradead.org, conor.dooley@microchip.com,
-	linux-kernel@vger.kernel.org
-Cc: oe-kbuild-all@lists.linux.dev, ycliang@andestech.com,
-	x5710999x@gmail.com, tim609@andestech.com,
-	Dylan Jhong <dylan@andestech.com>
-Subject: Re: [PATCH 1/1] riscv: Implement arch_sync_kernel_mappings() for
- "preventive" TLB flush
-Message-ID: <202308072050.0T0FlSpT-lkp@intel.com>
-References: <20230807082305.198784-2-dylan@andestech.com>
+	id 1qSzqx-00HHvj-2X;
+	Mon, 07 Aug 2023 13:00:57 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 966D7619F4;
+	Mon,  7 Aug 2023 13:00:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 31608C433C7;
+	Mon,  7 Aug 2023 13:00:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1691413252;
+	bh=VIywjKfIQjCBtdbDPXYlia2uvZPXVd/riPHCXoskQic=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=rvvDU8srIyUZqSC/AZn5tENk73e6b7lcMD0bggv0OZy+kdMv1wzrdao14Ek53Iiyx
+	 IRdeP2i7dHvG05GYveqesPRozZBWvPkPzVgLAPzRKehV8FG4dTBFTlwNmq6W9aAmXd
+	 TOJ2NMgyqruEmA77u2ERYj64yfya3426m3ZWoUGeog++a6pvx66c8pChwY38vz523S
+	 ChaYFX40JW+pa2BW1vXmOmq45J6hBtdc88n5UAJdNuTfAiy2eP80JJIFmiP356Yg99
+	 NUF9YdSDWmi87A0gAAG2I/js0A4x5VYEjSB7V464D9htKF6RuocFXxnBcwe4+5gtev
+	 Hkzg/2TxLfPZA==
+Date: Mon, 7 Aug 2023 14:00:42 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Szabolcs Nagy <Szabolcs.Nagy@arm.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	James Morse <james.morse@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Arnd Bergmann <arnd@arndb.de>, Oleg Nesterov <oleg@redhat.com>,
+	Eric Biederman <ebiederm@xmission.com>,
+	Kees Cook <keescook@chromium.org>, Shuah Khan <shuah@kernel.org>,
+	"Rick P. Edgecombe" <rick.p.edgecombe@intel.com>,
+	Deepak Gupta <debug@rivosinc.com>, Ard Biesheuvel <ardb@kernel.org>,
+	"H.J. Lu" <hjl.tools@gmail.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+	kvmarm@lists.linux.dev, linux-fsdevel@vger.kernel.org,
+	linux-arch@vger.kernel.org, linux-mm@kvack.org,
+	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v3 21/36] arm64/mm: Implement map_shadow_stack()
+Message-ID: <3a077ff3-8627-4337-9b4a-6a8828eda0e7@sirena.org.uk>
+References: <20230731-arm64-gcs-v3-0-cddf9f980d98@kernel.org>
+ <20230731-arm64-gcs-v3-21-cddf9f980d98@kernel.org>
+ <ZNDFioFIM34VcsuV@arm.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230807082305.198784-2-dylan@andestech.com>
+In-Reply-To: <ZNDFioFIM34VcsuV@arm.com>
+X-Cookie: idleness, n.:
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230807_053021_582354_7979BD5C 
-X-CRM114-Status: GOOD (  10.32  )
+X-CRM114-CacheID: sfid-20230807_060055_916533_AF0CF155 
+X-CRM114-Status: GOOD (  17.59  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,50 +90,85 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============6925723058024388286=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Dylan,
 
-kernel test robot noticed the following build errors:
+--===============6925723058024388286==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="zuyh0JKERt9z219h"
+Content-Disposition: inline
 
-[auto build test ERROR on linus/master]
-[also build test ERROR on v6.5-rc5 next-20230807]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Dylan-Jhong/riscv-Implement-arch_sync_kernel_mappings-for-preventive-TLB-flush/20230807-162922
-base:   linus/master
-patch link:    https://lore.kernel.org/r/20230807082305.198784-2-dylan%40andestech.com
-patch subject: [PATCH 1/1] riscv: Implement arch_sync_kernel_mappings() for "preventive" TLB flush
-config: riscv-allnoconfig (https://download.01.org/0day-ci/archive/20230807/202308072050.0T0FlSpT-lkp@intel.com/config)
-compiler: riscv64-linux-gcc (GCC) 12.3.0
-reproduce: (https://download.01.org/0day-ci/archive/20230807/202308072050.0T0FlSpT-lkp@intel.com/reproduce)
+--zuyh0JKERt9z219h
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202308072050.0T0FlSpT-lkp@intel.com/
+On Mon, Aug 07, 2023 at 11:20:58AM +0100, Szabolcs Nagy wrote:
+> The 07/31/2023 14:43, Mark Brown wrote:
+> > +SYSCALL_DEFINE3(map_shadow_stack, unsigned long, addr, unsigned long, size, unsigned int, flags)
+> > +{
+> > +	unsigned long alloc_size;
+> > +	unsigned long __user *cap_ptr;
+> > +	unsigned long cap_val;
+> > +	int ret;
+> > +
+> > +	if (!system_supports_gcs())
+> > +		return -EOPNOTSUPP;
+> > +
+> > +	if (flags)
+> > +		return -EINVAL;
+> > +
+> > +	if (addr % 16)
+> > +		return -EINVAL;
 
-All errors (new ones prefixed by >>):
+> mmap addr must be page aligned (and there is no align req on size).
 
-   riscv64-linux-ld: mm/memory.o: in function `.L1539':
->> memory.c:(.text+0x3b5c): undefined reference to `arch_sync_kernel_mappings'
-   riscv64-linux-ld: mm/vmalloc.o: in function `.L301':
->> vmalloc.c:(.text+0xd24): undefined reference to `arch_sync_kernel_mappings'
-   riscv64-linux-ld: mm/vmalloc.o: in function `vb_alloc.constprop.0':
-   vmalloc.c:(.text+0x2c4e): undefined reference to `arch_sync_kernel_mappings'
-   riscv64-linux-ld: mm/vmalloc.o: in function `.L0 ':
-   vmalloc.c:(.text+0x2f2c): undefined reference to `arch_sync_kernel_mappings'
+> i'd expect similar api here.
 
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+That's not what the manual page or a quick check of the code suggest
+that mmap() does, they say that the kernel just takes it as a hint and
+chooses a nearby page boundary, though I didn't test.  I'm not sure why
+I have that alignment check at all TBH, and to the extent it's needed I
+could just be 8 - this level of code doesn't really care.
+
+> > +	if (size == 16 || size % 16)
+> > +		return -EINVAL;
+
+> why %16 and not %8 ?
+
+I don't think that's needed any more - there was some stuff in an
+earlier version of the code but no longer.
+
+--zuyh0JKERt9z219h
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmTQ6voACgkQJNaLcl1U
+h9ADtwf9Hi+3Tmw6lo4OcpVr7n1Zx4xMLurjUWXhlQulr3E2yaNH/LoJepX0V/Hy
+cYyeMDXfa9itHkAmxF+PWpfByFW2ak1NvN+VB1ywgbz4kJFiAK11hsjQzWuiJw+s
+e1it4mLwr1FXHqL0ewxN4pWvkFHmoyVTtKmtIlYrR4K9Xq8KEWrEDi6x5LHrI6tk
+HXZ6HBESzDzzrctdnfG91f3YdpxLKuvuE1l+HEVfKlh5EqEHtTxzLT1BCDHy4ebI
+URGjT1qEAOxoNDbYkJaaPcVnDkFfcXuSC07xv57tktihM+MnQCtZd0b+IH9lf6Ry
+E10gfnUnsEkptjykMZVkmRiHM0iWvQ==
+=jbyG
+-----END PGP SIGNATURE-----
+
+--zuyh0JKERt9z219h--
+
+
+--===============6925723058024388286==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============6925723058024388286==--
+
