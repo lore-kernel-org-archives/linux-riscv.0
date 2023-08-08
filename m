@@ -4,102 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1C13C001B0
-	for <linux-riscv@archiver.kernel.org>; Tue,  8 Aug 2023 13:17:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 305BDC001B0
+	for <linux-riscv@archiver.kernel.org>; Tue,  8 Aug 2023 13:18:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yiczwYvRr1HANs+F3sZhcEaOVrUyIJiaXiOSmBhdT0w=; b=VBjGq3gwRODYjI
-	6JuHPnDVYsbo1+4lKSTN7/AF+2YLnFpSqjvqWfw1p//0hs5An0/TFLHkaycJm3+Bn8JVntBeliw4q
-	LemsYooPrsb+IThkoAZgkGMT1m+vhd03Z8QcWt5dK3WpFCeKqMVVe73xpvwjB0klJYJjPrbF6f0NH
-	HG8D0+EPa0ldyEu48QUfe3PYiSlSkPqxeXTHA2IGBsWj2r4AJRMKa5cPIKbVXrqDbx1rlYTq1g9a+
-	8Gnsiv15xRhI0pEpXCXfTBDJ9Qs5QQHFhG4CI5Bj97+NxMj6SJZU5I8YN6iwBcGVnyM/s1QHlLi3R
-	XgkeCnOTbMwwFxl/eSGA==;
+	List-Owner; bh=ecJKwbeUHUMYfuAkyUBbbTA/qjzWOOdiKCXez/Z32DM=; b=rsuNPFWf0UCvem
+	7qmCox+Usabor0BPCWzDe/5IJa/oLQqSle/Bo2JGbJw8N+phfIP0mFdMlf+2lTalI1057tIIQ52hV
+	8FcbymXCY7oGo4h4jqTio9xTsBOq2TdaNcVhSG48W5lEI2zlEyYW0ZqU/XiORItAK9B9nYHSEnlLn
+	a8WXHvIqVS57tzyZkG/TiuoLqcS0cNFNQ9mC9+PMW5PDGxnIO1ID4p7SxrQAo0TJ7fjUzjY3epR+O
+	udKPV7qRVp0vqK4nNeNnzUnSVa1gmx/gd+KzyiuIl1Gp/D4pB+bFeBD24TjeqA5exekThG0fJ+K0w
+	cilaqDiSAhDhVGzqKC6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qTMaY-002d1c-0A;
-	Tue, 08 Aug 2023 13:17:30 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1qTMbp-002dCu-2O;
+	Tue, 08 Aug 2023 13:18:49 +0000
+Received: from mail-yw1-x1134.google.com ([2607:f8b0:4864:20::1134])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qTMaU-002d0k-2I;
-	Tue, 08 Aug 2023 13:17:28 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 37DD262555;
-	Tue,  8 Aug 2023 13:17:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8DE47C433C8;
-	Tue,  8 Aug 2023 13:17:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1691500645;
-	bh=bIdTKs+XJSSYo9nmEk8w4qlYxgAKUeHbpejGGCNfpP8=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=McPNo2lfEjaEdqKynfZ1K+aBmcZ4YYIeVte/2s2vh5nLPjsV4zK8sJIVfpxCc7crr
-	 sDBGoRIO5LJCHaR77v68/J53DyRLx71gtm3zc1q1VOESQqBciSKl4OeFOBQVSPMd0S
-	 +tBpc5vokh/WWYwp0KB/adwLXL4vh9T5H99097FN3ekyEWjRbxQlUhwtyYf+fLzfY+
-	 NItyKZlA8+itKJ2p2ERAxkbIINwuG4v63bcdxovstp+yn724if/OpATk3O8McX4G8m
-	 CB3X6UnRJxGyxAaSluC5CbBaGo5curysvokB2eW3Z97rh38FOsSdo5qHmeplImgc93
-	 W5ZpsOrULl9RA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1qTMaR-0038Tj-Bu;
-	Tue, 08 Aug 2023 14:17:23 +0100
-Date: Tue, 08 Aug 2023 14:17:22 +0100
-Message-ID: <865y5phdwd.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Sunil V L <sunilvl@ventanamicro.com>
-Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	linux-doc@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-acpi@vger.kernel.org,
-	linux-pci@vger.kernel.org,
-	Jonathan Corbet <corbet@lwn.net>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Len Brown <lenb@kernel.org>,
-	Daniel Scally <djrscally@gmail.com>,
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Anup Patel <anup@brainfault.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Robert Moore <robert.moore@intel.com>,
-	Haibo Xu <haibo1.xu@intel.com>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Atish Kumar Patra <atishp@rivosinc.com>,
-	Anup Patel <apatel@ventanamicro.com>
-Subject: Re: [RFC PATCH v1 11/21] swnode: Add support to create early during boot
-In-Reply-To: <ZMyymUdV63g4eGaT@sunil-laptop>
-References: <20230803175916.3174453-1-sunilvl@ventanamicro.com>
-	<20230803175916.3174453-12-sunilvl@ventanamicro.com>
-	<ZMyWDDD6Lw8REd1r@smile.fi.intel.com>
-	<ZMyymUdV63g4eGaT@sunil-laptop>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/28.2
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: sunilvl@ventanamicro.com, andriy.shevchenko@linux.intel.com, linux-doc@vger.kernel.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org, linux-pci@vger.kernel.org, corbet@lwn.net, paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, catalin.marinas@arm.com, will@kernel.org, rafael@kernel.org, lenb@kernel.org, djrscally@gmail.com, heikki.krogerus@linux.intel.com, sakari.ailus@linux.intel.com, gregkh@linuxfoundation.org, daniel.lezcano@linaro.org, tglx@linutronix.de, anup@brainfault.org, bhelgaas@google.com, robert.moore@intel.com, haibo1.xu@intel.com, ajones@ventanamicro.com, conor.dooley@microchip.com, atishp@rivosinc.com, apatel@ventanamicro.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	id 1qTMbk-002d9h-2a
+	for linux-riscv@lists.infradead.org;
+	Tue, 08 Aug 2023 13:18:46 +0000
+Received: by mail-yw1-x1134.google.com with SMTP id 00721157ae682-585fd99ed8bso95260897b3.1
+        for <linux-riscv@lists.infradead.org>; Tue, 08 Aug 2023 06:18:42 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1691500721; x=1692105521;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=cCJVGIzRWp3n6+ocRSshdb4+bDJCLF8hHPywBz67DZU=;
+        b=iy7zswmtYx6ZYNzYmCG5rqHRjdv+HqB8GrEKYccjle/8dJ9x1OShHO9OgMow0zFYho
+         RJhCC40wkFuTTf25ecgjND4T7pSlTzynELSybpF4Tq9lm0vpF/1WhH9PVjPDo3D92r0t
+         vE0MwfGWmp5O6GeDRRPpN190ezwOTKyeDzoh+6spHPvGNcXvDC15NYX5Fh6AdODwNh9i
+         u+xgCMzltAjprgtTTXUMnRSMUGU88rU5hQybpWcAAj9weIpW1fiVIhA90pqCkvmL6npO
+         3XYinfPiJb8jbNTnaImLtOznhk/zT3v7clUSSq2VXwojFDvEIz4Ap+Wto2wlmlxEy3FT
+         jTzQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1691500721; x=1692105521;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=cCJVGIzRWp3n6+ocRSshdb4+bDJCLF8hHPywBz67DZU=;
+        b=dVbiAYjWb+d1SKT2UKVAlOwBsOLsM0K3tdM9P1JoLfg45YY7OGiAJbg5pZW1U46vTo
+         omGyVrJCHGQ+bWMFMIRQWqEWz8QH37K/yC21P2mfsOUfADnMbmgg1tlYTShF5Vdpq+JP
+         0/rnJXyZ5VXwrKwz5IwhciVjAkp9/2I14HvQjbP/uyACKeConCQxQ0Hko6irA6FY9pYM
+         HJTPDIfi7LNrL+AvGFPWj/IeoGiHfuQfMjZ3xODf/9MzC7czBITB85fDU4l2q5JFrQOh
+         Lxm8P8FDwUjAikpZkI2/9gWHSnfIfrdQ0c2Kn0O9WHncB3PawHqjmtS7CghAneliaBZO
+         86Hg==
+X-Gm-Message-State: AOJu0Yz9pvz0iAfFgcttughdu/uz4NmPSOvnE1GJb1JN4sZclFD4pURH
+	C/uoj1HFBM46jm89+PRm4YjuCAP+Cim6A6ET4gTu1g==
+X-Google-Smtp-Source: AGHT+IGCQegfute4wq8vuctRCNyh2F9D25HtOrYRCxA1KPyHbK9gB5btAs+lYOVd+Us7kHls2/CFh6KxK9tgT70dyU8=
+X-Received: by 2002:a25:d14e:0:b0:cee:80e:23af with SMTP id
+ i75-20020a25d14e000000b00cee080e23afmr3349036ybg.11.1691500721596; Tue, 08
+ Aug 2023 06:18:41 -0700 (PDT)
+MIME-Version: 1.0
+References: <20230804142707.412137-1-u.kleine-koenig@pengutronix.de>
+In-Reply-To: <20230804142707.412137-1-u.kleine-koenig@pengutronix.de>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Tue, 8 Aug 2023 15:18:30 +0200
+Message-ID: <CACRpkdZ4OqLywBhCkDmA6bEkf3rfHpCODba9Rhx36fuP8ywt6Q@mail.gmail.com>
+Subject: Re: [PATCH v2 0/2] pwm: Manage owner assignment implicitly for drivers
+To: =?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
+Cc: Thierry Reding <thierry.reding@gmail.com>, 
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Bartosz Golaszewski <brgl@bgdev.pl>, 
+	Andy Shevchenko <andy@kernel.org>, Douglas Anderson <dianders@chromium.org>, 
+	Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	Robert Foss <rfoss@kernel.org>, Jonas Karlman <jonas@kwiboo.se>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, David Airlie <airlied@gmail.com>, 
+	Daniel Vetter <daniel@ffwll.ch>, Pavel Machek <pavel@ucw.cz>, Lee Jones <lee@kernel.org>, 
+	Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>, 
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>, Nicolas Ferre <nicolas.ferre@microchip.com>, 
+	Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+	Claudiu Beznea <claudiu.beznea@microchip.com>, Ray Jui <rjui@broadcom.com>, 
+	Scott Branden <sbranden@broadcom.com>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+	Florian Fainelli <florian.fainelli@broadcom.com>, Alexander Shiyan <shc_work@mail.ru>, 
+	Benson Leung <bleung@chromium.org>, Guenter Roeck <groeck@chromium.org>, 
+	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
+	NXP Linux Team <linux-imx@nxp.com>, Paul Cercueil <paul@crapouillou.net>, 
+	Vladimir Zapolskiy <vz@mleia.com>, Kevin Hilman <khilman@baylibre.com>, 
+	Jerome Brunet <jbrunet@baylibre.com>, 
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+	Conor Dooley <conor.dooley@microchip.com>, Daire McNamara <daire.mcnamara@microchip.com>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	=?UTF-8?Q?Jonathan_Neusch=C3=A4fer?= <j.neuschaefer@gmx.net>, 
+	Heiko Stuebner <heiko@sntech.de>, Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
+	Alim Akhtar <alim.akhtar@samsung.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Michael Walle <michael@walle.cc>, 
+	Orson Zhai <orsonzhai@gmail.com>, Baolin Wang <baolin.wang@linux.alibaba.com>, 
+	Chunyan Zhang <zhang.lyra@gmail.com>, Fabrice Gasnier <fabrice.gasnier@foss.st.com>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Chen-Yu Tsai <wens@csie.org>, Samuel Holland <samuel@sholland.org>, 
+	Hammer Hsieh <hammerh0314@gmail.com>, Jonathan Hunter <jonathanh@nvidia.com>, 
+	Nobuhiro Iwamatsu <nobuhiro1.iwamatsu@toshiba.co.jp>, Sean Anderson <sean.anderson@seco.com>, 
+	Michal Simek <michal.simek@amd.com>, Johan Hovold <johan@kernel.org>, Alex Elder <elder@kernel.org>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Anjelique Melendez <quic_amelende@quicinc.com>, 
+	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, Luca Weiss <luca@z3ntu.xyz>, 
+	Bjorn Andersson <quic_bjorande@quicinc.com>, linux-pwm@vger.kernel.org, 
+	linux-gpio@vger.kernel.org, dri-devel@lists.freedesktop.org, 
+	linux-leds@vger.kernel.org, asahi@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-rpi-kernel@lists.infradead.org, 
+	chrome-platform@lists.linux.dev, linux-mips@vger.kernel.org, 
+	linux-amlogic@lists.infradead.org, linux-riscv@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+	linux-samsung-soc@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+	linux-sunxi@lists.linux.dev, linux-tegra@vger.kernel.org, 
+	greybus-dev@lists.linaro.org, linux-staging@lists.linux.dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230808_061726_841912_AE71E1C2 
-X-CRM114-Status: GOOD (  35.57  )
+X-CRM114-CacheID: sfid-20230808_061844_843015_DA4301A5 
+X-CRM114-Status: GOOD (  13.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,84 +128,23 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 04 Aug 2023 09:11:05 +0100,
-Sunil V L <sunilvl@ventanamicro.com> wrote:
-> 
-> Hi Andy,
-> 
-> On Fri, Aug 04, 2023 at 09:09:16AM +0300, Andy Shevchenko wrote:
-> > On Thu, Aug 03, 2023 at 11:29:06PM +0530, Sunil V L wrote:
-> > > From: Anup Patel <apatel@ventanamicro.com>
-> > > 
-> > > swnode framework can be used to create fwnode for interrupt
-> > > controllers.
-> > 
-> > Why? What is this for?
-> > Can you elaborate? This commit message is poorly written...
-> > 
-> > And why firmware node is not enough for ACPI case?
-> > I assume the fwnode in DT case is already provided by OF.
-> > 
-> Thanks a lot for the review!.
-> 
-> You are right, OF provides the fwnode for irqchip drivers. However, for
-> ACPI case, it is typically created using irq_domain_alloc_named_fwnode
-> or irq_domain_alloc_fwnode since these are not ACPI devices in the
-> namespace but from MADT. The fwnode created using
-> irq_domain_alloc_fwnode() is a simple one which doesn't support properties
-> similar to the one created by OF framework or software node framework.
-> Hence, lot of data from the MADT structures need to be cached as
-> separate structures in the drivers and also would need several ifdefs to
-> check for ACPI and some amount of code duplication is also required due
-> to the way DT driver gets the information vs ACPI.
-> 
-> The beauty of software node framework is, it supports adding properties
-> and also is a supported fwnode type in __irq_domain_create().
-
-There is no beauty here. Only some extra bloat that we do not need.
-
-DT and ACPI exposes very different attributes. One describe the HW,
-the other one describe an OS abstraction. Pretending that you can
-summon both into the same infrastructure is a fallacy. You'll just end
-up with the cross product of both infrastructure, and pollute the rest
-of the kernel with pointless cruft.
-
-> So, if we
-> can create the fwnode for these irqchip using software node, we can
-> attach the same properties and the actual irqchip driver which uses the
-> fwnode doesn't need to have any ACPI vs DT checks. Same driver will work
-> seamlessly on both DT and ACPI platforms.  But the challenge is,
-> currently swnode expects to be created with sysfs which won't be
-> available during early boot when irqchip drivers need to be probed. So,
-> adding support to create without dependency on sysfs help us to reuse
-> the same framework for irqchip use case also.
-
-That's another fallacy.
-
-Most irqchips *DO NOT* need to be probed early. Only the root
-irqchip. Given that this series is about *secondary* interrupt
-controllers, they absolutely don't need to be probed early.
-
-To be clear: I do not intend to merge anything that:
-
-- invents yet another way to "abstract" firmware interfaces
-
-- adds more "early probe" hacks for non-primary interrupt controllers
-
-I have already said that in response to Anup's AIA series, and this
-equally applies to this series.
-
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gRnJpLCBBdWcgNCwgMjAyMyBhdCA0OjI44oCvUE0gVXdlIEtsZWluZS1Lw7ZuaWcKPHUua2xl
+aW5lLWtvZW5pZ0BwZW5ndXRyb25peC5kZT4gd3JvdGU6Cgo+IChpbXBsaWNpdCkgdjEgb2YgdGhp
+cyBzZXJpZXMgY2FuIGJlIGZvdW5kIGF0Cj4gaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGludXgt
+cHdtLzIwMjMwODAzMTQwNjMzLjEzODE2NS0xLXUua2xlaW5lLWtvZW5pZ0BwZW5ndXRyb25peC5k
+ZSAuCj4KPiBDaGFuZ2VzIHNpbmNlIHRoZW4gb25seSBhZmZlY3QgZG9jdW1lbnRhdGlvbiB0aGF0
+IEkgbWlzc2VkIHRvIGFkYXB0IGJlZm9yZS4KPiBUaGFua3MgdG8gTGF1cmVudCBmb3IgY2F0Y2hp
+bmcgdGhhdAo+Cj4gQmVzdCByZWdhcmRzCj4gVXdlCj4KPiBVd2UgS2xlaW5lLUvDtm5pZyAoMik6
+Cj4gICBwd206IE1hbmFnZSBvd25lciBhc3NpZ25tZW50IGltcGxpY2l0bHkgZm9yIGRyaXZlcnMK
+PiAgIHB3bTogY3JjOiBBbGxvdyBjb21waWxhdGlvbiBhcyBtb2R1bGUgYW5kIHdpdGggQ09NUElM
+RV9URVNUCgpDbGVhcmx5IHRoZSByaWdodCB0aGluZyB0byBkbyEgTmljZSBwYXRjaGVzLgpSZXZp
+ZXdlZC1ieTogTGludXMgV2FsbGVpaiA8bGludXMud2FsbGVpakBsaW5hcm8ub3JnPgoKWW91cnMs
+CkxpbnVzIFdhbGxlaWoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRl
+YWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgt
+cmlzY3YK
