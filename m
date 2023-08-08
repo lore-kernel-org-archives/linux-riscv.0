@@ -4,58 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CDE8C001DB
-	for <linux-riscv@archiver.kernel.org>; Tue,  8 Aug 2023 14:32:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B579C001DF
+	for <linux-riscv@archiver.kernel.org>; Tue,  8 Aug 2023 14:36:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:Cc:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yv0+Qs+f/kwvbbm12Gq4syDNQGhdPD/jRWy8TJ3p5ec=; b=pa9IJAbyT2U3F6kdlf/nIpkD3G
-	dKhjOWIJQHUm9fmHMDgKVK3YNQ8eJ8RlRYymse66xlMB0W3omZoR+qsJE9vnfC73GEh+oOv5mCI5I
-	MrIm1V4ywXibydNW/fnMuOxaDWLZksL+wf5AJ/RInHEzM/s2Hjnmgg7aYVBtuNJrvOppvKfVp9IKH
-	tsXyCCwWrspD4qvkgUMfqFC1tsv6sBL90EGDyDftyG64E0VQTMOOLGi8XgwzPvGJj2okJHnNxgy3I
-	fn8D3g6AKFHaRa48oFKotzN9GG52VQIDVA8F17GI9uwxNoioTlPYQqLDRhObvuacTLBGhVzuc4aYw
-	UFGOXbFw==;
+	bh=vZdQ7k7vKOvu+e2jtV7C/CJgjEd7MgzgOpRbnzm68/4=; b=q/CeE/sgAh1LHgXJGkTLOk2Asv
+	7V1rEFWo5L3HnyZh3hwaFaPde3PDOm5dcRLGnY1O6dUqeuBCrPt2Agin+TdIu5K5ACUkMCwRWsjzD
+	YyMmbHsVuGcGeK8Qh/S+/Uf5Hl2vM9cG0g9nDyzwv+NK4OrkojlTIVH4Q5im4aU2iDVwQVXMVlgAU
+	+tL1COh4YrEkpz29XeLvbWC5FXWG9OnRQCqYXQfpvBxPBB+TgLdEeO+nQqr6kmeTjnhr1zBcDCZxE
+	GD6LNHWxUiw7csfNZ7CVDX4P2joiplj1S80Q1HcaDddQ2t+j8HIf4cfAd8dpddu+aFGPMNs1L36HA
+	sH5YaDHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qTNkw-002l04-1q;
-	Tue, 08 Aug 2023 14:32:18 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1qTNp7-002lI9-39;
+	Tue, 08 Aug 2023 14:36:37 +0000
+Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qTNkt-002kzB-0r;
-	Tue, 08 Aug 2023 14:32:16 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	id 1qTNp4-002lHN-2E
+	for linux-riscv@lists.infradead.org;
+	Tue, 08 Aug 2023 14:36:36 +0000
+Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
+	by metis.ext.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <mkl@pengutronix.de>)
+	id 1qTNon-0005h7-To; Tue, 08 Aug 2023 16:36:17 +0200
+Received: from pengutronix.de (unknown [172.20.34.65])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id BE0E76259E;
-	Tue,  8 Aug 2023 14:32:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5741BC433C7;
-	Tue,  8 Aug 2023 14:32:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1691505134;
-	bh=MH6d9daFOxOoUw3EqmWMlFDO8lTspBrOmvGmg5d/GCo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=kicd1tuwLvqYGEBRTc+2ND/MElHfgmvgUIKu3m+om1pjy3kY6ZqlebNr8qgKCgVn8
-	 DmlCKah98VHQjUuZdrBp7T5pXTRmw3Ourhp5kWvmKcBYMVo7VajksjhevF2ZTwvu4n
-	 m57apNrM2w50viLchtbUFC0gl/yhib9TqJfr2SxOlit2SA1460rgCNo2UXh1UvMHBK
-	 mf5XCu7uyuLXmg/IxQ3//algUxmj8dCVUvtp986iEq/nDYUp+ULtryf6c8/txD4oGq
-	 RLkKGL4+3fo/0Keos+ZgbMOHt1ZjAoTebXafCiKrDwa1wQjLh1N33R0URvrPlZ8HyA
-	 9hmBgKpTIpfcA==
-Date: Tue, 8 Aug 2023 15:32:08 +0100
-From: Conor Dooley <conor@kernel.org>
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(Client did not present a certificate)
+	(Authenticated sender: mkl-all@blackshift.org)
+	by smtp.blackshift.org (Postfix) with ESMTPSA id 825AC206CE6;
+	Tue,  8 Aug 2023 14:36:11 +0000 (UTC)
+Date: Tue, 8 Aug 2023 16:36:10 +0200
+From: Marc Kleine-Budde <mkl@pengutronix.de>
 To: Markus Elfring <Markus.Elfring@web.de>
 Subject: Re: [PATCH v3] riscv: dts: allwinner: d1: Add CAN controller nodes
-Message-ID: <20230808-swerve-tartly-07140c59539e@spud>
+Message-ID: <20230808-outgoing-trifocals-ee5d44aea113-mkl@pengutronix.de>
 References: <20230807191952.2019208-1-contact@jookia.org>
  <49ce2d9c-eb38-4ceb-bae1-0409df876e9b@web.de>
 MIME-Version: 1.0
 In-Reply-To: <49ce2d9c-eb38-4ceb-bae1-0409df876e9b@web.de>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:b01:1d::7b
+X-SA-Exim-Mail-From: mkl@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230808_073215_355229_F9C4CEA1 
-X-CRM114-Status: GOOD (  12.56  )
+X-CRM114-CacheID: sfid-20230808_073634_749602_64D4F439 
+X-CRM114-Status: GOOD (  14.04  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,24 +66,24 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, Samuel Holland <samuel@sholland.org>, Palmer Dabbelt <palmer@dabbelt.com>, kernel-janitors@vger.kernel.org, LKML <linux-kernel@vger.kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Rob Herring <robh+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, John Watts <contact@jookia.org>, Marc Kleine-Budde <mkl@pengutronix.de>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley <paul.walmsley@sifive.com>, Maksim Kiselev <bigunclemax@gmail.com>, linux-riscv@lists.infradead.org, linux-sunxi@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Content-Type: multipart/mixed; boundary="===============3109744596282305988=="
+Cc: devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, Samuel Holland <samuel@sholland.org>, kernel-janitors@vger.kernel.org, LKML <linux-kernel@vger.kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Rob Herring <robh+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, John Watts <contact@jookia.org>, Palmer Dabbelt <palmer@dabbelt.com>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley <paul.walmsley@sifive.com>, Maksim Kiselev <bigunclemax@gmail.com>, linux-riscv@lists.infradead.org, linux-sunxi@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Content-Type: multipart/mixed; boundary="===============5962809228958693041=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============3109744596282305988==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="xR/RJpD/V1xuh2KJ"
+--===============5962809228958693041==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="4nwq7phqlae7mco3"
 Content-Disposition: inline
 
 
---xR/RJpD/V1xuh2KJ
+--4nwq7phqlae7mco3
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Tue, Aug 08, 2023 at 04:26:17PM +0200, Markus Elfring wrote:
+On 08.08.2023 16:26:17, Markus Elfring wrote:
 > =E2=80=A6
 > > Both of these fully support both CAN controllers.
 >=20
@@ -101,23 +100,35 @@ ocumentation/process/submitting-patches.rst?h=3Dv6.5-rc5#n94
 eveloper's Certificate of Origin.
 > Should it usually indicate an unique person instead of the shown key word?
 
-Markus, please stop bothering developers with nuisance comments.
+FYI: https://lore.kernel.org/all/20230718221504.GA2015343-robh@kernel.org
 
---xR/RJpD/V1xuh2KJ
+Marc
+
+--=20
+Pengutronix e.K.                 | Marc Kleine-Budde          |
+Embedded Linux                   | https://www.pengutronix.de |
+Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
+Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
+
+--4nwq7phqlae7mco3
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZNJR5wAKCRB4tDGHoIJi
-0tSMAQDUmixeOBSRBjyu3meJePjabfeS/tTiPYOosilEuZo+6gD/f+9hlaAzN9Mi
-MaLnFLcKtF/WoYl6X7YRywa0eX7w2Ac=
-=+rRS
+iQEzBAABCgAdFiEEDs2BvajyNKlf9TJQvlAcSiqKBOgFAmTSUtgACgkQvlAcSiqK
+BOhQSgf/Yqmf0f7tupRc/JJY1XEaKV/WZHCse/ijc2E8sbJdhF4F8eilfyDriOxt
+6TRqL9fD0DcjKx9WR719GJm7CgigzwOJk0vj56seoQGtzqkVZg3qjARMOiHTlILS
+UvIh6ZgNdGP0WmdAiB1ZO7p1imugZGua7gGihHobLLVOT4Ipa8AD/I9TQLo7LudX
+zAhTYepqt3nxf0fxvTgqQc3I2lmtV/LuOViF2NxE2BiSNjPzpQxGyIAMElRaQg4D
+RJdamfDLYuJletg5OFI6QMb0JmASUZlz7889cgGx+UGtSp+JWNviXxDq4bvoF8KC
+MbYMhncSKCPdpTJYRLMLCxaaXGCF4w==
+=4/vk
 -----END PGP SIGNATURE-----
 
---xR/RJpD/V1xuh2KJ--
+--4nwq7phqlae7mco3--
 
 
---===============3109744596282305988==
+--===============5962809228958693041==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -128,5 +139,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============3109744596282305988==--
+--===============5962809228958693041==--
 
