@@ -4,86 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABD45C001DB
-	for <linux-riscv@archiver.kernel.org>; Tue,  8 Aug 2023 14:27:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CDE8C001DB
+	for <linux-riscv@archiver.kernel.org>; Tue,  8 Aug 2023 14:32:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:Subject:References:Cc:
-	To:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+jjgmhbN5YzWwNdB2NbNFn8VikcTxAVAQnn9rMhF9Js=; b=FP2d/kgtazA2ER
-	gNjnNAg4J3l6ewU8HPaO4/euFjTdFGPbQL2xCF0i5iYV25VWEZfK2QzfrHKTm/uG8xb2qqDgOv0cH
-	Sfnq+ykLwVE0tTMpD79vHvPzj1DHg4p/kArDC2VkC41zLuDGodJx/fG/lS+9RWzEyzCdYlgC7U1OQ
-	eHnJM4mi4kQ8tKwdSZJ5E2e0aZhP46DJhWB2JZTDHLjC2p3rfzR/7FDFk6sgfvdanaeKCfVhkboOz
-	vUDDiq8Pp2DjtPo7NmQ8k6ff4my4+MHm4/Wj0w0as9Q7yeHXc4WWWxIrEjEz3/VOM91rYijNNsgH6
-	3wSBCMcW6ctMTPfBKBZQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:Cc:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yv0+Qs+f/kwvbbm12Gq4syDNQGhdPD/jRWy8TJ3p5ec=; b=pa9IJAbyT2U3F6kdlf/nIpkD3G
+	dKhjOWIJQHUm9fmHMDgKVK3YNQ8eJ8RlRYymse66xlMB0W3omZoR+qsJE9vnfC73GEh+oOv5mCI5I
+	MrIm1V4ywXibydNW/fnMuOxaDWLZksL+wf5AJ/RInHEzM/s2Hjnmgg7aYVBtuNJrvOppvKfVp9IKH
+	tsXyCCwWrspD4qvkgUMfqFC1tsv6sBL90EGDyDftyG64E0VQTMOOLGi8XgwzPvGJj2okJHnNxgy3I
+	fn8D3g6AKFHaRa48oFKotzN9GG52VQIDVA8F17GI9uwxNoioTlPYQqLDRhObvuacTLBGhVzuc4aYw
+	UFGOXbFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qTNfo-002kJy-0d;
-	Tue, 08 Aug 2023 14:27:00 +0000
-Received: from mout.web.de ([212.227.17.11])
+	id 1qTNkw-002l04-1q;
+	Tue, 08 Aug 2023 14:32:18 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qTNfk-002kJ2-2Y;
-	Tue, 08 Aug 2023 14:26:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=web.de;
- s=s29768273; t=1691504786; x=1692109586; i=markus.elfring@web.de;
- bh=2h1cnp+7i9fUhjXgg4fIIyANnSbEt/tBjjSanGzTm9w=;
- h=X-UI-Sender-Class:Date:To:Cc:References:Subject:From:In-Reply-To;
- b=sMy1W02TK+t3guHL/RIplshZy6GzO+vsId0QBlr8gjZ6btro9QqCADuXxDiGrk+8yw45JMr
- yN4hsN8vz+LrR04KkR5sFRANIRsAV4KNl76bWMz61cjmMMGbb5gAJK11qjiHc1QzG569If59J
- BuxpvP/d9X3vKh1C7h5wUvba3AysQZJeBNGFaj44h33jLFBUKkUm4sA7u3KlsG6DcuVkS0FrW
- 8HGMaOy088PfVEyologMtkMW/SFC4FqoKnUrnPG2EQhjuA3fag/g2FTVt2A5at2wQ9E8p8q1t
- KYzR2iHk1A0QbhXW0eMj2ado4GatY/4oayWvVLuiGSiw7r+gWb6w==
-X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
-Received: from [192.168.178.21] ([94.31.86.95]) by smtp.web.de (mrweb105
- [213.165.67.124]) with ESMTPSA (Nemesis) id 1MF2gM-1qa0RV3JfM-00Fgbk; Tue, 08
- Aug 2023 16:26:26 +0200
-Message-ID: <49ce2d9c-eb38-4ceb-bae1-0409df876e9b@web.de>
-Date: Tue, 8 Aug 2023 16:26:17 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-To: John Watts <contact@jookia.org>, linux-sunxi@lists.linux.dev,
- devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, kernel-janitors@vger.kernel.org,
- Albert Ou <aou@eecs.berkeley.edu>, Chen-Yu Tsai <wens@csie.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
- Jernej Skrabec <jernej.skrabec@gmail.com>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Maksim Kiselev <bigunclemax@gmail.com>,
- Marc Kleine-Budde <mkl@pengutronix.de>, Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh+dt@kernel.org>,
- Samuel Holland <samuel@sholland.org>
-Cc: LKML <linux-kernel@vger.kernel.org>
-References: <20230807191952.2019208-1-contact@jookia.org>
+	id 1qTNkt-002kzB-0r;
+	Tue, 08 Aug 2023 14:32:16 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id BE0E76259E;
+	Tue,  8 Aug 2023 14:32:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5741BC433C7;
+	Tue,  8 Aug 2023 14:32:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1691505134;
+	bh=MH6d9daFOxOoUw3EqmWMlFDO8lTspBrOmvGmg5d/GCo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=kicd1tuwLvqYGEBRTc+2ND/MElHfgmvgUIKu3m+om1pjy3kY6ZqlebNr8qgKCgVn8
+	 DmlCKah98VHQjUuZdrBp7T5pXTRmw3Ourhp5kWvmKcBYMVo7VajksjhevF2ZTwvu4n
+	 m57apNrM2w50viLchtbUFC0gl/yhib9TqJfr2SxOlit2SA1460rgCNo2UXh1UvMHBK
+	 mf5XCu7uyuLXmg/IxQ3//algUxmj8dCVUvtp986iEq/nDYUp+ULtryf6c8/txD4oGq
+	 RLkKGL4+3fo/0Keos+ZgbMOHt1ZjAoTebXafCiKrDwa1wQjLh1N33R0URvrPlZ8HyA
+	 9hmBgKpTIpfcA==
+Date: Tue, 8 Aug 2023 15:32:08 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Markus Elfring <Markus.Elfring@web.de>
 Subject: Re: [PATCH v3] riscv: dts: allwinner: d1: Add CAN controller nodes
-Content-Language: en-GB
-From: Markus Elfring <Markus.Elfring@web.de>
-In-Reply-To: <20230807191952.2019208-1-contact@jookia.org>
-X-Provags-ID: V03:K1:gM1PSsHDeTwsdSH3AAhhWejmf3adkg7Y7GpsIyBwT9yz11NdqPo
- 74tLuA2CVu+eTt3MS+Nrr52V56j0asPUEgOdQzzB6js7DyRpJHbvnrlKYm8gyFN8dqBbIQD
- 3HWgVLZYKci62SPV0Od61Eipjnjqwukmi18yOV4vEWUecyRPqPUG4nj3uH7sYQyggaNV2OR
- o7pZ8NymJ/oQ1dcvC59Gg==
-UI-OutboundReport: notjunk:1;M01:P0:n0L3BnyFqGg=;Es+mmkzXGt5aUZjwCn2+MQbw7BK
- jQB6MLwSaWuZbxY3pcU9Kx6Qv20LIM97lfyfp1ZGqHid5/IJuHLTaFHgbJf5l2X9Q0dcWfRcf
- YxhKkg2jYCxf7GbN916FYRYHaP7kKi6Ev5Jd0u1HeuqqY6VG8QIjh4/QqgMFSRu2G0KXBAqpU
- qrZoxF7USr8OBkrtdWiQJrVXRzw/wPyn5mWcEbpOS2sMxBtCs3kYPH5GGu4yJF9pBQ3uAThtL
- WWdA+NcoOLFJapYggOibiwBPxxBATNPeJKNI40DNQ23x1qIsmlLfe4GjW9fNaSiWxdwFz0R//
- hlZsS++jL25CNKWc2j0fcaV5c0BdXJUQBdttok66zD7GuEdpbL3L12dKkNtQ8IlVazeglYMA5
- X3khfeW7xfhHPNqna5ByRrOWsChwYz/AjyPtCPNubAEAAyn+czDGe3YfSkbUfpUhQKcvV049z
- Gue4fPEcaTfRz4dmbbuH2kMsftuzyZ3ZdSX03LHPSV/Zg3i87SRjCgUrducSU7k6fzCP9l3DT
- HHsfjfLMUPY5R8YEgSwNIM8WBDPdPQHhUL8MBaPqqX7NN4kj18kA56twl8bp3GbWC3GQE7TKU
- 3/n9VcDCkJugH3WssS8S4SJg0E8mMzWkTFbbUzESBelfd7RQ3Fb5vPq8sSOQGcsesEfTqfAgW
- 9xlARTPcqZFCTlJMM/k5//1+wLTfneVwOoCLU8GtON6x1cLwINKzF48APbLbsmPaYrHKfxHxB
- yVG6ptw/i8zmvXGmN8Cw1MDMqa3jsbSSz7gnEYUOqn7myWCR1G4QP7j0JZoe0v41SfmCkTSrR
- Tch80qYaOTBEtCzQmC5+sxRhDiBNW+Yc9Cij4Lu9nR3OM0x6kAKBAidhs/lD7k7/cz+FYD8Ub
- xqw49hgCdJAL1jLAoWkiAHntB73s35NeK7bEwaDooLcxYRMNZ5336oZTVWoCNa0QF8KdhNBUR
- MiPXOZ+aX50J95FNw2aH1LUvH04=
+Message-ID: <20230808-swerve-tartly-07140c59539e@spud>
+References: <20230807191952.2019208-1-contact@jookia.org>
+ <49ce2d9c-eb38-4ceb-bae1-0409df876e9b@web.de>
+MIME-Version: 1.0
+In-Reply-To: <49ce2d9c-eb38-4ceb-bae1-0409df876e9b@web.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230808_072657_268148_A7A9D559 
-X-CRM114-Status: UNSURE (   5.17  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230808_073215_355229_F9C4CEA1 
+X-CRM114-Status: GOOD (  12.56  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,20 +67,66 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, Samuel Holland <samuel@sholland.org>, Palmer Dabbelt <palmer@dabbelt.com>, kernel-janitors@vger.kernel.org, LKML <linux-kernel@vger.kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Rob Herring <robh+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, John Watts <contact@jookia.org>, Marc Kleine-Budde <mkl@pengutronix.de>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley <paul.walmsley@sifive.com>, Maksim Kiselev <bigunclemax@gmail.com>, linux-riscv@lists.infradead.org, linux-sunxi@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Content-Type: multipart/mixed; boundary="===============3109744596282305988=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-4oCmCj4gQm90aCBvZiB0aGVzZSBmdWxseSBzdXBwb3J0IGJvdGggQ0FOIGNvbnRyb2xsZXJzLgoK
-UGxlYXNlIGNob29zZSBhIGNvcnJlc3BvbmRpbmcgaW1wZXJhdGl2ZSBjaGFuZ2Ugc3VnZ2VzdGlv
-bi4KClNlZSBhbHNvOgpodHRwczovL2dpdC5rZXJuZWwub3JnL3B1Yi9zY20vbGludXgva2VybmVs
-L2dpdC90b3J2YWxkcy9saW51eC5naXQvdHJlZS9Eb2N1bWVudGF0aW9uL3Byb2Nlc3Mvc3VibWl0
-dGluZy1wYXRjaGVzLnJzdD9oPXY2LjUtcmM1I245NAoKCj4gU2lnbmVkLW9mZi1ieTogSm9obiBX
-YXR0cyA8Y29udGFjdEBqb29raWEub3JnPgoKSSBmaW5kIHRoZSBsb2NhbC1wYXJ0IG9mIHRoaXMg
-ZW1haWwgYWRkcmVzcyBzdXNwaWNpb3VzIGFjY29yZGluZyB0byB0aGUgRGV2ZWxvcGVyJ3MgQ2Vy
-dGlmaWNhdGUgb2YgT3JpZ2luLgpTaG91bGQgaXQgdXN1YWxseSBpbmRpY2F0ZSBhbiB1bmlxdWUg
-cGVyc29uIGluc3RlYWQgb2YgdGhlIHNob3duIGtleSB3b3JkPwoKUmVnYXJkcywKTWFya3VzCgpf
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNj
-diBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlz
-dHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+
+--===============3109744596282305988==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="xR/RJpD/V1xuh2KJ"
+Content-Disposition: inline
+
+
+--xR/RJpD/V1xuh2KJ
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Tue, Aug 08, 2023 at 04:26:17PM +0200, Markus Elfring wrote:
+> =E2=80=A6
+> > Both of these fully support both CAN controllers.
+>=20
+> Please choose a corresponding imperative change suggestion.
+>=20
+> See also:
+> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/D=
+ocumentation/process/submitting-patches.rst?h=3Dv6.5-rc5#n94
+>=20
+>=20
+> > Signed-off-by: John Watts <contact@jookia.org>
+>=20
+> I find the local-part of this email address suspicious according to the D=
+eveloper's Certificate of Origin.
+> Should it usually indicate an unique person instead of the shown key word?
+
+Markus, please stop bothering developers with nuisance comments.
+
+--xR/RJpD/V1xuh2KJ
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZNJR5wAKCRB4tDGHoIJi
+0tSMAQDUmixeOBSRBjyu3meJePjabfeS/tTiPYOosilEuZo+6gD/f+9hlaAzN9Mi
+MaLnFLcKtF/WoYl6X7YRywa0eX7w2Ac=
+=+rRS
+-----END PGP SIGNATURE-----
+
+--xR/RJpD/V1xuh2KJ--
+
+
+--===============3109744596282305988==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============3109744596282305988==--
+
