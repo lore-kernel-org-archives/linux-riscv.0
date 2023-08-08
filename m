@@ -4,81 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03CA2C001DF
-	for <linux-riscv@archiver.kernel.org>; Tue,  8 Aug 2023 08:55:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE7B0C001DB
+	for <linux-riscv@archiver.kernel.org>; Tue,  8 Aug 2023 10:17:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=ZNuU5v2YO2ix5+z2BFO8i09aSww16e+2edZQFjDmebs=; b=u0Z3oNplmFED1f
-	TSkoGvneB5wh3/vbdVVX58vkh4tfukBPStTvoUV0zjPrAt4+uyNKuV0xdW6B1VmbnQVqHD5CsBSMs
-	wbPFwjdSFbfDsiKux2BI/vluqvmiyEEPFh2gdf7+m3Mzr5fin7Vc/Ax2J5PwC/CGf/0y6/iO7YZi5
-	btsmwkbL+aGo2VKkdm0mHeMSQ7xkIxJffJdFy1s4f/U4dM7O465whueQn+tGFQIWkPjREp4/wRAwM
-	ZzsR5W+Dyw+JN5NMxef08DZa1dcGWdXZIFa6J/PGfBaLam2c6/CGut93K4DpMj8G8mWqm9AnDknei
-	BB/H4OLlEBTM/6NO534g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=vkLdBswSpDg04tqS4Jcl2dMCjt5Eg0Ig97x1BNu38v4=; b=TOs61Y9GlVNvcs
+	sY4pTWdeRXDivcamyBurCXEyLsrWuJvHFOtxfU/kQT2f3wP7enr+K3N38KKSsFTdKVRHmVbXy4bI8
+	+d3+csFskOTUy4uiYQB3ldfOtkhU9uiPm6xVsJQOneF5g2m5w45lY1kkaDiJLTBUAIXkIpa13pLy4
+	ha5oaiiPFaSA1O82isEsGZNv2LC3187ETB/rOWUGX+NGJJHMOJEtsBy0A3B1/BYCh+4cVsN4dKzBt
+	R/E3zyGZF+4n9HinCihMYrVKuRwXXSJ3pw/3VhfTVMiW286l7rey9QiEtecKtS6tV0+GNPWuBs/DR
+	SJ77UQw5dnwsJlyCo4qg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qTIUW-0025dQ-2Z;
-	Tue, 08 Aug 2023 08:55:00 +0000
-Received: from mail-pf1-x434.google.com ([2607:f8b0:4864:20::434])
+	id 1qTJlx-002D4C-3D;
+	Tue, 08 Aug 2023 10:17:05 +0000
+Received: from relay8-d.mail.gandi.net ([217.70.183.201])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qTIUT-0025ci-1A
+	id 1qTJlu-002D3m-39
 	for linux-riscv@lists.infradead.org;
-	Tue, 08 Aug 2023 08:54:59 +0000
-Received: by mail-pf1-x434.google.com with SMTP id d2e1a72fcca58-68783b2e40bso3752097b3a.3
-        for <linux-riscv@lists.infradead.org>; Tue, 08 Aug 2023 01:54:54 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20221208; t=1691484894; x=1692089694;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=Le8fn762Y5CUnoFQr2/BBoNQfidUQOWRJ8EQa2ZP11Y=;
-        b=GvbcgUQ+LiKpm+LeH8uslgJewixxEykAnFvTX0TTOfx5AzIzHaRiK4/yU3UOMUZU0z
-         RN1jaoWyry6IwJuWbieCsTCgFEDSlpzTDvU3dsLZZ3v6Gnovby815MKGe3pFpxSo8xBq
-         5i8SdmzXonzBp6xeHMSeCOPm39/RWbAbvyd02o7foW42wXRSYObFz9EcqUdyD/mCQS2c
-         TwJdG28enT0K+8cJaqhSrxsPhy3UVBlebf/cv+qKDSYaUkOA1woJKBTw+nfsJNeDiSdF
-         zsfyrpeMUeJVLsZ2r1tcp+YGOwLznbVEZsMlhDDPexNAALSTW9kRB172P7FZ2ytJ/Gym
-         Rg0A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1691484894; x=1692089694;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Le8fn762Y5CUnoFQr2/BBoNQfidUQOWRJ8EQa2ZP11Y=;
-        b=U8KwwWcHWyDOI1ldT5AqMbOfsx4L3Akdm1EBb3B6jMvsUeQmYqIc5jdhsIBRyEssse
-         B5QZ6HN8ciaWJLq4pe92rqPu07PDi4CXethRPsGSHG7XEzz02o6JGC5h9IMC//+qz80o
-         avi9Yd315/RbYB9RZXjP7oT52rX42Jf45SkZkfTMWnDpFH9+P6xeEuJsdQlaPIQBMfWM
-         cR6SD10zM1DDl+ag/2KjlnMfVy7C1ujaG53ibq0dFEg6TxKnN+APXCqLXVyCgJTvilln
-         2/H2ezQrJaRhnSLoWbKKVUSj0rVE8I+SKEkn2vF8JrJTARONw0IIsaPywS5JZ4qo8w7a
-         uzAg==
-X-Gm-Message-State: AOJu0YzRETBcZSLW22d7c65M7I6tu3tvvrlqEGRDcipWclm18HRfWrbg
-	b9i6ZgDdpYspHKdEt6XpA8s=
-X-Google-Smtp-Source: AGHT+IHqSQDQs8brFk626XEPW9Ti0KzKwZl/AxfQkZEzZP09tvCgA7P+WrswZV5n7CPXFPqaTST+mg==
-X-Received: by 2002:a05:6a20:3d85:b0:140:a6ec:b56a with SMTP id s5-20020a056a203d8500b00140a6ecb56amr7743758pzi.3.1691484893795;
-        Tue, 08 Aug 2023 01:54:53 -0700 (PDT)
-Received: from localhost.localdomain ([2408:843e:c10:3c2f:5b2:f199:933:ff42])
-        by smtp.gmail.com with ESMTPSA id 4-20020a170902c14400b001b9be3b94d3sm8408060plj.140.2023.08.08.01.54.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 08 Aug 2023 01:54:53 -0700 (PDT)
-From: Song Shuai <suagrfillet@gmail.com>
-To: paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	suagrfillet@gmail.com,
-	anup@brainfault.org,
-	alex@ghiti.fr,
-	conor.dooley@microchip.com
-Cc: linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: BUG Report: Some issues about vmlinux with emit-relocs 
-Date: Tue,  8 Aug 2023 16:54:38 +0800
-Message-Id: <20230808085438.3445957-1-suagrfillet@gmail.com>
-X-Mailer: git-send-email 2.20.1
+	Tue, 08 Aug 2023 10:17:04 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 7E6DC1BF204;
+	Tue,  8 Aug 2023 10:16:51 +0000 (UTC)
+Message-ID: <5681817e-2751-0166-b823-df03aebedf9f@ghiti.fr>
+Date: Tue, 8 Aug 2023 12:16:50 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.13.0
+Subject: Re: [PATCH 1/1] riscv: Implement arch_sync_kernel_mappings() for
+ "preventive" TLB flush
+To: Dylan Jhong <dylan@andestech.com>, paul.walmsley@sifive.com,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, ajones@ventanamicro.com,
+ alexghiti@rivosinc.com, anup@brainfault.org, rppt@kernel.org,
+ samuel@sholland.org, panqinglin2020@iscas.ac.cn,
+ sergey.matyukevich@syntacore.com, maz@kernel.org,
+ linux-riscv@lists.infradead.org, conor.dooley@microchip.com,
+ linux-kernel@vger.kernel.org
+Cc: ycliang@andestech.com, x5710999x@gmail.com, tim609@andestech.com
+References: <20230807082305.198784-1-dylan@andestech.com>
+ <20230807082305.198784-2-dylan@andestech.com>
+Content-Language: en-US
+From: Alexandre Ghiti <alex@ghiti.fr>
+In-Reply-To: <20230807082305.198784-2-dylan@andestech.com>
+X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230808_015457_398955_1EE7DB87 
-X-CRM114-Status: GOOD (  20.04  )
+X-CRM114-CacheID: sfid-20230808_031703_300550_18FF891F 
+X-CRM114-Status: GOOD (  26.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,177 +64,71 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi, everyone:
-
-I encountered some issues when testing CONFIG_RELOCATABLE.
-
-The story starts with the issue "the empty relocations in .rela.dyn"
-mentioned in patch 1 of "Introduce 64b relocatable kernel" thread [1].
-And it had been circumvented by ld `--emit-relocs` option in patch 6.
-
-With the `emit-relocs` option enabled, the vmlinux would grow bigger,
-so vmlinux.relocs was created as a backup to generate the Image file
-and vmlinux objcopyed itself to check/strip all .rela* sections.
-
-Not sure there is a solution to fix the "empty relocaions" issue
-and get rid of the `emit-relocs` option.
-Until that, there are some other issues with vmlinux's `emit-relocs` option:
-
-1. result of `remove-section` varies with different version GNU-objcopy
-
-- the sections of vmlinux with objcopy 2.31.1
-
-riscv64-linux-gnu-readelf -SW 00_rv_test/vmlinux |grep rel
-  [10] .rela.dyn         RELA            ffffffff80c26138 913138 2186a0 18   A  9   0  8
-  [15] .rela__ksymtab    RELA            0000000000000000 11529760 052dd0 18   I 49  14  8
-  [17] .rela__ksymtab_gpl RELA            0000000000000000 1157c530 05eba8 18   I 49  16  8
-  [20] .rela__param      RELA            0000000000000000 115db0d8 005400 18   I 49  19  8
-  [22] .rela__modver     RELA            0000000000000000 115e04d8 000300 18   I 49  21  8
-  [24] .rela__ex_table   RELA            0000000000000000 115e07d8 00cde0 18   I 49  23  8
-  [29] .rela__bug_table  RELA            0000000000000000 115ed5b8 0bd1e0 18   I 49  28  8
-  [32] .data.rel         PROGBITS        ffffffff816a5940 e21940 0d0df0 00  WA  0   0 64
-
-- the sections of vmlinux with objcopy 2.38
-
-riscv64-linux-gnu-readelf -SW 00_rv_newtool/vmlinux | grep rel
-
-
-  [25] .data.rel         PROGBITS        ffffffff816a6340 f77340 0d0cb0 00  WA  0   0 64
-
-The difference comes from binutils's commit c12d9fa2afe ("Support
-objcopy --remove-section=.relaFOO").
-The option `--remove-setions='.rela__'` wasn't supported before
-binutils/objcopy 2.32, so all of '.rela__' RELA sections were kept.
-And '.rela.dyn' section was kept due to the mismatch between the
-stripped 'dyn' section_pattern and the actual '.dynamic' section name.
-
-Should we kill the '.rela.dyn' section from the vmlinux ?
-IMO, some senses (like, kexec/kdump) will load/run vmlinux directly that
-needs this allocatable section.
-And from my kexec/kdump test with vmlinux, the 2nd kernel could start
-with '.rela.dyn' but failed if no '.rela.dyn'.
-
-How about keeping '.rela.dyn' section in vmlinux and
-making `remove-section` consistent with different version GNU-objcopy ?
-
-
-2. the stripped vmlinux has huge symtab
-
-I found a similar issue[2] about the huge symtab of kernel modules.
-
-The aggressive link-time relaxations of RISC-V need sufficient
-relocation info and local symbols to rewrite the code at link time.
-That would result in a lot of extra symbols and relocations.
-
-Kernel modules are compiled `-mno-relax`. But the toolchain still needed
-to improve to emit fewer things under `-mno-relax`. Util that, stripping
-ko with `--discard-all` or `--discard-locals` would be an option to
-reduce the symtab size. (the Ubuntu fixing patch [3])
-
-While vmlinux now uses `emit-relocs` option that would aggravate the
-symtab size.
-(It would take a long long time to start when using the current vmlinux
-as the Crash's namelist. Crash is busy in symtab_init() function.)
-
-So how about objcopying vmlinux with `--discard-locals` option to
-reduce the symtab size ?
-
-(And how about adopting the Ubuntu patch into riscv kernel tree? )
-
-
-3. suspicious relocations in vmlinux
-
-The vmlinux has some suspicious R_RISCV_NONE/R_RISCV_64 relocations
-emitted with the `emit-relocs` option, that would be detected by
-`tools/reloc_check.sh` and flush the console when making vmlinux.
-
-riscv64-linux-gnu-objdump -R ./00_rv_newtool/vmlinux | grep -E '\<R_' | awk '{print $2}' | sort | uniq -c
-      6 R_RISCV_64
-  20201 R_RISCV_NONE
-  71307 R_RISCV_RELATIVE
-
-Is there a way/tool to get rid of these relocations from vmlinux,
-or temporarily silence the echo of those bad relocations?
-
-
-[1]: https://lore.kernel.org/all/20230329045329.64565-1-alexghiti@rivosinc.com/
-[2]: https://github.com/riscv-collab/riscv-gnu-toolchain/issues/1036
-[3]: https://patchwork.ozlabs.org/project/ubuntu-kernel/patch/20220309161622.124754-1-dimitri.ledkov@canonical.com/#2855027
-
-Finally, you can try this temporary git-diff for issue1 and issue2:
-
-diff --git a/arch/riscv/Makefile.postlink b/arch/riscv/Makefile.postlink
-index a46fc578b30b..3324c3ede9c6 100644
---- a/arch/riscv/Makefile.postlink
-+++ b/arch/riscv/Makefile.postlink
-@@ -20,10 +20,10 @@ quiet_cmd_cp_vmlinux_relocs = CPREL   vmlinux.relocs
- cmd_cp_vmlinux_relocs = cp vmlinux vmlinux.relocs
- 
- quiet_cmd_relocs_strip = STRIPREL $@
--cmd_relocs_strip = $(OBJCOPY)   --remove-section='.rel.*'       \
--                                --remove-section='.rel__*'      \
--                                --remove-section='.rela.*'      \
--                                --remove-section='.rela__*' $@
-+cmd_relocs_strip = 							\
-+	$(CONFIG_SHELL) $(srctree)/arch/riscv/tools/relocs_strip.sh	\
-+				  "$(OBJCOPY)" "$(CONFIG_LD_VERSION)" "$@"
-+
- endif
- 
- # `@true` prevents complaint when there is nothing to be done
-diff --git a/arch/riscv/tools/relocs_strip.sh b/arch/riscv/tools/relocs_strip.sh
-new file mode 100755
-index 000000000000..20cb69cf041b
---- /dev/null
-+++ b/arch/riscv/tools/relocs_strip.sh
-@@ -0,0 +1,34 @@
-+#!/bin/sh
-+# SPDX-License-Identifier: GPL-2.0-or-later
-+
-+# This script strips and the relocations and the
-+# compiler-generated local symbols of a vmlinux.
-+
-+if [ $# -lt 3 ]; then
-+        echo "$0 [path to objcopy] [version of GNU objcopy] [path to vmlinux]" 1>&2
-+        exit 1
-+fi
-+
-+objcopy="$1"
-+objcopy_version="$2"
-+vmlinux="$3"
-+
-+# binutils/objcopy didn't support '--remove-setions='.rela__'' option util 2.32,
-+# use `--remove-relocations` to remove those RELA sections.
-+
-+if [ 0 -lt $objcopy_version -a 23200 -gt $objcopy_version ]; then
-+
-+	$objcopy --remove-section='.rel.*'	\
-+		 --remove-section='.rela.*'	\
-+		 --remove-relocations='__*' $vmlinux
-+else
-+	$objcopy --keep-section='.rela.dyn'	\
-+		 --remove-section='.rel.*'	\
-+		 --remove-section='.rel__*'	\
-+		 --remove-section='.rela.*'	\
-+		 --remove-section='.rela__*' $vmlinux
-+fi
-+
-+# discard the compiler-generated local symbols of vmlinux
-+
-+$objcopy --discard-locals $vmlinux
-
-
--- 
-Thanks
-Song Shuai
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgRHlsYW4sCgpPbiAwNy8wOC8yMDIzIDEwOjIzLCBEeWxhbiBKaG9uZyB3cm90ZToKPiBTaW5j
+ZSBSSVNDLVYgaXMgYSBtaWNyb2FyY2hpdGVjdHVyZSB0aGF0IGFsbG93cyBjYWNoaW5nIGludmFs
+aWQgZW50cmllcyBpbiB0aGUgVExCLAo+IGl0IGlzIG5lY2Vzc2FyeSB0byBpc3N1ZSBhICJwcmV2
+ZW50aXZlIiBTRkVOQ0UuVk1BIHRvIGVuc3VyZSB0aGF0IGVhY2ggY29yZSBvYnRhaW5zCj4gdGhl
+IGNvcnJlY3Qga2VybmVsIG1hcHBpbmcuCj4KPiBUaGUgcGF0Y2ggaW1wbGVtZW50cyBUTEIgZmx1
+c2hpbmcgaW4gYXJjaF9zeW5jX2tlcm5lbF9tYXBwaW5ncygpLCBlbnN1cmluZyB0aGF0IGtlcm5l
+bAo+IHBhZ2UgdGFibGUgbWFwcGluZ3MgY3JlYXRlZCB2aWEgdm1hcC92bWFsbG9jKCkgYXJlIHVw
+ZGF0ZWQgYmVmb3JlIHN3aXRjaGluZyBNTS4KPgo+IFNpZ25lZC1vZmYtYnk6IER5bGFuIEpob25n
+IDxkeWxhbkBhbmRlc3RlY2guY29tPgo+IC0tLQo+ICAgYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9w
+YWdlLmggfCAgMiArKwo+ICAgYXJjaC9yaXNjdi9tbS90bGJmbHVzaC5jICAgICAgfCAxMiArKysr
+KysrKysrKysKPiAgIDIgZmlsZXMgY2hhbmdlZCwgMTQgaW5zZXJ0aW9ucygrKQo+Cj4gZGlmZiAt
+LWdpdCBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vcGFnZS5oIGIvYXJjaC9yaXNjdi9pbmNsdWRl
+L2FzbS9wYWdlLmgKPiBpbmRleCBiNTViYTIwOTAzZWMuLjZjODZhYjY5Njg3ZSAxMDA2NDQKPiAt
+LS0gYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3BhZ2UuaAo+ICsrKyBiL2FyY2gvcmlzY3YvaW5j
+bHVkZS9hc20vcGFnZS5oCj4gQEAgLTIxLDYgKzIxLDggQEAKPiAgICNkZWZpbmUgSFBBR0VfTUFT
+SyAgICAgICAgICAgICAgKH4oSFBBR0VfU0laRSAtIDEpKQo+ICAgI2RlZmluZSBIVUdFVExCX1BB
+R0VfT1JERVIgICAgICAoSFBBR0VfU0hJRlQgLSBQQUdFX1NISUZUKQo+ICAgCj4gKyNkZWZpbmUg
+QVJDSF9QQUdFX1RBQkxFX1NZTkNfTUFTSwlQR1RCTF9QVEVfTU9ESUZJRUQKPiArCj4gICAvKgo+
+ICAgICogUEFHRV9PRkZTRVQgLS0gdGhlIGZpcnN0IGFkZHJlc3Mgb2YgdGhlIGZpcnN0IHBhZ2Ug
+b2YgbWVtb3J5Lgo+ICAgICogV2hlbiBub3QgdXNpbmcgTU1VIHRoaXMgY29ycmVzcG9uZHMgdG8g
+dGhlIGZpcnN0IGZyZWUgcGFnZSBpbgo+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L21tL3RsYmZs
+dXNoLmMgYi9hcmNoL3Jpc2N2L21tL3RsYmZsdXNoLmMKPiBpbmRleCA3N2JlNTlhYWRjNzMuLmQ2
+MzM2NDk0OGM4NSAxMDA2NDQKPiAtLS0gYS9hcmNoL3Jpc2N2L21tL3RsYmZsdXNoLmMKPiArKysg
+Yi9hcmNoL3Jpc2N2L21tL3RsYmZsdXNoLmMKPiBAQCAtMTQ5LDMgKzE0OSwxNSBAQCB2b2lkIGZs
+dXNoX3BtZF90bGJfcmFuZ2Uoc3RydWN0IHZtX2FyZWFfc3RydWN0ICp2bWEsIHVuc2lnbmVkIGxv
+bmcgc3RhcnQsCj4gICAJX19mbHVzaF90bGJfcmFuZ2Uodm1hLT52bV9tbSwgc3RhcnQsIGVuZCAt
+IHN0YXJ0LCBQTURfU0laRSk7Cj4gICB9Cj4gICAjZW5kaWYKPiArCj4gKy8qCj4gKyAqIFNpbmNl
+IFJJU0MtViBpcyBhIG1pY3JvYXJjaGl0ZWN0dXJlIHRoYXQgYWxsb3dzIGNhY2hpbmcgaW52YWxp
+ZCBlbnRyaWVzIGluIHRoZSBUTEIsCj4gKyAqIGl0IGlzIG5lY2Vzc2FyeSB0byBpc3N1ZSBhICJw
+cmV2ZW50aXZlIiBTRkVOQ0UuVk1BIHRvIGVuc3VyZSB0aGF0IGVhY2ggY29yZSBvYnRhaW5zCj4g
+KyAqIHRoZSBjb3JyZWN0IGtlcm5lbCBtYXBwaW5nLiBhcmNoX3N5bmNfa2VybmVsX21hcHBpbmdz
+KCkgd2lsbCBlbnN1cmUgdGhhdCBrZXJuZWwKPiArICogcGFnZSB0YWJsZSBtYXBwaW5ncyBjcmVh
+dGVkIHZpYSB2bWFwL3ZtYWxsb2MoKSBhcmUgdXBkYXRlZCBiZWZvcmUgc3dpdGNoaW5nIE1NLgo+
+ICsgKi8KPiArdm9pZCBhcmNoX3N5bmNfa2VybmVsX21hcHBpbmdzKHVuc2lnbmVkIGxvbmcgc3Rh
+cnQsIHVuc2lnbmVkIGxvbmcgZW5kKQo+ICt7Cj4gKwlpZiAoc3RhcnQgPCBWTUFMTE9DX0VORCAm
+JiBlbmQgPiBWTUFMTE9DX1NUQVJUKQoKClRoaXMgdGVzdCBpcyB0b28gcmVzdHJpY3RpdmUsIGl0
+IHNob3VsZCBjYXRjaCB0aGUgcmFuZ2UgW01PRFVMRVNfVkFERFI7wqAgCk1PRFVMRVNfRU5EWyB0
+b28sIHNvcnJ5IEkgZGlkIG5vdCBub3RpY2UgdGhhdCBhdCBmaXJzdC4KCgo+ICsJCWZsdXNoX3Rs
+Yl9hbGwoKTsKPiArfQo+IFwgTm8gbmV3bGluZSBhdCBlbmQgb2YgZmlsZQoKCkkgaGF2ZSB0byBh
+ZG1pdCB0aGF0IEkgKnRoaW5rKiBib3RoIHlvdXIgcGF0Y2ggYW5kIG1pbmUgYXJlIHdyb25nOiBv
+bmUgCm9mIHRoZSBwcm9ibGVtIHRoYXQgbGVkIHRvIHRoZSByZW1vdmFsIG9mIHZtYWxsb2NfZmF1
+bHQoKSBpcyB0aGUgCnBvc3NpYmlsaXR5IGZvciB0cmFjaW5nIGZ1bmN0aW9ucyB0byBhY3R1YWxs
+eSBhbGxvY2F0ZSB2bWFsbG9jIHJlZ2lvbnMgCmluIHRoZSB2bWFsbG9jIHBhZ2UgZmF1bHQgcGF0
+aCwgd2hpY2ggY291bGQgZ2l2ZSByaXNlIHRvIG5lc3RlZCAKZXhjZXB0aW9ucyAoc2VlIApodHRw
+czovL2xvcmUua2VybmVsLm9yZy9sa21sLzIwMjAwNTA4MTQ0MDQzLjEzODkzLTEtam9yb0A4Ynl0
+ZXMub3JnLykuCgpIZXJlLCBldmVyeXRpbWUgd2UgYWxsb2NhdGUgYSB2bWFsbG9jIHJlZ2lvbiwg
+d2Ugc2VuZCBhbiBJUEkuIElmIGEgCnZtYWxsb2MgYWxsb2NhdGlvbiBoYXBwZW5zIGluIHRoaXMg
+cGF0aCAoaWYgaXQgaXMgdHJhY2VkIGZvciBleGFtcGxlKSwgCml0IHdpbGwgZ2l2ZSByaXNlIHRv
+IGFuIElQSS4uLmFuZCBzbyBvbi4KClNvIEkgY2FtZSB0byB0aGUgY29uY2x1c2lvbiB0aGF0IHRo
+ZSBvbmx5IHdheSB0byBhY3R1YWxseSBmaXggdGhpcyBpc3N1ZSAKaXMgYnkgcmVzb2x2aW5nIHRo
+ZSB2bWFsbG9jIGZhdWx0cyB2ZXJ5IGVhcmx5IGluIHRoZSBwYWdlIGZhdWx0IHBhdGggKGJ5IApl
+bWl0dGluZyBhIHNmZW5jZS52bWEgb24gdWFyY2ggdGhhdCBjYWNoZSBpbnZhbGlkIGVudHJpZXMp
+LCBiZWZvcmUgdGhlIAprZXJuZWwgc3RhY2sgaXMgZXZlbiBhY2Nlc3NlZC4gVGhhdCdzIHRoZSBi
+ZXN0IHNvbHV0aW9uIHNpbmNlIGl0IHdvdWxkIApjb21wbGV0ZWx5IHJlbW92ZSBhbGwgdGhlIHBy
+ZXZlbnRpdmUgc2ZlbmNlLnZtYSBpbiAKZmx1c2hfY2FjaGVfdm1hcCgpL2FyY2hfc3luY19rZXJu
+ZWxfbWFwcGluZ3MoKSwgd2Ugd291bGQgcmVseSBvbiAKZmF1bHRpbmcgd2hpY2ggSSBhc3N1bWUg
+c2hvdWxkIG5vdCBoYXBwZW4gYSBsb3QgKD8pLgoKSSdtIGltcGxlbWVudGluZyB0aGlzIHNvbHV0
+aW9uLCBidXQgSSdtIHByZXR0eSBzdXJlIGl0IHdvbid0IGJlIHJlYWR5IApmb3IgNi41LiBJbiB0
+aGUgbWVhbnRpbWUsIHdlIG5lZWQgZWl0aGVyIHlvdXIgcGF0Y2ggb3IgbWluZSB0byBmaXggeW91
+ciAKaXNzdWUuLi4KCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFk
+Lm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJp
+c2N2Cg==
