@@ -4,82 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B8CCC001B0
-	for <linux-riscv@archiver.kernel.org>; Tue,  8 Aug 2023 07:26:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3663FC001B0
+	for <linux-riscv@archiver.kernel.org>; Tue,  8 Aug 2023 07:39:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=9eWCFjXfmlnef6TEicmEhf7zuboY8gzHKZktGOM7xf4=; b=c3eL0WVbULnAK1
-	kwn0TOqeN9IwdJJ1WwRbq/7NRo2zt9LqwM1ehrw9ByIzlk76LGCwRmX2GDIqKgsX+Q0NriaA+ih+l
-	DIh8BOLsqQYM6RZSZABPqMEqYE3jGga7d4nEkkNen48A9WYVRKHg81nEt/K8bWN16uQU/xn/giNO9
-	ZhriLTQFTtF1zqFsUctSiiFIa2KGTl8MrubBxfxj7kPVNLgCuX+vxKDDOanLno3SIgufoA/yzsVjL
-	ubTlZZepRt3xyZi5AUHA32hShI6JyQVkmbtFF1cCf8Ug4DNEakoEcZHdTeLqDs7jkuM3z8g1/XpP9
-	Vc5U5weB8NO1Ni4EMrZA==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=K7VGfh7ikcoIaYH+1YUqo84xZZyey5rjB19rjx9sk4k=; b=Hpd3ael7t35fL5
+	OjVUwuu6YsGvtTGIgfj5j9usStA17EYTwZxnCOZ5P/1Yae66EJ+Y01PykK58Fampfpt5wMK4ZdP2R
+	GBC0gnhr85TYi55UiQQ6d9RrzyctcaL5nWIDvaAfUQyGPQQKim2zUCxxuyhHPhD0N7VHpRmUMqnyK
+	frfqpe3BKAPWOkHE+2mSlJn2DwWzhw4FHs9MdGJn59Tpqb0DCX0i2TTnjgZg9VD/Ak4FJ0s/MvyJg
+	r8Ww2TTtxXsCh2Izn09Zqi0DNRI3AOag0TGzHsZ2f56SbbeM5a0hqTrwh80gko8ctT1oH9BhO5V+b
+	w/SZ5pGIu5Bye6v6NKxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qTH6z-001svE-17;
-	Tue, 08 Aug 2023 07:26:37 +0000
-Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qTH6v-001suo-38
+	id 1qTHJM-001u5p-0Z;
+	Tue, 08 Aug 2023 07:39:24 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1qTHJH-001u2g-1t
 	for linux-riscv@lists.infradead.org;
-	Tue, 08 Aug 2023 07:26:35 +0000
-Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-1bbd03cb7c1so34387805ad.3
-        for <linux-riscv@lists.infradead.org>; Tue, 08 Aug 2023 00:26:31 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1691479591; x=1692084391;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=zQFUtOqa2Nuhn55ogQXJygZpI6oY6Vmrz17l7AHTGDA=;
-        b=I5EbRpgO/el/y9etxETVMqe05Qd7ByOsWkG8KqmvFphGyYUo4lAj43s5W79y81pXku
-         65XDaPmQUl5j43Xd0q5VddW2g0eVdADBTv9x703OOgngSw76A4j6NmCEDmV1nzLOhd3h
-         YHivlqnFTVsWBEzKJXlYvEh7XaNCHPPZTa3cotiiEZQB6jO1Jemahvm4UqY+UOmBhegq
-         HOFwEyyKq0YSI2WUP/yY4ao+lSV2BCjDc2GIzNJrHKu16JrgDRW+zGEJeEnz4wQIAizJ
-         h1Von9YZ0URSebB/UaW3GxWtT8a8ZGNTUoiKDoLR2QH6XomBIRl4C94UNAvK+h91V6rj
-         eAhg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1691479591; x=1692084391;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=zQFUtOqa2Nuhn55ogQXJygZpI6oY6Vmrz17l7AHTGDA=;
-        b=YxyU6qwbXWjyYR9uhh+OhDuVkVDps4jjIVxTfEOepz7XW1Hqa+xxG6TQZaD8Sbmyb1
-         jwxLkn9ttacCw8dk9aQdtRhQfTuchnIc4hXFa34frDfc0/zpbTJ60V51aolV5xtF+SHl
-         +5E1+9cyUD9r1TnXhCjwCiLBU2ioO/pKhJFG3BH1ZQMZacYPho7pvd7idhncK6+26c4y
-         uf/jLvGIdw0MZYwwxd11PqJsxWjo0LsQdnh6M7E9s7YyzzPrFadpW595U7ugaUxFUibZ
-         4FneD+rCXDOXErKwL+UfgGXg2mTbyT5xNpdbbZwwNZFB1JNJedEOasSMGjxAlEloYX6A
-         FQgA==
-X-Gm-Message-State: AOJu0YzC60qBfRQNMMz6hVjEc+OK1TXZV8E4LwmM1j1D8QiVK4K0CW5G
-	XqmoICVuqoIcjt9oRy8rTeiHZw==
-X-Google-Smtp-Source: AGHT+IFn9Tv/1Wua6tBM7YiRpsrFK5gtBkXS5hRzWJuEds2zGjCrzk2Zh5O6jxInrCtOG/wLVGM/yg==
-X-Received: by 2002:a17:902:c20d:b0:1bb:9bc8:d22d with SMTP id 13-20020a170902c20d00b001bb9bc8d22dmr9696186pll.16.1691479591137;
-        Tue, 08 Aug 2023 00:26:31 -0700 (PDT)
-Received: from work.. (1-161-169-231.dynamic-ip.hinet.net. [1.161.169.231])
-        by smtp.gmail.com with ESMTPSA id y23-20020a17090264d700b001bb24cb9a40sm8357436pli.39.2023.08.08.00.26.29
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 08 Aug 2023 00:26:30 -0700 (PDT)
-From: Nick Hu <nick.hu@sifive.com>
-To: nick.hu@sifive.com,
-	zong.li@sifive.com,
-	gregkh@linuxfoundation.org,
-	jirislaby@kernel.org,
-	palmer@dabbelt.com,
-	paul.walmsley@sifive.com,
-	linux-serial@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Cc: Ben Dooks <ben.dooks@codethink.co.uk>
-Subject: [PATCH 1/2] serial: sifive: Add suspend and resume operations
-Date: Tue,  8 Aug 2023 15:26:25 +0800
-Message-Id: <20230808072625.2109564-1-nick.hu@sifive.com>
-X-Mailer: git-send-email 2.34.1
+	Tue, 08 Aug 2023 07:39:23 +0000
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 6733F827D;
+	Tue,  8 Aug 2023 15:38:52 +0800 (CST)
+Received: from EXMBX068.cuchost.com (172.16.6.68) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 8 Aug
+ 2023 15:38:52 +0800
+Received: from [192.168.155.152] (202.188.176.82) by EXMBX068.cuchost.com
+ (172.16.6.68) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 8 Aug
+ 2023 15:38:47 +0800
+Message-ID: <cbc3c9db-6a47-4e4f-5e5d-892d048ef924@starfivetech.com>
+Date: Tue, 8 Aug 2023 15:38:41 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.13.0
+Subject: Re: [PATCH 1/2] riscv: dts: starfive - Add crypto and DMA node for
+ JH7110
+To: Conor Dooley <conor@kernel.org>
+CC: Emil Renner Berthing <kernel@esmil.dk>, Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley
+	<conor+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, "Palmer
+ Dabbelt" <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+	<devicetree@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>
+References: <20230808061150.81491-1-jiajie.ho@starfivetech.com>
+ <20230808061150.81491-2-jiajie.ho@starfivetech.com>
+ <20230808-cilantro-fondue-21485b78e83e@spud>
+Content-Language: en-US
+From: Jia Jie Ho <jiajie.ho@starfivetech.com>
+In-Reply-To: <20230808-cilantro-fondue-21485b78e83e@spud>
+X-Originating-IP: [202.188.176.82]
+X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX068.cuchost.com
+ (172.16.6.68)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230808_002634_070194_E31A1E66 
-X-CRM114-Status: GOOD (  12.64  )
+X-CRM114-CacheID: sfid-20230808_003919_966821_EBE93D48 
+X-CRM114-Status: GOOD (  11.97  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,62 +81,82 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-If the Sifive Uart is not used as the wake up source, suspend the uart
-before the system enter the suspend state to prevent it woken up by
-unexpected uart interrupt. Resume the uart once the system woken up.
+On 8/8/2023 3:16 pm, Conor Dooley wrote:
+> On Tue, Aug 08, 2023 at 02:11:49PM +0800, Jia Jie Ho wrote:
+>> Add hardware crypto module and dedicated dma controller node to StarFive
+>> JH7110 SoC.
+>> 
+>> Co-developed-by: Huan Feng <huan.feng@starfivetech.com>
+>> Signed-off-by: Huan Feng <huan.feng@starfivetech.com>
+>> Signed-off-by: Jia Jie Ho <jiajie.ho@starfivetech.com>
+>> Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
+>> ---
+>>  arch/riscv/boot/dts/starfive/jh7110.dtsi | 28 ++++++++++++++++++++++++
+>>  1 file changed, 28 insertions(+)
+>> 
+>> diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+>> index a608433200e8..47cd12ccc988 100644
+>> --- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
+>> +++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+>> @@ -821,6 +821,34 @@ watchdog@13070000 {
+>>  				 <&syscrg JH7110_SYSRST_WDT_CORE>;
+>>  		};
+>>  
+>> +		crypto: crypto@16000000 {
+>> +			compatible = "starfive,jh7110-crypto";
+>> +			reg = <0x0 0x16000000 0x0 0x4000>;
+>> +			clocks = <&stgcrg JH7110_STGCLK_SEC_AHB>,
+>> +				 <&stgcrg JH7110_STGCLK_SEC_MISC_AHB>;
+>> +			clock-names = "hclk", "ahb";
+>> +			interrupts = <28>;
+>> +			resets = <&stgcrg JH7110_STGRST_SEC_AHB>;
+>> +			dmas = <&sdma 1 2>, <&sdma 0 2>;
+>> +			dma-names = "tx", "rx";
+>> +		};
+>> +
+>> +		sdma: dma@16008000 {
+>> +			compatible = "arm,pl080", "arm,primecell";
+>> +			arm,primecell-periphid = <0x00041080>;
+>> +			reg = <0x0 0x16008000 0x0 0x4000>;
+>> +			interrupts = <29>;
+>> +			clocks = <&stgcrg JH7110_STGCLK_SEC_AHB>,
+>> +				 <&stgcrg JH7110_STGCLK_SEC_MISC_AHB>;
+>> +			clock-names = "hclk", "apb_pclk";
+>> +			resets = <&stgcrg JH7110_STGRST_SEC_AHB>;
+>> +			lli-bus-interface-ahb1;
+>> +			mem-bus-interface-ahb1;
+>> +			memcpy-burst-size = <256>;
+>> +			memcpy-bus-width = <32>;
+>> +			#dma-cells = <2>;
+>> +		};
+>> +
+> 
+> Against linux-next, I get these warnings:
+> arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2-v1.3b.dtb: dma@16008000: $nodename:0: 'dma@16008000' does not match '^dma-controller(@.*)?$'
+>         from schema $id: http://devicetree.org/schemas/dma/arm-pl08x.yaml#
+> arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2-v1.3b.dtb: dma@16008000: clocks: [[26, 15], [26, 16]] is too long
+>         from schema $id: http://devicetree.org/schemas/dma/arm-pl08x.yaml#
+> arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2-v1.3b.dtb: dma@16008000: clock-names: ['hclk', 'apb_pclk'] is too long
+>         from schema $id: http://devicetree.org/schemas/dma/arm-pl08x.yaml#
+> arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2-v1.3b.dtb: dma@16008000: Unevaluated properties are not allowed ('#dma-cells' was unexpected)
+>         from schema $id: http://devicetree.org/schemas/dma/arm-pl08x.yaml#
+> arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2-v1.2a.dtb: dma@16008000: $nodename:0: 'dma@16008000' does not match '^dma-controller(@.*)?$'
+>         from schema $id: http://devicetree.org/schemas/dma/arm-pl08x.yaml#
+> arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2-v1.2a.dtb: dma@16008000: clocks: [[26, 15], [26, 16]] is too long
+>         from schema $id: http://devicetree.org/schemas/dma/arm-pl08x.yaml#
+> arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2-v1.2a.dtb: dma@16008000: clock-names: ['hclk', 'apb_pclk'] is too long
+>         from schema $id: http://devicetree.org/schemas/dma/arm-pl08x.yaml#
+> arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2-v1.2a.dtb: dma@16008000: Unevaluated properties are not allowed ('#dma-cells' was unexpected)
+>         from schema $id: http://devicetree.org/schemas/dma/arm-pl08x.yaml#
+> 
+> Please fix these & submit a tested v2.
+> 
 
-Signed-off-by: Nick Hu <nick.hu@sifive.com>
-Signed-off-by: Ben Dooks <ben.dooks@codethink.co.uk>
----
- drivers/tty/serial/sifive.c | 26 ++++++++++++++++++++++++++
- 1 file changed, 26 insertions(+)
+Sorry, I missed testing the dma node.
+Will fix this in next version.
 
-diff --git a/drivers/tty/serial/sifive.c b/drivers/tty/serial/sifive.c
-index a19db49327e2..87994cb69007 100644
---- a/drivers/tty/serial/sifive.c
-+++ b/drivers/tty/serial/sifive.c
-@@ -1022,6 +1022,31 @@ static int sifive_serial_remove(struct platform_device *dev)
- 	return 0;
- }
- 
-+static int sifive_serial_suspend(struct device *dev)
-+{
-+	int ret = 0;
-+	struct sifive_serial_port *ssp = dev_get_drvdata(dev);
-+
-+	if (ssp && ssp->port.type != PORT_UNKNOWN)
-+		ret = uart_suspend_port(&sifive_serial_uart_driver, &ssp->port);
-+
-+	return ret;
-+}
-+
-+static int sifive_serial_resume(struct device *dev)
-+{
-+	int ret = 0;
-+	struct sifive_serial_port *ssp = dev_get_drvdata(dev);
-+
-+	if (ssp && ssp->port.type != PORT_UNKNOWN)
-+		ret = uart_resume_port(&sifive_serial_uart_driver, &ssp->port);
-+
-+	return ret;
-+}
-+
-+DEFINE_SIMPLE_DEV_PM_OPS(sifive_uart_pm_ops, sifive_serial_suspend,
-+			 sifive_serial_resume);
-+
- static const struct of_device_id sifive_serial_of_match[] = {
- 	{ .compatible = "sifive,fu540-c000-uart0" },
- 	{ .compatible = "sifive,uart0" },
-@@ -1034,6 +1059,7 @@ static struct platform_driver sifive_serial_platform_driver = {
- 	.remove		= sifive_serial_remove,
- 	.driver		= {
- 		.name	= SIFIVE_SERIAL_NAME,
-+		.pm = pm_sleep_ptr(&sifive_uart_pm_ops),
- 		.of_match_table = of_match_ptr(sifive_serial_of_match),
- 	},
- };
--- 
-2.34.1
+Regards,
+Jia Jie
 
 
 _______________________________________________
