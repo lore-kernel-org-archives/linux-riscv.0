@@ -4,8 +4,8 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B5ACC04FDF
-	for <linux-riscv@archiver.kernel.org>; Tue,  8 Aug 2023 23:14:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D41C7C04A94
+	for <linux-riscv@archiver.kernel.org>; Tue,  8 Aug 2023 23:14:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -13,59 +13,59 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=3AXiIGPI1u3s2nMJAFyK5/q0+69tRB7cM2MLQtMEhwg=; b=I7ou+LlN+mIn2xbmp9U/AZtNrD
-	DbpJmzrD2dPVWzBrEsihHd1bPmUNP4uT69VLxA2oVapFwR4+/B8AiWiO3FpSXcnYEIoXENVxHW954
-	6wG2co2aDx7SKTj+bXOPpG4bohFjtGce1Y+N/2HNMLT1iVpZhti1VfJlUIXpZrqBcN3A7IZccMj0z
-	yK55HHekWwbnn0udDmFuR2jQHdfMW6gVpvZ2P9hD+eJ2/EOEsOqNPucXG5JE7bvWnSYt70Vci7LZi
-	SFF8ldffl1lgyaO+Mk3XtVWUyZo/Vpcphr5GrmzR2mkk/IJxRn0zz37EPUEIBdyPZFgnSlkuh6kuy
-	vCIqOMuw==;
+	bh=j89bj2JxUJWKHaU2MyxGpXGIdpQJ9gB6xbVAyGhNDqQ=; b=mm6cQYyzz47M37T71fVMgRikYx
+	uVHLMjMgfDjBwmOKNsFsroiU4BjnwuMXQjY1lHLSvE/WRxZwY9PrG0RlnuJo6VZwOZfkMdsjs6bF8
+	ApDDYinODa2nPqepmcKmZ89Paye3gsskWPrbXnqnItJmiuHjmlwHIHCHPjD2tmFwSkZ6iOBzPaps8
+	0C5T7ZH9ri+AGWO6PCfyoVI4gScfr5WqXOgOq5xelhzIWGBJa/I6s1zJBq/CNgFYm3P0rZSuuLAhq
+	sutV4exxB00J/RTdEPsrBuJ6EHxZHUzDogb3pX3hKkLwK7sSH6XpqS7u+VyxMYqRkwUxI/6c3jp9k
+	Q8bFakvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qTVtu-003dZw-1l;
-	Tue, 08 Aug 2023 23:14:06 +0000
-Received: from mail-ot1-x34a.google.com ([2607:f8b0:4864:20::34a])
+	id 1qTVu0-003dhZ-2U;
+	Tue, 08 Aug 2023 23:14:12 +0000
+Received: from mail-yb1-f201.google.com ([209.85.219.201])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qTVtc-003dBU-0q
+	id 1qTVtf-003dFO-03
 	for linux-riscv@lists.infradead.org;
-	Tue, 08 Aug 2023 23:13:51 +0000
-Received: by mail-ot1-x34a.google.com with SMTP id 46e09a7af769-6bd06019013so2707265a34.2
-        for <linux-riscv@lists.infradead.org>; Tue, 08 Aug 2023 16:13:46 -0700 (PDT)
+	Tue, 08 Aug 2023 23:13:52 +0000
+Received: by mail-yb1-f201.google.com with SMTP id 3f1490d57ef6-d4b1c8f2d91so4178848276.0
+        for <linux-riscv@lists.infradead.org>; Tue, 08 Aug 2023 16:13:49 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20221208; t=1691536425; x=1692141225;
+        d=google.com; s=20221208; t=1691536428; x=1692141228;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=CwKTqZRHBF6wuN1C9cAW2HapO35gWwZnaXscRj6lwnc=;
-        b=2WhdyxPqAZMQPm2b5LDRFghWynjBi1UCopSK1ma1kbSftgbyoXHvV4F9IDWxcU9bjD
-         x/E9HP43OeHzZX28ncf+Kk6FnjBLF/r9fVsQhiqEHw1zjRX24sDt0GrY2/p3GalF1S2v
-         N5lNsSn9Na5ATp2cklHDX8LTBtETR2s+9HHST3Ohuu7lmur160dOSvrfZ/KSaEE1NZwE
-         MTqoVPht1r4GCjkIudPtbkdQsI5Nu98lnQML5VoXE8em5TrezcFzlkSPwtr/1nuEkMDe
-         WUXQqHSd/d2erJlQAn4TX7ybCyK2/vQdT6g7QkZRS1d+VIMG2dqDkc81KuQJiZISQlHN
-         UINA==
+        bh=ceh3/nJpRP3LCUTMqceYFYfxrY0H2MNGDIBSz6bT86E=;
+        b=lYWCq7XVM6FudJxW5r6RH/4QIo159OCh6BgBZTBQDRkAKhfeKsfGNQQCUQnkN8KvPr
+         t2l9cZJpTHvXHX31KaawaEBmdl57OidB6o+0jjp9TDmM0VLLVpgNjiCEG1/+aYqFU6hC
+         eAp6ynp7sqYoyVQ64la2au+GLVmINvRuVrGSHYiSeGeSQjAXxRWyTBZdKnV0DHkwK074
+         YgL4nZU6PyCxpLCA6hze9IY8+wLAXkT7Chl05pETXiSkaPo3evGfyJZWaUFGflARAI1I
+         CWJ4pe0DcCV/6ZrRmXGPD36mbRDc3h8lapnceaa/GYhujd1Sc5T65R444ON8TKY8zetm
+         jTqQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1691536425; x=1692141225;
+        d=1e100.net; s=20221208; t=1691536428; x=1692141228;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=CwKTqZRHBF6wuN1C9cAW2HapO35gWwZnaXscRj6lwnc=;
-        b=NV1W7SH8LWN5YYxQYReXjJ8r7uDxeYeOc/wLsGqJErUfHbjDPqAGXj/ELRSNASnpab
-         wg7WzojxwamR/sDG/izP0wW9mTxoE1/cNN093QUJf3v8cfZkj4PPjuJycwxIT6AQENBR
-         ErDCjnSAKfLmpvVwGmYBw7dpskxXkQQ9yeuGhX1rvf47GwvpdzQ+/evgt/jcYaOMXdxK
-         yRpzqFZc0vY8pPWyAGe4TUEKNgwRCLAsbwAwGGURF4PotRd81OKoX/LoY813At9fBp7b
-         7MnuBQfCG54Z/uL2uKewfh9MLMPp9AgP2iwBN4t16oS3lEkbT/+VanHehslTYvHQ2cym
-         CXLg==
-X-Gm-Message-State: AOJu0YwCxRro6ltLF6lqYLagqNeCnRmY0/wDGrw5F40PN2pW1ZG9ognF
-	64TMoSeL7AJjpdANFNuWITOBo7B1Sf23
-X-Google-Smtp-Source: AGHT+IF6ugFOVb6y8tlgF6YsRwtDTq1sT4bykRxLroalTTYHrfBZlxunAEzdOs30Q1iqHJ3u3x2Z2p1PQHN7
+        bh=ceh3/nJpRP3LCUTMqceYFYfxrY0H2MNGDIBSz6bT86E=;
+        b=ZKWoWH/N2U0Alr2fmSY0FGWIPsbQmyfGPJNEb4aqe8GRvUvOXx93aiq/L8ApZW9SOL
+         ZND473sBEnQKZCR0iWPwgNTp7inxaQ2a4Dp+m/bZ55ztJyRq419CkI6Yc9AkcgoBoqeF
+         f/+aX9PZ9JOD3S+ZX76xhInJanVwsZjrU1GevYGl/XYBwaV7W2YesrLhi2bnvc7O5qmC
+         /1pE5KeXWw48jMtHdKxv9+l1cWrXZWX4ZGSYM8OowOL5Tb7mE30EPqA2eMCcBH5hifHN
+         KcxqzmKQfUwwlxX4IPTKZr+fG1SWwjgZ7nkn7b98woWqgrFI8Gzd+Qyz9SQ2vg5eRyWb
+         1DFg==
+X-Gm-Message-State: AOJu0Ywkyh1/v0AIexXuTkbeenh/eIWw1tEyWkN6BDXWiyk326KHdvmX
+	gNekdNpJFbvuHDbhbrO3RWxfxWNoYzp2
+X-Google-Smtp-Source: AGHT+IFZf7KdCrM3mKKctDL4eJEFrZL/iyXXoQ3odpF+ERPp4XkakMR9xXlj55lUKXM5dTMxS4wP8F7laVhf
 X-Received: from rananta-linux.c.googlers.com ([fda3:e722:ac3:cc00:2b:ff92:c0a8:22b5])
- (user=rananta job=sendgmr) by 2002:a05:6870:8c0f:b0:1bb:ad9e:2978 with SMTP
- id ec15-20020a0568708c0f00b001bbad9e2978mr334671oab.10.1691536425651; Tue, 08
- Aug 2023 16:13:45 -0700 (PDT)
-Date: Tue,  8 Aug 2023 23:13:26 +0000
+ (user=rananta job=sendgmr) by 2002:a25:ab50:0:b0:d10:5b67:843c with SMTP id
+ u74-20020a25ab50000000b00d105b67843cmr20552ybi.4.1691536428387; Tue, 08 Aug
+ 2023 16:13:48 -0700 (PDT)
+Date: Tue,  8 Aug 2023 23:13:29 +0000
 In-Reply-To: <20230808231330.3855936-1-rananta@google.com>
 Mime-Version: 1.0
 References: <20230808231330.3855936-1-rananta@google.com>
 X-Mailer: git-send-email 2.41.0.640.ga95def55d0-goog
-Message-ID: <20230808231330.3855936-11-rananta@google.com>
-Subject: [PATCH v8 10/14] KVM: arm64: Define kvm_tlb_flush_vmid_range()
+Message-ID: <20230808231330.3855936-14-rananta@google.com>
+Subject: [PATCH v8 13/14] KVM: arm64: Invalidate the table entries upon a range
 From: Raghavendra Rao Ananta <rananta@google.com>
 To: Oliver Upton <oliver.upton@linux.dev>, Marc Zyngier <maz@kernel.org>, 
 	James Morse <james.morse@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>
@@ -80,8 +80,9 @@ Cc: Paolo Bonzini <pbonzini@redhat.com>, Sean Christopherson <seanjc@google.com>
 	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
 	kvm@vger.kernel.org, Gavin Shan <gshan@redhat.com>, Shaoqin Huang <shahuang@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230808_161348_325585_F35C85A4 
-X-CRM114-Status: GOOD (  10.09  )
+X-CRM114-CacheID: sfid-20230808_161351_074297_01EEFFCA 
+X-CRM114-Status: UNSURE (   9.79  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,69 +99,38 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Implement the helper kvm_tlb_flush_vmid_range() that acts
-as a wrapper for range-based TLB invalidations. For the
-given VMID, use the range-based TLBI instructions to do
-the job or fallback to invalidating all the TLB entries.
+Currently, during the operations such as a hugepage collapse,
+KVM would flush the entire VM's context using 'vmalls12e1is'
+TLBI operation. Specifically, if the VM is faulting on many
+hugepages (say after dirty-logging), it creates a performance
+penalty for the guest whose pages have already been faulted
+earlier as they would have to refill their TLBs again.
+
+Instead, leverage kvm_tlb_flush_vmid_range() for table entries.
+If the system supports it, only the required range will be
+flushed. Else, it'll fallback to the previous mechanism.
 
 Signed-off-by: Raghavendra Rao Ananta <rananta@google.com>
 Reviewed-by: Gavin Shan <gshan@redhat.com>
 Reviewed-by: Shaoqin Huang <shahuang@redhat.com>
 ---
- arch/arm64/include/asm/kvm_pgtable.h | 10 ++++++++++
- arch/arm64/kvm/hyp/pgtable.c         | 20 ++++++++++++++++++++
- 2 files changed, 30 insertions(+)
+ arch/arm64/kvm/hyp/pgtable.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/include/asm/kvm_pgtable.h b/arch/arm64/include/asm/kvm_pgtable.h
-index 8294a9a7e566d..5e8b1ff07854b 100644
---- a/arch/arm64/include/asm/kvm_pgtable.h
-+++ b/arch/arm64/include/asm/kvm_pgtable.h
-@@ -754,4 +754,14 @@ enum kvm_pgtable_prot kvm_pgtable_stage2_pte_prot(kvm_pte_t pte);
-  *	   kvm_pgtable_prot format.
-  */
- enum kvm_pgtable_prot kvm_pgtable_hyp_pte_prot(kvm_pte_t pte);
-+
-+/**
-+ * kvm_tlb_flush_vmid_range() - Invalidate/flush a range of TLB entries
-+ *
-+ * @mmu:	Stage-2 KVM MMU struct
-+ * @addr:	The base Intermediate physical address from which to invalidate
-+ * @size:	Size of the range from the base to invalidate
-+ */
-+void kvm_tlb_flush_vmid_range(struct kvm_s2_mmu *mmu,
-+				phys_addr_t addr, size_t size);
- #endif	/* __ARM64_KVM_PGTABLE_H__ */
 diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
-index aa740a974e024..5d14d5d5819a1 100644
+index 5d14d5d5819a1..5ef098af17362 100644
 --- a/arch/arm64/kvm/hyp/pgtable.c
 +++ b/arch/arm64/kvm/hyp/pgtable.c
-@@ -670,6 +670,26 @@ static bool stage2_has_fwb(struct kvm_pgtable *pgt)
- 	return !(pgt->flags & KVM_PGTABLE_S2_NOFWB);
- }
- 
-+void kvm_tlb_flush_vmid_range(struct kvm_s2_mmu *mmu,
-+				phys_addr_t addr, size_t size)
-+{
-+	unsigned long pages, inval_pages;
-+
-+	if (!system_supports_tlb_range()) {
-+		kvm_call_hyp(__kvm_tlb_flush_vmid, mmu);
-+		return;
-+	}
-+
-+	pages = size >> PAGE_SHIFT;
-+	while (pages > 0) {
-+		inval_pages = min(pages, MAX_TLBI_RANGE_PAGES);
-+		kvm_call_hyp(__kvm_tlb_flush_vmid_range, mmu, addr, inval_pages);
-+
-+		addr += inval_pages << PAGE_SHIFT;
-+		pages -= inval_pages;
-+	}
-+}
-+
- #define KVM_S2_MEMATTR(pgt, attr) PAGE_S2_MEMATTR(attr, stage2_has_fwb(pgt))
- 
- static int stage2_set_prot_attr(struct kvm_pgtable *pgt, enum kvm_pgtable_prot prot,
+@@ -806,7 +806,8 @@ static bool stage2_try_break_pte(const struct kvm_pgtable_visit_ctx *ctx,
+ 		 * evicted pte value (if any).
+ 		 */
+ 		if (kvm_pte_table(ctx->old, ctx->level))
+-			kvm_call_hyp(__kvm_tlb_flush_vmid, mmu);
++			kvm_tlb_flush_vmid_range(mmu, ctx->addr,
++						kvm_granule_size(ctx->level));
+ 		else if (kvm_pte_valid(ctx->old))
+ 			kvm_call_hyp(__kvm_tlb_flush_vmid_ipa, mmu,
+ 				     ctx->addr, ctx->level);
 -- 
 2.41.0.640.ga95def55d0-goog
 
