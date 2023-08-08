@@ -4,73 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50BD4C001DF
-	for <linux-riscv@archiver.kernel.org>; Tue,  8 Aug 2023 13:13:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1C13C001B0
+	for <linux-riscv@archiver.kernel.org>; Tue,  8 Aug 2023 13:17:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/WQZBSufZ9h0s3nS2plQeQCkQiB9u3F6OlpQ9EHQM+Y=; b=gQkMSFnIFR+AeCm/524jfGWMbq
-	9UmQTmAM1y1FNJmPVQOsA6gEiO7D+MRR+jmmM5ZcuDPOd52eN3OycRs8UdvMiOMwnU1h2r1VTRwo4
-	EZYUD4MZTbHg2HZdA1CKgDKqEeZkefUYA7pyqzgyIUf/TNTZAArVRq2d6PoERLxAfZi3pJ+bicn/j
-	EMiD6GBBWBnHU+kM3zpCzfz+IbVe0j6dOEUTsyyMncaC3MdGHJyXQ3gPCTndN4Tksm88iIBBwBlhq
-	p1sAXxMmiqMs/c6hQVX6tQcMIpRs8rvD4dHtag5OdyeBLRyA5OQ07LoNiH+3hWIFZJbduRTBiJTQX
-	u4PKVIGQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=yiczwYvRr1HANs+F3sZhcEaOVrUyIJiaXiOSmBhdT0w=; b=VBjGq3gwRODYjI
+	6JuHPnDVYsbo1+4lKSTN7/AF+2YLnFpSqjvqWfw1p//0hs5An0/TFLHkaycJm3+Bn8JVntBeliw4q
+	LemsYooPrsb+IThkoAZgkGMT1m+vhd03Z8QcWt5dK3WpFCeKqMVVe73xpvwjB0klJYJjPrbF6f0NH
+	HG8D0+EPa0ldyEu48QUfe3PYiSlSkPqxeXTHA2IGBsWj2r4AJRMKa5cPIKbVXrqDbx1rlYTq1g9a+
+	8Gnsiv15xRhI0pEpXCXfTBDJ9Qs5QQHFhG4CI5Bj97+NxMj6SJZU5I8YN6iwBcGVnyM/s1QHlLi3R
+	XgkeCnOTbMwwFxl/eSGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qTMWl-002cgP-0f;
-	Tue, 08 Aug 2023 13:13:35 +0000
+	id 1qTMaY-002d1c-0A;
+	Tue, 08 Aug 2023 13:17:30 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qTMWj-002cfx-1k
-	for linux-riscv@lists.infradead.org;
-	Tue, 08 Aug 2023 13:13:34 +0000
+	id 1qTMaU-002d0k-2I;
+	Tue, 08 Aug 2023 13:17:28 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id B7AAF61E9C;
-	Tue,  8 Aug 2023 13:13:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9A05FC433C7;
-	Tue,  8 Aug 2023 13:13:29 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 37DD262555;
+	Tue,  8 Aug 2023 13:17:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8DE47C433C8;
+	Tue,  8 Aug 2023 13:17:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1691500412;
-	bh=CD0ufiG3nAoVG6VwJg+1gXVvFXW3WqH9W+OfEUubutU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Xrd/rkrwZzOaPiJToz5IEiSANDWww27dyd63pY8Y3Xh3Y6r2ob4CEye9hp0bCkW3u
-	 jxcEA1dGIZsW3JuwDjxhNeFT/yT8j0XwECU3HuMP1sQxFzjh+2lEgm28zQA/0yXeC8
-	 +wkXDPOIUV2CJbvyz97qwyyOImcr5PiOLEdyZ3Ka0i7IVwTy92Ch3BlnB+t+hy8zME
-	 l2Cb94VOWnB/Dkw4Ejc5SBgLIPlNCgSdBn2L2CuDpcl2Tc7Go8mCaw9JgKcThkGZEb
-	 YG69lnEW+2OVCMZ2xYwA60ZmxkUVAtuXxVJn+9xqYKRt5SJa9mCISl7cZA0RiQ2ZKs
-	 rQ5lgd45MyLbA==
-Date: Tue, 8 Aug 2023 14:13:27 +0100
-From: Conor Dooley <conor@kernel.org>
-To: JeeHeng Sia <jeeheng.sia@starfivetech.com>
-Cc: Conor Dooley <conor.dooley@microchip.com>,
-	"palmer@dabbelt.com" <palmer@dabbelt.com>,
+	s=k20201202; t=1691500645;
+	bh=bIdTKs+XJSSYo9nmEk8w4qlYxgAKUeHbpejGGCNfpP8=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=McPNo2lfEjaEdqKynfZ1K+aBmcZ4YYIeVte/2s2vh5nLPjsV4zK8sJIVfpxCc7crr
+	 sDBGoRIO5LJCHaR77v68/J53DyRLx71gtm3zc1q1VOESQqBciSKl4OeFOBQVSPMd0S
+	 +tBpc5vokh/WWYwp0KB/adwLXL4vh9T5H99097FN3ekyEWjRbxQlUhwtyYf+fLzfY+
+	 NItyKZlA8+itKJ2p2ERAxkbIINwuG4v63bcdxovstp+yn724if/OpATk3O8McX4G8m
+	 CB3X6UnRJxGyxAaSluC5CbBaGo5curysvokB2eW3Z97rh38FOsSdo5qHmeplImgc93
+	 W5ZpsOrULl9RA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1qTMaR-0038Tj-Bu;
+	Tue, 08 Aug 2023 14:17:23 +0100
+Date: Tue, 08 Aug 2023 14:17:22 +0100
+Message-ID: <865y5phdwd.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Sunil V L <sunilvl@ventanamicro.com>
+Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	linux-doc@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-acpi@vger.kernel.org,
+	linux-pci@vger.kernel.org,
+	Jonathan Corbet <corbet@lwn.net>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
-	Atish Patra <atishp@rivosinc.com>,
-	Anup Patel <apatel@ventanamicro.com>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>,
-	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
-	Song Shuai <suagrfillet@gmail.com>,
-	Petr Tesarik <petrtesarik@huaweicloud.com>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"stable@vger.kernel.org" <stable@vger.kernel.org>
-Subject: Re: [RFT 1/2] RISC-V: handle missing "no-map" properties for
- OpenSBI's PMP protected regions
-Message-ID: <20230808-humility-rut-e1e46cf75708@spud>
-References: <20230802-purse-hydrant-6f44f77364b0@wendy>
- <20230802-detention-second-82ab2b53e07a@wendy>
- <3e066032031e4552b4b7903755deb669@EXMBX066.cuchost.com>
-MIME-Version: 1.0
-In-Reply-To: <3e066032031e4552b4b7903755deb669@EXMBX066.cuchost.com>
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Len Brown <lenb@kernel.org>,
+	Daniel Scally <djrscally@gmail.com>,
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Anup Patel <anup@brainfault.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Robert Moore <robert.moore@intel.com>,
+	Haibo Xu <haibo1.xu@intel.com>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Atish Kumar Patra <atishp@rivosinc.com>,
+	Anup Patel <apatel@ventanamicro.com>
+Subject: Re: [RFC PATCH v1 11/21] swnode: Add support to create early during boot
+In-Reply-To: <ZMyymUdV63g4eGaT@sunil-laptop>
+References: <20230803175916.3174453-1-sunilvl@ventanamicro.com>
+	<20230803175916.3174453-12-sunilvl@ventanamicro.com>
+	<ZMyWDDD6Lw8REd1r@smile.fi.intel.com>
+	<ZMyymUdV63g4eGaT@sunil-laptop>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/28.2
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: sunilvl@ventanamicro.com, andriy.shevchenko@linux.intel.com, linux-doc@vger.kernel.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org, linux-pci@vger.kernel.org, corbet@lwn.net, paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, catalin.marinas@arm.com, will@kernel.org, rafael@kernel.org, lenb@kernel.org, djrscally@gmail.com, heikki.krogerus@linux.intel.com, sakari.ailus@linux.intel.com, gregkh@linuxfoundation.org, daniel.lezcano@linaro.org, tglx@linutronix.de, anup@brainfault.org, bhelgaas@google.com, robert.moore@intel.com, haibo1.xu@intel.com, ajones@ventanamicro.com, conor.dooley@microchip.com, atishp@rivosinc.com, apatel@ventanamicro.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230808_061333_621910_D260F205 
-X-CRM114-Status: GOOD (  10.66  )
+X-CRM114-CacheID: sfid-20230808_061726_841912_AE71E1C2 
+X-CRM114-Status: GOOD (  35.57  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,54 +111,84 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============2710154583514222075=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Fri, 04 Aug 2023 09:11:05 +0100,
+Sunil V L <sunilvl@ventanamicro.com> wrote:
+> 
+> Hi Andy,
+> 
+> On Fri, Aug 04, 2023 at 09:09:16AM +0300, Andy Shevchenko wrote:
+> > On Thu, Aug 03, 2023 at 11:29:06PM +0530, Sunil V L wrote:
+> > > From: Anup Patel <apatel@ventanamicro.com>
+> > > 
+> > > swnode framework can be used to create fwnode for interrupt
+> > > controllers.
+> > 
+> > Why? What is this for?
+> > Can you elaborate? This commit message is poorly written...
+> > 
+> > And why firmware node is not enough for ACPI case?
+> > I assume the fwnode in DT case is already provided by OF.
+> > 
+> Thanks a lot for the review!.
+> 
+> You are right, OF provides the fwnode for irqchip drivers. However, for
+> ACPI case, it is typically created using irq_domain_alloc_named_fwnode
+> or irq_domain_alloc_fwnode since these are not ACPI devices in the
+> namespace but from MADT. The fwnode created using
+> irq_domain_alloc_fwnode() is a simple one which doesn't support properties
+> similar to the one created by OF framework or software node framework.
+> Hence, lot of data from the MADT structures need to be cached as
+> separate structures in the drivers and also would need several ifdefs to
+> check for ACPI and some amount of code duplication is also required due
+> to the way DT driver gets the information vs ACPI.
+> 
+> The beauty of software node framework is, it supports adding properties
+> and also is a supported fwnode type in __irq_domain_create().
 
---===============2710154583514222075==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="qg9u4gSpdwUq1o1/"
-Content-Disposition: inline
+There is no beauty here. Only some extra bloat that we do not need.
 
+DT and ACPI exposes very different attributes. One describe the HW,
+the other one describe an OS abstraction. Pretending that you can
+summon both into the same infrastructure is a fallacy. You'll just end
+up with the cross product of both infrastructure, and pollute the rest
+of the kernel with pointless cruft.
 
---qg9u4gSpdwUq1o1/
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+> So, if we
+> can create the fwnode for these irqchip using software node, we can
+> attach the same properties and the actual irqchip driver which uses the
+> fwnode doesn't need to have any ACPI vs DT checks. Same driver will work
+> seamlessly on both DT and ACPI platforms.  But the challenge is,
+> currently swnode expects to be created with sysfs which won't be
+> available during early boot when irqchip drivers need to be probed. So,
+> adding support to create without dependency on sysfs help us to reuse
+> the same framework for irqchip use case also.
 
-On Mon, Aug 07, 2023 at 12:44:07AM +0000, JeeHeng Sia wrote:
+That's another fallacy.
 
-> > +/* SBI implementation IDs */
-> > +#define SBI_IMP_OPENSBI	1
-> I would suggest to create an enum struct for the SBI Imp ID in
-> the sbi.h file. What do you think?
+Most irqchips *DO NOT* need to be probed early. Only the root
+irqchip. Given that this series is about *secondary* interrupt
+controllers, they absolutely don't need to be probed early.
 
-I'm not really sure what the advantage of doing so is.
+To be clear: I do not intend to merge anything that:
 
---qg9u4gSpdwUq1o1/
-Content-Type: application/pgp-signature; name="signature.asc"
+- invents yet another way to "abstract" firmware interfaces
 
------BEGIN PGP SIGNATURE-----
+- adds more "early probe" hacks for non-primary interrupt controllers
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZNI/dwAKCRB4tDGHoIJi
-0g9OAP9rXh4mheB9oj7xanTMiA+0dCjIXkz4ZFQ5YWlhs+GuLQD+NdUYNiTilS/Q
-A/GvpEnisAu6ETAprP5ROKjO+STbjQ8=
-=ag5L
------END PGP SIGNATURE-----
+I have already said that in response to Anup's AIA series, and this
+equally applies to this series.
 
---qg9u4gSpdwUq1o1/--
+	M.
 
-
---===============2710154583514222075==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+-- 
+Without deviation from the norm, progress is not possible.
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============2710154583514222075==--
-
