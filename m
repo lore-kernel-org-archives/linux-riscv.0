@@ -4,159 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D07E7C001DB
-	for <linux-riscv@archiver.kernel.org>; Tue,  8 Aug 2023 08:21:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93422C001DB
+	for <linux-riscv@archiver.kernel.org>; Tue,  8 Aug 2023 08:32:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lnpy93o7GQVwu7qJC17+Ff785IMPB3KnMhdRH6xM4JU=; b=qTAiq68EHtDgJc
-	ogg79wvRQ3+0JCumQCy9B1goJCz4o1wY0nq6OeEM3G4yPkQbJBgs3JMISyeeNOoHSa6hSHZJ57b9p
-	Ello7FnRQHRbmZVonw9I1VJ2OdmXMepjbvUwLmgWfx37VjupqYyHGNEPaTs0FkSo9VZ6s/8veK9LW
-	hWPU+nbXWUZxmyS4uBwOSNUUa+/9p8hz8Ml2OiRDgnbexa3kDdPGl6g6tmK4jKkA5Y4zZ//Vu9jfy
-	7lTBGX1W1EMNQOAlAcX1CJnxuXTyHQfQKMXinRsAjMaWNGuwbQFiLtDUkqH/3H4ZThC9apj9m3U2V
-	5fCtlBMAjJ3uLr9jP/uQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=015d0/5V+3VgQTkfswPcEUbjXmrorX1UM/HUL7CpQT8=; b=MsZAmDr6lrX1k6dRidUOTqXM9N
+	H0xBT0bF33EdNaer1y623FfETvs0LDdBvw7NFE0p0wpuzGA9rLz1ygs2qcH/JBEVVuyTHO7LWC0fg
+	PevWh2MDQ7AbPxND/wELuYJgTL0AY3utXPHfOdXzakDiCHJ1fd2PBE7uM6hZepJ1glypZ08kCOh1d
+	HKkB2jaUlMAf/tKAI0qI7L339xFu2HlM/A0h5iA9xwkviRQdqX+DFitSyunXQCCbqjpQyEbQDy75z
+	I6kF1PgTyxzz8dHIUH+6FiUtzbDqMo1R3ONLSmb3A2OssLEtY9tsAlrqV0MS+5GWzYDJcjvfkVaBl
+	Jwg6XG/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qTHyI-001zpS-2F;
-	Tue, 08 Aug 2023 08:21:42 +0000
-Received: from mail-vi1eur05on2060b.outbound.protection.outlook.com ([2a01:111:f400:7d00::60b] helo=EUR05-VI1-obe.outbound.protection.outlook.com)
+	id 1qTI8J-0022GB-01;
+	Tue, 08 Aug 2023 08:32:03 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qTHyE-001zok-1N;
-	Tue, 08 Aug 2023 08:21:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=armh.onmicrosoft.com;
- s=selector2-armh-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=WhR8nzJDi67Jj8GJ6kQuQ/Dk3+OOFzE7ipPT91oq0YY=;
- b=RgX4rGtKfTMK3etolpqPr4/tFK/CapLJEqPkb2J5n52ZtSvlnig7vFKHqqkcxl7gYR8CyYGBcPoXMAtDOff/3IHRnhwPhi++yGGXSX4hOREFmpO/rV4Lkzl/UQ1E05FZewzrSg+bsaK3fpMBuYFlAmVSMpuP77BqWMLocCoPYTA=
-Received: from DUZPR01CA0084.eurprd01.prod.exchangelabs.com
- (2603:10a6:10:46a::11) by AS8PR08MB6471.eurprd08.prod.outlook.com
- (2603:10a6:20b:338::8) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6652.26; Tue, 8 Aug
- 2023 08:21:29 +0000
-Received: from DBAEUR03FT043.eop-EUR03.prod.protection.outlook.com
- (2603:10a6:10:46a:cafe::9a) by DUZPR01CA0084.outlook.office365.com
- (2603:10a6:10:46a::11) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6652.27 via Frontend
- Transport; Tue, 8 Aug 2023 08:21:28 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 63.35.35.123)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=armh.onmicrosoft.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 63.35.35.123 as permitted sender) receiver=protection.outlook.com;
- client-ip=63.35.35.123; helo=64aa7808-outbound-1.mta.getcheckrecipient.com;
- pr=C
-Received: from 64aa7808-outbound-1.mta.getcheckrecipient.com (63.35.35.123) by
- DBAEUR03FT043.mail.protection.outlook.com (100.127.143.24) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.6678.16 via Frontend Transport; Tue, 8 Aug 2023 08:21:28 +0000
-Received: ("Tessian outbound f9124736ff4f:v145"); Tue, 08 Aug 2023 08:21:28 +0000
-X-CheckRecipientChecked: true
-X-CR-MTA-CID: ff87e41f44a6bd0b
-X-CR-MTA-TID: 64aa7808
-Received: from ea06c7611131.2
-	by 64aa7808-outbound-1.mta.getcheckrecipient.com id E6AD5EB6-09D2-41A7-AF28-C91632198147.1;
-	Tue, 08 Aug 2023 08:21:22 +0000
-Received: from EUR03-AM7-obe.outbound.protection.outlook.com
-    by 64aa7808-outbound-1.mta.getcheckrecipient.com with ESMTPS id ea06c7611131.2
-    (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384);
-    Tue, 08 Aug 2023 08:21:22 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=deQQipEitUkSFn+qABM+3WJnKbOU5xLfA4rGltgF06WPzotVuxQb0b6vfbMkE2lbaWmVn0HGAuL6KS+/gIwBENpL4GSJfG0Oy21Y/tPI5sqPunTzp+QblZmSvmF5EjkPzHEDe1LFCoVQoSV5DqzvaelVFq2z6kXNMM/gGiY91IStpya+IOE4GS2iN3waf1bvo0X2Mga0N27OIofr9YbIX0AoL0lHoy8ZIyVA3Sb3KawEdTJJEqtnKbp+Vj0mXX0GaZgx/1avFfP/f3UYTA4AxazDiysZEWb0FU78wxvqp8xEdld1QVTPoEBN6j/4i7OelpwV5irduEbbYAU833185A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=WhR8nzJDi67Jj8GJ6kQuQ/Dk3+OOFzE7ipPT91oq0YY=;
- b=VdxkacirVL0JeQf/5A/MwPGoZjXZczXN/eDtyAa4beLBgsg+JNtmuBxDx4Ioih1KhUJQl3qgI2IspDKbFeqxPGVP5ml30q+iC+9CvwTbSf4oRCiHNaYwgE6Kyrf1zO8tS4bR31P+T/Ph0t0FM8HxWhTLKageiezMGXyoIP+78CaYiYTsnm/FVbVP6/PhYcM36EpYzL/OMSu0DGKWAvyC9dMekbkQDWpTGx+Bp2Yieid8fedT615urcJ06YRdOuFYF9OK2LISj95rC7vNzWqoSFgIc9L6lMc/iKuMOxr2pPeTdweC8WKHMbbK7XMzXG6pTKso4IkRWCPKLThMvGhKHA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=armh.onmicrosoft.com;
- s=selector2-armh-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=WhR8nzJDi67Jj8GJ6kQuQ/Dk3+OOFzE7ipPT91oq0YY=;
- b=RgX4rGtKfTMK3etolpqPr4/tFK/CapLJEqPkb2J5n52ZtSvlnig7vFKHqqkcxl7gYR8CyYGBcPoXMAtDOff/3IHRnhwPhi++yGGXSX4hOREFmpO/rV4Lkzl/UQ1E05FZewzrSg+bsaK3fpMBuYFlAmVSMpuP77BqWMLocCoPYTA=
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-Received: from DB9PR08MB7179.eurprd08.prod.outlook.com (2603:10a6:10:2cc::19)
- by AS8PR08MB8468.eurprd08.prod.outlook.com (2603:10a6:20b:566::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6652.27; Tue, 8 Aug
- 2023 08:21:19 +0000
-Received: from DB9PR08MB7179.eurprd08.prod.outlook.com
- ([fe80::adb0:61cb:8733:6db2]) by DB9PR08MB7179.eurprd08.prod.outlook.com
- ([fe80::adb0:61cb:8733:6db2%7]) with mapi id 15.20.6652.026; Tue, 8 Aug 2023
- 08:21:19 +0000
-Date: Tue, 8 Aug 2023 09:21:03 +0100
-From: Szabolcs Nagy <Szabolcs.Nagy@arm.com>
-To: Mark Brown <broonie@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	James Morse <james.morse@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Arnd Bergmann <arnd@arndb.de>, Oleg Nesterov <oleg@redhat.com>,
-	Eric Biederman <ebiederm@xmission.com>,
-	Kees Cook <keescook@chromium.org>, Shuah Khan <shuah@kernel.org>,
-	"Rick P. Edgecombe" <rick.p.edgecombe@intel.com>,
-	Deepak Gupta <debug@rivosinc.com>, Ard Biesheuvel <ardb@kernel.org>,
-	"H.J. Lu" <hjl.tools@gmail.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
+	id 1qTI8F-0022En-1f;
+	Tue, 08 Aug 2023 08:32:01 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 63F7B62446;
+	Tue,  8 Aug 2023 08:31:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4A31BC433C8;
+	Tue,  8 Aug 2023 08:31:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1691483517;
+	bh=MpyvTQzwBjHbZI8sMSOd7J9/piSikcHHm+TWFR/stac=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=pka7NzrVjEQNbyWGI/WnWkrr+a5FjLtxCmsQcCOXphsY9L5W46RUvd6aapwlo9jCS
+	 NolUJckCfoY7fX/X9OHUnpMLYiuwRY70OYahppcxYoMgc9SHLse5Xn7id/DhVU/r/7
+	 nnGGJeO6e3yUm2+hcyf2EF+9bqOSVK4poXjiqNSyxgEPFVLlt4kExzhNuWuz9Xm7fH
+	 b1yO+pqKpbEjzdwsS/cserCryKALKg+zlphWhxpBehWtx4z+lnaAb+TJGL2UPyW0E/
+	 ETh8bu5SwkRbm9SP9U2vRi75kNMH8ZwGOZ53Zv9IaZc7clxnmeiTFjwGGpWVI3Plsk
+	 /lL4HFoVfbKgQ==
+Date: Tue, 8 Aug 2023 09:31:49 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Sunil V L <sunilvl@ventanamicro.com>
+Cc: linux-doc@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-acpi@vger.kernel.org, linux-pci@vger.kernel.org,
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Atish Kumar Patra <atishp@rivosinc.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Will Deacon <will@kernel.org>, Haibo Xu <haibo1.xu@intel.com>,
+	Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Robert Moore <robert.moore@intel.com>,
+	Andrew Jones <ajones@ventanamicro.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
-	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
-	kvmarm@lists.linux.dev, linux-fsdevel@vger.kernel.org,
-	linux-arch@vger.kernel.org, linux-mm@kvack.org,
-	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v3 21/36] arm64/mm: Implement map_shadow_stack()
-Message-ID: <ZNH679dDPtvotp5j@arm.com>
-References: <20230731-arm64-gcs-v3-0-cddf9f980d98@kernel.org>
- <20230731-arm64-gcs-v3-21-cddf9f980d98@kernel.org>
- <ZNDFioFIM34VcsuV@arm.com>
- <3a077ff3-8627-4337-9b4a-6a8828eda0e7@sirena.org.uk>
-Content-Disposition: inline
-In-Reply-To: <3a077ff3-8627-4337-9b4a-6a8828eda0e7@sirena.org.uk>
-X-ClientProxiedBy: LO4P265CA0197.GBRP265.PROD.OUTLOOK.COM
- (2603:10a6:600:318::13) To DB9PR08MB7179.eurprd08.prod.outlook.com
- (2603:10a6:10:2cc::19)
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Daniel Scally <djrscally@gmail.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	Anup Patel <anup@brainfault.org>, Len Brown <lenb@kernel.org>
+Subject: Re: [RFC PATCH v1 12/21] irqchip/riscv-intc: Use swnode framework to
+ create fwnode
+Message-ID: <20230808-chuck-jailhouse-0cb08b55d1bd@spud>
+References: <20230803175916.3174453-1-sunilvl@ventanamicro.com>
+ <20230803175916.3174453-13-sunilvl@ventanamicro.com>
 MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: DB9PR08MB7179:EE_|AS8PR08MB8468:EE_|DBAEUR03FT043:EE_|AS8PR08MB6471:EE_
-X-MS-Office365-Filtering-Correlation-Id: 02e780d4-8a64-4d8d-0f0d-08db97e87704
-x-checkrecipientrouted: true
-NoDisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;
-X-Microsoft-Antispam-Message-Info-Original: Ft622fNMGkEQ6+U1Ce0LU6Aq4negHwuHPibsTTSdzyK+Biad/755YGKa6pq5qUSdpsqDafb6SVQuq6m2l8mMxammMVF15MqfMb20Nxehvrbijcx1bvFbWh6OW2HZn7dXVHozhsE3mUV49GJO1p7rSRGs6n7X4Oh2f4XiR/7agqAYyuRGajGpCMCsJTCaXed3m32sy3+gRTxkYZ4XdcIokUZoBL6c4EKdXlxPqK7LbLjCgL4IWsgzUZV+lOaLjhlxITZGXui0Ol+AcPS4mU+VEFwtvA5KLBQgsvDeTEyHCJWv21CG75G8tnlc0vMdlTBmBR9/iwLlGE40Tudyy2UonNpWVIjhnEbDK6esI9cYiWBBfeQrkA1kGjE4MMm0SujeI9qeHLrdGyeKOk9SVaalSF1DGh+JVWcdNDZXR+eCL91C3/CeCcCa2skQ9v30dgN162PgVDR87srpDLNiV+WIkZeOygyGwvRevGp4KUf7uQOGvzg5zLR25zrCDYgRYIhZpaNcvw2oWsxFFt9niZPBNdggshVvnaKYILWXR9ABo/AMsYoXn0IXCMuHccgzHO0xP6SUrClzkpHHrHMVJ6nWAFsHm8e1ZQMpnPL8sYMRDtZUux8pImG1zrbKxKrKCHRnw9IA6Sn+35V6vQxyzJHEpQ==
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR08MB7179.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230028)(136003)(346002)(396003)(39860400002)(366004)(376002)(186006)(1800799003)(90021799007)(90011799007)(451199021)(2616005)(26005)(6506007)(6512007)(6486002)(6666004)(478600001)(54906003)(38100700002)(36756003)(66476007)(66556008)(66946007)(4326008)(6916009)(316002)(41300700001)(8936002)(8676002)(5660300002)(7416002)(2906002)(86362001);DIR:OUT;SFP:1101;
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR08MB8468
-Original-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: DBAEUR03FT043.eop-EUR03.prod.protection.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: d408608a-4334-4b70-2817-08db97e87015
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: 7N/7su3k1wy8orqDi1aFfk/EZ3khrLiIAveLSbFxsOGjUDU1SlYFd2YGzkGSpuV+fQsaAbGG4ak1MEPe7LcKKSljaMjkuLq0XVlr86I4siywjpMho11kr4jF3N5LDXC+2RvzStzf5t/RbPC3apt09iYKte/DP8LOMuelRFWjsxP6tkKy7YQiJjMcfzr5dmBiSjU6VIGBfgZy1TIaMVBAGrr2k9eWh6YuiCY2VzMuvv5tC1QFnbG+jYCC3MTC/pN8eUSqIBMQZcbvBegsrTPjhz57W1rLVdZU8opDPtWSOxnwLnG1vYbBxG9fpKOYuVoCiH4FnkYbiXJdwZrMVWdrI+rdqlvhmrwqLQgUFN9bSK2GwQdzGtTT1+0Gq5zZMxpnrvByVocdnq+jKJVEc49QvjzNGK9kzjPY9aqYs8BKQrWNsRsUJKtDoeohL2oJjzd1kXRU0K3YeHMPKVWiyOdu4RjGSbILaZR65YMVuGaZ81OqhsPp6L9+BiL0ivvz9yLkUcI4iKWhzxhO1WMf59vfHo7zzePZ4BFpaeBvKiv8E8bt4/+/ze5fs5JhPoe3rVtI95b+26kbl9K4V/YmaDgnsh0hyDx4AEWvLlxGQ3wobQmCSuy/RQ4exLo8MimdyEdM3vQ4Is6rLYvG1hiZ4mPDE20y1rTcPdYat5ho1uIQiPu9hM6tuXm6rd4ZOTzkaCHkiTQ4skGDJ2rXc5Pl2Rw/Ha7AOrvsVJJeDufBLG0V3KG8TS6VD5RTTifcYLCU1sgGqEhduKoo9X1KRqq7/dOYfDHnL8OMSy03DflkvihiVKWMAPHpGirRdl2+757aC7Mz
-X-Forefront-Antispam-Report: CIP:63.35.35.123;CTRY:IE;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:64aa7808-outbound-1.mta.getcheckrecipient.com;PTR:ec2-63-35-35-123.eu-west-1.compute.amazonaws.com;CAT:NONE;SFS:(13230028)(4636009)(346002)(39860400002)(136003)(376002)(396003)(90021799007)(82310400008)(186006)(1800799003)(451199021)(90011799007)(46966006)(36840700001)(40470700004)(41300700001)(26005)(2906002)(5660300002)(8676002)(36860700001)(47076005)(8936002)(6862004)(40460700003)(2616005)(40480700001)(336012)(81166007)(316002)(6486002)(82740400003)(6506007)(450100002)(54906003)(356005)(70206006)(478600001)(70586007)(6666004)(86362001)(6512007)(4326008)(36756003);DIR:OUT;SFP:1101;
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Aug 2023 08:21:28.7706
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 02e780d4-8a64-4d8d-0f0d-08db97e87704
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[63.35.35.123];Helo=[64aa7808-outbound-1.mta.getcheckrecipient.com]
-X-MS-Exchange-CrossTenant-AuthSource: DBAEUR03FT043.eop-EUR03.prod.protection.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR08MB6471
+In-Reply-To: <20230803175916.3174453-13-sunilvl@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230808_012138_542539_58905DEB 
-X-CRM114-Status: GOOD (  19.57  )
+X-CRM114-CacheID: sfid-20230808_013159_644134_F79977B4 
+X-CRM114-Status: GOOD (  36.86  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,60 +91,232 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============5152043094746382015=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The 08/07/2023 14:00, Mark Brown wrote:
-> On Mon, Aug 07, 2023 at 11:20:58AM +0100, Szabolcs Nagy wrote:
-> > The 07/31/2023 14:43, Mark Brown wrote:
-> > > +SYSCALL_DEFINE3(map_shadow_stack, unsigned long, addr, unsigned long, size, unsigned int, flags)
-> > > +{
-> > > +	unsigned long alloc_size;
-> > > +	unsigned long __user *cap_ptr;
-> > > +	unsigned long cap_val;
-> > > +	int ret;
-> > > +
-> > > +	if (!system_supports_gcs())
-> > > +		return -EOPNOTSUPP;
-> > > +
-> > > +	if (flags)
-> > > +		return -EINVAL;
-> > > +
-> > > +	if (addr % 16)
-> > > +		return -EINVAL;
-> 
-> > mmap addr must be page aligned (and there is no align req on size).
-> 
-> > i'd expect similar api here.
-> 
-> That's not what the manual page or a quick check of the code suggest
-> that mmap() does, they say that the kernel just takes it as a hint and
 
-i should have said that i expect MAP_FIXED_NOREPLACE semantics
-(since the x86 code seemed to use that) and then the mapped
-address must match exactly thus page aligned.
+--===============5152043094746382015==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="KGbrO9FdUrNn/kR9"
+Content-Disposition: inline
 
-> chooses a nearby page boundary, though I didn't test.  I'm not sure why
-> I have that alignment check at all TBH, and to the extent it's needed I
-> could just be 8 - this level of code doesn't really care.
-> 
-> > > +	if (size == 16 || size % 16)
-> > > +		return -EINVAL;
-> 
-> > why %16 and not %8 ?
-> 
-> I don't think that's needed any more - there was some stuff in an
-> earlier version of the code but no longer.
 
-it's kind of important to know the exact logic so the cap token
-location can be computed in userspace for arbitrary size.
+--KGbrO9FdUrNn/kR9
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-(this is why i wanted to see the map_shadow_stack man page first
-but i was told that comes separately on linux..)
+Hey Sunil,
+
+On Thu, Aug 03, 2023 at 11:29:07PM +0530, Sunil V L wrote:
+> By using swnode framework, all data from ACPI tables can
+> be populated as properties of the swnode. This simplifies
+> the driver code and removes the need for ACPI vs DT checks.
+> Use this framework for RISC-V INTC driver.
+
+btw, you are permitted to use more than 60 characters in a commit
+message...
+
+>=20
+> Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
+> ---
+>  Documentation/riscv/acpi.rst     | 21 +++++++++++++++
+>  arch/riscv/include/asm/acpi.h    |  1 +
+>  drivers/acpi/riscv/Makefile      |  2 +-
+>  drivers/acpi/riscv/irqchip.c     | 46 ++++++++++++++++++++++++++++++++
+>  drivers/irqchip/irq-riscv-intc.c | 12 ++++-----
+>  5 files changed, 75 insertions(+), 7 deletions(-)
+>  create mode 100644 drivers/acpi/riscv/irqchip.c
+>=20
+> diff --git a/Documentation/riscv/acpi.rst b/Documentation/riscv/acpi.rst
+> index 9870a282815b..e2406546bc16 100644
+> --- a/Documentation/riscv/acpi.rst
+> +++ b/Documentation/riscv/acpi.rst
+> @@ -8,3 +8,24 @@ The ISA string parsing rules for ACPI are defined by `Ve=
+rsion ASCIIDOC
+>  Conversion, 12/2022 of the RISC-V specifications, as defined by tag
+>  "riscv-isa-release-1239329-2023-05-23" (commit 1239329
+>  ) <https://github.com/riscv/riscv-isa-manual/releases/tag/riscv-isa-rele=
+ase-1239329-2023-05-23>`_
+> +
+> +Interrupt Controller Drivers
+> +=3D=3D=3D=3D=3D=3D=3D
+> +
+> +ACPI drivers for RISC-V interrupt controllers use software node framewor=
+k to
+> +create the fwnode for the interrupt controllers. Below properties are
+> +additionally required for some firmware nodes apart from the properties
+> +defined by the device tree bindings for these interrupt controllers. The
+> +properties are created using the data in MADT table.
+
+I don't really understand this text, specifically what you are getting
+at w/ the dependency on devicetree properties. What exactly does "apart
+=66rom the properties defined by the devicetree bindings" mean?
+
+Is there prior art for this kind of "ACPI needs swnodes that look
+vaguely similar to devicetree" for other interrupt controllers?
+
+Thanks,
+Conor.
+
+> +1) RISC-V Interrupt Controller (INTC)
+> +-----------
+> +``hartid`` - Hart ID of the hart this interrupt controller belongs to.
+> +
+> +``riscv,imsic-addr`` - Physical base address of the Incoming MSI Control=
+ler
+> +(IMSIC) MMIO region of this hart.
+> +
+> +``riscv,imsic-size`` - Size in bytes of the IMSIC MMIO region of this ha=
+rt.
+> +
+> +``riscv,ext-intc-id`` - The unique ID of the external interrupts connect=
+ed
+> +to this hart.
+> diff --git a/arch/riscv/include/asm/acpi.h b/arch/riscv/include/asm/acpi.h
+> index 0c4e8b35103e..0ac2df2dd194 100644
+> --- a/arch/riscv/include/asm/acpi.h
+> +++ b/arch/riscv/include/asm/acpi.h
+> @@ -68,6 +68,7 @@ int acpi_get_riscv_isa(struct acpi_table_header *table,
+>  static inline int acpi_numa_get_nid(unsigned int cpu) { return NUMA_NO_N=
+ODE; }
+>  int acpi_get_cbo_block_size(struct acpi_table_header *table, unsigned in=
+t cpu, u32 *cbom_size,
+>  			    u32 *cboz_size, u32 *cbop_size);
+> +struct fwnode_handle *acpi_rintc_create_irqchip_fwnode(struct acpi_madt_=
+rintc *rintc);
+>  #else
+>  static inline void acpi_init_rintc_map(void) { }
+>  static inline struct acpi_madt_rintc *acpi_cpu_get_madt_rintc(int cpu)
+> diff --git a/drivers/acpi/riscv/Makefile b/drivers/acpi/riscv/Makefile
+> index 8b3b126e0b94..8b664190d172 100644
+> --- a/drivers/acpi/riscv/Makefile
+> +++ b/drivers/acpi/riscv/Makefile
+> @@ -1,2 +1,2 @@
+>  # SPDX-License-Identifier: GPL-2.0-only
+> -obj-y 	+=3D rhct.o
+> +obj-y 	+=3D rhct.o irqchip.o
+> diff --git a/drivers/acpi/riscv/irqchip.c b/drivers/acpi/riscv/irqchip.c
+> new file mode 100644
+> index 000000000000..36f066a2cad5
+> --- /dev/null
+> +++ b/drivers/acpi/riscv/irqchip.c
+> @@ -0,0 +1,46 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * Copyright (C) 2023, Ventana Micro Systems Inc
+> + *	Author: Sunil V L <sunilvl@ventanamicro.com>
+> + *
+> + */
+> +
+> +#include <linux/acpi.h>
+> +#include <linux/fwnode.h>
+> +#include <linux/irqdomain.h>
+> +#include <linux/list.h>
+> +#include <linux/property.h>
+> +
+> +struct riscv_irqchip_list {
+> +	struct fwnode_handle *fwnode;
+> +	struct list_head list;
+> +};
+> +
+> +LIST_HEAD(rintc_list);
+> +
+> +struct fwnode_handle *acpi_rintc_create_irqchip_fwnode(struct acpi_madt_=
+rintc *rintc)
+> +{
+> +	struct property_entry props[6] =3D {};
+> +	struct fwnode_handle *fwnode;
+> +	struct riscv_irqchip_list *rintc_element;
+> +
+> +	props[0] =3D PROPERTY_ENTRY_U64("hartid", rintc->hart_id);
+> +	props[1] =3D PROPERTY_ENTRY_U32("riscv,ext-intc-id", rintc->ext_intc_id=
+);
+> +	props[2] =3D PROPERTY_ENTRY_U64("riscv,imsic-addr", rintc->imsic_addr);
+> +	props[3] =3D PROPERTY_ENTRY_U32("riscv,imsic-size", rintc->imsic_size);
+> +	props[4] =3D PROPERTY_ENTRY_U32("#interrupt-cells", 1);
+> +
+> +	fwnode =3D fwnode_create_software_node_early(props, NULL);
+> +	if (fwnode) {
+> +		rintc_element =3D kzalloc(sizeof(*rintc_element), GFP_KERNEL);
+> +		if (!rintc_element) {
+> +			fwnode_remove_software_node(fwnode);
+> +			return NULL;
+> +		}
+> +
+> +		rintc_element->fwnode =3D fwnode;
+> +		list_add_tail(&rintc_element->list, &rintc_list);
+> +	}
+> +
+> +	return fwnode;
+> +}
+> diff --git a/drivers/irqchip/irq-riscv-intc.c b/drivers/irqchip/irq-riscv=
+-intc.c
+> index 1a0fc87152c5..1ef9cada1ed3 100644
+> --- a/drivers/irqchip/irq-riscv-intc.c
+> +++ b/drivers/irqchip/irq-riscv-intc.c
+> @@ -203,6 +203,12 @@ static int __init riscv_intc_acpi_init(union acpi_su=
+btable_headers *header,
+> =20
+>  	rintc =3D (struct acpi_madt_rintc *)header;
+> =20
+> +	fn =3D acpi_rintc_create_irqchip_fwnode(rintc);
+> +	if (!fn) {
+> +		pr_err("unable to create INTC FW node\n");
+> +		return -ENOMEM;
+> +	}
+> +
+>  	/*
+>  	 * The ACPI MADT will have one INTC for each CPU (or HART)
+>  	 * so riscv_intc_acpi_init() function will be called once
+> @@ -212,12 +218,6 @@ static int __init riscv_intc_acpi_init(union acpi_su=
+btable_headers *header,
+>  	if (riscv_hartid_to_cpuid(rintc->hart_id) !=3D smp_processor_id())
+>  		return 0;
+> =20
+> -	fn =3D irq_domain_alloc_named_fwnode("RISCV-INTC");
+> -	if (!fn) {
+> -		pr_err("unable to allocate INTC FW node\n");
+> -		return -ENOMEM;
+> -	}
+> -
+>  	return riscv_intc_init_common(fn);
+>  }
+> =20
+> --=20
+> 2.39.2
+>=20
+>=20
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--KGbrO9FdUrNn/kR9
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZNH9dQAKCRB4tDGHoIJi
+0irpAQCn4tpo+ZUuKBiS5LlN2kTNA7QFVujwPoaS1jfnlSeJTAEAkLdDYwU7W+ML
+Vydp6LtqVqBQYdbOuMRHnZvBwVgH6A0=
+=cP5x
+-----END PGP SIGNATURE-----
+
+--KGbrO9FdUrNn/kR9--
+
+
+--===============5152043094746382015==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============5152043094746382015==--
+
