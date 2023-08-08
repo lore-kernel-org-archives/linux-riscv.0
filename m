@@ -4,81 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15545C001B0
-	for <linux-riscv@archiver.kernel.org>; Tue,  8 Aug 2023 16:35:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90E05C001B0
+	for <linux-riscv@archiver.kernel.org>; Tue,  8 Aug 2023 16:43:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
-	Mime-Version:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=UXeHtXW18mBfyF4qovDvXFF2vQyLrMWLev+0pQXfeHA=; b=G5N
-	NXGMeJuGpSQmR6aO6G7YlNDbIaOPcsAAUaF3MEcgYM4z9CRw71e3aeCiBxQbI5SV1TnsBFUNMoDgU
-	4axuXRujNh99KjdBxHFiuYI0g25H5wqKWtWvSPizIdXHE0ic54IUE7Cb4Lui3WRHotYueIu8LU5pf
-	ls/2F8LZ3/NMpgWmF2K+rjEqRcrJ2g46VSBqOdK0Z61I0KjJmd6OzOrpcFFGz754K4bbazW0jimlX
-	AygHMjY3ihiqD7rc3Ml5VxiZsNyn+lw1XlbAYQZNkoYcwEcBhl2KbxszElScrRD0DagXqB5y9YuzZ
-	os5zPHKGHdvNWsiVDtYZWHfxLktZYpg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Message-ID:References:In-Reply-To:Subject:Cc:To:From
+	:Date:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KXFTiXOPL6oPcMf5b/V9Bm/qL8gT5mTBMcSmLd8muaA=; b=uQwua4v8yRwXcceHg08vX4Czro
+	p5WM2ECt8JL/1iMiKV/EXnc/WbWeayl72s3Gh8TWe2XZtKvyiqvpLS1bOTIGQYJ4RRunuZZfkyjJr
+	SiAcP4wth/Y75xVdrjeZo0ruyCuVj7UX13Sk8w8dgpuSLdFgu9A3E7JrQaT58k7hJ53Nk851K7Fsc
+	Gzz9t7DpxapOwE2pEshZDEHp/Sab3XD3Thx6uMAJoeEiUGvpi2FbfRLN4fcfruMCKahxxst9pggBk
+	cvw/ybWuu3NX4mUaoADry6JwUYjm26i2dbu5BAxKnV7KxgZpqP+YWpICUyN14JpkPpm10JntsUfmm
+	6HHE/+uA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qTPft-002zTK-2D;
-	Tue, 08 Aug 2023 16:35:13 +0000
-Received: from mail-yw1-x114a.google.com ([2607:f8b0:4864:20::114a])
+	id 1qTPnZ-0030XC-1s;
+	Tue, 08 Aug 2023 16:43:09 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qTPfr-002zRq-0W
-	for linux-riscv@lists.infradead.org;
-	Tue, 08 Aug 2023 16:35:12 +0000
-Received: by mail-yw1-x114a.google.com with SMTP id 00721157ae682-583fe0f84a5so69094177b3.3
-        for <linux-riscv@lists.infradead.org>; Tue, 08 Aug 2023 09:35:08 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20221208; t=1691512507; x=1692117307;
-        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=nTM81EZMZbsGROKqkK+2bQm1mxf+detNdwYuQiVhiKI=;
-        b=NLhu0LP53J4D4l9J4feCfPU5/l3uqoArpZHJ0ECEL6xFUd0tcpgZfboT0p/kOcrv1i
-         XurwyVIyJVvh9OLoEaf6pP9EgBzqx+ayApgGh3mgBpvOf8w6olcj27SbvaSxITbSMqMN
-         CgZIpuMxyfhJyCSjXwTvGkaVdAxYLJF3xZxoaQMDQ1UZxjr4Q22jzvvMcQCFf6tLqeH7
-         1dEKTsxQeURWUr5SVN0EFpwesJP3bx+hG1gUlPCXdsSwapIam0tuneLG1tBKmOCqJyjW
-         1Y55eWM+4i5zr9j8RJ8Sbzv34OO4Vxei1vpJY8o02jLQT9JQrGXhAGl7FUdxFgOn6p1t
-         BbFg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1691512507; x=1692117307;
-        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=nTM81EZMZbsGROKqkK+2bQm1mxf+detNdwYuQiVhiKI=;
-        b=cLRdVUwX4q7Z68zAS1Ma2VSp2ypnA+S9wT1LNm21T+Gi0QhnGOsesMG5gDBv7ZUyNy
-         QhQx+HA/0dkqbjdQOv/9UAlkwdDWqHkjhxqDB3sEItGvmovJmHhuJGn6yFZ93PPT9r2G
-         pmIpeNKm92aAOZOABEtu2gTW6+aHxjl1rpzr6B2Eoxmy3597yRRw545G5MQsWawGpl7G
-         PNgFK52SGkxxpaFCfr44nRZ0fbgeg02JlaA13kHQM3O/nkJhHYr+ug86B0/KeqZBfGag
-         7+OOXbtDQWV29kWAmaFdMIhTWeIW28DGNsSKuD72MSsQfF8YKl6VyFsfdXpL6XL+z9ws
-         eubg==
-X-Gm-Message-State: AOJu0Yza+x+Z0s2jUmVVtk5Yq4vgGs3U2rIKoLhG+KPBrXGAi55DKM24
-	RQL+0Z5BJCFzrA4Gfpwwzg0t91rIJ+fPsx2YpxA=
-X-Google-Smtp-Source: AGHT+IGra8Wwc+HhL5o0pTOnXN44VrV3kTC7GbKyzGjGnaN9IQv8EY6FCqvWavWJO404OgNolWFZn+285BMePOXRcxo=
-X-Received: from ndesaulniers-desktop.svl.corp.google.com ([2620:15c:2d1:203:cc03:38d0:9718:e90b])
- (user=ndesaulniers job=sendgmr) by 2002:a81:764a:0:b0:586:b4e9:753 with SMTP
- id j10-20020a81764a000000b00586b4e90753mr2137ywk.4.1691512507357; Tue, 08 Aug
- 2023 09:35:07 -0700 (PDT)
-Date: Tue, 08 Aug 2023 09:35:00 -0700
-Mime-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIALNu0mQC/3XMwQoCIRSF4VcZ7jrD0Sht1XvEEKJX50KNg4oUg
- ++ezb7lf+B8G2RMhBmuwwYJK2WKSw9xGMDOZgnIyPUGwYXkiiuWKNv6yMUUskyeFJdndNbgBfp lTejpvXP3qfdMucT02fU6/tY/UB3ZyLSXzmrtjEd1CzGGJx5tfMHUWvsClxODhakAAAA=
-X-Developer-Key: i=ndesaulniers@google.com; a=ed25519; pk=UIrHvErwpgNbhCkRZAYSX0CFd/XFEwqX3D0xqtqjNug=
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1691512501; l=3558;
- i=ndesaulniers@google.com; s=20220923; h=from:subject:message-id;
- bh=0g7k5Ub/PaWtkHDnipVyOF/RYqCFfg6Kly4NdhVJ1+4=; b=Ug/yXmBRV7rjndULD++FZYy1jLinoPsNkkAK8t9L3JV7U5XhMf8DHNpIh7iNPIn8X5mPxvKoJ
- dRaQj3ShdkZADTxwuBmiZkSOcXfBMna7SC6UFCfavkMC+GX9BFqJcFd
-X-Mailer: b4 0.12.3
-Message-ID: <20230808-riscv_static-v2-1-2a1e2d2c7a4f@google.com>
-Subject: [PATCH v2] riscv: mm: fix 2 instances of -Wmissing-variable-declarations
-From: Nick Desaulniers <ndesaulniers@google.com>
-To: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Nathan Chancellor <nathan@kernel.org>, Tom Rix <trix@redhat.com>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	llvm@lists.linux.dev, kernel test robot <lkp@intel.com>, 
-	Nick Desaulniers <ndesaulniers@google.com>
+	id 1qTPnW-0030WU-0N;
+	Tue, 08 Aug 2023 16:43:07 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 668DF62503;
+	Tue,  8 Aug 2023 16:43:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C06C2C433C8;
+	Tue,  8 Aug 2023 16:43:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1691512984;
+	bh=qn/5n73aPx19R3sftb3hyCv0xP0bVP4jPYkwssW5D70=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=EI/M+9L9WfV7CfX9Gg3l8wginZaWaHFChW2GM/OsGfB64YDDzgU8NJsfkDrHXAvR5
+	 VAaNmxsPoqAHDEiP8QulOu4i3ulD9YXkGKshknFhvU2u/SxvikGwp/YsrNUGVLkPw1
+	 FTzl+keanf3MdzsjLZoGYa7oT0z7q0DKG1X4hSjicnx40hnIFKQ1T80kw3emqiyqrU
+	 qSJHtLdCG2fha5vwJPzSzfRqjDfWoP2oD1r97l9SogvHJSiPgP8wzPENILebk1zzmj
+	 2zFUZQP4wQ/G7opUpEJ2KrCWciEWKfgvHzrrOBU53m0/AjNq+SZusg16vaM6+4MQNT
+	 uUWZZf7j9O3Ag==
+Received: from disco-boy.misterjones.org ([217.182.43.188] helo=www.loen.fr)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1qTPnS-003BwZ-B2;
+	Tue, 08 Aug 2023 17:43:02 +0100
+MIME-Version: 1.0
+Date: Tue, 08 Aug 2023 17:43:02 +0100
+From: Marc Zyngier <maz@kernel.org>
+To: Raghavendra Rao Ananta <rananta@google.com>
+Cc: Sean Christopherson <seanjc@google.com>, Oliver Upton
+ <oliver.upton@linux.dev>, James Morse <james.morse@arm.com>, Suzuki K
+ Poulose <suzuki.poulose@arm.com>, Paolo Bonzini <pbonzini@redhat.com>,
+ Huacai Chen <chenhuacai@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>, Anup
+ Patel <anup@brainfault.org>, Atish Patra <atishp@atishpatra.org>, Jing Zhang
+ <jingzhangos@google.com>, Reiji Watanabe <reijiw@google.com>, Colton Lewis
+ <coltonlewis@google.com>, David Matlack <dmatlack@google.com>,
+ linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+ linux-mips@vger.kernel.org, kvm-riscv@lists.infradead.org,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ kvm@vger.kernel.org
+Subject: Re: [PATCH v7 02/12] KVM: arm64: Use kvm_arch_flush_remote_tlbs()
+In-Reply-To: <CAJHc60yiGnVc=ysdOaNemWaDpTBSk02mRLenK3sN2XtN_Cp98g@mail.gmail.com>
+References: <20230722022251.3446223-1-rananta@google.com>
+ <20230722022251.3446223-3-rananta@google.com> <87tttpr6qy.wl-maz@kernel.org>
+ <ZMgsjx8dwKd4xBGe@google.com> <877cqdqw12.wl-maz@kernel.org>
+ <CAJHc60xAUVt5fbhEkOqeC-VF8SWVOt3si=1yxVVAUW=+Hu_wNg@mail.gmail.com>
+ <CAJHc60zN-dc2E-fS7fuXgkrfGD9bqW6tMy2GRZxbHOeZv0ZOBw@mail.gmail.com>
+ <ZNJaPxTtPRCv0HOl@google.com>
+ <CAJHc60yiGnVc=ysdOaNemWaDpTBSk02mRLenK3sN2XtN_Cp98g@mail.gmail.com>
+User-Agent: Roundcube Webmail/1.4.13
+Message-ID: <fc430350dd7d8ac664054a99f1e452c1@kernel.org>
+X-Sender: maz@kernel.org
+X-SA-Exim-Connect-IP: 217.182.43.188
+X-SA-Exim-Rcpt-To: rananta@google.com, seanjc@google.com, oliver.upton@linux.dev, james.morse@arm.com, suzuki.poulose@arm.com, pbonzini@redhat.com, chenhuacai@kernel.org, yuzenghui@huawei.com, anup@brainfault.org, atishp@atishpatra.org, jingzhangos@google.com, reijiw@google.com, coltonlewis@google.com, dmatlack@google.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-mips@vger.kernel.org, kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, kvm@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230808_093511_198873_FF822E72 
-X-CRM114-Status: GOOD (  13.51  )
+X-CRM114-CacheID: sfid-20230808_094306_239283_B355B3C7 
+X-CRM114-Status: GOOD (  20.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,109 +95,46 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-I'm looking to enable -Wmissing-variable-declarations behind W=1. 0day
-bot spotted the following instance in ARCH=riscv builds:
-
-  arch/riscv/mm/init.c:276:7: warning: no previous extern declaration
-  for non-static variable 'trampoline_pg_dir'
-  [-Wmissing-variable-declarations]
-  276 | pgd_t trampoline_pg_dir[PTRS_PER_PGD] __page_aligned_bss;
-      |       ^
-  arch/riscv/mm/init.c:276:1: note: declare 'static' if the variable is
-  not intended to be used outside of this translation unit
-  276 | pgd_t trampoline_pg_dir[PTRS_PER_PGD] __page_aligned_bss;
-      | ^
-  arch/riscv/mm/init.c:279:7: warning: no previous extern declaration
-  for non-static variable 'early_pg_dir'
-  [-Wmissing-variable-declarations]
-  279 | pgd_t early_pg_dir[PTRS_PER_PGD] __initdata __aligned(PAGE_SIZE);
-      |       ^
-  arch/riscv/mm/init.c:279:1: note: declare 'static' if the variable is
-  not intended to be used outside of this translation unit
-  279 | pgd_t early_pg_dir[PTRS_PER_PGD] __initdata __aligned(PAGE_SIZE);
-      | ^
-
-These symbols are referenced by more than one translation unit, so make
-sure they're both declared and include the correct header for their
-declarations. Finally, sort the list of includes to help keep them tidy.
-
-Reported-by: kernel test robot <lkp@intel.com>
-Closes: https://lore.kernel.org/llvm/202308081000.tTL1ElTr-lkp@intel.com/
-Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
----
-Changes in v2:
-- Forward declare early_pg_dir, too.
-- Remove declaration of early_pg_dir from arch/riscv/mm/kasan_init.c.
-- Link to v1: https://lore.kernel.org/r/20230808-riscv_static-v1-1-9f3dc99dafe8@google.com
----
- arch/riscv/include/asm/pgtable.h | 2 ++
- arch/riscv/mm/init.c             | 9 +++++----
- arch/riscv/mm/kasan_init.c       | 1 -
- 3 files changed, 7 insertions(+), 5 deletions(-)
-
-diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-index 75970ee2bda2..b5680c940c1e 100644
---- a/arch/riscv/include/asm/pgtable.h
-+++ b/arch/riscv/include/asm/pgtable.h
-@@ -188,6 +188,8 @@ extern struct pt_alloc_ops pt_ops __initdata;
- #define PAGE_KERNEL_IO		__pgprot(_PAGE_IOREMAP)
- 
- extern pgd_t swapper_pg_dir[];
-+extern pgd_t trampoline_pg_dir[];
-+extern pgd_t early_pg_dir[];
- 
- #ifdef CONFIG_TRANSPARENT_HUGEPAGE
- static inline int pmd_present(pmd_t pmd)
-diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index 9ce504737d18..cc0e06b4f223 100644
---- a/arch/riscv/mm/init.c
-+++ b/arch/riscv/mm/init.c
-@@ -26,12 +26,13 @@
- #include <linux/kfence.h>
- 
- #include <asm/fixmap.h>
--#include <asm/tlbflush.h>
--#include <asm/sections.h>
--#include <asm/soc.h>
- #include <asm/io.h>
--#include <asm/ptdump.h>
- #include <asm/numa.h>
-+#include <asm/pgtable.h>
-+#include <asm/ptdump.h>
-+#include <asm/sections.h>
-+#include <asm/soc.h>
-+#include <asm/tlbflush.h>
- 
- #include "../kernel/head.h"
- 
-diff --git a/arch/riscv/mm/kasan_init.c b/arch/riscv/mm/kasan_init.c
-index 8fc0efcf905c..a01bc15dce24 100644
---- a/arch/riscv/mm/kasan_init.c
-+++ b/arch/riscv/mm/kasan_init.c
-@@ -22,7 +22,6 @@
-  * region is not and then we have to go down to the PUD level.
-  */
- 
--extern pgd_t early_pg_dir[PTRS_PER_PGD];
- pgd_t tmp_pg_dir[PTRS_PER_PGD] __page_aligned_bss;
- p4d_t tmp_p4d[PTRS_PER_P4D] __page_aligned_bss;
- pud_t tmp_pud[PTRS_PER_PUD] __page_aligned_bss;
-
----
-base-commit: 14f9643dc90adea074a0ffb7a17d337eafc6a5cc
-change-id: 20230808-riscv_static-348036edcae7
-
-Best regards,
--- 
-Nick Desaulniers <ndesaulniers@google.com>
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gMjAyMy0wOC0wOCAxNzoxOSwgUmFnaGF2ZW5kcmEgUmFvIEFuYW50YSB3cm90ZToKPiBPbiBU
+dWUsIEF1ZyA4LCAyMDIzIGF0IDg6MDfigK9BTSBTZWFuIENocmlzdG9waGVyc29uIDxzZWFuamNA
+Z29vZ2xlLmNvbT4gCj4gd3JvdGU6Cj4+IAo+PiBPbiBGcmksIEF1ZyAwNCwgMjAyMywgUmFnaGF2
+ZW5kcmEgUmFvIEFuYW50YSB3cm90ZToKPj4gPiBPbiBXZWQsIEF1ZyAyLCAyMDIzIGF0IDQ6Mjji
+gK9QTSBSYWdoYXZlbmRyYSBSYW8gQW5hbnRhCj4+ID4gPHJhbmFudGFAZ29vZ2xlLmNvbT4gd3Jv
+dGU6Cj4+ID4gPgo+PiA+ID4gU3VyZSwgSSdsbCBjaGFuZ2UgaXQgdG8ga3ZtX2FyY2hfZmx1c2hf
+dm1fdGxicygpIGluIHY4Lgo+PiA+ID4KPj4gPiBXaGlsZSB3b3JraW5nIG9uIHRoZSByZW5hbWlu
+ZywgSSByZWFsaXplZCB0aGF0IHNpbmNlIHRoaXMgZnVuY3Rpb24gaXMKPj4gPiBjYWxsZWQgZnJv
+bSBrdm1fbWFpbi5jJ3Mga3ZtX2ZsdXNoX3JlbW90ZV90bGJzKCkuIERvIHdlIHdhbnQgdG8gcmVu
+YW1lCj4+ID4gdGhpcyBhbmQgdGhlIG90aGVyIGt2bV9mbHVzaF8qKCkgZnVuY3Rpb25zIHRoYXQg
+dGhlIHNlcmllcyBpbnRyb2R1Y2VzCj4+ID4gdG8gbWF0Y2ggdGhlaXIga3ZtX2FyY2hfZmx1c2hf
+KigpIGNvdW50ZXJwYXJ0cz8KPj4gCj4+IEhtbSwgaWYgd2UncmUgZ29pbmcgdG8gcmVuYW1lIG9u
+ZSBhcmNoIGhvb2ssIHRoZW4geWVzLCBJIHRoaW5rIGl0IAo+PiBtYWtlcyBzZW5zZSB0bwo+PiBy
+ZW5hbWUgYWxsIHRoZSBjb21tb24gQVBJcyBhbmQgYXJjaCBob29rcyB0byBtYXRjaC4KPj4gCj4+
+IEhvd2V2ZXIsIHg4NiBpcyByaWZlIHdpdGggdGhlICJyZW1vdGVfdGxicyIgbm9tZW5jbGF0dXJl
+LCBhbmQgcmVuYW1pbmcgCj4+IHRoZSBjb21tb24KPj4gQVBJcyB3aWxsIGp1c3QgcHVzaCB0aGUg
+aW5jb25zaXN0ZW5jaWVzIGludG8geDg2LiAgV2hpbGUgSSAxMDAlIGFncmVlIAo+PiB0aGF0IHRo
+ZQo+PiBjdXJyZW50IG5hbWluZyBpcyBmbGF3ZWQsIEkgYW0gbm90IHdpbGxpbmcgdG8gZW5kIHVw
+IHdpdGggeDg2IGJlaW5nIAo+PiBwYXJ0aWFsbHkKPj4gY29udmVydGVkLgo+PiAKPj4gSSB0aGlu
+ayBJJ20gb2sgcmVuYW1pbmcgYWxsIG9mIHg4NidzIG1hbnkgaG9va3M/ICBCdXQgSSdkIGRlZmlu
+aXRlbHkgCj4+IHdhbnQgaW5wdXQKPj4gZnJvbSBtb3JlIHg4NiBmb2xrcywgYW5kIHRoZSBzaXpl
+IGFuZCBzY29wZSBvZiB0aGlzIHNlcmllcyB3b3VsZCAKPj4gZXhwbG9kZS4gIFVubGVzcwo+PiBN
+YXJjIG9iamVjdHMgYW5kL29yIGhhcyBhIGJldHRlciBpZGVhLCB0aGUgbGVhc3QgYXdmdWwgb3B0
+aW9uIGlzIAo+PiBwcm9iYWJseSB0byBpZ25vcmUKPj4gdGhlIHBvb3IgInJlbW90ZV90bGJzIiBu
+YW1pbmcgYW5kIHRhY2tsZSBpdCBpbiBhIHNlcGFyYXRlIHNlcmllcy4KPj4gCj4gU3VyZSwgSSB0
+aGluayBpdCdzIGJldHRlciB0byBkbyBpdCBpbiBhIHNlcGFyYXRlIHNlcmllcyBhcyB3ZWxsLiBJ
+J20KPiBoYXBweSB0byBjYXJyeSBvdXQgdGhlIHRhc2sgYWZ0ZXIgdGhpcyBvbmUgZ2V0cyBtZXJn
+ZWQuIEJ1dCwgbGV0J3MKPiB3YWl0IGZvciBNYXJjIGFuZCBvdGhlcnMnIG9waW5pb24gb24gdGhl
+IG1hdHRlci4KClllYWgsIGxldCdzIHB1bnQgdGhhdCB0byBhIHNlcGFyYXRlIHNlcmllcy4gSSdt
+IG1vcmUgaW50ZXJlc3RlZCBpbgpnZXR0aW5nIHRoaXMgY29kZSBtZXJnZWQgdGhhbiBpbiB0aGUg
+aW5ldml0YWJsZSBiaWtlLXNoZWRkaW5nIHRoYXQKd2lsbCByZXN1bHQgZnJvbSBzdWNoIGEgcHJv
+cG9zYWwuCgpSYWdoYXZlbmRyYSwgYW55IGNoYW5jZSB5b3UgY291bGQgcmVzcGluIHRoZSBzZXJp
+ZXMgdGhpcyB3ZWVrPwpJJ2QgcmVhbGx5IGxpa2UgaXQgdG8gc3BlbmQgc29tZSBxdWFsaXR5IHRp
+bWUgaW4gLW5leHQuLi4KClRoYW5rcywKCiAgICAgICAgIE0uCi0tIApKYXp6IGlzIG5vdCBkZWFk
+LiBJdCBqdXN0IHNtZWxscyBmdW5ueS4uLgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxp
+c3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0
+aW5mby9saW51eC1yaXNjdgo=
