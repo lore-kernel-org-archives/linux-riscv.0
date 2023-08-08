@@ -4,77 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E690EC001DB
-	for <linux-riscv@archiver.kernel.org>; Tue,  8 Aug 2023 16:27:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15545C001B0
+	for <linux-riscv@archiver.kernel.org>; Tue,  8 Aug 2023 16:35:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=I2p+6PhImrR2xO/OjJwfbphdD7VDPrnihd10SMMHagk=; b=FL/tC4prNs6nFo
-	f+IjDT7OMNeim2nmAPUeACbXvAP5oINsMuyVaZFPdTnC02yhHexTuUgo4nfqDIRUFYK+ZS8ox9JzG
-	57U5y8M4UAMm86UshIoSSpcabo4M+rcvRDC8mQRGgkbHjwBLQs7fgHqvz1IIrp85NiLxQy7r+fbXZ
-	7ySCrwNngOq6VY5L05HLRErN1tc1aQsLXyzfZ06Dz9Dav3+nIuokEGpEp4U2RW1/gG6U+AquGBEnx
-	4fb/stc8rJRSuDsEKcERFW5qeYnkxk5S6OCjVZlNTycTX6KpTGfa2TpIrEf1X2mpm0H9nktTLpX3O
-	OpBdoAQJ7vbsFZ9JFO7g==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
+	Mime-Version:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=UXeHtXW18mBfyF4qovDvXFF2vQyLrMWLev+0pQXfeHA=; b=G5N
+	NXGMeJuGpSQmR6aO6G7YlNDbIaOPcsAAUaF3MEcgYM4z9CRw71e3aeCiBxQbI5SV1TnsBFUNMoDgU
+	4axuXRujNh99KjdBxHFiuYI0g25H5wqKWtWvSPizIdXHE0ic54IUE7Cb4Lui3WRHotYueIu8LU5pf
+	ls/2F8LZ3/NMpgWmF2K+rjEqRcrJ2g46VSBqOdK0Z61I0KjJmd6OzOrpcFFGz754K4bbazW0jimlX
+	AygHMjY3ihiqD7rc3Ml5VxiZsNyn+lw1XlbAYQZNkoYcwEcBhl2KbxszElScrRD0DagXqB5y9YuzZ
+	os5zPHKGHdvNWsiVDtYZWHfxLktZYpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qTPYZ-002ygp-10;
-	Tue, 08 Aug 2023 16:27:39 +0000
-Received: from mail-qv1-xf2a.google.com ([2607:f8b0:4864:20::f2a])
+	id 1qTPft-002zTK-2D;
+	Tue, 08 Aug 2023 16:35:13 +0000
+Received: from mail-yw1-x114a.google.com ([2607:f8b0:4864:20::114a])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qTPYX-002ygM-00
+	id 1qTPfr-002zRq-0W
 	for linux-riscv@lists.infradead.org;
-	Tue, 08 Aug 2023 16:27:38 +0000
-Received: by mail-qv1-xf2a.google.com with SMTP id 6a1803df08f44-63d1238c300so29425636d6.0
-        for <linux-riscv@lists.infradead.org>; Tue, 08 Aug 2023 09:27:31 -0700 (PDT)
+	Tue, 08 Aug 2023 16:35:12 +0000
+Received: by mail-yw1-x114a.google.com with SMTP id 00721157ae682-583fe0f84a5so69094177b3.3
+        for <linux-riscv@lists.infradead.org>; Tue, 08 Aug 2023 09:35:08 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20221208; t=1691512050; x=1692116850;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=JoWzrCMANPjnlj2cvgK7d043Ga9JDouQ0JU9bziv+Vs=;
-        b=aoX21WBggS/4XosYG0HYLIKnJ7c7QmjOo9JOVS5jS9Qk8gIoraTfS8Lb4jlP3ng4/S
-         nctO0uW56++SiRwWIDxn2eqcf67alPUNwPhsVpCQQ3TTyccURL0mUptq2wWAUFptt1GL
-         hlj8Q50IjofgrBXgbY9XAQgzJuvg8mjfos48sd3VRUSPz9IHKk3XE/2y/zQMdLFFbHU2
-         cjJXk0bdZIO/QTUJvDiTUZNMGazUTawXnhvtWaqSWI+idWPmzPVMXpZ6zO5mVfh7TDmf
-         o+2EFmlEPQkzUioTfn9saJw+QvTfEUkoVRdA6mYqAyVyJmZsTRmt/WPFWkzLZBD+ByzQ
-         bHOQ==
+        d=google.com; s=20221208; t=1691512507; x=1692117307;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=nTM81EZMZbsGROKqkK+2bQm1mxf+detNdwYuQiVhiKI=;
+        b=NLhu0LP53J4D4l9J4feCfPU5/l3uqoArpZHJ0ECEL6xFUd0tcpgZfboT0p/kOcrv1i
+         XurwyVIyJVvh9OLoEaf6pP9EgBzqx+ayApgGh3mgBpvOf8w6olcj27SbvaSxITbSMqMN
+         CgZIpuMxyfhJyCSjXwTvGkaVdAxYLJF3xZxoaQMDQ1UZxjr4Q22jzvvMcQCFf6tLqeH7
+         1dEKTsxQeURWUr5SVN0EFpwesJP3bx+hG1gUlPCXdsSwapIam0tuneLG1tBKmOCqJyjW
+         1Y55eWM+4i5zr9j8RJ8Sbzv34OO4Vxei1vpJY8o02jLQT9JQrGXhAGl7FUdxFgOn6p1t
+         BbFg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1691512050; x=1692116850;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=JoWzrCMANPjnlj2cvgK7d043Ga9JDouQ0JU9bziv+Vs=;
-        b=kvZ2urGQt0Dha6wMqDS41TsUxXOhAm5h67M0ab/HKnJthVNOke2RAqw4JuDGlUKi3Z
-         8K3Mr1WxIpz+WzwLHMiuMiyk5uxhNKAJI7puC21WExoE5mJ7j0KqMxenXcyI4lpOJLem
-         Ngptjz92o4q2WF4/MQTuPbEoY+e5GsXL3LpwvB80fa3bNB/Nj51xQaU73oSnkr2GDjyy
-         EH8WygIwGRbGnqkqD1dexZNojwsIKHkNUC7d2A7BsvSXpGPpTMN7L0TNlyYfYEVfGkhf
-         OCGRCPFFRT8snCrXzIoAyqJf/OsIExSwu2ABlZHvojrB+8dEOkomhn+T3FzLcWd58uBA
-         N17Q==
-X-Gm-Message-State: AOJu0Ywj/uwbnVb+AZiUWDLBw/MPNerZJc6Q4KoKnOeqqvw+k5st6Acf
-	ogzByUDBlmI2F4ckTEiHgXO6me2sY+7Zl5eciGf0Kw==
-X-Google-Smtp-Source: AGHT+IFE1mPg+bhXgiG77u3yQqApnKpoE4FunmLDF9Q9WwsTSf+Qi6ptI0RPfwZ4AzBJM8DZgQeG+mmHAo9n23G6KkM=
-X-Received: by 2002:a0c:dd13:0:b0:63c:fb87:625d with SMTP id
- u19-20020a0cdd13000000b0063cfb87625dmr10181036qvk.3.1691512050315; Tue, 08
- Aug 2023 09:27:30 -0700 (PDT)
-MIME-Version: 1.0
-References: <20230808-riscv_static-v1-1-9f3dc99dafe8@google.com> <20230808162412.GA2172017@dev-arch.thelio-3990X>
-In-Reply-To: <20230808162412.GA2172017@dev-arch.thelio-3990X>
+        d=1e100.net; s=20221208; t=1691512507; x=1692117307;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=nTM81EZMZbsGROKqkK+2bQm1mxf+detNdwYuQiVhiKI=;
+        b=cLRdVUwX4q7Z68zAS1Ma2VSp2ypnA+S9wT1LNm21T+Gi0QhnGOsesMG5gDBv7ZUyNy
+         QhQx+HA/0dkqbjdQOv/9UAlkwdDWqHkjhxqDB3sEItGvmovJmHhuJGn6yFZ93PPT9r2G
+         pmIpeNKm92aAOZOABEtu2gTW6+aHxjl1rpzr6B2Eoxmy3597yRRw545G5MQsWawGpl7G
+         PNgFK52SGkxxpaFCfr44nRZ0fbgeg02JlaA13kHQM3O/nkJhHYr+ug86B0/KeqZBfGag
+         7+OOXbtDQWV29kWAmaFdMIhTWeIW28DGNsSKuD72MSsQfF8YKl6VyFsfdXpL6XL+z9ws
+         eubg==
+X-Gm-Message-State: AOJu0Yza+x+Z0s2jUmVVtk5Yq4vgGs3U2rIKoLhG+KPBrXGAi55DKM24
+	RQL+0Z5BJCFzrA4Gfpwwzg0t91rIJ+fPsx2YpxA=
+X-Google-Smtp-Source: AGHT+IGra8Wwc+HhL5o0pTOnXN44VrV3kTC7GbKyzGjGnaN9IQv8EY6FCqvWavWJO404OgNolWFZn+285BMePOXRcxo=
+X-Received: from ndesaulniers-desktop.svl.corp.google.com ([2620:15c:2d1:203:cc03:38d0:9718:e90b])
+ (user=ndesaulniers job=sendgmr) by 2002:a81:764a:0:b0:586:b4e9:753 with SMTP
+ id j10-20020a81764a000000b00586b4e90753mr2137ywk.4.1691512507357; Tue, 08 Aug
+ 2023 09:35:07 -0700 (PDT)
+Date: Tue, 08 Aug 2023 09:35:00 -0700
+Mime-Version: 1.0
+X-B4-Tracking: v=1; b=H4sIALNu0mQC/3XMwQoCIRSF4VcZ7jrD0Sht1XvEEKJX50KNg4oUg
+ ++ezb7lf+B8G2RMhBmuwwYJK2WKSw9xGMDOZgnIyPUGwYXkiiuWKNv6yMUUskyeFJdndNbgBfp lTejpvXP3qfdMucT02fU6/tY/UB3ZyLSXzmrtjEd1CzGGJx5tfMHUWvsClxODhakAAAA=
+X-Developer-Key: i=ndesaulniers@google.com; a=ed25519; pk=UIrHvErwpgNbhCkRZAYSX0CFd/XFEwqX3D0xqtqjNug=
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1691512501; l=3558;
+ i=ndesaulniers@google.com; s=20220923; h=from:subject:message-id;
+ bh=0g7k5Ub/PaWtkHDnipVyOF/RYqCFfg6Kly4NdhVJ1+4=; b=Ug/yXmBRV7rjndULD++FZYy1jLinoPsNkkAK8t9L3JV7U5XhMf8DHNpIh7iNPIn8X5mPxvKoJ
+ dRaQj3ShdkZADTxwuBmiZkSOcXfBMna7SC6UFCfavkMC+GX9BFqJcFd
+X-Mailer: b4 0.12.3
+Message-ID: <20230808-riscv_static-v2-1-2a1e2d2c7a4f@google.com>
+Subject: [PATCH v2] riscv: mm: fix 2 instances of -Wmissing-variable-declarations
 From: Nick Desaulniers <ndesaulniers@google.com>
-Date: Tue, 8 Aug 2023 09:27:19 -0700
-Message-ID: <CAKwvOd=93QE6d1Runn9EO9A4KBAKvhx4RwZTpWNNFcf2eW1kWQ@mail.gmail.com>
-Subject: Re: [PATCH] riscv: mm: fix 2 instances of -Wmissing-variable-declarations
-To: Nathan Chancellor <nathan@kernel.org>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Tom Rix <trix@redhat.com>, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, llvm@lists.linux.dev, 
-	kernel test robot <lkp@intel.com>
+To: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Nathan Chancellor <nathan@kernel.org>, Tom Rix <trix@redhat.com>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	llvm@lists.linux.dev, kernel test robot <lkp@intel.com>, 
+	Nick Desaulniers <ndesaulniers@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230808_092737_039250_007D1C12 
-X-CRM114-Status: UNSURE (   9.83  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230808_093511_198873_FF822E72 
+X-CRM114-Status: GOOD (  13.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,25 +90,109 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCBBdWcgOCwgMjAyMyBhdCA5OjI04oCvQU0gTmF0aGFuIENoYW5jZWxsb3IgPG5hdGhh
-bkBrZXJuZWwub3JnPiB3cm90ZToKPgo+IE9uIFR1ZSwgQXVnIDA4LCAyMDIzIGF0IDA5OjE1OjQx
-QU0gLTA3MDAsIE5pY2sgRGVzYXVsbmllcnMgd3JvdGU6Cj4gPiBkaWZmIC0tZ2l0IGEvYXJjaC9y
-aXNjdi9pbmNsdWRlL2FzbS9wZ3RhYmxlLmggYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3BndGFi
-bGUuaAo+ID4gaW5kZXggNzU5NzBlZTJiZGEyLi40YzhjMGY4M2E5NzQgMTAwNjQ0Cj4gPiAtLS0g
-YS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3BndGFibGUuaAo+ID4gKysrIGIvYXJjaC9yaXNjdi9p
-bmNsdWRlL2FzbS9wZ3RhYmxlLmgKPiA+IEBAIC0xODgsNiArMTg4LDcgQEAgZXh0ZXJuIHN0cnVj
-dCBwdF9hbGxvY19vcHMgcHRfb3BzIF9faW5pdGRhdGE7Cj4gPiAgI2RlZmluZSBQQUdFX0tFUk5F
-TF9JTyAgICAgICAgICAgICAgIF9fcGdwcm90KF9QQUdFX0lPUkVNQVApCj4gPgo+ID4gIGV4dGVy
-biBwZ2RfdCBzd2FwcGVyX3BnX2RpcltdOwo+ID4gK2V4dGVybiBwZ2RfdCB0cmFtcG9saW5lX3Bn
-X2RpcltdOwo+Cj4gTWlzc2luZyBlYXJseV9wZ19kaXIgdG9vPyBJdCBsb29rcyBsaWtlIHRoZXJl
-IGlzIGFscmVhZHkgYSBkZWNsYXJhdGlvbgo+IGluIGFyY2gvcmlzY3YvbW0va2FzYW5faW5pdC5j
-IHRoYXQgY291bGQgYmUgaG9pc3RlZCBoZXJlPwoKWWVwLCB3aWxsIHJlc3Bpbi4gR29vZCBjYXRj
-aCEKCi0tIApUaGFua3MsCn5OaWNrIERlc2F1bG5pZXJzCgpfX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgt
-cmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWls
-bWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+I'm looking to enable -Wmissing-variable-declarations behind W=1. 0day
+bot spotted the following instance in ARCH=riscv builds:
+
+  arch/riscv/mm/init.c:276:7: warning: no previous extern declaration
+  for non-static variable 'trampoline_pg_dir'
+  [-Wmissing-variable-declarations]
+  276 | pgd_t trampoline_pg_dir[PTRS_PER_PGD] __page_aligned_bss;
+      |       ^
+  arch/riscv/mm/init.c:276:1: note: declare 'static' if the variable is
+  not intended to be used outside of this translation unit
+  276 | pgd_t trampoline_pg_dir[PTRS_PER_PGD] __page_aligned_bss;
+      | ^
+  arch/riscv/mm/init.c:279:7: warning: no previous extern declaration
+  for non-static variable 'early_pg_dir'
+  [-Wmissing-variable-declarations]
+  279 | pgd_t early_pg_dir[PTRS_PER_PGD] __initdata __aligned(PAGE_SIZE);
+      |       ^
+  arch/riscv/mm/init.c:279:1: note: declare 'static' if the variable is
+  not intended to be used outside of this translation unit
+  279 | pgd_t early_pg_dir[PTRS_PER_PGD] __initdata __aligned(PAGE_SIZE);
+      | ^
+
+These symbols are referenced by more than one translation unit, so make
+sure they're both declared and include the correct header for their
+declarations. Finally, sort the list of includes to help keep them tidy.
+
+Reported-by: kernel test robot <lkp@intel.com>
+Closes: https://lore.kernel.org/llvm/202308081000.tTL1ElTr-lkp@intel.com/
+Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
+---
+Changes in v2:
+- Forward declare early_pg_dir, too.
+- Remove declaration of early_pg_dir from arch/riscv/mm/kasan_init.c.
+- Link to v1: https://lore.kernel.org/r/20230808-riscv_static-v1-1-9f3dc99dafe8@google.com
+---
+ arch/riscv/include/asm/pgtable.h | 2 ++
+ arch/riscv/mm/init.c             | 9 +++++----
+ arch/riscv/mm/kasan_init.c       | 1 -
+ 3 files changed, 7 insertions(+), 5 deletions(-)
+
+diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+index 75970ee2bda2..b5680c940c1e 100644
+--- a/arch/riscv/include/asm/pgtable.h
++++ b/arch/riscv/include/asm/pgtable.h
+@@ -188,6 +188,8 @@ extern struct pt_alloc_ops pt_ops __initdata;
+ #define PAGE_KERNEL_IO		__pgprot(_PAGE_IOREMAP)
+ 
+ extern pgd_t swapper_pg_dir[];
++extern pgd_t trampoline_pg_dir[];
++extern pgd_t early_pg_dir[];
+ 
+ #ifdef CONFIG_TRANSPARENT_HUGEPAGE
+ static inline int pmd_present(pmd_t pmd)
+diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+index 9ce504737d18..cc0e06b4f223 100644
+--- a/arch/riscv/mm/init.c
++++ b/arch/riscv/mm/init.c
+@@ -26,12 +26,13 @@
+ #include <linux/kfence.h>
+ 
+ #include <asm/fixmap.h>
+-#include <asm/tlbflush.h>
+-#include <asm/sections.h>
+-#include <asm/soc.h>
+ #include <asm/io.h>
+-#include <asm/ptdump.h>
+ #include <asm/numa.h>
++#include <asm/pgtable.h>
++#include <asm/ptdump.h>
++#include <asm/sections.h>
++#include <asm/soc.h>
++#include <asm/tlbflush.h>
+ 
+ #include "../kernel/head.h"
+ 
+diff --git a/arch/riscv/mm/kasan_init.c b/arch/riscv/mm/kasan_init.c
+index 8fc0efcf905c..a01bc15dce24 100644
+--- a/arch/riscv/mm/kasan_init.c
++++ b/arch/riscv/mm/kasan_init.c
+@@ -22,7 +22,6 @@
+  * region is not and then we have to go down to the PUD level.
+  */
+ 
+-extern pgd_t early_pg_dir[PTRS_PER_PGD];
+ pgd_t tmp_pg_dir[PTRS_PER_PGD] __page_aligned_bss;
+ p4d_t tmp_p4d[PTRS_PER_P4D] __page_aligned_bss;
+ pud_t tmp_pud[PTRS_PER_PUD] __page_aligned_bss;
+
+---
+base-commit: 14f9643dc90adea074a0ffb7a17d337eafc6a5cc
+change-id: 20230808-riscv_static-348036edcae7
+
+Best regards,
+-- 
+Nick Desaulniers <ndesaulniers@google.com>
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
