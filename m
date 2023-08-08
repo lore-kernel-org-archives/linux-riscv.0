@@ -4,119 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 305BDC001B0
-	for <linux-riscv@archiver.kernel.org>; Tue,  8 Aug 2023 13:18:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46A5FC001DB
+	for <linux-riscv@archiver.kernel.org>; Tue,  8 Aug 2023 13:39:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ecJKwbeUHUMYfuAkyUBbbTA/qjzWOOdiKCXez/Z32DM=; b=rsuNPFWf0UCvem
-	7qmCox+Usabor0BPCWzDe/5IJa/oLQqSle/Bo2JGbJw8N+phfIP0mFdMlf+2lTalI1057tIIQ52hV
-	8FcbymXCY7oGo4h4jqTio9xTsBOq2TdaNcVhSG48W5lEI2zlEyYW0ZqU/XiORItAK9B9nYHSEnlLn
-	a8WXHvIqVS57tzyZkG/TiuoLqcS0cNFNQ9mC9+PMW5PDGxnIO1ID4p7SxrQAo0TJ7fjUzjY3epR+O
-	udKPV7qRVp0vqK4nNeNnzUnSVa1gmx/gd+KzyiuIl1Gp/D4pB+bFeBD24TjeqA5exekThG0fJ+K0w
-	cilaqDiSAhDhVGzqKC6w==;
+	List-Owner; bh=ALyrXrP9LAPb4lPznUhW+j5sIMgF1edCkmDP+NrvpXQ=; b=UqyI9nLvFkJA/q
+	q9SIcKOphdaA/UQhhiY3ALXdD4EV+den0mWi/O4+lA7XEpfiyI8ZqgPHlbBISYdGJGV/TrNCLI+9Q
+	D8GmDbWoT4dOKMM/V+nkE8cjDzEpHS0M7dA0++2a2IlD5OddZdxSq6gRjLrIgJYA+tixT4cjzAJO8
+	s4eyXFJmtyixF0KJYE4xkJpf3Mah55ACU8apcyhOT5w7WoDNc/FC8MZ0pTe/csIWkFl0OPT+jsgvu
+	/nv5we10Ef+GiaJKTiVFk5SnH+mNCJHDyAtj5OFd6qVVuh57bmUEf4OjyesU5X1ln8u2qdTuCUhnm
+	fbT8GAEHlIUwWq6OlVfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qTMbp-002dCu-2O;
-	Tue, 08 Aug 2023 13:18:49 +0000
-Received: from mail-yw1-x1134.google.com ([2607:f8b0:4864:20::1134])
+	id 1qTMvX-002fdj-2o;
+	Tue, 08 Aug 2023 13:39:11 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qTMbk-002d9h-2a
-	for linux-riscv@lists.infradead.org;
-	Tue, 08 Aug 2023 13:18:46 +0000
-Received: by mail-yw1-x1134.google.com with SMTP id 00721157ae682-585fd99ed8bso95260897b3.1
-        for <linux-riscv@lists.infradead.org>; Tue, 08 Aug 2023 06:18:42 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1691500721; x=1692105521;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=cCJVGIzRWp3n6+ocRSshdb4+bDJCLF8hHPywBz67DZU=;
-        b=iy7zswmtYx6ZYNzYmCG5rqHRjdv+HqB8GrEKYccjle/8dJ9x1OShHO9OgMow0zFYho
-         RJhCC40wkFuTTf25ecgjND4T7pSlTzynELSybpF4Tq9lm0vpF/1WhH9PVjPDo3D92r0t
-         vE0MwfGWmp5O6GeDRRPpN190ezwOTKyeDzoh+6spHPvGNcXvDC15NYX5Fh6AdODwNh9i
-         u+xgCMzltAjprgtTTXUMnRSMUGU88rU5hQybpWcAAj9weIpW1fiVIhA90pqCkvmL6npO
-         3XYinfPiJb8jbNTnaImLtOznhk/zT3v7clUSSq2VXwojFDvEIz4Ap+Wto2wlmlxEy3FT
-         jTzQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1691500721; x=1692105521;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=cCJVGIzRWp3n6+ocRSshdb4+bDJCLF8hHPywBz67DZU=;
-        b=dVbiAYjWb+d1SKT2UKVAlOwBsOLsM0K3tdM9P1JoLfg45YY7OGiAJbg5pZW1U46vTo
-         omGyVrJCHGQ+bWMFMIRQWqEWz8QH37K/yC21P2mfsOUfADnMbmgg1tlYTShF5Vdpq+JP
-         0/rnJXyZ5VXwrKwz5IwhciVjAkp9/2I14HvQjbP/uyACKeConCQxQ0Hko6irA6FY9pYM
-         HJTPDIfi7LNrL+AvGFPWj/IeoGiHfuQfMjZ3xODf/9MzC7czBITB85fDU4l2q5JFrQOh
-         Lxm8P8FDwUjAikpZkI2/9gWHSnfIfrdQ0c2Kn0O9WHncB3PawHqjmtS7CghAneliaBZO
-         86Hg==
-X-Gm-Message-State: AOJu0Yz9pvz0iAfFgcttughdu/uz4NmPSOvnE1GJb1JN4sZclFD4pURH
-	C/uoj1HFBM46jm89+PRm4YjuCAP+Cim6A6ET4gTu1g==
-X-Google-Smtp-Source: AGHT+IGCQegfute4wq8vuctRCNyh2F9D25HtOrYRCxA1KPyHbK9gB5btAs+lYOVd+Us7kHls2/CFh6KxK9tgT70dyU8=
-X-Received: by 2002:a25:d14e:0:b0:cee:80e:23af with SMTP id
- i75-20020a25d14e000000b00cee080e23afmr3349036ybg.11.1691500721596; Tue, 08
- Aug 2023 06:18:41 -0700 (PDT)
+	id 1qTMvT-002fcd-2x;
+	Tue, 08 Aug 2023 13:39:09 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 3C6C662231;
+	Tue,  8 Aug 2023 13:39:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B716DC433C8;
+	Tue,  8 Aug 2023 13:39:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1691501946;
+	bh=RnXjxseYsnFe6Wnck1M4XbqKJfcYUVsYZpbGiHCNKCw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=dOsRv8DPnz3szlVVqAIekC0oAa1YWjq756EOBKQHNrWkdjOHTpZrdXFvoiy0dPstL
+	 zHVpr1V7MDywHBGGU4vstj24/ddQ2YUijhLOHhv21OptJRcyHiqH4PCaeITgRuOsQP
+	 xhcNw4WURUix63jdw9L0KUAaoaYuVRg6y2L3/+0DCRQV91VgQjhNmhSn7gmTUld4CN
+	 PukbIQT3kIDYfuJo8nq7Ezq5aseMpKv9N4/sMDanxbzcf38L9HyofcxB5+sD0FXxB4
+	 LdhMsPJhZIcf39N6w/S5fgwPEA8bYg9AZCO455XBxu4iag2rRXSA1EHP7TfDTdQEgX
+	 lr0A4nNsxMLIQ==
+Date: Tue, 8 Aug 2023 14:38:58 +0100
+From: Will Deacon <will@kernel.org>
+To: Mark Brown <broonie@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	James Morse <james.morse@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Arnd Bergmann <arnd@arndb.de>, Oleg Nesterov <oleg@redhat.com>,
+	Eric Biederman <ebiederm@xmission.com>,
+	Kees Cook <keescook@chromium.org>, Shuah Khan <shuah@kernel.org>,
+	"Rick P. Edgecombe" <rick.p.edgecombe@intel.com>,
+	Deepak Gupta <debug@rivosinc.com>, Ard Biesheuvel <ardb@kernel.org>,
+	Szabolcs Nagy <Szabolcs.Nagy@arm.com>,
+	"H.J. Lu" <hjl.tools@gmail.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+	kvmarm@lists.linux.dev, linux-fsdevel@vger.kernel.org,
+	linux-arch@vger.kernel.org, linux-mm@kvack.org,
+	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v3 00/36] arm64/gcs: Provide support for GCS in userspace
+Message-ID: <20230808133857.GC2369@willie-the-truck>
+References: <20230731-arm64-gcs-v3-0-cddf9f980d98@kernel.org>
+ <20230801141319.GC26253@willie-the-truck>
+ <09b7a94d-cc88-4372-85de-52db26bc2daf@sirena.org.uk>
 MIME-Version: 1.0
-References: <20230804142707.412137-1-u.kleine-koenig@pengutronix.de>
-In-Reply-To: <20230804142707.412137-1-u.kleine-koenig@pengutronix.de>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Tue, 8 Aug 2023 15:18:30 +0200
-Message-ID: <CACRpkdZ4OqLywBhCkDmA6bEkf3rfHpCODba9Rhx36fuP8ywt6Q@mail.gmail.com>
-Subject: Re: [PATCH v2 0/2] pwm: Manage owner assignment implicitly for drivers
-To: =?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
-Cc: Thierry Reding <thierry.reding@gmail.com>, 
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Bartosz Golaszewski <brgl@bgdev.pl>, 
-	Andy Shevchenko <andy@kernel.org>, Douglas Anderson <dianders@chromium.org>, 
-	Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
-	Robert Foss <rfoss@kernel.org>, Jonas Karlman <jonas@kwiboo.se>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, David Airlie <airlied@gmail.com>, 
-	Daniel Vetter <daniel@ffwll.ch>, Pavel Machek <pavel@ucw.cz>, Lee Jones <lee@kernel.org>, 
-	Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>, 
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>, Nicolas Ferre <nicolas.ferre@microchip.com>, 
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, 
-	Claudiu Beznea <claudiu.beznea@microchip.com>, Ray Jui <rjui@broadcom.com>, 
-	Scott Branden <sbranden@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
-	Florian Fainelli <florian.fainelli@broadcom.com>, Alexander Shiyan <shc_work@mail.ru>, 
-	Benson Leung <bleung@chromium.org>, Guenter Roeck <groeck@chromium.org>, 
-	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
-	NXP Linux Team <linux-imx@nxp.com>, Paul Cercueil <paul@crapouillou.net>, 
-	Vladimir Zapolskiy <vz@mleia.com>, Kevin Hilman <khilman@baylibre.com>, 
-	Jerome Brunet <jbrunet@baylibre.com>, 
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
-	Conor Dooley <conor.dooley@microchip.com>, Daire McNamara <daire.mcnamara@microchip.com>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	=?UTF-8?Q?Jonathan_Neusch=C3=A4fer?= <j.neuschaefer@gmx.net>, 
-	Heiko Stuebner <heiko@sntech.de>, Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
-	Alim Akhtar <alim.akhtar@samsung.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Michael Walle <michael@walle.cc>, 
-	Orson Zhai <orsonzhai@gmail.com>, Baolin Wang <baolin.wang@linux.alibaba.com>, 
-	Chunyan Zhang <zhang.lyra@gmail.com>, Fabrice Gasnier <fabrice.gasnier@foss.st.com>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Chen-Yu Tsai <wens@csie.org>, Samuel Holland <samuel@sholland.org>, 
-	Hammer Hsieh <hammerh0314@gmail.com>, Jonathan Hunter <jonathanh@nvidia.com>, 
-	Nobuhiro Iwamatsu <nobuhiro1.iwamatsu@toshiba.co.jp>, Sean Anderson <sean.anderson@seco.com>, 
-	Michal Simek <michal.simek@amd.com>, Johan Hovold <johan@kernel.org>, Alex Elder <elder@kernel.org>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Anjelique Melendez <quic_amelende@quicinc.com>, 
-	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, Luca Weiss <luca@z3ntu.xyz>, 
-	Bjorn Andersson <quic_bjorande@quicinc.com>, linux-pwm@vger.kernel.org, 
-	linux-gpio@vger.kernel.org, dri-devel@lists.freedesktop.org, 
-	linux-leds@vger.kernel.org, asahi@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-rpi-kernel@lists.infradead.org, 
-	chrome-platform@lists.linux.dev, linux-mips@vger.kernel.org, 
-	linux-amlogic@lists.infradead.org, linux-riscv@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org, linux-rockchip@lists.infradead.org, 
-	linux-samsung-soc@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
-	linux-sunxi@lists.linux.dev, linux-tegra@vger.kernel.org, 
-	greybus-dev@lists.linaro.org, linux-staging@lists.linux.dev
+Content-Disposition: inline
+In-Reply-To: <09b7a94d-cc88-4372-85de-52db26bc2daf@sirena.org.uk>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230808_061844_843015_DA4301A5 
-X-CRM114-Status: GOOD (  13.18  )
+X-CRM114-CacheID: sfid-20230808_063908_039118_027B88DE 
+X-CRM114-Status: GOOD (  22.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,23 +92,49 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCBBdWcgNCwgMjAyMyBhdCA0OjI44oCvUE0gVXdlIEtsZWluZS1Lw7ZuaWcKPHUua2xl
-aW5lLWtvZW5pZ0BwZW5ndXRyb25peC5kZT4gd3JvdGU6Cgo+IChpbXBsaWNpdCkgdjEgb2YgdGhp
-cyBzZXJpZXMgY2FuIGJlIGZvdW5kIGF0Cj4gaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGludXgt
-cHdtLzIwMjMwODAzMTQwNjMzLjEzODE2NS0xLXUua2xlaW5lLWtvZW5pZ0BwZW5ndXRyb25peC5k
-ZSAuCj4KPiBDaGFuZ2VzIHNpbmNlIHRoZW4gb25seSBhZmZlY3QgZG9jdW1lbnRhdGlvbiB0aGF0
-IEkgbWlzc2VkIHRvIGFkYXB0IGJlZm9yZS4KPiBUaGFua3MgdG8gTGF1cmVudCBmb3IgY2F0Y2hp
-bmcgdGhhdAo+Cj4gQmVzdCByZWdhcmRzCj4gVXdlCj4KPiBVd2UgS2xlaW5lLUvDtm5pZyAoMik6
-Cj4gICBwd206IE1hbmFnZSBvd25lciBhc3NpZ25tZW50IGltcGxpY2l0bHkgZm9yIGRyaXZlcnMK
-PiAgIHB3bTogY3JjOiBBbGxvdyBjb21waWxhdGlvbiBhcyBtb2R1bGUgYW5kIHdpdGggQ09NUElM
-RV9URVNUCgpDbGVhcmx5IHRoZSByaWdodCB0aGluZyB0byBkbyEgTmljZSBwYXRjaGVzLgpSZXZp
-ZXdlZC1ieTogTGludXMgV2FsbGVpaiA8bGludXMud2FsbGVpakBsaW5hcm8ub3JnPgoKWW91cnMs
-CkxpbnVzIFdhbGxlaWoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRl
-YWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgt
-cmlzY3YK
+On Tue, Aug 01, 2023 at 04:09:58PM +0100, Mark Brown wrote:
+> On Tue, Aug 01, 2023 at 03:13:20PM +0100, Will Deacon wrote:
+> > On Mon, Jul 31, 2023 at 02:43:09PM +0100, Mark Brown wrote:
+> 
+> > > The arm64 Guarded Control Stack (GCS) feature provides support for
+> > > hardware protected stacks of return addresses, intended to provide
+> > > hardening against return oriented programming (ROP) attacks and to make
+> > > it easier to gather call stacks for applications such as profiling.
+> 
+> > Why is this better than Clang's software shadow stack implementation? It
+> > would be nice to see some justification behind adding all this, rather
+> > than it being an architectural tick-box exercise.
+> 
+> Mainly that it's hardware enforced (as the quoted paragraph says).  This
+> makes it harder to attack, and hopefully it's also a bit faster (how
+> measurable that might be will be an open question, but even NOPs in
+> function entry/exit tend to get noticed).
+
+I dunno, "hardware enforced" can also mean worse security nowadays ;)
+
+But seriously, I think the question is more about what this brings us
+*on top of* SCS, since for the forseeable future folks that care about
+this stuff (like Android) will be using SCS. GCS on its own doesn't make
+sense to me, given the recompilation effort to remove SCS and the lack
+of hardware, so then you have to look at what it brings in addition to
+GCS and balance that against the performance cost.
+
+Given that, is anybody planning to ship a distribution with this enabled?
+If not, why are we bothering? If so, how much of that distribution has
+been brought up and how does the "dynamic linker or other startup code"
+decide what to do?
+
+After the mess we had with BTI and mprotect(), I'm hesitant to merge
+features like this without knowing that the ABI can stand real code.
+
+Will
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
