@@ -4,63 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1F52C04E69
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B2D2C04A94
 	for <linux-riscv@archiver.kernel.org>; Wed,  9 Aug 2023 11:55:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=8jY8zQ/mXy8LFhPsbou5UmNcYF+QdzJq18zeh/c7b/E=; b=jmPzInayWyCess
-	p4QvBOh9pvjelkHS9KHdkd1GRbMPd/B0nETFEpkhY3NNeJ9FXXtdf6n9RTd7Bp6kqIR/56L+q8qzF
-	sik5AukFIIwJw7Hiro2wfSbYRrlnvIWDzW6xUJC3ETNyv+CAYO2zPER+QrM8tnX0/fdZtSdjrp8AY
-	nJLMKr7mq3Bh4J2fDc9Cxv/Sqf2k1SoRmm85VVq6rR5KY6Gv6eXLwKczEGgFn7Xr6EMeft36fQ73t
-	xKNnJ6Y2SMCnRmgHuWi46Ul8L9TOIWIhZn0Sgdrnhmea5c2QwCjK5vQZrnjfkThIGAn2l+vOmMMkn
-	1i4DRgfTAF/T6lFmS5Fw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=fIrD5vy2oZQmHVprP52dh7v3+IvuE3XTHWO65rhhmhY=; b=AMPhDD9/OPL8MG
+	HrxobVE5ozovsiFe8zkXV14IBLgz7UnS8RmCwExuePo41kPTVrOqdKSFujjk/eb0YiqCrV7PqOe0e
+	EhZlIR1YSYhpTT1xWqO2OJ7vK6dKXXezGBjR/ymY37Mib1sO1V0pqiNGgRZZqginiMPLFD7ljzgZG
+	t5eaAX/L7bpRfTw5q6IdZK7AwbM4hu4JqDYlJsZ8o3YLsI9cNlBFTadAdWdlacmPHkga+IHWu1Gjw
+	L/jYfPzY5mvzPZbL1/9Mwfw0Z+/fDsYPLOMXJf1CF2nHwImZe7CLfOQ8hpKhY30mxggM3hzCii2Pf
+	LJY7pD2By6rXr3+wfZtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qThme-004paE-1f;
-	Wed, 09 Aug 2023 11:55:24 +0000
-Received: from mail-lj1-x233.google.com ([2a00:1450:4864:20::233])
+	id 1qThmh-004pbT-0W;
+	Wed, 09 Aug 2023 11:55:27 +0000
+Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qThmb-004pYB-0r
+	id 1qThmc-004pYM-1c
 	for linux-riscv@lists.infradead.org;
-	Wed, 09 Aug 2023 11:55:22 +0000
-Received: by mail-lj1-x233.google.com with SMTP id 38308e7fff4ca-2b962c226ceso106821811fa.3
-        for <linux-riscv@lists.infradead.org>; Wed, 09 Aug 2023 04:55:19 -0700 (PDT)
+	Wed, 09 Aug 2023 11:55:24 +0000
+Received: by mail-ed1-x52e.google.com with SMTP id 4fb4d7f45d1cf-522ab557632so8988940a12.0
+        for <linux-riscv@lists.infradead.org>; Wed, 09 Aug 2023 04:55:21 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1691582118; x=1692186918;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=qFCO8rRVW0eo1X2MXfcemMFxxGXbniYC365Pku+GYYA=;
-        b=ki3mJlRpT4/xDkByyM4hgAbzvRDHPsfzbIiQLF8u4QnAa+cpnuYx6q1w9K48MswlT+
-         562ChP/JkV9KS9Lo3JfadQy8QBr/lNfB3h9BLJOQCdaGUcYZrQFt0DqdvWE/iUXzoWTZ
-         5zCA03BQ9q+xWffSjsRLjhZd2wxvCazYcFP0BtFrInSBzN9lxFWJQaz7vzXGqUdQeHJI
-         G3n9ZOynGiexwVJWRx5VCD4/S0sKN/4tGXctmpOTXHstJI3Vx0DqkR8GkjFQWrM4QJ3Z
-         IgtJYf859Wbf6z7Ht4LG7oF9OfJ6yswwaCfaCeZJ8XQSoN9X4krzg52cY5dvb1JgdpCe
-         bXtw==
+        d=ventanamicro.com; s=google; t=1691582120; x=1692186920;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Q86/J9ygU9Mygo4dhyh+BR9pTnBKbpoD6ByYiXk+KKs=;
+        b=bphwVPRdkvuicuO22fjlSimOIYV7U4HOsL0h8ORZG8lvDXeG8OrnsGmSzTq0XEDdEZ
+         eYc63t5fb30OG9wwkw0ZVNxoUE5nRpwRjzzxRIBwfguwkP6YpJHc2YUyBrysbf63hbBf
+         o/oTkb9RP9ghVnau9iNgwQs8Zc0BJTKGCia5gPPHXTyOWo8nLD0h2vEA1o2QOKKgLjMk
+         V+3GPR3fJGu3LyifgA00jZsRZkjcrr3P7JLo+kqNkyhFlEIsyQZz15ZpaDaJC3qH4ETl
+         PIU2PNcXny+CfBP0hTL98V9nQfOk08P4L2oh0d5R3Cj83HmZL0GU+ro8TKZ2FViFi8T3
+         dXKw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1691582118; x=1692186918;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=qFCO8rRVW0eo1X2MXfcemMFxxGXbniYC365Pku+GYYA=;
-        b=FJICgmX3w5SlY1VAQ7jUSdVsUH1/ygkUc7wjTLhJjIVbxJiJnaJILJoon25yJJX+95
-         5bxji7jonOlVBVop+VUEG7/HN2OYl0CbNBQ7P9Obzz1YiWWD98Ri27ZbIUII1edwnZOq
-         RcS1Cs+DSG+ta2FXRqCQTaceN4IgvKXyQMfr3IZu8K80DXxcu4DKzWuR7OEUnpWJ5vk7
-         6scm2T71d6/Dze0iDK7k5ZCtSNFA8EqFhcgxaqN3+XKNTgJEjXIiVyIxUjaBM/OmMWfW
-         42YfAQk3uAEQrxINIySu6v+0Zp7/40oSVgwTzAdFcXyWJyDgWQ1IQD0cNAejEEZkpGFy
-         Z2kw==
-X-Gm-Message-State: AOJu0Yxi887gFZo1MzrdUdswFGx4sjQga3AdJfMYdVANFppcCn2F+pUg
-	eSoQ6QiijL758zcS8AQki3viDcEaGAdQt/gFn7IdX+ZP
-X-Google-Smtp-Source: AGHT+IGWzQn7T/1R1LDx3VkUCDdwqFmFgp2L5CcKLxhs3Y2V3KU58gT2pxgn8oh0TMwc1gadVEkR5w==
-X-Received: by 2002:a2e:b6c6:0:b0:2b7:364e:91ec with SMTP id m6-20020a2eb6c6000000b002b7364e91ecmr1621518ljo.13.1691582117845;
-        Wed, 09 Aug 2023 04:55:17 -0700 (PDT)
+        d=1e100.net; s=20221208; t=1691582120; x=1692186920;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Q86/J9ygU9Mygo4dhyh+BR9pTnBKbpoD6ByYiXk+KKs=;
+        b=R79Xx9Jbm+zEgDRZQlfOfztQ4MjxSaR7cKIiVnuSXOee1lQMJQO279lJM81BPx31O4
+         L8MZ4Xsf0E0OQlNlhKcGulxd9XFQbD5888BMZRTmP2tXvpIZ1cg1wAmFD5TLWX3B9P2e
+         gxM8ZiSzt9/4zOYgBKM8vkLlvW7EKU7jNYICEgJzFCpVk2lkoBSFhruyW1Got9VxPDSD
+         UTKl1C5tPt1ZkJNEENWuxH0zKCyrrMpK6r7YQmyzYUfNBzg/7EtVkAlOtpvAAnJEBslv
+         KBNaUz5qocQpSUjbYHY9KlA6Rw+zYZk3GhxwTOzgaLQd6qwXkqxt50PHB7963zKVYGkS
+         siOw==
+X-Gm-Message-State: AOJu0YzAKh0+V6KtLfEIu3bdD7/Mcdby4yEne2nWz44+KQ+U+7N0mSea
+	uncm1p0VfEQj9M70/Znt240lsI4p27KJFrE0mMdTBJ+m
+X-Google-Smtp-Source: AGHT+IGPv9Uk1ve4XQWkbqHNrBDjjJg2mqO4TpJGIHOeRpY2dTefwbeuhdH6N530N7S20TnERt8uiQ==
+X-Received: by 2002:a17:906:1c7:b0:997:c377:b41f with SMTP id 7-20020a17090601c700b00997c377b41fmr2149403ejj.64.1691582120259;
+        Wed, 09 Aug 2023 04:55:20 -0700 (PDT)
 Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id d11-20020a170906c20b00b00992d70f8078sm7954741ejz.106.2023.08.09.04.55.17
+        by smtp.gmail.com with ESMTPSA id z5-20020a170906434500b00977cad140a8sm7886248ejm.218.2023.08.09.04.55.19
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 09 Aug 2023 04:55:17 -0700 (PDT)
+        Wed, 09 Aug 2023 04:55:19 -0700 (PDT)
 From: Andrew Jones <ajones@ventanamicro.com>
 To: linux-riscv@lists.infradead.org
 Cc: paul.walmsley@sifive.com,
@@ -69,14 +70,16 @@ Cc: paul.walmsley@sifive.com,
 	evan@rivosinc.com,
 	conor.dooley@microchip.com,
 	apatel@ventanamicro.com
-Subject: [PATCH 0/6] RISC-V: Enable cbo.zero in usermode
-Date: Wed,  9 Aug 2023 13:55:17 +0200
-Message-ID: <20230809115516.214537-8-ajones@ventanamicro.com>
+Subject: [PATCH 2/6] RISC-V: Enable cbo.zero in usermode
+Date: Wed,  9 Aug 2023 13:55:19 +0200
+Message-ID: <20230809115516.214537-10-ajones@ventanamicro.com>
 X-Mailer: git-send-email 2.41.0
+In-Reply-To: <20230809115516.214537-8-ajones@ventanamicro.com>
+References: <20230809115516.214537-8-ajones@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230809_045521_332000_54BFF359 
-X-CRM114-Status: GOOD (  10.72  )
+X-CRM114-CacheID: sfid-20230809_045522_542395_6195E9DD 
+X-CRM114-Status: GOOD (  12.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,45 +96,144 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-In order for usermode to issue cbo.zero, it needs privilege granted to
-issue the extension instruction (patch 2) and to know that the extension
-is available and its block size (patch 3). Patch 1 could be separate from
-this series (it just fixes up some error messages), patches 4-5 convert
-the hwprobe selftest to a statically-linked, TAP test and patch 6 adds a
-new hwprobe test for the new information as well as testing CBO
-instructions can or cannot be issued as appropriate.
+When Zicboz is present, enable its instruction (cbo.zero) in
+usermode by setting its respective senvcfg bit. We don't bother
+trying to set this bit per-task, which would also require an
+interface for tasks to request enabling and/or disabling. Instead,
+permanently set the bit for each hart which has the extension when
+bringing it online.
 
-Thanks,
-drew
+Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
+---
+ arch/riscv/include/asm/cpufeature.h |  2 ++
+ arch/riscv/include/asm/csr.h        |  1 +
+ arch/riscv/include/asm/hwcap.h      | 16 ++++++++++++++++
+ arch/riscv/kernel/cpufeature.c      |  6 ++++++
+ arch/riscv/kernel/setup.c           |  4 ++++
+ arch/riscv/kernel/smpboot.c         |  4 ++++
+ 6 files changed, 33 insertions(+)
 
-
-Andrew Jones (6):
-  RISC-V: Make zicbom/zicboz errors consistent
-  RISC-V: Enable cbo.zero in usermode
-  RISC-V: hwprobe: Expose Zicboz extension and its block size
-  RISC-V: selftests: Statically link hwprobe test
-  RISC-V: selftests: Convert hwprobe test to kselftest API
-  RISC-V: selftests: Add CBO tests
-
- Documentation/riscv/hwprobe.rst               |   6 +
- arch/riscv/include/asm/cpufeature.h           |   2 +
- arch/riscv/include/asm/csr.h                  |   1 +
- arch/riscv/include/asm/hwcap.h                |  16 ++
- arch/riscv/include/asm/hwprobe.h              |   2 +-
- arch/riscv/include/uapi/asm/hwprobe.h         |   2 +
- arch/riscv/kernel/cpufeature.c                |  10 +-
- arch/riscv/kernel/setup.c                     |   4 +
- arch/riscv/kernel/smpboot.c                   |   4 +
- arch/riscv/kernel/sys_riscv.c                 |  41 +++--
- tools/testing/selftests/riscv/Makefile        |   2 +-
- .../testing/selftests/riscv/hwprobe/Makefile  |   7 +-
- tools/testing/selftests/riscv/hwprobe/cbo.c   | 160 ++++++++++++++++++
- .../testing/selftests/riscv/hwprobe/hwprobe.c |  64 +++----
- .../testing/selftests/riscv/hwprobe/hwprobe.h |  15 ++
- 15 files changed, 272 insertions(+), 64 deletions(-)
- create mode 100644 tools/testing/selftests/riscv/hwprobe/cbo.c
- create mode 100644 tools/testing/selftests/riscv/hwprobe/hwprobe.h
-
+diff --git a/arch/riscv/include/asm/cpufeature.h b/arch/riscv/include/asm/cpufeature.h
+index 23fed53b8815..788fd575c21a 100644
+--- a/arch/riscv/include/asm/cpufeature.h
++++ b/arch/riscv/include/asm/cpufeature.h
+@@ -30,4 +30,6 @@ DECLARE_PER_CPU(long, misaligned_access_speed);
+ /* Per-cpu ISA extensions. */
+ extern struct riscv_isainfo hart_isa[NR_CPUS];
+ 
++void riscv_user_isa_enable(void);
++
+ #endif
+diff --git a/arch/riscv/include/asm/csr.h b/arch/riscv/include/asm/csr.h
+index 7bac43a3176e..e187e76e3df4 100644
+--- a/arch/riscv/include/asm/csr.h
++++ b/arch/riscv/include/asm/csr.h
+@@ -273,6 +273,7 @@
+ #define CSR_SIE			0x104
+ #define CSR_STVEC		0x105
+ #define CSR_SCOUNTEREN		0x106
++#define CSR_SENVCFG		0x10a
+ #define CSR_SSCRATCH		0x140
+ #define CSR_SEPC		0x141
+ #define CSR_SCAUSE		0x142
+diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
+index f041bfa7f6a0..4929faecb75f 100644
+--- a/arch/riscv/include/asm/hwcap.h
++++ b/arch/riscv/include/asm/hwcap.h
+@@ -66,6 +66,7 @@
+ #ifndef __ASSEMBLY__
+ 
+ #include <linux/jump_label.h>
++#include <asm/cpufeature.h>
+ 
+ unsigned long riscv_get_elf_hwcap(void);
+ 
+@@ -130,6 +131,21 @@ riscv_has_extension_unlikely(const unsigned long ext)
+ 	return true;
+ }
+ 
++static __always_inline bool riscv_this_cpu_has_extension_likely(const unsigned long ext)
++{
++	if (IS_ENABLED(CONFIG_RISCV_ALTERNATIVE) && riscv_has_extension_likely(ext))
++		return true;
++
++	return __riscv_isa_extension_available(hart_isa[smp_processor_id()].isa, ext);
++}
++
++static __always_inline bool riscv_this_cpu_has_extension_unlikely(const unsigned long ext)
++{
++	if (IS_ENABLED(CONFIG_RISCV_ALTERNATIVE) && riscv_has_extension_unlikely(ext))
++		return true;
++
++	return __riscv_isa_extension_available(hart_isa[smp_processor_id()].isa, ext);
++}
+ #endif
+ 
+ #endif /* _ASM_RISCV_HWCAP_H */
+diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+index 31843e9cc80c..fc0bf300acc7 100644
+--- a/arch/riscv/kernel/cpufeature.c
++++ b/arch/riscv/kernel/cpufeature.c
+@@ -391,6 +391,12 @@ unsigned long riscv_get_elf_hwcap(void)
+ 	return hwcap;
+ }
+ 
++void riscv_user_isa_enable(void)
++{
++	if (riscv_this_cpu_has_extension_unlikely(RISCV_ISA_EXT_ZICBOZ))
++		csr_set(CSR_SENVCFG, ENVCFG_CBZE);
++}
++
+ #ifdef CONFIG_RISCV_ALTERNATIVE
+ /*
+  * Alternative patch sites consider 48 bits when determining when to patch
+diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+index 971fe776e2f8..2f053f0763a1 100644
+--- a/arch/riscv/kernel/setup.c
++++ b/arch/riscv/kernel/setup.c
+@@ -25,6 +25,7 @@
+ #include <asm/acpi.h>
+ #include <asm/alternative.h>
+ #include <asm/cacheflush.h>
++#include <asm/cpufeature.h>
+ #include <asm/cpu_ops.h>
+ #include <asm/early_ioremap.h>
+ #include <asm/pgtable.h>
+@@ -308,9 +309,12 @@ void __init setup_arch(char **cmdline_p)
+ 	riscv_fill_hwcap();
+ 	init_rt_signal_env();
+ 	apply_boot_alternatives();
++
+ 	if (IS_ENABLED(CONFIG_RISCV_ISA_ZICBOM) &&
+ 	    riscv_isa_extension_available(NULL, ZICBOM))
+ 		riscv_noncoherent_supported();
++
++	riscv_user_isa_enable();
+ }
+ 
+ static int __init topology_init(void)
+diff --git a/arch/riscv/kernel/smpboot.c b/arch/riscv/kernel/smpboot.c
+index f4d6acb38dd0..502b04abda0b 100644
+--- a/arch/riscv/kernel/smpboot.c
++++ b/arch/riscv/kernel/smpboot.c
+@@ -25,6 +25,8 @@
+ #include <linux/of.h>
+ #include <linux/sched/task_stack.h>
+ #include <linux/sched/mm.h>
++
++#include <asm/cpufeature.h>
+ #include <asm/cpu_ops.h>
+ #include <asm/irq.h>
+ #include <asm/mmu_context.h>
+@@ -252,6 +254,8 @@ asmlinkage __visible void smp_callin(void)
+ 			elf_hwcap &= ~COMPAT_HWCAP_ISA_V;
+ 	}
+ 
++	riscv_user_isa_enable();
++
+ 	/*
+ 	 * Remote TLB flushes are ignored while the CPU is offline, so emit
+ 	 * a local TLB flush right now just in case.
 -- 
 2.41.0
 
