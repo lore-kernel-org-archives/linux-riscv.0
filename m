@@ -4,66 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB6D7C04A94
-	for <linux-riscv@archiver.kernel.org>; Wed,  9 Aug 2023 14:40:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 976E6C04FE0
+	for <linux-riscv@archiver.kernel.org>; Wed,  9 Aug 2023 14:40:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wmfJmhYUIPbONb3kESfQTWZ0GPXtF6Gc15r9WM2zirI=; b=u+bkSqm/UdzQef
-	RpVPhYRAKZvUB6gLItAou+4N3OfISpZKcaEcvUf2tQgWmFTfP3pXPcVQkpGa3kTyk2JBQMEtLTKNC
-	df7PT0lj4tdIVriSMDuVmD477Y7veEOjYmADY7fGOVDMqHdwMm2bJ0ereRzpJWueCfvkmSiCs6hNg
-	Ve1i51ljwYjl3vR5Zx4/1JcBQqA8YoA1CwIDVingakqMc9V3l0+8OldZZRvy855J2wNcw/ZjuDLLL
-	hrg6IVKU8YaK0LXQW/W7GsJvZSoRkpWKAzt0/ZipkQUyMEs2mVvERyJjbcUqFtZrfyrZ5rhZCjbnn
-	IG8o/7URv+KVjHvU7GLQ==;
+	List-Owner; bh=vBDB32+A7ESMt6GYMqOxZKfwKRnyVeaxtMfkeEfchQE=; b=H97JF5LLISy1ex
+	C2X+pEvkCb+jjE2ek33hKwLTg+mh18w6jyhyARUKulsEm9OxVb8LVvxEAt1usB39QrEkW5XPYE2xm
+	M0yhxsm2hgD8mYOC37XtJb6uwLe+rlw8Qn/G8dDQLdPJekk3t8keADmu5HkxYVXMRV01QMG1ssJ9L
+	WM8QoCbgrdQHcYAKU/SCmbb9Gt2ZC4JGc4nvXfp993K52XQSVTz9mXh4YYnLBRW+fTxFDaiNIg5yU
+	oEkvliKWbzhdI6YX5fs0bkPTM7SOJ8O7Rvf8l97Bv5QVOJnefccGI5qhmZ9TDDoDE7VldIoO2vye3
+	njk2YwgyP31NIuQC06gg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qTkMP-005CJN-25;
-	Wed, 09 Aug 2023 14:40:29 +0000
+	id 1qTkMO-005CIX-3A;
+	Wed, 09 Aug 2023 14:40:28 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qTkMI-005CEj-1E
+	id 1qTkMI-005CEe-0u
 	for linux-riscv@lists.infradead.org;
 	Wed, 09 Aug 2023 14:40:25 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id D3BAC63C60;
+	by dfw.source.kernel.org (Postfix) with ESMTPS id CCFE563C5B;
 	Wed,  9 Aug 2023 14:40:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 41280C433CC;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 3C576C433CB;
 	Wed,  9 Aug 2023 14:40:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1691592021;
-	bh=rS1VmWngCPrpnlr93e2OHzvT/pKtGX1S57FyWy3qM2M=;
+	bh=N5b3QpnRXEbEvS3LF0AebqdApk09psCS7jK2pqPZUTI=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=dBZYMRaMdKwDDcfKgHAVBp4WysQCa1YCVUBQwYN2ahYEnn1HcKCYXhJMi4hGlDTmX
-	 OZvjLyrUQqj73yo7fenV96uNsHyUKdZaRc1QEP6/cnnR78XOr2+ESS4IYAvGf0sg0G
-	 puTi5bM7Qb15nmV13MrNo4XXBsFA2jkHJEtbfXiOv7/5N/TwWLbExGPSwDMnff/UXI
-	 3M1CaUDGkM1yFcK5xQVlHe1QnXKHVhu8m17pUAnGSWhH1OsfM7YVywSO0Se2J40534
-	 jqs6Elf111OeGVNFbB8Tbqa9cGXo6UlbKj302wIp5HFGrA5Gokh5ows60BN90g6HGJ
-	 F4ay19kBN6J2g==
+	b=VNIN3s5jdfPZOzxslfRuIIRYew7DOlrDSHRUHrCkbbB5BnviEk3InN9NqyVqsWwv3
+	 JBInBc4E/ZwYjK3v0PrPV4xDMEnfL8Pl8XmPbFi7+nkDsxdnay5A5LeTy5vtQoy789
+	 WNVWcE6J9JQr9GpQTSY0kIXoV5rAprjlRB9ZG50ASqC9KkvZMHv0SMbjwDJbrZ5Kis
+	 n28ZW9B/O0gQnb+TMgkApC97Qg4/m+ELbu7+hpfsVZAM1axcwEk28z1AhCzABOcj3U
+	 Cnw/BSPHHQL7rVtO//vOocq7iDgvt+qvSwn6NcJPhRhYl38Mvg27wWD1LMSoV/Cq5Y
+	 GGqhoF8+1KPWg==
 Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 25A66E330A1;
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 1A546C64459;
 	Wed,  9 Aug 2023 14:40:21 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH v2] riscv: mm: fix 2 instances of
- -Wmissing-variable-declarations
+Subject: Re: [PATCH v2] riscv,mmio: Fix readX()-to-delay() ordering
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <169159202114.17533.15862327157630311285.git-patchwork-notify@kernel.org>
+Message-Id: <169159202110.17533.11320910350713867941.git-patchwork-notify@kernel.org>
 Date: Wed, 09 Aug 2023 14:40:21 +0000
-References: <20230808-riscv_static-v2-1-2a1e2d2c7a4f@google.com>
-In-Reply-To: <20230808-riscv_static-v2-1-2a1e2d2c7a4f@google.com>
-To: Nick Desaulniers <ndesaulniers@google.com>
+References: <20230803042738.5937-1-parri.andrea@gmail.com>
+In-Reply-To: <20230803042738.5937-1-parri.andrea@gmail.com>
+To: Andrea Parri <parri.andrea@gmail.com>
 Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, nathan@kernel.org,
- trix@redhat.com, linux-kernel@vger.kernel.org, llvm@lists.linux.dev,
- lkp@intel.com
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230809_074022_847642_74DF4181 
-X-CRM114-Status: GOOD (  10.51  )
+X-CRM114-CacheID: sfid-20230809_074022_390509_EB81B459 
+X-CRM114-Status: UNSURE (   9.21  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,34 +83,21 @@ Hello:
 This patch was applied to riscv/linux.git (fixes)
 by Palmer Dabbelt <palmer@rivosinc.com>:
 
-On Tue, 08 Aug 2023 09:35:00 -0700 you wrote:
-> I'm looking to enable -Wmissing-variable-declarations behind W=1. 0day
-> bot spotted the following instance in ARCH=riscv builds:
+On Thu,  3 Aug 2023 06:27:38 +0200 you wrote:
+> Section 2.1 of the Platform Specification [1] states:
 > 
->   arch/riscv/mm/init.c:276:7: warning: no previous extern declaration
->   for non-static variable 'trampoline_pg_dir'
->   [-Wmissing-variable-declarations]
->   276 | pgd_t trampoline_pg_dir[PTRS_PER_PGD] __page_aligned_bss;
->       |       ^
->   arch/riscv/mm/init.c:276:1: note: declare 'static' if the variable is
->   not intended to be used outside of this translation unit
->   276 | pgd_t trampoline_pg_dir[PTRS_PER_PGD] __page_aligned_bss;
->       | ^
->   arch/riscv/mm/init.c:279:7: warning: no previous extern declaration
->   for non-static variable 'early_pg_dir'
->   [-Wmissing-variable-declarations]
->   279 | pgd_t early_pg_dir[PTRS_PER_PGD] __initdata __aligned(PAGE_SIZE);
->       |       ^
->   arch/riscv/mm/init.c:279:1: note: declare 'static' if the variable is
->   not intended to be used outside of this translation unit
->   279 | pgd_t early_pg_dir[PTRS_PER_PGD] __initdata __aligned(PAGE_SIZE);
->       | ^
+>   Unless otherwise specified by a given I/O device, I/O devices are on
+>   ordering channel 0 (i.e., they are point-to-point strongly ordered).
+> 
+> which is not sufficient to guarantee that a readX() by a hart completes
+> before a subsequent delay() on the same hart (cf. memory-barriers.txt,
+> "Kernel I/O barrier effects").
 > 
 > [...]
 
 Here is the summary with links:
-  - [v2] riscv: mm: fix 2 instances of -Wmissing-variable-declarations
-    https://git.kernel.org/riscv/c/d2402048bc8a
+  - [v2] riscv,mmio: Fix readX()-to-delay() ordering
+    https://git.kernel.org/riscv/c/4eb2eb1b4c0e
 
 You are awesome, thank you!
 -- 
