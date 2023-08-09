@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9947C04A94
-	for <linux-riscv@archiver.kernel.org>; Wed,  9 Aug 2023 14:40:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01BD3C04E69
+	for <linux-riscv@archiver.kernel.org>; Wed,  9 Aug 2023 14:40:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=c5Nd9iES5g2E1Ug9ktt94V+utXRg4a7LxMc/Gwz89n4=; b=ExfOtHoJ3pjcd7
-	EhWc8Z51KkqqO3Awa60YPZwdS0jAXJY+hYu5kh5K2xRB3QZqaZ4OIuUumq34uYO3ejYraHK4oNxSL
-	33E4GgH845kdjlrsntaZhyauLsFXnsGd33jGE1Pa5yptDCqUG8da5gobIgabruvCPNkhBbTul92Zr
-	Xsd5Pzs4exsAfxr46JiJSwnEIfnpUbVGF8TdNRHnp9wBqmmXR3RnKGuyveE9hs/1d5r6dLuOM0I5A
-	KVjUCcs5TlwjK7sg7PX0RGbht2VcW32vouCRSeLBlJmZh6iWN+RwbT/LUN9/XvtTKwzLC/JtboaoB
-	6rr0MO584+gfmZwq9dcQ==;
+	List-Owner; bh=cnJ++raR7JSzy6rv4abt+2ebzjqp+1V6joxFG/7JaF8=; b=M0tcgg32Ba+t7y
+	dclcLtU8rsxXxiTGgTXxyOIac7fymV71OBCPpqiEVF9YoIkB/7Eb52ejgDjhworDUGpPJSvAF/rbH
+	1jWFlF8Vt1EB4eW+FLSXjgZVDBhneK94mIoEcxDS5Q+RpbfK5y6qNc3bnehGYLKFdeXs4R+BQXWYv
+	iGYDv7yex2PnWbkTq32zZHaIs7sAXPiR+/15gMqFo48HGIcrrVZL2k9MabGy+OMbf5ZLSH5JBI889
+	xhUhHlptyeghlQXQimwZ4vCAOXyCSiqxyrlD8e9GDGB/czwNXTSwlea2N985THLmousv0QoKG62qc
+	+iZAZuQ+jf31Bmpo3X5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qTkML-005CHF-2O;
-	Wed, 09 Aug 2023 14:40:25 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1qTkMM-005CHN-0y;
+	Wed, 09 Aug 2023 14:40:26 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qTkMI-005CEc-0i
+	id 1qTkMI-005CEd-0u
 	for linux-riscv@lists.infradead.org;
 	Wed, 09 Aug 2023 14:40:23 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id B47B063C4D;
+	by dfw.source.kernel.org (Postfix) with ESMTPS id BA9E763C54;
 	Wed,  9 Aug 2023 14:40:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 249C1C433C7;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 2A5F0C433CA;
 	Wed,  9 Aug 2023 14:40:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1691592021;
-	bh=i1JWSflPdqOgo9iVvVkyXxpaihCf7DdLtWvHlPRFT9k=;
+	bh=Lhf4dunGaMpKTl1uQVkZSCuLWY2zJMjBo+ZX8A0Oqjw=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=nXtqhW3DuHCFC0CYBRT0A8Ksdmx57EAdUKTtkspK8GmQ18QMimhh8OXjQxzPrIqQC
-	 aK6Iu1UFsW1iimnCd2v1iF/l1uokDItgmnayW5VTy0PA/TSxIRhItHHIvUcuN0j8oe
-	 DmzI/qqH/yseJ1ZkYZgWl4zPQgIZQtj2jPkNL6bJVD4KTudcZrvXJ7gb6QGu+ASP2g
-	 4D/L9+omdNEksx+UceML5emstl/+WpeYzzT3wIRQsISzgHfQkA2SblXdKCln/IjC1B
-	 RUIMrxhO12Lc7ZCvS5xyAUZgTL5PTdONZQ/W3PKbTMssSRuNH2zlwdZuJ59Rbwn+Gy
-	 RZTk2THWrbbGg==
+	b=cxdBtGOm8WaqOeYDsX3kOYWYgVzDTFN2+fgQRKIFZ40YmzzhvhjVYEk9Dg4GilQTQ
+	 /y/DqonMpDL3YdF+bnWLJDW3/klJWLLD1mXHB7Q3h7FgxFXmwWi13LdaI0uGgNDLgQ
+	 zDyAOjWTHTEHMvd1CZ+5XGpb7A6YxfCRNQrgqX6oYrGHuabSnBqo5NwC3mQPYqGR5y
+	 Da9f/tQTt1eKlu6szvE2RM2+n4TbK9kyxQZqfL/2MTRFJVu+Gz6ipC++ujUkPgzr5C
+	 wabbRumTznfJX3fGi+a02sGnOgjugXGKx2e6a1VbYH2xcdpzArzlmGVuH9MjovvNM0
+	 QH0MVNRUE1zHQ==
 Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 08ACFE505D5;
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 1178EE33090;
 	Wed,  9 Aug 2023 14:40:21 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH] riscv: Fix CPU feature detection with SMP disabled
+Subject: Re: [PATCH 0/2] riscv,mmio: I/O barriers fixes and cleanups
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <169159202103.17533.11526116831336443716.git-patchwork-notify@kernel.org>
+Message-Id: <169159202106.17533.2222118881302041934.git-patchwork-notify@kernel.org>
 Date: Wed, 09 Aug 2023 14:40:21 +0000
-References: <20230803012608.3540081-1-samuel.holland@sifive.com>
-In-Reply-To: <20230803012608.3540081-1-samuel.holland@sifive.com>
-To: Samuel Holland <samuel.holland@sifive.com>
-Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com,
- paul.walmsley@sifive.com, linux-kernel@vger.kernel.org, palmer@rivosinc.com
+References: <20230711133348.151383-1-parri.andrea@gmail.com>
+In-Reply-To: <20230711133348.151383-1-parri.andrea@gmail.com>
+To: Andrea Parri <parri.andrea@gmail.com>
+Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230809_074022_297639_D103DAB1 
-X-CRM114-Status: UNSURE (   8.47  )
+X-CRM114-CacheID: sfid-20230809_074022_387955_07C6B7A6 
+X-CRM114-Status: UNSURE (   8.71  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -80,23 +80,22 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Hello:
 
-This patch was applied to riscv/linux.git (fixes)
+This series was applied to riscv/linux.git (fixes)
 by Palmer Dabbelt <palmer@rivosinc.com>:
 
-On Wed,  2 Aug 2023 18:26:06 -0700 you wrote:
-> commit 914d6f44fc50 ("RISC-V: only iterate over possible CPUs in ISA
-> string parser") changed riscv_fill_hwcap() from iterating over CPU DT
-> nodes to iterating over logical CPU IDs. Since this function runs long
-> before cpu_dev_init() creates CPU devices, it hits the fallback path in
-> of_cpu_device_node_get(), which itself iterates over the DT nodes,
-> searching for a node with the requested CPU ID. (Incidentally, this
-> makes riscv_fill_hwcap() now take quadratic time.)
+On Tue, 11 Jul 2023 15:33:46 +0200 you wrote:
+> Andrea Parri (2):
+>   riscv,mmio: Fix readX()-to-delay() ordering
+>   riscv,mmio: Use the generic implementation for the I/O accesses
 > 
-> [...]
+>  arch/riscv/include/asm/mmio.h | 72 ++++-------------------------------
+>  1 file changed, 8 insertions(+), 64 deletions(-)
 
 Here is the summary with links:
-  - riscv: Fix CPU feature detection with SMP disabled
-    https://git.kernel.org/riscv/c/6514f81e1bd5
+  - [1/2] riscv,mmio: Fix readX()-to-delay() ordering
+    https://git.kernel.org/riscv/c/4eb2eb1b4c0e
+  - [2/2] riscv,mmio: Use the generic implementation for the I/O accesses
+    (no matching commit)
 
 You are awesome, thank you!
 -- 
