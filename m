@@ -4,85 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5D67C0015E
-	for <linux-riscv@archiver.kernel.org>; Wed,  9 Aug 2023 13:51:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38E9AC0015E
+	for <linux-riscv@archiver.kernel.org>; Wed,  9 Aug 2023 14:11:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:To:From:Cc:MIME-Version:Date:Message-Id
+	:Subject:References:In-Reply-To:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=72eW2GSmJ83gl8jD8VYTK1pgXjCkzElB20hUWHs6Zxw=; b=GrsNXrTEY+OfSt
-	B+A8sU9FM86nBnNOhVXI7J6oM416IzDzwngpES3W44kfPok+EgqkVo9dSao7B3YyGr9gi7rAPHY8G
-	Uh8xjsdxenDODOJTl6j7qWxgqrHZjL8PNhDp9XlW/P0C5ZOU8CaRuKQVEqGGUhk92OjQZ/aJfqUje
-	R3hgdNHV8dLz2Rjdrm7wzuCeGX37J8ol/Zd94/NJLxq27HTs7xr0pDjqMs1q4c+GeBwupKDdIwG7q
-	d9Ol7yt7tIdfAlfrl7+ikvASyDOMak8lluas9zly9TT1Zo0vn6U42Hba3ErRYgJVTiCBarsvj4HFL
-	BXkwocweU9T278t6k/KA==;
+	List-Owner; bh=+21kZmuX+K3Y0xdPqjGULvgsDFGS2FMYclwuuDpgLd4=; b=znO7dQEG5+9RX5
+	nJ1eiK5RbUNbl9z2K0hCdyheTnqgQlnYpqUlUUp4bGP1Er0eRwm1xgAAzcvY6DGFJtuoKhOXfsW6t
+	lM9bP/64zpcXtbCPslrAw0AjdFT63ir9McOHcv9pWHH+OPVJkvEJ9hmVIok8yh1SRH/jJccvoopbC
+	KnSlxXWx4BKb8qaMzhNAqF0J0I4egY4cxTNWKv4Mq/LY6Rv51HrwZAzIWvKjxENoLd/jBHOMoRrOf
+	L2Am5kHR7t3JsmGjzE6JSf4qiiT0/KWmMM302UNsNDfRLCG5bzCy5dvWo/G94+2TkdlQZvWWcV1iK
+	1NYPX6O4DiYKlpFSA+0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qTjau-0055CL-2V;
-	Wed, 09 Aug 2023 13:51:24 +0000
-Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
+	id 1qTjuE-0057iC-23;
+	Wed, 09 Aug 2023 14:11:22 +0000
+Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qTjar-00559C-0A
+	id 1qTjuB-0057hB-0c
 	for linux-riscv@lists.infradead.org;
-	Wed, 09 Aug 2023 13:51:22 +0000
-Received: by mail-pj1-x1031.google.com with SMTP id 98e67ed59e1d1-26814e27a9eso3605608a91.0
-        for <linux-riscv@lists.infradead.org>; Wed, 09 Aug 2023 06:51:18 -0700 (PDT)
+	Wed, 09 Aug 2023 14:11:21 +0000
+Received: by mail-pf1-x42f.google.com with SMTP id d2e1a72fcca58-686f38692b3so6649423b3a.2
+        for <linux-riscv@lists.infradead.org>; Wed, 09 Aug 2023 07:11:18 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1691589078; x=1692193878;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=s8zD96bw4rkncguyqlSPtv0gB2rgXdSIasM/kJ2Pb24=;
-        b=Dxbp2YMn7sEEInQkq3Tx3bNagvXpt51+BczEsYwWdT4h8B5cSftkC0XtHfDYAH0/ND
-         jBpYPBHSCCAoV2bu3BiweHCvfH+Mc514Dwc1B0vXXbVboRfRmYsawGlJi9eECwZAgF2e
-         aV9POh06RhXEIm3jLfHDBpXKeM0Jy8s8LpwNDAYdTWkxYYh3sNy/ycHvABG0AoE6WiuM
-         5qWH32aJERfsumUVzLLBTManicMF7gHyJ+LMEOBi+mWokJ0/EnGJUFnaaSQvEURCPfpY
-         rKFHLOyAZFZkr/xpM2sYkmBte/3qwLrhgZgltS+0voR81ELbQBfSrd1CE/rFOY3FHCTY
-         QHUQ==
+        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1691590277; x=1692195077;
+        h=to:from:cc:content-transfer-encoding:mime-version:date:message-id
+         :subject:references:in-reply-to:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=z6l11VxyDZSaUALoCccZa3ct54qsws22cbS5n25+v6E=;
+        b=cunsTonL+/rWgH+Lz4jAFC9Fo4cKyoBxC4j8WwFEL0jWFMA+joGcIwndpf6zjM5229
+         dx6v9awRlPeyKhuvOZRcrwlygUYnDLfH+Qf932m5p+FEeyQ32VubnIHh37ergH2QyDIH
+         ihBHO08YMM+DYT6tf5UHpbNyycbFk9p46sIjtWMyGoYhKL9ZNbZsX9PuWvdcUU9tn8f8
+         1+718/OVevz8jTL02NAoVMe2BjJWYV6FQVrsntfs5HWe0o6+l3QEf0NiVLqboOXmhn3i
+         M3AgIxnXhvi72UTRCLEep+//oU3BH6phQpMtFQeH7t4r8ty6APS9Hy8D9WqnWF8SDIqs
+         WJIw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1691589078; x=1692193878;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20221208; t=1691590277; x=1692195077;
+        h=to:from:cc:content-transfer-encoding:mime-version:date:message-id
+         :subject:references:in-reply-to:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=s8zD96bw4rkncguyqlSPtv0gB2rgXdSIasM/kJ2Pb24=;
-        b=fYWuC/QGgKU4Srv/elhrpHteKdXQUvu3LKgDWcLvfg4dCa5ZZ+VzdkDGzBWUdAOm3T
-         wBHRExtxLgd+4eNIJaNQ78kCds7f2RzKBM1rEQrSI/Aet2xoPFHz2pkTknLdXD367r0z
-         pSegbetZkekPhteQ3RxY6vkgvVwiDKwP1rG8HmUslQ6iIZFqZqebvJgw3lZ3FB9WTybA
-         TF6E3Oz3wsEoOg6zOP3aVc0wkzk8r0gohcp8/HfQafl50nugQHsIrl/8Gn2/FTM5bh+c
-         OVKZVYUYLreDjJz7I4SlEVg9FNgn4JepuSCNZsfM5oEYlirfH44FGjkdIyEVuurbuGOr
-         XPpw==
-X-Gm-Message-State: AOJu0YxOTsLKX7XlqbMU89ll4j1AY9T06lVZEhI5qwvikYJ1ooXVxj6S
-	VmFODExjklMucnFPgEtunGeQhw==
-X-Google-Smtp-Source: AGHT+IHYcoVWEhh4an7XhURJt/MotBxsKv0tKy0BQcpQiO1VXx695G6yZqnzgZHHjn3G5lU5gk+Q9Q==
-X-Received: by 2002:a17:90b:3444:b0:268:c569:f2af with SMTP id lj4-20020a17090b344400b00268c569f2afmr2005669pjb.7.1691589078233;
-        Wed, 09 Aug 2023 06:51:18 -0700 (PDT)
-Received: from work.. (1-161-169-231.dynamic-ip.hinet.net. [1.161.169.231])
-        by smtp.gmail.com with ESMTPSA id p12-20020a17090a284c00b00262ca945cecsm1542677pjf.54.2023.08.09.06.51.15
+        bh=z6l11VxyDZSaUALoCccZa3ct54qsws22cbS5n25+v6E=;
+        b=Pq44olDsBEDejSEcQ8yASnYZoapaQAuXOFWmoThDm3s8f56wGK3WyW2o2ZKctNWg4h
+         NAAzKglKv6Cfv2Pq69vYwWF13k5evBbMPrZVDztEuw2qGT6bYp9xnG3DkOep5Tm9pyKg
+         rFg2IZcV4WlIOASivz0qJsX9DJ3YR+NumcCJppirpAWFbR68OVDbxF3zbLyW8sT0CL3q
+         gJKUuaVdKcOCffv4jsm0S7OgXkrqCLsVjK4/b+40iItx6A95+tMAWkQ5XUImmU+zLsKR
+         vEeMFUnoTBnYBxz+fCRmwYdo+ovAaC1fO1U5njzD3FZjFeu6u/fXlchY74Ge7eUjhxUo
+         rlSg==
+X-Gm-Message-State: AOJu0YzA19QeeEloKWFSpGd4o3zjzofndc05EbdOg9VkGfkMXCCfOKdV
+	tvBpJzw1Um9yxFRiZUae8ZvDFBPdPkEmoPQTkjGMOA==
+X-Google-Smtp-Source: AGHT+IGJs9oapfzMEWX52Fz5gVTa0qKJex1tBzNPZgE7G5boBtfBncAYJ0Pu4Kz3A4DTnKHPFOHGhA==
+X-Received: by 2002:a05:6a21:7787:b0:126:92de:b893 with SMTP id bd7-20020a056a21778700b0012692deb893mr2471053pzc.31.1691590277193;
+        Wed, 09 Aug 2023 07:11:17 -0700 (PDT)
+Received: from localhost ([135.180.227.0])
+        by smtp.gmail.com with ESMTPSA id u6-20020a62ed06000000b006833bcc95b0sm10012207pfh.115.2023.08.09.07.11.16
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 09 Aug 2023 06:51:17 -0700 (PDT)
-From: Nick Hu <nick.hu@sifive.com>
-To: nick.hu@sifive.com,
-	zong.li@sifive.com,
-	gregkh@linuxfoundation.org,
-	jirislaby@kernel.org,
-	palmer@dabbelt.com,
-	paul.walmsley@sifive.com,
-	linux-serial@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Cc: Ben Dooks <ben.dooks@codethink.co.uk>
-Subject: [PATCH v2 1/1] serial: sifive: Add suspend and resume operations
-Date: Wed,  9 Aug 2023 21:50:42 +0800
-Message-Id: <20230809135042.2443350-2-nick.hu@sifive.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20230809135042.2443350-1-nick.hu@sifive.com>
-References: <20230809135042.2443350-1-nick.hu@sifive.com>
+        Wed, 09 Aug 2023 07:11:16 -0700 (PDT)
+In-Reply-To: <20230802-arch-riscv-kernel-v2-1-24266e85bc96@google.com>
+References: <20230802-arch-riscv-kernel-v2-1-24266e85bc96@google.com>
+Subject: Re: [PATCH v2] RISC-V: cpu: refactor deprecated strncpy
+Message-Id: <169159026875.18421.15201020596285945791.b4-ty@rivosinc.com>
+Date: Wed, 09 Aug 2023 07:11:08 -0700
 MIME-Version: 1.0
+X-Mailer: b4 0.13-dev-901c5
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+  Kees Cook <keescook@chromium.org>, Nick Desaulniers <ndesaulniers@google.com>, linux-hardening@vger.kernel.org
+From: Palmer Dabbelt <palmer@rivosinc.com>
+To: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+  Albert Ou <aou@eecs.berkeley.edu>, Justin Stitt <justinstitt@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230809_065121_085063_05FE4FD5 
-X-CRM114-Status: GOOD (  12.01  )
+X-CRM114-CacheID: sfid-20230809_071119_448269_249F9FBA 
+X-CRM114-Status: UNSURE (   6.89  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,54 +94,23 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-If the Sifive Uart is not used as the wake up source, suspend the uart
-before the system enter the suspend state to prevent it woken up by
-unexpected uart interrupt. Resume the uart once the system woken up.
 
-Signed-off-by: Nick Hu <nick.hu@sifive.com>
-Reviewed-by: Ben Dooks <ben.dooks@codethink.co.uk>
----
- drivers/tty/serial/sifive.c | 18 ++++++++++++++++++
- 1 file changed, 18 insertions(+)
+On Wed, 02 Aug 2023 00:21:58 +0000, Justin Stitt wrote:
+> `strncpy` is deprecated for use on NUL-terminated destination strings [1].
+> 
+> Favor not copying strings onto stack and instead use strings directly.
+> This avoids hard-coding sizes and buffer lengths all together.
+> 
+> 
 
-diff --git a/drivers/tty/serial/sifive.c b/drivers/tty/serial/sifive.c
-index a19db49327e2..939dd351a058 100644
---- a/drivers/tty/serial/sifive.c
-+++ b/drivers/tty/serial/sifive.c
-@@ -1022,6 +1022,23 @@ static int sifive_serial_remove(struct platform_device *dev)
- 	return 0;
- }
- 
-+static int sifive_serial_suspend(struct device *dev)
-+{
-+	struct sifive_serial_port *ssp = dev_get_drvdata(dev);
-+
-+	return uart_suspend_port(&sifive_serial_uart_driver, &ssp->port);
-+}
-+
-+static int sifive_serial_resume(struct device *dev)
-+{
-+	struct sifive_serial_port *ssp = dev_get_drvdata(dev);
-+
-+	return uart_resume_port(&sifive_serial_uart_driver, &ssp->port);
-+}
-+
-+DEFINE_SIMPLE_DEV_PM_OPS(sifive_uart_pm_ops, sifive_serial_suspend,
-+			 sifive_serial_resume);
-+
- static const struct of_device_id sifive_serial_of_match[] = {
- 	{ .compatible = "sifive,fu540-c000-uart0" },
- 	{ .compatible = "sifive,uart0" },
-@@ -1034,6 +1051,7 @@ static struct platform_driver sifive_serial_platform_driver = {
- 	.remove		= sifive_serial_remove,
- 	.driver		= {
- 		.name	= SIFIVE_SERIAL_NAME,
-+		.pm = pm_sleep_ptr(&sifive_uart_pm_ops),
- 		.of_match_table = of_match_ptr(sifive_serial_of_match),
- 	},
- };
+Applied, thanks!
+
+[1/1] RISC-V: cpu: refactor deprecated strncpy
+      https://git.kernel.org/palmer/c/12d61a1bc28e
+
+Best regards,
 -- 
-2.34.1
+Palmer Dabbelt <palmer@rivosinc.com>
 
 
 _______________________________________________
