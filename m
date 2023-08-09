@@ -4,61 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80C8DC001B0
-	for <linux-riscv@archiver.kernel.org>; Wed,  9 Aug 2023 14:47:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1751BC0015E
+	for <linux-riscv@archiver.kernel.org>; Wed,  9 Aug 2023 14:58:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z/DhacS04AOdTOz2XyNBvGlH2o8Gm/ibEnDy4sVp4bU=; b=V9q9fT5X8ZnMFa7I193yjcefy1
-	xP5a0H+c5P+2yosc6EhKspZ1/E8fQVLZgvjE//ga9jjD0VToOH8WS/kKS8T+bPAiDh0DmUrxIElPP
-	dtHABBns9xJdo1ha38ur1S1pTJLio7b3shzpZ1WqWuwznhy2A2P8Z7YkZv25Es/Xpck8WBj7lloH7
-	8phoM6oGivIhFdcSTPSunZqKMtsH8omAO66j+/PEoI0GSndZ4xUOKxtXQE0/ew1M3moJ5fCftGiCX
-	T0MWMZN375kwQ93eVVURc+WFcU3KtZVr45rVUut2U1sFllCm7h7dKUjvaHq6YFT0t7gKUvZaopEDN
-	m/AMFqOg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=ud1NyuXzdRbIl/0EqCgdSLVdgY77WTx5oohPDtvXAK8=; b=M5Slwy9Ls66QrZ
+	UPdRVoT34/NLcR2o/xl2Ot6QgP60emEI6Ct0T7nOrtU5LzbEjCWoKjrk9zHa9pNsJG7CvO/lBakqS
+	m7/sdaOcrxKoHimFqoaG4h3mrp7+VbSiHTbbFhQbveXAzKrEw82n4Z8A8Oz2GY1g3yLFcuu55K28Q
+	ssC14jAe4Gsb7pH9XQ4+C0WqFlLDwZdH9U8QlT6jNFGIVf1GKzf5GIjdbus9TubyXgPdXylw02lN9
+	wHmV0RuT33zD0j4zdfK1u5bq21gMuef4Dq+oh9hZbyMCSpEBOCG9ssHpWOS58llQ9vVbUQLv99i7i
+	ZUlX6+sTf+4yOn2pzg/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qTkTW-005Dl4-0A;
-	Wed, 09 Aug 2023 14:47:50 +0000
-Received: from hall.aurel32.net ([2001:bc8:30d7:100::1])
+	id 1qTkdL-005FNg-1N;
+	Wed, 09 Aug 2023 14:57:59 +0000
+Received: from mail-qt1-x82e.google.com ([2607:f8b0:4864:20::82e])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qTkTS-005Dhc-20
+	id 1qTkdG-005FMV-2S
 	for linux-riscv@lists.infradead.org;
-	Wed, 09 Aug 2023 14:47:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=aurel32.net
-	; s=202004.hall; h=In-Reply-To:Content-Type:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Content-Transfer-Encoding:From:Reply-To:
-	Subject:Content-ID:Content-Description:X-Debbugs-Cc;
-	bh=I1GSnytRmZTqzC/nyChO2skID9DKQcFQyTz+BhnPZ5c=; b=mdK2OMQERm6meEpDQaTeUHUaTK
-	LlBEk0VZuNy0Do19is0LMYE/zJwM1jI+CaydT3zRgxmifJVJlhbsEkbDrXGKOGMLfHHs5pQsa/kxy
-	viEUii6Glb1TfAPoKPmHVApgDgj/oyQr2eJQc9emmNWe4HluLczPjajM9yTZLh62q9RxSvJC+Ui9v
-	4KAnSLfOuHfA8lllP2rttS7urqGd2vlZjAoXHT02fvT6nIC3h2HZ05QYTkxq30FSGe3tMdHlgd+Dc
-	z9qJUZt9dzv0MvYxAVhXctx82S0TB+W2qn3jB1/sCfA/rWe1uV1McP1aWt5PHfNS03oODce+s0no+
-	1Fgaxm2g==;
-Received: from ohm.aurel32.net ([2001:bc8:30d7:111::2] helo=ohm.rr44.fr)
-	by hall.aurel32.net with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <aurelien@aurel32.net>)
-	id 1qTkTJ-005OHj-FK; Wed, 09 Aug 2023 16:47:37 +0200
-Received: from aurel32 by ohm.rr44.fr with local (Exim 4.96)
-	(envelope-from <aurelien@aurel32.net>)
-	id 1qTkTJ-00Ghcb-0F;
-	Wed, 09 Aug 2023 16:47:37 +0200
-Date: Wed, 9 Aug 2023 16:47:37 +0200
-From: Aurelien Jarno <aurelien@aurel32.net>
-To: linux-riscv@lists.infradead.org
-Cc: Bo YU <tsu.yubo@gmail.com>, Andreas Gruenbacher <agruenba@redhat.com>
-Subject: Re: potential riscv special bug maybe found
-Message-ID: <ZNOnCakhwIeue3yr@aurel32.net>
-References: <20230309151841.bomov6hq3ybyp42a@debian>
+	Wed, 09 Aug 2023 14:57:56 +0000
+Received: by mail-qt1-x82e.google.com with SMTP id d75a77b69052e-406b9bcad5dso35653531cf.2
+        for <linux-riscv@lists.infradead.org>; Wed, 09 Aug 2023 07:57:51 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ziepe.ca; s=google; t=1691593070; x=1692197870;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=HpMhr6QD+95gO3zovNgjrpdIT5cUPg1o1tOLgZJnwGY=;
+        b=hLXQVlNLelozyJU+bMnYuq1dfWyKA32ocR+Yqn1lylxJDEsL6wr0oakubcd0IMsOhS
+         NVqoyF2vVCIqlBuVQrG5aJE7INO9gJqQzauN7dyqUmmVUcqx9L+3sgjIjFX2QO2ClYJy
+         rvFmhdqeL9nEFIvBLrUZ3m3uEBjmQRBpk9XK/ms2KoLHID/+dtoBpdjBErcu/OLHrQF1
+         HyXFnoMmG2QhzyiCj0Z4W99t1UYCtTkmO79eup9BPRlQ0s+SFxkHR9C9+/n9yTI5x4Rz
+         dtMyCPqw9hxolBatOIPRnHBRQHeBxUpZC/rydY1bBkD4SD8ZCtZv8QeM/QOAd6D+yhC0
+         YY0w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1691593070; x=1692197870;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=HpMhr6QD+95gO3zovNgjrpdIT5cUPg1o1tOLgZJnwGY=;
+        b=ibZ54Lcq5da81FDYFewFrLxaQWUjYHDKxuH4ZsL7mnCJModlYot023yB0yTgu2q5Fb
+         jUC5RGjFEIxX/TTPk/EC51xccGF1oL738DURKn6WPj9mngTYPgkdPTAgIISJ1Sg6pg+a
+         OLZUpLfB17arsMAP/xH7a7zDcBianECNsd95seZRy3kZMOHSKnIjfinz7H5331Do97ag
+         XCqi15zWfG4Y8siSbVnSj0fgbu42bL/UpZ5au5s2nIjp76ueiwDt6hcPbDRI1Ck+QqM1
+         WklFzRILySSKMCMa5PJOBu/6HDxH0em9T/0+dpu/00+GSB5YIhsmH+fEX+h4EHymJ00r
+         bJ4w==
+X-Gm-Message-State: AOJu0YxsZQ3kXgDNWDDfIfbdheGsAbLKvF4Iwgxh2r+uRmE1x289FoDV
+	FUGQHGMdK6UgJn4stp3cZBavyA==
+X-Google-Smtp-Source: AGHT+IF/Eb2IIrd1xEjQy4quw86/nLSkYTOnDYFOrxCFoJ5y6Vyhcm86eTM1GOzIdk8SC98VBkH6Aw==
+X-Received: by 2002:ac8:4e47:0:b0:405:3dcf:1182 with SMTP id e7-20020ac84e47000000b004053dcf1182mr3857027qtw.50.1691593070645;
+        Wed, 09 Aug 2023 07:57:50 -0700 (PDT)
+Received: from ziepe.ca (hlfxns017vw-142-68-25-194.dhcp-dynamic.fibreop.ns.bellaliant.net. [142.68.25.194])
+        by smtp.gmail.com with ESMTPSA id w12-20020a05620a148c00b007671b599cf5sm4017361qkj.40.2023.08.09.07.57.50
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 09 Aug 2023 07:57:50 -0700 (PDT)
+Received: from jgg by wakko with local (Exim 4.95)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1qTkdB-0053kn-JN;
+	Wed, 09 Aug 2023 11:57:49 -0300
+Date: Wed, 9 Aug 2023 11:57:49 -0300
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: Zong Li <zong.li@sifive.com>
+Cc: Baolu Lu <baolu.lu@linux.intel.com>,
+	Anup Patel <apatel@ventanamicro.com>,
+	Tomasz Jeznach <tjeznach@rivosinc.com>,
+	Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, linux@rivosinc.com,
+	linux-kernel@vger.kernel.org, Sebastien Boeuf <seb@rivosinc.com>,
+	iommu@lists.linux.dev, Palmer Dabbelt <palmer@dabbelt.com>,
+	Nick Kossifidis <mick@ics.forth.gr>,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH 03/11] dt-bindings: Add RISC-V IOMMU bindings
+Message-ID: <ZNOpbac4i5zfmHj4@ziepe.ca>
+References: <d62ceb33620cab766d809e6bbf30eaf5b46bc955.1689792825.git.tjeznach@rivosinc.com>
+ <CANXhq0r=2eqpy9wLjVt1U0J7=LpnJLcKV7N9d90jvCss=7+Fzg@mail.gmail.com>
+ <CAK9=C2Vg9eR5LJPeqDDQ0pHZcrT5DOUzA8_wYEVEjfnhb6s8pw@mail.gmail.com>
+ <CANXhq0oTrU_-OQroW7H+hvxcU7YROhkgdCF9g_WtPTzVFQL7gA@mail.gmail.com>
+ <CAK9=C2XoQjPzZ5yB5jfTbee4-Pb8GgFAZRbfcMwMk9pyo39WxQ@mail.gmail.com>
+ <CANXhq0q7R9Srx6U=fReq7LDLFgW6rMmjKH=o6MzDT5AWNRXP6w@mail.gmail.com>
+ <592edb17-7fa4-3b5b-2803-e8c50c322eee@linux.intel.com>
+ <CANXhq0pS_=YxgrxSKbdfrFdGcBduzk3LTyC4vp_hqoJTbX3e0g@mail.gmail.com>
+ <ZMEO1kNGfGjN6kZM@ziepe.ca>
+ <CANXhq0qMWS_j0n_aUO8BVFSedYCjuMM=Z_tsnK05ZhG+Ob6pqw@mail.gmail.com>
 MIME-Version: 1.0
-In-Reply-To: <20230309151841.bomov6hq3ybyp42a@debian>
-User-Agent: Mutt/2.2.9 (2022-11-12)
+Content-Disposition: inline
+In-Reply-To: <CANXhq0qMWS_j0n_aUO8BVFSedYCjuMM=Z_tsnK05ZhG+Ob6pqw@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230809_074747_111550_CCA97D5C 
-X-CRM114-Status: GOOD (  22.44  )
+X-CRM114-CacheID: sfid-20230809_075754_797821_A37073A6 
+X-CRM114-Status: GOOD (  15.96  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,220 +108,38 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4945712393406116992=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Thu, Jul 27, 2023 at 10:42:47AM +0800, Zong Li wrote:
 
---===============4945712393406116992==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="C6cEdScaYv1A1R0K"
-Content-Disposition: inline
+> Perhaps this question could be related to the scenarios in which
+> devices wish to be in bypass mode when the IOMMU is in translation
+> mode, and why IOMMU defines/supports this case. Currently, I could
+> envision a scenario where a device is already connected to the IOMMU
+> in hardware, but it is not functioning correctly, or there are
+> performance impacts. If modifying the hardware is not feasible, a
+> default configuration that allows bypass mode could be provided as a
+> solution. There might be other scenarios that I might have overlooked.
+> It seems to me since IOMMU supports this configuration, it would be
+> advantageous to have an approach to achieve it, and DT might be a
+> flexible way.
 
+So far we've taken the approach that broken hardware is quirked in the
+kernel by matching OF compatible string pattners. This is HW that is
+completely broken and the IOMMU doesn't work at all for it.
 
---C6cEdScaYv1A1R0K
-Content-Type: multipart/mixed; boundary="5O7GWs0cfi58320W"
-Content-Disposition: inline
+HW that is slow or whatever is not quirked and this is an admin policy
+choice where the system should land on the security/performance
+spectrum.
 
+So I'm not sure adding DT makes sense here.
 
---5O7GWs0cfi58320W
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-Hi,
-
-On 2023-03-09 23:18, Bo YU wrote:
-> Hi,
->=20
-> I am sorry if this is noise.
->=20
-> Some days ago I noticed strace 6.2 was built failed on riscv64 due to
-> test cases[0]. There is one program from strace can reproduce it:
->=20
-> ```
-> ./tests/read-write ```
->=20
-> It will be hang.
->=20
-> In fact, the issue has existed since 5.18. I `git bisect` and finally
-> found out the issue was introduced by the commit[1]:
->=20
-> commit 631f871f071746789e9242e514ab0f49067fa97a
-> Author: Andreas Gruenbacher <agruenba@redhat.com>
-> Date:   Tue Nov 9 12:56:06 2021 +0100
->=20
->     fs/iomap: Fix buffered write page prefaulting
->=20
-> I do not think there is a problem with this commit, because it does not
-> affect others arch expect riscv and after I reverted it, it will pass
-> all test cases from strace(There is still one case failed on qemu, but
-> this is another store).
->=20
-> I try to debug something but failed.
-> Would be appreciated it any help.
-
-Please find attached a simpler reproducer extracted from strace, which
-should make the issue easier to reproduce. It hangs on riscv64 and needs
-to be killed with -9, while it works fine on amd64.
-
-Regards
-Aurelien
-
---=20
-Aurelien Jarno                          GPG: 4096R/1DDD8C9B
-aurelien@aurel32.net                     http://aurel32.net
-
---5O7GWs0cfi58320W
-Content-Type: text/x-csrc; charset=us-ascii
-Content-Disposition: attachment; filename="read-write.c"
-
-/*
- * Check decoding and dumping of read and write syscalls.
- *
- * Copyright (c) 2016 Dmitry V. Levin <ldv@strace.io>
- * Copyright (c) 2016-2021 The strace developers.
- * All rights reserved.
- *
- * SPDX-License-Identifier: GPL-2.0-or-later
- */
-
-#include <fcntl.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <string.h>
-#include <sys/mman.h>
-
-# define LENGTH_OF(arg) ((unsigned int) sizeof(arg) - 1)
-# define ARRAY_SIZE(a_)        (sizeof(a_) / sizeof((a_)[0]))
-
-static void *
-tail_alloc(const size_t size)
-{
-	const size_t page_size = sysconf(_SC_PAGESIZE);
-	const size_t len = (size + page_size - 1) & -page_size;
-	const size_t alloc_size = len + 6 * page_size;
-
-	void *p = mmap(NULL, alloc_size, PROT_READ | PROT_WRITE,
-		       MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
-	if (MAP_FAILED == p) {
-		perror("mmap");
-		exit(1);
-	}
-
-	void *start_work = p + 3 * page_size;
-	void *tail_guard = start_work + len;
-
-	if (munmap(p, page_size) ||
-	    munmap(p + 2 * page_size, page_size) ||
-	    munmap(tail_guard, page_size) ||
-	    munmap(tail_guard + 2 * page_size, page_size)) {
-		perror("munmap");
-		exit(1);
-	}
-
-	memset(start_work, 0xff, len);
-	return tail_guard - size;
-}
-
-static void
-fill_memory_ex(void *ptr, size_t size, unsigned char start,
-	       unsigned int period)
-{
-	unsigned char *p = ptr;
-
-	for (typeof(size) i = 0; i < size; ++i) {
-		p[i] = start + i % period;
-	}
-}
-
-int
-main(void)
-{
-	static const char tmp[] = "read-write-tmpfile";
-	long rc;
-	long fdr;
-	long fdw;
-
-	unlink(tmp);
-
-	fdr = open(tmp, O_CREAT|O_EXCL|O_RDONLY, 0600);
-	if (fdr < 0) {
-		perror("create");
-		exit(1);
-	}
-
-	fdw = open(tmp, O_TRUNC|O_WRONLY);
-	if (fdw < 0) {
-		perror("open");
-		exit(1);
-	}
-
-	static const char w_c[] = "0123456789abcde";
-	const unsigned int w_len = LENGTH_OF(w_c);
-
-	rc = write(fdw, w_c, w_len);
-	if (rc != (int) w_len) {
-		perror("write");
-		exit(1);
-	}
-
-	static const size_t six_wide_size = 1 << 20;
-	static const size_t fetch_size = 1 << 16;
-	const size_t buf_size = six_wide_size + fetch_size;
-	const size_t sizes[] = {
-		buf_size,
-		buf_size + 1,
-	};
-	char *big_buf = tail_alloc(buf_size);
-
-	fill_memory_ex(big_buf, buf_size, 0, 0x100);
-
-	for (size_t i = 0; i < ARRAY_SIZE(sizes); i++) {
-		write(fdw, big_buf, sizes[i]);
-	}
-
-	close(fdw);
-
-	return 0;
-}
-
---5O7GWs0cfi58320W--
-
---C6cEdScaYv1A1R0K
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIyBAEBCgAdFiEEUryGlb40+QrX1Ay4E4jA+JnoM2sFAmTTpwYACgkQE4jA+Jno
-M2vnvQ/4zU6N7veHS9xECuWI0TTlvqY0EiFVhDx41nf2+aMTlhPp8nJJScEBScli
-sEor2PgfhsNFWQqiWegCP92pPhVzQda7UqYeT/RVj9tI/c+eVzgAiRpY/Ak1xkLJ
-6CxgyQKpiVI82EIRaQtWanaOPV3JRWV3HfEl/ftNhv4tse8FRCA6dJi1aZc4zV6/
-6cqDKmY058E0LFJsqwoETGN1FZVbRrbtyDKuRkPiKn1vXo/sS6G3WqC09YZCp2zz
-pks8yaOohlT9Z8dmPa0mws/1JVNBg/PwlFWrsWS0jEg6jUB9TxXrBYB8dFKzPF8H
-5u9kKObQdY00D5eRG4Lb6sYLGFBHqqAODITNd9TLP9oyoqb/qAiftliINY7RTSPJ
-dPr2lMmb1EmRZ0KO/S5wv/oLE5wECKlI3+8q+dwzmjvxfz/8BxvO9URNLL6wVsdu
-ZRb6/8X2JGRkeyrMpnY84BwvfvwtYXFskJfq0KYwCCSmVKAjI7SRwAEiYpxrus23
-V3rWFm26uOiHHd7ccI9LfFfSKbkD5AtZ13Lp9rVr+OdOv1KfnwEBAYhKyJosQ33G
-gZBUMHLFi6KJdpeW+SE1Cy44Nsu+dhtZAL4mDrAxlVQB3WuGfIlQA+afkcZ0MbIE
-frp4Cs9R/rbN7Z64etVXCXV1NHnpU9howCGVaOuAuTgBIiZfhQ==
-=to3p
------END PGP SIGNATURE-----
-
---C6cEdScaYv1A1R0K--
-
-
---===============4945712393406116992==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Jason
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============4945712393406116992==--
-
