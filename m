@@ -4,50 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71D50C001B0
-	for <linux-riscv@archiver.kernel.org>; Wed,  9 Aug 2023 23:09:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63380C04FE0
+	for <linux-riscv@archiver.kernel.org>; Wed,  9 Aug 2023 23:24:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
-	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=k3JLexyGu5Ni9mV108umR6FS3tvkuIIyfj7Tswer5Dw=; b=ooSlZJySd1VHuz
-	1C9JtVNybKgGid1XEY+vHmwF/UnpjQtUEPgRUmsGMKQ8lE8/tfIBFbfy9vczjfPWsuLfgQhI+UaTi
-	H0mFDkba1U7/1D1FTYztn+p6KsWGzAr0725OOWWwv4Uop57rg5X5dDaMMUL0gzx1xPwdDYvp/mWne
-	uNBJfX7ajpU05/iC0M0zJEksEeqAEjuZYTNnGD3IpzawbI/9uIfw1H0V0ISEHgrmVRPRja6puRfCU
-	hW3I2jfkTS2ZGQVmasxu865FZWaxPqA4CkPC+b5z2CvNVSMU8ytWoExIOaIH9SveZ7aA4MI9yDFkg
-	ceN710HDPnBa/x0QfrzQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=B1tRNibs7VSggsSlxXbdvVfzqLaOrHtLWFRD6aSrO2E=; b=j/3ENkxhel5stO
+	4UB6mXhHOhbM3xYTlb3eAjdZdqh73IIbzbWmMebC04jEERDvUS2gMrdhEDkdp/nQATWn4z34lNrPg
+	6s9vCrfw9vCe+QVKFyxB+9i//6YMSOs90uwn1zJSKQA+3cGYYQl50EWdpV/syE+RAw5uCQtO7NkYj
+	iA5HGb+CyiNtDGkgzZkkt42DhsEAutMtwJtNUDnGCIE7XNniu6JPcbkScsNOCX88KiZ/jlT5tL6yw
+	rpzA5FZCohmVIY8kioK9Ykc1GLYGcxrmMaOhESgo+BcCbYaaPBvRKV33OS+sQzCczbI7cN7R+YS29
+	kwJZCIlxBUsOzlwdX7MQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qTsIw-0062hy-0U;
-	Wed, 09 Aug 2023 23:09:26 +0000
-Received: from angie.orcam.me.uk ([2001:4190:8020::34])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qTsIs-0062hA-1v
+	id 1qTsXR-0063VW-2w;
+	Wed, 09 Aug 2023 23:24:25 +0000
+Received: from mail-pg1-x534.google.com ([2607:f8b0:4864:20::534])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1qTsXP-0063UK-1q
 	for linux-riscv@lists.infradead.org;
-	Wed, 09 Aug 2023 23:09:24 +0000
-Received: by angie.orcam.me.uk (Postfix, from userid 500)
-	id BB8AF9200C1; Thu, 10 Aug 2023 01:09:17 +0200 (CEST)
-Received: from localhost (localhost [127.0.0.1])
-	by angie.orcam.me.uk (Postfix) with ESMTP id B9C2F9200BF;
-	Thu, 10 Aug 2023 00:09:17 +0100 (BST)
-Date: Thu, 10 Aug 2023 00:09:17 +0100 (BST)
-From: "Maciej W. Rozycki" <macro@orcam.me.uk>
-To: Greg Savin <greg.savin@sifive.com>, Greentime Hu <greentime.hu@sifive.com>, 
-    Andy Chiu <andy.chiu@sifive.com>
-cc: linux-riscv@lists.infradead.org, gdb-patches@sourceware.org, 
-    Andrew Burgess <andrew.burgess@embecosm.com>
-Subject: Re: [PATCH] RISC-V: support for vector register accesses via ptrace()
- in RISC-V Linux native
-In-Reply-To: <CADdv1FqjLPZ-eWOKPv0uZxF-u-SYjn0WJGr3KWW9H06-O0L35w@mail.gmail.com>
-Message-ID: <alpine.DEB.2.21.2308092247280.25915@angie.orcam.me.uk>
-References: <20230803230110.904724-1-greg.savin@sifive.com> <alpine.DEB.2.21.2308091008500.25915@angie.orcam.me.uk> <CADdv1FqjLPZ-eWOKPv0uZxF-u-SYjn0WJGr3KWW9H06-O0L35w@mail.gmail.com>
-User-Agent: Alpine 2.21 (DEB 202 2017-01-01)
+	Wed, 09 Aug 2023 23:24:25 +0000
+Received: by mail-pg1-x534.google.com with SMTP id 41be03b00d2f7-564a0d2d35eso271374a12.0
+        for <linux-riscv@lists.infradead.org>; Wed, 09 Aug 2023 16:24:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1691623461; x=1692228261;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=E8p58LaqwOO5/ryDFldME9XzaZs3YH0sEVcGA0akbb4=;
+        b=4uH4uUlE2xAaY7umOQx+lAB4pjHab4NR0rLyooYYTvaojxHoTJRIyzeyPysMLlOFjT
+         FuWa/Ta3xZBNpqk6gIYdVLCOBj2ZH4vVvdXeM35aKaheH4pjDk0IHj7u9amuqZqeP3GS
+         HlATLPmsxaOkny4mEM/N4Vlp6kVWLtuaB+0ShdcMcoQ7cRqUhOoljaQ5ZiejA9+572wC
+         rwH7mn9AVdHsHV0BzWCeXxrc2E/qHJm6SkSFC7Q955SApUeNaerG1WDOnSEgcYV+BvCG
+         8WuiYD1/xas2rQKxwU4xMEJ2Yybia07rR7vd+sLVWztI074scG3BBh1aDAkq+/8u7ur5
+         nSmw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1691623461; x=1692228261;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=E8p58LaqwOO5/ryDFldME9XzaZs3YH0sEVcGA0akbb4=;
+        b=O5oucLnN/N4EXL1er0T0RwtgOWjev0cqRh/dtXrSIpiMpOgjPAfCS55bmvjRG7HUY+
+         9ZToBhAYYJ4x5uwVraGzJHr+EI5Tp0DfAihky6iEs6YKoKAqrFeulc9PgmkWXu7C5DVz
+         RY2ZRnZWy7lujvj+4mzjTpOBLqTTNCQ4/XC1wrZ1w27KhonOBwY3y60YE6fxJIlZqr2w
+         oTDtYtkuLEpoAN4R4KOqh7LrUVc84APVuEAbunD4I2YxI0sb/tAqdQyTLachaEQlYdSG
+         NiPYmsQgyl4U8h1RGrfQVXeldX3UawM/Pp/5dgJOssyl23GUiFxH1QsaKjzt0pxJwODl
+         34Tg==
+X-Gm-Message-State: AOJu0YxDWY8Ldaej+joLpqsRrN8OHDT8NUe2la9epJUtj4o71vtfrUz9
+	CCbOLVFYxFT9HumLFs3rCQ6IfVR90K4MYnsMWyM=
+X-Google-Smtp-Source: AGHT+IE1fGW+XmCV+CY5PBYWciXsspEbmsKGDkSe/osIjCyGdMaRaYBOeNCrMXuf1vRXYhEruWBSbA==
+X-Received: by 2002:a17:902:a407:b0:1b5:561a:5c9a with SMTP id p7-20020a170902a40700b001b5561a5c9amr544010plq.39.1691623461301;
+        Wed, 09 Aug 2023 16:24:21 -0700 (PDT)
+Received: from charlie.ba.rivosinc.com ([66.220.2.162])
+        by smtp.gmail.com with ESMTPSA id l18-20020a170902d35200b001b54d064a4bsm82765plk.259.2023.08.09.16.24.19
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 09 Aug 2023 16:24:20 -0700 (PDT)
+From: Charlie Jenkins <charlie@rivosinc.com>
+To: linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: charlie@rivosinc.com,
+	conor@kernel.org,
+	paul.walmsley@sifive.com,
+	palmer@rivosinc.com,
+	aou@eecs.berkeley.edu,
+	anup@brainfault.org,
+	konstantin@linuxfoundation.org,
+	linux-doc@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-mm@kvack.org,
+	mick@ics.forth.gr,
+	jrtc27@jrtc27.com,
+	rdunlap@infradead.org,
+	alexghiti@rivosinc.com
+Subject: [PATCH v10 0/4] RISC-V: mm: Make SV48 the default address space
+Date: Wed,  9 Aug 2023 16:22:00 -0700
+Message-ID: <20230809232218.849726-1-charlie@rivosinc.com>
+X-Mailer: git-send-email 2.41.0
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230809_160922_798030_65E81BF1 
-X-CRM114-Status: GOOD (  22.47  )
+X-CRM114-CacheID: sfid-20230809_162423_634439_904003BA 
+X-CRM114-Status: GOOD (  14.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,50 +102,91 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 9 Aug 2023, Greg Savin wrote:
+Make sv48 the default address space for mmap as some applications
+currently depend on this assumption. Users can now select a
+desired address space using a non-zero hint address to mmap. Previously,
+requesting the default address space from mmap by passing zero as the hint
+address would result in using the largest address space possible. Some
+applications depend on empty bits in the virtual address space, like Go and
+Java, so this patch provides more flexibility for application developers.
 
-> The SIGILL guard is being used as a wrapper around determination of the
-> VLENB CSR, which is not part of the ptrace() payload for vector registers,
-> at least as it exists at head-of-tree Linux kernel.   GDB or gdbserver
-> needs to know VLENB in order to construct the architectural feature
-> metadata that reports an accurate width for the vector registers.  If not
-> for the VLENB determination specifically, and the lack of this information
-> via ptrace(), then there would be no motivation for executing a vector
-> instruction directly.  It's a workaround, basically.  I guess I could
-> inquire in Linux kernel land regarding whether the NT_RISCV_VECTOR ptrace()
-> payload could be enhanced to provide VLENB.
+-Charlie
 
- I think the kernel interface needs to be clarified first, before we can 
-proceed with the tools side.
+---
+v10:
+- Move pgtable.h defintions into a no __ASSEMBLY__ region to resolve compilation
+  conflicts (pointed out by Conor)
+- Will now compile with allmodconfig
 
- I can see the vector state is carried in a REGSET_V regset, which in turn 
-corresponds to an NT_RISCV_VECTOR core file note.  I can see that besides 
-the vector data registers only the VSTART, VL, VTYPE, and VCSR vector CSRs
-are provided in that regset, and that vector data registers are assigned 
-a contiguous space of (32 * RISCV_MAX_VLENB) bytes rather than individual 
-slots.
+v9:
+- Raise the mmap_end default to STACK_TOP_MAX to allow the address space to grow
+  beyond the default of sv48 on sv57 machines as suggested by Alexandre
+- Some of the mmap macros had unnecessary conditionals that I have removed
 
- So how are we supposed to determine the width of the vector registers 
-recorded in a core file?  I'd say the RISC-V/Linux kernel regset API is 
-incomplete.
+v8:
+- Fix RV32 and the RV32 compat mode of RV64 (suggested by Conor)
+- Extract out addr and base from the mmap macros (suggested by Alexandre)
 
- A complete API has to provide `ptrace' and core file access to all the 
-relevant registers (vector registers in this case) that can be accessed by 
-machine instructions by the debuggee.  That includes read-only registers, 
-writes to which via `ptrace' will of course be ignored.  If a register is 
-a shadow only and can be reconstructed from another, canonical register 
-(e.g. VXRM vs VCSR) then the shadow register can (and best be) omitted of 
-course.  Additional artificial OS registers may also have to be provided 
-that reflect the relevant privileged state made available to the debuggee 
-at run time by OS calls such as prctl(2); this for example might be a mode 
-setting which affects the hardware interpretation of a register set that 
-debug tools may need to take into account or the person debugging may want 
-to check or modify (e.g. REGSET_FP_MODE in the MIPS/Linux port).
+v7:
+- Changing RLIMIT_STACK inside of an executing program does not trigger
+  arch_pick_mmap_layout(), so rewrite tests to change RLIMIT_STACK from a
+  script before executing tests. RLIMIT_STACK of infinity forces bottomup
+  mmap allocation.
+- Make arch_get_mmap_base macro more readible by extracting out the rnd
+  calculation.
+- Use MMAP_MIN_VA_BITS in TASK_UNMAPPED_BASE to support case when mmap
+  attempts to allocate address smaller than DEFAULT_MAP_WINDOW.
+- Fix incorrect wording in documentation.
 
- I've added the authors of the Linux kernel code and the RISC-V/Linux 
-mailing list to the list of recipients.  Am I missing anything here?
+v6:
+- Rebase onto the correct base
 
-  Maciej
+v5:
+- Minor wording change in documentation
+- Change some parenthesis in arch_get_mmap_ macros
+- Added case for addr==0 in arch_get_mmap_ because without this, programs would
+  crash if RLIMIT_STACK was modified before executing the program. This was
+  tested using the libhugetlbfs tests. 
+
+v4:
+- Split testcases/document patch into test cases, in-code documentation, and
+  formal documentation patches
+- Modified the mmap_base macro to be more legible and better represent memory
+  layout
+- Fixed documentation to better reflect the implmentation
+- Renamed DEFAULT_VA_BITS to MMAP_VA_BITS
+- Added additional test case for rlimit changes
+---
+
+
+Charlie Jenkins (4):
+  RISC-V: mm: Restrict address space for sv39,sv48,sv57
+  RISC-V: mm: Add tests for RISC-V mm
+  RISC-V: mm: Update pgtable comment documentation
+  RISC-V: mm: Document mmap changes
+
+ Documentation/riscv/vm-layout.rst             | 22 +++++++
+ arch/riscv/include/asm/elf.h                  |  2 +-
+ arch/riscv/include/asm/pgtable.h              | 33 ++++++++--
+ arch/riscv/include/asm/processor.h            | 52 +++++++++++++--
+ tools/testing/selftests/riscv/Makefile        |  2 +-
+ tools/testing/selftests/riscv/mm/.gitignore   |  2 +
+ tools/testing/selftests/riscv/mm/Makefile     | 15 +++++
+ .../riscv/mm/testcases/mmap_bottomup.c        | 35 ++++++++++
+ .../riscv/mm/testcases/mmap_default.c         | 35 ++++++++++
+ .../selftests/riscv/mm/testcases/mmap_test.h  | 64 +++++++++++++++++++
+ .../selftests/riscv/mm/testcases/run_mmap.sh  | 12 ++++
+ 11 files changed, 261 insertions(+), 13 deletions(-)
+ create mode 100644 tools/testing/selftests/riscv/mm/.gitignore
+ create mode 100644 tools/testing/selftests/riscv/mm/Makefile
+ create mode 100644 tools/testing/selftests/riscv/mm/testcases/mmap_bottomup.c
+ create mode 100644 tools/testing/selftests/riscv/mm/testcases/mmap_default.c
+ create mode 100644 tools/testing/selftests/riscv/mm/testcases/mmap_test.h
+ create mode 100755 tools/testing/selftests/riscv/mm/testcases/run_mmap.sh
+
+-- 
+2.34.1
+
 
 _______________________________________________
 linux-riscv mailing list
