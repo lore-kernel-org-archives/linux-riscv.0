@@ -4,77 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3A13EB64DD
-	for <linux-riscv@archiver.kernel.org>; Wed,  9 Aug 2023 06:05:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2109EB64DD
+	for <linux-riscv@archiver.kernel.org>; Wed,  9 Aug 2023 06:09:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=E28hfs2cB7KQJHliKMYM/MVuT19nPwPiBVYfu5DHinA=; b=jyHtYRRRuW9OeaAFbLMiw6ryYz
-	NqoMKWkSlSzxS07mMGJkbQ4qtAX9bWTFNW+TTfBnJHmRlsRL7A3O8whC9WO7y0fWBpTnDFTE1kSFs
-	SIgmmBGZ+PgniODsv6JvRC8JnHcTQ20Nh1nJXqJ6W1Y3rd+lhhIJWxl1UvVL2UsJ7h6ASjzOFquXK
-	aKelaLwHCb3noljG8X7c47ED7DGV+uYl5g/AjNwhs9Qsm2a6Uj38qDT0r8MfphEPB0HubAgT9p7wZ
-	05ito0mSZS81Cf1Khsna03BqF0wYUCKLgnn5St3T3lKRuX9WNlHK2tT74RF3ta5xdA5RMtEX7yqT5
-	KDGe6sgQ==;
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=5A25g7rst/WJTdbpqKG3dY+D1OW6da5N7qkIbtUbKnE=; b=uOv2S86IMRba5U
+	GkdXhkfkcN7ft34iRq22KvmOIFUqzzC3zQ9gPQWdIsqHsd27OUv4lvanrGONQUkHgYtgcx1QsKVjW
+	lNIEy8p790TPGveiCIvCWIsVmvoKtc9lRRkNZaVIMa4PjbGsiAe/I0SmkGr5i5bJRtOa7pR2OVU9d
+	2KdsVC5So7XVUo01RIeHfvdzlhmti1Ko1qkGBehT32Pb0PLO2Qaf7xRVnKrb64eAqd1wQZvuZgPPu
+	AZGE7/tK2tVDkjSrepvsYTk36WBAupBUqrPS8msVjtfoytm9ynw7x7wlZfFt8x0r4MWTU6MAXA4rV
+	epxcdGy0h8stRZRUphgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qTcJq-00472M-2l;
-	Wed, 09 Aug 2023 06:05:18 +0000
-Received: from mail-ot1-x334.google.com ([2607:f8b0:4864:20::334])
+	id 1qTcNz-0047Wb-13;
+	Wed, 09 Aug 2023 06:09:35 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qTcJn-00470s-38
+	id 1qTcNw-0047Uw-0q
 	for linux-riscv@lists.infradead.org;
-	Wed, 09 Aug 2023 06:05:17 +0000
-Received: by mail-ot1-x334.google.com with SMTP id 46e09a7af769-6bc886d1504so5783269a34.0
-        for <linux-riscv@lists.infradead.org>; Tue, 08 Aug 2023 23:05:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20221208.gappssmtp.com; s=20221208; t=1691561113; x=1692165913;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=cY5+9Nxr3hMpBIcVjJ2A1HxHHNO3+KvDHFWewPfKnaY=;
-        b=jp0dxee+U3RXZvnECVOyxh2RjCyxB9djh4j2mgSb0QC1A9ADttg63b9ycQDXsTqnqS
-         BDY8CPSxu4A+97tRTnz7XenlI9UyPlr0J4aibWlgKBhVfn8ZLQ8ZW49rbYV9F8znc6M2
-         zErq4mu1m9ZBOI4SsheDBq16unV2QPkNXdA8CUtTRX+UE8O/zEQoyhPw6J+BVEXxSruO
-         UbH7V4JQ+jDh8ACDojhD8cUH6d4SVV7RNoQWjfPrd5afEZkL7Lr9HBSJqnM+OmWFhgYj
-         3hVEaOLGdRDiXm0i3QRNZizZxOreMm71oG0QbRqU+Z0VW6XAqBiVJ478NCPt6mZLEbsZ
-         ee2w==
+	Wed, 09 Aug 2023 06:09:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1691561368;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=gjOdGDWIQkT0phMReVz2eflzO/ETttLoRuiht6Bh+vs=;
+	b=Ed9vRJ8uLWLmm4uWaIW/w4+TgxMNGICHw9C3jAXwK2rZLZ3UwlRIBmIypRA8N7hpLUoJFQ
+	lEHi24Swr2+tCzU56GdtzOeaRR/bxfZOQvtmyC4mgEOwCCXfiMe33MKWCoqjao3Eb6qprh
+	XFKlIxL+sWncEuA7baLosqdATP0IbUQ=
+Received: from mail-oi1-f199.google.com (mail-oi1-f199.google.com
+ [209.85.167.199]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-45-hGRNyJpAOJSl0tIvaIKxQA-1; Wed, 09 Aug 2023 02:09:27 -0400
+X-MC-Unique: hGRNyJpAOJSl0tIvaIKxQA-1
+Received: by mail-oi1-f199.google.com with SMTP id 5614622812f47-3a5aa4a8fd6so12013024b6e.1
+        for <linux-riscv@lists.infradead.org>; Tue, 08 Aug 2023 23:09:27 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1691561113; x=1692165913;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=cY5+9Nxr3hMpBIcVjJ2A1HxHHNO3+KvDHFWewPfKnaY=;
-        b=L2bECNLH+IhO4p/FHB6jB5QIZWmsrLFgLf1TZ0zjxddopHeqyUYi35xQ/6BM+jIebE
-         cwgTpihWjO++BvYcAYKjsTORNhrbNfAzT1+roONx7Sp4SQm+kZpoiVYb0ZMMxc5+Vofa
-         2O4rzBBjUtd/Zc/HlXGrnHvobKFrT2G/GyDnvIwia0AYJkh+YZD2RYEiUcTxemejXsqx
-         uw8MnSkwKcJ9ojEcJVqVEIJHXu5YNVLt5dFcWeHiu4gzgYzmmCRncpM+Kvo52tuPGZEj
-         D2bXkIPxp5f4eCGKR9nDcr19QC6sfTjKu8+ec2mo8P6Yf9xSe7bI6SkUsAAQbKLJmMT2
-         e70A==
-X-Gm-Message-State: AOJu0Yw7bb6InrQGcr4WNNkSJ01wFZ9uKJREZaq7X0F8KDCzGABv74DB
-	uMZabtS6hZ2qkrmsK0+arsORNg==
-X-Google-Smtp-Source: AGHT+IEUdB5DcsgWdt+hFTJoViDD+LvjFcHNIz6EXmTULjgjgtlX4VZ/p3u9kBuJeAetVGdlgcYW6Q==
-X-Received: by 2002:a05:6358:4285:b0:139:e7db:3f3f with SMTP id s5-20020a056358428500b00139e7db3f3fmr1624901rwc.10.1691561112849;
-        Tue, 08 Aug 2023 23:05:12 -0700 (PDT)
-Received: from localhost ([135.180.227.0])
-        by smtp.gmail.com with ESMTPSA id j14-20020a633c0e000000b00563826c66eesm7466161pga.61.2023.08.08.23.05.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 08 Aug 2023 23:05:11 -0700 (PDT)
-Date: Tue, 08 Aug 2023 23:05:11 -0700 (PDT)
-X-Google-Original-Date: Mon, 07 Aug 2023 06:56:35 PDT (-0700)
-Subject: Re: [PATCH] riscv: Fix local irq restore when flags indicates irq disabled
-In-Reply-To: <20230725070549.89810-1-luxu.kernel@bytedance.com>
-CC: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
-  linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, luxu.kernel@bytedance.com
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: luxu.kernel@bytedance.com
-Message-ID: <mhng-a0239c56-385e-40a9-8a71-45d50e28b45d@palmer-ri-x1c9>
-Mime-Version: 1.0 (MHng)
+        d=1e100.net; s=20221208; t=1691561366; x=1692166166;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=gjOdGDWIQkT0phMReVz2eflzO/ETttLoRuiht6Bh+vs=;
+        b=hw4RSQBdBRz2d677sXIZvah9QUMp9yhhCfveYLF18NE8l5HCzEnHuW/mOI4PWrwCio
+         xiHrnU3D9m8syhP8WqBud1kDGpvRxlai0EnUTq0IXMzLvoYHK9QMxTres1iwP6j+nGdy
+         ry4a6gDgOUYmGJ+WTusddS4RBQ2kaCi54qJyeFR8Uyk7nJxpWsF+b+xGQK+fUd4F7tdM
+         yYTZuj5a3fr12rJ+xy9ojpKvtw8rNTbugQm+/ErcjBPvHR0fByUFBXPTZR7gOw432qk+
+         r8DfClh7BP6nowx9C2TFJGgIFHTWgvhPb2nOHRgCz0Vl2t4J5XhXKgF0G0rve+kg3vBX
+         l3fA==
+X-Gm-Message-State: AOJu0YwRUyG6kcDvHLUqiLRwjpoS8MajVRiE5BVqVBnjHAutAEFSVwjg
+	3wj9I37w6Y3qwl1fdI+K3ljkOAKPUociQ+Zdmqrbn8I1gm5fIr8/QJ1iaGMMIa0kwZshwSNlVRD
+	Oi3bDaucO4oegOdGA1HSQvWJT2aq4
+X-Received: by 2002:a05:6808:193:b0:3a6:f7d7:4cfe with SMTP id w19-20020a056808019300b003a6f7d74cfemr1751360oic.50.1691561366666;
+        Tue, 08 Aug 2023 23:09:26 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IESJGy9tTZJCmzlL28vXdcHkH4ZB7FxhBPbIFweRaehSBbS0wZP4I9BPTRIjsuacKEsONJhQQ==
+X-Received: by 2002:a05:6808:193:b0:3a6:f7d7:4cfe with SMTP id w19-20020a056808019300b003a6f7d74cfemr1751333oic.50.1691561366353;
+        Tue, 08 Aug 2023 23:09:26 -0700 (PDT)
+Received: from ?IPV6:2001:8003:e5b0:9f00:dbbc:1945:6e65:ec5? ([2001:8003:e5b0:9f00:dbbc:1945:6e65:ec5])
+        by smtp.gmail.com with ESMTPSA id 30-20020a17090a001e00b002630bfd35b0sm621062pja.7.2023.08.08.23.09.17
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 08 Aug 2023 23:09:25 -0700 (PDT)
+Message-ID: <15975205-6161-d54b-fe40-805a16b0cb27@redhat.com>
+Date: Wed, 9 Aug 2023 16:09:15 +1000
+MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.12.0
+Subject: Re: [PATCH v8 05/14] KVM: Allow range-based TLB invalidation from
+ common code
+To: Raghavendra Rao Ananta <rananta@google.com>,
+ Oliver Upton <oliver.upton@linux.dev>, Marc Zyngier <maz@kernel.org>,
+ James Morse <james.morse@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: Paolo Bonzini <pbonzini@redhat.com>,
+ Sean Christopherson <seanjc@google.com>, Huacai Chen
+ <chenhuacai@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>,
+ Anup Patel <anup@brainfault.org>, Atish Patra <atishp@atishpatra.org>,
+ Jing Zhang <jingzhangos@google.com>, Reiji Watanabe <reijiw@google.com>,
+ Colton Lewis <coltonlewis@google.com>, David Matlack <dmatlack@google.com>,
+ Fuad Tabba <tabba@google.com>, linux-arm-kernel@lists.infradead.org,
+ kvmarm@lists.linux.dev, linux-mips@vger.kernel.org,
+ kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, kvm@vger.kernel.org,
+ Shaoqin Huang <shahuang@redhat.com>
+References: <20230808231330.3855936-1-rananta@google.com>
+ <20230808231330.3855936-6-rananta@google.com>
+From: Gavin Shan <gshan@redhat.com>
+In-Reply-To: <20230808231330.3855936-6-rananta@google.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230808_230516_226454_CD91E777 
-X-CRM114-Status: GOOD (  21.69  )
+X-CRM114-CacheID: sfid-20230808_230932_373918_A668850B 
+X-CRM114-Status: GOOD (  23.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,43 +115,147 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 25 Jul 2023 00:05:49 PDT (-0700), luxu.kernel@bytedance.com wrote:
-> When arch_local_irq_restore() is called with flags indicating irqs
-> disabled, we need to clear SR_IE bit in CSR_STATUS, whereas current
-> implementation based on csr_set() function only sets SR_IE bit of
-> CSR_STATUS when SR_IE bit of flags is high and does nothing when
-> SR_IE bit of flags is low.
->
-> This commit supplies csr clear operation when calling irq restore
-> function with flags indicating irq disabled.
->
-> Fixes: 6d60b6ee0c97 ("RISC-V: Device, timer, IRQs, and the SBI")
-> Signed-off-by: Xu Lu <luxu.kernel@bytedance.com>
+On 8/9/23 09:13, Raghavendra Rao Ananta wrote:
+> From: David Matlack <dmatlack@google.com>
+> 
+> Make kvm_flush_remote_tlbs_range() visible in common code and create a
+> default implementation that just invalidates the whole TLB.
+> 
+> This paves the way for several future features/cleanups:
+> 
+>   - Introduction of range-based TLBI on ARM.
+>   - Eliminating kvm_arch_flush_remote_tlbs_memslot()
+>   - Moving the KVM/x86 TDP MMU to common code.
+> 
+> No functional change intended.
+> 
+> Signed-off-by: David Matlack <dmatlack@google.com>
+> Signed-off-by: Raghavendra Rao Ananta <rananta@google.com>
+> Reviewed-by: Gavin Shan <gshan@redhat.com>
+> Reviewed-by: Shaoqin Huang <shahuang@redhat.com>
+> Reviewed-by: Anup Patel <anup@brainfault.org>
 > ---
->  arch/riscv/include/asm/irqflags.h | 5 ++++-
->  1 file changed, 4 insertions(+), 1 deletion(-)
->
-> diff --git a/arch/riscv/include/asm/irqflags.h b/arch/riscv/include/asm/irqflags.h
-> index 08d4d6a5b7e9..7c31fc3c3559 100644
-> --- a/arch/riscv/include/asm/irqflags.h
-> +++ b/arch/riscv/include/asm/irqflags.h
-> @@ -49,7 +49,10 @@ static inline int arch_irqs_disabled(void)
->  /* set interrupt enabled status */
->  static inline void arch_local_irq_restore(unsigned long flags)
->  {
-> -	csr_set(CSR_STATUS, flags & SR_IE);
-> +	if (flags & SR_IE)
-> +		csr_set(CSR_STATUS, SR_IE);
-> +	else
-> +		csr_clear(CSR_STATUS, SR_IE);
+>   arch/x86/include/asm/kvm_host.h |  2 ++
+>   arch/x86/kvm/mmu/mmu.c          |  8 ++++----
+>   arch/x86/kvm/mmu/mmu_internal.h |  3 ---
+>   include/linux/kvm_host.h        | 12 ++++++++++++
+>   virt/kvm/kvm_main.c             | 13 +++++++++++++
+>   5 files changed, 31 insertions(+), 7 deletions(-)
+> 
+> diff --git a/arch/x86/include/asm/kvm_host.h b/arch/x86/include/asm/kvm_host.h
+> index a2d3cfc2eb75c..b547d17c58f63 100644
+> --- a/arch/x86/include/asm/kvm_host.h
+> +++ b/arch/x86/include/asm/kvm_host.h
+> @@ -1804,6 +1804,8 @@ static inline int kvm_arch_flush_remote_tlbs(struct kvm *kvm)
+>   		return -ENOTSUPP;
+>   }
+>   
+> +#define __KVM_HAVE_ARCH_FLUSH_REMOTE_TLBS_RANGE
+> +
+>   #define kvm_arch_pmi_in_guest(vcpu) \
+>   	((vcpu) && (vcpu)->arch.handling_intr_from_guest)
+>   
+> diff --git a/arch/x86/kvm/mmu/mmu.c b/arch/x86/kvm/mmu/mmu.c
+> index ec169f5c7dce2..6adbe6c870982 100644
+> --- a/arch/x86/kvm/mmu/mmu.c
+> +++ b/arch/x86/kvm/mmu/mmu.c
+> @@ -278,16 +278,16 @@ static inline bool kvm_available_flush_remote_tlbs_range(void)
+>   	return kvm_x86_ops.flush_remote_tlbs_range;
+>   }
+>   
+> -void kvm_flush_remote_tlbs_range(struct kvm *kvm, gfn_t start_gfn,
+> -				 gfn_t nr_pages)
+> +int kvm_arch_flush_remote_tlbs_range(struct kvm *kvm, gfn_t start_gfn,
+> +				      u64 nr_pages)
+>   {
+>   	int ret = -EOPNOTSUPP;
+>   
+>   	if (kvm_x86_ops.flush_remote_tlbs_range)
+>   		ret = static_call(kvm_x86_flush_remote_tlbs_range)(kvm, start_gfn,
+>   								   nr_pages);
+> -	if (ret)
+> -		kvm_flush_remote_tlbs(kvm);
+> +
+> +	return ret;
+>   }
+>   
 
-Unless I'm missing something, the original version is correct: 
-local_irq_restore() must be paired with a local_irq_save(), so we can 
-only get here with interrupts disabled.
+I guess @start_gfn can be renamed to @gfn, to be consistent with its declaration
+in include/linux/kvm_host.h and struct kvm_x86_ops::flush_remote_tlbs_range()
 
->  }
->
->  #endif /* _ASM_RISCV_IRQFLAGS_H */
+>   static gfn_t kvm_mmu_page_get_gfn(struct kvm_mmu_page *sp, int index);
+> diff --git a/arch/x86/kvm/mmu/mmu_internal.h b/arch/x86/kvm/mmu/mmu_internal.h
+> index d39af5639ce97..86cb83bb34804 100644
+> --- a/arch/x86/kvm/mmu/mmu_internal.h
+> +++ b/arch/x86/kvm/mmu/mmu_internal.h
+> @@ -170,9 +170,6 @@ bool kvm_mmu_slot_gfn_write_protect(struct kvm *kvm,
+>   				    struct kvm_memory_slot *slot, u64 gfn,
+>   				    int min_level);
+>   
+> -void kvm_flush_remote_tlbs_range(struct kvm *kvm, gfn_t start_gfn,
+> -				 gfn_t nr_pages);
+> -
+>   /* Flush the given page (huge or not) of guest memory. */
+>   static inline void kvm_flush_remote_tlbs_gfn(struct kvm *kvm, gfn_t gfn, int level)
+>   {
+> diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
+> index ade5d4500c2ce..f0be5d9c37dd1 100644
+> --- a/include/linux/kvm_host.h
+> +++ b/include/linux/kvm_host.h
+> @@ -1359,6 +1359,7 @@ int kvm_vcpu_yield_to(struct kvm_vcpu *target);
+>   void kvm_vcpu_on_spin(struct kvm_vcpu *vcpu, bool yield_to_kernel_mode);
+>   
+>   void kvm_flush_remote_tlbs(struct kvm *kvm);
+> +void kvm_flush_remote_tlbs_range(struct kvm *kvm, gfn_t gfn, u64 nr_pages);
+>   
+>   #ifdef KVM_ARCH_NR_OBJS_PER_MEMORY_CACHE
+>   int kvm_mmu_topup_memory_cache(struct kvm_mmu_memory_cache *mc, int min);
+> @@ -1488,6 +1489,17 @@ static inline int kvm_arch_flush_remote_tlbs(struct kvm *kvm)
+>   int kvm_arch_flush_remote_tlbs(struct kvm *kvm);
+>   #endif
+>   
+> +#ifndef __KVM_HAVE_ARCH_FLUSH_REMOTE_TLBS_RANGE
+> +static inline int kvm_arch_flush_remote_tlbs_range(struct kvm *kvm,
+> +						    gfn_t gfn, u64 nr_pages)
+> +{
+> +	return -EOPNOTSUPP;
+> +}
+> +#else
+> +int kvm_arch_flush_remote_tlbs_range(struct kvm *kvm,
+> +				      gfn_t gfn, u64 nr_pages);
+> +#endif
+> +
+>   #ifdef __KVM_HAVE_ARCH_NONCOHERENT_DMA
+>   void kvm_arch_register_noncoherent_dma(struct kvm *kvm);
+>   void kvm_arch_unregister_noncoherent_dma(struct kvm *kvm);
+> diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
+> index d6b0507861550..26e91000f579d 100644
+> --- a/virt/kvm/kvm_main.c
+> +++ b/virt/kvm/kvm_main.c
+> @@ -366,6 +366,19 @@ void kvm_flush_remote_tlbs(struct kvm *kvm)
+>   }
+>   EXPORT_SYMBOL_GPL(kvm_flush_remote_tlbs);
+>   
+> +void kvm_flush_remote_tlbs_range(struct kvm *kvm, gfn_t gfn, u64 nr_pages)
+> +{
+> +	if (!kvm_arch_flush_remote_tlbs_range(kvm, gfn, nr_pages))
+> +		return;
+> +
+> +	/*
+> +	 * Fall back to a flushing entire TLBs if the architecture range-based
+> +	 * TLB invalidation is unsupported or can't be performed for whatever
+> +	 * reason.
+> +	 */
+> +	kvm_flush_remote_tlbs(kvm);
+> +}
+> +
+>   static void kvm_flush_shadow_all(struct kvm *kvm)
+>   {
+>   	kvm_arch_flush_shadow_all(kvm);
+
+Thanks,
+Gavin
+
 
 _______________________________________________
 linux-riscv mailing list
