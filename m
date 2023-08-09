@@ -4,75 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3571AC001E0
-	for <linux-riscv@archiver.kernel.org>; Wed,  9 Aug 2023 16:58:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D0F9C0015E
+	for <linux-riscv@archiver.kernel.org>; Wed,  9 Aug 2023 16:58:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=yxJ/v7MSBbBG4/YeQ7IORCmKaZVXDq1eyiSVPtko2k4=; b=ffy9neWH8NmZM+
-	t7fbWmy6A4H0MXiGckqUvmlmZS4sZdNOa3e7kUn5ZohKDqbE5mKpRVAyuwzM8nKi8qc4DxwzHy9fw
-	bG/0SOOa+delsIH1Ed66j15ZjIEcQKec6uhEWmRWQ8+EJZ7mTB5I2i4y7zStYAtdgEILIQW+VGcKF
-	7ojWIx8SoVB/Hb73HYCJ4rO4j9I4lX9F2P5VS81ZRerxG7W5ejxdShxe2/PLUHwCCYcqFeL8oOPTU
-	xh7wCr3KtLHXNxPwQev4nf1f88TVIVPQyH4AIIpQOTv1iuIpr/ednTZdeWcR5I6VcC5AcJhTIRHGR
-	3xVFuIuIoX+24Ym6qz6Q==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Q1C03RCYk5XB7P5iPcEObXc0gdePVbw5G4vRJhz4Zbc=; b=JkSLGQKujqSKIg
+	zFIEo/ueMunPgS/KUfvjgjmMcZ/uS/oGk8u496GLyIU+84KvqqpiurS3dxh9mliywxTRJORk4P7m9
+	PKnFJc9gLWjMXlUvLULKOV2dNPCWlfP+MyLNP0anr4ckrxcQR3rrEpJZs3AeBOXBEXxgDGHMMCiS3
+	ojsqLu5HX0b1rWUtQir++OLZ3UxKzsiAXIs/2RX/jQaEy5gW+H9jxPD45rozfNdhimPP9AwVP/+UM
+	brnza13u3N8jGmKjxeDyrCr24ySRZA4TlBmqtMUBadSbE8BCr1FLrzdUQaO0hvrdl/9k9cZObdBLL
+	sRCrGOhYvpQ+eDhTiH4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qTmVl-005SSe-0q;
-	Wed, 09 Aug 2023 16:58:17 +0000
-Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
+	id 1qTmVq-005SUT-3C;
+	Wed, 09 Aug 2023 16:58:22 +0000
+Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qTmVf-005SQB-32
+	id 1qTmVn-005SSm-2d
 	for linux-riscv@lists.infradead.org;
-	Wed, 09 Aug 2023 16:58:15 +0000
-Received: from xmz-huawei.. (unknown [111.197.209.91])
-	by APP-03 (Coremail) with SMTP id rQCowAAnLrKTxdNkNI2AAg--.29443S2;
-	Thu, 10 Aug 2023 00:57:55 +0800 (CST)
-From: Mingzheng Xing <xingmingzheng@iscas.ac.cn>
-To: Conor Dooley <conor@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Tom Rix <trix@redhat.com>
-Cc: Bin Meng <bmeng@tinylab.org>,
-	Guo Ren <guoren@kernel.org>,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	llvm@lists.linux.dev,
-	stable@vger.kernel.org,
-	Mingzheng Xing <xingmingzheng@iscas.ac.cn>,
-	Conor Dooley <conor.dooley@microchip.com>
-Subject: [PATCH v5] riscv: Handle zicsr/zifencei issue between gcc and binutils
-Date: Thu, 10 Aug 2023 00:56:48 +0800
-Message-Id: <20230809165648.21071-1-xingmingzheng@iscas.ac.cn>
-X-Mailer: git-send-email 2.34.1
+	Wed, 09 Aug 2023 16:58:21 +0000
+Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-99bc512526cso10371666b.1
+        for <linux-riscv@lists.infradead.org>; Wed, 09 Aug 2023 09:58:18 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1691600297; x=1692205097;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=UPqhwBbH9ypRAb5HYyAdsLUjQpO6FWc1dadi0+Um8vo=;
+        b=Ca9pjfJ3lUzEqfppenSiXzH008xNjG3VXSp+w8KVAv9qJ6NGguFY1J7kT2q0RYGbJn
+         1o3EHtP2lgKZhlSBDfb3UEXLrJ+dSuu3Eoyc4Q7A+0q5SSoGYdJLObaYzIOCchF+sJ7s
+         uMjduOjHpV0XWXEmubzLh20ExvkcesJjpPDphyeRNGWNDPSiibwFI7UHgqSxuaAXktNL
+         Bn+J98zbRSAXjXB81cnF2gs1AEcF53tIiQpnfRfECFGRNhww6UHVhOl64/heqVGj0ane
+         YGj41eURE8t4dK6y/G/ZOOU3t2n8aVXiWiHI//1BOa4R8Rlk7vjHIGnwosZWqNMa2P7i
+         z1sw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1691600297; x=1692205097;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=UPqhwBbH9ypRAb5HYyAdsLUjQpO6FWc1dadi0+Um8vo=;
+        b=NvUnOGnBrBXWaDCBwbZ9IWpFlsYMuuOUUetKjYc57ESUBsf0IizUvlvOdhw8musXuT
+         uGRqXzPMYLyhtuliIWWJbnW2tLCLcyueLqNx/suyZErN7VkedPqW8jJ8qXafBIwTSCz+
+         ok5/+mr/tiq5oEjo7MXMH8wYG/UX5MVZDQICdRsZIQAHonANwrA63XeVKP7a0k7SDuz3
+         CWh0Cuo8Lbft/DwuvZJqesJHf+ZY0AH1qW4S7we6RvvnsMoOAf8vccubDHzz2PX/GQjl
+         /Wn/oUfsSejYMl6LTS9OD7Iis2qJ38VDdzr4Tkwmfx5awVp5SVnyzPg22vQRB/ObaU5M
+         spoQ==
+X-Gm-Message-State: AOJu0YxIjFjROXAESlzQDfk4qRhck5Z1l1eUUhjRsqgaIcvOmBEbKPJB
+	gQxMdJpM51my6LtFiorcLIpdfg==
+X-Google-Smtp-Source: AGHT+IELll/zop7ZpCkuMrUWMYnPh5Fsnn2gluTyPkXt0sstELdnKTqO2JgHOlb7aaV6EyaPMMOa/A==
+X-Received: by 2002:a17:906:28c:b0:99b:c86b:1d25 with SMTP id 12-20020a170906028c00b0099bc86b1d25mr2696707ejf.26.1691600296606;
+        Wed, 09 Aug 2023 09:58:16 -0700 (PDT)
+Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
+        by smtp.gmail.com with ESMTPSA id j20-20020a170906095400b00992e14af9b9sm8176963ejd.134.2023.08.09.09.58.16
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 09 Aug 2023 09:58:16 -0700 (PDT)
+Date: Wed, 9 Aug 2023 18:58:15 +0200
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Evan Green <evan@rivosinc.com>
+Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com, 
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, conor.dooley@microchip.com, 
+	apatel@ventanamicro.com
+Subject: Re: [PATCH 2/6] RISC-V: Enable cbo.zero in usermode
+Message-ID: <20230809-7aa41e2dd2fd2909f1266a20@orel>
+References: <20230809115516.214537-8-ajones@ventanamicro.com>
+ <20230809115516.214537-10-ajones@ventanamicro.com>
+ <CALs-HssK7ys8kjZPuodoz9qEe_hReyihfbBdQsp1exLH3vxkSQ@mail.gmail.com>
 MIME-Version: 1.0
-X-CM-TRANSID: rQCowAAnLrKTxdNkNI2AAg--.29443S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxuw4UGFyrury5GFWfKF1rJFb_yoW3uF4xp3
-	y3CFyDCrWrWFy8Gr1xAw18Ww1Ygrs5G3ySg3y0y34UGr4qqFyqyrZY9w17XFyDZFs293yY
-	9r1S9an5K3Z0yaDanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUkE14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26r1j6r1xM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
-	6F4UM28EF7xvwVC2z280aVAFwI0_Jr0_Gr1l84ACjcxK6I8E87Iv6xkF7I0E14v26r4j6r
-	4UJwAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
-	I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r
-	4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628v
-	n2kIc2xKxwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F4
-	0E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_Jw0_GFyl
-	IxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxV
-	AFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j
-	6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x0JUdHU
-	DUUUUU=
-X-Originating-IP: [111.197.209.91]
-X-CM-SenderInfo: 50lqwzhlqj6xxhqjqxpvfd2hldfou0/1tbiCQYSCmTTm6T3jgAAsm
+Content-Disposition: inline
+In-Reply-To: <CALs-HssK7ys8kjZPuodoz9qEe_hReyihfbBdQsp1exLH3vxkSQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230809_095812_545236_37F14583 
-X-CRM114-Status: GOOD (  16.13  )
+X-CRM114-CacheID: sfid-20230809_095819_855692_57C0948D 
+X-CRM114-Status: GOOD (  19.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,190 +90,64 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Binutils-2.38 and GCC-12.1.0 bumped[0][1] the default ISA spec to the newer
-20191213 version which moves some instructions from the I extension to the
-Zicsr and Zifencei extensions. So if one of the binutils and GCC exceeds
-that version, we should explicitly specifying Zicsr and Zifencei via -march
-to cope with the new changes. but this only occurs when binutils >= 2.36
-and GCC >= 11.1.0. It's a different story when binutils < 2.36.
-
-binutils-2.36 supports the Zifencei extension[2] and splits Zifencei and
-Zicsr from I[3]. GCC-11.1.0 is particular[4] because it add support Zicsr
-and Zifencei extension for -march. binutils-2.35 does not support the
-Zifencei extension, and does not need to specify Zicsr and Zifencei when
-working with GCC >= 12.1.0.
-
-To make our lives easier, let's relax the check to binutils >= 2.36 in
-CONFIG_TOOLCHAIN_NEEDS_EXPLICIT_ZICSR_ZIFENCEI. For the other two cases,
-where clang < 17 or GCC < 11.1.0, we will deal with them in
-CONFIG_TOOLCHAIN_NEEDS_OLD_ISA_SPEC.
-
-For more information, please refer to:
-commit 6df2a016c0c8 ("riscv: fix build with binutils 2.38")
-commit e89c2e815e76 ("riscv: Handle zicsr/zifencei issues between clang and binutils")
-Link: https://sourceware.org/git/?p=binutils-gdb.git;a=commit;h=aed44286efa8ae8717a77d94b51ac3614e2ca6dc [0]
-Link: https://gcc.gnu.org/git/?p=gcc.git;a=commit;h=98416dbb0a62579d4a7a4a76bab51b5b52fec2cd [1]
-Link: https://sourceware.org/git/?p=binutils-gdb.git;a=commit;h=5a1b31e1e1cee6e9f1c92abff59cdcfff0dddf30 [2]
-Link: https://sourceware.org/git/?p=binutils-gdb.git;a=commit;h=729a53530e86972d1143553a415db34e6e01d5d2 [3]
-Link: https://gcc.gnu.org/git/?p=gcc.git;a=commit;h=b03be74bad08c382da47e048007a78fa3fb4ef49 [4]
-Link: https://lore.kernel.org/all/20230308220842.1231003-1-conor@kernel.org
-Link: https://lore.kernel.org/all/20230223220546.52879-1-conor@kernel.org
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-Acked-by: Guo Ren <guoren@kernel.org>
-Cc: <stable@vger.kernel.org>
-Signed-off-by: Mingzheng Xing <xingmingzheng@iscas.ac.cn>
----
-
-Changelog and test results:
-
-v4 -> v5:
-- Add Reviewed-by and Acked-by to commit message, no other code
-  changes.
-
-v3 -> v4:
-- Update the Kconfig help text and commit message.
-Link: https://lore.kernel.org/all/20230731150511.38140-1-xingmingzheng@iscas.ac.cn
-
-v2 -> v3:
-- Relax the check to binutils >= 2.36.
-- Update the Kconfig help text and commit message.
-Link: https://lore.kernel.org/all/20230731095936.23397-1-xingmingzheng@iscas.ac.cn
-
-v1 -> v2:
-- Update the Kconfig help text and commit message.
-- Add considerations for low version gcc case.
-Link: https://lore.kernel.org/all/20230726174524.340952-1-xingmingzheng@iscas.ac.cn
-
-v1:
-Link: https://lore.kernel.org/all/20230725170405.251011-1-xingmingzheng@iscas.ac.cn
-
-Here are my test results:
-* Compiling the kernel for the master branch with a combination of
-  multiple versions of gcc and binutils.
-
-gcc        binutils        patched             no patch
-11.4.0     2.35            ok                  ok
-11.4.0     2.36            ok                  ok
-11.4.0     2.38            ok                  ok
-
-12.2.0     2.35            ok                  error[1]
-12.2.0     2.36            ok                  error[2]
-12.2.0     2.38            ok                  ok
-
-10.5.0     2.35            ok                  ok
-10.5.0     2.36            ok                  ok
-10.5.0     2.38            ok                  error[3]
-
-11.1.0     2.35            ok                  ok
-11.1.0     2.36            ok                  ok
-11.1.0     2.38            ok                  ok
-
-11.2.0     2.35            ok                  ok
-11.2.0     2.36            ok                  ok
-11.2.0     2.38            ok                  ok
-
-[1]
-Assembler messages:
-Fatal error: -march=rv32imafd_zicsr_zifencei: Invalid or unknown z ISA extension: 'zifencei'
-make[2]: *** [arch/riscv/kernel/compat_vdso/Makefile:47: arch/riscv/kernel/compat_vdso/rt_sigreturn.o] Error 1
-
-[2]
-./arch/riscv/include/asm/vdso/gettimeofday.h: Assembler messages:
-./arch/riscv/include/asm/vdso/gettimeofday.h:79: Error: unrecognized opcode `csrr a5,0xc01'
-./arch/riscv/include/asm/vdso/gettimeofday.h:79: Error: unrecognized opcode `csrr a5,0xc01'
-./arch/riscv/include/asm/vdso/gettimeofday.h:79: Error: unrecognized opcode `csrr a5,0xc01'
-./arch/riscv/include/asm/vdso/gettimeofday.h:79: Error: unrecognized opcode `csrr a5,0xc01'
-make[2]: *** [scripts/Makefile.build:243: arch/riscv/kernel/vdso/vgettimeofday.o] Error 1
-
-[3]
-cc1: error: '-march=rv64imac_zicsr_zifencei': unsupported ISA subset 'z'
-cc1: error: ABI requires '-march=rv64'
-make[2]: *** [scripts/Makefile.build:243: scripts/mod/empty.o] Error 1
-make[2]: *** Waiting for unfinished jobs....
-cc1: error: '-march=rv64imac_zicsr_zifencei': unsupported ISA subset 'z'
-cc1: error: ABI requires '-march=rv64'
-
- arch/riscv/Kconfig                     | 32 +++++++++++++++-----------
- arch/riscv/kernel/compat_vdso/Makefile |  8 ++++++-
- 2 files changed, 26 insertions(+), 14 deletions(-)
-
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index f52dd125ac5e..ce3a6667cfdb 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -570,24 +570,30 @@ config TOOLCHAIN_HAS_ZIHINTPAUSE
- config TOOLCHAIN_NEEDS_EXPLICIT_ZICSR_ZIFENCEI
- 	def_bool y
- 	# https://sourceware.org/git/?p=binutils-gdb.git;a=commit;h=aed44286efa8ae8717a77d94b51ac3614e2ca6dc
--	depends on AS_IS_GNU && AS_VERSION >= 23800
--	help
--	  Newer binutils versions default to ISA spec version 20191213 which
--	  moves some instructions from the I extension to the Zicsr and Zifencei
--	  extensions.
-+	# https://gcc.gnu.org/git/?p=gcc.git;a=commit;h=98416dbb0a62579d4a7a4a76bab51b5b52fec2cd
-+	depends on AS_IS_GNU && AS_VERSION >= 23600
-+	help
-+	  Binutils-2.38 and GCC-12.1.0 bumped the default ISA spec to the newer
-+	  20191213 version, which moves some instructions from the I extension to
-+	  the Zicsr and Zifencei extensions. This requires explicitly specifying
-+	  Zicsr and Zifencei when binutils >= 2.38 or GCC >= 12.1.0. Zicsr
-+	  and Zifencei are supported in binutils from version 2.36 onwards.
-+	  To make life easier, and avoid forcing toolchains that default to a
-+	  newer ISA spec to version 2.2, relax the check to binutils >= 2.36.
-+	  For clang < 17 or GCC < 11.1.0, for which this is not possible, this is
-+	  dealt with in CONFIG_TOOLCHAIN_NEEDS_OLD_ISA_SPEC.
- 
- config TOOLCHAIN_NEEDS_OLD_ISA_SPEC
- 	def_bool y
- 	depends on TOOLCHAIN_NEEDS_EXPLICIT_ZICSR_ZIFENCEI
- 	# https://github.com/llvm/llvm-project/commit/22e199e6afb1263c943c0c0d4498694e15bf8a16
--	depends on CC_IS_CLANG && CLANG_VERSION < 170000
--	help
--	  Certain versions of clang do not support zicsr and zifencei via -march
--	  but newer versions of binutils require it for the reasons noted in the
--	  help text of CONFIG_TOOLCHAIN_NEEDS_EXPLICIT_ZICSR_ZIFENCEI. This
--	  option causes an older ISA spec compatible with these older versions
--	  of clang to be passed to GAS, which has the same result as passing zicsr
--	  and zifencei to -march.
-+	# https://gcc.gnu.org/git/?p=gcc.git;a=commit;h=b03be74bad08c382da47e048007a78fa3fb4ef49
-+	depends on (CC_IS_CLANG && CLANG_VERSION < 170000) || (CC_IS_GCC && GCC_VERSION < 110100)
-+	help
-+	  Certain versions of clang and GCC do not support zicsr and zifencei via
-+	  -march. This option causes an older ISA spec compatible with these older
-+	  versions of clang and GCC to be passed to GAS, which has the same result
-+	  as passing zicsr and zifencei to -march.
- 
- config FPU
- 	bool "FPU support"
-diff --git a/arch/riscv/kernel/compat_vdso/Makefile b/arch/riscv/kernel/compat_vdso/Makefile
-index 189345773e7e..b86e5e2c3aea 100644
---- a/arch/riscv/kernel/compat_vdso/Makefile
-+++ b/arch/riscv/kernel/compat_vdso/Makefile
-@@ -11,7 +11,13 @@ compat_vdso-syms += flush_icache
- COMPAT_CC := $(CC)
- COMPAT_LD := $(LD)
- 
--COMPAT_CC_FLAGS := -march=rv32g -mabi=ilp32
-+# binutils 2.35 does not support the zifencei extension, but in the ISA
-+# spec 20191213, G stands for IMAFD_ZICSR_ZIFENCEI.
-+ifdef CONFIG_TOOLCHAIN_NEEDS_EXPLICIT_ZICSR_ZIFENCEI
-+	COMPAT_CC_FLAGS := -march=rv32g -mabi=ilp32
-+else
-+	COMPAT_CC_FLAGS := -march=rv32imafd -mabi=ilp32
-+endif
- COMPAT_LD_FLAGS := -melf32lriscv
- 
- # Disable attributes, as they're useless and break the build.
--- 
-2.34.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gV2VkLCBBdWcgMDksIDIwMjMgYXQgMDk6MDA6MzVBTSAtMDcwMCwgRXZhbiBHcmVlbiB3cm90
+ZToKPiBPbiBXZWQsIEF1ZyA5LCAyMDIzIGF0IDQ6NTXigK9BTSBBbmRyZXcgSm9uZXMgPGFqb25l
+c0B2ZW50YW5hbWljcm8uY29tPiB3cm90ZToKLi4uCj4gPiArc3RhdGljIF9fYWx3YXlzX2lubGlu
+ZSBib29sIHJpc2N2X3RoaXNfY3B1X2hhc19leHRlbnNpb25fbGlrZWx5KGNvbnN0IHVuc2lnbmVk
+IGxvbmcgZXh0KQo+ID4gK3sKPiA+ICsgICAgICAgaWYgKElTX0VOQUJMRUQoQ09ORklHX1JJU0NW
+X0FMVEVSTkFUSVZFKSAmJiByaXNjdl9oYXNfZXh0ZW5zaW9uX2xpa2VseShleHQpKQo+ID4gKyAg
+ICAgICAgICAgICAgIHJldHVybiB0cnVlOwo+ID4gKwo+ID4gKyAgICAgICByZXR1cm4gX19yaXNj
+dl9pc2FfZXh0ZW5zaW9uX2F2YWlsYWJsZShoYXJ0X2lzYVtzbXBfcHJvY2Vzc29yX2lkKCldLmlz
+YSwgZXh0KTsKPiA+ICt9Cj4gPiArCj4gPiArc3RhdGljIF9fYWx3YXlzX2lubGluZSBib29sIHJp
+c2N2X3RoaXNfY3B1X2hhc19leHRlbnNpb25fdW5saWtlbHkoY29uc3QgdW5zaWduZWQgbG9uZyBl
+eHQpCj4gPiArewo+ID4gKyAgICAgICBpZiAoSVNfRU5BQkxFRChDT05GSUdfUklTQ1ZfQUxURVJO
+QVRJVkUpICYmIHJpc2N2X2hhc19leHRlbnNpb25fdW5saWtlbHkoZXh0KSkKPiA+ICsgICAgICAg
+ICAgICAgICByZXR1cm4gdHJ1ZTsKPiA+ICsKPiA+ICsgICAgICAgcmV0dXJuIF9fcmlzY3ZfaXNh
+X2V4dGVuc2lvbl9hdmFpbGFibGUoaGFydF9pc2Fbc21wX3Byb2Nlc3Nvcl9pZCgpXS5pc2EsIGV4
+dCk7Cj4gPiArfQo+IAo+IEFub3RoZXIgd2F5IHRvIGRvIHRoaXMgd291bGQgYmUgdG8gYWRkIGEg
+cGFyYW1ldGVyIHRvCj4gcmlzY3ZfaGFzX2V4dGVuc2lvbl8qKCkgKGFzIHRoZXJlIGFyZSB2ZXJ5
+IGZldyB1c2VycyksIHRoZW4gdGhlc2UgbmV3Cj4gZnVuY3Rpb25zIGNhbiB0dXJuIGFyb3VuZCBh
+bmQgY2FsbCB0aG9zZSB3aXRoIHRoZSBuZXcgcGFyYW1ldGVyIHNldCB0bwo+IGhhcnRfaXNhW3Nt
+cF9wcm9jZXNzb3JfaWQoKV0uaXNhLiBJdCdzIGEgdG9zc3VwLCBzbyB1cCB0byB5b3UuIFRoZQo+
+IG9ubHkgYWR2YW50YWdlIHRvIGl0IEkgY2FuIGFyZ3VlIGlzIGl0IGtlZXBzIHRoZSBjb2RlIGZs
+b3dzIG1vcmUKPiB1bmlmaWVkLgo+CgpJIGxpa2UgdW5pZmljYXRpb24sIGJ1dCBJIHRoaW5rIEkn
+ZCBwcmVmZXIgd2UgY3JlYXRlIHdyYXBwZXJzIGFuZAp0cnkgdG8gYXZvaWQgY2FsbGVycyBuZWVk
+aW5nIHRvIGNvbnN0cnVjdCBoYXJ0X2lzYVtdLmlzYSBwYXJhbWV0ZXJzCnRoZW1zZWx2ZXMuIEkn
+bSBhbHNvIG5vdCBhIGJpZyBmYW4gb2YgdGhlIE5VTEwgcGFyYW1ldGVyIG5lZWRlZCB3aGVuCnJp
+c2N2X2lzYV9leHRlbnNpb25fYXZhaWxhYmxlKCkgaXMgaW52b2tlZCBmb3IgdGhlIHJpc2N2X2lz
+YSBiaXRtYXAuClNvIHdlIG5lZWQ6CgogIDEuIGNoZWNrIGlmIGFuIGV4dGVuc2lvbiBpcyBpbiBy
+aXNjdl9pc2EKICAyLiBjaGVjayBpZiBhbiBleHRlbnNpb24gaXMgaW4gYSBiaXRtYXAgcHJvdmlk
+ZWQgYnkgdGhlIGNhbGxlcgogIDMuIGNoZWNrIGlmIGFuIGV4dGVuc2lvbiBpcyBpbiB0aGlzIGNw
+dSdzIGlzYSBiaXRtYXAKICA0LiBjaGVjayBpZiBhbiBleHRlbnNpb24gaXMgaW4gdGhlIGlzYSBi
+aXRtYXAgb2YgYSBjcHUgcHJvdmlkZWQgYnkgdGhlCiAgICAgY2FsbGVyCgpUaGUgb25seSBvbmUg
+d2UgY2FuIG9wdGltaXplIHdpdGggYWx0ZXJuYXRpdmVzIGlzICgxKSwgc28gaXQgZGVmaW5pdGVs
+eQpnZXRzIHdyYXBwZXJzIChyaXNjdl9oYXNfZXh0ZW5zaW9uX2xpa2VseS91bmxpa2VseSgpKS4g
+KDMpIGFuZCAoNCkgY2FuCmFsc28gZ2V0IHdyYXBwZXJzIHdoaWNoIGZpcnN0IHRyeSB0aGUgb3B0
+aW1pemVkICgxKSwgbGlrZSBJIGhhdmUgYWJvdmUuCkFjdHVhbGx5ICgzKSdzIHdyYXBwZXIgY291
+bGQgYmUgYmFzZWQgb24gKDQpJ3MsIG9yIG9ubHkgcHJvdmlkZSB3cmFwcGVycwpmb3IgKDQpCgog
+c3RhdGljIF9fYWx3YXlzX2lubGluZSBib29sIHJpc2N2X2NwdV9oYXNfZXh0ZW5zaW9uX2xpa2Vs
+eShpbnQgY3B1LCBjb25zdCB1bnNpZ25lZCBsb25nIGV4dCkKIHsKICAgICBpZiAoSVNfRU5BQkxF
+RChDT05GSUdfUklTQ1ZfQUxURVJOQVRJVkUpICYmIHJpc2N2X2hhc19leHRlbnNpb25fbGlrZWx5
+KGV4dCkpCiAgICAgICAgIHJldHVybiB0cnVlOwoKICAgICByZXR1cm4gX19yaXNjdl9pc2FfZXh0
+ZW5zaW9uX2F2YWlsYWJsZShoYXJ0X2lzYVtjcHVdLmlzYSwgZXh0KTsKIH0KCiBzdGF0aWMgX19h
+bHdheXNfaW5saW5lIGJvb2wgcmlzY3ZfY3B1X2hhc19leHRlbnNpb25fdW5saWtlbHkoaW50IGNw
+dSwgY29uc3QgdW5zaWduZWQgbG9uZyBleHQpCiB7CiAgICAgaWYgKElTX0VOQUJMRUQoQ09ORklH
+X1JJU0NWX0FMVEVSTkFUSVZFKSAmJiByaXNjdl9oYXNfZXh0ZW5zaW9uX3VubGlrZWx5KGV4dCkp
+CiAgICAgICAgIHJldHVybiB0cnVlOwoKICAgICByZXR1cm4gX19yaXNjdl9pc2FfZXh0ZW5zaW9u
+X2F2YWlsYWJsZShoYXJ0X2lzYVtjcHVdLmlzYSwgZXh0KTsKIH0KCmFuZCB0aGVuIHVzZSBzbXBf
+cHJvY2Vzc29yX2lkKCkgZGlyZWN0bHkgaW4gdGhlIGNhbGxlcnMgdGhhdCBuZWVkCnRvIGNoZWNr
+IHRoaXNfY3B1J3MgZXh0ZW5zaW9ucy4KCkZvciBjYXNlICgyKSwgSSdkIGFkdm9jYXRlIHdlIHJl
+bmFtZSBfX3Jpc2N2X2lzYV9leHRlbnNpb25fYXZhaWxhYmxlKCkgdG8KcmlzY3ZfaGFzX2V4dGVu
+c2lvbigpIGFuZCBkcm9wIHRoZSByaXNjdl9pc2FfZXh0ZW5zaW9uX2F2YWlsYWJsZSgpIG1hY3Jv
+CmluIG9yZGVyIHRvIGF2b2lkIGhhdmluZyBzb21lIGNhbGxzIHdpdGggUklTQ1ZfSVNBX0VYVF8q
+IHNwZWxsZWQgb3V0IGFuZApvdGhlcnMgdGhhdCByZWx5IG9uIHRoZSBwYXN0aW5nLiBBbmQsIGlk
+ZWFsbHksIHdlJ2QgY29udmVydCBtb3N0CnJpc2N2X2hhc19leHRlbnNpb24oTlVMTCwgZXh0KSBj
+YWxscyB0byByaXNjdl9oYXNfZXh0ZW5zaW9uX1t1bl1saWtlbHkoKS4KClRoYW5rcywKZHJldwoK
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlz
+Y3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xp
+c3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
