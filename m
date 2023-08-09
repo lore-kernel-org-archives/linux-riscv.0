@@ -4,87 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57C9CC0015E
-	for <linux-riscv@archiver.kernel.org>; Wed,  9 Aug 2023 15:02:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B048C04A94
+	for <linux-riscv@archiver.kernel.org>; Wed,  9 Aug 2023 15:35:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4GneZi/53Ml+2FfHd/DBsj8KQRQPy7UiQwwWC/CU5eI=; b=EFPizhRsejhWho
-	zgIf5lBBQo3E4vPZJq0GjIEC/QjTazt4Fe/bhtAkOBL9cdjqLCzTkkkLYMZenKnvoh/4ikNbQbIEM
-	o+Kg0xbz7txEu4wDTkbEI0Jju7GRcwUJarH7GxXVIt889sPmU56x3WmmiXipsyqeImlX+T8q14ph0
-	kTzEW32Ei7rme2qpxL+lqLh0/RYeElEwawfrQI7Ih4qDUfOh2yx70k/O3xQAewtoaH8qI9mYqltdt
-	acNJsdRlYU6m17Gl6sAl2cS6EOOLv2IOnZsIw/yLRv6scP72qWupWel4b9PGFsXUkb3vCAcDrcHby
-	hND2v5urVup0x5YMv4PA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=C0v6vaK9f46byuRjxOnXiLzOEZDFumjmW7kiMzC2jN4=; b=g6atr2qX4/QpBf5JEbhqpblJ73
+	5Ee6MPp9tGpIv81hXBz8i3+sSsWpjsbDGga25ZYabUjL/ov3iCWocDHQtECPKExsg2HAbxcuSbYQf
+	W0kjvSid2PC+li2twK6CUAr5E45xhAoePtybW5JSogDl5czh7usD0E37rxErVaFVmAhRheNkkFBmU
+	E2TIGfq4N3PX8V/tcHEpzqHyKE4r4vKfSCx9uW0vpw+sjio+EsXeZb2kZXv5QZXr1vut0pNvREiVA
+	J0f6sWCZbnkNpP0nHk/bsX/gLifTOtzvGJOMTiSegOwn3WGBXjcWgcoRHTJ0NVV9B1JwwnxGSlNKf
+	eVkzB5HA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qTkhs-005G9f-0y;
-	Wed, 09 Aug 2023 15:02:40 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1qTlD2-005Iu9-2x;
+	Wed, 09 Aug 2023 15:34:52 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qTkho-005G8u-2V
-	for linux-riscv@lists.infradead.org;
-	Wed, 09 Aug 2023 15:02:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1691593356;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=2NYYbX0Ny/eDp4l06N9hZE4kvGy1+pASnAt7JajSyFo=;
-	b=N1NEanMZPsOYYIgvqvV/e+6O6eH6D0n3klMO/OgpPpwG1BWfcygYmMG49jQIYIqgdl7c1N
-	kJ9uI3Sgz1fY8tvPF1Dhqp6cedUNf6WoMzY7ARY/+DGyz5TrwUmBPlx96x4JWdsfoNiFn/
-	Zg9rGKC/jcUKlLida1iw/CXxUCakFKU=
-Received: from mail-qt1-f199.google.com (mail-qt1-f199.google.com
- [209.85.160.199]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-589--YaCdUlVMgittnQGE9FU3g-1; Wed, 09 Aug 2023 11:02:34 -0400
-X-MC-Unique: -YaCdUlVMgittnQGE9FU3g-1
-Received: by mail-qt1-f199.google.com with SMTP id d75a77b69052e-403ba1eebedso93527251cf.1
-        for <linux-riscv@lists.infradead.org>; Wed, 09 Aug 2023 08:02:34 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1691593353; x=1692198153;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=2NYYbX0Ny/eDp4l06N9hZE4kvGy1+pASnAt7JajSyFo=;
-        b=gQ0OmkC+hqLIwJ8mbogpj0K9iTTPvjRKiuBdMdNGJ938aVzQ3vPiVkhoU20rpSVBwB
-         nchoRIyVKsTYJvq+8TBKXUr45Qz5KZAoWpm+por2Skag90TC1SzqgrzaG17ucLKzbj/M
-         k1VdTyvkGHtfopG6jNdwGMzVWa1XhVnwWz32UVp9d9/9AArmZXBgSHqRCBXA6buMgJX0
-         bFkjppZ5NJjAR94KiPoBy3ROcCHSbEZEN1AwFLYikObLmf80ph7PA+DHx/RZiHt6qqEV
-         CION0QnbXeNAI3wiIqEgeDQzPEqvktlANj8M2dcfOxlc11aLZZkQRtwgDI7XCvsxlWu3
-         m1FQ==
-X-Gm-Message-State: AOJu0Yyv+hCbSyk4mSzJvAVZvTy/LL/O5PBSXAbAVP6nokyQ5zPEMix1
-	ZndyZSOnpag5NZVMCL931QQqJEQhP9SPY6DgNtCvExFvbRWadlO9UWQd36ufejCQ4ezfZ+Y+Mlf
-	VTSf2IEXFb1zkwv/2CqZx5F+4XALW5NpSRetVlUPMLtJh
-X-Received: by 2002:ac8:4e8b:0:b0:40f:db89:8616 with SMTP id 11-20020ac84e8b000000b0040fdb898616mr4162714qtp.67.1691593353252;
-        Wed, 09 Aug 2023 08:02:33 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFSF647FR6HPptz0wXsij0RUWgRN1QjmtT6Jrtmo+lRqMtDdZ5gy7XDMtl5sYjvOIzXxmZxxvkvYG2dq/sizNI=
-X-Received: by 2002:ac8:4e8b:0:b0:40f:db89:8616 with SMTP id
- 11-20020ac84e8b000000b0040fdb898616mr4162646qtp.67.1691593352652; Wed, 09 Aug
- 2023 08:02:32 -0700 (PDT)
+	id 1qTlCy-005Isp-3C;
+	Wed, 09 Aug 2023 15:34:50 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 05EA263E4C;
+	Wed,  9 Aug 2023 15:34:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9CAB4C433B8;
+	Wed,  9 Aug 2023 15:34:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1691595287;
+	bh=dKpu3DrXlm0fcz/rfbAZnwwY50NvEJw3wKrHilJuxpw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=F+F3tEWJa1ouT3AAeoGwCGDIPVHr8mvewuF9Wv6D3my1b3McT3/boQUwB/4TbUk0B
+	 kNoEtkqrlkQGWOLC+eAHPeWdquspwCEu1jOP2DLJPyKtjBxqre7G5Gt6s4ZyA+8FUj
+	 ksjRNloIJXzwHov4xxKk0bR+odlEBkyc9WWw+8Q7LwINdLKAlMo8eHt7sgp2mo0zSP
+	 6yf4N/N5mQgfkKZNTyeTdpVV8jY50VyORSbm56bg69m/U7esSLYFGhLNopS1fXoXH6
+	 pZPiq1xcaVBJo5pvOVIcoNTdFhmai7aajMmEDmFbfAJtYhs4C5iTw2HYO9neLymlEh
+	 iUgc170PfSA4g==
+Date: Wed, 9 Aug 2023 16:34:38 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	James Morse <james.morse@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Arnd Bergmann <arnd@arndb.de>, Oleg Nesterov <oleg@redhat.com>,
+	Eric Biederman <ebiederm@xmission.com>,
+	Kees Cook <keescook@chromium.org>, Shuah Khan <shuah@kernel.org>,
+	"Rick P. Edgecombe" <rick.p.edgecombe@intel.com>,
+	Deepak Gupta <debug@rivosinc.com>, Ard Biesheuvel <ardb@kernel.org>,
+	Szabolcs Nagy <Szabolcs.Nagy@arm.com>,
+	"H.J. Lu" <hjl.tools@gmail.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+	kvmarm@lists.linux.dev, linux-fsdevel@vger.kernel.org,
+	linux-arch@vger.kernel.org, linux-mm@kvack.org,
+	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v4 03/36] arm64/gcs: Document the ABI for Guarded Control
+ Stacks
+Message-ID: <f4cec4b3-c386-4873-aa1d-90528e062f2a@sirena.org.uk>
+References: <20230807-arm64-gcs-v4-0-68cfa37f9069@kernel.org>
+ <20230807-arm64-gcs-v4-3-68cfa37f9069@kernel.org>
+ <ZNOhjrYleGBR6Pbs@arm.com>
 MIME-Version: 1.0
-References: <20230809021311.1390578-2-leobras@redhat.com>
-In-Reply-To: <20230809021311.1390578-2-leobras@redhat.com>
-From: Leonardo Bras Soares Passos <leobras@redhat.com>
-Date: Wed, 9 Aug 2023 12:02:21 -0300
-Message-ID: <CAJ6HWG525eMQxbQ8BPsy9WMZvkiqSOHBJBCUtW_wV1Cv55cWxQ@mail.gmail.com>
-Subject: Re: [RFC PATCH v4 0/5] Rework & improve riscv cmpxchg.h and atomic.h
-To: Will Deacon <will@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
-	Boqun Feng <boqun.feng@gmail.com>, Mark Rutland <mark.rutland@arm.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Leonardo Bras <leobras@redhat.com>, 
-	Andrea Parri <parri.andrea@gmail.com>, Ingo Molnar <mingo@kernel.org>, 
-	Geert Uytterhoeven <geert@linux-m68k.org>, Andrzej Hajda <andrzej.hajda@intel.com>, 
-	Palmer Dabbelt <palmer@rivosinc.com>, Guo Ren <guoren@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
+In-Reply-To: <ZNOhjrYleGBR6Pbs@arm.com>
+X-Cookie: Necessity is a mother.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230809_080236_882928_C091388D 
-X-CRM114-Status: GOOD (  26.53  )
+X-CRM114-CacheID: sfid-20230809_083449_120415_577D74EB 
+X-CRM114-Status: GOOD (  44.91  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,71 +91,164 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============7450974282444154700=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCBBdWcgOCwgMjAyMyBhdCAxMToxM+KAr1BNIExlb25hcmRvIEJyYXMgPGxlb2JyYXNA
-cmVkaGF0LmNvbT4gd3JvdGU6Cj4KPiBXaGlsZSBzdHVkeWluZyByaXNjdidzIGNtcHhjaGcuaCBm
-aWxlLCBJIGdvdCByZWFsbHkgaW50ZXJlc3RlZCBpbgo+IHVuZGVyc3RhbmRpbmcgaG93IFJJU0NW
-IGFzbSBpbXBsZW1lbnRlZCB0aGUgZGlmZmVyZW50IHZlcnNpb25zIG9mCj4ge2NtcCx9eGNoZy4K
-Pgo+IFdoZW4gSSB1bmRlcnN0b29kIHRoZSBwYXR0ZXJuLCBpdCBtYWRlIHNlbnNlIGZvciBtZSB0
-byByZW1vdmUgdGhlCj4gZHVwbGljYXRpb25zIGFuZCBjcmVhdGUgbWFjcm9zIHRvIG1ha2UgaXQg
-ZWFzaWVyIHRvIHVuZGVyc3RhbmQgd2hhdCBleGFjdGx5Cj4gY2hhbmdlcyBiZXR3ZWVuIHRoZSB2
-ZXJzaW9uczogSW5zdHJ1Y3Rpb24gc3VmaXhlcyAmIGJhcnJpZXJzLgo+Cj4gQWxzbywgZGlkIHRo
-ZSBzYW1lIGtpbmQgb2Ygd29yayBvbiBhdG9taWMuYy4KPgo+IEFmdGVyIHRoYXQsIEkgbm90ZWQg
-Ym90aCBjbXB4Y2hnIGFuZCB4Y2hnIG9ubHkgYWNjZXB0IHZhcmlhYmxlcyBvZgo+IHNpemUgNCBh
-bmQgOCwgY29tcGFyZWQgdG8geDg2IGFuZCBhcm02NCB3aGljaCBkbyAxLDIsNCw4Lgo+Cj4gTm93
-IHRoYXQgZGVkdXBsaWNhdGlvbiBpcyBkb25lLCBpdCBpcyBxdWl0ZSBkaXJlY3QgdG8gaW1wbGVt
-ZW50IHRoZW0KPiBmb3IgdmFyaWFibGUgc2l6ZXMgMSBhbmQgMiwgc28gSSBkaWQgaXQuIFRoZW4g
-R3VvIFJlbiBhbHJlYWR5IHByZXNlbnRlZAo+IG1lIHNvbWUgcG9zc2libGUgdXNlcnMgOikKPgo+
-IEkgZGlkIGNvbXBhcmUgdGhlIGdlbmVyYXRlZCBhc20gb24gYSB0ZXN0LmMgdGhhdCBjb250YWlu
-ZWQgdXNhZ2UgZm9yIGV2ZXJ5Cj4gY2hhbmdlZCBmdW5jdGlvbiwgYW5kIGNvdWxkIG5vdCBkZXRl
-Y3QgYW55IGNoYW5nZSBvbiBwYXRjaGVzIDEgKyAyICsgMwo+IGNvbXBhcmVkIHdpdGggdXBzdHJl
-YW0uCj4KPiBQYXRoZXMgNCAmIDUgd2VyZSBjb21waWxlZC10ZXN0ZWQsIG1lcmdlZCB3aXRoIGd1
-b3Jlbi9xc3BpbmxvY2tfdjExIGFuZAo+IGJvb3RlZCBqdXN0IGZpbmUgd2l0aCBxZW11IC1tYWNo
-aW5lIHZpcnQgLWFwcGVuZCAicXNwaW5sb2NrIi4KClRoaXMgaXMgdGhlIHRyZWUgdGhhdCBJIHVz
-ZWQ6Cmh0dHBzOi8vZ2l0bGFiLmNvbS9MZW9CcmFzL2xpbnV4Ly0vY29tbWl0cy9ndW9fcXNwaW5s
-b2NrX3YxMQoKPgo+IFRoYW5rcyEKPiBMZW8KPgo+IENoYW5nZXMgc2luY2Ugc3F1YXNoZWQgY21w
-eGNoZyBSRkN2MzoKPiAtIEZpeGVkIGJ1ZyBvbiBjbXB4Y2hnIG1hY3JvIGZvciB2YXIgc2l6ZSAx
-ICYgMjogbm93IHdvcmtpbmcKPiAtIE1hY3JvcyBmb3IgdmFyIHNpemUgMSAmIDIncyBsci53IGFu
-ZCBzYy53IG5vdyBhcmUgZ3VhcmFudGVlZCB0byByZWNlaXZlCj4gICBpbnB1dCBvZiBhIDMyLWJp
-dCBhbGlnbmVkIGFkZHJlc3MKPiAtIFJlbmFtZWQgaW50ZXJuYWwgbWFjcm9zIGZyb20gX21hc2sg
-dG8gX21hc2tlZCBmb3IgcGF0Y2hlcyA0ICYgNQo+IC0gX19yYyB2YXJpYWJsZSBvbiBtYWNyb3Mg
-Zm9yIHZhciBzaXplIDEgJiAyIGNoYW5nZWQgZnJvbSByZWdpc3RlciB0byB1bG9uZwo+IGh0dHBz
-Oi8vbG9yZS5rZXJuZWwub3JnL2FsbC8yMDIzMDgwNDA4NDkwMC4xMTM1NjYwLTItbGVvYnJhc0By
-ZWRoYXQuY29tLwo+Cj4gQ2hhbmdlcyBzaW5jZSBzcXVhc2hlZCBjbXB4Y2hnIFJGQ3YyOgo+IC0g
-UmVtb3ZlZCByYyBwYXJhbWV0ZXIgZnJvbSB0aGUgbmV3IG1hY3JvOiBpdCBjYW4gYmUgaW50ZXJu
-YWwgdG8gdGhlIG1hY3JvCj4gLSAyIG5ldyBwYXRjaGVzOiBjbXB4Y2hnIHNpemUgMSBhbmQgMiwg
-eGNoZyBzaXplIDEgYW5kIDIKPiBodHRwczovL2xvcmUua2VybmVsLm9yZy9hbGwvMjAyMzA4MDMw
-NTE0MDEuNzEwMjM2LTItbGVvYnJhc0ByZWRoYXQuY29tLwo+Cj4gQ2hhbmdlcyBzaW5jZSBzcXVh
-c2hlZCBjbXB4Y2hnIFJGQ3YxOgo+IC0gVW5pZmllZCB3aXRoIGF0b21pYy5jIHBhdGNoc2V0Cj4g
-LSBSZWJhc2VkIG9uIHRvcCBvZiB0b3J2YWxkcy9tYXN0ZXIgKHRoYW5rcyBBbmRyZWEgUGFycmkh
-KQo+IC0gUmVtb3ZlZCBoZWxwZXIgbWFjcm9zIHRoYXQgd2VyZSBub3QgYmVpbmcgdXNlZCBlbHNl
-d2hlcmUgaW4gdGhlIGtlcm5lbC4KPiBodHRwczovL2xvcmUua2VybmVsLm9yZy9hbGwvMjAyMzA0
-MTkwNjI1MDUuMjU3MjMxLTEtbGVvYnJhc0ByZWRoYXQuY29tLwo+IGh0dHBzOi8vbG9yZS5rZXJu
-ZWwub3JnL2FsbC8yMDIzMDQwNjA4MjAxOC43MDM2Ny0xLWxlb2JyYXNAcmVkaGF0LmNvbS8KPgo+
-IENoYW5nZXMgc2luY2UgKGNtcHhjaGcpIFJGQ3YzOgo+IC0gU3F1YXNoZWQgdGhlIDYgb3JpZ2lu
-YWwgcGF0Y2hlcyBpbiAyOiBvbmUgZm9yIGNtcHhjaGcgYW5kIG9uZSBmb3IgeGNoZwo+IGh0dHBz
-Oi8vbG9yZS5rZXJuZWwub3JnL2FsbC8yMDIzMDQwNDE2Mzc0MS4yNzYyMTY1LTEtbGVvYnJhc0By
-ZWRoYXQuY29tLwo+Cj4gQ2hhbmdlcyBzaW5jZSAoY21weGNoZykgUkZDdjI6Cj4gLSBGaXhlZCAg
-bWFjcm9zIHRoYXQgZGVwZW5kIG9uIGhhdmluZyBhIGxvY2FsIHZhcmlhYmxlIHdpdGggYSBtYWdp
-YyBuYW1lCj4gLSBQcmV2aW91cyBjYXN0IHRvIChsb25nKSBpcyBub3cgb25seSBhcHBsaWVkIG9u
-IDQtYnl0ZXMgY21weGNoZwo+IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2FsbC8yMDIzMDMyMTA3
-NDI0OS4yMjIxNjc0LTEtbGVvYnJhc0ByZWRoYXQuY29tLwo+Cj4gQ2hhbmdlcyBzaW5jZSAoY21w
-eGNoZykgUkZDdjE6Cj4gLSBGaXhlZCBwYXRjaCA0LzYgc3VmZml4IGZyb20gJ3cuYXFybCcgdG8g
-Jy53LmFxcmwnLCB0byBhdm9pZCBidWlsZCBlcnJvcgo+IGh0dHBzOi8vbG9yZS5rZXJuZWwub3Jn
-L2FsbC8yMDIzMDMxODA4MDA1OS4xMTA5Mjg2LTEtbGVvYnJhc0ByZWRoYXQuY29tLwo+Cj4KPiBM
-ZW9uYXJkbyBCcmFzICg1KToKPiAgIHJpc2N2L2NtcHhjaGc6IERlZHVwbGljYXRlIHhjaGcoKSBh
-c20gZnVuY3Rpb25zCj4gICByaXNjdi9jbXB4Y2hnOiBEZWR1cGxpY2F0ZSBjbXB4Y2hnKCkgYXNt
-IGFuZCBtYWNyb3MKPiAgIHJpc2N2L2F0b21pYy5oIDogRGVkdXBsaWNhdGUgYXJjaF9hdG9taWMu
-Kgo+ICAgcmlzY3YvY21weGNoZzogSW1wbGVtZW50IGNtcHhjaGcgZm9yIHZhcmlhYmxlcyBvZiBz
-aXplIDEgYW5kIDIKPiAgIHJpc2N2L2NtcHhjaGc6IEltcGxlbWVudCB4Y2hnIGZvciB2YXJpYWJs
-ZXMgb2Ygc2l6ZSAxIGFuZCAyCj4KPiAgYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9hdG9taWMuaCAg
-fCAxNjQgKysrKysrLS0tLS0tLQo+ICBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2NtcHhjaGcuaCB8
-IDM5NCArKysrKysrKysrLS0tLS0tLS0tLS0tLS0tLS0tLS0tCj4gIDIgZmlsZXMgY2hhbmdlZCwg
-MTk1IGluc2VydGlvbnMoKyksIDM2MyBkZWxldGlvbnMoLSkKPgo+IC0tCj4gMi40MS4wCj4KCgpf
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNj
-diBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlz
-dHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+
+--===============7450974282444154700==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="k90euu3QCpA7JsXx"
+Content-Disposition: inline
+
+
+--k90euu3QCpA7JsXx
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Wed, Aug 09, 2023 at 03:24:14PM +0100, Catalin Marinas wrote:
+> On Mon, Aug 07, 2023 at 11:00:08PM +0100, Mark Brown wrote:
+
+> > +* When set PR_SHADOW_STACK_ENABLE flag allocates a Guarded Control Sta=
+ck for
+>=20
+> The 'for' at the end of the line above is not needed.
+>=20
+> > +  and enables GCS for the thread, enabling the functionality controlle=
+d by
+
+I find it a little clearer that it's a per thread stack here but sure.
+
+> > +* PR_LOCK_SHADOW_STACK_STATUS allows any bit to be locked, this allows
+> > +  userspace to prevent changes to any future features.
+
+> I presume a new lock prctl() won't allow unlocking but can only extend
+> the lock. I haven't looked at the patches yet but it may be worth
+> spelling this out.
+
+Yes, there is no unlock prctl() - the lock prctl() just lets you set
+locks.
+
+> > +* If GCS is disabled for a thread after having previously been enabled=
+ then
+> > +  the stack will remain allocated for the lifetime of the thread.
+
+> Sorry if this has been discussed in other threads. What is the issue
+> with unmapping/freeing of the shadow stack?
+
+If something was in the middle of looking the GCS (eg, you're trying to
+disable GCS during signal handling that preempted something that is
+logging the call stack) and you pull the GCS storage from underneath it
+then things will go badly.
+
+> > At present
+> > +  any attempt to reenable GCS for the thread will be rejected, this ma=
+y be
+> > +  revisited in future.
+
+> What's the rationale here? Is it that function returns won't work?
+
+We have to work out where to point GCSPR_EL0 when reenabling - at the
+top of the old stack, where it was before, on a new stack?  It was
+easier to just not support reenabling than to work out what the sensible
+answer is when it's not clear that any real use case exists to inform
+what makes sense.  We can add support for that later (you can probe by
+starting a thread, disabling and trying to reenable) if someone does
+come up with a use case.
+
+The use case for disabling is a non-enforcing mode which logs GCS faults
+and then disables GCS.
+
+> > +3.  Allocation of Guarded Control Stacks
+> > +----------------------------------------
+
+> > +* When GCS is enabled for a thread a new Guarded Control Stack will be
+> > +  allocated for it of size RLIMIT_STACK / 2 or 2 gigabytes, whichever =
+is
+> > +  smaller.
+
+> Is this number based on the fact that a function call would only push
+> the LR to GCS while standard function prologue pushes at least two
+> registers?
+
+It's actually based on bitrot that I'd initially chosen a smaller value
+since it's likely that functions will push at least something as you
+suggest, the patches now just use RLIMIT_STACK.  I'll fix.
+
+> > +* When GCS is disabled for a thread the Guarded Control Stack initially
+> > +  allocated for that thread will be freed.  Note carefully that if the
+> > +  stack has been switched this may not be the stack currently in use by
+> > +  the thread.
+
+> Does this not contradict an earlier statement that the GCS is not freed
+> for a thread when disabled?
+
+Yes, it was meant to say when the thread is freed rather than when GCS
+is disabled.
+
+> > +* When GCS is enabled for the interrupted thread a signal handling spe=
+cific
+> > +  GCS cap token will be written to the GCS, this is an architectural G=
+CS cap
+> > +  token with bit 63 set.  The GCSPR_EL0 reported in the signal frame w=
+ill
+> > +  point to this cap token.
+
+> I lost track of the GCS spec versions. Has the valid cap token format
+> been updated? What I have in my spec (though most likely old) is:
+
+>   An entry in the Guarded control stack is defined as a Valid cap entry,
+>   if bits [63:12] of the value are same as bits [63:12] of the address
+>   where the entry is stored and bits [11:0] contain a Valid cap token.
+
+You have a draft version of the spec, this was changed and now there is
+now a token field reserved in the low 12 bits of the register:
+
+#define GCS_CAP_ADDR_MASK		GENMASK(63, 12)
+#define GCS_CAP_ADDR_SHIFT		12
+#define GCS_CAP_ADDR_WIDTH		52
+#define GCS_CAP_ADDR(x)			FIELD_GET(GCS_CAP_ADDR_MASK, x)
+
+#define GCS_CAP_TOKEN_MASK		GENMASK(11, 0)
+#define GCS_CAP_TOKEN_SHIFT		0
+#define GCS_CAP_TOKEN_WIDTH		12
+#define GCS_CAP_TOKEN(x)		FIELD_GET(GCS_CAP_TOKEN_MASK, x)
+
+#define GCS_CAP_VALID_TOKEN		0x1
+#define GCS_CAP_IN_PROGRESS_TOKEN	0x5
+
+#define GCS_CAP(x)	((((unsigned long)x) & GCS_CAP_ADDR_MASK) | \
+					       GCS_CAP_VALID_TOKEN)
+
+--k90euu3QCpA7JsXx
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmTTsg0ACgkQJNaLcl1U
+h9AEfQf+Ka4G6z9Nm1kf+b/l5pKI+rrhbAQGaG8LsctIW9PfOqcL34gYTSwCEcFC
+yc7FLvXwOykuy/dMOwhEPvohyCsS/fvouc1WLRs/T1Ur11kjMYjJaMnrLIafdJRC
+AH7esh4KGfFfzcq6O2WaLjk/wSLVMF7ZemDSQJwb1zC8tACwL/ycJNx3xi/LgCjn
+uegBSqenG7Ehp7OuPFBeZmfL1yMQ5g5GGrF3ga5swfXgxDmne+0X0pXCqoqyQURH
+B/4075gZXjwuMcraFsVPFQEdlk4nZNl4BEEdV9IGHXKIBWe1qKOTIFc14Jvt3U5/
+AhfIuxGumWGmrTlP/ZBjaZUJaMuFlA==
+=LF8s
+-----END PGP SIGNATURE-----
+
+--k90euu3QCpA7JsXx--
+
+
+--===============7450974282444154700==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============7450974282444154700==--
+
