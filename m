@@ -4,64 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CEB9C001B0
-	for <linux-riscv@archiver.kernel.org>; Wed,  9 Aug 2023 11:55:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1F52C04E69
+	for <linux-riscv@archiver.kernel.org>; Wed,  9 Aug 2023 11:55:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rarOHNvseGVgSp0bAKPiptlmyXpnYQLhNcwMSfDAN5c=; b=mnfTGo2TIrX+KW
-	hAAG98lbOmBkrGqdQMHjFDiQTKXL5XD9JsR9t0g2+5U6Rj+IjsY0HLxdQb4z5bPUqRFZjcCXlwIZi
-	v432g3/+PkYWDngpTOB8fHjGiNi4U9K/tzBK2eweKmF7O0BUdzrn0bXQpJkSUo8FEjZ5XFGqOWjGg
-	ABhAFZrw107y1ja0h+3yJ676J5efJuqM//ybP03NawsN1vJHV5nsM9beCRWZ7LeVk932BrkQVBzZp
-	1+jZ0XKrvZWZnRIKUyJFDrw6dNNhGkNVbOdZsVWVdUpPcoAHA7qXSE+ZSisM570BIWta06rVOvTeI
-	rEaOxaZ4/8KCdlDeeKcA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=8jY8zQ/mXy8LFhPsbou5UmNcYF+QdzJq18zeh/c7b/E=; b=jmPzInayWyCess
+	p4QvBOh9pvjelkHS9KHdkd1GRbMPd/B0nETFEpkhY3NNeJ9FXXtdf6n9RTd7Bp6kqIR/56L+q8qzF
+	sik5AukFIIwJw7Hiro2wfSbYRrlnvIWDzW6xUJC3ETNyv+CAYO2zPER+QrM8tnX0/fdZtSdjrp8AY
+	nJLMKr7mq3Bh4J2fDc9Cxv/Sqf2k1SoRmm85VVq6rR5KY6Gv6eXLwKczEGgFn7Xr6EMeft36fQ73t
+	xKNnJ6Y2SMCnRmgHuWi46Ul8L9TOIWIhZn0Sgdrnhmea5c2QwCjK5vQZrnjfkThIGAn2l+vOmMMkn
+	1i4DRgfTAF/T6lFmS5Fw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qThmh-004pbf-2K;
-	Wed, 09 Aug 2023 11:55:27 +0000
-Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
+	id 1qThme-004paE-1f;
+	Wed, 09 Aug 2023 11:55:24 +0000
+Received: from mail-lj1-x233.google.com ([2a00:1450:4864:20::233])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qThmd-004pZ4-2k
+	id 1qThmb-004pYB-0r
 	for linux-riscv@lists.infradead.org;
-	Wed, 09 Aug 2023 11:55:25 +0000
-Received: by mail-ed1-x52c.google.com with SMTP id 4fb4d7f45d1cf-5232bb5e47bso5109494a12.2
-        for <linux-riscv@lists.infradead.org>; Wed, 09 Aug 2023 04:55:22 -0700 (PDT)
+	Wed, 09 Aug 2023 11:55:22 +0000
+Received: by mail-lj1-x233.google.com with SMTP id 38308e7fff4ca-2b962c226ceso106821811fa.3
+        for <linux-riscv@lists.infradead.org>; Wed, 09 Aug 2023 04:55:19 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1691582121; x=1692186921;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=MJKxAc/rsfQ1pKY1wZPiDjJLoGc1XAwGd/zLFuicKnI=;
-        b=PnGtiWsOJbI1KZUTkFqrUxdUNciFZ1SRprWcG6Zl+KDyngjU/BSEIpSvICbWyb1fFm
-         bfK6DqBLMpJNJBiIZQoit4Sw2iQYIRZXHL9P3RMPRpdaf80rqWo2qc19gSXCZfqZ55p0
-         QS7Qbd0EuoIs6pcgplo79s6GpyRacOK2XUySNoFUZx6i+sfEuZzRxcA7H6JwN5Tw44tU
-         2DKHlW2tzHGBPl+snWQtRfaiibkiaz/qVreGx41wGaW4nx6sGXY7Q2nevgyZ5rAFUgVu
-         iLBLP3LupFjK7LlTKAJ7CsbsAk9whZHUCfGSrvbO6kOLxgIj3gzxIr3eieuKHhUpsgZ2
-         9dfQ==
+        d=ventanamicro.com; s=google; t=1691582118; x=1692186918;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=qFCO8rRVW0eo1X2MXfcemMFxxGXbniYC365Pku+GYYA=;
+        b=ki3mJlRpT4/xDkByyM4hgAbzvRDHPsfzbIiQLF8u4QnAa+cpnuYx6q1w9K48MswlT+
+         562ChP/JkV9KS9Lo3JfadQy8QBr/lNfB3h9BLJOQCdaGUcYZrQFt0DqdvWE/iUXzoWTZ
+         5zCA03BQ9q+xWffSjsRLjhZd2wxvCazYcFP0BtFrInSBzN9lxFWJQaz7vzXGqUdQeHJI
+         G3n9ZOynGiexwVJWRx5VCD4/S0sKN/4tGXctmpOTXHstJI3Vx0DqkR8GkjFQWrM4QJ3Z
+         IgtJYf859Wbf6z7Ht4LG7oF9OfJ6yswwaCfaCeZJ8XQSoN9X4krzg52cY5dvb1JgdpCe
+         bXtw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1691582121; x=1692186921;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=MJKxAc/rsfQ1pKY1wZPiDjJLoGc1XAwGd/zLFuicKnI=;
-        b=TDaCQcfe/yvYI7T2WmGhs/Em1Mti9kOBp96AWfzTzpY241+GNUOVfNVDTt4uDYU50R
-         AxXgSm3JnlFlvybdFQ9gIGOjLpqW2KSuED2CCG8jMclSCYmyuLzDpOFXAd+A/sF8QiX7
-         I+G5CrBwPKMgbvpObIG2oIh9zFwVBO30+mdMukG8YJw6hQX5dTwoissa/782wCR41Let
-         9LEAlJOLbCFWIvX2u7OmfvlRl/yS/MWMFuttZlrBz1/VF8xHsMtnmI/T5PfbOcPnziEV
-         Xg8w10V2zTda0RtIN3e5/U5eLtyI9d8NhBfe9kyVvvmdAlLFtk1tEiCrZBXemqCKOpVr
-         hU5g==
-X-Gm-Message-State: AOJu0YzBVkK2jrdFEyScjpnMF8V22D+0eOlO+i3Ano2BDyP3/I3LBNdb
-	HfpXr5gOqFyWxZHS0lyEaLvs9PJy7kuSua3lj+3wXXcp
-X-Google-Smtp-Source: AGHT+IHz9mT0wAG2lH/iYYnE+OaJjMCGTKZdGflgBIwlyplgGsxToQdetE4Dnn6PJUMLVdM/xXOvPQ==
-X-Received: by 2002:a05:6402:b12:b0:523:18db:e3ab with SMTP id bm18-20020a0564020b1200b0052318dbe3abmr1865397edb.39.1691582121427;
-        Wed, 09 Aug 2023 04:55:21 -0700 (PDT)
+        d=1e100.net; s=20221208; t=1691582118; x=1692186918;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=qFCO8rRVW0eo1X2MXfcemMFxxGXbniYC365Pku+GYYA=;
+        b=FJICgmX3w5SlY1VAQ7jUSdVsUH1/ygkUc7wjTLhJjIVbxJiJnaJILJoon25yJJX+95
+         5bxji7jonOlVBVop+VUEG7/HN2OYl0CbNBQ7P9Obzz1YiWWD98Ri27ZbIUII1edwnZOq
+         RcS1Cs+DSG+ta2FXRqCQTaceN4IgvKXyQMfr3IZu8K80DXxcu4DKzWuR7OEUnpWJ5vk7
+         6scm2T71d6/Dze0iDK7k5ZCtSNFA8EqFhcgxaqN3+XKNTgJEjXIiVyIxUjaBM/OmMWfW
+         42YfAQk3uAEQrxINIySu6v+0Zp7/40oSVgwTzAdFcXyWJyDgWQ1IQD0cNAejEEZkpGFy
+         Z2kw==
+X-Gm-Message-State: AOJu0Yxi887gFZo1MzrdUdswFGx4sjQga3AdJfMYdVANFppcCn2F+pUg
+	eSoQ6QiijL758zcS8AQki3viDcEaGAdQt/gFn7IdX+ZP
+X-Google-Smtp-Source: AGHT+IGWzQn7T/1R1LDx3VkUCDdwqFmFgp2L5CcKLxhs3Y2V3KU58gT2pxgn8oh0TMwc1gadVEkR5w==
+X-Received: by 2002:a2e:b6c6:0:b0:2b7:364e:91ec with SMTP id m6-20020a2eb6c6000000b002b7364e91ecmr1621518ljo.13.1691582117845;
+        Wed, 09 Aug 2023 04:55:17 -0700 (PDT)
 Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id a22-20020aa7d756000000b005232cf13b02sm5613604eds.37.2023.08.09.04.55.20
+        by smtp.gmail.com with ESMTPSA id d11-20020a170906c20b00b00992d70f8078sm7954741ejz.106.2023.08.09.04.55.17
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 09 Aug 2023 04:55:21 -0700 (PDT)
+        Wed, 09 Aug 2023 04:55:17 -0700 (PDT)
 From: Andrew Jones <ajones@ventanamicro.com>
 To: linux-riscv@lists.infradead.org
 Cc: paul.walmsley@sifive.com,
@@ -70,16 +69,14 @@ Cc: paul.walmsley@sifive.com,
 	evan@rivosinc.com,
 	conor.dooley@microchip.com,
 	apatel@ventanamicro.com
-Subject: [PATCH 3/6] RISC-V: hwprobe: Expose Zicboz extension and its block size
-Date: Wed,  9 Aug 2023 13:55:20 +0200
-Message-ID: <20230809115516.214537-11-ajones@ventanamicro.com>
+Subject: [PATCH 0/6] RISC-V: Enable cbo.zero in usermode
+Date: Wed,  9 Aug 2023 13:55:17 +0200
+Message-ID: <20230809115516.214537-8-ajones@ventanamicro.com>
 X-Mailer: git-send-email 2.41.0
-In-Reply-To: <20230809115516.214537-8-ajones@ventanamicro.com>
-References: <20230809115516.214537-8-ajones@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230809_045523_891961_B1169C42 
-X-CRM114-Status: GOOD (  16.80  )
+X-CRM114-CacheID: sfid-20230809_045521_332000_54BFF359 
+X-CRM114-Status: GOOD (  10.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,136 +93,45 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Expose Zicboz through hwprobe and also provide a key to extract its
-respective block size. Opportunistically add a macro and apply it to
-current extensions in order to avoid duplicating code.
+In order for usermode to issue cbo.zero, it needs privilege granted to
+issue the extension instruction (patch 2) and to know that the extension
+is available and its block size (patch 3). Patch 1 could be separate from
+this series (it just fixes up some error messages), patches 4-5 convert
+the hwprobe selftest to a statically-linked, TAP test and patch 6 adds a
+new hwprobe test for the new information as well as testing CBO
+instructions can or cannot be issued as appropriate.
 
-Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
----
- Documentation/riscv/hwprobe.rst       |  6 ++++
- arch/riscv/include/asm/hwprobe.h      |  2 +-
- arch/riscv/include/uapi/asm/hwprobe.h |  2 ++
- arch/riscv/kernel/sys_riscv.c         | 41 ++++++++++++++++++---------
- 4 files changed, 36 insertions(+), 15 deletions(-)
+Thanks,
+drew
 
-diff --git a/Documentation/riscv/hwprobe.rst b/Documentation/riscv/hwprobe.rst
-index 933c715065d6..6a17c2872660 100644
---- a/Documentation/riscv/hwprobe.rst
-+++ b/Documentation/riscv/hwprobe.rst
-@@ -77,6 +77,9 @@ The following keys are defined:
-   * :c:macro:`RISCV_HWPROBE_EXT_ZBS`: The Zbs extension is supported, as defined
-        in version 1.0 of the Bit-Manipulation ISA extensions.
- 
-+  * :c:macro:`RISCV_HWPROBE_EXT_ZICBOZ`: The Zicboz extension is supported, as
-+       ratified in commit 3dd606f ("Create cmobase-v1.0.pdf") of riscv-CMOs.
-+
- * :c:macro:`RISCV_HWPROBE_KEY_CPUPERF_0`: A bitmask that contains performance
-   information about the selected set of processors.
- 
-@@ -97,3 +100,6 @@ The following keys are defined:
- 
-   * :c:macro:`RISCV_HWPROBE_MISALIGNED_UNSUPPORTED`: Misaligned accesses are
-     not supported at all and will generate a misaligned address fault.
-+
-+* :c:macro:`RISCV_HWPROBE_KEY_ZICBOZ_BLOCK_SIZE`: An unsigned int which
-+  represents the size of the Zicboz block in bytes.
-diff --git a/arch/riscv/include/asm/hwprobe.h b/arch/riscv/include/asm/hwprobe.h
-index 78936f4ff513..39df8604fea1 100644
---- a/arch/riscv/include/asm/hwprobe.h
-+++ b/arch/riscv/include/asm/hwprobe.h
-@@ -8,6 +8,6 @@
- 
- #include <uapi/asm/hwprobe.h>
- 
--#define RISCV_HWPROBE_MAX_KEY 5
-+#define RISCV_HWPROBE_MAX_KEY 6
- 
- #endif
-diff --git a/arch/riscv/include/uapi/asm/hwprobe.h b/arch/riscv/include/uapi/asm/hwprobe.h
-index 006bfb48343d..86d08a0e617b 100644
---- a/arch/riscv/include/uapi/asm/hwprobe.h
-+++ b/arch/riscv/include/uapi/asm/hwprobe.h
-@@ -29,6 +29,7 @@ struct riscv_hwprobe {
- #define		RISCV_HWPROBE_EXT_ZBA		(1 << 3)
- #define		RISCV_HWPROBE_EXT_ZBB		(1 << 4)
- #define		RISCV_HWPROBE_EXT_ZBS		(1 << 5)
-+#define		RISCV_HWPROBE_EXT_ZICBOZ	(1 << 6)
- #define RISCV_HWPROBE_KEY_CPUPERF_0	5
- #define		RISCV_HWPROBE_MISALIGNED_UNKNOWN	(0 << 0)
- #define		RISCV_HWPROBE_MISALIGNED_EMULATED	(1 << 0)
-@@ -36,6 +37,7 @@ struct riscv_hwprobe {
- #define		RISCV_HWPROBE_MISALIGNED_FAST		(3 << 0)
- #define		RISCV_HWPROBE_MISALIGNED_UNSUPPORTED	(4 << 0)
- #define		RISCV_HWPROBE_MISALIGNED_MASK		(7 << 0)
-+#define RISCV_HWPROBE_KEY_ZICBOZ_BLOCK_SIZE	6
- /* Increase RISCV_HWPROBE_MAX_KEY when adding items. */
- 
- #endif
-diff --git a/arch/riscv/kernel/sys_riscv.c b/arch/riscv/kernel/sys_riscv.c
-index 26ef5526bfb4..7d970358597b 100644
---- a/arch/riscv/kernel/sys_riscv.c
-+++ b/arch/riscv/kernel/sys_riscv.c
-@@ -145,26 +145,33 @@ static void hwprobe_isa_ext0(struct riscv_hwprobe *pair,
- 	for_each_cpu(cpu, cpus) {
- 		struct riscv_isainfo *isainfo = &hart_isa[cpu];
- 
--		if (riscv_isa_extension_available(isainfo->isa, ZBA))
--			pair->value |= RISCV_HWPROBE_EXT_ZBA;
--		else
--			missing |= RISCV_HWPROBE_EXT_ZBA;
--
--		if (riscv_isa_extension_available(isainfo->isa, ZBB))
--			pair->value |= RISCV_HWPROBE_EXT_ZBB;
--		else
--			missing |= RISCV_HWPROBE_EXT_ZBB;
--
--		if (riscv_isa_extension_available(isainfo->isa, ZBS))
--			pair->value |= RISCV_HWPROBE_EXT_ZBS;
--		else
--			missing |= RISCV_HWPROBE_EXT_ZBS;
-+#define EXT_KEY(ext)									\
-+	do {										\
-+		if (__riscv_isa_extension_available(isainfo->isa, RISCV_ISA_EXT_##ext))	\
-+			pair->value |= RISCV_HWPROBE_EXT_##ext;				\
-+		else									\
-+			missing |= RISCV_HWPROBE_EXT_##ext;				\
-+	} while (false)
-+
-+		EXT_KEY(ZBA);
-+		EXT_KEY(ZBB);
-+		EXT_KEY(ZBS);
-+		EXT_KEY(ZICBOZ);
-+#undef EXT_KEY
- 	}
- 
- 	/* Now turn off reporting features if any CPU is missing it. */
- 	pair->value &= ~missing;
- }
- 
-+static bool hwprobe_ext0_has(const struct cpumask *cpus, unsigned long ext)
-+{
-+	struct riscv_hwprobe pair;
-+
-+	hwprobe_isa_ext0(&pair, cpus);
-+	return (pair.value & ext);
-+}
-+
- static u64 hwprobe_misaligned(const struct cpumask *cpus)
- {
- 	int cpu;
-@@ -215,6 +222,12 @@ static void hwprobe_one_pair(struct riscv_hwprobe *pair,
- 		pair->value = hwprobe_misaligned(cpus);
- 		break;
- 
-+	case RISCV_HWPROBE_KEY_ZICBOZ_BLOCK_SIZE:
-+		pair->value = 0;
-+		if (hwprobe_ext0_has(cpus, RISCV_HWPROBE_EXT_ZICBOZ))
-+			pair->value = riscv_cboz_block_size;
-+		break;
-+
- 	/*
- 	 * For forward compatibility, unknown keys don't fail the whole
- 	 * call, but get their element key set to -1 and value set to 0
+
+Andrew Jones (6):
+  RISC-V: Make zicbom/zicboz errors consistent
+  RISC-V: Enable cbo.zero in usermode
+  RISC-V: hwprobe: Expose Zicboz extension and its block size
+  RISC-V: selftests: Statically link hwprobe test
+  RISC-V: selftests: Convert hwprobe test to kselftest API
+  RISC-V: selftests: Add CBO tests
+
+ Documentation/riscv/hwprobe.rst               |   6 +
+ arch/riscv/include/asm/cpufeature.h           |   2 +
+ arch/riscv/include/asm/csr.h                  |   1 +
+ arch/riscv/include/asm/hwcap.h                |  16 ++
+ arch/riscv/include/asm/hwprobe.h              |   2 +-
+ arch/riscv/include/uapi/asm/hwprobe.h         |   2 +
+ arch/riscv/kernel/cpufeature.c                |  10 +-
+ arch/riscv/kernel/setup.c                     |   4 +
+ arch/riscv/kernel/smpboot.c                   |   4 +
+ arch/riscv/kernel/sys_riscv.c                 |  41 +++--
+ tools/testing/selftests/riscv/Makefile        |   2 +-
+ .../testing/selftests/riscv/hwprobe/Makefile  |   7 +-
+ tools/testing/selftests/riscv/hwprobe/cbo.c   | 160 ++++++++++++++++++
+ .../testing/selftests/riscv/hwprobe/hwprobe.c |  64 +++----
+ .../testing/selftests/riscv/hwprobe/hwprobe.h |  15 ++
+ 15 files changed, 272 insertions(+), 64 deletions(-)
+ create mode 100644 tools/testing/selftests/riscv/hwprobe/cbo.c
+ create mode 100644 tools/testing/selftests/riscv/hwprobe/hwprobe.h
+
 -- 
 2.41.0
 
