@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89729C04FE2
-	for <linux-riscv@archiver.kernel.org>; Wed,  9 Aug 2023 01:53:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9595BC41513
+	for <linux-riscv@archiver.kernel.org>; Wed,  9 Aug 2023 01:53:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lL1a/AIkC9YJPmcTYPnxWgZRb73yG0Uf31G/6G9txrk=; b=hr8/DmWU9x3QHD
-	mQ2OU5qcplJOuMyB2oP6LtmF+RaxYc9i9CR16vvb6lRXSak3PuyVBjP6T22o6oor9AQreB5FE0vmO
-	1h6Vt0Ab+V7e68M1VV/1BHKGu2F0TXXAg4QyZ2F5VQFaPPghmVdF9Ga3Fkkj+dz5fqZbLX7BlmA6E
-	gTDEjH+/HcErXSquDHGxqihAJgij6cV/2rca03wPdN4zMn1D0O92HTGqYtzo3E8rWUkBtuxLWOuoV
-	o7Xuc2cx+PpzgkR2+HomdAxXvujP3BCgW9tK02IfzmdEPTwwc9NmpZAyhTUDQdYGnlZ++OAHHTXao
-	vJcf4lK5JkwVgV2aoTIw==;
+	List-Owner; bh=Nc779pxzADgQduHNdJz6wa8HKTqvyhKp/ItAq3S7bis=; b=TmOwmxBdV9DSNu
+	5erHSBhUl5esvvI8d377YMrK+raKmX7+/IyFvSONjLwrjkyKqOhkiJbi+l01H+gft95m6e8qWyvBh
+	vi7ywkiSEX9D1dHesIVlYLXCC6amQp2CDggBhTBJ2RrbzpGydyqzRkpMOxja1IOb8JyIsHUqLKJin
+	Ofy6S+NURvnFQupvzjXkbEWT9D8xZTvpRgdl08jE7PCgECgAxjncsuAymr7UlIIBLSs9v1RYSEdjz
+	PJAGonahZhQbP1Kk0+gVLq0sfBZRuXjJqJUyEY1VfnGehydFfVRxWZ90oBvFOMf5Q9kGMws6AFLJ7
+	GptI3FdWtX7obFQiasEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qTYNv-003q5F-1t;
-	Wed, 09 Aug 2023 01:53:15 +0000
-Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	id 1qTYNx-003q6n-1K;
+	Wed, 09 Aug 2023 01:53:17 +0000
+Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qTYNq-003pzd-3A
+	id 1qTYNs-003q2M-09
 	for linux-riscv@lists.infradead.org;
-	Wed, 09 Aug 2023 01:53:13 +0000
-Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-1bbc06f830aso3346195ad.0
-        for <linux-riscv@lists.infradead.org>; Tue, 08 Aug 2023 18:53:08 -0700 (PDT)
+	Wed, 09 Aug 2023 01:53:14 +0000
+Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-1bc83a96067so8323555ad.0
+        for <linux-riscv@lists.infradead.org>; Tue, 08 Aug 2023 18:53:11 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1691545988; x=1692150788;
+        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1691545991; x=1692150791;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=lS9t1IQslP2lZOcFIMMBEvL86hG9xRW12aLXbO27oNk=;
-        b=Z+OB3UIxb6UJl4LqG4lOl8uoEklqlYBf9fFwC0SMsGtkHV738p4LE/eBRuGJp3a7UL
-         wiCEXG/nMIuiiOQ7dHYWcDcYDiZ0ZcWXZQ1pgmZ/9o7/7EIhMFgNACuq5EWyHaQJ3Z7E
-         G6kwf7AbrVK8ofW7juhqT77yDPEbZow9W3sjyhQnYVmRcEDxZmUSGarbtD1I7I3ufInS
-         hpDnZmswCg7wHzP7gZzoJ4bbO4uBGnuWGbFO0kEtksOZCBlotH47BAkIcT5zEnw+UIYM
-         X6/5ndgr/c496H7frfwd+bRtqm0VeHE4I0TmM4v7PHuRHDwdflAx5jyymiQ36NBcmSnr
-         I07w==
+        bh=5q2lf0ErqSwJrn3JbgeuhvaoxCnqdWFIkpf1V4h3asg=;
+        b=KQfNpvZbwPfJw4InJH3Gop3jL8C3JwJPDbX7mWsYj121ubZsb8RGRA2aI9F/PwCRVF
+         VythodBAkVElVzcYFFbi1lDli1YK6i88YBAyJ4izWsKPC7TciTmEvVoHSJFMyct3/A1C
+         QCjr27vWn57/CGMNexhGRhDrj7RKrU+Fm1uLuqZAWixGoxJgCb59LKtThbuUpPvCKADL
+         SV/MKjcJ/vt528cSHhB3ZDKQVmxe2Pl4qLNnNm+Usxd5J+XvPi8hxQoSr+RdZwvLVwxq
+         XkZe4sqD/xdLk4MoYZctFEDxxFdlv5Rih9i/apAmP5jgpZqpVJTVwvCWYM3sPWvQD09+
+         Qnvw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1691545988; x=1692150788;
+        d=1e100.net; s=20221208; t=1691545991; x=1692150791;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=lS9t1IQslP2lZOcFIMMBEvL86hG9xRW12aLXbO27oNk=;
-        b=IA6Ds05iaQLyMA7SnthBDzCjJuAALkCaNQqShqZIPg8WFErJ3NnEdo+bW+TGA1IT2P
-         U1u0qsDTwTu6MOxCjX8jzmWXf+naYnSkNNzGJysm5sJVhvmG+Yavt+lxF6dGKWjQbK8y
-         rnswpPFqqtl8+u9LFRVcMCeSen/oReEER7tI7I260VbIHtvRMHxxlFbwbPFq9jLPKq4Z
-         H2SJIZMh+em0Yp/9aHrAc30fiFbMML9ERo69Y4Zbgx93YQxK1JTd7I/FnQLP8lFB3yaK
-         qoJxzmz4oAssZqDOiSqyqlQbutOZSd0VL+BLbr44YavH3ogznCjYBSPzDPk0Ozcg1cYY
-         YpaQ==
-X-Gm-Message-State: AOJu0YxLlfE5FbkjfNd4wo3G3W29psHhFl+OvSHujsKG5MZBxEjyC60h
-	e+e/XwRHIakCgi/X21ZXxpfvYK+VmcCSYiuvtFQ=
-X-Google-Smtp-Source: AGHT+IFhoPRNUuepUsmxYmygopTPVe56v5cNvHLyHa5Ol8fKT1Rsk8P+vvViBz+AASwbOoRW+3rwYA==
-X-Received: by 2002:a17:902:d491:b0:1b0:3ab6:5140 with SMTP id c17-20020a170902d49100b001b03ab65140mr1838365plg.4.1691545987885;
-        Tue, 08 Aug 2023 18:53:07 -0700 (PDT)
+        bh=5q2lf0ErqSwJrn3JbgeuhvaoxCnqdWFIkpf1V4h3asg=;
+        b=K3g6PRPWqDZPPjcfXkf67M9ug4WfEZKABMUNtbIQ8sIvPbrux3jvCvs1In3hOzh+sv
+         C4wxM6/ZF6r7HFTZk5LVau7mUWcayKAgRelX9fQ3Z2fUXmH7QgcnRo9VbpNKbmQkYwuE
+         LqV05qnRJ374B500AglrSuJ4rIYP0mEDIZ87Tul/fbN8DifBvIs5WQNgpi0jw6/87lN1
+         yK0YZ5A+UiNkrWLKCewAg5kpjlHXRJs2FQGa6Ua+37VhLVAoNR+3oIC7dx2nWhcXASrl
+         PoU4R+ciK+SskirA1YafqArzt/o/KPIFv8RxT+n4X8blKqMFJqJIKoisIl2aEqOfqKRW
+         3V0A==
+X-Gm-Message-State: AOJu0Yx2JB0kCDoR0SitrkHURlzH7yTcP/uGxD07GNBmR6R/NnMPIuRo
+	n1RFE0o9vifLIKipGD94nYkmh+Z/it9DrsebJDE=
+X-Google-Smtp-Source: AGHT+IGg+v5KFzlU+jQrk/Y4IPjZqAfK6IzCZuHeB5tm9d5fjhnx1QdE7SY5R0FlUS9hkHWQ+fZbQA==
+X-Received: by 2002:a17:902:d2cf:b0:1bc:3f9b:d96 with SMTP id n15-20020a170902d2cf00b001bc3f9b0d96mr1444563plc.49.1691545990966;
+        Tue, 08 Aug 2023 18:53:10 -0700 (PDT)
 Received: from charlie.ba.rivosinc.com ([66.220.2.162])
-        by smtp.gmail.com with ESMTPSA id bj7-20020a170902850700b001b87bedcc6fsm9657591plb.93.2023.08.08.18.53.06
+        by smtp.gmail.com with ESMTPSA id bj7-20020a170902850700b001b87bedcc6fsm9657591plb.93.2023.08.08.18.53.09
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 08 Aug 2023 18:53:07 -0700 (PDT)
+        Tue, 08 Aug 2023 18:53:10 -0700 (PDT)
 From: Charlie Jenkins <charlie@rivosinc.com>
 To: linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org
@@ -79,16 +79,17 @@ Cc: charlie@rivosinc.com,
 	jrtc27@jrtc27.com,
 	rdunlap@infradead.org,
 	alexghiti@rivosinc.com
-Subject: [PATCH v9 1/4] RISC-V: mm: Restrict address space for sv39,sv48,sv57
-Date: Tue,  8 Aug 2023 18:51:07 -0700
-Message-Id: <20230809015110.3290774-2-charlie@rivosinc.com>
+Subject: [PATCH v9 3/4] RISC-V: mm: Update pgtable comment documentation
+Date: Tue,  8 Aug 2023 18:51:09 -0700
+Message-Id: <20230809015110.3290774-4-charlie@rivosinc.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20230809015110.3290774-1-charlie@rivosinc.com>
 References: <20230809015110.3290774-1-charlie@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230808_185311_029363_A7F28269 
-X-CRM114-Status: GOOD (  14.64  )
+X-CRM114-CacheID: sfid-20230808_185312_097490_5DE7C440 
+X-CRM114-Status: UNSURE (   9.68  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,147 +101,38 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Make sv48 the default address space for mmap as some applications
-currently depend on this assumption. A hint address passed to mmap will
-cause the largest address space that fits entirely into the hint to be
-used. If the hint is less than or equal to 1<<38, an sv39 address will
-be used. An exception is that if the hint address is 0, then a sv48
-address will be used. After an address space is completely full, the next
-smallest address space will be used.
-
-Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
----
- arch/riscv/include/asm/elf.h       |  2 +-
- arch/riscv/include/asm/pgtable.h   | 21 +++++++++++-
- arch/riscv/include/asm/processor.h | 52 ++++++++++++++++++++++++++----
- 3 files changed, 67 insertions(+), 8 deletions(-)
-
-diff --git a/arch/riscv/include/asm/elf.h b/arch/riscv/include/asm/elf.h
-index c24280774caf..5d3368d5585c 100644
---- a/arch/riscv/include/asm/elf.h
-+++ b/arch/riscv/include/asm/elf.h
-@@ -49,7 +49,7 @@ extern bool compat_elf_check_arch(Elf32_Ehdr *hdr);
-  * the loader.  We need to make sure that it is out of the way of the program
-  * that it will "exec", and that there is sufficient room for the brk.
-  */
--#define ELF_ET_DYN_BASE		((TASK_SIZE / 3) * 2)
-+#define ELF_ET_DYN_BASE		((DEFAULT_MAP_WINDOW / 3) * 2)
- 
- #ifdef CONFIG_64BIT
- #ifdef CONFIG_COMPAT
-diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-index 75970ee2bda2..2611c1324a7c 100644
---- a/arch/riscv/include/asm/pgtable.h
-+++ b/arch/riscv/include/asm/pgtable.h
-@@ -63,8 +63,27 @@
-  * position vmemmap directly below the VMALLOC region.
-  */
- #ifdef CONFIG_64BIT
-+#define VA_BITS_SV32 32
-+#define VA_BITS_SV39 39
-+#define VA_BITS_SV48 48
-+#define VA_BITS_SV57 57
-+
-+#define VA_USER_SV39 (UL(1) << (VA_BITS_SV39 - 1))
-+#define VA_USER_SV48 (UL(1) << (VA_BITS_SV48 - 1))
-+#define VA_USER_SV57 (UL(1) << (VA_BITS_SV57 - 1))
-+
- #define VA_BITS		(pgtable_l5_enabled ? \
--				57 : (pgtable_l4_enabled ? 48 : 39))
-+				VA_BITS_SV57 : (pgtable_l4_enabled ? VA_BITS_SV48 : VA_BITS_SV39))
-+
-+#ifdef CONFIG_COMPAT
-+#define MMAP_VA_BITS_64 ((VA_BITS >= VA_BITS_SV48) ? VA_BITS_SV48 : VA_BITS)
-+#define MMAP_MIN_VA_BITS_64 (VA_BITS_SV39)
-+#define MMAP_VA_BITS (is_compat_task() ? VA_BITS_SV32 : MMAP_VA_BITS_64)
-+#define MMAP_MIN_VA_BITS (is_compat_task() ? VA_BITS_SV32 : MMAP_MIN_VA_BITS_64)
-+#else
-+#define MMAP_VA_BITS ((VA_BITS >= VA_BITS_SV48) ? VA_BITS_SV48 : VA_BITS)
-+#define MMAP_MIN_VA_BITS (VA_BITS_SV39)
-+#endif
- #else
- #define VA_BITS		32
- #endif
-diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/processor.h
-index c950a8d9edef..3e23e1786d05 100644
---- a/arch/riscv/include/asm/processor.h
-+++ b/arch/riscv/include/asm/processor.h
-@@ -13,19 +13,59 @@
- 
- #include <asm/ptrace.h>
- 
-+#ifdef CONFIG_64BIT
-+#define DEFAULT_MAP_WINDOW	(UL(1) << (MMAP_VA_BITS - 1))
-+#define STACK_TOP_MAX		TASK_SIZE_64
-+
-+#define arch_get_mmap_end(addr, len, flags)			\
-+({								\
-+	unsigned long mmap_end;					\
-+	typeof(addr) _addr = (addr);				\
-+	if ((_addr) == 0 || (IS_ENABLED(CONFIG_COMPAT) && is_compat_task())) \
-+		mmap_end = STACK_TOP_MAX;			\
-+	else if ((_addr) >= VA_USER_SV57)			\
-+		mmap_end = STACK_TOP_MAX;			\
-+	else if ((((_addr) >= VA_USER_SV48)) && (VA_BITS >= VA_BITS_SV48)) \
-+		mmap_end = VA_USER_SV48;			\
-+	else							\
-+		mmap_end = VA_USER_SV39;			\
-+	mmap_end;						\
-+})
-+
-+#define arch_get_mmap_base(addr, base)				\
-+({								\
-+	unsigned long mmap_base;				\
-+	typeof(addr) _addr = (addr);				\
-+	typeof(base) _base = (base);				\
-+	unsigned long rnd_gap = DEFAULT_MAP_WINDOW - (_base);	\
-+	if ((_addr) == 0 || (IS_ENABLED(CONFIG_COMPAT) && is_compat_task())) \
-+		mmap_base = (_base);				\
-+	else if (((_addr) >= VA_USER_SV57) && (VA_BITS >= VA_BITS_SV57)) \
-+		mmap_base = VA_USER_SV57 - rnd_gap;		\
-+	else if ((((_addr) >= VA_USER_SV48)) && (VA_BITS >= VA_BITS_SV48)) \
-+		mmap_base = VA_USER_SV48 - rnd_gap;		\
-+	else							\
-+		mmap_base = VA_USER_SV39 - rnd_gap;		\
-+	mmap_base;						\
-+})
-+
-+#else
-+#define DEFAULT_MAP_WINDOW	TASK_SIZE
-+#define STACK_TOP_MAX		TASK_SIZE
-+#endif
-+#define STACK_ALIGN		16
-+
-+#define STACK_TOP		DEFAULT_MAP_WINDOW
-+
- /*
-  * This decides where the kernel will search for a free chunk of vm
-  * space during mmap's.
-  */
--#define TASK_UNMAPPED_BASE	PAGE_ALIGN(TASK_SIZE / 3)
--
--#define STACK_TOP		TASK_SIZE
- #ifdef CONFIG_64BIT
--#define STACK_TOP_MAX		TASK_SIZE_64
-+#define TASK_UNMAPPED_BASE	PAGE_ALIGN((UL(1) << MMAP_MIN_VA_BITS) / 3)
- #else
--#define STACK_TOP_MAX		TASK_SIZE
-+#define TASK_UNMAPPED_BASE	PAGE_ALIGN(TASK_SIZE / 3)
- #endif
--#define STACK_ALIGN		16
- 
- #ifndef __ASSEMBLY__
- 
--- 
-2.34.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+c3Y1NyBpcyBzdXBwb3J0ZWQgaW4gdGhlIGtlcm5lbCBzbyBwZ3RhYmxlLmggc2hvdWxkIHJlZmxl
+Y3QgdGhhdC4KClNpZ25lZC1vZmYtYnk6IENoYXJsaWUgSmVua2lucyA8Y2hhcmxpZUByaXZvc2lu
+Yy5jb20+ClJldmlld2VkLWJ5OiBBbGV4YW5kcmUgR2hpdGkgPGFsZXhnaGl0aUByaXZvc2luYy5j
+b20+Ci0tLQogYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9wZ3RhYmxlLmggfCA4ICsrKysrLS0tCiAx
+IGZpbGUgY2hhbmdlZCwgNSBpbnNlcnRpb25zKCspLCAzIGRlbGV0aW9ucygtKQoKZGlmZiAtLWdp
+dCBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vcGd0YWJsZS5oIGIvYXJjaC9yaXNjdi9pbmNsdWRl
+L2FzbS9wZ3RhYmxlLmgKaW5kZXggMjYxMWMxMzI0YTdjLi43NjkwN2I5NTEwOWEgMTAwNjQ0Ci0t
+LSBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vcGd0YWJsZS5oCisrKyBiL2FyY2gvcmlzY3YvaW5j
+bHVkZS9hc20vcGd0YWJsZS5oCkBAIC04NDksMTQgKzg0OSwxNiBAQCBzdGF0aWMgaW5saW5lIHB0
+ZV90IHB0ZV9zd3BfY2xlYXJfZXhjbHVzaXZlKHB0ZV90IHB0ZSkKICAqIFRhc2sgc2l6ZSBpcyAw
+eDQwMDAwMDAwMDAgZm9yIFJWNjQgb3IgMHg5ZmMwMDAwMCBmb3IgUlYzMi4KICAqIE5vdGUgdGhh
+dCBQR0RJUl9TSVpFIG11c3QgZXZlbmx5IGRpdmlkZSBUQVNLX1NJWkUuCiAgKiBUYXNrIHNpemUg
+aXM6Ci0gKiAtICAgICAweDlmYzAwMDAwICh+Mi41R0IpIGZvciBSVjMyLgotICogLSAgIDB4NDAw
+MDAwMDAwMCAoIDI1NkdCKSBmb3IgUlY2NCB1c2luZyBTVjM5IG1tdQotICogLSAweDgwMDAwMDAw
+MDAwMCAoIDEyOFRCKSBmb3IgUlY2NCB1c2luZyBTVjQ4IG1tdQorICogLSAgICAgICAgMHg5ZmMw
+MDAwMAkofjIuNUdCKSBmb3IgUlYzMi4KKyAqIC0gICAgICAweDQwMDAwMDAwMDAJKCAyNTZHQikg
+Zm9yIFJWNjQgdXNpbmcgU1YzOSBtbXUKKyAqIC0gICAgMHg4MDAwMDAwMDAwMDAJKCAxMjhUQikg
+Zm9yIFJWNjQgdXNpbmcgU1Y0OCBtbXUKKyAqIC0gMHgxMDAwMDAwMDAwMDAwMDAJKCAgNjRQQikg
+Zm9yIFJWNjQgdXNpbmcgU1Y1NyBtbXUKICAqCiAgKiBOb3RlIHRoYXQgUEdESVJfU0laRSBtdXN0
+IGV2ZW5seSBkaXZpZGUgVEFTS19TSVpFIHNpbmNlICJSSVNDLVYKICAqIEluc3RydWN0aW9uIFNl
+dCBNYW51YWwgVm9sdW1lIElJOiBQcml2aWxlZ2VkIEFyY2hpdGVjdHVyZSIgc3RhdGVzIHRoYXQK
+ICAqICJsb2FkIGFuZCBzdG9yZSBlZmZlY3RpdmUgYWRkcmVzc2VzLCB3aGljaCBhcmUgNjRiaXRz
+LCBtdXN0IGhhdmUgYml0cwogICogNjPigJM0OCBhbGwgZXF1YWwgdG8gYml0IDQ3LCBvciBlbHNl
+IGEgcGFnZS1mYXVsdCBleGNlcHRpb24gd2lsbCBvY2N1ci4iCisgKiBTaW1pbGFybHkgZm9yIFNW
+NTcsIGJpdHMgNjPigJM1NyBtdXN0IGJlIGVxdWFsIHRvIGJpdCA1Ni4KICAqLwogI2lmZGVmIENP
+TkZJR182NEJJVAogI2RlZmluZSBUQVNLX1NJWkVfNjQJKFBHRElSX1NJWkUgKiBQVFJTX1BFUl9Q
+R0QgLyAyKQotLSAKMi4zNC4xCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmlu
+ZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9s
+aW51eC1yaXNjdgo=
