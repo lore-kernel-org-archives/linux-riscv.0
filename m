@@ -4,86 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9620C001E0
-	for <linux-riscv@archiver.kernel.org>; Thu, 10 Aug 2023 11:28:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B93CDC001DB
+	for <linux-riscv@archiver.kernel.org>; Thu, 10 Aug 2023 11:32:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Bz0eJN4BvJQmPR4xNPlzesu1QUFDGLrQ7YsTX+Map/k=; b=BD9mzzjGaZ8eBr
-	qeJf8cyk7wAa9gnhfeEG+MSogh4849dzWPYy9ds4AOS+zSW5zeLqYzzejd17iHQa8kHT/SZk3FsO3
-	gLkYYtbLDt0R9ylNR8RzZSxXEv/zPft1VnsaolT50Teg94oH0e/BKdIq86VIvpbuwiJq9uI/6dYm1
-	qjZUp3XxlZIvkrDRogTBdqoStaEF/YSFkIiEIx02gGBeP0MQ3jDB7gbMkmXzG5mCunkn+VZ3yzeeb
-	r1wv0P/jvJAHJ0CjwQSR0l3Gs44y4svsF4fE4pNS1VQbPN8GzrMwlm0Oup0uKWE3zHPCHnFY5hRrc
-	FitNyRfI6JAXp4FedbvQ==;
+	List-Owner; bh=BEAfWTjM0whKIBr0auMop/0znvm6R1AiGxg8414HTWo=; b=d3QT4atyBuCkuX
+	Pdb725tAcWqiyhDCfMF+YxIp3zyDYj4JQRBiQvlHu5LSZeRfaK2Z0D/2e4cyiOL7rqCXiL35mGuWC
+	j49NYAl4qwJaEnnHMszjtZ59nF3vnCQpiNj0tiujcWqb7xcBMSsvmJ940OJyUCx/XelaVkyGO3l+7
+	PtGfAKB4N/9i4nlU+McBDMX/zKhWjAhnpJy/Ip0g5m21DGELU/8rRVzCwO9uPiRLhgS+UgjTnGs9n
+	qNJbf069EcRgEJQ6QyszXQ1dJHiQ1m0BE91Pbs+1LbQMx4r0ynEB2KCPdAVdsawI9SzfsA3RVg08j
+	QG62SkzBrzpOihJJwAbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qU3qR-007RJ4-33;
-	Thu, 10 Aug 2023 11:28:47 +0000
+	id 1qU3tp-007S1F-01;
+	Thu, 10 Aug 2023 11:32:17 +0000
 Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qU3qN-007RH6-2z
+	id 1qU3tm-007S00-0I
 	for linux-riscv@lists.infradead.org;
-	Thu, 10 Aug 2023 11:28:46 +0000
+	Thu, 10 Aug 2023 11:32:15 +0000
 Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id DC0393F534
-	for <linux-riscv@lists.infradead.org>; Thu, 10 Aug 2023 11:28:39 +0000 (UTC)
+	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id D69E23F545
+	for <linux-riscv@lists.infradead.org>; Thu, 10 Aug 2023 11:32:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20210705; t=1691666919;
-	bh=TRU6tUd9wDUUaUwwFM5Bjzb7u7hecXj9L7oTyXsIeCA=;
+	s=20210705; t=1691667132;
+	bh=NZfJaleioIc/dNSS6llYa1dUh5p+WpAGVhsLf8ndx7w=;
 	h=MIME-Version:References:In-Reply-To:From:Date:Message-ID:Subject:
 	 To:Cc:Content-Type;
-	b=gahCg0U//OpH467uyTYbpPwW+xT21/XeXApKwcAzDb7l2nYk57GAjXMih8fumWoxn
-	 244tXaiBhWbf5HGCLd3W4vV+52aay/QqHxqzCPTBttUUwn7uJKtTAE2VT9TNE6UJgD
-	 lqTnciBtpup+jVt8f19VnqsOOSkhJLIXzLhjsntD2rOljzOsW3i+H5u2r5NW898w7S
-	 T4zK8NAyDxBmM5Vfi2BPKXl5gZ97Vo0ERot+srGE+LrR8gnvkdcTOFBD9EcMdJMC40
-	 95lB1Ug7pZ8+p2nxloem8y7Z1K5WPE3VihO6BiXNsOcTXBOZaE3bERDQLXjqUC1gAI
-	 DQH6uFElw5P1Q==
-Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-40fdb989957so10943851cf.3
-        for <linux-riscv@lists.infradead.org>; Thu, 10 Aug 2023 04:28:39 -0700 (PDT)
+	b=jlWJKwKF1nhDjzkflti59fnvxrhIU03aZ4CyN2YjHO6DVNUqceGgtBhkvAYk+iHGw
+	 HCPPycHCPYJxw0MGC6NI+8QkNEbONb1xPsdIiUPMXAhoonxDw/EbHRPI1beQU69RZq
+	 /YzKJ1OwlrBx4nDF5uyvhqQqQYat7Iw/+0H77DZYR3yYUe+/1rbLlPmOKdXXqo2WUz
+	 tExHaJq9FybZZEWHnckmWkEAsKRJ8mSX3LmJeghZXyc10w3W9p8DgzJJHJOPbUL15V
+	 fyif9/HySS24U8+U4gPvEeHKR9OEJ0t09ay+6/w3llS/+C7TWLtXKdl6XubdCZBb3w
+	 LYvte5PSPY7cw==
+Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-40ff829c836so6796711cf.0
+        for <linux-riscv@lists.infradead.org>; Thu, 10 Aug 2023 04:32:12 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1691666919; x=1692271719;
+        d=1e100.net; s=20221208; t=1691667132; x=1692271932;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=TRU6tUd9wDUUaUwwFM5Bjzb7u7hecXj9L7oTyXsIeCA=;
-        b=FaqPIuKL53cYWvTIfedzqRE5ua3dJ2J8CJppBc9zKUeSTusZChIPlzBH4WGBa5LbQX
-         rhxTtGAMRpNE8bi3xMEYKdU/GLQCHMY6Fc0ji6D5tBKbvL/3cFVp2VNS37MxdomZ/f2I
-         yJcJN6WwEhzYZOEyJMW9ZnXTMnVN9qsa8nqNUkquH57fOUIudchtkuJMBUzXIg1SUjlE
-         IQBJbTbTvbjAWmK6e5soaChk5I539lYxkGRO3Mxh1LHUDi5QmBPxy3JyhUPvnquKzgPd
-         56jc/lafBMS1zCAJaLj+CwUUqMes+rkJ7M3vY9csPGUUCDfXTe9xE3upsBEAzkS0+bEU
-         hZVA==
-X-Gm-Message-State: AOJu0YwzeZ9sMm7k1GJtqLDXz+EbgycOEAtsNGD9mF9dQv77QyZrDapd
-	Q4HR2A4d5XIq2gjfqJDql7zgmY6j8wAoQ0ZHHoUtF4bImYZwoxT3Z0w+YFNHd7DIHG/IFGNS2ME
-	uMdDlEVAB48YyaFsk/U+xfumwQ1YdmRtlnVCK8D/D7eHYmfT9tcJC/I5HQbc9sA==
-X-Received: by 2002:a05:622a:2c1:b0:40f:c669:a130 with SMTP id a1-20020a05622a02c100b0040fc669a130mr2947888qtx.36.1691666919043;
-        Thu, 10 Aug 2023 04:28:39 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGnvFC2HPaIsW8TudoAo6get1aLdMx0txncY0jSPizTM4n+QIRlX7JcQnvFJl+u+M8NbZE3G+EzISNoXnySSB8=
-X-Received: by 2002:a05:622a:2c1:b0:40f:c669:a130 with SMTP id
- a1-20020a05622a02c100b0040fc669a130mr2947865qtx.36.1691666918799; Thu, 10 Aug
- 2023 04:28:38 -0700 (PDT)
+        bh=NZfJaleioIc/dNSS6llYa1dUh5p+WpAGVhsLf8ndx7w=;
+        b=SUgAF2zgi+ozSR8dGCmuYAoOKKEy8Zv+LwBrE7A78ln779jReQr1W361ltBs7oNvM2
+         rcUPy1HH5JsoFJFcz2TXZfu74moVPsj4YnadtjwIGUeMeF1ujDKF7M7wjWhYa8OgH1dp
+         YhFJq0CDQVnQLosX4HHemTY9ZtpLfxyu1MdwjormZ76Wyz65kJQaNbKNWS8AU1zPrWL+
+         w55VDu/hrU4dAxXXunsozt0BGcqa/mlSRI0c27Db5J6GMrRx8uTX5xAW/jxGWlUkf2cS
+         g8zl4SSQrySr6lmLKIoztryhrVLH5M3KCINFaoUoQKqFAb6eWVeGjUzFQn8YEQVoSwR2
+         LTmw==
+X-Gm-Message-State: AOJu0YzAIN53r09TynY2jm3ipvxabuxYliyDPE1Qx24p0z03o5wf9ZOG
+	EFerOM1rv9ApygXNm6yTkY6TWROLa6SZhTqjiJHEV44BU2AAjByCfdya1/SwMNIMbfXQ8/bIe6l
+	3jqqEgZrUdusexViulU3gliACa9/9ejwOoC1jmjloPJpSFkIs4kH/IzvCxT4qHw==
+X-Received: by 2002:a05:622a:1041:b0:403:b4d5:a5ec with SMTP id f1-20020a05622a104100b00403b4d5a5ecmr1788506qte.4.1691667131792;
+        Thu, 10 Aug 2023 04:32:11 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IFyU7SG7jGlFoDlU/yvYZWOWhmpI50a0rec0itMvKayLP30Sx0QIY1LoEjWPmvVEawaNn3phHjhl1jxHReilFU=
+X-Received: by 2002:a05:622a:1041:b0:403:b4d5:a5ec with SMTP id
+ f1-20020a05622a104100b00403b4d5a5ecmr1788494qte.4.1691667131559; Thu, 10 Aug
+ 2023 04:32:11 -0700 (PDT)
 MIME-Version: 1.0
-References: <20230810074646.19076-1-samin.guo@starfivetech.com> <20230810074646.19076-2-samin.guo@starfivetech.com>
-In-Reply-To: <20230810074646.19076-2-samin.guo@starfivetech.com>
+References: <20230809013917.81674-1-william.qiu@starfivetech.com> <20230809013917.81674-2-william.qiu@starfivetech.com>
+In-Reply-To: <20230809013917.81674-2-william.qiu@starfivetech.com>
 From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-Date: Thu, 10 Aug 2023 13:28:23 +0200
-Message-ID: <CAJM55Z_AKXa-cKy8kS4-8XPcqgFb4ts2ywhcWwL7Nf3wMBCWJA@mail.gmail.com>
-Subject: Re: [-next v1 1/1] riscv: dts: starfive: jh7110: Fix GMAC configuration
-To: Samin Guo <samin.guo@starfivetech.com>
-Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	devicetree@vger.kernel.org, Emil Renner Berthing <kernel@esmil.dk>, 
-	Conor Dooley <conor@kernel.org>, Rob Herring <robh+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Hal Feng <hal.feng@starfivetech.com>
+Date: Thu, 10 Aug 2023 13:31:55 +0200
+Message-ID: <CAJM55Z8EtUjfjF04jcNwdyPzx3VmEWZs14Fr-9PDiqXcHDOe9Q@mail.gmail.com>
+Subject: Re: [PATCH v1 1/2] riscv: dts: starfive: enable DCDC1&ALDO4 node in axp15060
+To: William Qiu <william.qiu@starfivetech.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, Emil Renner Berthing <kernel@esmil.dk>, 
+	Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor+dt@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230810_042844_381498_D3DFE7D1 
-X-CRM114-Status: GOOD (  15.41  )
+X-CRM114-CacheID: sfid-20230810_043214_266543_0178254D 
+X-CRM114-Status: GOOD (  18.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,104 +98,66 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 10 Aug 2023 at 09:46, Samin Guo <samin.guo@starfivetech.com> wrote:
+On Wed, 9 Aug 2023 at 03:41, William Qiu <william.qiu@starfivetech.com> wrote:
 >
-> Fixed configuration to improve the speed of TCP RX.
+> Enable DCDC1 node for vmmc-supply and enable ALDO4 node for
+> vqmmc-supply.
 >
-> Before:
->   # iperf3 -s
->   -----------------------------------------------------------
->   Server listening on 5201 (test #1)
->   -----------------------------------------------------------
->   Accepted connection from 192.168.1.4, port 47604
->   [  5] local 192.168.1.3 port 5201 connected to 192.168.1.4 port 47612
->   [ ID] Interval           Transfer     Bitrate
->   [  5]   0.00-1.00   sec  36.3 MBytes   305 Mbits/sec
->   [  5]   1.00-2.00   sec  35.6 MBytes   299 Mbits/sec
->   [  5]   2.00-3.00   sec  36.5 MBytes   306 Mbits/sec
->   [  5]   3.00-4.00   sec  36.5 MBytes   306 Mbits/sec
->   [  5]   4.00-5.00   sec  35.7 MBytes   300 Mbits/sec
->   [  5]   5.00-6.00   sec  35.4 MBytes   297 Mbits/sec
->   [  5]   6.00-7.00   sec  37.1 MBytes   311 Mbits/sec
->   [  5]   7.00-8.00   sec  35.6 MBytes   298 Mbits/sec
->   [  5]   8.00-9.00   sec  36.4 MBytes   305 Mbits/sec
->   [  5]   9.00-10.00  sec  36.3 MBytes   304 Mbits/sec
->   - - - - - - - - - - - - - - - - - - - - - - - - -
->   [ ID] Interval           Transfer     Bitrate
->   [  5]   0.00-10.00  sec   361 MBytes   303 Mbits/sec        receiver
->
-> After:
->   # iperf3 -s
->   -----------------------------------------------------------
->   Server listening on 5201 (test #1)
->   -----------------------------------------------------------
->   Accepted connection from 192.168.1.4, port 47710
->   [  5] local 192.168.1.3 port 5201 connected to 192.168.1.4 port 47720
->   [ ID] Interval           Transfer     Bitrate
->   [  5]   0.00-1.00   sec   111 MBytes   932 Mbits/sec
->   [  5]   1.00-2.00   sec   111 MBytes   934 Mbits/sec
->   [  5]   2.00-3.00   sec   111 MBytes   934 Mbits/sec
->   [  5]   3.00-4.00   sec   111 MBytes   934 Mbits/sec
->   [  5]   4.00-5.00   sec   111 MBytes   934 Mbits/sec
->   [  5]   5.00-6.00   sec   111 MBytes   935 Mbits/sec
->   [  5]   6.00-7.00   sec   111 MBytes   934 Mbits/sec
->   [  5]   7.00-8.00   sec   111 MBytes   935 Mbits/sec
->   [  5]   8.00-9.00   sec   111 MBytes   934 Mbits/sec
->   [  5]   9.00-10.00  sec   111 MBytes   934 Mbits/sec
->   [  5]  10.00-10.00  sec   167 KBytes   933 Mbits/sec
->   - - - - - - - - - - - - - - - - - - - - - - - - -
->   [ ID] Interval           Transfer     Bitrate
->   [  5]   0.00-10.00  sec  1.09 GBytes   934 Mbits/sec        receiver
->
-> Reviewed-by: Hal Feng <hal.feng@starfivetech.com>
-> Signed-off-by: Samin Guo <samin.guo@starfivetech.com>
+> Signed-off-by: William Qiu <william.qiu@starfivetech.com>
 > ---
->  arch/riscv/boot/dts/starfive/jh7110.dtsi | 8 ++++----
->  1 file changed, 4 insertions(+), 4 deletions(-)
+>  .../starfive/jh7110-starfive-visionfive-2.dtsi   | 16 ++++++++++++++++
+>  1 file changed, 16 insertions(+)
 >
-> diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-> index a608433200e8..76884cf373bf 100644
-> --- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
-> +++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-> @@ -318,8 +318,8 @@
+> diff --git a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
+> index d2f3b9eb859b..d67e26b9c791 100644
+> --- a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
+> +++ b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
+> @@ -165,12 +165,28 @@ axp15060: pmic@36 {
+>                 #interrupt-cells = <1>;
 >
->         stmmac_axi_setup: stmmac-axi-config {
->                 snps,lpi_en;
-> -               snps,wr_osr_lmt = <4>;
-> -               snps,rd_osr_lmt = <4>;
-> +               snps,wr_osr_lmt = <0xf>;
-> +               snps,rd_osr_lmt = <0xf>;
+>                 regulators {
+> +                       vcc_3v3: dcdc1 {
+> +                               regulator-boot-on;
+> +                               regulator-always-on;
+> +                               regulator-min-microvolt = <3300000>;
+> +                               regulator-max-microvolt = <3300000>;
+> +                               regulator-name = "vcc_3v3";
+> +                       };
+> +
+>                         vdd_cpu: dcdc2 {
+>                                 regulator-always-on;
+>                                 regulator-min-microvolt = <500000>;
+>                                 regulator-max-microvolt = <1540000>;
+>                                 regulator-name = "vdd-cpu";
+>                         };
+> +
+> +                       emmc_vdd: aldo4 {
+> +                               regulator-boot-on;
+> +                               regulator-always-on;
 
-nit: this is a limit, so presumably counting things and not an address
-or bitmask, so I'd prefer decimal numbers here, eg <15>.
+Hi William,
 
-It works fine either way, so
-Reviewed-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+Just a question: You mark these regulators as always-on, so they'll
+never be shut off even if the device is suspended. Is that because the
+mmc driver can't deal with reinitializing the mmc/sd-card if the card
+has been shut off while suspended or is there some other reason to
+mark them always-on?
 
->                 snps,blen = <256 128 64 32 0 0 0>;
+> +                               regulator-min-microvolt = <1800000>;
+> +                               regulator-max-microvolt = <1800000>;
+> +                               regulator-name = "emmc_vdd";
+> +                       };
+>                 };
 >         };
->
-> @@ -839,7 +839,7 @@
->                         rx-fifo-depth = <2048>;
->                         tx-fifo-depth = <2048>;
->                         snps,multicast-filter-bins = <64>;
-> -                       snps,perfect-filter-entries = <8>;
-> +                       snps,perfect-filter-entries = <256>;
->                         snps,fixed-burst;
->                         snps,no-pbl-x8;
->                         snps,force_thresh_dma_mode;
-> @@ -870,7 +870,7 @@
->                         rx-fifo-depth = <2048>;
->                         tx-fifo-depth = <2048>;
->                         snps,multicast-filter-bins = <64>;
-> -                       snps,perfect-filter-entries = <8>;
-> +                       snps,perfect-filter-entries = <256>;
->                         snps,fixed-burst;
->                         snps,no-pbl-x8;
->                         snps,force_thresh_dma_mode;
+>  };
 > --
-> 2.17.1
+> 2.34.1
 >
+>
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
