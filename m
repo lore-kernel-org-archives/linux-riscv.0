@@ -4,85 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C02CC001DB
-	for <linux-riscv@archiver.kernel.org>; Thu, 10 Aug 2023 10:35:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A953C001DE
+	for <linux-riscv@archiver.kernel.org>; Thu, 10 Aug 2023 10:49:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=T4AQMJwAbfHMgkn+U9qegbX8dKm9s8fitIR/csTOpwI=; b=4qNdYQSkSI9xO2
-	s213Y5SSKtv22/Rcs+29wLoTo4dDLkCEtAIqEPA6O4e7hgvXSVSO7meBxNK3liijlL/MLg4w1Zqig
-	KGlYJ5UdO0oktNQH78gxIrl/g9037LgFK+Qnu37AkgOun1NeOmAjLRX3J0d/Ls5r0V4irCzUyERgv
-	Df96r74qjzfsH0q6rWSdimLKhp8QZzQCYdjflxAEsdPNgchLTBlHILT8gnDxp+QGZdb41WePTOI5Y
-	FJhsGEd1iTQJgNJSNMdEuF3HMQSQ8ewsbrS/nzzBUAKFmxoMBWEGt08aXjDcG5sP1ja2QXqHzVQRm
-	Bv0GtyRk0Vk4fI7isrhQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=d9c2kVUyDyU1CYcpU4xAYQz1sBjOm5cfeIGYD8HXAlM=; b=AGmE88T8zBeFeC5RbtK32Hio/x
+	oGs+LavsBMFe8/csWCDKgoQlyKdBGgEpnjqaX6ij0zcPpzHvtSeIJHzzeKRDgRM/fxn9ZKZ4zS4el
+	fahFrOThhQKXNHbFU48NAzCrs4fZR3Trn+3oO+e4PDikOaS9mkznEdySnYP2WgBFRpIonGasgOabT
+	WpMyvW25Ejxo1QepQ8ZH/b4jENiImtx+AKBR5QSzWaRJwKE8Lu0oRaui3mI/vRA7+qekWe2ceMF8b
+	XBixslIJS/XJAJNufSHpULxeTYS0xK/Klstu3WXOIOZT8EeKS7VWZklGrsNznNf+Jh9vKWUjR6bcl
+	+cAthL3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qU30j-0078HS-0P;
-	Thu, 10 Aug 2023 10:35:21 +0000
-Received: from mail-pf1-x434.google.com ([2607:f8b0:4864:20::434])
+	id 1qU3EO-007HWd-16;
+	Thu, 10 Aug 2023 10:49:28 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qU30g-0078Fd-1Q
+	id 1qU3EL-007HRj-03
 	for linux-riscv@lists.infradead.org;
-	Thu, 10 Aug 2023 10:35:19 +0000
-Received: by mail-pf1-x434.google.com with SMTP id d2e1a72fcca58-686fc0d3c92so535327b3a.0
-        for <linux-riscv@lists.infradead.org>; Thu, 10 Aug 2023 03:35:16 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1691663716; x=1692268516;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=OjP8JdWZNc/EsPOyQ5jCeiy7seg0BMeumVWKROy6HSY=;
-        b=LtcqDBsrBhATsEraV26AspboHdQG99Nujv0wI1FTfui4LPSbkPBesxVNIKr42W6rJN
-         PYHE3j5kNYEXdcUvBf0E2qm3C7Y5c4HJlYrMx1kItUteGqyePAyIpR2EHTGnBRXiws6s
-         Xag0YQs19MqtNmBXjVJ9qBF8PTm9jcwCn+BPA/j3QfDiSIjU1XBr5cmw0hzf/wQi/N4p
-         iRKqe8ZS2gAX7EFJmnHckRZ5Wmdk93daWb8mkbydJyt8qbF6/43qoJARKlnrW7uyIupe
-         fma6pSk3GlWOQFKtnfhasV2YFVwWXTnU39sQNjw1pmqmZLKBWH0npNKy3+xXOza6sArn
-         seaQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1691663716; x=1692268516;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=OjP8JdWZNc/EsPOyQ5jCeiy7seg0BMeumVWKROy6HSY=;
-        b=D/BaHa+FJQ7UAZhLsEXwpHVkYmYCGw1mxb3WPPFt6Kjg7ZMxES88sMl+pcI/7cp1Ow
-         /rBzjXrWhrNOx0+J+AOHgdR2lff92dtF0l1PcGDWJCyeUbb+5mnje0xGeGdd/LACi4y4
-         dS+QSNE66Ngg9XVq9BPWx9+M/vYdQBMj0sIk9v4Vp87MYkXp9y7F04PRw0G1CAz1uSw6
-         c5TOgbM7TcJ7dUqvz9c5lWFQH21P3cVe5rVcYFFriO2Gvegpco7+k9+wTqFiLhpslh41
-         BTKb05Y/rkuQhUAJ9uLueQ7SPnH5P4sk+KaiYqJdShuQUnBOdl4yS3Jlrfar0VecXlO9
-         9kQw==
-X-Gm-Message-State: AOJu0YzLrnJax9aYYzHpAvWPb+HzG4Rbyj3417paM8UNWcKcTpMINtCe
-	4Cslmx9nPNc5xBFhK6Kww/7KKQ==
-X-Google-Smtp-Source: AGHT+IEOhlADr1IOej3h7Jr0IhA9XclJXdHCIdmBUXXhXy9WL8xs+mqkohfqGeY7xTvOqXddWX83WA==
-X-Received: by 2002:a05:6a00:23c2:b0:671:4b06:4ea7 with SMTP id g2-20020a056a0023c200b006714b064ea7mr2278413pfc.15.1691663716348;
-        Thu, 10 Aug 2023 03:35:16 -0700 (PDT)
-Received: from hsinchu26 (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
-        by smtp.gmail.com with ESMTPSA id j15-20020aa78d0f000000b00687dde8ae5dsm1183568pfe.154.2023.08.10.03.35.14
-        (version=TLS1_2 cipher=ECDHE-ECDSA-CHACHA20-POLY1305 bits=256/256);
-        Thu, 10 Aug 2023 03:35:15 -0700 (PDT)
-Date: Thu, 10 Aug 2023 10:35:11 +0000
-From: Andy Chiu <andy.chiu@sifive.com>
-To: "Maciej W. Rozycki" <macro@orcam.me.uk>
-Cc: Greg Savin <greg.savin@sifive.com>,
-	Greentime Hu <greentime.hu@sifive.com>,
-	linux-riscv@lists.infradead.org, gdb-patches@sourceware.org,
-	Andrew Burgess <andrew.burgess@embecosm.com>
-Subject: Re: [PATCH] RISC-V: support for vector register accesses via
- ptrace() in RISC-V Linux native
-Message-ID: <20230810103510.GA2509@hsinchu26>
-References: <20230803230110.904724-1-greg.savin@sifive.com>
- <alpine.DEB.2.21.2308091008500.25915@angie.orcam.me.uk>
- <CADdv1FqjLPZ-eWOKPv0uZxF-u-SYjn0WJGr3KWW9H06-O0L35w@mail.gmail.com>
- <alpine.DEB.2.21.2308092247280.25915@angie.orcam.me.uk>
+	Thu, 10 Aug 2023 10:49:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1691664564; x=1723200564;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=FDXq+aX/afVuVzyBcXeGCcLoxEtW/3tSfHqYvuf2Kfw=;
+  b=ymJfe/YxNryU+byBnqe81slvcqfrLa8wrAynvkbYpmWlsl8Nn+DNztLb
+   nZgzC1PpEsoy6rSgmwsiro2EtN1M96VaOYw0MvKKQO8md6SdyxGmfJJQ9
+   mWDrb2fSobSRW3UWk9V2WOXg88m3j+TL8JFgNY5Le3FzYG1T7BIE5gQtf
+   eExggnwNyIIwlY8YhCBhZSkLClK9wEUOxyZjK01duY4cevu0X/SqzVpGH
+   EkBMCA05MaHY5cTm3Ysma+MjBQv6zMpSE5vmZMSXlz/Wqcz99754WWEoi
+   6muA/6udRkU0ffR09qq/YLSMkS2FMTFiOL+ORIvL2VG6RyDX25PAVUFs1
+   w==;
+X-IronPort-AV: E=Sophos;i="6.01,162,1684825200"; 
+   d="asc'?scan'208";a="228216734"
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa3.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 10 Aug 2023 03:49:20 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.21; Thu, 10 Aug 2023 03:49:18 -0700
+Received: from wendy (10.10.115.15) by chn-vm-ex02.mchp-main.com
+ (10.10.85.144) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
+ Transport; Thu, 10 Aug 2023 03:49:16 -0700
+Date: Thu, 10 Aug 2023 11:48:38 +0100
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Samin Guo <samin.guo@starfivetech.com>
+CC: <linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+	<devicetree@vger.kernel.org>, Emil Renner Berthing <kernel@esmil.dk>, Emil
+ Renner Berthing <emil.renner.berthing@canonical.com>, Conor Dooley
+	<conor@kernel.org>, Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Hal Feng <hal.feng@starfivetech.com>
+Subject: Re: [-next v1 1/1] riscv: dts: starfive: jh7110: Fix GMAC
+ configuration
+Message-ID: <20230810-suitable-truffle-eac5d7f93377@wendy>
+References: <20230810074646.19076-1-samin.guo@starfivetech.com>
+ <20230810074646.19076-2-samin.guo@starfivetech.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <alpine.DEB.2.21.2308092247280.25915@angie.orcam.me.uk>
-User-Agent: Mutt/1.9.4 (2018-02-28)
+In-Reply-To: <20230810074646.19076-2-samin.guo@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230810_033518_495945_AED6F53F 
-X-CRM114-Status: GOOD (  34.66  )
+X-CRM114-CacheID: sfid-20230810_034925_101007_6B061735 
+X-CRM114-Status: UNSURE (   8.60  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,67 +86,100 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============6799644664727280118=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 10, 2023 at 12:09:17AM +0100, Maciej W. Rozycki wrote:
-> On Wed, 9 Aug 2023, Greg Savin wrote:
-> 
-> > The SIGILL guard is being used as a wrapper around determination of the
-> > VLENB CSR, which is not part of the ptrace() payload for vector registers,
-> > at least as it exists at head-of-tree Linux kernel.   GDB or gdbserver
-> > needs to know VLENB in order to construct the architectural feature
-> > metadata that reports an accurate width for the vector registers.  If not
-> > for the VLENB determination specifically, and the lack of this information
-> > via ptrace(), then there would be no motivation for executing a vector
-> > instruction directly.  It's a workaround, basically.  I guess I could
-> > inquire in Linux kernel land regarding whether the NT_RISCV_VECTOR ptrace()
-> > payload could be enhanced to provide VLENB.
-> 
->  I think the kernel interface needs to be clarified first, before we can 
-> proceed with the tools side.
-> 
->  I can see the vector state is carried in a REGSET_V regset, which in turn 
-> corresponds to an NT_RISCV_VECTOR core file note.  I can see that besides 
-> the vector data registers only the VSTART, VL, VTYPE, and VCSR vector CSRs
-> are provided in that regset, and that vector data registers are assigned 
-> a contiguous space of (32 * RISCV_MAX_VLENB) bytes rather than individual 
-> slots.
-> 
->  So how are we supposed to determine the width of the vector registers 
-> recorded in a core file?  I'd say the RISC-V/Linux kernel regset API is 
-> incomplete.
+--===============6799644664727280118==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="cBYCaHNShJUTrmWz"
+Content-Disposition: inline
 
-Does it make sense to you if we encapsulate this with a hwprobe syscall?
-e.g provide a hwprobe entry to get system's VLENB. We will have to
-increase and rearrange the buffer for NT_RISCV_VECTOR if we want to use
-ptrace as the entry point for this purpose. I am not very sure if it'd be
-too late to do though.
+--cBYCaHNShJUTrmWz
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> 
->  A complete API has to provide `ptrace' and core file access to all the 
-> relevant registers (vector registers in this case) that can be accessed by 
-> machine instructions by the debuggee.  That includes read-only registers, 
-> writes to which via `ptrace' will of course be ignored.  If a register is 
-> a shadow only and can be reconstructed from another, canonical register 
-> (e.g. VXRM vs VCSR) then the shadow register can (and best be) omitted of 
-> course.  Additional artificial OS registers may also have to be provided 
-> that reflect the relevant privileged state made available to the debuggee 
-> at run time by OS calls such as prctl(2); this for example might be a mode 
-> setting which affects the hardware interpretation of a register set that 
-> debug tools may need to take into account or the person debugging may want 
-> to check or modify (e.g. REGSET_FP_MODE in the MIPS/Linux port).
-> 
->  I've added the authors of the Linux kernel code and the RISC-V/Linux 
-> mailing list to the list of recipients.  Am I missing anything here?
-> 
->   Maciej
+On Thu, Aug 10, 2023 at 03:46:46PM +0800, Samin Guo wrote:
+> Fixed configuration to improve the speed of TCP RX.
+>=20
+> Before:
+>   # iperf3 -s
+>   -----------------------------------------------------------
+>   Server listening on 5201 (test #1)
+>   -----------------------------------------------------------
+>   Accepted connection from 192.168.1.4, port 47604
+>   [  5] local 192.168.1.3 port 5201 connected to 192.168.1.4 port 47612
+>   [ ID] Interval           Transfer     Bitrate
+>   [  5]   0.00-1.00   sec  36.3 MBytes   305 Mbits/sec
+>   [  5]   1.00-2.00   sec  35.6 MBytes   299 Mbits/sec
+>   [  5]   2.00-3.00   sec  36.5 MBytes   306 Mbits/sec
+>   [  5]   3.00-4.00   sec  36.5 MBytes   306 Mbits/sec
+>   [  5]   4.00-5.00   sec  35.7 MBytes   300 Mbits/sec
+>   [  5]   5.00-6.00   sec  35.4 MBytes   297 Mbits/sec
+>   [  5]   6.00-7.00   sec  37.1 MBytes   311 Mbits/sec
+>   [  5]   7.00-8.00   sec  35.6 MBytes   298 Mbits/sec
+>   [  5]   8.00-9.00   sec  36.4 MBytes   305 Mbits/sec
+>   [  5]   9.00-10.00  sec  36.3 MBytes   304 Mbits/sec
+>   - - - - - - - - - - - - - - - - - - - - - - - - -
+>   [ ID] Interval           Transfer     Bitrate
+>   [  5]   0.00-10.00  sec   361 MBytes   303 Mbits/sec        receiver
+>=20
+> After:
+>   # iperf3 -s
+>   -----------------------------------------------------------
+>   Server listening on 5201 (test #1)
+>   -----------------------------------------------------------
+>   Accepted connection from 192.168.1.4, port 47710
+>   [  5] local 192.168.1.3 port 5201 connected to 192.168.1.4 port 47720
+>   [ ID] Interval           Transfer     Bitrate
+>   [  5]   0.00-1.00   sec   111 MBytes   932 Mbits/sec
+>   [  5]   1.00-2.00   sec   111 MBytes   934 Mbits/sec
+>   [  5]   2.00-3.00   sec   111 MBytes   934 Mbits/sec
+>   [  5]   3.00-4.00   sec   111 MBytes   934 Mbits/sec
+>   [  5]   4.00-5.00   sec   111 MBytes   934 Mbits/sec
+>   [  5]   5.00-6.00   sec   111 MBytes   935 Mbits/sec
+>   [  5]   6.00-7.00   sec   111 MBytes   934 Mbits/sec
+>   [  5]   7.00-8.00   sec   111 MBytes   935 Mbits/sec
+>   [  5]   8.00-9.00   sec   111 MBytes   934 Mbits/sec
+>   [  5]   9.00-10.00  sec   111 MBytes   934 Mbits/sec
+>   [  5]  10.00-10.00  sec   167 KBytes   933 Mbits/sec
+>   - - - - - - - - - - - - - - - - - - - - - - - - -
+>   [ ID] Interval           Transfer     Bitrate
+>   [  5]   0.00-10.00  sec  1.09 GBytes   934 Mbits/sec        receiver
+>=20
+> Reviewed-by: Hal Feng <hal.feng@starfivetech.com>
+> Signed-off-by: Samin Guo <samin.guo@starfivetech.com>
 
-Andy
+This is
+Fixes: 1ff166c97972 ("riscv: dts: starfive: jh7110: Add ethernet device nod=
+es")
+right?
+
+--cBYCaHNShJUTrmWz
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZNTAhgAKCRB4tDGHoIJi
+0oyRAQCGxq1Ij9YjDmvVTz5NImFOCOe35i94DWSGC+fLqZ8T+AD+PU0pBDtyiAVB
+izIiCjD2XZAeqAG13zoGlo9xravjiwY=
+=0jis
+-----END PGP SIGNATURE-----
+
+--cBYCaHNShJUTrmWz--
+
+
+--===============6799644664727280118==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============6799644664727280118==--
+
