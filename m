@@ -4,72 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31FC3C001DE
-	for <linux-riscv@archiver.kernel.org>; Thu, 10 Aug 2023 09:50:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19160C001B0
+	for <linux-riscv@archiver.kernel.org>; Thu, 10 Aug 2023 09:57:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C2qSG0RSrGb9r4UTNISQXCDdcGVIH9IKfy8syWmYPv0=; b=Hw8TRwsMFQwG3xTEaAK8+r+kO3
-	FGS82Wjg54zxNVgAlHZ18mozZvG4TGyrfZpH0YGCwNUgEBiwY/rVqI/MpgUcHGeGFsQOqvLODuer0
-	Y7ohHYWsQdZ6gY3x7pM29J4w5g0h7jCJOjsXZD2DM+BgUolYk0Hg893gYRVw8x4Mc2Y9nES+m1K76
-	tXTTOMzMxvMbOZDvPAG+0B4jj6LMGmi3oS03gyd5Ylo7h4niVPvJls/LFLLf0WYIcfmxHeR6yaB5f
-	OVpG1yq8VC2DLSiVaPNbtkKtOV+zhMtu2vJb9SQudrv329zFl0oRThvdSWcSuuFSUX7e+A6PmdX8j
-	jBeoMLtw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=5/6uhwSnlPa83eI8Jl+GxIsMg97CVOxy9evCCuRGwJY=; b=QPcWxj1M2P3t3x
+	qRDBLIGuQzxbeXZ8SCV/c0UfPhURFSOLZx+ZzBH6zAfyKVajVG4IvrG6M7jy7ia6VyAmszVh6sjGu
+	j6KrNxTprTv+Sn7YTGecWvlrZQYQgMyQJk4n/nJyYnAPxO7dZnHZc4N2PAur+JcX+AsLAa+T3DWry
+	hm7DcVPGJqJbN+IOu1k5ALrSzc0FW4BMIs0VFwzAYkoeK7IU4EZvfhBdpn0cEDy1oz0K9NsQZvMqX
+	bquxu961T1JzTmXaTnA3zIGiFd+HUCU5XU9VMVQJzSncahe302XV53bD8wMitXnKeBIvpaxm9+DBT
+	T1rlUaTxLLE8G/STIM/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qU2JX-0071IF-1G;
-	Thu, 10 Aug 2023 09:50:43 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1qU2Q5-0072SA-2M;
+	Thu, 10 Aug 2023 09:57:29 +0000
+Received: from mail-qk1-x72d.google.com ([2607:f8b0:4864:20::72d])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qU2JU-0071Hg-03
+	id 1qU2Q2-0072Pg-1G
 	for linux-riscv@lists.infradead.org;
-	Thu, 10 Aug 2023 09:50:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1691661040; x=1723197040;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=di55ns9cF9wgmcQav9fXDZG2fIjfdm2NyhNG7eT753k=;
-  b=JMNg2AXswahiDt5wLRuXJqXqhfqwwTUQTg9SJa3KLS833pauE9MqQwB5
-   eh8IcY9Th8aJEOiSGfsqYJhT23iMMDTMjSiw3PPnGL3yCF9OaoOFnpfrW
-   wtvZf53qGF0FsKWCHqTWkm5UjEx3r4Fo7M+0gB9nBQLBJvYkKCHctan1l
-   ncchfYYG+aK6o1NcX35qBwEZ/Hw09WacbGJ0KSbz5RedNV2gfCuQx6dDo
-   Mu0wBWY/XSZQqk/oLBp66ak8kKTon/Ixo6Bf6gg0rZ7/nI2cwYlTwynYv
-   zuYk9ysQZDKsCbATtO62nWUtLBXIGypXZpFozc+ry961AxC8dhOgOlCpN
-   g==;
-X-IronPort-AV: E=Sophos;i="6.01,161,1684825200"; 
-   d="asc'?scan'208";a="229079501"
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa5.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 10 Aug 2023 02:50:38 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Thu, 10 Aug 2023 02:50:37 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex02.mchp-main.com
- (10.10.85.144) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
- Transport; Thu, 10 Aug 2023 02:50:36 -0700
-Date: Thu, 10 Aug 2023 10:49:59 +0100
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Andrew Jones <ajones@ventanamicro.com>
-CC: <linux-riscv@lists.infradead.org>, <paul.walmsley@sifive.com>,
-	<palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <evan@rivosinc.com>,
-	<apatel@ventanamicro.com>
-Subject: Re: [PATCH 3/6] RISC-V: hwprobe: Expose Zicboz extension and its
- block size
-Message-ID: <20230810-revolver-krypton-ab1883b361a1@wendy>
-References: <20230809115516.214537-8-ajones@ventanamicro.com>
- <20230809115516.214537-11-ajones@ventanamicro.com>
+	Thu, 10 Aug 2023 09:57:27 +0000
+Received: by mail-qk1-x72d.google.com with SMTP id af79cd13be357-7656652da3cso58490585a.1
+        for <linux-riscv@lists.infradead.org>; Thu, 10 Aug 2023 02:57:23 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sifive.com; s=google; t=1691661442; x=1692266242;
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=xFnzMmW2nOgscH6EbG0mZZ0e91cllCalnRXRCz77A2Y=;
+        b=S6QISacR/Y4+2d8wZ5WC2d7vFyBSS0C/E9Old8gBu6yIUWmq69oVcQP8/Mtsr0/a5B
+         uhwVA+46oRZiH4FOVSBLu2NtValFxe619PokzHWHogXl5NvWqHcJkbC1OkuifnpNAak9
+         FeKWiPTrtWsmppYRGmj9lhTnODxsF8dDtY+ks2mSLHAFekCDBJ+Fvq+yRHzJvhjVEW/8
+         0ab2zoGyEs4GVDRwPvJ76dvqXkQ4LYPnlBZG35n17ngusSHhqqUK5Qx7HumcxaIUZRHI
+         OaQ46dcPYC0bBIErZdKshPxn57NhOzIZOl23qKX4Ov5JIlVNh4hOtFxOq6GWP+DCtV6P
+         D3Pg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1691661442; x=1692266242;
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=xFnzMmW2nOgscH6EbG0mZZ0e91cllCalnRXRCz77A2Y=;
+        b=lkjT7JI2doYuNnAn/sT8KrcR/3vVtT0WwgmuF/dBzehB87hUwpOd8An9txs48UZ97D
+         HZ1V28peGsIUXOGq6Q3Bfo8Vo1flcBxzvNUCIe9tMHZ7PmVByJb81h1VeFt5s7U4y5DO
+         vkaPushm9Ng1X9L1iL2veA89qG8izaXNeWFMrDsRO0T1ZzVeNlz6KzGOEfJkTX+3v/T4
+         iFb3JjoBarNe6eMGr5ytkMrKVpQi4L22O7tHPYGdOelWMpLGrdJMhOcfzya3F8XJxvrb
+         +SoTpHW4WxJMqf2EOZZfmZJwBT419wsgMMYZwkO87FNUW9Y8roxHJ0zSiSpuYbdDcbix
+         oWow==
+X-Gm-Message-State: AOJu0Yz43VL/WtIU9UD7cBfc1BQ5qSa8nodfiEWyphF4+bOgRfQHYmgl
+	xE5/Trl2nRLc6PHHnh6Nf6RN9w==
+X-Google-Smtp-Source: AGHT+IHOfshJXbVh9LwKh65uF9o94Xhc4gOkIIwGcaZglpHe2F5AK672tGyZs2tmDvHmq8es5o32Lg==
+X-Received: by 2002:a05:620a:2588:b0:76c:81b1:498f with SMTP id x8-20020a05620a258800b0076c81b1498fmr1948938qko.14.1691661442579;
+        Thu, 10 Aug 2023 02:57:22 -0700 (PDT)
+Received: from hsinchu26 (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
+        by smtp.gmail.com with ESMTPSA id p11-20020a637f4b000000b005501b24b1c9sm1117996pgn.62.2023.08.10.02.57.19
+        (version=TLS1_2 cipher=ECDHE-ECDSA-CHACHA20-POLY1305 bits=256/256);
+        Thu, 10 Aug 2023 02:57:21 -0700 (PDT)
+Date: Thu, 10 Aug 2023 09:57:16 +0000
+From: Andy Chiu <andy.chiu@sifive.com>
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: palmer@dabbelt.com, paul.walmsley@sifive.com, aou@eecs.berkeley.edu,
+	herbert@gondor.apana.org.au, davem@davemloft.net,
+	conor.dooley@microchip.com, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-crypto@vger.kernel.org,
+	christoph.muellner@vrull.eu, ebiggers@kernel.org,
+	Heiko Stuebner <heiko.stuebner@vrull.eu>
+Subject: Re: [PATCH v4 06/12] RISC-V: crypto: add Zvbb+Zvbc accelerated GCM
+ GHASH implementation
+Message-ID: <20230810095715.GA6929@hsinchu26>
+References: <20230711153743.1970625-1-heiko@sntech.de>
+ <20230711153743.1970625-7-heiko@sntech.de>
 MIME-Version: 1.0
-In-Reply-To: <20230809115516.214537-11-ajones@ventanamicro.com>
+Content-Disposition: inline
+In-Reply-To: <20230711153743.1970625-7-heiko@sntech.de>
+User-Agent: Mutt/1.9.4 (2018-02-28)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230810_025040_089897_4952BDF3 
-X-CRM114-Status: GOOD (  24.87  )
+X-CRM114-CacheID: sfid-20230810_025726_461071_360C0935 
+X-CRM114-Status: GOOD (  13.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,165 +94,72 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6934141894594790619=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============6934141894594790619==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="q+gbNq1LjX4RX+Aj"
-Content-Disposition: inline
+On Tue, Jul 11, 2023 at 05:37:37PM +0200, Heiko Stuebner wrote:
+Hi Heiko,
 
---q+gbNq1LjX4RX+Aj
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+> From: Heiko Stuebner <heiko.stuebner@vrull.eu>
+> 
+> Add a gcm hash implementation using the Zvbb+Zvbc crypto extensions.
+> It gets possibly registered alongside the Zbc-based variant, with a higher
+> priority so that the crypto subsystem will be able to select the most
+> performant variant, but the algorithm itself will still be part of the
+> crypto selftests that run during registration.
+> 
 
-On Wed, Aug 09, 2023 at 01:55:20PM +0200, Andrew Jones wrote:
-> Expose Zicboz through hwprobe and also provide a key to extract its
-> respective block size. Opportunistically add a macro and apply it to
-> current extensions in order to avoid duplicating code.
->=20
-> Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
-> ---
->  Documentation/riscv/hwprobe.rst       |  6 ++++
->  arch/riscv/include/asm/hwprobe.h      |  2 +-
->  arch/riscv/include/uapi/asm/hwprobe.h |  2 ++
->  arch/riscv/kernel/sys_riscv.c         | 41 ++++++++++++++++++---------
->  4 files changed, 36 insertions(+), 15 deletions(-)
->=20
-> diff --git a/Documentation/riscv/hwprobe.rst b/Documentation/riscv/hwprob=
-e.rst
-> index 933c715065d6..6a17c2872660 100644
-> --- a/Documentation/riscv/hwprobe.rst
-> +++ b/Documentation/riscv/hwprobe.rst
-> @@ -77,6 +77,9 @@ The following keys are defined:
->    * :c:macro:`RISCV_HWPROBE_EXT_ZBS`: The Zbs extension is supported, as=
- defined
->         in version 1.0 of the Bit-Manipulation ISA extensions.
-> =20
-> +  * :c:macro:`RISCV_HWPROBE_EXT_ZICBOZ`: The Zicboz extension is support=
-ed, as
-> +       ratified in commit 3dd606f ("Create cmobase-v1.0.pdf") of riscv-C=
-MOs.
-> +
->  * :c:macro:`RISCV_HWPROBE_KEY_CPUPERF_0`: A bitmask that contains perfor=
-mance
->    information about the selected set of processors.
-> =20
-> @@ -97,3 +100,6 @@ The following keys are defined:
-> =20
->    * :c:macro:`RISCV_HWPROBE_MISALIGNED_UNSUPPORTED`: Misaligned accesses=
- are
->      not supported at all and will generate a misaligned address fault.
-> +
-> +* :c:macro:`RISCV_HWPROBE_KEY_ZICBOZ_BLOCK_SIZE`: An unsigned int which
-> +  represents the size of the Zicboz block in bytes.
-> diff --git a/arch/riscv/include/asm/hwprobe.h b/arch/riscv/include/asm/hw=
-probe.h
-> index 78936f4ff513..39df8604fea1 100644
-> --- a/arch/riscv/include/asm/hwprobe.h
-> +++ b/arch/riscv/include/asm/hwprobe.h
-> @@ -8,6 +8,6 @@
-> =20
->  #include <uapi/asm/hwprobe.h>
-> =20
-> -#define RISCV_HWPROBE_MAX_KEY 5
-> +#define RISCV_HWPROBE_MAX_KEY 6
-> =20
->  #endif
-> diff --git a/arch/riscv/include/uapi/asm/hwprobe.h b/arch/riscv/include/u=
-api/asm/hwprobe.h
-> index 006bfb48343d..86d08a0e617b 100644
-> --- a/arch/riscv/include/uapi/asm/hwprobe.h
-> +++ b/arch/riscv/include/uapi/asm/hwprobe.h
-> @@ -29,6 +29,7 @@ struct riscv_hwprobe {
->  #define		RISCV_HWPROBE_EXT_ZBA		(1 << 3)
->  #define		RISCV_HWPROBE_EXT_ZBB		(1 << 4)
->  #define		RISCV_HWPROBE_EXT_ZBS		(1 << 5)
-> +#define		RISCV_HWPROBE_EXT_ZICBOZ	(1 << 6)
->  #define RISCV_HWPROBE_KEY_CPUPERF_0	5
->  #define		RISCV_HWPROBE_MISALIGNED_UNKNOWN	(0 << 0)
->  #define		RISCV_HWPROBE_MISALIGNED_EMULATED	(1 << 0)
-> @@ -36,6 +37,7 @@ struct riscv_hwprobe {
->  #define		RISCV_HWPROBE_MISALIGNED_FAST		(3 << 0)
->  #define		RISCV_HWPROBE_MISALIGNED_UNSUPPORTED	(4 << 0)
->  #define		RISCV_HWPROBE_MISALIGNED_MASK		(7 << 0)
-> +#define RISCV_HWPROBE_KEY_ZICBOZ_BLOCK_SIZE	6
->  /* Increase RISCV_HWPROBE_MAX_KEY when adding items. */
-> =20
->  #endif
-> diff --git a/arch/riscv/kernel/sys_riscv.c b/arch/riscv/kernel/sys_riscv.c
-> index 26ef5526bfb4..7d970358597b 100644
-> --- a/arch/riscv/kernel/sys_riscv.c
-> +++ b/arch/riscv/kernel/sys_riscv.c
-> @@ -145,26 +145,33 @@ static void hwprobe_isa_ext0(struct riscv_hwprobe *=
-pair,
->  	for_each_cpu(cpu, cpus) {
->  		struct riscv_isainfo *isainfo =3D &hart_isa[cpu];
-> =20
-> -		if (riscv_isa_extension_available(isainfo->isa, ZBA))
-> -			pair->value |=3D RISCV_HWPROBE_EXT_ZBA;
-> -		else
-> -			missing |=3D RISCV_HWPROBE_EXT_ZBA;
-> -
-> -		if (riscv_isa_extension_available(isainfo->isa, ZBB))
-> -			pair->value |=3D RISCV_HWPROBE_EXT_ZBB;
-> -		else
-> -			missing |=3D RISCV_HWPROBE_EXT_ZBB;
-> -
-> -		if (riscv_isa_extension_available(isainfo->isa, ZBS))
-> -			pair->value |=3D RISCV_HWPROBE_EXT_ZBS;
-> -		else
-> -			missing |=3D RISCV_HWPROBE_EXT_ZBS;
-> +#define EXT_KEY(ext)									\
-> +	do {										\
-> +		if (__riscv_isa_extension_available(isainfo->isa, RISCV_ISA_EXT_##ext)=
-)	\
-> +			pair->value |=3D RISCV_HWPROBE_EXT_##ext;				\
-> +		else									\
-> +			missing |=3D RISCV_HWPROBE_EXT_##ext;				\
-> +	} while (false)
+All newly added crypto algorithms are passing on my side, except for
+this one. I was testing on a QEMU and toolchain that support the
+frozen spec.
 
-Would you mind adding a comment here that using this macro is only
-permitted for extensions that can be used by userspace regardless of kernel
-config options?
+It seems like it was failing on a small 16-Byte input. Here are the
+input, expected digest and the (mismatched-)result.
 
-> +		EXT_KEY(ZBA);
-> +		EXT_KEY(ZBB);
-> +		EXT_KEY(ZBS);
-> +		EXT_KEY(ZICBOZ);
-> +#undef EXT_KEY
->  	}
-> =20
->  	/* Now turn off reporting features if any CPU is missing it. */
->  	pair->value &=3D ~missing;
->  }
+(gdb) x/2gx vec->key
+0xffffffff8163cc38:     0x03db81ed4dbfa6df      0x61f030f895ffcaff
+(gdb) x/2gx vec->plaintext
+0xffffffff8163cc50:     0xc04a60a5562a2b95      0xb6405ba056662bb3
+(gdb) x/2gx vec->digest
+0xffffffff8163cc68:     0xb65bc5d20aeb53da      0x60dafec32c80c44f
+(gdb) x/2gx result
+0xff20000000943bb8:     0x0000000000000000      0xb18de0d5e7abcf10
 
---q+gbNq1LjX4RX+Aj
-Content-Type: application/pgp-signature; name="signature.asc"
+And here is the bootlog, do you have any idea?
+[    5.007043] alg: shash: riscv64_zvbb_zvbc_ghash test failed (wrong result) on test vector 0, cfg="init+update+final aligned buffer"
+[    5.008164] alg: self-tests for ghash using riscv64_zvbb_zvbc_ghash failed (rc=-22)
+[    5.008450] ------------[ cut here ]------------
+[    5.009226] alg: self-tests for ghash using riscv64_zvbb_zvbc_ghash failed (rc=-22)
+[    5.010678] WARNING: CPU: 1 PID: 87 at crypto/testmgr.c:5867 alg_test+0x3e2/0x41e
+[    5.011792] Modules linked in:
+[    5.013314] CPU: 1 PID: 87 Comm: cryptomgr_test Not tainted 6.2.2-02529-g4b0fb43edd0f-dirty #37
+[    5.014037] Hardware name: riscv-virtio,qemu (DT)
+[    5.014582] epc : alg_test+0x3e2/0x41e
+[    5.014938]  ra : alg_test+0x3e2/0x41e
+[    5.015256] epc : ffffffff80677744 ra : ffffffff80677744 sp : ff2000000095bd70
+[    5.015718]  gp : ffffffff81c896b8 tp : ff6000000464d280 t0 : ffffffff81a2c970
+[    5.016171]  t1 : ffffffffffffffff t2 : 2d2d2d2d2d2d2d2d s0 : ff2000000095be80
+[    5.016616]  s1 : ffffffffffffffea a0 : 0000000000000047 a1 : ffffffff81a97c70
+[    5.017078]  a2 : 0000000000000010 a3 : fffffffffffffffe a4 : 0000000000000000
+[    5.017582]  a5 : 0000000000000000 a6 : 0000000000000000 a7 : 0000000000000000
+[    5.018079]  s2 : 000000000000000e s3 : ff60000002adf200 s4 : ff60000002adf280
+[    5.018576]  s5 : 0000000000000171 s6 : 00000000000000b8 s7 : 0000000000000088
+[    5.019083]  s8 : ffffffffffffffff s9 : 00000000000000b8 s10: 0000000000002e00
+[    5.019584]  s11: ffffffff8127fd78 t3 : ffffffff81ca0f17 t4 : ffffffff81ca0f17
+[    5.020074]  t5 : ffffffff81ca0f18 t6 : ff2000000095bb88
+[    5.020455] status: 0000000200000120 badaddr: 0000000000000000 cause: 0000000000000003
+[    5.021234] [<ffffffff80677744>] alg_test+0x3e2/0x41e
+[    5.021906] [<ffffffff8067490e>] cryptomgr_test+0x28/0x4a
+[    5.022306] [<ffffffff80055ba0>] kthread+0xe0/0xf6
+[    5.022710] [<ffffffff80003edc>] ret_from_exception+0x0/0x16
+[    5.023755] ---[ end trace 0000000000000000 ]---
 
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZNSyxgAKCRB4tDGHoIJi
-0lMGAP9SgMP7asWg13/49WhUg7pQEW6Bj4rCV5sOIvZ3DkEeLQD/blV/y0Mb29Bu
-s00uJNf89Sg/AeV8a94AEFJK3qB9QQs=
-=4Ffp
------END PGP SIGNATURE-----
-
---q+gbNq1LjX4RX+Aj--
-
-
---===============6934141894594790619==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Thanks,
+Andy
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============6934141894594790619==--
-
