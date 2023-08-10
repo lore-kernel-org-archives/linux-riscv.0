@@ -4,69 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D77CFC04A6A
-	for <linux-riscv@archiver.kernel.org>; Thu, 10 Aug 2023 04:04:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42CA9C001B0
+	for <linux-riscv@archiver.kernel.org>; Thu, 10 Aug 2023 04:04:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=u8vR54zSwR4r7NPlyuqzQbSsajJ1/QdaaFIR327s29w=; b=ELUZnhPBGDs1wI
-	DGVeOS1Duv4PFPmEnfLiGrgOmF6Vhd7l+1OgJEeJiYPUAlBCgloNNLX7675VoL9LL+Id15ta/xAlH
-	jKuaNwTi/YUw1b4/v7SsFPRe649PuReXkc9bmmKGC7UGpmSvCG+wCndOm1h7x6arLT423pSi6G34f
-	AId/+0vDkOlt+GXJLZsVC2bWUNyKrLDEKdb+F4WiX9R7OuUq/kTCwVnzb6okNqxP63wMJ245xHVn8
-	KZACDX9OY27OmTmEuQym9cuBEw3IdLAW8JufzrBp65F5DylnJV60uxERAzrpYtPkt3OnMFO89nZEL
-	6TdIpEqKTSNv+NovQn5A==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=VfsN9GKoSqwjoxuQU66Q7/OyJSWiB1T4NgFHlghaRXc=; b=lTqKc5ZE/iVk8v
+	tbRgOfbhm43mByKtINz4FxqpmvdoiCbTxoYRY5Ap25CTn3cj3lb/8QQ40M0/nweuAwUf/d6mF1eGh
+	uy4T/xIG2Per3zIrzCHhP6v/FJ9d95bl5o14Nbw77upH2peZURPBK491P5PYtjVMQJQ/enxBeoku6
+	9neVmwgZuDl9iRsP/tAXUGuYn05mDR2lTs9BmH453b99R6E01RFVaQmK/as9j2yVltMQCtyXooOrW
+	VBxiELzNDqLSLLmB0gse1K6ZVetrVwmExyHTO4/Az7bnuTwZ+vBUm1pAPvu3/7O1BJrRIx1DXzkoW
+	BajwaccUAhOFXjG/Vssw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qTwuE-006SfA-1Q;
-	Thu, 10 Aug 2023 04:04:14 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1qTwuU-006Sit-2H;
+	Thu, 10 Aug 2023 04:04:30 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qTwuB-006SeL-2K
+	id 1qTwuR-006Shf-1d
 	for linux-riscv@lists.infradead.org;
-	Thu, 10 Aug 2023 04:04:13 +0000
+	Thu, 10 Aug 2023 04:04:29 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1691640249;
+	s=mimecast20190719; t=1691640266;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=2OLbepSphciEGJE4bJCxealOkUeL/9cWm3RUGVYxJgs=;
-	b=Fx22kPfeHXtw8OoA3uK5mFBTXRLQbTfYg9F/TpKeAhP0fMIVFUF4TyDiDukM7zraX7O0it
-	uBOJxpngeW6XEFXQibIB9i9PSW8DdflgYcZ0NR76iX+806k+DKuKFxHQepEGan6oYoLCPa
-	B3Z+LTXItjaCxVNuVm58PRqFBidygO0=
-Received: from mail-oi1-f198.google.com (mail-oi1-f198.google.com
- [209.85.167.198]) by relay.mimecast.com with ESMTP with STARTTLS
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=UzQb2VuQCXwMdF/Rvu48wxhx8ntZSb1KliAOBLDDWgc=;
+	b=Yl0jKg/rNhmszA7A+Bh4uoKpbcFDU/mHY3ZkVDr2kDlYyPIL5Kb5rWrm2FRyBguWK7u1+y
+	6D75oE2e1Cp8/ziaDrZl9RYFnUhjR0ypUuYSJ+rQV+jG73LniJpOTDWADhP8++bBSnTyeH
+	SA/nWumDkAm1OfJN+DmKJlBjSTSxXQA=
+Received: from mail-oi1-f200.google.com (mail-oi1-f200.google.com
+ [209.85.167.200]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-583-mFIs1DMpPbWw_fLp3yi9Ag-1; Thu, 10 Aug 2023 00:04:07 -0400
-X-MC-Unique: mFIs1DMpPbWw_fLp3yi9Ag-1
-Received: by mail-oi1-f198.google.com with SMTP id 5614622812f47-3a3c77c9962so594030b6e.1
-        for <linux-riscv@lists.infradead.org>; Wed, 09 Aug 2023 21:04:07 -0700 (PDT)
+ us-mta-290-71isEnHNPYG-RiFsjDp2yw-1; Thu, 10 Aug 2023 00:04:24 -0400
+X-MC-Unique: 71isEnHNPYG-RiFsjDp2yw-1
+Received: by mail-oi1-f200.google.com with SMTP id 5614622812f47-3a1ec37ccbbso633857b6e.0
+        for <linux-riscv@lists.infradead.org>; Wed, 09 Aug 2023 21:04:24 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1691640247; x=1692245047;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=2OLbepSphciEGJE4bJCxealOkUeL/9cWm3RUGVYxJgs=;
-        b=KCEnYETuG00dJgsftt5PQqKDW/BYowAdPdY4QgeZt/zyNLs/NMEzqQMHDumN6yU7ht
-         EtDIxSsbKeo4p7yO41sBwag7INIr2JqaK0+Dd/AMwKM1TAc8iPbt/dFFGdrk+wrZ8XCU
-         8X27xiC9s2AvBhid84iLWkDats/u6BTwZaixykMzOJVFK9cROvp4zZ9eeeXG/Q/tQVv1
-         mJH61ddTruMyXuSMCYVRBjnzNkxBEXgFJcQAv6w16HxtQW+tbhYOZNLM16BMSnVlTZ3m
-         0FNGRjZr9BBAQTcm+sMBoVA9nFMlXcvAmMvjvNjhre6JTpzAPoyUL6m+6aa33MwhRNj1
-         0cZA==
-X-Gm-Message-State: AOJu0YxqnuA7x3TfEd9MKnYkKYU4YQmia0VuRZNCco3b3b2HfW/cEnF7
-	ymZetik57bqFPNoXoPEqND1McZM0MZCjwklGIaIwH3Uar/xt+NiN//3Np3+nxrqCnVJQROkU2MG
-	7ih/197HBg/AACtHjsXZAqjt2EZ7y
-X-Received: by 2002:a05:6808:f8f:b0:3a7:b5ea:f5e7 with SMTP id o15-20020a0568080f8f00b003a7b5eaf5e7mr1590106oiw.39.1691640247261;
-        Wed, 09 Aug 2023 21:04:07 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGGrVTABi9DM/7BtIXxZ1gTcVgv3KREaNdRSut6DEtFrG77Otdfw7ErMXSR9FZjkKtmYK8ufg==
-X-Received: by 2002:a05:6808:f8f:b0:3a7:b5ea:f5e7 with SMTP id o15-20020a0568080f8f00b003a7b5eaf5e7mr1590084oiw.39.1691640246996;
-        Wed, 09 Aug 2023 21:04:06 -0700 (PDT)
+        d=1e100.net; s=20221208; t=1691640263; x=1692245063;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=UzQb2VuQCXwMdF/Rvu48wxhx8ntZSb1KliAOBLDDWgc=;
+        b=FazEVBPUM3Rdg3ing8xdVOyNbhJ/21mPdsjxj2HnTGaK5hwliRjrA4shMT3PR4+gUF
+         rbGey7rShqR6KH40lskpGrxfq2Cnx3js/Bd0m8gjCW9tkwolsTOeLRERSD+QejFAuPFA
+         r204tRtBGaeDA1fz4GkHJOxZbTId23omIzBQMv96KQ3eRWrcvD7MSBvU0q1dUUyzsIBN
+         sqD0Ks3yPjfiBHuRDl5UstNgQrSlrpOroLR1sVRo5uLHHe4nLxl1xZTPGPXX10iSRSJ1
+         oCJdrkiKBWN6BWaqX325anBo0JjZwKtwMMc0P2afdDRVlW9b5TAwUDqG3QJ3qrM7JAQP
+         9wbQ==
+X-Gm-Message-State: AOJu0YwvhmXvB9LHMhxX8tBBP3OWPhpEF9V5c+yu5S6/YZRXatsttvNm
+	r7+FBbL+KqDMYazTvQdw8fTHDVxUeUshzxL8U8Ecm3FMG0iFwBH1hbym9M6Hem+dg8bs4tYoZY8
+	1skuyhoJybkjizWUIQ7xvdb82EQ5t
+X-Received: by 2002:a05:6808:998:b0:3a7:540f:ca71 with SMTP id a24-20020a056808099800b003a7540fca71mr1397776oic.53.1691640262937;
+        Wed, 09 Aug 2023 21:04:22 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IEoKJIRWaoDwasWuxkhBvZiGi90hdZ5+o2Vt5j+J0Py97VRwdk+5mjOtZ8GjfL51BjhINmyUg==
+X-Received: by 2002:a05:6808:998:b0:3a7:540f:ca71 with SMTP id a24-20020a056808099800b003a7540fca71mr1397752oic.53.1691640262690;
+        Wed, 09 Aug 2023 21:04:22 -0700 (PDT)
 Received: from localhost.localdomain ([2804:431:c7ec:e667:6b7d:ed55:c363:a088])
-        by smtp.gmail.com with ESMTPSA id b12-20020aca674c000000b003a7b5193909sm310087oiy.19.2023.08.09.21.04.01
+        by smtp.gmail.com with ESMTPSA id b12-20020aca674c000000b003a7b5193909sm310087oiy.19.2023.08.09.21.04.17
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 09 Aug 2023 21:04:06 -0700 (PDT)
+        Wed, 09 Aug 2023 21:04:22 -0700 (PDT)
 From: Leonardo Bras <leobras@redhat.com>
 To: Will Deacon <will@kernel.org>,
 	Peter Zijlstra <peterz@infradead.org>,
@@ -83,16 +84,18 @@ To: Will Deacon <will@kernel.org>,
 	Guo Ren <guoren@kernel.org>
 Cc: linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org
-Subject: [RFC PATCH v5 0/5] Rework & improve riscv cmpxchg.h and atomic.h
-Date: Thu, 10 Aug 2023 01:03:42 -0300
-Message-ID: <20230810040349.92279-2-leobras@redhat.com>
+Subject: [RFC PATCH v5 3/5] riscv/atomic.h : Deduplicate arch_atomic.*
+Date: Thu, 10 Aug 2023 01:03:45 -0300
+Message-ID: <20230810040349.92279-5-leobras@redhat.com>
 X-Mailer: git-send-email 2.41.0
+In-Reply-To: <20230810040349.92279-2-leobras@redhat.com>
+References: <20230810040349.92279-2-leobras@redhat.com>
 MIME-Version: 1.0
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230809_210411_856116_709E2801 
-X-CRM114-Status: GOOD (  17.50  )
+X-CRM114-CacheID: sfid-20230809_210427_616768_440358E3 
+X-CRM114-Status: GOOD (  11.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,86 +112,254 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-While studying riscv's cmpxchg.h file, I got really interested in
-understanding how RISCV asm implemented the different versions of
-{cmp,}xchg.
+Some functions use mostly the same asm for 32-bit and 64-bit versions.
 
-When I understood the pattern, it made sense for me to remove the
-duplications and create macros to make it easier to understand what exactly
-changes between the versions: Instruction sufixes & barriers.
+Make a macro that is generic enough and avoid code duplication.
 
-Also, did the same kind of work on atomic.c.
+(This did not cause any change in generated asm)
 
-After that, I noted both cmpxchg and xchg only accept variables of 
-size 4 and 8, compared to x86 and arm64 which do 1,2,4,8.
+Signed-off-by: Leonardo Bras <leobras@redhat.com>
+Reviewed-by: Guo Ren <guoren@kernel.org>
+Reviewed-by: Andrea Parri <parri.andrea@gmail.com>
+---
+ arch/riscv/include/asm/atomic.h | 164 +++++++++++++++-----------------
+ 1 file changed, 76 insertions(+), 88 deletions(-)
 
-Now that deduplication is done, it is quite direct to implement them
-for variable sizes 1 and 2, so I did it. Then Guo Ren already presented
-me some possible users :)
-
-I did compare the generated asm on a test.c that contained usage for every
-changed function, and could not detect any change on patches 1 + 2 + 3 
-compared with upstream.
-
-Pathes 4 & 5 were compiled-tested, merged with guoren/qspinlock_v11 and
-booted just fine with qemu -machine virt -append "qspinlock". 
-
-(tree: https://gitlab.com/LeoBras/linux/-/commits/guo_qspinlock_v11)
-
-Thanks!
-Leo
-
-Changes since squashed cmpxchg RFCv4:
-- Added (__typeof__(*(p))) before returning from {cmp,}xchg, as done
-  in current upstream, (possibly) fixing the bug from kernel test robot
-https://lore.kernel.org/all/20230809021311.1390578-2-leobras@redhat.com/
-
-Changes since squashed cmpxchg RFCv3:
-- Fixed bug on cmpxchg macro for var size 1 & 2: now working
-- Macros for var size 1 & 2's lr.w and sc.w now are guaranteed to receive
-  input of a 32-bit aligned address
-- Renamed internal macros from _mask to _masked for patches 4 & 5
-- __rc variable on macros for var size 1 & 2 changed from register to ulong 
-https://lore.kernel.org/all/20230804084900.1135660-2-leobras@redhat.com/
-
-Changes since squashed cmpxchg RFCv2:
-- Removed rc parameter from the new macro: it can be internal to the macro
-- 2 new patches: cmpxchg size 1 and 2, xchg size 1 and 2
-https://lore.kernel.org/all/20230803051401.710236-2-leobras@redhat.com/
-
-Changes since squashed cmpxchg RFCv1:
-- Unified with atomic.c patchset
-- Rebased on top of torvalds/master (thanks Andrea Parri!)
-- Removed helper macros that were not being used elsewhere in the kernel.
-https://lore.kernel.org/all/20230419062505.257231-1-leobras@redhat.com/
-https://lore.kernel.org/all/20230406082018.70367-1-leobras@redhat.com/
-
-Changes since (cmpxchg) RFCv3:
-- Squashed the 6 original patches in 2: one for cmpxchg and one for xchg
-https://lore.kernel.org/all/20230404163741.2762165-1-leobras@redhat.com/
-
-Changes since (cmpxchg) RFCv2:
-- Fixed  macros that depend on having a local variable with a magic name
-- Previous cast to (long) is now only applied on 4-bytes cmpxchg
-https://lore.kernel.org/all/20230321074249.2221674-1-leobras@redhat.com/
-
-Changes since (cmpxchg) RFCv1:
-- Fixed patch 4/6 suffix from 'w.aqrl' to '.w.aqrl', to avoid build error
-https://lore.kernel.org/all/20230318080059.1109286-1-leobras@redhat.com/
-
-Leonardo Bras (5):
-  riscv/cmpxchg: Deduplicate xchg() asm functions
-  riscv/cmpxchg: Deduplicate cmpxchg() asm and macros
-  riscv/atomic.h : Deduplicate arch_atomic.*
-  riscv/cmpxchg: Implement cmpxchg for variables of size 1 and 2
-  riscv/cmpxchg: Implement xchg for variables of size 1 and 2
-
- arch/riscv/include/asm/atomic.h  | 164 ++++++-------
- arch/riscv/include/asm/cmpxchg.h | 404 ++++++++++---------------------
- 2 files changed, 200 insertions(+), 368 deletions(-)
-
-
-base-commit: cacc6e22932f373a91d7be55a9b992dc77f4c59b
+diff --git a/arch/riscv/include/asm/atomic.h b/arch/riscv/include/asm/atomic.h
+index f5dfef6c2153..80cca7ac16fd 100644
+--- a/arch/riscv/include/asm/atomic.h
++++ b/arch/riscv/include/asm/atomic.h
+@@ -196,22 +196,28 @@ ATOMIC_OPS(xor, xor, i)
+ #undef ATOMIC_FETCH_OP
+ #undef ATOMIC_OP_RETURN
+ 
++#define _arch_atomic_fetch_add_unless(_prev, _rc, counter, _a, _u, sfx)	\
++({									\
++	__asm__ __volatile__ (						\
++		"0:	lr." sfx "     %[p],  %[c]\n"			\
++		"	beq	       %[p],  %[u], 1f\n"		\
++		"	add            %[rc], %[p], %[a]\n"		\
++		"	sc." sfx ".rl  %[rc], %[rc], %[c]\n"		\
++		"	bnez           %[rc], 0b\n"			\
++		"	fence          rw, rw\n"			\
++		"1:\n"							\
++		: [p]"=&r" (_prev), [rc]"=&r" (_rc), [c]"+A" (counter)	\
++		: [a]"r" (_a), [u]"r" (_u)				\
++		: "memory");						\
++})
++
+ /* This is required to provide a full barrier on success. */
+ static __always_inline int arch_atomic_fetch_add_unless(atomic_t *v, int a, int u)
+ {
+        int prev, rc;
+ 
+-	__asm__ __volatile__ (
+-		"0:	lr.w     %[p],  %[c]\n"
+-		"	beq      %[p],  %[u], 1f\n"
+-		"	add      %[rc], %[p], %[a]\n"
+-		"	sc.w.rl  %[rc], %[rc], %[c]\n"
+-		"	bnez     %[rc], 0b\n"
+-		"	fence    rw, rw\n"
+-		"1:\n"
+-		: [p]"=&r" (prev), [rc]"=&r" (rc), [c]"+A" (v->counter)
+-		: [a]"r" (a), [u]"r" (u)
+-		: "memory");
++	_arch_atomic_fetch_add_unless(prev, rc, v->counter, a, u, "w");
++
+ 	return prev;
+ }
+ #define arch_atomic_fetch_add_unless arch_atomic_fetch_add_unless
+@@ -222,77 +228,86 @@ static __always_inline s64 arch_atomic64_fetch_add_unless(atomic64_t *v, s64 a,
+        s64 prev;
+        long rc;
+ 
+-	__asm__ __volatile__ (
+-		"0:	lr.d     %[p],  %[c]\n"
+-		"	beq      %[p],  %[u], 1f\n"
+-		"	add      %[rc], %[p], %[a]\n"
+-		"	sc.d.rl  %[rc], %[rc], %[c]\n"
+-		"	bnez     %[rc], 0b\n"
+-		"	fence    rw, rw\n"
+-		"1:\n"
+-		: [p]"=&r" (prev), [rc]"=&r" (rc), [c]"+A" (v->counter)
+-		: [a]"r" (a), [u]"r" (u)
+-		: "memory");
++	_arch_atomic_fetch_add_unless(prev, rc, v->counter, a, u, "d");
++
+ 	return prev;
+ }
+ #define arch_atomic64_fetch_add_unless arch_atomic64_fetch_add_unless
+ #endif
+ 
++#define _arch_atomic_inc_unless_negative(_prev, _rc, counter, sfx)	\
++({									\
++	__asm__ __volatile__ (						\
++		"0:	lr." sfx "      %[p],  %[c]\n"			\
++		"	bltz            %[p],  1f\n"			\
++		"	addi            %[rc], %[p], 1\n"		\
++		"	sc." sfx ".rl   %[rc], %[rc], %[c]\n"		\
++		"	bnez            %[rc], 0b\n"			\
++		"	fence           rw, rw\n"			\
++		"1:\n"							\
++		: [p]"=&r" (_prev), [rc]"=&r" (_rc), [c]"+A" (counter)	\
++		:							\
++		: "memory");						\
++})
++
+ static __always_inline bool arch_atomic_inc_unless_negative(atomic_t *v)
+ {
+ 	int prev, rc;
+ 
+-	__asm__ __volatile__ (
+-		"0:	lr.w      %[p],  %[c]\n"
+-		"	bltz      %[p],  1f\n"
+-		"	addi      %[rc], %[p], 1\n"
+-		"	sc.w.rl   %[rc], %[rc], %[c]\n"
+-		"	bnez      %[rc], 0b\n"
+-		"	fence     rw, rw\n"
+-		"1:\n"
+-		: [p]"=&r" (prev), [rc]"=&r" (rc), [c]"+A" (v->counter)
+-		:
+-		: "memory");
++	_arch_atomic_inc_unless_negative(prev, rc, v->counter, "w");
++
+ 	return !(prev < 0);
+ }
+ 
+ #define arch_atomic_inc_unless_negative arch_atomic_inc_unless_negative
+ 
++#define _arch_atomic_dec_unless_positive(_prev, _rc, counter, sfx)	\
++({									\
++	__asm__ __volatile__ (						\
++		"0:	lr." sfx "      %[p],  %[c]\n"			\
++		"	bgtz            %[p],  1f\n"			\
++		"	addi            %[rc], %[p], -1\n"		\
++		"	sc." sfx ".rl   %[rc], %[rc], %[c]\n"		\
++		"	bnez            %[rc], 0b\n"			\
++		"	fence           rw, rw\n"			\
++		"1:\n"							\
++		: [p]"=&r" (_prev), [rc]"=&r" (_rc), [c]"+A" (counter)	\
++		:							\
++		: "memory");						\
++})
++
+ static __always_inline bool arch_atomic_dec_unless_positive(atomic_t *v)
+ {
+ 	int prev, rc;
+ 
+-	__asm__ __volatile__ (
+-		"0:	lr.w      %[p],  %[c]\n"
+-		"	bgtz      %[p],  1f\n"
+-		"	addi      %[rc], %[p], -1\n"
+-		"	sc.w.rl   %[rc], %[rc], %[c]\n"
+-		"	bnez      %[rc], 0b\n"
+-		"	fence     rw, rw\n"
+-		"1:\n"
+-		: [p]"=&r" (prev), [rc]"=&r" (rc), [c]"+A" (v->counter)
+-		:
+-		: "memory");
++	_arch_atomic_dec_unless_positive(prev, rc, v->counter, "w");
++
+ 	return !(prev > 0);
+ }
+ 
+ #define arch_atomic_dec_unless_positive arch_atomic_dec_unless_positive
+ 
++#define _arch_atomic_dec_if_positive(_prev, _rc, counter, sfx)		\
++({									\
++	__asm__ __volatile__ (						\
++		"0:	lr." sfx "     %[p],  %[c]\n"			\
++		"	addi           %[rc], %[p], -1\n"		\
++		"	bltz           %[rc], 1f\n"			\
++		"	sc." sfx ".rl  %[rc], %[rc], %[c]\n"		\
++		"	bnez           %[rc], 0b\n"			\
++		"	fence          rw, rw\n"			\
++		"1:\n"							\
++		: [p]"=&r" (_prev), [rc]"=&r" (_rc), [c]"+A" (counter)	\
++		:							\
++		: "memory");						\
++})
++
+ static __always_inline int arch_atomic_dec_if_positive(atomic_t *v)
+ {
+        int prev, rc;
+ 
+-	__asm__ __volatile__ (
+-		"0:	lr.w     %[p],  %[c]\n"
+-		"	addi     %[rc], %[p], -1\n"
+-		"	bltz     %[rc], 1f\n"
+-		"	sc.w.rl  %[rc], %[rc], %[c]\n"
+-		"	bnez     %[rc], 0b\n"
+-		"	fence    rw, rw\n"
+-		"1:\n"
+-		: [p]"=&r" (prev), [rc]"=&r" (rc), [c]"+A" (v->counter)
+-		:
+-		: "memory");
++	_arch_atomic_dec_if_positive(prev, rc, v->counter, "w");
++
+ 	return prev - 1;
+ }
+ 
+@@ -304,17 +319,8 @@ static __always_inline bool arch_atomic64_inc_unless_negative(atomic64_t *v)
+ 	s64 prev;
+ 	long rc;
+ 
+-	__asm__ __volatile__ (
+-		"0:	lr.d      %[p],  %[c]\n"
+-		"	bltz      %[p],  1f\n"
+-		"	addi      %[rc], %[p], 1\n"
+-		"	sc.d.rl   %[rc], %[rc], %[c]\n"
+-		"	bnez      %[rc], 0b\n"
+-		"	fence     rw, rw\n"
+-		"1:\n"
+-		: [p]"=&r" (prev), [rc]"=&r" (rc), [c]"+A" (v->counter)
+-		:
+-		: "memory");
++	_arch_atomic_inc_unless_negative(prev, rc, v->counter, "d");
++
+ 	return !(prev < 0);
+ }
+ 
+@@ -325,17 +331,8 @@ static __always_inline bool arch_atomic64_dec_unless_positive(atomic64_t *v)
+ 	s64 prev;
+ 	long rc;
+ 
+-	__asm__ __volatile__ (
+-		"0:	lr.d      %[p],  %[c]\n"
+-		"	bgtz      %[p],  1f\n"
+-		"	addi      %[rc], %[p], -1\n"
+-		"	sc.d.rl   %[rc], %[rc], %[c]\n"
+-		"	bnez      %[rc], 0b\n"
+-		"	fence     rw, rw\n"
+-		"1:\n"
+-		: [p]"=&r" (prev), [rc]"=&r" (rc), [c]"+A" (v->counter)
+-		:
+-		: "memory");
++	_arch_atomic_dec_unless_positive(prev, rc, v->counter, "d");
++
+ 	return !(prev > 0);
+ }
+ 
+@@ -346,17 +343,8 @@ static __always_inline s64 arch_atomic64_dec_if_positive(atomic64_t *v)
+        s64 prev;
+        long rc;
+ 
+-	__asm__ __volatile__ (
+-		"0:	lr.d     %[p],  %[c]\n"
+-		"	addi      %[rc], %[p], -1\n"
+-		"	bltz     %[rc], 1f\n"
+-		"	sc.d.rl  %[rc], %[rc], %[c]\n"
+-		"	bnez     %[rc], 0b\n"
+-		"	fence    rw, rw\n"
+-		"1:\n"
+-		: [p]"=&r" (prev), [rc]"=&r" (rc), [c]"+A" (v->counter)
+-		:
+-		: "memory");
++	_arch_atomic_dec_if_positive(prev, rc, v->counter, "d");
++
+ 	return prev - 1;
+ }
+ 
 -- 
 2.41.0
 
