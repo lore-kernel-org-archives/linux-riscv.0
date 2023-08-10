@@ -4,93 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70586C001DE
-	for <linux-riscv@archiver.kernel.org>; Thu, 10 Aug 2023 09:04:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AE56C04A94
+	for <linux-riscv@archiver.kernel.org>; Thu, 10 Aug 2023 09:08:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=q6jaNoLhlPI+vjWtWuIUcqOiWgtoMGpt0A2uA8rnY6w=; b=Hj96F1NnqL3JzB
-	As+KmAWG6gjXKsvWC+GxQjvKmpbrPge+2XZmXGg7tBnf+8HgmWCyG/zDdZcsWvGec6scbC1B7wDiY
-	tdI9l6SCbTyHJDfZE6aPZeq7rjDbKjMW6fSatwZWmrVGOvWsdw6urP4+cUbJ5RukK7KXzH3582anx
-	PD/Mj6VV2a8PQ9J8EKMcem19dEL+6PQZ/FHUP/oka6oHy1SQ3RUY5Wy9fqeMJBMGZCbx2YFpEJz9v
-	9B6zDR/HOwPVv0ZNfq6LDdiqyuhF/dRF1E8XSbWKpLUUleosBBGBW30vqBMwqu0gN2xDZ0OQULf5j
-	oUD/5PEXcd0W+FGJ/32Q==;
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pHTybVy3YpcuPjl0/rexvyE/etE/j4vaRQEtQyeeu50=; b=PpUTZnjliPaIZ4WA4sY6P88vwU
+	GDbMkFft3hyM35mRMSM5iNFuceHx5OS31zB6rVpOa3DgSePaBk3u3neYw8noc5ygytabkrhMc6aLA
+	72LsYByNufoqAMq9f1PrlODyCY9fB0qao+T/cqi0lQY00I5+iPlAXwDxsyD4r8Tu9XCVurc0XNxQ2
+	xyY7ahmua/9b7bREQNXZlaTKb7mFghSorWGVY6n0DsVWho3c4vTUG9coz5DG9y7u75C7oRmZM6mXf
+	/jHPcXDS5C1s1eD753UDC5iOMQNpLUHJ8S0VuNmRPDItTTwuctrGaaZuu2Jj8G5rsMD6t58DhG9qW
+	TWllf3VQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qU1ak-006vdt-0n;
-	Thu, 10 Aug 2023 09:04:26 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1qU1eB-006w5p-2l;
+	Thu, 10 Aug 2023 09:07:59 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qU1ah-006vbx-2q
+	id 1qU1e7-006w3Y-22
 	for linux-riscv@lists.infradead.org;
-	Thu, 10 Aug 2023 09:04:25 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-3fe4b95c371so3535885e9.1
-        for <linux-riscv@lists.infradead.org>; Thu, 10 Aug 2023 02:04:19 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1691658258; x=1692263058;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=tRRGt270hpgqI4zE1zgSatf0+H4Bh/F+VZZfxHZMxJQ=;
-        b=oAEb/UVBkppyVSOHobReOPQ5YTJ38GSYmmwnXKvWBacyY35eiBK3BbweF9r2wySUml
-         MEcisqaWbMu75RD/yi2+TApQnL2dFNUOP3LxnRpHcOKij/GZo0w0ruS8u+2sRfizq7K0
-         RXpbZa5ou88CCBGxGOuZX1JLIdZicfZdY/CT8cY9pTtnS0KjgGk4/lotdDB2sxhQlLsF
-         KS8SGcoWUwYCt9WiECBncj/W3XO/pC9wzUYaNE5W9koIsUJNRDyCxnF+WlJ36Zyyu8gs
-         E3wn44pqQEnSVjV3WUZmbwDcfSycWhFbxh8XhXu2aO73sGromowt+6Napedljzo4dNil
-         4yog==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1691658258; x=1692263058;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=tRRGt270hpgqI4zE1zgSatf0+H4Bh/F+VZZfxHZMxJQ=;
-        b=O5TJh1bP4AsGJsR4UwSBxc9oFQRdQkdjzKRPw0wT4qpwxGqa0ngKCS+1o1HmAANBix
-         0y5lWH4Zst7fiOrp0V04Nw7uSYZCoAbFeYILS7xSHj3upIhnwRALaT+M5XVOS1bRRyL3
-         vJjCRoF8c6RCZdMbDobvyuL1oYRoWl49fqcPKe0e3ViEa0IQVs8BUd0dmr6uPk4pVg3F
-         K9d3YuAU0QR6x1UmYVs37ca6kDCnUBMFJpZlUr11ol9QK/hoX03PV1vwo/9FHsBSGrh6
-         MB8rH4xFgy6ylTvn/6BaX7SfZ6L/QRZAuQTVFMkZ6/y88ZFFFlsK4IHUFT3oTPmW4V1D
-         z73g==
-X-Gm-Message-State: AOJu0YxzkN+nopNLfjlx27Tc9/EEktq2P+a/aqTW5azc6VKGbPFxEnzE
-	v0BHTGkfjTDtcAFswX2+0EDHVg==
-X-Google-Smtp-Source: AGHT+IEiyf6YzfxC02ypY0/hlAu3sZVgflth6mGPBaBQxUAqtG6jM0o50UoMEa2Wxjr8BGf/HBWSdg==
-X-Received: by 2002:a05:600c:4fc8:b0:3fe:2120:eb7c with SMTP id o8-20020a05600c4fc800b003fe2120eb7cmr1225438wmq.0.1691658258110;
-        Thu, 10 Aug 2023 02:04:18 -0700 (PDT)
-Received: from [192.168.69.115] ([176.176.158.65])
-        by smtp.gmail.com with ESMTPSA id m22-20020a7bcb96000000b003fe2696ccfcsm1464479wmi.23.2023.08.10.02.04.15
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 10 Aug 2023 02:04:17 -0700 (PDT)
-Message-ID: <a645ce3e-dd24-8c06-5898-76f78828b608@linaro.org>
-Date: Thu, 10 Aug 2023 11:04:14 +0200
+	Thu, 10 Aug 2023 09:07:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1691658475; x=1723194475;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=XjNuV56YbluVNxCDCUR+x11NSBYonlIx/g3LtAfg0tM=;
+  b=nMQFnch4Bkd5mddqNwodXOQMfkpl7crMOqrJzobo23H9JQ81TNPdnGKn
+   TGQu8qnMMukMZPhSyZ/9oCyn7yJ7wnYWNQgd088vuzUwFnvH8GkYN660S
+   gp6GwwKQCvscaJ+V5zsvyXklsTWThzwA+j8+cnjEX02XGyjdr2FZd8+Q9
+   inLsAe+nZ9tTb7kgiETLvRqlfk/hDchuI7ZQ4kuXbAXWI+49D0pr7/hGG
+   Xyylk26mD+ep0L1HxSUB2ZfEfRMXgwwlUt5A+dD+QPTzzBgbklIGF6ATW
+   hNsLrJfiOgVrCJKR45pD8F+YhxI1sWjWIveyDzOGcs6qajbBhe5WHjABL
+   w==;
+X-IronPort-AV: E=Sophos;i="6.01,161,1684825200"; 
+   d="asc'?scan'208";a="165797387"
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa6.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 10 Aug 2023 02:07:51 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.21; Thu, 10 Aug 2023 02:07:50 -0700
+Received: from wendy (10.10.115.15) by chn-vm-ex01.mchp-main.com
+ (10.10.85.143) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
+ Transport; Thu, 10 Aug 2023 02:07:48 -0700
+Date: Thu, 10 Aug 2023 10:07:10 +0100
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Atish Kumar Patra <atishp@rivosinc.com>
+CC: Conor Dooley <conor@kernel.org>, <palmer@dabbelt.com>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Anup Patel <apatel@ventanamicro.com>, Alexandre
+ Ghiti <alexghiti@rivosinc.com>, =?iso-8859-1?Q?Bj=F6rn_T=F6pel?=
+	<bjorn@rivosinc.com>, Song Shuai <suagrfillet@gmail.com>, JeeHeng Sia
+	<jeeheng.sia@starfivetech.com>, Petr Tesarik <petrtesarik@huaweicloud.com>,
+	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<stable@vger.kernel.org>
+Subject: Re: [RFT 1/2] RISC-V: handle missing "no-map" properties for
+ OpenSBI's PMP protected regions
+Message-ID: <20230810-crewless-pampers-6f51aafb8cff@wendy>
+References: <20230802-purse-hydrant-6f44f77364b0@wendy>
+ <20230802-detention-second-82ab2b53e07a@wendy>
+ <CAHBxVyGgSJ66zMj65tRup2u23KP4=RJ5zN7hj5=K9e91NA9eog@mail.gmail.com>
+ <20230808-handbag-mushily-f884178d29f5@spud>
+ <CAHBxVyFNng2JOAQNfJSnabeq=+NYCSefk7OJEzkGMXEFY1tmFg@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:102.0)
- Gecko/20100101 Thunderbird/102.13.0
-Subject: Re: [PATCH v8 04/14] KVM: Remove CONFIG_HAVE_KVM_ARCH_TLB_FLUSH_ALL
-Content-Language: en-US
-To: Raghavendra Rao Ananta <rananta@google.com>,
- Oliver Upton <oliver.upton@linux.dev>, Marc Zyngier <maz@kernel.org>,
- James Morse <james.morse@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>
-Cc: Paolo Bonzini <pbonzini@redhat.com>,
- Sean Christopherson <seanjc@google.com>, Huacai Chen
- <chenhuacai@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>,
- Anup Patel <anup@brainfault.org>, Atish Patra <atishp@atishpatra.org>,
- Jing Zhang <jingzhangos@google.com>, Reiji Watanabe <reijiw@google.com>,
- Colton Lewis <coltonlewis@google.com>, David Matlack <dmatlack@google.com>,
- Fuad Tabba <tabba@google.com>, linux-arm-kernel@lists.infradead.org,
- kvmarm@lists.linux.dev, linux-mips@vger.kernel.org,
- kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, kvm@vger.kernel.org,
- Shaoqin Huang <shahuang@redhat.com>
-References: <20230808231330.3855936-1-rananta@google.com>
- <20230808231330.3855936-5-rananta@google.com>
-From: =?UTF-8?Q?Philippe_Mathieu-Daud=c3=a9?= <philmd@linaro.org>
-In-Reply-To: <20230808231330.3855936-5-rananta@google.com>
+In-Reply-To: <CAHBxVyFNng2JOAQNfJSnabeq=+NYCSefk7OJEzkGMXEFY1tmFg@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230810_020423_920404_328812A9 
-X-CRM114-Status: UNSURE (   8.72  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230810_020755_870214_190DE4F9 
+X-CRM114-Status: GOOD (  48.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,24 +88,166 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: multipart/mixed; boundary="===============1972397317082486609=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gOS84LzIzIDAxOjEzLCBSYWdoYXZlbmRyYSBSYW8gQW5hbnRhIHdyb3RlOgo+IGt2bV9hcmNo
-X2ZsdXNoX3JlbW90ZV90bGJzKCkgb3IgQ09ORklHX0hBVkVfS1ZNX0FSQ0hfVExCX0ZMVVNIX0FM
-TAo+IGFyZSB0d28gbWVjaGFuaXNtcyB0byBzb2x2ZSB0aGUgc2FtZSBwcm9ibGVtLCBhbGxvd2lu
-Zwo+IGFyY2hpdGVjdHVyZS1zcGVjaWZpYyBjb2RlIHRvIHByb3ZpZGUgYSBub24tSVBJIGltcGxl
-bWVudGF0aW9uIG9mCj4gcmVtb3RlIFRMQiBmbHVzaGluZy4KPiAKPiBEcm9wcGluZyBDT05GSUdf
-SEFWRV9LVk1fQVJDSF9UTEJfRkxVU0hfQUxMIGFsbG93cyBLVk0gdG8gc3RhbmRhcmRpemUKPiBh
-bGwgYXJjaGl0ZWN0dXJlcyBvbiBrdm1fYXJjaF9mbHVzaF9yZW1vdGVfdGxicygpIGluc3RlYWQg
-b2YKPiBtYWludGFpbmluZyB0d28gbWVjaGFuaXNtcy4KPiAKPiBTaWduZWQtb2ZmLWJ5OiBSYWdo
-YXZlbmRyYSBSYW8gQW5hbnRhIDxyYW5hbnRhQGdvb2dsZS5jb20+Cj4gUmV2aWV3ZWQtYnk6IFNo
-YW9xaW4gSHVhbmcgPHNoYWh1YW5nQHJlZGhhdC5jb20+Cj4gLS0tCj4gICB2aXJ0L2t2bS9LY29u
-ZmlnICAgIHwgMyAtLS0KPiAgIHZpcnQva3ZtL2t2bV9tYWluLmMgfCAyIC0tCj4gICAyIGZpbGVz
-IGNoYW5nZWQsIDUgZGVsZXRpb25zKC0pCgpSZXZpZXdlZC1ieTogUGhpbGlwcGUgTWF0aGlldS1E
-YXVkw6kgPHBoaWxtZEBsaW5hcm8ub3JnPgoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBs
-aXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlz
-dGluZm8vbGludXgtcmlzY3YK
+--===============1972397317082486609==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="zgJmOBen9W7e17Dn"
+Content-Disposition: inline
+
+--zgJmOBen9W7e17Dn
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Wed, Aug 09, 2023 at 02:01:07AM -0700, Atish Kumar Patra wrote:
+> On Tue, Aug 8, 2023 at 6:39=E2=80=AFAM Conor Dooley <conor@kernel.org> wr=
+ote:
+> >
+> > On Tue, Aug 08, 2023 at 12:54:11AM -0700, Atish Kumar Patra wrote:
+> > > On Wed, Aug 2, 2023 at 4:14=E2=80=AFAM Conor Dooley <conor.dooley@mic=
+rochip.com> wrote:
+> > > >
+> > > > Add an erratum for versions [v0.8 to v1.3) of OpenSBI which fail to=
+ add
+> > > > the "no-map" property to the reserved memory nodes for the regions =
+it
+> > > > has protected using PMPs.
+> > > >
+> > > > Our existing fix sweeping hibernation under the carpet by marking it
+> > > > NONPORTABLE is insufficient as there are other ways to generate
+> > > > accesses to these reserved memory regions, as Petr discovered [1]
+> > > > while testing crash kernels & kdump.
+> > > >
+> > > > Intercede during the boot process when the afflicted versions of Op=
+enSBI
+> > > > are present & set the "no-map" property in all "mmode_resv" nodes b=
+efore
+> > > > the kernel does its reserved memory region initialisation.
+> > > >
+> > >
+> > > We have different mechanisms of DT being passed to the kernel.
+> > >
+> > > 1. A prior stage(e.g U-Boot SPL) to M-mode runtime firmware (e.g.
+> > > OpenSBI, rustSBI) passes the DT to M-mode runtime firmware and it
+> > > passes to the next stage.
+> > > In this case, M-mode runtime firmware gets a chance to update the
+> > > no-map property in DT that the kernel can parse.
+> > >
+> > > 2. User loads the DT from the boot loader (e.g EDK2, U-Boot proper).
+> > > Any DT patching done by the M-mode firmware is useless. If these DTBs
+> > > don't have the no-map
+> > > property, hibernation or EFI booting will have issues as well.
+> > >
+> >
+> > > We are trying to solve only one part of problem #1 in this patch.
+> >
+> > Correct.
+> >
+> > If someone's second stage is also providing an incorrect devicetree
+> > then, yeah, this approach would fall apart - but it's the firmware
+> > provided devicetree being incorrect that I am trying to account for
+> > here. If a person incorrectly constructed one, I am not really sure what
+> > we can do for them, they incorrect described their hardware /shrug
+> > My patch should of course help in some of the scenarios you mention abo=
+ve
+> > if the name of the reserved memory region from OpenSBI is propagated by
+> > the second-stage bootloader, but that is just an extension of case 1,
+> > not case 2.
+> >
+> > > I
+> > > don't think any other M-mode runtime firmware patches DT with no-map
+> > > property as well.
+> > > Please let me know if I am wrong about that. The problem is not
+> > > restricted to [v0.8 to v1.3) of OpenSBI.
+> >
+> > It comes down to Alex's question - do we want to fix this kind of
+> > firmware issue in the kernel? Ultimately this is a policy decision that
+> > "somebody" has to make. Maybe the list of firmwares that need this
+>=20
+> IMO, we shouldn't as this is a slippery slope. Kernel can't fix every
+> firmware bug by having erratas.
+> I agree with your point below about firmware in shipping products. I
+> am not aware of any official products shipping anything other than
+> OpenSBI either.
+
+> However, I have seen users using other firmwares in their dev
+> environment.
+
+If someone's already changed their boards firmware, I have less sympathy
+for them, as they should be able to make further changes. Punters buying
+SBCs to install Fedora or Debian w/o having to consider their firmware
+are who I am more interested in helping.
+
+> IMHO, this approach sets a bad precedent for the future especially
+> when it only solves one part of the problem.
+
+Yeah, I'm certainly wary of setting an unwise precedent here.
+Inevitably we will need to have firmware-related errata and it'd be good
+to have a policy for what is (or more importantly what isn't
+acceptable). Certainly we have said that known-broken version of OpenSBI
+that T-Head puts in their SDK is not supported by the mainline kernel.
+On the latter part, I'm perfectly happy to expand the erratum to cover
+all affected firmwares, but I wasn't even sure if my fix worked
+properly, hence the request for testing from those who encountered the
+problem.
+
+> We shouldn't hide firmware bugs in the kernel when an upgraded
+> firmware is already available.
+
+Just to note, availability of an updated firmware upstream does not
+necessarily mean that corresponding update is possible for affected
+hardware.
+
+> This bug is well documented in various threads and fixed in the latest
+> version of OpenSBI.
+> I am assuming other firmwares will follow it as well.
+>=20
+> Anybody facing hibernation or efi related booting issues should just
+> upgrade to the latest version of firmware (e.g OpenSBI v1.3)
+> Latest version of Qemu will support(if not happened already) the
+> latest version of OpenSBI.
+>=20
+> This issue will only manifest in kernels 6.4 or higher. Any user
+> facing these with the latest kernel can also upgrade the firmware.
+> Do you see any issue with that ?
+
+I don't think it is fair to compare the ease of upgrading the kernel
+to that required to upgrade a boards firmware, with the latter being
+far, far more inconvenient on pretty much all of the boards that I have.
+
+I'm perfectly happy to drop this series though, if people generally are
+of the opinion that this sort of firmware workaround is ill-advised.
+We are unaffected by it, so I certainly have no pressure to have
+something working here. It's my desire not to be user-hostile that
+motivated this patch.
+
+--zgJmOBen9W7e17Dn
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZNSougAKCRB4tDGHoIJi
+0q6bAP48E8ofWxr0+xY4r2c1p/SzPcfP2e5RyZz2ZPahAqStFgD/eXdLG4FbmUeV
+2e8kchwIWBo7MYPA1++yKqsUa5xgUgA=
+=HRr4
+-----END PGP SIGNATURE-----
+
+--zgJmOBen9W7e17Dn--
+
+
+--===============1972397317082486609==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============1972397317082486609==--
+
