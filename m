@@ -4,160 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2749EC001DE
-	for <linux-riscv@archiver.kernel.org>; Thu, 10 Aug 2023 08:57:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70586C001DE
+	for <linux-riscv@archiver.kernel.org>; Thu, 10 Aug 2023 09:04:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ionwtLcwo54c1PUOAsM4n1MVp/iNlfRHLJaN35CN9ws=; b=D36ufv/s6A8amF
-	HzhblKhCcs83+/Pwmg9MzHQ9BG0nuxCQPrCOynK9N0qYezUjA22iZv+ImISb8V9DP3H/5aamYw6Kc
-	ffA10CBDnQRQC2HL8DRDYva7ft00rM2udGJ5F7a2DsQ/03Bptc25ILa+Md7XOd8VFEP7vt6EqOaRf
-	ApmHOLqPCIr72n/amG5zYY9/GYkueTZ9xf7FlmfYaVBVk0h+w7Z91bCkwvQ8gKxIyjDjK2dAQcxB1
-	vM8FNNTTgIBGqK32qbAdZ35TwAgnMDM7ywdjqo34ieHyhRUkY0JVniVaulDSxPhApjJdHgiJBJREg
-	xawJYGU05ao6dBshUJxQ==;
+	List-Owner; bh=q6jaNoLhlPI+vjWtWuIUcqOiWgtoMGpt0A2uA8rnY6w=; b=Hj96F1NnqL3JzB
+	As+KmAWG6gjXKsvWC+GxQjvKmpbrPge+2XZmXGg7tBnf+8HgmWCyG/zDdZcsWvGec6scbC1B7wDiY
+	tdI9l6SCbTyHJDfZE6aPZeq7rjDbKjMW6fSatwZWmrVGOvWsdw6urP4+cUbJ5RukK7KXzH3582anx
+	PD/Mj6VV2a8PQ9J8EKMcem19dEL+6PQZ/FHUP/oka6oHy1SQ3RUY5Wy9fqeMJBMGZCbx2YFpEJz9v
+	9B6zDR/HOwPVv0ZNfq6LDdiqyuhF/dRF1E8XSbWKpLUUleosBBGBW30vqBMwqu0gN2xDZ0OQULf5j
+	oUD/5PEXcd0W+FGJ/32Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qU1Tj-006usd-0t;
-	Thu, 10 Aug 2023 08:57:11 +0000
-Received: from mail-db3eur04on0625.outbound.protection.outlook.com ([2a01:111:f400:fe0c::625] helo=EUR04-DB3-obe.outbound.protection.outlook.com)
+	id 1qU1ak-006vdt-0n;
+	Thu, 10 Aug 2023 09:04:26 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qU1Tf-006upI-0f;
-	Thu, 10 Aug 2023 08:57:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=armh.onmicrosoft.com;
- s=selector2-armh-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Mi1qf36m/mTqKe3vJloNVLdrTzLce1aT1KSvGuMJKoA=;
- b=Z4Gz82LdjRLjfKpHxCI3NFLjtyswerHSbuodFMasB/abw50nZtODKQY58hUIwTlcWr2yolXnrqHkpy05jkSIbu63hyqmJaZKS6MhDVcMNnIt+atMKHGIrPe6a6IUricOckUyAU6Ykw2t7wx7Txzn3y+85zcLjZyN5+h8ioU+rXU=
-Received: from DUZPR01CA0015.eurprd01.prod.exchangelabs.com
- (2603:10a6:10:3c3::18) by PA4PR08MB5981.eurprd08.prod.outlook.com
- (2603:10a6:102:e2::14) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6652.30; Thu, 10 Aug
- 2023 08:56:28 +0000
-Received: from DBAEUR03FT064.eop-EUR03.prod.protection.outlook.com
- (2603:10a6:10:3c3:cafe::7a) by DUZPR01CA0015.outlook.office365.com
- (2603:10a6:10:3c3::18) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6652.27 via Frontend
- Transport; Thu, 10 Aug 2023 08:56:28 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 63.35.35.123)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=armh.onmicrosoft.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 63.35.35.123 as permitted sender) receiver=protection.outlook.com;
- client-ip=63.35.35.123; helo=64aa7808-outbound-1.mta.getcheckrecipient.com;
- pr=C
-Received: from 64aa7808-outbound-1.mta.getcheckrecipient.com (63.35.35.123) by
- DBAEUR03FT064.mail.protection.outlook.com (100.127.143.3) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.6678.19 via Frontend Transport; Thu, 10 Aug 2023 08:56:28 +0000
-Received: ("Tessian outbound 95df046a2e2c:v145"); Thu, 10 Aug 2023 08:56:28 +0000
-X-CheckRecipientChecked: true
-X-CR-MTA-CID: 53f5cf8641134430
-X-CR-MTA-TID: 64aa7808
-Received: from 27ff08b2fa1b.2
-	by 64aa7808-outbound-1.mta.getcheckrecipient.com id 6B8C4B36-B788-475D-9893-4184938AA0D8.1;
-	Thu, 10 Aug 2023 08:56:18 +0000
-Received: from EUR04-HE1-obe.outbound.protection.outlook.com
-    by 64aa7808-outbound-1.mta.getcheckrecipient.com with ESMTPS id 27ff08b2fa1b.2
-    (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384);
-    Thu, 10 Aug 2023 08:56:18 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=AOz+Uy1nqfe00bCYkivjZog8AS0gqkbjm9v5h+W+JC4NO7C9FANLx6vQvhcDK1ZeAx8EfxCNZEdgTutNtDynhexZo67a3W0AdkVGf4GjMof6g6P8COx4Xq5TBCTDbFOMb1Avy4OLu3La3IAdFDHErlyLURI45NnB2TvfuneAd7qLS5Yr539kdpOprqZHBdxPuNniqhoLG4tbbpRotKKCg4066YzegYsTdtA9/SBPlPFAXExKGQxmbJr/5OLIDTlKdehMNq+hwOogPa47Yb5ZrWdoF9AH/uGGIb0FLtAgMGMT1QP0WMhdNPmAGopLOB8xJWy1WSimc86EMvWYqel2Wg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Mi1qf36m/mTqKe3vJloNVLdrTzLce1aT1KSvGuMJKoA=;
- b=MHXi2Nv04vPQnBXwDcH9TCL1ajWaGkkGQymNfaOjLOm6qQHp9sZG0kXPIWjYvJNcHWrEKRaZaLUoyUI3LAkHE1XOIdLXq3eyKS+mY9JO+ueVJhfAnahEujOwqg+6iP3ystF6mGa6JORCf6BqxHJbMsDS+zzax/ZQQYME7ti1OM3lyZPGzWc3QRL5M+W+9ksRkBTuB+weJ/nr0AAsctJWZn4Y26ln4ZRqhwK3TASrMLPHuT+TZkBt40sZl+wdEaZaQwOsVDs53r/yqZUk3JyWuZEJ78jDFOsWGcb0gDls6AKhi46bXnY95ME+vCnDpEVaMtziOIZcv0Oi2XwRKwE20g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=armh.onmicrosoft.com;
- s=selector2-armh-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Mi1qf36m/mTqKe3vJloNVLdrTzLce1aT1KSvGuMJKoA=;
- b=Z4Gz82LdjRLjfKpHxCI3NFLjtyswerHSbuodFMasB/abw50nZtODKQY58hUIwTlcWr2yolXnrqHkpy05jkSIbu63hyqmJaZKS6MhDVcMNnIt+atMKHGIrPe6a6IUricOckUyAU6Ykw2t7wx7Txzn3y+85zcLjZyN5+h8ioU+rXU=
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-Received: from DB9PR08MB7179.eurprd08.prod.outlook.com (2603:10a6:10:2cc::19)
- by AS2PR08MB9618.eurprd08.prod.outlook.com (2603:10a6:20b:609::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6652.30; Thu, 10 Aug
- 2023 08:56:14 +0000
-Received: from DB9PR08MB7179.eurprd08.prod.outlook.com
- ([fe80::adb0:61cb:8733:6db2]) by DB9PR08MB7179.eurprd08.prod.outlook.com
- ([fe80::adb0:61cb:8733:6db2%7]) with mapi id 15.20.6652.028; Thu, 10 Aug 2023
- 08:56:14 +0000
-Date: Thu, 10 Aug 2023 09:55:50 +0100
-From: Szabolcs Nagy <Szabolcs.Nagy@arm.com>
-To: Mark Brown <broonie@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	James Morse <james.morse@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Arnd Bergmann <arnd@arndb.de>, Oleg Nesterov <oleg@redhat.com>,
-	Eric Biederman <ebiederm@xmission.com>,
-	Kees Cook <keescook@chromium.org>, Shuah Khan <shuah@kernel.org>,
-	"Rick P. Edgecombe" <rick.p.edgecombe@intel.com>,
-	Deepak Gupta <debug@rivosinc.com>, Ard Biesheuvel <ardb@kernel.org>,
-	"H.J. Lu" <hjl.tools@gmail.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
-	kvmarm@lists.linux.dev, linux-fsdevel@vger.kernel.org,
-	linux-arch@vger.kernel.org, linux-mm@kvack.org,
-	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v4 03/36] arm64/gcs: Document the ABI for Guarded Control
- Stacks
-Message-ID: <ZNSmFmYFHDw3NvvP@arm.com>
-References: <20230807-arm64-gcs-v4-0-68cfa37f9069@kernel.org>
- <20230807-arm64-gcs-v4-3-68cfa37f9069@kernel.org>
- <ZNOhjrYleGBR6Pbs@arm.com>
- <f4cec4b3-c386-4873-aa1d-90528e062f2a@sirena.org.uk>
-Content-Disposition: inline
-In-Reply-To: <f4cec4b3-c386-4873-aa1d-90528e062f2a@sirena.org.uk>
-X-ClientProxiedBy: SA1P222CA0098.NAMP222.PROD.OUTLOOK.COM
- (2603:10b6:806:35e::8) To DB9PR08MB7179.eurprd08.prod.outlook.com
- (2603:10a6:10:2cc::19)
+	id 1qU1ah-006vbx-2q
+	for linux-riscv@lists.infradead.org;
+	Thu, 10 Aug 2023 09:04:25 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-3fe4b95c371so3535885e9.1
+        for <linux-riscv@lists.infradead.org>; Thu, 10 Aug 2023 02:04:19 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1691658258; x=1692263058;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=tRRGt270hpgqI4zE1zgSatf0+H4Bh/F+VZZfxHZMxJQ=;
+        b=oAEb/UVBkppyVSOHobReOPQ5YTJ38GSYmmwnXKvWBacyY35eiBK3BbweF9r2wySUml
+         MEcisqaWbMu75RD/yi2+TApQnL2dFNUOP3LxnRpHcOKij/GZo0w0ruS8u+2sRfizq7K0
+         RXpbZa5ou88CCBGxGOuZX1JLIdZicfZdY/CT8cY9pTtnS0KjgGk4/lotdDB2sxhQlLsF
+         KS8SGcoWUwYCt9WiECBncj/W3XO/pC9wzUYaNE5W9koIsUJNRDyCxnF+WlJ36Zyyu8gs
+         E3wn44pqQEnSVjV3WUZmbwDcfSycWhFbxh8XhXu2aO73sGromowt+6Napedljzo4dNil
+         4yog==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1691658258; x=1692263058;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=tRRGt270hpgqI4zE1zgSatf0+H4Bh/F+VZZfxHZMxJQ=;
+        b=O5TJh1bP4AsGJsR4UwSBxc9oFQRdQkdjzKRPw0wT4qpwxGqa0ngKCS+1o1HmAANBix
+         0y5lWH4Zst7fiOrp0V04Nw7uSYZCoAbFeYILS7xSHj3upIhnwRALaT+M5XVOS1bRRyL3
+         vJjCRoF8c6RCZdMbDobvyuL1oYRoWl49fqcPKe0e3ViEa0IQVs8BUd0dmr6uPk4pVg3F
+         K9d3YuAU0QR6x1UmYVs37ca6kDCnUBMFJpZlUr11ol9QK/hoX03PV1vwo/9FHsBSGrh6
+         MB8rH4xFgy6ylTvn/6BaX7SfZ6L/QRZAuQTVFMkZ6/y88ZFFFlsK4IHUFT3oTPmW4V1D
+         z73g==
+X-Gm-Message-State: AOJu0YxzkN+nopNLfjlx27Tc9/EEktq2P+a/aqTW5azc6VKGbPFxEnzE
+	v0BHTGkfjTDtcAFswX2+0EDHVg==
+X-Google-Smtp-Source: AGHT+IEiyf6YzfxC02ypY0/hlAu3sZVgflth6mGPBaBQxUAqtG6jM0o50UoMEa2Wxjr8BGf/HBWSdg==
+X-Received: by 2002:a05:600c:4fc8:b0:3fe:2120:eb7c with SMTP id o8-20020a05600c4fc800b003fe2120eb7cmr1225438wmq.0.1691658258110;
+        Thu, 10 Aug 2023 02:04:18 -0700 (PDT)
+Received: from [192.168.69.115] ([176.176.158.65])
+        by smtp.gmail.com with ESMTPSA id m22-20020a7bcb96000000b003fe2696ccfcsm1464479wmi.23.2023.08.10.02.04.15
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 10 Aug 2023 02:04:17 -0700 (PDT)
+Message-ID: <a645ce3e-dd24-8c06-5898-76f78828b608@linaro.org>
+Date: Thu, 10 Aug 2023 11:04:14 +0200
 MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: DB9PR08MB7179:EE_|AS2PR08MB9618:EE_|DBAEUR03FT064:EE_|PA4PR08MB5981:EE_
-X-MS-Office365-Filtering-Correlation-Id: b4c0c942-ac8f-4ced-c006-08db997faf63
-x-checkrecipientrouted: true
-NoDisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;
-X-Microsoft-Antispam-Message-Info-Original: YPww17Wa3xYHTX2cruJRFvAl9IrbdGyP1ACX4Nq5+AgfGbjQ7LA1uGnijNORkie0hxQFfdSG3SRJ5uB6pIqrYq3QbpOXrEFtH/2twI4qOo7gSDsG4PReXJeDPzY6x9QiL162gTKJxZjXrJ5rxtZJi06vf48vwSYLtGb/tVDuAMxogn/UIA1PKGhB+5Ty89tcx9otAw6Gu0hY0aDwVJwAiPQVeZyy2Tn5wS5po1klv8+RyooCTIngJD/Y0NqeWCCr3DOqyhxzx8rIdCxEm8L6rx/R0YG6WRynWpbFbY1kXUjvm/hLC7ZNDyNNcB82jOt/xtBK16CG35RGL21qTsoIH1lug2rimF4gT9JmO5f2RXDInJ+d97BhzhhgQ7J1rS1ayeU3r4Q/PVZP6xzDSCF6EJ5laBq/+l/Q9D9ElFyo6ObgKF4PQdGZAG9rozafCUKU+mJwTY+gq8mm0OAq5XGOBXVJ2QBKro1pPnoFZaPh34Xx6Y9o+8T0TpvijWljXEKm6GVtskaRObAbiSREabvKE9EpaJDAMQeUpHF/j+fWv5ZIzO4pPju/Ghp4UtWlIcn1
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR08MB7179.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230028)(396003)(366004)(346002)(376002)(39860400002)(136003)(451199021)(186006)(1800799006)(36756003)(6666004)(478600001)(110136005)(66556008)(6506007)(6636002)(66946007)(26005)(54906003)(66476007)(6486002)(4326008)(316002)(2906002)(7416002)(41300700001)(8676002)(5660300002)(38100700002)(86362001)(8936002)(83380400001)(2616005)(6512007);DIR:OUT;SFP:1101;
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS2PR08MB9618
-Original-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: DBAEUR03FT064.eop-EUR03.prod.protection.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: 6fd1b402-1226-45b2-c901-08db997fa69d
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: Rog0BjXfpc5OONlPYCKsG4Q2KWKeX3xt3mbqZzg/QH9a30HO0Bto6yJoTTCISONfZ1Tw1fGRPzqbMPr1xkkdJlUqNCiGD+o/blQ55plBZ1lzcJ7QMqit1RUFxBhoT/KSpKHyxCKIdyXaezGAOa2+159DusF2BvsFRzI4Udz5p3Oe/NvueRtdMzH2uKIJ0LMyThP/lWlVnL3sO33OttHxbtKSC3k8lhac3nq/5s+40pxoX5aL2cUHZQZt2lvRmBY2h5ynY7oZ3UUodnLgIIpBs10YU/RdH1iC7XKK33yME/tOYmuLjTq9/RJg+F4yaE4NVApq0uvqrQPHhtZaCXzu8dLyTcq/iLOibSkW+jvq31skKPbKo0MahzmS1kl+f6pmntny3S/27un5PfZ9s3ME1wFG2z502x0NsarUPgFigHkMW92ChWHHOz29VBz8SOmEmykuJRC3w8O5KPZ7/tjJIJawRhJYdTR4o6f9cxTu7JNerotmd5Z1pY/egQsHOW+z6N/O+vjxncASziUxJUV+QuIHWaCTAqTdt1LzlsykttyrxhpvkEWu2X3ddOfmRHX3a1vq0K2D23DuU6aeSkeHvmCzDeb5gjhMxjUihu7rbn21FfWdiKWc+xOgQMWnJQzAbrfCBs1LrkSLs68TCeyq4egvk50k/HmtoX01CoiT3782OMbtjbKuJAn9fTZM3c+lW4WMDOZY5kWRYPc4uIL2Lc7iYEkLLAKMvnFTOAWmDcw=
-X-Forefront-Antispam-Report: CIP:63.35.35.123;CTRY:IE;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:64aa7808-outbound-1.mta.getcheckrecipient.com;PTR:ec2-63-35-35-123.eu-west-1.compute.amazonaws.com;CAT:NONE;SFS:(13230028)(4636009)(376002)(346002)(396003)(136003)(39860400002)(186006)(451199021)(82310400008)(1800799006)(40470700004)(36840700001)(46966006)(83380400001)(36860700001)(47076005)(478600001)(82740400003)(356005)(81166007)(336012)(2616005)(2906002)(40460700003)(40480700001)(6506007)(26005)(6512007)(8676002)(70586007)(41300700001)(450100002)(70206006)(316002)(8936002)(6636002)(4326008)(6486002)(6666004)(86362001)(36756003)(110136005)(54906003)(5660300002);DIR:OUT;SFP:1101;
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Aug 2023 08:56:28.5347
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: b4c0c942-ac8f-4ced-c006-08db997faf63
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[63.35.35.123];Helo=[64aa7808-outbound-1.mta.getcheckrecipient.com]
-X-MS-Exchange-CrossTenant-AuthSource: DBAEUR03FT064.eop-EUR03.prod.protection.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR08MB5981
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:102.0)
+ Gecko/20100101 Thunderbird/102.13.0
+Subject: Re: [PATCH v8 04/14] KVM: Remove CONFIG_HAVE_KVM_ARCH_TLB_FLUSH_ALL
+Content-Language: en-US
+To: Raghavendra Rao Ananta <rananta@google.com>,
+ Oliver Upton <oliver.upton@linux.dev>, Marc Zyngier <maz@kernel.org>,
+ James Morse <james.morse@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: Paolo Bonzini <pbonzini@redhat.com>,
+ Sean Christopherson <seanjc@google.com>, Huacai Chen
+ <chenhuacai@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>,
+ Anup Patel <anup@brainfault.org>, Atish Patra <atishp@atishpatra.org>,
+ Jing Zhang <jingzhangos@google.com>, Reiji Watanabe <reijiw@google.com>,
+ Colton Lewis <coltonlewis@google.com>, David Matlack <dmatlack@google.com>,
+ Fuad Tabba <tabba@google.com>, linux-arm-kernel@lists.infradead.org,
+ kvmarm@lists.linux.dev, linux-mips@vger.kernel.org,
+ kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, kvm@vger.kernel.org,
+ Shaoqin Huang <shahuang@redhat.com>
+References: <20230808231330.3855936-1-rananta@google.com>
+ <20230808231330.3855936-5-rananta@google.com>
+From: =?UTF-8?Q?Philippe_Mathieu-Daud=c3=a9?= <philmd@linaro.org>
+In-Reply-To: <20230808231330.3855936-5-rananta@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230810_015707_272364_4D7946B1 
-X-CRM114-Status: GOOD (  17.47  )
+X-CRM114-CacheID: sfid-20230810_020423_920404_328812A9 
+X-CRM114-Status: UNSURE (   8.72  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -169,40 +102,24 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The 08/09/2023 16:34, Mark Brown wrote:
-> On Wed, Aug 09, 2023 at 03:24:14PM +0100, Catalin Marinas wrote:
-> > On Mon, Aug 07, 2023 at 11:00:08PM +0100, Mark Brown wrote:
-> > > +* When GCS is enabled for a thread a new Guarded Control Stack will be
-> > > +  allocated for it of size RLIMIT_STACK / 2 or 2 gigabytes, whichever is
-> > > +  smaller.
-> 
-> > Is this number based on the fact that a function call would only push
-> > the LR to GCS while standard function prologue pushes at least two
-> > registers?
-> 
-> It's actually based on bitrot that I'd initially chosen a smaller value
-> since it's likely that functions will push at least something as you
-> suggest, the patches now just use RLIMIT_STACK.  I'll fix.
-
-the pcs requires 16byte aligned stack frames, with 8byte per gcs entry
-there is no need for same gcs size as stack size in userspace.
-
-you can argue about a fixed size small increment (stacksize/2 + inc)
-for signal handling on alt stack and special tokens, but stack size is
-overkill i think.
-
-fwiw my current makecontext patch uses roundup(stacksize/2+160).
-(threads guaranteed to have about 300bytes of data on the stack in glibc
-so if gcs is stacksize/2, that accounts for the increment. this is for
-the theoretical case when an empty thread just tries to overflow the
-stack and then handle the fault on sigaltstack.)
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gOS84LzIzIDAxOjEzLCBSYWdoYXZlbmRyYSBSYW8gQW5hbnRhIHdyb3RlOgo+IGt2bV9hcmNo
+X2ZsdXNoX3JlbW90ZV90bGJzKCkgb3IgQ09ORklHX0hBVkVfS1ZNX0FSQ0hfVExCX0ZMVVNIX0FM
+TAo+IGFyZSB0d28gbWVjaGFuaXNtcyB0byBzb2x2ZSB0aGUgc2FtZSBwcm9ibGVtLCBhbGxvd2lu
+Zwo+IGFyY2hpdGVjdHVyZS1zcGVjaWZpYyBjb2RlIHRvIHByb3ZpZGUgYSBub24tSVBJIGltcGxl
+bWVudGF0aW9uIG9mCj4gcmVtb3RlIFRMQiBmbHVzaGluZy4KPiAKPiBEcm9wcGluZyBDT05GSUdf
+SEFWRV9LVk1fQVJDSF9UTEJfRkxVU0hfQUxMIGFsbG93cyBLVk0gdG8gc3RhbmRhcmRpemUKPiBh
+bGwgYXJjaGl0ZWN0dXJlcyBvbiBrdm1fYXJjaF9mbHVzaF9yZW1vdGVfdGxicygpIGluc3RlYWQg
+b2YKPiBtYWludGFpbmluZyB0d28gbWVjaGFuaXNtcy4KPiAKPiBTaWduZWQtb2ZmLWJ5OiBSYWdo
+YXZlbmRyYSBSYW8gQW5hbnRhIDxyYW5hbnRhQGdvb2dsZS5jb20+Cj4gUmV2aWV3ZWQtYnk6IFNo
+YW9xaW4gSHVhbmcgPHNoYWh1YW5nQHJlZGhhdC5jb20+Cj4gLS0tCj4gICB2aXJ0L2t2bS9LY29u
+ZmlnICAgIHwgMyAtLS0KPiAgIHZpcnQva3ZtL2t2bV9tYWluLmMgfCAyIC0tCj4gICAyIGZpbGVz
+IGNoYW5nZWQsIDUgZGVsZXRpb25zKC0pCgpSZXZpZXdlZC1ieTogUGhpbGlwcGUgTWF0aGlldS1E
+YXVkw6kgPHBoaWxtZEBsaW5hcm8ub3JnPgoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBs
+aXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlz
+dGluZm8vbGludXgtcmlzY3YK
