@@ -4,79 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4803C001B0
-	for <linux-riscv@archiver.kernel.org>; Thu, 10 Aug 2023 16:23:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB943C04FE0
+	for <linux-riscv@archiver.kernel.org>; Thu, 10 Aug 2023 16:30:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=Jsx07pahi0oETxLn6xEPYeeWfqbNwHbIB2RKFMppZ+k=; b=fTA6+ehzhrBlSnS8NuMiNLv5og
-	yceM+WU9ihKXopkZWcyhpRyXH/iKWh5osLp7qULfYxOfFyx2m/ri8GKMfpjB224RDhqb7TGZs/8S7
-	oACeECn63aMA2vLoPppOo9jn3QnZElTlkj5QYBJvKrHfTcZPu326XYzOW2k+Rjjr2JosiRfUjEqth
-	aJaQP/z9NLza3wWyI5oipamh0qbdEu/hSORWpZ4kn9dCJJdeWS5OEvK0klDWRh1X/VoE+b+mf06Jh
-	cAUdEOsf4ywHPNxV0pr9soteN7e91UrhVF0ZgBKo1gHQ/1UNTMdSdiU4HE+BLnKSzdVnW96eKNenb
-	bSUEIV4g==;
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0D/1zMHz6WjkaEvFZOz/2fjD6d5MXilcQDGSjj53bws=; b=w5ve7JEyhsSLrT5aBFWdtEbaz1
+	tPBdriivmieyXF57HA85ejRzmw2a4jR0oVsfHydAWE88G+iOxHfXCWhGJuuzipWFgt1TG/faLkjAR
+	2Q8GiKBl0BUq84j0eXu3q89Dg0IPEeGNlPZkpUYbtSpsPSBszTSDcWsDqIMYF7jIbOD5IHrT7kGbX
+	rLjlogTqqCP4iHmhYZdYOvo4DFnaC82J6fbVNnJCbJBwOaN650tE0sVxOYAAYtpt82BJ+bCzf1I9z
+	F++bNHnC4m5m4sXA/QbmIDWXQ4IpAGBt7LD+7y7I/akSvRVqhrIKvnH3Mjo1fSdqo3UJ1V6JcqCPz
+	dX12MbIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qU8Rn-008BMd-2E;
-	Thu, 10 Aug 2023 16:23:39 +0000
-Received: from mail-pj1-x1029.google.com ([2607:f8b0:4864:20::1029])
+	id 1qU8YJ-008CNv-1y;
+	Thu, 10 Aug 2023 16:30:23 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qU8Rl-008BLr-0j
-	for linux-riscv@lists.infradead.org;
-	Thu, 10 Aug 2023 16:23:38 +0000
-Received: by mail-pj1-x1029.google.com with SMTP id 98e67ed59e1d1-2682e33509bso750848a91.1
-        for <linux-riscv@lists.infradead.org>; Thu, 10 Aug 2023 09:23:36 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1691684616; x=1692289416;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=K/oujXsuCZNyJ7beuH4thfI7Yg3Owqk0Evwp+NQ9/Ag=;
-        b=tOhr8QlGuuLYwtzgrCExPgKzkc+mdwQSaUCSeIw8tDRrXsI0qvHEmsAOIqUBALO6NT
-         n/o8YUH0REX+nURR6TwsIRoG0tKVVy9ezrW21avpnUMb+v2qqMwp9zZw5mqCNK5sPVEy
-         G6vvmERyd7ksq0WDlHCrKj4788yFpjMDoF29Ge+lZ8K38Pqkt3XKD9rZqh64flWa77yC
-         +vNKaeBLBZmPLZfoduB+4EvO05g5rGUkvn5xzkE9US94Xx7gAttISKzJYYheCIclMyiH
-         CWqfF+3plJBQY5VJi/9sTlfDfg+VeSXC+RgtA952o/qsrsheDGc+4ZNFFXn7/4IIdR5O
-         qX3g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1691684616; x=1692289416;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=K/oujXsuCZNyJ7beuH4thfI7Yg3Owqk0Evwp+NQ9/Ag=;
-        b=LgMBuzBK4MmF3/4kQg2TKNauar4Z7ieyIJz5fdwpa64gvYwZunP5+pn+pACf6oCu5W
-         1ePJzy0Wimqwsa4HZvovD7Ew6yWCPkrdfLBEwyNWUBO5GyUfbBN9xMm9Wo1bnqFmmgk6
-         XAgIi0qlWONbJolXjXCFN3o5hAVj8V5PJ+lGOIE/nj4Ukq++Lr/Z+lrZd+TbN92jZXvU
-         BSgL3jOsutIrObqODCTonCFe3F9WutecZoU4/rUJyBnyK/pnZFcukG39gXrj8WgohGm/
-         /if/oz6MKYoEQUwdA7smhSTSkj/tCGzH6bCk4a04nafuicwzJL3tNscAbEsqGMxWLCdh
-         SIjg==
-X-Gm-Message-State: AOJu0Yz7zTiMW2jgR5It8SIuKwK+KLq1fMfEvWaQoBXnPEAQLZecEiz9
-	JopVQdTbyFpbcB9iaRMZFWJIRA==
-X-Google-Smtp-Source: AGHT+IH5NjFG9ebyRPc7nGWmHQsTm1rfLT1IflWmJ6tGtItusVgprAJhLWBFgU4p6rhMI5D3oXgNZA==
-X-Received: by 2002:a17:90a:fa02:b0:268:13c4:b800 with SMTP id cm2-20020a17090afa0200b0026813c4b800mr2650610pjb.21.1691684615778;
-        Thu, 10 Aug 2023 09:23:35 -0700 (PDT)
-Received: from localhost ([135.180.227.0])
-        by smtp.gmail.com with ESMTPSA id c9-20020a17090aa60900b00260a5ecd273sm1672318pjq.1.2023.08.10.09.23.35
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 10 Aug 2023 09:23:35 -0700 (PDT)
-Date: Thu, 10 Aug 2023 09:23:35 -0700 (PDT)
-X-Google-Original-Date: Thu, 10 Aug 2023 09:23:33 PDT (-0700)
-Subject: Re: [RFC PATCH v5 5/5] riscv/cmpxchg: Implement xchg for variables of size 1 and 2
-In-Reply-To: <98f523e515b2adc2aa7bb8d133353bad74e30897.camel@redhat.com>
-CC: Arnd Bergmann <arnd@arndb.de>, Will Deacon <will@kernel.org>,
-  peterz@infradead.org, boqun.feng@gmail.com, Mark Rutland <mark.rutland@arm.com>,
-  Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu, parri.andrea@gmail.com, andrzej.hajda@intel.com,
-  guoren@kernel.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-From: Palmer Dabbelt <palmer@rivosinc.com>
-To: leobras@redhat.com
-Message-ID: <mhng-92f37526-d36c-48c0-8fbd-7676df1b6086@palmer-ri-x1c9>
-Mime-Version: 1.0 (MHng)
+	id 1qU8YG-008CMu-0V;
+	Thu, 10 Aug 2023 16:30:21 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 97EBF60C06;
+	Thu, 10 Aug 2023 16:30:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EBC34C433C7;
+	Thu, 10 Aug 2023 16:30:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1691685019;
+	bh=6q/Y46TIpsSPhXSxrFEF/VLkfW3O+0fXt+mKjW7zycU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=QBTjQqGMrvrEx1cPGNDE6eBGCUIGSu7QfnO9qJ2fxmYvkPqU3uHCMgyBgqQTf/an2
+	 Z+gn6DD3Hyi2/XpbY+JVY1qMgaDWQl+2hnwz0tVPTFJ/aQbIQmVZ1kcfhhPjRdTHQE
+	 pJIv156HmhMPVc4rUaGTnBIRVcIwyce9fqtZavbwMLCcXcb+iIRAvB+N8r6TXlneb4
+	 UD2iv++wxJLA1MWi34RB4oGLv7/wnHhRqPZEFzgBWFZI+EWK5VqP8eJGXk5oRzCMEx
+	 VVvgWtIxSwNXI117isSSjrqm7FKpRTocaPXB2KmulJEbsgbDl0ASgz97yEvHnqUTRR
+	 0d2hwTU0pEbDg==
+Date: Thu, 10 Aug 2023 17:30:07 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Szabolcs Nagy <Szabolcs.Nagy@arm.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	James Morse <james.morse@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Arnd Bergmann <arnd@arndb.de>, Oleg Nesterov <oleg@redhat.com>,
+	Eric Biederman <ebiederm@xmission.com>,
+	Kees Cook <keescook@chromium.org>, Shuah Khan <shuah@kernel.org>,
+	"Rick P. Edgecombe" <rick.p.edgecombe@intel.com>,
+	Deepak Gupta <debug@rivosinc.com>, Ard Biesheuvel <ardb@kernel.org>,
+	"H.J. Lu" <hjl.tools@gmail.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+	kvmarm@lists.linux.dev, linux-fsdevel@vger.kernel.org,
+	linux-arch@vger.kernel.org, linux-mm@kvack.org,
+	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v4 03/36] arm64/gcs: Document the ABI for Guarded Control
+ Stacks
+Message-ID: <e676deee-fc7a-4f7f-8605-41b4af274c81@sirena.org.uk>
+References: <20230807-arm64-gcs-v4-0-68cfa37f9069@kernel.org>
+ <20230807-arm64-gcs-v4-3-68cfa37f9069@kernel.org>
+ <ZNOhjrYleGBR6Pbs@arm.com>
+ <f4cec4b3-c386-4873-aa1d-90528e062f2a@sirena.org.uk>
+ <ZNSmFmYFHDw3NvvP@arm.com>
+ <4e215e53-c7d1-4338-8df9-3f9bf783ced9@sirena.org.uk>
+ <ZNTnTGb341TSMuvA@arm.com>
+MIME-Version: 1.0
+In-Reply-To: <ZNTnTGb341TSMuvA@arm.com>
+X-Cookie: Reunite Gondwondaland!
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230810_092337_265769_A9333112 
-X-CRM114-Status: GOOD (  32.81  )
+X-CRM114-CacheID: sfid-20230810_093020_289630_45DC9440 
+X-CRM114-Status: GOOD (  21.60  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,85 +95,76 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: multipart/mixed; boundary="===============3714596729819694234=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 10 Aug 2023 09:04:04 PDT (-0700), leobras@redhat.com wrote:
-> On Thu, 2023-08-10 at 08:51 +0200, Arnd Bergmann wrote:
->> On Thu, Aug 10, 2023, at 06:03, Leonardo Bras wrote:
->> > xchg for variables of size 1-byte and 2-bytes is not yet available for
->> > riscv, even though its present in other architectures such as arm64 and
->> > x86. This could lead to not being able to implement some locking mechanisms
->> > or requiring some rework to make it work properly.
->> > 
->> > Implement 1-byte and 2-bytes xchg in order to achieve parity with other
->> > architectures.
->> > 
->> > Signed-off-by: Leonardo Bras <leobras@redhat.com>
->> 
->
-> Hello Arnd Bergmann, thanks for reviewing!
->
->> Parity with other architectures by itself is not a reason to do this,
->> in particular the other architectures you listed have the instructions
->> in hardware while riscv does not.
->
-> Sure, I understand RISC-V don't have native support for xchg on variables of
-> size < 4B. My argument is that it's nice to have even an emulated version for
-> this in case any future mechanism wants to use it.
->
-> Not having it may mean we won't be able to enable given mechanism in RISC-V. 
 
-IIUC the ask is to have a user within the kernel for these functions.  
-That's the general thing to do, and last time this came up there was no 
-in-kernel use of it -- the qspinlock stuff would, but we haven't enabled 
-it yet because we're worried about the performance/fairness stuff that 
-other ports have seen and nobody's got concrete benchmarks yet (though 
-there's another patch set out that I haven't had time to look through, 
-so that may have changed).
+--===============3714596729819694234==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="N3GIhup1qS9ZN5af"
+Content-Disposition: inline
 
-So if something uses these I'm happy to go look closer.
 
->> Emulating the small xchg() through cmpxchg() is particularly tricky
->> since it's easy to run into a case where this does not guarantee
->> forward progress.
->> 
->
-> Didn't get this part:
-> By "emulating small xchg() through cmpxchg()", did you mean like emulating an
-> xchg (usually 1 instruction) with lr & sc (same used in cmpxchg) ?
->
-> If so, yeah, it's a fair point: in some extreme case we could have multiple
-> threads accessing given cacheline and have sc always failing. On the other hand,
-> there are 2 arguments on that:
->
-> 1 - Other architectures, (such as powerpc, arm and arm64 without LSE atomics)
-> also seem to rely in this mechanism for every xchg size. Another archs like csky
-> and loongarch use asm that look like mine to handle size < 4B xchg. 
->     
->
->>  This is also something that almost no architecture
->> specific code relies on (generic qspinlock being a notable exception).
->> 
->
-> 2 - As you mentioned, there should be very little code that will actually make
-> use of xchg for vars < 4B, so it should be safe to assume its fine to not
-> guarantee forward progress for those rare usages (like some of above mentioned
-> archs).
->
->> I would recommend just dropping this patch from the series, at least
->> until there is a need for it.
->
-> While I agree this is a valid point, I believe its more interesting to have it
-> implemented if any future mechanism wants to make use of this. 
->
->
-> Thanks!
-> Leo
+--N3GIhup1qS9ZN5af
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+
+On Thu, Aug 10, 2023 at 02:34:04PM +0100, Szabolcs Nagy wrote:
+> The 08/10/2023 12:41, Mark Brown wrote:
+
+> > I agree that it's going to be excessive for pretty much all
+> > applications, I adjusted it to match x86 as part of the general effort
+> > to avoid divergence and because I was a bit concerned about non-PCS
+> > cases (eg, JITed code) potentially running into trouble, especially with
+
+> is that even possible?
+
+> 16byte alignment is not a convention but architectural:
+> access via unaligned sp traps (at least in userspace).
+
+> it is possible to use bl such that the stack is not involved
+> e.g. if there is no bl/ret pairing, but if we base the gcs
+> size on the stack size then i'd expect one stack frame per
+> bl/ret pair with 16byte alignment, or is there a programming
+> model possible that uses 8byte stack per bl?
+
+That's definitely what I'd expect most of the time.  You'd need to be
+tracking what needs pushing in some other register but it's possible.
+Quite why you'd do this is a separate question, I think I'm being overly
+cautious worrying about anyone actually having done it but it wouldn't
+be the first time I was surprised by someone doing something unexpected.
+Like I say I think it's excessive and was erring on the side of being
+conservative.
+
+--N3GIhup1qS9ZN5af
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmTVEI4ACgkQJNaLcl1U
+h9A4Awf/bx8Lj3RQIsL13zO6Rcr8idtjPSrfssjIBQQtk+Ytcou3d6I0srD7ZcYS
+KIOrfTZRe8dRpA45iRARURQA9vzzzeS2pMY0bviaHVPz0kbfeiJ8x/PXOgLOHMkX
+EV2us3XQYCNpiGAozGpIK5m8GntmZotF3bJtqK8PDxzf+ujeo361xNzQFcBX7js/
+YNED0FhW8OeI/+z7ztalZM26vZw05bE2MwbJmazHCO6L/flUyNSyrk+otZdC71s0
+UEVhosgX4Ba4KFRmDBvl5JiCIohdEI+k5S3vJOAZiLauPFRDQuFlrNvs1SGkHcMv
+WbwxA1SwHdT5GRMpJCXjvIAWhkckqg==
+=j9pJ
+-----END PGP SIGNATURE-----
+
+--N3GIhup1qS9ZN5af--
+
+
+--===============3714596729819694234==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============3714596729819694234==--
+
