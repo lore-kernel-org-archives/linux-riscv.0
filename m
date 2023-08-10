@@ -4,88 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06881C0015E
-	for <linux-riscv@archiver.kernel.org>; Thu, 10 Aug 2023 01:41:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B762C001B0
+	for <linux-riscv@archiver.kernel.org>; Thu, 10 Aug 2023 04:04:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=71rvfqs8RDMibVIKIubhFlqSw1hMmZ4XqVZs5wJ8Bm0=; b=fSpTf1VZOONHZZ
-	WcGD1YzU2X79ymmis578JgJbo3NZ5d7NORFpGN1w6CPN5PCw9djAPZYOx3DntJdcMFMIGefCkiAlE
-	VP0UUmPPKvzHXlqVuoegxH8XiAgTivyblRuBB7sKYHpGVnD5JR1x4PnUgioe+CWC5kH9aZNPY98BD
-	UWgK/9FvdzBbxI2x944fiG3J/o1aZCYw3pZaArQ6YaSoygGc1ryetOYDMGC3V6Se+7CreYl5rzfce
-	DRuC+NKjyJ5i1055BOXbv3hT0jLzKjXsMPgMmA4z/Hv6BUJKyyJvNUWrK3VTAiezxZMfwMfl5YOz/
-	ybPyGedRyRVCJ/9HzKgw==;
+	List-Owner; bh=3VTRUUiuGzNDxOqgXZUryASae5qY6GeF0U6/L2fYYxY=; b=uXQT1dUyHNznrV
+	G19EjsYWG4mRRkeQhaDDiT8IgTpCcO1VNKZpLB9AjcEtHRzB5rJwLQZAjIbDbK6XXGSIT+/1tfqaT
+	gxE+ZwqSWKyQcRLcbXEJ8MRa9/LESrOznjfNuoBJ7wwwmZ5nHCaW86959QQYEA90u837doL3zo+KJ
+	D+Qx5eRJCQuROC/Q1EQt106GBoCJ/eClf8ISyqz7l1C5pfVnA3T6mvRTOHXSLfwVt/fdUKvCyRimB
+	FL3lWj//yzuPKHX3MtMqUA0CEceNXXZdOj/n8brIYL2UhZlGWY0i/WfCME0qrlB+QIJeW10zwMSUG
+	C7CwS3EnJkSUWujibDwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qTufj-006IFS-1R;
-	Thu, 10 Aug 2023 01:41:07 +0000
-Received: from mgamail.intel.com ([192.55.52.93])
+	id 1qTwuK-006Sg5-0N;
+	Thu, 10 Aug 2023 04:04:20 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qTufd-006IEA-2k;
-	Thu, 10 Aug 2023 01:41:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1691631661; x=1723167661;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=3m4JFu59Pv1cZ4RPpIvRJu61Mts2YXt4oS7PC2gaRSg=;
-  b=ben7brvqrg/0jAx/c0FLB9icavHrAR0xU1MMqWAnt3ZNOPqQym9o2VB/
-   A9eoK7+zzZQ1HaA1b1aNM+k85VgSpNExvWK2jpDSphpBAOfKXnRhQh37+
-   zTMhZTU2H9SsEZs7uSlRR4e3LHVA0c4kyGlwbpQKVXXkkB2blvvX/TTit
-   3iAdnBVZoiGe1JcrG35h9keRZT6J71HBqVD4NRCFnKHmC8uQQ2kJ1ii70
-   d+KEwNCzYoZjdLRwx+V1mIpFKGRTZaO2axejzT+TBBopiO/PowyBopF1/
-   TjmWesHICiE/GjY2uZeDlHKYITc4liwVp0wj2oyenMvYgRPKP1hZ6RtA8
-   g==;
-X-IronPort-AV: E=McAfee;i="6600,9927,10797"; a="368730071"
-X-IronPort-AV: E=Sophos;i="6.01,160,1684825200"; 
-   d="scan'208";a="368730071"
-Received: from fmsmga007.fm.intel.com ([10.253.24.52])
-  by fmsmga102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Aug 2023 18:40:58 -0700
-X-ExtLoop1: 1
-X-IronPort-AV: E=McAfee;i="6600,9927,10797"; a="735214618"
-X-IronPort-AV: E=Sophos;i="6.01,160,1684825200"; 
-   d="scan'208";a="735214618"
-Received: from lkp-server01.sh.intel.com (HELO d1ccc7e87e8f) ([10.239.97.150])
-  by fmsmga007.fm.intel.com with ESMTP; 09 Aug 2023 18:40:52 -0700
-Received: from kbuild by d1ccc7e87e8f with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1qTufU-0006ai-01;
-	Thu, 10 Aug 2023 01:40:52 +0000
-Date: Thu, 10 Aug 2023 09:40:42 +0800
-From: kernel test robot <lkp@intel.com>
-To: Raghavendra Rao Ananta <rananta@google.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Marc Zyngier <maz@kernel.org>, James Morse <james.morse@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Sean Christopherson <seanjc@google.com>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	Zenghui Yu <yuzenghui@huawei.com>, Anup Patel <anup@brainfault.org>,
-	Atish Patra <atishp@atishpatra.org>,
-	Jing Zhang <jingzhangos@google.com>,
-	Reiji Watanabe <reijiw@google.com>,
-	Colton Lewis <coltonlewis@google.com>,
-	Raghavendra Rao Anata <rananta@google.com>,
-	David Matlack <dmatlack@google.com>, Fuad Tabba <tabba@google.com>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-mips@vger.kernel.org, kvm-riscv@lists.infradead.org,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kvm@vger.kernel.org, Gavin Shan <gshan@redhat.com>,
-	Shaoqin Huang <shahuang@redhat.com>
-Subject: Re: [PATCH v8 11/14] KVM: arm64: Implement
- kvm_arch_flush_remote_tlbs_range()
-Message-ID: <202308100953.kGcDpe5z-lkp@intel.com>
-References: <20230808231330.3855936-12-rananta@google.com>
+	id 1qTwuF-006SfG-24
+	for linux-riscv@lists.infradead.org;
+	Thu, 10 Aug 2023 04:04:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1691640254;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=OScrv20Vk5PZ28CoHB13qKk09OrWPyCgb0XsKA59wTM=;
+	b=H9pLl2+aC04Oa4LpLfvcHEejhskioqLowl5XLCzlDm0Rte/x9bF5Oli3w0nhSmfNVASOgv
+	u7apzq5CelRvkbn2loPgOynVP42QAgNRznU4uD20+wARiTL6U/97qFiEk4pLYTmvGOsmDA
+	LelWuAiC0h/1FMJEHu/0MrGNZAzwrzs=
+Received: from mail-oi1-f197.google.com (mail-oi1-f197.google.com
+ [209.85.167.197]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-488-hkIqhx9VOlG2McVAiMJ_Yg-1; Thu, 10 Aug 2023 00:04:13 -0400
+X-MC-Unique: hkIqhx9VOlG2McVAiMJ_Yg-1
+Received: by mail-oi1-f197.google.com with SMTP id 5614622812f47-3a5ab2d2b3bso570550b6e.0
+        for <linux-riscv@lists.infradead.org>; Wed, 09 Aug 2023 21:04:13 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1691640252; x=1692245052;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=OScrv20Vk5PZ28CoHB13qKk09OrWPyCgb0XsKA59wTM=;
+        b=G3Bm3A2gqXG2TusQ+X9yempb6UTGYvGqhe8qSXMHmsNETLIWh83IXgq4zlRgFWeQtE
+         SLLkTXa8wdev33hCTgS8nlp4kUDzXFFBfC5jcF/LTETUdu3Giv+tpzo4gRy5O4iyVZIp
+         vJy86DZmDGoMFMGVDrv2hibS6vtyIOkLUSpE5y+0jQKV7FWSbGUiHNKauHqfX5UwH2iJ
+         yDq5vDVZuUC5gVaTE+W5Sd9tl4qCQa4g8ratHlpwk/I7yQ+E/BSmxoMWpfdwLQvd5JCM
+         QPH/NN2L/s4ZOWvrDuLw/VRIDvqhUESQp4wwiOmEcHZKNT8zSNNR3HHmib2Iema7V6y1
+         /2sw==
+X-Gm-Message-State: AOJu0YwfzhEAQ1LZUYRSFK1mTeAd41Uw41dQ5ezX+VgfgSyoYyhF3S6a
+	Nz3inzg4I+7w+SeTcaQIVw9PUBOyM3LcEDMnLKTMFO8VimAZ39WsRS+89alfC3xpKvYEv9preSK
+	VvNKpJ2Lc/rmUrhRtzdhEGCn4uEe7
+X-Received: by 2002:a05:6808:16a8:b0:3a7:65ae:9ccf with SMTP id bb40-20020a05680816a800b003a765ae9ccfmr1751531oib.22.1691640252580;
+        Wed, 09 Aug 2023 21:04:12 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGXuC0j5A0JXiqF9jKMAp5qoF1YnSFxPZWZ79s3qRiKxxZaWZdWWqxSD/vcnxGSyUwfd9n7/g==
+X-Received: by 2002:a05:6808:16a8:b0:3a7:65ae:9ccf with SMTP id bb40-20020a05680816a800b003a765ae9ccfmr1751518oib.22.1691640252341;
+        Wed, 09 Aug 2023 21:04:12 -0700 (PDT)
+Received: from localhost.localdomain ([2804:431:c7ec:e667:6b7d:ed55:c363:a088])
+        by smtp.gmail.com with ESMTPSA id b12-20020aca674c000000b003a7b5193909sm310087oiy.19.2023.08.09.21.04.07
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 09 Aug 2023 21:04:11 -0700 (PDT)
+From: Leonardo Bras <leobras@redhat.com>
+To: Will Deacon <will@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Boqun Feng <boqun.feng@gmail.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Leonardo Bras <leobras@redhat.com>,
+	Andrea Parri <parri.andrea@gmail.com>,
+	Andrzej Hajda <andrzej.hajda@intel.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Palmer Dabbelt <palmer@rivosinc.com>,
+	Guo Ren <guoren@kernel.org>
+Cc: linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: [RFC PATCH v5 1/5] riscv/cmpxchg: Deduplicate xchg() asm functions
+Date: Thu, 10 Aug 2023 01:03:43 -0300
+Message-ID: <20230810040349.92279-3-leobras@redhat.com>
+X-Mailer: git-send-email 2.41.0
+In-Reply-To: <20230810040349.92279-2-leobras@redhat.com>
+References: <20230810040349.92279-2-leobras@redhat.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230808231330.3855936-12-rananta@google.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230809_184101_926700_CCFD3B08 
-X-CRM114-Status: GOOD (  10.29  )
+X-CRM114-CacheID: sfid-20230809_210415_760283_10D1676E 
+X-CRM114-Status: GOOD (  12.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,53 +112,198 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Raghavendra,
+In this header every xchg define (_relaxed, _acquire, _release, vanilla)
+contain it's own asm file, both for 4-byte variables an 8-byte variables,
+on a total of 8 versions of mostly the same asm.
 
-kernel test robot noticed the following build errors:
+This is usually bad, as it means any change may be done in up to 8
+different places.
 
-[auto build test ERROR on kvm/queue]
-[also build test ERROR on kvmarm/next arm64/for-next/core linus/master v6.5-rc5 next-20230809]
-[cannot apply to kvm/linux-next]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+Unify those versions by creating a new define with enough parameters to
+generate any version of the previous 8.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Raghavendra-Rao-Ananta/KVM-Rename-kvm_arch_flush_remote_tlb-to-kvm_arch_flush_remote_tlbs/20230809-071643
-base:   https://git.kernel.org/pub/scm/virt/kvm/kvm.git queue
-patch link:    https://lore.kernel.org/r/20230808231330.3855936-12-rananta%40google.com
-patch subject: [PATCH v8 11/14] KVM: arm64: Implement kvm_arch_flush_remote_tlbs_range()
-config: arm64-randconfig-r023-20230809 (https://download.01.org/0day-ci/archive/20230810/202308100953.kGcDpe5z-lkp@intel.com/config)
-compiler: clang version 15.0.7 (https://github.com/llvm/llvm-project.git 8dfdcc7b7bf66834a761bd8de445840ef68e4d1a)
-reproduce: (https://download.01.org/0day-ci/archive/20230810/202308100953.kGcDpe5z-lkp@intel.com/reproduce)
+Then unify the result under a more general define, and simplify
+arch_xchg* generation.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202308100953.kGcDpe5z-lkp@intel.com/
+(This did not cause any change in generated asm)
 
-All errors (new ones prefixed by >>):
+Signed-off-by: Leonardo Bras <leobras@redhat.com>
+Reviewed-by: Andrea Parri <parri.andrea@gmail.com>
+---
+ arch/riscv/include/asm/cmpxchg.h | 138 ++++++-------------------------
+ 1 file changed, 23 insertions(+), 115 deletions(-)
 
->> arch/arm64/kvm/mmu.c:179:5: error: use of undeclared identifier 'start_gfn'
-                                   start_gfn << PAGE_SHIFT, nr_pages << PAGE_SHIFT);
-                                   ^
-   1 error generated.
-
-
-vim +/start_gfn +179 arch/arm64/kvm/mmu.c
-
-   174	
-   175	int kvm_arch_flush_remote_tlbs_range(struct kvm *kvm,
-   176					      gfn_t gfn, u64 nr_pages)
-   177	{
-   178		kvm_tlb_flush_vmid_range(&kvm->arch.mmu,
- > 179					start_gfn << PAGE_SHIFT, nr_pages << PAGE_SHIFT);
-   180		return 0;
-   181	}
-   182	
-
+diff --git a/arch/riscv/include/asm/cmpxchg.h b/arch/riscv/include/asm/cmpxchg.h
+index 2f4726d3cfcc..48478a8eecee 100644
+--- a/arch/riscv/include/asm/cmpxchg.h
++++ b/arch/riscv/include/asm/cmpxchg.h
+@@ -11,140 +11,48 @@
+ #include <asm/barrier.h>
+ #include <asm/fence.h>
+ 
+-#define __xchg_relaxed(ptr, new, size)					\
++#define __arch_xchg(sfx, prepend, append, r, p, n)			\
+ ({									\
+-	__typeof__(ptr) __ptr = (ptr);					\
+-	__typeof__(new) __new = (new);					\
+-	__typeof__(*(ptr)) __ret;					\
+-	switch (size) {							\
+-	case 4:								\
+-		__asm__ __volatile__ (					\
+-			"	amoswap.w %0, %2, %1\n"			\
+-			: "=r" (__ret), "+A" (*__ptr)			\
+-			: "r" (__new)					\
+-			: "memory");					\
+-		break;							\
+-	case 8:								\
+-		__asm__ __volatile__ (					\
+-			"	amoswap.d %0, %2, %1\n"			\
+-			: "=r" (__ret), "+A" (*__ptr)			\
+-			: "r" (__new)					\
+-			: "memory");					\
+-		break;							\
+-	default:							\
+-		BUILD_BUG();						\
+-	}								\
+-	__ret;								\
+-})
+-
+-#define arch_xchg_relaxed(ptr, x)					\
+-({									\
+-	__typeof__(*(ptr)) _x_ = (x);					\
+-	(__typeof__(*(ptr))) __xchg_relaxed((ptr),			\
+-					    _x_, sizeof(*(ptr)));	\
++	__asm__ __volatile__ (						\
++		prepend							\
++		"	amoswap" sfx " %0, %2, %1\n"			\
++		append							\
++		: "=r" (r), "+A" (*(p))					\
++		: "r" (n)						\
++		: "memory");						\
+ })
+ 
+-#define __xchg_acquire(ptr, new, size)					\
++#define _arch_xchg(ptr, new, sfx, prepend, append)			\
+ ({									\
+ 	__typeof__(ptr) __ptr = (ptr);					\
+-	__typeof__(new) __new = (new);					\
+-	__typeof__(*(ptr)) __ret;					\
+-	switch (size) {							\
++	__typeof__(*(__ptr)) __new = (new);				\
++	__typeof__(*(__ptr)) __ret;					\
++	switch (sizeof(*__ptr)) {					\
+ 	case 4:								\
+-		__asm__ __volatile__ (					\
+-			"	amoswap.w %0, %2, %1\n"			\
+-			RISCV_ACQUIRE_BARRIER				\
+-			: "=r" (__ret), "+A" (*__ptr)			\
+-			: "r" (__new)					\
+-			: "memory");					\
++		__arch_xchg(".w" sfx, prepend, append,			\
++			      __ret, __ptr, __new);			\
+ 		break;							\
+ 	case 8:								\
+-		__asm__ __volatile__ (					\
+-			"	amoswap.d %0, %2, %1\n"			\
+-			RISCV_ACQUIRE_BARRIER				\
+-			: "=r" (__ret), "+A" (*__ptr)			\
+-			: "r" (__new)					\
+-			: "memory");					\
++		__arch_xchg(".d" sfx, prepend, append,			\
++			      __ret, __ptr, __new);			\
+ 		break;							\
+ 	default:							\
+ 		BUILD_BUG();						\
+ 	}								\
+-	__ret;								\
++	(__typeof__(*(__ptr)))__ret;					\
+ })
+ 
+-#define arch_xchg_acquire(ptr, x)					\
+-({									\
+-	__typeof__(*(ptr)) _x_ = (x);					\
+-	(__typeof__(*(ptr))) __xchg_acquire((ptr),			\
+-					    _x_, sizeof(*(ptr)));	\
+-})
++#define arch_xchg_relaxed(ptr, x)					\
++	_arch_xchg(ptr, x, "", "", "")
+ 
+-#define __xchg_release(ptr, new, size)					\
+-({									\
+-	__typeof__(ptr) __ptr = (ptr);					\
+-	__typeof__(new) __new = (new);					\
+-	__typeof__(*(ptr)) __ret;					\
+-	switch (size) {							\
+-	case 4:								\
+-		__asm__ __volatile__ (					\
+-			RISCV_RELEASE_BARRIER				\
+-			"	amoswap.w %0, %2, %1\n"			\
+-			: "=r" (__ret), "+A" (*__ptr)			\
+-			: "r" (__new)					\
+-			: "memory");					\
+-		break;							\
+-	case 8:								\
+-		__asm__ __volatile__ (					\
+-			RISCV_RELEASE_BARRIER				\
+-			"	amoswap.d %0, %2, %1\n"			\
+-			: "=r" (__ret), "+A" (*__ptr)			\
+-			: "r" (__new)					\
+-			: "memory");					\
+-		break;							\
+-	default:							\
+-		BUILD_BUG();						\
+-	}								\
+-	__ret;								\
+-})
++#define arch_xchg_acquire(ptr, x)					\
++	_arch_xchg(ptr, x, "", "", RISCV_ACQUIRE_BARRIER)
+ 
+ #define arch_xchg_release(ptr, x)					\
+-({									\
+-	__typeof__(*(ptr)) _x_ = (x);					\
+-	(__typeof__(*(ptr))) __xchg_release((ptr),			\
+-					    _x_, sizeof(*(ptr)));	\
+-})
+-
+-#define __arch_xchg(ptr, new, size)					\
+-({									\
+-	__typeof__(ptr) __ptr = (ptr);					\
+-	__typeof__(new) __new = (new);					\
+-	__typeof__(*(ptr)) __ret;					\
+-	switch (size) {							\
+-	case 4:								\
+-		__asm__ __volatile__ (					\
+-			"	amoswap.w.aqrl %0, %2, %1\n"		\
+-			: "=r" (__ret), "+A" (*__ptr)			\
+-			: "r" (__new)					\
+-			: "memory");					\
+-		break;							\
+-	case 8:								\
+-		__asm__ __volatile__ (					\
+-			"	amoswap.d.aqrl %0, %2, %1\n"		\
+-			: "=r" (__ret), "+A" (*__ptr)			\
+-			: "r" (__new)					\
+-			: "memory");					\
+-		break;							\
+-	default:							\
+-		BUILD_BUG();						\
+-	}								\
+-	__ret;								\
+-})
++	_arch_xchg(ptr, x, "", RISCV_RELEASE_BARRIER, "")
+ 
+ #define arch_xchg(ptr, x)						\
+-({									\
+-	__typeof__(*(ptr)) _x_ = (x);					\
+-	(__typeof__(*(ptr))) __arch_xchg((ptr), _x_, sizeof(*(ptr)));	\
+-})
++	_arch_xchg(ptr, x, ".aqrl", "", "")
+ 
+ #define xchg32(ptr, x)							\
+ ({									\
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+2.41.0
+
 
 _______________________________________________
 linux-riscv mailing list
