@@ -4,96 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AD40C001B0
-	for <linux-riscv@archiver.kernel.org>; Thu, 10 Aug 2023 19:13:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F4B5C001E0
+	for <linux-riscv@archiver.kernel.org>; Thu, 10 Aug 2023 19:15:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Date:References:
 	In-Reply-To:Message-Id:Mime-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OHu+5fEQYSD+wLBvsDuBADoxpMkJo6XOeM7WBkAe4kA=; b=ezrUKNS54T824I
-	tW9Waz1m0Nt1rjVKthKZRg0MxSTNJbICPuXL+AF7UXP5oDRNoqoGcx20YW0Y3F+Zm9tg0tHudc3ua
-	GmmGYBnRzWWFY+gwkZiGRmymPZtKicEPBXWHKkNCzvZ6AJe1rWjzu3LPpnLw2hEvqEIHlayetF8y3
-	tLXHdDkOY25r5mNAOPPqySu/pMSBqOvP3i5qWD60S1aVJlvw7naET9/Kd1xYJ7UnqUvxqiSVcrXxf
-	JkX9DLsQSPF2xqCAaVxXVJ+0aFXeAkXR0WYra8OtIomDIRCCld057CUfELuW2rHCA+5DRljKp1dGB
-	/bmyaFbv7NVK1CFWe43g==;
+	List-Owner; bh=7AovPAktPBp3N0zhV1y7VV6Qwm4fpk9/76e3qmCRXaQ=; b=tL9/vYfkv6LZi4
+	pmzeV+GG+7gkm6HzoUUsuqxCheiN2B1oSOdErHH90aVjBmRVCWg9i+Ili5E7gQqW7LdR8lTR+fv9z
+	0tVHgCZ+CnTxDNydi2jaIqKYnZciHL72Ehwm/FTWKM86boU6CdB4a2N2nZ1cW4fNMCTDL+/ADmjsC
+	itaoXfKPZYRP1nYWUS30d65ztVPuKAXiYvP3D45soXB1M38ytTVdCROv259nnK/k5x9dy5wgL7Fp1
+	gMyi6OI81DNbEqwv1C9ES96XNM6UX6qYmnmgYn9ipjMCBnE13F1PWH2WI0oPX5WO8siak15g0mbdX
+	FoNSma7/nFcqWLRqOmjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qUB6W-008W95-2j;
-	Thu, 10 Aug 2023 19:13:52 +0000
-Received: from wout2-smtp.messagingengine.com ([64.147.123.25])
+	id 1qUB8K-008WQw-2n;
+	Thu, 10 Aug 2023 19:15:44 +0000
+Received: from wnew3-smtp.messagingengine.com ([64.147.123.17])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qUB6T-008W7k-0E
-	for linux-riscv@lists.infradead.org;
-	Thu, 10 Aug 2023 19:13:50 +0000
+	id 1qUB8G-008WP8-2j;
+	Thu, 10 Aug 2023 19:15:42 +0000
 Received: from compute6.internal (compute6.nyi.internal [10.202.2.47])
-	by mailout.west.internal (Postfix) with ESMTP id 5C5353200936;
-	Thu, 10 Aug 2023 15:13:42 -0400 (EDT)
+	by mailnew.west.internal (Postfix) with ESMTP id 932232B00042;
+	Thu, 10 Aug 2023 15:15:28 -0400 (EDT)
 Received: from imap51 ([10.202.2.101])
-  by compute6.internal (MEProxy); Thu, 10 Aug 2023 15:13:43 -0400
+  by compute6.internal (MEProxy); Thu, 10 Aug 2023 15:15:33 -0400
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
 	:cc:content-type:content-type:date:date:from:from:in-reply-to
 	:in-reply-to:message-id:mime-version:references:reply-to:sender
-	:subject:subject:to:to; s=fm3; t=1691694821; x=1691781221; bh=RL
-	oA66OEzr5j7s1fTq2C967jgX1/gDQUaNF6pTqud2A=; b=X7p4bA7ghfOeXQMoZE
-	BbwfAySgF8oA+TU4Yng28o8m75BZ+55wM+m/MIaOsk+R4SUmwSn4d9H+uml2zVW5
-	d2PS15nA3v/0lXAf6OecXGLe+3l6rw6O4czRGihtW4xcwZVhtgVuIAbiC6pTFlwv
-	2D9nGdvOMmPGXo18+qrvuVQ5wBDzK6jjEvX29LCdNqdJVzqrN2rKm4ITkxDQu87z
-	02hvfZ9S9x7PlhLPxFBwHJssC4KTpW/oRWZRvMpGC/YdSzzlsHNikM4IBmQJ5xhQ
-	FKXYLB9EFZB6MflBa91MIYvD4TKWO03W0LKEtSrdqIC/giyM3PtbyeJjiOorrEKf
-	6apw==
+	:subject:subject:to:to; s=fm3; t=1691694928; x=1691702128; bh=cD
+	RJ70tlUw1f5vvydGZnly44JvjoIjvlKIEtTxRqzOA=; b=Fk2a3oKmRFUV8gAJci
+	cBgTwdOAfOvfxBfK/kzCwlLqOBiyBQrsJn0dHNRXfNBXPuzXQ7ygeDO0/PUB8uvN
+	AMP/JfIvRPikIajQnRrvSccd77nZcD/ungRbk94cFbYENcxAfkonC8FO7FHvhvLs
+	CVaHz3PQ+AGsUd1qQ8l/U8lLilbV6rMW3uksC3GEnqaH3YNwh4oQ4W4u8l6/IlYL
+	UObBFmgnimQLBwPvDCPtROdOvW+vu3xSOSdRpF1aRHAX5rG/65p8nWjGmn0SvmPu
+	Xzxd4L1sEzwFGWTi9MDLJ9HfS+EpCa4GNl6rT5K2LIydS4d5PKdfTtPSUg/WZtC3
+	5iuA==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
 	messagingengine.com; h=cc:cc:content-type:content-type:date:date
 	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
 	:message-id:mime-version:references:reply-to:sender:subject
 	:subject:to:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender
-	:x-sasl-enc; s=fm3; t=1691694821; x=1691781221; bh=RLoA66OEzr5j7
-	s1fTq2C967jgX1/gDQUaNF6pTqud2A=; b=HnW4PD/9KPXfo1AB1CIjhaYBfN9Hr
-	MSmZyBXAulgDKCW4uynPhIN/0XBEXD7N5u7rdYbyOPUF2xPQpnUx7SJzSlHlibCE
-	eRgupu1sIb+TgnSRFp8fZb+bZMT0VojRrWPceovlCaxL7LEgMhnPBGgKGpdZjH1a
-	qwVVAlnZQ0gyqTaIH9rbGIQOu3SCwSSiFYRULCs1ZRIbqs9cypV1sOyfkR6GKq8i
-	GP/AqA7rmCqQCQx6CQQ0JU5i9tdY9+Hm5HRknd3xYrSULGpyhTv20sFEAhxC5JVx
-	6ajePuivMs1CVNwFrpChC3Mizgpgvwat0PFcV93DvUbfpnUqmWviRs2tA==
-X-ME-Sender: <xms:5TbVZED9gVk8hsAvZXtGLThJAS0kUiGQDwLvuNfkw7CF12tEAnpMlQ>
-    <xme:5TbVZGhw1iTsDnZFnvQslTPTLXK6UI6gGfyladsNFGfeywc2npqrPEcXV2yVKqQMv
-    Gm6n91sWls_OzrzwlI>
+	:x-sasl-enc; s=fm3; t=1691694928; x=1691702128; bh=cDRJ70tlUw1f5
+	vvydGZnly44JvjoIjvlKIEtTxRqzOA=; b=gEReDA4xlb1+2btfZ8OIi/HObLPVP
+	pZOOBBWbF5jXzlRKav71x1gVU/GKekOsisb/AQQyveBRByWFW4pdeu4w/2uAqkBW
+	6qK0svrh25X5Vs9DWiTIO5LlPIQcPOH8Le5nzhvC+XZG+DgOOTehZoFN+mlvKOPM
+	e7CEMye7Wmo8ceYe21znTs+hr5KsJw2AKkbV9UZKY36xbm50fUIw42D2ARfev76C
+	gWJX+RmJI1dIAFytEVWdvSHPe/i5Kc59mQDxykfyIz2MslofjC5OQuVxi7gb69Wd
+	/F+w3wFhaHQ2wZ8qMqpJmFDIYImz7QdKekUi0iUGXsLV3DaJAbxBYdPfQ==
+X-ME-Sender: <xms:TDfVZM7n60562LbJiP0wru7s5qkFDSzOMTy0OZYfZlt5l3pODeRyMw>
+    <xme:TDfVZN7ikipGbYQ7WNsY3DwWuoPZpsy-jPiX-_aKlEQfiRAL_N7NoaOBbZ9mRVnra
+    Gf7eguGPLc3fjpq7hU>
 X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedviedrleeigddufeefucetufdoteggodetrfdotf
     fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
     uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
     cujfgurhepofgfggfkjghffffhvfevufgtsehttdertderredtnecuhfhrohhmpedftehr
     nhguuceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrth
     htvghrnhepffehueegteeihfegtefhjefgtdeugfegjeelheejueethfefgeeghfektdek
-    teffnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprg
+    teffnecuvehluhhsthgvrhfuihiivgepudenucfrrghrrghmpehmrghilhhfrhhomheprg
     hrnhgusegrrhhnuggsrdguvg
-X-ME-Proxy: <xmx:5TbVZHmkix-R8Q046mTPFDneTX4FN3my2VnbvjXmLMfXSgKDmoTdCg>
-    <xmx:5TbVZKwpqbbVtIs1KADLi6tOgHDI25fbV4CjToeL4ap4Yv53ynAyBQ>
-    <xmx:5TbVZJQKS5CL3wHmJ68GjS-M-w671wMEMDuKpIeVrUZMVWwzrPZc2Q>
-    <xmx:5TbVZOJpmRRKOmRR_6-ed7I2NdeHNjzNTa5CiPlRd8a_4zMMVz-aDQ>
+X-ME-Proxy: <xmx:TDfVZLdkZrjk8s0kFOBwq_6OTgPN6nE9pPzhxq-Sv4Wd1TOEGcjOsQ>
+    <xmx:TDfVZBK4rFFmyaOtbHwrGRuYpbcZqOSLn6By0rZ_xyhR1EfJQuTZhA>
+    <xmx:TDfVZAJQxnxJC4wwijjIRxXRKOev0DfhX4pzMzcFKZ6vbZrXEXO5Tg>
+    <xmx:UDfVZGTwkI5nbbKi5GcuEsPdLC-F1lfZ36tXwzgLvuGv4tvv61StptN8l70>
 Feedback-ID: i56a14606:Fastmail
 Received: by mailuser.nyi.internal (Postfix, from userid 501)
-	id 49095B60089; Thu, 10 Aug 2023 15:13:41 -0400 (EDT)
+	id 99A05B60089; Thu, 10 Aug 2023 15:15:24 -0400 (EDT)
 X-Mailer: MessagingEngine.com Webmail Interface
 User-Agent: Cyrus-JMAP/3.9.0-alpha0-624-g7714e4406d-fm-20230801.001-g7714e440
 Mime-Version: 1.0
-Message-Id: <ad9b8e41-5897-4ad6-8113-2812301c0c93@app.fastmail.com>
-In-Reply-To: <mhng-92f37526-d36c-48c0-8fbd-7676df1b6086@palmer-ri-x1c9>
-References: <mhng-92f37526-d36c-48c0-8fbd-7676df1b6086@palmer-ri-x1c9>
-Date: Thu, 10 Aug 2023 21:13:20 +0200
+Message-Id: <9f295a4d-5657-4e4d-8740-eb9a56cee97d@app.fastmail.com>
+In-Reply-To: <5bc9d25c-d546-fe94-05cc-41bd5bbbaf67@gmx.de>
+References: <20230810141947.1236730-1-arnd@kernel.org>
+ <20230810141947.1236730-17-arnd@kernel.org>
+ <e0c2f7b1-b137-fbd3-aa28-808498eb8e3f@csgroup.eu>
+ <a6222c7f-f903-4de5-821a-f90da8ad1dc9@app.fastmail.com>
+ <5bc9d25c-d546-fe94-05cc-41bd5bbbaf67@gmx.de>
+Date: Thu, 10 Aug 2023 21:15:04 +0200
 From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Palmer Dabbelt" <palmer@rivosinc.com>,
- "Leonardo Bras" <leobras@redhat.com>
-Cc: "Will Deacon" <will@kernel.org>, "Peter Zijlstra" <peterz@infradead.org>,
- "Boqun Feng" <boqun.feng@gmail.com>, "Mark Rutland" <mark.rutland@arm.com>,
+To: "Helge Deller" <deller@gmx.de>,
+ "Christophe Leroy" <christophe.leroy@csgroup.eu>,
+ "Arnd Bergmann" <arnd@kernel.org>,
+ "Andrew Morton" <akpm@linux-foundation.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Cc: "Matt Turner" <mattst88@gmail.com>, "Vineet Gupta" <vgupta@kernel.org>,
+ "Russell King" <linux@armlinux.org.uk>,
+ "Catalin Marinas" <catalin.marinas@arm.com>,
+ "Will Deacon" <will@kernel.org>, guoren <guoren@kernel.org>,
+ "Brian Cain" <bcain@quicinc.com>, "Huacai Chen" <chenhuacai@kernel.org>,
+ "WANG Xuerui" <kernel@xen0n.name>,
+ "Geert Uytterhoeven" <geert@linux-m68k.org>,
+ "Michal Simek" <monstr@monstr.eu>,
+ "Thomas Bogendoerfer" <tsbogend@alpha.franken.de>,
+ "Dinh Nguyen" <dinguyen@kernel.org>, "Jonas Bonn" <jonas@southpole.se>,
+ "Stafford Horne" <shorne@gmail.com>,
+ "James E . J . Bottomley" <James.Bottomley@HansenPartnership.com>,
+ "Michael Ellerman" <mpe@ellerman.id.au>,
+ "Palmer Dabbelt" <palmer@dabbelt.com>,
+ "Heiko Carstens" <hca@linux.ibm.com>,
+ "John Paul Adrian Glaubitz" <glaubitz@physik.fu-berlin.de>,
+ "x86@kernel.org" <x86@kernel.org>, "Borislav Petkov" <bp@alien8.de>,
+ "Nathan Chancellor" <nathan@kernel.org>,
+ "Nick Desaulniers" <ndesaulniers@google.com>,
+ "Guenter Roeck" <linux@roeck-us.net>,
+ "Stephen Rothwell" <sfr@canb.auug.org.au>,
+ linux-next <linux-next@vger.kernel.org>,
+ "linux-alpha@vger.kernel.org" <linux-alpha@vger.kernel.org>,
+ "linux-snps-arc@lists.infradead.org"
+ <linux-snps-arc@lists.infradead.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>,
+ "linux-hexagon@vger.kernel.org" <linux-hexagon@vger.kernel.org>,
+ "linux-ia64@vger.kernel.org" <linux-ia64@vger.kernel.org>,
+ "loongarch@lists.linux.dev" <loongarch@lists.linux.dev>,
+ "linux-m68k@lists.linux-m68k.org" <linux-m68k@lists.linux-m68k.org>,
+ "linux-mips@vger.kernel.org" <linux-mips@vger.kernel.org>,
+ "linux-openrisc@vger.kernel.org" <linux-openrisc@vger.kernel.org>,
+ "sparclinux@vger.kernel.org" <sparclinux@vger.kernel.org>,
+ "Richard Henderson" <richard.henderson@linaro.org>,
+ "Ivan Kokshaysky" <ink@jurassic.park.msu.ru>,
+ "Stefan Kristiansson" <stefan.kristiansson@saunalahti.fi>,
+ "Yoshinori Sato" <ysato@users.sourceforge.jp>,
+ "Rich Felker" <dalias@libc.org>,
+ "David S . Miller" <davem@davemloft.net>,
+ "Chris Zankel" <chris@zankel.net>, "Max Filippov" <jcmvbkbc@gmail.com>,
+ "Christian Brauner" <brauner@kernel.org>,
  "Paul Walmsley" <paul.walmsley@sifive.com>,
- "Albert Ou" <aou@eecs.berkeley.edu>, "Andrea Parri" <parri.andrea@gmail.com>,
- "Andrzej Hajda" <andrzej.hajda@intel.com>, guoren <guoren@kernel.org>,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [RFC PATCH v5 5/5] riscv/cmpxchg: Implement xchg for variables of size 1
- and 2
+ "Albert Ou" <aou@eecs.berkeley.edu>,
+ "Youling Tang" <tangyouling@loongson.cn>,
+ "Tiezhu Yang" <yangtiezhu@loongson.cn>,
+ "Masahiro Yamada" <masahiroy@kernel.org>,
+ "Randy Dunlap" <rdunlap@infradead.org>,
+ "Masami Hiramatsu" <mhiramat@kernel.org>,
+ "Paul E. McKenney" <paulmck@kernel.org>,
+ "Miguel Ojeda" <ojeda@kernel.org>,
+ "Zhen Lei" <thunder.leizhen@huawei.com>, "Xin Li" <xin3.li@intel.com>,
+ "Nhat Pham" <nphamcs@gmail.com>,
+ "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>,
+ =?UTF-8?Q?Marc_Aur=C3=A8le_La_France?= <tsi@tuyoix.net>,
+ "Johannes Weiner" <hannes@cmpxchg.org>,
+ "linux-parisc@vger.kernel.org" <linux-parisc@vger.kernel.org>,
+ "linux-sh@vger.kernel.org" <linux-sh@vger.kernel.org>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
+Subject: Re: [PATCH 16/17] [RFC] arch: turn -Wmissing-prototypes off conditionally
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230810_121349_543278_57095015 
-X-CRM114-Status: GOOD (  25.82  )
+X-CRM114-CacheID: sfid-20230810_121540_915058_F527B7C0 
+X-CRM114-Status: GOOD (  11.96  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,85 +169,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 10, 2023, at 18:23, Palmer Dabbelt wrote:
-> On Thu, 10 Aug 2023 09:04:04 PDT (-0700), leobras@redhat.com wrote:
->> On Thu, 2023-08-10 at 08:51 +0200, Arnd Bergmann wrote:
->>> On Thu, Aug 10, 2023, at 06:03, Leonardo Bras wrote:
->>> > xchg for variables of size 1-byte and 2-bytes is not yet available for
->>> > riscv, even though its present in other architectures such as arm64 and
->>> > x86. This could lead to not being able to implement some locking mechanisms
->>> > or requiring some rework to make it work properly.
->>> > 
->>> > Implement 1-byte and 2-bytes xchg in order to achieve parity with other
->>> > architectures.
+On Thu, Aug 10, 2023, at 17:59, Helge Deller wrote:
+> On 8/10/23 17:21, Arnd Bergmann wrote:
+>> On Thu, Aug 10, 2023, at 16:59, Christophe Leroy wrote:
 >>
->>> Parity with other architectures by itself is not a reason to do this,
->>> in particular the other architectures you listed have the instructions
->>> in hardware while riscv does not.
+>> I did send other fixes for microblaze and parisc specific drivers,
+>> and I could also send patches for the two defconfig warnings if
+>> the maintainers are happy with fixing those but leaving allmodconfig
+>> to still warn, but I feel that it's easier for them to just
+>> do the last fixes themselves and then remove my hack again.
 >>
->> Sure, I understand RISC-V don't have native support for xchg on variables of
->> size < 4B. My argument is that it's nice to have even an emulated version for
->> this in case any future mechanism wants to use it.
->>
->> Not having it may mean we won't be able to enable given mechanism in RISC-V. 
+>> I'll wait for Michal and Helge on these.
 >
-> IIUC the ask is to have a user within the kernel for these functions.  
-> That's the general thing to do, and last time this came up there was no 
-> in-kernel use of it -- the qspinlock stuff would, but we haven't enabled 
-> it yet because we're worried about the performance/fairness stuff that 
-> other ports have seen and nobody's got concrete benchmarks yet (though 
-> there's another patch set out that I haven't had time to look through, 
-> so that may have changed).
+> Arnd, I like your patch!
+> For parisc I've done quite some work during the last few weeks to
+> get such warnings sqeezed out, so please drop the hunk for parisc from
+> your patch. My plan is to become warning-free before 6.5-final.
+>
+> This last one:
+>      arch/parisc/lib/ucmpdi2.c:12:5: error: no previous prototype for 
+> '__ucmpdi2' [-Werror=missing-prototypes]
+> I'll take care in the parisc for-next tree.
 
-Right. In particular the qspinlock is a good example for something
-where having the emulated 16-bit xchg() may end up less efficient
-than a natively supported instruction.
+Sounds good to me, thanks!
 
-The xchg() here is a performance optimization for CPUs that can
-do this without touching the other half of the 32-bit word.
-
->>
->> Didn't get this part:
->> By "emulating small xchg() through cmpxchg()", did you mean like emulating an
->> xchg (usually 1 instruction) with lr & sc (same used in cmpxchg) ?
->>
->> If so, yeah, it's a fair point: in some extreme case we could have multiple
->> threads accessing given cacheline and have sc always failing. On the other hand,
->> there are 2 arguments on that:
->>
->> 1 - Other architectures, (such as powerpc, arm and arm64 without LSE atomics)
->> also seem to rely in this mechanism for every xchg size. Another archs like csky
->> and loongarch use asm that look like mine to handle size < 4B xchg. 
-
-I think you misread the arm64 code, which should use native instructions
-for all sizes, in both the armv8.0 and LSE atomics.
-
-PowerPC does use the masking for xchg, but I suspect there are no
-actual users, at least it actually has its own qspinlock implementation
-that avoids xchg().
-
->>>  This is also something that almost no architecture
->>> specific code relies on (generic qspinlock being a notable exception).
->>> 
->>
->> 2 - As you mentioned, there should be very little code that will actually make
->> use of xchg for vars < 4B, so it should be safe to assume its fine to not
->> guarantee forward progress for those rare usages (like some of above mentioned
->> archs).
-
-I don't this this is a safe assumption, we've had endless discussions
-about using qspinlock on architectures without a native xchg(), which
-needs either hardware guarantees or special countermeasures in xchg() itself
-to avoid this.
-
-What I'd actually like to do here is to remove the special 8-bit and
-16-bit cases from the xchg() and cmpxchg() interfaces at all, leaving
-only fixed 32-bit and native wordsize (either 32 or 64) as the option,
-while dealing with the others the same way we treat the fixed
-64-bit cases that hardcode the 64-bit argument types and are only
-usable on architectures that provide them.
-
-    Arnd
+     Arnd
 
 _______________________________________________
 linux-riscv mailing list
