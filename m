@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0A32C001B0
-	for <linux-riscv@archiver.kernel.org>; Thu, 10 Aug 2023 04:04:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53320C001B0
+	for <linux-riscv@archiver.kernel.org>; Thu, 10 Aug 2023 04:04:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+8LXlnLMJ+i11qJbvDt8Lqbc4WCq9mmT0tJXinXTdE4=; b=znjIJYD4QsdOnj
-	2Db21o51XXIT3rGlkMbLCMWCXTX1Z6VBZS3EcF3cXmH25U62+ul/idZgkbvjj82FZouNlg/gTd3np
-	LKkI/kQxZFdp1QxWBLha0BckpcrzelwNchdRqeNZX00c5RuCZ8VE1MDYhVcszoK+Dw1KthHXSimvO
-	JpFe1y9LbE30FIIyGyT6az3ryXUevHhfkmy5bDkwIQKeh3ev/Gk54Zw8Kw/cmcWkxy/tD0jnlm1C+
-	jCHGPaIRHnmY9RqarjUl3pbG2qPTWNlVRWtkS7mBWOEB1H/Zt8UgeZYCPfOhXQvTA5jugDgde3uza
-	dw5O5+7fj5SlkgShOW9g==;
+	List-Owner; bh=izOomclOKv3b1AtOCt/0ghbMIzYcsmGSl6h9IX34lCI=; b=EmbNYxHkf2UJG6
+	n7BbyiPn+HQGxxOwW9XNIH/RhG+OvBQEaFFs8XjC5EJttGqz3Vom2z1+U/rdWf7lxe0nrMa5ah0Uh
+	Zv/NxNTaZc6qCjCxBhPUGvgakVh24sa8Ps6eUSD+hqajup9Q9Aec1+LVsAa+wEZVxa/EgLOAXyFPf
+	EaWBq2XyiydjC+bUGLJnTi79BE2oDWQCQK8O8TS1J4eG6JlhfN4F8m8myph8CjFu6fcPsSsGUrv39
+	ilMQKUh+UH6nn64pFBxhOIv9b72Z1qYMuI0tNaszdAIuTGfGIxXyGHWnrXWYFFUmXg44ncnzCcIKA
+	QxkqMyDOGseiHq5XFJxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qTwuY-006Skc-1J;
-	Thu, 10 Aug 2023 04:04:34 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1qTwuf-006SnH-0I;
+	Thu, 10 Aug 2023 04:04:41 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qTwuV-006Siv-0f
+	id 1qTwuc-006SmF-1F
 	for linux-riscv@lists.infradead.org;
-	Thu, 10 Aug 2023 04:04:32 +0000
+	Thu, 10 Aug 2023 04:04:39 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1691640270;
+	s=mimecast20190719; t=1691640277;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=VLwtkHrR4Hnv0SG2htyTx6O/VUdZ3YGDzB9YQqYciKw=;
-	b=ZJh+gD58YFKorM+mjD1OZHbfXfE2+sxf5mdm30T6EVunMdzZYqnI7ks7hp8dm0xRK55iPj
-	O6cocUNU5aOQWSHC0FXZYDtd32oX7HOhxv4Qap+8gRFalvL1z/VTq4YOIQQOKucgE4ex+/
-	d0DKpIxgIrZvClrgQzWEHrmAF+/BMlA=
-Received: from mail-oi1-f197.google.com (mail-oi1-f197.google.com
- [209.85.167.197]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=S9RDXJ5aWrysjU+rhwlqeMwMOsK56lpvgf+6LxPUCTg=;
+	b=Nsy90srPitxzmQowEvTx4za6vEVJ3udyGRjbKCRQTraRRsyART3JMTHtZh2xxf2kJFVOvf
+	adiT76RH2uudJhoZ3oTMasKB47bxDRLoPVS8Zgmp+M2O9UaT9ji0nlRsGuV+Ru1sR2S6nH
+	Vgt7L3RDE9P/MvUts60C1LhYKQwCBnU=
+Received: from mail-oi1-f198.google.com (mail-oi1-f198.google.com
+ [209.85.167.198]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-497-e8LgNQtnOuqESZVNJTAffA-1; Thu, 10 Aug 2023 00:04:29 -0400
-X-MC-Unique: e8LgNQtnOuqESZVNJTAffA-1
-Received: by mail-oi1-f197.google.com with SMTP id 5614622812f47-3a7697e580fso597221b6e.1
-        for <linux-riscv@lists.infradead.org>; Wed, 09 Aug 2023 21:04:28 -0700 (PDT)
+ us-mta-92-R_pjAyJZNYmlTVgBtr4S6g-1; Thu, 10 Aug 2023 00:04:34 -0400
+X-MC-Unique: R_pjAyJZNYmlTVgBtr4S6g-1
+Received: by mail-oi1-f198.google.com with SMTP id 5614622812f47-3a7292a2ad5so606782b6e.0
+        for <linux-riscv@lists.infradead.org>; Wed, 09 Aug 2023 21:04:34 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1691640268; x=1692245068;
+        d=1e100.net; s=20221208; t=1691640273; x=1692245073;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=VLwtkHrR4Hnv0SG2htyTx6O/VUdZ3YGDzB9YQqYciKw=;
-        b=G7ertk+Rp/PtALQTALXaipxi/Uqg54TsetDjIxIc2SZwf47LEqm7GJVg2Z4TG4aDXN
-         +41iSRZ6BiZbB52KxZlpoFS5JbrlKOtls4vnnfheRYL+630RVnP2/zWb9t8NQVvYDeUg
-         b1HyJJd6p/EcpdwvyrjQepM1ueHmLsBHRw0iKs6V21n3zSyPkadG778dl87iV0NBHYpE
-         mQsZfFwkNk1tFVtbgYw+i2+iw+zxGD+tzyytQEqzf6xXBRBcAu51QOAe0imDajAFdVp+
-         zI+tCuADMiYKOP30k31QauhY+z26sZduA0cejaZsFHmDjZ9oYuIWvUdtMfm7V2fJuWXe
-         3BcA==
-X-Gm-Message-State: AOJu0YzmgXRISYQruo7MdYgiqVVBVWyXsIXNib6Q4c4G4gklALnTzPN6
-	hXhgBHgC4XfvEJoATzP2V3uYtbxokWXy4wADpi9B4W5vQ6ut5sTZ+WvYZtD4qyxI9knChapn02w
-	BEOEmf6ilnv8jUuypPwotvGaNgkv5
-X-Received: by 2002:a05:6808:10cc:b0:3a3:d7de:5cfa with SMTP id s12-20020a05680810cc00b003a3d7de5cfamr1819120ois.11.1691640268299;
-        Wed, 09 Aug 2023 21:04:28 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IEAdIAbs7Buum1URpEJTh5T57eb0r1XDUCa+aKbZcc1fbEPGJr7vKxHbONmynKMK+8Fsxl9cg==
-X-Received: by 2002:a05:6808:10cc:b0:3a3:d7de:5cfa with SMTP id s12-20020a05680810cc00b003a3d7de5cfamr1819092ois.11.1691640268064;
-        Wed, 09 Aug 2023 21:04:28 -0700 (PDT)
+        bh=S9RDXJ5aWrysjU+rhwlqeMwMOsK56lpvgf+6LxPUCTg=;
+        b=iVQhxNB52dYNv7FnvJIgc9RRgBk8VKIdg27JXw+S384HHVgt3wb1b02S0SZlj88jJh
+         DYs4N11DZLKX/lQRZITmb4yhNoe6aCCg/aOzrQEUtHTlPEgwNcZ2Kdv5tcEhekFblj8I
+         Lob80nmKZnmoOQ//gqF9xCWNQ2UvBOrHgYewyqZpSe4mOceiWNufbxYRmJb1nqg9sHlG
+         Opq5I/pVJnJrlQHJaFkNEAG/FrS/T/jnyBt5Vyi6wSUFLFjDpAx6q2opFkytN9If3LMH
+         kf957PVvu/i9t0HBVJusYbUztnMmUZT6r1ivbGZAmo04d+tAnZ3n+VGzs4MCxRMqUPOU
+         MyRg==
+X-Gm-Message-State: AOJu0YzdzBKwoRvs3YHtYEUVdG6QDKN10yOkwRmWmmaRy4A7uk9b55kF
+	UA7D5CFBfQwzFO6M+avcWeOnBH1jSHlMZOLQ+Fb7aoTFYE9WaOfREh0l7lU8TXHBvPQGi9PJFYK
+	BP5Lck+gjMD0RWSxdRwXhicdoayct
+X-Received: by 2002:a05:6808:2124:b0:3a7:82e8:8fd1 with SMTP id r36-20020a056808212400b003a782e88fd1mr1804200oiw.20.1691640273708;
+        Wed, 09 Aug 2023 21:04:33 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IEJGYyTweAhht6teeaheQlpzQ7zjq+oFXSk4DIrLLMDF2ExtlYA68o0L4A2hjKnDp8s+BMmiQ==
+X-Received: by 2002:a05:6808:2124:b0:3a7:82e8:8fd1 with SMTP id r36-20020a056808212400b003a782e88fd1mr1804180oiw.20.1691640273540;
+        Wed, 09 Aug 2023 21:04:33 -0700 (PDT)
 Received: from localhost.localdomain ([2804:431:c7ec:e667:6b7d:ed55:c363:a088])
-        by smtp.gmail.com with ESMTPSA id b12-20020aca674c000000b003a7b5193909sm310087oiy.19.2023.08.09.21.04.22
+        by smtp.gmail.com with ESMTPSA id b12-20020aca674c000000b003a7b5193909sm310087oiy.19.2023.08.09.21.04.28
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 09 Aug 2023 21:04:27 -0700 (PDT)
+        Wed, 09 Aug 2023 21:04:33 -0700 (PDT)
 From: Leonardo Bras <leobras@redhat.com>
 To: Will Deacon <will@kernel.org>,
 	Peter Zijlstra <peterz@infradead.org>,
@@ -84,9 +84,9 @@ To: Will Deacon <will@kernel.org>,
 	Guo Ren <guoren@kernel.org>
 Cc: linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org
-Subject: [RFC PATCH v5 4/5] riscv/cmpxchg: Implement cmpxchg for variables of size 1 and 2
-Date: Thu, 10 Aug 2023 01:03:46 -0300
-Message-ID: <20230810040349.92279-6-leobras@redhat.com>
+Subject: [RFC PATCH v5 5/5] riscv/cmpxchg: Implement xchg for variables of size 1 and 2
+Date: Thu, 10 Aug 2023 01:03:47 -0300
+Message-ID: <20230810040349.92279-7-leobras@redhat.com>
 X-Mailer: git-send-email 2.41.0
 In-Reply-To: <20230810040349.92279-2-leobras@redhat.com>
 References: <20230810040349.92279-2-leobras@redhat.com>
@@ -94,8 +94,8 @@ MIME-Version: 1.0
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230809_210431_314659_A0F9A14C 
-X-CRM114-Status: GOOD (  12.63  )
+X-CRM114-CacheID: sfid-20230809_210438_499118_C3E059CB 
+X-CRM114-Status: GOOD (  12.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,71 +112,69 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-cmpxchg for variables of size 1-byte and 2-bytes is not yet available for
+xchg for variables of size 1-byte and 2-bytes is not yet available for
 riscv, even though its present in other architectures such as arm64 and
 x86. This could lead to not being able to implement some locking mechanisms
 or requiring some rework to make it work properly.
 
-Implement 1-byte and 2-bytes cmpxchg in order to achieve parity with other
+Implement 1-byte and 2-bytes xchg in order to achieve parity with other
 architectures.
 
 Signed-off-by: Leonardo Bras <leobras@redhat.com>
 ---
- arch/riscv/include/asm/cmpxchg.h | 34 ++++++++++++++++++++++++++++++++
- 1 file changed, 34 insertions(+)
+ arch/riscv/include/asm/cmpxchg.h | 31 +++++++++++++++++++++++++++++++
+ 1 file changed, 31 insertions(+)
 
 diff --git a/arch/riscv/include/asm/cmpxchg.h b/arch/riscv/include/asm/cmpxchg.h
-index e3e0ac7ba061..ac9d0eeb74e6 100644
+index ac9d0eeb74e6..26cea2395aae 100644
 --- a/arch/riscv/include/asm/cmpxchg.h
 +++ b/arch/riscv/include/asm/cmpxchg.h
-@@ -72,6 +72,35 @@
-  * indicated by comparing RETURN with OLD.
-  */
+@@ -11,6 +11,31 @@
+ #include <asm/barrier.h>
+ #include <asm/fence.h>
  
-+#define __arch_cmpxchg_masked(sc_sfx, prepend, append, r, p, o, n)	\
++#define __arch_xchg_masked(prepend, append, r, p, n)			\
 +({									\
 +	u32 *__ptr32b = (u32 *)((ulong)(p) & ~0x3);			\
 +	ulong __s = ((ulong)(p) & (0x4 - sizeof(*p))) * BITS_PER_BYTE;	\
 +	ulong __mask = GENMASK(((sizeof(*p)) * BITS_PER_BYTE) - 1, 0)	\
 +			<< __s;						\
 +	ulong __newx = (ulong)(n) << __s;				\
-+	ulong __oldx = (ulong)(o) << __s;				\
 +	ulong __retx;							\
 +	ulong __rc;							\
 +									\
 +	__asm__ __volatile__ (						\
-+		prepend							\
-+		"0:	lr.w %0, %2\n"					\
-+		"	and  %1, %0, %z5\n"				\
-+		"	bne  %1, %z3, 1f\n"				\
-+		"	and  %1, %0, %z6\n"				\
-+		"	or   %1, %1, %z4\n"				\
-+		"	sc.w" sc_sfx " %1, %1, %2\n"			\
-+		"	bnez %1, 0b\n"					\
-+		append							\
-+		"1:\n"							\
-+		: "=&r" (__retx), "=&r" (__rc), "+A" (*(__ptr32b))	\
-+		: "rJ" ((long)__oldx), "rJ" (__newx),			\
-+		  "rJ" (__mask), "rJ" (~__mask)				\
-+		: "memory");						\
++	       prepend							\
++	       "0:	lr.w %0, %2\n"					\
++	       "	and  %1, %0, %z4\n"				\
++	       "	or   %1, %1, %z3\n"				\
++	       "	sc.w %1, %1, %2\n"				\
++	       "	bnez %1, 0b\n"					\
++	       append							\
++	       : "=&r" (__retx), "=&r" (__rc), "+A" (*(__ptr32b))	\
++	       : "rJ" (__newx), "rJ" (~__mask)				\
++	       : "memory");						\
 +									\
 +	r = (__typeof__(*(p)))((__retx & __mask) >> __s);		\
 +})
- 
- #define __arch_cmpxchg(lr_sfx, sc_sfx, prepend, append, r, p, co, o, n)	\
++
+ #define __arch_xchg(sfx, prepend, append, r, p, n)			\
  ({									\
-@@ -98,6 +127,11 @@
+ 	__asm__ __volatile__ (						\
+@@ -27,7 +52,13 @@
+ 	__typeof__(ptr) __ptr = (ptr);					\
+ 	__typeof__(*(__ptr)) __new = (new);				\
  	__typeof__(*(__ptr)) __ret;					\
- 									\
++									\
  	switch (sizeof(*__ptr)) {					\
 +	case 1:								\
 +	case 2:								\
-+		__arch_cmpxchg_masked(sc_sfx, prepend, append,		\
-+					__ret, __ptr, __old, __new);	\
++		__arch_xchg_masked(prepend, append,			\
++				   __ret, __ptr, __new);		\
 +		break;							\
  	case 4:								\
- 		__arch_cmpxchg(".w", ".w" sc_sfx, prepend, append,	\
- 				__ret, __ptr, (long), __old, __new);	\
+ 		__arch_xchg(".w" sfx, prepend, append,			\
+ 			      __ret, __ptr, __new);			\
 -- 
 2.41.0
 
