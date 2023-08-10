@@ -4,48 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48C2BC001B0
-	for <linux-riscv@archiver.kernel.org>; Thu, 10 Aug 2023 11:09:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9620C001E0
+	for <linux-riscv@archiver.kernel.org>; Thu, 10 Aug 2023 11:28:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/r7rADMEk5BnT/9OXA0MfPymxz7L4JAnqC6ZbEhNty4=; b=MOtm42qUsPupjg
-	RXxwxM0BaKeIQxXwvZrJ9fRvLaqx1ftm+/NZol/IPrI+4LM43mqz3PlqHaKl79+xc9VWB6H4H/gM/
-	Y7xuMJd+JNIxdAxNPbnM94zTZAO1s9my2Tg5aBLbCu1zMNH/9GiqUkA/t8tUByDEwTrjLvCpABips
-	k80XNyNB7jN9O4tmgB84XJW0B3Q5bRh3OU/9iUV8ArJxGn1vkjqmmZYMWttI+vyeC86NZ0LoTYmt4
-	HnFabc1mkzbHeSXrrGUY/lMgOXlHRjSL4SciuP7NxpJTNE1BZr0BzIgXsNbpRMSoN1DAcm2CsBgGN
-	TISQVY7gSRYLodU47xww==;
+	List-Owner; bh=Bz0eJN4BvJQmPR4xNPlzesu1QUFDGLrQ7YsTX+Map/k=; b=BD9mzzjGaZ8eBr
+	qeJf8cyk7wAa9gnhfeEG+MSogh4849dzWPYy9ds4AOS+zSW5zeLqYzzejd17iHQa8kHT/SZk3FsO3
+	gLkYYtbLDt0R9ylNR8RzZSxXEv/zPft1VnsaolT50Teg94oH0e/BKdIq86VIvpbuwiJq9uI/6dYm1
+	qjZUp3XxlZIvkrDRogTBdqoStaEF/YSFkIiEIx02gGBeP0MQ3jDB7gbMkmXzG5mCunkn+VZ3yzeeb
+	r1wv0P/jvJAHJ0CjwQSR0l3Gs44y4svsF4fE4pNS1VQbPN8GzrMwlm0Oup0uKWE3zHPCHnFY5hRrc
+	FitNyRfI6JAXp4FedbvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qU3Xj-007LR9-1E;
-	Thu, 10 Aug 2023 11:09:27 +0000
-Received: from relay9-d.mail.gandi.net ([2001:4b98:dc4:8::229])
+	id 1qU3qR-007RJ4-33;
+	Thu, 10 Aug 2023 11:28:47 +0000
+Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qU3Xf-007LQM-2a
+	id 1qU3qN-007RH6-2z
 	for linux-riscv@lists.infradead.org;
-	Thu, 10 Aug 2023 11:09:25 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id A1051FF808;
-	Thu, 10 Aug 2023 11:09:17 +0000 (UTC)
-Message-ID: <c16d0b21-6daf-997d-b9c1-0e25b5ddb534@ghiti.fr>
-Date: Thu, 10 Aug 2023 13:09:17 +0200
+	Thu, 10 Aug 2023 11:28:46 +0000
+Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id DC0393F534
+	for <linux-riscv@lists.infradead.org>; Thu, 10 Aug 2023 11:28:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+	s=20210705; t=1691666919;
+	bh=TRU6tUd9wDUUaUwwFM5Bjzb7u7hecXj9L7oTyXsIeCA=;
+	h=MIME-Version:References:In-Reply-To:From:Date:Message-ID:Subject:
+	 To:Cc:Content-Type;
+	b=gahCg0U//OpH467uyTYbpPwW+xT21/XeXApKwcAzDb7l2nYk57GAjXMih8fumWoxn
+	 244tXaiBhWbf5HGCLd3W4vV+52aay/QqHxqzCPTBttUUwn7uJKtTAE2VT9TNE6UJgD
+	 lqTnciBtpup+jVt8f19VnqsOOSkhJLIXzLhjsntD2rOljzOsW3i+H5u2r5NW898w7S
+	 T4zK8NAyDxBmM5Vfi2BPKXl5gZ97Vo0ERot+srGE+LrR8gnvkdcTOFBD9EcMdJMC40
+	 95lB1Ug7pZ8+p2nxloem8y7Z1K5WPE3VihO6BiXNsOcTXBOZaE3bERDQLXjqUC1gAI
+	 DQH6uFElw5P1Q==
+Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-40fdb989957so10943851cf.3
+        for <linux-riscv@lists.infradead.org>; Thu, 10 Aug 2023 04:28:39 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1691666919; x=1692271719;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=TRU6tUd9wDUUaUwwFM5Bjzb7u7hecXj9L7oTyXsIeCA=;
+        b=FaqPIuKL53cYWvTIfedzqRE5ua3dJ2J8CJppBc9zKUeSTusZChIPlzBH4WGBa5LbQX
+         rhxTtGAMRpNE8bi3xMEYKdU/GLQCHMY6Fc0ji6D5tBKbvL/3cFVp2VNS37MxdomZ/f2I
+         yJcJN6WwEhzYZOEyJMW9ZnXTMnVN9qsa8nqNUkquH57fOUIudchtkuJMBUzXIg1SUjlE
+         IQBJbTbTvbjAWmK6e5soaChk5I539lYxkGRO3Mxh1LHUDi5QmBPxy3JyhUPvnquKzgPd
+         56jc/lafBMS1zCAJaLj+CwUUqMes+rkJ7M3vY9csPGUUCDfXTe9xE3upsBEAzkS0+bEU
+         hZVA==
+X-Gm-Message-State: AOJu0YwzeZ9sMm7k1GJtqLDXz+EbgycOEAtsNGD9mF9dQv77QyZrDapd
+	Q4HR2A4d5XIq2gjfqJDql7zgmY6j8wAoQ0ZHHoUtF4bImYZwoxT3Z0w+YFNHd7DIHG/IFGNS2ME
+	uMdDlEVAB48YyaFsk/U+xfumwQ1YdmRtlnVCK8D/D7eHYmfT9tcJC/I5HQbc9sA==
+X-Received: by 2002:a05:622a:2c1:b0:40f:c669:a130 with SMTP id a1-20020a05622a02c100b0040fc669a130mr2947888qtx.36.1691666919043;
+        Thu, 10 Aug 2023 04:28:39 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGnvFC2HPaIsW8TudoAo6get1aLdMx0txncY0jSPizTM4n+QIRlX7JcQnvFJl+u+M8NbZE3G+EzISNoXnySSB8=
+X-Received: by 2002:a05:622a:2c1:b0:40f:c669:a130 with SMTP id
+ a1-20020a05622a02c100b0040fc669a130mr2947865qtx.36.1691666918799; Thu, 10 Aug
+ 2023 04:28:38 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.13.0
-Subject: Re: potential riscv special bug maybe found
-Content-Language: en-US
-To: Aurelien Jarno <aurelien@aurel32.net>, linux-riscv@lists.infradead.org
-Cc: Bo YU <tsu.yubo@gmail.com>, Andreas Gruenbacher <agruenba@redhat.com>
-References: <20230309151841.bomov6hq3ybyp42a@debian>
- <ZNOnCakhwIeue3yr@aurel32.net>
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <ZNOnCakhwIeue3yr@aurel32.net>
-X-GND-Sasl: alex@ghiti.fr
+References: <20230810074646.19076-1-samin.guo@starfivetech.com> <20230810074646.19076-2-samin.guo@starfivetech.com>
+In-Reply-To: <20230810074646.19076-2-samin.guo@starfivetech.com>
+From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+Date: Thu, 10 Aug 2023 13:28:23 +0200
+Message-ID: <CAJM55Z_AKXa-cKy8kS4-8XPcqgFb4ts2ywhcWwL7Nf3wMBCWJA@mail.gmail.com>
+Subject: Re: [-next v1 1/1] riscv: dts: starfive: jh7110: Fix GMAC configuration
+To: Samin Guo <samin.guo@starfivetech.com>
+Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	devicetree@vger.kernel.org, Emil Renner Berthing <kernel@esmil.dk>, 
+	Conor Dooley <conor@kernel.org>, Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Hal Feng <hal.feng@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230810_040923_996343_7B34B59F 
-X-CRM114-Status: GOOD (  20.06  )
+X-CRM114-CacheID: sfid-20230810_042844_381498_D3DFE7D1 
+X-CRM114-Status: GOOD (  15.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -57,42 +95,111 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgQXVyw6lsaWVuLCBCbywKCgpPbiAwOS8wOC8yMDIzIDE2OjQ3LCBBdXJlbGllbiBKYXJubyB3
-cm90ZToKPiBIaSwKPgo+IE9uIDIwMjMtMDMtMDkgMjM6MTgsIEJvIFlVIHdyb3RlOgo+PiBIaSwK
-Pj4KPj4gSSBhbSBzb3JyeSBpZiB0aGlzIGlzIG5vaXNlLgo+Pgo+PiBTb21lIGRheXMgYWdvIEkg
-bm90aWNlZCBzdHJhY2UgNi4yIHdhcyBidWlsdCBmYWlsZWQgb24gcmlzY3Y2NCBkdWUgdG8KPj4g
-dGVzdCBjYXNlc1swXS4gVGhlcmUgaXMgb25lIHByb2dyYW0gZnJvbSBzdHJhY2UgY2FuIHJlcHJv
-ZHVjZSBpdDoKPj4KPj4gYGBgCj4+IC4vdGVzdHMvcmVhZC13cml0ZSBgYGAKPj4KPj4gSXQgd2ls
-bCBiZSBoYW5nLgo+Pgo+PiBJbiBmYWN0LCB0aGUgaXNzdWUgaGFzIGV4aXN0ZWQgc2luY2UgNS4x
-OC4gSSBgZ2l0IGJpc2VjdGAgYW5kIGZpbmFsbHkKPj4gZm91bmQgb3V0IHRoZSBpc3N1ZSB3YXMg
-aW50cm9kdWNlZCBieSB0aGUgY29tbWl0WzFdOgo+Pgo+PiBjb21taXQgNjMxZjg3MWYwNzE3NDY3
-ODllOTI0MmU1MTRhYjBmNDkwNjdmYTk3YQo+PiBBdXRob3I6IEFuZHJlYXMgR3J1ZW5iYWNoZXIg
-PGFncnVlbmJhQHJlZGhhdC5jb20+Cj4+IERhdGU6ICAgVHVlIE5vdiA5IDEyOjU2OjA2IDIwMjEg
-KzAxMDAKPj4KPj4gICAgICBmcy9pb21hcDogRml4IGJ1ZmZlcmVkIHdyaXRlIHBhZ2UgcHJlZmF1
-bHRpbmcKPj4KPj4gSSBkbyBub3QgdGhpbmsgdGhlcmUgaXMgYSBwcm9ibGVtIHdpdGggdGhpcyBj
-b21taXQsIGJlY2F1c2UgaXQgZG9lcyBub3QKPj4gYWZmZWN0IG90aGVycyBhcmNoIGV4cGVjdCBy
-aXNjdiBhbmQgYWZ0ZXIgSSByZXZlcnRlZCBpdCwgaXQgd2lsbCBwYXNzCj4+IGFsbCB0ZXN0IGNh
-c2VzIGZyb20gc3RyYWNlKFRoZXJlIGlzIHN0aWxsIG9uZSBjYXNlIGZhaWxlZCBvbiBxZW11LCBi
-dXQKPj4gdGhpcyBpcyBhbm90aGVyIHN0b3JlKS4KPj4KPj4gSSB0cnkgdG8gZGVidWcgc29tZXRo
-aW5nIGJ1dCBmYWlsZWQuCj4+IFdvdWxkIGJlIGFwcHJlY2lhdGVkIGl0IGFueSBoZWxwLgo+IFBs
-ZWFzZSBmaW5kIGF0dGFjaGVkIGEgc2ltcGxlciByZXByb2R1Y2VyIGV4dHJhY3RlZCBmcm9tIHN0
-cmFjZSwgd2hpY2gKPiBzaG91bGQgbWFrZSB0aGUgaXNzdWUgZWFzaWVyIHRvIHJlcHJvZHVjZS4g
-SXQgaGFuZ3Mgb24gcmlzY3Y2NCBhbmQgbmVlZHMKPiB0byBiZSBraWxsZWQgd2l0aCAtOSwgd2hp
-bGUgaXQgd29ya3MgZmluZSBvbiBhbWQ2NC4KCgpUaGFua3MgZm9yIHRoZSByZXByb2R1Y2VyLCBJ
-IHdhcyBhYmxlIHRvIHJlcHJvZHVjZSB0aGUgcHJvYmxlbTogdGhlIAprZXJuZWwgaXMgc3R1Y2sg
-dHJ5aW5nIHRvIGNvcHkgZGF0YSBmcm9tIHVzZXIsIEknbSBsb29raW5nIGludG8gaXQgcmlnaHQg
-Cm5vdyBhcyB0aGlzIHNlZW1zIHZlcnkgd2VpcmQuIE5vdGUgdGhhdCBJIHdpbGwgYmUgb24gdmFj
-YXRpb24gYXQgdGhlIGVuZCAKb2YgdGhlIHdlZWssIGlmIEkgZG9uJ3QgaGF2ZSB0aW1lIHRvIGZp
-eCB0aGlzLCBJJ2xsIHBvc3QgbXkgZmluZGluZ3MgaGVyZS4KCgpUaGFua3MgYWdhaW4sCgpBbGV4
-CgoKPiBSZWdhcmRzCj4gQXVyZWxpZW4KPgo+Cj4gX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX18KPiBsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKPiBsaW51eC1y
-aXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCj4gaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFp
-bG1hbi9saXN0aW5mby9saW51eC1yaXNjdgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxp
-c3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0
-aW5mby9saW51eC1yaXNjdgo=
+On Thu, 10 Aug 2023 at 09:46, Samin Guo <samin.guo@starfivetech.com> wrote:
+>
+> Fixed configuration to improve the speed of TCP RX.
+>
+> Before:
+>   # iperf3 -s
+>   -----------------------------------------------------------
+>   Server listening on 5201 (test #1)
+>   -----------------------------------------------------------
+>   Accepted connection from 192.168.1.4, port 47604
+>   [  5] local 192.168.1.3 port 5201 connected to 192.168.1.4 port 47612
+>   [ ID] Interval           Transfer     Bitrate
+>   [  5]   0.00-1.00   sec  36.3 MBytes   305 Mbits/sec
+>   [  5]   1.00-2.00   sec  35.6 MBytes   299 Mbits/sec
+>   [  5]   2.00-3.00   sec  36.5 MBytes   306 Mbits/sec
+>   [  5]   3.00-4.00   sec  36.5 MBytes   306 Mbits/sec
+>   [  5]   4.00-5.00   sec  35.7 MBytes   300 Mbits/sec
+>   [  5]   5.00-6.00   sec  35.4 MBytes   297 Mbits/sec
+>   [  5]   6.00-7.00   sec  37.1 MBytes   311 Mbits/sec
+>   [  5]   7.00-8.00   sec  35.6 MBytes   298 Mbits/sec
+>   [  5]   8.00-9.00   sec  36.4 MBytes   305 Mbits/sec
+>   [  5]   9.00-10.00  sec  36.3 MBytes   304 Mbits/sec
+>   - - - - - - - - - - - - - - - - - - - - - - - - -
+>   [ ID] Interval           Transfer     Bitrate
+>   [  5]   0.00-10.00  sec   361 MBytes   303 Mbits/sec        receiver
+>
+> After:
+>   # iperf3 -s
+>   -----------------------------------------------------------
+>   Server listening on 5201 (test #1)
+>   -----------------------------------------------------------
+>   Accepted connection from 192.168.1.4, port 47710
+>   [  5] local 192.168.1.3 port 5201 connected to 192.168.1.4 port 47720
+>   [ ID] Interval           Transfer     Bitrate
+>   [  5]   0.00-1.00   sec   111 MBytes   932 Mbits/sec
+>   [  5]   1.00-2.00   sec   111 MBytes   934 Mbits/sec
+>   [  5]   2.00-3.00   sec   111 MBytes   934 Mbits/sec
+>   [  5]   3.00-4.00   sec   111 MBytes   934 Mbits/sec
+>   [  5]   4.00-5.00   sec   111 MBytes   934 Mbits/sec
+>   [  5]   5.00-6.00   sec   111 MBytes   935 Mbits/sec
+>   [  5]   6.00-7.00   sec   111 MBytes   934 Mbits/sec
+>   [  5]   7.00-8.00   sec   111 MBytes   935 Mbits/sec
+>   [  5]   8.00-9.00   sec   111 MBytes   934 Mbits/sec
+>   [  5]   9.00-10.00  sec   111 MBytes   934 Mbits/sec
+>   [  5]  10.00-10.00  sec   167 KBytes   933 Mbits/sec
+>   - - - - - - - - - - - - - - - - - - - - - - - - -
+>   [ ID] Interval           Transfer     Bitrate
+>   [  5]   0.00-10.00  sec  1.09 GBytes   934 Mbits/sec        receiver
+>
+> Reviewed-by: Hal Feng <hal.feng@starfivetech.com>
+> Signed-off-by: Samin Guo <samin.guo@starfivetech.com>
+> ---
+>  arch/riscv/boot/dts/starfive/jh7110.dtsi | 8 ++++----
+>  1 file changed, 4 insertions(+), 4 deletions(-)
+>
+> diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+> index a608433200e8..76884cf373bf 100644
+> --- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
+> +++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+> @@ -318,8 +318,8 @@
+>
+>         stmmac_axi_setup: stmmac-axi-config {
+>                 snps,lpi_en;
+> -               snps,wr_osr_lmt = <4>;
+> -               snps,rd_osr_lmt = <4>;
+> +               snps,wr_osr_lmt = <0xf>;
+> +               snps,rd_osr_lmt = <0xf>;
+
+nit: this is a limit, so presumably counting things and not an address
+or bitmask, so I'd prefer decimal numbers here, eg <15>.
+
+It works fine either way, so
+Reviewed-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+
+>                 snps,blen = <256 128 64 32 0 0 0>;
+>         };
+>
+> @@ -839,7 +839,7 @@
+>                         rx-fifo-depth = <2048>;
+>                         tx-fifo-depth = <2048>;
+>                         snps,multicast-filter-bins = <64>;
+> -                       snps,perfect-filter-entries = <8>;
+> +                       snps,perfect-filter-entries = <256>;
+>                         snps,fixed-burst;
+>                         snps,no-pbl-x8;
+>                         snps,force_thresh_dma_mode;
+> @@ -870,7 +870,7 @@
+>                         rx-fifo-depth = <2048>;
+>                         tx-fifo-depth = <2048>;
+>                         snps,multicast-filter-bins = <64>;
+> -                       snps,perfect-filter-entries = <8>;
+> +                       snps,perfect-filter-entries = <256>;
+>                         snps,fixed-burst;
+>                         snps,no-pbl-x8;
+>                         snps,force_thresh_dma_mode;
+> --
+> 2.17.1
+>
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
