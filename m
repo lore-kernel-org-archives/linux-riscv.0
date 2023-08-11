@@ -4,74 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D59DC001B0
-	for <linux-riscv@archiver.kernel.org>; Fri, 11 Aug 2023 01:24:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DA67C04A94
+	for <linux-riscv@archiver.kernel.org>; Fri, 11 Aug 2023 01:39:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jsiy7FkMdYPhtXzJ5ejBbxKeKf9kD88fS137Ppd19IQ=; b=POSDT31TWCQMPC
-	Xngz39aVzYuAPlZ0MuUSHJLAqgmTRKp1jTB74EE45zNTaFCwX6u9fxon0qd4x/fh1ZYsXExOjgNo0
-	CnDXJU1RlQdSK70NRO2PhofdWJXtADnc9PHpzrmTAeqiT5ZNY7v4n77GaqmW7zxE4gJivj+/05qoH
-	0qtrQ6s1nwascW9WQ7jABeXvNRmeQianyEUKQzsFonU3hSq+Ncnl2jntrP/JgiLGKA6yeN35UxqFs
-	PCyiSBuJeYqtB0hc6Oj1jschMVgEnueEWQ8BSkHSMdVklgBVKLyK1YITCUKZc4plcuylNkOYZupmY
-	UQyc10ahoCxDXDGahnQQ==;
+	List-Owner; bh=wGtRv8/TFyqhD4xUmdQiqZzCMDTYzCuBPZck+Z3itk0=; b=r9hzdACPuO/r1m
+	efxAwPNX2Be8J1t/dqJGP3icqZv1+l06OktQBmvQJP6rgu2rm48i+1atrkfXtvZRnOf/psinJxzZ2
+	lFInHZbRvftfyPSRtokUzDBQWp1H90NZme1XwQrlVkvO85JxmHdDpta9bY9twd0T62KSWByQHjE1G
+	QB4GeHYldjyFAWhVSG3jlc/pLCorqEhyZUEUDecKL92LWypED05eW7gotUuLDCEPs8oiZMOpRz7hu
+	eiLflp/0BjoxF30MGZFEBThINacBuuC7nGzaPXvOwzsp0C1q1jnuE7V7ENG5TH2A+OAxaHnDwTrxa
+	7rNObsdSJWOVK5wZt38Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qUGtM-0093gR-1V;
-	Fri, 11 Aug 2023 01:24:40 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qUGtK-0093fx-1c
+	id 1qUH7K-0095dk-2f;
+	Fri, 11 Aug 2023 01:39:06 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1qUH7F-0095WE-2f
 	for linux-riscv@lists.infradead.org;
-	Fri, 11 Aug 2023 01:24:40 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id B28B266A21
-	for <linux-riscv@lists.infradead.org>; Fri, 11 Aug 2023 01:24:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A1DF7C43391
-	for <linux-riscv@lists.infradead.org>; Fri, 11 Aug 2023 01:24:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1691717076;
-	bh=z/ApM4JIfgoc2kMWRTObiOpWbSaib9krnYCDwP5P8Pw=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=hbSKdmH/GZ1NOXkibEepTKMSSA5XtrwCgb4s2oLkcgfjndJzbFEXU6Xqcbcr5uBAf
-	 GcL7mZkQylLlAnajsiqkrDkE5HVZkiP49o8qAeQQuVN2xPMiFOgnfLcIC2JcCjioC0
-	 pw50bKLzd9HCg5tTGy7VWzXigK6z/GvbbE9OlAN00A7TcEtP3HNQ10ZUn5vYlBCz2f
-	 NbLsXOVPAmRDGCybMvAEA4Vlphe7X9GjRp89LXeCpsE8ZOq0iJ9SroyUbMRo1Uv3Ae
-	 //kZstU/Z8tqgvFU/43y/nkTN/KJo9LNgivld+H274lWxe6ahzYohg2lX3XeLz5EkR
-	 Xq0l5VC4oHO/g==
-Received: by mail-lf1-f42.google.com with SMTP id 2adb3069b0e04-4fe457ec6e7so2376779e87.3
-        for <linux-riscv@lists.infradead.org>; Thu, 10 Aug 2023 18:24:36 -0700 (PDT)
-X-Gm-Message-State: AOJu0YwZfmsJQWV4uuejy6GhB0n3bB3SFV2BsfYhJkL4c4y7W9dO3m8K
-	Ha/QStt8gw7USDbbxn0SM/Qfz2wD+DSBZ4uwT88=
-X-Google-Smtp-Source: AGHT+IEfhZHOYgE0W2CMhBBFgAATMUaaFFIs8w6yOVaIhf/f9UTse71cUOg2SYyIm4oxYBvlVBL0pti0OqL8Hi3JtDc=
-X-Received: by 2002:a19:ae09:0:b0:4fb:893a:d322 with SMTP id
- f9-20020a19ae09000000b004fb893ad322mr182924lfc.68.1691717074517; Thu, 10 Aug
- 2023 18:24:34 -0700 (PDT)
+	Fri, 11 Aug 2023 01:39:05 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 99D5880C7;
+	Fri, 11 Aug 2023 09:38:26 +0800 (CST)
+Received: from EXMBX062.cuchost.com (172.16.6.62) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 11 Aug
+ 2023 09:38:27 +0800
+Received: from [192.168.120.43] (171.223.208.138) by EXMBX062.cuchost.com
+ (172.16.6.62) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 11 Aug
+ 2023 09:38:25 +0800
+Message-ID: <fe0b5497-93f1-74c6-7e53-e15a62f4692f@starfivetech.com>
+Date: Fri, 11 Aug 2023 09:38:23 +0800
 MIME-Version: 1.0
-References: <mhng-92f37526-d36c-48c0-8fbd-7676df1b6086@palmer-ri-x1c9> <ad9b8e41-5897-4ad6-8113-2812301c0c93@app.fastmail.com>
-In-Reply-To: <ad9b8e41-5897-4ad6-8113-2812301c0c93@app.fastmail.com>
-From: Guo Ren <guoren@kernel.org>
-Date: Fri, 11 Aug 2023 09:24:23 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTTg9MMj0TXJmQsWKsnoGKD_F84HKC5D9LFEy_5uERpRCw@mail.gmail.com>
-Message-ID: <CAJF2gTTg9MMj0TXJmQsWKsnoGKD_F84HKC5D9LFEy_5uERpRCw@mail.gmail.com>
-Subject: Re: [RFC PATCH v5 5/5] riscv/cmpxchg: Implement xchg for variables of
- size 1 and 2
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Palmer Dabbelt <palmer@rivosinc.com>, Leonardo Bras <leobras@redhat.com>, 
-	Will Deacon <will@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
-	Boqun Feng <boqun.feng@gmail.com>, Mark Rutland <mark.rutland@arm.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Andrea Parri <parri.andrea@gmail.com>, Andrzej Hajda <andrzej.hajda@intel.com>, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.13.0
+Subject: Re: [-next v1 1/1] riscv: dts: starfive: jh7110: Fix GMAC
+ configuration
+Content-Language: en-US
+To: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+CC: <linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+	<devicetree@vger.kernel.org>, Emil Renner Berthing <kernel@esmil.dk>, "Conor
+ Dooley" <conor@kernel.org>, Rob Herring <robh+dt@kernel.org>, "Krzysztof
+ Kozlowski" <krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Hal Feng <hal.feng@starfivetech.com>
+References: <20230810074646.19076-1-samin.guo@starfivetech.com>
+ <20230810074646.19076-2-samin.guo@starfivetech.com>
+ <CAJM55Z_AKXa-cKy8kS4-8XPcqgFb4ts2ywhcWwL7Nf3wMBCWJA@mail.gmail.com>
+From: Guo Samin <samin.guo@starfivetech.com>
+In-Reply-To: <CAJM55Z_AKXa-cKy8kS4-8XPcqgFb4ts2ywhcWwL7Nf3wMBCWJA@mail.gmail.com>
+X-Originating-IP: [171.223.208.138]
+X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX062.cuchost.com
+ (172.16.6.62)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230810_182438_624311_099E45AB 
-X-CRM114-Status: GOOD (  45.80  )
+X-CRM114-CacheID: sfid-20230810_183902_335745_2058D33C 
+X-CRM114-Status: GOOD (  11.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,100 +76,121 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCBBdWcgMTEsIDIwMjMgYXQgMzoxM+KAr0FNIEFybmQgQmVyZ21hbm4gPGFybmRAYXJu
-ZGIuZGU+IHdyb3RlOgo+Cj4gT24gVGh1LCBBdWcgMTAsIDIwMjMsIGF0IDE4OjIzLCBQYWxtZXIg
-RGFiYmVsdCB3cm90ZToKPiA+IE9uIFRodSwgMTAgQXVnIDIwMjMgMDk6MDQ6MDQgUERUICgtMDcw
-MCksIGxlb2JyYXNAcmVkaGF0LmNvbSB3cm90ZToKPiA+PiBPbiBUaHUsIDIwMjMtMDgtMTAgYXQg
-MDg6NTEgKzAyMDAsIEFybmQgQmVyZ21hbm4gd3JvdGU6Cj4gPj4+IE9uIFRodSwgQXVnIDEwLCAy
-MDIzLCBhdCAwNjowMywgTGVvbmFyZG8gQnJhcyB3cm90ZToKPiA+Pj4gPiB4Y2hnIGZvciB2YXJp
-YWJsZXMgb2Ygc2l6ZSAxLWJ5dGUgYW5kIDItYnl0ZXMgaXMgbm90IHlldCBhdmFpbGFibGUgZm9y
-Cj4gPj4+ID4gcmlzY3YsIGV2ZW4gdGhvdWdoIGl0cyBwcmVzZW50IGluIG90aGVyIGFyY2hpdGVj
-dHVyZXMgc3VjaCBhcyBhcm02NCBhbmQKPiA+Pj4gPiB4ODYuIFRoaXMgY291bGQgbGVhZCB0byBu
-b3QgYmVpbmcgYWJsZSB0byBpbXBsZW1lbnQgc29tZSBsb2NraW5nIG1lY2hhbmlzbXMKPiA+Pj4g
-PiBvciByZXF1aXJpbmcgc29tZSByZXdvcmsgdG8gbWFrZSBpdCB3b3JrIHByb3Blcmx5Lgo+ID4+
-PiA+Cj4gPj4+ID4gSW1wbGVtZW50IDEtYnl0ZSBhbmQgMi1ieXRlcyB4Y2hnIGluIG9yZGVyIHRv
-IGFjaGlldmUgcGFyaXR5IHdpdGggb3RoZXIKPiA+Pj4gPiBhcmNoaXRlY3R1cmVzLgo+ID4+Cj4g
-Pj4+IFBhcml0eSB3aXRoIG90aGVyIGFyY2hpdGVjdHVyZXMgYnkgaXRzZWxmIGlzIG5vdCBhIHJl
-YXNvbiB0byBkbyB0aGlzLAo+ID4+PiBpbiBwYXJ0aWN1bGFyIHRoZSBvdGhlciBhcmNoaXRlY3R1
-cmVzIHlvdSBsaXN0ZWQgaGF2ZSB0aGUgaW5zdHJ1Y3Rpb25zCj4gPj4+IGluIGhhcmR3YXJlIHdo
-aWxlIHJpc2N2IGRvZXMgbm90Lgo+ID4+Cj4gPj4gU3VyZSwgSSB1bmRlcnN0YW5kIFJJU0MtViBk
-b24ndCBoYXZlIG5hdGl2ZSBzdXBwb3J0IGZvciB4Y2hnIG9uIHZhcmlhYmxlcyBvZgo+ID4+IHNp
-emUgPCA0Qi4gTXkgYXJndW1lbnQgaXMgdGhhdCBpdCdzIG5pY2UgdG8gaGF2ZSBldmVuIGFuIGVt
-dWxhdGVkIHZlcnNpb24gZm9yCj4gPj4gdGhpcyBpbiBjYXNlIGFueSBmdXR1cmUgbWVjaGFuaXNt
-IHdhbnRzIHRvIHVzZSBpdC4KPiA+Pgo+ID4+IE5vdCBoYXZpbmcgaXQgbWF5IG1lYW4gd2Ugd29u
-J3QgYmUgYWJsZSB0byBlbmFibGUgZ2l2ZW4gbWVjaGFuaXNtIGluIFJJU0MtVi4KPiA+Cj4gPiBJ
-SVVDIHRoZSBhc2sgaXMgdG8gaGF2ZSBhIHVzZXIgd2l0aGluIHRoZSBrZXJuZWwgZm9yIHRoZXNl
-IGZ1bmN0aW9ucy4KPiA+IFRoYXQncyB0aGUgZ2VuZXJhbCB0aGluZyB0byBkbywgYW5kIGxhc3Qg
-dGltZSB0aGlzIGNhbWUgdXAgdGhlcmUgd2FzIG5vCj4gPiBpbi1rZXJuZWwgdXNlIG9mIGl0IC0t
-IHRoZSBxc3BpbmxvY2sgc3R1ZmYgd291bGQsIGJ1dCB3ZSBoYXZlbid0IGVuYWJsZWQKPiA+IGl0
-IHlldCBiZWNhdXNlIHdlJ3JlIHdvcnJpZWQgYWJvdXQgdGhlIHBlcmZvcm1hbmNlL2ZhaXJuZXNz
-IHN0dWZmIHRoYXQKPiA+IG90aGVyIHBvcnRzIGhhdmUgc2VlbiBhbmQgbm9ib2R5J3MgZ290IGNv
-bmNyZXRlIGJlbmNobWFya3MgeWV0ICh0aG91Z2gKPiA+IHRoZXJlJ3MgYW5vdGhlciBwYXRjaCBz
-ZXQgb3V0IHRoYXQgSSBoYXZlbid0IGhhZCB0aW1lIHRvIGxvb2sgdGhyb3VnaCwKPiA+IHNvIHRo
-YXQgbWF5IGhhdmUgY2hhbmdlZCkuCj4KPiBSaWdodC4gSW4gcGFydGljdWxhciB0aGUgcXNwaW5s
-b2NrIGlzIGEgZ29vZCBleGFtcGxlIGZvciBzb21ldGhpbmcKPiB3aGVyZSBoYXZpbmcgdGhlIGVt
-dWxhdGVkIDE2LWJpdCB4Y2hnKCkgbWF5IGVuZCB1cCBsZXNzIGVmZmljaWVudAo+IHRoYW4gYSBu
-YXRpdmVseSBzdXBwb3J0ZWQgaW5zdHJ1Y3Rpb24uClRoZSB4Y2hnKCkgZWZmaWNpZW5jeSBkZXBl
-bmRzIG9uIG1pY3JvLWFyY2hpdGVjdHVyZS4gYW5kIHRoZSBudW1iZXIgb2YKaW5zdHJ1Y3Rpb25z
-IGlzIG5vdCB0aGUga2V5LCBldmVuIG9uZSBpbnN0cnVjdGlvbiB3b3VsZCBiZSBzZXBhcmF0ZWQK
-aW50byBzZXZlcmFsIG1pY3JvLW9wcy4gSSB0aG91Z2h0IHRoZSBQb3dlciBndXlzIHdvbid0IGFn
-cmVlIHdpdGggdGhpcwp2aWV3IDopCgo+Cj4gVGhlIHhjaGcoKSBoZXJlIGlzIGEgcGVyZm9ybWFu
-Y2Ugb3B0aW1pemF0aW9uIGZvciBDUFVzIHRoYXQgY2FuCj4gZG8gdGhpcyB3aXRob3V0IHRvdWNo
-aW5nIHRoZSBvdGhlciBoYWxmIG9mIHRoZSAzMi1iaXQgd29yZC4KSXQncyB1c2VsZXNzIG9uIGEg
-bm9uLVNNVCBzeXN0ZW0gYmVjYXVzZSBhbGwgb3BlcmF0aW9ucyBhcmUgY2FjaGVsaW5lCmJhc2Vk
-LiAoUHM6IEJlY2F1c2UgeGNoZygpIGhhcyBhIGxvYWQgc2VtYW50aWMsIENISSdzICJEaXJ0eSBQ
-YXJ0aWFsIgomICJDbGVhbiBFbXB0eSIgY2FuJ3QgaGVscCBhbnltb3JlLikKCj4KPiA+Pgo+ID4+
-IERpZG4ndCBnZXQgdGhpcyBwYXJ0Ogo+ID4+IEJ5ICJlbXVsYXRpbmcgc21hbGwgeGNoZygpIHRo
-cm91Z2ggY21weGNoZygpIiwgZGlkIHlvdSBtZWFuIGxpa2UgZW11bGF0aW5nIGFuCj4gPj4geGNo
-ZyAodXN1YWxseSAxIGluc3RydWN0aW9uKSB3aXRoIGxyICYgc2MgKHNhbWUgdXNlZCBpbiBjbXB4
-Y2hnKSA/Cj4gPj4KPiA+PiBJZiBzbywgeWVhaCwgaXQncyBhIGZhaXIgcG9pbnQ6IGluIHNvbWUg
-ZXh0cmVtZSBjYXNlIHdlIGNvdWxkIGhhdmUgbXVsdGlwbGUKPiA+PiB0aHJlYWRzIGFjY2Vzc2lu
-ZyBnaXZlbiBjYWNoZWxpbmUgYW5kIGhhdmUgc2MgYWx3YXlzIGZhaWxpbmcuIE9uIHRoZSBvdGhl
-ciBoYW5kLAo+ID4+IHRoZXJlIGFyZSAyIGFyZ3VtZW50cyBvbiB0aGF0Ogo+ID4+Cj4gPj4gMSAt
-IE90aGVyIGFyY2hpdGVjdHVyZXMsIChzdWNoIGFzIHBvd2VycGMsIGFybSBhbmQgYXJtNjQgd2l0
-aG91dCBMU0UgYXRvbWljcykKPiA+PiBhbHNvIHNlZW0gdG8gcmVseSBpbiB0aGlzIG1lY2hhbmlz
-bSBmb3IgZXZlcnkgeGNoZyBzaXplLiBBbm90aGVyIGFyY2hzIGxpa2UgY3NreQo+ID4+IGFuZCBs
-b29uZ2FyY2ggdXNlIGFzbSB0aGF0IGxvb2sgbGlrZSBtaW5lIHRvIGhhbmRsZSBzaXplIDwgNEIg
-eGNoZy4KPgo+IEkgdGhpbmsgeW91IG1pc3JlYWQgdGhlIGFybTY0IGNvZGUsIHdoaWNoIHNob3Vs
-ZCB1c2UgbmF0aXZlIGluc3RydWN0aW9ucwo+IGZvciBhbGwgc2l6ZXMsIGluIGJvdGggdGhlIGFy
-bXY4LjAgYW5kIExTRSBhdG9taWNzLgo+Cj4gUG93ZXJQQyBkb2VzIHVzZSB0aGUgbWFza2luZyBm
-b3IgeGNoZywgYnV0IEkgc3VzcGVjdCB0aGVyZSBhcmUgbm8KPiBhY3R1YWwgdXNlcnMsIGF0IGxl
-YXN0IGl0IGFjdHVhbGx5IGhhcyBpdHMgb3duIHFzcGlubG9jayBpbXBsZW1lbnRhdGlvbgo+IHRo
-YXQgYXZvaWRzIHhjaGcoKS4KUG93ZXJQQyBzdGlsbCBuZWVkcyBzaW1pbGFyIHRoaW5ncywgc2Vl
-IHB1Ymxpc2hfdGFpbF9jcHUoKSwgYW5kIG1vcmUKY29tcGxleCBjbXB4Y2hnIHNlbWFudGljcy4K
-ClBhcmF2cml0IHFzcGlubG9jayBhbmQgQ05BIHFzcGlubG9jayBzdGlsbCBuZWVkIG1vcmU6CiAt
-IHhjaGc4IChSQ3NjKQogLSBjbXB4Y2hnOC8xNl9yZWxheGVkCiAtIGNtcHhjaGc4LzE2X3JlbGVh
-c2UgKFJjcGMpCiAtIGNtcHhjaGc4X2FjcXVpcmUgKFJDcGMpCiAtIGNtcHhjaGc4IChSQ3NjKQoK
-Pgo+ID4+PiAgVGhpcyBpcyBhbHNvIHNvbWV0aGluZyB0aGF0IGFsbW9zdCBubyBhcmNoaXRlY3R1
-cmUKPiA+Pj4gc3BlY2lmaWMgY29kZSByZWxpZXMgb24gKGdlbmVyaWMgcXNwaW5sb2NrIGJlaW5n
-IGEgbm90YWJsZSBleGNlcHRpb24pLgo+ID4+Pgo+ID4+Cj4gPj4gMiAtIEFzIHlvdSBtZW50aW9u
-ZWQsIHRoZXJlIHNob3VsZCBiZSB2ZXJ5IGxpdHRsZSBjb2RlIHRoYXQgd2lsbCBhY3R1YWxseSBt
-YWtlCj4gPj4gdXNlIG9mIHhjaGcgZm9yIHZhcnMgPCA0Qiwgc28gaXQgc2hvdWxkIGJlIHNhZmUg
-dG8gYXNzdW1lIGl0cyBmaW5lIHRvIG5vdAo+ID4+IGd1YXJhbnRlZSBmb3J3YXJkIHByb2dyZXNz
-IGZvciB0aG9zZSByYXJlIHVzYWdlcyAobGlrZSBzb21lIG9mIGFib3ZlIG1lbnRpb25lZAo+ID4+
-IGFyY2hzKS4KPgo+IEkgZG9uJ3QgdGhpcyB0aGlzIGlzIGEgc2FmZSBhc3N1bXB0aW9uLCB3ZSd2
-ZSBoYWQgZW5kbGVzcyBkaXNjdXNzaW9ucwo+IGFib3V0IHVzaW5nIHFzcGlubG9jayBvbiBhcmNo
-aXRlY3R1cmVzIHdpdGhvdXQgYSBuYXRpdmUgeGNoZygpLCB3aGljaAo+IG5lZWRzIGVpdGhlciBo
-YXJkd2FyZSBndWFyYW50ZWVzIG9yIHNwZWNpYWwgY291bnRlcm1lYXN1cmVzIGluIHhjaGcoKSBp
-dHNlbGYKPiB0byBhdm9pZCB0aGlzLgo+Cj4gV2hhdCBJJ2QgYWN0dWFsbHkgbGlrZSB0byBkbyBo
-ZXJlIGlzIHRvIHJlbW92ZSB0aGUgc3BlY2lhbCA4LWJpdCBhbmQKPiAxNi1iaXQgY2FzZXMgZnJv
-bSB0aGUgeGNoZygpIGFuZCBjbXB4Y2hnKCkgaW50ZXJmYWNlcyBhdCBhbGwsIGxlYXZpbmcKSXQg
-bmVlZHMgdG8gbW9kaWZ5IHFzcGlubG9jaywgcGFyYXZpcnRfcXNwaW5sb2NrLCBhbmQgQ05BX3Fz
-cGlubG9jawpjb2RlIHRvIHByZXZlbnQgdXNpbmcgOC1iaXQvMTYtYml0IHhjaGcvY21weGNoZywg
-YW5kIGNsZWFudXAgYWxsCmFyY2hpdGVjdHVyZXMnIGNtcHhjaGcuaC4gV2hhdCB5b3UgZG8gaXMg
-anVzdCBnZXQgdGhlbSBvdXQgb2YgdGhlCmNvbW1vbiBhdG9taWMuaCwgYnV0IGFyY2hpdGVjdHVy
-ZXMgc3RpbGwgbmVlZCB0byBzb2x2ZSB0aGVtIGFuZApjb25uZWN0IHRvIHRoZSBxc3BpbmxvY2sg
-c2VyaWVzLgoKPiBvbmx5IGZpeGVkIDMyLWJpdCBhbmQgbmF0aXZlIHdvcmRzaXplIChlaXRoZXIg
-MzIgb3IgNjQpIGFzIHRoZSBvcHRpb24sCj4gd2hpbGUgZGVhbGluZyB3aXRoIHRoZSBvdGhlcnMg
-dGhlIHNhbWUgd2F5IHdlIHRyZWF0IHRoZSBmaXhlZAo+IDY0LWJpdCBjYXNlcyB0aGF0IGhhcmRj
-b2RlIHRoZSA2NC1iaXQgYXJndW1lbnQgdHlwZXMgYW5kIGFyZSBvbmx5Cj4gdXNhYmxlIG9uIGFy
-Y2hpdGVjdHVyZXMgdGhhdCBwcm92aWRlIHRoZW0uCj4KPiAgICAgQXJuZAoKCgotLSAKQmVzdCBS
-ZWdhcmRzCiBHdW8gUmVuCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFk
-ZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4
-LXJpc2N2Cg==
+
+
+On 2023/8/10 19:28:23, Emil Renner Berthing wrote:
+> On Thu, 10 Aug 2023 at 09:46, Samin Guo <samin.guo@starfivetech.com> wrote:
+>>
+>> Fixed configuration to improve the speed of TCP RX.
+>>
+>> Before:
+>>   # iperf3 -s
+>>   -----------------------------------------------------------
+>>   Server listening on 5201 (test #1)
+>>   -----------------------------------------------------------
+>>   Accepted connection from 192.168.1.4, port 47604
+>>   [  5] local 192.168.1.3 port 5201 connected to 192.168.1.4 port 47612
+>>   [ ID] Interval           Transfer     Bitrate
+>>   [  5]   0.00-1.00   sec  36.3 MBytes   305 Mbits/sec
+>>   [  5]   1.00-2.00   sec  35.6 MBytes   299 Mbits/sec
+>>   [  5]   2.00-3.00   sec  36.5 MBytes   306 Mbits/sec
+>>   [  5]   3.00-4.00   sec  36.5 MBytes   306 Mbits/sec
+>>   [  5]   4.00-5.00   sec  35.7 MBytes   300 Mbits/sec
+>>   [  5]   5.00-6.00   sec  35.4 MBytes   297 Mbits/sec
+>>   [  5]   6.00-7.00   sec  37.1 MBytes   311 Mbits/sec
+>>   [  5]   7.00-8.00   sec  35.6 MBytes   298 Mbits/sec
+>>   [  5]   8.00-9.00   sec  36.4 MBytes   305 Mbits/sec
+>>   [  5]   9.00-10.00  sec  36.3 MBytes   304 Mbits/sec
+>>   - - - - - - - - - - - - - - - - - - - - - - - - -
+>>   [ ID] Interval           Transfer     Bitrate
+>>   [  5]   0.00-10.00  sec   361 MBytes   303 Mbits/sec        receiver
+>>
+>> After:
+>>   # iperf3 -s
+>>   -----------------------------------------------------------
+>>   Server listening on 5201 (test #1)
+>>   -----------------------------------------------------------
+>>   Accepted connection from 192.168.1.4, port 47710
+>>   [  5] local 192.168.1.3 port 5201 connected to 192.168.1.4 port 47720
+>>   [ ID] Interval           Transfer     Bitrate
+>>   [  5]   0.00-1.00   sec   111 MBytes   932 Mbits/sec
+>>   [  5]   1.00-2.00   sec   111 MBytes   934 Mbits/sec
+>>   [  5]   2.00-3.00   sec   111 MBytes   934 Mbits/sec
+>>   [  5]   3.00-4.00   sec   111 MBytes   934 Mbits/sec
+>>   [  5]   4.00-5.00   sec   111 MBytes   934 Mbits/sec
+>>   [  5]   5.00-6.00   sec   111 MBytes   935 Mbits/sec
+>>   [  5]   6.00-7.00   sec   111 MBytes   934 Mbits/sec
+>>   [  5]   7.00-8.00   sec   111 MBytes   935 Mbits/sec
+>>   [  5]   8.00-9.00   sec   111 MBytes   934 Mbits/sec
+>>   [  5]   9.00-10.00  sec   111 MBytes   934 Mbits/sec
+>>   [  5]  10.00-10.00  sec   167 KBytes   933 Mbits/sec
+>>   - - - - - - - - - - - - - - - - - - - - - - - - -
+>>   [ ID] Interval           Transfer     Bitrate
+>>   [  5]   0.00-10.00  sec  1.09 GBytes   934 Mbits/sec        receiver
+>>
+>> Reviewed-by: Hal Feng <hal.feng@starfivetech.com>
+>> Signed-off-by: Samin Guo <samin.guo@starfivetech.com>
+>> ---
+>>  arch/riscv/boot/dts/starfive/jh7110.dtsi | 8 ++++----
+>>  1 file changed, 4 insertions(+), 4 deletions(-)
+>>
+>> diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+>> index a608433200e8..76884cf373bf 100644
+>> --- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
+>> +++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+>> @@ -318,8 +318,8 @@
+>>
+>>         stmmac_axi_setup: stmmac-axi-config {
+>>                 snps,lpi_en;
+>> -               snps,wr_osr_lmt = <4>;
+>> -               snps,rd_osr_lmt = <4>;
+>> +               snps,wr_osr_lmt = <0xf>;
+>> +               snps,rd_osr_lmt = <0xf>;
+> 
+> nit: this is a limit, so presumably counting things and not an address
+> or bitmask, so I'd prefer decimal numbers here, eg <15>.
+> 
+> It works fine either way, so
+> Reviewed-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+
+Thanks Esmil, that's right.
+I refer to examples of snps,dwmac.yaml, so I use 0xf...
+
+Best regards,
+Samin
+> 
+>>                 snps,blen = <256 128 64 32 0 0 0>;
+>>         };
+>>
+>> @@ -839,7 +839,7 @@
+>>                         rx-fifo-depth = <2048>;
+>>                         tx-fifo-depth = <2048>;
+>>                         snps,multicast-filter-bins = <64>;
+>> -                       snps,perfect-filter-entries = <8>;
+>> +                       snps,perfect-filter-entries = <256>;
+>>                         snps,fixed-burst;
+>>                         snps,no-pbl-x8;
+>>                         snps,force_thresh_dma_mode;
+>> @@ -870,7 +870,7 @@
+>>                         rx-fifo-depth = <2048>;
+>>                         tx-fifo-depth = <2048>;
+>>                         snps,multicast-filter-bins = <64>;
+>> -                       snps,perfect-filter-entries = <8>;
+>> +                       snps,perfect-filter-entries = <256>;
+>>                         snps,fixed-burst;
+>>                         snps,no-pbl-x8;
+>>                         snps,force_thresh_dma_mode;
+>> --
+>> 2.17.1
+>>
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
