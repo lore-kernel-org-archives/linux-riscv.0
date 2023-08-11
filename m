@@ -4,80 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84B56C001DE
-	for <linux-riscv@archiver.kernel.org>; Fri, 11 Aug 2023 20:42:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B93BCC001DE
+	for <linux-riscv@archiver.kernel.org>; Fri, 11 Aug 2023 20:49:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=d0LFYYS/XVcjDtT1IIYeQdYJInVRHZH62YMf6sFx+7g=; b=DJKeopDuMsBGtj
-	+UOxzimsrmGDjhiMaUOa4MHKtz1cazJeZGSjHWLc0q4RCGyNgQk9khA2GuGRA6hZCjS2KVaayMdjV
-	snNpZuMUbQCb5o4TOTlpWO8q6QVEhu7KgtvRo/I3z/+gC3MetjZoFH2oNjzc7B6ge939ePdsEN5oG
-	LFLk3egcvOneW2GFXtHG2yais5KbLGZfx/KYR2r2qO048EqsNvQQUGjrXMWRNfw/F/X0TjC7Oa6Er
-	Zgop4kQAJHI8wogLy0QPX7G982X4wTWGIuFvrGLXidisQvw7/S/R5zDPCm8JPeq5zyq2VlZr7+XDR
-	IMBtp0O5hpKtmn1TUBHw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=tFUReEvlxURNvGGUWptg+pHXTo82pxmrQbFpBjZjsDo=; b=XlFGkn/mQQsdEH
+	N3/cfoLXnjRSsyaccAM+baql4ve4i1NyC03ONqHe99NHa4GoO7S0Z+soSx5wkXWhbvs3V2EjYof4w
+	I7g3zLIX9/P1km7yLMFCY4ototbcA0B3GCipQXdhrhFHMMrYhhEMWZg72mwWpysmZxL/VadwRlssq
+	CQgaH9JZUQhf12WrEftaq63Ft5ErHMaOVmUC0iZEUgg0/bfyJbke5YJKC2Z7eHKND1eUDX0IME74e
+	RsZUh/s1HKoE9Ept/ses6k7vkksmVa/YGpcHBrhgzSkxeli1Ij7a3kLwizb1+rcZEt5xvC6+IwFvv
+	WoYGMRliOdnbPr5tYqFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qUYxn-00BawX-29;
-	Fri, 11 Aug 2023 20:42:27 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1qUZ4u-00Bbw6-2A;
+	Fri, 11 Aug 2023 20:49:48 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qUYxk-00BavB-2a
-	for linux-riscv@lists.infradead.org;
-	Fri, 11 Aug 2023 20:42:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1691786540;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=QYsuYB/f15MU2xfH+EM7bqeXLDjg5PV6c8YrC96T5p8=;
-	b=Suhsd//6zqH0bsE33O0VNr9IpTBt3neTvmJeYp4/wANru3jHFzGQtf9bB4gafPF2H/FJY0
-	ukCDybDign2QbiWJCg/PJIVrO4c86bJPAByTt5OaXhGG+lImQMxZFt6V5LxzEJ1kiTDCls
-	9CIyyN2XOeCgT3uYmIedpbx/zfeyIhM=
-Received: from mimecast-mx02.redhat.com (66.187.233.73 [66.187.233.73]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-294-RkKW7mn5MiCC7qNnb5xmEg-1; Fri, 11 Aug 2023 16:42:16 -0400
-X-MC-Unique: RkKW7mn5MiCC7qNnb5xmEg-1
-Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com [10.11.54.4])
-	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+	id 1qUZ4q-00BbuL-0B;
+	Fri, 11 Aug 2023 20:49:46 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id B6B4838008C0;
-	Fri, 11 Aug 2023 20:42:14 +0000 (UTC)
-Received: from [10.22.17.82] (unknown [10.22.17.82])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id E581D2026D4B;
-	Fri, 11 Aug 2023 20:42:12 +0000 (UTC)
-Message-ID: <5cf1117c-d537-703c-cdcf-f43c5bd9ed1b@redhat.com>
-Date: Fri, 11 Aug 2023 16:42:12 -0400
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 3EA0A67A1D;
+	Fri, 11 Aug 2023 20:49:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 96B63C433C7;
+	Fri, 11 Aug 2023 20:49:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1691786981;
+	bh=rV9vbzJcsDLbrTR0r62C6mgt6aJt3bQ6a1I4S900+ww=;
+	h=From:To:Cc:Subject:Date:From;
+	b=T0bAa0PN1KA5EthJaDC9+dL6YBE6UjrSrya80R1VV6DSTfajxLg5cWsfwKpF3td/O
+	 UcISOPLdoMSw4gSAmBW86S3QQFiKaHRQpAvSr8P4jFCkiUzQCah09SKYOKTundA/L9
+	 4YVzBescJsuOVOxgn4nOhi/hvmWMBAy2GH/KKyhL14fQD/IsL2G27Q/8asbXy09I+h
+	 CSwl2zppsK27+7US684h4qL69LpJtKIK1s3OjZ4rb5JGd3Ug+1vrvIb7SpEpj0t6CG
+	 XTyo27PT57hcpSizPl/ZLuy60M9MRzd+GeoA8SIijIBp7kHSv1qAhM0euWs8NZ0nCV
+	 vchy9g/BjCiKA==
+From: Arnd Bergmann <arnd@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Tiezhu Yang <yangtiezhu@loongson.cn>
+Cc: loongarch@lists.linux.dev,
+	WANG Xuerui <kernel@xen0n.name>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Nathan Chancellor <nathan@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH] asm-generic: partially revert "Unify uapi bitsperlong.h for arm64, riscv and loongarch"
+Date: Fri, 11 Aug 2023 22:49:07 +0200
+Message-Id: <20230811204930.1529925-1-arnd@kernel.org>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.7.1
-Subject: Re: [PATCH V10 18/19] locking/qspinlock: Move pv_ops into x86
- directory
-Content-Language: en-US
-To: guoren@kernel.org, paul.walmsley@sifive.com, anup@brainfault.org,
- peterz@infradead.org, mingo@redhat.com, will@kernel.org,
- palmer@rivosinc.com, boqun.feng@gmail.com, tglx@linutronix.de,
- paulmck@kernel.org, rostedt@goodmis.org, rdunlap@infradead.org,
- catalin.marinas@arm.com, conor.dooley@microchip.com,
- xiaoguang.xing@sophgo.com, bjorn@rivosinc.com, alexghiti@rivosinc.com,
- keescook@chromium.org, greentime.hu@sifive.com, ajones@ventanamicro.com,
- jszhang@kernel.org, wefu@redhat.com, wuwei2016@iscas.ac.cn
-Cc: linux-arch@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-doc@vger.kernel.org, kvm@vger.kernel.org,
- virtualization@lists.linux-foundation.org, linux-csky@vger.kernel.org,
- Guo Ren <guoren@linux.alibaba.com>
-References: <20230802164701.192791-1-guoren@kernel.org>
- <20230802164701.192791-19-guoren@kernel.org>
-From: Waiman Long <longman@redhat.com>
-In-Reply-To: <20230802164701.192791-19-guoren@kernel.org>
-X-Scanned-By: MIMEDefang 3.1 on 10.11.54.4
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230811_134224_922345_B972361E 
-X-CRM114-Status: GOOD (  10.35  )
+X-CRM114-CacheID: sfid-20230811_134944_202039_A47679C5 
+X-CRM114-Status: GOOD (  19.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,25 +78,148 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 8/2/23 12:47, guoren@kernel.org wrote:
-> From: Guo Ren <guoren@linux.alibaba.com>
->
-> The pv_ops belongs to x86 custom infrastructure and cleans up the
-> cna_configure_spin_lock_slowpath() with standard code. This is
-> preparation for riscv support CNA qspoinlock.
+From: Arnd Bergmann <arnd@arndb.de>
 
-CNA qspinlock has not been merged into mainline yet. I will suggest you 
-drop the last 2 patches for now. Of course, you can provide benchmark 
-data to boost the case for the inclusion of the CNA qspinlock patch into 
-the mainline.
+Unifying the asm-generic headers across 32-bit and 64-bit architectures
+based on the compiler provided macros was a good idea and appears to work
+with all user space, but it caused a regression when building old kernels
+on systems that have the new headers installed in /usr/include, as this
+combination trips an inconsistency in the kernel's own tools/include
+headers that are a mix of userspace and kernel-internal headers.
 
-Cheers,
-Longman
+This affects kernel builds on arm64, riscv64 and loongarch64 systems that
+might end up using the "#define __BITS_PER_LONG 32" default from the old
+tools headers. Backporting the commit into stable kernels would address
+this, but it would still break building kernels without that backport,
+and waste time for developers trying to understand the problem.
+
+arm64 build machines are rather common, and on riscv64 this can also
+happen in practice, but loongarch64 is probably new enough to not
+be used much for building old kernels, so only revert the bits
+for arm64 and riscv.
+
+Link: https://lore.kernel.org/all/20230731160402.GB1823389@dev-arch.thelio-3990X/
+Reported-by: Nathan Chancellor <nathan@kernel.org>
+Fixes: 8386f58f8deda ("asm-generic: Unify uapi bitsperlong.h for arm64, riscv and loongarch")
+Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+---
+ arch/arm64/include/uapi/asm/bitsperlong.h     | 24 +++++++++++++++++++
+ arch/riscv/include/uapi/asm/bitsperlong.h     | 14 +++++++++++
+ .../arch/arm64/include/uapi/asm/bitsperlong.h | 24 +++++++++++++++++++
+ .../arch/riscv/include/uapi/asm/bitsperlong.h | 14 +++++++++++
+ 4 files changed, 76 insertions(+)
+ create mode 100644 arch/arm64/include/uapi/asm/bitsperlong.h
+ create mode 100644 arch/riscv/include/uapi/asm/bitsperlong.h
+ create mode 100644 tools/arch/arm64/include/uapi/asm/bitsperlong.h
+ create mode 100644 tools/arch/riscv/include/uapi/asm/bitsperlong.h
+
+diff --git a/arch/arm64/include/uapi/asm/bitsperlong.h b/arch/arm64/include/uapi/asm/bitsperlong.h
+new file mode 100644
+index 0000000000000..485d60bee26ca
+--- /dev/null
++++ b/arch/arm64/include/uapi/asm/bitsperlong.h
+@@ -0,0 +1,24 @@
++/* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
++/*
++ * Copyright (C) 2012 ARM Ltd.
++ *
++ * This program is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License version 2 as
++ * published by the Free Software Foundation.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
++ */
++#ifndef __ASM_BITSPERLONG_H
++#define __ASM_BITSPERLONG_H
++
++#define __BITS_PER_LONG 64
++
++#include <asm-generic/bitsperlong.h>
++
++#endif	/* __ASM_BITSPERLONG_H */
+diff --git a/arch/riscv/include/uapi/asm/bitsperlong.h b/arch/riscv/include/uapi/asm/bitsperlong.h
+new file mode 100644
+index 0000000000000..7d0b32e3b7017
+--- /dev/null
++++ b/arch/riscv/include/uapi/asm/bitsperlong.h
+@@ -0,0 +1,14 @@
++/* SPDX-License-Identifier: GPL-2.0-only WITH Linux-syscall-note */
++/*
++ * Copyright (C) 2012 ARM Ltd.
++ * Copyright (C) 2015 Regents of the University of California
++ */
++
++#ifndef _UAPI_ASM_RISCV_BITSPERLONG_H
++#define _UAPI_ASM_RISCV_BITSPERLONG_H
++
++#define __BITS_PER_LONG (__SIZEOF_POINTER__ * 8)
++
++#include <asm-generic/bitsperlong.h>
++
++#endif /* _UAPI_ASM_RISCV_BITSPERLONG_H */
+diff --git a/tools/arch/arm64/include/uapi/asm/bitsperlong.h b/tools/arch/arm64/include/uapi/asm/bitsperlong.h
+new file mode 100644
+index 0000000000000..485d60bee26ca
+--- /dev/null
++++ b/tools/arch/arm64/include/uapi/asm/bitsperlong.h
+@@ -0,0 +1,24 @@
++/* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
++/*
++ * Copyright (C) 2012 ARM Ltd.
++ *
++ * This program is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License version 2 as
++ * published by the Free Software Foundation.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
++ */
++#ifndef __ASM_BITSPERLONG_H
++#define __ASM_BITSPERLONG_H
++
++#define __BITS_PER_LONG 64
++
++#include <asm-generic/bitsperlong.h>
++
++#endif	/* __ASM_BITSPERLONG_H */
+diff --git a/tools/arch/riscv/include/uapi/asm/bitsperlong.h b/tools/arch/riscv/include/uapi/asm/bitsperlong.h
+new file mode 100644
+index 0000000000000..0b9b58b57ff6e
+--- /dev/null
++++ b/tools/arch/riscv/include/uapi/asm/bitsperlong.h
+@@ -0,0 +1,14 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * Copyright (C) 2012 ARM Ltd.
++ * Copyright (C) 2015 Regents of the University of California
++ */
++
++#ifndef _UAPI_ASM_RISCV_BITSPERLONG_H
++#define _UAPI_ASM_RISCV_BITSPERLONG_H
++
++#define __BITS_PER_LONG (__SIZEOF_POINTER__ * 8)
++
++#include <asm-generic/bitsperlong.h>
++
++#endif /* _UAPI_ASM_RISCV_BITSPERLONG_H */
+-- 
+2.39.2
 
 
 _______________________________________________
