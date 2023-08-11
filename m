@@ -4,64 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B40EFC001B0
-	for <linux-riscv@archiver.kernel.org>; Fri, 11 Aug 2023 10:44:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADFE4C04A6A
+	for <linux-riscv@archiver.kernel.org>; Fri, 11 Aug 2023 11:03:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=n5cN4yS1dtxbKfkv4y3XyMjXyG/IDmTPbpprjqEXz/0=; b=O8DVufxiAAZ5Dj
-	IOCiDe0E8U0aAwgap494bpeLmTT3mN4flRXV3Dkt0spmReWYHCv1I6dojVJcWAjj/OeXkHUDHfFeA
-	TyfxYthjWjkcTLtTh6ZNAHlJOkot6nFda6E7jGHWXa/nZvMi3H0/lx0wIu+wireb0egym8yQtnUTn
-	bjHckBHcTSjl+nSZ2B4YBjpKwogquF1vZLR62qsybEdDh4SF+MIwRKFOfcC9JzFfL69Rl0j1oDP5b
-	LyOKNEDQOiGLvE8Zfpr96lqqvguzk745PB1S/W6niTJBzXun1DKsZHMojWpBWyQ3eWFCo5mUkEtLu
-	0IYgbdBQfnSIw8MKO10Q==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=9xhccS8oesr3lUKaxeVrTf0joBBpnTzwf5HoPJaaL3M=; b=mtZ9BNJ4x56tsf
+	CQrXh4j5mBSxvs95Nfvg8vO5dK2mrCIm27dI1qcsHH1xe5jF19QtFzoa2DTG+OSKHLfheWfadrQgU
+	IfCDBNYq4IBoo5MrVn3oWVeZ1kSqrfBmr0SNVIUbC28RELVOptGPs3Xh1rBwimNt2j4D+OdHbj1s5
+	SbvG8i0OPW3E3FyfuYSq8QWs0YLxAT0hy1lY8uUPzLyiF2AJ3sX3+USj2qo1gumbU60aIARlTH3jH
+	hBwsAzi6Q6mc6Hz0BVlbJMCKeFqeHnKvxtV6Q9mD/BlbFlAeWPhG2klrNR19f+l9CD12v7fLCtCqf
+	sklN+kmNPS7sqhm9oIbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qUPd7-00AJRk-2r;
-	Fri, 11 Aug 2023 10:44:29 +0000
-Received: from bg4.exmail.qq.com ([43.155.67.158])
+	id 1qUPvI-00AMms-2E;
+	Fri, 11 Aug 2023 11:03:16 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qUPd4-00AJPG-0R;
-	Fri, 11 Aug 2023 10:44:28 +0000
-X-QQ-mid: bizesmtp74t1691750632tj1s51gj
-Received: from localhost.localdomain ( [221.226.144.218])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Fri, 11 Aug 2023 18:43:51 +0800 (CST)
-X-QQ-SSF: 00200000000000B0B000000A0000000
-X-QQ-FEAT: 0vfWcIgh24yN4kva2q777pdMblrZ+8/WLjSLXSE7czoqc0NbuDDWP7zp6EktE
-	F88acLlLVUp4nZXjnjPHKu/KP7fTMKVgtkZ6R3wkL5nFyb9XsxWfNLWbboeOuYltbFvaFK6
-	Ox5yJl4yhMxpW+PUYUtuovvv6YB5jvRj183wXxfiSYXilIHt+SeODEa4s1IHmz/ePqim2CY
-	DwAQ8h0/wnn1iJH3OhbzAo4MqGuMx4OgOmrotxQ6g2mplqo0RoN100+V0e4xp5+fzKitvds
-	z3RJhTIK69KIFjBFdF3abKdqEEpz7fMYKMva5SB7UaxosW2o9psyQSG8lfk81RTvm1z7P0b
-	LfjSvOqast4FMGCtbgHucai+BEDSpCJeSf3sy7x036CXcyDJuqMAtoOD3crZg==
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 5156323152166706898
-From: Song Shuai <songshuaishuai@tinylab.org>
-To: xianting.tian@linux.alibaba.com,
-	guoren@kernel.org,
-	horms@kernel.org,
-	huanyi.xj@alibaba-inc.com,
-	mick@ics.forth.gr,
-	yixun.lan@gmail.com
-Cc: kexec@lists.infradead.org,
+	id 1qUPvA-00AMj5-2Q
+	for linux-riscv@lists.infradead.org;
+	Fri, 11 Aug 2023 11:03:11 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-3fe32016bc8so16045575e9.1
+        for <linux-riscv@lists.infradead.org>; Fri, 11 Aug 2023 04:03:08 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1691751787; x=1692356587;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=T5iAe6E8YopchFIRubf33eym0ZyKWuOCfagjLL9eNGQ=;
+        b=4jTMNejEAHGjjdu5dt8hMdVIR18zFTNB23v5xfp1DbngEKKqPM3LxeD22bbMR7489w
+         SW1hKZanHIl7go1DSioiE/bZzAEonHuybk6hbVmssovIsAXgqA+PlBw0OLiLGYqBfpCD
+         RZnZjSKfELh+G5hCy+F4RhZOvPTj4Y4dfbWbBgxayHB5neawBUxxXGrLzhAjozmPmn6B
+         neVCO1hLrP54QzdesuJGsxGfFBSFZLVkL4KdJ+4ePAWxlDQHk4vAHrVZx9wSz1soSGmy
+         Rl06TCI4KxH+J//mLP7BSNINuH68ssv1cM8sQWYfPai5tra1Lap8wSjq9Z9Yu7HKDyna
+         cA3A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1691751787; x=1692356587;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=T5iAe6E8YopchFIRubf33eym0ZyKWuOCfagjLL9eNGQ=;
+        b=ZL8EhfLpNwzfYsYwi+TQnis9lMYBKJhiz1ycLwSbbLyO1lVTaBfPXcL/S0i7pcqSeT
+         FkiBNKS7OEMs+PHlmLll3BxhVyPaaZzJnWADwGcHJh2g5hgysDSANeKWrEpnTs6nMEc3
+         cqr6SO/kJanbKfZm7V3LStqFyk3umlbVY1/U5ryxNQK3Wy1oDwEZix0go6XAaGpGFkf8
+         LrstetE+a6ffP0tvFOW71ydVFy4ij4YIrwvy3hbmTm73IvshXRqgaingS1RsHWuntr0i
+         PO2gH0a/U6kiWNjM3rWgfFBsvjSQBki7DeaZHeUUlzfSCtni5OaTdgZ5j4F+7+IWP/gj
+         SUxA==
+X-Gm-Message-State: AOJu0YwMbD01Rx/67oNfmnxNCZQTILEvREnjPSWF5QdJkGlcw4Ydhkvs
+	quXqWL6WGEHGrgLYNqKBxSU8Fg==
+X-Google-Smtp-Source: AGHT+IGVS30kGNuOv76M3JVuz7IIWVQx5L1DSQDg9iM0/gb6fA0D/Qg6IWcvCu3bOqveE9RTec3ZJw==
+X-Received: by 2002:a05:600c:22da:b0:3f7:e3dd:8a47 with SMTP id 26-20020a05600c22da00b003f7e3dd8a47mr1371440wmg.11.1691751786608;
+        Fri, 11 Aug 2023 04:03:06 -0700 (PDT)
+Received: from alex-rivos.ba.rivosinc.com (amontpellier-656-1-456-62.w92-145.abo.wanadoo.fr. [92.145.124.62])
+        by smtp.gmail.com with ESMTPSA id f21-20020a7bcc15000000b003fc01189b0dsm4792119wmh.42.2023.08.11.04.03.06
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 11 Aug 2023 04:03:06 -0700 (PDT)
+From: Alexandre Ghiti <alexghiti@rivosinc.com>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alan Kao <alankao@andestech.com>,
 	linux-riscv@lists.infradead.org,
-	Song Shuai <songshuaishuai@tinylab.org>
-Subject: [PATCH 2/2] =?UTF-8?q?RISC-V:=20Fix=20the=20undeclared=20?= =?UTF-8?q?=E2=80=98EM=5FRISCV=E2=80=99=20build=20failure?=
-Date: Fri, 11 Aug 2023 18:41:17 +0800
-Message-Id: <20230811104117.91406-2-songshuaishuai@tinylab.org>
-X-Mailer: git-send-email 2.20.1
-In-Reply-To: <20230811104117.91406-1-songshuaishuai@tinylab.org>
-References: <20230811104117.91406-1-songshuaishuai@tinylab.org>
+	linux-kernel@vger.kernel.org
+Cc: Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Bo YU <tsu.yubo@gmail.com>,
+	Aurelien Jarno <aurelien@aurel32.net>
+Subject: [PATCH -fixes] riscv: uaccess: Return the number of bytes effectively copied
+Date: Fri, 11 Aug 2023 13:03:04 +0200
+Message-Id: <20230811110304.1613032-1-alexghiti@rivosinc.com>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
-X-QQ-SENDSIZE: 520
-Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrsz:qybglogicsvrsz4a-0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230811_034426_513391_AAB4F55C 
-X-CRM114-Status: UNSURE (   9.23  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230811_040308_969846_FC42FF51 
+X-CRM114-Status: GOOD (  15.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,25 +90,86 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-VXNlIGxvY2FsIGBlbGYuaGAgaW5zdGVhZCBvZiBgbGludXgvZWxmLmhgIHRvIGZpeCB0aGlzIGJ1
-aWxkIGVycm9yOgoKYGBgCmtleGVjL2FyY2gvcmlzY3YvY3Jhc2hkdW1wLXJpc2N2LmM6MTc6MTM6
-IGVycm9yOiDigJhFTV9SSVNDVuKAmSB1bmRlY2xhcmVkIGhlcmUgKG5vdCBpbiBhIGZ1bmN0aW9u
-KTsgZGlkIHlvdSBtZWFuIOKAmEVNX0NSSVPigJk/CiAgLm1hY2hpbmUgPSBFTV9SSVNDViwKICAg
-ICAgICAgICAgIF5+fn5+fn5+CiAgICAgICAgICAgICBFTV9DUklTCmBgYAoKU2lnbmVkLW9mZi1i
-eTogU29uZyBTaHVhaSA8c29uZ3NodWFpc2h1YWlAdGlueWxhYi5vcmc+Ci0tLQoga2V4ZWMvYXJj
-aC9yaXNjdi9jcmFzaGR1bXAtcmlzY3YuYyB8IDIgKy0KIDEgZmlsZSBjaGFuZ2VkLCAxIGluc2Vy
-dGlvbigrKSwgMSBkZWxldGlvbigtKQoKZGlmZiAtLWdpdCBhL2tleGVjL2FyY2gvcmlzY3YvY3Jh
-c2hkdW1wLXJpc2N2LmMgYi9rZXhlYy9hcmNoL3Jpc2N2L2NyYXNoZHVtcC1yaXNjdi5jCmluZGV4
-IDNlZDRmZTMuLjMzNmQ3YTcgMTAwNjQ0Ci0tLSBhL2tleGVjL2FyY2gvcmlzY3YvY3Jhc2hkdW1w
-LXJpc2N2LmMKKysrIGIva2V4ZWMvYXJjaC9yaXNjdi9jcmFzaGR1bXAtcmlzY3YuYwpAQCAtMSw1
-ICsxLDUgQEAKICNpbmNsdWRlIDxlcnJuby5oPgotI2luY2x1ZGUgPGxpbnV4L2VsZi5oPgorI2lu
-Y2x1ZGUgPGVsZi5oPgogI2luY2x1ZGUgPHVuaXN0ZC5oPgogCiAjaW5jbHVkZSAia2V4ZWMuaCIK
-LS0gCjIuMjAuMQoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQu
-b3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlz
-Y3YK
+It was reported that the riscv kernel hangs while executing the test
+in [1].
+
+Indeed, the test hangs when trying to write a buffer to a file. The
+problem is that the riscv implementation of raw_copy_from_user() does not
+return the number of bytes written when an exception happens and is fixed
+up.
+
+generic_perform_write() pre-faults the user pages and bails out if nothing
+can be written, otherwise it will access the userspace buffer: here the
+riscv implementation keeps returning it was not able to copy any byte
+though the pre-faulting indicates otherwise. So generic_perform_write()
+keeps retrying to access the user memory and ends up in an infinite
+loop.
+
+Note that before the commit mentioned in [1] that introduced this
+regression, it worked because generic_perform_write() would bail out if
+only one byte could not be written.
+
+So fix this by returning the number of bytes effectively written in
+__asm_copy_[to|from]_user() and __clear_user(), as it is expected.
+
+[1] https://lore.kernel.org/linux-riscv/20230309151841.bomov6hq3ybyp42a@debian/
+
+Fixes: ebcbd75e3962 ("riscv: Fix the bug in memory access fixup code")
+Reported-by: Bo YU <tsu.yubo@gmail.com>
+Closes: https://lore.kernel.org/linux-riscv/20230309151841.bomov6hq3ybyp42a@debian/#t
+Reported-by: Aurelien Jarno <aurelien@aurel32.net>
+Closes: https://lore.kernel.org/linux-riscv/ZNOnCakhwIeue3yr@aurel32.net/
+Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+---
+ arch/riscv/lib/uaccess.S | 11 +++++++----
+ 1 file changed, 7 insertions(+), 4 deletions(-)
+
+diff --git a/arch/riscv/lib/uaccess.S b/arch/riscv/lib/uaccess.S
+index ec486e5369d9..09b47ebacf2e 100644
+--- a/arch/riscv/lib/uaccess.S
++++ b/arch/riscv/lib/uaccess.S
+@@ -17,8 +17,11 @@ ENTRY(__asm_copy_from_user)
+ 	li t6, SR_SUM
+ 	csrs CSR_STATUS, t6
+ 
+-	/* Save for return value */
+-	mv	t5, a2
++	/*
++	 * Save the terminal address which will be used to compute the number
++	 * of bytes copied in case of a fixup exception.
++	 */
++	add	t5, a0, a2
+ 
+ 	/*
+ 	 * Register allocation for code below:
+@@ -176,7 +179,7 @@ ENTRY(__asm_copy_from_user)
+ 10:
+ 	/* Disable access to user memory */
+ 	csrc CSR_STATUS, t6
+-	mv a0, t5
++	sub a0, t5, a0
+ 	ret
+ ENDPROC(__asm_copy_to_user)
+ ENDPROC(__asm_copy_from_user)
+@@ -228,7 +231,7 @@ ENTRY(__clear_user)
+ 11:
+ 	/* Disable access to user memory */
+ 	csrc CSR_STATUS, t6
+-	mv a0, a1
++	sub a0, a3, a0
+ 	ret
+ ENDPROC(__clear_user)
+ EXPORT_SYMBOL(__clear_user)
+-- 
+2.39.2
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
