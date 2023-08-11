@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3043DC001DB
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2119C0015E
 	for <linux-riscv@archiver.kernel.org>; Fri, 11 Aug 2023 23:36:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -13,70 +13,70 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=NfhHY9bMq/9khy0G8HAwR3EtSdKTVS3HHMawo/PiMHo=; b=i+rDlAflyCE0EyUWcKBVblIxQP
-	Dt9ME63fMHReuUy//vyShKwI8roZmGaRjtUdrn6/wyAy7t98c6IB5u95xV+xjOYWK9FPbvrIsLQj6
-	q5stxBW0de+E7OsczKgKABxQhq5cvD9+/wt2K882LlxbRjZSaYJjVU352GmjPVc1l2/WPInZEw/WH
-	8EXiNOgsjVuFnk4PFvALElmvfFgAnjpkLEggSCEK9+BpplqzJfvf3vhUHY9juxtlKbck6SYHOlQAk
-	U0AGcrtsWy1XVyEdtuKwQUuhbM1y7mPr11Qh10xMS7pEAybBM94FpDDokwHLcLNVwONJdOefFOPVV
-	eIbaayZA==;
+	bh=6wIabWjokGQPRZw7w+ZF261X0W3k2dFuDRPMVRH18GY=; b=X52b3A+9nYlpPC4+QhGgR4AL/9
+	4XaNsPrKqUKfDIC3LJYJSp1MNoKCIqc51LZihEMyfoL+vB2qLF+EjsmKqcYLEGRS9gnyEF2wyqZcW
+	1qKKrubLvzgeyP6H5iF/OXyyhCqbuWCNeBzwXhkpOWI1b2/oZFCne2ZvzG/ud/pXNlT9RFKAn4dxd
+	GRiR05JqpTgthr4B1iR3OjDQhi4wmhV10jEwTR1f5TV7rB98vpMqlHGcfpCxFi4uckO54FXSSkl3s
+	Z29PW0ONOWWBz5/9xFCioklCIFqEt9Re6LhIFSNGvmjK+qCUsKohDikad9VqEsk1f2nrYmOTGNYHL
+	nRcP2XRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qUbfy-00Bw9k-2V;
-	Fri, 11 Aug 2023 23:36:14 +0000
-Received: from mail-pg1-x549.google.com ([2607:f8b0:4864:20::549])
+	id 1qUbfx-00Bw8s-0S;
+	Fri, 11 Aug 2023 23:36:13 +0000
+Received: from mail-yb1-xb49.google.com ([2607:f8b0:4864:20::b49])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qUbfv-00Bw6g-0Z
+	id 1qUbft-00Bw6G-2U
 	for linux-riscv@lists.infradead.org;
-	Fri, 11 Aug 2023 23:36:12 +0000
-Received: by mail-pg1-x549.google.com with SMTP id 41be03b00d2f7-564e1843717so3022425a12.0
-        for <linux-riscv@lists.infradead.org>; Fri, 11 Aug 2023 16:36:09 -0700 (PDT)
+	Fri, 11 Aug 2023 23:36:11 +0000
+Received: by mail-yb1-xb49.google.com with SMTP id 3f1490d57ef6-d4ddbcbbaacso2449844276.1
+        for <linux-riscv@lists.infradead.org>; Fri, 11 Aug 2023 16:36:08 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20221208; t=1691796969; x=1692401769;
+        d=google.com; s=20221208; t=1691796967; x=1692401767;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=VZF+IDNpZAY/LDD7db/2FGsLr/FEvCnem9lcmfmloZ0=;
-        b=mtVd1W3/3q051Qstg/rkwh22KJtXJgwRmJjPFHPrSUwrwcnjBaqya9IaLakBib/tGp
-         MZTlDO3i3B4tO+B0FXZi24NgY0QmiN3TLRaIN/r9BVzhVd6lXdijvcEwht3QqyGFD25d
-         iAg948H3L3HcDIX/PDfVlKzDxQL0FtAOPKhRa0fRjcPK/dRobJigKyFzAfEEvzpV65fs
-         kGDPQqp+LC2W1h1PDbovFc73zR/ks5uXhEXNhFQtNnxEmYALG9EGpnOyEhYzt92Xo9Yq
-         5nvT9GMKmOWUbwmKtjMTTTSyuaOqrL5J7LhfgrsQFnUpeCuAUc08CGdSsrD74A12oTl/
-         4BBg==
+        bh=Bh2SMH2bG9I0xKALEIFQB5QNQoDjerh8Q1sJkce2DIk=;
+        b=gvS+jS69ksGoDJUMrUJII+1hQrHq/NhM3acNv4ScOaKqy2V1pi4I1F4GIydEELmeEl
+         ex0ydE9XPcSDIiWRl8uMIp7KntwyI0W7Fucu+h5hdGVqWMsTQhtrtBJGs43R5K9peeur
+         bwAsxUWoFa5LbStrHSGvJMV434Ny8DCmwwljAUp5yToUppch68nLSkRQIcrsWB1QwAPE
+         2XokZ2TSSe5p2y0rpj0UCxVZJD164Mq52XK2KIIFzY4VaX1STqLk12sBhGx/k6NlS/mO
+         rbT3HG8YDNrZPkNOda3ITjvz5ofhN0/TfYMwxvI523ZIJSp0bFqCif3S2e8j4DOSXftf
+         sH+A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1691796969; x=1692401769;
+        d=1e100.net; s=20221208; t=1691796967; x=1692401767;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=VZF+IDNpZAY/LDD7db/2FGsLr/FEvCnem9lcmfmloZ0=;
-        b=HZOpVaWL+g3pEHN3+8cEGr2v5+hu+LJSMxdPCrTwwpbBggiZY0dId+kMem+YTRdsPF
-         /DcKWBbmqXMHuStmFU0OwcAk6PFoUcjIvwsDRKDXyRI0nQO0BDos/iSmJvrRAYy8O5eg
-         DG4rAvOveJAdUhkgHME7BiOwKs5WVvBIYMxHeQCsxLCqPMGy2B0ib689bDttWy8KFLvb
-         Pl1phHBBufkB/VJkkTOFrI1lbEIMxS2xoYooRRiFU1rIGb/GpjkIu9Tlm8S3AnRMHs7z
-         kH+LQTlMPRnQ94Z8oVnkOi2GUSf2k9/5WUQqzv0wPWDzNtFsfJWYHR7lBRZG7hWYUOYF
-         pf0w==
-X-Gm-Message-State: AOJu0YwTjfCNM+q43p/I0p/2bTmDIRZ2xkQeRuLVivI/SKHjUJDk4EKA
-	hoBlpIcKuFc6WS87qx3PvMr6zHl+eWz4wiaChCY=
-X-Google-Smtp-Source: AGHT+IHhsvuH2OM1UWszf4TCMu5qR06fZ9BwriEs9fj1OxjgnvZGnw/4HlxK/SLUtDQ7Phb6303mh2wjDyw9Z0/+bjA=
+        bh=Bh2SMH2bG9I0xKALEIFQB5QNQoDjerh8Q1sJkce2DIk=;
+        b=fB2qMEsZZjANZ6/LsN4LB2XPzFBRy2ZzcQiOYu/Wx1UX8K/7n+ze1yrDzh76rgL5Vz
+         Sgm0YlTuNO5FuaOzFX4Qt9q7oRfwUeen0/lL5lsXP5D27DpyytvkPscv8lmjGH447yGO
+         HyLSLzh0DRXoRWaeAerEls2jhOqx1EwuaNf48ON2TI7lOKzR/3qdccqRzcA7CKD6r9NS
+         IbE14Kjk0FosZQg1b5E0FuWP30cgkwyByNt15ZtsGGjZjY8sKvfJpRt6ukFgngJIXfrK
+         yJkJvMSauFbBbNXjJBgfS45dnC3aHr0cI4WCDCYNRhFFHAyfBQGBRWjfus8uy9YzoUI6
+         116g==
+X-Gm-Message-State: AOJu0YzKiJnbAOQWtRyDysNpyxiQb72PSf8oY3/2ouvFjyxKBhiC/oWo
+	kCkDh877yQVKLhXMoIBnlqPh2WTKEfUfNBpidGU=
+X-Google-Smtp-Source: AGHT+IGn7/luiCrNeakMxVpHbNzGZ8cIiHscZvkBP/apbaMkU/mf65DWcPOMSfWIkMlGKnP7dQFkrPifhjNXxxQieRY=
 X-Received: from samitolvanen.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:4f92])
- (user=samitolvanen job=sendgmr) by 2002:a63:8c57:0:b0:564:aeb6:c383 with SMTP
- id q23-20020a638c57000000b00564aeb6c383mr638656pgn.1.1691796969048; Fri, 11
- Aug 2023 16:36:09 -0700 (PDT)
-Date: Fri, 11 Aug 2023 23:36:02 +0000
+ (user=samitolvanen job=sendgmr) by 2002:a25:dbcc:0:b0:d08:8cf5:c5d8 with SMTP
+ id g195-20020a25dbcc000000b00d088cf5c5d8mr49616ybf.5.1691796967456; Fri, 11
+ Aug 2023 16:36:07 -0700 (PDT)
+Date: Fri, 11 Aug 2023 23:36:01 +0000
 In-Reply-To: <20230811233556.97161-7-samitolvanen@google.com>
 Mime-Version: 1.0
 References: <20230811233556.97161-7-samitolvanen@google.com>
 X-Developer-Key: i=samitolvanen@google.com; a=openpgp; fpr=35CCFB63B283D6D3AEB783944CB5F6848BBC56EE
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3124; i=samitolvanen@google.com;
- h=from:subject; bh=wBRXjmNHfhdcdsjrWxKjQVM4d1RVOAig5wuWuTXp+sw=;
- b=owEB7QES/pANAwAKAUy19oSLvFbuAcsmYgBk1sXcweRCoqkszjtNMVnBaMVhIhZi/o4cME2C4
- t5Qc51TbeWJAbMEAAEKAB0WIQQ1zPtjsoPW0663g5RMtfaEi7xW7gUCZNbF3AAKCRBMtfaEi7xW
- 7oToC/0bVrByxxtfXjE7idOKMhQ47Ftkbwzrwd/qVpuGk5sKwMO1ZCCpNUD1WjHmpT9DM/jRjii
- ID7y7zSN8jMwvkBKVqWFcrA/Eaa0m5fWafqe4cjjWupJSB/ep6zYn/Rg6HLdIw7XP4JK/Vc4y4r
- TzWyrycXtowJuCYuF+VVNuP27Hv37AH2QTpPxcpmbb7m3TwnCZ3WQKLI40KhXg8gonXaggVqg3q
- X5caBqH0OE2M8dRrYxeDPBlFrqtmfu0hbgTF/flJQdHf2d68ZJHYv8m5rdu94Bnwwf6XZFg+Q0R
- ZQlYPtqVBdg6YwftizeZzNr6QjUFpqQ7A4buby+3pAI85S6NE4IF5Nces27nX/oKcSXM9+L4gog
- 10WOtL3ybC+F9bnk4ud+g4NkqrfaEszHa/UYGP2doaSEY7wnGja38VeGjqq9XMANxgYlDyRpWrs vGsTNxyJYa2V8imEkZFgy9kgnfoyRyITlo1VmA8GQU3rxJACgMLpVtK/P/BITWXbgVKXU=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=9645; i=samitolvanen@google.com;
+ h=from:subject; bh=ueeQJcvzAnbsh8FPJDYWxlDi+/d25912Nt0U7lLHt5U=;
+ b=owEB7QES/pANAwAKAUy19oSLvFbuAcsmYgBk1sXcDaoAzJtGtIOuaRCf2i9GhcmPPBJhBrA33
+ Ww51acNiOKJAbMEAAEKAB0WIQQ1zPtjsoPW0663g5RMtfaEi7xW7gUCZNbF3AAKCRBMtfaEi7xW
+ 7krpDACfvorMMZXm+b/+jamk9TK5vm4BfjQxEIFqMXVRqmhV4RcdDgLSgrPDJjn0yruhkgAyD9+
+ cBzu3xS3s01CSBII8JbF6u6wpu5vWr+GCkj6oAnqZ/zmB5Ak59Q6NxQQ7U8yvb52s6jZJRydN4+
+ H0fjGV7B2S6vFcj18ECNa4t5V+N2BYSAWetwjMpHTpsQzlw0iAwkxzCUAtwWN1TXsVmRmry8mFM
+ dbcEmR+kwnHad+TTIyzHdENKA1n9+h2qnompvDdb0Rf6yjQIjdKBQ/VcwJNP3R1LVXg++XqAYlT
+ rTSvmvQPoWNEF+Ugv5nnDyr0odobsmhcg/0vZWkiMoadklSqTHDbWWVIYMXjSkGgVRlAmICsLcE
+ E1A7MOQ0YmHJmmSAS4dw5jlIg0hLPx8dkzEMJ0WFCzvjaIrVwaaIxgsbsGS+FqewGurBzUu2mjb ulBb9oWP+4ITnttsy7Tcnc/lLVZzCUM1N7rwWGdx4cx1ZRDXyRO+08zEZOeVVqll+8EHc=
 X-Mailer: git-send-email 2.41.0.640.ga95def55d0-goog
-Message-ID: <20230811233556.97161-12-samitolvanen@google.com>
-Subject: [PATCH 5/5] riscv: Use separate IRQ shadow call stacks
+Message-ID: <20230811233556.97161-11-samitolvanen@google.com>
+Subject: [PATCH 4/5] riscv: Implement Shadow Call Stack
 From: Sami Tolvanen <samitolvanen@google.com>
 To: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
 	Albert Ou <aou@eecs.berkeley.edu>, Kees Cook <keescook@chromium.org>
@@ -85,8 +85,8 @@ Cc: Guo Ren <guoren@kernel.org>, Deepak Gupta <debug@rivosinc.com>,
 	Fangrui Song <maskray@google.com>, linux-riscv@lists.infradead.org, llvm@lists.linux.dev, 
 	linux-kernel@vger.kernel.org, Sami Tolvanen <samitolvanen@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230811_163611_216441_27A3A1F2 
-X-CRM114-Status: GOOD (  11.54  )
+X-CRM114-CacheID: sfid-20230811_163609_814310_54AA90F7 
+X-CRM114-Status: GOOD (  20.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,118 +103,310 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-When both CONFIG_IRQ_STACKS and SCS are enabled, also use a separate
-per-CPU shadow call stack.
+Implement CONFIG_SHADOW_CALL_STACK for RISC-V. When enabled, the
+compiler injects instructions to all non-leaf C functions to
+store the return address to the shadow stack and unconditionally
+load it again before returning, which makes it harder to corrupt
+the return address through a stack overflow, for example.
+
+The active shadow call stack pointer is stored in the gp
+register, which makes SCS incompatible with gp relaxation. Use
+--no-relax-gp to ensure gp relaxation is disabled and disable
+global pointer loading.  Add SCS pointers to struct thread_info,
+implement SCS initialization, and task switching
 
 Signed-off-by: Sami Tolvanen <samitolvanen@google.com>
 ---
- arch/riscv/include/asm/scs.h |  7 +++++++
- arch/riscv/kernel/entry.S    |  7 +++++++
- arch/riscv/kernel/irq.c      | 21 +++++++++++++++++++++
- 3 files changed, 35 insertions(+)
+ arch/riscv/Kconfig                   |  6 ++++
+ arch/riscv/Makefile                  |  4 +++
+ arch/riscv/include/asm/asm.h         |  6 ++++
+ arch/riscv/include/asm/scs.h         | 47 ++++++++++++++++++++++++++++
+ arch/riscv/include/asm/thread_info.h | 13 ++++++++
+ arch/riscv/kernel/asm-offsets.c      |  3 ++
+ arch/riscv/kernel/entry.S            | 11 +++++++
+ arch/riscv/kernel/head.S             |  4 +++
+ arch/riscv/kernel/vdso/Makefile      |  2 +-
+ arch/riscv/purgatory/Makefile        |  4 +++
+ 10 files changed, 99 insertions(+), 1 deletion(-)
+ create mode 100644 arch/riscv/include/asm/scs.h
 
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index 4c07b9189c86..8fe31ec59da4 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -46,6 +46,7 @@ config RISCV
+ 	select ARCH_SUPPORTS_HUGETLBFS if MMU
+ 	select ARCH_SUPPORTS_PAGE_TABLE_CHECK if MMU
+ 	select ARCH_SUPPORTS_PER_VMA_LOCK if MMU
++	select ARCH_SUPPORTS_SHADOW_CALL_STACK if HAVE_SHADOW_CALL_STACK
+ 	select ARCH_USE_MEMTEST
+ 	select ARCH_USE_QUEUED_RWLOCKS
+ 	select ARCH_WANT_DEFAULT_TOPDOWN_MMAP_LAYOUT if MMU
+@@ -169,6 +170,11 @@ config GCC_SUPPORTS_DYNAMIC_FTRACE
+ 	def_bool CC_IS_GCC
+ 	depends on $(cc-option,-fpatchable-function-entry=8)
+ 
++config HAVE_SHADOW_CALL_STACK
++	def_bool $(cc-option,-fsanitize=shadow-call-stack)
++	# https://github.com/riscv-non-isa/riscv-elf-psabi-doc/commit/a484e843e6eeb51f0cb7b8819e50da6d2444d769
++	depends on $(ld-option,--no-relax-gp)
++
+ config ARCH_MMAP_RND_BITS_MIN
+ 	default 18 if 64BIT
+ 	default 8
+diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
+index 6ec6d52a4180..e518a74640fb 100644
+--- a/arch/riscv/Makefile
++++ b/arch/riscv/Makefile
+@@ -55,6 +55,10 @@ endif
+ endif
+ endif
+ 
++ifeq ($(CONFIG_SHADOW_CALL_STACK),y)
++	KBUILD_LDFLAGS += --no-relax-gp
++endif
++
+ # ISA string setting
+ riscv-march-$(CONFIG_ARCH_RV32I)	:= rv32ima
+ riscv-march-$(CONFIG_ARCH_RV64I)	:= rv64ima
+diff --git a/arch/riscv/include/asm/asm.h b/arch/riscv/include/asm/asm.h
+index c53388f784a2..ac77738835ae 100644
+--- a/arch/riscv/include/asm/asm.h
++++ b/arch/riscv/include/asm/asm.h
+@@ -103,6 +103,11 @@
+ 	REG_L \dst, 0(\dst)
+ .endm
+ 
++#ifdef CONFIG_SHADOW_CALL_STACK
++/* gp is used as the shadow call stack pointer instead */
++.macro load_global_pointer
++.endm
++#else
+ /* load __global_pointer to gp */
+ .macro load_global_pointer
+ .option push
+@@ -110,6 +115,7 @@
+ 	la gp, __global_pointer$
+ .option pop
+ .endm
++#endif /* CONFIG_SHADOW_CALL_STACK */
+ 
+ 	/* save all GPs except x1 ~ x5 */
+ 	.macro save_from_x6_to_x31
 diff --git a/arch/riscv/include/asm/scs.h b/arch/riscv/include/asm/scs.h
-index 94726ea773e3..0e45db78b24b 100644
---- a/arch/riscv/include/asm/scs.h
+new file mode 100644
+index 000000000000..94726ea773e3
+--- /dev/null
 +++ b/arch/riscv/include/asm/scs.h
-@@ -13,6 +13,11 @@
- 	XIP_FIXUP_OFFSET gp
- .endm
- 
-+/* Load the per-CPU IRQ shadow call stack to gp. */
-+.macro scs_load_irq_stack tmp
-+	load_per_cpu gp, irq_shadow_call_stack_ptr, \tmp
-+.endm
+@@ -0,0 +1,47 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++#ifndef _ASM_SCS_H
++#define _ASM_SCS_H
 +
- /* Load task_scs_sp(current) to gp. */
- .macro scs_load_current
- 	REG_L	gp, TASK_TI_SCS_SP(tp)
-@@ -34,6 +39,8 @@
- 
- .macro scs_load_init_stack
- .endm
-+.macro scs_load_irq_stack tmp
-+.endm
- .macro scs_load_current
- .endm
- .macro scs_load_current_if_task_changed prev
-diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
-index ad34507d3c96..c86b76584d2d 100644
---- a/arch/riscv/kernel/entry.S
-+++ b/arch/riscv/kernel/entry.S
-@@ -238,12 +238,19 @@ SYM_FUNC_START(call_on_irq_stack)
- 	REG_S	s0, (sp)
- 	addi	s0, sp, 2*RISCV_SZPTR
- 
-+	/* Switch to the per-CPU shadow call stack */
-+	scs_save_current
-+	scs_load_irq_stack t0
-+
- 	/* Switch to the per-CPU IRQ stack and call the handler */
- 	load_per_cpu t0, irq_stack_ptr, t1
- 	li	t1, IRQ_STACK_SIZE
- 	add	sp, t0, t1
- 	jalr	a1
- 
-+	/* Switch back to the thread shadow call stack */
-+	scs_load_current
-+
- 	/* Switch back to the thread stack and restore ra and s0 */
- 	addi	sp, s0, -2*RISCV_SZPTR
- 	REG_L	s0, (sp)
-diff --git a/arch/riscv/kernel/irq.c b/arch/riscv/kernel/irq.c
-index 95dafdcbd135..7bfea97ee7e7 100644
---- a/arch/riscv/kernel/irq.c
-+++ b/arch/riscv/kernel/irq.c
-@@ -9,6 +9,7 @@
- #include <linux/irqchip.h>
- #include <linux/irqdomain.h>
- #include <linux/module.h>
-+#include <linux/scs.h>
- #include <linux/seq_file.h>
- #include <asm/sbi.h>
- #include <asm/smp.h>
-@@ -34,6 +35,24 @@ EXPORT_SYMBOL_GPL(riscv_get_intc_hwnode);
- #ifdef CONFIG_IRQ_STACKS
- #include <asm/irq_stack.h>
- 
-+DECLARE_PER_CPU(ulong *, irq_shadow_call_stack_ptr);
++#ifdef __ASSEMBLY__
++#include <asm/asm-offsets.h>
 +
 +#ifdef CONFIG_SHADOW_CALL_STACK
-+DEFINE_PER_CPU(ulong *, irq_shadow_call_stack_ptr);
++
++/* Load init_shadow_call_stack to gp. */
++.macro scs_load_init_stack
++	la	gp, init_shadow_call_stack
++	XIP_FIXUP_OFFSET gp
++.endm
++
++/* Load task_scs_sp(current) to gp. */
++.macro scs_load_current
++	REG_L	gp, TASK_TI_SCS_SP(tp)
++.endm
++
++/* Load task_scs_sp(current) to gp, but only if tp has changed. */
++.macro scs_load_current_if_task_changed prev
++	beq	\prev, tp, _skip_scs
++	scs_load_current
++_skip_scs:
++.endm
++
++/* Save gp to task_scs_sp(current). */
++.macro scs_save_current
++	REG_S	gp, TASK_TI_SCS_SP(tp)
++.endm
++
++#else /* CONFIG_SHADOW_CALL_STACK */
++
++.macro scs_load_init_stack
++.endm
++.macro scs_load_current
++.endm
++.macro scs_load_current_if_task_changed prev
++.endm
++.macro scs_save_current
++.endm
++
++#endif /* CONFIG_SHADOW_CALL_STACK */
++#endif /* __ASSEMBLY__ */
++
++#endif /* _ASM_SCS_H */
+diff --git a/arch/riscv/include/asm/thread_info.h b/arch/riscv/include/asm/thread_info.h
+index d18ce0113ca1..574779900bfb 100644
+--- a/arch/riscv/include/asm/thread_info.h
++++ b/arch/riscv/include/asm/thread_info.h
+@@ -57,8 +57,20 @@ struct thread_info {
+ 	long			user_sp;	/* User stack pointer */
+ 	int			cpu;
+ 	unsigned long		syscall_work;	/* SYSCALL_WORK_ flags */
++#ifdef CONFIG_SHADOW_CALL_STACK
++	void			*scs_base;
++	void			*scs_sp;
++#endif
+ };
+ 
++#ifdef CONFIG_SHADOW_CALL_STACK
++#define INIT_SCS							\
++	.scs_base	= init_shadow_call_stack,			\
++	.scs_sp		= init_shadow_call_stack,
++#else
++#define INIT_SCS
 +#endif
 +
-+static void init_irq_scs(void)
-+{
-+	int cpu;
+ /*
+  * macros/functions for gaining access to the thread information structure
+  *
+@@ -68,6 +80,7 @@ struct thread_info {
+ {						\
+ 	.flags		= 0,			\
+ 	.preempt_count	= INIT_PREEMPT_COUNT,	\
++	INIT_SCS				\
+ }
+ 
+ void arch_release_task_struct(struct task_struct *tsk);
+diff --git a/arch/riscv/kernel/asm-offsets.c b/arch/riscv/kernel/asm-offsets.c
+index 9f535d5de33f..177cef43a2ee 100644
+--- a/arch/riscv/kernel/asm-offsets.c
++++ b/arch/riscv/kernel/asm-offsets.c
+@@ -38,6 +38,9 @@ void asm_offsets(void)
+ 	OFFSET(TASK_TI_PREEMPT_COUNT, task_struct, thread_info.preempt_count);
+ 	OFFSET(TASK_TI_KERNEL_SP, task_struct, thread_info.kernel_sp);
+ 	OFFSET(TASK_TI_USER_SP, task_struct, thread_info.user_sp);
++#ifdef CONFIG_SHADOW_CALL_STACK
++	OFFSET(TASK_TI_SCS_SP, task_struct, thread_info.scs_sp);
++#endif
+ 
+ 	OFFSET(TASK_TI_CPU_NUM, task_struct, thread_info.cpu);
+ 	OFFSET(TASK_THREAD_F0,  task_struct, thread.fstate.f[0]);
+diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
+index 2b4248c6b0a9..ad34507d3c96 100644
+--- a/arch/riscv/kernel/entry.S
++++ b/arch/riscv/kernel/entry.S
+@@ -9,6 +9,7 @@
+ 
+ #include <asm/asm.h>
+ #include <asm/csr.h>
++#include <asm/scs.h>
+ #include <asm/unistd.h>
+ #include <asm/page.h>
+ #include <asm/thread_info.h>
+@@ -77,6 +78,9 @@ _save_context:
+ 	/* Load the global pointer */
+ 	load_global_pointer
+ 
++	/* Load the kernel shadow call stack pointer if coming from userspace */
++	scs_load_current_if_task_changed s5
 +
-+	if (!scs_is_enabled())
-+		return;
+ 	move a0, sp /* pt_regs */
+ 	la ra, ret_from_exception
+ 
+@@ -123,6 +127,9 @@ SYM_CODE_START_NOALIGN(ret_from_exception)
+ 	addi s0, sp, PT_SIZE_ON_STACK
+ 	REG_S s0, TASK_TI_KERNEL_SP(tp)
+ 
++	/* Save the kernel shadow call stack pointer */
++	scs_save_current
 +
-+	for_each_possible_cpu(cpu)
-+		per_cpu(irq_shadow_call_stack_ptr, cpu) =
-+			scs_alloc(cpu_to_node(cpu));
-+}
+ 	/*
+ 	 * Save TP into the scratch register , so we can find the kernel data
+ 	 * structures again.
+@@ -277,6 +284,8 @@ SYM_FUNC_START(__switch_to)
+ 	REG_S s9,  TASK_THREAD_S9_RA(a3)
+ 	REG_S s10, TASK_THREAD_S10_RA(a3)
+ 	REG_S s11, TASK_THREAD_S11_RA(a3)
++	/* Save the kernel shadow call stack pointer */
++	scs_save_current
+ 	/* Restore context from next->thread */
+ 	REG_L ra,  TASK_THREAD_RA_RA(a4)
+ 	REG_L sp,  TASK_THREAD_SP_RA(a4)
+@@ -294,6 +303,8 @@ SYM_FUNC_START(__switch_to)
+ 	REG_L s11, TASK_THREAD_S11_RA(a4)
+ 	/* The offset of thread_info in task_struct is zero. */
+ 	move tp, a1
++	/* Switch to the next shadow call stack */
++	scs_load_current
+ 	ret
+ SYM_FUNC_END(__switch_to)
+ 
+diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
+index 79b5a863c782..c3d0ee77483b 100644
+--- a/arch/riscv/kernel/head.S
++++ b/arch/riscv/kernel/head.S
+@@ -14,6 +14,7 @@
+ #include <asm/cpu_ops_sbi.h>
+ #include <asm/hwcap.h>
+ #include <asm/image.h>
++#include <asm/scs.h>
+ #include <asm/xip_fixup.h>
+ #include "efi-header.S"
+ 
+@@ -153,6 +154,7 @@ secondary_start_sbi:
+ 	XIP_FIXUP_OFFSET a3
+ 	add a3, a3, a1
+ 	REG_L sp, (a3)
++	scs_load_current
+ 
+ .Lsecondary_start_common:
+ 
+@@ -293,6 +295,7 @@ clear_bss_done:
+ 	la sp, init_thread_union + THREAD_SIZE
+ 	XIP_FIXUP_OFFSET sp
+ 	addi sp, sp, -PT_SIZE_ON_STACK
++	scs_load_init_stack
+ #ifdef CONFIG_BUILTIN_DTB
+ 	la a0, __dtb_start
+ 	XIP_FIXUP_OFFSET a0
+@@ -311,6 +314,7 @@ clear_bss_done:
+ 	la tp, init_task
+ 	la sp, init_thread_union + THREAD_SIZE
+ 	addi sp, sp, -PT_SIZE_ON_STACK
++	scs_load_init_stack
+ 
+ #ifdef CONFIG_KASAN
+ 	call kasan_early_init
+diff --git a/arch/riscv/kernel/vdso/Makefile b/arch/riscv/kernel/vdso/Makefile
+index 6b1dba11bf6d..48c362c0cb3d 100644
+--- a/arch/riscv/kernel/vdso/Makefile
++++ b/arch/riscv/kernel/vdso/Makefile
+@@ -36,7 +36,7 @@ CPPFLAGS_vdso.lds += -DHAS_VGETTIMEOFDAY
+ endif
+ 
+ # Disable -pg to prevent insert call site
+-CFLAGS_REMOVE_vgettimeofday.o = $(CC_FLAGS_FTRACE)
++CFLAGS_REMOVE_vgettimeofday.o = $(CC_FLAGS_FTRACE) $(CC_FLAGS_SCS)
+ 
+ # Disable profiling and instrumentation for VDSO code
+ GCOV_PROFILE := n
+diff --git a/arch/riscv/purgatory/Makefile b/arch/riscv/purgatory/Makefile
+index dc20e166983e..d5d60c040560 100644
+--- a/arch/riscv/purgatory/Makefile
++++ b/arch/riscv/purgatory/Makefile
+@@ -77,6 +77,10 @@ ifdef CONFIG_STACKPROTECTOR_STRONG
+ PURGATORY_CFLAGS_REMOVE		+= -fstack-protector-strong
+ endif
+ 
++ifdef CONFIG_SHADOW_CALL_STACK
++PURGATORY_CFLAGS_REMOVE		+= $(CC_FLAGS_SCS)
++endif
 +
- DEFINE_PER_CPU(ulong *, irq_stack_ptr);
+ CFLAGS_REMOVE_purgatory.o	+= $(PURGATORY_CFLAGS_REMOVE)
+ CFLAGS_purgatory.o		+= $(PURGATORY_CFLAGS)
  
- #ifdef CONFIG_VMAP_STACK
-@@ -76,6 +95,7 @@ void do_softirq_own_stack(void)
- #endif /* CONFIG_HAVE_SOFTIRQ_ON_OWN_STACK */
- 
- #else
-+static void init_irq_scs(void) {}
- static void init_irq_stacks(void) {}
- #endif /* CONFIG_IRQ_STACKS */
- 
-@@ -87,6 +107,7 @@ int arch_show_interrupts(struct seq_file *p, int prec)
- 
- void __init init_IRQ(void)
- {
-+	init_irq_scs();
- 	init_irq_stacks();
- 	irqchip_init();
- 	if (!handle_arch_irq)
 -- 
 2.41.0.640.ga95def55d0-goog
 
