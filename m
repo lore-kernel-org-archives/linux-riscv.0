@@ -4,8 +4,8 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2119C0015E
-	for <linux-riscv@archiver.kernel.org>; Fri, 11 Aug 2023 23:36:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6A67C04A94
+	for <linux-riscv@archiver.kernel.org>; Fri, 11 Aug 2023 23:36:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -13,80 +13,80 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=6wIabWjokGQPRZw7w+ZF261X0W3k2dFuDRPMVRH18GY=; b=X52b3A+9nYlpPC4+QhGgR4AL/9
-	4XaNsPrKqUKfDIC3LJYJSp1MNoKCIqc51LZihEMyfoL+vB2qLF+EjsmKqcYLEGRS9gnyEF2wyqZcW
-	1qKKrubLvzgeyP6H5iF/OXyyhCqbuWCNeBzwXhkpOWI1b2/oZFCne2ZvzG/ud/pXNlT9RFKAn4dxd
-	GRiR05JqpTgthr4B1iR3OjDQhi4wmhV10jEwTR1f5TV7rB98vpMqlHGcfpCxFi4uckO54FXSSkl3s
-	Z29PW0ONOWWBz5/9xFCioklCIFqEt9Re6LhIFSNGvmjK+qCUsKohDikad9VqEsk1f2nrYmOTGNYHL
-	nRcP2XRQ==;
+	bh=nzRg14E/YAKfPgb91dLLt0IoAFrU/SQ068iY/eyfLGo=; b=zCrW2SDuaFseHRJZ4m/lQEBAoT
+	s1+WUkNcvPJ9xHuB1og5+Kw9jIrA3BZ/S4NM35EEqJM6DJrjxh4X+vTJovwlevVdysFN9x3p83zBe
+	D/rkd3yIVv2GHWXazIhp7whV6dfEBqSTRALbgiitjb1y7rtR0cB2A/qEDwH8Zt1ltLOBksYdk9ofM
+	XhQnjteCpsaJRtMJb7bJ8xg1JY1SJH16P4nzjJCVuP4npwRb5G4YVSZecNJosF4tA0tJfnQJkqq9D
+	GyAfldug6DtQgmAiiEoFlH6d8tpQeF94+aCgMUFi4K4/aWxhtdaTSlj6TaaHp29xatUlod+LzgcSK
+	476bhIYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qUbfx-00Bw8s-0S;
-	Fri, 11 Aug 2023 23:36:13 +0000
-Received: from mail-yb1-xb49.google.com ([2607:f8b0:4864:20::b49])
+	id 1qUbfs-00Bw6S-1T;
+	Fri, 11 Aug 2023 23:36:08 +0000
+Received: from mail-yb1-xb4a.google.com ([2607:f8b0:4864:20::b4a])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qUbft-00Bw6G-2U
+	id 1qUbfo-00Bw4F-32
 	for linux-riscv@lists.infradead.org;
-	Fri, 11 Aug 2023 23:36:11 +0000
-Received: by mail-yb1-xb49.google.com with SMTP id 3f1490d57ef6-d4ddbcbbaacso2449844276.1
-        for <linux-riscv@lists.infradead.org>; Fri, 11 Aug 2023 16:36:08 -0700 (PDT)
+	Fri, 11 Aug 2023 23:36:07 +0000
+Received: by mail-yb1-xb4a.google.com with SMTP id 3f1490d57ef6-d4db57d2982so2644221276.3
+        for <linux-riscv@lists.infradead.org>; Fri, 11 Aug 2023 16:36:02 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20221208; t=1691796967; x=1692401767;
+        d=google.com; s=20221208; t=1691796962; x=1692401762;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Bh2SMH2bG9I0xKALEIFQB5QNQoDjerh8Q1sJkce2DIk=;
-        b=gvS+jS69ksGoDJUMrUJII+1hQrHq/NhM3acNv4ScOaKqy2V1pi4I1F4GIydEELmeEl
-         ex0ydE9XPcSDIiWRl8uMIp7KntwyI0W7Fucu+h5hdGVqWMsTQhtrtBJGs43R5K9peeur
-         bwAsxUWoFa5LbStrHSGvJMV434Ny8DCmwwljAUp5yToUppch68nLSkRQIcrsWB1QwAPE
-         2XokZ2TSSe5p2y0rpj0UCxVZJD164Mq52XK2KIIFzY4VaX1STqLk12sBhGx/k6NlS/mO
-         rbT3HG8YDNrZPkNOda3ITjvz5ofhN0/TfYMwxvI523ZIJSp0bFqCif3S2e8j4DOSXftf
-         sH+A==
+        bh=sl+Vx+A1GYD8K7fSxD1TZR0BVDZ/BsJ4aeaPLzyfoKI=;
+        b=rpTXQIJT/8Urt+8bmPNt6747JatP4h6MwdtEFPz7F80VDbouuOlTtSZowuZeUdzNGg
+         /CkBTfFsXAEKRUSc8LmORZEzoIQZ54nFrUjEt5fLPY+OCU6JtDJyZZ2lt8mXw/iLr2Mu
+         VyjGNPPrDBrheV5zhGgK6G4kKifD1vLUKCoDyNpX3V9JKkM4jktDlHy+Nrj4em3f2iPv
+         2y/hnRksBcNdhmYreZWjYUBEwuzlau7FTcwhy7feJGXusO6zG+67TG6d2P/t3Sj9PrQQ
+         v155YA/xb03kvefeIAkEeJBCGXdU338VLTd61mIKC7N9qER0vU7nVRe8ZZxyznIxnRk/
+         OAsA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1691796967; x=1692401767;
+        d=1e100.net; s=20221208; t=1691796962; x=1692401762;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Bh2SMH2bG9I0xKALEIFQB5QNQoDjerh8Q1sJkce2DIk=;
-        b=fB2qMEsZZjANZ6/LsN4LB2XPzFBRy2ZzcQiOYu/Wx1UX8K/7n+ze1yrDzh76rgL5Vz
-         Sgm0YlTuNO5FuaOzFX4Qt9q7oRfwUeen0/lL5lsXP5D27DpyytvkPscv8lmjGH447yGO
-         HyLSLzh0DRXoRWaeAerEls2jhOqx1EwuaNf48ON2TI7lOKzR/3qdccqRzcA7CKD6r9NS
-         IbE14Kjk0FosZQg1b5E0FuWP30cgkwyByNt15ZtsGGjZjY8sKvfJpRt6ukFgngJIXfrK
-         yJkJvMSauFbBbNXjJBgfS45dnC3aHr0cI4WCDCYNRhFFHAyfBQGBRWjfus8uy9YzoUI6
-         116g==
-X-Gm-Message-State: AOJu0YzKiJnbAOQWtRyDysNpyxiQb72PSf8oY3/2ouvFjyxKBhiC/oWo
-	kCkDh877yQVKLhXMoIBnlqPh2WTKEfUfNBpidGU=
-X-Google-Smtp-Source: AGHT+IGn7/luiCrNeakMxVpHbNzGZ8cIiHscZvkBP/apbaMkU/mf65DWcPOMSfWIkMlGKnP7dQFkrPifhjNXxxQieRY=
+        bh=sl+Vx+A1GYD8K7fSxD1TZR0BVDZ/BsJ4aeaPLzyfoKI=;
+        b=lv9xih2t+jKf8PEGubJto1p/GyC2w1bKvYUvk5VjcN/tAdoOp2Rl0rPGu+qgmjd1WZ
+         lBTJBEg+39WIiriy1robomYMM3Gndiym+RvJEzLDtuY406dcdYBdmRvBsd/UpWWvtU2W
+         EFcmyTX9YZ6iHdzu8zCeGro/GQ5r0MjHmW3f4+x3/DKf3WaC0ZtCsQ9YWUcpATNd5NqY
+         qG/YTJcyiV4THGf2zl4TFePskSLgRqloGvD4gAEH+d81wKqwZrso/aQ4OakZZWqrMLhI
+         60Z7AgpspdrWaI6UkvhhbC78veCJVg8f3mvcKnvlMlVq0rU0Y8sMbeUK4MT+tPfbby6N
+         VGHQ==
+X-Gm-Message-State: AOJu0Yx2cYItxwyxMBgoTvm9J0FdWYalw/q1CGEP+NDTv5gwKl6LrwmM
+	ObY7VhG7tYd/8AfisAsMaD2sosElfq+y9/ptYs8=
+X-Google-Smtp-Source: AGHT+IHTjCbhhLOE/MHmMeU5Absn1zxUzwzX5kiRBsj3icYeNRUG9S87E9BFPqhjcfyHOgkaEfYy9vCNKXsoQn31SJI=
 X-Received: from samitolvanen.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:4f92])
- (user=samitolvanen job=sendgmr) by 2002:a25:dbcc:0:b0:d08:8cf5:c5d8 with SMTP
- id g195-20020a25dbcc000000b00d088cf5c5d8mr49616ybf.5.1691796967456; Fri, 11
- Aug 2023 16:36:07 -0700 (PDT)
-Date: Fri, 11 Aug 2023 23:36:01 +0000
+ (user=samitolvanen job=sendgmr) by 2002:a05:6902:1816:b0:d08:ea77:52d4 with
+ SMTP id cf22-20020a056902181600b00d08ea7752d4mr55647ybb.12.1691796962289;
+ Fri, 11 Aug 2023 16:36:02 -0700 (PDT)
+Date: Fri, 11 Aug 2023 23:35:58 +0000
 In-Reply-To: <20230811233556.97161-7-samitolvanen@google.com>
 Mime-Version: 1.0
 References: <20230811233556.97161-7-samitolvanen@google.com>
 X-Developer-Key: i=samitolvanen@google.com; a=openpgp; fpr=35CCFB63B283D6D3AEB783944CB5F6848BBC56EE
-X-Developer-Signature: v=1; a=openpgp-sha256; l=9645; i=samitolvanen@google.com;
- h=from:subject; bh=ueeQJcvzAnbsh8FPJDYWxlDi+/d25912Nt0U7lLHt5U=;
- b=owEB7QES/pANAwAKAUy19oSLvFbuAcsmYgBk1sXcDaoAzJtGtIOuaRCf2i9GhcmPPBJhBrA33
- Ww51acNiOKJAbMEAAEKAB0WIQQ1zPtjsoPW0663g5RMtfaEi7xW7gUCZNbF3AAKCRBMtfaEi7xW
- 7krpDACfvorMMZXm+b/+jamk9TK5vm4BfjQxEIFqMXVRqmhV4RcdDgLSgrPDJjn0yruhkgAyD9+
- cBzu3xS3s01CSBII8JbF6u6wpu5vWr+GCkj6oAnqZ/zmB5Ak59Q6NxQQ7U8yvb52s6jZJRydN4+
- H0fjGV7B2S6vFcj18ECNa4t5V+N2BYSAWetwjMpHTpsQzlw0iAwkxzCUAtwWN1TXsVmRmry8mFM
- dbcEmR+kwnHad+TTIyzHdENKA1n9+h2qnompvDdb0Rf6yjQIjdKBQ/VcwJNP3R1LVXg++XqAYlT
- rTSvmvQPoWNEF+Ugv5nnDyr0odobsmhcg/0vZWkiMoadklSqTHDbWWVIYMXjSkGgVRlAmICsLcE
- E1A7MOQ0YmHJmmSAS4dw5jlIg0hLPx8dkzEMJ0WFCzvjaIrVwaaIxgsbsGS+FqewGurBzUu2mjb ulBb9oWP+4ITnttsy7Tcnc/lLVZzCUM1N7rwWGdx4cx1ZRDXyRO+08zEZOeVVqll+8EHc=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=10015; i=samitolvanen@google.com;
+ h=from:subject; bh=Y2Q+0SIOBCkSyV4UDfg2ZXoAjZ/iJOwOOLFDLF3IL4w=;
+ b=owEB7QES/pANAwAKAUy19oSLvFbuAcsmYgBk1sXckQ+uqRSpz9pUeeNm+q+S6fTT449pmndoL
+ hnHHYwHAnCJAbMEAAEKAB0WIQQ1zPtjsoPW0663g5RMtfaEi7xW7gUCZNbF3AAKCRBMtfaEi7xW
+ 7k4SC/91twCv+6Nupvh6PMBIDoibMdPLsOvY3OWtnHulGqXWqgzj9IMZ6w6r+0GcA8pKdJL4+6G
+ Fnx4mG3R7hPXiv/3AbHsAhRkmjgMSrvtGfEb0Co+fRNKuiHm6LxJnL75+FFkix1BTUd8t5ssbBn
+ xgJeb7+NuSkQdtZ6ElCNZFyEuNd1r3bmhAs8bgd5+KiumNIbMddBqTGxKCt9MeTT44mc8IypMDI
+ WDaxzjYp6crsXmuuB1k+m2h2qrjJsF9s3JxlTyakdeoDKGzbylCi2mCAKL5kyRoK/to2QhpBt1E
+ I3qnZCyGZZjbEr5PpLraZ+aF82FNvb0SBr+gd1CQZTg8NeUS2ATEisqQbjUmVL3IuuLxcEZT0+i
+ q6avizXLdZ5zfz5oA6jtzz2pQkZQaxtJ0yZv12sKre3K3LV+3bhyBM97chJfTx+JeXXi4xMoqRr 26gyqUDDpixyjGMDDnZtPyTSs1AeCBv00Dt6l47tgeobC2eabQoclJi0KlEZtB/ngCaFI=
 X-Mailer: git-send-email 2.41.0.640.ga95def55d0-goog
-Message-ID: <20230811233556.97161-11-samitolvanen@google.com>
-Subject: [PATCH 4/5] riscv: Implement Shadow Call Stack
+Message-ID: <20230811233556.97161-8-samitolvanen@google.com>
+Subject: [PATCH 1/5] riscv: VMAP_STACK overflow detection thread-safe
 From: Sami Tolvanen <samitolvanen@google.com>
 To: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
 	Albert Ou <aou@eecs.berkeley.edu>, Kees Cook <keescook@chromium.org>
 Cc: Guo Ren <guoren@kernel.org>, Deepak Gupta <debug@rivosinc.com>, 
 	Nathan Chancellor <nathan@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>, 
 	Fangrui Song <maskray@google.com>, linux-riscv@lists.infradead.org, llvm@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, Sami Tolvanen <samitolvanen@google.com>
+	linux-kernel@vger.kernel.org, Jisheng Zhang <jszhang@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230811_163609_814310_54AA90F7 
-X-CRM114-Status: GOOD (  20.09  )
+X-CRM114-CacheID: sfid-20230811_163604_992409_9EC4E7F9 
+X-CRM114-Status: GOOD (  18.59  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,310 +103,279 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Implement CONFIG_SHADOW_CALL_STACK for RISC-V. When enabled, the
-compiler injects instructions to all non-leaf C functions to
-store the return address to the shadow stack and unconditionally
-load it again before returning, which makes it harder to corrupt
-the return address through a stack overflow, for example.
+From: Deepak Gupta <debug@rivosinc.com>
 
-The active shadow call stack pointer is stored in the gp
-register, which makes SCS incompatible with gp relaxation. Use
---no-relax-gp to ensure gp relaxation is disabled and disable
-global pointer loading.  Add SCS pointers to struct thread_info,
-implement SCS initialization, and task switching
+commit 31da94c25aea ("riscv: add VMAP_STACK overflow detection") added
+support for CONFIG_VMAP_STACK. If overflow is detected, CPU switches to
+`shadow_stack` temporarily before switching finally to per-cpu
+`overflow_stack`.
 
-Signed-off-by: Sami Tolvanen <samitolvanen@google.com>
+If two CPUs/harts are racing and end up in over flowing kernel stack, one
+or both will end up corrupting each other state because `shadow_stack` is
+not per-cpu. This patch optimizes per-cpu overflow stack switch by
+directly picking per-cpu `overflow_stack` and gets rid of `shadow_stack`.
+
+Following are the changes in this patch
+
+ - Defines an asm macro to obtain per-cpu symbols in destination
+   register.
+ - In entry.S, when overflow is detected, per-cpu overflow stack is
+   located using per-cpu asm macro. Computing per-cpu symbol requires
+   a temporary register. x31 is saved away into CSR_SCRATCH
+   (CSR_SCRATCH is anyways zero since we're in kernel).
+
+Please see Links for additional relevant disccussion and alternative
+solution.
+
+Tested by `echo EXHAUST_STACK > /sys/kernel/debug/provoke-crash/DIRECT`
+Kernel crash log below
+
+ Insufficient stack space to handle exception!/debug/provoke-crash/DIRECT
+ Task stack:     [0xff20000010a98000..0xff20000010a9c000]
+ Overflow stack: [0xff600001f7d98370..0xff600001f7d99370]
+ CPU: 1 PID: 205 Comm: bash Not tainted 6.1.0-rc2-00001-g328a1f96f7b9 #34
+ Hardware name: riscv-virtio,qemu (DT)
+ epc : __memset+0x60/0xfc
+  ra : recursive_loop+0x48/0xc6 [lkdtm]
+ epc : ffffffff808de0e4 ra : ffffffff0163a752 sp : ff20000010a97e80
+  gp : ffffffff815c0330 tp : ff600000820ea280 t0 : ff20000010a97e88
+  t1 : 000000000000002e t2 : 3233206874706564 s0 : ff20000010a982b0
+  s1 : 0000000000000012 a0 : ff20000010a97e88 a1 : 0000000000000000
+  a2 : 0000000000000400 a3 : ff20000010a98288 a4 : 0000000000000000
+  a5 : 0000000000000000 a6 : fffffffffffe43f0 a7 : 00007fffffffffff
+  s2 : ff20000010a97e88 s3 : ffffffff01644680 s4 : ff20000010a9be90
+  s5 : ff600000842ba6c0 s6 : 00aaaaaac29e42b0 s7 : 00fffffff0aa3684
+  s8 : 00aaaaaac2978040 s9 : 0000000000000065 s10: 00ffffff8a7cad10
+  s11: 00ffffff8a76a4e0 t3 : ffffffff815dbaf4 t4 : ffffffff815dbaf4
+  t5 : ffffffff815dbab8 t6 : ff20000010a9bb48
+ status: 0000000200000120 badaddr: ff20000010a97e88 cause: 000000000000000f
+ Kernel panic - not syncing: Kernel stack overflow
+ CPU: 1 PID: 205 Comm: bash Not tainted 6.1.0-rc2-00001-g328a1f96f7b9 #34
+ Hardware name: riscv-virtio,qemu (DT)
+ Call Trace:
+ [<ffffffff80006754>] dump_backtrace+0x30/0x38
+ [<ffffffff808de798>] show_stack+0x40/0x4c
+ [<ffffffff808ea2a8>] dump_stack_lvl+0x44/0x5c
+ [<ffffffff808ea2d8>] dump_stack+0x18/0x20
+ [<ffffffff808dec06>] panic+0x126/0x2fe
+ [<ffffffff800065ea>] walk_stackframe+0x0/0xf0
+ [<ffffffff0163a752>] recursive_loop+0x48/0xc6 [lkdtm]
+ SMP: stopping secondary CPUs
+ ---[ end Kernel panic - not syncing: Kernel stack overflow ]---
+
+Cc: Guo Ren <guoren@kernel.org>
+Cc: Jisheng Zhang <jszhang@kernel.org>
+Link: https://lore.kernel.org/linux-riscv/Y347B0x4VUNOd6V7@xhacker/T/#t
+Link: https://lore.kernel.org/lkml/20221124094845.1907443-1-debug@rivosinc.com/
+Signed-off-by: Deepak Gupta <debug@rivosinc.com>
+Acked-by: Guo Ren <guoren@kernel.org>
 ---
- arch/riscv/Kconfig                   |  6 ++++
- arch/riscv/Makefile                  |  4 +++
- arch/riscv/include/asm/asm.h         |  6 ++++
- arch/riscv/include/asm/scs.h         | 47 ++++++++++++++++++++++++++++
- arch/riscv/include/asm/thread_info.h | 13 ++++++++
- arch/riscv/kernel/asm-offsets.c      |  3 ++
- arch/riscv/kernel/entry.S            | 11 +++++++
- arch/riscv/kernel/head.S             |  4 +++
- arch/riscv/kernel/vdso/Makefile      |  2 +-
- arch/riscv/purgatory/Makefile        |  4 +++
- 10 files changed, 99 insertions(+), 1 deletion(-)
- create mode 100644 arch/riscv/include/asm/scs.h
+ arch/riscv/include/asm/asm.h         | 16 +++++++
+ arch/riscv/include/asm/thread_info.h |  3 --
+ arch/riscv/kernel/asm-offsets.c      |  1 +
+ arch/riscv/kernel/entry.S            | 70 ++++------------------------
+ arch/riscv/kernel/traps.c            | 36 +-------------
+ 5 files changed, 28 insertions(+), 98 deletions(-)
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 4c07b9189c86..8fe31ec59da4 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -46,6 +46,7 @@ config RISCV
- 	select ARCH_SUPPORTS_HUGETLBFS if MMU
- 	select ARCH_SUPPORTS_PAGE_TABLE_CHECK if MMU
- 	select ARCH_SUPPORTS_PER_VMA_LOCK if MMU
-+	select ARCH_SUPPORTS_SHADOW_CALL_STACK if HAVE_SHADOW_CALL_STACK
- 	select ARCH_USE_MEMTEST
- 	select ARCH_USE_QUEUED_RWLOCKS
- 	select ARCH_WANT_DEFAULT_TOPDOWN_MMAP_LAYOUT if MMU
-@@ -169,6 +170,11 @@ config GCC_SUPPORTS_DYNAMIC_FTRACE
- 	def_bool CC_IS_GCC
- 	depends on $(cc-option,-fpatchable-function-entry=8)
- 
-+config HAVE_SHADOW_CALL_STACK
-+	def_bool $(cc-option,-fsanitize=shadow-call-stack)
-+	# https://github.com/riscv-non-isa/riscv-elf-psabi-doc/commit/a484e843e6eeb51f0cb7b8819e50da6d2444d769
-+	depends on $(ld-option,--no-relax-gp)
-+
- config ARCH_MMAP_RND_BITS_MIN
- 	default 18 if 64BIT
- 	default 8
-diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
-index 6ec6d52a4180..e518a74640fb 100644
---- a/arch/riscv/Makefile
-+++ b/arch/riscv/Makefile
-@@ -55,6 +55,10 @@ endif
- endif
- endif
- 
-+ifeq ($(CONFIG_SHADOW_CALL_STACK),y)
-+	KBUILD_LDFLAGS += --no-relax-gp
-+endif
-+
- # ISA string setting
- riscv-march-$(CONFIG_ARCH_RV32I)	:= rv32ima
- riscv-march-$(CONFIG_ARCH_RV64I)	:= rv64ima
 diff --git a/arch/riscv/include/asm/asm.h b/arch/riscv/include/asm/asm.h
-index c53388f784a2..ac77738835ae 100644
+index 114bbadaef41..f403e46e04f2 100644
 --- a/arch/riscv/include/asm/asm.h
 +++ b/arch/riscv/include/asm/asm.h
-@@ -103,6 +103,11 @@
- 	REG_L \dst, 0(\dst)
+@@ -82,6 +82,22 @@
+ 	.endr
  .endm
  
-+#ifdef CONFIG_SHADOW_CALL_STACK
-+/* gp is used as the shadow call stack pointer instead */
-+.macro load_global_pointer
-+.endm
++#ifdef CONFIG_32BIT
++#define PER_CPU_OFFSET_SHIFT 2
 +#else
- /* load __global_pointer to gp */
- .macro load_global_pointer
- .option push
-@@ -110,6 +115,7 @@
- 	la gp, __global_pointer$
- .option pop
- .endm
-+#endif /* CONFIG_SHADOW_CALL_STACK */
- 
++#define PER_CPU_OFFSET_SHIFT 3
++#endif
++
++.macro asm_per_cpu dst sym tmp
++	REG_L \tmp, TASK_TI_CPU_NUM(tp)
++	slli  \tmp, \tmp, PER_CPU_OFFSET_SHIFT
++	la    \dst, __per_cpu_offset
++	add   \dst, \dst, \tmp
++	REG_L \tmp, 0(\dst)
++	la    \dst, \sym
++	add   \dst, \dst, \tmp
++.endm
++
  	/* save all GPs except x1 ~ x5 */
  	.macro save_from_x6_to_x31
-diff --git a/arch/riscv/include/asm/scs.h b/arch/riscv/include/asm/scs.h
-new file mode 100644
-index 000000000000..94726ea773e3
---- /dev/null
-+++ b/arch/riscv/include/asm/scs.h
-@@ -0,0 +1,47 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#ifndef _ASM_SCS_H
-+#define _ASM_SCS_H
-+
-+#ifdef __ASSEMBLY__
-+#include <asm/asm-offsets.h>
-+
-+#ifdef CONFIG_SHADOW_CALL_STACK
-+
-+/* Load init_shadow_call_stack to gp. */
-+.macro scs_load_init_stack
-+	la	gp, init_shadow_call_stack
-+	XIP_FIXUP_OFFSET gp
-+.endm
-+
-+/* Load task_scs_sp(current) to gp. */
-+.macro scs_load_current
-+	REG_L	gp, TASK_TI_SCS_SP(tp)
-+.endm
-+
-+/* Load task_scs_sp(current) to gp, but only if tp has changed. */
-+.macro scs_load_current_if_task_changed prev
-+	beq	\prev, tp, _skip_scs
-+	scs_load_current
-+_skip_scs:
-+.endm
-+
-+/* Save gp to task_scs_sp(current). */
-+.macro scs_save_current
-+	REG_S	gp, TASK_TI_SCS_SP(tp)
-+.endm
-+
-+#else /* CONFIG_SHADOW_CALL_STACK */
-+
-+.macro scs_load_init_stack
-+.endm
-+.macro scs_load_current
-+.endm
-+.macro scs_load_current_if_task_changed prev
-+.endm
-+.macro scs_save_current
-+.endm
-+
-+#endif /* CONFIG_SHADOW_CALL_STACK */
-+#endif /* __ASSEMBLY__ */
-+
-+#endif /* _ASM_SCS_H */
+ 	REG_S x6,  PT_T1(sp)
 diff --git a/arch/riscv/include/asm/thread_info.h b/arch/riscv/include/asm/thread_info.h
-index d18ce0113ca1..574779900bfb 100644
+index 1833beb00489..d18ce0113ca1 100644
 --- a/arch/riscv/include/asm/thread_info.h
 +++ b/arch/riscv/include/asm/thread_info.h
-@@ -57,8 +57,20 @@ struct thread_info {
- 	long			user_sp;	/* User stack pointer */
- 	int			cpu;
- 	unsigned long		syscall_work;	/* SYSCALL_WORK_ flags */
-+#ifdef CONFIG_SHADOW_CALL_STACK
-+	void			*scs_base;
-+	void			*scs_sp;
-+#endif
- };
+@@ -34,9 +34,6 @@
  
-+#ifdef CONFIG_SHADOW_CALL_STACK
-+#define INIT_SCS							\
-+	.scs_base	= init_shadow_call_stack,			\
-+	.scs_sp		= init_shadow_call_stack,
-+#else
-+#define INIT_SCS
-+#endif
-+
- /*
-  * macros/functions for gaining access to the thread information structure
-  *
-@@ -68,6 +80,7 @@ struct thread_info {
- {						\
- 	.flags		= 0,			\
- 	.preempt_count	= INIT_PREEMPT_COUNT,	\
-+	INIT_SCS				\
- }
+ #ifndef __ASSEMBLY__
  
- void arch_release_task_struct(struct task_struct *tsk);
+-extern long shadow_stack[SHADOW_OVERFLOW_STACK_SIZE / sizeof(long)];
+-extern unsigned long spin_shadow_stack;
+-
+ #include <asm/processor.h>
+ #include <asm/csr.h>
+ 
 diff --git a/arch/riscv/kernel/asm-offsets.c b/arch/riscv/kernel/asm-offsets.c
-index 9f535d5de33f..177cef43a2ee 100644
+index d6a75aac1d27..9f535d5de33f 100644
 --- a/arch/riscv/kernel/asm-offsets.c
 +++ b/arch/riscv/kernel/asm-offsets.c
-@@ -38,6 +38,9 @@ void asm_offsets(void)
- 	OFFSET(TASK_TI_PREEMPT_COUNT, task_struct, thread_info.preempt_count);
+@@ -39,6 +39,7 @@ void asm_offsets(void)
  	OFFSET(TASK_TI_KERNEL_SP, task_struct, thread_info.kernel_sp);
  	OFFSET(TASK_TI_USER_SP, task_struct, thread_info.user_sp);
-+#ifdef CONFIG_SHADOW_CALL_STACK
-+	OFFSET(TASK_TI_SCS_SP, task_struct, thread_info.scs_sp);
-+#endif
  
- 	OFFSET(TASK_TI_CPU_NUM, task_struct, thread_info.cpu);
++	OFFSET(TASK_TI_CPU_NUM, task_struct, thread_info.cpu);
  	OFFSET(TASK_THREAD_F0,  task_struct, thread.fstate.f[0]);
+ 	OFFSET(TASK_THREAD_F1,  task_struct, thread.fstate.f[1]);
+ 	OFFSET(TASK_THREAD_F2,  task_struct, thread.fstate.f[2]);
 diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
-index 2b4248c6b0a9..ad34507d3c96 100644
+index 143a2bb3e697..3d11aa3af105 100644
 --- a/arch/riscv/kernel/entry.S
 +++ b/arch/riscv/kernel/entry.S
-@@ -9,6 +9,7 @@
- 
+@@ -10,9 +10,11 @@
  #include <asm/asm.h>
  #include <asm/csr.h>
-+#include <asm/scs.h>
  #include <asm/unistd.h>
- #include <asm/page.h>
++#include <asm/page.h>
  #include <asm/thread_info.h>
-@@ -77,6 +78,9 @@ _save_context:
- 	/* Load the global pointer */
- 	load_global_pointer
+ #include <asm/asm-offsets.h>
+ #include <asm/errata_list.h>
++#include <linux/sizes.h>
  
-+	/* Load the kernel shadow call stack pointer if coming from userspace */
-+	scs_load_current_if_task_changed s5
-+
- 	move a0, sp /* pt_regs */
- 	la ra, ret_from_exception
- 
-@@ -123,6 +127,9 @@ SYM_CODE_START_NOALIGN(ret_from_exception)
- 	addi s0, sp, PT_SIZE_ON_STACK
- 	REG_S s0, TASK_TI_KERNEL_SP(tp)
- 
-+	/* Save the kernel shadow call stack pointer */
-+	scs_save_current
-+
+ SYM_CODE_START(handle_exception)
  	/*
- 	 * Save TP into the scratch register , so we can find the kernel data
- 	 * structures again.
-@@ -277,6 +284,8 @@ SYM_FUNC_START(__switch_to)
- 	REG_S s9,  TASK_THREAD_S9_RA(a3)
- 	REG_S s10, TASK_THREAD_S10_RA(a3)
- 	REG_S s11, TASK_THREAD_S11_RA(a3)
-+	/* Save the kernel shadow call stack pointer */
-+	scs_save_current
- 	/* Restore context from next->thread */
- 	REG_L ra,  TASK_THREAD_RA_RA(a4)
- 	REG_L sp,  TASK_THREAD_SP_RA(a4)
-@@ -294,6 +303,8 @@ SYM_FUNC_START(__switch_to)
- 	REG_L s11, TASK_THREAD_S11_RA(a4)
- 	/* The offset of thread_info in task_struct is zero. */
- 	move tp, a1
-+	/* Switch to the next shadow call stack */
-+	scs_load_current
- 	ret
- SYM_FUNC_END(__switch_to)
+@@ -170,67 +172,15 @@ SYM_CODE_END(ret_from_exception)
  
-diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
-index 79b5a863c782..c3d0ee77483b 100644
---- a/arch/riscv/kernel/head.S
-+++ b/arch/riscv/kernel/head.S
-@@ -14,6 +14,7 @@
- #include <asm/cpu_ops_sbi.h>
- #include <asm/hwcap.h>
- #include <asm/image.h>
-+#include <asm/scs.h>
- #include <asm/xip_fixup.h>
- #include "efi-header.S"
+ #ifdef CONFIG_VMAP_STACK
+ SYM_CODE_START_LOCAL(handle_kernel_stack_overflow)
+-	/*
+-	 * Takes the psuedo-spinlock for the shadow stack, in case multiple
+-	 * harts are concurrently overflowing their kernel stacks.  We could
+-	 * store any value here, but since we're overflowing the kernel stack
+-	 * already we only have SP to use as a scratch register.  So we just
+-	 * swap in the address of the spinlock, as that's definately non-zero.
+-	 *
+-	 * Pairs with a store_release in handle_bad_stack().
+-	 */
+-1:	la sp, spin_shadow_stack
+-	REG_AMOSWAP_AQ sp, sp, (sp)
+-	bnez sp, 1b
+-
+-	la sp, shadow_stack
+-	addi sp, sp, SHADOW_OVERFLOW_STACK_SIZE
+-
+-	//save caller register to shadow stack
+-	addi sp, sp, -(PT_SIZE_ON_STACK)
+-	REG_S x1,  PT_RA(sp)
+-	REG_S x5,  PT_T0(sp)
+-	REG_S x6,  PT_T1(sp)
+-	REG_S x7,  PT_T2(sp)
+-	REG_S x10, PT_A0(sp)
+-	REG_S x11, PT_A1(sp)
+-	REG_S x12, PT_A2(sp)
+-	REG_S x13, PT_A3(sp)
+-	REG_S x14, PT_A4(sp)
+-	REG_S x15, PT_A5(sp)
+-	REG_S x16, PT_A6(sp)
+-	REG_S x17, PT_A7(sp)
+-	REG_S x28, PT_T3(sp)
+-	REG_S x29, PT_T4(sp)
+-	REG_S x30, PT_T5(sp)
+-	REG_S x31, PT_T6(sp)
+-
+-	la ra, restore_caller_reg
+-	tail get_overflow_stack
+-
+-restore_caller_reg:
+-	//save per-cpu overflow stack
+-	REG_S a0, -8(sp)
+-	//restore caller register from shadow_stack
+-	REG_L x1,  PT_RA(sp)
+-	REG_L x5,  PT_T0(sp)
+-	REG_L x6,  PT_T1(sp)
+-	REG_L x7,  PT_T2(sp)
+-	REG_L x10, PT_A0(sp)
+-	REG_L x11, PT_A1(sp)
+-	REG_L x12, PT_A2(sp)
+-	REG_L x13, PT_A3(sp)
+-	REG_L x14, PT_A4(sp)
+-	REG_L x15, PT_A5(sp)
+-	REG_L x16, PT_A6(sp)
+-	REG_L x17, PT_A7(sp)
+-	REG_L x28, PT_T3(sp)
+-	REG_L x29, PT_T4(sp)
+-	REG_L x30, PT_T5(sp)
+-	REG_L x31, PT_T6(sp)
++	/* we reach here from kernel context, sscratch must be 0 */
++	csrrw x31, CSR_SCRATCH, x31
++	asm_per_cpu sp, overflow_stack, x31
++	li x31, OVERFLOW_STACK_SIZE
++	add sp, sp, x31
++	/* zero out x31 again and restore x31 */
++	xor x31, x31, x31
++	csrrw x31, CSR_SCRATCH, x31
  
-@@ -153,6 +154,7 @@ secondary_start_sbi:
- 	XIP_FIXUP_OFFSET a3
- 	add a3, a3, a1
- 	REG_L sp, (a3)
-+	scs_load_current
+-	//load per-cpu overflow stack
+-	REG_L sp, -8(sp)
+ 	addi sp, sp, -(PT_SIZE_ON_STACK)
  
- .Lsecondary_start_common:
+ 	//save context to overflow stack
+diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
+index f910dfccbf5d..deb2144d9143 100644
+--- a/arch/riscv/kernel/traps.c
++++ b/arch/riscv/kernel/traps.c
+@@ -397,48 +397,14 @@ int is_valid_bugaddr(unsigned long pc)
+ #endif /* CONFIG_GENERIC_BUG */
  
-@@ -293,6 +295,7 @@ clear_bss_done:
- 	la sp, init_thread_union + THREAD_SIZE
- 	XIP_FIXUP_OFFSET sp
- 	addi sp, sp, -PT_SIZE_ON_STACK
-+	scs_load_init_stack
- #ifdef CONFIG_BUILTIN_DTB
- 	la a0, __dtb_start
- 	XIP_FIXUP_OFFSET a0
-@@ -311,6 +314,7 @@ clear_bss_done:
- 	la tp, init_task
- 	la sp, init_thread_union + THREAD_SIZE
- 	addi sp, sp, -PT_SIZE_ON_STACK
-+	scs_load_init_stack
+ #ifdef CONFIG_VMAP_STACK
+-/*
+- * Extra stack space that allows us to provide panic messages when the kernel
+- * has overflowed its stack.
+- */
+-static DEFINE_PER_CPU(unsigned long [OVERFLOW_STACK_SIZE/sizeof(long)],
++DEFINE_PER_CPU(unsigned long [OVERFLOW_STACK_SIZE/sizeof(long)],
+ 		overflow_stack)__aligned(16);
+-/*
+- * A temporary stack for use by handle_kernel_stack_overflow.  This is used so
+- * we can call into C code to get the per-hart overflow stack.  Usage of this
+- * stack must be protected by spin_shadow_stack.
+- */
+-long shadow_stack[SHADOW_OVERFLOW_STACK_SIZE/sizeof(long)] __aligned(16);
+-
+-/*
+- * A pseudo spinlock to protect the shadow stack from being used by multiple
+- * harts concurrently.  This isn't a real spinlock because the lock side must
+- * be taken without a valid stack and only a single register, it's only taken
+- * while in the process of panicing anyway so the performance and error
+- * checking a proper spinlock gives us doesn't matter.
+- */
+-unsigned long spin_shadow_stack;
+-
+-asmlinkage unsigned long get_overflow_stack(void)
+-{
+-	return (unsigned long)this_cpu_ptr(overflow_stack) +
+-		OVERFLOW_STACK_SIZE;
+-}
  
- #ifdef CONFIG_KASAN
- 	call kasan_early_init
-diff --git a/arch/riscv/kernel/vdso/Makefile b/arch/riscv/kernel/vdso/Makefile
-index 6b1dba11bf6d..48c362c0cb3d 100644
---- a/arch/riscv/kernel/vdso/Makefile
-+++ b/arch/riscv/kernel/vdso/Makefile
-@@ -36,7 +36,7 @@ CPPFLAGS_vdso.lds += -DHAS_VGETTIMEOFDAY
- endif
+ asmlinkage void handle_bad_stack(struct pt_regs *regs)
+ {
+ 	unsigned long tsk_stk = (unsigned long)current->stack;
+ 	unsigned long ovf_stk = (unsigned long)this_cpu_ptr(overflow_stack);
  
- # Disable -pg to prevent insert call site
--CFLAGS_REMOVE_vgettimeofday.o = $(CC_FLAGS_FTRACE)
-+CFLAGS_REMOVE_vgettimeofday.o = $(CC_FLAGS_FTRACE) $(CC_FLAGS_SCS)
+-	/*
+-	 * We're done with the shadow stack by this point, as we're on the
+-	 * overflow stack.  Tell any other concurrent overflowing harts that
+-	 * they can proceed with panicing by releasing the pseudo-spinlock.
+-	 *
+-	 * This pairs with an amoswap.aq in handle_kernel_stack_overflow.
+-	 */
+-	smp_store_release(&spin_shadow_stack, 0);
+-
+ 	console_verbose();
  
- # Disable profiling and instrumentation for VDSO code
- GCOV_PROFILE := n
-diff --git a/arch/riscv/purgatory/Makefile b/arch/riscv/purgatory/Makefile
-index dc20e166983e..d5d60c040560 100644
---- a/arch/riscv/purgatory/Makefile
-+++ b/arch/riscv/purgatory/Makefile
-@@ -77,6 +77,10 @@ ifdef CONFIG_STACKPROTECTOR_STRONG
- PURGATORY_CFLAGS_REMOVE		+= -fstack-protector-strong
- endif
- 
-+ifdef CONFIG_SHADOW_CALL_STACK
-+PURGATORY_CFLAGS_REMOVE		+= $(CC_FLAGS_SCS)
-+endif
-+
- CFLAGS_REMOVE_purgatory.o	+= $(PURGATORY_CFLAGS_REMOVE)
- CFLAGS_purgatory.o		+= $(PURGATORY_CFLAGS)
- 
+ 	pr_emerg("Insufficient stack space to handle exception!\n");
 -- 
 2.41.0.640.ga95def55d0-goog
 
