@@ -4,8 +4,8 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53B5EC0015E
-	for <linux-riscv@archiver.kernel.org>; Fri, 11 Aug 2023 04:52:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45867C0015E
+	for <linux-riscv@archiver.kernel.org>; Fri, 11 Aug 2023 04:52:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -13,61 +13,59 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=6O73bV0idNjI67DAbQlJZkz4ehE8as4OSWknHwW5QvQ=; b=zzew6NUO8aeu1XiiYp3fijvW70
-	Lv9Fq4pj2G7843mnWVQeOFWolwHlSLKTVHINZnJfGpDWVrOkhQygHcfeXAqEY7mNed6pwOTowOOEh
-	XY581AnJcdm2CjunWjljxeaQgcC9DbEUAMlvWO8TLhz39cXobgdimHl5JbqNQBWauCYobwSGa4P8n
-	ajNgoD923pcDEUPxMLsk4ujAIQyNB2U9AKBhDfFIkkxp8nH5GEqtRPwqXp7HV9F+Xu5XSi6lvAGBp
-	PAEiQ70Jgwsc50/5k0Wn/IE09+K1x3eUDMibJXldVHLS0LE8LzMUzT7ZiMkCOdbdsGhYaFjRsBg2/
-	OKyT2twg==;
+	bh=pjMwaWFaNyLLLyFDyBwi1paOuJCnkx/Gqz1M0qp/zOc=; b=Jmq76bCwXUhPeKUfS2c/1+BKkU
+	CIsTwTaRMzLqft0XUD/sVZp+EVIvbtJ2OqwakX2CGlcn2GcdxNeraszL1scFQu6R86O8c20IC/9ui
+	X5LAYg5z8SNfK0J8l0pM8HR+QpVm0W8Q2cn8oFY7QYGhN+gfnCvFVzIqOzz0u6H3/lNLAjqA/XZWX
+	cyZOSxQRypz1FTOsnRRngJytZyrvIYvVNf31/weNINXqkYcLzx72psE2PPAfcecXxErnYuLMFoMgO
+	mZ+1BklBfT7tjlS8zlNfajghwauFValX/YcxZRHRa8gUMlJPl1z3EnLso6TZ2uJo22q4FPZ0WjYEU
+	OcTSsgpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qUK83-009Pnr-0L;
-	Fri, 11 Aug 2023 04:52:03 +0000
-Received: from mail-oa1-x49.google.com ([2001:4860:4864:20::49])
+	id 1qUK89-009Psy-0t;
+	Fri, 11 Aug 2023 04:52:09 +0000
+Received: from mail-yb1-f201.google.com ([209.85.219.201])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qUK7h-009PTd-1j
+	id 1qUK7l-009PXg-0Z
 	for linux-riscv@lists.infradead.org;
-	Fri, 11 Aug 2023 04:51:46 +0000
-Received: by mail-oa1-x49.google.com with SMTP id 586e51a60fabf-1bb6fe22b11so1805411fac.3
-        for <linux-riscv@lists.infradead.org>; Thu, 10 Aug 2023 21:51:40 -0700 (PDT)
+	Fri, 11 Aug 2023 04:51:49 +0000
+Received: by mail-yb1-f201.google.com with SMTP id 3f1490d57ef6-d0d27cd9db9so3197816276.0
+        for <linux-riscv@lists.infradead.org>; Thu, 10 Aug 2023 21:51:43 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20221208; t=1691729499; x=1692334299;
-        h=content-transfer-encoding:cc:to:from:subject:message-id:references
-         :mime-version:in-reply-to:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=KMunAMeBPKEY9T5yrPL+aMpFgaQV0/xsp/XormRaoBM=;
-        b=oGyGjViqZNQB5Og/8KSGJT7aIHo2wwBSCnK8zrh4WX1dkLcj8j7++RIJ6MMhwLKJJM
-         TFwYrscibPCB3QmC1vwbGjOxG+yFgDZoqgTW46Q0I43fh6plUvYPK40YZO8XMwTjrOdi
-         fnlSk08NlXYIbGNj/3hHqeyZAiHuO84I1eN3h2UfQvsIoxOYp1344xAWxUoDUNlguK/d
-         5kLKAQj90+6/pX7UAxmtBlnRcJeCRHfDdeQh/yfwKQtOSPDaI07tcbauCsIMB854pARh
-         XzBdqJA4i4gXWPKDMXc/sVC1BnOhZZ28pfZehmEJ44oNDRLqO12bBeCK/TDek5KZpg/u
-         BZkg==
+        d=google.com; s=20221208; t=1691729502; x=1692334302;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=b8Ihb497LpuMIgM0TiiBODXNuX0ZiHa7Y+wfWyh7fKg=;
+        b=GBv+6JjPWHDQgAZ9CQtQ6Gsgjb+DLspTKR+wRzk0n4Kw1z3V6nDVNWmzqUqqoukAg1
+         1OlMEvUj8LrRWVXNysqG95jpTH8CChKkSCXz9apVTe5JeuZb6gqUegnorgzVhdK9S7IL
+         oXKpr/ShUufm+B4pk8Ws4+HuIT6nXUq9e5H5XX1gGqdIFF/78t+yezXNaoo588QxYUh/
+         c+FwwEuzFq0HTnIlwaWXmrqFOviHEebfM+P2e4EX/BA6adX59jK0oApE1mVLs3HMzHmR
+         tA8dMni1QXHRJO/9x+FD5u/Y+wTdEXf2oG6z5XOPlVqxE/D+oQ2jxzr5IaXwOsRB1HO+
+         caTw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1691729499; x=1692334299;
-        h=content-transfer-encoding:cc:to:from:subject:message-id:references
-         :mime-version:in-reply-to:date:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=KMunAMeBPKEY9T5yrPL+aMpFgaQV0/xsp/XormRaoBM=;
-        b=aQVb3Qm32499B32xB9sFarDXKVV+tFOAy49Xz2gzAZlrZH668wvTtPUxZ669zTCjFP
-         svm6ZPEbOdCz5X1P2U5yc9ths3UWpNKUkE8WB2TUkKJJBh4s5NbafUrGBdOBTUaqGqwB
-         dnZajjbweLOTbKJq/atpwU+wPnz21VNV4eZWaKvX1qI95i82OVvVJIV3hgQ9n2qq6KnJ
-         NT0kJ+X3noM7rgAOzoL+RwDB9oOKzi1CvbV/ahbyrx7HXby/J5B8XsFD+yZBfpy3rU5L
-         jnWhoqOMPoUWWphtgUOOv/yVhA5jHgs3DqZhKXY+0Vrn92CVBB49nhw4ovxBSDXXjbBY
-         vLsQ==
-X-Gm-Message-State: AOJu0Yy9Vn9bGhgfVosgcOfz8qCLDAMJDRNrDIyyTfO+WFdYHECNOBfD
-	2EdRYBveWK4Yg7qtQSDaTsMVaB7TDIxF
-X-Google-Smtp-Source: AGHT+IE6iu8kZBBGXiPktI0w4Wht3tt9FXqeaiP6SFiaZO7WXbsaeVAitcRGbh4LxMh2/nvqjLQ5ZRjkCZrA
+        d=1e100.net; s=20221208; t=1691729502; x=1692334302;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=b8Ihb497LpuMIgM0TiiBODXNuX0ZiHa7Y+wfWyh7fKg=;
+        b=Sqz/0Tt94m/in7ToEDLxUt+HjnFCu7WEBGXRVvI4rgI2lEaJJP9CRrlLcAArKPJwqk
+         NwKF7jI1opgJSQt728dG07XKBLv+yb/ckD5NtOICq4O85P09dM+3HqhLKTV/J6QilQvf
+         VLpy8b+VGTNc/+R43qIgwPTl7rCKY0VO/i34aJQ2HkYlLlOJeRPFwzlckMOCJiYnUk+R
+         CN7Cg/5Eve34papXhK1DGDkgy/Wpi3KccoUGo37WpZZWK4dhboXCWhhhEA/lYDGsKcZt
+         mRI2V/hK1hBPEIDpyfSC6IBTgyL4i1a/nhGAwFvyBEug7vm3shyRGPRbuFTq1vH7+ydL
+         uydw==
+X-Gm-Message-State: AOJu0Yzs0OyamSTU64JtjbPppv9GfL2MA7d22Ht60YiALEEOD+JWL91e
+	zCjL3AwlaPDi3X6pE6wHON9ueZ8smDH3
+X-Google-Smtp-Source: AGHT+IGrUmmFojlnNP1SsmNVGsoM061TpbAAPYUCbWDsvJBoCc9vnu1LZ+i0L7Joo7w2+TUqeRyfvhq6mEYk
 X-Received: from rananta-linux.c.googlers.com ([fda3:e722:ac3:cc00:2b:ff92:c0a8:22b5])
- (user=rananta job=sendgmr) by 2002:a05:6870:1ab5:b0:1c0:e9e9:ae91 with SMTP
- id ef53-20020a0568701ab500b001c0e9e9ae91mr13992oab.3.1691729499613; Thu, 10
- Aug 2023 21:51:39 -0700 (PDT)
-Date: Fri, 11 Aug 2023 04:51:17 +0000
+ (user=rananta job=sendgmr) by 2002:a25:c508:0:b0:d29:958c:e431 with SMTP id
+ v8-20020a25c508000000b00d29958ce431mr79924ybe.1.1691729502582; Thu, 10 Aug
+ 2023 21:51:42 -0700 (PDT)
+Date: Fri, 11 Aug 2023 04:51:20 +0000
 In-Reply-To: <20230811045127.3308641-1-rananta@google.com>
 Mime-Version: 1.0
 References: <20230811045127.3308641-1-rananta@google.com>
 X-Mailer: git-send-email 2.41.0.640.ga95def55d0-goog
-Message-ID: <20230811045127.3308641-5-rananta@google.com>
-Subject: [PATCH v9 04/14] KVM: Remove CONFIG_HAVE_KVM_ARCH_TLB_FLUSH_ALL
+Message-ID: <20230811045127.3308641-8-rananta@google.com>
+Subject: [PATCH v9 07/14] arm64: tlb: Refactor the core flush algorithm of __flush_tlb_range
 From: Raghavendra Rao Ananta <rananta@google.com>
 To: Oliver Upton <oliver.upton@linux.dev>, Marc Zyngier <maz@kernel.org>, 
 	James Morse <james.morse@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>
@@ -80,12 +78,11 @@ Cc: Paolo Bonzini <pbonzini@redhat.com>, Sean Christopherson <seanjc@google.com>
 	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
 	linux-mips@vger.kernel.org, kvm-riscv@lists.infradead.org, 
 	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	kvm@vger.kernel.org, Shaoqin Huang <shahuang@redhat.com>, Gavin Shan <gshan@redhat.com>, 
-	"=?UTF-8?q?Philippe=20Mathieu-Daud=C3=A9?=" <philmd@linaro.org>
+	kvm@vger.kernel.org, Catalin Marinas <catalin.marinas@arm.com>, 
+	Gavin Shan <gshan@redhat.com>, Shaoqin Huang <shahuang@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230810_215141_661934_FC5A62DE 
-X-CRM114-Status: UNSURE (   7.50  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230810_215145_442958_8C2401DE 
+X-CRM114-Status: GOOD (  18.04  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,41 +94,178 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-a3ZtX2FyY2hfZmx1c2hfcmVtb3RlX3RsYnMoKSBvciBDT05GSUdfSEFWRV9LVk1fQVJDSF9UTEJf
-RkxVU0hfQUxMCmFyZSB0d28gbWVjaGFuaXNtcyB0byBzb2x2ZSB0aGUgc2FtZSBwcm9ibGVtLCBh
-bGxvd2luZwphcmNoaXRlY3R1cmUtc3BlY2lmaWMgY29kZSB0byBwcm92aWRlIGEgbm9uLUlQSSBp
-bXBsZW1lbnRhdGlvbiBvZgpyZW1vdGUgVExCIGZsdXNoaW5nLgoKRHJvcHBpbmcgQ09ORklHX0hB
-VkVfS1ZNX0FSQ0hfVExCX0ZMVVNIX0FMTCBhbGxvd3MgS1ZNIHRvIHN0YW5kYXJkaXplCmFsbCBh
-cmNoaXRlY3R1cmVzIG9uIGt2bV9hcmNoX2ZsdXNoX3JlbW90ZV90bGJzKCkgaW5zdGVhZCBvZgpt
-YWludGFpbmluZyB0d28gbWVjaGFuaXNtcy4KClNpZ25lZC1vZmYtYnk6IFJhZ2hhdmVuZHJhIFJh
-byBBbmFudGEgPHJhbmFudGFAZ29vZ2xlLmNvbT4KUmV2aWV3ZWQtYnk6IFNoYW9xaW4gSHVhbmcg
-PHNoYWh1YW5nQHJlZGhhdC5jb20+ClJldmlld2VkLWJ5OiBHYXZpbiBTaGFuIDxnc2hhbkByZWRo
-YXQuY29tPgpSZXZpZXdlZC1ieTogUGhpbGlwcGUgTWF0aGlldS1EYXVkw6kgPHBoaWxtZEBsaW5h
-cm8ub3JnPgotLS0KIHZpcnQva3ZtL0tjb25maWcgICAgfCAzIC0tLQogdmlydC9rdm0va3ZtX21h
-aW4uYyB8IDIgLS0KIDIgZmlsZXMgY2hhbmdlZCwgNSBkZWxldGlvbnMoLSkKCmRpZmYgLS1naXQg
-YS92aXJ0L2t2bS9LY29uZmlnIGIvdmlydC9rdm0vS2NvbmZpZwppbmRleCBiNzQ5MTZkZTUxODNh
-Li40ODRkMDg3MzA2MWNhIDEwMDY0NAotLS0gYS92aXJ0L2t2bS9LY29uZmlnCisrKyBiL3ZpcnQv
-a3ZtL0tjb25maWcKQEAgLTYyLDkgKzYyLDYgQEAgY29uZmlnIEhBVkVfS1ZNX0NQVV9SRUxBWF9J
-TlRFUkNFUFQKIGNvbmZpZyBLVk1fVkZJTwogICAgICAgIGJvb2wKIAotY29uZmlnIEhBVkVfS1ZN
-X0FSQ0hfVExCX0ZMVVNIX0FMTAotICAgICAgIGJvb2wKLQogY29uZmlnIEhBVkVfS1ZNX0lOVkFM
-SURfV0FLRVVQUwogICAgICAgIGJvb2wKIApkaWZmIC0tZ2l0IGEvdmlydC9rdm0va3ZtX21haW4u
-YyBiL3ZpcnQva3ZtL2t2bV9tYWluLmMKaW5kZXggNzBlNTQ3OTc5N2FjMy4uZDZiMDUwNzg2MTU1
-MCAxMDA2NDQKLS0tIGEvdmlydC9rdm0va3ZtX21haW4uYworKysgYi92aXJ0L2t2bS9rdm1fbWFp
-bi5jCkBAIC0zNDUsNyArMzQ1LDYgQEAgYm9vbCBrdm1fbWFrZV9hbGxfY3B1c19yZXF1ZXN0KHN0
-cnVjdCBrdm0gKmt2bSwgdW5zaWduZWQgaW50IHJlcSkKIH0KIEVYUE9SVF9TWU1CT0xfR1BMKGt2
-bV9tYWtlX2FsbF9jcHVzX3JlcXVlc3QpOwogCi0jaWZuZGVmIENPTkZJR19IQVZFX0tWTV9BUkNI
-X1RMQl9GTFVTSF9BTEwKIHZvaWQga3ZtX2ZsdXNoX3JlbW90ZV90bGJzKHN0cnVjdCBrdm0gKmt2
-bSkKIHsKIAkrK2t2bS0+c3RhdC5nZW5lcmljLnJlbW90ZV90bGJfZmx1c2hfcmVxdWVzdHM7CkBA
-IC0zNjYsNyArMzY1LDYgQEAgdm9pZCBrdm1fZmx1c2hfcmVtb3RlX3RsYnMoc3RydWN0IGt2bSAq
-a3ZtKQogCQkrK2t2bS0+c3RhdC5nZW5lcmljLnJlbW90ZV90bGJfZmx1c2g7CiB9CiBFWFBPUlRf
-U1lNQk9MX0dQTChrdm1fZmx1c2hfcmVtb3RlX3RsYnMpOwotI2VuZGlmCiAKIHN0YXRpYyB2b2lk
-IGt2bV9mbHVzaF9zaGFkb3dfYWxsKHN0cnVjdCBrdm0gKmt2bSkKIHsKLS0gCjIuNDEuMC42NDAu
-Z2E5NWRlZjU1ZDAtZ29vZwoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZy
-YWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGlu
-dXgtcmlzY3YK
+Currently, the core TLB flush functionality of __flush_tlb_range()
+hardcodes vae1is (and variants) for the flush operation. In the
+upcoming patches, the KVM code reuses this core algorithm with
+ipas2e1is for range based TLB invalidations based on the IPA.
+Hence, extract the core flush functionality of __flush_tlb_range()
+into its own macro that accepts an 'op' argument to pass any
+TLBI operation, such that other callers (KVM) can benefit.
+
+No functional changes intended.
+
+Signed-off-by: Raghavendra Rao Ananta <rananta@google.com>
+Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+Reviewed-by: Gavin Shan <gshan@redhat.com>
+Reviewed-by: Shaoqin Huang <shahuang@redhat.com>
+---
+ arch/arm64/include/asm/tlbflush.h | 121 +++++++++++++++++-------------
+ 1 file changed, 68 insertions(+), 53 deletions(-)
+
+diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
+index 412a3b9a3c25d..b9475a852d5be 100644
+--- a/arch/arm64/include/asm/tlbflush.h
++++ b/arch/arm64/include/asm/tlbflush.h
+@@ -278,14 +278,74 @@ static inline void flush_tlb_page(struct vm_area_struct *vma,
+  */
+ #define MAX_TLBI_OPS	PTRS_PER_PTE
+ 
++/*
++ * __flush_tlb_range_op - Perform TLBI operation upon a range
++ *
++ * @op:	TLBI instruction that operates on a range (has 'r' prefix)
++ * @start:	The start address of the range
++ * @pages:	Range as the number of pages from 'start'
++ * @stride:	Flush granularity
++ * @asid:	The ASID of the task (0 for IPA instructions)
++ * @tlb_level:	Translation Table level hint, if known
++ * @tlbi_user:	If 'true', call an additional __tlbi_user()
++ *              (typically for user ASIDs). 'flase' for IPA instructions
++ *
++ * When the CPU does not support TLB range operations, flush the TLB
++ * entries one by one at the granularity of 'stride'. If the TLB
++ * range ops are supported, then:
++ *
++ * 1. If 'pages' is odd, flush the first page through non-range
++ *    operations;
++ *
++ * 2. For remaining pages: the minimum range granularity is decided
++ *    by 'scale', so multiple range TLBI operations may be required.
++ *    Start from scale = 0, flush the corresponding number of pages
++ *    ((num+1)*2^(5*scale+1) starting from 'addr'), then increase it
++ *    until no pages left.
++ *
++ * Note that certain ranges can be represented by either num = 31 and
++ * scale or num = 0 and scale + 1. The loop below favours the latter
++ * since num is limited to 30 by the __TLBI_RANGE_NUM() macro.
++ */
++#define __flush_tlb_range_op(op, start, pages, stride,			\
++				asid, tlb_level, tlbi_user)		\
++do {									\
++	int num = 0;							\
++	int scale = 0;							\
++	unsigned long addr;						\
++									\
++	while (pages > 0) {						\
++		if (!system_supports_tlb_range() ||			\
++		    pages % 2 == 1) {					\
++			addr = __TLBI_VADDR(start, asid);		\
++			__tlbi_level(op, addr, tlb_level);		\
++			if (tlbi_user)					\
++				__tlbi_user_level(op, addr, tlb_level);	\
++			start += stride;				\
++			pages -= stride >> PAGE_SHIFT;			\
++			continue;					\
++		}							\
++									\
++		num = __TLBI_RANGE_NUM(pages, scale);			\
++		if (num >= 0) {						\
++			addr = __TLBI_VADDR_RANGE(start, asid, scale,	\
++						  num, tlb_level);	\
++			__tlbi(r##op, addr);				\
++			if (tlbi_user)					\
++				__tlbi_user(r##op, addr);		\
++			start += __TLBI_RANGE_PAGES(num, scale) << PAGE_SHIFT; \
++			pages -= __TLBI_RANGE_PAGES(num, scale);	\
++		}							\
++		scale++;						\
++	}								\
++} while (0)
++
+ static inline void __flush_tlb_range(struct vm_area_struct *vma,
+ 				     unsigned long start, unsigned long end,
+ 				     unsigned long stride, bool last_level,
+ 				     int tlb_level)
+ {
+-	int num = 0;
+-	int scale = 0;
+-	unsigned long asid, addr, pages;
++	unsigned long asid, pages;
+ 
+ 	start = round_down(start, stride);
+ 	end = round_up(end, stride);
+@@ -307,56 +367,11 @@ static inline void __flush_tlb_range(struct vm_area_struct *vma,
+ 	dsb(ishst);
+ 	asid = ASID(vma->vm_mm);
+ 
+-	/*
+-	 * When the CPU does not support TLB range operations, flush the TLB
+-	 * entries one by one at the granularity of 'stride'. If the TLB
+-	 * range ops are supported, then:
+-	 *
+-	 * 1. If 'pages' is odd, flush the first page through non-range
+-	 *    operations;
+-	 *
+-	 * 2. For remaining pages: the minimum range granularity is decided
+-	 *    by 'scale', so multiple range TLBI operations may be required.
+-	 *    Start from scale = 0, flush the corresponding number of pages
+-	 *    ((num+1)*2^(5*scale+1) starting from 'addr'), then increase it
+-	 *    until no pages left.
+-	 *
+-	 * Note that certain ranges can be represented by either num = 31 and
+-	 * scale or num = 0 and scale + 1. The loop below favours the latter
+-	 * since num is limited to 30 by the __TLBI_RANGE_NUM() macro.
+-	 */
+-	while (pages > 0) {
+-		if (!system_supports_tlb_range() ||
+-		    pages % 2 == 1) {
+-			addr = __TLBI_VADDR(start, asid);
+-			if (last_level) {
+-				__tlbi_level(vale1is, addr, tlb_level);
+-				__tlbi_user_level(vale1is, addr, tlb_level);
+-			} else {
+-				__tlbi_level(vae1is, addr, tlb_level);
+-				__tlbi_user_level(vae1is, addr, tlb_level);
+-			}
+-			start += stride;
+-			pages -= stride >> PAGE_SHIFT;
+-			continue;
+-		}
+-
+-		num = __TLBI_RANGE_NUM(pages, scale);
+-		if (num >= 0) {
+-			addr = __TLBI_VADDR_RANGE(start, asid, scale,
+-						  num, tlb_level);
+-			if (last_level) {
+-				__tlbi(rvale1is, addr);
+-				__tlbi_user(rvale1is, addr);
+-			} else {
+-				__tlbi(rvae1is, addr);
+-				__tlbi_user(rvae1is, addr);
+-			}
+-			start += __TLBI_RANGE_PAGES(num, scale) << PAGE_SHIFT;
+-			pages -= __TLBI_RANGE_PAGES(num, scale);
+-		}
+-		scale++;
+-	}
++	if (last_level)
++		__flush_tlb_range_op(vale1is, start, pages, stride, asid, tlb_level, true);
++	else
++		__flush_tlb_range_op(vae1is, start, pages, stride, asid, tlb_level, true);
++
+ 	dsb(ish);
+ }
+ 
+-- 
+2.41.0.640.ga95def55d0-goog
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
