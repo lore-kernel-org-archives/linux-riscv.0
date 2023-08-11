@@ -4,94 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5D76C04E69
-	for <linux-riscv@archiver.kernel.org>; Fri, 11 Aug 2023 23:36:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCC4EC001DB
+	for <linux-riscv@archiver.kernel.org>; Fri, 11 Aug 2023 23:36:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
-	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=w8D0HDVHXuj08IbdT9FlaBAA0KQoQMZfdER+1EvYh1E=; b=Gg8fXR1BX1eR1C5UlE0N7azIEZ
-	K4hk0zMzSjA7O7KLlwE6SWCmKCPyhezKi2OsAnh+CMZNvX9zhOzsYFgWyc4xs5+lARBxxgOPPslMh
-	vqZNnvgeEu7iMXYayaN7fW6iVHCaNTQ8CNI829bLetiyQ6wrocRbt+yidexKSdWD6GhuA/CRlnR2a
-	xnQNZX9VJJwm4Nv5hix1yIETwBrmWJ86Ra91H7EabU5BDWiATbqDsdpfb1BLIKkIAX7DX1anZhUXu
-	zTmYcPw7/hhCbmUhQ0JkItaimzp8xVrzOPeW16Sfo3CMYHVhrwI2dv/Gf0lC+U24h/Tc3qLNrqlVC
-	KDRBfLFw==;
+	Mime-Version:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=MAnajWf/dQbap11oBOxhiof2ckEK4fR6TE6NeSjFbWw=; b=1Lx
+	s0dFCdrazi0MbEihgUWICQiQnnJUGCayoDRw6Gjwz2zu5af8Dw8jYnD1D6JIuYTpz7ALKFypvyDdP
+	opazGqmxUeNIoO5WB3oQLzI+8qdrfT9bOcF+RKD+jzNyrMaV7k1ChrMD7yWgPpGacEL+CK9hpknBO
+	/a9ovfmBZ+Tpw1nlqi/oIuLH+5wutKTsOvFDNYBRk+8Ia5UeVWQHo3auURJshyE0KSAWR/DiQUHR0
+	1OOLZVFmlhJjUurW2AQXcFpnsQBEMeEVkM+7xe7qB3vbn9pAWB7uxb6R68aojVEmqLZcH0fi45XlA
+	Ia5+TKZ0IXOfQ2NW/1v1uuxHbuKYZqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qUbg1-00BwAk-1O;
-	Fri, 11 Aug 2023 23:36:17 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1qUbfr-00Bw5U-0t;
+	Fri, 11 Aug 2023 23:36:07 +0000
+Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qUbfy-00Bw96-0s
-	for linux-riscv@bombadil.infradead.org;
-	Fri, 11 Aug 2023 23:36:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
-	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=uqSttns2QMMHKhEq1iT/6N0civk3/DgixVYj3d7z750=; b=ERpre6Itm1ngOJVBopUV2DLcng
-	7MfwrLxhR2ljIPFo8UciMbJ5Q7y8QTmeUNOtUrx6q8czH7as2OJvdi0t9J4PaaiuAMTyxiUqn6sxw
-	fMRAuRSXrGBNyJMLbazvjPiUbdnHQBemMJaMLy7htZ0peHwWMmlc40LYQb92cL3NzoS6RDTWUk3GU
-	wgyaoKqKHl4lZsGvdW8N9krkPaLIbf2Krx7Nm1n/x4nFzZjDl2KAhSWIFq+pqnt39pKwsoufG1SAR
-	r+Gz2nOkDSB9OZIMUhv4ofXiRDxiXFaZunl2InRjMVidfpG8IDYd5SHST/EQe4iJCmW5AeGshMBS7
-	D51j2aJg==;
-Received: from mail-pl1-x64a.google.com ([2607:f8b0:4864:20::64a])
-	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qUbft-007te2-0j
+	id 1qUbfm-00Bw3k-0J
 	for linux-riscv@lists.infradead.org;
-	Fri, 11 Aug 2023 23:36:12 +0000
-Received: by mail-pl1-x64a.google.com with SMTP id d9443c01a7336-1bba5563cd6so32231945ad.3
-        for <linux-riscv@lists.infradead.org>; Fri, 11 Aug 2023 16:36:07 -0700 (PDT)
+	Fri, 11 Aug 2023 23:36:03 +0000
+Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-1bb982d2603so36193195ad.3
+        for <linux-riscv@lists.infradead.org>; Fri, 11 Aug 2023 16:36:01 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20221208; t=1691796966; x=1692401766;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=uqSttns2QMMHKhEq1iT/6N0civk3/DgixVYj3d7z750=;
-        b=X34fuYj30ll5ylhB7Aqg1vD8KbeZ19k7cBalDKC4+jHgFwr/RyYNj6Pr6V61x2DfL+
-         EJCnT8nIK0diol/XAn3zkp0CBQHYK32A+lAxwsdw8V0WmgFSaGLh6MeDrKTy+O1YtGQL
-         lRW4ToSimJ7KM73g7/WgJ/lZD0oHxf4tn3qUdGyg4O4aRd94vZCmXlgckCK9wtoEnTIx
-         By1wmnSVOyT/6qltlLMq/NHoH3JbmEp+o19oXoVJJzJxY75DUC/F8bAwXqxVHXMraBwG
-         CNQJwBuxXfuA8b8ReBpbrRr4G875agXduf79V73IbjdTK0GMrf/tPtRPCyES9mwJzUQL
-         9upw==
+        d=google.com; s=20221208; t=1691796960; x=1692401760;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=FJyrj6tK6yVbG9YTlwg97zBjNmUOI6qcixTijwM1454=;
+        b=t4tQUrEr9br4jVUzCKEChkEGCVyX/w5GmiGPqeA0hD6O1Uy32gpVsvQDosKld/ygzA
+         0TIEMY46JnkMWWtV7PTnTn22KMDZFDNB16TlTWzBzXZrIIVMYCZ+KJyn8qL2MYV1pmwz
+         bZtTUUyEOEFC4EPmPS7znethsqbr0YoTsZnZqYv9QyHXjzC1P+VT5EYGHOKhDtmmM8Qu
+         Re2h+x75ggvqhrlD5VchlMI1Xu1GOMoUZiWLr4cZAYYBPGljIEFk8gKbQAK4K5tWq6Ue
+         hjPVDwQtRAgi492YOIlOR6RPVkVtiW6mKcEKW5Xjv2vzHd+Z0cMYTvdx1QR4v2xffK8D
+         c5pQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1691796966; x=1692401766;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=uqSttns2QMMHKhEq1iT/6N0civk3/DgixVYj3d7z750=;
-        b=YfoTYxiFVcc9xBFvbgf/IICmNniDBt6GoBwdp09XsiR+SzTb9ZEO6vdM90cyZmBBwu
-         kICjxLSk39PvqpebWdGN4+2A16EAQx67SZ+WuuegWX842MlpYiTM/AaYyXqxovYlfyR1
-         OlOJjDSKZzMRNRGhQ+lAtK/6yo1YNUcj+hVlinqs7vWg3mxeLTo+4DzN3eU4DatFovZB
-         kaMZTjBla7MYuzOBTKh4Ddok149Kb2wG5saSII693X+qhr+LW9EoqKyzMcwcZZyLwGAZ
-         G4QABJCEIEjBaR/5gIk9sGL+S9CSto2EsTlYmZsive/7b2u+13E42FFmnkhoS5rlzbxa
-         Pr2w==
-X-Gm-Message-State: AOJu0YyAZDue0PXqq8eFnCVK7raH35dTer3ombXtiUp3KI2hCIgc4aW7
-	OwOcHsWCzU6ez3TudnwocK9zEqzh53n2AQgyBXY=
-X-Google-Smtp-Source: AGHT+IHmoLAUiv8fk25rU3LsIqT4bGf0NYp3Jdy7r9PrFn7vgSF/A8z6XY7y0W3PdKsPxdaEB7q92Ncr+0mp/5dgQt8=
+        d=1e100.net; s=20221208; t=1691796960; x=1692401760;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=FJyrj6tK6yVbG9YTlwg97zBjNmUOI6qcixTijwM1454=;
+        b=VvGJqVZ/PtZUEPN5Jv2JSThKMS5KSIoZLuglyAsCeI3FuBOn2cayvhxq65spI1Jjgc
+         j9ZPVvCv6BRFEvpKzkFB3zrQ6CPf+pTYGhVx0w1njSkdHTkjJzPVJVca+6nvTKkl5Dx3
+         iWtL631tbSyV4onkV4kF7cq5bawmTukNLcOJYQjuQ8jAKwiFZrQLB4JTOydN6FFf0j2V
+         QIXp6c5w8RlpIF6Dsy2xzwe3CE4FYEjQssAB3e6ZHj9+zwWdlLUVqkqnpSd7hmdCYx+w
+         tIMWfmbpjTLBgaOXCb2yp3kkh5IekKeJmIb7VmvsPspHCjPqH/TYFPJqyNLoDCXIP507
+         AXMQ==
+X-Gm-Message-State: AOJu0YwrNol7Q4IjTxuTChFAk0Jn6sa+F0hqPptJKvzEWGgoppuV58vr
+	sBDi/Z17BdT1/f8kgFnM7zUI5gG0ayMglGuJpAY=
+X-Google-Smtp-Source: AGHT+IHIfQLwu26R66S4rNb0W+dcBEi3I8SNs14p2ndcZfHkHzE1o+CSHE6ZDND0vVU1eLU0TXIds8c/EwLduOXnpOw=
 X-Received: from samitolvanen.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:4f92])
- (user=samitolvanen job=sendgmr) by 2002:a17:902:da90:b0:1bc:8249:2547 with
- SMTP id j16-20020a170902da9000b001bc82492547mr1100101plx.12.1691796965861;
- Fri, 11 Aug 2023 16:36:05 -0700 (PDT)
-Date: Fri, 11 Aug 2023 23:36:00 +0000
-In-Reply-To: <20230811233556.97161-7-samitolvanen@google.com>
+ (user=samitolvanen job=sendgmr) by 2002:a17:902:d491:b0:1bc:f6d:b2f1 with
+ SMTP id c17-20020a170902d49100b001bc0f6db2f1mr1221684plg.5.1691796960490;
+ Fri, 11 Aug 2023 16:36:00 -0700 (PDT)
+Date: Fri, 11 Aug 2023 23:35:57 +0000
 Mime-Version: 1.0
-References: <20230811233556.97161-7-samitolvanen@google.com>
 X-Developer-Key: i=samitolvanen@google.com; a=openpgp; fpr=35CCFB63B283D6D3AEB783944CB5F6848BBC56EE
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3217; i=samitolvanen@google.com;
- h=from:subject; bh=tt28FmYKneUlEuS934Ul5UfwYg3GE/8Wy9t+zpPCYws=;
- b=owEB7QES/pANAwAKAUy19oSLvFbuAcsmYgBk1sXcZHCAlTnd4EYJhbusgalCGC+w098BuJsGg
- pjfWx3ysWCJAbMEAAEKAB0WIQQ1zPtjsoPW0663g5RMtfaEi7xW7gUCZNbF3AAKCRBMtfaEi7xW
- 7vtjC/9aDXQZ1XeqW1KEFEIdmhB56J7RualjvUaGwqw1lObaqRwOTOHqVWWF23giW/63wj+kC2d
- uHjLduotttcVZkHZsC6bSVritbMUdqcBJPktHpbake9N1DDHjOKuNQV7Nb8/N4fdKLoTbsIhX8J
- c9wUZRHH+uECCk0s/Vthl8g0IjkG8bxxiTWZPmj9U6cBnZreRQNTMLyS0VAeDbMe1fDLYwCxUOD
- m7jKpu3cmKHJ0+q07Tw7ImOGqjT+v/47NwVRAfE3wnQ2qG23TXar0JY6Ve/GXc8Cl5iQqIkW8I6
- vqNSlOuam4C9fCr1mNVlroRnndKOjNwoqNMGFOpCRRtZboI2i9jEI4sy77bqFyu9Z2AaZODMEky
- Z8lDTU3yZB+Dfy0y9jrRLlFmdooFQZZqg92id+407SgbATsSpewepWk6+xfbx/2ctL/zCdrzrKE Wqbc1Mw5wnbcu9O9FXMhy5KyHuHKxN0/EpYpF8+0511pfnh6hGOTgck63WxCg0nkRDL/o=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2952; i=samitolvanen@google.com;
+ h=from:subject; bh=SDgfUeek9bBfFH/GgjHWWomZBQ3jJ70oyZ3dQ6OElFU=;
+ b=owEB7QES/pANAwAKAUy19oSLvFbuAcsmYgBk1sXcOnbq6JZt3RU1sP5IFJKUw25LC2bv8yymB
+ W5paiN1ZL2JAbMEAAEKAB0WIQQ1zPtjsoPW0663g5RMtfaEi7xW7gUCZNbF3AAKCRBMtfaEi7xW
+ 7tQFDACNDk8aAKLNu9rSXt5k9BB1l2H/kIELpE2MHU7dGXgGcUdXux+dC8a0NkC4eMhYyShjRBD
+ 855vgltV0mRxmNIGnJ/T7tm7IrUCLEDJEig69lr1nVmkzaHdAhiLnYMNADHroqKRiT82oYUVjFC
+ o2543jVSzPAm6CKbx0eBx709zBvozpwYmxR7rUvg7T49jgFVT6uelJP6mMBK1Rge2cw78smfOi9
+ RG2Jhdohk0YNmUYpMpO0qa3O9KJCl6u3Ee6c9mfuqmX8Lto+vW5C45CwOZvTwed1vYzfsXfh7LC
+ 0J+BixKgBvVxbOFuQ04mYuxugfwVm/6ZvdQV+LZn4ZOOvs4Ral3c4JpfthwfgYOW1nIND2bC4SN
+ RXrbNrh/QII1Tgze+kZrhJjbN4ze1dSYV+Y1SBEc+PtqNVdglNYtmfm9cSq152TctDoqNSq0jnr 5U3Ce6svaWc7k2zr5EDhv+SDQ8diCRpkSo72SRsnIchQUzaTCl00nv7W9xzmBDbF83cS4=
 X-Mailer: git-send-email 2.41.0.640.ga95def55d0-goog
-Message-ID: <20230811233556.97161-10-samitolvanen@google.com>
-Subject: [PATCH 3/5] riscv: Move global pointer loading to a macro
+Message-ID: <20230811233556.97161-7-samitolvanen@google.com>
+Subject: [PATCH 0/5] riscv: SCS support
 From: Sami Tolvanen <samitolvanen@google.com>
 To: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
 	Albert Ou <aou@eecs.berkeley.edu>, Kees Cook <keescook@chromium.org>
@@ -100,9 +82,8 @@ Cc: Guo Ren <guoren@kernel.org>, Deepak Gupta <debug@rivosinc.com>,
 	Fangrui Song <maskray@google.com>, linux-riscv@lists.infradead.org, llvm@lists.linux.dev, 
 	linux-kernel@vger.kernel.org, Sami Tolvanen <samitolvanen@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230812_003609_409008_D60521DE 
-X-CRM114-Status: UNSURE (   9.26  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230811_163602_145098_D63839F9 
+X-CRM114-Status: GOOD (  15.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,115 +100,72 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-In Clang 17, -fsanitize=shadow-call-stack uses the newly declared
-platform register gp for storing shadow call stack pointers. As
-this is obviously incompatible with gp relaxation, in preparation
-for CONFIG_SHADOW_CALL_STACK support, move global pointer loading
-to a single macro, which we can cleanly disable when SCS is used
-instead.
+Hi folks,
 
-Link: https://reviews.llvm.org/rGaa1d2693c256
-Link: https://github.com/riscv-non-isa/riscv-elf-psabi-doc/commit/a484e843e6eeb51f0cb7b8819e50da6d2444d769
-Signed-off-by: Sami Tolvanen <samitolvanen@google.com>
----
- arch/riscv/include/asm/asm.h      |  8 ++++++++
- arch/riscv/kernel/entry.S         |  6 ++----
- arch/riscv/kernel/head.S          | 15 +++------------
- arch/riscv/kernel/suspend_entry.S |  5 +----
- 4 files changed, 14 insertions(+), 20 deletions(-)
+This series adds Shadow Call Stack (SCS) support for RISC-V. SCS
+uses compiler instrumentation to store return addresses in a
+separate shadow stack to protect them against accidental or
+malicious overwrites. More information about SCS can be found
+here:
 
-diff --git a/arch/riscv/include/asm/asm.h b/arch/riscv/include/asm/asm.h
-index 13815a7f907a..c53388f784a2 100644
---- a/arch/riscv/include/asm/asm.h
-+++ b/arch/riscv/include/asm/asm.h
-@@ -103,6 +103,14 @@
- 	REG_L \dst, 0(\dst)
- .endm
- 
-+/* load __global_pointer to gp */
-+.macro load_global_pointer
-+.option push
-+.option norelax
-+	la gp, __global_pointer$
-+.option pop
-+.endm
-+
- 	/* save all GPs except x1 ~ x5 */
- 	.macro save_from_x6_to_x31
- 	REG_S x6,  PT_T1(sp)
-diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
-index 39875f5e08a6..2b4248c6b0a9 100644
---- a/arch/riscv/kernel/entry.S
-+++ b/arch/riscv/kernel/entry.S
-@@ -75,10 +75,8 @@ _save_context:
- 	csrw CSR_SCRATCH, x0
- 
- 	/* Load the global pointer */
--.option push
--.option norelax
--	la gp, __global_pointer$
--.option pop
-+	load_global_pointer
-+
- 	move a0, sp /* pt_regs */
- 	la ra, ret_from_exception
- 
-diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
-index 11c3b94c4534..79b5a863c782 100644
---- a/arch/riscv/kernel/head.S
-+++ b/arch/riscv/kernel/head.S
-@@ -110,10 +110,7 @@ relocate_enable_mmu:
- 	csrw CSR_TVEC, a0
- 
- 	/* Reload the global pointer */
--.option push
--.option norelax
--	la gp, __global_pointer$
--.option pop
-+	load_global_pointer
- 
- 	/*
- 	 * Switch to kernel page tables.  A full fence is necessary in order to
-@@ -134,10 +131,7 @@ secondary_start_sbi:
- 	csrw CSR_IP, zero
- 
- 	/* Load the global pointer */
--	.option push
--	.option norelax
--		la gp, __global_pointer$
--	.option pop
-+	load_global_pointer
- 
- 	/*
- 	 * Disable FPU & VECTOR to detect illegal usage of
-@@ -228,10 +222,7 @@ pmp_done:
- #endif /* CONFIG_RISCV_M_MODE */
- 
- 	/* Load the global pointer */
--.option push
--.option norelax
--	la gp, __global_pointer$
--.option pop
-+	load_global_pointer
- 
- 	/*
- 	 * Disable FPU & VECTOR to detect illegal usage of
-diff --git a/arch/riscv/kernel/suspend_entry.S b/arch/riscv/kernel/suspend_entry.S
-index 12b52afe09a4..556a4b166d8c 100644
---- a/arch/riscv/kernel/suspend_entry.S
-+++ b/arch/riscv/kernel/suspend_entry.S
-@@ -60,10 +60,7 @@ END(__cpu_suspend_enter)
- 
- ENTRY(__cpu_resume_enter)
- 	/* Load the global pointer */
--	.option push
--	.option norelax
--		la gp, __global_pointer$
--	.option pop
-+	load_global_pointer
- 
- #ifdef CONFIG_MMU
- 	/* Save A0 and A1 */
+  https://clang.llvm.org/docs/ShadowCallStack.html
+
+Patch 1 is from Deepak, and it simplifies VMAP_STACK overflow
+handling by adding support for accessing per-CPU variables
+directly in assembly. The patch is included in this series to
+make IRQ stack switching cleaner with SCS, and I've simply
+rebased it. Patch 2 uses this functionality to clean up the stack
+switching by moving duplicate code into a single function. On
+RISC-V, the compiler uses the gp register for storing the current
+shadow call stack pointer, which is incompatible with global
+pointer relaxation. Patch 3 moves global pointer loading into a
+macro that can be easily disabled with SCS. Patch 4 implements
+SCS register loading and switching, and allows the feature to be
+enabled, and patch 5 adds separate per-CPU IRQ shadow call stacks
+when CONFIG_IRQ_STACKS is enabled.
+
+Note that this series requires Clang 17. Earlier Clang versions
+support SCS on RISC-V, but use the x18 register instead of gp,
+which isn't ideal. gcc has SCS support for arm64, but I'm not
+aware of plans to support RISC-V. Once the Zicfiss extension is
+ratified, it's probably preferable to use hardware-backed shadow
+stacks instead of SCS on hardware that supports the extension,
+and we may want to consider implementing CONFIG_DYNAMIC_SCS to
+patch between the implementation at runtime (similarly to the
+arm64 implementation, which switches to SCS when hardware PAC
+support isn't available).
+
+Sami
+
+
+Deepak Gupta (1):
+  riscv: VMAP_STACK overflow detection thread-safe
+
+Sami Tolvanen (4):
+  riscv: Deduplicate IRQ stack switching
+  riscv: Move global pointer loading to a macro
+  riscv: Implement Shadow Call Stack
+  riscv: Use separate IRQ shadow call stacks
+
+ arch/riscv/Kconfig                   |   6 ++
+ arch/riscv/Makefile                  |   4 +
+ arch/riscv/include/asm/asm.h         |  35 ++++++++
+ arch/riscv/include/asm/irq_stack.h   |   3 +
+ arch/riscv/include/asm/scs.h         |  54 ++++++++++++
+ arch/riscv/include/asm/thread_info.h |  16 +++-
+ arch/riscv/kernel/asm-offsets.c      |   4 +
+ arch/riscv/kernel/entry.S            | 126 +++++++++++++--------------
+ arch/riscv/kernel/head.S             |  19 ++--
+ arch/riscv/kernel/irq.c              |  53 ++++++-----
+ arch/riscv/kernel/suspend_entry.S    |   5 +-
+ arch/riscv/kernel/traps.c            |  65 ++------------
+ arch/riscv/kernel/vdso/Makefile      |   2 +-
+ arch/riscv/purgatory/Makefile        |   4 +
+ 14 files changed, 228 insertions(+), 168 deletions(-)
+ create mode 100644 arch/riscv/include/asm/scs.h
+
+
+base-commit: 52a93d39b17dc7eb98b6aa3edb93943248e03b2f
 -- 
 2.41.0.640.ga95def55d0-goog
 
