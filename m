@@ -4,8 +4,8 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCF4EC04A6A
-	for <linux-riscv@archiver.kernel.org>; Fri, 11 Aug 2023 23:36:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3043DC001DB
+	for <linux-riscv@archiver.kernel.org>; Fri, 11 Aug 2023 23:36:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -13,70 +13,70 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=uVNbS4xyKReETytib9U+pnHqFa+q30erjURoX0nXrTI=; b=Ht10EoLr87pEDlQjUInW1KqsRY
-	a5RR9irKcxuOmc+8lRTenXTZwhxtE+6/95NOwYbcE51uQNoWpEaRa6E8DThKt1QCFUJrYDhookJ6N
-	l064s3Uvf3ndzDKBR9sruJzwNTNnuKRdmfmE6upagNqAkqSpv1iImvSQxjxTu+9IZEfZ6Hw/PI0wh
-	cnCuIa2LRS/jxoklDkp4aEdWVAVH3hBEZRMvOjyHVS7KiTlKH+cpCzKn/1lNnv4jbRJKVurrh10yV
-	3vO8yR/SPw4XtjqzA8HvJF4tOkckBN66S3MeERz9R0FAVrAgKOuvFdGlnNZ3XCeRVfc2W+L1NvpKh
-	iFBcJd2A==;
+	bh=NfhHY9bMq/9khy0G8HAwR3EtSdKTVS3HHMawo/PiMHo=; b=i+rDlAflyCE0EyUWcKBVblIxQP
+	Dt9ME63fMHReuUy//vyShKwI8roZmGaRjtUdrn6/wyAy7t98c6IB5u95xV+xjOYWK9FPbvrIsLQj6
+	q5stxBW0de+E7OsczKgKABxQhq5cvD9+/wt2K882LlxbRjZSaYJjVU352GmjPVc1l2/WPInZEw/WH
+	8EXiNOgsjVuFnk4PFvALElmvfFgAnjpkLEggSCEK9+BpplqzJfvf3vhUHY9juxtlKbck6SYHOlQAk
+	U0AGcrtsWy1XVyEdtuKwQUuhbM1y7mPr11Qh10xMS7pEAybBM94FpDDokwHLcLNVwONJdOefFOPVV
+	eIbaayZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qUbfr-00Bw6H-2o;
-	Fri, 11 Aug 2023 23:36:07 +0000
-Received: from mail-yb1-xb4a.google.com ([2607:f8b0:4864:20::b4a])
+	id 1qUbfy-00Bw9k-2V;
+	Fri, 11 Aug 2023 23:36:14 +0000
+Received: from mail-pg1-x549.google.com ([2607:f8b0:4864:20::549])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qUbfp-00Bw4g-0W
+	id 1qUbfv-00Bw6g-0Z
 	for linux-riscv@lists.infradead.org;
-	Fri, 11 Aug 2023 23:36:06 +0000
-Received: by mail-yb1-xb4a.google.com with SMTP id 3f1490d57ef6-d683c5f5736so321994276.3
-        for <linux-riscv@lists.infradead.org>; Fri, 11 Aug 2023 16:36:04 -0700 (PDT)
+	Fri, 11 Aug 2023 23:36:12 +0000
+Received: by mail-pg1-x549.google.com with SMTP id 41be03b00d2f7-564e1843717so3022425a12.0
+        for <linux-riscv@lists.infradead.org>; Fri, 11 Aug 2023 16:36:09 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20221208; t=1691796964; x=1692401764;
+        d=google.com; s=20221208; t=1691796969; x=1692401769;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=00MDTkG4twmkTIj7hahtsfZCe3BOd3kJWcjxWEDZHsc=;
-        b=hNk/V5V9Cl0RBDK/xApOCjB9hBugkkuVSUe0CaeEJvfxUWOY/dHs5BlzQK0Ht8K4GW
-         wz4FNlEdTQbu49jXP5WDdQc5jl3P8kYStgDJp1EcsRF0QdkshXrIub2xylJHtkojk4ne
-         JShRPYJ8B6jOJlbiGmGCSfFSWOsj0WF/PLyolSwVOkDevRJrdhjhTjMhtDy5vO90G201
-         BIsKD+9tYPjZm8FB3dSatCzIyzW2fFKtOhxoCYTY/u6aLh+wHQ07/9w4+qNAMfEp2iEg
-         XPjLPfnAf3gGHWk9mdXr635RhY2oJpJnb8Al7Qq+/hRH3xOIMkEcrstW5KQCxtb2FE+i
-         EG2A==
+        bh=VZF+IDNpZAY/LDD7db/2FGsLr/FEvCnem9lcmfmloZ0=;
+        b=mtVd1W3/3q051Qstg/rkwh22KJtXJgwRmJjPFHPrSUwrwcnjBaqya9IaLakBib/tGp
+         MZTlDO3i3B4tO+B0FXZi24NgY0QmiN3TLRaIN/r9BVzhVd6lXdijvcEwht3QqyGFD25d
+         iAg948H3L3HcDIX/PDfVlKzDxQL0FtAOPKhRa0fRjcPK/dRobJigKyFzAfEEvzpV65fs
+         kGDPQqp+LC2W1h1PDbovFc73zR/ks5uXhEXNhFQtNnxEmYALG9EGpnOyEhYzt92Xo9Yq
+         5nvT9GMKmOWUbwmKtjMTTTSyuaOqrL5J7LhfgrsQFnUpeCuAUc08CGdSsrD74A12oTl/
+         4BBg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1691796964; x=1692401764;
+        d=1e100.net; s=20221208; t=1691796969; x=1692401769;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=00MDTkG4twmkTIj7hahtsfZCe3BOd3kJWcjxWEDZHsc=;
-        b=QAMmciNUtglmQItuTZPz80+UjjPJYDOSy7NGmCftQaFxN8dQnXW1IIgYFnsI44HzyX
-         d6pswVR3jhKJZ1iVoyQ99WOHZJBLnNQB5qyEj8bV6te6ExEGrBYR9061Dl+PC7+gv9wt
-         tnwsoR2UB4dnq5j99/dmNm6NqTXCk6TbdgpQt0VrwRYZY2iBnkn3dGPeo0z/hBGJ9scw
-         3dE/yiwawmu8W07zt4D6kR2Idlmt6DLq8GUfHszUHzxW1HcQ9uQcMdzGNrlPV7rA7gMw
-         rpTsrOXoZ1hTHYxTe/bgT7bxMdqtBd250FeRDBmCzkXxp41AmigZdGycWXCc+cBENl8x
-         ngXA==
-X-Gm-Message-State: AOJu0Yw7fsomenu50XHzSAh8veXSnOt83RtXbRZLv9uIu3BaQSc7mJ5w
-	+/y9LvITMwYMsBB6rSiOEFRuBN024qsKILH020o=
-X-Google-Smtp-Source: AGHT+IHeXZ1GvUHF8fQxxXYXGJIgPf+CIJhhtBADyb3Qi5fzWeoLDsuAKhTKM89XtClgD4ndzhOFK9PQ7mjh0lJHrlE=
+        bh=VZF+IDNpZAY/LDD7db/2FGsLr/FEvCnem9lcmfmloZ0=;
+        b=HZOpVaWL+g3pEHN3+8cEGr2v5+hu+LJSMxdPCrTwwpbBggiZY0dId+kMem+YTRdsPF
+         /DcKWBbmqXMHuStmFU0OwcAk6PFoUcjIvwsDRKDXyRI0nQO0BDos/iSmJvrRAYy8O5eg
+         DG4rAvOveJAdUhkgHME7BiOwKs5WVvBIYMxHeQCsxLCqPMGy2B0ib689bDttWy8KFLvb
+         Pl1phHBBufkB/VJkkTOFrI1lbEIMxS2xoYooRRiFU1rIGb/GpjkIu9Tlm8S3AnRMHs7z
+         kH+LQTlMPRnQ94Z8oVnkOi2GUSf2k9/5WUQqzv0wPWDzNtFsfJWYHR7lBRZG7hWYUOYF
+         pf0w==
+X-Gm-Message-State: AOJu0YwTjfCNM+q43p/I0p/2bTmDIRZ2xkQeRuLVivI/SKHjUJDk4EKA
+	hoBlpIcKuFc6WS87qx3PvMr6zHl+eWz4wiaChCY=
+X-Google-Smtp-Source: AGHT+IHhsvuH2OM1UWszf4TCMu5qR06fZ9BwriEs9fj1OxjgnvZGnw/4HlxK/SLUtDQ7Phb6303mh2wjDyw9Z0/+bjA=
 X-Received: from samitolvanen.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:4f92])
- (user=samitolvanen job=sendgmr) by 2002:a25:2d0d:0:b0:d4f:638b:d7fd with SMTP
- id t13-20020a252d0d000000b00d4f638bd7fdmr52997ybt.9.1691796964113; Fri, 11
- Aug 2023 16:36:04 -0700 (PDT)
-Date: Fri, 11 Aug 2023 23:35:59 +0000
+ (user=samitolvanen job=sendgmr) by 2002:a63:8c57:0:b0:564:aeb6:c383 with SMTP
+ id q23-20020a638c57000000b00564aeb6c383mr638656pgn.1.1691796969048; Fri, 11
+ Aug 2023 16:36:09 -0700 (PDT)
+Date: Fri, 11 Aug 2023 23:36:02 +0000
 In-Reply-To: <20230811233556.97161-7-samitolvanen@google.com>
 Mime-Version: 1.0
 References: <20230811233556.97161-7-samitolvanen@google.com>
 X-Developer-Key: i=samitolvanen@google.com; a=openpgp; fpr=35CCFB63B283D6D3AEB783944CB5F6848BBC56EE
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5591; i=samitolvanen@google.com;
- h=from:subject; bh=iC4KVySOHJXm7MoqeVidxpUrvxa6iA/di8sMVQphPro=;
- b=owEB7QES/pANAwAKAUy19oSLvFbuAcsmYgBk1sXcl+4pMbxsusEsJNlSct/N38MSVxyzWytYj
- 3gXIn1dRb6JAbMEAAEKAB0WIQQ1zPtjsoPW0663g5RMtfaEi7xW7gUCZNbF3AAKCRBMtfaEi7xW
- 7u94C/9i14LHcJc+kPonuHpc/Sr6RicO+kf9zaXFzOL2MKaPq9BaDmMLL6nuG2iHksvhI5boWFV
- +nA3tePX//NgpDNCfDQUBkwGSEiGRRxy58McWFflyS40n4keNX4+P5qJZekqHzDfH69pmaUE0MQ
- xrxUzYYyWBD7TxyTGewSmEAqP6bRWJhI6FL0zGPkEvDSw+KIQCWYSIcEOMVhgiw8sGyIZRDS2Pd
- y6Keo6flOy8SX/b6Si5H2Xoczfh4JZCkLMAQCC/LL8zA24db+TJRrNv+lB+1FW6hCXB+4+t3Zr2
- DzINx6H3f+B5qU++tKwqqnCG5qXEbyWLKpLIZqyUNTtp2KtfoW1XbXUXE8BIFc8NWNeNUFEo138
- LaBbrdBcscNR9th2G2TBWCjHWmXmWXzb2hGZFTSPg0drLr8BP3MHqva3BhkAKQiLpKttkUqExGH uowMH9lPJ+i7mTffOnRwkH9X1FO6d6TkI0etUkvRZhky2/6KfeNUx8nKV3LGflV/YYs64=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3124; i=samitolvanen@google.com;
+ h=from:subject; bh=wBRXjmNHfhdcdsjrWxKjQVM4d1RVOAig5wuWuTXp+sw=;
+ b=owEB7QES/pANAwAKAUy19oSLvFbuAcsmYgBk1sXcweRCoqkszjtNMVnBaMVhIhZi/o4cME2C4
+ t5Qc51TbeWJAbMEAAEKAB0WIQQ1zPtjsoPW0663g5RMtfaEi7xW7gUCZNbF3AAKCRBMtfaEi7xW
+ 7oToC/0bVrByxxtfXjE7idOKMhQ47Ftkbwzrwd/qVpuGk5sKwMO1ZCCpNUD1WjHmpT9DM/jRjii
+ ID7y7zSN8jMwvkBKVqWFcrA/Eaa0m5fWafqe4cjjWupJSB/ep6zYn/Rg6HLdIw7XP4JK/Vc4y4r
+ TzWyrycXtowJuCYuF+VVNuP27Hv37AH2QTpPxcpmbb7m3TwnCZ3WQKLI40KhXg8gonXaggVqg3q
+ X5caBqH0OE2M8dRrYxeDPBlFrqtmfu0hbgTF/flJQdHf2d68ZJHYv8m5rdu94Bnwwf6XZFg+Q0R
+ ZQlYPtqVBdg6YwftizeZzNr6QjUFpqQ7A4buby+3pAI85S6NE4IF5Nces27nX/oKcSXM9+L4gog
+ 10WOtL3ybC+F9bnk4ud+g4NkqrfaEszHa/UYGP2doaSEY7wnGja38VeGjqq9XMANxgYlDyRpWrs vGsTNxyJYa2V8imEkZFgy9kgnfoyRyITlo1VmA8GQU3rxJACgMLpVtK/P/BITWXbgVKXU=
 X-Mailer: git-send-email 2.41.0.640.ga95def55d0-goog
-Message-ID: <20230811233556.97161-9-samitolvanen@google.com>
-Subject: [PATCH 2/5] riscv: Deduplicate IRQ stack switching
+Message-ID: <20230811233556.97161-12-samitolvanen@google.com>
+Subject: [PATCH 5/5] riscv: Use separate IRQ shadow call stacks
 From: Sami Tolvanen <samitolvanen@google.com>
 To: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
 	Albert Ou <aou@eecs.berkeley.edu>, Kees Cook <keescook@chromium.org>
@@ -85,8 +85,8 @@ Cc: Guo Ren <guoren@kernel.org>, Deepak Gupta <debug@rivosinc.com>,
 	Fangrui Song <maskray@google.com>, linux-riscv@lists.infradead.org, llvm@lists.linux.dev, 
 	linux-kernel@vger.kernel.org, Sami Tolvanen <samitolvanen@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230811_163605_206568_9DE77347 
-X-CRM114-Status: GOOD (  12.91  )
+X-CRM114-CacheID: sfid-20230811_163611_216441_27A3A1F2 
+X-CRM114-Status: GOOD (  11.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,180 +103,118 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-With CONFIG_IRQ_STACKS, we switch to a separate per-CPU IRQ stack
-before calling handle_riscv_irq or __do_softirq. We currently
-have duplicate inline assembly snippets for stack switching in
-both code paths. Now that we can access per-CPU variables in
-assembly, implement call_on_irq_stack in assembly, and use that
-instead of redudant inline assembly.
+When both CONFIG_IRQ_STACKS and SCS are enabled, also use a separate
+per-CPU shadow call stack.
 
 Signed-off-by: Sami Tolvanen <samitolvanen@google.com>
 ---
- arch/riscv/include/asm/asm.h       |  5 +++++
- arch/riscv/include/asm/irq_stack.h |  3 +++
- arch/riscv/kernel/entry.S          | 32 ++++++++++++++++++++++++++++++
- arch/riscv/kernel/irq.c            | 32 ++++++++----------------------
- arch/riscv/kernel/traps.c          | 29 ++++-----------------------
- 5 files changed, 52 insertions(+), 49 deletions(-)
+ arch/riscv/include/asm/scs.h |  7 +++++++
+ arch/riscv/kernel/entry.S    |  7 +++++++
+ arch/riscv/kernel/irq.c      | 21 +++++++++++++++++++++
+ 3 files changed, 35 insertions(+)
 
-diff --git a/arch/riscv/include/asm/asm.h b/arch/riscv/include/asm/asm.h
-index f403e46e04f2..13815a7f907a 100644
---- a/arch/riscv/include/asm/asm.h
-+++ b/arch/riscv/include/asm/asm.h
-@@ -98,6 +98,11 @@
- 	add   \dst, \dst, \tmp
+diff --git a/arch/riscv/include/asm/scs.h b/arch/riscv/include/asm/scs.h
+index 94726ea773e3..0e45db78b24b 100644
+--- a/arch/riscv/include/asm/scs.h
++++ b/arch/riscv/include/asm/scs.h
+@@ -13,6 +13,11 @@
+ 	XIP_FIXUP_OFFSET gp
  .endm
  
-+.macro load_per_cpu dst ptr tmp
-+	asm_per_cpu \dst \ptr \tmp
-+	REG_L \dst, 0(\dst)
++/* Load the per-CPU IRQ shadow call stack to gp. */
++.macro scs_load_irq_stack tmp
++	load_per_cpu gp, irq_shadow_call_stack_ptr, \tmp
 +.endm
 +
- 	/* save all GPs except x1 ~ x5 */
- 	.macro save_from_x6_to_x31
- 	REG_S x6,  PT_T1(sp)
-diff --git a/arch/riscv/include/asm/irq_stack.h b/arch/riscv/include/asm/irq_stack.h
-index e4042d297580..6441ded3b0cf 100644
---- a/arch/riscv/include/asm/irq_stack.h
-+++ b/arch/riscv/include/asm/irq_stack.h
-@@ -12,6 +12,9 @@
+ /* Load task_scs_sp(current) to gp. */
+ .macro scs_load_current
+ 	REG_L	gp, TASK_TI_SCS_SP(tp)
+@@ -34,6 +39,8 @@
  
- DECLARE_PER_CPU(ulong *, irq_stack_ptr);
- 
-+asmlinkage void call_on_irq_stack(struct pt_regs *regs,
-+				  void (*func)(struct pt_regs *));
-+
- #ifdef CONFIG_VMAP_STACK
- /*
-  * To ensure that VMAP'd stack overflow detection works correctly, all VMAP'd
+ .macro scs_load_init_stack
+ .endm
++.macro scs_load_irq_stack tmp
++.endm
+ .macro scs_load_current
+ .endm
+ .macro scs_load_current_if_task_changed prev
 diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
-index 3d11aa3af105..39875f5e08a6 100644
+index ad34507d3c96..c86b76584d2d 100644
 --- a/arch/riscv/kernel/entry.S
 +++ b/arch/riscv/kernel/entry.S
-@@ -218,6 +218,38 @@ SYM_CODE_START(ret_from_fork)
- 	tail syscall_exit_to_user_mode
- SYM_CODE_END(ret_from_fork)
+@@ -238,12 +238,19 @@ SYM_FUNC_START(call_on_irq_stack)
+ 	REG_S	s0, (sp)
+ 	addi	s0, sp, 2*RISCV_SZPTR
  
-+#ifdef CONFIG_IRQ_STACKS
-+/*
-+ * void call_on_irq_stack(struct pt_regs *regs,
-+ * 		          void (*func)(struct pt_regs *));
-+ *
-+ * Calls func(regs) using the per-CPU IRQ stack.
-+ */
-+SYM_FUNC_START(call_on_irq_stack)
-+	/* Create a frame record to save ra and s0 (fp) */
-+	addi	sp, sp, -RISCV_SZPTR
-+	REG_S	ra, (sp)
-+	addi	sp, sp, -RISCV_SZPTR
-+	REG_S	s0, (sp)
-+	addi	s0, sp, 2*RISCV_SZPTR
++	/* Switch to the per-CPU shadow call stack */
++	scs_save_current
++	scs_load_irq_stack t0
 +
-+	/* Switch to the per-CPU IRQ stack and call the handler */
-+	load_per_cpu t0, irq_stack_ptr, t1
-+	li	t1, IRQ_STACK_SIZE
-+	add	sp, t0, t1
-+	jalr	a1
+ 	/* Switch to the per-CPU IRQ stack and call the handler */
+ 	load_per_cpu t0, irq_stack_ptr, t1
+ 	li	t1, IRQ_STACK_SIZE
+ 	add	sp, t0, t1
+ 	jalr	a1
+ 
++	/* Switch back to the thread shadow call stack */
++	scs_load_current
 +
-+	/* Switch back to the thread stack and restore ra and s0 */
-+	addi	sp, s0, -2*RISCV_SZPTR
-+	REG_L	s0, (sp)
-+	addi	sp, sp, RISCV_SZPTR
-+	REG_L	ra, (sp)
-+	addi	sp, sp, RISCV_SZPTR
-+
-+	ret
-+SYM_FUNC_END(call_on_irq_stack)
-+#endif /* CONFIG_IRQ_STACKS */
-+
- /*
-  * Integer register context switch
-  * The callee-saved registers must be saved and restored.
+ 	/* Switch back to the thread stack and restore ra and s0 */
+ 	addi	sp, s0, -2*RISCV_SZPTR
+ 	REG_L	s0, (sp)
 diff --git a/arch/riscv/kernel/irq.c b/arch/riscv/kernel/irq.c
-index d0577cc6a081..95dafdcbd135 100644
+index 95dafdcbd135..7bfea97ee7e7 100644
 --- a/arch/riscv/kernel/irq.c
 +++ b/arch/riscv/kernel/irq.c
-@@ -61,32 +61,16 @@ static void init_irq_stacks(void)
- #endif /* CONFIG_VMAP_STACK */
+@@ -9,6 +9,7 @@
+ #include <linux/irqchip.h>
+ #include <linux/irqdomain.h>
+ #include <linux/module.h>
++#include <linux/scs.h>
+ #include <linux/seq_file.h>
+ #include <asm/sbi.h>
+ #include <asm/smp.h>
+@@ -34,6 +35,24 @@ EXPORT_SYMBOL_GPL(riscv_get_intc_hwnode);
+ #ifdef CONFIG_IRQ_STACKS
+ #include <asm/irq_stack.h>
  
- #ifdef CONFIG_HAVE_SOFTIRQ_ON_OWN_STACK
-+static void ___do_softirq(struct pt_regs *regs)
++DECLARE_PER_CPU(ulong *, irq_shadow_call_stack_ptr);
++
++#ifdef CONFIG_SHADOW_CALL_STACK
++DEFINE_PER_CPU(ulong *, irq_shadow_call_stack_ptr);
++#endif
++
++static void init_irq_scs(void)
 +{
-+	__do_softirq();
++	int cpu;
++
++	if (!scs_is_enabled())
++		return;
++
++	for_each_possible_cpu(cpu)
++		per_cpu(irq_shadow_call_stack_ptr, cpu) =
++			scs_alloc(cpu_to_node(cpu));
 +}
 +
- void do_softirq_own_stack(void)
- {
--#ifdef CONFIG_IRQ_STACKS
--	if (on_thread_stack()) {
--		ulong *sp = per_cpu(irq_stack_ptr, smp_processor_id())
--					+ IRQ_STACK_SIZE/sizeof(ulong);
--		__asm__ __volatile(
--		"addi	sp, sp, -"RISCV_SZPTR  "\n"
--		REG_S"  ra, (sp)		\n"
--		"addi	sp, sp, -"RISCV_SZPTR  "\n"
--		REG_S"  s0, (sp)		\n"
--		"addi	s0, sp, 2*"RISCV_SZPTR "\n"
--		"move	sp, %[sp]		\n"
--		"call	__do_softirq		\n"
--		"addi	sp, s0, -2*"RISCV_SZPTR"\n"
--		REG_L"  s0, (sp)		\n"
--		"addi	sp, sp, "RISCV_SZPTR   "\n"
--		REG_L"  ra, (sp)		\n"
--		"addi	sp, sp, "RISCV_SZPTR   "\n"
--		:
--		: [sp] "r" (sp)
--		: "a0", "a1", "a2", "a3", "a4", "a5", "a6", "a7",
--		  "t0", "t1", "t2", "t3", "t4", "t5", "t6",
--		  "memory");
--	} else
--#endif
-+	if (on_thread_stack())
-+		call_on_irq_stack(NULL, ___do_softirq);
-+	else
- 		__do_softirq();
- }
- #endif /* CONFIG_HAVE_SOFTIRQ_ON_OWN_STACK */
-diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
-index deb2144d9143..83319b6816da 100644
---- a/arch/riscv/kernel/traps.c
-+++ b/arch/riscv/kernel/traps.c
-@@ -350,31 +350,10 @@ static void noinstr handle_riscv_irq(struct pt_regs *regs)
- asmlinkage void noinstr do_irq(struct pt_regs *regs)
- {
- 	irqentry_state_t state = irqentry_enter(regs);
--#ifdef CONFIG_IRQ_STACKS
--	if (on_thread_stack()) {
--		ulong *sp = per_cpu(irq_stack_ptr, smp_processor_id())
--					+ IRQ_STACK_SIZE/sizeof(ulong);
--		__asm__ __volatile(
--		"addi	sp, sp, -"RISCV_SZPTR  "\n"
--		REG_S"  ra, (sp)		\n"
--		"addi	sp, sp, -"RISCV_SZPTR  "\n"
--		REG_S"  s0, (sp)		\n"
--		"addi	s0, sp, 2*"RISCV_SZPTR "\n"
--		"move	sp, %[sp]		\n"
--		"move	a0, %[regs]		\n"
--		"call	handle_riscv_irq	\n"
--		"addi	sp, s0, -2*"RISCV_SZPTR"\n"
--		REG_L"  s0, (sp)		\n"
--		"addi	sp, sp, "RISCV_SZPTR   "\n"
--		REG_L"  ra, (sp)		\n"
--		"addi	sp, sp, "RISCV_SZPTR   "\n"
--		:
--		: [sp] "r" (sp), [regs] "r" (regs)
--		: "a0", "a1", "a2", "a3", "a4", "a5", "a6", "a7",
--		  "t0", "t1", "t2", "t3", "t4", "t5", "t6",
--		  "memory");
--	} else
--#endif
-+
-+	if (IS_ENABLED(CONFIG_IRQ_STACKS) && on_thread_stack())
-+		call_on_irq_stack(regs, handle_riscv_irq);
-+	else
- 		handle_riscv_irq(regs);
+ DEFINE_PER_CPU(ulong *, irq_stack_ptr);
  
- 	irqentry_exit(regs, state);
+ #ifdef CONFIG_VMAP_STACK
+@@ -76,6 +95,7 @@ void do_softirq_own_stack(void)
+ #endif /* CONFIG_HAVE_SOFTIRQ_ON_OWN_STACK */
+ 
+ #else
++static void init_irq_scs(void) {}
+ static void init_irq_stacks(void) {}
+ #endif /* CONFIG_IRQ_STACKS */
+ 
+@@ -87,6 +107,7 @@ int arch_show_interrupts(struct seq_file *p, int prec)
+ 
+ void __init init_IRQ(void)
+ {
++	init_irq_scs();
+ 	init_irq_stacks();
+ 	irqchip_init();
+ 	if (!handle_arch_irq)
 -- 
 2.41.0.640.ga95def55d0-goog
 
