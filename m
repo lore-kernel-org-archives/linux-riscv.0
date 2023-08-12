@@ -4,86 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCC4EC001DB
-	for <linux-riscv@archiver.kernel.org>; Fri, 11 Aug 2023 23:36:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23122C001B0
+	for <linux-riscv@archiver.kernel.org>; Sat, 12 Aug 2023 00:19:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
-	Mime-Version:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=MAnajWf/dQbap11oBOxhiof2ckEK4fR6TE6NeSjFbWw=; b=1Lx
-	s0dFCdrazi0MbEihgUWICQiQnnJUGCayoDRw6Gjwz2zu5af8Dw8jYnD1D6JIuYTpz7ALKFypvyDdP
-	opazGqmxUeNIoO5WB3oQLzI+8qdrfT9bOcF+RKD+jzNyrMaV7k1ChrMD7yWgPpGacEL+CK9hpknBO
-	/a9ovfmBZ+Tpw1nlqi/oIuLH+5wutKTsOvFDNYBRk+8Ia5UeVWQHo3auURJshyE0KSAWR/DiQUHR0
-	1OOLZVFmlhJjUurW2AQXcFpnsQBEMeEVkM+7xe7qB3vbn9pAWB7uxb6R68aojVEmqLZcH0fi45XlA
-	Ia5+TKZ0IXOfQ2NW/1v1uuxHbuKYZqg==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=h27K8yLEezMUZWdSTFv8E818zY1M7U/duYoYqoEO4tM=; b=4npZOUZbz4p2GC
+	/ny9j6GIjf24CsoqNKknPrsD0s9kTAKtMmAuHIsz0uBz7BECCWMRzNNRrLHJ8GFOI3HGro1s/LFJL
+	r/z9QPrcQxpQRES0GuqPU1WvoxNbY6c8oFLb6p59gYtRQ4wGPtwb4TZS2sYjUB54dad+HTZxEAXmF
+	LdexBMtuwQ7py0433gE/5xceRcQ5ejOOdI69Vw2+4nLe/Akz4qd48e/nBmJLvsqRYgzF4axoiqTWM
+	yH+uG9G5/qcH9uEZM1XWv62+W9WOuCVyDJI8dvJtCzaScILQm+DhjsPcJtxVBs4TiNNAUUFpw+h6j
+	0slinhntr4qG2ydhYZTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qUbfr-00Bw5U-0t;
-	Fri, 11 Aug 2023 23:36:07 +0000
-Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
+	id 1qUcLi-00C4x3-2O;
+	Sat, 12 Aug 2023 00:19:22 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qUbfm-00Bw3k-0J
+	id 1qUcLb-00C4uN-1m
 	for linux-riscv@lists.infradead.org;
-	Fri, 11 Aug 2023 23:36:03 +0000
-Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-1bb982d2603so36193195ad.3
-        for <linux-riscv@lists.infradead.org>; Fri, 11 Aug 2023 16:36:01 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20221208; t=1691796960; x=1692401760;
-        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=FJyrj6tK6yVbG9YTlwg97zBjNmUOI6qcixTijwM1454=;
-        b=t4tQUrEr9br4jVUzCKEChkEGCVyX/w5GmiGPqeA0hD6O1Uy32gpVsvQDosKld/ygzA
-         0TIEMY46JnkMWWtV7PTnTn22KMDZFDNB16TlTWzBzXZrIIVMYCZ+KJyn8qL2MYV1pmwz
-         bZtTUUyEOEFC4EPmPS7znethsqbr0YoTsZnZqYv9QyHXjzC1P+VT5EYGHOKhDtmmM8Qu
-         Re2h+x75ggvqhrlD5VchlMI1Xu1GOMoUZiWLr4cZAYYBPGljIEFk8gKbQAK4K5tWq6Ue
-         hjPVDwQtRAgi492YOIlOR6RPVkVtiW6mKcEKW5Xjv2vzHd+Z0cMYTvdx1QR4v2xffK8D
-         c5pQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1691796960; x=1692401760;
-        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=FJyrj6tK6yVbG9YTlwg97zBjNmUOI6qcixTijwM1454=;
-        b=VvGJqVZ/PtZUEPN5Jv2JSThKMS5KSIoZLuglyAsCeI3FuBOn2cayvhxq65spI1Jjgc
-         j9ZPVvCv6BRFEvpKzkFB3zrQ6CPf+pTYGhVx0w1njSkdHTkjJzPVJVca+6nvTKkl5Dx3
-         iWtL631tbSyV4onkV4kF7cq5bawmTukNLcOJYQjuQ8jAKwiFZrQLB4JTOydN6FFf0j2V
-         QIXp6c5w8RlpIF6Dsy2xzwe3CE4FYEjQssAB3e6ZHj9+zwWdlLUVqkqnpSd7hmdCYx+w
-         tIMWfmbpjTLBgaOXCb2yp3kkh5IekKeJmIb7VmvsPspHCjPqH/TYFPJqyNLoDCXIP507
-         AXMQ==
-X-Gm-Message-State: AOJu0YwrNol7Q4IjTxuTChFAk0Jn6sa+F0hqPptJKvzEWGgoppuV58vr
-	sBDi/Z17BdT1/f8kgFnM7zUI5gG0ayMglGuJpAY=
-X-Google-Smtp-Source: AGHT+IHIfQLwu26R66S4rNb0W+dcBEi3I8SNs14p2ndcZfHkHzE1o+CSHE6ZDND0vVU1eLU0TXIds8c/EwLduOXnpOw=
-X-Received: from samitolvanen.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:4f92])
- (user=samitolvanen job=sendgmr) by 2002:a17:902:d491:b0:1bc:f6d:b2f1 with
- SMTP id c17-20020a170902d49100b001bc0f6db2f1mr1221684plg.5.1691796960490;
- Fri, 11 Aug 2023 16:36:00 -0700 (PDT)
-Date: Fri, 11 Aug 2023 23:35:57 +0000
-Mime-Version: 1.0
-X-Developer-Key: i=samitolvanen@google.com; a=openpgp; fpr=35CCFB63B283D6D3AEB783944CB5F6848BBC56EE
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2952; i=samitolvanen@google.com;
- h=from:subject; bh=SDgfUeek9bBfFH/GgjHWWomZBQ3jJ70oyZ3dQ6OElFU=;
- b=owEB7QES/pANAwAKAUy19oSLvFbuAcsmYgBk1sXcOnbq6JZt3RU1sP5IFJKUw25LC2bv8yymB
- W5paiN1ZL2JAbMEAAEKAB0WIQQ1zPtjsoPW0663g5RMtfaEi7xW7gUCZNbF3AAKCRBMtfaEi7xW
- 7tQFDACNDk8aAKLNu9rSXt5k9BB1l2H/kIELpE2MHU7dGXgGcUdXux+dC8a0NkC4eMhYyShjRBD
- 855vgltV0mRxmNIGnJ/T7tm7IrUCLEDJEig69lr1nVmkzaHdAhiLnYMNADHroqKRiT82oYUVjFC
- o2543jVSzPAm6CKbx0eBx709zBvozpwYmxR7rUvg7T49jgFVT6uelJP6mMBK1Rge2cw78smfOi9
- RG2Jhdohk0YNmUYpMpO0qa3O9KJCl6u3Ee6c9mfuqmX8Lto+vW5C45CwOZvTwed1vYzfsXfh7LC
- 0J+BixKgBvVxbOFuQ04mYuxugfwVm/6ZvdQV+LZn4ZOOvs4Ral3c4JpfthwfgYOW1nIND2bC4SN
- RXrbNrh/QII1Tgze+kZrhJjbN4ze1dSYV+Y1SBEc+PtqNVdglNYtmfm9cSq152TctDoqNSq0jnr 5U3Ce6svaWc7k2zr5EDhv+SDQ8diCRpkSo72SRsnIchQUzaTCl00nv7W9xzmBDbF83cS4=
-X-Mailer: git-send-email 2.41.0.640.ga95def55d0-goog
-Message-ID: <20230811233556.97161-7-samitolvanen@google.com>
-Subject: [PATCH 0/5] riscv: SCS support
-From: Sami Tolvanen <samitolvanen@google.com>
-To: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Kees Cook <keescook@chromium.org>
-Cc: Guo Ren <guoren@kernel.org>, Deepak Gupta <debug@rivosinc.com>, 
-	Nathan Chancellor <nathan@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>, 
-	Fangrui Song <maskray@google.com>, linux-riscv@lists.infradead.org, llvm@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, Sami Tolvanen <samitolvanen@google.com>
+	Sat, 12 Aug 2023 00:19:21 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 52D9665DB8
+	for <linux-riscv@lists.infradead.org>; Sat, 12 Aug 2023 00:19:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9E517C433CC
+	for <linux-riscv@lists.infradead.org>; Sat, 12 Aug 2023 00:19:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1691799553;
+	bh=ZH7R8L9H36iGum3yddu2dsyzpdsuw1sAIenikiEMZA4=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=Ay4YlKH5YOBAS9PJ9FowqgsyJw2ANhvUwCuhnSwEbJdZhlvPKQzuw8CAibvAA2gr0
+	 G2Mum8efPmzCKhj2iVg5XstRQELdn9DTh4UwcrgRpg+z37C2I4WFinYitJKYPoYQ7W
+	 /lGYlwI79qNPj/8BsId04ZaeWRo4bbLMjS3G/794FSkFYaqh5R/J/R8291T79zWm+P
+	 ITy4f1L8K2IiLCZ2Zf8r0RkmwJAhIPvp07qWxfuyWdABsPyzyt8c4i0Wz8Tkv9ULiv
+	 OrMu0agB2Z3b/Rv8W5/ssWQFwNWty0xHiKyJXiy8LntRG0Aka1gC8jDL95sn4jke+D
+	 f7r89GSd+vuyg==
+Received: by mail-ed1-f52.google.com with SMTP id 4fb4d7f45d1cf-51cff235226so5201302a12.0
+        for <linux-riscv@lists.infradead.org>; Fri, 11 Aug 2023 17:19:13 -0700 (PDT)
+X-Gm-Message-State: AOJu0YxTVMkm8NqqXVByh2EBoy4H271QELuRoPM2EBkyKGcqfkZOHOR7
+	j/bAkf4UNNwn6h7PoS3QfQwo2AjJn4JC68PTvuM=
+X-Google-Smtp-Source: AGHT+IGykQHZkBnk0VjR3Xj0zOX9nVrUef4Ne260Er2ch8t9g/FTZHcOPiq+G7Cvcs2WlBhAQJvmDn5QazlY9Qk6qU4=
+X-Received: by 2002:a05:6402:11c9:b0:51e:5bd5:fe7e with SMTP id
+ j9-20020a05640211c900b0051e5bd5fe7emr8275790edw.17.1691799551836; Fri, 11 Aug
+ 2023 17:19:11 -0700 (PDT)
+MIME-Version: 1.0
+References: <20230802164701.192791-1-guoren@kernel.org> <20230802164701.192791-5-guoren@kernel.org>
+ <ec070d3b-80fb-b625-cde1-80ead49c6227@redhat.com>
+In-Reply-To: <ec070d3b-80fb-b625-cde1-80ead49c6227@redhat.com>
+From: Guo Ren <guoren@kernel.org>
+Date: Sat, 12 Aug 2023 08:18:58 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTTq2i6Bv7vq4_aV0pD-vOrNJQ=5Rfm7fCLHfNw-Zy3QMQ@mail.gmail.com>
+Message-ID: <CAJF2gTTq2i6Bv7vq4_aV0pD-vOrNJQ=5Rfm7fCLHfNw-Zy3QMQ@mail.gmail.com>
+Subject: Re: [PATCH V10 04/19] riscv: qspinlock: Add basic queued_spinlock support
+To: Waiman Long <longman@redhat.com>
+Cc: paul.walmsley@sifive.com, anup@brainfault.org, peterz@infradead.org, 
+	mingo@redhat.com, will@kernel.org, palmer@rivosinc.com, boqun.feng@gmail.com, 
+	tglx@linutronix.de, paulmck@kernel.org, rostedt@goodmis.org, 
+	rdunlap@infradead.org, catalin.marinas@arm.com, conor.dooley@microchip.com, 
+	xiaoguang.xing@sophgo.com, bjorn@rivosinc.com, alexghiti@rivosinc.com, 
+	keescook@chromium.org, greentime.hu@sifive.com, ajones@ventanamicro.com, 
+	jszhang@kernel.org, wefu@redhat.com, wuwei2016@iscas.ac.cn, 
+	linux-arch@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	linux-doc@vger.kernel.org, kvm@vger.kernel.org, 
+	virtualization@lists.linux-foundation.org, linux-csky@vger.kernel.org, 
+	Guo Ren <guoren@linux.alibaba.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230811_163602_145098_D63839F9 
-X-CRM114-Status: GOOD (  15.17  )
+X-CRM114-CacheID: sfid-20230811_171915_672808_8E135DED 
+X-CRM114-Status: GOOD (  13.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,82 +88,28 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi folks,
-
-This series adds Shadow Call Stack (SCS) support for RISC-V. SCS
-uses compiler instrumentation to store return addresses in a
-separate shadow stack to protect them against accidental or
-malicious overwrites. More information about SCS can be found
-here:
-
-  https://clang.llvm.org/docs/ShadowCallStack.html
-
-Patch 1 is from Deepak, and it simplifies VMAP_STACK overflow
-handling by adding support for accessing per-CPU variables
-directly in assembly. The patch is included in this series to
-make IRQ stack switching cleaner with SCS, and I've simply
-rebased it. Patch 2 uses this functionality to clean up the stack
-switching by moving duplicate code into a single function. On
-RISC-V, the compiler uses the gp register for storing the current
-shadow call stack pointer, which is incompatible with global
-pointer relaxation. Patch 3 moves global pointer loading into a
-macro that can be easily disabled with SCS. Patch 4 implements
-SCS register loading and switching, and allows the feature to be
-enabled, and patch 5 adds separate per-CPU IRQ shadow call stacks
-when CONFIG_IRQ_STACKS is enabled.
-
-Note that this series requires Clang 17. Earlier Clang versions
-support SCS on RISC-V, but use the x18 register instead of gp,
-which isn't ideal. gcc has SCS support for arm64, but I'm not
-aware of plans to support RISC-V. Once the Zicfiss extension is
-ratified, it's probably preferable to use hardware-backed shadow
-stacks instead of SCS on hardware that supports the extension,
-and we may want to consider implementing CONFIG_DYNAMIC_SCS to
-patch between the implementation at runtime (similarly to the
-arm64 implementation, which switches to SCS when hardware PAC
-support isn't available).
-
-Sami
-
-
-Deepak Gupta (1):
-  riscv: VMAP_STACK overflow detection thread-safe
-
-Sami Tolvanen (4):
-  riscv: Deduplicate IRQ stack switching
-  riscv: Move global pointer loading to a macro
-  riscv: Implement Shadow Call Stack
-  riscv: Use separate IRQ shadow call stacks
-
- arch/riscv/Kconfig                   |   6 ++
- arch/riscv/Makefile                  |   4 +
- arch/riscv/include/asm/asm.h         |  35 ++++++++
- arch/riscv/include/asm/irq_stack.h   |   3 +
- arch/riscv/include/asm/scs.h         |  54 ++++++++++++
- arch/riscv/include/asm/thread_info.h |  16 +++-
- arch/riscv/kernel/asm-offsets.c      |   4 +
- arch/riscv/kernel/entry.S            | 126 +++++++++++++--------------
- arch/riscv/kernel/head.S             |  19 ++--
- arch/riscv/kernel/irq.c              |  53 ++++++-----
- arch/riscv/kernel/suspend_entry.S    |   5 +-
- arch/riscv/kernel/traps.c            |  65 ++------------
- arch/riscv/kernel/vdso/Makefile      |   2 +-
- arch/riscv/purgatory/Makefile        |   4 +
- 14 files changed, 228 insertions(+), 168 deletions(-)
- create mode 100644 arch/riscv/include/asm/scs.h
-
-
-base-commit: 52a93d39b17dc7eb98b6aa3edb93943248e03b2f
--- 
-2.41.0.640.ga95def55d0-goog
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gU2F0LCBBdWcgMTIsIDIwMjMgYXQgMzozNOKAr0FNIFdhaW1hbiBMb25nIDxsb25nbWFuQHJl
+ZGhhdC5jb20+IHdyb3RlOgo+Cj4KPiBPbiA4LzIvMjMgMTI6NDYsIGd1b3JlbkBrZXJuZWwub3Jn
+IHdyb3RlOgo+ID4gICAgICAgXAo+ID4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvaW5jbHVkZS9h
+c20vc3BpbmxvY2suaCBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vc3BpbmxvY2suaAo+ID4gbmV3
+IGZpbGUgbW9kZSAxMDA2NDQKPiA+IGluZGV4IDAwMDAwMDAwMDAwMC4uYzY0NGE5MmQ0NTQ4Cj4g
+PiAtLS0gL2Rldi9udWxsCj4gPiArKysgYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3NwaW5sb2Nr
+LmgKPiA+IEBAIC0wLDAgKzEsMTcgQEAKPiA+ICsvKiBTUERYLUxpY2Vuc2UtSWRlbnRpZmllcjog
+R1BMLTIuMCAqLwo+ID4gKwo+ID4gKyNpZm5kZWYgX19BU01fUklTQ1ZfU1BJTkxPQ0tfSAo+ID4g
+KyNkZWZpbmUgX19BU01fUklTQ1ZfU1BJTkxPQ0tfSAo+ID4gKwo+ID4gKyNpZmRlZiBDT05GSUdf
+UVVFVUVEX1NQSU5MT0NLUwo+ID4gKyNkZWZpbmUgX1FfUEVORElOR19MT09QUyAgICAgKDEgPDwg
+OSkKPiA+ICsjZW5kaWYKPiA+ICsKPiA+ICsjaWZkZWYgQ09ORklHX1FVRVVFRF9TUElOTE9DS1MK
+Pgo+IFlvdSBjYW4gbWVyZ2UgdGhlIHR3byAiI2lmZGVmIENPTkZJR19RVUVVRURfU1BJTkxPQ0tT
+IiBpbnRvIHNpbmdsZSBvbmUKPiB0byBhdm9pZCB0aGUgZHVwbGljYXRpb24uCk9rYXkuCgo+Cj4g
+Q2hlZXJzLAo+IExvbmdtYW4KPgo+ID4gKyNpbmNsdWRlIDxhc20vcXNwaW5sb2NrLmg+Cj4gPiAr
+I2luY2x1ZGUgPGFzbS9xcndsb2NrLmg+Cj4gPiArI2Vsc2UKPiA+ICsjaW5jbHVkZSA8YXNtLWdl
+bmVyaWMvc3BpbmxvY2suaD4KPiA+ICsjZW5kaWYKPiA+ICsKPiA+ICsjZW5kaWYgLyogX19BU01f
+UklTQ1ZfU1BJTkxPQ0tfSCAqLwo+CgoKLS0gCkJlc3QgUmVnYXJkcwogR3VvIFJlbgoKX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFp
+bGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmlu
+ZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
