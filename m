@@ -4,72 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B76BC0015E
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7E5AC04A6A
 	for <linux-riscv@archiver.kernel.org>; Sat, 12 Aug 2023 00:47:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CU2Is6xpZfpUrPg89JfVD6/5aRwL+kX0pEuev6bX7oo=; b=tGeBJBCgmXx6VQ
-	lV5ELWHgOo/qOAv0D3tmFnkKFgiBMKkr8zCXKqOCsy5tkQPu6GKOs2cgGaLBkf2UtJr6RYVSNAOgf
-	zbGZBxLcI0uDoYAy8Msbgh3fJU3neBf93MEK1xsdE8/MxQBmM7Q9w/lmtbfoMGtSiUCcW0OzUzqC4
-	yIGF/5iLDGjAM4AC2/HbFbCNtUOvvipWTm+s2K3NFFUbvJDunt1IRZSmWtzf3dJa4AK76l9v9+pA7
-	ZQ2Pto7MS+tFfPLJVpci1BXORLepyihaV4ijFDJM3nIhyls8kMBCRU29PfAqAa+s78YoWAw8WL+UP
-	sQIJJsBiJNe5D+JgjvqA==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=sRxfef8tnTEoroEw+21grYu/7FeYETYEprJlmbJmDU0=; b=2sRl30knlml5Ts
+	maZ7zHocKvSf4d2Tz2C7HxH+h2jME/xvwtxEXPC7aQdloFMkwc5N3i2Vijfp1aIw8SoFpN9wFUyQP
+	Ovn6/G20HbHNWauhV0TwG56PcUlIa76abCH9fHVL/1t9IsuHU1YV09VBpmEMpjs/tfGp087rrJMpY
+	lTvYlw14+8u8fmNS9WdMCYoX75XrYAkNbZ05fVCQVI+3EQHXzOoX3jlDjKBpYHeVNGg/r5L+m4kqR
+	MOArUyjoQEds1BP6m4BuqsAfBLZTgshQ0ndeRyIQENOuDdb+nfGq1tA6WayESIDkyUkfOdecS/MYQ
+	3DGCL+QbK7nJ+23P8piQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qUcnC-00CB7C-22;
-	Sat, 12 Aug 2023 00:47:46 +0000
-Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
+	id 1qUcnE-00CB7o-0n;
+	Sat, 12 Aug 2023 00:47:48 +0000
+Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qUcn8-00CB47-0w
+	id 1qUcn9-00CB3n-2C
 	for linux-riscv@lists.infradead.org;
-	Sat, 12 Aug 2023 00:47:44 +0000
-Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-1bdba48eccdso8684235ad.3
-        for <linux-riscv@lists.infradead.org>; Fri, 11 Aug 2023 17:47:39 -0700 (PDT)
+	Sat, 12 Aug 2023 00:47:45 +0000
+Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-1bbc06f830aso18236635ad.0
+        for <linux-riscv@lists.infradead.org>; Fri, 11 Aug 2023 17:47:38 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20221208.gappssmtp.com; s=20221208; t=1691801259; x=1692406059;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=05BikiCLpUIHGHjBbtQXpjem9/6VYbL8VEjebyzDVSo=;
-        b=Nfo84er8B87Ux9oCI5j+m3UNMamRr/ciYPhN73kyWkhw7OIsCMQvJv7TXg37w3Ybh8
-         4ZKe/7qjsdKUiUsNd/wAe/YQQtDHl1SatFHBhDQ0l2wahIB0rAGDPhRQhH2Ye3h0fRjp
-         R0+afrfQ76Oiab8sNaY976b0rpV8yLs6KcP0d8vvTS7I43DBb2i/0w6OeoLitpveyjJ6
-         J40f1AAjoRw0r2+mv9mOMOYapXGipSTC3pVf1B/QPMCtmuqdtg/lnZnnLH4kxI0xj09F
-         PzO1zINiaC+dG3XJZ94sPNMsiW6nLKmW4xCuQnAXhWkp9iU5fWFxlrawJNE2BScbW6HL
-         YwJA==
+        d=baylibre-com.20221208.gappssmtp.com; s=20221208; t=1691801257; x=1692406057;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=DeijLer+iQ1yTNsBhmCp+pc3Tg+drpD8NrA9bs7LzOI=;
+        b=jhboQ5nYSX8Si1mah8gNOHs4iZEr/J2Ef5i1NA9qVP1EXw5Cmuuxw0Hyjl2HrAOZv7
+         P/lq57Tg9pwtfi77ePWmFeE0AybM1YyDSNQu3Gydh9QJ12dJR1Cw5Xu6kd4w0wgCRosg
+         +XM7wWskqnOq0kP3gWCHfs9aWft7N02XeV30LZskPZlXZpAdAwi2gWdiwzMbnlebVYdV
+         vaRZVezKTjmkLV1392svkRdrzoLVdQ1T1wVvK6bTyYxv2zQwf9Wun6DxejsyrtsruJ6k
+         3LZAdgGymB9OLzNEkHSL6JsLmoCvIZQoOn5hR6l8O68msyIuCsXK6XPaGzgQMsC3mrdO
+         gKFA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1691801259; x=1692406059;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=05BikiCLpUIHGHjBbtQXpjem9/6VYbL8VEjebyzDVSo=;
-        b=dfHRsXltscEoC8wURQjQUCAaveJ0I4VWgDJzItblDSBtDJjqJgFtBNkCHj/Ba+zQtJ
-         cbjldxO3DC6i0f1DPxAQNhz76AYAPNhANngRLFQbV4zkQ88x/grp7ON6h762ATgRgNug
-         63+Ko0E7GxpKfALxplrJb+UeHiw0LbsDg+cOvET+XooiuBT/3D6HOsbdUFZ8haLUXZUP
-         VOwj+Xvlq7BvuEcjgn16RKQidwmFpp0bX5ihra3h1B6LdQZhfvItlfs/ZjfE0WaG4aUi
-         Sgmb2QZwBxNthltGzaIc7+LzBHmoFEu99WNNNAJXIP86nPH6qv1jNtH1udnhDAOuws97
-         Vugw==
-X-Gm-Message-State: AOJu0YzSSV/ss45n3M7GA5CFqqgDzRxj0CjynudjGN6VJwWYR77/mMcG
-	RCrgQEyk9ZHFSWhxq2ToAD9xaQ==
-X-Google-Smtp-Source: AGHT+IFdDX562eGbJtNruygyIF2dN53hOpTDe7X+mKpz434vbf5cpu8OlnawmM1dZhBGKfVOn3zixQ==
-X-Received: by 2002:a17:902:b591:b0:1b9:ea60:cd82 with SMTP id a17-20020a170902b59100b001b9ea60cd82mr3320103pls.5.1691801259187;
-        Fri, 11 Aug 2023 17:47:39 -0700 (PDT)
+        d=1e100.net; s=20221208; t=1691801257; x=1692406057;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=DeijLer+iQ1yTNsBhmCp+pc3Tg+drpD8NrA9bs7LzOI=;
+        b=IprhlIXJJe367U7494qyNsi9x5RbGhZ4rknja8LDHZcpWUPFtXmVmlKbnrdkNwbVKz
+         qqf7Kjy6ZxcCJFAd7l3Vah/2ykLtWXShnF3vsNQTb1+B+SkDCfTNa88V4lQ0MZBUMqBq
+         3MtkjDjwnAIfLbevxNI9hOPX5ssp4nytsb4gLc3hbUMPLjlleGWMoHvYRH8RbOX40VyZ
+         vxgoschXErq65XW/jUna/CyuO/hWWo5D8ePJG5dQlvwobVpOPvXWMYxM5WsW09GBvplC
+         3PM4oeWMLpYIh7KUBYV7paOTi5TryY9Pdtnzso6qKvRh1nJBozM46PiExZbxPPPGD8GZ
+         p5bA==
+X-Gm-Message-State: AOJu0Yx4oGvJT/7DQzg4yfOZ89Bog3kvxgRZTSgOgRszaaghuD4J29Ye
+	791NS6ZmFDUFWTIzAxuBR1W5ig==
+X-Google-Smtp-Source: AGHT+IFUqsBSX3sAM2vTW05lL8kww3fgqy4Gp8gDRdpUORS4ySxv2rMKaBp0M16jTXGsFzuevyF1pA==
+X-Received: by 2002:a17:903:1209:b0:1b5:5162:53bd with SMTP id l9-20020a170903120900b001b5516253bdmr4132072plh.33.1691801257518;
+        Fri, 11 Aug 2023 17:47:37 -0700 (PDT)
 Received: from [127.0.1.1] ([2601:1c2:1800:f680:5b85:b986:e090:9abc])
-        by smtp.gmail.com with ESMTPSA id c11-20020a170902724b00b001b246dcffb7sm4559247pll.300.2023.08.11.17.47.38
+        by smtp.gmail.com with ESMTPSA id c11-20020a170902724b00b001b246dcffb7sm4559247pll.300.2023.08.11.17.47.36
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 11 Aug 2023 17:47:38 -0700 (PDT)
+        Fri, 11 Aug 2023 17:47:37 -0700 (PDT)
 From: Drew Fustini <dfustini@baylibre.com>
-Date: Fri, 11 Aug 2023 17:47:17 -0700
-Subject: [PATCH v3 2/2] riscv: dts: thead: add BeagleV Ahead board device
- tree
+Subject: [PATCH v3 0/2] riscv: Add BeagleV Ahead board support
+Date: Fri, 11 Aug 2023 17:47:15 -0700
+Message-Id: <20230811-ahead-dt-v3-v1-0-aef2294bed86@baylibre.com>
 MIME-Version: 1.0
-Message-Id: <20230811-ahead-dt-v3-v1-2-aef2294bed86@baylibre.com>
-References: <20230811-ahead-dt-v3-v1-0-aef2294bed86@baylibre.com>
-In-Reply-To: <20230811-ahead-dt-v3-v1-0-aef2294bed86@baylibre.com>
+X-B4-Tracking: v=1; b=H4sIAJPW1mQC/x3MTQqAIBBA4avIrBvwh0i6SrQQHXM2FhoSSHdPW
+ n6L9zpUKkwVVtGhUOPKZx5QkwCfXD4IOQyDltpIqxS6RC5guLEZVGEhO0dPWkYYxVUo8vPfNmg
+ G9vf9ABCWKT9hAAAA
 To: Jisheng Zhang <jszhang@kernel.org>, Guo Ren <guoren@kernel.org>, 
  Fu Wei <wefu@redhat.com>, Rob Herring <robh+dt@kernel.org>, 
  Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
@@ -81,18 +80,19 @@ Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, Robert Nelson <robertcnelson@beagleboard.org>, 
  Jason Kridner <jkridner@beagleboard.org>, 
  Drew Fustini <dfustini@baylibre.com>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
  Conor Dooley <conor.dooley@microchip.com>
 X-Mailer: b4 0.12.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1691801256; l=2256;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1691801256; l=2003;
  i=dfustini@baylibre.com; s=20230430; h=from:subject:message-id;
- bh=Z2atrlGM8tcTPwr3A1Vti2dKZVGQj5R9fuQgJnqj1sI=;
- b=oyWcZ20LG4j7WS2sLMTHpSAPtOXFSF78Rdy3L88QLepL03Vrvp9oXTy0m39sCgx5A3inTSWkA
- cGzxPKP4sijASypHQEOtJpEM9fUMs/KYFXZEiA84pK6GCc7iOI/rzg1
+ bh=KXruUC4m0GJJ2tG/yeNsrWAXuiSYwLQVyd8fgxtQfP4=;
+ b=JylDP9oUkuZEpW4fXLJGGvGlX7V77+Vh17FFIFdl+LPteBDAnxNYnVhiy15cO1vRmecHLAo1S
+ Itw7hFCfVvwDJl/LzGHus7sgql5xkb81no1b7x/uUd/9fTD6m47/1iZ
 X-Developer-Key: i=dfustini@baylibre.com; a=ed25519;
  pk=p3GKE9XFmjhwAayAHG4U108yag7V8xQVd4zJLdW0g7g=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230811_174742_332301_01B07D79 
-X-CRM114-Status: GOOD (  13.32  )
+X-CRM114-CacheID: sfid-20230811_174743_719986_04BC7BA7 
+X-CRM114-Status: GOOD (  13.93  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,97 +109,58 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The BeagleV Ahead single board computer uses the T-Head TH1520 SoC.
-Add a minimal device tree to support basic uart/gpio/dmac drivers so
-that a user can boot to a basic shell.
+The BeagleV Ahead single board computer [1] features the T-Head TH1520
+SoC. Similar to the Lichee Pi 4A series from Jisheng [2], this adds a
+minimal device tree file to support booting to a basic shell [3].
 
-Link: https://beagleboard.org/beaglev-ahead
-Reviewed-by: Guo Ren <guoren@kernel.org>
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+Changes since v2:
+- Drop the MAINTAINERS patch as it is not important and I want this
+  patch series to make it into the next PR
+- Add Conor's R-b
+
+Changes since v1:
+- Add dual license to dts file as Conor noted this is typical
+- Reorder new entry in thead.yaml to maintain alphabetical order per
+  suggestion by Krzysztof
+- Add A-b's and R-b's from v1
+
+[1] https://beagleboard.org/beaglev-ahead
+[2] https://lore.kernel.org/linux-riscv/20230617161529.2092-1-jszhang@kernel.org/
+[3] https://gist.github.com/pdp7/91b98f5b8a632802e669d8c359f4f498
+
+To: Jisheng Zhang <jszhang@kernel.org>
+To: Guo Ren <guoren@kernel.org>
+To: Fu Wei <wefu@redhat.com>
+To: Rob Herring <robh+dt@kernel.org>
+To: Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>
+To: Conor Dooley <conor+dt@kernel.org>
+To: Paul Walmsley <paul.walmsley@sifive.com>
+To: Palmer Dabbelt <palmer@dabbelt.com>
+To: Albert Ou <aou@eecs.berkeley.edu>
+To: Conor Dooley <conor@kernel.org>
+Cc: linux-riscv@lists.infradead.org
+Cc: devicetree@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Cc: Robert Nelson <robertcnelson@beagleboard.org>
+Cc: Jason Kridner <jkridner@beagleboard.org>
+
 Signed-off-by: Drew Fustini <dfustini@baylibre.com>
 ---
+Drew Fustini (2):
+      dt-bindings: riscv: Add BeagleV Ahead board compatibles
+      riscv: dts: thead: add BeagleV Ahead board device tree
+
+ Documentation/devicetree/bindings/riscv/thead.yaml |  4 ++
  arch/riscv/boot/dts/thead/Makefile                 |  2 +-
  arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts | 61 ++++++++++++++++++++++
- 2 files changed, 62 insertions(+), 1 deletion(-)
+ 3 files changed, 66 insertions(+), 1 deletion(-)
+---
+base-commit: 52a93d39b17dc7eb98b6aa3edb93943248e03b2f
+change-id: 20230811-ahead-dt-v3-1d7e85fce20f
 
-diff --git a/arch/riscv/boot/dts/thead/Makefile b/arch/riscv/boot/dts/thead/Makefile
-index e311fc9a5939..b55a17127c2b 100644
---- a/arch/riscv/boot/dts/thead/Makefile
-+++ b/arch/riscv/boot/dts/thead/Makefile
-@@ -1,2 +1,2 @@
- # SPDX-License-Identifier: GPL-2.0
--dtb-$(CONFIG_ARCH_THEAD) += th1520-lichee-pi-4a.dtb
-+dtb-$(CONFIG_ARCH_THEAD) += th1520-lichee-pi-4a.dtb th1520-beaglev-ahead.dtb
-diff --git a/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts b/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
-new file mode 100644
-index 000000000000..70e8042c8304
---- /dev/null
-+++ b/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
-@@ -0,0 +1,61 @@
-+// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-+/*
-+ * Copyright (C) 2023 Jisheng Zhang <jszhang@kernel.org>
-+ * Copyright (C) 2023 Drew Fustini <dfustini@baylibre.com>
-+ */
-+
-+/dts-v1/;
-+
-+#include "th1520.dtsi"
-+
-+/ {
-+	model = "BeagleV Ahead";
-+	compatible = "beagle,beaglev-ahead", "thead,th1520";
-+
-+	aliases {
-+		gpio0 = &gpio0;
-+		gpio1 = &gpio1;
-+		gpio2 = &gpio2;
-+		gpio3 = &gpio3;
-+		serial0 = &uart0;
-+		serial1 = &uart1;
-+		serial2 = &uart2;
-+		serial3 = &uart3;
-+		serial4 = &uart4;
-+		serial5 = &uart5;
-+	};
-+
-+	chosen {
-+		stdout-path = "serial0:115200n8";
-+	};
-+
-+	memory@0 {
-+		device_type = "memory";
-+		reg = <0x0  0x00000000  0x1 0x00000000>;
-+
-+	};
-+};
-+
-+&osc {
-+	clock-frequency = <24000000>;
-+};
-+
-+&osc_32k {
-+	clock-frequency = <32768>;
-+};
-+
-+&apb_clk {
-+	clock-frequency = <62500000>;
-+};
-+
-+&uart_sclk {
-+	clock-frequency = <100000000>;
-+};
-+
-+&dmac0 {
-+	status = "okay";
-+};
-+
-+&uart0 {
-+	status = "okay";
-+};
-
+Best regards,
 -- 
-2.34.1
+Drew Fustini <dfustini@baylibre.com>
 
 
 _______________________________________________
