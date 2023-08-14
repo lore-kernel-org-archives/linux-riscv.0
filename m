@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27FCFC001B0
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34EDBC41513
 	for <linux-riscv@archiver.kernel.org>; Mon, 14 Aug 2023 20:58:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,56 +12,56 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6bHzakIT+ADTFK+rxgCmVUlSkZwnuaUr2ypC58tCstE=; b=dQw0T4IIRqyFBf
-	ldh0Z1c40gPr0V4xvHNsosTTUc5kmxv+aJwN++OgVxy0PEegbI0WmmNyA7mAoqhO7cHj2joywsYkZ
-	b+z1A/WGs9FVpcV2lGO9DpGPNbtKCloga+u3w6pAuX1eOBvs/CWVcSC118frz6GdHHgCmKT6PJYhw
-	xmePSXHjrw5+SByfkYXC0tPN3LMTTWCrjZOMeVTCZtyicAxvr8pUnOhevLEv3N7PSHnAKbN18KT9Y
-	kEw2W6056zbno6xbTHpul7Kc0kzoNQFuVt5T2z7TLDOIOJdlWmAh0VwEQ1oK9sYV2u/PSsbjKtLmC
-	CzOlTTS6FOMPBbu+t4Sw==;
+	List-Owner; bh=AHIE63IklkwuslYhdsabTR+eeLAtZ0OckCBJPxsoWGQ=; b=RKtYFC34SEoaIv
+	LZbhQsMfZxGhy5HGw9JGotLLbEdrFpyJfX0JBQY/bNR81Gljfl2z6QnQAnfqbqSMqACMB06S4aISG
+	AbaAmlBZLKvlPHCMajIT0+Z6d1gmglO1zXixGiWVMwM9ceblqqG0nVfmkQWmOz4Qa8vAzhHOxyH0b
+	wiNKxNTRrvNWzlnHvxuyPZRVNOvE49HXwfc0qfGfXxxRnKjRTImxWofFlVwGBivfehq+h3mFPUHSN
+	WikkpG1O78IfJAHyt4gP/Bu8SCINsVbppL+9kleMHFz7UpjbaChCIL9S+38cgM2is5y3cnx68Cx7a
+	aeGS4QHRpku7OLU+qg+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qVeeJ-000KYi-2r;
-	Mon, 14 Aug 2023 20:58:51 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qVeeF-000KUi-1z
-	for linux-riscv@lists.infradead.org;
+	id 1qVeeI-000KXz-1e;
 	Mon, 14 Aug 2023 20:58:50 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-3fe1fc8768aso47947445e9.1
-        for <linux-riscv@lists.infradead.org>; Mon, 14 Aug 2023 13:58:47 -0700 (PDT)
+Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1qVeeE-000KTb-2t
+	for linux-riscv@lists.infradead.org;
+	Mon, 14 Aug 2023 20:58:49 +0000
+Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-317dcdae365so4096811f8f.1
+        for <linux-riscv@lists.infradead.org>; Mon, 14 Aug 2023 13:58:44 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20221208; t=1692046726; x=1692651526;
+        d=gmail.com; s=20221208; t=1692046723; x=1692651523;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=bQLIiVxRhbv1KuVaK1dhNf4UzFIBILNWkE7IAI5OtK0=;
-        b=jxVGneVTdElRhDZ3u4EIt/CLh8/K3sYbbEz3NcGo41YK2bJ0tKqLJEvu7inB2KO/9D
-         gLl7bEEOGgH6RYw1WERG1/hYlGyqVEklVhEoC0sx3Xr6aJfciedn00KVy8gOkmLyJ5yO
-         T+GXUWmP0eInDQ6dBPhT5xiMjItdCn3/yEf6RSrIfGZ5EprhFv7Hlk/3G8HZu2ojVsmD
-         2h5namiDGu/gIL1U+MrTUUyw3HIRCD+u6jRfFltXqy37klTpD2dsVYtpxroT9reljZKk
-         yNdYCz3pY3lUeztb2gpqK+zC9a7DwtV1Eqc4ROU8t/WRNF/nJk17xpQ17pZYBTtL0FwF
-         JMbw==
+        bh=jPB0x8hG6lO3gfMXIvE/AgJugyX1WYf1rmG0VGCFIOU=;
+        b=kbqt9vy65MFzIptl3+aJpFl+20qiHiXIgVlfelCQtQ4whdc52kItXMFRgNeNeilApH
+         Vyeaw5wONS65Nk3C/teSXjgYxCmJEsVhO1q07RQs/O8jz4Jtxlz/7YvX70kheRDBTR56
+         8dQTkG5rtdC3gW93rAstPpCzXz+2urfbt8AsUpEIWBnkf+F5o7ES3kZXw18K/d98xBLJ
+         YGZaFoTtAOK+34RM8G7BlIzw6c0ai6bUCdS3PiDm0Odk8jrlLhL/LWulrmEq160XwEyh
+         oBhQfeEaLZs0iXjzEcu/jb/mqbmwziAxp86zQe2iMyV4Imhx/6bZRnNd6PzUoOqOP2Xx
+         fnlg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1692046726; x=1692651526;
+        d=1e100.net; s=20221208; t=1692046723; x=1692651523;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=bQLIiVxRhbv1KuVaK1dhNf4UzFIBILNWkE7IAI5OtK0=;
-        b=jXz78Y6ykSCHub3dRy75cwI2+QqpOHwN2oaega0FIG1WaohlPGGoBKkX4F4L1uIUwv
-         gIMCg4k6TMu9ShwT0tXdkdX9WYdzO2qUY9QPPhF1v1wQP8CKTVBGZzX7zefK0ed1RqBM
-         6umEMJPKhVoJ4o10d89B30eyXkN6NCffVj1fNTZf7f6OsVw3x7g1jaUCej9PntGV0i/A
-         KR33sUHjijFPOsu1vyFbNB47e0klTVanqcV5QqpHerDlhgEW8sBMmFFqiXDwgBXQLv0Y
-         FNJeY981pAs7TcfYOSJuScSUq+IzLjJffQktLHKfUvfKNDgWFriB8/4uQbdA1j6guz7D
-         ExKg==
-X-Gm-Message-State: AOJu0Yyac+2HafGxmZ5CneBZaDKGxknzFOuvg8RoBVLPiTVeHo580069
-	3ruE7pxuRot6O1yQp3WbNm0=
-X-Google-Smtp-Source: AGHT+IEQ+Xs/+GJF5RWbUy0orkVcy6CYrZyKDE5YofRDcX4ZqEQ0OX2PIu+E9gPI8OHqMehGN5uO5g==
-X-Received: by 2002:a05:600c:253:b0:3fe:1d13:4664 with SMTP id 19-20020a05600c025300b003fe1d134664mr9211797wmj.6.1692046726040;
-        Mon, 14 Aug 2023 13:58:46 -0700 (PDT)
+        bh=jPB0x8hG6lO3gfMXIvE/AgJugyX1WYf1rmG0VGCFIOU=;
+        b=KgRvmQoMOwUH07L71InKMvJL1zEhtQ9sMdJvDBFt2q3L89GNaAo+B5eu1bURDGtcSI
+         VAfTZWUgh3EXBCEYMOQ+WWlpzhdCFermFKat1YAdp1qTvhO5tnZmXpATOj9bncGMz1nW
+         lF2kl+JDAXfYoFEw1ffbsLuDw1+0O4j4+ZDplgqCTfdG2pMoLyMpp7A3NfoKS+N0aXzX
+         id4IAikkuqvWZ8HPTM11SFO66GLw2lPhYhPJ3QVDTnkrTxCkKc1AznPl8DpZMk0KV2Wd
+         WeA7DsGxbmsL6rwGdzs47VatVZ3cnjQJ7YmDVPGYlSkOb4140KfOenbqS7FHtlJlJ3yG
+         diTw==
+X-Gm-Message-State: AOJu0YzVA9gacvK8FyfQHXW14HuD4B/+xddG3b3iTuanRl49oQDI8W2F
+	lDP+GCM5JRrHAOU7rbs37r4=
+X-Google-Smtp-Source: AGHT+IHOBSQ6MIWA+6U00htqBsZOuOjSzZRyh4EhcmNaaKG6bTW3ck13k0g9yEBs3nWOq2mcCJF6kQ==
+X-Received: by 2002:a05:6000:1b0f:b0:319:7a91:7107 with SMTP id f15-20020a0560001b0f00b003197a917107mr2246459wrz.48.1692046723394;
+        Mon, 14 Aug 2023 13:58:43 -0700 (PDT)
 Received: from prasmi.home ([2a00:23c8:2501:c701:20e9:baea:a4f7:d880])
-        by smtp.gmail.com with ESMTPSA id h5-20020adffa85000000b003197efd1e7bsm2161806wrr.114.2023.08.14.13.58.44
+        by smtp.gmail.com with ESMTPSA id h5-20020adffa85000000b003197efd1e7bsm2161806wrr.114.2023.08.14.13.58.42
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 14 Aug 2023 13:58:45 -0700 (PDT)
+        Mon, 14 Aug 2023 13:58:42 -0700 (PDT)
 From: Prabhakar <prabhakar.csengg@gmail.com>
 X-Google-Original-From: Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 To: Arnd Bergmann <arnd@arndb.de>,
@@ -82,18 +82,18 @@ Cc: Rob Herring <robh+dt@kernel.org>,
 	linux-renesas-soc@vger.kernel.org,
 	Prabhakar <prabhakar.csengg@gmail.com>,
 	Biju Das <biju.das.jz@bp.renesas.com>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Subject: [PATCH v11 6/6] soc: renesas: Kconfig: Select the required configs for RZ/Five SoC
-Date: Mon, 14 Aug 2023 21:57:19 +0100
-Message-Id: <20230814205719.79647-7-prabhakar.mahadev-lad.rj@bp.renesas.com>
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Rob Herring <robh@kernel.org>
+Subject: [PATCH v11 4/6] dt-bindings: cache: andestech,ax45mp-cache: Add DT binding documentation for L2 cache controller
+Date: Mon, 14 Aug 2023 21:57:17 +0100
+Message-Id: <20230814205719.79647-5-prabhakar.mahadev-lad.rj@bp.renesas.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20230814205719.79647-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
 References: <20230814205719.79647-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230814_135847_714427_7D81945E 
-X-CRM114-Status: UNSURE (   9.85  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230814_135846_961131_BAE42E60 
+X-CRM114-Status: GOOD (  14.86  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,51 +112,136 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 
-Explicitly select the required Cache management and Errata configs
-required for the RZ/Five SoC.
+Add DT binding documentation for L2 cache controller found on RZ/Five SoC.
+
+The Renesas RZ/Five microprocessor includes a RISC-V CPU Core (AX45MP
+Single) from Andes. The AX45MP core has an L2 cache controller, this patch
+describes the L2 cache block.
 
 Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Reviewed-by: Rob Herring <robh@kernel.org>
 Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
-Acked-by: Geert Uytterhoeven <geert+renesas@glider.be>
 Tested-by: Conor Dooley <conor.dooley@microchip.com> # tyre-kicking on a d1
 ---
 v10 -> v11
-* No change
+* No Change
 
 v9 -> v10
-* No change
+* No Change
 
 v8 -> v9
-* No change
+* No Change
 
 v7 -> v8
-* Included RB tag from Geert
+* Updated commit header message
 
 v6 -> v7
-* Included RB tag from Conor
+* No Change
 
 v5 -> v6
-* New patch
----
- drivers/soc/renesas/Kconfig | 4 ++++
- 1 file changed, 4 insertions(+)
+* Included RB tag from Rob
 
-diff --git a/drivers/soc/renesas/Kconfig b/drivers/soc/renesas/Kconfig
-index de31589ed054..67604f24973e 100644
---- a/drivers/soc/renesas/Kconfig
-+++ b/drivers/soc/renesas/Kconfig
-@@ -334,6 +334,10 @@ if RISCV
- config ARCH_R9A07G043
- 	bool "RISC-V Platform support for RZ/Five"
- 	select ARCH_RZG2L
-+	select AX45MP_L2_CACHE
-+	select DMA_GLOBAL_POOL
-+	select ERRATA_ANDES
-+	select ERRATA_ANDES_CMO
- 	help
- 	  This enables support for the Renesas RZ/Five SoC.
- 
+v4 -> v5
+* Dropped L2 cache configuration properties
+* Dropped PMA configuration properties
+* Ordered the required list to match the properties list
+
+RFC v3 -> v4
+* Dropped l2 cache configuration parameters
+* s/larger/large
+* Added minItems/maxItems for andestech,pma-regions
+---
+ .../cache/andestech,ax45mp-cache.yaml         | 81 +++++++++++++++++++
+ 1 file changed, 81 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/cache/andestech,ax45mp-cache.yaml
+
+diff --git a/Documentation/devicetree/bindings/cache/andestech,ax45mp-cache.yaml b/Documentation/devicetree/bindings/cache/andestech,ax45mp-cache.yaml
+new file mode 100644
+index 000000000000..9ab5f0c435d4
+--- /dev/null
++++ b/Documentation/devicetree/bindings/cache/andestech,ax45mp-cache.yaml
+@@ -0,0 +1,81 @@
++# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
++# Copyright (C) 2023 Renesas Electronics Corp.
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/cache/andestech,ax45mp-cache.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Andestech AX45MP L2 Cache Controller
++
++maintainers:
++  - Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
++
++description:
++  A level-2 cache (L2C) is used to improve the system performance by providing
++  a large amount of cache line entries and reasonable access delays. The L2C
++  is shared between cores, and a non-inclusive non-exclusive policy is used.
++
++select:
++  properties:
++    compatible:
++      contains:
++        enum:
++          - andestech,ax45mp-cache
++
++  required:
++    - compatible
++
++properties:
++  compatible:
++    items:
++      - const: andestech,ax45mp-cache
++      - const: cache
++
++  reg:
++    maxItems: 1
++
++  interrupts:
++    maxItems: 1
++
++  cache-line-size:
++    const: 64
++
++  cache-level:
++    const: 2
++
++  cache-sets:
++    const: 1024
++
++  cache-size:
++    enum: [131072, 262144, 524288, 1048576, 2097152]
++
++  cache-unified: true
++
++  next-level-cache: true
++
++additionalProperties: false
++
++required:
++  - compatible
++  - reg
++  - interrupts
++  - cache-line-size
++  - cache-level
++  - cache-sets
++  - cache-size
++  - cache-unified
++
++examples:
++  - |
++    #include <dt-bindings/interrupt-controller/irq.h>
++
++    cache-controller@2010000 {
++        compatible = "andestech,ax45mp-cache", "cache";
++        reg = <0x13400000 0x100000>;
++        interrupts = <508 IRQ_TYPE_LEVEL_HIGH>;
++        cache-line-size = <64>;
++        cache-level = <2>;
++        cache-sets = <1024>;
++        cache-size = <262144>;
++        cache-unified;
++    };
 -- 
 2.34.1
 
