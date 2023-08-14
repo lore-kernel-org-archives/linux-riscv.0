@@ -4,84 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7AC4C001B0
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Aug 2023 04:32:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A46F3C04A6A
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Aug 2023 04:51:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=uqV57sycKpm9BTf7/WIdrY395MNgPheOVP/MaCCSSTI=; b=a70ZTJO7Utb3TP
-	IbgnySzBCncjmwpdqOKYaxmxiAppO8B4EN58urLps4FY+QmX0K5AQLneI2CuNR/vuu9FKNkwiiTn0
-	fyvT9wxtxR5zMKLRCmY+9M/1+T5plRXMod3WL0O3ZRidbFGliUxLPThAui/5YBbYvvdFk/g6QSzzD
-	wyarDJNrAHFt0Bex87wAPwFPt8nu0pFGH/t9Ac9c03Crrf3dUUV24zIDMZ92v9rNuiAAiJxPFPqso
-	y22fKwE2f8tbMG5Zd5O9vIbRqVoDCdT/gpRrFg7BNrNnNddZbUv84UjYAgKW8RI3T4CSEuHpQRdCE
-	lnhbItEbAgKJ9qT7lvPQ==;
+	List-Owner; bh=VR+bzXVjZL11r8v7bfpzDFSHuA36dvI2Ts5FmLGVR3s=; b=dWw58taBwkDJhG
+	YsTmHsV1//PWcQSc2niAPo0BtkRTH9w7uEuYvIBtiCJiSgBTvGGMAL8DMDgLOiO23QZxtOzHqhYbI
+	i1h0wPIMQt/evVn7BRhqwrIle09UrwHClDjr3UMydeNeALMXY+0XzKfxr6O647MeQGSgcEtjZyxZ6
+	B1n7zscPbKhKkTcGtqZC2HUyWR+7ktyLyo7bicbktnMY1083lpEdDW/bSpARoKE2z9V6vqh06aetY
+	d3QvCjCefs25ji8iX4lVxXFrTJHTn7wvEhlKeACWWlPSGY568lyEmAQgLl5nqZhvnk6qe4Dja/EaQ
+	M0UQUGEo2yVQN98vsJuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qVPFQ-00G83L-1j;
-	Mon, 14 Aug 2023 04:32:08 +0000
-Received: from mail-pg1-x52c.google.com ([2607:f8b0:4864:20::52c])
+	id 1qVPXg-00G9Hg-1v;
+	Mon, 14 Aug 2023 04:51:00 +0000
+Received: from mail-yw1-x112a.google.com ([2607:f8b0:4864:20::112a])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qVPFN-00G82e-2J
+	id 1qVPXe-00G9Fw-02
 	for linux-riscv@lists.infradead.org;
-	Mon, 14 Aug 2023 04:32:07 +0000
-Received: by mail-pg1-x52c.google.com with SMTP id 41be03b00d2f7-517ab9a4a13so3070352a12.1
-        for <linux-riscv@lists.infradead.org>; Sun, 13 Aug 2023 21:31:58 -0700 (PDT)
+	Mon, 14 Aug 2023 04:50:59 +0000
+Received: by mail-yw1-x112a.google.com with SMTP id 00721157ae682-589f7855c13so5440817b3.0
+        for <linux-riscv@lists.infradead.org>; Sun, 13 Aug 2023 21:50:45 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1691987518; x=1692592318;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=W8ntFLsLRwQvKdzGIzZs1kQ64wHXgpANSIBQ3fXGhcw=;
-        b=T9YxEw44X2JSt7zcRIHXtNIAfkFEP0UbOs3Ah2wC1bZnPgshJPomPGafl6dbaKjPqp
-         ZkwZl1rS/JtSj4qDd/pYsqxLT3rkawSiAzXsVE3MKdUogN//FwZdbVjM5GfbjC65kmOd
-         fKIJXV7PUF8ik5DcC8GyPV83PNBpvotv8v9lLEvS8US+eGVjgpnUfbiKWVd5j+GD4T/c
-         Nd9iQmmdikbPVsETeKg3AZ6yxNSncVe0BVGaHTsgvsIOxjEtL3ihPv3t3XJFNMhxnbLg
-         j5ByOsVydF7UcZC6noq2LtlS+5XrUQqgmNLtBfjeoC6FYipvI/WoZEBFo3i8P/CM8nM1
-         /c5Q==
+        d=google.com; s=20221208; t=1691988644; x=1692593444;
+        h=mime-version:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=duz6+8wn42FUCtzg/PJHz01BVMFx3YE+aKb/7AhtaYs=;
+        b=EjVYr5+aS9WYQky1Pi6sHnkw2sn3bSbM01Me/XMB7HqgGxIrmcXwMzFotkGgJgkHNj
+         EZKF1JIUjW/Qrx/A9X5z/X3nV87RQCN9Mne5ojBbND5vwEKtsoOnE7a3hYSeq6t1o/ge
+         0Iy3W7v8tI7eq8pcPGkHP4Quwgu5xATKayqFPPWFyd1nNVGQwCCYwWmeOxTekdDr/L2/
+         4MYxQtRR7jHaIhgfNXup+cqDyBQaVeI44TeUm21undV1DFGM6W37arFaCdFqs3a5qk5K
+         1iVwg5qSzSb30f8SAStvJPryr2NWeXTMkRqMai9eyEnd/jnliRPR1bfyplqJKGPuvOMs
+         O2Bw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1691987518; x=1692592318;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=W8ntFLsLRwQvKdzGIzZs1kQ64wHXgpANSIBQ3fXGhcw=;
-        b=Ur9TAGQsz/lXALmn3mSPDUCXEpLpxgyyp8KojNE6FFgeDHFfRRynIQR7pqvsmY03rD
-         yGLm5d9CPqvhi3R+hdKuqL0TX0qNAsNkmCKRnDloveTUGZPngKnrmkjdfRRz0Iowo5Xg
-         HRlWhSVnFty+68t0rDb45eYRZKHK3ds+l5fjwawhOWt7QrIXv4j1XIcyKJOYj2esyE94
-         hiQNQlragwqIeiOPqlUT6YecjgCXW1KKM4tEG9boBzNQH760ZOAwTEYIQAAxzE0oKskr
-         CxHq1r2nDchbQ3RbY1JiJdB2ZGNH9U208gbvLRGpW3C3J1UcsESn8fOZhzZFognb5Vx8
-         0hag==
-X-Gm-Message-State: AOJu0YwAhFw5Dy516265V5BlozEdZpjnVP7QcZvOlVEPVM4wskfUlFLs
-	6aO0Vlu/uPN88D4KTL5X4B7UYw==
-X-Google-Smtp-Source: AGHT+IEdxEkslMlscCtMDRkFQ2vIVePxO5dlKemzDsp3BpvAOonru2xa63owwT1f3gUvZ7G2+ofIIg==
-X-Received: by 2002:a17:90a:fe17:b0:268:2f2:cc89 with SMTP id ck23-20020a17090afe1700b0026802f2cc89mr7969583pjb.4.1691987517879;
-        Sun, 13 Aug 2023 21:31:57 -0700 (PDT)
-Received: from mchitale-vm.. ([103.97.165.210])
-        by smtp.googlemail.com with ESMTPSA id 8-20020a17090a198800b00262fc3d911esm9607417pji.28.2023.08.13.21.31.53
+        d=1e100.net; s=20221208; t=1691988644; x=1692593444;
+        h=mime-version:message-id:subject:cc:to:from:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=duz6+8wn42FUCtzg/PJHz01BVMFx3YE+aKb/7AhtaYs=;
+        b=e0Z+HMEYpBqWKq/fJAzXghLgQ5eHAEHG3ZwP8RSD1FubWi5wtAxkrspywEoLXF1c5p
+         uzVIHRTWiJZzRmolyxTgEyo1fnq3fsWiIouw5TGGm8vqKZxY/SkZS6NWlLjUJhcE4ZqB
+         w3fuYekAH/GQPmW2At+46/qsRRAgc/6bz6luBNL8ZkgLL/3BX5Lz8uKUi7UIDcIX9tNt
+         IRmFjiqjMFNUtXpegGpfh41B+DL61UGROKZP5HOy6lUsq1zvvvCFikgZltdtMNjo0Hxw
+         S6itPbkWq9cYushrofKMEfF1QMhmk/bQogTXDjh7xcn0Z8Ut10cYQwZUPKJ+4mC4MkpG
+         H9dw==
+X-Gm-Message-State: AOJu0YyTX9lPmTd213xNWR448ZBP2kOJofd9wj8KBifYu6TE/tOd+6Y3
+	LsJVlGsFwV2/T/2VQDqt5RCtCA==
+X-Google-Smtp-Source: AGHT+IED4ZsvoV1zj8jRed9R+G4T2wyymC/Lbz9/7Br9GopJ/sjVrJGZaf5N8bNGOBtoA2l67siQSg==
+X-Received: by 2002:a81:834b:0:b0:576:8a5a:87e5 with SMTP id t72-20020a81834b000000b005768a5a87e5mr9346734ywf.26.1691988644337;
+        Sun, 13 Aug 2023 21:50:44 -0700 (PDT)
+Received: from ripple.attlocal.net (172-10-233-147.lightspeed.sntcca.sbcglobal.net. [172.10.233.147])
+        by smtp.gmail.com with ESMTPSA id d6-20020a0ddb06000000b00583cf4ed41esm2568131ywe.2.2023.08.13.21.50.42
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 13 Aug 2023 21:31:57 -0700 (PDT)
-From: Mayuresh Chitale <mchitale@ventanamicro.com>
-To: Atish Patra <atishp@atishpatra.org>,
-	Anup Patel <anup@brainfault.org>
-Cc: Mayuresh Chitale <mchitale@ventanamicro.com>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH] drivers/perf: Risc-V: Update platform specific firmware event handling
-Date: Mon, 14 Aug 2023 10:01:34 +0530
-Message-Id: <20230814043134.367280-1-mchitale@ventanamicro.com>
-X-Mailer: git-send-email 2.34.1
+        Sun, 13 Aug 2023 21:50:43 -0700 (PDT)
+Date: Sun, 13 Aug 2023 21:50:34 -0700 (PDT)
+From: Hugh Dickins <hughd@google.com>
+X-X-Sender: hugh@ripple.attlocal.net
+To: Andrew Morton <akpm@linux-foundation.org>
+cc: Mike Kravetz <mike.kravetz@oracle.com>, 
+    Russell King <linux@armlinux.org.uk>, 
+    Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+    Palmer Dabbelt <palmer@dabbelt.com>, linux-arm-kernel@lists.infradead.org, 
+    linux-riscv@lists.infradead.org, linux-mm@kvack.org
+Subject: [PATCH 0/3] arch: include asm/cacheflush.h in asm/hugetlb.h
+Message-ID: <6d2acfa4-7f44-d3b4-b0a8-5495c5985e4c@google.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230813_213205_779949_A7D93FFC 
-X-CRM114-Status: GOOD (  15.93  )
+X-CRM114-CacheID: sfid-20230813_215058_047360_E5992645 
+X-CRM114-Status: UNSURE (   7.06  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,89 +92,19 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SBI specification [1] reserves an event code for platform specific
-firmware events. Update the driver to use the new reserved event code
-for platform specific firmware events. Also update the raw event parsing
-to use bits 63:62 instead of only bit 63 to distinguish between the raw
-event types. The platform specific firmware events must be specified in
-the perf command as in the below example:
-perf stat  -e rc000000000000001 <command>
-where [63:62] = 0x3 indicates a platform specific firmware event
+Three architectures are using PG_dcache_clean in their asm/hugetlb.h,
+but relying on accident to include the asm/cacheflush.h which defines it.
 
-Link: https://github.com/riscv-non-isa/riscv-sbi-doc/commit/c4bfdf9 [1]
-Signed-off-by: Mayuresh Chitale <mchitale@ventanamicro.com>
----
- arch/riscv/include/asm/sbi.h |  1 +
- drivers/perf/riscv_pmu_sbi.c | 29 +++++++++++++++++++++--------
- 2 files changed, 22 insertions(+), 8 deletions(-)
+1/3 arm: include asm/cacheflush.h in asm/hugetlb.h
+2/3 arm64: include asm/cacheflush.h in asm/hugetlb.h
+3/3 riscv: include asm/cacheflush.h in asm/hugetlb.h
 
-diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
-index 5b4a1bf5f439..001387354c2e 100644
---- a/arch/riscv/include/asm/sbi.h
-+++ b/arch/riscv/include/asm/sbi.h
-@@ -138,6 +138,7 @@ union sbi_pmu_ctr_info {
- 
- #define RISCV_PMU_RAW_EVENT_MASK GENMASK_ULL(47, 0)
- #define RISCV_PMU_RAW_EVENT_IDX 0x20000
-+#define RISCV_PLAT_FW_EVENT	0xFFFF
- 
- /** General pmu event codes specified in SBI PMU extension */
- enum sbi_pmu_hw_generic_events_t {
-diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
-index 4163ff517471..f94a3f0a469b 100644
---- a/drivers/perf/riscv_pmu_sbi.c
-+++ b/drivers/perf/riscv_pmu_sbi.c
-@@ -414,7 +414,6 @@ static int pmu_sbi_event_map(struct perf_event *event, u64 *econfig)
- {
- 	u32 type = event->attr.type;
- 	u64 config = event->attr.config;
--	int bSoftware;
- 	u64 raw_config_val;
- 	int ret;
- 
-@@ -429,18 +428,32 @@ static int pmu_sbi_event_map(struct perf_event *event, u64 *econfig)
- 		break;
- 	case PERF_TYPE_RAW:
- 		/*
--		 * As per SBI specification, the upper 16 bits must be unused for
--		 * a raw event. Use the MSB (63b) to distinguish between hardware
--		 * raw event and firmware events.
-+		 * As per SBI specification, the upper 16 bits must be unused
-+		 * for a raw event. Hence bits 63:62 are used to distinguish
-+		 * between raw events:
-+		 * 00 - Hardware raw event
-+		 * 10 - SBI firmware events
-+		 * 11 - Risc-V platform specific firmware event
- 		 */
--		bSoftware = config >> 63;
- 		raw_config_val = config & RISCV_PMU_RAW_EVENT_MASK;
--		if (bSoftware) {
-+		switch (config >> 62) {
-+		case 0:
-+			ret = RISCV_PMU_RAW_EVENT_IDX;
-+			*econfig = raw_config_val;
-+			break;
-+		case 2:
- 			ret = (raw_config_val & 0xFFFF) |
- 				(SBI_PMU_EVENT_TYPE_FW << 16);
--		} else {
--			ret = RISCV_PMU_RAW_EVENT_IDX;
-+			break;
-+		case 3:
-+			/*
-+			 * For Risc-V platform specific firmware events
-+			 * Event code - 0xFFFF
-+			 * Event data - raw event encoding
-+			 */
-+			ret = SBI_PMU_EVENT_TYPE_FW << 16 | RISCV_PLAT_FW_EVENT;
- 			*econfig = raw_config_val;
-+			break;
- 		}
- 		break;
- 	default:
--- 
-2.34.1
+ arch/arm/include/asm/hugetlb.h   | 1 +
+ arch/arm64/include/asm/hugetlb.h | 1 +
+ arch/riscv/include/asm/hugetlb.h | 1 +
+ 3 files changed, 3 insertions(+)
 
+Hugh
 
 _______________________________________________
 linux-riscv mailing list
