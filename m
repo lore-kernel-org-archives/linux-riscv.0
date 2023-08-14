@@ -4,82 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2099EC04A94
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Aug 2023 13:33:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A77FCC001DB
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Aug 2023 13:33:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ho7Mm7cqv5FUedhVMU05wkx+io37VC5cVQq3ZRvYS1M=; b=aBsdWbG6O4iaQkqu9Yw4UCkgI8
-	T2oXnQ65z73DFMHvu4vHnc1rvs9nYV5lvaKYHnvEmZcRtYxE7BZCv65behB7ZlbsWer/vttYFTwWA
-	cDX1sW2V87Cl9EirW88qhGbM1pdlfobfOVWQ3ASs/v2b1RVnzoUl1oSYWKXHBe3kmjr1S3pwP4s9f
-	z7Z9DGQ2X/TyrMQh7Hoev0YirMBhWOO3c3T692KJK40NoV9Nu76Q7aP4LaqYuTk8cM69JA1SoGmKJ
-	OzTgXqsiONSdAYWtcjcbK14JSGCG7fS1EC6qCDMAf/JcoElF+YlIVa5R/nKQjv9tHSDxRGZM4DGKX
-	qXg6bbaQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=BoGxLcy4tnqhkOyBopCwFVO5lyJRPTjSJ6d+s9INcjM=; b=m7RdzakOUdD8Tn
+	nMIWG8G/n0D2jX25R8dWKGDIhfRtBOYqS+6n8ycYHJJ+CNF2etJJ7/PkU2S5UUDEGKf/kpiaxyG3h
+	Iefh31sMdimERJxs5xnOSMqQUCQdRi3vOPybWIdPeBthG3rs+FRK5CgVzanQ5rh9XShaYQeftn+Mp
+	jHsimXW4tHTb+en/xokR2XQApE1P4Z7NLakfXXS6eLkT26Za2Znu153Np2y8jk3gyzfVS9YDmjApv
+	UnCsHH/R8aDqtTJAYfBES3uYghsgeiU67dI28ogi77E/X/e32v9uyNs36MB+GrV/t7cnaDjB8ApXw
+	bFsQMjNO2eQtG+QwOQ4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qVXgw-00HAGw-2O;
-	Mon, 14 Aug 2023 13:33:06 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1qVXh8-00HALy-0Q;
+	Mon, 14 Aug 2023 13:33:18 +0000
+Received: from mail-lf1-x133.google.com ([2a00:1450:4864:20::133])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qVXgu-00HAFn-1y
-	for linux-riscv@lists.infradead.org;
-	Mon, 14 Aug 2023 13:33:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1692019984; x=1723555984;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=lLCW8exBkCQ0+KhPTI7tohXMvPiVJbwAMeY/3NzBgkk=;
-  b=igxOekXbLsfoMxi/C8PrE8UgclXf0KzIUR6xiNmQyo6tQCiUK8L1fXTP
-   sb5T5erY2ljZodsayyqTkwnEs4c0P3QzRFe0Y0vordK2wYiOgSarqlZ7v
-   EwdvB3foep7VQyT4hcZIYk5m8KxrFFLUlnPlv94WfMFHQdskHLf1G7kDU
-   kdSszHyCzcGBYyAt1bxnA3xm5jYqYUPUdg8gaJDSLzguBkR+9SpHOb1Fa
-   Xv/Oa5RjrS2hfRG16bBW+Zj9Y/+EXem/mmDzyGHNvldbsOIUQj/0B32mv
-   8h8aQCBXTgUo6BsaUNLJXXM5oqC/PXX9HA1Jj09rvlVbTgo77I5NYQ838
-   g==;
-X-IronPort-AV: E=Sophos;i="6.01,172,1684825200"; 
-   d="asc'?scan'208";a="225309518"
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa4.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 14 Aug 2023 06:32:57 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Mon, 14 Aug 2023 06:32:56 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex02.mchp-main.com
- (10.10.85.144) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
- Transport; Mon, 14 Aug 2023 06:32:53 -0700
-Date: Mon, 14 Aug 2023 14:32:14 +0100
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Minda Chen <minda.chen@starfivetech.com>
-CC: Daire McNamara <daire.mcnamara@microchip.com>, Conor Dooley
-	<conor@kernel.org>, Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, Krzysztof
- =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>, Emil Renner Berthing
-	<emil.renner.berthing@canonical.com>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
-	<linux-pci@vger.kernel.org>, Pali =?iso-8859-1?Q?Roh=E1r?= <pali@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
-	<palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Philipp Zabel
-	<p.zabel@pengutronix.de>, Mason Huo <mason.huo@starfivetech.com>, Leyfoon Tan
-	<leyfoon.tan@starfivetech.com>, Kevin Xie <kevin.xie@starfivetech.com>
-Subject: Re: [PATCH v3 03/11] PCI: microchip: Move PLDA IP register macros to
- pcie-plda.h
-Message-ID: <20230814-enslave-shove-7d664aa2e446@wendy>
-References: <20230814082016.104181-1-minda.chen@starfivetech.com>
- <20230814082016.104181-4-minda.chen@starfivetech.com>
+	id 1qVXh4-00HAIz-0u;
+	Mon, 14 Aug 2023 13:33:15 +0000
+Received: by mail-lf1-x133.google.com with SMTP id 2adb3069b0e04-4fe2d152f62so7020844e87.0;
+        Mon, 14 Aug 2023 06:33:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20221208; t=1692019989; x=1692624789;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=CaHw6FSzB6D/cmI2sFQa1bF3mX4riXTCludXEuBTPcs=;
+        b=AYV7B5rtspunDbyD7cEzXMshN/+tnd10OyL0GTD9Vs668yn0stRIpfUbuxr4MDTV/g
+         6MZbJmbwDchn/I/EX/9FSLiQeiCRJ3yx+ooLJmMa5k1HFAzcyQc+NK7LXOiLW7by+hip
+         f888wDLhPmnJjnWetRhnegs1QB6/IitY8HZfxYGxapLJTKuKMLUi0SpJJPI/rZupoe2o
+         aWoTTv/lh6mZHk7JInvlW2CxHMGU8v2BUkRuQ7rS+U9CN8bWMOqYIh1YXDklHhgEnzEw
+         oKZJ721a22pMuRRWOu0ZQIED02SG2JJoJNVhMCQPxG1znldctuIjpeS0sK52GwDCeEM4
+         I6gg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1692019989; x=1692624789;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=CaHw6FSzB6D/cmI2sFQa1bF3mX4riXTCludXEuBTPcs=;
+        b=R2s41kaTAyfeeWRJNxjgVEXHxs/p8by6/oX00KOSxJSGameHZlFbdJThzi7TTnXOeG
+         M2EBNQaQISiWPdPoNrUL7L5t/q0H5HUUB8+HOxCKot4rDGWODXsJK0KWtO2N11OxuN7L
+         LH0laP9qjAjm0w3ar9gDOO1+qcTrshm6n/xL7052uXL7ioDnsEkfh2TJzqd3o0Y5t60y
+         JMNbpaJckRJG5j0ol/tuFih9eWaPxyi5Oz6K7u1LypxXq+67Aew2KXbdL87tL09W0AAb
+         7rbW8l1RE6K1kBFKpq15aXkeMY2xH0xKy6X+OwdLdHTQJfSfiDFXhBT6mZesFmHVymo5
+         Li3Q==
+X-Gm-Message-State: AOJu0YxLvX6Ktm9NxnIVDXEGyLl3hKIn0REjbdyhLDHHtKqC5kO9bkpg
+	V2uCW7HUq8wfq/x0E86k3w==
+X-Google-Smtp-Source: AGHT+IGnd/iG2u3+lAcUGf6pJT3d40kUR1557h8GZk7ZB8HeL7Rga3zu7ntpGkkTUVD8ffrj2TITsg==
+X-Received: by 2002:a05:6512:15a7:b0:4f9:6842:afc with SMTP id bp39-20020a05651215a700b004f968420afcmr8011655lfb.64.1692019989211;
+        Mon, 14 Aug 2023 06:33:09 -0700 (PDT)
+Received: from localhost.localdomain (mail.pulsar-telecom.ru. [94.181.180.60])
+        by smtp.gmail.com with ESMTPSA id eo12-20020a056512480c00b004f858249932sm1990566lfb.90.2023.08.14.06.33.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 14 Aug 2023 06:33:08 -0700 (PDT)
+From: Aleksandr Shubin <privatesub2@gmail.com>
+To: linux-kernel@vger.kernel.org
+Subject: [PATCH v5 1/3] dt-bindings: pwm: Add binding for Allwinner D1/T113-S3/R329 PWM controller
+Date: Mon, 14 Aug 2023 16:32:16 +0300
+Message-Id: <20230814133238.741950-2-privatesub2@gmail.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20230814133238.741950-1-privatesub2@gmail.com>
+References: <20230814133238.741950-1-privatesub2@gmail.com>
 MIME-Version: 1.0
-In-Reply-To: <20230814082016.104181-4-minda.chen@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230814_063304_830686_45846B68 
-X-CRM114-Status: UNSURE (   7.88  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230814_063314_324220_06BB6C5C 
+X-CRM114-Status: GOOD (  15.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,56 +84,131 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============0516716257308670876=="
+Cc: linux-arm-kernel@lists.infradead.org, linux-pwm@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Aleksandr Shubin <privatesub2@gmail.com>, Philipp Zabel <p.zabel@pengutronix.de>, Samuel Holland <samuel@sholland.org>, devicetree@vger.kernel.org, Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, Thierry Reding <thierry.reding@gmail.com>, Palmer Dabbelt <palmer@dabbelt.com>, Jernej Skrabec <jernej.skrabec@gmail.com>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>, linux-riscv@lists.infradead.org, linux-sunxi@lists.linux.dev, Albert Ou <aou@eecs.berkeley.edu>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============0516716257308670876==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="ip6kD9UvSz6fmmdl"
-Content-Disposition: inline
+Allwinner's D1, T113-S3 and R329 SoCs have a new pwm
+controller witch is different from the previous pwm-sun4i.
 
---ip6kD9UvSz6fmmdl
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+The D1 and T113 are identical in terms of peripherals,
+they differ only in the architecture of the CPU core, and
+even share the majority of their DT. Because of that,
+using the same compatible makes sense.
+The R329 is a different SoC though, and should have
+a different compatible string added, especially as there
+is a difference in the number of channels.
 
-On Mon, Aug 14, 2023 at 04:20:08PM +0800, Minda Chen wrote:
-> Move PLDA PCIe host controller IP registers macros to
-> pcie-plda.h, Including bridge and configuration space
-> registers.
->=20
-> Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
+D1 and T113s SoCs have one PWM controller with 8 channels.
+R329 SoC has two PWM controllers in both power domains, one of
+them has 9 channels (CPUX one) and the other has 6 (CPUS one).
 
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+Add a device tree binding for them.
 
-Thanks,
-Conor.
+Signed-off-by: Aleksandr Shubin <privatesub2@gmail.com>
+---
+ .../bindings/pwm/allwinner,sun20i-pwm.yaml    | 85 +++++++++++++++++++
+ 1 file changed, 85 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/pwm/allwinner,sun20i-pwm.yaml
 
---ip6kD9UvSz6fmmdl
-Content-Type: application/pgp-signature; name="signature.asc"
+diff --git a/Documentation/devicetree/bindings/pwm/allwinner,sun20i-pwm.yaml b/Documentation/devicetree/bindings/pwm/allwinner,sun20i-pwm.yaml
+new file mode 100644
+index 000000000000..9512d4bed322
+--- /dev/null
++++ b/Documentation/devicetree/bindings/pwm/allwinner,sun20i-pwm.yaml
+@@ -0,0 +1,85 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/pwm/allwinner,sun20i-pwm.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Allwinner D1, T113-S3 and R329 PWM
++
++maintainers:
++  - Aleksandr Shubin <privatesub2@gmail.com>
++
++properties:
++  compatible:
++    oneOf:
++      - const: allwinner,sun20i-d1-pwm
++      - items:
++          - const: allwinner,sun20i-r329-pwm
++          - const: allwinner,sun20i-d1-pwm
++
++  reg:
++    maxItems: 1
++
++  "#pwm-cells":
++    const: 3
++
++  clocks:
++    items:
++      - description: 24 MHz oscillator
++      - description: Bus Clock
++
++  clock-names:
++    items:
++      - const: hosc
++      - const: bus
++
++  resets:
++    maxItems: 1
++
++  allwinner,pwm-channels:
++    $ref: /schemas/types.yaml#/definitions/uint32
++    description: The number of PWM channels configured for this instance
++    enum: [6, 9]
++
++allOf:
++  - $ref: pwm.yaml#
++
++  - if:
++      properties:
++        compatible:
++          contains:
++            const: allwinner,sun20i-r329-pwm
++
++    then:
++      required:
++        - allwinner,pwm-channels
++
++    else:
++      properties:
++        allwinner,pwm-channels: false
++
++unevaluatedProperties: false
++
++required:
++  - compatible
++  - reg
++  - "#pwm-cells"
++  - clocks
++  - clock-names
++  - resets
++
++examples:
++  - |
++    #include <dt-bindings/clock/sun20i-d1-ccu.h>
++    #include <dt-bindings/reset/sun20i-d1-ccu.h>
++
++    pwm: pwm@2000c00 {
++      compatible = "allwinner,sun20i-d1-pwm";
++      reg = <0x02000c00 0x400>;
++      clocks = <&dcxo>, <&ccu CLK_BUS_PWM>;
++      clock-names = "hosc", "bus";
++      resets = <&ccu RST_BUS_PWM>;
++      #pwm-cells = <0x3>;
++    };
++
++...
+-- 
+2.25.1
 
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZNos3gAKCRB4tDGHoIJi
-0rF/AQDCOE4Xmu5oEEQTrRyiRXstNx4FD2D6//vnFqowm2aMcgD+OWRPiXR7DDGX
-Q4jYPDKCqmQDkItWe+4xurKC8uXvJA4=
-=J3qt
------END PGP SIGNATURE-----
-
---ip6kD9UvSz6fmmdl--
-
-
---===============0516716257308670876==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============0516716257308670876==--
-
