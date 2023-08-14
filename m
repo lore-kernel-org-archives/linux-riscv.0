@@ -4,82 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C864CC04A6A
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Aug 2023 13:50:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B12EEC04A6A
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Aug 2023 13:53:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Hugnz0WSWcfUofAKLE16vbHNmueECeguRnu6NQMOCck=; b=lqRR6u7zVMeW8/
-	x62+q9kJVAZW9vT52qTHAlCf03bXecmhCy6T3w5svavfd32vb5ERsilj2+rM4WofykHkW2Dvk6poH
-	fHFghXOgs/Ku8Wke+YVTK9AjH3kVSWJ+JRgadCLLB/FXi5Taw+lE3uvUyWNZrdtMQa+qtxtx0rVxA
-	NovzCXKsDzPF0Eqvo8KoNLG+2W/PluFLOhoD6BolHSyces+Wl41hZwmW/ENOBL0380tlB+AW8DuNu
-	OmFOF+Qldhfzc/q9pj1Q6CcDXSHvUI3BT8UinQqbRMIHCMv8Ay/sOfREz8d3bX7AgfRC10Z4rcJcg
-	AiRivMMtTbNN2R1/3aGw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PlbqJqTaHdfSW+LaRWkPb8pWpgl9Jiei1jV5enMwNuc=; b=UKrwXGPkaCKcLQT7JUnjQiLsGY
+	FUaMJCXxts6E0/pQyA9urCUba6fTAynGu0adCPfmKxINbjgt8JMJPrJ//iYL3PDVOP00DFyo8dA9V
+	s4jKwbIUAo431YUZ/R5z12mnt8fhSzd015ufZ2W+DIfug5+Hk49eC43721uZGfefTisp0l/rOSUoh
+	tIgrFyHBUb03g6hsZhsnzVXdtmegsY26a3+qZ+ZRWN7Hw7RPZ6rBU3v6RRRroP96vLOmW6OTEPwjP
+	BWT5FuVxmET1eFVBDp0UG2OrLW0Us1DUBptsEsomvypxsAAkOMjE6aQpC0+dpvApvY4x9mSImn/Qz
+	2cyUQx3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qVXxi-00HCcI-0r;
-	Mon, 14 Aug 2023 13:50:26 +0000
-Received: from mail-ej1-x62c.google.com ([2a00:1450:4864:20::62c])
+	id 1qVY0c-00HCpm-1x;
+	Mon, 14 Aug 2023 13:53:26 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qVXxf-00HCbk-0L
+	id 1qVY0Y-00HCpL-36
 	for linux-riscv@lists.infradead.org;
-	Mon, 14 Aug 2023 13:50:24 +0000
-Received: by mail-ej1-x62c.google.com with SMTP id a640c23a62f3a-99cce6f7de2so592501066b.3
-        for <linux-riscv@lists.infradead.org>; Mon, 14 Aug 2023 06:50:21 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20221208; t=1692021020; x=1692625820;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=h8OPGW4e9NC10NDchxEU3Fww0ji4s/MwbD4JKceGo9s=;
-        b=exBtjx4plgLrWpWvDxnmoIel44QiimXMrb6ED/7yZfOQRpxhsLNrBpBXFp2jPsB5U6
-         kSKfOAKyxYO1lu30RA0c9EA5A1Z37MAtxrjn36oOJ1BOQd1C8z57xn5JeEWHAbPkwP9M
-         JpbDtB8rsNXAK2p/IRNrSTNRTWkpWFyWAHVN7iQIO3xqQ3xnV9Ml8c9flASnvkGgY8Xz
-         GBSwJCHigbIeOWjYQA2Om6aKkHgiYMkFYwjz6FVv0bcV26Q7ABzJaa/YxcyV3knNybsI
-         o8HY19mbC6HJfGpQDUbb5pyvebnj248zifKggn8fG6CTZVloCu/rGCnkqaI6QSnDWGnI
-         OylA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1692021020; x=1692625820;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=h8OPGW4e9NC10NDchxEU3Fww0ji4s/MwbD4JKceGo9s=;
-        b=fcNxu8ckomdzNbF+RHuweCCwitkFeSJT+3HwYJ64uc+++voTyXO9vaxsRe8V+uXv71
-         WWgs7KexJc0XyiW7L7yTAmuIAEgoqom3giT6+2zpfeP8KqUL3whPsOib3IIwFYLVB13C
-         Vs1KWr5ZWenUIO2/nZa4blV0jfbny49x9LfINujE5FQXdHL4CK0rx/Xuj7VgdDMP0dKU
-         GkwsFzmAuX0UlykCBoQ0tG0f+J878mCpRRZpjdZM6BbED9cxP+JdfmI6SAx/iB8WOv+E
-         blG1g91peshnQv4dXFbU6rw0TpHY/WaMA4wu0L/egCJzZaJvJP1Dc1wj3wjgvpfZX5yo
-         75Qw==
-X-Gm-Message-State: AOJu0Yzjpq9s3isp3J5eD6307TitIQ/WT34zoKYdaH5aRzB9f5ZvdFF+
-	53+2VNRPv/rfg554tWCoiuo=
-X-Google-Smtp-Source: AGHT+IHJhOwE/X/OVV6jGMjthjGfM8VwDblBa+ZweMorP0hfzZ3t7EMvei4rkxHqKxKUcdJAeHFAew==
-X-Received: by 2002:a17:906:5dc1:b0:991:e24f:b288 with SMTP id p1-20020a1709065dc100b00991e24fb288mr7303027ejv.26.1692021020280;
-        Mon, 14 Aug 2023 06:50:20 -0700 (PDT)
-Received: from nam-dell (ip-217-105-46-58.ip.prioritytelecom.net. [217.105.46.58])
-        by smtp.gmail.com with ESMTPSA id d2-20020a170906640200b0099d0c0bb92bsm5656966ejm.80.2023.08.14.06.50.19
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 14 Aug 2023 06:50:19 -0700 (PDT)
-Date: Mon, 14 Aug 2023 15:50:17 +0200
-From: Nam Cao <namcaov@gmail.com>
-To: =?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@kernel.org>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: test code for kprobe
-Message-ID: <ZNoxGXcK9QOfAfbW@nam-dell>
-References: <cover.1690704360.git.namcaov@gmail.com>
- <fc71730b9350026427fe1c2bdbce9b993d8bc6f5.1690704360.git.namcaov@gmail.com>
- <87il9hg65g.fsf@all.your.base.are.belong.to.us>
+	Mon, 14 Aug 2023 13:53:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1692021203; x=1723557203;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=/0KD1L1RDnuKAhdqbw1tkprSQp/H4jNSydLSzkdaZqk=;
+  b=gntor0doiKPsEiVBitZUx6h9vxsqbiu1vWjfXl9ojktPILkWDM2xtBbG
+   AuntiDFTqWceSmJFp7F35sh0bxqzD8nz3JYEya9SvmJlvbTebASBQSlki
+   eP9p2Ifo3tzSp2xy74afQhYUfta5nPM9A3htOYQTVhOozMaxpy4kn9sIn
+   MT69z2cYi7KgyUABSR9pvcDG3JOWUmm5lgUcvVFAgekP4GE53QmS3njiY
+   qYqAHfp2uA8ChrHsAnzh7Ec7x91iFd0TSmXPnkomulopUEaHG3svn694h
+   wCgPpr5Sww8vZOa3MBCtxvnvm+4f+dmAK2+ShLTfOCURGCub4MZbc8ld5
+   A==;
+X-IronPort-AV: E=Sophos;i="6.01,172,1684825200"; 
+   d="asc'?scan'208";a="225313785"
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa4.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 14 Aug 2023 06:53:22 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.21; Mon, 14 Aug 2023 06:52:47 -0700
+Received: from wendy (10.10.115.15) by chn-vm-ex03.mchp-main.com
+ (10.10.85.151) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
+ Transport; Mon, 14 Aug 2023 06:52:44 -0700
+Date: Mon, 14 Aug 2023 14:52:05 +0100
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Minda Chen <minda.chen@starfivetech.com>
+CC: Daire McNamara <daire.mcnamara@microchip.com>, Conor Dooley
+	<conor@kernel.org>, Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, Krzysztof
+ =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>, Emil Renner Berthing
+	<emil.renner.berthing@canonical.com>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+	<linux-pci@vger.kernel.org>, Pali =?iso-8859-1?Q?Roh=E1r?= <pali@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+	<palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Philipp Zabel
+	<p.zabel@pengutronix.de>, Mason Huo <mason.huo@starfivetech.com>, Leyfoon Tan
+	<leyfoon.tan@starfivetech.com>, Kevin Xie <kevin.xie@starfivetech.com>
+Subject: Re: [PATCH v3 06/11] PCI: plda: Add event interrupt codes and IRQ
+ domain ops
+Message-ID: <20230814-episode-untidy-c66107a33ea0@wendy>
+References: <20230814082016.104181-1-minda.chen@starfivetech.com>
+ <20230814082016.104181-7-minda.chen@starfivetech.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <87il9hg65g.fsf@all.your.base.are.belong.to.us>
+In-Reply-To: <20230814082016.104181-7-minda.chen@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230814_065023_149122_A2D2E571 
-X-CRM114-Status: GOOD (  15.17  )
+X-CRM114-CacheID: sfid-20230814_065323_076453_86FC046E 
+X-CRM114-Status: GOOD (  15.05  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,53 +90,115 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: multipart/mixed; boundary="===============7452873796051130496=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 14, 2023 at 02:28:11PM +0200, Bj=F6rn T=F6pel wrote:
-> Nam Cao <namcaov@gmail.com> writes:
-> =
+--===============7452873796051130496==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="Y4kxwzWfSP8ufxW9"
+Content-Disposition: inline
 
-> A RISC-V specific kprobes test -- much welcome!
-> =
+--Y4kxwzWfSP8ufxW9
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> Please add a proper commit message here.
-> =
+On Mon, Aug 14, 2023 at 04:20:11PM +0800, Minda Chen wrote:
+> For PolarFire implements non-PLDA local interrupt events, most of
+> event interrupt process codes can not be re-used. PLDA implements
+> new codes and IRQ domain ops like PolarFire.
+>=20
+> plda_handle_event adds a new IRQ num to event num mapping codes for
+> PLDA local event except DMA engine interrupt events. The DMA engine
+> interrupt events are implemented by vendors.
+>=20
+> Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
+> ---
+>  .../pci/controller/plda/pcie-microchip-host.c | 29 +++---
+>  drivers/pci/controller/plda/pcie-plda-host.c  | 99 +++++++++++++++++++
+>  drivers/pci/controller/plda/pcie-plda.h       | 19 ++++
+>  3 files changed, 133 insertions(+), 14 deletions(-)
+>=20
+> diff --git a/drivers/pci/controller/plda/pcie-microchip-host.c b/drivers/=
+pci/controller/plda/pcie-microchip-host.c
+> index c28840315019..b42f1aac3ec3 100644
+> --- a/drivers/pci/controller/plda/pcie-microchip-host.c
+> +++ b/drivers/pci/controller/plda/pcie-microchip-host.c
+> @@ -96,20 +96,21 @@
+>  #define EVENT_LOCAL_DMA_END_ENGINE_1		12
+>  #define EVENT_LOCAL_DMA_ERROR_ENGINE_0		13
+>  #define EVENT_LOCAL_DMA_ERROR_ENGINE_1		14
+> -#define EVENT_LOCAL_A_ATR_EVT_POST_ERR		15
+> -#define EVENT_LOCAL_A_ATR_EVT_FETCH_ERR		16
+> -#define EVENT_LOCAL_A_ATR_EVT_DISCARD_ERR	17
+> -#define EVENT_LOCAL_A_ATR_EVT_DOORBELL		18
+> -#define EVENT_LOCAL_P_ATR_EVT_POST_ERR		19
+> -#define EVENT_LOCAL_P_ATR_EVT_FETCH_ERR		20
+> -#define EVENT_LOCAL_P_ATR_EVT_DISCARD_ERR	21
+> -#define EVENT_LOCAL_P_ATR_EVT_DOORBELL		22
+> -#define EVENT_LOCAL_PM_MSI_INT_INTX		23
+> -#define EVENT_LOCAL_PM_MSI_INT_MSI		24
+> -#define EVENT_LOCAL_PM_MSI_INT_AER_EVT		25
+> -#define EVENT_LOCAL_PM_MSI_INT_EVENTS		26
+> -#define EVENT_LOCAL_PM_MSI_INT_SYS_ERR		27
+> -#define NUM_EVENTS				28
+> +#define NUM_MC_EVENTS				15
+> +#define EVENT_LOCAL_A_ATR_EVT_POST_ERR		(NUM_MC_EVENTS + EVENT_A_ATR_EVT=
+_POST_ERR)
+> +#define EVENT_LOCAL_A_ATR_EVT_FETCH_ERR		(NUM_MC_EVENTS + EVENT_A_ATR_EV=
+T_FETCH_ERR)
+> +#define EVENT_LOCAL_A_ATR_EVT_DISCARD_ERR	(NUM_MC_EVENTS + EVENT_A_ATR_E=
+VT_DISCARD_ERR)
+> +#define EVENT_LOCAL_A_ATR_EVT_DOORBELL		(NUM_MC_EVENTS + EVENT_A_ATR_EVT=
+_DOORBELL)
+> +#define EVENT_LOCAL_P_ATR_EVT_POST_ERR		(NUM_MC_EVENTS + EVENT_P_ATR_EVT=
+_POST_ERR)
+> +#define EVENT_LOCAL_P_ATR_EVT_FETCH_ERR		(NUM_MC_EVENTS + EVENT_P_ATR_EV=
+T_FETCH_ERR)
+> +#define EVENT_LOCAL_P_ATR_EVT_DISCARD_ERR	(NUM_MC_EVENTS + EVENT_P_ATR_E=
+VT_DISCARD_ERR)
+> +#define EVENT_LOCAL_P_ATR_EVT_DOORBELL		(NUM_MC_EVENTS + EVENT_P_ATR_EVT=
+_DOORBELL)
+> +#define EVENT_LOCAL_PM_MSI_INT_INTX		(NUM_MC_EVENTS + EVENT_PM_MSI_INT_I=
+NTX)
+> +#define EVENT_LOCAL_PM_MSI_INT_MSI		(NUM_MC_EVENTS + EVENT_PM_MSI_INT_MS=
+I)
+> +#define EVENT_LOCAL_PM_MSI_INT_AER_EVT		(NUM_MC_EVENTS + EVENT_PM_MSI_IN=
+T_AER_EVT)
+> +#define EVENT_LOCAL_PM_MSI_INT_EVENTS		(NUM_MC_EVENTS + EVENT_PM_MSI_INT=
+_EVENTS)
+> +#define EVENT_LOCAL_PM_MSI_INT_SYS_ERR		(NUM_MC_EVENTS + EVENT_PM_MSI_IN=
+T_SYS_ERR)
+> +#define NUM_EVENTS				(NUM_MC_EVENTS + NUM_PLDA_EVENTS)
 
-> > ---
-> >  drivers/test_kprobe/Makefile      |   3 +
-> >  drivers/test_kprobe/test_kprobe.c | 265 ++++++++++++++++++++++++++++++
-> >  2 files changed, 268 insertions(+)
-> >  create mode 100644 drivers/test_kprobe/Makefile
-> >  create mode 100644 drivers/test_kprobe/test_kprobe.c
-> >
-> > diff --git a/drivers/test_kprobe/Makefile b/drivers/test_kprobe/Makefile
-> =
+Is this change not in the wrong patch & should be changed alongside the
+movement of defines?=20
 
-> Architecture specific test code usually reside in "arch/$ARCH"
-> (arch/riscv), and is part of Kconfig.debug.
-> =
+--Y4kxwzWfSP8ufxW9
+Content-Type: application/pgp-signature; name="signature.asc"
 
-> Have a look at:
-> * grep for ARM_KPROBES_TEST in arch/arm
-> * grep for KPROBES_SANITY_TEST, and in arch/powerpc grep
->   test_emulate_step
-> * grep S390_KPROBES_SANITY_TEST
+-----BEGIN PGP SIGNATURE-----
 
-Sorry that I wasn't clear with this: I just wanted to show how testing was =
-done.
-This is not meant to be merged.
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZNoxhQAKCRB4tDGHoIJi
+0i9LAP4sQcKHRQUviJH9x11dE7n8ONwvAzh2QWhHwntrCc2kcAD+KQ0V/O4R1C50
+8jAkUvBTjG95nhERLU8N++0omqA4Fw4=
+=J6we
+-----END PGP SIGNATURE-----
 
-I do have plans to clean this up and send upstream in the future, but not w=
-ith
-this patch series.
+--Y4kxwzWfSP8ufxW9--
 
-Best regards,
-Nam
+
+--===============7452873796051130496==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============7452873796051130496==--
+
