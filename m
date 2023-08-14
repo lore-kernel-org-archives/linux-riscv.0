@@ -4,8 +4,8 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2841C04A6A
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Aug 2023 21:54:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56839C001B0
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Aug 2023 23:17:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -13,84 +13,74 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=/0/6E2R+BgnzShHIVRHP8AbQSceBn2lnDszijknnwys=; b=MOZqG7C9+kDb8HjEpFuUAJRLnL
-	GWQgH33pqTUyQPXpLsDBuphovasItnZJS3gp4yOPgLKa1Mt7xDIZm3QbgNpqpKLvEVSzgkvEhBbJT
-	SpiDMOoeEKIN+tH1bZUSayXR2lNth4QY+38485Z7w07gq+0C2yShcJ5j0ux8ORV2N1J2w6Ert6aZy
-	akkaGzvm9b05soPbonvEAjT2W1ZXNETCSPwVxOJF2g7KK81+xv9xFwu0CF0YWbW3HRB+O6HNhvQeO
-	BVdPaNVWOU5SPcZf+84C8bmqCRSXNOcTuiBwZZTwwrPLY3l/PfOBUlOOcfYxpOVZlll4CSHc4qqDa
-	XAXY2kMQ==;
+	bh=tD/X68eN88cedqMuzy5HPca9IRdBPxAgybWUnpY8/go=; b=aoEFxwmVg4zTvZg+MSLmowm9Js
+	NXs/C5YeX+DW0uEDwAkk7UPWDBMhVcH7L0ncPKYXkVvTDN8wY23o6gICto0Ad05xzWCl2SnkEAqMo
+	L9KVPerqa/MXKAiyKbTolcTSV34P87nHhuY28X+A8dGrMT05nHopGKv/usUyKkh6gIwgwdDw7C8l7
+	3r8ygEoPVGjahpsy0vIRSOvwexl6vhMG5I6vvWWKmQ0YHuXPdciWDh71MraqRT7LEQjzato/MhqQC
+	e1CupDlrRxP/EhfqsXMS2wLdF5x1+NxNEKIpKPnv7rsOgBP3mszXqfNIyBRGYPI8JK+zB525cGcXS
+	NwKY95XA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qVfWI-000PuO-1r;
-	Mon, 14 Aug 2023 21:54:38 +0000
-Received: from mail-pg1-x549.google.com ([2607:f8b0:4864:20::549])
+	id 1qVgo1-000WCs-2q;
+	Mon, 14 Aug 2023 23:17:01 +0000
+Received: from mail-yw1-x1149.google.com ([2607:f8b0:4864:20::1149])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qVfWF-000PtF-35
+	id 1qVgny-000WBA-2S
 	for linux-riscv@lists.infradead.org;
-	Mon, 14 Aug 2023 21:54:37 +0000
-Received: by mail-pg1-x549.google.com with SMTP id 41be03b00d2f7-55bf2bf1cdeso8921523a12.3
-        for <linux-riscv@lists.infradead.org>; Mon, 14 Aug 2023 14:54:34 -0700 (PDT)
+	Mon, 14 Aug 2023 23:17:00 +0000
+Received: by mail-yw1-x1149.google.com with SMTP id 00721157ae682-589e5e46735so30458527b3.2
+        for <linux-riscv@lists.infradead.org>; Mon, 14 Aug 2023 16:16:55 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20221208; t=1692050074; x=1692654874;
+        d=google.com; s=20221208; t=1692055015; x=1692659815;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=WLV8cwl+q0+MgeCaKnjEbSXBm+ijn/cuT9eg2QvMQy8=;
-        b=WyQ6Tn/5h37xMsEIDmbWcY+nQiTqqFoftlXVBTiztMb2A7vinkou0FyJxT5Tj+pa31
-         3y4mktmY47itqZcGsKCOeUubQi9MQwPyYS/ntrx9oV/jIdUAoZkwRuGY0yw403B+hUV5
-         PyUzYrySs29/O30p+yDsELGRzby+1aqFcxoBBJ6omQFPygNitIVTJAp2Hnd4R0/QcY2H
-         EgizfgVBfhm/BlB4owWFjSnqlPuhKRjVS+MvDjPpwOsN8USa7haRJjhrCn+/9m5M/b9b
-         HnVauoeuLnwYhNy2SBnjlv/xkJdMMlVKqHESswng1uUarqPNC4oB5B1VogZQC9cpA3Kv
-         gLzA==
+        bh=XJ2VqA/vSflBac203Z0ZgYzciS8CSN/YrZrCQZvgAqE=;
+        b=OxYYoyUAQaeaCm0MRnDlT6YpDWZ0eDciFaHbssoRAoYyzjd2o0WDI1UOBCOxL+kMJc
+         5YD0NK8r1uDf6e0Jatvt+d6P+BWzIhvUYoQQhLjByYnja3UBlbXrGoFe9hBNCSmd3Por
+         77GbZptlqN3qID9Yi7OuuYNKro+YD6l9Q6jj3+sUYzoK08H9wS69cXzUBziAMKx3xld/
+         w96wxOhnL73JzIXq2lGp1mV73XNcE7Ps2NUvuAohRziILKeBly43Y5qUc7dLaviqameq
+         hE+kTcQyTkgYI/ntVGdkCqeR0EWDhGYDk0kgtw+nvGshr7JSpUCtOXj/qFAa5uoFZbVm
+         YkSw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1692050074; x=1692654874;
+        d=1e100.net; s=20221208; t=1692055015; x=1692659815;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=WLV8cwl+q0+MgeCaKnjEbSXBm+ijn/cuT9eg2QvMQy8=;
-        b=ayN9YuRRGdROxdu81chyt3ZxXUOJki4kWaC2+0AI+gVO9RX4Pv2DTO2oqrJpqprh5Y
-         4gvWstEAlMh1DQ7WGVWSbGcjYVi9kHnheRXoszGecf3WicH59vjuPnI00lM0O77ntUE6
-         E122/CgnBFeA4gqQykhDMbNM3bQx7rqbAQO1cV1JvZESl1iis5mSWTzC8rGtOEJCNbL1
-         Q43cRnpBpuLrEIPfB/oAvA8/L4J73y6ToiRtwChoNdRMpn3pM+Hn7MDNA1jZlu/h5cN/
-         zJDJoodNkIunTMiFFofOAxNK0LPqM20GLfG8b8oyiSI/F06yHE51UiBzoBOB/5u/p+8Z
-         w4fQ==
-X-Gm-Message-State: AOJu0YyP0Q9xn8gjhwWJWFlCfgffdG/0TfB5qXqFgp1l/+AcVpK0/TNJ
-	u4zln5skztcPUzdMBhkknYKy8Hzm7eM=
-X-Google-Smtp-Source: AGHT+IGPzyG2ye2a1feyqcG86dyCHC82qzx5i2/p6ALHRmr0rfFoFMM8MlFz9jxGz9wjwtqC3ppaRbddXVE=
+        bh=XJ2VqA/vSflBac203Z0ZgYzciS8CSN/YrZrCQZvgAqE=;
+        b=kIY4htM0rqrE2f+WuDi45rmzOIcuLFB6O9E3Fg0VMYfa78Ll3dXL2BF0bE7+ZqLFKc
+         P0BAP5Yp+WkLwBZ0Yi2M8SROLqRfzv9b91i+urAsbkuMMgkZw1e6wJwlqrUbPZ8fHnfX
+         rNVI4KP4nfKL5B0y6R574QX7Fu3wUHFKHcsB9piyrSG/tqrVvYamVblnCDPn6NKv15CI
+         qq9Jz2iveEuXzJzoqLSOAnt6PIJbd4j7XQ7amI2DxTVVUULjs6/9zhz+BRMsvMt7FYIk
+         T2r+lT5rXfoMsGqPc4AE9sSFSgxrUicitdyGmpGaGuEAfbHwUMag60p6sQ4uEcHIKnK9
+         vbQg==
+X-Gm-Message-State: AOJu0YxLdlPA8jPdw8W6VqVy09I/ENOgubs01zrIYDLpAGqjamzFjhBF
+	JwPiYaDwe4IpbNcqZdKKGfk9cpwEO0I=
+X-Google-Smtp-Source: AGHT+IGO0AL45xRymm0BjDJln3deMA/9LFqjImi7JInSUnl69k7Qer+RG4sudzofLCbCQa+Rdgz1TuaGB1A=
 X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
- (user=seanjc job=sendgmr) by 2002:a63:9f12:0:b0:565:3355:87b0 with SMTP id
- g18-20020a639f12000000b00565335587b0mr2044577pge.5.1692050074189; Mon, 14 Aug
- 2023 14:54:34 -0700 (PDT)
-Date: Mon, 14 Aug 2023 14:54:32 -0700
-In-Reply-To: <02239d95-0253-a223-28c2-016cca3ab4d2@linux.intel.com>
+ (user=seanjc job=sendgmr) by 2002:a05:690c:709:b0:57a:118a:f31 with SMTP id
+ bs9-20020a05690c070900b0057a118a0f31mr180335ywb.7.1692055015309; Mon, 14 Aug
+ 2023 16:16:55 -0700 (PDT)
+Date: Mon, 14 Aug 2023 16:16:53 -0700
+In-Reply-To: <20230811045127.3308641-1-rananta@google.com>
 Mime-Version: 1.0
-References: <20230718234512.1690985-1-seanjc@google.com> <20230718234512.1690985-9-seanjc@google.com>
- <02239d95-0253-a223-28c2-016cca3ab4d2@linux.intel.com>
-Message-ID: <ZNqimGhCD+70q/lG@google.com>
-Subject: Re: [RFC PATCH v11 08/29] KVM: Introduce per-page memory attributes
+References: <20230811045127.3308641-1-rananta@google.com>
+Message-ID: <ZNq15SZ+53umvOfx@google.com>
+Subject: Re: [PATCH v9 00/14] KVM: arm64: Add support for FEAT_TLBIRANGE
 From: Sean Christopherson <seanjc@google.com>
-To: Binbin Wu <binbin.wu@linux.intel.com>
-Cc: Chao Peng <chao.p.peng@linux.intel.com>, Paolo Bonzini <pbonzini@redhat.com>, 
-	Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
-	Huacai Chen <chenhuacai@kernel.org>, Michael Ellerman <mpe@ellerman.id.au>, 
-	Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	"Matthew Wilcox (Oracle)" <willy@infradead.org>, Andrew Morton <akpm@linux-foundation.org>, 
-	Paul Moore <paul@paul-moore.com>, James Morris <jmorris@namei.org>, 
-	"Serge E. Hallyn" <serge@hallyn.com>, kvm@vger.kernel.org, 
+To: Raghavendra Rao Ananta <rananta@google.com>
+Cc: Oliver Upton <oliver.upton@linux.dev>, Marc Zyngier <maz@kernel.org>, 
+	James Morse <james.morse@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Paolo Bonzini <pbonzini@redhat.com>, Huacai Chen <chenhuacai@kernel.org>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Anup Patel <anup@brainfault.org>, 
+	Atish Patra <atishp@atishpatra.org>, Jing Zhang <jingzhangos@google.com>, 
+	Reiji Watanabe <reijiw@google.com>, Colton Lewis <coltonlewis@google.com>, 
+	David Matlack <dmatlack@google.com>, Fuad Tabba <tabba@google.com>, 
 	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
-	linux-fsdevel@vger.kernel.org, linux-mm@kvack.org, 
-	linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Fuad Tabba <tabba@google.com>, Jarkko Sakkinen <jarkko@kernel.org>, 
-	Yu Zhang <yu.c.zhang@linux.intel.com>, Vishal Annapurve <vannapurve@google.com>, 
-	Ackerley Tng <ackerleytng@google.com>, Maciej Szmigiero <mail@maciej.szmigiero.name>, 
-	Vlastimil Babka <vbabka@suse.cz>, David Hildenbrand <david@redhat.com>, Quentin Perret <qperret@google.com>, 
-	Michael Roth <michael.roth@amd.com>, Wang <wei.w.wang@intel.com>, 
-	Liam Merwick <liam.merwick@oracle.com>, Isaku Yamahata <isaku.yamahata@gmail.com>, 
-	"Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
+	linux-mips@vger.kernel.org, kvm-riscv@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	kvm@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230814_145436_017537_ECCCC8EB 
-X-CRM114-Status: GOOD (  15.29  )
+X-CRM114-CacheID: sfid-20230814_161658_796657_DEF67969 
+X-CRM114-Status: GOOD (  10.57  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,37 +97,24 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 14, 2023, Binbin Wu wrote:
-> 
-> On 7/19/2023 7:44 AM, Sean Christopherson wrote:
-> > +	struct kvm_mmu_notifier_range post_set_range = {
-> > +		.start = start,
-> > +		.end = end,
-> > +		.arg.attributes = attributes,
-> > +		.handler = kvm_arch_post_set_memory_attributes,
-> > +		.on_lock = (void *)kvm_null_fn,
-> > +		.on_unlock = kvm_mmu_invalidate_end,
-> > +		.may_block = true,
-> > +	};
-> > +	unsigned long i;
-> > +	void *entry;
-> > +	int r;
-> > +
-> > +	entry = attributes ? xa_mk_value(attributes) : NULL;
-> Why attributes of value 0 is considered not a value? Is it because 0 is not
-> a valid value when RWX is considered in the future?
+On Fri, Aug 11, 2023, Raghavendra Rao Ananta wrote:
+> The series is based off of upstream v6.5-rc1.
 
-0 values don't require an entry in the xarray, i.e. don't need to be stored and
-so don't consume memory.  The potential conflict with a RWX=0 entry has already
-been noted, but we'll cross that bridge when we get to it, e.g. KVM can easily
-support RWX=0 by using an internal "valid" flag.
+Lies!  :-)
 
-> Both the changelog and the document added mention that the address and size
-> of attrs will be updated to
-> "reflect the actual pages of the memory range have been successfully set to
-> the attributes", but it doesn't.
+This is based off one of the kvmarm.git topic branches (I didn't bother to figure
+out which one), not v6.5-rc1.
 
-Yeah, on the todo list, all of the changelogs are horribly stale.
+Please try to incorporate git format-patch's "--base" option into your workflow,
+e.g. I do "git format-patch --base=HEAD~$nr" where $nr is the number of patches
+I am posting.
+
+It's not foolproof, e.g. my approach doesn't help if I have a local patch that
+I'm not posting, but 99% of the time it Just Works and eliminates any ambuitity.
+
+You can also do "--base=auto", but that only does the right thing if your series
+has its upstream branch set to the base/tree that you want your patches applied
+to (I use the upstream branch for a completely different purpose for my dev branches).
 
 _______________________________________________
 linux-riscv mailing list
