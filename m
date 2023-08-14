@@ -4,82 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6069FC001DB
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Aug 2023 13:34:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C8CCC04A94
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Aug 2023 13:34:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fbuVqmeZQDmODdtQQVMlxYskNtKOmwsPhv47I20xC6c=; b=aO42QbtAp0wg8TsZVKT3Wv8yfD
-	MJliXwFdCzBFkhkOyZDoV8pAMgrOoOvGWczI1eRHGNTZljHBOpU0R21MMmB0pzkTWai1oYVNz0fz8
-	KG5pkA8TrNIIIBKlUqUg18jDsIJqhnxVVTN4OHOErINIG1FTm4KsmRIm6y3Kn7Jzfz4bia6Hpj5b0
-	uDK8doNEFxmV+lKzdpSMOjsga8osTMxcOGD7Y2s70AzEF/f0/9mhnftLFMEnUlHHk4xagSLXr84sB
-	bbW+yijRjrIg27ivDIEz9PzgfK02g0Jwig6bq/RSbjErAZ43ataqFnI1qAMrCqyDfRUwyvFGjky+N
-	dKTOE9mQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=WPUWlrQPHxOgk0sVU6xTpsjHLCdfobkuQ/4OHTuKRhQ=; b=0n7L13/MDXxiPa
+	0v3An+oMRVBc61PjGQuq2Y8f6BxnbNY0IY3cmSRahUrHdijUUYdtm8LqWeYzCaCEUUXCkZnMeQnUS
+	EVrcAlID5/NVi2mhql6Hjmk+F+4iHGzj+m357916GF9WDsBE9siRHBHQgzV2uz1Tw+N4j56ZgSlfw
+	tLRP+M9K6IE7bLpesAzMtpKP2PGmV2NjRalhGsfUC0sgbXZySozmUX/uer3zt3RdH1yKIlEp3TsFi
+	tJTSvQ7PsaGcAkfM4ikL0Bhr05lTtf5t+J+Di43LY/95arXO/qqfPrgm87008jII81OCcfxDEwViI
+	tojtcF0brv4PUyMoUDmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qVXhn-00HAcQ-22;
-	Mon, 14 Aug 2023 13:33:59 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1qVXhv-00HAfb-0s;
+	Mon, 14 Aug 2023 13:34:07 +0000
+Received: from mail-lf1-x129.google.com ([2a00:1450:4864:20::129])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qVXhk-00HAb3-2E
-	for linux-riscv@lists.infradead.org;
-	Mon, 14 Aug 2023 13:33:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1692020036; x=1723556036;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=NIMp+ZZfE39NoCAF9Svzx2/G3vPfQ0zl1WOS3daH1Ec=;
-  b=sHOOYNpQa64FZisOBFPZn3GdXFiSHeZOKybyL6Ye0z4qYLxVqRxOU3/w
-   K9rGalZuiy0GiYFjZW/xewW/GcViWCsy5BRSMfJtAOB3UXD5BiIh15v6I
-   gde2A2TaIIF/zQincArTA2IWDa8MMtewgq8nbIesZdTn4YmlhDZh3kW02
-   MvcZK0vvJ6EksoaT+DCCEdlLUhUpsVe+4LJonCH3l8DZK+YCp5cNuEfHY
-   tieNkyYcgsrG4pd+InccRJkUBFy8u7CJh671QphotC9tvrNM+HnK71QSR
-   JIcO1TxR6n6WdA4GV1qhUyNETOy1Bdi0k8601DdYq0AjkXeNUVLWyMStU
-   g==;
-X-IronPort-AV: E=Sophos;i="6.01,172,1684825200"; 
-   d="asc'?scan'208";a="225309921"
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa4.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 14 Aug 2023 06:33:55 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Mon, 14 Aug 2023 06:33:50 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex02.mchp-main.com
- (10.10.85.144) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
- Transport; Mon, 14 Aug 2023 06:33:47 -0700
-Date: Mon, 14 Aug 2023 14:33:08 +0100
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Minda Chen <minda.chen@starfivetech.com>
-CC: Daire McNamara <daire.mcnamara@microchip.com>, Conor Dooley
-	<conor@kernel.org>, Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, Krzysztof
- =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>, Emil Renner Berthing
-	<emil.renner.berthing@canonical.com>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
-	<linux-pci@vger.kernel.org>, Pali =?iso-8859-1?Q?Roh=E1r?= <pali@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
-	<palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Philipp Zabel
-	<p.zabel@pengutronix.de>, Mason Huo <mason.huo@starfivetech.com>, Leyfoon Tan
-	<leyfoon.tan@starfivetech.com>, Kevin Xie <kevin.xie@starfivetech.com>
-Subject: Re: [PATCH v3 02/11] PCI: microchip: Move pcie-microchip-host.c to
- plda directory
-Message-ID: <20230814-cytoplast-appliance-05c53cd612e7@wendy>
-References: <20230814082016.104181-1-minda.chen@starfivetech.com>
- <20230814082016.104181-3-minda.chen@starfivetech.com>
+	id 1qVXhr-00HAdC-2F;
+	Mon, 14 Aug 2023 13:34:04 +0000
+Received: by mail-lf1-x129.google.com with SMTP id 2adb3069b0e04-4fe4f5290daso6694525e87.1;
+        Mon, 14 Aug 2023 06:34:02 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20221208; t=1692020041; x=1692624841;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=9pjgEmaLZWbZLKm+zTsTjeEOP7/LCJvRIUhdiZyAT1I=;
+        b=pV6MQqG9bmj4rwGryQS8sAmZjLuAEtSu2dmeIlWYgBxThrRxinf668n5kQZgcLQe+i
+         i448GWBiO5Nh2UwtmtPjStdHCiCzrawPvCVIyL/YGG/WASGtq7/C8Im9vbevT8U3KWqa
+         du1F8VjlH+cOyuOz39iOTtoNx6Fs5S8z39f4uj89GlCt6hSmmgrn0ARt2eql+Wqw1tJ8
+         ooNRhDaSZs6VvyB5fSVmaiQGtx27RPbmvR61AWxd7RwfnDcx921uAfUSFCmZm4p0viur
+         wc9wOksQN1ckXqCXRNaeNSplgsqW81NSpJ1vmkyVn4eqrTuUQF//oax4Iw+/DtzTXxap
+         wG3Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1692020041; x=1692624841;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=9pjgEmaLZWbZLKm+zTsTjeEOP7/LCJvRIUhdiZyAT1I=;
+        b=itzurGfPKkbuZYB4ryLeHmE3eNql3PUXg8iul2vmD7q4ywXyjeBbORXHqietTEUbQ8
+         lge3du6385ariXJsIkwgQThgzL+slSb1xifua32ss4zJvewPbxy1sA5FMSJE3qWcATnW
+         H2/ZmLokWCxHaQZdbGtiWgYYBLOr/eG6ODRyYvsoTKgLp78zW5CNfQjsH5l4mkffOEyb
+         rjkcbqdWL3IhYWTTRTvqGL+38oGPj7voEoPsxRznbyAFkZXb3PwPlOlm9ROGNUqLK5lt
+         IiGXyiV71mmHF39y5e/hckDsSzvXUlj9YsraMeLrOidLVYBRCiNZs46XPhq9/WPyONZu
+         CMsw==
+X-Gm-Message-State: AOJu0YySNWGulea/eTlBCAYbfx3FCpqfnCUnEumZ+CXTPCX8LDdW5lI4
+	yjKtq7b6gt2PRHI3BsJXSQ==
+X-Google-Smtp-Source: AGHT+IE04Os9pVpiMT8/NqYeoJXgPVFzpHjwQ1FtN9jAFrhs3SAvVlW6EoYVd4gdqzVWytycaa700A==
+X-Received: by 2002:a05:6512:3984:b0:4ff:7e80:4f1d with SMTP id j4-20020a056512398400b004ff7e804f1dmr271490lfu.57.1692020040730;
+        Mon, 14 Aug 2023 06:34:00 -0700 (PDT)
+Received: from localhost.localdomain (mail.pulsar-telecom.ru. [94.181.180.60])
+        by smtp.gmail.com with ESMTPSA id eo12-20020a056512480c00b004f858249932sm1990566lfb.90.2023.08.14.06.33.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 14 Aug 2023 06:34:00 -0700 (PDT)
+From: Aleksandr Shubin <privatesub2@gmail.com>
+To: linux-kernel@vger.kernel.org
+Subject: [PATCH v5 3/3] riscv: dts: allwinner: d1: Add pwm node
+Date: Mon, 14 Aug 2023 16:32:18 +0300
+Message-Id: <20230814133238.741950-4-privatesub2@gmail.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20230814133238.741950-1-privatesub2@gmail.com>
+References: <20230814133238.741950-1-privatesub2@gmail.com>
 MIME-Version: 1.0
-In-Reply-To: <20230814082016.104181-3-minda.chen@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230814_063356_793502_7F52D770 
-X-CRM114-Status: UNSURE (   7.83  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230814_063403_738094_1B26BD93 
+X-CRM114-Status: GOOD (  11.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,55 +84,49 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4796616144629618398=="
+Cc: linux-arm-kernel@lists.infradead.org, linux-pwm@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Aleksandr Shubin <privatesub2@gmail.com>, Philipp Zabel <p.zabel@pengutronix.de>, Samuel Holland <samuel@sholland.org>, devicetree@vger.kernel.org, Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, Thierry Reding <thierry.reding@gmail.com>, Palmer Dabbelt <palmer@dabbelt.com>, Jernej Skrabec <jernej.skrabec@gmail.com>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>, linux-riscv@lists.infradead.org, linux-sunxi@lists.linux.dev, Albert Ou <aou@eecs.berkeley.edu>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============4796616144629618398==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="Qb2FqRletKnkxHF6"
-Content-Disposition: inline
+D1 and T113s contain a pwm controller with 8 channels.
+This controller is supported by the sun20i-pwm driver.
 
---Qb2FqRletKnkxHF6
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Add a device tree node for it.
 
-On Mon, Aug 14, 2023 at 04:20:07PM +0800, Minda Chen wrote:
-> For Microchip Polarfire PCIe host is PLDA XpressRich IP,
-> move to plda directory. Prepare for refactor the codes.
->=20
-> Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
+Signed-off-by: Aleksandr Shubin <privatesub2@gmail.com>
+---
+ arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
 
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+diff --git a/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi b/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi
+index 922e8e0e2c09..e24543b6aff7 100644
+--- a/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi
++++ b/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi
+@@ -127,6 +127,17 @@ uart3_pb_pins: uart3-pb-pins {
+ 			};
+ 		};
+ 
++		pwm: pwm@2000c00 {
++			compatible = "allwinner,sun20i-d1-pwm";
++			reg = <0x02000c00 0x400>;
++			clocks = <&dcxo>,
++				 <&ccu CLK_BUS_PWM>;
++			clock-names = "hosc", "bus";
++			resets = <&ccu RST_BUS_PWM>;
++			status = "disabled";
++			#pwm-cells = <0x3>;
++		};
++
+ 		ccu: clock-controller@2001000 {
+ 			compatible = "allwinner,sun20i-d1-ccu";
+ 			reg = <0x2001000 0x1000>;
+-- 
+2.25.1
 
-Thanks,
-Conor.
-
---Qb2FqRletKnkxHF6
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZNotFAAKCRB4tDGHoIJi
-0ocNAQCtStJgaZKQR6TWeuB8t1Tqmw7kv40909tqPHtcIosgBAD/cPslhEpUXgI/
-MEr0ZSstM04GiNSgOOPaFIBo3mNU7A8=
-=NbEH
------END PGP SIGNATURE-----
-
---Qb2FqRletKnkxHF6--
-
-
---===============4796616144629618398==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============4796616144629618398==--
-
