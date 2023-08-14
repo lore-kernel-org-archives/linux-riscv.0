@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F0F1C04FE0
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Aug 2023 08:20:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11812C07E8E
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Aug 2023 08:20:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=W+Cq6wp7XAxfo8MtkZv8u7yNwxMNbk8dGPpy3Q2B7uY=; b=aLLQaMleIzh1Ur
-	cuTo4XI4+Efk3N0+Uf37oZi3PhElC9hz5PkuYq5l9r1SJg23vfwWLamQXRONt6j2xUKpH+0B6TfPJ
-	mAoyt/PCkG29fVHFpJHIzN/bxdyibHG5e2yq+L4RuuTZkCC7S0e4r4r8j58+CAOUtL6ccLuJUrlMf
-	fzqmhuBhdCYRg8rfaLDF2qlDstvy4/heBgETGiUrqH1/09+yinBWmqoN8I9gfsiGgDawOhyfV4NpA
-	By5sEwkGjHlbtKx/3KU8QiCpd26YGXSQeXbK565zlVUu7Bhb2XRLlh48StVQbGWT41MyFNpQPx3fg
-	3fRApqWYHdboZb+Jyotw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=R32JEXC88bQ4NisflKhykBbMqO3Rpj57KqD+3zgi/nQ=; b=FRfuu9ltRyw/5o
+	qFQpkAJOkaxNMnWCzPHebuf55BuuLrmQZ85oC0CTueJdZuHMPLna9FMmNVxX6jbKoytDl0/EaPgN0
+	JRaPxG7qVqsRZKOO21qiShjJLNlmdZ8BflGgsvsZ7qWosV1fREAmL4j1YGkpHSU0WF7BIchUqFrEU
+	J7EEAvMt0H7tQTMjPRJ3IrxetWKArmROCqo/3tm9D/Ye7U31LmOextbGSwD4PlaDYJlGcJuQlOog0
+	G+iC4WeznC7IM2nM180cUrJ5G3PB2jFKaPKXxEgfBOondlgjJjkISkyASjyU4n4d1z9HiyXLeU+H2
+	ERlD7/tdHAERrOOvK5Lw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qVSoi-00GUp2-2o;
-	Mon, 14 Aug 2023 08:20:48 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	id 1qVSok-00GUqv-1j;
+	Mon, 14 Aug 2023 08:20:50 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qVSoc-00GUcm-32
+	id 1qVSoe-00GUdo-1i
 	for linux-riscv@lists.infradead.org;
-	Mon, 14 Aug 2023 08:20:45 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	Mon, 14 Aug 2023 08:20:47 +0000
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 833A28159;
-	Mon, 14 Aug 2023 16:20:19 +0800 (CST)
-Received: from EXMBX171.cuchost.com (172.16.6.91) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 14 Aug
- 2023 16:20:19 +0800
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id CB00D24E274;
+	Mon, 14 Aug 2023 16:20:21 +0800 (CST)
+Received: from EXMBX171.cuchost.com (172.16.6.91) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 14 Aug
+ 2023 16:20:21 +0800
 Received: from ubuntu.localdomain (183.27.98.20) by EXMBX171.cuchost.com
  (172.16.6.91) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 14 Aug
- 2023 16:20:18 +0800
+ 2023 16:20:19 +0800
 From: Minda Chen <minda.chen@starfivetech.com>
 To: Daire McNamara <daire.mcnamara@microchip.com>, Conor Dooley
 	<conor@kernel.org>, Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
@@ -53,18 +53,20 @@ CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
 	<mason.huo@starfivetech.com>, Leyfoon Tan <leyfoon.tan@starfivetech.com>,
 	Kevin Xie <kevin.xie@starfivetech.com>, Minda Chen
 	<minda.chen@starfivetech.com>
-Subject: [PATCH v3 0/11] Refactoring Microchip PCIe driver and add StarFive PCIe
-Date: Mon, 14 Aug 2023 16:20:05 +0800
-Message-ID: <20230814082016.104181-1-minda.chen@starfivetech.com>
+Subject: [PATCH v3 02/11] PCI: microchip: Move pcie-microchip-host.c to plda directory
+Date: Mon, 14 Aug 2023 16:20:07 +0800
+Message-ID: <20230814082016.104181-3-minda.chen@starfivetech.com>
 X-Mailer: git-send-email 2.17.1
+In-Reply-To: <20230814082016.104181-1-minda.chen@starfivetech.com>
+References: <20230814082016.104181-1-minda.chen@starfivetech.com>
 MIME-Version: 1.0
 X-Originating-IP: [183.27.98.20]
 X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX171.cuchost.com
  (172.16.6.91)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230814_012043_360006_22EDBC5E 
-X-CRM114-Status: GOOD (  14.49  )
+X-CRM114-CacheID: sfid-20230814_012044_877575_1DFA7476 
+X-CRM114-Status: GOOD (  16.57  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,120 +83,124 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patchset final purpose is add PCIe driver for StarFive JH7110 SoC.
-JH7110 using PLDA XpressRICH PCIe IP. Microchip PolarFire Using the
-same IP and have commit their codes, which are mixed with PLDA
-controller codes and Microchip platform codes.
+For Microchip Polarfire PCIe host is PLDA XpressRich IP,
+move to plda directory. Prepare for refactor the codes.
 
-For re-use the PLDA controller codes, I request refactoring microchip
-codes, move PLDA common codes to PLDA files.
-Desigware and Cadence is good example for refactoring codes.
-
-So first step is extract the PLDA common codes from microchip, and
-refactoring the microchip codes.(patch1 - 8)
-Then, add Starfive codes. (patch9 - 11)
-
-This patchset is base on v6.5-rc4
-
-The patch is base on Daire microchip commit,(accepted, not merge in mainline now)
-https://patchwork.kernel.org/project/linux-pci/cover/20230728131401.1615724-1-daire.mcnamara@microchip.com/
-patch11 dts patch base on stg clk patchset and syscon patch(these will be merged in 6.6-rcx). 
-https://patchwork.kernel.org/project/linux-riscv/cover/20230713113902.56519-1-xingyu.wu@starfivetech.com/
-https://patchwork.kernel.org/project/linux-riscv/patch/20230717023040.78860-7-xingyu.wu@starfivetech.com/
-
-patch1 is move PLDA XpressRICH PCIe host common properties dt-binding
-       docs from microchip,pcie-host.yaml
-patch2 is move PolarFire codes to PLDA directory.
-patch3 is move PLDA IP register macros to plda-pcie.h
-patch4 is rename data structure setup and IRQ functions in microchip codes. 
-patch5 is move the patch4 functions to common file pcie-plda-host.c 
-patch6 is Add PLDA event interrupt codes and IRQ domain ops.
-patch7 is rename IRQ init function in microchip codes, prepare to move
-the common file pcie-plda-host.c,
-patch8 is move IRQ init functions to pcie-plda-host.c
-patch9 is add StarFive JH7110 PCIe dt-binding doc.
-patch10 is add StarFive JH7110 Soc PCIe codes.
-patch11 is Starfive dts config
-
-previous version:
-v1:https://patchwork.kernel.org/project/linux-pci/cover/20230719102057.22329-1-minda.chen@starfivetech.com/
-v2:https://patchwork.kernel.org/project/linux-pci/cover/20230727103949.26149-1-minda.chen@starfivetech.com/
-
-change:
-  v3:
-    patch 2- 8:
-      - splite refactoring patches to multiple patch.
-      - rename plda_pcie to plda_pcie_rp. Maybe other vendor will
-        upstream PLDA ep codes.
-    patch 9:
-      - Remove the redundant reference.
-      - move the offset value to codes in starfive,stg-syscon
-      - change reset-gpio to prest-gpio.
-    patch10:
-      - Add 100ms delay after preset for PCIe 6.0 spec.
-      - stg-syscon related modification.
-    patch11:
-      - Add dts configure.
-  v2:
-    patch1:
-      - squash dt-bindings patches to patch1
-      - add 'required' list. 
-      - plda doc rename to plda,xpressrich-axi-common.yaml
-    patch2 - 8:
-      - squash the microchip modification patch.
-    patch9:
-      - remove the plda common required property.
-    patch10:
-      - Sync the hide rc bar ops with config read function.
-      - Revert the T_PVPERL to 100ms and add comments for the source.
-      - Replace the link check function by the standard link ops.
-      - Convert to new pm ops marcos.
-      - Some formats modification.
-      - pcie-plda-host modification merge to patch4.
-    other:
-      - remove the pcie-plda-plat.c
-      - remove the starfive dts patch first. for it depends on
-        stg clock and syscon setting.
-
-Minda Chen (11):
-  dt-bindings: PCI: Add PLDA XpressRICH PCIe host common properties
-  PCI: microchip: Move pcie-microchip-host.c to plda directory
-  PCI: microchip: Move PLDA IP register macros to pcie-plda.h
-  PCI: microchip: Rename data structure and functions
-  PCI: plda: Move the common functions to pcie-plda-host.c
-  PCI: plda: Add event interrupt codes and IRQ domain ops
-  PCI: microchip: Rename IRQ init function
-  PCI: microchip: Move IRQ init functions to pcie-plda-host.c
-  dt-bindings: PCI: Add StarFive JH7110 PCIe controller
-  PCI: starfive: Add JH7110 PCIe controller
-  riscv: dts: starfive: add PCIe dts configuration for JH7110
-
- .../bindings/pci/microchip,pcie-host.yaml     |  55 +-
- .../pci/plda,xpressrich3-axi-common.yaml      |  75 +++
- .../bindings/pci/starfive,jh7110-pcie.yaml    | 120 ++++
- MAINTAINERS                                   |  17 +-
- .../jh7110-starfive-visionfive-2.dtsi         |  64 ++
- arch/riscv/boot/dts/starfive/jh7110.dtsi      |  86 +++
- drivers/pci/controller/Kconfig                |   9 +-
- drivers/pci/controller/Makefile               |   2 +-
- drivers/pci/controller/plda/Kconfig           |  30 +
- drivers/pci/controller/plda/Makefile          |   4 +
- .../{ => plda}/pcie-microchip-host.c          | 604 ++---------------
- drivers/pci/controller/plda/pcie-plda-host.c  | 631 ++++++++++++++++++
- drivers/pci/controller/plda/pcie-plda.h       | 236 +++++++
- drivers/pci/controller/plda/pcie-starfive.c   | 461 +++++++++++++
- 14 files changed, 1786 insertions(+), 608 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/pci/plda,xpressrich3-axi-common.yaml
- create mode 100644 Documentation/devicetree/bindings/pci/starfive,jh7110-pcie.yaml
+Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
+---
+ MAINTAINERS                                        |  2 +-
+ drivers/pci/controller/Kconfig                     |  9 +--------
+ drivers/pci/controller/Makefile                    |  2 +-
+ drivers/pci/controller/plda/Kconfig                | 14 ++++++++++++++
+ drivers/pci/controller/plda/Makefile               |  2 ++
+ .../controller/{ => plda}/pcie-microchip-host.c    |  2 +-
+ 6 files changed, 20 insertions(+), 11 deletions(-)
  create mode 100644 drivers/pci/controller/plda/Kconfig
  create mode 100644 drivers/pci/controller/plda/Makefile
- rename drivers/pci/controller/{ => plda}/pcie-microchip-host.c (54%)
- create mode 100644 drivers/pci/controller/plda/pcie-plda-host.c
- create mode 100644 drivers/pci/controller/plda/pcie-plda.h
- create mode 100644 drivers/pci/controller/plda/pcie-starfive.c
+ rename drivers/pci/controller/{ => plda}/pcie-microchip-host.c (99%)
 
-
-base-commit: 5d0c230f1de8c7515b6567d9afba1f196fb4e2f4
+diff --git a/MAINTAINERS b/MAINTAINERS
+index a4c4907149ee..d604643a033b 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -16508,7 +16508,7 @@ M:	Daire McNamara <daire.mcnamara@microchip.com>
+ L:	linux-pci@vger.kernel.org
+ S:	Supported
+ F:	Documentation/devicetree/bindings/pci/microchip*
+-F:	drivers/pci/controller/*microchip*
++F:	drivers/pci/controller/plda/*microchip*
+ 
+ PCIE DRIVER FOR QUALCOMM MSM
+ M:	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+diff --git a/drivers/pci/controller/Kconfig b/drivers/pci/controller/Kconfig
+index f4ad0e9cca45..107cdb69e15c 100644
+--- a/drivers/pci/controller/Kconfig
++++ b/drivers/pci/controller/Kconfig
+@@ -216,14 +216,6 @@ config PCIE_MT7621
+ 	help
+ 	  This selects a driver for the MediaTek MT7621 PCIe Controller.
+ 
+-config PCIE_MICROCHIP_HOST
+-	tristate "Microchip AXI PCIe controller"
+-	depends on PCI_MSI && OF
+-	select PCI_HOST_COMMON
+-	help
+-	  Say Y here if you want kernel to support the Microchip AXI PCIe
+-	  Host Bridge driver.
+-
+ config PCI_HYPERV_INTERFACE
+ 	tristate "Microsoft Hyper-V PCI Interface"
+ 	depends on ((X86 && X86_64) || ARM64) && HYPERV && PCI_MSI
+@@ -346,4 +338,5 @@ config PCIE_XILINX_CPM
+ source "drivers/pci/controller/cadence/Kconfig"
+ source "drivers/pci/controller/dwc/Kconfig"
+ source "drivers/pci/controller/mobiveil/Kconfig"
++source "drivers/pci/controller/plda/Kconfig"
+ endmenu
+diff --git a/drivers/pci/controller/Makefile b/drivers/pci/controller/Makefile
+index 37c8663de7fe..93236dc97b21 100644
+--- a/drivers/pci/controller/Makefile
++++ b/drivers/pci/controller/Makefile
+@@ -32,7 +32,6 @@ obj-$(CONFIG_PCIE_ROCKCHIP_EP) += pcie-rockchip-ep.o
+ obj-$(CONFIG_PCIE_ROCKCHIP_HOST) += pcie-rockchip-host.o
+ obj-$(CONFIG_PCIE_MEDIATEK) += pcie-mediatek.o
+ obj-$(CONFIG_PCIE_MEDIATEK_GEN3) += pcie-mediatek-gen3.o
+-obj-$(CONFIG_PCIE_MICROCHIP_HOST) += pcie-microchip-host.o
+ obj-$(CONFIG_VMD) += vmd.o
+ obj-$(CONFIG_PCIE_BRCMSTB) += pcie-brcmstb.o
+ obj-$(CONFIG_PCI_LOONGSON) += pci-loongson.o
+@@ -43,6 +42,7 @@ obj-$(CONFIG_PCIE_MT7621) += pcie-mt7621.o
+ # pcie-hisi.o quirks are needed even without CONFIG_PCIE_DW
+ obj-y				+= dwc/
+ obj-y				+= mobiveil/
++obj-y				+= plda/
+ 
+ 
+ # The following drivers are for devices that use the generic ACPI
+diff --git a/drivers/pci/controller/plda/Kconfig b/drivers/pci/controller/plda/Kconfig
+new file mode 100644
+index 000000000000..5cb3be4fc98c
+--- /dev/null
++++ b/drivers/pci/controller/plda/Kconfig
+@@ -0,0 +1,14 @@
++# SPDX-License-Identifier: GPL-2.0
++
++menu "PLDA-based PCIe controllers"
++	depends on PCI
++
++config PCIE_MICROCHIP_HOST
++	tristate "Microchip AXI PCIe controller"
++	depends on PCI_MSI && OF
++	select PCI_HOST_COMMON
++	help
++	  Say Y here if you want kernel to support the Microchip AXI PCIe
++	  Host Bridge driver.
++
++endmenu
+diff --git a/drivers/pci/controller/plda/Makefile b/drivers/pci/controller/plda/Makefile
+new file mode 100644
+index 000000000000..e1a265cbf91c
+--- /dev/null
++++ b/drivers/pci/controller/plda/Makefile
+@@ -0,0 +1,2 @@
++# SPDX-License-Identifier: GPL-2.0
++obj-$(CONFIG_PCIE_MICROCHIP_HOST) += pcie-microchip-host.o
+diff --git a/drivers/pci/controller/pcie-microchip-host.c b/drivers/pci/controller/plda/pcie-microchip-host.c
+similarity index 99%
+rename from drivers/pci/controller/pcie-microchip-host.c
+rename to drivers/pci/controller/plda/pcie-microchip-host.c
+index 252aff180ca2..a953ba1c9b0f 100644
+--- a/drivers/pci/controller/pcie-microchip-host.c
++++ b/drivers/pci/controller/plda/pcie-microchip-host.c
+@@ -18,7 +18,7 @@
+ #include <linux/pci-ecam.h>
+ #include <linux/platform_device.h>
+ 
+-#include "../pci.h"
++#include "../../pci.h"
+ 
+ /* Number of MSI IRQs */
+ #define MC_MAX_NUM_MSI_IRQS			32
 -- 
 2.17.1
 
