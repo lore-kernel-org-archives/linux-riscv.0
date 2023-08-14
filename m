@@ -4,83 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2165DC001B0
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Aug 2023 14:04:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4998BC04E69
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Aug 2023 14:11:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Ya9fke6g8agV/eW3CZELHftTsw5zqc3/kgXP7BqORKU=; b=mt4yyL4lJ4bKLa
-	nZhpLfe3EPX5hpAS3p1JSgYPJtIXjxZE5S5XtE66xxqKBDH/lU0q6O8sxf/1QlKrhsbWglZyFu/l7
-	YHbIA2pQmvpoQrqdthjPkmdYm1oOSHLdmCRXOFZEO0n2nWOayTgWMPYbTZLzJ7RtdABHpHhO6N0iL
-	atIJJpr+5k8nwRin3PWTfRJmo3o8Vmyf8Z04mHggABeKSEyeAPrxbRrq2eC8sz+GRLdlRf+bIM88d
-	XC30I7/5o572/5K/RAWUe738M3RIqFaewYTX3qiDXvn9YHrwrXfjSOnEReLTSaY2QDeR9/urI/raG
-	5iL9Z8oxg+JU8BUgmBWw==;
+	List-Owner; bh=MzOxp1drDyh123W1JpeUmCb/k2+bLKIpNibe6O7agoo=; b=A1gU7GvYC/SvaF
+	JFp+WgILmX2A38aL3ZJ7/CBmZCycUocywvX1pMjLi5MLey0wccmi7U3gSD/clXHKPXok4mTBdF4Tg
+	6oa1G8SBaSjBCJSZMjY5lNLEJye0sz69hS6Mge8iazDktBJr20VAK/zh1ybhXyiNz1CgvA7e01p5a
+	ojAJaOIlquPyXXBHZo6vPvn12DGMDmnbuSR1mAh8q4vcfyGNzDc6j175P0g7Z1dUgk2OYz1lIRsVy
+	Af976L/vukZhgwX0Q93fI7K+hUbWopJGnTyu/holAUP7W1N7GOILhZ/dyPCIDhFtrY9KbYZczaSFi
+	jYtGCppr4sczrlNomN5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qVYAx-00HDxd-0F;
-	Mon, 14 Aug 2023 14:04:07 +0000
-Received: from mail-ej1-x630.google.com ([2a00:1450:4864:20::630])
+	id 1qVYHZ-00HFCK-1h;
+	Mon, 14 Aug 2023 14:10:57 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qVYAu-00HDwW-25
+	id 1qVYHX-00HFBp-0J
 	for linux-riscv@lists.infradead.org;
-	Mon, 14 Aug 2023 14:04:05 +0000
-Received: by mail-ej1-x630.google.com with SMTP id a640c23a62f3a-99bcfe28909so564967666b.3
-        for <linux-riscv@lists.infradead.org>; Mon, 14 Aug 2023 07:04:02 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20221208; t=1692021841; x=1692626641;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=2tYT70QSADvKey9KGvE0OeVu+4Pc0bll8FUx1XFEc0k=;
-        b=Y6/Pg10v/eMAJ47QaGFn8fHG5ZWmsBsXECHzC/cOW+aauVThwHvFr/K/KSf4yl0CkD
-         JGdPfT23l03LduO0WcXQMxv59ERjEqiadP3CpXhEk2ncUwGrpfxy0tFmMjlZPZjsIasX
-         i2rapg4LnyI/adj354368TE7iCYMfJ0Mw4xpxynT4VAq5A0gXg8SVwKBIGg/V+jKQBtT
-         xxpbXk1hPCc3sp2jWTDUG8rnZTg6cQK359rZiyKigeUJ+ESZr5MQgewaDVWfXEi0cKKh
-         AcXYnak0fIXCvd7fwm2npk030LuuamPlrkmx6zF4HoCRdrDDwNWmTrVFCiUjfG6/2VDC
-         tafg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1692021841; x=1692626641;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=2tYT70QSADvKey9KGvE0OeVu+4Pc0bll8FUx1XFEc0k=;
-        b=fZY9Yrh+ZplB6OXRV/k486gkQrwsLH6tXTNZPMTjej9qzh1RJuk8v0d7DsYwBsj8f/
-         6HP/S651wWZEzzxE3lWpfdgnfUXR92hwxuiUAT6i3UGtL5kozkqUahFRwapEjHNLNUVd
-         Da7y4vET/BquT0lB1/3lgi+8/z+zDNpS6V2244xbiU+ZAqlZC1w6V1xskZbBew9rUO8b
-         4N6CfNfGzgHofOatNmaR7COYxz4RIxJjhxdFEqZsukGeBYjvaDts7oovUWjIuE2l5Z5r
-         wD53NoX0u5+jVxXdIZMDYz/bfRGaOseEwrW9t4LJPrY9MUO+SeuolMV8g/oZH1973lfa
-         DRqQ==
-X-Gm-Message-State: AOJu0YyT3O3ihi73nbl1zSiua6/54tfJcwdLzG5U7TbS3aujTSumRBeG
-	HZkyPVdEP7iApw7xdLM1zQo=
-X-Google-Smtp-Source: AGHT+IFPBeqS62+BAbDxMk76ReppLTfDmZdeYVPiM8FQMd6zx2Hr87kqNLX37RBdrArI04/01vCJzw==
-X-Received: by 2002:a17:906:10d7:b0:99d:6dd7:42c2 with SMTP id v23-20020a17090610d700b0099d6dd742c2mr7337754ejv.40.1692021840744;
-        Mon, 14 Aug 2023 07:04:00 -0700 (PDT)
-Received: from nam-dell (ip-217-105-46-58.ip.prioritytelecom.net. [217.105.46.58])
-        by smtp.gmail.com with ESMTPSA id gw4-20020a170906f14400b00993b381f808sm5672731ejb.38.2023.08.14.07.03.59
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 14 Aug 2023 07:04:00 -0700 (PDT)
-Date: Mon, 14 Aug 2023 16:03:58 +0200
-From: Nam Cao <namcaov@gmail.com>
-To: =?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@kernel.org>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, charlie@rivosinc.com
-Subject: Re: [PATCH] riscv: correct riscv_insn_is_c_jr() and
- riscv_insn_is_c_jalr()
-Message-ID: <ZNo0TvIOUIx3GdTm@nam-dell>
-References: <20230731183925.152145-1-namcaov@gmail.com>
- <87o7j9g73d.fsf@all.your.base.are.belong.to.us>
+	Mon, 14 Aug 2023 14:10:56 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 8A8B161493;
+	Mon, 14 Aug 2023 14:10:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A5D20C433C7;
+	Mon, 14 Aug 2023 14:10:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1692022254;
+	bh=wIRU+TKzPDX43UA4ILBFZUuV1O5dayyLhaNRehSdSh4=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=Ijde4UN2V3AV/c24wpWM5FOL39Qn01/lNwOuvLp8ohbBcp1tBpLAGyQafEPrMdxaM
+	 QgHY7AHFFdwwVt0O+lIHb+biM7vOoZl66UAcllbgPjrUDobrEioI9RtPknBmraXZhU
+	 o0jb/TnoAH+I5tYWfshb8xa/klZ6wAYktAwC63q6m6A7FMODQ07ZlLQO7oqPl4/we3
+	 8NI5uALn3hGTr7rmgdiBtmiF8SAwWFpGz8nJThXHvIHVsfAYiUfTWd2bPdgRi0JSs2
+	 smYo2Y6+UcPLyIiTno2f5M/ulsBvlgx5XzQO3zQVozn5n/eyUn/39iHMFIJkZ1wHh6
+	 lTkY0IMQFWadQ==
+From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
+To: Nam Cao <namcaov@gmail.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: test code for kprobe
+In-Reply-To: <ZNoxGXcK9QOfAfbW@nam-dell>
+References: <cover.1690704360.git.namcaov@gmail.com>
+ <fc71730b9350026427fe1c2bdbce9b993d8bc6f5.1690704360.git.namcaov@gmail.com>
+ <87il9hg65g.fsf@all.your.base.are.belong.to.us>
+ <ZNoxGXcK9QOfAfbW@nam-dell>
+Date: Mon, 14 Aug 2023 16:10:51 +0200
+Message-ID: <87a5utg1ec.fsf@all.your.base.are.belong.to.us>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <87o7j9g73d.fsf@all.your.base.are.belong.to.us>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230814_070404_681799_472C3599 
-X-CRM114-Status: UNSURE (   7.73  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230814_071055_177833_59DBF3F8 
+X-CRM114-Status: GOOD (  13.71  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,25 +73,33 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 14, 2023 at 02:07:50PM +0200, Bj=F6rn T=F6pel wrote:
-> In the future, add a Fixes-tag for these kind of changes!
-> Fixes: ec5f90877516 ("RISC-V: Move riscv_insn_is_* macros into a common h=
-eader")
-> =
-
-> (No need for a respin, b4 will pick up the Fixes above.)
-
-Thanks! I will keep that in mind in the future.
-
-Best regards,
-Nam
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+TmFtIENhbyA8bmFtY2FvdkBnbWFpbC5jb20+IHdyaXRlczoKCj4gT24gTW9uLCBBdWcgMTQsIDIw
+MjMgYXQgMDI6Mjg6MTFQTSArMDIwMCwgQmrDtnJuIFTDtnBlbCB3cm90ZToKPj4gTmFtIENhbyA8
+bmFtY2FvdkBnbWFpbC5jb20+IHdyaXRlczoKPj4gCj4+IEEgUklTQy1WIHNwZWNpZmljIGtwcm9i
+ZXMgdGVzdCAtLSBtdWNoIHdlbGNvbWUhCj4+IAo+PiBQbGVhc2UgYWRkIGEgcHJvcGVyIGNvbW1p
+dCBtZXNzYWdlIGhlcmUuCj4+IAo+PiA+IC0tLQo+PiA+ICBkcml2ZXJzL3Rlc3Rfa3Byb2JlL01h
+a2VmaWxlICAgICAgfCAgIDMgKwo+PiA+ICBkcml2ZXJzL3Rlc3Rfa3Byb2JlL3Rlc3Rfa3Byb2Jl
+LmMgfCAyNjUgKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrCj4+ID4gIDIgZmlsZXMgY2hh
+bmdlZCwgMjY4IGluc2VydGlvbnMoKykKPj4gPiAgY3JlYXRlIG1vZGUgMTAwNjQ0IGRyaXZlcnMv
+dGVzdF9rcHJvYmUvTWFrZWZpbGUKPj4gPiAgY3JlYXRlIG1vZGUgMTAwNjQ0IGRyaXZlcnMvdGVz
+dF9rcHJvYmUvdGVzdF9rcHJvYmUuYwo+PiA+Cj4+ID4gZGlmZiAtLWdpdCBhL2RyaXZlcnMvdGVz
+dF9rcHJvYmUvTWFrZWZpbGUgYi9kcml2ZXJzL3Rlc3Rfa3Byb2JlL01ha2VmaWxlCj4+IAo+PiBB
+cmNoaXRlY3R1cmUgc3BlY2lmaWMgdGVzdCBjb2RlIHVzdWFsbHkgcmVzaWRlIGluICJhcmNoLyRB
+UkNIIgo+PiAoYXJjaC9yaXNjdiksIGFuZCBpcyBwYXJ0IG9mIEtjb25maWcuZGVidWcuCj4+IAo+
+PiBIYXZlIGEgbG9vayBhdDoKPj4gKiBncmVwIGZvciBBUk1fS1BST0JFU19URVNUIGluIGFyY2gv
+YXJtCj4+ICogZ3JlcCBmb3IgS1BST0JFU19TQU5JVFlfVEVTVCwgYW5kIGluIGFyY2gvcG93ZXJw
+YyBncmVwCj4+ICAgdGVzdF9lbXVsYXRlX3N0ZXAKPj4gKiBncmVwIFMzOTBfS1BST0JFU19TQU5J
+VFlfVEVTVAo+Cj4gU29ycnkgdGhhdCBJIHdhc24ndCBjbGVhciB3aXRoIHRoaXM6IEkganVzdCB3
+YW50ZWQgdG8gc2hvdyBob3cgdGVzdGluZyB3YXMgZG9uZS4KPiBUaGlzIGlzIG5vdCBtZWFudCB0
+byBiZSBtZXJnZWQuCj4KPiBJIGRvIGhhdmUgcGxhbnMgdG8gY2xlYW4gdGhpcyB1cCBhbmQgc2Vu
+ZCB1cHN0cmVhbSBpbiB0aGUgZnV0dXJlLCBidXQgbm90IHdpdGgKPiB0aGlzIHBhdGNoIHNlcmll
+cy4KClBsZWFzZSBkbyEgQSBSSVNDLVYgc3BlY2lmaWMga3Byb2JlcyB0ZXN0IHdvdWxkIGJlIG5p
+Y2UuCgoKQmrDtnJuCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFk
+Lm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJp
+c2N2Cg==
