@@ -4,91 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B42DCEB64DD
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Aug 2023 20:29:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B2CFEB64DD
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Aug 2023 20:58:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pWLfoLqISH+ww2haIigyFEqSfs5BbaGJnvhS/7Z686Y=; b=s2hOslriVqqewm
-	m+WGuxdS+EDoSyo1lthskFFA/QMGy/bI/56Lt+HMofkAxmRm0LKkJWexmjS4u0YuxHsYSWQeZaA2x
-	LiJ9lPM26al6d1yQyGEjpoC8dH58dMOKE1OrdMQESrAh0VpXQen+RD6zvcjjMnErdPuYAuX6QZDE1
-	jgiKgEH99QoI3AoEE/Q9jbWHxuvwKboV2xNwNdPUNzSPYMLqVp9ZwGbALTSAYaLTQkyB/iHeQiIDY
-	+/n9BPgIIKiKnNmix+9i2y+mo96dE70tH1a/3RjBA7mqweKvh4kR7FE/sXZM9Dc0MMTZIUMTfusm+
-	zMPw7sGyjdqml0z39Ukw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=oeNVv9rV85lE5xDECEx+cxyX0nO//Kx74fd8lqXH7ek=; b=tyXbd2CPm0xTcK
+	vJHpF7LV224nFOVAorJSyhqzYg6nILY05aGjeEQ2HyRtfq80t1lA7MUk/qiNFlPuNRN4BAEumcQFM
+	qNtneg9tVBJariAPBwuMJy0R+X04f1hnutKjnvXi50+3nmZe8Tm8uYRv1DWTODGJ/BS37SI62scH/
+	XkX2ie71d5LO9sFJ0Yor26/1+hfnvSnsdRdetrjm8ngky4r4ZQzBv2A0ymey6q5rHtrepUkv+iokb
+	gMFpYH1X2Oc3PaeRt4nwu0aLPP2heEHWGB/u6JIhV9reLlJ9NbddxMkcjQ/Uz7eUUDmgfUBjWxgmg
+	9he9ffOxHc7oGZ5aGCJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qVeCB-000IAF-2m;
-	Mon, 14 Aug 2023 20:29:47 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1qVeeB-000KT7-1c;
+	Mon, 14 Aug 2023 20:58:43 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qVeC8-000I8d-0v
+	id 1qVee8-000KRy-1M
 	for linux-riscv@lists.infradead.org;
-	Mon, 14 Aug 2023 20:29:46 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-3fe8a1591c8so32626005e9.3
-        for <linux-riscv@lists.infradead.org>; Mon, 14 Aug 2023 13:29:42 -0700 (PDT)
+	Mon, 14 Aug 2023 20:58:42 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-3fe32016bc8so43012925e9.1
+        for <linux-riscv@lists.infradead.org>; Mon, 14 Aug 2023 13:58:38 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20221208; t=1692044981; x=1692649781;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=WZS9k4hytgqpdauCxiUcsVRcbK/dI1ReGuOryfTEBiQ=;
-        b=XI+s+7CVo6H/28yrasQEb1zG0CwG8Gw05f+BBbim9Oy77Fpazbchju2ryuV0tjTxnr
-         h4p39E5/3Y2DOzYrVii7nZ647u0y1DOTjG1u1/RgpMr45afmmprJhu02BDujXr5pNK6t
-         EVIVj3/DpXqpRyqu3J+20MUl2BoYWCIKT9ooaxlFIlNW2JOUvBxCOH3x+EnXgcqtoVol
-         t06B99iVi5vnYqpuBTR908hAgbWfElTfIs4B+rwmPAeUQqeoLLuMedM1VGUVYUDDImtk
-         +Mggr7330KY8nN2/tPNHXgPYag8EoYWaQ71t4EfrwZT5EDayIRerCKViGZPsyp3Yz7ha
-         gcBA==
+        d=gmail.com; s=20221208; t=1692046717; x=1692651517;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=0A4A3WqLpjSmFP0W9YhFtOsFDHMwWhpbQHtyJDhofZQ=;
+        b=K7CgABcOCoN88bhx5ZegXuyGVTnOsQ1l5DXIE7cqOJqaG9OebMw7Lpxm0gkJ0Dq40s
+         nw7ioDMvmDXQQ8PibW5T1kQdxUPLVWyB+ktRH63FMzGeTGcDOXSbna6X0vH6554KEC+5
+         KjARNDOFL9XVP30jMeqVMOGwa19UhWkZA8Jij8npyqG+1eL3Pj2vb67hmzJUHmEQj+MP
+         Pnm8xLJDu8EHhspGsVjeyj+yTW6+pZwNPQ99nKyOTc4cZiIY/fuu0g0hDwtKVbyir7TX
+         Py4/aQxOceJ0nUxq8bVGkO+nlV/RYZQMbq1NGEw0B0Kjq9QCQCJrzszs23z5iSVzhDPE
+         d1tg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1692044981; x=1692649781;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=WZS9k4hytgqpdauCxiUcsVRcbK/dI1ReGuOryfTEBiQ=;
-        b=B3Q4JX76+TrneAEIukNDSVcW/Rv/N8+qdA+JXXBKuPbXrWl1SPObUwVQkpR5uTG5o2
-         DVnnJxA95pA6zY04/LbeHMgby+kzlExEf8cWkoSUhWIp/ZYHvJrEEmvFM5fZQqHjKLhq
-         wWNqP0vfHESVMUmi4DwCce4zpU7dhzwfSNzo2+/4TvsUJFOEXoNrvq33NHhx/e1cE8j6
-         g5J0GkBcYPvLRmBRonjIDrJC/UA2n9KvbAISgpUqbWl4lJ8L9SUJVsBGR5k4DL9FhzFM
-         22em0cLxDqdkoRVNCNSOoCwmn9MsyTXndN2aZ7wTThGgZXjyW3d4N3b1XNx3jRMVkrLn
-         LRiw==
-X-Gm-Message-State: AOJu0YzNGazjEp5Niv4F6xiqGor+Ip1cJXt4sAGnKaRbYOC8P9v1y4pX
-	Xr1vPyyO2TAEAOjKby/mU8o=
-X-Google-Smtp-Source: AGHT+IHQ7bdRxGxrq2fuUzX2MdpRR3MB+8ItcJVxiqiOb/Bhlr4j/+phIulI07DH0brzvBPdxURdIA==
-X-Received: by 2002:a05:600c:253:b0:3fe:1d13:4664 with SMTP id 19-20020a05600c025300b003fe1d134664mr9172860wmj.6.1692044980914;
-        Mon, 14 Aug 2023 13:29:40 -0700 (PDT)
+        d=1e100.net; s=20221208; t=1692046717; x=1692651517;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=0A4A3WqLpjSmFP0W9YhFtOsFDHMwWhpbQHtyJDhofZQ=;
+        b=Wlf07x/UrdVZ9ptl1xwB4DwTTJ7txvM98NJUty3CjJ+Uie4nq8jVtQHt+WjTc/W6qY
+         Fj0CkpfPuiwO6/3y2ykK8UtX1r49jF25icvT3DeT8XognCRBiSOryUw2TALHmv3RF2vN
+         vCzoxA0flBrLBQ8KVBcIpdUU+ksB05GP+g6UlOha+nILD1wP/au1jyrWF2F9e/Nc6Ry9
+         3ZxFR9gn6cVMYT2j9ITnTQ0A1PReQQOPfXrmxX9f0yDgoTCswA4I+tkxFLIcWrm9xWCM
+         6e41Ji6DdoSjE+1fzkDQqs5fPfO8X89IHEchPJ+iIO9ZS0HJ+UCZo3eC0czlC/z4GsZu
+         CqIQ==
+X-Gm-Message-State: AOJu0Ywr3tKggQZDGiGErKcML4JyJK7uvM03uQY4FzqA5cX7PBV6YREb
+	tXpdz+iGls7RwzwlqS5fHk4=
+X-Google-Smtp-Source: AGHT+IE5mW1TReGZDvV5xY+VNTlXFWfRsj3NGnJl/RV4Rww2zHvRyKicT3U3leN6QxQAzTyATGEOfg==
+X-Received: by 2002:a05:6000:511:b0:317:648c:3895 with SMTP id a17-20020a056000051100b00317648c3895mr7387352wrf.33.1692046717355;
+        Mon, 14 Aug 2023 13:58:37 -0700 (PDT)
 Received: from prasmi.home ([2a00:23c8:2501:c701:20e9:baea:a4f7:d880])
-        by smtp.gmail.com with ESMTPSA id 8-20020a05600c024800b003fd2d33ea53sm15181223wmj.14.2023.08.14.13.29.40
+        by smtp.gmail.com with ESMTPSA id h5-20020adffa85000000b003197efd1e7bsm2161806wrr.114.2023.08.14.13.58.36
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 14 Aug 2023 13:29:40 -0700 (PDT)
+        Mon, 14 Aug 2023 13:58:36 -0700 (PDT)
 From: Prabhakar <prabhakar.csengg@gmail.com>
 X-Google-Original-From: Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 To: Arnd Bergmann <arnd@arndb.de>,
-	Christoph Hellwig <hch@lst.de>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Guo Ren <guoren@kernel.org>,
+	Andrew Jones <ajones@ventanamicro.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Anup Patel <apatel@ventanamicro.com>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Jisheng Zhang <jszhang@kernel.org>,
-	linux-kernel@vger.kernel.org
-Cc: Geert Uytterhoeven <geert+renesas@glider.be>,
 	Samuel Holland <samuel@sholland.org>,
 	linux-riscv@lists.infradead.org,
+	Christoph Hellwig <hch@infradead.org>
+Cc: Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
 	linux-renesas-soc@vger.kernel.org,
+	Prabhakar <prabhakar.csengg@gmail.com>,
+	Biju Das <biju.das.jz@bp.renesas.com>,
 	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Subject: [(subset) PATCH v2 3/3] riscv: dma-mapping: replace custom code with generic implementation
-Date: Mon, 14 Aug 2023 21:28:21 +0100
-Message-Id: <20230814202821.78120-4-prabhakar.mahadev-lad.rj@bp.renesas.com>
+Subject: [PATCH v11 0/6] Add non-coherent DMA support for AX45MP
+Date: Mon, 14 Aug 2023 21:57:13 +0100
+Message-Id: <20230814205719.79647-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20230814202821.78120-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
-References: <20230814202821.78120-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230814_132944_328523_37C50DF3 
-X-CRM114-Status: GOOD (  29.02  )
+X-CRM114-CacheID: sfid-20230814_135840_462430_69C56BEB 
+X-CRM114-Status: GOOD (  23.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,244 +106,188 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Arnd Bergmann <arnd@arndb.de>
+From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 
-Now that all of these have consistent behavior, replace them with
-a single shared implementation of arch_sync_dma_for_device() and
-arch_sync_dma_for_cpu() and three parameters to pick how they should
-operate:
+Hi All,
 
- - If the CPU has speculative prefetching, then the cache
-   has to be invalidated after a transfer from the device.
-   On the rarer CPUs without prefetching, this can be skipped,
-   with all cache management happening before the transfer.
-   This flag can be runtime detected, but is usually fixed
-   per architecture.
+non-coherent DMA support for AX45MP
+====================================
 
- - Some architectures currently clean the caches before DMA
-   from a device, while others invalidate it. There has not
-   been a conclusion regarding whether we should change all
-   architectures to use clean instead, so this adds an
-   architecture specific flag that we can change later on.
+On the Andes AX45MP core, cache coherency is a specification option so it
+may not be supported. In this case DMA will fail. To get around with this
+issue this patch series does the below:
 
-For the function naming, I picked 'wback' over 'clean', and 'wback_inv'
-over 'flush', to avoid any ambiguity of what the helper functions are
-supposed to do.
+1] Andes alternative ports is implemented as errata which checks if the
+IOCP is missing and only then applies to CMO errata. One vendor specific
+SBI EXT (ANDES_SBI_EXT_IOCP_SW_WORKAROUND) is implemented as part of
+errata.
 
-Moving the global functions into a header file is usually a bad idea
-as it prevents the header from being included more than once, but it
-helps keep the behavior as close as possible to the previous state,
-including the possibility of inlining most of it into these functions
-where that was done before. This also helps keep the global namespace
-clean, by hiding the new arch_dma_cache{_wback,_inv,_wback_inv} from
-device drivers that might use them incorrectly.
+Below are the configs which Andes port provides (and are selected by
+RZ/Five):
+      - ERRATA_ANDES
+      - ERRATA_ANDES_CMO
 
-Signed-off-by: Arnd Bergmann <arnd@arndb.de>
-Reviewed-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Tested-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-[PL: Dropped other archs, updated commit message and fixed checkpatch issues]
-Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
----
-v1->v2
-* Updated commit message
-* Fixed checkpatch issues
-* Dropped other archs
----
- arch/riscv/mm/dma-noncoherent.c |  50 +++++++-------
- include/linux/dma-sync.h        | 113 ++++++++++++++++++++++++++++++++
- 2 files changed, 136 insertions(+), 27 deletions(-)
- create mode 100644 include/linux/dma-sync.h
+OpenSBI patch supporting ANDES_SBI_EXT_IOCP_SW_WORKAROUND SBI is now
+part v1.3 release.
 
-diff --git a/arch/riscv/mm/dma-noncoherent.c b/arch/riscv/mm/dma-noncoherent.c
-index fc6377a64c8d..b6a1e9cc9339 100644
---- a/arch/riscv/mm/dma-noncoherent.c
-+++ b/arch/riscv/mm/dma-noncoherent.c
-@@ -12,43 +12,39 @@
- 
- static bool noncoherent_supported __ro_after_init;
- 
--void arch_sync_dma_for_device(phys_addr_t paddr, size_t size,
--			      enum dma_data_direction dir)
-+static inline void arch_dma_cache_wback(phys_addr_t paddr, size_t size)
- {
- 	void *vaddr = phys_to_virt(paddr);
- 
--	switch (dir) {
--	case DMA_TO_DEVICE:
--		ALT_CMO_OP(clean, vaddr, size, riscv_cbom_block_size);
--		break;
--	case DMA_FROM_DEVICE:
--		ALT_CMO_OP(clean, vaddr, size, riscv_cbom_block_size);
--		break;
--	case DMA_BIDIRECTIONAL:
--		ALT_CMO_OP(clean, vaddr, size, riscv_cbom_block_size);
--		break;
--	default:
--		break;
--	}
-+	ALT_CMO_OP(clean, vaddr, size, riscv_cbom_block_size);
- }
- 
--void arch_sync_dma_for_cpu(phys_addr_t paddr, size_t size,
--			   enum dma_data_direction dir)
-+static inline void arch_dma_cache_inv(phys_addr_t paddr, size_t size)
- {
- 	void *vaddr = phys_to_virt(paddr);
- 
--	switch (dir) {
--	case DMA_TO_DEVICE:
--		break;
--	case DMA_FROM_DEVICE:
--	case DMA_BIDIRECTIONAL:
--		ALT_CMO_OP(inval, vaddr, size, riscv_cbom_block_size);
--		break;
--	default:
--		break;
--	}
-+	ALT_CMO_OP(inval, vaddr, size, riscv_cbom_block_size);
- }
- 
-+static inline void arch_dma_cache_wback_inv(phys_addr_t paddr, size_t size)
-+{
-+	void *vaddr = phys_to_virt(paddr);
-+
-+	ALT_CMO_OP(flush, vaddr, size, riscv_cbom_block_size);
-+}
-+
-+static inline bool arch_sync_dma_clean_before_fromdevice(void)
-+{
-+	return true;
-+}
-+
-+static inline bool arch_sync_dma_cpu_needs_post_dma_flush(void)
-+{
-+	return true;
-+}
-+
-+#include <linux/dma-sync.h>
-+
- void arch_dma_prep_coherent(struct page *page, size_t size)
- {
- 	void *flush_addr = page_address(page);
-diff --git a/include/linux/dma-sync.h b/include/linux/dma-sync.h
-new file mode 100644
-index 000000000000..be23e8dda2e2
---- /dev/null
-+++ b/include/linux/dma-sync.h
-@@ -0,0 +1,113 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+
-+/*
-+ * Cache operations depending on function and direction argument, inspired by
-+ * https://lore.kernel.org/lkml/20180518175004.GF17671@n2100.armlinux.org.uk
-+ * "dma_sync_*_for_cpu and direction=TO_DEVICE (was Re: [PATCH 02/20]
-+ * dma-mapping: provide a generic dma-noncoherent implementation)"
-+ *
-+ *          |   map          ==  for_device     |   unmap     ==  for_cpu
-+ *          |----------------------------------------------------------------
-+ * TO_DEV   |   writeback        writeback      |   none          none
-+ * FROM_DEV |   invalidate       invalidate     |   invalidate*   invalidate*
-+ * BIDIR    |   writeback        writeback      |   invalidate    invalidate
-+ *
-+ *     [*] needed for CPU speculative prefetches
-+ *
-+ * NOTE: we don't check the validity of direction argument as it is done in
-+ * upper layer functions (in include/linux/dma-mapping.h)
-+ *
-+ * This file can be included by arch/.../kernel/dma-noncoherent.c to provide
-+ * the respective high-level operations without having to expose the
-+ * cache management ops to drivers.
-+ */
-+
-+#ifndef __DMA_SYNC_H__
-+#define __DMA_SYNC_H__
-+
-+void arch_sync_dma_for_device(phys_addr_t paddr, size_t size,
-+			      enum dma_data_direction dir)
-+{
-+	switch (dir) {
-+	case DMA_TO_DEVICE:
-+		/*
-+		 * This may be an empty function on write-through caches,
-+		 * and it might invalidate the cache if an architecture has
-+		 * a write-back cache but no way to write it back without
-+		 * invalidating
-+		 */
-+		arch_dma_cache_wback(paddr, size);
-+		break;
-+
-+	case DMA_FROM_DEVICE:
-+		/*
-+		 * FIXME: this should be handled the same across all
-+		 * architectures, see
-+		 * https://lore.kernel.org/all/20220606152150.GA31568@willie-the-truck/
-+		 */
-+		if (!arch_sync_dma_clean_before_fromdevice()) {
-+			arch_dma_cache_inv(paddr, size);
-+			break;
-+		}
-+		fallthrough;
-+
-+	case DMA_BIDIRECTIONAL:
-+		/* Skip the invalidate here if it's done later */
-+		if (IS_ENABLED(CONFIG_ARCH_HAS_SYNC_DMA_FOR_CPU) &&
-+		    arch_sync_dma_cpu_needs_post_dma_flush())
-+			arch_dma_cache_wback(paddr, size);
-+		else
-+			arch_dma_cache_wback_inv(paddr, size);
-+		break;
-+
-+	default:
-+		break;
-+	}
-+}
-+
-+#ifdef CONFIG_ARCH_HAS_SYNC_DMA_FOR_CPU
-+/*
-+ * Mark the D-cache clean for these pages to avoid extra flushing.
-+ */
-+static void arch_dma_mark_dcache_clean(phys_addr_t paddr, size_t size)
-+{
-+#ifdef CONFIG_ARCH_DMA_MARK_DCACHE_CLEAN
-+	unsigned long pfn = PFN_UP(paddr);
-+	unsigned long off = paddr & (PAGE_SIZE - 1);
-+	size_t left = size;
-+
-+	if (off)
-+		left -= PAGE_SIZE - off;
-+
-+	while (left >= PAGE_SIZE) {
-+		struct page *page = pfn_to_page(pfn++);
-+
-+		set_bit(PG_dcache_clean, &page->flags);
-+		left -= PAGE_SIZE;
-+	}
-+#endif
-+}
-+
-+void arch_sync_dma_for_cpu(phys_addr_t paddr, size_t size,
-+			   enum dma_data_direction dir)
-+{
-+	switch (dir) {
-+	case DMA_TO_DEVICE:
-+		break;
-+
-+	case DMA_FROM_DEVICE:
-+	case DMA_BIDIRECTIONAL:
-+		/* FROM_DEVICE invalidate needed if speculative CPU prefetch only */
-+		if (arch_sync_dma_cpu_needs_post_dma_flush())
-+			arch_dma_cache_inv(paddr, size);
-+
-+		if (size > PAGE_SIZE)
-+			arch_dma_mark_dcache_clean(paddr, size);
-+		break;
-+
-+	default:
-+		break;
-+	}
-+}
-+#endif
-+#endif /* __DMA_SYNC_H__ */
+2] Andes AX45MP core has a Programmable Physical Memory Attributes (PMA)
+block that allows dynamic adjustment of memory attributes in the runtime.
+It contains a configurable amount of PMA entries implemented as CSR
+registers to control the attributes of memory locations in interest.
+OpenSBI configures the PMA regions as required and creates a reserve memory
+node and propagates it to the higher boot stack.
+
+Currently OpenSBI (upstream) configures the required PMA region and passes
+this a shared DMA pool to Linux.
+
+    reserved-memory {
+        #address-cells = <2>;
+        #size-cells = <2>;
+        ranges;
+
+        pma_resv0@58000000 {
+            compatible = "shared-dma-pool";
+            reg = <0x0 0x58000000 0x0 0x08000000>;
+            no-map;
+            linux,dma-default;
+        };
+    };
+
+The above shared DMA pool gets appended to Linux DTB so the DMA memory
+requests go through this region.
+
+3] We provide callbacks to synchronize specific content between memory and
+cache.
+
+4] RZ/Five SoC selects the below configs
+        - AX45MP_L2_CACHE
+        - DMA_GLOBAL_POOL
+        - ERRATA_ANDES
+        - ERRATA_ANDES_CMO
+
+----------x---------------------x--------------------x---------------x----
+
+Note,
+- Ive used GCC 12.2.0 for compilation
+- Tested all the IP blocks on RZ/Five which use DMA
+- Patch series is dependent on the series from Arnd,
+  https://patchwork.kernel.org/project/linux-riscv/cover/20230814202821.78120-1-prabhakar.mahadev-lad.rj@bp.renesas.com/.
+  (Ive rebased Arnd's series on v6.5-rc-5)
+- Patches applies on top of palmer/master (25aa0bebba72) +
+  palmer/for-next (174e8ac0272d5) + palmer/fixes (7e3811521dc39)
+- Ive pushed the complete tree here https://github.com/prabhakarlad/linux/tree/rzfive-cmo-v11
+
+v10 -> v11
+* Included RB/TB tags from Conor
+* Fixed review comments pointed by Geert to rename cache callbacks
+* Dropped preserving the cache lines in ax45mp_dma_cache_inv() callback
+
+v9 -> v10
+* Included RB/TB tags from Conor
+* Fixed review comments pointed by Geert to rename cache callbacks
+* Dropped preserving the cache lines in ax45mp_dma_cache_inv() callback
+
+v8 -> v9
+* Dropped adding ALTERNATIVE_3
+* Implemented function pointer support for nonstandard noncoherent systems
+* Added a new config option CONFIG_RISCV_NONSTANDARD_CACHE_OPS
+* Updated Andes errata code to drop patching the calls as we no more use
+  ALTERNATIVE_X() macro.
+* Updated Andes CMO code to use function pointer for doing cache management.
+
+v7 -> v8
+* Dropped using function pointers and switched to ALTERNATIVE_X()
+* Added new patches (#1, #2)
+
+v6 -> v7
+* Reworked the code based on Arnd's work
+* Fixed review comments pointed by Arnd
+* Fixed review comments pointed by Conor
+
+v5.1 -> v6
+* Dropped use of ALTERNATIVE_x() macro
+* Now switched to used function pointers for CMO
+* Moved driver to drivers/cache folder
+
+v5 -> v5.1
+* https://patchwork.kernel.org/project/linux-riscv/list/?series=708610&state=%2A&archive=both
+
+v4 -> v5
+* Rebased ALTERNATIVE_3() macro on top of Andrew's patches
+* Rebased the changes on top of Heiko's alternative call patches
+* Dropped configuring the PMA from Linux
+* Dropped configuring the L2 cache from Linux and dropped the binding for same
+* Now using runtime patching mechanism instead of compile time config
+
+RFC v3 -> v4
+* Implemented ALTERNATIVE_3() macro
+* Now using runtime patching mechanism instead of compile time config
+* Added Andes CMO as and errata
+* Fixed comments pointed by Geert
+
+RFC v2-> RFC v3
+* Fixed review comments pointed by Conor
+* Move DT binding into cache folder
+* Fixed DT binding check issue
+* Added andestech,ax45mp-cache.h header file
+* Now passing the flags for the PMA setup as part of andestech,pma-regions
+  property.
+* Added andestech,inst/data-prefetch and andestech,tag/data-ram-ctl
+  properties to configure the L2 cache.
+* Registered the cache driver as platform driver
+
+RFC v1-> RFC v2
+* Moved out the code from arc/riscv to drivers/soc/renesas
+* Now handling the PMA setup as part of the L2 cache
+* Now making use of dma-noncoherent.c instead SoC specific implementation.
+* Dropped arch_dma_alloc() and arch_dma_free()
+* Switched to RISCV_DMA_NONCOHERENT
+* Included DT binding doc
+
+RFC v2: https://patchwork.kernel.org/project/linux-renesas-soc/cover/20221003223222.448551-1-prabhakar.mahadev-lad.rj@bp.renesas.com/
+RFC v1: https://patchwork.kernel.org/project/linux-renesas-soc/cover/20220906102154.32526-1-prabhakar.mahadev-lad.rj@bp.renesas.com/
+
+Cheers,
+Prabhakar
+
+Lad Prabhakar (6):
+  riscv: asm: vendorid_list: Add Andes Technology to the vendors list
+  riscv: errata: Add Andes alternative ports
+  riscv: mm: dma-noncoherent: nonstandard cache operations support
+  dt-bindings: cache: andestech,ax45mp-cache: Add DT binding
+    documentation for L2 cache controller
+  cache: Add L2 cache management for Andes AX45MP RISC-V core
+  soc: renesas: Kconfig: Select the required configs for RZ/Five SoC
+
+ .../cache/andestech,ax45mp-cache.yaml         |  81 +++++++
+ MAINTAINERS                                   |   7 +
+ arch/riscv/Kconfig                            |   7 +
+ arch/riscv/Kconfig.errata                     |  21 ++
+ arch/riscv/errata/Makefile                    |   1 +
+ arch/riscv/errata/andes/Makefile              |   1 +
+ arch/riscv/errata/andes/errata.c              |  66 ++++++
+ arch/riscv/include/asm/alternative.h          |   3 +
+ arch/riscv/include/asm/dma-noncoherent.h      |  28 +++
+ arch/riscv/include/asm/errata_list.h          |   5 +
+ arch/riscv/include/asm/vendorid_list.h        |   1 +
+ arch/riscv/kernel/alternative.c               |   5 +
+ arch/riscv/mm/dma-noncoherent.c               |  43 ++++
+ arch/riscv/mm/pmem.c                          |  13 ++
+ drivers/Kconfig                               |   2 +
+ drivers/Makefile                              |   1 +
+ drivers/cache/Kconfig                         |  11 +
+ drivers/cache/Makefile                        |   3 +
+ drivers/cache/ax45mp_cache.c                  | 213 ++++++++++++++++++
+ drivers/soc/renesas/Kconfig                   |   4 +
+ 20 files changed, 516 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/cache/andestech,ax45mp-cache.yaml
+ create mode 100644 arch/riscv/errata/andes/Makefile
+ create mode 100644 arch/riscv/errata/andes/errata.c
+ create mode 100644 arch/riscv/include/asm/dma-noncoherent.h
+ create mode 100644 drivers/cache/Kconfig
+ create mode 100644 drivers/cache/Makefile
+ create mode 100644 drivers/cache/ax45mp_cache.c
+
 -- 
 2.34.1
 
