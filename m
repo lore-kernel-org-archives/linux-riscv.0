@@ -4,68 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23006C0015E
-	for <linux-riscv@archiver.kernel.org>; Tue, 15 Aug 2023 22:05:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51789C001B0
+	for <linux-riscv@archiver.kernel.org>; Tue, 15 Aug 2023 22:30:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=npEtPMnb6fuexOMH0C45Dyb+7RCBxNKv3VxCtFh0aRw=; b=G/SU+dVhO0k9CI
-	VA9wWRgde08d2Wc6l+ttmLLbzBCJdjOqv7TQ5KxQU1zJQKBhUnrjg8RPESHvhi76TQoR0qMubdcJH
-	Zi21cDZoRjhQ9GmOEIUxfutMrKHTE4q4nVVXcHoW4wQBSnITMp7oFaZa8M4y4QKI3E7Up4UmSwc6R
-	Mk+DoqG4SmOzSnYO+UzkM5JNiIk9jDzbt1TAPr2XOl/Lz2VsldyG4FJ+U6K0hoPu3h5k2356Sbcmq
-	TBhHyQ88oHticXco8XP9pWVHlv9XCOI6i5IjOtbHU5oKl0+S2h0a97ZU070J4wKSGYkO0NJbKZJzZ
-	23LVOWQsF8dWh+hn1dLQ==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
+	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=qq/PoUZkPxaECID9z4R8/UDrphHN6nu2DRvsISsBcuw=; b=lqGZjBD83x2bbU3HZBzOKZIMBw
+	gEQOljLGaVksiZ+i3tK0W44qIMeoOv6b2uRO0oJxprP72dXeB1UsA6TtMxW/eJx76YzgW0CbQk65y
+	eEvKfzGzM7SqXBM932nECD7XlOkDNiA7JDvtffdT7dskilmzA8AipjbdkIOUesJ3Dg9G/DKPmOygp
+	5YbIa2nU9DMHc1bU4ykisRfUJfutwvIbpY1HyHPQShzPCvMjj3I/1KUqCGjRAAFfmJePobXy8RVLG
+	oTvPEYJwTArwDowbbEX+31nwkae5/kWAcrLQTPZ4m/7z4m3mQCAPNQADFVaZRQV8U+3yVijqzz+m5
+	AFGESVow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qW2AZ-002fwU-27;
-	Tue, 15 Aug 2023 22:05:43 +0000
-Received: from mail.loongson.cn ([114.242.206.163])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qW2AU-002fsd-0d
+	id 1qW2YJ-002iku-1I;
+	Tue, 15 Aug 2023 22:30:15 +0000
+Received: from mail-yb1-xb49.google.com ([2607:f8b0:4864:20::b49])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1qW2YG-002ij5-2T
 	for linux-riscv@lists.infradead.org;
-	Tue, 15 Aug 2023 22:05:41 +0000
-Received: from loongson.cn (unknown [10.20.42.43])
-	by gateway (Coremail) with SMTP id _____8CxNvGp9ttkfeUYAA--.51256S3;
-	Wed, 16 Aug 2023 06:05:29 +0800 (CST)
-Received: from openarena.loongson.cn (unknown [10.20.42.43])
-	by localhost.localdomain (Coremail) with SMTP id AQAAf8DxJ82n9ttk23JbAA--.26360S2;
-	Wed, 16 Aug 2023 06:05:27 +0800 (CST)
-From: Sui Jingfeng <suijingfeng@loongson.cn>
-To: Bjorn Helgaas <bhelgaas@google.com>
-Cc: linux-pci@vger.kernel.org,
-	dri-devel@lists.freedesktop.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	loongson-kernel@lists.loongnix.cn
-Subject: [PATCH v4] PCI/VGA: Make the vga_is_firmware_default() less arch-dependent
-Date: Wed, 16 Aug 2023 06:05:27 +0800
-Message-Id: <20230815220527.1316537-1-suijingfeng@loongson.cn>
-X-Mailer: git-send-email 2.34.1
-MIME-Version: 1.0
-X-CM-TRANSID: AQAAf8DxJ82n9ttk23JbAA--.26360S2
-X-CM-SenderInfo: xvxlyxpqjiv03j6o00pqjv00gofq/
-X-Coremail-Antispam: 1Uk129KBj9fXoW3uw4DCw13Xw15Jw4fKw4ftFc_yoW8XFW8Wo
-	WDGrsrZrW8Gr4Uuw4rA342qF47Xay3KFsakF1UCw4DGFs7Aw4UGr4av3WxX39xZF10y34U
-	Zw12kFn8Ww1Dtrn3l-sFpf9Il3svdjkaLaAFLSUrUUUUUb8apTn2vfkv8UJUUUU8wcxFpf
-	9Il3svdxBIdaVrn0xqx4xG64xvF2IEw4CE5I8CrVC2j2Jv73VFW2AGmfu7bjvjm3AaLaJ3
-	UjIYCTnIWjp_UUU5R7kC6x804xWl14x267AKxVWUJVW8JwAFc2x0x2IEx4CE42xK8VAvwI
-	8IcIk0rVWrJVCq3wAFIxvE14AKwVWUGVWUXwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xG
-	Y2AK021l84ACjcxK6xIIjxv20xvE14v26r1j6r1xM28EF7xvwVC0I7IYx2IY6xkF7I0E14
-	v26r1j6r4UM28EF7xvwVC2z280aVAFwI0_Jr0_Gr1l84ACjcxK6I8E87Iv6xkF7I0E14v2
-	6r1j6r4UM2AIxVAIcxkEcVAq07x20xvEncxIr21l57IF6xkI12xvs2x26I8E6xACxx1l5I
-	8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AK
-	xVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41l42xK82IYc2Ij64
-	vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8G
-	jcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r126r1DMIIYrxkI7VAKI48JMIIF0xvE2I
-	x0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r1j6r4UMIIF0xvE42xK
-	8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I
-	0E14v26r1j6r4UYxBIdaVFxhVjvjDU0xZFpf9x07j8yCJUUUUU=
+	Tue, 15 Aug 2023 22:30:14 +0000
+Received: by mail-yb1-xb49.google.com with SMTP id 3f1490d57ef6-d62858b0914so12148287276.1
+        for <linux-riscv@lists.infradead.org>; Tue, 15 Aug 2023 15:30:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20221208; t=1692138610; x=1692743410;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=1sZ2KVcNcsekfiyOLDchFCWiNwVhcB+6K151wSFXsRU=;
+        b=Sdk8hg1CZo0UZyPRUXVdkK75UBWBJbL5ssV4qfSNcJ0yLv5eoBjQS4ikTylrgvjRg5
+         fAMh6d0O8KCRFHTNCYjLyKwda9Worh9IOHwLdjyjr43jpwYw1T/I0j2MIMowNRlDO5I8
+         seJUbGeGRi1534R52LzEYYDDd5ijl0Ycakp7SKP7ACJxBKwO5q+1sd6EI3OyWGK24CgX
+         jnL6doBdY30gIbx8RPMUELSJ79bpzsOBy12TJfrWjd52P0gtLnjQyB6B7osJCqozOqtW
+         mlUSNNG5Lq0KPPvS7OkMRg41GasfSw3x8Ne19ql/oMstCF4KKqyTw1HO8U30XcK6asyE
+         9NgQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1692138610; x=1692743410;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=1sZ2KVcNcsekfiyOLDchFCWiNwVhcB+6K151wSFXsRU=;
+        b=fG2N5ek62VoLNN/zLaRO4yBWdQySJ6EJw7IMcH6L4thUIqvf9RdNpku5HMxLbbMCq9
+         4tBczj1YiTc5MVeXawpi0n7NZjPBOzqPFcoVaO2NA7qz/uU1FpfTDUAX2C1ecrfeQN2/
+         GWBDnXwLj1MPMZ41GhYLkEyxGB0HXj1nEFJTeZjaDiIfEWg2X4NQbEaguZBN5VINkZXq
+         XiH0Pwq5MP9o9qu+w3Xcg1CCQoFfrzoNZUN6oEUvaJZY10wftSXRj0hJBzuo6LjqyBGj
+         M/QMnKaqBYi5MlnsnxzW7Wf15h5lHmfq/yFSxLGEVPlNHSDm/xuLaxvanc2Uz3RUO0DF
+         3Wbg==
+X-Gm-Message-State: AOJu0YykfP36ZK9/w6JyxA/Wv29J7SsCdL+5Fh/xSkTnkVh9AgIpfpsS
+	g3u2r6EQOrVaWN8+RV47qMLnTstcjcc=
+X-Google-Smtp-Source: AGHT+IG84S1z3EOk6278E7swEnxMzcYiiiMN3uMBAf/Zzr7Ij9WLl4fIHdZlEc+ZYkT7nZQXafm39o4AAu0=
+X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
+ (user=seanjc job=sendgmr) by 2002:a25:24cc:0:b0:d10:a33d:36b6 with SMTP id
+ k195-20020a2524cc000000b00d10a33d36b6mr55769ybk.0.1692138610358; Tue, 15 Aug
+ 2023 15:30:10 -0700 (PDT)
+Date: Tue, 15 Aug 2023 15:30:08 -0700
+In-Reply-To: <20230811045127.3308641-6-rananta@google.com>
+Mime-Version: 1.0
+References: <20230811045127.3308641-1-rananta@google.com> <20230811045127.3308641-6-rananta@google.com>
+Message-ID: <ZNv8cCzI9fMWkGWT@google.com>
+Subject: Re: [PATCH v9 05/14] KVM: Allow range-based TLB invalidation from
+ common code
+From: Sean Christopherson <seanjc@google.com>
+To: Raghavendra Rao Ananta <rananta@google.com>
+Cc: Oliver Upton <oliver.upton@linux.dev>, Marc Zyngier <maz@kernel.org>, 
+	James Morse <james.morse@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Paolo Bonzini <pbonzini@redhat.com>, Huacai Chen <chenhuacai@kernel.org>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Anup Patel <anup@brainfault.org>, 
+	Atish Patra <atishp@atishpatra.org>, Jing Zhang <jingzhangos@google.com>, 
+	Reiji Watanabe <reijiw@google.com>, Colton Lewis <coltonlewis@google.com>, 
+	David Matlack <dmatlack@google.com>, Fuad Tabba <tabba@google.com>, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-mips@vger.kernel.org, kvm-riscv@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	kvm@vger.kernel.org, Gavin Shan <gshan@redhat.com>, Shaoqin Huang <shahuang@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230815_150538_566675_5950F80B 
-X-CRM114-Status: GOOD (  17.62  )
+X-CRM114-CacheID: sfid-20230815_153012_834235_8CD3C0D8 
+X-CRM114-Status: GOOD (  11.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,348 +98,68 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Currently, the vga_is_firmware_default() function only works on x86 and
-ia64, it is a no-op on ARM, ARM64, PPC, RISC-V, etc. This patch completes
-the implementation for the rest of the architectures. The added code tries
-to identify the PCI(e) VGA device that owns the firmware framebuffer
-before PCI resource reallocation happens.
+On Fri, Aug 11, 2023, Raghavendra Rao Ananta wrote:
+> diff --git a/arch/x86/kvm/mmu/mmu.c b/arch/x86/kvm/mmu/mmu.c
+> index ec169f5c7dce2..00f7bda9202f2 100644
+> --- a/arch/x86/kvm/mmu/mmu.c
+> +++ b/arch/x86/kvm/mmu/mmu.c
+> @@ -278,16 +278,14 @@ static inline bool kvm_available_flush_remote_tlbs_range(void)
+>  	return kvm_x86_ops.flush_remote_tlbs_range;
+>  }
+>  
+> -void kvm_flush_remote_tlbs_range(struct kvm *kvm, gfn_t start_gfn,
+> -				 gfn_t nr_pages)
+> +int kvm_arch_flush_remote_tlbs_range(struct kvm *kvm, gfn_t gfn, u64 nr_pages)
+>  {
+>  	int ret = -EOPNOTSUPP;
+>  
+>  	if (kvm_x86_ops.flush_remote_tlbs_range)
+> -		ret = static_call(kvm_x86_flush_remote_tlbs_range)(kvm, start_gfn,
+> -								   nr_pages);
+> -	if (ret)
+> -		kvm_flush_remote_tlbs(kvm);
+> +		ret = static_call(kvm_x86_flush_remote_tlbs_range)(kvm, gfn, nr_pages);
+> +
+> +	return ret;
 
-This patch makes the vga_is_firmware_default() function works on whatever
-arch that has UEFI GOP support. But we make it available only on platforms
-where PCI resource relocation happens. if the provided method proves to be
-effective and reliable, it can be expanded to other arch easily.
+Please write this as
 
-v2:
-	* Fix test robot warnnings and fix typos
+	if (kvm_x86_ops.flush_remote_tlbs_range)
+		return static_call(kvm_x86_flush_remote_tlbs_range)(kvm, gfn, nr_pages);
 
-v3:
-	* Fix linkage problems if the global screen_info is not exported
+	return -EOPNOTSUPP;
 
-v4:
-	* Handle linkage problems by hiding behind of CONFIG_SYSFB,
-	* Drop side-effects and simplify.
+or alternatively
 
-Since only one GPU could owns the firmware fb in normal case, things
-are almost done once we determine the boot VGA selected by firmware.
-By using the DECLARE_PCI_FIXUP_CLASS_HEADER(), we also ensure that we
-could identify the primary display (if there do have one) before PCI
-resource reallocation happen.
+	if (!kvm_x86_ops.flush_remote_tlbs_range)
+		return -EOPNOTSUPP;
 
-The method provided in this patch will be effective as long as the target
-platform has a way set up the kernel's screen_info. For the machines with
-UEFI firmware, the screen_info is typically set up by the UEFI stub with
-respect to the UEFI GOP protocol. Since the UEFI stub executes in the
-context of the decompressor, and it cannot access the kernel's screen_info
-directly. Hence, the efi stub copies the screen_info provided by firmware
-to kernel's counterpart. Therefore, we handle linkage problems by using
-the CONFIG_EFI guard. Since when CONFIG_EFI is set, the kernel's
-screen_info is guaranteed to be static linkable for arm, arm64, riscv.
-V4 of this patch handle linkage problems by hiding behind of CONFIG_SYSFB,
-since sysfb reference the global screen_info as well.
+	return static_call(kvm_x86_flush_remote_tlbs_range)(kvm, gfn, nr_pages);
 
-This patch is tested on:
+Hmm, I'll throw my official vote for the second version.
 
-1) LS3A5000+LS7A1000 platform with three video cards
+The local "ret" is unnecessary and is suprisingly dangerous.  I screwed up the
+conflict resolution when cherry-picking my CONFIG_HYPERV change to see what the
+conflict looked like and ended up with a double flush:
 
-$ lspci | grep VGA
+	int ret = -EOPNOTSUPP;
 
- 00:06.1 VGA compatible controller: Loongson Technology LLC DC (Display Controller) (rev 01)
- 03:00.0 VGA compatible controller: Advanced Micro Devices, Inc. [AMD/ATI] Caicos XT [Radeon HD 7470/8470 / R5 235/310 OEM]
- 07:00.0 VGA compatible controller: S3 Graphics Ltd. Device 9070 (rev 01)
- 08:00.0 VGA compatible controller: S3 Graphics Ltd. Device 9070 (rev 01)
+	if (kvm_x86_ops.flush_remote_tlbs_range)
+		ret = static_call(kvm_x86_flush_remote_tlbs_range)(kvm, gfn, nr_pages);
 
-Before apply this patch:
+	if (ret)
+		kvm_flush_remote_tlbs(kvm);
 
-[    0.361748] pci 0000:00:06.1: vgaarb: setting as boot VGA device
-[    0.361751] pci 0000:00:06.1: vgaarb: bridge control possible
-[    0.361753] pci 0000:00:06.1: vgaarb: VGA device added: decodes=io+mem,owns=io+mem,locks=none
-[    0.361763] pci 0000:03:00.0: vgaarb: bridge control possible
-[    0.361765] pci 0000:03:00.0: vgaarb: VGA device added: decodes=io+mem,owns=none,locks=none
-[    0.361771] pci 0000:07:00.0: vgaarb: bridge control possible
-[    0.361773] pci 0000:07:00.0: vgaarb: VGA device added: decodes=io+mem,owns=none,locks=none
-[    0.361777] pci 0000:08:00.0: vgaarb: bridge control possible
-[    0.361779] pci 0000:08:00.0: vgaarb: VGA device added: decodes=io+mem,owns=none,locks=none
-[    0.361781] vgaarb: loaded
-[    0.367838] pci 0000:00:06.1: Overriding boot device as 1002:6778
-[    0.367841] pci 0000:00:06.1: Overriding boot device as 5333:9070
-[    0.367843] pci 0000:00:06.1: Overriding boot device as 5333:9070
+	return ret;
 
-After apply this patch:
+Dropping "ret" makes it much harder to get trigger happy when resolving conflicts.
 
-[    0.357780] pci 0000:03:00.0: vgaarb: BAR 0 contains firmware FB
-[    0.361726] pci 0000:00:06.1: vgaarb: setting as boot VGA device
-[    0.361729] pci 0000:00:06.1: vgaarb: bridge control possible
-[    0.361731] pci 0000:00:06.1: vgaarb: VGA device added: decodes=io+mem,owns=io+mem,locks=none
-[    0.361741] pci 0000:03:00.0: vgaarb: setting as boot VGA device (overriding previous)
-[    0.361743] pci 0000:03:00.0: vgaarb: bridge control possible
-[    0.361745] pci 0000:03:00.0: vgaarb: VGA device added: decodes=io+mem,owns=none,locks=none
-[    0.361751] pci 0000:07:00.0: vgaarb: bridge control possible
-[    0.361753] pci 0000:07:00.0: vgaarb: VGA device added: decodes=io+mem,owns=none,locks=none
-[    0.361757] pci 0000:08:00.0: vgaarb: bridge control possible
-[    0.361759] pci 0000:08:00.0: vgaarb: VGA device added: decodes=io+mem,owns=none,locks=none
-[    0.361761] vgaarb: loaded
-[   14.730255] radeon 0000:03:00.0: vgaarb: changed VGA decodes: olddecodes=io+mem,decodes=none:owns=none
+No need for a new version to fix the above, assuming Marc/Oliver is ok doing
+fixup when applying.
 
-Please note that before apply this patch, vgaarb can not select the right
-boot vga due to weird logic introduced with the commit 57fc7323a8e7c ("LoongArch: Add PCI controller support")
+Nit aside, looks good for x86, and I know of no conflicts, so take 'er away!
 
-Please also note that VARM Bar do moves on LoongArch:
-
-$ dmesg | grep 0000:03:00.0
-
-[    0.357688] pci 0000:03:00.0: [1002:6778] type 00 class 0x030000
-[    0.357713] pci 0000:03:00.0: reg 0x10: [mem 0xe0050000000-0xe005fffffff 64bit pref]
-[    0.357730] pci 0000:03:00.0: reg 0x18: [mem 0xe0065300000-0xe006531ffff 64bit]
-[    0.357741] pci 0000:03:00.0: reg 0x20: [io  0x20000-0x200ff]
-[    0.357762] pci 0000:03:00.0: reg 0x30: [mem 0xfffe0000-0xffffffff pref]
-[    0.357780] pci 0000:03:00.0: vgaarb: BAR0 contains firmware FB
-
-[    0.359809] pci 0000:03:00.0: BAR 0: assigned [mem 0xe0030000000-0xe003fffffff 64bit pref]
-[    0.359821] pci 0000:03:00.0: BAR 2: assigned [mem 0xe0065200000-0xe006521ffff 64bit]
-[    0.359832] pci 0000:03:00.0: BAR 6: assigned [mem 0xe0065220000-0xe006523ffff pref]
-[    0.359846] pci 0000:03:00.0: BAR 4: assigned [io  0x5000-0x50ff]
-[    0.361741] pci 0000:03:00.0: vgaarb: setting as boot VGA device (overriding previous)
-[    0.361743] pci 0000:03:00.0: vgaarb: bridge control possible
-[    0.361745] pci 0000:03:00.0: vgaarb: VGA device added: decodes=io+mem,owns=none,locks=none
-
-2) LS3A5000+LS7A2000 platform with four video cards
-
-$ lspci | grep VGA
-
-00:06.1 VGA compatible controller: Loongson Technology LLC Device 7a36 (rev 02)
-01:00.0 VGA compatible controller: Silicon Motion, Inc. Device 0768 (rev 03)
-04:00.0 VGA compatible controller: Device 0709:0001 (rev 01)
-05:00.0 VGA compatible controller: Advanced Micro Devices, Inc. [AMD/ATI] Lexa PRO [Radeon 540/540X/550/550X / RX 540X/550/550X] (rev c7)
-
-Before apply this patch:
-
-[    0.359345] pci 0000:00:06.1: vgaarb: setting as boot VGA device
-[    0.359347] pci 0000:00:06.1: vgaarb: bridge control possible
-[    0.359349] pci 0000:00:06.1: vgaarb: VGA device added: decodes=io+mem,owns=io+mem,locks=none
-[    0.359358] pci 0000:01:00.0: vgaarb: bridge control possible
-[    0.359360] pci 0000:01:00.0: vgaarb: VGA device added: decodes=io+mem,owns=none,locks=none
-[    0.359364] pci 0000:04:00.0: vgaarb: bridge control possible
-[    0.359366] pci 0000:04:00.0: vgaarb: VGA device added: decodes=io+mem,owns=none,locks=none
-[    0.359369] pci 0000:05:00.0: vgaarb: bridge control possible
-[    0.359370] pci 0000:05:00.0: vgaarb: VGA device added: decodes=io+mem,owns=none,locks=none
-[    0.359373] vgaarb: loaded
-[    0.365852] pci 0000:00:06.1: Overriding boot device as 126F:768
-[    0.365855] pci 0000:00:06.1: Overriding boot device as 709:1
-[    0.365857] pci 0000:00:06.1: Overriding boot device as 1002:699F
-[   14.011380] amdgpu 0000:05:00.0: vgaarb: changed VGA decodes: olddecodes=io+mem,decodes=none:owns=none
-
-After apply this patch:
-
-[    0.357142] pci 0000:05:00.0: vgaarb: BAR 0 contains firmware FB
-[    0.359291] pci 0000:00:06.1: vgaarb: setting as boot VGA device
-[    0.359294] pci 0000:00:06.1: vgaarb: bridge control possible
-[    0.359296] pci 0000:00:06.1: vgaarb: VGA device added: decodes=io+mem,owns=io+mem,locks=none
-[    0.359305] pci 0000:01:00.0: vgaarb: bridge control possible
-[    0.359307] pci 0000:01:00.0: vgaarb: VGA device added: decodes=io+mem,owns=none,locks=none
-[    0.359311] pci 0000:04:00.0: vgaarb: bridge control possible
-[    0.359312] pci 0000:04:00.0: vgaarb: VGA device added: decodes=io+mem,owns=none,locks=none
-[    0.359316] pci 0000:05:00.0: vgaarb: setting as boot VGA device (overriding previous)
-[    0.359318] pci 0000:05:00.0: vgaarb: bridge control possible
-[    0.359319] pci 0000:05:00.0: vgaarb: VGA device added: decodes=io+mem,owns=none,locks=none
-[    0.359321] vgaarb: loaded
-[   14.399907] amdgpu 0000:05:00.0: vgaarb: changed VGA decodes: olddecodes=io+mem,decodes=none:owns=none
-
-Again, the VRAM Bar do moves:
-
-$ dmesg | grep 0000:05:00.0
-
-[    0.357076] pci 0000:05:00.0: [1002:699f] type 00 class 0x030000
-[    0.357093] pci 0000:05:00.0: reg 0x10: [mem 0xe0030000000-0xe003fffffff 64bit pref]
-[    0.357104] pci 0000:05:00.0: reg 0x18: [mem 0xe0040000000-0xe00401fffff 64bit pref]
-[    0.357112] pci 0000:05:00.0: reg 0x20: [io  0x40000-0x400ff]
-[    0.357120] pci 0000:05:00.0: reg 0x24: [mem 0xe0074300000-0xe007433ffff]
-[    0.357128] pci 0000:05:00.0: reg 0x30: [mem 0xfffe0000-0xffffffff pref]
-[    0.357142] pci 0000:05:00.0: vgaarb: BAR0 contains firmware FB
-[    0.357720] pci 0000:05:00.0: BAR 0: assigned [mem 0xe0060000000-0xe006fffffff 64bit pref]
-[    0.357728] pci 0000:05:00.0: BAR 2: assigned [mem 0xe0058000000-0xe00581fffff 64bit pref]
-[    0.357736] pci 0000:05:00.0: BAR 5: assigned [mem 0xe0072b00000-0xe0072b3ffff]
-[    0.357740] pci 0000:05:00.0: BAR 6: assigned [mem 0xe0072b40000-0xe0072b5ffff pref]
-[    0.357750] pci 0000:05:00.0: BAR 4: assigned [io  0x5000-0x50ff]
-[    0.359316] pci 0000:05:00.0: vgaarb: setting as boot VGA device (overriding previous)
-[    0.359318] pci 0000:05:00.0: vgaarb: bridge control possible
-[    0.359319] pci 0000:05:00.0: vgaarb: VGA device added: decodes=io+mem,owns=none,locks=none
-
-3) Mips (LS3A4000/LS7A1000 + SM750 + Radeon)
-
-Loongson Mips have no UEFI GOP support, we test this patch by modifying the
-screen_info manually.
-
-$ lspci | grep VGA
-
- 04:00.0 VGA compatible controller: Silicon Motion, Inc. SM750 (rev a1)
- 05:00.0 VGA compatible controller: Advanced Micro Devices, Inc. [AMD/ATI] Oland [Radeon HD 8570 / R7 240/340 OEM] (rev 87)
-
-$ dmesg | grep 04:00.0
-
- pci 0000:04:00.0: [126f:0750] type 00 class 0x030000
- pci 0000:04:00.0: reg 0x10: [mem 0x58000000-0x5bffffff pref]
- pci 0000:04:00.0: reg 0x14: [mem 0x5f000000-0x5f1fffff]
- pci 0000:04:00.0: reg 0x30: [mem 0xffff0000-0xffffffff pref]
- pci 0000:04:00.0: BAR 0: assigned [mem 0x50000000-0x53ffffff pref]
- pci 0000:04:00.0: BAR 1: assigned [mem 0x54000000-0x541fffff]
- pci 0000:04:00.0: BAR 6: assigned [mem 0x54200000-0x5420ffff pref]
-
-$ dmesg | grep 05:00.0
-
- pci 0000:05:00.0: [1002:6611] type 00 class 0x030000
- pci 0000:05:00.0: reg 0x10: [mem 0x40000000-0x4fffffff 64bit pref]
- pci 0000:05:00.0: reg 0x18: [mem 0x5f300000-0x5f33ffff 64bit]
- pci 0000:05:00.0: reg 0x20: [io  0x40000-0x400ff]
- pci 0000:05:00.0: reg 0x30: [mem 0xfffe0000-0xffffffff pref]
- pci 0000:05:00.0: BAR 0: assigned [mem 0x40000000-0x4fffffff 64bit pref]
- pci 0000:05:00.0: BAR 2: assigned [mem 0x5b300000-0x5b33ffff 64bit]
- pci 0000:05:00.0: BAR 6: assigned [mem 0x5b340000-0x5b35ffff pref]
- pci 0000:05:00.0: BAR 4: assigned [io  0x21000-0x210ff]
-
-Specify the firmware fb at BAR 0 of SM750 by hardcode:
-
-screen_info = (struct screen_info) {
-    .orig_video_isVGA = VIDEO_TYPE_EFI,
-    .lfb_base = 0x58000000,
-    .lfb_size = 1280 * 800 * 4 * 2,
-};
-
-$ dmesg | grep vgaarb
-
- vgaarb: loaded
- pci 0000:04:00.0: vgaarb: BAR 0 contains firmware FB
- pci 0000:04:00.0: vgaarb: setting as boot VGA device
- pci 0000:04:00.0: vgaarb: bridge control possible
- pci 0000:04:00.0: vgaarb: VGA device added: decodes=io+mem,owns=none,locks=none
- pci 0000:05:00.0: vgaarb: bridge control possible
- pci 0000:05:00.0: vgaarb: VGA device added: decodes=io+mem,owns=io+mem,locks=none
-
-Specify the firmware fb at BAR 0 of ATI GPU by hardcode:
-
-screen_info = (struct screen_info) {
-    .orig_video_isVGA = VIDEO_TYPE_EFI,
-    .lfb_base = 0x40000000,
-    .lfb_size = 1280 * 800 * 4 * 2,
-};
-
-$ dmesg | grep vgaarb
-
- vgaarb: loaded
- pci 0000:04:00.0: vgaarb: setting as boot VGA device
- pci 0000:04:00.0: vgaarb: bridge control possible
- pci 0000:04:00.0: vgaarb: VGA device added: decodes=io+mem,owns=none,locks=none
- pci 0000:05:00.0: vgaarb: BAR 0 contains firmware FB
- pci 0000:05:00.0: vgaarb: setting as boot VGA device (overriding previous)
- pci 0000:05:00.0: vgaarb: bridge control possible
- pci 0000:05:00.0: vgaarb: VGA device added: decodes=io+mem,owns=io+mem,locks=none
- radeon 0000:05:00.0: vgaarb: changed VGA decodes: olddecodes=io+mem,decodes=none:owns=io+mem
-
-Signed-off-by: Sui Jingfeng <suijingfeng@loongson.cn>
----
- drivers/pci/vgaarb.c | 76 +++++++++++++++++++++++++++++++++++++++++++-
- 1 file changed, 75 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/pci/vgaarb.c b/drivers/pci/vgaarb.c
-index 5a696078b382..7b6c3a772e91 100644
---- a/drivers/pci/vgaarb.c
-+++ b/drivers/pci/vgaarb.c
-@@ -60,7 +60,8 @@ static int vga_count, vga_decode_count;
- static bool vga_arbiter_used;
- static DEFINE_SPINLOCK(vga_lock);
- static DECLARE_WAIT_QUEUE_HEAD(vga_wait_queue);
--
-+/* The PCI(e) device who owns the firmware framebuffer */
-+static struct pci_dev *pdev_boot_vga;
- 
- static const char *vga_iostate_to_str(unsigned int iostate)
- {
-@@ -571,6 +572,9 @@ static bool vga_is_firmware_default(struct pci_dev *pdev)
- 
- 		return true;
- 	}
-+#else
-+	if (pdev_boot_vga && pdev_boot_vga == pdev)
-+		return true;
- #endif
- 	return false;
- }
-@@ -1555,3 +1559,73 @@ static int __init vga_arb_device_init(void)
- 	return rc;
- }
- subsys_initcall_sync(vga_arb_device_init);
-+
-+/*
-+ * Get the physical address range that the firmware framebuffer occupies.
-+ *
-+ * The global screen_info is arch-specific, CONFIG_SYSFB is chosen as
-+ * compile-time conditional to suppress linkage problems.
-+ */
-+static bool vga_arb_get_firmware_fb_range(resource_size_t *start,
-+					  resource_size_t *end)
-+{
-+	resource_size_t fb_start = 0;
-+	resource_size_t fb_size = 0;
-+	resource_size_t fb_end;
-+
-+#if defined(CONFIG_X86) || defined(CONFIG_IA64) || defined(CONFIG_SYSFB)
-+	fb_start = screen_info.lfb_base;
-+	if (screen_info.capabilities & VIDEO_CAPABILITY_64BIT_BASE)
-+		fb_start |= (u64)screen_info.ext_lfb_base << 32;
-+
-+	fb_size = screen_info.lfb_size;
-+#endif
-+
-+	/* No firmware framebuffer support */
-+	if (!fb_start || !fb_size)
-+		return false;
-+
-+	fb_end = fb_start + fb_size - 1;
-+
-+	*start = fb_start;
-+	*end = fb_end;
-+
-+	return true;
-+}
-+
-+/*
-+ * Identify the PCI VGA device that contains the firmware framebuffer
-+ */
-+static void pci_boot_vga_finder(struct pci_dev *pdev)
-+{
-+	resource_size_t fb_start;
-+	resource_size_t fb_end;
-+	unsigned int i;
-+
-+	/* Already found the pdev which has firmware framebuffer ownership */
-+	if (pdev_boot_vga)
-+		return;
-+
-+	if (!vga_arb_get_firmware_fb_range(&fb_start, &fb_end))
-+		return;
-+
-+	for (i = 0; i < PCI_STD_NUM_BARS; i++) {
-+		struct resource *res = &pdev->resource[i];
-+
-+		if (resource_type(res) != IORESOURCE_MEM)
-+			continue;
-+
-+		if (!res->start || !res->end)
-+			continue;
-+
-+		if (res->start <= fb_start && fb_end <= res->end) {
-+			pdev_boot_vga = pdev;
-+
-+			vgaarb_info(&pdev->dev,
-+				    "BAR %d contains firmware FB\n", i);
-+			break;
-+		}
-+	}
-+}
-+DECLARE_PCI_FIXUP_CLASS_HEADER(PCI_ANY_ID, PCI_ANY_ID, PCI_CLASS_DISPLAY_VGA,
-+			       8, pci_boot_vga_finder);
--- 
-2.34.1
-
+Acked-by: Sean Christopherson <seanjc@google.com>
 
 _______________________________________________
 linux-riscv mailing list
