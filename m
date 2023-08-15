@@ -4,84 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E4CBC001B0
-	for <linux-riscv@archiver.kernel.org>; Tue, 15 Aug 2023 22:31:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4810CC001B0
+	for <linux-riscv@archiver.kernel.org>; Tue, 15 Aug 2023 23:22:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
-	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=V0tfbTKE6JMNleFsbDXzQ6RsGt29xuUKLXrK27bULns=; b=xAaUaI0uQWLd1WVb5tD1G+ZUgM
-	eQCZCKdpzwRsn6DiatR1ay/wlyxoYyDz20Px3EVY5R7mFJEb0ATCbuO7N5II6zGdzY0M4VR782/pd
-	skA4QT+hsQsw6ogJU5dIsnYRmsgo/Rpjff6gArhtKrJOMTroae5nhtuMOytPtbbEgxwidJngC6PIr
-	8HhKnkcOeBZZmoFtLyMgzHdbzucCoXWIWKmDktWIX36P+ls99zMfSZNNi50Ii3PlAbEJWGra3W+wT
-	y70fRpCddmYOiAcNLvUQDocjPSjbPsqr/MMJwoPPFlq9wNSY+orfNvRCQK7iKg2vH9unDELHDdTbe
-	8sNMXi+g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ND544ck6o4L6FmpCnv4Eqb5nVqy2ceLOyHiPm3JfxVI=; b=QwdGuvrP1V1UT6DOeQRrTO5JWf
+	ooKjdxLRH0aaoK52EeiLfjskkBoc0fsvVSl0m6FPftPkKFehFBYvbyNYD48ieJOkV+HYG8+Nf8Tr3
+	mUJgEiHFzoeCBqvq1nO8ndxV0U17dO+JRLaD0JRG0weLKFcALLfZWKxxExUmkj7QtN2yBUcaaIbSQ
+	IrdDV8+wajvqZ/bgAreIO/BO/2rrszA5hJ1tupVWgcuBkUy57+C7mZkWThoG01hx7DAE/aD2fSwbb
+	P24ZaPgfUhlpQLwfgh65YSHCqn3chduBtyzijVD1CFQj8wLD8yIgOG6J8V3ttND2fpLIIrD2bQ33N
+	uusQhgYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qW2Zc-002jED-2R;
-	Tue, 15 Aug 2023 22:31:36 +0000
-Received: from mail-pg1-x54a.google.com ([2607:f8b0:4864:20::54a])
+	id 1qW3Ma-002nQp-2n;
+	Tue, 15 Aug 2023 23:22:12 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qW2ZZ-002jCE-10
-	for linux-riscv@lists.infradead.org;
-	Tue, 15 Aug 2023 22:31:34 +0000
-Received: by mail-pg1-x54a.google.com with SMTP id 41be03b00d2f7-565ece76be4so757676a12.2
-        for <linux-riscv@lists.infradead.org>; Tue, 15 Aug 2023 15:31:31 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20221208; t=1692138691; x=1692743491;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=c05rm68PGHctHfBOW0BB2Jo3SVzvE3TlPm3JKZSv5Mw=;
-        b=zSFF7IvUGxfd6gkBF8F4GxNIfCZDaje81HGokT4kVqC0KU5MBZZfnSNOssjA6mgPAN
-         cRsGYufjjTrofJ5vumrJHSKBn+aQkdbQm8SJ6Tg7pe3uSFLBt5uqtw3fpFPHIwqCLQwl
-         XcScAy71RtNQVglvUX71pW9VDOezt9WeMjdzJpB8j6xCtBMrW64e4RqjVsEAATOLSY+2
-         Kc0mkrDGoXj1Uxkmf3RdCa1iiwYYcPfTD1tlmgV7Y1a7fsQcwwVcxfXNnu1VMojtXQVU
-         cWzhmvK9BEtXIJT8SQyPj67km+M1Y0mj0c3KYu6zoMpRyt7aoFrrEFWzb2h44tTJG4MZ
-         Z3EQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1692138691; x=1692743491;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=c05rm68PGHctHfBOW0BB2Jo3SVzvE3TlPm3JKZSv5Mw=;
-        b=FrvtN1UmmHjISKo908kF1JRaZYs7R28rAbL9HgN3FQGvQ/zBvxQQAt64BtKwa70zIR
-         pl59+PKUn1Jsf+3USRO9bT/1cUinET+JXGyvqBFsELGOsJNW4qqfIe4Nny6R3/U/uzEn
-         Rrr8vwgXZy1sBBo1O/krKnyr22h23ubaRgDHZkHn9iDUz3ANeQ1qCqk/mPwSFnPYz+Rj
-         qEm8d8yJhuBn+KyT/BsijI73hgZ26hGN9MH9gGvBWt+gcWXXZoYTKRUhPgC/U2CWknUx
-         drxPALht/1cIf94yiPBLLNhVzMLi6R05APZ+OYYQhXt0vzmYj2uow7lRgtj9idG9h87m
-         oJYA==
-X-Gm-Message-State: AOJu0Ywu2AFZkgZUtr4T2IIND7Z8v6ltPBdMI8W9YL06wRZSrGAPxnYO
-	Y1fvfrTG/aIdokhT1gdh0AQjl69cnVM=
-X-Google-Smtp-Source: AGHT+IFdD7miISJ5FT27quR/P7x6Ii7fo9teB2QXXhYX+gchH8nb3ttm0pZzM2e0YrayRrW5/0n1JDm2xpA=
-X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
- (user=seanjc job=sendgmr) by 2002:a63:3e4c:0:b0:563:dced:3f35 with SMTP id
- l73-20020a633e4c000000b00563dced3f35mr36925pga.4.1692138691431; Tue, 15 Aug
- 2023 15:31:31 -0700 (PDT)
-Date: Tue, 15 Aug 2023 15:31:29 -0700
-In-Reply-To: <20230811045127.3308641-7-rananta@google.com>
-Mime-Version: 1.0
-References: <20230811045127.3308641-1-rananta@google.com> <20230811045127.3308641-7-rananta@google.com>
-Message-ID: <ZNv8weRKhSeLYWIc@google.com>
-Subject: Re: [PATCH v9 06/14] KVM: Move kvm_arch_flush_remote_tlbs_memslot()
- to common code
-From: Sean Christopherson <seanjc@google.com>
-To: Raghavendra Rao Ananta <rananta@google.com>
-Cc: Oliver Upton <oliver.upton@linux.dev>, Marc Zyngier <maz@kernel.org>, 
-	James Morse <james.morse@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Paolo Bonzini <pbonzini@redhat.com>, Huacai Chen <chenhuacai@kernel.org>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Anup Patel <anup@brainfault.org>, 
-	Atish Patra <atishp@atishpatra.org>, Jing Zhang <jingzhangos@google.com>, 
-	Reiji Watanabe <reijiw@google.com>, Colton Lewis <coltonlewis@google.com>, 
-	David Matlack <dmatlack@google.com>, Fuad Tabba <tabba@google.com>, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-mips@vger.kernel.org, kvm-riscv@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	kvm@vger.kernel.org, Gavin Shan <gshan@redhat.com>, Shaoqin Huang <shahuang@redhat.com>
+	id 1qW3MO-002nOg-0Z;
+	Tue, 15 Aug 2023 23:22:01 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id A9453618CD;
+	Tue, 15 Aug 2023 23:21:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 10725C433C7;
+	Tue, 15 Aug 2023 23:21:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1692141719;
+	bh=reNBqXvvCRZMEH5t3EgVMW5ozRlNJXzgVYKKybLu7+g=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=tgYMWvchg/ZUqerIoW+zuO2xrgHp1FjGhIDZf0F7H37BKlHJkiszeodbSFqj3PnGp
+	 f2uzSQKMyEbBKULD8jUYoWdw+ho2gUgqSPoCpiRRthF97i2hw0AwvOvxRHsnoMNSWD
+	 gttYLq9bj0BRRJjSljAXyHOfxgy/c0FWZkAugtCSLC0HoJVzRQ6itwmObiMg7S3MLp
+	 eLTfOBH3K1elFZpgkk9Fi0gRg+xjIRhvBg9Be+iT1N4YlVOZfGuGiWElQwXi9Y4FXf
+	 FmuAbbOC05PmLzx2GVJ9olOkny6MKI0EpIV4w8sjVE8FBzZs45FzNtmCLwuIp0+0j3
+	 XjZluhZGnyksA==
+Date: Wed, 16 Aug 2023 00:21:49 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	James Morse <james.morse@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Arnd Bergmann <arnd@arndb.de>, Oleg Nesterov <oleg@redhat.com>,
+	Eric Biederman <ebiederm@xmission.com>,
+	Kees Cook <keescook@chromium.org>, Shuah Khan <shuah@kernel.org>,
+	"Rick P. Edgecombe" <rick.p.edgecombe@intel.com>,
+	Deepak Gupta <debug@rivosinc.com>, Ard Biesheuvel <ardb@kernel.org>,
+	Szabolcs Nagy <Szabolcs.Nagy@arm.com>,
+	"H.J. Lu" <hjl.tools@gmail.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+	kvmarm@lists.linux.dev, linux-fsdevel@vger.kernel.org,
+	linux-arch@vger.kernel.org, linux-mm@kvack.org,
+	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v4 09/36] arm64/mm: Allocate PIE slots for EL0 guarded
+ control stack
+Message-ID: <74cb7458-cdf9-4e7d-972a-3dc81e92ec22@sirena.org.uk>
+References: <20230807-arm64-gcs-v4-0-68cfa37f9069@kernel.org>
+ <20230807-arm64-gcs-v4-9-68cfa37f9069@kernel.org>
+ <ZNZEUEqJuHrdEa/c@arm.com>
+MIME-Version: 1.0
+In-Reply-To: <ZNZEUEqJuHrdEa/c@arm.com>
+X-Cookie: Darth Vader sleeps with a Teddywookie.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230815_153133_348921_58598C67 
-X-CRM114-Status: GOOD (  14.02  )
+X-CRM114-CacheID: sfid-20230815_162200_316668_B4E8E283 
+X-CRM114-Status: GOOD (  20.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,40 +91,74 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============6530768468391111691=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 11, 2023, Raghavendra Rao Ananta wrote:
-> From: David Matlack <dmatlack@google.com>
-> 
-> Move kvm_arch_flush_remote_tlbs_memslot() to common code and drop
-> "arch_" from the name. kvm_arch_flush_remote_tlbs_memslot() is just a
-> range-based TLB invalidation where the range is defined by the memslot.
-> Now that kvm_flush_remote_tlbs_range() can be called from common code we
-> can just use that and drop a bunch of duplicate code from the arch
-> directories.
-> 
-> Note this adds a lockdep assertion for slots_lock being held when
-> calling kvm_flush_remote_tlbs_memslot(), which was previously only
-> asserted on x86. MIPS has calls to kvm_flush_remote_tlbs_memslot(),
-> but they all hold the slots_lock, so the lockdep assertion continues to
-> hold true.
-> 
-> Also drop the CONFIG_KVM_GENERIC_DIRTYLOG_READ_PROTECT ifdef gating
-> kvm_flush_remote_tlbs_memslot(), since it is no longer necessary.
-> 
-> Signed-off-by: David Matlack <dmatlack@google.com>
-> Signed-off-by: Raghavendra Rao Ananta <rananta@google.com>
-> Reviewed-by: Gavin Shan <gshan@redhat.com>
-> Reviewed-by: Shaoqin Huang <shahuang@redhat.com>
-> Acked-by: Anup Patel <anup@brainfault.org>
-> ---
 
-Acked-by: Sean Christopherson <seanjc@google.com>
+--===============6530768468391111691==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="RanKLfAULhx4GKnc"
+Content-Disposition: inline
+
+
+--RanKLfAULhx4GKnc
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+
+On Fri, Aug 11, 2023 at 03:23:12PM +0100, Catalin Marinas wrote:
+
+> >  #define PIE_E1	( \
+> > +	PIRx_ELx_PERM(pte_pi_index(_PAGE_GCS),           PIE_RW)      | \
+> > +	PIRx_ELx_PERM(pte_pi_index(_PAGE_GCS_RO),        PIE_R)      | \
+
+> Had some thoughts on this. Why do we need the EL1 GCS attributes to map
+> to RW? The instructions we'd use to write the shadow stack are the GCS
+> 'T' variants that run as user already.
+
+> The only instructions we have in the kernel that would run as EL1 on a
+> user address are the exclusives (futex code or the old deprecated
+> emulation but we don't care about them in this context). So I wonder
+> whether the kernel PIE entry could simply be PIE_NONE_O. Would this be
+> too restrictive for future uses? Given the coherency between a GCS
+> access and a standard data access, we may want to restrict it now until
+> we have a use-case.
+
+Good point.  I remember I originally wrote that before I checked into
+how things like copying pages for ptrace worked but they don't keep
+the GCSness of the page so they're fine.
+
+I don't think we need to worry about future uses since these are slots
+reserved for GCS use, if we need a different value later
+
+--RanKLfAULhx4GKnc
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmTcCI0ACgkQJNaLcl1U
+h9DbgQf/R35NwygifYB/vR8xKnzjHMpwxWKaHX9I5Hinl2E99odV20pM/bgJZbux
+VbIehF+i+Q/QY+dvRrVAvp4oVfOY4ZFJQRtPrLjGoak9Au980nkR6mlKggF6qd4W
+EGfizM1nkmqrTmfm8vHfn/gEDGJ/ZRB9mOzZmvW8U41g6naodsr9S/0ChKLV1ppq
+IEwo7oiwLNc9Uz1lklKsyq5852jWL3B07QwDzubwM7CJC2UNLQywl8SMW7We551y
+ZtE6twEw91+iq9dcBOKkFi+Oay55UKC4eSrci/08sbb1b4lH5Ta9YoiSEDaCqxXm
+cB6WkJJkkCL7RY0qBvEEDSWx1WqolQ==
+=XTlC
+-----END PGP SIGNATURE-----
+
+--RanKLfAULhx4GKnc--
+
+
+--===============6530768468391111691==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============6530768468391111691==--
+
