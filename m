@@ -4,82 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2531C001B0
-	for <linux-riscv@archiver.kernel.org>; Tue, 15 Aug 2023 10:42:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E32EC001B0
+	for <linux-riscv@archiver.kernel.org>; Tue, 15 Aug 2023 10:44:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=W6CQ+HCAeDKAkKLGJPBSqpxp1z/jY+a0cQVwEu80XhE=; b=sUW0EFKzG+6QBe
-	1LLZoU5gEftFzCs/vV50SCL5rr+/JWJlj1BUma4QqDAs305hzukbhMysL4/qqJP4UtstJmWwT7GXu
-	eMtGjzAzVAdPcJurNrbROSBKOu/2/JKA5c8SPzwVfJSI0jXvGId1eb2aauFjTwTvyy4xs1mgfq/17
-	bpf9mvCtDRJblljBK/lQ1v9cedBjd9nFXLXsa8rqDkm8RkxY138dPg+R3KVywAeo3rjRHdVSSwTid
-	hZc7A53dS4kBS8JutDiPI6ysXtPkO9Jc9r0g97zOcEiYvKURfAMJBtTAvKoANVjbBla9EKpY85WLg
-	ZJKoYNFt3W+QRDAfGYRg==;
+	List-Owner; bh=TZBzNKgxwIijos/Fnbq3zKyHS0YSNRSdjFSvSv16eqk=; b=LyOlzIDLK6RMG9
+	4TNI70cKDl1h/mZ9qh7TeGw3rrqoNJUH5FVkMksYgficC2Om3CvpN0h3UZtGxmnXmX3lRiIdIa0oq
+	R+MCTvxEVx2L5cybjw+2EG02PjlvR1APCdEDPHX2V/Cv+mTs0N0mdfZKInVm94dFi1CM8P2ezJH7d
+	iQLGcCnU/Lgs0A7XXj5uR6soWrJvOTIxwcIB1L0l6fxJzDZXX/qZ0124XzFqQFxMYZmp6ZVUAQ/OI
+	BTZRLi4Ik9yu+oMw5Kfu3q3UXhFcIeJ3KIkDCeKopuaA8r7CnL3WUhW73CLpLfPmy5sVdldgRywHR
+	hCnAZJqStjU3On3hXVlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qVrVj-001JPC-0P;
-	Tue, 15 Aug 2023 10:42:51 +0000
-Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qVrVf-001JOb-1Y
+	id 1qVrWv-001Ja0-0r;
+	Tue, 15 Aug 2023 10:44:05 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1qVrWr-001JWD-0S
 	for linux-riscv@lists.infradead.org;
-	Tue, 15 Aug 2023 10:42:49 +0000
-Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id B4AA43F314
-	for <linux-riscv@lists.infradead.org>; Tue, 15 Aug 2023 10:42:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20210705; t=1692096162;
-	bh=duOk3LgELGIF/UgXORRXxO9gqyMTzaSEm/w19zx7IRQ=;
-	h=MIME-Version:References:In-Reply-To:From:Date:Message-ID:Subject:
-	 To:Cc:Content-Type;
-	b=ZMmbHzXC+P+6ETU5BwJez8D/7ORGFr17t2CknIpECNcrBZ5bStuOTxwtdt0fTRMl8
-	 Qef0lVkEyxfIerMG6E0eYXC6lA71O7TACF7bbaAgYKpK8pSEXsErcnA9fZ/T8xiZBf
-	 8qR3Aiqz5YvaNikKKyaKa3Mda1W4BmPubXXCg5YnYuMMEdyTQa4jf2SOMjFR5Q634H
-	 5lnb+Rj2sWrbW4ZRpSZ4stPC50YRjOBO8omGNPLvUspsJceo1ZPyXrZ0LorjjX7Lxh
-	 //ISON/wQUbnJt8b/BHKWfwm99/XXs8sMRVlB3qpAJ0I3I8kw+/PSu/4g7ZykxunLf
-	 S4Fl6vIt/NBAw==
-Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-40ff2434811so56761111cf.0
-        for <linux-riscv@lists.infradead.org>; Tue, 15 Aug 2023 03:42:42 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1692096161; x=1692700961;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=duOk3LgELGIF/UgXORRXxO9gqyMTzaSEm/w19zx7IRQ=;
-        b=MSSbrAIi8dGLh8F88rYHP5ln28q7X/GYpDZ5hx8VcE/KozOZmJics4CFJ4N3uPSSax
-         pTKYKON2yHL3GQzivY3h3zbvc5K6ZSCnODjDbvxsDFfKJVowBD/D7m5io8+CMY9qfGcE
-         eXqdxuE4MeEGfYcRHMAD5Kxtk1UnvrQsVQXgYYr06m9LjGY8F6btyZrDoBOrZTZsF1ED
-         ECz6LOzsIP6hN3FiVA6jXOxzbYWgoEefgHoKkD/Ng9OwCSvp12uLX5w2TWpWW6ZLESC/
-         5EWn1vudVjv5ESNx4awzuG5Nj2Le/I3PR5pPZcmamz8ON1tjDY1HN4NQjN9xsHqknhFO
-         bdKA==
-X-Gm-Message-State: AOJu0Yw4TWiDJZEHVO3hVFTxbuHuwu53GG56AbxlgHfW1krq2MCtHHce
-	w0IvLGwiO1fugw2GK+CyLpDzMGuQzenXilOj7AZslM4UEO0rO5Im3Ubn/rUO+MdzCIlQkjwQngC
-	6oDN7mlnlbmAqXSJUXg8FsvDMxtWI0c0BZNlnDl2cJtxHSeNCPRdlekDQic2l79LP+5wkGd/kax
-	s=
-X-Received: by 2002:a05:622a:1489:b0:403:acd3:e90e with SMTP id t9-20020a05622a148900b00403acd3e90emr15343608qtx.48.1692096161633;
-        Tue, 15 Aug 2023 03:42:41 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGSWcUU2g9tQLwLDiJjpVe4lUVMp4mj0HTyk4i3cpbp3El3GAlSJv3T6rlhMIKt96CAkIN2WcptNdyzpfq8sQw=
-X-Received: by 2002:a05:622a:1489:b0:403:acd3:e90e with SMTP id
- t9-20020a05622a148900b00403acd3e90emr15343594qtx.48.1692096161369; Tue, 15
- Aug 2023 03:42:41 -0700 (PDT)
+	Tue, 15 Aug 2023 10:44:03 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 379AD7FD3;
+	Tue, 15 Aug 2023 18:43:37 +0800 (CST)
+Received: from EXMBX171.cuchost.com (172.16.6.91) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 15 Aug
+ 2023 18:43:37 +0800
+Received: from [192.168.125.127] (183.27.98.20) by EXMBX171.cuchost.com
+ (172.16.6.91) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 15 Aug
+ 2023 18:43:35 +0800
+Message-ID: <5424ddb2-8f6b-ca15-c2f1-83e3cb9db7b6@starfivetech.com>
+Date: Tue, 15 Aug 2023 18:43:35 +0800
 MIME-Version: 1.0
-References: <20230815-scurvy-jujitsu-4fced586cffc@spud>
-In-Reply-To: <20230815-scurvy-jujitsu-4fced586cffc@spud>
-From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-Date: Tue, 15 Aug 2023 12:42:25 +0200
-Message-ID: <CAJM55Z8moyAcmQWZV0TyP-XO9fMN5_inDk-vtmDkuqCYic_-4g@mail.gmail.com>
-Subject: Re: [PATCH] riscv: dts: starfive: fix jh7110 qspi sort order
-To: Conor Dooley <conor@kernel.org>
-Cc: linux-riscv@lists.infradead.org, Conor Dooley <conor.dooley@microchip.com>
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.14.0
+Subject: Re: [PATCH v3 07/11] PCI: microchip: Rename IRQ init function
+Content-Language: en-US
+To: Conor Dooley <conor.dooley@microchip.com>
+CC: Daire McNamara <daire.mcnamara@microchip.com>, Conor Dooley
+	<conor@kernel.org>, Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	=?UTF-8?Q?Krzysztof_Wilczy=c5=84ski?= <kw@linux.com>, Emil Renner Berthing
+	<emil.renner.berthing@canonical.com>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+	<linux-pci@vger.kernel.org>, =?UTF-8?Q?Pali_Roh=c3=a1r?= <pali@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+	<palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Philipp Zabel
+	<p.zabel@pengutronix.de>, Mason Huo <mason.huo@starfivetech.com>, Leyfoon Tan
+	<leyfoon.tan@starfivetech.com>, Kevin Xie <kevin.xie@starfivetech.com>
+References: <20230814082016.104181-1-minda.chen@starfivetech.com>
+ <20230814082016.104181-8-minda.chen@starfivetech.com>
+ <20230814-vividness-disgrace-115283ea6f9a@wendy>
+From: Minda Chen <minda.chen@starfivetech.com>
+In-Reply-To: <20230814-vividness-disgrace-115283ea6f9a@wendy>
+X-Originating-IP: [183.27.98.20]
+X-ClientProxiedBy: EXCAS061.cuchost.com (172.16.6.21) To EXMBX171.cuchost.com
+ (172.16.6.91)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230815_034247_893605_126EDDC1 
-X-CRM114-Status: GOOD (  15.03  )
+X-CRM114-CacheID: sfid-20230815_034401_534138_A287AA0B 
+X-CRM114-Status: GOOD (  17.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,89 +81,71 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 15 Aug 2023 at 12:38, Conor Dooley <conor@kernel.org> wrote:
->
-> From: Conor Dooley <conor.dooley@microchip.com>
->
-> Emil pointed out that "13010000 sorts after 12070000". Reshuffle the
-> entries to be in-order.
->
-> Reported-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-
-Thanks!
-Reviewed-by: Emil Renner Berthing <emil.renner.berthign@canonical.com>
-
-> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-> ---
->  arch/riscv/boot/dts/starfive/jh7110.dtsi | 38 ++++++++++++------------
->  1 file changed, 19 insertions(+), 19 deletions(-)
->
-> diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-> index 9aa563898868..e85464c328d0 100644
-> --- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
-> +++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-> @@ -676,25 +676,6 @@ i2c6: i2c@12060000 {
->                         status = "disabled";
->                 };
->
-> -               qspi: spi@13010000 {
-> -                       compatible = "starfive,jh7110-qspi", "cdns,qspi-nor";
-> -                       reg = <0x0 0x13010000 0x0 0x10000>,
-> -                             <0x0 0x21000000 0x0 0x400000>;
-> -                       interrupts = <25>;
-> -                       clocks = <&syscrg JH7110_SYSCLK_QSPI_REF>,
-> -                                <&syscrg JH7110_SYSCLK_QSPI_AHB>,
-> -                                <&syscrg JH7110_SYSCLK_QSPI_APB>;
-> -                       clock-names = "ref", "ahb", "apb";
-> -                       resets = <&syscrg JH7110_SYSRST_QSPI_APB>,
-> -                                <&syscrg JH7110_SYSRST_QSPI_AHB>,
-> -                                <&syscrg JH7110_SYSRST_QSPI_REF>;
-> -                       reset-names = "qspi", "qspi-ocp", "rstc_ref";
-> -                       cdns,fifo-depth = <256>;
-> -                       cdns,fifo-width = <4>;
-> -                       cdns,trigger-address = <0x0>;
-> -                       status = "disabled";
-> -               };
-> -
->                 spi3: spi@12070000 {
->                         compatible = "arm,pl022", "arm,primecell";
->                         reg = <0x0 0x12070000 0x0 0x10000>;
-> @@ -767,6 +748,25 @@ sfctemp: temperature-sensor@120e0000 {
->                         #thermal-sensor-cells = <0>;
->                 };
->
-> +               qspi: spi@13010000 {
-> +                       compatible = "starfive,jh7110-qspi", "cdns,qspi-nor";
-> +                       reg = <0x0 0x13010000 0x0 0x10000>,
-> +                             <0x0 0x21000000 0x0 0x400000>;
-> +                       interrupts = <25>;
-> +                       clocks = <&syscrg JH7110_SYSCLK_QSPI_REF>,
-> +                                <&syscrg JH7110_SYSCLK_QSPI_AHB>,
-> +                                <&syscrg JH7110_SYSCLK_QSPI_APB>;
-> +                       clock-names = "ref", "ahb", "apb";
-> +                       resets = <&syscrg JH7110_SYSRST_QSPI_APB>,
-> +                                <&syscrg JH7110_SYSRST_QSPI_AHB>,
-> +                                <&syscrg JH7110_SYSRST_QSPI_REF>;
-> +                       reset-names = "qspi", "qspi-ocp", "rstc_ref";
-> +                       cdns,fifo-depth = <256>;
-> +                       cdns,fifo-width = <4>;
-> +                       cdns,trigger-address = <0x0>;
-> +                       status = "disabled";
-> +               };
-> +
->                 syscrg: clock-controller@13020000 {
->                         compatible = "starfive,jh7110-syscrg";
->                         reg = <0x0 0x13020000 0x0 0x10000>;
-> --
-> 2.39.2
->
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+CgpPbiAyMDIzLzgvMTQgMjE6NTUsIENvbm9yIERvb2xleSB3cm90ZToKPiBPbiBNb24sIEF1ZyAx
+NCwgMjAyMyBhdCAwNDoyMDoxMlBNICswODAwLCBNaW5kYSBDaGVuIHdyb3RlOgo+PiBSZW5hbWUg
+SVJRIGluaXQgZnVuY3Rpb24gYW5kIHByZXBhcmUgZm9yIHJlLXVzZQo+PiBJUlEgaW5pdCBmdW5j
+dGlvbi4KPj4gCj4+IHJlbmFtZSBsaXN0Ogo+PiBtY19pbml0X2ludGVycnVwdHMgLT4gcGxkYV9p
+bml0X2ludGVycnVwdHMKPj4gbWNfcGNpZV9pbml0X2lycV9kb21haW4tPiBwbGRhX3BjaWVfaW5p
+dF9pcnFfZG9tYWlucwo+PiAKPj4gU2lnbmVkLW9mZi1ieTogTWluZGEgQ2hlbiA8bWluZGEuY2hl
+bkBzdGFyZml2ZXRlY2guY29tPgo+PiAtLS0KPj4gIC4uLi9wY2kvY29udHJvbGxlci9wbGRhL3Bj
+aWUtbWljcm9jaGlwLWhvc3QuYyB8IDM3ICsrKysrKysrKysrKystLS0tLS0KPj4gIGRyaXZlcnMv
+cGNpL2NvbnRyb2xsZXIvcGxkYS9wY2llLXBsZGEuaCAgICAgICB8ICA3ICsrKysKPj4gIDIgZmls
+ZXMgY2hhbmdlZCwgMzMgaW5zZXJ0aW9ucygrKSwgMTEgZGVsZXRpb25zKC0pCj4+IAo+PiBkaWZm
+IC0tZ2l0IGEvZHJpdmVycy9wY2kvY29udHJvbGxlci9wbGRhL3BjaWUtbWljcm9jaGlwLWhvc3Qu
+YyBiL2RyaXZlcnMvcGNpL2NvbnRyb2xsZXIvcGxkYS9wY2llLW1pY3JvY2hpcC1ob3N0LmMKPj4g
+aW5kZXggYjQyZjFhYWMzZWMzLi4xNDBlN2NhMWE1Y2IgMTAwNjQ0Cj4+IC0tLSBhL2RyaXZlcnMv
+cGNpL2NvbnRyb2xsZXIvcGxkYS9wY2llLW1pY3JvY2hpcC1ob3N0LmMKPj4gKysrIGIvZHJpdmVy
+cy9wY2kvY29udHJvbGxlci9wbGRhL3BjaWUtbWljcm9jaGlwLWhvc3QuYwo+PiBAQCAtNTU5LDcg
+KzU1OSw3IEBAIHN0YXRpYyBpbnQgbWNfcGNpZV9pbml0X2Nsa3Moc3RydWN0IGRldmljZSAqZGV2
+KQo+PiAgCXJldHVybiAwOwo+PiAgfQo+PiAgCj4+IC1zdGF0aWMgaW50IG1jX3BjaWVfaW5pdF9p
+cnFfZG9tYWlucyhzdHJ1Y3QgcGxkYV9wY2llX3JwICpwb3J0KQo+PiArc3RhdGljIGludCBwbGRh
+X3BjaWVfaW5pdF9pcnFfZG9tYWlucyhzdHJ1Y3QgcGxkYV9wY2llX3JwICpwb3J0LCBzdHJ1Y3Qg
+cGxkYV9ldnQgKmV2dCkKPj4gIHsKPj4gIAlzdHJ1Y3QgZGV2aWNlICpkZXYgPSBwb3J0LT5kZXY7
+Cj4+ICAJc3RydWN0IGRldmljZV9ub2RlICpub2RlID0gZGV2LT5vZl9ub2RlOwo+PiBAQCAtNTcy
+LDggKzU3Miw4IEBAIHN0YXRpYyBpbnQgbWNfcGNpZV9pbml0X2lycV9kb21haW5zKHN0cnVjdCBw
+bGRhX3BjaWVfcnAgKnBvcnQpCj4+ICAJCXJldHVybiAtRUlOVkFMOwo+PiAgCX0KPj4gIAo+PiAt
+CXBvcnQtPmV2ZW50X2RvbWFpbiA9IGlycV9kb21haW5fYWRkX2xpbmVhcihwY2llX2ludGNfbm9k
+ZSwgTlVNX0VWRU5UUywKPj4gLQkJCQkJCSAgICZldmVudF9kb21haW5fb3BzLCBwb3J0KTsKPj4g
+Kwlwb3J0LT5ldmVudF9kb21haW4gPSBpcnFfZG9tYWluX2FkZF9saW5lYXIocGNpZV9pbnRjX25v
+ZGUsIHBvcnQtPm51bV9ldmVudHMsCj4+ICsJCQkJCQkgICBldnQtPmRvbWFpbl9vcHMsIHBvcnQp
+Owo+PiAgCWlmICghcG9ydC0+ZXZlbnRfZG9tYWluKSB7Cj4+ICAJCWRldl9lcnIoZGV2LCAiZmFp
+bGVkIHRvIGdldCBldmVudCBkb21haW5cbiIpOwo+PiAgCQlvZl9ub2RlX3B1dChwY2llX2ludGNf
+bm9kZSk7Cj4+IEBAIC02NTgsMTQgKzY1OCwxNSBAQCBzdGF0aWMgdm9pZCBtY19kaXNhYmxlX2lu
+dGVycnVwdHMoc3RydWN0IG1jX3BjaWUgKnBvcnQpCj4+ICAJd3JpdGVsX3JlbGF4ZWQoR0VOTUFT
+SygzMSwgMCksIGJyaWRnZV9iYXNlX2FkZHIgKyBJU1RBVFVTX0hPU1QpOwo+PiAgfQo+PiAgCj4+
+IC1zdGF0aWMgaW50IG1jX2luaXRfaW50ZXJydXB0cyhzdHJ1Y3QgcGxhdGZvcm1fZGV2aWNlICpw
+ZGV2LCBzdHJ1Y3QgcGxkYV9wY2llX3JwICpwb3J0KQo+PiArc3RhdGljIGludCBwbGRhX2luaXRf
+aW50ZXJydXB0cyhzdHJ1Y3QgcGxhdGZvcm1fZGV2aWNlICpwZGV2LAo+PiArCQkJCXN0cnVjdCBw
+bGRhX3BjaWVfcnAgKnBvcnQsIHN0cnVjdCBwbGRhX2V2dCAqZXZ0KQo+PiAgewo+PiAgCXN0cnVj
+dCBkZXZpY2UgKmRldiA9ICZwZGV2LT5kZXY7Cj4+ICAJaW50IGlycTsKPj4gIAlpbnQgaSwgaW50
+eF9pcnEsIG1zaV9pcnEsIGV2ZW50X2lycTsKPj4gIAlpbnQgcmV0Owo+PiAgCj4+IC0JcmV0ID0g
+bWNfcGNpZV9pbml0X2lycV9kb21haW5zKHBvcnQpOwo+PiArCXJldCA9IHBsZGFfcGNpZV9pbml0
+X2lycV9kb21haW5zKHBvcnQsIGV2dCk7Cj4+ICAJaWYgKHJldCkgewo+PiAgCQlkZXZfZXJyKGRl
+diwgImZhaWxlZCBjcmVhdGluZyBJUlEgZG9tYWluc1xuIik7Cj4+ICAJCXJldHVybiByZXQ7Cj4+
+IEBAIC02NzUsMTUgKzY3NiwxOCBAQCBzdGF0aWMgaW50IG1jX2luaXRfaW50ZXJydXB0cyhzdHJ1
+Y3QgcGxhdGZvcm1fZGV2aWNlICpwZGV2LCBzdHJ1Y3QgcGxkYV9wY2llX3JwCj4+ICAJaWYgKGly
+cSA8IDApCj4+ICAJCXJldHVybiAtRU5PREVWOwo+PiAgCj4+IC0JZm9yIChpID0gMDsgaSA8IE5V
+TV9FVkVOVFM7IGkrKykgewo+PiArCWZvciAoaSA9IDA7IGkgPCBwb3J0LT5udW1fZXZlbnRzOyBp
+KyspIHsKPj4gIAkJZXZlbnRfaXJxID0gaXJxX2NyZWF0ZV9tYXBwaW5nKHBvcnQtPmV2ZW50X2Rv
+bWFpbiwgaSk7Cj4+ICAJCWlmICghZXZlbnRfaXJxKSB7Cj4+ICAJCQlkZXZfZXJyKGRldiwgImZh
+aWxlZCB0byBtYXAgaHdpcnEgJWRcbiIsIGkpOwo+PiAgCQkJcmV0dXJuIC1FTlhJTzsKPj4gIAkJ
+fQo+PiAgCj4+IC0JCXJldCA9IGRldm1fcmVxdWVzdF9pcnEoZGV2LCBldmVudF9pcnEsIG1jX2V2
+ZW50X2hhbmRsZXIsCj4+IC0JCQkJICAgICAgIDAsIGV2ZW50X2NhdXNlW2ldLnN5bSwgcG9ydCk7
+Cj4+ICsJCWlmIChldnQtPnJlcXVlc3RfZXZ0X2lycSkKPj4gKwkJCXJldCA9IGV2dC0+cmVxdWVz
+dF9ldnRfaXJxKHBvcnQsIGV2ZW50X2lycSwgaSk7Cj4+ICsJCWVsc2UKPj4gKwkJCXJldCA9IGRl
+dm1fcmVxdWVzdF9pcnEoZGV2LCBldmVudF9pcnEsIHBsZGFfZXZlbnRfaGFuZGxlciwKPj4gKwkJ
+CQkJICAgICAgIDAsIE5VTEwsIHBvcnQpOwo+IAo+IElzIHRoZXJlIGEgcGFydGljdWxhciByZWFz
+b24gdGhpcyBpZi9lbHNlIGFkZGl0aW9uIGVuZGVkIHVwIGluIHRoaXMKPiBwYXRjaCwgYnV0IHRo
+ZSBpZi9lbHNlIGFkZGl0aW9uIGluIHBsZGFfaGFuZGxlX2V2ZW50KCkgZW5kZWQgdXAgaW4gdGhl
+Cj4gbmV4dCBvbmU/Cj4gCj4gT3RoZXJ3aXNlLCB0aGlzIGxvb2tzIGZpbmUgdG8gbWUuCkkgZm9y
+Z2V0IHRvIG1vZGlmeSBtY19oYW5kbGVfZXZlbnQoKe+8jCBTbyBsZWF2ZSBpdCB0byBuZXh0IHBh
+dGNoLiAgCkJ1dCBJIHdpbGwgZW5kZWQgdXAgdGhlbSBpbiB0aGlzIHBhdGNoZXMuIFRoaXMgcGF0
+Y2ggaXMgdG8gbW9kaWZ5LCBuZXh0IHBhdGNoIGlzIHRvIG1vdmUuIAoKX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0
+CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5v
+cmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
