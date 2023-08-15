@@ -4,73 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CDEEC0015E
-	for <linux-riscv@archiver.kernel.org>; Tue, 15 Aug 2023 11:15:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 576EEC0015E
+	for <linux-riscv@archiver.kernel.org>; Tue, 15 Aug 2023 11:24:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:Cc:References:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Y8DgblrY6vjCNnEFnDPKyk9+UcWvWAHbHAvt0eVAsGI=; b=aQa0jE2n1EVTYO
-	0GjqJIQU2WluDgJVEUfUj25zBYaXnLCD5K0Pv5yqlR9OT0gH/sC3oZcthm4oxfdZlsYfNG1j9GfNT
-	qFXuXlQ8qcH396dfRwyxt9y2cFmY9lFmMxWbpK7oBIzR4m1XiHeL6uTncaqNjd3xqPESGlDbcOT/l
-	3PwJCMBW1rcZYjohbZuFkE9FyqWc+YQZ8DeMImjY9IQISAMnIasGDW6Bf/cfs0u8PD+9vJOr6v/YP
-	vIwac/ds4dYd+e3BU+peSt+/n0syghEdlWyJUFUI4/VhcA02T22zRlljizHlg+C1F/rshlcPkED6Z
-	Ys8Rj/5pzTqSvap7c4JA==;
+	List-Owner; bh=sIc5eOp+aZmzrtDYdEixf37lTlXb8Njg2gHeKnBgISM=; b=o99qNT2Ps5r9n0
+	GaOxaZa4Ud030wNBXpS//B2Q9Et0u6eH9BMg8cVUsUqNyZ7cAUxFYvuetqpNCBt8Wuku/t2Sis0Ne
+	GOwuMpJ0aupBYllVtiEkuFRLFI6vLs7erRLNGuddE5cCz2bfP4uo43nlXS6cmzT0bQvjxdEkEOAM8
+	uB7BcTjwXPsZ/ozMKiCKVeH1vuzSEJoodQzenPhzT9qhyA0o4M7gYLPBs4bWhdv2Txq3Tnxeq2n1H
+	v9Wj+rSbKEnJrV9tL582OtWg8sOCA4i0eus3efyFUax8BnFMEru58GDGaFVyTJPKZ0p9oC+gcLZnX
+	WNFeKmQCOl7x9KXLLKWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qVs1E-001VWf-1L;
-	Tue, 15 Aug 2023 11:15:24 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qVr2v-001GxK-0I
-	for linux-riscv@lists.infradead.org;
-	Tue, 15 Aug 2023 10:13:07 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id 60D9B24E277;
-	Tue, 15 Aug 2023 18:12:09 +0800 (CST)
-Received: from EXMBX171.cuchost.com (172.16.6.91) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 15 Aug
- 2023 18:12:09 +0800
-Received: from [192.168.125.127] (183.27.98.20) by EXMBX171.cuchost.com
- (172.16.6.91) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 15 Aug
- 2023 18:12:08 +0800
-Message-ID: <f983f3cc-ebb5-18fb-891a-adc073742bb9@starfivetech.com>
-Date: Tue, 15 Aug 2023 18:12:07 +0800
+	id 1qVsAN-001WFY-11;
+	Tue, 15 Aug 2023 11:24:51 +0000
+Received: from bg4.exmail.qq.com ([43.154.221.58])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1qVsAI-001WEh-0m;
+	Tue, 15 Aug 2023 11:24:49 +0000
+X-QQ-mid: bizesmtp72t1692098660t8rl45w6
+Received: from [192.168.1.114] ( [221.226.144.218])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Tue, 15 Aug 2023 19:24:18 +0800 (CST)
+X-QQ-SSF: 00200000000000B0B000000A0000000
+X-QQ-FEAT: dKvkn8qoLrFQ1alGughSwXTA+ONvfspyvIhP0MGPgn0A+/0FmsKKpXh7V9DqY
+	Q/K32MjJkvxnFZupvarNRF8a0JYfK89Ygt+XKrOyD6lFilgsJW6A6rVemQZhiqnzn3M/FqZ
+	hsFiUiQ5J+V2yqNSbL5dVT2sm5ncMmv6vmKXHePHb+sqnnFgjrWGnu0Ca8g5ctulTur/DNp
+	MyGH83GFkLbhGjkIk7XOfaWcPtPss5YnqIgFTq60m6UL9qfQWXIKt02xGtVyXNJK9yp0Q7J
+	cw+GPThG5xxGnqk6xpQzEf/2Uco6Aqnd9KcqsfEAl9vlUhktKCDyA+cykV6YxFVQQF2HNVm
+	sQCFExTrr4jqAnX8nwPFm2+PPLwgiCo3NW/7lapYI/H0rQExKzZrIBTLn7Hhg==
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 4206943508769767112
+Message-ID: <C172F31D25F5ED6E+034cc389-f02c-b681-a989-8592c5dac35e@tinylab.org>
+Date: Tue, 15 Aug 2023 19:24:18 +0800
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.14.0
-Subject: Re: [PATCH v3 06/11] PCI: plda: Add event interrupt codes and IRQ
- domain ops
-Content-Language: en-US
-To: Conor Dooley <conor.dooley@microchip.com>
-CC: Daire McNamara <daire.mcnamara@microchip.com>, Conor Dooley
-	<conor@kernel.org>, Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	=?UTF-8?Q?Krzysztof_Wilczy=c5=84ski?= <kw@linux.com>, Emil Renner Berthing
-	<emil.renner.berthing@canonical.com>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
-	<linux-pci@vger.kernel.org>, =?UTF-8?Q?Pali_Roh=c3=a1r?= <pali@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
-	<palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Philipp Zabel
-	<p.zabel@pengutronix.de>, Mason Huo <mason.huo@starfivetech.com>, Leyfoon Tan
-	<leyfoon.tan@starfivetech.com>, Kevin Xie <kevin.xie@starfivetech.com>
-References: <20230814082016.104181-1-minda.chen@starfivetech.com>
- <20230814082016.104181-7-minda.chen@starfivetech.com>
- <20230814-episode-untidy-c66107a33ea0@wendy>
-From: Minda Chen <minda.chen@starfivetech.com>
-In-Reply-To: <20230814-episode-untidy-c66107a33ea0@wendy>
-X-Originating-IP: [183.27.98.20]
-X-ClientProxiedBy: EXCAS061.cuchost.com (172.16.6.21) To EXMBX171.cuchost.com
- (172.16.6.91)
-X-YovoleRuleAgent: yovoleflag
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.13.0
+Subject: Re: [PATCH v6 0/5] riscv: Introduce KASLR
+To: Alexandre Ghiti <alexghiti@rivosinc.com>
+References: <20230722123850.634544-1-alexghiti@rivosinc.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Ard Biesheuvel <ardb@kernel.org>,
+ Kees Cook <keescook@chromium.org>, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-efi@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, Albert Ou <aou@eecs.berkeley.edu>,
+ zong.li@sifive.com, conor.dooley@microchip.com
+From: Song Shuai <songshuaishuai@tinylab.org>
+In-Reply-To: <20230722123850.634544-1-alexghiti@rivosinc.com>
+X-QQ-SENDSIZE: 520
+Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrsz:qybglogicsvrsz4a-0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230815_031305_440052_6CB88BC4 
-X-CRM114-Status: GOOD (  12.18  )
+X-CRM114-CacheID: sfid-20230815_042446_598261_9E5E0D91 
+X-CRM114-Status: GOOD (  23.79  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,74 +71,80 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-On 2023/8/14 21:52, Conor Dooley wrote:
-> On Mon, Aug 14, 2023 at 04:20:11PM +0800, Minda Chen wrote:
->> For PolarFire implements non-PLDA local interrupt events, most of
->> event interrupt process codes can not be re-used. PLDA implements
->> new codes and IRQ domain ops like PolarFire.
->> 
->> plda_handle_event adds a new IRQ num to event num mapping codes for
->> PLDA local event except DMA engine interrupt events. The DMA engine
->> interrupt events are implemented by vendors.
->> 
->> Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
->> ---
->>  .../pci/controller/plda/pcie-microchip-host.c | 29 +++---
->>  drivers/pci/controller/plda/pcie-plda-host.c  | 99 +++++++++++++++++++
->>  drivers/pci/controller/plda/pcie-plda.h       | 19 ++++
->>  3 files changed, 133 insertions(+), 14 deletions(-)
->> 
->> diff --git a/drivers/pci/controller/plda/pcie-microchip-host.c b/drivers/pci/controller/plda/pcie-microchip-host.c
->> index c28840315019..b42f1aac3ec3 100644
->> --- a/drivers/pci/controller/plda/pcie-microchip-host.c
->> +++ b/drivers/pci/controller/plda/pcie-microchip-host.c
->> @@ -96,20 +96,21 @@
->>  #define EVENT_LOCAL_DMA_END_ENGINE_1		12
->>  #define EVENT_LOCAL_DMA_ERROR_ENGINE_0		13
->>  #define EVENT_LOCAL_DMA_ERROR_ENGINE_1		14
->> -#define EVENT_LOCAL_A_ATR_EVT_POST_ERR		15
->> -#define EVENT_LOCAL_A_ATR_EVT_FETCH_ERR		16
->> -#define EVENT_LOCAL_A_ATR_EVT_DISCARD_ERR	17
->> -#define EVENT_LOCAL_A_ATR_EVT_DOORBELL		18
->> -#define EVENT_LOCAL_P_ATR_EVT_POST_ERR		19
->> -#define EVENT_LOCAL_P_ATR_EVT_FETCH_ERR		20
->> -#define EVENT_LOCAL_P_ATR_EVT_DISCARD_ERR	21
->> -#define EVENT_LOCAL_P_ATR_EVT_DOORBELL		22
->> -#define EVENT_LOCAL_PM_MSI_INT_INTX		23
->> -#define EVENT_LOCAL_PM_MSI_INT_MSI		24
->> -#define EVENT_LOCAL_PM_MSI_INT_AER_EVT		25
->> -#define EVENT_LOCAL_PM_MSI_INT_EVENTS		26
->> -#define EVENT_LOCAL_PM_MSI_INT_SYS_ERR		27
->> -#define NUM_EVENTS				28
->> +#define NUM_MC_EVENTS				15
->> +#define EVENT_LOCAL_A_ATR_EVT_POST_ERR		(NUM_MC_EVENTS + EVENT_A_ATR_EVT_POST_ERR)
->> +#define EVENT_LOCAL_A_ATR_EVT_FETCH_ERR		(NUM_MC_EVENTS + EVENT_A_ATR_EVT_FETCH_ERR)
->> +#define EVENT_LOCAL_A_ATR_EVT_DISCARD_ERR	(NUM_MC_EVENTS + EVENT_A_ATR_EVT_DISCARD_ERR)
->> +#define EVENT_LOCAL_A_ATR_EVT_DOORBELL		(NUM_MC_EVENTS + EVENT_A_ATR_EVT_DOORBELL)
->> +#define EVENT_LOCAL_P_ATR_EVT_POST_ERR		(NUM_MC_EVENTS + EVENT_P_ATR_EVT_POST_ERR)
->> +#define EVENT_LOCAL_P_ATR_EVT_FETCH_ERR		(NUM_MC_EVENTS + EVENT_P_ATR_EVT_FETCH_ERR)
->> +#define EVENT_LOCAL_P_ATR_EVT_DISCARD_ERR	(NUM_MC_EVENTS + EVENT_P_ATR_EVT_DISCARD_ERR)
->> +#define EVENT_LOCAL_P_ATR_EVT_DOORBELL		(NUM_MC_EVENTS + EVENT_P_ATR_EVT_DOORBELL)
->> +#define EVENT_LOCAL_PM_MSI_INT_INTX		(NUM_MC_EVENTS + EVENT_PM_MSI_INT_INTX)
->> +#define EVENT_LOCAL_PM_MSI_INT_MSI		(NUM_MC_EVENTS + EVENT_PM_MSI_INT_MSI)
->> +#define EVENT_LOCAL_PM_MSI_INT_AER_EVT		(NUM_MC_EVENTS + EVENT_PM_MSI_INT_AER_EVT)
->> +#define EVENT_LOCAL_PM_MSI_INT_EVENTS		(NUM_MC_EVENTS + EVENT_PM_MSI_INT_EVENTS)
->> +#define EVENT_LOCAL_PM_MSI_INT_SYS_ERR		(NUM_MC_EVENTS + EVENT_PM_MSI_INT_SYS_ERR)
->> +#define NUM_EVENTS				(NUM_MC_EVENTS + NUM_PLDA_EVENTS)
-> 
-> Is this change not in the wrong patch & should be changed alongside the
-> movement of defines? 
-EVENT_xxx is new added one for PLDA codes and The event num start from 0. This add association to PLDA events.
-Maybe this can be moved to patch8 or a new patch.
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+CkhpLCBBbGV4OgoK5ZyoIDIwMjMvNy8yMiAyMDozOCwgQWxleGFuZHJlIEdoaXRpIOWGmemBkzoK
+PiBUaGUgZm9sbG93aW5nIEtBU0xSIGltcGxlbWVudGF0aW9uIGFsbG93cyB0byByYW5kb21pemUg
+dGhlIGtlcm5lbCBtYXBwaW5nOgo+IAo+IC0gdmlydHVhbGx5OiB3ZSBleHBlY3QgdGhlIGJvb3Rs
+b2FkZXIgdG8gcHJvdmlkZSBhIHNlZWQgaW4gdGhlIGRldmljZS10cmVlCj4gLSBwaHlzaWNhbGx5
+OiBvbmx5IGltcGxlbWVudGVkIGluIHRoZSBFRkkgc3R1YiwgaXQgcmVsaWVzIG9uIHRoZSBmaXJt
+d2FyZSB0bwo+ICAgIHByb3ZpZGUgYSBzZWVkIHVzaW5nIEVGSV9STkdfUFJPVE9DT0wuIGFybTY0
+IGhhcyBhIHNpbWlsYXIgaW1wbGVtZW50YXRpb24KPiAgICBoZW5jZSB0aGUgcGF0Y2ggMyBmYWN0
+b3JpemVzIEtBU0xSIHJlbGF0ZWQgZnVuY3Rpb25zIGZvciByaXNjdiB0byB0YWtlCj4gICAgYWR2
+YW50YWdlLgo+IAo+IFRoZSBuZXcgdmlydHVhbCBrZXJuZWwgbG9jYXRpb24gaXMgbGltaXRlZCBi
+eSB0aGUgZWFybHkgcGFnZSB0YWJsZSB0aGF0IG9ubHkKPiBoYXMgb25lIFBVRCBhbmQgd2l0aCB0
+aGUgUE1EIGFsaWdubWVudCBjb25zdHJhaW50LCB0aGUga2VybmVsIGNhbiBvbmx5IHRha2UKPiA8
+IDUxMiBwb3NpdGlvbnMuCj4gCgpJIGhhdmUgZ29uZSB0aHJvdWdoIHRoZSBjb2RlIGFuZCB0ZXN0
+ZWQgdGhpcyBzZXJpZXMgd2l0aCBSaXNjVlZpcnQgZWRrMi4KQWxsIHNlZW1zIGdvb2QgdG8gbWUs
+IHlvdSBjYW4gYWRkIDoKClRlc3RlZC1ieTogU29uZyBTaHVhaSA8c29uZ3NodWFpc2h1YWlAdGlu
+eWxhYi5vcmc+CgpBbmQgYSBmZXcgcXVlc3Rpb25zIGFib3V0IHBhdGNoIDIgKCJyaXNjdjogRHVt
+cCBvdXQga2VybmVsIG9mZnNldCAKaW5mb3JtYXRpb24gb24gcGFuaWMiKToKCjEuIFRoZSBkdW1w
+X2tlcm5lbF9vZmZzZXQoKSBmdW5jdGlvbiB3b3VsZCBvdXRwdXQgIktlcm5lbCBPZmZzZXQ6IDB4
+MCAKZnJvbSAweGZmZmZmZmZmODAwMDAwMDAiIHdoZW4gYm9vdGluZyB3aXRoICJub2thc2xyIiBv
+cHRpb24uCgpIb3cgYWJvdXQgZGlzYWJsaW5nIHRoZSByZWdpc3RyYXRpb24gb2YgImtlcm5lbF9v
+ZmZzZXRfbm90aWZpZXIiIHdpdGggCiJub2thc2xyIiBvcHRpb24/CgoyLiBJbnNwaXJlZCBieSBw
+YXRjaCAyLCBJIGFkZGVkIHRoZSBDcmFzaCBLQVNMUiBzdXBwb3J0IGJhc2VkIG9uIHRoaXMgCnNl
+cmllcyBbMV0uClNvIGlzIGl0IG5lY2Vzc2FyeSB0byBrZWVwIHRoaXMgcGF0Y2ggaWYgd2UgaGF2
+ZSBDcmFzaCBLQVNMUiBzdXBwb3J0PwoKClsxXTogCmh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2xp
+bnV4LXJpc2N2LzIwMjMwODE1MTA0ODAwLjcwNTc1My0xLXNvbmdzaHVhaXNodWFpQHRpbnlsYWIu
+b3JnL1QvI3UKCj4gYmFzZS1jb21taXQtdGFnOiB2Ni41LXJjMQo+IAo+IENoYW5nZXMgaW4gdjY6
+Cj4gICAgKiBGaXggcmVpbnRyb2R1Y2VkIGJ1aWxkIGZhaWx1cmVzIGJ5IGNvbXBpbGluZyBrYXNs
+ci5jIG9ubHkgZm9yIGFybTY0Cj4gICAgICBhbmQgcmlzY3YsIGFzIHN1Z2dlc3RlZCBieSBBcmQK
+PiAKPiBDaGFuZ2VzIGluIHY1Ogo+ICAgICogUmVuYW1lZCBlZmktc3R1Yi1rYXNsci5jIGludG8g
+a2FzbHIuYyBhbmQgZml4IGNvbW1pdCBsb2cgb2YgcGF0Y2ggMywKPiAgICAgIGFzIHN1Z2dlc3Rl
+ZCBieSBBcmQKPiAgICAqIFJlbW92ZWQgc3R1YnMgc2luY2UgdGhlIGthc2xyIGZ1bmN0aW9ucyB3
+ZXJlIG1vdmVkIHRvIHRoZWlyIG93biBmaWxlCj4gICAgICAoYW5kIHRoZW4gZG9lcyBub3QgdHJp
+Z2dlciBhbnkgYnVpbGQgZmFpbHVyZSBmb3IgYXJjaGl0ZWN0dXJlcyB0aGF0IGRvCj4gICAgICBu
+b3QgY2FsbCB0aG9zZSBmdW5jdGlvbnMgc2luY2UgdGhleSBhcmUgaW4gdGhlaXIgb3duIGNvbXBp
+bGF0aW9uIHVuaXQpCj4gCj4gQ2hhbmdlcyBpbiB2NDoKPiAgICAqIEZpeCBlZmlfZ2V0X2tpbWcg
+bWFjcm8gdGhhdCByZXR1cm5lZCBub3RoaW5nCj4gICAgKiBNb3ZlZCBuZXcga2FzbHIgZnVuY3Rp
+b25zIGludG8gdGhlaXIgb3duIGZpbGVzIHRvIGF2b2lkIHpib290IGxpbmsKPiAgICAgIGZhaWx1
+cmVzLCBhcyBzdWdnZXN0ZWQgYnkgQXJkCj4gCj4gQ2hhbmdlcyBpbiB2MzoKPiAgICAqIFJlYmFz
+ZSBvbiB0b3Agb2YgNi40LXJjMgo+ICAgICogTWFrZSBSQU5ET01JWkVfQkFTRSBkZXBlbmQgb24g
+NjRiaXQKPiAgICAqIEZpeCBlZmlfaWNhY2hlX3N5bmMgYW5kIGVmaV9nZXRfa2ltZ19taW5fYWxp
+Z24gd2hpY2ggd2VyZSB1bmRlZmluZWQKPiAgICAgIGluIHg4NiAoYW5kIGNlcnRhaW5seSBvdGhl
+ciBhcmNocykKPiAgICAqIEFkZCBwYXRjaCA0IHRvIGZpeCB3YXJuaW5nIG9uIHJ2MzIKPiAKPiBD
+aGFuZ2VzIGluIHYyOgo+ICAgICogUmViYXNlIG9uIHRvcCBvZiA2LjMtcmMxCj4gICAgKiBBZGQg
+YSByaXNjdiBjYWNoZSBzeW5jIGFmdGVyIG1lbWNweWluZyB0aGUga2VybmVsCj4gICAgKiBBZGQg
+a2FzbHJfb2Zmc2V0IGltcGxlbWVudGF0aW9uIGZvciBLQ09WCj4gICAgKiBBZGQgZm9yd2FyZCBk
+ZWNsYXJhdGlvbiB0byBxdWlldCBMTFZNCj4gCj4gQWxleGFuZHJlIEdoaXRpICg1KToKPiAgICBy
+aXNjdjogSW50cm9kdWNlIHZpcnR1YWwga2VybmVsIG1hcHBpbmcgS0FTTFIKPiAgICByaXNjdjog
+RHVtcCBvdXQga2VybmVsIG9mZnNldCBpbmZvcm1hdGlvbiBvbiBwYW5pYwo+ICAgIGFybTY0OiBs
+aWJzdHViOiBNb3ZlIEtBU0xSIGhhbmRsaW5nIGZ1bmN0aW9ucyB0byBrYXNsci5jCj4gICAgbGli
+c3R1YjogRml4IGNvbXBpbGF0aW9uIHdhcm5pbmcgZm9yIHJ2MzIKPiAgICByaXNjdjogbGlic3R1
+YjogSW1wbGVtZW50IEtBU0xSIGJ5IHVzaW5nIGdlbmVyaWMgZnVuY3Rpb25zCj4gCj4gICBhcmNo
+L2FybTY0L2luY2x1ZGUvYXNtL2VmaS5oICAgICAgICAgICAgICB8ICAgMiArCj4gICBhcmNoL3Jp
+c2N2L0tjb25maWcgICAgICAgICAgICAgICAgICAgICAgICB8ICAxOSArKysKPiAgIGFyY2gvcmlz
+Y3YvaW5jbHVkZS9hc20vZWZpLmggICAgICAgICAgICAgIHwgICAyICsKPiAgIGFyY2gvcmlzY3Yv
+aW5jbHVkZS9hc20vcGFnZS5oICAgICAgICAgICAgIHwgICAzICsKPiAgIGFyY2gvcmlzY3Yva2Vy
+bmVsL2ltYWdlLXZhcnMuaCAgICAgICAgICAgIHwgICAxICsKPiAgIGFyY2gvcmlzY3Yva2VybmVs
+L3BpL01ha2VmaWxlICAgICAgICAgICAgIHwgICAyICstCj4gICBhcmNoL3Jpc2N2L2tlcm5lbC9w
+aS9jbWRsaW5lX2Vhcmx5LmMgICAgICB8ICAxMyArKwo+ICAgYXJjaC9yaXNjdi9rZXJuZWwvcGkv
+ZmR0X2Vhcmx5LmMgICAgICAgICAgfCAgMzAgKysrKwo+ICAgYXJjaC9yaXNjdi9rZXJuZWwvc2V0
+dXAuYyAgICAgICAgICAgICAgICAgfCAgMjUgKysrKwo+ICAgYXJjaC9yaXNjdi9tbS9pbml0LmMg
+ICAgICAgICAgICAgICAgICAgICAgfCAgMzYgKysrKy0KPiAgIGRyaXZlcnMvZmlybXdhcmUvZWZp
+L2xpYnN0dWIvTWFrZWZpbGUgICAgIHwgICA0ICstCj4gICBkcml2ZXJzL2Zpcm13YXJlL2VmaS9s
+aWJzdHViL2FybTY0LXN0dWIuYyB8IDExNyArKy0tLS0tLS0tLS0tLS0tCj4gICBkcml2ZXJzL2Zp
+cm13YXJlL2VmaS9saWJzdHViL2VmaXN0dWIuaCAgICB8ICAgOCArKwo+ICAgZHJpdmVycy9maXJt
+d2FyZS9lZmkvbGlic3R1Yi9rYXNsci5jICAgICAgfCAxNTkgKysrKysrKysrKysrKysrKysrKysr
+Kwo+ICAgZHJpdmVycy9maXJtd2FyZS9lZmkvbGlic3R1Yi9yaXNjdi1zdHViLmMgfCAgMzMgKyst
+LS0KPiAgIDE1IGZpbGVzIGNoYW5nZWQsIDMyOCBpbnNlcnRpb25zKCspLCAxMjYgZGVsZXRpb25z
+KC0pCj4gICBjcmVhdGUgbW9kZSAxMDA2NDQgYXJjaC9yaXNjdi9rZXJuZWwvcGkvZmR0X2Vhcmx5
+LmMKPiAgIGNyZWF0ZSBtb2RlIDEwMDY0NCBkcml2ZXJzL2Zpcm13YXJlL2VmaS9saWJzdHViL2th
+c2xyLmMKPiAKCi0tIApUaGFua3MKU29uZyBTaHVhaQoKX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJp
+c2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1h
+bi9saXN0aW5mby9saW51eC1yaXNjdgo=
