@@ -4,71 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EA50C0015E
-	for <linux-riscv@archiver.kernel.org>; Tue, 15 Aug 2023 12:19:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0510FC0015E
+	for <linux-riscv@archiver.kernel.org>; Tue, 15 Aug 2023 13:11:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/9fk1cTm3PqipLefRjdOeWx06//3b5k/ch0E2TDA8J8=; b=LSNnr8XEJhx/7B
-	rOFUceH/208xX6cqN3qA+ppekFT+2XIxJoRLJBw0TJ6UU8UuM94JIUISguh97IMup4gsRfF/7JnBG
-	wglpzci6ApXAFQPAcw7CbQeksIqL5eCCEaFvkOKDkULDCiiPH0/+Row7iuxwvEJG9nCI7q/WeLwfQ
-	00Bg5Jd+Y2Yo9UogBeeMDgiGadQzvWiXv/FKkwAIO3zbhlZXxpF62IgqVEpPvapo+3acQfyZhXbFE
-	I+NjZOxTtsyvEaaco/utTGbqAAYL/mm5/OFu/ckHpOBJREjbZv8vOh586jowt0SEIQg6CYy//tW7F
-	p/BCap9+S66L+mmLQE9g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WnudYcQNDWoxSQ0upgBl/ke/pEZaKAp0B61ES5V1RdY=; b=TxE7fNh6mSAwBIOOvDRJAzWubX
+	njMzL3RD1bRUj15uGlDFRBm2sCOLbeTzJRtf0gcXo+VxyZdlQO4zgt9cph6+/SCr4/ae+Zqhq/yjS
+	ksQ6Epp5VKjc7swmZ0KMjubemjz47KqAraxKPlTLGAlNziOJFtE2AaffECpm+R+IQthuwwHWAPAY+
+	0Oc/iUivBM9h2/DTgHZidlcgEuJgZanI2VqPhB6KUF3ArLBGfO/znXTQnkwXoWeHn6PDx4QsfMZao
+	oOqQaOZdvSa4fbHGagzGGLFIfBcYxwYvfPKICZszud2whE8VcfgKYxZopD+YzDHy8c0Orkgjy0D4f
+	dGyUHBbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qVt1M-001axH-24;
-	Tue, 15 Aug 2023 12:19:36 +0000
+	id 1qVtpQ-001fOi-18;
+	Tue, 15 Aug 2023 13:11:20 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qVt1K-001awe-1A
+	id 1qVtpN-001fOK-1E
 	for linux-riscv@lists.infradead.org;
-	Tue, 15 Aug 2023 12:19:35 +0000
+	Tue, 15 Aug 2023 13:11:18 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id B1A6C61D0B;
-	Tue, 15 Aug 2023 12:19:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9B1C7C433C8;
-	Tue, 15 Aug 2023 12:19:32 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id AAA75614EA;
+	Tue, 15 Aug 2023 13:11:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 23D53C433C7;
+	Tue, 15 Aug 2023 13:11:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1692101973;
-	bh=F+QBXTktClw1//7fQW6I+DnTh5SvAuT9bMxhOC+ZD6Q=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=HBxjkyrXSFMB5/+qp2uVmtjjYZ8+LnBWuck+25wyHv7DrV3I1JjJp6t4jU2IrznRG
-	 hk2JCTtTNjn3paurBM84lCmBnOoeh21EUe5B9l7mWIv7/Vk+EldOxJwn1xzBvRup2b
-	 4dq3KSl2bCzNKOwbVCuVshJJYLQ6QCnvYFv6IzSfkxO5NReC7RxryFvIDirelW/Vux
-	 AMATCTPWBe1PAg11jCB8qvPd1q7qNsTnGd4BTIUronqiEhi1qIA6HqVAJo+2KFtH7d
-	 yCm/Rm8W8TLK8p9hiHVx51dLXZAsxGfJb4+Vq2PoJ2DMqmy6DDyRQd8fKePJoucg8b
-	 mdZI6dm5B9EcQ==
-From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-To: Andy Chiu <andy.chiu@sifive.com>, linux-riscv@lists.infradead.org,
- palmer@dabbelt.com
-Cc: vineetg@rivosinc.com, greentime.hu@sifive.com, paul.walmsley@sifive.com,
- guoren@linux.alibaba.com, anup@brainfault.org, atishp@atishpatra.org,
- heiko.stuebner@vrull.eu, Andy Chiu <andy.chiu@sifive.com>, Albert Ou
- <aou@eecs.berkeley.edu>, Guo Ren <guoren@kernel.org>, Vincent Chen
- <vincent.chen@sifive.com>, Heiko Stuebner <heiko@sntech.de>, Conor Dooley
- <conor.dooley@microchip.com>, Kefeng Wang <wangkefeng.wang@huawei.com>,
- Jisheng Zhang <jszhang@kernel.org>, =?utf-8?B?QmrDtnJuIFTDtnBlbA==?=
- <bjorn@rivosinc.com>, Sia
- Jee Heng <jeeheng.sia@starfivetech.com>, Mason Huo
- <mason.huo@starfivetech.com>, Andrew Bresticker <abrestic@rivosinc.com>,
- Fangrui Song <maskray@google.com>, Peter Zijlstra <peterz@infradead.org>
-Subject: Re: [v2, 5/5] riscv: vector: allow kernel-mode Vector with preemption
-In-Reply-To: <20230721112855.1006-6-andy.chiu@sifive.com>
-References: <20230721112855.1006-1-andy.chiu@sifive.com>
- <20230721112855.1006-6-andy.chiu@sifive.com>
-Date: Tue, 15 Aug 2023 14:19:30 +0200
-Message-ID: <87cyzoebvx.fsf@all.your.base.are.belong.to.us>
+	s=k20201202; t=1692105076;
+	bh=fxLQn7G8NKCIulwKp9YBaEwTHFcd16tQqNSCGDeE3/c=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=mctXEb2qdlOCfYwVyM1iF+Jo9WO8j6aRzuEBwJEAJX8XXUVabnZIlbpiYuGKOx2Lt
+	 Ouw99X+Pq5Vdeo1qUTDRmn3x8elOW7mJ7uORHH5L99BMTfGUT/TdTifUot+otgJYme
+	 d1TNeKS/ZT6KVQH18h/hXXkeFT5YSMX4hNbMYmNWSF/n+iZpUgt79or2pw6iguVpDb
+	 f1OWUk0wFWWoQuOhSNM6Ia62+uAjwJ/Dr/pikln1fgEBghlnKMAarCcHz5ARAXgYwQ
+	 YyJfk1nZChIEtz66Murubc3iyFhL6eXJIpZsBL5+6/4jPzPZiTwLLK8S6BkpT4C9+L
+	 kqX9hVC45IgvQ==
+Date: Tue, 15 Aug 2023 14:11:09 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Minda Chen <minda.chen@starfivetech.com>
+Cc: Conor Dooley <conor.dooley@microchip.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-pci@vger.kernel.org,
+	Pali =?iso-8859-1?Q?Roh=E1r?= <pali@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Mason Huo <mason.huo@starfivetech.com>,
+	Leyfoon Tan <leyfoon.tan@starfivetech.com>,
+	Kevin Xie <kevin.xie@starfivetech.com>
+Subject: Re: [PATCH v3 06/11] PCI: plda: Add event interrupt codes and IRQ
+ domain ops
+Message-ID: <20230815-five-comment-cff5fb01909f@spud>
+References: <20230814082016.104181-1-minda.chen@starfivetech.com>
+ <20230814082016.104181-7-minda.chen@starfivetech.com>
+ <20230814-episode-untidy-c66107a33ea0@wendy>
+ <f983f3cc-ebb5-18fb-891a-adc073742bb9@starfivetech.com>
 MIME-Version: 1.0
+In-Reply-To: <f983f3cc-ebb5-18fb-891a-adc073742bb9@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230815_051934_540297_2FB1EAF2 
-X-CRM114-Status: GOOD (  16.83  )
+X-CRM114-CacheID: sfid-20230815_061117_527707_8AA3A35A 
+X-CRM114-Status: GOOD (  21.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,50 +89,126 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============2918528099131175195=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-QW5keSBDaGl1IDxhbmR5LmNoaXVAc2lmaXZlLmNvbT4gd3JpdGVzOgoKPiBBZGQga2VybmVsX3Zz
-dGF0ZSB0byBrZWVwIHRyYWNrIG9mIGtlcm5lbC1tb2RlIFZlY3RvciByZWdpc3RlcnMgd2hlbgo+
-IHRyYXAgaW50cm9kdWNlZCBjb250ZXh0IHN3aXRjaCBoYXBwZW5zLiBBbHNvLCBwcm92aWRlIHRy
-YXBfcHRfcmVncyB0bwo+IGxldCBjb250ZXh0IHNhdmUvcmVzdG9yZSByb3V0aW5lIHJlZmVyZW5j
-ZSBzdGF0dXMuVlMgYXQgd2hpY2ggdGhlIHRyYXAKPiB0YWtlcyBwbGFjZS4gVGhlIHRocmVhZCBm
-bGFnIFRJRl9SSVNDVl9WX0tFUk5FTF9NT0RFIGluZGljYXRlcyB3aGV0aGVyCj4gYSB0YXNrIGlz
-IHJ1bm5pbmcgaW4ga2VybmVsLW1vZGUgVmVjdG9yIHdpdGggcHJlZW1wdGlvbiAnT04nLiBTbyBj
-b250ZXh0Cj4gc3dpdGNoIHJvdXRpbmVzIGtub3cgYW5kIHdvdWxkIHNhdmUgVi1yZWdzIHRvIGtl
-cm5lbF92c3RhdGUgYW5kIHJlc3RvcmUKPiBWLXJlZ3MgaW1tZWRpYXRlbHkgZnJvbSBrZXJuZWxf
-dnN0YXRlIGlmIHRoZSBiaXQgaXMgc2V0Lgo+Cj4gQXBhcnQgZnJvbSBhIHRhc2sncyBwcmVlbXB0
-aW9uIHN0YXR1cywgdGhlIGNhcGFiaWxpdHkgb2YKPiBydW5uaW5nIHByZWVtcHRpdmUga2VybmVs
-LW1vZGUgVmVjdG9yIGlzIGpvaW50bHkgY29udHJvbGxlZCBieSB0aGUKPiBSSVNDVl9WX1ZTVEFU
-RV9DVFJMX1BSRUVNUFRJQkxFIG1hc2sgaW4gdGhlIHRhc2sncwo+IHRocmVhZC52c3RhdGVfY3Ry
-bC4gVGhpcyBiaXQgaXMgbWFza2VkIHdoZW5ldmVyIGEgdHJhcCB0YWtlcyBwbGFjZSBpbgo+IGtl
-cm5lbCBtb2RlIHdoaWxlIGV4ZWN1dGluZyBwcmVlbXB0aXZlIFZlY3RvciBjb2RlLgo+Cj4gQWxz
-bywgcHJvdmlkZSBhIGNvbmZpZyBDT05GSUdfUklTQ1ZfSVNBX1ZfUFJFRU1QVElWRSB0byBnaXZl
-IHVzZXJzIGFuCj4gb3B0aW9uIHRvIGRpc2FibGUgcHJlZW1wdGlibGUga2VybmVsLW1vZGUgVmVj
-dG9yIGF0IGJ1aWxkIHRpbWUuIFVzZXJzCj4gd2l0aCBjb25zdHJhaW50IG1lbW9yeSBtYXkgd2Fu
-dCB0byBkaXNhYmxlIHRoaXMgY29uZmlnIGFzIHByZWVtcHRpYmxlCj4ga2VybmVsLW1vZGUgVmVj
-dG9yIG5lZWRzIGV4dHJhIHNwYWNlIGZvciB0cmFja2luZyBwZXIgdGhyZWFkJ3MKPiBrZXJuZWwt
-bW9kZSBWIGNvbnRleHQuIE9yLCB1c2VycyBtaWdodCBhcyB3ZWxsIHdhbnQgdG8gZGlzYWJsZSBp
-dCBpZiBhbGwKPiBrZXJuZWwtbW9kZSBWZWN0b3IgY29kZSBpcyB0aW1lIHNlbnNpdGl2ZSBhbmQg
-Y2Fubm90IHRvbGVyYXRlIGNvbnRleHQKPiBzd2ljdGggb3ZlcmhlYWQuCgpOaWNlIGlkZWEhIERp
-ZCB5b3UgcGVyZm9ybSBhbnkgYmVuY2htYXJraW5nPyBXb3VsZCBiZSByZWFsbHkgaW50ZXJlc3Rp
-bmcKdG8gZ2V0IHNvbWUgbnVtYmVycy4KCk5pdDogInN3aXRjaCIKCkkgbGlrZSB0aGF0IHRoZSBt
-b3N0ICJjb250cm92ZXJzaWFsIiBwYXRjaCBpcyBsYXN0LCBzbyBpdCBjYW4gZWFzaWx5IGJlCmRy
-b3BwZWQgaWYgdGhlIGRpc2N1c3Npb25zIGRvZXNuJ3Qgc2V0dGxlISBJdCB3b3VsZCBiZSBuaWNl
-IHdpdGgga2VybmVsCnZlY3RvciBzdXBwb3J0IGluIDYuNiEKCj4gZGlmZiAtLWdpdCBhL2FyY2gv
-cmlzY3Yva2VybmVsL2tlcm5lbF9tb2RlX3ZlY3Rvci5jIGIvYXJjaC9yaXNjdi9rZXJuZWwva2Vy
-bmVsX21vZGVfdmVjdG9yLmMKWy4uLl0KPiBAQCAtNzAsMTEgKzEwOSwxNCBAQCB2b2lkIGtlcm5l
-bF92ZWN0b3JfYmVnaW4odm9pZCkKPiAgCj4gIAlyaXNjdl92X3ZzdGF0ZV9zYXZlKCZjdXJyZW50
-LT50aHJlYWQudnN0YXRlLCB0YXNrX3B0X3JlZ3MoY3VycmVudCkpOwo+ICAKPiAtCWdldF9jcHVf
-dmVjdG9yX2NvbnRleHQoKTsKPiArCWlmICghcHJlZW1wdGlibGUoKSB8fCAha2VybmVsX3ZlY3Rv
-cl9wcmVlbXB0aWJsZSgpKSB7Cj4gKwkJZ2V0X2NwdV92ZWN0b3JfY29udGV4dCgpOwo+ICsJfSBl
-bHNlIHsKPiArCQlpZiAocmlzY3Zfdl9zdGFydF9rZXJuZWxfY29udGV4dCgpKQo+ICsJCQlnZXRf
-Y3B1X3ZlY3Rvcl9jb250ZXh0KCk7Cj4gKwl9CgpXZHl0IGFib3V0IHJlcGxhY2luZyB0aGlzIHdp
-dGg6CiAgICAgICAgaWYgKCFwcmVlbXB0aWJsZSgpIHx8ICFrZXJuZWxfdmVjdG9yX3ByZWVtcHRp
-YmxlKCkgfHwgcmlzY3Zfdl9zdGFydF9rZXJuZWxfY29udGV4dCgpKQogICAgICAgICAgICAgICAg
-Z2V0X2NwdV92ZWN0b3JfY29udGV4dCgpOwoKQmrDtnJuCgpfX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgt
-cmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWls
-bWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+
+--===============2918528099131175195==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="y/9ZHub3+HOs9Hmr"
+Content-Disposition: inline
+
+
+--y/9ZHub3+HOs9Hmr
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Tue, Aug 15, 2023 at 06:12:07PM +0800, Minda Chen wrote:
+>=20
+>=20
+> On 2023/8/14 21:52, Conor Dooley wrote:
+> > On Mon, Aug 14, 2023 at 04:20:11PM +0800, Minda Chen wrote:
+> >> For PolarFire implements non-PLDA local interrupt events, most of
+> >> event interrupt process codes can not be re-used. PLDA implements
+> >> new codes and IRQ domain ops like PolarFire.
+> >>=20
+> >> plda_handle_event adds a new IRQ num to event num mapping codes for
+> >> PLDA local event except DMA engine interrupt events. The DMA engine
+> >> interrupt events are implemented by vendors.
+> >>=20
+> >> Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
+> >> ---
+> >>  .../pci/controller/plda/pcie-microchip-host.c | 29 +++---
+> >>  drivers/pci/controller/plda/pcie-plda-host.c  | 99 +++++++++++++++++++
+> >>  drivers/pci/controller/plda/pcie-plda.h       | 19 ++++
+> >>  3 files changed, 133 insertions(+), 14 deletions(-)
+> >>=20
+> >> diff --git a/drivers/pci/controller/plda/pcie-microchip-host.c b/drive=
+rs/pci/controller/plda/pcie-microchip-host.c
+> >> index c28840315019..b42f1aac3ec3 100644
+> >> --- a/drivers/pci/controller/plda/pcie-microchip-host.c
+> >> +++ b/drivers/pci/controller/plda/pcie-microchip-host.c
+> >> @@ -96,20 +96,21 @@
+> >>  #define EVENT_LOCAL_DMA_END_ENGINE_1		12
+> >>  #define EVENT_LOCAL_DMA_ERROR_ENGINE_0		13
+> >>  #define EVENT_LOCAL_DMA_ERROR_ENGINE_1		14
+> >> -#define EVENT_LOCAL_A_ATR_EVT_POST_ERR		15
+> >> -#define EVENT_LOCAL_A_ATR_EVT_FETCH_ERR		16
+> >> -#define EVENT_LOCAL_A_ATR_EVT_DISCARD_ERR	17
+> >> -#define EVENT_LOCAL_A_ATR_EVT_DOORBELL		18
+> >> -#define EVENT_LOCAL_P_ATR_EVT_POST_ERR		19
+> >> -#define EVENT_LOCAL_P_ATR_EVT_FETCH_ERR		20
+> >> -#define EVENT_LOCAL_P_ATR_EVT_DISCARD_ERR	21
+> >> -#define EVENT_LOCAL_P_ATR_EVT_DOORBELL		22
+> >> -#define EVENT_LOCAL_PM_MSI_INT_INTX		23
+> >> -#define EVENT_LOCAL_PM_MSI_INT_MSI		24
+> >> -#define EVENT_LOCAL_PM_MSI_INT_AER_EVT		25
+> >> -#define EVENT_LOCAL_PM_MSI_INT_EVENTS		26
+> >> -#define EVENT_LOCAL_PM_MSI_INT_SYS_ERR		27
+> >> -#define NUM_EVENTS				28
+> >> +#define NUM_MC_EVENTS				15
+> >> +#define EVENT_LOCAL_A_ATR_EVT_POST_ERR		(NUM_MC_EVENTS + EVENT_A_ATR_=
+EVT_POST_ERR)
+> >> +#define EVENT_LOCAL_A_ATR_EVT_FETCH_ERR		(NUM_MC_EVENTS + EVENT_A_ATR=
+_EVT_FETCH_ERR)
+> >> +#define EVENT_LOCAL_A_ATR_EVT_DISCARD_ERR	(NUM_MC_EVENTS + EVENT_A_AT=
+R_EVT_DISCARD_ERR)
+> >> +#define EVENT_LOCAL_A_ATR_EVT_DOORBELL		(NUM_MC_EVENTS + EVENT_A_ATR_=
+EVT_DOORBELL)
+> >> +#define EVENT_LOCAL_P_ATR_EVT_POST_ERR		(NUM_MC_EVENTS + EVENT_P_ATR_=
+EVT_POST_ERR)
+> >> +#define EVENT_LOCAL_P_ATR_EVT_FETCH_ERR		(NUM_MC_EVENTS + EVENT_P_ATR=
+_EVT_FETCH_ERR)
+> >> +#define EVENT_LOCAL_P_ATR_EVT_DISCARD_ERR	(NUM_MC_EVENTS + EVENT_P_AT=
+R_EVT_DISCARD_ERR)
+> >> +#define EVENT_LOCAL_P_ATR_EVT_DOORBELL		(NUM_MC_EVENTS + EVENT_P_ATR_=
+EVT_DOORBELL)
+> >> +#define EVENT_LOCAL_PM_MSI_INT_INTX		(NUM_MC_EVENTS + EVENT_PM_MSI_IN=
+T_INTX)
+> >> +#define EVENT_LOCAL_PM_MSI_INT_MSI		(NUM_MC_EVENTS + EVENT_PM_MSI_INT=
+_MSI)
+> >> +#define EVENT_LOCAL_PM_MSI_INT_AER_EVT		(NUM_MC_EVENTS + EVENT_PM_MSI=
+_INT_AER_EVT)
+> >> +#define EVENT_LOCAL_PM_MSI_INT_EVENTS		(NUM_MC_EVENTS + EVENT_PM_MSI_=
+INT_EVENTS)
+> >> +#define EVENT_LOCAL_PM_MSI_INT_SYS_ERR		(NUM_MC_EVENTS + EVENT_PM_MSI=
+_INT_SYS_ERR)
+> >> +#define NUM_EVENTS				(NUM_MC_EVENTS + NUM_PLDA_EVENTS)
+> >=20
+> > Is this change not in the wrong patch & should be changed alongside the
+> > movement of defines?=20
+> EVENT_xxx is new added one for PLDA codes and The event num start from 0.=
+ This add association to PLDA events.
+> Maybe this can be moved to patch8 or a new patch.
+
+It feels like it should be in patch 3 to me.
+
+--y/9ZHub3+HOs9Hmr
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZNt5XAAKCRB4tDGHoIJi
+0ibSAQDzTMya4WyGRaKayC8dXzfWOFoV0m26PddhCyqWuBme3wD+Knf7YQM8iaqS
+nlBsWj+sLO1ExkovRY+V/9w6aPl/CgI=
+=+JHy
+-----END PGP SIGNATURE-----
+
+--y/9ZHub3+HOs9Hmr--
+
+
+--===============2918528099131175195==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============2918528099131175195==--
+
