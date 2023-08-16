@@ -4,90 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11890C27C6E
-	for <linux-riscv@archiver.kernel.org>; Wed, 16 Aug 2023 23:01:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B18B0C27C53
+	for <linux-riscv@archiver.kernel.org>; Wed, 16 Aug 2023 23:19:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=GNhcdhGo81uV8c1U5T9zndWGN09YMUdJLhjHkcdXmj4=; b=Gljqu9zFU2krtH
-	e2Ja7Fkn3UBecNN6W0ExkunfsCdRVqJn01Zsft5Ss5uCcK+GCOzbdCRx2Xi+N+FojVf0FWKbIUnRO
-	ErfmQoWknXpc0SasSSayvee85jBr47LHoFRBQAK9oylcE3H3RUc1BdkTkbh0Up79Ftzj9jUF3VzZU
-	dCTnm18ZFxFvGk+j3oA1isD2fuuMaDH64uffad39QY5SvOI6Dz6G73XYPD79RPZodGzsJyLPgGA0K
-	ij9hJGUazrYmLJg+qYwhO0Dzyeo0nuHML30nEk7w1WV+IGpO0fQMNV5xxSeEmdP9+BvySv1qIlF3Y
-	w3CHR70zV8VsfLhXmFSA==;
+	List-Owner; bh=DkGHmbh5W8IRPEMz9J1UnNcwKYgXxjBLqTp1GapXEi8=; b=dQnPZFVmG+h2Rp
+	uisLzwYyPm7Dp0rI1dgJpZ0u5jrnfpxyvNeXAHt7sfEo6/Npk58iBGMzXO3GkzDxRSLAoihfsu/J/
+	8tKBFVmstEWMIcKUQnVldaiV8DURj5zWDKwu7QKkcdWZuXZ2JB67G3gYme7LseJGz/2i5nWDLlm6v
+	SF6WqyZ22C0/c3xdvPYl7yRAbNP3QJ2Sr3d4U5qy532DX9C72jMH4eNWfIn16EWkit3xkYP5nPPsJ
+	bVNR7WRT9Halmoc6GZ+ielkrn8/CXf5Cvg54EzS8mNcbxS6XGSjnosQldVU32IyxdAYeg9uXrvKA0
+	eK9OiSWGGUdP1cgSRqIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qWPW0-0058rD-1L;
-	Wed, 16 Aug 2023 23:01:24 +0000
+	id 1qWPn7-0059tv-1H;
+	Wed, 16 Aug 2023 23:19:05 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qWPVw-0058qK-2I;
-	Wed, 16 Aug 2023 23:01:22 +0000
+	id 1qWPn4-0059tX-2Z
+	for linux-riscv@lists.infradead.org;
+	Wed, 16 Aug 2023 23:19:04 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 3E78D60B4E;
-	Wed, 16 Aug 2023 23:01:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CAE96C433C8;
-	Wed, 16 Aug 2023 23:01:18 +0000 (UTC)
-Authentication-Results: smtp.kernel.org;
-	dkim=pass (1024-bit key) header.d=zx2c4.com header.i=@zx2c4.com header.b="gc9k8+mN"
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=zx2c4.com; s=20210105;
-	t=1692226870;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=fJ+exFyMwxf+Sp/aWFmN/k274aR2STKWbu8odcAPWm8=;
-	b=gc9k8+mNE3tCbsH90oF9EzW/vFgVR7y8QrFQqWbAkwx60mdBY+E0jIfiI91PeccfihL/gM
-	FMX1aYXN8cQZi12ilCcCuGfxoyD69z/0vr/tMG59rHz0ZBubcWsbwNOtndqttWdolGCiWT
-	Of1/5rCi2Ck2bOcv0XhM9Tnvc2d7p2w=
-Received: by mail.zx2c4.com (ZX2C4 Mail Server) with ESMTPSA id aa23e6dc (TLSv1.3:TLS_AES_256_GCM_SHA384:256:NO);
-	Wed, 16 Aug 2023 23:01:10 +0000 (UTC)
-Received: by mail-ua1-f45.google.com with SMTP id a1e0cc1a2514c-79414715edeso1459492241.0;
-        Wed, 16 Aug 2023 16:01:09 -0700 (PDT)
-X-Gm-Message-State: AOJu0Yy24ToQlXaeC0N5lJF+W6kySccbtqhl5hrpvwPXn7Zprr3c2f02
-	T0wtV616VcwOHeiFCTCP310jccYT9Pl/MPK+zy4=
-X-Google-Smtp-Source: AGHT+IFdKTop/dTzxxplY5bDLsdLZZ0m1tGPXQJd6rkmBy2Wm4exC645Mb9rMUW6TK7Pnh6+pZhH7oflLvX5KYDSdqc=
-X-Received: by 2002:a67:e211:0:b0:443:c87f:ebb1 with SMTP id
- g17-20020a67e211000000b00443c87febb1mr2517297vsa.29.1692226866965; Wed, 16
- Aug 2023 16:01:06 -0700 (PDT)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 4D0C9640E9;
+	Wed, 16 Aug 2023 23:19:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7CE7DC433C7;
+	Wed, 16 Aug 2023 23:18:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1692227941;
+	bh=H/XS22Tf9sINJzysUCyiMHOKnBn7BLtWKuHebYdTUUo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=D7OREH2mS5x8+0IGnoyO6tSTVjOD0KuZDB+yS9EB5Bo235f13Ku9eaQIoYvDFX1U2
+	 jnwGko3ypaAs/TzFYyNzbbvnwbrBWCwsoccZS0QHZKc3Dfhu/+PWkWSa0bVMzNzMz7
+	 iBvjIBCveCxhH0VhbuiE95HWWXJpQQ8K94GTG0xy7G1aveKjigRNZxYo02mZEZHbuF
+	 yvJpCV3k80PL3Fy7rof7xnUEbbcwNk4xXtWHFW7nWOV/PvIAAoKUOR/eK+KwYJXwEi
+	 s5mqWf0Eu6ao/gQIU5TaqfVp11fpnDLcT2DJu1tMUR9Mm9sOt608TY9BFvgCwNEUYB
+	 O1/fMcRkXh4Ew==
+Date: Wed, 16 Aug 2023 19:18:53 -0400
+From: Guo Ren <guoren@kernel.org>
+To: Andy Chiu <andy.chiu@sifive.com>
+Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com,
+	vineetg@rivosinc.com, bjorn@kernel.org, greentime.hu@sifive.com,
+	paul.walmsley@sifive.com, guoren@linux.alibaba.com,
+	anup@brainfault.org, atishp@atishpatra.org, heiko.stuebner@vrull.eu,
+	Albert Ou <aou@eecs.berkeley.edu>
+Subject: Re: [v2, 0/5] riscv: support kernel-mode Vector
+Message-ID: <ZN1ZXcwYZtABNdUy@gmail.com>
+References: <20230721112855.1006-1-andy.chiu@sifive.com>
 MIME-Version: 1.0
-References: <20230816055010.31534-1-rdunlap@infradead.org>
-In-Reply-To: <20230816055010.31534-1-rdunlap@infradead.org>
-From: "Jason A. Donenfeld" <Jason@zx2c4.com>
-Date: Thu, 17 Aug 2023 00:58:18 +0200
-X-Gmail-Original-Message-ID: <CAHmME9pxC_e6Ftj1MJ4H2skhhKfNubd=7OwcH9xepCxjkDxpkg@mail.gmail.com>
-Message-ID: <CAHmME9pxC_e6Ftj1MJ4H2skhhKfNubd=7OwcH9xepCxjkDxpkg@mail.gmail.com>
-Subject: Re: [PATCH] treewide: drop CONFIG_EMBEDDED
-To: Randy Dunlap <rdunlap@infradead.org>
-Cc: linux-kernel@vger.kernel.org, Russell King <linux@armlinux.org.uk>, 
-	linux-arm-kernel@lists.infradead.org, Arnd Bergmann <arnd@arndb.de>, 
-	wireguard@lists.zx2c4.com, linux-arch@vger.kernel.org, 
-	linux-snps-arc@lists.infradead.org, Vineet Gupta <vgupta@kernel.org>, 
-	Brian Cain <bcain@quicinc.com>, linux-hexagon@vger.kernel.org, 
-	Greg Ungerer <gerg@linux-m68k.org>, Geert Uytterhoeven <geert@linux-m68k.org>, 
-	linux-m68k@lists.linux-m68k.org, Michal Simek <monstr@monstr.eu>, 
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>, Dinh Nguyen <dinguyen@kernel.org>, 
-	Jonas Bonn <jonas@southpole.se>, 
-	Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>, Stafford Horne <shorne@gmail.com>, 
-	linux-openrisc@vger.kernel.org, linux-mips@vger.kernel.org, 
-	Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, 
-	Christophe Leroy <christophe.leroy@csgroup.eu>, linuxppc-dev@lists.ozlabs.org, 
-	linux-riscv@lists.infradead.org, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Yoshinori Sato <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>, 
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, linux-sh@vger.kernel.org, 
-	Max Filippov <jcmvbkbc@gmail.com>, Josh Triplett <josh@joshtriplett.org>, 
-	Masahiro Yamada <masahiroy@kernel.org>, linux-kbuild@vger.kernel.org, 
-	Andrew Morton <akpm@linux-foundation.org>
+Content-Disposition: inline
+In-Reply-To: <20230721112855.1006-1-andy.chiu@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230816_160120_835634_D42AACF4 
-X-CRM114-Status: GOOD (  17.11  )
+X-CRM114-CacheID: sfid-20230816_161902_922587_51D97A44 
+X-CRM114-Status: GOOD (  30.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,53 +73,105 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCBBdWcgMTYsIDIwMjMgYXQgNzo1MOKAr0FNIFJhbmR5IER1bmxhcCA8cmR1bmxhcEBp
-bmZyYWRlYWQub3JnPiB3cm90ZToKPgo+IFRoZXJlIGlzIG9ubHkgb25lIEtjb25maWcgdXNlciBv
-ZiBDT05GSUdfRU1CRURERUQgYW5kIGl0IGNhbiBiZQo+IHN3aXRjaGVkIHRvIEVYUEVSVCBvciAi
-aWYgIUFSQ0hfTVVMVElQTEFURk9STSIgKHN1Z2dlc3RlZCBieSBBcm5kKS4KPgo+IFNpZ25lZC1v
-ZmYtYnk6IFJhbmR5IER1bmxhcCA8cmR1bmxhcEBpbmZyYWRlYWQub3JnPgo+IENjOiBSdXNzZWxs
-IEtpbmcgPGxpbnV4QGFybWxpbnV4Lm9yZy51az4KPiBDYzogbGludXgtYXJtLWtlcm5lbEBsaXN0
-cy5pbmZyYWRlYWQub3JnCj4gQ2M6IEFybmQgQmVyZ21hbm4gPGFybmRAYXJuZGIuZGU+Cj4gQ2M6
-IEphc29uIEEuIERvbmVuZmVsZCA8SmFzb25AengyYzQuY29tPgo+IENjOiB3aXJlZ3VhcmRAbGlz
-dHMuengyYzQuY29tCj4gQ2M6IGxpbnV4LWFyY2hAdmdlci5rZXJuZWwub3JnCj4gQ2M6IGxpbnV4
-LXNucHMtYXJjQGxpc3RzLmluZnJhZGVhZC5vcmcKPiBDYzogVmluZWV0IEd1cHRhIDx2Z3VwdGFA
-a2VybmVsLm9yZz4KPiBDYzogQnJpYW4gQ2FpbiA8YmNhaW5AcXVpY2luYy5jb20+Cj4gQ2M6IGxp
-bnV4LWhleGFnb25Admdlci5rZXJuZWwub3JnCj4gQ2M6IEdyZWcgVW5nZXJlciA8Z2VyZ0BsaW51
-eC1tNjhrLm9yZz4KPiBDYzogR2VlcnQgVXl0dGVyaG9ldmVuIDxnZWVydEBsaW51eC1tNjhrLm9y
-Zz4KPiBDYzogbGludXgtbTY4a0BsaXN0cy5saW51eC1tNjhrLm9yZwo+IENjOiBNaWNoYWwgU2lt
-ZWsgPG1vbnN0ckBtb25zdHIuZXU+Cj4gQ2M6IFRob21hcyBCb2dlbmRvZXJmZXIgPHRzYm9nZW5k
-QGFscGhhLmZyYW5rZW4uZGU+Cj4gQ2M6IERpbmggTmd1eWVuIDxkaW5ndXllbkBrZXJuZWwub3Jn
-Pgo+IENjOiBKb25hcyBCb25uIDxqb25hc0Bzb3V0aHBvbGUuc2U+Cj4gQ2M6IFN0ZWZhbiBLcmlz
-dGlhbnNzb24gPHN0ZWZhbi5rcmlzdGlhbnNzb25Ac2F1bmFsYWh0aS5maT4KPiBDYzogU3RhZmZv
-cmQgSG9ybmUgPHNob3JuZUBnbWFpbC5jb20+Cj4gQ2M6IGxpbnV4LW9wZW5yaXNjQHZnZXIua2Vy
-bmVsLm9yZwo+IENjOiBsaW51eC1taXBzQHZnZXIua2VybmVsLm9yZwo+IENjOiBNaWNoYWVsIEVs
-bGVybWFuIDxtcGVAZWxsZXJtYW4uaWQuYXU+Cj4gQ2M6IE5pY2hvbGFzIFBpZ2dpbiA8bnBpZ2dp
-bkBnbWFpbC5jb20+Cj4gQ2M6IENocmlzdG9waGUgTGVyb3kgPGNocmlzdG9waGUubGVyb3lAY3Nn
-cm91cC5ldT4KPiBDYzogbGludXhwcGMtZGV2QGxpc3RzLm96bGFicy5vcmcKPiBDYzogbGludXgt
-cmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwo+IENjOiBQYXVsIFdhbG1zbGV5IDxwYXVsLndhbG1z
-bGV5QHNpZml2ZS5jb20+Cj4gQ2M6IFBhbG1lciBEYWJiZWx0IDxwYWxtZXJAZGFiYmVsdC5jb20+
-Cj4gQ2M6IEFsYmVydCBPdSA8YW91QGVlY3MuYmVya2VsZXkuZWR1Pgo+IENjOiBZb3NoaW5vcmkg
-U2F0byA8eXNhdG9AdXNlcnMuc291cmNlZm9yZ2UuanA+Cj4gQ2M6IFJpY2ggRmVsa2VyIDxkYWxp
-YXNAbGliYy5vcmc+Cj4gQ2M6IEpvaG4gUGF1bCBBZHJpYW4gR2xhdWJpdHogPGdsYXViaXR6QHBo
-eXNpay5mdS1iZXJsaW4uZGU+Cj4gQ2M6IGxpbnV4LXNoQHZnZXIua2VybmVsLm9yZwo+IENjOiBN
-YXggRmlsaXBwb3YgPGpjbXZia2JjQGdtYWlsLmNvbT4KPiBDYzogSm9zaCBUcmlwbGV0dCA8am9z
-aEBqb3NodHJpcGxldHQub3JnPgo+IENjOiBNYXNhaGlybyBZYW1hZGEgPG1hc2FoaXJveUBrZXJu
-ZWwub3JnPgo+IENjOiBsaW51eC1rYnVpbGRAdmdlci5rZXJuZWwub3JnCj4gQ2M6IEFuZHJldyBN
-b3J0b24gPGFrcG1AbGludXgtZm91bmRhdGlvbi5vcmc+Cj4gLS0tCj4gZGlmZiAtLSBhL3Rvb2xz
-L3Rlc3Rpbmcvc2VsZnRlc3RzL3dpcmVndWFyZC9xZW11L2tlcm5lbC5jb25maWcgYi90b29scy90
-ZXN0aW5nL3NlbGZ0ZXN0cy93aXJlZ3VhcmQvcWVtdS9rZXJuZWwuY29uZmlnCj4gLS0tIGEvdG9v
-bHMvdGVzdGluZy9zZWxmdGVzdHMvd2lyZWd1YXJkL3FlbXUva2VybmVsLmNvbmZpZwo+ICsrKyBi
-L3Rvb2xzL3Rlc3Rpbmcvc2VsZnRlc3RzL3dpcmVndWFyZC9xZW11L2tlcm5lbC5jb25maWcKPiBA
-QCAtNDEsNyArNDEsNiBAQCBDT05GSUdfS0FMTFNZTVM9eQo+ICBDT05GSUdfQlVHPXkKPiAgQ09O
-RklHX0NDX09QVElNSVpFX0ZPUl9QRVJGT1JNQU5DRT15Cj4gIENPTkZJR19KVU1QX0xBQkVMPXkK
-PiAtQ09ORklHX0VNQkVEREVEPW4KPiAgQ09ORklHX0JBU0VfRlVMTD15Cj4gIENPTkZJR19GVVRF
-WD15Cj4gIENPTkZJR19TSE1FTT15CgpBY2tlZC1ieTogSmFzb24gQS4gRG9uZW5mZWxkIDxKYXNv
-bkB6eDJjNC5jb20+CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFk
-Lm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJp
-c2N2Cg==
+On Fri, Jul 21, 2023 at 11:28:50AM +0000, Andy Chiu wrote:
+> This series provides support for running Vector code in kernel mode. The
+> implementation is based on the v12 series of the Vector series, but with
+> some additions. First, we introduce a mechanism to defer restoring
+> Vector context for userspace programs (patch 1). This is similar to
+> arm64 and x86's approaches when dealing with extra userspace register
+> context. And it is benefitial to both Vector in user and kernel-mode.
+> Then, patch 2, 3 add the kernel-mode Vector patch from v12 with minor
+> modifications. At the end of the series, patch 4, 5 add supports for
+> making kernel-mode Vector code preemptible. We do this by adding
+> kernel-mode Vector context, and keeping track of the frame where V
+> context is last valid. We believe that enabling preemption of running V
+> is a critical path for getting V more generally available in the
+> kernel-mode. Besides, with status.VS, we can easily tell if
+> saving/restoring V is required. This reduce the level of cost when
+> running SIMD in kernel mode as compared to other arches. Other arches
+> usually do not have a way to tell if extra context is dirty. Thus, if
+> they also want to support running preemptible code with extra registers,
+> then they must save/restore extra context at each context switch even if
+> registers are not dirty.
+> 
+> The series is tested by loading a kernel module on a preemptive kernel.
+> The module launches multiple kworkers which run Vector operations and
+> verifies with scalar code. Also, the module provides userspace intefaces
+> via fops to verify if we can run Vector code on syscall path.
+Would it be contributed to kernel tools/testing/selftests/riscv/?
+
+> 
+> Updated patches: 1, 2, 3, 4, 5
+> New patches: -
+> Unchanged patches: -
+> Deleted patches: 6 (moved to 5)
+> 
+> Changelog v2:
+>  - fix build issues
+>  - Follow arm's way of starting kernel-mode simd code:
+>    - add include/asm/simd.h and rename may_use_vector() ->
+>      may_use_simd()
+>    - return void in kernel_vector_begin(), and BUG_ON if may_use_simd()
+>      fails
+>  - Change naming scheme for functions/macros (Conor):
+>    - remove KMV
+>    - 's/rvv/vector/'
+>    - 's/RISCV_ISA_V_PREEMPTIVE_KMV/RISCV_ISA_V_PREEMPTIVE/'
+>    - 's/TIF_RISCV_V_KMV/TIF_RISCV_V_KERNEL_MODE/'
+> 
+> Changes from the vector v12 series (for patch 2, 3):
+>  - return a failure code when kernel_vector_begin() fails.
+>  - Do not immediately restore user's V context.
+> 
+> Andy Chiu (3):
+>   riscv: sched: defer restoring Vector context for user
+>   riscv: vector: do not pass task_struct into
+>     riscv_v_vstate_{save,restore}()
+>   riscv: vector: allow kernel-mode Vector with preemption
+> 
+> Greentime Hu (2):
+>   riscv: Add support for kernel mode vector
+>   riscv: Add vector extension XOR implementation
+> 
+>  arch/riscv/Kconfig                     |  10 ++
+>  arch/riscv/include/asm/entry-common.h  |  13 +++
+>  arch/riscv/include/asm/processor.h     |   2 +
+>  arch/riscv/include/asm/simd.h          |  52 +++++++++
+>  arch/riscv/include/asm/thread_info.h   |   6 +
+>  arch/riscv/include/asm/vector.h        |  50 +++++++--
+>  arch/riscv/include/asm/xor.h           |  82 ++++++++++++++
+>  arch/riscv/kernel/Makefile             |   1 +
+>  arch/riscv/kernel/asm-offsets.c        |   2 +
+>  arch/riscv/kernel/entry.S              |  45 ++++++++
+>  arch/riscv/kernel/kernel_mode_vector.c | 146 +++++++++++++++++++++++++
+>  arch/riscv/kernel/process.c            |  10 +-
+>  arch/riscv/kernel/ptrace.c             |   2 +-
+>  arch/riscv/kernel/signal.c             |   4 +-
+>  arch/riscv/kernel/vector.c             |   5 +-
+>  arch/riscv/lib/Makefile                |   1 +
+>  arch/riscv/lib/xor.S                   |  81 ++++++++++++++
+>  17 files changed, 495 insertions(+), 17 deletions(-)
+>  create mode 100644 arch/riscv/include/asm/simd.h
+>  create mode 100644 arch/riscv/include/asm/xor.h
+>  create mode 100644 arch/riscv/kernel/kernel_mode_vector.c
+>  create mode 100644 arch/riscv/lib/xor.S
+> 
+> -- 
+> 2.17.1
+> 
+> 
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
+> 
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
