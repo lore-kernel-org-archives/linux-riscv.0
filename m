@@ -4,72 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45219C001B0
-	for <linux-riscv@archiver.kernel.org>; Wed, 16 Aug 2023 17:58:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68847C41513
+	for <linux-riscv@archiver.kernel.org>; Wed, 16 Aug 2023 18:05:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DThCeIVtzLaT/1AeN0gS2ihxvj54pp/bTZlcfPYq4e0=; b=gO8SO9LYWmn1YTylSPDPfs94v/
-	WpNiaoyRuZu8zRzVco/CHlicliFcDdySo4LYwnKcMCREx7w9lTV+3Yb3yxa9pvvE16Exe3djL+5nT
-	922Evg1LP0NWDv3mxxt9q1ZVu/Yq3gyotzq5OK/1evfK7Pq9Za9cBsstpGqkgqSqiuM1SGoXg+8fh
-	l+EKITfchKha4PkxsQrmj65O3RGRytrmsfb2NfL/QyQDPJa3rdziK2eKxk0QDI9pv26YkAmkqbTyM
-	NU4t/0EsjZI3tIOqhNETMpqStQH0+dsv+cli5RQkzJSSV4H2AU1Ozq+k09VcjLqNIG1bbhEdhNxwI
-	RNT0RE+Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=/IOwF7DKNrHePQlxUARso6m+gKQAT/sqcIG3EMlAPio=; b=zkt2mTQA7VpSAd
+	ggoQf65z2lzd/jHnWDxvn7U1d3KqF0tYIJ9SqQJGdDHGRJpX5cR40p6qOyY0aQHBf6/xOLjObEguj
+	JHZ35+tvzm7RWa2zHcKkmxxH9j6gqPySn0nSoKnrIrg3V7EQV0YpjlGHZgfkN7/RO+4C0iy5/kUq2
+	VfDX8xIQkAMScF6GP5WWGtHgmzZmmWtan7WmtwUQLADsTkLM8/5npPE72z6HLRbqVnRAjXgxJpKbf
+	t/p/wdDNmJ72vqB4+vpWblzgWJ6h5PXKMC58rL5sjua91Lbrcighqs4gNlOisjPHhPw1jrZT2+wPx
+	HUkVlb44+bbTEWi9FtMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qWKnB-004kN4-06;
-	Wed, 16 Aug 2023 17:58:49 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1qWKto-004l4r-16;
+	Wed, 16 Aug 2023 18:05:40 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qWKn8-004kMf-2I
+	id 1qWKtl-004l4U-2u
 	for linux-riscv@lists.infradead.org;
-	Wed, 16 Aug 2023 17:58:47 +0000
+	Wed, 16 Aug 2023 18:05:39 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 2D83563814;
-	Wed, 16 Aug 2023 17:58:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3E3ACC433C8;
-	Wed, 16 Aug 2023 17:58:42 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 3E0C06343E;
+	Wed, 16 Aug 2023 18:05:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B7590C433C7;
+	Wed, 16 Aug 2023 18:05:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1692208725;
-	bh=fDU2HXAeFWB4n482i4GZf6hhte8bflt2UwJqfgDiRXo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=rDr/hoxyn60n1Rb/HIgQ+4XMZC8loA7CRK/5KGyOtm/wv+1XnvWCEWpEWaBTCIXGa
-	 GJxp/OgdsWU5ZvzDN2AZ3ma+d927CGT2EhRWgIGQJ3zi9k4UGrCmScoeq9Rm+85gqa
-	 pdrW58ONBnBgRbK1PflCj8rVJ1/oxyBW3r/c9dF3Jaz1CVJl66vux10SI+3eI5a8qO
-	 VesWuulpU33K094jBs9Uk1g76Fwx6KLw0u4+TsvazU50xmHvEPUFV+Jg6+LfGjCN1y
-	 9iffwpCvFBLCEdoAvJEyZQNIAvpdMKwKYYChyoigyMefCPv+KhoU2SMd05KfF/MfkF
-	 ry2e4B8ZducKg==
-Date: Wed, 16 Aug 2023 18:58:39 +0100
+	s=k20201202; t=1692209136;
+	bh=JQl0mn2XbpDCEfJ6yKECy2b46XphKoK5Ye0vfvkPGyY=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=O+MJsvU+60YJXTdsqr3/24XqNkK1HICJgFUZnAryhRfsU4blmqty/7M845sHTnEY6
+	 /SfkR3u7Adw5zyN9l63r+fuLdiTGVczt6eifAzPqLEhPyUMUP+x3k+16RfcJUIRhV+
+	 t+mOINXt/KIxHqPdHDfBccJy5p0QuDZpGByX0koFPEgvT9wnMXSJa8NEjxSjcXBDzk
+	 bwBrdVakd0wr1M3HV+3veIcMxFyz7PcvXyKQ+Kd9Om+8UdZKSAa8QXUZ6OxsfU5XD3
+	 83k72thMAWeK8FpXBxUXOEmZY1VUzrKZjCs9TGTBloY0n2JdrQm4N572nqtAnRBuEI
+	 24VdYoLEs1TAA==
 From: Conor Dooley <conor@kernel.org>
-To: Jisheng Zhang <jszhang@kernel.org>
-Cc: Drew Fustini <dfustini@baylibre.com>, Guo Ren <guoren@kernel.org>,
-	Fu Wei <wefu@redhat.com>, Rob Herring <robh+dt@kernel.org>,
+To: Jisheng Zhang <jszhang@kernel.org>,
+	Guo Ren <guoren@kernel.org>,
+	Fu Wei <wefu@redhat.com>,
+	Rob Herring <robh+dt@kernel.org>,
 	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
 	Conor Dooley <conor+dt@kernel.org>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Robert Nelson <robertcnelson@beagleboard.org>,
-	Jason Kridner <jkridner@beagleboard.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	linux-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Drew Fustini <dfustini@baylibre.com>
+Cc: conor@kernel.org,
 	Conor Dooley <conor.dooley@microchip.com>
-Subject: Re: [PATCH v3 0/2] riscv: Add BeagleV Ahead board support
-Message-ID: <20230816-lubricate-grout-b5db43b94163@spud>
-References: <20230811-ahead-dt-v3-v1-0-aef2294bed86@baylibre.com>
- <20230815-aroma-graveyard-f1fcc61e5030@spud>
- <ZNzvGMmKufXxdOjt@xhacker>
+Subject: Re: [PATCH] riscv: dts: change TH1520 files to dual license
+Date: Wed, 16 Aug 2023 19:05:28 +0100
+Message-Id: <20230816-feminism-catatonic-e7ce62ef85ca@spud>
+X-Mailer: git-send-email 2.39.2
+In-Reply-To: <20230724182129.843687-1-dfustini@baylibre.com>
+References: <20230724182129.843687-1-dfustini@baylibre.com>
 MIME-Version: 1.0
-In-Reply-To: <ZNzvGMmKufXxdOjt@xhacker>
+X-Developer-Signature: v=1; a=openpgp-sha256; l=307; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=TQJs0EVZotMHGriusZQX5DXuev+izxQ2z84pDBNZFLU=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDCl3+Z8rGc1aNHOnZ9ukbblWKeaPPku45uhk6yh6caj0c W+9rVHdUcrCIMbBICumyJJ4u69Fav0flx3OPW9h5rAygQxh4OIUgIl8DGb4p1SdE/evKsOws1xF Iowpd9q7rx9+TG5+cN0kz/qIu0z1VkaGNToqCYeW1Kg0nSqyskvP3bew+YP7VndeC2/z9ODv3HM 5AA==
+X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230816_105846_808132_F8867A39 
-X-CRM114-Status: GOOD (  20.78  )
+X-CRM114-CacheID: sfid-20230816_110537_980582_4E73D3AE 
+X-CRM114-Status: UNSURE (   6.92  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,74 +85,27 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============7891148398022790279=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+From: Conor Dooley <conor.dooley@microchip.com>
 
---===============7891148398022790279==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="eZbM/ViOOX4Bfyy9"
-Content-Disposition: inline
+On Mon, 24 Jul 2023 11:21:29 -0700, Drew Fustini wrote:
+> Modify the SPDX-License-Identifier for dual license of GPL-2.0 OR MIT.
+> 
+> 
 
+Applied to riscv-dt-for-next, thanks!
 
---eZbM/ViOOX4Bfyy9
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Wed, Aug 16, 2023 at 11:45:28PM +0800, Jisheng Zhang wrote:
-> On Tue, Aug 15, 2023 at 02:15:46PM +0100, Conor Dooley wrote:
-> > Hey Jisheng,
-> >=20
-> > On Fri, Aug 11, 2023 at 05:47:15PM -0700, Drew Fustini wrote:
-> > > The BeagleV Ahead single board computer [1] features the T-Head TH1520
-> > > SoC. Similar to the Lichee Pi 4A series from Jisheng [2], this adds a
-> > > minimal device tree file to support booting to a basic shell [3].
-> >=20
-> > Am I supposed to take this, or will you? I still don't know where I
-> > stand with any of this and will default to assuming things are for me
-> > to take in the absence of clarity.
->=20
-> Hi Conor,
->=20
-> Since the patches in this window is small, so yes please help us to
-> take this series and the one of changing the dts license. I see Guo Ren
-> has acked it, I will ack too soon.
-
-Okay, I will go grab both.
-Can you please decide if you want me to take the patches going forward,
-or will make a git tree, put it in linux-next & send PRs to the SoC
-maintainers? One or the other, not this ad-hoc mix where neither I nor
-contributors know?
+[1/1] riscv: dts: change TH1520 files to dual license
+      https://git.kernel.org/conor/c/a3ce3ff28385
 
 Thanks,
 Conor.
-
---eZbM/ViOOX4Bfyy9
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZN0OTwAKCRB4tDGHoIJi
-0jMSAP4hn/7YFk6PN0m3OewUmY2bsv72Mc41vuCdqYDleiDu2wEA80xVtTaRWClC
-IXGNPUVCSg517oznOJnFXrkFdVT1uwk=
-=0VY7
------END PGP SIGNATURE-----
-
---eZbM/ViOOX4Bfyy9--
-
-
---===============7891148398022790279==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============7891148398022790279==--
-
