@@ -4,90 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA95CC27C53
-	for <linux-riscv@archiver.kernel.org>; Wed, 16 Aug 2023 23:24:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62A8BC2FC02
+	for <linux-riscv@archiver.kernel.org>; Wed, 16 Aug 2023 23:31:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Reply-To:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Subject:From:Cc:To:MIME-Version:Date:
+	Message-ID:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=8DRVhrFDYfIP5Jbf8z/8uquADwavLp8c3peI+b4MzIs=; b=tvGcW/urtHQRRY
-	leKvvjSXl7b5fm/+sS70b6ZI0xwLwP/aHPHEvZWHgA2K9fpDHOyM1OmDZPCPCr1xc2doCr+QDMxi8
-	ZE6lVsWnNFgz62oH88vgA4ybCpsukg+n0v/dkp7uKZMd5tUmeg5cEwyJgnTTl7GNFnThnckfXK/pa
-	SPKLUytbgBwxs+mufjjB9ZcTJpkN5IlNmcUlvJeF6wqwLyLUWXi85oYFmg9hayLwa9+WD+6ra0nxW
-	dzXszKboxz9bYYKt18Nq9hH8oS94AD+nWz/TSA6Kt5Qh8pegUf4oqajtrg8gbszf7ANKDJex5+f4T
-	MXU+pMPY71f+NWNTJDpA==;
+	List-Owner; bh=3ScGF3V6Pm+TnZku1UexG7fIWMg0ojNka24OCF/1ZXM=; b=iH3+fwlpXXqoVM
+	d0G6c8mDUfVuql6Tppx54REe85C6yx05TpM/I5ratnZhZkd4TrE4njT0It5uZHUn1b4Go8C4BKKNN
+	VwcgsHSKrLSvCXeoTutnRP3hkH4z91HOXpJO4bEOk775xIbHP+fsqSSvu2XGhdJgi0ubUI7Xz7r7k
+	w0KBtZFsTuFf1t2eNg3UN0lS3K+ft+iskyhWz9ArpIt1Yhd5BJr+vTizJtnauD2v04mR2BrtJI3U1
+	xeL3d9HAQQ8RBOm+NW9uiqhoKhFh938UYI9BBGvhd+2i53tqczBXyAzR61nYfzSA9dojRqnHvOPUF
+	MCVuCeYQYVZLz8AC1gXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qWPrj-005A9o-3D;
-	Wed, 16 Aug 2023 23:23:52 +0000
-Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
+	id 1qWPzV-005Ah1-0c;
+	Wed, 16 Aug 2023 23:31:53 +0000
+Received: from mail-qv1-xf30.google.com ([2607:f8b0:4864:20::f30])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qWPrf-005A8B-1l
-	for linux-riscv@lists.infradead.org;
-	Wed, 16 Aug 2023 23:23:50 +0000
-Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-318015ade49so6280202f8f.0
-        for <linux-riscv@lists.infradead.org>; Wed, 16 Aug 2023 16:23:45 -0700 (PDT)
+	id 1qWPGP-0057lr-2p;
+	Wed, 16 Aug 2023 22:45:19 +0000
+Received: by mail-qv1-xf30.google.com with SMTP id 6a1803df08f44-6493389c56fso4510366d6.2;
+        Wed, 16 Aug 2023 15:45:15 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20221208; t=1692228224; x=1692833024;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=tgdXOP4yR6ZnH/y1qGFKmHKWNqRrRuobjN/2x4b+FbA=;
-        b=WEB4xO5LWij5oKfwGh1OEk4FXjhCGsMXw/ewx7R6a0QjvqDafEoSNlCkRtFivEPFen
-         TLR8FfJ6EfvqoNSpjp+UlLgLKbHENMneStqXnyRRfQ/MX1+zGq+MIaqXmVITtO7AnLBB
-         6wgS2VYD3PZxXGqdMPzVw5YO8XpveYZZYBUMicCNZRSpqU9+0avSQ4edpW8fzJySwGps
-         D46siM0ztdasxWVy1ROb7n/oytocnGykiUrW+1zzTSoVokhEMB+/RKb+ZL6R9bmJ2DLX
-         9zVRSB0ExIhEmvCeXAk9SooDtsu9BtzefewFaDXf/8agZccM2E5kxe+eINljjw/4ikJl
-         CiNQ==
+        d=gmail.com; s=20221208; t=1692225914; x=1692830714;
+        h=content-transfer-encoding:subject:from:reply-to:cc:to
+         :content-language:user-agent:mime-version:date:message-id:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=MGoBkEwlCnbJad+CecbjRY+VjiJK8E7bojDgpjg7FvU=;
+        b=J+2GZw9sDgAuPCvyYPqSvvzp1lVg6wE6qeMOlcYMGPuThPNLCGYiiW2dwFVq91l/vl
+         NT/yeq5xZ4Ufc7IZxR6ugOwOZQfg5nMbUshmMxhNTewriji8eUuaNn0c360FPsW5tkH4
+         6cS/vKC7K0l0lZLKGVqDi2VTUmRXgo+WSJJ9fOFjLJU7uhgHYQzddKm06zxNwf3BXFjN
+         SCDUE56G1UeYAPYGs2dGSOsKeDDFiUZRdgQwqGIeL2NpPJhlcnrVVGytRXUYD0OF20a4
+         87SE8XWZHMx/EGlk2yISP6pygxQx+aQ11VINZVZvJIAIyOIfvz+sxSaS9uqbom35csu9
+         8sYQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1692228224; x=1692833024;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=tgdXOP4yR6ZnH/y1qGFKmHKWNqRrRuobjN/2x4b+FbA=;
-        b=dQJMJ9edEaaRmrotYi4H8J5JvaK4CXNi35zrBj3tZyw3h4wYiu7+nKEhscKE7bFE5O
-         lp26cBhfT4zm36YLIzZxhEUJiaMGDdLUf3zkApPRRDPN+AGki3steYTJDvfmsO3+Itp9
-         dCrxNrb5hL2Tg5fExfk4EA1E0dY+cz8mAP48E5l1fUZ4su9LIHfZiw82KAtXk5Jx0jmQ
-         vIz04z7QnuHWB7Pzu110qSiwjyKTLNzNPdlJILHk9JCAmRlzNuq9zVAlF/uoGBT24iy5
-         oqXtyGwDrdkHk3eyxogG/bAcOs1l17sjnTlyyvYDE02te/IHdRMa8zzgKOcUiIhVXZ/m
-         sOkQ==
-X-Gm-Message-State: AOJu0Yw5ebY9UiT/sIUIH5fZIXmNfE3oojL13AazEdSKykFgz1/yRxxZ
-	nM59jP5PY9yBz4tGEyfhoZM=
-X-Google-Smtp-Source: AGHT+IEOsLQXTtu9Ww1G9TMwF+CJtQ5zAjl4dANCkwAMo4lC/cxbVGxVfQfn4ev6QwpY38US7Fbrmg==
-X-Received: by 2002:adf:db48:0:b0:317:74ce:3e27 with SMTP id f8-20020adfdb48000000b0031774ce3e27mr2422087wrj.67.1692228223853;
-        Wed, 16 Aug 2023 16:23:43 -0700 (PDT)
-Received: from prasmi.home ([2a00:23c8:2501:c701:aeb8:832b:ebc0:1bbf])
-        by smtp.gmail.com with ESMTPSA id q4-20020adff944000000b003143c9beeaesm22752617wrr.44.2023.08.16.16.23.42
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 16 Aug 2023 16:23:42 -0700 (PDT)
-From: Prabhakar <prabhakar.csengg@gmail.com>
-X-Google-Original-From: Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-To: Arnd Bergmann <arnd@arndb.de>,
-	Christoph Hellwig <hch@lst.de>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Anup Patel <apatel@ventanamicro.com>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Jisheng Zhang <jszhang@kernel.org>,
-	linux-kernel@vger.kernel.org
-Cc: Geert Uytterhoeven <geert+renesas@glider.be>,
-	Samuel Holland <samuel@sholland.org>,
-	linux-riscv@lists.infradead.org,
-	linux-renesas-soc@vger.kernel.org,
-	Prabhakar <prabhakar.csengg@gmail.com>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Subject: [PATCH v3 0/3] riscv: dma-mapping: unify support for cache flushes
-Date: Thu, 17 Aug 2023 00:23:33 +0100
-Message-Id: <20230816232336.164413-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
-X-Mailer: git-send-email 2.34.1
+        d=1e100.net; s=20221208; t=1692225914; x=1692830714;
+        h=content-transfer-encoding:subject:from:reply-to:cc:to
+         :content-language:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=MGoBkEwlCnbJad+CecbjRY+VjiJK8E7bojDgpjg7FvU=;
+        b=PYXGbAZ0ec3M9rydSxVS4b/QLgfZNostdnWKxyqOwSUYoC9lWZkFTyaU3pgpz9yaVb
+         Pq9k58BJopotCrMAnq5Z97FvaHjuXf5ftq4ynN0xmtGgAcEasnVGNDV+sQhpS3KIpnvY
+         ftVpbOm41iWoQljLnBMTDH3LnW1IS8ixApOIibIQ5URSjcuukkp/JXF4B01Ys4c0226B
+         +QaKEwyUQPnP8CWBYB58aPnzAafOCLMqR4LzrMpwiyAow3fb+EwAaYOubRTiaE3KLVH9
+         qzNsDvZFVimQeWFa+zBkbCqvwvl6szOGABoRdrTc878THdfzYP9SnS2BRuBTMQUI1u1I
+         TDgg==
+X-Gm-Message-State: AOJu0YxA/hqrhSKOkm7xzcAeEd9Gp014g/DqPcM+s15pDfe6Wunj+Pk6
+	jbvtn4P1q6nzvwYzhJqD6uE=
+X-Google-Smtp-Source: AGHT+IFsHNXunRgp3X8hlKrWnp7WXFK/+sVXWgsvRCLnJDzFjNXPGtXcdWLNPeHWJ41d2OTBT7Z5iQ==
+X-Received: by 2002:a0c:e4c7:0:b0:649:980c:4ee1 with SMTP id g7-20020a0ce4c7000000b00649980c4ee1mr1626603qvm.5.1692225914347;
+        Wed, 16 Aug 2023 15:45:14 -0700 (PDT)
+Received: from ?IPV6:2600:4040:57a3:100:5b2e:7da0:3ac1:56bd? ([2600:4040:57a3:100:5b2e:7da0:3ac1:56bd])
+        by smtp.gmail.com with ESMTPSA id w13-20020a0ce10d000000b00645cbb3b6bbsm3864703qvk.115.2023.08.16.15.45.12
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 16 Aug 2023 15:45:13 -0700 (PDT)
+Message-ID: <38e1a01b-1e8b-7c66-bafc-fc5861f08da9@gmail.com>
+Date: Wed, 16 Aug 2023 18:45:12 -0400
 MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.10.0
+Content-Language: en-US
+To: Randy Dunlap <rdunlap@infradead.org>
+Cc: linux-kernel@vger.kernel.org, Russell King <linux@armlinux.org.uk>,
+ linux-arm-kernel@lists.infradead.org, Arnd Bergmann <arnd@arndb.de>,
+ "Jason A . Donenfeld" <Jason@zx2c4.com>, wireguard@lists.zx2c4.com,
+ linux-arch@vger.kernel.org, linux-snps-arc@lists.infradead.org,
+ Vineet Gupta <vgupta@kernel.org>, Brian Cain <bcain@quicinc.com>,
+ linux-hexagon@vger.kernel.org, Greg Ungerer <gerg@linux-m68k.org>,
+ linux-m68k@lists.linux-m68k.org, Michal Simek <monstr@monstr.eu>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ Dinh Nguyen <dinguyen@kernel.org>, Jonas Bonn <jonas@southpole.se>,
+ Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
+ Stafford Horne <shorne@gmail.com>, linux-openrisc@vger.kernel.org,
+ linux-mips@vger.kernel.org, Michael Ellerman <mpe@ellerman.id.au>,
+ Nicholas Piggin <npiggin@gmail.com>,
+ Christophe Leroy <christophe.leroy@csgroup.eu>,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Yoshinori Sato <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>,
+ John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+ linux-sh@vger.kernel.org, Max Filippov <jcmvbkbc@gmail.com>,
+ Josh Triplett <josh@joshtriplett.org>, Masahiro Yamada
+ <masahiroy@kernel.org>, linux-kbuild@vger.kernel.org,
+ Andrew Morton <akpm@linux-foundation.org>
+From: Jesse Taube <mr.bossman075@gmail.com>
+Subject: Re: [PATCH] treewide: drop CONFIG_EMBEDDED
+X-Bad-Reply: 'Re:' in Subject but no References or In-Reply-To headers
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230816_162347_590396_2D8F7D67 
-X-CRM114-Status: UNSURE (   7.50  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230816_154517_914773_67715C82 
+X-CRM114-Status: GOOD (  10.63  )
+X-Mailman-Approved-At: Wed, 16 Aug 2023 16:31:52 -0700
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,44 +109,34 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
+Reply-To: 20230816055010.31534-1-rdunlap@infradead.org
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Hi, Randy
 
-This patch series is a subset from Arnd's original series [0]. Ive just
-picked up the bits required for RISC-V unification of cache flushing.
-Remaining patches from the series [0] will be taken care by Arnd soon.
+ > diff -- a/init/Kconfig b/init/Kconfig
+ > --- a/init/Kconfig
+ > +++ b/init/Kconfig
+ > @@ -1790,14 +1790,6 @@ config DEBUG_RSEQ
+ >
+ >  	  If unsure, say N.
+ >
+ > -config EMBEDDED
+ > -	bool "Embedded system"
+ > -	select EXPERT
+ > -	help
+ > -	  This option should be enabled if compiling the kernel for
+ > -	  an embedded system so certain expert options are available
+ > -	  for configuration.
 
-Cheers,
-Prabhakar
+Wouldn't removing this break many out of tree configs?
+Should there be a warning here to update change it instead of removal?
 
-v2->v3
-* Got rid of dma-sync.h and included the changes directly into dma-noncoherent.c
-
-v1->v2
-* Dropped others archs
-* Included RB and ACKs
-* Fixed checkpatch issues
-
-V1:
-[0] https://patchwork.kernel.org/project/linux-riscv/cover/20230327121317.4081816-1-arnd@kernel.org/
-
-Arnd Bergmann (2):
-  riscv: dma-mapping: only invalidate after DMA, not flush
-  riscv: dma-mapping: skip invalidation before bidirectional DMA
-
-Lad Prabhakar (1):
-  riscv: dma-mapping: switch over to generic implementation
-
- arch/riscv/mm/dma-noncoherent.c | 60 ++++++++++++++++++++++++++++-----
- 1 file changed, 51 insertions(+), 9 deletions(-)
-
--- 
-2.34.1
-
+Thanks,
+Jesse Taube
 
 _______________________________________________
 linux-riscv mailing list
