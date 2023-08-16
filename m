@@ -4,81 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97945C001B0
-	for <linux-riscv@archiver.kernel.org>; Tue, 15 Aug 2023 23:54:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AD98C0015E
+	for <linux-riscv@archiver.kernel.org>; Wed, 16 Aug 2023 02:07:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yFZ1IrSYeuKcDIYElXoks+3WMuWQFqb1wj+jAr016zA=; b=Bso7NufYoX9XhXouYVSSkR++ML
-	Yic/yhS3LFQQzRCnf47Duh59O1d5p1bxEVUHnUFPSHIhyYQXRLEi8/IhWLA+bstqKNPmf7cx825s+
-	c6ZkFVYy3K9N9jH6dpVvv21VtfqAx/XVo9mdVTAEBgAFRxHr9+l0QB+uYo7paOhelP7U2ZBBsaA0G
-	TGb73O49wxVYNNmJuWEBfM7RFgIP5sNPVFRYUjw0mWIg79wWs0EplRgvCjR5uz7mD3NJrBgCnQijA
-	3dGkTUu2gu9A82RQDlNJXiqCw4YoOVjpyJA+ASx1lCLhZ4nIQYRSAyvlKkhxNk7uHmALTjzSeczfr
-	m+LKKVMw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=ZuxxDNO2Z509/CgbAgiE/Q596vFzv9dPpnQ0fFHLwF8=; b=2Ay44VseuTTarh
+	v3SOT15uV5H/2iYVzaO7z8b23a183ZXR+E5yhogdA+//SD/W5Ax6GXjMyfAN4UolgeoER6hgga1f9
+	khk0ka9k7U+R0yq/nQEQtb33JWTSX9o5agkcTaCcAKPI3oByWeqcnc/3N+LBysQCpaTyaZylqN+E6
+	93dijiJgDgJo4aqNqB/MTh1Fpwfv+vGbq0NJKNI6VDHlmJAoSy9h9rtAYVgL1NdiZhXWEiSpg5Il2
+	koTBiA/iHKzdyX1TppPUxofGvCWDDGyS7Ez1+C/Hl3zMK9zouJfow0eeMPScsEHJ/rgFTlKUPiMx3
+	g/wTvx9M1+Bzlea2rQDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qW3s5-002phw-2E;
-	Tue, 15 Aug 2023 23:54:45 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1qW5wb-002zCu-2j;
+	Wed, 16 Aug 2023 02:07:33 +0000
+Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qW3s1-002ph6-2b;
-	Tue, 15 Aug 2023 23:54:43 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id F033860EDF;
-	Tue, 15 Aug 2023 23:54:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 47CCBC433C8;
-	Tue, 15 Aug 2023 23:54:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1692143680;
-	bh=n6eEACiqimpPB7PLvfd+oUPFPVhzIcPuBLC1dr7dvkk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=DxIy5vbUapbtWP3sld3mWYjZBRmjMrNODKGFDnO97nPi0kw+utGl7YhSUxRcSA55j
-	 bgF8O8udbd4TU+m5lMdm4Tq8mz2Iji+2duH30c7Uih+GPjDtxMtERbEdC1HkZkRbV1
-	 vhFKi5KpL9sjgdjBtwcn8MOqnv66AJbhzBkjh1oYLzW8TtTXJwoSBhyLhul3VdRwcO
-	 1WhbPKDlq0Tm06lqfY+xHm0muT2Lor4Y/lV59laZCZRREuOI6SYgQstfXcPOumpgOw
-	 HGCLOk+Rs8gWd4G0xWygKex2ny89KElnHHwFax3NDVcmPkRCbi5eOwwkFR7OjQVK7e
-	 9jsYzSH7oiqSw==
-Date: Wed, 16 Aug 2023 00:54:30 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	James Morse <james.morse@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Arnd Bergmann <arnd@arndb.de>, Oleg Nesterov <oleg@redhat.com>,
-	Eric Biederman <ebiederm@xmission.com>,
-	Kees Cook <keescook@chromium.org>, Shuah Khan <shuah@kernel.org>,
-	"Rick P. Edgecombe" <rick.p.edgecombe@intel.com>,
-	Deepak Gupta <debug@rivosinc.com>, Ard Biesheuvel <ardb@kernel.org>,
-	Szabolcs Nagy <Szabolcs.Nagy@arm.com>,
-	"H.J. Lu" <hjl.tools@gmail.com>,
+	id 1qW5wY-002zBh-0U
+	for linux-riscv@lists.infradead.org;
+	Wed, 16 Aug 2023 02:07:31 +0000
+Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-1bdca7cc28dso31613695ad.1
+        for <linux-riscv@lists.infradead.org>; Tue, 15 Aug 2023 19:07:28 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1692151648; x=1692756448;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=1cgPRSiv90OT3/SJL8ZMyRGl4jaRnBiBcYOX7OaylDE=;
+        b=sQMCdgdwxL3T4OXi4BlV/8FePNPTCIivYKVkWn7lRRSmnv5c9qZy5fs29K/KOgn29Y
+         O8HjNk71YBIgx74M3jMGU3NLOjIFS9rRDybcVMBz2bJESPp8ZeMJf139+YR9x/hnzLdK
+         D0Gv8oY475Le4AEIkHqSSKHQQo7i5EhKKU06ctzgup9rZYddS9+agRyqLXUdQKd3X3+P
+         K3GWm8qR+KCTSWmkUrwFHmWiaduwlS7z6JNuRPhqqDNHTDMq3oYDQ2T7uc9wG8tD2bZV
+         IWvkM3M+XBkk+S50u1wastmv7g7ljregVsfk60vECo7OjFjmkfrl3z5hhUIg5CxY2zhR
+         0drw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1692151648; x=1692756448;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=1cgPRSiv90OT3/SJL8ZMyRGl4jaRnBiBcYOX7OaylDE=;
+        b=Eb19cNKLuwMWrT29M2qssy7T4o6p/MWAGrILCeNUm5na7risMqI0MujOjR6SEoJ55/
+         RU2Iy5NqJxurJyM4z/nGIU2oyZ7dS1n4ZgIafc5qh83+y2UcFnCxEXDFhIr8g2rkq3zs
+         1M7C+d5xDJSgKRRPW1olMSL1otsUB7XPxH3prEYZwSJV7KIY8asjOloeXqg5NawyxVBo
+         PXy1MeKxgvyRjimKY00jyHJEgrez+Rh3/MtZDfiUS4DqiFNTg/rzFz7AHSQdrjdHOatZ
+         +lBWDJuVJnFILLoOvA3fv39+o0xpv/IvNGcQv3vRhTT646jzQbbf/y4Uop7P5YE+C2a2
+         T/Lg==
+X-Gm-Message-State: AOJu0Yy0NpSJobRN0cqUo+61GAr3TB1hmTCtp9f3Igb/en60Wt9fLPnx
+	h4iitjROoE5G56Cdckykr63DWQ==
+X-Google-Smtp-Source: AGHT+IFCPpYmyWaib0MQfDL563rBcVuQf0cRysHOx8FVJ+qFoWVHApR2PRs6Is19nR5cTTuzLoiwuw==
+X-Received: by 2002:a17:903:2796:b0:1b8:8223:8bdd with SMTP id jw22-20020a170903279600b001b882238bddmr692922plb.59.1692151647664;
+        Tue, 15 Aug 2023 19:07:27 -0700 (PDT)
+Received: from leoy-huanghe.lan ([150.230.248.162])
+        by smtp.gmail.com with ESMTPSA id l2-20020a170902f68200b001b8943b37a5sm11673061plg.24.2023.08.15.19.07.17
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 15 Aug 2023 19:07:27 -0700 (PDT)
+Date: Wed, 16 Aug 2023 10:07:15 +0800
+From: Leo Yan <leo.yan@linaro.org>
+To: Arnaldo Carvalho de Melo <acme@kernel.org>
+Cc: Ian Rogers <irogers@google.com>, John Garry <john.g.garry@oracle.com>,
+	Will Deacon <will@kernel.org>, James Clark <james.clark@arm.com>,
+	Mike Leach <mike.leach@linaro.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>, Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>, Namhyung Kim <namhyung@kernel.org>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Guo Ren <guoren@kernel.org>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
-	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
-	kvmarm@lists.linux.dev, linux-fsdevel@vger.kernel.org,
-	linux-arch@vger.kernel.org, linux-mm@kvack.org,
-	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Ming Wang <wangming01@loongson.cn>, Eric Lin <eric.lin@sifive.com>,
+	Kan Liang <kan.liang@linux.intel.com>,
+	Sandipan Das <sandipan.das@amd.com>,
+	Ivan Babrou <ivan@cloudflare.com>,
+	Fangrui Song <maskray@google.com>, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org, linux-csky@vger.kernel.org,
 	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v4 17/36] arm64/mm: Handle GCS data aborts
-Message-ID: <752f9f06-69e3-4e60-94ca-49cacb1122ff@sirena.org.uk>
-References: <20230807-arm64-gcs-v4-0-68cfa37f9069@kernel.org>
- <20230807-arm64-gcs-v4-17-68cfa37f9069@kernel.org>
- <ZNZPLTky6IZ47n4l@arm.com>
+Subject: Re: [PATCH v2 0/6] perf parse-regs: Refactor architecture functions
+Message-ID: <20230816020715.GA135657@leoy-huanghe.lan>
+References: <20230606014559.21783-1-leo.yan@linaro.org>
+ <CAP-5=fV1m440mKc0R=m5C4N2NtoiixchtnpX2eR3PA_5hXbqEQ@mail.gmail.com>
+ <ZNvCxM/ULdUfzHtR@kernel.org>
+ <ZNvHx+KxIL6JzEl/@kernel.org>
+ <ZNvJdsVmmAWLmfH6@kernel.org>
+ <ZNvKjeFkXY8ezf9e@kernel.org>
 MIME-Version: 1.0
-In-Reply-To: <ZNZPLTky6IZ47n4l@arm.com>
-X-Cookie: Darth Vader sleeps with a Teddywookie.
+Content-Disposition: inline
+In-Reply-To: <ZNvKjeFkXY8ezf9e@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230815_165441_957421_4D20DB5B 
-X-CRM114-Status: GOOD (  25.94  )
+X-CRM114-CacheID: sfid-20230815_190730_191626_38BAFBA3 
+X-CRM114-Status: GOOD (  19.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,98 +111,66 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6250529075431241459=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============6250529075431241459==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="bU0eg43A83FLgDHm"
-Content-Disposition: inline
-
-
---bU0eg43A83FLgDHm
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Fri, Aug 11, 2023 at 04:09:33PM +0100, Catalin Marinas wrote:
-> On Mon, Aug 07, 2023 at 11:00:22PM +0100, Mark Brown wrote:
-
-> > +		if (is_write_abort(esr) &&
-> > +		    !(is_gcs_fault(esr) || is_el1_data_abort(esr)))
-> > +			return VM_FAULT_BADACCESS;
-
-> Related to my PIE permissions comment: when do we have a valid EL1 data
-> write abort that's not a GCS fault? Does a faulting GCSSTTR set the
-> ESR_ELx_GCS bit?
-
-Yes, it should do.  The GCS instructions have access descriptors created
-with CreateAccDescGCS() which results in the access being flagged as a
-GCS access.
-
-> > +	} else {
-> > +		/*
-> > +		 * GCS faults should never happen for pages that are
-> > +		 * not part of a GCS and the operation being attempted
-> > +		 * can never succeed.
-> > +		 */
-> > +		if (is_gcs_fault(esr))
-> > +			return VM_FAULT_BADACCESS;
-
-> If one does a GCS push/store to a non-GCS page, do we get a GCS fault or
-> something else? I couldn't figure out from the engineering spec. If the
-> hardware doesn't generate such exceptions, we might as well remove this
-> 'else' branch. But maybe it does generate a GCS-specific fault as you
-> added a similar check in is_invalid_el0_gcs_access().
-
-Yes, see AddGCSRecord() and LoadCheckGCSRecord() - all GCS initiated
-accesses need to be AccDescGCS so appropriate permissions enforcement
-can happen and that's what causes the fault to be flagged as GCS.
-
-> > @@ -595,6 +644,19 @@ static int __kprobes do_page_fault(unsigned long f=
-ar, unsigned long esr,
-> >  	if (!vma)
-> >  		goto lock_mmap;
-> > =20
-> > +	/*
-> > +	 * We get legitimate write faults for GCS pages from GCS
-> > +	 * operations and from EL1 writes to EL0 pages but just plain
-
-> What are the EL1 writes to the shadow stack? Would it not use
-> copy_to_user_gcs()?
-
-They should, yes - I'll reword the comment.
-
---bU0eg43A83FLgDHm
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmTcEDYACgkQJNaLcl1U
-h9A2rAgAhd1tNqwsfCv0ZnuQlRFZyTwPwFCn76BeqIuV3TYu4Nymed/YLhOECsZ9
-H6Fni+Igkf4ckDfRhk742+N6QqLOBZz4ddBTJDV74NJk7EgWWv9srbi10k/thyIT
-O/Wz8nVnuUHHXN3dkJIZJQ/l6GjLrzoiskqkrh9ft7HskvTTe1DOL8gFS8Qa5DjS
-ut+XhC5VI7HX7iBwhhqw1tEjsQM3ldnl0r/rSd37tFbJbDX6ujuMlgpBKReSH8qV
-kfrNbgpcBoxaKvE/rytuAXTIS2oqh/1yHuWi8ujBlZgGf8Vo7OK0alzL8T+oIEaQ
-92UJwq3fW51GVCMDxbeaCh1vD7hrKg==
-=cuH7
------END PGP SIGNATURE-----
-
---bU0eg43A83FLgDHm--
-
-
---===============6250529075431241459==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============6250529075431241459==--
-
+T24gVHVlLCBBdWcgMTUsIDIwMjMgYXQgMDM6NTc6MTdQTSAtMDMwMCwgQXJuYWxkbyBDYXJ2YWxo
+byBkZSBNZWxvIHdyb3RlOgo+IEVtIFR1ZSwgQXVnIDE1LCAyMDIzIGF0IDAzOjUyOjM4UE0gLTAz
+MDAsIEFybmFsZG8gQ2FydmFsaG8gZGUgTWVsbyBlc2NyZXZldToKPiA+IEVtIFR1ZSwgQXVnIDE1
+LCAyMDIzIGF0IDAzOjQ1OjI3UE0gLTAzMDAsIEFybmFsZG8gQ2FydmFsaG8gZGUgTWVsbyBlc2Ny
+ZXZldToKPiA+ID4gPiBBZ3JlZWQsIGFwcGxpZWQgdG8gcGVyZi10b29scy1uZXh0LCBzb3JyeSBm
+b3IgdGhlIGRlbGF5Lgo+ID4gPiAKPiA+ID4gSGFkIHRvIGFkZCB0aGlzIHRvIG1ha2UgJ3BlcmYg
+dGVzdCBweXRob24nIHRvIHdvcmsuIFBsZWFzZSBydW4gJ3BlcmYKPiA+ID4gdGVzdCcgYmVmb3Jl
+IHNlbmRpbmcgcGF0Y2hlcy4KPiA+IAo+ID4gT25lIG1vcmUsIHBsZWFzZSBhbHNvIGRvIGEgJ21h
+a2UgLUMgdG9vbHMvcGVyZiBidWlsZC10ZXN0Jywgd2l0aCBpdCBJCj4gPiBjYXVnaHQgdGhpczoK
+PiA+IAo+ID4gICAgICAgICAgbWFrZV9ub19saWJ1bndpbmRfTzogY2QgLiAmJiBtYWtlIE5PX0xJ
+QlVOV0lORD0xIEZFQVRVUkVTX0RVTVA9L3Zhci9ob21lL2FjbWUvZ2l0L3BlcmYtdG9vbHMtbmV4
+dC90b29scy9wZXJmL0JVSUxEX1RFU1RfRkVBVFVSRV9EVU1QIC1qMzIgTz0vdG1wL3RtcC55ZUVH
+eVFxMkhSIERFU1RESVI9L3RtcC90bXAuSVRnb08xNmpqSAo+ID4gY2QgLiAmJiBtYWtlIE5PX0xJ
+QlVOV0lORD0xIEZFQVRVUkVTX0RVTVA9L3Zhci9ob21lL2FjbWUvZ2l0L3BlcmYtdG9vbHMtbmV4
+dC90b29scy9wZXJmL0JVSUxEX1RFU1RfRkVBVFVSRV9EVU1QIC1qMzIgTz0vdG1wL3RtcC55ZUVH
+eVFxMkhSIERFU1RESVI9L3RtcC90bXAuSVRnb08xNmpqSAo+IAo+ICsjaW5jbHVkZSAidXRpbC9l
+bnYuaCIKPiAKPiBBcyBub3cgd2UgbmVlZCBpdCBmb3IgcGVyZl9lbnZfX2FyY2godWktPm1hY2hp
+bmUtPmVudikKClNvcnJ5IGZvciBpbmNvbnZlbmllbmNlLgoKSSBzYXcgdGhpcyBwYXRjaCBzZXJp
+ZXMgaGFzIGJlZW4gcGlja2VkIGludG8gdGhlIGJyYW5jaDoKaHR0cHM6Ly9naXQua2VybmVsLm9y
+Zy9wdWIvc2NtL2xpbnV4L2tlcm5lbC9naXQvYWNtZS9saW51eC5naXQvbG9nLz9oPXRtcC5wZXJm
+LXRvb2xzLW5leHQKCklmIHdhbnQgbWUgdG8gZm9sbG93IHVwLCBsZXQgbWUga25vdy4gIFRoYW5r
+IHlvdSEKCj4gPiAgIENDICAgICAgL3RtcC90bXAueWVFR3lRcTJIUi91dGlsL2V4cHItZmxleC5v
+Cj4gPiB1dGlsL3Vud2luZC1saWJkdy5jOiBJbiBmdW5jdGlvbiDigJhtZW1vcnlfcmVhZOKAmToK
+PiA+IHV0aWwvdW53aW5kLWxpYmR3LmM6MTczOjI4OiBlcnJvcjogaW1wbGljaXQgZGVjbGFyYXRp
+b24gb2YgZnVuY3Rpb24g4oCYcGVyZl9lbnZfX2FyY2jigJkgWy1XZXJyb3I9aW1wbGljaXQtZnVu
+Y3Rpb24tZGVjbGFyYXRpb25dCj4gPiAgIDE3MyB8ICAgICAgICAgY29uc3QgY2hhciAqYXJjaCA9
+IHBlcmZfZW52X19hcmNoKHVpLT5tYWNoaW5lLT5lbnYpOwo+ID4gICAgICAgfCAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICBefn5+fn5+fn5+fn5+fgo+ID4gdXRpbC91bndpbmQtbGliZHcuYzox
+NzM6Mjg6IGVycm9yOiBpbml0aWFsaXphdGlvbiBvZiDigJhjb25zdCBjaGFyICrigJkgZnJvbSDi
+gJhpbnTigJkgbWFrZXMgcG9pbnRlciBmcm9tIGludGVnZXIgd2l0aG91dCBhIGNhc3QgWy1XZXJy
+b3I9aW50LWNvbnZlcnNpb25dCj4gPiB1dGlsL3Vud2luZC1saWJkdy5jOiBJbiBmdW5jdGlvbiDi
+gJh1bndpbmRfX2dldF9lbnRyaWVz4oCZOgo+ID4gdXRpbC91bndpbmQtbGliZHcuYzoyNTg6Mjg6
+IGVycm9yOiBpbml0aWFsaXphdGlvbiBvZiDigJhjb25zdCBjaGFyICrigJkgZnJvbSDigJhpbnTi
+gJkgbWFrZXMgcG9pbnRlciBmcm9tIGludGVnZXIgd2l0aG91dCBhIGNhc3QgWy1XZXJyb3I9aW50
+LWNvbnZlcnNpb25dCj4gPiAgIDI1OCB8ICAgICAgICAgY29uc3QgY2hhciAqYXJjaCA9IHBlcmZf
+ZW52X19hcmNoKHVpX2J1Zi5tYWNoaW5lLT5lbnYpOwo+ID4gICAgICAgfCAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICBefn5+fn5+fn5+fn5+fgo+ID4gY2MxOiBhbGwgd2FybmluZ3MgYmVpbmcg
+dHJlYXRlZCBhcyBlcnJvcnMKPiA+IG1ha2VbNl06ICoqKiBbL3Zhci9ob21lL2FjbWUvZ2l0L3Bl
+cmYtdG9vbHMtbmV4dC90b29scy9idWlsZC9NYWtlZmlsZS5idWlsZDo5ODogL3RtcC90bXAueWVF
+R3lRcTJIUi91dGlsL3Vud2luZC1saWJkdy5vXSBFcnJvciAxCj4gPiBtYWtlWzZdOiAqKiogV2Fp
+dGluZyBmb3IgdW5maW5pc2hlZCBqb2JzLi4uLgo+ID4gbWFrZVs1XTogKioqIFsvdmFyL2hvbWUv
+YWNtZS9naXQvcGVyZi10b29scy1uZXh0L3Rvb2xzL2J1aWxkL01ha2VmaWxlLmJ1aWxkOjE1MDog
+dXRpbF0gRXJyb3IgMgo+ID4gbWFrZVs0XTogKioqIFtNYWtlZmlsZS5wZXJmOjY2MjogL3RtcC90
+bXAueWVFR3lRcTJIUi9wZXJmLWluLm9dIEVycm9yIDIKPiA+IG1ha2VbNF06ICoqKiBXYWl0aW5n
+IGZvciB1bmZpbmlzaGVkIGpvYnMuLi4uCj4gPiAgIENDICAgICAgL3RtcC90bXAueWVFR3lRcTJI
+Ui9wbXUtZXZlbnRzL3BtdS1ldmVudHMubwo+ID4gICBMRCAgICAgIC90bXAvdG1wLnllRUd5UXEy
+SFIvcG11LWV2ZW50cy9wbXUtZXZlbnRzLWluLm8KPiA+IG1ha2VbM106ICoqKiBbTWFrZWZpbGUu
+cGVyZjoyMzg6IHN1Yi1tYWtlXSBFcnJvciAyCj4gPiBtYWtlWzJdOiAqKiogW01ha2VmaWxlOjcw
+OiBhbGxdIEVycm9yIDIKPiA+IG1ha2VbMV06ICoqKiBbdGVzdHMvbWFrZTozMzc6IG1ha2Vfbm9f
+bGlidW53aW5kX09dIEVycm9yIDEKPiA+IG1ha2U6ICoqKiBbTWFrZWZpbGU6MTAzOiBidWlsZC10
+ZXN0XSBFcnJvciAyCj4gPiBtYWtlOiBMZWF2aW5nIGRpcmVjdG9yeSAnL3Zhci9ob21lL2FjbWUv
+Z2l0L3BlcmYtdG9vbHMtbmV4dC90b29scy9wZXJmJwo+ID4gCj4gPiByZWFsCTFtMjkuNzg0cwo+
+ID4gdXNlcgkxMG00MS41OTdzCj4gPiBzeXMJMm01NS45NDhzCj4gPiDirKJbYWNtZUB0b29sYm94
+IHBlcmYtdG9vbHMtbmV4dF0kCj4gPiAKPiA+IEknbSB0cnlpbmcgdG8gZml4Cj4gCj4gLS0gCj4g
+Cj4gLSBBcm5hbGRvCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFk
+Lm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJp
+c2N2Cg==
