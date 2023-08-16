@@ -4,91 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A25B7C27C41
-	for <linux-riscv@archiver.kernel.org>; Wed, 16 Aug 2023 21:17:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 005E1C27C52
+	for <linux-riscv@archiver.kernel.org>; Wed, 16 Aug 2023 21:43:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=poYLkVqHsax8MbwJSg5Ot0qJ2R1lwfzheTdZAULBZtQ=; b=zd6lXdA8Qb243U
-	gsthV0dGb+pidNSFFZwb+d2jR4zTBm92zwYKIJeA4SWJjVqdLBHlOp1PT1ABgIJoT301VHVFlcxai
-	VRxmqrsWIQnyKyEcIcaekOu0dACSuJpGXSUty21SyB8QSwnWHfU2ot/o5X8RL1yYRemnIxZV/J3LY
-	Lvfv0s5Lx3q4ofUFKljm1m5Uu5cx2FDiHTFp854g6sVkwrLpMhYQEnqufSm2CyKiFA0HWDo0BcMhM
-	7Xhou5+td/N2guJCzQL45itx5jy3kCnuY04flbSoePcBa49o/nRcPIzFtbSRix4OEHOxSRzqWIAlZ
-	yiv19pheThHVljxdjsDA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:MIME-Version:
+	Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=f3ivUTwZ3EoXiwAcXtQ9nX/o1uDOGOng0UGgQolx0W8=; b=XM4VUp2RLumJ5iSCeDoeLPXZI4
+	z5fvc4dNfRWq/cSdV1LiCmtHRhfYqkecfY9MBAw7x1+fCOZu3emuiwYQSxDZmgIhL2fFXi6P3s92K
+	9gX2LkOdki+PSolLy7/Pt0sNTmKKUZ5MNgcHS10a2rr7J5iC1a51KLMrTE3oBVAshGi7eluhA1oUy
+	qqGb8XyMArWYKFnx/jY57Z9OTxbzGNWAT7e5e4btjB7H7S3shKux0ToDLne1BX9xNyxTtptLawemr
+	jkWJJ0WKUV5NRYzv/i4R2NEnUKL81Hwlhngbs1bpoTgiPOHJRAQVVBeOSGkla9EW6q4BUOHezrZFC
+	XeIuKOmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qWNtO-0051R9-2L;
-	Wed, 16 Aug 2023 21:17:26 +0000
-Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qWNtJ-0051Q2-2a
+	id 1qWOIl-00538c-15;
+	Wed, 16 Aug 2023 21:43:39 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1qWOIi-00537y-0c
 	for linux-riscv@lists.infradead.org;
-	Wed, 16 Aug 2023 21:17:25 +0000
-Received: by mail-pf1-x42a.google.com with SMTP id d2e1a72fcca58-68878ca7ca0so1320282b3a.0
-        for <linux-riscv@lists.infradead.org>; Wed, 16 Aug 2023 14:17:19 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20221208.gappssmtp.com; s=20221208; t=1692220639; x=1692825439;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=ijQ4xjAyy4cXvtCZ8IHt29eyOuPHI1+Xar27Tt86Dp4=;
-        b=JVpUR/lawlqlFkpcF+J84noZqg2UnYi6hcWRQDwGqmdXVRZzyrBKuG3SIETA3elfYQ
-         r9TDMEOc++w5WtVfc0jnYe5KbddenKmeLsJfZ62h/J2oJezAn8CsKHQ1f2NRW5VrFH6X
-         SSgNBhgwsbCTNq/rlmuQIK+exph042uq7e/9da2suNdo6LRKm8rIm4H+sHD9MFLt00Du
-         qnGC2eyqevo3Aw4yrlh8MtqaEcqADVTvF+WRAk9o/+la7hJC5bzKbOAtUT8HWSqTJorq
-         b1h2ubVaYojV5duI5XdsFwY5GPtIF7e7qy9UdWEBpvMMGcbVeQYhO1I995LpF42WJWX/
-         62wQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1692220639; x=1692825439;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ijQ4xjAyy4cXvtCZ8IHt29eyOuPHI1+Xar27Tt86Dp4=;
-        b=RUMbZE+kE8EaG4ipZ0oJe22WigAwEh9cwzk22MYNemDZ99w/ENrkgrgpvTto6xJS4d
-         fE0LFBpiPVaYVNvPp/3Ju2bjKmqlRYN5SV71McogiJ54BJL9TfDU7MVJty8OF6+zc2hc
-         9JhhZ/TyAYsN8Ez+IlbDdx5PeeRGIlRqcSq6MpTk+CGd44Qu92HFcJ6mWmoca24y7ScR
-         R30/FzmFlc3vdwGlbNB5igOa4AcXOhZpp7ca+i11KEYFeBRjo2sB7bcftSke+laLKHC0
-         msMWAOBwOMwdUg0EYQd18jDcPaxtAPfUbhqL2j0ycbSKZ8IjDe+Rl7pZjyoeIhJC0sNb
-         5jow==
-X-Gm-Message-State: AOJu0YySROzLWR5qOWlCRd5Zc0pXdFi9qeJwEOGeJKWZ9vC7SblySXov
-	fGAvP3gXHn0+lGIt66tYQcl6oA==
-X-Google-Smtp-Source: AGHT+IFvj8M6RzJ7QeCC2fvLEuc+3NAgBeDGLAHgvYrVY85sg3niFmG+56sLaJbghUe4gDStIMpITA==
-X-Received: by 2002:a05:6a00:c90:b0:673:8dfb:af32 with SMTP id a16-20020a056a000c9000b006738dfbaf32mr2912809pfv.26.1692220639226;
-        Wed, 16 Aug 2023 14:17:19 -0700 (PDT)
-Received: from x1 ([2601:1c2:1800:f680:ad77:24cb:c068:c5e6])
-        by smtp.gmail.com with ESMTPSA id e26-20020aa7825a000000b00686dd062207sm11521224pfn.150.2023.08.16.14.17.18
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 16 Aug 2023 14:17:18 -0700 (PDT)
-Date: Wed, 16 Aug 2023 14:17:16 -0700
-From: Drew Fustini <dfustini@baylibre.com>
-To: Jisheng Zhang <jszhang@kernel.org>
-Cc: Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Conor Dooley <conor@kernel.org>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Ulf Hansson <ulf.hansson@linaro.org>,
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-mmc@vger.kernel.org,
-	Robert Nelson <robertcnelson@beagleboard.org>,
-	Jason Kridner <jkridner@beagleboard.org>
-Subject: Re: [PATCH RFC v2 4/4] mmc: sdhci-of-dwcmshc: Add support for T-Head
- TH1520
-Message-ID: <ZN083N3cCNu4o2Ny@x1>
-References: <20230724-th1520-emmc-v2-0-132ed2e2171e@baylibre.com>
- <20230724-th1520-emmc-v2-4-132ed2e2171e@baylibre.com>
- <ZM9xY6dGWbTxCgqj@xhacker>
+	Wed, 16 Aug 2023 21:43:37 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C7E1FD75;
+	Wed, 16 Aug 2023 14:44:15 -0700 (PDT)
+Received: from [10.57.90.114] (unknown [10.57.90.114])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6748A3F762;
+	Wed, 16 Aug 2023 14:43:32 -0700 (PDT)
+Message-ID: <0b2b9365-5e8c-35a0-38ac-ffcbdfdb9886@arm.com>
+Date: Wed, 16 Aug 2023 22:43:11 +0100
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <ZM9xY6dGWbTxCgqj@xhacker>
+User-Agent: Mozilla/5.0 (Windows NT 10.0; rv:102.0) Gecko/20100101
+ Thunderbird/102.14.0
+Subject: Re: [PATCH 10/11] RISC-V: drivers/iommu/riscv: Add MSI identity
+ remapping
+Content-Language: en-GB
+To: Tomasz Jeznach <tjeznach@rivosinc.com>, Joerg Roedel <joro@8bytes.org>,
+ Will Deacon <will@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>
+References: <cover.1689792825.git.tjeznach@rivosinc.com>
+ <660b7a8707e494a6bb2706e10569a7414c3640a7.1689792825.git.tjeznach@rivosinc.com>
+From: Robin Murphy <robin.murphy@arm.com>
+In-Reply-To: <660b7a8707e494a6bb2706e10569a7414c3640a7.1689792825.git.tjeznach@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230816_141722_060441_D0196918 
-X-CRM114-Status: GOOD (  48.33  )
+X-CRM114-CacheID: sfid-20230816_144336_348154_F2C56A9C 
+X-CRM114-Status: GOOD (  24.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,533 +61,183 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
+Cc: Anup Patel <apatel@ventanamicro.com>, Albert Ou <aou@eecs.berkeley.edu>, linux@rivosinc.com, linux-kernel@vger.kernel.org, Sebastien Boeuf <seb@rivosinc.com>, iommu@lists.linux.dev, Palmer Dabbelt <palmer@dabbelt.com>, Nick Kossifidis <mick@ics.forth.gr>, linux-riscv@lists.infradead.org
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Aug 06, 2023 at 06:09:39PM +0800, Jisheng Zhang wrote:
-> On Fri, Aug 04, 2023 at 08:14:48PM -0700, Drew Fustini wrote:
-> > Add basic support for the T-Head TH1520 SoC mmc controller with the new
-> > compatible "thead,th1520-dwcmshc".
-> > 
-> > However, quirks are currently set to disable DMA and use PIO. The proper
-> > settings for DMA support still need to be determined.
+On 2023-07-19 20:33, Tomasz Jeznach wrote:
+> This change provides basic identity mapping support to
+> excercise MSI_FLAT hardware capability.
 > 
-> Hi Drew,
+> Signed-off-by: Tomasz Jeznach <tjeznach@rivosinc.com>
+> ---
+>   drivers/iommu/riscv/iommu.c | 81 +++++++++++++++++++++++++++++++++++++
+>   drivers/iommu/riscv/iommu.h |  3 ++
+>   2 files changed, 84 insertions(+)
 > 
-> Thank you for this patch. I think we need to make DMA work even in the
-> first version.
+> diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
+> index 6042c35be3ca..7b3e3e135cf6 100644
+> --- a/drivers/iommu/riscv/iommu.c
+> +++ b/drivers/iommu/riscv/iommu.c
+> @@ -61,6 +61,9 @@ MODULE_PARM_DESC(priq_length, "Page request interface queue length.");
+>   #define RISCV_IOMMU_MAX_PSCID	(1U << 20)
+>   static DEFINE_IDA(riscv_iommu_pscids);
+>   
+> +/* TODO: Enable MSI remapping */
+> +#define RISCV_IMSIC_BASE	0x28000000
+> +
+>   /* 1 second */
+>   #define RISCV_IOMMU_TIMEOUT	riscv_timebase
+>   
+> @@ -932,6 +935,72 @@ static irqreturn_t riscv_iommu_priq_process(int irq, void *data)
+>    * Endpoint management
+>    */
+>   
+> +static int riscv_iommu_enable_ir(struct riscv_iommu_endpoint *ep)
+> +{
+> +	struct riscv_iommu_device *iommu = ep->iommu;
+> +	struct iommu_resv_region *entry;
+> +	struct irq_domain *msi_domain;
+> +	u64 val;
+> +	int i;
+> +
+> +	/* Initialize MSI remapping */
+> +	if (!ep->dc || !(iommu->cap & RISCV_IOMMU_CAP_MSI_FLAT))
+> +		return 0;
+> +
+> +	ep->msi_root = (struct riscv_iommu_msi_pte *)get_zeroed_page(GFP_KERNEL);
+> +	if (!ep->msi_root)
+> +		return -ENOMEM;
+> +
+> +	for (i = 0; i < 256; i++) {
+> +		ep->msi_root[i].pte = RISCV_IOMMU_MSI_PTE_V |
+> +		    FIELD_PREP(RISCV_IOMMU_MSI_PTE_M, 3) |
+> +		    phys_to_ppn(RISCV_IMSIC_BASE + i * PAGE_SIZE);
+> +	}
+> +
+> +	entry = iommu_alloc_resv_region(RISCV_IMSIC_BASE, PAGE_SIZE * 256, 0,
+> +					IOMMU_RESV_SW_MSI, GFP_KERNEL);
+> +	if (entry)
+> +		list_add_tail(&entry->list, &ep->regions);
+> +
+> +	val = virt_to_pfn(ep->msi_root) |
+> +	    FIELD_PREP(RISCV_IOMMU_DC_MSIPTP_MODE, RISCV_IOMMU_DC_MSIPTP_MODE_FLAT);
+> +	ep->dc->msiptp = cpu_to_le64(val);
+> +
+> +	/* Single page of MSIPTP, 256 IMSIC files */
+> +	ep->dc->msi_addr_mask = cpu_to_le64(255);
+> +	ep->dc->msi_addr_pattern = cpu_to_le64(RISCV_IMSIC_BASE >> 12);
+> +	wmb();
+> +
+> +	/* set msi domain for the device as isolated. hack. */
 
-Thanks for your review. I agree that DMA should be made to work.
-When I remove the SDHCI_QUIRK_BROKEN_ADMA quirk, I see the following in
-the boot log [1]:
+Hack because this should be implemented as a proper hierarchical MSI 
+domain, or hack because it doesn't actually represent isolation? Nothing 
+really jumps out at me from the IOMMU and IMSIC specs, so I'm leaning 
+towards the hunch that there's no real isolation, it's more just 
+implicit in the assumption that each distinct VM/process with devices 
+assigned should get its own interrupt file. I can't easily see how that 
+would be achieved for things like VFIO :/
 
-[    3.633611] mmc0: SDHCI controller on ffe7080000.mmc [ffe7080000.mmc] using ADMA 64-bit
-[    3.723080] mmc0: ADMA error: 0x02000000
-[    4.327491] mmc0: error -5 whilst initialising MMC card
+Thanks,
+Robin.
 
-I'm going to add some more debug output so I can better understand what
-exactly is failing.
-
-> 
-> Several comments below.
-> 
-> > 
-> > Another issue is th1520-specific code for MMC_TIMING_MMC_HS400 in
-> > dwcmshc_set_uhs_signaling() will run on all platforms which is not
-> > correct. One solution could be to add a th1520 flag to dwcmshc_priv but
-> > that is hacky. Another solution could be to set the set_uhs_signaling op
-> > in sdhci_dwcmshc_th1520_ops to a th1520-specific function. However, that
-> > new function would have to duplicate all the code in the current
-> > dwcmshc_set_uhs_signaling().
-> > 
-> > Signed-off-by: Drew Fustini <dfustini@baylibre.com>
-> > ---
-> >  drivers/mmc/host/sdhci-of-dwcmshc.c | 336 ++++++++++++++++++++++++++++++++++++
-> >  1 file changed, 336 insertions(+)
-> > 
-> > diff --git a/drivers/mmc/host/sdhci-of-dwcmshc.c b/drivers/mmc/host/sdhci-of-dwcmshc.c
-> > index e68cd87998c8..d35e204cdb16 100644
-> > --- a/drivers/mmc/host/sdhci-of-dwcmshc.c
-> > +++ b/drivers/mmc/host/sdhci-of-dwcmshc.c
-> > @@ -71,6 +71,63 @@
-> >  	(((x) & DWCMSHC_EMMC_DLL_TIMEOUT) == 0))
-> >  #define RK35xx_MAX_CLKS 3
-> >  
-> > +/* T-Head specific registers */
-> 
-> I guess this may not be T-HEAD specific but dwc phy, could you please
-> check?
-
-Yes, I will try to find out if if this really is t-head specific or just
-standard for the DWC PHY.
-
-> > +#define DWC_MSHC_PTR_PHY_R	0x300
-> > +#define PHY_CNFG_R		(DWC_MSHC_PTR_PHY_R + 0x00)
-> > +#define PHY_RSTN		0x0
-> > +#define PAD_SP			0x10
-> > +#define PAD_SN			0x14
-> > +
-> > +#define PHY_CMDPAD_CNFG_R	(DWC_MSHC_PTR_PHY_R + 0x04)
-> > +#define PHY_DATAPAD_CNFG_R	(DWC_MSHC_PTR_PHY_R + 0x06)
-> > +#define PHY_CLKPAD_CNFG_R	(DWC_MSHC_PTR_PHY_R + 0x08)
-> > +#define PHY_STBPAD_CNFG_R	(DWC_MSHC_PTR_PHY_R + 0x0a)
-> > +#define PHY_RSTNPAD_CNFG_R	(DWC_MSHC_PTR_PHY_R + 0x0c)
-> > +#define RXSEL			0x0
-> > +#define WEAKPULL_EN		0x3
-> > +#define TXSLEW_CTRL_P		0x5
-> > +#define TXSLEW_CTRL_N		0x9
-> > +
-> > +#define PHY_PADTEST_CNFG_R	(DWC_MSHC_PTR_PHY_R + 0x0e)
-> > +#define PHY_PADTEST_OUT_R	(DWC_MSHC_PTR_PHY_R + 0x10)
-> > +#define PHY_PADTEST_IN_R	(DWC_MSHC_PTR_PHY_R + 0x12)
-> > +#define PHY_PRBS_CNFG_R		(DWC_MSHC_PTR_PHY_R + 0x18)
-> > +#define PHY_PHYLBK_CNFG_R	(DWC_MSHC_PTR_PHY_R + 0x1a)
-> > +#define PHY_COMMDL_CNFG_R	(DWC_MSHC_PTR_PHY_R + 0x1c)
-> > +
-> > +#define PHY_SDCLKDL_CNFG_R	(DWC_MSHC_PTR_PHY_R + 0x1d)
-> > +#define UPDATE_DC		0x4
-> > +
-> > +#define PHY_SDCLKDL_DC_R	(DWC_MSHC_PTR_PHY_R + 0x1e)
-> > +#define PHY_SMPLDL_CNFG_R	(DWC_MSHC_PTR_PHY_R + 0x20)
-> > +#define PHY_ATDL_CNFG_R		(DWC_MSHC_PTR_PHY_R + 0x21)
-> > +#define INPSEL_CNFG		2
-> > +
-> > +#define PHY_DLL_CTRL_R		(DWC_MSHC_PTR_PHY_R + 0x24)
-> > +#define DLL_EN			0x0
-> > +
-> > +#define PHY_DLL_CNFG1_R		(DWC_MSHC_PTR_PHY_R + 0x25)
-> > +#define PHY_DLL_CNFG2_R		(DWC_MSHC_PTR_PHY_R + 0x26)
-> > +#define PHY_DLLDL_CNFG_R	(DWC_MSHC_PTR_PHY_R + 0x28)
-> > +#define SLV_INPSEL		0x5
-> > +
-> > +#define P_VENDOR_SPECIFIC_AREA	0x500
-> > +#define EMMC_CTRL_R		(P_VENDOR_SPECIFIC_AREA + 0x2c)
-> > +#define AT_CTRL_R		(P_VENDOR_SPECIFIC_AREA + 0x40)
-> > +#define AT_EN			0x0
-> > +#define CI_SEL			0x1
-> > +#define SWIN_TH_EN		0x2
-> > +#define RPT_TUNE_ERR		0x3
-> > +#define SW_TUNE_EN		0x4
-> > +#define WIN_EDGE_SEL		0x8
-> > +#define TUNE_CLK_STOP_EN	0x10
-> > +#define PRE_CHANGE_DLY		0x11
-> > +#define POST_CHANGE_DLY		0x13
-> > +#define SWIN_TH_VAL		0x18
-> > +
-> > +#define DELAY_LINE_HS400	24
-> > +#define DELAY_LINE_DEFAULT	50
-> > +
-> >  #define BOUNDARY_OK(addr, len) \
-> >  	((addr | (SZ_128M - 1)) == ((addr + len - 1) | (SZ_128M - 1)))
-> >  
-> > @@ -91,6 +148,10 @@ struct dwcmshc_priv {
-> >  	struct clk	*bus_clk;
-> >  	int vendor_specific_area1; /* P_VENDOR_SPECIFIC_AREA reg */
-> >  	void *priv; /* pointer to SoC private stuff */
-> > +	uint32_t delay_line;
-> > +	bool non_removable;
-> 
-> can be replaced with mmc_host.caps & MMC_CAP_NONREMOVABLE
-
-Thank you, I'll change in the next version.
-
-> 
-> > +	bool pull_up_en;
-> > +	bool io_fixed_1v8;
-> 
-> replace them with flag?
-
-Do you mean that I should replace the above bool's with a single flags
-field in the struct where the bool's would become bit fields in flags?
-
-> 
-> >  };
-> >  
-> >  /*
-> > @@ -156,11 +217,171 @@ static void dwcmshc_request(struct mmc_host *mmc, struct mmc_request *mrq)
-> >  	sdhci_request(mmc, mrq);
-> >  }
-> >  
-> > +static void sdhci_phy_1_8v_init_no_pull(struct sdhci_host *host)
-> > +{
-> > +	uint32_t val;
-> > +	sdhci_writel(host, 1, DWC_MSHC_PTR_PHY_R);
-> > +	sdhci_writeb(host, 1 << 4, PHY_SDCLKDL_CNFG_R);
-> > +	sdhci_writeb(host, 0x40, PHY_SDCLKDL_DC_R);
-> 
-> These magic numbers need a proper macro definitions.
-
-I'll try to find out their meaning and document it.
-
-> 
-> > +
-> > +	val = sdhci_readb(host, PHY_SDCLKDL_CNFG_R);
-> > +	val &= ~(1 << 4);
-> 
-> ditto
-> 
-> > +	sdhci_writeb(host, val, PHY_SDCLKDL_CNFG_R);
-> > +
-> > +
-> > +	val = sdhci_readw(host, PHY_CMDPAD_CNFG_R);
-> > +	sdhci_writew(host, val | 1, PHY_CMDPAD_CNFG_R);
-> > +
-> > +	val = sdhci_readw(host, PHY_DATAPAD_CNFG_R);
-> > +	sdhci_writew(host, val | 1, PHY_DATAPAD_CNFG_R);
-> > +
-> > +	val = sdhci_readw(host, PHY_RSTNPAD_CNFG_R);
-> > +	sdhci_writew(host, val | 1, PHY_RSTNPAD_CNFG_R);
-> > +
-> > +	val = sdhci_readw(host, PHY_STBPAD_CNFG_R);
-> > +	sdhci_writew(host, val | 1, PHY_STBPAD_CNFG_R);
-> > +
-> > +	val = sdhci_readb(host, PHY_DLL_CTRL_R);
-> > +	sdhci_writeb(host, val | 1, PHY_DLL_CTRL_R);
-> > +}
-> > +
-> > +static void sdhci_phy_3_3v_init_no_pull(struct sdhci_host *host)
-> > +{
-> > +	uint32_t val;
-> > +
-> > +	sdhci_writel(host, 1, DWC_MSHC_PTR_PHY_R);
-> > +	sdhci_writeb(host, 1 << 4, PHY_SDCLKDL_CNFG_R);
-> > +	sdhci_writeb(host, 0x40, PHY_SDCLKDL_DC_R);
-> > +
-> > +	val = sdhci_readb(host, PHY_SDCLKDL_CNFG_R);
-> > +	val &= ~(1 << 4);
-> > +	sdhci_writeb(host, val, PHY_SDCLKDL_CNFG_R);
-> > +
-> > +	val = sdhci_readw(host, PHY_CMDPAD_CNFG_R);
-> > +	sdhci_writew(host, val | 2, PHY_CMDPAD_CNFG_R);
-> > +
-> > +	val = sdhci_readw(host, PHY_DATAPAD_CNFG_R);
-> > +	sdhci_writew(host, val | 2, PHY_DATAPAD_CNFG_R);
-> > +
-> > +	val = sdhci_readw(host, PHY_RSTNPAD_CNFG_R);
-> > +	sdhci_writew(host, val | 2, PHY_RSTNPAD_CNFG_R);
-> > +
-> > +	val = sdhci_readw(host, PHY_STBPAD_CNFG_R);
-> > +	sdhci_writew(host, val | 2, PHY_STBPAD_CNFG_R);
-> > +
-> > +	val = sdhci_readb(host, PHY_DLL_CTRL_R);
-> > +	sdhci_writeb(host, val | 1, PHY_DLL_CTRL_R);
-> > +}
-> > +
-> > +static void th1520_phy_1_8v_init(struct sdhci_host *host)
-> > +{
-> > +	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
-> > +	struct dwcmshc_priv *priv = sdhci_pltfm_priv(pltfm_host);
-> > +	u32 val;
-> > +
-> > +	if (!priv)
-> > +		return;
-> > +
-> > +	if (priv->pull_up_en == 0) {
-> > +		sdhci_phy_1_8v_init_no_pull(host);
-> > +		return;
-> > +	}
-> > +
-> > +	/* set driving force */
-> > +	sdhci_writel(host, (1 << PHY_RSTN) | (0xc << PAD_SP) | (0xc << PAD_SN), PHY_CNFG_R);
-> > +
-> > +	/* disable delay lane */
-> > +	sdhci_writeb(host, 1 << UPDATE_DC, PHY_SDCLKDL_CNFG_R);
-> > +
-> > +	/* set delay lane */
-> > +	sdhci_writeb(host, priv->delay_line, PHY_SDCLKDL_DC_R);
-> > +	sdhci_writeb(host, 0xa, PHY_DLL_CNFG2_R);
-> > +
-> > +	/* enable delay lane */
-> > +	val = sdhci_readb(host, PHY_SDCLKDL_CNFG_R);
-> > +	val &= ~(1 << UPDATE_DC);
-> > +	sdhci_writeb(host, val, PHY_SDCLKDL_CNFG_R);
-> > +
-> > +	val = (1 << RXSEL) | (1 << WEAKPULL_EN) | (3 << TXSLEW_CTRL_P) | (3 << TXSLEW_CTRL_N);
-> > +	sdhci_writew(host, val, PHY_CMDPAD_CNFG_R);
-> > +	sdhci_writew(host, val, PHY_DATAPAD_CNFG_R);
-> > +	sdhci_writew(host, val, PHY_RSTNPAD_CNFG_R);
-> > +
-> > +	val = (3 << TXSLEW_CTRL_P) | (3 << TXSLEW_CTRL_N);
-> > +	sdhci_writew(host, val, PHY_CLKPAD_CNFG_R);
-> > +
-> > +	val = (1 << RXSEL) | (2 << WEAKPULL_EN) | (3 << TXSLEW_CTRL_P) | (3 << TXSLEW_CTRL_N);
-> > +	sdhci_writew(host, val, PHY_STBPAD_CNFG_R);
-> > +
-> > +	/* enable data strobe mode */
-> > +	sdhci_writeb(host, 3 << SLV_INPSEL, PHY_DLLDL_CNFG_R);
-> > +	sdhci_writeb(host, (1 << DLL_EN),  PHY_DLL_CTRL_R);
-> > +}
-> > +
-> > +static void th1520_phy_3_3v_init(struct sdhci_host *host)
-> > +{
-> > +	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
-> > +	struct dwcmshc_priv *priv = sdhci_pltfm_priv(pltfm_host);
-> > +	u32 val;
-> > +
-> > +	if (priv->pull_up_en == 0) {
-> > +		sdhci_phy_3_3v_init_no_pull(host);
-> > +		return;
-> > +	}
-> > +
-> > +	/* set driving force */
-> > +	sdhci_writel(host, (1 << PHY_RSTN) | (0xc << PAD_SP) | (0xc << PAD_SN), PHY_CNFG_R);
-> > +
-> > +	/* disable delay lane */
-> > +	sdhci_writeb(host, 1 << UPDATE_DC, PHY_SDCLKDL_CNFG_R);
-> > +
-> > +	/* set delay lane */
-> > +	sdhci_writeb(host, priv->delay_line, PHY_SDCLKDL_DC_R);
-> > +	sdhci_writeb(host, 0xa, PHY_DLL_CNFG2_R);
-> > +
-> > +	/* enable delay lane */
-> > +	val = sdhci_readb(host, PHY_SDCLKDL_CNFG_R);
-> > +	val &= ~(1 << UPDATE_DC);
-> > +	sdhci_writeb(host, val, PHY_SDCLKDL_CNFG_R);
-> > +
-> > +	val = (2 << RXSEL) | (1 << WEAKPULL_EN) | (3 << TXSLEW_CTRL_P) | (3 << TXSLEW_CTRL_N);
-> > +	sdhci_writew(host, val, PHY_CMDPAD_CNFG_R);
-> > +	sdhci_writew(host, val, PHY_DATAPAD_CNFG_R);
-> > +	sdhci_writew(host, val, PHY_RSTNPAD_CNFG_R);
-> > +
-> > +	val = (3 << TXSLEW_CTRL_P) | (3 << TXSLEW_CTRL_N);
-> > +	sdhci_writew(host, val, PHY_CLKPAD_CNFG_R);
-> > +
-> > +	val = (2 << RXSEL) | (2 << WEAKPULL_EN) | (3 << TXSLEW_CTRL_P) | (3 << TXSLEW_CTRL_N);
-> > +	sdhci_writew(host, val, PHY_STBPAD_CNFG_R);
-> > +}
-> > +
-> > +
-> > +static void th1520_sdhci_set_phy(struct sdhci_host *host)
-> > +{
-> > +	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
-> > +	struct dwcmshc_priv *priv = sdhci_pltfm_priv(pltfm_host);
-> > +	u8 emmc_ctl;
-> > +
-> > +	/* Before power on, set PHY configs */
-> > +	emmc_ctl = sdhci_readw(host, EMMC_CTRL_R);
-> > +	if (priv->non_removable) {
-> > +		th1520_phy_1_8v_init(host);
-> > +		emmc_ctl |= (1 << DWCMSHC_CARD_IS_EMMC);
-> > +	} else {
-> > +		th1520_phy_3_3v_init(host);
-> > +		emmc_ctl &=~(1 << DWCMSHC_CARD_IS_EMMC);
-> > +	}
-> > +	sdhci_writeb(host, emmc_ctl, EMMC_CTRL_R);
-> > +	sdhci_writeb(host, 0x25, PHY_DLL_CNFG1_R);
-> 
-> magic 0x25 needs a meaningful MACRO definition.
-
-Okay, I'll investigate the meaning of that value and define it.
-
-> 
-> > +}
-> > +
-> >  static void dwcmshc_set_uhs_signaling(struct sdhci_host *host,
-> >  				      unsigned int timing)
-> >  {
-> >  	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
-> >  	struct dwcmshc_priv *priv = sdhci_pltfm_priv(pltfm_host);
-> > +
-> 
-> we don't need this extra blank line
-
-Okay
-
-> 
-> >  	u16 ctrl, ctrl_2;
-> >  
-> >  	ctrl_2 = sdhci_readw(host, SDHCI_HOST_CONTROL2);
-> > @@ -188,7 +409,22 @@ static void dwcmshc_set_uhs_signaling(struct sdhci_host *host,
-> >  		ctrl_2 |= DWCMSHC_CTRL_HS400;
-> >  	}
-> >  
-> > +	if (priv->io_fixed_1v8)
-> > +		ctrl_2 |= SDHCI_CTRL_VDD_180;
-> > +
-> >  	sdhci_writew(host, ctrl_2, SDHCI_HOST_CONTROL2);
-> > +
-> > +	/* TODO: add check so that this only runs on th1520  */
-> 
-> this TODO needs to be solved since it affects other platforms such as NV
-> and RK
-
-Yes, I need to fix this. For the next version, I am considering adding
-a flag to dwcmshc_priv that would gate the following code block.
-
-
-> > +	if (timing == MMC_TIMING_MMC_HS400) {
-> > +		/* disable auto tuning */
-> > +		u32 reg = sdhci_readl(host, AT_CTRL_R);
-> > +		reg &= ~1;
-> > +		sdhci_writel(host, reg, AT_CTRL_R);
-> > +		priv->delay_line = DELAY_LINE_HS400;
-> > +		th1520_sdhci_set_phy(host);
-> > +	} else {
-> > +		sdhci_writeb(host, 0, PHY_DLLDL_CNFG_R);
-> > +	}
-> >  }
-> >  
-> >  static void dwcmshc_hs400_enhanced_strobe(struct mmc_host *mmc,
-> > @@ -337,6 +573,49 @@ static void rk35xx_sdhci_reset(struct sdhci_host *host, u8 mask)
-> >  	sdhci_reset(host, mask);
-> >  }
-> >  
-> > +static int th1520_execute_tuning(struct sdhci_host *host, u32 opcode)
-> > +{
-> > +	u32 val = 0;
-> > +
-> > +	sdhci_writeb(host, 3 << INPSEL_CNFG, PHY_ATDL_CNFG_R);
-> > +
-> > +	val = sdhci_readl(host, AT_CTRL_R);
-> > +	val &= ~((1 << CI_SEL) | (1 << RPT_TUNE_ERR) \
-> > +	    | (1 << SW_TUNE_EN) |(0xf << WIN_EDGE_SEL));
-> > +	val |= (1 << AT_EN) | (1 << SWIN_TH_EN) | (1 << TUNE_CLK_STOP_EN)\
-> > +	    | (1 << PRE_CHANGE_DLY) | (3 << POST_CHANGE_DLY) | (9 << SWIN_TH_VAL);
-> > +
-> > +	sdhci_writel(host, val, AT_CTRL_R);
-> > +
-> > +	val = sdhci_readl(host, AT_CTRL_R);
-> > +	if(!(val & (1 << AT_EN))) {
-> > +		pr_warn("%s(): auto tuning is not enabled", __func__);
-> 
-> AFAIK, the controller supports both auto tuning and sw tuning.
-
-Okay, I'll have to investigate further why it is like this in the vendor
-kernel [2].
-
-> 
-> > +		return -1;
-> 
-> can we replace -1 with meaningful error number?
-> 
-
-Yes, will do for next version.
-
-> > +	}
-> > +
-> > +	val &= ~(1 << AT_EN);
-> > +	sdhci_writel(host, val, AT_CTRL_R);
-> > +
-> > +	return 0;
-> > +}
-> > +
-> > +static void th1520_sdhci_reset(struct sdhci_host *host, u8 mask)
-> > +{
-> > +	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
-> > +	struct dwcmshc_priv *priv = sdhci_pltfm_priv(pltfm_host);
-> > +	u16 ctrl_2;
-> > +
-> > +	sdhci_reset(host, mask);
-> > +
-> > +	if(priv->io_fixed_1v8){
-> > +		ctrl_2 = sdhci_readw(host, SDHCI_HOST_CONTROL2);
-> > +		if(! (ctrl_2 & SDHCI_CTRL_VDD_180)){
-> > +			ctrl_2 |= SDHCI_CTRL_VDD_180;
-> > +			sdhci_writew(host, ctrl_2, SDHCI_HOST_CONTROL2);
-> > +		}
-> > +	}
-> > +}
-> > +
-> >  static const struct sdhci_ops sdhci_dwcmshc_ops = {
-> >  	.set_clock		= sdhci_set_clock,
-> >  	.set_bus_width		= sdhci_set_bus_width,
-> > @@ -355,6 +634,17 @@ static const struct sdhci_ops sdhci_dwcmshc_rk35xx_ops = {
-> >  	.adma_write_desc	= dwcmshc_adma_write_desc,
-> >  };
-> >  
-> > +static const struct sdhci_ops sdhci_dwcmshc_th1520_ops = {
-> > +	.set_clock		= sdhci_set_clock,
-> > +	.set_bus_width		= sdhci_set_bus_width,
-> > +	.set_uhs_signaling	= dwcmshc_set_uhs_signaling,
-> > +	.get_max_clock		= dwcmshc_get_max_clock,
-> > +	.reset			= th1520_sdhci_reset,
-> > +	.adma_write_desc	= dwcmshc_adma_write_desc,
-> > +	.voltage_switch		= th1520_phy_1_8v_init,
-> > +	.platform_execute_tuning = &th1520_execute_tuning,
-> > +};
-> > +
-> >  static const struct sdhci_pltfm_data sdhci_dwcmshc_pdata = {
-> >  	.ops = &sdhci_dwcmshc_ops,
-> >  	.quirks = SDHCI_QUIRK_CAP_CLOCK_BASE_BROKEN,
-> > @@ -378,6 +668,15 @@ static const struct sdhci_pltfm_data sdhci_dwcmshc_rk35xx_pdata = {
-> >  		   SDHCI_QUIRK2_CLOCK_DIV_ZERO_BROKEN,
-> >  };
-> >  
-> > +static const struct sdhci_pltfm_data sdhci_dwcmshc_th1520_pdata = {
-> > +	.ops = &sdhci_dwcmshc_th1520_ops,
-> > +
-> > +	.quirks = SDHCI_QUIRK_CAP_CLOCK_BASE_BROKEN |
-> > +		  SDHCI_QUIRK_BROKEN_DMA |
-> > +		  SDHCI_QUIRK_BROKEN_ADMA,
-> > +	.quirks2 = SDHCI_QUIRK2_PRESET_VALUE_BROKEN,
-> > +};
-> > +
-> >  static int dwcmshc_rk35xx_init(struct sdhci_host *host, struct dwcmshc_priv *dwc_priv)
-> >  {
-> >  	int err;
-> > @@ -434,6 +733,10 @@ static void dwcmshc_rk35xx_postinit(struct sdhci_host *host, struct dwcmshc_priv
-> >  }
-> >  
-> >  static const struct of_device_id sdhci_dwcmshc_dt_ids[] = {
-> > +	{
-> > +		.compatible = "thead,th1520-dwcmshc",
-> > +		.data = &sdhci_dwcmshc_th1520_pdata,
-> > +	},
-> >  	{
-> >  		.compatible = "rockchip,rk3588-dwcmshc",
-> >  		.data = &sdhci_dwcmshc_rk35xx_pdata,
-> > @@ -541,6 +844,39 @@ static int dwcmshc_probe(struct platform_device *pdev)
-> >  			goto err_clk;
-> >  	}
-> >  
-> > +	if (pltfm_data == &sdhci_dwcmshc_th1520_pdata) {
-> > +
-> > +		priv->delay_line = DELAY_LINE_DEFAULT;
-> > +
-> > +		if (device_property_present(&pdev->dev, "non-removable"))
-> > +			priv->non_removable = 1;
-> > +		else
-> > +			priv->non_removable = 0;
-> > +
-> > +		if (device_property_present(&pdev->dev, "thead,pull-up"))
-> > +			priv->pull_up_en = 1;
-> > +		else
-> > +			priv->pull_up_en = 0;
-> > +
-> > +		if (device_property_present(&pdev->dev, "thead,io-fixed-1v8"))
-> > +			priv->io_fixed_1v8 = true;
-> > +		else
-> > +			priv->io_fixed_1v8 = false;
-> > +
-> > +		/*
-> > +		 * start_signal_voltage_switch() will try 3.3V first
-> > +		 * then 1.8V. Use SDHCI_SIGNALING_180 ranther than
-> > +		 * SDHCI_SIGNALING_330 to avoid setting voltage to 3.3V
-> > +		 * in sdhci_start_signal_voltage_switch().
-> > +		 */
-> > +		if(priv->io_fixed_1v8){
-> > +			host->flags &=~SDHCI_SIGNALING_330;
-> > +			host->flags |= SDHCI_SIGNALING_180;
-> > +		}
-> > +
-> > +		sdhci_enable_v4_mode(host);
-> > +	}
-> > +
-> >  #ifdef CONFIG_ACPI
-> >  	if (pltfm_data == &sdhci_dwcmshc_bf3_pdata)
-> >  		sdhci_enable_v4_mode(host);
-> > 
-> > -- 
-> > 2.34.1
-> > 
-
-Thank you,
-Drew
-
-[1] https://gist.github.com/pdp7/a8301b895c2dc293f2e0210e77e45e01
-[2] https://git.beagleboard.org/beaglev-ahead/beaglev-ahead-linux/-/blob/beaglev-v5.10.113-1.1.2/drivers/mmc/host/sdhci-of-dwcmshc.c#L238
+> +	msi_domain = dev_get_msi_domain(ep->dev);
+> +	if (msi_domain) {
+> +		msi_domain->flags |= IRQ_DOMAIN_FLAG_ISOLATED_MSI;
+> +	}
+> +
+> +	dev_dbg(ep->dev, "RV-IR enabled\n");
+> +
+> +	ep->ir_enabled = true;
+> +
+> +	return 0;
+> +}
+> +
+> +static void riscv_iommu_disable_ir(struct riscv_iommu_endpoint *ep)
+> +{
+> +	if (!ep->ir_enabled)
+> +		return;
+> +
+> +	ep->dc->msi_addr_pattern = 0ULL;
+> +	ep->dc->msi_addr_mask = 0ULL;
+> +	ep->dc->msiptp = 0ULL;
+> +	wmb();
+> +
+> +	dev_dbg(ep->dev, "RV-IR disabled\n");
+> +
+> +	free_pages((unsigned long)ep->msi_root, 0);
+> +	ep->msi_root = NULL;
+> +	ep->ir_enabled = false;
+> +}
+> +
+>   /* Endpoint features/capabilities */
+>   static void riscv_iommu_disable_ep(struct riscv_iommu_endpoint *ep)
+>   {
+> @@ -1226,6 +1295,7 @@ static struct iommu_device *riscv_iommu_probe_device(struct device *dev)
+>   
+>   	mutex_init(&ep->lock);
+>   	INIT_LIST_HEAD(&ep->domain);
+> +	INIT_LIST_HEAD(&ep->regions);
+>   
+>   	if (dev_is_pci(dev)) {
+>   		ep->devid = pci_dev_id(to_pci_dev(dev));
+> @@ -1248,6 +1318,7 @@ static struct iommu_device *riscv_iommu_probe_device(struct device *dev)
+>   	dev_iommu_priv_set(dev, ep);
+>   	riscv_iommu_add_device(iommu, dev);
+>   	riscv_iommu_enable_ep(ep);
+> +	riscv_iommu_enable_ir(ep);
+>   
+>   	return &iommu->iommu;
+>   }
+> @@ -1279,6 +1350,7 @@ static void riscv_iommu_release_device(struct device *dev)
+>   		riscv_iommu_iodir_inv_devid(iommu, ep->devid);
+>   	}
+>   
+> +	riscv_iommu_disable_ir(ep);
+>   	riscv_iommu_disable_ep(ep);
+>   
+>   	/* Remove endpoint from IOMMU tracking structures */
+> @@ -1301,6 +1373,15 @@ static struct iommu_group *riscv_iommu_device_group(struct device *dev)
+>   
+>   static void riscv_iommu_get_resv_regions(struct device *dev, struct list_head *head)
+>   {
+> +	struct iommu_resv_region *entry, *new_entry;
+> +	struct riscv_iommu_endpoint *ep = dev_iommu_priv_get(dev);
+> +
+> +	list_for_each_entry(entry, &ep->regions, list) {
+> +		new_entry = kmemdup(entry, sizeof(*entry), GFP_KERNEL);
+> +		if (new_entry)
+> +			list_add_tail(&new_entry->list, head);
+> +	}
+> +
+>   	iommu_dma_get_resv_regions(dev, head);
+>   }
+>   
+> diff --git a/drivers/iommu/riscv/iommu.h b/drivers/iommu/riscv/iommu.h
+> index 83e8d00fd0f8..55418a1144fb 100644
+> --- a/drivers/iommu/riscv/iommu.h
+> +++ b/drivers/iommu/riscv/iommu.h
+> @@ -117,14 +117,17 @@ struct riscv_iommu_endpoint {
+>   	struct riscv_iommu_dc *dc;		/* device context pointer */
+>   	struct riscv_iommu_pc *pc;		/* process context root, valid if pasid_enabled is true */
+>   	struct riscv_iommu_device *iommu;	/* parent iommu device */
+> +	struct riscv_iommu_msi_pte *msi_root;	/* interrupt re-mapping */
+>   
+>   	struct mutex lock;
+>   	struct list_head domain;		/* endpoint attached managed domain */
+> +	struct list_head regions;		/* reserved regions, interrupt remapping window */
+>   
+>   	/* end point info bits */
+>   	unsigned pasid_bits;
+>   	unsigned pasid_feat;
+>   	bool pasid_enabled;
+> +	bool ir_enabled;
+>   };
+>   
+>   /* Helper functions and macros */
 
 _______________________________________________
 linux-riscv mailing list
