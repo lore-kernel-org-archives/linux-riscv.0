@@ -4,64 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B18B0C27C53
-	for <linux-riscv@archiver.kernel.org>; Wed, 16 Aug 2023 23:19:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F2A0C27C7A
+	for <linux-riscv@archiver.kernel.org>; Wed, 16 Aug 2023 23:23:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DkGHmbh5W8IRPEMz9J1UnNcwKYgXxjBLqTp1GapXEi8=; b=dQnPZFVmG+h2Rp
-	uisLzwYyPm7Dp0rI1dgJpZ0u5jrnfpxyvNeXAHt7sfEo6/Npk58iBGMzXO3GkzDxRSLAoihfsu/J/
-	8tKBFVmstEWMIcKUQnVldaiV8DURj5zWDKwu7QKkcdWZuXZ2JB67G3gYme7LseJGz/2i5nWDLlm6v
-	SF6WqyZ22C0/c3xdvPYl7yRAbNP3QJ2Sr3d4U5qy532DX9C72jMH4eNWfIn16EWkit3xkYP5nPPsJ
-	bVNR7WRT9Halmoc6GZ+ielkrn8/CXf5Cvg54EzS8mNcbxS6XGSjnosQldVU32IyxdAYeg9uXrvKA0
-	eK9OiSWGGUdP1cgSRqIA==;
+	List-Owner; bh=jODcD0j9bG2XR5ujBo+1BO41hCYdVMFUlo2RC4qTZB8=; b=BPU9EUwVjGGPrB
+	Vz5zbCace+zvTT4TewyKmuc5ZeaYT5AIy2GT/vv9dkK4ahs3zYPPMsyueMUhmV0H4Tduzo+mpQ3BR
+	ElQK03TM+FXWB24F5rOpwDqI19yljH0CF1OTH86m37Lh7chlEJTZdDsktaQh0Q0MO6l9kycvxkgcV
+	APj7y72ezEe8KYUhzLIwnMhz7JqK5TX6bj4AescrOorHjnVeUGQO2nsEmtGD/Kf/+RDIqNwlDmTZp
+	nH8J4f0f1TtbfJzRAYMZ8T0N1tUfNUy3WbCzFb0+2uNfM2myC49WaJjVf1jCELWr3vRO5kWduBSRV
+	WLn8opA1XaLefDHAGnbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qWPn7-0059tv-1H;
-	Wed, 16 Aug 2023 23:19:05 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1qWPrj-005A9U-1N;
+	Wed, 16 Aug 2023 23:23:51 +0000
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qWPn4-0059tX-2Z
+	id 1qWPrf-005A8G-2B
 	for linux-riscv@lists.infradead.org;
-	Wed, 16 Aug 2023 23:19:04 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 4D0C9640E9;
-	Wed, 16 Aug 2023 23:19:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7CE7DC433C7;
-	Wed, 16 Aug 2023 23:18:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1692227941;
-	bh=H/XS22Tf9sINJzysUCyiMHOKnBn7BLtWKuHebYdTUUo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=D7OREH2mS5x8+0IGnoyO6tSTVjOD0KuZDB+yS9EB5Bo235f13Ku9eaQIoYvDFX1U2
-	 jnwGko3ypaAs/TzFYyNzbbvnwbrBWCwsoccZS0QHZKc3Dfhu/+PWkWSa0bVMzNzMz7
-	 iBvjIBCveCxhH0VhbuiE95HWWXJpQQ8K94GTG0xy7G1aveKjigRNZxYo02mZEZHbuF
-	 yvJpCV3k80PL3Fy7rof7xnUEbbcwNk4xXtWHFW7nWOV/PvIAAoKUOR/eK+KwYJXwEi
-	 s5mqWf0Eu6ao/gQIU5TaqfVp11fpnDLcT2DJu1tMUR9Mm9sOt608TY9BFvgCwNEUYB
-	 O1/fMcRkXh4Ew==
-Date: Wed, 16 Aug 2023 19:18:53 -0400
-From: Guo Ren <guoren@kernel.org>
-To: Andy Chiu <andy.chiu@sifive.com>
-Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com,
-	vineetg@rivosinc.com, bjorn@kernel.org, greentime.hu@sifive.com,
-	paul.walmsley@sifive.com, guoren@linux.alibaba.com,
-	anup@brainfault.org, atishp@atishpatra.org, heiko.stuebner@vrull.eu,
-	Albert Ou <aou@eecs.berkeley.edu>
-Subject: Re: [v2, 0/5] riscv: support kernel-mode Vector
-Message-ID: <ZN1ZXcwYZtABNdUy@gmail.com>
-References: <20230721112855.1006-1-andy.chiu@sifive.com>
+	Wed, 16 Aug 2023 23:23:49 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-3fe426b8583so71994815e9.2
+        for <linux-riscv@lists.infradead.org>; Wed, 16 Aug 2023 16:23:46 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20221208; t=1692228226; x=1692833026;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Z3QZb2R3EdSRGjNldFEi1fV9QVZELOWJSDHH54gUih4=;
+        b=lxO1UAr4NneU+P6Ihb8bkx/VGrROmaqowPU14iRlhaBcEsBBUdJxksJxlCRA9CwkWj
+         0K7pbCpiUVKHSucjlDfysFP9QM7lhCmB3z93KBLq0ivmXhN5CHHoCpwFQ1TXGaRbZeaW
+         HAm3YcHxdA3UWYYSAeCVwP5sBve3HbXdjGQIcXUiD5My1JU0+nEdoGu3gzv5WH95S4dl
+         n+qxFbotzHG4sAsD8mfY7mQwTSAunSbjRE2Y3HT+JvZcZ7qSLV2UVa05X82kLCtEGv/S
+         OwdbKJ6X9Zj6/LKSLYRBCKveneRYhLxhLY6mAy5UfKaY0iqZGd5eIWRmcAjQARJWqQLd
+         U0hw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1692228226; x=1692833026;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Z3QZb2R3EdSRGjNldFEi1fV9QVZELOWJSDHH54gUih4=;
+        b=l3uZy0ttQthvakjb7J9QKcu8YNS8RzTprUA6JaQkYpjT+88r4tMMOPxONgK9ktaab3
+         aVmslVK2zaPPsgMS/RynCajVDLyN79+KjnIZCETLpZZ+tVCaQ7zufSEjDdQC30a24bUy
+         OJ0FdJCnwLnCJssZa7PhAFnedI4HX9xFWONEukGnwTJQORyhyaWJ+wOu1ky+8GJEb0D6
+         vpTAnwfnnys8sSIUmOqZ0Wi/IA6pfMhs/rwKv1lpZoiIuU9SynndestP9guxOffrpFBP
+         Jb77kiQPkAG3Rvs5pYCWbk8Q21jV/a4naq6HXag19m5GI0oSswAoTpC7hIER0ETOoqd1
+         /vmA==
+X-Gm-Message-State: AOJu0YxDQ9J18fe/rQiuwerTvE/fOk5P8niou4rygaZhfp9TqWdlVW7I
+	C2pogk4+mHAQpCKWSgD44Hw=
+X-Google-Smtp-Source: AGHT+IEJnRIZ1RA+2A8XOGo4qJdGXnm7sLvGhrm0Oh2ZgRs2v30ncOfTStpL4pgYtbcwGDoCsAU2Qg==
+X-Received: by 2002:adf:f7c9:0:b0:315:a32d:311f with SMTP id a9-20020adff7c9000000b00315a32d311fmr277540wrq.14.1692228225599;
+        Wed, 16 Aug 2023 16:23:45 -0700 (PDT)
+Received: from prasmi.home ([2a00:23c8:2501:c701:aeb8:832b:ebc0:1bbf])
+        by smtp.gmail.com with ESMTPSA id q4-20020adff944000000b003143c9beeaesm22752617wrr.44.2023.08.16.16.23.43
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 16 Aug 2023 16:23:44 -0700 (PDT)
+From: Prabhakar <prabhakar.csengg@gmail.com>
+X-Google-Original-From: Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+To: Arnd Bergmann <arnd@arndb.de>,
+	Christoph Hellwig <hch@lst.de>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Anup Patel <apatel@ventanamicro.com>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Jisheng Zhang <jszhang@kernel.org>,
+	linux-kernel@vger.kernel.org
+Cc: Geert Uytterhoeven <geert+renesas@glider.be>,
+	Samuel Holland <samuel@sholland.org>,
+	linux-riscv@lists.infradead.org,
+	linux-renesas-soc@vger.kernel.org,
+	Prabhakar <prabhakar.csengg@gmail.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Palmer Dabbelt <palmer@rivosinc.com>
+Subject: [PATCH v3 1/3] riscv: dma-mapping: only invalidate after DMA, not flush
+Date: Thu, 17 Aug 2023 00:23:34 +0100
+Message-Id: <20230816232336.164413-2-prabhakar.mahadev-lad.rj@bp.renesas.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20230816232336.164413-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+References: <20230816232336.164413-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230721112855.1006-1-andy.chiu@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230816_161902_922587_51D97A44 
-X-CRM114-Status: GOOD (  30.31  )
+X-CRM114-CacheID: sfid-20230816_162347_713768_F33D5BA1 
+X-CRM114-Status: GOOD (  13.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,98 +107,46 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 21, 2023 at 11:28:50AM +0000, Andy Chiu wrote:
-> This series provides support for running Vector code in kernel mode. The
-> implementation is based on the v12 series of the Vector series, but with
-> some additions. First, we introduce a mechanism to defer restoring
-> Vector context for userspace programs (patch 1). This is similar to
-> arm64 and x86's approaches when dealing with extra userspace register
-> context. And it is benefitial to both Vector in user and kernel-mode.
-> Then, patch 2, 3 add the kernel-mode Vector patch from v12 with minor
-> modifications. At the end of the series, patch 4, 5 add supports for
-> making kernel-mode Vector code preemptible. We do this by adding
-> kernel-mode Vector context, and keeping track of the frame where V
-> context is last valid. We believe that enabling preemption of running V
-> is a critical path for getting V more generally available in the
-> kernel-mode. Besides, with status.VS, we can easily tell if
-> saving/restoring V is required. This reduce the level of cost when
-> running SIMD in kernel mode as compared to other arches. Other arches
-> usually do not have a way to tell if extra context is dirty. Thus, if
-> they also want to support running preemptible code with extra registers,
-> then they must save/restore extra context at each context switch even if
-> registers are not dirty.
-> 
-> The series is tested by loading a kernel module on a preemptive kernel.
-> The module launches multiple kworkers which run Vector operations and
-> verifies with scalar code. Also, the module provides userspace intefaces
-> via fops to verify if we can run Vector code on syscall path.
-Would it be contributed to kernel tools/testing/selftests/riscv/?
+From: Arnd Bergmann <arnd@arndb.de>
 
-> 
-> Updated patches: 1, 2, 3, 4, 5
-> New patches: -
-> Unchanged patches: -
-> Deleted patches: 6 (moved to 5)
-> 
-> Changelog v2:
->  - fix build issues
->  - Follow arm's way of starting kernel-mode simd code:
->    - add include/asm/simd.h and rename may_use_vector() ->
->      may_use_simd()
->    - return void in kernel_vector_begin(), and BUG_ON if may_use_simd()
->      fails
->  - Change naming scheme for functions/macros (Conor):
->    - remove KMV
->    - 's/rvv/vector/'
->    - 's/RISCV_ISA_V_PREEMPTIVE_KMV/RISCV_ISA_V_PREEMPTIVE/'
->    - 's/TIF_RISCV_V_KMV/TIF_RISCV_V_KERNEL_MODE/'
-> 
-> Changes from the vector v12 series (for patch 2, 3):
->  - return a failure code when kernel_vector_begin() fails.
->  - Do not immediately restore user's V context.
-> 
-> Andy Chiu (3):
->   riscv: sched: defer restoring Vector context for user
->   riscv: vector: do not pass task_struct into
->     riscv_v_vstate_{save,restore}()
->   riscv: vector: allow kernel-mode Vector with preemption
-> 
-> Greentime Hu (2):
->   riscv: Add support for kernel mode vector
->   riscv: Add vector extension XOR implementation
-> 
->  arch/riscv/Kconfig                     |  10 ++
->  arch/riscv/include/asm/entry-common.h  |  13 +++
->  arch/riscv/include/asm/processor.h     |   2 +
->  arch/riscv/include/asm/simd.h          |  52 +++++++++
->  arch/riscv/include/asm/thread_info.h   |   6 +
->  arch/riscv/include/asm/vector.h        |  50 +++++++--
->  arch/riscv/include/asm/xor.h           |  82 ++++++++++++++
->  arch/riscv/kernel/Makefile             |   1 +
->  arch/riscv/kernel/asm-offsets.c        |   2 +
->  arch/riscv/kernel/entry.S              |  45 ++++++++
->  arch/riscv/kernel/kernel_mode_vector.c | 146 +++++++++++++++++++++++++
->  arch/riscv/kernel/process.c            |  10 +-
->  arch/riscv/kernel/ptrace.c             |   2 +-
->  arch/riscv/kernel/signal.c             |   4 +-
->  arch/riscv/kernel/vector.c             |   5 +-
->  arch/riscv/lib/Makefile                |   1 +
->  arch/riscv/lib/xor.S                   |  81 ++++++++++++++
->  17 files changed, 495 insertions(+), 17 deletions(-)
->  create mode 100644 arch/riscv/include/asm/simd.h
->  create mode 100644 arch/riscv/include/asm/xor.h
->  create mode 100644 arch/riscv/kernel/kernel_mode_vector.c
->  create mode 100644 arch/riscv/lib/xor.S
-> 
-> -- 
-> 2.17.1
-> 
-> 
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
-> 
+No other architecture intentionally writes back dirty cache lines into
+a buffer that a device has just finished writing into. If the cache is
+clean, this has no effect at all, but if a cacheline in the buffer has
+actually been written by the CPU,  there is a driver bug that is likely
+made worse by overwriting that buffer.
+
+Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+Reviewed-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
+Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+---
+v2->v3
+* No change
+
+v1->v2
+* Fixed typo drive->driver in commit message
+* Included RB and ACKs
+---
+ arch/riscv/mm/dma-noncoherent.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/arch/riscv/mm/dma-noncoherent.c b/arch/riscv/mm/dma-noncoherent.c
+index d51a75864e53..94614cf61cdd 100644
+--- a/arch/riscv/mm/dma-noncoherent.c
++++ b/arch/riscv/mm/dma-noncoherent.c
+@@ -42,7 +42,7 @@ void arch_sync_dma_for_cpu(phys_addr_t paddr, size_t size,
+ 		break;
+ 	case DMA_FROM_DEVICE:
+ 	case DMA_BIDIRECTIONAL:
+-		ALT_CMO_OP(flush, vaddr, size, riscv_cbom_block_size);
++		ALT_CMO_OP(inval, vaddr, size, riscv_cbom_block_size);
+ 		break;
+ 	default:
+ 		break;
+-- 
+2.34.1
+
 
 _______________________________________________
 linux-riscv mailing list
