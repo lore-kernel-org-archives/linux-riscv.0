@@ -4,52 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 005E1C27C52
-	for <linux-riscv@archiver.kernel.org>; Wed, 16 Aug 2023 21:43:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E1C2C27C41
+	for <linux-riscv@archiver.kernel.org>; Wed, 16 Aug 2023 22:05:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:MIME-Version:
-	Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f3ivUTwZ3EoXiwAcXtQ9nX/o1uDOGOng0UGgQolx0W8=; b=XM4VUp2RLumJ5iSCeDoeLPXZI4
-	z5fvc4dNfRWq/cSdV1LiCmtHRhfYqkecfY9MBAw7x1+fCOZu3emuiwYQSxDZmgIhL2fFXi6P3s92K
-	9gX2LkOdki+PSolLy7/Pt0sNTmKKUZ5MNgcHS10a2rr7J5iC1a51KLMrTE3oBVAshGi7eluhA1oUy
-	qqGb8XyMArWYKFnx/jY57Z9OTxbzGNWAT7e5e4btjB7H7S3shKux0ToDLne1BX9xNyxTtptLawemr
-	jkWJJ0WKUV5NRYzv/i4R2NEnUKL81Hwlhngbs1bpoTgiPOHJRAQVVBeOSGkla9EW6q4BUOHezrZFC
-	XeIuKOmg==;
+	bh=GT6mOuQnnFyE+/TynGwdplR6XgqShi/Iz7i3L/os0eA=; b=3LaP2EWbg/wY+vYrTKtbSH2TXJ
+	GIGtQdfEcQpnh8QBgFUkloN4Fwbq3puIaIWwH34oEbsflEhqUqAD1VKY7qmKpQAGTZGw4EwWv0Ac+
+	t3IJzXoNw5sMixSh7GU9DtedcsBBFbx1xhK9q1KHV0he0+XeaV1bNHe8TYSFZf5YBWuLaDPr/xu7L
+	xrs7bckp5/FbsxabRAKkzzgRI1loDUMTUdFUmXgO//g5Kms5quZNeuTvmmq0lvNfJZVWutQ1rW2ZL
+	ffFlTGHB55eLfp35iYh8Jkkic5yvsQkUSO1XtTWXlOYkhgyAiFE/4K0XNTg34+HcVj5QRdra2ITvw
+	DLzvxmQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qWOIl-00538c-15;
-	Wed, 16 Aug 2023 21:43:39 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qWOIi-00537y-0c
+	id 1qWOdZ-0054vn-19;
+	Wed, 16 Aug 2023 22:05:09 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1qWOdW-0054uF-0q
 	for linux-riscv@lists.infradead.org;
-	Wed, 16 Aug 2023 21:43:37 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C7E1FD75;
-	Wed, 16 Aug 2023 14:44:15 -0700 (PDT)
-Received: from [10.57.90.114] (unknown [10.57.90.114])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6748A3F762;
-	Wed, 16 Aug 2023 14:43:32 -0700 (PDT)
-Message-ID: <0b2b9365-5e8c-35a0-38ac-ffcbdfdb9886@arm.com>
-Date: Wed, 16 Aug 2023 22:43:11 +0100
+	Wed, 16 Aug 2023 22:05:07 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-1bde4403296so46315ad.0
+        for <linux-riscv@lists.infradead.org>; Wed, 16 Aug 2023 15:05:02 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20221208; t=1692223502; x=1692828302;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=bBPTE28cAPKLWrgM2uUfeQITqXrIuPWTV58S91B8OJI=;
+        b=vcF4yOPHfczBQYINY7p/sgfRsPapUuPOGiBbhWqQBEvOuthgZKjD4Qrc9YF8UQB7/q
+         drD+D9rbfpd+7gugaFmaX0+38sAdlW7k8huZB13sEHUiXw/KBOboAOYQdaHK2kBRwebH
+         kLAnbDdo5d5KTt2j/oPwMvE7ifJC209z/eNf7O6naxG1wOmO1rbPTIyCgQMWZVeMRRDD
+         Sl6PXrPh5fGRikUQNbIRUvZfuxumaQcXPmBj40bKRPYqPKa+lUI5zwNAmgRP2P8z9OnT
+         rdbZiKNvsVPkZq2IsNwU+RlLfDEZB37ClSv35srOVxcJ1u65ObX7u95ewKJJDVxnFvkZ
+         UkOQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1692223502; x=1692828302;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=bBPTE28cAPKLWrgM2uUfeQITqXrIuPWTV58S91B8OJI=;
+        b=QlkcT7LNfXJKkeMDCh4vgFrpN3ZMBQCAWzh1aLd8GhP7Y+Ik8uXaEnCAOpSSUPQdBu
+         4LQupJKgFN4JvwcdAa9+7cdxUgnR1c3L7cBtbDcvFtOJeBy+yV1cHpJJhDcGmvg5lcko
+         BdsVH6vDNzp2s5cSgaymzcgok6UVQg8RAsVOvWSLVMvV6zXOszfQTIRW2lJ2SZeA1w44
+         bt0YBGM943ayNGtW7TvsgFePY9Y3gp9tweGYv6seKE0ECEe5lq9jB3pjHru1YjR5W19a
+         n8bSfsuyDhnBuLBv/UGtZNNzOZH3NOMGi51YRosVy5LLK+E0w2zdhnSPN5rbx+g3I62w
+         Tbww==
+X-Gm-Message-State: AOJu0Yy3D768O3yjMALb/3UYtyrchP85/wNXggZ7FuJ5beltPeM7nLbA
+	WPxSIONOf7Gu47E5giTMXqtXuA==
+X-Google-Smtp-Source: AGHT+IEuOUCO/H139rrEjwSPDvyEtzzmsDP4BDaEKor0UvpvxGlepYgrvvJV8S5/Zv9LowbS4wuvqg==
+X-Received: by 2002:a17:902:d2c4:b0:1b8:698e:ac2f with SMTP id n4-20020a170902d2c400b001b8698eac2fmr44043plc.21.1692223501659;
+        Wed, 16 Aug 2023 15:05:01 -0700 (PDT)
+Received: from google.com ([2620:15c:2d3:205:abd7:243d:5e17:457d])
+        by smtp.gmail.com with ESMTPSA id iw12-20020a170903044c00b001b9d7c8f44dsm13592911plb.182.2023.08.16.15.05.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 16 Aug 2023 15:05:01 -0700 (PDT)
+Date: Wed, 16 Aug 2023 15:04:57 -0700
+From: Fangrui Song <maskray@google.com>
+To: Nathan Chancellor <nathan@kernel.org>
+Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	akpm@linux-foundation.org, conor@kernel.org,
+	ndesaulniers@google.com, trix@redhat.com,
+	linux-riscv@lists.infradead.org, llvm@lists.linux.dev,
+	patches@lists.linux.dev, kernel test robot <lkp@intel.com>
+Subject: Re: [PATCH] lib/Kconfig.debug: Restrict DEBUG_INFO_SPLIT for RISC-V
+Message-ID: <20230816220457.kqzlbiibeomvki4y@google.com>
+References: <20230816-riscv-debug_info_split-v1-1-d1019d6ccc11@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; rv:102.0) Gecko/20100101
- Thunderbird/102.14.0
-Subject: Re: [PATCH 10/11] RISC-V: drivers/iommu/riscv: Add MSI identity
- remapping
-Content-Language: en-GB
-To: Tomasz Jeznach <tjeznach@rivosinc.com>, Joerg Roedel <joro@8bytes.org>,
- Will Deacon <will@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>
-References: <cover.1689792825.git.tjeznach@rivosinc.com>
- <660b7a8707e494a6bb2706e10569a7414c3640a7.1689792825.git.tjeznach@rivosinc.com>
-From: Robin Murphy <robin.murphy@arm.com>
-In-Reply-To: <660b7a8707e494a6bb2706e10569a7414c3640a7.1689792825.git.tjeznach@rivosinc.com>
+Content-Disposition: inline
+In-Reply-To: <20230816-riscv-debug_info_split-v1-1-d1019d6ccc11@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230816_144336_348154_F2C56A9C 
-X-CRM114-Status: GOOD (  24.48  )
+X-CRM114-CacheID: sfid-20230816_150506_304470_46D8234D 
+X-CRM114-Status: GOOD (  13.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -61,183 +89,73 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Anup Patel <apatel@ventanamicro.com>, Albert Ou <aou@eecs.berkeley.edu>, linux@rivosinc.com, linux-kernel@vger.kernel.org, Sebastien Boeuf <seb@rivosinc.com>, iommu@lists.linux.dev, Palmer Dabbelt <palmer@dabbelt.com>, Nick Kossifidis <mick@ics.forth.gr>, linux-riscv@lists.infradead.org
 Content-Transfer-Encoding: 7bit
 Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2023-07-19 20:33, Tomasz Jeznach wrote:
-> This change provides basic identity mapping support to
-> excercise MSI_FLAT hardware capability.
-> 
-> Signed-off-by: Tomasz Jeznach <tjeznach@rivosinc.com>
-> ---
->   drivers/iommu/riscv/iommu.c | 81 +++++++++++++++++++++++++++++++++++++
->   drivers/iommu/riscv/iommu.h |  3 ++
->   2 files changed, 84 insertions(+)
-> 
-> diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
-> index 6042c35be3ca..7b3e3e135cf6 100644
-> --- a/drivers/iommu/riscv/iommu.c
-> +++ b/drivers/iommu/riscv/iommu.c
-> @@ -61,6 +61,9 @@ MODULE_PARM_DESC(priq_length, "Page request interface queue length.");
->   #define RISCV_IOMMU_MAX_PSCID	(1U << 20)
->   static DEFINE_IDA(riscv_iommu_pscids);
->   
-> +/* TODO: Enable MSI remapping */
-> +#define RISCV_IMSIC_BASE	0x28000000
-> +
->   /* 1 second */
->   #define RISCV_IOMMU_TIMEOUT	riscv_timebase
->   
-> @@ -932,6 +935,72 @@ static irqreturn_t riscv_iommu_priq_process(int irq, void *data)
->    * Endpoint management
->    */
->   
-> +static int riscv_iommu_enable_ir(struct riscv_iommu_endpoint *ep)
-> +{
-> +	struct riscv_iommu_device *iommu = ep->iommu;
-> +	struct iommu_resv_region *entry;
-> +	struct irq_domain *msi_domain;
-> +	u64 val;
-> +	int i;
-> +
-> +	/* Initialize MSI remapping */
-> +	if (!ep->dc || !(iommu->cap & RISCV_IOMMU_CAP_MSI_FLAT))
-> +		return 0;
-> +
-> +	ep->msi_root = (struct riscv_iommu_msi_pte *)get_zeroed_page(GFP_KERNEL);
-> +	if (!ep->msi_root)
-> +		return -ENOMEM;
-> +
-> +	for (i = 0; i < 256; i++) {
-> +		ep->msi_root[i].pte = RISCV_IOMMU_MSI_PTE_V |
-> +		    FIELD_PREP(RISCV_IOMMU_MSI_PTE_M, 3) |
-> +		    phys_to_ppn(RISCV_IMSIC_BASE + i * PAGE_SIZE);
-> +	}
-> +
-> +	entry = iommu_alloc_resv_region(RISCV_IMSIC_BASE, PAGE_SIZE * 256, 0,
-> +					IOMMU_RESV_SW_MSI, GFP_KERNEL);
-> +	if (entry)
-> +		list_add_tail(&entry->list, &ep->regions);
-> +
-> +	val = virt_to_pfn(ep->msi_root) |
-> +	    FIELD_PREP(RISCV_IOMMU_DC_MSIPTP_MODE, RISCV_IOMMU_DC_MSIPTP_MODE_FLAT);
-> +	ep->dc->msiptp = cpu_to_le64(val);
-> +
-> +	/* Single page of MSIPTP, 256 IMSIC files */
-> +	ep->dc->msi_addr_mask = cpu_to_le64(255);
-> +	ep->dc->msi_addr_pattern = cpu_to_le64(RISCV_IMSIC_BASE >> 12);
-> +	wmb();
-> +
-> +	/* set msi domain for the device as isolated. hack. */
+On 2023-08-16, Nathan Chancellor wrote:
+>When building for ARCH=riscv using LLVM < 14, there is an error with
+>CONFIG_DEBUG_INFO_SPLIT=y:
+>
+>  error: A dwo section may not contain relocations
+>
+>This was worked around in LLVM 15 by disallowing '-gsplit-dwarf' with
+>'-mrelax' (the default), so CONFIG_DEBUG_INFO_SPLIT is not selectable
+>with newer versions of LLVM:
+>
+>  $ clang --target=riscv64-linux-gnu -gsplit-dwarf -c -o /dev/null -x c /dev/null
+>  clang: error: -gsplit-dwarf is unsupported with RISC-V linker relaxation (-mrelax)
+>
+>GCC silently had a similar issue that was resolved with GCC 12.x.
+>Restrict CONFIG_DEBUG_INFO_SPLIT for RISC-V when using LLVM or GCC <
+>12.x to avoid these known issues.
+>
+>Link: https://github.com/ClangBuiltLinux/linux/issues/1914
+>Link: https://gcc.gnu.org/bugzilla/show_bug.cgi?id=99090
+>Reported-by: kernel test robot <lkp@intel.com>
+>Closes: https://lore.kernel.org/all/202308090204.9yZffBWo-lkp@intel.com/
+>Signed-off-by: Nathan Chancellor <nathan@kernel.org>
+>---
+>Since this only impacts RISC-V, it seems reasonable that this would go
+>in via their tree but I have added Andrew in case he wants to take it.
+>---
+> lib/Kconfig.debug | 5 +++++
+> 1 file changed, 5 insertions(+)
+>
+>diff --git a/lib/Kconfig.debug b/lib/Kconfig.debug
+>index d6798513a8c2..bd51274f4771 100644
+>--- a/lib/Kconfig.debug
+>+++ b/lib/Kconfig.debug
+>@@ -355,6 +355,11 @@ endchoice # "Compressed Debug information"
+> config DEBUG_INFO_SPLIT
+> 	bool "Produce split debuginfo in .dwo files"
+> 	depends on $(cc-option,-gsplit-dwarf)
+>+	# RISC-V linker relaxation + -gsplit-dwarf has issues with LLVM and GCC
+>+	# prior to 12.x:
+>+	# https://github.com/llvm/llvm-project/issues/56642
+>+	# https://gcc.gnu.org/bugzilla/show_bug.cgi?id=99090
+>+	depends on !RISCV || GCC_VERSION >= 120000
+> 	help
+> 	  Generate debug info into separate .dwo files. This significantly
+> 	  reduces the build directory size for builds with DEBUG_INFO,
+>
+>---
+>base-commit: 2ccdd1b13c591d306f0401d98dedc4bdcd02b421
+>change-id: 20230816-riscv-debug_info_split-0713571a1ac2
+>
+>Best regards,
+>-- 
+>Nathan Chancellor <nathan@kernel.org>
+>
 
-Hack because this should be implemented as a proper hierarchical MSI 
-domain, or hack because it doesn't actually represent isolation? Nothing 
-really jumps out at me from the IOMMU and IMSIC specs, so I'm leaning 
-towards the hunch that there's no real isolation, it's more just 
-implicit in the assumption that each distinct VM/process with devices 
-assigned should get its own interrupt file. I can't easily see how that 
-would be achieved for things like VFIO :/
+LGTM as the author of the Clang mitigation
+(https://github.com/llvm/llvm-project/issues/56642) and several recent
+LLVM assembler side linker relaxation improvement (I continue updating
+https://maskray.me/blog/2021-03-14-the-dark-side-of-riscv-linker-relaxation
+about the complication of linker relaxation).
 
-Thanks,
-Robin.
-
-> +	msi_domain = dev_get_msi_domain(ep->dev);
-> +	if (msi_domain) {
-> +		msi_domain->flags |= IRQ_DOMAIN_FLAG_ISOLATED_MSI;
-> +	}
-> +
-> +	dev_dbg(ep->dev, "RV-IR enabled\n");
-> +
-> +	ep->ir_enabled = true;
-> +
-> +	return 0;
-> +}
-> +
-> +static void riscv_iommu_disable_ir(struct riscv_iommu_endpoint *ep)
-> +{
-> +	if (!ep->ir_enabled)
-> +		return;
-> +
-> +	ep->dc->msi_addr_pattern = 0ULL;
-> +	ep->dc->msi_addr_mask = 0ULL;
-> +	ep->dc->msiptp = 0ULL;
-> +	wmb();
-> +
-> +	dev_dbg(ep->dev, "RV-IR disabled\n");
-> +
-> +	free_pages((unsigned long)ep->msi_root, 0);
-> +	ep->msi_root = NULL;
-> +	ep->ir_enabled = false;
-> +}
-> +
->   /* Endpoint features/capabilities */
->   static void riscv_iommu_disable_ep(struct riscv_iommu_endpoint *ep)
->   {
-> @@ -1226,6 +1295,7 @@ static struct iommu_device *riscv_iommu_probe_device(struct device *dev)
->   
->   	mutex_init(&ep->lock);
->   	INIT_LIST_HEAD(&ep->domain);
-> +	INIT_LIST_HEAD(&ep->regions);
->   
->   	if (dev_is_pci(dev)) {
->   		ep->devid = pci_dev_id(to_pci_dev(dev));
-> @@ -1248,6 +1318,7 @@ static struct iommu_device *riscv_iommu_probe_device(struct device *dev)
->   	dev_iommu_priv_set(dev, ep);
->   	riscv_iommu_add_device(iommu, dev);
->   	riscv_iommu_enable_ep(ep);
-> +	riscv_iommu_enable_ir(ep);
->   
->   	return &iommu->iommu;
->   }
-> @@ -1279,6 +1350,7 @@ static void riscv_iommu_release_device(struct device *dev)
->   		riscv_iommu_iodir_inv_devid(iommu, ep->devid);
->   	}
->   
-> +	riscv_iommu_disable_ir(ep);
->   	riscv_iommu_disable_ep(ep);
->   
->   	/* Remove endpoint from IOMMU tracking structures */
-> @@ -1301,6 +1373,15 @@ static struct iommu_group *riscv_iommu_device_group(struct device *dev)
->   
->   static void riscv_iommu_get_resv_regions(struct device *dev, struct list_head *head)
->   {
-> +	struct iommu_resv_region *entry, *new_entry;
-> +	struct riscv_iommu_endpoint *ep = dev_iommu_priv_get(dev);
-> +
-> +	list_for_each_entry(entry, &ep->regions, list) {
-> +		new_entry = kmemdup(entry, sizeof(*entry), GFP_KERNEL);
-> +		if (new_entry)
-> +			list_add_tail(&new_entry->list, head);
-> +	}
-> +
->   	iommu_dma_get_resv_regions(dev, head);
->   }
->   
-> diff --git a/drivers/iommu/riscv/iommu.h b/drivers/iommu/riscv/iommu.h
-> index 83e8d00fd0f8..55418a1144fb 100644
-> --- a/drivers/iommu/riscv/iommu.h
-> +++ b/drivers/iommu/riscv/iommu.h
-> @@ -117,14 +117,17 @@ struct riscv_iommu_endpoint {
->   	struct riscv_iommu_dc *dc;		/* device context pointer */
->   	struct riscv_iommu_pc *pc;		/* process context root, valid if pasid_enabled is true */
->   	struct riscv_iommu_device *iommu;	/* parent iommu device */
-> +	struct riscv_iommu_msi_pte *msi_root;	/* interrupt re-mapping */
->   
->   	struct mutex lock;
->   	struct list_head domain;		/* endpoint attached managed domain */
-> +	struct list_head regions;		/* reserved regions, interrupt remapping window */
->   
->   	/* end point info bits */
->   	unsigned pasid_bits;
->   	unsigned pasid_feat;
->   	bool pasid_enabled;
-> +	bool ir_enabled;
->   };
->   
->   /* Helper functions and macros */
+Reviewed-by: Fangrui Song <maskray@google.com>
 
 _______________________________________________
 linux-riscv mailing list
