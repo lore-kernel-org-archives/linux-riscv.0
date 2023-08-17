@@ -4,74 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 959CEC2FC02
-	for <linux-riscv@archiver.kernel.org>; Wed, 16 Aug 2023 23:37:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77983C2FC04
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Aug 2023 00:31:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=La34K8RXpSDym5xtUeobNL00jNdH7uEBgEeTuTa+Dzc=; b=Rvphh/EyMgsFNC
-	i4ua+A6r8kxTzc8RIrjCqtpUvCqQ62sdahDluleJKlbEiFZN2vo3MAhGzSb2hxAQF7IJqO86ngKLe
-	XNTgpRo3pTeqXZSB1CR5fWQdKNn7ewJQmHjcqS2OwswC1mB0OC98eFWD7uvRiLaUJackJheTDp6h8
-	wNrSDKSun24Gbncm2Ai2l2j6JXB2sG1q8q1sG6apZbTQ4B4o9U3IxgTqEcNGI4RamfWeJVLcxfVmg
-	uXNo/2wStkFvwFzVDWQFgR2bytFJHwHtLuvft7zzxYaN0/R29oc2zFK4BBRagBnWVj0fJZjWWOUDZ
-	UYKo+npgyxrsncPivVJQ==;
+	List-Owner; bh=YbEbRPBarScVF2nOf3MYwBramHzhlSmZ7i6bfTemTBc=; b=Ui3sMiaubWrwHz
+	vfUJatlschSYEVu2tB3sURLa8Knv+6Snf4/+zznq3Nv0LG+OcJVsRQW9eM/7idCmL15uAWzM6i3q+
+	WzwvnMrvNoPqF/eKeIpVdyF04Xd6lQr6Jao+mlnBKMKeyVLIqzoJvwQvoFf8ofwTcFrPM/Z3krmM8
+	S8mHFNwVxQ6d30EEEa/jynCWVJsAok2wo25402m8WgNkienE2xKJSTe6J/ffXr+Ek503jT7uGkkWU
+	qQtHbiEJDExok0fvGDX/nmx/hrulDJSirJ/92oRATJxpoCO80Sw9oVo/MptLqnTy2DjvgixsHqYJz
+	Qq+xIqBO3tMnOPF3zpJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qWQ4e-005AwQ-0E;
-	Wed, 16 Aug 2023 23:37:12 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1qWQvM-005F1H-2x;
+	Thu, 17 Aug 2023 00:31:40 +0000
+Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qWQ4a-005Aw7-0V
+	id 1qWQvE-005Evx-1k
 	for linux-riscv@lists.infradead.org;
-	Wed, 16 Aug 2023 23:37:10 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 062CE6170A;
-	Wed, 16 Aug 2023 23:37:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ACA41C433C8;
-	Wed, 16 Aug 2023 23:37:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1692229026;
-	bh=sYR8AtAS0xjLp4A2m7Lf86XIdF2F7jurR6GApWz0vIo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Vo44HNJzXKh1HTdQFjtsH2wdN9bcDae99kC9641rdPQENq3g1NNddrGaWlD/eP3eM
-	 0OtkmQn7/wRXVARI4MuJ8gAe78EB+VS2adqU9UV1MthZqqUtT0JGbD5+eWg0rTH6Tr
-	 VfoThugEJlG+0/DToyhzdTEsNOhBOPuTHYJSyjOR7emDBITLpHqesvHeaMBW5x4p1V
-	 vopQlH+TahTOxpoSPxA4DI8jGHSY4b0gM7NPMBbwwd3ZbfhGMoBvBU14GbRQ7p8IHl
-	 j+Q1V6jrUUygPDHHDBgr+4F2L+iElVJ/+WVu7MY1KkC2csXljdkvQ2kdD8nLK/Dumu
-	 momVz+V6Z9BDA==
-Date: Wed, 16 Aug 2023 19:36:56 -0400
-From: Guo Ren <guoren@kernel.org>
-To: Andy Chiu <andy.chiu@sifive.com>
-Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com,
-	vineetg@rivosinc.com, bjorn@kernel.org, greentime.hu@sifive.com,
-	paul.walmsley@sifive.com, guoren@linux.alibaba.com,
-	anup@brainfault.org, atishp@atishpatra.org, heiko.stuebner@vrull.eu,
-	Vincent Chen <vincent.chen@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Heiko Stuebner <heiko@sntech.de>,
-	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Xianting Tian <xianting.tian@linux.alibaba.com>,
-	Sia Jee Heng <jeeheng.sia@starfivetech.com>,
-	Anup Patel <apatel@ventanamicro.com>,
-	Jisheng Zhang <jszhang@kernel.org>,
-	Masahiro Yamada <masahiroy@kernel.org>
-Subject: Re: [v2, 2/5] riscv: Add support for kernel mode vector
-Message-ID: <ZN1dmJu5zE6utr6n@gmail.com>
-References: <20230721112855.1006-1-andy.chiu@sifive.com>
- <20230721112855.1006-3-andy.chiu@sifive.com>
+	Thu, 17 Aug 2023 00:31:35 +0000
+Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-1bcad794ad4so48180365ad.3
+        for <linux-riscv@lists.infradead.org>; Wed, 16 Aug 2023 17:31:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1692232290; x=1692837090;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=bgC1JR3GltIDSf4x3tRknvWq/71clnqR/lvG3W7lMIY=;
+        b=Wk7ZcI2cSkKCmpwAOwQEWMxrL0tl/66pfHLM07y/kUfYtekvi/9AI3fVG2F8cet9z7
+         HaNmXcsLFe/opiDrpqTUwTwp2xAGG4VppLrGtJ817cSohKNEmlr38uTFl2Sz3N/BKGh8
+         URPT4Pgv2IShCvFGZg6os9YjX98OSOzdKTEzsWFGAay4H3HVGpaS/GVv2QchNq8KafvK
+         IkyqfPF8xyh33b6/CuFgitvJDNid8GWpU+t4AG4nrLS2uSTJcWTF+Ba4KnzXdwinN19W
+         fAdrVc/FNL6bAuRBVyr3h8XYuAfq3Ea1xvc1SKwFPIR4gZhmU+xURpjxgFC4H/ctLxds
+         ZEyA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1692232290; x=1692837090;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=bgC1JR3GltIDSf4x3tRknvWq/71clnqR/lvG3W7lMIY=;
+        b=Ki1rBkwY3cCfJ7PBJmjkW3/s4A5vYVLt2vAzgVFNopbaNHpHdzG14Whk6xLDPCZNFt
+         8DUFVNRx/d+27NXi+a5LNhVg6s0EOw5TlUapbC0FNO9C+xL+jqmkXdOPRNC3MS2oQ70W
+         q8+U9OUJZ/Qo09MnlC+2uaKwKabI0yGq8dqoVE1MjwPvoH+beaDQoTH5UM4QfMlfnVte
+         KnjciatuVHka6ZQt2mO53duB0nakwECGeEizKiud3hWQM5YN+slk5NHNT2HMTOa17FCY
+         J1O567QUzJhfelF3sE1aRvJmgWkEZyqXl+1P5GuqcoCswQf4M5nd9yHUbuvKeKE9CaJd
+         6rTw==
+X-Gm-Message-State: AOJu0YxgdVteO0ym6vVxFW8S2+qPIrc1+hsv7Lpy8LB6CnzvVwdpZASB
+	xghetqFJGiuOq9WXE+tmbfyPng==
+X-Google-Smtp-Source: AGHT+IGx864ksrcElUkMdcjLIA8ZzATRBTzPfs5VJbwgXjA+rTZAtM/bmlMaN8VpB9uJmBPGLXp17Q==
+X-Received: by 2002:a17:902:e80d:b0:1bd:a0cd:1860 with SMTP id u13-20020a170902e80d00b001bda0cd1860mr4137638plg.64.1692232290547;
+        Wed, 16 Aug 2023 17:31:30 -0700 (PDT)
+Received: from ghost ([50.221.140.188])
+        by smtp.gmail.com with ESMTPSA id d12-20020a170902728c00b001ac5896e96esm13666450pll.207.2023.08.16.17.31.28
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 16 Aug 2023 17:31:30 -0700 (PDT)
+Date: Wed, 16 Aug 2023 17:31:26 -0700
+From: Charlie Jenkins <charlie@rivosinc.com>
+To: Andrew Jones <ajones@ventanamicro.com>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
+	bpf@vger.kernel.org, Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Josh Poimboeuf <jpoimboe@kernel.org>,
+	Jason Baron <jbaron@akamai.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Ard Biesheuvel <ardb@kernel.org>, Anup Patel <anup@brainfault.org>,
+	Atish Patra <atishp@atishpatra.org>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>,
+	Yonghong Song <yhs@fb.com>,
+	John Fastabend <john.fastabend@gmail.com>,
+	KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@google.com>,
+	Hao Luo <haoluo@google.com>, Jiri Olsa <jolsa@kernel.org>,
+	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@kernel.org>,
+	Luke Nelson <luke.r.nels@gmail.com>, Xi Wang <xi.wang@gmail.com>,
+	Nam Cao <namcaov@gmail.com>
+Subject: Re: [PATCH 00/10] RISC-V: Refactor instructions
+Message-ID: <ZN1qXlLp6qfpBeGF@ghost>
+References: <20230803-master-refactor-instructions-v4-v1-0-2128e61fa4ff@rivosinc.com>
+ <20230804-2c57bddd6e87fdebc20ff9d5@orel>
+ <ZM00UYDzEAz/JT3n@ghost>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20230721112855.1006-3-andy.chiu@sifive.com>
+In-Reply-To: <ZM00UYDzEAz/JT3n@ghost>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230816_163708_286470_980F0168 
-X-CRM114-Status: GOOD (  32.07  )
+X-CRM114-CacheID: sfid-20230816_173132_802305_AD669FD8 
+X-CRM114-Status: GOOD (  44.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,238 +113,130 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 21, 2023 at 11:28:52AM +0000, Andy Chiu wrote:
-> From: Greentime Hu <greentime.hu@sifive.com>
-> 
-> Add kernel_vector_begin() and kernel_vector_end() function declarations
-> and corresponding definitions in kernel_mode_vector.c
-> 
-> These are needed to wrap uses of vector in kernel mode.
-> 
-> Co-developed-by: Vincent Chen <vincent.chen@sifive.com>
-> Signed-off-by: Vincent Chen <vincent.chen@sifive.com>
-> Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
-> Signed-off-by: Andy Chiu <andy.chiu@sifive.com>
-> ---
-> Changelog v2:
->  - 's/kernel_rvv/kernel_vector' and return void in kernel_vector_begin
->    (Conor)
->  - export may_use_simd to include/asm/simd.h
-> ---
->  arch/riscv/include/asm/simd.h          |  50 ++++++++++++
->  arch/riscv/include/asm/vector.h        |   2 +
->  arch/riscv/kernel/Makefile             |   1 +
->  arch/riscv/kernel/kernel_mode_vector.c | 101 +++++++++++++++++++++++++
->  4 files changed, 154 insertions(+)
->  create mode 100644 arch/riscv/include/asm/simd.h
->  create mode 100644 arch/riscv/kernel/kernel_mode_vector.c
-> 
-> diff --git a/arch/riscv/include/asm/simd.h b/arch/riscv/include/asm/simd.h
-> new file mode 100644
-> index 000000000000..ef70af78005d
-> --- /dev/null
-> +++ b/arch/riscv/include/asm/simd.h
-> @@ -0,0 +1,50 @@
-> +/* SPDX-License-Identifier: GPL-2.0-only */
-> +/*
-> + * Copyright (C) 2017 Linaro Ltd. <ard.biesheuvel@linaro.org>
-> + * Copyright (C) 2023 SiFive
-> + */
-> +
-> +#ifndef __ASM_SIMD_H
-> +#define __ASM_SIMD_H
-> +
-> +#include <linux/compiler.h>
-> +#include <linux/irqflags.h>
-> +#include <linux/percpu.h>
-> +#include <linux/preempt.h>
-> +#include <linux/types.h>
-> +
-> +#ifdef CONFIG_RISCV_ISA_V
-> +
-> +DECLARE_PER_CPU(bool, vector_context_busy);
-> +
-> +/*
-> + * may_use_simd - whether it is allowable at this time to issue vector
-> + *                instructions or access the vector register file
-> + *
-> + * Callers must not assume that the result remains true beyond the next
-> + * preempt_enable() or return from softirq context.
-> + */
-> +static __must_check inline bool may_use_simd(void)
-> +{
-> +	/*
-> +	 * vector_context_busy is only set while preemption is disabled,
-> +	 * and is clear whenever preemption is enabled. Since
-> +	 * this_cpu_read() is atomic w.r.t. preemption, vector_context_busy
-> +	 * cannot change under our feet -- if it's set we cannot be
-> +	 * migrated, and if it's clear we cannot be migrated to a CPU
-> +	 * where it is set.
-> +	 */
-> +	return !in_irq() && !irqs_disabled() && !in_nmi() &&
-> +	       !this_cpu_read(vector_context_busy);
-> +}
-> +
-> +#else /* ! CONFIG_RISCV_ISA_V */
-> +
-> +static __must_check inline bool may_use_simd(void)
-> +{
-> +	return false;
-> +}
-> +
-> +#endif /* ! CONFIG_RISCV_ISA_V */
-> +
-> +#endif
-> diff --git a/arch/riscv/include/asm/vector.h b/arch/riscv/include/asm/vector.h
-> index a4f3705fd144..b46b8f3261fa 100644
-> --- a/arch/riscv/include/asm/vector.h
-> +++ b/arch/riscv/include/asm/vector.h
-> @@ -22,6 +22,8 @@
->  extern unsigned long riscv_v_vsize;
->  int riscv_v_setup_vsize(void);
->  bool riscv_v_first_use_handler(struct pt_regs *regs);
-> +void kernel_vector_begin(void);
-> +void kernel_vector_end(void);
->  
->  static __always_inline bool has_vector(void)
->  {
-> diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
-> index 506cc4a9a45a..3f4435746af7 100644
-> --- a/arch/riscv/kernel/Makefile
-> +++ b/arch/riscv/kernel/Makefile
-> @@ -61,6 +61,7 @@ obj-$(CONFIG_MMU) += vdso.o vdso/
->  obj-$(CONFIG_RISCV_M_MODE)	+= traps_misaligned.o
->  obj-$(CONFIG_FPU)		+= fpu.o
->  obj-$(CONFIG_RISCV_ISA_V)	+= vector.o
-> +obj-$(CONFIG_RISCV_ISA_V)	+= kernel_mode_vector.o
->  obj-$(CONFIG_SMP)		+= smpboot.o
->  obj-$(CONFIG_SMP)		+= smp.o
->  obj-$(CONFIG_SMP)		+= cpu_ops.o
-> diff --git a/arch/riscv/kernel/kernel_mode_vector.c b/arch/riscv/kernel/kernel_mode_vector.c
-> new file mode 100644
-> index 000000000000..1c3b32d2b340
-> --- /dev/null
-> +++ b/arch/riscv/kernel/kernel_mode_vector.c
-> @@ -0,0 +1,101 @@
-> +// SPDX-License-Identifier: GPL-2.0-or-later
-> +/*
-> + * Copyright (C) 2012 ARM Ltd.
-> + * Author: Catalin Marinas <catalin.marinas@arm.com>
-> + * Copyright (C) 2017 Linaro Ltd. <ard.biesheuvel@linaro.org>
-> + * Copyright (C) 2021 SiFive
-> + */
-> +#include <linux/compiler.h>
-> +#include <linux/irqflags.h>
-> +#include <linux/percpu.h>
-> +#include <linux/preempt.h>
-> +#include <linux/types.h>
-> +
-> +#include <asm/vector.h>
-> +#include <asm/switch_to.h>
-> +#include <asm/simd.h>
-> +
-> +DEFINE_PER_CPU(bool, vector_context_busy);
-> +
-> +/*
-> + * Claim ownership of the CPU vector context for use by the calling context.
-> + *
-> + * The caller may freely manipulate the vector context metadata until
-> + * put_cpu_vector_context() is called.
-> + */
-> +static void get_cpu_vector_context(void)
-> +{
-> +	bool busy;
-> +
-> +	preempt_disable();
-> +	busy = __this_cpu_xchg(vector_context_busy, true);
-> +
-> +	WARN_ON(busy);
-> +}
-> +
-> +/*
-> + * Release the CPU vector context.
-> + *
-> + * Must be called from a context in which get_cpu_vector_context() was
-> + * previously called, with no call to put_cpu_vector_context() in the
-> + * meantime.
-> + */
-> +static void put_cpu_vector_context(void)
-> +{
-> +	bool busy = __this_cpu_xchg(vector_context_busy, false);
-> +
-> +	WARN_ON(!busy);
-> +	preempt_enable();
-> +}
-> +
-> +/*
-> + * kernel_vector_begin(): obtain the CPU vector registers for use by the calling
-> + * context
-> + *
-> + * Must not be called unless may_use_simd() returns true.
-> + * Task context in the vector registers is saved back to memory as necessary.
-> + *
-> + * A matching call to kernel_vector_end() must be made before returning from the
-> + * calling context.
-> + *
-> + * The caller may freely use the vector registers until kernel_vector_end() is
-> + * called.
-> + */
-> +void kernel_vector_begin(void)
-> +{
-> +	if (WARN_ON(!has_vector()))
-> +		return;
-> +
-> +	BUG_ON(!may_use_simd());
-> +
-> +	riscv_v_vstate_save(current, task_pt_regs(current));
-> +
-> +	get_cpu_vector_context();
-Could we do riscv_v_vstate_save() during preempt_enable()?
-
-Should it be:
-get_cpu_vector_context();
-
-riscv_v_vstate_save(current, task_pt_regs(current));
-
-> +
-> +	riscv_v_enable();
-> +
-> +	return 0;
-> +}
-> +EXPORT_SYMBOL_GPL(kernel_vector_begin);
-> +
-> +/*
-> + * kernel_vector_end(): give the CPU vector registers back to the current task
-> + *
-> + * Must be called from a context in which kernel_vector_begin() was previously
-> + * called, with no call to kernel_vector_end() in the meantime.
-> + *
-> + * The caller must not use the vector registers after this function is called,
-> + * unless kernel_vector_begin() is called again in the meantime.
-> + */
-> +void kernel_vector_end(void)
-> +{
-> +	if (WARN_ON(!has_vector()))
-> +		return;
-> +
-> +	riscv_v_vstate_set_restore(current, task_pt_regs(current));
-> +
-> +	riscv_v_disable();
-> +
-> +	put_cpu_vector_context();
-Seems you know the issue, but why above stuff missed?
-
-> +}
-> +EXPORT_SYMBOL_GPL(kernel_vector_end);
-> -- 
-> 2.17.1
-> 
-> 
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
-> 
+On Fri, Aug 04, 2023 at 10:24:33AM -0700, Charlie Jenkins wrote:
+> On Fri, Aug 04, 2023 at 12:28:28PM +0300, Andrew Jones wrote:
+> > On Thu, Aug 03, 2023 at 07:10:25PM -0700, Charlie Jenkins wrote:
+> > > There are numerous systems in the kernel that rely on directly
+> > > modifying, creating, and reading instructions. Many of these systems
+> > > have rewritten code to do this. This patch will delegate all instruction
+> > > handling into insn.h and reg.h. All of the compressed instructions, RVI,
+> > > Zicsr, M, A instructions are included, as well as a subset of the F,D,Q
+> > > extensions.
+> > > 
+> > > ---
+> > > This is modifying code that https://lore.kernel.org/lkml/20230731183925.152145-1-namcaov@gmail.com/
+> > > is also touching.
+> > > 
+> > > ---
+> > > Testing:
+> > > 
+> > > There are a lot of subsystems touched and I have not tested every
+> > > individual instruction. I did a lot of copy-pasting from the RISC-V spec
+> > > so opcodes and such should be correct
+> > 
+> > How about we create macros which generate each of the functions an
+> > instruction needs, e.g. riscv_insn_is_*(), etc. based on the output of
+> > [1]. I know basically nothing about that project, but it looks like it
+> > creates most the defines this series is creating from what we [hope] to
+> > be an authoritative source. I also assume that if we don't like the
+> > current output format, then we could probably post patches to the project
+> > to get the format we want. For example, we could maybe propose an "lc"
+> > format for "Linux C".
+> That's a great idea, I didn't realize that existed!
+I have discovered that the riscv-opcodes repository is not in a state
+that makes it helpful. If it were workable, it would make it easy to
+include a "Linux C" format. I have had a pull request open on the repo
+for two weeks now and the person who maintains the repo has not
+interacted. At minimum, in order for it to be useful it would need an ability to
+describe the bit order of immediates in an instruction and include script
+arguments to select which instructions should be included. There is a
+"C" format, but it is actually just a Spike format. Nonetheless, it
+seems like it is prohibitive to use it.
+> > 
+> > I'd also recommend only importing the generated defines and generating
+> > the functions that will actually have immediate consumers or are part of
+> > a set of defines that have immediate consumers. Each consumer of new
+> > instructions will be responsible for generating and importing the defines
+> > and adding the respective macro invocations to generate the functions.
+> > This series can also take that approach, i.e. convert one set of
+> > instructions at a time, each in a separate patch.
+> Since I was hand-writing everything and copying it wasn't too much
+> effort to just copy all of the instructions from a group. However, from
+> a testing standpoint it makes sense to exclude instructions not yet in
+> use.
+> > 
+> > [1] https://github.com/riscv/riscv-opcodes
+> > 
+> > Thanks,
+> > drew
+> > 
+> > 
+> > > , but the construction of every
+> > > instruction is not fully tested.
+> > > 
+> > > vector: Compiled and booted
+> > > 
+> > > jump_label: Ensured static keys function as expected.
+> > > 
+> > > kgdb: Attempted to run the provided tests but they failed even without
+> > > my changes
+> > > 
+> > > module: Loaded and unloaded modules
+> > > 
+> > > patch.c: Ensured kernel booted
+> > > 
+> > > kprobes: Used a kprobing module to probe jalr, auipc, and branch
+> > > instructions
+> > > 
+> > > nommu misaligned addresses: Kernel boots
+> > > 
+> > > kvm: Ran KVM selftests
+> > > 
+> > > bpf: Kernel boots. Most of the instructions are exclusively used by BPF
+> > > but I am unsure of the best way of testing BPF.
+> > > 
+> > > Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
+> > > 
+> > > ---
+> > > Charlie Jenkins (10):
+> > >       RISC-V: Expand instruction definitions
+> > >       RISC-V: vector: Refactor instructions
+> > >       RISC-V: Refactor jump label instructions
+> > >       RISC-V: KGDB: Refactor instructions
+> > >       RISC-V: module: Refactor instructions
+> > >       RISC-V: Refactor patch instructions
+> > >       RISC-V: nommu: Refactor instructions
+> > >       RISC-V: kvm: Refactor instructions
+> > >       RISC-V: bpf: Refactor instructions
+> > >       RISC-V: Refactor bug and traps instructions
+> > > 
+> > >  arch/riscv/include/asm/bug.h             |   18 +-
+> > >  arch/riscv/include/asm/insn.h            | 2744 +++++++++++++++++++++++++++---
+> > >  arch/riscv/include/asm/reg.h             |   88 +
+> > >  arch/riscv/kernel/jump_label.c           |   13 +-
+> > >  arch/riscv/kernel/kgdb.c                 |   13 +-
+> > >  arch/riscv/kernel/module.c               |   80 +-
+> > >  arch/riscv/kernel/patch.c                |    3 +-
+> > >  arch/riscv/kernel/probes/kprobes.c       |   13 +-
+> > >  arch/riscv/kernel/probes/simulate-insn.c |  100 +-
+> > >  arch/riscv/kernel/probes/uprobes.c       |    5 +-
+> > >  arch/riscv/kernel/traps.c                |    9 +-
+> > >  arch/riscv/kernel/traps_misaligned.c     |  218 +--
+> > >  arch/riscv/kernel/vector.c               |    5 +-
+> > >  arch/riscv/kvm/vcpu_insn.c               |  281 +--
+> > >  arch/riscv/net/bpf_jit.h                 |  707 +-------
+> > >  15 files changed, 2825 insertions(+), 1472 deletions(-)
+> > > ---
+> > > base-commit: 5d0c230f1de8c7515b6567d9afba1f196fb4e2f4
+> > > change-id: 20230801-master-refactor-instructions-v4-433aa040da03
+> > > -- 
+> > > - Charlie
+> > > 
+> > > 
+> > > -- 
+> > > kvm-riscv mailing list
+> > > kvm-riscv@lists.infradead.org
+> > > http://lists.infradead.org/mailman/listinfo/kvm-riscv
 
 _______________________________________________
 linux-riscv mailing list
