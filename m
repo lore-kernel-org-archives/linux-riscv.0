@@ -4,66 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8893CC30654
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Aug 2023 15:20:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6829EC3063E
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Aug 2023 15:20:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QjB0VVC4Y2qup3aWLBf85GceogUeET6DqSLcpepuo8A=; b=IPQWdxRaZBzRUw
-	dO/isJCngHsBQNJsebNAL3k935o8UaF4gGPpwvOL/RSpy0xlwF8da4fj7dT76F5n8e82/+6UwvpJC
-	q8oDCiNgECpXvfB88Vg7bI+EAPaIDYA5tUjz+WCJMvuWVT8VT95gvvnn5Vphdil2l+377fIOarXWS
-	bMxX0xoNHgOVyHzjcznCXmCfHvEwkZJE3F1WjwE036G76LYyUxBVBRinBmW+FIHK8XS0v76gDqCje
-	q2OzliW11UJNUtHrTIbYaXeLeF3iRMAq3nVOz5o5MNF1FfgSVFrCrJV6NQW7nh4qL1BysImkdyqpe
-	bBuiO80CtUGeK1lJp0oQ==;
+	List-Owner; bh=PsamKetW7eqUgi5SqPc96ReWDccGXQExhlsn2czLqGg=; b=Y9aWGL3vQVlFcA
+	oHEpC7KulDZIZEFytIEpGXkEZOkA9bh+5qTrL3LcFHxhb1c6wNB/DW0QO+d3Z5cXk8nfOTF0yAXer
+	AKkrOiV3KhKxjABG8mIrKW/+/njIBzzfSvAYwKNJIQ59qIWei+wfAUjDhgkv2O/efSAk7/TWmTD5i
+	tTIugTgQjCdYyGlQ/Itf0JkZWN6BILTDVbwPjqPLtvpNLniDFPREQFDGj3U3hJF4oLmnhRZqvQQuo
+	hyxmNRJv5Zv3UsUCfLxU4yJjmi6Lhs4R4J/242vSk9Lb5sEtRxrIidhSoDB3ZjN46DWch5TPDOVCd
+	+xO8RKpq1LYtRxXahT+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qWenb-006fUi-20;
-	Thu, 17 Aug 2023 15:20:35 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1qWenc-006fUx-0c;
+	Thu, 17 Aug 2023 15:20:36 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qWenS-006fRp-2j
+	id 1qWenS-006fRr-1a
 	for linux-riscv@lists.infradead.org;
 	Thu, 17 Aug 2023 15:20:28 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id DBCD562035;
+	by dfw.source.kernel.org (Postfix) with ESMTPS id EB5B065872;
 	Thu, 17 Aug 2023 15:20:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id D7298C433CD;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id E8BDBC43395;
 	Thu, 17 Aug 2023 15:20:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1692285624;
-	bh=54jSAxQsEgLssz13NsAAtywsNx0kXc+SSq2W5eBTFP0=;
+	s=k20201202; t=1692285625;
+	bh=qR6kigngMHcRwuRvA7J2U593va9JFSML77bkafy5IPQ=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=QsnyW9XADwnvJTdjkajzdDkn88kCCSpnJCjXp/B92LUSgDpNJra51PJqsR01WP2dd
-	 SPoPmOB/gWBcwRDORlzqu8MXv09VPD/KbakRS+Xfud5E6Z1/KCqoZvBoe9ds/MrsCe
-	 eVnKW3pIG4WFbD4l4JIzTxn/5KL1IHwUzxrkwUOoZ10sgEfc5ASqP5VbSBEg6NF9/p
-	 vkcgtgZDjA9yI5o0YwRscsRZr4N3BUhU3XFAWtrPxTCrrR6ookYrriUrw2JbehMEqP
-	 /lGVjVLEru7v2+xbOeouIAeOcENR+X8+RkTKUvU/k2DGi0r44FX20FtO8HX/WQMqLG
-	 XdnbPwJDcyg3w==
+	b=jt0wKcZDmE5NOyOJT0HC5QwXnRO0aqMe3XhQMCQivbQgcWq/a6TnuQxhPUG2V3y6y
+	 QUo9JC9e8TYNLH2KxgAns8ojt3vdIufLXNoepPipIq8tZ5roJbQe1QxfkJg+QPUjXy
+	 hAOOgK5QuQ0Dhy1hFUMk+dBflRBK4g6BhZmebBtoWkPqQO/qY/T39b7Y1E8/LKxvFR
+	 aieKn/nNBaiwFIFgbrjEOi9iA8VFWA+pLJLiQsZBxmCUYA9l0sR/385r5z3GF3msiM
+	 tzCN/TuI8z/d6FqLYeQRftBm8iiJCOSBjfoTsU6iZblqCyrp7Otp3IKi2Qwc3GYCdE
+	 fRnK71TCk9wsQ==
 Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id BD9D6E26D3A;
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id D06B7E26D3B;
 	Thu, 17 Aug 2023 15:20:24 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH -fixes v2] riscv: uaccess: Return the number of bytes
- effectively not copied
+Subject: Re: [PATCH v5] riscv: Handle zicsr/zifencei issue between gcc and
+ binutils
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <169228562477.20811.12846984495723558384.git-patchwork-notify@kernel.org>
+Message-Id: <169228562484.20811.14246462375671910714.git-patchwork-notify@kernel.org>
 Date: Thu, 17 Aug 2023 15:20:24 +0000
-References: <20230811150604.1621784-1-alexghiti@rivosinc.com>
-In-Reply-To: <20230811150604.1621784-1-alexghiti@rivosinc.com>
-To: Alexandre Ghiti <alexghiti@rivosinc.com>
-Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, alankao@andestech.com,
- linux-kernel@vger.kernel.org, tsu.yubo@gmail.com, aurelien@aurel32.net,
- bjorn@rivosinc.com
+References: <20230809165648.21071-1-xingmingzheng@iscas.ac.cn>
+In-Reply-To: <20230809165648.21071-1-xingmingzheng@iscas.ac.cn>
+To: Mingzheng Xing <xingmingzheng@iscas.ac.cn>
+Cc: linux-riscv@lists.infradead.org, conor@kernel.org,
+ paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+ nathan@kernel.org, ndesaulniers@google.com, trix@redhat.com,
+ bmeng@tinylab.org, guoren@kernel.org, linux-kernel@vger.kernel.org,
+ llvm@lists.linux.dev, stable@vger.kernel.org, conor.dooley@microchip.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230817_082026_943363_8445CEE2 
-X-CRM114-Status: GOOD (  12.73  )
+X-CRM114-CacheID: sfid-20230817_082026_569598_ED212832 
+X-CRM114-Status: GOOD (  10.56  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,21 +86,19 @@ Hello:
 This patch was applied to riscv/linux.git (fixes)
 by Palmer Dabbelt <palmer@rivosinc.com>:
 
-On Fri, 11 Aug 2023 17:06:04 +0200 you wrote:
-> It was reported that the riscv kernel hangs while executing the test
-> in [1].
-> 
-> Indeed, the test hangs when trying to write a buffer to a file. The
-> problem is that the riscv implementation of raw_copy_from_user() does not
-> return the correct number of bytes not written when an exception happens
-> and is fixed up, instead it always returns the initial size to copy,
-> even if some bytes were actually copied.
+On Thu, 10 Aug 2023 00:56:48 +0800 you wrote:
+> Binutils-2.38 and GCC-12.1.0 bumped[0][1] the default ISA spec to the newer
+> 20191213 version which moves some instructions from the I extension to the
+> Zicsr and Zifencei extensions. So if one of the binutils and GCC exceeds
+> that version, we should explicitly specifying Zicsr and Zifencei via -march
+> to cope with the new changes. but this only occurs when binutils >= 2.36
+> and GCC >= 11.1.0. It's a different story when binutils < 2.36.
 > 
 > [...]
 
 Here is the summary with links:
-  - [-fixes,v2] riscv: uaccess: Return the number of bytes effectively not copied
-    https://git.kernel.org/riscv/c/4b05b993900d
+  - [v5] riscv: Handle zicsr/zifencei issue between gcc and binutils
+    https://git.kernel.org/riscv/c/ca09f772ccca
 
 You are awesome, thank you!
 -- 
