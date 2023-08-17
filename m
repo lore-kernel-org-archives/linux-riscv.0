@@ -4,67 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84801C3064E
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Aug 2023 15:20:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F184C3065B
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Aug 2023 15:40:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
-	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=u0UIk3a10iXDATtA4w8MAyaTsY+OcuJNoZLcG2dPiZY=; b=L7IDHXjRNfX/xO
-	hEaDkIxwxlRcezFzOqky/C4GooNF9P936eXIWvqbBP2qkfqFndiBoz5x7aB/o46x2zWFdQuIVgrZ5
-	xNG3uB58R8dvKVlytgI7QSLzqusY8Y001dqfYdwH0Z17SY5Dlzp6pNGqXxEzDyPvbp7uxeUba8jKS
-	itl78ifCqAkvF7dG7J7miK9khzune7lslpYzaVsHANd1awrHnVYnezSGmN+4lB8zmlsS+umeoGvcK
-	oTJtckRseCicVVbixyXJMRq0kuFTf9e5DXcnKYDCgldqzS9luu2pBynfJKF7nl4cSkYqF0wCftS7Q
-	CNZfi9J3FDIMSN06qgfg==;
+	List-Owner; bh=snOzQukbz2boSCiCFuI8cRQCgq7GsNodDoQpkQ7/5WQ=; b=dpllOSAmrTlxn+
+	/ZKv7ajAJWme2fmGkJAFyNfTpme1ub9V3LcdU2/lExwhtV50mGAqAullkVaQT5Qx+bJmqo9AKXYe4
+	W9pduZdijxNWEUZg6rJZ8EB7fv6fMVuXxwAWETISAMQ6K7McKZAVUwK4QGKB/mwjcrvsRuMAAUKL4
+	VfysMthH7Q4qbwljMLfJULC/PliImCnZsmUG8+mWCCUhizIb/Vd1+ybc1/r2YJPt7lToLo/hWKenU
+	EQdc021D+sVNXUL2mRWBXmvOkhaNsA9HOh4qjdkZzn89gZYXK6qiA6FaE/XQd9G92eq0bvO0ZFISo
+	R55JQKwlEwVPQsHsiyyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qWenV-006fTQ-2i;
-	Thu, 17 Aug 2023 15:20:29 +0000
+	id 1qWf7C-006hdk-2q;
+	Thu, 17 Aug 2023 15:40:50 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qWenS-006fRj-17
+	id 1qWf79-006hdP-2B
 	for linux-riscv@lists.infradead.org;
-	Thu, 17 Aug 2023 15:20:27 +0000
+	Thu, 17 Aug 2023 15:40:48 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 5BF4B61E4E;
-	Thu, 17 Aug 2023 15:20:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id BE2E0C433C9;
-	Thu, 17 Aug 2023 15:20:24 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 26615615D7;
+	Thu, 17 Aug 2023 15:40:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7971DC433C7;
+	Thu, 17 Aug 2023 15:40:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1692285624;
-	bh=NfOEJNXNpKdohlsC54VKkIQeTA+pi3oxUi+fegoDms8=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=m8k+4yi2KrnIbAyVLtanud5zOz3gxKdpBrYc9Mf9cyIM4WavnCq9eC7pDs7mzBU9p
-	 0iUb1aMrMfOmL63sVcYJXcV1ohvZLl20XkmXXfEnx1SQ49VAQ/h57j0+kleqMSh8ni
-	 JDGmmQ98Fb64QnoDYZwFBnGmO5dH0cXz7wrmMm1dE1GWs0ZzsFCltU1Apj5FnMtmw5
-	 fXnjSMv1JDc41jpDIBEImh68wCD7vZM4Xil3uJ+tpXyQiLQpJhtg+pz623hVRlpRx8
-	 TnogrILg9tx8B9MUsmqzCO4a5zGCGbJTiZ5rsC0jqrD/AjrPLkhFwsRZUroAN7i9Yy
-	 ggJuQfvg8tDfg==
-Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id A4A61E1F65A;
-	Thu, 17 Aug 2023 15:20:24 +0000 (UTC)
+	s=k20201202; t=1692286846;
+	bh=pRxsif8JlKAfLdB+T3fZbbIPVAzSOFHuTHn7rX4RoCU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=l2U5bSFfaCme7/htqAE8HVLKhvoYU3uG8Ad18CUyTuFe2UB+1oS4/cxLXDXhT5/r1
+	 VIQGH0tiY59nii3muBz8mp4fwX07Gkmp/7LYZcA378c2/I3s8zDtzmpbh0dfjmF4TF
+	 /RPNHHmE1aorPjscN47GlNUm+h97rE5aNO4grTyed5a3eatGRo4JnRCNumivOnvR8V
+	 GDoXofYoqDUyh4sc6A6tRxXUAn2ChJjFTiIoThukqm6W7hUB39yr1oLXpQZdAn1vkh
+	 hJ1Moww2mLezp7Teu0pPdoXFf/CsXtuRrK963zZMpO3+JQgwS9o6pAlb6xSzpuz+Gk
+	 sOvu3T7arDXBg==
+Received: (nullmailer pid 1138046 invoked by uid 1000);
+	Thu, 17 Aug 2023 15:40:43 -0000
+Date: Thu, 17 Aug 2023 10:40:43 -0500
+From: Rob Herring <robh@kernel.org>
+To: Minda Chen <minda.chen@starfivetech.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Philipp Zabel <p.zabel@pengutronix.de>, Mason Huo <mason.huo@starfivetech.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, Conor Dooley <conor@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, linux-pci@vger.kernel.org, Pali =?iso-8859-1?Q?Roh=E1r?= <pali@kernel.org>, linux-riscv@lists.infradead.org, Emil Renner Berthing <emil.renner.berthing@canonical.com>, Rob Herring <robh+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, Leyfoon Tan <leyfoon.tan@starfivetech.com>, Kevin Xie <kevin.xie@starfivetech.com>, Daire McNamara <daire.mcnamara@microchip.com>, Bjorn Helgaas <bhelgaas@google.com>
+Subject: Re: [PATCH v3 01/11] dt-bindings: PCI: Add PLDA XpressRICH PCIe host
+ common properties
+Message-ID: <169228684231.1137777.15649817865540406129.robh@kernel.org>
+References: <20230814082016.104181-1-minda.chen@starfivetech.com>
+ <20230814082016.104181-2-minda.chen@starfivetech.com>
 MIME-Version: 1.0
-Subject: Re: [PATCH V2 0/2] riscv: stack: Fixup independent softirq/irq stack for
- CONFIG_FRAME_POINTER=n
-From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <169228562466.20811.13415270526946490389.git-patchwork-notify@kernel.org>
-Date: Thu, 17 Aug 2023 15:20:24 +0000
-References: <20230716001506.3506041-1-guoren@kernel.org>
-In-Reply-To: <20230716001506.3506041-1-guoren@kernel.org>
-To: Guo Ren <guoren@kernel.org>
-Cc: linux-riscv@lists.infradead.org, palmer@rivosinc.com,
- paul.walmsley@sifive.com, falcon@tinylab.org, bjorn@kernel.org,
- conor.dooley@microchip.com, linux-arch@vger.kernel.org,
- linux-kernel@vger.kernel.org, stable@vger.kernel.org,
- guoren@linux.alibaba.com
+Content-Disposition: inline
+In-Reply-To: <20230814082016.104181-2-minda.chen@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230817_082026_450201_113C0999 
-X-CRM114-Status: UNSURE (   9.34  )
+X-CRM114-CacheID: sfid-20230817_084047_755903_4498F269 
+X-CRM114-Status: UNSURE (   9.61  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -82,55 +79,24 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello:
 
-This series was applied to riscv/linux.git (fixes)
-by Palmer Dabbelt <palmer@rivosinc.com>:
-
-On Sat, 15 Jul 2023 20:15:04 -0400 you wrote:
-> From: Guo Ren <guoren@linux.alibaba.com>
+On Mon, 14 Aug 2023 16:20:06 +0800, Minda Chen wrote:
+> Add PLDA XpressRICH PCIe host common properties dt-binding doc.
+> Microchip PolarFire PCIe host using PLDA IP.
+> Move common properties from Microchip PolarFire PCIe host
+> to PLDA files.
 > 
-> The independent softirq/irq stack uses s0 to save & restore sp, but s0
-> would be corrupted when CONFIG_FRAME_POINTER=n. So add s0 in the clobber
-> list to fix the problem.
+> Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
+> Reviewed-by: Hal Feng <hal.feng@starfivetech.com>
+> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+> ---
+>  .../bindings/pci/microchip,pcie-host.yaml     | 55 +-------------
+>  .../pci/plda,xpressrich3-axi-common.yaml      | 75 +++++++++++++++++++
+>  2 files changed, 76 insertions(+), 54 deletions(-)
+>  create mode 100644 Documentation/devicetree/bindings/pci/plda,xpressrich3-axi-common.yaml
 > 
-> <+0>:     addi    sp,sp,-32
-> <+2>:     sd      s0,16(sp)
-> <+4>:     sd      s1,8(sp)
-> <+6>:     sd      ra,24(sp)
-> <+8>:     sd      s2,0(sp)
-> <+10>:    mv      s0,a0		--> compiler allocate s0 for a0 when CONFIG_FRAME_POINTER=n
-> <+12>:    jal     ra,0xffffffff800bc0ce <irqentry_enter>
-> <+16>:    ld      a5,56(tp) # 0x38
-> <+20>:    lui     a4,0x4
-> <+22>:    mv      s1,a0
-> <+24>:    xor     a5,a5,sp
-> <+28>:    bgeu    a5,a4,0xffffffff800bc092 <do_irq+88>
-> <+32>:    auipc   s2,0x5d
-> <+36>:    ld      s2,1118(s2) # 0xffffffff801194b8 <irq_stack_ptr>
-> <+40>:    add     s2,s2,a4
-> <+42>:    addi    sp,sp,-8
-> <+44>:    sd      ra,0(sp)
-> <+46>:    addi    sp,sp,-8
-> <+48>:    sd      s0,0(sp)
-> <+50>:    addi    s0,sp,16	--> our code clobber the s0
-> <+52>:    mv      sp,s2
-> <+54>:    mv      a0,s0		--> a0 got wrong value for handle_riscv_irq
-> <+56>:    jal     ra,0xffffffff800bbb3a <handle_riscv_irq>
-> 
-> [...]
 
-Here is the summary with links:
-  - [V2,1/2] riscv: stack: Fixup independent irq stack for CONFIG_FRAME_POINTER=n
-    https://git.kernel.org/riscv/c/8d0be64154cf
-  - [V2,2/2] riscv: stack: Fixup independent softirq stack for CONFIG_FRAME_POINTER=n
-    https://git.kernel.org/riscv/c/ebc9cb03b21e
-
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
+Reviewed-by: Rob Herring <robh@kernel.org>
 
 
 _______________________________________________
