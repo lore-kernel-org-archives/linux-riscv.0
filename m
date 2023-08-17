@@ -4,89 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE9ECC27C7A
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Aug 2023 09:29:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FE12EB64DD
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Aug 2023 10:03:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=48t6xnPspJ0Mkei+Oo3NFOPMSRxNiOUT//fyJhWYvMw=; b=ERSMlhB/LY1nGW
-	jjLwLFRng3Qcg5+OoxnMwM9qlkYDD1f+kVauR/M4DQSe8U97uewbYejuvUbQeFFCILV93PvVLvZi6
-	/KAPJGCToOXOZUJE3njLKJia6dyfbCiFb7rhtTlsTMo8uF1egcw8YEozdG4SzG35KgpgHGT/tV3P+
-	t0Qg/rsFCSQqJ2oFFxSCxY3Y5Dm7RxCEQzTf/UO5rH0l08eDugur8hKQDkJ2J3HFWZrrMxbvx4EoG
-	HERg+nxPkVmeuOFo2SmZ2V7ZQid90S9wtU6rNhG8Tt5zNdcAxSLSzze/TuLT3FFGrgnIGdzmxRg+l
-	zmE4flrbzKMW3GdWbtMg==;
+	List-Owner; bh=UAfzCQDzFLiGGTPPRv+WH+oXU4q0s2xmD9U1t3TzomI=; b=A8OvyjpeXojJMK
+	BkO6rFXEpDRmRxQa/zQv/ORXCSEn2OhsVOSXKarR79Vr6TJyYXITwWUEwW5Xa6i35S8LVQDEfA1r+
+	bIHQTMFW7DxSiFGTfCyepyqYg5K2wuFxWJ0Nrdlf0robGSJzri1umyz3KGnuDMpGpWy5emvJaqKlC
+	cBbofO1slBpGg7InFhCqG/jC0myjkQtLTq8C+omwuA4acG8YvXwg0i9Ee95vF/gsAOMur8ZLV+z6/
+	qi+6TLHXTwMW52f69ibexOyf/QtmJatBHy1yttQIMb+NxR8LxTcq07As4MM8TkYiMD6mue9o630VS
+	d/SVUsAfkXg+DqnbCUJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qWZJu-005wGb-0c;
-	Thu, 17 Aug 2023 09:29:34 +0000
+	id 1qWZqF-005zvG-08;
+	Thu, 17 Aug 2023 10:02:59 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qWZJq-005wFS-0C;
-	Thu, 17 Aug 2023 09:29:31 +0000
+	id 1qWZqC-005zuN-1E
+	for linux-riscv@lists.infradead.org;
+	Thu, 17 Aug 2023 10:02:57 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 1BED1661D4;
-	Thu, 17 Aug 2023 09:29:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6CAD2C433C7;
-	Thu, 17 Aug 2023 09:29:28 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id D991B60B05;
+	Thu, 17 Aug 2023 10:02:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B3C47C433C8;
+	Thu, 17 Aug 2023 10:02:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1692264568;
-	bh=P4Sp+VqUPcqI98k0LUu6HacGUKj+uHSgw7K7aWCb3k0=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Q+zYTe9UDF16wP55sTzt+DzGXrWWyu3oY8QF11Gft1JI/tmxvtFEXbtzd0EuHXfBL
-	 5MC7tmMiCNFj6YaWcEiak6GLPjmrNiCI/TnQqG01d/+uqGGOYC6tNi+X7ILYxEue0n
-	 pfX4YT3XQPt6aNdLhs3RYger0xbLcWjoyfYkZCvsSyUKaSnLjTXZ9rPHiujhdNpxzl
-	 2hoAdivaRbwMKK6PyWvXHHNiRjpHf2y+Pec6dwRJlKimbIuUBRLCxCDYAg6m/1P1b2
-	 5v4E9wojAJCLauOhLoS73p8UZOnO38263A6U6MVFTXvciUaFbBkdRFG4tzAJgrp/Hr
-	 odQW5fyOYiEww==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1qWZJl-005dbe-IC;
-	Thu, 17 Aug 2023 10:29:25 +0100
-From: Marc Zyngier <maz@kernel.org>
-To: Oliver Upton <oliver.upton@linux.dev>,
-	James Morse <james.morse@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Raghavendra Rao Ananta <rananta@google.com>
-Cc: Paolo Bonzini <pbonzini@redhat.com>,
-	Reiji Watanabe <reijiw@google.com>,
-	kvmarm@lists.linux.dev,
-	Jing Zhang <jingzhangos@google.com>,
-	kvm-riscv@lists.infradead.org,
-	linux-mips@vger.kernel.org,
-	Anup Patel <anup@brainfault.org>,
-	Colton Lewis <coltonlewis@google.com>,
-	Fuad Tabba <tabba@google.com>,
-	kvm@vger.kernel.org,
-	Huacai Chen <chenhuacai@kernel.org>,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	David Matlack <dmatlack@google.com>,
-	Sean Christopherson <seanjc@google.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	linux-riscv@lists.infradead.org,
-	Atish Patra <atishp@atishpatra.org>
-Subject: Re: [PATCH v9 00/14] KVM: arm64: Add support for FEAT_TLBIRANGE
-Date: Thu, 17 Aug 2023 10:29:21 +0100
-Message-Id: <169226452281.2753740.2247650864841184971.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20230811045127.3308641-1-rananta@google.com>
-References: <20230811045127.3308641-1-rananta@google.com>
+	s=k20201202; t=1692266575;
+	bh=lW9/v/Opq7Tqu51ERKYkMPKnGxso6nLfK0q1mdCNrsU=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=fI7bnbVMq3itrQOao9vU4L0SOVnvpnC9v0HOf/90utdAMXD4ugPN20wWc+t/bXjRI
+	 aDciWdcxEh2EPGH9Ck/mvC08v8UONzzEBP3sK+wale3vF7oTIdQ/n3438lZYE4aguP
+	 PKfYkWJKyf8QkysdjpsyYsqtbq6WGSEHBxrGgTSgpC9QOTy3mEf2j7E37PlIUj+InV
+	 CEzi6C8uPkcQUSmmZv3DkgIizUgbS/mRHuPerBZFpCwUpcQ/cy0WSXCwWImqg67af5
+	 UuL8dKaUevr7RZdbcaBznnP+u7Mja6HZHwnUbyATGQ88rL5JHiP7pjzWUtNRl98i2I
+	 JGWKt2HarJEYA==
+From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
+To: yunhui cui <cuiyunhui@bytedance.com>
+Cc: conor.dooley@microchip.com, paul.walmsley@sifive.com,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, peterz@infradead.org,
+ mpe@ellerman.id.au, jpoimboe@kernel.org, mark.rutland@arm.com,
+ svens@linux.ibm.com, guoren@kernel.org, jszhang@kernel.org,
+ ebiederm@xmission.com, bjorn@rivosinc.com, heiko@sntech.de,
+ xianting.tian@linux.alibaba.com, mnissler@rivosinc.com,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [External] Re: [PATCH v2] riscv: Dump user opcode bytes on
+ fatal faults
+In-Reply-To: <CAEEQ3w=MgH82+BMpwmUHnUevMJsJUqgeBRWSZnU_iizMLK37UQ@mail.gmail.com>
+References: <20230329082950.726-1-cuiyunhui@bytedance.com>
+ <87v8dfqays.fsf@all.your.base.are.belong.to.us>
+ <CAEEQ3w=MgH82+BMpwmUHnUevMJsJUqgeBRWSZnU_iizMLK37UQ@mail.gmail.com>
+Date: Thu, 17 Aug 2023 12:02:52 +0200
+Message-ID: <871qg29eb7.fsf@all.your.base.are.belong.to.us>
 MIME-Version: 1.0
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: oliver.upton@linux.dev, james.morse@arm.com, suzuki.poulose@arm.com, rananta@google.com, pbonzini@redhat.com, reijiw@google.com, kvmarm@lists.linux.dev, jingzhangos@google.com, kvm-riscv@lists.infradead.org, linux-mips@vger.kernel.org, anup@brainfault.org, coltonlewis@google.com, tabba@google.com, kvm@vger.kernel.org, chenhuacai@kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, dmatlack@google.com, seanjc@google.com, yuzenghui@huawei.com, linux-riscv@lists.infradead.org, atishp@atishpatra.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230817_022930_186148_0B308ABD 
-X-CRM114-Status: GOOD (  12.17  )
+X-CRM114-CacheID: sfid-20230817_030256_465468_B14FE9E7 
+X-CRM114-Status: GOOD (  13.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,63 +77,30 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 11 Aug 2023 04:51:13 +0000, Raghavendra Rao Ananta wrote:
-> In certain code paths, KVM/ARM currently invalidates the entire VM's
-> page-tables instead of just invalidating a necessary range. For example,
-> when collapsing a table PTE to a block PTE, instead of iterating over
-> each PTE and flushing them, KVM uses 'vmalls12e1is' TLBI operation to
-> flush all the entries. This is inefficient since the guest would have
-> to refill the TLBs again, even for the addresses that aren't covered
-> by the table entry. The performance impact would scale poorly if many
-> addresses in the VM is going through this remapping.
-> 
-> [...]
-
-Applied to next, thanks!
-
-[01/14] KVM: Rename kvm_arch_flush_remote_tlb() to kvm_arch_flush_remote_tlbs()
-        commit: a1342c8027288e345cc5fd16c6800f9d4eb788ed
-[02/14] KVM: Declare kvm_arch_flush_remote_tlbs() globally
-        commit: cfb0c08e80120928dda1e951718be135abd49bae
-[03/14] KVM: arm64: Use kvm_arch_flush_remote_tlbs()
-        commit: 32121c813818a87ba7565b3afce93a9cc3610a22
-[04/14] KVM: Remove CONFIG_HAVE_KVM_ARCH_TLB_FLUSH_ALL
-        commit: eddd21481011008792f4e647a5244f6e15970abc
-[05/14] KVM: Allow range-based TLB invalidation from common code
-        commit: d4788996051e3c07fadc6d9b214073fcf78810a8
-[06/14] KVM: Move kvm_arch_flush_remote_tlbs_memslot() to common code
-        commit: 619b5072443c05cf18c31b2c0320cdb42396d411
-[07/14] arm64: tlb: Refactor the core flush algorithm of __flush_tlb_range
-        commit: 360839027a6e4c022e8cbaa373dd747185f1e0a5
-[08/14] arm64: tlb: Implement __flush_s2_tlb_range_op()
-        commit: 4d73a9c13aaa78b149ac04b02f0ee7973f233bfa
-[09/14] KVM: arm64: Implement __kvm_tlb_flush_vmid_range()
-        commit: 6354d15052ec88273c24beae4c99e31c3d3889b6
-[10/14] KVM: arm64: Define kvm_tlb_flush_vmid_range()
-        commit: 117940aa6e5f8308f1529e1313660980f1dae771
-[11/14] KVM: arm64: Implement kvm_arch_flush_remote_tlbs_range()
-        commit: c42b6f0b1cde4dd19e6b5dd052e67b87cc331b01
-[12/14] KVM: arm64: Flush only the memslot after write-protect
-        commit: 3756b6f2bb3a242fef0867b39a23607f5aeca138
-[13/14] KVM: arm64: Invalidate the table entries upon a range
-        commit: defc8cc7abf0fcee8d73e440ee02827348d060e0
-[14/14] KVM: arm64: Use TLBI range-based instructions for unmap
-        commit: 7657ea920c54218f123ddc1b572821695b669c13
-
-Cheers,
-
-	M.
--- 
-Without deviation from the norm, progress is not possible.
-
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+eXVuaHVpIGN1aSA8Y3VpeXVuaHVpQGJ5dGVkYW5jZS5jb20+IHdyaXRlczoKCj4gSGkgQmrDtnJu
+LAo+Cj4gT24gV2VkLCBBdWcgMTYsIDIwMjMgYXQgMTE6MTHigK9QTSBCasO2cm4gVMO2cGVsIDxi
+am9ybkBrZXJuZWwub3JnPiB3cm90ZToKPj4KPj4gSGkgWXVuaHVpLAo+Pgo+PiBXYWtpbmcgdXAg
+dGhlIGRlYWQhIDstKQo+Pgo+Cj4+Cj4+IFg4NidzIHNob3dfb3Bjb2RlcygpIGlzIHVzZWQgYm90
+aCBmb3Iga2VybmVsIG9vcHM6ZXMsIGFuZCB1c2VybGFuZAo+PiB1bmhhbmRsZWQgc2lnbmFscy4g
+T24gUklTQy1WIHRoZXJlJ3MgZHVtcF9rZXJuZWxfaW5zdHIoKSBhZGRlZCBpbiBjb21taXQKPj4g
+ZWIxNjViZmE4ZWFmICgicmlzY3Y6IEFkZCBpbnN0cnVjdGlvbiBkdW1wIHRvIFJJU0MtViBzcGxh
+dHMiKS4KPj4KPj4gV2R5dCBhYm91dCByZXdvcmtpbmcgdGhhdCBmdW5jdGlvbiwgc28gdGhhdCBp
+dCB3b3JrcyBmb3IgdXNlcmxhbmQgZXBjIGFzCj4+IHdlbGw/IEkgdGhpbmsgaXQncyB1c2VmdWwg
+dG8gaGF2ZSB0aGUgc3Vycm91bmRpbmcgaW5zdHJ1Y3Rpb24gY29udGV4dCwKPj4gYW5kIG5vdCBq
+dXN0IG9uIGluc3RydWN0aW9uLgo+Cj4gT2theSwgIEJhc2VkIG9uIHlvdXIgc3VnZ2VzdGlvbiwg
+SSdtIGdvaW5nIHRvIHJlbmFtZSBkdW1wX2tlcm5lbF9pbnN0cgo+IHRvIGR1bXBfaW5zdHIuIExp
+a2U6Cj4gc3RhdGljIHZvaWQgZHVtcF9pbnN0cihjb25zdCBjaGFyICpsb2dsdmwsIHN0cnVjdCBw
+dF9yZWdzICpyZWdzKQo+IHsKPiAuLi4KPiAgICAgICAgICAgICAgICAgaWYgKHVzZXJfbW9kZShy
+ZWdzKSkKPiAgICAgICAgICAgICAgICAgICAgICAgICBiYWQgPSBnZXRfdXNlcl9ub2ZhdWx0KHZh
+bCwgJmluc25zW2ldKTsKPiAgICAgICAgICAgICAgICAgZWxzZQo+ICAgICAgICAgICAgICAgICAg
+ICAgICAgIGJhZCA9IGdldF9rZXJuZWxfbm9mYXVsdCh2YWwsICZpbnNuc1tpXSk7Cj4gLi4uCj4g
+fQo+Cj4gV2hhdCBkbyB5b3UgdGhpbms/CgpZZWFoLCBsb29rcyBnb29kISBEb2VzIHRoYXQgd29y
+ayBmb3IgeW91PwoKCkJqw7ZybgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmlu
+ZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9s
+aW51eC1yaXNjdgo=
