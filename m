@@ -4,99 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77983C2FC04
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Aug 2023 00:31:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6397BC2FC14
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Aug 2023 03:15:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YbEbRPBarScVF2nOf3MYwBramHzhlSmZ7i6bfTemTBc=; b=Ui3sMiaubWrwHz
-	vfUJatlschSYEVu2tB3sURLa8Knv+6Snf4/+zznq3Nv0LG+OcJVsRQW9eM/7idCmL15uAWzM6i3q+
-	WzwvnMrvNoPqF/eKeIpVdyF04Xd6lQr6Jao+mlnBKMKeyVLIqzoJvwQvoFf8ofwTcFrPM/Z3krmM8
-	S8mHFNwVxQ6d30EEEa/jynCWVJsAok2wo25402m8WgNkienE2xKJSTe6J/ffXr+Ek503jT7uGkkWU
-	qQtHbiEJDExok0fvGDX/nmx/hrulDJSirJ/92oRATJxpoCO80Sw9oVo/MptLqnTy2DjvgixsHqYJz
-	Qq+xIqBO3tMnOPF3zpJg==;
+	List-Owner; bh=TUAdz5yZn8JIHNgOz7SbxCC3r+czN4bHPUfIUbY7nww=; b=SQaMrV/PTRBRCk
+	GwoftQ+/E/YqRDret/Z6JH9Xr/A5P/AZYftsXTYco86Lj8+jqJaJXkcwXJv2vJRo64afqAR+6d+V8
+	265VODRQNpLBHA7KP4xqyfTOQhvQuCnFZNJbull0jMMHgC4dNAnyAvHwvhbx14r8ypQ9mdz0g6//c
+	GQK8K5liU4WZz3LTiKSwKotKscImq2mmjs2pMbZTnDGbc2i9x59CY/YkF1/9Wu4owQ+g+uT20O/DE
+	DhiTQM3B6RgSwG1N6swRqILb/LQMx6pm1r1rYfJrmwzy28ZJqUYq3Kld8ARZTt0CrYSrwF1YFcQBo
+	XcQOXYEbQ1tjHKhvLvIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qWQvM-005F1H-2x;
-	Thu, 17 Aug 2023 00:31:40 +0000
-Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
+	id 1qWTTy-005R7j-1i;
+	Thu, 17 Aug 2023 03:15:34 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qWQvE-005Evx-1k
-	for linux-riscv@lists.infradead.org;
-	Thu, 17 Aug 2023 00:31:35 +0000
-Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-1bcad794ad4so48180365ad.3
-        for <linux-riscv@lists.infradead.org>; Wed, 16 Aug 2023 17:31:31 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1692232290; x=1692837090;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=bgC1JR3GltIDSf4x3tRknvWq/71clnqR/lvG3W7lMIY=;
-        b=Wk7ZcI2cSkKCmpwAOwQEWMxrL0tl/66pfHLM07y/kUfYtekvi/9AI3fVG2F8cet9z7
-         HaNmXcsLFe/opiDrpqTUwTwp2xAGG4VppLrGtJ817cSohKNEmlr38uTFl2Sz3N/BKGh8
-         URPT4Pgv2IShCvFGZg6os9YjX98OSOzdKTEzsWFGAay4H3HVGpaS/GVv2QchNq8KafvK
-         IkyqfPF8xyh33b6/CuFgitvJDNid8GWpU+t4AG4nrLS2uSTJcWTF+Ba4KnzXdwinN19W
-         fAdrVc/FNL6bAuRBVyr3h8XYuAfq3Ea1xvc1SKwFPIR4gZhmU+xURpjxgFC4H/ctLxds
-         ZEyA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1692232290; x=1692837090;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=bgC1JR3GltIDSf4x3tRknvWq/71clnqR/lvG3W7lMIY=;
-        b=Ki1rBkwY3cCfJ7PBJmjkW3/s4A5vYVLt2vAzgVFNopbaNHpHdzG14Whk6xLDPCZNFt
-         8DUFVNRx/d+27NXi+a5LNhVg6s0EOw5TlUapbC0FNO9C+xL+jqmkXdOPRNC3MS2oQ70W
-         q8+U9OUJZ/Qo09MnlC+2uaKwKabI0yGq8dqoVE1MjwPvoH+beaDQoTH5UM4QfMlfnVte
-         KnjciatuVHka6ZQt2mO53duB0nakwECGeEizKiud3hWQM5YN+slk5NHNT2HMTOa17FCY
-         J1O567QUzJhfelF3sE1aRvJmgWkEZyqXl+1P5GuqcoCswQf4M5nd9yHUbuvKeKE9CaJd
-         6rTw==
-X-Gm-Message-State: AOJu0YxgdVteO0ym6vVxFW8S2+qPIrc1+hsv7Lpy8LB6CnzvVwdpZASB
-	xghetqFJGiuOq9WXE+tmbfyPng==
-X-Google-Smtp-Source: AGHT+IGx864ksrcElUkMdcjLIA8ZzATRBTzPfs5VJbwgXjA+rTZAtM/bmlMaN8VpB9uJmBPGLXp17Q==
-X-Received: by 2002:a17:902:e80d:b0:1bd:a0cd:1860 with SMTP id u13-20020a170902e80d00b001bda0cd1860mr4137638plg.64.1692232290547;
-        Wed, 16 Aug 2023 17:31:30 -0700 (PDT)
-Received: from ghost ([50.221.140.188])
-        by smtp.gmail.com with ESMTPSA id d12-20020a170902728c00b001ac5896e96esm13666450pll.207.2023.08.16.17.31.28
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 16 Aug 2023 17:31:30 -0700 (PDT)
-Date: Wed, 16 Aug 2023 17:31:26 -0700
-From: Charlie Jenkins <charlie@rivosinc.com>
-To: Andrew Jones <ajones@ventanamicro.com>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
-	bpf@vger.kernel.org, Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Josh Poimboeuf <jpoimboe@kernel.org>,
-	Jason Baron <jbaron@akamai.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Ard Biesheuvel <ardb@kernel.org>, Anup Patel <anup@brainfault.org>,
-	Atish Patra <atishp@atishpatra.org>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>,
-	Yonghong Song <yhs@fb.com>,
-	John Fastabend <john.fastabend@gmail.com>,
-	KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@google.com>,
-	Hao Luo <haoluo@google.com>, Jiri Olsa <jolsa@kernel.org>,
-	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@kernel.org>,
-	Luke Nelson <luke.r.nels@gmail.com>, Xi Wang <xi.wang@gmail.com>,
-	Nam Cao <namcaov@gmail.com>
-Subject: Re: [PATCH 00/10] RISC-V: Refactor instructions
-Message-ID: <ZN1qXlLp6qfpBeGF@ghost>
-References: <20230803-master-refactor-instructions-v4-v1-0-2128e61fa4ff@rivosinc.com>
- <20230804-2c57bddd6e87fdebc20ff9d5@orel>
- <ZM00UYDzEAz/JT3n@ghost>
+	id 1qWTTv-005R7I-1G;
+	Thu, 17 Aug 2023 03:15:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:Content-Type:
+	In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender
+	:Reply-To:Content-ID:Content-Description;
+	bh=P/kFyzCr/eSDaJkbY0OlCILEe1j9xWTLXn/yJLAYIu4=; b=A9+ZOyBLxgvkefgcCG3G+GbFOc
+	t3Q4LPTtkkpyh0LBpbAFdc+3lhG3pcvB3Tuy2cTe9/M//iW+Sx1QS7+tpwHS9HCucIDpD/RDGCGIr
+	FphyIapebkE7eEjeEnFtOi+9dwumQAvsQRYGjE0GEiZ5WBo53AxtXkFjlluHJQQSFYe1ZQ0mwCfpK
+	6X/okD9sKE4Z8iWegd56l1SCJXl6wUSJ5Uk04klLzVcTy3SNTh8mgr2aL00kPfkoj1Td2N2/Azxck
+	21ORjXTS2+GmCUfbeyQtLCC4mizooGziW6L1eBdD4Ta+hfKURTJGkPtTMCT5Ht16ny8Gi1C8JbRXm
+	mdreectQ==;
+Received: from [2601:1c2:980:9ec0::1a0b]
+	by casper.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1qWTTi-000tOI-Mm; Thu, 17 Aug 2023 03:15:18 +0000
+Message-ID: <86e329b1-c8d7-47bf-8be8-3326daf74eb5@infradead.org>
+Date: Wed, 16 Aug 2023 20:15:09 -0700
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <ZM00UYDzEAz/JT3n@ghost>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230816_173132_802305_AD669FD8 
-X-CRM114-Status: GOOD (  44.38  )
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.14.0
+Subject: Re: [PATCH] treewide: drop CONFIG_EMBEDDED
+To: 20230816055010.31534-1-rdunlap@infradead.org
+Cc: linux-kernel@vger.kernel.org, Russell King <linux@armlinux.org.uk>,
+ linux-arm-kernel@lists.infradead.org, Arnd Bergmann <arnd@arndb.de>,
+ "Jason A . Donenfeld" <Jason@zx2c4.com>, wireguard@lists.zx2c4.com,
+ linux-arch@vger.kernel.org, linux-snps-arc@lists.infradead.org,
+ Vineet Gupta <vgupta@kernel.org>, Brian Cain <bcain@quicinc.com>,
+ linux-hexagon@vger.kernel.org, Greg Ungerer <gerg@linux-m68k.org>,
+ linux-m68k@lists.linux-m68k.org, Michal Simek <monstr@monstr.eu>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ Dinh Nguyen <dinguyen@kernel.org>, Jonas Bonn <jonas@southpole.se>,
+ Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
+ Stafford Horne <shorne@gmail.com>, linux-openrisc@vger.kernel.org,
+ linux-mips@vger.kernel.org, Michael Ellerman <mpe@ellerman.id.au>,
+ Nicholas Piggin <npiggin@gmail.com>,
+ Christophe Leroy <christophe.leroy@csgroup.eu>,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Yoshinori Sato <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>,
+ John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+ linux-sh@vger.kernel.org, Max Filippov <jcmvbkbc@gmail.com>,
+ Josh Triplett <josh@joshtriplett.org>, Masahiro Yamada
+ <masahiroy@kernel.org>, linux-kbuild@vger.kernel.org,
+ Andrew Morton <akpm@linux-foundation.org>
+References: <38e1a01b-1e8b-7c66-bafc-fc5861f08da9@gmail.com>
+Content-Language: en-US
+From: Randy Dunlap <rdunlap@infradead.org>
+In-Reply-To: <38e1a01b-1e8b-7c66-bafc-fc5861f08da9@gmail.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,137 +84,36 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 04, 2023 at 10:24:33AM -0700, Charlie Jenkins wrote:
-> On Fri, Aug 04, 2023 at 12:28:28PM +0300, Andrew Jones wrote:
-> > On Thu, Aug 03, 2023 at 07:10:25PM -0700, Charlie Jenkins wrote:
-> > > There are numerous systems in the kernel that rely on directly
-> > > modifying, creating, and reading instructions. Many of these systems
-> > > have rewritten code to do this. This patch will delegate all instruction
-> > > handling into insn.h and reg.h. All of the compressed instructions, RVI,
-> > > Zicsr, M, A instructions are included, as well as a subset of the F,D,Q
-> > > extensions.
-> > > 
-> > > ---
-> > > This is modifying code that https://lore.kernel.org/lkml/20230731183925.152145-1-namcaov@gmail.com/
-> > > is also touching.
-> > > 
-> > > ---
-> > > Testing:
-> > > 
-> > > There are a lot of subsystems touched and I have not tested every
-> > > individual instruction. I did a lot of copy-pasting from the RISC-V spec
-> > > so opcodes and such should be correct
-> > 
-> > How about we create macros which generate each of the functions an
-> > instruction needs, e.g. riscv_insn_is_*(), etc. based on the output of
-> > [1]. I know basically nothing about that project, but it looks like it
-> > creates most the defines this series is creating from what we [hope] to
-> > be an authoritative source. I also assume that if we don't like the
-> > current output format, then we could probably post patches to the project
-> > to get the format we want. For example, we could maybe propose an "lc"
-> > format for "Linux C".
-> That's a great idea, I didn't realize that existed!
-I have discovered that the riscv-opcodes repository is not in a state
-that makes it helpful. If it were workable, it would make it easy to
-include a "Linux C" format. I have had a pull request open on the repo
-for two weeks now and the person who maintains the repo has not
-interacted. At minimum, in order for it to be useful it would need an ability to
-describe the bit order of immediates in an instruction and include script
-arguments to select which instructions should be included. There is a
-"C" format, but it is actually just a Spike format. Nonetheless, it
-seems like it is prohibitive to use it.
-> > 
-> > I'd also recommend only importing the generated defines and generating
-> > the functions that will actually have immediate consumers or are part of
-> > a set of defines that have immediate consumers. Each consumer of new
-> > instructions will be responsible for generating and importing the defines
-> > and adding the respective macro invocations to generate the functions.
-> > This series can also take that approach, i.e. convert one set of
-> > instructions at a time, each in a separate patch.
-> Since I was hand-writing everything and copying it wasn't too much
-> effort to just copy all of the instructions from a group. However, from
-> a testing standpoint it makes sense to exclude instructions not yet in
-> use.
-> > 
-> > [1] https://github.com/riscv/riscv-opcodes
-> > 
-> > Thanks,
-> > drew
-> > 
-> > 
-> > > , but the construction of every
-> > > instruction is not fully tested.
-> > > 
-> > > vector: Compiled and booted
-> > > 
-> > > jump_label: Ensured static keys function as expected.
-> > > 
-> > > kgdb: Attempted to run the provided tests but they failed even without
-> > > my changes
-> > > 
-> > > module: Loaded and unloaded modules
-> > > 
-> > > patch.c: Ensured kernel booted
-> > > 
-> > > kprobes: Used a kprobing module to probe jalr, auipc, and branch
-> > > instructions
-> > > 
-> > > nommu misaligned addresses: Kernel boots
-> > > 
-> > > kvm: Ran KVM selftests
-> > > 
-> > > bpf: Kernel boots. Most of the instructions are exclusively used by BPF
-> > > but I am unsure of the best way of testing BPF.
-> > > 
-> > > Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
-> > > 
-> > > ---
-> > > Charlie Jenkins (10):
-> > >       RISC-V: Expand instruction definitions
-> > >       RISC-V: vector: Refactor instructions
-> > >       RISC-V: Refactor jump label instructions
-> > >       RISC-V: KGDB: Refactor instructions
-> > >       RISC-V: module: Refactor instructions
-> > >       RISC-V: Refactor patch instructions
-> > >       RISC-V: nommu: Refactor instructions
-> > >       RISC-V: kvm: Refactor instructions
-> > >       RISC-V: bpf: Refactor instructions
-> > >       RISC-V: Refactor bug and traps instructions
-> > > 
-> > >  arch/riscv/include/asm/bug.h             |   18 +-
-> > >  arch/riscv/include/asm/insn.h            | 2744 +++++++++++++++++++++++++++---
-> > >  arch/riscv/include/asm/reg.h             |   88 +
-> > >  arch/riscv/kernel/jump_label.c           |   13 +-
-> > >  arch/riscv/kernel/kgdb.c                 |   13 +-
-> > >  arch/riscv/kernel/module.c               |   80 +-
-> > >  arch/riscv/kernel/patch.c                |    3 +-
-> > >  arch/riscv/kernel/probes/kprobes.c       |   13 +-
-> > >  arch/riscv/kernel/probes/simulate-insn.c |  100 +-
-> > >  arch/riscv/kernel/probes/uprobes.c       |    5 +-
-> > >  arch/riscv/kernel/traps.c                |    9 +-
-> > >  arch/riscv/kernel/traps_misaligned.c     |  218 +--
-> > >  arch/riscv/kernel/vector.c               |    5 +-
-> > >  arch/riscv/kvm/vcpu_insn.c               |  281 +--
-> > >  arch/riscv/net/bpf_jit.h                 |  707 +-------
-> > >  15 files changed, 2825 insertions(+), 1472 deletions(-)
-> > > ---
-> > > base-commit: 5d0c230f1de8c7515b6567d9afba1f196fb4e2f4
-> > > change-id: 20230801-master-refactor-instructions-v4-433aa040da03
-> > > -- 
-> > > - Charlie
-> > > 
-> > > 
-> > > -- 
-> > > kvm-riscv mailing list
-> > > kvm-riscv@lists.infradead.org
-> > > http://lists.infradead.org/mailman/listinfo/kvm-riscv
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgSmVzc2UsCgpPbiA4LzE2LzIzIDE1OjQ1LCBKZXNzZSBUYXViZSB3cm90ZToKPiBIaSwgUmFu
+ZHkKPiAKPj4gZGlmZiAtLSBhL2luaXQvS2NvbmZpZyBiL2luaXQvS2NvbmZpZwo+PiAtLS0gYS9p
+bml0L0tjb25maWcKPj4gKysrIGIvaW5pdC9LY29uZmlnCj4+IEBAIC0xNzkwLDE0ICsxNzkwLDYg
+QEAgY29uZmlnIERFQlVHX1JTRVEKPj4KPj7CoMKgwqDCoMKgwqDCoCBJZiB1bnN1cmUsIHNheSBO
+Lgo+Pgo+PiAtY29uZmlnIEVNQkVEREVECj4+IC3CoMKgwqAgYm9vbCAiRW1iZWRkZWQgc3lzdGVt
+Igo+PiAtwqDCoMKgIHNlbGVjdCBFWFBFUlQKPj4gLcKgwqDCoCBoZWxwCj4+IC3CoMKgwqDCoMKg
+IFRoaXMgb3B0aW9uIHNob3VsZCBiZSBlbmFibGVkIGlmIGNvbXBpbGluZyB0aGUga2VybmVsIGZv
+cgo+PiAtwqDCoMKgwqDCoCBhbiBlbWJlZGRlZCBzeXN0ZW0gc28gY2VydGFpbiBleHBlcnQgb3B0
+aW9ucyBhcmUgYXZhaWxhYmxlCj4+IC3CoMKgwqDCoMKgIGZvciBjb25maWd1cmF0aW9uLgo+IAo+
+IFdvdWxkbid0IHJlbW92aW5nIHRoaXMgYnJlYWsgbWFueSBvdXQgb2YgdHJlZSBjb25maWdzPwoK
+SSdtIG5vdCBmYW1pbGlhciB3aXRoIG91dC1vZi10cmVlIGNvbmZpZ3MuCkRvIHlvdSBoYXZlIHNv
+bWUgZXhhbXBsZXMgb2Ygc29tZSB0aGF0IHVzZSBDT05GSUdfRU1CRURERUQ/Cihub3QgZGlzdHJv
+cykKCj4gU2hvdWxkIHRoZXJlIGJlIGEgd2FybmluZyBoZXJlIHRvIHVwZGF0ZSBjaGFuZ2UgaXQg
+aW5zdGVhZCBvZiByZW1vdmFsPwoKa2NvbmZpZyBkb2Vzbid0IGhhdmUgYSB3YXJuaW5nIG1lY2hh
+bmlzbSBBRkFJSy4KRG8geW91IGhhdmUgYW4gaWRlYSBvZiBob3cgdGhpcyB3b3VsZCB3b3JrPwoK
+V2UgY291bGQgbWFrZSBhIHNtYWxsZXIgY2hhbmdlIHRvIGluaXQvS2NvbmZpZywgbGlrZSBzbzoK
+CiBjb25maWcgRU1CRURERUQKLQlib29sICJFbWJlZGRlZCBzeXN0ZW0iCisJYm9vbCAiRW1iZWRk
+ZWQgc3lzdGVtIChERVBSRUNBVEVEKSIKIAlzZWxlY3QgRVhQRVJUCiAJaGVscAotCSAgVGhpcyBv
+cHRpb24gc2hvdWxkIGJlIGVuYWJsZWQgaWYgY29tcGlsaW5nIHRoZSBrZXJuZWwgZm9yCi0JICBh
+biBlbWJlZGRlZCBzeXN0ZW0gc28gY2VydGFpbiBleHBlcnQgb3B0aW9ucyBhcmUgYXZhaWxhYmxl
+Ci0JICBmb3IgY29uZmlndXJhdGlvbi4KKwkgIFRoaXMgb3B0aW9uIGlzIGJlaW5nIHJlbW92ZWQg
+YWZ0ZXIgTGludXggNi42LgorCSAgVXNlIEVYUEVSVCBpbnN0ZWFkIG9mIEVNQkVEREVELgoKYnV0
+IHRoZXJlIGlzIG5vIHdheSB0byBwcm9kdWNlIGEgd2FybmluZyBtZXNzYWdlLiBJLmUuLCBldmVu
+IHdpdGggdGhpcwpjaGFuZ2UsIHRoZSBtZXNzYWdlIHdpbGwgcHJvYmFibHkgYmUgb3Zlcmxvb2tl
+ZC4KCi0tLQp+UmFuZHkKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFk
+ZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4
+LXJpc2N2Cg==
