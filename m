@@ -4,79 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE1ACEB64DD
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Aug 2023 08:24:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD1B4C2FC14
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Aug 2023 08:28:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BBZQNNpAvN2yfBoRZqymgTuv6srxalVkQ9HSJ1uBc/E=; b=tkx6gCBafNb8Kz
-	PNLT6JI0BM3SsSFJ72IBYmvuc256IMKgkGXUlI4GBnQHNvHdS1B4kp/XQr1SeR+hPBWQybKG2eqis
-	HTW24nxYdM5xcqjmUBYw6w3a0jiEjyAwI8jpBbkv/UGUHG1q35afyIAoMwU2YfPqcLrqiv5yzWokt
-	b/jMwzAKhz6ZQRots9lahh5/4OoeQR93hB7s0GQGPi51V/rgTUy5bWbYygd5jcH2KEBBDkE7KnFbL
-	HrDKifzUGSITLZJDxcsoW1jvonOICgY5EjZ14GYwgaOQXrXFjuj1XvE+bzRcTcx/j4P3yF1HyX2Mf
-	PCrYq5qEEtHm7rcw7uhw==;
+	List-Owner; bh=+JZ7matiCOuMD1MMs2p2+B0bu64CGOiXF+TiFXcQU8k=; b=Uo3oL2rU8JAZvH
+	IfNq9qU583EFdnSozUiA0UYaMJHHQt7azMW5Yl+zUqRHFM6XP/7QiqF8NkmO7/7YWsAIRegSo6J9D
+	SFiVBmvzBt0+GCuumTxRWxbeH8fQUSmTOGhXjKvYBJZ0C/3NWYp/l5ngW55lp/SmOCwAaJ6932no+
+	eblxGrwZyKC7IE9DEAtVpBzOLyXKA//d27TsRiW7Orcmm1p8TN+LfIioVvnTMqXy+0ZmOL4g29tu9
+	JA8q86boR4zW1qlmHrK1/zfpVm3JgjW5EJyLgwH8PP8m+R07r/e3SRmUXyWlk/zVqI3krnbi37Xma
+	uyXl64BD+AE324QIurEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qWYIo-005oXE-0N;
-	Thu, 17 Aug 2023 08:24:22 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qWYIl-005oW9-0N
+	id 1qWYMJ-005oxk-2J;
+	Thu, 17 Aug 2023 08:27:59 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1qWYME-005owe-0h
 	for linux-riscv@lists.infradead.org;
-	Thu, 17 Aug 2023 08:24:20 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-3fe9c20f449so39537205e9.3
-        for <linux-riscv@lists.infradead.org>; Thu, 17 Aug 2023 01:24:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1692260651; x=1692865451;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=GHsD7c/QF0ePInwcDmMHhFZY69gdO9z9rXTXoYzHVCI=;
-        b=lr8w5VkvPcCfBoy7LCTlpwGmQxof97HkBqgFQZftmfiHg9+MhTl08oNkvUSah2azdy
-         fzJXUBjFT8E7v671+gCUEZqr2SnUvo7tyK2aWBWnyndbQDa2MqJqJI4oxWRgGBxmEgJ5
-         I28APSwnQk/wmB0t/it8mOksGxuf1A0LSo95Yjh93AGhIwZhdKeBltOgahyd8STe1d5Z
-         7ZzCIDCPdn85Pzyy+S+XcCpRLyDs87vko57ZSQAT6Ophj4yjZmFzg5QmXXFdOsCe+KGm
-         9PuYnPDFNsAGYAQu3ONdzyZ3mBK7F6SnNSKmWhYoF+2lxwYBbDEWip7gWtjqF+ELCeRE
-         r1zA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1692260651; x=1692865451;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=GHsD7c/QF0ePInwcDmMHhFZY69gdO9z9rXTXoYzHVCI=;
-        b=fG9W7/iFQzg2IbJBsaIbG67jRf6tWCryoi+q9O9OblcimHdyJABPaSGXRf0Bd8XtVQ
-         t9a3S73zXZi4fV4ZSHGHSBrFihH/xsQh8UKsrEnaG8mleepRD/8Uv+/OuCvlmrTcSr83
-         IPd3ISGVkhvhEjQxDwiBy5UsgysYPB9zCqu2RReQYGGmqP4CEN0OCiZ37TnB3o/zz1If
-         BtE0m2agE4A0IsJLOBXNfnZR+U156Cy2/MWv+25HbmMpPtOr357Zrl/5VYIqZ9uy3iVD
-         LO6U+amAYzoWvZtekszFa5rJt76cBFTfzJUDUuCs3ey13hajhkoSglSA1d4SR+XgFGx3
-         LYAQ==
-X-Gm-Message-State: AOJu0Ywubu+r8N0v8q1SL4fcBN2/g3RIMyUzgccSBS7Dr8dog0RePVRY
-	5KJdtPKOiBGl2q2pxhN84Cw23f0e9ywprcP3ts1EGg==
-X-Google-Smtp-Source: AGHT+IFSX3sJrVRBaVxg8X+3Xw+j2/M3SsmQbpjPaHp7usUDL4glZ/nHbwzfEferrc1Arhz3/d/+MZUDg1FpNnLEnm4=
-X-Received: by 2002:adf:e7c4:0:b0:317:f70b:3156 with SMTP id
- e4-20020adfe7c4000000b00317f70b3156mr3131091wrn.28.1692260650973; Thu, 17 Aug
- 2023 01:24:10 -0700 (PDT)
+	Thu, 17 Aug 2023 08:27:58 +0000
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id AE14B24E2B1;
+	Thu, 17 Aug 2023 16:27:34 +0800 (CST)
+Received: from EXMBX168.cuchost.com (172.16.6.78) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 17 Aug
+ 2023 16:27:34 +0800
+Received: from [192.168.125.113] (183.27.97.249) by EXMBX168.cuchost.com
+ (172.16.6.78) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 17 Aug
+ 2023 16:27:33 +0800
+Message-ID: <d241515f-f5c7-f2aa-0c78-80f0c5b569f3@starfivetech.com>
+Date: Thu, 17 Aug 2023 16:27:32 +0800
 MIME-Version: 1.0
-References: <20230329082950.726-1-cuiyunhui@bytedance.com> <87v8dfqays.fsf@all.your.base.are.belong.to.us>
-In-Reply-To: <87v8dfqays.fsf@all.your.base.are.belong.to.us>
-From: yunhui cui <cuiyunhui@bytedance.com>
-Date: Thu, 17 Aug 2023 16:23:59 +0800
-Message-ID: <CAEEQ3w=MgH82+BMpwmUHnUevMJsJUqgeBRWSZnU_iizMLK37UQ@mail.gmail.com>
-Subject: Re: [External] Re: [PATCH v2] riscv: Dump user opcode bytes on fatal faults
-To: =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-Cc: conor.dooley@microchip.com, paul.walmsley@sifive.com, palmer@dabbelt.com, 
-	aou@eecs.berkeley.edu, peterz@infradead.org, mpe@ellerman.id.au, 
-	jpoimboe@kernel.org, mark.rutland@arm.com, svens@linux.ibm.com, 
-	guoren@kernel.org, jszhang@kernel.org, ebiederm@xmission.com, 
-	bjorn@rivosinc.com, heiko@sntech.de, xianting.tian@linux.alibaba.com, 
-	mnissler@rivosinc.com, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.14.0
+Subject: Re: [PATCH v4 3/3] riscv: dts: jh7110: starfive: Add timer node
+Content-Language: en-US
+To: Xingyu Wu <xingyu.wu@starfivetech.com>, Daniel Lezcano
+	<daniel.lezcano@linaro.org>, Thomas Gleixner <tglx@linutronix.de>, "Emil
+ Renner Berthing" <emil.renner.berthing@canonical.com>
+CC: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>, "Rob
+ Herring" <robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Philipp Zabel <p.zabel@pengutronix.de>, Samin Guo
+	<samin.guo@starfivetech.com>, <linux-kernel@vger.kernel.org>, Conor Dooley
+	<conor@kernel.org>
+References: <20230814101603.166951-1-xingyu.wu@starfivetech.com>
+ <20230814101603.166951-4-xingyu.wu@starfivetech.com>
+From: Walker Chen <walker.chen@starfivetech.com>
+In-Reply-To: <20230814101603.166951-4-xingyu.wu@starfivetech.com>
+X-Originating-IP: [183.27.97.249]
+X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX168.cuchost.com
+ (172.16.6.78)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230817_012419_157338_7DFA4F22 
-X-CRM114-Status: GOOD (  11.52  )
+X-CRM114-CacheID: sfid-20230817_012754_402802_A0399967 
+X-CRM114-Status: GOOD (  10.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,27 +77,56 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgQmrDtnJuLAoKT24gV2VkLCBBdWcgMTYsIDIwMjMgYXQgMTE6MTHigK9QTSBCasO2cm4gVMO2
-cGVsIDxiam9ybkBrZXJuZWwub3JnPiB3cm90ZToKPgo+IEhpIFl1bmh1aSwKPgo+IFdha2luZyB1
-cCB0aGUgZGVhZCEgOy0pCj4KCj4KPiBYODYncyBzaG93X29wY29kZXMoKSBpcyB1c2VkIGJvdGgg
-Zm9yIGtlcm5lbCBvb3BzOmVzLCBhbmQgdXNlcmxhbmQKPiB1bmhhbmRsZWQgc2lnbmFscy4gT24g
-UklTQy1WIHRoZXJlJ3MgZHVtcF9rZXJuZWxfaW5zdHIoKSBhZGRlZCBpbiBjb21taXQKPiBlYjE2
-NWJmYThlYWYgKCJyaXNjdjogQWRkIGluc3RydWN0aW9uIGR1bXAgdG8gUklTQy1WIHNwbGF0cyIp
-Lgo+Cj4gV2R5dCBhYm91dCByZXdvcmtpbmcgdGhhdCBmdW5jdGlvbiwgc28gdGhhdCBpdCB3b3Jr
-cyBmb3IgdXNlcmxhbmQgZXBjIGFzCj4gd2VsbD8gSSB0aGluayBpdCdzIHVzZWZ1bCB0byBoYXZl
-IHRoZSBzdXJyb3VuZGluZyBpbnN0cnVjdGlvbiBjb250ZXh0LAo+IGFuZCBub3QganVzdCBvbiBp
-bnN0cnVjdGlvbi4KCk9rYXksICBCYXNlZCBvbiB5b3VyIHN1Z2dlc3Rpb24sIEknbSBnb2luZyB0
-byByZW5hbWUgZHVtcF9rZXJuZWxfaW5zdHIKdG8gZHVtcF9pbnN0ci4gTGlrZToKc3RhdGljIHZv
-aWQgZHVtcF9pbnN0cihjb25zdCBjaGFyICpsb2dsdmwsIHN0cnVjdCBwdF9yZWdzICpyZWdzKQp7
-Ci4uLgogICAgICAgICAgICAgICAgaWYgKHVzZXJfbW9kZShyZWdzKSkKICAgICAgICAgICAgICAg
-ICAgICAgICAgYmFkID0gZ2V0X3VzZXJfbm9mYXVsdCh2YWwsICZpbnNuc1tpXSk7CiAgICAgICAg
-ICAgICAgICBlbHNlCiAgICAgICAgICAgICAgICAgICAgICAgIGJhZCA9IGdldF9rZXJuZWxfbm9m
-YXVsdCh2YWwsICZpbnNuc1tpXSk7Ci4uLgp9CgpXaGF0IGRvIHlvdSB0aGluaz8KClRoYW5rcywK
-WXVuaHVpCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwps
-aW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpo
-dHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+
+On 2023/8/14 18:16, Xingyu Wu wrote:
+> Add the timer node for the Starfive JH7110 SoC.
+> 
+> Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
+> ---
+>  arch/riscv/boot/dts/starfive/jh7110.dtsi | 20 ++++++++++++++++++++
+>  1 file changed, 20 insertions(+)
+> 
+> diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+> index ec2e70011a73..84bb9717be13 100644
+> --- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
+> +++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+> @@ -502,6 +502,26 @@ sysgpio: pinctrl@13040000 {
+>  			#gpio-cells = <2>;
+>  		};
+>  
+> +		timer@13050000 {
+> +			compatible = "starfive,jh7110-timer";
+> +			reg = <0x0 0x13050000 0x0 0x10000>;
+> +			interrupts = <69>, <70>, <71> ,<72>;
+> +			clocks = <&syscrg JH7110_SYSCLK_TIMER_APB>,
+> +				 <&syscrg JH7110_SYSCLK_TIMER0>,
+> +				 <&syscrg JH7110_SYSCLK_TIMER1>,
+> +				 <&syscrg JH7110_SYSCLK_TIMER2>,
+> +				 <&syscrg JH7110_SYSCLK_TIMER3>;
+> +			clock-names = "apb", "ch0", "ch1",
+> +				      "ch2", "ch3";
+> +			resets = <&syscrg JH7110_SYSRST_TIMER_APB>,
+> +				 <&syscrg JH7110_SYSRST_TIMER0>,
+> +				 <&syscrg JH7110_SYSRST_TIMER1>,
+> +				 <&syscrg JH7110_SYSRST_TIMER2>,
+> +				 <&syscrg JH7110_SYSRST_TIMER3>;
+> +			reset-names = "apb", "ch0", "ch1",
+> +				      "ch2", "ch3";
+> +		};
+> +
+>  		watchdog@13070000 {
+>  			compatible = "starfive,jh7110-wdt";
+>  			reg = <0x0 0x13070000 0x0 0x10000>;
+
+Reviewed-by: Walker Chen <walker.chen@starfivetech.com>
+Thanks!
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
