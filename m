@@ -4,62 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECB20C678DD
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Aug 2023 22:09:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEB92C64EDA
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Aug 2023 23:32:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=pIybE54vMB+AOtBJLXkT98FUOVOR8JKduRbnPwaEXW4=; b=ba5dzuDYggOaOS
-	bhDg+IYoai6W0gGg1WuGqnDnJysB/DBYXeZw79nLV1J2ndeZptLf08n8aG/+Kv2XJBPH63JghnQzD
-	WGu90lUG+VeigjiETVkKo5qBwlic5FkE9GpYUHUkf8oQAQOyfjSf8t5zMwSZk1c2gjIX6LdnzKWHM
-	wyGmZoUNWTSddLf3G1KYERcM1Q5X3xK2OU63quDKrq7nx/IgT7uSz+/2caDgDOZOEr7o2XcQJCnx5
-	34F2v1zy4IvIICiyNJ74jyceYeOJrteqYJyyidgyukGszqhkUO68QdDlBKxUf5RO33CCyZcbQ7jfc
-	jSc3MsHfWLI5dZl009Og==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=toMVV1zUOuT4aUdHqnfHFC0fkGWyv+/F6kpACGCI3aE=; b=KHgf9ZaF9dFzw7
+	Cd5RO3A95ECR6+d3bA/mKRWZk+zMuMU78VlCNLKlaoghRtkzWe75LXj4JYjG/Rd/2aBx9t1FU4HwT
+	kJmK6n1167NlSBkTx5eYlcDPLiM9uvqnklaYK9NN1PwUQmI4oBXuKhQl/ZgXC24PTtapruHjfGqpw
+	LYYEcCqsrN3AIhNgvLE54TlptBXiX0oFermczuKEo/aN+ACRg9MXTldtL0zAI7wWUOlBI00FNi2nW
+	mdLh3ls7bWOARlVxf80bkbrse1f31f0CijWHMeZj29siKWgJpmuQPtuP9F5kwILIpcwuuw7Ke9REN
+	UKFFDYa+/OC8wENnkbfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qWlAr-007EkG-17;
-	Thu, 17 Aug 2023 22:09:01 +0000
+	id 1qWmTp-007K6O-2d;
+	Thu, 17 Aug 2023 23:32:41 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qWlAm-007Ejg-22
+	id 1qWmTk-007K60-1U
 	for linux-riscv@lists.infradead.org;
-	Thu, 17 Aug 2023 22:08:59 +0000
+	Thu, 17 Aug 2023 23:32:40 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id D961E64EEB;
-	Thu, 17 Aug 2023 22:08:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 09C6BC433C8;
-	Thu, 17 Aug 2023 22:08:54 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 0249F62CF3;
+	Thu, 17 Aug 2023 23:32:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 91F2CC433C7;
+	Thu, 17 Aug 2023 23:32:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1692310135;
-	bh=a1orUgcHwxYmGrzRQ+v2rjU2RmkQYLHUPon2TagJ+sw=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=DPniugHCO81IqkDRf3YJBqDoXz/BYPiNmB+B4wkiwlU3QwDwNbZPfPo14oWMtiXkH
-	 G0W6MbU5JDxtOCAtJiXJmMBvTa82n5iNkmst20F7LdpiORS6Nr3bV5cuL58wFt22K5
-	 7K4JUhbk3BlU00PNgCCkSwys93fQKjykyDYqVhtuJbgd7+Rpr6ljqsAGReGo++Ooai
-	 MTbBoMX+lFLvOu2IfGZZC7O5Z+lcI27vGw1oGaI3ixY9nSbfGe6BVIv0DekoDi2Jgj
-	 SA1lNI3RAyIv+hn0ays8upINxdrDe+HP2egpcAEbGIpxgaApxiKdT50W5625weLM9f
-	 JC26E7X0XCd7Q==
-Date: Thu, 17 Aug 2023 17:08:53 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Sui Jingfeng <suijingfeng@loongson.cn>
-Cc: Bjorn Helgaas <bhelgaas@google.com>, loongson-kernel@lists.loongnix.cn,
-	linux-pci@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org
-Subject: Re: [PATCH v4] PCI/VGA: Make the vga_is_firmware_default() less
- arch-dependent
-Message-ID: <20230817220853.GA328159@bhelgaas>
+	s=k20201202; t=1692315154;
+	bh=c7OQNqT7gmbKGoMODw3oxV7zBZ/OOdFs6/1W7uxkVj4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=imsEDac71p9wWSB6NK7aLmUGIlGfUaAcHeNU2OQiWdXVYb0wSl/g6G63OQXIbPbkk
+	 4mVtgY5y2/rBT6Jz58H0MYbDUW+4ueCLP7ud5WDEGksmIzMMpgQ9NBInWL+J45iwka
+	 w3sjWUSYxJ9WK9fo41Eobpuqy9qL6hEtL4jBlxH4dL/eGUd0d3HIbYWeuce2Ewg7Xl
+	 fue40+wOGM4sBf7wk4jQPZO8QewvON2SOp+eg3vUsSm3muOGDxdcvBshelGYtVUpj7
+	 U31gn6cRBODZdal/ygWbjBH+gPxSLVMydF951F53E0ZOcn8oS6BILcTWW8qkeZFYOt
+	 dkvt9xgYVm+Ew==
+Date: Thu, 17 Aug 2023 19:32:24 -0400
+From: Guo Ren <guoren@kernel.org>
+To: Drew Fustini <dfustini@baylibre.com>
+Cc: Jisheng Zhang <jszhang@kernel.org>, Fu Wei <wefu@redhat.com>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Conor Dooley <conor@kernel.org>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Ulf Hansson <ulf.hansson@linaro.org>,
+	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-mmc@vger.kernel.org,
+	Robert Nelson <robertcnelson@beagleboard.org>,
+	Jason Kridner <jkridner@beagleboard.org>
+Subject: Re: [PATCH RFC v2 4/4] mmc: sdhci-of-dwcmshc: Add support for T-Head
+ TH1520
+Message-ID: <ZN6uCJAjfkOcqdCu@gmail.com>
+References: <20230724-th1520-emmc-v2-0-132ed2e2171e@baylibre.com>
+ <20230724-th1520-emmc-v2-4-132ed2e2171e@baylibre.com>
+ <ZM9xY6dGWbTxCgqj@xhacker>
+ <ZN083N3cCNu4o2Ny@x1>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20230815220527.1316537-1-suijingfeng@loongson.cn>
+In-Reply-To: <ZN083N3cCNu4o2Ny@x1>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230817_150856_780358_1631FC57 
-X-CRM114-Status: GOOD (  37.15  )
+X-CRM114-CacheID: sfid-20230817_163236_615675_0C64C48A 
+X-CRM114-Status: GOOD (  55.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,423 +90,533 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 16, 2023 at 06:05:27AM +0800, Sui Jingfeng wrote:
-> Currently, the vga_is_firmware_default() function only works on x86 and
-> ia64, it is a no-op on ARM, ARM64, PPC, RISC-V, etc. This patch completes
-> the implementation for the rest of the architectures. The added code tries
-> to identify the PCI(e) VGA device that owns the firmware framebuffer
-> before PCI resource reallocation happens.
+On Wed, Aug 16, 2023 at 02:17:16PM -0700, Drew Fustini wrote:
+> On Sun, Aug 06, 2023 at 06:09:39PM +0800, Jisheng Zhang wrote:
+> > On Fri, Aug 04, 2023 at 08:14:48PM -0700, Drew Fustini wrote:
+> > > Add basic support for the T-Head TH1520 SoC mmc controller with the new
+> > > compatible "thead,th1520-dwcmshc".
+> > > 
+> > > However, quirks are currently set to disable DMA and use PIO. The proper
+> > > settings for DMA support still need to be determined.
+> > 
+> > Hi Drew,
+> > 
+> > Thank you for this patch. I think we need to make DMA work even in the
+> > first version.
+> 
+> Thanks for your review. I agree that DMA should be made to work.
+> When I remove the SDHCI_QUIRK_BROKEN_ADMA quirk, I see the following in
+> the boot log [1]:
+> 
+> [    3.633611] mmc0: SDHCI controller on ffe7080000.mmc [ffe7080000.mmc] using ADMA 64-bit
+> [    3.723080] mmc0: ADMA error: 0x02000000
+> [    4.327491] mmc0: error -5 whilst initialising MMC card
+> 
+> I'm going to add some more debug output so I can better understand what
+> exactly is failing.
+> 
+> > 
+> > Several comments below.
+> > 
+> > > 
+> > > Another issue is th1520-specific code for MMC_TIMING_MMC_HS400 in
+> > > dwcmshc_set_uhs_signaling() will run on all platforms which is not
+> > > correct. One solution could be to add a th1520 flag to dwcmshc_priv but
+> > > that is hacky. Another solution could be to set the set_uhs_signaling op
+> > > in sdhci_dwcmshc_th1520_ops to a th1520-specific function. However, that
+> > > new function would have to duplicate all the code in the current
+> > > dwcmshc_set_uhs_signaling().
+> > > 
+> > > Signed-off-by: Drew Fustini <dfustini@baylibre.com>
+> > > ---
+> > >  drivers/mmc/host/sdhci-of-dwcmshc.c | 336 ++++++++++++++++++++++++++++++++++++
+> > >  1 file changed, 336 insertions(+)
+> > > 
+> > > diff --git a/drivers/mmc/host/sdhci-of-dwcmshc.c b/drivers/mmc/host/sdhci-of-dwcmshc.c
+> > > index e68cd87998c8..d35e204cdb16 100644
+> > > --- a/drivers/mmc/host/sdhci-of-dwcmshc.c
+> > > +++ b/drivers/mmc/host/sdhci-of-dwcmshc.c
+> > > @@ -71,6 +71,63 @@
+> > >  	(((x) & DWCMSHC_EMMC_DLL_TIMEOUT) == 0))
+> > >  #define RK35xx_MAX_CLKS 3
+> > >  
+> > > +/* T-Head specific registers */
+> > 
+> > I guess this may not be T-HEAD specific but dwc phy, could you please
+> > check?
+It's not a standard DesginWare MMC PHY registers, and we modiified
+something. We could keep this code in custom first to make it work around
+and see how to merge it into standard DesginWare MMC PHY registers next.
 
-As far as I can tell, this is basically identical to the existing
-vga_is_firmware_default(), except that this patch funs that code as a
-header fixup, so it happens before any PCI BAR reallocations happen.
-
-That sounds like a good idea, because this is all based on the
-framebuffer in screen_info, and screen_info was initialized before PCI
-enumeration, and it certainly doesn't account for any BAR changes done
-by the PCI core.
-
-So why would we keep vga_is_firmware_default() at all?  If the header
-fixup has already identified the firmware framebuffer, it seems
-pointless to look again later.
-
-> This patch makes the vga_is_firmware_default() function works on whatever
-> arch that has UEFI GOP support. But we make it available only on platforms
-> where PCI resource relocation happens. if the provided method proves to be
-> effective and reliable, it can be expanded to other arch easily.
->
-> v2:
-> 	* Fix test robot warnnings and fix typos
 > 
-> v3:
-> 	* Fix linkage problems if the global screen_info is not exported
+> Yes, I will try to find out if if this really is t-head specific or just
+> standard for the DWC PHY.
 > 
-> v4:
-> 	* Handle linkage problems by hiding behind of CONFIG_SYSFB,
-> 	* Drop side-effects and simplify.
-
-The v2, v3, v4 changelog is nice, but we don't need it in the commit
-log itself, where it will become part of the git history.  It should
-go in a cover letter or after the "---" marker:
-https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/process/submitting-patches.rst?id=v6.0#n678
-
-> Since only one GPU could owns the firmware fb in normal case, things
-> are almost done once we determine the boot VGA selected by firmware.
-> By using the DECLARE_PCI_FIXUP_CLASS_HEADER(), we also ensure that we
-> could identify the primary display (if there do have one) before PCI
-> resource reallocation happen.
+> > > +#define DWC_MSHC_PTR_PHY_R	0x300
+> > > +#define PHY_CNFG_R		(DWC_MSHC_PTR_PHY_R + 0x00)
+> > > +#define PHY_RSTN		0x0
+> > > +#define PAD_SP			0x10
+> > > +#define PAD_SN			0x14
+> > > +
+> > > +#define PHY_CMDPAD_CNFG_R	(DWC_MSHC_PTR_PHY_R + 0x04)
+> > > +#define PHY_DATAPAD_CNFG_R	(DWC_MSHC_PTR_PHY_R + 0x06)
+> > > +#define PHY_CLKPAD_CNFG_R	(DWC_MSHC_PTR_PHY_R + 0x08)
+> > > +#define PHY_STBPAD_CNFG_R	(DWC_MSHC_PTR_PHY_R + 0x0a)
+> > > +#define PHY_RSTNPAD_CNFG_R	(DWC_MSHC_PTR_PHY_R + 0x0c)
+> > > +#define RXSEL			0x0
+> > > +#define WEAKPULL_EN		0x3
+> > > +#define TXSLEW_CTRL_P		0x5
+> > > +#define TXSLEW_CTRL_N		0x9
+> > > +
+> > > +#define PHY_PADTEST_CNFG_R	(DWC_MSHC_PTR_PHY_R + 0x0e)
+> > > +#define PHY_PADTEST_OUT_R	(DWC_MSHC_PTR_PHY_R + 0x10)
+> > > +#define PHY_PADTEST_IN_R	(DWC_MSHC_PTR_PHY_R + 0x12)
+> > > +#define PHY_PRBS_CNFG_R		(DWC_MSHC_PTR_PHY_R + 0x18)
+> > > +#define PHY_PHYLBK_CNFG_R	(DWC_MSHC_PTR_PHY_R + 0x1a)
+> > > +#define PHY_COMMDL_CNFG_R	(DWC_MSHC_PTR_PHY_R + 0x1c)
+> > > +
+> > > +#define PHY_SDCLKDL_CNFG_R	(DWC_MSHC_PTR_PHY_R + 0x1d)
+> > > +#define UPDATE_DC		0x4
+> > > +
+> > > +#define PHY_SDCLKDL_DC_R	(DWC_MSHC_PTR_PHY_R + 0x1e)
+> > > +#define PHY_SMPLDL_CNFG_R	(DWC_MSHC_PTR_PHY_R + 0x20)
+> > > +#define PHY_ATDL_CNFG_R		(DWC_MSHC_PTR_PHY_R + 0x21)
+> > > +#define INPSEL_CNFG		2
+> > > +
+> > > +#define PHY_DLL_CTRL_R		(DWC_MSHC_PTR_PHY_R + 0x24)
+> > > +#define DLL_EN			0x0
+> > > +
+> > > +#define PHY_DLL_CNFG1_R		(DWC_MSHC_PTR_PHY_R + 0x25)
+> > > +#define PHY_DLL_CNFG2_R		(DWC_MSHC_PTR_PHY_R + 0x26)
+> > > +#define PHY_DLLDL_CNFG_R	(DWC_MSHC_PTR_PHY_R + 0x28)
+> > > +#define SLV_INPSEL		0x5
+> > > +
+> > > +#define P_VENDOR_SPECIFIC_AREA	0x500
+> > > +#define EMMC_CTRL_R		(P_VENDOR_SPECIFIC_AREA + 0x2c)
+> > > +#define AT_CTRL_R		(P_VENDOR_SPECIFIC_AREA + 0x40)
+> > > +#define AT_EN			0x0
+> > > +#define CI_SEL			0x1
+> > > +#define SWIN_TH_EN		0x2
+> > > +#define RPT_TUNE_ERR		0x3
+> > > +#define SW_TUNE_EN		0x4
+> > > +#define WIN_EDGE_SEL		0x8
+> > > +#define TUNE_CLK_STOP_EN	0x10
+> > > +#define PRE_CHANGE_DLY		0x11
+> > > +#define POST_CHANGE_DLY		0x13
+> > > +#define SWIN_TH_VAL		0x18
+> > > +
+> > > +#define DELAY_LINE_HS400	24
+> > > +#define DELAY_LINE_DEFAULT	50
+> > > +
+> > >  #define BOUNDARY_OK(addr, len) \
+> > >  	((addr | (SZ_128M - 1)) == ((addr + len - 1) | (SZ_128M - 1)))
+> > >  
+> > > @@ -91,6 +148,10 @@ struct dwcmshc_priv {
+> > >  	struct clk	*bus_clk;
+> > >  	int vendor_specific_area1; /* P_VENDOR_SPECIFIC_AREA reg */
+> > >  	void *priv; /* pointer to SoC private stuff */
+> > > +	uint32_t delay_line;
+> > > +	bool non_removable;
+> > 
+> > can be replaced with mmc_host.caps & MMC_CAP_NONREMOVABLE
 > 
-> The method provided in this patch will be effective as long as the target
-> platform has a way set up the kernel's screen_info. For the machines with
-> UEFI firmware, the screen_info is typically set up by the UEFI stub with
-> respect to the UEFI GOP protocol. Since the UEFI stub executes in the
-> context of the decompressor, and it cannot access the kernel's screen_info
-> directly. Hence, the efi stub copies the screen_info provided by firmware
-> to kernel's counterpart. Therefore, we handle linkage problems by using
-> the CONFIG_EFI guard.  Since when CONFIG_EFI is set, the kernel's
-> screen_info is guaranteed to be static linkable for arm, arm64, riscv.
-> V4 of this patch handle linkage problems by hiding behind of CONFIG_SYSFB,
-> since sysfb reference the global screen_info as well.
->
-> This patch is tested on:
+> Thank you, I'll change in the next version.
 > 
-> 1) LS3A5000+LS7A1000 platform with three video cards
+> > 
+> > > +	bool pull_up_en;
+> > > +	bool io_fixed_1v8;
+> > 
+> > replace them with flag?
 > 
-> $ lspci | grep VGA
+> Do you mean that I should replace the above bool's with a single flags
+> field in the struct where the bool's would become bit fields in flags?
 > 
->  00:06.1 VGA compatible controller: Loongson Technology LLC DC (Display Controller) (rev 01)
->  03:00.0 VGA compatible controller: Advanced Micro Devices, Inc. [AMD/ATI] Caicos XT [Radeon HD 7470/8470 / R5 235/310 OEM]
->  07:00.0 VGA compatible controller: S3 Graphics Ltd. Device 9070 (rev 01)
->  08:00.0 VGA compatible controller: S3 Graphics Ltd. Device 9070 (rev 01)
+> > 
+> > >  };
+> > >  
+> > >  /*
+> > > @@ -156,11 +217,171 @@ static void dwcmshc_request(struct mmc_host *mmc, struct mmc_request *mrq)
+> > >  	sdhci_request(mmc, mrq);
+> > >  }
+> > >  
+> > > +static void sdhci_phy_1_8v_init_no_pull(struct sdhci_host *host)
+> > > +{
+> > > +	uint32_t val;
+> > > +	sdhci_writel(host, 1, DWC_MSHC_PTR_PHY_R);
+> > > +	sdhci_writeb(host, 1 << 4, PHY_SDCLKDL_CNFG_R);
+> > > +	sdhci_writeb(host, 0x40, PHY_SDCLKDL_DC_R);
+> > 
+> > These magic numbers need a proper macro definitions.
 > 
-> Before apply this patch:
+> I'll try to find out their meaning and document it.
 > 
-> [    0.361748] pci 0000:00:06.1: vgaarb: setting as boot VGA device
-> [    0.361751] pci 0000:00:06.1: vgaarb: bridge control possible
-> [    0.361753] pci 0000:00:06.1: vgaarb: VGA device added: decodes=io+mem,owns=io+mem,locks=none
-> [    0.361763] pci 0000:03:00.0: vgaarb: bridge control possible
-> [    0.361765] pci 0000:03:00.0: vgaarb: VGA device added: decodes=io+mem,owns=none,locks=none
-> [    0.361771] pci 0000:07:00.0: vgaarb: bridge control possible
-> [    0.361773] pci 0000:07:00.0: vgaarb: VGA device added: decodes=io+mem,owns=none,locks=none
-> [    0.361777] pci 0000:08:00.0: vgaarb: bridge control possible
-> [    0.361779] pci 0000:08:00.0: vgaarb: VGA device added: decodes=io+mem,owns=none,locks=none
-> [    0.361781] vgaarb: loaded
-> [    0.367838] pci 0000:00:06.1: Overriding boot device as 1002:6778
-> [    0.367841] pci 0000:00:06.1: Overriding boot device as 5333:9070
-> [    0.367843] pci 0000:00:06.1: Overriding boot device as 5333:9070
+> > 
+> > > +
+> > > +	val = sdhci_readb(host, PHY_SDCLKDL_CNFG_R);
+> > > +	val &= ~(1 << 4);
+> > 
+> > ditto
+> > 
+> > > +	sdhci_writeb(host, val, PHY_SDCLKDL_CNFG_R);
+> > > +
+> > > +
+> > > +	val = sdhci_readw(host, PHY_CMDPAD_CNFG_R);
+> > > +	sdhci_writew(host, val | 1, PHY_CMDPAD_CNFG_R);
+> > > +
+> > > +	val = sdhci_readw(host, PHY_DATAPAD_CNFG_R);
+> > > +	sdhci_writew(host, val | 1, PHY_DATAPAD_CNFG_R);
+> > > +
+> > > +	val = sdhci_readw(host, PHY_RSTNPAD_CNFG_R);
+> > > +	sdhci_writew(host, val | 1, PHY_RSTNPAD_CNFG_R);
+> > > +
+> > > +	val = sdhci_readw(host, PHY_STBPAD_CNFG_R);
+> > > +	sdhci_writew(host, val | 1, PHY_STBPAD_CNFG_R);
+> > > +
+> > > +	val = sdhci_readb(host, PHY_DLL_CTRL_R);
+> > > +	sdhci_writeb(host, val | 1, PHY_DLL_CTRL_R);
+> > > +}
+> > > +
+> > > +static void sdhci_phy_3_3v_init_no_pull(struct sdhci_host *host)
+> > > +{
+> > > +	uint32_t val;
+> > > +
+> > > +	sdhci_writel(host, 1, DWC_MSHC_PTR_PHY_R);
+> > > +	sdhci_writeb(host, 1 << 4, PHY_SDCLKDL_CNFG_R);
+> > > +	sdhci_writeb(host, 0x40, PHY_SDCLKDL_DC_R);
+> > > +
+> > > +	val = sdhci_readb(host, PHY_SDCLKDL_CNFG_R);
+> > > +	val &= ~(1 << 4);
+> > > +	sdhci_writeb(host, val, PHY_SDCLKDL_CNFG_R);
+> > > +
+> > > +	val = sdhci_readw(host, PHY_CMDPAD_CNFG_R);
+> > > +	sdhci_writew(host, val | 2, PHY_CMDPAD_CNFG_R);
+> > > +
+> > > +	val = sdhci_readw(host, PHY_DATAPAD_CNFG_R);
+> > > +	sdhci_writew(host, val | 2, PHY_DATAPAD_CNFG_R);
+> > > +
+> > > +	val = sdhci_readw(host, PHY_RSTNPAD_CNFG_R);
+> > > +	sdhci_writew(host, val | 2, PHY_RSTNPAD_CNFG_R);
+> > > +
+> > > +	val = sdhci_readw(host, PHY_STBPAD_CNFG_R);
+> > > +	sdhci_writew(host, val | 2, PHY_STBPAD_CNFG_R);
+> > > +
+> > > +	val = sdhci_readb(host, PHY_DLL_CTRL_R);
+> > > +	sdhci_writeb(host, val | 1, PHY_DLL_CTRL_R);
+> > > +}
+> > > +
+> > > +static void th1520_phy_1_8v_init(struct sdhci_host *host)
+> > > +{
+> > > +	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
+> > > +	struct dwcmshc_priv *priv = sdhci_pltfm_priv(pltfm_host);
+> > > +	u32 val;
+> > > +
+> > > +	if (!priv)
+> > > +		return;
+> > > +
+> > > +	if (priv->pull_up_en == 0) {
+> > > +		sdhci_phy_1_8v_init_no_pull(host);
+> > > +		return;
+> > > +	}
+> > > +
+> > > +	/* set driving force */
+> > > +	sdhci_writel(host, (1 << PHY_RSTN) | (0xc << PAD_SP) | (0xc << PAD_SN), PHY_CNFG_R);
+> > > +
+> > > +	/* disable delay lane */
+> > > +	sdhci_writeb(host, 1 << UPDATE_DC, PHY_SDCLKDL_CNFG_R);
+> > > +
+> > > +	/* set delay lane */
+> > > +	sdhci_writeb(host, priv->delay_line, PHY_SDCLKDL_DC_R);
+> > > +	sdhci_writeb(host, 0xa, PHY_DLL_CNFG2_R);
+> > > +
+> > > +	/* enable delay lane */
+> > > +	val = sdhci_readb(host, PHY_SDCLKDL_CNFG_R);
+> > > +	val &= ~(1 << UPDATE_DC);
+> > > +	sdhci_writeb(host, val, PHY_SDCLKDL_CNFG_R);
+> > > +
+> > > +	val = (1 << RXSEL) | (1 << WEAKPULL_EN) | (3 << TXSLEW_CTRL_P) | (3 << TXSLEW_CTRL_N);
+> > > +	sdhci_writew(host, val, PHY_CMDPAD_CNFG_R);
+> > > +	sdhci_writew(host, val, PHY_DATAPAD_CNFG_R);
+> > > +	sdhci_writew(host, val, PHY_RSTNPAD_CNFG_R);
+> > > +
+> > > +	val = (3 << TXSLEW_CTRL_P) | (3 << TXSLEW_CTRL_N);
+> > > +	sdhci_writew(host, val, PHY_CLKPAD_CNFG_R);
+> > > +
+> > > +	val = (1 << RXSEL) | (2 << WEAKPULL_EN) | (3 << TXSLEW_CTRL_P) | (3 << TXSLEW_CTRL_N);
+> > > +	sdhci_writew(host, val, PHY_STBPAD_CNFG_R);
+> > > +
+> > > +	/* enable data strobe mode */
+> > > +	sdhci_writeb(host, 3 << SLV_INPSEL, PHY_DLLDL_CNFG_R);
+> > > +	sdhci_writeb(host, (1 << DLL_EN),  PHY_DLL_CTRL_R);
+> > > +}
+> > > +
+> > > +static void th1520_phy_3_3v_init(struct sdhci_host *host)
+> > > +{
+> > > +	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
+> > > +	struct dwcmshc_priv *priv = sdhci_pltfm_priv(pltfm_host);
+> > > +	u32 val;
+> > > +
+> > > +	if (priv->pull_up_en == 0) {
+> > > +		sdhci_phy_3_3v_init_no_pull(host);
+> > > +		return;
+> > > +	}
+> > > +
+> > > +	/* set driving force */
+> > > +	sdhci_writel(host, (1 << PHY_RSTN) | (0xc << PAD_SP) | (0xc << PAD_SN), PHY_CNFG_R);
+> > > +
+> > > +	/* disable delay lane */
+> > > +	sdhci_writeb(host, 1 << UPDATE_DC, PHY_SDCLKDL_CNFG_R);
+> > > +
+> > > +	/* set delay lane */
+> > > +	sdhci_writeb(host, priv->delay_line, PHY_SDCLKDL_DC_R);
+> > > +	sdhci_writeb(host, 0xa, PHY_DLL_CNFG2_R);
+> > > +
+> > > +	/* enable delay lane */
+> > > +	val = sdhci_readb(host, PHY_SDCLKDL_CNFG_R);
+> > > +	val &= ~(1 << UPDATE_DC);
+> > > +	sdhci_writeb(host, val, PHY_SDCLKDL_CNFG_R);
+> > > +
+> > > +	val = (2 << RXSEL) | (1 << WEAKPULL_EN) | (3 << TXSLEW_CTRL_P) | (3 << TXSLEW_CTRL_N);
+> > > +	sdhci_writew(host, val, PHY_CMDPAD_CNFG_R);
+> > > +	sdhci_writew(host, val, PHY_DATAPAD_CNFG_R);
+> > > +	sdhci_writew(host, val, PHY_RSTNPAD_CNFG_R);
+> > > +
+> > > +	val = (3 << TXSLEW_CTRL_P) | (3 << TXSLEW_CTRL_N);
+> > > +	sdhci_writew(host, val, PHY_CLKPAD_CNFG_R);
+> > > +
+> > > +	val = (2 << RXSEL) | (2 << WEAKPULL_EN) | (3 << TXSLEW_CTRL_P) | (3 << TXSLEW_CTRL_N);
+> > > +	sdhci_writew(host, val, PHY_STBPAD_CNFG_R);
+> > > +}
+> > > +
+> > > +
+> > > +static void th1520_sdhci_set_phy(struct sdhci_host *host)
+> > > +{
+> > > +	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
+> > > +	struct dwcmshc_priv *priv = sdhci_pltfm_priv(pltfm_host);
+> > > +	u8 emmc_ctl;
+> > > +
+> > > +	/* Before power on, set PHY configs */
+> > > +	emmc_ctl = sdhci_readw(host, EMMC_CTRL_R);
+> > > +	if (priv->non_removable) {
+> > > +		th1520_phy_1_8v_init(host);
+> > > +		emmc_ctl |= (1 << DWCMSHC_CARD_IS_EMMC);
+> > > +	} else {
+> > > +		th1520_phy_3_3v_init(host);
+> > > +		emmc_ctl &=~(1 << DWCMSHC_CARD_IS_EMMC);
+> > > +	}
+> > > +	sdhci_writeb(host, emmc_ctl, EMMC_CTRL_R);
+> > > +	sdhci_writeb(host, 0x25, PHY_DLL_CNFG1_R);
+> > 
+> > magic 0x25 needs a meaningful MACRO definition.
 > 
-> After apply this patch:
+> Okay, I'll investigate the meaning of that value and define it.
 > 
-> [    0.357780] pci 0000:03:00.0: vgaarb: BAR 0 contains firmware FB
-> [    0.361726] pci 0000:00:06.1: vgaarb: setting as boot VGA device
-> [    0.361729] pci 0000:00:06.1: vgaarb: bridge control possible
-> [    0.361731] pci 0000:00:06.1: vgaarb: VGA device added: decodes=io+mem,owns=io+mem,locks=none
-> [    0.361741] pci 0000:03:00.0: vgaarb: setting as boot VGA device (overriding previous)
-> [    0.361743] pci 0000:03:00.0: vgaarb: bridge control possible
-> [    0.361745] pci 0000:03:00.0: vgaarb: VGA device added: decodes=io+mem,owns=none,locks=none
-> [    0.361751] pci 0000:07:00.0: vgaarb: bridge control possible
-> [    0.361753] pci 0000:07:00.0: vgaarb: VGA device added: decodes=io+mem,owns=none,locks=none
-> [    0.361757] pci 0000:08:00.0: vgaarb: bridge control possible
-> [    0.361759] pci 0000:08:00.0: vgaarb: VGA device added: decodes=io+mem,owns=none,locks=none
-> [    0.361761] vgaarb: loaded
-> [   14.730255] radeon 0000:03:00.0: vgaarb: changed VGA decodes: olddecodes=io+mem,decodes=none:owns=none
+> > 
+> > > +}
+> > > +
+> > >  static void dwcmshc_set_uhs_signaling(struct sdhci_host *host,
+> > >  				      unsigned int timing)
+> > >  {
+> > >  	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
+> > >  	struct dwcmshc_priv *priv = sdhci_pltfm_priv(pltfm_host);
+> > > +
+> > 
+> > we don't need this extra blank line
 > 
-> Please note that before apply this patch, vgaarb can not select the
-> right boot vga due to weird logic introduced with the commit
-> 57fc7323a8e7c ("LoongArch: Add PCI controller support")
-
-If we need this reference to 57fc7323a8e7c, we need more specifics
-about what the "weird logic" is.  pci_fixup_vgadev() is the only
-obvious VGA connection, so I suppose it's related to that.
-
-> Please also note that VARM Bar do moves on LoongArch:
+> Okay
 > 
-> $ dmesg | grep 0000:03:00.0
+> > 
+> > >  	u16 ctrl, ctrl_2;
+> > >  
+> > >  	ctrl_2 = sdhci_readw(host, SDHCI_HOST_CONTROL2);
+> > > @@ -188,7 +409,22 @@ static void dwcmshc_set_uhs_signaling(struct sdhci_host *host,
+> > >  		ctrl_2 |= DWCMSHC_CTRL_HS400;
+> > >  	}
+> > >  
+> > > +	if (priv->io_fixed_1v8)
+> > > +		ctrl_2 |= SDHCI_CTRL_VDD_180;
+> > > +
+> > >  	sdhci_writew(host, ctrl_2, SDHCI_HOST_CONTROL2);
+> > > +
+> > > +	/* TODO: add check so that this only runs on th1520  */
+> > 
+> > this TODO needs to be solved since it affects other platforms such as NV
+> > and RK
 > 
-> [    0.357688] pci 0000:03:00.0: [1002:6778] type 00 class 0x030000
-> [    0.357713] pci 0000:03:00.0: reg 0x10: [mem 0xe0050000000-0xe005fffffff 64bit pref]
-> [    0.357730] pci 0000:03:00.0: reg 0x18: [mem 0xe0065300000-0xe006531ffff 64bit]
-> [    0.357741] pci 0000:03:00.0: reg 0x20: [io  0x20000-0x200ff]
-> [    0.357762] pci 0000:03:00.0: reg 0x30: [mem 0xfffe0000-0xffffffff pref]
-> [    0.357780] pci 0000:03:00.0: vgaarb: BAR0 contains firmware FB
+> Yes, I need to fix this. For the next version, I am considering adding
+> a flag to dwcmshc_priv that would gate the following code block.
 > 
-> [    0.359809] pci 0000:03:00.0: BAR 0: assigned [mem 0xe0030000000-0xe003fffffff 64bit pref]
-> [    0.359821] pci 0000:03:00.0: BAR 2: assigned [mem 0xe0065200000-0xe006521ffff 64bit]
-> [    0.359832] pci 0000:03:00.0: BAR 6: assigned [mem 0xe0065220000-0xe006523ffff pref]
-> [    0.359846] pci 0000:03:00.0: BAR 4: assigned [io  0x5000-0x50ff]
-> [    0.361741] pci 0000:03:00.0: vgaarb: setting as boot VGA device (overriding previous)
-> [    0.361743] pci 0000:03:00.0: vgaarb: bridge control possible
-> [    0.361745] pci 0000:03:00.0: vgaarb: VGA device added: decodes=io+mem,owns=none,locks=none
-
-I guess the point here is that:
-
-  - 03:00.0 BAR 0 is [mem 0xe0050000000-0xe005fffffff]
-
-  - screen_info says the framebuffer is
-    [mem 0xe0050000000-0xe005fffffff] (or part of it)
-
-  - Therefore, we want 03:00.0 to be the default VGA
-
-  - PCI core reassigns 03:00.0 BAR 0 to
-    [mem 0xe0030000000-0xe003fffffff]
-
-  - PCI core assigns a 00:06.1 BAR to contain
-    [mem 0xe0050000000-0xe005fffffff]
-
-  - vga_is_firmware_default() incorrectly decides 00:06.1 should be
-    the default VGA because it has a BAR that contains the screen_info
-    address range
-
-Is that right?  If so, log messages like this would show the problem:
-
-  pci 0000:00:06.0: reg 0x10: [mem ...]
-  pci 0000:03:00.0: reg 0x10: [mem 0xe0050000000-0xe005fffffff]
-  pci 0000:03:00.0: BAR 0: assigned [mem 0xe0030000000-0xe003fffffff]
-  pci 0000:00:06.0: BAR X: assigned [mem 0xe0050000000-0xe005fffffff]
-  pci 0000:00:06.1: vgaarb: setting as boot VGA device
-
-and something like this would show the fix:
-
-  pci 0000:00:06.0: reg 0x10: [mem ...]
-  pci 0000:03:00.0: reg 0x10: [mem 0xe0050000000-0xe005fffffff]
-  pci 0000:03:00.0: vgaarb: BAR 0 [mem 0xe0050000000-0xe005fffffff] contains firmware framebuffer [mem 0xe0050000000-0xe005fffffff]
-  pci 0000:03:00.0: vgaarb: setting as boot VGA device
-  pci 0000:03:00.0: BAR 0: assigned [mem 0xe0030000000-0xe003fffffff]
-  pci 0000:00:06.0: BAR X: assigned [mem 0xe0050000000-0xe005fffffff]
-
-I don't care about all the "bridge control possible" and "VGA device
-added: decodes=..." messages.  Those aren't relevant to this problem.
-
-I don't think the lspci output is relevant either.  That would be
-relevant to a patch removing the Loongson pci_fixup_vgadev(), but as
-far as I can see, only the screen_info framebuffer address, the BAR
-contents, and the PCI core BAR reassignment are relevant to *this*
-patch.
-
-> 2) LS3A5000+LS7A2000 platform with four video cards
 > 
-> $ lspci | grep VGA
+> > > +	if (timing == MMC_TIMING_MMC_HS400) {
+> > > +		/* disable auto tuning */
+> > > +		u32 reg = sdhci_readl(host, AT_CTRL_R);
+> > > +		reg &= ~1;
+> > > +		sdhci_writel(host, reg, AT_CTRL_R);
+> > > +		priv->delay_line = DELAY_LINE_HS400;
+> > > +		th1520_sdhci_set_phy(host);
+> > > +	} else {
+> > > +		sdhci_writeb(host, 0, PHY_DLLDL_CNFG_R);
+> > > +	}
+> > >  }
+> > >  
+> > >  static void dwcmshc_hs400_enhanced_strobe(struct mmc_host *mmc,
+> > > @@ -337,6 +573,49 @@ static void rk35xx_sdhci_reset(struct sdhci_host *host, u8 mask)
+> > >  	sdhci_reset(host, mask);
+> > >  }
+> > >  
+> > > +static int th1520_execute_tuning(struct sdhci_host *host, u32 opcode)
+> > > +{
+> > > +	u32 val = 0;
+> > > +
+> > > +	sdhci_writeb(host, 3 << INPSEL_CNFG, PHY_ATDL_CNFG_R);
+> > > +
+> > > +	val = sdhci_readl(host, AT_CTRL_R);
+> > > +	val &= ~((1 << CI_SEL) | (1 << RPT_TUNE_ERR) \
+> > > +	    | (1 << SW_TUNE_EN) |(0xf << WIN_EDGE_SEL));
+> > > +	val |= (1 << AT_EN) | (1 << SWIN_TH_EN) | (1 << TUNE_CLK_STOP_EN)\
+> > > +	    | (1 << PRE_CHANGE_DLY) | (3 << POST_CHANGE_DLY) | (9 << SWIN_TH_VAL);
+> > > +
+> > > +	sdhci_writel(host, val, AT_CTRL_R);
+> > > +
+> > > +	val = sdhci_readl(host, AT_CTRL_R);
+> > > +	if(!(val & (1 << AT_EN))) {
+> > > +		pr_warn("%s(): auto tuning is not enabled", __func__);
+> > 
+> > AFAIK, the controller supports both auto tuning and sw tuning.
 > 
-> 00:06.1 VGA compatible controller: Loongson Technology LLC Device 7a36 (rev 02)
-> 01:00.0 VGA compatible controller: Silicon Motion, Inc. Device 0768 (rev 03)
-> 04:00.0 VGA compatible controller: Device 0709:0001 (rev 01)
-> 05:00.0 VGA compatible controller: Advanced Micro Devices, Inc. [AMD/ATI] Lexa PRO [Radeon 540/540X/550/550X / RX 540X/550/550X] (rev c7)
+> Okay, I'll have to investigate further why it is like this in the vendor
+> kernel [2].
 > 
-> Before apply this patch:
+> > 
+> > > +		return -1;
+> > 
+> > can we replace -1 with meaningful error number?
+> > 
 > 
-> [    0.359345] pci 0000:00:06.1: vgaarb: setting as boot VGA device
-> [    0.359347] pci 0000:00:06.1: vgaarb: bridge control possible
-> [    0.359349] pci 0000:00:06.1: vgaarb: VGA device added: decodes=io+mem,owns=io+mem,locks=none
-> [    0.359358] pci 0000:01:00.0: vgaarb: bridge control possible
-> [    0.359360] pci 0000:01:00.0: vgaarb: VGA device added: decodes=io+mem,owns=none,locks=none
-> [    0.359364] pci 0000:04:00.0: vgaarb: bridge control possible
-> [    0.359366] pci 0000:04:00.0: vgaarb: VGA device added: decodes=io+mem,owns=none,locks=none
-> [    0.359369] pci 0000:05:00.0: vgaarb: bridge control possible
-> [    0.359370] pci 0000:05:00.0: vgaarb: VGA device added: decodes=io+mem,owns=none,locks=none
-> [    0.359373] vgaarb: loaded
-> [    0.365852] pci 0000:00:06.1: Overriding boot device as 126F:768
-> [    0.365855] pci 0000:00:06.1: Overriding boot device as 709:1
-> [    0.365857] pci 0000:00:06.1: Overriding boot device as 1002:699F
-> [   14.011380] amdgpu 0000:05:00.0: vgaarb: changed VGA decodes: olddecodes=io+mem,decodes=none:owns=none
+> Yes, will do for next version.
 > 
-> After apply this patch:
+> > > +	}
+> > > +
+> > > +	val &= ~(1 << AT_EN);
+> > > +	sdhci_writel(host, val, AT_CTRL_R);
+> > > +
+> > > +	return 0;
+> > > +}
+> > > +
+> > > +static void th1520_sdhci_reset(struct sdhci_host *host, u8 mask)
+> > > +{
+> > > +	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
+> > > +	struct dwcmshc_priv *priv = sdhci_pltfm_priv(pltfm_host);
+> > > +	u16 ctrl_2;
+> > > +
+> > > +	sdhci_reset(host, mask);
+> > > +
+> > > +	if(priv->io_fixed_1v8){
+> > > +		ctrl_2 = sdhci_readw(host, SDHCI_HOST_CONTROL2);
+> > > +		if(! (ctrl_2 & SDHCI_CTRL_VDD_180)){
+> > > +			ctrl_2 |= SDHCI_CTRL_VDD_180;
+> > > +			sdhci_writew(host, ctrl_2, SDHCI_HOST_CONTROL2);
+> > > +		}
+> > > +	}
+> > > +}
+> > > +
+> > >  static const struct sdhci_ops sdhci_dwcmshc_ops = {
+> > >  	.set_clock		= sdhci_set_clock,
+> > >  	.set_bus_width		= sdhci_set_bus_width,
+> > > @@ -355,6 +634,17 @@ static const struct sdhci_ops sdhci_dwcmshc_rk35xx_ops = {
+> > >  	.adma_write_desc	= dwcmshc_adma_write_desc,
+> > >  };
+> > >  
+> > > +static const struct sdhci_ops sdhci_dwcmshc_th1520_ops = {
+> > > +	.set_clock		= sdhci_set_clock,
+> > > +	.set_bus_width		= sdhci_set_bus_width,
+> > > +	.set_uhs_signaling	= dwcmshc_set_uhs_signaling,
+> > > +	.get_max_clock		= dwcmshc_get_max_clock,
+> > > +	.reset			= th1520_sdhci_reset,
+> > > +	.adma_write_desc	= dwcmshc_adma_write_desc,
+> > > +	.voltage_switch		= th1520_phy_1_8v_init,
+> > > +	.platform_execute_tuning = &th1520_execute_tuning,
+> > > +};
+> > > +
+> > >  static const struct sdhci_pltfm_data sdhci_dwcmshc_pdata = {
+> > >  	.ops = &sdhci_dwcmshc_ops,
+> > >  	.quirks = SDHCI_QUIRK_CAP_CLOCK_BASE_BROKEN,
+> > > @@ -378,6 +668,15 @@ static const struct sdhci_pltfm_data sdhci_dwcmshc_rk35xx_pdata = {
+> > >  		   SDHCI_QUIRK2_CLOCK_DIV_ZERO_BROKEN,
+> > >  };
+> > >  
+> > > +static const struct sdhci_pltfm_data sdhci_dwcmshc_th1520_pdata = {
+> > > +	.ops = &sdhci_dwcmshc_th1520_ops,
+> > > +
+> > > +	.quirks = SDHCI_QUIRK_CAP_CLOCK_BASE_BROKEN |
+> > > +		  SDHCI_QUIRK_BROKEN_DMA |
+> > > +		  SDHCI_QUIRK_BROKEN_ADMA,
+> > > +	.quirks2 = SDHCI_QUIRK2_PRESET_VALUE_BROKEN,
+> > > +};
+> > > +
+> > >  static int dwcmshc_rk35xx_init(struct sdhci_host *host, struct dwcmshc_priv *dwc_priv)
+> > >  {
+> > >  	int err;
+> > > @@ -434,6 +733,10 @@ static void dwcmshc_rk35xx_postinit(struct sdhci_host *host, struct dwcmshc_priv
+> > >  }
+> > >  
+> > >  static const struct of_device_id sdhci_dwcmshc_dt_ids[] = {
+> > > +	{
+> > > +		.compatible = "thead,th1520-dwcmshc",
+> > > +		.data = &sdhci_dwcmshc_th1520_pdata,
+> > > +	},
+> > >  	{
+> > >  		.compatible = "rockchip,rk3588-dwcmshc",
+> > >  		.data = &sdhci_dwcmshc_rk35xx_pdata,
+> > > @@ -541,6 +844,39 @@ static int dwcmshc_probe(struct platform_device *pdev)
+> > >  			goto err_clk;
+> > >  	}
+> > >  
+> > > +	if (pltfm_data == &sdhci_dwcmshc_th1520_pdata) {
+> > > +
+> > > +		priv->delay_line = DELAY_LINE_DEFAULT;
+> > > +
+> > > +		if (device_property_present(&pdev->dev, "non-removable"))
+> > > +			priv->non_removable = 1;
+> > > +		else
+> > > +			priv->non_removable = 0;
+> > > +
+> > > +		if (device_property_present(&pdev->dev, "thead,pull-up"))
+> > > +			priv->pull_up_en = 1;
+> > > +		else
+> > > +			priv->pull_up_en = 0;
+> > > +
+> > > +		if (device_property_present(&pdev->dev, "thead,io-fixed-1v8"))
+> > > +			priv->io_fixed_1v8 = true;
+> > > +		else
+> > > +			priv->io_fixed_1v8 = false;
+> > > +
+> > > +		/*
+> > > +		 * start_signal_voltage_switch() will try 3.3V first
+> > > +		 * then 1.8V. Use SDHCI_SIGNALING_180 ranther than
+> > > +		 * SDHCI_SIGNALING_330 to avoid setting voltage to 3.3V
+> > > +		 * in sdhci_start_signal_voltage_switch().
+> > > +		 */
+> > > +		if(priv->io_fixed_1v8){
+> > > +			host->flags &=~SDHCI_SIGNALING_330;
+> > > +			host->flags |= SDHCI_SIGNALING_180;
+> > > +		}
+> > > +
+> > > +		sdhci_enable_v4_mode(host);
+> > > +	}
+> > > +
+> > >  #ifdef CONFIG_ACPI
+> > >  	if (pltfm_data == &sdhci_dwcmshc_bf3_pdata)
+> > >  		sdhci_enable_v4_mode(host);
+> > > 
+> > > -- 
+> > > 2.34.1
+> > > 
 > 
-> [    0.357142] pci 0000:05:00.0: vgaarb: BAR 0 contains firmware FB
-> [    0.359291] pci 0000:00:06.1: vgaarb: setting as boot VGA device
-> [    0.359294] pci 0000:00:06.1: vgaarb: bridge control possible
-> [    0.359296] pci 0000:00:06.1: vgaarb: VGA device added: decodes=io+mem,owns=io+mem,locks=none
-> [    0.359305] pci 0000:01:00.0: vgaarb: bridge control possible
-> [    0.359307] pci 0000:01:00.0: vgaarb: VGA device added: decodes=io+mem,owns=none,locks=none
-> [    0.359311] pci 0000:04:00.0: vgaarb: bridge control possible
-> [    0.359312] pci 0000:04:00.0: vgaarb: VGA device added: decodes=io+mem,owns=none,locks=none
-> [    0.359316] pci 0000:05:00.0: vgaarb: setting as boot VGA device (overriding previous)
-> [    0.359318] pci 0000:05:00.0: vgaarb: bridge control possible
-> [    0.359319] pci 0000:05:00.0: vgaarb: VGA device added: decodes=io+mem,owns=none,locks=none
-> [    0.359321] vgaarb: loaded
-> [   14.399907] amdgpu 0000:05:00.0: vgaarb: changed VGA decodes: olddecodes=io+mem,decodes=none:owns=none
+> Thank you,
+> Drew
 > 
-> Again, the VRAM Bar do moves:
-> 
-> $ dmesg | grep 0000:05:00.0
-> 
-> [    0.357076] pci 0000:05:00.0: [1002:699f] type 00 class 0x030000
-> [    0.357093] pci 0000:05:00.0: reg 0x10: [mem 0xe0030000000-0xe003fffffff 64bit pref]
-> [    0.357104] pci 0000:05:00.0: reg 0x18: [mem 0xe0040000000-0xe00401fffff 64bit pref]
-> [    0.357112] pci 0000:05:00.0: reg 0x20: [io  0x40000-0x400ff]
-> [    0.357120] pci 0000:05:00.0: reg 0x24: [mem 0xe0074300000-0xe007433ffff]
-> [    0.357128] pci 0000:05:00.0: reg 0x30: [mem 0xfffe0000-0xffffffff pref]
-> [    0.357142] pci 0000:05:00.0: vgaarb: BAR0 contains firmware FB
-> [    0.357720] pci 0000:05:00.0: BAR 0: assigned [mem 0xe0060000000-0xe006fffffff 64bit pref]
-> [    0.357728] pci 0000:05:00.0: BAR 2: assigned [mem 0xe0058000000-0xe00581fffff 64bit pref]
-> [    0.357736] pci 0000:05:00.0: BAR 5: assigned [mem 0xe0072b00000-0xe0072b3ffff]
-> [    0.357740] pci 0000:05:00.0: BAR 6: assigned [mem 0xe0072b40000-0xe0072b5ffff pref]
-> [    0.357750] pci 0000:05:00.0: BAR 4: assigned [io  0x5000-0x50ff]
-> [    0.359316] pci 0000:05:00.0: vgaarb: setting as boot VGA device (overriding previous)
-> [    0.359318] pci 0000:05:00.0: vgaarb: bridge control possible
-> [    0.359319] pci 0000:05:00.0: vgaarb: VGA device added: decodes=io+mem,owns=none,locks=none
-> 
-> 3) Mips (LS3A4000/LS7A1000 + SM750 + Radeon)
-> 
-> Loongson Mips have no UEFI GOP support, we test this patch by modifying the
-> screen_info manually.
-> 
-> $ lspci | grep VGA
-> 
->  04:00.0 VGA compatible controller: Silicon Motion, Inc. SM750 (rev a1)
->  05:00.0 VGA compatible controller: Advanced Micro Devices, Inc. [AMD/ATI] Oland [Radeon HD 8570 / R7 240/340 OEM] (rev 87)
-> 
-> $ dmesg | grep 04:00.0
-> 
->  pci 0000:04:00.0: [126f:0750] type 00 class 0x030000
->  pci 0000:04:00.0: reg 0x10: [mem 0x58000000-0x5bffffff pref]
->  pci 0000:04:00.0: reg 0x14: [mem 0x5f000000-0x5f1fffff]
->  pci 0000:04:00.0: reg 0x30: [mem 0xffff0000-0xffffffff pref]
->  pci 0000:04:00.0: BAR 0: assigned [mem 0x50000000-0x53ffffff pref]
->  pci 0000:04:00.0: BAR 1: assigned [mem 0x54000000-0x541fffff]
->  pci 0000:04:00.0: BAR 6: assigned [mem 0x54200000-0x5420ffff pref]
-> 
-> $ dmesg | grep 05:00.0
-> 
->  pci 0000:05:00.0: [1002:6611] type 00 class 0x030000
->  pci 0000:05:00.0: reg 0x10: [mem 0x40000000-0x4fffffff 64bit pref]
->  pci 0000:05:00.0: reg 0x18: [mem 0x5f300000-0x5f33ffff 64bit]
->  pci 0000:05:00.0: reg 0x20: [io  0x40000-0x400ff]
->  pci 0000:05:00.0: reg 0x30: [mem 0xfffe0000-0xffffffff pref]
->  pci 0000:05:00.0: BAR 0: assigned [mem 0x40000000-0x4fffffff 64bit pref]
->  pci 0000:05:00.0: BAR 2: assigned [mem 0x5b300000-0x5b33ffff 64bit]
->  pci 0000:05:00.0: BAR 6: assigned [mem 0x5b340000-0x5b35ffff pref]
->  pci 0000:05:00.0: BAR 4: assigned [io  0x21000-0x210ff]
-> 
-> Specify the firmware fb at BAR 0 of SM750 by hardcode:
-> 
-> screen_info = (struct screen_info) {
->     .orig_video_isVGA = VIDEO_TYPE_EFI,
->     .lfb_base = 0x58000000,
->     .lfb_size = 1280 * 800 * 4 * 2,
-> };
-> 
-> $ dmesg | grep vgaarb
-> 
->  vgaarb: loaded
->  pci 0000:04:00.0: vgaarb: BAR 0 contains firmware FB
->  pci 0000:04:00.0: vgaarb: setting as boot VGA device
->  pci 0000:04:00.0: vgaarb: bridge control possible
->  pci 0000:04:00.0: vgaarb: VGA device added: decodes=io+mem,owns=none,locks=none
->  pci 0000:05:00.0: vgaarb: bridge control possible
->  pci 0000:05:00.0: vgaarb: VGA device added: decodes=io+mem,owns=io+mem,locks=none
-> 
-> Specify the firmware fb at BAR 0 of ATI GPU by hardcode:
-> 
-> screen_info = (struct screen_info) {
->     .orig_video_isVGA = VIDEO_TYPE_EFI,
->     .lfb_base = 0x40000000,
->     .lfb_size = 1280 * 800 * 4 * 2,
-> };
-> 
-> $ dmesg | grep vgaarb
-> 
->  vgaarb: loaded
->  pci 0000:04:00.0: vgaarb: setting as boot VGA device
->  pci 0000:04:00.0: vgaarb: bridge control possible
->  pci 0000:04:00.0: vgaarb: VGA device added: decodes=io+mem,owns=none,locks=none
->  pci 0000:05:00.0: vgaarb: BAR 0 contains firmware FB
->  pci 0000:05:00.0: vgaarb: setting as boot VGA device (overriding previous)
->  pci 0000:05:00.0: vgaarb: bridge control possible
->  pci 0000:05:00.0: vgaarb: VGA device added: decodes=io+mem,owns=io+mem,locks=none
->  radeon 0000:05:00.0: vgaarb: changed VGA decodes: olddecodes=io+mem,decodes=none:owns=io+mem
-> 
-> Signed-off-by: Sui Jingfeng <suijingfeng@loongson.cn>
-> ---
->  drivers/pci/vgaarb.c | 76 +++++++++++++++++++++++++++++++++++++++++++-
->  1 file changed, 75 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/pci/vgaarb.c b/drivers/pci/vgaarb.c
-> index 5a696078b382..7b6c3a772e91 100644
-> --- a/drivers/pci/vgaarb.c
-> +++ b/drivers/pci/vgaarb.c
-> @@ -60,7 +60,8 @@ static int vga_count, vga_decode_count;
->  static bool vga_arbiter_used;
->  static DEFINE_SPINLOCK(vga_lock);
->  static DECLARE_WAIT_QUEUE_HEAD(vga_wait_queue);
-> -
-> +/* The PCI(e) device who owns the firmware framebuffer */
-> +static struct pci_dev *pdev_boot_vga;
->  
->  static const char *vga_iostate_to_str(unsigned int iostate)
->  {
-> @@ -571,6 +572,9 @@ static bool vga_is_firmware_default(struct pci_dev *pdev)
->  
->  		return true;
->  	}
-> +#else
-> +	if (pdev_boot_vga && pdev_boot_vga == pdev)
-> +		return true;
->  #endif
->  	return false;
->  }
-> @@ -1555,3 +1559,73 @@ static int __init vga_arb_device_init(void)
->  	return rc;
->  }
->  subsys_initcall_sync(vga_arb_device_init);
-> +
-> +/*
-> + * Get the physical address range that the firmware framebuffer occupies.
-> + *
-> + * The global screen_info is arch-specific, CONFIG_SYSFB is chosen as
-> + * compile-time conditional to suppress linkage problems.
-> + */
-> +static bool vga_arb_get_firmware_fb_range(resource_size_t *start,
-> +					  resource_size_t *end)
-> +{
-> +	resource_size_t fb_start = 0;
-> +	resource_size_t fb_size = 0;
-> +	resource_size_t fb_end;
-> +
-> +#if defined(CONFIG_X86) || defined(CONFIG_IA64) || defined(CONFIG_SYSFB)
-> +	fb_start = screen_info.lfb_base;
-> +	if (screen_info.capabilities & VIDEO_CAPABILITY_64BIT_BASE)
-> +		fb_start |= (u64)screen_info.ext_lfb_base << 32;
-> +
-> +	fb_size = screen_info.lfb_size;
-> +#endif
-> +
-> +	/* No firmware framebuffer support */
-> +	if (!fb_start || !fb_size)
-> +		return false;
-> +
-> +	fb_end = fb_start + fb_size - 1;
-> +
-> +	*start = fb_start;
-> +	*end = fb_end;
-> +
-> +	return true;
-> +}
-> +
-> +/*
-> + * Identify the PCI VGA device that contains the firmware framebuffer
-> + */
-> +static void pci_boot_vga_finder(struct pci_dev *pdev)
-> +{
-> +	resource_size_t fb_start;
-> +	resource_size_t fb_end;
-> +	unsigned int i;
-> +
-> +	/* Already found the pdev which has firmware framebuffer ownership */
-> +	if (pdev_boot_vga)
-> +		return;
-> +
-> +	if (!vga_arb_get_firmware_fb_range(&fb_start, &fb_end))
-> +		return;
-> +
-> +	for (i = 0; i < PCI_STD_NUM_BARS; i++) {
-> +		struct resource *res = &pdev->resource[i];
-
-This is essentially identical to vga_is_firmware_default() so it
-should look the same, i.e., it should use pci_dev_for_each_resource().
-
-> +		if (resource_type(res) != IORESOURCE_MEM)
-> +			continue;
-> +
-> +		if (!res->start || !res->end)
-> +			continue;
-> +
-> +		if (res->start <= fb_start && fb_end <= res->end) {
-> +			pdev_boot_vga = pdev;
-> +
-> +			vgaarb_info(&pdev->dev,
-> +				    "BAR %d contains firmware FB\n", i);
-
-Print the BAR with %pR and include the framebuffer region from
-screen_info in the same format.
-
-> +			break;
-> +		}
-> +	}
-> +}
-> +DECLARE_PCI_FIXUP_CLASS_HEADER(PCI_ANY_ID, PCI_ANY_ID, PCI_CLASS_DISPLAY_VGA,
-> +			       8, pci_boot_vga_finder);
-> -- 
-> 2.34.1
+> [1] https://gist.github.com/pdp7/a8301b895c2dc293f2e0210e77e45e01
+> [2] https://git.beagleboard.org/beaglev-ahead/beaglev-ahead-linux/-/blob/beaglev-v5.10.113-1.1.2/drivers/mmc/host/sdhci-of-dwcmshc.c#L238
 > 
 
 _______________________________________________
