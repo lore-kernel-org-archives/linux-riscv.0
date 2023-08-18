@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF33FC71155
-	for <linux-riscv@archiver.kernel.org>; Fri, 18 Aug 2023 13:57:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84273C71149
+	for <linux-riscv@archiver.kernel.org>; Fri, 18 Aug 2023 13:57:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Ez4go8bijmlzyuOj7IGct+TIgQUI8FUchQGn+TMoB5o=; b=PFlJNXggmFiqex
-	tooOcbti7pPTaINBHHJtckht2FF3wSSy2ZTF9Xl0qZZY2ievQ1FI61WJjP81wMsRdDJKgi+PfEKdk
-	11JWR8aCJSV5mlGl+q33vKZqWiRqRGpzUE1qp3rhRCTzY8Beg2fhvMuuSZqETkrcXH1UMsivwc5jO
-	A7tXHznD0h/MeUwRy1nVOF4jF2Rc6wRD1I7HpsoyCUpLf2nrMda1DtqFPDdXYhZD71qfsCrYejc5l
-	ri+S43I+9BHtwPfeOc9ltrdfED2BAVn47BfehkDoPfqsUx7qk0OIKi+zVhPVETZyJCHChHDI/M6P7
-	q42KpRrTFZOiCYFHIipA==;
+	List-Owner; bh=pR1V3uQp2IS0BciRK8cqYd4nHw2prHDbzilmiQGrsP8=; b=ZzojyMQNbZkVXo
+	IVYXS2xWeUiL4HbiHwbn8MJ0AaPp3SXlNUkmwpVqJiJENUUQAYEe+8o4ReCYqzZdlIBmCoFvmCZDF
+	bAN9+zs2j9vn22wQteuhMAWUF8Pm9sC4pN6p94mt3toS96lBMgX2K/XFO0NpmfFD1RzcR93/wsPUn
+	7NCxk+4dvDCjcdML1ZbQs3Eas3Rl0O3eKDVtINdO8s0by0k4lvb2eZW7/UOAd96tSWs05xt6B9dg3
+	uSslD5a8d103QhNBY26rsAULmZ7mwY1nv885EjHfc08MaDXcjZ3lu/fVk3u1RLARgCz0oWsfhPssf
+	qV2MX3xFh9upOMvNqEbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qWzyz-009RE2-0d;
-	Fri, 18 Aug 2023 13:57:45 +0000
+	id 1qWzz3-009RGN-39;
+	Fri, 18 Aug 2023 13:57:50 +0000
 Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qWzyu-009RAs-10
+	id 1qWzyx-009RCF-04
 	for linux-riscv@lists.infradead.org;
-	Fri, 18 Aug 2023 13:57:42 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-3fed7c2ec92so2167445e9.1
-        for <linux-riscv@lists.infradead.org>; Fri, 18 Aug 2023 06:57:40 -0700 (PDT)
+	Fri, 18 Aug 2023 13:57:44 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-3fe45481edfso9231875e9.1
+        for <linux-riscv@lists.infradead.org>; Fri, 18 Aug 2023 06:57:42 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20221208; t=1692367059; x=1692971859;
+        d=gmail.com; s=20221208; t=1692367062; x=1692971862;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=2b0kqkDrwaPCXINUMiauDuJAfSDnr50qeCdVwlvV2f4=;
-        b=Z0CDszL5Ccni5UOeFOFRP9Fl0LiivQOZaXYf77oLVLFR4OOM/XZ6Tx49FXcQD5zSIP
-         fsSzeFsJXxT3gk1qq4JYiwt4tMfUhl2W9eYPxc0dYVqA9XZ9gXKSdVqNtMLUA9rHzq0D
-         HQmIhNTyHa8FuIH7eOiUQp8q57Uuker1Swmv9cbGXBLmKqRKUUXhSN6Q2QgKc4wmOxkA
-         Dxy2G0YDTekCCJly+3nHm0yP05JFQZAqdlp5zzkUii/32A8ieUoxSQapUdoF19Vx/mEU
-         ZbfvQXAJ9lYa8LtfZXgqV9eHZ/kZl2jdc/ITcw4lDSFVCV58+v67S3zMtrOknBylUzY3
-         ysog==
+        bh=/+S6fmChfBsFqwxOcSC7kv0ocWrY5ZFX/CE0Wd0tNK0=;
+        b=rrJrF7ghuXk5RdQfUhKyu6Vsnw6NOQVj4fn+yWaNVbZMKoUUImJytDm2awFHVPuqko
+         KBlbbT7rRi6Bg3Uo+d/h8eDeLl0xsOG6geQa4nFpK7EE6Q4cXrJZ3PRSjgzvSacS7A2g
+         1AO4I4gv+ER9Nmh+Lz+PBzPB6wqA8CGQHNPtirIhEyJAUGVTpk1/A7ApNfoEx31aIi5y
+         Q4S68RybYjOr9/uu2vmwm+W/Vs249q7dLu32fAIydmIJa11TyqQnihCQAf+/u9sYccqE
+         GZit8ZEbriHTe8oNfE+fhaQrKcazgDMYDTNGoUQp8ykw/ZIXIYsx8osREExgd0rWJUZQ
+         mAsg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1692367059; x=1692971859;
+        d=1e100.net; s=20221208; t=1692367062; x=1692971862;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=2b0kqkDrwaPCXINUMiauDuJAfSDnr50qeCdVwlvV2f4=;
-        b=WK69r5q+0Ws5PIySZO7STxr07apxqcXIcCQpQbChxMubTDL5wdyx82a0i5qZYnL0Zm
-         Idz7WbIhJNgmEnvBpiy4f+o8mD4czB67JQuNopQjh9VckoFkd4B+F6r1dqDIhnB66tD4
-         WXaoXW9S5yxEd+xaPSOXPHlohqyAkdyTDTlUQIsECwA+5KqczNmVCtNR4NSKxSqXhXu0
-         4svlsKegljd4TFr0Es1gz3o6OVboL40awXfMC2L2RBalKQ3kH25gUlbnhm5ebAnZolKH
-         aeFiWLqSXzDGkzZV67teMck7Mc8y8iJcGnkUwLT8j9bfb6iDsd5xzLq7ztI5ELNEvqIg
-         vyYQ==
-X-Gm-Message-State: AOJu0YzhMusrTQLlI9UaSYT1flCK/tYtKmS6vLR5sqBu3N5FGL1WAZ+n
-	RXZMzY1JNrEna5d659G8v88=
-X-Google-Smtp-Source: AGHT+IF8lypTT8ZONVeF3yoQrAI5VkHzJ38TsTL8iLmRkbpuY8WuLlnlUk9Vuxeh8tYF4Zjlj8krSw==
-X-Received: by 2002:a05:600c:601b:b0:3fe:b7e4:276a with SMTP id az27-20020a05600c601b00b003feb7e4276amr5162881wmb.15.1692367058918;
-        Fri, 18 Aug 2023 06:57:38 -0700 (PDT)
+        bh=/+S6fmChfBsFqwxOcSC7kv0ocWrY5ZFX/CE0Wd0tNK0=;
+        b=etn/qaLo1+0KSaZlfMs8UposkTYJWg78J2nQLMZ4gsVVOuruOcEnOEdu+nEGt/0V3r
+         o1IXPrKzsHwRu4ql0cvPtgblCXABQCHK8cYGSo1tzWwb+Vla8jqEJoqoqpEcoYW2+8rb
+         xgA3FO5OAskloBKhHkfimrugc54C5cZo9afYk19kddaBjSm9HaydMY59843ZI+zIljRi
+         450eWmeuXe0+LuK5mU/thRvOoQ09wHZLdTOvF3GGuTq/2KxV6Eb0nN+we6in3aRElXK8
+         umdi9l5YD0I2SWjXmrWvyMw/0ZfC+y2zT65r2xj8prhOSwkM8aaQ2FHURBsPWwPrnQk0
+         m81g==
+X-Gm-Message-State: AOJu0YzzJ1+oqNfMMucvxVzG6cpuZPApvX4nLW9JkjAThMaLrduqFNtD
+	hrUpibA/r3GGPwbSlzptPF0=
+X-Google-Smtp-Source: AGHT+IFJC7Nyk4IOSIwRLJaUUbEm2y/WNDbWEN6sOwUR2YNbK5+pjxFDUDPp2m0LuXIuQOAORGKKJw==
+X-Received: by 2002:a7b:c4d1:0:b0:3fb:e643:1225 with SMTP id g17-20020a7bc4d1000000b003fbe6431225mr2334885wmk.13.1692367061752;
+        Fri, 18 Aug 2023 06:57:41 -0700 (PDT)
 Received: from prasmi.home ([2a00:23c8:2501:c701:4b30:13e8:1d57:42fb])
-        by smtp.gmail.com with ESMTPSA id s14-20020a05600c044e00b003fa96fe2bd9sm6444055wmb.22.2023.08.18.06.57.37
+        by smtp.gmail.com with ESMTPSA id s14-20020a05600c044e00b003fa96fe2bd9sm6444055wmb.22.2023.08.18.06.57.40
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 18 Aug 2023 06:57:38 -0700 (PDT)
+        Fri, 18 Aug 2023 06:57:41 -0700 (PDT)
 From: Prabhakar <prabhakar.csengg@gmail.com>
 X-Google-Original-From: Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 To: Arnd Bergmann <arnd@arndb.de>,
@@ -83,17 +83,18 @@ Cc: Rob Herring <robh+dt@kernel.org>,
 	linux-renesas-soc@vger.kernel.org,
 	Prabhakar <prabhakar.csengg@gmail.com>,
 	Biju Das <biju.das.jz@bp.renesas.com>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Subject: [PATCH v12 2/6] riscv: errata: Add Andes alternative ports
-Date: Fri, 18 Aug 2023 14:57:19 +0100
-Message-Id: <20230818135723.80612-3-prabhakar.mahadev-lad.rj@bp.renesas.com>
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Rob Herring <robh@kernel.org>
+Subject: [PATCH v12 4/6] dt-bindings: cache: andestech,ax45mp-cache: Add DT binding documentation for L2 cache controller
+Date: Fri, 18 Aug 2023 14:57:21 +0100
+Message-Id: <20230818135723.80612-5-prabhakar.mahadev-lad.rj@bp.renesas.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20230818135723.80612-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
 References: <20230818135723.80612-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230818_065740_366951_AC582883 
-X-CRM114-Status: GOOD (  25.37  )
+X-CRM114-CacheID: sfid-20230818_065743_114502_70D36AA4 
+X-CRM114-Status: GOOD (  14.75  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,229 +113,139 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 
-Add required ports of the Alternative scheme for Andes CPU cores.
+Add DT binding documentation for L2 cache controller found on RZ/Five SoC.
 
-I/O Coherence Port (IOCP) provides an AXI interface for connecting external
-non-caching masters, such as DMA controllers. IOCP is a specification
-option and is disabled on the Renesas RZ/Five SoC due to this reason cache
-management needs a software workaround.
+The Renesas RZ/Five microprocessor includes a RISC-V CPU Core (AX45MP
+Single) from Andes. The AX45MP core has an L2 cache controller, this patch
+describes the L2 cache block.
 
 Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Reviewed-by: Rob Herring <robh@kernel.org>
 Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 Tested-by: Conor Dooley <conor.dooley@microchip.com> # tyre-kicking on a d1
 ---
 v11 -> v12
-* No change
+* No Change
 
 v10 -> v11
-* No change
+* No Change
 
 v9 -> v10
-* Included TB tag from Conor
+* No Change
 
 v8 -> v9
-* Rebased to code on Palmer's for/next
-* Dropped calling patch_text_nosync() as dont use
-  patch_text_nosync() call
+* No Change
 
 v7 -> v8
-* Now patching the code using patch_text_nosync() and riscv_alternative_fix_offsets()
+* Updated commit header message
 
 v6 -> v7
-* Renamed RZFIVE_SBI_EXT_IOCP_SW_WORKAROUND -> ANDES_SBI_EXT_IOCP_SW_WORKAROUND
-* Dropped "depends on !XIP_KERNEL" for ERRATA_ANDES config
+* No Change
 
 v5 -> v6
-* Dropped patching alternative and now just probing IOCP
+* Included RB tag from Rob
 
 v4 -> v5
-* Sorted the Kconfig/Makefile/Switch based on Core name
-* Added a comments
-* Introduced RZFIVE_SBI_EXT_IOCP_SW_WORKAROUND SBI EXT ID to check if
-  CMO needs to be applied. Is there a way we can access the DTB while patching
-  as we can drop this SBI EXT ID and add a DT property instead for cmo?
+* Dropped L2 cache configuration properties
+* Dropped PMA configuration properties
+* Ordered the required list to match the properties list
 
 RFC v3 -> v4
-* New patch
+* Dropped l2 cache configuration parameters
+* s/larger/large
+* Added minItems/maxItems for andestech,pma-regions
 ---
- arch/riscv/Kconfig.errata            | 21 +++++++++
- arch/riscv/errata/Makefile           |  1 +
- arch/riscv/errata/andes/Makefile     |  1 +
- arch/riscv/errata/andes/errata.c     | 66 ++++++++++++++++++++++++++++
- arch/riscv/include/asm/alternative.h |  3 ++
- arch/riscv/include/asm/errata_list.h |  5 +++
- arch/riscv/kernel/alternative.c      |  5 +++
- 7 files changed, 102 insertions(+)
- create mode 100644 arch/riscv/errata/andes/Makefile
- create mode 100644 arch/riscv/errata/andes/errata.c
+ .../cache/andestech,ax45mp-cache.yaml         | 81 +++++++++++++++++++
+ 1 file changed, 81 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/cache/andestech,ax45mp-cache.yaml
 
-diff --git a/arch/riscv/Kconfig.errata b/arch/riscv/Kconfig.errata
-index 0c8f4652cd82..92c779764b27 100644
---- a/arch/riscv/Kconfig.errata
-+++ b/arch/riscv/Kconfig.errata
-@@ -1,5 +1,26 @@
- menu "CPU errata selection"
- 
-+config ERRATA_ANDES
-+	bool "Andes AX45MP errata"
-+	depends on RISCV_ALTERNATIVE
-+	help
-+	  All Andes errata Kconfig depend on this Kconfig. Disabling
-+	  this Kconfig will disable all Andes errata. Please say "Y"
-+	  here if your platform uses Andes CPU cores.
-+
-+	  Otherwise, please say "N" here to avoid unnecessary overhead.
-+
-+config ERRATA_ANDES_CMO
-+	bool "Apply Andes cache management errata"
-+	depends on ERRATA_ANDES && MMU && ARCH_R9A07G043
-+	select RISCV_DMA_NONCOHERENT
-+	default y
-+	help
-+	  This will apply the cache management errata to handle the
-+	  non-standard handling on non-coherent operations on Andes cores.
-+
-+	  If you don't know what to do here, say "Y".
-+
- config ERRATA_SIFIVE
- 	bool "SiFive errata"
- 	depends on RISCV_ALTERNATIVE
-diff --git a/arch/riscv/errata/Makefile b/arch/riscv/errata/Makefile
-index 7b2637c8c332..8a2739485123 100644
---- a/arch/riscv/errata/Makefile
-+++ b/arch/riscv/errata/Makefile
-@@ -2,5 +2,6 @@ ifdef CONFIG_RELOCATABLE
- KBUILD_CFLAGS += -fno-pie
- endif
- 
-+obj-$(CONFIG_ERRATA_ANDES) += andes/
- obj-$(CONFIG_ERRATA_SIFIVE) += sifive/
- obj-$(CONFIG_ERRATA_THEAD) += thead/
-diff --git a/arch/riscv/errata/andes/Makefile b/arch/riscv/errata/andes/Makefile
+diff --git a/Documentation/devicetree/bindings/cache/andestech,ax45mp-cache.yaml b/Documentation/devicetree/bindings/cache/andestech,ax45mp-cache.yaml
 new file mode 100644
-index 000000000000..2d644e19caef
+index 000000000000..9ab5f0c435d4
 --- /dev/null
-+++ b/arch/riscv/errata/andes/Makefile
-@@ -0,0 +1 @@
-+obj-y += errata.o
-diff --git a/arch/riscv/errata/andes/errata.c b/arch/riscv/errata/andes/errata.c
-new file mode 100644
-index 000000000000..197db68cc8da
---- /dev/null
-+++ b/arch/riscv/errata/andes/errata.c
-@@ -0,0 +1,66 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Erratas to be applied for Andes CPU cores
-+ *
-+ *  Copyright (C) 2023 Renesas Electronics Corporation.
-+ *
-+ * Author: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-+ */
++++ b/Documentation/devicetree/bindings/cache/andestech,ax45mp-cache.yaml
+@@ -0,0 +1,81 @@
++# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
++# Copyright (C) 2023 Renesas Electronics Corp.
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/cache/andestech,ax45mp-cache.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-+#include <linux/memory.h>
-+#include <linux/module.h>
++title: Andestech AX45MP L2 Cache Controller
 +
-+#include <asm/alternative.h>
-+#include <asm/cacheflush.h>
-+#include <asm/errata_list.h>
-+#include <asm/patch.h>
-+#include <asm/processor.h>
-+#include <asm/sbi.h>
-+#include <asm/vendorid_list.h>
++maintainers:
++  - Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 +
-+#define ANDESTECH_AX45MP_MARCHID	0x8000000000008a45UL
-+#define ANDESTECH_AX45MP_MIMPID		0x500UL
-+#define ANDESTECH_SBI_EXT_ANDES		0x0900031E
++description:
++  A level-2 cache (L2C) is used to improve the system performance by providing
++  a large amount of cache line entries and reasonable access delays. The L2C
++  is shared between cores, and a non-inclusive non-exclusive policy is used.
 +
-+#define ANDES_SBI_EXT_IOCP_SW_WORKAROUND	1
++select:
++  properties:
++    compatible:
++      contains:
++        enum:
++          - andestech,ax45mp-cache
 +
-+static long ax45mp_iocp_sw_workaround(void)
-+{
-+	struct sbiret ret;
++  required:
++    - compatible
 +
-+	/*
-+	 * ANDES_SBI_EXT_IOCP_SW_WORKAROUND SBI EXT checks if the IOCP is missing and
-+	 * cache is controllable only then CMO will be applied to the platform.
-+	 */
-+	ret = sbi_ecall(ANDESTECH_SBI_EXT_ANDES, ANDES_SBI_EXT_IOCP_SW_WORKAROUND,
-+			0, 0, 0, 0, 0, 0);
++properties:
++  compatible:
++    items:
++      - const: andestech,ax45mp-cache
++      - const: cache
 +
-+	return ret.error ? 0 : ret.value;
-+}
++  reg:
++    maxItems: 1
 +
-+static bool errata_probe_iocp(unsigned int stage, unsigned long arch_id, unsigned long impid)
-+{
-+	if (!IS_ENABLED(CONFIG_ERRATA_ANDES_CMO))
-+		return false;
++  interrupts:
++    maxItems: 1
 +
-+	if (arch_id != ANDESTECH_AX45MP_MARCHID || impid != ANDESTECH_AX45MP_MIMPID)
-+		return false;
++  cache-line-size:
++    const: 64
 +
-+	if (!ax45mp_iocp_sw_workaround())
-+		return false;
++  cache-level:
++    const: 2
 +
-+	/* Set this just to make core cbo code happy */
-+	riscv_cbom_block_size = 1;
-+	riscv_noncoherent_supported();
++  cache-sets:
++    const: 1024
 +
-+	return true;
-+}
++  cache-size:
++    enum: [131072, 262144, 524288, 1048576, 2097152]
 +
-+void __init_or_module andes_errata_patch_func(struct alt_entry *begin, struct alt_entry *end,
-+					      unsigned long archid, unsigned long impid,
-+					      unsigned int stage)
-+{
-+	errata_probe_iocp(stage, archid, impid);
++  cache-unified: true
 +
-+	/* we have nothing to patch here ATM so just return back */
-+}
-diff --git a/arch/riscv/include/asm/alternative.h b/arch/riscv/include/asm/alternative.h
-index 6a41537826a7..f6cfca939c92 100644
---- a/arch/riscv/include/asm/alternative.h
-+++ b/arch/riscv/include/asm/alternative.h
-@@ -46,6 +46,9 @@ struct alt_entry {
- 	u32 patch_id;		/* The patch ID (erratum ID or cpufeature ID) */
- };
- 
-+void andes_errata_patch_func(struct alt_entry *begin, struct alt_entry *end,
-+			     unsigned long archid, unsigned long impid,
-+			     unsigned int stage);
- void sifive_errata_patch_func(struct alt_entry *begin, struct alt_entry *end,
- 			      unsigned long archid, unsigned long impid,
- 			      unsigned int stage);
-diff --git a/arch/riscv/include/asm/errata_list.h b/arch/riscv/include/asm/errata_list.h
-index fb1a810f3d8c..e2ecd01bfac7 100644
---- a/arch/riscv/include/asm/errata_list.h
-+++ b/arch/riscv/include/asm/errata_list.h
-@@ -11,6 +11,11 @@
- #include <asm/hwcap.h>
- #include <asm/vendorid_list.h>
- 
-+#ifdef CONFIG_ERRATA_ANDES
-+#define ERRATA_ANDESTECH_NO_IOCP	0
-+#define ERRATA_ANDESTECH_NUMBER		1
-+#endif
++  next-level-cache: true
 +
- #ifdef CONFIG_ERRATA_SIFIVE
- #define	ERRATA_SIFIVE_CIP_453 0
- #define	ERRATA_SIFIVE_CIP_1200 1
-diff --git a/arch/riscv/kernel/alternative.c b/arch/riscv/kernel/alternative.c
-index 6b75788c18e6..b0345992a35e 100644
---- a/arch/riscv/kernel/alternative.c
-+++ b/arch/riscv/kernel/alternative.c
-@@ -45,6 +45,11 @@ static void riscv_fill_cpu_mfr_info(struct cpu_manufacturer_info_t *cpu_mfr_info
- 
- 	cpu_mfr_info->feature_probe_func = NULL;
- 	switch (cpu_mfr_info->vendor_id) {
-+#ifdef CONFIG_ERRATA_ANDES
-+	case ANDESTECH_VENDOR_ID:
-+		cpu_mfr_info->patch_func = andes_errata_patch_func;
-+		break;
-+#endif
- #ifdef CONFIG_ERRATA_SIFIVE
- 	case SIFIVE_VENDOR_ID:
- 		cpu_mfr_info->patch_func = sifive_errata_patch_func;
++additionalProperties: false
++
++required:
++  - compatible
++  - reg
++  - interrupts
++  - cache-line-size
++  - cache-level
++  - cache-sets
++  - cache-size
++  - cache-unified
++
++examples:
++  - |
++    #include <dt-bindings/interrupt-controller/irq.h>
++
++    cache-controller@2010000 {
++        compatible = "andestech,ax45mp-cache", "cache";
++        reg = <0x13400000 0x100000>;
++        interrupts = <508 IRQ_TYPE_LEVEL_HIGH>;
++        cache-line-size = <64>;
++        cache-level = <2>;
++        cache-sets = <1024>;
++        cache-size = <262144>;
++        cache-unified;
++    };
 -- 
 2.34.1
 
