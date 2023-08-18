@@ -4,82 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C593EE4992
-	for <linux-riscv@archiver.kernel.org>; Fri, 18 Aug 2023 20:15:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93F6EEE4992
+	for <linux-riscv@archiver.kernel.org>; Fri, 18 Aug 2023 23:01:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5/wkMyrGsvyku0+T+UOlCSmPsxfqFckwsAyFLfEY6ww=; b=fmDf9wVcWyX7rOcC+zqUO1Lss0
-	RHPs0mA1qekjmrCrLAGE62HttZBVlrfw2mGQ0r57JNZ8ubmdxAhyswkqohU1ovsZtRPWNRnw4eVUq
-	+asytwItdt9F7QLVEuPhiC+6oaI24Epl0GaiF7u8RFNmzaEussbYz6KRtCh5r9F3GCsNg3GRbPk9P
-	Y2o05aYfCDAN4oR1+SXYVicwI+yQgx7Id8Z6iy7Nd4a9J6qMUpbF3LFcVAHHRs+s63yOoPICFKyTB
-	5p3eCULQBBGNLQ0q0w1NO8l5DJvU5m44VG2ZXBxG7sllg+0+k0qTDAarUDh7jOhk40EtB3xQdLZl+
-	vV47R++w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
+	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=EPjxNyW4bduKlAVNVrsGSTymkUrL5OIKl0FRmz7AAhg=; b=thaiqgpO2jbOBVuJofS2LkG8oS
+	cfzobKNOaNW9UD01fLI23k2HmLbpTY/5xhufr0M6K5TQJr6/XsJ8twE3twzkGOc7pPcJnUh0UZS62
+	d9QrzHdEbyzLi5LU0UaYXKzDHTLRXPYCRIZKPSEXt3tqy5S+JeA7K30cOx1YQlIlQ1/GWAXcWFPuI
+	aDxjaZJOLCQfZDPIlPH/Iu7bfTYkJDCaTyejCmTQ6wDJszF4MeGfXwPwx99WZFNrq+3vsQezWx4HW
+	4k2AD+31a3Pp4PA2xNKlFIMvzv+FdvVdHmrJ2xN15nJ78vXs7SB4nRtPWCVwyGhFNLyqAqbBaq3ma
+	jgzo1/SQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qX5sf-009zDF-0W;
-	Fri, 18 Aug 2023 20:15:37 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1qX8TJ-00A8Jt-09;
+	Fri, 18 Aug 2023 23:01:37 +0000
+Received: from mail-yb1-xb4a.google.com ([2607:f8b0:4864:20::b4a])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qX5sT-009zCL-38;
-	Fri, 18 Aug 2023 20:15:27 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 456D162A5B;
-	Fri, 18 Aug 2023 20:15:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D4FBFC433C7;
-	Fri, 18 Aug 2023 20:15:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1692389724;
-	bh=WCt+HTyPqpQoM8uuU7vN+x57RA6ZJu12mqg0CzvfAKw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=UWpnqpi65SH3/qdqWBn6Zd1Ci2gAJDST/B3oTk2b0QqR4KzLEHujl/2sXAp34aaQz
-	 rYf/Hxv4pGdxI4XtXA71/BlwdSjOlALBF8+7Nh/txVG1Pr0etLTfoxWGUJ+zGSMQ13
-	 12qmiSM3fn6coLaVe6HKubfVBJb5Z/QsLDUtopgpRJBemR/BlWB0eyjCHm7pxUeA6y
-	 yvGiBvlRhhmOnJmtqJKBgyLZHzlJhtJfhzvqoLPqNP+U1RPimemgLmIq2et3p1jWan
-	 qRLwKdKD5hl3mrqoXMp+UCe8E/WSmGnN+WQpVc/+3X3jhGCfNqyeGGCMUIAzmPI1DF
-	 i74Qa8ekO6c+g==
-Date: Fri, 18 Aug 2023 21:15:15 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	James Morse <james.morse@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Arnd Bergmann <arnd@arndb.de>, Oleg Nesterov <oleg@redhat.com>,
-	Eric Biederman <ebiederm@xmission.com>,
-	Kees Cook <keescook@chromium.org>, Shuah Khan <shuah@kernel.org>,
-	"Rick P. Edgecombe" <rick.p.edgecombe@intel.com>,
-	Deepak Gupta <debug@rivosinc.com>, Ard Biesheuvel <ardb@kernel.org>,
-	Szabolcs Nagy <Szabolcs.Nagy@arm.com>,
-	"H.J. Lu" <hjl.tools@gmail.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
-	kvmarm@lists.linux.dev, linux-fsdevel@vger.kernel.org,
-	linux-arch@vger.kernel.org, linux-mm@kvack.org,
-	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v4 19/36] arm64/gcs: Allocate a new GCS for threads with
- GCS enabled
-Message-ID: <3a01ce20-3365-421b-95ff-211946808174@sirena.org.uk>
-References: <20230807-arm64-gcs-v4-0-68cfa37f9069@kernel.org>
- <20230807-arm64-gcs-v4-19-68cfa37f9069@kernel.org>
- <ZNZhG/4rBpTenYVH@arm.com>
-MIME-Version: 1.0
-In-Reply-To: <ZNZhG/4rBpTenYVH@arm.com>
-X-Cookie: Your aim is high and to the right.
+	id 1qX8TF-00A8IZ-1f
+	for linux-riscv@lists.infradead.org;
+	Fri, 18 Aug 2023 23:01:34 +0000
+Received: by mail-yb1-xb4a.google.com with SMTP id 3f1490d57ef6-d67a458ff66so1779899276.3
+        for <linux-riscv@lists.infradead.org>; Fri, 18 Aug 2023 16:01:29 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20221208; t=1692399688; x=1693004488;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=usNReEG1yhZ2OoI1bkcsHZxi8vJT2uNEbLMV9P1BADc=;
+        b=gS9arkhq2BQM5wyG90faWG4pywmMu5sfjHEWd04bKy84agcqatheT6YSVqsnMAhJXs
+         7Ey6R/IsFpbuJAgflRTfCsGQSeE7z8aCnsHRbxEkKBK/PAH7FMZgZEavx3BeBXM+3P+2
+         Plq9VhZaRy5PbOx8EDNA03ytcClkYRB9Plt+OD+UltS53ZO5IOuVPHa/Yt8AOkDtjpGf
+         J0ReekJEPtY7ifZaoOCUWVj24ZOCPfNYabKI/jnVy+VGWVTelTn6BvdxHdiQrBc+k/kc
+         BoETN+5H+qyvqSzJ4nWEMxKRREF2ybV9p6gaBfB8lx1V/iAPfjWa3WjZDIbTKQp0bm0Z
+         IJkg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1692399688; x=1693004488;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=usNReEG1yhZ2OoI1bkcsHZxi8vJT2uNEbLMV9P1BADc=;
+        b=CiZYVUC5ylx9gx70EVlbOkYE7TqtbjrkQogmGIhMXKeAIgu1hHo8e8OF7jukSv+ixI
+         XHPihyXLw8Q0uslTI67UY2IB3xX7S8sm8yXhBENOsirKlzejSc+j74+o0RRI++XZD+Mn
+         UNgAAKlRVDOT3mDgueDRO10xvDuJNCBOYwKQ07CuBpXYTlGhMlMarxZ67b7rTSGNvDHM
+         TjLo7i2ELS4Pa5zl0YhAQRn2iNuUYAjRhG/OQrpOkm5FoiPhygTV8mCGn7ZA6Pg1rrof
+         V3mlS8h1kTN3kLlt+PZswub3apYtcx6qlQ5875GVKPd/I9FmmXpypoK3EOX1VwyxNjsN
+         MlvA==
+X-Gm-Message-State: AOJu0YzL+HXOJV7FBaTapqsJjccg6fcvUM47iUTTeVu70TRQ0XzAY1YY
+	ALA52c2kOYeMyMvUu53927Oyf6AehRA=
+X-Google-Smtp-Source: AGHT+IHoaUgHi5iMS/0Xt5cvUarFzMCVBDWHJfa8lAvVIAai8wyXyMLBOgyLMJxxiXlZfzlnoz9PoDeIZVI=
+X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
+ (user=seanjc job=sendgmr) by 2002:a05:6902:a8a:b0:d74:347:1e3 with SMTP id
+ cd10-20020a0569020a8a00b00d74034701e3mr5755ybb.9.1692399688376; Fri, 18 Aug
+ 2023 16:01:28 -0700 (PDT)
+Date: Fri, 18 Aug 2023 16:01:26 -0700
+In-Reply-To: <diqzleem306p.fsf@ackerleytng-ctop.c.googlers.com>
+Mime-Version: 1.0
+References: <20230718234512.1690985-29-seanjc@google.com> <diqzleem306p.fsf@ackerleytng-ctop.c.googlers.com>
+Message-ID: <ZN/4RjDsBLf0FB98@google.com>
+Subject: Re: [RFC PATCH v11 28/29] KVM: selftests: Add basic selftest for guest_memfd()
+From: Sean Christopherson <seanjc@google.com>
+To: Ackerley Tng <ackerleytng@google.com>
+Cc: pbonzini@redhat.com, maz@kernel.org, oliver.upton@linux.dev, 
+	chenhuacai@kernel.org, mpe@ellerman.id.au, anup@brainfault.org, 
+	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
+	willy@infradead.org, akpm@linux-foundation.org, paul@paul-moore.com, 
+	jmorris@namei.org, serge@hallyn.com, kvm@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
+	linux-fsdevel@vger.kernel.org, linux-mm@kvack.org, 
+	linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	chao.p.peng@linux.intel.com, tabba@google.com, jarkko@kernel.org, 
+	yu.c.zhang@linux.intel.com, vannapurve@google.com, mail@maciej.szmigiero.name, 
+	vbabka@suse.cz, david@redhat.com, qperret@google.com, michael.roth@amd.com, 
+	wei.w.wang@intel.com, liam.merwick@oracle.com, isaku.yamahata@gmail.com, 
+	kirill.shutemov@linux.intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230818_131526_097269_B668590D 
-X-CRM114-Status: GOOD (  32.46  )
+X-CRM114-CacheID: sfid-20230818_160133_555843_D5554835 
+X-CRM114-Status: GOOD (  21.80  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,117 +96,82 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6946351958103103396=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Mon, Aug 07, 2023, Ackerley Tng wrote:
+> Sean Christopherson <seanjc@google.com> writes:
+> 
+> > Add a selftest to verify the basic functionality of guest_memfd():
+> >
+> > <snip>
+> 
+> Here's one more test:
 
---===============6946351958103103396==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="45mwPxvFeqYyCSA9"
-Content-Disposition: inline
+First off, thank you!  I greatly appreciate all the selftests work you (and
+others!) have been doing.
 
+For v2, can you please post a standalone patch?  My workflow barfs on unrelated,
+inlined patches.  I'm guessing I can get b4 to play nice, but it's easier to just
+yell at people :-)
 
---45mwPxvFeqYyCSA9
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+> >From 72dc6836f01bdd613d64d4c6a4f2af8f2b777ba2 Mon Sep 17 00:00:00 2001
+> From: Ackerley Tng <ackerleytng@google.com>
+> Date: Tue, 1 Aug 2023 18:02:50 +0000
+> Subject: [PATCH] KVM: selftests: Add tests - invalid inputs for
+>  KVM_CREATE_GUEST_MEMFD
+> 
+> Test that invalid inputs for KVM_CREATE_GUEST_MEMFD, such as
+> non-page-aligned page size and invalid flags, are rejected by the
+> KVM_CREATE_GUEST_MEMFD with EINVAL
+> 
+> Signed-off-by: Ackerley Tng <ackerleytng@google.com>
+> ---
+>  tools/testing/selftests/kvm/guest_memfd_test.c  | 17 +++++++++++++++++
+>  .../selftests/kvm/include/kvm_util_base.h       | 11 +++++++++--
+>  2 files changed, 26 insertions(+), 2 deletions(-)
+> 
+> diff --git a/tools/testing/selftests/kvm/guest_memfd_test.c b/tools/testing/selftests/kvm/guest_memfd_test.c
+> index eb93c608a7e0..ad20f11b2d2c 100644
+> --- a/tools/testing/selftests/kvm/guest_memfd_test.c
+> +++ b/tools/testing/selftests/kvm/guest_memfd_test.c
+> @@ -90,6 +90,21 @@ static void test_fallocate(int fd, size_t page_size, size_t total_size)
+>  	TEST_ASSERT(!ret, "fallocate to restore punched hole should succeed");
+>  }
+>  
+> +static void test_create_guest_memfd_invalid(struct kvm_vm *vm, size_t page_size)
+> +{
+> +	int fd;
+> +
+> +	/* Non-page-aligned page_size */
 
-On Fri, Aug 11, 2023 at 05:26:03PM +0100, Catalin Marinas wrote:
-> On Mon, Aug 07, 2023 at 11:00:24PM +0100, Mark Brown wrote:
+Instead of adding a comment, use the message from TEST_ASSERT() to communicate
+that information to the reader *and* to anyone that encounters failures.
 
-> > +	mmap_write_lock(mm);
-> > +	mapped_addr = do_mmap(NULL, addr, size, PROT_READ, flags,
-> > +			      VM_SHADOW_STACK | VM_WRITE, 0, &unused, NULL);
+> +	fd = __vm_create_guest_memfd(vm, 1, 0);
 
-> Why not PROT_WRITE as well? I guess I need to check the x86 patches
-> since the do_mmap() called here has a different prototype than what's in
-> mainline.
+ioctls() are fast.  Rather than hardcode one value, iterate over a range of
+values, e.g.
 
-> This gets confusing since currently the VM_* flags are derived from the
-> PROT_* flags passed to mmap(). But you skip the PROT_WRITE in favour of
-> adding VM_WRITE directly.
+	for (size = 0; size < page_size; size++) {
+		r = __vm_create_guest_memfd(vm, size, 0);
+		TEST_ASSERT(r && errno == EINVAL,
+			    "Informative error message...);
+	}
+		
+> +	ASSERT_EQ(errno, EINVAL);
+> +
+> +	/* Invalid flags */
+> +	fd = __vm_create_guest_memfd(vm, page_size, 99);
+> +	ASSERT_EQ(fd, -1);
+> +	ASSERT_EQ(errno, EINVAL);
 
-I have to confess that I inherited this from the x86 code and never
-thought too hard about it.  I've got a horrible feeling the reasoning is
-simply the way in which x86 fits shadow stack into the page tables
-without having a mechanism like permission indirection, these don't
-apply for us.
-
-> I haven't followed the x86 discussion but did we run out of PROT_* bits
-> for a PROT_SHADOW_STACK?
-
-It's more that there are security concerns with having PROT_, especially
-in conjunction with needing to provide a token for stack pivot - we not
-only need to map pages for the GCS, we also need to write a cap token
-into it so that we can pivot to the new stack.  If the GCS can ever be
-written to by userspace via normal means then that's an issue for the
-basic protection model that the feature is trying to implement.  If we
-have the PROT_ but try to check for bad uses of it that makes everything
-messy and complicated which is especially non-ideal for a feature with a
-security focus.  Having a more packaged system call is easier for
-everyone.
-
-More detail in the x86 patch that's currently in -next:
-
-   https://lore.kernel.org/all/20230319001535.23210-34-rick.p.edgecombe@intel.com/
-
-> > +	/* Allocate RLIMIT_STACK with limits of PAGE_SIZE..4G */
-> > +	size = PAGE_ALIGN(min_t(unsigned long long,
-> > +				rlimit(RLIMIT_STACK), SZ_4G));
-> > +	return max(PAGE_SIZE, size);
-> > +}
-
-> I saw Szabolcs commenting on the default size as well. Maybe we should
-> go for RLIMIT_STACK/2 but let's see how the other sub-thread is going.
-
-I've updated it.
-
-> > +	if ((clone_flags & (CLONE_VFORK | CLONE_VM)) != CLONE_VM)
-> > +		return 0;
-
-> Is it safe for CLONE_VFORK not to get a new shadow stack? A syscall for
-> exec could push something to the stack. I guess the GCS pointer in the
-> parent stays the same, so it wouldn't matter.
-
-Yes, pushing should be fine just as for the regular stack.
-
-> That said, I think this check should be somewhere higher up in the
-> caller of gcs_alloc_thread_stack(). The copy_thread_gcs() function
-> already does most of the above checks. Is the GCS allocation called from
-> elsewhere as well?
-
-That's the only place.  I've moved the above check into copy_thread_gcs(),
-you're right that the other checks are redundant as they're done in the
-caller already.
-
---45mwPxvFeqYyCSA9
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmTf0VIACgkQJNaLcl1U
-h9AK7Af8DxBPnoklDhEt6uL9Qzwyg5iHuvMMz45iQs74RTv9fEM/vR1B1L0U0vxL
-LjcRxv98KB+GM2DQ+YOoQK84V2okcpKSNu9l/0CY+hvT8JChP5Ljn/b3azVF3FGY
-QYftbzRipJONW9pKxIZ7Svx8+iZIg03PmcwJTtLRsi36gyykxlFbYhzZm/0VbWH6
-HDuDWH8yMX1/BQGizf3FM7CxbBmhcI/zzi2eUslQ3EPOoSKywy4JXRc49XAvrxbT
-Bu8EbBX7Oapi96h+KlZEAWSiTuD4plJ6pJQsjMdMcELiI//3sTIzNRNqmFxBIgWS
-O2Sp933Ku1aQm9TW9TcOY3MVq5dYiQ==
-=X4OS
------END PGP SIGNATURE-----
-
---45mwPxvFeqYyCSA9--
-
-
---===============6946351958103103396==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+And then same thing here.  Then you can use the legal flags to determine what is
+and isn't valid, instead of using a completely arbitrary magic number.
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============6946351958103103396==--
-
