@@ -4,76 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD1CBC05052
-	for <linux-riscv@archiver.kernel.org>; Fri, 18 Aug 2023 04:09:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D28CC05052
+	for <linux-riscv@archiver.kernel.org>; Fri, 18 Aug 2023 07:30:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Hf3GVwf9kzEJ/C8jYxY81VZM0h9RqHXFptLv5bBrztg=; b=e+QOTTjAYcpTDw
-	Qgx+NKWutKPliXP1Bioi1bgP2KFT2kz1JO2Sb6HRREXd8npiR5W61XjNIgytVGWiLhFjhH9E0wi7h
-	xm5ooDl5Bn2KKlWvPNizEP69VD/sNrs/5vkGa2TcGKGDuLukIWZg/V+da9Rr0Hr+nBbVngrlckJxG
-	hTZD/Na59CqbpqnB3Zbk62Jz59JEcw0Gw3vCSdI01NI/tQSgztdWp7YlZLINWuLIR2K1r+F/Lw7zT
-	32YsVmH2NoQfuNAPL3CqZ49+9hCDdIf2V82b1XgyfcOaDf0DrezyX5lwtf9ReXKrMCBKIj9Oxh+mc
-	1jhUlDIucIMJ/iJbUVKw==;
+	List-Owner; bh=YnsdtTRatQuUYbjRIL43cESFyBXXyWd+bR1AyudXbRY=; b=0q/j8tVNPSLYkK
+	NyfhgCxfFihpgzvJe+2ILziXHxVI6+aBjEyopvbqIYThiFq0ewF5seL3d7VMRo7NoZbZLODzfzebb
+	pEwOJlQGET2VRIFnAzSLad3Ce7rbgCQlgHcrG+C0qVdYDWp9IoQHSyZXoRjyjCfvY0htt8BBQLt0s
+	WGFz1tQd6x9TuSSSpnFxtfdqkCqRktZyh30K99QEk6M7gFId2I8AQDC3tZWiP5fRr0qPu/IrDbJBP
+	eQ6LcvJAi6XIwVAIvEwz0OOVdcityyGF18BSk5g5ew9knjHGIAydnuWisuWtNUgIJvyDHlfJWDaqD
+	H8NzvLLjnBc1BfYWcb5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qWqnu-007eos-2Q;
-	Fri, 18 Aug 2023 04:09:42 +0000
-Received: from mail.loongson.cn ([114.242.206.163])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qWqnp-007enX-3D
+	id 1qWtwR-007skA-0t;
+	Fri, 18 Aug 2023 07:30:43 +0000
+Received: from mail-ej1-x642.google.com ([2a00:1450:4864:20::642])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1qWtwK-007si9-2I
 	for linux-riscv@lists.infradead.org;
-	Fri, 18 Aug 2023 04:09:40 +0000
-Received: from loongson.cn (unknown [10.20.42.43])
-	by gateway (Coremail) with SMTP id _____8AxV_H67t5kqMcZAA--.53371S3;
-	Fri, 18 Aug 2023 12:09:30 +0800 (CST)
-Received: from [10.20.42.43] (unknown [10.20.42.43])
-	by localhost.localdomain (Coremail) with SMTP id AQAAf8DxPCP67t5kQlxdAA--.13538S3;
-	Fri, 18 Aug 2023 12:09:30 +0800 (CST)
-Message-ID: <31ceb1b8-52e8-f57b-0e76-ea768242e26e@loongson.cn>
-Date: Fri, 18 Aug 2023 12:09:29 +0800
+	Fri, 18 Aug 2023 07:30:39 +0000
+Received: by mail-ej1-x642.google.com with SMTP id a640c23a62f3a-99bf3f59905so70938766b.3
+        for <linux-riscv@lists.infradead.org>; Fri, 18 Aug 2023 00:30:35 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1692343834; x=1692948634;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=nu5vRU+Ls6TvII7Q0Vdpj5U5jSrG/Osoam5r9jWleL8=;
+        b=lXKHqegRZrlMfU5dvc9HqWRFicSIRCIvlo/PdAjhqUmjfqRK1rz0adpwnl0+BLHqfn
+         1K1AfFwDMb9CKR/arhqO7ELjP5UK17fL588gxsJVLPksFDvVvh5zbclm7dk+Y5dEVbqD
+         OkY6nD7yxVXJPg1lvEf/rGgFusJJ0pa7IK6GkAHHqlau2FGtZQnSx3Y9bhkVG5LHelTL
+         Vc8Qh/4+p7lwdGJZXi6opSR1jAXmg6TSJDUhy8sMGYBSLCb9TOK1r67D48WAIlh45SbU
+         m2IUgviDZ0aQUlFQ5+AzfUuw5VTOrI0aRqhGBMnmuneYZxLM0jDLyR8cIbcAUnitT7q5
+         176A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1692343834; x=1692948634;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=nu5vRU+Ls6TvII7Q0Vdpj5U5jSrG/Osoam5r9jWleL8=;
+        b=cApNkjJkRzhPBZdJkh+NIeKH7KidOyk6WzuBAtikHGUNvbM7DszNbQ0lI39CMb4V2t
+         W9UEy/K4UTFa7SmKqyMPcs8Ja+mdTKptcgCL++kF11JQOW7kvzATgGIt/XMiEVToZwmS
+         Ho/osKmqXccegOgoNmAWsZT43j39NsSdsJFWlmVV06rMWdPnLBEO7D9hFlA0uiE4XhXP
+         MBfVwMZDtiTc7Pgv8f4KoibXy0jhCN1tEQ76SA6IcZcOTgDDzsj9/SOa+/FYbf8al9PD
+         ruS9Cdu81RcY5+Zle6iGrzuuc4st2SPAVYbSMM8BjxZjb8Z271FHH0DfTA+QFG0ZX5eN
+         ppPQ==
+X-Gm-Message-State: AOJu0YzWCzaFBPowahMR2nXr6jJBYft9+BbfZdRkE6FiUcxqDxs6ejJ5
+	1K+6JY+vRysAr+TAA5YQnGIbBw==
+X-Google-Smtp-Source: AGHT+IEsV5M/B1UbYyCeo0WYS5DT7wyD++pmpVV6vSVnEq/FsuPf4jkdM8SM0RY0TL9ZO5reeCNthA==
+X-Received: by 2002:a17:906:10a:b0:99c:441:ffa with SMTP id 10-20020a170906010a00b0099c04410ffamr1431712eje.29.1692343834051;
+        Fri, 18 Aug 2023 00:30:34 -0700 (PDT)
+Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
+        by smtp.gmail.com with ESMTPSA id k20-20020a1709063e1400b00992b71d8f19sm838014eji.133.2023.08.18.00.30.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 18 Aug 2023 00:30:33 -0700 (PDT)
+Date: Fri, 18 Aug 2023 09:30:32 +0200
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Charlie Jenkins <charlie@rivosinc.com>, jrtc27@jrtc27.com, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, kvm@vger.kernel.org, 
+	kvm-riscv@lists.infradead.org, bpf@vger.kernel.org, Paul Walmsley <paul.walmsley@sifive.com>, 
+	aou@eecs.berkeley.edu, peterz@infradead.org, jpoimboe@kernel.org, jbaron@akamai.com, 
+	rostedt@goodmis.org, Ard Biesheuvel <ardb@kernel.org>, anup@brainfault.org, 
+	atishp@atishpatra.org, ast@kernel.org, daniel@iogearbox.net, andrii@kernel.org, 
+	martin.lau@linux.dev, song@kernel.org, yhs@fb.com, john.fastabend@gmail.com, 
+	kpsingh@kernel.org, sdf@google.com, haoluo@google.com, jolsa@kernel.org, 
+	bjorn@kernel.org, luke.r.nels@gmail.com, xi.wang@gmail.com, namcaov@gmail.com
+Subject: Re: [PATCH 00/10] RISC-V: Refactor instructions
+Message-ID: <20230818-63347af7195b7385c146778d@orel>
+References: <ZN5OJO/xOWUjLK2w@ghost>
+ <mhng-7d609dde-ad47-42ed-a47b-6206e719020a@palmer-ri-x1c9a>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.13.0
-Subject: Re: [PATCH v4] PCI/VGA: Make the vga_is_firmware_default() less
- arch-dependent
-Content-Language: en-US
-To: Bjorn Helgaas <helgaas@kernel.org>
-Cc: Bjorn Helgaas <bhelgaas@google.com>, loongson-kernel@lists.loongnix.cn,
- linux-pci@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
- Emil Velikov <emil.velikov@collabora.com>, Daniel Vetter <daniel@ffwll.ch>,
- "Deucher, Alexander" <Alexander.Deucher@amd.com>,
- "Limonciello, Mario" <Mario.Limonciello@amd.com>
-References: <20230817220853.GA328159@bhelgaas>
-From: suijingfeng <suijingfeng@loongson.cn>
-In-Reply-To: <20230817220853.GA328159@bhelgaas>
-X-CM-TRANSID: AQAAf8DxPCP67t5kQlxdAA--.13538S3
-X-CM-SenderInfo: xvxlyxpqjiv03j6o00pqjv00gofq/
-X-Coremail-Antispam: 1Uk129KBj93XoWxuF1UKr1xGr18Aw4DuF4rJFc_yoW5AFyUp3
-	yrCF1FkF4kArnakrnrGw4kXF1rAws7Xa4FkFn0y34DA343Zrn2qrySkrWqgFyUZrs7X3W2
-	vF40gwn5GayqvagCm3ZEXasCq-sJn29KB7ZKAUJUUUUx529EdanIXcx71UUUUU7KY7ZEXa
-	sCq-sGcSsGvfJ3Ic02F40EFcxC0VAKzVAqx4xG6I80ebIjqfuFe4nvWSU5nxnvy29KBjDU
-	0xBIdaVrnRJUUUPIb4IE77IF4wAFF20E14v26r1j6r4UM7CY07I20VC2zVCF04k26cxKx2
-	IYs7xG6rWj6s0DM7CIcVAFz4kK6r1Y6r17M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48v
-	e4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_JFI_Gr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI
-	0_Jr0_Gr1l84ACjcxK6I8E87Iv67AKxVWxJVW8Jr1l84ACjcxK6I8E87Iv6xkF7I0E14v2
-	6r4UJVWxJr1ln4kS14v26r126r1DM2AIxVAIcxkEcVAq07x20xvEncxIr21l57IF6xkI12
-	xvs2x26I8E6xACxx1l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r12
-	6r1DMcIj6I8E87Iv67AKxVW8JVWxJwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr4
-	1lc7I2V7IY0VAS07AlzVAYIcxG8wCY1x0262kKe7AKxVWUAVWUtwCF04k20xvY0x0EwIxG
-	rwCFx2IqxVCFs4IE7xkEbVWUJVW8JwCFI7km07C267AKxVWUAVWUtwC20s026c02F40E14
-	v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_Jw0_GFylIxkG
-	c2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUCVW8JwCI42IY6xIIjxv20xvEc7CjxVAFwI
-	0_Jr0_Gr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r4j6F4U
-	MIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x07jFApnUUU
-	UU=
+Content-Disposition: inline
+In-Reply-To: <mhng-7d609dde-ad47-42ed-a47b-6206e719020a@palmer-ri-x1c9a>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230817_210938_406832_2AB83B9B 
-X-CRM114-Status: GOOD (  24.52  )
+X-CRM114-CacheID: sfid-20230818_003036_753487_535AB852 
+X-CRM114-Status: GOOD (  11.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,81 +94,29 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Thu, Aug 17, 2023 at 10:52:22AM -0700, Palmer Dabbelt wrote:
+> On Thu, 17 Aug 2023 09:43:16 PDT (-0700), Charlie Jenkins wrote:
+...
+> > It seems to me that it will be significantly more challenging to use
+> > riscv-opcodes than it would for people to just hand create the macros
+> > that they need.
+> 
+> Ya, riscv-opcodes is pretty custy.  We stopped using it elsewhere ages ago.
 
+Ah, pity I didn't know the history of it or I wouldn't have suggested it,
+wasting Charlie's time (sorry, Charlie!). So everywhere that needs
+encodings are manually scraping them from the PDFs? Or maybe we can write
+our own parser which converts adoc/wavedrom files[1] to Linux C?
 
-On 2023/8/18 06:08, Bjorn Helgaas wrote:
-> On Wed, Aug 16, 2023 at 06:05:27AM +0800, Sui Jingfeng wrote:
->> Currently, the vga_is_firmware_default() function only works on x86 and
->> ia64, it is a no-op on ARM, ARM64, PPC, RISC-V, etc. This patch completes
->> the implementation for the rest of the architectures. The added code tries
->> to identify the PCI(e) VGA device that owns the firmware framebuffer
->> before PCI resource reallocation happens.
-> As far as I can tell, this is basically identical to the existing
-> vga_is_firmware_default(), except that this patch funs that code as a
-> header fixup, so it happens before any PCI BAR reallocations happen.
+[1] https://github.com/riscv/riscv-isa-manual/tree/main/src/images/wavedrom
 
-
-Yes, what you said is right in overall.
-But I think I should mention a few tiny points that make a difference.
-
-1) My version is *less arch-dependent*
-
-
-Again, since the global screen_info is arch-dependent.
-The vga_is_firmware_default() mess up the arch-dependent part and arch-independent part.
-It's a mess and it's a bit harder to make the cleanup on the top of it.
-
-While my version is my version split the arch-dependent part and arch-independent part clearly.
-Since we decide to make it less arch-dependent, we have to bear the pain.
-Despite all other arches should always export the screen_info like the X86 and IA64 arch does,
-or at least a arch should give a Kconfig token (for example, CONFIG_ARCH_HAS_SCREEN_INFO) to
-demonstrate that an arch has the support for it.
-While currently, the fact is that the dependence just populated to everywhere.
-I think this is the hard part, you have to investigate how various arches defines and set up
-the screen_info. And then process dependency and the linkage problem across arch properly.
-
-
-2) My version focus on the address in ranges, weaken the size parameter.
-
-Which make the code easy to read and follow the canonical convention to
-express the address range. while the vga_is_firmware_default() is not.
-
-
-3) A tiny change make a big difference.
-
-
-The original vga_is_firmware_default() only works with the assumption
-that the PCI resource reallocation won't happens. While I see no clue
-that why this is true even on X86 and IA64. The original patch[1] not
-mention this assumption explicitly.
-  
-[1] 86fd887b7fe3 ('vgaarb: Don't default exclusively to first video device with mem+io')
-
-
-> That sounds like a good idea, because this is all based on the
-> framebuffer in screen_info, and screen_info was initialized before PCI
-> enumeration, and it certainly doesn't account for any BAR changes done
-> by the PCI core.
-
-
-Yes.
-
-
-> So why would we keep vga_is_firmware_default() at all?  If the header
-> fixup has already identified the firmware framebuffer, it seems
-> pointless to look again later.
->
-
-It need another patch to do the cleanup work, while my patch just add code to solve the real problem.
-It focus on provide a solution for the architectures which have a decent way set up the screen_info.
-Other things except that is secondary.
-
+Thanks,
+drew
 
 _______________________________________________
 linux-riscv mailing list
