@@ -4,86 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E4C1C678DC
-	for <linux-riscv@archiver.kernel.org>; Fri, 18 Aug 2023 10:21:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47D42C7113C
+	for <linux-riscv@archiver.kernel.org>; Fri, 18 Aug 2023 12:04:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ngpccK6XvXImBrZIn2EN4KoKuZq8QSWgMU76KOlahNY=; b=0gW6yn3S6zThA2
-	uEwhF7t57EgpNim+tzffRfvoAW80mfymswJOUY21gogHWc/mcIRgFXoFKLLmyAn5gdxGMg5dLZ8P0
-	jMobqpyFnmss1wwK58vk0OeCqYPhC744lmEASElkxILrpd1rk386k3g3OogADH5I5E7oiHRznGmnV
-	bT+CONJORR0W5Vh30qYmRdUXaCNyCTzslx2WOcNZKVwWvc4FU9oz0M7kle4Bs9bb3IoDrvH5NtDgX
-	JClNktsGAWOwHNalaQDAK+C0C2ti3rKnzU5WrHObRUfar6B/6uUJR4KOm+RNYAFk07vP1nyju0CuY
-	88Cxl2/OthXXrKa5GCJw==;
+	List-Owner; bh=oYg/d38/VbsE5OKwraxt39cjL14i92sOw5xUGJ6DpQc=; b=cpPWl5G6k0f96h
+	QX8F7nGNhtbX/NZvMdXx5SGdHyS8u92dL6CRzSXuJwxYqUbrSeypXg96aFnmvyzrfClWGsNbfnjcx
+	ZSiZFjG8yG4NgGD8VSX5c1P80M1iuRU+Llawn7ZLug5wXewtP1KJUTlVqB5QL2y7V7TyXxlX67D1i
+	SUz1HvnYu0HriLaGuMrM+Q4E6YeWcT2mvilBWCaqTpJ+cLoZjwSKin+DHenEb6p6UwZ+BeHL2+JV/
+	oO0vOb8N7qDUueE4YeW1eqTt0un/uQg78vwm/5bTVvX2TC2pBLvvTsI7+kZS+yy8fqJiyKU8f0fPN
+	s/Q0iCxQ9LLm4YM61yvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qWwbG-008ClP-1a;
-	Fri, 18 Aug 2023 10:21:02 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1qWyDX-0091Yn-1s;
+	Fri, 18 Aug 2023 12:04:39 +0000
+Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qWwbE-008Cl7-29
-	for linux-riscv@bombadil.infradead.org;
-	Fri, 18 Aug 2023 10:21:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:Content-Type:
-	In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender
-	:Reply-To:Content-ID:Content-Description;
-	bh=U5/h4Jty+HOcYmdchBXiWgZGsK0UrC7R9kQU61pG61Y=; b=R6lePe3FRI8fmr1QSu/GM8HrTM
-	mJg2pdMEhd1gVY7zVCIPNMUBhh5ENupgjJTQFreBcWIaCBFh3L4jZ6iM51l93I6FS79hXA020fafK
-	pIVn+XL/lKwiWDuNnvhl4dBZQVUYxXeD0vvHT0zpZBxku12WIgjXL0G5YfoSQYqOxGbm2KO5ja++T
-	zUI6WUxg01VkUwmTa8By4x7mufI0/2qVnU4shXS1I/9PHjH7lRuUPkSD62RyiTeiA5DxvucF0EvuD
-	FrtEd0s42grXKHNacSRqzZX4anVsZALSBaL9nETo59m/ZjQd0YNm9lLoUBzSBfSwY3sH2OjVurrT9
-	J0Cnc21g==;
-Received: from mail.loongson.cn ([114.242.206.163])
-	by casper.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1qWwb8-008rAa-Kc
-	for linux-riscv@lists.infradead.org; Fri, 18 Aug 2023 10:20:58 +0000
-Received: from loongson.cn (unknown [10.20.42.43])
-	by gateway (Coremail) with SMTP id _____8BxbOr8Rd9kLdgZAA--.25768S3;
-	Fri, 18 Aug 2023 18:20:44 +0800 (CST)
-Received: from [10.20.42.43] (unknown [10.20.42.43])
-	by localhost.localdomain (Coremail) with SMTP id AQAAf8BxHCP8Rd9kYIpdAA--.13478S3;
-	Fri, 18 Aug 2023 18:20:44 +0800 (CST)
-Message-ID: <fb242a7e-b1ee-7be0-cbc4-be710e246279@loongson.cn>
-Date: Fri, 18 Aug 2023 18:20:44 +0800
+	id 1qWyDU-0091Sq-1M
+	for linux-riscv@lists.infradead.org;
+	Fri, 18 Aug 2023 12:04:37 +0000
+Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-31956020336so524288f8f.0
+        for <linux-riscv@lists.infradead.org>; Fri, 18 Aug 2023 05:04:29 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bytedance.com; s=google; t=1692360268; x=1692965068;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ZZdQfOSfjb7jYvSj08bFptXj69b81GU/KGqpyvuaZ5w=;
+        b=iDsrk9/cifcSjXR+nr+gTAPzO+df+W0llBMvPiBUMarijotRiy2Am70KIeL5imF6Kx
+         m5133LT8vky4Od4sX1UwDrhvkYpf7h9mJWCPl4D1NVuFx6veBut1QaFGDMTQ8gDazyez
+         UBgNJPsHeDx07e6xmg5kdAFibsl4hSS+sCR3FPlpHgsS0yd80Xs9fVO3b2OzvM6lFl71
+         dNjrnpelzhALDCXHYbCLgnH0lX4dp802k3maSlKHrh2Yo970U/5TbtsA9VSRRgfqlnzb
+         P0ndWMga1p8lEARrJmhRa3H5VwShenvVI8kfRx2U3xLxmsX2YMmCJ44/ZIeawj0uW2nN
+         JKWg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1692360268; x=1692965068;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=ZZdQfOSfjb7jYvSj08bFptXj69b81GU/KGqpyvuaZ5w=;
+        b=fNrjzr16dLgg0rIQEKfXXfJ4F9uMy7lKqJmsU34Bg7Uo6b6K+QxlBOCQCi7XQl3Lmo
+         xYnXCbWZUXWn2CBe0muLLV5R8fa+6nFu9WrLVBm7VBpkYoBCA0S32G7+qCw7odbXV+TG
+         /o28Y1dI1oAVuZGmN9SU8W1QnmjLuvCJjUCBwOSJT5iv5jKHmHnZ3pseLivH5UPk2tQa
+         /Cx65pydTerbBmW7iu+N+XWoD5//cL3p7iHtcFQWYMmkLS4HgPWr2OXM0Ue7WjQkDkmC
+         wVVsTzj7atCgKeVQiMvUtqI0vlVub0cmhBFiCw/ELI0pSswq/RGPWOawAQ2sSmgRiZ61
+         AgCQ==
+X-Gm-Message-State: AOJu0YyiZPcTb+W10kzPYVrmvkcACiSOcLOf/x6G/cECKQM6fGdARuxX
+	Cyj+KnkCRV7yS7DA46PrIOXd1M3j5h2aovGT09ETTA==
+X-Google-Smtp-Source: AGHT+IEkfjwtc76KHGFOS61DemLriDUYPGx1HD/1+fhhgM0utSuzqb3nhbuUGfwJ7daMooYnhiIRVXybkfCzmjvKChI=
+X-Received: by 2002:a05:6000:1106:b0:317:dcdd:3fa2 with SMTP id
+ z6-20020a056000110600b00317dcdd3fa2mr1456519wrw.31.1692360268611; Fri, 18 Aug
+ 2023 05:04:28 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.13.0
-Subject: Re: [PATCH v4] PCI/VGA: Make the vga_is_firmware_default() less
- arch-dependent
-Content-Language: en-US
-To: Bjorn Helgaas <helgaas@kernel.org>
-Cc: Bjorn Helgaas <bhelgaas@google.com>, loongson-kernel@lists.loongnix.cn,
- linux-pci@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org
-References: <20230817220853.GA328159@bhelgaas>
-From: suijingfeng <suijingfeng@loongson.cn>
-In-Reply-To: <20230817220853.GA328159@bhelgaas>
-X-CM-TRANSID: AQAAf8BxHCP8Rd9kYIpdAA--.13478S3
-X-CM-SenderInfo: xvxlyxpqjiv03j6o00pqjv00gofq/
-X-Coremail-Antispam: 1Uk129KBj93XoWxWrWrGr4fCF15Jr4DCF1xZwc_yoW5XryfpF
-	yfua93tF4kWrs8KanFvw18WF47urZ7Aa9xArnxJry0kr43W34FgrZIkr4Yya47JFsaqFyS
-	va9Fq348t3WDAagCm3ZEXasCq-sJn29KB7ZKAUJUUUU5529EdanIXcx71UUUUU7KY7ZEXa
-	sCq-sGcSsGvfJ3Ic02F40EFcxC0VAKzVAqx4xG6I80ebIjqfuFe4nvWSU5nxnvy29KBjDU
-	0xBIdaVrnRJUUU9Sb4IE77IF4wAFF20E14v26r1j6r4UM7CY07I20VC2zVCF04k26cxKx2
-	IYs7xG6rWj6s0DM7CIcVAFz4kK6r1Y6r17M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48v
-	e4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Jr0_JF4l84ACjcxK6xIIjxv20xvEc7CjxVAFwI
-	0_Jr0_Gr1l84ACjcxK6I8E87Iv67AKxVW8Jr0_Cr1UM28EF7xvwVC2z280aVCY1x0267AK
-	xVW8Jr0_Cr1UM2AIxVAIcxkEcVAq07x20xvEncxIr21l57IF6xkI12xvs2x26I8E6xACxx
-	1l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1Y6r17McIj6I8E87Iv
-	67AKxVW8JVWxJwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lc7I2V7IY0VAS07
-	AlzVAYIcxG8wCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwCFI7km07C2
-	67AKxVWUtVW8ZwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI
-	8E67AF67kF1VAFwI0_JF0_Jw1lIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWU
-	CwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Jr0_Gr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r
-	1xMIIF0xvEx4A2jsIE14v26r4j6F4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBI
-	daVFxhVjvjDU0xZFpf9x07jYSoJUUUUU=
+References: <20230817114130.24662-1-cuiyunhui@bytedance.com> <87msyphk99.fsf@all.your.base.are.belong.to.us>
+In-Reply-To: <87msyphk99.fsf@all.your.base.are.belong.to.us>
+From: yunhui cui <cuiyunhui@bytedance.com>
+Date: Fri, 18 Aug 2023 20:04:17 +0800
+Message-ID: <CAEEQ3wn13-etJ=3OHA7yR2GtYYWkKNb6G0DiDjVwqfxGvZOLfw@mail.gmail.com>
+Subject: Re: [External] Re: [PATCH v3] riscv: add userland instruction dump to
+ RISC-V splats
+To: =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
+Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
+	guoren@kernel.org, bjorn@rivosinc.com, conor.dooley@microchip.com, 
+	jszhang@kernel.org, andy.chiu@sifive.com, dave.hansen@linux.intel.com, 
+	elver@google.com, glider@google.com, cyphar@cyphar.com, 
+	kirill.shutemov@linux.intel.com, keescook@chromium.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230818_112055_408993_B98FBAF0 
-X-CRM114-Status: GOOD (  12.91  )
+X-CRM114-CacheID: sfid-20230818_050436_469141_1FC5E52A 
+X-CRM114-Status: GOOD (  22.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,80 +88,97 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-
-On 2023/8/18 06:08, Bjorn Helgaas wrote:
->> Please note that before apply this patch, vgaarb can not select the
->> right boot vga due to weird logic introduced with the commit
->> 57fc7323a8e7c ("LoongArch: Add PCI controller support")
-> If we need this reference to 57fc7323a8e7c, we need more specifics
-> about what the "weird logic" is.  pci_fixup_vgadev() is the only
-> obvious VGA connection, so I suppose it's related to that.
->
-Yes, you are right.
-
-The pci_fixup_vgadev() function will set the last VGA device enumerated as the default boot device.
-By "the last" VGA device, I mean that this device has the largest PCI bus, domain, and function triple.
-Thus, it is added to vgaarb in the end of all VGA device.
-So that logic expresses that the last one added will be the default.
-This probably is not what we want.
-
-
-On the LS3A5000+LS7A1000 platform, the last VGA device is a S3 graphics 
-(08:00.0). This GPU has two cores. Say the log below:
-
-
-$ lspci | grep VGA
-
-  00:06.1 VGA compatible controller: Loongson Technology LLC DC (Display Controller) (rev 01)
-  03:00.0 VGA compatible controller: Advanced Micro Devices, Inc. [AMD/ATI] Caicos XT [Radeon HD 7470/8470 / R5 235/310 OEM]
-  07:00.0 VGA compatible controller: S3 Graphics Ltd. Device 9070 (rev 01)
-  08:00.0 VGA compatible controller: S3 Graphics Ltd. Device 9070 (rev 01)
-
-[    0.361781] vgaarb: loaded
-[    0.367838] pci 0000:00:06.1: Overriding boot device as 1002:6778
-[    0.367841] pci 0000:00:06.1: Overriding boot device as 5333:9070
-[    0.367843] pci 0000:00:06.1: Overriding boot device as 5333:9070
-
-1) The "weird" logic completely overrides whatever decision VGAARB ever made.
-
-It seems to say that the decision ever made by VGAARB is useless.
-Well, I think VGAARB shouldn't endure this; VGAARB has to be small.
-
-  
-
-2) The results it gives are not correct either.
-
-In the first testing example in my commit message,
-it overrides the S3 graphics as the default boot VGA instead of the AMD/ATI GPU.
-Actually, the firmware chooses the AMD/ATI GPU as the "frimware default".
-
-  
-
-3) It tries to make the decision for the end user instead of the firmware.
-
-Therefore, that function is always wrong. Again, it's a policy, not a mechanism.
-
-
-Since that already have been merge, I'm fine.
-Maybe Huacai is busy, he might don't has the time to carry on a deep thinking.
-But I think we should correct the mistake ever made,
-let's merge this patch to make vgaarb great again ?
-
-
-Well, that commit is not a dependency, I don't mind delete the referencing
-to that commit. After all, I think my patch will be effective on other architectures.
-Is additional testing on ARM64 and X86 is needed, if so I have to find the machine to
-carry on the testing.
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgQmrDtnJu77yMCgpPbiBUaHUsIEF1ZyAxNywgMjAyMyBhdCA5OjI34oCvUE0gQmrDtnJuIFTD
+tnBlbCA8Ympvcm5Aa2VybmVsLm9yZz4gd3JvdGU6Cj4KPiBZdW5odWkgQ3VpIDxjdWl5dW5odWlA
+Ynl0ZWRhbmNlLmNvbT4gd3JpdGVzOgo+Cj4gPiBBZGRlZCB1c2VybGFuZCBpbnN0cnVjdGlvbiBk
+dW1wIGluIGR1bXBfa2VybmVsX2luc3RyKCkuCj4gPgo+ID4gQW4gZXhhbXBsZToKPiA+IFsgICAg
+MC44MjI0MzldIEZyZWVpbmcgdW51c2VkIGtlcm5lbCBpbWFnZSAoaW5pdG1lbSkgbWVtb3J5OiA2
+OTE2Swo+ID4gWyAgICAwLjgyMzgxN10gUnVuIC9pbml0IGFzIGluaXQgcHJvY2Vzcwo+ID4gWyAg
+ICAwLjgzOTQxMV0gaW5pdFsxXTogdW5oYW5kbGVkIHNpZ25hbCA0IGNvZGUgMHgxIGF0IDB4MDAw
+MDAwMDAwMDA1YmUxOCBpbiBiYlsxMDAwMCs1ZmIwMDBdCj4gPiBbICAgIDAuODQwNzUxXSBDUFU6
+IDAgUElEOiAxIENvbW06IGluaXQgTm90IHRhaW50ZWQgNS4xNC4wLXJjNC0wMDA0OS1nYmQ2NDQy
+OTBhYTcyLWRpcnR5ICMxODcKPiA+IFsgICAgMC44NDEzNzNdIEhhcmR3YXJlIG5hbWU6ICAsIEJJ
+T1MKPiA+IFsgICAgMC44NDE3NDNdIGVwYyA6IDAwMDAwMDAwMDAwNWJlMTggcmEgOiAwMDAwMDAw
+MDAwMDc5ZTc0IHNwIDogMDAwMDAwM2ZmZmNhZmRhMAo+ID4gWyAgICAwLjg0MjI3MV0gIGdwIDog
+ZmZmZmZmZmY4MTZlOWRjOCB0cCA6IDAwMDAwMDAwMDAwMDAwMDAgdDAgOiAwMDAwMDAwMDAwMDAw
+MDAwCj4gPiBbICAgIDAuODQyOTQ3XSAgdDEgOiAwMDAwMDAzZmZmYzlmZGYwIHQyIDogMDAwMDAw
+MDAwMDAwMDAwMCBzMCA6IDAwMDAwMDAwMDAwMDAwMDAKPiA+IFsgICAgMC44NDM0MzRdICBzMSA6
+IDAwMDAwMDAwMDAwMDAwMDAgYTAgOiAwMDAwMDAzZmZmY2EwMTkwIGExIDogMDAwMDAwM2ZmZmNh
+ZmUxOAo+ID4gWyAgICAwLjg0Mzg5MV0gIGEyIDogMDAwMDAwMDAwMDAwMDAwMCBhMyA6IDAwMDAw
+MDAwMDAwMDAwMDAgYTQgOiAwMDAwMDAwMDAwMDAwMDAwCj4gPiBbICAgIDAuODQ0MzU3XSAgYTUg
+OiAwMDAwMDAwMDAwMDAwMDAwIGE2IDogMDAwMDAwMDAwMDAwMDAwMCBhNyA6IDAwMDAwMDAwMDAw
+MDAwMDAKPiA+IFsgICAgMC44NDQ4MDNdICBzMiA6IDAwMDAwMDAwMDAwMDAwMDAgczMgOiAwMDAw
+MDAwMDAwMDAwMDAwIHM0IDogMDAwMDAwMDAwMDAwMDAwMAo+ID4gWyAgICAwLjg0NTI1M10gIHM1
+IDogMDAwMDAwMDAwMDAwMDAwMCBzNiA6IDAwMDAwMDAwMDAwMDAwMDAgczcgOiAwMDAwMDAwMDAw
+MDAwMDAwCj4gPiBbICAgIDAuODQ1NzIyXSAgczggOiAwMDAwMDAwMDAwMDAwMDAwIHM5IDogMDAw
+MDAwMDAwMDAwMDAwMCBzMTA6IDAwMDAwMDAwMDAwMDAwMDAKPiA+IFsgICAgMC44NDYxODBdICBz
+MTE6IDAwMDAwMDAwMDBkMTQ0ZTAgdDMgOiAwMDAwMDAwMDAwMDAwMDAwIHQ0IDogMDAwMDAwMDAw
+MDAwMDAwMAo+ID4gWyAgICAwLjg0NjYxNl0gIHQ1IDogMDAwMDAwMDAwMDAwMDAwMCB0NiA6IDAw
+MDAwMDAwMDAwMDAwMDAKPiA+IFsgICAgMC44NDcyMDRdIHN0YXR1czogMDAwMDAwMDIwMDAwMDAy
+MCBiYWRhZGRyOiAwMDAwMDAwMGYwMDI4MDUzIGNhdXNlOiAwMDAwMDAwMDAwMDAwMDAyCj4gPiBb
+ICAgIDAuODQ4MjE5XSBDb2RlOiBmMDZmIGZmNWYgMzgyMyBmYTExIDAxMTMgZmIwMSAyZTIzIDAy
+MDEgMDI5MyAwMDAwICg4MDUzKSBmMDAyCj4gPiBbICAgIDAuODUxMDE2XSBLZXJuZWwgcGFuaWMg
+LSBub3Qgc3luY2luZzogQXR0ZW1wdGVkIHRvIGtpbGwgaW5pdCEgZXhpdGNvZGU9MHgwMDAwMDAw
+NAo+ID4KPiA+IFNpZ25lZC1vZmYtYnk6IFl1bmh1aSBDdWkgPGN1aXl1bmh1aUBieXRlZGFuY2Uu
+Y29tPgo+ID4gLS0tCj4gPiAgYXJjaC9yaXNjdi9rZXJuZWwvdHJhcHMuYyB8IDEwICsrKysrKyst
+LS0KPiA+ICBpbmNsdWRlL2xpbnV4L3VhY2Nlc3MuaCAgIHwgIDUgKysrKysKPiA+ICAyIGZpbGVz
+IGNoYW5nZWQsIDEyIGluc2VydGlvbnMoKyksIDMgZGVsZXRpb25zKC0pCj4gPgo+ID4gZGlmZiAt
+LWdpdCBhL2FyY2gvcmlzY3Yva2VybmVsL3RyYXBzLmMgYi9hcmNoL3Jpc2N2L2tlcm5lbC90cmFw
+cy5jCj4gPiBpbmRleCBmOTEwZGZjY2JmNWQuLmE2YTg1MGU0MmQ1OSAxMDA2NDQKPiA+IC0tLSBh
+L2FyY2gvcmlzY3Yva2VybmVsL3RyYXBzLmMKPiA+ICsrKyBiL2FyY2gvcmlzY3Yva2VybmVsL3Ry
+YXBzLmMKPiA+IEBAIC0zMyw3ICszMyw3IEBAIGludCBzaG93X3VuaGFuZGxlZF9zaWduYWxzID0g
+MTsKPiA+Cj4gPiAgc3RhdGljIERFRklORV9TUElOTE9DSyhkaWVfbG9jayk7Cj4gPgo+ID4gLXN0
+YXRpYyB2b2lkIGR1bXBfa2VybmVsX2luc3RyKGNvbnN0IGNoYXIgKmxvZ2x2bCwgc3RydWN0IHB0
+X3JlZ3MgKnJlZ3MpCj4gPiArc3RhdGljIHZvaWQgZHVtcF9pbnN0cihjb25zdCBjaGFyICpsb2ds
+dmwsIHN0cnVjdCBwdF9yZWdzICpyZWdzKQo+ID4gIHsKPiA+ICAgICAgIGNoYXIgc3RyW3NpemVv
+ZigiMDAwMCAiKSAqIDEyICsgMiArIDFdLCAqcCA9IHN0cjsKPiA+ICAgICAgIGNvbnN0IHUxNiAq
+aW5zbnMgPSAodTE2ICopaW5zdHJ1Y3Rpb25fcG9pbnRlcihyZWdzKTsKPiA+IEBAIC00Miw3ICs0
+MiwxMCBAQCBzdGF0aWMgdm9pZCBkdW1wX2tlcm5lbF9pbnN0cihjb25zdCBjaGFyICpsb2dsdmws
+IHN0cnVjdCBwdF9yZWdzICpyZWdzKQo+ID4gICAgICAgaW50IGk7Cj4gPgo+ID4gICAgICAgZm9y
+IChpID0gLTEwOyBpIDwgMjsgaSsrKSB7Cj4gPiAtICAgICAgICAgICAgIGJhZCA9IGdldF9rZXJu
+ZWxfbm9mYXVsdCh2YWwsICZpbnNuc1tpXSk7Cj4gPiArICAgICAgICAgICAgIGlmICh1c2VyX21v
+ZGUocmVncykpCj4gPiArICAgICAgICAgICAgICAgICAgICAgYmFkID0gZ2V0X3VzZXJfbm9mYXVs
+dCh2YWwsICZpbnNuc1tpXSk7Cj4gPiArICAgICAgICAgICAgIGVsc2UKPiA+ICsgICAgICAgICAg
+ICAgICAgICAgICBiYWQgPSBnZXRfa2VybmVsX25vZmF1bHQodmFsLCAmaW5zbnNbaV0pOwo+ID4g
+ICAgICAgICAgICAgICBpZiAoIWJhZCkgewo+ID4gICAgICAgICAgICAgICAgICAgICAgIHAgKz0g
+c3ByaW50ZihwLCBpID09IDAgPyAiKCUwNGh4KSAiIDogIiUwNGh4ICIsIHZhbCk7Cj4gPiAgICAg
+ICAgICAgICAgIH0gZWxzZSB7Cj4gPiBAQCAtNzEsNyArNzQsNyBAQCB2b2lkIGRpZShzdHJ1Y3Qg
+cHRfcmVncyAqcmVncywgY29uc3QgY2hhciAqc3RyKQo+ID4gICAgICAgcHJpbnRfbW9kdWxlcygp
+Owo+ID4gICAgICAgaWYgKHJlZ3MpIHsKPiA+ICAgICAgICAgICAgICAgc2hvd19yZWdzKHJlZ3Mp
+Owo+ID4gLSAgICAgICAgICAgICBkdW1wX2tlcm5lbF9pbnN0cihLRVJOX0VNRVJHLCByZWdzKTsK
+PiA+ICsgICAgICAgICAgICAgZHVtcF9pbnN0cihLRVJOX0VNRVJHLCByZWdzKTsKPiA+ICAgICAg
+IH0KPiA+Cj4gPiAgICAgICBjYXVzZSA9IHJlZ3MgPyByZWdzLT5jYXVzZSA6IC0xOwo+ID4gQEAg
+LTEwNCw2ICsxMDcsNyBAQCB2b2lkIGRvX3RyYXAoc3RydWN0IHB0X3JlZ3MgKnJlZ3MsIGludCBz
+aWdubywgaW50IGNvZGUsIHVuc2lnbmVkIGxvbmcgYWRkcikKPiA+ICAgICAgICAgICAgICAgcHJp
+bnRfdm1hX2FkZHIoS0VSTl9DT05UICIgaW4gIiwgaW5zdHJ1Y3Rpb25fcG9pbnRlcihyZWdzKSk7
+Cj4gPiAgICAgICAgICAgICAgIHByX2NvbnQoIlxuIik7Cj4gPiAgICAgICAgICAgICAgIF9fc2hv
+d19yZWdzKHJlZ3MpOwo+ID4gKyAgICAgICAgICAgICBkdW1wX2luc3RyKEtFUk5fRU1FUkcsIHJl
+Z3MpOwo+ID4gICAgICAgfQo+ID4KPiA+ICAgICAgIGZvcmNlX3NpZ19mYXVsdChzaWdubywgY29k
+ZSwgKHZvaWQgX191c2VyICopYWRkcik7Cj4gPiBkaWZmIC0tZ2l0IGEvaW5jbHVkZS9saW51eC91
+YWNjZXNzLmggYi9pbmNsdWRlL2xpbnV4L3VhY2Nlc3MuaAo+ID4gaW5kZXggMzA2NDMxNGY0ODMy
+Li5iYThjYjM3YTcyNDEgMTAwNjQ0Cj4gPiAtLS0gYS9pbmNsdWRlL2xpbnV4L3VhY2Nlc3MuaAo+
+ID4gKysrIGIvaW5jbHVkZS9saW51eC91YWNjZXNzLmgKPiA+IEBAIC0zODUsNiArMzg1LDExIEBA
+IGxvbmcgc3RybmNweV9mcm9tX3VzZXJfbm9mYXVsdChjaGFyICpkc3QsIGNvbnN0IHZvaWQgX191
+c2VyICp1bnNhZmVfYWRkciwKPiA+ICAgICAgICAgICAgICAgbG9uZyBjb3VudCk7Cj4gPiAgbG9u
+ZyBzdHJubGVuX3VzZXJfbm9mYXVsdChjb25zdCB2b2lkIF9fdXNlciAqdW5zYWZlX2FkZHIsIGxv
+bmcgY291bnQpOwo+ID4KPiA+ICsjZGVmaW5lIGdldF91c2VyX25vZmF1bHQodmFsLCBwdHIpICh7
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcCj4gPiArICAgICBjb25zdCB0eXBlb2Yo
+dmFsKSAqX19na19wdHIgPSAocHRyKTsgICAgICAgICAgICAgICAgICAgIFwKPiA+ICsgICAgIGNv
+cHlfZnJvbV91c2VyX25vZmF1bHQoJih2YWwpLCBfX2drX3B0ciwgc2l6ZW9mKHZhbCkpO1wKPiA+
+ICt9KQo+ID4gKwo+Cj4gWW91ciBwcmV2aW91cyB2ZXJzaW9uIGhhZCBhIGNoZWNrOgo+ICAgfCAg
+ICAgICAgIC8qIFRoZSB1c2VyIHNwYWNlIGNvZGUgZnJvbSBvdGhlciB0YXNrcyBjYW5ub3QgYmUg
+YWNjZXNzZWQuICovCj4gICB8ICAgICAgICAgaWYgKHJlZ3MgIT0gdGFza19wdF9yZWdzKGN1cnJl
+bnQpKQo+ICAgfCAgICAgICAgICAgICAgICAgcmV0dXJuIC1FUEVSTTsKPgo+IFdoeSB3YXMgdGhh
+dCBsZWZ0IG91dD8gSXMgaXQgbm90IG5lZWRlZD8KPgo+IFlvdXIgZ2V0X3VzZXJfbm9mYXVsdCBp
+cyBvbmx5IHVzZWQgaW4gdGhpcyBmaWxlLCBzbyBtYXliZSBpdCdzIGJldHRlciB0bwo+IGRvIHdo
+YXQgeDg2IGRvZXMsIGFuZCBpbnRyb2R1Y2UgYSBzdGF0aWMgImNvcHlfY29kZSgpIiB0aGF0IGRl
+YWxzIHdpdGgKPiB0aGUgdXNlci9rZXJuZWwgY2hlY2tzL2NvcHk/Ck9rYXnvvIwgaeKAmGxsIHVw
+ZGF0ZSBpdCB0byB2NC4KClRoYW5rc++8jApZdW5odWkKCl9fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1y
+aXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxt
+YW4vbGlzdGluZm8vbGludXgtcmlzY3YK
