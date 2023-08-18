@@ -4,8 +4,8 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93F6EEE4992
-	for <linux-riscv@archiver.kernel.org>; Fri, 18 Aug 2023 23:01:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C89BEE499E
+	for <linux-riscv@archiver.kernel.org>; Fri, 18 Aug 2023 23:03:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -13,57 +13,57 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=EPjxNyW4bduKlAVNVrsGSTymkUrL5OIKl0FRmz7AAhg=; b=thaiqgpO2jbOBVuJofS2LkG8oS
-	cfzobKNOaNW9UD01fLI23k2HmLbpTY/5xhufr0M6K5TQJr6/XsJ8twE3twzkGOc7pPcJnUh0UZS62
-	d9QrzHdEbyzLi5LU0UaYXKzDHTLRXPYCRIZKPSEXt3tqy5S+JeA7K30cOx1YQlIlQ1/GWAXcWFPuI
-	aDxjaZJOLCQfZDPIlPH/Iu7bfTYkJDCaTyejCmTQ6wDJszF4MeGfXwPwx99WZFNrq+3vsQezWx4HW
-	4k2AD+31a3Pp4PA2xNKlFIMvzv+FdvVdHmrJ2xN15nJ78vXs7SB4nRtPWCVwyGhFNLyqAqbBaq3ma
-	jgzo1/SQ==;
+	bh=6sAnKBYLL8kI3vByC+gcbsKFoqmVx7ZFMS5m/haV7Y4=; b=2VsPig00jc1eduEaDWnD5SWmEi
+	kbaK74YrjHSsG5/6f9XUJnhdfwlLmU/u7CtHbCQobaLh0WWSp/3H2aCWGQkDvBZ7hnNoMVY/gHmS+
+	kfZuHtAHuzuI4bQykIRO+DADRM8ZV0fjWff4Yl0EEGi2LONQpYKkzwcHrrWOS07HzzXJV2s6sVIvg
+	5iBAiWt/EX7zcsRhcLWh/UjnEwFihGCOTGLP0uco05XloNv3ukgCvCzmK4qy3rjoyAYlVf5Cn2iOl
+	q61TBlhOp+a5/JjiYiVDwiUi1jE2+93Bn8UgW9DWjukzBmB980riC+gbhddTa5NUvUeh5TBCFbjdK
+	NWRN/nlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qX8TJ-00A8Jt-09;
-	Fri, 18 Aug 2023 23:01:37 +0000
-Received: from mail-yb1-xb4a.google.com ([2607:f8b0:4864:20::b4a])
+	id 1qX8VR-00A8Xg-0f;
+	Fri, 18 Aug 2023 23:03:49 +0000
+Received: from mail-yw1-x1149.google.com ([2607:f8b0:4864:20::1149])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qX8TF-00A8IZ-1f
+	id 1qX8VN-00A8VR-07
 	for linux-riscv@lists.infradead.org;
-	Fri, 18 Aug 2023 23:01:34 +0000
-Received: by mail-yb1-xb4a.google.com with SMTP id 3f1490d57ef6-d67a458ff66so1779899276.3
-        for <linux-riscv@lists.infradead.org>; Fri, 18 Aug 2023 16:01:29 -0700 (PDT)
+	Fri, 18 Aug 2023 23:03:47 +0000
+Received: by mail-yw1-x1149.google.com with SMTP id 00721157ae682-58c8b2d6784so18739777b3.3
+        for <linux-riscv@lists.infradead.org>; Fri, 18 Aug 2023 16:03:43 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20221208; t=1692399688; x=1693004488;
+        d=google.com; s=20221208; t=1692399822; x=1693004622;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=usNReEG1yhZ2OoI1bkcsHZxi8vJT2uNEbLMV9P1BADc=;
-        b=gS9arkhq2BQM5wyG90faWG4pywmMu5sfjHEWd04bKy84agcqatheT6YSVqsnMAhJXs
-         7Ey6R/IsFpbuJAgflRTfCsGQSeE7z8aCnsHRbxEkKBK/PAH7FMZgZEavx3BeBXM+3P+2
-         Plq9VhZaRy5PbOx8EDNA03ytcClkYRB9Plt+OD+UltS53ZO5IOuVPHa/Yt8AOkDtjpGf
-         J0ReekJEPtY7ifZaoOCUWVj24ZOCPfNYabKI/jnVy+VGWVTelTn6BvdxHdiQrBc+k/kc
-         BoETN+5H+qyvqSzJ4nWEMxKRREF2ybV9p6gaBfB8lx1V/iAPfjWa3WjZDIbTKQp0bm0Z
-         IJkg==
+        bh=28NglzIO6cp/vzLfU4W3yc26zb3SzMF2NIoeJVJxjcQ=;
+        b=EVGfgwe5loZZR0WMUgpJEOZteslGNWIqlIRhDe/gbts+F4/yw7LopoWIr9pAXN/gct
+         vmDVXSSz1qYQsgmOG56EVjufIZ8uHJIc0K2fjYh54YGOjsi7Y2c13ZQR7k+mneDCdJ6K
+         fzW5DxeEtavJtj3e3uV6c2SWgwD/YmEbj2Rv9dwQ6wRuQzmdnahyzKBwtcnM92PUpCV2
+         6SViYhyQd8PzIgA5SnclKlRnW0JgjAUS06yCK7QyV0vkFW6Zt0VuYiJbLr9XMzWwR30M
+         Wq85gyIx9s0/FGvGJHcq/Jks4zP9GUvni76QMTBxGvpnvPGwvzqq5FqhBNo14dUbWrMQ
+         g0nA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1692399688; x=1693004488;
+        d=1e100.net; s=20221208; t=1692399822; x=1693004622;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=usNReEG1yhZ2OoI1bkcsHZxi8vJT2uNEbLMV9P1BADc=;
-        b=CiZYVUC5ylx9gx70EVlbOkYE7TqtbjrkQogmGIhMXKeAIgu1hHo8e8OF7jukSv+ixI
-         XHPihyXLw8Q0uslTI67UY2IB3xX7S8sm8yXhBENOsirKlzejSc+j74+o0RRI++XZD+Mn
-         UNgAAKlRVDOT3mDgueDRO10xvDuJNCBOYwKQ07CuBpXYTlGhMlMarxZ67b7rTSGNvDHM
-         TjLo7i2ELS4Pa5zl0YhAQRn2iNuUYAjRhG/OQrpOkm5FoiPhygTV8mCGn7ZA6Pg1rrof
-         V3mlS8h1kTN3kLlt+PZswub3apYtcx6qlQ5875GVKPd/I9FmmXpypoK3EOX1VwyxNjsN
-         MlvA==
-X-Gm-Message-State: AOJu0YzL+HXOJV7FBaTapqsJjccg6fcvUM47iUTTeVu70TRQ0XzAY1YY
-	ALA52c2kOYeMyMvUu53927Oyf6AehRA=
-X-Google-Smtp-Source: AGHT+IHoaUgHi5iMS/0Xt5cvUarFzMCVBDWHJfa8lAvVIAai8wyXyMLBOgyLMJxxiXlZfzlnoz9PoDeIZVI=
+        bh=28NglzIO6cp/vzLfU4W3yc26zb3SzMF2NIoeJVJxjcQ=;
+        b=GM2Aee4zASVXG/LLZ20h7nf+KQ7tPylOX7mvYANpBLlM4+41phCKvYC8f2EPYDS4+k
+         RwjU3NUpHKq370ACeYCPMus+NnLYkVgMVeardK9TGODD00m0lr1rvMr8gArykpbx4uHd
+         6cEo/Jc5BbvLZLM7i8yAhsUOIIHXG+atwuhCGrUp0VZlZOkev5Pl4DmPEn5DzcJoOBKG
+         DFD9DcRInz9VDgkf7gxI/Z+r8W/gwRNMRswPr8zOx8AtcgxKRI/5SOF2EdPkJocmCIbg
+         MgRaJu5WUZhalWYRnKai4ZL8+c7wMzbPwiglA06wo8WrPYsXhkjHhl4gQ+ZiQ2gY2t3a
+         jS2Q==
+X-Gm-Message-State: AOJu0YwlpcfAVY8LYxLMa9liNpxbIT7sFlVvNdE7Ahmp/QCI0nBlm6rF
+	iQ6sMKdgzkEFcisZe6Z14yqSpQhalQA=
+X-Google-Smtp-Source: AGHT+IEiW/RghuqZOFRro09VfZa9EIt3/32aXeBy5eI/raBp2zbRsudvcD77PZeJQ//x65k1pSmrq3qMqqs=
 X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
- (user=seanjc job=sendgmr) by 2002:a05:6902:a8a:b0:d74:347:1e3 with SMTP id
- cd10-20020a0569020a8a00b00d74034701e3mr5755ybb.9.1692399688376; Fri, 18 Aug
- 2023 16:01:28 -0700 (PDT)
-Date: Fri, 18 Aug 2023 16:01:26 -0700
-In-Reply-To: <diqzleem306p.fsf@ackerleytng-ctop.c.googlers.com>
+ (user=seanjc job=sendgmr) by 2002:a25:d149:0:b0:d4c:2a34:aeab with SMTP id
+ i70-20020a25d149000000b00d4c2a34aeabmr6800ybg.11.1692399822583; Fri, 18 Aug
+ 2023 16:03:42 -0700 (PDT)
+Date: Fri, 18 Aug 2023 16:03:41 -0700
+In-Reply-To: <diqzo7ji30eo.fsf@ackerleytng-ctop.c.googlers.com>
 Mime-Version: 1.0
-References: <20230718234512.1690985-29-seanjc@google.com> <diqzleem306p.fsf@ackerleytng-ctop.c.googlers.com>
-Message-ID: <ZN/4RjDsBLf0FB98@google.com>
+References: <20230718234512.1690985-29-seanjc@google.com> <diqzo7ji30eo.fsf@ackerleytng-ctop.c.googlers.com>
+Message-ID: <ZN/4zZFrsPdh/mLo@google.com>
 Subject: Re: [RFC PATCH v11 28/29] KVM: selftests: Add basic selftest for guest_memfd()
 From: Sean Christopherson <seanjc@google.com>
 To: Ackerley Tng <ackerleytng@google.com>
@@ -83,8 +83,9 @@ Cc: pbonzini@redhat.com, maz@kernel.org, oliver.upton@linux.dev,
 	wei.w.wang@intel.com, liam.merwick@oracle.com, isaku.yamahata@gmail.com, 
 	kirill.shutemov@linux.intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230818_160133_555843_D5554835 
-X-CRM114-Status: GOOD (  21.80  )
+X-CRM114-CacheID: sfid-20230818_160345_074496_B45E5617 
+X-CRM114-Status: UNSURE (   7.25  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,73 +104,14 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 On Mon, Aug 07, 2023, Ackerley Tng wrote:
 > Sean Christopherson <seanjc@google.com> writes:
+> > +	ret = fallocate(fd, FALLOC_FL_KEEP_SIZE, total_size + page_size, page_size);
+> > +	TEST_ASSERT(ret, "fallocate beginning at total_size should fail");
 > 
-> > Add a selftest to verify the basic functionality of guest_memfd():
-> >
-> > <snip>
+> This should be
 > 
-> Here's one more test:
+> TEST_ASSERT(ret, "fallocate beginning after total_size should fail");
 
-First off, thank you!  I greatly appreciate all the selftests work you (and
-others!) have been doing.
-
-For v2, can you please post a standalone patch?  My workflow barfs on unrelated,
-inlined patches.  I'm guessing I can get b4 to play nice, but it's easier to just
-yell at people :-)
-
-> >From 72dc6836f01bdd613d64d4c6a4f2af8f2b777ba2 Mon Sep 17 00:00:00 2001
-> From: Ackerley Tng <ackerleytng@google.com>
-> Date: Tue, 1 Aug 2023 18:02:50 +0000
-> Subject: [PATCH] KVM: selftests: Add tests - invalid inputs for
->  KVM_CREATE_GUEST_MEMFD
-> 
-> Test that invalid inputs for KVM_CREATE_GUEST_MEMFD, such as
-> non-page-aligned page size and invalid flags, are rejected by the
-> KVM_CREATE_GUEST_MEMFD with EINVAL
-> 
-> Signed-off-by: Ackerley Tng <ackerleytng@google.com>
-> ---
->  tools/testing/selftests/kvm/guest_memfd_test.c  | 17 +++++++++++++++++
->  .../selftests/kvm/include/kvm_util_base.h       | 11 +++++++++--
->  2 files changed, 26 insertions(+), 2 deletions(-)
-> 
-> diff --git a/tools/testing/selftests/kvm/guest_memfd_test.c b/tools/testing/selftests/kvm/guest_memfd_test.c
-> index eb93c608a7e0..ad20f11b2d2c 100644
-> --- a/tools/testing/selftests/kvm/guest_memfd_test.c
-> +++ b/tools/testing/selftests/kvm/guest_memfd_test.c
-> @@ -90,6 +90,21 @@ static void test_fallocate(int fd, size_t page_size, size_t total_size)
->  	TEST_ASSERT(!ret, "fallocate to restore punched hole should succeed");
->  }
->  
-> +static void test_create_guest_memfd_invalid(struct kvm_vm *vm, size_t page_size)
-> +{
-> +	int fd;
-> +
-> +	/* Non-page-aligned page_size */
-
-Instead of adding a comment, use the message from TEST_ASSERT() to communicate
-that information to the reader *and* to anyone that encounters failures.
-
-> +	fd = __vm_create_guest_memfd(vm, 1, 0);
-
-ioctls() are fast.  Rather than hardcode one value, iterate over a range of
-values, e.g.
-
-	for (size = 0; size < page_size; size++) {
-		r = __vm_create_guest_memfd(vm, size, 0);
-		TEST_ASSERT(r && errno == EINVAL,
-			    "Informative error message...);
-	}
-		
-> +	ASSERT_EQ(errno, EINVAL);
-> +
-> +	/* Invalid flags */
-> +	fd = __vm_create_guest_memfd(vm, page_size, 99);
-> +	ASSERT_EQ(fd, -1);
-> +	ASSERT_EQ(errno, EINVAL);
-
-And then same thing here.  Then you can use the legal flags to determine what is
-and isn't valid, instead of using a completely arbitrary magic number.
+Roger that, I'll push a fixup commit directly to kvm-x86/guest_memfd.  Thanks!
 
 _______________________________________________
 linux-riscv mailing list
