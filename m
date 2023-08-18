@@ -4,64 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 953D9C71147
-	for <linux-riscv@archiver.kernel.org>; Fri, 18 Aug 2023 13:33:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F213C7113C
+	for <linux-riscv@archiver.kernel.org>; Fri, 18 Aug 2023 13:57:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HmbKBvgAYgViAxSuPrsdwkr8+GmHR3r19mGaV+8uuGw=; b=ihiVXhGprsKLTH
-	xreS4GVZHzO0TaMBeOpHYqAXrFolTSdcGzDIA2LbmEo6MfK406ipwbCLnE8/CZ+/O7TyUrWV0jsQf
-	CyNjJGVEWl42fwV9sBzQwd08Rp3FyHZRW7K/yGEmueVni31jj8orSnmOEy/m0A26TB5iFoLWXjjnF
-	PrEPMxXy893KvDEIbxHxw1kVhPaFXi3DG4W5v0O//lgc9zzWFmY+/GtFAGA1TF6wS3JwCQdrXY6Dq
-	rzrkkq5R7rrXDNIqaufqJ2cV2ahp5nu6UarlxXNxow2xA/Fi+apQsLe9qIY6wwpIRuZmC3V2Byg9O
-	plSobHDaa3p1ZdnR22cw==;
+	List-Owner; bh=GN/ad2wGUJRE2QGKEUjQSIiMQdXJn0ApCpzzVM2h9qs=; b=bBuc25KmfzfZMY
+	sg3G6I++2Z4Ih67jNLlKVgZUB5ir+rEIkizsMbB0dOOZAV6rzl44hlixqLmm6iH0OiyASz1lfiHA4
+	dCWQOHe9fP382oUOvp9XqaIG12/JXfDEUx7kxKkLoIYPvPJKz3qD3dlwyxVq0DNI7YmTS9zoIV1gN
+	ZSuESGCxxeX63GVL9ualdYRS1bTSOe5BAAiEbK1W03QfV8dZbRIjeNIf6heFhwGzP3uR68brmJp0L
+	E71Rh/m69sM3Ph/eMsiUZ5RIQYmv8HTaAwUl+ZbUoMSTmm7p3bjPb7/VUJTfI6jHqc67mDeRN/AsD
+	QrkESVhh+rH84/FM3ymA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qWzbA-009On0-1f;
-	Fri, 18 Aug 2023 13:33:08 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1qWzz0-009REM-0E;
+	Fri, 18 Aug 2023 13:57:46 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qWzb7-009Omj-2P
+	id 1qWzyv-009RAM-1B
 	for linux-riscv@lists.infradead.org;
-	Fri, 18 Aug 2023 13:33:07 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 713F460E15;
-	Fri, 18 Aug 2023 13:33:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6155DC433C7;
-	Fri, 18 Aug 2023 13:33:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1692365583;
-	bh=nQkSvjw/b52/PsLHpuHKay9SWoBTTMGR4P0aQ3yKgKg=;
-	h=From:To:Subject:In-Reply-To:References:Date:From;
-	b=r+Uw3TaYEO8U6g7zP7fe1guf5B0kFPn65KoDCs+KY7uqsyZiQW75+lcWJffWHI1sc
-	 E91kdgDxcCMebfX4jRAaQXOmd40NMtNw0ArIcuF+yNcUj0tZEdwMIPcqvGaovI582/
-	 OQkYIsCOb78TaU1yZ0aFAqcBCxE7nIi9nbLadPBUoQ0S6JSJ8Jbxb0nwO8ewg715V2
-	 jDBmzkcNZrA3WEZoOh+BmEVoy8kwicDbd8WjLm57SFk5VOHzVtfJjU8QN94Grr+vOw
-	 2pi2lQ4hQtbh4+E6i9APbK1MhUDYi1Aygn0hbv1xFjaoYgLa64/q1ici8YS1+7UDv2
-	 Qrk+RWWJy/GzA==
-From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-To: Yunhui Cui <cuiyunhui@bytedance.com>, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, guoren@kernel.org,
- bjorn@rivosinc.com, conor.dooley@microchip.com, jszhang@kernel.org,
- andy.chiu@sifive.com, cuiyunhui@bytedance.com,
- dave.hansen@linux.intel.com, elver@google.com, glider@google.com,
- cyphar@cyphar.com, kirill.shutemov@linux.intel.com, keescook@chromium.org,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4] riscv: add userland instruction dump to RISC-V splats
-In-Reply-To: <20230818121504.60492-1-cuiyunhui@bytedance.com>
-References: <20230818121504.60492-1-cuiyunhui@bytedance.com>
-Date: Fri, 18 Aug 2023 15:33:01 +0200
-Message-ID: <878ra8o4qa.fsf@all.your.base.are.belong.to.us>
+	Fri, 18 Aug 2023 13:57:43 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-3fedba79923so712635e9.2
+        for <linux-riscv@lists.infradead.org>; Fri, 18 Aug 2023 06:57:38 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20221208; t=1692367057; x=1692971857;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=xZWgrNspKoB0gULl9FriOTlRKkFCV7w76E4xQuu9Nl0=;
+        b=KexVFDCysQJSKwqA2PHchcATu/fVdyN5dzj+MnC9lvuupAvcgUaERaEYU8fXez0XgX
+         i43PyJBskBi//E9RB/S6PXpqLnh7lVciHUBjCJrYluBxaugnWRttJsl65oP7BNNKMu+c
+         Jo24rl1VRSKWTnOfSNsHzTvaK81unipTMIddNapREu5xSZvMKQsgqda/UV4fJ5eU+FTL
+         nunF8fYQsfMs04sEcizsvSn8l33AIieOkPvSKY/WC80+MPb9Q/o9joZ4/hnHvkDL1ExZ
+         dASoED2bMcJ5sIRWxELsXgJFK9N9IuhLSu+NhvNxLgGLKjXkZicQt2ladZ9gwnTmZ6Hn
+         JJOg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1692367057; x=1692971857;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=xZWgrNspKoB0gULl9FriOTlRKkFCV7w76E4xQuu9Nl0=;
+        b=Eot1xiAiKe68tvUx3p/RK9RSobT3/+XUOC8nLYLQ6Jc0nu5kZ+W10fx5uxfdkEBOcP
+         bJ9jXHjrY+VPZDj1DNY4nwhVOQKNHr846tGIRdyWo9ZRHH/J8eZQOWSw90O9q9yMhoQh
+         7C5Y90KkrBGWbRPB9NdLix9NuMBHEHHTERWWPq5O6sJlN9+ZzZqkc4mDAEd3YBBJxm05
+         3oaT0FSERPdTCCbLXoNfjbRwM7zHFDnxIxlRJzBuwyi4TMSxdkEql+cKLUYzj6oEDlEZ
+         rLXCpSJNQmzFy5mpCBS8tNfXEJL1yTp+YMIFDp93NqLwrSm+KF8ztszv0TR5cEp8wmi3
+         DRow==
+X-Gm-Message-State: AOJu0YwPvZipHfhTlOPJ3QvFKFu2WsXkDCKhrJfVUBwx/avuOtygk6wd
+	ClrG/oXjQXEFNmavJRkPI68=
+X-Google-Smtp-Source: AGHT+IGfQ7eoFxZQPgul7H6egLkGZJmIPP+0IzqWmxmsHEkAGop6rTnMrsK2OAKWZEjHE+l7fbJF1w==
+X-Received: by 2002:a7b:c4ce:0:b0:3fa:99d6:47a4 with SMTP id g14-20020a7bc4ce000000b003fa99d647a4mr2214398wmk.22.1692367057449;
+        Fri, 18 Aug 2023 06:57:37 -0700 (PDT)
+Received: from prasmi.home ([2a00:23c8:2501:c701:4b30:13e8:1d57:42fb])
+        by smtp.gmail.com with ESMTPSA id s14-20020a05600c044e00b003fa96fe2bd9sm6444055wmb.22.2023.08.18.06.57.35
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 18 Aug 2023 06:57:36 -0700 (PDT)
+From: Prabhakar <prabhakar.csengg@gmail.com>
+X-Google-Original-From: Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+To: Arnd Bergmann <arnd@arndb.de>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Guo Ren <guoren@kernel.org>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Samuel Holland <samuel@sholland.org>,
+	linux-riscv@lists.infradead.org,
+	Christoph Hellwig <hch@infradead.org>,
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>
+Cc: Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org,
+	Prabhakar <prabhakar.csengg@gmail.com>,
+	Biju Das <biju.das.jz@bp.renesas.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Heiko Stuebner <heiko@sntech.de>
+Subject: [PATCH v12 1/6] riscv: asm: vendorid_list: Add Andes Technology to the vendors list
+Date: Fri, 18 Aug 2023 14:57:18 +0100
+Message-Id: <20230818135723.80612-2-prabhakar.mahadev-lad.rj@bp.renesas.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20230818135723.80612-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+References: <20230818135723.80612-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230818_063305_846771_2B438471 
-X-CRM114-Status: UNSURE (   6.22  )
+X-CRM114-CacheID: sfid-20230818_065741_455933_D9C3707E 
+X-CRM114-Status: UNSURE (   9.45  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -74,42 +107,68 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-WXVuaHVpIEN1aSA8Y3VpeXVuaHVpQGJ5dGVkYW5jZS5jb20+IHdyaXRlczoKCj4gQWRkIHVzZXJs
-YW5kIGluc3RydWN0aW9uIGR1bXAgYW5kIHJlbmFtZSBkdW1wX2tlcm5lbF9pbnN0cigpCj4gdG8g
-ZHVtcF9pbnN0cigpLgo+Cj4gQW4gZXhhbXBsZToKPiBbICAgIDAuODIyNDM5XSBGcmVlaW5nIHVu
-dXNlZCBrZXJuZWwgaW1hZ2UgKGluaXRtZW0pIG1lbW9yeTogNjkxNksKPiBbICAgIDAuODIzODE3
-XSBSdW4gL2luaXQgYXMgaW5pdCBwcm9jZXNzCj4gWyAgICAwLjgzOTQxMV0gaW5pdFsxXTogdW5o
-YW5kbGVkIHNpZ25hbCA0IGNvZGUgMHgxIGF0IDB4MDAwMDAwMDAwMDA1YmUxOCBpbiBiYlsxMDAw
-MCs1ZmIwMDBdCj4gWyAgICAwLjg0MDc1MV0gQ1BVOiAwIFBJRDogMSBDb21tOiBpbml0IE5vdCB0
-YWludGVkIDUuMTQuMC1yYzQtMDAwNDktZ2JkNjQ0MjkwYWE3Mi1kaXJ0eSAjMTg3Cj4gWyAgICAw
-Ljg0MTM3M10gSGFyZHdhcmUgbmFtZTogICwgQklPUwo+IFsgICAgMC44NDE3NDNdIGVwYyA6IDAw
-MDAwMDAwMDAwNWJlMTggcmEgOiAwMDAwMDAwMDAwMDc5ZTc0IHNwIDogMDAwMDAwM2ZmZmNhZmRh
-MAo+IFsgICAgMC44NDIyNzFdICBncCA6IGZmZmZmZmZmODE2ZTlkYzggdHAgOiAwMDAwMDAwMDAw
-MDAwMDAwIHQwIDogMDAwMDAwMDAwMDAwMDAwMAo+IFsgICAgMC44NDI5NDddICB0MSA6IDAwMDAw
-MDNmZmZjOWZkZjAgdDIgOiAwMDAwMDAwMDAwMDAwMDAwIHMwIDogMDAwMDAwMDAwMDAwMDAwMAo+
-IFsgICAgMC44NDM0MzRdICBzMSA6IDAwMDAwMDAwMDAwMDAwMDAgYTAgOiAwMDAwMDAzZmZmY2Ew
-MTkwIGExIDogMDAwMDAwM2ZmZmNhZmUxOAo+IFsgICAgMC44NDM4OTFdICBhMiA6IDAwMDAwMDAw
-MDAwMDAwMDAgYTMgOiAwMDAwMDAwMDAwMDAwMDAwIGE0IDogMDAwMDAwMDAwMDAwMDAwMAo+IFsg
-ICAgMC44NDQzNTddICBhNSA6IDAwMDAwMDAwMDAwMDAwMDAgYTYgOiAwMDAwMDAwMDAwMDAwMDAw
-IGE3IDogMDAwMDAwMDAwMDAwMDAwMAo+IFsgICAgMC44NDQ4MDNdICBzMiA6IDAwMDAwMDAwMDAw
-MDAwMDAgczMgOiAwMDAwMDAwMDAwMDAwMDAwIHM0IDogMDAwMDAwMDAwMDAwMDAwMAo+IFsgICAg
-MC44NDUyNTNdICBzNSA6IDAwMDAwMDAwMDAwMDAwMDAgczYgOiAwMDAwMDAwMDAwMDAwMDAwIHM3
-IDogMDAwMDAwMDAwMDAwMDAwMAo+IFsgICAgMC44NDU3MjJdICBzOCA6IDAwMDAwMDAwMDAwMDAw
-MDAgczkgOiAwMDAwMDAwMDAwMDAwMDAwIHMxMDogMDAwMDAwMDAwMDAwMDAwMAo+IFsgICAgMC44
-NDYxODBdICBzMTE6IDAwMDAwMDAwMDBkMTQ0ZTAgdDMgOiAwMDAwMDAwMDAwMDAwMDAwIHQ0IDog
-MDAwMDAwMDAwMDAwMDAwMAo+IFsgICAgMC44NDY2MTZdICB0NSA6IDAwMDAwMDAwMDAwMDAwMDAg
-dDYgOiAwMDAwMDAwMDAwMDAwMDAwCj4gWyAgICAwLjg0NzIwNF0gc3RhdHVzOiAwMDAwMDAwMjAw
-MDAwMDIwIGJhZGFkZHI6IDAwMDAwMDAwZjAwMjgwNTMgY2F1c2U6IDAwMDAwMDAwMDAwMDAwMDIK
-PiBbICAgIDAuODQ4MjE5XSBDb2RlOiBmMDZmIGZmNWYgMzgyMyBmYTExIDAxMTMgZmIwMSAyZTIz
-IDAyMDEgMDI5MyAwMDAwICg4MDUzKSBmMDAyCj4gWyAgICAwLjg1MTAxNl0gS2VybmVsIHBhbmlj
-IC0gbm90IHN5bmNpbmc6IEF0dGVtcHRlZCB0byBraWxsIGluaXQhIGV4aXRjb2RlPTB4MDAwMDAw
-MDQKPgo+IFNpZ25lZC1vZmYtYnk6IFl1bmh1aSBDdWkgPGN1aXl1bmh1aUBieXRlZGFuY2UuY29t
-PgoKTmljZSEKClJldmlld2VkLWJ5OiBCasO2cm4gVMO2cGVsIDxiam9ybkByaXZvc2luYy5jb20+
-CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1y
-aXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8v
-bGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+
+Add Andes Technology to the vendors list.
+
+Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Reviewed-by: Heiko Stuebner <heiko@sntech.de>
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
+Tested-by: Conor Dooley <conor.dooley@microchip.com> # tyre-kicking on a d1
+---
+v11 -> v12
+* No change
+
+v10 -> v11
+* No change
+
+v9 -> v10
+* Included TB tag from Conor
+
+v8 -> v9
+* Included RB tag from Geert
+
+v7 -> v8
+* No change
+
+v6 -> v7
+* No change
+
+v5 -> v6
+* No change
+
+v4 -> v5
+* Included RB tags
+
+RFC v3 -> v4
+* New patch
+---
+ arch/riscv/include/asm/vendorid_list.h | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/arch/riscv/include/asm/vendorid_list.h b/arch/riscv/include/asm/vendorid_list.h
+index cb89af3f0704..e55407ace0c3 100644
+--- a/arch/riscv/include/asm/vendorid_list.h
++++ b/arch/riscv/include/asm/vendorid_list.h
+@@ -5,6 +5,7 @@
+ #ifndef ASM_VENDOR_LIST_H
+ #define ASM_VENDOR_LIST_H
+ 
++#define ANDESTECH_VENDOR_ID	0x31e
+ #define SIFIVE_VENDOR_ID	0x489
+ #define THEAD_VENDOR_ID		0x5b7
+ 
+-- 
+2.34.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
