@@ -4,76 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AC82EE498E
-	for <linux-riscv@archiver.kernel.org>; Fri, 18 Aug 2023 19:42:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C593EE4992
+	for <linux-riscv@archiver.kernel.org>; Fri, 18 Aug 2023 20:15:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+UtkgrDn/VRohHY1cuTeTdIfyEu582TQqD7CZz4VwZg=; b=ZmgUslV5MgX661
-	ZNI3Ci/gh3bsHqSeaE9n9yXTaW4924vkWjyuTPrqYbiSvufEnd7hT6iY8OjfEGzyfWguwEaOkj9ob
-	IBBzV9WO42lHBGF1hzoHVm9rIhdiyjeYod53oMxC27MhEFDowZk7XIcpKo0Wj3dADBsqLaWphclgW
-	AvJGbgoFtCcCo/AAC1i1ySPFjdphK8okb/bPwjdzfGImKwWIlTsKGcCiF5iI16vRsPCZeGNxcdd0N
-	edE4kj/U8Tj3adzuhWEO0tPUMcefwbs8TAyF1qtKNnFpXGuPmL2yA5Xckj3OVibK3+IjY9O3GCmZU
-	29vXWdsPFMCf2U0i45EA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5/wkMyrGsvyku0+T+UOlCSmPsxfqFckwsAyFLfEY6ww=; b=fmDf9wVcWyX7rOcC+zqUO1Lss0
+	RHPs0mA1qekjmrCrLAGE62HttZBVlrfw2mGQ0r57JNZ8ubmdxAhyswkqohU1ovsZtRPWNRnw4eVUq
+	+asytwItdt9F7QLVEuPhiC+6oaI24Epl0GaiF7u8RFNmzaEussbYz6KRtCh5r9F3GCsNg3GRbPk9P
+	Y2o05aYfCDAN4oR1+SXYVicwI+yQgx7Id8Z6iy7Nd4a9J6qMUpbF3LFcVAHHRs+s63yOoPICFKyTB
+	5p3eCULQBBGNLQ0q0w1NO8l5DJvU5m44VG2ZXBxG7sllg+0+k0qTDAarUDh7jOhk40EtB3xQdLZl+
+	vV47R++w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qX5MA-009wWu-0B;
-	Fri, 18 Aug 2023 19:42:02 +0000
-Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	id 1qX5sf-009zDF-0W;
+	Fri, 18 Aug 2023 20:15:37 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qX5M7-009wVe-31
-	for linux-riscv@lists.infradead.org;
-	Fri, 18 Aug 2023 19:42:01 +0000
-Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-1bbc87ded50so10067415ad.1
-        for <linux-riscv@lists.infradead.org>; Fri, 18 Aug 2023 12:41:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1692387717; x=1692992517;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=K7ci3vRgnbD84Ma3Cd7Iy4r3YW2QkAQDRD/x7G43pvo=;
-        b=mLjEfWfHxV6EWgtjuOIdXGiCk0CxBcgLlxvHzccBkXv1GzhWZw1Q4ewVvEmU2l3OcG
-         cD9n2thRWSFyKP5X0wkIlrrzaC/gv2tR1CTk5bkVva4fBeB+g+T8IpqAY4oh7NOOhG5n
-         ZYtJQMqA++p4ETovq8zdGVbAbxtXZd4IvlNCGEt5lyR66oxPWBFhhXYPt2ntDNJ6zeWM
-         XlsLH8c/kaoagbty1twx7B49JQ4C8wY7kZre/1wyT/9b7seaoim/O6UGltFtkQ8SOsYm
-         tA6UHncCk2rll4CfcGsr89De9DLEE4fv9SPekm6e4W2UC+IT8kauHnrI22EmIAtWzKJO
-         XOMw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1692387717; x=1692992517;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=K7ci3vRgnbD84Ma3Cd7Iy4r3YW2QkAQDRD/x7G43pvo=;
-        b=R3kZneMee4GbCpbaIdKN96akcZnC5A3FzAKDA8ouyA+pb8eDcPgv/jL9vzISgiE3o4
-         8ZUv+noyaffQTbYkHmjmoRWfaBssMZavF4sWgsTr2CkUBIFapCQ/nPMNDgvyAf7FJaoj
-         fT/A2shpn/u4/xOq1ImPplwu7G1GEzDrnCnpxQHup3ew0Bgnay7HIxiNl2TUUP93oYF3
-         W3DO17eNIBsFbJn3UpVUXt8HX0Ky/Luhyy1JPUFyPIGss7hjvdl+W1DcntzXFNI/iO1M
-         zq71tEO2MDVh//abkt5ss7APc+DlrZQx6vCHWeZQ3EUNibKREyE/5zfcKEFj581gfzuc
-         o+oQ==
-X-Gm-Message-State: AOJu0YwRSTpbiZXE7sDxV4Q1WmKfhMiIU/mBJgaLRgxHAc7yrTNlAE9V
-	tJ4RYYXMpqJSHWMeChcnTDj4Rw==
-X-Google-Smtp-Source: AGHT+IEO9oSVM/2424l6Met4cdx+Cq/LzfIkxlp0PfobX+jsrm1D8PqmNz92EVefC1RybqCebE1VlA==
-X-Received: by 2002:a17:902:ab0e:b0:1bc:382b:6897 with SMTP id ik14-20020a170902ab0e00b001bc382b6897mr183904plb.13.1692387717021;
-        Fri, 18 Aug 2023 12:41:57 -0700 (PDT)
-Received: from evan.ba.rivosinc.com ([66.220.2.162])
-        by smtp.gmail.com with ESMTPSA id j10-20020a170902da8a00b001a5fccab02dsm2126614plx.177.2023.08.18.12.41.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 18 Aug 2023 12:41:56 -0700 (PDT)
-From: Evan Green <evan@rivosinc.com>
-To: Palmer Dabbelt <palmer@rivosinc.com>
-Subject: [PATCH v4 2/2] RISC-V: alternative: Remove feature_probe_func
-Date: Fri, 18 Aug 2023 12:41:36 -0700
-Message-Id: <20230818194136.4084400-3-evan@rivosinc.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20230818194136.4084400-1-evan@rivosinc.com>
-References: <20230818194136.4084400-1-evan@rivosinc.com>
+	id 1qX5sT-009zCL-38;
+	Fri, 18 Aug 2023 20:15:27 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 456D162A5B;
+	Fri, 18 Aug 2023 20:15:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D4FBFC433C7;
+	Fri, 18 Aug 2023 20:15:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1692389724;
+	bh=WCt+HTyPqpQoM8uuU7vN+x57RA6ZJu12mqg0CzvfAKw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=UWpnqpi65SH3/qdqWBn6Zd1Ci2gAJDST/B3oTk2b0QqR4KzLEHujl/2sXAp34aaQz
+	 rYf/Hxv4pGdxI4XtXA71/BlwdSjOlALBF8+7Nh/txVG1Pr0etLTfoxWGUJ+zGSMQ13
+	 12qmiSM3fn6coLaVe6HKubfVBJb5Z/QsLDUtopgpRJBemR/BlWB0eyjCHm7pxUeA6y
+	 yvGiBvlRhhmOnJmtqJKBgyLZHzlJhtJfhzvqoLPqNP+U1RPimemgLmIq2et3p1jWan
+	 qRLwKdKD5hl3mrqoXMp+UCe8E/WSmGnN+WQpVc/+3X3jhGCfNqyeGGCMUIAzmPI1DF
+	 i74Qa8ekO6c+g==
+Date: Fri, 18 Aug 2023 21:15:15 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	James Morse <james.morse@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Arnd Bergmann <arnd@arndb.de>, Oleg Nesterov <oleg@redhat.com>,
+	Eric Biederman <ebiederm@xmission.com>,
+	Kees Cook <keescook@chromium.org>, Shuah Khan <shuah@kernel.org>,
+	"Rick P. Edgecombe" <rick.p.edgecombe@intel.com>,
+	Deepak Gupta <debug@rivosinc.com>, Ard Biesheuvel <ardb@kernel.org>,
+	Szabolcs Nagy <Szabolcs.Nagy@arm.com>,
+	"H.J. Lu" <hjl.tools@gmail.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+	kvmarm@lists.linux.dev, linux-fsdevel@vger.kernel.org,
+	linux-arch@vger.kernel.org, linux-mm@kvack.org,
+	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v4 19/36] arm64/gcs: Allocate a new GCS for threads with
+ GCS enabled
+Message-ID: <3a01ce20-3365-421b-95ff-211946808174@sirena.org.uk>
+References: <20230807-arm64-gcs-v4-0-68cfa37f9069@kernel.org>
+ <20230807-arm64-gcs-v4-19-68cfa37f9069@kernel.org>
+ <ZNZhG/4rBpTenYVH@arm.com>
 MIME-Version: 1.0
+In-Reply-To: <ZNZhG/4rBpTenYVH@arm.com>
+X-Cookie: Your aim is high and to the right.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230818_124159_999292_3FA5A1C6 
-X-CRM114-Status: GOOD (  16.19  )
+X-CRM114-CacheID: sfid-20230818_131526_097269_B668590D 
+X-CRM114-Status: GOOD (  32.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,150 +91,117 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Anup Patel <apatel@ventanamicro.com>, Albert Ou <aou@eecs.berkeley.edu>, Heiko Stuebner <heiko@sntech.de>, Samuel Holland <samuel@sholland.org>, Ley Foon Tan <leyfoon.tan@starfivetech.com>, Marc Zyngier <maz@kernel.org>, Randy Dunlap <rdunlap@infradead.org>, linux-kernel@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>, David Laight <David.Laight@aculab.com>, Palmer Dabbelt <palmer@dabbelt.com>, Evan Green <evan@rivosinc.com>, Jisheng Zhang <jszhang@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, Greentime Hu <greentime.hu@sifive.com>, Simon Hosie <shosie@rivosinc.com>, linux-riscv@lists.infradead.org, Andrew Jones <ajones@ventanamicro.com>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============6946351958103103396=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Now that we're testing unaligned memory copy and making that
-determination generically, there are no more users of the vendor
-feature_probe_func(). While I think it's probably going to need to come
-back, there are no users right now, so let's remove it until it's
-needed.
 
-Signed-off-by: Evan Green <evan@rivosinc.com>
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+--===============6946351958103103396==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="45mwPxvFeqYyCSA9"
+Content-Disposition: inline
 
----
 
-(no changes since v1)
+--45mwPxvFeqYyCSA9
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
- arch/riscv/errata/thead/errata.c     |  8 --------
- arch/riscv/include/asm/alternative.h |  5 -----
- arch/riscv/kernel/alternative.c      | 19 -------------------
- arch/riscv/kernel/smpboot.c          |  1 -
- 4 files changed, 33 deletions(-)
+On Fri, Aug 11, 2023 at 05:26:03PM +0100, Catalin Marinas wrote:
+> On Mon, Aug 07, 2023 at 11:00:24PM +0100, Mark Brown wrote:
 
-diff --git a/arch/riscv/errata/thead/errata.c b/arch/riscv/errata/thead/errata.c
-index be84b14f0118..0554ed4bf087 100644
---- a/arch/riscv/errata/thead/errata.c
-+++ b/arch/riscv/errata/thead/errata.c
-@@ -120,11 +120,3 @@ void thead_errata_patch_func(struct alt_entry *begin, struct alt_entry *end,
- 	if (stage == RISCV_ALTERNATIVES_EARLY_BOOT)
- 		local_flush_icache_all();
- }
--
--void thead_feature_probe_func(unsigned int cpu,
--			      unsigned long archid,
--			      unsigned long impid)
--{
--	if ((archid == 0) && (impid == 0))
--		per_cpu(misaligned_access_speed, cpu) = RISCV_HWPROBE_MISALIGNED_FAST;
--}
-diff --git a/arch/riscv/include/asm/alternative.h b/arch/riscv/include/asm/alternative.h
-index 6a41537826a7..58ccd2f8cab7 100644
---- a/arch/riscv/include/asm/alternative.h
-+++ b/arch/riscv/include/asm/alternative.h
-@@ -30,7 +30,6 @@
- #define ALT_OLD_PTR(a)			__ALT_PTR(a, old_offset)
- #define ALT_ALT_PTR(a)			__ALT_PTR(a, alt_offset)
- 
--void probe_vendor_features(unsigned int cpu);
- void __init apply_boot_alternatives(void);
- void __init apply_early_boot_alternatives(void);
- void apply_module_alternatives(void *start, size_t length);
-@@ -53,15 +52,11 @@ void thead_errata_patch_func(struct alt_entry *begin, struct alt_entry *end,
- 			     unsigned long archid, unsigned long impid,
- 			     unsigned int stage);
- 
--void thead_feature_probe_func(unsigned int cpu, unsigned long archid,
--			      unsigned long impid);
--
- void riscv_cpufeature_patch_func(struct alt_entry *begin, struct alt_entry *end,
- 				 unsigned int stage);
- 
- #else /* CONFIG_RISCV_ALTERNATIVE */
- 
--static inline void probe_vendor_features(unsigned int cpu) { }
- static inline void apply_boot_alternatives(void) { }
- static inline void apply_early_boot_alternatives(void) { }
- static inline void apply_module_alternatives(void *start, size_t length) { }
-diff --git a/arch/riscv/kernel/alternative.c b/arch/riscv/kernel/alternative.c
-index 6b75788c18e6..85056153fa23 100644
---- a/arch/riscv/kernel/alternative.c
-+++ b/arch/riscv/kernel/alternative.c
-@@ -27,8 +27,6 @@ struct cpu_manufacturer_info_t {
- 	void (*patch_func)(struct alt_entry *begin, struct alt_entry *end,
- 				  unsigned long archid, unsigned long impid,
- 				  unsigned int stage);
--	void (*feature_probe_func)(unsigned int cpu, unsigned long archid,
--				   unsigned long impid);
- };
- 
- static void riscv_fill_cpu_mfr_info(struct cpu_manufacturer_info_t *cpu_mfr_info)
-@@ -43,7 +41,6 @@ static void riscv_fill_cpu_mfr_info(struct cpu_manufacturer_info_t *cpu_mfr_info
- 	cpu_mfr_info->imp_id = sbi_get_mimpid();
- #endif
- 
--	cpu_mfr_info->feature_probe_func = NULL;
- 	switch (cpu_mfr_info->vendor_id) {
- #ifdef CONFIG_ERRATA_SIFIVE
- 	case SIFIVE_VENDOR_ID:
-@@ -53,7 +50,6 @@ static void riscv_fill_cpu_mfr_info(struct cpu_manufacturer_info_t *cpu_mfr_info
- #ifdef CONFIG_ERRATA_THEAD
- 	case THEAD_VENDOR_ID:
- 		cpu_mfr_info->patch_func = thead_errata_patch_func;
--		cpu_mfr_info->feature_probe_func = thead_feature_probe_func;
- 		break;
- #endif
- 	default:
-@@ -143,20 +139,6 @@ void riscv_alternative_fix_offsets(void *alt_ptr, unsigned int len,
- 	}
- }
- 
--/* Called on each CPU as it starts */
--void probe_vendor_features(unsigned int cpu)
--{
--	struct cpu_manufacturer_info_t cpu_mfr_info;
--
--	riscv_fill_cpu_mfr_info(&cpu_mfr_info);
--	if (!cpu_mfr_info.feature_probe_func)
--		return;
--
--	cpu_mfr_info.feature_probe_func(cpu,
--					cpu_mfr_info.arch_id,
--					cpu_mfr_info.imp_id);
--}
--
- /*
-  * This is called very early in the boot process (directly after we run
-  * a feature detect on the boot CPU). No need to worry about other CPUs
-@@ -211,7 +193,6 @@ void __init apply_boot_alternatives(void)
- 	/* If called on non-boot cpu things could go wrong */
- 	WARN_ON(smp_processor_id() != 0);
- 
--	probe_vendor_features(0);
- 	_apply_alternatives((struct alt_entry *)__alt_start,
- 			    (struct alt_entry *)__alt_end,
- 			    RISCV_ALTERNATIVES_BOOT);
-diff --git a/arch/riscv/kernel/smpboot.c b/arch/riscv/kernel/smpboot.c
-index 00ddbd2364dc..1b8da4e40a4d 100644
---- a/arch/riscv/kernel/smpboot.c
-+++ b/arch/riscv/kernel/smpboot.c
-@@ -247,7 +247,6 @@ asmlinkage __visible void smp_callin(void)
- 	numa_add_cpu(curr_cpuid);
- 	set_cpu_online(curr_cpuid, 1);
- 	check_unaligned_access(curr_cpuid);
--	probe_vendor_features(curr_cpuid);
- 
- 	if (has_vector()) {
- 		if (riscv_v_setup_vsize())
--- 
-2.34.1
+> > +	mmap_write_lock(mm);
+> > +	mapped_addr = do_mmap(NULL, addr, size, PROT_READ, flags,
+> > +			      VM_SHADOW_STACK | VM_WRITE, 0, &unused, NULL);
 
+> Why not PROT_WRITE as well? I guess I need to check the x86 patches
+> since the do_mmap() called here has a different prototype than what's in
+> mainline.
+
+> This gets confusing since currently the VM_* flags are derived from the
+> PROT_* flags passed to mmap(). But you skip the PROT_WRITE in favour of
+> adding VM_WRITE directly.
+
+I have to confess that I inherited this from the x86 code and never
+thought too hard about it.  I've got a horrible feeling the reasoning is
+simply the way in which x86 fits shadow stack into the page tables
+without having a mechanism like permission indirection, these don't
+apply for us.
+
+> I haven't followed the x86 discussion but did we run out of PROT_* bits
+> for a PROT_SHADOW_STACK?
+
+It's more that there are security concerns with having PROT_, especially
+in conjunction with needing to provide a token for stack pivot - we not
+only need to map pages for the GCS, we also need to write a cap token
+into it so that we can pivot to the new stack.  If the GCS can ever be
+written to by userspace via normal means then that's an issue for the
+basic protection model that the feature is trying to implement.  If we
+have the PROT_ but try to check for bad uses of it that makes everything
+messy and complicated which is especially non-ideal for a feature with a
+security focus.  Having a more packaged system call is easier for
+everyone.
+
+More detail in the x86 patch that's currently in -next:
+
+   https://lore.kernel.org/all/20230319001535.23210-34-rick.p.edgecombe@intel.com/
+
+> > +	/* Allocate RLIMIT_STACK with limits of PAGE_SIZE..4G */
+> > +	size = PAGE_ALIGN(min_t(unsigned long long,
+> > +				rlimit(RLIMIT_STACK), SZ_4G));
+> > +	return max(PAGE_SIZE, size);
+> > +}
+
+> I saw Szabolcs commenting on the default size as well. Maybe we should
+> go for RLIMIT_STACK/2 but let's see how the other sub-thread is going.
+
+I've updated it.
+
+> > +	if ((clone_flags & (CLONE_VFORK | CLONE_VM)) != CLONE_VM)
+> > +		return 0;
+
+> Is it safe for CLONE_VFORK not to get a new shadow stack? A syscall for
+> exec could push something to the stack. I guess the GCS pointer in the
+> parent stays the same, so it wouldn't matter.
+
+Yes, pushing should be fine just as for the regular stack.
+
+> That said, I think this check should be somewhere higher up in the
+> caller of gcs_alloc_thread_stack(). The copy_thread_gcs() function
+> already does most of the above checks. Is the GCS allocation called from
+> elsewhere as well?
+
+That's the only place.  I've moved the above check into copy_thread_gcs(),
+you're right that the other checks are redundant as they're done in the
+caller already.
+
+--45mwPxvFeqYyCSA9
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmTf0VIACgkQJNaLcl1U
+h9AK7Af8DxBPnoklDhEt6uL9Qzwyg5iHuvMMz45iQs74RTv9fEM/vR1B1L0U0vxL
+LjcRxv98KB+GM2DQ+YOoQK84V2okcpKSNu9l/0CY+hvT8JChP5Ljn/b3azVF3FGY
+QYftbzRipJONW9pKxIZ7Svx8+iZIg03PmcwJTtLRsi36gyykxlFbYhzZm/0VbWH6
+HDuDWH8yMX1/BQGizf3FM7CxbBmhcI/zzi2eUslQ3EPOoSKywy4JXRc49XAvrxbT
+Bu8EbBX7Oapi96h+KlZEAWSiTuD4plJ6pJQsjMdMcELiI//3sTIzNRNqmFxBIgWS
+O2Sp933Ku1aQm9TW9TcOY3MVq5dYiQ==
+=X4OS
+-----END PGP SIGNATURE-----
+
+--45mwPxvFeqYyCSA9--
+
+
+--===============6946351958103103396==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============6946351958103103396==--
+
