@@ -4,96 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B76E6C05052
-	for <linux-riscv@archiver.kernel.org>; Fri, 18 Aug 2023 08:46:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9059AC001DE
+	for <linux-riscv@archiver.kernel.org>; Fri, 18 Aug 2023 09:32:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Lp63/ORl1eb0IM/Gc8XGz5jhooPAzJ2e+FvAUTSGlqk=; b=cKIsVUwoW3NztL
-	Wb5Ncn1awJNG77xI7BV0cAy/zSG8ESZmLb8nMky5AARyPXH4K7hrhsX+VVZ5xQLR9HuBu5FCJrsVn
-	EzHrah84bM+NLe3nCT2u/+ybSVCvfJRa9Gx6HfFHpxUp6+4Q8iQYCYeD8z7gEDUzqe0pdIAqLrmZR
-	iiRHB6dF7CEMLEXb5YyzjKYQldd6koNr+8Xi47kmYx6UrNNY0nRFPTQWLJPSqWUJfT7wkhTrxw17z
-	A5np/nq2+Za7WB9besUKL8KZw+hptn3K6SIJ8f2XVJwy40kMaYWtOWHtwz/TgiOmOsvTnJgroa4Cc
-	AcydOBc/zX6MtWlIpWEQ==;
+	List-Owner; bh=S5pFWCaSlEKQ+cNZyIeNyRVYjP952w2vD2AedgFmIBc=; b=3c32ZPnvS5NZwR
+	Ahvur9CT16J04qMRu0VizsZSIOj8beIc+YDEYTjnfZEBEL1hjdTLf7fM4wy8tMVwGpKGZRTqQeyYr
+	SXRkElONOsrWiLy8yQHDN0UjBMClpyyck6ke48ZS8CRc2CaQztdCZMVwhe2AwIKs1ZBn795M5j6Xp
+	4owCtTdrw4F0q5re+yUuXR9kVLWSQUz0olVyfSBk4l8vC4vyxrTTeZXq2XihtmxRR7naSQ+BnA0e7
+	PjWxqmKjfNX3vB0No8/4mviC4Gp+GZqfR/7CMkkUKi4mu2I59gYJ6bhWcJVPioK0ldxYBIySLxbsJ
+	5PwIoajSfNzDqtAkiB6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qWv7D-0081jZ-24;
-	Fri, 18 Aug 2023 08:45:55 +0000
+	id 1qWvq4-0086Kz-2j;
+	Fri, 18 Aug 2023 09:32:16 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qWu1p-007tFE-13
+	id 1qWvq2-0086Ju-2i
 	for linux-riscv@bombadil.infradead.org;
-	Fri, 18 Aug 2023 07:36:17 +0000
+	Fri, 18 Aug 2023 09:32:14 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=JP1Np/yFy1nrHPIeuFCXQU9sMYli5vZhZe6SDGYaT/o=; b=GhS6Ueg/mtyTMdKoOTMSoyxrAN
-	+oaObuVdz61VFhyMShEk5E7R7+wDJZVRB+VWJGmdZ2EaJZs9XKTKi0djjxKOWYuuXg2Fvi5WdxZUP
-	/FkfUyWmw7CVxThw92fBFksRX18QYPjBbUJFaYQUwfj6gpPHGaB/bL7fgTNwkMPNz0Vba/0KF8K13
-	RpZphAaouvW8XEMTGfnZVOV5QekdxOlqebpsDcTgS6SIx/3LO1O06RTtcTQuCCYrV/xzUfpHc74TG
-	eCjbrooAxQJer3l99yOs6nfa5AsdLApbyo4DFX/7bquOXky3x6qle1vZuAuOaZrQmE5O8un9NUbId
-	EVSpU5OA==;
-Received: from mail-ej1-x643.google.com ([2a00:1450:4864:20::643])
-	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qWu1k-00FJrQ-0c
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=o3pLzBgYSWjCd6thfmwAk/5Fns9ziUkylcZdnTAxXeg=; b=Aufy7f6hqV4ByIrjLx6khmETU4
+	zIpk7j7OE/r79VVFpTRP5xOMPSXIeeE5unIuHxLTd5bNRWSNiQeFpxDIqWaMcrx1r9/UOZHyOMlmv
+	QpUvvrzN2ZmrXCiDF/lZJUOF276+IiGaS+kA9FPJorgGY/3hU9a8RzyWyg6JQGPYnvpEbbgZCmWk0
+	X+ZHreK3kkEwUukIa4lnd127uJfItcRRgZ5CHAzmw4R7p8f/9CrfWfaDfyPtDewwPgGzrgWyuQMBn
+	gLj28wPy9iXPRWAU4pESklvFqtNb1X1hXFKLyjs1SzgxgGmnQDa455SrPxLMUQlyhDSuK2ptgF86l
+	4XTAiUPA==;
+Received: from mail.loongson.cn ([114.242.206.163])
+	by desiato.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1qWvpw-00FNsI-35
 	for linux-riscv@lists.infradead.org;
-	Fri, 18 Aug 2023 07:36:15 +0000
-Received: by mail-ej1-x643.google.com with SMTP id a640c23a62f3a-99bcf2de59cso71598866b.0
-        for <linux-riscv@lists.infradead.org>; Fri, 18 Aug 2023 00:36:09 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1692344168; x=1692948968;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=JP1Np/yFy1nrHPIeuFCXQU9sMYli5vZhZe6SDGYaT/o=;
-        b=Stax/pFHA8SD7BalJgHltTtR/zcIdB4o7Yy1iIifK5N6RnsnW5zzGKhLT/jbnVWDiJ
-         83ou0tdmsaL05n11UkereMaUZjHf8DjqHLIDR3wpQEedsYtyVcgS++A2dMx0MPfpy4FM
-         zaNfqht01yvSdgajUmD5oN9j5RERlwT+p5ZReuEXA55ofRQ1JDcSgvdLRWlbkTOBuxbk
-         bTOpFp65Xyk4U2enrEoJiNs0C8Bv6i6aLz50znPQipXBq09/tMoJR9+jiL0Blv0FPG2C
-         c3OIpJaqu+agPV9LKT7oA0yNoAoDK0jqZShmkCRV5U++NoEw2bXYGOia3iht2lngrwq7
-         cvnQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1692344168; x=1692948968;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=JP1Np/yFy1nrHPIeuFCXQU9sMYli5vZhZe6SDGYaT/o=;
-        b=I85bmUuTr5kbLiZZ0uZyYLwXYYOYI9HbankT7dCcyLB65wQQ28BUobtsSQ/HlCz21N
-         O3iCOj2vINvK/q9tDO12kiQSi03Nu3lbbVrArgXlkZwCnCosZ14QcAnRftDT03l9ry5H
-         8FRHGtuLnewfdBX/RPAiUcH/oKvejKYzju7tqEbF975VAxCTUsuBZ5GUcHllptPCjtYe
-         U3IsPWajtiX3aHOwwOj40Tfb+Ncor6qJKWsVKEjul3SHzyuQgYJANgbwangvEshN7mo+
-         7k2SajGD32aOq/9WO5C8NlXo36oO6oFe0pAViNw8RG9FadH9ZJgK2A5hB5azAA7BexjI
-         6sDw==
-X-Gm-Message-State: AOJu0YxC7JR+cL6qRGvSsxVkfO8jRgcOL57U1+yTGrbdM6TBOs4Ap7TI
-	qC4w0N0J4RySsgnuCwNReKaPNw==
-X-Google-Smtp-Source: AGHT+IEy3bMvHrj+O9xWMGxfIZ/JqKbjUS51FhV5LJhI1f70H2XnDWv79sMoNA9OKWp4CqIjCSCtog==
-X-Received: by 2002:a17:906:3d22:b0:99e:5d8:a6f2 with SMTP id l2-20020a1709063d2200b0099e05d8a6f2mr956414ejf.32.1692344168436;
-        Fri, 18 Aug 2023 00:36:08 -0700 (PDT)
-Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id y6-20020a170906070600b0099cadcf13cesm846259ejb.66.2023.08.18.00.36.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 18 Aug 2023 00:36:07 -0700 (PDT)
-Date: Fri, 18 Aug 2023 09:36:07 +0200
-From: Andrew Jones <ajones@ventanamicro.com>
-To: "Xu, Haibo1" <haibo1.xu@intel.com>
-Cc: "kvm-riscv@lists.infradead.org" <kvm-riscv@lists.infradead.org>, 
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>, "anup@brainfault.org" <anup@brainfault.org>, 
-	"atishp@atishpatra.org" <atishp@atishpatra.org>, "paul.walmsley@sifive.com" <paul.walmsley@sifive.com>, 
-	"palmer@dabbelt.com" <palmer@dabbelt.com>, "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>
-Subject: Re: [PATCH 1/2] MAINTAINERS: RISC-V: KVM: Add another kselftests path
-Message-ID: <20230818-adff57b7c6360126eb16e888@orel>
-References: <20230817162344.17076-4-ajones@ventanamicro.com>
- <20230817162344.17076-5-ajones@ventanamicro.com>
- <BY5PR11MB390964AB15E7BB3C64EE3DA7B01BA@BY5PR11MB3909.namprd11.prod.outlook.com>
+	Fri, 18 Aug 2023 09:32:12 +0000
+Received: from loongson.cn (unknown [10.20.42.43])
+	by gateway (Coremail) with SMTP id _____8Cxc_CNOt9k8dQZAA--.53098S3;
+	Fri, 18 Aug 2023 17:31:57 +0800 (CST)
+Received: from [10.20.42.43] (unknown [10.20.42.43])
+	by localhost.localdomain (Coremail) with SMTP id AQAAf8Ax98x3Ot9kTIJdAA--.12208S3;
+	Fri, 18 Aug 2023 17:31:55 +0800 (CST)
+Message-ID: <8ffb3525-487e-20b3-4024-66470f1407f1@loongson.cn>
+Date: Fri, 18 Aug 2023 17:31:34 +0800
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <BY5PR11MB390964AB15E7BB3C64EE3DA7B01BA@BY5PR11MB3909.namprd11.prod.outlook.com>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.13.0
+Subject: Re: [PATCH v4] PCI/VGA: Make the vga_is_firmware_default() less
+ arch-dependent
+To: Bjorn Helgaas <helgaas@kernel.org>
+Cc: Bjorn Helgaas <bhelgaas@google.com>, loongson-kernel@lists.loongnix.cn,
+ linux-pci@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org
+References: <20230817220853.GA328159@bhelgaas>
+Content-Language: en-US
+From: suijingfeng <suijingfeng@loongson.cn>
+In-Reply-To: <20230817220853.GA328159@bhelgaas>
+X-CM-TRANSID: AQAAf8Ax98x3Ot9kTIJdAA--.12208S3
+X-CM-SenderInfo: xvxlyxpqjiv03j6o00pqjv00gofq/
+X-Coremail-Antispam: 1Uk129KBj9xXoW7JryDGFy5WrWDXrWfZw17XFc_yoWDWrX_CF
+	W3GFW5C3y8CFsYqa1rGFsxCFn0k39xZF1rZF10qrnFva4rG3Z8Xa92g3s2vr1rJFWFkrnF
+	9Fy7Grn5X342gosvyTuYvTs0mTUanT9S1TB71UUUUUDqnTZGkaVYY2UrUUUUj1kv1TuYvT
+	s0mT0YCTnIWjqI5I8CrVACY4xI64kE6c02F40Ex7xfYxn0WfASr-VFAUDa7-sFnT9fnUUI
+	cSsGvfJTRUUUbIxYFVCjjxCrM7AC8VAFwI0_Jr0_Gr1l1xkIjI8I6I8E6xAIw20EY4v20x
+	vaj40_Wr0E3s1l1IIY67AEw4v_Jrv_JF1l8cAvFVAK0II2c7xJM28CjxkF64kEwVA0rcxS
+	w2x7M28EF7xvwVC0I7IYx2IY67AKxVWUCVW8JwA2z4x0Y4vE2Ix0cI8IcVCY1x0267AKxV
+	WUJVW8JwA2z4x0Y4vEx4A2jsIE14v26r4UJVWxJr1l84ACjcxK6I8E87Iv6xkF7I0E14v2
+	6r4UJVWxJr1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqjxCEc2xF0cIa020Ex4CE44I27w
+	Aqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jrv_JF1lYx0Ex4A2jsIE
+	14v26r4j6F4UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvEwIxGrwCYjI0SjxkI62AI1c
+	AE67vIY487MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8C
+	rVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUAVWUtw
+	CIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x02
+	67AKxVWUJVW8JwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Gr
+	0_Cr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7IU8vA
+	pUUUUUU==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230818_083612_411630_AA454434 
-X-CRM114-Status: GOOD (  15.86  )
+X-CRM114-CacheID: sfid-20230818_103209_696862_1F9EBA0F 
+X-CRM114-Status: GOOD (  10.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,52 +96,29 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 18, 2023 at 01:29:25AM +0000, Xu, Haibo1 wrote:
-> > -----Original Message-----
-> > From: Andrew Jones <ajones@ventanamicro.com>
-> > Sent: Friday, August 18, 2023 12:24 AM
-> > To: kvm-riscv@lists.infradead.org; linux-riscv@lists.infradead.org
-> > Cc: anup@brainfault.org; atishp@atishpatra.org; Xu, Haibo1
-> > <haibo1.xu@intel.com>; paul.walmsley@sifive.com; palmer@dabbelt.com;
-> > aou@eecs.berkeley.edu
-> > Subject: [PATCH 1/2] MAINTAINERS: RISC-V: KVM: Add another kselftests path
-> > 
-> > With the introduction of the get-reg-list test for riscv, another directory has
-> > been added that should be tracked by riscv kvm maintainers.
-> > 
-> > Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
-> > ---
-> >  MAINTAINERS | 1 +
-> >  1 file changed, 1 insertion(+)
-> > 
-> > diff --git a/MAINTAINERS b/MAINTAINERS
-> > index 0f966f05fb0d..8fc9e6e7f207 100644
-> > --- a/MAINTAINERS
-> > +++ b/MAINTAINERS
-> > @@ -11463,6 +11463,7 @@ F:	arch/riscv/include/asm/kvm*
-> >  F:	arch/riscv/include/uapi/asm/kvm*
-> >  F:	arch/riscv/kvm/
-> >  F:	tools/testing/selftests/kvm/*/riscv/
-> > +F:	tools/testing/selftests/kvm/riscv/
-> > 
-> LGTM!
-
-Hi Haibo,
-
-Please reply with a Reviewed-by tag, assuming your LGTM held the same
-meaning as an r-b. See [1] to ensure it does.
-
-[1] https://www.kernel.org/doc/html/v4.17/process/submitting-patches.html#using-reported-by-tested-by-reviewed-by-suggested-by-and-fixes
-
-Thanks,
-drew
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGksCgoKT24gMjAyMy84LzE4IDA2OjA4LCBCam9ybiBIZWxnYWFzIHdyb3RlOgo+PiBUaGlzIHBh
+dGNoIG1ha2VzIHRoZSB2Z2FfaXNfZmlybXdhcmVfZGVmYXVsdCgpIGZ1bmN0aW9uIHdvcmtzIG9u
+IHdoYXRldmVyCj4+IGFyY2ggdGhhdCBoYXMgVUVGSSBHT1Agc3VwcG9ydC4gQnV0IHdlIG1ha2Ug
+aXQgYXZhaWxhYmxlIG9ubHkgb24gcGxhdGZvcm1zCj4+IHdoZXJlIFBDSSByZXNvdXJjZSByZWxv
+Y2F0aW9uIGhhcHBlbnMuIGlmIHRoZSBwcm92aWRlZCBtZXRob2QgcHJvdmVzIHRvIGJlCj4+IGVm
+ZmVjdGl2ZSBhbmQgcmVsaWFibGUsIGl0IGNhbiBiZSBleHBhbmRlZCB0byBvdGhlciBhcmNoIGVh
+c2lseS4KPj4KPj4gdjI6Cj4+IAkqIEZpeCB0ZXN0IHJvYm90IHdhcm5uaW5ncyBhbmQgZml4IHR5
+cG9zCj4+Cj4+IHYzOgo+PiAJKiBGaXggbGlua2FnZSBwcm9ibGVtcyBpZiB0aGUgZ2xvYmFsIHNj
+cmVlbl9pbmZvIGlzIG5vdCBleHBvcnRlZAo+Pgo+PiB2NDoKPj4gCSogSGFuZGxlIGxpbmthZ2Ug
+cHJvYmxlbXMgYnkgaGlkaW5nIGJlaGluZCBvZiBDT05GSUdfU1lTRkIsCj4+IAkqIERyb3Agc2lk
+ZS1lZmZlY3RzIGFuZCBzaW1wbGlmeS4KPiBUaGUgdjIsIHYzLCB2NCBjaGFuZ2Vsb2cgaXMgbmlj
+ZSwgYnV0IHdlIGRvbid0IG5lZWQgaXQgaW4gdGhlIGNvbW1pdAo+IGxvZyBpdHNlbGYsIHdoZXJl
+IGl0IHdpbGwgYmVjb21lIHBhcnQgb2YgdGhlIGdpdCBoaXN0b3J5LiAgSXQgc2hvdWxkCj4gZ28g
+aW4gYSBjb3ZlciBsZXR0ZXIgb3IgYWZ0ZXIgdGhlICItLS0iIG1hcmtlcjoKPiBodHRwczovL2dp
+dC5rZXJuZWwub3JnL3B1Yi9zY20vbGludXgva2VybmVsL2dpdC90b3J2YWxkcy9saW51eC5naXQv
+dHJlZS9Eb2N1bWVudGF0aW9uL3Byb2Nlc3Mvc3VibWl0dGluZy1wYXRjaGVzLnJzdD9pZD12Ni4w
+I242NzgKClRoYW5rcyBmb3IgcG9pbnQgaXQgb3V0LCBub3cgSSBrbm93LiBXaWxsIGJlIGZpeGVk
+wqBhdCB0aGUgbmV4dCB2ZXJzaW9uLgoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0
+cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGlu
+Zm8vbGludXgtcmlzY3YK
