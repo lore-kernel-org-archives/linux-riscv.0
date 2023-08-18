@@ -4,56 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3722C001DE
-	for <linux-riscv@archiver.kernel.org>; Fri, 18 Aug 2023 09:36:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61C50C678DC
+	for <linux-riscv@archiver.kernel.org>; Fri, 18 Aug 2023 09:52:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=BqW3GsbFUaiVCxP2AGyCNWH6ktj6zlj8PRWA1NWXfSY=; b=C8OKiSn1BIg9zV
-	8joODHBb86666j5FkAUM07ZH8SFUUq3BtwGERsZsYZfnzIqGQF6lizT/o/7pYLsMN3t9ErkFvmt1u
-	RomHQCHs9UMT0X2W2evU7E5mpeXldhkSSjf/g4RGQS28W2RaCOa99GUvjBlYRat5kyyj+QdoHYmQM
-	gtzdQz8Y5E1AFCT7Qx+Y+12GRTXcaEdGwLE+D2HUSU580VJzLALyKzF3wytGBAL2jvBzqt39QktOG
-	JD/HQ1SgpuVx2F8UyW5aIQjiwfrDqid8PCe02YrikzgIJp0/5YlX6kQZwuBWDFAFlxL4xZnYjBX+C
-	LDtga9ZbDLzjQ/QxBJ1w==;
+	List-Owner; bh=IYOTpimdxfe70RbfgXx4zZYCXLcwI6TJ2FjyuiJkwaU=; b=1O49vLG6LnSwzq
+	INqyvqSA7e8k24mcUiZePmFV4RauqPYcnAYfFJLKEeyMwRt7orAGjvvWUaXz5sW5SUHycZus6Y4H8
+	P7/6XnUKPWo0Ru5RnlRwv1V81mtBXO3EqDqGL3hcP+j2cBYzqwUBFeBQEV4jABVWnZOkuh4e2iLFJ
+	n4y0BvYiTfQgjNhyksQUjYRMQtvUpa1F0MsCeOA2gw2551AAxGKAQjg1Y2ERf7ts+Ma58bBGdSNRs
+	2uFIbsnYsy9KCAOjQe/sxvctRYGuBkYFnUxbiaZAs8OJ93ifHP9ZpsrOL9XuWe1D7MSAk9vvjSmDu
+	mN7HwRVZs4UXUxmW1Mng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qWvuC-0086oK-0v;
-	Fri, 18 Aug 2023 09:36:32 +0000
-Received: from 60-248-80-70.hinet-ip.hinet.net ([60.248.80.70] helo=Atcsqr.andestech.com)
+	id 1qWw9P-0088yl-04;
+	Fri, 18 Aug 2023 09:52:15 +0000
+Received: from bg4.exmail.qq.com ([43.154.221.58])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qWvu3-0086le-1J
-	for linux-riscv@lists.infradead.org;
-	Fri, 18 Aug 2023 09:36:25 +0000
-Received: from mail.andestech.com (ATCPCS16.andestech.com [10.0.1.222])
-	by Atcsqr.andestech.com with ESMTP id 37I9ZdfW061442;
-	Fri, 18 Aug 2023 17:35:39 +0800 (+08)
-	(envelope-from ycliang@andestech.com)
-Received: from swlinux02 (10.0.15.183) by ATCPCS16.andestech.com (10.0.1.222)
- with Microsoft SMTP Server id 14.3.498.0; Fri, 18 Aug 2023 17:35:37 +0800
-Date: Fri, 18 Aug 2023 17:35:14 +0800
-From: Leo Liang <ycliang@andestech.com>
-To: <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <mingo@redhat.com>, <peterz@infradead.org>, <juri.lelli@redhat.com>,
-        <vincent.guittot@linaro.org>, <dietmar.eggemann@arm.com>,
-        <rostedt@goodmis.org>, <bsegall@google.com>, <mgorman@suse.de>,
-        <bristot@redhat.com>, <vschneid@redhat.com>,
-        <zhouchengming@bytedance.com>, <palmer@rivosinc.com>
-CC: <ycliang@andestech.com>, <tim609@andestech.com>, <dylan@andestech.com>
-Subject: PROBLEM: LTP cfs_bandwidth01 test bumped into SCHED_WARN_ON after
- de-selecting CONFIG_SMP
-Message-ID: <ZN87UsqkWcFLDxea@swlinux02>
+	id 1qWw9J-0088wY-0D;
+	Fri, 18 Aug 2023 09:52:11 +0000
+X-QQ-mid: bizesmtp89t1692352231tywfa1bm
+Received: from localhost.localdomain ( [61.183.83.60])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Fri, 18 Aug 2023 17:50:30 +0800 (CST)
+X-QQ-SSF: 01200000000000D0D000000A0000000
+X-QQ-FEAT: xnbq7qFd8vprDzjZChdw+TNRpRXlOB7G0+uO75guUGIV9Cu0rivaXtLi2NhCg
+	xrjv3NtDi7yI394qgiVmxqCe0u6+vEC/XDgJhxv8QRze0L4BGdCLahk2d+3cHMGRsyeh9D8
+	DCvHwT/hb994F7PomV6YEfQBmZFcOf3NLwFRDIODZEiuM1Y5tcmp7OzT1b7mX1XXExtIlec
+	hj1m3LogqZ3AjGWr77m/f9gdzavMjF5KuEOQAM8jtCwW0zgTUkI7a2PZM8N96z1SSC44hAQ
+	UsZzkcmHBUTcqeabrEDehOmqJgeCw09cWaBUGWLt5165G5Dy633nN1HL0Jfi15vcg2SBtSK
+	uj5SE8FDmzcH5lJX5yeTg6m56m3eC9Bv8UaYnW5
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 6813891064426468315
+From: Song Shuai <songshuaishuai@tinylab.org>
+To: xianting.tian@linux.alibaba.com,
+	mick@ics.forth.gr,
+	heinrich.schuchardt@canonical.com,
+	guoren@kernel.org,
+	k-hagio-ab@nec.com,
+	yixun.lan@gmail.com,
+	lijiang@redhat.com
+Cc: linux-riscv@lists.infradead.org,
+	kexec@lists.infradead.org,
+	crash-utility@redhat.com,
+	Song Shuai <suagrfillet@gmail.com>
+Subject: [Crash-utility PATCH V2] RISCV64: Add KASLR support
+Date: Fri, 18 Aug 2023 17:50:28 +0800
+Message-Id: <20230818095028.1012639-1-songshuaishuai@tinylab.org>
+X-Mailer: git-send-email 2.20.1
 MIME-Version: 1.0
-Content-Disposition: inline
-User-Agent: Mutt/2.2.10 (e0e92c31) (2023-03-25)
-X-Originating-IP: [10.0.15.183]
-X-DNSRBL: 
-X-MAIL: Atcsqr.andestech.com 37I9ZdfW061442
+X-QQ-SENDSIZE: 520
+Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrsz:qybglogicsvrsz4a-0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230818_023623_911795_93F269EE 
-X-CRM114-Status: GOOD (  13.71  )
+X-CRM114-CacheID: sfid-20230818_025209_453215_8B3DB010 
+X-CRM114-Status: GOOD (  15.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,115 +72,94 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi all,
-
-We are using upstream buildroot (master branch) to reproduce this problem.
-The defconfig we're using is qemu_riscv64_virt_defconfig and the kernel version is 6.4.
-
-After a little bit of git bisecting, we believe is the following commit that cause the issue,
-and reverting the commit could fix the problem.
-
-We are not familiar with CFS code, so we are wondering if reverting this patch is the right
-thing to do or we should just stay with CONFIG_SMP enabled.
-
-Does anybody has any comments ?
-
-================= This commit is somewhere between v5.18 and v5.19-rc1 =======================
-commit 0a00a354644ee1800d31c47cf5927b9b50272fac
-Author: Chengming Zhou <zhouchengming@bytedance.com>
-Date:   Fri Apr 8 19:53:09 2022 +0800
-
-    sched/fair: Delete useless condition in tg_unthrottle_up()
-
-    We have tested cfs_rq->load.weight in cfs_rq_is_decayed(),
-    the first condition "!cfs_rq_is_decayed(cfs_rq)" is enough
-    to cover the second condition "cfs_rq->nr_running".
-
-    Signed-off-by: Chengming Zhou <zhouchengming@bytedance.com>
-    Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
-    Reviewed-by: Ben Segall <bsegall@google.com>
-    Reviewed-by: Vincent Guittot <vincent.guittot@linaro.org>
-    Link: https://lore.kernel.org/r/20220408115309.81603-2-zhouchengming@bytedance.com
-
-diff --git a/kernel/sched/fair.c b/kernel/sched/fair.c
-index f74b34080c9a..3eba0dcc4962 100644
---- a/kernel/sched/fair.c
-+++ b/kernel/sched/fair.c
-@@ -4850,7 +4850,7 @@ static int tg_unthrottle_up(struct task_group *tg, void *data)
-                                             cfs_rq->throttled_clock_pelt;
-
-                /* Add cfs_rq with load or one or more already running entities to the list */
--               if (!cfs_rq_is_decayed(cfs_rq) || cfs_rq->nr_running)
-+               if (!cfs_rq_is_decayed(cfs_rq))
-                        list_add_leaf_cfs_rq(cfs_rq);
-        }
-===============================================================================================
-
-The reproducing step is as follows:
-$ cd buildroot
-$ make qemu_riscv64_virt_defconfig
-$ make menuconfig					## choose 6.4 kernel and choose LTP testsuite
-$ make
-$ make linux-menuconfig				## de-select CONFIG_SMP
-$ make linux-rebuild
-$ ./output/images/start-qemu.sh
-
-...
-Welcome to Buildroot
-buildroot login: root
-# /usr/lib/ltp-testsuite/testcases/bin/cfs_bandwidth01
-tst_kconfig.c:87: TINFO: Parsing kernel config '/proc/config.gz'
-tst_cgroup.c:679: TINFO: Mounted V2 CGroups on /tmp/cgroup_unified
-tst_cgroup.c:737: TINFO: Mounted V1 cpu CGroup on /tmp/cgroup_cpu
-tst_test.c:1558: TINFO: Timeout per run is 0h 00m 50s
-cfs_bandwidth01.c:54: TINFO: Set 'worker1/cpu.max' = '3000 10000'
-cfs_bandwidth01.c:54: TINFO: Set 'worker2/cpu.max' = '2000 10000'
-cfs_bandwidth01.c:54: TINFO: Set 'worker3/cpu.max' = '3000 10000'
-cfs_bandwidth01.c:117: TPASS: Scheduled bandwidth constrained workers
-cfs_bandwidth01.c:54: TINFO: Set 'level2/cpu.max' = '5000 10000'
-[   16.625892] ------------[ cut here ]------------
-[   16.626169] rq->tmp_alone_branch != &rq->leaf_cfs_rq_list
-[   16.626337] WARNING: CPU: 0 PID: 0 at kernel/sched/fair.c:437 unthrottle_cfs_rq+0x3b4/0x3b8
-[   16.626781] Modules linked in:
-[   16.626988] CPU: 0 PID: 0 Comm: swapper Not tainted 5.19.0 #2
-[   16.627205] Hardware name: riscv-virtio,qemu (DT)
-[   16.627368] epc : unthrottle_cfs_rq+0x3b4/0x3b8
-[   16.627511]  ra : unthrottle_cfs_rq+0x3b4/0x3b8
-[   16.627640] epc : ffffffff80031f3e ra : ffffffff80031f3e sp : ffffffff81003b10
-[   16.627816]  gp : ffffffff810e1078 tp : ffffffff8100d5c0 t0 : ffffffff8101a960
-[   16.627989]  t1 : 0720072007200720 t2 : 2d2d2d2d2d2d2d2d s0 : ffffffff81003b90
-[   16.628162]  s1 : 0000000000000000 a0 : 000000000000002d a1 : ffffffff810872b8
-[   16.628328]  a2 : 0000000000000010 a3 : 0000000000000001 a4 : 0000000000000000
-[   16.628498]  a5 : 0000000000000000 a6 : 0000000000000000 a7 : 000000000000002d
-[   16.628667]  s2 : ffffffff81016170 s3 : ff60000002232c00 s4 : 0000000000000000
-[   16.628853]  s5 : ffffffff81016140 s6 : 0000000000000002 s7 : 0000000000000001
-[   16.629021]  s8 : 0000000000000002 s9 : 0000000000000001 s10: 0000000000113833
-[   16.629190]  s11: 0000000000989680 t3 : ff60000001218f00 t4 : ff60000001218f00
-[   16.629367]  t5 : ff60000001218000 t6 : ffffffff810038f8
-[   16.629493] status: 0000000200000100 badaddr: 0000000000000000 cause: 0000000000000003
-[   16.629756] [<ffffffff80032030>] distribute_cfs_runtime+0xee/0x12a
-[   16.629946] [<ffffffff800321ee>] sched_cfs_period_timer+0xdc/0x1e6
-[   16.630101] [<ffffffff80055432>] __hrtimer_run_queues.constprop.0+0x12a/0x1b0
-[   16.630272] [<ffffffff80055e6e>] hrtimer_interrupt+0xe0/0x1f2
-[   16.630411] [<ffffffff804c59d2>] riscv_timer_interrupt+0x1c/0x26
-[   16.630557] [<ffffffff80044a62>] handle_percpu_devid_irq+0x50/0xd6
-[   16.630703] [<ffffffff800409c8>] generic_handle_domain_irq+0x1c/0x2a
-[   16.630855] [<ffffffff8030ac0a>] riscv_intc_irq+0x2e/0x46
-[   16.630990] [<ffffffff80634dba>] generic_handle_arch_irq+0x34/0x4e
-[   16.631139] [<ffffffff80003280>] ret_from_exception+0x0/0xc
-[   16.631343] ---[ end trace 0000000000000000 ]---
-cfs_bandwidth01.c:129: TPASS: Workers exited
-tst_test.c:1601: TFAIL: Kernel is now tainted.
-
-Best regards,
-Leo
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+RnJvbTogU29uZyBTaHVhaSA8c3VhZ3JmaWxsZXRAZ21haWwuY29tPgoKVGhpcyBwYXRjaCBhZGRz
+IEtBU0xSIHN1cHBvcnQgZm9yIENyYXNoIHRvIGFuYWx5emUgS0FTTFItZWQgdm1jb3JlCnNpbmNl
+IFJJU0MtViBMaW51eCBpcyBhbHJlYWR5IHN1ZmZpY2llbnRseSBwcmVwYXJlZCBmb3IgS0FTTFIg
+WzFdLgoKV2l0aCB0aGlzIHBhdGNoLCBldmVuIGlmIHRoZSBDcmFzaCAnLS1rYXNscicgb3B0aW9u
+IGlzIG5vdCBzZXQgb3IgTGludXgKQ09ORklHX1JBTkRPTUlaRV9CQVNFIGlzIG5vdCBjb25maWd1
+cmVkLCB0aGUgJ2Rlcml2ZV9rYXNscl9vZmZzZXQoKScKZnVuY3Rpb24gd2lsbCBhbHdheXMgd29y
+a8KgdG8gY2FsY3VsYXRlICdrdC0+cmVsb2NhdGUnIHdoaWNoIHNlcnZlcyB0bwp1cGRhdGUgdGhl
+IGtlcm5lbCB2aXJ0dWFsIGFkZHJlc3MuCgpUZXN0aW5nIGluIFFlbXUgcnY2NCB2aXJ0LCBrZXJu
+ZWwgbG9nIG91dHB1dGVkIHRoZSBrZXJuZWwgb2Zmc2V0OgoKWyAgMTIxLjIxNDQ0N10gU01QOiBz
+dG9wcGluZyBzZWNvbmRhcnkgQ1BVcwpbICAxMjEuMjE1NDQ1XSBLZXJuZWwgT2Zmc2V0OiAweDM3
+YzAwMDAwIGZyb20gMHhmZmZmZmZmZjgwMDAwMDAwClsgIDEyMS4yMTYzMTJdIFN0YXJ0aW5nIGNy
+YXNoZHVtcCBrZXJuZWwuLi4KWyAgMTIxLjIxNjU4NV0gV2lsbCBjYWxsIG5ldyBrZXJuZWwgYXQg
+OTQ4MDAwMDAgZnJvbSBoYXJ0IGlkIDAKWyAgMTIxLjIxNjgzNF0gRkRUIGltYWdlIGF0IDljN2Zk
+MDAwClsgIDEyMS4yMTY5ODJdIEJ5ZS4uLgoKUnVubmluZyBjcmFzaCB3aXRoIGAtZCAxYCBvcHRp
+b24gYW5kIHdpdGhvdXQgYC0ta2FzbHJgIG9wdGlvbiwKd2UgZ2V0IHRoZSByaWdodCBga3QtPnJl
+bG9jYXRlYCBhbmQga2VybmVsIGxpbmsgYWRkcjoKCiQgLi4vY3Jhc2gvY3Jhc2ggLWQgMSB2bWxp
+bnV4IHZtY29yZV9rYXNscl8wODE1Ci4uLgpLQVNMUjoKICBfc3RleHQgZnJvbSB2bWxpbnV4OiBm
+ZmZmZmZmZjgwMDAyMDAwCiAgX3N0ZXh0IGZyb20gdm1jb3JlaW5mbzogZmZmZmZmZmZiN2MwMjAw
+MAogIHJlbG9jYXRlOiAzN2MwMDAwMCAoODkyTUIpCnZtZW1tYXAgOiAweGZmMWMwMDAwMDAwMDAw
+MDAgLSAweGZmMjAwMDAwMDAwMDAwMDAKdm1hbGxvYyA6IDB4ZmYyMDAwMDAwMDAwMDAwMCAtIDB4
+ZmY2MDAwMDAwMDAwMDAwMAptdWR1bGVzIDogMHhmZmZmZmZmZjM5NTJmMDAwIC0gMHhmZmZmZmZm
+ZmI3YzAwMDAwCmxvd21lbSAgOiAweGZmNjAwMDAwMDAwMDAwMDAgLQprZXJuZWwgbGluayBhZGRy
+ICAgICAgICA6IDB4ZmZmZmZmZmZiN2MwMDAwMAouLi4KICAgICAgS0VSTkVMOiAvaG9tZS9zb25n
+LzlfbGludXgvbGludXgvMDBfcnZfa2FzbHIvdm1saW51eAogICAgRFVNUEZJTEU6IC90bXAvaGVs
+bG8vdm1jb3JlX2thc2xyXzA4MTUKICAgICAgICBDUFVTOiAyCiAgICAgICAgREFURTogVHVlIEF1
+ZyAxNSAxNjozNjoxNSBDU1QgMjAyMwogICAgICBVUFRJTUU6IDAwOjAyOjAxCkxPQUQgQVZFUkFH
+RTogMC40MCwgMC4yMywgMC4wOQogICAgICAgVEFTS1M6IDYzCiAgICBOT0RFTkFNRTogc3RhZ2U0
+LmZlZG9yYXByb2plY3Qub3JnCiAgICAgUkVMRUFTRTogNi41LjAtcmMzLTAwMDA4LWdhZDE4ZGVl
+NDIzYWMKICAgICBWRVJTSU9OOiAjMTcgU01QIFR1ZSBBdWcgMTUgMTQ6NDE6MTIgQ1NUIDIwMjMK
+ICAgICBNQUNISU5FOiByaXNjdjY0ICAodW5rbm93biBNaHopCiAgICAgIE1FTU9SWTogNTExLjgg
+TUIKICAgICAgIFBBTklDOiAiS2VybmVsIHBhbmljIC0gbm90IHN5bmNpbmc6IHN5c3JxIHRyaWdn
+ZXJlZCBjcmFzaCIKICAgICAgICAgUElEOiAxNjAKICAgICBDT01NQU5EOiAiYmFzaCIKICAgICAg
+ICBUQVNLOiBmZjYwMDAwMDAxNTJiYWMwICBbVEhSRUFEX0lORk86IGZmNjAwMDAwMDE1MmJhYzBd
+CiAgICAgICAgIENQVTogMQogICAgICAgU1RBVEU6IFRBU0tfUlVOTklORyAoUEFOSUMpCmNyYXNo
+PgoKWzFdOiBodHRwczovL2xvcmUua2VybmVsLm9yZy9saW51eC1yaXNjdi8yMDIzMDcyMjEyMzg1
+MC42MzQ1NDQtMS1hbGV4Z2hpdGlAcml2b3NpbmMuY29tLwoKU2lnbmVkLW9mZi1ieTogU29uZyBT
+aHVhaSA8c3VhZ3JmaWxsZXRAZ21haWwuY29tPgpSZXZpZXdlZC1ieTogR3VvIFJlbiA8Z3VvcmVu
+QGtlcm5lbC5vcmc+CgotLS0KQ2hhbmdlcyBzaW5jZSBWMToKaHR0cHM6Ly9sb3JlLmtlcm5lbC5v
+cmcvbGludXgtcmlzY3YvMjAyMzA4MTUxMDQ4MDAuNzA1NzUzLTEtc29uZ3NodWFpc2h1YWlAdGlu
+eWxhYi5vcmcvCiAgLSBzdXBwbGVtZW50IHRoZSBvdXRwdXQgb2YgbXkgQ3Jhc2ggdGVzdCBpbiB0
+aGUgY29tbWl0LW1zZyAKICAtIGFkZCB0aGUgUmV2aWV3ZWQtYnkgZnJvbSBHdW8KCi0tLQogbWFp
+bi5jICAgIHwgIDIgKy0KIHJpc2N2NjQuYyB8IDExICsrKysrKysrKysrCiBzeW1ib2xzLmMgfCAg
+NCArKy0tCiAzIGZpbGVzIGNoYW5nZWQsIDE0IGluc2VydGlvbnMoKyksIDMgZGVsZXRpb25zKC0p
+CgpkaWZmIC0tZ2l0IGEvbWFpbi5jIGIvbWFpbi5jCmluZGV4IGIyNzhjMjIuLjBjNmU1OTUgMTAw
+NjQ0Ci0tLSBhL21haW4uYworKysgYi9tYWluLmMKQEAgLTIyOCw3ICsyMjgsNyBAQCBtYWluKGlu
+dCBhcmdjLCBjaGFyICoqYXJndikKIAkJCX0gZWxzZSBpZiAoU1RSRVEobG9uZ19vcHRpb25zW29w
+dGlvbl9pbmRleF0ubmFtZSwgImthc2xyIikpIHsKIAkJCQlpZiAoIW1hY2hpbmVfdHlwZSgiWDg2
+XzY0IikgJiYKIAkJCQkgICAgIW1hY2hpbmVfdHlwZSgiQVJNNjQiKSAmJiAhbWFjaGluZV90eXBl
+KCJYODYiKSAmJgotCQkJCSAgICAhbWFjaGluZV90eXBlKCJTMzkwWCIpKQorCQkJCSAgICAhbWFj
+aGluZV90eXBlKCJTMzkwWCIpICYmICFtYWNoaW5lX3R5cGUoIlJJU0NWNjQiKSkKIAkJCQkJZXJy
+b3IoSU5GTywgIi0ta2FzbHIgbm90IHZhbGlkICIKIAkJCQkJCSJ3aXRoIHRoaXMgbWFjaGluZSB0
+eXBlLlxuIik7CiAJCQkJZWxzZSBpZiAoU1RSRVEob3B0YXJnLCAiYXV0byIpKQpkaWZmIC0tZ2l0
+IGEvcmlzY3Y2NC5jIGIvcmlzY3Y2NC5jCmluZGV4IGEwMmY3NWEuLjI4OGM3YWUgMTAwNjQ0Ci0t
+LSBhL3Jpc2N2NjQuYworKysgYi9yaXNjdjY0LmMKQEAgLTM3OCw2ICszNzgsOSBAQCBzdGF0aWMg
+dm9pZCByaXNjdjY0X2dldF92YV9yYW5nZShzdHJ1Y3QgbWFjaGluZV9zcGVjaWZpYyAqbXMpCiAJ
+fSBlbHNlCiAJCWdvdG8gZXJyb3I7CiAKKwlpZiAoKGt0LT5mbGFnczIgJiBLQVNMUikgJiYgKGt0
+LT5mbGFncyAmIFJFTE9DX1NFVCkpCisJCW1zLT5rZXJuZWxfbGlua19hZGRyICs9IChrdC0+cmVs
+b2NhdGUgKiAtMSk7CisKIAkvKgogCSAqIEZyb20gTGludXggNS4xMywgdGhlIGtlcm5lbCBtYXBw
+aW5nIGlzIG1vdmVkIHRvIHRoZSBsYXN0IDJHQgogCSAqIG9mIHRoZSBhZGRyZXNzIHNwYWNlLCBt
+b2R1bGVzIHVzZSB0aGUgMkdCIG1lbW9yeSByYW5nZSByaWdodApAQCAtMTM2MCw2ICsxMzYzLDE0
+IEBAIHJpc2N2NjRfaW5pdChpbnQgd2hlbikKIAogCQltYWNoZGVwLT52ZXJpZnlfcGFkZHIgPSBn
+ZW5lcmljX3ZlcmlmeV9wYWRkcjsKIAkJbWFjaGRlcC0+cHRyc19wZXJfcGdkID0gUFRSU19QRVJf
+UEdEOworCisJCS8qCisJCSAqIEV2ZW4gaWYgQ09ORklHX1JBTkRPTUlaRV9CQVNFIGlzIG5vdCBj
+b25maWd1cmVkLAorCQkgKiBkZXJpdmVfa2FzbHJfb2Zmc2V0KCkgc2hvdWxkIHdvcmsgYW5kIHNl
+dAorCQkgKiBrdC0+cmVsb2NhdGUgdG8gMAorCQkgKi8KKwkJaWYgKCFrdC0+cmVsb2NhdGUgJiYg
+IShrdC0+ZmxhZ3MyICYgKFJFTE9DX0FVVE98S0FTTFIpKSkKKwkJCWt0LT5mbGFnczIgfD0gKFJF
+TE9DX0FVVE98S0FTTFIpOwogCQlicmVhazsKIAogCWNhc2UgUFJFX0dEQjoKZGlmZiAtLWdpdCBh
+L3N5bWJvbHMuYyBiL3N5bWJvbHMuYwppbmRleCA4NzZiZTdhLi44ZThiNGMzIDEwMDY0NAotLS0g
+YS9zeW1ib2xzLmMKKysrIGIvc3ltYm9scy5jCkBAIC02MjksNyArNjI5LDcgQEAga2FzbHJfaW5p
+dCh2b2lkKQogCWNoYXIgKnN0cmluZzsKIAogCWlmICgoIW1hY2hpbmVfdHlwZSgiWDg2XzY0Iikg
+JiYgIW1hY2hpbmVfdHlwZSgiQVJNNjQiKSAmJiAhbWFjaGluZV90eXBlKCJYODYiKSAmJgotCSAg
+ICAhbWFjaGluZV90eXBlKCJTMzkwWCIpKSB8fCAoa3QtPmZsYWdzICYgUkVMT0NfU0VUKSkKKwkg
+ICAgIW1hY2hpbmVfdHlwZSgiUzM5MFgiKSAmJiAhbWFjaGluZV90eXBlKCJSSVNDVjY0IikpIHx8
+IChrdC0+ZmxhZ3MgJiBSRUxPQ19TRVQpKQogCQlyZXR1cm47CiAKIAlpZiAoIWt0LT52bWNvcmVp
+bmZvLl9zdGV4dF9TWU1CT0wgJiYKQEAgLTc5NSw3ICs3OTUsNyBAQCBzdG9yZV9zeW1ib2xzKGJm
+ZCAqYWJmZCwgaW50IGR5bmFtaWMsIHZvaWQgKm1pbmlzeW1zLCBsb25nIHN5bWNvdW50LAogCQl9
+IGVsc2UgaWYgKCEoa3QtPmZsYWdzICYgUkVMT0NfU0VUKSkKIAkJCWt0LT5mbGFncyB8PSBSRUxP
+Q19GT1JDRTsKIAl9IGVsc2UgaWYgKG1hY2hpbmVfdHlwZSgiWDg2XzY0IikgfHwgbWFjaGluZV90
+eXBlKCJBUk02NCIpIHx8Ci0JCSAgIG1hY2hpbmVfdHlwZSgiUzM5MFgiKSkgeworCQkgICBtYWNo
+aW5lX3R5cGUoIlMzOTBYIikgfHwgbWFjaGluZV90eXBlKCJSSVNDVjY0IikpIHsKIAkJaWYgKChr
+dC0+ZmxhZ3MyICYgUkVMT0NfQVVUTykgJiYgIShrdC0+ZmxhZ3MgJiBSRUxPQ19TRVQpKQogCQkJ
+ZGVyaXZlX2thc2xyX29mZnNldChhYmZkLCBkeW5hbWljLCBmcm9tLAogCQkJCWZyb21lbmQsIHNp
+emUsIHN0b3JlKTsKLS0gCjIuMjAuMQoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0
+cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGlu
+Zm8vbGludXgtcmlzY3YK
