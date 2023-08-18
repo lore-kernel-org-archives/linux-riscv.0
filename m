@@ -4,72 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EF88C7113C
-	for <linux-riscv@archiver.kernel.org>; Fri, 18 Aug 2023 13:19:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 953D9C71147
+	for <linux-riscv@archiver.kernel.org>; Fri, 18 Aug 2023 13:33:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:To:From:CC:Subject
-	:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=uVaACIcnMGmp/bGo8pp2vEg37noB1KOrJRL7D4SdiFI=; b=uDAGrp/aT7ZDlf
-	+B4dC0uZwfjjmnQ2vjIxXN7mmI90hHJIdN/iTw485LiVdtR2HL7NAhNScSORoNR1BhjFC+2IkqMO0
-	21IbVzCLIOq6DdLbEIkBqITbVU9EWqAo2yxTDr7QwPBSSyLWLxUmqtYLUTMPY+wmZnM2Fd9t1wH/O
-	LiU28u1IjbfOU2rz8IgtN7w9M8e6refZrMCFQR9Q5O64GJBaLXz8Pzc9YgfW+zn5JcImLJdoTMt7v
-	3Vyu8UCHMbp4WPZ9498j/81jaN4wMArIPianwCp5JjfoHqm4o6dy7Q7E7sZr263qzc2pGmSHMuJ7Y
-	z/Htft64DLrvbpaE+WoA==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=HmbKBvgAYgViAxSuPrsdwkr8+GmHR3r19mGaV+8uuGw=; b=ihiVXhGprsKLTH
+	xreS4GVZHzO0TaMBeOpHYqAXrFolTSdcGzDIA2LbmEo6MfK406ipwbCLnE8/CZ+/O7TyUrWV0jsQf
+	CyNjJGVEWl42fwV9sBzQwd08Rp3FyHZRW7K/yGEmueVni31jj8orSnmOEy/m0A26TB5iFoLWXjjnF
+	PrEPMxXy893KvDEIbxHxw1kVhPaFXi3DG4W5v0O//lgc9zzWFmY+/GtFAGA1TF6wS3JwCQdrXY6Dq
+	rzrkkq5R7rrXDNIqaufqJ2cV2ahp5nu6UarlxXNxow2xA/Fi+apQsLe9qIY6wwpIRuZmC3V2Byg9O
+	plSobHDaa3p1ZdnR22cw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qWzNN-009OEU-2v;
-	Fri, 18 Aug 2023 13:18:53 +0000
-Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
+	id 1qWzbA-009On0-1f;
+	Fri, 18 Aug 2023 13:33:08 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qWzNK-009OE9-1H
+	id 1qWzb7-009Omj-2P
 	for linux-riscv@lists.infradead.org;
-	Fri, 18 Aug 2023 13:18:52 +0000
-Received: by mail-pf1-x42e.google.com with SMTP id d2e1a72fcca58-688779ffcfdso761924b3a.1
-        for <linux-riscv@lists.infradead.org>; Fri, 18 Aug 2023 06:18:47 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1692364727; x=1692969527;
-        h=message-id:to:from:cc:subject:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=SbD3qI39lbOw6xxkLO7d3cqNPb86CrbmsEERY0HKJBM=;
-        b=fb98EVQU18p4I1zlKBc/bdGKgp6zXHP8aOT1xj+RIHckZkwZhtwQ0g2/UptKUkV/BM
-         84shHFq389pWSy83J6AH7o6PS5DPiUVHOT+LcYpE70NSVy1uvH02yFLBWvnLZPeC1Rg8
-         INVFem78FhCaT+GD25Z099lk6txBxEjBkkqygscAc6kfqxxw4Wn1NURAx7CqdYkMxyUJ
-         DDpe0wzYiioaVQ3IghdGWo53XT6ooIMQuThImYo73w6Jf1Nl6/lJQr9tq30OWOcyl8aB
-         m1qXu0glAm+K9vQ3NjgNxRJzVTOEtamjefQsmcfun/HZeVNKi3sv/BqFaudEpwmCYIkR
-         hDHw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1692364727; x=1692969527;
-        h=message-id:to:from:cc:subject:date:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=SbD3qI39lbOw6xxkLO7d3cqNPb86CrbmsEERY0HKJBM=;
-        b=D7eX49ob9KHVg4RHohr2ECLy80Xb8Bypk0oTTDJvoQ3Qrrl8IhfQbfFqrubx+ZQKgG
-         toaOYaP21WR+F/wehkhknSdLvDpKE6ZWkBPoShfTlfU33ETkrxAEUBPe3ZtyHeY2NoEe
-         T34pPWS6VAPLYazvCfjr2bWqvxcQXYcyIvkD6UCqx9uJIVHjBRieW9UeMyzgvhIOGE8k
-         AChL9cdc/8Aa/ftBMjSMtvPrHXOqAwHJ5CYPv3NateP4E8P7G0I1tkPwgux3l9RnLwZp
-         ZIxk0pXMMybpmQfeBQ/IqEevPCgisKghudbwA5LIlxyWJrmob8fJ5+/jffAF27kXz/JA
-         3jnw==
-X-Gm-Message-State: AOJu0YwBB7abN50opfrOJlL7930uWjAETcRur0YPlYLyI+MEIL1TQzgU
-	dtjFw2TG0tl6In4x5BSbCqpLylmfa4EHm49/Ino=
-X-Google-Smtp-Source: AGHT+IHoek2C14Iem4bCSW/tHEuu0KJ8jn0qnpFQM0qfV3FuQg0/LTwBzSAHXhsxBTjnvo06e+MqrQ==
-X-Received: by 2002:a05:6a00:c89:b0:687:9a0b:9265 with SMTP id a9-20020a056a000c8900b006879a0b9265mr2861600pfv.29.1692364727053;
-        Fri, 18 Aug 2023 06:18:47 -0700 (PDT)
-Received: from localhost ([135.180.227.0])
-        by smtp.gmail.com with ESMTPSA id v24-20020aa78098000000b006888029fd63sm1527580pff.9.2023.08.18.06.18.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 18 Aug 2023 06:18:46 -0700 (PDT)
-Date: Fri, 18 Aug 2023 06:18:46 -0700 (PDT)
-X-Google-Original-Date: Fri, 18 Aug 2023 06:18:39 PDT (-0700)
-Subject: [GIT PULL] RISC-V Fixes for 6.5-rc7
-CC: linux-riscv@lists.infradead.org,        linux-kernel@vger.kernel.org
-From: Palmer Dabbelt <palmer@rivosinc.com>
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Message-ID: <mhng-e50f03c7-2a36-48e9-bda4-8f04ff461826@palmer-ri-x1c9>
+	Fri, 18 Aug 2023 13:33:07 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 713F460E15;
+	Fri, 18 Aug 2023 13:33:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6155DC433C7;
+	Fri, 18 Aug 2023 13:33:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1692365583;
+	bh=nQkSvjw/b52/PsLHpuHKay9SWoBTTMGR4P0aQ3yKgKg=;
+	h=From:To:Subject:In-Reply-To:References:Date:From;
+	b=r+Uw3TaYEO8U6g7zP7fe1guf5B0kFPn65KoDCs+KY7uqsyZiQW75+lcWJffWHI1sc
+	 E91kdgDxcCMebfX4jRAaQXOmd40NMtNw0ArIcuF+yNcUj0tZEdwMIPcqvGaovI582/
+	 OQkYIsCOb78TaU1yZ0aFAqcBCxE7nIi9nbLadPBUoQ0S6JSJ8Jbxb0nwO8ewg715V2
+	 jDBmzkcNZrA3WEZoOh+BmEVoy8kwicDbd8WjLm57SFk5VOHzVtfJjU8QN94Grr+vOw
+	 2pi2lQ4hQtbh4+E6i9APbK1MhUDYi1Aygn0hbv1xFjaoYgLa64/q1ici8YS1+7UDv2
+	 Qrk+RWWJy/GzA==
+From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
+To: Yunhui Cui <cuiyunhui@bytedance.com>, paul.walmsley@sifive.com,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, guoren@kernel.org,
+ bjorn@rivosinc.com, conor.dooley@microchip.com, jszhang@kernel.org,
+ andy.chiu@sifive.com, cuiyunhui@bytedance.com,
+ dave.hansen@linux.intel.com, elver@google.com, glider@google.com,
+ cyphar@cyphar.com, kirill.shutemov@linux.intel.com, keescook@chromium.org,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4] riscv: add userland instruction dump to RISC-V splats
+In-Reply-To: <20230818121504.60492-1-cuiyunhui@bytedance.com>
+References: <20230818121504.60492-1-cuiyunhui@bytedance.com>
+Date: Fri, 18 Aug 2023 15:33:01 +0200
+Message-ID: <878ra8o4qa.fsf@all.your.base.are.belong.to.us>
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230818_061850_638923_13F8444A 
-X-CRM114-Status: UNSURE (   7.06  )
+X-CRM114-CacheID: sfid-20230818_063305_846771_2B438471 
+X-CRM114-Status: UNSURE (   6.22  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -82,61 +74,42 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The following changes since commit 7e3811521dc3934e2ecae8458676fc4a1f62bf9f:
-
-  riscv: Implement flush_cache_vmap() (2023-08-10 08:54:29 -0700)
-
-are available in the Git repository at:
-
-  git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-6.5-rc7
-
-for you to fetch changes up to ca09f772cccaeec4cd05a21528c37a260aa2dd2c:
-
-  riscv: Handle zicsr/zifencei issue between gcc and binutils (2023-08-16 07:39:38 -0700)
-
-----------------------------------------------------------------
-RISC-V Fixes for 6.5-rc7
-
-* A fix to avoid excessive rejections from seccomp RET_ERRNO rules.
-* A fix for compressed jal/jalr decoding.
-* A pair of fixes for independent irq/softirq stacks on kernels built
-  with CONFIG_FRAME_POINTER=n.
-* A fix to avoid a hang handling uaccess fixups.
-* Another build fix for toolchain ISA strings, this time for Zicsr and
-  Zifenci on old GNU toolchains.
-
-----------------------------------------------------------------
-Alexandre Ghiti (1):
-      riscv: uaccess: Return the number of bytes effectively not copied
-
-Celeste Liu (1):
-      riscv: entry: set a0 = -ENOSYS only when syscall != -1
-
-Guo Ren (2):
-      riscv: stack: Fixup independent irq stack for CONFIG_FRAME_POINTER=n
-      riscv: stack: Fixup independent softirq stack for CONFIG_FRAME_POINTER=n
-
-Mingzheng Xing (1):
-      riscv: Handle zicsr/zifencei issue between gcc and binutils
-
-Nam Cao (1):
-      riscv: correct riscv_insn_is_c_jr() and riscv_insn_is_c_jalr()
-
- arch/riscv/Kconfig                     | 32 +++++++++++++++++++-------------
- arch/riscv/include/asm/insn.h          | 15 +++++++++++++--
- arch/riscv/kernel/compat_vdso/Makefile |  8 +++++++-
- arch/riscv/kernel/irq.c                |  3 +++
- arch/riscv/kernel/traps.c              |  9 ++++++---
- arch/riscv/lib/uaccess.S               | 11 +++++++----
- 6 files changed, 55 insertions(+), 23 deletions(-)
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+WXVuaHVpIEN1aSA8Y3VpeXVuaHVpQGJ5dGVkYW5jZS5jb20+IHdyaXRlczoKCj4gQWRkIHVzZXJs
+YW5kIGluc3RydWN0aW9uIGR1bXAgYW5kIHJlbmFtZSBkdW1wX2tlcm5lbF9pbnN0cigpCj4gdG8g
+ZHVtcF9pbnN0cigpLgo+Cj4gQW4gZXhhbXBsZToKPiBbICAgIDAuODIyNDM5XSBGcmVlaW5nIHVu
+dXNlZCBrZXJuZWwgaW1hZ2UgKGluaXRtZW0pIG1lbW9yeTogNjkxNksKPiBbICAgIDAuODIzODE3
+XSBSdW4gL2luaXQgYXMgaW5pdCBwcm9jZXNzCj4gWyAgICAwLjgzOTQxMV0gaW5pdFsxXTogdW5o
+YW5kbGVkIHNpZ25hbCA0IGNvZGUgMHgxIGF0IDB4MDAwMDAwMDAwMDA1YmUxOCBpbiBiYlsxMDAw
+MCs1ZmIwMDBdCj4gWyAgICAwLjg0MDc1MV0gQ1BVOiAwIFBJRDogMSBDb21tOiBpbml0IE5vdCB0
+YWludGVkIDUuMTQuMC1yYzQtMDAwNDktZ2JkNjQ0MjkwYWE3Mi1kaXJ0eSAjMTg3Cj4gWyAgICAw
+Ljg0MTM3M10gSGFyZHdhcmUgbmFtZTogICwgQklPUwo+IFsgICAgMC44NDE3NDNdIGVwYyA6IDAw
+MDAwMDAwMDAwNWJlMTggcmEgOiAwMDAwMDAwMDAwMDc5ZTc0IHNwIDogMDAwMDAwM2ZmZmNhZmRh
+MAo+IFsgICAgMC44NDIyNzFdICBncCA6IGZmZmZmZmZmODE2ZTlkYzggdHAgOiAwMDAwMDAwMDAw
+MDAwMDAwIHQwIDogMDAwMDAwMDAwMDAwMDAwMAo+IFsgICAgMC44NDI5NDddICB0MSA6IDAwMDAw
+MDNmZmZjOWZkZjAgdDIgOiAwMDAwMDAwMDAwMDAwMDAwIHMwIDogMDAwMDAwMDAwMDAwMDAwMAo+
+IFsgICAgMC44NDM0MzRdICBzMSA6IDAwMDAwMDAwMDAwMDAwMDAgYTAgOiAwMDAwMDAzZmZmY2Ew
+MTkwIGExIDogMDAwMDAwM2ZmZmNhZmUxOAo+IFsgICAgMC44NDM4OTFdICBhMiA6IDAwMDAwMDAw
+MDAwMDAwMDAgYTMgOiAwMDAwMDAwMDAwMDAwMDAwIGE0IDogMDAwMDAwMDAwMDAwMDAwMAo+IFsg
+ICAgMC44NDQzNTddICBhNSA6IDAwMDAwMDAwMDAwMDAwMDAgYTYgOiAwMDAwMDAwMDAwMDAwMDAw
+IGE3IDogMDAwMDAwMDAwMDAwMDAwMAo+IFsgICAgMC44NDQ4MDNdICBzMiA6IDAwMDAwMDAwMDAw
+MDAwMDAgczMgOiAwMDAwMDAwMDAwMDAwMDAwIHM0IDogMDAwMDAwMDAwMDAwMDAwMAo+IFsgICAg
+MC44NDUyNTNdICBzNSA6IDAwMDAwMDAwMDAwMDAwMDAgczYgOiAwMDAwMDAwMDAwMDAwMDAwIHM3
+IDogMDAwMDAwMDAwMDAwMDAwMAo+IFsgICAgMC44NDU3MjJdICBzOCA6IDAwMDAwMDAwMDAwMDAw
+MDAgczkgOiAwMDAwMDAwMDAwMDAwMDAwIHMxMDogMDAwMDAwMDAwMDAwMDAwMAo+IFsgICAgMC44
+NDYxODBdICBzMTE6IDAwMDAwMDAwMDBkMTQ0ZTAgdDMgOiAwMDAwMDAwMDAwMDAwMDAwIHQ0IDog
+MDAwMDAwMDAwMDAwMDAwMAo+IFsgICAgMC44NDY2MTZdICB0NSA6IDAwMDAwMDAwMDAwMDAwMDAg
+dDYgOiAwMDAwMDAwMDAwMDAwMDAwCj4gWyAgICAwLjg0NzIwNF0gc3RhdHVzOiAwMDAwMDAwMjAw
+MDAwMDIwIGJhZGFkZHI6IDAwMDAwMDAwZjAwMjgwNTMgY2F1c2U6IDAwMDAwMDAwMDAwMDAwMDIK
+PiBbICAgIDAuODQ4MjE5XSBDb2RlOiBmMDZmIGZmNWYgMzgyMyBmYTExIDAxMTMgZmIwMSAyZTIz
+IDAyMDEgMDI5MyAwMDAwICg4MDUzKSBmMDAyCj4gWyAgICAwLjg1MTAxNl0gS2VybmVsIHBhbmlj
+IC0gbm90IHN5bmNpbmc6IEF0dGVtcHRlZCB0byBraWxsIGluaXQhIGV4aXRjb2RlPTB4MDAwMDAw
+MDQKPgo+IFNpZ25lZC1vZmYtYnk6IFl1bmh1aSBDdWkgPGN1aXl1bmh1aUBieXRlZGFuY2UuY29t
+PgoKTmljZSEKClJldmlld2VkLWJ5OiBCasO2cm4gVMO2cGVsIDxiam9ybkByaXZvc2luYy5jb20+
+CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1y
+aXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8v
+bGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
