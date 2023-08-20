@@ -4,92 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09C4CEE4993
-	for <linux-riscv@archiver.kernel.org>; Sat, 19 Aug 2023 13:06:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 649D5EE49A6
+	for <linux-riscv@archiver.kernel.org>; Sun, 20 Aug 2023 12:14:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2d7pnO5xfj/O5dTaOV+vSairhFRG4A+UgPasLO+trHc=; b=jkMjcYx7OX4exC
-	3nEEvRzy5772Kg/sBiAy6G7xMaGCJNnHA13FlFmCF/sI3+pQsprCuplhx/Ls5Y0dzVgnF+hGaiSRT
-	Kq0NUKuFyKQGkDhmBG2cpoTryll2HMQ8Iluwvr7ypM5bmP0f3IJRqjzaWaTUsH1IrindTPAERhb8Y
-	PmHLruxAYhP+MAcfLvKMznbefYLDud5V+nt2DHdYgLuLLjv+JgP7SpwgBrIDYJqztLrJVrNeCwxi6
-	m4hwiAUaztaZhcpsbBELPopp/kPxp9+2j4Wp+1dBWSlMan0wFxURI5Nkwcma5jLSFNDMkIkDJbLE2
-	OOpGjs9q0A8NOaPzeBSQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=dBSsNbY6sQRtZmKgnuSQVVav9vKWpfUTvbf280F8AYU=; b=NWPAwIpf27e22f
+	89I0IxgY2nOGwAhvkCnCV8z3PuwRKvPkVF+0k1AI2kEulU4f8vx5djuXIFXV3zVQv3ZNkhhI9FLTl
+	twKNNW6PCPoCj+ogLaP/ble39pB9ON+1b/dao/ztayomTWKAjBREpE86JGWvczkeb7mwNXUjxdN+v
+	Qwyf7J97yo+3X6cX02uW0wZELby6U2RQPML5jGvIf2iOqyej8AW/ddBgXMBLK/+0VmuJmO8K5miJ/
+	OIMCip8pZH+3N+UpyBuOFtwOxPBBZQe1BuZwfjfMxpTz/fM/o+aP08qSx2N/UXp3M5fd7VF712Rvs
+	lmxPxmSi3i4n1fMzqItA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qXLfB-00Auth-2u;
-	Sat, 19 Aug 2023 13:06:45 +0000
-Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
+	id 1qXhJt-00BsZ1-1L;
+	Sun, 20 Aug 2023 12:14:13 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qXLf9-00Aut2-1X
-	for linux-riscv@lists.infradead.org;
-	Sat, 19 Aug 2023 13:06:44 +0000
-Received: by mail-ej1-x62e.google.com with SMTP id a640c23a62f3a-99cce6f7de2so239912766b.3
-        for <linux-riscv@lists.infradead.org>; Sat, 19 Aug 2023 06:06:41 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1692450400; x=1693055200;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=rHDDd/fo4FzFy4JxsCF4FnZo7ypY9WWX/ip25zUd2DE=;
-        b=TS2k2khJrVzHYVVoqjpw36ahhdErsQv8ZsZr3TdH8KKu1CLB4CsNyMSgpy737ci+Sv
-         q+KrpKd/uCNWMwakXLpOz67RuTA1AKVl4DzaHdPEP756WrixnLBydXfaC5MykNz5vBeO
-         w32gFm4WPSTn/15QpKpq3iWb65M1BoOm7UWfMxV3PpySJyUewKJ61BcgnMMS35zg+XLb
-         mb48D/R7GRYFegb750WN+He+C6cn/FBMw2G6IxsMzI8v6OgyEbdMwo7SHbj+7furDB9m
-         Cs64hn14OGl40GqMUgThUp40Qq8We4GFPiZP4g36vLwcwruU0Pq5M7tveBET+yLmZyRC
-         Pyew==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1692450400; x=1693055200;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=rHDDd/fo4FzFy4JxsCF4FnZo7ypY9WWX/ip25zUd2DE=;
-        b=MkxwaW8NX2c/2azc/nohhw7UGe293ICzrB3IUXKf0w/RgLaWADXMeKKYQte1iBf9e6
-         mKWs3ZGdlkDKX3zb3Jdwv6WeoA7SeVnd/o+XHK9hSjKGiUpZEezJg7wlX6BysTy+znZZ
-         dGHY9STvqWVwUmmAfJssc2W80fRlGbEl44tkkLGqTOzdbEAfcmakV2F4V5wTGz5w3AI+
-         osiktD5lua2MMp84gmbd2weHxUsvM13hBbCS6fVG2hF9XKrFZPB69RP7pYAGZHoWwQmo
-         phkfFZt4lfTgqE8GwigXZ0ChrsS+nd12YdqlCLatl6nBnkiI3niVrTyJczVgsuIQs28z
-         Xm9g==
-X-Gm-Message-State: AOJu0YxecHFTX6k80IZKkjAVGr8Kg+gQ5R2Uy71yUtlCQ9wi14XF3kBG
-	AId4zFAjxyNlQWN2r+r9GeF7jw==
-X-Google-Smtp-Source: AGHT+IFmIuGKAoOzk4W6WrGdbIVA9nfaf1Vt+Us6IpXHHQEoV0jgC2iViYKTYGpTLxfiNXcnvSBOHQ==
-X-Received: by 2002:a17:906:76d8:b0:982:c8d0:683f with SMTP id q24-20020a17090676d800b00982c8d0683fmr1528256ejn.18.1692450400016;
-        Sat, 19 Aug 2023 06:06:40 -0700 (PDT)
-Received: from [192.168.0.22] ([77.252.47.198])
-        by smtp.gmail.com with ESMTPSA id v8-20020a17090606c800b0099d959f9536sm2747401ejb.12.2023.08.19.06.06.38
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 19 Aug 2023 06:06:39 -0700 (PDT)
-Message-ID: <2de9f105-c785-4933-4a0f-c8bc73c63b87@linaro.org>
-Date: Sat, 19 Aug 2023 15:06:37 +0200
+	id 1qXhJm-00BsXA-0F;
+	Sun, 20 Aug 2023 12:14:07 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 826AA60DBC;
+	Sun, 20 Aug 2023 12:14:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3F7B3C433C7;
+	Sun, 20 Aug 2023 12:13:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1692533643;
+	bh=IC8w578EAIZuY+94RdibA09oC+PtDBo0QtdFqUh+Eoc=;
+	h=From:To:Cc:Subject:Date:From;
+	b=e9ZZcIuUApBk3/DB9NX5MF3p32ExThYZkvRMnbluFlAdY1aeeaEuz1pLo9GSKmVDh
+	 UUqiuVscsmqZqCwmK3KTZ9GEaZJ3/Pz7iepdYs0MoEjyq/ffILkkYcke7fdf2/tMDO
+	 FZ/Xfw5h8SOsIoLRXITYJQ1kjR4fwy8GQLT8ce1BfZwuvMOOPG6kjn1T+Scz9gVSPJ
+	 xjDzHwGnEqmYnPqAoe8D0O+5g04ZF977wMRCp+zLL7J6hthruWXb1wOlh5AmeeI46D
+	 oeaHTaHfYc9qmcMAF8VPkQ16Ahm1qyNNgGvS4KBnIj30ev7qILkdeshYhyOm+TqmqL
+	 hbWS/d9APZiyw==
+From: Jisheng Zhang <jszhang@kernel.org>
+To: "David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Jose Abreu <joabreu@synopsys.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>
+Cc: netdev@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com
+Subject: [PATCH net-next 0/3] add the dwmac driver for T-HEAD TH1520 SoC
+Date: Sun, 20 Aug 2023 20:02:10 +0800
+Message-Id: <20230820120213.2054-1-jszhang@kernel.org>
+X-Mailer: git-send-email 2.40.0
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.14.0
-Subject: Re: [PATCH RFC v2 1/4] dt-bindings: mmc: sdhci-of-dwcmhsc: Add T-Head
- TH1520 support
-Content-Language: en-US
-To: Drew Fustini <dfustini@baylibre.com>
-Cc: Jisheng Zhang <jszhang@kernel.org>, Guo Ren <guoren@kernel.org>,
- Fu Wei <wefu@redhat.com>, Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Conor Dooley <conor+dt@kernel.org>, Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Conor Dooley <conor@kernel.org>,
- Adrian Hunter <adrian.hunter@intel.com>, Ulf Hansson
- <ulf.hansson@linaro.org>, linux-riscv@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-mmc@vger.kernel.org, Robert Nelson <robertcnelson@beagleboard.org>,
- Jason Kridner <jkridner@beagleboard.org>
-References: <20230724-th1520-emmc-v2-0-132ed2e2171e@baylibre.com>
- <20230724-th1520-emmc-v2-1-132ed2e2171e@baylibre.com>
- <ca0b9a19-d7d7-80e5-f47e-f74615cdac86@linaro.org> <ZN1NBE2+HHfatQ/T@x1>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <ZN1NBE2+HHfatQ/T@x1>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230819_060643_523865_81003E1A 
-X-CRM114-Status: GOOD (  23.15  )
+X-CRM114-CacheID: sfid-20230820_051406_186697_B7C3171E 
+X-CRM114-Status: GOOD (  10.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,97 +86,27 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 17/08/2023 00:26, Drew Fustini wrote:
-> On Mon, Aug 07, 2023 at 08:29:21AM +0200, Krzysztof Kozlowski wrote:
->> On 05/08/2023 05:14, Drew Fustini wrote:
->>> Add compatible value for the T-Head TH1520 dwcmshc controller and
->>> thead,io-fixed-1v8 and thead,pull-up properties.
->>>
->>> Signed-off-by: Drew Fustini <dfustini@baylibre.com>
->>> ---
->>>  Documentation/devicetree/bindings/mmc/snps,dwcmshc-sdhci.yaml | 9 +++++++++
->>>  1 file changed, 9 insertions(+)
->>>
->>> diff --git a/Documentation/devicetree/bindings/mmc/snps,dwcmshc-sdhci.yaml b/Documentation/devicetree/bindings/mmc/snps,dwcmshc-sdhci.yaml
->>> index a43eb837f8da..57602c345cab 100644
->>> --- a/Documentation/devicetree/bindings/mmc/snps,dwcmshc-sdhci.yaml
->>> +++ b/Documentation/devicetree/bindings/mmc/snps,dwcmshc-sdhci.yaml
->>> @@ -19,6 +19,7 @@ properties:
->>>        - rockchip,rk3568-dwcmshc
->>>        - rockchip,rk3588-dwcmshc
->>>        - snps,dwcmshc-sdhci
->>> +      - thead,th1520-dwcmshc
->>>  
->>>    reg:
->>>      maxItems: 1
->>> @@ -60,6 +61,14 @@ properties:
->>>      description: Specify the number of delay for tx sampling.
->>>      $ref: /schemas/types.yaml#/definitions/uint8
->>>  
->>> +  thead,io-fixed-1v8:
->>> +    description: SoC PHY pad is fixed 1.8V
->>> +    type: boolean
->>
->> Isn't this duplicating existing properties for MMC modes with 1.8 V?
-> 
-> Thank you for reviewing. Yes, now that you mention it, I do see those
-> properties now in mmc-controller.yaml. It seems like the existing
-> mmc-ddr-1_8v property would be appropriate.
-> 
->>
->>> +
->>> +  thead,pull-up:
->>> +    description: True if pull-up, false if pull-down
->>
->> This explains me nothing. No clue what you are pulling and why do you
->> need it. Pin pulls should be done via pin controller, not MMC.
-> 
-> Good point that my description is not helpful. The pull-up property
-> determines whether certain phy registers are written to. I need to try
-> to can get documentation on the phy so that I can better understand the
-> details of the pull-up configuration in the phy registers.
-> 
->>
->> Anyway you should have here allOf:if:then (move the allOf: from top to
->> behind "required:") which will disallow these properties for other variants.
-> 
-> I noticed that nvidia,tegra20-sdhci.yaml has several lines related to
-> pull-up/down configuration:
-> 
-> 218   - if:
-> 219       properties:
-> 220         compatible:
-> 221           contains:
-> 222             const: nvidia,tegra210-sdhci
-> 223     then:
-> 224       properties:
-> 225         pinctrl-names:
-> 226           oneOf:
-> 227             - items:
-> 228                 - const: sdmmc-3v3
-> 229                   description: pad configuration for 3.3 V
-> 230                 - const: sdmmc-1v8
-> 231                   description: pad configuration for 1.8 V
-> 232                 - const: sdmmc-3v3-drv
-> 233                   description: pull-up/down configuration for 3.3 V
-> 234                 - const: sdmmc-1v8-drv
-> 235                   description: pull-up/down configuration for 1.8 V
-> 236             - items:
-> 237                 - const: sdmmc-3v3-drv
-> 238                   description: pull-up/down configuration for 3.3 V
-> 239                 - const: sdmmc-1v8-drv
-> 240                   description: pull-up/down configuration for 1.8 V
-> 241             - items:
-> 242                 - const: sdmmc-1v8-drv
-> 243                   description: pull-up/down configuration for 1.8 V
-> 
-> Do you think creating something like that would be a good approach?
+Add the dwmac driver support for T-HEAD TH1520 SoC.
 
-This depends. Does your driver implementation will make use of it? If
-yes, then it makes sense.
+Since the clk part isn't mainlined, so SoC dts(i) changes are not
+included in this series. However, it can be tested by using fixed-clock.
 
-Best regards,
-Krzysztof
+Jisheng Zhang (3):
+  dt-bindings: net: snps,dwmac: allow dwmac-3.70a to set pbl properties
+  dt-bindings: net: add T-HEAD dwmac support
+  net: stmmac: add glue layer for T-HEAD TH1520 SoC
+
+ .../devicetree/bindings/net/snps,dwmac.yaml   |   2 +
+ .../devicetree/bindings/net/thead,dwmac.yaml  |  87 +++++
+ drivers/net/ethernet/stmicro/stmmac/Kconfig   |  11 +
+ drivers/net/ethernet/stmicro/stmmac/Makefile  |   1 +
+ .../net/ethernet/stmicro/stmmac/dwmac-thead.c | 304 ++++++++++++++++++
+ 5 files changed, 405 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/net/thead,dwmac.yaml
+ create mode 100644 drivers/net/ethernet/stmicro/stmmac/dwmac-thead.c
+
+-- 
+2.40.1
 
 
 _______________________________________________
