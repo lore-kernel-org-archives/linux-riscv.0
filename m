@@ -4,66 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E996DEE4996
-	for <linux-riscv@archiver.kernel.org>; Mon, 21 Aug 2023 17:38:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93806EE4993
+	for <linux-riscv@archiver.kernel.org>; Mon, 21 Aug 2023 19:16:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=nwrXzcRvG0Z7i1hpX9tSXvOD/RLmCBnlHCiPwRnzet8=; b=Q0/3QlwvIJ5qrO
-	GlHKF4UPdy8k38P57r34mr36m642p7+iw7b+zgPE+Q3OwzDM7ndwR2M9nmSATYAS3nT4QhOZcXP20
-	pKTq2NmMFL8Ymw9miimpchKIWUxAA8qI9YWT+6miR4sWzGMmA3E3srOm+8w1lfL8TvWMv7DpgpJxV
-	NonvnV33Q5WXfPXCnqEnHke1znycXnHnS40/JxkuQ3/wkXH0bAP9wjZv4ykNNNx4YYwqDl3fP+oTV
-	Pt9hMUF/rgOfyjYbAfGAwU4i8geg6szIhYlvVqYE5sR/ZdL8ZNQQPA3q4X9g8Y0mwMnQaWDzq6Im2
-	i+cepdL1HS1NqXiVmQBg==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=fhDWAAuJ6J7rUzIAYv/M+1rTwvjBY5rgtpirq9i8+zc=; b=UP7NV/6t4KKZsd
+	OBdIxG81cA8HqFY6OZ5ijyMcIrdImF9tjOj7rArQzshwdVBFyW9R3JAQIdNdwKhMGWtdVX33R9otW
+	6JBvmCUeemQVlizGNdrucdSt0rkCa8dRKfzdBhAFSGYq3gEyrMjg7Y033NkBTdY7BGfzYkByTLtGp
+	TdhszMkc38bcmTDuFrLcl0t/BuH6Un4WrmjajO0X+X61otR8IfQhgibHMexJIlpE5i3+0j9OACBiM
+	RmNT+VVxDWWDDPQbFvrvstt7YsDWxu32jvpvu4zj3l7VCpsDy2/9u+QOs51TZeYVxDvjeH6AAE6Ya
+	UshbW7zo62khlhI9kp+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qY8rC-00ESZv-0t;
-	Mon, 21 Aug 2023 17:38:26 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qY8r9-00ESYw-2L
-	for linux-riscv@lists.infradead.org;
-	Mon, 21 Aug 2023 17:38:25 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 8866E640EC;
-	Mon, 21 Aug 2023 17:38:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C7921C433C7;
-	Mon, 21 Aug 2023 17:38:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1692639502;
-	bh=fbEtKOok6iuPCXKRBpZwCrq9lsiy0DSR8lgdSafnjw8=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=C0lQglTspaHZ1oa/VUKgzTZF9Rfw+B2BowWpN1tE8W4NcQ9g0X1DoRYL07/kqjQqt
-	 apGo/K9YgDqSSjwx8ZQk00fWD3gunjaMVgQIX57EUeKUELJTkCYdW6CTUj3/dR7z0U
-	 PzZXHe5jDxGtSI4nW8RJpUgQBAihMKmlrT9hShf0LzYzvZaQWbonij2HTlV9Ibp1q3
-	 9X+LUlK0DAK8P4JwjSX23F7VeKBhIm+hkPu/gZeDEgRaTakjjpEIvijzoV13bCUYMe
-	 FSkqToxreoGiH1ANMeDikD/oZwV4o5yq7RuzpZb5Lu4GFiO+EvZOYdO5ti+U1qWNos
-	 co5pZrhxzHDsw==
-Date: Mon, 21 Aug 2023 12:38:19 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: suijingfeng <suijingfeng@loongson.cn>
-Cc: Bjorn Helgaas <bhelgaas@google.com>, loongson-kernel@lists.loongnix.cn,
-	linux-pci@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
-	Emil Velikov <emil.velikov@collabora.com>,
-	Daniel Vetter <daniel@ffwll.ch>,
-	"Deucher, Alexander" <Alexander.Deucher@amd.com>,
-	"Limonciello, Mario" <Mario.Limonciello@amd.com>
-Subject: Re: [PATCH v4] PCI/VGA: Make the vga_is_firmware_default() less
- arch-dependent
-Message-ID: <20230821173819.GA362570@bhelgaas>
+	id 1qYAOI-00EZtM-0h;
+	Mon, 21 Aug 2023 19:16:42 +0000
+Received: from [2601:1c2:980:9ec0::2764]
+	by bombadil.infradead.org with esmtpsa (Exim 4.96 #2 (Red Hat Linux))
+	id 1qYAOG-00EZtD-2B;
+	Mon, 21 Aug 2023 19:16:40 +0000
+Message-ID: <5ebf04f8-0cf6-d2b4-fb73-f51fff421b3a@infradead.org>
+Date: Mon, 21 Aug 2023 12:16:40 -0700
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <31ceb1b8-52e8-f57b-0e76-ea768242e26e@loongson.cn>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230821_103824_123775_5D93FD62 
-X-CRM114-Status: GOOD (  33.05  )
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.14.0
+Subject: Re: linux-next: Tree for Aug 21 (riscv-64 asm)
+Content-Language: en-US
+To: Stephen Rothwell <sfr@canb.auug.org.au>,
+ Linux Next Mailing List <linux-next@vger.kernel.org>
+Cc: Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ linux-riscv <linux-riscv@lists.infradead.org>
+References: <20230821164605.7bac05f1@canb.auug.org.au>
+From: Randy Dunlap <rdunlap@infradead.org>
+In-Reply-To: <20230821164605.7bac05f1@canb.auug.org.au>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,66 +56,32 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 18, 2023 at 12:09:29PM +0800, suijingfeng wrote:
-> On 2023/8/18 06:08, Bjorn Helgaas wrote:
-> > On Wed, Aug 16, 2023 at 06:05:27AM +0800, Sui Jingfeng wrote:
-> > > Currently, the vga_is_firmware_default() function only works on x86 and
-> > > ia64, it is a no-op on ARM, ARM64, PPC, RISC-V, etc. This patch completes
-> > > the implementation for the rest of the architectures. The added code tries
-> > > to identify the PCI(e) VGA device that owns the firmware framebuffer
-> > > before PCI resource reallocation happens.
-> >
-> > As far as I can tell, this is basically identical to the existing
-> > vga_is_firmware_default(), except that this patch funs that code as a
-> > header fixup, so it happens before any PCI BAR reallocations happen.
-> 
-> Yes, what you said is right in overall.
-> But I think I should mention a few tiny points that make a difference.
-> 
-> 1) My version is *less arch-dependent*
 
-Of course.  If we make the patch simple and the commit log simple by
-removing extraneous details, this will all be obvious.
 
-> 2) My version focus on the address in ranges, weaken the size parameter.
+On 8/20/23 23:46, Stephen Rothwell wrote:
+> Hi all,
 > 
-> Which make the code easy to read and follow the canonical convention to
-> express the address range. while the vga_is_firmware_default() is not.
+> Changes since 20230818:
+> 
 
-Whether it's start/size or start/end is a trivial question.  We don't
-need to waste time on it now.
+../arch/riscv/kernel/traps.c: In function 'do_irq':
+../arch/riscv/kernel/traps.c:384:1: error: s0 cannot be used in 'asm' here
+  384 | }
+      | ^
+../arch/riscv/kernel/irq.c: In function 'do_softirq_own_stack':
+../arch/riscv/kernel/irq.c:94:1: error: s0 cannot be used in 'asm' here
+   94 | }
+      | ^
 
-> 3) A tiny change make a big difference.
-> 
-> The original vga_is_firmware_default() only works with the assumption
-> that the PCI resource reallocation won't happens. While I see no clue
-> that why this is true even on X86 and IA64. The original patch[1] not
-> mention this assumption explicitly.
-> [1] 86fd887b7fe3 ('vgaarb: Don't default exclusively to first video device with mem+io')
-> 
-> > That sounds like a good idea, because this is all based on the
-> > framebuffer in screen_info, and screen_info was initialized before PCI
-> > enumeration, and it certainly doesn't account for any BAR changes done
-> > by the PCI core.
-> 
-> Yes.
-> 
-> > So why would we keep vga_is_firmware_default() at all?  If the header
-> > fixup has already identified the firmware framebuffer, it seems
-> > pointless to look again later.
-> 
-> It need another patch to do the cleanup work, while my patch just
-> add code to solve the real problem.  It focus on provide a solution
-> for the architectures which have a decent way set up the
-> screen_info.  Other things except that is secondary.
 
-I don't want both mechanisms when only one of them is useful.  PCI BAR
-reassignment is completely fine, and keeping the assumption in
-vga_is_firmware_default() that we can compare reassigned BAR values to
-the pre-reassignment screen_info range is a trap that we should
-remove.
+2 out of 10 risc-v 64-bit builds failed with these errors.
 
-Bjorn
+Is this a toolchain problem or something else?
+
+Thanks.
+
+-- 
+~Randy
 
 _______________________________________________
 linux-riscv mailing list
