@@ -4,92 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A9D6EE4996
-	for <linux-riscv@archiver.kernel.org>; Mon, 21 Aug 2023 06:29:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49C48EE4996
+	for <linux-riscv@archiver.kernel.org>; Mon, 21 Aug 2023 06:48:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:From:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/nmeETph0kOk34zf/50UZ+mEGYVapNCoX5G4GU4aqYA=; b=Bli7D6WjofEbON
-	P8eDZTZAVwmfpqr48tUCnTMOthPtMQbEq2RvUz/44XKUh+ZlfKiugPODx9NoZxdm55In3mW52pkpL
-	VTUgRTXzErY+BfV0MJGawaRlXbxXQUfU1isxMgFT4hyQjETm6i5KyfojRxShNlv5i6DtSS86l2eEQ
-	Zn8Qmsq0W8lJ1Oq2w4bBeBKx36I/Mr2bSgTfN3RHK+OuFvzxN9IFN2hEfvl5x/VB5lbeEL5aYE6dZ
-	1+Vhhy604w1ucqDGT8Sug+7v1jrwqyqIq8keqAjzpaPD90vGcOPz47CfTCB0MrCiUJ19iCuDgu0wR
-	1zxTvC+St5Y2PCBYUkaw==;
+	List-Owner; bh=V3WimGRI7fL3v/KJMd8RiMs5w+9RLmfGMLJtpIBNnPw=; b=Gi5+UwE4oqWMWo
+	hT63DrD4OrGwm9kMLYn1o2NhLXlSJQerN2s16418GMPiIxVzGTbfn9M5IIczJdUqeU0OHxUjQSbyx
+	sXwFe1n1TcRcap8FW5A02pS0uJvICvp4eyB/q0ZdXJIFXf8gt84F9Nb65gCNaXEDZ5UECKgT/7Esg
+	YnTx+eWMJ/5Pb75Xyw0wWeqsb0o0aMx2oWSj5AEtJgwU9dvn56eMLoCZVMgMCMBNlaSA5qn/mWZ9n
+	eSmk/nTqQZW/NZ2sssMsMhbnSgMXBbSeP2zQ+eQBU+bRNNOy1rq1qoBl7YvpmFIcaSsMUfbMqiClr
+	x1/C3/vrk+Ord0NTkr0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qXyPe-00DGFR-2z;
-	Mon, 21 Aug 2023 06:29:18 +0000
-Received: from mail-ej1-x635.google.com ([2a00:1450:4864:20::635])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qXyPa-00DGDS-2X
+	id 1qXyi3-00DIGE-1R;
+	Mon, 21 Aug 2023 06:48:19 +0000
+Received: from mail.loongson.cn ([114.242.206.163])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1qXyi0-00DIEC-0H
 	for linux-riscv@lists.infradead.org;
-	Mon, 21 Aug 2023 06:29:16 +0000
-Received: by mail-ej1-x635.google.com with SMTP id a640c23a62f3a-99c93638322so612194066b.1
-        for <linux-riscv@lists.infradead.org>; Sun, 20 Aug 2023 23:29:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1692599352; x=1693204152;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=+jqHn5WqQaJCtg0AUJN1FB+zw67/mJle7arazhBOmko=;
-        b=uBhtrmUWcQZYqn4uY2bSvQU2eud7UeI4VaPCawfTs8lFgDgS4S6oPVwHPGi/J9JSi9
-         Cg8t2/x3c9XBn7O2ZyzPmAa24lRvVSS56PbNRD8WZZy6uXNC7vSRqI/mEFUQYiFtw82n
-         QaAe6CwzMeadrUWLErPi90FmPSizT7npPdN807HHxfQ0ETTTy/8g2I0+rE9upci26NjO
-         4q9QkuIwRxz6Wf4VpZ+NqpPEaIE/xpwICIzuQ+c7zIu8BvbwwJUpJzvP2hsEvDYbkObr
-         Vqnwj0FO0s8LL4qTBPyGsn0llyb/7JC1OBKfQGzlOZVvhLQ41PJlUlyAHlhXi5L8SuyF
-         ExTA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1692599352; x=1693204152;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=+jqHn5WqQaJCtg0AUJN1FB+zw67/mJle7arazhBOmko=;
-        b=YNrvg596adJRZnNSX+ElvxNd87CaXMaEAGCuYZ5gYEjDVWP6H+7B9Z7W1Yk6YirsQs
-         t9S1PaV4H76PPEEFhvj20CfwBWsM7uG2tllLfNwQ4/SwtfdVQQK7LexE9BAYkS1mBOtf
-         jy1AeYRE1X/3gZqhfj+qTLp9FlczpzOlBoUe+KnHxCCC+L4v7mz011USnJQLXV4WOwWE
-         Syq2FWoS04yDwgrJI6UqQnNu3voEur+8BWCOga2rwLxGtr7hRhJnrwYTYasGT35dW0oZ
-         xrVjWrJKRZ6JEE0FyVWrXLT3EhW/JnvfyM3/9C2JSIPz5VCCX8m10tEWF0qRPEVtIDRV
-         Hw3Q==
-X-Gm-Message-State: AOJu0Yyx8ndKa1XzDsMu6KmM+QU7n/ITvw1WZyjw8SGfH9TqJlEw88xi
-	tCXjeF+Q8hGbb1YNQHB/wiBmAQ==
-X-Google-Smtp-Source: AGHT+IHd6+ypVwsYhxnMdbL1UGq6ySkQpWZQ9iHuM8cgfdj0lw84KWdQOHSNV2yTMAzl8mMt2IyJ8A==
-X-Received: by 2002:a17:907:9483:b0:99d:f274:316e with SMTP id dm3-20020a170907948300b0099df274316emr5384047ejc.2.1692599352343;
-        Sun, 20 Aug 2023 23:29:12 -0700 (PDT)
-Received: from [192.168.0.22] ([77.252.47.198])
-        by smtp.gmail.com with ESMTPSA id kj20-20020a170907765400b0099cc402d3ddsm5836644ejc.202.2023.08.20.23.29.11
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 20 Aug 2023 23:29:11 -0700 (PDT)
-Message-ID: <946ef7a0-a60b-b6ab-69f8-b169343f36f9@linaro.org>
-Date: Mon, 21 Aug 2023 08:29:10 +0200
+	Mon, 21 Aug 2023 06:48:17 +0000
+Received: from loongson.cn (unknown [10.20.42.43])
+	by gateway (Coremail) with SMTP id _____8Cx2eqnCONk74IaAA--.49216S3;
+	Mon, 21 Aug 2023 14:48:07 +0800 (CST)
+Received: from [10.20.42.43] (unknown [10.20.42.43])
+	by localhost.localdomain (Coremail) with SMTP id AQAAf8Dx_yONCONkWUxfAA--.60821S3;
+	Mon, 21 Aug 2023 14:48:07 +0800 (CST)
+Message-ID: <520723e3-ca6e-a55d-cbd0-132b2991c9bc@loongson.cn>
+Date: Mon, 21 Aug 2023 14:47:41 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.14.0
-Subject: Re: [PATCH net-next 2/3] dt-bindings: net: add T-HEAD dwmac support
+ Thunderbird/102.13.0
+Subject: Re: [PATCH v4] PCI/VGA: Make the vga_is_firmware_default() less
+ arch-dependent
+From: suijingfeng <suijingfeng@loongson.cn>
+To: Bjorn Helgaas <helgaas@kernel.org>
+Cc: Bjorn Helgaas <bhelgaas@google.com>, loongson-kernel@lists.loongnix.cn,
+ linux-pci@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org
+References: <20230817220853.GA328159@bhelgaas>
+ <fb242a7e-b1ee-7be0-cbc4-be710e246279@loongson.cn>
 Content-Language: en-US
-To: Jisheng Zhang <jszhang@kernel.org>, "David S . Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Giuseppe Cavallaro <peppe.cavallaro@st.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Jose Abreu <joabreu@synopsys.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>
-Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com
-References: <20230820120213.2054-1-jszhang@kernel.org>
- <20230820120213.2054-3-jszhang@kernel.org>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <20230820120213.2054-3-jszhang@kernel.org>
+In-Reply-To: <fb242a7e-b1ee-7be0-cbc4-be710e246279@loongson.cn>
+X-CM-TRANSID: AQAAf8Dx_yONCONkWUxfAA--.60821S3
+X-CM-SenderInfo: xvxlyxpqjiv03j6o00pqjv00gofq/
+X-Coremail-Antispam: 1Uk129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7KY7
+	ZEXasCq-sGcSsGvfJ3Ic02F40EFcxC0VAKzVAqx4xG6I80ebIjqfuFe4nvWSU5nxnvy29K
+	BjDU0xBIdaVrnRJUUUv2b4IE77IF4wAFF20E14v26r1j6r4UM7CY07I20VC2zVCF04k26c
+	xKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1Y6r17M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vE
+	j48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Jr0_JF4l84ACjcxK6xIIjxv20xvEc7CjxV
+	AFwI0_Jr0_Gr1l84ACjcxK6I8E87Iv67AKxVW8Jr0_Cr1UM28EF7xvwVC2z280aVCY1x02
+	67AKxVW8Jr0_Cr1UM2AIxVAIcxkEcVAq07x20xvEncxIr21l57IF6xkI12xvs2x26I8E6x
+	ACxx1l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1Y6r17McIj6I8E
+	87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lc7I2V7IY0V
+	AS07AlzVAYIcxG8wCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s02
+	6c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_JF
+	0_Jw1lIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvE
+	c7CjxVAFwI0_Jr0_Gr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14
+	v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Jr0_GrUvcSsGvfC2KfnxnUUI43ZEXa7I
+	U8zwZ7UUUUU==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230820_232914_844667_D93AD4DE 
-X-CRM114-Status: GOOD (  11.01  )
+X-CRM114-CacheID: sfid-20230820_234816_472775_1887266F 
+X-CRM114-Status: UNSURE (   5.60  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,84 +81,26 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 20/08/2023 14:02, Jisheng Zhang wrote:
-> Add documentation to describe T-HEAD dwmac.
-> 
-> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> ---
+Hi,
 
-Thank you for your patch. There is something to discuss/improve.
 
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/net/thead,dwmac.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: T-HEAD DWMAC glue layer
+On 2023/8/18 18:20, suijingfeng wrote:
+>
+> 1) The "weird" logic completely overrides whatever decision VGAARB 
+> ever made.
+>
+> It seems to say that the decision ever made by VGAARB is useless.
+> Well, I think VGAARB shouldn't endure this; VGAARB has to be small. 
 
-Describe/name rather the actual device, not some layer.
 
-> +
-> +maintainers:
-> +  - Jisheng Zhang <jszhang@kernel.org>
-> +
-> +select:
-> +  properties:
-> +    compatible:
-> +      contains:
-> +        enum:
-> +          - thead,th1520-dwmac
-> +  required:
-> +    - compatible
-> +
-> +properties:
-> +  compatible:
-> +    items:
-> +      - enum:
-> +          - thead,th1520-dwmac
-> +      - const: snps,dwmac-3.70a
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  clocks:
-> +    items:
-> +      - description: GMAC main clock
-> +      - description: AXI clock
-> +
-> +  clock-names:
-> +    items:
-> +      - const: stmmaceth
-> +      - const: axi
+VGAARB have to be smart!
 
-Isn't basically axi clock a pclk? You should rather use the names from
-snps,dwmac
-
-> +
-> +  thead,gmacapb:
-> +    $ref: /schemas/types.yaml#/definitions/phandle
-> +    description:
-> +      The phandle to the syscon node that control ethernet
-> +      interface and timing delay.
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - clocks
-> +  - clock-names
-> +  - interrupts
-> +  - interrupt-names
-> +  - phy-mode
-> +  - thead,gmacapb
-
-Best regards,
-Krzysztof
+The "weird logic" here refer to the weird pci_fixup_vgadev() function.
 
 
 _______________________________________________
