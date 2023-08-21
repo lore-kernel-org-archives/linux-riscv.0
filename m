@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACA5FEE49A6
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D865EEE4996
 	for <linux-riscv@archiver.kernel.org>; Mon, 21 Aug 2023 14:43:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,32 +12,32 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=S5jJ0HWDrM7TwKC/9sWIdYCuCutbFPtBy+rxZl8FI30=; b=nbxLVE+RnIJXq9
-	TFZ5edL7CGmQVN4WPYG8++XKkucQ8E/v5Z/pwa2hp4ML9BHkleig0ZbF8xUKGBWc0UIj7WJN5KRkN
-	j51n6ik4hCg3H8gkybJhevGFgv4BJv7nPUTZoxfp3e8jgQ+uOoZE8SC6bhtFdsMbR27ZbI/p1CdGm
-	ko/PyRO8q+j7ywc3uD+EgyVDVhnC1+WXSuAuo2BSevsO0MruBG8E6GqzEoHns/vUexWemqx6eN90w
-	DuIVuSXsYXVKB8UOgwhPRbx7jq0KncaQI8BJY2zk1WqedoitbpMhEcn8zerF8s7hBX8jksM2T2+X1
-	G3kDlHhoVAy9+H/sy68A==;
+	List-Owner; bh=2jCOuIjYxA2YKBwzco81Iu8JAovbtcD8CQGfZ1txfu4=; b=p766b7aL34/YOA
+	+7iutxJ7eK/et7B7NO6QWo62E+/hTOzGG4mC54bDanaL6rVl+q9WiHoeeP2uZ6Jsdfg3NNKgKD/lB
+	F7+BD33hEqa6GAHn2JYmDLEQFIv11P++5D9HkhiPzFsWsjfhq5s1uFR1+nVeMBriBXjF9Cb7UAcAW
+	pS20HZfXCBRorNaVFoHJD8GQ0SyVBb4IXA5OYHvNjQq3JzQk/buV9n4kuk2xuCvEfpsJ5kDMplpDn
+	rV7ACMZhOu6P1XW37715qOhGwbO7W7S2KZzd04L7HcYRnGLW8e5/bc+RljixW9vxSPPIkilbv7qYA
+	Dice55jTlkJTnzoSveSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qY67O-00ECd6-1Y;
-	Mon, 21 Aug 2023 14:42:58 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
+	id 1qY67N-00ECcq-2v;
+	Mon, 21 Aug 2023 14:42:57 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qY67G-00ECS7-0t
+	id 1qY67C-00ECPj-27
 	for linux-riscv@lists.infradead.org;
 	Mon, 21 Aug 2023 14:42:52 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id 58A8B24E2A7;
-	Mon, 21 Aug 2023 22:41:54 +0800 (CST)
-Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 21 Aug
- 2023 22:41:54 +0800
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 306067FD3;
+	Mon, 21 Aug 2023 22:41:55 +0800 (CST)
+Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 21 Aug
+ 2023 22:41:55 +0800
 Received: from localhost.localdomain (113.72.145.205) by EXMBX061.cuchost.com
  (172.16.6.61) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 21 Aug
- 2023 22:41:53 +0800
+ 2023 22:41:54 +0800
 From: Xingyu Wu <xingyu.wu@starfivetech.com>
 To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
 	Claudiu Beznea <Claudiu.Beznea@microchip.com>, Jaroslav Kysela
@@ -52,9 +52,9 @@ CC: Jose Abreu <joabreu@synopsys.com>, Paul Walmsley
  Wu" <xingyu.wu@starfivetech.com>, <devicetree@vger.kernel.org>,
 	<linux-kernel@vger.kernel.org>, <alsa-devel@alsa-project.org>,
 	<linux-riscv@lists.infradead.org>
-Subject: [PATCH v2 2/5] ASoC: dwc: Use ops to get platform data
-Date: Mon, 21 Aug 2023 22:41:48 +0800
-Message-ID: <20230821144151.207339-3-xingyu.wu@starfivetech.com>
+Subject: [PATCH v2 3/5] ASoC: dwc: i2s: Add StarFive JH7110 SoC support
+Date: Mon, 21 Aug 2023 22:41:49 +0800
+Message-ID: <20230821144151.207339-4-xingyu.wu@starfivetech.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20230821144151.207339-1-xingyu.wu@starfivetech.com>
 References: <20230821144151.207339-1-xingyu.wu@starfivetech.com>
@@ -64,8 +64,8 @@ X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX061.cuchost.com
  (172.16.6.61)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230821_074250_537328_1C9DADF2 
-X-CRM114-Status: GOOD (  13.19  )
+X-CRM114-CacheID: sfid-20230821_074247_308468_B661D89A 
+X-CRM114-Status: GOOD (  29.60  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,26 +82,442 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Use of_device_get_match_data() to get platform data.
+Add StarFive JH7110(TX0/TX1/RX channels) SoC support in the
+designware I2S driver and a flag to check if it is on the JH7110 SoC.
+
+These channels need to enable clocks, resets and syscon register on the
+JH7110 SoC. So add init ops in platform data for the JH7110 SoC to do this.
+
+Their resets should be deassert before changing the parent of clocks so
+these are done in the init ops of platform data.
+
+The I2S controllers use DMA controller by platform data on the JH7110
+and their settings about snd_dmaengine_dai_dma_data() should be added
+in the dw_configure_dai_by_pd(). And use dmaengine PCM registration if
+these do not have IRQ on the JH7110 SoC.
 
 Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
 ---
- sound/soc/dwc/dwc-i2s.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ include/sound/designware_i2s.h |   3 +
+ sound/soc/dwc/dwc-i2s.c        | 304 ++++++++++++++++++++++++++++++---
+ sound/soc/dwc/local.h          |   1 +
+ 3 files changed, 287 insertions(+), 21 deletions(-)
 
+diff --git a/include/sound/designware_i2s.h b/include/sound/designware_i2s.h
+index 80d275b9ae0d..f6803205a9fb 100644
+--- a/include/sound/designware_i2s.h
++++ b/include/sound/designware_i2s.h
+@@ -21,6 +21,8 @@ struct i2s_clk_config_data {
+ 	u32 sample_rate;
+ };
+ 
++struct dw_i2s_dev;
++
+ struct i2s_platform_data {
+ 	#define DWC_I2S_PLAY	(1 << 0)
+ 	#define DWC_I2S_RECORD	(1 << 1)
+@@ -42,6 +44,7 @@ struct i2s_platform_data {
+ 	void *capture_dma_data;
+ 	bool (*filter)(struct dma_chan *chan, void *slave);
+ 	int (*i2s_clk_cfg)(struct i2s_clk_config_data *config);
++	int (*i2s_pd_init)(struct dw_i2s_dev *dev);
+ };
+ 
+ struct i2s_dma_data {
 diff --git a/sound/soc/dwc/dwc-i2s.c b/sound/soc/dwc/dwc-i2s.c
-index 0a4698008d64..e70d41d57dfd 100644
+index e70d41d57dfd..5ab1b3eb2d28 100644
 --- a/sound/soc/dwc/dwc-i2s.c
 +++ b/sound/soc/dwc/dwc-i2s.c
-@@ -691,7 +691,7 @@ static int dw_configure_dai_by_dt(struct dw_i2s_dev *dev,
+@@ -16,6 +16,7 @@
+ #include <linux/init.h>
+ #include <linux/io.h>
+ #include <linux/interrupt.h>
++#include <linux/mfd/syscon.h>
+ #include <linux/module.h>
+ #include <linux/reset.h>
+ #include <linux/slab.h>
+@@ -198,7 +199,8 @@ static void i2s_start(struct dw_i2s_dev *dev,
+ 	else
+ 		i2s_write_reg(dev->i2s_base, IRER, 1);
  
+-	if (dev->use_pio)
++	/* I2S needs to enable IRQ to make a handshake with DMAC on the JH7110 SoC */
++	if (dev->use_pio || dev->is_jh7110)
+ 		i2s_enable_irqs(dev, substream->stream, config->chan_nr);
+ 	else
+ 		i2s_enable_dma(dev, substream->stream);
+@@ -216,7 +218,7 @@ static void i2s_stop(struct dw_i2s_dev *dev,
+ 	else
+ 		i2s_write_reg(dev->i2s_base, IRER, 0);
+ 
+-	if (dev->use_pio)
++	if (dev->use_pio || dev->is_jh7110)
+ 		i2s_disable_irqs(dev, substream->stream, 8);
+ 	else
+ 		i2s_disable_dma(dev, substream->stream);
+@@ -227,6 +229,21 @@ static void i2s_stop(struct dw_i2s_dev *dev,
+ 	}
+ }
+ 
++static int dw_i2s_startup(struct snd_pcm_substream *substream,
++			  struct snd_soc_dai *cpu_dai)
++{
++	struct dw_i2s_dev *dev = snd_soc_dai_get_drvdata(cpu_dai);
++
++	if (dev->is_jh7110) {
++		struct snd_soc_pcm_runtime *rtd = asoc_substream_to_rtd(substream);
++		struct snd_soc_dai_link *dai_link = rtd->dai_link;
++
++		dai_link->trigger_stop = SND_SOC_TRIGGER_ORDER_LDC;
++	}
++
++	return 0;
++}
++
+ static void dw_i2s_config(struct dw_i2s_dev *dev, int stream)
+ {
+ 	u32 ch_reg;
+@@ -453,6 +470,7 @@ static int dw_i2s_dai_probe(struct snd_soc_dai *dai)
+ 
+ static const struct snd_soc_dai_ops dw_i2s_dai_ops = {
+ 	.probe		= dw_i2s_dai_probe,
++	.startup	= dw_i2s_startup,
+ 	.hw_params	= dw_i2s_hw_params,
+ 	.prepare	= dw_i2s_prepare,
+ 	.trigger	= dw_i2s_trigger,
+@@ -637,17 +655,39 @@ static int dw_configure_dai_by_pd(struct dw_i2s_dev *dev,
+ 
+ 	if (dev->quirks & DW_I2S_QUIRK_16BIT_IDX_OVERRIDE)
+ 		idx = 1;
+-	/* Set DMA slaves info */
+-	dev->play_dma_data.pd.data = pdata->play_dma_data;
+-	dev->capture_dma_data.pd.data = pdata->capture_dma_data;
+-	dev->play_dma_data.pd.addr = res->start + I2S_TXDMA;
+-	dev->capture_dma_data.pd.addr = res->start + I2S_RXDMA;
+-	dev->play_dma_data.pd.max_burst = 16;
+-	dev->capture_dma_data.pd.max_burst = 16;
+-	dev->play_dma_data.pd.addr_width = bus_widths[idx];
+-	dev->capture_dma_data.pd.addr_width = bus_widths[idx];
+-	dev->play_dma_data.pd.filter = pdata->filter;
+-	dev->capture_dma_data.pd.filter = pdata->filter;
++
++	if (dev->is_jh7110) {
++		/* Use platform data and snd_dmaengine_dai_dma_data struct at the same time */
++		u32 comp2 = i2s_read_reg(dev->i2s_base, I2S_COMP_PARAM_2);
++		u32 idx2;
++
++		if (COMP1_TX_ENABLED(comp1)) {
++			idx2 = COMP1_TX_WORDSIZE_0(comp1);
++			dev->play_dma_data.dt.addr = res->start + I2S_TXDMA;
++			dev->play_dma_data.dt.fifo_size = dev->fifo_th * 2 *
++				(fifo_width[idx2]) >> 8;
++			dev->play_dma_data.dt.maxburst = 16;
++		}
++		if (COMP1_RX_ENABLED(comp1)) {
++			idx2 = COMP2_RX_WORDSIZE_0(comp2);
++			dev->capture_dma_data.dt.addr = res->start + I2S_RXDMA;
++			dev->capture_dma_data.dt.fifo_size = dev->fifo_th * 2 *
++				(fifo_width[idx2] >> 8);
++			dev->capture_dma_data.dt.maxburst = 16;
++		}
++	} else {
++		/* Set DMA slaves info */
++		dev->play_dma_data.pd.data = pdata->play_dma_data;
++		dev->capture_dma_data.pd.data = pdata->capture_dma_data;
++		dev->play_dma_data.pd.addr = res->start + I2S_TXDMA;
++		dev->capture_dma_data.pd.addr = res->start + I2S_RXDMA;
++		dev->play_dma_data.pd.max_burst = 16;
++		dev->capture_dma_data.pd.max_burst = 16;
++		dev->play_dma_data.pd.addr_width = bus_widths[idx];
++		dev->capture_dma_data.pd.addr_width = bus_widths[idx];
++		dev->play_dma_data.pd.filter = pdata->filter;
++		dev->capture_dma_data.pd.filter = pdata->filter;
++	}
+ 
+ 	return 0;
+ }
+@@ -689,6 +729,190 @@ static int dw_configure_dai_by_dt(struct dw_i2s_dev *dev,
+ 
+ }
+ 
++/* clocks initialization with master mode on JH7110 SoC */
++static int jh7110_i2s_crg_master_init(struct dw_i2s_dev *dev)
++{
++	static struct clk_bulk_data clks[] = {
++		{ .id = "mclk" },
++		{ .id = "mclk_ext" },
++		{ .id = "mclk_inner" },
++		{ .id = "apb" },
++		{ .id = "i2sclk" },
++	};
++	struct reset_control *resets = devm_reset_control_array_get_exclusive(dev->dev);
++	int ret;
++	struct clk *pclk;
++	struct clk *bclk_mst;
++	struct clk *mclk;
++	struct clk *mclk_ext;
++	struct clk *mclk_inner;
++
++	if (IS_ERR(resets))
++		return dev_err_probe(dev->dev, PTR_ERR(resets), "failed to get i2s resets\n");
++
++	ret = clk_bulk_get(dev->dev, ARRAY_SIZE(clks), clks);
++	if (ret)
++		return dev_err_probe(dev->dev, ret, "failed to get i2s clocks\n");
++
++	mclk = clks[0].clk;
++	mclk_ext = clks[1].clk;
++	mclk_inner = clks[2].clk;
++	pclk = clks[3].clk;
++	bclk_mst = clks[4].clk;
++
++	ret = clk_prepare_enable(pclk);
++	if (ret)
++		goto exit;
++
++	/* Use inner mclk first and avoid uninitialized gpio for external mclk */
++	ret = clk_set_parent(mclk, mclk_inner);
++	if (ret)
++		goto err_dis_pclk;
++
++	ret = clk_prepare_enable(bclk_mst);
++	if (ret)
++		goto err_dis_pclk;
++
++	/* deassert resets before set clock parent */
++	ret = reset_control_deassert(resets);
++	if (ret)
++		goto err_dis_all;
++
++	/* external clock (12.288MHz) for Audio */
++	ret = clk_set_parent(mclk, mclk_ext);
++	if (ret)
++		goto err_dis_all;
++
++	/* i2sclk will be got and enabled repeatedly later and should be disabled now. */
++	clk_disable_unprepare(bclk_mst);
++	clk_bulk_put(ARRAY_SIZE(clks), clks);
++	dev->is_jh7110 = true;
++
++	return 0;
++
++err_dis_all:
++	clk_disable_unprepare(bclk_mst);
++err_dis_pclk:
++	clk_disable_unprepare(pclk);
++exit:
++	clk_bulk_put(ARRAY_SIZE(clks), clks);
++	return ret;
++}
++
++/* clocks initialization with slave mode on JH7110 SoC */
++static int jh7110_i2s_crg_slave_init(struct dw_i2s_dev *dev)
++{
++	static struct clk_bulk_data clks[] = {
++		{ .id = "mclk" },
++		{ .id = "mclk_ext" },
++		{ .id = "apb" },
++		{ .id = "bclk_ext" },
++		{ .id = "lrck_ext" },
++		{ .id = "bclk" },
++		{ .id = "lrck" },
++		{ .id = "mclk_inner" },
++		{ .id = "i2sclk" },
++	};
++	struct reset_control *resets = devm_reset_control_array_get_exclusive(dev->dev);
++	int ret;
++	struct clk *pclk;
++	struct clk *bclk_mst;
++	struct clk *bclk_ext;
++	struct clk *lrck_ext;
++	struct clk *bclk;
++	struct clk *lrck;
++	struct clk *mclk;
++	struct clk *mclk_ext;
++	struct clk *mclk_inner;
++
++	if (IS_ERR(resets))
++		return dev_err_probe(dev->dev, PTR_ERR(resets), "failed to get i2s resets\n");
++
++	ret = clk_bulk_get(dev->dev, ARRAY_SIZE(clks), clks);
++	if (ret)
++		return dev_err_probe(dev->dev, ret, "failed to get i2s clocks\n");
++
++	mclk = clks[0].clk;
++	mclk_ext = clks[1].clk;
++	pclk = clks[2].clk;
++	bclk_ext = clks[3].clk;
++	lrck_ext = clks[4].clk;
++	bclk = clks[5].clk;
++	lrck = clks[6].clk;
++	mclk_inner = clks[7].clk;
++	bclk_mst = clks[8].clk;
++
++	ret = clk_prepare_enable(pclk);
++	if (ret)
++		goto exit;
++
++	ret = clk_set_parent(mclk, mclk_inner);
++	if (ret)
++		goto err_dis_pclk;
++
++	ret = clk_prepare_enable(bclk_mst);
++	if (ret)
++		goto err_dis_pclk;
++
++	ret = reset_control_deassert(resets);
++	if (ret)
++		goto err_dis_all;
++
++	/* The sources of BCLK and LRCK are the external codec. */
++	ret = clk_set_parent(bclk, bclk_ext);
++	if (ret)
++		goto err_dis_all;
++
++	ret = clk_set_parent(lrck, lrck_ext);
++	if (ret)
++		goto err_dis_all;
++
++	ret = clk_set_parent(mclk, mclk_ext);
++	if (ret)
++		goto err_dis_all;
++
++	/* The i2sclk will be got and enabled repeatedly later and should be disabled now. */
++	clk_disable_unprepare(bclk_mst);
++	clk_bulk_put(ARRAY_SIZE(clks), clks);
++	dev->is_jh7110 = true;
++
++	return 0;
++
++err_dis_all:
++	clk_disable_unprepare(bclk_mst);
++err_dis_pclk:
++	clk_disable_unprepare(pclk);
++exit:
++	clk_bulk_put(ARRAY_SIZE(clks), clks);
++	return ret;
++}
++
++/* Special syscon initialization about RX channel with slave mode on JH7110 SoC */
++static int jh7110_i2srx_crg_init(struct dw_i2s_dev *dev)
++{
++	struct regmap *regmap;
++	unsigned int args[2];
++
++	regmap = syscon_regmap_lookup_by_phandle_args(dev->dev->of_node,
++						      "starfive,syscon",
++						      2, args);
++	if (IS_ERR(regmap))
++		return dev_err_probe(dev->dev, PTR_ERR(regmap), "getting the regmap failed\n");
++
++	/* Enable I2Srx with syscon register, args[0]: offset, args[1]: mask */
++	regmap_update_bits(regmap, args[0], args[1], args[1]);
++
++	return jh7110_i2s_crg_slave_init(dev);
++}
++
++static int jh7110_i2stx0_clk_cfg(struct i2s_clk_config_data *config)
++{
++	struct dw_i2s_dev *dev = container_of(config, struct dw_i2s_dev, config);
++	u32 bclk_rate = config->sample_rate * 64;
++
++	return clk_set_rate(dev->clk, bclk_rate);
++}
++
  static int dw_i2s_probe(struct platform_device *pdev)
  {
--	const struct i2s_platform_data *pdata = pdev->dev.platform_data;
-+	const struct i2s_platform_data *pdata = of_device_get_match_data(&pdev->dev);
- 	struct dw_i2s_dev *dev;
- 	struct resource *res;
- 	int ret, irq;
+ 	const struct i2s_platform_data *pdata = of_device_get_match_data(&pdev->dev);
+@@ -712,15 +936,25 @@ static int dw_i2s_probe(struct platform_device *pdev)
+ 	if (IS_ERR(dev->i2s_base))
+ 		return PTR_ERR(dev->i2s_base);
+ 
+-	dev->reset = devm_reset_control_array_get_optional_shared(&pdev->dev);
+-	if (IS_ERR(dev->reset))
+-		return PTR_ERR(dev->reset);
++	dev->dev = &pdev->dev;
++	dev->is_jh7110 = false;
++	if (pdata) {
++		if (pdata->i2s_pd_init) {
++			ret = pdata->i2s_pd_init(dev);
++			if (ret)
++				return ret;
++		}
++	}
+ 
+-	ret = reset_control_deassert(dev->reset);
+-	if (ret)
+-		return ret;
++	if (!dev->is_jh7110) {
++		dev->reset = devm_reset_control_array_get_optional_shared(&pdev->dev);
++		if (IS_ERR(dev->reset))
++			return PTR_ERR(dev->reset);
+ 
+-	dev->dev = &pdev->dev;
++		ret = reset_control_deassert(dev->reset);
++		if (ret)
++			return ret;
++	}
+ 
+ 	irq = platform_get_irq_optional(pdev, 0);
+ 	if (irq >= 0) {
+@@ -779,7 +1013,7 @@ static int dw_i2s_probe(struct platform_device *pdev)
+ 		goto err_clk_disable;
+ 	}
+ 
+-	if (!pdata) {
++	if (!pdata || dev->is_jh7110) {
+ 		if (irq >= 0) {
+ 			ret = dw_pcm_register(pdev);
+ 			dev->use_pio = true;
+@@ -821,8 +1055,36 @@ static void dw_i2s_remove(struct platform_device *pdev)
+ }
+ 
+ #ifdef CONFIG_OF
++static const struct i2s_platform_data jh7110_i2stx0_data = {
++	.cap = DWC_I2S_PLAY | DW_I2S_MASTER,
++	.channel = TWO_CHANNEL_SUPPORT,
++	.snd_fmts = SNDRV_PCM_FMTBIT_S16_LE | SNDRV_PCM_FMTBIT_S32_LE,
++	.snd_rates = SNDRV_PCM_RATE_32000 | SNDRV_PCM_RATE_48000,
++	.i2s_clk_cfg = jh7110_i2stx0_clk_cfg,
++	.i2s_pd_init = jh7110_i2s_crg_master_init,
++};
++
++static const struct i2s_platform_data jh7110_i2stx1_data = {
++	.cap = DWC_I2S_PLAY | DW_I2S_SLAVE,
++	.channel = TWO_CHANNEL_SUPPORT,
++	.snd_fmts = SNDRV_PCM_FMTBIT_S16_LE | SNDRV_PCM_FMTBIT_S32_LE,
++	.snd_rates = SNDRV_PCM_RATE_8000_192000,
++	.i2s_pd_init = jh7110_i2s_crg_slave_init,
++};
++
++static const struct i2s_platform_data jh7110_i2srx_data = {
++	.cap = DWC_I2S_RECORD | DW_I2S_SLAVE,
++	.channel = TWO_CHANNEL_SUPPORT,
++	.snd_fmts = SNDRV_PCM_FMTBIT_S16_LE | SNDRV_PCM_FMTBIT_S32_LE,
++	.snd_rates = SNDRV_PCM_RATE_8000_192000,
++	.i2s_pd_init = jh7110_i2srx_crg_init,
++};
++
+ static const struct of_device_id dw_i2s_of_match[] = {
+ 	{ .compatible = "snps,designware-i2s",	 },
++	{ .compatible = "starfive,jh7110-i2stx0", .data = &jh7110_i2stx0_data, },
++	{ .compatible = "starfive,jh7110-i2stx1", .data = &jh7110_i2stx1_data,},
++	{ .compatible = "starfive,jh7110-i2srx", .data = &jh7110_i2srx_data,},
+ 	{},
+ };
+ 
+diff --git a/sound/soc/dwc/local.h b/sound/soc/dwc/local.h
+index 4ce96bac2f39..dce88c9ad5f3 100644
+--- a/sound/soc/dwc/local.h
++++ b/sound/soc/dwc/local.h
+@@ -123,6 +123,7 @@ struct dw_i2s_dev {
+ 	u32 fifo_th;
+ 	u32 l_reg;
+ 	u32 r_reg;
++	bool is_jh7110; /* Flag for StarFive JH7110 SoC */
+ 
+ 	/* data related to DMA transfers b/w i2s and DMAC */
+ 	union dw_i2s_snd_dma_data play_dma_data;
 -- 
 2.25.1
 
