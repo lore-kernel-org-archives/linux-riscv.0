@@ -4,72 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49C48EE4996
-	for <linux-riscv@archiver.kernel.org>; Mon, 21 Aug 2023 06:48:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CED1CEE49A5
+	for <linux-riscv@archiver.kernel.org>; Mon, 21 Aug 2023 07:51:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:From:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=V3WimGRI7fL3v/KJMd8RiMs5w+9RLmfGMLJtpIBNnPw=; b=Gi5+UwE4oqWMWo
-	hT63DrD4OrGwm9kMLYn1o2NhLXlSJQerN2s16418GMPiIxVzGTbfn9M5IIczJdUqeU0OHxUjQSbyx
-	sXwFe1n1TcRcap8FW5A02pS0uJvICvp4eyB/q0ZdXJIFXf8gt84F9Nb65gCNaXEDZ5UECKgT/7Esg
-	YnTx+eWMJ/5Pb75Xyw0wWeqsb0o0aMx2oWSj5AEtJgwU9dvn56eMLoCZVMgMCMBNlaSA5qn/mWZ9n
-	eSmk/nTqQZW/NZ2sssMsMhbnSgMXBbSeP2zQ+eQBU+bRNNOy1rq1qoBl7YvpmFIcaSsMUfbMqiClr
-	x1/C3/vrk+Ord0NTkr0w==;
+	List-Owner; bh=9IIpps2Zzn4795lLXiYAx3txBGe/y7XONt3OKgIKAwE=; b=kE9Kh4FbzCZvKI
+	UAGZFPPE1XmB3wU/SGgCOTYTohuTDqkz9fpA38E5Vcq1g3w47KtMqhFKlSNg6jqOHq5ir8EUmrRR7
+	xWZqgqKmtC8eFsAUmz+szOtZir+mZkr1EhqMLn+6/8UwIxa/0bcm+hUlnQdqtw17iue53zuWEZ47L
+	mTvGsyfX8J1zpRroIqeEVnH9I9MXk7GcbeOrZeZsjpnP7PLlpytEl2Mo+IMAneiC7I2K5lFRAyie+
+	5grUeezqarffLz2XW7LJs90PoNsL3DtIQ8vwh/5tOUqdha+K/qqM5Jcxw94Z5jCSW/jnlEmRbPAwp
+	/i3XGigm3Lme/dXslZgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qXyi3-00DIGE-1R;
-	Mon, 21 Aug 2023 06:48:19 +0000
-Received: from mail.loongson.cn ([114.242.206.163])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qXyi0-00DIEC-0H
+	id 1qXzhE-00DOr6-0m;
+	Mon, 21 Aug 2023 07:51:32 +0000
+Received: from mail-yw1-x112a.google.com ([2607:f8b0:4864:20::112a])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1qXzhA-00DOqP-2c
 	for linux-riscv@lists.infradead.org;
-	Mon, 21 Aug 2023 06:48:17 +0000
-Received: from loongson.cn (unknown [10.20.42.43])
-	by gateway (Coremail) with SMTP id _____8Cx2eqnCONk74IaAA--.49216S3;
-	Mon, 21 Aug 2023 14:48:07 +0800 (CST)
-Received: from [10.20.42.43] (unknown [10.20.42.43])
-	by localhost.localdomain (Coremail) with SMTP id AQAAf8Dx_yONCONkWUxfAA--.60821S3;
-	Mon, 21 Aug 2023 14:48:07 +0800 (CST)
-Message-ID: <520723e3-ca6e-a55d-cbd0-132b2991c9bc@loongson.cn>
-Date: Mon, 21 Aug 2023 14:47:41 +0800
+	Mon, 21 Aug 2023 07:51:30 +0000
+Received: by mail-yw1-x112a.google.com with SMTP id 00721157ae682-58dfe2d5b9aso41725327b3.1
+        for <linux-riscv@lists.infradead.org>; Mon, 21 Aug 2023 00:51:26 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sifive.com; s=google; t=1692604286; x=1693209086;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=1IkOyMzrPXM2VgxHUc80scGsw2r/NO7mjPQDx+GPN74=;
+        b=dmDahYpzHs8mZ4mluw4fY4YqFdveuqRbJAHQ/01cpHcArnHwT9aj+1N+zVh0Il7KlK
+         v91zbtufrlxETSqxHueRYILxcaRcUW4ymO37hpdd5sSQweayETXouNgBrM8PIFpd7rgg
+         W7SgodZHm9Q//rEIvIkge7Ixl6/OuBa9y8NygWyWJJb1dju6fFxW/yRi8ojA0+Xf5o/U
+         xeIUQZbL3D1nEQ8YEUTLaFcMjhH6TdW5PVnOtME8EDeKLdsoGvmW6z2aAmGdsRUSNxAl
+         KSaOZESe56qpSc1DiE/4YGZFqlLzU/445giiYxBOb5xLVLOzT7SaKVIiLymIxebCBVbz
+         B2Gw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1692604286; x=1693209086;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=1IkOyMzrPXM2VgxHUc80scGsw2r/NO7mjPQDx+GPN74=;
+        b=gTc9gK4U8YexWnkZluye3RTwZFHciz82Fax6AWMINNCr0Dv9FLYzp5KSpjoAcUzoDI
+         aJyueUqrfOxHwS4HEAR6oPouKxd8UH00/WIFIbK/+X1Sefz1721mK1QlaZgyU7NVub90
+         f0KyVucCo/7lNzSJ2Y/5ccSmAvy4RITzsS8NsR70yaPCvwnaTQE+1+gWqnFXRn8bY+ia
+         d+JsH0LMGgvQFtJG0mAdIqtObjpfoiPO2RctYtDNa+mtJWFn5YjOKCVrP0cFWspfvmSz
+         Im4qjM6+7tza1aHL9qPLuSXUAHASUPozY7rcXNqdFEcEmlXujL7OJceAxxqFQIcoWkE0
+         +c1Q==
+X-Gm-Message-State: AOJu0YxiLq7IJ0u9ZJC0TJjdsrZNJQiDSTI6EO16Ze/n+aeNEzkq8D0b
+	F1TNReBCFPmesBd6zfv/GFEVo/U3qVf3a8+QVJmL/Q==
+X-Google-Smtp-Source: AGHT+IGsgfF/yqt3FJ2nXR1RxTsBuGTHFXhYYZYrd0vKqQuzmc6jZpHnNy5kwuoHkMasCmlduCzk9ohT+0c6ovX2VOY=
+X-Received: by 2002:a0d:e897:0:b0:589:f9c3:8b2e with SMTP id
+ r145-20020a0de897000000b00589f9c38b2emr4566061ywe.20.1692604286040; Mon, 21
+ Aug 2023 00:51:26 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.13.0
-Subject: Re: [PATCH v4] PCI/VGA: Make the vga_is_firmware_default() less
- arch-dependent
-From: suijingfeng <suijingfeng@loongson.cn>
-To: Bjorn Helgaas <helgaas@kernel.org>
-Cc: Bjorn Helgaas <bhelgaas@google.com>, loongson-kernel@lists.loongnix.cn,
- linux-pci@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org
-References: <20230817220853.GA328159@bhelgaas>
- <fb242a7e-b1ee-7be0-cbc4-be710e246279@loongson.cn>
-Content-Language: en-US
-In-Reply-To: <fb242a7e-b1ee-7be0-cbc4-be710e246279@loongson.cn>
-X-CM-TRANSID: AQAAf8Dx_yONCONkWUxfAA--.60821S3
-X-CM-SenderInfo: xvxlyxpqjiv03j6o00pqjv00gofq/
-X-Coremail-Antispam: 1Uk129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7KY7
-	ZEXasCq-sGcSsGvfJ3Ic02F40EFcxC0VAKzVAqx4xG6I80ebIjqfuFe4nvWSU5nxnvy29K
-	BjDU0xBIdaVrnRJUUUv2b4IE77IF4wAFF20E14v26r1j6r4UM7CY07I20VC2zVCF04k26c
-	xKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1Y6r17M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vE
-	j48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Jr0_JF4l84ACjcxK6xIIjxv20xvEc7CjxV
-	AFwI0_Jr0_Gr1l84ACjcxK6I8E87Iv67AKxVW8Jr0_Cr1UM28EF7xvwVC2z280aVCY1x02
-	67AKxVW8Jr0_Cr1UM2AIxVAIcxkEcVAq07x20xvEncxIr21l57IF6xkI12xvs2x26I8E6x
-	ACxx1l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1Y6r17McIj6I8E
-	87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lc7I2V7IY0V
-	AS07AlzVAYIcxG8wCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s02
-	6c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_JF
-	0_Jw1lIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvE
-	c7CjxVAFwI0_Jr0_Gr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14
-	v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Jr0_GrUvcSsGvfC2KfnxnUUI43ZEXa7I
-	U8zwZ7UUUUU==
+References: <20230615072302.25638-1-nylon.chen@sifive.com> <20230615-unvisited-deceit-9beab8ce987a@wendy>
+ <CAHh=Yk_=oZJ6eY3jJzLavub5rGsvY=MKv4tGXeiqkz+rgJHwDQ@mail.gmail.com>
+ <20230615-luxurious-rewire-84ff9d639fea@wendy> <20230615084310.GA780@hsinchu15>
+ <mvmo7lh2ip6.fsf@suse.de> <20230615094732.GA8710@hsinchu15>
+In-Reply-To: <20230615094732.GA8710@hsinchu15>
+From: Nylon Chen <nylon.chen@sifive.com>
+Date: Mon, 21 Aug 2023 15:51:14 +0800
+Message-ID: <CAHh=Yk8upMOdhma4EDZj_TsA2rf8=MQVrP2sidhmwBh3G-ix-Q@mail.gmail.com>
+Subject: Re: [PATCH v2] RISC-V: Support 32_PCREL relocation type in kernel module
+To: Andreas Schwab <schwab@suse.de>
+Cc: Conor Dooley <conor.dooley@microchip.com>, linux-kernel@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, jszhang@kernel.org, ajones@ventanamicro.com, 
+	aou@eecs.berkeley.edu, palmer@dabbelt.com, paul.walmsley@sifive.com, 
+	greentime.hu@sifive.com, zong.li@sifive.com, nylon7717@gmail.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230820_234816_472775_1887266F 
-X-CRM114-Status: UNSURE (   5.60  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230821_005128_897270_41FFFCEE 
+X-CRM114-Status: GOOD (  17.04  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,29 +88,34 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-
-On 2023/8/18 18:20, suijingfeng wrote:
->
-> 1) The "weird" logic completely overrides whatever decision VGAARB 
-> ever made.
->
-> It seems to say that the decision ever made by VGAARB is useless.
-> Well, I think VGAARB shouldn't endure this; VGAARB has to be small. 
-
-
-VGAARB have to be smart!
-
-The "weird logic" here refer to the weird pci_fixup_vgadev() function.
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgQW5kcmVhcywKCkN1cnJlbnRseSwgZHVlIHRvIHRoZSBsYWNrIG9mIHN1cHBvcnQgZm9yIHRo
+ZSB1bndpbmQgdGFibGUgaW4gUklTQy1WLAp3ZSBoYXZlIGRpc2FibGVkIGl0LgoKSWYgUklTQy1W
+IHdlcmUgdG8gc3VwcG9ydCB0aGUgdW53aW5kIHRhYmxlIGluIHRoZSBmdXR1cmUsIHdvdWxkIHdl
+Cm5lZWQgdG8gcmUtZW5hYmxlIGl0PyBXb3VsZCB0aGlzIHJlcXVpcmUgaW1wbGVtZW50aW5nIHJl
+bGF0ZWQKY2hhbmdlcyhtb2R1bGUgcmVsb2NhdGlvbiB0eXBlIGhhbmRsZXIpIGF0IHRoYXQgdGlt
+ZT8KCk55bG9uIENoZW4gPG55bG9uLmNoZW5Ac2lmaXZlLmNvbT4g5pa8IDIwMjPlubQ25pyIMTXm
+l6Ug6YCx5ZubIOS4i+WNiDU6NDflr6vpgZPvvJoKCgpOeWxvbiBDaGVuIDxueWxvbi5jaGVuQHNp
+Zml2ZS5jb20+IOaWvCAyMDIz5bm0NuaciDE15pelIOmAseWbmyDkuIvljYg1OjQ35a+r6YGT77ya
+Cj4KPiBPbiBUaHUsIEp1biAxNSwgMjAyMyBhdCAxMToxMTo0OUFNICswMjAwLCBBbmRyZWFzIFNj
+aHdhYiB3cm90ZToKPiA+IE9uIEp1biAxNSAyMDIzLCBOeWxvbiBDaGVuIHdyb3RlOgo+ID4KPiBI
+aSBBbmRyZWFzLAo+ID4gPiBCZWNhdXNlIExMVk0gY3VycmVudGx5IGhhcyBpdCBlbmFibGVkIGJ5
+IGRlZmF1bHQoaHR0cHM6Ly9yZXZpZXdzLmxsdm0ub3JnL0QxNDUxNjQpLCBpdCB3aWxsIGdlbmVy
+YXRlIHRoaXMKPiA+ID4gcmVsb2NhdGlvbiB0eXBlLgo+ID4gPgo+ID4gPj5Gcm9tIHdoYXQgSSBr
+bm93LCBHQ0Mgd2lsbCBhbHNvIGVuYWJsZSBpdCBpbiB0aGUgZnV0dXJlLgo+ID4KPiA+IFRoYXQn
+cyB3aHkgdGhlIGtlcm5lbCBleHBsaWNpdGx5IGRpc2FibGVzIGl0Lgo+IE9rLCB0aGFua3MgZm9y
+IHlvdXIgZmVlZGJhY2ssIGFmdGVyIEkgY3Jvc3MtdGVzdGVkLCB0aGVyZSBpcyBpbmRlZWQgbm8g
+cmVsZXZhbnQgcmVsb2NhdGlvbiB0eXBlIGdlbmVyYXRlZC4KPgo+IElmIHRoaXMgZXJyb3Igbm8g
+bG9uZ2VyIG9jY3Vycy4KPgo+IEkgYW0gb3BlbiB0byB0aGUgaWRlYSBvZiBhZGRpbmcgdGhpcyBw
+YXRjaCB0byB0aGUgdXBzdHJlYW0gYW5kIHdvdWxkIGxpa2UgdG8gaGVhciB5b3VyIHRob3VnaHRz
+IG9uIHdoZXRoZXIgaXQgaXMgc3RpbGwgbmVjZXNzYXJ5Lgo+ID4KPiA+IC0tCj4gPiBBbmRyZWFz
+IFNjaHdhYiwgU1VTRSBMYWJzLCBzY2h3YWJAc3VzZS5kZQo+ID4gR1BHIEtleSBmaW5nZXJwcmlu
+dCA9IDAxOTYgQkFEOCAxQ0U5IDE5NzAgRjRCRSAgMTc0OCBFNEQ0IDg4RTMgMEVFQSBCOUQ3Cj4g
+PiAiQW5kIG5vdyBmb3Igc29tZXRoaW5nIGNvbXBsZXRlbHkgZGlmZmVyZW50LiIKCl9fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxp
+bmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZy
+YWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
