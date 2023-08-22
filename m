@@ -4,83 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D692EE49A3
-	for <linux-riscv@archiver.kernel.org>; Tue, 22 Aug 2023 15:41:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1860DEE49A3
+	for <linux-riscv@archiver.kernel.org>; Tue, 22 Aug 2023 15:56:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mU7apfyDmOM+lhMev+fhZKHGJE3KgFzqj5E5nNLspB8=; b=z0wW329iMoWWWXFKWJ3N+E5HAG
-	uOAgaJkm134IWHC2ctdqBK2TeMwCcGD66Tn2XloSHYs9cMBTNBLSDP+Amto06RsKKL58he1zDI92s
-	LKF35gmkieV3So2peSB56BgLUTpnrQgOiubbjhKeYNr5Hke2taRgK5AVq0q3+pD/B62WmCc82Db3b
-	QfrcxAUHhlQ2+n9KJpLr3vMA8EBoKRLi6oFknVP5IORuVZCmY0tC2t83t6tZrj1/BUAq3a7kqZo4n
-	CthRN2mPn4DU01J+KFVZgi1pQuonCkquM1pMQtrr9zmkIMoeQ8wjTXL/Q8LJUGdktDIcGqfATjBYB
-	wSZ8fTPw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=11YFW6qR5tnbTPI2xKZyjvJL08wPKAq8O0eq6UEIbpI=; b=NKARfsE4glRAHH
+	XUD569pKx0Dt7YwagoOpMbSH03lOiSDK6kaNGArzih3n4GG8AXedf0LcCDYU7MxCiymLRdImKM9YJ
+	hSerbnlGBIKYA+geTY4AscOLV12nupJGW7etDU98uqJtcjouodGNJndKQlssOAL1BO1g2kqtUNMep
+	rP0cDdhcBYs+aDiU7htCJ5mw3oA837wfCbS65Xb6dZwzHS5lbEuAfCbHNMW47FRu8ELGPOQfCOT7S
+	LKuP5HzN+mT1VlLf8V8oeQE/c4y7nWyfbc8z69VcYgy058Ty6ys5JbNDM0GEA40OPioNocDLqDdMi
+	Cd+Km3NEoCVjuXZAV5UA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qYTVq-00GO0Q-2n;
-	Tue, 22 Aug 2023 15:41:46 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1qYTjZ-00GQ2t-21;
+	Tue, 22 Aug 2023 15:55:57 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qYTVn-00GNzm-0K;
-	Tue, 22 Aug 2023 15:41:45 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 9F4CB65B11;
-	Tue, 22 Aug 2023 15:41:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F198BC433C7;
-	Tue, 22 Aug 2023 15:41:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1692718902;
-	bh=U8sk7r3HpjuM6jyf6I/ZCmrrIT4hPUtWgTjlWgfZQ+E=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Ew1lxee1O/Ti1p/vQKYfVrokDQePlcLRRcpwk16Sz433/A4D7AWBgD3BRDBIf4X4a
-	 fgRp87Xf/4hsKqH1P1veF7eYsQVXiFifYGG80LgQD/9WhpHdqV0wzwdNl9g5n8o4Is
-	 BU7SEV6UiJDuuKjAcW7KgylZl46xOuShdprb7imzwhaqgdpaWPuAZaW+SgljORXEqk
-	 bYT4DY30YPyhtbGZeq/Y5wXvmzcvTPRyyMUdQnfal+F/LjJWiqxIGX1Sr3xqwpstgA
-	 E91ugzTDnLfi50x+F5ZD+ysZzx7G1FYX11oVwClMHP6ycS7PC20BZUcsFSLKaaP2s1
-	 Z4ILnptB/1A+w==
-Date: Tue, 22 Aug 2023 16:41:32 +0100
-From: Mark Brown <broonie@kernel.org>
-To: David Hildenbrand <david@redhat.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	James Morse <james.morse@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Arnd Bergmann <arnd@arndb.de>, Oleg Nesterov <oleg@redhat.com>,
-	Eric Biederman <ebiederm@xmission.com>,
-	Kees Cook <keescook@chromium.org>, Shuah Khan <shuah@kernel.org>,
-	"Rick P. Edgecombe" <rick.p.edgecombe@intel.com>,
-	Deepak Gupta <debug@rivosinc.com>, Ard Biesheuvel <ardb@kernel.org>,
-	Szabolcs Nagy <Szabolcs.Nagy@arm.com>,
-	"H.J. Lu" <hjl.tools@gmail.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
-	kvmarm@lists.linux.dev, linux-fsdevel@vger.kernel.org,
-	linux-arch@vger.kernel.org, linux-mm@kvack.org,
-	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v5 11/37] mm: Define VM_SHADOW_STACK for arm64 when we
- support GCS
-Message-ID: <54b2c1e5-a99d-42c0-b686-1b5cbb849581@sirena.org.uk>
-References: <20230822-arm64-gcs-v5-0-9ef181dd6324@kernel.org>
- <20230822-arm64-gcs-v5-11-9ef181dd6324@kernel.org>
- <8f2cf5af-cad7-a69c-e8ec-39f48deae1cb@redhat.com>
+	id 1qYTjW-00GQ17-2B;
+	Tue, 22 Aug 2023 15:55:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:From:Date:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=S2nWE3aQXFlKdqzDmsVrOKSeJqyIatEgKjU2+rJLr14=; b=h3LZMwRi//eYTY51C/zEUbk/KO
+	Dho7q3CkJYHxVIdRK7/rrnp2+YNqLZsktupbQMebaIvDmYa2YpqGHA+7yqU06Kk5vULxXH6q5Yu7c
+	TShQ8Zjh3ocqJrA+BI2sDEi0aCjfHO5B09W19cbvlWyOfjnwbBfXDn3fcId9awHN6fr2zKv0iRjTN
+	E+mdjMh1TTg7K1Qe9lTSxVSkwrpC/pq/aA8jTZtrU1bpNAI/guBoyXTppDH//j0Fa7aGkIaJGb+I4
+	yVR8i++m+9VzLZYOu0ehN0C7gdOllVaqbLI3wHpp0GLVWL09SwiXkydAgQW5n1LXP7EOnzd2lOfbT
+	PyTaKutA==;
+Received: from frasgout.his.huawei.com ([185.176.79.56])
+	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1qYTjR-002rSb-0Q;
+	Tue, 22 Aug 2023 15:55:53 +0000
+Received: from lhrpeml500005.china.huawei.com (unknown [172.18.147.206])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4RVYnd4n4Yz6D8d1;
+	Tue, 22 Aug 2023 23:54:45 +0800 (CST)
+Received: from localhost (10.202.227.76) by lhrpeml500005.china.huawei.com
+ (7.191.163.240) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.31; Tue, 22 Aug
+ 2023 16:55:25 +0100
+Date: Tue, 22 Aug 2023 16:55:24 +0100
+From: Jonathan Cameron <Jonathan.Cameron@Huawei.com>
+To: Li Zetao <lizetao1@huawei.com>
+CC: <broonie@kernel.org>, <chin-ting_kuo@aspeedtech.com>, <clg@kaod.org>,
+	<joel@jms.id.au>, <andrew@aj.id.au>, <florian.fainelli@broadcom.com>,
+	<rjui@broadcom.com>, <sbranden@broadcom.com>,
+	<bcm-kernel-feedback-list@broadcom.com>, <fancer.lancer@gmail.com>,
+	<olteanv@gmail.com>, <neil.armstrong@linaro.org>, <khilman@baylibre.com>,
+	<jbrunet@baylibre.com>, <martin.blumenstingl@googlemail.com>,
+	<conor.dooley@microchip.com>, <daire.mcnamara@microchip.com>,
+	<matthias.bgg@gmail.com>, <angelogioacchino.delregno@collabora.com>,
+	<avifishman70@gmail.com>, <tmaimon77@gmail.com>, <tali.perry1@gmail.com>,
+	<venture@google.com>, <yuenn@google.com>, <benjaminfair@google.com>,
+	<linus.walleij@linaro.org>, <heiko@sntech.de>, <linux-spi@vger.kernel.org>,
+	<linux-aspeed@lists.ozlabs.org>, <openbmc@lists.ozlabs.org>,
+	<linux-arm-kernel@lists.infradead.org>,
+	<linux-rpi-kernel@lists.infradead.org>, <linux-amlogic@lists.infradead.org>,
+	<linux-riscv@lists.infradead.org>, <linux-mediatek@lists.infradead.org>,
+	<linux-rockchip@lists.infradead.org>
+Subject: Re: [PATCH -next 02/25] spi: armada-3700: Use helper function
+ devm_clk_get_prepared()
+Message-ID: <20230822165524.000062a8@Huawei.com>
+In-Reply-To: <20230822131237.1022815-3-lizetao1@huawei.com>
+References: <20230822131237.1022815-1-lizetao1@huawei.com>
+	<20230822131237.1022815-3-lizetao1@huawei.com>
+Organization: Huawei Technologies Research and Development (UK) Ltd.
+X-Mailer: Claws Mail 4.1.0 (GTK 3.24.33; x86_64-w64-mingw32)
 MIME-Version: 1.0
-In-Reply-To: <8f2cf5af-cad7-a69c-e8ec-39f48deae1cb@redhat.com>
-X-Cookie: MIT:
+X-Originating-IP: [10.202.227.76]
+X-ClientProxiedBy: lhrpeml100006.china.huawei.com (7.191.160.224) To
+ lhrpeml500005.china.huawei.com (7.191.163.240)
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230822_084143_224781_02D5CA6B 
-X-CRM114-Status: GOOD (  20.61  )
+X-CRM114-CacheID: sfid-20230822_165549_254497_F2D4CCAF 
+X-CRM114-Status: UNSURE (   6.50  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,78 +94,33 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============2104864356002844784=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============2104864356002844784==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="Rm2VNANgsE/SCWLa"
-Content-Disposition: inline
+> @@ -909,10 +901,6 @@ static int a3700_spi_probe(struct platform_device *pdev)
+>  
+>  static void a3700_spi_remove(struct platform_device *pdev)
+>  {
+> -	struct spi_controller *host = platform_get_drvdata(pdev);
+> -	struct a3700_spi *spi = spi_controller_get_devdata(host);
+> -
+> -	clk_unprepare(spi->clk);
+Hi.
 
+No point in keeping an empty remove function.  Drop the whole thing now
+there is nothing to do.
 
---Rm2VNANgsE/SCWLa
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Jonathan
 
-On Tue, Aug 22, 2023 at 05:21:09PM +0200, David Hildenbrand wrote:
-> On 22.08.23 15:56, Mark Brown wrote:
+>  }
+>  
+>  static struct platform_driver a3700_spi_driver = {
 
-> > @@ -372,7 +372,17 @@ extern unsigned int kobjsize(const void *objp);
-> >    * having a PAGE_SIZE guard gap.
-> >    */
-> >   # define VM_SHADOW_STACK	VM_HIGH_ARCH_5
-> > -#else
-> > +#endif
-> > +
-> > +#if defined(CONFIG_ARM64_GCS)
-> > +/*
-> > + * arm64's Guarded Control Stack implements similar functionality and
-> > + * has similar constraints to shadow stacks.
-> > + */
-> > +# define VM_SHADOW_STACK	VM_HIGH_ARCH_5
-> > +#endif
-
-> Shouldn't that all just merged with the previous define(s)?
-
-> Also, I wonder if we now want to have CONFIG_HAVE_ARCH_SHADOW_STACK or
-> similar.
-
-I can certainly update it to do that, I was just trying to fit in with
-how the code was written on the basis that there was probably a good
-reason for it that had been discussed somewhere.  I can send an
-incremental patch for this on top of the x86 patches assuming they go in
-during the merge window.
-
---Rm2VNANgsE/SCWLa
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmTk1ywACgkQJNaLcl1U
-h9BD9wf/cB5zRdwIzkkWbWNj7vGmdw/naEVnAbVYCNZ/bHdhOSOrh0n6okk3VIRr
-nG08750cw+elIt7ZbSAQPiP1+CFzCr/dshkv4rpO3BsDkOLG5T4fGC1k2lDGxkod
-RLVF6XQwgM2ztHvSeEkAR+R4QiLHJ/x+wO/3GmmhU/uI7mEZUGtJSfDCYAVoha5E
-vREhonRSaCxOzb+/K+v+oGApAxl15DggL1W5Kz9nwoYd4rnQaxYBKref5sCuZ+xL
-znOWuAx8fzyiQO9PxBHSvgI5oddgUpbkmWA9zvZNWysIEtoKN01wlzPxlyv2mHyz
-Zct6RQVH8GSydpTlgzb6BPdxyXhOLw==
-=WYLZ
------END PGP SIGNATURE-----
-
---Rm2VNANgsE/SCWLa--
-
-
---===============2104864356002844784==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============2104864356002844784==--
-
