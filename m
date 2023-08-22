@@ -4,47 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D598EE4993
-	for <linux-riscv@archiver.kernel.org>; Tue, 22 Aug 2023 17:05:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCB34EE49AE
+	for <linux-riscv@archiver.kernel.org>; Tue, 22 Aug 2023 17:53:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tYzNvyNlH9L+SujR9C8cb/+gWczV1geluRtD0QHhbRg=; b=ZrQY2a+kMdIzVcgIkHTYhqms/E
-	Sqvcblegqnnf1fZAtB0y+OcFC65MIABwORVJFzylDibwoY5f7mIhRS/vjdX+2HG4VbHMOScd44eEu
-	TkH3tNmhweJ7YCpBtAi5dpSFIqj0kSZ74ZiedrM9fm05C1UuOvs/KszW7P7w12kFNeCA/lVkxVFaV
-	6MZtjqvwVxL3hRjID6KYK0714THwO3Uln0NsMdW7jrrz5JUndSnCTdlt1eQ8EDkh9Pw8V3cRpl2yP
-	vcWqm66oTPfIICTgitFRFcfOSpc+Z4QZSQEu+YUMdJkekZPwmU6fvmpXyKP3PLUjPE84fAKVx3s6K
-	Fj40o7IA==;
+	bh=kv2Echs0llbnDKXfbuki62PeYTTER9nA/euIS+qSsg4=; b=mfkoGsfCJQeZ6+T/08THCQ1mKO
+	4Xy29m3PH4Oz8U4p5+4NM9MWiR/aTFkMglQn0JIBWCMJFHjuVjYpIlVhyug8UbMEpmzflez0QBW3V
+	Bop1S9mDgIG6y2eDt6AlrNGMAaEdvdJsXoi7yzdxEy9jzPGSonuTyxiwyyn8R5jJ4nqIZ9l6Yerjs
+	BpdjS32zFQC7yRGlT8mmD/doa2NZu2ouEjrMpm/eiLgnLEcC4Zf/e+Tnw2LWmKO1juhv7GK4Z8HQD
+	qIrcr8Zvmn9O8g9oQxhfXMWJw9eyrnFJsB99QCJZ09W09O4OZcfaJse7B/7MpICNK5x66JdX2PRWK
+	h06NEz+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qYUow-00GYam-1p;
-	Tue, 22 Aug 2023 17:05:34 +0000
+	id 1qYVZC-00GbK6-1a;
+	Tue, 22 Aug 2023 17:53:22 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qYUos-00GYYq-0Z;
-	Tue, 22 Aug 2023 17:05:31 +0000
+	id 1qYVZ9-00GbJg-2L;
+	Tue, 22 Aug 2023 17:53:21 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 7AE5061F83;
-	Tue, 22 Aug 2023 17:05:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C885FC433C8;
-	Tue, 22 Aug 2023 17:05:22 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 316E16564C;
+	Tue, 22 Aug 2023 17:53:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BC73AC433C8;
+	Tue, 22 Aug 2023 17:53:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1692723928;
-	bh=+/XUXGpY2ACCPD3YzzrpK3JtSQqnOrDZMR5OCAEhgDg=;
+	s=k20201202; t=1692726798;
+	bh=9a8ZiiIomCgzRUqh/c3WOIoTK7pP7e23UYKPe7n1O5c=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=G928dxMHkk1xDk/SX1dNnL+spqkcZRuq0C5Z40fu1Tb9wObRKQhtFzT0ipOQBh80X
-	 M0BVrVcY8VmxczuqKrntaU8eZ0hqbR8EE1e7UAwRJz7snKD2v4GCMfQ9hgFuv0aBvc
-	 38dD7dDK0lef3oOPG14kshG+9z1JoNQxNiubdga4OgfcfWS0/Ve3yY/2BVaHKd3pvN
-	 cYaVOE7zu3UopoUb04Il5Y+Q0rXflj/XshyiU6vP1UN0j8lgReDw7ES6DUIaCc0AWt
-	 YsDqY20pamlKghLyhjkFUTLoZ7KEg8lQf5JmsfEUOmiIbu47LoB18jET0Zcw96dt7s
-	 2Z35AOyitp5nQ==
-Date: Tue, 22 Aug 2023 18:05:19 +0100
+	b=NY4NsFl/Kb17GSmp6tTl3tq6HBZ6tfOEyr2nKkySYldjxCmkIOOWM7iqF77b8nCf4
+	 UVqdAAdlgMxXwmJ2meyM9KG3K8p2YzhHWI4CgQq+Jbxvgmn/FpizDXCgHnwTn5EVNy
+	 MNKdeXAdGmDvq7Vtc+UQdvTVct5u5Umc/8yznPRL1zYD9sNBJsdZpKJqtUHENBJRWt
+	 QkHHx0bMffrAj5NCFK8Tewx0vNzSfbfF12C39z447W4OkJ29kYznbD+9McT5WFVf1v
+	 nfkTHZTTgXcVN5CxWl4cxgMHTvJw0w+K8TJgaBSS5u7x+j51W0uEqtVIBQgs+HokPx
+	 8Vjq8bTHj5KlQ==
+Date: Tue, 22 Aug 2023 18:53:09 +0100
 From: Mark Brown <broonie@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>
 Cc: Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
@@ -68,19 +68,22 @@ Cc: Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
 	linux-arch@vger.kernel.org, linux-mm@kvack.org,
 	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v4 21/36] arm64/mm: Implement map_shadow_stack()
-Message-ID: <007e1239-1258-4b89-b5db-a1c505e7aff5@sirena.org.uk>
+Subject: Re: [PATCH v4 03/36] arm64/gcs: Document the ABI for Guarded Control
+ Stacks
+Message-ID: <43ec219d-bf20-47b8-a5f8-32bc3b64d487@sirena.org.uk>
 References: <20230807-arm64-gcs-v4-0-68cfa37f9069@kernel.org>
- <20230807-arm64-gcs-v4-21-68cfa37f9069@kernel.org>
- <ZNZkADhSnodXuH5F@arm.com>
- <9c722954-8f30-425e-a0a4-6edad463620f@sirena.org.uk>
- <ZOTlBpAbSX6TSZzW@arm.com>
+ <20230807-arm64-gcs-v4-3-68cfa37f9069@kernel.org>
+ <ZNOhjrYleGBR6Pbs@arm.com>
+ <f4cec4b3-c386-4873-aa1d-90528e062f2a@sirena.org.uk>
+ <ZN+qki9EaZ6f9XNi@arm.com>
+ <aaea542c-929c-4c9b-8caa-ca67e0eb9c1e@sirena.org.uk>
+ <ZOTnL1SDJWZjHPUW@arm.com>
 MIME-Version: 1.0
-In-Reply-To: <ZOTlBpAbSX6TSZzW@arm.com>
+In-Reply-To: <ZOTnL1SDJWZjHPUW@arm.com>
 X-Cookie: MIT:
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230822_100530_263967_D36A4A09 
-X-CRM114-Status: GOOD (  13.93  )
+X-CRM114-CacheID: sfid-20230822_105319_860307_42D34D5D 
+X-CRM114-Status: GOOD (  33.75  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,53 +95,91 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8456130560954540842=="
+Content-Type: multipart/mixed; boundary="===============8730552332433403435=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============8456130560954540842==
+--===============8730552332433403435==
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="exkeVuAAvGvWqCpS"
+	protocol="application/pgp-signature"; boundary="6BoSdPCvTHZSSkxi"
 Content-Disposition: inline
 
 
---exkeVuAAvGvWqCpS
+--6BoSdPCvTHZSSkxi
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
 
-On Tue, Aug 22, 2023 at 05:40:38PM +0100, Catalin Marinas wrote:
-> On Fri, Aug 18, 2023 at 06:08:52PM +0100, Mark Brown wrote:
+On Tue, Aug 22, 2023 at 05:49:51PM +0100, Catalin Marinas wrote:
+> On Fri, Aug 18, 2023 at 08:38:02PM +0100, Mark Brown wrote:
 
-> > mprotect() uses arch_validate_flags() which we're already having cover
-> > this so it's already covered.
+> > > stack and pass the pointer/size to clone3()? It saves us from having to
+> > > guess what the right size we'd need. struct clone_args is extensible.
 
-> I searched the patches and there's no change to the arm64
-> arch_validate_flags(). Maybe I missed it.
+> > I can't recall or locate the specific reasoning there right now, perhaps
+> > Rick or someone else can?  I'd guess there would be compat concerns for
+> > things that don't go via libc which would complicate the story with
+> > identifying and marking things as GCS/SS safe, it's going to be more
+> > robust to just supply a GCS if the process is using it.  That said
+> > having a default doesn't preclude us using the extensibility to allow
+> > userspace directly to control the GCS size, I would certainly be in
+> > favour of adding support for that.
 
-It's in v5, the update to arch_validate_flags() was one of your comments
-=66rom another patch in the series.
+> It would be good if someone provided a summary of the x86 decision (I'll
+> get to those thread but most likely in September). I think we concluded
+> that we can't deploy GCS entirely transparently, so we need a libc
+> change (apart from the ELF annotations). Since libc is opting in to GCS,
 
---exkeVuAAvGvWqCpS
+Right, we need changes for setjmp()/longjmp() for example.
+
+> we could also update the pthread_create() etc. to allocate the shadow
+> together with the standard stack.
+
+> Anyway, that's my preference but maybe there were good reasons not to do
+> this.
+
+Yeah, it'd be good to understand.  I've been through quite a lot of old
+versions of the x86 series (I've not found them all, there's 30 versions
+or something of the old series plus the current one is on v9) and the
+code always appears to have been this way with changelogs that explain
+the what but not the why.  For example roughly the current behaviour was
+already in place in v10 of the original series:
+
+   https://lore.kernel.org/lkml/20200429220732.31602-26-yu-cheng.yu@intel.com/
+
+I do worry about the story for users calling the underlying clone3() API
+(or legacy clone() for that matter) directly, and we would also need to
+handle the initial GCS enable via prctl() - that's not insurmountable,
+we could add a size argument there that only gets interpreted during the
+initial enable for example.
+
+My sense is that they deployment story is going to be smoother with
+defaults being provided since it avoids dealing with the issue of what
+to do if userspace creates a thread without a GCS in a GCS enabled
+process but like I say I'd be totally happy to extend clone3().  I will
+put some patches together for that (probably once the x86 stuff lands).
+Given the size of this series it might be better split out for
+manageability if nothing else.
+
+--6BoSdPCvTHZSSkxi
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmTk6s4ACgkQJNaLcl1U
-h9DssAf9EW4nFH7RlADvE4EkIEjYj6kUziCf6Hh2iZGyNLK3aFRxnL1nY1u1zP6j
-q/ACfgdD1+OLEnvbezfXu1bJ6avmKqmnJHnkP7zF5C/63tXoF8IUUwodZXV4d3DP
-54ezvT4yQ8Yu5AxpmLPCItJkHbeLAezr41EbEpcJWSfkAnXqhT/cO7JREhVKH/3f
-czlWXKNy8c+vwIXC7x7mRKOCeBcJ4mofi6i5T8JDYcL1b59ItFYO7zfcB1H/nPh7
-qV10AxG61aXsJoiboml1UjyOA8+ZaiLpjgGmxZ1YEZSF3C+TVw2Ul5Z4yHtgdVdA
-FQHfQawXdzOTgnqQG2uCel7CjV9LDQ==
-=ME24
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmTk9gQACgkQJNaLcl1U
+h9BVgwf9G/ojrSlPr8aZQbwQrJaEy9bbEh+ZaykvRKk3iXQUNzFkRRbv4n9vCcYY
+BTGBUaIpZRPpRBA9nj2Sxi/BtM5AQ3qVmiWPnRmC7z/D0dsZuRueK1IelalX4QVE
+PSkWGZaDmDLG1HsnKru31VU9urXCJln0l5jC9eE3BJR9StAH7ZjBhyRn8GPjiHgP
+O3CYORRKsQPZ3yLC4DGo+o6Fe6eMXQUXwufWcm1pZu3gAqB2n0iyQdKliLhTeFDX
+pctFRp4JlHB9ZiHGy2Odp4oVBqyaGPF2R+t/Jx0qNZrUm8VJBVFXNj6yMhAJh5ec
+WpRWqHYzLck6XKjMVJv0Wf4NS52v+Q==
+=qHhB
 -----END PGP SIGNATURE-----
 
---exkeVuAAvGvWqCpS--
+--6BoSdPCvTHZSSkxi--
 
 
---===============8456130560954540842==
+--===============8730552332433403435==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -149,5 +190,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============8456130560954540842==--
+--===============8730552332433403435==--
 
