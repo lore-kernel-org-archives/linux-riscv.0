@@ -4,86 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCB34EE49AE
-	for <linux-riscv@archiver.kernel.org>; Tue, 22 Aug 2023 17:53:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AADC1EE49AF
+	for <linux-riscv@archiver.kernel.org>; Tue, 22 Aug 2023 17:55:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kv2Echs0llbnDKXfbuki62PeYTTER9nA/euIS+qSsg4=; b=mfkoGsfCJQeZ6+T/08THCQ1mKO
-	4Xy29m3PH4Oz8U4p5+4NM9MWiR/aTFkMglQn0JIBWCMJFHjuVjYpIlVhyug8UbMEpmzflez0QBW3V
-	Bop1S9mDgIG6y2eDt6AlrNGMAaEdvdJsXoi7yzdxEy9jzPGSonuTyxiwyyn8R5jJ4nqIZ9l6Yerjs
-	BpdjS32zFQC7yRGlT8mmD/doa2NZu2ouEjrMpm/eiLgnLEcC4Zf/e+Tnw2LWmKO1juhv7GK4Z8HQD
-	qIrcr8Zvmn9O8g9oQxhfXMWJw9eyrnFJsB99QCJZ09W09O4OZcfaJse7B/7MpICNK5x66JdX2PRWK
-	h06NEz+g==;
+	bh=GMdKFjIM1qLtjKL2/7j18OW1JpELS6iZGxcc61RTE+Y=; b=oIthbvOUwK/mzlwa2Ty1kRXG8S
+	tgkxY3pvENK84mPBbDE+pSIgsM8wyN4OP5bJOO3200bfXWA8e/0IeJbflebbTyfrl2m3yQm698IG4
+	1tBt5897a0+hUxHT9F88yfSfKGn5H94uVraQzbJRDGsO6zXmnFRJRz8aGlDMS99VcnKBPnLOXxFYT
+	nbmKZy5BQuK2RXJ/wlP22oiZeD/0ygROQZ3KqsPYCYWezNMAleeHVUhmaO5vDmGrtMeNu30U9XKtY
+	CH9nXmPwURjQQsHPmf4l/fM7zc2jCv1wXQa3Bncxp4/p5HkOj5Wv7NR4zIT9I+apnKQXJtZH59SIk
+	ZBF4yuEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qYVZC-00GbK6-1a;
-	Tue, 22 Aug 2023 17:53:22 +0000
+	id 1qYVbP-00GbZr-1p;
+	Tue, 22 Aug 2023 17:55:39 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qYVZ9-00GbJg-2L;
-	Tue, 22 Aug 2023 17:53:21 +0000
+	id 1qYVbM-00GbYd-2S;
+	Tue, 22 Aug 2023 17:55:38 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 316E16564C;
-	Tue, 22 Aug 2023 17:53:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BC73AC433C8;
-	Tue, 22 Aug 2023 17:53:12 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 563D3658EF;
+	Tue, 22 Aug 2023 17:55:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 02761C433C7;
+	Tue, 22 Aug 2023 17:55:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1692726798;
-	bh=9a8ZiiIomCgzRUqh/c3WOIoTK7pP7e23UYKPe7n1O5c=;
+	s=k20201202; t=1692726934;
+	bh=nRhOqPrA5BuPwRcvI7MlHlUwPN6wyHo9eKiXJKZmvt4=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=NY4NsFl/Kb17GSmp6tTl3tq6HBZ6tfOEyr2nKkySYldjxCmkIOOWM7iqF77b8nCf4
-	 UVqdAAdlgMxXwmJ2meyM9KG3K8p2YzhHWI4CgQq+Jbxvgmn/FpizDXCgHnwTn5EVNy
-	 MNKdeXAdGmDvq7Vtc+UQdvTVct5u5Umc/8yznPRL1zYD9sNBJsdZpKJqtUHENBJRWt
-	 QkHHx0bMffrAj5NCFK8Tewx0vNzSfbfF12C39z447W4OkJ29kYznbD+9McT5WFVf1v
-	 nfkTHZTTgXcVN5CxWl4cxgMHTvJw0w+K8TJgaBSS5u7x+j51W0uEqtVIBQgs+HokPx
-	 8Vjq8bTHj5KlQ==
-Date: Tue, 22 Aug 2023 18:53:09 +0100
+	b=myEcl1WQzsR8pyBO5c97oqf72AeVeGXqJVloLwBX8iLiTVv8X7Ia5vxoJdiPn9i+Y
+	 VjQOYYmvKvjZbfOh6E8xc61ay9ODF00wOGJfXl/c1vGl0Y6OYChvzjcdwufld/IScF
+	 1UGlm7KFs7gyhSRfsTyEylIum6Z+RkaBDfABGffR9V76JaIS9JY5hMmlmS0q/9LklM
+	 ePT2X4GvVlJEVV0h+Oer2GtY4Hxhd4pfL+5zEq8l0XyzfybeFF7tgxUXVLmquGqvQ1
+	 TZIES52DEgXIUwTk2PsKGVvUBdwYPMTgBnyG4aO6gC+pZlhQLIK4t/O11L17SOC7Vu
+	 mGZAJ84Zodf5Q==
+Date: Tue, 22 Aug 2023 18:55:24 +0100
 From: Mark Brown <broonie@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	James Morse <james.morse@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Arnd Bergmann <arnd@arndb.de>, Oleg Nesterov <oleg@redhat.com>,
-	Eric Biederman <ebiederm@xmission.com>,
-	Kees Cook <keescook@chromium.org>, Shuah Khan <shuah@kernel.org>,
-	"Rick P. Edgecombe" <rick.p.edgecombe@intel.com>,
-	Deepak Gupta <debug@rivosinc.com>, Ard Biesheuvel <ardb@kernel.org>,
-	Szabolcs Nagy <Szabolcs.Nagy@arm.com>,
-	"H.J. Lu" <hjl.tools@gmail.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
-	kvmarm@lists.linux.dev, linux-fsdevel@vger.kernel.org,
-	linux-arch@vger.kernel.org, linux-mm@kvack.org,
-	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v4 03/36] arm64/gcs: Document the ABI for Guarded Control
- Stacks
-Message-ID: <43ec219d-bf20-47b8-a5f8-32bc3b64d487@sirena.org.uk>
-References: <20230807-arm64-gcs-v4-0-68cfa37f9069@kernel.org>
- <20230807-arm64-gcs-v4-3-68cfa37f9069@kernel.org>
- <ZNOhjrYleGBR6Pbs@arm.com>
- <f4cec4b3-c386-4873-aa1d-90528e062f2a@sirena.org.uk>
- <ZN+qki9EaZ6f9XNi@arm.com>
- <aaea542c-929c-4c9b-8caa-ca67e0eb9c1e@sirena.org.uk>
- <ZOTnL1SDJWZjHPUW@arm.com>
+To: "Edgecombe, Rick P" <rick.p.edgecombe@intel.com>
+Cc: "david@redhat.com" <david@redhat.com>,
+	"corbet@lwn.net" <corbet@lwn.net>,
+	"ardb@kernel.org" <ardb@kernel.org>,
+	"maz@kernel.org" <maz@kernel.org>,
+	"shuah@kernel.org" <shuah@kernel.org>,
+	"Szabolcs.Nagy@arm.com" <Szabolcs.Nagy@arm.com>,
+	"keescook@chromium.org" <keescook@chromium.org>,
+	"james.morse@arm.com" <james.morse@arm.com>,
+	"debug@rivosinc.com" <debug@rivosinc.com>,
+	"akpm@linux-foundation.org" <akpm@linux-foundation.org>,
+	"palmer@dabbelt.com" <palmer@dabbelt.com>,
+	"catalin.marinas@arm.com" <catalin.marinas@arm.com>,
+	"hjl.tools@gmail.com" <hjl.tools@gmail.com>,
+	"paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
+	"linux-mm@kvack.org" <linux-mm@kvack.org>,
+	"aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
+	"oleg@redhat.com" <oleg@redhat.com>,
+	"arnd@arndb.de" <arnd@arndb.de>,
+	"ebiederm@xmission.com" <ebiederm@xmission.com>,
+	"will@kernel.org" <will@kernel.org>,
+	"suzuki.poulose@arm.com" <suzuki.poulose@arm.com>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
+	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-fsdevel@vger.kernel.org" <linux-fsdevel@vger.kernel.org>,
+	"linux-kselftest@vger.kernel.org" <linux-kselftest@vger.kernel.org>,
+	"linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>,
+	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
+Subject: Re: [PATCH v5 11/37] mm: Define VM_SHADOW_STACK for arm64 when we
+ support GCS
+Message-ID: <c9d0881d-e26b-4680-8f8e-0d5e1c82655c@sirena.org.uk>
+References: <20230822-arm64-gcs-v5-0-9ef181dd6324@kernel.org>
+ <20230822-arm64-gcs-v5-11-9ef181dd6324@kernel.org>
+ <8f2cf5af-cad7-a69c-e8ec-39f48deae1cb@redhat.com>
+ <54b2c1e5-a99d-42c0-b686-1b5cbb849581@sirena.org.uk>
+ <e10e729392c5fa421baf08b4ea7aaac6ffada0f5.camel@intel.com>
 MIME-Version: 1.0
-In-Reply-To: <ZOTnL1SDJWZjHPUW@arm.com>
+In-Reply-To: <e10e729392c5fa421baf08b4ea7aaac6ffada0f5.camel@intel.com>
 X-Cookie: MIT:
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230822_105319_860307_42D34D5D 
-X-CRM114-Status: GOOD (  33.75  )
+X-CRM114-CacheID: sfid-20230822_105536_888568_A5126A16 
+X-CRM114-Status: GOOD (  21.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,91 +102,60 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8730552332433403435=="
+Content-Type: multipart/mixed; boundary="===============2623535134931975843=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============8730552332433403435==
+--===============2623535134931975843==
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="6BoSdPCvTHZSSkxi"
+	protocol="application/pgp-signature"; boundary="M/5Lioh+7qcaKBw4"
 Content-Disposition: inline
 
 
---6BoSdPCvTHZSSkxi
-Content-Type: text/plain; charset=us-ascii
+--M/5Lioh+7qcaKBw4
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-On Tue, Aug 22, 2023 at 05:49:51PM +0100, Catalin Marinas wrote:
-> On Fri, Aug 18, 2023 at 08:38:02PM +0100, Mark Brown wrote:
+On Tue, Aug 22, 2023 at 04:47:26PM +0000, Edgecombe, Rick P wrote:
+> On Tue, 2023-08-22 at 16:41 +0100, Mark Brown wrote:
 
-> > > stack and pass the pointer/size to clone3()? It saves us from having to
-> > > guess what the right size we'd need. struct clone_args is extensible.
+> > I can certainly update it to do that, I was just trying to fit in
+> > with
+> > how the code was written on the basis that there was probably a good
+> > reason for it that had been discussed somewhere.=A0 I can send an
+> > incremental patch for this on top of the x86 patches assuming they go
+> > in
+> > during the merge window.
 
-> > I can't recall or locate the specific reasoning there right now, perhaps
-> > Rick or someone else can?  I'd guess there would be compat concerns for
-> > things that don't go via libc which would complicate the story with
-> > identifying and marking things as GCS/SS safe, it's going to be more
-> > robust to just supply a GCS if the process is using it.  That said
-> > having a default doesn't preclude us using the extensibility to allow
-> > userspace directly to control the GCS size, I would certainly be in
-> > favour of adding support for that.
+> There was something like that on the x86 series way back, but it was
+> dropped[0]. IIRC risc-v was going to try to do something other than
+> VM_SHADOW_STACK, so they may conflict some day. But in the meantime,
+> adding a CONFIG_HAVE_ARCH_SHADOW_STACK here in the arm series makes
+> sense to me.
 
-> It would be good if someone provided a summary of the x86 decision (I'll
-> get to those thread but most likely in September). I think we concluded
-> that we can't deploy GCS entirely transparently, so we need a libc
-> change (apart from the ELF annotations). Since libc is opting in to GCS,
+OK, I'll do that.
 
-Right, we need changes for setjmp()/longjmp() for example.
-
-> we could also update the pthread_create() etc. to allocate the shadow
-> together with the standard stack.
-
-> Anyway, that's my preference but maybe there were good reasons not to do
-> this.
-
-Yeah, it'd be good to understand.  I've been through quite a lot of old
-versions of the x86 series (I've not found them all, there's 30 versions
-or something of the old series plus the current one is on v9) and the
-code always appears to have been this way with changelogs that explain
-the what but not the why.  For example roughly the current behaviour was
-already in place in v10 of the original series:
-
-   https://lore.kernel.org/lkml/20200429220732.31602-26-yu-cheng.yu@intel.com/
-
-I do worry about the story for users calling the underlying clone3() API
-(or legacy clone() for that matter) directly, and we would also need to
-handle the initial GCS enable via prctl() - that's not insurmountable,
-we could add a size argument there that only gets interpreted during the
-initial enable for example.
-
-My sense is that they deployment story is going to be smoother with
-defaults being provided since it avoids dealing with the issue of what
-to do if userspace creates a thread without a GCS in a GCS enabled
-process but like I say I'd be totally happy to extend clone3().  I will
-put some patches together for that (probably once the x86 stuff lands).
-Given the size of this series it might be better split out for
-manageability if nothing else.
-
---6BoSdPCvTHZSSkxi
+--M/5Lioh+7qcaKBw4
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmTk9gQACgkQJNaLcl1U
-h9BVgwf9G/ojrSlPr8aZQbwQrJaEy9bbEh+ZaykvRKk3iXQUNzFkRRbv4n9vCcYY
-BTGBUaIpZRPpRBA9nj2Sxi/BtM5AQ3qVmiWPnRmC7z/D0dsZuRueK1IelalX4QVE
-PSkWGZaDmDLG1HsnKru31VU9urXCJln0l5jC9eE3BJR9StAH7ZjBhyRn8GPjiHgP
-O3CYORRKsQPZ3yLC4DGo+o6Fe6eMXQUXwufWcm1pZu3gAqB2n0iyQdKliLhTeFDX
-pctFRp4JlHB9ZiHGy2Odp4oVBqyaGPF2R+t/Jx0qNZrUm8VJBVFXNj6yMhAJh5ec
-WpRWqHYzLck6XKjMVJv0Wf4NS52v+Q==
-=qHhB
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmTk9owACgkQJNaLcl1U
+h9BzkQf/R6al2pexuFT7yjh/QmDQ605ZLN9i97Je0LSd5PuT5nU6GF3W5a54fMib
+6W/3nsCaMStJXsvd+VW79higHGjkzwpJF2gPeI94UCLBgKYqU8qB4MR/adY9Ff1r
+1sA4RWSjuxtC8NBEoIYomxAXMpW05vpD0eruSLYjUnEnTf0NrXtxZmwZQjcVHeeS
+f47zzzB9vzZ1wei7YyAcO+oju9JjWVkD2jTdQJjddCKNIuR+qB98g/qO4BvHp86+
+OPVeSsY4Ko7Kqh4JKdTddAYte0KvQ0SaRh59Zmo6tcorDOv6yVJOfTOEQ8v2SdFD
+daJaRcq070YEVByUMToJ3C0wq/P7+w==
+=2kJA
 -----END PGP SIGNATURE-----
 
---6BoSdPCvTHZSSkxi--
+--M/5Lioh+7qcaKBw4--
 
 
---===============8730552332433403435==
+--===============2623535134931975843==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -190,5 +166,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============8730552332433403435==--
+--===============2623535134931975843==--
 
