@@ -4,87 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 628EBEE4996
-	for <linux-riscv@archiver.kernel.org>; Mon, 21 Aug 2023 19:49:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 167ADEE49A0
+	for <linux-riscv@archiver.kernel.org>; Tue, 22 Aug 2023 01:20:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
-	Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	References:List-Owner; bh=fL5G99grNtDfhGkM0iYOk+LWB/HjvgtvREJILAZMR7g=; b=oLG
-	95aEwuIy6b5s5VxTLXEKwXECk3ixyFiJ0nmY/Kyq/JMIWAv0fSD/52GDfn1qPf9pk96Rrd8/vaPTt
-	o9OEd0lYBfhQwPsxiwghwU0oRnRMdr37XUFBT82QVUzc1WkzCNXwJXfajgbr4gc2dt539eJ2pVaxX
-	JY8Yydti5vhPS6kfic9/G3SSDxFMYTjA5ZewPkueTa4ju+0aavXQHfx2c0PuVMpL3rJKfq3SpAEdH
-	dq/NBJ3l8IjkSerg2vejVERLRi7mqfPasFu4oxHuJO4tcq5s0woBFeCk1aKYQs8hR2JxLy/z5ovVC
-	bj86a6twru4pw1YULxqXOH7sf/Aq9pA==;
+	List-Owner; bh=MDuvxrE6tbaxFl8Sg8TIjtjH5Vn2BDh2Y9WcJeikLdU=; b=yN1AzNefsuW9u8
+	+ZjG0Xkvi2lACXvm+J/Q13ZVEYbv3epPr1Mil45lyvxS+19nMR42BbNFuM561HxsXpWZSEcNUBvuA
+	gjPRR6ga+hoxiUs7z0EZo2N5wIJGDWmPaU8JWUK1Na4MsSiUd+GU001Ko1IAmiDeezxm4WXxmB/S3
+	eZJPBZGeQ9tc0xJ48CARVf6hvn8qZQKDe3I5duJW2yxsGFGAjY7TGZtPIJekhVcxXsrSnL2QWmCIP
+	ThD9ujYtKG4CQCO5pF5OB70jH/qdvVVmaKZ/tfVwr3oCiyTAVB/kzwECD3C7NZp9hd80kLafJ88ae
+	IkshX3WHD+KXrowRSOeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qYAtm-00EcBz-0S;
-	Mon, 21 Aug 2023 19:49:14 +0000
-Received: from mail-yb1-xb49.google.com ([2607:f8b0:4864:20::b49])
+	id 1qYG3y-00Evv1-0t;
+	Tue, 22 Aug 2023 01:20:06 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qYAtj-00Ec9D-0a
-	for linux-riscv@lists.infradead.org;
-	Mon, 21 Aug 2023 19:49:12 +0000
-Received: by mail-yb1-xb49.google.com with SMTP id 3f1490d57ef6-d74a4cc9977so1948094276.3
-        for <linux-riscv@lists.infradead.org>; Mon, 21 Aug 2023 12:49:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20221208; t=1692647347; x=1693252147;
-        h=cc:to:from:subject:message-id:mime-version:in-reply-to:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=cJZGEQtf1VL3HQEXak5eCjnl1mSbYK2LpINf2Y7mWuc=;
-        b=RZl6OjBiLyxrlN7m8yUzSzxx4s8l6y5XQtCqoL2DKa9CznCEyAG8OEzPqxiGWWfNJU
-         DP58nwM09rHRg7Se9vncvUgBs+EoatdB0oIHiYis/CY/mK8bpz5tBW/wF/N/V/N/8FcH
-         u/rMp5FZpxMI+ASR8w8FwZSKb5yUKy8z1UKPp14XAoTBk3vwb+9KvbuE4eIugJspN8RX
-         snR6LHbvF/g0TCDHMTgr7kn44jTj6A+c9BdOOfnITVAKCoxj2XXqVMiBuH5zs1EhWFJ1
-         LASBEZFLbEqzA+6VnHUNymrGUBh6X+GLDf47Xj3E2vNSql4sDsL+0xZSb2rnh4OE9Sf8
-         LLXQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1692647347; x=1693252147;
-        h=cc:to:from:subject:message-id:mime-version:in-reply-to:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=cJZGEQtf1VL3HQEXak5eCjnl1mSbYK2LpINf2Y7mWuc=;
-        b=HMlWuL0Ym8MZOV5SCoSeJZCApL6bcDueiC+0VOFGtxSAySdaE2yivilLAULa5vLXYL
-         gXGiT5uI9iOmnIs62+nWhK8JmsXEdtErolUPEOgQTN90U6PHBcGcP/JpqwwvDJorKyLn
-         hQmpz663f5KKtaME4jZ/EeQ5WLE7gT01PO+x74rsTD2o2+jx2R1NZOHYed7x8shROzX5
-         Or2y6BI6VVHUpGtekqo4tIrj5+z1TXaNZrKP4JSb0MSTU0U2IKbffX9I1mRKpcPRVKLd
-         9fDz6X3ZI2Je8DMROi6bhVNudBRzCQNZURnCGLSwNOsjuULJe2a48OdcaXsOcRNfL9aM
-         8v2A==
-X-Gm-Message-State: AOJu0YxzkrnjPI102MVCsUSEqSQjfWBGhIT1mqDT3pQ1FshYGlLUZHAH
-	wLNH31pB6jaFf9A3EF4roViNlC6bQCNIAHsBtA==
-X-Google-Smtp-Source: AGHT+IHM9bfoMlIQRP0Zhx06e/5qWh61CmNcgWIzhDyB//MY5jBFnNMVKsg1bGSAIpor6rGkYRANDK9cShM4uv9gKA==
-X-Received: from ackerleytng-ctop.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:13f8])
- (user=ackerleytng job=sendgmr) by 2002:a25:fc0d:0:b0:d07:e80c:412e with SMTP
- id v13-20020a25fc0d000000b00d07e80c412emr56346ybd.12.1692647346791; Mon, 21
- Aug 2023 12:49:06 -0700 (PDT)
-Date: Mon, 21 Aug 2023 19:49:05 +0000
-In-Reply-To: <ZN/4RjDsBLf0FB98@google.com> (message from Sean Christopherson
- on Fri, 18 Aug 2023 16:01:26 -0700)
-Mime-Version: 1.0
-Message-ID: <diqzwmxotbv2.fsf@ackerleytng-ctop.c.googlers.com>
-Subject: Re: [RFC PATCH v11 28/29] KVM: selftests: Add basic selftest for guest_memfd()
-From: Ackerley Tng <ackerleytng@google.com>
-To: Sean Christopherson <seanjc@google.com>
-Cc: pbonzini@redhat.com, maz@kernel.org, oliver.upton@linux.dev, 
-	chenhuacai@kernel.org, mpe@ellerman.id.au, anup@brainfault.org, 
-	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
-	willy@infradead.org, akpm@linux-foundation.org, paul@paul-moore.com, 
-	jmorris@namei.org, serge@hallyn.com, kvm@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
-	linux-fsdevel@vger.kernel.org, linux-mm@kvack.org, 
-	linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	chao.p.peng@linux.intel.com, tabba@google.com, jarkko@kernel.org, 
-	yu.c.zhang@linux.intel.com, vannapurve@google.com, mail@maciej.szmigiero.name, 
-	vbabka@suse.cz, david@redhat.com, qperret@google.com, michael.roth@amd.com, 
-	wei.w.wang@intel.com, liam.merwick@oracle.com, isaku.yamahata@gmail.com, 
-	kirill.shutemov@linux.intel.com
+	id 1qYG3w-00Evut-1S
+	for linux-riscv@bombadil.infradead.org;
+	Tue, 22 Aug 2023 01:20:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:Content-Type:
+	In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender
+	:Reply-To:Content-ID:Content-Description;
+	bh=3Sdwa6dQu+iEPi7l5cQ5BnYC0PCkUGYuNoAE3ClVdaM=; b=MF1pJYBFNnguQ0Yl/e4j9St7Gc
+	RY7yD+ViEMhlVJXa5XdgGMqyKFhrexZucL0ZCJSq7cpSczHpPIi5eC6iYdiLlZzILiuUwP2xIpb2i
+	IepPXVWAgOx7oA+TFsnuw4znaLxLwq9X65VidowSlyUQ6WZar0RIUxCuMQHOLZBM/W263+07/CMeA
+	+K8efDhmv4HAVTt1OngUEG7859gQyCLjlWMKkqbZGK+V7u1M1UgMHQEJtW31X32u+y4grZtv5PWxo
+	l3VEv2iol9DVi1zLNXCulESoYQumJEKJKwKrDwP7EFIvz/2r4b5CHXRps6/uR+xoRmqrNLkVvhB1G
+	zMMsRa7g==;
+Received: from mail.loongson.cn ([114.242.206.163])
+	by casper.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1qYG3q-00DU49-7o
+	for linux-riscv@lists.infradead.org; Tue, 22 Aug 2023 01:20:02 +0000
+Received: from loongson.cn (unknown [10.20.42.43])
+	by gateway (Coremail) with SMTP id _____8CxRugvDeRkfsIaAA--.1349S3;
+	Tue, 22 Aug 2023 09:19:43 +0800 (CST)
+Received: from [10.20.42.43] (unknown [10.20.42.43])
+	by localhost.localdomain (Coremail) with SMTP id AQAAf8CxvM4gDeRkSe1fAA--.37428S3;
+	Tue, 22 Aug 2023 09:19:43 +0800 (CST)
+Message-ID: <bc1e31ca-eb54-9696-792c-9749c0582167@loongson.cn>
+Date: Tue, 22 Aug 2023 09:19:28 +0800
+MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.13.0
+Subject: Re: [PATCH v4] PCI/VGA: Make the vga_is_firmware_default() less
+ arch-dependent
+To: Bjorn Helgaas <helgaas@kernel.org>
+Cc: linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org,
+ dri-devel@lists.freedesktop.org, loongson-kernel@lists.loongnix.cn,
+ "Limonciello, Mario" <Mario.Limonciello@amd.com>,
+ Bjorn Helgaas <bhelgaas@google.com>, linux-riscv@lists.infradead.org
+References: <20230821173320.GA362442@bhelgaas>
+Content-Language: en-US
+From: suijingfeng <suijingfeng@loongson.cn>
+In-Reply-To: <20230821173320.GA362442@bhelgaas>
+X-CM-TRANSID: AQAAf8CxvM4gDeRkSe1fAA--.37428S3
+X-CM-SenderInfo: xvxlyxpqjiv03j6o00pqjv00gofq/
+X-Coremail-Antispam: 1Uk129KBj93XoW7CF1xAw1ruFy8ury3uFWfWFX_yoW8CFWxpa
+	yfWFn8Cr4DAwnrArn2v3W8XF9avayrXrWUGrs8tr1rAF98uryF9r1rJw15Cwn3Z39rJa1j
+	vrs8Jw1kGrs0qagCm3ZEXasCq-sJn29KB7ZKAUJUUUU5529EdanIXcx71UUUUU7KY7ZEXa
+	sCq-sGcSsGvfJ3Ic02F40EFcxC0VAKzVAqx4xG6I80ebIjqfuFe4nvWSU5nxnvy29KBjDU
+	0xBIdaVrnRJUUUv0b4IE77IF4wAFF20E14v26r1j6r4UM7CY07I20VC2zVCF04k26cxKx2
+	IYs7xG6rWj6s0DM7CIcVAFz4kK6r106r15M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48v
+	e4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_JFI_Gr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI
+	0_Jr0_Gr1l84ACjcxK6I8E87Iv67AKxVW8JVWxJwA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_
+	Gr0_Gr1UM2AIxVAIcxkEcVAq07x20xvEncxIr21l57IF6xkI12xvs2x26I8E6xACxx1l5I
+	8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1Y6r17McIj6I8E87Iv67AK
+	xVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lc7I2V7IY0VAS07AlzV
+	AYIcxG8wCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E
+	14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_Jw0_GFylIx
+	kGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAF
+	wI0_Jr0_Gr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r
+	4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Jr0_GrUvcSsGvfC2KfnxnUUI43ZEXa7IU8r9N3UU
+	UUU==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230821_124911_218548_77A5B30E 
-X-CRM114-Status: UNSURE (   9.67  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230822_021958_995235_8A2B6B3A 
+X-CRM114-Status: GOOD (  14.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,34 +96,61 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Sean Christopherson <seanjc@google.com> writes:
+Hi,
 
-> On Mon, Aug 07, 2023, Ackerley Tng wrote:
->> Sean Christopherson <seanjc@google.com> writes:
->> 
->> > Add a selftest to verify the basic functionality of guest_memfd():
->> >
->> > <snip>
->> 
->> Here's one more test:
->
-> First off, thank you!  I greatly appreciate all the selftests work you (and
-> others!) have been doing.
->
-> For v2, can you please post a standalone patch?  My workflow barfs on unrelated,
-> inlined patches.  I'm guessing I can get b4 to play nice, but it's easier to just
-> yell at people :-)
->
 
-Here's a standalone patch :)
-https://lore.kernel.org/lkml/20230821194411.2165757-1-ackerleytng@google.com/
+On 2023/8/22 01:33, Bjorn Helgaas wrote:
+> On Fri, Aug 18, 2023 at 09:48:46AM +0800, suijingfeng wrote:
+>> On 2023/8/18 06:08, Bjorn Helgaas wrote:
+>>>> +		if (resource_type(res) != IORESOURCE_MEM)
+>>>> +			continue;
+>>>> +
+>>>> +		if (!res->start || !res->end)
+>>>> +			continue;
+>>>> +
+>>>> +		if (res->start <= fb_start && fb_end <= res->end) {
+>>>> +			pdev_boot_vga = pdev;
+>>>> +
+>>>> +			vgaarb_info(&pdev->dev,
+>>>> +				    "BAR %d contains firmware FB\n", i);
+>>> Print the BAR with %pR and include the framebuffer region from
+>>> screen_info in the same format.
+>> I do remember that you already told me to do this in V3, sorry for not
+>> replying to you at V3. Most of the time, what you tell me is right.But here,
+>> I think I need to explain. Because doing it that way will make the code line
+>> too long,and it will exceed 80 characters in the column if we print too
+>> much.
+>> I believe that the vgaarb_info() at here is already the most compact and
+>> simplest form. Printing the BAR with %pR is not absolute necessary, because
+>> we can get the additional information by: $ lspci | grep VGA
+>>
+>> $ dmesg | grep 05:00.0
+>> $ dmesg | grep 0000:03:00.0
+>> $ dmesg | grep PCI
+> Fair enough.  The BAR info is already there.  But I don't think the
+> screen_info framebuffer data is in the dmesg log anywhere, and I think
+> that would be useful.
+>
+> It's fine if dmesg lines or kernel printk lines exceed 80 columns.
+>
+>> Actually, I only add something that is absolute necessary.
+>> Printing BAR with %pR and/or Printing the framebuffer region
+>> is consider to only for *debugging* purpose.
+> I think printing the framebuffer region is important because it makes
+> it clear *why* we're selecting the device as the default VGA device.
+> It's more than just debugging; it helps make the system more
+> transparent and more understandable.
 
-> <snip>
+OK, I'm clear what to do next.
+The printing will be added at the next version.
+
+> Bjorn
+
 
 _______________________________________________
 linux-riscv mailing list
