@@ -4,51 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D40DEE49B1
-	for <linux-riscv@archiver.kernel.org>; Tue, 22 Aug 2023 14:05:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FF9FEE4993
+	for <linux-riscv@archiver.kernel.org>; Tue, 22 Aug 2023 14:05:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6mNSYX50oyKnMWoNXcFeHw+z80XlUuUYm+E3B0vY16s=; b=CET2Nl5fsstcVn
-	MKgHMtMUd7/HbH7aO/kpi/sU69Bp89lmoxpA6+hjMocCgSsxLXGY4pR0W0G1tLi2aKBQsNHh9PBJ6
-	ckHqvHqU13Hiui8CAnMCmGAXocIOwGStSxBil/3lqR/qLE+lQqToluGV/a+jcEDqXBGYMxlkJxjS/
-	TxD+PPehLWJkQX5bkgWc5ZBlfCo34Wo+yybmq7DN2UvuKJiIDJzN8WFmkRnhUn2nCTk4ya+bYqPVP
-	izDmg6VRLKi6u05vYe4BsueLYkg6h8gAOG31dnn/8Xlti2xoGoURCJqtjwJ4ynh90YHVgNks7c4Tv
-	nyIx9U+8Rzmb6vLM/vVQ==;
+	List-Owner; bh=3/6i5V9y2zrhnmmHmI3s+hxUzqyMRVRvsOy/yrvrA8I=; b=NVhSFPXqI5C1e6
+	h9EPNO+jyG4A9zfvEBxpYB5bCfzEGYGXO0adXhade+WFsY7/Vi3KcEImHCT72MsDRj2z2VRpLou4c
+	77ZH5sC6NJsXIiqznonidczSqWLN9ZrCUYAGSv9cs3c2oXr3Zk1Opy8DQgJTrNEV6UKyA4DU8JIuW
+	C7tdFtEdT48BKMeUHXwMNus2ZFPrjh13v78fKQTVo/DA5/FgBIGtxxchCnqpMXNouOn4Lzes0UgEU
+	ZwhkHqacTW6Z4CJQRf8uWe6HcTLMUJWX5qUqDMvZ6FUOz8V9l3vc7fJNqQh2jKkGRtM5OFBGdrHT5
+	nkweIfRSVyGZGMa6cE/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qYS0e-00G81s-0Y;
-	Tue, 22 Aug 2023 14:05:28 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1qYS0r-00G8Fk-2U;
+	Tue, 22 Aug 2023 14:05:41 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qYS08-00G7Ts-0D;
-	Tue, 22 Aug 2023 14:04:57 +0000
+	id 1qYS0K-00G7j6-2X;
+	Tue, 22 Aug 2023 14:05:10 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 7CE4C65713;
-	Tue, 22 Aug 2023 14:04:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0D4A7C433B7;
-	Tue, 22 Aug 2023 14:04:48 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id F0ADE657AC;
+	Tue, 22 Aug 2023 14:05:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 701BBC433CA;
+	Tue, 22 Aug 2023 14:05:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1692713094;
-	bh=3frSXltfyEgjNXyKMr5NRlsNK13A5vKOgV3TE3uJgDA=;
+	s=k20201202; t=1692713107;
+	bh=dhpqBAbBsf9cHoMTEDbkXc9Eo+ElTaGM0SMw/tsgvKA=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=B3UT8vxOVGaVegOI8NaCaSn8giOEs9eVqYN9WX97ni0WSuirae2Tcwh9V7SyMgZ6T
-	 hBoE4k6reDxJPgmx3Cwn3HkR7JkFZyk5MvxtVpWegyam3zrGHP7xpZCfle/AbyBs9n
-	 2fGz4Kfiou+GC15IHoFUWi+EyC7Vf9DVuHyz4N8MkdrIlWsFOtpN62T+tryRI4aGCr
-	 I/HrbAQ9IP+oTOwY4bOZYvDv6ukz9+/YOxZS28uxnje3CJK9froaQ6HCXtAWDc3VtE
-	 pjIjerokOH5e+Y/WLLAnsbY/mvMCAs190YJovQYlvfF8/rVxneKzojc7uBjT9qLwZa
-	 3WydLQ2DDIuJA==
+	b=ptjyLyNDPzm+RBxnOadYcp+m6V98bISA4irjvp+xISoWjx/NpU8FvW90dEJJtGWat
+	 H1iM5yURt4CHmDyn5D0JEYLyDW2M5MwECVrtXB7Jr4Y0VSh9MGLdUU5SkrbI2kDa0u
+	 wR5c29yVimfQMAv9v7wD43tawPVD5bjgDO1l1aumLWYEO4SlHC04PX/e/pzFRjrOQX
+	 6bC/q1cWRmIn1AwCZhG/xbnO5vqkoeCB1bmUWFyLlOmMRHWr/9LTXlLHi/YFrmDSm1
+	 IUxRh2AzAhUqefjjR+KXkbH9mm4B5wqm4egRXZ7tDjkhp7hhOZJOYPwFing8D3JZ3W
+	 aYukxANjT4Stg==
 From: Mark Brown <broonie@kernel.org>
-Date: Tue, 22 Aug 2023 14:56:51 +0100
-Subject: [PATCH v5 18/37] arm64/mm: Handle GCS data aborts
+Date: Tue, 22 Aug 2023 14:56:53 +0100
+Subject: [PATCH v5 20/37] arm64/gcs: Allocate a new GCS for threads with
+ GCS enabled
 MIME-Version: 1.0
-Message-Id: <20230822-arm64-gcs-v5-18-9ef181dd6324@kernel.org>
+Message-Id: <20230822-arm64-gcs-v5-20-9ef181dd6324@kernel.org>
 References: <20230822-arm64-gcs-v5-0-9ef181dd6324@kernel.org>
 In-Reply-To: <20230822-arm64-gcs-v5-0-9ef181dd6324@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
@@ -70,20 +71,20 @@ Cc: "H.J. Lu" <hjl.tools@gmail.com>,
  linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-riscv@lists.infradead.org, Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.13-dev-034f2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5679; i=broonie@kernel.org;
- h=from:subject:message-id; bh=3frSXltfyEgjNXyKMr5NRlsNK13A5vKOgV3TE3uJgDA=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBk5L/9im1DUi+39LOQU1mpKVEB2F91vv6me+DtJIZ6
- hyMd0CWJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZOS//QAKCRAk1otyXVSH0L87B/
- 9+wGlX99gOV614aXcVAQd4o9IoMTsg6WepK9KILI3i3olNpP2jqTXj3gggiApp+rXWE7KAMmlz6j4w
- irvIuu2ZG4x0rPOh/0LMykOrs5HIk0iqEikPtywxTmgtTFXNI29TklzzxZVh6z5kEqnkagFZEGNwl0
- zSKaGoMYAbKcBj2b2O252Uvqw7xlRysgV9h/L7spclBPpC2vtpQ3Ttv4iMLGAOssepkgl4Isr12yVa
- zTfwYvNA0BHyJHb2HCefF86gNry1UqvqYOlyfiywvte40mCogRDKOpPNY7+++SbvX3R/tPzhaGbLJj
- F0piLbihb2xEc1lY83A4/NLkZJZpCr
+X-Developer-Signature: v=1; a=openpgp-sha256; l=5090; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=dhpqBAbBsf9cHoMTEDbkXc9Eo+ElTaGM0SMw/tsgvKA=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBk5L//QEYnOqDUJGPXgLujJ9QjMtHBI5kl95U/Ahxr
+ +MqHwXuJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZOS//wAKCRAk1otyXVSH0EkdB/
+ 4+2nY6yZE0hxzcseEoIwcXV38aNe+tVS5fDGYReVLm5dXVUkzq+DmILqpJHEEQE4scvSwCwV4Gx34A
+ kdXJdrM1J8Mmsb7odI4lK7laBo24t71Tr3dsiycjEszSHqY5fmKtQeltpf+E9wiXf3FQ/FX8EXyc0d
+ 7yanQRK6+ly+UgEYSGF5FRBpkpp1AQ+1X3wp7PMI7da7F91OMimT94wsrYkOCaJdyRQQBq7nxMIbSA
+ Gn+rW8IEJ/dOMFjhYYr6ITFrThqgHmkVxEzbFmAl4/BEyv669fl6G3biRrG/fWcsQ7l5iW2ebqr3+x
+ c1rKdqADRyC9RZXtC/7BC8Elf+AMbd
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230822_070456_248577_D8F9D46E 
-X-CRM114-Status: GOOD (  24.74  )
+X-CRM114-CacheID: sfid-20230822_070508_918506_3AAC8855 
+X-CRM114-Status: GOOD (  20.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,166 +101,169 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-All GCS operations at EL0 must happen on a page which is marked as
-having UnprivGCS access, including read operations.  If a GCS operation
-attempts to access a page without this then it will generate a data
-abort with the GCS bit set in ESR_EL1.ISS2.
+We do not currently have a mechanism to specify a new GCS for a new
+thread so when a thread is created which has GCS enabled allocate one
+for it.  Since there is no current API for specifying the size of the
+GCS we follow the extensively discussed x86 implementation and allocate
+min(RLIMIT_STACK, 4G).  Since the GCS only stores the call stack and not
+any variables this should be more than sufficient for most applications.
 
-EL0 may validly generate such faults, for example due to copy on write
-which will cause the GCS data to be stored in a read only page with no
-GCS permissions until the actual copy happens.  Since UnprivGCS allows
-both reads and writes to the GCS (though only through GCS operations) we
-need to ensure that the memory management subsystem handles GCS accesses
-as writes at all times.  Do this by adding FAULT_FLAG_WRITE to any GCS
-page faults, adding handling to ensure that invalid cases are identfied
-as such early so the memory management core does not think they will
-succeed.  The core cannot distinguish between VMAs which are generally
-writeable and VMAs which are only writeable through GCS operations.
-
-EL1 may validly write to EL0 GCS for management purposes (eg, while
-initialising with cap tokens).
-
-We also report any GCS faults in VMAs not marked as part of a GCS as
-access violations, causing a fault to be delivered to userspace if it
-attempts to do GCS operations outside a GCS.
+When allocating the stack we initialise GCSPR_EL0 to point to one entry
+below the end of the region allocated, this keeps the top entry of the
+stack 0 so software walking the GCS can easily detect the end of the
+region.
 
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- arch/arm64/mm/fault.c | 79 +++++++++++++++++++++++++++++++++++++++++++++------
- 1 file changed, 71 insertions(+), 8 deletions(-)
+ arch/arm64/include/asm/gcs.h |  7 +++++++
+ arch/arm64/kernel/process.c  | 33 +++++++++++++++++++++++++++++++
+ arch/arm64/mm/gcs.c          | 47 ++++++++++++++++++++++++++++++++++++++++++++
+ 3 files changed, 87 insertions(+)
 
-diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
-index 3fe516b32577..42a710981779 100644
---- a/arch/arm64/mm/fault.c
-+++ b/arch/arm64/mm/fault.c
-@@ -494,13 +494,30 @@ static void do_bad_area(unsigned long far, unsigned long esr,
- 	}
- }
+diff --git a/arch/arm64/include/asm/gcs.h b/arch/arm64/include/asm/gcs.h
+index 04594ef59dad..4371a2f99b4a 100644
+--- a/arch/arm64/include/asm/gcs.h
++++ b/arch/arm64/include/asm/gcs.h
+@@ -58,6 +58,8 @@ static inline bool task_gcs_el0_enabled(struct task_struct *task)
+ void gcs_set_el0_mode(struct task_struct *task);
+ void gcs_free(struct task_struct *task);
+ void gcs_preserve_current_state(void);
++unsigned long gcs_alloc_thread_stack(struct task_struct *tsk,
++			    unsigned long clone_flags, size_t size);
  
-+/*
-+ * Note: not valid for EL1 DC IVAC, but we never use that such that it
-+ * should fault. EL0 cannot issue DC IVAC (undef).
-+ */
-+static bool is_write_abort(unsigned long esr)
+ #else
+ 
+@@ -69,6 +71,11 @@ static inline bool task_gcs_el0_enabled(struct task_struct *task)
+ static inline void gcs_set_el0_mode(struct task_struct *task) { }
+ static inline void gcs_free(struct task_struct *task) { }
+ static inline void gcs_preserve_current_state(void) { }
++static inline unsigned long gcs_alloc_thread_stack(struct task_struct *tsk,
++				     unsigned long clone_flags, size_t size)
 +{
-+	return (esr & ESR_ELx_WNR) && !(esr & ESR_ELx_CM);
++	return -ENOTSUPP;
 +}
-+
-+static bool is_gcs_fault(unsigned long esr)
+ 
+ #endif
+ 
+diff --git a/arch/arm64/kernel/process.c b/arch/arm64/kernel/process.c
+index 84bac012f744..5fd27720dab0 100644
+--- a/arch/arm64/kernel/process.c
++++ b/arch/arm64/kernel/process.c
+@@ -285,9 +285,37 @@ static void flush_gcs(void)
+ 	write_sysreg_s(0, SYS_GCSPR_EL0);
+ }
+ 
++static int copy_thread_gcs(struct task_struct *p, unsigned long clone_flags,
++			   size_t stack_size)
 +{
-+	if (!esr_is_data_abort(esr))
-+		return false;
++	unsigned long gcs;
 +
-+	return ESR_ELx_ISS2(esr) & ESR_ELx_GCS;
-+}
-+
- #define VM_FAULT_BADMAP		((__force vm_fault_t)0x010000)
- #define VM_FAULT_BADACCESS	((__force vm_fault_t)0x020000)
- 
- static vm_fault_t __do_page_fault(struct mm_struct *mm,
- 				  struct vm_area_struct *vma, unsigned long addr,
- 				  unsigned int mm_flags, unsigned long vm_flags,
--				  struct pt_regs *regs)
-+				  unsigned long esr, struct pt_regs *regs)
- {
- 	/*
- 	 * Ok, we have a good vm_area for this memory access, so we can handle
-@@ -510,6 +527,26 @@ static vm_fault_t __do_page_fault(struct mm_struct *mm,
- 	 */
- 	if (!(vma->vm_flags & vm_flags))
- 		return VM_FAULT_BADACCESS;
-+
-+	if (vma->vm_flags & VM_SHADOW_STACK) {
-+		/*
-+		 * Writes to a GCS must either be generated by a GCS
-+		 * operation or be from EL1.
-+		 */
-+		if (is_write_abort(esr) &&
-+		    !(is_gcs_fault(esr) || is_el1_data_abort(esr)))
-+			return VM_FAULT_BADACCESS;
-+	} else {
-+		/*
-+		 * GCS faults should never happen for pages that are
-+		 * not part of a GCS and the operation being attempted
-+		 * can never succeed.
-+		 */
-+		if (is_gcs_fault(esr))
-+			return VM_FAULT_BADACCESS;
-+	}
-+
-+
- 	return handle_mm_fault(vma, addr, mm_flags, regs);
- }
- 
-@@ -518,13 +555,18 @@ static bool is_el0_instruction_abort(unsigned long esr)
- 	return ESR_ELx_EC(esr) == ESR_ELx_EC_IABT_LOW;
- }
- 
--/*
-- * Note: not valid for EL1 DC IVAC, but we never use that such that it
-- * should fault. EL0 cannot issue DC IVAC (undef).
-- */
--static bool is_write_abort(unsigned long esr)
-+static bool is_invalid_el0_gcs_access(struct vm_area_struct *vma, u64 esr)
- {
--	return (esr & ESR_ELx_WNR) && !(esr & ESR_ELx_CM);
 +	if (!system_supports_gcs())
-+		return false;
-+	if (likely(!(vma->vm_flags & VM_SHADOW_STACK))) {
-+		if (is_gcs_fault(esr))
-+			return true;
-+		return false;
-+	}
-+	if (is_gcs_fault(esr))
-+		return false;
-+	return is_write_abort(esr);
- }
- 
- static int __kprobes do_page_fault(unsigned long far, unsigned long esr,
-@@ -573,6 +615,13 @@ static int __kprobes do_page_fault(unsigned long far, unsigned long esr,
- 		/* If EPAN is absent then exec implies read */
- 		if (!cpus_have_const_cap(ARM64_HAS_EPAN))
- 			vm_flags |= VM_EXEC;
-+		/*
-+		 * Upgrade read faults to write faults, GCS reads must
-+		 * occur on a page marked as GCS so we need to trigger
-+		 * copy on write always.
-+		 */
-+		if (is_gcs_fault(esr))
-+			mm_flags |= FAULT_FLAG_WRITE;
- 	}
- 
- 	if (is_ttbr0_addr(addr) && is_el1_permission_fault(addr, esr, regs)) {
-@@ -595,6 +644,20 @@ static int __kprobes do_page_fault(unsigned long far, unsigned long esr,
- 	if (!vma)
- 		goto lock_mmap;
- 
-+	/*
-+	 * We get legitimate write faults for GCS pages from GCS
-+	 * operations, even when the initial operation was a read, as
-+	 * a result of upgrading GCS accesses to writes for CoW but
-+	 * GCS acceses outside of a GCS must fail.  Specifically check
-+	 * for this since the mm core isn't able to distinguish
-+	 * invalid GCS access from valid ones and will try to resolve
-+	 * the fault.
-+	 */
-+	if (is_invalid_el0_gcs_access(vma, esr)) {
-+		vma_end_read(vma);
-+		goto lock_mmap;
-+	}
++		return 0;
 +
- 	if (!(vma->vm_flags & vm_flags)) {
- 		vma_end_read(vma);
- 		goto lock_mmap;
-@@ -624,7 +687,7 @@ static int __kprobes do_page_fault(unsigned long far, unsigned long esr,
- 		goto done;
- 	}
++	if (!task_gcs_el0_enabled(p))
++		return 0;
++
++	p->thread.gcspr_el0 = read_sysreg_s(SYS_GCSPR_EL0);
++
++	if ((clone_flags & (CLONE_VFORK | CLONE_VM)) != CLONE_VM)
++		return 0;
++
++	gcs = gcs_alloc_thread_stack(p, clone_flags, stack_size);
++	if (IS_ERR_VALUE(gcs))
++		return PTR_ERR((void *)gcs);
++
++	return 0;
++}
++
+ #else
  
--	fault = __do_page_fault(mm, vma, addr, mm_flags, vm_flags, regs);
-+	fault = __do_page_fault(mm, vma, addr, mm_flags, vm_flags, esr, regs);
+ static void flush_gcs(void) { }
++static int copy_thread_gcs(struct task_struct *p, unsigned long clone_flags,
++			   size_t stack_size)
++{
++	return 0;
++}
  
- 	/* Quick path to respond to signals */
- 	if (fault_signal_pending(fault, regs)) {
+ #endif
+ 
+@@ -369,6 +397,7 @@ int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
+ 	unsigned long stack_start = args->stack;
+ 	unsigned long tls = args->tls;
+ 	struct pt_regs *childregs = task_pt_regs(p);
++	int ret;
+ 
+ 	memset(&p->thread.cpu_context, 0, sizeof(struct cpu_context));
+ 
+@@ -410,6 +439,10 @@ int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
+ 			p->thread.uw.tp_value = tls;
+ 			p->thread.tpidr2_el0 = 0;
+ 		}
++
++		ret = copy_thread_gcs(p, clone_flags, args->stack_size);
++		if (ret != 0)
++			return ret;
+ 	} else {
+ 		/*
+ 		 * A kthread has no context to ERET to, so ensure any buggy
+diff --git a/arch/arm64/mm/gcs.c b/arch/arm64/mm/gcs.c
+index b0a67efc522b..cb0a64bf90af 100644
+--- a/arch/arm64/mm/gcs.c
++++ b/arch/arm64/mm/gcs.c
+@@ -8,6 +8,53 @@
+ #include <asm/cpufeature.h>
+ #include <asm/page.h>
+ 
++static unsigned long alloc_gcs(unsigned long addr, unsigned long size,
++			       unsigned long token_offset, bool set_res_tok)
++{
++	int flags = MAP_ANONYMOUS | MAP_PRIVATE;
++	struct mm_struct *mm = current->mm;
++	unsigned long mapped_addr, unused;
++
++	if (addr)
++		flags |= MAP_FIXED_NOREPLACE;
++
++	mmap_write_lock(mm);
++	mapped_addr = do_mmap(NULL, addr, size, PROT_READ | PROT_WRITE, flags,
++			      VM_SHADOW_STACK, 0, &unused, NULL);
++	mmap_write_unlock(mm);
++
++	return mapped_addr;
++}
++
++static unsigned long gcs_size(unsigned long size)
++{
++	if (size)
++		return PAGE_ALIGN(size);
++
++	/* Allocate RLIMIT_STACK/2 with limits of PAGE_SIZE..2G */
++	size = PAGE_ALIGN(min_t(unsigned long long,
++				rlimit(RLIMIT_STACK) / 2, SZ_2G));
++	return max(PAGE_SIZE, size);
++}
++
++unsigned long gcs_alloc_thread_stack(struct task_struct *tsk,
++				     unsigned long clone_flags, size_t size)
++{
++	unsigned long addr;
++
++	size = gcs_size(size);
++
++	addr = alloc_gcs(0, size, 0, 0);
++	if (IS_ERR_VALUE(addr))
++		return addr;
++
++	tsk->thread.gcs_base = addr;
++	tsk->thread.gcs_size = size;
++	tsk->thread.gcspr_el0 = addr + size - sizeof(u64);
++
++	return addr;
++}
++
+ /*
+  * Apply the GCS mode configured for the specified task to the
+  * hardware.
 
 -- 
 2.30.2
