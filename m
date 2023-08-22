@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E60CBEE4993
-	for <linux-riscv@archiver.kernel.org>; Tue, 22 Aug 2023 14:05:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE192EE49AC
+	for <linux-riscv@archiver.kernel.org>; Tue, 22 Aug 2023 14:05:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MyKRYLaNvTf6xO7x4uTjiZduzxPrEkwvqWnyhfpPfIc=; b=1pJfWEidBnIdXi
-	u1Jxie5ptwyEJg1GjB21QFpX9IzO5QQO/KpY5Fzf9feZqbd3dN0/jpmfOPROPxppnwWQ5wAXcx464
-	FpiJjIg1X3mc/8X09/0vwW+rKb3BdSJckoYhlHAaIVIqGTA4WOdn730vXjV4TZ2bcwFwVB5bH8/hL
-	gBBiE7bQvHolLXLeOdyxG6x7s5vDlfffzWd+vGdFp/XtTRL2LmpquGrI24+CtVAUdPZ93JSai+OJK
-	SgDYUmP2RxVL+vIA4JHPqP23WWHOIiHP1ACl64KqRm0RxXGmRMyc5v5aHWqBz+KRzhEkq4xdECf60
-	zEdMf/vtRwbIrc9Uc1SA==;
+	List-Owner; bh=PlIWIsER1/bkKM27fcjZ6NCt2wnZowWRNT3xFIb5nx4=; b=Z7qkvsMp+juRuO
+	VELP1hrWY6g4TWUTFt6dPuJkEXbrNW7XxLz1IlfaytTlAf5rHlZwbrnrDlM9EDtU8XSpkJX2shYW3
+	ziGKjUBv9+fzp+uj9JSycJXkRkWlx26tCgePnEZehkKwu/KoGzHhcsXfEjOz+K/JuwcMl3zW2sIFV
+	78V1Dm4l0lxFOE9QYVMWbxGf55SRsc5qKaN7WKt7qoUpVN/4a7OY1FQofHMSM7xR59RGjCl0SYD6j
+	HWzTQ4PfMT2mT5kh2f9f5MQ6q7DtbBC7Xsbstt4T20Z98m4U5iBzAOyjc6YrlobCPfI8J4JqhKYAT
+	2sJXXeE6KnTZt4V7sQoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qYS09-00G7Vj-1G;
-	Tue, 22 Aug 2023 14:04:57 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1qYS0F-00G7dP-2s;
+	Tue, 22 Aug 2023 14:05:03 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qYRzp-00G78W-1j;
-	Tue, 22 Aug 2023 14:04:38 +0000
+	id 1qYRzv-00G7Fi-2M;
+	Tue, 22 Aug 2023 14:04:45 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id DF91E6578D;
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 236A965715;
+	Tue, 22 Aug 2023 14:04:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9805AC43397;
 	Tue, 22 Aug 2023 14:04:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 637FEC433C8;
-	Tue, 22 Aug 2023 14:04:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1692713076;
-	bh=BjSs+8ue7c1H5I5QACEoP8ql+D11AcMui7dws1SE6+0=;
+	s=k20201202; t=1692713082;
+	bh=ggfCgbEg0UE7JP5CH6e+dKjRf0SerXD/ltcRHcZOEeI=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=YYudIVDKeZ64ux9gS+b7EEI0CFilzLHr333iJGwzf5IaJ38241Xo35cybJ+qZjFjm
-	 DlAYEs+0lW0wpovAkKGvxfGleavVcNMPfOE5fo9twLauPP1tMoChERD1Dj0VvhXoPC
-	 97VEDpPfpJdiezZTvQcProtNPd0MVIUwWfjMl4tB73egWWMrRrdMwK4vKBSdIhV0na
-	 PCOsq/Op8XvQCGTOkGokgmggGAZoYZIPBgOmmsxxadVz5PeqfDrHx7T/pPGtpumilu
-	 YwWS3Bt9cPpKMESV9UQ3/O7Xaocvnskv8Cgaihid40D31wcvbccM7QccSVb1zaKVZV
-	 dQbS/QgpFL9nQ==
+	b=PVf4F+5e6t8UUn6GXDHZi9BvZRw+m0vJxxlC91Y+yBnT+DenVPfSgbW/1w8vHEcs5
+	 hq5ngEXwckWY9oCWklaJVn+Cz4i+Hb7Pb+HyOeHTVt0p18dbb8XuCuzDwxXCZAtlzb
+	 6p1/o8hbt7SE6/a+cd+ZYSZ7AUK1JhjB+an4crDxKNtg44IrCJwF1p3grdQvpPlXAk
+	 vZufltGG8aXY+z6av+xoWDvTN0kQEFsRuzILLsd9n6BZ9MRGZCGpRDs6hw6fJtgh/6
+	 zfEtJxsOevzv4ydSNFeqpobaM9tniDA/fgC4nwIQR2PHG9Gjp8h/mXJms1judgWcy9
+	 8RJQK2shpfIbw==
 From: Mark Brown <broonie@kernel.org>
-Date: Tue, 22 Aug 2023 14:56:48 +0100
-Subject: [PATCH v5 15/37] arm64/idreg: Add overrride for GCS
+Date: Tue, 22 Aug 2023 14:56:49 +0100
+Subject: [PATCH v5 16/37] arm64/hwcap: Add hwcap for GCS
 MIME-Version: 1.0
-Message-Id: <20230822-arm64-gcs-v5-15-9ef181dd6324@kernel.org>
+Message-Id: <20230822-arm64-gcs-v5-16-9ef181dd6324@kernel.org>
 References: <20230822-arm64-gcs-v5-0-9ef181dd6324@kernel.org>
 In-Reply-To: <20230822-arm64-gcs-v5-0-9ef181dd6324@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
@@ -70,20 +70,20 @@ Cc: "H.J. Lu" <hjl.tools@gmail.com>,
  linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-riscv@lists.infradead.org, Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.13-dev-034f2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1796; i=broonie@kernel.org;
- h=from:subject:message-id; bh=BjSs+8ue7c1H5I5QACEoP8ql+D11AcMui7dws1SE6+0=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBk5L/73XL0iokCImrRKXP/21OSX2L2yPVV1v7s2wY4
- g9W2E3KJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZOS/+wAKCRAk1otyXVSH0Hp7B/
- 9TkwiS9meL95VJAznp1nMQ/n3JUjWWplN4cMGVGurbd2xN6W5i3yXQ2z33BoOw2HFrxGoOLrmPJNwT
- HTj2aLJnz3/Kyg39s0aFy7cT/FwU0da8kxB77nLYzpi4q2L2QW4BkJdXEsKSi07uMYtZZ6cZYaj3Wg
- LFNjybT88/1wTRBZYuGs0JH1OnfRXymn66wAH6OImjngP+/0KyBb+20nPBx7HG0Qu7H+qsbgMbeB/X
- u22V4HhEIldSaxkWwHawv5dul8qD5MtJcUqPfHc0GOMY5BpC2cXzUqPHqOXn8Sf6ZjKcmA5vU/V4VM
- GNzGhRiVXq8AU5aMh47ulF+OnkwWAn
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3001; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=ggfCgbEg0UE7JP5CH6e+dKjRf0SerXD/ltcRHcZOEeI=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBk5L/88D0+8mIFj/SJZ4PZzOsz1BzhGTXwEx55mTve
+ 3j6LrUWJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZOS//AAKCRAk1otyXVSH0HYlB/
+ 9t7R1TANYsl4wXEHzWtNfhLanvzKzswgGvwqg5bmQhyHDwPtTqc5hckjtVPt/f/LJVr51CdGDI94sS
+ r2Uaf6n5U2WmuiCip2sf324ojSqnqEESvqIhMOY+5esBYRf1GJnRB6BkVcnhvSltvVhJgkSoTqYdhI
+ pbUOisNhR7+G5i9CsyNGMmD2Jplfn3F0Vw4XUr1Vgex0v4DRUf28aXbXv5QHQw/x+qQ4gNUpN5Px9L
+ EWv/4VLtx4ndzg7vkWSi0+7g0OVmIVBWaEsRf9SIwRwiKq7tMIPmUgvZN9JUt19+Sqag4U1ZfuO3lC
+ V4niGItNSjXw/mwDDx7oU2HQZ8Fde9
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230822_070437_693279_BD96F73E 
-X-CRM114-Status: GOOD (  12.37  )
+X-CRM114-CacheID: sfid-20230822_070443_911863_55181A34 
+X-CRM114-Status: GOOD (  12.82  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,49 +100,80 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hook up an override for GCS, allowing it to be disabled from the command
-line by specifying arm64.nogcs in case there are problems.
+Provide a hwcap to enable userspace to detect support for GCS.
 
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- Documentation/admin-guide/kernel-parameters.txt | 3 +++
- arch/arm64/kernel/idreg-override.c              | 2 ++
- 2 files changed, 5 insertions(+)
+ Documentation/arch/arm64/elf_hwcaps.rst | 3 +++
+ arch/arm64/include/asm/hwcap.h          | 1 +
+ arch/arm64/include/uapi/asm/hwcap.h     | 1 +
+ arch/arm64/kernel/cpufeature.c          | 3 +++
+ arch/arm64/kernel/cpuinfo.c             | 1 +
+ 5 files changed, 9 insertions(+)
 
-diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
-index 722b6eca2e93..db58fc2133fb 100644
---- a/Documentation/admin-guide/kernel-parameters.txt
-+++ b/Documentation/admin-guide/kernel-parameters.txt
-@@ -418,6 +418,9 @@
- 	arm64.nobti	[ARM64] Unconditionally disable Branch Target
- 			Identification support
+diff --git a/Documentation/arch/arm64/elf_hwcaps.rst b/Documentation/arch/arm64/elf_hwcaps.rst
+index 8c8addb4194c..75f3960cad39 100644
+--- a/Documentation/arch/arm64/elf_hwcaps.rst
++++ b/Documentation/arch/arm64/elf_hwcaps.rst
+@@ -305,6 +305,9 @@ HWCAP2_SMEF16F16
+ HWCAP2_MOPS
+     Functionality implied by ID_AA64ISAR2_EL1.MOPS == 0b0001.
  
-+	arm64.nogcs	[ARM64] Unconditionally disable Guarded Control Stack
-+			support
++HWCAP2_GCS
++    Functionality implied by ID_AA64PFR1_EL1.GCS == 0b1
 +
- 	arm64.nopauth	[ARM64] Unconditionally disable Pointer Authentication
- 			support
+ 4. Unused AT_HWCAP bits
+ -----------------------
  
-diff --git a/arch/arm64/kernel/idreg-override.c b/arch/arm64/kernel/idreg-override.c
-index 2fe2491b692c..49269a5cff10 100644
---- a/arch/arm64/kernel/idreg-override.c
-+++ b/arch/arm64/kernel/idreg-override.c
-@@ -99,6 +99,7 @@ static const struct ftr_set_desc pfr1 __initconst = {
- 	.override	= &id_aa64pfr1_override,
- 	.fields		= {
- 		FIELD("bt", ID_AA64PFR1_EL1_BT_SHIFT, NULL ),
-+		FIELD("gcs", ID_AA64PFR1_EL1_GCS_SHIFT, NULL),
- 		FIELD("mte", ID_AA64PFR1_EL1_MTE_SHIFT, NULL),
- 		FIELD("sme", ID_AA64PFR1_EL1_SME_SHIFT, pfr1_sme_filter),
- 		{}
-@@ -178,6 +179,7 @@ static const struct {
- 	{ "arm64.nosve",		"id_aa64pfr0.sve=0" },
- 	{ "arm64.nosme",		"id_aa64pfr1.sme=0" },
- 	{ "arm64.nobti",		"id_aa64pfr1.bt=0" },
-+	{ "arm64.nogcs",		"id_aa64pfr1.gcs=0" },
- 	{ "arm64.nopauth",
- 	  "id_aa64isar1.gpi=0 id_aa64isar1.gpa=0 "
- 	  "id_aa64isar1.api=0 id_aa64isar1.apa=0 "
+diff --git a/arch/arm64/include/asm/hwcap.h b/arch/arm64/include/asm/hwcap.h
+index 692b1ec663b2..39f397a2b5b2 100644
+--- a/arch/arm64/include/asm/hwcap.h
++++ b/arch/arm64/include/asm/hwcap.h
+@@ -138,6 +138,7 @@
+ #define KERNEL_HWCAP_SME_B16B16		__khwcap2_feature(SME_B16B16)
+ #define KERNEL_HWCAP_SME_F16F16		__khwcap2_feature(SME_F16F16)
+ #define KERNEL_HWCAP_MOPS		__khwcap2_feature(MOPS)
++#define KERNEL_HWCAP_GCS		__khwcap2_feature(GCS)
+ 
+ /*
+  * This yields a mask that user programs can use to figure out what
+diff --git a/arch/arm64/include/uapi/asm/hwcap.h b/arch/arm64/include/uapi/asm/hwcap.h
+index a2cac4305b1e..7510c35e6864 100644
+--- a/arch/arm64/include/uapi/asm/hwcap.h
++++ b/arch/arm64/include/uapi/asm/hwcap.h
+@@ -103,5 +103,6 @@
+ #define HWCAP2_SME_B16B16	(1UL << 41)
+ #define HWCAP2_SME_F16F16	(1UL << 42)
+ #define HWCAP2_MOPS		(1UL << 43)
++#define HWCAP2_GCS		(1UL << 44)
+ 
+ #endif /* _UAPI__ASM_HWCAP_H */
+diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+index 91a14a6ccb04..7b46e01140c4 100644
+--- a/arch/arm64/kernel/cpufeature.c
++++ b/arch/arm64/kernel/cpufeature.c
+@@ -2840,6 +2840,9 @@ static const struct arm64_cpu_capabilities arm64_elf_hwcaps[] = {
+ 	HWCAP_CAP(ID_AA64ZFR0_EL1, I8MM, IMP, CAP_HWCAP, KERNEL_HWCAP_SVEI8MM),
+ 	HWCAP_CAP(ID_AA64ZFR0_EL1, F32MM, IMP, CAP_HWCAP, KERNEL_HWCAP_SVEF32MM),
+ 	HWCAP_CAP(ID_AA64ZFR0_EL1, F64MM, IMP, CAP_HWCAP, KERNEL_HWCAP_SVEF64MM),
++#endif
++#ifdef CONFIG_ARM64_GCS
++	HWCAP_CAP(ID_AA64PFR1_EL1, GCS, IMP, CAP_HWCAP, KERNEL_HWCAP_GCS),
+ #endif
+ 	HWCAP_CAP(ID_AA64PFR1_EL1, SSBS, SSBS2, CAP_HWCAP, KERNEL_HWCAP_SSBS),
+ #ifdef CONFIG_ARM64_BTI
+diff --git a/arch/arm64/kernel/cpuinfo.c b/arch/arm64/kernel/cpuinfo.c
+index 58622dc85917..451fbbeffa39 100644
+--- a/arch/arm64/kernel/cpuinfo.c
++++ b/arch/arm64/kernel/cpuinfo.c
+@@ -126,6 +126,7 @@ static const char *const hwcap_str[] = {
+ 	[KERNEL_HWCAP_SME_B16B16]	= "smeb16b16",
+ 	[KERNEL_HWCAP_SME_F16F16]	= "smef16f16",
+ 	[KERNEL_HWCAP_MOPS]		= "mops",
++	[KERNEL_HWCAP_GCS]		= "gcs",
+ };
+ 
+ #ifdef CONFIG_COMPAT
 
 -- 
 2.30.2
