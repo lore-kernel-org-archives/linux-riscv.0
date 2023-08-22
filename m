@@ -4,78 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 240AAEE49A5
-	for <linux-riscv@archiver.kernel.org>; Tue, 22 Aug 2023 06:16:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84270EE49A5
+	for <linux-riscv@archiver.kernel.org>; Tue, 22 Aug 2023 06:33:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+sAAdPHc8HTsCQYmYq+qZEtg2cTB0FM/SWMVyPfkqKw=; b=uRahP5dhr/j4M7
-	J8b3Y2bDn+5ubVcqyJw6fTNTaKumrc5Uiqq0rz9mqv7SeIQqRztIFHxjRb4LvU94uxHZu+L0lMbB2
-	QSm90L6FYRHUykx842DbvuHWF67O1kY2Cal/sKitLqqXI7OnJC9lXZzUV1SoTzbUuQjQX+UaIpm7O
-	NSZu5jJPCULz/m4Pvt2EpwTHckhQzi2Ao2hC+QWj+3+fv8ABjfJlaxs/0mq7VYvrBlkzZp/tUEbkS
-	g8QgShWlBc/+7EZKa+7uDB77ZeQgtJnmUgHOkiKPAQ1wGAo0n6Of8S2MPJbrrFkIWhrWfP4uoCF2z
-	jtSzO4711XvgTJDZaPdA==;
+	List-Owner; bh=Urh8Gagkpx7wHualTE6T7Ms0hHrPZ/KaaNcODe2AMxg=; b=N0pBgJm3NWRRik
+	pcLiPuE7AN2fC2Vbno+Rk4ncYlnxxgGluRjz1/CFaHxjkjcdM6fX0j+n7ipi+I/BnaySIRUIhUaTS
+	Clsvu3lKJk1tcKHttROWR4wbgj/HMTxtbUolBFybjTI4H17ERVeHKu8wvUeiQuKVv0rpYMJx7tbzi
+	970GvrAmZjwGxyr67DeUvVl9wATHknygpWGhxwdPsWfwwog2OeZ8AxAMjR/iy75i38iRgVENmXhSw
+	VzxLq7MAvk7pRiPIMWknNQliJB8dJQ1iSVluvj5aNAhgCVdhpd4qERaaKGRC8swwZ4OHbJ16HDdWy
+	AEIvApU6XmR0plJhixYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qYKgx-00FDhf-2Y;
-	Tue, 22 Aug 2023 06:16:39 +0000
-Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
+	id 1qYKwx-00FF4W-3B;
+	Tue, 22 Aug 2023 06:33:11 +0000
+Received: from smtp-out1.suse.de ([195.135.220.28])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qYKgu-00FDg5-1n
-	for linux-riscv@lists.infradead.org;
-	Tue, 22 Aug 2023 06:16:38 +0000
-Received: by mail-ed1-x533.google.com with SMTP id 4fb4d7f45d1cf-5280ef23593so4859646a12.3
-        for <linux-riscv@lists.infradead.org>; Mon, 21 Aug 2023 23:16:34 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=brainfault-org.20221208.gappssmtp.com; s=20221208; t=1692684994; x=1693289794;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Etm+is1Vk1OwDhQBIivpxr/NaVYXAexKvYiz/4v9WQ0=;
-        b=hnvji7WGGO1c3o007SYql5xd9g063Oin/FtbXmcNNt+bhkBhgs9G3s6YBU4NcfgwLi
-         BUtrVlZ51MWSPiE2FN7YKLqo1rgjFh5nwRUz/TKltIRtPSnisRBi3rjCu6+94lMsJnL9
-         HDQP/Sbzcoi8D2tCLzHS+oHSLv/P2Q1dybK4gxAtjKXDM6KYX/QkWdGLY1yqc1ZuQm/m
-         M/IJQhXbXvK6czGCFzmCjOEMiuPLqRicNreDn85Ku4YHdgYFGUDtjjC3Zgr65uSHgNAe
-         jslmA+Qr1i+OP4dyO2zvbtDT8RCNqzsJJ4piCsVy5Rae8MJvEi0qnhQeg3YUKNNLDraG
-         FxaQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1692684994; x=1693289794;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Etm+is1Vk1OwDhQBIivpxr/NaVYXAexKvYiz/4v9WQ0=;
-        b=BBvDJrWB99WcW5akLMvtBDcGnPGmvit0CuolkWUb1oFFQiQUm+xoBboQhhHATQRA61
-         IqNgdOO6izj8sesW4NJI28L2Qj9mgwzvSwy6Jg1DEvqMMAeY5JgN84aWKVE0GOM1TG93
-         HAS4Y6ngAZDvKifkRZfAWSy7VUHK1JUfEj9Qb0cItrJ7uKPWt/mbMR4OaxeotcbouaTL
-         22y951fNDy78QlEZelBQj0wa+ZwsmRq5wSWuTJlHtVQ8fpf0g62e42IB6FyB8Rfs/rIF
-         ZsbL5G/VGGfnDOIpIts44m7W+/ODqb8gZjKthFts4YSIZuBr466Xrc6HhsJ2GmP9KhTM
-         94Xg==
-X-Gm-Message-State: AOJu0YyFhtPNLWduGx77s3Z94MfMPC9tclVtpOkR03x0+LLzhVEGsyI2
-	0vCBfrF57RJhWQOZYG9KB2L2ax0m27yyL2tNyL0wpA==
-X-Google-Smtp-Source: AGHT+IED6jSpdp0uBNdtBG9rgNloUIIG/FgjpAiBY9v7dmhpX1qTswjR6JdQcrlQLJ239YUFyanJLxo/y/E6FCdSAvU=
-X-Received: by 2002:a17:906:2d1:b0:98d:e605:2bce with SMTP id
- 17-20020a17090602d100b0098de6052bcemr7413238ejk.46.1692684993483; Mon, 21 Aug
- 2023 23:16:33 -0700 (PDT)
+	id 1qYKwt-00FF1x-2J;
+	Tue, 22 Aug 2023 06:33:09 +0000
+Received: from relay2.suse.de (relay2.suse.de [149.44.160.134])
+	by smtp-out1.suse.de (Postfix) with ESMTP id 0240F22C47;
+	Tue, 22 Aug 2023 06:33:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1692685983; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=0LefrGrfWIlUUodSIRfdXfGvUMxOpn3Da/x1z7+TACM=;
+	b=dcW/Td18f6Fki4csXaJVH2kX+joGxDMOht06LwZTOfNsgqpMfncIfcqoPyYT4pr6k4mnSU
+	M0TGSwt1po685EhpFFg+MsGQqwUnObFIRiO2wfy913FH+/Lel6/Fb2dOKqsq92KJa+2uD1
+	Bu3YIapaL9IWtKzXxWr75rikpNrC41E=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1692685983;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=0LefrGrfWIlUUodSIRfdXfGvUMxOpn3Da/x1z7+TACM=;
+	b=rG0JjH04TqT5CksLvToAlLn8tIAFYWH057rgn75zDtNS/jv7ATjOlZlbjVPfguARFEVAuk
+	XrENx1kzxGQ4t0Cg==
+Received: from kitsune.suse.cz (kitsune.suse.cz [10.100.12.127])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by relay2.suse.de (Postfix) with ESMTPS id 4B5DF2C143;
+	Tue, 22 Aug 2023 06:32:58 +0000 (UTC)
+Date: Tue, 22 Aug 2023 08:32:57 +0200
+From: Michal =?iso-8859-1?Q?Such=E1nek?= <msuchanek@suse.de>
+To: "Leizhen (ThunderTown)" <thunder.leizhen@huawei.com>
+Cc: Eric DeVolder <eric.devolder@oracle.com>, linux@armlinux.org.uk,
+	catalin.marinas@arm.com, will@kernel.org, chenhuacai@kernel.org,
+	geert@linux-m68k.org, tsbogend@alpha.franken.de,
+	James.Bottomley@hansenpartnership.com, deller@gmx.de,
+	ysato@users.sourceforge.jp, dalias@libc.org,
+	glaubitz@physik.fu-berlin.de, tglx@linutronix.de, mingo@redhat.com,
+	bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-ia64@vger.kernel.org, loongarch@lists.linux.dev,
+	linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
+	linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	linux-sh@vger.kernel.org, peterz@infradead.org,
+	linus.walleij@linaro.org, hpa@zytor.com, kernel@xen0n.name,
+	ardb@kernel.org, tsi@tuyoix.net, agordeev@linux.ibm.com,
+	paulmck@kernel.org, bhe@redhat.com, masahiroy@kernel.org,
+	konrad.wilk@oracle.com, sebastian.reichel@collabora.com,
+	samitolvanen@google.com, ojeda@kernel.org,
+	juerg.haefliger@canonical.com, borntraeger@linux.ibm.com,
+	frederic@kernel.org, arnd@arndb.de, mhiramat@kernel.org,
+	aou@eecs.berkeley.edu, keescook@chromium.org, gor@linux.ibm.com,
+	anshuman.khandual@arm.com, hca@linux.ibm.com, xin3.li@intel.com,
+	npiggin@gmail.com, rmk+kernel@armlinux.org.uk,
+	paul.walmsley@sifive.com, boris.ostrovsky@oracle.com,
+	ziy@nvidia.com, hbathini@linux.ibm.com, gregkh@linuxfoundation.org,
+	kirill.shutemov@linux.intel.com, ndesaulniers@google.com,
+	sourabhjain@linux.ibm.com, palmer@dabbelt.com, svens@linux.ibm.com,
+	tj@kernel.org, akpm@linux-foundation.org, rppt@kernel.org
+Subject: Re: [PATCH v6 02/14] x86/kexec: refactor for kernel/Kconfig.kexec
+Message-ID: <20230822063257.GI8826@kitsune.suse.cz>
+References: <20230712161545.87870-1-eric.devolder@oracle.com>
+ <20230712161545.87870-3-eric.devolder@oracle.com>
+ <d8ddd4bd-fbc9-dbe9-f5c3-daf8d89aa46d@huawei.com>
 MIME-Version: 1.0
-References: <20230822054739.33552-1-nick.hu@sifive.com>
-In-Reply-To: <20230822054739.33552-1-nick.hu@sifive.com>
-From: Anup Patel <anup@brainfault.org>
-Date: Tue, 22 Aug 2023 11:46:22 +0530
-Message-ID: <CAAhSdy32DYoHpBKS3TF1SapM5fuMF5K00oqRxw8JF05v=DrUuw@mail.gmail.com>
-Subject: Re: [PATCH v2] riscv: suspend: Add syscore ops for suspend
-To: Nick Hu <nick.hu@sifive.com>
-Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
-	leyfoon.tan@starfivetech.com, mason.huo@starfivetech.com, 
-	conor.dooley@microchip.com, jeeheng.sia@starfivetech.com, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	zong.li@sifive.com, Andy Chiu <andy.chiu@sifive.com>, 
-	Andrew Jones <ajones@ventanamicro.com>
+Content-Disposition: inline
+In-Reply-To: <d8ddd4bd-fbc9-dbe9-f5c3-daf8d89aa46d@huawei.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230821_231636_775781_0874BEEE 
-X-CRM114-Status: GOOD (  21.91  )
+X-CRM114-CacheID: sfid-20230821_233307_896926_FF76EAE4 
+X-CRM114-Status: GOOD (  44.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,60 +104,181 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCBBdWcgMjIsIDIwMjMgYXQgMTE6MTfigK9BTSBOaWNrIEh1IDxuaWNrLmh1QHNpZml2
-ZS5jb20+IHdyb3RlOgo+Cj4gSWYgYSB0YXNrIGlzIHRoZSBvbmUgd2hvIHBlcmZvcm1zIHRoZSBz
-dXNwZW5kIGZsb3cgYW5kIGl0IGFsc28gZG8gc29tZQo+IGZsb2F0aW5nIG9yIHZlY3RvciBvcGVy
-YXRpb25zIGJlZm9yZSB0aGUgc3VzcGVuZCwgd2UgbWlnaHQgbG9zZSB0aGUgRlBVCj4gYW5kIHZl
-Y3RvciBzdGF0ZXMgd2hlbiBpdCBnb2VzIHRvIHRoZSBub24tcmV0ZW50aW9uIHN5c3RlbSBzdXNw
-ZW5kIHN0YXRlLgo+IEFkZCBzeXNjb3JlIG9wcyB0byBzYXZlIGFuZCByZXN0b3JlIHRoZSBGUFUg
-YW5kIHZlY3RvciBzdGF0ZXMgb2YgdGhlCj4gY3VycmVudCB0YXNrIHRvIGZpeCB0aGUgaXNzdWUg
-YWJvdmUuCgpUaGlzIG9ubHkgYXBwbGllcyB0byBub24tcmV0ZW50aXZlIHN5c3RlbSBzdXNwZW5k
-IHNvIHdoeSBkbyB3ZSBuZWVkCnRoaXMgYmVmb3JlIFNCSSBzeXN0ZW0gc3VzcGVuZCBpcyBtZXJn
-ZWQgPwoKUmVnYXJkcywKQW51cAoKCj4KPiBDby1kZXZlbG9wZWQtYnk6IEFuZHkgQ2hpdSA8YW5k
-eS5jaGl1QHNpZml2ZS5jb20+Cj4gU2lnbmVkLW9mZi1ieTogQW5keSBDaGl1IDxhbmR5LmNoaXVA
-c2lmaXZlLmNvbT4KPiBTaWduZWQtb2ZmLWJ5OiBOaWNrIEh1IDxuaWNrLmh1QHNpZml2ZS5jb20+
-Cj4gLS0tCj4gQ2hhbmdlcyBpbiB2MjoKPiBhKSBBZGQgQ28tZGV2ZWxvcGVkLWJ5IGFuZCBhZGp1
-c3QgdGhlIG9yZGVyIG9mIHNpZ25lZC1vZmYKPiBiKSBSZXBocmFzZSB0aGUgY29tbWl0IG1lc3Nh
-Z2UKPgo+ICBhcmNoL3Jpc2N2L2tlcm5lbC9zdXNwZW5kLmMgfCA0NSArKysrKysrKysrKysrKysr
-KysrKysrKysrKysrKysrKysrKysrCj4gIDEgZmlsZSBjaGFuZ2VkLCA0NSBpbnNlcnRpb25zKCsp
-Cj4KPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9rZXJuZWwvc3VzcGVuZC5jIGIvYXJjaC9yaXNj
-di9rZXJuZWwvc3VzcGVuZC5jCj4gaW5kZXggM2M4OWI4ZWM2OWM0Li5mZjY5ZmY4YTE5NzQgMTAw
-NjQ0Cj4gLS0tIGEvYXJjaC9yaXNjdi9rZXJuZWwvc3VzcGVuZC5jCj4gKysrIGIvYXJjaC9yaXNj
-di9rZXJuZWwvc3VzcGVuZC5jCj4gQEAgLTQsOSArNCwxNCBAQAo+ICAgKiBDb3B5cmlnaHQgKGMp
-IDIwMjIgVmVudGFuYSBNaWNybyBTeXN0ZW1zIEluYy4KPiAgICovCj4KPiArI2luY2x1ZGUgPGxp
-bnV4L2NwdV9wbS5oPgo+ICAjaW5jbHVkZSA8bGludXgvZnRyYWNlLmg+Cj4gKyNpbmNsdWRlIDxs
-aW51eC90aHJlYWRfaW5mby5oPgo+ICsjaW5jbHVkZSA8bGludXgvc3lzY29yZV9vcHMuaD4KPiAg
-I2luY2x1ZGUgPGFzbS9jc3IuaD4KPiAgI2luY2x1ZGUgPGFzbS9zdXNwZW5kLmg+Cj4gKyNpbmNs
-dWRlIDxhc20vc3dpdGNoX3RvLmg+Cj4gKyNpbmNsdWRlIDxhc20vdmVjdG9yLmg+Cj4KPiAgdm9p
-ZCBzdXNwZW5kX3NhdmVfY3NycyhzdHJ1Y3Qgc3VzcGVuZF9jb250ZXh0ICpjb250ZXh0KQo+ICB7
-Cj4gQEAgLTg1LDMgKzkwLDQzIEBAIGludCBjcHVfc3VzcGVuZCh1bnNpZ25lZCBsb25nIGFyZywK
-Pgo+ICAgICAgICAgcmV0dXJuIHJjOwo+ICB9Cj4gKwo+ICtzdGF0aWMgaW50IHJpc2N2X2NwdV9z
-dXNwZW5kKHZvaWQpCj4gK3sKPiArICAgICAgIHN0cnVjdCB0YXNrX3N0cnVjdCAqY3VyX3Rhc2sg
-PSBnZXRfY3VycmVudCgpOwo+ICsgICAgICAgc3RydWN0IHB0X3JlZ3MgKnJlZ3MgPSB0YXNrX3B0
-X3JlZ3MoY3VyX3Rhc2spOwo+ICsKPiArICAgICAgIGlmIChoYXNfZnB1KCkpIHsKPiArICAgICAg
-ICAgICAgICAgaWYgKHVubGlrZWx5KHJlZ3MtPnN0YXR1cyAmIFNSX1NEKSkKPiArICAgICAgICAg
-ICAgICAgICAgICAgICBmc3RhdGVfc2F2ZShjdXJfdGFzaywgcmVncyk7Cj4gKyAgICAgICB9Cj4g
-KyAgICAgICBpZiAoaGFzX3ZlY3RvcigpKSB7Cj4gKyAgICAgICAgICAgICAgIGlmICh1bmxpa2Vs
-eShyZWdzLT5zdGF0dXMgJiBTUl9TRCkpCj4gKyAgICAgICAgICAgICAgICAgICAgICAgcmlzY3Zf
-dl92c3RhdGVfc2F2ZShjdXJfdGFzaywgcmVncyk7Cj4gKyAgICAgICB9Cj4gKwo+ICsgICAgICAg
-cmV0dXJuIDA7Cj4gK30KPiArCj4gK3N0YXRpYyB2b2lkIHJpc2N2X2NwdV9yZXN1bWUodm9pZCkK
-PiArewo+ICsgICAgICAgc3RydWN0IHRhc2tfc3RydWN0ICpjdXJfdGFzayA9IGdldF9jdXJyZW50
-KCk7Cj4gKyAgICAgICBzdHJ1Y3QgcHRfcmVncyAqcmVncyA9IHRhc2tfcHRfcmVncyhjdXJfdGFz
-ayk7Cj4gKwo+ICsgICAgICAgaWYgKGhhc19mcHUoKSkKPiArICAgICAgICAgICAgICAgZnN0YXRl
-X3Jlc3RvcmUoY3VyX3Rhc2ssIHJlZ3MpOwo+ICsgICAgICAgaWYgKGhhc192ZWN0b3IoKSkKPiAr
-ICAgICAgICAgICAgICAgcmlzY3Zfdl92c3RhdGVfcmVzdG9yZShjdXJfdGFzaywgcmVncyk7Cj4g
-K30KPiArCj4gK3N0YXRpYyBzdHJ1Y3Qgc3lzY29yZV9vcHMgcmlzY3ZfY3B1X3N5c2NvcmVfb3Bz
-ID0gewo+ICsgICAgICAgLnN1c3BlbmQgICAgICAgID0gcmlzY3ZfY3B1X3N1c3BlbmQsCj4gKyAg
-ICAgICAucmVzdW1lICAgICAgICAgPSByaXNjdl9jcHVfcmVzdW1lLAo+ICt9Owo+ICsKPiArc3Rh
-dGljIGludCBfX2luaXQgcmlzY3ZfY3B1X3N1c3BlbmRfaW5pdCh2b2lkKQo+ICt7Cj4gKyAgICAg
-ICByZWdpc3Rlcl9zeXNjb3JlX29wcygmcmlzY3ZfY3B1X3N5c2NvcmVfb3BzKTsKPiArICAgICAg
-IHJldHVybiAwOwo+ICt9Cj4gK2FyY2hfaW5pdGNhbGwocmlzY3ZfY3B1X3N1c3BlbmRfaW5pdCk7
-Cj4gLS0KPiAyLjM0LjEKPgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJh
-ZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51
-eC1yaXNjdgo=
+Hello,
+
+On Thu, Jul 13, 2023 at 07:13:57PM +0800, Leizhen (ThunderTown) wrote:
+> 
+> 
+> On 2023/7/13 0:15, Eric DeVolder wrote:
+> > The kexec and crash kernel options are provided in the common
+> > kernel/Kconfig.kexec. Utilize the common options and provide
+> > the ARCH_SUPPORTS_ and ARCH_SELECTS_ entries to recreate the
+> > equivalent set of KEXEC and CRASH options.
+> > 
+> > Signed-off-by: Eric DeVolder <eric.devolder@oracle.com>
+> > ---
+> >  arch/x86/Kconfig | 92 ++++++++++--------------------------------------
+> >  1 file changed, 19 insertions(+), 73 deletions(-)
+> > 
+> > diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
+> > index 7422db409770..9767a343f7c2 100644
+> > --- a/arch/x86/Kconfig
+> > +++ b/arch/x86/Kconfig
+> > @@ -2040,88 +2040,34 @@ config EFI_RUNTIME_MAP
+> >  
+> >  source "kernel/Kconfig.hz"
+> >  
+> > -config KEXEC
+> > -	bool "kexec system call"
+> > -	select KEXEC_CORE
+> > -	help
+> > -	  kexec is a system call that implements the ability to shutdown your
+> > -	  current kernel, and to start another kernel.  It is like a reboot
+> > -	  but it is independent of the system firmware.   And like a reboot
+> > -	  you can start any kernel with it, not just Linux.
+> > -
+> > -	  The name comes from the similarity to the exec system call.
+> > -
+> > -	  It is an ongoing process to be certain the hardware in a machine
+> > -	  is properly shutdown, so do not be surprised if this code does not
+> > -	  initially work for you.  As of this writing the exact hardware
+> > -	  interface is strongly in flux, so no good recommendation can be
+> > -	  made.
+> > -
+> > -config KEXEC_FILE
+> > -	bool "kexec file based system call"
+> > -	select KEXEC_CORE
+> > -	select HAVE_IMA_KEXEC if IMA
+> > -	depends on X86_64
+> > -	depends on CRYPTO=y
+> > -	depends on CRYPTO_SHA256=y
+> > -	help
+> > -	  This is new version of kexec system call. This system call is
+> > -	  file based and takes file descriptors as system call argument
+> > -	  for kernel and initramfs as opposed to list of segments as
+> > -	  accepted by previous system call.
+> > +config ARCH_SUPPORTS_KEXEC
+> > +	def_bool y
+> 
+> In v5, Joel Fernandes seems to suggest you change it to the following form:
+
+It's unfortunate that the suggestion did not make it to the mailinglist.
+
+> In arch/Kconfig:
+> +config ARCH_SUPPORTS_KEXEC
+> +	bool
+> 
+> In arch/x86/Kconfig:
+> config X86
+> 	... ...
+> +	select ARCH_SUPPORTS_KEXEC
+> 
+> In arch/arm64/Kconfig:
+> config ARM64
+> 	... ...
+> +	select ARCH_SUPPORTS_KEXEC if PM_SLEEP_SMP
+
+Which might work for this case
+
+> 
+> etc..
+> 
+> You can refer to ARCH_HAS_DEBUG_VIRTUAL.
+> 
+> >  
+> > -config ARCH_HAS_KEXEC_PURGATORY
+> > -	def_bool KEXEC_FILE
+> > +config ARCH_SUPPORTS_KEXEC_FILE
+> > +	def_bool X86_64 && CRYPTO && CRYPTO_SHA256
+> >  
+> > -config KEXEC_SIG
+> > -	bool "Verify kernel signature during kexec_file_load() syscall"
+> > +config ARCH_SELECTS_KEXEC_FILE
+> > +	def_bool y
+> >  	depends on KEXEC_FILE
+> > -	help
+> > +	select HAVE_IMA_KEXEC if IMA
+
+but not this case, at least not this trivially.
+
+Than for consistency it looks better to keep as is.
+
+Thanks
+
+Michal
+
+> >  
+> > -	  This option makes the kexec_file_load() syscall check for a valid
+> > -	  signature of the kernel image.  The image can still be loaded without
+> > -	  a valid signature unless you also enable KEXEC_SIG_FORCE, though if
+> > -	  there's a signature that we can check, then it must be valid.
+> > +config ARCH_HAS_KEXEC_PURGATORY
+> > +	def_bool KEXEC_FILE
+> >  
+> > -	  In addition to this option, you need to enable signature
+> > -	  verification for the corresponding kernel image type being
+> > -	  loaded in order for this to work.
+> > +config ARCH_SUPPORTS_KEXEC_SIG
+> > +	def_bool y
+> >  
+> > -config KEXEC_SIG_FORCE
+> > -	bool "Require a valid signature in kexec_file_load() syscall"
+> > -	depends on KEXEC_SIG
+> > -	help
+> > -	  This option makes kernel signature verification mandatory for
+> > -	  the kexec_file_load() syscall.
+> > +config ARCH_SUPPORTS_KEXEC_SIG_FORCE
+> > +	def_bool y
+> >  
+> > -config KEXEC_BZIMAGE_VERIFY_SIG
+> > -	bool "Enable bzImage signature verification support"
+> > -	depends on KEXEC_SIG
+> > -	depends on SIGNED_PE_FILE_VERIFICATION
+> > -	select SYSTEM_TRUSTED_KEYRING
+> > -	help
+> > -	  Enable bzImage signature verification support.
+> > +config ARCH_SUPPORTS_KEXEC_BZIMAGE_VERIFY_SIG
+> > +	def_bool y
+> >  
+> > -config CRASH_DUMP
+> > -	bool "kernel crash dumps"
+> > -	depends on X86_64 || (X86_32 && HIGHMEM)
+> > -	help
+> > -	  Generate crash dump after being started by kexec.
+> > -	  This should be normally only set in special crash dump kernels
+> > -	  which are loaded in the main kernel with kexec-tools into
+> > -	  a specially reserved region and then later executed after
+> > -	  a crash by kdump/kexec. The crash dump kernel must be compiled
+> > -	  to a memory address not used by the main kernel or BIOS using
+> > -	  PHYSICAL_START, or it must be built as a relocatable image
+> > -	  (CONFIG_RELOCATABLE=y).
+> > -	  For more details see Documentation/admin-guide/kdump/kdump.rst
+> > +config ARCH_SUPPORTS_KEXEC_JUMP
+> > +	def_bool y
+> >  
+> > -config KEXEC_JUMP
+> > -	bool "kexec jump"
+> > -	depends on KEXEC && HIBERNATION
+> > -	help
+> > -	  Jump between original kernel and kexeced kernel and invoke
+> > -	  code in physical address mode via KEXEC
+> > +config ARCH_SUPPORTS_CRASH_DUMP
+> > +	def_bool X86_64 || (X86_32 && HIGHMEM)
+> >  
+> >  config PHYSICAL_START
+> >  	hex "Physical address where the kernel is loaded" if (EXPERT || CRASH_DUMP)
+> > 
+> 
+> -- 
+> Regards,
+>   Zhen Lei
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
