@@ -4,54 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53DD6EE49AB
-	for <linux-riscv@archiver.kernel.org>; Tue, 22 Aug 2023 22:40:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29769EE49A5
+	for <linux-riscv@archiver.kernel.org>; Tue, 22 Aug 2023 23:05:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
-	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ciYL2FJseU7OOcxZBcZQpgMzxCwVF0cgZoDhE83pQUs=; b=ZjA09cWDTscqvb
-	oDoQ0Iw8BsYL9zh9fmhORQ/wAhsNwuy0SXaFlnwVCWx8GUJ3EGFhdiWSCB4jf6ejKmywnj5YJ6kD9
-	dXOBDfd8ImI5n1frsY95ru1M6lXUx+IqY53Ss+GdJKCm/JbxOAthY8FCiO/a95vVWZjCBnA4PkgRg
-	+PKagb7Xm7vdg5Q3CGYKwSkRxi3TUAueODzBKKYmfayWFZgsOfxwxs0PIWJlqerHJW9Y6C6RJr2/k
-	SAU5OVWjm74d8Rn36paHV5zZu1PAxPVn2FO4h0w2fUwAf6urYKCZ5TrWPlk7Lz8F5PcZVWT8FaMrf
-	eNbMA8A5NzrtxmZM0cBw==;
+	List-Owner; bh=NKgflDsnPLzHCsPxAk1gljL7zAHJQdDbRr0YaOMAYiM=; b=D47L8qTcNH9Zs3
+	1MEetegN9gxqXaT5MYHBQnBFoTCror9zyHWkXRvIpqfayYHlPdX56E4Oc9WWKSqiYX2LFHvMFZH7y
+	lLeeZfAEv3rihm6wPq5FacSKux63TyLL7GjszzVcCwn6Th0C2C1pn0+iPLoRy7QAB5Rgpok5LcW8F
+	PZTIPOhGGYnfq9wB/HmxKFxQi9BFGISsLZfJizSe+MB+NUBsi7XlioedQK+Xd5N6vIF0WHcEebuQZ
+	XdJtmo24ViR3ExKTQ8vPUfVN04YwVTshqtXK34I1/BpADAI3hjZ9SDpEA4d65wzKDXB0ttUQ2HsIk
+	sM1L8lNMzqnnHoWweN2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qYa2e-00Gt01-19;
-	Tue, 22 Aug 2023 22:40:04 +0000
-Received: from angie.orcam.me.uk ([2001:4190:8020::34])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qYa2a-00Gsy0-0W
-	for linux-riscv@lists.infradead.org;
-	Tue, 22 Aug 2023 22:40:02 +0000
-Received: by angie.orcam.me.uk (Postfix, from userid 500)
-	id 0B1A792009C; Wed, 23 Aug 2023 00:39:54 +0200 (CEST)
-Received: from localhost (localhost [127.0.0.1])
-	by angie.orcam.me.uk (Postfix) with ESMTP id 0601692009B;
-	Tue, 22 Aug 2023 23:39:53 +0100 (BST)
-Date: Tue, 22 Aug 2023 23:39:53 +0100 (BST)
-From: "Maciej W. Rozycki" <macro@orcam.me.uk>
-To: Andy Chiu <andy.chiu@sifive.com>
-cc: linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>, 
-    greentime.hu@sifive.com, guoren@linux.alibaba.com, bjorn@kernel.org, 
-    conor.dooley@microchip.com, Paul Walmsley <paul.walmsley@sifive.com>, 
-    Albert Ou <aou@eecs.berkeley.edu>, Heiko Stuebner <heiko@sntech.de>, 
-    Guo Ren <guoren@kernel.org>, Vincent Chen <vincent.chen@sifive.com>, 
-    =?UTF-8?Q?Bj=C3=B6rn_T=C3=B6pel?= <bjorn@rivosinc.com>, 
-    linux-kernel@vger.kernel.org
-Subject: Re: [v1, 2/3] RISC-V: vector: export VLENB csr in
- __sc_riscv_v_state
-In-Reply-To: <CABgGipXhfz6iQgf86wj-=e9kzxiJp5N-u7OjL_Aj=wTP1MvRnQ@mail.gmail.com>
-Message-ID: <alpine.DEB.2.21.2308222103310.49340@angie.orcam.me.uk>
-References: <20230816155450.26200-1-andy.chiu@sifive.com> <20230816155450.26200-3-andy.chiu@sifive.com> <alpine.DEB.2.21.2308170158460.8596@angie.orcam.me.uk> <CABgGipXhfz6iQgf86wj-=e9kzxiJp5N-u7OjL_Aj=wTP1MvRnQ@mail.gmail.com>
-User-Agent: Alpine 2.21 (DEB 202 2017-01-01)
+	id 1qYaR9-00Gv8L-2Q;
+	Tue, 22 Aug 2023 23:05:23 +0000
+Received: from mail-ej1-x634.google.com ([2a00:1450:4864:20::634])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1qYaR7-00Gv7M-0J;
+	Tue, 22 Aug 2023 23:05:22 +0000
+Received: by mail-ej1-x634.google.com with SMTP id a640c23a62f3a-9a1681fa868so599569766b.3;
+        Tue, 22 Aug 2023 16:05:18 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20221208; t=1692745517; x=1693350317;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Tl1tPAJsY+6HeQIjw/xN1e5yMc1WTSncxxsEvTVmB8M=;
+        b=J3AHJmH5FH5EWYJY8LWPuAdZqR9BdWQ9dx2Mj9W8vbp91TJ1UXiMgOCaUxI2aniiPB
+         f1leJ9g1sr121JreOI3n55cXPjQ7zA4o+tr/7Xj74XSjU5xhQVWLAfv65/vuYbr+kS+Q
+         /ovh7L4fXD1jtqk7udukzQ4S+YSX4HiRJ6H32pFUdajFJgi8zouIDKUDCUd8weXZcFy5
+         ZQdQmjTtG2icVUMVYzlmKfRIHEZx+3QyGoKxKz9zH+LFSEbggDHgyj35mT8loDz5Q5Ms
+         keThPZVmZN3bIb4H+MsLBJ3MXYDN+EbaYcEO8+DwlnB7dfUrh5WDAO80g84MD1k1IB9r
+         87Og==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1692745517; x=1693350317;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Tl1tPAJsY+6HeQIjw/xN1e5yMc1WTSncxxsEvTVmB8M=;
+        b=YcCDFnFZfBNfPUaL7uWKuZUJe37DTS7tPOLilGRyl7Hv+ny0KNbQZ6cq/4MPjP3dmA
+         V4SiW51CA/4vNjVODxK6wAcoRLM0/vstggghDVv+xZi24aJhfwVZ+x65OwtHSK6WF1iS
+         /kaQTCHa/okVEwkqNVMj/5DweVv4AVtfBAoGnrmRPZvwNjD9StEdvdG66WO6f448Qt+x
+         Cq30SeKSlDrhdAi3U+/RJmWfn6RTESJrK+s6ytYXA+EXKzBG1eC2t/qK5gpOrn4hjJEm
+         ZXMAJ4V5Oi0UmQlxRH52S6WcCf948odde9reJg/XFxASnHiEs65XsEsEUior4716u8Sh
+         2SJQ==
+X-Gm-Message-State: AOJu0YxQb2LGa6mHv8REA2ba388n6nNQRrGdJlLCpm+oKgMXfA3uIIwg
+	Wn47WefzslsjGl1TDQYR71M+Dhbwo7+wV1Zs38E=
+X-Google-Smtp-Source: AGHT+IGc4vnfO5SO2rv82RsYq+TW7/uByZDfWyswWgwX0GX8iv3xt75IkRdZmjAU5aKwi0tBJtJFC8zrCiSUE6S0eJg=
+X-Received: by 2002:a17:906:535d:b0:98e:f13:e908 with SMTP id
+ j29-20020a170906535d00b0098e0f13e908mr9494142ejo.60.1692745517251; Tue, 22
+ Aug 2023 16:05:17 -0700 (PDT)
 MIME-Version: 1.0
+References: <20230714174702.4059100-1-robh@kernel.org>
+In-Reply-To: <20230714174702.4059100-1-robh@kernel.org>
+From: Jassi Brar <jassisinghbrar@gmail.com>
+Date: Tue, 22 Aug 2023 18:05:06 -0500
+Message-ID: <CABb+yY0ZEkU2fEoFcihDM0GPuNBkCJHYXfkq-+bLJY1xtbf5Jw@mail.gmail.com>
+Subject: Re: [PATCH] mailbox: Explicitly include correct DT includes
+To: Rob Herring <robh@kernel.org>
+Cc: Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
+	NXP Linux Team <linux-imx@nxp.com>, Conor Dooley <conor.dooley@microchip.com>, 
+	Daire McNamara <daire.mcnamara@microchip.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Heiko Stuebner <heiko@sntech.de>, 
+	Orson Zhai <orsonzhai@gmail.com>, Baolin Wang <baolin.wang@linux.alibaba.com>, 
+	Chunyan Zhang <zhang.lyra@gmail.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, Thierry Reding <thierry.reding@gmail.com>, 
+	Jonathan Hunter <jonathanh@nvidia.com>, Michal Simek <michal.simek@amd.com>, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-stm32@st-md-mailman.stormreply.com, 
+	linux-tegra@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230822_154000_380255_64A349E4 
-X-CRM114-Status: GOOD (  28.24  )
+X-CRM114-CacheID: sfid-20230822_160521_129863_9456FF8C 
+X-CRM114-Status: GOOD (  11.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,115 +93,25 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 23 Aug 2023, Andy Chiu wrote:
-
-> > > diff --git a/arch/riscv/include/uapi/asm/ptrace.h b/arch/riscv/include/uapi/asm/ptrace.h
-> > > index e17c550986a6..283800130614 100644
-> > > --- a/arch/riscv/include/uapi/asm/ptrace.h
-> > > +++ b/arch/riscv/include/uapi/asm/ptrace.h
-> > > @@ -97,6 +97,7 @@ struct __riscv_v_ext_state {
-> > >       unsigned long vl;
-> > >       unsigned long vtype;
-> > >       unsigned long vcsr;
-> > > +     unsigned long vlenb;
-> > >       void *datap;
-> >
-> >  I think we really ought to make a distinct structure holding the vector
-> > CSR state only, and then have it included as a leading member of a pair of
-> > other structures, one for the signal context with a trailing `datap' (or
-> > `vregp' or `vreg') member and another one for the regset with a flexible
-> > array member of the `char' type, e.g. (actual names TBD):
-> >
-> > struct __riscv_v_csr_state {
-> >         unsigned long vstart;
-> >         unsigned long vl;
-> >         unsigned long vtype;
-> >         unsigned long vcsr;
-> >         unsigned long vlenb;
-> > };
-> >
-> > struct __riscv_v_signal_state {
-> >         struct __riscv_v_csr_state csr;
-> >         void *vregp;
-> > };
-> >
-> > struct __riscv_v_regset_state {
-> >         struct __riscv_v_csr_state csr;
-> >         char vreg[];
-> > };
-> >
-> > This will make the API cleaner and avoid both UB with making accesses
-> > beyond the end of a structure and clutter with an unused entry in core
-> > files and data exchanged via ptrace(2).
-> 
-> Yes, and may I understand why there is a need for having struct
-> __riscv_v_csr_state? Unless there is a need for getting CSRs only, yet
-> vector CSRs are not meaningful without the content of Vector
-> registers.
-
- Well, it's a data type only, it doesn't *have* to be used on it's own 
-just because it exists.
-
-> Personally I'd like to have one universal structure for
-> both ptrace/signal/context-swicth(internal to the kernel), or one for
-> UAPI and the other for kernel internal-used. Because then we don't
-> have to mess with all kinds of access helpers for similar things.
-
- I'm not sure what kind of access helpers you mean, please elaborate.
-
-> Maybe I lost something or just haven't read enough but doesn't it
-> sound confusing that we create two structures in UAPI just for the
-> Vector registers dump?
-
- AFAICT we need two structures, one for the signal context and another for 
-the debug stuff, because we represent the vector context differently in 
-each of these two cases.  I proposed the embedded `__riscv_v_csr_state' 
-structure as a named member, because C doesn't have syntax available for 
-embedding an already defined structure as an anonymous member and I didn't 
-want to make use of a macro (which would then become a part of the uAPI) 
-as means for the same data definition not to be repeated.
-
- Maybe it's not a big deal though.  If we inlined the CSR context in both
-structures, then the definitions could look like:
-
-struct __riscv_v_signal_state {
-	unsigned long vstart;
-	unsigned long vl;
-	unsigned long vtype;
-	unsigned long vcsr;
-	unsigned long vlenb;
-	void *vregp;
-};
-
-struct __riscv_v_regset_state {
-	unsigned long vstart;
-	unsigned long vl;
-	unsigned long vtype;
-	unsigned long vcsr;
-	unsigned long vlenb;
-	char vreg[];
-};
-
-OTOH I'm not fully convinced this is actually cleaner.  And the CSR state 
-is distinct in a way here.
-
- NB I'm only concerned about the user API and ABI here, because once we've 
-set them they'll have been cast in stone.  Conversely we can change an 
-internal representation of the vector context at any time, so if we make a 
-mistake or change our minds for whatever reason, it is not going to be a 
-big deal.
-
- Cc-ing LKML in case someone not subscribed to linux-riscv wanted to chime 
-in.  It's always a good idea to cc LKML on patch submissions anyway.
-
-  Maciej
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gRnJpLCBKdWwgMTQsIDIwMjMgYXQgMTI6NDfigK9QTSBSb2IgSGVycmluZyA8cm9iaEBrZXJu
+ZWwub3JnPiB3cm90ZToKPgo+IFRoZSBEVCBvZl9kZXZpY2UuaCBhbmQgb2ZfcGxhdGZvcm0uaCBk
+YXRlIGJhY2sgdG8gdGhlIHNlcGFyYXRlCj4gb2ZfcGxhdGZvcm1fYnVzX3R5cGUgYmVmb3JlIGl0
+IGFzIG1lcmdlZCBpbnRvIHRoZSByZWd1bGFyIHBsYXRmb3JtIGJ1cy4KPiBBcyBwYXJ0IG9mIHRo
+YXQgbWVyZ2UgcHJlcHBpbmcgQXJtIERUIHN1cHBvcnQgMTMgeWVhcnMgYWdvLCB0aGV5Cj4gInRl
+bXBvcmFyaWx5IiBpbmNsdWRlIGVhY2ggb3RoZXIuIFRoZXkgYWxzbyBpbmNsdWRlIHBsYXRmb3Jt
+X2RldmljZS5oCj4gYW5kIG9mLmguIEFzIGEgcmVzdWx0LCB0aGVyZSdzIGEgcHJldHR5IG11Y2gg
+cmFuZG9tIG1peCBvZiB0aG9zZSBpbmNsdWRlCj4gZmlsZXMgdXNlZCB0aHJvdWdob3V0IHRoZSB0
+cmVlLiBJbiBvcmRlciB0byBkZXRhbmdsZSB0aGVzZSBoZWFkZXJzIGFuZAo+IHJlcGxhY2UgdGhl
+IGltcGxpY2l0IGluY2x1ZGVzIHdpdGggc3RydWN0IGRlY2xhcmF0aW9ucywgdXNlcnMgbmVlZCB0
+bwo+IGV4cGxpY2l0bHkgaW5jbHVkZSB0aGUgY29ycmVjdCBpbmNsdWRlcy4KPgo+IFNpZ25lZC1v
+ZmYtYnk6IFJvYiBIZXJyaW5nIDxyb2JoQGtlcm5lbC5vcmc+Cj4KSSB0aG91Z2h0IEkgd2FzIHRv
+IHBpY2sgdGhlIHBhdGNoLiBCdXQgSSBzZWUgeW91IGludGVuZCB0byBkbyBpdC4gTnAuCgpBY2tl
+ZC1ieTogSmFzc2kgQnJhciA8amFzc2lzaW5naGJyYXJAZ21haWwuY29tPgoKdGhhbmtzCgpfX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBt
+YWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMu
+aW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
