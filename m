@@ -4,47 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45CB2EE4993
-	for <linux-riscv@archiver.kernel.org>; Tue, 22 Aug 2023 17:01:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D598EE4993
+	for <linux-riscv@archiver.kernel.org>; Tue, 22 Aug 2023 17:05:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7+I9dsZ9tic1bdpn94UIIxPbIHKKOuFgaWwYMn0GSZ0=; b=WgTziBhrcgafv7SAs3li/vmdiJ
-	9rskm+zUCLsAnkAWRaF0uivvvOUPmDcmzO+oW/yHGzjOLJ88++3O1/tJ0/44EnrLuUIpe7pDPGWp4
-	wfYvhzPi7W3GfKhSyGO5XO3ejytTmheHdSo1JRNW8TE6NWhnGlbPPNnxUqmguIDkMs0qjrn70xnvV
-	aSYuGzIGslwwunV40v0I54+xRzef17Fbg5FS1SrI+AoRtdJBDD4h+JseaEcOoociGDIcZj74YQo6U
-	nGjCXcq2/uZVCQcCaKolT5SqFnbcDsT6Xrt1iuWEFT334hLOxBtxIXS5WUXZzZbBukZWbFnB+KMdy
-	+Fxg9GZQ==;
+	bh=tYzNvyNlH9L+SujR9C8cb/+gWczV1geluRtD0QHhbRg=; b=ZrQY2a+kMdIzVcgIkHTYhqms/E
+	Sqvcblegqnnf1fZAtB0y+OcFC65MIABwORVJFzylDibwoY5f7mIhRS/vjdX+2HG4VbHMOScd44eEu
+	TkH3tNmhweJ7YCpBtAi5dpSFIqj0kSZ74ZiedrM9fm05C1UuOvs/KszW7P7w12kFNeCA/lVkxVFaV
+	6MZtjqvwVxL3hRjID6KYK0714THwO3Uln0NsMdW7jrrz5JUndSnCTdlt1eQ8EDkh9Pw8V3cRpl2yP
+	vcWqm66oTPfIICTgitFRFcfOSpc+Z4QZSQEu+YUMdJkekZPwmU6fvmpXyKP3PLUjPE84fAKVx3s6K
+	Fj40o7IA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qYUlC-00GYAH-06;
-	Tue, 22 Aug 2023 17:01:42 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1qYUow-00GYam-1p;
+	Tue, 22 Aug 2023 17:05:34 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qYUl5-00GY7R-2j;
-	Tue, 22 Aug 2023 17:01:37 +0000
+	id 1qYUos-00GYYq-0Z;
+	Tue, 22 Aug 2023 17:05:31 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 0B18C6228D;
-	Tue, 22 Aug 2023 17:01:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 74E4BC433C7;
-	Tue, 22 Aug 2023 17:01:28 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 7AE5061F83;
+	Tue, 22 Aug 2023 17:05:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C885FC433C8;
+	Tue, 22 Aug 2023 17:05:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1692723694;
-	bh=4CwJzH4TL2Y8EXaFoTYYQXYVEx5uhhyOhGKEBL5M5a4=;
+	s=k20201202; t=1692723928;
+	bh=+/XUXGpY2ACCPD3YzzrpK3JtSQqnOrDZMR5OCAEhgDg=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=nwIELk0L965ZZxRQU/I6AfIxI41pPfoJ/8ilmpqMMDxttWnkizigjluGn+Ari53wx
-	 MqNyiNJuURRYl2rCuLNJJ2Cs85l4nwq7Q2vWycN3a3XFaBaWvpt/KvtYd4TWJtE93y
-	 2mhcqEGqeiz2SkybCYJmTOdlsX5/UNDCZXZ+F5YxZ6vS1R+LOWxtY7m0pc+kMGPPlJ
-	 kPp/83wuyHdo3Irho6uo8xb6TPcAKTt8iUzDXu8bbnYEB9weodOZjJ9UCKfJORCNeV
-	 gnjnzeyg+Tps+7sTo22OVIrcM6LgodrBWVlbjMG9YcUoS05XXyscb+z/gcliAOGlOk
-	 ceFShSQCdJEsg==
-Date: Tue, 22 Aug 2023 18:01:25 +0100
+	b=G928dxMHkk1xDk/SX1dNnL+spqkcZRuq0C5Z40fu1Tb9wObRKQhtFzT0ipOQBh80X
+	 M0BVrVcY8VmxczuqKrntaU8eZ0hqbR8EE1e7UAwRJz7snKD2v4GCMfQ9hgFuv0aBvc
+	 38dD7dDK0lef3oOPG14kshG+9z1JoNQxNiubdga4OgfcfWS0/Ve3yY/2BVaHKd3pvN
+	 cYaVOE7zu3UopoUb04Il5Y+Q0rXflj/XshyiU6vP1UN0j8lgReDw7ES6DUIaCc0AWt
+	 YsDqY20pamlKghLyhjkFUTLoZ7KEg8lQf5JmsfEUOmiIbu47LoB18jET0Zcw96dt7s
+	 2Z35AOyitp5nQ==
+Date: Tue, 22 Aug 2023 18:05:19 +0100
 From: Mark Brown <broonie@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>
 Cc: Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
@@ -68,19 +68,19 @@ Cc: Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
 	linux-arch@vger.kernel.org, linux-mm@kvack.org,
 	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v4 18/36] arm64/gcs: Context switch GCS state for EL0
-Message-ID: <699c1105-df8e-4a08-ae6c-8c01a13e4a3d@sirena.org.uk>
+Subject: Re: [PATCH v4 21/36] arm64/mm: Implement map_shadow_stack()
+Message-ID: <007e1239-1258-4b89-b5db-a1c505e7aff5@sirena.org.uk>
 References: <20230807-arm64-gcs-v4-0-68cfa37f9069@kernel.org>
- <20230807-arm64-gcs-v4-18-68cfa37f9069@kernel.org>
- <ZNZUerbrJmzqZzJw@arm.com>
- <28a61b5f-db65-427e-8e92-60dd61549da5@sirena.org.uk>
- <ZOTjnmwwZ+iMsi6Y@arm.com>
+ <20230807-arm64-gcs-v4-21-68cfa37f9069@kernel.org>
+ <ZNZkADhSnodXuH5F@arm.com>
+ <9c722954-8f30-425e-a0a4-6edad463620f@sirena.org.uk>
+ <ZOTlBpAbSX6TSZzW@arm.com>
 MIME-Version: 1.0
-In-Reply-To: <ZOTjnmwwZ+iMsi6Y@arm.com>
+In-Reply-To: <ZOTlBpAbSX6TSZzW@arm.com>
 X-Cookie: MIT:
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230822_100135_979088_F9086395 
-X-CRM114-Status: GOOD (  22.98  )
+X-CRM114-CacheID: sfid-20230822_100530_263967_D36A4A09 
+X-CRM114-Status: GOOD (  13.93  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,63 +92,53 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4890064729955957435=="
+Content-Type: multipart/mixed; boundary="===============8456130560954540842=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============4890064729955957435==
+--===============8456130560954540842==
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="/y5R8A5W/qG63MLx"
+	protocol="application/pgp-signature"; boundary="exkeVuAAvGvWqCpS"
 Content-Disposition: inline
 
 
---/y5R8A5W/qG63MLx
+--exkeVuAAvGvWqCpS
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-On Tue, Aug 22, 2023 at 05:34:38PM +0100, Catalin Marinas wrote:
-> On Wed, Aug 16, 2023 at 07:15:53PM +0100, Mark Brown wrote:
+On Tue, Aug 22, 2023 at 05:40:38PM +0100, Catalin Marinas wrote:
+> On Fri, Aug 18, 2023 at 06:08:52PM +0100, Mark Brown wrote:
 
-> > Right, it's for the GCS memory rather than the registers.  I'm fairly
-> > sure it's excessive but but was erring on the side of caution until I
-> > have convinced myself that the interactions between GCS barriers and
-> > regular barriers were doing the right thing, until we have physical
-> > implementations to contend with I'd guess the practical impact will be
-> > minimal.
+> > mprotect() uses arch_validate_flags() which we're already having cover
+> > this so it's already covered.
 
-> Well, I'd say either we are clear about why it's (not) needed or we ask
-> the architects to clarify the spec. I haven't checked your latest
-> series but in principle I don't like adding barriers just because we are
-> not sure they are needed (and I don't think having hardware eventually
-> changes this).
+> I searched the patches and there's no change to the arm64
+> arch_validate_flags(). Maybe I missed it.
 
-I should probably also mention that another part of my thinking was that
-when we implement GCS for EL1 we'll need to ensure that everything is
-synced during the pivot of the EL1 GCS (each EL needs an independent
-GCS).  We won't be able to rely on having an ERET there so it's going to
-have more stringent requirements, I was partly punting to think things
-through fully there.
+It's in v5, the update to arch_validate_flags() was one of your comments
+=66rom another patch in the series.
 
---/y5R8A5W/qG63MLx
+--exkeVuAAvGvWqCpS
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmTk6eQACgkQJNaLcl1U
-h9A05Qf/V5pH2tcF7cng/WQnlzNdmdQF2NZIRZuZVVzKe1JQ/d5SGT8sP/2ifM6m
-wN2P+4yqnMpjdMltFNtMpcnsMQDx7U6kGEmfdBOpr7tmr3dLxpE9snGGTiwRWUtu
-Th+Jz7B9omQ+w4wFZLCcZZtpiQcjpDwzqiW8ubZdoqdvyGOSkRO9xx6P47d07ter
-dmAEKsDiEQbU/2eFycrJRA85aSwx6Kv1tAC3ZPjigcmFnCGqomM3VzJ0QZNCsMTz
-SiUY5GKoO9gk9JPNd4c57jhzWikGGoFFzivLbal/hPfr8MzeIIrVCR7Jxm4ZNRkX
-zs3fDy9ePEheBAThiikuE6F7aPriRw==
-=VUaf
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmTk6s4ACgkQJNaLcl1U
+h9DssAf9EW4nFH7RlADvE4EkIEjYj6kUziCf6Hh2iZGyNLK3aFRxnL1nY1u1zP6j
+q/ACfgdD1+OLEnvbezfXu1bJ6avmKqmnJHnkP7zF5C/63tXoF8IUUwodZXV4d3DP
+54ezvT4yQ8Yu5AxpmLPCItJkHbeLAezr41EbEpcJWSfkAnXqhT/cO7JREhVKH/3f
+czlWXKNy8c+vwIXC7x7mRKOCeBcJ4mofi6i5T8JDYcL1b59ItFYO7zfcB1H/nPh7
+qV10AxG61aXsJoiboml1UjyOA8+ZaiLpjgGmxZ1YEZSF3C+TVw2Ul5Z4yHtgdVdA
+FQHfQawXdzOTgnqQG2uCel7CjV9LDQ==
+=ME24
 -----END PGP SIGNATURE-----
 
---/y5R8A5W/qG63MLx--
+--exkeVuAAvGvWqCpS--
 
 
---===============4890064729955957435==
+--===============8456130560954540842==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -159,5 +149,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============4890064729955957435==--
+--===============8456130560954540842==--
 
