@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30F7FEE49AE
-	for <linux-riscv@archiver.kernel.org>; Tue, 22 Aug 2023 14:06:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC4A5EE4993
+	for <linux-riscv@archiver.kernel.org>; Tue, 22 Aug 2023 14:06:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=r3lSwfk6CHF9p/LnPVAVRYOxFinPN8g2ooPENmV4a28=; b=TithCRO+X1Yf9C
-	S6CD65o+ziRhMUh+ohTdv67y0DtUQpGg09aBee8R9GkBeB8T6/ywJfvx3jeomDkdlFJZ6OO/4zKmj
-	jtJZTFSOCQIEoZTMzU31QX773bIl5gfhhT7srvgy/gJBMbLOZu2WFYtHLW5cylO3eS8UeEpER1OED
-	rfa5xPR544MPIzoIYliVxlHJp3sNIeFfpds2ZRNQ4rl2vlCV6OWojro67CiTGKlVxtx+H3UTIy3JN
-	qPUmbWa7/08fEqqzh5uxJNOm50b6vjJGgSgMZ1MKEy5AIaKhE4PN3rihURmJZoPtNRyEK6ni6XMJU
-	XdsyKTBGzBDRccrytRdw==;
+	List-Owner; bh=pwqdkDWRCwiuErHvO3W6cxSjCUfpKpuZHAA4rXc1SSE=; b=ciZHnG6OUaQkya
+	r3bLkqGsw+ditgGZ5DqFC7slt90Ayfg6DR/xV3lXJ6irqLeOFWebPIEh8oJ5g//TUgCiS37ZWT7Rf
+	1vLrKklkw6In5mxqaqHpkmyHDQujuvh7yTuhSou2vDopRQl2q59ZJ9nBYgbL2XGYmzucCpaCuy3tM
+	+0QneZn0IEV1XOOH0zAgSolUXPy095gs+XhALls1AsA1DojzmeG9107QuEzFOIVW689x74prQVs0i
+	nkWEddqgPXZ6jZfWL+85SRMA5TRPVS9t+LAFDzDyAq2dE+P40QveK+MauC6l5JAbRN0XBYLfFPZ+m
+	hI9+/+yyMJLiizlB31BQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qYS1b-00G91H-14;
-	Tue, 22 Aug 2023 14:06:27 +0000
+	id 1qYS1t-00G9JS-2X;
+	Tue, 22 Aug 2023 14:06:45 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qYS0p-00G8DC-1s;
-	Tue, 22 Aug 2023 14:05:42 +0000
+	id 1qYS19-00G8Xf-2u;
+	Tue, 22 Aug 2023 14:06:01 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id ECC3C652DB;
-	Tue, 22 Aug 2023 14:05:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 85016C433CA;
-	Tue, 22 Aug 2023 14:05:32 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 4C09E65715;
+	Tue, 22 Aug 2023 14:05:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 41D76C433CA;
+	Tue, 22 Aug 2023 14:05:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1692713138;
-	bh=DpZhswk3pFnI/AW797F4UsIB+Gb0Tunks8tC2WEtzQY=;
+	s=k20201202; t=1692713158;
+	bh=Go+3eKanODPQVKnV1QnMIrC75/lXwO2PkPnkMfOn2oA=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=KI9BiFgEPLnl0qQJLEI+qSuGWe/L9LZyjFgjB9jr5fxGDXI9pth2VTDN7uPhQohQr
-	 FPROvWnamDdcixi9r9PLXzgy7fBu1IASt0nBftU/a+CrePaR4k+uwV6Qm3QLV3wceE
-	 G+xRSjpd3Febv1tw1YY/fPGfGAjXXprlmT+5ZL9QxOqpTNB4/vpKMo8r8N42EhhTdn
-	 dcxnC2nJXk0dlJSiE/jbqdwc1gqpHyqUJi3f1xxdvdaYKlle8unIsiODLk1W8yFPNE
-	 ty8akJsFZuQUWrp7A/ufu8MjgvLkTqGhrMJnBxxnMmfU043269sIcHsmKZPjBcPDHW
-	 riyQrtp6iKh8g==
+	b=gP9A+b1HzhHJiT1F4bdDZzJB+Kw0p+eXo0v/P+dPIVFOsxYSgHcC0CP9RO6rXtxWR
+	 hMKxtPAnwCepSywokGXiKPaFD05t8txpPLEP64kXEVWLBqUvUjJRy9oUPmIFRia1r4
+	 b+uutZgItL7Z5SFOuIQynsUG5fILGtGaqNntU04ub0rJ3bQxNrF8WprpJzNyzlFdv6
+	 /9lRarB/6pp5xQ2/ef9T8/uTNBwOqyVmBimCA6JBAfH13lvzeoPZf6jkVFTEZBUM8/
+	 N/VijmrLALPIiriMal7i4Ilox18fjOQl0dhXD4e/jA75oFmKWm+RhgrRKFkQLUQTFa
+	 32TBOYqFOhLzg==
 From: Mark Brown <broonie@kernel.org>
-Date: Tue, 22 Aug 2023 14:56:58 +0100
-Subject: [PATCH v5 25/37] arm64/ptrace: Expose GCS via ptrace and core
- files
+Date: Tue, 22 Aug 2023 14:57:01 +0100
+Subject: [PATCH v5 28/37] kselftest/arm64: Add GCS as a detected feature in
+ the signal tests
 MIME-Version: 1.0
-Message-Id: <20230822-arm64-gcs-v5-25-9ef181dd6324@kernel.org>
+Message-Id: <20230822-arm64-gcs-v5-28-9ef181dd6324@kernel.org>
 References: <20230822-arm64-gcs-v5-0-9ef181dd6324@kernel.org>
 In-Reply-To: <20230822-arm64-gcs-v5-0-9ef181dd6324@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
@@ -71,20 +71,20 @@ Cc: "H.J. Lu" <hjl.tools@gmail.com>,
  linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-riscv@lists.infradead.org, Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.13-dev-034f2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4259; i=broonie@kernel.org;
- h=from:subject:message-id; bh=DpZhswk3pFnI/AW797F4UsIB+Gb0Tunks8tC2WEtzQY=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBk5MAD4UAuvxPCD+2JS/1OYO1FSVdbr2FHfLZY2xqB
- xvsTtfOJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZOTAAwAKCRAk1otyXVSH0Lv4B/
- 90Fqj+pTPrC/kAVg7I0H0jlhgLYerpXbxl/3W5uR9/E9BxRJzwjqwMKuibxpRI18gc7vazYb560u+o
- TdllO1UdCgUHyuyYTi+zHu2FRjhPDDJVrp9LnGebV9afCbvZtI3iAqIV30KRZTT9iXWXq5NSxNRCFf
- sHq9rxGA4snGp0pKG4RnYt4HWH4KHBeTucSGJEGOt1S2LLEsk0AmjNO3BjP4gpY2IccsNGfnp6Zni0
- 6U8db/6Vp/yjXq4JsER/LNeCm9rUfwKaPFDYoBLgpOFlRFNDYa+Ou7wBmbn/naBnp2Y2+G3sWdCDU8
- /PB6fkyY7lP10BIhQnIlA9YhiY9WN3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1828; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=Go+3eKanODPQVKnV1QnMIrC75/lXwO2PkPnkMfOn2oA=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBk5MAFQYUTz//x5ckqwC2O/FhWGiN1vKBvthv6xsqS
+ x0RUTwqJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZOTABQAKCRAk1otyXVSH0EgYB/
+ 93+Qd6TuAOmA1X1TNTKSnDg5urc26kXvTXggBZyppzFFhBTKiFjvBnXDxlq6IbK0FnJIHL9Stz+fqh
+ MTf6riUSqW1bQkCHuGFXXtKwq4P7Nv4qAeJOXoj2gtuDfnQNzBuLHvewcxbyUpaH74WocVn4s5k53F
+ a29PA6NMFb3UsfeH0k+h3WehfkJe6ph8o7uHn0h2lgRjEfWdN8BFLOsY69BIpulERd0AToy1zxOVlB
+ 1vMEq71vTGn446QjiJPAR5nDEOxfYBU3KUcsTUOUMCWPYHp+hYlTLMcF+NeKiLoqv1/4I+NKaD0NO/
+ xNrl5pV/0cJ8ej3Lc5v+Fxqw7JOK9A
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230822_070539_752946_C5C1C415 
-X-CRM114-Status: GOOD (  18.23  )
+X-CRM114-CacheID: sfid-20230822_070600_041107_15E1A625 
+X-CRM114-Status: GOOD (  12.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,140 +101,56 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Provide a new register type NT_ARM_GCS reporting the current GCS mode
-and pointer for EL0.  Due to the interactions with allocation and
-deallocation of Guarded Control Stacks we do not permit any changes to
-the GCS mode via ptrace, only GCSPR_EL0 may be changed.
+In preparation for testing GCS related signal handling add it as a feature
+we check for in the signal handling support code.
 
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- arch/arm64/include/uapi/asm/ptrace.h |  8 +++++
- arch/arm64/kernel/ptrace.c           | 59 ++++++++++++++++++++++++++++++++++++
- include/uapi/linux/elf.h             |  1 +
- 3 files changed, 68 insertions(+)
+ tools/testing/selftests/arm64/signal/test_signals.h       | 2 ++
+ tools/testing/selftests/arm64/signal/test_signals_utils.c | 3 +++
+ 2 files changed, 5 insertions(+)
 
-diff --git a/arch/arm64/include/uapi/asm/ptrace.h b/arch/arm64/include/uapi/asm/ptrace.h
-index 7fa2f7036aa7..0f39ba4f3efd 100644
---- a/arch/arm64/include/uapi/asm/ptrace.h
-+++ b/arch/arm64/include/uapi/asm/ptrace.h
-@@ -324,6 +324,14 @@ struct user_za_header {
- #define ZA_PT_SIZE(vq)						\
- 	(ZA_PT_ZA_OFFSET + ZA_PT_ZA_SIZE(vq))
- 
-+/* GCS state (NT_ARM_GCS) */
-+
-+struct user_gcs {
-+	__u64 features_enabled;
-+	__u64 features_locked;
-+	__u64 gcspr_el0;
-+};
-+
- #endif /* __ASSEMBLY__ */
- 
- #endif /* _UAPI__ASM_PTRACE_H */
-diff --git a/arch/arm64/kernel/ptrace.c b/arch/arm64/kernel/ptrace.c
-index 187aa2b175b4..308a8a149717 100644
---- a/arch/arm64/kernel/ptrace.c
-+++ b/arch/arm64/kernel/ptrace.c
-@@ -33,6 +33,7 @@
- #include <asm/cpufeature.h>
- #include <asm/debug-monitors.h>
- #include <asm/fpsimd.h>
-+#include <asm/gcs.h>
- #include <asm/mte.h>
- #include <asm/pointer_auth.h>
- #include <asm/stacktrace.h>
-@@ -1408,6 +1409,51 @@ static int tagged_addr_ctrl_set(struct task_struct *target, const struct
- }
- #endif
- 
-+#ifdef CONFIG_ARM64_GCS
-+static int gcs_get(struct task_struct *target,
-+		   const struct user_regset *regset,
-+		   struct membuf to)
-+{
-+	struct user_gcs user_gcs;
-+
-+	if (target == current)
-+		gcs_preserve_current_state();
-+
-+	user_gcs.features_enabled = target->thread.gcs_el0_mode;
-+	user_gcs.features_locked = target->thread.gcs_el0_locked;
-+	user_gcs.gcspr_el0 = target->thread.gcspr_el0;
-+
-+	return membuf_write(&to, &user_gcs, sizeof(user_gcs));
-+}
-+
-+static int gcs_set(struct task_struct *target, const struct
-+		   user_regset *regset, unsigned int pos,
-+		   unsigned int count, const void *kbuf, const
-+		   void __user *ubuf)
-+{
-+	int ret;
-+	struct user_gcs user_gcs;
-+
-+	ret = user_regset_copyin(&pos, &count, &kbuf, &ubuf, &user_gcs, 0, -1);
-+	if (ret)
-+		return ret;
-+
-+	if (user_gcs.features_enabled & ~PR_SHADOW_STACK_SUPPORTED_STATUS_MASK)
-+		return -EINVAL;
-+
-+	/* Do not allow enable via ptrace */
-+	if ((user_gcs.features_enabled & PR_SHADOW_STACK_ENABLE) &&
-+	    !!(target->thread.gcs_el0_mode & PR_SHADOW_STACK_ENABLE))
-+		return -EBUSY;
-+
-+	target->thread.gcs_el0_mode = user_gcs.features_enabled;
-+	target->thread.gcs_el0_locked = user_gcs.features_locked;
-+	target->thread.gcspr_el0 = user_gcs.gcspr_el0;
-+
-+	return 0;
-+}
-+#endif
-+
- enum aarch64_regset {
- 	REGSET_GPR,
- 	REGSET_FPR,
-@@ -1436,6 +1482,9 @@ enum aarch64_regset {
- #ifdef CONFIG_ARM64_TAGGED_ADDR_ABI
- 	REGSET_TAGGED_ADDR_CTRL,
- #endif
-+#ifdef CONFIG_ARM64_GCS
-+	REGSET_GCS,
-+#endif
+diff --git a/tools/testing/selftests/arm64/signal/test_signals.h b/tools/testing/selftests/arm64/signal/test_signals.h
+index 1e6273d81575..7ada43688c02 100644
+--- a/tools/testing/selftests/arm64/signal/test_signals.h
++++ b/tools/testing/selftests/arm64/signal/test_signals.h
+@@ -35,6 +35,7 @@ enum {
+ 	FSME_BIT,
+ 	FSME_FA64_BIT,
+ 	FSME2_BIT,
++	FGCS_BIT,
+ 	FMAX_END
  };
  
- static const struct user_regset aarch64_regsets[] = {
-@@ -1586,6 +1635,16 @@ static const struct user_regset aarch64_regsets[] = {
- 		.set = tagged_addr_ctrl_set,
- 	},
- #endif
-+#ifdef CONFIG_ARM64_GCS
-+	[REGSET_GCS] = {
-+		.core_note_type = NT_ARM_GCS,
-+		.n = sizeof(struct user_gcs) / sizeof(u64),
-+		.size = sizeof(u64),
-+		.align = sizeof(u64),
-+		.regset_get = gcs_get,
-+		.set = gcs_set,
-+	},
-+#endif
+@@ -43,6 +44,7 @@ enum {
+ #define FEAT_SME		(1UL << FSME_BIT)
+ #define FEAT_SME_FA64		(1UL << FSME_FA64_BIT)
+ #define FEAT_SME2		(1UL << FSME2_BIT)
++#define FEAT_GCS		(1UL << FGCS_BIT)
+ 
+ /*
+  * A descriptor used to describe and configure a test case.
+diff --git a/tools/testing/selftests/arm64/signal/test_signals_utils.c b/tools/testing/selftests/arm64/signal/test_signals_utils.c
+index 0dc948db3a4a..89ef95c1af0e 100644
+--- a/tools/testing/selftests/arm64/signal/test_signals_utils.c
++++ b/tools/testing/selftests/arm64/signal/test_signals_utils.c
+@@ -30,6 +30,7 @@ static char const *const feats_names[FMAX_END] = {
+ 	" SME ",
+ 	" FA64 ",
+ 	" SME2 ",
++	" GCS ",
  };
  
- static const struct user_regset_view user_aarch64_view = {
-diff --git a/include/uapi/linux/elf.h b/include/uapi/linux/elf.h
-index 0c8cf359ea5b..00f698a2ab17 100644
---- a/include/uapi/linux/elf.h
-+++ b/include/uapi/linux/elf.h
-@@ -438,6 +438,7 @@ typedef struct elf64_shdr {
- #define NT_ARM_SSVE	0x40b		/* ARM Streaming SVE registers */
- #define NT_ARM_ZA	0x40c		/* ARM SME ZA registers */
- #define NT_ARM_ZT	0x40d		/* ARM SME ZT registers */
-+#define NT_ARM_GCS	0x40e		/* ARM GCS state */
- #define NT_ARC_V2	0x600		/* ARCv2 accumulator/extra registers */
- #define NT_VMCOREDD	0x700		/* Vmcore Device Dump Note */
- #define NT_MIPS_DSP	0x800		/* MIPS DSP ASE registers */
+ #define MAX_FEATS_SZ	128
+@@ -329,6 +330,8 @@ int test_init(struct tdescr *td)
+ 			td->feats_supported |= FEAT_SME_FA64;
+ 		if (getauxval(AT_HWCAP2) & HWCAP2_SME2)
+ 			td->feats_supported |= FEAT_SME2;
++		if (getauxval(AT_HWCAP2) & HWCAP2_GCS)
++			td->feats_supported |= FEAT_GCS;
+ 		if (feats_ok(td)) {
+ 			if (td->feats_required & td->feats_supported)
+ 				fprintf(stderr,
 
 -- 
 2.30.2
