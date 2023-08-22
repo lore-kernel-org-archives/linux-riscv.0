@@ -4,83 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2251CEE4996
-	for <linux-riscv@archiver.kernel.org>; Tue, 22 Aug 2023 16:17:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC102EE49A3
+	for <linux-riscv@archiver.kernel.org>; Tue, 22 Aug 2023 16:35:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=R+sTxJnM0D8e38DLRURUOxHJwaz9BZG3daaIlioL8z0=; b=VAO0IoxoWV4Qcc
-	ie018KHdpJ5GKcb5nxCYIkXgfpknzlIOxUIY27qlK0I2ESvIBIAyUdiZE4ceBQoSGRHHoXcHG4gfV
-	sDrb0ABTBz3jUJh30Zcv+O47xWZPO+BRyIl7MHagVpks/jIXNaEq0j1Jp37csUue194GMRGRWLns0
-	GvYYWZe2pgO1BZ9NpsZm37JpB8h78RK2sFxPuXK383TnM3EZXeXEFYanll5aRKmdU9o6bk6FzvbvY
-	+W8RTk5LGI3vSVnVBxVCJx2l58jtaAiQo5xDKJAdpZB+oNhEBVqOtnLMx4HM3TRwz5+FORTrdhmUb
-	c03xaCa7Bykqa7I8HOyg==;
+	List-Owner; bh=+DtCssKc/2BmnGuRz0NPq0ayNijQI8qLFMrzA98rWyk=; b=N7LockKVrOmclR
+	T86HirluUtiCaIQ5XLTGbrUeJ7gz1dEnFFqqrCHlxeJC1eNvUw5jhb9XfKx5j1YaSD96XKWnRtpjV
+	w1AFtHmLGS5gdHplpdcLgzdiYT8cPnAcu3/jCWke3sOCkjBRNyP8ALNTui/ZZMHeDEOlWE8hhwsjM
+	fqvMh/ww3pHJaqobdlYMiHZd96NxXUUVY6qVLWR6XtOhG32m6etd2mGhzok/e0o2V3Ca1fIe6Ay2a
+	sbMGGuogD9rXMUnRpLW3aPelPdcMTWofNgZQMfUoY+hkfQLaaBD+RKMq0RqjASUgkRI3VEOQ2y5tB
+	1zt5XMi87keZx6isosHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qYU4A-00GSpR-2g;
-	Tue, 22 Aug 2023 16:17:14 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1qYULS-00GVZC-0D;
+	Tue, 22 Aug 2023 16:35:06 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qYU3d-00GSLP-01;
-	Tue, 22 Aug 2023 16:16:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:From:Date:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=k7QVCshRu5lL7UTqUOwjV37PDs1L0Wntvb212mBWA6o=; b=bcoe3uHpmbAAlyhxPyVcxBosca
-	771wcx/KCM7kMTJkyNz55FbQ17Nv7mR+B9TerQyS6Uvb+ckY6xmxsc2QDlaKiPE+gmBRhd2UkNmDj
-	VbyL78fddJl8w0gHlsPbwQJFpat4wrfe+ml5Yx9BGlL1lX0h9CPo6zK7Qbrnknq4NS0rZLXzGi9Kz
-	TYkA4QK1s+hgYoy3/DBgGfo4WGL60C/gKFifXW29ToBqk4pvCrmBcp9+QCcagEu+l6p/DKLyIkyfP
-	8OZM6hghSlcZwu/CMELI/RfcuNW4gLmDcPwlUTmb662xQu2qZMCgZNVQdcKQq1LfKIRBEpZ6jse8T
-	pGT2GmqQ==;
-Received: from frasgout.his.huawei.com ([185.176.79.56])
-	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qYU3W-002rmT-0j;
-	Tue, 22 Aug 2023 16:16:39 +0000
-Received: from lhrpeml500005.china.huawei.com (unknown [172.18.147.206])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4RVZ9f3gsrz6J6cZ;
-	Wed, 23 Aug 2023 00:12:06 +0800 (CST)
-Received: from localhost (10.202.227.76) by lhrpeml500005.china.huawei.com
- (7.191.163.240) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.31; Tue, 22 Aug
- 2023 17:16:28 +0100
-Date: Tue, 22 Aug 2023 17:16:27 +0100
-From: Jonathan Cameron <Jonathan.Cameron@Huawei.com>
-To: Li Zetao <lizetao1@huawei.com>
-CC: <broonie@kernel.org>, <chin-ting_kuo@aspeedtech.com>, <clg@kaod.org>,
-	<joel@jms.id.au>, <andrew@aj.id.au>, <florian.fainelli@broadcom.com>,
-	<rjui@broadcom.com>, <sbranden@broadcom.com>,
-	<bcm-kernel-feedback-list@broadcom.com>, <fancer.lancer@gmail.com>,
-	<olteanv@gmail.com>, <neil.armstrong@linaro.org>, <khilman@baylibre.com>,
-	<jbrunet@baylibre.com>, <martin.blumenstingl@googlemail.com>,
-	<conor.dooley@microchip.com>, <daire.mcnamara@microchip.com>,
-	<matthias.bgg@gmail.com>, <angelogioacchino.delregno@collabora.com>,
-	<avifishman70@gmail.com>, <tmaimon77@gmail.com>, <tali.perry1@gmail.com>,
-	<venture@google.com>, <yuenn@google.com>, <benjaminfair@google.com>,
-	<linus.walleij@linaro.org>, <heiko@sntech.de>, <linux-spi@vger.kernel.org>,
-	<linux-aspeed@lists.ozlabs.org>, <openbmc@lists.ozlabs.org>,
-	<linux-arm-kernel@lists.infradead.org>,
-	<linux-rpi-kernel@lists.infradead.org>, <linux-amlogic@lists.infradead.org>,
-	<linux-riscv@lists.infradead.org>, <linux-mediatek@lists.infradead.org>,
-	<linux-rockchip@lists.infradead.org>
-Subject: Re: [PATCH -next 00/25] spi: Use devm_clk_get_*() helper function
- to simplify the drivers.
-Message-ID: <20230822171627.00007020@Huawei.com>
-In-Reply-To: <20230822131237.1022815-1-lizetao1@huawei.com>
-References: <20230822131237.1022815-1-lizetao1@huawei.com>
-Organization: Huawei Technologies Research and Development (UK) Ltd.
-X-Mailer: Claws Mail 4.1.0 (GTK 3.24.33; x86_64-w64-mingw32)
+	id 1qYULO-00GVYN-1k;
+	Tue, 22 Aug 2023 16:35:03 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 0920160689;
+	Tue, 22 Aug 2023 16:35:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2203DC433C9;
+	Tue, 22 Aug 2023 16:34:47 +0000 (UTC)
+Date: Tue, 22 Aug 2023 17:34:38 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Mark Brown <broonie@kernel.org>
+Cc: Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	James Morse <james.morse@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Arnd Bergmann <arnd@arndb.de>, Oleg Nesterov <oleg@redhat.com>,
+	Eric Biederman <ebiederm@xmission.com>,
+	Kees Cook <keescook@chromium.org>, Shuah Khan <shuah@kernel.org>,
+	"Rick P. Edgecombe" <rick.p.edgecombe@intel.com>,
+	Deepak Gupta <debug@rivosinc.com>, Ard Biesheuvel <ardb@kernel.org>,
+	Szabolcs Nagy <Szabolcs.Nagy@arm.com>,
+	"H.J. Lu" <hjl.tools@gmail.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+	kvmarm@lists.linux.dev, linux-fsdevel@vger.kernel.org,
+	linux-arch@vger.kernel.org, linux-mm@kvack.org,
+	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v4 18/36] arm64/gcs: Context switch GCS state for EL0
+Message-ID: <ZOTjnmwwZ+iMsi6Y@arm.com>
+References: <20230807-arm64-gcs-v4-0-68cfa37f9069@kernel.org>
+ <20230807-arm64-gcs-v4-18-68cfa37f9069@kernel.org>
+ <ZNZUerbrJmzqZzJw@arm.com>
+ <28a61b5f-db65-427e-8e92-60dd61549da5@sirena.org.uk>
 MIME-Version: 1.0
-X-Originating-IP: [10.202.227.76]
-X-ClientProxiedBy: lhrpeml500001.china.huawei.com (7.191.163.213) To
- lhrpeml500005.china.huawei.com (7.191.163.240)
-X-CFilter-Loop: Reflected
+Content-Disposition: inline
+In-Reply-To: <28a61b5f-db65-427e-8e92-60dd61549da5@sirena.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230822_171634_421456_23063E91 
-X-CRM114-Status: GOOD (  12.54  )
+X-CRM114-CacheID: sfid-20230822_093502_668773_DD3C9775 
+X-CRM114-Status: GOOD (  30.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,86 +86,55 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 22 Aug 2023 21:12:12 +0800
-Li Zetao <lizetao1@huawei.com> wrote:
-
-> Commit 7ef9651e9792 ("clk: Provide new devm_clk helpers for prepared
-> and enabled clocks") provides a new helper function for prepared and
-> enabled clocks when a driver keeps a clock prepared (or enabled) during
-> the whole lifetime of the driver. So where drivers get clocks and enable
-> them immediately, it can be combined into a single function
-> devm_clk_get_*(). Moreover, the unprepare and disable function
-> has been registered to devm_clk_state, and before devm_clk_state is
-> released, the clocks will be unprepareed and disable, so it is unnecessary
-> to unprepare and disable clocks explicitly when remove drivers or in the
-> error handling path.
-
-For all except 2, 12 and 24
-they look good to me and I don't think there are any other ordering issues
-of the sort we tend to see in devm conversions where things get turned off
-later than in pre devm version.
-
-So for those..
-Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-
-
-
+On Wed, Aug 16, 2023 at 07:15:53PM +0100, Mark Brown wrote:
+> On Fri, Aug 11, 2023 at 04:32:10PM +0100, Catalin Marinas wrote:
+> > On Mon, Aug 07, 2023 at 11:00:23PM +0100, Mark Brown wrote:
 > 
-> Li Zetao (25):
->   spi: ar934x: Use helper function devm_clk_get_enabled()
->   spi: armada-3700: Use helper function devm_clk_get_prepared()
->   spi: aspeed: Use helper function devm_clk_get_enabled()
->   spi: ath79: Use helper function devm_clk_get_enabled()
->   spi: spi-axi-spi-engine: Use helper function devm_clk_get_enabled()
->   spi: bcm2835: Use helper function devm_clk_get_enabled()
->   spi: bcm2835aux: Use helper function devm_clk_get_enabled()
->   spi: spi-cadence: Use helper function devm_clk_get_enabled()
->   spi: spi-cavium-thunderx: Use helper function devm_clk_get_enabled()
->   spi: davinci: Use helper function devm_clk_get_enabled()
->   spi: dw-bt1: Use helper function devm_clk_get_enabled()
->   spi: dw-mmio: Use helper function devm_clk_get_*()
->   spi: spi-fsl-dspi: Use helper function devm_clk_get_enabled()
->   spi: lantiq-ssc: Use helper function devm_clk_get_enabled()
->   spi: meson-spicc: Use helper function devm_clk_get_enabled()
->   spi: spi-meson-spifc: Use helper function devm_clk_get_enabled()
->   spi: microchip-core-qspi: Use helper function devm_clk_get_enabled()
->   spi: microchip-core: Use helper function devm_clk_get_enabled()
->   spi: mtk-snfi: Use helper function devm_clk_get_enabled()
->   spi: npcm-fiu: Use helper function devm_clk_get_enabled()
->   spi: orion: Use helper function devm_clk_get_enabled()
->   spi: pic32-sqi: Use helper function devm_clk_get_enabled()
->   spi: pic32: Use helper function devm_clk_get_enabled()
->   spi: spl022: Use helper function devm_clk_get_enabled()
->   spi: rockchip: Use helper function devm_clk_get_enabled()
+> > > +		gcs_free(current);
+> > > +		current->thread.gcs_el0_mode = 0;
+> > > +		write_sysreg_s(0, SYS_GCSCRE0_EL1);
+> > > +		write_sysreg_s(0, SYS_GCSPR_EL0);
+> > > +	}
+> > > +}
 > 
->  drivers/spi/spi-ar934x.c              | 22 ++--------
->  drivers/spi/spi-armada-3700.c         | 18 ++------
->  drivers/spi/spi-aspeed-smc.c          | 16 +------
->  drivers/spi/spi-ath79.c               | 11 +----
->  drivers/spi/spi-axi-spi-engine.c      | 25 +++--------
->  drivers/spi/spi-bcm2835.c             | 11 +----
->  drivers/spi/spi-bcm2835aux.c          | 23 ++--------
->  drivers/spi/spi-cadence.c             | 23 ++--------
->  drivers/spi/spi-cavium-thunderx.c     |  8 +---
->  drivers/spi/spi-davinci.c             | 11 +----
->  drivers/spi/spi-dw-bt1.c              | 23 +++-------
->  drivers/spi/spi-dw-mmio.c             | 20 +++------
->  drivers/spi/spi-fsl-dspi.c            | 12 ++----
->  drivers/spi/spi-lantiq-ssc.c          | 10 +----
->  drivers/spi/spi-meson-spicc.c         | 33 +++------------
->  drivers/spi/spi-meson-spifc.c         | 17 ++------
->  drivers/spi/spi-microchip-core-qspi.c | 29 +++----------
->  drivers/spi/spi-microchip-core.c      |  9 +---
->  drivers/spi/spi-mtk-snfi.c            | 61 ++++-----------------------
->  drivers/spi/spi-npcm-fiu.c            | 14 ++----
->  drivers/spi/spi-orion.c               | 11 +----
->  drivers/spi/spi-pic32-sqi.c           | 27 ++----------
->  drivers/spi/spi-pic32.c               |  8 +---
->  drivers/spi/spi-pl022.c               | 21 +++------
->  drivers/spi/spi-rockchip.c            | 30 +++----------
->  25 files changed, 88 insertions(+), 405 deletions(-)
+> > Do we need and isb() or there's one on this path? If it's only EL0
+> > making use of this register, we should be fine with the ERET before
+> > returning to user. Not sure whether the kernel uses this, GCSSTTR
+> > doesn't need it.
 > 
+> They're only used by EL0, at EL1 we do read GCSPR for signal handling
+> but AIUI that shouldn't be any more of an issue than it is for the
+> TPIDRs which we don't have a barrier for.  It's possible I'm
+> misunderstanding though.
 
+We should be alright without since we'll eventually have an ERET to EL0.
+
+> > > +	/*
+> > > +	 * Ensure that GCS changes are observable by/from other PEs in
+> > > +	 * case of migration.
+> > > +	 */
+> > > +	if (task_gcs_el0_enabled(current) || task_gcs_el0_enabled(next))
+> > > +		gcsb_dsync();
+> 
+> > What's this barrier for? The spec (at least the version I have) only
+> > talks about accesses, nothing to do with the registers that we context
+> > switch here.
+> 
+> Right, it's for the GCS memory rather than the registers.  I'm fairly
+> sure it's excessive but but was erring on the side of caution until I
+> have convinced myself that the interactions between GCS barriers and
+> regular barriers were doing the right thing, until we have physical
+> implementations to contend with I'd guess the practical impact will be
+> minimal.
+
+Well, I'd say either we are clear about why it's (not) needed or we ask
+the architects to clarify the spec. I haven't checked your latest
+series but in principle I don't like adding barriers just because we are
+not sure they are needed (and I don't think having hardware eventually
+changes this).
+
+-- 
+Catalin
 
 _______________________________________________
 linux-riscv mailing list
