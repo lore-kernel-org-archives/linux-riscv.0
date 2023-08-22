@@ -4,39 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61F42EE49AF
-	for <linux-riscv@archiver.kernel.org>; Tue, 22 Aug 2023 16:50:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45CB2EE4993
+	for <linux-riscv@archiver.kernel.org>; Tue, 22 Aug 2023 17:01:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SeR91aMo7TRffxeLAer3lvJK/b4X2Ziiuuncr/EdTM4=; b=Dul+thbSPqdm+7
-	ufwcVM6Zw5Efji4yXOB/JUgS6v00qIS+h1NIwDhJOtqYzCb6TdNX2Ry7b/U7vaiCZWCpj/JycwHN8
-	qRmk9yipadbVfGm3DlIRBxWhsjE2rqAK3TVvHqCR0O8/g/3MHzvHusbvmX1l7JFOiXrVDR2RwOIz/
-	tprbpGy2/n6X1iW0GBucwXyTWpOEzcTNwGWLoiWVOPZRH4zuyLBF1iYxuB85uRCvm7siNnvN5smL5
-	q6cHOwbyCI7VEkI40adJ2kJ96OzK7AkXv91Ivc655XOIO1tX2czSuFeyuJpeQsxvERurI0dTx3pc5
-	kbYd3iy1g56RxdQDn/4A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7+I9dsZ9tic1bdpn94UIIxPbIHKKOuFgaWwYMn0GSZ0=; b=WgTziBhrcgafv7SAs3li/vmdiJ
+	9rskm+zUCLsAnkAWRaF0uivvvOUPmDcmzO+oW/yHGzjOLJ88++3O1/tJ0/44EnrLuUIpe7pDPGWp4
+	wfYvhzPi7W3GfKhSyGO5XO3ejytTmheHdSo1JRNW8TE6NWhnGlbPPNnxUqmguIDkMs0qjrn70xnvV
+	aSYuGzIGslwwunV40v0I54+xRzef17Fbg5FS1SrI+AoRtdJBDD4h+JseaEcOoociGDIcZj74YQo6U
+	nGjCXcq2/uZVCQcCaKolT5SqFnbcDsT6Xrt1iuWEFT334hLOxBtxIXS5WUXZzZbBukZWbFnB+KMdy
+	+Fxg9GZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qYUa6-00GXBQ-38;
-	Tue, 22 Aug 2023 16:50:14 +0000
+	id 1qYUlC-00GYAH-06;
+	Tue, 22 Aug 2023 17:01:42 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qYUa3-00GX8O-06;
-	Tue, 22 Aug 2023 16:50:12 +0000
+	id 1qYUl5-00GY7R-2j;
+	Tue, 22 Aug 2023 17:01:37 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 488DF65A73;
-	Tue, 22 Aug 2023 16:50:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 21995C433C8;
-	Tue, 22 Aug 2023 16:49:55 +0000 (UTC)
-Date: Tue, 22 Aug 2023 17:49:51 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Mark Brown <broonie@kernel.org>
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 0B18C6228D;
+	Tue, 22 Aug 2023 17:01:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 74E4BC433C7;
+	Tue, 22 Aug 2023 17:01:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1692723694;
+	bh=4CwJzH4TL2Y8EXaFoTYYQXYVEx5uhhyOhGKEBL5M5a4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=nwIELk0L965ZZxRQU/I6AfIxI41pPfoJ/8ilmpqMMDxttWnkizigjluGn+Ari53wx
+	 MqNyiNJuURRYl2rCuLNJJ2Cs85l4nwq7Q2vWycN3a3XFaBaWvpt/KvtYd4TWJtE93y
+	 2mhcqEGqeiz2SkybCYJmTOdlsX5/UNDCZXZ+F5YxZ6vS1R+LOWxtY7m0pc+kMGPPlJ
+	 kPp/83wuyHdo3Irho6uo8xb6TPcAKTt8iUzDXu8bbnYEB9weodOZjJ9UCKfJORCNeV
+	 gnjnzeyg+Tps+7sTo22OVIrcM6LgodrBWVlbjMG9YcUoS05XXyscb+z/gcliAOGlOk
+	 ceFShSQCdJEsg==
+Date: Tue, 22 Aug 2023 18:01:25 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>
 Cc: Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
 	Andrew Morton <akpm@linux-foundation.org>,
 	Marc Zyngier <maz@kernel.org>,
@@ -58,21 +68,19 @@ Cc: Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
 	linux-arch@vger.kernel.org, linux-mm@kvack.org,
 	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v4 03/36] arm64/gcs: Document the ABI for Guarded Control
- Stacks
-Message-ID: <ZOTnL1SDJWZjHPUW@arm.com>
+Subject: Re: [PATCH v4 18/36] arm64/gcs: Context switch GCS state for EL0
+Message-ID: <699c1105-df8e-4a08-ae6c-8c01a13e4a3d@sirena.org.uk>
 References: <20230807-arm64-gcs-v4-0-68cfa37f9069@kernel.org>
- <20230807-arm64-gcs-v4-3-68cfa37f9069@kernel.org>
- <ZNOhjrYleGBR6Pbs@arm.com>
- <f4cec4b3-c386-4873-aa1d-90528e062f2a@sirena.org.uk>
- <ZN+qki9EaZ6f9XNi@arm.com>
- <aaea542c-929c-4c9b-8caa-ca67e0eb9c1e@sirena.org.uk>
+ <20230807-arm64-gcs-v4-18-68cfa37f9069@kernel.org>
+ <ZNZUerbrJmzqZzJw@arm.com>
+ <28a61b5f-db65-427e-8e92-60dd61549da5@sirena.org.uk>
+ <ZOTjnmwwZ+iMsi6Y@arm.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <aaea542c-929c-4c9b-8caa-ca67e0eb9c1e@sirena.org.uk>
+In-Reply-To: <ZOTjnmwwZ+iMsi6Y@arm.com>
+X-Cookie: MIT:
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230822_095011_118737_A1958EC8 
-X-CRM114-Status: GOOD (  23.64  )
+X-CRM114-CacheID: sfid-20230822_100135_979088_F9086395 
+X-CRM114-Status: GOOD (  22.98  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,46 +92,72 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============4890064729955957435=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 18, 2023 at 08:38:02PM +0100, Mark Brown wrote:
-> On Fri, Aug 18, 2023 at 06:29:54PM +0100, Catalin Marinas wrote:
-> > A related question - it may have been discussed intensively on the x86
-> > thread (I may read it sometime) - why not have the libc map the shadow
-> 
-> Your assumption that this is a single thread feels optimistic there.
 
-Yeah and I unfortunately ignored all of them.
+--===============4890064729955957435==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="/y5R8A5W/qG63MLx"
+Content-Disposition: inline
 
-> > stack and pass the pointer/size to clone3()? It saves us from having to
-> > guess what the right size we'd need. struct clone_args is extensible.
-> 
-> I can't recall or locate the specific reasoning there right now, perhaps
-> Rick or someone else can?  I'd guess there would be compat concerns for
-> things that don't go via libc which would complicate the story with
-> identifying and marking things as GCS/SS safe, it's going to be more
-> robust to just supply a GCS if the process is using it.  That said
-> having a default doesn't preclude us using the extensibility to allow
-> userspace directly to control the GCS size, I would certainly be in
-> favour of adding support for that.
 
-It would be good if someone provided a summary of the x86 decision (I'll
-get to those thread but most likely in September). I think we concluded
-that we can't deploy GCS entirely transparently, so we need a libc
-change (apart from the ELF annotations). Since libc is opting in to GCS,
-we could also update the pthread_create() etc. to allocate the shadow
-together with the standard stack.
+--/y5R8A5W/qG63MLx
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-Anyway, that's my preference but maybe there were good reasons not to do
-this.
+On Tue, Aug 22, 2023 at 05:34:38PM +0100, Catalin Marinas wrote:
+> On Wed, Aug 16, 2023 at 07:15:53PM +0100, Mark Brown wrote:
 
--- 
-Catalin
+> > Right, it's for the GCS memory rather than the registers.  I'm fairly
+> > sure it's excessive but but was erring on the side of caution until I
+> > have convinced myself that the interactions between GCS barriers and
+> > regular barriers were doing the right thing, until we have physical
+> > implementations to contend with I'd guess the practical impact will be
+> > minimal.
+
+> Well, I'd say either we are clear about why it's (not) needed or we ask
+> the architects to clarify the spec. I haven't checked your latest
+> series but in principle I don't like adding barriers just because we are
+> not sure they are needed (and I don't think having hardware eventually
+> changes this).
+
+I should probably also mention that another part of my thinking was that
+when we implement GCS for EL1 we'll need to ensure that everything is
+synced during the pivot of the EL1 GCS (each EL needs an independent
+GCS).  We won't be able to rely on having an ERET there so it's going to
+have more stringent requirements, I was partly punting to think things
+through fully there.
+
+--/y5R8A5W/qG63MLx
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmTk6eQACgkQJNaLcl1U
+h9A05Qf/V5pH2tcF7cng/WQnlzNdmdQF2NZIRZuZVVzKe1JQ/d5SGT8sP/2ifM6m
+wN2P+4yqnMpjdMltFNtMpcnsMQDx7U6kGEmfdBOpr7tmr3dLxpE9snGGTiwRWUtu
+Th+Jz7B9omQ+w4wFZLCcZZtpiQcjpDwzqiW8ubZdoqdvyGOSkRO9xx6P47d07ter
+dmAEKsDiEQbU/2eFycrJRA85aSwx6Kv1tAC3ZPjigcmFnCGqomM3VzJ0QZNCsMTz
+SiUY5GKoO9gk9JPNd4c57jhzWikGGoFFzivLbal/hPfr8MzeIIrVCR7Jxm4ZNRkX
+zs3fDy9ePEheBAThiikuE6F7aPriRw==
+=VUaf
+-----END PGP SIGNATURE-----
+
+--/y5R8A5W/qG63MLx--
+
+
+--===============4890064729955957435==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============4890064729955957435==--
+
