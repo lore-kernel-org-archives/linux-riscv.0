@@ -4,84 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 886A6EE49A5
-	for <linux-riscv@archiver.kernel.org>; Tue, 22 Aug 2023 05:48:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 240AAEE49A5
+	for <linux-riscv@archiver.kernel.org>; Tue, 22 Aug 2023 06:16:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=ax06rD9Yait500LmS3EYK3DRSVaq10gKxBC8pXRX38I=; b=44MXNhQSJXpYhi
-	Ep3gY02FRxZaHeU2632Zc8lNc0aEna6Fpb4BmgMdinNAgYE5qoluP7Plg3VO2wOmkLFytK6g2uCwZ
-	QAX/w6uBASGUbEnB8RHyc9ZSQj2s5CujY83fBGwMZ6D5T4kdHs2wEbOBT/RTuIWxhdvfG6J17S/iY
-	E765Cvfkx0wa4LNTJ213uiboA8G9y3RlcJ1vL6u9KnXYBtg0pyInqQRYPiMw2v30DuY2oJPjKgb3H
-	6/ustRouwT63VQuDGX/NkiAlSdxI4khyV5wz7z2kjmrMJjrwho0zYO3i8U4VdqsMG0ulLkmF9KV6w
-	va2EBxR9JSoKg8m+SysA==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=+sAAdPHc8HTsCQYmYq+qZEtg2cTB0FM/SWMVyPfkqKw=; b=uRahP5dhr/j4M7
+	J8b3Y2bDn+5ubVcqyJw6fTNTaKumrc5Uiqq0rz9mqv7SeIQqRztIFHxjRb4LvU94uxHZu+L0lMbB2
+	QSm90L6FYRHUykx842DbvuHWF67O1kY2Cal/sKitLqqXI7OnJC9lXZzUV1SoTzbUuQjQX+UaIpm7O
+	NSZu5jJPCULz/m4Pvt2EpwTHckhQzi2Ao2hC+QWj+3+fv8ABjfJlaxs/0mq7VYvrBlkzZp/tUEbkS
+	g8QgShWlBc/+7EZKa+7uDB77ZeQgtJnmUgHOkiKPAQ1wGAo0n6Of8S2MPJbrrFkIWhrWfP4uoCF2z
+	jtSzO4711XvgTJDZaPdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qYKFB-00FBkL-0x;
-	Tue, 22 Aug 2023 05:47:57 +0000
-Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
+	id 1qYKgx-00FDhf-2Y;
+	Tue, 22 Aug 2023 06:16:39 +0000
+Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qYKF6-00FBjK-0P
+	id 1qYKgu-00FDg5-1n
 	for linux-riscv@lists.infradead.org;
-	Tue, 22 Aug 2023 05:47:55 +0000
-Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-1bd9b4f8e0eso25607745ad.1
-        for <linux-riscv@lists.infradead.org>; Mon, 21 Aug 2023 22:47:46 -0700 (PDT)
+	Tue, 22 Aug 2023 06:16:38 +0000
+Received: by mail-ed1-x533.google.com with SMTP id 4fb4d7f45d1cf-5280ef23593so4859646a12.3
+        for <linux-riscv@lists.infradead.org>; Mon, 21 Aug 2023 23:16:34 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1692683265; x=1693288065;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=9JssbzQX9VFHAc9E36F93tbDb41jway9Jc+dLt1MhU4=;
-        b=f5qyb62EomFMuXfeRcS7JOgD2JnPA6D1D4Dkp2HxO/cqufRxiZdybYvpiil06eviJS
-         5IJ24PgSA8jUMrt0C7Re5s9JJsglRhoT7RAJgc0dD3hOXKUJvigaIeIMSbVhOHXwJUI+
-         mRcB4S5VRAGhHyqCR+vXS7DI0oT4TYY3XKl+XBjyu54j6cskt/p87Wk1j0ebnirci+Fw
-         qijHvni9PmxWJinn+ZUYCPqm3wOme+ND601xFUNJDljkX0jkVPHv0qcsBi7E9CDR7QMZ
-         qTbgWNjv+B5oBBP0b1l1vVPj6nUsGoAp+fY1OQJG+LWkUg4Bakj1/E85hZFWZ+sXa03n
-         IYVg==
+        d=brainfault-org.20221208.gappssmtp.com; s=20221208; t=1692684994; x=1693289794;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Etm+is1Vk1OwDhQBIivpxr/NaVYXAexKvYiz/4v9WQ0=;
+        b=hnvji7WGGO1c3o007SYql5xd9g063Oin/FtbXmcNNt+bhkBhgs9G3s6YBU4NcfgwLi
+         BUtrVlZ51MWSPiE2FN7YKLqo1rgjFh5nwRUz/TKltIRtPSnisRBi3rjCu6+94lMsJnL9
+         HDQP/Sbzcoi8D2tCLzHS+oHSLv/P2Q1dybK4gxAtjKXDM6KYX/QkWdGLY1yqc1ZuQm/m
+         M/IJQhXbXvK6czGCFzmCjOEMiuPLqRicNreDn85Ku4YHdgYFGUDtjjC3Zgr65uSHgNAe
+         jslmA+Qr1i+OP4dyO2zvbtDT8RCNqzsJJ4piCsVy5Rae8MJvEi0qnhQeg3YUKNNLDraG
+         FxaQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1692683265; x=1693288065;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=9JssbzQX9VFHAc9E36F93tbDb41jway9Jc+dLt1MhU4=;
-        b=IaUFAjjeQHckgHadFrRah4h+ptO50Hi5XNHIwzMj8MTrj5R13FFTv9kGxZ5A1ckn7N
-         iwKU5ho6/tMQBESdCi32KfaLEchuPU7gBC1Vt3H7Gm/+BlyOR8fWrSFDA+Rw0XOb4uKa
-         WQwn6H5S7k9bBX/iDCEjUhgnOQKY0sP7roJGlIW7BliQsbLLcwmyKH7pZ1VPwIcJdSTr
-         Cpng1W0kphHKh1ESWti27qEezxbp9GnRyFY/an2PMxXezBgJShcRXmuv9dETi/KnrHV5
-         8VmaUIE7z5qF9b1VLZuRNyiOBa32bxUU9NeouWnviEb/X5O79aaF0ByrIj16WbgdU51e
-         sgZg==
-X-Gm-Message-State: AOJu0Yz70x6fP3UUCg3t7w5vyVLoYsQxu2NETz/iWBCpTuV4lRCbCY+p
-	CU/ZTmSz3u9ZCY/PQ6iMOczi7g==
-X-Google-Smtp-Source: AGHT+IGcfw+6MOZHdD4U2hB0gH3hptIg8rcq2NQYs+I+XfPKAPiSEgcJIG5E87JSML6WFF6YydVXYQ==
-X-Received: by 2002:a17:902:bd45:b0:1b8:28f6:20e6 with SMTP id b5-20020a170902bd4500b001b828f620e6mr5446680plx.34.1692683265524;
-        Mon, 21 Aug 2023 22:47:45 -0700 (PDT)
-Received: from work.internal.sifive.com (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
-        by smtp.gmail.com with ESMTPSA id q6-20020a170902a3c600b001bbd8cf6b57sm8199960plb.230.2023.08.21.22.47.42
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 21 Aug 2023 22:47:45 -0700 (PDT)
-From: Nick Hu <nick.hu@sifive.com>
-To: paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	leyfoon.tan@starfivetech.com,
-	mason.huo@starfivetech.com,
-	conor.dooley@microchip.com,
-	jeeheng.sia@starfivetech.com,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	nick.hu@sifive.com,
-	zong.li@sifive.com
-Cc: Andy Chiu <andy.chiu@sifive.com>
-Subject: [PATCH v2] riscv: suspend: Add syscore ops for suspend
-Date: Tue, 22 Aug 2023 13:47:39 +0800
-Message-Id: <20230822054739.33552-1-nick.hu@sifive.com>
-X-Mailer: git-send-email 2.34.1
+        d=1e100.net; s=20221208; t=1692684994; x=1693289794;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Etm+is1Vk1OwDhQBIivpxr/NaVYXAexKvYiz/4v9WQ0=;
+        b=BBvDJrWB99WcW5akLMvtBDcGnPGmvit0CuolkWUb1oFFQiQUm+xoBboQhhHATQRA61
+         IqNgdOO6izj8sesW4NJI28L2Qj9mgwzvSwy6Jg1DEvqMMAeY5JgN84aWKVE0GOM1TG93
+         HAS4Y6ngAZDvKifkRZfAWSy7VUHK1JUfEj9Qb0cItrJ7uKPWt/mbMR4OaxeotcbouaTL
+         22y951fNDy78QlEZelBQj0wa+ZwsmRq5wSWuTJlHtVQ8fpf0g62e42IB6FyB8Rfs/rIF
+         ZsbL5G/VGGfnDOIpIts44m7W+/ODqb8gZjKthFts4YSIZuBr466Xrc6HhsJ2GmP9KhTM
+         94Xg==
+X-Gm-Message-State: AOJu0YyFhtPNLWduGx77s3Z94MfMPC9tclVtpOkR03x0+LLzhVEGsyI2
+	0vCBfrF57RJhWQOZYG9KB2L2ax0m27yyL2tNyL0wpA==
+X-Google-Smtp-Source: AGHT+IED6jSpdp0uBNdtBG9rgNloUIIG/FgjpAiBY9v7dmhpX1qTswjR6JdQcrlQLJ239YUFyanJLxo/y/E6FCdSAvU=
+X-Received: by 2002:a17:906:2d1:b0:98d:e605:2bce with SMTP id
+ 17-20020a17090602d100b0098de6052bcemr7413238ejk.46.1692684993483; Mon, 21 Aug
+ 2023 23:16:33 -0700 (PDT)
 MIME-Version: 1.0
+References: <20230822054739.33552-1-nick.hu@sifive.com>
+In-Reply-To: <20230822054739.33552-1-nick.hu@sifive.com>
+From: Anup Patel <anup@brainfault.org>
+Date: Tue, 22 Aug 2023 11:46:22 +0530
+Message-ID: <CAAhSdy32DYoHpBKS3TF1SapM5fuMF5K00oqRxw8JF05v=DrUuw@mail.gmail.com>
+Subject: Re: [PATCH v2] riscv: suspend: Add syscore ops for suspend
+To: Nick Hu <nick.hu@sifive.com>
+Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
+	leyfoon.tan@starfivetech.com, mason.huo@starfivetech.com, 
+	conor.dooley@microchip.com, jeeheng.sia@starfivetech.com, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	zong.li@sifive.com, Andy Chiu <andy.chiu@sifive.com>, 
+	Andrew Jones <ajones@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230821_224752_165460_532A6B49 
-X-CRM114-Status: GOOD (  13.03  )
+X-CRM114-CacheID: sfid-20230821_231636_775781_0874BEEE 
+X-CRM114-Status: GOOD (  21.91  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,96 +87,60 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-If a task is the one who performs the suspend flow and it also do some
-floating or vector operations before the suspend, we might lose the FPU
-and vector states when it goes to the non-retention system suspend state.
-Add syscore ops to save and restore the FPU and vector states of the
-current task to fix the issue above.
-
-Co-developed-by: Andy Chiu <andy.chiu@sifive.com>
-Signed-off-by: Andy Chiu <andy.chiu@sifive.com>
-Signed-off-by: Nick Hu <nick.hu@sifive.com>
----
-Changes in v2:
-a) Add Co-developed-by and adjust the order of signed-off
-b) Rephrase the commit message
-
- arch/riscv/kernel/suspend.c | 45 +++++++++++++++++++++++++++++++++++++
- 1 file changed, 45 insertions(+)
-
-diff --git a/arch/riscv/kernel/suspend.c b/arch/riscv/kernel/suspend.c
-index 3c89b8ec69c4..ff69ff8a1974 100644
---- a/arch/riscv/kernel/suspend.c
-+++ b/arch/riscv/kernel/suspend.c
-@@ -4,9 +4,14 @@
-  * Copyright (c) 2022 Ventana Micro Systems Inc.
-  */
- 
-+#include <linux/cpu_pm.h>
- #include <linux/ftrace.h>
-+#include <linux/thread_info.h>
-+#include <linux/syscore_ops.h>
- #include <asm/csr.h>
- #include <asm/suspend.h>
-+#include <asm/switch_to.h>
-+#include <asm/vector.h>
- 
- void suspend_save_csrs(struct suspend_context *context)
- {
-@@ -85,3 +90,43 @@ int cpu_suspend(unsigned long arg,
- 
- 	return rc;
- }
-+
-+static int riscv_cpu_suspend(void)
-+{
-+	struct task_struct *cur_task = get_current();
-+	struct pt_regs *regs = task_pt_regs(cur_task);
-+
-+	if (has_fpu()) {
-+		if (unlikely(regs->status & SR_SD))
-+			fstate_save(cur_task, regs);
-+	}
-+	if (has_vector()) {
-+		if (unlikely(regs->status & SR_SD))
-+			riscv_v_vstate_save(cur_task, regs);
-+	}
-+
-+	return 0;
-+}
-+
-+static void riscv_cpu_resume(void)
-+{
-+	struct task_struct *cur_task = get_current();
-+	struct pt_regs *regs = task_pt_regs(cur_task);
-+
-+	if (has_fpu())
-+		fstate_restore(cur_task, regs);
-+	if (has_vector())
-+		riscv_v_vstate_restore(cur_task, regs);
-+}
-+
-+static struct syscore_ops riscv_cpu_syscore_ops = {
-+	.suspend	= riscv_cpu_suspend,
-+	.resume		= riscv_cpu_resume,
-+};
-+
-+static int __init riscv_cpu_suspend_init(void)
-+{
-+	register_syscore_ops(&riscv_cpu_syscore_ops);
-+	return 0;
-+}
-+arch_initcall(riscv_cpu_suspend_init);
--- 
-2.34.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVHVlLCBBdWcgMjIsIDIwMjMgYXQgMTE6MTfigK9BTSBOaWNrIEh1IDxuaWNrLmh1QHNpZml2
+ZS5jb20+IHdyb3RlOgo+Cj4gSWYgYSB0YXNrIGlzIHRoZSBvbmUgd2hvIHBlcmZvcm1zIHRoZSBz
+dXNwZW5kIGZsb3cgYW5kIGl0IGFsc28gZG8gc29tZQo+IGZsb2F0aW5nIG9yIHZlY3RvciBvcGVy
+YXRpb25zIGJlZm9yZSB0aGUgc3VzcGVuZCwgd2UgbWlnaHQgbG9zZSB0aGUgRlBVCj4gYW5kIHZl
+Y3RvciBzdGF0ZXMgd2hlbiBpdCBnb2VzIHRvIHRoZSBub24tcmV0ZW50aW9uIHN5c3RlbSBzdXNw
+ZW5kIHN0YXRlLgo+IEFkZCBzeXNjb3JlIG9wcyB0byBzYXZlIGFuZCByZXN0b3JlIHRoZSBGUFUg
+YW5kIHZlY3RvciBzdGF0ZXMgb2YgdGhlCj4gY3VycmVudCB0YXNrIHRvIGZpeCB0aGUgaXNzdWUg
+YWJvdmUuCgpUaGlzIG9ubHkgYXBwbGllcyB0byBub24tcmV0ZW50aXZlIHN5c3RlbSBzdXNwZW5k
+IHNvIHdoeSBkbyB3ZSBuZWVkCnRoaXMgYmVmb3JlIFNCSSBzeXN0ZW0gc3VzcGVuZCBpcyBtZXJn
+ZWQgPwoKUmVnYXJkcywKQW51cAoKCj4KPiBDby1kZXZlbG9wZWQtYnk6IEFuZHkgQ2hpdSA8YW5k
+eS5jaGl1QHNpZml2ZS5jb20+Cj4gU2lnbmVkLW9mZi1ieTogQW5keSBDaGl1IDxhbmR5LmNoaXVA
+c2lmaXZlLmNvbT4KPiBTaWduZWQtb2ZmLWJ5OiBOaWNrIEh1IDxuaWNrLmh1QHNpZml2ZS5jb20+
+Cj4gLS0tCj4gQ2hhbmdlcyBpbiB2MjoKPiBhKSBBZGQgQ28tZGV2ZWxvcGVkLWJ5IGFuZCBhZGp1
+c3QgdGhlIG9yZGVyIG9mIHNpZ25lZC1vZmYKPiBiKSBSZXBocmFzZSB0aGUgY29tbWl0IG1lc3Nh
+Z2UKPgo+ICBhcmNoL3Jpc2N2L2tlcm5lbC9zdXNwZW5kLmMgfCA0NSArKysrKysrKysrKysrKysr
+KysrKysrKysrKysrKysrKysrKysrCj4gIDEgZmlsZSBjaGFuZ2VkLCA0NSBpbnNlcnRpb25zKCsp
+Cj4KPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9rZXJuZWwvc3VzcGVuZC5jIGIvYXJjaC9yaXNj
+di9rZXJuZWwvc3VzcGVuZC5jCj4gaW5kZXggM2M4OWI4ZWM2OWM0Li5mZjY5ZmY4YTE5NzQgMTAw
+NjQ0Cj4gLS0tIGEvYXJjaC9yaXNjdi9rZXJuZWwvc3VzcGVuZC5jCj4gKysrIGIvYXJjaC9yaXNj
+di9rZXJuZWwvc3VzcGVuZC5jCj4gQEAgLTQsOSArNCwxNCBAQAo+ICAgKiBDb3B5cmlnaHQgKGMp
+IDIwMjIgVmVudGFuYSBNaWNybyBTeXN0ZW1zIEluYy4KPiAgICovCj4KPiArI2luY2x1ZGUgPGxp
+bnV4L2NwdV9wbS5oPgo+ICAjaW5jbHVkZSA8bGludXgvZnRyYWNlLmg+Cj4gKyNpbmNsdWRlIDxs
+aW51eC90aHJlYWRfaW5mby5oPgo+ICsjaW5jbHVkZSA8bGludXgvc3lzY29yZV9vcHMuaD4KPiAg
+I2luY2x1ZGUgPGFzbS9jc3IuaD4KPiAgI2luY2x1ZGUgPGFzbS9zdXNwZW5kLmg+Cj4gKyNpbmNs
+dWRlIDxhc20vc3dpdGNoX3RvLmg+Cj4gKyNpbmNsdWRlIDxhc20vdmVjdG9yLmg+Cj4KPiAgdm9p
+ZCBzdXNwZW5kX3NhdmVfY3NycyhzdHJ1Y3Qgc3VzcGVuZF9jb250ZXh0ICpjb250ZXh0KQo+ICB7
+Cj4gQEAgLTg1LDMgKzkwLDQzIEBAIGludCBjcHVfc3VzcGVuZCh1bnNpZ25lZCBsb25nIGFyZywK
+Pgo+ICAgICAgICAgcmV0dXJuIHJjOwo+ICB9Cj4gKwo+ICtzdGF0aWMgaW50IHJpc2N2X2NwdV9z
+dXNwZW5kKHZvaWQpCj4gK3sKPiArICAgICAgIHN0cnVjdCB0YXNrX3N0cnVjdCAqY3VyX3Rhc2sg
+PSBnZXRfY3VycmVudCgpOwo+ICsgICAgICAgc3RydWN0IHB0X3JlZ3MgKnJlZ3MgPSB0YXNrX3B0
+X3JlZ3MoY3VyX3Rhc2spOwo+ICsKPiArICAgICAgIGlmIChoYXNfZnB1KCkpIHsKPiArICAgICAg
+ICAgICAgICAgaWYgKHVubGlrZWx5KHJlZ3MtPnN0YXR1cyAmIFNSX1NEKSkKPiArICAgICAgICAg
+ICAgICAgICAgICAgICBmc3RhdGVfc2F2ZShjdXJfdGFzaywgcmVncyk7Cj4gKyAgICAgICB9Cj4g
+KyAgICAgICBpZiAoaGFzX3ZlY3RvcigpKSB7Cj4gKyAgICAgICAgICAgICAgIGlmICh1bmxpa2Vs
+eShyZWdzLT5zdGF0dXMgJiBTUl9TRCkpCj4gKyAgICAgICAgICAgICAgICAgICAgICAgcmlzY3Zf
+dl92c3RhdGVfc2F2ZShjdXJfdGFzaywgcmVncyk7Cj4gKyAgICAgICB9Cj4gKwo+ICsgICAgICAg
+cmV0dXJuIDA7Cj4gK30KPiArCj4gK3N0YXRpYyB2b2lkIHJpc2N2X2NwdV9yZXN1bWUodm9pZCkK
+PiArewo+ICsgICAgICAgc3RydWN0IHRhc2tfc3RydWN0ICpjdXJfdGFzayA9IGdldF9jdXJyZW50
+KCk7Cj4gKyAgICAgICBzdHJ1Y3QgcHRfcmVncyAqcmVncyA9IHRhc2tfcHRfcmVncyhjdXJfdGFz
+ayk7Cj4gKwo+ICsgICAgICAgaWYgKGhhc19mcHUoKSkKPiArICAgICAgICAgICAgICAgZnN0YXRl
+X3Jlc3RvcmUoY3VyX3Rhc2ssIHJlZ3MpOwo+ICsgICAgICAgaWYgKGhhc192ZWN0b3IoKSkKPiAr
+ICAgICAgICAgICAgICAgcmlzY3Zfdl92c3RhdGVfcmVzdG9yZShjdXJfdGFzaywgcmVncyk7Cj4g
+K30KPiArCj4gK3N0YXRpYyBzdHJ1Y3Qgc3lzY29yZV9vcHMgcmlzY3ZfY3B1X3N5c2NvcmVfb3Bz
+ID0gewo+ICsgICAgICAgLnN1c3BlbmQgICAgICAgID0gcmlzY3ZfY3B1X3N1c3BlbmQsCj4gKyAg
+ICAgICAucmVzdW1lICAgICAgICAgPSByaXNjdl9jcHVfcmVzdW1lLAo+ICt9Owo+ICsKPiArc3Rh
+dGljIGludCBfX2luaXQgcmlzY3ZfY3B1X3N1c3BlbmRfaW5pdCh2b2lkKQo+ICt7Cj4gKyAgICAg
+ICByZWdpc3Rlcl9zeXNjb3JlX29wcygmcmlzY3ZfY3B1X3N5c2NvcmVfb3BzKTsKPiArICAgICAg
+IHJldHVybiAwOwo+ICt9Cj4gK2FyY2hfaW5pdGNhbGwocmlzY3ZfY3B1X3N1c3BlbmRfaW5pdCk7
+Cj4gLS0KPiAyLjM0LjEKPgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJh
+ZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51
+eC1yaXNjdgo=
