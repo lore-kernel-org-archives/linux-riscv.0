@@ -4,89 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9AFEC3DA6F
-	for <linux-riscv@archiver.kernel.org>; Wed, 23 Aug 2023 17:19:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 991B3C3DA6F
+	for <linux-riscv@archiver.kernel.org>; Wed, 23 Aug 2023 17:25:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=v06lTS//dww1R8/yd/z0YQ4CsHIMTsZFtKT3uzP7ce4=; b=uCHAox+i8qlolwyWW6F06bcbQy
-	jLuXVvK4thudtEcINAl6RdJbjnO0ZrxDdTgFXJdFawwTzOWNt/5W06jCmzkGbcWL29eHHr4qlFO7K
-	i5jJndMVQcaTsrW9NSAbBF/NCkJWYBpGvdOitdTVIIFQN38W7hYcO2KpBvgfUtgrl876EyRMuCRpD
-	YF1+1A/pHSrpMCTO4tfm/ny52ucX31vQGA+wpk6BRoTIc7u4TE098xholFi/Ney5TPjxA1iEk1d3R
-	OXClymcQPcbo0KECnhiUpg4IqHgyjeOStpusTkpylqa53RUVstjws9kvDpO/NnQuvG3XaUCItx0zD
-	rBwfjmXg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=wudecM3SJrhK99KigLzQ/yp0jmhg67OGo7Yi5Jd8P3c=; b=EkekwnO+pz23lL
+	xUFfVIcKQhRelBx/t3rnbsjB2MxNB+pOOtqhO21Ne42XN6pKLFEjXjG9d8J8jM+D3ZrTO7DX3Qu0X
+	lhXGF7UYYIluT1YDidlIsajp9m6OMSo+BY94x78otsSwC7949sh09Bdms8JZn31iCs8SSMjvGT+MM
+	Xzhaj21n//4TqOowhVjMNihhndwGGIqGzD/9H5ad3zsrJvn0Aj5WCGA3sonTCtySK4jgF1ODJk/2E
+	5/TGXLEEgrlmAVdsR15Yl4620nN2DddSjZkrJIygHo/ECODt1cmBqztvGfIdDDoSKHcKeLEoHUuT8
+	pbKjKF7hCRjYNCj+LfRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qYrVU-001Cnx-3D;
-	Wed, 23 Aug 2023 17:19:01 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1qYrc8-001DMb-11;
+	Wed, 23 Aug 2023 17:25:52 +0000
+Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qYrVS-001CnK-06;
-	Wed, 23 Aug 2023 17:18:59 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 7FFA26450D;
-	Wed, 23 Aug 2023 17:18:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 10068C433C8;
-	Wed, 23 Aug 2023 17:18:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1692811136;
-	bh=3HK+7HvBNxbV1P+aiK9hr3XF3Ps6uIkOCiLCB9Xo9iw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=TLQVJWTMSbpVFHXaSy3LDCgnAS85gL2dId3RmdwQ88J03SgSRomfu15hlCvmrfX7a
-	 o1v2U7nrQu7DYM2lU8OIP0jOhMlWWXolByjQHf90LY1wrfYUcFgg/g5zmED3h/S1C+
-	 d8Skc40K5SVdvzHX8sm6m9qfDVUC6U4zEitZseegCbW7m3kFTorOwv3nSaZJLJ77ha
-	 /7RlXIyOiwbJeZDQpg/YC72tiVRkCbB3qFcTStKEvqsSZnGPsR/551JlYJVYUyySfV
-	 /7bOLRqUEDeVb6qlnB6KF6yUCnIN1WTp7fmos3NmNcegNWAg+jq/80ovlYCOzjzp8h
-	 mCrdyvvaZK6sQ==
-Date: Wed, 23 Aug 2023 18:18:47 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Szabolcs Nagy <Szabolcs.Nagy@arm.com>, Will Deacon <will@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	James Morse <james.morse@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Arnd Bergmann <arnd@arndb.de>, Oleg Nesterov <oleg@redhat.com>,
-	Eric Biederman <ebiederm@xmission.com>,
-	Kees Cook <keescook@chromium.org>, Shuah Khan <shuah@kernel.org>,
-	"Rick P. Edgecombe" <rick.p.edgecombe@intel.com>,
-	Deepak Gupta <debug@rivosinc.com>, Ard Biesheuvel <ardb@kernel.org>,
-	"H.J. Lu" <hjl.tools@gmail.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
-	kvmarm@lists.linux.dev, linux-fsdevel@vger.kernel.org,
-	linux-arch@vger.kernel.org, linux-mm@kvack.org,
-	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v4 03/36] arm64/gcs: Document the ABI for Guarded Control
- Stacks
-Message-ID: <cb449f6e-cebf-44df-8ef4-fa3cd5979b6c@sirena.org.uk>
-References: <20230807-arm64-gcs-v4-3-68cfa37f9069@kernel.org>
- <ZNOhjrYleGBR6Pbs@arm.com>
- <f4cec4b3-c386-4873-aa1d-90528e062f2a@sirena.org.uk>
- <ZN+qki9EaZ6f9XNi@arm.com>
- <aaea542c-929c-4c9b-8caa-ca67e0eb9c1e@sirena.org.uk>
- <ZOTnL1SDJWZjHPUW@arm.com>
- <43ec219d-bf20-47b8-a5f8-32bc3b64d487@sirena.org.uk>
- <ZOXa98SqwYPwxzNP@arm.com>
- <227e6552-353c-40a9-86c1-280587a40e3c@sirena.org.uk>
- <ZOY3lz+Zyhd5ZyQ9@arm.com>
+	id 1qYrc5-001DLY-0V
+	for linux-riscv@lists.infradead.org;
+	Wed, 23 Aug 2023 17:25:50 +0000
+Received: by mail-ej1-x636.google.com with SMTP id a640c23a62f3a-99bcf2de59cso765729266b.0
+        for <linux-riscv@lists.infradead.org>; Wed, 23 Aug 2023 10:25:40 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=brainfault-org.20221208.gappssmtp.com; s=20221208; t=1692811539; x=1693416339;
+        h=cc:to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=9doNwfaV+DyWn01odwS31ajPbHdtq1usdM6nQ5uPRwQ=;
+        b=OX1aTrHg+kqEwcVYobN3fOSOfbip/pX1WWrfPAn77RO2holwjYNhvnSQMC+367jMGs
+         gXaCoHRKUaJKBezBwM0cCnAKMcVyhTWaxe9BFTRqrVCrC0agodKLsmvPV7Z0aES56ZTc
+         Zwj63HcDsh7+yScm8WnjXghiBDSY3QOfqbNSLL92GXy03p2XD+rhtomtp7fNXSYkBjjM
+         x0FEjNRqSMFCM3U/mFPgiAlf4FEZvExB8GSYnVk6EcdKht5Xi+ZEJfg1b1kydTHqvRxE
+         Hdpu1xCqFMZMgFX4P/oYLAfRQC2U2FZZfo9PxpKcjVQj4qvOtt5pEoCq8y1FBahP26fi
+         7WSw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1692811539; x=1693416339;
+        h=cc:to:subject:message-id:date:from:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=9doNwfaV+DyWn01odwS31ajPbHdtq1usdM6nQ5uPRwQ=;
+        b=LL9qj3Ol2hpGj2ezf3u984i/g0IN572vvnE8YbdvrVqM3/rgP4Vhc7OdK+SohmWwoK
+         lkaKBn0dSAGoZwCovlWAdPNNmNFaHwEkOTi0pgxA/YZoCrfCH9mDOi7broI2LiTIzs7Y
+         I0O0O8xObtIgwppm3O/D0xL9Bx+PYdz4jPHM3mz1ykkpRZcPtAlyuRa3YE0BTtZsM7Ku
+         w6aAy/ggCwum6SA5T0S7Ta1cEz+Couj+uKEiRojra72Yqr3VW+FLSeOSlkkldtW9b0wK
+         LnnZ8baYwxJubTHXpbEayoQThCUi6lxFg/YRqX+bTDXWfY9HuYDL5eYVWQC19oikylqY
+         uk4g==
+X-Gm-Message-State: AOJu0Yy+th3gbLkpE2S8BWLY0bGk4bNo3AyVvbVJzJk8F1SWJGK/xOit
+	EFNkQzhl0V22OjFzQWfVBruHJByoOiLjQYKgNjjUdQ==
+X-Google-Smtp-Source: AGHT+IEoUO9OwvjFmBxfjHkKC3F/JNYN6dkjFqrxGPtXf7PN6LvuRceVFlsFxu9sHXQbbWzYd+7m0R73svUkbsXIDqs=
+X-Received: by 2002:a17:907:1de6:b0:9a1:f21e:cdfd with SMTP id
+ og38-20020a1709071de600b009a1f21ecdfdmr1066707ejc.34.1692811539344; Wed, 23
+ Aug 2023 10:25:39 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <ZOY3lz+Zyhd5ZyQ9@arm.com>
-X-Cookie: Some optional equipment shown.
+From: Anup Patel <anup@brainfault.org>
+Date: Wed, 23 Aug 2023 22:55:28 +0530
+Message-ID: <CAAhSdy2XiFD1QC+v_UZ5G0TAhmT8uH48=UQdu6=bL=EPWy+2Kg@mail.gmail.com>
+Subject: [GIT PULL] KVM/riscv changes for 6.6
+To: Paolo Bonzini <pbonzini@redhat.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, Palmer Dabbelt <palmer@rivosinc.com>, 
+	Atish Patra <atishp@atishpatra.org>, Atish Patra <atishp@rivosinc.com>, 
+	Andrew Jones <ajones@ventanamicro.com>, KVM General <kvm@vger.kernel.org>, 
+	"open list:KERNEL VIRTUAL MACHINE FOR RISC-V (KVM/riscv)" <kvm-riscv@lists.infradead.org>, 
+	linux-riscv <linux-riscv@lists.infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230823_101858_156128_206EFFAE 
-X-CRM114-Status: GOOD (  15.15  )
+X-CRM114-CacheID: sfid-20230823_102549_198936_BA484430 
+X-CRM114-Status: UNSURE (   9.89  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,62 +83,114 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============9182350060955798180=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hi Paolo,
 
---===============9182350060955798180==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="JpUNoCeyjQJaWYxw"
-Content-Disposition: inline
+We have the following KVM RISC-V changes for 6.6:
+1) Zba, Zbs, Zicntr, Zicsr, Zifencei, and Zihpm support for Guest/VM
+2) Added ONE_REG interface for SATP mode
+3) Added ONE_REG interface to enable/disable multiple ISA extensions
+4) Improved error codes returned by ONE_REG interfaces
+5) Added KVM_GET_REG_LIST ioctl() implementation for KVM RISC-V
+6) Added get-reg-list selftest for KVM RISC-V
 
+Please pull.
 
---JpUNoCeyjQJaWYxw
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Regards,
+Anup
 
-On Wed, Aug 23, 2023 at 05:45:11PM +0100, Catalin Marinas wrote:
+The following changes since commit 52a93d39b17dc7eb98b6aa3edb93943248e03b2f:
 
-> I don't mind the divergence in this area if the libc folks are ok with
-> it. x86 can eventually use the clone3() interface if they want more
-> flexibility, they'll just have to continue supporting the old one. I
-> think we already diverge around the prctl().
+  Linux 6.5-rc5 (2023-08-06 15:07:51 -0700)
 
-Yes, though that's basically the same thing - the difference is
-basically just that x86 uses their custom arch_prctl() thing and we use
-a regular prctl(), there's nothing conceptual going on like there is
-here.  I don't really mind either, it's just something where I'd
-anticipate pushback.
+are available in the Git repository at:
 
---JpUNoCeyjQJaWYxw
-Content-Type: application/pgp-signature; name="signature.asc"
+  https://github.com/kvm-riscv/linux.git tags/kvm-riscv-6.6-1
 
------BEGIN PGP SIGNATURE-----
+for you to fetch changes up to 477069398ed6e0498ee243e799cb6c68baf6ccb8:
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmTmP3YACgkQJNaLcl1U
-h9AOCwf+OerN1+mzW9/0IjP9fXY5wok+REaliBdQNCxxSEl/snEQ7luADrnORRq8
-DT1fhc5ANklKGYAIzyPsjMBAdZi4fR8tKHL3WPuPVqT3qBWcqUSW4R4Mhte3XvDR
-PQzkrqEedjqVwOmyg+vdQ/0C4r/QwVXLvNbQVNCKEEFq8F33xIUkf5risFgPn36b
-3+Ilc5zXBc4Jk734QUR+g9ql73T33O6Dro5yKxYCXO1dDxv+GkbBWgtYO+mNPWgP
-b8entl/O6uaEVlStYe/f9mK7+AH9xFhdE8olsbk4Qi5C1BPQuAy1ZOFuTtF5nFvw
-kbzVJrh2uSfkLI7kaAwM2rU12SkyWQ==
-=ZWCg
------END PGP SIGNATURE-----
+  KVM: riscv: selftests: Add get-reg-list test (2023-08-09 12:15:27 +0530)
 
---JpUNoCeyjQJaWYxw--
+----------------------------------------------------------------
+KVM/riscv changes for 6.6
 
+- Zba, Zbs, Zicntr, Zicsr, Zifencei, and Zihpm support for Guest/VM
+- Added ONE_REG interface for SATP mode
+- Added ONE_REG interface to enable/disable multiple ISA extensions
+- Improved error codes returned by ONE_REG interfaces
+- Added KVM_GET_REG_LIST ioctl() implementation for KVM RISC-V
+- Added get-reg-list selftest for KVM RISC-V
 
---===============9182350060955798180==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+----------------------------------------------------------------
+Andrew Jones (9):
+      RISC-V: KVM: Improve vector save/restore errors
+      RISC-V: KVM: Improve vector save/restore functions
+      KVM: arm64: selftests: Replace str_with_index with strdup_printf
+      KVM: arm64: selftests: Drop SVE cap check in print_reg
+      KVM: arm64: selftests: Remove print_reg's dependency on vcpu_config
+      KVM: arm64: selftests: Rename vcpu_config and add to kvm_util.h
+      KVM: arm64: selftests: Delete core_reg_fixup
+      KVM: arm64: selftests: Split get-reg-list test code
+      KVM: arm64: selftests: Finish generalizing get-reg-list
+
+Anup Patel (5):
+      RISC-V: KVM: Factor-out ONE_REG related code to its own source file
+      RISC-V: KVM: Extend ONE_REG to enable/disable multiple ISA extensions
+      RISC-V: KVM: Allow Zba and Zbs extensions for Guest/VM
+      RISC-V: KVM: Allow Zicntr, Zicsr, Zifencei, and Zihpm for Guest/VM
+      RISC-V: KVM: Sort ISA extensions alphabetically in ONE_REG interface
+
+Daniel Henrique Barboza (10):
+      RISC-V: KVM: provide UAPI for host SATP mode
+      RISC-V: KVM: return ENOENT in *_one_reg() when reg is unknown
+      RISC-V: KVM: use ENOENT in *_one_reg() when extension is unavailable
+      RISC-V: KVM: do not EOPNOTSUPP in set_one_reg() zicbo(m|z)
+      RISC-V: KVM: do not EOPNOTSUPP in set KVM_REG_RISCV_TIMER_REG
+      RISC-V: KVM: use EBUSY when !vcpu->arch.ran_atleast_once
+      RISC-V: KVM: avoid EBUSY when writing same ISA val
+      RISC-V: KVM: avoid EBUSY when writing the same machine ID val
+      RISC-V: KVM: avoid EBUSY when writing the same isa_ext val
+      docs: kvm: riscv: document EBUSY in KVM_SET_ONE_REG
+
+Haibo Xu (6):
+      KVM: arm64: selftests: Move reject_set check logic to a function
+      KVM: arm64: selftests: Move finalize_vcpu back to run_test
+      KVM: selftests: Only do get/set tests on present blessed list
+      KVM: selftests: Add skip_set facility to get_reg_list test
+      KVM: riscv: Add KVM_GET_REG_LIST API support
+      KVM: riscv: selftests: Add get-reg-list test
+
+ Documentation/virt/kvm/api.rst                     |    4 +-
+ arch/riscv/include/asm/csr.h                       |    2 +
+ arch/riscv/include/asm/kvm_host.h                  |    9 +
+ arch/riscv/include/asm/kvm_vcpu_vector.h           |    6 +-
+ arch/riscv/include/uapi/asm/kvm.h                  |   16 +
+ arch/riscv/kvm/Makefile                            |    1 +
+ arch/riscv/kvm/aia.c                               |    4 +-
+ arch/riscv/kvm/vcpu.c                              |  547 +---------
+ arch/riscv/kvm/vcpu_fp.c                           |   12 +-
+ arch/riscv/kvm/vcpu_onereg.c                       | 1051 ++++++++++++++++++++
+ arch/riscv/kvm/vcpu_sbi.c                          |   16 +-
+ arch/riscv/kvm/vcpu_timer.c                        |   11 +-
+ arch/riscv/kvm/vcpu_vector.c                       |   72 +-
+ tools/testing/selftests/kvm/Makefile               |   13 +-
+ tools/testing/selftests/kvm/aarch64/get-reg-list.c |  554 ++---------
+ tools/testing/selftests/kvm/get-reg-list.c         |  401 ++++++++
+ .../testing/selftests/kvm/include/kvm_util_base.h  |   21 +
+ .../selftests/kvm/include/riscv/processor.h        |    3 +
+ tools/testing/selftests/kvm/include/test_util.h    |    2 +
+ tools/testing/selftests/kvm/lib/test_util.c        |   15 +
+ tools/testing/selftests/kvm/riscv/get-reg-list.c   |  872 ++++++++++++++++
+ 21 files changed, 2547 insertions(+), 1085 deletions(-)
+ create mode 100644 arch/riscv/kvm/vcpu_onereg.c
+ create mode 100644 tools/testing/selftests/kvm/get-reg-list.c
+ create mode 100644 tools/testing/selftests/kvm/riscv/get-reg-list.c
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============9182350060955798180==--
-
