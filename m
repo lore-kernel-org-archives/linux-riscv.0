@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64461EE49B5
-	for <linux-riscv@archiver.kernel.org>; Wed, 23 Aug 2023 15:07:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD3F2EE4993
+	for <linux-riscv@archiver.kernel.org>; Wed, 23 Aug 2023 15:07:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=g52tCSq6YJJHxPil6MbdEp8BmDTupNvxDUCH6phcYv0=; b=gjyDqjJ7GJih2C
-	sj7/XRRkMheLLcLnSPh+Wq9O4I14sUlAsspRFeys4+wzKXlnwhSenuhTHhTz71x89g3k3GnY2o+M1
-	ylhJXvrmLB18/8xwecFGtZITFJs5O0j0JUK/W21Ia4sCqFWD/wMyt3m4YfIYWxHw2nYdGGJrqUdMz
-	QeBeNweINpE/2hDn/DU0cUe9S41q+S0K9XUEtl21rgNeETB6t8M6NjMYKYpmsIMYj3f/eXaOhx0Ij
-	19/8CU2d8gc50s9EJbuAEobUq7YXglLg0PaKd0mwj7HMXDdfNpUi6ViMLP4z5WnK6wA+sFrZh8Sia
-	o0x/AyQTIXz184tufNHA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=36OnmgGRIqfrBc+xsyzjz0pO56nP7wtLsUhv/L0NXOk=; b=qY+smYIWip/3Qx
+	aq3NlkkFHiKsrMhcMHtzwiZ7j/sfBtVuhZpvinRV03u9SYzmrjzQfMQo7bbwKrH7dBl/9uD0NZHZZ
+	9BZOvBGz+Do/CYy5nttfSJK9kLZOA7sgKq6zBmGvc0KhA7mVZUlWP1pBwrt3SiqM83bbxjlQzAw0w
+	vtVSEvBLruzaLbzLxF0GkcF1J+NwGwnN+3SR5nziTHz9PDT7vixvrGGfdBYkY/74eFDDcaxwdOl+h
+	y+z8xWnvN/8ChrvFLudbAsl6VKdkfSv5/GRxC7AmVhda4My5y4vCR6aKq1oFzGQBVkhOjn5TVOszs
+	gwZPg1OieqJkKpDkqG/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qYpRw-000ug0-0n;
-	Wed, 23 Aug 2023 15:07:12 +0000
-Received: from [45.249.212.51] (helo=dggsgout11.his.huawei.com)
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qYpRl-000uYc-1w
-	for linux-riscv@lists.infradead.org;
+	id 1qYpRq-000ucE-07;
 	Wed, 23 Aug 2023 15:07:06 +0000
+Received: from [45.249.212.56] (helo=dggsgout12.his.huawei.com)
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1qYpRl-000uYa-22
+	for linux-riscv@lists.infradead.org;
+	Wed, 23 Aug 2023 15:07:04 +0000
 Received: from mail02.huawei.com (unknown [172.30.67.169])
-	by dggsgout11.his.huawei.com (SkyGuard) with ESMTP id 4RW8gr4Crdz4f3kpl
-	for <linux-riscv@lists.infradead.org>; Wed, 23 Aug 2023 23:06:48 +0800 (CST)
+	by dggsgout12.his.huawei.com (SkyGuard) with ESMTP id 4RW8gp0ltFz4f3l7R
+	for <linux-riscv@lists.infradead.org>; Wed, 23 Aug 2023 23:06:46 +0800 (CST)
 Received: from ultra.huawei.com (unknown [10.90.53.71])
-	by APP4 (Coremail) with SMTP id gCh0CgAn_qCIIOZksUWeBQ--.39856S2;
-	Wed, 23 Aug 2023 23:06:48 +0800 (CST)
+	by APP4 (Coremail) with SMTP id gCh0CgAn_qCIIOZksUWeBQ--.39856S5;
+	Wed, 23 Aug 2023 23:06:49 +0800 (CST)
 From: Pu Lehui <pulehui@huaweicloud.com>
 To: linux-riscv@lists.infradead.org,
 	bpf@vger.kernel.org,
@@ -55,33 +55,36 @@ Cc: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>,
 	Puranjay Mohan <puranjay12@gmail.com>,
 	Pu Lehui <pulehui@huawei.com>,
 	Pu Lehui <pulehui@huaweicloud.com>
-Subject: [PATCH bpf-next 0/7] Add support cpu v4 insns for RV64
-Date: Wed, 23 Aug 2023 23:10:52 +0000
-Message-Id: <20230823231059.3363698-1-pulehui@huaweicloud.com>
+Subject: [PATCH bpf-next 3/7] riscv, bpf: Support sign-extension mov insns
+Date: Wed, 23 Aug 2023 23:10:55 +0000
+Message-Id: <20230823231059.3363698-4-pulehui@huaweicloud.com>
 X-Mailer: git-send-email 2.39.2
+In-Reply-To: <20230823231059.3363698-1-pulehui@huaweicloud.com>
+References: <20230823231059.3363698-1-pulehui@huaweicloud.com>
 MIME-Version: 1.0
-X-CM-TRANSID: gCh0CgAn_qCIIOZksUWeBQ--.39856S2
-X-Coremail-Antispam: 1UD129KBjvAXoW3tryfJF1DZr48JrWxtFWxtFb_yoW8JryUCo
-	WYq39FkF9IyF47tanrZ3WSyF43tF98ur4kGry7KFyrAr48ZrnrKw1rur4xuF9rZwsIqr9r
-	Xay2yFyDJrykXayxn29KB7ZKAUJUUUU8529EdanIXcx71UUUUU7v73VFW2AGmfu7bjvjm3
-	AaLaJ3UjIYCTnIWjp_UUUYK7AC8VAFwI0_Xr0_Wr1l1xkIjI8I6I8E6xAIw20EY4v20xva
-	j40_Wr0E3s1l1IIY67AEw4v_Jr0_Jr4l87I20VAvwVAaII0Ic2I_JFv_Gryl8cAvFVAK0I
-	I2c7xJM28CjxkF64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVWDJVCq3wA2z4x0
-	Y4vE2Ix0cI8IcVCY1x0267AKxVW8Jr0_Cr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84
-	ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8C
-	rVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1Y6r17McIj6I8E87Iv67AKxV
-	WUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS
-	5cI20VAGYxC7M4IIrI8v6xkF7I0E8cxan2IY04v7MxkF7I0En4kS14v26r1q6r43MxAIw2
-	8IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4l
-	x2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVW8ZVWrXwCIc40Y0x0EwIxGrw
-	CI42IY6xIIjxv20xvE14v26r1I6r4UMIIF0xvE2Ix0cI8IcVCY1x0267AKxVWxJVW8Jr1l
-	IxAIcVCF04k26cxKx2IYs7xG6Fyj6rWUJwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I
-	8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjTRNXo2DUUUU
+X-CM-TRANSID: gCh0CgAn_qCIIOZksUWeBQ--.39856S5
+X-Coremail-Antispam: 1UD129KBjvdXoWrtFW7tF1rtw13uFW8WFW7Jwb_yoWftFg_Cr
+	n7GayxWw45GFs5Aa4DAr4fArykCws5KF1kXFyv9ryq9rs8Wr1rJryktFyxu34xur1FkFZ5
+	Zr95J3ySyw42qjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUIcSsGvfJTRUUUbQ8FF20E14v26rWj6s0DM7CY07I20VC2zVCF04k26cxKx2IYs7xG
+	6rWj6s0DM7CIcVAFz4kK6r1j6r18M280x2IEY4vEnII2IxkI6r1a6r45M28IrcIa0xkI8V
+	A2jI8067AKxVWUWwA2048vs2IY020Ec7CjxVAFwI0_Xr0E3s1l8cAvFVAK0II2c7xJM28C
+	jxkF64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVWDJVCq3wA2z4x0Y4vE2Ix0cI
+	8IcVCY1x0267AKxVWxJr0_GcWl84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2
+	jsIEc7CjxVAFwI0_GcCE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4
+	CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jrv_JF1lYx0Ex4A2jsIE14v26r1j6r4UMcvj
+	eVCFs4IE7xkEbVWUJVW8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I
+	1lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64vI
+	r41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8Gjc
+	xK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r4a6rW5MIIYrxkI7VAKI48JMIIF0xvE2Ix0
+	cI8IcVAFwI0_Gr0_Xr1lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4UJVWxJr1lIxAIcVCF04
+	k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r4j6F4UMIIF0xvEx4A2jsIEc7Cj
+	xVAFwI0_Gr1j6F4UJbIYCTnIWIevJa73UjIFyTuYvjTRMq2MDUUUU
 X-CM-SenderInfo: psxovxtxl6x35dzhxuhorxvhhfrp/
 X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230823_080702_162888_2C8FCBFD 
-X-CRM114-Status: UNSURE (   3.87  )
+X-CRM114-CacheID: sfid-20230823_080701_933881_AC5E2F4A 
+X-CRM114-Status: UNSURE (   6.65  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -99,206 +102,40 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add support cpu v4 instructions for RV64. The relevant tests have passed as show bellow:
+From: Pu Lehui <pulehui@huawei.com>
 
-# ./test_progs-cpuv4 -a ldsx_insn,verifier_sdiv,verifier_movsx,verifier_ldsx,verifier_gotol,verifier_bswap
-#116/1   ldsx_insn/map_val and probed_memory:OK
-#116/2   ldsx_insn/ctx_member_sign_ext:OK
-#116/3   ldsx_insn/ctx_member_narrow_sign_ext:OK
-#116     ldsx_insn:OK
-#309/1   verifier_bswap/BSWAP, 16:OK
-#309/2   verifier_bswap/BSWAP, 16 @unpriv:OK
-#309/3   verifier_bswap/BSWAP, 32:OK
-#309/4   verifier_bswap/BSWAP, 32 @unpriv:OK
-#309/5   verifier_bswap/BSWAP, 64:OK
-#309/6   verifier_bswap/BSWAP, 64 @unpriv:OK
-#309     verifier_bswap:OK
-#323/1   verifier_gotol/gotol, small_imm:OK
-#323/2   verifier_gotol/gotol, small_imm @unpriv:OK
-#323     verifier_gotol:OK
-#331/1   verifier_ldsx/LDSX, S8:OK
-#331/2   verifier_ldsx/LDSX, S8 @unpriv:OK
-#331/3   verifier_ldsx/LDSX, S16:OK
-#331/4   verifier_ldsx/LDSX, S16 @unpriv:OK
-#331/5   verifier_ldsx/LDSX, S32:OK
-#331/6   verifier_ldsx/LDSX, S32 @unpriv:OK
-#331/7   verifier_ldsx/LDSX, S8 range checking, privileged:OK
-#331/8   verifier_ldsx/LDSX, S16 range checking:OK
-#331/9   verifier_ldsx/LDSX, S16 range checking @unpriv:OK
-#331/10  verifier_ldsx/LDSX, S32 range checking:OK
-#331/11  verifier_ldsx/LDSX, S32 range checking @unpriv:OK
-#331     verifier_ldsx:OK
-#342/1   verifier_movsx/MOV32SX, S8:OK
-#342/2   verifier_movsx/MOV32SX, S8 @unpriv:OK
-#342/3   verifier_movsx/MOV32SX, S16:OK
-#342/4   verifier_movsx/MOV32SX, S16 @unpriv:OK
-#342/5   verifier_movsx/MOV64SX, S8:OK
-#342/6   verifier_movsx/MOV64SX, S8 @unpriv:OK
-#342/7   verifier_movsx/MOV64SX, S16:OK
-#342/8   verifier_movsx/MOV64SX, S16 @unpriv:OK
-#342/9   verifier_movsx/MOV64SX, S32:OK
-#342/10  verifier_movsx/MOV64SX, S32 @unpriv:OK
-#342/11  verifier_movsx/MOV32SX, S8, range_check:OK
-#342/12  verifier_movsx/MOV32SX, S8, range_check @unpriv:OK
-#342/13  verifier_movsx/MOV32SX, S16, range_check:OK
-#342/14  verifier_movsx/MOV32SX, S16, range_check @unpriv:OK
-#342/15  verifier_movsx/MOV32SX, S16, range_check 2:OK
-#342/16  verifier_movsx/MOV32SX, S16, range_check 2 @unpriv:OK
-#342/17  verifier_movsx/MOV64SX, S8, range_check:OK
-#342/18  verifier_movsx/MOV64SX, S8, range_check @unpriv:OK
-#342/19  verifier_movsx/MOV64SX, S16, range_check:OK
-#342/20  verifier_movsx/MOV64SX, S16, range_check @unpriv:OK
-#342/21  verifier_movsx/MOV64SX, S32, range_check:OK
-#342/22  verifier_movsx/MOV64SX, S32, range_check @unpriv:OK
-#342/23  verifier_movsx/MOV64SX, S16, R10 Sign Extension:OK
-#342/24  verifier_movsx/MOV64SX, S16, R10 Sign Extension @unpriv:OK
-#342     verifier_movsx:OK
-#354/1   verifier_sdiv/SDIV32, non-zero imm divisor, check 1:OK
-#354/2   verifier_sdiv/SDIV32, non-zero imm divisor, check 1 @unpriv:OK
-#354/3   verifier_sdiv/SDIV32, non-zero imm divisor, check 2:OK
-#354/4   verifier_sdiv/SDIV32, non-zero imm divisor, check 2 @unpriv:OK
-#354/5   verifier_sdiv/SDIV32, non-zero imm divisor, check 3:OK
-#354/6   verifier_sdiv/SDIV32, non-zero imm divisor, check 3 @unpriv:OK
-#354/7   verifier_sdiv/SDIV32, non-zero imm divisor, check 4:OK
-#354/8   verifier_sdiv/SDIV32, non-zero imm divisor, check 4 @unpriv:OK
-#354/9   verifier_sdiv/SDIV32, non-zero imm divisor, check 5:OK
-#354/10  verifier_sdiv/SDIV32, non-zero imm divisor, check 5 @unpriv:OK
-#354/11  verifier_sdiv/SDIV32, non-zero imm divisor, check 6:OK
-#354/12  verifier_sdiv/SDIV32, non-zero imm divisor, check 6 @unpriv:OK
-#354/13  verifier_sdiv/SDIV32, non-zero imm divisor, check 7:OK
-#354/14  verifier_sdiv/SDIV32, non-zero imm divisor, check 7 @unpriv:OK
-#354/15  verifier_sdiv/SDIV32, non-zero imm divisor, check 8:OK
-#354/16  verifier_sdiv/SDIV32, non-zero imm divisor, check 8 @unpriv:OK
-#354/17  verifier_sdiv/SDIV32, non-zero reg divisor, check 1:OK
-#354/18  verifier_sdiv/SDIV32, non-zero reg divisor, check 1 @unpriv:OK
-#354/19  verifier_sdiv/SDIV32, non-zero reg divisor, check 2:OK
-#354/20  verifier_sdiv/SDIV32, non-zero reg divisor, check 2 @unpriv:OK
-#354/21  verifier_sdiv/SDIV32, non-zero reg divisor, check 3:OK
-#354/22  verifier_sdiv/SDIV32, non-zero reg divisor, check 3 @unpriv:OK
-#354/23  verifier_sdiv/SDIV32, non-zero reg divisor, check 4:OK
-#354/24  verifier_sdiv/SDIV32, non-zero reg divisor, check 4 @unpriv:OK
-#354/25  verifier_sdiv/SDIV32, non-zero reg divisor, check 5:OK
-#354/26  verifier_sdiv/SDIV32, non-zero reg divisor, check 5 @unpriv:OK
-#354/27  verifier_sdiv/SDIV32, non-zero reg divisor, check 6:OK
-#354/28  verifier_sdiv/SDIV32, non-zero reg divisor, check 6 @unpriv:OK
-#354/29  verifier_sdiv/SDIV32, non-zero reg divisor, check 7:OK
-#354/30  verifier_sdiv/SDIV32, non-zero reg divisor, check 7 @unpriv:OK
-#354/31  verifier_sdiv/SDIV32, non-zero reg divisor, check 8:OK
-#354/32  verifier_sdiv/SDIV32, non-zero reg divisor, check 8 @unpriv:OK
-#354/33  verifier_sdiv/SDIV64, non-zero imm divisor, check 1:OK
-#354/34  verifier_sdiv/SDIV64, non-zero imm divisor, check 1 @unpriv:OK
-#354/35  verifier_sdiv/SDIV64, non-zero imm divisor, check 2:OK
-#354/36  verifier_sdiv/SDIV64, non-zero imm divisor, check 2 @unpriv:OK
-#354/37  verifier_sdiv/SDIV64, non-zero imm divisor, check 3:OK
-#354/38  verifier_sdiv/SDIV64, non-zero imm divisor, check 3 @unpriv:OK
-#354/39  verifier_sdiv/SDIV64, non-zero imm divisor, check 4:OK
-#354/40  verifier_sdiv/SDIV64, non-zero imm divisor, check 4 @unpriv:OK
-#354/41  verifier_sdiv/SDIV64, non-zero imm divisor, check 5:OK
-#354/42  verifier_sdiv/SDIV64, non-zero imm divisor, check 5 @unpriv:OK
-#354/43  verifier_sdiv/SDIV64, non-zero imm divisor, check 6:OK
-#354/44  verifier_sdiv/SDIV64, non-zero imm divisor, check 6 @unpriv:OK
-#354/45  verifier_sdiv/SDIV64, non-zero reg divisor, check 1:OK
-#354/46  verifier_sdiv/SDIV64, non-zero reg divisor, check 1 @unpriv:OK
-#354/47  verifier_sdiv/SDIV64, non-zero reg divisor, check 2:OK
-#354/48  verifier_sdiv/SDIV64, non-zero reg divisor, check 2 @unpriv:OK
-#354/49  verifier_sdiv/SDIV64, non-zero reg divisor, check 3:OK
-#354/50  verifier_sdiv/SDIV64, non-zero reg divisor, check 3 @unpriv:OK
-#354/51  verifier_sdiv/SDIV64, non-zero reg divisor, check 4:OK
-#354/52  verifier_sdiv/SDIV64, non-zero reg divisor, check 4 @unpriv:OK
-#354/53  verifier_sdiv/SDIV64, non-zero reg divisor, check 5:OK
-#354/54  verifier_sdiv/SDIV64, non-zero reg divisor, check 5 @unpriv:OK
-#354/55  verifier_sdiv/SDIV64, non-zero reg divisor, check 6:OK
-#354/56  verifier_sdiv/SDIV64, non-zero reg divisor, check 6 @unpriv:OK
-#354/57  verifier_sdiv/SMOD32, non-zero imm divisor, check 1:OK
-#354/58  verifier_sdiv/SMOD32, non-zero imm divisor, check 1 @unpriv:OK
-#354/59  verifier_sdiv/SMOD32, non-zero imm divisor, check 2:OK
-#354/60  verifier_sdiv/SMOD32, non-zero imm divisor, check 2 @unpriv:OK
-#354/61  verifier_sdiv/SMOD32, non-zero imm divisor, check 3:OK
-#354/62  verifier_sdiv/SMOD32, non-zero imm divisor, check 3 @unpriv:OK
-#354/63  verifier_sdiv/SMOD32, non-zero imm divisor, check 4:OK
-#354/64  verifier_sdiv/SMOD32, non-zero imm divisor, check 4 @unpriv:OK
-#354/65  verifier_sdiv/SMOD32, non-zero imm divisor, check 5:OK
-#354/66  verifier_sdiv/SMOD32, non-zero imm divisor, check 5 @unpriv:OK
-#354/67  verifier_sdiv/SMOD32, non-zero imm divisor, check 6:OK
-#354/68  verifier_sdiv/SMOD32, non-zero imm divisor, check 6 @unpriv:OK
-#354/69  verifier_sdiv/SMOD32, non-zero reg divisor, check 1:OK
-#354/70  verifier_sdiv/SMOD32, non-zero reg divisor, check 1 @unpriv:OK
-#354/71  verifier_sdiv/SMOD32, non-zero reg divisor, check 2:OK
-#354/72  verifier_sdiv/SMOD32, non-zero reg divisor, check 2 @unpriv:OK
-#354/73  verifier_sdiv/SMOD32, non-zero reg divisor, check 3:OK
-#354/74  verifier_sdiv/SMOD32, non-zero reg divisor, check 3 @unpriv:OK
-#354/75  verifier_sdiv/SMOD32, non-zero reg divisor, check 4:OK
-#354/76  verifier_sdiv/SMOD32, non-zero reg divisor, check 4 @unpriv:OK
-#354/77  verifier_sdiv/SMOD32, non-zero reg divisor, check 5:OK
-#354/78  verifier_sdiv/SMOD32, non-zero reg divisor, check 5 @unpriv:OK
-#354/79  verifier_sdiv/SMOD32, non-zero reg divisor, check 6:OK
-#354/80  verifier_sdiv/SMOD32, non-zero reg divisor, check 6 @unpriv:OK
-#354/81  verifier_sdiv/SMOD64, non-zero imm divisor, check 1:OK
-#354/82  verifier_sdiv/SMOD64, non-zero imm divisor, check 1 @unpriv:OK
-#354/83  verifier_sdiv/SMOD64, non-zero imm divisor, check 2:OK
-#354/84  verifier_sdiv/SMOD64, non-zero imm divisor, check 2 @unpriv:OK
-#354/85  verifier_sdiv/SMOD64, non-zero imm divisor, check 3:OK
-#354/86  verifier_sdiv/SMOD64, non-zero imm divisor, check 3 @unpriv:OK
-#354/87  verifier_sdiv/SMOD64, non-zero imm divisor, check 4:OK
-#354/88  verifier_sdiv/SMOD64, non-zero imm divisor, check 4 @unpriv:OK
-#354/89  verifier_sdiv/SMOD64, non-zero imm divisor, check 5:OK
-#354/90  verifier_sdiv/SMOD64, non-zero imm divisor, check 5 @unpriv:OK
-#354/91  verifier_sdiv/SMOD64, non-zero imm divisor, check 6:OK
-#354/92  verifier_sdiv/SMOD64, non-zero imm divisor, check 6 @unpriv:OK
-#354/93  verifier_sdiv/SMOD64, non-zero imm divisor, check 7:OK
-#354/94  verifier_sdiv/SMOD64, non-zero imm divisor, check 7 @unpriv:OK
-#354/95  verifier_sdiv/SMOD64, non-zero imm divisor, check 8:OK
-#354/96  verifier_sdiv/SMOD64, non-zero imm divisor, check 8 @unpriv:OK
-#354/97  verifier_sdiv/SMOD64, non-zero reg divisor, check 1:OK
-#354/98  verifier_sdiv/SMOD64, non-zero reg divisor, check 1 @unpriv:OK
-#354/99  verifier_sdiv/SMOD64, non-zero reg divisor, check 2:OK
-#354/100 verifier_sdiv/SMOD64, non-zero reg divisor, check 2 @unpriv:OK
-#354/101 verifier_sdiv/SMOD64, non-zero reg divisor, check 3:OK
-#354/102 verifier_sdiv/SMOD64, non-zero reg divisor, check 3 @unpriv:OK
-#354/103 verifier_sdiv/SMOD64, non-zero reg divisor, check 4:OK
-#354/104 verifier_sdiv/SMOD64, non-zero reg divisor, check 4 @unpriv:OK
-#354/105 verifier_sdiv/SMOD64, non-zero reg divisor, check 5:OK
-#354/106 verifier_sdiv/SMOD64, non-zero reg divisor, check 5 @unpriv:OK
-#354/107 verifier_sdiv/SMOD64, non-zero reg divisor, check 6:OK
-#354/108 verifier_sdiv/SMOD64, non-zero reg divisor, check 6 @unpriv:OK
-#354/109 verifier_sdiv/SMOD64, non-zero reg divisor, check 7:OK
-#354/110 verifier_sdiv/SMOD64, non-zero reg divisor, check 7 @unpriv:OK
-#354/111 verifier_sdiv/SMOD64, non-zero reg divisor, check 8:OK
-#354/112 verifier_sdiv/SMOD64, non-zero reg divisor, check 8 @unpriv:OK
-#354/113 verifier_sdiv/SDIV32, zero divisor:OK
-#354/114 verifier_sdiv/SDIV32, zero divisor @unpriv:OK
-#354/115 verifier_sdiv/SDIV64, zero divisor:OK
-#354/116 verifier_sdiv/SDIV64, zero divisor @unpriv:OK
-#354/117 verifier_sdiv/SMOD32, zero divisor:OK
-#354/118 verifier_sdiv/SMOD32, zero divisor @unpriv:OK
-#354/119 verifier_sdiv/SMOD64, zero divisor:OK
-#354/120 verifier_sdiv/SMOD64, zero divisor @unpriv:OK
-#354     verifier_sdiv:OK
-Summary: 6/166 PASSED, 0 SKIPPED, 0 FAILED
+Add support sign-extension mov instructions for RV64.
 
-NOTE: ldsx_insn testcase uses fentry and needs to rely on ftrace direct call [0].
-[0] https://lore.kernel.org/all/20230627111612.761164-1-suagrfillet@gmail.com/
+Signed-off-by: Pu Lehui <pulehui@huawei.com>
+---
+ arch/riscv/net/bpf_jit_comp64.c | 14 +++++++++++++-
+ 1 file changed, 13 insertions(+), 1 deletion(-)
 
-Pu Lehui (7):
-  riscv, bpf: Fix missing exception handling and redundant zext for
-    LDX_B/H/W
-  riscv, bpf: Support sign-extension load insns
-  riscv, bpf: Support sign-extension mov insns
-  riscv, bpf: Support 32-bit offset jmp insn
-  riscv, bpf: Support signed div/mod insns
-  riscv, bpf: Support unconditional bswap insn
-  selftests/bpf: Enable cpu v4 tests for RV64
-
- arch/riscv/net/bpf_jit.h                      |  30 ++++++
- arch/riscv/net/bpf_jit_comp64.c               | 102 ++++++++++++++----
- .../selftests/bpf/progs/test_ldsx_insn.c      |   3 +-
- .../selftests/bpf/progs/verifier_bswap.c      |   3 +-
- .../selftests/bpf/progs/verifier_gotol.c      |   3 +-
- .../selftests/bpf/progs/verifier_ldsx.c       |   3 +-
- .../selftests/bpf/progs/verifier_movsx.c      |   3 +-
- .../selftests/bpf/progs/verifier_sdiv.c       |   3 +-
- 8 files changed, 122 insertions(+), 28 deletions(-)
-
+diff --git a/arch/riscv/net/bpf_jit_comp64.c b/arch/riscv/net/bpf_jit_comp64.c
+index fd36cb17101a..d1497182cacf 100644
+--- a/arch/riscv/net/bpf_jit_comp64.c
++++ b/arch/riscv/net/bpf_jit_comp64.c
+@@ -1047,7 +1047,19 @@ int bpf_jit_emit_insn(const struct bpf_insn *insn, struct rv_jit_context *ctx,
+ 			emit_zext_32(rd, ctx);
+ 			break;
+ 		}
+-		emit_mv(rd, rs, ctx);
++		switch (insn->off) {
++		case 0:
++			emit_mv(rd, rs, ctx);
++			break;
++		case 8:
++		case 16:
++			emit_slli(rs, rs, 64 - insn->off, ctx);
++			emit_srai(rd, rs, 64 - insn->off, ctx);
++			break;
++		case 32:
++			emit_addiw(rd, rs, 0, ctx);
++			break;
++		}
+ 		if (!is64 && !aux->verifier_zext)
+ 			emit_zext_32(rd, ctx);
+ 		break;
 -- 
 2.39.2
 
