@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09E0CEE49B2
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CEFAEE49B7
 	for <linux-riscv@archiver.kernel.org>; Wed, 23 Aug 2023 15:07:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,26 +12,26 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kEg5L4rTzf2mX6NNcDTg0Jz/2CwgkidF2YoGRl14XSc=; b=tKHjV3kSGxQt2F
-	sHP1Bk+rIfomC74LYRDZD18+6+OVsYD77K4cCiNwXvJ5nqdzgRFZivHESkoHN8LIFDDaokSTvUIg9
-	VQCqM+5jihqW95ZDp1BhVCbZ/fs3jVzOj1QuCdeBpADA3zhHfWmJHGNgY9rPwSKjgD+SlOuFXOFhJ
-	KK59gRT7EfU/fqw3++jfrvhVuaG4Z6OGgVdlr+hESpGpe8N2yiE9mrbRKml+ybCloa6LsP9mXRFB+
-	16GDs4ndTgWufKSPTw+a862CC5mtaGURGB5aJ+bJTz02bpWLDIHjLIi/GJX8GqJDOZrf7vKQtcayJ
-	B2qhQXGgD2u2bQKe8SZA==;
+	List-Owner; bh=NH3WH5saV/PsUWfLEUe/KgFYTsiWjUYu4avFOJNQNhM=; b=4Qcjw+VDEuaBNt
+	JqPSb0S8v4+XGvVQmr+bJGUvWkwJ7VVFXTwjhPHux27Hip9RuCkmug1q3ZfcLxgKcyz24iywIffqp
+	BrRKpUbq62bXkwkoo0o7tn/3pUBGlVpN9hLfmNvuYBk2kVG0sfxZxj/gT4RrkQ7C8Kki/FlccK6zA
+	ZbvllvVAc1RLs1wNCt36qR+b3lnTJgyhXWuz/r9f2iZHtcVmDT1nsQmtJh5lW1ralWdanSj77ugxB
+	r3iPTeiobDSYCloaUnRlZrQqxHOqllQNqyV9c9Q5igaKNdQU57MSn/IcOm2RBs3sn7QH5lZrp3+Sm
+	UUfprxHOznCD8SrdZBmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qYpRv-000ufQ-29;
+	id 1qYpRv-000uf3-07;
 	Wed, 23 Aug 2023 15:07:11 +0000
-Received: from [45.249.212.51] (helo=dggsgout11.his.huawei.com)
+Received: from [45.249.212.56] (helo=dggsgout12.his.huawei.com)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qYpRn-000uYk-1Y
+	id 1qYpRl-000uYb-1r
 	for linux-riscv@lists.infradead.org;
 	Wed, 23 Aug 2023 15:07:05 +0000
 Received: from mail02.huawei.com (unknown [172.30.67.169])
-	by dggsgout11.his.huawei.com (SkyGuard) with ESMTP id 4RW8gr452bz4f3pHs
-	for <linux-riscv@lists.infradead.org>; Wed, 23 Aug 2023 23:06:48 +0800 (CST)
+	by dggsgout12.his.huawei.com (SkyGuard) with ESMTP id 4RW8gp0BGFz4f3kpW
+	for <linux-riscv@lists.infradead.org>; Wed, 23 Aug 2023 23:06:46 +0800 (CST)
 Received: from ultra.huawei.com (unknown [10.90.53.71])
-	by APP4 (Coremail) with SMTP id gCh0CgAn_qCIIOZksUWeBQ--.39856S9;
+	by APP4 (Coremail) with SMTP id gCh0CgAn_qCIIOZksUWeBQ--.39856S4;
 	Wed, 23 Aug 2023 23:06:49 +0800 (CST)
 From: Pu Lehui <pulehui@huaweicloud.com>
 To: linux-riscv@lists.infradead.org,
@@ -55,37 +55,36 @@ Cc: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>,
 	Puranjay Mohan <puranjay12@gmail.com>,
 	Pu Lehui <pulehui@huawei.com>,
 	Pu Lehui <pulehui@huaweicloud.com>
-Subject: [PATCH bpf-next 7/7] selftests/bpf: Enable cpu v4 tests for RV64
-Date: Wed, 23 Aug 2023 23:10:59 +0000
-Message-Id: <20230823231059.3363698-8-pulehui@huaweicloud.com>
+Subject: [PATCH bpf-next 2/7] riscv, bpf: Support sign-extension load insns
+Date: Wed, 23 Aug 2023 23:10:54 +0000
+Message-Id: <20230823231059.3363698-3-pulehui@huaweicloud.com>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20230823231059.3363698-1-pulehui@huaweicloud.com>
 References: <20230823231059.3363698-1-pulehui@huaweicloud.com>
 MIME-Version: 1.0
-X-CM-TRANSID: gCh0CgAn_qCIIOZksUWeBQ--.39856S9
-X-Coremail-Antispam: 1UD129KBjvJXoWxCF1DJryUCr4UJw4UXrW5Wrg_yoW7Jr1rp3
-	WkuasIy3WxKF1a9F1fAF4jvFWrGrs7ZrWUAFW0vr4Du3ZrJrWIqr92kr45JrZ0grZYvrs5
-	Zw1IgwnxZr48Zw7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUQl14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+X-CM-TRANSID: gCh0CgAn_qCIIOZksUWeBQ--.39856S4
+X-Coremail-Antispam: 1UD129KBjvJXoWxGr4kAr1rCw4UCr1xuw4kZwb_yoWruFyxpF
+	W3Gw1fC39YqrWSqF9rtF17Ww45Ar48WFnFgrWag3yFqa1IqrZxWFyUtw4aya45GryrXa48
+	GFW2vryakas2grDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUQq14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
 	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2jI8I6cxK62vIxIIY0VWUZVW8XwA2048vs2IY02
-	0E87I2jVAFwI0_JF0E3s1l82xGYIkIc2x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0
-	rwA2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6x
-	IIjxv20xvEc7CjxVAFwI0_Cr1j6rxdM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK
-	6I8E87Iv6xkF7I0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4
-	xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1Y6r17McIj6I8E87Iv67AKxVWUJVW8
-	JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20V
-	AGYxC7M4IIrI8v6xkF7I0E8cxan2IY04v7MxkF7I0En4kS14v26r1q6r43MxAIw28IcxkI
-	7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxV
-	Cjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVW8ZVWrXwCIc40Y0x0EwIxGrwCI42IY
-	6xIIjxv20xvE14v26r4j6ryUMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8Jr0_Cr1UMIIF0x
-	vE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVW8JVWxJwCI42IY6I8E87Iv
-	6xkF7I0E14v26r4UJVWxJrUvcSsGvfC2KfnxnUUI43ZEXa7sRiHq2tUUUUU==
+	0E87I2jVAFwI0_Jryl82xGYIkIc2x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2
+	F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xIIjx
+	v20xvEc7CjxVAFwI0_Cr1j6rxdM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E
+	87Iv6xkF7I0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64
+	kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1Y6r17McIj6I8E87Iv67AKxVWUJVW8JwAm
+	72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYx
+	C7M4IIrI8v6xkF7I0E8cxan2IY04v7MxkF7I0En4kS14v26r1q6r43MxAIw28IcxkI7VAK
+	I48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7
+	xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVW8ZVWrXwCIc40Y0x0EwIxGrwCI42IY6xII
+	jxv20xvE14v26r4j6ryUMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8Jr0_Cr1UMIIF0xvE42
+	xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVW8JVWxJwCI42IY6I8E87Iv6xkF
+	7I0E14v26r4UJVWxJrUvcSsGvfC2KfnxnUUI43ZEXa7sRiJ5r3UUUUU==
 X-CM-SenderInfo: psxovxtxl6x35dzhxuhorxvhhfrp/
 X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230823_080704_079644_805DCC02 
-X-CRM114-Status: UNSURE (   7.09  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230823_080702_158469_15FE15BB 
+X-CRM114-Status: GOOD (  10.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,102 +103,144 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Pu Lehui <pulehui@huawei.com>
 
-Enable cpu v4 tests for RV64, and the relevant tests have passed.
+Add Support sign-extension load instructions for RV64.
 
 Signed-off-by: Pu Lehui <pulehui@huawei.com>
 ---
- tools/testing/selftests/bpf/progs/test_ldsx_insn.c | 3 ++-
- tools/testing/selftests/bpf/progs/verifier_bswap.c | 3 ++-
- tools/testing/selftests/bpf/progs/verifier_gotol.c | 3 ++-
- tools/testing/selftests/bpf/progs/verifier_ldsx.c  | 3 ++-
- tools/testing/selftests/bpf/progs/verifier_movsx.c | 3 ++-
- tools/testing/selftests/bpf/progs/verifier_sdiv.c  | 3 ++-
- 6 files changed, 12 insertions(+), 6 deletions(-)
+ arch/riscv/net/bpf_jit.h        | 10 +++++++
+ arch/riscv/net/bpf_jit_comp64.c | 46 +++++++++++++++++++++++++++------
+ 2 files changed, 48 insertions(+), 8 deletions(-)
 
-diff --git a/tools/testing/selftests/bpf/progs/test_ldsx_insn.c b/tools/testing/selftests/bpf/progs/test_ldsx_insn.c
-index 916d9435f12c..67c14ba1e87b 100644
---- a/tools/testing/selftests/bpf/progs/test_ldsx_insn.c
-+++ b/tools/testing/selftests/bpf/progs/test_ldsx_insn.c
-@@ -5,7 +5,8 @@
- #include <bpf/bpf_helpers.h>
- #include <bpf/bpf_tracing.h>
+diff --git a/arch/riscv/net/bpf_jit.h b/arch/riscv/net/bpf_jit.h
+index 2717f5490428..a52a3dda18c3 100644
+--- a/arch/riscv/net/bpf_jit.h
++++ b/arch/riscv/net/bpf_jit.h
+@@ -501,6 +501,16 @@ static inline u32 rv_ble(u8 rs1, u8 rs2, u16 imm12_1)
+ 	return rv_bge(rs2, rs1, imm12_1);
+ }
  
--#if (defined(__TARGET_ARCH_arm64) || defined(__TARGET_ARCH_x86)) && __clang_major__ >= 18
-+#if (defined(__TARGET_ARCH_arm64) || defined(__TARGET_ARCH_x86) || \
-+     (defined(__TARGET_ARCH_riscv) && __riscv_xlen == 64)) && __clang_major__ >= 18
- const volatile int skip = 0;
- #else
- const volatile int skip = 1;
-diff --git a/tools/testing/selftests/bpf/progs/verifier_bswap.c b/tools/testing/selftests/bpf/progs/verifier_bswap.c
-index 770f9d882542..8893094725f0 100644
---- a/tools/testing/selftests/bpf/progs/verifier_bswap.c
-+++ b/tools/testing/selftests/bpf/progs/verifier_bswap.c
-@@ -4,7 +4,8 @@
- #include <bpf/bpf_helpers.h>
- #include "bpf_misc.h"
++static inline u32 rv_lb(u8 rd, u16 imm11_0, u8 rs1)
++{
++	return rv_i_insn(imm11_0, rs1, 0, rd, 0x03);
++}
++
++static inline u32 rv_lh(u8 rd, u16 imm11_0, u8 rs1)
++{
++	return rv_i_insn(imm11_0, rs1, 1, rd, 0x03);
++}
++
+ static inline u32 rv_lw(u8 rd, u16 imm11_0, u8 rs1)
+ {
+ 	return rv_i_insn(imm11_0, rs1, 2, rd, 0x03);
+diff --git a/arch/riscv/net/bpf_jit_comp64.c b/arch/riscv/net/bpf_jit_comp64.c
+index f2644e7ea6b5..fd36cb17101a 100644
+--- a/arch/riscv/net/bpf_jit_comp64.c
++++ b/arch/riscv/net/bpf_jit_comp64.c
+@@ -580,7 +580,8 @@ static int add_exception_handler(const struct bpf_insn *insn,
+ 	unsigned long pc;
+ 	off_t offset;
  
--#if (defined(__TARGET_ARCH_arm64) || defined(__TARGET_ARCH_x86)) && __clang_major__ >= 18
-+#if (defined(__TARGET_ARCH_arm64) || defined(__TARGET_ARCH_x86) || \
-+     (defined(__TARGET_ARCH_riscv) && __riscv_xlen == 64)) && __clang_major__ >= 18
+-	if (!ctx->insns || !ctx->prog->aux->extable || BPF_MODE(insn->code) != BPF_PROBE_MEM)
++	if (!ctx->insns || !ctx->prog->aux->extable ||
++	    (BPF_MODE(insn->code) != BPF_PROBE_MEM && BPF_MODE(insn->code) != BPF_PROBE_MEMSX))
+ 		return 0;
  
- SEC("socket")
- __description("BSWAP, 16")
-diff --git a/tools/testing/selftests/bpf/progs/verifier_gotol.c b/tools/testing/selftests/bpf/progs/verifier_gotol.c
-index 17319a505e87..2dae5322a18e 100644
---- a/tools/testing/selftests/bpf/progs/verifier_gotol.c
-+++ b/tools/testing/selftests/bpf/progs/verifier_gotol.c
-@@ -4,7 +4,8 @@
- #include <bpf/bpf_helpers.h>
- #include "bpf_misc.h"
+ 	if (WARN_ON_ONCE(ctx->nexentries >= ctx->prog->aux->num_exentries))
+@@ -1486,7 +1487,7 @@ int bpf_jit_emit_insn(const struct bpf_insn *insn, struct rv_jit_context *ctx,
+ 		return 1;
+ 	}
  
--#if (defined(__TARGET_ARCH_arm64) || defined(__TARGET_ARCH_x86)) && __clang_major__ >= 18
-+#if (defined(__TARGET_ARCH_arm64) || defined(__TARGET_ARCH_x86) || \
-+     (defined(__TARGET_ARCH_riscv) && __riscv_xlen == 64)) && __clang_major__ >= 18
+-	/* LDX: dst = *(size *)(src + off) */
++	/* LDX: dst = *(unsigned size *)(src + off) */
+ 	case BPF_LDX | BPF_MEM | BPF_B:
+ 	case BPF_LDX | BPF_MEM | BPF_H:
+ 	case BPF_LDX | BPF_MEM | BPF_W:
+@@ -1495,14 +1496,28 @@ int bpf_jit_emit_insn(const struct bpf_insn *insn, struct rv_jit_context *ctx,
+ 	case BPF_LDX | BPF_PROBE_MEM | BPF_H:
+ 	case BPF_LDX | BPF_PROBE_MEM | BPF_W:
+ 	case BPF_LDX | BPF_PROBE_MEM | BPF_DW:
++	/* LDSX: dst = *(signed size *)(src + off) */
++	case BPF_LDX | BPF_MEMSX | BPF_B:
++	case BPF_LDX | BPF_MEMSX | BPF_H:
++	case BPF_LDX | BPF_MEMSX | BPF_W:
++	case BPF_LDX | BPF_PROBE_MEMSX | BPF_B:
++	case BPF_LDX | BPF_PROBE_MEMSX | BPF_H:
++	case BPF_LDX | BPF_PROBE_MEMSX | BPF_W:
+ 	{
+ 		int insn_len, insns_start;
++		bool sign_ext;
++
++		sign_ext = BPF_MODE(insn->code) == BPF_MEMSX ||
++			   BPF_MODE(insn->code) == BPF_PROBE_MEMSX;
  
- SEC("socket")
- __description("gotol, small_imm")
-diff --git a/tools/testing/selftests/bpf/progs/verifier_ldsx.c b/tools/testing/selftests/bpf/progs/verifier_ldsx.c
-index 4a2b567c0f69..0c638f45aaf1 100644
---- a/tools/testing/selftests/bpf/progs/verifier_ldsx.c
-+++ b/tools/testing/selftests/bpf/progs/verifier_ldsx.c
-@@ -4,7 +4,8 @@
- #include <bpf/bpf_helpers.h>
- #include "bpf_misc.h"
- 
--#if (defined(__TARGET_ARCH_arm64) || defined(__TARGET_ARCH_x86)) && __clang_major__ >= 18
-+#if (defined(__TARGET_ARCH_arm64) || defined(__TARGET_ARCH_x86) || \
-+     (defined(__TARGET_ARCH_riscv) && __riscv_xlen == 64)) && __clang_major__ >= 18
- 
- SEC("socket")
- __description("LDSX, S8")
-diff --git a/tools/testing/selftests/bpf/progs/verifier_movsx.c b/tools/testing/selftests/bpf/progs/verifier_movsx.c
-index d9528d578bd9..3c8ac2c57b1b 100644
---- a/tools/testing/selftests/bpf/progs/verifier_movsx.c
-+++ b/tools/testing/selftests/bpf/progs/verifier_movsx.c
-@@ -4,7 +4,8 @@
- #include <bpf/bpf_helpers.h>
- #include "bpf_misc.h"
- 
--#if (defined(__TARGET_ARCH_arm64) || defined(__TARGET_ARCH_x86)) && __clang_major__ >= 18
-+#if (defined(__TARGET_ARCH_arm64) || defined(__TARGET_ARCH_x86) || \
-+     (defined(__TARGET_ARCH_riscv) && __riscv_xlen == 64)) && __clang_major__ >= 18
- 
- SEC("socket")
- __description("MOV32SX, S8")
-diff --git a/tools/testing/selftests/bpf/progs/verifier_sdiv.c b/tools/testing/selftests/bpf/progs/verifier_sdiv.c
-index fa3945930e93..0990f8825675 100644
---- a/tools/testing/selftests/bpf/progs/verifier_sdiv.c
-+++ b/tools/testing/selftests/bpf/progs/verifier_sdiv.c
-@@ -4,7 +4,8 @@
- #include <bpf/bpf_helpers.h>
- #include "bpf_misc.h"
- 
--#if (defined(__TARGET_ARCH_arm64) || defined(__TARGET_ARCH_x86)) && __clang_major__ >= 18
-+#if (defined(__TARGET_ARCH_arm64) || defined(__TARGET_ARCH_x86) || \
-+     (defined(__TARGET_ARCH_riscv) && __riscv_xlen == 64)) && __clang_major__ >= 18
- 
- SEC("socket")
- __description("SDIV32, non-zero imm divisor, check 1")
+ 		switch (BPF_SIZE(code)) {
+ 		case BPF_B:
+ 			if (is_12b_int(off)) {
+ 				insns_start = ctx->ninsns;
+-				emit(rv_lbu(rd, off, rs), ctx);
++				if (sign_ext)
++					emit(rv_lb(rd, off, rs), ctx);
++				else
++					emit(rv_lbu(rd, off, rs), ctx);
+ 				insn_len = ctx->ninsns - insns_start;
+ 				break;
+ 			}
+@@ -1510,13 +1525,19 @@ int bpf_jit_emit_insn(const struct bpf_insn *insn, struct rv_jit_context *ctx,
+ 			emit_imm(RV_REG_T1, off, ctx);
+ 			emit_add(RV_REG_T1, RV_REG_T1, rs, ctx);
+ 			insns_start = ctx->ninsns;
+-			emit(rv_lbu(rd, 0, RV_REG_T1), ctx);
++			if (sign_ext)
++				emit(rv_lb(rd, 0, RV_REG_T1), ctx);
++			else
++				emit(rv_lbu(rd, 0, RV_REG_T1), ctx);
+ 			insn_len = ctx->ninsns - insns_start;
+ 			break;
+ 		case BPF_H:
+ 			if (is_12b_int(off)) {
+ 				insns_start = ctx->ninsns;
+-				emit(rv_lhu(rd, off, rs), ctx);
++				if (sign_ext)
++					emit(rv_lh(rd, off, rs), ctx);
++				else
++					emit(rv_lhu(rd, off, rs), ctx);
+ 				insn_len = ctx->ninsns - insns_start;
+ 				break;
+ 			}
+@@ -1524,13 +1545,19 @@ int bpf_jit_emit_insn(const struct bpf_insn *insn, struct rv_jit_context *ctx,
+ 			emit_imm(RV_REG_T1, off, ctx);
+ 			emit_add(RV_REG_T1, RV_REG_T1, rs, ctx);
+ 			insns_start = ctx->ninsns;
+-			emit(rv_lhu(rd, 0, RV_REG_T1), ctx);
++			if (sign_ext)
++				emit(rv_lh(rd, 0, RV_REG_T1), ctx);
++			else
++				emit(rv_lhu(rd, 0, RV_REG_T1), ctx);
+ 			insn_len = ctx->ninsns - insns_start;
+ 			break;
+ 		case BPF_W:
+ 			if (is_12b_int(off)) {
+ 				insns_start = ctx->ninsns;
+-				emit(rv_lwu(rd, off, rs), ctx);
++				if (sign_ext)
++					emit(rv_lw(rd, off, rs), ctx);
++				else
++					emit(rv_lwu(rd, off, rs), ctx);
+ 				insn_len = ctx->ninsns - insns_start;
+ 				break;
+ 			}
+@@ -1538,7 +1565,10 @@ int bpf_jit_emit_insn(const struct bpf_insn *insn, struct rv_jit_context *ctx,
+ 			emit_imm(RV_REG_T1, off, ctx);
+ 			emit_add(RV_REG_T1, RV_REG_T1, rs, ctx);
+ 			insns_start = ctx->ninsns;
+-			emit(rv_lwu(rd, 0, RV_REG_T1), ctx);
++			if (sign_ext)
++				emit(rv_lw(rd, 0, RV_REG_T1), ctx);
++			else
++				emit(rv_lwu(rd, 0, RV_REG_T1), ctx);
+ 			insn_len = ctx->ninsns - insns_start;
+ 			break;
+ 		case BPF_DW:
 -- 
 2.39.2
 
