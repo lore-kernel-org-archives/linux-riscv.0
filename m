@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1FD9EE4993
-	for <linux-riscv@archiver.kernel.org>; Wed, 23 Aug 2023 13:42:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BC73EE49B6
+	for <linux-riscv@archiver.kernel.org>; Wed, 23 Aug 2023 13:42:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HD4IPJAxrHkbTkS67gnzWAYATo0soYmRIbLlAXuQ81s=; b=Ruh5hPKXf4K7Qx
-	XeTPC6PnSsEamu0Cgmd9hPZkE7K3Z61GB1Rb8cWKWSMaqnAK1qKdbNQvNreGnM6TScm+0tpJQsdoT
-	ep9/+y7UhoZ1I3/0/sSfedLUWA4Td7unHy1n+iYped7EAZzKQfJtkXU2Vsen2wF0ZuEXYumQMpFAN
-	8ay+yxnxj4ouMv61jANpflvazqe6BC3Te/gfYJCMCYfX9k45tUFKu/A5UzfUTk0X9BUwqHflcxVKl
-	9TW+OIoEcK/uabgkaTfbeXuCCor9rckgcVI4CtgzEQLZxB/QTTfCkOKhc3X4UbEMNjPNRYFutdHxM
-	A04FYrTOd+gQQUlyK1bg==;
+	List-Owner; bh=+9JbDmQVbRoaWvXiEtWX52oLjC40q+3DJ1SyvsY2wO4=; b=ZJ2miCEezXrabR
+	k+vRjdiE9BuV1jGKDNxRyWwttXB+ZdMYQQ62/ZaTwoQ6oMQABxRPg+GIvA3UPRKaEGMRz19aGX8s6
+	+ZcLLdozoYycMoQPyL6dykPmtESB5ZmNKCn1qXSTGVlyf6E6+JpEqtqJf466RMjr3oz8vCzk72DE2
+	vwljZAADZQbLvwzEkVlmd3Y3zrvZTrpNcCLZWeIe/vZq0zaqXMCGHL9JrDulrjZQCxdX2OCfKVahj
+	icpr17u0uzVOBoNaKLrVrImXdun7WzYcQeRz8RuL+U5li9ND63tny5+iOywIwz60hm22gHCDnwhPa
+	gVK/OKhIa3hIXar9DlXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qYo7W-000jPr-20;
-	Wed, 23 Aug 2023 13:42:02 +0000
-Received: from szxga08-in.huawei.com ([45.249.212.255])
+	id 1qYo7b-000jWI-0Y;
+	Wed, 23 Aug 2023 13:42:07 +0000
+Received: from szxga01-in.huawei.com ([45.249.212.187])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qYo5h-000hOx-26;
-	Wed, 23 Aug 2023 13:40:13 +0000
-Received: from kwepemi500012.china.huawei.com (unknown [172.30.72.55])
-	by szxga08-in.huawei.com (SkyGuard) with ESMTP id 4RW6jq1m9tz16NyL;
-	Wed, 23 Aug 2023 21:38:23 +0800 (CST)
+	id 1qYo5h-000hQH-30;
+	Wed, 23 Aug 2023 13:40:15 +0000
+Received: from kwepemi500012.china.huawei.com (unknown [172.30.72.56])
+	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4RW6gN70MPztS7L;
+	Wed, 23 Aug 2023 21:36:16 +0800 (CST)
 Received: from huawei.com (10.90.53.73) by kwepemi500012.china.huawei.com
  (7.221.188.12) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.31; Wed, 23 Aug
- 2023 21:39:51 +0800
+ 2023 21:40:00 +0800
 From: Li Zetao <lizetao1@huawei.com>
 To: <lizetao1@huawei.com>
 CC: <andrew@aj.id.au>, <angelogioacchino.delregno@collabora.com>,
@@ -51,9 +51,9 @@ CC: <andrew@aj.id.au>, <angelogioacchino.delregno@collabora.com>,
 	<rjui@broadcom.com>, <sbranden@broadcom.com>, <tali.perry1@gmail.com>,
 	<tmaimon77@gmail.com>, <venture@google.com>, <yuenn@google.com>, Jonathan
  Cameron <Jonathan.Cameron@huawei.com>
-Subject: [PATCH -next v2 01/25] spi: ar934x: Use helper function devm_clk_get_enabled()
-Date: Wed, 23 Aug 2023 21:39:14 +0800
-Message-ID: <20230823133938.1359106-2-lizetao1@huawei.com>
+Subject: [PATCH -next v2 09/25] spi: spi-cavium-thunderx: Use helper function devm_clk_get_enabled()
+Date: Wed, 23 Aug 2023 21:39:22 +0800
+Message-ID: <20230823133938.1359106-10-lizetao1@huawei.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20230823133938.1359106-1-lizetao1@huawei.com>
 References: <20230822131237.1022815-1-lizetao1@huawei.com>
@@ -64,8 +64,9 @@ X-ClientProxiedBy: dggems702-chm.china.huawei.com (10.3.19.179) To
  kwepemi500012.china.huawei.com (7.221.188.12)
 X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230823_064010_212639_015357C9 
-X-CRM114-Status: GOOD (  12.04  )
+X-CRM114-CacheID: sfid-20230823_064010_257213_A5C13A1C 
+X-CRM114-Status: UNSURE (   9.20  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,70 +94,47 @@ Signed-off-by: Li Zetao <lizetao1@huawei.com>
 ---
 v1 -> v2: None
 
- drivers/spi/spi-ar934x.c | 22 +++-------------------
- 1 file changed, 3 insertions(+), 19 deletions(-)
+ drivers/spi/spi-cavium-thunderx.c | 8 +-------
+ 1 file changed, 1 insertion(+), 7 deletions(-)
 
-diff --git a/drivers/spi/spi-ar934x.c b/drivers/spi/spi-ar934x.c
-index 58b98cea31d9..5ba988720851 100644
---- a/drivers/spi/spi-ar934x.c
-+++ b/drivers/spi/spi-ar934x.c
-@@ -168,27 +168,21 @@ static int ar934x_spi_probe(struct platform_device *pdev)
- 	struct ar934x_spi *sp;
- 	void __iomem *base;
- 	struct clk *clk;
--	int ret;
+diff --git a/drivers/spi/spi-cavium-thunderx.c b/drivers/spi/spi-cavium-thunderx.c
+index f7c378a5f1bc..337aef12abcc 100644
+--- a/drivers/spi/spi-cavium-thunderx.c
++++ b/drivers/spi/spi-cavium-thunderx.c
+@@ -49,16 +49,12 @@ static int thunderx_spi_probe(struct pci_dev *pdev,
+ 	p->regs.tx = 0x1010;
+ 	p->regs.data = 0x1080;
  
- 	base = devm_platform_ioremap_resource(pdev, 0);
- 	if (IS_ERR(base))
- 		return PTR_ERR(base);
- 
--	clk = devm_clk_get(&pdev->dev, NULL);
-+	clk = devm_clk_get_enabled(&pdev->dev, NULL);
- 	if (IS_ERR(clk)) {
- 		dev_err(&pdev->dev, "failed to get clock\n");
- 		return PTR_ERR(clk);
+-	p->clk = devm_clk_get(dev, NULL);
++	p->clk = devm_clk_get_enabled(dev, NULL);
+ 	if (IS_ERR(p->clk)) {
+ 		ret = PTR_ERR(p->clk);
+ 		goto error;
  	}
  
--	ret = clk_prepare_enable(clk);
+-	ret = clk_prepare_enable(p->clk);
 -	if (ret)
--		return ret;
+-		goto error;
 -
- 	ctlr = devm_spi_alloc_host(&pdev->dev, sizeof(*sp));
- 	if (!ctlr) {
- 		dev_info(&pdev->dev, "failed to allocate spi controller\n");
--		ret = -ENOMEM;
--		goto err_clk_disable;
-+		return -ENOMEM;
- 	}
+ 	p->sys_freq = clk_get_rate(p->clk);
+ 	if (!p->sys_freq)
+ 		p->sys_freq = SYS_FREQ_DEFAULT;
+@@ -82,7 +78,6 @@ static int thunderx_spi_probe(struct pci_dev *pdev,
+ 	return 0;
  
- 	/* disable flash mapping and expose spi controller registers */
-@@ -212,25 +206,15 @@ static int ar934x_spi_probe(struct platform_device *pdev)
- 	sp->clk_freq = clk_get_rate(clk);
- 	sp->ctlr = ctlr;
+ error:
+-	clk_disable_unprepare(p->clk);
+ 	pci_release_regions(pdev);
+ 	spi_controller_put(host);
+ 	return ret;
+@@ -97,7 +92,6 @@ static void thunderx_spi_remove(struct pci_dev *pdev)
+ 	if (!p)
+ 		return;
  
--	ret = spi_register_controller(ctlr);
--	if (!ret)
--		return 0;
--
--err_clk_disable:
--	clk_disable_unprepare(clk);
--	return ret;
-+	return spi_register_controller(ctlr);
- }
- 
- static void ar934x_spi_remove(struct platform_device *pdev)
- {
- 	struct spi_controller *ctlr;
--	struct ar934x_spi *sp;
- 
- 	ctlr = dev_get_drvdata(&pdev->dev);
--	sp = spi_controller_get_devdata(ctlr);
--
- 	spi_unregister_controller(ctlr);
--	clk_disable_unprepare(sp->clk);
- }
- 
- static struct platform_driver ar934x_spi_driver = {
+-	clk_disable_unprepare(p->clk);
+ 	pci_release_regions(pdev);
+ 	/* Put everything in a known state. */
+ 	writeq(0, p->register_base + OCTEON_SPI_CFG(p));
 -- 
 2.34.1
 
