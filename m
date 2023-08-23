@@ -4,90 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E857AEE49B0
-	for <linux-riscv@archiver.kernel.org>; Wed, 23 Aug 2023 14:35:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 935E1EE4993
+	for <linux-riscv@archiver.kernel.org>; Wed, 23 Aug 2023 15:07:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UYAv0zN0DMW5GGGwdznaH7HkzWygOEk/r7TFYTO22R8=; b=x3K2unW2c3mWhz
-	Z4GZv7jrb0/mV4VW5pRSASXX3fi/UnY+fIFKMEJBfghtpssoWuwgMrJ8Z4PzsdmQtbxaCvwQMj9sn
-	gR7Qf30jMRpVL6zCRav/JzhdBTICkDTAwDUMmkYPFnC4EkriBzwbH67J2dCOzUhN9D01qC7WLvNrZ
-	YGmT7CMwiSyoXz/eQEH7KFH6teEQaN2bDQ5oaBNfmAWGMZzbgAZiHhNoU5Hh2vv7jdXME5xW2LIAG
-	g56ii15k8vgM30eYAmJz9zf+wdMsyhdqSDQo11x/xqwiFEmA9hRRzI6eA1Kq8k8FFSTQvstx91pk9
-	aeUjK2YGzseMRqq96AGQ==;
+	List-Owner; bh=WuTzIK16cvHPL0OXu9f0Fe3oW9u4/3zUtKzMIjY7viQ=; b=cWyKaSwX29gnuB
+	5LHXBPmo+ZqogNFV08hTPHb9/nuZ8PRkiQ8fGLnwxoC06nzv9VGRsaf8sYEzUxSqivai1pkMfnHVZ
+	k8FteXFurfhu9XquKl9GOeijmjZpEQIBZW25G3a8B1thq6nAhSN6nxm9m/H2Zu1+Pq8Bqvxw53k87
+	j6cDNjBNY2jiXtDZxQmVNy+r2KYNDtzSX69WntkRebeMDHxTX5GtzbZIk58BSWfd1vVFeHw7TA/HR
+	Qh0g486kjb26J9nWZLYd+Oj4kFqQ/gmNfnAM7vK8mIzQNU+bkbfsnpe9SQ/dd7QTtuKKyaC9ce1Yf
+	6JmUCwZgKvpvDoLklcMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qYoxf-000rLA-2u;
-	Wed, 23 Aug 2023 14:35:55 +0000
-Received: from mail-lf1-x132.google.com ([2a00:1450:4864:20::132])
+	id 1qYpRp-000ube-0t;
+	Wed, 23 Aug 2023 15:07:05 +0000
+Received: from [45.249.212.51] (helo=dggsgout11.his.huawei.com)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qYoxb-000rHo-0R;
-	Wed, 23 Aug 2023 14:35:52 +0000
-Received: by mail-lf1-x132.google.com with SMTP id 2adb3069b0e04-4ff8cf11b90so8952445e87.1;
-        Wed, 23 Aug 2023 07:35:41 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20221208; t=1692801340; x=1693406140;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=k2TgiqCmPSnILANt5GZ18rswgB/K69rSR8VLR5YONDs=;
-        b=RVzW2IYkj05E1QurcVWCK8Xr7hoWpAOpq6CNlM5mHjUNjLSfNyKWHfrrFTfD9jQ3sy
-         eDWbgQ442RcyjicydLE6/q60tWpJdy6owEAJS82xvbIcbBMG5mL58fFkQ2ll1I6CDNZk
-         sy57Jl1xt9HL9jEtz8CEZQj7WMl/hyN2A+zsuaCdZqYXcjp81CxeZbRcdAYxDsGZ/QXS
-         kSenj8ixe68J2WE8rMsSlvpz33p80M3zhzSMOE/X5uDBSnWHA9seXSpGOUV4gvZnTFxZ
-         Yv0Aegrg6xvVhrq6m+Gl4RABhOtV9dWhz9ongXNlT9GqtGbxTGyhdc9vo0S9nFxBcNYJ
-         nYuw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1692801340; x=1693406140;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=k2TgiqCmPSnILANt5GZ18rswgB/K69rSR8VLR5YONDs=;
-        b=fvZk26vBQLwDUU75lDggzhrlFPKcwA+ThgtXWQFLQVlF0B4iT3GMbtbOfdiA/MvptK
-         IDun3tYmraoi7E1JvzjgT/LT6/p4M95mfTxizgkAJN6pC5AG8xLBPg0W942p4OA3splU
-         +dw0BVHUng2S62JnZ7pjAJ2OjP1hiDsm34YqMix95OORfYh2WvXlqyS+llOvIytOKVZg
-         FiyNYvN5/o9Kj6Bmw+p5Tb/lknievhOBXRfHJCvPo7x8B9m8Zpn+sOKLSw56j3Iga8H4
-         /c6R78oUu9zve8onU7Uf0TDPcMDs0/xVa1OV++xL+8oITKKm9sKSBREE67cSQXFulXbX
-         z+zQ==
-X-Gm-Message-State: AOJu0Yz/WZa11q04byfiMU0aPwfj+qXL0rUeu/VbkA9+QOg7DLRe/UtA
-	IIRoLV8zm+pS92D/AGpRrkA=
-X-Google-Smtp-Source: AGHT+IFj+DCY0sY2R0WBzy7d65Q9hoRnlsbk7tAiZi/tGbFHUyZQZNNjWy+pVOAk7a3V21jYp3uHGg==
-X-Received: by 2002:ac2:5f6a:0:b0:4fd:d517:fbd8 with SMTP id c10-20020ac25f6a000000b004fdd517fbd8mr8210729lfc.9.1692801340064;
-        Wed, 23 Aug 2023 07:35:40 -0700 (PDT)
-Received: from mobilestation ([178.176.56.174])
-        by smtp.gmail.com with ESMTPSA id d11-20020ac244cb000000b005009b4d5c14sm59710lfm.265.2023.08.23.07.35.37
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 23 Aug 2023 07:35:39 -0700 (PDT)
-Date: Wed, 23 Aug 2023 17:35:35 +0300
-From: Serge Semin <fancer.lancer@gmail.com>
-To: Li Zetao <lizetao1@huawei.com>
-Cc: andrew@aj.id.au, angelogioacchino.delregno@collabora.com, 
-	avifishman70@gmail.com, bcm-kernel-feedback-list@broadcom.com, benjaminfair@google.com, 
-	broonie@kernel.org, chin-ting_kuo@aspeedtech.com, clg@kaod.org, 
-	conor.dooley@microchip.com, daire.mcnamara@microchip.com, florian.fainelli@broadcom.com, 
-	heiko@sntech.de, jbrunet@baylibre.com, joel@jms.id.au, khilman@baylibre.com, 
-	linus.walleij@linaro.org, linux-amlogic@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
-	linux-mediatek@lists.infradead.org, linux-riscv@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-rpi-kernel@lists.infradead.org, linux-spi@vger.kernel.org, 
-	martin.blumenstingl@googlemail.com, matthias.bgg@gmail.com, neil.armstrong@linaro.org, 
-	olteanv@gmail.com, openbmc@lists.ozlabs.org, rjui@broadcom.com, 
-	sbranden@broadcom.com, tali.perry1@gmail.com, tmaimon77@gmail.com, venture@google.com, 
-	yuenn@google.com, Jonathan Cameron <Jonathan.Cameron@huawei.com>
-Subject: Re: [PATCH -next v2 11/25] spi: dw-bt1: Use helper function
- devm_clk_get_enabled()
-Message-ID: <xxosi2ymo7otqyfbmjlubezzedqw6ulwwhdmbdjbto7yaqw673@q673weupq67y>
-References: <20230822131237.1022815-1-lizetao1@huawei.com>
- <20230823133938.1359106-1-lizetao1@huawei.com>
- <20230823133938.1359106-12-lizetao1@huawei.com>
+	id 1qYpRl-000uYd-29
+	for linux-riscv@lists.infradead.org;
+	Wed, 23 Aug 2023 15:07:03 +0000
+Received: from mail02.huawei.com (unknown [172.30.67.169])
+	by dggsgout11.his.huawei.com (SkyGuard) with ESMTP id 4RW8gr75mMz4f3lY6
+	for <linux-riscv@lists.infradead.org>; Wed, 23 Aug 2023 23:06:48 +0800 (CST)
+Received: from ultra.huawei.com (unknown [10.90.53.71])
+	by APP4 (Coremail) with SMTP id gCh0CgAn_qCIIOZksUWeBQ--.39856S6;
+	Wed, 23 Aug 2023 23:06:49 +0800 (CST)
+From: Pu Lehui <pulehui@huaweicloud.com>
+To: linux-riscv@lists.infradead.org,
+	bpf@vger.kernel.org,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Cc: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>,
+	Yonghong Song <yhs@fb.com>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Song Liu <song@kernel.org>,
+	John Fastabend <john.fastabend@gmail.com>,
+	KP Singh <kpsingh@kernel.org>,
+	Stanislav Fomichev <sdf@google.com>,
+	Hao Luo <haoluo@google.com>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Xu Kuohai <xukuohai@huawei.com>,
+	Puranjay Mohan <puranjay12@gmail.com>,
+	Pu Lehui <pulehui@huawei.com>,
+	Pu Lehui <pulehui@huaweicloud.com>
+Subject: [PATCH bpf-next 4/7] riscv, bpf: Support 32-bit offset jmp insn
+Date: Wed, 23 Aug 2023 23:10:56 +0000
+Message-Id: <20230823231059.3363698-5-pulehui@huaweicloud.com>
+X-Mailer: git-send-email 2.39.2
+In-Reply-To: <20230823231059.3363698-1-pulehui@huaweicloud.com>
+References: <20230823231059.3363698-1-pulehui@huaweicloud.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230823133938.1359106-12-lizetao1@huawei.com>
+X-CM-TRANSID: gCh0CgAn_qCIIOZksUWeBQ--.39856S6
+X-Coremail-Antispam: 1UD129KBjvdXoW7Wry5Ww4UWF1DWw15WF18Grg_yoWfGwcEkr
+	yxJFWIg398GFs8Xw1UZr4Fvryjkws3GF1DZ34SgFWjkan8X3ZYy34kKr9xX34xur1xtFW3
+	Zrn3Aayavw4aqjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUIcSsGvfJTRUUUbQAFF20E14v26rWj6s0DM7CY07I20VC2zVCF04k26cxKx2IYs7xG
+	6rWj6s0DM7CIcVAFz4kK6r1j6r18M280x2IEY4vEnII2IxkI6r1a6r45M28IrcIa0xkI8V
+	A2jI8067AKxVWUAVCq3wA2048vs2IY020Ec7CjxVAFwI0_Xr0E3s1l8cAvFVAK0II2c7xJ
+	M28CjxkF64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVWDJVCq3wA2z4x0Y4vE2I
+	x0cI8IcVCY1x0267AKxVWxJr0_GcWl84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vE
+	x4A2jsIEc7CjxVAFwI0_GcCE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2
+	IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jrv_JF1lYx0Ex4A2jsIE14v26r1j6r4U
+	McvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I64
+	8v4I1lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij
+	64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x
+	8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r4a6rW5MIIYrxkI7VAKI48JMIIF0xvE
+	2Ix0cI8IcVAFwI0_Gr0_Xr1lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4UJVWxJr1lIxAIcV
+	CF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r4j6F4UMIIF0xvEx4A2jsIE
+	c7CjxVAFwI0_Gr1j6F4UJbIYCTnIWIevJa73UjIFyTuYvjTRNL0eDUUUU
+X-CM-SenderInfo: psxovxtxl6x35dzhxuhorxvhhfrp/
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230823_073551_179787_D54AA5BB 
-X-CRM114-Status: GOOD (  20.72  )
+X-CRM114-CacheID: sfid-20230823_080701_964809_96AECAA3 
+X-CRM114-Status: UNSURE (   7.60  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,98 +102,35 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 23, 2023 at 09:39:24PM +0800, Li Zetao wrote:
-> Since commit 7ef9651e9792 ("clk: Provide new devm_clk helpers for prepared
-> and enabled clocks"), devm_clk_get() and clk_prepare_enable() can now be
-> replaced by devm_clk_get_enabled() when driver enables (and possibly
-> prepares) the clocks for the whole lifetime of the device. Moreover, it is
-> no longer necessary to unprepare and disable the clocks explicitly.
-> 
+From: Pu Lehui <pulehui@huawei.com>
 
-> Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-> Acked-by: Serge Semin <fancer.lancer@gmail.com>
-> Signed-off-by: Li Zetao <lizetao1@huawei.com>
+Add support 32-bit offset jmp instruction for RV64.
 
-Just for the record, the tags order is normally supposed to reflect a
-patch route. Even though AFAICS it's explicitly defined for the Sob
-tags only (see Documentation/process/submitting-patches.rst), but
-almost all kernel developers apply that rule to all the tags. See the
-kernel git log as the brightest example. So your Sob tag should have
-been kept first, then either my Ab or Jonathan' Rb tags.
+Signed-off-by: Pu Lehui <pulehui@huawei.com>
+---
+ arch/riscv/net/bpf_jit_comp64.c | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
 
--Serge(y)
+diff --git a/arch/riscv/net/bpf_jit_comp64.c b/arch/riscv/net/bpf_jit_comp64.c
+index d1497182cacf..3d4e9182385d 100644
+--- a/arch/riscv/net/bpf_jit_comp64.c
++++ b/arch/riscv/net/bpf_jit_comp64.c
+@@ -1327,7 +1327,11 @@ int bpf_jit_emit_insn(const struct bpf_insn *insn, struct rv_jit_context *ctx,
+ 
+ 	/* JUMP off */
+ 	case BPF_JMP | BPF_JA:
+-		rvoff = rv_offset(i, off, ctx);
++	case BPF_JMP32 | BPF_JA:
++		if (BPF_CLASS(code) == BPF_JMP)
++			rvoff = rv_offset(i, off, ctx);
++		else
++			rvoff = rv_offset(i, imm, ctx);
+ 		ret = emit_jump_and_link(RV_REG_ZERO, rvoff, true, ctx);
+ 		if (ret)
+ 			return ret;
+-- 
+2.39.2
 
-> ---
-> v1 -> v2: None
-> 
->  drivers/spi/spi-dw-bt1.c | 23 +++++------------------
->  1 file changed, 5 insertions(+), 18 deletions(-)
-> 
-> diff --git a/drivers/spi/spi-dw-bt1.c b/drivers/spi/spi-dw-bt1.c
-> index 5e1c01822967..5391bcac305c 100644
-> --- a/drivers/spi/spi-dw-bt1.c
-> +++ b/drivers/spi/spi-dw-bt1.c
-> @@ -269,43 +269,32 @@ static int dw_spi_bt1_probe(struct platform_device *pdev)
->  
->  	dws->paddr = mem->start;
->  
-> -	dwsbt1->clk = devm_clk_get(&pdev->dev, NULL);
-> +	dwsbt1->clk = devm_clk_get_enabled(&pdev->dev, NULL);
->  	if (IS_ERR(dwsbt1->clk))
->  		return PTR_ERR(dwsbt1->clk);
->  
-> -	ret = clk_prepare_enable(dwsbt1->clk);
-> -	if (ret)
-> -		return ret;
-> -
->  	dws->bus_num = pdev->id;
->  	dws->reg_io_width = 4;
->  	dws->max_freq = clk_get_rate(dwsbt1->clk);
-> -	if (!dws->max_freq) {
-> -		ret = -EINVAL;
-> -		goto err_disable_clk;
-> -	}
-> +	if (!dws->max_freq)
-> +		return -EINVAL;
->  
->  	init_func = device_get_match_data(&pdev->dev);
->  	ret = init_func(pdev, dwsbt1);
->  	if (ret)
-> -		goto err_disable_clk;
-> +		return ret;
->  
->  	pm_runtime_enable(&pdev->dev);
->  
->  	ret = dw_spi_add_host(&pdev->dev, dws);
->  	if (ret) {
->  		pm_runtime_disable(&pdev->dev);
-> -		goto err_disable_clk;
-> +		return ret;
->  	}
->  
->  	platform_set_drvdata(pdev, dwsbt1);
->  
->  	return 0;
-> -
-> -err_disable_clk:
-> -	clk_disable_unprepare(dwsbt1->clk);
-> -
-> -	return ret;
->  }
->  
->  static void dw_spi_bt1_remove(struct platform_device *pdev)
-> @@ -315,8 +304,6 @@ static void dw_spi_bt1_remove(struct platform_device *pdev)
->  	dw_spi_remove_host(&dwsbt1->dws);
->  
->  	pm_runtime_disable(&pdev->dev);
-> -
-> -	clk_disable_unprepare(dwsbt1->clk);
->  }
->  
->  static const struct of_device_id dw_spi_bt1_of_match[] = {
-> -- 
-> 2.34.1
-> 
 
 _______________________________________________
 linux-riscv mailing list
