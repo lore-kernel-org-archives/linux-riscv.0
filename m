@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42CAAEE4993
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BFF1EE49B6
 	for <linux-riscv@archiver.kernel.org>; Wed, 23 Aug 2023 15:07:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,26 +12,26 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MCODvhAHjlXniP3ailnpWnvYMiXRq1jd+RZApm+X2kQ=; b=qtvpzBlB6Ewt/Y
-	yrEWk079qVH1iTcpAmUQIaBVCSFDI+HzU42XQjcM+M6fz2pRT4HPOp8dopklchzb9wT/0ExO7MmQU
-	OpgH/eCDLQ+TiHo8IN6SRSS5/F7ibiS8lVfUJOnjCNW+0bi/N5orBTiOTxUM253xtViBybydt5SgO
-	aZ8eBMoGxCmQt0hZSYt1+aDg6O52AT5xhZ33IknW5bw9grXUigpOCWZEmB8l5VnVEbI4s7fGNzs6N
-	CPUcymefevoyPMc9ZWNYEvo+tbeR9CZKLgUvWTfBR41OVg66N/+H73f4nkgV26Wt6ztAn+44AfAJx
-	OdEAiFr3WgmP/4jqR9sg==;
+	List-Owner; bh=5CH8nKO4IIf3NKBG4N8jfR3BJ+wfchRjzUT3P51XV4w=; b=q+2qLDkcpforK7
+	bYI3GaGpGfptI1gmat5XXBy2v8AwJ6Vhf0FaNk4FrOHPl/sNccKmIX6quU7kzDUy9Q8WV6/Bo5biT
+	2C5la6J9Qj6CuEEPGVNH0lvsw1Te7KOFhYTyuCEjHDcGy/M2d0W4D7qoao1SHV/LAJikT0GswvcrB
+	zfhe06MlEf4aOu6+o1xzTIULgTXq73K6UQZQ3brEc/CR66vkeZ0QMaMD5fkIlUn4o0RW0SErKGlyx
+	EyXIv4C1BCqCIvsPIGQT/T6tn84YMOZfM+XiYLjF+h2mP0g0yOSGxqjkTLwIuDs9h/+qajsUpl1l3
+	inIOyamlBDS1J6TBs6Tw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qYpRu-000uec-1A;
-	Wed, 23 Aug 2023 15:07:10 +0000
+	id 1qYpRw-000ugX-32;
+	Wed, 23 Aug 2023 15:07:12 +0000
 Received: from [45.249.212.51] (helo=dggsgout11.his.huawei.com)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qYpRl-000uYl-29
+	id 1qYpRn-000uYj-1H
 	for linux-riscv@lists.infradead.org;
-	Wed, 23 Aug 2023 15:07:05 +0000
+	Wed, 23 Aug 2023 15:07:06 +0000
 Received: from mail02.huawei.com (unknown [172.30.67.169])
-	by dggsgout11.his.huawei.com (SkyGuard) with ESMTP id 4RW8gq6qqhz4f3nV2
-	for <linux-riscv@lists.infradead.org>; Wed, 23 Aug 2023 23:06:47 +0800 (CST)
+	by dggsgout11.his.huawei.com (SkyGuard) with ESMTP id 4RW8gr2sb9z4f3pGD
+	for <linux-riscv@lists.infradead.org>; Wed, 23 Aug 2023 23:06:48 +0800 (CST)
 Received: from ultra.huawei.com (unknown [10.90.53.71])
-	by APP4 (Coremail) with SMTP id gCh0CgAn_qCIIOZksUWeBQ--.39856S3;
+	by APP4 (Coremail) with SMTP id gCh0CgAn_qCIIOZksUWeBQ--.39856S7;
 	Wed, 23 Aug 2023 23:06:49 +0800 (CST)
 From: Pu Lehui <pulehui@huaweicloud.com>
 To: linux-riscv@lists.infradead.org,
@@ -55,36 +55,36 @@ Cc: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>,
 	Puranjay Mohan <puranjay12@gmail.com>,
 	Pu Lehui <pulehui@huawei.com>,
 	Pu Lehui <pulehui@huaweicloud.com>
-Subject: [PATCH bpf-next 1/7] riscv, bpf: Fix missing exception handling and redundant zext for LDX_B/H/W
-Date: Wed, 23 Aug 2023 23:10:53 +0000
-Message-Id: <20230823231059.3363698-2-pulehui@huaweicloud.com>
+Subject: [PATCH bpf-next 5/7] riscv, bpf: Support signed div/mod insns
+Date: Wed, 23 Aug 2023 23:10:57 +0000
+Message-Id: <20230823231059.3363698-6-pulehui@huaweicloud.com>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20230823231059.3363698-1-pulehui@huaweicloud.com>
 References: <20230823231059.3363698-1-pulehui@huaweicloud.com>
 MIME-Version: 1.0
-X-CM-TRANSID: gCh0CgAn_qCIIOZksUWeBQ--.39856S3
-X-Coremail-Antispam: 1UD129KBjvJXoW7KFWrZr48AF1UXrW5GF1rWFg_yoW8Cw1Upr
-	45Gwnak34vqr4FqF1Dt3WUWw4ayFWUWanrWrZrKayrJa42vry3WrW3Kw1YvFy5Ary8Wr18
-	Ar4jvrnxu3Z8J37anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUQv14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+X-CM-TRANSID: gCh0CgAn_qCIIOZksUWeBQ--.39856S7
+X-Coremail-Antispam: 1UD129KBjvJXoWxAFWrtF4UXF1fAr1DGrWDXFb_yoW5Kr4Dpr
+	9Ykrn3Z3yjqr4fJr9rJF4xX3WrArn2gwnFvF13KFWUtanFqrWDGrWfKw4fA3sxXrWfWa4D
+	WFWa9r90ka92yr7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUQl14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
 	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2jI8I6cxK62vIxIIY0VWUZVW8XwA2048vs2IY02
-	0E87I2jVAFwI0_Jr4l82xGYIkIc2x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2
-	F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xIIjx
-	v20xvEc7CjxVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2
-	z280aVCY1x0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0V
-	AKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUXVWUAwAv7VC2z280aVAFwI0_Jr0_Gr1l
-	Ox8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErc
-	IFxwACI402YVCY1x02628vn2kIc2xKxwCY1x0262kKe7AKxVWUtVW8ZwCF04k20xvY0x0E
-	wIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E74
-	80Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_GFv_WrylIxkGc2Ij64vIr41lIxAIcVC0
-	I7IYx2IY67AKxVWUCVW8JwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr1j6F4UJwCI42IY6x
-	AIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY
-	1x0267AKxVW8Jr0_Cr1UYxBIdaVFxhVjvjDU0xZFpf9x0pRltCwUUUUU=
+	0E87I2jVAFwI0_JF0E3s1l82xGYIkIc2x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0
+	rwA2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6x
+	IIjxv20xvEc7CjxVAFwI0_Cr1j6rxdM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK
+	6I8E87Iv6xkF7I0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4
+	xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1Y6r17McIj6I8E87Iv67AKxVWUJVW8
+	JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20V
+	AGYxC7M4IIrI8v6xkF7I0E8cxan2IY04v7MxkF7I0En4kS14v26r1q6r43MxAIw28IcxkI
+	7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxV
+	Cjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVW8ZVWrXwCIc40Y0x0EwIxGrwCI42IY
+	6xIIjxv20xvE14v26r4j6ryUMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8Jr0_Cr1UMIIF0x
+	vE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVW8JVWxJwCI42IY6I8E87Iv
+	6xkF7I0E14v26r4UJVWxJrUvcSsGvfC2KfnxnUUI43ZEXa7sRiHq2tUUUUU==
 X-CM-SenderInfo: psxovxtxl6x35dzhxuhorxvhhfrp/
 X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230823_080702_240886_517980FC 
-X-CRM114-Status: UNSURE (   8.46  )
+X-CRM114-CacheID: sfid-20230823_080704_639549_7C094CD0 
+X-CRM114-Status: UNSURE (   6.91  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -104,57 +104,117 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Pu Lehui <pulehui@huawei.com>
 
-For LDX_B/H/W, when zext has been inserted by verifier, it'll return 1,
-and no exception handling will continue. Also, when the offset is 12-bit
-value, the redundant zext inserted by the verifier is not removed. Fix
-both scenarios by moving down the removal of redundant zext.
+Add support signed div/mod instructions for RV64.
 
 Signed-off-by: Pu Lehui <pulehui@huawei.com>
 ---
- arch/riscv/net/bpf_jit_comp64.c | 9 +++------
- 1 file changed, 3 insertions(+), 6 deletions(-)
+ arch/riscv/net/bpf_jit.h        | 20 ++++++++++++++++++++
+ arch/riscv/net/bpf_jit_comp64.c | 26 ++++++++++++++++++++------
+ 2 files changed, 40 insertions(+), 6 deletions(-)
 
+diff --git a/arch/riscv/net/bpf_jit.h b/arch/riscv/net/bpf_jit.h
+index a52a3dda18c3..d21c6c92a683 100644
+--- a/arch/riscv/net/bpf_jit.h
++++ b/arch/riscv/net/bpf_jit.h
+@@ -431,11 +431,21 @@ static inline u32 rv_mulhu(u8 rd, u8 rs1, u8 rs2)
+ 	return rv_r_insn(1, rs2, rs1, 3, rd, 0x33);
+ }
+ 
++static inline u32 rv_div(u8 rd, u8 rs1, u8 rs2)
++{
++	return rv_r_insn(1, rs2, rs1, 4, rd, 0x33);
++}
++
+ static inline u32 rv_divu(u8 rd, u8 rs1, u8 rs2)
+ {
+ 	return rv_r_insn(1, rs2, rs1, 5, rd, 0x33);
+ }
+ 
++static inline u32 rv_rem(u8 rd, u8 rs1, u8 rs2)
++{
++	return rv_r_insn(1, rs2, rs1, 6, rd, 0x33);
++}
++
+ static inline u32 rv_remu(u8 rd, u8 rs1, u8 rs2)
+ {
+ 	return rv_r_insn(1, rs2, rs1, 7, rd, 0x33);
+@@ -776,11 +786,21 @@ static inline u32 rv_mulw(u8 rd, u8 rs1, u8 rs2)
+ 	return rv_r_insn(1, rs2, rs1, 0, rd, 0x3b);
+ }
+ 
++static inline u32 rv_divw(u8 rd, u8 rs1, u8 rs2)
++{
++	return rv_r_insn(1, rs2, rs1, 4, rd, 0x3b);
++}
++
+ static inline u32 rv_divuw(u8 rd, u8 rs1, u8 rs2)
+ {
+ 	return rv_r_insn(1, rs2, rs1, 5, rd, 0x3b);
+ }
+ 
++static inline u32 rv_remw(u8 rd, u8 rs1, u8 rs2)
++{
++	return rv_r_insn(1, rs2, rs1, 6, rd, 0x3b);
++}
++
+ static inline u32 rv_remuw(u8 rd, u8 rs1, u8 rs2)
+ {
+ 	return rv_r_insn(1, rs2, rs1, 7, rd, 0x3b);
 diff --git a/arch/riscv/net/bpf_jit_comp64.c b/arch/riscv/net/bpf_jit_comp64.c
-index 0ca4f5c0097c..f2644e7ea6b5 100644
+index 3d4e9182385d..027bd372c294 100644
 --- a/arch/riscv/net/bpf_jit_comp64.c
 +++ b/arch/riscv/net/bpf_jit_comp64.c
-@@ -1512,8 +1512,6 @@ int bpf_jit_emit_insn(const struct bpf_insn *insn, struct rv_jit_context *ctx,
- 			insns_start = ctx->ninsns;
- 			emit(rv_lbu(rd, 0, RV_REG_T1), ctx);
- 			insn_len = ctx->ninsns - insns_start;
--			if (insn_is_zext(&insn[1]))
--				return 1;
- 			break;
- 		case BPF_H:
- 			if (is_12b_int(off)) {
-@@ -1528,8 +1526,6 @@ int bpf_jit_emit_insn(const struct bpf_insn *insn, struct rv_jit_context *ctx,
- 			insns_start = ctx->ninsns;
- 			emit(rv_lhu(rd, 0, RV_REG_T1), ctx);
- 			insn_len = ctx->ninsns - insns_start;
--			if (insn_is_zext(&insn[1]))
--				return 1;
- 			break;
- 		case BPF_W:
- 			if (is_12b_int(off)) {
-@@ -1544,8 +1540,6 @@ int bpf_jit_emit_insn(const struct bpf_insn *insn, struct rv_jit_context *ctx,
- 			insns_start = ctx->ninsns;
- 			emit(rv_lwu(rd, 0, RV_REG_T1), ctx);
- 			insn_len = ctx->ninsns - insns_start;
--			if (insn_is_zext(&insn[1]))
--				return 1;
- 			break;
- 		case BPF_DW:
- 			if (is_12b_int(off)) {
-@@ -1566,6 +1560,9 @@ int bpf_jit_emit_insn(const struct bpf_insn *insn, struct rv_jit_context *ctx,
- 		ret = add_exception_handler(insn, ctx, rd, insn_len);
- 		if (ret)
- 			return ret;
-+
-+		if (BPF_SIZE(code) != BPF_DW && insn_is_zext(&insn[1]))
-+			return 1;
+@@ -1107,13 +1107,19 @@ int bpf_jit_emit_insn(const struct bpf_insn *insn, struct rv_jit_context *ctx,
  		break;
- 	}
- 	/* speculation barrier */
+ 	case BPF_ALU | BPF_DIV | BPF_X:
+ 	case BPF_ALU64 | BPF_DIV | BPF_X:
+-		emit(is64 ? rv_divu(rd, rd, rs) : rv_divuw(rd, rd, rs), ctx);
++		if (off)
++			emit(is64 ? rv_div(rd, rd, rs) : rv_divw(rd, rd, rs), ctx);
++		else
++			emit(is64 ? rv_divu(rd, rd, rs) : rv_divuw(rd, rd, rs), ctx);
+ 		if (!is64 && !aux->verifier_zext)
+ 			emit_zext_32(rd, ctx);
+ 		break;
+ 	case BPF_ALU | BPF_MOD | BPF_X:
+ 	case BPF_ALU64 | BPF_MOD | BPF_X:
+-		emit(is64 ? rv_remu(rd, rd, rs) : rv_remuw(rd, rd, rs), ctx);
++		if (off)
++			emit(is64 ? rv_rem(rd, rd, rs) : rv_remw(rd, rd, rs), ctx);
++		else
++			emit(is64 ? rv_remu(rd, rd, rs) : rv_remuw(rd, rd, rs), ctx);
+ 		if (!is64 && !aux->verifier_zext)
+ 			emit_zext_32(rd, ctx);
+ 		break;
+@@ -1284,16 +1290,24 @@ int bpf_jit_emit_insn(const struct bpf_insn *insn, struct rv_jit_context *ctx,
+ 	case BPF_ALU | BPF_DIV | BPF_K:
+ 	case BPF_ALU64 | BPF_DIV | BPF_K:
+ 		emit_imm(RV_REG_T1, imm, ctx);
+-		emit(is64 ? rv_divu(rd, rd, RV_REG_T1) :
+-		     rv_divuw(rd, rd, RV_REG_T1), ctx);
++		if (off)
++			emit(is64 ? rv_div(rd, rd, RV_REG_T1) :
++			     rv_divw(rd, rd, RV_REG_T1), ctx);
++		else
++			emit(is64 ? rv_divu(rd, rd, RV_REG_T1) :
++			     rv_divuw(rd, rd, RV_REG_T1), ctx);
+ 		if (!is64 && !aux->verifier_zext)
+ 			emit_zext_32(rd, ctx);
+ 		break;
+ 	case BPF_ALU | BPF_MOD | BPF_K:
+ 	case BPF_ALU64 | BPF_MOD | BPF_K:
+ 		emit_imm(RV_REG_T1, imm, ctx);
+-		emit(is64 ? rv_remu(rd, rd, RV_REG_T1) :
+-		     rv_remuw(rd, rd, RV_REG_T1), ctx);
++		if (off)
++			emit(is64 ? rv_rem(rd, rd, RV_REG_T1) :
++			     rv_remw(rd, rd, RV_REG_T1), ctx);
++		else
++			emit(is64 ? rv_remu(rd, rd, RV_REG_T1) :
++			     rv_remuw(rd, rd, RV_REG_T1), ctx);
+ 		if (!is64 && !aux->verifier_zext)
+ 			emit_zext_32(rd, ctx);
+ 		break;
 -- 
 2.39.2
 
