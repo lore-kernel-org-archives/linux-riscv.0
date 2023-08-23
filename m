@@ -4,71 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED55AC3DA66
-	for <linux-riscv@archiver.kernel.org>; Wed, 23 Aug 2023 17:16:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9AFEC3DA6F
+	for <linux-riscv@archiver.kernel.org>; Wed, 23 Aug 2023 17:19:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TCIhg0Z2LA02ieusS6vE1lSyiZbYxT+9VaK9JA3Gg2Y=; b=SUGSZ7qMU0tf0x
-	GJ9eQTnFlDDrGEgcivdUX+VPdzMfC0939RuWcn8jQFPXmi9BpxDR/WV4HdjnmiWGAqLcfr1HJvb1P
-	uaOMVHF5tKDfNvvx0b5SwXnrbFh17bHxghv14fxXZp0fN0YeDPNnCakTBU7CccaLyslI1yW6hS2dd
-	GFHYc6dJbUnbeOHRQ9HxqP46sJL1Yw3tftWNl/ZXZjXnVWx425fpkgqieyJM/2GUgGhEidSuehjFv
-	7vEmP05aQ0ETy3/s/Ot4qJRQyspFfxWIGrIpHguVGejMKyJ0iQHWhJPYO6HoOLiyP32IptGSZJdLW
-	/BLkufyXgA6S++YPwVNQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=v06lTS//dww1R8/yd/z0YQ4CsHIMTsZFtKT3uzP7ce4=; b=uCHAox+i8qlolwyWW6F06bcbQy
+	jLuXVvK4thudtEcINAl6RdJbjnO0ZrxDdTgFXJdFawwTzOWNt/5W06jCmzkGbcWL29eHHr4qlFO7K
+	i5jJndMVQcaTsrW9NSAbBF/NCkJWYBpGvdOitdTVIIFQN38W7hYcO2KpBvgfUtgrl876EyRMuCRpD
+	YF1+1A/pHSrpMCTO4tfm/ny52ucX31vQGA+wpk6BRoTIc7u4TE098xholFi/Ney5TPjxA1iEk1d3R
+	OXClymcQPcbo0KECnhiUpg4IqHgyjeOStpusTkpylqa53RUVstjws9kvDpO/NnQuvG3XaUCItx0zD
+	rBwfjmXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qYrSz-001CQs-0U;
-	Wed, 23 Aug 2023 17:16:25 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1qYrVU-001Cnx-3D;
+	Wed, 23 Aug 2023 17:19:01 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qYrSu-001CP9-1C;
-	Wed, 23 Aug 2023 17:16:22 +0000
-Received: from lhrpeml500005.china.huawei.com (unknown [172.18.147.201])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4RWCSR0Fxdz67Ldy;
-	Thu, 24 Aug 2023 01:12:07 +0800 (CST)
-Received: from localhost (10.202.227.76) by lhrpeml500005.china.huawei.com
- (7.191.163.240) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.31; Wed, 23 Aug
- 2023 18:16:16 +0100
-Date: Wed, 23 Aug 2023 18:16:15 +0100
-From: Jonathan Cameron <Jonathan.Cameron@Huawei.com>
-To: Li Zetao <lizetao1@huawei.com>, <linux-amlogic@lists.infradead.org>,
-	<linux-arm-kernel@lists.infradead.org>,
-	<linux-rpi-kernel@lists.infradead.org>
-CC: <andrew@aj.id.au>, <angelogioacchino.delregno@collabora.com>,
-	<avifishman70@gmail.com>, <bcm-kernel-feedback-list@broadcom.com>,
-	<benjaminfair@google.com>, <broonie@kernel.org>,
-	<chin-ting_kuo@aspeedtech.com>, <clg@kaod.org>, <conor.dooley@microchip.com>,
-	<daire.mcnamara@microchip.com>, <fancer.lancer@gmail.com>,
-	<florian.fainelli@broadcom.com>, <heiko@sntech.de>, <jbrunet@baylibre.com>,
-	<joel@jms.id.au>, <khilman@baylibre.com>, <linus.walleij@linaro.org>,
-	<linux-aspeed@lists.ozlabs.org>, <linux-mediatek@lists.infradead.org>,
-	<linux-riscv@lists.infradead.org>, <linux-rockchip@lists.infradead.org>,
-	<linux-spi@vger.kernel.org>, <martin.blumenstingl@googlemail.com>,
-	<matthias.bgg@gmail.com>, <neil.armstrong@linaro.org>, <olteanv@gmail.com>,
-	<openbmc@lists.ozlabs.org>, <rjui@broadcom.com>, <sbranden@broadcom.com>,
-	<tali.perry1@gmail.com>, <tmaimon77@gmail.com>, <venture@google.com>,
-	<yuenn@google.com>
-Subject: Re: [PATCH -next v2 24/25] spi: spl022: Use helper function
- devm_clk_get_enabled()
-Message-ID: <20230823181615.00007e9f@Huawei.com>
-In-Reply-To: <20230823133938.1359106-25-lizetao1@huawei.com>
-References: <20230822131237.1022815-1-lizetao1@huawei.com>
-	<20230823133938.1359106-1-lizetao1@huawei.com>
-	<20230823133938.1359106-25-lizetao1@huawei.com>
-Organization: Huawei Technologies Research and Development (UK) Ltd.
-X-Mailer: Claws Mail 4.1.0 (GTK 3.24.33; x86_64-w64-mingw32)
+	id 1qYrVS-001CnK-06;
+	Wed, 23 Aug 2023 17:18:59 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 7FFA26450D;
+	Wed, 23 Aug 2023 17:18:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 10068C433C8;
+	Wed, 23 Aug 2023 17:18:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1692811136;
+	bh=3HK+7HvBNxbV1P+aiK9hr3XF3Ps6uIkOCiLCB9Xo9iw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=TLQVJWTMSbpVFHXaSy3LDCgnAS85gL2dId3RmdwQ88J03SgSRomfu15hlCvmrfX7a
+	 o1v2U7nrQu7DYM2lU8OIP0jOhMlWWXolByjQHf90LY1wrfYUcFgg/g5zmED3h/S1C+
+	 d8Skc40K5SVdvzHX8sm6m9qfDVUC6U4zEitZseegCbW7m3kFTorOwv3nSaZJLJ77ha
+	 /7RlXIyOiwbJeZDQpg/YC72tiVRkCbB3qFcTStKEvqsSZnGPsR/551JlYJVYUyySfV
+	 /7bOLRqUEDeVb6qlnB6KF6yUCnIN1WTp7fmos3NmNcegNWAg+jq/80ovlYCOzjzp8h
+	 mCrdyvvaZK6sQ==
+Date: Wed, 23 Aug 2023 18:18:47 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Szabolcs Nagy <Szabolcs.Nagy@arm.com>, Will Deacon <will@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	James Morse <james.morse@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Arnd Bergmann <arnd@arndb.de>, Oleg Nesterov <oleg@redhat.com>,
+	Eric Biederman <ebiederm@xmission.com>,
+	Kees Cook <keescook@chromium.org>, Shuah Khan <shuah@kernel.org>,
+	"Rick P. Edgecombe" <rick.p.edgecombe@intel.com>,
+	Deepak Gupta <debug@rivosinc.com>, Ard Biesheuvel <ardb@kernel.org>,
+	"H.J. Lu" <hjl.tools@gmail.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+	kvmarm@lists.linux.dev, linux-fsdevel@vger.kernel.org,
+	linux-arch@vger.kernel.org, linux-mm@kvack.org,
+	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v4 03/36] arm64/gcs: Document the ABI for Guarded Control
+ Stacks
+Message-ID: <cb449f6e-cebf-44df-8ef4-fa3cd5979b6c@sirena.org.uk>
+References: <20230807-arm64-gcs-v4-3-68cfa37f9069@kernel.org>
+ <ZNOhjrYleGBR6Pbs@arm.com>
+ <f4cec4b3-c386-4873-aa1d-90528e062f2a@sirena.org.uk>
+ <ZN+qki9EaZ6f9XNi@arm.com>
+ <aaea542c-929c-4c9b-8caa-ca67e0eb9c1e@sirena.org.uk>
+ <ZOTnL1SDJWZjHPUW@arm.com>
+ <43ec219d-bf20-47b8-a5f8-32bc3b64d487@sirena.org.uk>
+ <ZOXa98SqwYPwxzNP@arm.com>
+ <227e6552-353c-40a9-86c1-280587a40e3c@sirena.org.uk>
+ <ZOY3lz+Zyhd5ZyQ9@arm.com>
 MIME-Version: 1.0
-X-Originating-IP: [10.202.227.76]
-X-ClientProxiedBy: lhrpeml500003.china.huawei.com (7.191.162.67) To
- lhrpeml500005.china.huawei.com (7.191.163.240)
-X-CFilter-Loop: Reflected
+In-Reply-To: <ZOY3lz+Zyhd5ZyQ9@arm.com>
+X-Cookie: Some optional equipment shown.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230823_101620_696401_F10376DA 
-X-CRM114-Status: GOOD (  15.66  )
+X-CRM114-CacheID: sfid-20230823_101858_156128_206EFFAE 
+X-CRM114-Status: GOOD (  15.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,82 +98,62 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============9182350060955798180=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 23 Aug 2023 21:39:37 +0800
-Li Zetao <lizetao1@huawei.com> wrote:
 
-> Since commit 7ef9651e9792 ("clk: Provide new devm_clk helpers for prepared
-> and enabled clocks"), devm_clk_get() and clk_prepare_enable() can now be
-> replaced by devm_clk_get_enabled() when driver enables (and possibly
-> prepares) the clocks for the whole lifetime of the device. Moreover, it is
-> no longer necessary to unprepare and disable the clocks explicitly.
-> Moreover, the label "err_no_clk_en" is no used, drop it for clean code.
-> 
-> Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
-> Signed-off-by: Li Zetao <lizetao1@huawei.com>
-FWIW
-Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+--===============9182350060955798180==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="JpUNoCeyjQJaWYxw"
+Content-Disposition: inline
 
-If you want to follow up with a patch fixing that odd formatting (on it's own)
-then that would be great.
 
-Jonathan
+--JpUNoCeyjQJaWYxw
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-> ---
-> v1 -> v2: Delete the modification of odd formatting.
-> 
->  drivers/spi/spi-pl022.c | 11 +----------
->  1 file changed, 1 insertion(+), 10 deletions(-)
-> 
-> diff --git a/drivers/spi/spi-pl022.c b/drivers/spi/spi-pl022.c
-> index bb347b6bb6f3..d1b6110b38fc 100644
-> --- a/drivers/spi/spi-pl022.c
-> +++ b/drivers/spi/spi-pl022.c
-> @@ -2168,19 +2168,13 @@ static int pl022_probe(struct amba_device *adev, const struct amba_id *id)
->  	dev_info(&adev->dev, "mapped registers from %pa to %p\n",
->  		&adev->res.start, pl022->virtbase);
->  
-> -	pl022->clk = devm_clk_get(&adev->dev, NULL);
-> +	pl022->clk = devm_clk_get_enabled(&adev->dev, NULL);
->  	if (IS_ERR(pl022->clk)) {
->  		status = PTR_ERR(pl022->clk);
->  		dev_err(&adev->dev, "could not retrieve SSP/SPI bus clock\n");
->  		goto err_no_clk;
->  	}
->  
-> -	status = clk_prepare_enable(pl022->clk);
-> -	if (status) {
-> -		dev_err(&adev->dev, "could not enable SSP/SPI bus clock\n");
-> -		goto err_no_clk_en;
-> -	}
-> -
->  	/* Initialize transfer pump */
->  	tasklet_init(&pl022->pump_transfers, pump_transfers,
->  		     (unsigned long)pl022);
-> @@ -2240,8 +2234,6 @@ static int pl022_probe(struct amba_device *adev, const struct amba_id *id)
->  	if (platform_info->enable_dma)
->  		pl022_dma_remove(pl022);
->   err_no_irq:
-> -	clk_disable_unprepare(pl022->clk);
-> - err_no_clk_en:
->   err_no_clk:
->   err_no_ioremap:
->  	amba_release_regions(adev);
-> @@ -2268,7 +2260,6 @@ pl022_remove(struct amba_device *adev)
->  	if (pl022->host_info->enable_dma)
->  		pl022_dma_remove(pl022);
->  
-> -	clk_disable_unprepare(pl022->clk);
->  	amba_release_regions(adev);
->  	tasklet_disable(&pl022->pump_transfers);
->  }
+On Wed, Aug 23, 2023 at 05:45:11PM +0100, Catalin Marinas wrote:
 
+> I don't mind the divergence in this area if the libc folks are ok with
+> it. x86 can eventually use the clone3() interface if they want more
+> flexibility, they'll just have to continue supporting the old one. I
+> think we already diverge around the prctl().
+
+Yes, though that's basically the same thing - the difference is
+basically just that x86 uses their custom arch_prctl() thing and we use
+a regular prctl(), there's nothing conceptual going on like there is
+here.  I don't really mind either, it's just something where I'd
+anticipate pushback.
+
+--JpUNoCeyjQJaWYxw
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmTmP3YACgkQJNaLcl1U
+h9AOCwf+OerN1+mzW9/0IjP9fXY5wok+REaliBdQNCxxSEl/snEQ7luADrnORRq8
+DT1fhc5ANklKGYAIzyPsjMBAdZi4fR8tKHL3WPuPVqT3qBWcqUSW4R4Mhte3XvDR
+PQzkrqEedjqVwOmyg+vdQ/0C4r/QwVXLvNbQVNCKEEFq8F33xIUkf5risFgPn36b
+3+Ilc5zXBc4Jk734QUR+g9ql73T33O6Dro5yKxYCXO1dDxv+GkbBWgtYO+mNPWgP
+b8entl/O6uaEVlStYe/f9mK7+AH9xFhdE8olsbk4Qi5C1BPQuAy1ZOFuTtF5nFvw
+kbzVJrh2uSfkLI7kaAwM2rU12SkyWQ==
+=ZWCg
+-----END PGP SIGNATURE-----
+
+--JpUNoCeyjQJaWYxw--
+
+
+--===============9182350060955798180==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============9182350060955798180==--
+
