@@ -4,64 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2547EE4993
-	for <linux-riscv@archiver.kernel.org>; Wed, 23 Aug 2023 13:19:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE36BEE49A3
+	for <linux-riscv@archiver.kernel.org>; Wed, 23 Aug 2023 13:29:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mAN7YqgWQfyQSPZ+/pyVxRAcSBpwmS7HX7OImBRMOag=; b=mlUCeybunFQ0wi
-	AvwTrTdVaUjCDoKDjythTBiW/t2TCgeFwAWUEpPFyylMHFiO7hOVO5CMnCQnUirpb365S8r+QAOKL
-	wN0UJRQeCAYTWcVNPdUlyMf9oA5KRePiNgdkCS4Q9KUlRJOgIJhMYlHPg9lkkRFEwoimLXHUus8Lv
-	F1r2egkUo1qOe72/hswHCZI9Y9oSMLCqWEaEYNpIjRbLqjSRjOxZAevwH2S3cho86M2PLDvOcOAoo
-	MeIRAJ6cWASWflbp6kk90swBVbxJzx3UH3eFNXjmABws6RvL+LCTdNsD5cTIgveCwA0O5pFAgsO6D
-	8KZw8xJDmbWAww9sqSJw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OHu1PHo2DQzb6Oek21efk4/R8/omqlW4oWVl3xdV5fU=; b=uEsIG+i1VbVfcI192WW0eqZCek
+	3hYsxie8ibOc6ABRa6m5aBYyjp5FWIHEYybLjzs/pFO2UFu0H3SCNpkl8XQCkuhX5lDR2VNhi0/1Y
+	Mzj5RU30xdU9li2QDWuCkGELF3gy94ARhGAyuvXnkmi0faPF8cF58S61n5wQ31Yh1DN+sxLno7R1u
+	s3aeb+52sfezhRIgNdsU3ULeeHAKGKu/1BjmdC/6KIh/m1J4FzFnG/VSt9ccxK0RQ9OsxnJgaEUUD
+	MFdYyGZlgr9spCBd8ov7ivoRtZkVtTus3c5nxANpjb/1f8dFv4lUVpw6EsdFJrYbdSOX2+/KZALfG
+	s3ZwGKLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qYnlN-000fIA-14;
-	Wed, 23 Aug 2023 13:19:09 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1qYnvZ-000gTS-0i;
+	Wed, 23 Aug 2023 13:29:41 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qYnlK-000fGL-1S
-	for linux-riscv@lists.infradead.org;
-	Wed, 23 Aug 2023 13:19:07 +0000
+	id 1qYnvW-000gSX-1F;
+	Wed, 23 Aug 2023 13:29:39 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 905666628A;
-	Wed, 23 Aug 2023 13:19:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9FAB1C433CA;
-	Wed, 23 Aug 2023 13:19:02 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 58E51662E0;
+	Wed, 23 Aug 2023 13:29:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BD46BC433C7;
+	Wed, 23 Aug 2023 13:29:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1692796744;
-	bh=OvhIgHZmORNVFi07F01ZpcKqdw0vzuMy5UHAeo7OqEk=;
+	s=k20201202; t=1692797376;
+	bh=NFe09BLTwI6EXzfx6Y6VNCzXPE7zpcUy4rcY7EE0zr8=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=GsNnBmyhVMn7ydJeXv+04oBIi8+t+UBbIV1WfVTVptD1nJGHfYr5Zb1JCWSoLTZun
-	 pdJCuhTO8fLiV7ryRY2DJJCE8XNocPVCyfiWJSo4MTLUgBVsGk4kKr8UTdfmDROFtq
-	 Ad4yZioJ3vs4ML6CxK4dtneFlUC6a/qURrhtnNf4NeuG609O00yvuG37MKh75rL58k
-	 KbAIwsppMgv+fdnDzyHkAGgbDdGjeCwyz8wvevFjPdpYQV6KDSR8JmaBL2hy5xQ2Jx
-	 xZ9vTxcCmoCQDiijUHghe1pK+GvF2ByAsGsrFxqh+g4H/LVF9L9oHtV3pSV4XIzWTK
-	 f3tvm6XhHO1fQ==
-Received: (nullmailer pid 2200303 invoked by uid 1000);
-	Wed, 23 Aug 2023 13:19:01 -0000
-Date: Wed, 23 Aug 2023 08:19:01 -0500
-From: Rob Herring <robh@kernel.org>
-To: Xingyu Wu <xingyu.wu@starfivetech.com>
-Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, Conor Dooley <conor.dooley@microchip.com>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, Emil Renner Berthing <emil.renner.berthing@canonical.com>, alsa-devel@alsa-project.org, Rob Herring <robh+dt@kernel.org>, linux-kernel@vger.kernel.org, Jaroslav Kysela <perex@perex.cz>, Walker Chen <walker.chen@starfivetech.com>, Takashi Iwai <tiwai@suse.com>, Mark Brown <broonie@kernel.org>, Jose Abreu <joabreu@synopsys.com>, Claudiu Beznea <Claudiu.Beznea@microchip.com>, Albert Ou <aou@eecs.berkeley.edu>, Liam Girdwood <lgirdwood@gmail.com>, Maxim Kochetkov <fido_max@inbox.ru>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>
-Subject: Re: [PATCH v2 4/5] riscv: dts: starfive: pinfunc: Fix the pins name
- of I2STX1
-Message-ID: <169279674097.2200246.2480753930062149907.robh@kernel.org>
-References: <20230821144151.207339-1-xingyu.wu@starfivetech.com>
- <20230821144151.207339-5-xingyu.wu@starfivetech.com>
+	b=sCj+wBUt/EmZ6GHed1VrFjaZS9DehCo3T5PWHyIWqvgodHG1bOIrm+qPEnyUWXEAr
+	 FgRt+2lYfXgJ1AKEfXFoITnrr/Z9GoUUVWQhVXu4FLWS9L7p71Tl+6JnK9c5cuhn8R
+	 MydBvrMO1sAnNo+ZDOzU1slqaO0/Sb3gSn6/mFe+qiWZUs94NiXhyVXvf+xlGWmesq
+	 vsEkPTKLhaI3R6r4rVjVoJupi6Awv4iRbUKj0WaHHIYnYgZlDvV47dMGxpzjbykHsJ
+	 x8M4t6U1QhNo5Vhu386uzZp0hcFeMuqP6+2/WgmcF+2RcY+xoMrzGK2IlzGbV+eaJZ
+	 iUE6uqbS0mnZQ==
+Date: Wed, 23 Aug 2023 14:29:31 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] riscv: dts: use capital "OR" for multiple licenses in
+ SPDX
+Message-ID: <20230823-alabaster-omission-a35a29198fd0@spud>
+References: <20230823085238.113642-1-krzysztof.kozlowski@linaro.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230821144151.207339-5-xingyu.wu@starfivetech.com>
+In-Reply-To: <20230823085238.113642-1-krzysztof.kozlowski@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230823_061906_542056_BFA10873 
-X-CRM114-Status: GOOD (  11.61  )
+X-CRM114-CacheID: sfid-20230823_062938_486348_D536EB8F 
+X-CRM114-Status: GOOD (  10.53  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,26 +78,58 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============3548512936990289820=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
-On Mon, 21 Aug 2023 22:41:50 +0800, Xingyu Wu wrote:
-> These pins are actually I2STX1 clock input, not I2STX0,
-> so their names should be changed.
-> 
-> Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
-> ---
->  arch/riscv/boot/dts/starfive/jh7110-pinfunc.h | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
-> 
+--===============3548512936990289820==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="zwG12TuW3Ar4PyZi"
+Content-Disposition: inline
 
-Acked-by: Rob Herring <robh@kernel.org>
 
+--zwG12TuW3Ar4PyZi
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Wed, Aug 23, 2023 at 10:52:38AM +0200, Krzysztof Kozlowski wrote:
+> Documentation/process/license-rules.rst and checkpatch expect the SPDX
+> identifier syntax for multiple licenses to use capital "OR".  Correct it
+> to keep consistent format and avoid copy-paste issues.
+>=20
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+
+Thanks,
+Conor.
+
+--zwG12TuW3Ar4PyZi
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZOYJuwAKCRB4tDGHoIJi
+0gLyAQD/H6s2mLMFq0aJbyPKB3WgSjepxLVIu2NsGm8Vn5FfeQEAqpZfLXseCpH3
+tYdgNMuExBww/q2bYbRydZH7E/cbXAk=
+=in4T
+-----END PGP SIGNATURE-----
+
+--zwG12TuW3Ar4PyZi--
+
+
+--===============3548512936990289820==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============3548512936990289820==--
+
