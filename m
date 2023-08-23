@@ -4,73 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AF26C3DA6F
-	for <linux-riscv@archiver.kernel.org>; Wed, 23 Aug 2023 19:54:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D843DC27C40
+	for <linux-riscv@archiver.kernel.org>; Wed, 23 Aug 2023 20:10:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Message-Id:Subject:
-	References:In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
+	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=EzMvoSDDtgYkDe+i6lbRVTjHd6Pg/0Mhbe8OXvvBamg=; b=cbgACyncoo3Jfn
-	59wZgVN2b8fKhum63PVJQ1JayCsLfzpwQVcRTLeVClcZJAq3nDYkc/gVmHV61bqksCwxaJnW3UvI1
-	v5krw9Q4IqZyW8L2YLqpRyYXSMy2PPs5RXZwaPtlIXafcQe5C8YAHi97zWpCwDKygD+vx+Fz7Sxzi
-	3+kwFhfvYdcI5lyILmuG8bLduKyh6oE97WNOHzdh4J/Z1C9GrNrgjjrtSJJNpLP56EALrROJGiRWl
-	o27CXfKhTxbUyKSxhE4bf1xsYcJ7CpwcW8TXRcgPTi0vqgHdr+TjxKpEWnRNmUKo4CdWebB8vLhjx
-	0BBjqD8z+kiKy7jMpT6Q==;
+	List-Owner; bh=H4TBXDijVK52mUl0q6ulK6V9HSSV83rthnUEZQ0bACE=; b=EBaUEjBVO3cpZD
+	AELG/j+e4fz1h0De6icVdGvvIPWLn/UHW0uhxu6p5oevainJQcYpy6OxsK4ejIoE/vsb105QmFYdx
+	Z8/xhcSxZ4MJeUc+xJCfepsViUrT0qYvmXfb2TPs3qULBxa//+auOV99zQj9K2dZ1Go2AYbPjZgD7
+	70na5LoBT5ez3rzD+ecTxBAdCq0X2ayB4q5WVNM3z4PZ2wKlJqdnhVb3bWtUD78p9VOWbRRbwM68c
+	6DwED0+/VWlSy/WHpW3uyMzig3wYX5YF6TAN7/U5J8pi6eAb2jk5nYMXbFT01d1sYuec6pSrvDCAw
+	X4EMgVN0IEo3IKCg6rgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qYtvj-001SOR-2e;
-	Wed, 23 Aug 2023 19:54:15 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1qYuBQ-001TXV-0N;
+	Wed, 23 Aug 2023 20:10:28 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qYtvg-001SO0-2y
+	id 1qYuBM-001TWv-2D
 	for linux-riscv@lists.infradead.org;
-	Wed, 23 Aug 2023 19:54:14 +0000
+	Wed, 23 Aug 2023 20:10:26 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 3A341663B1;
-	Wed, 23 Aug 2023 19:54:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 42180C433C9;
-	Wed, 23 Aug 2023 19:54:06 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id E3E5962D53;
+	Wed, 23 Aug 2023 20:10:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 0A485C433C8;
+	Wed, 23 Aug 2023 20:10:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1692820451;
-	bh=3BXs+jmGfRUvLPCNF0fDwwzaEF8pVwCZrH829bm0Kew=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=OAKJrwAlS/gLuUkE4X9F5RAUBilBnnGnk/ewUI94zRnebGNp2469Jryfw0s3M+2aZ
-	 7/8ROIvEAd/gC5uVzkOH92jLlomxPrqYfwOVqRLOmG53ljnFe5NGnjxQsYkAqdAFIs
-	 nLsJVZATA5n8Edq+6u5JgnncHNxiogTu0GuWNom6Bl0Q8MwY3yBTX4dCr9HHeK6/ll
-	 qqdpjkhwnADy5auD+gGkEF9typ6Vs3Jdgl+OoSEkx1R4urPPVj2tttlnktt41WRTaJ
-	 2Kjm+t6fJn33DFzlfawZurcmaJCXbXKfq3aArzRiUDSJyy0Hwc7b3qSy+sBnDYT5Nk
-	 cIFQFhYefzOWQ==
-From: Mark Brown <broonie@kernel.org>
-To: Liam Girdwood <lgirdwood@gmail.com>, 
- Claudiu Beznea <Claudiu.Beznea@microchip.com>, 
- Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
- Maxim Kochetkov <fido_max@inbox.ru>, Rob Herring <robh+dt@kernel.org>, 
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
- Conor Dooley <conor.dooley@microchip.com>, 
- Emil Renner Berthing <emil.renner.berthing@canonical.com>, 
- Xingyu Wu <xingyu.wu@starfivetech.com>
-Cc: Jose Abreu <joabreu@synopsys.com>, 
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Walker Chen <walker.chen@starfivetech.com>, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, alsa-devel@alsa-project.org, 
- linux-riscv@lists.infradead.org
-In-Reply-To: <20230821144151.207339-1-xingyu.wu@starfivetech.com>
-References: <20230821144151.207339-1-xingyu.wu@starfivetech.com>
-Subject: Re: (subset) [PATCH v2 0/5] Add I2S support for the StarFive
- JH7110 SoC
-Message-Id: <169282044586.176026.15255891850559347673.b4-ty@kernel.org>
-Date: Wed, 23 Aug 2023 20:54:05 +0100
+	s=k20201202; t=1692821423;
+	bh=K2KpJdKf6FScElKO4BDQjTIMS7VSEO2o1DADSC7q+R4=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=TgwAtISaI/NB71xFkrQ3QjMKmZldGjqpQuWnPbPjBjCNJjufUyJ7O8+3z+EIo9RxL
+	 SPQqUSxskHRNNuOqKTNu0Mkz33efiQJy9/bKynhadhdIalsJeodvJBIO1oR9KSa+MC
+	 c7FStgmt2dsOcI47W/0DbuL5naWT8X0G7wH3PCr0H6ANlrjnGio088oEuK6KRd99+c
+	 jeWECy3scIe6qg9hEDT5Afb36ZA/6PzVj6gutNdWD/rqoEHpNZJGRsyP/6zF5g4/TH
+	 SHCPAS5ZgBeA2uCWH27xOTkO6PlF9LLdDoaUT3weaI8V0XBmHkf0mZyywK4x9ATjQr
+	 QjZPuJcqHlfhg==
+Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id E2800C595CE;
+	Wed, 23 Aug 2023 20:10:22 +0000 (UTC)
 MIME-Version: 1.0
-X-Mailer: b4 0.13-dev-034f2
+Subject: Re: [PATCH] riscv: Require FRAME_POINTER for some configurations
+From: patchwork-bot+linux-riscv@kernel.org
+Message-Id: <169282142292.4166.3281543334488200075.git-patchwork-notify@kernel.org>
+Date: Wed, 23 Aug 2023 20:10:22 +0000
+References: <20230823082845.354839-1-bjorn@kernel.org>
+In-Reply-To: <20230823082845.354839-1-bjorn@kernel.org>
+To: =?utf-8?b?QmrDtnJuIFTDtnBlbCA8Ympvcm5Aa2VybmVsLm9yZz4=?=@ci.codeaurora.org
+Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, rdunlap@infradead.org,
+ bjorn@rivosinc.com, linux-kernel@vger.kernel.org, guoren@kernel.org,
+ dfustini@baylibre.com, linux-next@vger.kernel.org, sfr@canb.auug.org.au
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230823_125413_044047_2B52A776 
-X-CRM114-Status: GOOD (  18.75  )
+X-CRM114-CacheID: sfid-20230823_131024_774984_17A39E39 
+X-CRM114-Status: UNSURE (   9.32  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,62 +75,24 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 21 Aug 2023 22:41:46 +0800, Xingyu Wu wrote:
-> This patch series adds I2S support for the StarFive JH7110 RISC-V
-> SoC based on Designware I2S controller. There has three I2S channels
-> (RX/TX0/TX1) on the JH7110 SoC, one of which is for record(RX) and
-> two for playback(TX).
-> 
-> The first patch adds support for the StarFive JH7110 SoC in the
-> Designware I2S bindings.
-> The second patch adds the ops to get data from platform bus in the
-> I2S driver.
-> The third patch adds support for the StarFive JH7110 SoC in
-> the Designware I2S driver.
-> The fourth patch fixes the name of I2STX1 pinmux.
-> The last patch adds device node of I2S RX/TX0/TX1 in JH7110 dts.
-> 
-> [...]
-
-Applied to
-
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-next
-
-Thanks!
-
-[1/5] ASoC: dt-bindings: snps,designware-i2s: Add StarFive JH7110 SoC support
-      commit: 206110c74c4af6772916acacae5f28993085bf18
-[2/5] ASoC: dwc: Use ops to get platform data
-      commit: d6d6c513f5d2d14651336fb4e30f097822b46f29
-[3/5] ASoC: dwc: i2s: Add StarFive JH7110 SoC support
-      commit: 52ea7c0543f8a39da8a6fc17a5ab36b7b58d5431
-
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
-
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-Thanks,
-Mark
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGVsbG86CgpUaGlzIHBhdGNoIHdhcyBhcHBsaWVkIHRvIHJpc2N2L2xpbnV4LmdpdCAoZm9yLW5l
+eHQpCmJ5IFBhbG1lciBEYWJiZWx0IDxwYWxtZXJAcml2b3NpbmMuY29tPjoKCk9uIFdlZCwgMjMg
+QXVnIDIwMjMgMTA6Mjg6NDUgKzAyMDAgeW91IHdyb3RlOgo+IEZyb206IEJqw7ZybiBUw7ZwZWwg
+PGJqb3JuQHJpdm9zaW5jLmNvbT4KPiAKPiBTb21lIFYgY29uZmlndXJhdGlvbnMgaW1wbGljaXRs
+eSB0dXJuIG9uICctZm5vLW9taXQtZnJhbWUtcG9pbnRlcicsCj4gYnV0IGxlYXZpbmcgRlJBTUVf
+UE9JTlRFUiBkaXNhYmxlZC4gVGhpcyBtYWtlcyBpdCBoYXJkIHRvIHJlYXNvbiBhYm91dAo+IHRo
+ZSBGUkFNRV9QT0lOVEVSIGNvbmZpZywgYW5kIGFsc28gdHJpZ2dlcnMgYnVpbGQgZmFpbHVyZXMg
+aW50cm9kdWNlZAo+IGluIGJ5IHRoZSBjb21taXQgaW4gdGhlIEZpeGVzOiB0YWcuCj4gCj4gWy4u
+Ll0KCkhlcmUgaXMgdGhlIHN1bW1hcnkgd2l0aCBsaW5rczoKICAtIHJpc2N2OiBSZXF1aXJlIEZS
+QU1FX1BPSU5URVIgZm9yIHNvbWUgY29uZmlndXJhdGlvbnMKICAgIGh0dHBzOi8vZ2l0Lmtlcm5l
+bC5vcmcvcmlzY3YvYy85Zjk0NGQyZTBhYjMKCllvdSBhcmUgYXdlc29tZSwgdGhhbmsgeW91IQot
+LSAKRGVldC1kb290LWRvdCwgSSBhbSBhIGJvdC4KaHR0cHM6Ly9rb3JnLmRvY3Mua2VybmVsLm9y
+Zy9wYXRjaHdvcmsvcHdib3QuaHRtbAoKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlz
+dHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3Rp
+bmZvL2xpbnV4LXJpc2N2Cg==
