@@ -4,89 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 905FEC3DA6F
-	for <linux-riscv@archiver.kernel.org>; Wed, 23 Aug 2023 18:17:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 780B5C27C40
+	for <linux-riscv@archiver.kernel.org>; Wed, 23 Aug 2023 18:17:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wdvXCGXr5F/bQ/FqNEVwoJ5Ns6QJMTS2kRZms2mGRt4=; b=bTWIscJzyaH2txdj+/BIMqzOuR
-	sdVWSHHZDmxEtZUp7qq39KsOeyunr4F3F4uoLM8WI5wwvyOBZ4ia+7SCHnYBL0HL/4Mc4dtxVRBjo
-	Akt9bmMfnwFNUPxCIV9EkJ3LrqKtSEM7tSylJL67Le5e9zjTnLf0Mtvs/y4OCQLAFauh0u8JO527B
-	h4rkfXeR0FCCYwGTF1kTve1B/mQyfH7WdaJ+ValnSeVlm4z63Ja5ThKl9c3zFy5bdseSh/+Yu8J87
-	esTc+jQ+PeIo0BtPYzC6GsMwGBDNXP0ovohJywF4hsrpkkiRqdoAP5mZ/Dt1XQHxZRWpYA2azbP/r
-	5XmNzWfA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=4RrvXf9GSVQNRHpV19CuYHx5rvvMukAlTszyJ2BjJJs=; b=DBEDPiDUTFMR13
+	v+tZ85ghPRYyi6iG7ObifenUY5iAnRkMdxYWmAGEteqXZ3GSL/vc4B09SwdtB4S6F2nMhOMbFQChr
+	C5YVwxzNdGE6nQpQhe/yaaZrYln07z8SvXXlrnRSKgbVCbo9bDpuQCQzt+mADVtvl3N8QELbbJHGA
+	qVFdraGIT6MT0OHuKrUNPDvQ8Nknbxbz8s2hwYt8w3g0vE1jd/6iIf1CIa/32B2h+g97GKJHOP4ND
+	wGCblIfXVVWBz1q9buA+l0G5bl5Ip6Nnr0b0kMUyhRM2+nAqmoyKj9wnKs+9IhtKomMSjNtnXnWjk
+	jUouWlX6fOwr4dUSPXDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qYsPi-001IVY-0g;
-	Wed, 23 Aug 2023 18:17:06 +0000
+	id 1qYsPn-001IZS-3C;
+	Wed, 23 Aug 2023 18:17:11 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qYsPf-001IUX-0t;
-	Wed, 23 Aug 2023 18:17:04 +0000
+	id 1qYsPl-001IXl-0K
+	for linux-riscv@lists.infradead.org;
+	Wed, 23 Aug 2023 18:17:10 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 9427161E98;
-	Wed, 23 Aug 2023 18:17:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 03400C433C7;
-	Wed, 23 Aug 2023 18:16:55 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 946AD63DD8;
+	Wed, 23 Aug 2023 18:17:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E0A21C4167D;
+	Wed, 23 Aug 2023 18:17:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1692814621;
-	bh=z4aynHRzkI+QjbnRFX6g1vVxQ5ejtsIbs5rrGfHFHGE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=vOmP4hLKyqUTY4Rpo3iF4nxe1oNnRDDYIYRbZ/skZ0s1Z1rqv3ybf1aNIxyXlfoZi
-	 XzisYoLx7TaoSyRzhpiq5y79KygxbLW8f3Y0aJffZZZK7hn134I1xclZvmJl/advUK
-	 FV3HcydgfFsNEx1mO4o6fk/h0jrhMpmi1nPkkVh+mPt1TaLdb9rJOn2FjvFo2V5SVn
-	 0YorKgoH/DUEFkI5en//P98Di0z8jX8gihJYc5+yYn8tQilGMhbF79vDUmtEfqzTPE
-	 LDNRjNI1lzg8m7cs4daU/NrYVTQWUoyjFGUHdKTLpL2Geei5FDlJv0IUpwuMr4GMxk
-	 ZGPH+S1BybA6w==
-Date: Wed, 23 Aug 2023 19:16:52 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Szabolcs Nagy <Szabolcs.Nagy@arm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	James Morse <james.morse@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Arnd Bergmann <arnd@arndb.de>, Oleg Nesterov <oleg@redhat.com>,
-	Eric Biederman <ebiederm@xmission.com>,
-	Kees Cook <keescook@chromium.org>, Shuah Khan <shuah@kernel.org>,
-	"Rick P. Edgecombe" <rick.p.edgecombe@intel.com>,
-	Deepak Gupta <debug@rivosinc.com>, Ard Biesheuvel <ardb@kernel.org>,
-	"H.J. Lu" <hjl.tools@gmail.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
-	kvmarm@lists.linux.dev, linux-fsdevel@vger.kernel.org,
-	linux-arch@vger.kernel.org, linux-mm@kvack.org,
-	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v4 03/36] arm64/gcs: Document the ABI for Guarded Control
- Stacks
-Message-ID: <ef7272d2-d807-428f-9915-6fc9febadb5c@sirena.org.uk>
-References: <ZNOhjrYleGBR6Pbs@arm.com>
- <f4cec4b3-c386-4873-aa1d-90528e062f2a@sirena.org.uk>
- <ZN+qki9EaZ6f9XNi@arm.com>
- <aaea542c-929c-4c9b-8caa-ca67e0eb9c1e@sirena.org.uk>
- <ZOTnL1SDJWZjHPUW@arm.com>
- <43ec219d-bf20-47b8-a5f8-32bc3b64d487@sirena.org.uk>
- <ZOXa98SqwYPwxzNP@arm.com>
- <227e6552-353c-40a9-86c1-280587a40e3c@sirena.org.uk>
- <ZOY3lz+Zyhd5ZyQ9@arm.com>
- <ZOZEmO6WGyVAcOqK@arm.com>
+	s=k20201202; t=1692814628;
+	bh=oVc34mgV3FCHCFRuWZIFh7s3iqRrh+uYOxu0gKgphbc=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=gbl8Ho+OIJFBCVGkffy0ZCht+2m9HlRKIBb+duA+VU3Ht+iJBwRrlDv1vyAcArPps
+	 Zt+17ndNPH54GvaNh/oBz8tlBp/nZAKHignXtbUKnNPqEXWmn3dDwp8IdgFhJ8dzMa
+	 HwHKIDXMJ/uqCIpdB9JTLjEwfbPOPgvWn/4EcmIItoiStt0TL5MgXoTiF6XzgsTZc5
+	 bigYmUMs41UnYcr88jWVP9DxRfX06OOqGxR7uKaYnhAJ8+iFtBDDtMzniXIGA81gaS
+	 OOFuFsMwDe2Y85oXpD1Z0ZR1GWeBrnQWqGy7cpsInsjF3Jm7lgOBAmuPeCPpGKTTQI
+	 BQMCMes+TQKog==
+From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
+To: Pu Lehui <pulehui@huaweicloud.com>, linux-riscv@lists.infradead.org,
+ bpf@vger.kernel.org, netdev@vger.kernel.org, linux-kernel@vger.kernel.org
+Cc: Yonghong Song <yhs@fb.com>, Alexei Starovoitov <ast@kernel.org>, Daniel
+ Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>,
+ Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>, John
+ Fastabend <john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>,
+ Stanislav Fomichev <sdf@google.com>, Hao Luo <haoluo@google.com>, Jiri
+ Olsa <jolsa@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Xu Kuohai
+ <xukuohai@huawei.com>, Puranjay Mohan <puranjay12@gmail.com>, Pu Lehui
+ <pulehui@huawei.com>, Pu Lehui <pulehui@huaweicloud.com>
+Subject: Re: [PATCH bpf-next 2/7] riscv, bpf: Support sign-extension load insns
+In-Reply-To: <20230823231059.3363698-3-pulehui@huaweicloud.com>
+References: <20230823231059.3363698-1-pulehui@huaweicloud.com>
+ <20230823231059.3363698-3-pulehui@huaweicloud.com>
+Date: Wed, 23 Aug 2023 20:17:05 +0200
+Message-ID: <87h6oplj32.fsf@all.your.base.are.belong.to.us>
 MIME-Version: 1.0
-In-Reply-To: <ZOZEmO6WGyVAcOqK@arm.com>
-X-Cookie: Some optional equipment shown.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230823_111703_402966_1BB9CF84 
-X-CRM114-Status: GOOD (  15.53  )
+X-CRM114-CacheID: sfid-20230823_111709_205670_78A879E9 
+X-CRM114-Status: UNSURE (   4.29  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,61 +78,15 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8990064219103964197=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============8990064219103964197==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="eccODu5HN5W02WFY"
-Content-Disposition: inline
-
-
---eccODu5HN5W02WFY
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-
-On Wed, Aug 23, 2023 at 06:40:40PM +0100, Szabolcs Nagy wrote:
-
-> i don't know if we can allow disabled gcs thread creation with locked
-> gcs state. (i can see arguments both ways, so further prctl flag may
-> be needed which may be another divergence from x86)
-
-I think that if we do add a new flag that'd just be new functionality,
-the divergence would be in allowing configuration via clone3() rather
-than the flag.  TBH I'm not sure I see a use case for locking but
-providing a mechanism for getting out of the lock, that seems very
-questionable.
-
---eccODu5HN5W02WFY
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmTmTRMACgkQJNaLcl1U
-h9AFoAf/Rmp/X+zsA/zDX+bXBUla+v8qz72JS4cU/67DmXv5Fb8FKCj4nY5j/OnZ
-3G9+lHZYYRFTA8sdQH2qULPo0S6QafNbebM0WxsjYuiCw8CKuztE1jOm+l6aVyf7
-G/h5YxEOQBb4ChLezEXXQWZC0wR/S+7bf34IxDycvRh6Y0700VL4eZ7pu4fc8WDu
-rHrMeB82zAlQCr3fdUgu5FzPQFUiY4dbDzPrJHpuVIq+Vnpk7RK7b1vkYZa4fo5o
-2YB87p19ylZBQa0LvKdA+RkgDNvExeujREoO1O+WrBVa1bdtKw80kGgvXJC3oy0f
-P8bazSIfrut0e41Y3agZotCijYwTlg==
-=JX+L
------END PGP SIGNATURE-----
-
---eccODu5HN5W02WFY--
-
-
---===============8990064219103964197==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============8990064219103964197==--
-
+UHUgTGVodWkgPHB1bGVodWlAaHVhd2VpY2xvdWQuY29tPiB3cml0ZXM6Cgo+IEZyb206IFB1IExl
+aHVpIDxwdWxlaHVpQGh1YXdlaS5jb20+Cj4KPiBBZGQgU3VwcG9ydCBzaWduLWV4dGVuc2lvbiBs
+b2FkIGluc3RydWN0aW9ucyBmb3IgUlY2NC4KPgo+IFNpZ25lZC1vZmYtYnk6IFB1IExlaHVpIDxw
+dWxlaHVpQGh1YXdlaS5jb20+CgpBY2tlZC1ieTogQmrDtnJuIFTDtnBlbCA8Ympvcm5Aa2VybmVs
+Lm9yZz4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxp
+bnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0
+dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
