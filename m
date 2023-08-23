@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D996EE49A3
-	for <linux-riscv@archiver.kernel.org>; Wed, 23 Aug 2023 13:41:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B831EE49A3
+	for <linux-riscv@archiver.kernel.org>; Wed, 23 Aug 2023 13:41:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=I/YrdPw2impGgn0okDRyhQGyHXrOmgHGnamUP7eMxeU=; b=ruERPzQpsQbBOm
-	MWEd9WhxMKj0jwXvTb5kKFRxZD622yD6QhOAn+qQrvJe4BGj3MgFf1kCw5nHpuiqFf3+w77etWpNK
-	DWNYMQ8QEdV6J3+Z9nSNC6j77eeafOXrUXvW0grDBkM/DiiGQjox1/XEy3Y74x17b1c0BCgw27x22
-	BoYQz1czPsFMRUXUkQ8MFMjvif0vXQs/+OdnLdfmMWB1MMCPRvvHJlanP70GWHIFmyHLOI80GBt4/
-	Ue/6bV3dSs2XVDGN+zyYgLBr3UgTPb3dFBsYYYWO+pzpvnZKqhpqkWn3sPIBK8no5cP5sVfU1fUOV
-	oVXm9z2ERrUjd7trYH6A==;
+	List-Owner; bh=OX+SSOOhecx5X4ahuJESsQLyx1TtnNhAKxUBq3+jf08=; b=wEFpR4zgiK8ox3
+	8QWm60WcNZAmlxjcZGr0v+IReA/NL3PaTzWz9pXdDXBSby7uP7F6eH08czSJcuxd9/V5RHpYBDhZh
+	KZ0raki3ylIXNA3bRJm399cYO4ZT4xnX07M086qBElChjCGYMYKEQ6yOgjJGl6LtgBSo7eAb0QoXf
+	u5Vtbp6SuDPsDMMXL9eqRuCFMB03VnP1pDYitOOF6gSCgFhK+WMwJA51528j2cQJh3gso9Xz0nQyZ
+	g7SuPGWxmhItheADzfBcMPINjSsDGsR5FDlMPohTFfbm3GGJEEWKOngKPW4N3aR2Ubm2zxxIlqovV
+	fCiaNF2EWhPiNeGwTbPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qYo6W-000iKc-0w;
-	Wed, 23 Aug 2023 13:41:00 +0000
-Received: from szxga02-in.huawei.com ([45.249.212.188])
+	id 1qYo75-000iue-03;
+	Wed, 23 Aug 2023 13:41:35 +0000
+Received: from szxga03-in.huawei.com ([45.249.212.189])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qYo5f-000hPi-2L;
-	Wed, 23 Aug 2023 13:40:11 +0000
-Received: from kwepemi500012.china.huawei.com (unknown [172.30.72.56])
-	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4RW6gd72g1zNn6Q;
-	Wed, 23 Aug 2023 21:36:29 +0800 (CST)
+	id 1qYo5h-000hOw-25;
+	Wed, 23 Aug 2023 13:40:13 +0000
+Received: from kwepemi500012.china.huawei.com (unknown [172.30.72.54])
+	by szxga03-in.huawei.com (SkyGuard) with ESMTP id 4RW6h15S8RzLpCV;
+	Wed, 23 Aug 2023 21:36:49 +0800 (CST)
 Received: from huawei.com (10.90.53.73) by kwepemi500012.china.huawei.com
  (7.221.188.12) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.31; Wed, 23 Aug
- 2023 21:40:03 +0800
+ 2023 21:39:53 +0800
 From: Li Zetao <lizetao1@huawei.com>
 To: <lizetao1@huawei.com>
 CC: <andrew@aj.id.au>, <angelogioacchino.delregno@collabora.com>,
@@ -49,10 +49,11 @@ CC: <andrew@aj.id.au>, <angelogioacchino.delregno@collabora.com>,
 	<martin.blumenstingl@googlemail.com>, <matthias.bgg@gmail.com>,
 	<neil.armstrong@linaro.org>, <olteanv@gmail.com>, <openbmc@lists.ozlabs.org>,
 	<rjui@broadcom.com>, <sbranden@broadcom.com>, <tali.perry1@gmail.com>,
-	<tmaimon77@gmail.com>, <venture@google.com>, <yuenn@google.com>
-Subject: [PATCH -next v2 12/25] spi: dw-mmio: Use helper function devm_clk_get_*()
-Date: Wed, 23 Aug 2023 21:39:25 +0800
-Message-ID: <20230823133938.1359106-13-lizetao1@huawei.com>
+	<tmaimon77@gmail.com>, <venture@google.com>, <yuenn@google.com>, Jonathan
+ Cameron <Jonathan.Cameron@huawei.com>
+Subject: [PATCH -next v2 03/25] spi: aspeed: Use helper function devm_clk_get_enabled()
+Date: Wed, 23 Aug 2023 21:39:16 +0800
+Message-ID: <20230823133938.1359106-4-lizetao1@huawei.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20230823133938.1359106-1-lizetao1@huawei.com>
 References: <20230822131237.1022815-1-lizetao1@huawei.com>
@@ -63,8 +64,8 @@ X-ClientProxiedBy: dggems702-chm.china.huawei.com (10.3.19.179) To
  kwepemi500012.china.huawei.com (7.221.188.12)
 X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230823_064008_286332_578732FE 
-X-CRM114-Status: GOOD (  11.88  )
+X-CRM114-CacheID: sfid-20230823_064010_205720_5E78E8C4 
+X-CRM114-Status: GOOD (  10.98  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,90 +86,67 @@ Since commit 7ef9651e9792 ("clk: Provide new devm_clk helpers for prepared
 and enabled clocks"), devm_clk_get() and clk_prepare_enable() can now be
 replaced by devm_clk_get_enabled() when driver enables (and possibly
 prepares) the clocks for the whole lifetime of the device. Moreover, it is
-no longer necessary to unprepare and disable the clocks explicitly. Also,
-devm_clk_get_optional() and clk_prepare_enable() can now be replaced by
-devm_clk_get_optional_enabled(). Moreover, the lable "out_clk" no longer
-makes sense, rename it to "out_reset".
+no longer necessary to unprepare and disable the clocks explicitly.
 
+Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+Reviewed-by: Chin-Ting Kuo <chin-ting_kuo@aspeedtech.com>
 Signed-off-by: Li Zetao <lizetao1@huawei.com>
 ---
-v1 -> v2: Return directly instead of calling reset_control_deassert()
-before the reset control handler has been requested. And use the
-"out_reset" label instead of "out" before calling pm_runtime_enable().
+v1 -> v2: None
 
- drivers/spi/spi-dw-mmio.c | 31 +++++++++----------------------
- 1 file changed, 9 insertions(+), 22 deletions(-)
+ drivers/spi/spi-aspeed-smc.c | 16 ++--------------
+ 1 file changed, 2 insertions(+), 14 deletions(-)
 
-diff --git a/drivers/spi/spi-dw-mmio.c b/drivers/spi/spi-dw-mmio.c
-index 805264c9c65c..46801189a651 100644
---- a/drivers/spi/spi-dw-mmio.c
-+++ b/drivers/spi/spi-dw-mmio.c
-@@ -340,29 +340,20 @@ static int dw_spi_mmio_probe(struct platform_device *pdev)
- 	if (dws->irq < 0)
- 		return dws->irq; /* -ENXIO */
+diff --git a/drivers/spi/spi-aspeed-smc.c b/drivers/spi/spi-aspeed-smc.c
+index 21b0fa646c7d..bbd417c55e7f 100644
+--- a/drivers/spi/spi-aspeed-smc.c
++++ b/drivers/spi/spi-aspeed-smc.c
+@@ -748,7 +748,7 @@ static int aspeed_spi_probe(struct platform_device *pdev)
+ 	aspi->ahb_window_size = resource_size(res);
+ 	aspi->ahb_base_phy = res->start;
  
--	dwsmmio->clk = devm_clk_get(&pdev->dev, NULL);
-+	dwsmmio->clk = devm_clk_get_enabled(&pdev->dev, NULL);
- 	if (IS_ERR(dwsmmio->clk))
- 		return PTR_ERR(dwsmmio->clk);
--	ret = clk_prepare_enable(dwsmmio->clk);
--	if (ret)
--		return ret;
- 
- 	/* Optional clock needed to access the registers */
--	dwsmmio->pclk = devm_clk_get_optional(&pdev->dev, "pclk");
--	if (IS_ERR(dwsmmio->pclk)) {
--		ret = PTR_ERR(dwsmmio->pclk);
--		goto out_clk;
--	}
--	ret = clk_prepare_enable(dwsmmio->pclk);
--	if (ret)
--		goto out_clk;
-+	dwsmmio->pclk = devm_clk_get_optional_enabled(&pdev->dev, "pclk");
-+	if (IS_ERR(dwsmmio->pclk))
-+		return PTR_ERR(dwsmmio->pclk);
- 
- 	/* find an optional reset controller */
- 	dwsmmio->rstc = devm_reset_control_get_optional_exclusive(&pdev->dev, "spi");
--	if (IS_ERR(dwsmmio->rstc)) {
--		ret = PTR_ERR(dwsmmio->rstc);
--		goto out_clk;
--	}
-+	if (IS_ERR(dwsmmio->rstc))
-+		return PTR_ERR(dwsmmio->rstc);
-+
- 	reset_control_deassert(dwsmmio->rstc);
- 
- 	dws->bus_num = pdev->id;
-@@ -383,7 +374,7 @@ static int dw_spi_mmio_probe(struct platform_device *pdev)
- 	if (init_func) {
- 		ret = init_func(pdev, dwsmmio);
- 		if (ret)
--			goto out;
-+			goto out_reset;
+-	aspi->clk = devm_clk_get(&pdev->dev, NULL);
++	aspi->clk = devm_clk_get_enabled(&pdev->dev, NULL);
+ 	if (IS_ERR(aspi->clk)) {
+ 		dev_err(dev, "missing clock\n");
+ 		return PTR_ERR(aspi->clk);
+@@ -760,12 +760,6 @@ static int aspeed_spi_probe(struct platform_device *pdev)
+ 		return -EINVAL;
  	}
  
- 	pm_runtime_enable(&pdev->dev);
-@@ -397,9 +388,7 @@ static int dw_spi_mmio_probe(struct platform_device *pdev)
+-	ret = clk_prepare_enable(aspi->clk);
+-	if (ret) {
+-		dev_err(dev, "can not enable the clock\n");
+-		return ret;
+-	}
+-
+ 	/* IRQ is for DMA, which the driver doesn't support yet */
  
- out:
- 	pm_runtime_disable(&pdev->dev);
--	clk_disable_unprepare(dwsmmio->pclk);
--out_clk:
--	clk_disable_unprepare(dwsmmio->clk);
-+out_reset:
- 	reset_control_assert(dwsmmio->rstc);
+ 	ctlr->mode_bits = SPI_RX_DUAL | SPI_TX_DUAL | data->mode_bits;
+@@ -777,14 +771,9 @@ static int aspeed_spi_probe(struct platform_device *pdev)
+ 	ctlr->dev.of_node = dev->of_node;
  
+ 	ret = devm_spi_register_controller(dev, ctlr);
+-	if (ret) {
++	if (ret)
+ 		dev_err(&pdev->dev, "spi_register_controller failed\n");
+-		goto disable_clk;
+-	}
+-	return 0;
+ 
+-disable_clk:
+-	clk_disable_unprepare(aspi->clk);
  	return ret;
-@@ -411,8 +400,6 @@ static void dw_spi_mmio_remove(struct platform_device *pdev)
- 
- 	dw_spi_remove_host(&dwsmmio->dws);
- 	pm_runtime_disable(&pdev->dev);
--	clk_disable_unprepare(dwsmmio->pclk);
--	clk_disable_unprepare(dwsmmio->clk);
- 	reset_control_assert(dwsmmio->rstc);
  }
  
+@@ -793,7 +782,6 @@ static void aspeed_spi_remove(struct platform_device *pdev)
+ 	struct aspeed_spi *aspi = platform_get_drvdata(pdev);
+ 
+ 	aspeed_spi_enable(aspi, false);
+-	clk_disable_unprepare(aspi->clk);
+ }
+ 
+ /*
 -- 
 2.34.1
 
