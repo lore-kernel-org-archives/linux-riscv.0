@@ -4,166 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82910C27C40
-	for <linux-riscv@archiver.kernel.org>; Wed, 23 Aug 2023 17:41:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52BB7C3DA6F
+	for <linux-riscv@archiver.kernel.org>; Wed, 23 Aug 2023 18:14:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+IqCra788oOV+btusaJC0iw7BW7UWoAbin29Ut+Liq4=; b=EvJOotxAbiIeZy
-	DmL0Xun8ZZsn4S3xOctEmJjIxm+YUL8FrL1aLAXSJGwXKGRRJbjshRFi9G5MFxm2acd7Lz/MKZ93+
-	PlsmTJIoowPdb4yudRTydChTRKMu8kgBF3vZ5/2569ZMq2x7X7gpdnoACQ1Rf5ow9NHVXcM4kNpp1
-	nqIykjHyfOJ7EhyVCe7wCUwh7jrg+Xe1aNC1+UkM9NLaQKqCea6yaTkw06vn88VS/Mn3REVbpT9Ob
-	CswD1AdjjfmbiE9vJoynP0Q8dwWlahSnDWK9k0/c7cKoQSI8dqflHhULjEAJQ3y6ykQbHZF+8hj7S
-	YQc+kDHPehJTHlQXbHoA==;
+	List-Owner; bh=Mm1a0lpJS5DyEHneYw0lzZz5fdQGst8wHZvOs+BYICs=; b=SGRREOiVUZphu0
+	qW3rLFsbNFSW+LPbKmwYtZTTtvB4rLEiP5g2gn9zkbZgOA+l+1roF0++sAXFyDiAKyr6XCAc+qdoR
+	bcSoeDlyhVzgMzoPgQsUI3+sgA83VWvyk80RfoBUIqApcoXR82AFHX8MvnTNAHncMfb9oF4+fg+5b
+	D+OslWxrif629v3tjnL/tyEJAGymK/fmeRP5qKGxm9ACSSbYYXbchp6q9OQTdqgB+DKRQX1yXD3PO
+	4ySfWfuLUzJXqyHy2JgCPRxrUp1l+MPaPYz0J0FilNZK5JF8KH0dFpFpf7asuCYA3OVNJjMMaCZOA
+	std6sF23sR/AyDTQfvxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qYrrT-001F16-2F;
-	Wed, 23 Aug 2023 17:41:43 +0000
-Received: from mail-vi1eur04on061e.outbound.protection.outlook.com ([2a01:111:f400:fe0e::61e] helo=EUR04-VI1-obe.outbound.protection.outlook.com)
+	id 1qYsMx-001IAH-1h;
+	Wed, 23 Aug 2023 18:14:15 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qYrrQ-001Ez6-12;
-	Wed, 23 Aug 2023 17:41:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=armh.onmicrosoft.com;
- s=selector2-armh-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=yA3t3De8snSbwgiCy4I9UTnQdNrkpTYrlGD+C7nehtk=;
- b=EWpoWrFVgYc1W20TAAgf6yX/V4o7QJQ8dk+wbodOywc/V1q1VjtEYplUY0ZhTAsuT5aw6yHw+8id91tNllprXE8/kZoY0Wr4BfKUSN8FD0/oGx1CsUpwBBJWmoZWfw6k1Wox5zz1FzZllQ8uJTaKHBtoJpjGvIxcTbu0tIpwHOw=
-Received: from AM6PR08CA0007.eurprd08.prod.outlook.com (2603:10a6:20b:b2::19)
- by DU2PR08MB10130.eurprd08.prod.outlook.com (2603:10a6:10:493::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6699.25; Wed, 23 Aug
- 2023 17:41:12 +0000
-Received: from AM7EUR03FT056.eop-EUR03.prod.protection.outlook.com
- (2603:10a6:20b:b2:cafe::17) by AM6PR08CA0007.outlook.office365.com
- (2603:10a6:20b:b2::19) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6699.26 via Frontend
- Transport; Wed, 23 Aug 2023 17:41:12 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 63.35.35.123)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=armh.onmicrosoft.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 63.35.35.123 as permitted sender) receiver=protection.outlook.com;
- client-ip=63.35.35.123; helo=64aa7808-outbound-1.mta.getcheckrecipient.com;
- pr=C
-Received: from 64aa7808-outbound-1.mta.getcheckrecipient.com (63.35.35.123) by
- AM7EUR03FT056.mail.protection.outlook.com (100.127.140.107) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.6723.16 via Frontend Transport; Wed, 23 Aug 2023 17:41:12 +0000
-Received: ("Tessian outbound 30c9f5e988c5:v175"); Wed, 23 Aug 2023 17:41:11 +0000
-X-CheckRecipientChecked: true
-X-CR-MTA-CID: 6c5084cae1f356ef
-X-CR-MTA-TID: 64aa7808
-Received: from 9042a3dabb0a.1
-	by 64aa7808-outbound-1.mta.getcheckrecipient.com id 153A7109-9910-4008-8006-0603192ADE91.1;
-	Wed, 23 Aug 2023 17:41:01 +0000
-Received: from EUR05-DB8-obe.outbound.protection.outlook.com
-    by 64aa7808-outbound-1.mta.getcheckrecipient.com with ESMTPS id 9042a3dabb0a.1
-    (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384);
-    Wed, 23 Aug 2023 17:41:01 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=Ct9QEMGZzIVOirIpjYBPmHNj/QqVXxVE+4pxXNh0TXaJlgT52Wk/JhC87awdbdySFEb6etETI/Fd5o+P0/f2jIWY9WG0g5GSb6plTAwagHvIMz9DOAutsJNfl63H06Biumw1Aj8Bgdvd4abFnmTQizUcf2ipn3UOPGM1HqBag84wg0ZYuo2Eb/NOEA96ZoF256EjAKcBCbIidlFcfVQ7WQsWT68AKyxRIYTCRSVT0Ni41znZ/kpHAPu1gJgX7smIjEe45D+PBlduAKTApjqTEQnzWzQfT+CSFelrhsBLz+U4zmokD63pfXElajcAGCPtnBw/MLlTnxTqwXr3tB7mKw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=yA3t3De8snSbwgiCy4I9UTnQdNrkpTYrlGD+C7nehtk=;
- b=e6VswFhWgNU3Q9y2KSfhZfkWpn9rNX+wX082lXdfOUp8O0zVntPbXZZm/n+Qft4LQpKv4zF1j7btyuNqzxyy8skw1u+lwxTzP0X19it/dwUwbwi3/yvx27LP4eNkESXKlG1xPs4NhxbOEBvCihzb9THFoiz8mPHYYGiB8myMT1cEB6C7ok08G7devZMWZjY9u5AvmMZcH6MCbKK5rAw8bPgvHgJvKhwZJvHS4fo3Tg9B4nuUHKM9Onh2iCt4VGB7Hz9xACcilViPhogEn/p68PQPeX5XRd5SO2xFbFEXJ05XsuWusSRsgo+YrgVOYtaRkdXgHLc5N6wPVrnfOUjjNg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=armh.onmicrosoft.com;
- s=selector2-armh-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=yA3t3De8snSbwgiCy4I9UTnQdNrkpTYrlGD+C7nehtk=;
- b=EWpoWrFVgYc1W20TAAgf6yX/V4o7QJQ8dk+wbodOywc/V1q1VjtEYplUY0ZhTAsuT5aw6yHw+8id91tNllprXE8/kZoY0Wr4BfKUSN8FD0/oGx1CsUpwBBJWmoZWfw6k1Wox5zz1FzZllQ8uJTaKHBtoJpjGvIxcTbu0tIpwHOw=
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-Received: from DB9PR08MB7179.eurprd08.prod.outlook.com (2603:10a6:10:2cc::19)
- by AM9PR08MB6035.eurprd08.prod.outlook.com (2603:10a6:20b:2d9::24) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6699.26; Wed, 23 Aug
- 2023 17:40:59 +0000
-Received: from DB9PR08MB7179.eurprd08.prod.outlook.com
- ([fe80::adb0:61cb:8733:6db2]) by DB9PR08MB7179.eurprd08.prod.outlook.com
- ([fe80::adb0:61cb:8733:6db2%7]) with mapi id 15.20.6699.026; Wed, 23 Aug 2023
- 17:40:59 +0000
-Date: Wed, 23 Aug 2023 18:40:40 +0100
-From: Szabolcs Nagy <Szabolcs.Nagy@arm.com>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Mark Brown <broonie@kernel.org>
-Cc: Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	James Morse <james.morse@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Arnd Bergmann <arnd@arndb.de>, Oleg Nesterov <oleg@redhat.com>,
-	Eric Biederman <ebiederm@xmission.com>,
-	Kees Cook <keescook@chromium.org>, Shuah Khan <shuah@kernel.org>,
-	"Rick P. Edgecombe" <rick.p.edgecombe@intel.com>,
-	Deepak Gupta <debug@rivosinc.com>, Ard Biesheuvel <ardb@kernel.org>,
-	"H.J. Lu" <hjl.tools@gmail.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
-	kvmarm@lists.linux.dev, linux-fsdevel@vger.kernel.org,
-	linux-arch@vger.kernel.org, linux-mm@kvack.org,
-	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v4 03/36] arm64/gcs: Document the ABI for Guarded Control
- Stacks
-Message-ID: <ZOZEmO6WGyVAcOqK@arm.com>
-References: <20230807-arm64-gcs-v4-3-68cfa37f9069@kernel.org>
- <ZNOhjrYleGBR6Pbs@arm.com>
- <f4cec4b3-c386-4873-aa1d-90528e062f2a@sirena.org.uk>
- <ZN+qki9EaZ6f9XNi@arm.com>
- <aaea542c-929c-4c9b-8caa-ca67e0eb9c1e@sirena.org.uk>
- <ZOTnL1SDJWZjHPUW@arm.com>
- <43ec219d-bf20-47b8-a5f8-32bc3b64d487@sirena.org.uk>
- <ZOXa98SqwYPwxzNP@arm.com>
- <227e6552-353c-40a9-86c1-280587a40e3c@sirena.org.uk>
- <ZOY3lz+Zyhd5ZyQ9@arm.com>
-Content-Disposition: inline
-In-Reply-To: <ZOY3lz+Zyhd5ZyQ9@arm.com>
-X-ClientProxiedBy: LO2P265CA0257.GBRP265.PROD.OUTLOOK.COM
- (2603:10a6:600:8a::29) To DB9PR08MB7179.eurprd08.prod.outlook.com
- (2603:10a6:10:2cc::19)
+	id 1qYsMu-001I9n-1z
+	for linux-riscv@lists.infradead.org;
+	Wed, 23 Aug 2023 18:14:14 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 131B363067;
+	Wed, 23 Aug 2023 18:14:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A293FC433C8;
+	Wed, 23 Aug 2023 18:14:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1692814451;
+	bh=6WYbdQvbaUTU7jAYsOoRLczdc6WiEmOJqx1owqQdczY=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=jnp9OnkqCFGBj/h9OTMFiamfq/+P0dMbhMG2wym3WRwS3We453QbP6a6Naa6WA/55
+	 d4lxewnPO9sJ/eOFdW8Id7q+oLH+qu5WfYDQfCvEZsEqA4fHS1ZXjl/MCVrHUqcm2V
+	 rQnTACprz2PN91Wy6YquXbrmyxgR7JTtwCnIMQ5ArUm5o9SmwEW1AslQAiAZraDgQF
+	 h2tDxxbMKoaqy+zaiPzYbMLAi/oaijp+DPUTHk158fgQD2Ywb/PZFPbzgyDYkg8qH9
+	 1W3Xw4IOX9qUdj1RLfiTo/cEPzNfdE8Ln2S04DCPkN4s+5vlwAgONpQFbmC2McakrT
+	 EjkJ7PP63sJqw==
+From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
+To: Pu Lehui <pulehui@huaweicloud.com>, linux-riscv@lists.infradead.org,
+ bpf@vger.kernel.org, netdev@vger.kernel.org, linux-kernel@vger.kernel.org
+Cc: Yonghong Song <yhs@fb.com>, Alexei Starovoitov <ast@kernel.org>, Daniel
+ Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>,
+ Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>, John
+ Fastabend <john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>,
+ Stanislav Fomichev <sdf@google.com>, Hao Luo <haoluo@google.com>, Jiri
+ Olsa <jolsa@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Xu Kuohai
+ <xukuohai@huawei.com>, Puranjay Mohan <puranjay12@gmail.com>, Pu Lehui
+ <pulehui@huawei.com>, Pu Lehui <pulehui@huaweicloud.com>
+Subject: Re: [PATCH bpf-next 3/7] riscv, bpf: Support sign-extension mov insns
+In-Reply-To: <20230823231059.3363698-4-pulehui@huaweicloud.com>
+References: <20230823231059.3363698-1-pulehui@huaweicloud.com>
+ <20230823231059.3363698-4-pulehui@huaweicloud.com>
+Date: Wed, 23 Aug 2023 20:14:07 +0200
+Message-ID: <87pm3dlj80.fsf@all.your.base.are.belong.to.us>
 MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: DB9PR08MB7179:EE_|AM9PR08MB6035:EE_|AM7EUR03FT056:EE_|DU2PR08MB10130:EE_
-X-MS-Office365-Filtering-Correlation-Id: db009bc5-8916-40ea-7dcb-08dba400248b
-x-checkrecipientrouted: true
-NoDisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;
-X-Microsoft-Antispam-Message-Info-Original: +T1f/4FZoLnFlBrdlyHSDVzl5yNWpNBgXtAwvmxKcKmPi1kLpNrQJ5TxYggKNLwZoihqDTZgBczg2D/CXmyI1+XrhZkDjeOS0yug5bor+aOnNlcoY0h31C0ORmHcxQO0YUaB6ixWdd/xghadP90amhkL07j1dil3VsLA+1rfOe4Ev0Me+sX7OZCt1FH7NuC99Cbx/1XunFLm82aMQDNoDDcnjt5lknxUhmxT6kDG6Amrr64/VLW/WPuqpNFviS2Tm7DYFAhOl8K2ShySy+P6Gor8aSS6gj8WzfdSdQLTloG2h/S6GAVU6DWXOg3jQzwu3BgqUKMiooR8yMFuW2x1U3rb8tjohbaKD3E7H4NnzBPsrsZzM3DUiA0LidoD0U/n/QVWGk13/kIYAKSa0Okbf5DycvE3x4k5jT13Pwul11uFig8bL0K1fHz6YSP0jG+egwBCvcUoYL3AIqGy96Q8R+fAsM5V2fzN6RE2Pog9bnlQ4Jp3ZxQ5qIst8A2+x01WCp4fiYDuVYY0sc2Mb44ArbQyfrb2q0sKQsrACDeJ7taTFppig5oEmUP+iJ5sBCME
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR08MB7179.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230031)(396003)(39860400002)(376002)(346002)(366004)(136003)(186009)(451199024)(1800799009)(2616005)(6506007)(6486002)(316002)(8936002)(4326008)(8676002)(66556008)(54906003)(66476007)(66946007)(110136005)(6512007)(41300700001)(26005)(7416002)(5660300002)(6666004)(478600001)(83380400001)(66899024)(36756003)(86362001)(2906002)(38100700002);DIR:OUT;SFP:1101;
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR08MB6035
-Original-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: AM7EUR03FT056.eop-EUR03.prod.protection.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: 8e3c670b-9d32-45f1-3bec-08dba4001b35
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: Jmg8ch+/nAxixBsFOGwgZZTMUDHvEOrRhiRsWmN8qFRLoJSQ22vpsGIift4+qKCxcErlO8uj5NJAwPSW8Qo0FjMrWdbuz7WB71607BcRB8aoHsksfEiB6fgLfOOMtSc6iDtY2qebACLufzIAW8S4qT1UL4BPCK0vMRooDvGGyomVOwbcVTZNMQPyreaTcQFey8f8Hmbx5it9WgJVILddMNXrr5ZeWJLRAjCMuWBgpfbKzIJo6hv4GXg9LaTUcwsdsS4QGcFfdcgdGei2gMFO8qiisWOgJ9wuQKHcoP7aOKa34AevGy5ASpi9OAfxPwcFCKBnQfb/Jfx2DCEqfirICGgKa/J1PCqa1AGX4RrycglEsUAQPMzxtHaZ9IViBqxLtoi7xb5+CrHdkjFfFYdOS11dHooX117eZSM9NCu69V4fAoIPFf7ydSMuldTFm2Fx7SM1gUoPSg8sooQc9TcfphHzP8ln/4qUSJMC5Ma7n9ba0TWSBEXKtYhzLNH4kd4RtY8NfMSek3JKJl02fNoetvfHHf/C0baUXlC60e0tN+QYWRAkPGHts4pgs8SzGarh7vjag/ULcNzZNhWXtLH3AowfN11aJcfhjjbzo0R7chRH3XN6eFrK3RKeaGd9UFDo51qaYnOLB8kKl1xoJHlVK1O3F9thUW3SNv32k1LQYuUJn6LHKi4jf3hvNr9hDhPV5jDbDnvKkev/DfuAjnI1NNsIb0H609S5qtaKbC/7HYLf7HIK/Z6NqBgwYq3Aqf3U
-X-Forefront-Antispam-Report: CIP:63.35.35.123;CTRY:IE;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:64aa7808-outbound-1.mta.getcheckrecipient.com;PTR:ec2-63-35-35-123.eu-west-1.compute.amazonaws.com;CAT:NONE;SFS:(13230031)(4636009)(346002)(136003)(39850400004)(376002)(396003)(451199024)(82310400011)(1800799009)(186009)(46966006)(40470700004)(36840700001)(36756003)(478600001)(86362001)(6506007)(6486002)(54906003)(316002)(70586007)(70206006)(110136005)(6666004)(81166007)(41300700001)(6512007)(450100002)(8676002)(4326008)(8936002)(5660300002)(82740400003)(356005)(26005)(2616005)(83380400001)(336012)(40480700001)(40460700003)(47076005)(66899024)(2906002)(36860700001);DIR:OUT;SFP:1101;
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Aug 2023 17:41:12.2040
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: db009bc5-8916-40ea-7dcb-08dba400248b
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[63.35.35.123];Helo=[64aa7808-outbound-1.mta.getcheckrecipient.com]
-X-MS-Exchange-CrossTenant-AuthSource: AM7EUR03FT056.eop-EUR03.prod.protection.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR08MB10130
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230823_104140_384442_7B138476 
-X-CRM114-Status: GOOD (  25.44  )
+X-CRM114-CacheID: sfid-20230823_111412_693736_F1654875 
+X-CRM114-Status: GOOD (  11.59  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -175,61 +77,29 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The 08/23/2023 17:45, Catalin Marinas wrote:
-> On Wed, Aug 23, 2023 at 01:51:35PM +0100, Mark Brown wrote:
-> > On Wed, Aug 23, 2023 at 11:09:59AM +0100, Szabolcs Nagy wrote:
-> > > The 08/22/2023 18:53, Mark Brown wrote:
-> > > > My sense is that they deployment story is going to be smoother with
-> > > > defaults being provided since it avoids dealing with the issue of what
-> > > > to do if userspace creates a thread without a GCS in a GCS enabled
-> > > > process but like I say I'd be totally happy to extend clone3().  I will
-> > > > put some patches together for that (probably once the x86 stuff lands).
-> > > > Given the size of this series it might be better split out for
-> > > > manageability if nothing else.
-> > 
-> > > i would make thread without gcs to implicitly disable gcs, since
-> > > that's what's bw compat with clones outside of libc (the libc can
-> > > guarantee gcs allocation when gcs is enabled).
-> > 
-> > That'd create a pretty substantial divergence with the x86 patches if
-> > they land this time around, there's not enough time to rework them now -
-> > I suppose it'd mainly bite people implementing libc type stuff but
-> > still, doesn't feel great.
-> 
-> I don't mind the divergence in this area if the libc folks are ok with
-> it. x86 can eventually use the clone3() interface if they want more
-> flexibility, they'll just have to continue supporting the old one. I
-> think we already diverge around the prctl().
-
-i will have to prototype it, but in principle i'm ok with moving gcs
-allocation to userspace and passing it as argument to clone3. i will
-have to think if x86 divergence could cause issues.
-
-to maximize compat with existing raw clone users gcs either has to
-be disabled implicitly or allocated by the kernel. if we move gcs
-management to userspace then disable sounds better to me.
-(except vfork/fork does not have to disable etc.)
-
-to support gcs, a libc would have to use clone3 or enable gcs in the
-clone start code.
-
-i don't know if we can allow disabled gcs thread creation with locked
-gcs state. (i can see arguments both ways, so further prctl flag may
-be needed which may be another divergence from x86)
-
-i wonder if we can allow MAP_FIXED as well as MAP_FIXED_NOREPLACE
-semantics for map_shadow_stack (MAP_FIXED makes sense if userspace
-allocates thread stack + tls + gcs + guard pages with one PROT_NONE
-mapping and then mprotects / map_shadow_stack on top of that) i.e.
-if userspace manages the gcs it may need more flexibility here.
-(for now i think separate gcs mapping works for me.)
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+UHUgTGVodWkgPHB1bGVodWlAaHVhd2VpY2xvdWQuY29tPiB3cml0ZXM6Cgo+IEZyb206IFB1IExl
+aHVpIDxwdWxlaHVpQGh1YXdlaS5jb20+Cj4KPiBBZGQgc3VwcG9ydCBzaWduLWV4dGVuc2lvbiBt
+b3YgaW5zdHJ1Y3Rpb25zIGZvciBSVjY0Lgo+Cj4gU2lnbmVkLW9mZi1ieTogUHUgTGVodWkgPHB1
+bGVodWlAaHVhd2VpLmNvbT4KPiAtLS0KPiAgYXJjaC9yaXNjdi9uZXQvYnBmX2ppdF9jb21wNjQu
+YyB8IDE0ICsrKysrKysrKysrKystCj4gIDEgZmlsZSBjaGFuZ2VkLCAxMyBpbnNlcnRpb25zKCsp
+LCAxIGRlbGV0aW9uKC0pCj4KPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9uZXQvYnBmX2ppdF9j
+b21wNjQuYyBiL2FyY2gvcmlzY3YvbmV0L2JwZl9qaXRfY29tcDY0LmMKPiBpbmRleCBmZDM2Y2Ix
+NzEwMWEuLmQxNDk3MTgyY2FjZiAxMDA2NDQKPiAtLS0gYS9hcmNoL3Jpc2N2L25ldC9icGZfaml0
+X2NvbXA2NC5jCj4gKysrIGIvYXJjaC9yaXNjdi9uZXQvYnBmX2ppdF9jb21wNjQuYwo+IEBAIC0x
+MDQ3LDcgKzEwNDcsMTkgQEAgaW50IGJwZl9qaXRfZW1pdF9pbnNuKGNvbnN0IHN0cnVjdCBicGZf
+aW5zbiAqaW5zbiwgc3RydWN0IHJ2X2ppdF9jb250ZXh0ICpjdHgsCj4gIAkJCWVtaXRfemV4dF8z
+MihyZCwgY3R4KTsKPiAgCQkJYnJlYWs7Cj4gIAkJfQo+IC0JCWVtaXRfbXYocmQsIHJzLCBjdHgp
+Owo+ICsJCXN3aXRjaCAoaW5zbi0+b2ZmKSB7Cj4gKwkJY2FzZSAwOgo+ICsJCQllbWl0X212KHJk
+LCBycywgY3R4KTsKPiArCQkJYnJlYWs7Cj4gKwkJY2FzZSA4Ogo+ICsJCWNhc2UgMTY6Cj4gKwkJ
+CWVtaXRfc2xsaShycywgcnMsIDY0IC0gaW5zbi0+b2ZmLCBjdHgpOwo+ICsJCQllbWl0X3NyYWko
+cmQsIHJzLCA2NCAtIGluc24tPm9mZiwgY3R4KTsKCllvdSdyZSBjbG9iYmVyaW5nIHRoZSBzb3Vy
+Y2UgcmVnaXN0ZXIgKHJzKSBoZXJlLCB3aGljaCBpcyBjb3JyZWN0LgoKKFNpZGUgbm90ZTogTWF5
+YmUgaXQncyB0aW1lIHRvIGFkZCBaYmIgc3VwcG9ydCB0byB0aGUgSklUIHNvb24hIDstKSkKCgpC
+asO2cm4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxp
+bnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0
+dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
