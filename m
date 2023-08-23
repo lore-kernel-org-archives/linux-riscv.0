@@ -4,164 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E6DAEE4993
-	for <linux-riscv@archiver.kernel.org>; Wed, 23 Aug 2023 10:11:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D97BDEE49A0
+	for <linux-riscv@archiver.kernel.org>; Wed, 23 Aug 2023 11:49:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7zX7js2IgY3Mz7lLMpmxioasj2xesDko1yG7nmBNRzY=; b=V5e0fpJ27Z4e1Y
-	NWZGCJmhL7FMH5PEGQ6OqfxfOBxgWwA+2dF635A+AtN9yiUl2uCZd88S+6zx9erSofcbYUY9vnaDf
-	yk5MINTZqqF2vEZBen1Ypkrr5H5snpuiBEMuDDtdUzK8Ft+YNwWK//nkfV/axO4IQkwVN72XQe+p9
-	wWRK7omPgo1ikMwDO5dDIL7MK81qp96gLQSWiOZZot3ns19vhHna54oAvz6/7njlCs1DqcEhwgBys
-	zQ5WWPlkJIZl2BxXQYEYCHXy89qAR/2eD+CZTxQpjvFNXv+o8etrig3JpyCKLTUqvkkxhqPii20EJ
-	TLYiqhL+7zxKFH3u+iOw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:MIME-Version:
+	Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9EkZoUSocIBpGsIA8N+mwBsOkxPFYZ/asN1TGPAHkoE=; b=LFjFQ2LlEVXLlEl7OAULBUptnv
+	dJRzHD7IHMlNvtYt6TQOdpqUfWxIlfUnRoSPd6nZ2TSSjKtsqAhtmYUUL8T6YuNcMwDBdG5m1Sw4X
+	s/1xKlxv+ddKRH6NSrnXGaV4pEJ3Cqfd+aND2McPqr2Ybhc5QuUH5nABnS67d0fDqc6ITHRiIh0Na
+	Hx4ioz6aFx+qkXlw80ow9L2bpRG312uX0MMIYgpVLhW/bgHh2VQeXRpJrFxVf2sxWxFy0KGE8FSsu
+	kuARFd9g9M0OydKRxPP8ojTBn0MYp6NnotUDevFKx7suQtEEBUgEe0pYC9Uy0aLmZ10onjAFsRImE
+	s6H+i8Cg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qYkpQ-0008iD-1g;
-	Wed, 23 Aug 2023 10:11:08 +0000
-Received: from mail-dbaeur03on20621.outbound.protection.outlook.com ([2a01:111:f400:fe1a::621] helo=EUR03-DBA-obe.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qYkpL-0008hK-2f;
-	Wed, 23 Aug 2023 10:11:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=armh.onmicrosoft.com;
- s=selector2-armh-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=IOrDUd+FVk3vNXJqfNKW0UBrz813kwnlFgbS0CSGpQ4=;
- b=UrD5Sad51hJBTozIGdsHOE8HTs+icpKbg/uzZrAqriUEc8rK/FoB/64yetRLJw00Zb4xlQOKy+QQU8Sek3jNrDLVXhdEdDktxwsiJ0ks9ejuFG1gGNDOc2mtOWxdmPjHnyJOYdMh+rv13tpCPtC3eWneIgOFqX75OR6kuXzEBC0=
-Received: from DUZPR01CA0082.eurprd01.prod.exchangelabs.com
- (2603:10a6:10:46a::10) by GV2PR08MB8343.eurprd08.prod.outlook.com
- (2603:10a6:150:bb::13) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6699.26; Wed, 23 Aug
- 2023 10:10:29 +0000
-Received: from DBAEUR03FT025.eop-EUR03.prod.protection.outlook.com
- (2603:10a6:10:46a:cafe::b8) by DUZPR01CA0082.outlook.office365.com
- (2603:10a6:10:46a::10) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6699.26 via Frontend
- Transport; Wed, 23 Aug 2023 10:10:29 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 63.35.35.123)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=armh.onmicrosoft.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 63.35.35.123 as permitted sender) receiver=protection.outlook.com;
- client-ip=63.35.35.123; helo=64aa7808-outbound-1.mta.getcheckrecipient.com;
- pr=C
-Received: from 64aa7808-outbound-1.mta.getcheckrecipient.com (63.35.35.123) by
- DBAEUR03FT025.mail.protection.outlook.com (100.127.142.226) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.6723.16 via Frontend Transport; Wed, 23 Aug 2023 10:10:29 +0000
-Received: ("Tessian outbound 169aaa6bf2b7:v175"); Wed, 23 Aug 2023 10:10:29 +0000
-X-CheckRecipientChecked: true
-X-CR-MTA-CID: c34bbbab1685a211
-X-CR-MTA-TID: 64aa7808
-Received: from b8c08391aad8.1
-	by 64aa7808-outbound-1.mta.getcheckrecipient.com id 09E88E55-B2A1-47F3-9522-AF7217A665DD.1;
-	Wed, 23 Aug 2023 10:10:18 +0000
-Received: from EUR03-AM7-obe.outbound.protection.outlook.com
-    by 64aa7808-outbound-1.mta.getcheckrecipient.com with ESMTPS id b8c08391aad8.1
-    (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384);
-    Wed, 23 Aug 2023 10:10:18 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=I4cvyyzLieK88VVTDZa+Rkyhrd5+ty0Fg3XXIPbYauXyuKVSbtrfToQLmX3GYdFv8hLfs7h9oDx/Bt0rPK7k838fFsHqBAP62U8KR3Br3H2rdPFRTEAK62gGJY7XISOsa0r/bT3ZcqsYmDYxV/k2ktI63fD0WlbhbaLc7m8ausMbdxLbfFFf4ryjBYEQkXcD/TAppkwqXga7MrV5s0zJPkOXZ/9UvoL8wJgtMEBKDaocGtcIM5dBbA0auYBXXxRaQimzUK+/OmN7BjUK2D+EWEmrUb9xKSNhWbac5L9pecOTGOmlUo0+fXm7XcmTcdNF3vQBk2JAdr+cVeUKtPyZrQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=IOrDUd+FVk3vNXJqfNKW0UBrz813kwnlFgbS0CSGpQ4=;
- b=Afh1kkua85zYo+g3NMohX6ohRzkM6iGT2UsyrmzahMSHh0lluLzCRzMBbAt/BrpNPuhn8apQEh3IkoprvQXUXS/mdBe0E6glCjDE1ikDIT/XFTghU/MdZWKmYA5lpnKTqjCI2U3NV7xYV1aDn0q7N8OdoKTl6rc6mpixIHup3HIHfRrOlP0oxXkkxRawui/UqI1MS2PNWKXRGFnyQRAtnxgs5iX3RDC9EYW+v5ZuajQdQNKnOHtazUSjzfEy/Vt16lscv2ItPv6tixBuIFg98ucdtDVRFFKD2lEfq5hmQoAq6hVFjWYF8UHpL+8jdnKNs4SHK1NHiQeeOfpCumPBPA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=armh.onmicrosoft.com;
- s=selector2-armh-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=IOrDUd+FVk3vNXJqfNKW0UBrz813kwnlFgbS0CSGpQ4=;
- b=UrD5Sad51hJBTozIGdsHOE8HTs+icpKbg/uzZrAqriUEc8rK/FoB/64yetRLJw00Zb4xlQOKy+QQU8Sek3jNrDLVXhdEdDktxwsiJ0ks9ejuFG1gGNDOc2mtOWxdmPjHnyJOYdMh+rv13tpCPtC3eWneIgOFqX75OR6kuXzEBC0=
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-Received: from DB9PR08MB7179.eurprd08.prod.outlook.com (2603:10a6:10:2cc::19)
- by DB3PR08MB8794.eurprd08.prod.outlook.com (2603:10a6:10:435::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6699.25; Wed, 23 Aug
- 2023 10:10:14 +0000
-Received: from DB9PR08MB7179.eurprd08.prod.outlook.com
- ([fe80::adb0:61cb:8733:6db2]) by DB9PR08MB7179.eurprd08.prod.outlook.com
- ([fe80::adb0:61cb:8733:6db2%7]) with mapi id 15.20.6699.026; Wed, 23 Aug 2023
- 10:10:14 +0000
-Date: Wed, 23 Aug 2023 11:09:59 +0100
-From: Szabolcs Nagy <Szabolcs.Nagy@arm.com>
-To: Mark Brown <broonie@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	James Morse <james.morse@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Arnd Bergmann <arnd@arndb.de>, Oleg Nesterov <oleg@redhat.com>,
-	Eric Biederman <ebiederm@xmission.com>,
-	Kees Cook <keescook@chromium.org>, Shuah Khan <shuah@kernel.org>,
-	"Rick P. Edgecombe" <rick.p.edgecombe@intel.com>,
-	Deepak Gupta <debug@rivosinc.com>, Ard Biesheuvel <ardb@kernel.org>,
-	"H.J. Lu" <hjl.tools@gmail.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
-	kvmarm@lists.linux.dev, linux-fsdevel@vger.kernel.org,
-	linux-arch@vger.kernel.org, linux-mm@kvack.org,
-	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v4 03/36] arm64/gcs: Document the ABI for Guarded Control
- Stacks
-Message-ID: <ZOXa98SqwYPwxzNP@arm.com>
-References: <20230807-arm64-gcs-v4-0-68cfa37f9069@kernel.org>
- <20230807-arm64-gcs-v4-3-68cfa37f9069@kernel.org>
- <ZNOhjrYleGBR6Pbs@arm.com>
- <f4cec4b3-c386-4873-aa1d-90528e062f2a@sirena.org.uk>
- <ZN+qki9EaZ6f9XNi@arm.com>
- <aaea542c-929c-4c9b-8caa-ca67e0eb9c1e@sirena.org.uk>
- <ZOTnL1SDJWZjHPUW@arm.com>
- <43ec219d-bf20-47b8-a5f8-32bc3b64d487@sirena.org.uk>
-Content-Disposition: inline
-In-Reply-To: <43ec219d-bf20-47b8-a5f8-32bc3b64d487@sirena.org.uk>
-X-ClientProxiedBy: LO4P123CA0699.GBRP123.PROD.OUTLOOK.COM
- (2603:10a6:600:37b::6) To DB9PR08MB7179.eurprd08.prod.outlook.com
- (2603:10a6:10:2cc::19)
+	id 1qYmMn-000TZM-2j;
+	Wed, 23 Aug 2023 11:49:41 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1qYmMj-000TYP-33;
+	Wed, 23 Aug 2023 11:49:40 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6885F1042;
+	Wed, 23 Aug 2023 04:50:11 -0700 (PDT)
+Received: from [10.57.34.103] (unknown [10.57.34.103])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AD2403F64C;
+	Wed, 23 Aug 2023 04:49:26 -0700 (PDT)
+Message-ID: <0fdf4f0b-64e4-9831-36b8-a00d4cbd131a@arm.com>
+Date: Wed, 23 Aug 2023 12:49:20 +0100
 MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: DB9PR08MB7179:EE_|DB3PR08MB8794:EE_|DBAEUR03FT025:EE_|GV2PR08MB8343:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0a70e3bb-8007-4a43-8811-08dba3c12dbd
-x-checkrecipientrouted: true
-NoDisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;
-X-Microsoft-Antispam-Message-Info-Original: 4HQ0xxcgBBCPMnhSSd1T6C9csCC9TL4+zs4YYQeuKQc+0W/Z4RiJV5i1qaLdO1LDs1by7tXNfjKADieew0SnN5v22mpikYrpZLa/Mc1pE3qZtzQrH6gryCEkym4IncFvXo+d5FIRE1yUntf+PjjqTuGpf2KJEHS19IDsIVEk4VEFACENmSQcgwFcT8Je0ersGpNPUMCBR623lDPj3eYgbi2Hes+T0rLrO7QOhY9bcmmUi7O4VaqdZBQePX7VPGymTxhLldgIFIJiQxBzYRJgpRHPpFCVDoQxOFZk0jvXRTJq5rlAF0jeh5M1H8krHdRpsHJBdtTS8Lu5nd4slKla8ogREpIwbl4XJAoXkKe0MZEgPVjkXwjgcNgaEOoOwZXPJHjQs9LaK2DSG6lY5rvrEIN5H1gvlrTvoXe9fe0Asfzjz7jiW7MdEc7HZ2VHvBnS0Sx3U/lYNoThzVKYZvmK8SvebDRSQcjrvU/G1AxzwNQNd6B/QwYfAHXSQRvjJL2WJxZbOs3/SvhWfLElQ+lA/7mFg+C8I3LPtL9foB2qQwYyi39BbNmJW6yKQOqh1kVNFQnlT5Qls/OAmigC35eiYg==
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR08MB7179.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230031)(366004)(346002)(39860400002)(376002)(136003)(396003)(1800799009)(186009)(451199024)(478600001)(6486002)(6666004)(966005)(110136005)(26005)(6506007)(2616005)(6512007)(7416002)(2906002)(41300700001)(5660300002)(8936002)(316002)(8676002)(6636002)(66556008)(4326008)(66476007)(66946007)(36756003)(54906003)(86362001)(38100700002)(83380400001)(66899024);DIR:OUT;SFP:1101;
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB3PR08MB8794
-Original-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: DBAEUR03FT025.eop-EUR03.prod.protection.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: e78cbee6-df21-40e7-f701-08dba3c12464
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: KB5fktFlcINbpBj2QtguMMA1DFxeyIWU46dXBMYd0vfTudqZHrlh+I16LUHqW+UInk5VkR2Gi4DUUbiZnR8DtuQrHooHCXiPojtvf5mzLdsrBBm8DFholmDu67tynXIowmrKXLZHIAMDBzrzt+ugOuQouztaJsYwVJz4DZEjGiP6GxekjMAlIoD0TRWxUs1BArY+hnUsYkp1ZKCBhSR3fsfibJTy2QLDxPVcjovR4+9Kvm6mA8j2A2VvdDO20h5F0LLvT3f60GcBrNO3GdCtYb7y601FdF9JZTkTne+aaLgsQT6m4cvf+B3/koQml4qzyB3gM3mWU9XiR0P43ESFsuYiK72uWD4jk611JHOV6MFbjLKXip2z+N4sc6LtuVjITqS+gEBrmbWUFeIly8kbEzv9lgkR3mvl5ljepLDunsMf3qVIwdgl8YKdO3gSFXSmK2A4fJ/fbRjtSGeM7Twf6gTpaPgr4GOM4x4lBwG3ry/7lJC7VnLh291PVUMLRFJwEIpQsaEFT7mbL8ntTkIB58/+GdvYrThNwE0s3ujVOX/QOkcAjex1EyD9VgiOQQzBFmhsTczmcNlhpCEPmWTS1OJ+32rT46Fkwl74u0VQIvJHizNa/RwU0bsOAobn19n6zB/jfw2Giqttc81PyqVjI/11678slGoBJx676nn5e6CmYHCCqS1PH5rCnwxgd1nTmASBlcNz71DW0dgDen2GyidaCA6HwpOR1nKw2b0ekzgqOBTnjTkrRUBGTj4PGxHPeDj+Uk2TGXkk1O/QLkWgbw==
-X-Forefront-Antispam-Report: CIP:63.35.35.123;CTRY:IE;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:64aa7808-outbound-1.mta.getcheckrecipient.com;PTR:ec2-63-35-35-123.eu-west-1.compute.amazonaws.com;CAT:NONE;SFS:(13230031)(4636009)(346002)(396003)(376002)(39860400002)(136003)(186009)(451199024)(1800799009)(82310400011)(46966006)(36840700001)(40470700004)(2616005)(6506007)(6486002)(316002)(6636002)(450100002)(4326008)(8936002)(8676002)(70206006)(54906003)(70586007)(110136005)(40480700001)(6512007)(41300700001)(336012)(26005)(5660300002)(6666004)(478600001)(966005)(83380400001)(40460700003)(47076005)(36860700001)(66899024)(86362001)(36756003)(2906002)(82740400003)(81166007)(356005);DIR:OUT;SFP:1101;
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Aug 2023 10:10:29.4312
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0a70e3bb-8007-4a43-8811-08dba3c12dbd
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[63.35.35.123];Helo=[64aa7808-outbound-1.mta.getcheckrecipient.com]
-X-MS-Exchange-CrossTenant-AuthSource: DBAEUR03FT025.eop-EUR03.prod.protection.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR08MB8343
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.13.0
+Subject: Re: [PATCH v5 1/3] dt-bindings: pwm: Add binding for Allwinner
+ D1/T113-S3/R329 PWM controller
+To: =?UTF-8?B?0JDQu9C10LrRgdCw0L3QtNGAINCo0YPQsdC40L0=?=
+ <privatesub2@gmail.com>
+References: <20230814133238.741950-1-privatesub2@gmail.com>
+ <20230814133238.741950-2-privatesub2@gmail.com>
+ <20230822104854.1fa5f1aa@donnerap.manchester.arm.com>
+ <CAF4idNneb1=40mQC=593Tmy8_OUAGiL4ROjK2XyL2BA35vM_WA@mail.gmail.com>
+Content-Language: en-US
+From: Andre Przywara <andre.przywara@arm.com>
+In-Reply-To: <CAF4idNneb1=40mQC=593Tmy8_OUAGiL4ROjK2XyL2BA35vM_WA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230823_031104_026903_5FBCFFF7 
-X-CRM114-Status: GOOD (  44.68  )
+X-CRM114-CacheID: sfid-20230823_044938_102302_A24410D7 
+X-CRM114-Status: GOOD (  21.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -173,104 +62,91 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: linux-arm-kernel@lists.infradead.org, linux-pwm@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, Philipp Zabel <p.zabel@pengutronix.de>, Samuel Holland <samuel@sholland.org>, Paul Walmsley <paul.walmsley@sifive.com>, linux-kernel@vger.kernel.org, Rob Herring <robh+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, Thierry Reding <thierry.reding@gmail.com>, Palmer Dabbelt <palmer@dabbelt.com>, Jernej Skrabec <jernej.skrabec@gmail.com>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, =?UTF-8?Q?Uwe_Kleine-K=c3=b6nig?= <u.kleine-koenig@pengutronix.de>, linux-riscv@lists.infradead.org, linux-sunxi@lists.linux.dev, devicetree@vger.kernel.org
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The 08/22/2023 18:53, Mark Brown wrote:
-> On Tue, Aug 22, 2023 at 05:49:51PM +0100, Catalin Marinas wrote:
-> > On Fri, Aug 18, 2023 at 08:38:02PM +0100, Mark Brown wrote:
-> 
-> > > > stack and pass the pointer/size to clone3()? It saves us from having to
-> > > > guess what the right size we'd need. struct clone_args is extensible.
-> 
-> > > I can't recall or locate the specific reasoning there right now, perhaps
-> > > Rick or someone else can?  I'd guess there would be compat concerns for
-> > > things that don't go via libc which would complicate the story with
-> > > identifying and marking things as GCS/SS safe, it's going to be more
-> > > robust to just supply a GCS if the process is using it.  That said
-> > > having a default doesn't preclude us using the extensibility to allow
-> > > userspace directly to control the GCS size, I would certainly be in
-> > > favour of adding support for that.
-> 
-> > It would be good if someone provided a summary of the x86 decision (I'll
-> > get to those thread but most likely in September). I think we concluded
-> > that we can't deploy GCS entirely transparently, so we need a libc
-> > change (apart from the ELF annotations). Since libc is opting in to GCS,
-> 
-> Right, we need changes for setjmp()/longjmp() for example.
-> 
-> > we could also update the pthread_create() etc. to allocate the shadow
-> > together with the standard stack.
-> 
-> > Anyway, that's my preference but maybe there were good reasons not to do
-> > this.
-> 
-> Yeah, it'd be good to understand.  I've been through quite a lot of old
-> versions of the x86 series (I've not found them all, there's 30 versions
-> or something of the old series plus the current one is on v9) and the
-> code always appears to have been this way with changelogs that explain
-> the what but not the why.  For example roughly the current behaviour was
-> already in place in v10 of the original series:
-> 
->    https://lore.kernel.org/lkml/20200429220732.31602-26-yu-cheng.yu@intel.com/
-
-well the original shstk patches predate clone3 so no surprise there.
-e.g. v6 is from 2018 and clone3 is 2019 linux 5.3
-https://lore.kernel.org/lkml/20181119214809.6086-1-yu-cheng.yu@intel.com/
-
-> 
-> I do worry about the story for users calling the underlying clone3() API
-> (or legacy clone() for that matter) directly, and we would also need to
-> handle the initial GCS enable via prctl() - that's not insurmountable,
-> we could add a size argument there that only gets interpreted during the
-> initial enable for example.
-
-musl and bionic currently use plain clone for threads.
-
-and there is user code doing raw clone threads (such threads are
-technically not allowed to call into libc) it's not immediately
-clear to me if having gcs in those threads is better or worse.
-
-glibc can use clone3 args for gcs, i'd expect the unmap to be more
-annoying than the allocation, but possible (it is certainly more
-work than leaving everything to the kernel).
-
-one difference is that userspace can then set gcspr of a new thread
-and e.g. two threads can have overlapping gcs, however i don't think
-this impacts security much since if clone3 is attacker controlled
-then likely all bets are off.
-
-and yes the main thread gcs can also be libc allocated given we
-have to deal with the prctl anyway.
-
-if gcs size logic is in libc it can depend on env vars and can be
-changed more easily (and adapted to android vs musl vs glibc
-requirements).
-
-sigaltstack with alt gcs was a case where i thought the kernel
-doing it transparently is better (the libc cannot do the same
-as it cannot wrap signal handlers currently so does not know
-when a handler returns or the current alt stack state), but
-others seems to want an explicit sigaltgcs syscall and expose
-it to users. in any case we have no unwinder solution for alt
-gcs nor longjmp solution when the thread gcs is overflowed so
-this is not an issue for now.
-
-> My sense is that they deployment story is going to be smoother with
-> defaults being provided since it avoids dealing with the issue of what
-> to do if userspace creates a thread without a GCS in a GCS enabled
-> process but like I say I'd be totally happy to extend clone3().  I will
-> put some patches together for that (probably once the x86 stuff lands).
-> Given the size of this series it might be better split out for
-> manageability if nothing else.
-
-i would make thread without gcs to implicitly disable gcs, since
-that's what's bw compat with clones outside of libc (the libc can
-guarantee gcs allocation when gcs is enabled).
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGksCgpPbiAyMy8wOC8yMDIzIDA3OjU3LCDQkNC70LXQutGB0LDQvdC00YAg0KjRg9Cx0LjQvSB3
+cm90ZToKPiBIaSBBbmRyZSwKPiAKPiDQstGCLCAyMiDQsNCy0LMuIDIwMjPigK/Qsy4g0LIgMTI6
+NDksIEFuZHJlIFByenl3YXJhIDxhbmRyZS5wcnp5d2FyYUBhcm0uY29tPjoKPj4KPj4gT24gTW9u
+LCAxNCBBdWcgMjAyMyAxNjozMjoxNiArMDMwMAo+PiBBbGVrc2FuZHIgU2h1YmluIDxwcml2YXRl
+c3ViMkBnbWFpbC5jb20+IHdyb3RlOgo+Pgo+PiBIaSBBbGVrc2FuZHIsCj4+Cj4+PiBBbGx3aW5u
+ZXIncyBEMSwgVDExMy1TMyBhbmQgUjMyOSBTb0NzIGhhdmUgYSBuZXcgcHdtCj4+PiBjb250cm9s
+bGVyIHdpdGNoIGlzIGRpZmZlcmVudCBmcm9tIHRoZSBwcmV2aW91cyBwd20tc3VuNGkuCj4+Pgo+
+Pj4gVGhlIEQxIGFuZCBUMTEzIGFyZSBpZGVudGljYWwgaW4gdGVybXMgb2YgcGVyaXBoZXJhbHMs
+Cj4+PiB0aGV5IGRpZmZlciBvbmx5IGluIHRoZSBhcmNoaXRlY3R1cmUgb2YgdGhlIENQVSBjb3Jl
+LCBhbmQKPj4+IGV2ZW4gc2hhcmUgdGhlIG1ham9yaXR5IG9mIHRoZWlyIERULiBCZWNhdXNlIG9m
+IHRoYXQsCj4+PiB1c2luZyB0aGUgc2FtZSBjb21wYXRpYmxlIG1ha2VzIHNlbnNlLgo+Pj4gVGhl
+IFIzMjkgaXMgYSBkaWZmZXJlbnQgU29DIHRob3VnaCwgYW5kIHNob3VsZCBoYXZlCj4+PiBhIGRp
+ZmZlcmVudCBjb21wYXRpYmxlIHN0cmluZyBhZGRlZCwgZXNwZWNpYWxseSBhcyB0aGVyZQo+Pj4g
+aXMgYSBkaWZmZXJlbmNlIGluIHRoZSBudW1iZXIgb2YgY2hhbm5lbHMuCj4+Pgo+Pj4gRDEgYW5k
+IFQxMTNzIFNvQ3MgaGF2ZSBvbmUgUFdNIGNvbnRyb2xsZXIgd2l0aCA4IGNoYW5uZWxzLgo+Pj4g
+UjMyOSBTb0MgaGFzIHR3byBQV00gY29udHJvbGxlcnMgaW4gYm90aCBwb3dlciBkb21haW5zLCBv
+bmUgb2YKPj4+IHRoZW0gaGFzIDkgY2hhbm5lbHMgKENQVVggb25lKSBhbmQgdGhlIG90aGVyIGhh
+cyA2IChDUFVTIG9uZSkuCj4+Pgo+Pj4gQWRkIGEgZGV2aWNlIHRyZWUgYmluZGluZyBmb3IgdGhl
+bS4KPj4+Cj4+PiBTaWduZWQtb2ZmLWJ5OiBBbGVrc2FuZHIgU2h1YmluIDxwcml2YXRlc3ViMkBn
+bWFpbC5jb20+Cj4+PiAtLS0KPj4+ICAgLi4uL2JpbmRpbmdzL3B3bS9hbGx3aW5uZXIsc3VuMjBp
+LXB3bS55YW1sICAgIHwgODUgKysrKysrKysrKysrKysrKysrKwo+Pj4gICAxIGZpbGUgY2hhbmdl
+ZCwgODUgaW5zZXJ0aW9ucygrKQo+Pj4gICBjcmVhdGUgbW9kZSAxMDA2NDQgRG9jdW1lbnRhdGlv
+bi9kZXZpY2V0cmVlL2JpbmRpbmdzL3B3bS9hbGx3aW5uZXIsc3VuMjBpLXB3bS55YW1sCj4+Pgo+
+Pj4gZGlmZiAtLWdpdCBhL0RvY3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy9wd20vYWxs
+d2lubmVyLHN1bjIwaS1wd20ueWFtbCBiL0RvY3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5n
+cy9wd20vYWxsd2lubmVyLHN1bjIwaS1wd20ueWFtbAo+Pj4gbmV3IGZpbGUgbW9kZSAxMDA2NDQK
+Pj4+IGluZGV4IDAwMDAwMDAwMDAwMC4uOTUxMmQ0YmVkMzIyCj4+PiAtLS0gL2Rldi9udWxsCj4+
+PiArKysgYi9Eb2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3MvcHdtL2FsbHdpbm5lcixz
+dW4yMGktcHdtLnlhbWwKPj4+IEBAIC0wLDAgKzEsODUgQEAKPj4+ICsjIFNQRFgtTGljZW5zZS1J
+ZGVudGlmaWVyOiAoR1BMLTIuMC1vbmx5IE9SIEJTRC0yLUNsYXVzZSkKPj4+ICslWUFNTCAxLjIK
+Pj4+ICstLS0KPj4+ICskaWQ6IGh0dHA6Ly9kZXZpY2V0cmVlLm9yZy9zY2hlbWFzL3B3bS9hbGx3
+aW5uZXIsc3VuMjBpLXB3bS55YW1sIwo+Pj4gKyRzY2hlbWE6IGh0dHA6Ly9kZXZpY2V0cmVlLm9y
+Zy9tZXRhLXNjaGVtYXMvY29yZS55YW1sIwo+Pj4gKwo+Pj4gK3RpdGxlOiBBbGx3aW5uZXIgRDEs
+IFQxMTMtUzMgYW5kIFIzMjkgUFdNCj4+PiArCj4+PiArbWFpbnRhaW5lcnM6Cj4+PiArICAtIEFs
+ZWtzYW5kciBTaHViaW4gPHByaXZhdGVzdWIyQGdtYWlsLmNvbT4KPj4+ICsKPj4+ICtwcm9wZXJ0
+aWVzOgo+Pj4gKyAgY29tcGF0aWJsZToKPj4+ICsgICAgb25lT2Y6Cj4+PiArICAgICAgLSBjb25z
+dDogYWxsd2lubmVyLHN1bjIwaS1kMS1wd20KPj4+ICsgICAgICAtIGl0ZW1zOgo+Pj4gKyAgICAg
+ICAgICAtIGNvbnN0OiBhbGx3aW5uZXIsc3VuMjBpLXIzMjktcHdtCj4+PiArICAgICAgICAgIC0g
+Y29uc3Q6IGFsbHdpbm5lcixzdW4yMGktZDEtcHdtCj4+PiArCj4+PiArICByZWc6Cj4+PiArICAg
+IG1heEl0ZW1zOiAxCj4+PiArCj4+PiArICAiI3B3bS1jZWxscyI6Cj4+PiArICAgIGNvbnN0OiAz
+Cj4+PiArCj4+PiArICBjbG9ja3M6Cj4+PiArICAgIGl0ZW1zOgo+Pj4gKyAgICAgIC0gZGVzY3Jp
+cHRpb246IDI0IE1IeiBvc2NpbGxhdG9yCj4+PiArICAgICAgLSBkZXNjcmlwdGlvbjogQnVzIENs
+b2NrCj4+Cj4+IFRoZSBtYW51YWwgdGVsbHMgbWUgdGhhdCB0aGUgbmV3IFBXTXMgY2FuIGFsc28g
+dXNlIEFQQjAgYXMgdGhlCj4+IGlucHV0IGNsb2NrLCB3aGljaCAoZmluYWxseSEpIGFsbG93cyBQ
+V00gZnJlcXVlbmNpZXMgYWJvdmUgMjQgTUh6Lgo+PiBTbyB3ZSBzaG91bGQgaGF2ZSBhbiBleHBs
+aWNpdCByZWZlcmVuY2UgdG8gdGhhdCBjbG9jayAtIGV2ZW4gaWYgdGhlIGJ1cwo+PiBjbG9jayBo
+YXBwZW5zIHRvIGJlIGdhdGVkIHZlcnNpb24gb2YgQVBCMC4KPiAKPiBTaG91bGQgSSBjaGFuZ2Ug
+aXQgdG8gc29tZXRoaW5nIGxpa2UgdGhpczoKPiAgICAgIHB3bTogcHdtQDIwMDBjMDAgewo+ICAg
+ICAgICBjb21wYXRpYmxlID0gImFsbHdpbm5lcixzdW4yMGktZDEtcHdtIjsKPiAgICAgICAgcmVn
+ID0gPDB4MDIwMDBjMDAgMHg0MDA+Owo+ICAgICAgICBjbG9ja3MgPSA8JmNjdSBDTEtfQlVTX1BX
+TT4sIDwmZGN4bz4sIDwmY2N1IENMS19BUEIwPjsKPiAgICAgICAgY2xvY2stbmFtZXMgPSAiYnVz
+IiwgImhvc2MiLCAiYXBiMCI7Cj4gICAgICAgIHJlc2V0cyA9IDwmY2N1IFJTVF9CVVNfUFdNPjsK
+PiAgICAgICAgI3B3bS1jZWxscyA9IDwweDM+Owo+ICAgICAgfTsKClllcywgdGhhdCBpcyB3aGF0
+IEkgaGFkIGluIG1pbmQhCkl0IHNob3VsZG4ndCBiZSB0b28gaGFyZCB0byBhZGQgc3VwcG9ydCBm
+b3IgdGhpcyBpbiB0aGUgZHJpdmVyIGFzIHdlbGwuCgpUaGFua3MhCkFuZHJlCgo+IAo+Pgo+PiBD
+aGVlcnMsCj4+IEFuZHJlCj4+Cj4+PiArCj4+PiArICBjbG9jay1uYW1lczoKPj4+ICsgICAgaXRl
+bXM6Cj4+PiArICAgICAgLSBjb25zdDogaG9zYwo+Pj4gKyAgICAgIC0gY29uc3Q6IGJ1cwo+Pj4g
+Kwo+Pj4gKyAgcmVzZXRzOgo+Pj4gKyAgICBtYXhJdGVtczogMQo+Pj4gKwo+Pj4gKyAgYWxsd2lu
+bmVyLHB3bS1jaGFubmVsczoKPj4+ICsgICAgJHJlZjogL3NjaGVtYXMvdHlwZXMueWFtbCMvZGVm
+aW5pdGlvbnMvdWludDMyCj4+PiArICAgIGRlc2NyaXB0aW9uOiBUaGUgbnVtYmVyIG9mIFBXTSBj
+aGFubmVscyBjb25maWd1cmVkIGZvciB0aGlzIGluc3RhbmNlCj4+PiArICAgIGVudW06IFs2LCA5
+XQo+Pj4gKwo+Pj4gK2FsbE9mOgo+Pj4gKyAgLSAkcmVmOiBwd20ueWFtbCMKPj4+ICsKPj4+ICsg
+IC0gaWY6Cj4+PiArICAgICAgcHJvcGVydGllczoKPj4+ICsgICAgICAgIGNvbXBhdGlibGU6Cj4+
+PiArICAgICAgICAgIGNvbnRhaW5zOgo+Pj4gKyAgICAgICAgICAgIGNvbnN0OiBhbGx3aW5uZXIs
+c3VuMjBpLXIzMjktcHdtCj4+PiArCj4+PiArICAgIHRoZW46Cj4+PiArICAgICAgcmVxdWlyZWQ6
+Cj4+PiArICAgICAgICAtIGFsbHdpbm5lcixwd20tY2hhbm5lbHMKPj4+ICsKPj4+ICsgICAgZWxz
+ZToKPj4+ICsgICAgICBwcm9wZXJ0aWVzOgo+Pj4gKyAgICAgICAgYWxsd2lubmVyLHB3bS1jaGFu
+bmVsczogZmFsc2UKPj4+ICsKPj4+ICt1bmV2YWx1YXRlZFByb3BlcnRpZXM6IGZhbHNlCj4+PiAr
+Cj4+PiArcmVxdWlyZWQ6Cj4+PiArICAtIGNvbXBhdGlibGUKPj4+ICsgIC0gcmVnCj4+PiArICAt
+ICIjcHdtLWNlbGxzIgo+Pj4gKyAgLSBjbG9ja3MKPj4+ICsgIC0gY2xvY2stbmFtZXMKPj4+ICsg
+IC0gcmVzZXRzCj4+PiArCj4+PiArZXhhbXBsZXM6Cj4+PiArICAtIHwKPj4+ICsgICAgI2luY2x1
+ZGUgPGR0LWJpbmRpbmdzL2Nsb2NrL3N1bjIwaS1kMS1jY3UuaD4KPj4+ICsgICAgI2luY2x1ZGUg
+PGR0LWJpbmRpbmdzL3Jlc2V0L3N1bjIwaS1kMS1jY3UuaD4KPj4+ICsKPj4+ICsgICAgcHdtOiBw
+d21AMjAwMGMwMCB7Cj4+PiArICAgICAgY29tcGF0aWJsZSA9ICJhbGx3aW5uZXIsc3VuMjBpLWQx
+LXB3bSI7Cj4+PiArICAgICAgcmVnID0gPDB4MDIwMDBjMDAgMHg0MDA+Owo+Pj4gKyAgICAgIGNs
+b2NrcyA9IDwmZGN4bz4sIDwmY2N1IENMS19CVVNfUFdNPjsKPj4+ICsgICAgICBjbG9jay1uYW1l
+cyA9ICJob3NjIiwgImJ1cyI7Cj4+PiArICAgICAgcmVzZXRzID0gPCZjY3UgUlNUX0JVU19QV00+
+Owo+Pj4gKyAgICAgICNwd20tY2VsbHMgPSA8MHgzPjsKPj4+ICsgICAgfTsKPj4+ICsKPj4+ICsu
+Li4KPj4KPiAKPiBDaGVlcnMsCj4gQWxla3NhbmRyCj4gCgpfX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgt
+cmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWls
+bWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
