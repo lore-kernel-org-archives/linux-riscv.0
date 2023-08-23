@@ -4,64 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A55EC27C40
-	for <linux-riscv@archiver.kernel.org>; Wed, 23 Aug 2023 19:40:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2FBDC3DA6F
+	for <linux-riscv@archiver.kernel.org>; Wed, 23 Aug 2023 19:50:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
-	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fh77sdSxANW1ljEcfMbTg2pzrYanuXCiPri/W6OZFtY=; b=o+T+pXuCMIcQjZ
-	P80i1PG2O0g7NXfdk+n3hCYar4Vxhzqh4hqvuK5q/GcWyKt7l4CI0ETsN+DSgrS6KzEKlRzQ++cNX
-	fh6NnU7rWWbrlJrvtxonYDTfpv4QuUObe5tjW56aOUw6BwciWy3wVqHQ9cRalz+Lv62/umOj8Ymhj
-	DmVOryH0mu5QhTnRcKuwwYUc6XAq+D30iPln7Q6OcsxqLtVOXuYvx3M43WEIIYa4HsU2RKe6HnxzG
-	hZi35D6OKZ9MLWRr7uGESLR8gWw6vWkl7o63J157XXfAj5uq4OqVKReOgS5CH4/3ePUqzfnF3Z20Z
-	d2S+2oZ6l8VTKVBqeRRg==;
+	List-Owner; bh=gIr6z0JWjgdYLbEVo5VDhGH8pV0q8jdtOJ5Cg9Nlkwk=; b=qiIVUa0JHoJITk
+	2BaSNr6A5wSrzX+bxRRLJOogGfsoeXEWj0mC3zL1BTnV8ODoSWuVSKHZH+RAAzky0AHAmAufAZqrj
+	nOJFrArjfoENuUKXHntq4gaUbkrqWDE9UbnPElvPWeKLgKUNjO4RkxZ398meEMI9HDr6t5xPeth/S
+	IkQ+XB4TMmAWbwgCFL9DOOzCexkFiKJzYdF9Ybbjv830PZf/EQLaq78nbUEXmfajdzIL4kGVZQzsk
+	vj1Oy8+kCIPD/fbOMvoaz3J02PQ+yDZyzlhdLNX32dz5NuwfsEQb66USBSOVWFkvbok1axbx0aXx8
+	SyFaeYXJqX3A3M7P8ArA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qYtiR-001QpW-1w;
-	Wed, 23 Aug 2023 19:40:31 +0000
+	id 1qYtsS-001S7a-2x;
+	Wed, 23 Aug 2023 19:50:52 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qYtiN-001Qoi-1g
+	id 1qYtsP-001S79-2i
 	for linux-riscv@lists.infradead.org;
-	Wed, 23 Aug 2023 19:40:29 +0000
+	Wed, 23 Aug 2023 19:50:51 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id A998E660E1;
-	Wed, 23 Aug 2023 19:40:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id CA082C433CA;
-	Wed, 23 Aug 2023 19:40:23 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 9ED7E6137A;
+	Wed, 23 Aug 2023 19:50:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5C2F4C433C7;
+	Wed, 23 Aug 2023 19:50:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1692819623;
-	bh=Wc+m8jD8YQL/zh4vGtlUJOEpUi3JDPeItPHhM51LMuA=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=aO7hDe3UEpjRtY4soHYHSy+jIrrjWF82P6dOSh9YEk6RnN12oexk6F3H3S7hFxsUM
-	 gGvJBJ/76ZxQEv4gM7SaoZ/p5KPF4jBxvQcyCJ4Pf+HecqJuHZMgg8ievj3NbyFQYR
-	 lV7sjav4b8ihsa9i+LfS5T7m8lK7nBNFMgV19B+Bw6VDXNZGzO20Jzyq+mK8WDgVPC
-	 m/2bCyQywE3UB5Ghfadjti+j3h46RjUTENBN+hMRvSMuar3XaUf2EDs1/YGP7AAjFi
-	 8DzzG8pPCBZ6E8gnm+4uYDq5mFiDkBlb+/oYI0AEm7Ny46RU8NFam6gMQhJlKysSnG
-	 l4pvxHmCw0Aww==
-Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id AEDBCE4EAF6;
-	Wed, 23 Aug 2023 19:40:23 +0000 (UTC)
+	s=k20201202; t=1692820248;
+	bh=xUP8Aao2vUba1hN7Bnt0t6crXDnohGolTg985mKMKdQ=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=ZuhIPkP4CUsDGiKsOw1+HxLQGXZ3YTAWFNprtH9vVrl5/Qw4zQzzpc7LN2Uhe5P38
+	 n4sJnMcOKXZ4Dibb3GYiZ3x4yZQ+CeXJAGdmE0Mfn6c4zlb0rDzr776/rHhnqXomT8
+	 PGx1H4DfgF/ul1OhKJMwWUU5Jbpleqxx5Gaf+hz1aK5uBsEgOtC8jXcv0wB+ML4SyI
+	 qXmVdf9SyuWd/eEn4r3IRVOdEKtPAFjtomQu/7QpHHxi2trZDJ5eBjXndUBPWy/YBD
+	 GD1MeLqAXSE5rpWrQuf6M2UjBwScWXM6ITjebQ9eG1Bjdwex2rcUUa2NgU8UNnuDeH
+	 bTE7/+NhO2eUA==
+From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
+To: Alexei Starovoitov <alexei.starovoitov@gmail.com>
+Cc: Pu Lehui <pulehui@huaweicloud.com>, linux-riscv
+ <linux-riscv@lists.infradead.org>, bpf <bpf@vger.kernel.org>, Network
+ Development <netdev@vger.kernel.org>, LKML <linux-kernel@vger.kernel.org>,
+ Yonghong Song <yhs@fb.com>, Alexei Starovoitov <ast@kernel.org>, Daniel
+ Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>,
+ Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>, John
+ Fastabend <john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>,
+ Stanislav Fomichev <sdf@google.com>, Hao Luo <haoluo@google.com>, Jiri
+ Olsa <jolsa@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Xu Kuohai
+ <xukuohai@huawei.com>, Puranjay Mohan <puranjay12@gmail.com>, Pu Lehui
+ <pulehui@huawei.com>
+Subject: Re: [PATCH bpf-next 7/7] selftests/bpf: Enable cpu v4 tests for RV64
+In-Reply-To: <CAADnVQLu5twbe_UpiJrD0wKq1YyHzZbfzYhsW-mte7vDmyna5g@mail.gmail.com>
+References: <20230823231059.3363698-1-pulehui@huaweicloud.com>
+ <20230823231059.3363698-8-pulehui@huaweicloud.com>
+ <87zg2hk44i.fsf@all.your.base.are.belong.to.us>
+ <CAADnVQLu5twbe_UpiJrD0wKq1YyHzZbfzYhsW-mte7vDmyna5g@mail.gmail.com>
+Date: Wed, 23 Aug 2023 21:50:44 +0200
+Message-ID: <875y55tu5n.fsf@all.your.base.are.belong.to.us>
 MIME-Version: 1.0
-Subject: Re: [v1, 0/3] riscv: fix ptrace and export VLENB
-From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <169281962371.18988.17683864280326589373.git-patchwork-notify@kernel.org>
-Date: Wed, 23 Aug 2023 19:40:23 +0000
-References: <20230816155450.26200-1-andy.chiu@sifive.com>
-In-Reply-To: <20230816155450.26200-1-andy.chiu@sifive.com>
-To: Andy Chiu <andy.chiu@sifive.com>
-Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com,
- greentime.hu@sifive.com, guoren@linux.alibaba.com, bjorn@kernel.org,
- conor.dooley@microchip.com, paul.walmsley@sifive.com, aou@eecs.berkeley.edu
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230823_124027_628572_2E02FF69 
-X-CRM114-Status: GOOD (  10.52  )
+X-CRM114-CacheID: sfid-20230823_125049_924454_BFD151CA 
+X-CRM114-Status: GOOD (  10.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,45 +81,25 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello:
-
-This series was applied to riscv/linux.git (fixes)
-by Palmer Dabbelt <palmer@rivosinc.com>:
-
-On Wed, 16 Aug 2023 15:54:47 +0000 you wrote:
-> We add a vlenb field in Vector context and save it with the
-> riscv_vstate_save() macro. It should not cause performance regression as
-> VLENB is a design-time constant and is frequently used by hardware.
-> Also, adding this field into the __sc_riscv_v_state may benifit us on a
-> future compatibility issue becuse a hardware may have writable VLENB.
-> 
-> Adding and saving VLENB have an immediate benifit as it gives ptrace a
-> better view of the Vector extension and makes it possible to reconstruct
-> Vector register files from the dump without doing an additional csr read.
-> 
-> [...]
-
-Here is the summary with links:
-  - [v1,1/3] RISC-V: Remove ptrace support for vectors
-    https://git.kernel.org/riscv/c/e3f9324b231a
-  - [v1,2/3] RISC-V: vector: export VLENB csr in __sc_riscv_v_state
-    https://git.kernel.org/riscv/c/c35f3aa34509
-  - [v1,3/3] RISC-V: Add ptrace support for vectors
-    (no matching commit)
-
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+QWxleGVpIFN0YXJvdm9pdG92IDxhbGV4ZWkuc3Rhcm92b2l0b3ZAZ21haWwuY29tPiB3cml0ZXM6
+Cgo+IE9uIFdlZCwgQXVnIDIzLCAyMDIzIGF0IDExOjI14oCvQU0gQmrDtnJuIFTDtnBlbCA8Ympv
+cm5Aa2VybmVsLm9yZz4gd3JvdGU6Cj4+Cj4+IFB1IExlaHVpIDxwdWxlaHVpQGh1YXdlaWNsb3Vk
+LmNvbT4gd3JpdGVzOgo+Pgo+PiA+IEZyb206IFB1IExlaHVpIDxwdWxlaHVpQGh1YXdlaS5jb20+
+Cj4+ID4KPj4gPiBFbmFibGUgY3B1IHY0IHRlc3RzIGZvciBSVjY0LCBhbmQgdGhlIHJlbGV2YW50
+IHRlc3RzIGhhdmUgcGFzc2VkLgo+PiA+Cj4+ID4gU2lnbmVkLW9mZi1ieTogUHUgTGVodWkgPHB1
+bGVodWlAaHVhd2VpLmNvbT4KPj4KPj4gQWNrZWQtYnk6IEJqw7ZybiBUw7ZwZWwgPGJqb3JuQGtl
+cm5lbC5vcmc+Cj4KPiBCam9ybiwKPgo+IFRoYW5rcyBhIGxvdCBmb3IgdGhlIHF1aWNrIHJldmll
+dyEKPiBDb3VsZCB5b3UgZ2l2ZSBpdCBhIHNwaW4gYXMgd2VsbCBhbmQgaG9wZWZ1bGx5IGFkZCBU
+ZXN0ZWQtYnkgPwo+Cj4gV2Ugc3RpbGwgaGF2ZSB0aW1lIHRvIGdldCBpdCBpbnRvIGJwZi1uZXh0
+IGZvciB0aGUgdXBjb21pbmcgbWVyZ2Ugd2luZG93LgoKSSdsbCBraWNrIGEgcnVuISBCdXQgSSdk
+IGxpa2UgYSBjaGFuZ2UgdG8gbW92IDgvMTZiIHBhdGNoICgjMykgcHJpb3IKcHVsbGluZy4KCj4g
+V2Ugc3RpbGwgaGF2ZSB0aW1lIHRvIGdldCBpdCBpbnRvIGJwZi1uZXh0IGZvciB0aGUgdXBjb21p
+bmcgbWVyZ2Ugd2luZG93LgoKQExlaHVpIERvIHlvdSBoYXZlIHRpbWUgdG8gY29vayBhIHYyPwoK
+CkJqw7ZybgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18K
+bGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcK
+aHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
