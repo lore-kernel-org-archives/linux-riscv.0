@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29629EE49B6
-	for <linux-riscv@archiver.kernel.org>; Wed, 23 Aug 2023 13:40:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5407DEE49A3
+	for <linux-riscv@archiver.kernel.org>; Wed, 23 Aug 2023 13:40:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jIKVyBZK4fh02TmvW5J3iTcNMYGYZc2zuA2E139kOKU=; b=pGVgzcMDYI4X/z
-	QPDdLMWXc0uk8BMqvxQDUyIVkVqFMgHM05oLPfxD5GT9UIxRJuRbOrg0pZxwLGlnN0V9g7EKZ2Saj
-	5kvhFe67kzGOrmed3Q6Hvg+Sn04QpbcGw+nIZ4bSoOOtVBQPrDCvcO0ztPpw87eMyio5nLgFnQQtp
-	Is+/1xFfhqm9ySINsH48Wm5ltteICK3qHGzcxJ0IN8Bpc2knTgL25QEpHZbrBVBglLHDTC0vEW8tA
-	Kr8gBSl+CvQqWlxuHh61d02GNZGKIXmUUzI6Um2BTeYI4foooQGnIJDS2jsw6PQr5wMNokL9KtjHb
-	Ltc47sJ0DIwZyjFm6x1g==;
+	List-Owner; bh=nDJTCFBs3+6pfvYzk5ZoEfu5D/UlMP9U8a8gaU6lzKE=; b=dlIWgXGlggqewl
+	mkL6kEEG+gSRq2uKF5lBJ7eVr0iv5nX05Bzg5yRScjaE9bmOULIFPP021P8wxoc7WU7kt6DgnguLv
+	vmLiFbsh/joWcpVEE0O2HkRy284xNEnY3i941T7jLIEnUOgElJVzN7mkplQJLMCWmEoT92H7dJZGm
+	947/JxnCQFSjoXHM8OYN7cpOePPUST4riP1FDkQ8+DQqbyvTlfvvQBQudLifAU+Q5lKDsOGognVCl
+	S+6N1bZpFq6n4lzSX4K/uRBLRIXyj9oHV8v4DcOpjP57mYt27WwDNwT7Jh7GrTRTbFFw9g/EFPpY0
+	pLj7jsscQRP60CLwX/Nw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qYo6C-000hz1-1a;
-	Wed, 23 Aug 2023 13:40:40 +0000
-Received: from szxga02-in.huawei.com ([45.249.212.188])
+	id 1qYo6H-000i4W-16;
+	Wed, 23 Aug 2023 13:40:45 +0000
+Received: from szxga01-in.huawei.com ([45.249.212.187])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qYo5f-000hPf-2K;
+	id 1qYo5f-000hOl-2h;
 	Wed, 23 Aug 2023 13:40:11 +0000
-Received: from kwepemi500012.china.huawei.com (unknown [172.30.72.56])
-	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4RW6gb5mdGzNmwD;
-	Wed, 23 Aug 2023 21:36:27 +0800 (CST)
+Received: from kwepemi500012.china.huawei.com (unknown [172.30.72.54])
+	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4RW6jq3yGBzrSbq;
+	Wed, 23 Aug 2023 21:38:23 +0800 (CST)
 Received: from huawei.com (10.90.53.73) by kwepemi500012.china.huawei.com
  (7.221.188.12) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.31; Wed, 23 Aug
- 2023 21:40:01 +0800
+ 2023 21:39:52 +0800
 From: Li Zetao <lizetao1@huawei.com>
 To: <lizetao1@huawei.com>
 CC: <andrew@aj.id.au>, <angelogioacchino.delregno@collabora.com>,
@@ -49,11 +49,10 @@ CC: <andrew@aj.id.au>, <angelogioacchino.delregno@collabora.com>,
 	<martin.blumenstingl@googlemail.com>, <matthias.bgg@gmail.com>,
 	<neil.armstrong@linaro.org>, <olteanv@gmail.com>, <openbmc@lists.ozlabs.org>,
 	<rjui@broadcom.com>, <sbranden@broadcom.com>, <tali.perry1@gmail.com>,
-	<tmaimon77@gmail.com>, <venture@google.com>, <yuenn@google.com>, Jonathan
- Cameron <Jonathan.Cameron@huawei.com>
-Subject: [PATCH -next v2 10/25] spi: davinci: Use helper function devm_clk_get_enabled()
-Date: Wed, 23 Aug 2023 21:39:23 +0800
-Message-ID: <20230823133938.1359106-11-lizetao1@huawei.com>
+	<tmaimon77@gmail.com>, <venture@google.com>, <yuenn@google.com>
+Subject: [PATCH -next v2 02/25] spi: armada-3700: Use helper function devm_clk_get_prepared()
+Date: Wed, 23 Aug 2023 21:39:15 +0800
+Message-ID: <20230823133938.1359106-3-lizetao1@huawei.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20230823133938.1359106-1-lizetao1@huawei.com>
 References: <20230822131237.1022815-1-lizetao1@huawei.com>
@@ -64,8 +63,8 @@ X-ClientProxiedBy: dggems702-chm.china.huawei.com (10.3.19.179) To
  kwepemi500012.china.huawei.com (7.221.188.12)
 X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230823_064008_302290_74D70C58 
-X-CRM114-Status: GOOD (  10.08  )
+X-CRM114-CacheID: sfid-20230823_064008_405257_FAA065BA 
+X-CRM114-Status: GOOD (  12.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,66 +82,85 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 Since commit 7ef9651e9792 ("clk: Provide new devm_clk helpers for prepared
-and enabled clocks"), devm_clk_get() and clk_prepare_enable() can now be
-replaced by devm_clk_get_enabled() when driver enables (and possibly
-prepares) the clocks for the whole lifetime of the device. Moreover, it is
-no longer necessary to unprepare and disable the clocks explicitly.
+and enabled clocks"), devm_clk_get() and clk_prepare() can now be replaced
+by devm_clk_get_prepared() when driver prepares the clocks for the whole
+lifetime of the device. Moreover, it is no longer necessary to unprepare
+the clocks explicitly.
 
-Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
 Signed-off-by: Li Zetao <lizetao1@huawei.com>
 ---
-v1 -> v2: None
+v1 -> v2: Drop the empty remove function a3700_spi_remove().
 
- drivers/spi/spi-davinci.c | 11 ++---------
- 1 file changed, 2 insertions(+), 9 deletions(-)
+ drivers/spi/spi-armada-3700.c | 23 +++--------------------
+ 1 file changed, 3 insertions(+), 20 deletions(-)
 
-diff --git a/drivers/spi/spi-davinci.c b/drivers/spi/spi-davinci.c
-index c457b550d3ad..5688be245c68 100644
---- a/drivers/spi/spi-davinci.c
-+++ b/drivers/spi/spi-davinci.c
-@@ -915,14 +915,11 @@ static int davinci_spi_probe(struct platform_device *pdev)
+diff --git a/drivers/spi/spi-armada-3700.c b/drivers/spi/spi-armada-3700.c
+index 0103ac0158c0..3c9ed412932f 100644
+--- a/drivers/spi/spi-armada-3700.c
++++ b/drivers/spi/spi-armada-3700.c
+@@ -865,18 +865,12 @@ static int a3700_spi_probe(struct platform_device *pdev)
  
- 	dspi->bitbang.master = host;
+ 	init_completion(&spi->done);
  
--	dspi->clk = devm_clk_get(&pdev->dev, NULL);
-+	dspi->clk = devm_clk_get_enabled(&pdev->dev, NULL);
- 	if (IS_ERR(dspi->clk)) {
- 		ret = -ENODEV;
- 		goto free_host;
+-	spi->clk = devm_clk_get(dev, NULL);
++	spi->clk = devm_clk_get_prepared(dev, NULL);
+ 	if (IS_ERR(spi->clk)) {
+ 		dev_err(dev, "could not find clk: %ld\n", PTR_ERR(spi->clk));
+ 		goto error;
  	}
--	ret = clk_prepare_enable(dspi->clk);
--	if (ret)
--		goto free_host;
  
- 	host->use_gpio_descriptors = true;
- 	host->dev.of_node = pdev->dev.of_node;
-@@ -947,7 +944,7 @@ static int davinci_spi_probe(struct platform_device *pdev)
- 
- 	ret = davinci_spi_request_dma(dspi);
- 	if (ret == -EPROBE_DEFER) {
--		goto free_clk;
-+		goto free_host;
- 	} else if (ret) {
- 		dev_info(&pdev->dev, "DMA is not supported (%d)\n", ret);
- 		dspi->dma_rx = NULL;
-@@ -991,8 +988,6 @@ static int davinci_spi_probe(struct platform_device *pdev)
- 		dma_release_channel(dspi->dma_rx);
- 		dma_release_channel(dspi->dma_tx);
- 	}
--free_clk:
--	clk_disable_unprepare(dspi->clk);
- free_host:
- 	spi_controller_put(host);
- err:
-@@ -1018,8 +1013,6 @@ static void davinci_spi_remove(struct platform_device *pdev)
- 
- 	spi_bitbang_stop(&dspi->bitbang);
- 
--	clk_disable_unprepare(dspi->clk);
+-	ret = clk_prepare(spi->clk);
+-	if (ret) {
+-		dev_err(dev, "could not prepare clk: %d\n", ret);
+-		goto error;
+-	}
 -
- 	if (dspi->dma_rx) {
- 		dma_release_channel(dspi->dma_rx);
- 		dma_release_channel(dspi->dma_tx);
+ 	host->max_speed_hz = min_t(unsigned long, A3700_SPI_MAX_SPEED_HZ,
+ 					clk_get_rate(spi->clk));
+ 	host->min_speed_hz = DIV_ROUND_UP(clk_get_rate(spi->clk),
+@@ -888,40 +882,29 @@ static int a3700_spi_probe(struct platform_device *pdev)
+ 			       dev_name(dev), host);
+ 	if (ret) {
+ 		dev_err(dev, "could not request IRQ: %d\n", ret);
+-		goto error_clk;
++		goto error;
+ 	}
+ 
+ 	ret = devm_spi_register_controller(dev, host);
+ 	if (ret) {
+ 		dev_err(dev, "Failed to register host\n");
+-		goto error_clk;
++		goto error;
+ 	}
+ 
+ 	return 0;
+ 
+-error_clk:
+-	clk_unprepare(spi->clk);
+ error:
+ 	spi_controller_put(host);
+ out:
+ 	return ret;
+ }
+ 
+-static void a3700_spi_remove(struct platform_device *pdev)
+-{
+-	struct spi_controller *host = platform_get_drvdata(pdev);
+-	struct a3700_spi *spi = spi_controller_get_devdata(host);
+-
+-	clk_unprepare(spi->clk);
+-}
+-
+ static struct platform_driver a3700_spi_driver = {
+ 	.driver = {
+ 		.name	= DRIVER_NAME,
+ 		.of_match_table = of_match_ptr(a3700_spi_dt_ids),
+ 	},
+ 	.probe		= a3700_spi_probe,
+-	.remove_new	= a3700_spi_remove,
+ };
+ 
+ module_platform_driver(a3700_spi_driver);
 -- 
 2.34.1
 
