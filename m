@@ -4,83 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9D0AC3DA6F
-	for <linux-riscv@archiver.kernel.org>; Thu, 24 Aug 2023 15:15:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41460C3DA6F
+	for <linux-riscv@archiver.kernel.org>; Thu, 24 Aug 2023 15:44:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OXx7uuGXXJ6+eYLXthzKAjUNe/ZtQDx1IkzuuOS+2lc=; b=hgRHVhOGCE+KVy
-	uqLTvfVEES93FFRqlSd/6UvCCI/vk1eywasAb8EgsK6r9hpS4X0cIoc5UmnvFB3zEXAWI4z0pv2mc
-	wGEy4RoC9We6KIDqzLONJ5CzX/pQf224daGUxRjKRE5zxL7TPVh+wI+iF4q37VxjcFZ+qSKaVwVeU
-	Roiz9ObwPnNBcx0Y/Ilygt6Y/QgNymaOm3G4dXhqCXTi/jljFTP1AbGtJ0PUSU6y9jRQlhkEpfDFV
-	/cDFm8tFpVJIANM+BQLAAx1KuQlkkZhzrU/ZEeWi9fqelYlWP4xkqp+6C2oWEJUj1Q24lGCmLuTHf
-	Wcunk8GRBViyuhhy+Iyg==;
+	List-Owner; bh=24lNRAqIxLI3mKxocqACSSQFK/IIJZ7nUj7w9ykLoAM=; b=fsxGQUFLF+ZxX5
+	lFhinp1obT2AN7GkpGoZs3mSe+LvGhCNHlkiAWAUVTFPA3YY9RZkJn8wceGuRmw/4x2hqvDFVEfdM
+	WIWcexPcvHGRHOOUcUV8Lumx05kOCQAWLpRZa69gCBWGka34lxEImdsXRG15g9dJYTfgpa1iW+nkp
+	iVqv9GJs2l5QJiqoS5nlw/NEFm+H8euqwbzTiFANdy+j++GsLhT1gv/OC3IIijgp7x5SXx0tFvOHZ
+	RAI+p3EcZy2LBSRV4CZ6EtOfv5wat9i5Gea9s6jhxRedcH007Xv9yAHQYNpT1GGkgJvh/BqQkFdnZ
+	1bP6y9wzVtj9TjzSsMLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qZC3C-003LJq-0F;
-	Thu, 24 Aug 2023 15:15:10 +0000
-Received: from mgamail.intel.com ([192.55.52.115])
+	id 1qZCUx-003OZr-1r;
+	Thu, 24 Aug 2023 15:43:51 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qZC38-003LIv-2i;
-	Thu, 24 Aug 2023 15:15:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1692890106; x=1724426106;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=j3s15fzbY21jU7a4dXxI63BSMfPORjJ31zoaNT3reHQ=;
-  b=Tjx+XEjFviEOmMmC6tsAis9YN6dsHAWlUVvcjIPNG5BRATWY+mbWOL7W
-   Oezh6jAuAiN+ILEgW5S8eBjKzO5Gb5Zh0zKN4rjlvRqSMmA/TFa923BZa
-   q5afT+yAQlXjcM0Y0EAdXGcEf02d87uwxICjH0+TScXMYx1Q93rZz0yqa
-   MlbANkKbUShwsIY+5WFwYXo4GihmNcV+53FfLhZwU2Og3/1Md/H33taEk
-   +dfNPb20P+uWZf5vZY/5i1IN9a/Tbevl3KMIf5Sa+22KiqbhOm8emri2q
-   8aNGpHJkElKzmvRyjZWGXY1MYaSr4yngR2OLwo1oqGVa1NQasnviC0Hdo
-   Q==;
-X-IronPort-AV: E=McAfee;i="6600,9927,10812"; a="374433218"
-X-IronPort-AV: E=Sophos;i="6.02,195,1688454000"; 
-   d="scan'208";a="374433218"
-Received: from fmsmga001.fm.intel.com ([10.253.24.23])
-  by fmsmga103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Aug 2023 08:07:00 -0700
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.01,202,1684825200"; 
-   d="scan'208";a="880838364"
-Received: from lkp-server02.sh.intel.com (HELO daf8bb0a381d) ([10.239.97.151])
-  by fmsmga001.fm.intel.com with ESMTP; 24 Aug 2023 08:06:58 -0700
-Received: from kbuild by daf8bb0a381d with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1qZBv5-0002me-0p;
-	Thu, 24 Aug 2023 15:06:49 +0000
-Date: Thu, 24 Aug 2023 23:06:07 +0800
-From: kernel test robot <lkp@intel.com>
-To: Jisheng Zhang <jszhang@kernel.org>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Jose Abreu <joabreu@synopsys.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	netdev@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com
-Subject: Re: [PATCH net-next 3/3] net: stmmac: add glue layer for T-HEAD
- TH1520 SoC
-Message-ID: <202308242250.G39QxvdR-lkp@intel.com>
-References: <20230820120213.2054-4-jszhang@kernel.org>
+	id 1qZCUk-003OUN-0Q;
+	Thu, 24 Aug 2023 15:43:39 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 87C5867110;
+	Thu, 24 Aug 2023 15:43:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D722EC433C8;
+	Thu, 24 Aug 2023 15:43:23 +0000 (UTC)
+Date: Thu, 24 Aug 2023 16:43:19 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Mark Brown <broonie@kernel.org>
+Cc: Szabolcs Nagy <Szabolcs.Nagy@arm.com>, Will Deacon <will@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	James Morse <james.morse@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Arnd Bergmann <arnd@arndb.de>, Oleg Nesterov <oleg@redhat.com>,
+	Eric Biederman <ebiederm@xmission.com>,
+	Kees Cook <keescook@chromium.org>, Shuah Khan <shuah@kernel.org>,
+	"Rick P. Edgecombe" <rick.p.edgecombe@intel.com>,
+	Deepak Gupta <debug@rivosinc.com>, Ard Biesheuvel <ardb@kernel.org>,
+	"H.J. Lu" <hjl.tools@gmail.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+	kvmarm@lists.linux.dev, linux-fsdevel@vger.kernel.org,
+	linux-arch@vger.kernel.org, linux-mm@kvack.org,
+	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v4 03/36] arm64/gcs: Document the ABI for Guarded Control
+ Stacks
+Message-ID: <ZOd6lzj29VksAp7L@arm.com>
+References: <f4cec4b3-c386-4873-aa1d-90528e062f2a@sirena.org.uk>
+ <ZN+qki9EaZ6f9XNi@arm.com>
+ <aaea542c-929c-4c9b-8caa-ca67e0eb9c1e@sirena.org.uk>
+ <ZOTnL1SDJWZjHPUW@arm.com>
+ <43ec219d-bf20-47b8-a5f8-32bc3b64d487@sirena.org.uk>
+ <ZOXa98SqwYPwxzNP@arm.com>
+ <227e6552-353c-40a9-86c1-280587a40e3c@sirena.org.uk>
+ <ZOY3lz+Zyhd5ZyQ9@arm.com>
+ <ZOZEmO6WGyVAcOqK@arm.com>
+ <ef7272d2-d807-428f-9915-6fc9febadb5c@sirena.org.uk>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20230820120213.2054-4-jszhang@kernel.org>
+In-Reply-To: <ef7272d2-d807-428f-9915-6fc9febadb5c@sirena.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230824_081506_948874_B53015D9 
-X-CRM114-Status: GOOD (  13.42  )
+X-CRM114-CacheID: sfid-20230824_084338_211843_B2C12CA9 
+X-CRM114-Status: GOOD (  19.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,118 +93,30 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Jisheng,
+On Wed, Aug 23, 2023 at 07:16:52PM +0100, Mark Brown wrote:
+> On Wed, Aug 23, 2023 at 06:40:40PM +0100, Szabolcs Nagy wrote:
+> > i don't know if we can allow disabled gcs thread creation with locked
+> > gcs state. (i can see arguments both ways, so further prctl flag may
+> > be needed which may be another divergence from x86)
+> 
+> I think that if we do add a new flag that'd just be new functionality,
+> the divergence would be in allowing configuration via clone3() rather
+> than the flag.  TBH I'm not sure I see a use case for locking but
+> providing a mechanism for getting out of the lock, that seems very
+> questionable.
 
-kernel test robot noticed the following build warnings:
+You are right, once the configuration is locked a plain clone() or
+clone3() without a GCS pointer should be rejected.
 
-[auto build test WARNING on net-next/main]
+Is there a use-case for the unlocked configuration to allow disabling
+the GCS implicitly via a clone syscall?
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Jisheng-Zhang/dt-bindings-net-snps-dwmac-allow-dwmac-3-70a-to-set-pbl-properties/20230821-114902
-base:   net-next/main
-patch link:    https://lore.kernel.org/r/20230820120213.2054-4-jszhang%40kernel.org
-patch subject: [PATCH net-next 3/3] net: stmmac: add glue layer for T-HEAD TH1520 SoC
-config: arm64-allyesconfig (https://download.01.org/0day-ci/archive/20230824/202308242250.G39QxvdR-lkp@intel.com/config)
-compiler: clang version 17.0.0 (https://github.com/llvm/llvm-project.git 4a5ac14ee968ff0ad5d2cc1ffa0299048db4c88a)
-reproduce: (https://download.01.org/0day-ci/archive/20230824/202308242250.G39QxvdR-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202308242250.G39QxvdR-lkp@intel.com/
-
-All warnings (new ones prefixed by >>):
-
->> drivers/net/ethernet/stmicro/stmmac/dwmac-thead.c:151:3: warning: variable 'div' is used uninitialized whenever switch default is taken [-Wsometimes-uninitialized]
-     151 |                 default:
-         |                 ^~~~~~~
-   drivers/net/ethernet/stmicro/stmmac/dwmac-thead.c:156:50: note: uninitialized use occurs here
-     156 |                                    GMAC_PLLCLK_DIV_MASK, GMAC_PLLCLK_DIV_NUM(div));
-         |                                                                              ^~~
-   drivers/net/ethernet/stmicro/stmmac/dwmac-thead.c:40:68: note: expanded from macro 'GMAC_PLLCLK_DIV_NUM'
-      40 | #define  GMAC_PLLCLK_DIV_NUM(x)         FIELD_PREP(GMAC_PLLCLK_DIV_MASK, (x))
-         |                                                                           ^
-   include/linux/bitfield.h:114:33: note: expanded from macro 'FIELD_PREP'
-     114 |                 __BF_FIELD_CHECK(_mask, 0ULL, _val, "FIELD_PREP: ");    \
-         |                                               ^~~~
-   include/linux/bitfield.h:68:41: note: expanded from macro '__BF_FIELD_CHECK'
-      68 |                 BUILD_BUG_ON_MSG(__builtin_constant_p(_val) ?           \
-         |                                                       ^~~~
-   note: (skipping 1 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
-   include/linux/compiler_types.h:397:22: note: expanded from macro 'compiletime_assert'
-     397 |         _compiletime_assert(condition, msg, __compiletime_assert_, __COUNTER__)
-         |                             ^~~~~~~~~
-   include/linux/compiler_types.h:385:23: note: expanded from macro '_compiletime_assert'
-     385 |         __compiletime_assert(condition, msg, prefix, suffix)
-         |                              ^~~~~~~~~
-   include/linux/compiler_types.h:377:9: note: expanded from macro '__compiletime_assert'
-     377 |                 if (!(condition))                                       \
-         |                       ^~~~~~~~~
-   drivers/net/ethernet/stmicro/stmmac/dwmac-thead.c:121:9: note: initialize the variable 'div' to silence this warning
-     121 |         u32 div;
-         |                ^
-         |                 = 0
-   1 warning generated.
-
-
-vim +/div +151 drivers/net/ethernet/stmicro/stmmac/dwmac-thead.c
-
-   115	
-   116	static void thead_dwmac_fix_speed(void *priv, unsigned int speed, unsigned int mode)
-   117	{
-   118		struct thead_dwmac *dwmac = priv;
-   119		struct plat_stmmacenet_data *plat = dwmac->plat;
-   120		unsigned long rate;
-   121		u32 div;
-   122	
-   123		switch (plat->interface) {
-   124		/* For MII, rxc/txc is provided by phy */
-   125		case PHY_INTERFACE_MODE_MII:
-   126			return;
-   127	
-   128		case PHY_INTERFACE_MODE_RGMII:
-   129		case PHY_INTERFACE_MODE_RGMII_ID:
-   130		case PHY_INTERFACE_MODE_RGMII_RXID:
-   131		case PHY_INTERFACE_MODE_RGMII_TXID:
-   132			rate = clk_get_rate(plat->stmmac_clk);
-   133			if (!rate || rate % GMAC_GMII_RGMII_RATE != 0 ||
-   134			    rate % GMAC_MII_RATE != 0) {
-   135				dev_err(dwmac->dev, "invalid gmac rate %ld\n", rate);
-   136				return;
-   137			}
-   138	
-   139			regmap_update_bits(dwmac->apb_regmap, GMAC_PLLCLK_DIV, GMAC_PLLCLK_DIV_EN, 0);
-   140	
-   141			switch (speed) {
-   142			case SPEED_1000:
-   143				div = rate / GMAC_GMII_RGMII_RATE;
-   144				break;
-   145			case SPEED_100:
-   146				div = rate / GMAC_MII_RATE;
-   147				break;
-   148			case SPEED_10:
-   149				div = rate * 10 / GMAC_MII_RATE;
-   150				break;
- > 151			default:
-   152				dev_err(dwmac->dev, "invalid speed %u\n", speed);
-   153				break;
-   154			}
-   155			regmap_update_bits(dwmac->apb_regmap, GMAC_PLLCLK_DIV,
-   156					   GMAC_PLLCLK_DIV_MASK, GMAC_PLLCLK_DIV_NUM(div));
-   157	
-   158			regmap_update_bits(dwmac->apb_regmap, GMAC_PLLCLK_DIV,
-   159					   GMAC_PLLCLK_DIV_EN, GMAC_PLLCLK_DIV_EN);
-   160			break;
-   161		default:
-   162			dev_err(dwmac->dev, "unsupported phy interface %d\n",
-   163				plat->interface);
-   164			return;
-   165		}
-   166	}
-   167	
+If we go for extending clone3, I wonder whether we should also introduce
+a sigaltstack2/3 ;). I haven't checked what the current patches do and
+won't have time until early September (on holiday from the end of today).
 
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Catalin
 
 _______________________________________________
 linux-riscv mailing list
