@@ -4,89 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 475CBC27C40
-	for <linux-riscv@archiver.kernel.org>; Thu, 24 Aug 2023 13:31:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9D0AC3DA6F
+	for <linux-riscv@archiver.kernel.org>; Thu, 24 Aug 2023 15:15:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=FXO4VGK5OrePLFdO66OxojK/ZYiE2MTK6cTCEVh10Ac=; b=21BUruV+ruQAPC
-	YI/QKEAdzkriuSAMBLxcgAs8tCA24rEM/5M/KUVzi0xYDX6HdUGFotyAQ/Px7hT1SUT5nSd/97zwT
-	ZJgS6PLVYzdQSyj6+ZeOV3mT8ilstDUwTdN2wnzw/2yAE+MxIgjFVNqVj5jk9IkaNcB6bHLLLlLXM
-	0OA6BtENDJ17Py2UZ9pmR6MvGft8VAj0Xxr+WAKlGUjcgl5Wmdp8+mL9LLGRtHSfCB9ctKEAepiO7
-	p/+GCrqCQNRd1eIYYIuzClDUwr2cG96mXjIqs2fRcc7GWdRI4GYeHcE7mtDqbJPNoa6BQm5bOKtLa
-	vDj6EDzZ/yevO/DV1jZQ==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=OXx7uuGXXJ6+eYLXthzKAjUNe/ZtQDx1IkzuuOS+2lc=; b=hgRHVhOGCE+KVy
+	uqLTvfVEES93FFRqlSd/6UvCCI/vk1eywasAb8EgsK6r9hpS4X0cIoc5UmnvFB3zEXAWI4z0pv2mc
+	wGEy4RoC9We6KIDqzLONJ5CzX/pQf224daGUxRjKRE5zxL7TPVh+wI+iF4q37VxjcFZ+qSKaVwVeU
+	Roiz9ObwPnNBcx0Y/Ilygt6Y/QgNymaOm3G4dXhqCXTi/jljFTP1AbGtJ0PUSU6y9jRQlhkEpfDFV
+	/cDFm8tFpVJIANM+BQLAAx1KuQlkkZhzrU/ZEeWi9fqelYlWP4xkqp+6C2oWEJUj1Q24lGCmLuTHf
+	Wcunk8GRBViyuhhy+Iyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qZAR6-00392H-0B;
-	Thu, 24 Aug 2023 13:31:44 +0000
-Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
+	id 1qZC3C-003LJq-0F;
+	Thu, 24 Aug 2023 15:15:10 +0000
+Received: from mgamail.intel.com ([192.55.52.115])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qZAR3-00390l-0Y
-	for linux-riscv@lists.infradead.org;
-	Thu, 24 Aug 2023 13:31:42 +0000
-Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-31c63cd4ec2so2365466f8f.0
-        for <linux-riscv@lists.infradead.org>; Thu, 24 Aug 2023 06:31:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20221208; t=1692883897; x=1693488697;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=/FdYUtkQiM1JM6m+vtN/k3hYAug9sY5fG1iQwa7Fcq4=;
-        b=JpjQHo7+L3DPs8XZmCudaeskHTtaLnVxKG3aPWyUyez3hsjSz8vtopkx2yyIcRiRwV
-         CxbR+bJeaZsQKnRn99C5YuuA41+7pQ+IxE+w84BwuYF16Wiq+Im0RjfXuQTXJmJPZRGo
-         MLkfrXomm7xEAvMroz3Np7Cal+V0VCqQceP1qq2IQWQe3ewpHqWEu08iPKaLPy2GecAb
-         loS8fSaRQdL7IXxU+UmJLDka//AXrRgdbsFORtfcHTVrGxNHkiexGG83SPB5kBihTOZ8
-         SRX9QC4MfIUeMPBio0rWa1cVp8JPa+rniyDp31PXqhlrZuVY3UScBjYkVh6OUpYHkv0e
-         qtrQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1692883897; x=1693488697;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=/FdYUtkQiM1JM6m+vtN/k3hYAug9sY5fG1iQwa7Fcq4=;
-        b=JPucqjnFmkKgGDfbwEh+DLHE+47qZ84anEuU/YlB0/ou/l4PrfKByE8gp2uwxNXjkC
-         bg8nQov9jkgadXGLAiqB3tdjHwdOiDm/ciAECgsiYnQUOgiu4S/lXDDq0A5gGkW81B7g
-         Ge8zF9LKmtgvOfqy90qrm27w3Tppi5URYZjAOxDTQTbmTi5QUUO+YZmWOGMRJOHKrqHR
-         SuZZRe5qiD9KsuZO8Ydljy7AO0lZootGplpkP4vp/CHpSlX2pLTefM0KKriYnxgZ4UBc
-         HEEp0kie7SzxCkpqMLX0NLITwsq+PkxY3/Hb3HV+mLHuzGOhPI5NKfe4iAKZO93hhSH6
-         PuDQ==
-X-Gm-Message-State: AOJu0YzHlXyahtyRjmw0Q4Uxen4gbGYpNT7C+A9jWksBG1X6omv6FMsB
-	6dplULVRdJt6rCZAtM8zjGQ=
-X-Google-Smtp-Source: AGHT+IHL/HgZh8yHs1r/hj6jGyz5kbloHuUrEeF21EDf5fE7o76UP5eUp1ft4jmivITX/DrUjdKf7w==
-X-Received: by 2002:a05:6000:8b:b0:314:36f0:2214 with SMTP id m11-20020a056000008b00b0031436f02214mr10769903wrx.6.1692883897414;
-        Thu, 24 Aug 2023 06:31:37 -0700 (PDT)
-Received: from ip-172-31-30-46.eu-west-1.compute.internal (ec2-54-170-241-106.eu-west-1.compute.amazonaws.com. [54.170.241.106])
-        by smtp.gmail.com with ESMTPSA id h11-20020a5d548b000000b00317e77106dbsm22396112wrv.48.2023.08.24.06.31.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 24 Aug 2023 06:31:36 -0700 (PDT)
-From: Puranjay Mohan <puranjay12@gmail.com>
-To: paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	pulehui@huawei.com,
-	conor.dooley@microchip.com,
-	ast@kernel.org,
-	daniel@iogearbox.net,
-	andrii@kernel.org,
-	martin.lau@linux.dev,
-	song@kernel.org,
-	yhs@fb.com,
-	kpsingh@kernel.org,
-	bjorn@kernel.org,
-	bpf@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: puranjay12@gmail.com
-Subject: [PATCH bpf-next v2 0/3] bpf, riscv: use BPF prog pack allocator in BPF JIT
-Date: Thu, 24 Aug 2023 13:31:32 +0000
-Message-Id: <20230824133135.1176709-1-puranjay12@gmail.com>
-X-Mailer: git-send-email 2.40.1
+	id 1qZC38-003LIv-2i;
+	Thu, 24 Aug 2023 15:15:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1692890106; x=1724426106;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=j3s15fzbY21jU7a4dXxI63BSMfPORjJ31zoaNT3reHQ=;
+  b=Tjx+XEjFviEOmMmC6tsAis9YN6dsHAWlUVvcjIPNG5BRATWY+mbWOL7W
+   Oezh6jAuAiN+ILEgW5S8eBjKzO5Gb5Zh0zKN4rjlvRqSMmA/TFa923BZa
+   q5afT+yAQlXjcM0Y0EAdXGcEf02d87uwxICjH0+TScXMYx1Q93rZz0yqa
+   MlbANkKbUShwsIY+5WFwYXo4GihmNcV+53FfLhZwU2Og3/1Md/H33taEk
+   +dfNPb20P+uWZf5vZY/5i1IN9a/Tbevl3KMIf5Sa+22KiqbhOm8emri2q
+   8aNGpHJkElKzmvRyjZWGXY1MYaSr4yngR2OLwo1oqGVa1NQasnviC0Hdo
+   Q==;
+X-IronPort-AV: E=McAfee;i="6600,9927,10812"; a="374433218"
+X-IronPort-AV: E=Sophos;i="6.02,195,1688454000"; 
+   d="scan'208";a="374433218"
+Received: from fmsmga001.fm.intel.com ([10.253.24.23])
+  by fmsmga103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Aug 2023 08:07:00 -0700
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.01,202,1684825200"; 
+   d="scan'208";a="880838364"
+Received: from lkp-server02.sh.intel.com (HELO daf8bb0a381d) ([10.239.97.151])
+  by fmsmga001.fm.intel.com with ESMTP; 24 Aug 2023 08:06:58 -0700
+Received: from kbuild by daf8bb0a381d with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1qZBv5-0002me-0p;
+	Thu, 24 Aug 2023 15:06:49 +0000
+Date: Thu, 24 Aug 2023 23:06:07 +0800
+From: kernel test robot <lkp@intel.com>
+To: Jisheng Zhang <jszhang@kernel.org>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Jose Abreu <joabreu@synopsys.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	netdev@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com
+Subject: Re: [PATCH net-next 3/3] net: stmmac: add glue layer for T-HEAD
+ TH1520 SoC
+Message-ID: <202308242250.G39QxvdR-lkp@intel.com>
+References: <20230820120213.2054-4-jszhang@kernel.org>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20230820120213.2054-4-jszhang@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230824_063141_239914_53F04A78 
-X-CRM114-Status: GOOD (  16.70  )
+X-CRM114-CacheID: sfid-20230824_081506_948874_B53015D9 
+X-CRM114-Status: GOOD (  13.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,145 +97,118 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Changes in v1 -> v2:
-1. Implement a new function patch_text_set_nosync() to be used in bpf_arch_text_invalidate().
-   The implementation in v1 called patch_text_nosync() in a loop and it was bad as it would
-   call flush_icache_range() for every word making it really slow. This was found by running
-   the test_tag selftest which would take forever to complete.
+Hi Jisheng,
 
-Here is some data to prove the V2 fixes the problem:
+kernel test robot noticed the following build warnings:
 
-Without this series:
-root@rv-selftester:~/src/kselftest/bpf# time ./test_tag
-test_tag: OK (40945 tests)
+[auto build test WARNING on net-next/main]
 
-real    7m47.562s
-user    0m24.145s
-sys     6m37.064s
+url:    https://github.com/intel-lab-lkp/linux/commits/Jisheng-Zhang/dt-bindings-net-snps-dwmac-allow-dwmac-3-70a-to-set-pbl-properties/20230821-114902
+base:   net-next/main
+patch link:    https://lore.kernel.org/r/20230820120213.2054-4-jszhang%40kernel.org
+patch subject: [PATCH net-next 3/3] net: stmmac: add glue layer for T-HEAD TH1520 SoC
+config: arm64-allyesconfig (https://download.01.org/0day-ci/archive/20230824/202308242250.G39QxvdR-lkp@intel.com/config)
+compiler: clang version 17.0.0 (https://github.com/llvm/llvm-project.git 4a5ac14ee968ff0ad5d2cc1ffa0299048db4c88a)
+reproduce: (https://download.01.org/0day-ci/archive/20230824/202308242250.G39QxvdR-lkp@intel.com/reproduce)
 
-With this series applied:
-root@rv-selftester:~/src/selftest/bpf# time ./test_tag
-test_tag: OK (40945 tests)
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202308242250.G39QxvdR-lkp@intel.com/
 
-real    7m29.472s
-user    0m25.865s
-sys     6m18.401s
+All warnings (new ones prefixed by >>):
 
-BPF programs currently consume a page each on RISCV. For systems with many BPF
-programs, this adds significant pressure to instruction TLB. High iTLB pressure
-usually causes slow down for the whole system.
+>> drivers/net/ethernet/stmicro/stmmac/dwmac-thead.c:151:3: warning: variable 'div' is used uninitialized whenever switch default is taken [-Wsometimes-uninitialized]
+     151 |                 default:
+         |                 ^~~~~~~
+   drivers/net/ethernet/stmicro/stmmac/dwmac-thead.c:156:50: note: uninitialized use occurs here
+     156 |                                    GMAC_PLLCLK_DIV_MASK, GMAC_PLLCLK_DIV_NUM(div));
+         |                                                                              ^~~
+   drivers/net/ethernet/stmicro/stmmac/dwmac-thead.c:40:68: note: expanded from macro 'GMAC_PLLCLK_DIV_NUM'
+      40 | #define  GMAC_PLLCLK_DIV_NUM(x)         FIELD_PREP(GMAC_PLLCLK_DIV_MASK, (x))
+         |                                                                           ^
+   include/linux/bitfield.h:114:33: note: expanded from macro 'FIELD_PREP'
+     114 |                 __BF_FIELD_CHECK(_mask, 0ULL, _val, "FIELD_PREP: ");    \
+         |                                               ^~~~
+   include/linux/bitfield.h:68:41: note: expanded from macro '__BF_FIELD_CHECK'
+      68 |                 BUILD_BUG_ON_MSG(__builtin_constant_p(_val) ?           \
+         |                                                       ^~~~
+   note: (skipping 1 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
+   include/linux/compiler_types.h:397:22: note: expanded from macro 'compiletime_assert'
+     397 |         _compiletime_assert(condition, msg, __compiletime_assert_, __COUNTER__)
+         |                             ^~~~~~~~~
+   include/linux/compiler_types.h:385:23: note: expanded from macro '_compiletime_assert'
+     385 |         __compiletime_assert(condition, msg, prefix, suffix)
+         |                              ^~~~~~~~~
+   include/linux/compiler_types.h:377:9: note: expanded from macro '__compiletime_assert'
+     377 |                 if (!(condition))                                       \
+         |                       ^~~~~~~~~
+   drivers/net/ethernet/stmicro/stmmac/dwmac-thead.c:121:9: note: initialize the variable 'div' to silence this warning
+     121 |         u32 div;
+         |                ^
+         |                 = 0
+   1 warning generated.
 
-Song Liu introduced the BPF prog pack allocator[1] to mitigate the above issue.
-It packs multiple BPF programs into a single huge page. It is currently only
-enabled for the x86_64 BPF JIT.
 
-I enabled this allocator on the ARM64 BPF JIT[2]. It is being reviewed now.
+vim +/div +151 drivers/net/ethernet/stmicro/stmmac/dwmac-thead.c
 
-This patch series enables the BPF prog pack allocator for the RISCV BPF JIT.
-This series needs a patch[3] from the ARM64 series to work.
-
-======================================================
-Performance Analysis of prog pack allocator on RISCV64
-======================================================
-
-Test setup:
-===========
-
-Host machine: Debian GNU/Linux 11 (bullseye)
-Qemu Version: QEMU emulator version 8.0.3 (Debian 1:8.0.3+dfsg-1)
-u-boot-qemu Version: 2023.07+dfsg-1
-opensbi Version: 1.3-1
-
-To test the performance of the BPF prog pack allocator on RV, a stresser
-tool[4] linked below was built. This tool loads 8 BPF programs on the system and
-triggers 5 of them in an infinite loop by doing system calls.
-
-The runner script starts 20 instances of the above which loads 8*20=160 BPF
-programs on the system, 5*20=100 of which are being constantly triggered.
-The script is passed a command which would be run in the above environment.
-
-The script was run with following perf command:
-./run.sh "perf stat -a \
-        -e iTLB-load-misses \
-        -e dTLB-load-misses  \
-        -e dTLB-store-misses \
-        -e instructions \
-        --timeout 60000"
-
-The output of the above command is discussed below before and after enabling the
-BPF prog pack allocator.
-
-The tests were run on qemu-system-riscv64 with 8 cpus, 16G memory. The rootfs
-was created using Bjorn's riscv-cross-builder[5] docker container linked below.
-
-Results
-=======
-
-Before enabling prog pack allocator:
-------------------------------------
-
-Performance counter stats for 'system wide':
-
-           4939048      iTLB-load-misses
-           5468689      dTLB-load-misses
-            465234      dTLB-store-misses
-     1441082097998      instructions
-
-      60.045791200 seconds time elapsed
-
-After enabling prog pack allocator:
------------------------------------
-
-Performance counter stats for 'system wide':
-
-           3430035      iTLB-load-misses
-           5008745      dTLB-load-misses
-            409944      dTLB-store-misses
-     1441535637988      instructions
-
-      60.046296600 seconds time elapsed
-
-Improvements in metrics
-=======================
-
-It was expected that the iTLB-load-misses would decrease as now a single huge
-page is used to keep all the BPF programs compared to a single page for each
-program earlier.
-
---------------------------------------------
-The improvement in iTLB-load-misses: -30.5 %
---------------------------------------------
-
-I repeated this expriment more than 100 times in different setups and the
-improvement was always greater than 30%.
-
-This patch series is boot tested on the Starfive VisionFive 2 board[6].
-The performance analysis was not done on the board because it doesn't
-expose iTLB-load-misses, etc. The stresser program was run on the board to test
-the loading and unloading of BPF programs
-
-[1] https://lore.kernel.org/bpf/20220204185742.271030-1-song@kernel.org/
-[2] https://lore.kernel.org/all/20230626085811.3192402-1-puranjay12@gmail.com/
-[3] https://lore.kernel.org/all/20230626085811.3192402-2-puranjay12@gmail.com/
-[4] https://github.com/puranjaymohan/BPF-Allocator-Bench
-[5] https://github.com/bjoto/riscv-cross-builder
-[6] https://www.starfivetech.com/en/site/boards
-
-Puranjay Mohan (3):
-  riscv: extend patch_text_nosync() for multiple pages
-  riscv: implement a memset like function for text
-  bpf, riscv: use prog pack allocator in the BPF JIT
-
- arch/riscv/include/asm/patch.h  |   1 +
- arch/riscv/kernel/patch.c       | 113 ++++++++++++++++++++++++++++++--
- arch/riscv/net/bpf_jit.h        |   3 +
- arch/riscv/net/bpf_jit_comp64.c |  56 +++++++++++++---
- arch/riscv/net/bpf_jit_core.c   | 113 +++++++++++++++++++++++++++-----
- 5 files changed, 255 insertions(+), 31 deletions(-)
+   115	
+   116	static void thead_dwmac_fix_speed(void *priv, unsigned int speed, unsigned int mode)
+   117	{
+   118		struct thead_dwmac *dwmac = priv;
+   119		struct plat_stmmacenet_data *plat = dwmac->plat;
+   120		unsigned long rate;
+   121		u32 div;
+   122	
+   123		switch (plat->interface) {
+   124		/* For MII, rxc/txc is provided by phy */
+   125		case PHY_INTERFACE_MODE_MII:
+   126			return;
+   127	
+   128		case PHY_INTERFACE_MODE_RGMII:
+   129		case PHY_INTERFACE_MODE_RGMII_ID:
+   130		case PHY_INTERFACE_MODE_RGMII_RXID:
+   131		case PHY_INTERFACE_MODE_RGMII_TXID:
+   132			rate = clk_get_rate(plat->stmmac_clk);
+   133			if (!rate || rate % GMAC_GMII_RGMII_RATE != 0 ||
+   134			    rate % GMAC_MII_RATE != 0) {
+   135				dev_err(dwmac->dev, "invalid gmac rate %ld\n", rate);
+   136				return;
+   137			}
+   138	
+   139			regmap_update_bits(dwmac->apb_regmap, GMAC_PLLCLK_DIV, GMAC_PLLCLK_DIV_EN, 0);
+   140	
+   141			switch (speed) {
+   142			case SPEED_1000:
+   143				div = rate / GMAC_GMII_RGMII_RATE;
+   144				break;
+   145			case SPEED_100:
+   146				div = rate / GMAC_MII_RATE;
+   147				break;
+   148			case SPEED_10:
+   149				div = rate * 10 / GMAC_MII_RATE;
+   150				break;
+ > 151			default:
+   152				dev_err(dwmac->dev, "invalid speed %u\n", speed);
+   153				break;
+   154			}
+   155			regmap_update_bits(dwmac->apb_regmap, GMAC_PLLCLK_DIV,
+   156					   GMAC_PLLCLK_DIV_MASK, GMAC_PLLCLK_DIV_NUM(div));
+   157	
+   158			regmap_update_bits(dwmac->apb_regmap, GMAC_PLLCLK_DIV,
+   159					   GMAC_PLLCLK_DIV_EN, GMAC_PLLCLK_DIV_EN);
+   160			break;
+   161		default:
+   162			dev_err(dwmac->dev, "unsupported phy interface %d\n",
+   163				plat->interface);
+   164			return;
+   165		}
+   166	}
+   167	
 
 -- 
-2.39.2
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
 _______________________________________________
 linux-riscv mailing list
