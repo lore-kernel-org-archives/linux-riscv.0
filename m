@@ -4,76 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB470C3DA6F
-	for <linux-riscv@archiver.kernel.org>; Thu, 24 Aug 2023 17:31:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 492D4C6FA8F
+	for <linux-riscv@archiver.kernel.org>; Thu, 24 Aug 2023 17:33:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:From:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=AbpYvmwXOWUzoj3vYTxPti3boK78OInOGeMxFyol4rw=; b=gvOV6CnsTPCV7c
-	K3fDs0l/V4FUUAKw3d8X7USFGYaWhr99gzz8D7jn4UuB3+6LhCkOOuVBNtvS30pMQHveMGxyBJvAk
-	ogDTxvMuMOeiaRwQXU82x1Kh1T1WXKTzw9s3/c6g0ZR0rUnNQ1twEi09OnXE2BAmU7YouBhoG1ry7
-	QAZTTztmhCYm4ebWnh2FmBSahMheX5cdZuwqaZAkPCLbiYnPvybWcVzXqN35fZ0K4mnD76hPVwIGt
-	eaLrLxBAV3EHREmbI2BfKcbmeYwOCJXt7ACjGs+SZpaxT+qdlbAp5AttF5YWcGfE1OUZOdcr1yAAX
-	MsuQ7/tPh08FYCo/G/HA==;
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=akFW/u9vumBTRKmEVCuC5WzAeljoB3y4z/7PALuRUxI=; b=rURF2AIAQo/EsGLEkNl2cHUqzy
+	iRUKG1Ja9r/Py8iiLh1GS14YYmxfkGIpy2HjhFraWzyRls0XS754pGCxsnvIR3hffLdiU8AtF11u3
+	Fp1QDen6uWHWgnvAAlYD34YG1Yp3QgZ3uAMkBMtvqRCF4LrCGKhduchEMTx3JKuo9LNS5qUm8ZXag
+	RhaEa8fijt/MuSf4mTH1ytXRbgea622qi0REtf83Jbh8rNTI7WDJDXgU685a4TPtc4IwcANQ245Eu
+	bttjGi535C/OtlAX0kR8EWQsZttRbdmldHjJITM7/pWYeLvpmsceDEaQFfP165KsOU0cVzNuk+Q9l
+	YmlaVH5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qZEAZ-003X4L-10;
-	Thu, 24 Aug 2023 17:30:55 +0000
-Received: from smtp84.cstnet.cn ([159.226.251.84] helo=cstnet.cn)
+	id 1qZED5-003XH4-31;
+	Thu, 24 Aug 2023 17:33:31 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qZEAV-003X3T-0s
+	id 1qZED3-003XGf-2b
 	for linux-riscv@lists.infradead.org;
-	Thu, 24 Aug 2023 17:30:54 +0000
-Received: from [192.168.0.107] (unknown [111.197.209.91])
-	by APP-05 (Coremail) with SMTP id zQCowACXnGC8k+dkhsHRBA--.2541S2;
-	Fri, 25 Aug 2023 01:30:36 +0800 (CST)
-Message-ID: <4177c0c5-4d36-75e1-84e2-c6ac82b74e50@iscas.ac.cn>
-Date: Fri, 25 Aug 2023 01:30:36 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.13.0
+	Thu, 24 Aug 2023 17:33:31 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 3F9D46463F;
+	Thu, 24 Aug 2023 17:33:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9EE88C433C7;
+	Thu, 24 Aug 2023 17:33:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1692898408;
+	bh=ahEjFBYYn126N0UBbCJdKmoqregzZPS84OaeQ8V68E4=;
+	h=Date:From:To:List-Id:Cc:Subject:References:In-Reply-To:From;
+	b=MXSsxmDumlM+ixPupdlHnUccUgS+qacYjlPhe1eE7R9NtwNhBNjCqoH/TgbgiV49j
+	 YU/J1HoY8sqEeTsqWK6/MvRlDmhN/Sk1lvcv/DojsmAjGl0yw08cu187CrHNcAHhPk
+	 xDnPGJuq6sLHqtKO4nv6IYKKMghUH8QIUKEGbQNCN/aJvJzozoymRHlywEYYdTknPY
+	 egWgPqM8GhIo69Anz9ekGsFxsW7SYuyNEosNtbMbpil6XoucfFXVanC3iOFToDHiH9
+	 hzgEHWQJaRKewpSP9QILXZQJjYScInAdz9/jW0/2djeBpixVKvferjRsfeN+ILRFyL
+	 IIx8haZFMVXkw==
+Date: Thu, 24 Aug 2023 18:33:23 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Mingzheng Xing <xingmingzheng@iscas.ac.cn>
+Cc: Conor Dooley <conor.dooley@microchip.com>,
+	patchwork-bot+linux-riscv@kernel.org,
+	linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, nathan@kernel.org,
+	ndesaulniers@google.com, trix@redhat.com, bmeng@tinylab.org,
+	guoren@kernel.org, linux-kernel@vger.kernel.org,
+	llvm@lists.linux.dev, stable@vger.kernel.org
 Subject: Re: [PATCH v5] riscv: Handle zicsr/zifencei issue between gcc and
  binutils
-Content-Language: en-US
-From: Mingzheng Xing <xingmingzheng@iscas.ac.cn>
-To: Conor Dooley <conor@kernel.org>, Conor Dooley <conor.dooley@microchip.com>
-Cc: patchwork-bot+linux-riscv@kernel.org, linux-riscv@lists.infradead.org,
- paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
- nathan@kernel.org, ndesaulniers@google.com, trix@redhat.com,
- bmeng@tinylab.org, guoren@kernel.org, linux-kernel@vger.kernel.org,
- llvm@lists.linux.dev, stable@vger.kernel.org
+Message-ID: <20230824-stick-neutron-839dfdfa0538@spud>
 References: <20230809165648.21071-1-xingmingzheng@iscas.ac.cn>
  <169228562484.20811.14246462375671910714.git-patchwork-notify@kernel.org>
  <20230823-captive-abdomen-befd942a4a73@wendy>
  <20230823-facelift-ovary-41f2eb4d9eac@spud>
  <4677fc33-6e76-21e6-2a7f-f12670bc1ce2@iscas.ac.cn>
-Organization: ISCAS
-In-Reply-To: <4677fc33-6e76-21e6-2a7f-f12670bc1ce2@iscas.ac.cn>
-X-CM-TRANSID: zQCowACXnGC8k+dkhsHRBA--.2541S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxXFWrWF4xWryktFWxKFWxZwb_yoWrKF4kp3
-	4rGF17GrWUJr18Jwn7tr1jqryjyrWUJ34UXrn8JF1UJryDWr1jqF1xXryY9r1DtF4rGr18
-	Ar1UGF1xZr1DJrDanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvlb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Jr0_JF4l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW8JVWxJwA2z4x0Y4vEx4
-	A2jsIEc7CjxVAFwI0_Gr0_Gr1UM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI
-	64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8Jw
-	Am72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1l
-	c7I2V7IY0VAS07AlzVAYIcxG8wCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJV
-	W8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF
-	1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6x
-	IIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvE
-	x4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvj
-	DU0xZFpf9x07beAp5UUUUU=
-X-Originating-IP: [111.197.209.91]
-X-CM-SenderInfo: 50lqwzhlqj6xxhqjqxpvfd2hldfou0/1tbiAxMNCmTnYidivAAAsP
+ <4177c0c5-4d36-75e1-84e2-c6ac82b74e50@iscas.ac.cn>
+MIME-Version: 1.0
+In-Reply-To: <4177c0c5-4d36-75e1-84e2-c6ac82b74e50@iscas.ac.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230824_103051_700067_1F8D001B 
-X-CRM114-Status: GOOD (  19.35  )
+X-CRM114-CacheID: sfid-20230824_103329_951070_8E0CE1CD 
+X-CRM114-Status: GOOD (  31.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,91 +80,122 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: multipart/mixed; boundary="===============2320659666386853122=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gOC8yNC8yMyAxOTozMiwgTWluZ3poZW5nIFhpbmcgd3JvdGU6Cj4gT24gOC8yMy8yMyAyMToz
-MSwgQ29ub3IgRG9vbGV5IHdyb3RlOgo+PiBPbiBXZWQsIEF1ZyAyMywgMjAyMyBhdCAxMjo1MTox
-M1BNICswMTAwLCBDb25vciBEb29sZXkgd3JvdGU6Cj4+PiBPbiBUaHUsIEF1ZyAxNywgMjAyMyBh
-dCAwMzoyMDoyNFBNICswMDAwLCAKPj4+IHBhdGNod29yay1ib3QrbGludXgtcmlzY3ZAa2VybmVs
-Lm9yZyB3cm90ZToKPj4+PiBIZWxsbzoKPj4+Pgo+Pj4+IFRoaXMgcGF0Y2ggd2FzIGFwcGxpZWQg
-dG8gcmlzY3YvbGludXguZ2l0IChmaXhlcykKPj4+PiBieSBQYWxtZXIgRGFiYmVsdCA8cGFsbWVy
-QHJpdm9zaW5jLmNvbT46Cj4+Pj4KPj4+PiBPbiBUaHUsIDEwIEF1ZyAyMDIzIDAwOjU2OjQ4ICsw
-ODAwIHlvdSB3cm90ZToKPj4+Pj4gQmludXRpbHMtMi4zOCBhbmQgR0NDLTEyLjEuMCBidW1wZWRb
-MF1bMV0gdGhlIGRlZmF1bHQgSVNBIHNwZWMgdG8gCj4+Pj4+IHRoZSBuZXdlcgo+Pj4+PiAyMDE5
-MTIxMyB2ZXJzaW9uIHdoaWNoIG1vdmVzIHNvbWUgaW5zdHJ1Y3Rpb25zIGZyb20gdGhlIEkgCj4+
-Pj4+IGV4dGVuc2lvbiB0byB0aGUKPj4+Pj4gWmljc3IgYW5kIFppZmVuY2VpIGV4dGVuc2lvbnMu
-IFNvIGlmIG9uZSBvZiB0aGUgYmludXRpbHMgYW5kIEdDQyAKPj4+Pj4gZXhjZWVkcwo+Pj4+PiB0
-aGF0IHZlcnNpb24sIHdlIHNob3VsZCBleHBsaWNpdGx5IHNwZWNpZnlpbmcgWmljc3IgYW5kIFpp
-ZmVuY2VpIAo+Pj4+PiB2aWEgLW1hcmNoCj4+Pj4+IHRvIGNvcGUgd2l0aCB0aGUgbmV3IGNoYW5n
-ZXMuIGJ1dCB0aGlzIG9ubHkgb2NjdXJzIHdoZW4gYmludXRpbHMgCj4+Pj4+ID49IDIuMzYKPj4+
-Pj4gYW5kIEdDQyA+PSAxMS4xLjAuIEl0J3MgYSBkaWZmZXJlbnQgc3Rvcnkgd2hlbiBiaW51dGls
-cyA8IDIuMzYuCj4+Pj4+Cj4+Pj4+IFsuLi5dCj4+Pj4gSGVyZSBpcyB0aGUgc3VtbWFyeSB3aXRo
-IGxpbmtzOgo+Pj4+IMKgwqAgLSBbdjVdIHJpc2N2OiBIYW5kbGUgemljc3IvemlmZW5jZWkgaXNz
-dWUgYmV0d2VlbiBnY2MgYW5kIGJpbnV0aWxzCj4+Pj4gwqDCoMKgwqAgaHR0cHM6Ly9naXQua2Vy
-bmVsLm9yZy9yaXNjdi9jL2NhMDlmNzcyY2NjYQo+Pj4gKnNpZ2gqIHNvIHRoaXMgYnJlYWtzIHRo
-ZSBidWlsZCBmb3IgZ2NjLTExICYgYmludXRpbHMgMi4zNyB3Lwo+Pj4gwqDCoMKgwqBBc3NlbWJs
-ZXIgbWVzc2FnZXM6Cj4+PiDCoMKgwqDCoEVycm9yOiBjYW5ub3QgZmluZCBkZWZhdWx0IHZlcnNp
-b25zIG9mIHRoZSBJU0EgZXh0ZW5zaW9uIGB6aWNzcicKPj4+IMKgwqDCoMKgRXJyb3I6IGNhbm5v
-dCBmaW5kIGRlZmF1bHQgdmVyc2lvbnMgb2YgdGhlIElTQSBleHRlbnNpb24gYHppZmVuY2VpJwo+
-Pj4KPj4+IEknbGwgaGF2ZSBhIHBva2UgbGF0ZXIuCj4+IFNvIHVoLCBhcmUgd2Ugc3VyZSB0aGF0
-IHRoaXMgc2hvdWxkIG5vdCBiZToKPj4gLcKgwqDCoMKgwqDCoCBkZXBlbmRzIG9uIChDQ19JU19D
-TEFORyAmJiBDTEFOR19WRVJTSU9OIDwgMTcwMDAwKSB8fCAKPj4gKENDX0lTX0dDQyAmJiBHQ0Nf
-VkVSU0lPTiA8IDExMDEwMCkKPj4gK8KgwqDCoMKgwqDCoCBkZXBlbmRzIG9uIChDQ19JU19DTEFO
-RyAmJiBDTEFOR19WRVJTSU9OIDwgMTcwMDAwKSB8fCAKPj4gKENDX0lTX0dDQyAmJiBHQ0NfVkVS
-U0lPTiA8PSAxMTAxMDApCj4+Cj4+IE15IGdjYy0xMS4xICsgYmludXRpbHMgMi4zNyB0b29sY2hh
-aW4gYnVpbHQgZnJvbSByaXNjdi1nbnUtdG9vbGNoYWluCj4+IGRvZXNuJ3QgaGF2ZSB0aGUgZGVm
-YXVsdCB2ZXJzaW9ucyAmIHRoZSBhYm92ZSBkaWZmIGZpeGVzIHRoZSBidWlsZC4KPgo+IEkgcmVw
-cm9kdWNlZCB0aGUgZXJyb3IsIHRoZSBjb21iaW5hdGlvbiBvZiBnY2MtMTEuMSBhbmQKPiBiaW51
-dGlscyAyLjM3IGRvZXMgY2F1c2UgZXJyb3JzLiBXaGF0IGEgc3VycHJpc2UsIHNpbmNlIGJpbnV0
-aWxzCj4gMi4zNiBhbmQgMi4zOCBhcmUgZmluZS4KPgo+IEkgdXNlZCBnaXQgYmlzZWN0IHRvIGxv
-Y2F0ZSB0aGlzIGNvbW1pdFsxXSBmb3IgYmludXRpbHMuCj4gSSdsbCB0ZXN0IHRoaXMgZGlmZiBp
-biBtb3JlIGRldGFpbCBsYXRlci4gVGhhbmtzIQo+Cj4gWzFdIAo+IGh0dHBzOi8vc291cmNld2Fy
-ZS5vcmcvZ2l0Lz9wPWJpbnV0aWxzLWdkYi5naXQ7YT1jb21taXQ7aD1mMGJhZTI1NTJkYjFkZDRm
-MTk5NTYwOGZiZjY2NDhmY2VlNGU5ZTBjCj4KCkhpLCBDb25vci4KVGhlIGFib3ZlIGVycm9yIGRv
-ZXMgb3JpZ2luYXRlIGZyb20gbGlua1sxXSBtZW50aW9uZWQgYWJvdmUsIHdoaWNoIHdhcwpyZXNv
-bHZlZCBpbiBnY2MtMTIuMS4wWzJdLCBhbmQgZ2NjLTExLjMuMCBtYWRlIHRoZSBiYWNrcG9ydFsz
-XS4KU28gZ2NjLTExLjIuMCBjb21iaW5lZCB3aXRoIGJpbnV0aWxzIDIuMzcgcHJvZHVjZXMgdGhl
-IHNhbWUgZXJyb3IuCkkgdGhpbmsgd2Ugc2hvdWxkIGRvIHRoZSBmb2xsb3dpbmcgZGlmZiB0byBm
-aXggaXQ6Ci3CoMKgwqDCoMKgwqAgZGVwZW5kcyBvbiAoQ0NfSVNfQ0xBTkcgJiYgQ0xBTkdfVkVS
-U0lPTiA8IDE3MDAwMCkgfHwgKENDX0lTX0dDQyAKJiYgR0NDX1ZFUlNJT04gPCAxMTAxMDApCivC
-oMKgwqDCoMKgwqAgZGVwZW5kcyBvbiAoQ0NfSVNfQ0xBTkcgJiYgQ0xBTkdfVkVSU0lPTiA8IDE3
-MDAwMCkgfHwgKENDX0lTX0dDQyAKJiYgR0NDX1ZFUlNJT04gPCAxMTAzMDApCgpUaGVuIGJlbG93
-IGFyZSBteSB0ZXN0IHJlc3VsdHMgYWZ0ZXIgdGhlIGZpeDoKCmdjY8KgwqDCoMKgwqDCoMKgIGJp
-bnV0aWxzCgoxMC41LjDCoMKgwqDCoCAyLjM1wqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBvawoxMC41
-LjDCoMKgwqDCoCAyLjM2wqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBvawoxMC41LjDCoMKgwqDCoCAy
-LjM3wqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBvawoxMC41LjDCoMKgwqDCoCAyLjM4wqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoCBvawoKMTEuMS4wwqDCoMKgwqAgMi4zNcKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqAgb2sKMTEuMS4wwqDCoMKgwqAgMi4zNsKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgb2sKMTEuMS4w
-wqDCoMKgwqAgMi4zN8KgwqDCoMKgwqDCoMKgwqDCoMKgwqAgb2sKMTEuMS4wwqDCoMKgwqAgMi4z
-OMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgb2sKCjExLjIuMMKgwqDCoMKgIDIuMzXCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgIG9rCjExLjIuMMKgwqDCoMKgIDIuMzbCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-IG9rCjExLjIuMMKgwqDCoMKgIDIuMzfCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIG9rCjExLjIuMMKg
-wqDCoMKgIDIuMzjCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIG9rCgoxMS4zLjDCoMKgwqDCoCAyLjM1
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBvawoxMS4zLjDCoMKgwqDCoCAyLjM2wqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoCBvawoxMS4zLjDCoMKgwqDCoCAyLjM3wqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBv
-awoxMS4zLjDCoMKgwqDCoCAyLjM4wqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBvawoKMTEuNC4wwqDC
-oMKgwqAgMi4zNcKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgb2sKMTEuNC4wwqDCoMKgwqAgMi4zNsKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqAgb2sKMTEuNC4wwqDCoMKgwqAgMi4zN8KgwqDCoMKgwqDCoMKg
-wqDCoMKgwqAgb2sKMTEuNC4wwqDCoMKgwqAgMi4zOMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgb2sK
-CjEyLjEuMMKgwqDCoMKgIDIuMzXCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIG9rCjEyLjEuMMKgwqDC
-oMKgIDIuMzbCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIG9rCjEyLjEuMMKgwqDCoMKgIDIuMzfCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgIG9rCjEyLjEuMMKgwqDCoMKgIDIuMzjCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgIG9rCgoxMi4yLjDCoMKgwqDCoCAyLjM1wqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBvawox
-Mi4yLjDCoMKgwqDCoCAyLjM2wqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBvawoxMi4yLjDCoMKgwqDC
-oCAyLjM3wqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBvawoxMi4yLjDCoMKgwqDCoCAyLjM4wqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoCBvawoKWzFdIApodHRwczovL3NvdXJjZXdhcmUub3JnL2dpdC8/cD1i
-aW51dGlscy1nZGIuZ2l0O2E9Y29tbWl0O2g9ZjBiYWUyNTUyZGIxZGQ0ZjE5OTU2MDhmYmY2NjQ4
-ZmNlZTRlOWUwYwpbMl0gCmh0dHBzOi8vZ2NjLmdudS5vcmcvZ2l0Lz9wPWdjYy5naXQ7YT1jb21t
-aXQ7aD1jYTJiYmI4OGY5OTlmNGQzY2M0MGU4OWJjMWFiYTcxMjUwNWRkNTk4ClszXSAKaHR0cHM6
-Ly9nY2MuZ251Lm9yZy9naXQvP3A9Z2NjLmdpdDthPWNvbW1pdDtoPWQyOWY1ZDZhYjUxM2M1MmZk
-ODcyZjUzMmM0OTJlMzVhZTlmZDY2NzEKClRoYW5rcywKTWluZ3poZW5nLgoKPj4KPj4gVGhhbmtz
-LAo+PiBDb25vci4KPgo+Cj4gX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX18KPiBsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKPiBsaW51eC1yaXNjdkBsaXN0cy5p
-bmZyYWRlYWQub3JnCj4gaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5m
-by9saW51eC1yaXNjdgoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRl
-YWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgt
-cmlzY3YK
+
+--===============2320659666386853122==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="GzRpdPN9dHzG3R55"
+Content-Disposition: inline
+
+
+--GzRpdPN9dHzG3R55
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Fri, Aug 25, 2023 at 01:30:36AM +0800, Mingzheng Xing wrote:
+> On 8/24/23 19:32, Mingzheng Xing wrote:
+> > On 8/23/23 21:31, Conor Dooley wrote:
+> > > On Wed, Aug 23, 2023 at 12:51:13PM +0100, Conor Dooley wrote:
+> > > > On Thu, Aug 17, 2023 at 03:20:24PM +0000,
+> > > > patchwork-bot+linux-riscv@kernel.org wrote:
+> > > > > Hello:
+> > > > >=20
+> > > > > This patch was applied to riscv/linux.git (fixes)
+> > > > > by Palmer Dabbelt <palmer@rivosinc.com>:
+> > > > >=20
+> > > > > On Thu, 10 Aug 2023 00:56:48 +0800 you wrote:
+> > > > > > Binutils-2.38 and GCC-12.1.0 bumped[0][1] the default
+> > > > > > ISA spec to the newer
+> > > > > > 20191213 version which moves some instructions from the
+> > > > > > I extension to the
+> > > > > > Zicsr and Zifencei extensions. So if one of the binutils
+> > > > > > and GCC exceeds
+> > > > > > that version, we should explicitly specifying Zicsr and
+> > > > > > Zifencei via -march
+> > > > > > to cope with the new changes. but this only occurs when
+> > > > > > binutils >=3D 2.36
+> > > > > > and GCC >=3D 11.1.0. It's a different story when binutils < 2.3=
+6.
+> > > > > >=20
+> > > > > > [...]
+> > > > > Here is the summary with links:
+> > > > > =A0=A0 - [v5] riscv: Handle zicsr/zifencei issue between gcc and =
+binutils
+> > > > > =A0=A0=A0=A0 https://git.kernel.org/riscv/c/ca09f772ccca
+> > > > *sigh* so this breaks the build for gcc-11 & binutils 2.37 w/
+> > > > =A0=A0=A0=A0Assembler messages:
+> > > > =A0=A0=A0=A0Error: cannot find default versions of the ISA extensio=
+n `zicsr'
+> > > > =A0=A0=A0=A0Error: cannot find default versions of the ISA extensio=
+n `zifencei'
+> > > >=20
+> > > > I'll have a poke later.
+> > > So uh, are we sure that this should not be:
+> > > -=A0=A0=A0=A0=A0=A0 depends on (CC_IS_CLANG && CLANG_VERSION < 170000=
+) ||
+> > > (CC_IS_GCC && GCC_VERSION < 110100)
+> > > +=A0=A0=A0=A0=A0=A0 depends on (CC_IS_CLANG && CLANG_VERSION < 170000=
+) ||
+> > > (CC_IS_GCC && GCC_VERSION <=3D 110100)
+> > >=20
+> > > My gcc-11.1 + binutils 2.37 toolchain built from riscv-gnu-toolchain
+> > > doesn't have the default versions & the above diff fixes the build.
+> >=20
+> > I reproduced the error, the combination of gcc-11.1 and
+> > binutils 2.37 does cause errors. What a surprise, since binutils
+> > 2.36 and 2.38 are fine.
+> >=20
+> > I used git bisect to locate this commit[1] for binutils.
+> > I'll test this diff in more detail later. Thanks!
+> >=20
+> > [1] https://sourceware.org/git/?p=3Dbinutils-gdb.git;a=3Dcommit;h=3Df0b=
+ae2552db1dd4f1995608fbf6648fcee4e9e0c
+> >=20
+>=20
+> Hi, Conor.
+> The above error does originate from link[1] mentioned above, which was
+> resolved in gcc-12.1.0[2], and gcc-11.3.0 made the backport[3].
+> So gcc-11.2.0 combined with binutils 2.37 produces the same error.
+> I think we should do the following diff to fix it:
+> -=A0=A0=A0=A0=A0=A0 depends on (CC_IS_CLANG && CLANG_VERSION < 170000) ||=
+ (CC_IS_GCC &&
+> GCC_VERSION < 110100)
+> +=A0=A0=A0=A0=A0=A0 depends on (CC_IS_CLANG && CLANG_VERSION < 170000) ||=
+ (CC_IS_GCC &&
+> GCC_VERSION < 110300)
+
+That sounds good to me. Can you make that a real patch please?
+
+Thanks for working on it :)
+
+--GzRpdPN9dHzG3R55
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZOeUYwAKCRB4tDGHoIJi
+0shAAPwPF6Ho7GmV1QqOqCxaLs5lrfrMuUqsTg0UQOkhrKmXagD/SB/pACU1o7NB
+wwud4O1QrkkA0shYDsylGNjF0UCUgwo=
+=y6Et
+-----END PGP SIGNATURE-----
+
+--GzRpdPN9dHzG3R55--
+
+
+--===============2320659666386853122==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============2320659666386853122==--
+
