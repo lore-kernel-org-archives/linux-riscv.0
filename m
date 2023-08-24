@@ -4,64 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FFDDC6FA8F
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 475CBC27C40
 	for <linux-riscv@archiver.kernel.org>; Thu, 24 Aug 2023 13:31:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lIsuS0ycwo14YGhTyUKnhPmy9Fr2uQKlB1sQxDM8KIM=; b=OozzaFxB5LH6s1
-	msZFy2YkqWlZNzU7MDKbODkjDku2qZG68yn6pZKzOQBBT+7cHJhZcZrhcyR3ymEdTviBbj0s3mUkf
-	59fjy0MtojhDq2W/d5PHsnCOgfWJZiSyPRznUsZWxIUgxwdlNnr3aNl6Jvp4dldihwfUZf331i7CU
-	mi5XimJJEfHgRO+qsYHExDnfda+auLm2q7iTsLN3PG1A/ES3aZxxTwVf/lobdZJPMCD7iwW8c0CTc
-	FZn1cZgSE17j7Y5WkodeBj+6bbJF5D5+ka1TukCjtD+arkuMzZUPdvlNs3DIJVv72xN4EAlBRx5fJ
-	0Sa8Haj6hi51wnexVoOA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=FXO4VGK5OrePLFdO66OxojK/ZYiE2MTK6cTCEVh10Ac=; b=21BUruV+ruQAPC
+	YI/QKEAdzkriuSAMBLxcgAs8tCA24rEM/5M/KUVzi0xYDX6HdUGFotyAQ/Px7hT1SUT5nSd/97zwT
+	ZJgS6PLVYzdQSyj6+ZeOV3mT8ilstDUwTdN2wnzw/2yAE+MxIgjFVNqVj5jk9IkaNcB6bHLLLlLXM
+	0OA6BtENDJ17Py2UZ9pmR6MvGft8VAj0Xxr+WAKlGUjcgl5Wmdp8+mL9LLGRtHSfCB9ctKEAepiO7
+	p/+GCrqCQNRd1eIYYIuzClDUwr2cG96mXjIqs2fRcc7GWdRI4GYeHcE7mtDqbJPNoa6BQm5bOKtLa
+	vDj6EDzZ/yevO/DV1jZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qZARE-00394v-0a;
-	Thu, 24 Aug 2023 13:31:52 +0000
-Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
+	id 1qZAR6-00392H-0B;
+	Thu, 24 Aug 2023 13:31:44 +0000
+Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qZAR9-00392G-1B
+	id 1qZAR3-00390l-0Y
 	for linux-riscv@lists.infradead.org;
-	Thu, 24 Aug 2023 13:31:49 +0000
-Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-31c73c21113so739142f8f.1
-        for <linux-riscv@lists.infradead.org>; Thu, 24 Aug 2023 06:31:44 -0700 (PDT)
+	Thu, 24 Aug 2023 13:31:42 +0000
+Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-31c63cd4ec2so2365466f8f.0
+        for <linux-riscv@lists.infradead.org>; Thu, 24 Aug 2023 06:31:38 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20221208; t=1692883903; x=1693488703;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ZE4gDzK4BarFOpFDUm7HsASsZoYlPGB/PtNYZtQuQCs=;
-        b=kUDT9RjwDHv+JZXpX798v6QF8WCmiH9+ChraAqrdEgCcxpCTrkdSXC0HSqVuKGjMoe
-         4TZ8TMsgeLbCUFChDXAMCx6GW8BPtylnx6TxgmN4afs+pjIBNFfdfZRMMXCg+w1vCtJQ
-         QVz/uXJ5LUmDSA8901Uj6fGVc1hqiBYqIfWuYJXgvMS6bBU6xifqsCXcLQUGB2WF/+l/
-         h+AhNeV5kA1gZ/qCEYrW5jhJfQe+YSE9g5+qL1Uo3Fukd/qZCisCNVUW6QJ+LdkiFr9N
-         3otdSppiB1rW3Gw2F1X2OCk3aNWlspGnyXPpEmCKaIABB28qu6r4/gT6duzmsg+48xQe
-         +rEg==
+        d=gmail.com; s=20221208; t=1692883897; x=1693488697;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=/FdYUtkQiM1JM6m+vtN/k3hYAug9sY5fG1iQwa7Fcq4=;
+        b=JpjQHo7+L3DPs8XZmCudaeskHTtaLnVxKG3aPWyUyez3hsjSz8vtopkx2yyIcRiRwV
+         CxbR+bJeaZsQKnRn99C5YuuA41+7pQ+IxE+w84BwuYF16Wiq+Im0RjfXuQTXJmJPZRGo
+         MLkfrXomm7xEAvMroz3Np7Cal+V0VCqQceP1qq2IQWQe3ewpHqWEu08iPKaLPy2GecAb
+         loS8fSaRQdL7IXxU+UmJLDka//AXrRgdbsFORtfcHTVrGxNHkiexGG83SPB5kBihTOZ8
+         SRX9QC4MfIUeMPBio0rWa1cVp8JPa+rniyDp31PXqhlrZuVY3UScBjYkVh6OUpYHkv0e
+         qtrQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1692883903; x=1693488703;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=ZE4gDzK4BarFOpFDUm7HsASsZoYlPGB/PtNYZtQuQCs=;
-        b=FAXFlKhWPb214FEWUXWT1wOCzd+Xpo9gLAVgxgapXBIv4STqn/oXKpfQ6N4A+oCAkq
-         aAcTfQzhk0h2e+ZpTvVeL2IMKqG1hp9Vk+2EJ5EuNiqy1m4OFoXP7wT0VCpbnvl1kR8A
-         lO7X08yizHGL9S0q/xkYrkZxNg00Jd3Ay43xJZ6j5qn423wcLnH0J0p3LpEd6KbWWI9o
-         VdrnWN2vXzrIMzP5RHvkEcO1O5YVOzwVgDD4pFBM/mXiFl4Zerttr7XTPL+fD5BRv8zt
-         EkpAMnN+XKB9oEZ1u289lABAiSjqwUgLsRnDvS9GODjSaYmLEe8Zg1aFJk4sCfFMhXuW
-         4bMw==
-X-Gm-Message-State: AOJu0YzurCBa9FYM06o3s48aCCMw7nHvAWpXLLnRDxsBmJmjvzDHpwxj
-	ae/mlKiBuf4dBlW8Wt12Q2s=
-X-Google-Smtp-Source: AGHT+IE1DHrzD3RMD7X4DeWFzUxZYCQraZB2mYQ/IPMdz7u1EG1Wbjt6XtsI/mZNX+FYlVXWg+AhbQ==
-X-Received: by 2002:adf:f602:0:b0:31c:5e4d:4e75 with SMTP id t2-20020adff602000000b0031c5e4d4e75mr7471812wrp.44.1692883902923;
-        Thu, 24 Aug 2023 06:31:42 -0700 (PDT)
+        d=1e100.net; s=20221208; t=1692883897; x=1693488697;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=/FdYUtkQiM1JM6m+vtN/k3hYAug9sY5fG1iQwa7Fcq4=;
+        b=JPucqjnFmkKgGDfbwEh+DLHE+47qZ84anEuU/YlB0/ou/l4PrfKByE8gp2uwxNXjkC
+         bg8nQov9jkgadXGLAiqB3tdjHwdOiDm/ciAECgsiYnQUOgiu4S/lXDDq0A5gGkW81B7g
+         Ge8zF9LKmtgvOfqy90qrm27w3Tppi5URYZjAOxDTQTbmTi5QUUO+YZmWOGMRJOHKrqHR
+         SuZZRe5qiD9KsuZO8Ydljy7AO0lZootGplpkP4vp/CHpSlX2pLTefM0KKriYnxgZ4UBc
+         HEEp0kie7SzxCkpqMLX0NLITwsq+PkxY3/Hb3HV+mLHuzGOhPI5NKfe4iAKZO93hhSH6
+         PuDQ==
+X-Gm-Message-State: AOJu0YzHlXyahtyRjmw0Q4Uxen4gbGYpNT7C+A9jWksBG1X6omv6FMsB
+	6dplULVRdJt6rCZAtM8zjGQ=
+X-Google-Smtp-Source: AGHT+IHL/HgZh8yHs1r/hj6jGyz5kbloHuUrEeF21EDf5fE7o76UP5eUp1ft4jmivITX/DrUjdKf7w==
+X-Received: by 2002:a05:6000:8b:b0:314:36f0:2214 with SMTP id m11-20020a056000008b00b0031436f02214mr10769903wrx.6.1692883897414;
+        Thu, 24 Aug 2023 06:31:37 -0700 (PDT)
 Received: from ip-172-31-30-46.eu-west-1.compute.internal (ec2-54-170-241-106.eu-west-1.compute.amazonaws.com. [54.170.241.106])
-        by smtp.gmail.com with ESMTPSA id h11-20020a5d548b000000b00317e77106dbsm22396112wrv.48.2023.08.24.06.31.41
+        by smtp.gmail.com with ESMTPSA id h11-20020a5d548b000000b00317e77106dbsm22396112wrv.48.2023.08.24.06.31.36
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 24 Aug 2023 06:31:41 -0700 (PDT)
+        Thu, 24 Aug 2023 06:31:36 -0700 (PDT)
 From: Puranjay Mohan <puranjay12@gmail.com>
 To: paul.walmsley@sifive.com,
 	palmer@dabbelt.com,
@@ -80,16 +79,14 @@ To: paul.walmsley@sifive.com,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org
 Cc: puranjay12@gmail.com
-Subject: [PATCH bpf-next v2 3/3] bpf, riscv: use prog pack allocator in the BPF JIT
-Date: Thu, 24 Aug 2023 13:31:35 +0000
-Message-Id: <20230824133135.1176709-4-puranjay12@gmail.com>
+Subject: [PATCH bpf-next v2 0/3] bpf, riscv: use BPF prog pack allocator in BPF JIT
+Date: Thu, 24 Aug 2023 13:31:32 +0000
+Message-Id: <20230824133135.1176709-1-puranjay12@gmail.com>
 X-Mailer: git-send-email 2.40.1
-In-Reply-To: <20230824133135.1176709-1-puranjay12@gmail.com>
-References: <20230824133135.1176709-1-puranjay12@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230824_063147_408590_8C4CC204 
-X-CRM114-Status: GOOD (  29.46  )
+X-CRM114-CacheID: sfid-20230824_063141_239914_53F04A78 
+X-CRM114-Status: GOOD (  16.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,334 +103,142 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Use bpf_jit_binary_pack_alloc() for memory management of JIT binaries in
-RISCV BPF JIT. The bpf_jit_binary_pack_alloc creates a pair of RW and RX
-buffers. The JIT writes the program into the RW buffer. When the JIT is
-done, the program is copied to the final RX buffer with
-bpf_jit_binary_pack_finalize.
+Changes in v1 -> v2:
+1. Implement a new function patch_text_set_nosync() to be used in bpf_arch_text_invalidate().
+   The implementation in v1 called patch_text_nosync() in a loop and it was bad as it would
+   call flush_icache_range() for every word making it really slow. This was found by running
+   the test_tag selftest which would take forever to complete.
 
-Implement bpf_arch_text_copy() and bpf_arch_text_invalidate() for RISCV
-JIT as these functions are required by bpf_jit_binary_pack allocator.
+Here is some data to prove the V2 fixes the problem:
 
-Signed-off-by: Puranjay Mohan <puranjay12@gmail.com>
----
+Without this series:
+root@rv-selftester:~/src/kselftest/bpf# time ./test_tag
+test_tag: OK (40945 tests)
+
+real    7m47.562s
+user    0m24.145s
+sys     6m37.064s
+
+With this series applied:
+root@rv-selftester:~/src/selftest/bpf# time ./test_tag
+test_tag: OK (40945 tests)
+
+real    7m29.472s
+user    0m25.865s
+sys     6m18.401s
+
+BPF programs currently consume a page each on RISCV. For systems with many BPF
+programs, this adds significant pressure to instruction TLB. High iTLB pressure
+usually causes slow down for the whole system.
+
+Song Liu introduced the BPF prog pack allocator[1] to mitigate the above issue.
+It packs multiple BPF programs into a single huge page. It is currently only
+enabled for the x86_64 BPF JIT.
+
+I enabled this allocator on the ARM64 BPF JIT[2]. It is being reviewed now.
+
+This patch series enables the BPF prog pack allocator for the RISCV BPF JIT.
+This series needs a patch[3] from the ARM64 series to work.
+
+======================================================
+Performance Analysis of prog pack allocator on RISCV64
+======================================================
+
+Test setup:
+===========
+
+Host machine: Debian GNU/Linux 11 (bullseye)
+Qemu Version: QEMU emulator version 8.0.3 (Debian 1:8.0.3+dfsg-1)
+u-boot-qemu Version: 2023.07+dfsg-1
+opensbi Version: 1.3-1
+
+To test the performance of the BPF prog pack allocator on RV, a stresser
+tool[4] linked below was built. This tool loads 8 BPF programs on the system and
+triggers 5 of them in an infinite loop by doing system calls.
+
+The runner script starts 20 instances of the above which loads 8*20=160 BPF
+programs on the system, 5*20=100 of which are being constantly triggered.
+The script is passed a command which would be run in the above environment.
+
+The script was run with following perf command:
+./run.sh "perf stat -a \
+        -e iTLB-load-misses \
+        -e dTLB-load-misses  \
+        -e dTLB-store-misses \
+        -e instructions \
+        --timeout 60000"
+
+The output of the above command is discussed below before and after enabling the
+BPF prog pack allocator.
+
+The tests were run on qemu-system-riscv64 with 8 cpus, 16G memory. The rootfs
+was created using Bjorn's riscv-cross-builder[5] docker container linked below.
+
+Results
+=======
+
+Before enabling prog pack allocator:
+------------------------------------
+
+Performance counter stats for 'system wide':
+
+           4939048      iTLB-load-misses
+           5468689      dTLB-load-misses
+            465234      dTLB-store-misses
+     1441082097998      instructions
+
+      60.045791200 seconds time elapsed
+
+After enabling prog pack allocator:
+-----------------------------------
+
+Performance counter stats for 'system wide':
+
+           3430035      iTLB-load-misses
+           5008745      dTLB-load-misses
+            409944      dTLB-store-misses
+     1441535637988      instructions
+
+      60.046296600 seconds time elapsed
+
+Improvements in metrics
+=======================
+
+It was expected that the iTLB-load-misses would decrease as now a single huge
+page is used to keep all the BPF programs compared to a single page for each
+program earlier.
+
+--------------------------------------------
+The improvement in iTLB-load-misses: -30.5 %
+--------------------------------------------
+
+I repeated this expriment more than 100 times in different setups and the
+improvement was always greater than 30%.
+
+This patch series is boot tested on the Starfive VisionFive 2 board[6].
+The performance analysis was not done on the board because it doesn't
+expose iTLB-load-misses, etc. The stresser program was run on the board to test
+the loading and unloading of BPF programs
+
+[1] https://lore.kernel.org/bpf/20220204185742.271030-1-song@kernel.org/
+[2] https://lore.kernel.org/all/20230626085811.3192402-1-puranjay12@gmail.com/
+[3] https://lore.kernel.org/all/20230626085811.3192402-2-puranjay12@gmail.com/
+[4] https://github.com/puranjaymohan/BPF-Allocator-Bench
+[5] https://github.com/bjoto/riscv-cross-builder
+[6] https://www.starfivetech.com/en/site/boards
+
+Puranjay Mohan (3):
+  riscv: extend patch_text_nosync() for multiple pages
+  riscv: implement a memset like function for text
+  bpf, riscv: use prog pack allocator in the BPF JIT
+
+ arch/riscv/include/asm/patch.h  |   1 +
+ arch/riscv/kernel/patch.c       | 113 ++++++++++++++++++++++++++++++--
  arch/riscv/net/bpf_jit.h        |   3 +
  arch/riscv/net/bpf_jit_comp64.c |  56 +++++++++++++---
  arch/riscv/net/bpf_jit_core.c   | 113 +++++++++++++++++++++++++++-----
- 3 files changed, 146 insertions(+), 26 deletions(-)
+ 5 files changed, 255 insertions(+), 31 deletions(-)
 
-diff --git a/arch/riscv/net/bpf_jit.h b/arch/riscv/net/bpf_jit.h
-index 2717f5490428..ad69319c8ea7 100644
---- a/arch/riscv/net/bpf_jit.h
-+++ b/arch/riscv/net/bpf_jit.h
-@@ -68,6 +68,7 @@ static inline bool is_creg(u8 reg)
- struct rv_jit_context {
- 	struct bpf_prog *prog;
- 	u16 *insns;		/* RV insns */
-+	u16 *ro_insns;
- 	int ninsns;
- 	int prologue_len;
- 	int epilogue_offset;
-@@ -85,7 +86,9 @@ static inline int ninsns_rvoff(int ninsns)
- 
- struct rv_jit_data {
- 	struct bpf_binary_header *header;
-+	struct bpf_binary_header *ro_header;
- 	u8 *image;
-+	u8 *ro_image;
- 	struct rv_jit_context ctx;
- };
- 
-diff --git a/arch/riscv/net/bpf_jit_comp64.c b/arch/riscv/net/bpf_jit_comp64.c
-index 0ca4f5c0097c..d77b16338ba2 100644
---- a/arch/riscv/net/bpf_jit_comp64.c
-+++ b/arch/riscv/net/bpf_jit_comp64.c
-@@ -144,7 +144,11 @@ static bool in_auipc_jalr_range(s64 val)
- /* Emit fixed-length instructions for address */
- static int emit_addr(u8 rd, u64 addr, bool extra_pass, struct rv_jit_context *ctx)
- {
--	u64 ip = (u64)(ctx->insns + ctx->ninsns);
-+	/*
-+	 * Use the ro_insns(RX) to calculate the offset as the BPF program will
-+	 * finally run from this memory region.
-+	 */
-+	u64 ip = (u64)(ctx->ro_insns + ctx->ninsns);
- 	s64 off = addr - ip;
- 	s64 upper = (off + (1 << 11)) >> 12;
- 	s64 lower = off & 0xfff;
-@@ -465,7 +469,11 @@ static int emit_call(u64 addr, bool fixed_addr, struct rv_jit_context *ctx)
- 	u64 ip;
- 
- 	if (addr && ctx->insns) {
--		ip = (u64)(long)(ctx->insns + ctx->ninsns);
-+		/*
-+		 * Use the ro_insns(RX) to calculate the offset as the BPF
-+		 * program will finally run from this memory region.
-+		 */
-+		ip = (u64)(long)(ctx->ro_insns + ctx->ninsns);
- 		off = addr - ip;
- 	}
- 
-@@ -578,7 +586,8 @@ static int add_exception_handler(const struct bpf_insn *insn,
- {
- 	struct exception_table_entry *ex;
- 	unsigned long pc;
--	off_t offset;
-+	off_t ins_offset;
-+	off_t fixup_offset;
- 
- 	if (!ctx->insns || !ctx->prog->aux->extable || BPF_MODE(insn->code) != BPF_PROBE_MEM)
- 		return 0;
-@@ -593,12 +602,17 @@ static int add_exception_handler(const struct bpf_insn *insn,
- 		return -EINVAL;
- 
- 	ex = &ctx->prog->aux->extable[ctx->nexentries];
--	pc = (unsigned long)&ctx->insns[ctx->ninsns - insn_len];
-+	pc = (unsigned long)&ctx->ro_insns[ctx->ninsns - insn_len];
- 
--	offset = pc - (long)&ex->insn;
--	if (WARN_ON_ONCE(offset >= 0 || offset < INT_MIN))
-+	/*
-+	 * This is the relative offset of the instruction that may fault from
-+	 * the exception table itself. This will be written to the exception
-+	 * table and if this instruction faults, the destination register will
-+	 * be set to '0' and the execution will jump to the next instruction.
-+	 */
-+	ins_offset = pc - (long)&ex->insn;
-+	if (WARN_ON_ONCE(ins_offset >= 0 || ins_offset < INT_MIN))
- 		return -ERANGE;
--	ex->insn = offset;
- 
- 	/*
- 	 * Since the extable follows the program, the fixup offset is always
-@@ -607,12 +621,25 @@ static int add_exception_handler(const struct bpf_insn *insn,
- 	 * bits. We don't need to worry about buildtime or runtime sort
- 	 * modifying the upper bits because the table is already sorted, and
- 	 * isn't part of the main exception table.
-+	 *
-+	 * The fixup_offset is set to the next instruction from the instruction
-+	 * that may fault. The execution will jump to this after handling the
-+	 * fault.
- 	 */
--	offset = (long)&ex->fixup - (pc + insn_len * sizeof(u16));
--	if (!FIELD_FIT(BPF_FIXUP_OFFSET_MASK, offset))
-+	fixup_offset = (long)&ex->fixup - (pc + insn_len * sizeof(u16));
-+	if (!FIELD_FIT(BPF_FIXUP_OFFSET_MASK, fixup_offset))
- 		return -ERANGE;
- 
--	ex->fixup = FIELD_PREP(BPF_FIXUP_OFFSET_MASK, offset) |
-+	/*
-+	 * The offsets above have been calculated using the RO buffer but we
-+	 * need to use the R/W buffer for writes.
-+	 * switch ex to rw buffer for writing.
-+	 */
-+	ex = (void *)ctx->insns + ((void *)ex - (void *)ctx->ro_insns);
-+
-+	ex->insn = ins_offset;
-+
-+	ex->fixup = FIELD_PREP(BPF_FIXUP_OFFSET_MASK, fixup_offset) |
- 		FIELD_PREP(BPF_FIXUP_REG_MASK, dst_reg);
- 	ex->type = EX_TYPE_BPF;
- 
-@@ -1006,6 +1033,7 @@ int arch_prepare_bpf_trampoline(struct bpf_tramp_image *im, void *image,
- 
- 	ctx.ninsns = 0;
- 	ctx.insns = NULL;
-+	ctx.ro_insns = NULL;
- 	ret = __arch_prepare_bpf_trampoline(im, m, tlinks, func_addr, flags, &ctx);
- 	if (ret < 0)
- 		return ret;
-@@ -1014,7 +1042,15 @@ int arch_prepare_bpf_trampoline(struct bpf_tramp_image *im, void *image,
- 		return -EFBIG;
- 
- 	ctx.ninsns = 0;
-+	/*
-+	 * The bpf_int_jit_compile() uses a RW buffer (ctx.insns) to write the
-+	 * JITed instructions and later copies it to a RX region (ctx.ro_insns).
-+	 * It also uses ctx.ro_insns to calculate offsets for jumps etc. As the
-+	 * trampoline image uses the same memory area for writing and execution,
-+	 * both ctx.insns and ctx.ro_insns can be set to image.
-+	 */
- 	ctx.insns = image;
-+	ctx.ro_insns = image;
- 	ret = __arch_prepare_bpf_trampoline(im, m, tlinks, func_addr, flags, &ctx);
- 	if (ret < 0)
- 		return ret;
-diff --git a/arch/riscv/net/bpf_jit_core.c b/arch/riscv/net/bpf_jit_core.c
-index 7a26a3e1c73c..4c8dffc09368 100644
---- a/arch/riscv/net/bpf_jit_core.c
-+++ b/arch/riscv/net/bpf_jit_core.c
-@@ -8,6 +8,8 @@
- 
- #include <linux/bpf.h>
- #include <linux/filter.h>
-+#include <linux/memory.h>
-+#include <asm/patch.h>
- #include "bpf_jit.h"
- 
- /* Number of iterations to try until offsets converge. */
-@@ -117,16 +119,27 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
- 				sizeof(struct exception_table_entry);
- 			prog_size = sizeof(*ctx->insns) * ctx->ninsns;
- 
--			jit_data->header =
--				bpf_jit_binary_alloc(prog_size + extable_size,
--						     &jit_data->image,
--						     sizeof(u32),
--						     bpf_fill_ill_insns);
--			if (!jit_data->header) {
-+			jit_data->ro_header =
-+				bpf_jit_binary_pack_alloc(prog_size +
-+							  extable_size,
-+							  &jit_data->ro_image,
-+							  sizeof(u32),
-+							  &jit_data->header,
-+							  &jit_data->image,
-+							  bpf_fill_ill_insns);
-+			if (!jit_data->ro_header) {
- 				prog = orig_prog;
- 				goto out_offset;
- 			}
- 
-+			/*
-+			 * Use the image(RW) for writing the JITed instructions. But also save
-+			 * the ro_image(RX) for calculating the offsets in the image. The RW
-+			 * image will be later copied to the RX image from where the program
-+			 * will run. The bpf_jit_binary_pack_finalize() will do this copy in the
-+			 * final step.
-+			 */
-+			ctx->ro_insns = (u16 *)jit_data->ro_image;
- 			ctx->insns = (u16 *)jit_data->image;
- 			/*
- 			 * Now, when the image is allocated, the image can
-@@ -138,14 +151,12 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
- 
- 	if (i == NR_JIT_ITERATIONS) {
- 		pr_err("bpf-jit: image did not converge in <%d passes!\n", i);
--		if (jit_data->header)
--			bpf_jit_binary_free(jit_data->header);
- 		prog = orig_prog;
--		goto out_offset;
-+		goto out_free_hdr;
- 	}
- 
- 	if (extable_size)
--		prog->aux->extable = (void *)ctx->insns + prog_size;
-+		prog->aux->extable = (void *)ctx->ro_insns + prog_size;
- 
- skip_init_ctx:
- 	pass++;
-@@ -154,23 +165,35 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
- 
- 	bpf_jit_build_prologue(ctx);
- 	if (build_body(ctx, extra_pass, NULL)) {
--		bpf_jit_binary_free(jit_data->header);
- 		prog = orig_prog;
--		goto out_offset;
-+		goto out_free_hdr;
- 	}
- 	bpf_jit_build_epilogue(ctx);
- 
- 	if (bpf_jit_enable > 1)
- 		bpf_jit_dump(prog->len, prog_size, pass, ctx->insns);
- 
--	prog->bpf_func = (void *)ctx->insns;
-+	prog->bpf_func = (void *)ctx->ro_insns;
- 	prog->jited = 1;
- 	prog->jited_len = prog_size;
- 
--	bpf_flush_icache(jit_data->header, ctx->insns + ctx->ninsns);
--
- 	if (!prog->is_func || extra_pass) {
--		bpf_jit_binary_lock_ro(jit_data->header);
-+		if (WARN_ON(bpf_jit_binary_pack_finalize(prog,
-+							 jit_data->ro_header,
-+							 jit_data->header))) {
-+			/* ro_header has been freed */
-+			jit_data->ro_header = NULL;
-+			prog = orig_prog;
-+			goto out_offset;
-+		}
-+		/*
-+		 * The instructions have now been copied to the ROX region from
-+		 * where they will execute.
-+		 * Write any modified data cache blocks out to memory and
-+		 * invalidate the corresponding blocks in the instruction cache.
-+		 */
-+		bpf_flush_icache(jit_data->ro_header,
-+				 ctx->ro_insns + ctx->ninsns);
- 		for (i = 0; i < prog->len; i++)
- 			ctx->offset[i] = ninsns_rvoff(ctx->offset[i]);
- 		bpf_prog_fill_jited_linfo(prog, ctx->offset);
-@@ -185,6 +208,15 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
- 		bpf_jit_prog_release_other(prog, prog == orig_prog ?
- 					   tmp : orig_prog);
- 	return prog;
-+
-+out_free_hdr:
-+	if (jit_data->header) {
-+		bpf_arch_text_copy(&jit_data->ro_header->size,
-+				   &jit_data->header->size,
-+				   sizeof(jit_data->header->size));
-+		bpf_jit_binary_pack_free(jit_data->ro_header, jit_data->header);
-+	}
-+	goto out_offset;
- }
- 
- u64 bpf_jit_alloc_exec_limit(void)
-@@ -204,3 +236,52 @@ void bpf_jit_free_exec(void *addr)
- {
- 	return vfree(addr);
- }
-+
-+void *bpf_arch_text_copy(void *dst, void *src, size_t len)
-+{
-+	int ret;
-+
-+	mutex_lock(&text_mutex);
-+	ret = patch_text_nosync(dst, src, len);
-+	mutex_unlock(&text_mutex);
-+
-+	if (ret)
-+		return ERR_PTR(-EINVAL);
-+
-+	return dst;
-+}
-+
-+int bpf_arch_text_invalidate(void *dst, size_t len)
-+{
-+	int ret = 0;
-+
-+	mutex_lock(&text_mutex);
-+	ret = patch_text_set_nosync(dst, 0, len);
-+	mutex_unlock(&text_mutex);
-+
-+	return ret;
-+}
-+
-+void bpf_jit_free(struct bpf_prog *prog)
-+{
-+	if (prog->jited) {
-+		struct rv_jit_data *jit_data = prog->aux->jit_data;
-+		struct bpf_binary_header *hdr;
-+
-+		/*
-+		 * If we fail the final pass of JIT (from jit_subprogs),
-+		 * the program may not be finalized yet. Call finalize here
-+		 * before freeing it.
-+		 */
-+		if (jit_data) {
-+			bpf_jit_binary_pack_finalize(prog, jit_data->ro_header,
-+						     jit_data->header);
-+			kfree(jit_data);
-+		}
-+		hdr = bpf_jit_binary_pack_hdr(prog);
-+		bpf_jit_binary_pack_free(hdr, NULL);
-+		WARN_ON_ONCE(!bpf_prog_kallsyms_verify_off(prog));
-+	}
-+
-+	bpf_prog_unlock_free(prog);
-+}
 -- 
 2.39.2
 
