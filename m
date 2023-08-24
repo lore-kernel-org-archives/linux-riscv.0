@@ -4,71 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4E53C6FA8F
-	for <linux-riscv@archiver.kernel.org>; Thu, 24 Aug 2023 17:29:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB470C3DA6F
+	for <linux-riscv@archiver.kernel.org>; Thu, 24 Aug 2023 17:31:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IShmvrGLXq44+gMtnjlgGjUlG0V0IGvUhujS8F3lalY=; b=tScmpd1ig3VXMiRLPCqKnTsOGU
-	8734dzFrC7oxvrsBdE6GLKBHL611Lgz0VcRfq0G7PDPp/indLj+K/U51cBEXZG9/dJDPzdo3uGc/8
-	/nNpj7UteUhzIJXb42wIiIcpbsNpe8X3ut9fDSomaeTgOu2VfDPS6snsL69wxc1/0peha30hY1Mkw
-	CQfWsU/GXYG0iI57DRY8viTnMI9TXbvtnE1bF3Ab5AmF0B1PJJTeblFS1cmNGShpibhXJcoKldz9R
-	JqBAkyrynO6x6kq+91QrmOAPBev6jYLsdrI7ssX0wQEbqrU14Bqv5AuFI+/Gt+7+9fiX1ymszHPnI
-	GzI1Hhrw==;
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:From:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=AbpYvmwXOWUzoj3vYTxPti3boK78OInOGeMxFyol4rw=; b=gvOV6CnsTPCV7c
+	K3fDs0l/V4FUUAKw3d8X7USFGYaWhr99gzz8D7jn4UuB3+6LhCkOOuVBNtvS30pMQHveMGxyBJvAk
+	ogDTxvMuMOeiaRwQXU82x1Kh1T1WXKTzw9s3/c6g0ZR0rUnNQ1twEi09OnXE2BAmU7YouBhoG1ry7
+	QAZTTztmhCYm4ebWnh2FmBSahMheX5cdZuwqaZAkPCLbiYnPvybWcVzXqN35fZ0K4mnD76hPVwIGt
+	eaLrLxBAV3EHREmbI2BfKcbmeYwOCJXt7ACjGs+SZpaxT+qdlbAp5AttF5YWcGfE1OUZOdcr1yAAX
+	MsuQ7/tPh08FYCo/G/HA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qZE8v-003Wvz-0U;
-	Thu, 24 Aug 2023 17:29:13 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1qZEAZ-003X4L-10;
+	Thu, 24 Aug 2023 17:30:55 +0000
+Received: from smtp84.cstnet.cn ([159.226.251.84] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qZE8s-003Wv8-0l
+	id 1qZEAV-003X3T-0s
 	for linux-riscv@lists.infradead.org;
-	Thu, 24 Aug 2023 17:29:11 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 78F9465603;
-	Thu, 24 Aug 2023 17:29:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 29445C433C8;
-	Thu, 24 Aug 2023 17:29:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1692898148;
-	bh=ghRdRcGD6Zug4JH4WZSKpEnQQeHP4GXO2/WksfI2krQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=J/EPbYoEUukL4BdYBq8IJzC8snLgg1+7uk0faFESOje7l8YnEN9NJ6HfYGr3H0087
-	 ATFdN2I0Qv22jdHVILcsKKExKUoT/EE88YRt4Hw/p/QSyr84ygLqPBzHf4gPTydti0
-	 /O2acf/KS1j4w4gEKtiWJsCeJ+8/42Rtookpt5vUMhi838ZtG4py8JYSv7ubtobLs+
-	 fp65THK0H2QNX20DQXrf+EXBKYKmNWaH1pvaKk8PFtYh+e4B/Pcx8LTaRJuAfF1Zcz
-	 Hb1F6wSAJQBpX8G3bhEskeKSgFM/1xSJUU9uVwS0MlxXAT46yjxOl5J0E6POhQDc22
-	 2rr6R/j/U89JA==
-Date: Thu, 24 Aug 2023 18:29:03 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Evan Green <evan@rivosinc.com>
-Cc: Conor Dooley <conor.dooley@microchip.com>,
-	Anup Patel <apatel@ventanamicro.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Jonathan Corbet <corbet@lwn.net>,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Palmer Dabbelt <palmer@rivosinc.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Bagas Sanjaya <bagasdotme@gmail.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	linux-riscv@lists.infradead.org,
-	Heiko Stuebner <heiko.stuebner@vrull.eu>,
-	Andrew Jones <ajones@ventanamicro.com>
-Subject: Re: [PATCH v4] RISC-V: Show accurate per-hart isa in /proc/cpuinfo
-Message-ID: <20230824-exploit-spectacle-ecedd91e9075@spud>
-References: <20230711201831.2695097-1-evan@rivosinc.com>
- <20230824-factual-jawed-2dddd2cf2bdd@wendy>
- <CALs-Hss51fQE1yxe1Y1T86X+OfjPaAd386vosQ8gzRm=Njm1gw@mail.gmail.com>
+	Thu, 24 Aug 2023 17:30:54 +0000
+Received: from [192.168.0.107] (unknown [111.197.209.91])
+	by APP-05 (Coremail) with SMTP id zQCowACXnGC8k+dkhsHRBA--.2541S2;
+	Fri, 25 Aug 2023 01:30:36 +0800 (CST)
+Message-ID: <4177c0c5-4d36-75e1-84e2-c6ac82b74e50@iscas.ac.cn>
+Date: Fri, 25 Aug 2023 01:30:36 +0800
 MIME-Version: 1.0
-In-Reply-To: <CALs-Hss51fQE1yxe1Y1T86X+OfjPaAd386vosQ8gzRm=Njm1gw@mail.gmail.com>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.13.0
+Subject: Re: [PATCH v5] riscv: Handle zicsr/zifencei issue between gcc and
+ binutils
+Content-Language: en-US
+From: Mingzheng Xing <xingmingzheng@iscas.ac.cn>
+To: Conor Dooley <conor@kernel.org>, Conor Dooley <conor.dooley@microchip.com>
+Cc: patchwork-bot+linux-riscv@kernel.org, linux-riscv@lists.infradead.org,
+ paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+ nathan@kernel.org, ndesaulniers@google.com, trix@redhat.com,
+ bmeng@tinylab.org, guoren@kernel.org, linux-kernel@vger.kernel.org,
+ llvm@lists.linux.dev, stable@vger.kernel.org
+References: <20230809165648.21071-1-xingmingzheng@iscas.ac.cn>
+ <169228562484.20811.14246462375671910714.git-patchwork-notify@kernel.org>
+ <20230823-captive-abdomen-befd942a4a73@wendy>
+ <20230823-facelift-ovary-41f2eb4d9eac@spud>
+ <4677fc33-6e76-21e6-2a7f-f12670bc1ce2@iscas.ac.cn>
+Organization: ISCAS
+In-Reply-To: <4677fc33-6e76-21e6-2a7f-f12670bc1ce2@iscas.ac.cn>
+X-CM-TRANSID: zQCowACXnGC8k+dkhsHRBA--.2541S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxXFWrWF4xWryktFWxKFWxZwb_yoWrKF4kp3
+	4rGF17GrWUJr18Jwn7tr1jqryjyrWUJ34UXrn8JF1UJryDWr1jqF1xXryY9r1DtF4rGr18
+	Ar1UGF1xZr1DJrDanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUvlb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Jr0_JF4l84ACjcxK6xII
+	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW8JVWxJwA2z4x0Y4vEx4
+	A2jsIEc7CjxVAFwI0_Gr0_Gr1UM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI
+	64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8Jw
+	Am72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1l
+	c7I2V7IY0VAS07AlzVAYIcxG8wCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJV
+	W8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF
+	1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6x
+	IIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvE
+	x4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvj
+	DU0xZFpf9x07beAp5UUUUU=
+X-Originating-IP: [111.197.209.91]
+X-CM-SenderInfo: 50lqwzhlqj6xxhqjqxpvfd2hldfou0/1tbiAxMNCmTnYidivAAAsP
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230824_102910_365293_818DEFAE 
-X-CRM114-Status: GOOD (  48.48  )
+X-CRM114-CacheID: sfid-20230824_103051_700067_1F8D001B 
+X-CRM114-Status: GOOD (  19.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,167 +85,91 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============7318625977748778237=="
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============7318625977748778237==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="A0HvG2oTz26T9fPz"
-Content-Disposition: inline
-
-
---A0HvG2oTz26T9fPz
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Thu, Aug 24, 2023 at 09:18:16AM -0700, Evan Green wrote:
-> On Thu, Aug 24, 2023 at 5:20=E2=80=AFAM Conor Dooley <conor.dooley@microc=
-hip.com> wrote:
-> >
-> > On Tue, Jul 11, 2023 at 01:18:30PM -0700, Evan Green wrote:
-> > > In /proc/cpuinfo, most of the information we show for each processor =
-is
-> > > specific to that hart: marchid, mvendorid, mimpid, processor, hart,
-> > > compatible, and the mmu size. But the ISA string gets filtered throug=
-h a
-> > > lowest common denominator mask, so that if one CPU is missing an ISA
-> > > extension, no CPUs will show it.
-> > >
-> > > Now that we track the ISA extensions for each hart, let's report ISA
-> > > extension info accurately per-hart in /proc/cpuinfo. We cannot change
-> > > the "isa:" line, as usermode may be relying on that line to show only
-> > > the common set of extensions supported across all harts. Add a new "h=
-art
-> > > isa" line instead, which reports the true set of extensions for that
-> > > hart. This matches what is returned in riscv_hwprobe() when querying a
-> > > given hart.
-> > >
-> > > Signed-off-by: Evan Green <evan@rivosinc.com>
-> > > Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
-> > > Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-> > >
-> > > ---
-> > >
-> > > Changes in v4:
-> > >  - Documentation: Made the underline match the text line (Conor)
-> > >  - Documentation: hanged "in question" to "being described" (Andrew)
-> > >
-> > > Changes in v3:
-> > >  - Add some documentation (Conor)
-> > >
-> > > Changes in v2:
-> > >  - Added new "hart isa" line rather than altering behavior of existing
-> > >    "isa" line (Conor, Palmer)
-> > >
-> > >
-> > > I based this series on top of Conor's riscv-extensions-strings branch
-> > > from July 3rd, since otherwise this change gets hopelessly entangled
-> > > with that series.
-> > >
-> > > ---
-> > >  Documentation/riscv/uabi.rst | 10 ++++++++++
-> > >  arch/riscv/kernel/cpu.c      | 22 ++++++++++++++++++----
-> > >  2 files changed, 28 insertions(+), 4 deletions(-)
-> > >
-> > > diff --git a/Documentation/riscv/uabi.rst b/Documentation/riscv/uabi.=
-rst
-> > > index 8960fac42c40..afdda580e5a2 100644
-> > > --- a/Documentation/riscv/uabi.rst
-> > > +++ b/Documentation/riscv/uabi.rst
-> > > @@ -42,6 +42,16 @@ An example string following the order is::
-> > >
-> > >     rv64imadc_zifoo_zigoo_zafoo_sbar_scar_zxmbaz_xqux_xrux
-> > >
-> > > +"isa" vs "hart isa" lines in /proc/cpuinfo
-> > > +------------------------------------------
-> > > +
-> > > +The "isa" line in /proc/cpuinfo describes the lowest common denomina=
-tor of
-> > > +RISC-V ISA extensions understood by the kernel and implemented on al=
-l harts. The
-> > > +"hart isa" line, in contrast, describes the set of extensions unders=
-tood by the
-> > > +kernel on the particular hart being described, even if those extensi=
-ons may not
-> > > +be present on all harts in the system. The "hart isa" line is consis=
-tent with
-> > > +what's returned by __riscv_hwprobe() when querying for that specific=
- CPU.
-> >
-> > Thinking about this again, I don't think this is true. hwprobe uses
-> > has_fpu(), has_vector() etc that interact with Kconfig options but the
-> > percpu isa bitmap isn't affected by these.
->=20
-> Ugh yeah it's kind of a mishmash isn't it. hwprobe_isa_ext0() uses the
-> lowest common denominator for FD, C, V, but per-hart info for
-> Zba,Zbb,Zbs. Given the interface, per-hart info seems like what we
-> should have done there, and the FD, C, and V were my bad. The good
-> news is we can define new bits that do the right thing, though maybe
-> we should wait until someone actually wants them. For this patch we
-> should just remove this sentence. We can also correct the
-> documentation in hwprobe to mention the shortcoming in FD,C,V.
-
-I'm not really sure it's all that much of a shortcoming for V or FD,
-since without the kernel support you shouldn't be using those extensions
-anyway. A hwprobe thing for that sounds like a footgun to me & I think
-the current behaviour is how it should be for these extensions.
-It not being per-cpu is arguably a bug I suppose? But I would contend
-that we are conveying support for the extension on a per-hart level,
-with it then also gated by the kernel supporting V or FD, which is on a
-system-wide basis.
-Any other extensions that require Kconfig-gated kernel support should
-also not report via hwprobe that the extension is supported when the
-Kconfig option is disabled. It just so happens that the set of
-extensions that hwprobe supports that are Kconfig-gated and those that
-require all-hart support are one and the same right now, so we can kinda
-just conflate the two & use has_vector() et al that handles both
-kconfig-gating and all-hart support. Until something comes along that needs
-anything different, I'd leave well enough alone for hwprobe...
-
-> Palmer, do you want a spin of this patch or a followup on top to
-> remove the above sentence?
-
-It's not actually been applied yet, right?
-
-Do you want to have this new thing in cpuinfo tell the user "this hart
-has xyz extensions that are supported by a kernel, but maybe not this
-kernel" or to tell the user "this hart has xyz extensions that are
-supported by this kernel"? Your text above says "understood by the
-kernel", but I think that's a poor definition that needs to be improved
-to spell out exactly what you mean. IOW does "understood" mean the
-kernel will parse them into a structure, or does it mean "yes you can
-use this extension on this particular hart".
-
-Thanks,
-Conor.
-
---A0HvG2oTz26T9fPz
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZOeTXwAKCRB4tDGHoIJi
-0orLAP4kzJ6Q9T5h9rycveczuufvHYqgBrGPMezLQOxqGBxxIQD+PBIa9CJdSnD/
-DLfjGDpw20OddIa0bsIJXxWBKRnhRA8=
-=NcS1
------END PGP SIGNATURE-----
-
---A0HvG2oTz26T9fPz--
-
-
---===============7318625977748778237==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============7318625977748778237==--
-
+T24gOC8yNC8yMyAxOTozMiwgTWluZ3poZW5nIFhpbmcgd3JvdGU6Cj4gT24gOC8yMy8yMyAyMToz
+MSwgQ29ub3IgRG9vbGV5IHdyb3RlOgo+PiBPbiBXZWQsIEF1ZyAyMywgMjAyMyBhdCAxMjo1MTox
+M1BNICswMTAwLCBDb25vciBEb29sZXkgd3JvdGU6Cj4+PiBPbiBUaHUsIEF1ZyAxNywgMjAyMyBh
+dCAwMzoyMDoyNFBNICswMDAwLCAKPj4+IHBhdGNod29yay1ib3QrbGludXgtcmlzY3ZAa2VybmVs
+Lm9yZyB3cm90ZToKPj4+PiBIZWxsbzoKPj4+Pgo+Pj4+IFRoaXMgcGF0Y2ggd2FzIGFwcGxpZWQg
+dG8gcmlzY3YvbGludXguZ2l0IChmaXhlcykKPj4+PiBieSBQYWxtZXIgRGFiYmVsdCA8cGFsbWVy
+QHJpdm9zaW5jLmNvbT46Cj4+Pj4KPj4+PiBPbiBUaHUsIDEwIEF1ZyAyMDIzIDAwOjU2OjQ4ICsw
+ODAwIHlvdSB3cm90ZToKPj4+Pj4gQmludXRpbHMtMi4zOCBhbmQgR0NDLTEyLjEuMCBidW1wZWRb
+MF1bMV0gdGhlIGRlZmF1bHQgSVNBIHNwZWMgdG8gCj4+Pj4+IHRoZSBuZXdlcgo+Pj4+PiAyMDE5
+MTIxMyB2ZXJzaW9uIHdoaWNoIG1vdmVzIHNvbWUgaW5zdHJ1Y3Rpb25zIGZyb20gdGhlIEkgCj4+
+Pj4+IGV4dGVuc2lvbiB0byB0aGUKPj4+Pj4gWmljc3IgYW5kIFppZmVuY2VpIGV4dGVuc2lvbnMu
+IFNvIGlmIG9uZSBvZiB0aGUgYmludXRpbHMgYW5kIEdDQyAKPj4+Pj4gZXhjZWVkcwo+Pj4+PiB0
+aGF0IHZlcnNpb24sIHdlIHNob3VsZCBleHBsaWNpdGx5IHNwZWNpZnlpbmcgWmljc3IgYW5kIFpp
+ZmVuY2VpIAo+Pj4+PiB2aWEgLW1hcmNoCj4+Pj4+IHRvIGNvcGUgd2l0aCB0aGUgbmV3IGNoYW5n
+ZXMuIGJ1dCB0aGlzIG9ubHkgb2NjdXJzIHdoZW4gYmludXRpbHMgCj4+Pj4+ID49IDIuMzYKPj4+
+Pj4gYW5kIEdDQyA+PSAxMS4xLjAuIEl0J3MgYSBkaWZmZXJlbnQgc3Rvcnkgd2hlbiBiaW51dGls
+cyA8IDIuMzYuCj4+Pj4+Cj4+Pj4+IFsuLi5dCj4+Pj4gSGVyZSBpcyB0aGUgc3VtbWFyeSB3aXRo
+IGxpbmtzOgo+Pj4+IMKgwqAgLSBbdjVdIHJpc2N2OiBIYW5kbGUgemljc3IvemlmZW5jZWkgaXNz
+dWUgYmV0d2VlbiBnY2MgYW5kIGJpbnV0aWxzCj4+Pj4gwqDCoMKgwqAgaHR0cHM6Ly9naXQua2Vy
+bmVsLm9yZy9yaXNjdi9jL2NhMDlmNzcyY2NjYQo+Pj4gKnNpZ2gqIHNvIHRoaXMgYnJlYWtzIHRo
+ZSBidWlsZCBmb3IgZ2NjLTExICYgYmludXRpbHMgMi4zNyB3Lwo+Pj4gwqDCoMKgwqBBc3NlbWJs
+ZXIgbWVzc2FnZXM6Cj4+PiDCoMKgwqDCoEVycm9yOiBjYW5ub3QgZmluZCBkZWZhdWx0IHZlcnNp
+b25zIG9mIHRoZSBJU0EgZXh0ZW5zaW9uIGB6aWNzcicKPj4+IMKgwqDCoMKgRXJyb3I6IGNhbm5v
+dCBmaW5kIGRlZmF1bHQgdmVyc2lvbnMgb2YgdGhlIElTQSBleHRlbnNpb24gYHppZmVuY2VpJwo+
+Pj4KPj4+IEknbGwgaGF2ZSBhIHBva2UgbGF0ZXIuCj4+IFNvIHVoLCBhcmUgd2Ugc3VyZSB0aGF0
+IHRoaXMgc2hvdWxkIG5vdCBiZToKPj4gLcKgwqDCoMKgwqDCoCBkZXBlbmRzIG9uIChDQ19JU19D
+TEFORyAmJiBDTEFOR19WRVJTSU9OIDwgMTcwMDAwKSB8fCAKPj4gKENDX0lTX0dDQyAmJiBHQ0Nf
+VkVSU0lPTiA8IDExMDEwMCkKPj4gK8KgwqDCoMKgwqDCoCBkZXBlbmRzIG9uIChDQ19JU19DTEFO
+RyAmJiBDTEFOR19WRVJTSU9OIDwgMTcwMDAwKSB8fCAKPj4gKENDX0lTX0dDQyAmJiBHQ0NfVkVS
+U0lPTiA8PSAxMTAxMDApCj4+Cj4+IE15IGdjYy0xMS4xICsgYmludXRpbHMgMi4zNyB0b29sY2hh
+aW4gYnVpbHQgZnJvbSByaXNjdi1nbnUtdG9vbGNoYWluCj4+IGRvZXNuJ3QgaGF2ZSB0aGUgZGVm
+YXVsdCB2ZXJzaW9ucyAmIHRoZSBhYm92ZSBkaWZmIGZpeGVzIHRoZSBidWlsZC4KPgo+IEkgcmVw
+cm9kdWNlZCB0aGUgZXJyb3IsIHRoZSBjb21iaW5hdGlvbiBvZiBnY2MtMTEuMSBhbmQKPiBiaW51
+dGlscyAyLjM3IGRvZXMgY2F1c2UgZXJyb3JzLiBXaGF0IGEgc3VycHJpc2UsIHNpbmNlIGJpbnV0
+aWxzCj4gMi4zNiBhbmQgMi4zOCBhcmUgZmluZS4KPgo+IEkgdXNlZCBnaXQgYmlzZWN0IHRvIGxv
+Y2F0ZSB0aGlzIGNvbW1pdFsxXSBmb3IgYmludXRpbHMuCj4gSSdsbCB0ZXN0IHRoaXMgZGlmZiBp
+biBtb3JlIGRldGFpbCBsYXRlci4gVGhhbmtzIQo+Cj4gWzFdIAo+IGh0dHBzOi8vc291cmNld2Fy
+ZS5vcmcvZ2l0Lz9wPWJpbnV0aWxzLWdkYi5naXQ7YT1jb21taXQ7aD1mMGJhZTI1NTJkYjFkZDRm
+MTk5NTYwOGZiZjY2NDhmY2VlNGU5ZTBjCj4KCkhpLCBDb25vci4KVGhlIGFib3ZlIGVycm9yIGRv
+ZXMgb3JpZ2luYXRlIGZyb20gbGlua1sxXSBtZW50aW9uZWQgYWJvdmUsIHdoaWNoIHdhcwpyZXNv
+bHZlZCBpbiBnY2MtMTIuMS4wWzJdLCBhbmQgZ2NjLTExLjMuMCBtYWRlIHRoZSBiYWNrcG9ydFsz
+XS4KU28gZ2NjLTExLjIuMCBjb21iaW5lZCB3aXRoIGJpbnV0aWxzIDIuMzcgcHJvZHVjZXMgdGhl
+IHNhbWUgZXJyb3IuCkkgdGhpbmsgd2Ugc2hvdWxkIGRvIHRoZSBmb2xsb3dpbmcgZGlmZiB0byBm
+aXggaXQ6Ci3CoMKgwqDCoMKgwqAgZGVwZW5kcyBvbiAoQ0NfSVNfQ0xBTkcgJiYgQ0xBTkdfVkVS
+U0lPTiA8IDE3MDAwMCkgfHwgKENDX0lTX0dDQyAKJiYgR0NDX1ZFUlNJT04gPCAxMTAxMDApCivC
+oMKgwqDCoMKgwqAgZGVwZW5kcyBvbiAoQ0NfSVNfQ0xBTkcgJiYgQ0xBTkdfVkVSU0lPTiA8IDE3
+MDAwMCkgfHwgKENDX0lTX0dDQyAKJiYgR0NDX1ZFUlNJT04gPCAxMTAzMDApCgpUaGVuIGJlbG93
+IGFyZSBteSB0ZXN0IHJlc3VsdHMgYWZ0ZXIgdGhlIGZpeDoKCmdjY8KgwqDCoMKgwqDCoMKgIGJp
+bnV0aWxzCgoxMC41LjDCoMKgwqDCoCAyLjM1wqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBvawoxMC41
+LjDCoMKgwqDCoCAyLjM2wqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBvawoxMC41LjDCoMKgwqDCoCAy
+LjM3wqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBvawoxMC41LjDCoMKgwqDCoCAyLjM4wqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoCBvawoKMTEuMS4wwqDCoMKgwqAgMi4zNcKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqAgb2sKMTEuMS4wwqDCoMKgwqAgMi4zNsKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgb2sKMTEuMS4w
+wqDCoMKgwqAgMi4zN8KgwqDCoMKgwqDCoMKgwqDCoMKgwqAgb2sKMTEuMS4wwqDCoMKgwqAgMi4z
+OMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgb2sKCjExLjIuMMKgwqDCoMKgIDIuMzXCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgIG9rCjExLjIuMMKgwqDCoMKgIDIuMzbCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+IG9rCjExLjIuMMKgwqDCoMKgIDIuMzfCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIG9rCjExLjIuMMKg
+wqDCoMKgIDIuMzjCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIG9rCgoxMS4zLjDCoMKgwqDCoCAyLjM1
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBvawoxMS4zLjDCoMKgwqDCoCAyLjM2wqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoCBvawoxMS4zLjDCoMKgwqDCoCAyLjM3wqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBv
+awoxMS4zLjDCoMKgwqDCoCAyLjM4wqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBvawoKMTEuNC4wwqDC
+oMKgwqAgMi4zNcKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgb2sKMTEuNC4wwqDCoMKgwqAgMi4zNsKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqAgb2sKMTEuNC4wwqDCoMKgwqAgMi4zN8KgwqDCoMKgwqDCoMKg
+wqDCoMKgwqAgb2sKMTEuNC4wwqDCoMKgwqAgMi4zOMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgb2sK
+CjEyLjEuMMKgwqDCoMKgIDIuMzXCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIG9rCjEyLjEuMMKgwqDC
+oMKgIDIuMzbCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIG9rCjEyLjEuMMKgwqDCoMKgIDIuMzfCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgIG9rCjEyLjEuMMKgwqDCoMKgIDIuMzjCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgIG9rCgoxMi4yLjDCoMKgwqDCoCAyLjM1wqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBvawox
+Mi4yLjDCoMKgwqDCoCAyLjM2wqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBvawoxMi4yLjDCoMKgwqDC
+oCAyLjM3wqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBvawoxMi4yLjDCoMKgwqDCoCAyLjM4wqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoCBvawoKWzFdIApodHRwczovL3NvdXJjZXdhcmUub3JnL2dpdC8/cD1i
+aW51dGlscy1nZGIuZ2l0O2E9Y29tbWl0O2g9ZjBiYWUyNTUyZGIxZGQ0ZjE5OTU2MDhmYmY2NjQ4
+ZmNlZTRlOWUwYwpbMl0gCmh0dHBzOi8vZ2NjLmdudS5vcmcvZ2l0Lz9wPWdjYy5naXQ7YT1jb21t
+aXQ7aD1jYTJiYmI4OGY5OTlmNGQzY2M0MGU4OWJjMWFiYTcxMjUwNWRkNTk4ClszXSAKaHR0cHM6
+Ly9nY2MuZ251Lm9yZy9naXQvP3A9Z2NjLmdpdDthPWNvbW1pdDtoPWQyOWY1ZDZhYjUxM2M1MmZk
+ODcyZjUzMmM0OTJlMzVhZTlmZDY2NzEKClRoYW5rcywKTWluZ3poZW5nLgoKPj4KPj4gVGhhbmtz
+LAo+PiBDb25vci4KPgo+Cj4gX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX18KPiBsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKPiBsaW51eC1yaXNjdkBsaXN0cy5p
+bmZyYWRlYWQub3JnCj4gaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5m
+by9saW51eC1yaXNjdgoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRl
+YWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgt
+cmlzY3YK
