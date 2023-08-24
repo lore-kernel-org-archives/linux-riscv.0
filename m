@@ -4,79 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C41D2C6FA8F
-	for <linux-riscv@archiver.kernel.org>; Thu, 24 Aug 2023 17:47:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B4B2C27C40
+	for <linux-riscv@archiver.kernel.org>; Thu, 24 Aug 2023 18:03:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=i1ZARG65zaV020Sjkf7PaFxeDk6UfKDMIVtqJbC5r/g=; b=zDrEheYkGlsuUP
-	beBw09oCSu55IRCQUP58cKdrngATmEru0bb3f4iCZqknoAqbGcaa6/6vRYVUJSTwV0K95F0uKVsZp
-	jPVUbj0ydbiNkbt/YbdvizfprQpzX2DDmU1FZ5ZBQa36TaWyAHG0ZUuSQMq0YRlbSXUiTmEhEZhTN
-	DZnzbjaM4MZWAWz3ZYSvgkZothsJ6gaWgz92KeEA/qoLIlXfhuR9YnuymdMdR7znVvONmmL9eeS8F
-	Eu1zg9quUMns5C6y6LevPFAKCcuuM5BXodJzdGMZBwAL0g2g13tMcetRAnNpzwe/gIGkVKrmjQyxk
-	z7ZFbm/fRDdwiCgcnx1Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
+	Mime-Version:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=oyRWh7jkrz1ERPBNmi0p62sTJpESRyCuhYWKZuFwne8=; b=w2K
+	mrGiwSr9Jys0gXTh09EpolYOPwtUI2Mhv3uRwsKb9irjQINNUmOjp+27j6HWgQ/MP/OUOllApmd0/
+	BRdf6mCDqsVYXZSXeUuL8WYeFd9tiLFR54A3RO8gtTcBoydusRN1L/7R19VIcM7REKev5q7sT1Ovs
+	dq0E26xpcCc5tPPF2ZgyUke0Vny8aLqvw/aS6uTKpe9viF0g799o3CcSBa9m5hZ13T7EEVkb4bH6c
+	mIQSpv+n1pBJ/U15CGN2DXtNf7vKSvin0XtDnvdG/Es+awQHwigj2GcU9exiRhY85wjAeJaUymh1j
+	BbLykZZbYPdit6G5rS9Oid4LExnDl5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qZEQJ-003YDY-2M;
-	Thu, 24 Aug 2023 17:47:11 +0000
-Received: from smtp84.cstnet.cn ([159.226.251.84] helo=cstnet.cn)
+	id 1qZEg3-003Z5z-0Z;
+	Thu, 24 Aug 2023 18:03:27 +0000
+Received: from mail-yb1-xb4a.google.com ([2607:f8b0:4864:20::b4a])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qZEQF-003YCf-2G
+	id 1qZEg0-003Z5Y-03
 	for linux-riscv@lists.infradead.org;
-	Thu, 24 Aug 2023 17:47:09 +0000
-Received: from [192.168.0.107] (unknown [111.197.209.91])
-	by APP-05 (Coremail) with SMTP id zQCowAAnQgmTl+dkmArTBA--.2605S2;
-	Fri, 25 Aug 2023 01:47:00 +0800 (CST)
-Message-ID: <3ba51c81-7eca-b1b5-c89d-47b292b65641@iscas.ac.cn>
-Date: Fri, 25 Aug 2023 01:46:59 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.13.0
-Subject: Re: [PATCH v5] riscv: Handle zicsr/zifencei issue between gcc and
- binutils
-Content-Language: en-US
-To: Conor Dooley <conor@kernel.org>
-Cc: Conor Dooley <conor.dooley@microchip.com>,
- patchwork-bot+linux-riscv@kernel.org, linux-riscv@lists.infradead.org,
- paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
- nathan@kernel.org, ndesaulniers@google.com, trix@redhat.com,
- bmeng@tinylab.org, guoren@kernel.org, linux-kernel@vger.kernel.org,
- llvm@lists.linux.dev, stable@vger.kernel.org
-References: <20230809165648.21071-1-xingmingzheng@iscas.ac.cn>
- <169228562484.20811.14246462375671910714.git-patchwork-notify@kernel.org>
- <20230823-captive-abdomen-befd942a4a73@wendy>
- <20230823-facelift-ovary-41f2eb4d9eac@spud>
- <4677fc33-6e76-21e6-2a7f-f12670bc1ce2@iscas.ac.cn>
- <4177c0c5-4d36-75e1-84e2-c6ac82b74e50@iscas.ac.cn>
- <20230824-stick-neutron-839dfdfa0538@spud>
-From: Mingzheng Xing <xingmingzheng@iscas.ac.cn>
-Organization: ISCAS
-In-Reply-To: <20230824-stick-neutron-839dfdfa0538@spud>
-X-CM-TRANSID: zQCowAAnQgmTl+dkmArTBA--.2605S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxGw48Xw47WFy3ArW5WFWDtwb_yoW5ZFyxpa
-	yrKFyDKrWUXr48Jrn7tr1UX3Wjyr4ft34rXr1DJrW5Jr909F1FqFykZr1j9F9rZr4rCr40
-	yr45WasrZr1qyaDanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvlb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Jr0_JF4l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW8JVWxJwA2z4x0Y4vEx4
-	A2jsIEc7CjxVAFwI0_Gr0_Gr1UM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI
-	64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8Jw
-	Am72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1l
-	c7I2V7IY0VAS07AlzVAYIcxG8wCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJV
-	W8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF
-	1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6x
-	IIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvE
-	x4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvj
-	DU0xZFpf9x07beAp5UUUUU=
-X-Originating-IP: [111.197.209.91]
-X-CM-SenderInfo: 50lqwzhlqj6xxhqjqxpvfd2hldfou0/1tbiCQYNCmTnYihoYAAAsJ
+	Thu, 24 Aug 2023 18:03:25 +0000
+Received: by mail-yb1-xb4a.google.com with SMTP id 3f1490d57ef6-d4ddbcbbaacso128275276.1
+        for <linux-riscv@lists.infradead.org>; Thu, 24 Aug 2023 11:03:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20221208; t=1692900201; x=1693505001;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=jylpqBSq6UZhDtJHaP/6cFTqfJ1I/2o5dmapcGZqzGk=;
+        b=E1FcvBcvo1zP1Vdi0KwRwEi4XcKZj2/NFp52Hpeo3fA/EOMBpFgAU04ap1h+EiJzIO
+         YDmoI/iJcKnWCiURI93udUFg04oDjRjV5TKetnMYZdncataXHWrDUThf7ZAt2yXv8435
+         4CcW4YJtDEUZA9j1Hdr0uSenajyWJGANqc+05EPJvPSZfkErZBkh/k70pWmVQqIR0vxt
+         rFhDm9Dyn4at7lRQuYDAqBkhx97LspiHznYimCqZymj1I+8jKeeX6wG9HRReRgx6cUdc
+         HB8gMTQfZ6COrsPz29W6oUdbcMzaS4iy53e13a4aEo/Mosl1DYV2b30RgXbFSPe7p5x4
+         bFRQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1692900201; x=1693505001;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=jylpqBSq6UZhDtJHaP/6cFTqfJ1I/2o5dmapcGZqzGk=;
+        b=ITjlr+9MC5qS77ei92whKIdRQB/ld5JLHmFojzNc8x+x45TLSZVTVrT1vv+lJPJHa9
+         fggqSnbfLVPU9VniwxOqqaYD5MjKL3l7CQaCtmvPPa/gRFLQnjG3XVyUNTJTaTOfC1V4
+         Nqq0bcA+sakD9GWyjEPx/ZCHiIBexF6OKwMmzUi+T7J8QjJG4KaZ1ruKT51p9+yrNrXq
+         01R8CvAYCLBfv7j3Bz1A5qEWb7XeX5SsVbxPNi0AGHECOEBkECq4cJfxRGzZ0EJmXSdG
+         7qNh7fgyG9/CnIhIAVtJ/5wS6rCpT7aPlfrVzHMZ9JijVrfaeDUxN1rvgmdh5AJK9+Yf
+         RGiw==
+X-Gm-Message-State: AOJu0YxeXbrdwCZSlTwsahvK9pxS/r6Yc1uBSjjaSnkJ7k4jNf+8e5mT
+	LddyOpCOPYyLVdOOgJH71iFsu8hW+/fjEYnOm/Y=
+X-Google-Smtp-Source: AGHT+IGDTvjBhTEjTSJ+jxTsdrlcA5pLuf1/WRjn/S7zeKMOvitmcknjEYYJppddGEudEVAhJ3cf8i90mlLIl7TEptE=
+X-Received: from ndesaulniers-desktop.svl.corp.google.com ([2620:15c:2d1:203:63f7:38ec:c0bd:8830])
+ (user=ndesaulniers job=sendgmr) by 2002:a25:c752:0:b0:d6b:1a89:6673 with SMTP
+ id w79-20020a25c752000000b00d6b1a896673mr217374ybe.5.1692900201401; Thu, 24
+ Aug 2023 11:03:21 -0700 (PDT)
+Date: Thu, 24 Aug 2023 11:03:17 -0700
+Mime-Version: 1.0
+X-B4-Tracking: v=1; b=H4sIAGSb52QC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDI2MDCyMT3ZT85GLdZEPzRNOUVPM0QwNjJaDSgqLUtMwKsDHRsbW1AIR2Jcx WAAAA
+X-Developer-Key: i=ndesaulniers@google.com; a=ed25519; pk=eMOZeIQ4DYNKvsNmDNzVbQZqpdex34Aww3b8Ah957X4=
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1692900199; l=7833;
+ i=ndesaulniers@google.com; s=20230823; h=from:subject:message-id;
+ bh=yaDjW5hOI5gJGOMZ1DsDzpbL5Z3k3IDsA7FrJwcxAdM=; b=6OoJ7R8CkuDjqnXjQysK58Kb5Piqi7H/nHRIVfhdlo6v+c7ImybKTufIPhYohUbYmUpG/dahd
+ 9/vUqbUHgtjD7Ucxf0/2rRwHPB8uTmjizRlYvGdyr2Yrr+yquGSVi89
+X-Mailer: b4 0.12.3
+Message-ID: <20230824-docs-v1-1-67e061278b8f@google.com>
+Subject: [PATCH] Documentation/llvm: refresh docs
+From: ndesaulniers@google.com
+To: Nathan Chancellor <nathan@kernel.org>, Masahiro Yamada <masahiroy@kernel.org>
+Cc: Tom Rix <trix@redhat.com>, Nicolas Schier <nicolas@fjasle.eu>, Jonathan Corbet <corbet@lwn.net>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, llvm@lists.linux.dev, linux-kbuild@vger.kernel.org, 
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, Nick Desaulniers <ndesaulniers@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230824_104708_103598_07783B9C 
-X-CRM114-Status: GOOD (  19.50  )
+X-CRM114-CacheID: sfid-20230824_110324_061703_AB262002 
+X-CRM114-Status: GOOD (  21.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,67 +91,219 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gOC8yNS8yMyAwMTozMywgQ29ub3IgRG9vbGV5IHdyb3RlOgo+IE9uIEZyaSwgQXVnIDI1LCAy
-MDIzIGF0IDAxOjMwOjM2QU0gKzA4MDAsIE1pbmd6aGVuZyBYaW5nIHdyb3RlOgo+PiBPbiA4LzI0
-LzIzIDE5OjMyLCBNaW5nemhlbmcgWGluZyB3cm90ZToKPj4+IE9uIDgvMjMvMjMgMjE6MzEsIENv
-bm9yIERvb2xleSB3cm90ZToKPj4+PiBPbiBXZWQsIEF1ZyAyMywgMjAyMyBhdCAxMjo1MToxM1BN
-ICswMTAwLCBDb25vciBEb29sZXkgd3JvdGU6Cj4+Pj4+IE9uIFRodSwgQXVnIDE3LCAyMDIzIGF0
-IDAzOjIwOjI0UE0gKzAwMDAsCj4+Pj4+IHBhdGNod29yay1ib3QrbGludXgtcmlzY3ZAa2VybmVs
-Lm9yZyB3cm90ZToKPj4+Pj4+IEhlbGxvOgo+Pj4+Pj4KPj4+Pj4+IFRoaXMgcGF0Y2ggd2FzIGFw
-cGxpZWQgdG8gcmlzY3YvbGludXguZ2l0IChmaXhlcykKPj4+Pj4+IGJ5IFBhbG1lciBEYWJiZWx0
-IDxwYWxtZXJAcml2b3NpbmMuY29tPjoKPj4+Pj4+Cj4+Pj4+PiBPbiBUaHUsIDEwIEF1ZyAyMDIz
-IDAwOjU2OjQ4ICswODAwIHlvdSB3cm90ZToKPj4+Pj4+PiBCaW51dGlscy0yLjM4IGFuZCBHQ0Mt
-MTIuMS4wIGJ1bXBlZFswXVsxXSB0aGUgZGVmYXVsdAo+Pj4+Pj4+IElTQSBzcGVjIHRvIHRoZSBu
-ZXdlcgo+Pj4+Pj4+IDIwMTkxMjEzIHZlcnNpb24gd2hpY2ggbW92ZXMgc29tZSBpbnN0cnVjdGlv
-bnMgZnJvbSB0aGUKPj4+Pj4+PiBJIGV4dGVuc2lvbiB0byB0aGUKPj4+Pj4+PiBaaWNzciBhbmQg
-WmlmZW5jZWkgZXh0ZW5zaW9ucy4gU28gaWYgb25lIG9mIHRoZSBiaW51dGlscwo+Pj4+Pj4+IGFu
-ZCBHQ0MgZXhjZWVkcwo+Pj4+Pj4+IHRoYXQgdmVyc2lvbiwgd2Ugc2hvdWxkIGV4cGxpY2l0bHkg
-c3BlY2lmeWluZyBaaWNzciBhbmQKPj4+Pj4+PiBaaWZlbmNlaSB2aWEgLW1hcmNoCj4+Pj4+Pj4g
-dG8gY29wZSB3aXRoIHRoZSBuZXcgY2hhbmdlcy4gYnV0IHRoaXMgb25seSBvY2N1cnMgd2hlbgo+
-Pj4+Pj4+IGJpbnV0aWxzID49IDIuMzYKPj4+Pj4+PiBhbmQgR0NDID49IDExLjEuMC4gSXQncyBh
-IGRpZmZlcmVudCBzdG9yeSB3aGVuIGJpbnV0aWxzIDwgMi4zNi4KPj4+Pj4+Pgo+Pj4+Pj4+IFsu
-Li5dCj4+Pj4+PiBIZXJlIGlzIHRoZSBzdW1tYXJ5IHdpdGggbGlua3M6Cj4+Pj4+PiAgwqDCoCAt
-IFt2NV0gcmlzY3Y6IEhhbmRsZSB6aWNzci96aWZlbmNlaSBpc3N1ZSBiZXR3ZWVuIGdjYyBhbmQg
-YmludXRpbHMKPj4+Pj4+ICDCoMKgwqDCoCBodHRwczovL2dpdC5rZXJuZWwub3JnL3Jpc2N2L2Mv
-Y2EwOWY3NzJjY2NhCj4+Pj4+ICpzaWdoKiBzbyB0aGlzIGJyZWFrcyB0aGUgYnVpbGQgZm9yIGdj
-Yy0xMSAmIGJpbnV0aWxzIDIuMzcgdy8KPj4+Pj4gIMKgwqDCoMKgQXNzZW1ibGVyIG1lc3NhZ2Vz
-Ogo+Pj4+PiAgwqDCoMKgwqBFcnJvcjogY2Fubm90IGZpbmQgZGVmYXVsdCB2ZXJzaW9ucyBvZiB0
-aGUgSVNBIGV4dGVuc2lvbiBgemljc3InCj4+Pj4+ICDCoMKgwqDCoEVycm9yOiBjYW5ub3QgZmlu
-ZCBkZWZhdWx0IHZlcnNpb25zIG9mIHRoZSBJU0EgZXh0ZW5zaW9uIGB6aWZlbmNlaScKPj4+Pj4K
-Pj4+Pj4gSSdsbCBoYXZlIGEgcG9rZSBsYXRlci4KPj4+PiBTbyB1aCwgYXJlIHdlIHN1cmUgdGhh
-dCB0aGlzIHNob3VsZCBub3QgYmU6Cj4+Pj4gLcKgwqDCoMKgwqDCoCBkZXBlbmRzIG9uIChDQ19J
-U19DTEFORyAmJiBDTEFOR19WRVJTSU9OIDwgMTcwMDAwKSB8fAo+Pj4+IChDQ19JU19HQ0MgJiYg
-R0NDX1ZFUlNJT04gPCAxMTAxMDApCj4+Pj4gK8KgwqDCoMKgwqDCoCBkZXBlbmRzIG9uIChDQ19J
-U19DTEFORyAmJiBDTEFOR19WRVJTSU9OIDwgMTcwMDAwKSB8fAo+Pj4+IChDQ19JU19HQ0MgJiYg
-R0NDX1ZFUlNJT04gPD0gMTEwMTAwKQo+Pj4+Cj4+Pj4gTXkgZ2NjLTExLjEgKyBiaW51dGlscyAy
-LjM3IHRvb2xjaGFpbiBidWlsdCBmcm9tIHJpc2N2LWdudS10b29sY2hhaW4KPj4+PiBkb2Vzbid0
-IGhhdmUgdGhlIGRlZmF1bHQgdmVyc2lvbnMgJiB0aGUgYWJvdmUgZGlmZiBmaXhlcyB0aGUgYnVp
-bGQuCj4+PiBJIHJlcHJvZHVjZWQgdGhlIGVycm9yLCB0aGUgY29tYmluYXRpb24gb2YgZ2NjLTEx
-LjEgYW5kCj4+PiBiaW51dGlscyAyLjM3IGRvZXMgY2F1c2UgZXJyb3JzLiBXaGF0IGEgc3VycHJp
-c2UsIHNpbmNlIGJpbnV0aWxzCj4+PiAyLjM2IGFuZCAyLjM4IGFyZSBmaW5lLgo+Pj4KPj4+IEkg
-dXNlZCBnaXQgYmlzZWN0IHRvIGxvY2F0ZSB0aGlzIGNvbW1pdFsxXSBmb3IgYmludXRpbHMuCj4+
-PiBJJ2xsIHRlc3QgdGhpcyBkaWZmIGluIG1vcmUgZGV0YWlsIGxhdGVyLiBUaGFua3MhCj4+Pgo+
-Pj4gWzFdIGh0dHBzOi8vc291cmNld2FyZS5vcmcvZ2l0Lz9wPWJpbnV0aWxzLWdkYi5naXQ7YT1j
-b21taXQ7aD1mMGJhZTI1NTJkYjFkZDRmMTk5NTYwOGZiZjY2NDhmY2VlNGU5ZTBjCj4+Pgo+PiBI
-aSwgQ29ub3IuCj4+IFRoZSBhYm92ZSBlcnJvciBkb2VzIG9yaWdpbmF0ZSBmcm9tIGxpbmtbMV0g
-bWVudGlvbmVkIGFib3ZlLCB3aGljaCB3YXMKPj4gcmVzb2x2ZWQgaW4gZ2NjLTEyLjEuMFsyXSwg
-YW5kIGdjYy0xMS4zLjAgbWFkZSB0aGUgYmFja3BvcnRbM10uCj4+IFNvIGdjYy0xMS4yLjAgY29t
-YmluZWQgd2l0aCBiaW51dGlscyAyLjM3IHByb2R1Y2VzIHRoZSBzYW1lIGVycm9yLgo+PiBJIHRo
-aW5rIHdlIHNob3VsZCBkbyB0aGUgZm9sbG93aW5nIGRpZmYgdG8gZml4IGl0Ogo+PiAtwqDCoMKg
-wqDCoMKgIGRlcGVuZHMgb24gKENDX0lTX0NMQU5HICYmIENMQU5HX1ZFUlNJT04gPCAxNzAwMDAp
-IHx8IChDQ19JU19HQ0MgJiYKPj4gR0NDX1ZFUlNJT04gPCAxMTAxMDApCj4+ICvCoMKgwqDCoMKg
-wqAgZGVwZW5kcyBvbiAoQ0NfSVNfQ0xBTkcgJiYgQ0xBTkdfVkVSU0lPTiA8IDE3MDAwMCkgfHwg
-KENDX0lTX0dDQyAmJgo+PiBHQ0NfVkVSU0lPTiA8IDExMDMwMCkKPiBUaGF0IHNvdW5kcyBnb29k
-IHRvIG1lLiBDYW4geW91IG1ha2UgdGhhdCBhIHJlYWwgcGF0Y2ggcGxlYXNlPwoKT2tleS4KSnVz
-dCBhIHF1ZXN0aW9uLCBJIHNlZSB0aGF0IHRoZSBwcmV2aW91cyBwYXRjaCBoYXMgYmVlbiBtZXJn
-ZWQKaW50byA2LjUtcmM3LCBhbmQgbm93IGEgbmV3IGZpeCBwYXRjaCBzaG91bGQgYmUgc2VudCBv
-dXQgYmFzZWQKb24gdGhhdCwgcmlnaHQ/CgoKQmVzdMKgUmVnYXJkcywKTWluZ3poZW5nLgoKPgo+
-IFRoYW5rcyBmb3Igd29ya2luZyBvbiBpdCA6KQoKCl9fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNj
-dkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4v
-bGlzdGluZm8vbGludXgtcmlzY3YK
+Recent fixes for an embargoed hardware security vulnerability failed to
+link with ld.lld (LLVM's linker).  [0]  To be fair, our documentation
+mentions ``CC=clang`` foremost with ``LLVM=1`` being buried "below the
+fold."
+
+We want to encourage the use of ``LLVM=1`` rather than just
+``CC=clang``. Make that sugguestion "above the fold" and "front and
+center" in our docs.
+
+While here, the following additional changes were made:
+- remove the bit about CROSS_COMPILE setting --target=, that's no longer
+  true.
+- Add ARCH=loongarch to the list of maintained targets (though we're
+  still working on getting defconfig building cleanly at the moment;
+  we're pretty close).
+- Promote ARCH=riscv from being Maintained to being Supported. Android
+  is working towards supporting RISC-V, and we have excellent support
+  from multiple companies in this regard.
+- Note that the toolchain distribution on kernel.org has been built with
+  profile data from kernel builds.
+
+Link: https://github.com/ClangBuiltLinux/linux/issues/1907 [0]
+---
+
+
+Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
+---
+ Documentation/kbuild/llvm.rst | 102 +++++++++++++++++++++++-------------------
+ 1 file changed, 55 insertions(+), 47 deletions(-)
+
+diff --git a/Documentation/kbuild/llvm.rst b/Documentation/kbuild/llvm.rst
+index c3851fe1900d..00b26a0a6bf1 100644
+--- a/Documentation/kbuild/llvm.rst
++++ b/Documentation/kbuild/llvm.rst
+@@ -25,50 +25,38 @@ objects <https://www.aosabook.org/en/llvm.html>`_. Clang is a front-end to LLVM
+ that supports C and the GNU C extensions required by the kernel, and is
+ pronounced "klang," not "see-lang."
+ 
+-Clang
+------
+-
+-The compiler used can be swapped out via ``CC=`` command line argument to ``make``.
+-``CC=`` should be set when selecting a config and during a build. ::
+-
+-	make CC=clang defconfig
++Building with LLVM
++------------------
+ 
+-	make CC=clang
+-
+-Cross Compiling
+----------------
++Invoke ``make`` via::
+ 
+-A single Clang compiler binary will typically contain all supported backends,
+-which can help simplify cross compiling. ::
+-
+-	make ARCH=arm64 CC=clang CROSS_COMPILE=aarch64-linux-gnu-
++	make LLVM=1
+ 
+-``CROSS_COMPILE`` is not used to prefix the Clang compiler binary, instead
+-``CROSS_COMPILE`` is used to set a command line flag: ``--target=<triple>``. For
+-example: ::
++to compile for the host target. For cross compiling::
+ 
+-	clang --target=aarch64-linux-gnu foo.c
++	make LLVM=1 ARCH=arm64
+ 
+-LLVM Utilities
++The LLVM= argument
+ --------------
+ 
+-LLVM has substitutes for GNU binutils utilities. They can be enabled individually.
+-The full list of supported make variables::
++LLVM has substitutes for GNU binutils utilities. They can be enabled
++individually. The full list of supported make variables::
+ 
+ 	make CC=clang LD=ld.lld AR=llvm-ar NM=llvm-nm STRIP=llvm-strip \
+ 	  OBJCOPY=llvm-objcopy OBJDUMP=llvm-objdump READELF=llvm-readelf \
+ 	  HOSTCC=clang HOSTCXX=clang++ HOSTAR=llvm-ar HOSTLD=ld.lld
+ 
+-To simplify the above command, Kbuild supports the ``LLVM`` variable::
+-
+-	make LLVM=1
++``LLVM=1`` expands to the above.
+ 
+ If your LLVM tools are not available in your PATH, you can supply their
+ location using the LLVM variable with a trailing slash::
+ 
+ 	make LLVM=/path/to/llvm/
+ 
+-which will use ``/path/to/llvm/clang``, ``/path/to/llvm/ld.lld``, etc.
++which will use ``/path/to/llvm/clang``, ``/path/to/llvm/ld.lld``, etc. The
++following may also be used::
++
++	PATH=/path/to/llvm:$PATH make LLVM=1
+ 
+ If your LLVM tools have a version suffix and you want to test with that
+ explicit version rather than the unsuffixed executables like ``LLVM=1``, you
+@@ -78,31 +66,46 @@ can pass the suffix using the ``LLVM`` variable::
+ 
+ which will use ``clang-14``, ``ld.lld-14``, etc.
+ 
+-``LLVM=0`` is not the same as omitting ``LLVM`` altogether, it will behave like
+-``LLVM=1``. If you only wish to use certain LLVM utilities, use their respective
+-make variables.
++To support combinations of out of tree paths with version suffixes, we
++recommend::
++
++	PATH=/path/to/llvm/:$PATH make LLVM=-14
+ 
+-The integrated assembler is enabled by default. You can pass ``LLVM_IAS=0`` to
+-disable it.
++``LLVM=0`` is not the same as omitting ``LLVM`` altogether, it will behave like
++``LLVM=1``. If you only wish to use certain LLVM utilities, use their
++respective make variables.
+ 
+-Omitting CROSS_COMPILE
+-----------------------
++The same value used for ``LLVM=`` should be set for each invocation of ``make``
++if configuring and building via distinct commands. ``LLVM=`` should also be set
++as an environment variable when running scripts that will eventually run
++``make``.
+ 
+-As explained above, ``CROSS_COMPILE`` is used to set ``--target=<triple>``.
++Cross Compiling
++---------------
+ 
+-If ``CROSS_COMPILE`` is not specified, the ``--target=<triple>`` is inferred
+-from ``ARCH``.
++A single Clang compiler binary (and corresponding LLVM utilities) will
++typically contain all supported backends, which can help simplify cross
++compiling especially when ``LLVM=1`` is used. If you use only LLVM tools,
++``CROSS_COMPILE`` becomes unnecessary.
+ 
+-That means if you use only LLVM tools, ``CROSS_COMPILE`` becomes unnecessary.
++As an example, for a target like ``ARCH=s390`` which does not yet have
++``ld.lld`` support, you could invoke ``make`` via::
+ 
+-For example, to cross-compile the arm64 kernel::
++	make LLVM=1 LD=ld.bfd CROSS_COMPILE=s390x-linux-gnu-
+ 
+-	make ARCH=arm64 LLVM=1
++``CROSS_COMPILE`` is not used to prefix the Clang compiler binary (or
++corresponding LLVM utilities), but it will be for any GNU toolchain utilities.
++This example will invoke ``s390x-linux-gnu-ld.bfd`` as the linker, so ensure
++that is reachable in your ``$PATH``.
+ 
+-If ``LLVM_IAS=0`` is specified, ``CROSS_COMPILE`` is also used to derive
+-``--prefix=<path>`` to search for the GNU assembler and linker. ::
++The LLVM_IAS= argument
++-----------------
+ 
+-	make ARCH=arm64 LLVM=1 LLVM_IAS=0 CROSS_COMPILE=aarch64-linux-gnu-
++Clang can assemble assembler code. You can pass ``LLVM_IAS=0`` to disable this
++behavior and have Clang invoke the system assembler instead (or the assembler
++based on ``CROSS_COMPILE``). ``CROSS_COMPILE`` is necessary when ``LLVM_IAS=0``
++is set when cross compiling in order to set ``--prefix=`` for the compiler to
++find the corresponding non-integrated assembler.
+ 
+ Supported Architectures
+ -----------------------
+@@ -135,14 +138,17 @@ yet. Bug reports are always welcome at the issue tracker below!
+    * - hexagon
+      - Maintained
+      - ``LLVM=1``
++   * - loongarch
++     - Maintained
++     - ``LLVM=1``
+    * - mips
+      - Maintained
+      - ``LLVM=1``
+    * - powerpc
+      - Maintained
+-     - ``CC=clang``
++     - ``LLVM=1``
+    * - riscv
+-     - Maintained
++     - Supported
+      - ``LLVM=1``
+    * - s390
+      - Maintained
+@@ -171,9 +177,11 @@ Getting Help
+ Getting LLVM
+ -------------
+ 
+-We provide prebuilt stable versions of LLVM on `kernel.org <https://kernel.org/pub/tools/llvm/>`_.
+-Below are links that may be useful for building LLVM from source or procuring
+-it through a distribution's package manager.
++We provide prebuilt stable versions of LLVM on `kernel.org
++<https://kernel.org/pub/tools/llvm/>`_. These have been optimized with profile
++data for building Linux kernels. Below are links that may be useful for
++building LLVM from source or procuring it through a distribution's package
++manager.
+ 
+ - https://releases.llvm.org/download.html
+ - https://github.com/llvm/llvm-project
+
+---
+base-commit: 93f5de5f648d2b1ce3540a4ac71756d4a852dc23
+change-id: 20230824-docs-c17a5de7f103
+
+Best regards,
+-- 
+Nick Desaulniers <ndesaulniers@google.com>
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
