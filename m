@@ -4,67 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23921C3DA6F
-	for <linux-riscv@archiver.kernel.org>; Thu, 24 Aug 2023 12:21:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA171C27C40
+	for <linux-riscv@archiver.kernel.org>; Thu, 24 Aug 2023 12:36:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:Cc:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wu50alN1lq1TbPnKTx45vUbNYdIrFlHV4rNpjkvYIDQ=; b=fZwQ2T267mp11R0WDpXNImrw1t
-	jUg1qL1RjaAcMnXgCiV2y/bYYAxxSRpVvFm1Lx6BwnrfvsJ3qike+tW1l2ccqIMgy6VAtsDteYzFJ
-	+Zyi2bJZNQ1ElRspWeuvUdXGSuvo5UKnFA/f3WbpPdGHzZoX/jatF0E1uPKx+lW4rXGK/2rHf7Yj5
-	Q94/4DCmJOU69KjVh7A6dRemiROv9jJn5ldvZ+H8WHExpvEvR9uBI0IurvSumIFwLxuzsJsAA6AqC
-	KTw26PeOBwg9gkiH5I2Fu4HAHJFcWMGtFFg6P2ezhsKKDzpVG6nhyy1cG3ikJZb2BB/InLTVLqnr4
-	OUg+sQ2A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=I7QXaP0keDL5WNI8iL3wXb8px1WMfCASYMm67v7A+kk=; b=L4We3MUfclHqKx
+	9z6CsAldc0kBfpH16VZtyriO2bXoLutUws51SCzZ6b0VmbJC4jyoZAu819nOlnzHt2JshBkuQregu
+	CSxZhry5wDLB5vHOCqmbuq0EDcrxDqQ5gueV7uKay/0eXZ9ggYDWzfgQc6RCExIvrlc1vfns8nN/m
+	ohzkZvw/9vISrsphOFMj2d66NSJ70m+BAd6eoKcOhTiPT+F18PLrCKlesTnH4ZNBpZuh6FYdU9nmP
+	+auPVbaMtYAlR5oMI6xptNvJfQAqKopx8JLO0wqL5AGueEAgv3kLXNF7z5fWyBbGy/kkYk2beoD3u
+	n+Q2QUulUQK/HSzzvZhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qZ9Ke-0032zP-0m;
-	Thu, 24 Aug 2023 12:21:00 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1qZ9Zs-0034Xf-14;
+	Thu, 24 Aug 2023 12:36:44 +0000
+Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qZ9Kb-0032yX-14
+	id 1qZ9Zn-0034UY-1I
 	for linux-riscv@lists.infradead.org;
-	Thu, 24 Aug 2023 12:20:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1692879657; x=1724415657;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=UniHE8T8CBJsXsp5AUwf/p97KIJh8SiPdFKSRg4PQ+0=;
-  b=DJ41wetBYss3Xc3QZb6IvGjJsprDwo8oRBizsAEwQzP/nN5ZmFLh90ab
-   kCO/0io3ey9EXkVBlOgkq7Lyhb/0Z67KZnbHMI2EqpK57D+Rkc8kCVDwL
-   49STckbb1I2vIrC1lwf/mmM02yD/ciTnJy+kcPsEFXYUxNF6apV3K5bLH
-   8CORm8UWuEqKYgojumV2fUUC3fxwJw8ndpzhuXAmqO3aLln/tXT7DW0QM
-   MjARiEOJ9a/5yFS6QhpJqu0kZJ2TAAgot8nibQoy3iywi8Nx7fBquuU0q
-   UcIX2oqhuAZ6k09cCbfHXH9+yg9Hga2nllma94mKSLcVBw5QXCSQ+r+p6
-   w==;
-X-IronPort-AV: E=Sophos;i="6.02,195,1688454000"; 
-   d="asc'?scan'208";a="1101686"
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa1.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 24 Aug 2023 05:20:49 -0700
-Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Thu, 24 Aug 2023 05:20:49 -0700
-Received: from wendy (10.10.85.11) by chn-vm-ex04.mchp-main.com (10.10.85.152)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
- Transport; Thu, 24 Aug 2023 05:20:47 -0700
-Date: Thu, 24 Aug 2023 13:20:06 +0100
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Evan Green <evan@rivosinc.com>
-Subject: Re: [PATCH v4] RISC-V: Show accurate per-hart isa in /proc/cpuinfo
-Message-ID: <20230824-factual-jawed-2dddd2cf2bdd@wendy>
-References: <20230711201831.2695097-1-evan@rivosinc.com>
+	Thu, 24 Aug 2023 12:36:43 +0000
+Received: from mail-qt1-f198.google.com (mail-qt1-f198.google.com [209.85.160.198])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id DD2403F22E
+	for <linux-riscv@lists.infradead.org>; Thu, 24 Aug 2023 12:36:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+	s=20210705; t=1692880594;
+	bh=JoJT4a5LMoBewyzrwMs8F7Ht2z6jukDla6MBC2nVmeI=;
+	h=MIME-Version:References:In-Reply-To:From:Date:Message-ID:Subject:
+	 To:Cc:Content-Type;
+	b=tt9U8NCGH/ZEPWLDxP5ffsfAVEqkGIx39gAghSYjKbyfrnYh+r2U0xfZkVqIw5KMr
+	 HfdBgoLDMj3hKMJG1OuIZpVqA8f+Tcuv5DSGwhrvCiNfzzMJKzkhtZmwG2dZ8AcPRU
+	 J5vQQH5pcJ5tPIYOJmwcesohGKb8yifUsL8E0lpvQ5/lOapf3iJptZfLKyUhJtm+Jf
+	 v15mw6iYEeO6gjWNqn8A+uLsB8Oj6XZr8JWygvBJjDhq0vFnWl4gghNrK7h3JFDLpe
+	 DcOhsx+RfWiRMk1VxuOdN7dBa3WTktSCC9enWGvXkW66CP5W1ZM2Vj7+Q1KxLa4QX9
+	 sTVfhQHgn02LQ==
+Received: by mail-qt1-f198.google.com with SMTP id d75a77b69052e-40ffb4530ddso70401401cf.2
+        for <linux-riscv@lists.infradead.org>; Thu, 24 Aug 2023 05:36:34 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1692880593; x=1693485393;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=JoJT4a5LMoBewyzrwMs8F7Ht2z6jukDla6MBC2nVmeI=;
+        b=fHXtTLP3632CnNhyeBocUgepL6ryd9nVzpkcd3fzJQJbzSCtagv46QGPF+UNzIiArC
+         uF5yPtg14ePWfyTRdaI+N1zsR91Y44Bpk1bbXfBCkZvz0n9sfdQQ6/QJdYxuHSJOK3p7
+         U8E3j7QsPjiF2+6WB6M+yytzAT29jLAz9o7w6VO6ewo7XKZzDEWrSgTr7e4mUou0m6YC
+         VKff9qo3NMuiRB9otCJ4Ib2DZXwg6T+gQoBkVwW7EXf9W7d2omvi5kZmbPd/p/NAxNEN
+         XLSAl3bWNPLfrvHR0ntqZSC5kra5pO8ofmFuoJqXjfkkUZH4bOVefSYP71Txvr0i0KEg
+         UJXg==
+X-Gm-Message-State: AOJu0Yw23ct6wINoRkAwU4pF91QGc9w16Q3272v89Msei5d6ARWDQc07
+	t231gAkHCIbFC3V83/STQgGSqWspP8evIcVohf6RvZ6NOmpfjcwTJTATbPy6mk6PyoUrj7ckyWK
+	T3MlFv9fBzzKyhT4MiRHXaSwhSmtscHFkDy4w6fF+PfdDE1idGlX5i5npdGSXOw==
+X-Received: by 2002:a05:622a:2c2:b0:410:ac5a:e7b with SMTP id a2-20020a05622a02c200b00410ac5a0e7bmr5424885qtx.53.1692880593288;
+        Thu, 24 Aug 2023 05:36:33 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IF+g+on5r/DtbY/oKVNkl5O7FS0UGCLx3I2RrRhwtFxoQDMeLCvtJe76K9ry9E2/afidK4c+yYzV7snrCuU6kQ=
+X-Received: by 2002:a05:622a:2c2:b0:410:ac5a:e7b with SMTP id
+ a2-20020a05622a02c200b00410ac5a0e7bmr5424861qtx.53.1692880592997; Thu, 24 Aug
+ 2023 05:36:32 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <20230711201831.2695097-1-evan@rivosinc.com>
+References: <20230818135723.80612-1-prabhakar.mahadev-lad.rj@bp.renesas.com> <20230818135723.80612-4-prabhakar.mahadev-lad.rj@bp.renesas.com>
+In-Reply-To: <20230818135723.80612-4-prabhakar.mahadev-lad.rj@bp.renesas.com>
+From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+Date: Thu, 24 Aug 2023 14:36:16 +0200
+Message-ID: <CAJM55Z-9jUze3hjAeK+J1GQ1fSz0u3Lk=Y=cJfzi+wPHswsTHw@mail.gmail.com>
+Subject: Re: [PATCH v12 3/6] riscv: mm: dma-noncoherent: nonstandard cache
+ operations support
+To: Prabhakar <prabhakar.csengg@gmail.com>
+Cc: Arnd Bergmann <arnd@arndb.de>, Conor Dooley <conor.dooley@microchip.com>, 
+	Geert Uytterhoeven <geert+renesas@glider.be>, Guo Ren <guoren@kernel.org>, 
+	Andrew Jones <ajones@ventanamicro.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Samuel Holland <samuel@sholland.org>, linux-riscv@lists.infradead.org, 
+	Christoph Hellwig <hch@infradead.org>, Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
+	Biju Das <biju.das.jz@bp.renesas.com>, 
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230824_052057_496599_7E926E8B 
-X-CRM114-Status: GOOD (  32.89  )
+X-CRM114-CacheID: sfid-20230824_053639_787639_FC74420F 
+X-CRM114-Status: GOOD (  28.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,179 +100,232 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Anup Patel <apatel@ventanamicro.com>, Albert Ou <aou@eecs.berkeley.edu>, Jonathan Corbet <corbet@lwn.net>, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@rivosinc.com>, Palmer Dabbelt <palmer@dabbelt.com>, Bagas Sanjaya <bagasdotme@gmail.com>, Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org, Heiko Stuebner <heiko.stuebner@vrull.eu>, Andrew Jones <ajones@ventanamicro.com>
-Content-Type: multipart/mixed; boundary="===============4777992566427201896=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============4777992566427201896==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="qk1i/rPebejGNd0P"
-Content-Disposition: inline
-
---qk1i/rPebejGNd0P
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Tue, Jul 11, 2023 at 01:18:30PM -0700, Evan Green wrote:
-> In /proc/cpuinfo, most of the information we show for each processor is
-> specific to that hart: marchid, mvendorid, mimpid, processor, hart,
-> compatible, and the mmu size. But the ISA string gets filtered through a
-> lowest common denominator mask, so that if one CPU is missing an ISA
-> extension, no CPUs will show it.
->=20
-> Now that we track the ISA extensions for each hart, let's report ISA
-> extension info accurately per-hart in /proc/cpuinfo. We cannot change
-> the "isa:" line, as usermode may be relying on that line to show only
-> the common set of extensions supported across all harts. Add a new "hart
-> isa" line instead, which reports the true set of extensions for that
-> hart. This matches what is returned in riscv_hwprobe() when querying a
-> given hart.
->=20
-> Signed-off-by: Evan Green <evan@rivosinc.com>
-> Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+On Fri, 18 Aug 2023 at 15:57, Prabhakar <prabhakar.csengg@gmail.com> wrote:
+>
+> From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+>
+> Introduce support for nonstandard noncoherent systems in the RISC-V
+> architecture. It enables function pointer support to handle cache
+> management in such systems.
+>
+> This patch adds a new configuration option called
+> "RISCV_NONSTANDARD_CACHE_OPS." This option is a boolean flag that
+> depends on "RISCV_DMA_NONCOHERENT" and enables the function pointer
+> support for cache management in nonstandard noncoherent systems.
+>
+> Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 > Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
->=20
+> Tested-by: Conor Dooley <conor.dooley@microchip.com> # tyre-kicking on a d1
+
+Reviewed-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+Tested-by: Emil Renner Berthing <emil.renner.berthing@canonical.com> #
+on the StarFive JH7100
+
 > ---
->=20
-> Changes in v4:
->  - Documentation: Made the underline match the text line (Conor)
->  - Documentation: hanged "in question" to "being described" (Andrew)
->=20
-> Changes in v3:
->  - Add some documentation (Conor)
->=20
-> Changes in v2:
->  - Added new "hart isa" line rather than altering behavior of existing
->    "isa" line (Conor, Palmer)
->=20
->=20
-> I based this series on top of Conor's riscv-extensions-strings branch
-> from July 3rd, since otherwise this change gets hopelessly entangled
-> with that series.
->=20
+> v11 -> v12
+> * Renamed struct riscv_cache_ops -> struct riscv_nonstd_cache_ops
+>
+> v10 -> v11
+> * Changed data type of size from unsigned long to size_t
+> * Reworded doc for struct riscv_cache_ops
+>
+> v9 -> v10
+> * Added __ro_after_init compiler attribute for noncoherent_cache_ops
+> * Renamed clean -> wback
+> * Renamed inval -> inv
+> * Renamed flush -> wback_inv
+>
+> v8 -> v9
+> * New patch
 > ---
->  Documentation/riscv/uabi.rst | 10 ++++++++++
->  arch/riscv/kernel/cpu.c      | 22 ++++++++++++++++++----
->  2 files changed, 28 insertions(+), 4 deletions(-)
->=20
-> diff --git a/Documentation/riscv/uabi.rst b/Documentation/riscv/uabi.rst
-> index 8960fac42c40..afdda580e5a2 100644
-> --- a/Documentation/riscv/uabi.rst
-> +++ b/Documentation/riscv/uabi.rst
-> @@ -42,6 +42,16 @@ An example string following the order is::
-> =20
->     rv64imadc_zifoo_zigoo_zafoo_sbar_scar_zxmbaz_xqux_xrux
-> =20
-> +"isa" vs "hart isa" lines in /proc/cpuinfo
-> +------------------------------------------
+>  arch/riscv/Kconfig                       |  7 ++++
+>  arch/riscv/include/asm/dma-noncoherent.h | 28 +++++++++++++++
+>  arch/riscv/mm/dma-noncoherent.c          | 43 ++++++++++++++++++++++++
+>  arch/riscv/mm/pmem.c                     | 13 +++++++
+>  4 files changed, 91 insertions(+)
+>  create mode 100644 arch/riscv/include/asm/dma-noncoherent.h
+>
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index f52dd125ac5e..a629d383affb 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -269,6 +269,13 @@ config RISCV_DMA_NONCOHERENT
+>         select ARCH_HAS_SYNC_DMA_FOR_DEVICE
+>         select DMA_DIRECT_REMAP
+>
+> +config RISCV_NONSTANDARD_CACHE_OPS
+> +       bool
+> +       depends on RISCV_DMA_NONCOHERENT
+> +       help
+> +         This enables function pointer support for non-standard noncoherent
+> +         systems to handle cache management.
 > +
-> +The "isa" line in /proc/cpuinfo describes the lowest common denominator =
-of
-> +RISC-V ISA extensions understood by the kernel and implemented on all ha=
-rts. The
-> +"hart isa" line, in contrast, describes the set of extensions understood=
- by the
-> +kernel on the particular hart being described, even if those extensions =
-may not
-> +be present on all harts in the system. The "hart isa" line is consistent=
- with
-> +what's returned by __riscv_hwprobe() when querying for that specific CPU.
-
-Thinking about this again, I don't think this is true. hwprobe uses
-has_fpu(), has_vector() etc that interact with Kconfig options but the
-percpu isa bitmap isn't affected by these.
-
-
+>  config AS_HAS_INSN
+>         def_bool $(as-instr,.insn r 51$(comma) 0$(comma) 0$(comma) t0$(comma) t0$(comma) zero)
+>
+> diff --git a/arch/riscv/include/asm/dma-noncoherent.h b/arch/riscv/include/asm/dma-noncoherent.h
+> new file mode 100644
+> index 000000000000..312cfa0858fb
+> --- /dev/null
+> +++ b/arch/riscv/include/asm/dma-noncoherent.h
+> @@ -0,0 +1,28 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only */
+> +/*
+> + * Copyright (C) 2023 Renesas Electronics Corp.
+> + */
 > +
->  Misaligned accesses
->  -------------------
-> =20
-> diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
-> index 1acf3679600d..6264b7b94945 100644
-> --- a/arch/riscv/kernel/cpu.c
-> +++ b/arch/riscv/kernel/cpu.c
-> @@ -197,9 +197,8 @@ arch_initcall(riscv_cpuinfo_init);
-> =20
->  #ifdef CONFIG_PROC_FS
-> =20
-> -static void print_isa(struct seq_file *f)
-> +static void print_isa(struct seq_file *f, const unsigned long *isa_bitma=
-p)
+> +#ifndef __ASM_DMA_NONCOHERENT_H
+> +#define __ASM_DMA_NONCOHERENT_H
+> +
+> +#include <linux/dma-direct.h>
+> +
+> +/*
+> + * struct riscv_nonstd_cache_ops - Structure for non-standard CMO function pointers
+> + *
+> + * @wback: Function pointer for cache writeback
+> + * @inv: Function pointer for invalidating cache
+> + * @wback_inv: Function pointer for flushing the cache (writeback + invalidating)
+> + */
+> +struct riscv_nonstd_cache_ops {
+> +       void (*wback)(phys_addr_t paddr, size_t size);
+> +       void (*inv)(phys_addr_t paddr, size_t size);
+> +       void (*wback_inv)(phys_addr_t paddr, size_t size);
+> +};
+> +
+> +extern struct riscv_nonstd_cache_ops noncoherent_cache_ops;
+> +
+> +void riscv_noncoherent_register_cache_ops(const struct riscv_nonstd_cache_ops *ops);
+> +
+> +#endif /* __ASM_DMA_NONCOHERENT_H */
+> diff --git a/arch/riscv/mm/dma-noncoherent.c b/arch/riscv/mm/dma-noncoherent.c
+> index 06b8fea58e20..a4f3f37859ae 100644
+> --- a/arch/riscv/mm/dma-noncoherent.c
+> +++ b/arch/riscv/mm/dma-noncoherent.c
+> @@ -9,13 +9,26 @@
+>  #include <linux/dma-map-ops.h>
+>  #include <linux/mm.h>
+>  #include <asm/cacheflush.h>
+> +#include <asm/dma-noncoherent.h>
+>
+>  static bool noncoherent_supported __ro_after_init;
+>
+> +struct riscv_nonstd_cache_ops noncoherent_cache_ops __ro_after_init = {
+> +       .wback = NULL,
+> +       .inv = NULL,
+> +       .wback_inv = NULL,
+> +};
+> +
+>  static inline void arch_dma_cache_wback(phys_addr_t paddr, size_t size)
 >  {
-> -	seq_puts(f, "isa\t\t: ");
-> =20
->  	if (IS_ENABLED(CONFIG_32BIT))
->  		seq_write(f, "rv32", 4);
-> @@ -207,7 +206,7 @@ static void print_isa(struct seq_file *f)
->  		seq_write(f, "rv64", 4);
-> =20
->  	for (int i =3D 0; i < riscv_isa_ext_count; i++) {
-> -		if (!__riscv_isa_extension_available(NULL, riscv_isa_ext[i].id))
-> +		if (!__riscv_isa_extension_available(isa_bitmap, riscv_isa_ext[i].id))
->  			continue;
-> =20
->  		/* Only multi-letter extensions are split by underscores */
-> @@ -271,7 +270,15 @@ static int c_show(struct seq_file *m, void *v)
-> =20
->  	seq_printf(m, "processor\t: %lu\n", cpu_id);
->  	seq_printf(m, "hart\t\t: %lu\n", cpuid_to_hartid_map(cpu_id));
-> -	print_isa(m);
+>         void *vaddr = phys_to_virt(paddr);
+>
+> +#ifdef CONFIG_RISCV_NONSTANDARD_CACHE_OPS
+> +       if (unlikely(noncoherent_cache_ops.wback)) {
+> +               noncoherent_cache_ops.wback(paddr, size);
+> +               return;
+> +       }
+> +#endif
+>         ALT_CMO_OP(clean, vaddr, size, riscv_cbom_block_size);
+>  }
+>
+> @@ -23,6 +36,13 @@ static inline void arch_dma_cache_inv(phys_addr_t paddr, size_t size)
+>  {
+>         void *vaddr = phys_to_virt(paddr);
+>
+> +#ifdef CONFIG_RISCV_NONSTANDARD_CACHE_OPS
+> +       if (unlikely(noncoherent_cache_ops.inv)) {
+> +               noncoherent_cache_ops.inv(paddr, size);
+> +               return;
+> +       }
+> +#endif
 > +
-> +	/*
-> +	 * For historical raisins, the isa: line is limited to the lowest common
-> +	 * denominator of extensions supported across all harts. A true list of
-> +	 * extensions supported on this hart is printed later in the hart_isa:
-> +	 * line.
-> +	 */
-> +	seq_puts(m, "isa\t\t: ");
-> +	print_isa(m, NULL);
->  	print_mmu(m);
-> =20
->  	if (acpi_disabled) {
-> @@ -287,6 +294,13 @@ static int c_show(struct seq_file *m, void *v)
->  	seq_printf(m, "mvendorid\t: 0x%lx\n", ci->mvendorid);
->  	seq_printf(m, "marchid\t\t: 0x%lx\n", ci->marchid);
->  	seq_printf(m, "mimpid\t\t: 0x%lx\n", ci->mimpid);
+>         ALT_CMO_OP(inval, vaddr, size, riscv_cbom_block_size);
+>  }
+>
+> @@ -30,6 +50,13 @@ static inline void arch_dma_cache_wback_inv(phys_addr_t paddr, size_t size)
+>  {
+>         void *vaddr = phys_to_virt(paddr);
+>
+> +#ifdef CONFIG_RISCV_NONSTANDARD_CACHE_OPS
+> +       if (unlikely(noncoherent_cache_ops.wback_inv)) {
+> +               noncoherent_cache_ops.wback_inv(paddr, size);
+> +               return;
+> +       }
+> +#endif
 > +
-> +	/*
-> +	 * Print the ISA extensions specific to this hart, which may show
-> +	 * additional extensions not present across all harts.
-> +	 */
-> +	seq_puts(m, "hart isa\t: ");
-> +	print_isa(m, hart_isa[cpu_id].isa);
->  	seq_puts(m, "\n");
-> =20
->  	return 0;
-> --=20
+>         ALT_CMO_OP(flush, vaddr, size, riscv_cbom_block_size);
+>  }
+>
+> @@ -95,6 +122,13 @@ void arch_dma_prep_coherent(struct page *page, size_t size)
+>  {
+>         void *flush_addr = page_address(page);
+>
+> +#ifdef CONFIG_RISCV_NONSTANDARD_CACHE_OPS
+> +       if (unlikely(noncoherent_cache_ops.wback_inv)) {
+> +               noncoherent_cache_ops.wback_inv(page_to_phys(page), size);
+> +               return;
+> +       }
+> +#endif
+> +
+>         ALT_CMO_OP(flush, flush_addr, size, riscv_cbom_block_size);
+>  }
+>
+> @@ -120,3 +154,12 @@ void riscv_noncoherent_supported(void)
+>              "Non-coherent DMA support enabled without a block size\n");
+>         noncoherent_supported = true;
+>  }
+> +
+> +void riscv_noncoherent_register_cache_ops(const struct riscv_nonstd_cache_ops *ops)
+> +{
+> +       if (!ops)
+> +               return;
+> +
+> +       noncoherent_cache_ops = *ops;
+> +}
+> +EXPORT_SYMBOL_GPL(riscv_noncoherent_register_cache_ops);
+> diff --git a/arch/riscv/mm/pmem.c b/arch/riscv/mm/pmem.c
+> index 089df92ae876..c5fc5ec96f6d 100644
+> --- a/arch/riscv/mm/pmem.c
+> +++ b/arch/riscv/mm/pmem.c
+> @@ -7,15 +7,28 @@
+>  #include <linux/libnvdimm.h>
+>
+>  #include <asm/cacheflush.h>
+> +#include <asm/dma-noncoherent.h>
+>
+>  void arch_wb_cache_pmem(void *addr, size_t size)
+>  {
+> +#ifdef CONFIG_RISCV_NONSTANDARD_CACHE_OPS
+> +       if (unlikely(noncoherent_cache_ops.wback)) {
+> +               noncoherent_cache_ops.wback(virt_to_phys(addr), size);
+> +               return;
+> +       }
+> +#endif
+>         ALT_CMO_OP(clean, addr, size, riscv_cbom_block_size);
+>  }
+>  EXPORT_SYMBOL_GPL(arch_wb_cache_pmem);
+>
+>  void arch_invalidate_pmem(void *addr, size_t size)
+>  {
+> +#ifdef CONFIG_RISCV_NONSTANDARD_CACHE_OPS
+> +       if (unlikely(noncoherent_cache_ops.inv)) {
+> +               noncoherent_cache_ops.inv(virt_to_phys(addr), size);
+> +               return;
+> +       }
+> +#endif
+>         ALT_CMO_OP(inval, addr, size, riscv_cbom_block_size);
+>  }
+>  EXPORT_SYMBOL_GPL(arch_invalidate_pmem);
+> --
 > 2.34.1
->=20
-
---qk1i/rPebejGNd0P
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZOdK9gAKCRB4tDGHoIJi
-0liiAP4gl0tcLeJen0DrqHl7mUfFjKLV+rxAVZFw6sBF8FRmaQEAu0Z51JiElsPS
-KyIRZMIWB/CZJgPwPVBoToRKWWbtSAA=
-=u5eg
------END PGP SIGNATURE-----
-
---qk1i/rPebejGNd0P--
-
-
---===============4777992566427201896==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+>
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============4777992566427201896==--
-
