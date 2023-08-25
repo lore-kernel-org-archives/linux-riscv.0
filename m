@@ -4,78 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D173C6787B
-	for <linux-riscv@archiver.kernel.org>; Fri, 25 Aug 2023 18:20:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCDA1C3DA6F
+	for <linux-riscv@archiver.kernel.org>; Fri, 25 Aug 2023 18:21:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UlkhFUo9gKqqBffB4dgHSvTMQyjyKsy00L8qN6gJNzA=; b=CVsWpIGR/ZgyFU
-	wtyRJyzBDn9tYL6Lv/tjJJO8ElrsRHrHFiCeihLYkzjZtfoIHtpVy83DWAwYp4e3/YeNQxirs/WX4
-	kW8u+oe0/5S7D7DTe9HgKL1uyxt5y9poQwyxM9goNvCoanbwRErMi4VnuqvXmiLNQEvxDjsuw6bTZ
-	yUxtM01T3Rz/7y6ehGwQDOdiNz+SzZJYpvtiEcraOFYV3oVWn6cJGPzxAzL0Njef4cdr6aCaqGCFn
-	0YDRkra+T8pzWjGK6ClES23tMl+o5dS/1RrjklOwrOSKXvZPnDDmd57X4tc+rUk4qzlSrRKzc6URk
-	5OqQ3zHMXhPX5Y9YKySQ==;
+	List-Owner; bh=ZCA9luAhWfcX8N3zjnRahuOLAJQjSO7gJSdsxn9g3Bw=; b=02BEHEQDYzU31h
+	0Gbtfei/UwGmwfXxMgS7nl+houAAVxnhjUG3udQ+tDWDf2LvaGBUa05aXJIkIv5eIB9Sz8ifSrzso
+	/NID2fr1RHaQd0S1L4kxDGjOwVV39X243z31ZqoKp8fHFPmd+1tIZ/70MPBUByW7802WPfpSFVD6W
+	DWfL+RkWIrRwV5YtNZb0Wf/zl1etnUVOLJ8LcPeWfwTg1uk09fCOMddlCv75cL7uct/TMJ1nEEVME
+	5sWRzb8TPEKLGUjpyzW8GL/Fhs/K6yfxRo3eWyj5mtn6yE410+BLhP7T9V5r/da9xTy86kMZEuSZR
+	x0ByZbph6jXHrzHA20lA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qZbQF-005r6q-2j;
-	Fri, 25 Aug 2023 18:20:39 +0000
-Received: from mail-pg1-x534.google.com ([2607:f8b0:4864:20::534])
+	id 1qZbQp-005rCz-1b;
+	Fri, 25 Aug 2023 18:21:15 +0000
+Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qZbQB-005r59-2v
+	id 1qZbQn-005rBb-29
 	for linux-riscv@lists.infradead.org;
-	Fri, 25 Aug 2023 18:20:37 +0000
-Received: by mail-pg1-x534.google.com with SMTP id 41be03b00d2f7-56c250ff3d3so1641703a12.1
-        for <linux-riscv@lists.infradead.org>; Fri, 25 Aug 2023 11:20:34 -0700 (PDT)
+	Fri, 25 Aug 2023 18:21:14 +0000
+Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-1bdbf10333bso10528545ad.1
+        for <linux-riscv@lists.infradead.org>; Fri, 25 Aug 2023 11:21:12 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1692987633; x=1693592433;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=GYd1wVFPRI7NiM/Sx4/tad/ZtbY6g9sye8P5AXqu+fc=;
-        b=E4mC5YAXMMgmUHgfRiWFcSZjAFYw1waD0EqZCNwtYhRSRtgJoFZVlCS3JG3wV7FXjd
-         sXVU7RTKIYiV68OaJT+pNyPhtCG1CpcRdXA82AG5ofhhqR/vSGm3tvd1mpbR6M1weagG
-         NwWQJu1Josu1pkUS1L/DPphW0b+C0Nzy+d45c=
+        d=chromium.org; s=google; t=1692987672; x=1693592472;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=cd1paIDws1ExLMgJh/WiTiPNEsGUGwcEQ17xiLulNdo=;
+        b=nhk5Ko+OG/2Q2+PvkEDtXdRrk3or+134Updyqdlu1P6XQCscy7egtl8AziCQjtc+Bn
+         zp65RvpL7MR7vfIQJtiyZ3WEwZ2/AOZJxGZQ4mDRGInpxpoBv+UhEk0r9hCNWL5bYNqC
+         5O0xNrQMLaQBipxQ7a78YEG4PHOgm1S3/j8H4=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1692987633; x=1693592433;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=GYd1wVFPRI7NiM/Sx4/tad/ZtbY6g9sye8P5AXqu+fc=;
-        b=Qp8r3pJxx/HFj1V/Wr0AQg2BIoQWBrLLIsmU/ROoFRCyHBIA5jMBfp07iFpFv7PR4N
-         FhPDZAHzvjz3uVCtvRt/w1CnAFZOIAlPbtd+CU5Zdm9XCSzhvxCzZgtRWYaFUhxylM1H
-         tLcvUWFMVvoBXMtKLtc1HwRlJYxq8bMAucuF4eUjtkX3VNYjlT7/IH+V8jszqsmiVklF
-         B5gVvjcJt+SpvwePS3Xh2LK0uqoZdrG2M7lHTlGyNYRbr6MzZrmgIZRT8JT7jMKee12N
-         cNf1R5KtvJJfO6YYFrFhWU9h5eijzopUCVWLVs5w6KUVbjBEZEnfBCEb8ZvrCGpzAqWg
-         IM3g==
-X-Gm-Message-State: AOJu0YwMJsczQnMtaWXWVF7sELY8O9Yp3V++ISZxccbjVIoTLfdnXE6b
-	PcPDznLJ9CRKiPge6R4ZzozpHA==
-X-Google-Smtp-Source: AGHT+IF6DSGG+sLTemEr6zFswCsdJsrOmZC3VrMrE6v1fI8J4N4rJsVzak2qfPMHQ2MCnkGlwtuaPA==
-X-Received: by 2002:a17:90a:c08d:b0:267:f8f4:73ab with SMTP id o13-20020a17090ac08d00b00267f8f473abmr28444155pjs.16.1692987633516;
-        Fri, 25 Aug 2023 11:20:33 -0700 (PDT)
+        d=1e100.net; s=20221208; t=1692987672; x=1693592472;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=cd1paIDws1ExLMgJh/WiTiPNEsGUGwcEQ17xiLulNdo=;
+        b=gzYkqJxFT3TE+kE3ux0/TNgQ7h7XLU+TaLLV8eYmrktKbUgfVXoe/Ps2blnjHpvClY
+         iXwO3SXy3QM0pasys3zBrn0MRq0azxfi5aDHa+TXWPoIud9U3eE+qRN8e/6J0hdG/P9W
+         cWAxcg0HT/3Cr5FxoggnaK7Kt0EpARXfi9Z7Ymrx60BUjnSDmuuzyzaUCaKFG+zZuWxG
+         FwGh/e6OiTXwa1w7CWr7idtkMskf1Qeeq2lLH34qbdOZMkCUckoKRRcbqody8MBwR2wc
+         NY/cVV8G096PumtT8oZ4p5QkmZE8K/3JuOWFtdaXlRY4NFqJNMnFA3AHahEvR8l+Rp4/
+         5ZYA==
+X-Gm-Message-State: AOJu0Yx0hk2TS7erIvlme8uKtgku51TzsMvIVjGlaYNpF46ZDHzaEAx6
+	2oun9XU3NJh1EyZnD6Zxg9dWcw==
+X-Google-Smtp-Source: AGHT+IHIDQ9FIJyjliN/xDw65w9ny7WQFMwwk363Mwv+Ejm+xJkfXuvIT+Ox7t86mTNHW1gFw7K36Q==
+X-Received: by 2002:a17:902:ec87:b0:1bb:9f07:5e0 with SMTP id x7-20020a170902ec8700b001bb9f0705e0mr21488860plg.60.1692987671857;
+        Fri, 25 Aug 2023 11:21:11 -0700 (PDT)
 Received: from www.outflux.net (198-0-35-241-static.hfc.comcastbusiness.net. [198.0.35.241])
-        by smtp.gmail.com with ESMTPSA id d12-20020a17090a628c00b0026b3f76a063sm1910536pjj.44.2023.08.25.11.20.32
+        by smtp.gmail.com with ESMTPSA id 6-20020a170902c10600b001bbb598b8bbsm2056354pli.41.2023.08.25.11.21.11
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 25 Aug 2023 11:20:32 -0700 (PDT)
-Date: Fri, 25 Aug 2023 11:20:32 -0700
+        Fri, 25 Aug 2023 11:21:11 -0700 (PDT)
+Date: Fri, 25 Aug 2023 11:21:10 -0700
 From: Kees Cook <keescook@chromium.org>
-To: Randy Dunlap <rdunlap@infradead.org>
-Cc: Masahiro Yamada <masahiroy@kernel.org>, x86@kernel.org,
-	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-kbuild@vger.kernel.org,
-	linux-hardening@vger.kernel.org
+To: Christophe Leroy <christophe.leroy@csgroup.eu>
+Cc: Masahiro Yamada <masahiroy@kernel.org>,
+	"linux-s390@vger.kernel.org" <linux-s390@vger.kernel.org>,
+	"linux-kbuild@vger.kernel.org" <linux-kbuild@vger.kernel.org>,
+	"x86@kernel.org" <x86@kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-hardening@vger.kernel.org" <linux-hardening@vger.kernel.org>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+	"linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
 Subject: Re: [PATCH] kbuild: Show Kconfig fragments in "help"
-Message-ID: <202308251119.B93C95A3A7@keescook>
+Message-ID: <202308251120.159800A@keescook>
 References: <20230824223606.never.762-kees@kernel.org>
- <21193a52-0425-f5ae-90f0-10e4c578ae90@infradead.org>
+ <42174d5e-59f0-4612-d7a1-11e830d0a044@csgroup.eu>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <21193a52-0425-f5ae-90f0-10e4c578ae90@infradead.org>
+In-Reply-To: <42174d5e-59f0-4612-d7a1-11e830d0a044@csgroup.eu>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230825_112035_939439_E8EDADFF 
-X-CRM114-Status: GOOD (  21.09  )
+X-CRM114-CacheID: sfid-20230825_112113_701464_F8A424A5 
+X-CRM114-Status: UNSURE (   8.00  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,54 +93,23 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 24, 2023 at 05:04:02PM -0700, Randy Dunlap wrote:
-> Hi Kees,
-> 
-> On 8/24/23 15:36, Kees Cook wrote:
-> > Doing a "make help" would show only hard-coded Kconfig targets and
-> > depended on the archhelp target to include ".config" targets. There was
-> > nothing showing global kernel/configs/ targets. Solve this by walking
-> > the wildcard list and include them in the output, using the first comment
-> > line as the help text.
-> > 
-> > Update all Kconfig fragments to include help text and adjust archhelp
-> > targets to avoid redundancy.
-> > 
-> > Adds the following section to "help" target output:
-> > 
-> > Configuration fragment targets (for enabling various Kconfig items):
-> >   debug.config         - Debugging for CI systems and finding regressions
-> >   kvm_guest.config     - Bootable as a KVM guest
-> >   nopm.config          - Disable Power Management
-> >   rust.config          - Enable Rust
-> >   tiny-base.config     - Minimal options for tiny systems
-> >   tiny.config          - Smallest possible kernel image
-> >   x86_debug.config     - Debugging options for tip tree testing
-> >   xen.config           - Bootable as a Xen guest
-> >   tiny.config          - x86-specific options for a small kernel image
-> >   xen.config           - x86-specific options for a Xen virtualization guest
-> 
-> ISTM that you are missing the "why" part of this change in the commit
-> description.
+On Fri, Aug 25, 2023 at 04:56:54AM +0000, Christophe Leroy wrote:
+> Le 25/08/2023 =E0 00:36, Kees Cook a =E9crit=A0:
+> > +# Base hardware support for 86xx
+> =
 
-I want to see what fragments are available without needing to know the
-source tree layout for their locations. :)
+> s/86xx/85xx
+> [...]
 
-> "make tinyconfig" is the real target here.  The other (tiny.) files are just
-> implementation details.
-> We can't put all implementation details into help messages and it's not
-> difficult to find that the (tiny.) config files are merged to make the
-> final .config file.
+Thanks for the typo fixes! I'll get these all fixed up. :)
 
-Yeah, this seems true for much of the ppc stuff to, as pointed out by
-mpe. I'll go answer there...
+-- =
 
--- 
 Kees Cook
 
 _______________________________________________
