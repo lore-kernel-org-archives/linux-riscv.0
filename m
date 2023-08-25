@@ -4,92 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7189CC6787B
-	for <linux-riscv@archiver.kernel.org>; Fri, 25 Aug 2023 18:02:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D173C6787B
+	for <linux-riscv@archiver.kernel.org>; Fri, 25 Aug 2023 18:20:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xivnwNrbuAi4L32maMI02gpAHq1/FYcb6CaGidDhlLg=; b=piQ5xy/Y6buQg3
-	wxX6z5QZWIFwru9xFX+patUsSawqDX9mgSDbpWlCfgrdRLJzy9alOsOBqh6X2DwYlactsYdGxRlfL
-	LqYG4SRkofmrETVq0tyUT1I73A0BhcZEVzokZkGVzWUEmnGF1e1p9ZxQhxkFSiaMZsZhu8+g9kRLZ
-	mC2YTXH0HIVrk4rFYdycNfJqL8Hd1b5DDrOB0g6lW+ErhDxv16jZbyzlYTlQ1MBr8C5EzOIGB+5At
-	/w/Xyc2lEQE7ukH/spfQhehXyIxolKH7boDJz0Nb8lOzshyo4o/SNQOMowFOJjs3zSAGPVOOhkS2A
-	AonC4UctgaWeVSxDdf/w==;
+	List-Owner; bh=UlkhFUo9gKqqBffB4dgHSvTMQyjyKsy00L8qN6gJNzA=; b=CVsWpIGR/ZgyFU
+	wtyRJyzBDn9tYL6Lv/tjJJO8ElrsRHrHFiCeihLYkzjZtfoIHtpVy83DWAwYp4e3/YeNQxirs/WX4
+	kW8u+oe0/5S7D7DTe9HgKL1uyxt5y9poQwyxM9goNvCoanbwRErMi4VnuqvXmiLNQEvxDjsuw6bTZ
+	yUxtM01T3Rz/7y6ehGwQDOdiNz+SzZJYpvtiEcraOFYV3oVWn6cJGPzxAzL0Njef4cdr6aCaqGCFn
+	0YDRkra+T8pzWjGK6ClES23tMl+o5dS/1RrjklOwrOSKXvZPnDDmd57X4tc+rUk4qzlSrRKzc6URk
+	5OqQ3zHMXhPX5Y9YKySQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qZb8A-005pUT-0o;
-	Fri, 25 Aug 2023 18:01:58 +0000
-Received: from mail-lf1-x135.google.com ([2a00:1450:4864:20::135])
+	id 1qZbQF-005r6q-2j;
+	Fri, 25 Aug 2023 18:20:39 +0000
+Received: from mail-pg1-x534.google.com ([2607:f8b0:4864:20::534])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qZb84-005pSo-1Z;
-	Fri, 25 Aug 2023 18:01:54 +0000
-Received: by mail-lf1-x135.google.com with SMTP id 2adb3069b0e04-5009d4a4897so1818797e87.0;
-        Fri, 25 Aug 2023 11:01:49 -0700 (PDT)
+	id 1qZbQB-005r59-2v
+	for linux-riscv@lists.infradead.org;
+	Fri, 25 Aug 2023 18:20:37 +0000
+Received: by mail-pg1-x534.google.com with SMTP id 41be03b00d2f7-56c250ff3d3so1641703a12.1
+        for <linux-riscv@lists.infradead.org>; Fri, 25 Aug 2023 11:20:34 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20221208; t=1692986508; x=1693591308;
+        d=chromium.org; s=google; t=1692987633; x=1693592433;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=4SFmUXAYsem7iTnU68RPaQTJXrNLKxTUlTSWUKYfwJY=;
-        b=eCx8WVfLLhKkDjYHE6LK5+wOPjcskGc2P+q8qCaMNCmGUkxVl2+Ou9LZVdTftBUBlK
-         WpXKnv14V+1pUS0PkvDNEJCBz0zJQikC5MCQbj7G84AF0CAbJnWIKSnSW4kANFO1pOtV
-         FrKHyo6IaRo6cvvrqZ0v9S3Qc76mA8gbqxXzLpiIsNWeFHqMgA4kZzEH8kQFq0kgZv8A
-         P7qYMVbflmKM6lhcX9sznJ9AoVE5qbJNDtqb7ZBarvTN2crUZSw8+MMZdltbTIVGFIje
-         1YzmEkg+K03iITsDY0VP7euhRoTy0IRUOcx1/Sh7StJvEm5yOeazBN/8ddHbzV3ggByZ
-         7e7A==
+        bh=GYd1wVFPRI7NiM/Sx4/tad/ZtbY6g9sye8P5AXqu+fc=;
+        b=E4mC5YAXMMgmUHgfRiWFcSZjAFYw1waD0EqZCNwtYhRSRtgJoFZVlCS3JG3wV7FXjd
+         sXVU7RTKIYiV68OaJT+pNyPhtCG1CpcRdXA82AG5ofhhqR/vSGm3tvd1mpbR6M1weagG
+         NwWQJu1Josu1pkUS1L/DPphW0b+C0Nzy+d45c=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1692986508; x=1693591308;
+        d=1e100.net; s=20221208; t=1692987633; x=1693592433;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=4SFmUXAYsem7iTnU68RPaQTJXrNLKxTUlTSWUKYfwJY=;
-        b=UlDwyD1JH1dgvpLD255qr5s6ETYKH8mCW/ymAJVF75ehdS8pPWYjQPVHaC/Ytm5Yxn
-         YAbm7NnTrqWagvR9Ow8+h9rD8hvW7imMWDHXIpWjfHxuLq7qU2Zycb17M2B9p17aWhMX
-         cPSQbbNmLrakjnqXrNJi4snsgHiXp82Uch/by9ulzczMr7/vj+K38FPTolRDPu0kHI5m
-         +dWZJdXx2hIgQj0sKimlHMpEf9ONMncCA12mWromB2CRSYxrQB0SnvjQ++PoxeMqTmcn
-         gvhDkabzbkkoABoby7IwWrN0oRd+HlK/xPjyEe9SmVwL/zjfBq9xMJkOndxN7vfVqQ4a
-         stEg==
-X-Gm-Message-State: AOJu0Yw9XHS9z2bDANzB4huKsxUehQlpIESkYuPlcJbggMCnc25xXWvR
-	TJ0TBwU+5OwQirHHFl1WZIk=
-X-Google-Smtp-Source: AGHT+IH0lcoByGdkGAuuyTRpzPSqRVfYxYDuaWbs9bJOeWJsrinCWk1P2nZBUgaVHYuB9th1ImqFzA==
-X-Received: by 2002:a05:6512:2303:b0:4fe:4e2c:8e52 with SMTP id o3-20020a056512230300b004fe4e2c8e52mr18884207lfu.42.1692986507967;
-        Fri, 25 Aug 2023 11:01:47 -0700 (PDT)
-Received: from mobilestation ([178.176.56.174])
-        by smtp.gmail.com with ESMTPSA id a9-20020ac25209000000b004fba077e654sm366283lfl.194.2023.08.25.11.01.46
+        bh=GYd1wVFPRI7NiM/Sx4/tad/ZtbY6g9sye8P5AXqu+fc=;
+        b=Qp8r3pJxx/HFj1V/Wr0AQg2BIoQWBrLLIsmU/ROoFRCyHBIA5jMBfp07iFpFv7PR4N
+         FhPDZAHzvjz3uVCtvRt/w1CnAFZOIAlPbtd+CU5Zdm9XCSzhvxCzZgtRWYaFUhxylM1H
+         tLcvUWFMVvoBXMtKLtc1HwRlJYxq8bMAucuF4eUjtkX3VNYjlT7/IH+V8jszqsmiVklF
+         B5gVvjcJt+SpvwePS3Xh2LK0uqoZdrG2M7lHTlGyNYRbr6MzZrmgIZRT8JT7jMKee12N
+         cNf1R5KtvJJfO6YYFrFhWU9h5eijzopUCVWLVs5w6KUVbjBEZEnfBCEb8ZvrCGpzAqWg
+         IM3g==
+X-Gm-Message-State: AOJu0YwMJsczQnMtaWXWVF7sELY8O9Yp3V++ISZxccbjVIoTLfdnXE6b
+	PcPDznLJ9CRKiPge6R4ZzozpHA==
+X-Google-Smtp-Source: AGHT+IF6DSGG+sLTemEr6zFswCsdJsrOmZC3VrMrE6v1fI8J4N4rJsVzak2qfPMHQ2MCnkGlwtuaPA==
+X-Received: by 2002:a17:90a:c08d:b0:267:f8f4:73ab with SMTP id o13-20020a17090ac08d00b00267f8f473abmr28444155pjs.16.1692987633516;
+        Fri, 25 Aug 2023 11:20:33 -0700 (PDT)
+Received: from www.outflux.net (198-0-35-241-static.hfc.comcastbusiness.net. [198.0.35.241])
+        by smtp.gmail.com with ESMTPSA id d12-20020a17090a628c00b0026b3f76a063sm1910536pjj.44.2023.08.25.11.20.32
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 25 Aug 2023 11:01:47 -0700 (PDT)
-Date: Fri, 25 Aug 2023 21:01:44 +0300
-From: Serge Semin <fancer.lancer@gmail.com>
-To: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-Cc: Li Zetao <lizetao1@huawei.com>, andrew@aj.id.au, 
-	angelogioacchino.delregno@collabora.com, avifishman70@gmail.com, bcm-kernel-feedback-list@broadcom.com, 
-	benjaminfair@google.com, broonie@kernel.org, chin-ting_kuo@aspeedtech.com, clg@kaod.org, 
-	conor.dooley@microchip.com, daire.mcnamara@microchip.com, florian.fainelli@broadcom.com, 
-	heiko@sntech.de, jbrunet@baylibre.com, joel@jms.id.au, khilman@baylibre.com, 
-	linus.walleij@linaro.org, linux-amlogic@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
-	linux-mediatek@lists.infradead.org, linux-riscv@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-rpi-kernel@lists.infradead.org, linux-spi@vger.kernel.org, 
-	martin.blumenstingl@googlemail.com, matthias.bgg@gmail.com, neil.armstrong@linaro.org, 
-	olteanv@gmail.com, openbmc@lists.ozlabs.org, rjui@broadcom.com, 
-	sbranden@broadcom.com, tali.perry1@gmail.com, tmaimon77@gmail.com, venture@google.com, 
-	yuenn@google.com
-Subject: Re: [PATCH -next v2 11/25] spi: dw-bt1: Use helper function
- devm_clk_get_enabled()
-Message-ID: <cgw2bpsh47p4vz3hectcwsz53dhmffpurufw2prxzg43ra2fpc@7xklvkozre6g>
-References: <20230822131237.1022815-1-lizetao1@huawei.com>
- <20230823133938.1359106-1-lizetao1@huawei.com>
- <20230823133938.1359106-12-lizetao1@huawei.com>
- <xxosi2ymo7otqyfbmjlubezzedqw6ulwwhdmbdjbto7yaqw673@q673weupq67y>
- <20230823181344.000026bd@Huawei.com>
+        Fri, 25 Aug 2023 11:20:32 -0700 (PDT)
+Date: Fri, 25 Aug 2023 11:20:32 -0700
+From: Kees Cook <keescook@chromium.org>
+To: Randy Dunlap <rdunlap@infradead.org>
+Cc: Masahiro Yamada <masahiroy@kernel.org>, x86@kernel.org,
+	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-kbuild@vger.kernel.org,
+	linux-hardening@vger.kernel.org
+Subject: Re: [PATCH] kbuild: Show Kconfig fragments in "help"
+Message-ID: <202308251119.B93C95A3A7@keescook>
+References: <20230824223606.never.762-kees@kernel.org>
+ <21193a52-0425-f5ae-90f0-10e4c578ae90@infradead.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20230823181344.000026bd@Huawei.com>
+In-Reply-To: <21193a52-0425-f5ae-90f0-10e4c578ae90@infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230825_110152_528440_0EB11F18 
-X-CRM114-Status: GOOD (  34.22  )
+X-CRM114-CacheID: sfid-20230825_112035_939439_E8EDADFF 
+X-CRM114-Status: GOOD (  21.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,126 +92,50 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 23, 2023 at 06:13:44PM +0100, Jonathan Cameron wrote:
-> On Wed, 23 Aug 2023 17:35:35 +0300
-> Serge Semin <fancer.lancer@gmail.com> wrote:
+On Thu, Aug 24, 2023 at 05:04:02PM -0700, Randy Dunlap wrote:
+> Hi Kees,
 > 
-> > On Wed, Aug 23, 2023 at 09:39:24PM +0800, Li Zetao wrote:
-> > > Since commit 7ef9651e9792 ("clk: Provide new devm_clk helpers for prepared
-> > > and enabled clocks"), devm_clk_get() and clk_prepare_enable() can now be
-> > > replaced by devm_clk_get_enabled() when driver enables (and possibly
-> > > prepares) the clocks for the whole lifetime of the device. Moreover, it is
-> > > no longer necessary to unprepare and disable the clocks explicitly.
-> > >   
+> On 8/24/23 15:36, Kees Cook wrote:
+> > Doing a "make help" would show only hard-coded Kconfig targets and
+> > depended on the archhelp target to include ".config" targets. There was
+> > nothing showing global kernel/configs/ targets. Solve this by walking
+> > the wildcard list and include them in the output, using the first comment
+> > line as the help text.
 > > 
-> > > Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-> > > Acked-by: Serge Semin <fancer.lancer@gmail.com>
-> > > Signed-off-by: Li Zetao <lizetao1@huawei.com>  
+> > Update all Kconfig fragments to include help text and adjust archhelp
+> > targets to avoid redundancy.
 > > 
-> > Just for the record, the tags order is normally supposed to reflect a
-> > patch route. Even though AFAICS it's explicitly defined for the Sob
-> > tags only (see Documentation/process/submitting-patches.rst), but
-> > almost all kernel developers apply that rule to all the tags. See the
-> > kernel git log as the brightest example. So your Sob tag should have
-> > been kept first, then either my Ab or Jonathan' Rb tags.
-> 
-
-> There have been far too many discussions about this over the years.
-> There is an argument (I'm not saying I agree with it) that tags given
-> on an earlier version than the one posted should be before the SoB of
-> the author on basis that the SoB is occurring later (as it's on the new
-> version).  That is a slightly stronger argument if there are changes
-> to the patch, but then things get inconsistent between patches with minor
-> changes and those without. *sigh*
-> 
-> So this pattern is fairly common if a bit weird in my view :)
-
-Ah, I didn't know it was a holy-warring topic.) My judgement was based
-on the vast majority of commits in the kernel git log and on my
-experience in the patches review. Anyway in order not to raise it
-again let's consider my comment as a general note with no obligation
-towards the patch author.)
-
--Serge(y)
-
-> 
-> Jonathan
-> 
+> > Adds the following section to "help" target output:
 > > 
-> > -Serge(y)
-> > 
-> > > ---
-> > > v1 -> v2: None
-> > > 
-> > >  drivers/spi/spi-dw-bt1.c | 23 +++++------------------
-> > >  1 file changed, 5 insertions(+), 18 deletions(-)
-> > > 
-> > > diff --git a/drivers/spi/spi-dw-bt1.c b/drivers/spi/spi-dw-bt1.c
-> > > index 5e1c01822967..5391bcac305c 100644
-> > > --- a/drivers/spi/spi-dw-bt1.c
-> > > +++ b/drivers/spi/spi-dw-bt1.c
-> > > @@ -269,43 +269,32 @@ static int dw_spi_bt1_probe(struct platform_device *pdev)
-> > >  
-> > >  	dws->paddr = mem->start;
-> > >  
-> > > -	dwsbt1->clk = devm_clk_get(&pdev->dev, NULL);
-> > > +	dwsbt1->clk = devm_clk_get_enabled(&pdev->dev, NULL);
-> > >  	if (IS_ERR(dwsbt1->clk))
-> > >  		return PTR_ERR(dwsbt1->clk);
-> > >  
-> > > -	ret = clk_prepare_enable(dwsbt1->clk);
-> > > -	if (ret)
-> > > -		return ret;
-> > > -
-> > >  	dws->bus_num = pdev->id;
-> > >  	dws->reg_io_width = 4;
-> > >  	dws->max_freq = clk_get_rate(dwsbt1->clk);
-> > > -	if (!dws->max_freq) {
-> > > -		ret = -EINVAL;
-> > > -		goto err_disable_clk;
-> > > -	}
-> > > +	if (!dws->max_freq)
-> > > +		return -EINVAL;
-> > >  
-> > >  	init_func = device_get_match_data(&pdev->dev);
-> > >  	ret = init_func(pdev, dwsbt1);
-> > >  	if (ret)
-> > > -		goto err_disable_clk;
-> > > +		return ret;
-> > >  
-> > >  	pm_runtime_enable(&pdev->dev);
-> > >  
-> > >  	ret = dw_spi_add_host(&pdev->dev, dws);
-> > >  	if (ret) {
-> > >  		pm_runtime_disable(&pdev->dev);
-> > > -		goto err_disable_clk;
-> > > +		return ret;
-> > >  	}
-> > >  
-> > >  	platform_set_drvdata(pdev, dwsbt1);
-> > >  
-> > >  	return 0;
-> > > -
-> > > -err_disable_clk:
-> > > -	clk_disable_unprepare(dwsbt1->clk);
-> > > -
-> > > -	return ret;
-> > >  }
-> > >  
-> > >  static void dw_spi_bt1_remove(struct platform_device *pdev)
-> > > @@ -315,8 +304,6 @@ static void dw_spi_bt1_remove(struct platform_device *pdev)
-> > >  	dw_spi_remove_host(&dwsbt1->dws);
-> > >  
-> > >  	pm_runtime_disable(&pdev->dev);
-> > > -
-> > > -	clk_disable_unprepare(dwsbt1->clk);
-> > >  }
-> > >  
-> > >  static const struct of_device_id dw_spi_bt1_of_match[] = {
-> > > -- 
-> > > 2.34.1
-> > >   
+> > Configuration fragment targets (for enabling various Kconfig items):
+> >   debug.config         - Debugging for CI systems and finding regressions
+> >   kvm_guest.config     - Bootable as a KVM guest
+> >   nopm.config          - Disable Power Management
+> >   rust.config          - Enable Rust
+> >   tiny-base.config     - Minimal options for tiny systems
+> >   tiny.config          - Smallest possible kernel image
+> >   x86_debug.config     - Debugging options for tip tree testing
+> >   xen.config           - Bootable as a Xen guest
+> >   tiny.config          - x86-specific options for a small kernel image
+> >   xen.config           - x86-specific options for a Xen virtualization guest
 > 
+> ISTM that you are missing the "why" part of this change in the commit
+> description.
+
+I want to see what fragments are available without needing to know the
+source tree layout for their locations. :)
+
+> "make tinyconfig" is the real target here.  The other (tiny.) files are just
+> implementation details.
+> We can't put all implementation details into help messages and it's not
+> difficult to find that the (tiny.) config files are merged to make the
+> final .config file.
+
+Yeah, this seems true for much of the ppc stuff to, as pointed out by
+mpe. I'll go answer there...
+
+-- 
+Kees Cook
 
 _______________________________________________
 linux-riscv mailing list
