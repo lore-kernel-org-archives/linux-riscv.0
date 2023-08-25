@@ -4,98 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBD71C3DA66
-	for <linux-riscv@archiver.kernel.org>; Fri, 25 Aug 2023 19:48:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42A3AC3DA6F
+	for <linux-riscv@archiver.kernel.org>; Fri, 25 Aug 2023 19:48:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=DGkfVsaYqAr2/FRyZoZrARMuX3LFO19ZWf1sjixQySQ=; b=cxN1oyRXoNDQ7S
-	k9eXBbcJJ1i0CtK8ESQyVjJINJc1gEfpNHh2Y9sbwUoKqLRUEfvwjAP0oSq5tEzKvXMYe6qEGuTeU
-	zKWLS7sNA34xP7vGyRW5ncqkr5qarwjmjNzP8/o8AWB/a3mLVtsClsu0WWwXthqr5JwSIyALrPjyx
-	9pjOxgzY0ad6rzkKjBMGqG4tiJ/ilARtv1aoUFHjyAq0cR6X8QJ6Tdwy+A1Lo0dbNCwH8Oq1pwmSn
-	JKbRz3/dMqMxpvMjTdUmegqn+Dm6V1L2aW9ObC9V72rTAKYXvZNTvU+oKv4txciCYOMO5KbAkGYWn
-	Rs4G7lqLib8VPUM2st4w==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=x+8q3AO2v6iAl/B4dRAb+dSUJ7pUjmqVIy0TCUzE9OI=; b=yBUNH6CZZtqexA
+	lkQFQMwyIgUTTNwlFIpee5KYqTv/0ylVFjafnxH+TpvuS6yLDkfilA4UbLMdDYm06ZlGmaDUvCJFB
+	fEvSHiIpIwkmMpV85qcQru+b5oPzedKUXm24lbEKjHLzlBMrnaM9WLlKmfQJm60Qtf+lnAKvgEuM9
+	jUt7ibjZj1sKK3ugkD+QciSIPjLQpSFIM+BTyKdpF+6PAKP7IN5KnReU+iXG6JXK2qw1kfw0dPbRj
+	wr7nxMRYWafm6b/ooBNsGqFfpM3FES2daQLwFUvg6FihAmJaYE8qJ5dl60i4Fl+UmsIWJyGLOxySc
+	JL7kOTJ6U9NcZ172yFag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qZcmv-005xDo-1n;
-	Fri, 25 Aug 2023 19:48:09 +0000
-Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
+	id 1qZcmr-005xD2-2S;
+	Fri, 25 Aug 2023 19:48:05 +0000
+Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qZcmp-005x9d-0N
+	id 1qZcmo-005x9f-2C
 	for linux-riscv@lists.infradead.org;
-	Fri, 25 Aug 2023 19:48:06 +0000
-Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-1bd9b4f8e0eso10637125ad.1
+	Fri, 25 Aug 2023 19:48:04 +0000
+Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-68a440a8a20so1170514b3a.3
         for <linux-riscv@lists.infradead.org>; Fri, 25 Aug 2023 12:47:57 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1692992876; x=1693597676;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=2eAlo9fjSE47gDq8UwikbKqRdW2epxnqoMlapicBOVo=;
-        b=MV8ZmLMqm57BRXUhrO2ABSba51WklkZbfUG7qXPOI6PbKD2UpMX1hwBOpogM5aLFcz
-         tqTE08LFvVbtEYund8FpK1ozaGBHElO/yhTJIQFm+JJOwiljVWmn4w1Ez6liFk1zQFJo
-         BijH78sFlvk9b9/WxKTD03v6b9U2mb+qZW7PI=
+        d=chromium.org; s=google; t=1692992877; x=1693597677;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=lRCZqfcIoPdjWycDLHPr9pRRfllmQvXWDcXX249Q0Rk=;
+        b=eiVi6GUEjvcqj+2SlX8CkBk72qfjyCdowr9WAGoYR1YfPMBnZ5fJIC0gMFLQE5jFe/
+         AZ64CnGR/sdsXFGGhrwjCJbioUqYAIlYZK3lNa48Qa4AK5dSvv4LDvWDFBhDfKVkgwMF
+         tTV0VlQElY/FlpFt/rNgUwiGoOsy01MqJ/2bI=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1692992876; x=1693597676;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=2eAlo9fjSE47gDq8UwikbKqRdW2epxnqoMlapicBOVo=;
-        b=F8WZXpAeuxjuBnHl+b5nkgTA4yeknQ9d62hqURaxmYbIBw83yhYO6yQ6Cl9g5tY7nV
-         PJWDi2G78cbwB2Y2sw5BIvY4NbxnOzn3QRAvfpZpRUi6sqB7m08TC1786G2RdQsU/PP1
-         pTJpARLCGuDhFRiU0XkUyPLktae8mty9fw9W8qIRgGLUe3GdlfVPinZHeQiy3sTV3p8M
-         v49HvtlCHsF22cQnOnI2+2/tFPxAa49xlDSj1We5qZVqM1WfdqOW4YVNP7YquWquKpKh
-         sofUuv6f97b9qR0+uSbg7mJsw1mnaMuNlfa8xYQVmn6hXZP+nthsggPJ+6QLimkOzRAu
-         ATxQ==
-X-Gm-Message-State: AOJu0Yw15RWda7DrcymifxGLSuNKX6YUszIsYiW9NkdwNrhBtl+K8rv0
-	h59uca+/GahH/4kE4ntvHjPTUg==
-X-Google-Smtp-Source: AGHT+IGxcpanMsKBVZgKv/Yq93mXGufH+Af8FwFxALkGKO/g/5fDq3MRLYBXtsa8BQ/uRSV5+dgzUQ==
-X-Received: by 2002:a17:902:f68a:b0:1b8:2ba0:c9c0 with SMTP id l10-20020a170902f68a00b001b82ba0c9c0mr19091463plg.59.1692992876671;
-        Fri, 25 Aug 2023 12:47:56 -0700 (PDT)
+        d=1e100.net; s=20221208; t=1692992877; x=1693597677;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=lRCZqfcIoPdjWycDLHPr9pRRfllmQvXWDcXX249Q0Rk=;
+        b=YvCpXJCW0vyT4z+Wmab0p+iDeB6eTTcwMKloDAbZUWtgK05mnYqf/Dv1zaX1qAGU2w
+         j+AvACZfkkJVSFydlki7EgPtVkBlveJeazWTLLELhmPp03I4IHjweXbwMcjC5wqUVfe6
+         sMETXKjr38uqEg8dKSSoFkcJlS5j/HrcTl/OY3minyDCHep6USmc+WM6pQDuz+ThaMmu
+         crNAlrTee4LkG7229198EmHI9nCJtKlDAlbsS9tm/je9bTOQjW0Pn2g7Q2oN+ht0OFFW
+         2yUlsdLL3pRNABAA1lLgAD6pOIEsu5ZXxkowPszP7dD4Zk6e6RctxFk4FB9vhFurrtFT
+         Eqtw==
+X-Gm-Message-State: AOJu0Yw0TB+bm5yG8+rDz/gjwYryx8+o3o3STsVX0x8hKjyckw0myki+
+	Zny/dNY+ad+uDJsIChe/zhxZxQ==
+X-Google-Smtp-Source: AGHT+IFSKug2EyO8CyjKx150dEE+7lb0gZsL7hrHvDAEvCps+/PY9kVg2rcZA4wm+qgMnv7ZCnmkGw==
+X-Received: by 2002:a05:6a20:1441:b0:148:656b:9a1f with SMTP id a1-20020a056a20144100b00148656b9a1fmr23652914pzi.20.1692992877130;
+        Fri, 25 Aug 2023 12:47:57 -0700 (PDT)
 Received: from www.outflux.net (198-0-35-241-static.hfc.comcastbusiness.net. [198.0.35.241])
-        by smtp.gmail.com with ESMTPSA id l18-20020a170902d35200b001bdc209b9a0sm2127104plk.201.2023.08.25.12.47.55
+        by smtp.gmail.com with ESMTPSA id x2-20020aa79182000000b00689e01ae8fcsm1926428pfa.206.2023.08.25.12.47.55
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 25 Aug 2023 12:47:55 -0700 (PDT)
+        Fri, 25 Aug 2023 12:47:56 -0700 (PDT)
 From: Kees Cook <keescook@chromium.org>
 To: Masahiro Yamada <masahiroy@kernel.org>
 Cc: Kees Cook <keescook@chromium.org>,
+	x86@kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-kbuild@vger.kernel.org,
 	Michael Ellerman <mpe@ellerman.id.au>,
 	Christophe Leroy <christophe.leroy@csgroup.eu>,
 	Nicolas Schier <nicolas@fjasle.eu>,
 	Randy Dunlap <rdunlap@infradead.org>,
 	linux-kernel@vger.kernel.org,
-	x86@kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linuxppc-dev@lists.ozlabs.org,
 	linux-riscv@lists.infradead.org,
 	linux-s390@vger.kernel.org,
-	linux-kbuild@vger.kernel.org,
 	linux-hardening@vger.kernel.org
-Subject: [PATCH v2 0/2] kbuild: Show Kconfig fragments in "help"
-Date: Fri, 25 Aug 2023 12:47:51 -0700
-Message-Id: <20230825194329.gonna.911-kees@kernel.org>
+Subject: [PATCH v2 2/2] kbuild: Split internal config targets from .config into .fragment
+Date: Fri, 25 Aug 2023 12:47:53 -0700
+Message-Id: <20230825194755.854823-2-keescook@chromium.org>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20230825194329.gonna.911-kees@kernel.org>
+References: <20230825194329.gonna.911-kees@kernel.org>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5155; i=keescook@chromium.org;
- h=from:subject:message-id; bh=v1dFNPv8CIhPkvxYivSEa1AvUQm838lqlgbgtyuDhao=;
- b=owEBbQKS/ZANAwAKAYly9N/cbcAmAcsmYgBk6QVpcTKUn7qqPn10MgMfRhkYIt+AsVuNBKMPQ
- xjEfa7v0KOJAjMEAAEKAB0WIQSlw/aPIp3WD3I+bhOJcvTf3G3AJgUCZOkFaQAKCRCJcvTf3G3A
- JiiXEACuT7VwLDIoXTeIecrMyMglPUbKPt7yUzWO3/54TGsSft96acY1dzB1vA7qrGa9t1Cdo9v
- R13OX57o0IJT2V2rlOgzIcV672EkcYj8onx7ErDcMmui0FpMoy7PxyJQlbMuF/va0qIrTAABk/c
- 7FVHlMtL8QNfzwffmzL3/prEJ1FOVTerYWIdlzsoUtxqY2tRQT9XNW+91QKmKXwu5wuV0LtbZHe
- LJXY8jOpoAqoRh8LfxuVxYyzHhX2rnsxIZV4PpW/MurNesETGNW27Axnw6zDS3SURGqdSM8rK8o
- 5ba5fSaoDMTza0TNdMdDLe0MaeC5v/YkHK5+W3ymGNF/xCIq0k5npCjRtifmrUabKOtznAM5UyD
- b+vijr2Ppt5ibT7kha8c1gx+OcPvz8Q8wbguQxUhMDJrwyO+dZ6E5YjMyrYqZwYyM5IsPFZ1bdG
- oHZDtbyRinFIIK7R4E3eaID7Ln+ugtxStkmhOXE/wla3uiFkjs8MB6Ng7HZbW+SOxY5lW4u8rE0
- yIYiPlxv9dcZV78jyYILn15t8EIDWR+BXJKIntgzqwTrHXIrGnVpMny3qjFs2m8AotyH3mAqXKX
- 3Xnv6M5GUGn4L2vIRCvJeyzyrhxv6H9oJFtsb8GgriE+578mNn9MnTFC+RnySu6r9pgT9oyIpjJ
- hRc0FPP 4F/47bRw==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=13600; i=keescook@chromium.org;
+ h=from:subject; bh=WsGA2w70Z2jH6+E3FM9RqepsW5TMIoqDQO9WuzRD4IM=;
+ b=owEBbQKS/ZANAwAKAYly9N/cbcAmAcsmYgBk6QVpiPplcGybCpBXAOFBqTWSKZQd6b83G7SmR
+ btUuusJB1KJAjMEAAEKAB0WIQSlw/aPIp3WD3I+bhOJcvTf3G3AJgUCZOkFaQAKCRCJcvTf3G3A
+ JtTQD/90/3TwiNJbod0/y+IQ3nFFarC3ro5zIc+s35NoFbhu/aboq+1GVWEGGXbEGyAwt/qDPdA
+ EHOlaIDxIfZPLUTE4cnLHonEtEsWM+cvimQqDR8Ywcj98v7LVqyvAEmnbZNuCvaYdTIWDPCYJA7
+ h/gdMQB4JuNgWy4kO06uWAwo5GUMrbghrLw9tzjy84Ywu4XclD1G+V9NOqvCAbzWQs95Te1o1eo
+ bRt1GUpvfEVRq3hPvLZv/4njLwoHbvH6J7NlKAKU55LJFwGozNPdpE207mxM9N/VDcIrQpSegL4
+ IpS87nenP2ZjHdVMX6OTHs5EzHRCICVK9NHbN8G61TX+ZwBlcdCwouYsdFMWRk8b6Tu6D9Ia6M7
+ ZFK+HRaBeSmc1ds5LcVzwkVyazBvLlXsY7a+NkY1iKPhELinscjs46IeZkEvXtxbLOsVOND76o/
+ SrQgPbGTLbMA0YIy/u7fxKwgAaHm3NxonjdVAqunkWTPSBn5I2kjdup0hkBFOl8vyI+p8F2HK9q
+ FP73oUvIvq28fwCK5LAzNU8stFHKahUHQAdNm8BgHKBr3cM828AvZmqv8BCLRVuXRrvefjHhgpT
+ Vy0dIafA7356d0vg1gp1Pxeakm+m1daIloarMPBWgpvWvKasYnV1wlANJHGPkNiL7psV6Llzxgv QjnNcERunEHTZag==
 X-Developer-Key: i=keescook@chromium.org; a=openpgp; fpr=A5C3F68F229DD60F723E6E138972F4DFDC6DC026
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230825_124803_174131_DC455BF7 
-X-CRM114-Status: GOOD (  10.05  )
+X-CRM114-CacheID: sfid-20230825_124802_751273_A201D6FE 
+X-CRM114-Status: GOOD (  10.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,104 +114,283 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Many Kconfig fragments are being used internally to construct hard-coded
+targets and shouldn't be reachable directly through the build system.
+Splitting these out also means that the "help" target can display only
+the "complete" .config targets intended for general use. This is
+especially useful for powerpc where most of the arch fragments aren't
+intended to be consumed individually.
 
-This is my series to show *.config targets in the "help" target so these
-various topics can be more easily discoverd.
-
-v2:
- - split .fragment from .config to hide "internal" fragments
- - fix various typos
- - avoid duplicate entries
-v1: https://lore.kernel.org/all/20230824223606.never.762-kees@kernel.org
-
-Thanks!
-
--Kees
-
-Kees Cook (2):
-  kbuild: Show Kconfig fragments in "help"
-  kbuild: Split internal config targets from .config into .fragment
-
- Makefile                                      |  1 -
- arch/arm/configs/dram_0x00000000.config       |  1 +
- arch/arm/configs/dram_0xc0000000.config       |  1 +
- arch/arm/configs/dram_0xd0000000.config       |  1 +
- arch/arm/configs/lpae.config                  |  1 +
- arch/arm64/configs/virt.config                |  1 +
+Cc: Masahiro Yamada <masahiroy@kernel.org>
+Cc: x86@kernel.org
+Cc: linuxppc-dev@lists.ozlabs.org
+Cc: linux-kbuild@vger.kernel.org
+Suggested-by: Michael Ellerman <mpe@ellerman.id.au>
+Signed-off-by: Kees Cook <keescook@chromium.org>
+---
  arch/powerpc/Makefile                         | 26 +++++++++----------
- .../{32-bit.config => 32-bit.fragment}        |  1 +
- arch/powerpc/configs/64-bit.config            |  1 -
- arch/powerpc/configs/64-bit.fragment          |  2 ++
- ...{85xx-32bit.config => 85xx-32bit.fragment} |  1 +
- ...{85xx-64bit.config => 85xx-64bit.fragment} |  1 +
- .../{85xx-hw.config => 85xx-hw.fragment}      |  1 +
- .../{85xx-smp.config => 85xx-smp.fragment}    |  1 +
- .../{86xx-hw.config => 86xx-hw.fragment}      |  1 +
- .../{86xx-smp.config => 86xx-smp.fragment}    |  1 +
- arch/powerpc/configs/altivec.config           |  1 -
- arch/powerpc/configs/altivec.fragment         |  2 ++
- arch/powerpc/configs/be.config                |  1 -
- arch/powerpc/configs/be.fragment              |  2 ++
- .../{book3s_32.config => book3s_32.fragment}  |  1 +
- ...enet_base.config => corenet_base.fragment} |  1 +
- arch/powerpc/configs/debug.config             |  1 +
- arch/powerpc/configs/disable-werror.config    |  1 +
- .../configs/{dpaa.config => dpaa.fragment}    |  1 +
- ...mb-nonhw.config => fsl-emb-nonhw.fragment} |  1 +
- .../configs/{guest.config => guest.fragment}  |  1 +
- arch/powerpc/configs/le.config                |  1 -
- arch/powerpc/configs/le.fragment              |  2 ++
- ...85xx_base.config => mpc85xx_base.fragment} |  1 +
- ...86xx_base.config => mpc86xx_base.fragment} |  1 +
- .../{ppc64le.config => ppc64le.fragment}      |  1 +
- arch/powerpc/configs/security.config          |  4 ++-
- arch/riscv/configs/32-bit.config              |  1 +
- arch/riscv/configs/64-bit.config              |  1 +
- arch/s390/configs/btf.config                  |  1 +
- arch/s390/configs/kasan.config                |  1 +
- arch/x86/Makefile                             |  4 ---
- arch/x86/configs/tiny.config                  |  2 ++
- {kernel => arch/x86}/configs/x86_debug.config |  1 +
- arch/x86/configs/xen.config                   |  2 ++
- kernel/configs/debug.config                   |  2 ++
- kernel/configs/kvm_guest.config               |  1 +
- kernel/configs/nopm.config                    |  2 ++
- kernel/configs/rust.config                    |  1 +
- kernel/configs/tiny-base.config               |  1 -
- kernel/configs/tiny-base.fragment             |  2 ++
- kernel/configs/tiny.config                    |  2 ++
- kernel/configs/xen.config                     |  2 ++
+ .../{32-bit.config => 32-bit.fragment}        |  0
+ .../{64-bit.config => 64-bit.fragment}        |  0
+ ...{85xx-32bit.config => 85xx-32bit.fragment} |  0
+ ...{85xx-64bit.config => 85xx-64bit.fragment} |  0
+ .../{85xx-hw.config => 85xx-hw.fragment}      |  0
+ .../{85xx-smp.config => 85xx-smp.fragment}    |  0
+ .../{86xx-hw.config => 86xx-hw.fragment}      |  0
+ .../{86xx-smp.config => 86xx-smp.fragment}    |  0
+ .../{altivec.config => altivec.fragment}      |  0
+ .../configs/{be.config => be.fragment}        |  0
+ .../{book3s_32.config => book3s_32.fragment}  |  0
+ ...enet_base.config => corenet_base.fragment} |  0
+ .../configs/{dpaa.config => dpaa.fragment}    |  0
+ ...mb-nonhw.config => fsl-emb-nonhw.fragment} |  0
+ .../configs/{guest.config => guest.fragment}  |  0
+ .../configs/{le.config => le.fragment}        |  0
+ ...85xx_base.config => mpc85xx_base.fragment} |  0
+ ...86xx_base.config => mpc86xx_base.fragment} |  0
+ .../{ppc64le.config => ppc64le.fragment}      |  0
+ {kernel => arch/x86}/configs/x86_debug.config |  0
+ .../{tiny-base.config => tiny-base.fragment}  |  0
  scripts/Makefile.defconf                      | 12 ++++++---
- scripts/kconfig/Makefile                      | 16 +++++++++---
- 51 files changed, 87 insertions(+), 32 deletions(-)
- rename arch/powerpc/configs/{32-bit.config => 32-bit.fragment} (53%)
- delete mode 100644 arch/powerpc/configs/64-bit.config
- create mode 100644 arch/powerpc/configs/64-bit.fragment
- rename arch/powerpc/configs/{85xx-32bit.config => 85xx-32bit.fragment} (76%)
- rename arch/powerpc/configs/{85xx-64bit.config => 85xx-64bit.fragment} (78%)
- rename arch/powerpc/configs/{85xx-hw.config => 85xx-hw.fragment} (98%)
- rename arch/powerpc/configs/{85xx-smp.config => 85xx-smp.fragment} (59%)
- rename arch/powerpc/configs/{86xx-hw.config => 86xx-hw.fragment} (98%)
- rename arch/powerpc/configs/{86xx-smp.config => 86xx-smp.fragment} (58%)
- delete mode 100644 arch/powerpc/configs/altivec.config
- create mode 100644 arch/powerpc/configs/altivec.fragment
- delete mode 100644 arch/powerpc/configs/be.config
- create mode 100644 arch/powerpc/configs/be.fragment
- rename arch/powerpc/configs/{book3s_32.config => book3s_32.fragment} (52%)
- rename arch/powerpc/configs/{corenet_base.config => corenet_base.fragment} (64%)
- rename arch/powerpc/configs/{dpaa.config => dpaa.fragment} (80%)
- rename arch/powerpc/configs/{fsl-emb-nonhw.config => fsl-emb-nonhw.fragment} (98%)
- rename arch/powerpc/configs/{guest.config => guest.fragment} (85%)
- delete mode 100644 arch/powerpc/configs/le.config
- create mode 100644 arch/powerpc/configs/le.fragment
- rename arch/powerpc/configs/{mpc85xx_base.config => mpc85xx_base.fragment} (94%)
- rename arch/powerpc/configs/{mpc86xx_base.config => mpc86xx_base.fragment} (86%)
- rename arch/powerpc/configs/{ppc64le.config => ppc64le.fragment} (65%)
- rename {kernel => arch/x86}/configs/x86_debug.config (90%)
- delete mode 100644 kernel/configs/tiny-base.config
- create mode 100644 kernel/configs/tiny-base.fragment
+ scripts/kconfig/Makefile                      |  2 +-
+ 24 files changed, 22 insertions(+), 18 deletions(-)
+ rename arch/powerpc/configs/{32-bit.config => 32-bit.fragment} (100%)
+ rename arch/powerpc/configs/{64-bit.config => 64-bit.fragment} (100%)
+ rename arch/powerpc/configs/{85xx-32bit.config => 85xx-32bit.fragment} (100%)
+ rename arch/powerpc/configs/{85xx-64bit.config => 85xx-64bit.fragment} (100%)
+ rename arch/powerpc/configs/{85xx-hw.config => 85xx-hw.fragment} (100%)
+ rename arch/powerpc/configs/{85xx-smp.config => 85xx-smp.fragment} (100%)
+ rename arch/powerpc/configs/{86xx-hw.config => 86xx-hw.fragment} (100%)
+ rename arch/powerpc/configs/{86xx-smp.config => 86xx-smp.fragment} (100%)
+ rename arch/powerpc/configs/{altivec.config => altivec.fragment} (100%)
+ rename arch/powerpc/configs/{be.config => be.fragment} (100%)
+ rename arch/powerpc/configs/{book3s_32.config => book3s_32.fragment} (100%)
+ rename arch/powerpc/configs/{corenet_base.config => corenet_base.fragment} (100%)
+ rename arch/powerpc/configs/{dpaa.config => dpaa.fragment} (100%)
+ rename arch/powerpc/configs/{fsl-emb-nonhw.config => fsl-emb-nonhw.fragment} (100%)
+ rename arch/powerpc/configs/{guest.config => guest.fragment} (100%)
+ rename arch/powerpc/configs/{le.config => le.fragment} (100%)
+ rename arch/powerpc/configs/{mpc85xx_base.config => mpc85xx_base.fragment} (100%)
+ rename arch/powerpc/configs/{mpc86xx_base.config => mpc86xx_base.fragment} (100%)
+ rename arch/powerpc/configs/{ppc64le.config => ppc64le.fragment} (100%)
+ rename {kernel => arch/x86}/configs/x86_debug.config (100%)
+ rename kernel/configs/{tiny-base.config => tiny-base.fragment} (100%)
 
+diff --git a/arch/powerpc/Makefile b/arch/powerpc/Makefile
+index dac7ca153886..b73f2b40a0bc 100644
+--- a/arch/powerpc/Makefile
++++ b/arch/powerpc/Makefile
+@@ -267,66 +267,66 @@ powernv_be_defconfig:
+ 
+ generated_configs += mpc85xx_defconfig
+ mpc85xx_defconfig:
+-	$(call merge_into_defconfig,mpc85xx_base.config,\
++	$(call merge_into_defconfig,mpc85xx_base.fragment,\
+ 		85xx-32bit 85xx-hw fsl-emb-nonhw)
+ 
+ generated_configs += mpc85xx_smp_defconfig
+ mpc85xx_smp_defconfig:
+-	$(call merge_into_defconfig,mpc85xx_base.config,\
++	$(call merge_into_defconfig,mpc85xx_base.fragment,\
+ 		85xx-32bit 85xx-smp 85xx-hw fsl-emb-nonhw)
+ 
+ generated_configs += corenet32_smp_defconfig
+ corenet32_smp_defconfig:
+-	$(call merge_into_defconfig,corenet_base.config,\
++	$(call merge_into_defconfig,corenet_base.fragment,\
+ 		85xx-32bit 85xx-smp 85xx-hw fsl-emb-nonhw dpaa)
+ 
+ generated_configs += corenet64_smp_defconfig
+ corenet64_smp_defconfig:
+-	$(call merge_into_defconfig,corenet_base.config,\
++	$(call merge_into_defconfig,corenet_base.fragment,\
+ 		85xx-64bit 85xx-smp altivec 85xx-hw fsl-emb-nonhw dpaa)
+ 
+ generated_configs += mpc86xx_defconfig
+ mpc86xx_defconfig:
+-	$(call merge_into_defconfig,mpc86xx_base.config,\
++	$(call merge_into_defconfig,mpc86xx_base.fragment,\
+ 		86xx-hw fsl-emb-nonhw)
+ 
+ generated_configs += mpc86xx_smp_defconfig
+ mpc86xx_smp_defconfig:
+-	$(call merge_into_defconfig,mpc86xx_base.config,\
++	$(call merge_into_defconfig,mpc86xx_base.fragment,\
+ 		86xx-smp 86xx-hw fsl-emb-nonhw)
+ 
+ generated_configs += ppc32_allmodconfig
+ ppc32_allmodconfig:
+-	$(Q)$(MAKE) KCONFIG_ALLCONFIG=$(srctree)/arch/powerpc/configs/book3s_32.config \
++	$(Q)$(MAKE) KCONFIG_ALLCONFIG=$(srctree)/arch/powerpc/configs/book3s_32.fragment \
+ 		-f $(srctree)/Makefile allmodconfig
+ 
+ generated_configs += ppc_defconfig
+ ppc_defconfig:
+-	$(call merge_into_defconfig,book3s_32.config,)
++	$(call merge_into_defconfig,book3s_32.fragment,)
+ 
+ generated_configs += ppc64le_allmodconfig
+ ppc64le_allmodconfig:
+-	$(Q)$(MAKE) KCONFIG_ALLCONFIG=$(srctree)/arch/powerpc/configs/le.config \
++	$(Q)$(MAKE) KCONFIG_ALLCONFIG=$(srctree)/arch/powerpc/configs/le.fragment \
+ 		-f $(srctree)/Makefile allmodconfig
+ 
+ generated_configs += ppc64le_allnoconfig
+ ppc64le_allnoconfig:
+-	$(Q)$(MAKE) KCONFIG_ALLCONFIG=$(srctree)/arch/powerpc/configs/ppc64le.config \
++	$(Q)$(MAKE) KCONFIG_ALLCONFIG=$(srctree)/arch/powerpc/configs/ppc64le.fragment \
+ 		-f $(srctree)/Makefile allnoconfig
+ 
+ generated_configs += ppc64_book3e_allmodconfig
+ ppc64_book3e_allmodconfig:
+-	$(Q)$(MAKE) KCONFIG_ALLCONFIG=$(srctree)/arch/powerpc/configs/85xx-64bit.config \
++	$(Q)$(MAKE) KCONFIG_ALLCONFIG=$(srctree)/arch/powerpc/configs/85xx-64bit.fragment \
+ 		-f $(srctree)/Makefile allmodconfig
+ 
+ generated_configs += ppc32_randconfig
+ ppc32_randconfig:
+-	$(Q)$(MAKE) KCONFIG_ALLCONFIG=$(srctree)/arch/powerpc/configs/32-bit.config \
++	$(Q)$(MAKE) KCONFIG_ALLCONFIG=$(srctree)/arch/powerpc/configs/32-bit.fragment \
+ 		-f $(srctree)/Makefile randconfig
+ 
+ generated_configs += ppc64_randconfig
+ ppc64_randconfig:
+-	$(Q)$(MAKE) KCONFIG_ALLCONFIG=$(srctree)/arch/powerpc/configs/64-bit.config \
++	$(Q)$(MAKE) KCONFIG_ALLCONFIG=$(srctree)/arch/powerpc/configs/64-bit.fragment \
+ 		-f $(srctree)/Makefile randconfig
+ 
+ PHONY += $(generated_configs)
+diff --git a/arch/powerpc/configs/32-bit.config b/arch/powerpc/configs/32-bit.fragment
+similarity index 100%
+rename from arch/powerpc/configs/32-bit.config
+rename to arch/powerpc/configs/32-bit.fragment
+diff --git a/arch/powerpc/configs/64-bit.config b/arch/powerpc/configs/64-bit.fragment
+similarity index 100%
+rename from arch/powerpc/configs/64-bit.config
+rename to arch/powerpc/configs/64-bit.fragment
+diff --git a/arch/powerpc/configs/85xx-32bit.config b/arch/powerpc/configs/85xx-32bit.fragment
+similarity index 100%
+rename from arch/powerpc/configs/85xx-32bit.config
+rename to arch/powerpc/configs/85xx-32bit.fragment
+diff --git a/arch/powerpc/configs/85xx-64bit.config b/arch/powerpc/configs/85xx-64bit.fragment
+similarity index 100%
+rename from arch/powerpc/configs/85xx-64bit.config
+rename to arch/powerpc/configs/85xx-64bit.fragment
+diff --git a/arch/powerpc/configs/85xx-hw.config b/arch/powerpc/configs/85xx-hw.fragment
+similarity index 100%
+rename from arch/powerpc/configs/85xx-hw.config
+rename to arch/powerpc/configs/85xx-hw.fragment
+diff --git a/arch/powerpc/configs/85xx-smp.config b/arch/powerpc/configs/85xx-smp.fragment
+similarity index 100%
+rename from arch/powerpc/configs/85xx-smp.config
+rename to arch/powerpc/configs/85xx-smp.fragment
+diff --git a/arch/powerpc/configs/86xx-hw.config b/arch/powerpc/configs/86xx-hw.fragment
+similarity index 100%
+rename from arch/powerpc/configs/86xx-hw.config
+rename to arch/powerpc/configs/86xx-hw.fragment
+diff --git a/arch/powerpc/configs/86xx-smp.config b/arch/powerpc/configs/86xx-smp.fragment
+similarity index 100%
+rename from arch/powerpc/configs/86xx-smp.config
+rename to arch/powerpc/configs/86xx-smp.fragment
+diff --git a/arch/powerpc/configs/altivec.config b/arch/powerpc/configs/altivec.fragment
+similarity index 100%
+rename from arch/powerpc/configs/altivec.config
+rename to arch/powerpc/configs/altivec.fragment
+diff --git a/arch/powerpc/configs/be.config b/arch/powerpc/configs/be.fragment
+similarity index 100%
+rename from arch/powerpc/configs/be.config
+rename to arch/powerpc/configs/be.fragment
+diff --git a/arch/powerpc/configs/book3s_32.config b/arch/powerpc/configs/book3s_32.fragment
+similarity index 100%
+rename from arch/powerpc/configs/book3s_32.config
+rename to arch/powerpc/configs/book3s_32.fragment
+diff --git a/arch/powerpc/configs/corenet_base.config b/arch/powerpc/configs/corenet_base.fragment
+similarity index 100%
+rename from arch/powerpc/configs/corenet_base.config
+rename to arch/powerpc/configs/corenet_base.fragment
+diff --git a/arch/powerpc/configs/dpaa.config b/arch/powerpc/configs/dpaa.fragment
+similarity index 100%
+rename from arch/powerpc/configs/dpaa.config
+rename to arch/powerpc/configs/dpaa.fragment
+diff --git a/arch/powerpc/configs/fsl-emb-nonhw.config b/arch/powerpc/configs/fsl-emb-nonhw.fragment
+similarity index 100%
+rename from arch/powerpc/configs/fsl-emb-nonhw.config
+rename to arch/powerpc/configs/fsl-emb-nonhw.fragment
+diff --git a/arch/powerpc/configs/guest.config b/arch/powerpc/configs/guest.fragment
+similarity index 100%
+rename from arch/powerpc/configs/guest.config
+rename to arch/powerpc/configs/guest.fragment
+diff --git a/arch/powerpc/configs/le.config b/arch/powerpc/configs/le.fragment
+similarity index 100%
+rename from arch/powerpc/configs/le.config
+rename to arch/powerpc/configs/le.fragment
+diff --git a/arch/powerpc/configs/mpc85xx_base.config b/arch/powerpc/configs/mpc85xx_base.fragment
+similarity index 100%
+rename from arch/powerpc/configs/mpc85xx_base.config
+rename to arch/powerpc/configs/mpc85xx_base.fragment
+diff --git a/arch/powerpc/configs/mpc86xx_base.config b/arch/powerpc/configs/mpc86xx_base.fragment
+similarity index 100%
+rename from arch/powerpc/configs/mpc86xx_base.config
+rename to arch/powerpc/configs/mpc86xx_base.fragment
+diff --git a/arch/powerpc/configs/ppc64le.config b/arch/powerpc/configs/ppc64le.fragment
+similarity index 100%
+rename from arch/powerpc/configs/ppc64le.config
+rename to arch/powerpc/configs/ppc64le.fragment
+diff --git a/kernel/configs/x86_debug.config b/arch/x86/configs/x86_debug.config
+similarity index 100%
+rename from kernel/configs/x86_debug.config
+rename to arch/x86/configs/x86_debug.config
+diff --git a/kernel/configs/tiny-base.config b/kernel/configs/tiny-base.fragment
+similarity index 100%
+rename from kernel/configs/tiny-base.config
+rename to kernel/configs/tiny-base.fragment
+diff --git a/scripts/Makefile.defconf b/scripts/Makefile.defconf
+index ab271b2051a2..46d0ecdda391 100644
+--- a/scripts/Makefile.defconf
++++ b/scripts/Makefile.defconf
+@@ -6,11 +6,13 @@
+ # Usage:
+ #   $(call merge_into_defconfig,base_config,config_fragment1 config_fragment2 ...)
+ #
+-# Input config fragments without '.config' suffix
++# Input config fragments without '.config' or '.fragment' suffix
+ define merge_into_defconfig
+ 	$(Q)$(CONFIG_SHELL) $(srctree)/scripts/kconfig/merge_config.sh \
+ 		-m -O $(objtree) $(srctree)/arch/$(ARCH)/configs/$(1) \
+-		$(foreach config,$(2),$(srctree)/arch/$(ARCH)/configs/$(config).config)
++		$(foreach config,$(2), \
++			$(wildcard $(srctree)/arch/$(ARCH)/configs/$(config).config \
++				   $(srctree)/arch/$(ARCH)/configs/$(config).fragment))
+ 	+$(Q)$(MAKE) -f $(srctree)/Makefile olddefconfig
+ endef
+ 
+@@ -20,10 +22,12 @@ endef
+ # Usage:
+ #   $(call merge_into_defconfig_override,base_config,config_fragment1 config_fragment2 ...)
+ #
+-# Input config fragments without '.config' suffix
++# Input config fragments without '.config' or '.fragment' suffix
+ define merge_into_defconfig_override
+ 	$(Q)$(CONFIG_SHELL) $(srctree)/scripts/kconfig/merge_config.sh \
+ 		-Q -m -O $(objtree) $(srctree)/arch/$(ARCH)/configs/$(1) \
+-		$(foreach config,$(2),$(srctree)/arch/$(ARCH)/configs/$(config).config)
++		$(foreach config,$(2), \
++			$(wildcard $(srctree)/arch/$(ARCH)/configs/$(config).config \
++				   $(srctree)/arch/$(ARCH)/configs/$(config).fragment))
+ 	+$(Q)$(MAKE) -f $(srctree)/Makefile olddefconfig
+ endef
+diff --git a/scripts/kconfig/Makefile b/scripts/kconfig/Makefile
+index 370ff6bba78d..a03388eb735f 100644
+--- a/scripts/kconfig/Makefile
++++ b/scripts/kconfig/Makefile
+@@ -102,7 +102,7 @@ configfiles=$(wildcard $(srctree)/kernel/configs/$(1) $(srctree)/arch/$(SRCARCH)
+ 
+ PHONY += tinyconfig
+ tinyconfig:
+-	$(Q)KCONFIG_ALLCONFIG=kernel/configs/tiny-base.config $(MAKE) -f $(srctree)/Makefile allnoconfig
++	$(Q)KCONFIG_ALLCONFIG=kernel/configs/tiny-base.fragment $(MAKE) -f $(srctree)/Makefile allnoconfig
+ 	$(Q)$(MAKE) -f $(srctree)/Makefile tiny.config
+ 
+ # CHECK: -o cache_dir=<path> working?
 -- 
 2.34.1
 
