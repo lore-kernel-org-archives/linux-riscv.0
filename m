@@ -4,72 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59DF8C71133
-	for <linux-riscv@archiver.kernel.org>; Fri, 25 Aug 2023 13:16:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBFC7C3DA6F
+	for <linux-riscv@archiver.kernel.org>; Fri, 25 Aug 2023 15:06:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:To:From:CC:Subject
-	:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=yUeIi8JTUkZUmha6AuWhBTioHCy5HHi/pFdqQ0927KU=; b=vL0UmFT/h76Ef+
-	K1NsjyJIfaqzmQKMNd7n//oEwH96+r37eLT6EP7qClvUiEFVncmA1gRJOiMj/rPi52a29bnznnn8s
-	XKCv5pWFLWNsPXkF6FxVpbTJrZ6NYeYRLULsAgiNLNkBV0TLV4/aBcfpjgS79pcAzbbHZyENSYIEW
-	Zc2UwbeTCWmL6vAs9YjNJ5ba/p1CLIEy8nWZdOpVHyt6e1pxFhiXOk+Frc2JS74jjvATptj/gD8uH
-	G8+n1wbYaXjmFqwIP7nSxJikkfU7bz+munDhEhCbMPZpnvloZ+tCXjOUM6yrAjBFG3FWtB6R8NXL8
-	jl223u8ZCjimL6uQ4gTQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GLfV66pB4SWLwnKhba78VzpjABZKG67goE1V8kdL+aE=; b=VvtLjuqq25YrNo6N7kFe687ut+
+	qGBNL2Y7ZYlS04EczWpRZioOi03G8SfIVsBPrL6QYtBOk9Uf8vcWLIplUE906CvsA1Yer7pam9WYZ
+	yIL1wh/cG6LVUm/swDrJD1SsjoN+ODxWUO1ExlS5pWujBgTrQtuvRtXacJq8o+2pK2DGbNWP328H0
+	5ddohPcxhYoAu4CalWs+zR8p1BlYd4rXV96iCOd91DMacLxWkJ1rODLe5aXF4fZmVXLn7Y3Ru0sTM
+	eIWqis/mV+ZtdI9tZApbpAwpmwf66vuSntJBt8iF3nzsqfEX6uBkXEWhgseMDTUi/B9NJtRur3j/T
+	RBP7yCRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qZWgC-005S78-0Q;
-	Fri, 25 Aug 2023 13:16:48 +0000
-Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
+	id 1qZYOG-005e8D-1u;
+	Fri, 25 Aug 2023 15:06:24 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qZWg8-005S6D-20
+	id 1qZYOD-005e7F-0v
 	for linux-riscv@lists.infradead.org;
-	Fri, 25 Aug 2023 13:16:46 +0000
-Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-1bf48546ccfso6741235ad.2
-        for <linux-riscv@lists.infradead.org>; Fri, 25 Aug 2023 06:16:42 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1692969402; x=1693574202;
-        h=message-id:to:from:cc:subject:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=4rO/T+VQAJjKyFqYU/q8vdJEmTES2395aidBJOFqlkc=;
-        b=ugf4EtqYq2JVD/vAGeFD6EbdjYI93k0jVrPkERBv58xTOuFkDnt9ifB5NSChYQDi7j
-         1nu+WjzYtK6ir/P1OAY35X2HYj/LXQlTFazawP8dLBfAjemXkSd0YHgPIs2Tzf25XgAB
-         M9BeSQCkaBJnc7cs6GGm4J58Ouhr+PCow9dG7mSLHReSKTD/2ipaLDsY7cGIIwYIBQKR
-         szjf022J0YCd40+BetUEY7pIctRCrFuFG3cgGCxZk9ekJWxl/vboVfQ9mq4CA8mqONO2
-         80sp6lQRGRMYGJmKwvxhp6tMhUtbl+v/SpKIyXcyMiUj22gPdmBwddmb1nxt78Vtvpzn
-         6H/Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1692969402; x=1693574202;
-        h=message-id:to:from:cc:subject:date:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=4rO/T+VQAJjKyFqYU/q8vdJEmTES2395aidBJOFqlkc=;
-        b=Snn6RS2Qpbys8BLg0cE0oJuQiLRGEA+dPsuUw1m6RcxCUBDn0ojdFZL2RIK6bucfNU
-         F2IgG1DliALONEancMzDMJ5X2RzeldCxZ44ART2l0W79ga5Z+7BZPWKs3iNHXjeSUMzX
-         F3laHEma/jTEyaG+V3srXs+y25uujK6whNWhw3bVKd7O+OxTWsYVWKapyCmK3kGSEDiq
-         9VPSC17e4KxDj6OrYfH8y41cOJi6ellpHKGFN2EBuAtwOASIJQJONDkNKr9ylY7b4Lda
-         0/flg7X9yr21AsSgFhcSQbqbRnXaJtDwSG2gvApifaGWaC4KUFmlmF7dEItaSYEu9h4V
-         b0SQ==
-X-Gm-Message-State: AOJu0Yzd6g8lW9MYeerrzYCw59f+3jxlFHYLXSnw9mPzt1yHDD1ssf7C
-	vrmbmPUdiZ1WAaH2ZGbQ1+dZ4XmOnzIOPKO2mys=
-X-Google-Smtp-Source: AGHT+IHBevM73Kvye69jaRbhoCXokaiiVy88IwWofacgNFMm10yHyulUw6HZsXBBoWq194yqe8RtUA==
-X-Received: by 2002:a17:903:4cd:b0:1bb:b855:db3c with SMTP id jm13-20020a17090304cd00b001bbb855db3cmr14119522plb.41.1692969401992;
-        Fri, 25 Aug 2023 06:16:41 -0700 (PDT)
-Received: from localhost ([135.180.227.0])
-        by smtp.gmail.com with ESMTPSA id b19-20020a170902ed1300b001bb99ea5d02sm1661383pld.4.2023.08.25.06.16.40
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 25 Aug 2023 06:16:41 -0700 (PDT)
-Date: Fri, 25 Aug 2023 06:16:41 -0700 (PDT)
-X-Google-Original-Date: Fri, 25 Aug 2023 06:15:01 PDT (-0700)
-Subject: [GIT PULL] RISC-V Fixes for 6.5-rc8
-CC: linux-riscv@lists.infradead.org,        linux-kernel@vger.kernel.org
-From: Palmer Dabbelt <palmer@rivosinc.com>
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Message-ID: <mhng-f80b6a8e-79e3-486b-95e4-18c04a1be0dd@palmer-ri-x1c9>
+	Fri, 25 Aug 2023 15:06:22 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id CBEBB644DA;
+	Fri, 25 Aug 2023 15:06:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 68185C433C7;
+	Fri, 25 Aug 2023 15:06:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1692975980;
+	bh=Ih/unC5mMCx0JKXD/w7LDAy5yURqSrSqENwjWGzF/uU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=U3D3xXWdL3aN3ZNRmG8w4Fh9U/tF6GOzUrF54Ie0lYeuD8w5lgdEY0yLNCTRA875O
+	 P91s0EIswGDNhohzkXL/rolyPFEX3Zdb5QyFfBaTOheMmZcUqhiuk/nT5Cl4Und65Z
+	 gSZz1H/6rC87Zxghj6HLSgkp7u8rhOvOlAps7uGkGM0GlCVzlFwxqWhSLzH6AQdMxr
+	 X1T+LjJsNkvs//VIzsgiadWmIzW6IfBNPx4SpmUFTPGGlqrOacWwz3gu4QWjMp672X
+	 OWbgaAw/HTUtx7d9CLxnF4FB4Dl8XuB1ABjJlN5pi86Js7tQWBGMcZZ02OqRf5YuoY
+	 ZEaK4WJ/fX0hw==
+Date: Fri, 25 Aug 2023 16:06:12 +0100
+From: Conor Dooley <conor@kernel.org>
+To: William Qiu <william.qiu@starfivetech.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-pwm@vger.kernel.org,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	Rob Herring <robh+dt@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@pengutronix.de>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Hal Feng <hal.feng@starfivetech.com>
+Subject: Re: [RFC v4 0/4] StarFive's Pulse Width Modulation driver support
+Message-ID: <20230825-exclusion-doing-93532be4fa97@spud>
+References: <20230825081328.204442-1-william.qiu@starfivetech.com>
+MIME-Version: 1.0
+In-Reply-To: <20230825081328.204442-1-william.qiu@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230825_061644_853246_1BF08933 
-X-CRM114-Status: GOOD (  12.80  )
+X-CRM114-CacheID: sfid-20230825_080621_371330_23093F09 
+X-CRM114-Status: GOOD (  17.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,70 +80,84 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============4682953596635450423=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The following changes since commit ca09f772cccaeec4cd05a21528c37a260aa2dd2c:
 
-  riscv: Handle zicsr/zifencei issue between gcc and binutils (2023-08-16 07:39:38 -0700)
+--===============4682953596635450423==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="M9eiGjMF7i2kmpUJ"
+Content-Disposition: inline
 
-are available in the Git repository at:
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-6.5-rc8
+--M9eiGjMF7i2kmpUJ
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-for you to fetch changes up to ef21fa7c198e04f3d3053b1c5b5f2b4b225c3350:
+On Fri, Aug 25, 2023 at 04:13:24PM +0800, William Qiu wrote:
+> Hi,
+>=20
+> This patchset adds initial rudimentary support for the StarFive
+> Pulse Width Modulation controller driver. And this driver will
+> be used in StarFive's VisionFive 2 board.The first patch add
+> Documentations for the device and Patch 2 adds device probe for
+> the module.
+>=20
+> Changes v3->v4:
+> - Rebased to v6.5rc7.
+> - Sorted the header files in alphabetic order.
+> - Changed iowrite32() to writel().
+> - Added a way to turn off.
+> - Moified polarity inversion implementation.
+> - Added 7100 support.
+> - Added dts patches.
+> - Used the various helpers in linux/math.h.
+> - Corrected formatting problems.
+> - Renamed dtbinding  to 'starfive,jh7100-pwm.yaml'.
+> - Dropped the redundant code.
+>=20
+> Changes v2->v3:
+> - Fixed some formatting issues.
+>=20
+> Changes v1->v2:
+> - Renamed the dt-binding 'pwm-starfive.yaml' to 'starfive,jh7110-pwm.yaml=
+'.
+> - Dropped the compatible's Items.
+> - Dropped the unuse defines.
+> - Modified the code to follow the Linux coding style.
+> - Changed return value to dev_err_probe.
+> - Dropped the unnecessary local variable.
+>=20
+> The patch series is based on v6.5rc7.
 
-  riscv: Fix build errors using binutils2.37 toolchains (2023-08-24 12:35:20 -0700)
+Out of curiosity, why is this series still an RFC?
 
-----------------------------------------------------------------
-RISC-V Fixes for 6.5-rc8
+--M9eiGjMF7i2kmpUJ
+Content-Type: application/pgp-signature; name="signature.asc"
 
-* The vector ucontext extension has been extended with vlenb.
-* The vector registers ELF core dump note type has been changed to avoid
-  aliasing with the CSR type used in embedded systems.
-* Support for accessing vector registers via ptrace() has been reverted.
-* Another build fix for the ISA spec changes around Zifencei/Zicsr that
-  manifests on some systems built with binutils-2.37 and gcc-11.2.
+-----BEGIN PGP SIGNATURE-----
 
-----------------------------------------------------------------
-This is obviously not ideal, particularly for something this late in the cycle.
-Unfortunately we found some uABI issues in the vector support while reviewing
-the GDB port, which has triggered a revert -- probably a good sign we should
-have reviewed GDB before merging this, I guess I just dropped the ball because
-I was so worried about the context extension and libc suff I forgot.  Hence the
-late revert.
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZOjDZAAKCRB4tDGHoIJi
+0hpMAQCVxJxrRd/qnUytncJTEZTkZhBNWpfnTFJiTWosLONwagEA1gWFXmEkUG4p
+P717RLD26fgyVmB/czA/nZe4Y6jfIwk=
+=QcUj
+-----END PGP SIGNATURE-----
 
-There's some risk here as we're still exposing the vector context for signal
-handlers, but changing that would have meant reverting all of the vector
-support.  The issues we've found so far have been fixed already and they
-weren't absolute showstoppers, so we're essentially just playing it safe by
-holding ptrace support for another release (or until we get through a proper
-userspace code review).
+--M9eiGjMF7i2kmpUJ--
 
-So sorry for the churn, I'll try to be more careful next time.
 
-----------------------------------------------------------------
-Andy Chiu (1):
-      RISC-V: vector: export VLENB csr in __sc_riscv_v_state
-
-Mingzheng Xing (1):
-      riscv: Fix build errors using binutils2.37 toolchains
-
-Palmer Dabbelt (2):
-      RISC-V: Remove ptrace support for vectors
-      Merge patch series "riscv: fix ptrace and export VLENB"
-
- arch/riscv/Kconfig                   |  8 ++---
- arch/riscv/include/asm/vector.h      |  3 +-
- arch/riscv/include/uapi/asm/ptrace.h |  1 +
- arch/riscv/kernel/ptrace.c           | 69 ------------------------------------
- include/uapi/linux/elf.h             |  1 -
- 5 files changed, 7 insertions(+), 75 deletions(-)
+--===============4682953596635450423==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============4682953596635450423==--
+
