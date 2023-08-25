@@ -4,61 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7061C3DA66
-	for <linux-riscv@archiver.kernel.org>; Fri, 25 Aug 2023 08:07:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED227C3DA6F
+	for <linux-riscv@archiver.kernel.org>; Fri, 25 Aug 2023 08:14:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:CC:References:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hkJUIyMj4PcdKRKhILnsGFAJ2HZ+yDtbXi+y1/+UuTw=; b=ar9Q4UQZJE3/BW
-	2ogEYtpATHmwTI89Z+dYAfjCT6gl3QBeEHNW1sXvRJlyljSIuwzsjq5LIsEHi8dbSWdNoUySb/DKT
-	P0OWdCQc5bp0EgStqyCtUilBybHOqwVdvgvocFzF6XCLwRed42L+wlcPVRF5yTqh8vLPKJcQOe88L
-	ohL2uSWK4rO1LY0xbN/xdpjneQsFrm0YoO8DAWM4yy5TppUCHUrVkXHv//twjOPLTKlUHKGJGY3ek
-	3VdUI08tP/6IVkD63HcT+moxCaQ9XdmgoqO1g/r3uhPg5n9Jl/7zR9iRSB2Bk/5tKptoaLfbfKSUp
-	VGfJp/eGjnTP+TjFMFhw==;
+	List-Owner; bh=fRi9wRRzzyaTxmCmMc4zNzgDA7uDwQXwf5080uSK4bw=; b=dswdF3uQwSEU74
+	kZ5FpFQiNwEzIY9J5FMl61wz7vPr+AuS6YyNgVLIsvHTn68yadOzVW2htXm3GeFQ5/f44nZ2L9u6Z
+	B/W2akVOU9JuYo5ANmwycndmyih+L4TjT9IADixzbWJ1jnXdFbhcc0VXOG1fpcpizBzjQOFUOeQxw
+	m69DPbhW4WNdMk2t4skGUkTMGexwXUICJKyy7D8PE/1K/nQQzx5qNwvpq2OxAZ2ArAb3VcR86krhq
+	CW0j6Wnw8hvR4Mh7EVHlon2kUY1HgNkhrPQwewaSOfrW7xC8VuN1ArMlqvC9j470X9Hb2FKpEfjWj
+	rVn980PI+6SSXEaxjVcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qZRqL-004bG4-0u;
-	Fri, 25 Aug 2023 08:06:57 +0000
-Received: from szxga01-in.huawei.com ([45.249.212.187])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qZRqH-004bFe-2a
+	id 1qZRxK-004boY-0C;
+	Fri, 25 Aug 2023 08:14:10 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1qZRxF-004blT-1I
 	for linux-riscv@lists.infradead.org;
-	Fri, 25 Aug 2023 08:06:56 +0000
-Received: from kwepemi500020.china.huawei.com (unknown [172.30.72.54])
-	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4RXCDS2ycpzrSCZ;
-	Fri, 25 Aug 2023 16:05:12 +0800 (CST)
-Received: from [10.67.109.184] (10.67.109.184) by
- kwepemi500020.china.huawei.com (7.221.188.8) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.31; Fri, 25 Aug 2023 16:06:44 +0800
-Message-ID: <ad5ef9ee-7fa7-b945-a303-2bdcdeb0e740@huawei.com>
-Date: Fri, 25 Aug 2023 16:06:43 +0800
+	Fri, 25 Aug 2023 08:14:08 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id A641E24DBC0;
+	Fri, 25 Aug 2023 16:13:31 +0800 (CST)
+Received: from EXMBX168.cuchost.com (172.16.6.78) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 25 Aug
+ 2023 16:13:31 +0800
+Received: from williamqiu-virtual-machine.starfivetech.com (171.223.208.138)
+ by EXMBX168.cuchost.com (172.16.6.78) with Microsoft SMTP Server (TLS) id
+ 15.0.1497.42; Fri, 25 Aug 2023 16:13:30 +0800
+From: William Qiu <william.qiu@starfivetech.com>
+To: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, <linux-pwm@vger.kernel.org>
+CC: Emil Renner Berthing <kernel@esmil.dk>, Rob Herring <robh+dt@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>, Thierry Reding
+	<thierry.reding@gmail.com>, =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?=
+	<u.kleine-koenig@pengutronix.de>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor+dt@kernel.org>,
+	"Paul Walmsley" <paul.walmsley@sifive.com>, Palmer Dabbelt
+	<palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Hal Feng
+	<hal.feng@starfivetech.com>, William Qiu <william.qiu@starfivetech.com>
+Subject: [RFC v4 2/4] pwm: starfive: Add PWM driver support
+Date: Fri, 25 Aug 2023 16:13:26 +0800
+Message-ID: <20230825081328.204442-3-william.qiu@starfivetech.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20230825081328.204442-1-william.qiu@starfivetech.com>
+References: <20230825081328.204442-1-william.qiu@starfivetech.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.3.0
-Subject: Re: [PATCH bpf-next v2 0/3] bpf, riscv: use BPF prog pack allocator
- in BPF JIT
-Content-Language: en-US
-To: Puranjay Mohan <puranjay12@gmail.com>
-References: <20230824133135.1176709-1-puranjay12@gmail.com>
-CC: <bjorn@kernel.org>, Puranjay Mohan <puranjay12@gmail.com>,
-	<paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
-	<conor.dooley@microchip.com>, <ast@kernel.org>, <daniel@iogearbox.net>,
-	<andrii@kernel.org>, <martin.lau@linux.dev>, <song@kernel.org>, <yhs@fb.com>,
-	<kpsingh@kernel.org>, <bpf@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-From: Pu Lehui <pulehui@huawei.com>
-In-Reply-To: <20230824133135.1176709-1-puranjay12@gmail.com>
-X-Originating-IP: [10.67.109.184]
-X-ClientProxiedBy: dggems701-chm.china.huawei.com (10.3.19.178) To
- kwepemi500020.china.huawei.com (7.221.188.8)
-X-CFilter-Loop: Reflected
+X-Originating-IP: [171.223.208.138]
+X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX168.cuchost.com
+ (172.16.6.78)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230825_010654_309572_C3580DE8 
-X-CRM114-Status: GOOD (  25.07  )
+X-CRM114-CacheID: sfid-20230825_011405_769855_A5CA4306 
+X-CRM114-Status: GOOD (  22.91  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,154 +74,276 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Add Pulse Width Modulation driver support for StarFive
+JH7100 and JH7110 SoC.
 
+Co-developed-by: Hal Feng <hal.feng@starfivetech.com>
+Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
+Signed-off-by: William Qiu <william.qiu@starfivetech.com>
+---
+ MAINTAINERS                    |   7 ++
+ drivers/pwm/Kconfig            |   9 ++
+ drivers/pwm/Makefile           |   1 +
+ drivers/pwm/pwm-starfive-ptc.c | 192 +++++++++++++++++++++++++++++++++
+ 4 files changed, 209 insertions(+)
+ create mode 100644 drivers/pwm/pwm-starfive-ptc.c
 
-On 2023/8/24 21:31, Puranjay Mohan wrote:
-> Changes in v1 -> v2:
-> 1. Implement a new function patch_text_set_nosync() to be used in bpf_arch_text_invalidate().
->     The implementation in v1 called patch_text_nosync() in a loop and it was bad as it would
->     call flush_icache_range() for every word making it really slow. This was found by running
->     the test_tag selftest which would take forever to complete.
-> 
-> Here is some data to prove the V2 fixes the problem:
-> 
-> Without this series:
-> root@rv-selftester:~/src/kselftest/bpf# time ./test_tag
-> test_tag: OK (40945 tests)
-> 
-> real    7m47.562s
-> user    0m24.145s
-> sys     6m37.064s
-> 
-> With this series applied:
-> root@rv-selftester:~/src/selftest/bpf# time ./test_tag
-> test_tag: OK (40945 tests)
-> 
-> real    7m29.472s
-> user    0m25.865s
-> sys     6m18.401s
-> 
-> BPF programs currently consume a page each on RISCV. For systems with many BPF
-> programs, this adds significant pressure to instruction TLB. High iTLB pressure
-> usually causes slow down for the whole system.
-> 
-> Song Liu introduced the BPF prog pack allocator[1] to mitigate the above issue.
-> It packs multiple BPF programs into a single huge page. It is currently only
-> enabled for the x86_64 BPF JIT.
-> 
-> I enabled this allocator on the ARM64 BPF JIT[2]. It is being reviewed now.
-> 
-> This patch series enables the BPF prog pack allocator for the RISCV BPF JIT.
-> This series needs a patch[3] from the ARM64 series to work.
+diff --git a/MAINTAINERS b/MAINTAINERS
+index d590ce31aa72..0e47818c6f64 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -20299,6 +20299,13 @@ F:	drivers/pinctrl/starfive/pinctrl-starfive-jh71*
+ F:	include/dt-bindings/pinctrl/pinctrl-starfive-jh7100.h
+ F:	include/dt-bindings/pinctrl/starfive,jh7110-pinctrl.h
 
-Is there a new version for arm64 currently? Maybe we could submit this 
-patch first as a separate patch to avoid dependencies.
++STARFIVE JH71X0 PWM DRIVERS
++M:	William Qiu <william.qiu@starfivetech.com>
++M:	Hal Feng <hal.feng@starfivetech.com>
++S:	Supported
++F:	Documentation/devicetree/bindings/pwm/starfive,jh7100-pwm.yaml
++F:	drivers/pwm/pwm-starfive-ptc.c
++
+ STARFIVE JH71X0 RESET CONTROLLER DRIVERS
+ M:	Emil Renner Berthing <kernel@esmil.dk>
+ M:	Hal Feng <hal.feng@starfivetech.com>
+diff --git a/drivers/pwm/Kconfig b/drivers/pwm/Kconfig
+index 6210babb0741..48800f33b5c1 100644
+--- a/drivers/pwm/Kconfig
++++ b/drivers/pwm/Kconfig
+@@ -569,6 +569,15 @@ config PWM_SPRD
+ 	  To compile this driver as a module, choose M here: the module
+ 	  will be called pwm-sprd.
 
-> 
-> ======================================================
-> Performance Analysis of prog pack allocator on RISCV64
-> ======================================================
-> 
-> Test setup:
-> ===========
-> 
-> Host machine: Debian GNU/Linux 11 (bullseye)
-> Qemu Version: QEMU emulator version 8.0.3 (Debian 1:8.0.3+dfsg-1)
-> u-boot-qemu Version: 2023.07+dfsg-1
-> opensbi Version: 1.3-1
-> 
-> To test the performance of the BPF prog pack allocator on RV, a stresser
-> tool[4] linked below was built. This tool loads 8 BPF programs on the system and
-> triggers 5 of them in an infinite loop by doing system calls.
-> 
-> The runner script starts 20 instances of the above which loads 8*20=160 BPF
-> programs on the system, 5*20=100 of which are being constantly triggered.
-> The script is passed a command which would be run in the above environment.
-> 
-> The script was run with following perf command:
-> ./run.sh "perf stat -a \
->          -e iTLB-load-misses \
->          -e dTLB-load-misses  \
->          -e dTLB-store-misses \
->          -e instructions \
->          --timeout 60000"
-> 
-> The output of the above command is discussed below before and after enabling the
-> BPF prog pack allocator.
-> 
-> The tests were run on qemu-system-riscv64 with 8 cpus, 16G memory. The rootfs
-> was created using Bjorn's riscv-cross-builder[5] docker container linked below.
-> 
-> Results
-> =======
-> 
-> Before enabling prog pack allocator:
-> ------------------------------------
-> 
-> Performance counter stats for 'system wide':
-> 
->             4939048      iTLB-load-misses
->             5468689      dTLB-load-misses
->              465234      dTLB-store-misses
->       1441082097998      instructions
-> 
->        60.045791200 seconds time elapsed
-> 
-> After enabling prog pack allocator:
-> -----------------------------------
-> 
-> Performance counter stats for 'system wide':
-> 
->             3430035      iTLB-load-misses
->             5008745      dTLB-load-misses
->              409944      dTLB-store-misses
->       1441535637988      instructions
-> 
->        60.046296600 seconds time elapsed
-> 
-> Improvements in metrics
-> =======================
-> 
-> It was expected that the iTLB-load-misses would decrease as now a single huge
-> page is used to keep all the BPF programs compared to a single page for each
-> program earlier.
-> 
-> --------------------------------------------
-> The improvement in iTLB-load-misses: -30.5 %
-> --------------------------------------------
-> 
-> I repeated this expriment more than 100 times in different setups and the
-> improvement was always greater than 30%.
-> 
-> This patch series is boot tested on the Starfive VisionFive 2 board[6].
-> The performance analysis was not done on the board because it doesn't
-> expose iTLB-load-misses, etc. The stresser program was run on the board to test
-> the loading and unloading of BPF programs
-> 
-> [1] https://lore.kernel.org/bpf/20220204185742.271030-1-song@kernel.org/
-> [2] https://lore.kernel.org/all/20230626085811.3192402-1-puranjay12@gmail.com/
-> [3] https://lore.kernel.org/all/20230626085811.3192402-2-puranjay12@gmail.com/
-> [4] https://github.com/puranjaymohan/BPF-Allocator-Bench
-> [5] https://github.com/bjoto/riscv-cross-builder
-> [6] https://www.starfivetech.com/en/site/boards
-> 
-> Puranjay Mohan (3):
->    riscv: extend patch_text_nosync() for multiple pages
->    riscv: implement a memset like function for text
->    bpf, riscv: use prog pack allocator in the BPF JIT
-> 
->   arch/riscv/include/asm/patch.h  |   1 +
->   arch/riscv/kernel/patch.c       | 113 ++++++++++++++++++++++++++++++--
->   arch/riscv/net/bpf_jit.h        |   3 +
->   arch/riscv/net/bpf_jit_comp64.c |  56 +++++++++++++---
->   arch/riscv/net/bpf_jit_core.c   | 113 +++++++++++++++++++++++++++-----
->   5 files changed, 255 insertions(+), 31 deletions(-)
-> 
++config PWM_STARFIVE_PTC
++	tristate "StarFive PWM PTC support"
++	depends on ARCH_STARFIVE || COMPILE_TEST
++	help
++	  Generic PWM framework driver for StarFive SoCs.
++
++	  To compile this driver as a module, choose M here: the module
++	  will be called pwm-starfive-ptc.
++
+ config PWM_STI
+ 	tristate "STiH4xx PWM support"
+ 	depends on ARCH_STI || COMPILE_TEST
+diff --git a/drivers/pwm/Makefile b/drivers/pwm/Makefile
+index c822389c2a24..d2b2a3aeea22 100644
+--- a/drivers/pwm/Makefile
++++ b/drivers/pwm/Makefile
+@@ -52,6 +52,7 @@ obj-$(CONFIG_PWM_SIFIVE)	+= pwm-sifive.o
+ obj-$(CONFIG_PWM_SL28CPLD)	+= pwm-sl28cpld.o
+ obj-$(CONFIG_PWM_SPEAR)		+= pwm-spear.o
+ obj-$(CONFIG_PWM_SPRD)		+= pwm-sprd.o
++obj-$(CONFIG_PWM_STARFIVE_PTC)	+= pwm-starfive-ptc.o
+ obj-$(CONFIG_PWM_STI)		+= pwm-sti.o
+ obj-$(CONFIG_PWM_STM32)		+= pwm-stm32.o
+ obj-$(CONFIG_PWM_STM32_LP)	+= pwm-stm32-lp.o
+diff --git a/drivers/pwm/pwm-starfive-ptc.c b/drivers/pwm/pwm-starfive-ptc.c
+new file mode 100644
+index 000000000000..57b5736f6732
+--- /dev/null
++++ b/drivers/pwm/pwm-starfive-ptc.c
+@@ -0,0 +1,192 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * PWM driver for the StarFive JH71x0 SoC
++ *
++ * Copyright (C) 2018-2023 StarFive Technology Co., Ltd.
++ */
++
++#include <linux/clk.h>
++#include <linux/io.h>
++#include <linux/module.h>
++#include <linux/platform_device.h>
++#include <linux/pwm.h>
++#include <linux/reset.h>
++#include <linux/slab.h>
++
++/* Access PTC register (CNTR, HRC, LRC and CTRL) */
++#define REG_PTC_BASE_ADDR_SUB(base, N)	\
++((base) + (((N) > 3) ? (((N) % 4) * 0x10 + (1 << 15)) : ((N) * 0x10)))
++#define REG_PTC_RPTC_CNTR(base, N)	(REG_PTC_BASE_ADDR_SUB(base, N))
++#define REG_PTC_RPTC_HRC(base, N)	(REG_PTC_BASE_ADDR_SUB(base, N) + 0x4)
++#define REG_PTC_RPTC_LRC(base, N)	(REG_PTC_BASE_ADDR_SUB(base, N) + 0x8)
++#define REG_PTC_RPTC_CTRL(base, N)	(REG_PTC_BASE_ADDR_SUB(base, N) + 0xC)
++
++/* PTC_RPTC_CTRL register bits*/
++#define PTC_EN      BIT(0)
++#define PTC_ECLK    BIT(1)
++#define PTC_NEC     BIT(2)
++#define PTC_OE      BIT(3)
++#define PTC_SIGNLE  BIT(4)
++#define PTC_INTE    BIT(5)
++#define PTC_INT     BIT(6)
++#define PTC_CNTRRST BIT(7)
++#define PTC_CAPTE   BIT(8)
++
++struct starfive_pwm_ptc_device {
++	struct pwm_chip chip;
++	struct clk *clk;
++	struct reset_control *rst;
++	void __iomem *regs;
++	u32 clk_rate; /* PWM APB clock frequency */
++};
++
++static inline
++struct starfive_pwm_ptc_device *chip_to_starfive_ptc(struct pwm_chip *c)
++{
++	return container_of(c, struct starfive_pwm_ptc_device, chip);
++}
++
++static int starfive_pwm_ptc_get_state(struct pwm_chip *chip,
++				      struct pwm_device *dev,
++				      struct pwm_state *state)
++{
++	struct starfive_pwm_ptc_device *pwm = chip_to_starfive_ptc(chip);
++	u32 period_data, duty_data, ctrl_data;
++
++	period_data = readl(REG_PTC_RPTC_LRC(pwm->regs, dev->hwpwm));
++	duty_data = readl(REG_PTC_RPTC_HRC(pwm->regs, dev->hwpwm));
++	ctrl_data = readl(REG_PTC_RPTC_CTRL(pwm->regs, dev->hwpwm));
++
++	state->period = DIV_ROUND_CLOSEST_ULL((u64)period_data * NSEC_PER_SEC, pwm->clk_rate);
++	state->duty_cycle = DIV_ROUND_CLOSEST_ULL((u64)duty_data * NSEC_PER_SEC, pwm->clk_rate);
++	state->polarity = PWM_POLARITY_INVERSED;
++	state->enabled = (ctrl_data & PTC_EN) ? true : false;
++
++	return 0;
++}
++
++static int starfive_pwm_ptc_apply(struct pwm_chip *chip,
++				  struct pwm_device *dev,
++				  const struct pwm_state *state)
++{
++	struct starfive_pwm_ptc_device *pwm = chip_to_starfive_ptc(chip);
++	u32 period_data, duty_data, ctrl_data = 0;
++
++	if (state->polarity != PWM_POLARITY_INVERSED)
++		return -EINVAL;
++
++	period_data = DIV_ROUND_CLOSEST_ULL(state->period * pwm->clk_rate,
++					    NSEC_PER_SEC);
++	duty_data = DIV_ROUND_CLOSEST_ULL(state->duty_cycle * pwm->clk_rate,
++					  NSEC_PER_SEC);
++
++	writel(period_data, REG_PTC_RPTC_LRC(pwm->regs, dev->hwpwm));
++	writel(duty_data, REG_PTC_RPTC_HRC(pwm->regs, dev->hwpwm));
++	writel(0,  REG_PTC_RPTC_CNTR(pwm->regs, dev->hwpwm));
++
++	ctrl_data = readl(REG_PTC_RPTC_CTRL(pwm->regs, dev->hwpwm));
++	if (state->enabled)
++		writel(ctrl_data | PTC_EN | PTC_OE, REG_PTC_RPTC_CTRL(pwm->regs, dev->hwpwm));
++	else
++		writel(ctrl_data & ~(PTC_EN | PTC_OE), REG_PTC_RPTC_CTRL(pwm->regs, dev->hwpwm));
++
++	return 0;
++}
++
++static const struct pwm_ops starfive_pwm_ptc_ops = {
++	.get_state	= starfive_pwm_ptc_get_state,
++	.apply		= starfive_pwm_ptc_apply,
++	.owner		= THIS_MODULE,
++};
++
++static int starfive_pwm_ptc_probe(struct platform_device *pdev)
++{
++	struct device *dev = &pdev->dev;
++	struct starfive_pwm_ptc_device *pwm;
++	struct pwm_chip *chip;
++	int ret;
++
++	pwm = devm_kzalloc(dev, sizeof(*pwm), GFP_KERNEL);
++	if (!pwm)
++		return -ENOMEM;
++
++	chip = &pwm->chip;
++	chip->dev = dev;
++	chip->ops = &starfive_pwm_ptc_ops;
++	chip->npwm = 8;
++	chip->of_pwm_n_cells = 3;
++
++	pwm->regs = devm_platform_ioremap_resource(pdev, 0);
++	if (IS_ERR(pwm->regs))
++		return dev_err_probe(dev, PTR_ERR(pwm->regs),
++				     "Unable to map IO resources\n");
++
++	pwm->clk = devm_clk_get(dev, NULL);
++	if (IS_ERR(pwm->clk))
++		return dev_err_probe(dev, PTR_ERR(pwm->clk),
++				     "Unable to get pwm's clock\n");
++
++	pwm->rst = devm_reset_control_get_exclusive(dev, NULL);
++	if (IS_ERR(pwm->rst))
++		return dev_err_probe(dev, PTR_ERR(pwm->rst),
++				     "Unable to get pwm's reset\n");
++
++	ret = clk_prepare_enable(pwm->clk);
++	if (ret) {
++		dev_err(dev,
++			"Failed to enable clock for pwm: %d\n", ret);
++		return ret;
++	}
++
++	reset_control_deassert(pwm->rst);
++
++	pwm->clk_rate = clk_get_rate(pwm->clk);
++	if (pwm->clk_rate <= 0) {
++		dev_warn(dev, "Failed to get APB clock rate\n");
++		return -EINVAL;
++	}
++
++	ret = devm_pwmchip_add(dev, chip);
++	if (ret < 0) {
++		dev_err(dev, "Cannot register PTC: %d\n", ret);
++		clk_disable_unprepare(pwm->clk);
++		reset_control_assert(pwm->rst);
++		return ret;
++	}
++
++	platform_set_drvdata(pdev, pwm);
++
++	return 0;
++}
++
++static int starfive_pwm_ptc_remove(struct platform_device *dev)
++{
++	struct starfive_pwm_ptc_device *pwm = platform_get_drvdata(dev);
++
++	reset_control_assert(pwm->rst);
++	clk_disable_unprepare(pwm->clk);
++
++	return 0;
++}
++
++static const struct of_device_id starfive_pwm_ptc_of_match[] = {
++	{ .compatible = "starfive,jh7100-pwm" },
++	{ .compatible = "starfive,jh7110-pwm" },
++	{ /* sentinel */ }
++};
++MODULE_DEVICE_TABLE(of, starfive_pwm_ptc_of_match);
++
++static struct platform_driver starfive_pwm_ptc_driver = {
++	.probe = starfive_pwm_ptc_probe,
++	.remove = starfive_pwm_ptc_remove,
++	.driver = {
++		.name = "pwm-starfive-ptc",
++		.of_match_table = starfive_pwm_ptc_of_match,
++	},
++};
++module_platform_driver(starfive_pwm_ptc_driver);
++
++MODULE_AUTHOR("Jieqin Chen");
++MODULE_AUTHOR("Hal Feng <hal.feng@starfivetech.com>");
++MODULE_DESCRIPTION("StarFive PWM PTC driver");
++MODULE_LICENSE("GPL");
+--
+2.34.1
+
 
 _______________________________________________
 linux-riscv mailing list
