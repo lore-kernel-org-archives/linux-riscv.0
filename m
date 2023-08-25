@@ -4,79 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A012C3DA6F
-	for <linux-riscv@archiver.kernel.org>; Fri, 25 Aug 2023 08:42:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D95BC3DA66
+	for <linux-riscv@archiver.kernel.org>; Fri, 25 Aug 2023 09:02:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jX/GAlik4hBMFH8P3tuVeKskVrDaecrUWbhu+bnU4/E=; b=Ex7DLjmC5FkSH3
-	2svIjnJh96GYq2g4BdkD35BRgj3OA2WFUgCCgrVWyDqVEcb+V76pM13poNSiMDCl7ZCF2y1ZkxZvS
-	IBMNQihMG+e8U2/t4XWwA6qZT98FlI8ciUZaEkcbqp0z8obYB8L9rkYywuHg/MIWkJBbMRoLNYWze
-	mcXxuWzOSTlrGeL6170MbEI75X5KZRO0ZzEB04VkuVzV46lv81t5PtDETeC4VUI4QG3yzZvzq9Ulq
-	U395JlpxN4qErH7Z2lrwAwNcN5ptJ1ig7/DELttyz88ArsrnIpxbaDtS13j5MpiI5xkU7ozBx/kZw
-	ASWuS8lQJJ+cjBUXdX/Q==;
+	List-Owner; bh=EDemdxlSSKBUJLkGVCusN9XDQ9ytpxuksBpO+OONLE8=; b=f2DEjwqOB0qBqT
+	K0lPOj81vmTKQwAPctxd0oLssQxai/XCGmW+YMVB7ITDtLOw3vbxmfuTh6/7AilW61P8dU/a8pZ1J
+	xOd4Y2ptlLTplZwHTvSN3usibL2qhO6qgmglYfq5/EWZcNLbjwB1GVM4ymKpFM2ZiJ5yYqF0y6AhD
+	txBP0GvOmr0P8Q/sCRV5xtoqLrn0r0wWoUYwk3aVGbwVZTtoIMjCEzmubLDzvT5zeE898sJ61xgMA
+	gCfyzwl3mEVlRmwZw1z2YO8dYsqhuRMULE1MBBtbRNVvUW8260mDowt/ldRLuEp68SzF1Pfv/rsVs
+	f5Jsv/YkBGsfJxNmWICA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qZSOZ-004eJt-2m;
-	Fri, 25 Aug 2023 08:42:19 +0000
-Received: from mail-lj1-x22a.google.com ([2a00:1450:4864:20::22a])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qZSOW-004eJO-0q
+	id 1qZSha-004ftq-1I;
+	Fri, 25 Aug 2023 09:01:58 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1qZShU-004fsS-0R
 	for linux-riscv@lists.infradead.org;
-	Fri, 25 Aug 2023 08:42:19 +0000
-Received: by mail-lj1-x22a.google.com with SMTP id 38308e7fff4ca-2b9f0b7af65so9306011fa.1
-        for <linux-riscv@lists.infradead.org>; Fri, 25 Aug 2023 01:42:14 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20221208; t=1692952932; x=1693557732;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=juPhK3D/YRfSzOj0sctcxaBJgN+rpnSTyDi3wRfeAts=;
-        b=dgwy1fhhutvwVQkMT6OB510PD8XTlN5PP3zUoYzg504/5+Zn2EEyBSrUb7lgrXx2Zj
-         pTpgf1l7qzdkT2KRrRwj8gLKtsGuoN8USo9gs6xOZyHfRhw//zqPJHPdAc/ljU4UbDcf
-         so4u/rosNzKe3c6KhaNXQIVXYgToYIyr7DnbmiW6mRNAhjL+NwFjoV3hcZ1bwmbN+KFT
-         O1KVlflIaz2887GYOhLKCD1pWDVithU3rshRpF73tIkItBrFBLIqJNvZKVenoZ/5nuEv
-         hTgo5ERBCld5XRKjkeIcSIqLTfFtKUjq4FiFMdnu5G85cdhOUky0Pz3+3jYaSTx3qQ8C
-         Q2Tg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1692952932; x=1693557732;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=juPhK3D/YRfSzOj0sctcxaBJgN+rpnSTyDi3wRfeAts=;
-        b=AnoYWOMcbKknWcJxXLHhAEjefDMDTL/AiuVb27L5Zo3/4XQ0FzKVPEPFFoj/Vkd0ZC
-         60+zKh3P4Pj1dMKdFVrM00NF3iyJDfmKknsojUEz0W08EPcdYsXL5RLOcDED5mfgLX/1
-         /L9+PBIwy/KgwGVpwq03//KBu7+hVLPE1WDks51f/jeAodtkKTPieVLjPrnDa113zKJO
-         caFHyyqyOQxSYtLsUMP2hFcgZ/7m+xJXhnUfUZDx+GjqnHUsY4Ac6GbK8xkd8bVmawhF
-         lgqEKoZezKv7qCAIVpDBuy/eyT68760N61uv60QIuFxpyjm4m1xBCyDxVaRr+kf0CNyp
-         ODAQ==
-X-Gm-Message-State: AOJu0YxXclJicNUh0mNlLmlZD7/gNmnyBxuVW2Q8VHGZwlA8XA3D1cPF
-	nE1FUUeAkZRLBdABHRS081/PpDB3rFAyiusFcz4=
-X-Google-Smtp-Source: AGHT+IGDNKDXIX6wAoB2UrzfaLEqS4VXe9anlq4IFiT9JgNYW6/M+eLzxZephm4OI+Sq0Hb8HdpoXy5sCsvf5lSy8o8=
-X-Received: by 2002:a2e:934b:0:b0:2b7:117:e54 with SMTP id m11-20020a2e934b000000b002b701170e54mr13302528ljh.4.1692952931791;
- Fri, 25 Aug 2023 01:42:11 -0700 (PDT)
+	Fri, 25 Aug 2023 09:01:56 +0000
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id 7F66924E266;
+	Fri, 25 Aug 2023 17:01:40 +0800 (CST)
+Received: from EXMBX171.cuchost.com (172.16.6.91) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 25 Aug
+ 2023 17:01:40 +0800
+Received: from ubuntu.localdomain (113.72.145.205) by EXMBX171.cuchost.com
+ (172.16.6.91) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 25 Aug
+ 2023 17:01:39 +0800
+From: Minda Chen <minda.chen@starfivetech.com>
+To: Daire McNamara <daire.mcnamara@microchip.com>, Conor Dooley
+	<conor@kernel.org>, Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kw@linux.com>, Emil Renner Berthing
+	<emil.renner.berthing@canonical.com>
+CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, <linux-pci@vger.kernel.org>,
+	=?UTF-8?q?Pali=20Roh=C3=A1r?= <pali@kernel.org>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Philipp Zabel <p.zabel@pengutronix.de>, Mason Huo
+	<mason.huo@starfivetech.com>, Leyfoon Tan <leyfoon.tan@starfivetech.com>,
+	Kevin Xie <kevin.xie@starfivetech.com>, Minda Chen
+	<minda.chen@starfivetech.com>
+Subject: [PATCH v4 08/11] PCI: microchip: Move IRQ init functions to pcie-plda-host.c
+Date: Fri, 25 Aug 2023 17:01:26 +0800
+Message-ID: <20230825090129.65721-9-minda.chen@starfivetech.com>
+X-Mailer: git-send-email 2.17.1
+In-Reply-To: <20230825090129.65721-1-minda.chen@starfivetech.com>
+References: <20230825090129.65721-1-minda.chen@starfivetech.com>
 MIME-Version: 1.0
-References: <20230824133135.1176709-1-puranjay12@gmail.com>
- <20230824133135.1176709-4-puranjay12@gmail.com> <3e21f79c-71a8-663e-1a62-0d2d787b9692@huawei.com>
- <b4d5aaaf-7fe6-29fd-645a-62a4032820ae@huawei.com>
-In-Reply-To: <b4d5aaaf-7fe6-29fd-645a-62a4032820ae@huawei.com>
-From: Puranjay Mohan <puranjay12@gmail.com>
-Date: Fri, 25 Aug 2023 10:42:00 +0200
-Message-ID: <CANk7y0hZBsrvMjOQihRLAZkX7OqNeuK+eHojc+X=-peUtn-k7g@mail.gmail.com>
-Subject: Re: [PATCH bpf-next v2 3/3] bpf, riscv: use prog pack allocator in
- the BPF JIT
-To: Pu Lehui <pulehui@huawei.com>
-Cc: bjorn@kernel.org, paul.walmsley@sifive.com, palmer@dabbelt.com, 
-	aou@eecs.berkeley.edu, conor.dooley@microchip.com, ast@kernel.org, 
-	daniel@iogearbox.net, andrii@kernel.org, martin.lau@linux.dev, 
-	song@kernel.org, yhs@fb.com, linux-riscv@lists.infradead.org, 
-	bpf@vger.kernel.org, kpsingh@kernel.org, linux-kernel@vger.kernel.org
+X-Originating-IP: [113.72.145.205]
+X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX171.cuchost.com
+ (172.16.6.91)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230825_014216_322665_022B41A8 
-X-CRM114-Status: GOOD (  48.38  )
+X-CRM114-CacheID: sfid-20230825_020152_622000_55B54D2F 
+X-CRM114-Status: GOOD (  24.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,286 +78,407 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgUHUsCgpPbiBGcmksIEF1ZyAyNSwgMjAyMyBhdCA5OjM04oCvQU0gUHUgTGVodWkgPHB1bGVo
-dWlAaHVhd2VpLmNvbT4gd3JvdGU6Cj4KPgo+Cj4gT24gMjAyMy84LzI1IDE1OjA5LCBQdSBMZWh1
-aSB3cm90ZToKPiA+IEhpIFB1cmFuamF5LAo+ID4KPiA+IEhhcHB5IHRvIHNlZSB0aGUgUlY2NCBw
-YWNrIGFsbG9jYXRvciBpbXBsZW1lbnRhdGlvbi4KPgo+IFJWMzIgYWxzbwo+Cj4gPgo+ID4gT24g
-MjAyMy84LzI0IDIxOjMxLCBQdXJhbmpheSBNb2hhbiB3cm90ZToKPiA+PiBVc2UgYnBmX2ppdF9i
-aW5hcnlfcGFja19hbGxvYygpIGZvciBtZW1vcnkgbWFuYWdlbWVudCBvZiBKSVQgYmluYXJpZXMg
-aW4KPiA+PiBSSVNDViBCUEYgSklULiBUaGUgYnBmX2ppdF9iaW5hcnlfcGFja19hbGxvYyBjcmVh
-dGVzIGEgcGFpciBvZiBSVyBhbmQgUlgKPiA+PiBidWZmZXJzLiBUaGUgSklUIHdyaXRlcyB0aGUg
-cHJvZ3JhbSBpbnRvIHRoZSBSVyBidWZmZXIuIFdoZW4gdGhlIEpJVCBpcwo+ID4+IGRvbmUsIHRo
-ZSBwcm9ncmFtIGlzIGNvcGllZCB0byB0aGUgZmluYWwgUlggYnVmZmVyIHdpdGgKPiA+PiBicGZf
-aml0X2JpbmFyeV9wYWNrX2ZpbmFsaXplLgo+ID4+Cj4gPj4gSW1wbGVtZW50IGJwZl9hcmNoX3Rl
-eHRfY29weSgpIGFuZCBicGZfYXJjaF90ZXh0X2ludmFsaWRhdGUoKSBmb3IgUklTQ1YKPiA+PiBK
-SVQgYXMgdGhlc2UgZnVuY3Rpb25zIGFyZSByZXF1aXJlZCBieSBicGZfaml0X2JpbmFyeV9wYWNr
-IGFsbG9jYXRvci4KPiA+Pgo+ID4+IFNpZ25lZC1vZmYtYnk6IFB1cmFuamF5IE1vaGFuIDxwdXJh
-bmpheTEyQGdtYWlsLmNvbT4KPiA+PiAtLS0KPiA+PiAgIGFyY2gvcmlzY3YvbmV0L2JwZl9qaXQu
-aCAgICAgICAgfCAgIDMgKwo+ID4+ICAgYXJjaC9yaXNjdi9uZXQvYnBmX2ppdF9jb21wNjQuYyB8
-ICA1NiArKysrKysrKysrKysrLS0tCj4gPj4gICBhcmNoL3Jpc2N2L25ldC9icGZfaml0X2NvcmUu
-YyAgIHwgMTEzICsrKysrKysrKysrKysrKysrKysrKysrKysrKy0tLS0tCj4gPj4gICAzIGZpbGVz
-IGNoYW5nZWQsIDE0NiBpbnNlcnRpb25zKCspLCAyNiBkZWxldGlvbnMoLSkKPiA+Pgo+ID4+IGRp
-ZmYgLS1naXQgYS9hcmNoL3Jpc2N2L25ldC9icGZfaml0LmggYi9hcmNoL3Jpc2N2L25ldC9icGZf
-aml0LmgKPiA+PiBpbmRleCAyNzE3ZjU0OTA0MjguLmFkNjkzMTljOGVhNyAxMDA2NDQKPiA+PiAt
-LS0gYS9hcmNoL3Jpc2N2L25ldC9icGZfaml0LmgKPiA+PiArKysgYi9hcmNoL3Jpc2N2L25ldC9i
-cGZfaml0LmgKPiA+PiBAQCAtNjgsNiArNjgsNyBAQCBzdGF0aWMgaW5saW5lIGJvb2wgaXNfY3Jl
-Zyh1OCByZWcpCj4gPj4gICBzdHJ1Y3QgcnZfaml0X2NvbnRleHQgewo+ID4+ICAgICAgIHN0cnVj
-dCBicGZfcHJvZyAqcHJvZzsKPiA+PiAgICAgICB1MTYgKmluc25zOyAgICAgICAgLyogUlYgaW5z
-bnMgKi8KPiA+PiArICAgIHUxNiAqcm9faW5zbnM7Cj4KPiBJbiBmYWN0LCB0aGUgZGVmaW5pdGlv
-biBvZiB3LyBvciB3L28gcm9fIHN0aWxsIGxvb2tzIGEgYml0IGNvbmZ1c2luZy4KPiBNYXliZSBp
-dCBpcyBiZXR0ZXIgZm9yIHVzIG5vdCB0byBjaGFuZ2UgdGhlIGN1cnJlbnQgZnJhbWV3b3JrLCBh
-cyB0aGUKPiBjdXJyZW50IGBpbWFnZWAgaXMgdGhlIGZpbmFsIGV4ZWN1dGVkIFJYIGltYWdlLCBh
-bmQgdGhlIHRyYW1wb2xpbmUKPiB0cmVhdHMgYGltYWdlYCBhcyB0aGUgc2FtZS4gTWF5YmUgaXQg
-d291bGQgYmUgYmV0dGVyIHRvIGFkZCBhIG5ldyBSVwo+IGltYWdlLCBzdWNoIGxpa2UgYHJ3X2lh
-bWdlYCwgc28gdGhhdCB3ZSBkbyBub3QgYnJlYWsgdGhlIGV4aXN0aW5nCj4gZnJhbWV3b3JrIGFu
-ZCBkbyBub3QgaGF2ZSB0byBhZGQgdG9vIG1hbnkgY29tbWVudHMuCgpJIGhhZCB0aG91Z2h0IGFi
-b3V0IHRoaXMgYW5kIGRlY2lkZWQgdG8gY3JlYXRlIGEgbmV3IF9ybyBpbWFnZS9oZWFkZXIKYW5k
-IG5vdCBfcncgaW1hZ2UvaGVhZGVyLiBIZXJlIGlzIG15IHJlYXNvbmluZzoKSWYgd2UgbGV0IHRo
-ZSBleGlzdGluZyBpbnNucywgaGVhZGVyIGJlIGNvbnNpZGVyZWQgdGhlIHJlYWRfb25seQp2ZXJz
-aW9uIGZyb20gd2hlcmUgdGhlCnByb2dyYW0gd2lsbCBydW4sIGFuZCBjcmVhdGUgbmV3IHJ3X2lu
-c24gYW5kIHJ3X2hlYWRlciBmb3IgZG9pbmcgdGhlIGppdCBwcm9jZXNzCml0IHdvdWxkIHJlcXVp
-cmUgYSBsb3QgbW9yZSBjaGFuZ2VzIHRvIHRoZSBmcmFtZXdvcmsuCmZ1bmN0aW9ucyBsaWtlIGJ1
-aWxkX2JvZHkoKSwgYnBmX2ppdF9idWlsZF9wcm9sb2d1ZSgpLCBldGMuIHdvcmsgb24KY3R4LT5p
-bnNucyBhbmQKbm93IGFsbCB0aGVzZSByZWZlcmVuY2VzIHdvdWxkIGhhdmUgdG8gYmUgY2hhbmdl
-ZCB0byBjdHgtPnJ3X2luc25zLgoKSG93c29ldmVyIHdlIGltcGxlbWVudCB0aGlzLCB0aGVyZSBp
-cyBubyB3YXkgdG8gZG8gaXQgd2l0aG91dCBjaGFuZ2luZwp0aGUgY3VycmVudCBmcmFtZXdvcmsu
-ClRoZSBjcnV4IG9mIHRoZSBwcm9ibGVtIGlzIHRoYXQgd2UgbmVlZCB0byB1c2UgdGhlIHIvdyBh
-cmVhIGZvcgp3cml0aW5nIGFuZCB0aGUgci94IGFyZWEgZm9yIGNhbGN1bGF0aW5nCm9mZnNldHMu
-CgpJZiB5b3UgdGhpbmsgdGhpcyBjYW4gYmUgZG9uZSBpbiBhIG1vcmUgZWZmaWNpZW50IHdheSB0
-aGVuIEkgd291bGQKbG92ZSB0byBpbXBsZW1lbnQgdGhhdCwgYnV0IGFsbCBvdGhlcgpzb2x1dGlv
-bnMgdGhhdCBJIHRyaWVkIG1hZGUgdGhlIGNvZGUgdmVyeSBkaWZmaWN1bHQgdG8gZm9sbG93LgoK
-Pgo+IEFuZCBhbnkgb3RoZXIgcGFydHMsIGl0IGxvb2tzIGdyZWF0LvCfmIQKPgo+ID4+ICAgICAg
-IGludCBuaW5zbnM7Cj4gPj4gICAgICAgaW50IHByb2xvZ3VlX2xlbjsKPiA+PiAgICAgICBpbnQg
-ZXBpbG9ndWVfb2Zmc2V0Owo+ID4+IEBAIC04NSw3ICs4Niw5IEBAIHN0YXRpYyBpbmxpbmUgaW50
-IG5pbnNuc19ydm9mZihpbnQgbmluc25zKQo+ID4+ICAgc3RydWN0IHJ2X2ppdF9kYXRhIHsKPiA+
-PiAgICAgICBzdHJ1Y3QgYnBmX2JpbmFyeV9oZWFkZXIgKmhlYWRlcjsKPiA+PiArICAgIHN0cnVj
-dCBicGZfYmluYXJ5X2hlYWRlciAqcm9faGVhZGVyOwo+ID4+ICAgICAgIHU4ICppbWFnZTsKPiA+
-PiArICAgIHU4ICpyb19pbWFnZTsKPiA+PiAgICAgICBzdHJ1Y3QgcnZfaml0X2NvbnRleHQgY3R4
-Owo+ID4+ICAgfTsKPiA+PiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9uZXQvYnBmX2ppdF9jb21w
-NjQuYwo+ID4+IGIvYXJjaC9yaXNjdi9uZXQvYnBmX2ppdF9jb21wNjQuYwo+ID4+IGluZGV4IDBj
-YTRmNWMwMDk3Yy4uZDc3YjE2MzM4YmEyIDEwMDY0NAo+ID4+IC0tLSBhL2FyY2gvcmlzY3YvbmV0
-L2JwZl9qaXRfY29tcDY0LmMKPiA+PiArKysgYi9hcmNoL3Jpc2N2L25ldC9icGZfaml0X2NvbXA2
-NC5jCj4gPj4gQEAgLTE0NCw3ICsxNDQsMTEgQEAgc3RhdGljIGJvb2wgaW5fYXVpcGNfamFscl9y
-YW5nZShzNjQgdmFsKQo+ID4+ICAgLyogRW1pdCBmaXhlZC1sZW5ndGggaW5zdHJ1Y3Rpb25zIGZv
-ciBhZGRyZXNzICovCj4gPj4gICBzdGF0aWMgaW50IGVtaXRfYWRkcih1OCByZCwgdTY0IGFkZHIs
-IGJvb2wgZXh0cmFfcGFzcywgc3RydWN0Cj4gPj4gcnZfaml0X2NvbnRleHQgKmN0eCkKPiA+PiAg
-IHsKPiA+PiAtICAgIHU2NCBpcCA9ICh1NjQpKGN0eC0+aW5zbnMgKyBjdHgtPm5pbnNucyk7Cj4g
-Pj4gKyAgICAvKgo+ID4+ICsgICAgICogVXNlIHRoZSByb19pbnNucyhSWCkgdG8gY2FsY3VsYXRl
-IHRoZSBvZmZzZXQgYXMgdGhlIEJQRgo+ID4+IHByb2dyYW0gd2lsbAo+ID4+ICsgICAgICogZmlu
-YWxseSBydW4gZnJvbSB0aGlzIG1lbW9yeSByZWdpb24uCj4gPj4gKyAgICAgKi8KPiA+PiArICAg
-IHU2NCBpcCA9ICh1NjQpKGN0eC0+cm9faW5zbnMgKyBjdHgtPm5pbnNucyk7Cj4gPj4gICAgICAg
-czY0IG9mZiA9IGFkZHIgLSBpcDsKPiA+PiAgICAgICBzNjQgdXBwZXIgPSAob2ZmICsgKDEgPDwg
-MTEpKSA+PiAxMjsKPiA+PiAgICAgICBzNjQgbG93ZXIgPSBvZmYgJiAweGZmZjsKPiA+PiBAQCAt
-NDY1LDcgKzQ2OSwxMSBAQCBzdGF0aWMgaW50IGVtaXRfY2FsbCh1NjQgYWRkciwgYm9vbCBmaXhl
-ZF9hZGRyLAo+ID4+IHN0cnVjdCBydl9qaXRfY29udGV4dCAqY3R4KQo+ID4+ICAgICAgIHU2NCBp
-cDsKPiA+PiAgICAgICBpZiAoYWRkciAmJiBjdHgtPmluc25zKSB7Cj4gPgo+ID4gY3R4LT5pbnNu
-cyBuZWVkIHRvIHN5bmMgdG8gY3R4LT5yb19pbnNucwoKQ2FuIHlvdSBlbGFib3JhdGUgdGhpcyBt
-b3JlLiBJIGFtIG1pc3Npbmcgc29tZXRoaW5nIGhlcmUuClRoZSBzeW5jIGhhcHBlbnMgYXQgdGhl
-IGVuZCBieSBjYWxsaW5nIGJwZl9qaXRfYmluYXJ5X3BhY2tfZmluYWxpemUoKS4KCj4gPgo+ID4+
-IC0gICAgICAgIGlwID0gKHU2NCkobG9uZykoY3R4LT5pbnNucyArIGN0eC0+bmluc25zKTsKPiA+
-PiArICAgICAgICAvKgo+ID4+ICsgICAgICAgICAqIFVzZSB0aGUgcm9faW5zbnMoUlgpIHRvIGNh
-bGN1bGF0ZSB0aGUgb2Zmc2V0IGFzIHRoZSBCUEYKPiA+PiArICAgICAgICAgKiBwcm9ncmFtIHdp
-bGwgZmluYWxseSBydW4gZnJvbSB0aGlzIG1lbW9yeSByZWdpb24uCj4gPj4gKyAgICAgICAgICov
-Cj4gPj4gKyAgICAgICAgaXAgPSAodTY0KShsb25nKShjdHgtPnJvX2luc25zICsgY3R4LT5uaW5z
-bnMpOwo+ID4+ICAgICAgICAgICBvZmYgPSBhZGRyIC0gaXA7Cj4gPj4gICAgICAgfQo+ID4+IEBA
-IC01NzgsNyArNTg2LDggQEAgc3RhdGljIGludCBhZGRfZXhjZXB0aW9uX2hhbmRsZXIoY29uc3Qg
-c3RydWN0Cj4gPj4gYnBmX2luc24gKmluc24sCj4gPj4gICB7Cj4gPj4gICAgICAgc3RydWN0IGV4
-Y2VwdGlvbl90YWJsZV9lbnRyeSAqZXg7Cj4gPj4gICAgICAgdW5zaWduZWQgbG9uZyBwYzsKPiA+
-PiAtICAgIG9mZl90IG9mZnNldDsKPiA+PiArICAgIG9mZl90IGluc19vZmZzZXQ7Cj4gPj4gKyAg
-ICBvZmZfdCBmaXh1cF9vZmZzZXQ7Cj4gPj4gICAgICAgaWYgKCFjdHgtPmluc25zIHx8ICFjdHgt
-PnByb2ctPmF1eC0+ZXh0YWJsZSB8fAo+ID4+IEJQRl9NT0RFKGluc24tPmNvZGUpICE9IEJQRl9Q
-Uk9CRV9NRU0pCj4gPgo+ID4gY3R4LT5yb19pbnNucyBuZWVkIHRvIGJlIGNoZWNrZWQgYWxzby4K
-CmN0eC0+cm9faW5zbnMgaXMgbm90IGluaXRpYWxpc2VkIHVudGlsIHdlIGNhbGwgYnBmX2ppdF9i
-aW5hcnlfcGFja19maW5hbGl6ZSgpPwoKPiA+Cj4gPj4gICAgICAgICAgIHJldHVybiAwOwo+ID4+
-IEBAIC01OTMsMTIgKzYwMiwxNyBAQCBzdGF0aWMgaW50IGFkZF9leGNlcHRpb25faGFuZGxlcihj
-b25zdCBzdHJ1Y3QKPiA+PiBicGZfaW5zbiAqaW5zbiwKPiA+PiAgICAgICAgICAgcmV0dXJuIC1F
-SU5WQUw7Cj4gPj4gICAgICAgZXggPSAmY3R4LT5wcm9nLT5hdXgtPmV4dGFibGVbY3R4LT5uZXhl
-bnRyaWVzXTsKPiA+PiAtICAgIHBjID0gKHVuc2lnbmVkIGxvbmcpJmN0eC0+aW5zbnNbY3R4LT5u
-aW5zbnMgLSBpbnNuX2xlbl07Cj4gPj4gKyAgICBwYyA9ICh1bnNpZ25lZCBsb25nKSZjdHgtPnJv
-X2luc25zW2N0eC0+bmluc25zIC0gaW5zbl9sZW5dOwo+ID4+IC0gICAgb2Zmc2V0ID0gcGMgLSAo
-bG9uZykmZXgtPmluc247Cj4gPj4gLSAgICBpZiAoV0FSTl9PTl9PTkNFKG9mZnNldCA+PSAwIHx8
-IG9mZnNldCA8IElOVF9NSU4pKQo+ID4+ICsgICAgLyoKPiA+PiArICAgICAqIFRoaXMgaXMgdGhl
-IHJlbGF0aXZlIG9mZnNldCBvZiB0aGUgaW5zdHJ1Y3Rpb24gdGhhdCBtYXkgZmF1bHQKPiA+PiBm
-cm9tCj4gPj4gKyAgICAgKiB0aGUgZXhjZXB0aW9uIHRhYmxlIGl0c2VsZi4gVGhpcyB3aWxsIGJl
-IHdyaXR0ZW4gdG8gdGhlIGV4Y2VwdGlvbgo+ID4+ICsgICAgICogdGFibGUgYW5kIGlmIHRoaXMg
-aW5zdHJ1Y3Rpb24gZmF1bHRzLCB0aGUgZGVzdGluYXRpb24gcmVnaXN0ZXIKPiA+PiB3aWxsCj4g
-Pj4gKyAgICAgKiBiZSBzZXQgdG8gJzAnIGFuZCB0aGUgZXhlY3V0aW9uIHdpbGwganVtcCB0byB0
-aGUgbmV4dAo+ID4+IGluc3RydWN0aW9uLgo+ID4+ICsgICAgICovCj4gPj4gKyAgICBpbnNfb2Zm
-c2V0ID0gcGMgLSAobG9uZykmZXgtPmluc247Cj4gPj4gKyAgICBpZiAoV0FSTl9PTl9PTkNFKGlu
-c19vZmZzZXQgPj0gMCB8fCBpbnNfb2Zmc2V0IDwgSU5UX01JTikpCj4gPj4gICAgICAgICAgIHJl
-dHVybiAtRVJBTkdFOwo+ID4+IC0gICAgZXgtPmluc24gPSBvZmZzZXQ7Cj4gPj4gICAgICAgLyoK
-PiA+PiAgICAgICAgKiBTaW5jZSB0aGUgZXh0YWJsZSBmb2xsb3dzIHRoZSBwcm9ncmFtLCB0aGUg
-Zml4dXAgb2Zmc2V0IGlzCj4gPj4gYWx3YXlzCj4gPj4gQEAgLTYwNywxMiArNjIxLDI1IEBAIHN0
-YXRpYyBpbnQgYWRkX2V4Y2VwdGlvbl9oYW5kbGVyKGNvbnN0IHN0cnVjdAo+ID4+IGJwZl9pbnNu
-ICppbnNuLAo+ID4+ICAgICAgICAqIGJpdHMuIFdlIGRvbid0IG5lZWQgdG8gd29ycnkgYWJvdXQg
-YnVpbGR0aW1lIG9yIHJ1bnRpbWUgc29ydAo+ID4+ICAgICAgICAqIG1vZGlmeWluZyB0aGUgdXBw
-ZXIgYml0cyBiZWNhdXNlIHRoZSB0YWJsZSBpcyBhbHJlYWR5IHNvcnRlZCwKPiA+PiBhbmQKPiA+
-PiAgICAgICAgKiBpc24ndCBwYXJ0IG9mIHRoZSBtYWluIGV4Y2VwdGlvbiB0YWJsZS4KPiA+PiAr
-ICAgICAqCj4gPj4gKyAgICAgKiBUaGUgZml4dXBfb2Zmc2V0IGlzIHNldCB0byB0aGUgbmV4dCBp
-bnN0cnVjdGlvbiBmcm9tIHRoZQo+ID4+IGluc3RydWN0aW9uCj4gPj4gKyAgICAgKiB0aGF0IG1h
-eSBmYXVsdC4gVGhlIGV4ZWN1dGlvbiB3aWxsIGp1bXAgdG8gdGhpcyBhZnRlciBoYW5kbGluZwo+
-ID4+IHRoZQo+ID4+ICsgICAgICogZmF1bHQuCj4gPj4gICAgICAgICovCj4gPj4gLSAgICBvZmZz
-ZXQgPSAobG9uZykmZXgtPmZpeHVwIC0gKHBjICsgaW5zbl9sZW4gKiBzaXplb2YodTE2KSk7Cj4g
-Pj4gLSAgICBpZiAoIUZJRUxEX0ZJVChCUEZfRklYVVBfT0ZGU0VUX01BU0ssIG9mZnNldCkpCj4g
-Pj4gKyAgICBmaXh1cF9vZmZzZXQgPSAobG9uZykmZXgtPmZpeHVwIC0gKHBjICsgaW5zbl9sZW4g
-KiBzaXplb2YodTE2KSk7Cj4gPj4gKyAgICBpZiAoIUZJRUxEX0ZJVChCUEZfRklYVVBfT0ZGU0VU
-X01BU0ssIGZpeHVwX29mZnNldCkpCj4gPj4gICAgICAgICAgIHJldHVybiAtRVJBTkdFOwo+ID4+
-IC0gICAgZXgtPmZpeHVwID0gRklFTERfUFJFUChCUEZfRklYVVBfT0ZGU0VUX01BU0ssIG9mZnNl
-dCkgfAo+ID4+ICsgICAgLyoKPiA+PiArICAgICAqIFRoZSBvZmZzZXRzIGFib3ZlIGhhdmUgYmVl
-biBjYWxjdWxhdGVkIHVzaW5nIHRoZSBSTyBidWZmZXIgYnV0IHdlCj4gPj4gKyAgICAgKiBuZWVk
-IHRvIHVzZSB0aGUgUi9XIGJ1ZmZlciBmb3Igd3JpdGVzLgo+ID4+ICsgICAgICogc3dpdGNoIGV4
-IHRvIHJ3IGJ1ZmZlciBmb3Igd3JpdGluZy4KPiA+PiArICAgICAqLwo+ID4+ICsgICAgZXggPSAo
-dm9pZCAqKWN0eC0+aW5zbnMgKyAoKHZvaWQgKilleCAtICh2b2lkICopY3R4LT5yb19pbnNucyk7
-Cj4gPj4gKwo+ID4+ICsgICAgZXgtPmluc24gPSBpbnNfb2Zmc2V0Owo+ID4+ICsKPiA+PiArICAg
-IGV4LT5maXh1cCA9IEZJRUxEX1BSRVAoQlBGX0ZJWFVQX09GRlNFVF9NQVNLLCBmaXh1cF9vZmZz
-ZXQpIHwKPiA+PiAgICAgICAgICAgRklFTERfUFJFUChCUEZfRklYVVBfUkVHX01BU0ssIGRzdF9y
-ZWcpOwo+ID4+ICAgICAgIGV4LT50eXBlID0gRVhfVFlQRV9CUEY7Cj4gPj4gQEAgLTEwMDYsNiAr
-MTAzMyw3IEBAIGludCBhcmNoX3ByZXBhcmVfYnBmX3RyYW1wb2xpbmUoc3RydWN0Cj4gPj4gYnBm
-X3RyYW1wX2ltYWdlICppbSwgdm9pZCAqaW1hZ2UsCj4gPj4gICAgICAgY3R4Lm5pbnNucyA9IDA7
-Cj4gPj4gICAgICAgY3R4Lmluc25zID0gTlVMTDsKPiA+PiArICAgIGN0eC5yb19pbnNucyA9IE5V
-TEw7Cj4gPj4gICAgICAgcmV0ID0gX19hcmNoX3ByZXBhcmVfYnBmX3RyYW1wb2xpbmUoaW0sIG0s
-IHRsaW5rcywgZnVuY19hZGRyLAo+ID4+IGZsYWdzLCAmY3R4KTsKPiA+PiAgICAgICBpZiAocmV0
-IDwgMCkKPiA+PiAgICAgICAgICAgcmV0dXJuIHJldDsKPiA+PiBAQCAtMTAxNCw3ICsxMDQyLDE1
-IEBAIGludCBhcmNoX3ByZXBhcmVfYnBmX3RyYW1wb2xpbmUoc3RydWN0Cj4gPj4gYnBmX3RyYW1w
-X2ltYWdlICppbSwgdm9pZCAqaW1hZ2UsCj4gPj4gICAgICAgICAgIHJldHVybiAtRUZCSUc7Cj4g
-Pj4gICAgICAgY3R4Lm5pbnNucyA9IDA7Cj4gPj4gKyAgICAvKgo+ID4+ICsgICAgICogVGhlIGJw
-Zl9pbnRfaml0X2NvbXBpbGUoKSB1c2VzIGEgUlcgYnVmZmVyIChjdHguaW5zbnMpIHRvCj4gPj4g
-d3JpdGUgdGhlCj4gPj4gKyAgICAgKiBKSVRlZCBpbnN0cnVjdGlvbnMgYW5kIGxhdGVyIGNvcGll
-cyBpdCB0byBhIFJYIHJlZ2lvbgo+ID4+IChjdHgucm9faW5zbnMpLgo+ID4+ICsgICAgICogSXQg
-YWxzbyB1c2VzIGN0eC5yb19pbnNucyB0byBjYWxjdWxhdGUgb2Zmc2V0cyBmb3IganVtcHMgZXRj
-Lgo+ID4+IEFzIHRoZQo+ID4+ICsgICAgICogdHJhbXBvbGluZSBpbWFnZSB1c2VzIHRoZSBzYW1l
-IG1lbW9yeSBhcmVhIGZvciB3cml0aW5nIGFuZAo+ID4+IGV4ZWN1dGlvbiwKPiA+PiArICAgICAq
-IGJvdGggY3R4Lmluc25zIGFuZCBjdHgucm9faW5zbnMgY2FuIGJlIHNldCB0byBpbWFnZS4KPiA+
-PiArICAgICAqLwo+ID4+ICAgICAgIGN0eC5pbnNucyA9IGltYWdlOwo+ID4+ICsgICAgY3R4LnJv
-X2luc25zID0gaW1hZ2U7Cj4gPj4gICAgICAgcmV0ID0gX19hcmNoX3ByZXBhcmVfYnBmX3RyYW1w
-b2xpbmUoaW0sIG0sIHRsaW5rcywgZnVuY19hZGRyLAo+ID4+IGZsYWdzLCAmY3R4KTsKPiA+PiAg
-ICAgICBpZiAocmV0IDwgMCkKPiA+PiAgICAgICAgICAgcmV0dXJuIHJldDsKPiA+PiBkaWZmIC0t
-Z2l0IGEvYXJjaC9yaXNjdi9uZXQvYnBmX2ppdF9jb3JlLmMKPiA+PiBiL2FyY2gvcmlzY3YvbmV0
-L2JwZl9qaXRfY29yZS5jCj4gPj4gaW5kZXggN2EyNmEzZTFjNzNjLi40YzhkZmZjMDkzNjggMTAw
-NjQ0Cj4gPj4gLS0tIGEvYXJjaC9yaXNjdi9uZXQvYnBmX2ppdF9jb3JlLmMKPiA+PiArKysgYi9h
-cmNoL3Jpc2N2L25ldC9icGZfaml0X2NvcmUuYwo+ID4+IEBAIC04LDYgKzgsOCBAQAo+ID4+ICAg
-I2luY2x1ZGUgPGxpbnV4L2JwZi5oPgo+ID4+ICAgI2luY2x1ZGUgPGxpbnV4L2ZpbHRlci5oPgo+
-ID4+ICsjaW5jbHVkZSA8bGludXgvbWVtb3J5Lmg+Cj4gPj4gKyNpbmNsdWRlIDxhc20vcGF0Y2gu
-aD4KPiA+PiAgICNpbmNsdWRlICJicGZfaml0LmgiCj4gPj4gICAvKiBOdW1iZXIgb2YgaXRlcmF0
-aW9ucyB0byB0cnkgdW50aWwgb2Zmc2V0cyBjb252ZXJnZS4gKi8KPiA+PiBAQCAtMTE3LDE2ICsx
-MTksMjcgQEAgc3RydWN0IGJwZl9wcm9nICpicGZfaW50X2ppdF9jb21waWxlKHN0cnVjdAo+ID4+
-IGJwZl9wcm9nICpwcm9nKQo+ID4+ICAgICAgICAgICAgICAgICAgIHNpemVvZihzdHJ1Y3QgZXhj
-ZXB0aW9uX3RhYmxlX2VudHJ5KTsKPiA+PiAgICAgICAgICAgICAgIHByb2dfc2l6ZSA9IHNpemVv
-ZigqY3R4LT5pbnNucykgKiBjdHgtPm5pbnNuczsKPiA+PiAtICAgICAgICAgICAgaml0X2RhdGEt
-PmhlYWRlciA9Cj4gPj4gLSAgICAgICAgICAgICAgICBicGZfaml0X2JpbmFyeV9hbGxvYyhwcm9n
-X3NpemUgKyBleHRhYmxlX3NpemUsCj4gPj4gLSAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-JmppdF9kYXRhLT5pbWFnZSwKPiA+PiAtICAgICAgICAgICAgICAgICAgICAgICAgICAgICBzaXpl
-b2YodTMyKSwKPiA+PiAtICAgICAgICAgICAgICAgICAgICAgICAgICAgICBicGZfZmlsbF9pbGxf
-aW5zbnMpOwo+ID4+IC0gICAgICAgICAgICBpZiAoIWppdF9kYXRhLT5oZWFkZXIpIHsKPiA+PiAr
-ICAgICAgICAgICAgaml0X2RhdGEtPnJvX2hlYWRlciA9Cj4gPj4gKyAgICAgICAgICAgICAgICBi
-cGZfaml0X2JpbmFyeV9wYWNrX2FsbG9jKHByb2dfc2l6ZSArCj4gPj4gKyAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgIGV4dGFibGVfc2l6ZSwKPiA+PiArICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgJmppdF9kYXRhLT5yb19pbWFnZSwKPiA+PiArICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgc2l6ZW9mKHUzMiksCj4gPj4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICZqaXRfZGF0YS0+aGVhZGVyLAo+ID4+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAm
-aml0X2RhdGEtPmltYWdlLAo+ID4+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBicGZf
-ZmlsbF9pbGxfaW5zbnMpOwo+ID4+ICsgICAgICAgICAgICBpZiAoIWppdF9kYXRhLT5yb19oZWFk
-ZXIpIHsKPiA+PiAgICAgICAgICAgICAgICAgICBwcm9nID0gb3JpZ19wcm9nOwo+ID4+ICAgICAg
-ICAgICAgICAgICAgIGdvdG8gb3V0X29mZnNldDsKPiA+PiAgICAgICAgICAgICAgIH0KPiA+PiAr
-ICAgICAgICAgICAgLyoKPiA+PiArICAgICAgICAgICAgICogVXNlIHRoZSBpbWFnZShSVykgZm9y
-IHdyaXRpbmcgdGhlIEpJVGVkIGluc3RydWN0aW9ucy4KPiA+PiBCdXQgYWxzbyBzYXZlCj4gPj4g
-KyAgICAgICAgICAgICAqIHRoZSByb19pbWFnZShSWCkgZm9yIGNhbGN1bGF0aW5nIHRoZSBvZmZz
-ZXRzIGluIHRoZQo+ID4+IGltYWdlLiBUaGUgUlcKPiA+PiArICAgICAgICAgICAgICogaW1hZ2Ug
-d2lsbCBiZSBsYXRlciBjb3BpZWQgdG8gdGhlIFJYIGltYWdlIGZyb20gd2hlcmUKPiA+PiB0aGUg
-cHJvZ3JhbQo+ID4+ICsgICAgICAgICAgICAgKiB3aWxsIHJ1bi4gVGhlIGJwZl9qaXRfYmluYXJ5
-X3BhY2tfZmluYWxpemUoKSB3aWxsIGRvCj4gPj4gdGhpcyBjb3B5IGluIHRoZQo+ID4+ICsgICAg
-ICAgICAgICAgKiBmaW5hbCBzdGVwLgo+ID4+ICsgICAgICAgICAgICAgKi8KPiA+PiArICAgICAg
-ICAgICAgY3R4LT5yb19pbnNucyA9ICh1MTYgKilqaXRfZGF0YS0+cm9faW1hZ2U7Cj4gPj4gICAg
-ICAgICAgICAgICBjdHgtPmluc25zID0gKHUxNiAqKWppdF9kYXRhLT5pbWFnZTsKPiA+PiAgICAg
-ICAgICAgICAgIC8qCj4gPj4gICAgICAgICAgICAgICAgKiBOb3csIHdoZW4gdGhlIGltYWdlIGlz
-IGFsbG9jYXRlZCwgdGhlIGltYWdlIGNhbgo+ID4+IEBAIC0xMzgsMTQgKzE1MSwxMiBAQCBzdHJ1
-Y3QgYnBmX3Byb2cgKmJwZl9pbnRfaml0X2NvbXBpbGUoc3RydWN0Cj4gPj4gYnBmX3Byb2cgKnBy
-b2cpCj4gPj4gICAgICAgaWYgKGkgPT0gTlJfSklUX0lURVJBVElPTlMpIHsKPiA+PiAgICAgICAg
-ICAgcHJfZXJyKCJicGYtaml0OiBpbWFnZSBkaWQgbm90IGNvbnZlcmdlIGluIDwlZCBwYXNzZXMh
-XG4iLCBpKTsKPiA+PiAtICAgICAgICBpZiAoaml0X2RhdGEtPmhlYWRlcikKPiA+PiAtICAgICAg
-ICAgICAgYnBmX2ppdF9iaW5hcnlfZnJlZShqaXRfZGF0YS0+aGVhZGVyKTsKPiA+PiAgICAgICAg
-ICAgcHJvZyA9IG9yaWdfcHJvZzsKPiA+PiAtICAgICAgICBnb3RvIG91dF9vZmZzZXQ7Cj4gPj4g
-KyAgICAgICAgZ290byBvdXRfZnJlZV9oZHI7Cj4gPj4gICAgICAgfQo+ID4+ICAgICAgIGlmIChl
-eHRhYmxlX3NpemUpCj4gPj4gLSAgICAgICAgcHJvZy0+YXV4LT5leHRhYmxlID0gKHZvaWQgKilj
-dHgtPmluc25zICsgcHJvZ19zaXplOwo+ID4+ICsgICAgICAgIHByb2ctPmF1eC0+ZXh0YWJsZSA9
-ICh2b2lkICopY3R4LT5yb19pbnNucyArIHByb2dfc2l6ZTsKPiA+PiAgIHNraXBfaW5pdF9jdHg6
-Cj4gPj4gICAgICAgcGFzcysrOwo+ID4+IEBAIC0xNTQsMjMgKzE2NSwzNSBAQCBzdHJ1Y3QgYnBm
-X3Byb2cgKmJwZl9pbnRfaml0X2NvbXBpbGUoc3RydWN0Cj4gPj4gYnBmX3Byb2cgKnByb2cpCj4g
-Pj4gICAgICAgYnBmX2ppdF9idWlsZF9wcm9sb2d1ZShjdHgpOwo+ID4+ICAgICAgIGlmIChidWls
-ZF9ib2R5KGN0eCwgZXh0cmFfcGFzcywgTlVMTCkpIHsKPiA+PiAtICAgICAgICBicGZfaml0X2Jp
-bmFyeV9mcmVlKGppdF9kYXRhLT5oZWFkZXIpOwo+ID4+ICAgICAgICAgICBwcm9nID0gb3JpZ19w
-cm9nOwo+ID4+IC0gICAgICAgIGdvdG8gb3V0X29mZnNldDsKPiA+PiArICAgICAgICBnb3RvIG91
-dF9mcmVlX2hkcjsKPiA+PiAgICAgICB9Cj4gPj4gICAgICAgYnBmX2ppdF9idWlsZF9lcGlsb2d1
-ZShjdHgpOwo+ID4+ICAgICAgIGlmIChicGZfaml0X2VuYWJsZSA+IDEpCj4gPj4gICAgICAgICAg
-IGJwZl9qaXRfZHVtcChwcm9nLT5sZW4sIHByb2dfc2l6ZSwgcGFzcywgY3R4LT5pbnNucyk7Cj4g
-Pj4gLSAgICBwcm9nLT5icGZfZnVuYyA9ICh2b2lkICopY3R4LT5pbnNuczsKPiA+PiArICAgIHBy
-b2ctPmJwZl9mdW5jID0gKHZvaWQgKiljdHgtPnJvX2luc25zOwo+ID4+ICAgICAgIHByb2ctPmpp
-dGVkID0gMTsKPiA+PiAgICAgICBwcm9nLT5qaXRlZF9sZW4gPSBwcm9nX3NpemU7Cj4gPj4gLSAg
-ICBicGZfZmx1c2hfaWNhY2hlKGppdF9kYXRhLT5oZWFkZXIsIGN0eC0+aW5zbnMgKyBjdHgtPm5p
-bnNucyk7Cj4gPj4gLQo+ID4+ICAgICAgIGlmICghcHJvZy0+aXNfZnVuYyB8fCBleHRyYV9wYXNz
-KSB7Cj4gPj4gLSAgICAgICAgYnBmX2ppdF9iaW5hcnlfbG9ja19ybyhqaXRfZGF0YS0+aGVhZGVy
-KTsKPiA+PiArICAgICAgICBpZiAoV0FSTl9PTihicGZfaml0X2JpbmFyeV9wYWNrX2ZpbmFsaXpl
-KHByb2csCj4gPj4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgaml0X2RhdGEtPnJvX2hl
-YWRlciwKPiA+PiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICBqaXRfZGF0YS0+aGVhZGVy
-KSkpIHsKPiA+PiArICAgICAgICAgICAgLyogcm9faGVhZGVyIGhhcyBiZWVuIGZyZWVkICovCj4g
-Pj4gKyAgICAgICAgICAgIGppdF9kYXRhLT5yb19oZWFkZXIgPSBOVUxMOwo+ID4+ICsgICAgICAg
-ICAgICBwcm9nID0gb3JpZ19wcm9nOwo+ID4+ICsgICAgICAgICAgICBnb3RvIG91dF9vZmZzZXQ7
-Cj4gPj4gKyAgICAgICAgfQo+ID4+ICsgICAgICAgIC8qCj4gPj4gKyAgICAgICAgICogVGhlIGlu
-c3RydWN0aW9ucyBoYXZlIG5vdyBiZWVuIGNvcGllZCB0byB0aGUgUk9YIHJlZ2lvbiBmcm9tCj4g
-Pj4gKyAgICAgICAgICogd2hlcmUgdGhleSB3aWxsIGV4ZWN1dGUuCj4gPj4gKyAgICAgICAgICog
-V3JpdGUgYW55IG1vZGlmaWVkIGRhdGEgY2FjaGUgYmxvY2tzIG91dCB0byBtZW1vcnkgYW5kCj4g
-Pj4gKyAgICAgICAgICogaW52YWxpZGF0ZSB0aGUgY29ycmVzcG9uZGluZyBibG9ja3MgaW4gdGhl
-IGluc3RydWN0aW9uIGNhY2hlLgo+ID4+ICsgICAgICAgICAqLwo+ID4+ICsgICAgICAgIGJwZl9m
-bHVzaF9pY2FjaGUoaml0X2RhdGEtPnJvX2hlYWRlciwKPiA+PiArICAgICAgICAgICAgICAgICBj
-dHgtPnJvX2luc25zICsgY3R4LT5uaW5zbnMpOwo+ID4+ICAgICAgICAgICBmb3IgKGkgPSAwOyBp
-IDwgcHJvZy0+bGVuOyBpKyspCj4gPj4gICAgICAgICAgICAgICBjdHgtPm9mZnNldFtpXSA9IG5p
-bnNuc19ydm9mZihjdHgtPm9mZnNldFtpXSk7Cj4gPj4gICAgICAgICAgIGJwZl9wcm9nX2ZpbGxf
-aml0ZWRfbGluZm8ocHJvZywgY3R4LT5vZmZzZXQpOwo+ID4+IEBAIC0xODUsNiArMjA4LDE1IEBA
-IHN0cnVjdCBicGZfcHJvZyAqYnBmX2ludF9qaXRfY29tcGlsZShzdHJ1Y3QKPiA+PiBicGZfcHJv
-ZyAqcHJvZykKPiA+PiAgICAgICAgICAgYnBmX2ppdF9wcm9nX3JlbGVhc2Vfb3RoZXIocHJvZywg
-cHJvZyA9PSBvcmlnX3Byb2cgPwo+ID4+ICAgICAgICAgICAgICAgICAgICAgICAgICB0bXAgOiBv
-cmlnX3Byb2cpOwo+ID4+ICAgICAgIHJldHVybiBwcm9nOwo+ID4+ICsKPiA+PiArb3V0X2ZyZWVf
-aGRyOgo+ID4+ICsgICAgaWYgKGppdF9kYXRhLT5oZWFkZXIpIHsKPiA+PiArICAgICAgICBicGZf
-YXJjaF90ZXh0X2NvcHkoJmppdF9kYXRhLT5yb19oZWFkZXItPnNpemUsCj4gPj4gKyAgICAgICAg
-ICAgICAgICAgICAmaml0X2RhdGEtPmhlYWRlci0+c2l6ZSwKPiA+PiArICAgICAgICAgICAgICAg
-ICAgIHNpemVvZihqaXRfZGF0YS0+aGVhZGVyLT5zaXplKSk7Cj4gPj4gKyAgICAgICAgYnBmX2pp
-dF9iaW5hcnlfcGFja19mcmVlKGppdF9kYXRhLT5yb19oZWFkZXIsIGppdF9kYXRhLT5oZWFkZXIp
-Owo+ID4+ICsgICAgfQo+ID4+ICsgICAgZ290byBvdXRfb2Zmc2V0Owo+ID4+ICAgfQo+ID4+ICAg
-dTY0IGJwZl9qaXRfYWxsb2NfZXhlY19saW1pdCh2b2lkKQo+ID4+IEBAIC0yMDQsMyArMjM2LDUy
-IEBAIHZvaWQgYnBmX2ppdF9mcmVlX2V4ZWModm9pZCAqYWRkcikKPiA+PiAgIHsKPiA+PiAgICAg
-ICByZXR1cm4gdmZyZWUoYWRkcik7Cj4gPj4gICB9Cj4gPj4gKwo+ID4+ICt2b2lkICpicGZfYXJj
-aF90ZXh0X2NvcHkodm9pZCAqZHN0LCB2b2lkICpzcmMsIHNpemVfdCBsZW4pCj4gPj4gK3sKPiA+
-PiArICAgIGludCByZXQ7Cj4gPj4gKwo+ID4+ICsgICAgbXV0ZXhfbG9jaygmdGV4dF9tdXRleCk7
-Cj4gPj4gKyAgICByZXQgPSBwYXRjaF90ZXh0X25vc3luYyhkc3QsIHNyYywgbGVuKTsKPiA+PiAr
-ICAgIG11dGV4X3VubG9jaygmdGV4dF9tdXRleCk7Cj4gPj4gKwo+ID4+ICsgICAgaWYgKHJldCkK
-PiA+PiArICAgICAgICByZXR1cm4gRVJSX1BUUigtRUlOVkFMKTsKPiA+PiArCj4gPj4gKyAgICBy
-ZXR1cm4gZHN0Owo+ID4+ICt9Cj4gPj4gKwo+ID4+ICtpbnQgYnBmX2FyY2hfdGV4dF9pbnZhbGlk
-YXRlKHZvaWQgKmRzdCwgc2l6ZV90IGxlbikKPiA+PiArewo+ID4+ICsgICAgaW50IHJldCA9IDA7
-Cj4gPgo+ID4gbm8gbmVlZCB0byBpbml0aWFsaXplIGl0Cj4gPgo+ID4+ICsKPiA+PiArICAgIG11
-dGV4X2xvY2soJnRleHRfbXV0ZXgpOwo+ID4+ICsgICAgcmV0ID0gcGF0Y2hfdGV4dF9zZXRfbm9z
-eW5jKGRzdCwgMCwgbGVuKTsKPiA+PiArICAgIG11dGV4X3VubG9jaygmdGV4dF9tdXRleCk7Cj4g
-Pj4gKwo+ID4+ICsgICAgcmV0dXJuIHJldDsKPiA+PiArfQo+ID4+ICsKPiA+PiArdm9pZCBicGZf
-aml0X2ZyZWUoc3RydWN0IGJwZl9wcm9nICpwcm9nKQo+ID4+ICt7Cj4gPj4gKyAgICBpZiAocHJv
-Zy0+aml0ZWQpIHsKPiA+PiArICAgICAgICBzdHJ1Y3QgcnZfaml0X2RhdGEgKmppdF9kYXRhID0g
-cHJvZy0+YXV4LT5qaXRfZGF0YTsKPiA+PiArICAgICAgICBzdHJ1Y3QgYnBmX2JpbmFyeV9oZWFk
-ZXIgKmhkcjsKPiA+PiArCj4gPj4gKyAgICAgICAgLyoKPiA+PiArICAgICAgICAgKiBJZiB3ZSBm
-YWlsIHRoZSBmaW5hbCBwYXNzIG9mIEpJVCAoZnJvbSBqaXRfc3VicHJvZ3MpLAo+ID4+ICsgICAg
-ICAgICAqIHRoZSBwcm9ncmFtIG1heSBub3QgYmUgZmluYWxpemVkIHlldC4gQ2FsbCBmaW5hbGl6
-ZSBoZXJlCj4gPj4gKyAgICAgICAgICogYmVmb3JlIGZyZWVpbmcgaXQuCj4gPj4gKyAgICAgICAg
-ICovCj4gPj4gKyAgICAgICAgaWYgKGppdF9kYXRhKSB7Cj4gPj4gKyAgICAgICAgICAgIGJwZl9q
-aXRfYmluYXJ5X3BhY2tfZmluYWxpemUocHJvZywgaml0X2RhdGEtPnJvX2hlYWRlciwKPiA+PiAr
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICBqaXRfZGF0YS0+aGVhZGVyKTsKPiA+PiArICAg
-ICAgICAgICAga2ZyZWUoaml0X2RhdGEpOwo+ID4+ICsgICAgICAgIH0KPiA+PiArICAgICAgICBo
-ZHIgPSBicGZfaml0X2JpbmFyeV9wYWNrX2hkcihwcm9nKTsKPiA+PiArICAgICAgICBicGZfaml0
-X2JpbmFyeV9wYWNrX2ZyZWUoaGRyLCBOVUxMKTsKPiA+PiArICAgICAgICBXQVJOX09OX09OQ0Uo
-IWJwZl9wcm9nX2thbGxzeW1zX3ZlcmlmeV9vZmYocHJvZykpOwo+ID4+ICsgICAgfQo+ID4+ICsK
-PiA+PiArICAgIGJwZl9wcm9nX3VubG9ja19mcmVlKHByb2cpOwo+ID4+ICt9Cj4gPgo+ID4KClRo
-YW5rcywKUHVyYW5qYXkKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRl
-YWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgt
-cmlzY3YK
+Move IRQ init functions to pcie-plda-host.c.
+mc_handle_event() is merged to plda_handle_event().
+Set most of the IRQ functions to static in pcie-plda-host.c
+
+Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
+---
+ .../pci/controller/plda/pcie-microchip-host.c | 125 ----------------
+ drivers/pci/controller/plda/pcie-plda-host.c  | 140 ++++++++++++++++--
+ drivers/pci/controller/plda/pcie-plda.h       |   8 +-
+ 3 files changed, 127 insertions(+), 146 deletions(-)
+
+diff --git a/drivers/pci/controller/plda/pcie-microchip-host.c b/drivers/pci/controller/plda/pcie-microchip-host.c
+index 03e8e93ea7e4..8bb2430f0a60 100644
+--- a/drivers/pci/controller/plda/pcie-microchip-host.c
++++ b/drivers/pci/controller/plda/pcie-microchip-host.c
+@@ -317,10 +317,6 @@ static void mc_pcie_enable_msi(struct mc_pcie *port, void __iomem *ecam)
+ 		       ecam + MC_MSI_CAP_CTRL_OFFSET + PCI_MSI_ADDRESS_HI);
+ }
+ 
+-static const struct irq_domain_ops intx_domain_ops = {
+-	.map = plda_pcie_intx_map,
+-};
+-
+ static inline u32 reg_to_event(u32 reg, struct event_map field)
+ {
+ 	return (reg & field.reg_mask) ? BIT(field.event_bit) : 0;
+@@ -407,26 +403,6 @@ static irqreturn_t mc_event_handler(int irq, void *dev_id)
+ 	return IRQ_HANDLED;
+ }
+ 
+-static void mc_handle_event(struct irq_desc *desc)
+-{
+-	struct plda_pcie_rp *port = irq_desc_get_handler_data(desc);
+-	unsigned long events;
+-	u32 bit;
+-	struct irq_chip *chip = irq_desc_get_chip(desc);
+-
+-	chained_irq_enter(chip, desc);
+-
+-	if (port->ops && port->ops->get_events)
+-		events = port->ops->get_events(port);
+-	else
+-		events = get_events(port);
+-
+-	for_each_set_bit(bit, &events, NUM_EVENTS)
+-		generic_handle_domain_irq(port->event_domain, bit);
+-
+-	chained_irq_exit(chip, desc);
+-}
+-
+ static void mc_ack_event_irq(struct irq_data *data)
+ {
+ 	struct plda_pcie_rp *port = irq_data_get_irq_chip_data(data);
+@@ -565,47 +541,6 @@ static int mc_pcie_init_clks(struct device *dev)
+ 	return 0;
+ }
+ 
+-static int plda_pcie_init_irq_domains(struct plda_pcie_rp *port, struct plda_evt *evt)
+-{
+-	struct device *dev = port->dev;
+-	struct device_node *node = dev->of_node;
+-	struct device_node *pcie_intc_node;
+-	const struct irq_domain_ops *ops;
+-
+-	/* Setup INTx */
+-	pcie_intc_node = of_get_next_child(node, NULL);
+-	if (!pcie_intc_node) {
+-		dev_err(dev, "failed to find PCIe Intc node\n");
+-		return -EINVAL;
+-	}
+-
+-	ops = evt->domain_ops ? evt->domain_ops : &event_domain_ops;
+-	port->event_domain = irq_domain_add_linear(pcie_intc_node, port->num_events,
+-						   ops, port);
+-	if (!port->event_domain) {
+-		dev_err(dev, "failed to get event domain\n");
+-		of_node_put(pcie_intc_node);
+-		return -ENOMEM;
+-	}
+-
+-	irq_domain_update_bus_token(port->event_domain, DOMAIN_BUS_NEXUS);
+-
+-	port->intx_domain = irq_domain_add_linear(pcie_intc_node, PCI_NUM_INTX,
+-						  &intx_domain_ops, port);
+-	if (!port->intx_domain) {
+-		dev_err(dev, "failed to get an INTx IRQ domain\n");
+-		of_node_put(pcie_intc_node);
+-		return -ENOMEM;
+-	}
+-
+-	irq_domain_update_bus_token(port->intx_domain, DOMAIN_BUS_WIRED);
+-
+-	of_node_put(pcie_intc_node);
+-	raw_spin_lock_init(&port->lock);
+-
+-	return plda_allocate_msi_domains(port);
+-}
+-
+ static inline void mc_clear_secs(struct mc_pcie *port)
+ {
+ 	void __iomem *ctrl_base_addr = port->axi_base_addr + MC_PCIE_CTRL_ADDR;
+@@ -666,66 +601,6 @@ static void mc_disable_interrupts(struct mc_pcie *port)
+ 	writel_relaxed(GENMASK(31, 0), bridge_base_addr + ISTATUS_HOST);
+ }
+ 
+-static int plda_init_interrupts(struct platform_device *pdev,
+-				struct plda_pcie_rp *port, struct plda_evt *evt)
+-{
+-	struct device *dev = &pdev->dev;
+-	int irq;
+-	int i, intx_irq, msi_irq, event_irq;
+-	int ret;
+-
+-	ret = plda_pcie_init_irq_domains(port, evt);
+-	if (ret) {
+-		dev_err(dev, "failed creating IRQ domains\n");
+-		return ret;
+-	}
+-
+-	irq = platform_get_irq(pdev, 0);
+-	if (irq < 0)
+-		return -ENODEV;
+-
+-	for (i = 0; i < port->num_events; i++) {
+-		event_irq = irq_create_mapping(port->event_domain, i);
+-		if (!event_irq) {
+-			dev_err(dev, "failed to map hwirq %d\n", i);
+-			return -ENXIO;
+-		}
+-
+-		if (evt->request_evt_irq)
+-			ret = evt->request_evt_irq(port, event_irq, i);
+-		else
+-			ret = devm_request_irq(dev, event_irq, plda_event_handler,
+-					       0, NULL, port);
+-		if (ret) {
+-			dev_err(dev, "failed to request IRQ %d\n", event_irq);
+-			return ret;
+-		}
+-	}
+-
+-	intx_irq = irq_create_mapping(port->event_domain,
+-				      evt->intx_evt);
+-	if (!intx_irq) {
+-		dev_err(dev, "failed to map INTx interrupt\n");
+-		return -ENXIO;
+-	}
+-
+-	/* Plug the INTx chained handler */
+-	irq_set_chained_handler_and_data(intx_irq, plda_handle_intx, port);
+-
+-	msi_irq = irq_create_mapping(port->event_domain,
+-				     evt->msi_evt);
+-	if (!msi_irq)
+-		return -ENXIO;
+-
+-	/* Plug the MSI chained handler */
+-	irq_set_chained_handler_and_data(msi_irq, plda_handle_msi, port);
+-
+-	/* Plug the main event chained handler */
+-	irq_set_chained_handler_and_data(irq, mc_handle_event, port);
+-
+-	return 0;
+-}
+-
+ static int mc_request_evt_irq(struct plda_pcie_rp *plda, int event_irq,
+ 			      int evt)
+ {
+diff --git a/drivers/pci/controller/plda/pcie-plda-host.c b/drivers/pci/controller/plda/pcie-plda-host.c
+index bf63f220a518..73a7c10d379d 100644
+--- a/drivers/pci/controller/plda/pcie-plda-host.c
++++ b/drivers/pci/controller/plda/pcie-plda-host.c
+@@ -20,7 +20,7 @@
+ 
+ #include "pcie-plda.h"
+ 
+-void plda_handle_msi(struct irq_desc *desc)
++static void plda_handle_msi(struct irq_desc *desc)
+ {
+ 	struct plda_pcie_rp *port = irq_desc_get_handler_data(desc);
+ 	struct irq_chip *chip = irq_desc_get_chip(desc);
+@@ -83,7 +83,7 @@ static struct irq_chip plda_msi_bottom_irq_chip = {
+ 	.irq_set_affinity = plda_msi_set_affinity,
+ };
+ 
+-int plda_irq_msi_domain_alloc(struct irq_domain *domain, unsigned int virq,
++static int plda_irq_msi_domain_alloc(struct irq_domain *domain, unsigned int virq,
+ 				     unsigned int nr_irqs, void *args)
+ {
+ 	struct plda_pcie_rp *port = domain->host_data;
+@@ -142,7 +142,7 @@ static struct msi_domain_info plda_msi_domain_info = {
+ 	.chip = &plda_msi_irq_chip,
+ };
+ 
+-int plda_allocate_msi_domains(struct plda_pcie_rp *port)
++static int plda_allocate_msi_domains(struct plda_pcie_rp *port)
+ {
+ 	struct device *dev = port->dev;
+ 	struct fwnode_handle *fwnode = of_node_to_fwnode(dev->of_node);
+@@ -168,7 +168,7 @@ int plda_allocate_msi_domains(struct plda_pcie_rp *port)
+ 	return 0;
+ }
+ 
+-void plda_handle_intx(struct irq_desc *desc)
++static void plda_handle_intx(struct irq_desc *desc)
+ {
+ 	struct plda_pcie_rp *port = irq_desc_get_handler_data(desc);
+ 	struct irq_chip *chip = irq_desc_get_chip(desc);
+@@ -241,7 +241,7 @@ static struct irq_chip plda_intx_irq_chip = {
+ 	.irq_unmask = plda_unmask_intx_irq,
+ };
+ 
+-int plda_pcie_intx_map(struct irq_domain *domain, unsigned int irq,
++static int plda_pcie_intx_map(struct irq_domain *domain, unsigned int irq,
+ 			      irq_hw_number_t hwirq)
+ {
+ 	irq_set_chip_and_handler(irq, &plda_intx_irq_chip, handle_level_irq);
+@@ -250,12 +250,16 @@ int plda_pcie_intx_map(struct irq_domain *domain, unsigned int irq,
+ 	return 0;
+ }
+ 
+-irqreturn_t plda_event_handler(int irq, void *dev_id)
++static const struct irq_domain_ops intx_domain_ops = {
++	.map = plda_pcie_intx_map,
++};
++
++static irqreturn_t plda_event_handler(int irq, void *dev_id)
+ {
+ 	return IRQ_HANDLED;
+ }
+ 
+-void plda_handle_event(struct irq_desc *desc)
++static void plda_handle_event(struct irq_desc *desc)
+ {
+ 	struct plda_pcie_rp *port = irq_desc_get_handler_data(desc);
+ 	struct irq_chip *chip = irq_desc_get_chip(desc);
+@@ -264,14 +268,18 @@ void plda_handle_event(struct irq_desc *desc)
+ 
+ 	chained_irq_enter(chip, desc);
+ 
+-	val = readl_relaxed(port->bridge_addr + ISTATUS_LOCAL);
+-	origin = val;
+-	val = val >> A_ATR_EVT_POST_ERR_SHIFT;
+-	events |= val & 0xff;
+-	if (origin & PM_MSI_INT_INTX_MASK)
+-		events |= BIT(EVENT_PM_MSI_INT_INTX);
+-	val = (origin >> PM_MSI_INT_MSI_SHIFT) & 0xf;
+-	events |= val << EVENT_PM_MSI_INT_MSI;
++	if (port->ops && port->ops->get_events) {
++		events = port->ops->get_events(port);
++	} else {
++		val = readl_relaxed(port->bridge_addr + ISTATUS_LOCAL);
++		origin = val;
++		val = val >> A_ATR_EVT_POST_ERR_SHIFT;
++		events |= val & 0xff;
++		if (origin & PM_MSI_INT_INTX_MASK)
++			events |= BIT(EVENT_PM_MSI_INT_INTX);
++		val = (origin >> PM_MSI_INT_MSI_SHIFT) & 0xf;
++		events |= val << EVENT_PM_MSI_INT_MSI;
++	}
+ 
+ 	for_each_set_bit(bit, &events, port->num_events)
+ 		generic_handle_domain_irq(port->event_domain, bit);
+@@ -349,6 +357,108 @@ static const struct irq_domain_ops plda_evt_dom_ops = {
+ 	.map = plda_pcie_event_map,
+ };
+ 
++static int plda_pcie_init_irq_domains(struct plda_pcie_rp *port, struct plda_evt *evt)
++{
++	struct device *dev = port->dev;
++	struct device_node *node = dev->of_node;
++	struct device_node *pcie_intc_node;
++	const struct irq_domain_ops *ops;
++
++	/* Setup INTx */
++	pcie_intc_node = of_get_next_child(node, NULL);
++	if (!pcie_intc_node) {
++		dev_err(dev, "failed to find PCIe Intc node\n");
++		return -EINVAL;
++	}
++
++	ops = evt->domain_ops ? evt->domain_ops : &plda_evt_dom_ops;
++	port->event_domain = irq_domain_add_linear(pcie_intc_node, port->num_events,
++						   ops, port);
++	if (!port->event_domain) {
++		dev_err(dev, "failed to get event domain\n");
++		of_node_put(pcie_intc_node);
++		return -ENOMEM;
++	}
++
++	irq_domain_update_bus_token(port->event_domain, DOMAIN_BUS_NEXUS);
++
++	port->intx_domain = irq_domain_add_linear(pcie_intc_node, PCI_NUM_INTX,
++						  &intx_domain_ops, port);
++	if (!port->intx_domain) {
++		dev_err(dev, "failed to get an INTx IRQ domain\n");
++		of_node_put(pcie_intc_node);
++		return -ENOMEM;
++	}
++
++	irq_domain_update_bus_token(port->intx_domain, DOMAIN_BUS_WIRED);
++
++	of_node_put(pcie_intc_node);
++	raw_spin_lock_init(&port->lock);
++
++	return plda_allocate_msi_domains(port);
++}
++
++int plda_init_interrupts(struct platform_device *pdev,
++			 struct plda_pcie_rp *port, struct plda_evt *evt)
++{
++	struct device *dev = &pdev->dev;
++	int irq;
++	int i, intx_irq, msi_irq, event_irq;
++	int ret;
++
++	ret = plda_pcie_init_irq_domains(port, evt);
++	if (ret) {
++		dev_err(dev, "failed creating IRQ domains\n");
++		return ret;
++	}
++
++	irq = platform_get_irq(pdev, 0);
++	if (irq < 0)
++		return -ENODEV;
++
++	for (i = 0; i < port->num_events; i++) {
++		event_irq = irq_create_mapping(port->event_domain, i);
++		if (!event_irq) {
++			dev_err(dev, "failed to map hwirq %d\n", i);
++			return -ENXIO;
++		}
++
++		if (evt->request_evt_irq)
++			ret = evt->request_evt_irq(port, event_irq, i);
++		else
++			ret = devm_request_irq(dev, event_irq, plda_event_handler,
++					       0, NULL, port);
++		if (ret) {
++			dev_err(dev, "failed to request IRQ %d\n", event_irq);
++			return ret;
++		}
++	}
++
++	intx_irq = irq_create_mapping(port->event_domain,
++				      evt->intx_evt);
++	if (!intx_irq) {
++		dev_err(dev, "failed to map INTx interrupt\n");
++		return -ENXIO;
++	}
++
++	/* Plug the INTx chained handler */
++	irq_set_chained_handler_and_data(intx_irq, plda_handle_intx, port);
++
++	msi_irq = irq_create_mapping(port->event_domain,
++				     evt->msi_evt);
++	if (!msi_irq)
++		return -ENXIO;
++
++	/* Plug the MSI chained handler */
++	irq_set_chained_handler_and_data(msi_irq, plda_handle_msi, port);
++
++	/* Plug the main event chained handler */
++	irq_set_chained_handler_and_data(irq, plda_handle_event, port);
++
++	return 0;
++}
++EXPORT_SYMBOL_GPL(plda_init_interrupts);
++
+ void plda_pcie_setup_window(void __iomem *bridge_base_addr, u32 index,
+ 			    phys_addr_t axi_addr, phys_addr_t pci_addr,
+ 			    size_t size)
+diff --git a/drivers/pci/controller/plda/pcie-plda.h b/drivers/pci/controller/plda/pcie-plda.h
+index ef33c1365b3e..7d470304f047 100644
+--- a/drivers/pci/controller/plda/pcie-plda.h
++++ b/drivers/pci/controller/plda/pcie-plda.h
+@@ -137,12 +137,8 @@ struct plda_evt {
+ 	int msi_evt;
+ };
+ 
+-void plda_handle_msi(struct irq_desc *desc);
+-int plda_allocate_msi_domains(struct plda_pcie_rp *port);
+-irqreturn_t plda_event_handler(int irq, void *dev_id);
+-void plda_handle_intx(struct irq_desc *desc);
+-int plda_pcie_intx_map(struct irq_domain *domain, unsigned int irq,
+-		       irq_hw_number_t hwirq);
++int plda_init_interrupts(struct platform_device *pdev,
++			 struct plda_pcie_rp *port, struct plda_evt *evt);
+ void plda_pcie_setup_window(void __iomem *bridge_base_addr, u32 index,
+ 			    phys_addr_t axi_addr, phys_addr_t pci_addr,
+ 			    size_t size);
+-- 
+2.17.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
