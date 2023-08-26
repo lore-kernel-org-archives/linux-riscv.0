@@ -4,67 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F3FEC83F11
-	for <linux-riscv@archiver.kernel.org>; Sat, 26 Aug 2023 14:06:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95FE9C83F15
+	for <linux-riscv@archiver.kernel.org>; Sat, 26 Aug 2023 18:12:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=n8wSKUadVKdB9IoYQplhWv7sjfhVwVraZ1g+bjtYZqw=; b=lwyaAswalQARr+
-	mk7VhBFMx1/8nll7ZS4CHlTQwbfLOnAJXuVjw1CzjTe2PXX6un3MNDtJdqdE6oVtUVhr2gVxlOGNK
-	laqpZ5T5LJG5SXBmjm/kMwucGuUn81ab7DXca//uG9gFmfPvGSOIBcYRBCLr1reJqm6P2CVhI7vyc
-	06nKDpi0Rsssl9E7ehyfPy2lyNwTp0zAHkP+g0ukd/NQti2OXXvGf6vn3TMedLJFINCI3f1dwOtN7
-	1ESsBz82IoS5/8AIkZmyh1nPm+Fa3U+gQxANALklGluLY4QV0BBVfSCxL1lkI0jvWLZHu5sN6qCMQ
-	jNImKBihdSlwmWRnDS9Q==;
+	List-Owner; bh=k+A2ZphzxZxtijSNSRdA49YV259q/1JKtZga6sDMLVk=; b=YBNWnCZKz901kg
+	a21NdaY7fpTpJEqVKcLk5Q/Z/hvF9ksR+cunD2EPt/MZQWT7flHL73KDqtcgYfO5At4FdSREB2kij
+	8PefMPsVov9iZ4Z6qK9SleYy7bOlmj3mScLRLtsIRn6detVbfnVaFqPxGw/7C8XW5f6pc+oBJjPd5
+	t0YxTnqpYkqELEM+ESYFUL8yZcKD9/c/pr/UViF7XQHwDyeMdV2Nk90f+PUJzt7ZL76NG7Ya8mj9h
+	gen0aUj+8PnrvPqm7cv7tQ2elGFmHrc5OxIQyF9GTDYHgbG8kSu8sQUMvek3mFsyAeIo+jrDoBKkl
+	zUDuxDlALP91tg3KrJOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qZtvV-006yCG-0L;
-	Sat, 26 Aug 2023 14:06:09 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1qZxm7-0077Pe-05;
+	Sat, 26 Aug 2023 18:12:43 +0000
+Received: from mail-ed1-x52f.google.com ([2a00:1450:4864:20::52f])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qZtvR-006yBx-29
+	id 1qZxm3-0077Ot-12
 	for linux-riscv@lists.infradead.org;
-	Sat, 26 Aug 2023 14:06:07 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 21E6360C48;
-	Sat, 26 Aug 2023 14:06:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 17630C433C7;
-	Sat, 26 Aug 2023 14:06:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1693058764;
-	bh=ukZ6g9EgWPFpAkFvHGXVcuI1MM3Y+aVwL2MADMeVBTU=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=hEhdoseJzsPGizH7PA9sWAhJB8NV7oOIzb56+6bL7zKKO0dzFZQtjYW53M9Rdtrm1
-	 PDll6zD9T3tkm1zl9r1jdEooRVqDYJEYqiBPe8i5umSYGTn8SSoExX7ih97FPcgUaX
-	 xJUQsdOmuSD77v+2LbiRvJ8yv8ycUPjuEfgX5IZsC7xVUL5KQFE9UGSNONHVcUIjBK
-	 KpDDt8BG7KLshSVKBFcqpDFH72eAt6ZlwcT4g7NHwF86Z+N4JnmPbCzpGW8F+tYP16
-	 DtWyoGHvduD4mTpnEebDQkX8/Y/h/DN6ObHHNQFnzIUnqoJBDcEW/Lvc7aTk75p6HO
-	 8o29gxRGxD3sw==
-From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-To: Puranjay Mohan <puranjay12@gmail.com>, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, pulehui@huawei.com,
- conor.dooley@microchip.com, ast@kernel.org, daniel@iogearbox.net,
- andrii@kernel.org, martin.lau@linux.dev, song@kernel.org, yhs@fb.com,
- kpsingh@kernel.org, bpf@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Cc: puranjay12@gmail.com
-Subject: Re: [PATCH bpf-next v2 3/3] bpf, riscv: use prog pack allocator in
- the BPF JIT
-In-Reply-To: <20230824133135.1176709-4-puranjay12@gmail.com>
-References: <20230824133135.1176709-1-puranjay12@gmail.com>
- <20230824133135.1176709-4-puranjay12@gmail.com>
-Date: Sat, 26 Aug 2023 16:06:00 +0200
-Message-ID: <87v8d1q4on.fsf@all.your.base.are.belong.to.us>
+	Sat, 26 Aug 2023 18:12:41 +0000
+Received: by mail-ed1-x52f.google.com with SMTP id 4fb4d7f45d1cf-52a1ce529fdso2753087a12.1
+        for <linux-riscv@lists.infradead.org>; Sat, 26 Aug 2023 11:12:33 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20221208; t=1693073552; x=1693678352;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=4Gyzqi9og5VHGej7RqMB/sGNKltacYE0aaQTeJM5H9c=;
+        b=GMVg/1oQvsYhhEmYirAtP41Lx/vkOjnyG01n6KTTeUzkspdjzji4xqorSKtk7Uvp1c
+         dNDpUXWsvHEv7QTmUv1CzD0MSOwKfLTQmO6bYwPAVuVPJt+DXwtyRHyRiznbaU06cqfT
+         vD5reBkDVHjMr1a1Ni8/u1s1+9B0HVAP1SxRVhNn3Z7nbdSNlmwSTi/ltm8Ctg/erFPk
+         3arJR/fF1+aLVQmG/UPcU7dRRPtxBBvsvJHzDnCpjCmxK28f6nbp5lOHGixoFN1seDJ/
+         U2bJcQMZyZFTuxf13gohWH0p5+2YnVjl0MIPb2kxEd1gwP/WMiOcRqyLoQAgem7YCxRD
+         j1LQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1693073552; x=1693678352;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=4Gyzqi9og5VHGej7RqMB/sGNKltacYE0aaQTeJM5H9c=;
+        b=k4bKuRIJFe7qQL9zp/6R9uXmwP7Y+cHyPU6QDrV/NB0UgGN7D8Oyqy2mBgYpHRiSYG
+         vQ+e/hTG7s3Mo/qasRecsKfL3Bad100Nb7TaHkcA/N9bi8B2gA7RN3N95cH3zlHz1R57
+         RjETizvXeAdel9wZqEuivi1z1ss5dRNYYWDLHq2bJkMGyTJky6nMWxictxD190FGCIE/
+         PLeeohXfUlAlyKcIEFCwhF4TjurwYTdkpHpS/Hvia4rIxKuQVLEp7JDBKS/Qzn4dk8bJ
+         sgs67r0QcbAH4dv7ugEBW4HlGkqdVeb3BOJ4IOdVUaCL9cpvj2qcrD1be3q74PzgMTOr
+         TO/Q==
+X-Gm-Message-State: AOJu0YxD6COs7YI8AVOvey+ceqaUifYG1B3t+dRFKn6Fa3q1CBX9+aK4
+	ZpM+b6gQvcq0ICWK1YAOKpRtGbNFrA4=
+X-Google-Smtp-Source: AGHT+IEkSnUDy4cH+EJxekXscvslKpfZGHS61kq8bBp8TxIYmOpTFGcesNwwLFtzVpMz/YdEFIjesQ==
+X-Received: by 2002:a17:906:8468:b0:9a1:f928:dddc with SMTP id hx8-20020a170906846800b009a1f928dddcmr7338705ejc.41.1693073552146;
+        Sat, 26 Aug 2023 11:12:32 -0700 (PDT)
+Received: from nam-dell (ip-217-105-46-58.ip.prioritytelecom.net. [217.105.46.58])
+        by smtp.gmail.com with ESMTPSA id cf20-20020a170906b2d400b0098e78ff1a87sm2461305ejb.120.2023.08.26.11.12.30
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 26 Aug 2023 11:12:31 -0700 (PDT)
+Date: Sat, 26 Aug 2023 20:12:30 +0200
+From: Nam Cao <namcaov@gmail.com>
+To: =?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@kernel.org>
+Cc: linux-riscv@lists.infradead.org, Guo Ren <guoren@kernel.org>,
+	bpf@vger.kernel.org, Hou Tao <houtao@huaweicloud.com>,
+	yonghong.song@linux.dev,
+	Alexei Starovoitov <alexei.starovoitov@gmail.com>,
+	Puranjay Mohan <puranjay12@gmail.com>
+Subject: Re: RISC-V uprobe bug (Was: Re: WARNING: CPU: 3 PID: 261 at
+ kernel/bpf/memalloc.c:342)
+Message-ID: <ZOpAjkTtA4jYtuIa@nam-dell>
+References: <87jztjmmy4.fsf@all.your.base.are.belong.to.us>
+ <87v8d19aun.fsf@all.your.base.are.belong.to.us>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <87v8d19aun.fsf@all.your.base.are.belong.to.us>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230826_070606_155185_0DAB9F58 
-X-CRM114-Status: UNSURE (   7.40  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230826_111239_362032_6BB85EE6 
+X-CRM114-Status: GOOD (  23.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,23 +92,117 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-UHVyYW5qYXkgTW9oYW4gPHB1cmFuamF5MTJAZ21haWwuY29tPiB3cml0ZXM6Cgo+IFVzZSBicGZf
-aml0X2JpbmFyeV9wYWNrX2FsbG9jKCkgZm9yIG1lbW9yeSBtYW5hZ2VtZW50IG9mIEpJVCBiaW5h
-cmllcyBpbgo+IFJJU0NWIEJQRiBKSVQuIFRoZSBicGZfaml0X2JpbmFyeV9wYWNrX2FsbG9jIGNy
-ZWF0ZXMgYSBwYWlyIG9mIFJXIGFuZCBSWAo+IGJ1ZmZlcnMuIFRoZSBKSVQgd3JpdGVzIHRoZSBw
-cm9ncmFtIGludG8gdGhlIFJXIGJ1ZmZlci4gV2hlbiB0aGUgSklUIGlzCj4gZG9uZSwgdGhlIHBy
-b2dyYW0gaXMgY29waWVkIHRvIHRoZSBmaW5hbCBSWCBidWZmZXIgd2l0aAo+IGJwZl9qaXRfYmlu
-YXJ5X3BhY2tfZmluYWxpemUuCj4KPiBJbXBsZW1lbnQgYnBmX2FyY2hfdGV4dF9jb3B5KCkgYW5k
-IGJwZl9hcmNoX3RleHRfaW52YWxpZGF0ZSgpIGZvciBSSVNDVgo+IEpJVCBhcyB0aGVzZSBmdW5j
-dGlvbnMgYXJlIHJlcXVpcmVkIGJ5IGJwZl9qaXRfYmluYXJ5X3BhY2sgYWxsb2NhdG9yLgoKR2Vu
-ZXJhbCBzdHlsZSBjb21tZW50OyBQbGVhc2UgdHJ5IHRvIHVzZSB0aGUgZnVsbCAxMDAgY2hhcmFj
-dGVycyB3aWR0aApmb3IgdGhlIHBhdGNoZXMuIFlvdSdyZSBoYXZpbmcgYSBsb3Qgb2YgbGluZWJy
-ZWFrcywgd2hpY2ggSU1PIG1ha2VzIHRoZQpwYXRjaCBoYXJkZXIgdG8gcmVhZC4KCgpCasO2cm4K
-Cl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJp
-c2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9s
-aXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On Sat, Aug 26, 2023 at 03:44:48PM +0200, Bj=F6rn T=F6pel wrote:
+> Bj=F6rn T=F6pel <bjorn@kernel.org> writes:
+> =
+
+> > I'm chasing a workqueue hang on RISC-V/qemu (TCG), using the bpf
+> > selftests on bpf-next 9e3b47abeb8f.
+> >
+> > I'm able to reproduce the hang by multiple runs of:
+> >  | ./test_progs -a link_api -a linked_list
+> > I'm currently investigating that.
+> =
+
+> +Guo for uprobe
+> =
+
+> This was an interesting bug. The hang is an ebreak (RISC-V breakpoint),
+> that puts the kernel into an infinite loop.
+> =
+
+> To reproduce, simply run the BPF selftest:
+> ./test_progs -v -a link_api -a linked_list
+> =
+
+> First the link_api test is being run, which exercises the uprobe
+> functionality. The link_api test completes, and test_progs will still
+> have the uprobe active/enabled. Next the linked_list test triggered a
+> WARN_ON (which is implemented via ebreak as well).
+> =
+
+> Now, handle_break() is entered, and the uprobe_breakpoint_handler()
+> returns true exiting the handle_break(), which returns to the WARN
+> ebreak, and we have merry-go-round.
+> =
+
+> Lucky for the RISC-V folks, the BPF memory handler had a WARN that
+> surfaced the bug! ;-)
+
+Thanks for the analysis.
+
+I couldn't reproduce the problem, so I am just taking a guess here. The pro=
+blem
+is bebcause uprobes didn't find a probe point at that ebreak instruction. H=
+owever,
+it also doesn't think a ebreak instruction is there, then it got confused a=
+nd just
+return back to the ebreak instruction, then everything repeats.
+
+The reason why uprobes didn't think there is a ebreak instruction is because
+is_trap_insn() only returns true if it is a 32-bit ebreak, or 16-bit c.ebre=
+ak if
+C extension is available, not both. So a 32-bit ebreak is not correctly rec=
+ognized
+as a trap instruction.
+
+If my guess is correct, the following should fix it. Can you please try if =
+it works?
+
+(this is the first time I send a patch this way, so please let me know if y=
+ou can't apply)
+
+Best regards,
+Nam
+
+---
+ arch/riscv/kernel/probes/uprobes.c | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
+
+diff --git a/arch/riscv/kernel/probes/uprobes.c b/arch/riscv/kernel/probes/=
+uprobes.c
+index 194f166b2cc4..91f4ce101cd1 100644
+--- a/arch/riscv/kernel/probes/uprobes.c
++++ b/arch/riscv/kernel/probes/uprobes.c
+@@ -3,6 +3,7 @@
+ #include <linux/highmem.h>
+ #include <linux/ptrace.h>
+ #include <linux/uprobes.h>
++#include <asm/insn.h>
+ =
+
+ #include "decode-insn.h"
+ =
+
+@@ -17,6 +18,15 @@ bool is_swbp_insn(uprobe_opcode_t *insn)
+ #endif
+ }
+ =
+
++bool is_trap_insn(uprobe_opcode_t *insn)
++{
++#ifdef CONFIG_RISCV_ISA_C
++	if (riscv_insn_is_c_ebreak(*insn))
++		return true;
++#endif
++	return riscv_insn_is_ebreak(*insn);
++}
++
+ unsigned long uprobe_get_swbp_addr(struct pt_regs *regs)
+ {
+ 	return instruction_pointer(regs);
+-- =
+
+2.34.1
+
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
