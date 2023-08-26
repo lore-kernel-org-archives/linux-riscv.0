@@ -4,124 +4,125 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B64BDC83F01
-	for <linux-riscv@archiver.kernel.org>; Sat, 26 Aug 2023 08:39:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65D9EC83F16
+	for <linux-riscv@archiver.kernel.org>; Sat, 26 Aug 2023 08:44:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=C9Cubhysdc6izHVZMk8lE3okuftrz1fujqxnMI89Im4=; b=yYmtTRsbewp3BD
-	wZfR4HQspreV5SWRlwwBovlCUn7C3K0A8yLicShYVuzH0ZgOm5StgDZbAPuXJ1aFUar0K3PidrqsF
-	tcBVYSLmCt3tlHXBW9BkvJxZG1j2/hFfZ7XFcJp0YWIXmhm2d4eSJfIOc4XWRfmkrixMbZnSQXkSR
-	0Z+qdik+r6lHpWyPQ+R/ubPGgnz/h8GnJbzPHcxUSporySgLvkcpABEK7e/0BAEL+NNgldI3SAc8+
-	lG8eRfLZfS49EnoFh171Cngl2Iw10ngdCChWitDs1H/6Qwc32qen60cCzdhGUZzW8RpWq8nj8z8IT
-	SnZzY+trydps2osH7Zmg==;
+	List-Owner; bh=G0ANftMJ1Usq6J6SUYjI6UzmSu+RVqPzXJWT3w37sWc=; b=Hh0jvr8yly3u2l
+	+Ye02HgU+LvGnFZrxG8ziRLoOIJB5Kkk+s9xaYSFzNZ1TyUuHNGBojKUqRU7y6Duc+XxmRcy2stFa
+	ztiSXNMYNXE0MvKyK2s5ltsCnVkE6K8zwt9dd08+lp2V8B/4lcCfWgErtkp5Elc0WMoq6BurruVwC
+	vDXNq3W96uAknppUe2TmpnbixKCAqrDaRqo+Ul7uL61cgmQcHRSsNwec+WZrhBncrkFdhB1z/ZDkN
+	3Q7K+oFy20XsJbUHldlEVH8IEg4GTMF0FU6yr09ZvyIl9nUC21tsf6d/IugdfRG0wnnvnghQViiZQ
+	W6+rZUIDdJ/pQSziaUQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qZoon-006ats-2M;
-	Sat, 26 Aug 2023 08:38:53 +0000
-Received: from mail-dm6nam10olkn20811.outbound.protection.outlook.com ([2a01:111:f400:7e88::811] helo=NAM10-DM6-obe.outbound.protection.outlook.com)
+	id 1qZotv-006bKl-0l;
+	Sat, 26 Aug 2023 08:44:11 +0000
+Received: from mail-dm6nam11olkn2082b.outbound.protection.outlook.com ([2a01:111:f400:7eaa::82b] helo=NAM11-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qZook-006atK-15;
-	Sat, 26 Aug 2023 08:38:51 +0000
+	id 1qZotr-006bKB-0k
+	for linux-riscv@lists.infradead.org;
+	Sat, 26 Aug 2023 08:44:09 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=GC2heLubiGjSifoV0Y/m59HKV1Lbg1yDvZrsiXw+wVTYoQilm3bix8USy5u8bZuMJP4Ncv5um3yz4hcwHe/yZQSG9LNcjzw7HtfkO67OcSHl31iVYA9NsCk87mwHYfqHZca+b8pPv46cJDpC8X/jfnwZtIceTBavOMjBtPWvPf7QXSIgtM8T65CFyJDbJchunL7CdCiGGlsuP3Kjz9kmrKm7bzbaDDQcs+Klxkf+wxnKGKiUJTKcc9Bz+XdXkdUunvHRKpcZQ6dy6hXKeSnBiu5039PTHWgarP4ALW9mNgUBVuvK6v9l3OCX9y4kF0KwqwQ5hTEEWAmsRARyVf858Q==
+ b=j8Jq0QH4R/cm6b/s4ZwvtRohwJqlNFI+HEnF8pmKkQ/JTgCYuQCLKGdXMkGzz0/JmbScDm7XHju+VM4Z9Yoqp6jqE6I5cNF2NfCntxR+KEirjiVI5W9sATDvRRaSKx847v+3mtEKqXwU9mQr87ZcjpusmQ0PnbnihrD2uToZdYnkSG+Fz5osJCQ8D406IM7GgnIMuTls4aouSlhlU2YvHDeQNd7++zqOp1bnHeB9yQ0UeTG3dNEY+crznd5Vignn1e0rK2jm8U+AWdqUqGvEQSAkRxIFXAsxtjtHWQ5jvIiHNSKsczArMf3LlR892RLNNabZMs+joaSLv/ElkuKWPQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=oD7D4hOXe241VESq6IMYP/Kc3DL5yh0Yrek02YvU57I=;
- b=UfAE12YUDsb+87EweA9FZSEF+HhtYa8YBYsORqsfWcagmunBbKtHYxQWHFBMk3Bp42AT+B1xWdLg8w/4P2dugzmhwUvai/kdkyUEQgQp2eMnT1fM3lh0MSK3upMldNe0Fd3K+9dCYbqbSV0LU/euYTf1pPzbvxSLuWqKfvUnur/t0WgW0AeO9bNs7msiH2628T0TNGFgIJ1oA30TXwfBoIkCBvLYzNvzYQRGDR6KAnpKu7OtJ9vlHSYgBBCIMkY3R1EuR2a5yNnkx+dHIx6+99ejN88ys9mh0fo2H9PUgGFcY4bXAa0zlRn0kgR33L+37NRLpAwWkTyHoBKGj1YOyA==
+ bh=GZJ7nNZ6nvMSYL1B1rQkQGrO5GV/LUh0eSQpyFbPPl0=;
+ b=D3MaPwIFPA4CI/3miSMQNFvW0p29E3vSE2xRAQzYiJEB8b+cgyUrDM+wENBGbOOpq0V2QmGjyFQckvYVEcYK2WV1Vdl+cBlraG+z/u9ipTyW4yjNXk9gkLTaopfAE8BU8SRCebXTylLJFxKX7NHOl6+Q/7WhK1FiIEddTORoOMTkBqpSDZhqSNw7uI7oBJNc0D1EFfvFAsHTaaJwyuDjnO4GIJgnZabv9U8S2pvBB8lJkppPtveZYonZA1m0YWDDREYw8aODO6ejSY2ycTqW5BNz7vdRv8rH2ns4U7aZcr92os6GcGs8iD5a/p+itib9dUBtKVuwq2dYJR0q/GHRfQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
  dkim=none; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
  s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=oD7D4hOXe241VESq6IMYP/Kc3DL5yh0Yrek02YvU57I=;
- b=CCvz1UPdBx3MmcxDeaTziYuq2cR1scPkfgNY13jEsga93+KbpLqrX7s0ab9zkoRDHpRUQs/63sp/UITlvdeVFSF3Ns51WElw/NphWgx+ubHTumx5+dfjNavfwmNxAnqz7wx8vVuUU6p1ZDlJeGIxfxde/H1F72qruufMhAZEauyRA7FblXOD+uKVMyqfbK6VHrEQcywpy9FEnMCASRqdU4kYbsgQK8RChFDG4fIwWsic7lwJ/xw85Q/2Vu87AjcHmnOsC6g+B14boQB5cWrQ7ySzNin2TWBvuiv8vgOTxyKJiwbfz3G4jDthIYkjzDcP7B/rQZSrFXnQe8PT/kBdLg==
+ bh=GZJ7nNZ6nvMSYL1B1rQkQGrO5GV/LUh0eSQpyFbPPl0=;
+ b=m2g0LUg9pbYqBXR3hwVux0xjZY7vJMtRl6S90fUtpnFU/WYMqWf5LBa/7pkXI1K6nLbmnLqxhcPG1wXy2K+0OBkzRy2viyguzX33UOvLxkVrV7oYpDUwk2Tk7o+iKT7MUmq0NxSkIa2ZDv+giyGLW3a+ozyI3oDEPp2uGepV3Jml5wa6itZfpEjILrHPljDaOJ5HwqKBoNVZqgGuW1cgkZRfKBzPdw/5H8JtE3IZmZ90pZmsMZMJuiK7W0bOCKGgm+fVMLSMnyigPDV6bje9HmQ9OdNLYIbM8bpL3EuBb3GUH1IyTlat+y9zYG+3I3ZOoUzazy+ct+NEEQJ6rs+e8g==
 Received: from IA1PR20MB4953.namprd20.prod.outlook.com (2603:10b6:208:3af::19)
  by CY5PR20MB4844.namprd20.prod.outlook.com (2603:10b6:930:23::10) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6699.29; Sat, 26 Aug
- 2023 08:38:41 +0000
+ 2023 08:43:58 +0000
 Received: from IA1PR20MB4953.namprd20.prod.outlook.com
  ([fe80::cbad:4566:1f3e:4e1f]) by IA1PR20MB4953.namprd20.prod.outlook.com
  ([fe80::cbad:4566:1f3e:4e1f%4]) with mapi id 15.20.6699.034; Sat, 26 Aug 2023
- 08:38:41 +0000
+ 08:43:58 +0000
 From: Inochi Amaoto <inochiama@outlook.com>
-To: Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
+To: Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
-	Inochi Amaoto <inochiama@outlook.com>,
-	Heiko Stuebner <heiko@sntech.de>,
+	Nikita Shubin <n.shubin@yadro.com>,
 	Wei Fu <wefu@redhat.com>,
 	Guo Ren <guoren@kernel.org>,
-	devicetree@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] riscv: dts: allwinner: d1: Add PMU event node
-Date: Sat, 26 Aug 2023 16:38:53 +0800
-Message-ID: <IA1PR20MB495310F06009AA884D0612A1BBE2A@IA1PR20MB4953.namprd20.prod.outlook.com>
+	Inochi Amaoto <inochiama@outlook.com>
+Cc: linux-kernel@vger.kernel.org,
+	linux-perf-users@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH V4] perf vendor events riscv: add T-HEAD C9xx JSON file
+Date: Sat, 26 Aug 2023 16:44:38 +0800
+Message-ID: <IA1PR20MB4953DD82D0116EC291C21777BBE2A@IA1PR20MB4953.namprd20.prod.outlook.com>
 X-Mailer: git-send-email 2.41.0
-X-TMN: [MHffcNEFutK/NKvS6NUMhf2bYQ9cSLCmNEjCx7FQJQ0=]
-X-ClientProxiedBy: SI1PR02CA0047.apcprd02.prod.outlook.com
- (2603:1096:4:1f5::15) To IA1PR20MB4953.namprd20.prod.outlook.com
+X-TMN: [QvmJ2czK3Ni5JmyBpTG5B0NI6xMbokXZEDiIIGUE7wQ=]
+X-ClientProxiedBy: SG2PR04CA0208.apcprd04.prod.outlook.com
+ (2603:1096:4:187::10) To IA1PR20MB4953.namprd20.prod.outlook.com
  (2603:10b6:208:3af::19)
-X-Microsoft-Original-Message-ID: <20230826083853.136087-1-inochiama@outlook.com>
+X-Microsoft-Original-Message-ID: <20230826084438.154358-1-inochiama@outlook.com>
 MIME-Version: 1.0
 X-MS-Exchange-MessageSentRepresentingType: 1
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: IA1PR20MB4953:EE_|CY5PR20MB4844:EE_
-X-MS-Office365-Filtering-Correlation-Id: ee2e1c8b-3c11-4967-3563-08dba60fd966
-X-MS-Exchange-SLBlob-MailProps: fNPDeqDZc0IqNcQZ0cWXe5cnwXgLTXMXawnC9DpyrkulOlbW3559MAetkeiX/vvx7VMtdZtUmk81ECGuSBmKlY8ahOtwfP8DAoMYBPQ1Mx0vXK5/7HgqPAUbe2PyppQNJRVXwWjuQ2jWJqZ6d3SjgAQRL5VYO7lsAKfGKAoIRoQD7topwgtbO+3OG2dyk6w4nbCw3cLLakhJWS3/Xkovj0FdwdOnR2iAiHKJYk8inM3JeYc1c2M5DsccQcFdiYvNWM8Q6ilLWLke2X3ZnYrWRxnq7qsE6j3iAN/dlPF1T9qQFfiiqhbMZ2f+/K/mquZfsjnnitZD07GzJlhv0BpeekGxRN4pdSSq2wJGs8vCtiVvAXJxtSFA34TTbO13nNjaaFS7tL5efMPcUcMR/l1FKbP/MVFTy+dunz7D6AHcnQbb8JMWIvmXPUymd2khKmVv+xKLljZ5HBKY5WXzLemixxq6A+E5/eoXo8cdjt8ECiIkCeUZtlQteKc6vU7+rbe3Nr9iZsNzPqp0vwvN0Jo0fromdK03JhPWvYx5cXHcIvqxxTSqyqn9AQcDDTVfUwup6Q7CiNUq78Rj4XY4l9CtEdYtwzrRf2iDXsk0BinOlzomtORpEkJGNotXxJBLcOlA+ndOmHpHS6ezDV3Y0IOVj5qUfoyHqsa05Wp4g39Q0xUxTbzeNnFesNTSoSNpKgQxFmZQNIjn8s8ldID0hZBe4Vc8pYZwdsCnI4qG1kElKi08gc0VN6I0BfG9b/elsCaT7yC7Z/2xpQdSRPo4Pq45sA==
+X-MS-Office365-Filtering-Correlation-Id: 3e2c4d0e-989a-42f5-b37a-08dba61096c9
+X-MS-Exchange-SLBlob-MailProps: Om8TgR6f4EB/EQr+q11q+JsAPQ9zfesvGwA0uFncXq4shT/jdkgp3nswYHW7RLfzrDhq86gRZdSLh9TR+W2nGJRQGdKbm3CgBT5mJpbEIPUn5A00Dfu+DnzfPtq6ZqeLeRouj0yoLn+kAIFlMaIGYrpoDl40ACLFpFiib2I5NIQxN0wYIleo+E6d+wEGu2V5yzic8NFX1sVoqdR2XKzitHLo2WVZrbEaWQSbxUqIl6WPiGQqY8cmCyufr0wBZEaTmwNmf0rBljWTqnzdNKRiZFBqV75N2Hw4IGLWKtbVn73riIdTHHr58kHGDG4bkIq8CF0h5H5yHWJHzQDuVAr4ttgVs4LKIMpN3s02oqqUz/K4GOUEDbB1lzYmkvPLSQGZtShyIdT2lucfqPOX3TcoTz3AKb0ICzmmxvXuru2meD4yp0Q+B693n8f7S6puYRExcaZUtwRQcXE2rBDMXp1zz6BcqgqCmETfzUq8aNhucExavRa3R2QlTFe0wsMx3JmJ4trPPnIXnAUxBOyU6Ur2kObQFjH1oMGCU7WJrGpQz6R/7xcSM+F0IhjU/eMSCY5kp0Nc5X26xt8xoSNd1E61PB1UD3TO5bgKb1hK5zYVs4AaKAAVqCu2knO3MO5ZyB3JC+MoKU1fpZ85JAdZGMFBROK4IdRlUptLBtX7obRXi5om4MsJC0RB3wNXOI2TaGetrnq8oLBkuFDMZUHrdAfk2u/cPTVM90Jf5ck3WWBBEWns7a89DLmaYQzWQdOsR10w0G1X1xX6Hp7uxDOQezaOwCqqLQYXogvh8IHdVT892EARKLJb7ycSvhAVl0pQueUWLRqft6+o4a4SFmxZyC2tWeXLL6YgebVs
 X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: /xfzoutTd4KbPC8a5ig7BaZCmVs0y6+nriuiDMEPM60MF8DKz1oSm7RfLCo2oo5qJJ0T13u0uxJt5rqmbcH04nWtL4qweZHOTlTcgDWWykt88mYW0R9+ic7j79B0dBiPyOUYvHQbwFB5BhbXdtj+wwMmhhn2JmgbpgLbC93jv47aZ0D6ZcOZNPLNBIjRgydMVbugQUo24WYcxRcchJ+3mkUpcZtdJCrAS9QnWAryz/H9X3tZ5mFZogfuJ5foxKW2p2GCbPo26S3VFH9Fbt5jAQDeH2HSA4Ob5C+zqEFebg9tNwPR8NC2qNYEud6Io7gtctIW5L8+V/CEW+p8Qes5231HSK8/O8VbnFwdDjjdJ/5K0WG8u7tROxT+k9vVeLDk9XWgzrlEeFOmsG4c1UQetuXR7/+Tw8aKu/akW9UUgf8H5+Q5AxLNSWJZZHsaA0oPdU2A6iISqcYcsE2Ruy9ZIegnTosi2CVJDNDa8Bn1dEiEFelRIJq45fWWc9jm55t1nZUqZpdysgFtWFMtHw/ei1D8s41inKebAdYHAZHi7dbusHNf4yJSQiBJdNd9jsHoj9yJtyQJWUpLCq6JYxLM5npy3VrBucEbKF03owJlXBI=
+X-Microsoft-Antispam-Message-Info: OoUwhaPLg5lDTcHI9HNq8j9dJbB59l9alScdmIMcUhwSFzVFL6EhKHv/yqIFZIyu5SF8ZwXOffi0fKTe1HRX+D3DdoPNyyhadfvIr2sMJNNdRSXNOEPe1MNfu3J13ValVNG1wMPYraMGBuDpO8dSxusJq48O6s/rhQdbrUPaTdvJhO4LvRO5tkC83PQSpjcTmiE8nDYl4na9QbTAgd82rA48gj15WdRz8MxW6wBTXA6LpEqqHErm2KiWuktTDcrw7wK1Ctsy/Lc9nD0d2zGSpJX8JvFnBoiplH8YfbhjblBYDCdYvEwaTGfJJZE8JYv9kgByF8uXiTUsfaQLtFOdBxNsVD9zLQJKbHy+oXyHbsLh2s9YayYyNh1kq46JvQLLT4nVfywny0Jk/CSpSsOcwIYqWVif0ltBUAyZi04aZZr/2LA6kndRWj7vYLmTLk4QjGBnePeAVXUVxDfpHPMaPQh1VRJj3mRnt/jdKrAZibNn5oq0hZB7XxQSi49iLnmzp8IU6PT7L7hL+tXbjegOjRUfFS/io2jcEK9hEAv8jvLr586+N0e1bd/uDIKjMHA6rVW3a4uWGPpXGV/c3Lh/y9nYYpFmOY0oO1z+iv1Kbhk=
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?RvkwzbWBCRZt3sM5Z39tEPeaVmeKNeDc6g/MKvqGjYyi2a8TWN5BN2lHWa1L?=
- =?us-ascii?Q?QbKZWjdo0XxRZVI4ISz1lqEW3JgzocPuq/iX66KJs5LH2vKVuHVDJ8/X/f9N?=
- =?us-ascii?Q?GwWJ0YYcmsqQFd++n/XYNtGVbNsGwlmTU1RCOIaf9yOkLSD3uu6ZdBGNyeCP?=
- =?us-ascii?Q?TAMd4VvRWx0wut3t4DWv99/Vus8Bk5tK3kHJBuHflT7ovNPaQN9mtmnpfBUj?=
- =?us-ascii?Q?VVoGqeqw47002Zsq3YULKvsCjy0fDYylo5/uwen8XBDt/o4qubuxuCSbF54b?=
- =?us-ascii?Q?dDmhfnXZnShXySHsJ8W5ttBDVJAtq3r4G+uADBDzSiVSPuya3Kz160htYIDU?=
- =?us-ascii?Q?x7QyofWGrDyPPMcaUUZy0XdiYoHmcfcB7KhT84EdicbuSDG1+9S2b1FD3AR2?=
- =?us-ascii?Q?hp4Qg7JPuRbK72O++74LnJ2jyLX3BnIRM6EhI0tvRmqX0e0SRzzjzNjelVmQ?=
- =?us-ascii?Q?qmyNsWZy95u98pOOJN21Lqmvr5bK1XnQMk/+1He6g4GRLK6+gwMicAZ+qOpE?=
- =?us-ascii?Q?suxGcq0nzALS/iBZSLguFUR/Wb39XCa9V9slx8oDkOTRF6ci3zD7ZfAxa+tJ?=
- =?us-ascii?Q?YFHJFVtncp99H58p1BXhLhKwb5/2t4ZIJwg8Ksux6UIXueNudFYiQxmtJfgZ?=
- =?us-ascii?Q?oWNe1aYwgaTvYP3dVmRMluozJsQC2/apGUAbRkeqTS2VodMK3UZlbmyV70TB?=
- =?us-ascii?Q?NpXcLlbqJJCP8wCTmS0CAYhIWbFESg+YpCCJ+Oz6QP/N8mbyPB1Um2XyaKgQ?=
- =?us-ascii?Q?qQnM5djyieWkzQO5dpkadROOleKxNRj3TByGq0PDsKDaAyV9DpVBVGRfzLxX?=
- =?us-ascii?Q?tzLWsoh2y9suQ0WwQqQapFsqvdJ5JGf3wXf7H7XSyrGWfB0fAyuZkcOXL9Iq?=
- =?us-ascii?Q?KjiJKz5Wcx67olGRXMpTY6oYGeTXUaeBkxHDRxhwxHii/vRKsx01N8sr4pY6?=
- =?us-ascii?Q?MhbossKdX5htrJ6s1ck6hmns8k3b7kW7AzA40vlpLSlsOeV1PurrJbfveXWB?=
- =?us-ascii?Q?NSH2A8kivhFao5u8eVWtOonj2Lys0JR6IYRx2cJ5PQv3rdXcG4TwrxN8qp0t?=
- =?us-ascii?Q?CR1dAjn2UBb2cSOELoskWIJaHV9UgN7e+jn2kE22gh06f41GbRgWLDxLE0wJ?=
- =?us-ascii?Q?l9CbAqPsjd7cGgqsdCjW/sKdW0Wt+pbAHAdRcLtEtD+wLOc3s+Bs6ONMjEsP?=
- =?us-ascii?Q?KG6pyoIIS9bQ4ijGXNTQmiUHYWXN/nGJ2WhqkUOkzqnRXGlQ1KjBfvoAyGY?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?cqArJnuFQyYE93qz+aPhifwTXyRQim/ML/65R0TK+Hx06g+L8iEgNVc1SW+a?=
+ =?us-ascii?Q?3wiXsdqVcIIYDgMF+ihdqv5hbbxMm6mZoziiICtDoCt8v6dEv1uANl4YvWqJ?=
+ =?us-ascii?Q?VDCdGB/SuwlAxBsMIMlE5B/6LAeWug55oAFOUQkuDdeFSEPl15yYDD21WVbK?=
+ =?us-ascii?Q?vlk8+wGsFLw6RE4mmUoZXbd2AafocZ6GKvb3STCii35+7tl61N65pEEdt8Ji?=
+ =?us-ascii?Q?mB1DrX6y5lR8WmjxszXGeqx9Rx8wzItIMoe87wBWTfsddxVswLwCjRoJN3RT?=
+ =?us-ascii?Q?Fh8G7gLzACAGZGNiXVSiJJUSucYJKYW3cjtSWNnEib4XGrBQrT4RAl3lU1MN?=
+ =?us-ascii?Q?/JDl7x/hnDB8ZcDgFRVoBx/NSm1VQPJg2rIuL0HW0xr7H7eO205fY1vU9ZYr?=
+ =?us-ascii?Q?NjM+CeAMJzcBtx2dsqyw5qlt8XK4/mfdAMgjPtHPJDXRn5YY0/nMCoWl9bjE?=
+ =?us-ascii?Q?s+pvJR9YEqrPMqZ2uL/lTDFktj+/l9x9UI985Xk+fsc3mvjDbMsvxv380zPt?=
+ =?us-ascii?Q?KC7ACjdI+7isLTxm1Fn3vzkiJysBztbff78hNZCMu8bgGErbXjvIwvvpvFZa?=
+ =?us-ascii?Q?aWuLtzzK/nHuSXONWVfWMbLY6GWIsTokT2VW+UrHsNsIiUnuQBFAano+GUCI?=
+ =?us-ascii?Q?9XzOuQQ0Mj+VUCq2q6mksLf/7OwO2k6DnsSVTB1ZMQzkT9VTEP5lGwINBF2f?=
+ =?us-ascii?Q?zvNzLTgklC8rt+mV4fnXleQsSf7Dbi/OxSN8ILNM5ZtnYB7P+eze4KpF8k35?=
+ =?us-ascii?Q?A/Jzfx41Wgdyv8d2BY+pGJaTpLFzfHG7ABxoSYKoVrTD6Kcnl0hiuSAjspSC?=
+ =?us-ascii?Q?mAxu7rnzofjY/M421D9skQwgRP+EuTIcgsS2digDGG3JBkKl3SO+ggj5C3jM?=
+ =?us-ascii?Q?bsBt7OIC9vfWAomY0crFeLxTBl7G1v3NwGcITwhEknlCQ61iDyguDqNAfifr?=
+ =?us-ascii?Q?I2mbn6VNZV7MOlgY4XQqS+rzd5W6vZxR39tvnX2g034f1Grfvwg8t5VTnxn/?=
+ =?us-ascii?Q?PhFIKYEilX0kIkjro3AS/D6ZOJTttk4plC43XKGU/kKht927qvqHZ2wpyIy1?=
+ =?us-ascii?Q?LZdbo5LBgyXzTXsZL5tYhZjIE4OzAGcgcId5mq7pa1lpdvN512OihSGoR8Q4?=
+ =?us-ascii?Q?hVJYqYm0nkyXqhBl7NGlIDXVNw6rBpf+UeukOeJvULtXwbCOy/GXCHGDykg1?=
+ =?us-ascii?Q?EYrkjxfsn41jQFb/YDKCfyrDR7Te+kc5PfN3cSsrMZGd36zWjxOcnj+QbFY?=
  =?us-ascii?Q?=3D?=
 X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ee2e1c8b-3c11-4967-3563-08dba60fd966
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3e2c4d0e-989a-42f5-b37a-08dba61096c9
 X-MS-Exchange-CrossTenant-AuthSource: IA1PR20MB4953.namprd20.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Aug 2023 08:38:41.6134
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Aug 2023 08:43:58.5693
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
 X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY5PR20MB4844
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230826_013850_404073_3251550D 
-X-CRM114-Status: UNSURE (   7.75  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230826_014407_330829_D0658AEA 
+X-CRM114-Status: GOOD (  15.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,65 +139,408 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-D1 has several pmu events supported by opensbi.
-These events can be used by perf for profiling.
+Add json file of T-HEAD C9xx series events.
+
+The event idx (raw value) is summary as following:
+
+event id range   | support cpu
+ 0x01 - 0x2a     |  c906,c910,c920
+
+The event ids are based on the public document of T-HEAD and cover
+the c900 series.
+
+These events are the max that c900 series support.
+Since T-HEAD let manufacturers decide whether events are usable,
+the final support of the perf events is determined by the pmu node
+of the soc dtb.
 
 Signed-off-by: Inochi Amaoto <inochiama@outlook.com>
 ---
- arch/riscv/boot/dts/allwinner/sun20i-d1s.dtsi | 40 +++++++++++++++++++
- 1 file changed, 40 insertions(+)
+Change from V3:
+1. fix some typo in json file
+2. correct the event id range in commit
+3. rename directory to c900-legacy to identify the old T-HEAD cpus
 
-diff --git a/arch/riscv/boot/dts/allwinner/sun20i-d1s.dtsi b/arch/riscv/boot/dts/allwinner/sun20i-d1s.dtsi
-index 8275630af977..d9031ccdec89 100644
---- a/arch/riscv/boot/dts/allwinner/sun20i-d1s.dtsi
-+++ b/arch/riscv/boot/dts/allwinner/sun20i-d1s.dtsi
-@@ -72,5 +72,45 @@ plic: interrupt-controller@10000000 {
- 			#address-cells = <0>;
- 			#interrupt-cells = <2>;
- 		};
-+
-+		pmu {
-+			compatible = "riscv,pmu";
-+			riscv,event-to-mhpmcounters =
-+				<0x00003 0x00003 0x00000008>,
-+				<0x00004 0x00004 0x00000010>,
-+				<0x00005 0x00005 0x00000200>,
-+				<0x00006 0x00006 0x00000100>,
-+				<0x10000 0x10000 0x00004000>,
-+				<0x10001 0x10001 0x00008000>,
-+				<0x10002 0x10002 0x00010000>,
-+				<0x10003 0x10003 0x00020000>,
-+				<0x10019 0x10019 0x00000040>,
-+				<0x10021 0x10021 0x00000020>;
-+			riscv,event-to-mhpmevent =
-+				<0x00003 0x00000000 0x00000001>,
-+				<0x00004 0x00000000 0x00000002>,
-+				<0x00005 0x00000000 0x00000007>,
-+				<0x00006 0x00000000 0x00000006>,
-+				<0x0000a 0x00000000 0x0000000b>,
-+				<0x10000 0x00000000 0x0000000c>,
-+				<0x10001 0x00000000 0x0000000d>,
-+				<0x10002 0x00000000 0x0000000e>,
-+				<0x10003 0x00000000 0x0000000f>,
-+				<0x10019 0x00000000 0x00000004>,
-+				<0x10021 0x00000000 0x00000003>;
-+			riscv,raw-event-to-mhpmcounters =
-+				<0x00000000 0x00000001 0xffffffff 0xffffffff 0x00000008>,
-+				<0x00000000 0x00000002 0xffffffff 0xffffffff 0x00000010>,
-+				<0x00000000 0x00000003 0xffffffff 0xffffffff 0x00000020>,
-+				<0x00000000 0x00000004 0xffffffff 0xffffffff 0x00000040>,
-+				<0x00000000 0x00000005 0xffffffff 0xffffffff 0x00000080>,
-+				<0x00000000 0x00000006 0xffffffff 0xffffffff 0x00000100>,
-+				<0x00000000 0x00000007 0xffffffff 0xffffffff 0x00000200>,
-+				<0x00000000 0x0000000b 0xffffffff 0xffffffff 0x00002000>,
-+				<0x00000000 0x0000000c 0xffffffff 0xffffffff 0x00004000>,
-+				<0x00000000 0x0000000d 0xffffffff 0xffffffff 0x00008000>,
-+				<0x00000000 0x0000000e 0xffffffff 0xffffffff 0x00010000>,
-+				<0x00000000 0x0000000f 0xffffffff 0xffffffff 0x00020000>;
-+		};
- 	};
- };
--- 
+This patch need the following patches for opensbi to function normaly:
+https://lists.infradead.org/pipermail/opensbi/2023-August/005500.html
+
+The dtb patch:
+https://lists.infradead.org/pipermail/linux-riscv/2023-August/039040.html
+
+A test result on D1 board with mainline opensbi and mainline kernel:
+[root@test perf]# ./perf stat -a \
+>   -e l1_icache_access \
+>   -e l1_icache_miss \
+>   -e itlb_miss \
+>   -e dtlb_miss \
+>   -e jtlb_miss \
+>   -e inst_branch_mispredict \
+>   -e inst_branch \
+>   -e inst_store \
+>   -e l1_dcache_read_access \
+>   -e l1_dcache_read_miss \
+>   -e l1_dcache_write_access \
+>   -e l1_dcache_write_miss \
+>   -- openssl speed rsa2048
+Doing 2048 bits private rsa's for 10s: 100 2048 bits private RSA's in 10.06s
+Doing 2048 bits public rsa's for 10s: 4051 2048 bits public RSA's in 10.00s
+version: 3.1.2
+built on: Sat Aug  5 14:56:47 2023 UTC
+options: bn(64,64)
+CPUINFO: N/A
+                  sign    verify    sign/s verify/s
+rsa 2048 bits 0.100600s 0.002469s      9.9    405.1
+
+ Performance counter stats for 'system wide':
+
+     7,120,831,110      l1_icache_access
+         2,145,279      l1_icache_miss
+         1,307,935      itlb_miss
+         2,477,482      dtlb_miss
+           402,760      jtlb_miss
+         8,043,723      inst_branch_mispredict
+       153,469,454      inst_branch
+       537,300,381      inst_store
+       947,508,099      l1_dcache_read_access
+           770,550      l1_dcache_read_miss
+       537,262,702      l1_dcache_write_access
+           171,436      l1_dcache_write_miss
+
+      20.315046885 seconds time elapsed
+
+---
+ tools/perf/pmu-events/arch/riscv/mapfile.csv  |  1 +
+ .../arch/riscv/thead/c900-legacy/cache.json   | 67 ++++++++++++++++
+ .../riscv/thead/c900-legacy/firmware.json     | 68 ++++++++++++++++
+ .../riscv/thead/c900-legacy/instruction.json  | 72 +++++++++++++++++
+ .../riscv/thead/c900-legacy/microarch.json    | 80 +++++++++++++++++++
+ 5 files changed, 288 insertions(+)
+ create mode 100644 tools/perf/pmu-events/arch/riscv/thead/c900-legacy/cache.json
+ create mode 100644 tools/perf/pmu-events/arch/riscv/thead/c900-legacy/firmware.json
+ create mode 100644 tools/perf/pmu-events/arch/riscv/thead/c900-legacy/instruction.json
+ create mode 100644 tools/perf/pmu-events/arch/riscv/thead/c900-legacy/microarch.json
+
+diff --git a/tools/perf/pmu-events/arch/riscv/mapfile.csv b/tools/perf/pmu-events/arch/riscv/mapfile.csv
+index c61b3d6ef616..b42b65d09c36 100644
+--- a/tools/perf/pmu-events/arch/riscv/mapfile.csv
++++ b/tools/perf/pmu-events/arch/riscv/mapfile.csv
+@@ -15,3 +15,4 @@
+ #
+ #MVENDORID-MARCHID-MIMPID,Version,Filename,EventType
+ 0x489-0x8000000000000007-0x[[:xdigit:]]+,v1,sifive/u74,core
++0x5b7-0x0-0x0,v1,thead/c900-legacy,core
+diff --git a/tools/perf/pmu-events/arch/riscv/thead/c900-legacy/cache.json b/tools/perf/pmu-events/arch/riscv/thead/c900-legacy/cache.json
+new file mode 100644
+index 000000000000..2b142348d635
+--- /dev/null
++++ b/tools/perf/pmu-events/arch/riscv/thead/c900-legacy/cache.json
+@@ -0,0 +1,67 @@
++[
++  {
++    "EventName": "L1_ICACHE_ACCESS",
++    "EventCode": "0x00000001",
++    "BriefDescription": "L1 instruction cache access"
++  },
++  {
++    "EventName": "L1_ICACHE_MISS",
++    "EventCode": "0x00000002",
++    "BriefDescription": "L1 instruction cache miss"
++  },
++  {
++    "EventName": "ITLB_MISS",
++    "EventCode": "0x00000003",
++    "BriefDescription": "I-UTLB miss"
++  },
++  {
++    "EventName": "DTLB_MISS",
++    "EventCode": "0x00000004",
++    "BriefDescription": "D-UTLB miss"
++  },
++  {
++    "EventName": "JTLB_MISS",
++    "EventCode": "0x00000005",
++    "BriefDescription": "JTLB miss"
++  },
++  {
++    "EventName": "L1_DCACHE_READ_ACCESS",
++    "EventCode": "0x0000000c",
++    "BriefDescription": "L1 data cache read access"
++  },
++  {
++    "EventName": "L1_DCACHE_READ_MISS",
++    "EventCode": "0x0000000d",
++    "BriefDescription": "L1 data cache read miss"
++  },
++  {
++    "EventName": "L1_DCACHE_WRITE_ACCESS",
++    "EventCode": "0x0000000e",
++    "BriefDescription": "L1 data cache write access"
++  },
++  {
++    "EventName": "L1_DCACHE_WRITE_MISS",
++    "EventCode": "0x0000000f",
++    "BriefDescription": "L1 data cache write miss"
++  },
++  {
++    "EventName": "LL_CACHE_READ_ACCESS",
++    "EventCode": "0x00000010",
++    "BriefDescription": "LL Cache read access"
++  },
++  {
++    "EventName": "LL_CACHE_READ_MISS",
++    "EventCode": "0x00000011",
++    "BriefDescription": "LL Cache read miss"
++  },
++  {
++    "EventName": "LL_CACHE_WRITE_ACCESS",
++    "EventCode": "0x00000012",
++    "BriefDescription": "LL Cache write access"
++  },
++  {
++    "EventName": "LL_CACHE_WRITE_MISS",
++    "EventCode": "0x00000013",
++    "BriefDescription": "LL Cache write miss"
++  }
++]
+diff --git a/tools/perf/pmu-events/arch/riscv/thead/c900-legacy/firmware.json b/tools/perf/pmu-events/arch/riscv/thead/c900-legacy/firmware.json
+new file mode 100644
+index 000000000000..9b4a032186a7
+--- /dev/null
++++ b/tools/perf/pmu-events/arch/riscv/thead/c900-legacy/firmware.json
+@@ -0,0 +1,68 @@
++[
++  {
++    "ArchStdEvent": "FW_MISALIGNED_LOAD"
++  },
++  {
++    "ArchStdEvent": "FW_MISALIGNED_STORE"
++  },
++  {
++    "ArchStdEvent": "FW_ACCESS_LOAD"
++  },
++  {
++    "ArchStdEvent": "FW_ACCESS_STORE"
++  },
++  {
++    "ArchStdEvent": "FW_ILLEGAL_INSN"
++  },
++  {
++    "ArchStdEvent": "FW_SET_TIMER"
++  },
++  {
++    "ArchStdEvent": "FW_IPI_SENT"
++  },
++  {
++    "ArchStdEvent": "FW_IPI_RECEIVED"
++  },
++  {
++    "ArchStdEvent": "FW_FENCE_I_SENT"
++  },
++  {
++    "ArchStdEvent": "FW_FENCE_I_RECEIVED"
++  },
++  {
++    "ArchStdEvent": "FW_SFENCE_VMA_SENT"
++  },
++  {
++    "ArchStdEvent": "FW_SFENCE_VMA_RECEIVED"
++  },
++  {
++    "ArchStdEvent": "FW_SFENCE_VMA_RECEIVED"
++  },
++  {
++    "ArchStdEvent": "FW_SFENCE_VMA_ASID_RECEIVED"
++  },
++  {
++    "ArchStdEvent": "FW_HFENCE_GVMA_SENT"
++  },
++  {
++    "ArchStdEvent": "FW_HFENCE_GVMA_RECEIVED"
++  },
++  {
++    "ArchStdEvent": "FW_HFENCE_GVMA_VMID_SENT"
++  },
++  {
++    "ArchStdEvent": "FW_HFENCE_GVMA_VMID_RECEIVED"
++  },
++  {
++    "ArchStdEvent": "FW_HFENCE_VVMA_SENT"
++  },
++  {
++    "ArchStdEvent": "FW_HFENCE_VVMA_RECEIVED"
++  },
++  {
++    "ArchStdEvent": "FW_HFENCE_VVMA_ASID_SENT"
++  },
++  {
++    "ArchStdEvent": "FW_HFENCE_VVMA_ASID_RECEIVED"
++  }
++]
+diff --git a/tools/perf/pmu-events/arch/riscv/thead/c900-legacy/instruction.json b/tools/perf/pmu-events/arch/riscv/thead/c900-legacy/instruction.json
+new file mode 100644
+index 000000000000..c822b5373333
+--- /dev/null
++++ b/tools/perf/pmu-events/arch/riscv/thead/c900-legacy/instruction.json
+@@ -0,0 +1,72 @@
++[
++  {
++    "EventName": "INST_BRANCH_MISPREDICT",
++    "EventCode": "0x00000006",
++    "BriefDescription": "Mispredicted branch instructions"
++  },
++  {
++    "EventName": "INST_BRANCH",
++    "EventCode": "0x00000007",
++    "BriefDescription": "Retired branch instructions"
++  },
++  {
++    "EventName": "INST_JMP_MISPREDICT",
++    "EventCode": "0x00000008",
++    "BriefDescription": "Indirect branch mispredict"
++  },
++  {
++    "EventName": "INST_JMP",
++    "EventCode": "0x00000009",
++    "BriefDescription": "Retired jmp instructions"
++  },
++  {
++    "EventName": "INST_STORE",
++    "EventCode": "0x0000000b",
++    "BriefDescription": "Retired store instructions"
++  },
++  {
++    "EventName": "INST_ALU",
++    "EventCode": "0x0000001d",
++    "BriefDescription": "Retired ALU instructions"
++  },
++  {
++    "EventName": "INST_LDST",
++    "EventCode": "0x0000001e",
++    "BriefDescription": "Retired Load/Store instructions"
++  },
++  {
++    "EventName": "INST_VECTOR",
++    "EventCode": "0x0000001f",
++    "BriefDescription": "Retired Vector instructions"
++  },
++  {
++    "EventName": "INST_CSR",
++    "EventCode": "0x00000020",
++    "BriefDescription": "Retired CSR instructions"
++  },
++  {
++    "EventName": "INST_SYNC",
++    "EventCode": "0x00000021",
++    "BriefDescription": "Retired sync instructions (AMO/LR/SC instructions)"
++  },
++  {
++    "EventName": "INST_UNALIGNED_ACCESS",
++    "EventCode": "0x00000022",
++    "BriefDescription": "Retired Store/Load instructions with unaligned memory access"
++  },
++  {
++    "EventName": "INST_ECALL",
++    "EventCode": "0x00000025",
++    "BriefDescription": "Retired ecall instructions"
++  },
++  {
++    "EventName": "INST_LONG_JP",
++    "EventCode": "0x00000026",
++    "BriefDescription": "Retired long jump instructions"
++  },
++  {
++    "EventName": "INST_FP",
++    "EventCode": "0x0000002a",
++    "BriefDescription": "Retired FPU instructions"
++  }
++]
+diff --git a/tools/perf/pmu-events/arch/riscv/thead/c900-legacy/microarch.json b/tools/perf/pmu-events/arch/riscv/thead/c900-legacy/microarch.json
+new file mode 100644
+index 000000000000..0ab6f288af91
+--- /dev/null
++++ b/tools/perf/pmu-events/arch/riscv/thead/c900-legacy/microarch.json
+@@ -0,0 +1,80 @@
++[
++  {
++    "EventName": "LSU_SPEC_FAIL",
++    "EventCode": "0x0000000a",
++    "BriefDescription": "LSU speculation fail"
++  },
++  {
++    "EventName": "IDU_RF_PIPE_FAIL",
++    "EventCode": "0x00000014",
++    "BriefDescription": "Instruction decode unit launch pipeline failed in RF state"
++  },
++  {
++    "EventName": "IDU_RF_REG_FAIL",
++    "EventCode": "0x00000015",
++    "BriefDescription": "Instruction decode unit launch register file fail in RF state"
++  },
++  {
++    "EventName": "IDU_RF_INSTRUCTION",
++    "EventCode": "0x00000016",
++    "BriefDescription": "retired instruction count of Instruction decode unit in RF (Register File) stage"
++  },
++  {
++    "EventName": "LSU_4K_STALL",
++    "EventCode": "0x00000017",
++    "BriefDescription": "LSU stall times for long distance data access (Over 4K)",
++    "PublicDescription": "This stall occurs when translate virtual address with page offset over 4k"
++  },
++  {
++    "EventName": "LSU_OTHER_STALL",
++    "EventCode": "0x00000018",
++    "BriefDescription": "LSU stall times for other reasons (except the 4k stall)"
++  },
++  {
++    "EventName": "LSU_SQ_OTHER_DIS",
++    "EventCode": "0x00000019",
++    "BriefDescription": "LSU store queue discard others"
++  },
++  {
++    "EventName": "LSU_SQ_DATA_DISCARD",
++    "EventCode": "0x0000001a",
++    "BriefDescription": "LSU store queue discard data (uops)"
++  },
++  {
++    "EventName": "BRANCH_DIRECTION_MISPREDICTION",
++    "EventCode": "0x0000001b",
++    "BriefDescription": "Branch misprediction in BTB"
++  },
++  {
++    "EventName": "BRANCH_DIRECTION_PREDICTION",
++    "EventCode": "0x0000001c",
++    "BriefDescription": "All branch prediction in BTB",
++    "PublicDescription": "This event including both successful prediction and failed prediction in BTB"
++  },
++  {
++    "EventName": "INTERRUPT_ACK_COUNT",
++    "EventCode": "0x00000023",
++    "BriefDescription": "acknowledged interrupt count"
++  },
++  {
++    "EventName": "INTERRUPT_OFF_CYCLE",
++    "EventCode": "0x00000024",
++    "BriefDescription": "PLIC arbitration time when the interrupt is not responded",
++    "PublicDescription": "The arbitration time is recorded while meeting any of the following:\n- CPU is M-mode and MIE == 0\n- CPU is S-mode and delegation and SIE == 0\n"
++  },
++  {
++    "EventName": "IFU_STALLED_CYCLE",
++    "EventCode": "0x00000027",
++    "BriefDescription": "Number of stall cycles of the instruction fetch unit (IFU)."
++  },
++  {
++    "EventName": "IDU_STALLED_CYCLE",
++    "EventCode": "0x00000028",
++    "BriefDescription": "hpcp_backend_stall Number of stall cycles of the instruction decoding unit (IDU) and next-level pipeline unit."
++  },
++  {
++    "EventName": "SYNC_STALL",
++    "EventCode": "0x00000029",
++    "BriefDescription": "Sync instruction stall cycle fence/fence.i/sync/sfence"
++  }
++]
+--
 2.41.0
 
 
