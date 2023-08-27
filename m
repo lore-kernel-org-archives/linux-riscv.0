@@ -4,62 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18844C83F10
-	for <linux-riscv@archiver.kernel.org>; Sun, 27 Aug 2023 09:20:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A66E3C83F10
+	for <linux-riscv@archiver.kernel.org>; Sun, 27 Aug 2023 09:20:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZKNAHMI9L6F8q+ARTQRXtK4vgHmMFVooZFiwwHU/2EY=; b=sdKx5e52Hy9SAS
-	HDzxH8A/OBKKKKKVqm59GuS5Gj6YdZtg7aeqSQ/Zq1ti7QVxMObCq8T7a10NmqHTDAhHgWHQBYALJ
-	Rl3vlI4OBDwBLUvWxTq19pxg3CVtRovkkBp54dG4Yu9fdDHxcYN0DpL5ktEqIoNwXvO/TErNHtl2k
-	b/eiT02OHyyzHs6lpVdlizR0iErm+9xhwgnat+z4H85z5+DnSkTohlv7HbTmqPf35t4jT3NgywRgI
-	EHesheZq1R/HYgWpEcfmxq2quEYawAeWPVDYEsv50T2ye91LfG2gAWgfI2+d68Y3p8f00WCWtQ/ki
-	N30qSdYwQFBV4V3TUKxA==;
+	List-Owner; bh=sR8qNrPjE9wxc1CTS9qKnXN2T7N5ZvTN702u5iwaItY=; b=tf14wZoiEvdKZF
+	XA8CWf6oP8AGnfU/Oy1DaW2/2vTosLq4B9ZBMTYFdiEsMMh7+L8z3tzpwIHgyD7eVx0+ewhX4Kb7M
+	SMjETZG/OHYmYenWrfpmRgrEpQEWpfrTcENETGd4jrpf2ZGd9h3mbb+wi5hXIKek5tDkdtiIG0q6h
+	k/Hb4xjLtl4u2zqVdZVkYPNetxoGGMRLlrzJdgpjluSHRNQXBSbtclWj03Tv/j/oQ+M2Xhzu725OG
+	Q75gCrUjE2Nr/xZpApRrSPWQwTbCJrvRcodbJJKkvaAfbL1wvDLSWbBEL8xiIteSIgum4qKZXt+vw
+	8U/eXWIKjhVRTH4fDfDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qaBwQ-007idt-0p;
-	Sun, 27 Aug 2023 09:20:18 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1qaBwU-007ifi-2z;
+	Sun, 27 Aug 2023 09:20:22 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qaBwN-007idB-34
+	id 1qaBwR-007ieG-0s
 	for linux-riscv@lists.infradead.org;
-	Sun, 27 Aug 2023 09:20:17 +0000
+	Sun, 27 Aug 2023 09:20:20 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 7974A613B3;
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 9458E6144B;
+	Sun, 27 Aug 2023 09:20:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4964DC433C9;
 	Sun, 27 Aug 2023 09:20:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D6044C433C8;
-	Sun, 27 Aug 2023 09:20:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1693128014;
-	bh=wVJEp+DWxjAP9hqubYfmJYRid/a/jKOOXMXkMs86vv4=;
+	s=k20201202; t=1693128018;
+	bh=Ibu7OZXmFF1/tmfUzC1QszDkKdxJxutlMYfydtDtkvc=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=usLvamgE7qx33BKjeqfkpc4BxoEL/KXx5jq76XtCseuMSLbZmPX2d/m1jxn/t2SDE
-	 eSqzYV0Lv7kQYuB4o7blMl4YnZH+q6ZlSjOFwBqHLC1l79YIToF2CKAlt70qQEraG9
-	 crQZzSLltAjbiTxmVXZ6KSqLOSDoBQz4k7jBoLydhEj9oKPen6mgqggmTvCS/6c1y3
-	 yXWoj+jSrtZRh6HB+IvSE6jbaCA2aBxqL518aT5zRkB9U9GBD3Wh4PKHSFZtIZHskZ
-	 q8QRtI7g/Bx0m3tr0Nhe10L5O630jEXbxR1wp8+M3EoBARB/+Wrgu6uZEmDUmsxlPQ
-	 tbQ0wJERV9RXg==
+	b=OeCRgMOdogG7W1AW/VS6qgIe7qwaMx9kWoBCGgkEbH6+sxJl8X216MNKabS6Bw+vg
+	 UM97X5t7yxV+PrryitqcAJSBbZF5tia9snUfPZ/EC9iDXw59v+qZXOkUbdWWj/KWSt
+	 5FtcgclCDM2u75WzRMVuRI8AbBZST+F6t4LrokgnV2kaztAvDy4vl4Q9pizUVj83D8
+	 3M6QKXbwoo4wwe8DJCjAZuW2lQsN5lGDuLnUY0U6lL9Gt29EhMOQLS2C8iSNuTqSNn
+	 6BHfcMh6tjszCuBuD65E9KXdGDfQvJzh3xFDQYJ156Pmgdk4rPkKc4RC+m+IA+G91+
+	 3+bwOzkQ5tJRA==
 From: Jisheng Zhang <jszhang@kernel.org>
 To: Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
 	Guo Ren <guoren@kernel.org>
-Subject: [PATCH v2 1/2] riscv: errata: fix T-Head dcache.cva encoding
-Date: Sun, 27 Aug 2023 17:08:12 +0800
-Message-Id: <20230827090813.1353-2-jszhang@kernel.org>
+Subject: [PATCH v2 2/2] riscv: errata: prefix T-Head mnemonics with th.
+Date: Sun, 27 Aug 2023 17:08:13 +0800
+Message-Id: <20230827090813.1353-3-jszhang@kernel.org>
 X-Mailer: git-send-email 2.40.0
 In-Reply-To: <20230827090813.1353-1-jszhang@kernel.org>
 References: <20230827090813.1353-1-jszhang@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230827_022016_032871_A271668C 
-X-CRM114-Status: GOOD (  11.10  )
+X-CRM114-CacheID: sfid-20230827_022019_353318_2303C5AF 
+X-CRM114-Status: UNSURE (   8.48  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,7 +72,7 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Sergey Matyukevich <sergey.matyukevich@syntacore.com>, linux-riscv@lists.infradead.org, Heiko Stuebner <heiko@sntech.de>, linux-kernel@vger.kernel.org
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
@@ -79,41 +80,54 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Icenowy Zheng <uwu@icenowy.me>
 
-The dcache.cva encoding shown in the comments are wrong, it's for
-dcache.cval1 (which is restricted to L1) instead.
+T-Head now maintains some specification for their extended instructions
+at [1], in which all instructions are prefixed "th.".
 
-Fix this in the comment and in the hardcoded instruction.
+Follow this practice in the kernel comments.
 
+Link: https://github.com/T-head-Semi/thead-extension-spec [1]
 Signed-off-by: Icenowy Zheng <uwu@icenowy.me>
-Tested-by: Sergey Matyukevich <sergey.matyukevich@syntacore.com>
-Reviewed-by: Heiko Stuebner <heiko@sntech.de>
-Reviewed-by: Guo Ren <guoren@kernel.org>
 ---
- arch/riscv/include/asm/errata_list.h | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ arch/riscv/include/asm/errata_list.h | 14 +++++++-------
+ 1 file changed, 7 insertions(+), 7 deletions(-)
 
 diff --git a/arch/riscv/include/asm/errata_list.h b/arch/riscv/include/asm/errata_list.h
-index fb1a810f3d8c..feab334dd832 100644
+index feab334dd832..98ecab053dd2 100644
 --- a/arch/riscv/include/asm/errata_list.h
 +++ b/arch/riscv/include/asm/errata_list.h
-@@ -100,7 +100,7 @@ asm volatile(ALTERNATIVE(						\
+@@ -90,25 +90,25 @@ asm volatile(ALTERNATIVE(						\
+ #endif
+ 
+ /*
+- * dcache.ipa rs1 (invalidate, physical address)
++ * th.dcache.ipa rs1 (invalidate, physical address)
+  * | 31 - 25 | 24 - 20 | 19 - 15 | 14 - 12 | 11 - 7 | 6 - 0 |
+  *   0000001    01010      rs1       000      00000  0001011
+- * dache.iva rs1 (invalida, virtual address)
++ * th.dache.iva rs1 (invalida, virtual address)
+  *   0000001    00110      rs1       000      00000  0001011
+  *
+- * dcache.cpa rs1 (clean, physical address)
++ * th.dcache.cpa rs1 (clean, physical address)
   * | 31 - 25 | 24 - 20 | 19 - 15 | 14 - 12 | 11 - 7 | 6 - 0 |
   *   0000001    01001      rs1       000      00000  0001011
-  * dcache.cva rs1 (clean, virtual address)
-- *   0000001    00100      rs1       000      00000  0001011
-+ *   0000001    00101      rs1       000      00000  0001011
+- * dcache.cva rs1 (clean, virtual address)
++ * th.dcache.cva rs1 (clean, virtual address)
+  *   0000001    00101      rs1       000      00000  0001011
   *
-  * dcache.cipa rs1 (clean then invalidate, physical address)
+- * dcache.cipa rs1 (clean then invalidate, physical address)
++ * th.dcache.cipa rs1 (clean then invalidate, physical address)
   * | 31 - 25 | 24 - 20 | 19 - 15 | 14 - 12 | 11 - 7 | 6 - 0 |
-@@ -113,7 +113,7 @@ asm volatile(ALTERNATIVE(						\
+  *   0000001    01011      rs1       000      00000  0001011
+- * dcache.civa rs1 (... virtual address)
++ * th.dcache.civa rs1 (... virtual address)
+  *   0000001    00111      rs1       000      00000  0001011
+  *
+- * sync.s (make sure all cache operations finished)
++ * th.sync.s (make sure all cache operations finished)
+  * | 31 - 25 | 24 - 20 | 19 - 15 | 14 - 12 | 11 - 7 | 6 - 0 |
   *   0000000    11001     00000      000      00000  0001011
   */
- #define THEAD_inval_A0	".long 0x0265000b"
--#define THEAD_clean_A0	".long 0x0245000b"
-+#define THEAD_clean_A0	".long 0x0255000b"
- #define THEAD_flush_A0	".long 0x0275000b"
- #define THEAD_SYNC_S	".long 0x0190000b"
- 
 -- 
 2.40.1
 
