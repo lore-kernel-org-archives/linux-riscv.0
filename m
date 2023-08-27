@@ -4,77 +4,127 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28250C6FA8F
-	for <linux-riscv@archiver.kernel.org>; Sun, 27 Aug 2023 02:01:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BDDFC6FA8F
+	for <linux-riscv@archiver.kernel.org>; Sun, 27 Aug 2023 02:17:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=dkUgRnn/8P5JlgDNHw/jAHD+r2ZTKK7ZYFoC1VmpZ8A=; b=0ZS+qqaiPG/XicYYoNuTkQiOxd
-	wASIQC6oxszyK1+NW9N8p0BmZ52v1Il6ZJgFmevMsNDkHn3yscdtlamPpL+unr6qAaI0iHGAzGC1N
-	M37wysnUeT05YPJbjEwLwKWSmC99HbauAloRAHZWjl9GOnMYjhNKgaATDmHllmsHnD9XxKOhLjpvD
-	PT9ObS9xpw6daVp8bfUxDjQUnSv3SWn3fiNK9zqcmjw5CTf8s0H9/LY6oov8EblZtzaqBTu709TvN
-	L9UFXC2inrHhM4vzaTs2sWQF/BcBApYGjx1NN/zsf0vlKjmnRyB0R9FxzrwZG+wpJfyL5UZ+tEJtR
-	W+s4Mmtg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=CnRN4E3q9PcIKSiGZxDcRQUCdEe1ar5CZpxJxlS9aaQ=; b=K1GqCjMJNlKAu5
+	Z0BmVJdvU0H5E/oo2GljeN8lSFeUftRi/ccRgSP1acbVKZDi+oxLlAhBcAk7Lfk3KKbC0viaWM/My
+	Mk/BJcPLqX4Xkf4gN6WBZRM2UmSabNNW8qBizjFAetlhN4cSwkzdcn2duV+3RXwmMETfQ1gNV6iXC
+	jXFEuGv0RpUYF87v5jYdD0yvtUoF0JduJA+Cuoblrnu4SnLPjkc2mldJ8W4ueUIVIdP+wHtsFajfn
+	glqpWUY1aSu2n9u/wKYWXEez7tpt0Djd6XuJRfwyx1uYtTvOtGphRtnhQG5fvcjt1Y99pJg3H5Oy9
+	uMwecpzuANwmTskpaS9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qa55C-007OMU-1J;
-	Sun, 27 Aug 2023 02:00:54 +0000
-Received: from mail-il1-x130.google.com ([2607:f8b0:4864:20::130])
+	id 1qa5LS-007P01-1Z;
+	Sun, 27 Aug 2023 02:17:42 +0000
+Received: from mail-dm6nam04olkn20820.outbound.protection.outlook.com ([2a01:111:f400:7e8b::820] helo=NAM04-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qa559-007OLU-0z
-	for linux-riscv@lists.infradead.org;
-	Sun, 27 Aug 2023 02:00:53 +0000
-Received: by mail-il1-x130.google.com with SMTP id e9e14a558f8ab-34baeb01942so7812325ab.1
-        for <linux-riscv@lists.infradead.org>; Sat, 26 Aug 2023 19:00:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20221208.gappssmtp.com; s=20221208; t=1693101649; x=1693706449;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=BlSuJKsHYnZJEVs8d+DkMrax8UWM8PJfpxzbSZhob4c=;
-        b=SILQ0dy7yyODpbhPwIqg7gLpES7ddixyQwG5eJ3f/eCB4h58PirgfUl+PxkrwZF0of
-         vQ/tzOjFcbOecqd8KchPhcJA3h2t96i5XuYbOnRStyI7wqGDNOfV5SfUu4Ya+wahQyok
-         87ckMQB2pmHMUSx78/XuW/En7xot7HfP0EQhotd6pK/GWz8v+g9Wif7Y7L5YDeUfaWJd
-         Syr26qTcui5k4V3CghKN2Ltu/llJKpiAyFc/z3dMfiKkQ4iO0VN2OoqUM5PGdGZlpOkr
-         gz4ueUt681q5TIMkRS7VsHL8ZN3V0hMRUTnc6AqDiz9ybf6g4OpbcIKKfDA7/rLi9HKu
-         DxAQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1693101649; x=1693706449;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=BlSuJKsHYnZJEVs8d+DkMrax8UWM8PJfpxzbSZhob4c=;
-        b=NWxiAJa2Falo3yw2fYJCSg82IBo5TYxo+zr/vREHyOuyoukJ2GfkvkfjBZQj2BmYYj
-         ndvQEGI76v/886jKGGlYLsgV4NJNDWdjF7hgoGSBZBufCswv87TpHzj3d+Okier9a0ul
-         FDjrWEk3SirdZt7NHBsQGrJ7Yft+lN4AoTrTtvkCvPc+9TwWbmWgfMgqn+991fDbI2ZM
-         DaiS6TBy91zT3AkssbMRo0nNJMaWI8vLlOydU4+9O8zj2lMhgNgK5D86LJ5EFXzZi2Yw
-         Ihoc8UkT+EBIkGlAwDGnoT5EcPfMJaFGgvbv2W0fUZgE6TtgbeooVguOtvz85+ZqtfgB
-         yDBQ==
-X-Gm-Message-State: AOJu0YzrCWJhElqbvQSQb5SqlC5wpWBOs5tawb+SgExcIMmcZkCITyya
-	F3L5Mpd4fHDF2J7RznrOGWVTMg==
-X-Google-Smtp-Source: AGHT+IG+vwM3D2XyZX5lR9mOoky02Ai+tLY9YcXHIjFwhPcdLHYppT+84YH7Ap2mNkHSRwfULseVhQ==
-X-Received: by 2002:a05:6e02:1d96:b0:345:f28f:cc26 with SMTP id h22-20020a056e021d9600b00345f28fcc26mr15749614ila.24.1693101649219;
-        Sat, 26 Aug 2023 19:00:49 -0700 (PDT)
-Received: from localhost ([135.180.227.0])
-        by smtp.gmail.com with ESMTPSA id d10-20020a170902654a00b001bc930d4517sm4472599pln.42.2023.08.26.19.00.47
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 26 Aug 2023 19:00:47 -0700 (PDT)
-Date: Sat, 26 Aug 2023 19:00:47 -0700 (PDT)
-X-Google-Original-Date: Sat, 26 Aug 2023 19:00:43 PDT (-0700)
-Subject: Re: [PATCH 1/5] riscv: Checksum header
-In-Reply-To: <20230827-turf-parched-b965bc697882@spud>
-CC: charlie@rivosinc.com, linux-riscv@lists.infradead.org,
-  linux-kernel@vger.kernel.org, Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: Conor Dooley <conor@kernel.org>
-Message-ID: <mhng-d43dc0a3-7985-4195-9611-5ca0c38390e7@palmer-ri-x1c9>
-Mime-Version: 1.0 (MHng)
+	id 1qa5LN-007OzQ-1F;
+	Sun, 27 Aug 2023 02:17:39 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=kF+/080n4c1sF5JpjDgh7DR2sC4i80zzB6fZ6pyuzcETyZNa3u+xuJ5wZOBoT7lZ36qX4tOLl/AfeKTgQqx36+cW+6d7B/Swr4+ceaNepV/8FnWmONmgEYszUyEgenmC9MQdCOqemsV6+sli3lGiIeGMglAvlrEW7l4tU2e+r6b5Wnd0DAQ84kfYDZwgSz4XK4uF7zUl2D/Kw6pN/Gux0ZUrJCgVR62FDwNfolOSSsN9ukPLdj7d3iTg4rRZN2ahzRaHegGawyJM3HofxN5o9Egg94/S0uBLERSCew4N8flXYZzODcJg6od04WhyWKmABmaPXpoIA6gV/EoMR96RbA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=haSnHquAyFrluQx5SsuWrV8AwA7HZAt9CC0SfqrYJhU=;
+ b=cVB++7re0K9BH44NsBAP9zzrleFEuCP6Rm420ccfntZElhtoh9dBOX9x3JDO3D9NpAjFrU28UdnLsKv+RO10LEYPLxA3oMm4VVKTP10vvE8nU/q7vsgt2fjUv8zakpSehP3p6+dZ5LuHl15ENuM6w3Fsg9o468OIjQsExS8RFdjhzoPQ9s+4ufUr1sHscWtoY2dMlNlG9SUodvXZc/vpX8W7Ph6D4IaPgWSUsk5UIMBDBn70Bj9ESjVcgA9lcZPk1PiBNE1M4klJw9awZk7OrustPGjBwgXKvce4YGJs5LaP4bm90XLizx2JwENP31VNzeVF/9ywixBOfGJkKaqxUQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=haSnHquAyFrluQx5SsuWrV8AwA7HZAt9CC0SfqrYJhU=;
+ b=iZrYkH0gDSuJdq4T9JWLxb3xzWJiIOCak3iLttJNg/w5m8z7Osg83TUx5vT3ETkj22198ToHlFao81aIjjr3cpq6Wd+qAIVrMqkNrlZQQV87lu7Lid0ZLoR1JCwYDkMxdePBVOGvhbwvB9iki4o4lVIOqaT/l8Gd2B0MRIal/whdkZCp/1nOmG6c0oE0FLNbWEwpKbvxFC/8rQFvufFcaJKPE9JP/GBPzhhYwZQAtUByJ4eu3drtPKeS82RYZ2U2Jn5tUT37iLzGYdJUZfYCZv5OMgmWZ0mbeh+0RYIMeY3kivYuKP0xlBiyZ4qS2Bv8zoQhWVHk+NO7+5/OTYwMEQ==
+Received: from IA1PR20MB4953.namprd20.prod.outlook.com (2603:10b6:208:3af::19)
+ by CY5PR20MB5045.namprd20.prod.outlook.com (2603:10b6:930:33::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6699.34; Sun, 27 Aug
+ 2023 02:17:24 +0000
+Received: from IA1PR20MB4953.namprd20.prod.outlook.com
+ ([fe80::cbad:4566:1f3e:4e1f]) by IA1PR20MB4953.namprd20.prod.outlook.com
+ ([fe80::cbad:4566:1f3e:4e1f%4]) with mapi id 15.20.6699.034; Sun, 27 Aug 2023
+ 02:17:24 +0000
+From: Inochi Amaoto <inochiama@outlook.com>
+To: Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Inochi Amaoto <inochiama@outlook.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Wei Fu <wefu@redhat.com>,
+	Pei Chen <cp0613@linux.alibaba.com>,
+	Wenhan Chen <chenwenhan.cwh@alibaba-inc.com>,
+	Guo Ren <guoren@kernel.org>
+Cc: devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] riscv: dts: allwinner: d1: Add PMU event node
+Date: Sun, 27 Aug 2023 10:18:05 +0800
+Message-ID: <IA1PR20MB4953C22B0FE8381C4F35A827BBE1A@IA1PR20MB4953.namprd20.prod.outlook.com>
+X-Mailer: git-send-email 2.42.0
+In-Reply-To: <20230827-cricket-ooze-0bf6b7399da9@spud>
+References: <20230827-cricket-ooze-0bf6b7399da9@spud>
+X-TMN: [fAufJkJA7CVpcJhAUn8SKV3rWyBaZJaYfyhMAtFvb64=]
+X-ClientProxiedBy: SI2PR04CA0011.apcprd04.prod.outlook.com
+ (2603:1096:4:197::10) To IA1PR20MB4953.namprd20.prod.outlook.com
+ (2603:10b6:208:3af::19)
+X-Microsoft-Original-Message-ID: <20230827021805.204837-1-inochiama@outlook.com>
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: IA1PR20MB4953:EE_|CY5PR20MB5045:EE_
+X-MS-Office365-Filtering-Correlation-Id: 18555715-7a70-465e-3e09-08dba6a3c072
+X-MS-Exchange-SLBlob-MailProps: lrlGrSszMGaVpEKWeJ2EJGY7AqS4jq8l2DhAyUjwzSk5/0mZN5diIHR9lXn6b65gO5+zed3q0GOIB+PwxSRT+t98W+aDRb6YXoEH07nc/MEP+Erbn1wxnyI0Wn+OYuBk5Ie83N6x9kRJMoAvJFjNGdm62q+EIiunT6TtXr2ZgWANSZlPZCueDkQUE84k6VDhuu9+1iqJVw2u7ISk9d71BCMkB7Zya6CI5R4yHddSQVCHlLAyFs/RjZbwWr7xgCzZuDEqsxZvsX1Q43H4YpqMllica8/KgXCV6Yj3Mk/im7S6yKhJi1pDdLRlxBmCR+sG/HYNFOu4skHWJ2jmrQ9yEYe9UEMZJyN84VQ1byJg05e+RDexK1ywSc87A5AzvG6ofa9IYrdX4BQ8D/CGAdcZmgRyoeBYSXbS6TUmfXIkYr62qvRSGyHjA1y0YNmLwfo7y8UM+XdUVGl/o44LPB6joEfr6rLXi86CI941XLCVfbvz0NnW6YoRRn5M+wlylMhp9LvPjv36eM67enn1s3t1jeP0IeF8c7T8p39/vsofDcc49+/bzAgU2wv4VcQB07vgPuuPaTSQrlSCDeYiF4IGg41kWXt/4TzLbKMSwp+tAnMav8mOao2W74X9NsNWSlh89gDrmHZ2hiQXK6tTaxhknje6VtYhKHWPowVH4wxq9kvxRWZ3P6VfoqB38WHRGf12wDbg3GtXyjvW+8UFEA/GumiSX06b/QIz8McVOvn2zCPbNpjzQlYdOHeGHhND8JgSGkqD5PxSpZ/BI5HPGRERDAPcr85Zz5pfbRpIrY3kNnsgi0iMKCWBv/AVIYu8JDNJhaH5dZymO5fFzooTMlgeAN3bZ6iagLb9lXVBe22AtRV3UHoUdOOZ81d1YGo4klu/ZXM9Ml0jjWE6vqqS7nUG0rZQ81E60eL+/PVaAqpi5lk=
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: Sze/8WyIyETqmXhGt0rhBCbfUbLKv76OjPWK/VV33VGJCAUcftPb5PQoq8i1tzbEFrPloxyPLjmWGjS02ciavMuqbJvmoUho0oTj/69tvQ7q+RIWvlFn4S0YEnBlSWDwrrusCpLHcsq1iaDfZV9RoZjhgUSiytHO27cJ3OdheoMRwp3W1Xd8a9ZfbRt0V34AgM2bxxprONeo7nhmfkH40dzX31x3ILsNjBIk6G0kRsuYvx2OHxdxvrK80EMy21qWe6Zr/Opavx3HN0pd35rFIhupX1XHhhwgNKTJCD2iPPl54LnoTSrI+WMZGvR3t0pc2FgGA72YgGGX+mVXTpLJDwkv7sSIGLy8mdupez7czxhLKcJLSWLdMkmRVS+fV4h34AqxqvPP0Yqr4QpCKMY8NGIHBGXqe1egcZOE9QLGq+6T8+Q/wIAcvA4gHyeQOodzoVVZ923cvXqt3S0vCraZR7OXp3iPYrDWIk1eDHtuxCnP6v/8SADWL0NYSadSDh+1gyV1X3xuiwr/TjeCMQWO6YANtu+/Bg5IXl8EeYA+0gd+PEXigslK/SehZGEppSPFzXn1nZYAPJ1Dt9K7HKuJcz402aJmCpsvzTBZh42YQrw=
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Za4mLMAThWbFNAijSv4PL7CSTtt6ufldo644KOLcSC1syIkHZaUofYnApuCQ?=
+ =?us-ascii?Q?B13lfs8hNu5c5otGihU73eTEWoWtrr9OaQ4ydUbP+PxTObQ/U1TFQoboptCT?=
+ =?us-ascii?Q?CD0KbMPqZGwPPAYuMNg6+TKW5EhxxZDin4Q0+twP6PopoaceSfa38NInqenr?=
+ =?us-ascii?Q?bDBb//j0kN1G8fcenBieXFV4LA9bBLLiDj2To3LtGGwo69oJX4nzz6mVegXf?=
+ =?us-ascii?Q?BThmp4KOov1hlFgX8pogNIdsCxf+hm9eiirG5f5R0xy3tZB9cHfvoRZ/kUlL?=
+ =?us-ascii?Q?+S94RtRWbqG5E6BJvukZ+RPiC29fCByRQor9o5to6yNjdfjVBPUhgWolrUAW?=
+ =?us-ascii?Q?9VJCW5mk8Xb3UqZOS3LJu7rrVKjYkS+gLb4fTQBJ+IKloU4cvV2oEc/nK2eh?=
+ =?us-ascii?Q?YddMlyEGJBV3hZT7ThhrnoY+Ol//WBH4NkExPiP2TXrSQmCEN0wE8J4ewA7B?=
+ =?us-ascii?Q?mB7JWezobOt1/kwZZHbQyXMcF7BeqMP8x4tjpjgs5ZrHXr/wbNY6XYVmohqf?=
+ =?us-ascii?Q?6Lf0efsjcmkA91D1fbd6MD0euVRRFT6ATyAdDj3n1L47TiE9U6CZQ8swD4bF?=
+ =?us-ascii?Q?+htvG0gesix2N+9pgD1WgpE9tNDxGGZbYgfEr2rywPYGjX5HJu7Tt40vnEsd?=
+ =?us-ascii?Q?J6YE6da19if+0t86TmcZPhqkZNJ4YWZ9qKqp7T52cb6dU1LYLy+gmTv5o6/b?=
+ =?us-ascii?Q?KVOnDJ2EOya9Fxd9nCbRRc5cao6CU20qCoFJ9p2s829mQOEJRnCU1XcmicfA?=
+ =?us-ascii?Q?r7yv38+f8McJc4YPJxk5I9RPEE0qkzHrCZ2gxiMm7IUDsj+O79fvr6SMW3+l?=
+ =?us-ascii?Q?TN5hIiRvbsiJefSuUQ7d009SBGg2Ufrg+aIYo5Qjaa2IY2zTF5zzK4MxIl0m?=
+ =?us-ascii?Q?eyB8u/MMs+wAGPNWwTMwPdzHqW9rElraOCQ9cDDj65SRAIgzl4uN0mvTfb1U?=
+ =?us-ascii?Q?YuS3JtttVl4DIp49iawg4OS/3Y5F6lq6rDPgRp2lLbNbW4DR2oRHS5PFbSTq?=
+ =?us-ascii?Q?JnIJdhkqT1tyGYa6Ue6VelktLUCqv1GREeoosE5wbbT0ENoP7zFwIk65BU3j?=
+ =?us-ascii?Q?Hqm9XdRZELwuEKjIHVi1cOqz600hvte+m9kirm0fIVAu4/ZWx/aAt9Ajs6Fd?=
+ =?us-ascii?Q?qlgj5ZQWFmYnLeR2zGuy8Sn/xkL1UF0EMnUsYyk7EVW5YdWlxqdU6V+frP1a?=
+ =?us-ascii?Q?HLi0l+etjdvIU42w9EFqD3Bj9XPIyC24nvRpAnXkN+kLRwXVs/XfkX/OTVo?=
+ =?us-ascii?Q?=3D?=
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 18555715-7a70-465e-3e09-08dba6a3c072
+X-MS-Exchange-CrossTenant-AuthSource: IA1PR20MB4953.namprd20.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Aug 2023 02:17:24.4520
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY5PR20MB5045
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230826_190051_589297_00E3054E 
-X-CRM114-Status: GOOD (  26.02  )
+X-CRM114-CacheID: sfid-20230826_191737_506283_B1557D77 
+X-CRM114-Status: GOOD (  12.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,99 +136,133 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, 26 Aug 2023 18:42:41 PDT (-0700), Conor Dooley wrote:
-> On Sat, Aug 26, 2023 at 06:26:06PM -0700, Charlie Jenkins wrote:
->> Provide checksum algorithms that have been designed to leverage riscv
->> instructions such as rotate. In 64-bit, can take advantage of the larger
->> register to avoid some overflow checking.
->> 
->> Add configuration for Zba extension and add march for Zba and Zbb.
->> 
->> Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
+>On Sat, Aug 26, 2023 at 08:25:04PM +0800, Inochi Amaoto wrote:
+>> D1 has several pmu events supported by opensbi.
+>> These events can be used by perf for profiling.
+>>
+>> The event value and mapping can be found in the R1S0 version of C906
+>> documentation:
+>> https://dl.linux-sunxi.org/D1/Xuantie_C906_R1S0_User_Manual.pdf
+>
+>Link: https://dl.linux-sunxi.org/D1/Xuantie_C906_R1S0_User_Manual.pdf
+
+Thanks.
+
+>> Signed-off-by: Inochi Amaoto <inochiama@outlook.com>
 >> ---
->>  arch/riscv/Kconfig                | 23 +++++++++++
->>  arch/riscv/Makefile               |  2 +
->>  arch/riscv/include/asm/checksum.h | 86 +++++++++++++++++++++++++++++++++++++++
->>  3 files changed, 111 insertions(+)
->> 
->> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
->> index 4c07b9189c86..8d7e475ca28d 100644
->> --- a/arch/riscv/Kconfig
->> +++ b/arch/riscv/Kconfig
->> @@ -507,6 +507,29 @@ config RISCV_ISA_V_DEFAULT_ENABLE
->>  
->>  	  If you don't know what to do here, say Y.
->>  
->> +config TOOLCHAIN_HAS_ZBA
->> +	bool
->> +	default y
->> +	depends on !64BIT || $(cc-option,-mabi=lp64 -march=rv64ima_zba)
->> +	depends on !32BIT || $(cc-option,-mabi=ilp32 -march=rv32ima_zba)
->> +	depends on LLD_VERSION >= 150000 || LD_VERSION >= 23900
->> +	depends on AS_HAS_OPTION_ARCH
->> +
->> +config RISCV_ISA_ZBA
->> +	bool "Zba extension support for bit manipulation instructions"
->> +	depends on TOOLCHAIN_HAS_ZBA
->> +	depends on MMU
->> +	depends on RISCV_ALTERNATIVE
->> +	default y
->> +	help
->> +	   Adds support to dynamically detect the presence of the ZBA
->> +	   extension (basic bit manipulation) and enable its usage.
->> +
->> +	   The Zba extension provides instructions to accelerate a number
->> +	   of bit-specific address creation operations.
->> +
->> +	   If you don't know what to do here, say Y.
->> +
->>  config TOOLCHAIN_HAS_ZBB
->>  	bool
->>  	default y
->> diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
->> index 6ec6d52a4180..51fa3f67fc9a 100644
->> --- a/arch/riscv/Makefile
->> +++ b/arch/riscv/Makefile
->> @@ -61,6 +61,8 @@ riscv-march-$(CONFIG_ARCH_RV64I)	:= rv64ima
->>  riscv-march-$(CONFIG_FPU)		:= $(riscv-march-y)fd
->>  riscv-march-$(CONFIG_RISCV_ISA_C)	:= $(riscv-march-y)c
->>  riscv-march-$(CONFIG_RISCV_ISA_V)	:= $(riscv-march-y)v
->> +riscv-march-$(CONFIG_RISCV_ISA_ZBA)	:= $(riscv-march-y)_zba
->> +riscv-march-$(CONFIG_RISCV_ISA_ZBB)	:= $(riscv-march-y)_zbb
+>> The meaning of T-HEAD events can be found in this pending patch:
+>> https://lore.kernel.org/linux-perf-users/IA1PR20MB4953DD82D0116EC291C21777BBE2A@IA1PR20MB4953.namprd20.prod.outlook.com
+>>
+>> The patch above also provides a detailed example that shows how to setup
+>> environment and use perf with T-HEAD events.
+>> ---
 >
-> AFAICT, this is going to break immediately on any system that enables
-> RISCV_ISA_ZBA (which will happen by default) but does not support the
-> extension. You made the option depend on RISCV_ALTERNATIVE, but I do
-> not see any use of alternatives in the code to actually perform the
-> dynamic detection of Zba.
-
-I guess we kind of have an ambiguity here: for stuff like C we just 
-unconditionally use the instructions, but for the rest we probe first.  
-We should probably have three states for each extension: disabled, 
-dynamically detected, and assumed.
-
-> Note that for fd & v, we add it to riscv-march-y, but then immediately
-> remove it again before passing to the compiler, only allow them in
-> AFLAGS:
-> 	# Remove F,D,V from isa string for all. Keep extensions between "fd" and "v" by
-> 	# matching non-v and non-multi-letter extensions out with the filter ([^v_]*)
-> 	KBUILD_CFLAGS += -march=$(shell echo $(riscv-march-y) | sed -E 's/(rv32ima|rv64ima)fd([^v_]*)v?/\1\2/')
+>Firstly, you need to move the PMU node out of the soc bus:
 >
-> What am I missing?
-
-FD and V both have state that can be saved lazily, so we can't let 
-arbitrary code use them.  The extensions formally known as B don't add 
-state, so they are safe to flip on in arbitrary places (aside from the 
-issues you pointed out above).
-
+>arch/riscv/boot/dts/allwinner/sun20i-d1s.dtsi:76.7-114.5: Warning (simple_bus_reg): /soc/pmu: missing or empty reg/ranges property
+>arch/riscv/boot/dts/allwinner/sun20i-d1s.dtsi:76.7-114.5: Warning (simple_bus_reg): /soc/pmu: missing or empty reg/ranges property
+>arch/riscv/boot/dts/allwinner/sun20i-d1s.dtsi:76.7-114.5: Warning (simple_bus_reg): /soc/pmu: missing or empty reg/ranges property
+>arch/riscv/boot/dts/allwinner/sun20i-d1s.dtsi:76.7-114.5: Warning (simple_bus_reg): /soc/pmu: missing or empty reg/ranges property
+>arch/riscv/boot/dts/allwinner/sun20i-d1s.dtsi:76.7-114.5: Warning (simple_bus_reg): /soc/pmu: missing or empty reg/ranges property
+>arch/riscv/boot/dts/allwinner/sun20i-d1s.dtsi:76.7-114.5: Warning (simple_bus_reg): /soc/pmu: missing or empty reg/ranges property
+>arch/riscv/boot/dts/allwinner/sun20i-d1s.dtsi:76.7-114.5: Warning (simple_bus_reg): /soc/pmu: missing or empty reg/ranges property
+>arch/riscv/boot/dts/allwinner/sun20i-d1s.dtsi:76.7-114.5: Warning (simple_bus_reg): /soc/pmu: missing or empty reg/ranges property
 >
-> Thanks,
-> Conor.
+>And secondly, and I dunno WTF the fix for this is, but what you've got
+>here is completely invalid as per the binding...
+>The fix for this might well be moving it out of the soc bus (I think I
+>fixed the same errors in QEMU's pmu node), but it shows that you didn't
+>actually test this :/ Please do so:
+>
+>/tmp/tmp.SOQ8Wz6Pug/arch/riscv/boot/dts/allwinner/sun20i-d1-lichee-rv.dtb: soc: pmu: {'compatible': ['riscv,pmu'], 'riscv,event-to-mhpmcounters': [[3, 3, 8], [4, 4, 16], [5, 5, 512], [6, 6, 256], [65536, 65536, 16384], [65537, 65537, 32768], [65538, 65538, 65536], [65539, 65539, 131072], [65561, 65561, 64], [65569, 65569, 32]], 'riscv,event-to-mhpmevent': [[3, 0, 1], [4, 0, 2], [5, 0, 7], [6, 0, 6], [10, 0, 11], [65536, 0, 12], [65537, 0, 13], [65538, 0, 14], [65539, 0, 15], [65561, 0, 4], [65569, 0, 3]], 'riscv,raw-event-to-mhpmcounters': [[0, 1, 4294967295, 4294967295, 8], [0, 2, 4294967295, 4294967295, 16], [0, 3, 4294967295, 4294967295, 32], [0, 4, 4294967295, 4294967295, 64], [0, 5, 4294967295, 4294967295, 128], [0, 6, 4294967295, 4294967295, 256], [0, 7, 4294967295, 4294967295, 512], [0, 11, 4294967295, 4294967295, 8192], [0, 12, 4294967295, 4294967295, 16384], [0, 13, 4294967295, 4294967295, 32768], [0, 14, 4294967295, 4294967295, 65536], [0, 15, 4294967295, 4294967295, 131072]]} should not be valid under {'type': 'object'}
+>	from schema $id: http://devicetree.org/schemas/simple-bus.yaml#
+>/tmp/tmp.SOQ8Wz6Pug/arch/riscv/boot/dts/allwinner/sun20i-d1-dongshan-nezha-stu.dtb: soc: pmu: {'compatible': ['riscv,pmu'], 'riscv,event-to-mhpmcounters': [[3, 3, 8], [4, 4, 16], [5, 5, 512], [6, 6, 256], [65536, 65536, 16384], [65537, 65537, 32768], [65538, 65538, 65536], [65539, 65539, 131072], [65561, 65561, 64], [65569, 65569, 32]], 'riscv,event-to-mhpmevent': [[3, 0, 1], [4, 0, 2], [5, 0, 7], [6, 0, 6], [10, 0, 11], [65536, 0, 12], [65537, 0, 13], [65538, 0, 14], [65539, 0, 15], [65561, 0, 4], [65569, 0, 3]], 'riscv,raw-event-to-mhpmcounters': [[0, 1, 4294967295, 4294967295, 8], [0, 2, 4294967295, 4294967295, 16], [0, 3, 4294967295, 4294967295, 32], [0, 4, 4294967295, 4294967295, 64], [0, 5, 4294967295, 4294967295, 128], [0, 6, 4294967295, 4294967295, 256], [0, 7, 4294967295, 4294967295, 512], [0, 11, 4294967295, 4294967295, 8192], [0, 12, 4294967295, 4294967295, 16384], [0, 13, 4294967295, 4294967295, 32768], [0, 14, 4294967295, 4294967295, 65536], [0, 15, 4294967295, 4294967295, 131072]]} should not be valid under {'type': 'object'}
+>	from schema $id: http://devicetree.org/schemas/simple-bus.yaml#
+>/tmp/tmp.SOQ8Wz6Pug/arch/riscv/boot/dts/allwinner/sun20i-d1-mangopi-mq-pro.dtb: soc: pmu: {'compatible': ['riscv,pmu'], 'riscv,event-to-mhpmcounters': [[3, 3, 8], [4, 4, 16], [5, 5, 512], [6, 6, 256], [65536, 65536, 16384], [65537, 65537, 32768], [65538, 65538, 65536], [65539, 65539, 131072], [65561, 65561, 64], [65569, 65569, 32]], 'riscv,event-to-mhpmevent': [[3, 0, 1], [4, 0, 2], [5, 0, 7], [6, 0, 6], [10, 0, 11], [65536, 0, 12], [65537, 0, 13], [65538, 0, 14], [65539, 0, 15], [65561, 0, 4], [65569, 0, 3]], 'riscv,raw-event-to-mhpmcounters': [[0, 1, 4294967295, 4294967295, 8], [0, 2, 4294967295, 4294967295, 16], [0, 3, 4294967295, 4294967295, 32], [0, 4, 4294967295, 4294967295, 64], [0, 5, 4294967295, 4294967295, 128], [0, 6, 4294967295, 4294967295, 256], [0, 7, 4294967295, 4294967295, 512], [0, 11, 4294967295, 4294967295, 8192], [0, 12, 4294967295, 4294967295, 16384], [0, 13, 4294967295, 4294967295, 32768], [0, 14, 4294967295, 4294967295, 65536], [0, 15, 4294967295, 4294967295, 131072]]} should not be valid under {'type': 'object'}
+>	from schema $id: http://devicetree.org/schemas/simple-bus.yaml#
+>/tmp/tmp.SOQ8Wz6Pug/arch/riscv/boot/dts/allwinner/sun20i-d1-lichee-rv-dock.dtb: soc: pmu: {'compatible': ['riscv,pmu'], 'riscv,event-to-mhpmcounters': [[3, 3, 8], [4, 4, 16], [5, 5, 512], [6, 6, 256], [65536, 65536, 16384], [65537, 65537, 32768], [65538, 65538, 65536], [65539, 65539, 131072], [65561, 65561, 64], [65569, 65569, 32]], 'riscv,event-to-mhpmevent': [[3, 0, 1], [4, 0, 2], [5, 0, 7], [6, 0, 6], [10, 0, 11], [65536, 0, 12], [65537, 0, 13], [65538, 0, 14], [65539, 0, 15], [65561, 0, 4], [65569, 0, 3]], 'riscv,raw-event-to-mhpmcounters': [[0, 1, 4294967295, 4294967295, 8], [0, 2, 4294967295, 4294967295, 16], [0, 3, 4294967295, 4294967295, 32], [0, 4, 4294967295, 4294967295, 64], [0, 5, 4294967295, 4294967295, 128], [0, 6, 4294967295, 4294967295, 256], [0, 7, 4294967295, 4294967295, 512], [0, 11, 4294967295, 4294967295, 8192], [0, 12, 4294967295, 4294967295, 16384], [0, 13, 4294967295, 4294967295, 32768], [0, 14, 4294967295, 4294967295, 65536], [0, 15, 4294967295, 4294967295, 131072]]} should not be valid under {'type': 'object'}
+>	from schema $id: http://devicetree.org/schemas/simple-bus.yaml#
+>/tmp/tmp.SOQ8Wz6Pug/arch/riscv/boot/dts/allwinner/sun20i-d1-lichee-rv-86-panel-720p.dtb: soc: pmu: {'compatible': ['riscv,pmu'], 'riscv,event-to-mhpmcounters': [[3, 3, 8], [4, 4, 16], [5, 5, 512], [6, 6, 256], [65536, 65536, 16384], [65537, 65537, 32768], [65538, 65538, 65536], [65539, 65539, 131072], [65561, 65561, 64], [65569, 65569, 32]], 'riscv,event-to-mhpmevent': [[3, 0, 1], [4, 0, 2], [5, 0, 7], [6, 0, 6], [10, 0, 11], [65536, 0, 12], [65537, 0, 13], [65538, 0, 14], [65539, 0, 15], [65561, 0, 4], [65569, 0, 3]], 'riscv,raw-event-to-mhpmcounters': [[0, 1, 4294967295, 4294967295, 8], [0, 2, 4294967295, 4294967295, 16], [0, 3, 4294967295, 4294967295, 32], [0, 4, 4294967295, 4294967295, 64], [0, 5, 4294967295, 4294967295, 128], [0, 6, 4294967295, 4294967295, 256], [0, 7, 4294967295, 4294967295, 512], [0, 11, 4294967295, 4294967295, 8192], [0, 12, 4294967295, 4294967295, 16384], [0, 13, 4294967295, 4294967295, 32768], [0, 14, 4294967295, 4294967295, 65536], [0, 15, 4294967295, 4294967295, 131072]]} should not be valid under {'type': 'object'}
+>	from schema $id: http://devicetree.org/schemas/simple-bus.yaml#
+>/tmp/tmp.SOQ8Wz6Pug/arch/riscv/boot/dts/allwinner/sun20i-d1s-mangopi-mq.dtb: soc: pmu: {'compatible': ['riscv,pmu'], 'riscv,event-to-mhpmcounters': [[3, 3, 8], [4, 4, 16], [5, 5, 512], [6, 6, 256], [65536, 65536, 16384], [65537, 65537, 32768], [65538, 65538, 65536], [65539, 65539, 131072], [65561, 65561, 64], [65569, 65569, 32]], 'riscv,event-to-mhpmevent': [[3, 0, 1], [4, 0, 2], [5, 0, 7], [6, 0, 6], [10, 0, 11], [65536, 0, 12], [65537, 0, 13], [65538, 0, 14], [65539, 0, 15], [65561, 0, 4], [65569, 0, 3]], 'riscv,raw-event-to-mhpmcounters': [[0, 1, 4294967295, 4294967295, 8], [0, 2, 4294967295, 4294967295, 16], [0, 3, 4294967295, 4294967295, 32], [0, 4, 4294967295, 4294967295, 64], [0, 5, 4294967295, 4294967295, 128], [0, 6, 4294967295, 4294967295, 256], [0, 7, 4294967295, 4294967295, 512], [0, 11, 4294967295, 4294967295, 8192], [0, 12, 4294967295, 4294967295, 16384], [0, 13, 4294967295, 4294967295, 32768], [0, 14, 4294967295, 4294967295, 65536], [0, 15, 4294967295, 4294967295, 131072]]} should not be valid under {'type': 'object'}
+>	from schema $id: http://devicetree.org/schemas/simple-bus.yaml#
+>/tmp/tmp.SOQ8Wz6Pug/arch/riscv/boot/dts/allwinner/sun20i-d1-nezha.dtb: soc: pmu: {'compatible': ['riscv,pmu'], 'riscv,event-to-mhpmcounters': [[3, 3, 8], [4, 4, 16], [5, 5, 512], [6, 6, 256], [65536, 65536, 16384], [65537, 65537, 32768], [65538, 65538, 65536], [65539, 65539, 131072], [65561, 65561, 64], [65569, 65569, 32]], 'riscv,event-to-mhpmevent': [[3, 0, 1], [4, 0, 2], [5, 0, 7], [6, 0, 6], [10, 0, 11], [65536, 0, 12], [65537, 0, 13], [65538, 0, 14], [65539, 0, 15], [65561, 0, 4], [65569, 0, 3]], 'riscv,raw-event-to-mhpmcounters': [[0, 1, 4294967295, 4294967295, 8], [0, 2, 4294967295, 4294967295, 16], [0, 3, 4294967295, 4294967295, 32], [0, 4, 4294967295, 4294967295, 64], [0, 5, 4294967295, 4294967295, 128], [0, 6, 4294967295, 4294967295, 256], [0, 7, 4294967295, 4294967295, 512], [0, 11, 4294967295, 4294967295, 8192], [0, 12, 4294967295, 4294967295, 16384], [0, 13, 4294967295, 4294967295, 32768], [0, 14, 4294967295, 4294967295, 65536], [0, 15, 4294967295, 4294967295, 131072]]} should not be valid under {'type': 'object'}
+>	from schema $id: http://devicetree.org/schemas/simple-bus.yaml#
+>/tmp/tmp.SOQ8Wz6Pug/arch/riscv/boot/dts/allwinner/sun20i-d1-lichee-rv-86-panel-480p.dtb: soc: pmu: {'compatible': ['riscv,pmu'], 'riscv,event-to-mhpmcounters': [[3, 3, 8], [4, 4, 16], [5, 5, 512], [6, 6, 256], [65536, 65536, 16384], [65537, 65537, 32768], [65538, 65538, 65536], [65539, 65539, 131072], [65561, 65561, 64], [65569, 65569, 32]], 'riscv,event-to-mhpmevent': [[3, 0, 1], [4, 0, 2], [5, 0, 7], [6, 0, 6], [10, 0, 11], [65536, 0, 12], [65537, 0, 13], [65538, 0, 14], [65539, 0, 15], [65561, 0, 4], [65569, 0, 3]], 'riscv,raw-event-to-mhpmcounters': [[0, 1, 4294967295, 4294967295, 8], [0, 2, 4294967295, 4294967295, 16], [0, 3, 4294967295, 4294967295, 32], [0, 4, 4294967295, 4294967295, 64], [0, 5, 4294967295, 4294967295, 128], [0, 6, 4294967295, 4294967295, 256], [0, 7, 4294967295, 4294967295, 512], [0, 11, 4294967295, 4294967295, 8192], [0, 12, 4294967295, 4294967295, 16384], [0, 13, 4294967295, 4294967295, 32768], [0, 14, 4294967295, 4294967295, 65536], [0, 15, 4294967295, 4294967295, 131072]]} should not be valid under {'type': 'object'}
+>	from schema $id: http://devicetree.org/schemas/simple-bus.yaml#
+>
+>Thanks,
+>Conor.
+>
+
+Sorry for this as I only test the compilation.
+I will run the check and fix this.
+
+Thanks,
+Inochi
+
+>>  arch/riscv/boot/dts/allwinner/sun20i-d1s.dtsi | 40 +++++++++++++++++++
+>>  1 file changed, 40 insertions(+)
+>>
+>> diff --git a/arch/riscv/boot/dts/allwinner/sun20i-d1s.dtsi b/arch/riscv/boot/dts/allwinner/sun20i-d1s.dtsi
+>> index 8275630af977..d9031ccdec89 100644
+>> --- a/arch/riscv/boot/dts/allwinner/sun20i-d1s.dtsi
+>> +++ b/arch/riscv/boot/dts/allwinner/sun20i-d1s.dtsi
+>> @@ -72,5 +72,45 @@ plic: interrupt-controller@10000000 {
+>>  			#address-cells = <0>;
+>>  			#interrupt-cells = <2>;
+>>  		};
+>> +
+>> +		pmu {
+>> +			compatible = "riscv,pmu";
+>> +			riscv,event-to-mhpmcounters =
+>> +				<0x00003 0x00003 0x00000008>,
+>> +				<0x00004 0x00004 0x00000010>,
+>> +				<0x00005 0x00005 0x00000200>,
+>> +				<0x00006 0x00006 0x00000100>,
+>> +				<0x10000 0x10000 0x00004000>,
+>> +				<0x10001 0x10001 0x00008000>,
+>> +				<0x10002 0x10002 0x00010000>,
+>> +				<0x10003 0x10003 0x00020000>,
+>> +				<0x10019 0x10019 0x00000040>,
+>> +				<0x10021 0x10021 0x00000020>;
+>> +			riscv,event-to-mhpmevent =
+>> +				<0x00003 0x00000000 0x00000001>,
+>> +				<0x00004 0x00000000 0x00000002>,
+>> +				<0x00005 0x00000000 0x00000007>,
+>> +				<0x00006 0x00000000 0x00000006>,
+>> +				<0x0000a 0x00000000 0x0000000b>,
+>> +				<0x10000 0x00000000 0x0000000c>,
+>> +				<0x10001 0x00000000 0x0000000d>,
+>> +				<0x10002 0x00000000 0x0000000e>,
+>> +				<0x10003 0x00000000 0x0000000f>,
+>> +				<0x10019 0x00000000 0x00000004>,
+>> +				<0x10021 0x00000000 0x00000003>;
+>> +			riscv,raw-event-to-mhpmcounters =
+>> +				<0x00000000 0x00000001 0xffffffff 0xffffffff 0x00000008>,
+>> +				<0x00000000 0x00000002 0xffffffff 0xffffffff 0x00000010>,
+>> +				<0x00000000 0x00000003 0xffffffff 0xffffffff 0x00000020>,
+>> +				<0x00000000 0x00000004 0xffffffff 0xffffffff 0x00000040>,
+>> +				<0x00000000 0x00000005 0xffffffff 0xffffffff 0x00000080>,
+>> +				<0x00000000 0x00000006 0xffffffff 0xffffffff 0x00000100>,
+>> +				<0x00000000 0x00000007 0xffffffff 0xffffffff 0x00000200>,
+>> +				<0x00000000 0x0000000b 0xffffffff 0xffffffff 0x00002000>,
+>> +				<0x00000000 0x0000000c 0xffffffff 0xffffffff 0x00004000>,
+>> +				<0x00000000 0x0000000d 0xffffffff 0xffffffff 0x00008000>,
+>> +				<0x00000000 0x0000000e 0xffffffff 0xffffffff 0x00010000>,
+>> +				<0x00000000 0x0000000f 0xffffffff 0xffffffff 0x00020000>;
+>> +		};
+>>  	};
+>>  };
+>> --
+>> 2.41.0
+>>
+>
 
 _______________________________________________
 linux-riscv mailing list
