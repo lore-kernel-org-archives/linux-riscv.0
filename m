@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A878FC83F10
-	for <linux-riscv@archiver.kernel.org>; Sun, 27 Aug 2023 10:12:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F550C83F13
+	for <linux-riscv@archiver.kernel.org>; Sun, 27 Aug 2023 10:12:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=60ESwk7WePQMXUSrBgJoKdk7sXA1dxP74MpIPli17iA=; b=3U/t+fyRPQvKS+
-	U+0OXX1lG6WiQsRidUNXxJti/JCtakcWHQpPfLqV6iwbM6Ui7TJ6M++SHTYuzC15nyhXB2mviteOL
-	VnPBPz/dvR+bihattINkIoZ20VqN75aHrueWgPLtt0t1m4zfgPyrWwH6zmBUmYD09IycJBbqmgN8M
-	5x6zrFI1tkqrhzTdjd35UxBzQ6mILUoRZbrfmP+cjJ9n08ukL73cTpb7inn6jgPrCuweDxcSsn6i8
-	lSqcqCbkkmLB0TBhc71+PI587Zj1HUlzhcBIpiFDJ4LjtEDTaFrEKGiiqGTL45sysUeADYWKqUNI7
-	nEQwS9BNZ2jPfagAr6uQ==;
+	List-Owner; bh=fdYExjghZW3a4yJeLoTlnEO4a/eq01pQ1iPOImf+1Oc=; b=T+qSevj+hkKBRC
+	RSdbVNmZT6x4dUagkwNulFa7bQRBNx6Yu4AY9Rx3XjZWe0RlGNBjcKOUmb0yB2PvcqK3YUL6eCcuj
+	OCm6ewpg7p+8YQTCR9EPW3RFmc5myLywQdF/rKIGgNNvlHWHc1sa9HQdPyJzplG4bkalhC/o6ptns
+	yykHA7qt6I1f1ZkSCaWCNBCf7LZ2A6yuNMiXaPsv/b2s5unWv2O9bvkeaSUpX8QmisQbZVgStHidy
+	wwvtqcnho4kkmodnbGRwZNs8wOR42IgGXepb4fvwpBZAOVNQPMKcNnt5ZUQ0AUFa1u4EDSBF1xLXF
+	4YlnnNqrb0lty+FWIHrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qaCkh-007oqA-2E;
-	Sun, 27 Aug 2023 10:12:15 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1qaCkn-007owc-01;
+	Sun, 27 Aug 2023 10:12:21 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qaCkO-007oVY-2N
+	id 1qaCkU-007oaW-0s
 	for linux-riscv@lists.infradead.org;
-	Sun, 27 Aug 2023 10:11:58 +0000
+	Sun, 27 Aug 2023 10:12:03 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1693131115;
+	s=mimecast20190719; t=1693131121;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=iV2wLAfcAl+D7MYwEotIMI/hG+PsohPBamGW1ll7QSU=;
-	b=N0fWT95n/idPE3VjgiK7O5ElErLRV1fmPU159EAM7JwO1/IGCDGFvsoJp5xvkIgweYcAxv
-	+kW9a7h9DYNl9sJ1H7+JeuynzrFNuGty7sfm0YtUUdc4J1lyfpDsR7WObKc3M7lGBj7N7E
-	4ho3wyK/+UMuOv5HvHHx0QWfEZUuQ+g=
+	bh=Ti+FZphx3tTCt2+5tJQ+9yD5S9gf+CV5t2KKqvLpfrs=;
+	b=fQObU/kavYwfLOzhUoNF5Y6ZYEU+qEgGveQRkloP1fsPlMJ+2uz2taeznPoSvjKlaNFG5r
+	Rhe9qXYc5kbKaf8lnRP+SJAVbNlYuh00KjW8nbfHYSF8fQRyiylehXECTxkRSdoDOGwdIe
+	eGpEJsXRmZff7MLHJ+gUIhqFQ0vTKgs=
 Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
  [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-372-dcQi-t8wMe-jYcKP77Qj1Q-1; Sun, 27 Aug 2023 06:11:50 -0400
-X-MC-Unique: dcQi-t8wMe-jYcKP77Qj1Q-1
+ us-mta-235-h0NDYsL3PUmeR2mCgbvofA-1; Sun, 27 Aug 2023 06:11:55 -0400
+X-MC-Unique: h0NDYsL3PUmeR2mCgbvofA-1
 Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com [10.11.54.6])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 5E1C185CBE0;
-	Sun, 27 Aug 2023 10:11:50 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 2D6C88D40A0;
+	Sun, 27 Aug 2023 10:11:55 +0000 (UTC)
 Received: from MiWiFi-R3L-srv.redhat.com (unknown [10.72.112.43])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id 2624C2166B25;
-	Sun, 27 Aug 2023 10:11:45 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id F41802166B25;
+	Sun, 27 Aug 2023 10:11:50 +0000 (UTC)
 From: Baoquan He <bhe@redhat.com>
 To: linux-kernel@vger.kernel.org
 Cc: kexec@lists.infradead.org,
@@ -62,17 +62,16 @@ Cc: kexec@lists.infradead.org,
 	dyoung@redhat.com,
 	prudo@redhat.com,
 	Baoquan He <bhe@redhat.com>
-Subject: [PATCH 3/8] include/linux/kexec.h: move down crash_core.h including
-Date: Sun, 27 Aug 2023 18:11:22 +0800
-Message-ID: <20230827101128.70931-4-bhe@redhat.com>
+Subject: [PATCH 4/8] crash_core: change parse_crashkernel() to support crashkernel=,high|low parsing
+Date: Sun, 27 Aug 2023 18:11:23 +0800
+Message-ID: <20230827101128.70931-5-bhe@redhat.com>
 In-Reply-To: <20230827101128.70931-1-bhe@redhat.com>
 References: <20230827101128.70931-1-bhe@redhat.com>
 MIME-Version: 1.0
 X-Scanned-By: MIMEDefang 3.1 on 10.11.54.6
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230827_031156_873333_E73F94CE 
-X-CRM114-Status: UNSURE (   9.97  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230827_031202_400743_60983E72 
+X-CRM114-Status: GOOD (  15.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,58 +88,80 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Later generic macros related to crash_core will be added into
-<linux/crash_core.h>, and the corresponding arch specific macros will be
-added to override them if needed. And Kconfig option KEXEC_CORE selects
-CRASH_CORE. So move <linux/crash_core.h> including after <asm/kexec.h>.
+Now parse_crashkernel() is a real entry point for all kinds of
+crahskernel parsing on any architecture.
 
-And also move the crash_res|low_res and crash_notes delcarations after
-<linux/crash_core.h> including because they are all defined in
-kernel/kexec_core.c, and note_buf_t is definied in crash_core.h.
-
-This is a preparation patch.
+And wrap the crahskernel=,high|low handling inside
+CONFIG_ARCH_HAS_GENERIC_CRASHKERNEL_RESERVATION ifdeffery scope.
 
 Signed-off-by: Baoquan He <bhe@redhat.com>
 ---
- include/linux/kexec.h | 14 +++++++-------
- 1 file changed, 7 insertions(+), 7 deletions(-)
+ include/linux/crash_core.h |  6 ++++++
+ kernel/crash_core.c        | 28 +++++++++++++++++++++++++++-
+ 2 files changed, 33 insertions(+), 1 deletion(-)
 
-diff --git a/include/linux/kexec.h b/include/linux/kexec.h
-index 22b5cd24f581..8768fd9e2a66 100644
---- a/include/linux/kexec.h
-+++ b/include/linux/kexec.h
-@@ -15,25 +15,25 @@
+diff --git a/include/linux/crash_core.h b/include/linux/crash_core.h
+index 2e76289699ff..85260bf4a734 100644
+--- a/include/linux/crash_core.h
++++ b/include/linux/crash_core.h
+@@ -77,6 +77,12 @@ Elf_Word *append_elf_note(Elf_Word *buf, char *name, unsigned int type,
+ 			  void *data, size_t data_len);
+ void final_note(Elf_Word *buf);
  
- #if !defined(__ASSEMBLY__)
- 
--#include <linux/crash_core.h>
- #include <asm/io.h>
- #include <linux/range.h>
- 
- #include <uapi/linux/kexec.h>
- #include <linux/verification.h>
- 
--/* Location of a reserved region to hold the crash kernel.
-- */
--extern struct resource crashk_res;
--extern struct resource crashk_low_res;
--extern note_buf_t __percpu *crash_notes;
--
- #ifdef CONFIG_KEXEC_CORE
- #include <linux/list.h>
- #include <linux/compat.h>
- #include <linux/ioport.h>
- #include <linux/module.h>
- #include <asm/kexec.h>
-+#include <linux/crash_core.h>
++#ifdef CONFIG_ARCH_HAS_GENERIC_CRASHKERNEL_RESERVATION
++#ifndef DEFAULT_CRASH_KERNEL_LOW_SIZE
++#define DEFAULT_CRASH_KERNEL_LOW_SIZE  (128UL << 20)
++#endif
++#endif
 +
-+/* Location of a reserved region to hold the crash kernel.
-+ */
-+extern struct resource crashk_res;
-+extern struct resource crashk_low_res;
-+extern note_buf_t __percpu *crash_notes;
- 
- /* Verify architecture specific macros are defined */
+ int __init parse_crashkernel(char *cmdline, unsigned long long system_ram,
+ 		unsigned long long *crash_size, unsigned long long *crash_base,
+ 		unsigned long long *low_size, bool *high);
+diff --git a/kernel/crash_core.c b/kernel/crash_core.c
+index f6a5c219e2e1..355b0ab5189c 100644
+--- a/kernel/crash_core.c
++++ b/kernel/crash_core.c
+@@ -276,6 +276,9 @@ static int __init __parse_crashkernel(char *cmdline,
+ /*
+  * That function is the entry point for command line parsing and should be
+  * called from the arch-specific code.
++ *
++ * If crashkernel=,high|low is supported on architecture, non-NULL values
++ * should be passed to parameters 'low_size' and 'high'.
+  */
+ int __init parse_crashkernel(char *cmdline,
+ 			     unsigned long long system_ram,
+@@ -291,7 +294,30 @@ int __init parse_crashkernel(char *cmdline,
+ 				crash_base, NULL);
+ 	if (!high)
+ 		return ret;
+-
++#ifdef CONFIG_ARCH_HAS_GENERIC_CRASHKERNEL_RESERVATION
++	else if (ret == -ENOENT) {
++		ret = __parse_crashkernel(cmdline, 0, crash_size,
++				crash_base, suffix_tbl[SUFFIX_HIGH]);
++		if (ret || !*crash_size)
++			return -1;
++
++		/*
++		 * crashkernel=Y,low can be specified or not, but invalid value
++		 * is not allowed.
++		 */
++		ret = __parse_crashkernel(cmdline, 0, low_size,
++				crash_base, suffix_tbl[SUFFIX_LOW]);
++		if (ret == -ENOENT)
++			*low_size = DEFAULT_CRASH_KERNEL_LOW_SIZE;
++		else if (ret)
++			return -1;
++
++		*high = true;
++	} else if (ret || !*crash_size) {
++		/* The specified value is invalid */
++		return -1;
++	}
++#endif
+ 	return 0;
+ }
  
 -- 
 2.41.0
