@@ -4,66 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD3C0C83F10
-	for <linux-riscv@archiver.kernel.org>; Sun, 27 Aug 2023 11:40:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C61B7C83F01
+	for <linux-riscv@archiver.kernel.org>; Sun, 27 Aug 2023 11:44:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=zM/VHODv+6oWdB7ZUjSkRWtY9OyZ0elwKnVnV5i6CYI=; b=o5xZE02iuGdKS+
-	MLXz0ZRYI+tIXSjXHU2WqWg3wuJ/ndo+KDmMESWtQ+Smjum/sCaV64ibJp2tIMkLCph0ep+GUoxGh
-	ZckYXoXhkhb0iUDnX0Df259nLGKFq2vOxk5QJgMnVNlMfaj1JNkHs7LRA8R3aiR2KLbOY7OjiHzIQ
-	z8HrWVrwHCvwEeS5AAnjPZm1naGkQyWJkRRqf/+NaFyMGuQtHNdJPBllv6viaa3UE7yrZxc94eirn
-	qUhdqOF0uif8R5qZWlk2i1l4mCoNpy9FiEMyVKJca7+XhYL4X0saTOWsCXjQnkEa4QFRFA9rNcjj9
-	vosZ+neD878GHgMk0bDQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eCVfPXce7zeX7C7+RQ9AgBlAYh2k+mc1LYdag2dNjO8=; b=xrj+GVcBHho581Yy9yRIfoSMWk
+	Z7NeGNSANsDCPS/02rVVG6xhE9QAB72UYDHmYXrNPXRsot+YWP42Irb9So2wS52TFVDmmrjJpUPW7
+	W8Qlb5XzLXQqma3qJScL7R9VGstIF8Bs1JGwC6N6PTEY+iiAghPlv9vEgvrHawAKA1DamEYxWKsai
+	BrXKg4N3vBVLP24Au4omb95lMYwVvT9IKNP2NpmFXRHvJjTCQ2wzWAqTUCfk8jCyfTilS3EZAW69y
+	ixn9M3eSZaBrM40k57ODCnZ1HxrGJn5EFOoQDWIG5/mHW4eFsw7Q+SEGvwxzyZxP1oiupeXqy2iOL
+	1RFLu/PA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qaE82-007zNW-0N;
-	Sun, 27 Aug 2023 11:40:26 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1qaEBi-007zbE-2O;
+	Sun, 27 Aug 2023 11:44:14 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qaE7y-007zNB-3B
+	id 1qaEBf-007zau-1U
 	for linux-riscv@lists.infradead.org;
-	Sun, 27 Aug 2023 11:40:24 +0000
+	Sun, 27 Aug 2023 11:44:13 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id D810C6117A;
-	Sun, 27 Aug 2023 11:40:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D3DBFC433C8;
-	Sun, 27 Aug 2023 11:40:18 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 7BE2F6116A;
+	Sun, 27 Aug 2023 11:44:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B44ACC433C8;
+	Sun, 27 Aug 2023 11:44:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1693136421;
-	bh=D95CdLfAH/USH3HPyeiR13hrH/zEEtUSxZ48xcEjbp4=;
-	h=From:To:Cc:Subject:Date:From;
-	b=ltXBj4yr+u8atUe+Acp+hrqSr2M4J22j8PfhaGuABYhP/7GOuJRV7o1aHpzGv40eP
-	 G6/9WjTgH4WASyn7ofCmEfgCG6DZraCv758e6UwNnxWKw3sYT79H5Bc75vIf2zDM48
-	 mLWAbfneYWDRMRGHd47WhAG6iZdh2Jsy7JJP1R/8kSfixJTYWLz/v57yXOh3DNV7Tj
-	 Vd4TUCi88T0qUwLBgyGVSWy3KJb/dDBZOrCl+33Fa8oRrGkIynusN0UZnKPy2GSDb0
-	 5P5qPyGCT3Lrh1Af2lSHAB/jt5y67hzqz11pEV2eL1Ou19Y9Uj9pl7T8XMDBO93Wdr
-	 4Ed7tG91Fb/jw==
-From: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>
-To: Paul Walmsley <paul.walmsley@sifive.com>,
+	s=k20201202; t=1693136648;
+	bh=IcVpAPNpIn17kOmFoY2QEQ5tyz9Ce608Zcrvuu2eoDY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=BJ2S5Td307+0hg/FuzqdroPc9RdJAq5ugOFbsX/GmGcaNyRZwdwxFgYxTzTAvjkNS
+	 d7atn6Qw+m2MMNhJ1/o1zKeF/YtXwSsavhcSVz+jSv3as8EmHAj6Dz99nteRwbzPhI
+	 M2JIPbisa6Yhx3tpRN1pwTnlMlGeJKvYuQFbzkodaRc/wY9oFjHtaNFp1RRXt2aSpR
+	 uuV070JlcvstONA8dxC9J03aax83uTvK7PD9PXEHsvQwRALmQK6Gw02AJUknKEL9e4
+	 1O0pgExL7DRTCaP/mVuHI+pj4qYwgQBKeQi965vyJjCco862dYW6uMToHbqtRWDyyF
+	 W/NJdyDG5SQqA==
+Date: Sun, 27 Aug 2023 12:44:04 +0100
+From: Conor Dooley <conor@kernel.org>
+To: =?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@kernel.org>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	linux-riscv@lists.infradead.org,
-	Guo Ren <guoren@kernel.org>
-Cc: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@rivosinc.com>,
-	linux-kernel@vger.kernel.org,
-	linux-trace-kernel@vger.kernel.org,
-	Nam Cao <namcaov@gmail.com>,
-	kernel test robot <lkp@intel.com>
-Subject: [PATCH v2] riscv: Only consider swbp/ss handlers for correct privileged mode
-Date: Sun, 27 Aug 2023 13:40:03 +0200
-Message-Id: <20230827114003.224958-1-bjorn@kernel.org>
-X-Mailer: git-send-email 2.39.2
+	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
+	Guo Ren <guoren@kernel.org>,
+	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
+	linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
+	Nam Cao <namcaov@gmail.com>, kernel test robot <lkp@intel.com>
+Subject: Re: [PATCH v2] riscv: Only consider swbp/ss handlers for correct
+ privileged mode
+Message-ID: <20230827-dispute-platform-83b494acf090@spud>
+References: <20230827114003.224958-1-bjorn@kernel.org>
 MIME-Version: 1.0
+In-Reply-To: <20230827114003.224958-1-bjorn@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230827_044023_136315_7EAB20E9 
-X-CRM114-Status: GOOD (  14.08  )
+X-CRM114-CacheID: sfid-20230827_044411_638164_93C8F60F 
+X-CRM114-Status: GOOD (  17.79  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,90 +75,86 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============3036267883914879557=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RnJvbTogQmrDtnJuIFTDtnBlbCA8Ympvcm5Acml2b3NpbmMuY29tPgoKUklTQy1WIHNvZnR3YXJl
-IGJyZWFrcG9pbnQgdHJhcCBoYW5kbGVycyBhcmUgdXNlZCBmb3Ige2ssdX1wcm9iZXMuCgpXaGVu
-IHRyYXBwaW5nIGZyb20ga2VybmVsbW9kZSwgb25seSB0aGUga2VybmVsbW9kZSBoYW5kbGVycyBz
-aG91bGQgYmUKY29uc2lkZXJlZC4gVmljZSB2ZXJzYSwgb25seSB1c2VybW9kZSBoYW5kbGVycyBm
-b3IgdXNlcm1vZGUKdHJhcHMuIFRoaXMgaXMgbm90IHRoZSBjYXNlIG9uIFJJU0MtViwgd2hpY2gg
-Y2FuIHRyaWdnZXIgYSBidWcgaWYgYQp1c2Vyc3BhY2UgcHJvY2VzcyB1c2VzIHVwcm9iZXMsIGFu
-ZCBhIFdBUk4oKSBpcyB0cmlnZ2VyZWQgZnJvbQprZXJuZWxtb2RlICh3aGljaCBpcyBpbXBsZW1l
-bnRlZCB2aWEge2MuLH1lYnJlYWspLgoKVGhlIGtlcm5lbCB3aWxsIHRyYXAgb24gdGhlIGtlcm5l
-bG1vZGUge2MuLH1lYnJlYWssIGxvb2sgZm9yIHVwcm9iZXMKaGFuZGxlcnMsIHJlYWxpemUgaW5j
-b3JyZWN0bHkgdGhhdCB1cHJvYmVzIG5lZWQgdG8gYmUgaGFuZGxlZCwgYW5kCmV4aXQgdGhlIHRy
-YXAgaGFuZGxlciBlYXJseS4gVGhlIHRyYXAgcmV0dXJucyB0byByZS1leGVjdXRpbmcgdGhlCntj
-Lix9ZWJyZWFrLCBhbmQgZW50ZXIgYW4gaW5maW5pdGUgdHJhcC1sb29wLgoKVGhlIGlzc3VlIHdh
-cyBmb3VuZCBydW5uaW5nIHRoZSBCUEYgc2VsZnRlc3QgWzFdLgoKRml4IHRoaXMgaXNzdWUgYnkg
-b25seSBjb25zaWRlcmluZyB0aGUgc3dicC9zcyBoYW5kbGVycyBmb3IKa2VybmVsL3VzZXJtb2Rl
-IHJlc3BlY3RpdmVseS4gQWxzbywgbW92ZSBDT05GSUcgaWZkZWZmZXJ5IGZyb20gdHJhcHMuYwp0
-byB0aGUgYXNtL3trLHV9cHJvYmVzLmggaGVhZGVycy4KCk5vdGUgdGhhdCBsaW51eC91cHJvYmVz
-Lmggb25seSBpbmNsdWRlIGFzbS91cHJvYmVzLmggaWYgQ09ORklHX1VQUk9CRVMKaXMgZGVmaW5l
-ZCwgd2hpY2ggaXMgd2h5IGFzbS91cHJvYmVzLmggbmVlZHMgdG8gYmUgdW5jb25kaXRpb25hbGx5
-CmluY2x1ZGVkIGluIHRyYXBzLmMKCkxpbms6IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2xpbnV4
-LXJpc2N2Lzg3djhkMTlhdW4uZnNmQGFsbC55b3VyLmJhc2UuYXJlLmJlbG9uZy50by51cy8gIyBb
-MV0KUmVwb3J0ZWQtYnk6IGtlcm5lbCB0ZXN0IHJvYm90IDxsa3BAaW50ZWwuY29tPgpDbG9zZXM6
-IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL29lLWtidWlsZC1hbGwvMjAyMzA4MjcxODQxLkhsbm5I
-Rkw3LWxrcEBpbnRlbC5jb20vClJldmlld2VkLWJ5OiBHdW8gUmVuIDxndW9yZW5Aa2VybmVsLm9y
-Zz4KRml4ZXM6IDc0Nzg0MDgxYWFjOCAoInJpc2N2OiBBZGQgdXByb2JlcyBzdXBwb3J0ZWQiKQpT
-aWduZWQtb2ZmLWJ5OiBCasO2cm4gVMO2cGVsIDxiam9ybkByaXZvc2luYy5jb20+Ci0tLQp2MS0+
-djI6IEZpeCBDbGFuZyBidWlsZCB3YXJuaW5nIChrZXJuZWwgdGVzdCByb2JvdCkKLS0tCiBhcmNo
-L3Jpc2N2L2luY2x1ZGUvYXNtL2twcm9iZXMuaCB8IDExICsrKysrKysrKystCiBhcmNoL3Jpc2N2
-L2luY2x1ZGUvYXNtL3Vwcm9iZXMuaCB8IDEzICsrKysrKysrKysrKy0KIGFyY2gvcmlzY3Yva2Vy
-bmVsL3RyYXBzLmMgICAgICAgIHwgMjggKysrKysrKysrKysrKysrKysrLS0tLS0tLS0tLQogMyBm
-aWxlcyBjaGFuZ2VkLCA0MCBpbnNlcnRpb25zKCspLCAxMiBkZWxldGlvbnMoLSkKCmRpZmYgLS1n
-aXQgYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2twcm9iZXMuaCBiL2FyY2gvcmlzY3YvaW5jbHVk
-ZS9hc20va3Byb2Jlcy5oCmluZGV4IGU3ODgyY2NiMGZkNC4uNzhlYTQ0Zjc2NzE4IDEwMDY0NAot
-LS0gYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2twcm9iZXMuaAorKysgYi9hcmNoL3Jpc2N2L2lu
-Y2x1ZGUvYXNtL2twcm9iZXMuaApAQCAtNDAsNiArNDAsMTUgQEAgdm9pZCBhcmNoX3JlbW92ZV9r
-cHJvYmUoc3RydWN0IGtwcm9iZSAqcCk7CiBpbnQga3Byb2JlX2ZhdWx0X2hhbmRsZXIoc3RydWN0
-IHB0X3JlZ3MgKnJlZ3MsIHVuc2lnbmVkIGludCB0cmFwbnIpOwogYm9vbCBrcHJvYmVfYnJlYWtw
-b2ludF9oYW5kbGVyKHN0cnVjdCBwdF9yZWdzICpyZWdzKTsKIGJvb2wga3Byb2JlX3NpbmdsZV9z
-dGVwX2hhbmRsZXIoc3RydWN0IHB0X3JlZ3MgKnJlZ3MpOwotCisjZWxzZQorc3RhdGljIGlubGlu
-ZSBib29sIGtwcm9iZV9icmVha3BvaW50X2hhbmRsZXIoc3RydWN0IHB0X3JlZ3MgKnJlZ3MpCit7
-CisJcmV0dXJuIGZhbHNlOworfQorCitzdGF0aWMgaW5saW5lIGJvb2wga3Byb2JlX3NpbmdsZV9z
-dGVwX2hhbmRsZXIoc3RydWN0IHB0X3JlZ3MgKnJlZ3MpCit7CisJcmV0dXJuIGZhbHNlOworfQog
-I2VuZGlmIC8qIENPTkZJR19LUFJPQkVTICovCiAjZW5kaWYgLyogX0FTTV9SSVNDVl9LUFJPQkVT
-X0ggKi8KZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vdXByb2Jlcy5oIGIvYXJj
-aC9yaXNjdi9pbmNsdWRlL2FzbS91cHJvYmVzLmgKaW5kZXggZjIxODNlMDBmZGQyLi4zZmM3ZGVk
-YTkxOTAgMTAwNjQ0Ci0tLSBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vdXByb2Jlcy5oCisrKyBi
-L2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vdXByb2Jlcy5oCkBAIC0zNCw3ICszNCwxOCBAQCBzdHJ1
-Y3QgYXJjaF91cHJvYmUgewogCWJvb2wgc2ltdWxhdGU7CiB9OwogCisjaWZkZWYgQ09ORklHX1VQ
-Uk9CRVMKIGJvb2wgdXByb2JlX2JyZWFrcG9pbnRfaGFuZGxlcihzdHJ1Y3QgcHRfcmVncyAqcmVn
-cyk7CiBib29sIHVwcm9iZV9zaW5nbGVfc3RlcF9oYW5kbGVyKHN0cnVjdCBwdF9yZWdzICpyZWdz
-KTsKLQorI2Vsc2UKK3N0YXRpYyBpbmxpbmUgYm9vbCB1cHJvYmVfYnJlYWtwb2ludF9oYW5kbGVy
-KHN0cnVjdCBwdF9yZWdzICpyZWdzKQoreworCXJldHVybiBmYWxzZTsKK30KKworc3RhdGljIGlu
-bGluZSBib29sIHVwcm9iZV9zaW5nbGVfc3RlcF9oYW5kbGVyKHN0cnVjdCBwdF9yZWdzICpyZWdz
-KQoreworCXJldHVybiBmYWxzZTsKK30KKyNlbmRpZiAvKiBDT05GSUdfVVBST0JFUyAqLwogI2Vu
-ZGlmIC8qIF9BU01fUklTQ1ZfVVBST0JFU19IICovCmRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2tl
-cm5lbC90cmFwcy5jIGIvYXJjaC9yaXNjdi9rZXJuZWwvdHJhcHMuYwppbmRleCBmNzk4Yzg1M2Jl
-ZGUuLmNkNmYxMGM3M2ExNiAxMDA2NDQKLS0tIGEvYXJjaC9yaXNjdi9rZXJuZWwvdHJhcHMuYwor
-KysgYi9hcmNoL3Jpc2N2L2tlcm5lbC90cmFwcy5jCkBAIC0xMyw2ICsxMyw4IEBACiAjaW5jbHVk
-ZSA8bGludXgva2RlYnVnLmg+CiAjaW5jbHVkZSA8bGludXgvdWFjY2Vzcy5oPgogI2luY2x1ZGUg
-PGxpbnV4L2twcm9iZXMuaD4KKyNpbmNsdWRlIDxsaW51eC91cHJvYmVzLmg+CisjaW5jbHVkZSA8
-YXNtL3Vwcm9iZXMuaD4KICNpbmNsdWRlIDxsaW51eC9tbS5oPgogI2luY2x1ZGUgPGxpbnV4L21v
-ZHVsZS5oPgogI2luY2x1ZGUgPGxpbnV4L2lycS5oPgpAQCAtMjQ2LDIyICsyNDgsMjggQEAgc3Rh
-dGljIGlubGluZSB1bnNpZ25lZCBsb25nIGdldF9icmVha19pbnNuX2xlbmd0aCh1bnNpZ25lZCBs
-b25nIHBjKQogCXJldHVybiBHRVRfSU5TTl9MRU5HVEgoaW5zbik7CiB9CiAKK3N0YXRpYyBib29s
-IHByb2JlX3NpbmdsZV9zdGVwX2hhbmRsZXIoc3RydWN0IHB0X3JlZ3MgKnJlZ3MpCit7CisJYm9v
-bCB1c2VyID0gdXNlcl9tb2RlKHJlZ3MpOworCisJcmV0dXJuIHVzZXIgPyB1cHJvYmVfc2luZ2xl
-X3N0ZXBfaGFuZGxlcihyZWdzKSA6IGtwcm9iZV9zaW5nbGVfc3RlcF9oYW5kbGVyKHJlZ3MpOwor
-fQorCitzdGF0aWMgYm9vbCBwcm9iZV9icmVha3BvaW50X2hhbmRsZXIoc3RydWN0IHB0X3JlZ3Mg
-KnJlZ3MpCit7CisJYm9vbCB1c2VyID0gdXNlcl9tb2RlKHJlZ3MpOworCisJcmV0dXJuIHVzZXIg
-PyB1cHJvYmVfYnJlYWtwb2ludF9oYW5kbGVyKHJlZ3MpIDoga3Byb2JlX2JyZWFrcG9pbnRfaGFu
-ZGxlcihyZWdzKTsKK30KKwogdm9pZCBoYW5kbGVfYnJlYWsoc3RydWN0IHB0X3JlZ3MgKnJlZ3Mp
-CiB7Ci0jaWZkZWYgQ09ORklHX0tQUk9CRVMKLQlpZiAoa3Byb2JlX3NpbmdsZV9zdGVwX2hhbmRs
-ZXIocmVncykpCisJaWYgKHByb2JlX3NpbmdsZV9zdGVwX2hhbmRsZXIocmVncykpCiAJCXJldHVy
-bjsKIAotCWlmIChrcHJvYmVfYnJlYWtwb2ludF9oYW5kbGVyKHJlZ3MpKQotCQlyZXR1cm47Ci0j
-ZW5kaWYKLSNpZmRlZiBDT05GSUdfVVBST0JFUwotCWlmICh1cHJvYmVfc2luZ2xlX3N0ZXBfaGFu
-ZGxlcihyZWdzKSkKKwlpZiAocHJvYmVfYnJlYWtwb2ludF9oYW5kbGVyKHJlZ3MpKQogCQlyZXR1
-cm47CiAKLQlpZiAodXByb2JlX2JyZWFrcG9pbnRfaGFuZGxlcihyZWdzKSkKLQkJcmV0dXJuOwot
-I2VuZGlmCiAJY3VycmVudC0+dGhyZWFkLmJhZF9jYXVzZSA9IHJlZ3MtPmNhdXNlOwogCiAJaWYg
-KHVzZXJfbW9kZShyZWdzKSkKCmJhc2UtY29tbWl0OiA3ZDJmMzUzYjI2ODJkY2ZlNWY5YmM3MWU1
-YjYxZDViNjE3NzBkOThlCi0tIAoyLjM5LjIKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZA
-bGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xp
-c3RpbmZvL2xpbnV4LXJpc2N2Cg==
+
+--===============3036267883914879557==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="zntgtklq8QDoOTU5"
+Content-Disposition: inline
+
+
+--zntgtklq8QDoOTU5
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Sun, Aug 27, 2023 at 01:40:03PM +0200, Bj=F6rn T=F6pel wrote:
+> From: Bj=F6rn T=F6pel <bjorn@rivosinc.com>
+>=20
+> RISC-V software breakpoint trap handlers are used for {k,u}probes.
+>=20
+> When trapping from kernelmode, only the kernelmode handlers should be
+> considered. Vice versa, only usermode handlers for usermode
+> traps. This is not the case on RISC-V, which can trigger a bug if a
+> userspace process uses uprobes, and a WARN() is triggered from
+> kernelmode (which is implemented via {c.,}ebreak).
+>=20
+> The kernel will trap on the kernelmode {c.,}ebreak, look for uprobes
+> handlers, realize incorrectly that uprobes need to be handled, and
+> exit the trap handler early. The trap returns to re-executing the
+> {c.,}ebreak, and enter an infinite trap-loop.
+>=20
+> The issue was found running the BPF selftest [1].
+>=20
+> Fix this issue by only considering the swbp/ss handlers for
+> kernel/usermode respectively. Also, move CONFIG ifdeffery from traps.c
+> to the asm/{k,u}probes.h headers.
+>=20
+> Note that linux/uprobes.h only include asm/uprobes.h if CONFIG_UPROBES
+> is defined, which is why asm/uprobes.h needs to be unconditionally
+> included in traps.c
+>=20
+> Link: https://lore.kernel.org/linux-riscv/87v8d19aun.fsf@all.your.base.ar=
+e.belong.to.us/ # [1]
+
+> Reported-by: kernel test robot <lkp@intel.com>
+> Closes: https://lore.kernel.org/oe-kbuild-all/202308271841.HlnnHFL7-lkp@i=
+ntel.com/
+
+Delete these, LKP did not report the probes issue. The LKP bot says:
+> If you fix the issue in a separate patch/commit (i.e. not just a new vers=
+ion of
+> the same patch/commit), kindly add following tags
+
+
+
+--zntgtklq8QDoOTU5
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZOs27AAKCRB4tDGHoIJi
+0uIzAP9VFVImAMhEoiHMLw6VZPzHi34oUeM90dG0Y7fIejzh9wEAgHzA1d7ozX0G
+/DMHBJX7ykfHPJlmz6CkOUW7IuMugQo=
+=0HR+
+-----END PGP SIGNATURE-----
+
+--zntgtklq8QDoOTU5--
+
+
+--===============3036267883914879557==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============3036267883914879557==--
+
