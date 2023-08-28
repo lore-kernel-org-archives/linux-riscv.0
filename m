@@ -4,82 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1C65C83F11
-	for <linux-riscv@archiver.kernel.org>; Mon, 28 Aug 2023 16:45:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F68CC83F12
+	for <linux-riscv@archiver.kernel.org>; Mon, 28 Aug 2023 16:53:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WIsg2Ust+B2ZQY2NuBOlJf+abU4IdIecLc2p8jHaLuE=; b=MpRdUidqAIbItP
-	pcbto1RulbxzXsxv22WkC+87drfOzRcR+0+/KSRBQHlF42HoHl29Ey9+HMW6dCvY8q4p/t2SGJ1Nc
-	LXsRuxvPzLpIyuMhJdqfQHZ8v9GNfK6DdwFv6mg4pmcG9b08AoWUjX6NqfSreO+RRls2JOhst4pyI
-	lUFFZ5TseVfm2F7LVJ43wNqNB2EIEypDM386BF6Hl834KR+9G3WR2C45IFnMtPCUQoYCxzXW7t1tp
-	jn9MusFW/nNE5P/QnkEaaacmZhOs/QfQZRcW5iMV3LNVfQHpUTOQH6Hr8kqrKHQBkktVhCR99d1rb
-	Fdmu640dv7p3bxDSzPIA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UP23tpK9jfzqBe3YwQnWuWckwao3SwPeU/bRCZUEmSw=; b=17MqxWP8nTzCt2MhsWFAgi/ENA
+	tRKb2p5FDdwUpaK8BMQB8eRbSOgoQRxruc5c3zenUsejyZd6voCmqRZxcO6+hOEE2iWwSetDKNJkR
+	MNwiqYvX1IF37KoLYNaxsG7wa8xc2QMYq/Vv/bAa1WwWVoF4SR9yfkW2gfb4bDFbIOPFkzApzwGYj
+	Lv7sdwq74ml5FpbOsAQWp+iQevTAqf6zZ0lsPoezX4KdiHxuLclak89KweCz8ODJvTHhEE+hhDbcs
+	8F2WHUpxPMSag1IiapakpMi811OtbnCM+ftwVF+epcFPZrFX65B85I+DOuta8ag5xMg8XGE4+lIYR
+	qv68Pqvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qafN1-009veH-1w;
-	Mon, 28 Aug 2023 16:45:43 +0000
-Received: from mail-lf1-x12e.google.com ([2a00:1450:4864:20::12e])
+	id 1qafUS-009wL4-0n;
+	Mon, 28 Aug 2023 16:53:24 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qafMy-009vcH-0O
+	id 1qafUQ-009wKl-07
 	for linux-riscv@lists.infradead.org;
-	Mon, 28 Aug 2023 16:45:41 +0000
-Received: by mail-lf1-x12e.google.com with SMTP id 2adb3069b0e04-5008faf4456so5353697e87.3
-        for <linux-riscv@lists.infradead.org>; Mon, 28 Aug 2023 09:45:33 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1693241132; x=1693845932;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=rUro7QwxD0vKwAUT+qWKm/yCMwnGx0UOQKp8vqTeg1M=;
-        b=JiBsCYeNmw+xE/uxWbWZ2NQ5KIvDu/V5/1h4D6e/NJSefDzz5G1tloYG0Tv09xfk4N
-         uLxI46vSsuZAPAt1jd2EhjrVoVnttHcDcf2qhwAvzVHMx+3xKCgoYUEFskrR+fbvRsEA
-         PuKjSS7G0aXu7hFc+T32BarkI55mj3Obnw1EpDPujWMc4qkSolaZ6cf6OXcq7f1DqqjN
-         o51nGop2VYsojhuRVLcyBPt6DTiAycygUUiNwRRBlqGiJ5hOz7OIdHsHMTpSiVC5pgoL
-         154JF5DIkjdchzxZxMBOu1OAvFo2irXuIvDnTtvo5YHT5Mv8AMghVKddK7noupmaMEgv
-         QPdQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1693241132; x=1693845932;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=rUro7QwxD0vKwAUT+qWKm/yCMwnGx0UOQKp8vqTeg1M=;
-        b=iJhhM+GBxf5Ifx1enVNE0R60o3JbfpGI757IHWi8QuXcGWUOou82hA0s6rmudpa8dS
-         XwzydOP5dVCPBQl8RWt84YubrLyTluiqaKpKY9xDE7E1LC1/l0pWrqftzNoyxbpMN2oT
-         TeJqeeOOFNH9vpPaVuxNJwksTTukRdg5U6AhEbhsdhpwIFSNE84aSzpdgOEo2fB5f8dm
-         ujE98hZdl9nWtpwwdaDJMQI9bLK4BB1WZQO2E2dkDPTtkXj+XAV6+6k6WwnL8gQn2nNN
-         flw7AOw2uA7ALs+CqRAYX2Ra1MB6iTsBkqs89BCSlLMjFi2X6jWQNiv5IrNY/85a156U
-         5Lrw==
-X-Gm-Message-State: AOJu0YwAAYQ5bkoxSVB11v7Fdm1EsPCrU56zVCkKAJOORrp6j/W/vKDl
-	G52iP9YNGzu8VqQn3ZG/6/dnymzS+p2XVXsuDtIVJA==
-X-Google-Smtp-Source: AGHT+IHT/JeNdaGMDQop2aCFdzEnxM4ijxxtyQfqFgtW/FreZE/60xXaqH+YO0DtQi7lOKEK6OYttesq0gJHhTGlg0Q=
-X-Received: by 2002:ac2:5f41:0:b0:4f8:72fd:ed95 with SMTP id
- 1-20020ac25f41000000b004f872fded95mr14942201lfz.22.1693241131906; Mon, 28 Aug
- 2023 09:45:31 -0700 (PDT)
+	Mon, 28 Aug 2023 16:53:23 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 0C0C061224;
+	Mon, 28 Aug 2023 16:53:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B99E6C433C8;
+	Mon, 28 Aug 2023 16:53:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1693241600;
+	bh=2xkAGTz0idZHpIs33vvC65PnBaJbc1Fr+Y/VfWwFyo8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ezf1wcTYRdVSt3bqr6xYHaNkTAxSMy/queeASNUVoCjXPHK3bx5auLzYQNARkEFjK
+	 VKxY3cIz9lqo7p+cEd3LN2TSS9HyS1XSjaTjEkCThzk0Wnug92MUlUIdoWaE3N++Nq
+	 LL0BtLLwlmsfW57FrQMX4AMUdN77d3VMHzwgPzic3o82P0c3p3/iGpj9DUw/8VFkZJ
+	 x2FpDg3p8TW77ZP371cyEKq/ljhpWA9mJ6avygtuAUzz4zrsK8xrLcUVwXfR6tZmAk
+	 wjQ6sHFOk71gZVqESI67GFjI56hcdFbKmFfhcxM3V/xFpmRiTn3NHnRHFlF4LFQSTA
+	 78PPqjVOC4nOg==
+Date: Mon, 28 Aug 2023 17:53:15 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Evan Green <evan@rivosinc.com>
+Cc: Palmer Dabbelt <palmer@rivosinc.com>,
+	Anup Patel <apatel@ventanamicro.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Heiko Stuebner <heiko@sntech.de>,
+	Jonathan Corbet <corbet@lwn.net>, linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Bagas Sanjaya <bagasdotme@gmail.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	linux-riscv@lists.infradead.org,
+	Andrew Jones <ajones@ventanamicro.com>
+Subject: Re: [PATCH v5] RISC-V: Show accurate per-hart isa in /proc/cpuinfo
+Message-ID: <20230828-dangling-decency-ededaa58d014@spud>
+References: <20230825231139.1145522-1-evan@rivosinc.com>
+ <20230826-anguished-tutu-81d63b3081a7@spud>
+ <20230826-copper-suffocate-5f4f0e67f9a7@spud>
+ <CALs-HsvwLpcUMPeKEs3ZW3tOwLGeGRQSe=grxE5L14Tj8b+XHw@mail.gmail.com>
 MIME-Version: 1.0
-References: <20230711201831.2695097-1-evan@rivosinc.com> <20230824-factual-jawed-2dddd2cf2bdd@wendy>
- <CALs-Hss51fQE1yxe1Y1T86X+OfjPaAd386vosQ8gzRm=Njm1gw@mail.gmail.com>
- <20230824-exploit-spectacle-ecedd91e9075@spud> <CALs-HssqaOjvUOdBVn=oN+uzkkmjguys2UttTYgdcqJwJB0HnQ@mail.gmail.com>
- <20230825-374a82446ed3eea02fcb41e6@orel> <CALs-HstfA29DDrmVemP6bZe+kON9JDKYR3p132gG_WefA6d7eQ@mail.gmail.com>
- <20230826-3869468d499caf2850681d08@orel>
-In-Reply-To: <20230826-3869468d499caf2850681d08@orel>
-From: Evan Green <evan@rivosinc.com>
-Date: Mon, 28 Aug 2023 09:44:55 -0700
-Message-ID: <CALs-HsskEUu3cu8pAc272Z47ro25e=fyuPt8jQBcJE2_RmFGtQ@mail.gmail.com>
-Subject: Re: [PATCH v4] RISC-V: Show accurate per-hart isa in /proc/cpuinfo
-To: Andrew Jones <ajones@ventanamicro.com>
-Cc: Conor Dooley <conor@kernel.org>, Conor Dooley <conor.dooley@microchip.com>, 
-	Anup Patel <apatel@ventanamicro.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Jonathan Corbet <corbet@lwn.net>, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Palmer Dabbelt <palmer@rivosinc.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Bagas Sanjaya <bagasdotme@gmail.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	linux-riscv@lists.infradead.org, Heiko Stuebner <heiko.stuebner@vrull.eu>
+In-Reply-To: <CALs-HsvwLpcUMPeKEs3ZW3tOwLGeGRQSe=grxE5L14Tj8b+XHw@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230828_094540_187844_3F038793 
-X-CRM114-Status: GOOD (  57.43  )
+X-CRM114-CacheID: sfid-20230828_095322_185242_3860A048 
+X-CRM114-Status: GOOD (  48.86  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,124 +81,176 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============0818808605588000627=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gU2F0LCBBdWcgMjYsIDIwMjMgYXQgMTowMeKAr0FNIEFuZHJldyBKb25lcyA8YWpvbmVzQHZl
-bnRhbmFtaWNyby5jb20+IHdyb3RlOgo+Cj4gT24gRnJpLCBBdWcgMjUsIDIwMjMgYXQgMDM6NTE6
-MjhQTSAtMDcwMCwgRXZhbiBHcmVlbiB3cm90ZToKPiA+IE9uIEZyaSwgQXVnIDI1LCAyMDIzIGF0
-IDE6MTbigK9BTSBBbmRyZXcgSm9uZXMgPGFqb25lc0B2ZW50YW5hbWljcm8uY29tPiB3cm90ZToK
-PiA+ID4KPiA+ID4gT24gVGh1LCBBdWcgMjQsIDIwMjMgYXQgMDM6MDY6NTNQTSAtMDcwMCwgRXZh
-biBHcmVlbiB3cm90ZToKPiA+ID4gPiBPbiBUaHUsIEF1ZyAyNCwgMjAyMyBhdCAxMDoyOeKAr0FN
-IENvbm9yIERvb2xleSA8Y29ub3JAa2VybmVsLm9yZz4gd3JvdGU6Cj4gPiA+IC4uLgo+ID4gPiA+
-ID4gRG8geW91IHdhbnQgdG8gaGF2ZSB0aGlzIG5ldyB0aGluZyBpbiBjcHVpbmZvIHRlbGwgdGhl
-IHVzZXIgInRoaXMgaGFydAo+ID4gPiA+ID4gaGFzIHh5eiBleHRlbnNpb25zIHRoYXQgYXJlIHN1
-cHBvcnRlZCBieSBhIGtlcm5lbCwgYnV0IG1heWJlIG5vdCB0aGlzCj4gPiA+ID4gPiBrZXJuZWwi
-IG9yIHRvIHRlbGwgdGhlIHVzZXIgInRoaXMgaGFydCBoYXMgeHl6IGV4dGVuc2lvbnMgdGhhdCBh
-cmUKPiA+ID4gPiA+IHN1cHBvcnRlZCBieSB0aGlzIGtlcm5lbCI/IFlvdXIgdGV4dCBhYm92ZSBz
-YXlzICJ1bmRlcnN0b29kIGJ5IHRoZQo+ID4gPiA+ID4ga2VybmVsIiwgYnV0IEkgdGhpbmsgdGhh
-dCdzIGEgcG9vciBkZWZpbml0aW9uIHRoYXQgbmVlZHMgdG8gYmUgaW1wcm92ZWQKPiA+ID4gPiA+
-IHRvIHNwZWxsIG91dCBleGFjdGx5IHdoYXQgeW91IG1lYW4uIElPVyBkb2VzICJ1bmRlcnN0b29k
-IiBtZWFuIHRoZQo+ID4gPiA+ID4ga2VybmVsIHdpbGwgcGFyc2UgdGhlbSBpbnRvIGEgc3RydWN0
-dXJlLCBvciBkb2VzIGl0IG1lYW4gInllcyB5b3UgY2FuCj4gPiA+ID4gPiB1c2UgdGhpcyBleHRl
-bnNpb24gb24gdGhpcyBwYXJ0aWN1bGFyIGhhcnQiLgo+ID4gPiA+Cj4gPiA+ID4gSSdtIGltYWdp
-bmluZyAvcHJvYy9jcHVpbmZvIGJlaW5nIGNsb3NlciB0byAidGhlIENQVSBoYXMgaXQgYW5kIHRo
-ZQo+ID4gPiA+IGtlcm5lbCBhdCBsZWFzdCB2YWd1ZWx5IHVuZGVyc3RhbmRzIGl0LCBidXQgbWF5
-IG5vdCBoYXZlIGZ1bGwgc3VwcG9ydAo+ID4gPiA+IGZvciBpdCBlbmFibGVkIi4gSSdtIGFzc3Vt
-aW5nIC9wcm9jL2NwdWluZm8gaXMgbW9zdGx5IHVzZWQgYnkgMSkKPiA+ID4gPiBodW1hbnMgd2Fu
-dGluZyB0byBrbm93IGlmIHRoZXkgaGF2ZSBoYXJkd2FyZSBzdXBwb3J0IGZvciBhIGZlYXR1cmUs
-Cj4gPiA+ID4gYW5kIDIpIGFkbWluaXN0cmF0b3JzIGNvbGxlY3RpbmcgdGVsZW1ldHJ5IHRvIG1h
-bmFnZSBmbGVldHMgKGllIGRvIEkKPiA+ID4gPiBoYXZlIGFueSBoYXJkd2FyZSBkZXBsb3llZCB0
-aGF0IHN1cHBvcnRzIFgpLgo+ID4gPgo+ID4gPiBJcyAoMikgYSBzcGVjaWFsIGNhc2Ugb2YgKDEp
-PyAoSSB3YW50IHRvIG1ha2Ugc3VyZSBJIHVuZGVyc3RhbmQgYWxsIHRoZQo+ID4gPiBjYXNlcy4p
-Cj4gPgo+ID4gTW9yZSBvciBsZXNzLCB5ZXMuIEluIGJ1Y2tldCB0d28gYXJlIGFsc28gZm9sa3Mg
-d29uZGVyaW5nIHRoaW5ncyBsaWtlCj4gPiAiYXJlIGFsbCB0aGVzZSBjcmFzaCByZXBvcnRzIEkn
-bSBnZXR0aW5nIHNwZWNpZmljIHRvIG1hY2hpbmVzIHdpdGggWCIuCj4gPgo+ID4gPgo+ID4gPiA+
-IFByb2dyYW1tZXJzIGxvb2tpbmcgdG8KPiA+ID4gPiBzZWUgImlzIHRoZSBrZXJuZWwgc3VwcG9y
-dCBmb3IgdGhpcyBmZWF0dXJlIHJlYWR5IHJpZ2h0IG5vdyIgd291bGQKPiA+ID4gPiBpZGVhbGx5
-IG5vdCBiZSBwYXJzaW5nIC9wcm9jL2NwdWluZm8gdGV4dCwgYXMgbW9yZSBkaXJlY3QgbWVjaGFu
-aXNtcwo+ID4gPiA+IGxpa2Ugc3BlY2lmaWMgaHdwcm9iZSBiaXRzIGZvciAiYW0gSSBmdWxseSBy
-ZWFkeSB0byBnbyIgd291bGQgYmUKPiA+ID4gPiBlYXNpZXIgdG8gd29yayB3aXRoLiBGZWVsIGZy
-ZWUgdG8geWVsbCBhdCBtZSBpZiB0aGlzIG92ZXJhbGwgdmlzaW9uCj4gPiA+ID4gc2VlbXMgZmxh
-d2VkLgo+ID4gPiA+Cj4gPiA+ID4gSSB0cmllZCB0byBsb29rIHRvIHNlZSBpZiB0aGVyZSB3YXMg
-Y29uc2Vuc3VzIGFtb25nIHRoZSBvdGhlcgo+ID4gPiA+IGFyY2hpdGVjdHVyZXMuIEFhcmNoNjQg
-c2VlbXMgdG8gZ28gd2l0aCAic3VwcG9ydGVkIGFuZCBmdWxseSBlbmFibGVkIiwKPiA+ID4gPiBh
-cyB0aGVpciBjcHVfaGFzX2ZlYXR1cmUoKSBkaXJlY3RseSB0ZXN0cyBlbGZfaHdjYXAsIGFuZCBl
-bGVtZW50cyBpbgo+ID4gPiA+IGFybTY0X2VsZl9od2NhcHNbXSBhcmUgS2NvbmZpZyBnYXRlZC4g
-WDg2IGlzIGNvbXBsaWNhdGVkLCBidXQgSUlSQyBpcwo+ID4gPiA+IG1vcmUgYWxvbmcgdGhlIGxp
-bmVzIG9mICJoYXJkd2FyZSBoYXMgaXQiLiBUaGV5IGhhdmUgdHdvIG1hY3JvcywKPiA+ID4gPiBj
-cHVfaGFzKCkgZm9yICJyYXcgY2FwYWJpbGl0eSIgYW5kIGNwdV9mZWF0dXJlX2VuYWJsZWQoKSBm
-b3IgImtlcm5lbAo+ID4gPiA+IGNhbiBkbyBpdCB0b28iLCBhbmQgdGhleSB1c2UgY3B1X2hhcygp
-IGZvciAvcHJvYy9jcHVpbmZvIGZsYWdzLgo+ID4gPiA+Cj4gPiA+Cj4gPiA+IEknZCBsZWFuIG1v
-cmUgdG93YXJkcyB0aGUgd2F5IEFBcmNoNjQgZ29lcywgYmVjYXVzZSwgdW5sZXNzIC9wcm9jL2Nw
-dWluZm8KPiA+ID4gaXMganVzdCBhIGJsaW5kIHJlZ3VyZ2l0YXRpb24gb2YgYW4gaXNhIHN0cmlu
-ZyBmcm9tIERUIC8gQUNQSSwgdGhlbiB0aGUKPiA+ID4ga2VybmVsIG11c3QgYXQgbGVhc3Qga25v
-dyBzb21ldGhpbmcgYWJvdXQgaXQuIEFkdmVydGlzaW5nIGEgZmVhdHVyZSB3aGljaAo+ID4gPiBp
-cyBrbm93biwgYnV0IGFsc28ga25vd24gbm90IHRvIHdvcmssIHNlZW1zIG9kZCB0byBtZS4gU28g
-bXkgdm90ZSBpcyB0aGF0Cj4gPiA+IG9ubHkgZmVhdHVyZXMgd2hpY2ggYXJlIHByZXNlbnQgYW5k
-IGVuYWJsZWQgaW4gdGhlIGtlcm5lbCBvciBwcmVzZW50IGFuZAo+ID4gPiBub3QgbmVjZXNzYXJ5
-IHRvIGJlIGVuYWJsZWQgaW4gdGhlIGtlcm5lbCBpbiBvcmRlciBmb3IgdXNlcnNwYWNlIG9yCj4g
-PiA+IHZpcnR1YWwgbWFjaGluZXMgdG8gdXNlIGJlIGFkdmVydGlzZWQgaW4gL3Byb2MvY3B1aW5m
-by4KPiA+ID4KPiA+ID4gV2Ugc3RpbGwgaGF2ZSBTTUJJT1MgKGRtaWRlY29kZSkgdG8gYmxpbmRs
-eSBkdW1wIHdoYXQgdGhlIGhhcmR3YXJlCj4gPiA+IHN1cHBvcnRzIGZvciBjYXNlcyAoMSkgYW5k
-ICgyKSBhYm92ZS4KPiA+Cj4gPiBZZWFoLCB0aGVyZSdzIGFuIGFyZ3VtZW50IHRvIGJlIG1hZGUg
-Zm9yIHRoYXQuIE15IHdvcnJ5IGlzIGl0J3MgYQo+ID4gZGlmZmljdWx0IGxpbmUgdG8gaG9sZC4g
-VGhlIGJhciB5b3UncmUgcmVhbGx5IHRyeWluZyB0byBkZXNjcmliZSAob3IKPiA+IGF0IGxlYXN0
-IHdoYXQgcGVvcGxlIG1pZ2h0IHRha2UgYXdheSBmcm9tIGl0KSBpcyAiaWYgaXQncyBsaXN0ZWQg
-aGVyZQo+ID4gdGhlbiBpdCdzIGZ1bGx5IHJlYWR5IHRvIGJlIHVzZWQgaW4gdXNlcnNwYWNlIi4g
-QnV0IHRoZW4gdGhpbmdzIGdldAo+ID4gc3F1aXNoeSB3aGVuIHRoZXJlIGFyZSBhZGRpdGlvbmFs
-IHdheXMgdG8gY29udHJvbCB0aGUgdXNlIG9mIHRoZQo+ID4gZmVhdHVyZSAocHJjdGxzKCkgaW4g
-aW5pdCB0byB0dXJuIGl0IG9uLCB1c2VybW9kZSBwb2xpY3kgdG8gdHVybiBpdAo+ID4gb2ZmLCBz
-ZWN1cml0eSBkb29kYWRzIHRoYXQgZGlzYWJsZSBpdCwgZXRjKS4gSSdtIGFzc3VtaW5nIG5vYm9k
-eSB3YW50cwo+ID4gYSB2ZXJzaW9uIG9mIC9wcm9jL2NwdWluZm8gdGhhdCBjaGFuZ2VzIGRlcGVu
-ZGluZyBvbiB3aGljaCBwcm9jZXNzIGlzCj4gPiBhc2tpbmcuIFNvIHRoZW4gdGhlIGxpbmUgd291
-bGQgaGF2ZSB0byBiZSBtb3JlIGNhcmVmdWxseSBkZXNjcmliZWQgYXMKPiA+ICJ3ZWxsLCB0aGUg
-aGFyZHdhcmUgY2FuIGRvIGl0LCBhbmQgdGhlIGtlcm5lbCBDT1VMRCBkbyBpdCB1bmRlciBzb21l
-Cj4gPiBjaXJjdW1zdGFuY2VzLCBidXQgWU1NViIsIHdoaWNoIGVuZHMgdXAgZmFsbGluZyBzb21l
-d2hhdCBzaG9ydCBvZiB0aGUKPiA+IG9yaWdpbmFsIGdvYWwuIEluIG15IG1pbmQga2VlcGluZyAv
-cHJvYy9jcHVpbmZvIGFzIGNsb3NlIHRvICJoZXJlJ3MKPiA+IHdoYXQgdGhlIGhhcmR3YXJlIGNh
-biBkbyIgc2VlbXMgbGlrZSBhIG1vcmUgZGVmZW5zaWJsZSBwb3NpdGlvbi4KPiA+IC1FdmFuCj4K
-PiBJIGFncmVlIHdpdGggdGhhdC4gSSB3YXMgYWN0dWFsbHkgZXZlbiB0cnlpbmcgdG8gc2F5IHRo
-ZSBzYW1lIHRoaW5nLAo+IGJ1dCBvbmx5IGJ5IGJyaW5naW5nIHVwIHZpcnR1YWwgbWFjaGluZXMu
-IE9uY2Ugd2UgZGVjaWRlIHdlJ2xsIGV4cG9zZQo+IGV4dGVuc2lvbnMgdG8gVk1zLCB3aGV0aGVy
-IG9yIG5vdCB0aGUgaG9zdCBrZXJuZWwgZW5hYmxlcyB0aGVtLCB0aGVuCj4gbm9uZSBvZiB0aGUg
-b3RoZXIgaG9zdCBrZXJuZWwgY29uZmlndXJhdGlvbnMgbWF0dGVyIHdpdGggcmVzcGVjdCB0bwo+
-IGFkdmVydGlzaW5nIHRoZSBmZWF0dXJlLCBzaW5jZSB0aGUgZ3Vlc3Qga2VybmVsIG1heSBoYXZl
-IGEgY29tcGxldGVseQo+IGRpZmZlcmVudCBzZXQgb2YgY29uZmlndXJhdGlvbnMuCgpNeSBoZWFk
-IHNwaW5zIGEgbGl0dGxlIHdoZW4gSSB0cnkgdG8gcGljdHVyZSBhIGZlYXR1cmUgd2hpY2ggMSkK
-cmVxdWlyZXMga2VybmVsIHN1cHBvcnQgdG8gdXNlLCAyKSBoYXMgdGhhdCBrZXJuZWwgc3VwcG9y
-dCB0dXJuZWQgb2ZmCmluIHRoZSBob3N0IGtlcm5lbCwgYnV0IDMpIGlzIHBhc3NlZCBkb3duIGlu
-dG8gZ3Vlc3Qga2VybmVscy4KR2VuZXJhbGx5IHRob3VnaCwgSSBhZ3JlZSB0aGF0IHRyeWluZyB0
-byB0aWUgdGhlIGd1YXJhbnRlZXMgb2YKZmVhdHVyZXMgaW4gL3Byb2MvY3B1aW5mbyB0b28gbXVj
-aCB0byBzb2Z0d2FyZSBnZXRzIGNvbmZ1c2luZyB3aGVuCnZpZXdlZCB0aHJvdWdoIHRoZSBkb3Vi
-bGUgbGVucyBvZiB2aXJ0dWFsaXphdGlvbi4KCj4KPiBTbyBJIHRoaW5rIHdlIHNob3VsZCBvbmx5
-IGJlIGZpbHRlcmluZyBvdXQgZXh0ZW5zaW9ucyB0aGF0IGFyZSBkaXNhYmxlZAo+IGJlY2F1c2Ug
-dGhleSdyZSBicm9rZW4gKGhhdmUgYSBkZXRlY3RlZCBlcnJhdHVtKSwgaGF2ZSBiZWVuICJoaWRk
-ZW4iCj4gKGhhdmUgYSBrZXJuZWwgY29tbWFuZCBsaW5lIGFsbG93aW5nIHRoZW0gdG8gYmUgdHJl
-YXRlZCBhcyBpZiBub3QKPiBwcmVzZW50KSwgb3IgY2Fubm90IGJlIHVzZWQgYXQgYWxsIGR1ZSB0
-byBtaXNzaW5nIGFjY29tcGFueWluZyBoYXJkd2FyZQo+IGRlc2NyaXB0aW9ucyAoc3VjaCBhcyBi
-bG9jayBzaXplIGluZm8gZm9yIENCTyBleHRlbnNpb25zKS4gSW4gYWxsIGNhc2VzLAo+IEkgcHJl
-c3VtZSB3ZSdkIHdpcmUgY2hlY2tzIHVwIGluIHJpc2N2X2lzYV9leHRlbnNpb25fY2hlY2soKSBh
-bmQgbm8KPiBjaGVja3Mgd291bGQgYmUgZ2F0ZWQgb24gS2NvbmZpZ3Mgb3IgYW55dGhpbmcgZWxz
-ZS4gQW5kLCBzaW5jZQo+IC9wcm9jL2NwdWluZm8gZ2V0cyBpdHMgbGlzdCBmcm9tIHRoZSBiaXRt
-YXAgdGhhdCdzIGFscmVhZHkgZmlsdGVyZWQgYnkKPiByaXNjdl9pc2FfZXh0ZW5zaW9uX2NoZWNr
-KCksIHRoZW4sIGxvbmcgc3Rvcnkgc2hvcnQsIHdlJ3JlIGdvb2QgdG8gZ28gOi0pCj4KPiBCdXQg
-bWF5YmUgd2UgY2FuIHRyeSB0byBzcGVsbCB0aGF0IHBvbGljeSBvdXQgYSBiaXQgbW9yZSBpbgo+
-IERvY3VtZW50YXRpb24vcmlzY3YvdWFiaS5yc3QuCgpSaWdodCwgdGhhdCBzb3VuZHMgcmVhc29u
-YWJsZSB0byBtZSwgYW5kIGlzIGNvbnNpc3RlbnQgd2l0aCB0aGUKYmVoYXZpb3Igd2UgYWxyZWFk
-eSBoYXZlLiBXaXRoIHRoaXMgZG9jdW1lbnRhdGlvbiBjaGFuZ2UgSSB3YXMgb25seQp0cnlpbmcg
-dG8gZGVmaW5lIHRoZSBsb3dlciBib3VuZCwgcmF0aGVyIHRoYW4gdGhlIGNvbXBsZXRlIGRlZmlu
-aXRpb24KZm9yIGV2ZXJ5IGNhc2UuIEluIG90aGVyIHdvcmRzLCBzZWVpbmcgYSBmZWF0dXJlIGlu
-IGNwdWluZm8gZ3VhcmFudGVlcwpvbmx5IHRoYXQgdGhlIGhhcmR3YXJlIChvciB2aXJ0dWFsaXpl
-ZCBoYXJkd2FyZSkgc3VwcG9ydHMgdGhlIGZlYXR1cmUsCmJ1dCB0aGF0J3MgYWxsIHRoZSBsYW5n
-dWFnZSBzYXlzLiBTbyBmb3IgaW5zdGFuY2UgTk9UIHNlZWluZyBhIGZlYXR1cmUKaW4gY3B1aW5m
-byBkb2Vzbid0IG5lY2Vzc2FyaWx5IG1lYW4gdGhlIGhhcmR3YXJlIGRvZXNuJ3Qgc3VwcG9ydCBp
-dC4KU29mdHdhcmUgdHVybmluZyBpdCBvZmYgZm9yIHRoZSByZWFzb25zIHlvdSBkZXNjcmliZSBJ
-TU8gZG9lc24ndApjb250cmFkaWN0IHdoYXQncyB3cml0dGVuIGhlcmUuIEkgd2FzIHBsYW5uaW5n
-IHRvIGxlYXZlIHRoYXQgdGFjaXQsCmJ1dCBpZiB5b3UgaGF2ZSBzdWdnZXN0aW9ucyBvbiBob3cg
-dG8gc3BlbGwgdGhhdCBvdXQgSSdkIHRha2UgdGhlbS4KCi1FdmFuCgpfX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QK
-bGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9y
-Zy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+
+--===============0818808605588000627==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="aCAI2NXGHYe29Jnj"
+Content-Disposition: inline
+
+
+--aCAI2NXGHYe29Jnj
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Mon, Aug 28, 2023 at 09:24:03AM -0700, Evan Green wrote:
+> On Sat, Aug 26, 2023 at 2:56=E2=80=AFAM Conor Dooley <conor@kernel.org> w=
+rote:
+> >
+> > On Sat, Aug 26, 2023 at 12:26:25AM +0100, Conor Dooley wrote:
+> > > On Fri, Aug 25, 2023 at 04:11:38PM -0700, Evan Green wrote:
+> > > > In /proc/cpuinfo, most of the information we show for each processo=
+r is
+> > > > specific to that hart: marchid, mvendorid, mimpid, processor, hart,
+> > > > compatible, and the mmu size. But the ISA string gets filtered thro=
+ugh a
+> > > > lowest common denominator mask, so that if one CPU is missing an ISA
+> > > > extension, no CPUs will show it.
+> > > >
+> > > > Now that we track the ISA extensions for each hart, let's report ISA
+> > > > extension info accurately per-hart in /proc/cpuinfo. We cannot chan=
+ge
+> > > > the "isa:" line, as usermode may be relying on that line to show on=
+ly
+> > > > the common set of extensions supported across all harts. Add a new =
+"hart
+> > > > isa" line instead, which reports the true set of extensions for that
+> > > > hart.
+> > > >
+> > > > Signed-off-by: Evan Green <evan@rivosinc.com>
+> > > > Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+> > >
+> > > > Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+> > >
+> > > Can you drop this if you repost?
+>=20
+> Will do.
+>=20
+> > >
+> > > > +"isa" vs "hart isa" lines in /proc/cpuinfo
+> > > > +------------------------------------------
+> > > > +
+> > > > +The "isa" line in /proc/cpuinfo describes the lowest common denomi=
+nator of
+> > > > +RISC-V ISA extensions recognized by the kernel and implemented on =
+all harts. The
+> > > > +"hart isa" line, in contrast, describes the set of extensions reco=
+gnized by the
+> > > > +kernel on the particular hart being described, even if those exten=
+sions may not
+> > > > +be present on all harts in the system.
+> > >
+> > > > In both cases, the presence of a feature
+> > > > +in these lines guarantees only that the hardware has the described=
+ capability.
+> > > > +Additional kernel support or policy control changes may be require=
+d before a
+> > > > +feature is fully usable by userspace programs.
+> > >
+> > > I do not think that "in both cases" matches the expectations of
+> > > userspace for the existing line. It's too late at night for me to thi=
+nk
+> > > properly, but I think our existing implementation does work like you
+> > > have documented for FD/V. I think I previously mentioned that it could
+> > > misreport things for vector during the review of the vector series but
+> > > forgot about it until now.
+> >
+> > I went and checked, and yes it does currently do that for vector. I
+> > don't think that that is what userspace would expect, that Google
+> > cpu_features project for example would draw incorrect conclusions.
+>=20
+> I'm lost, could you explain a little more?
+
+There (may be/)are userspace programs that will interpret the appearance
+of extensions in cpuinfo as meaning they can be used without performing
+any further checks.
+
+> My goal was to say that
+> there's no blanket guarantee that the feature is 100% ready to go for
+> userspace just because it's seen here.
+
+Right. I was agreeing that this is true, but it is also not how some
+userspace programs have interpreted things. Consider a platform & kernel
+that support the V extension but vector has not been enabled by default
+or by early userspace. If someone cats cpuinfo, they'll see v there, but
+it won't be usable. That Google cpu_features project (or a punter) may
+then assume they can use it, as that's been the case so far in general*.
+
+The caveat producing the * being that the same problem actually exists
+for F/D too AFAICT, but it's likely that nobody really encountered it
+as they didn't build non-FP userspaces & then try to use FP in some
+userspace applications.
+
+> For some extensions, it may in
+> fact end up meaning just that (hence the "additional ... may be
+> required" rather than "is required").
+
+> This is true for FD (maybe,
+> depending on history?),
+
+AFAICT, it's not true for FD. The FPU config option not being set, or
+either of F and D being missing will lead to unusable extensions
+appearing.
+
+> or extensions whose minimal/zero kernel
+> support was unconditionally added at the same time as its parsing for
+> it. But it's not true solely by virtue of being in /proc/cpuinfo. In
+> other words, I'm trying to establish the floor of what /proc/cpuinfo
+> guarantees, without fully specifying the ceiling.
+
+> Are you saying that
+> we need to spell out the guarantees for each extension?
+
+No, I don't want that!
+
+> Or are you
+> saying the floor I've defined in general is incorrect or insufficient?
+
+I think the floor that you have defined is probably misleading to users.
+It's also the floor that has existed for quite a while, so this might be
+a case of the userspace devs messing up due to an absence of any
+explanation of what to do here.
+Things will get abhorrently messy if we try to do what these userspace
+programs expect, and I don't think we should go there. We just need to
+bear in mind that the behaviour we have & the behaviour that you are
+documenting flys in the face of what some userspace expects.
+
+> I'm also open to direct suggestions of wording if you've got something
+> in mind :)
+
+Someone mentioned it recently, but it really is starting to feel more
+and more like lscpu should grow support for hwprobe and funnel people
+into using that instead of /proc/cpuinfo when all they want is to see
+what their hardware can do.
+
+--aCAI2NXGHYe29Jnj
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZOzQ+wAKCRB4tDGHoIJi
+0j1CAQCe8GWS5VD8NFejCRPuSJ6/pP1JUyquNhe39pMWCPiWeAEAn8aUvX+1hEc/
+vqfunXKaopveZfu1/fwF0cv2XyTnNw0=
+=zgPv
+-----END PGP SIGNATURE-----
+
+--aCAI2NXGHYe29Jnj--
+
+
+--===============0818808605588000627==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============0818808605588000627==--
+
