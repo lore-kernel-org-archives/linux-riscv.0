@@ -4,82 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A69CC83F12
-	for <linux-riscv@archiver.kernel.org>; Mon, 28 Aug 2023 13:50:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AE5EC83F1B
+	for <linux-riscv@archiver.kernel.org>; Mon, 28 Aug 2023 13:57:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DJWKTfPY+PhHzCQXIBkpv1upPrA4kzZ3s5OhqoafCvg=; b=PkWQobyyQcitT+
-	UFoQ3HgQQpMco/kmWotSnh0K9fkofVpOjjknWCJbySL7jYED2rNVkB6V0hoMfj8kIF432r+mlDEwH
-	udHsJReP7AjJtglYNHv9kmOePhHaUPr4nUaelq3gzzSbrNtLkN8V36b3IAfwNUOqZnQRzOoI1rVKK
-	TdxIKhd/GAPU+Uq805qYzt/FFzh77KJoLwMFzwqdkP1tAzdsSrIBey7LmlD395VEFiVQ9kokuaHWZ
-	hsFP7f831AndQIDGt5EMyRnSZx8xyIehtg8hq6kEugTNHIsKsjzIQ2PxzZ8GscEfU6VlOoE9Jwt7H
-	TxdBr7exD9ks3WiUV1Gw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
+	MIME-Version:Date:Message-ID:References:Cc:To:Subject:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0MZLZl0OQe4ue2KlEqVecL0OfAHwu7oFQNzZBb3Q89I=; b=Q3/EDwu6D76PN4Yc53DTGgM9H6
+	dklkofWgllheuOk+EVW4eq1IVJ4w/JYpHFwxh7veLjiRd0a+TQD5N/r7GvKmszYgM2iIZZCwby2LH
+	aHK+MJ1bv9ywHuaujLnxEXsur0gvflPB5/jGcZGW/gjbvtRhtYqy//oN+IAl4/nfswSDlU7/Kga21
+	2qnu5siMS1EJykudyMzegoDLWoXIh0dC/VKy5Y9h0rwFX5keW3U7+hpIxPqOoQqfgy0KNfheOecOK
+	l5CIspv1SLt/YCemkIVYZ2uMFq+Y3lkhXqeTfvbPWgtUq/h4WCPzZtBcjiuzmtJ9cyUnS8mcrQnlW
+	TQLCJM9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qacdD-009fLr-2J;
-	Mon, 28 Aug 2023 13:50:15 +0000
-Received: from mail-ed1-x52b.google.com ([2a00:1450:4864:20::52b])
+	id 1qackP-009fui-1H;
+	Mon, 28 Aug 2023 13:57:41 +0000
+Received: from [45.249.212.56] (helo=dggsgout12.his.huawei.com)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qacdB-009fLL-10
+	id 1qackM-009ftc-0d
 	for linux-riscv@lists.infradead.org;
-	Mon, 28 Aug 2023 13:50:14 +0000
-Received: by mail-ed1-x52b.google.com with SMTP id 4fb4d7f45d1cf-52a1ce52ef4so4104050a12.2
-        for <linux-riscv@lists.infradead.org>; Mon, 28 Aug 2023 06:50:09 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20221208; t=1693230608; x=1693835408;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=eYLHQZ/VfLwLQyibj4IKPDu2aeAoL6UJSE7o4fV5D3k=;
-        b=EWucoSA6NQNmv6r92bln9D7hVGM10sQdVq+0ZKodxwMnW2akgpj6isYLJwfpWBTrEY
-         mLIuBD3gztqz/r8rkQoCx1e66ihra6fnIEWqjgmggwnDlc3KNhnqyBfWKZL0ly6T+M9q
-         bGRGFzIACsDkitfXZY1zyj4s7vtM+QeXWBfYNDiDD1RlzVzcgIsvIwYNQz/ea+FX6/3E
-         yo4oeub9+M39khJF7uq5T8SVx1BV0jTo8XEL92te3is5AyAoLlFacJQq0v5WRmNQcZR4
-         97+ZDXp/7lS5GvpX/xttTUxPxIR4vgKxQPz+wXtC2bMyb5VhcDxs5LDDkU4kUMlHuxKT
-         ztuQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1693230608; x=1693835408;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=eYLHQZ/VfLwLQyibj4IKPDu2aeAoL6UJSE7o4fV5D3k=;
-        b=FD8PP2yWoEeJy4AG4GSua/hnPpcGfoQiHgrmdhSFYBegqS+7JM0eW9LXk0Sg05pqly
-         vApVYve1A9yspHnCRosF9yo9RzL7c2JxPIlSLyAwXOWC+o9cguOlbZxffu1Dk3+h/MOy
-         ife5tdkLl2IkJBTgTGik3+xPaf5LR42fxEjN5EZOXhRFW8lO+P6aup+FGSV/0RQVsknL
-         kcNqnNk+UHowxqW53Rr3ZS7fyNUWYVfekXw8Iximu707k7VbSsiR4Tf89iL6NGATwHUQ
-         13UfflPGSdbtVcrxy8KOAf0DQnWmzDsUexsyvxjaN2db+nP2S+UMB5Qn3rgikp4KiaCH
-         blHA==
-X-Gm-Message-State: AOJu0YwwmrnZ20tk/GjCJrjJP3MgASyEXDExlnfgc6BQ8nFm6PhNvim2
-	nk9YqqY43Z5G30Aaw3BRFLE=
-X-Google-Smtp-Source: AGHT+IEQC34b5l09N1nBCyWKKSCdGRenYmagb8UWJBwQctY4cJS3ep9dRRDx/kNRBmMD95wQPb8IYg==
-X-Received: by 2002:a17:906:53d9:b0:9a1:aa7b:482e with SMTP id p25-20020a17090653d900b009a1aa7b482emr13917168ejo.26.1693230607614;
-        Mon, 28 Aug 2023 06:50:07 -0700 (PDT)
-Received: from nam-dell (ip-217-105-46-58.ip.prioritytelecom.net. [217.105.46.58])
-        by smtp.gmail.com with ESMTPSA id p20-20020a17090635d400b0099bd8c1f67esm4696054ejb.109.2023.08.28.06.50.06
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 28 Aug 2023 06:50:07 -0700 (PDT)
-Date: Mon, 28 Aug 2023 15:50:06 +0200
-From: Nam Cao <namcaov@gmail.com>
-To: =?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@kernel.org>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, guoren@kernel.org
-Subject: Re: [PATCH] riscv: provide riscv-specific is_trap_insn()
-Message-ID: <ZOymDqhE9STgx4Mm@nam-dell>
-References: <20230827205641.46836-1-namcaov@gmail.com>
- <874jkjl4e1.fsf@all.your.base.are.belong.to.us>
- <ZOyhozSq3S36eRSq@nam-dell>
+	Mon, 28 Aug 2023 13:57:40 +0000
+Received: from mail02.huawei.com (unknown [172.30.67.169])
+	by dggsgout12.his.huawei.com (SkyGuard) with ESMTP id 4RZBvN3384z4f3jJ7
+	for <linux-riscv@lists.infradead.org>; Mon, 28 Aug 2023 21:57:20 +0800 (CST)
+Received: from [10.174.176.117] (unknown [10.174.176.117])
+	by APP4 (Coremail) with SMTP id gCh0CgB3VKfAp+xkPNEpBw--.26736S2;
+	Mon, 28 Aug 2023 21:57:23 +0800 (CST)
+From: Hou Tao <houtao@huaweicloud.com>
+Subject: Re: WARNING: CPU: 3 PID: 261 at kernel/bpf/memalloc.c:342
+To: yonghong.song@linux.dev, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?=
+ <bjorn@kernel.org>, bpf@vger.kernel.org
+Cc: linux-riscv@lists.infradead.org,
+ Alexei Starovoitov <alexei.starovoitov@gmail.com>
+References: <87jztjmmy4.fsf@all.your.base.are.belong.to.us>
+ <2f4f0dfc-ec06-8ac8-a56a-395cc2373def@linux.dev>
+ <200dcce6-34ff-83e0-02fb-709a24403cc6@huaweicloud.com>
+ <87zg2e88ds.fsf@all.your.base.are.belong.to.us>
+ <64873e42-9be1-1812-b80d-5ea86b4677f0@huaweicloud.com>
+ <87sf8684ex.fsf@all.your.base.are.belong.to.us>
+ <878r9wswwy.fsf@all.your.base.are.belong.to.us>
+ <fd07e0a3-f4da-b447-c47a-6e933220d452@linux.dev>
+Message-ID: <65c9e8d9-7682-2c8d-cd4d-9f0ca1213066@huaweicloud.com>
+Date: Mon, 28 Aug 2023 21:57:20 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
+ Thunderbird/78.6.0
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <ZOyhozSq3S36eRSq@nam-dell>
+In-Reply-To: <fd07e0a3-f4da-b447-c47a-6e933220d452@linux.dev>
+Content-Type: multipart/mixed;
+ boundary="------------1A5C6D48284AB0D27C6D8D39"
+Content-Language: en-US
+X-CM-TRANSID: gCh0CgB3VKfAp+xkPNEpBw--.26736S2
+X-Coremail-Antispam: 1UD129KBjvJXoW3Xw45Gry8Cr1xCF4rGr4rZrb_yoW3Xw48pr
+	Z3tFyUGrWrAr1ktr1UKr15JryUtr1UA3WDXr1rJFy8Ar4q9r1jgr4UXryj9F1DJr4rJF17
+	tr1Dtw42vr1UJw7anT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUU9Gb4IE77IF4wAFF20E14v26r1j6r4UM7CY07I20VC2zVCF04k2
+	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
+	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Ar0_tr1l84ACjcxK6xIIjxv20xvEc7Cj
+	xVAFwI0_Cr0_Gr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I
+	0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21le4C267I2x7xF54xIwI1l5I8C
+	rVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxV
+	WUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFcxC0VAYjxAxZF0Ex2Iq
+	xwCYjI0SjxkI62AI1cAE67vIY487MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r
+	1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CE
+	b7AF67AKxVWUAVWUtwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0x
+	vE2Ix0cI8IcVCY1x0267AKxVWUJVW8JwCI42IY6xAIw20EY4v20xvaj40_WFyUJVCq3wCI
+	42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r1j6r4UMVCEFcxC0V
+	AYjxAxZFUvcSsGvfC2KfnxnUUI43ZEXa7IU1ivttUUUUU==
+X-CM-SenderInfo: xkrx3t3r6k3tpzhluzxrxghudrp/
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230828_065013_353951_E4B6055D 
-X-CRM114-Status: GOOD (  24.39  )
+X-CRM114-CacheID: sfid-20230828_065738_611653_65AED043 
+X-CRM114-Status: GOOD (  26.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,66 +89,242 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 28, 2023 at 03:31:15PM +0200, Nam Cao wrote:
-> On Mon, Aug 28, 2023 at 02:48:06PM +0200, Bj=F6rn T=F6pel wrote:
-> > Nam Cao <namcaov@gmail.com> writes:
-> > =
+This is a multi-part message in MIME format.
+--------------1A5C6D48284AB0D27C6D8D39
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 8bit
 
-> > > uprobes expects is_trap_insn() to return true for any trap instructio=
-ns,
-> > > not just the one used for installing uprobe. The current default
-> > > implementation only returns true for 16-bit c.ebreak if C extension is
-> > > enabled. This can confuse uprobes if a 32-bit ebreak generates a trap
-> > > exception from userspace: uprobes asks is_trap_insn() who says there =
-is no
-> > > trap, so uprobes assume a probe was there before but has been removed=
-, and
-> > > return to the trap instruction. This cause an infinite loop of enteri=
-ng
-> > > and exiting trap handler.
-> > >
-> > > Instead of using the default implementation, implement this function
-> > > speficially for riscv which checks for both ebreak and c.ebreak.
-> > =
+Hi,
 
-> > I took this for a spin, and it indeed fixes this new hang! Nice!
-> =
+On 8/27/2023 10:53 PM, Yonghong Song wrote:
+>
+>
+> On 8/27/23 1:37 AM, Björn Töpel wrote:
+>> Björn Töpel <bjorn@kernel.org> writes:
+>>
+>>> Hou Tao <houtao@huaweicloud.com> writes:
+>>>
+>>>> Hi,
+>>>>
+>>>> On 8/26/2023 5:23 PM, Björn Töpel wrote:
+>>>>> Hou Tao <houtao@huaweicloud.com> writes:
+>>>>>
+>>>>>> Hi,
+>>>>>>
+>>>>>> On 8/25/2023 11:28 PM, Yonghong Song wrote:
+>>>>>>>
+>>>>>>> On 8/25/23 3:32 AM, Björn Töpel wrote:
+>>>>>>>> I'm chasing a workqueue hang on RISC-V/qemu (TCG), using the bpf
+>>>>>>>> selftests on bpf-next 9e3b47abeb8f.
+>>>>>>>>
+>>>>>>>> I'm able to reproduce the hang by multiple runs of:
+>>>>>>>>    | ./test_progs -a link_api -a linked_list
+>>>>>>>> I'm currently investigating that.
+>>>>>>>>
+>>>>>>>> But! Sometimes (every blue moon) I get a warn_on_once hit:
+>>>>>>>>    | ------------[ cut here ]------------
+>>>>>>>>    | WARNING: CPU: 3 PID: 261 at kernel/bpf/memalloc.c:342
+>>>>>>>> bpf_mem_refill+0x1fc/0x206
+>>>>>>>>    | Modules linked in: bpf_testmod(OE)
+>>>>>>>>    | CPU: 3 PID: 261 Comm: test_progs-cpuv Tainted: G           OE
+>>>>>>>> N 6.5.0-rc5-01743-gdcb152bb8328 #2
+>>>>>>>>    | Hardware name: riscv-virtio,qemu (DT)
+>>>>>>>>    | epc : bpf_mem_refill+0x1fc/0x206
+>>>>>>>>    |  ra : irq_work_single+0x68/0x70
+>>>>>>>>    | epc : ffffffff801b1bc4 ra : ffffffff8015fe84 sp :
+>>>>>>>> ff2000000001be20
+>>>>>>>>    |  gp : ffffffff82d26138 tp : ff6000008477a800 t0 :
+>>>>>>>> 0000000000046600
+>>>>>>>>    |  t1 : ffffffff812b6ddc t2 : 0000000000000000 s0 :
+>>>>>>>> ff2000000001be70
+>>>>>>>>    |  s1 : ff5ffffffffe8998 a0 : ff5ffffffffe8998 a1 :
+>>>>>>>> ff600003fef4b000
+>>>>>>>>    |  a2 : 000000000000003f a3 : ffffffff80008250 a4 :
+>>>>>>>> 0000000000000060
+>>>>>>>>    |  a5 : 0000000000000080 a6 : 0000000000000000 a7 :
+>>>>>>>> 0000000000735049
+>>>>>>>>    |  s2 : ff5ffffffffe8998 s3 : 0000000000000022 s4 :
+>>>>>>>> 0000000000001000
+>>>>>>>>    |  s5 : 0000000000000007 s6 : ff5ffffffffe8570 s7 :
+>>>>>>>> ffffffff82d6bd30
+>>>>>>>>    |  s8 : 000000000000003f s9 : ffffffff82d2c5e8 s10:
+>>>>>>>> 000000000000ffff
+>>>>>>>>    |  s11: ffffffff82d2c5d8 t3 : ffffffff81ea8f28 t4 :
+>>>>>>>> 0000000000000000
+>>>>>>>>    |  t5 : ff6000008fd28278 t6 : 0000000000040000
+>>>>>>>>    | status: 0000000200000100 badaddr: 0000000000000000 cause:
+>>>>>>>> 0000000000000003
+>>>>>>>>    | [<ffffffff801b1bc4>] bpf_mem_refill+0x1fc/0x206
+>>>>>>>>    | [<ffffffff8015fe84>] irq_work_single+0x68/0x70
+>>>>>>>>    | [<ffffffff8015feb4>] irq_work_run_list+0x28/0x36
+>>>>>>>>    | [<ffffffff8015fefa>] irq_work_run+0x38/0x66
+>>>>>>>>    | [<ffffffff8000828a>] handle_IPI+0x3a/0xb4
+>>>>>>>>    | [<ffffffff800a5c3a>] handle_percpu_devid_irq+0xa4/0x1f8
+>>>>>>>>    | [<ffffffff8009fafa>] generic_handle_domain_irq+0x28/0x36
+>>>>>>>>    | [<ffffffff800ae570>] ipi_mux_process+0xac/0xfa
+>>>>>>>>    | [<ffffffff8000a8ea>] sbi_ipi_handle+0x2e/0x88
+>>>>>>>>    | [<ffffffff8009fafa>] generic_handle_domain_irq+0x28/0x36
+>>>>>>>>    | [<ffffffff807ee70e>] riscv_intc_irq+0x36/0x4e
+>>>>>>>>    | [<ffffffff812b5d3a>] handle_riscv_irq+0x54/0x86
+>>>>>>>>    | [<ffffffff812b6904>] do_irq+0x66/0x98
+>>>>>>>>    | ---[ end trace 0000000000000000 ]---
+>>>>>>>>
+>>>>>>>> Code:
+>>>>>>>>    | static void free_bulk(struct bpf_mem_cache *c)
+>>>>>>>>    | {
+>>>>>>>>    |     struct bpf_mem_cache *tgt = c->tgt;
+>>>>>>>>    |     struct llist_node *llnode, *t;
+>>>>>>>>    |     unsigned long flags;
+>>>>>>>>    |     int cnt;
+>>>>>>>>    |
+>>>>>>>>    |     WARN_ON_ONCE(tgt->unit_size != c->unit_size);
+>>>>>>>>    | ...
+>>>>>>>>
+>>>>>>>> I'm not well versed in the memory allocator; Before I dive into
+>>>>>>>> it --
+>>>>>>>> has anyone else hit it? Ideas on why the warn_on_once is hit?
+>>>>>>> Maybe take a look at the patch
+>>>>>>>    822fb26bdb55  bpf: Add a hint to allocated objects.
+>>>>>>>
+>>>>>>> In the above patch, we have
+>>>>>>>
+>>>>>>> +       /*
+>>>>>>> +        * Remember bpf_mem_cache that allocated this object.
+>>>>>>> +        * The hint is not accurate.
+>>>>>>> +        */
+>>>>>>> +       c->tgt = *(struct bpf_mem_cache **)llnode;
+>>>>>>>
+>>>>>>> I suspect that the warning may be related to the above.
+>>>>>>> I tried the above ./test_progs command line (running multiple
+>>>>>>> at the same time) and didn't trigger the issue.
+>>>>>> The extra 8-bytes before the freed pointer is used to save the
+>>>>>> pointer
+>>>>>> of the original bpf memory allocator where the freed pointer came
+>>>>>> from,
+>>>>>> so unit_free() could free the pointer back to the original
+>>>>>> allocator to
+>>>>>> prevent alloc-and-free unbalance.
+>>>>>>
+>>>>>> I suspect that a wrong pointer was passed to bpf_obj_drop, but do
+>>>>>> not
+>>>>>> find anything suspicious after checking linked_list. Another
+>>>>>> possibility
+>>>>>> is that there is write-after-free problem which corrupts the extra
+>>>>>> 8-bytes before the freed pointer. Could you please apply the
+>>>>>> following
+>>>>>> debug patch to check whether or not the extra 8-bytes are
+>>>>>> corrupted ?
+>>>>> Thanks for getting back!
+>>>>>
+>>>>> I took your patch for a run, and there's a hit:
+>>>>>    | bad cache ff5ffffffffe8570: got size 96 work
+>>>>> ffffffff801b19c8, cache ff5ffffffffe8980 exp size 128 work
+>>>>> ffffffff801b19c8
+>>>>
+>>>> The extra 8-bytes are not corrupted. Both of these two
+>>>> bpf_mem_cache are
+>>>> valid and there are in the cache array defined in bpf_mem_caches. BPF
+>>>> memory allocator allocated the pointer from 96-bytes sized-cache,
+>>>> but it
+>>>> tried to free the pointer through 128-bytes sized-cache.
+>>>>
+>>>> Now I suspect there is no 96-bytes slab in your system and ksize(ptr -
+>>>> LLIST_NODE_SZ) returns 128, so bpf memory allocator selected the
+>>>> 128-byte sized-cache instead of 96-bytes sized-cache. Could you please
+>>>> check the value of KMALLOC_MIN_SIZE in your kernel .config and
+>>>> using the
+>>>> following command to check whether there is 96-bytes slab in your
+>>>> system:
+>>>
+>>> KMALLOC_MIN_SIZE is 64.
+>>>
+>>>> $ cat /proc/slabinfo |grep kmalloc-96
+>>>> dma-kmalloc-96         0      0     96   42    1 : tunables    0    0
+>>>> 0 : slabdata      0      0      0
+>>>> kmalloc-96          1865   2268     96   42    1 : tunables    0    0
+>>>> 0 : slabdata     54     54      0
+>>>>
+>>>> In my system, slab has 96-bytes cached, so grep outputs something,
+>>>> but I
+>>>> think there will no output in your system.
+>>>
+>>> You're right! No kmalloc-96.
+>>
+>> To get rid of the warning, limit available sizes from
+>> bpf_mem_alloc_init()?
 
-> Great! Thanks for testing it.
->  =
+It is not enough. We need to adjust size_index accordingly during
+initialization. Could you please try the attached patch below ? It is
+not a formal patch and I am considering to disable prefilling for these
+redirected bpf_mem_caches.
+>
+> Do you know why your system does not have kmalloc-96?
 
-> > However, when I tried setting an uprobe on the ebreak instruction
-> > (offset 0x118) from your example [1], the probe does not show up in the
-> > trace buffer.
-> > =
+According to the implementation of setup_kmalloc_cache_index_table() and
+create_kmalloc_caches(),  when KMALLOC_MIN_SIZE is greater than 64,
+kmalloc-96 will be omitted. If KMALLOC_MIN_SIZE is greater than 128,
+kmalloc-192 will be omitted as well.
+>
+>>
+>>
+>> Björn
+>
+> .
 
-> > Any ideas?
-> =
 
-> >From my understanding, both uprobes and kprobes refuse to install break =
-points
-> into existing trap instructions. Otherwise, we may conflict with somethin=
-g else
-> that is also using trap instructions.
+--------------1A5C6D48284AB0D27C6D8D39
+Content-Type: text/plain; charset=UTF-8;
+ name="0001-bpf-Adjust-size_index-according-to-the-value-of-KMAL.patch"
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment;
+ filename*0="0001-bpf-Adjust-size_index-according-to-the-value-of-KMAL.pa";
+ filename*1="tch"
 
-I just realize you probably ask this because uprobe can still be installed =
-before
-applying the patch. But I think that is another bug that my patch also
-accidentally fix: uprobes should not install breakpoint into ebreak instruc=
-tions,
-but it incorrectly does so because it does not even know about the existenc=
-e of
-32-bit ebreak.
-
-Best regards,
-Nam
+RnJvbSBjMmVlNTcyZTBkYjA5OTE5YzU2ZDgxZWRjYWQxNjAzMzVjYThhODBlIE1vbiBTZXAg
+MTcgMDA6MDA6MDAgMjAwMQpGcm9tOiBIb3UgVGFvIDxob3V0YW8xQGh1YXdlaS5jb20+CkRh
+dGU6IE1vbiwgMjggQXVnIDIwMjMgMTE6NDI6MTkgKzA4MDAKU3ViamVjdDogW1BBVENIXSBi
+cGY6IEFkanVzdCBzaXplX2luZGV4IGFjY29yZGluZyB0byB0aGUgdmFsdWUgb2YKIEtNQUxM
+T0NfTUlOX1NJWkUKClNpZ25lZC1vZmYtYnk6IEhvdSBUYW8gPGhvdXRhbzFAaHVhd2VpLmNv
+bT4KCmRpZmYgLS1naXQgYS9rZXJuZWwvYnBmL21lbWFsbG9jLmMgYi9rZXJuZWwvYnBmL21l
+bWFsbG9jLmMKaW5kZXggZmI0ZmEwNjA1YTYwLi5kMTM3ZDZmMWZiMjEgMTAwNjQ0Ci0tLSBh
+L2tlcm5lbC9icGYvbWVtYWxsb2MuYworKysgYi9rZXJuZWwvYnBmL21lbWFsbG9jLmMKQEAg
+LTkzOCwzICs5MzgsNDEgQEAgdm9pZCBub3RyYWNlICpicGZfbWVtX2NhY2hlX2FsbG9jX2Zs
+YWdzKHN0cnVjdCBicGZfbWVtX2FsbG9jICptYSwgZ2ZwX3QgZmxhZ3MpCiAKIAlyZXR1cm4g
+IXJldCA/IE5VTEwgOiByZXQgKyBMTElTVF9OT0RFX1NaOwogfQorCisvKiBNb3N0IG9mIHRo
+ZSBsb2dpYyBpcyB0YWtlbiBmcm9tIHNldHVwX2ttYWxsb2NfY2FjaGVfaW5kZXhfdGFibGUo
+KSAqLworc3RhdGljIF9faW5pdCBpbnQgYnBmX21lbV9jYWNoZV9hZGp1c3Rfc2l6ZSh2b2lk
+KQoreworCXVuc2lnbmVkIGludCBzaXplLCBpbmRleDsKKworCS8qIE5vcm1hbGx5IEtNQUxM
+T0NfTUlOX1NJWkUgaXMgOC1ieXRlcywgYnV0IGl0IGNhbiBiZQorCSAqIHVwLXRvIDI1Ni1i
+eXRlcy4KKwkgKi8KKwlzaXplID0gS01BTExPQ19NSU5fU0laRTsKKwlpZiAoc2l6ZSA8PSAx
+OTIpCisJCWluZGV4ID0gc2l6ZV9pbmRleFsoc2l6ZSAtIDEpIC8gOF07CisJZWxzZQorCQlp
+bmRleCA9IGZscyhzaXplIC0gMSkgLSAxOworCWZvciAoc2l6ZSA9IDg7IHNpemUgPCBLTUFM
+TE9DX01JTl9TSVpFICYmIHNpemUgPD0gMTkyOyBzaXplICs9IDgpCisJCXNpemVfaW5kZXhb
+KHNpemUgLSAxKSAvIDhdID0gaW5kZXg7CisKKwkvKiBUaGUgYWxpZ25tZW50IGlzIDY0LWJ5
+dGVzLCBzbyBkaXNhYmxlIDk2LWJ5dGVzIGNhY2hlIGFuZCB1c2UKKwkgKiAxMjgtYnl0ZXMg
+Y2FjaGUgaW5zdGVhZC4KKwkgKi8KKwlpZiAoS01BTExPQ19NSU5fU0laRSA+PSA2NCkgewor
+CQlpbmRleCA9IHNpemVfaW5kZXhbKDEyOCAtIDEpIC8gOF07CisJCWZvciAoc2l6ZSA9IDY0
+ICsgODsgc2l6ZSA8PSA5Njsgc2l6ZSArPSA4KQorCQkJc2l6ZV9pbmRleFsoc2l6ZSAtIDEp
+IC8gOF0gPSBpbmRleDsKKwl9CisKKwkvKiBUaGUgYWxpZ25tZW50IGlzIDEyOC1ieXRlcywg
+c28gZGlzYWJsZSAxOTItYnl0ZXMgY2FjaGUgYW5kIHVzZQorCSAqIDI1Ni1ieXRlcyBjYWNo
+ZSBpbnN0ZWFkLgorCSAqLworCWlmIChLTUFMTE9DX01JTl9TSVpFID49IDEyOCkgeworCQlp
+bmRleCA9IGZscygyNTYgLSAxKSAtIDE7CisJCWZvciAoc2l6ZSA9IDEyOCArIDg7IHNpemUg
+PD0gMTkyOyBzaXplICs9IDgpCisJCQlzaXplX2luZGV4WyhzaXplIC0gMSkgLyA4XSA9IGlu
+ZGV4OworCX0KKworCXJldHVybiAwOworfQorc3Vic3lzX2luaXRjYWxsKGJwZl9tZW1fY2Fj
+aGVfYWRqdXN0X3NpemUpOwotLSAKMi4yOS4yCgo=
+--------------1A5C6D48284AB0D27C6D8D39
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--------------1A5C6D48284AB0D27C6D8D39--
+
+
