@@ -4,85 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4E1BC83F11
-	for <linux-riscv@archiver.kernel.org>; Mon, 28 Aug 2023 13:16:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75AD0C71153
+	for <linux-riscv@archiver.kernel.org>; Mon, 28 Aug 2023 13:31:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Li0ZaezkSYhOZ4ra2rtFJ46ow/BjKxzoEfgVG1dl4aQ=; b=y79MCfHAuzoPT4
-	/jU9edBJ6q4Odd7jvsJ5HX+fksFjyiI7QXY1xsTSMnr2N2iOP/sBMqV7TzF5rDltdyxdMdCTNh+DS
-	tFJh2FgQwx+jiJxyp7DFVzY3vXd+SxjENV0bD2M6sRgFQVLCgxNUgB7kgnztQlNo/Zi9uU4PR3Wi6
-	dbBPbZO9pFjlTt9O35F0uC4KNbj9Vcbf+pUyUiUjU9D8wyakYfW5eyy3tO3ulyseEebupKdQmrk3x
-	REKqedowxYU4ILLx8KADAQ4NTaVFvnLDGan/HoN6dnE7i59LzIinE2ji1vvMHsnvFio4grIfE/1QV
-	ZInYGMU8xfUErH8hBgcg==;
+	List-Owner; bh=QljzilSe1QePT2RTY7m4qfJmhmL8+kgOrTsQ+V0zFiM=; b=ZsYlzgSdhdaaDm
+	xVVIoUI7HKPDsyzjRCqL1yp4Xp2NBLYB9d+WpIC3igr8v9Xcyoz8tjRSA09yZfqKNY+MaWCi4F3dp
+	LN4Z0U/Yv+c5JHUA2Bk5iY1ayNvNIMiU2GntRoG6hIbwWNH6SASqyDaMAN7n0WyO7EOh4ZHJuu3kF
+	6SSJ1E8pIC+t9P//ABecYy+adFmZCKXf1S7uEvzm+VJIEU5TTaKT8614iIEtmof8iuTS+u9T5gyHu
+	5Qomj65oc4oV5M/nx3Bho1YCdrpXRrrJEtFnbs86wkVw6P7YZRfvyOaQg2A6WpVSpsXJfF84qzRdx
+	dJEkSL6s3X7h/snx2cpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qac6k-009caP-33;
-	Mon, 28 Aug 2023 13:16:42 +0000
-Received: from mail-lj1-x231.google.com ([2a00:1450:4864:20::231])
+	id 1qacKx-009dgD-36;
+	Mon, 28 Aug 2023 13:31:23 +0000
+Received: from mail-ed1-x530.google.com ([2a00:1450:4864:20::530])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qac6h-009cZs-2j;
-	Mon, 28 Aug 2023 13:16:41 +0000
-Received: by mail-lj1-x231.google.com with SMTP id 38308e7fff4ca-2bc63e0d8cdso47048741fa.2;
-        Mon, 28 Aug 2023 06:16:39 -0700 (PDT)
+	id 1qacKu-009dfs-27
+	for linux-riscv@lists.infradead.org;
+	Mon, 28 Aug 2023 13:31:21 +0000
+Received: by mail-ed1-x530.google.com with SMTP id 4fb4d7f45d1cf-52a3aa99bcdso4608918a12.0
+        for <linux-riscv@lists.infradead.org>; Mon, 28 Aug 2023 06:31:18 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20221208; t=1693228597; x=1693833397;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=XFmS+lobOszZw6W/QjUfDnJ5/Wvc31my2B1+5jBa7/A=;
-        b=OQDAjV8mL2PUcye54nJcr6yKcKc1uYXBEejW9G0o+zfSHAPiUae7LS2RRT+CdJav1d
-         j8gXyy7HXBObI85M8fhu1vAyA086jT9dhzVbit+NxLf4dCvQXPbW+Wl8qFRUt13Iquka
-         GLvsON1Oc3cdnxwHgpbYt0cweaWvqknrNFy/CQnp5RcalL0G+xeUzARgt5H4pWJ0sBfF
-         8vpzXWXvpAkLSgOx28M2huZunrNYiRx+mnxzxEyaJbVdlP+aUscSjhVGZfs9lmwFl0B8
-         0+NjXU5YXcuaIrUgPD4s+YKG060zx1NOgmPkMxO8C+oSag77EIejkjB5KsHjdQzw0+Pe
-         46Sg==
+        d=gmail.com; s=20221208; t=1693229476; x=1693834276;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=J4F0xok8iSguLrceI1R+cP2UDwaDgtc8df9nO/kRk58=;
+        b=Xq8Ut29lcHD8oi1Nrg6IVUoSD6PllAmapPg+i55jSjGmbEIXHur5rANJGut9k6ay8M
+         MGN8cIsMJa3UEltfdTdU5LYnldRBRG8Hgy8aGS88W6VRD9LzTt4hO53OfRoVmdxWq12l
+         cKX5365XOMY/PT2KKYqAt34YKAfKQBXo5P+ZNy1+JZRfMCF/m6I9eKuwz4Gf/0AyqbLL
+         b7qhUmDqOBMrfpRMlVQPTSzH19nlQ0uNbrcxKA0+Zfh7OPuSQJMjJIV+IsfqNRRio8No
+         Hdvzld3O6s/ozWpPApOVg1jXGMHAujS6q91dPkXuhaOw6JrdFq9SUXsvWmxY8JRkN2qD
+         3elg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1693228597; x=1693833397;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=XFmS+lobOszZw6W/QjUfDnJ5/Wvc31my2B1+5jBa7/A=;
-        b=NjErcK+1WXOduiePgwFexr5EnogbMyJ3X8bDzlEXS15EZQzqzMGf6Mvtp9ilELHwyS
-         1XGkOg6pz1AA5zCInrAjnRxTK/hFRWlGsgO2YPN8wUHiFzxDHw0M+JXh3cYVpXV9Y7bv
-         FSp2WPcFp1/+2RTAyXNpo30HOwAedJOzotDBbixdMOHI7IodTY3Fmb338cSpf0CEpHgZ
-         7f3Mp8aQgzkhLCpDuG5d6PM/hEBX6D1+Abeg8sx1kX9qSpyYDKGIXgkNnwgmSDU3J6Qe
-         QJxeE89piuk+w9fPu8m1Cx5iIJLOKCXOzaQxVgTEbtJ6tXr+EK7m1WkaeMkUQhFB4akr
-         spbQ==
-X-Gm-Message-State: AOJu0YxBxnbfYUHP9oBJazDjEKSBTDWj7eTbR/vtatLyD8AgLQsfl55/
-	E3qqQFq8qflvYeb4N9m/43E=
-X-Google-Smtp-Source: AGHT+IGSl1gon6Mw15MQYmfOY6/9wlPue4ynOnk1kyxKFHnkqnQl6GNsj4QdZfkhjBmEOXhmF7zt6A==
-X-Received: by 2002:a2e:a201:0:b0:2b5:9d78:213e with SMTP id h1-20020a2ea201000000b002b59d78213emr18323279ljm.22.1693228597433;
-        Mon, 28 Aug 2023 06:16:37 -0700 (PDT)
-Received: from mobilestation ([178.176.56.174])
-        by smtp.gmail.com with ESMTPSA id l17-20020a2e7011000000b002b9f1214394sm1754206ljc.13.2023.08.28.06.16.36
+        d=1e100.net; s=20221208; t=1693229476; x=1693834276;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=J4F0xok8iSguLrceI1R+cP2UDwaDgtc8df9nO/kRk58=;
+        b=JckKMjE0/2dpvoYsKrMPe64WrKSlyPvfX1aQ4fPDRjBuH/HEVOhlFWtqzTWK3pvgE3
+         e92fwn5zEXtfS5KofAMyh1S5B9OzzzAzo4cIXmx1woS3CCkgA1pV1wb1d7iR4pts5cPm
+         98fCEI8r9HuQ4dKRxC2YDP08gJhGAbj35EYwq/FRwa1rbN78FrhcvUna3HpkBSl4C39t
+         LgHkwvBlJPKQETgaTDe5vSPgqsXI0ATWUys4Fj83A6h0RUX5OryCnoCaQf8FvTEz9yNU
+         xKJ22t7hiBSp1SL/0xFt+AT4FLSGLSybDHDfQlBVXD7TQ8ZRNhUVr6bAvHqAZtruufqb
+         f43w==
+X-Gm-Message-State: AOJu0YzPbZy2az46KehDmxAXTbOqq3pjBtcr2eG3YPxBZ2KIUPFkVFf/
+	C/1V6LxT+VFPVmu7eZGbGtLfv6duUVY=
+X-Google-Smtp-Source: AGHT+IEevoaUFlo+XVGkG/Su7M0zsQH3rcxIRPrBFo25Ik3pI5AToux6RP2Jye1EIsHpMOJ6Ax1p/g==
+X-Received: by 2002:a17:906:3152:b0:9a1:d29c:6aaa with SMTP id e18-20020a170906315200b009a1d29c6aaamr11749253eje.39.1693229476398;
+        Mon, 28 Aug 2023 06:31:16 -0700 (PDT)
+Received: from nam-dell (ip-217-105-46-58.ip.prioritytelecom.net. [217.105.46.58])
+        by smtp.gmail.com with ESMTPSA id p23-20020a170906839700b0099d9b50d786sm4670029ejx.199.2023.08.28.06.31.15
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 28 Aug 2023 06:16:36 -0700 (PDT)
-Date: Mon, 28 Aug 2023 16:16:34 +0300
-From: Serge Semin <fancer.lancer@gmail.com>
-To: Jisheng Zhang <jszhang@kernel.org>
-Cc: "David S . Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, 
-	Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Giuseppe Cavallaro <peppe.cavallaro@st.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Jose Abreu <joabreu@synopsys.com>, Maxime@web.codeaurora.org, Coquelin@web.codeaurora.org, 
-	Simon Horman <simon.horman@corigine.com>, netdev@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH net-next v2 2/3] dt-bindings: net: add T-HEAD dwmac
- support
-Message-ID: <koiz2vlo3juah7kgvefjiyvxkh7k6tu3an3v7uewpmtdurkico@sazvvhpwvzg6>
-References: <20230827091710.1483-1-jszhang@kernel.org>
- <20230827091710.1483-3-jszhang@kernel.org>
+        Mon, 28 Aug 2023 06:31:15 -0700 (PDT)
+Date: Mon, 28 Aug 2023 15:31:15 +0200
+From: Nam Cao <namcaov@gmail.com>
+To: =?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@kernel.org>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, guoren@kernel.org
+Subject: Re: [PATCH] riscv: provide riscv-specific is_trap_insn()
+Message-ID: <ZOyhozSq3S36eRSq@nam-dell>
+References: <20230827205641.46836-1-namcaov@gmail.com>
+ <874jkjl4e1.fsf@all.your.base.are.belong.to.us>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20230827091710.1483-3-jszhang@kernel.org>
+In-Reply-To: <874jkjl4e1.fsf@all.your.base.are.belong.to.us>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230828_061639_887141_EF5B6424 
-X-CRM114-Status: GOOD (  18.39  )
+X-CRM114-CacheID: sfid-20230828_063120_714924_2FAC8943 
+X-CRM114-Status: GOOD (  18.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,128 +90,50 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Aug 27, 2023 at 05:17:09PM +0800, Jisheng Zhang wrote:
-> Add documentation to describe T-HEAD dwmac.
-> 
-> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> ---
->  .../devicetree/bindings/net/snps,dwmac.yaml   |  1 +
->  .../devicetree/bindings/net/thead,dwmac.yaml  | 77 +++++++++++++++++++
->  2 files changed, 78 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/net/thead,dwmac.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/net/snps,dwmac.yaml b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-> index b196c5de2061..73821f86a609 100644
-> --- a/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-> +++ b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-> @@ -96,6 +96,7 @@ properties:
->          - snps,dwxgmac
->          - snps,dwxgmac-2.10
->          - starfive,jh7110-dwmac
-> +        - thead,th1520-dwmac
->  
->    reg:
->      minItems: 1
-> diff --git a/Documentation/devicetree/bindings/net/thead,dwmac.yaml b/Documentation/devicetree/bindings/net/thead,dwmac.yaml
-> new file mode 100644
-> index 000000000000..bf8ec8ca2753
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/net/thead,dwmac.yaml
-> @@ -0,0 +1,77 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/net/thead,dwmac.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: T-HEAD DWMAC Ethernet controller
-> +
-> +maintainers:
-> +  - Jisheng Zhang <jszhang@kernel.org>
-> +
-> +select:
-> +  properties:
-> +    compatible:
-> +      contains:
-> +        enum:
-> +          - thead,th1520-dwmac
-> +  required:
-> +    - compatible
-> +
-> +properties:
-> +  compatible:
-> +    items:
-> +      - enum:
-> +          - thead,th1520-dwmac
-> +      - const: snps,dwmac-3.70a
-> +
-> +  reg:
-> +    maxItems: 1
-> +
+On Mon, Aug 28, 2023 at 02:48:06PM +0200, Bj=F6rn T=F6pel wrote:
+> Nam Cao <namcaov@gmail.com> writes:
+> =
 
-> +  thead,gmacapb:
+> > uprobes expects is_trap_insn() to return true for any trap instructions,
+> > not just the one used for installing uprobe. The current default
+> > implementation only returns true for 16-bit c.ebreak if C extension is
+> > enabled. This can confuse uprobes if a 32-bit ebreak generates a trap
+> > exception from userspace: uprobes asks is_trap_insn() who says there is=
+ no
+> > trap, so uprobes assume a probe was there before but has been removed, =
+and
+> > return to the trap instruction. This cause an infinite loop of entering
+> > and exiting trap handler.
+> >
+> > Instead of using the default implementation, implement this function
+> > speficially for riscv which checks for both ebreak and c.ebreak.
+> =
 
-BTW what is a point in having the "apb" prefix in the name?
-The property name like "thead,gmac-syscon" looks much more suitable
-since it refers to the actual property content.
+> I took this for a spin, and it indeed fixes this new hang! Nice!
 
--Serge(y)
+Great! Thanks for testing it.
+ =
 
-> +    $ref: /schemas/types.yaml#/definitions/phandle
-> +    description:
-> +      The phandle to the syscon node that control ethernet
-> +      interface and timing delay.
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - clocks
-> +  - clock-names
-> +  - interrupts
-> +  - interrupt-names
-> +  - phy-mode
-> +  - thead,gmacapb
-> +
-> +allOf:
-> +  - $ref: snps,dwmac.yaml#
-> +
-> +unevaluatedProperties: false
-> +
-> +examples:
-> +  - |
-> +    gmac0: ethernet@e7070000 {
-> +        compatible = "thead,th1520-dwmac", "snps,dwmac-3.70a";
-> +        reg = <0xe7070000 0x2000>;
-> +        clocks = <&clk 1>, <&clk 2>;
-> +        clock-names = "stmmaceth", "pclk";
-> +        interrupts = <66>;
-> +        interrupt-names = "macirq";
-> +        phy-mode = "rgmii-id";
-> +        snps,fixed-burst;
-> +        snps,axi-config = <&stmmac_axi_setup>;
-> +        snps,pbl = <32>;
-> +        thead,gmacapb = <&gmacapb_syscon>;
-> +        phy-handle = <&phy0>;
-> +
-> +        mdio {
-> +            #address-cells = <1>;
-> +            #size-cells = <0>;
-> +            compatible = "snps,dwmac-mdio";
-> +
-> +            phy0: ethernet-phy@0 {
-> +                reg = <0>;
-> +            };
-> +        };
-> +    };
-> -- 
-> 2.40.1
-> 
-> 
+> However, when I tried setting an uprobe on the ebreak instruction
+> (offset 0x118) from your example [1], the probe does not show up in the
+> trace buffer.
+> =
+
+> Any ideas?
+
+From my understanding, both uprobes and kprobes refuse to install break poi=
+nts
+into existing trap instructions. Otherwise, we may conflict with something =
+else
+that is also using trap instructions.
+
+Best regards,
+Nam
 
 _______________________________________________
 linux-riscv mailing list
