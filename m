@@ -4,81 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9D03C83F12
-	for <linux-riscv@archiver.kernel.org>; Mon, 28 Aug 2023 10:18:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C10BC83F11
+	for <linux-riscv@archiver.kernel.org>; Mon, 28 Aug 2023 10:28:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=kP9m+Az7OUaVPvuR+kTpaMIhKbjIxOaYHbb+iBm5VWU=; b=jxeev1F22th4mA
-	It2b7BKwE1ChwR0Dfe/0Hwqw3n+bOtp3DoPdblQskWC7BVBbG/XEFNzJFqIFuhGcw16lT+YHwkQ45
-	qgUzta0uFtdLMh5s+ns2MIejBozxEHXlSIZ3HwPTHAcvElr+Vke1sR8F+QcvIBOXUyEPgFXMjddcD
-	vCkLrKUYDo49Yv9PDLF3nLRK1Ia7oDWaCDxD6aorw6BUW8SCF8fTDhym8dEl90fwdKPF3/XycfVNy
-	mY2n8dU0QSVer1gVpvXO5RO32rgvrUxH/KKanIR2zUQCGPeZYUSUeezkLJC+RxGVDLvh2gb56R551
-	q7M4PrbBPNUsHJ9v7yKA==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=ba2aifNbzVqCFqmt3LkSnx9dGqntyxcMSc0mwGKaBNw=; b=l7P1cEXMiUvq81
+	73NLdhkdfQUifk1UKCpsTEKu6/QlsY9xoowIZgJn2/T/94sDNmNHt9Y9f5LpFBkCwTna5cqkc2NHF
+	S9gj7ZSNGZBUG7hItexzM5ZewLimzarIYW7S/Lvjri6CS5tUG/fccU8FhMiOiOT5y9Osd37+cQnUV
+	20GgRX7SKzUd9Vj1+a5SFeSDN3kD/JbGjcC2C2nGK1PEdbka0YEeIT1x8CsS6woshAHiyUs4cPChZ
+	9CzzuKNY+UupOvYOs6Tj4DDAq66yE74Nk0RzadcugjnmoNOcsD40x6r7i44b5Yq/3E7k7RJCK8bvq
+	xi4jzJvnVIzDq5g0SHjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qaZK1-009LLa-1v;
-	Mon, 28 Aug 2023 10:18:13 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1qaZTw-009R1Z-1U;
+	Mon, 28 Aug 2023 10:28:28 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qaZJz-009LH8-0Y
+	id 1qaZTt-009R1A-1B
 	for linux-riscv@lists.infradead.org;
-	Mon, 28 Aug 2023 10:18:12 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-3fe32016bc8so25952535e9.1
-        for <linux-riscv@lists.infradead.org>; Mon, 28 Aug 2023 03:18:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20221208; t=1693217886; x=1693822686;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=CeZBtWQaJUN6ZOGBoOnH558TFF2EUag60T17Wp9Kg4M=;
-        b=Vs8QHefx/RWpAkKrxleoTCuMbFc/uAGM+iQu5RyJo7hteyEQolfGpUZsZJQ+fQD/sk
-         IVi5kqxICnYYpKflJyeC6VwO6Pdp1+seovJbejJ6ME6vv48YEDnxgfruXCr4S9Gv3E9j
-         0wwu0BX60HriSq/ShMnqgWG27zes2bNgtURPYo0nfXnDuKugv/9GOO71BpIcl/L0/NSV
-         K50TH0gJhoqfZLnOBzmVlCwN6p/1yyH+ZB/t812TJhals2Dcq38DqIhj4OaCcm/Vwtd1
-         4TbJyp9cuqC+WT7tgpMkJpSuzpr+EDZqcxuYCg32BwBUFM1BJqh2cWXg0haWlVAbw1bh
-         QrtQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1693217886; x=1693822686;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=CeZBtWQaJUN6ZOGBoOnH558TFF2EUag60T17Wp9Kg4M=;
-        b=PBQsUtqVKPuld/NkepBEv2VMzH4S15FBnMMokZmtDXuyJrrfvGKAevYSu4rsTYyeT4
-         xQLRQnxYOiuN87X6zvfZl23Z/Lt/RMSJPPHLKvxLFljx2LNvAs8jvXGqF04php2pTO14
-         tipqML7aZMpFbFRqpqBUhyJ311ePVpX7Dq7nLPDI/6nFDwXOJ0MJ1SuELlQtxMoUM966
-         nVzJEcliQdihK4ml40e3LFgKY/hs2zYjAXD7ht6fooAeZHgN3A/G1waKARw7Qcr6YePF
-         RN7AYE8x+1QIg35cPHnI1ebMlqJnrxHkNLpC20W6mHFrLCB00R2f9bKP7td2R49QETQi
-         z7QA==
-X-Gm-Message-State: AOJu0YwxpwpcyymMvE+BTKsvzQLmr/y/Bfcv8hQj3NKnhZ/4KKKGZ8HB
-	9OmrdSbGPtGTkpgNNhGlsZ7Ylc44nSg=
-X-Google-Smtp-Source: AGHT+IHlR7naiZ50D4GZfiqE7+hS4xiSzN++QiIM+EM1E63Np0zIERMFSvy1wgM39uNwGoEott1LWw==
-X-Received: by 2002:a1c:771a:0:b0:401:bdf9:c336 with SMTP id t26-20020a1c771a000000b00401bdf9c336mr4871176wmi.27.1693217885966;
-        Mon, 28 Aug 2023 03:18:05 -0700 (PDT)
-Received: from localhost.localdomain ([92.85.190.61])
-        by smtp.gmail.com with ESMTPSA id a13-20020a05600c224d00b003fefca26c72sm10374554wmm.23.2023.08.28.03.18.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 28 Aug 2023 03:18:05 -0700 (PDT)
-From: Andrei Coardos <aboutphysycs@gmail.com>
-To: linux-kernel@vger.kernel.org,
-	linux-crypto@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Cc: alex@shruggie.ro,
-	herbert@gondor.apana.org.au,
-	olivia@selenic.com,
-	daire.mcnamara@microchip.com,
-	conor.dooley@microchip.com,
-	Andrei Coardos <aboutphysycs@gmail.com>
-Subject: [PATCH] char: hw_random: mpfs-rng: removed unneeded call to platform_set_drvdata()
-Date: Mon, 28 Aug 2023 13:17:57 +0300
-Message-Id: <20230828101757.9724-1-aboutphysycs@gmail.com>
-X-Mailer: git-send-email 2.34.1
+	Mon, 28 Aug 2023 10:28:26 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 3149563BA6
+	for <linux-riscv@lists.infradead.org>; Mon, 28 Aug 2023 10:28:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 95D23C433CA
+	for <linux-riscv@lists.infradead.org>; Mon, 28 Aug 2023 10:28:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1693218503;
+	bh=n4XE7nxHzlz8l0Qrwy0GwtxS3jAaS4ZgOwDJ7QBRvMM=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=ET27Az6rATIIp9xTqGzMsJiDJ4oiH1GvmgM9gOR9s7J7H7cSv76GEx9ldL7/JMQeO
+	 ExJldwFcv2I95wkwSkTCX7rer3fUFVuTfJjpM+pfFx+kA+W49ib0+hEQ/xRSA1uiSN
+	 IFBsegGUQAfMXrsI1hRWSquPpQ1JvwD6v4bQ1Vn3S7tut/kKpRC/MSCC74Q5Afa18o
+	 V2XtmMvpkRswzCkC0T4THDncHwjfqCM61zy7StNNcVmkyqZ5a434c6oeXOBFge5W24
+	 //TQnh34uEheMdhBvcx38ooqHUscmeT6YfANwhePuUO8jKgXABX5PMtVHRElaHRdOd
+	 Deq/GSrJUlr5A==
+Received: by mail-lj1-f181.google.com with SMTP id 38308e7fff4ca-2bc63e0d8cdso44555441fa.2
+        for <linux-riscv@lists.infradead.org>; Mon, 28 Aug 2023 03:28:23 -0700 (PDT)
+X-Gm-Message-State: AOJu0YwqUobkzbz4cmy3iXckuGPRtPbtUwOLfjZ4AjqBvozzj3k6Hu+v
+	L0w3GJPntkTb2SSY64O3doawdES/yXpwMGTbQvk=
+X-Google-Smtp-Source: AGHT+IFkiw41hE2snmkem3YKEjAH2DwCq9IQe+ZWejBMSWZ61AhN8HbfynocOGTt6GHuZjv5/B8zMOj3BCjAwiJPErw=
+X-Received: by 2002:a05:6512:220c:b0:4f4:b13a:d683 with SMTP id
+ h12-20020a056512220c00b004f4b13ad683mr22435552lfu.69.1693218501656; Mon, 28
+ Aug 2023 03:28:21 -0700 (PDT)
 MIME-Version: 1.0
+References: <20230806024715.3061589-1-xiao.w.wang@intel.com>
+ <CAMj1kXHicVpT7PDSB=BgYEuhBxgufHqd9X8ZCg19k0_U+rjvEg@mail.gmail.com>
+ <DM8PR11MB5751DA69DEEAAC9B06623E0BB80FA@DM8PR11MB5751.namprd11.prod.outlook.com>
+ <DM8PR11MB575198187CB962EBE663B7F0B8E1A@DM8PR11MB5751.namprd11.prod.outlook.com>
+In-Reply-To: <DM8PR11MB575198187CB962EBE663B7F0B8E1A@DM8PR11MB5751.namprd11.prod.outlook.com>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Mon, 28 Aug 2023 12:28:09 +0200
+X-Gmail-Original-Message-ID: <CAMj1kXGCGVhA=bc+2gNZwb7s_H4K6yk54J04pUQ1XPW+8-2COA@mail.gmail.com>
+Message-ID: <CAMj1kXGCGVhA=bc+2gNZwb7s_H4K6yk54J04pUQ1XPW+8-2COA@mail.gmail.com>
+Subject: Re: [PATCH] RISC-V: Optimize bitops with Zbb extension
+To: "Wang, Xiao W" <xiao.w.wang@intel.com>
+Cc: "paul.walmsley@sifive.com" <paul.walmsley@sifive.com>, "palmer@dabbelt.com" <palmer@dabbelt.com>, 
+	"aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>, "anup@brainfault.org" <anup@brainfault.org>, 
+	"Li, Haicheng" <haicheng.li@intel.com>, 
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>, 
+	"linux-efi@vger.kernel.org" <linux-efi@vger.kernel.org>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230828_031811_209923_4176DDA6 
-X-CRM114-Status: GOOD (  10.97  )
+X-CRM114-CacheID: sfid-20230828_032825_515808_C1678C33 
+X-CRM114-Status: GOOD (  31.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,32 +90,114 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This function call was found to be unnecessary as there is no equivalent
-platform_get_drvdata() call to access the private data of the driver. Also,
-the private data is defined in this driver, so there is no risk of it being
-accessed outside of this driver file.
+On Sun, 27 Aug 2023 at 11:26, Wang, Xiao W <xiao.w.wang@intel.com> wrote:
+>
+> Hi,
+>
+> A gentle ping.
+> Any other comments or suggestions for this patch? Or maybe we would review it in the Linux 6.7 development cycle?
+>
 
-Signed-off-by: Andrei Coardos <aboutphysycs@gmail.com>
----
- drivers/char/hw_random/mpfs-rng.c | 2 --
- 1 file changed, 2 deletions(-)
+This is going to be 6.7 material at the earliest in any case.
 
-diff --git a/drivers/char/hw_random/mpfs-rng.c b/drivers/char/hw_random/mpfs-rng.c
-index c6972734ae62..0994024daa70 100644
---- a/drivers/char/hw_random/mpfs-rng.c
-+++ b/drivers/char/hw_random/mpfs-rng.c
-@@ -79,8 +79,6 @@ static int mpfs_rng_probe(struct platform_device *pdev)
- 	rng_priv->rng.read = mpfs_rng_read;
- 	rng_priv->rng.name = pdev->name;
- 
--	platform_set_drvdata(pdev, rng_priv);
--
- 	ret = devm_hwrng_register(&pdev->dev, &rng_priv->rng);
- 	if (ret)
- 		return dev_err_probe(&pdev->dev, ret, "Failed to register MPFS hwrng\n");
--- 
-2.34.1
+I am fine with the change as far as the EFI code is concerned, but I'd
+suggest dropping EFI_ from the macro name, as it could be #define'd
+for other reasons too.
 
+
+>
+> > -----Original Message-----
+> > From: Wang, Xiao W
+> > Sent: Sunday, August 6, 2023 6:24 PM
+> > To: Ard Biesheuvel <ardb@kernel.org>
+> > Cc: paul.walmsley@sifive.com; palmer@dabbelt.com;
+> > aou@eecs.berkeley.edu; anup@brainfault.org; Li, Haicheng
+> > <haicheng.li@intel.com>; linux-riscv@lists.infradead.org; linux-
+> > efi@vger.kernel.org; linux-kernel@vger.kernel.org
+> > Subject: RE: [PATCH] RISC-V: Optimize bitops with Zbb extension
+> >
+> > Hi,
+> >
+> > > -----Original Message-----
+> > > From: Ard Biesheuvel <ardb@kernel.org>
+> > > Sent: Sunday, August 6, 2023 5:39 PM
+> > > To: Wang, Xiao W <xiao.w.wang@intel.com>
+> > > Cc: paul.walmsley@sifive.com; palmer@dabbelt.com;
+> > > aou@eecs.berkeley.edu; anup@brainfault.org; Li, Haicheng
+> > > <haicheng.li@intel.com>; linux-riscv@lists.infradead.org; linux-
+> > > efi@vger.kernel.org; linux-kernel@vger.kernel.org
+> > > Subject: Re: [PATCH] RISC-V: Optimize bitops with Zbb extension
+> > >
+> > > On Sun, 6 Aug 2023 at 04:39, Xiao Wang <xiao.w.wang@intel.com> wrote:
+> > > >
+> > > > This patch leverages the alternative mechanism to dynamically optimize
+> > > > bitops (including __ffs, __fls, ffs, fls) with Zbb instructions. When
+> > > > Zbb ext is not supported by the runtime CPU, legacy implementation is
+> > > > used. If Zbb is supported, then the optimized variants will be selected
+> > > > via alternative patching.
+> > > >
+> > > > The legacy bitops support is taken from the generic C implementation as
+> > > > fallback.
+> > > >
+> > > > If the parameter is a build-time constant, we leverage compiler builtin to
+> > > > calculate the result directly, this approach is inspired by x86 bitops
+> > > > implementation.
+> > > >
+> > > > EFI stub runs before the kernel, so alternative mechanism should not be
+> > > > used there, this patch introduces a macro EFI_NO_ALTERNATIVE for this
+> > > > purpose.
+> > > >
+> > >
+> > > Why? The unpatched sequences work fine, no?
+> >
+> > It works. But there would be build warning: orphan section `.init.alternative'
+> > from `./drivers/firmware/efi/libstub/gop.stub.o' being placed in section
+> > `.init.alternative'. Besides, w/o this MACRO, the optimized variant would
+> > never be used at runtime, so this patch choose to disable alternative.
+> >
+> > BRs,
+> > Xiao
+> >
+> > >
+> > >
+> > > > Signed-off-by: Xiao Wang <xiao.w.wang@intel.com>
+> > > > ---
+> > > >  arch/riscv/include/asm/bitops.h       | 266
+> > +++++++++++++++++++++++++-
+> > > >  drivers/firmware/efi/libstub/Makefile |   2 +-
+> > > >  2 files changed, 264 insertions(+), 4 deletions(-)
+> > > >
+> > > > diff --git a/arch/riscv/include/asm/bitops.h
+> > > b/arch/riscv/include/asm/bitops.h
+> > > > index 3540b690944b..f727f6489cd5 100644
+> > > > --- a/arch/riscv/include/asm/bitops.h
+> > > > +++ b/arch/riscv/include/asm/bitops.h
+> > > > @@ -15,13 +15,273 @@
+> > > >  #include <asm/barrier.h>
+> > > >  #include <asm/bitsperlong.h>
+> > > >
+> > > > +#if !defined(CONFIG_RISCV_ISA_ZBB) || defined(EFI_NO_ALTERNATIVE)
+> > > >  #include <asm-generic/bitops/__ffs.h>
+> > > > -#include <asm-generic/bitops/ffz.h>
+> > > > -#include <asm-generic/bitops/fls.h>
+> > > >  #include <asm-generic/bitops/__fls.h>
+> > > > +#include <asm-generic/bitops/ffs.h>
+> > > > +#include <asm-generic/bitops/fls.h>
+> > > > +
+> > > > +#else
+> > > > +#include <asm/alternative-macros.h>
+> > > > +#include <asm/hwcap.h>
+> > > > +
+> > > > +#if (BITS_PER_LONG == 64)
+> > > > +#define CTZW   "ctzw "
+> > > > +#define CLZW   "clzw "
+> > > > +#elif (BITS_PER_LONG == 32)
+> > > > +#define CTZW   "ctz "
+> > > > +#define CLZW   "clz "
+> > > > +#else
+> > > > +#error "Unexpected BITS_PER_LONG"
+> > > > +#endif
+> > [...]
 
 _______________________________________________
 linux-riscv mailing list
