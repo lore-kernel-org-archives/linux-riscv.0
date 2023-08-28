@@ -4,76 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28E2FC83F12
-	for <linux-riscv@archiver.kernel.org>; Mon, 28 Aug 2023 15:29:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD8B2C83F12
+	for <linux-riscv@archiver.kernel.org>; Mon, 28 Aug 2023 15:35:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0syjyCyoWSurqNfOVh3j55P5sBUQV4/5jBJO5/owsgY=; b=Bzef9bM/+ah0xc
-	1yN4o/gYk6KbGdTdVjIgn9AKLHglyUa+MpaKJ1ra92aPuEyVrIa2Ut9uE2na6EpIHe1mDT0Nd5fsW
-	UM0ykOQBIe4cllCN2phqvC1tb3jy8bE0xEO/D+EEHDqL/315/50NUbA7lPaaNJ9XC1JEkGPJAuhqf
-	o806g2v4Xnll/74hFuJ9meQrYCnVHWDwuSMBDCncMNgh2vrXiYmybLQHXqiFddmbvJNkuQrX9MVr0
-	n+6bh+JlB1Z8mxO/digi/rSUuiYb8tHM78BIiMLiEINab2GdfS/krm1Ch3C7JgKWB196GKkKzob39
-	GcxM/btmaNY/BLz1npqA==;
+	List-Owner; bh=80Wp+I9Jm1v0/2HxTlGieQXuPKc+208wXjF51pL5ccA=; b=oK5vG8vczNzLF2
+	xUETuupdq7iVLqoE811tM7Fvo2gwYtxCHtXwtEQNxkvQBpyPbug2Na5xEVV0XjNTK3NzZL1B3WCSU
+	Oee0FmnVmN0eK451BvGuCttLL+knHE0Y7sgbM+48tgm7CV++Q2usL4iTomURkwP5lIFpG6OsjK+jU
+	Nk+JXs3d+iLfCjIoPvDL957hE2G9X6JN748Yu0FvaoFagIMxZOU6sVCyXvO0vn+MitaY+O2SU3RDo
+	dbQ8rL/2Hj2gjkGodyscdTGLKeqAul5/uExCpaO2LkhoS1SUWaKx1+Qi/FMSC7SToI8ymWQNh3T8K
+	srrNrpmcYcsuse/ijmEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qaeBO-009nZS-0Y;
-	Mon, 28 Aug 2023 15:29:38 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1qaeHT-009o68-2I;
+	Mon, 28 Aug 2023 15:35:55 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qaeBJ-009nYu-2G;
-	Mon, 28 Aug 2023 15:29:35 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 05CEA61DEB;
-	Mon, 28 Aug 2023 15:29:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 279ABC433C8;
-	Mon, 28 Aug 2023 15:29:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1693236572;
-	bh=dhT/NBwMHiuduDbdnzNZlW5Q3qXsPNbsQZIelzXVMWU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=BG530VfhxgnihhbytfskWoXrhTi2MQzMTmq/d57QU13tr3eamljeLiF0YoBH2zq5C
-	 aavWkg2o44ar0++FFqxCNWh5aR8e5YVvLSVK20N7XPlmTy8BgbIfy3hIzXIPpdRNlB
-	 GDUCvCu/oWcbxhPTk0YYt76vjBc1iVEzsmYkX3kofUqpeLxkGv1WIhmXhJiAmwtiv2
-	 2NRF17TC5rq85vyA9jAV+vdbxJz27qbwWMppsaG+UlPrGKtjeUVarjcBXxtjm0q2Gg
-	 RiUzuLN36ijcYdO5w4j1/mF0Mgc5yVZCAPptIt3nsf5a4gh40MZCt3eP/tMetteKTC
-	 TfG38aU1upUvA==
-Date: Mon, 28 Aug 2023 23:17:36 +0800
-From: Jisheng Zhang <jszhang@kernel.org>
-To: Serge Semin <fancer.lancer@gmail.com>
-Cc: "David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Jose Abreu <joabreu@synopsys.com>, Maxime@web.codeaurora.org,
-	Coquelin@web.codeaurora.org,
-	Simon Horman <simon.horman@corigine.com>, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH net-next v2 2/3] dt-bindings: net: add T-HEAD dwmac
- support
-Message-ID: <ZOy6kLGZ1lR0I2sC@xhacker>
-References: <20230827091710.1483-1-jszhang@kernel.org>
- <20230827091710.1483-3-jszhang@kernel.org>
- <qc2nyqmuouig6qww2q7orlwzvcprjyruyeuyr5dqdpxysajjpv@6fzsgjgokry7>
+	id 1qaeHQ-009o5C-2K
+	for linux-riscv@lists.infradead.org;
+	Mon, 28 Aug 2023 15:35:53 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-40078c4855fso31547395e9.3
+        for <linux-riscv@lists.infradead.org>; Mon, 28 Aug 2023 08:35:50 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20221208; t=1693236949; x=1693841749;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=mzAX6lqqHTluclgLNh1EUElGR4QXqRqoc9259SBPLU8=;
+        b=L8tjr27q6ggRC6qCsj5TJadHQXfL8J+RdwqQn6XM0VlhObtBH2Sya6jLWcLe0R0wR3
+         xhmXjkr0kqa3760Oyg/+YD7dLCme27Hh/hZWuIPDpT5cr+Raxo4LjxUz884ZF0Si7XqY
+         nwVblkiTpx2IbBPXODPVzgrTYRNNUbyKuci0OQxTCawXtflZmsoj/tRZQ9ZxoLYjD4FF
+         P1fh6voXSQyzqhIAFf8VWyj/njtZVXsVB4k/NHM+WUAZJKcAA1bF77AyZf0jWRV5xSkp
+         9ub82sSMiS0CLd5gKNpxVu91yCSBPaBmlPlV/3vSaOask252Se3eQFhRvYwFgt2e3rp2
+         +nvQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1693236949; x=1693841749;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=mzAX6lqqHTluclgLNh1EUElGR4QXqRqoc9259SBPLU8=;
+        b=BlmKznHhHu6xg/2pbXmSN8LBo68v15Lm/xTuSXNXE3Y3o2/QAsPUZXeArbA8tQ/k91
+         fHs/MTR6IXEKi2foysuUIJlR3FBDK/Klbn76KRRrFkibYj9wYBpPSYlDsx5WFggkgOJz
+         idPTrAIJLpp4ngmWNh0SBEiQmergWYs0rVDMGho8JaJ+lysDLajGpnsH/Njq8BJZ2BY1
+         rcKdRxZEhUufc6eaiaGiLJWZD5N6XfJJSZ2xjB4IAWgD3+JjaU3ruV58wxRwI5ZpCGuH
+         FS5MhBfKops50GcSUlkNPdUh6jY99gWPm0S60y/gDiWKQjuyZEWueslWtN4ye5z1sDgk
+         FdnQ==
+X-Gm-Message-State: AOJu0YwYfxU5iOo5W1y48eYWlUD+lllAQNXZcogw1cPhRBkqOyZRgaBQ
+	a4DW/bBgf92BFBeihvh0d7k=
+X-Google-Smtp-Source: AGHT+IEfbfIoLSEJ4mhCVMfR2RUI4/euIEv22Sb6Ji7X+ZmdVa3DlIAgd265KR9S9ErkaoL7KbDt4g==
+X-Received: by 2002:a1c:7303:0:b0:3fe:3004:1ffd with SMTP id d3-20020a1c7303000000b003fe30041ffdmr19711222wmb.4.1693236949046;
+        Mon, 28 Aug 2023 08:35:49 -0700 (PDT)
+Received: from ip-172-31-30-46.eu-west-1.compute.internal (ec2-54-170-241-106.eu-west-1.compute.amazonaws.com. [54.170.241.106])
+        by smtp.gmail.com with ESMTPSA id c1-20020a056000104100b0031aef72a021sm10680247wrx.86.2023.08.28.08.35.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 28 Aug 2023 08:35:48 -0700 (PDT)
+From: Puranjay Mohan <puranjay12@gmail.com>
+To: bjorn@kernel.org
+Cc: aou@eecs.berkeley.edu,
+	bjorn@rivosinc.com,
+	guoren@kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-trace-kernel@vger.kernel.org,
+	lkp@intel.com,
+	namcaov@gmail.com,
+	palmer@dabbelt.com,
+	paul.walmsley@sifive.com,
+	Puranjay Mohan <puranjay12@gmail.com>
+Subject: Re: [PATCH v2] riscv: Only consider swbp/ss handlers for correct privileged mode
+Date: Mon, 28 Aug 2023 15:35:35 +0000
+Message-Id: <20230828153535.1568230-1-puranjay12@gmail.com>
+X-Mailer: git-send-email 2.40.1
+In-Reply-To: <20230827114003.224958-1-bjorn@kernel.org>
+References: <20230827114003.224958-1-bjorn@kernel.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <qc2nyqmuouig6qww2q7orlwzvcprjyruyeuyr5dqdpxysajjpv@6fzsgjgokry7>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230828_082933_853660_E34F22CA 
-X-CRM114-Status: GOOD (  26.48  )
+X-CRM114-CacheID: sfid-20230828_083552_762144_43197042 
+X-CRM114-Status: UNSURE (   4.02  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,99 +102,7 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 28, 2023 at 04:13:00PM +0300, Serge Semin wrote:
-> On Sun, Aug 27, 2023 at 05:17:09PM +0800, Jisheng Zhang wrote:
-> > Add documentation to describe T-HEAD dwmac.
-> > 
-> > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> > ---
-> >  .../devicetree/bindings/net/snps,dwmac.yaml   |  1 +
-> >  .../devicetree/bindings/net/thead,dwmac.yaml  | 77 +++++++++++++++++++
-> >  2 files changed, 78 insertions(+)
-> >  create mode 100644 Documentation/devicetree/bindings/net/thead,dwmac.yaml
-> > 
-> > diff --git a/Documentation/devicetree/bindings/net/snps,dwmac.yaml b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-> > index b196c5de2061..73821f86a609 100644
-> > --- a/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-> > +++ b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-> > @@ -96,6 +96,7 @@ properties:
-> >          - snps,dwxgmac
-> >          - snps,dwxgmac-2.10
-> >          - starfive,jh7110-dwmac
-> > +        - thead,th1520-dwmac
-> >  
-> >    reg:
-> >      minItems: 1
-> > diff --git a/Documentation/devicetree/bindings/net/thead,dwmac.yaml b/Documentation/devicetree/bindings/net/thead,dwmac.yaml
-> > new file mode 100644
-> > index 000000000000..bf8ec8ca2753
-> > --- /dev/null
-> 
-> > +++ b/Documentation/devicetree/bindings/net/thead,dwmac.yaml
-> 
-> see further regarding using dwmac in the names here.
-> 
-> > @@ -0,0 +1,77 @@
-> > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> > +%YAML 1.2
-> > +---
-> > +$id: http://devicetree.org/schemas/net/thead,dwmac.yaml#
-> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > +
-> 
-> > +title: T-HEAD DWMAC Ethernet controller
-> 
-> Additionally would be nice to have a brief controller "description:"
-> having the next info: the SoCs the controllers can be found on, the DW
-> (G)MAC IP-core version the ethernet controller is based on and some
-> data about the synthesize parameters: SMA (MDIO-bus), Tx/Rx COE, DMA
-> FIFOs size, perfect and hash MAC-filters size, L3L4 frame filters
-> availability, VLAN hash filter, SA/VLAN-tag insertion, ARP offload
-> engine, PHY interfaces (MII, RMII, RGMII, etc), EEE support, IEEE
-> 1588(-2008) Timestamping support, PMT and Wake-up frame support, MAC
-> Management counters (MMC). In addition to that for DW QoS
-> ETH/XGMAC/XLGMAC the next info would be useful: number of MTL Queues
-> and DMA channels, MTL queues capabilities (QoS-related), TSO
-> availability, SPO availability.
-> 
-> Note DMA FIFO sizes can be also constrained in the properties
-> "rx-fifo-depth" and "tx-fifo-depth"; perfect and hash MAC-filter sizes -
-> in "snps,perfect-filter-entries" and "snps,multicast-filter-bins".
-
-Hi Serge,
-
-Thank you for your code review. I have different views here: If we
-only support the gmac controller in one specific SoC, these detailed
-information is nice to have, but what about if the driver/dt-binding
-supports the gmac controller in different SoCs? These detailed
-information will be outdated.
-
-what's more, I think the purpose of dt-binding is different from
-the one of documentation.
-
-So I prefer to put these GMAC IP related detailed information into
-the SoC's dtsi commit msg rather than polluting the dt-binding.
-> 
-> > +
-> > +maintainers:
-> > +  - Jisheng Zhang <jszhang@kernel.org>
-> > +
-> > +select:
-> > +  properties:
-> > +    compatible:
-> > +      contains:
-> > +        enum:
-> 
-> > +          - thead,th1520-dwmac
-> 
-> Referring to the DW IP-core in the compatible string isn't very
-> much useful especially seeing you have a generic fallback compatible.
-> Name like "thead,th1520-gmac" looks more informative indicating its
-> speed capability.
-
-This is just to follow the common style as those dwmac-* does.
-I'm not sure which is better, but personally, I'd like to keep current
-common style.
+Tested-by: Puranjay Mohan <puranjay12@gmail.com>
 
 _______________________________________________
 linux-riscv mailing list
