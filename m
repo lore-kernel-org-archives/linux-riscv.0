@@ -4,128 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56C9FC83F11
-	for <linux-riscv@archiver.kernel.org>; Mon, 28 Aug 2023 06:58:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5AC0C83F12
+	for <linux-riscv@archiver.kernel.org>; Mon, 28 Aug 2023 07:13:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Fpwc0Q8K3Fb/IlmGHinYIUChuDLOkIJSd48xv6002kI=; b=cI/UhQxkb+AJMO
-	bDuacuAmAlj54IefSLIWqJWTNIgH7B8GvEZSf9QyreeJtKJg8GypurMf50+rCjWaK3vsdiUDgmWmc
-	MwfT+9CK9rcm5qCVdgo9Zn29jGIKMCtX4bR2513axjJB+pTiQmWCKWupzW+7mHui0eG+2/AIv7iy+
-	DMlEjBtp2dGKcntpY0s6nXbHa9xXtNbcYo/vzWcZ9GsT/wQxCdkvTsmQHG8PlfVD7FH8uxCqfVVbj
-	GLRDreATFNHT7ximHRTVg+eiZUIH69IZkEhXOeGjbqvYPysU8LVcUAWrAutKPNrJjpwV6cg3JR/6A
-	s9nAm49JZvvYUnOaojsg==;
+	List-Owner; bh=oqdv4ssvGPTny/gRnuTYlHbwFIJdrenFqf2MM00kBoM=; b=xQeOvHKMqFLZBw
+	Z80Pd2N0v7odxDhalnPCNtyOJ5bLIX+8E+RktB42ajN9vjiWfZUp8u+gNUjsEF4uPzBVQxwMceN0k
+	cENRTU50kmVIOAhzBht4i1g5UYL35YtI25V92dGnocQZ/OXXLwKO8GOFo04T8R6ucuSQ8yEF0yFBB
+	jR10KGf3egiKG44Qy9yrTpdwB105xLm7ENye/XWye4qPvZQlMgWZPSDIlxfnd2akVK676Pu+n7ZNY
+	HvSYzyg2burx+AzXxImqyJEJPMoYyyOtxsOiE+EdhIHgwjqu8S1TW+UTiibpHiZPWbUNkR2rR1URY
+	oe2f0b8ITKLbUn+e0SGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qaWD2-00915o-1Y;
-	Mon, 28 Aug 2023 06:58:48 +0000
-Received: from mail-dm6nam10olkn2081b.outbound.protection.outlook.com ([2a01:111:f400:7e88::81b] helo=NAM10-DM6-obe.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qaWCq-00914B-2u;
-	Mon, 28 Aug 2023 06:58:38 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=iV62ezMxa43yV6okziQyoPrsOndsonzwAEfP4D8SfBwePLtcF+D0Q8NJUaeqqpzH2yC+nb7k6PRoo+3tAlEi42Qf8CdisuIDVxNvHt5SeSQhK5BrdURituEfpf9HK+yzxqzzebKgDJWsQPOBV0IPN+dbcTuDBFkFAXZswBiNvmmpkDUeKRqvaw0VckmjcxTe+sHXvB1LJM0kCR3zoxk0RGIFuXWnLE+4+vm9WluT4q51JDhxKUOv5T2xAH5WlAByL/KX5O7XEA8rj74FsxGNftWpHCaDVKnj0wFZtBKrphOBNIS8J/P+V2HLLa3PQnWDSkJh25qku0jg8TwIYAT+Ng==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=4FVHtqkBHzIlIKUa3DuF+TkQXUSOeuxbJuRTtXXZDSI=;
- b=CQorUyJ93gJfTV9ZiUKb+ReBK+8SuTg6aTVf4drdzQalyJGGN6fcHI4gXyEIQImFBHHlmz9L9JKQQU+/gyZIixK3+BEexJHJRqCyQPvEwSAekAthaLUVNpU/WdYhBPK6uVPsdC4YeD8a+Vm6hNs1hbNy4WKRG64DDypbhzauflMcZX5vBDG7wxeuo1Oo6fQUssncEohJh5r9nWOU3bbfgFvcVakJHFlRTIE/JbckXCX7Pe+CzQiaPq6byJJV16Jzlc51yBV9QhX3c95/LA0sakmXHc3PrMKggETS7aeApQdpLs/uYd7ns5cqWaqftNzdfTkjHaPIH5Iri0HPyLxkjQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=4FVHtqkBHzIlIKUa3DuF+TkQXUSOeuxbJuRTtXXZDSI=;
- b=nJE+MuQ+p2GDba9ugUWO2btZpW0gj8uDgLlu0ZaNhyaB7BTkfoRyhGOqEQ6M1VvpjzE9czU3mCCk3h+czfPf1kpPjSpoqhY7B53kQhS1mZUtZNFD0wcUXM/ssLiZ8reFmmoHCF2owXMUtSOm9DsoMnYflM8JDlLL0bwo14bWXXAOUHPrDgBzqG8R8ijv6KfxycopApCag1icfxy7f+RJRjrUVJaVPjvy/DPVdxui54uX6La8T0/D0tbYkoo3xQpgFEhcnzq2wwVuol05IGM2BHXI/8UGfE6SmnTxpduzRP+z+xO/a4W+ADhkoJPbc39anIcFUMWwvXgQynRDPp10mg==
-Received: from IA1PR20MB4953.namprd20.prod.outlook.com (2603:10b6:208:3af::19)
- by MN2PR20MB3286.namprd20.prod.outlook.com (2603:10b6:208:261::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6699.34; Mon, 28 Aug
- 2023 06:58:25 +0000
-Received: from IA1PR20MB4953.namprd20.prod.outlook.com
- ([fe80::cbad:4566:1f3e:4e1f]) by IA1PR20MB4953.namprd20.prod.outlook.com
- ([fe80::cbad:4566:1f3e:4e1f%4]) with mapi id 15.20.6699.034; Mon, 28 Aug 2023
- 06:58:25 +0000
-From: Inochi Amaoto <inochiama@outlook.com>
-To: Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>
-Cc: Rob Herring <robh+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Inochi Amaoto <inochiama@outlook.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Wei Fu <wefu@redhat.com>,
-	Pei Chen <cp0613@linux.alibaba.com>,
-	Wenhan Chen <chenwenhan.cwh@alibaba-inc.com>,
-	Guo Ren <guoren@kernel.org>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4] riscv: dts: allwinner: d1: Add PMU event node
-Date: Mon, 28 Aug 2023 14:59:11 +0800
-Message-ID: <IA1PR20MB495363989FE43EB1FFBF8730BBE0A@IA1PR20MB4953.namprd20.prod.outlook.com>
-X-Mailer: git-send-email 2.42.0
-In-Reply-To: <d3c9e032-e20f-97e1-2d08-9bd87691d43c@linaro.org>
-References: <d3c9e032-e20f-97e1-2d08-9bd87691d43c@linaro.org>
-X-TMN: [ttbY3DnjeA1YYlOihILjSeKrknmd8iCxTHjGZ80jbX4=]
-X-ClientProxiedBy: TYBP286CA0015.JPNP286.PROD.OUTLOOK.COM
- (2603:1096:404:ce::27) To IA1PR20MB4953.namprd20.prod.outlook.com
- (2603:10b6:208:3af::19)
-X-Microsoft-Original-Message-ID: <20230828065911.293188-1-inochiama@outlook.com>
+	id 1qaWRI-0092Tr-2E;
+	Mon, 28 Aug 2023 07:13:32 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1qaWRD-0092Ot-2W
+	for linux-riscv@lists.infradead.org;
+	Mon, 28 Aug 2023 07:13:30 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 2397980C5;
+	Mon, 28 Aug 2023 15:12:37 +0800 (CST)
+Received: from EXMBX072.cuchost.com (172.16.6.82) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 28 Aug
+ 2023 15:12:37 +0800
+Received: from [192.168.125.72] (113.72.145.245) by EXMBX072.cuchost.com
+ (172.16.6.82) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 28 Aug
+ 2023 15:12:35 +0800
+Message-ID: <a49737f0-0a09-b558-ea06-b3d47a6e4240@starfivetech.com>
+Date: Mon, 28 Aug 2023 15:12:35 +0800
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: IA1PR20MB4953:EE_|MN2PR20MB3286:EE_
-X-MS-Office365-Filtering-Correlation-Id: 108adec9-5bae-4fac-ed67-08dba7942d1b
-X-MS-Exchange-SLBlob-MailProps: Om8TgR6f4EA/I6Ph3LQop9pKneXMeAsHMmyRjz4iCzMxziTXWkA3b2h38ss/zBpNuGFZtJOxr9K0R2cn26z2pco8YuHihzcjiZ/+jyFtcfJx/1jfqZXZHoZBt2oeP++mYhsF+KXIOtFJd0ktWy7EwXhjn3YsORGjseMmgJ12Phd71GBrDs/ZQQnfKj0u3B42RoDx5cLtmCY2N5dlQUo4PDIUrPw1Lo5tUzAh+7wx+8hUBoy69vo3KjzItzcGWpTvqUjXMF0lfJ3fvS8hnZi2SNHGiIuwhjqfN25yJR8GyQtL8P2uxxYponiDEdchTdEXy6l7GXuw1bTFsh8QfSyn3Nxh2EuusnCZF9yRhkGAnXynq8SvifLb67/Ocoxg9C6D0FeYyfEvgMFB2YAcB6HKZxn1sqBvsStCllT4b/xwB4PbbjeNuXrxDUIMJ/i93DoGTdn6AB1GvMTmHWgSCFgBrLmx2/oOSXfclakEAnzKlg2ja35HdKR1B2c2659he+Ksv7/V4lgWnV8XYttZMdtCONoBltq3r53mreBKDBLcYsuw+8ix7lQoDueJEisgdUQlVznFWJK1C0bQap4quC9SWo7Bw7atVp/Bm29rY1QAE6TScwjOkRjKRgym7lguvKpAuFfbwPOSihbye3W5pNsoMwlNZpsOZQsdjKPrg/hdhXHTHkMMcEgvb4kz3AGjuNOFNk4rrFqLOdtWNxOMmeushC3uj+apULyJ4vBp8ty3qslLVy2oKnEc+MUhsT5/hYNmbiRHwQ1lk4IA4ft8rlkft2oIE8uWVGcTO0TZFc5mT0JMavnVW5gbFX2Cm/Vs2tux5k4AmwCdbFospqDJ7feCKVUqNy2Z3lHx
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: BCkuEMcffF6+CNW49w3rVDICYE8ysudolDWiVKKkYBFPjOuwa9egCVV5O/SkA+ue5Um78Wpo2zKtMdRSIvyY9eup5ohNA1MglOcefBAhsfnH5EFSEb5Gh2EG2srlA0QGCQE5aWPDFrBg5QASpcBiJMHnXIdwCwb1K+cQO3WDYtbA6JLSyX4ItOc3Js0RT5cJqhFvp0nPQltEkfQVIAlQZcl6bF73z0P/xNPxyGXP8LAb43r5XkO9Bb9IyR9QjpxDpAXiY9FxRcC59CGWB+QLpyMyaBJT6VRlxS0PZecPwXMO3bihA11smJjH2h546/LbWf5mVrBPvzm6KlD2TecTWHOanu30aVcpkGk9ecRkB49eK8/KA7rNq/fDAE7lyCp+BBOanDBfqiqIPT4v2GjtoK75opeFZZP2y3FY8shT1YUFmFFBtezBRn2oahmvDIiEFPYTNS1o3jyoMtvjlMXtjxSbwQPeM1GpmLwYc4WeWptRtVu7byaZYLOjyC0MzuwT1KylBag6U8f0ht+GgqHh8L82YhxIsvwoY9iRrQJaRvMLhJa0hFUQgcpB9XaknT5sQ7E5Bag3Y9pCFZ/9pzQYhREUjWyBB7aqtrNyJbq4vRA=
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?q86PUECD/G4wgsdhzD/Dl0Z7jbyttsnfMNE9epwStbfsYbwvRUM7O1teN2pk?=
- =?us-ascii?Q?JBmaeCsq5t8JF2UptLmCq1CzRmXfyGE8fx50EH4jTc6/TucqklfFQUm4mO92?=
- =?us-ascii?Q?qRPmhvDB0zoKwNX+KblGs20s0UCYeSv0Y6+MoVOEpvHVq4r/jcgd5pPc44oj?=
- =?us-ascii?Q?lpcOKCQ2r3W90Ld0dn2SCW2RYBGFZEsMQM8clgrFngXe37KdP6h1f5gDFm22?=
- =?us-ascii?Q?YHilOy3CJTejnhv2Ox+2uM6pLW1F7+0LpcaGjlqYzzM+jaDlKCbqBYJLf/dD?=
- =?us-ascii?Q?8AJN97K1U7nUFpOfOT9pjexZ0+NPV9uoEr++1A5CyAE3Nl2668ofnzPrSfg7?=
- =?us-ascii?Q?f/mVaavsvRTb5WZe55h3ctBu5HzCFdVALRmWpQa4MOM6NfOxDEVxNZcyc+f6?=
- =?us-ascii?Q?PkkSqGGuv5hTQOLbcix8jTjAbzYgpbHa5/L+DfxCafwy2dSDeJ6aOYwA/v36?=
- =?us-ascii?Q?UW8nCWCkn/1cSE+Femeb7mHU4aAtLFuirJFRrJlo7v7HscUDVCguwafyhbL0?=
- =?us-ascii?Q?uVTft9ITORDAoY2Dwg68OmWvm0T3uIjSZ4PzVMU2ni27lrngiFpBBIsV9LG8?=
- =?us-ascii?Q?w2rGpfdVxYkGi1DXCtik0VdlYKhQhdTM12VBzEHUgG56CbkgK09VvP6c8bPm?=
- =?us-ascii?Q?SAWYIJ2XiOvmHKzcH8yH2VOaDeAMVICioxFtAMD+SzCKM++vgOeYpK7WmW54?=
- =?us-ascii?Q?pCuBiOsLCmDdEWM37PkaZL/uSByMbX+EoK4cPeqjOrpAKX6ioO62LZMPfURS?=
- =?us-ascii?Q?kVo3BfZWDtAXoq04AsEF0owve8GgJfKjsPzv+NHFx9PAsRN2uRGF5wO9lPXw?=
- =?us-ascii?Q?Ik5kNAOgDdiv8YCRMSufwUd1Xvoa5cgN5yFIXcXTigKJB92ico1MRaepSTdL?=
- =?us-ascii?Q?D+RHaMwc9iFp05s3OvJNnbpe+tNBJMDyCTlRgstl+W7pfsV8QnRfMopG/y0Y?=
- =?us-ascii?Q?GDr18pwCkt/1QAHminNctX5nmQPwHGWnnX75KckR16pJVTOCtAww8T02/t07?=
- =?us-ascii?Q?Bo2JOyBz4rgc1Si8x5hVwWCzZN4HmovJZYjbwchM/xRpYSKHwo8z76cgDjvr?=
- =?us-ascii?Q?VhVDVeNPh0CoPA2KXnx03Lx9Knkw41vfeA6MEUSJni5SPzRdOHYNv0nO10RZ?=
- =?us-ascii?Q?0wwl9GAQX9PxR6XvgBTK5oMnzG7QJY3sPed1mH/O9MnBlPjlNxBqss/JtFvw?=
- =?us-ascii?Q?bAfMGB3P7bcqPqE1kzBPu+R6tjric6ePfzCZrk5XeMzsVPDuIggKdx28FLQ?=
- =?us-ascii?Q?=3D?=
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 108adec9-5bae-4fac-ed67-08dba7942d1b
-X-MS-Exchange-CrossTenant-AuthSource: IA1PR20MB4953.namprd20.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Aug 2023 06:58:25.9168
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR20MB3286
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.3.2
+Subject: Re: [RFC v4 0/4] StarFive's Pulse Width Modulation driver support
+To: Conor Dooley <conor@kernel.org>, William Qiu
+	<william.qiu@starfivetech.com>
+CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, <linux-pwm@vger.kernel.org>, "Emil Renner
+ Berthing" <kernel@esmil.dk>, Rob Herring <robh+dt@kernel.org>, Philipp Zabel
+	<p.zabel@pengutronix.de>, Thierry Reding <thierry.reding@gmail.com>,
+	=?UTF-8?Q?Uwe_Kleine-K=c3=b6nig?= <u.kleine-koenig@pengutronix.de>,
+	"Krzysztof Kozlowski" <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley
+	<conor+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, "Palmer
+ Dabbelt" <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
+References: <20230825081328.204442-1-william.qiu@starfivetech.com>
+ <20230825-exclusion-doing-93532be4fa97@spud>
+Content-Language: en-US
+From: Hal Feng <hal.feng@starfivetech.com>
+In-Reply-To: <20230825-exclusion-doing-93532be4fa97@spud>
+X-Originating-IP: [113.72.145.245]
+X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX072.cuchost.com
+ (172.16.6.82)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230827_235836_950713_4E0070A6 
-X-CRM114-Status: UNSURE (   9.63  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230828_001328_166393_AFD7A0BD 
+X-CRM114-Status: GOOD (  10.93  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,37 +82,49 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
->On 28/08/2023 08:41, Inochi Amaoto wrote:
->>> On Mon, Aug 28, 2023 at 12:30:22PM +0800, Inochi Amaoto wrote:
->>>> D1 has several pmu events supported by opensbi.
->>>> These events can be used by perf for profiling.
->>>>
->>>> Signed-off-by: Inochi Amaoto <inochiama@outlook.com>
->>>> Link: https://dl.linux-sunxi.org/D1/Xuantie_C906_R1S0_User_Manual.pdf
->>>> Link: https://github.com/T-head-Semi/openc906/blob/main/C906_RTL_FACTORY/gen_rtl/pmu/rtl/aq_hpcp_top.v#L657
->>>> ---
->>>> changed from v3:
->>>> 1. remove wrong event mapping of 0x0000a
->>>> 2. add reference url of c906 events implementation (D1 only support events
->>>> described in R1S0 user manual, but event mapping is the same)
->>>
->>> Why'd you drop my ack? There's nothing here that'd invalidate it AFAICT.
->>> Acked-by: Conor Dooley <conor.dooley@microchip.com>
->>>
->>> Thanks,
->>> Conor.
->>
->> Sorry for this, I am not sure whether to preserve the ack.
->> Thank you for your ack again, and I will reserve this if no big change
->> happens.
->
->https://elixir.bootlin.com/linux/v6.5-rc3/source/Documentation/process/submitting-patches.rst#L577
->
->Best regards,
->Krzysztof
->
+On Fri, 25 Aug 2023 16:06:12 +0100, Conor Dooley wrote:
+> On Fri, Aug 25, 2023 at 04:13:24PM +0800, William Qiu wrote:
+>> Hi,
+>> 
+>> This patchset adds initial rudimentary support for the StarFive
+>> Pulse Width Modulation controller driver. And this driver will
+>> be used in StarFive's VisionFive 2 board.The first patch add
+>> Documentations for the device and Patch 2 adds device probe for
+>> the module.
+>> 
+>> Changes v3->v4:
+>> - Rebased to v6.5rc7.
+>> - Sorted the header files in alphabetic order.
+>> - Changed iowrite32() to writel().
+>> - Added a way to turn off.
+>> - Moified polarity inversion implementation.
+>> - Added 7100 support.
+>> - Added dts patches.
+>> - Used the various helpers in linux/math.h.
+>> - Corrected formatting problems.
+>> - Renamed dtbinding  to 'starfive,jh7100-pwm.yaml'.
+>> - Dropped the redundant code.
+>> 
+>> Changes v2->v3:
+>> - Fixed some formatting issues.
+>> 
+>> Changes v1->v2:
+>> - Renamed the dt-binding 'pwm-starfive.yaml' to 'starfive,jh7110-pwm.yaml'.
+>> - Dropped the compatible's Items.
+>> - Dropped the unuse defines.
+>> - Modified the code to follow the Linux coding style.
+>> - Changed return value to dev_err_probe.
+>> - Dropped the unnecessary local variable.
+>> 
+>> The patch series is based on v6.5rc7.
+> 
+> Out of curiosity, why is this series still an RFC?
 
-Thanks. I will take care of this.
+There was no comments received in v4. So William resend it and
+request for comments.
+
+Best regards,
+Hal
 
 _______________________________________________
 linux-riscv mailing list
