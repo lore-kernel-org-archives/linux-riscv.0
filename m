@@ -4,85 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46939C71153
-	for <linux-riscv@archiver.kernel.org>; Mon, 28 Aug 2023 21:39:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9712FC71153
+	for <linux-riscv@archiver.kernel.org>; Mon, 28 Aug 2023 22:56:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
+	Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/fHckJUgk2zAeC0bxLPJ1OTrNhQUJMQhYR1DoJmTY5k=; b=1AxCw26CdXVwve
-	z+oozswPDouUL5b2LlIKq9hLrXTTIMvTx5BaapR78sY4z7mXgUsU54grHpXccQPoT6rKFJJ8T7jCc
-	yNvS+j+NSFlwnhiiz2ZpxQMicXr93YXAZslniPqOjsgT2gDceaO4gvB6LMOnhn44jBM5TdU5lV2L/
-	emmRBhXDxUUXpTut6WAIRTMKKPzfDSeuUGb6EK/4bNp3ouRW77Uo9cCn1kxvYRu9VuQVgdLWJujVO
-	CQtPySupbvp9te+rIt0tH4mpM6n/qJq3FL23cIkLzrd+FbGz9TklBhpxV9K+j6S1HIRC/3Zd/mqua
-	bbJJJki8XV+97a97y5Rg==;
+	References:List-Owner; bh=tnYhlYys47zNh2hU/5EG1PUZ5oWa3BKgVFp/JsDtlZs=; b=A3+
+	gm56InXGhqH79vRkPBqfnJaARJCG3oHMbl0Eojp0AbQi85HNyTU04Mc9AktqpWl1wo9IeT3YJ1Aj4
+	wsj4TjtlZpsBCJPY8/TXb/Qm3Mkq7tQyio/qAT0VJ7E2aGtWVsh3rHIgZkg63Qr0YWxmKp2w1aoRy
+	R+tbS2d592kFIVOv0xZo5th4ZDtVi34zKgzcExe+UIORe8DI5wrgQxE1ECeQP9+kgwSW6KfOvZcr/
+	BWra2H5eLQZWHHNsk8TWhu6oz09VBRAqcUQZ1XhRjMGsDXSzGWYAJ+HrZUVKSQhx0CQako+wJnAZq
+	FMbP9dhE4/ylik46NmgVbjs528NxmGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qajxP-00AKD0-2B;
-	Mon, 28 Aug 2023 21:39:35 +0000
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+	id 1qal9j-00APJo-1m;
+	Mon, 28 Aug 2023 22:56:23 +0000
+Received: from mail-pg1-x549.google.com ([2607:f8b0:4864:20::549])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qajxL-00AKCe-1u
+	id 1qal9d-00APH4-2Y
 	for linux-riscv@lists.infradead.org;
-	Mon, 28 Aug 2023 21:39:34 +0000
-Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-1c1e780aa95so7622125ad.3
-        for <linux-riscv@lists.infradead.org>; Mon, 28 Aug 2023 14:39:30 -0700 (PDT)
+	Mon, 28 Aug 2023 22:56:22 +0000
+Received: by mail-pg1-x549.google.com with SMTP id 41be03b00d2f7-56f8c8fd8e7so2480960a12.1
+        for <linux-riscv@lists.infradead.org>; Mon, 28 Aug 2023 15:56:14 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1693258770; x=1693863570;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=iHdUO+lDNPOvPW+3NlnVX1ng1CqewzDf9giLaK2K5LM=;
-        b=Wb6H3zIuPpR8Lq5VDhwqijTbRB6Kf5ZByIt9Toiaz/d8/hbHOohkKJegF/hH5dPnUI
-         KNwN94Ns94WWmg08zSo5bQiQZM4H0zYxd2Y0oQn5jIIrZIq7mBIRm2cK+1gToDLQO2Ls
-         ZTFlbQFLQdfWaaWrsv6rgVOj1n3O9lg2XqWn5wGhJmn4mpPHnx7SkMF/uZtIfhkpNfrE
-         WukdoHUIfKg0aGt2KAfmB4wwR8CNtQVoOIFW+HeISbem1cyyFwX2FqIuaHNjJBgu4aE0
-         GwDr7kn1H+7fmGOsLDDHC1NQnzhbcIj7GZ5fz9MWjRkOOxqXriOFc1rW/j2hN56ISmHD
-         znTA==
+        d=google.com; s=20221208; t=1693263374; x=1693868174;
+        h=cc:to:from:subject:message-id:mime-version:in-reply-to:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=45FPDFU2bi5QNrTegRTZSI4D/kTsLJ5aPvVquLb6Kb4=;
+        b=pLOLnQlAccDWO/O5kVLkKwA9wRVSEEkjq7uLC+mlmD7Vfw3vEYXCkgTxxXccxGMWgZ
+         wRGNqorlmNPayZTm3R+GqSyo7GngRdVoeiMDanQ2qTLDbFHAwVr7soK6dbWp8LVur1IJ
+         7Dj7NDy10jedqv9lpI8G9Si/rF4w8XfNDjmoH8zHrZK+nE/CztRtHvsfpP2cZBuR/WSb
+         r1GFzm2yEAVnnjHec8JxS7mw13lbH162cn2tJ8OGbc1nr9IEbWJ5p7u+QgsCm1qR34DM
+         OtkAkqUjCP9VneeTOmcCYfI7wZJzfHg/Vici91Fsjq4cCd2IzQiQr/mxwrVo3egZBd6/
+         M4pg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1693258770; x=1693863570;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=iHdUO+lDNPOvPW+3NlnVX1ng1CqewzDf9giLaK2K5LM=;
-        b=TSpJRfb60odMJeo+aAJHqxbWUhgik4uLjWLh2lF/5F+6UPnrUFJRm5RSEEX+is086M
-         +e6Hc4BNxlHqMWnAmW1YGmAXLAYP9XmEVUy3ApQ96TMLHn5YvigoLN90IsUFT5BdCn3E
-         aJ/0nIbKGy3DT5sTpFXOW879JPeB9DaveTEN7eTrS0hSkhMLC87LlalxB1sMvw+UsOfA
-         /ob5KjW4Ovf2IWEx9ua7ONQnzmTS9+cSLL3dhspszFYW0uGOXPA7UQNSFSRajmxZJ5nC
-         vbZbwt5rKLXSytCwMm3nf9T0LRBIrUm+qVZYzd9vAJuJeN6WcKz51FEjGixNnkcFr7rR
-         3E1w==
-X-Gm-Message-State: AOJu0YwhksNGY9jfx4LgMfpIRxufcm8+8LKERCMQdDfug9OeAPRZmWDf
-	6GjAMPXZI4seFlSjt9zOoUxCOpvOprgscTzql28=
-X-Google-Smtp-Source: AGHT+IFVLmk6Rdlv8hXXucmdwmu2DNBKVOmjpfe7MLkr+PNUxQE2kQu2zLgbt0LhtVq9J3QJDMGthA==
-X-Received: by 2002:a17:903:428c:b0:1c0:d8bc:dcf1 with SMTP id ju12-20020a170903428c00b001c0d8bcdcf1mr7500990plb.23.1693258770324;
-        Mon, 28 Aug 2023 14:39:30 -0700 (PDT)
-Received: from ghost ([50.221.140.188])
-        by smtp.gmail.com with ESMTPSA id d10-20020a170902654a00b001bc445e249asm8045428pln.124.2023.08.28.14.39.29
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 28 Aug 2023 14:39:29 -0700 (PDT)
-Date: Mon, 28 Aug 2023 14:39:27 -0700
-From: Charlie Jenkins <charlie@rivosinc.com>
-To: Conor Dooley <conor@kernel.org>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu
-Subject: Re: [PATCH 1/5] riscv: Checksum header
-Message-ID: <ZO0UD1+pmkjMDjvv@ghost>
-References: <20230827-turf-parched-b965bc697882@spud>
- <mhng-d43dc0a3-7985-4195-9611-5ca0c38390e7@palmer-ri-x1c9>
- <20230827-primer-conceal-b6f24b29e692@spud>
- <20230827-divisive-happy-cf93058c49bf@spud>
- <ZOzRlerSNjfzMYGH@ghost>
- <20230828-deserve-paging-25666290e312@spud>
- <ZOzld28wZjLpl4Hp@ghost>
- <20230828-stonewall-eloquence-8940f33bd2f0@spud>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230828-stonewall-eloquence-8940f33bd2f0@spud>
+        d=1e100.net; s=20221208; t=1693263374; x=1693868174;
+        h=cc:to:from:subject:message-id:mime-version:in-reply-to:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=45FPDFU2bi5QNrTegRTZSI4D/kTsLJ5aPvVquLb6Kb4=;
+        b=AEJ2tgzEDbAWvMbf7zZid/xtL6jzoifeO4dXcvg/eW90ySoP3cLUBpsof5g84blNwO
+         7gze8TefdFqidBtg2VI3Z/l3lxegUySRkVTPQojJom4OdHXvaYB4gdvnzSRzXXnXpc8T
+         IeHXj18iY1+5DyEFkX/jhVmSIxPgqmM7dZzsn4uH2ZNtn4NZ3hVVRijFz4dp7wOg79Sx
+         oIrv7FJ4Rw901RXNSk0tvQvpfblreC4nEEHEnsYUPRGOBtWpk4W502OGO9k5Qw9IwmHD
+         ueY7HWIfpl0+S6TRSvFsENQqyknG1fitHr6rnkrNznL2MswSeMBTKtetXoZEuRGXCoHk
+         yX1w==
+X-Gm-Message-State: AOJu0YwFfXUZdFLFm23ZomcqDJcYkPjUt4Yi7x3tjQJewc4LNRo2zWB4
+	JSL3fo+l4XlT8w4qfok/EAx72/Y57mt9XtN4dA==
+X-Google-Smtp-Source: AGHT+IHiRfp4dtsSrmAF/uBzjUu2XQ3xTysjq4Ohm5oUAXB2N+6Zi644lMyKLSW9uEB1MtUrJ1+LGs2ibik7KIYLPQ==
+X-Received: from ackerleytng-ctop.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:13f8])
+ (user=ackerleytng job=sendgmr) by 2002:a63:8f09:0:b0:566:2d6:f71b with SMTP
+ id n9-20020a638f09000000b0056602d6f71bmr5097167pgd.12.1693263374002; Mon, 28
+ Aug 2023 15:56:14 -0700 (PDT)
+Date: Mon, 28 Aug 2023 22:56:12 +0000
+In-Reply-To: <ZOO782YGRY0YMuPu@google.com> (message from Sean Christopherson
+ on Mon, 21 Aug 2023 12:33:07 -0700)
+Mime-Version: 1.0
+Message-ID: <diqzttsiu67n.fsf@ackerleytng-ctop.c.googlers.com>
+Subject: Re: [RFC PATCH v11 12/29] KVM: Add KVM_CREATE_GUEST_MEMFD ioctl() for
+ guest-specific backing memory
+From: Ackerley Tng <ackerleytng@google.com>
+To: Sean Christopherson <seanjc@google.com>
+Cc: pbonzini@redhat.com, maz@kernel.org, oliver.upton@linux.dev, 
+	chenhuacai@kernel.org, mpe@ellerman.id.au, anup@brainfault.org, 
+	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
+	willy@infradead.org, akpm@linux-foundation.org, paul@paul-moore.com, 
+	jmorris@namei.org, serge@hallyn.com, kvm@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
+	linux-fsdevel@vger.kernel.org, linux-mm@kvack.org, 
+	linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	chao.p.peng@linux.intel.com, tabba@google.com, jarkko@kernel.org, 
+	yu.c.zhang@linux.intel.com, vannapurve@google.com, mail@maciej.szmigiero.name, 
+	vbabka@suse.cz, david@redhat.com, qperret@google.com, michael.roth@amd.com, 
+	wei.w.wang@intel.com, liam.merwick@oracle.com, isaku.yamahata@gmail.com, 
+	kirill.shutemov@linux.intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230828_143931_831181_8BDA355E 
-X-CRM114-Status: GOOD (  77.83  )
+X-CRM114-CacheID: sfid-20230828_155617_828899_BE1464B7 
+X-CRM114-Status: GOOD (  50.92  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,169 +101,172 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 28, 2023 at 07:56:13PM +0100, Conor Dooley wrote:
-> On Mon, Aug 28, 2023 at 11:20:39AM -0700, Charlie Jenkins wrote:
-> > On Mon, Aug 28, 2023 at 06:08:40PM +0100, Conor Dooley wrote:
-> > > On Mon, Aug 28, 2023 at 09:55:49AM -0700, Charlie Jenkins wrote:
-> > > > On Sun, Aug 27, 2023 at 01:25:27PM +0100, Conor Dooley wrote:
-> > > > > On Sun, Aug 27, 2023 at 11:28:33AM +0100, Conor Dooley wrote:
-> > > > > > On Sat, Aug 26, 2023 at 07:00:47PM -0700, Palmer Dabbelt wrote:
-> > > > > > > On Sat, 26 Aug 2023 18:42:41 PDT (-0700), Conor Dooley wrote:
-> > > > > > > > On Sat, Aug 26, 2023 at 06:26:06PM -0700, Charlie Jenkins wrote:
-> > > > > > > > > Provide checksum algorithms that have been designed to leverage riscv
-> > > > > > > > > instructions such as rotate. In 64-bit, can take advantage of the larger
-> > > > > > > > > register to avoid some overflow checking.
-> > > > > > > > > 
-> > > > > > > > > Add configuration for Zba extension and add march for Zba and Zbb.
-> > > > > > > > > 
-> > > > > > > > > Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
-> > > > > > > > > ---
-> > > > > > > > >  arch/riscv/Kconfig                | 23 +++++++++++
-> > > > > > > > >  arch/riscv/Makefile               |  2 +
-> > > > > > > > >  arch/riscv/include/asm/checksum.h | 86 +++++++++++++++++++++++++++++++++++++++
-> > > > > > > > >  3 files changed, 111 insertions(+)
-> > > > > > > > > 
-> > > > > > > > > diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> > > > > > > > > index 4c07b9189c86..8d7e475ca28d 100644
-> > > > > > > > > --- a/arch/riscv/Kconfig
-> > > > > > > > > +++ b/arch/riscv/Kconfig
-> > > > > > > > > @@ -507,6 +507,29 @@ config RISCV_ISA_V_DEFAULT_ENABLE
-> > > > > > > > >  	  If you don't know what to do here, say Y.
-> > > > > > > > > +config TOOLCHAIN_HAS_ZBA
-> > > > > > > > > +	bool
-> > > > > > > > > +	default y
-> > > > > > > > > +	depends on !64BIT || $(cc-option,-mabi=lp64 -march=rv64ima_zba)
-> > > > > > > > > +	depends on !32BIT || $(cc-option,-mabi=ilp32 -march=rv32ima_zba)
-> > > > > > > > > +	depends on LLD_VERSION >= 150000 || LD_VERSION >= 23900
-> > > > > > > > > +	depends on AS_HAS_OPTION_ARCH
-> > > > > > > > > +
-> > > > > > > > > +config RISCV_ISA_ZBA
-> > > > > > > > > +	bool "Zba extension support for bit manipulation instructions"
-> > > > > > > > > +	depends on TOOLCHAIN_HAS_ZBA
-> > > > > > > > > +	depends on MMU
-> > > > > > > > > +	depends on RISCV_ALTERNATIVE
-> > > > > > > > > +	default y
-> > > > > > > > > +	help
-> > > > > > > > > +	   Adds support to dynamically detect the presence of the ZBA
-> > > > > > > > > +	   extension (basic bit manipulation) and enable its usage.
-> > > > > > > > > +
-> > > > > > > > > +	   The Zba extension provides instructions to accelerate a number
-> > > > > > > > > +	   of bit-specific address creation operations.
-> > > > > > > > > +
-> > > > > > > > > +	   If you don't know what to do here, say Y.
-> > > > > > > > > +
-> > > > > > > > >  config TOOLCHAIN_HAS_ZBB
-> > > > > > > > >  	bool
-> > > > > > > > >  	default y
-> > > > > > > > > diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
-> > > > > > > > > index 6ec6d52a4180..51fa3f67fc9a 100644
-> > > > > > > > > --- a/arch/riscv/Makefile
-> > > > > > > > > +++ b/arch/riscv/Makefile
-> > > > > > > > > @@ -61,6 +61,8 @@ riscv-march-$(CONFIG_ARCH_RV64I)	:= rv64ima
-> > > > > > > > >  riscv-march-$(CONFIG_FPU)		:= $(riscv-march-y)fd
-> > > > > > > > >  riscv-march-$(CONFIG_RISCV_ISA_C)	:= $(riscv-march-y)c
-> > > > > > > > >  riscv-march-$(CONFIG_RISCV_ISA_V)	:= $(riscv-march-y)v
-> > > > > > > > > +riscv-march-$(CONFIG_RISCV_ISA_ZBA)	:= $(riscv-march-y)_zba
-> > > > > > > > > +riscv-march-$(CONFIG_RISCV_ISA_ZBB)	:= $(riscv-march-y)_zbb
-> > > > > > > > 
-> > > > > > > > AFAICT, this is going to break immediately on any system that enables
-> > > > > > > > RISCV_ISA_ZBA (which will happen by default) but does not support the
-> > > > > > > > extension. You made the option depend on RISCV_ALTERNATIVE, but I do
-> > > > > > > > not see any use of alternatives in the code to actually perform the
-> > > > > > > > dynamic detection of Zba.
-> > > > > > > 
-> > > > > > > I guess we kind of have an ambiguity here: for stuff like C we just
-> > > > > > > unconditionally use the instructions, but for the rest we probe first.  We
-> > > > > > > should probably have three states for each extension: disabled, dynamically
-> > > > > > > detected, and assumed.
-> > > > > > 
-> > > > > > You mean, just add some comments to the makefile surrounding each
-> > > > > > section or to some rst documentation?
-> > > > > 
-> > > > > Also, the code here doesn't build w/
-> > > > > 	warning: invalid argument to '-march': '_zba_zbb_zicsr_zifencei_zihintpause'
-> > > > > so there's something else wrong with TOOLCHAIN_HAS_ZBA :)
-> > > > It is odd that this is missing 'rv64ima' or 'rv32ima' at the beginning of
-> > > > this string. What configuration are you using that could cause that to
-> > > > be left off?
-> > > 
-> > > I don't know, but that configuration is pretty pervasive. The patchwork
-> > > CI blew up too & that is using kernel.org toolchains built by Arnd:
-> > > https://mirrors.edge.kernel.org/pub/tools/crosstool/
-> > > 
-> > > > Compiling with defconfig automatically enables Zba and appears to not
-> > > > cause this issue. I realized that I put the header definitions for
-> > > > do_csum and csum_ipv6_magic in this patch instead of the next one so the
-> > > > code will fail to compile from this but not due to march settings.
-> > > > > 
-> > > > > > 
-> > > > > > > > Note that for fd & v, we add it to riscv-march-y, but then immediately
-> > > > > > > > remove it again before passing to the compiler, only allow them in
-> > > > > > > > AFLAGS:
-> > > > > > > > 	# Remove F,D,V from isa string for all. Keep extensions between "fd" and "v" by
-> > > > > > > > 	# matching non-v and non-multi-letter extensions out with the filter ([^v_]*)
-> > > > > > > > 	KBUILD_CFLAGS += -march=$(shell echo $(riscv-march-y) | sed -E 's/(rv32ima|rv64ima)fd([^v_]*)v?/\1\2/')
-> > > > > > > > 
-> > > > > > > > What am I missing?
-> > > > > > > 
-> > > > > > > FD and V both have state that can be saved lazily, so we can't let arbitrary
-> > > > > > > code use them.  The extensions formally known as B don't add state, so they
-> > > > > > > are safe to flip on in arbitrary places (aside from the issues you pointed
-> > > > > > > out above).
-> > > > > > 
-> > > > > > I probably went about this badly since you missed the point. I was
-> > > > > > trying to point out that for anything other than the compressed
-> > > > > > extensions in the block above that we only pass them in march to the
-> > > > > > assembler, and not to the compiler, in contrast to this patch which just
-> > > > > > always passes them. I should have pointed to how we handled the
-> > > > > > in-kernel Zbb stuff & asked how this was any different, would probably
-> > > > > > have been clearer.
-> > > > > > 
-> > > > I supposed it might be better if I submit these changes in a different
-> > > > patch so we can have more discussion there. Zbb was previously only used
-> > > > by assembly files (arch/riscv/lib/strcmp.S, arch/riscv/lib/strlen.S,
-> > > > arch/riscv/lib/strncmp.S). I wanted to add them to the compiler so that
-> > > > that C programs could leverage these extensions. However, I neglected to
-> > > > consider machines that compile the kernel with these extensions but have
-> > > > cores without these extensions.
-> > > 
-> > > Less so cores, since we don't support heterogeneous stuff, and moreso
-> > > platforms that do not support the extensions. It's expected that the
-> > > same kernel could in theory be used across a wide variety of systems.
-> > > 
-> > > > The purpose of using these extensions is
-> > > > to save a couple of clock cycles, so if it is necessary to first
-> > > > check if the extension is enabled it may not be worth it for these
-> > > > functions.
-> > > 
-> > > That's still possible, it's what the alternatives mechanism exists for.
-> > > During boot the codepaths are patched to use what works for a given
-> > > machine, check out the code that makes use of Zbb or
-> > > riscv_has_extension_[un]likely(). You'd need to do something like the
-> > > existing users of Zbb instructions does, with an alternative used to
-> > > avoid the custom asm implementations when the hardware does not support
-> > > them. (That's what the CONFIG_ALTERNATIVE & CONFIG_AS_HAS_OPTION_ARCH
-> > > options you made the TOOLCHAIN_HAS_ZBA depend on are for).
-> > 
-> > I can see how to get this to work if I port this code into assembly and
-> > write two different versions (one with Zbb and one without), but
-> > I don't see how this would work in C. Unless I am mistaken, there would
-> > need to be some sort of wrapper around the C code that told the compiler
-> > to compile it multiple times for different extension combinations and
-> > then use the riscv_has_extension_[un]likely() functions to determine
-> > which version to use at runtime. Is this feasible?
-> 
-> IIRC, if you put all the code using Zbb etc into a compilation unit of
-> its own then you can set march for that unit alone, but it may well just
-> be easier to write a custom asm one for the Zbb case & use the c
-> implementation from this patch for the non-Zbb case.
-In include/linux/bitops.h there are implementations of rotations (i.e.
-ror32, ror16). Do you think it would be an acceptable solution to move
-those definitions into asm-generic and have riscv implement these
-functions in assembly with Zbb and non-Zbb versions and use the
-alternatives macro? Every other architecture would just use the
-existing definitions but could implement their own if they wanted. The
-code that would benefit from Zbb is a rotation.
+Sean Christopherson <seanjc@google.com> writes:
+
+> On Mon, Aug 21, 2023, Ackerley Tng wrote:
+>> Sean Christopherson <seanjc@google.com> writes:
+>>
+>> > On Tue, Aug 15, 2023, Ackerley Tng wrote:
+>> >> Sean Christopherson <seanjc@google.com> writes:
+>> >> > Nullifying the KVM pointer isn't sufficient, because without additional actions
+>> >> > userspace could extract data from a VM by deleting its memslots and then binding
+>> >> > the guest_memfd to an attacker controlled VM.  Or more likely with TDX and SNP,
+>> >> > induce badness by coercing KVM into mapping memory into a guest with the wrong
+>> >> > ASID/HKID.
+>> >> >
+>> >> > I can think of three ways to handle that:
+>> >> >
+>> >> >   (a) prevent a different VM from *ever* binding to the gmem instance
+>> >> >   (b) free/zero physical pages when unbinding
+>> >> >   (c) free/zero when binding to a different VM
+>> >> >
+>> >> > Option (a) is easy, but that pretty much defeats the purpose of decopuling
+>> >> > guest_memfd from a VM.
+>> >> >
+>> >> > Option (b) isn't hard to implement, but it screws up the lifecycle of the memory,
+>> >> > e.g. would require memory when a memslot is deleted.  That isn't necessarily a
+>> >> > deal-breaker, but it runs counter to how KVM memlots currently operate.  Memslots
+>> >> > are basically just weird page tables, e.g. deleting a memslot doesn't have any
+>> >> > impact on the underlying data in memory.  TDX throws a wrench in this as removing
+>> >> > a page from the Secure EPT is effectively destructive to the data (can't be mapped
+>> >> > back in to the VM without zeroing the data), but IMO that's an oddity with TDX and
+>> >> > not necessarily something we want to carry over to other VM types.
+>> >> >
+>> >> > There would also be performance implications (probably a non-issue in practice),
+>> >> > and weirdness if/when we get to sharing, linking and/or mmap()ing gmem.  E.g. what
+>> >> > should happen if the last memslot (binding) is deleted, but there outstanding userspace
+>> >> > mappings?
+>> >> >
+>> >> > Option (c) is better from a lifecycle perspective, but it adds its own flavor of
+>> >> > complexity, e.g. the performant way to reclaim TDX memory requires the TDMR
+>> >> > (effectively the VM pointer), and so a deferred relcaim doesn't really work for
+>> >> > TDX.  And I'm pretty sure it *can't* work for SNP, because RMP entries must not
+>> >> > outlive the VM; KVM can't reuse an ASID if there are pages assigned to that ASID
+>> >> > in the RMP, i.e. until all memory belonging to the VM has been fully freed.
+>
+> ...
+>
+>> I agree with you that nulling the KVM pointer is insufficient to keep
+>> host userspace out of the TCB. Among the three options (a) preventing a
+>> different VM (HKID/ASID) from binding to the gmem instance, or zeroing
+>> the memory either (b) on unbinding, or (c) on binding to another VM
+>> (HKID/ASID),
+>>
+>> (a) sounds like adding a check issued to TDX/SNP upon binding and this
+>>     check would just return OK for software-protected VMs (line of sight
+>>     to removing host userspace from TCB).
+>>
+>> Or, we could go further for software-protected VMs and add tracking in
+>> the inode to prevent the same inode from being bound to different
+>> "HKID/ASID"s, perhaps like this:
+>>
+>> + On first binding, store the KVM pointer in the inode - not file (but
+>>   not hold a refcount)
+>> + On rebinding, check that the KVM matches the pointer in the inode
+>> + On intra-host migration, update the KVM pointer in the inode to allow
+>>   binding to the new struct kvm
+>>
+>> I think you meant associating the file with a struct kvm at creation
+>> time as an implementation for (a), but technically since the inode is
+>> the representation of memory, tracking of struct kvm should be with the
+>> inode instead of the file.
+>>
+>> (b) You're right that this messes up the lifecycle of the memory and
+>>     wouldn't work with intra-host migration.
+>>
+>> (c) sounds like doing the clearing on a check similar to that of (a)
+>
+> Sort of, though it's much nastier, because it requires the "old" KVM instance to
+> be alive enough to support various operations.  I.e. we'd have to make stronger
+> guarantees about exactly when the handoff/transition could happen.
+>
+
+Good point!
+
+>> If we track struct kvm with the inode, then I think (a), (b) and (c) can
+>> be independent of the refcounting method. What do you think?
+>
+> No go.  Because again, the inode (physical memory) is coupled to the virtual machine
+> as a thing, not to a "struct kvm".  Or more concretely, the inode is coupled to an
+> ASID or an HKID, and there can be multiple "struct kvm" objects associated with a
+> single ASID.  And at some point in the future, I suspect we'll have multiple KVM
+> objects per HKID too.
+>
+> The current SEV use case is for the migration helper, where two KVM objects share
+> a single ASID (the "real" VM and the helper).  I suspect TDX will end up with
+> similar behavior where helper "VMs" can use the HKID of the "real" VM.  For KVM,
+> that means multiple struct kvm objects being associated with a single HKID.
+>
+> To prevent use-after-free, KVM "just" needs to ensure the helper instances can't
+> outlive the real instance, i.e. can't use the HKID/ASID after the owning virtual
+> machine has been destroyed.
+>
+> To put it differently, "struct kvm" is a KVM software construct that _usually_,
+> but not always, is associated 1:1 with a virtual machine.
+>
+> And FWIW, stashing the pointer without holding a reference would not be a complete
+> solution, because it couldn't guard against KVM reusing a pointer.  E.g. if a
+> struct kvm was unbound and then freed, KVM could reuse the same memory for a new
+> struct kvm, with a different ASID/HKID, and get a false negative on the rebinding
+> check.
+
+I agree that inode (physical memory) is coupled to the virtual machine
+as a more generic concept.
+
+I was hoping that in the absence of CC hardware providing a HKID/ASID,
+the struct kvm pointer could act as a representation of the "virtual
+machine". You're definitely right that KVM could reuse a pointer and so
+that idea doesn't stand.
+
+I thought about generating UUIDs to represent "virtual machines" in the
+absence of CC hardware, and this UUID could be transferred during
+intra-host migration, but this still doesn't take host userspace out of
+the TCB. A malicious host VMM could just use the migration ioctl to copy
+the UUID to a malicious dumper VM, which would then pass checks with a
+gmem file linked to the malicious dumper VM. This is fine for HKID/ASIDs
+because the memory is encrypted; with UUIDs there's no memory
+encryption.
+
+Circling back to the original topic, was associating the file with
+struct kvm at gmem file creation time meant to constrain the use of the
+gmem file to one struct kvm, or one virtual machine, or something else?
+
+Follow up questions:
+
+1. Since the physical memory's representation is the inode and should be
+   coupled to the virtual machine (as a concept, not struct kvm), should
+   the binding/coupling be with the file, or the inode?
+
+2. Should struct kvm still be bound to the file/inode at gmem file
+   creation time, since
+
+   + struct kvm isn't a good representation of a "virtual machine"
+   + we currently don't have anything that really represents a "virtual
+     machine" without hardware support
+
+
+I'd also like to bring up another userspace use case that Google has:
+re-use of gmem files for rebooting guests when the KVM instance is
+destroyed and rebuilt.
+
+When rebooting a VM there are some steps relating to gmem that are
+performance-sensitive:
+
+a.      Zeroing pages from the old VM when we close a gmem file/inode
+b. Deallocating pages from the old VM when we close a gmem file/inode
+c.   Allocating pages for the new VM from the new gmem file/inode
+d.      Zeroing pages on page allocation
+
+We want to reuse the gmem file to save re-allocating pages (b. and c.),
+and one of the two page zeroing allocations (a. or d.).
+
+Binding the gmem file to a struct kvm on creation time means the gmem
+file can't be reused with another VM on reboot. Also, host userspace is
+forced to close the gmem file to allow the old VM to be freed.
+
+For other places where files pin KVM, like the stats fd pinning vCPUs, I
+guess that matters less since there isn't much of a penalty to close and
+re-open the stats fd.
 
 _______________________________________________
 linux-riscv mailing list
