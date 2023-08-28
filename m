@@ -4,90 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35B95C83F11
-	for <linux-riscv@archiver.kernel.org>; Mon, 28 Aug 2023 19:59:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46939C71153
+	for <linux-riscv@archiver.kernel.org>; Mon, 28 Aug 2023 21:39:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
-	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=HqqXWfw1fd/q3qTKAO+sWfU+Ac3E6i5K4oSaG233bxA=; b=iZaaqmpcCObFUZElEQMGFQ4opl
-	TWyVR4tOtHRDyhwV1PumLoHD3E38xKf/IzcTOUwtrIMtNAwkR1DOyrq1W1MQb2Z+MT5DDWSh74RjW
-	vWZkCXF83UfYlQnMVYf5KMisUNgAEcZPcA77ZxTD2QGDBRZkyKc1VcDS11DraOuFmUFF/4gmN0ZMw
-	qGmaAGNdFDCaL0/9TZOjfh8LeGdFFotHMdf017yjpflXlpcv9v4S84TxyeXn8THQSOWcXQE2UHbWM
-	IJcg4qwPKSorcAMQO4DV60MSqHhL2bOS79vx7anY4PgwpUO1+Ycov4JIyoDmZ9HSmC6T85NxCi9Wp
-	8mDE+9bg==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=/fHckJUgk2zAeC0bxLPJ1OTrNhQUJMQhYR1DoJmTY5k=; b=1AxCw26CdXVwve
+	z+oozswPDouUL5b2LlIKq9hLrXTTIMvTx5BaapR78sY4z7mXgUsU54grHpXccQPoT6rKFJJ8T7jCc
+	yNvS+j+NSFlwnhiiz2ZpxQMicXr93YXAZslniPqOjsgT2gDceaO4gvB6LMOnhn44jBM5TdU5lV2L/
+	emmRBhXDxUUXpTut6WAIRTMKKPzfDSeuUGb6EK/4bNp3ouRW77Uo9cCn1kxvYRu9VuQVgdLWJujVO
+	CQtPySupbvp9te+rIt0tH4mpM6n/qJq3FL23cIkLzrd+FbGz9TklBhpxV9K+j6S1HIRC/3Zd/mqua
+	bbJJJki8XV+97a97y5Rg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qaiO2-00AByV-0I;
-	Mon, 28 Aug 2023 19:58:58 +0000
-Received: from mail-yw1-x114a.google.com ([2607:f8b0:4864:20::114a])
+	id 1qajxP-00AKD0-2B;
+	Mon, 28 Aug 2023 21:39:35 +0000
+Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qaiNu-00ABvk-2P
+	id 1qajxL-00AKCe-1u
 	for linux-riscv@lists.infradead.org;
-	Mon, 28 Aug 2023 19:58:52 +0000
-Received: by mail-yw1-x114a.google.com with SMTP id 00721157ae682-58d37b541a2so52899187b3.2
-        for <linux-riscv@lists.infradead.org>; Mon, 28 Aug 2023 12:58:48 -0700 (PDT)
+	Mon, 28 Aug 2023 21:39:34 +0000
+Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-1c1e780aa95so7622125ad.3
+        for <linux-riscv@lists.infradead.org>; Mon, 28 Aug 2023 14:39:30 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20221208; t=1693252727; x=1693857527;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=03jC+OBVw6NtqXGsEGvclVCdQhu3EQx6jlJc9yvphdo=;
-        b=E+bfdH1lDaLKrKcjWlt3v7mLrI0mXX3/qYWVcii5PVVLZRAYiy1nsib+qeG6H8MOuT
-         9OhEHYpNgvWxBky8trYBSEV2JubnwBjeu7di8zHvRoZf0j/YO3KJeryt/leOQaOk8U0+
-         E0YLLPMtCwqk+7XZu6/A3/70OtYGnMDc9dICr0zRd4xccIbb8Fl0DxJGU04K1ySPvtRA
-         rOrJmojR9TLloOAjWkHIpTDXARYBxhHwOkJ5h1zSqKkVSIGksfJHQ6WU6QjJ2FOyH2nJ
-         Z25Phbti7WwdNvRX5aYN5oYcnIcIxNODEPr4eLAqGQxyHCx64dEv2WvC0HWZsxOdspdf
-         wAyQ==
+        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1693258770; x=1693863570;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=iHdUO+lDNPOvPW+3NlnVX1ng1CqewzDf9giLaK2K5LM=;
+        b=Wb6H3zIuPpR8Lq5VDhwqijTbRB6Kf5ZByIt9Toiaz/d8/hbHOohkKJegF/hH5dPnUI
+         KNwN94Ns94WWmg08zSo5bQiQZM4H0zYxd2Y0oQn5jIIrZIq7mBIRm2cK+1gToDLQO2Ls
+         ZTFlbQFLQdfWaaWrsv6rgVOj1n3O9lg2XqWn5wGhJmn4mpPHnx7SkMF/uZtIfhkpNfrE
+         WukdoHUIfKg0aGt2KAfmB4wwR8CNtQVoOIFW+HeISbem1cyyFwX2FqIuaHNjJBgu4aE0
+         GwDr7kn1H+7fmGOsLDDHC1NQnzhbcIj7GZ5fz9MWjRkOOxqXriOFc1rW/j2hN56ISmHD
+         znTA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1693252727; x=1693857527;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=03jC+OBVw6NtqXGsEGvclVCdQhu3EQx6jlJc9yvphdo=;
-        b=OdYq/MR8bmEgRxgux9JssChCiToTp0b1e0E/VVrwO899zw3IHUOfZjMt3jg7mELn9H
-         OHiurX+DTBZJxwUm2OWYZlulM0p1EOe2tB9EdO8ljwxDgFDoYdUMNJUVmMjSzI3OOdWE
-         J6fGIY3x/Sgi75Ps/bzXii5zUFo8PzqKuCUEJmTDmGBASHGmi23ExDFaXctYWrYJEHLg
-         Y3OVUkhinUfm25wvHLFVbCreid0Qpdx8dFa+oZMeNz1+N8ukYjomAMidvnG2NSbg9ZB1
-         oivZtmv5Zvd82Jlt6OwJIaTAWX9XiHJbMoGVmKqeCApLbUmwhWp1AMAhJiysyYVqQ8DW
-         hzAg==
-X-Gm-Message-State: AOJu0YwTGwLr8HicZFc6yAMFx+f50CK61iCizhMer1a8bcynG9zJ40Ht
-	eFA8oqUj4sHgYNSulKzzQljbJfeIAZRPSQC0eBg=
-X-Google-Smtp-Source: AGHT+IGX3a8SAyFuYllCKEJp1p8BAuBf4bX7iN13I4toDObzdsg0UQOHsOqXYzlSHWKRqNRQ4bgZw4/tHZOh9SXDs4o=
-X-Received: from samitolvanen.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:4f92])
- (user=samitolvanen job=sendgmr) by 2002:a81:a904:0:b0:576:8cb6:62a9 with SMTP
- id g4-20020a81a904000000b005768cb662a9mr947313ywh.6.1693252727342; Mon, 28
- Aug 2023 12:58:47 -0700 (PDT)
-Date: Mon, 28 Aug 2023 19:58:39 +0000
-In-Reply-To: <20230828195833.756747-8-samitolvanen@google.com>
-Mime-Version: 1.0
-References: <20230828195833.756747-8-samitolvanen@google.com>
-X-Developer-Key: i=samitolvanen@google.com; a=openpgp; fpr=35CCFB63B283D6D3AEB783944CB5F6848BBC56EE
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3226; i=samitolvanen@google.com;
- h=from:subject; bh=/mGBqVAJStUatVnFnltMn+I7N64iI2QEtl2iB/CZBSg=;
- b=owEB7QES/pANAwAKAUy19oSLvFbuAcsmYgBk7PxqQdVKNNuAiMW7udPNqMcNpKCbHaCzUHSyh
- KrgH39THuGJAbMEAAEKAB0WIQQ1zPtjsoPW0663g5RMtfaEi7xW7gUCZOz8agAKCRBMtfaEi7xW
- 7guJC/9ByIZj6HC9xt8M48iEuc3eleOXi7LLtLxGuUV5BC0aCnuet8/CP1zkrGWtv2JZ39aif62
- X2Lq1gXUXz4nIi7rwmDEz0XjtrBeZtsI5xghAkZCCubYNPWatl0y+0UTL0qa+VuYO+MUp7CwJ4q
- 19Any1fNwFxVAXnOTh+0UAcjst/pmBxL9W1CG4VnyA9NHMX3EXKgrQw1SpC0g1+mUut9n6bcrJr
- W0ppsOU/Jqpc/8Xg4TgExx30gJgt1XpXcZSyNaDZk4jXED/GJ0cOupaFz/3bhVzR1J6/y9z3y70
- b9ZHkq5uFdJ6LPJDcdccev+aWmRxrkaw1vZ/4ksObnxApxpaGmFk+kc09Q4+Ab83M50knpeUZkB
- 2lPPYgLx0SeP3+XQdiJywRmtKnipviQqot/8K0XYRWNukxdtd30QBKhYtlFI7f5uDYw2bpedKeO 5hPzmPQaQUqbOlLYrH/VXQIVhJ5BZDRq9B+djftJejiGDFObOFuxsPk6QpMbtOq6LFIVA=
-X-Mailer: git-send-email 2.42.0.rc2.253.gd59a3bf2b4-goog
-Message-ID: <20230828195833.756747-13-samitolvanen@google.com>
-Subject: [PATCH v3 5/6] riscv: Use separate IRQ shadow call stacks
-From: Sami Tolvanen <samitolvanen@google.com>
-To: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Kees Cook <keescook@chromium.org>
-Cc: Clement Leger <cleger@rivosinc.com>, Guo Ren <guoren@kernel.org>, 
-	Deepak Gupta <debug@rivosinc.com>, Nathan Chancellor <nathan@kernel.org>, 
-	Nick Desaulniers <ndesaulniers@google.com>, Fangrui Song <maskray@google.com>, 
-	linux-riscv@lists.infradead.org, llvm@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, Sami Tolvanen <samitolvanen@google.com>
+        d=1e100.net; s=20221208; t=1693258770; x=1693863570;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=iHdUO+lDNPOvPW+3NlnVX1ng1CqewzDf9giLaK2K5LM=;
+        b=TSpJRfb60odMJeo+aAJHqxbWUhgik4uLjWLh2lF/5F+6UPnrUFJRm5RSEEX+is086M
+         +e6Hc4BNxlHqMWnAmW1YGmAXLAYP9XmEVUy3ApQ96TMLHn5YvigoLN90IsUFT5BdCn3E
+         aJ/0nIbKGy3DT5sTpFXOW879JPeB9DaveTEN7eTrS0hSkhMLC87LlalxB1sMvw+UsOfA
+         /ob5KjW4Ovf2IWEx9ua7ONQnzmTS9+cSLL3dhspszFYW0uGOXPA7UQNSFSRajmxZJ5nC
+         vbZbwt5rKLXSytCwMm3nf9T0LRBIrUm+qVZYzd9vAJuJeN6WcKz51FEjGixNnkcFr7rR
+         3E1w==
+X-Gm-Message-State: AOJu0YwhksNGY9jfx4LgMfpIRxufcm8+8LKERCMQdDfug9OeAPRZmWDf
+	6GjAMPXZI4seFlSjt9zOoUxCOpvOprgscTzql28=
+X-Google-Smtp-Source: AGHT+IFVLmk6Rdlv8hXXucmdwmu2DNBKVOmjpfe7MLkr+PNUxQE2kQu2zLgbt0LhtVq9J3QJDMGthA==
+X-Received: by 2002:a17:903:428c:b0:1c0:d8bc:dcf1 with SMTP id ju12-20020a170903428c00b001c0d8bcdcf1mr7500990plb.23.1693258770324;
+        Mon, 28 Aug 2023 14:39:30 -0700 (PDT)
+Received: from ghost ([50.221.140.188])
+        by smtp.gmail.com with ESMTPSA id d10-20020a170902654a00b001bc445e249asm8045428pln.124.2023.08.28.14.39.29
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 28 Aug 2023 14:39:29 -0700 (PDT)
+Date: Mon, 28 Aug 2023 14:39:27 -0700
+From: Charlie Jenkins <charlie@rivosinc.com>
+To: Conor Dooley <conor@kernel.org>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu
+Subject: Re: [PATCH 1/5] riscv: Checksum header
+Message-ID: <ZO0UD1+pmkjMDjvv@ghost>
+References: <20230827-turf-parched-b965bc697882@spud>
+ <mhng-d43dc0a3-7985-4195-9611-5ca0c38390e7@palmer-ri-x1c9>
+ <20230827-primer-conceal-b6f24b29e692@spud>
+ <20230827-divisive-happy-cf93058c49bf@spud>
+ <ZOzRlerSNjfzMYGH@ghost>
+ <20230828-deserve-paging-25666290e312@spud>
+ <ZOzld28wZjLpl4Hp@ghost>
+ <20230828-stonewall-eloquence-8940f33bd2f0@spud>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20230828-stonewall-eloquence-8940f33bd2f0@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230828_125850_790085_8B41EF4B 
-X-CRM114-Status: GOOD (  12.14  )
+X-CRM114-CacheID: sfid-20230828_143931_831181_8BDA355E 
+X-CRM114-Status: GOOD (  77.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,122 +99,169 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-When both CONFIG_IRQ_STACKS and SCS are enabled, also use a separate
-per-CPU shadow call stack.
-
-Signed-off-by: Sami Tolvanen <samitolvanen@google.com>
-Tested-by: Nathan Chancellor <nathan@kernel.org>
----
- arch/riscv/include/asm/scs.h |  7 +++++++
- arch/riscv/kernel/entry.S    |  7 +++++++
- arch/riscv/kernel/irq.c      | 21 +++++++++++++++++++++
- 3 files changed, 35 insertions(+)
-
-diff --git a/arch/riscv/include/asm/scs.h b/arch/riscv/include/asm/scs.h
-index 94726ea773e3..0e45db78b24b 100644
---- a/arch/riscv/include/asm/scs.h
-+++ b/arch/riscv/include/asm/scs.h
-@@ -13,6 +13,11 @@
- 	XIP_FIXUP_OFFSET gp
- .endm
- 
-+/* Load the per-CPU IRQ shadow call stack to gp. */
-+.macro scs_load_irq_stack tmp
-+	load_per_cpu gp, irq_shadow_call_stack_ptr, \tmp
-+.endm
-+
- /* Load task_scs_sp(current) to gp. */
- .macro scs_load_current
- 	REG_L	gp, TASK_TI_SCS_SP(tp)
-@@ -34,6 +39,8 @@
- 
- .macro scs_load_init_stack
- .endm
-+.macro scs_load_irq_stack tmp
-+.endm
- .macro scs_load_current
- .endm
- .macro scs_load_current_if_task_changed prev
-diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
-index 52793193a763..3a0db310325a 100644
---- a/arch/riscv/kernel/entry.S
-+++ b/arch/riscv/kernel/entry.S
-@@ -237,12 +237,19 @@ SYM_FUNC_START(call_on_irq_stack)
- 	REG_S	s0, STACKFRAME_FP(sp)
- 	addi	s0, sp, STACKFRAME_SIZE_ON_STACK
- 
-+	/* Switch to the per-CPU shadow call stack */
-+	scs_save_current
-+	scs_load_irq_stack t0
-+
- 	/* Switch to the per-CPU IRQ stack and call the handler */
- 	load_per_cpu t0, irq_stack_ptr, t1
- 	li	t1, IRQ_STACK_SIZE
- 	add	sp, t0, t1
- 	jalr	a1
- 
-+	/* Switch back to the thread shadow call stack */
-+	scs_load_current
-+
- 	/* Switch back to the thread stack and restore ra and s0 */
- 	addi	sp, s0, -STACKFRAME_SIZE_ON_STACK
- 	REG_L	ra, STACKFRAME_RA(sp)
-diff --git a/arch/riscv/kernel/irq.c b/arch/riscv/kernel/irq.c
-index 95dafdcbd135..7bfea97ee7e7 100644
---- a/arch/riscv/kernel/irq.c
-+++ b/arch/riscv/kernel/irq.c
-@@ -9,6 +9,7 @@
- #include <linux/irqchip.h>
- #include <linux/irqdomain.h>
- #include <linux/module.h>
-+#include <linux/scs.h>
- #include <linux/seq_file.h>
- #include <asm/sbi.h>
- #include <asm/smp.h>
-@@ -34,6 +35,24 @@ EXPORT_SYMBOL_GPL(riscv_get_intc_hwnode);
- #ifdef CONFIG_IRQ_STACKS
- #include <asm/irq_stack.h>
- 
-+DECLARE_PER_CPU(ulong *, irq_shadow_call_stack_ptr);
-+
-+#ifdef CONFIG_SHADOW_CALL_STACK
-+DEFINE_PER_CPU(ulong *, irq_shadow_call_stack_ptr);
-+#endif
-+
-+static void init_irq_scs(void)
-+{
-+	int cpu;
-+
-+	if (!scs_is_enabled())
-+		return;
-+
-+	for_each_possible_cpu(cpu)
-+		per_cpu(irq_shadow_call_stack_ptr, cpu) =
-+			scs_alloc(cpu_to_node(cpu));
-+}
-+
- DEFINE_PER_CPU(ulong *, irq_stack_ptr);
- 
- #ifdef CONFIG_VMAP_STACK
-@@ -76,6 +95,7 @@ void do_softirq_own_stack(void)
- #endif /* CONFIG_HAVE_SOFTIRQ_ON_OWN_STACK */
- 
- #else
-+static void init_irq_scs(void) {}
- static void init_irq_stacks(void) {}
- #endif /* CONFIG_IRQ_STACKS */
- 
-@@ -87,6 +107,7 @@ int arch_show_interrupts(struct seq_file *p, int prec)
- 
- void __init init_IRQ(void)
- {
-+	init_irq_scs();
- 	init_irq_stacks();
- 	irqchip_init();
- 	if (!handle_arch_irq)
--- 
-2.42.0.rc2.253.gd59a3bf2b4-goog
-
+On Mon, Aug 28, 2023 at 07:56:13PM +0100, Conor Dooley wrote:
+> On Mon, Aug 28, 2023 at 11:20:39AM -0700, Charlie Jenkins wrote:
+> > On Mon, Aug 28, 2023 at 06:08:40PM +0100, Conor Dooley wrote:
+> > > On Mon, Aug 28, 2023 at 09:55:49AM -0700, Charlie Jenkins wrote:
+> > > > On Sun, Aug 27, 2023 at 01:25:27PM +0100, Conor Dooley wrote:
+> > > > > On Sun, Aug 27, 2023 at 11:28:33AM +0100, Conor Dooley wrote:
+> > > > > > On Sat, Aug 26, 2023 at 07:00:47PM -0700, Palmer Dabbelt wrote:
+> > > > > > > On Sat, 26 Aug 2023 18:42:41 PDT (-0700), Conor Dooley wrote:
+> > > > > > > > On Sat, Aug 26, 2023 at 06:26:06PM -0700, Charlie Jenkins wrote:
+> > > > > > > > > Provide checksum algorithms that have been designed to leverage riscv
+> > > > > > > > > instructions such as rotate. In 64-bit, can take advantage of the larger
+> > > > > > > > > register to avoid some overflow checking.
+> > > > > > > > > 
+> > > > > > > > > Add configuration for Zba extension and add march for Zba and Zbb.
+> > > > > > > > > 
+> > > > > > > > > Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
+> > > > > > > > > ---
+> > > > > > > > >  arch/riscv/Kconfig                | 23 +++++++++++
+> > > > > > > > >  arch/riscv/Makefile               |  2 +
+> > > > > > > > >  arch/riscv/include/asm/checksum.h | 86 +++++++++++++++++++++++++++++++++++++++
+> > > > > > > > >  3 files changed, 111 insertions(+)
+> > > > > > > > > 
+> > > > > > > > > diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> > > > > > > > > index 4c07b9189c86..8d7e475ca28d 100644
+> > > > > > > > > --- a/arch/riscv/Kconfig
+> > > > > > > > > +++ b/arch/riscv/Kconfig
+> > > > > > > > > @@ -507,6 +507,29 @@ config RISCV_ISA_V_DEFAULT_ENABLE
+> > > > > > > > >  	  If you don't know what to do here, say Y.
+> > > > > > > > > +config TOOLCHAIN_HAS_ZBA
+> > > > > > > > > +	bool
+> > > > > > > > > +	default y
+> > > > > > > > > +	depends on !64BIT || $(cc-option,-mabi=lp64 -march=rv64ima_zba)
+> > > > > > > > > +	depends on !32BIT || $(cc-option,-mabi=ilp32 -march=rv32ima_zba)
+> > > > > > > > > +	depends on LLD_VERSION >= 150000 || LD_VERSION >= 23900
+> > > > > > > > > +	depends on AS_HAS_OPTION_ARCH
+> > > > > > > > > +
+> > > > > > > > > +config RISCV_ISA_ZBA
+> > > > > > > > > +	bool "Zba extension support for bit manipulation instructions"
+> > > > > > > > > +	depends on TOOLCHAIN_HAS_ZBA
+> > > > > > > > > +	depends on MMU
+> > > > > > > > > +	depends on RISCV_ALTERNATIVE
+> > > > > > > > > +	default y
+> > > > > > > > > +	help
+> > > > > > > > > +	   Adds support to dynamically detect the presence of the ZBA
+> > > > > > > > > +	   extension (basic bit manipulation) and enable its usage.
+> > > > > > > > > +
+> > > > > > > > > +	   The Zba extension provides instructions to accelerate a number
+> > > > > > > > > +	   of bit-specific address creation operations.
+> > > > > > > > > +
+> > > > > > > > > +	   If you don't know what to do here, say Y.
+> > > > > > > > > +
+> > > > > > > > >  config TOOLCHAIN_HAS_ZBB
+> > > > > > > > >  	bool
+> > > > > > > > >  	default y
+> > > > > > > > > diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
+> > > > > > > > > index 6ec6d52a4180..51fa3f67fc9a 100644
+> > > > > > > > > --- a/arch/riscv/Makefile
+> > > > > > > > > +++ b/arch/riscv/Makefile
+> > > > > > > > > @@ -61,6 +61,8 @@ riscv-march-$(CONFIG_ARCH_RV64I)	:= rv64ima
+> > > > > > > > >  riscv-march-$(CONFIG_FPU)		:= $(riscv-march-y)fd
+> > > > > > > > >  riscv-march-$(CONFIG_RISCV_ISA_C)	:= $(riscv-march-y)c
+> > > > > > > > >  riscv-march-$(CONFIG_RISCV_ISA_V)	:= $(riscv-march-y)v
+> > > > > > > > > +riscv-march-$(CONFIG_RISCV_ISA_ZBA)	:= $(riscv-march-y)_zba
+> > > > > > > > > +riscv-march-$(CONFIG_RISCV_ISA_ZBB)	:= $(riscv-march-y)_zbb
+> > > > > > > > 
+> > > > > > > > AFAICT, this is going to break immediately on any system that enables
+> > > > > > > > RISCV_ISA_ZBA (which will happen by default) but does not support the
+> > > > > > > > extension. You made the option depend on RISCV_ALTERNATIVE, but I do
+> > > > > > > > not see any use of alternatives in the code to actually perform the
+> > > > > > > > dynamic detection of Zba.
+> > > > > > > 
+> > > > > > > I guess we kind of have an ambiguity here: for stuff like C we just
+> > > > > > > unconditionally use the instructions, but for the rest we probe first.  We
+> > > > > > > should probably have three states for each extension: disabled, dynamically
+> > > > > > > detected, and assumed.
+> > > > > > 
+> > > > > > You mean, just add some comments to the makefile surrounding each
+> > > > > > section or to some rst documentation?
+> > > > > 
+> > > > > Also, the code here doesn't build w/
+> > > > > 	warning: invalid argument to '-march': '_zba_zbb_zicsr_zifencei_zihintpause'
+> > > > > so there's something else wrong with TOOLCHAIN_HAS_ZBA :)
+> > > > It is odd that this is missing 'rv64ima' or 'rv32ima' at the beginning of
+> > > > this string. What configuration are you using that could cause that to
+> > > > be left off?
+> > > 
+> > > I don't know, but that configuration is pretty pervasive. The patchwork
+> > > CI blew up too & that is using kernel.org toolchains built by Arnd:
+> > > https://mirrors.edge.kernel.org/pub/tools/crosstool/
+> > > 
+> > > > Compiling with defconfig automatically enables Zba and appears to not
+> > > > cause this issue. I realized that I put the header definitions for
+> > > > do_csum and csum_ipv6_magic in this patch instead of the next one so the
+> > > > code will fail to compile from this but not due to march settings.
+> > > > > 
+> > > > > > 
+> > > > > > > > Note that for fd & v, we add it to riscv-march-y, but then immediately
+> > > > > > > > remove it again before passing to the compiler, only allow them in
+> > > > > > > > AFLAGS:
+> > > > > > > > 	# Remove F,D,V from isa string for all. Keep extensions between "fd" and "v" by
+> > > > > > > > 	# matching non-v and non-multi-letter extensions out with the filter ([^v_]*)
+> > > > > > > > 	KBUILD_CFLAGS += -march=$(shell echo $(riscv-march-y) | sed -E 's/(rv32ima|rv64ima)fd([^v_]*)v?/\1\2/')
+> > > > > > > > 
+> > > > > > > > What am I missing?
+> > > > > > > 
+> > > > > > > FD and V both have state that can be saved lazily, so we can't let arbitrary
+> > > > > > > code use them.  The extensions formally known as B don't add state, so they
+> > > > > > > are safe to flip on in arbitrary places (aside from the issues you pointed
+> > > > > > > out above).
+> > > > > > 
+> > > > > > I probably went about this badly since you missed the point. I was
+> > > > > > trying to point out that for anything other than the compressed
+> > > > > > extensions in the block above that we only pass them in march to the
+> > > > > > assembler, and not to the compiler, in contrast to this patch which just
+> > > > > > always passes them. I should have pointed to how we handled the
+> > > > > > in-kernel Zbb stuff & asked how this was any different, would probably
+> > > > > > have been clearer.
+> > > > > > 
+> > > > I supposed it might be better if I submit these changes in a different
+> > > > patch so we can have more discussion there. Zbb was previously only used
+> > > > by assembly files (arch/riscv/lib/strcmp.S, arch/riscv/lib/strlen.S,
+> > > > arch/riscv/lib/strncmp.S). I wanted to add them to the compiler so that
+> > > > that C programs could leverage these extensions. However, I neglected to
+> > > > consider machines that compile the kernel with these extensions but have
+> > > > cores without these extensions.
+> > > 
+> > > Less so cores, since we don't support heterogeneous stuff, and moreso
+> > > platforms that do not support the extensions. It's expected that the
+> > > same kernel could in theory be used across a wide variety of systems.
+> > > 
+> > > > The purpose of using these extensions is
+> > > > to save a couple of clock cycles, so if it is necessary to first
+> > > > check if the extension is enabled it may not be worth it for these
+> > > > functions.
+> > > 
+> > > That's still possible, it's what the alternatives mechanism exists for.
+> > > During boot the codepaths are patched to use what works for a given
+> > > machine, check out the code that makes use of Zbb or
+> > > riscv_has_extension_[un]likely(). You'd need to do something like the
+> > > existing users of Zbb instructions does, with an alternative used to
+> > > avoid the custom asm implementations when the hardware does not support
+> > > them. (That's what the CONFIG_ALTERNATIVE & CONFIG_AS_HAS_OPTION_ARCH
+> > > options you made the TOOLCHAIN_HAS_ZBA depend on are for).
+> > 
+> > I can see how to get this to work if I port this code into assembly and
+> > write two different versions (one with Zbb and one without), but
+> > I don't see how this would work in C. Unless I am mistaken, there would
+> > need to be some sort of wrapper around the C code that told the compiler
+> > to compile it multiple times for different extension combinations and
+> > then use the riscv_has_extension_[un]likely() functions to determine
+> > which version to use at runtime. Is this feasible?
+> 
+> IIRC, if you put all the code using Zbb etc into a compilation unit of
+> its own then you can set march for that unit alone, but it may well just
+> be easier to write a custom asm one for the Zbb case & use the c
+> implementation from this patch for the non-Zbb case.
+In include/linux/bitops.h there are implementations of rotations (i.e.
+ror32, ror16). Do you think it would be an acceptable solution to move
+those definitions into asm-generic and have riscv implement these
+functions in assembly with Zbb and non-Zbb versions and use the
+alternatives macro? Every other architecture would just use the
+existing definitions but could implement their own if they wanted. The
+code that would benefit from Zbb is a rotation.
 
 _______________________________________________
 linux-riscv mailing list
