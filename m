@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06BCCC83F12
-	for <linux-riscv@archiver.kernel.org>; Mon, 28 Aug 2023 17:31:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56DC3C83F12
+	for <linux-riscv@archiver.kernel.org>; Mon, 28 Aug 2023 17:46:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=uDxEAf3g6EZviVF0uwoqG8NZX6ZQYH3ttrM2pcOWftU=; b=jyyRxKt9hCnQyF
-	iFjWeNQboctg0vCggvAE7mzBji1HPVIGSadNkQjwvCAHL9BYgb5DWQURmWbwX8hop91pzM8Lbntci
-	BdDdk9Mjn+Rc/pmnggH7+DZTLKjfCjfdQ9vdjicyO9kJm8JoXeJ+DnTfDlxTaBp3LfKjryFbZ/d79
-	6nUeY80uWhVIBcWjoI60W7Xuaz8y0aTFFydF/oxqYqF80KRov4GyJ1dqumE1EGwtJslShbGGcuFC7
-	/Yt8NXHYo3V1jbH9JCr+TtZ76fgwOtJ/uyEPuFaDBOA0Jktx3SXpExCS10c9iKkfk6NxIztZ3LIDF
-	x8hvPUQb6brfXuMM9L3Q==;
+	List-Owner; bh=CnmHHYHI7yGLCVU/skGKdv6LqcAJtp6R6VsilVMHYv8=; b=g5FSOzoXNyXAne
+	KlA45WuV01YvdLqpoO/5ixdWJUymvLo+UM/DYL+wau0Z0vOFJeJzOFlwUBXjKu9BWq1hqVrkOgkk6
+	EfPBXaOrqxkMufWNaqvglmoyKS8PxJKB0wGnhy82FXc4h+DjNRZcxbHkNjVj++QKaqSj2cyTsJtXi
+	04yguED/JL8wBHgajmHUvy2ozlyipkpeoFwT2e8hdevwOwDEKG8v+Xk4hX7hnVcjuq//TGu7iMzb2
+	ZKW3wN3jOICFdICi7U0Uv5kJuABQvblLJeXb8R3/BqFdSwsggZxhgzWhNDOIsdAh58oUKIy/vkVkK
+	m6cGp1G0BYrRFZMn110Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qag4t-00A09e-1l;
-	Mon, 28 Aug 2023 17:31:03 +0000
-Received: from mail-lj1-x236.google.com ([2a00:1450:4864:20::236])
+	id 1qagJs-00A1Ys-2J;
+	Mon, 28 Aug 2023 17:46:32 +0000
+Received: from mail-lf1-x12f.google.com ([2a00:1450:4864:20::12f])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qag4p-00A08x-0c;
-	Mon, 28 Aug 2023 17:31:02 +0000
-Received: by mail-lj1-x236.google.com with SMTP id 38308e7fff4ca-2bbbda48904so52495221fa.2;
-        Mon, 28 Aug 2023 10:30:56 -0700 (PDT)
+	id 1qagJo-00A1YK-1Z;
+	Mon, 28 Aug 2023 17:46:30 +0000
+Received: by mail-lf1-x12f.google.com with SMTP id 2adb3069b0e04-4fe27849e6aso5428314e87.1;
+        Mon, 28 Aug 2023 10:46:28 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20221208; t=1693243855; x=1693848655;
+        d=gmail.com; s=20221208; t=1693244787; x=1693849587;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=IRfwoJDTu+2C3OAgG6kSzHRUwrazLgZNycEOXCkCd2I=;
-        b=LrZ7d98CzxZIYp5HNIGN1gMcoJ0QnG1ShrbnDv+6RXNV0EuDIukO60xVKEMYZUCUnT
-         SDodcdi9elitWMDOUS8XwMFqi9S6xfjes/0niuxbkc2Yl+dPhrfbuJey0vcYnlX5os3r
-         008CDY+OTLDCdjbEN+i3WQtlufaCJ75ZvqGtfc0I8DocPItroB5ws3b/oRn+Wwst/aa6
-         5WqT23G9HH6ZaCU4g2+eaNWHYUvm9V5XChq41OYQktgOhlR8kloE8IY+js25nzhlAh1d
-         ADQp6lQCB3t3/bSKwD5yQOJ87VPMweCfxh99PRwJu/E/3KOCEMcnZWAFfEtl1cPRXaEv
-         ttkg==
+        bh=e9lNhTJSjVL9D0HEPD5AEnyVVMoFWw5+tXxuZqUaAYU=;
+        b=Iz5Cc4gPj3vxYE4VllJd+N52C0gUfk/7tptU/O8YLI4WqTEYDFSc1K6RHJ7U5ZekcP
+         EFWa8FOb6smuE8O3w/kRTso4M8DvInVdhDnAxbzOaC6SimviW4OihZMP3/i5MQCHo5Id
+         flsgYHR5woDl5zX8mlxonXE0e2E94nSVjplydNjbDEZ9fGSQtc1Pg7/mytLblFmw2vv9
+         IkAc3hQK9QThQGXv0pD5Og13ZTdC27Otw3t3OG9LS8P93A7KXGEdOFSUaGTRjOskWDzx
+         782kbbx4oBhmrxOsJAtZgyOHSO83glgmrt+V6NEs2xPClnwxqTDaMKbo7XNJpRwJQ+vY
+         y1tQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1693243855; x=1693848655;
+        d=1e100.net; s=20221208; t=1693244787; x=1693849587;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=IRfwoJDTu+2C3OAgG6kSzHRUwrazLgZNycEOXCkCd2I=;
-        b=EtRqTKPrcvGH88+5VokpM4RlPQ04ro/5aNHogb2QEFHTufeqj+uHApMKlO9b0uLjzv
-         43Mg7naXfAZ0vRcYELn00q649obazkwTNXdjGsnWCoG8grXQG7ezigYkUrVGGC9d4QWi
-         MhNIntyrpt3L9FWL2qz4443OWtdlRt74Mhi2DulRcXWW349pKiBJrdwyO4xeB0BIwoN6
-         2W9+ePoaDmi7/2NZKAf4eeppi345kTmfOPlAu0EVAQiUMapLcSOW+V7tPfuLjyT8AgmE
-         7WUn4TDwngWpD7naBZ+AZYmViF+yyeGzeSNhiTBMVBGn9iGwn3HipQdouZjkUKCvcIaZ
-         gE0Q==
-X-Gm-Message-State: AOJu0YxClM0iI65rOadExvFN7qZd1M+tLSD7D1QchLTDzPEen8rPLPx7
-	AhkgyyRJH3lNDtzujoAw6l4=
-X-Google-Smtp-Source: AGHT+IFvMq6mkM90z4EUWRa/Q01QxN1AMxaIyzH1el+hb1oJBIqpXET1QT37VBfZJnnbF2qo5BCcnw==
-X-Received: by 2002:a2e:6f1a:0:b0:2bc:fe17:693c with SMTP id k26-20020a2e6f1a000000b002bcfe17693cmr5010664ljc.30.1693243854427;
-        Mon, 28 Aug 2023 10:30:54 -0700 (PDT)
+        bh=e9lNhTJSjVL9D0HEPD5AEnyVVMoFWw5+tXxuZqUaAYU=;
+        b=BtHibTY9zPmrqJTqk8JLrEhb5CqjF3dCPrBoIV0N7H5ekIY7DYLg9D5UlCzKPiF1en
+         x1fWOYTd80pnEk9hZit2vT2Tlz/+h4f1r6SDa4MxgMdyJfTtDmvFpLFDfUVTYMoGRQsb
+         PKWkdaQl0PB5RyCBpgq2r7gokehI48/Val6rplijGgcqhhHms5xbaq/LS3/UN94jJQjO
+         6R4bU48EAEQspSuW9mP0hIfaNyz3Ow2GXdj1BVbQAg7XxUXPNX7Q1CuOorsoeyEKpDlC
+         s5u8nMWRIln/jT2h+5HkNNNM5ugiGieuuOJOUI8BdjNBNyfhL0SPQe0p9f9+7Hb5sVY3
+         AP/w==
+X-Gm-Message-State: AOJu0Yxr2XyehqMSDhvHSoTT3E7GmocxhvXRe8nZg81u7NR2BrbTpLoq
+	kZwOPz/0piXuCl9dpsE05YE=
+X-Google-Smtp-Source: AGHT+IHyd/Ctsu8Rk47mLxlH3okFl2ZAcKi4nPDf9ttrb9T9oxvBbIuqQ/P3N7Uj19JMm0/48FsjgQ==
+X-Received: by 2002:a05:6512:3046:b0:4fe:e50:422d with SMTP id b6-20020a056512304600b004fe0e50422dmr23147711lfb.25.1693244786422;
+        Mon, 28 Aug 2023 10:46:26 -0700 (PDT)
 Received: from mobilestation ([178.176.56.174])
-        by smtp.gmail.com with ESMTPSA id f14-20020a2ea0ce000000b002b6b7a98c4bsm1810980ljm.77.2023.08.28.10.30.53
+        by smtp.gmail.com with ESMTPSA id eq8-20020a056512488800b004f755ceafbcsm1663524lfb.217.2023.08.28.10.46.25
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 28 Aug 2023 10:30:53 -0700 (PDT)
-Date: Mon, 28 Aug 2023 20:30:50 +0300
+        Mon, 28 Aug 2023 10:46:25 -0700 (PDT)
+Date: Mon, 28 Aug 2023 20:46:22 +0300
 From: Serge Semin <fancer.lancer@gmail.com>
 To: Jisheng Zhang <jszhang@kernel.org>
 Cc: "David S . Miller" <davem@davemloft.net>, 
@@ -74,17 +74,17 @@ Cc: "David S . Miller" <davem@davemloft.net>,
 	linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org
 Subject: Re: [PATCH net-next v2 3/3] net: stmmac: add glue layer for T-HEAD
  TH1520 SoC
-Message-ID: <logkjnuiq2jgrphv4y7bqy523zsj6pskafwzpfdg6grvk5m7jk@hgucfu4e6azo>
+Message-ID: <qm3whvpvf3i344hmmq4jdiy6qdl6g2gx64vuvnce2mv2fxylnx@ubkniiinqc7a>
 References: <20230827091710.1483-1-jszhang@kernel.org>
  <20230827091710.1483-4-jszhang@kernel.org>
- <maj7mkdtkhp3z7xzcwvopnup3lhm5h5wyxz3j2ljryjbwpwilx@xdizgwctqukn>
- <ZOzAO5xhWdGcBXD1@xhacker>
+ <m4dnqswad55btiyzjbjsru2oaomr4gunqsgnvlhdcn2hhpcihm@eb6kyyz774n7>
+ <ZOzHxiaXloloVP/G@xhacker>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <ZOzAO5xhWdGcBXD1@xhacker>
+In-Reply-To: <ZOzHxiaXloloVP/G@xhacker>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230828_103059_231009_754465D7 
-X-CRM114-Status: GOOD (  47.39  )
+X-CRM114-CacheID: sfid-20230828_104628_631696_9875A6A6 
+X-CRM114-Status: GOOD (  38.99  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,8 +101,8 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 28, 2023 at 11:41:47PM +0800, Jisheng Zhang wrote:
-> On Mon, Aug 28, 2023 at 04:40:19PM +0300, Serge Semin wrote:
+On Tue, Aug 29, 2023 at 12:13:58AM +0800, Jisheng Zhang wrote:
+> On Mon, Aug 28, 2023 at 06:58:11PM +0300, Serge Semin wrote:
 > > On Sun, Aug 27, 2023 at 05:17:10PM +0800, Jisheng Zhang wrote:
 > > > Add dwmac glue driver to support the dwmac on the T-HEAD TH1520 SoC.
 > > > 
@@ -285,7 +285,6 @@ On Mon, Aug 28, 2023 at 11:41:47PM +0800, Jisheng Zhang wrote:
 > > > +	case PHY_INTERFACE_MODE_RGMII_ID:
 > > > +	case PHY_INTERFACE_MODE_RGMII_RXID:
 > > > +	case PHY_INTERFACE_MODE_RGMII_TXID:
-> > 
 > > > +		rate = clk_get_rate(plat->stmmac_clk);
 > > > +		if (!rate || rate % GMAC_GMII_RGMII_RATE != 0 ||
 > > > +		    rate % GMAC_MII_RATE != 0) {
@@ -314,89 +313,6 @@ On Mon, Aug 28, 2023 at 11:41:47PM +0800, Jisheng Zhang wrote:
 > > > +
 > > > +		regmap_update_bits(dwmac->apb_regmap, GMAC_PLLCLK_DIV,
 > > > +				   GMAC_PLLCLK_DIV_EN, GMAC_PLLCLK_DIV_EN);
-> > 
-> > This chunk looks like a hard-coded implementation of the
-> > CLK_SET_RATE_GATE Tx-clocks rate setup which parental clock is the
-> > "stmmaceth" clock. I suggest to move it to the respective driver, add
-> > a "tx" clock to the bindings and use the common clock kernel API
-> > methods here only.
-> 
-> I did consider your solution before writing the code, here are the
-> reasons why I dropped it:
-> 
-
-> There's no any clk IP here, the HW just puts several
-> gmac related control bits here, such as rx/tx delay, bypass, invert
-> interface choice, clk direction. 
-
-You omitted the essential part of your code which I pointed out.
-
-> From this point of view, it looks more
-> like a syscon rather than clk.
-
-Toggling control bits is surely the syscon work. But gating a parental
-clock, settings up the parental clock _divider_ and ungating the clock
-back is the clock controller function. So it means your syscon is just
-a normal multi-function device, which one of the function is the clock
-controller.
-
-It's not like your situation is unique. For instance in case of a SoC
-I was working with recently Clock Control Unit (CCU) was actually a
-multi-function device which had:
-1. PLLs and Dividers supplying the clocks to the SoC components.
-2. SoC components reset controller.
-3. I2C-interface controller.
-4. AXI-bus errors report registers.
-5. PCIe-controller tunings (LTSSM, link up/down, etc)
-6. SATA-controller tunings.
-7. Full SoC reset controller (syscon reboot),
-8. L2-cache tunings controller.
-with the sub-functions CSRs joint in a single space. In that case the
-PCIe-controller tunings and a lot of its reference clocks settings
-were intermixed in a single chunk of the registers. So I had to create
-a driver for the clocks anyway including all the PCIe reference
-clock and refer to the syscon in the PCIe-controller device node for
-the respective PCIe platform-specific tunings.
-
-> 
-> Secondly, I see other SoCs did similar for this case, such as
-> dwmac-visconti, dwmac-meson8b, dwmac-ipq806x, dwmac-socfpga and so on.
-> They met similar issue as the above.
-
-First I failed to find any clock-related things in the dwmac-socfpga
-driver looking in anyway as yours. Second the dwmac-meson8b driver
-creates a generic clock handler right in the driver. I don't think
-it's a great solution but at the very least it registers the clock
-handler in the kernel. But seeing the PROG_ETHERNET CSR is of 8 bytes
-long there (0xc8834540 0x8) and defined at looking random base address
-it's definitely a part of a Meson system controller which just
-directly passed to the device driver. It's not correct. That part
-should have been at least specified as a syscon too. Third the
-dwmac-visconti driver is not a good example seeing it defines some
-specific registers way away from the NIC CSR space. It's most likely a
-separate device like syscon. Fourth dwmac-ipq806x driver
-implementation looks indeed like yours.
-
-In anyway I don't say your solution is fully wrong. At the very least
-you have a syscon node defined. But it just makes you adding
-incomplete device/platform bindings. Your network device do have the
-Tx reference clock as a part of the separate system controller, but
-you have to omit it because of the syscon property. You do have a
-syscon node, but don't have its clock function exported. So AFAICS in
-your case things can be implemented in a more canonical way than they
-are now.
-
--Serge(y)
-
-> 
-> PS: here is the initial th1520 clk driver, as is seen, the clk IP is
-> different from the control logic here.
-> 
-> https://lore.kernel.org/linux-riscv/20230515054402.27633-1-frank.li@vivo.com/
-> 
-> Thanks
-> 
-> > 
 > > > +		break;
 > > > +	default:
 > > > +		dev_err(dwmac->dev, "unsupported phy interface %d\n",
@@ -422,13 +338,8 @@ are now.
 > > > +		/* use pll */
 > > > +		regmap_write(dwmac->apb_regmap, GMAC_GTXCLK_SEL, GMAC_GTXCLK_SEL_PLL);
 > > > +
-> > 
 > > > +		reg = GMAC_TX_CLK_EN | GMAC_TX_CLK_N_EN | GMAC_TX_CLK_OUT_EN |
 > > > +		      GMAC_RX_CLK_EN | GMAC_RX_CLK_N_EN;
-> > 
-> > Similarly settings these flags looks like just clock gates which can
-> > also be moved to the clock driver.
-> > 
 > > > +		break;
 > > > +
 > > > +	default:
@@ -456,10 +367,41 @@ are now.
 > > > +	if (ret)
 > > > +		return ret;
 > > > +
+> > 
 > > > +	regmap_write(dwmac->apb_regmap, GMAC_RXCLK_DELAY_CTRL,
 > > > +		     GMAC_RXCLK_DELAY_VAL(dwmac->rx_delay));
 > > > +	regmap_write(dwmac->apb_regmap, GMAC_TXCLK_DELAY_CTRL,
 > > > +		     GMAC_TXCLK_DELAY_VAL(dwmac->tx_delay));
+> > 
+> > Just noticed. This doesn't look right because:
+> > 1. Are you sure your hardware expects the delays being specified in
+> > picoseconds. It's most likely a number of reference clock cycles and
+> > thus the DT-properties values should be properly converted.
+> 
+> Good catch! I need to check further.
+> > 2. Both delays should be added only for "rgmii" phy-mode, Tx clock
+> > delay - for "rgmii-rxid" phy-mode, Rx clock delay - for "rgmii-txid"
+> > phy-mode.
+> 
+
+> For MII, the rxc/txc is provided by phy, so setting those delays
+> won't impact MII.
+
+I am talking about _RGMII_ in this case which based on the
+thead_dwmac_set_phy_if() method is supported by this controller.
+rgmii{-(tx|rx)id} modes are provided so to prevent both MAC and PHY
+adding the delays in the RGMII interface. Imagine you have a PHY with
+the fixed delays meanwhile you have them also added in the MAC. You
+may and likely will end up with the traffic loss then.
+
+As a reference take a closer look at for instance rk_gmac_powerup()
+method implemented in the dwmac-rk.c driver.
+
+-Serge(y)
+
+> > 
+> > -Serge(y)
+> > 
 > > > +
 > > > +	thead_dwmac_fix_speed(dwmac, SPEED_1000, 0);
 > > > +
@@ -480,12 +422,7 @@ are now.
 > > > +		return dev_err_probe(&pdev->dev, ret,
 > > > +				     "failed to get resources\n");
 > > > +
-> > 
 > > > +	plat = stmmac_probe_config_dt(pdev, stmmac_res.mac);
-> > 
-> > This can be replaced with devm_stmmac_probe_config_dt() so the
-> > stmmac_remove_config_dt() invocation would be dropped.
-> > 
 > > > +	if (IS_ERR(plat))
 > > > +		return dev_err_probe(&pdev->dev, PTR_ERR(plat),
 > > > +				     "dt configuration failed\n");
@@ -513,50 +450,31 @@ are now.
 > > > +	plat->bsp_priv = dwmac;
 > > > +	plat->fix_mac_speed = thead_dwmac_fix_speed;
 > > > +
-> > 
 > > > +	ret = thead_dwmac_init(pdev, plat);
 > > > +	if (ret)
 > > > +		goto err_remove_config_dt;
 > > > +
 > > > +	ret = stmmac_dvr_probe(&pdev->dev, plat, &stmmac_res);
-> > 
-> > This can be replaced with:
-> > plat->init = thead_dwmac_init;
-> > ret = devm_stmmac_pltfr_probe();
-> > 
 > > > +	if (ret)
 > > > +		goto err_remove_config_dt;
 > > > +
 > > > +	return 0;
 > > > +
-> > 
 > > > +err_remove_config_dt:
 > > > +	stmmac_remove_config_dt(pdev, plat);
 > > > +
 > > > +	return ret;
-> > 
-> > This can be dropped if devm_stmmac_probe_config_dt() is utilized.
-> > 
 > > > +}
 > > > +
 > > > +static const struct of_device_id thead_dwmac_match[] = {
-> > 
 > > > +	{ .compatible = "thead,th1520-dwmac" },
-> > 
-> > See my comment to the bindings about the compatible string suffix.
-> > 
 > > > +	{ }
 > > > +};
 > > > +MODULE_DEVICE_TABLE(of, thead_dwmac_match);
 > > > +
 > > > +static struct platform_driver thead_dwmac_driver = {
 > > > +	.probe = thead_dwmac_probe,
-> > 
 > > > +	.remove_new = stmmac_pltfr_remove,
-> > 
-> > This can be dropped if devm_stmmac_probe_config_dt() and
-> > devm_stmmac_pltfr_probe() are utilized.
-> > 
 > > > +	.driver = {
 > > > +		.name = "thead-dwmac",
 > > > +		.pm = &stmmac_pltfr_pm_ops,
@@ -567,14 +485,7 @@ are now.
 > > > +
 > > > +MODULE_AUTHOR("T-HEAD");
 > > > +MODULE_AUTHOR("Jisheng Zhang <jszhang@kernel.org>");
-> > 
 > > > +MODULE_DESCRIPTION("T-HEAD dwmac platform driver");
-> >                               ^
-> >                               |
-> > Capitalize? ------------------+
-> > 
-> > -Serge(y)
-> > 
 > > > +MODULE_LICENSE("GPL");
 > > > -- 
 > > > 2.40.1
