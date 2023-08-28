@@ -4,76 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5F3CC71153
-	for <linux-riscv@archiver.kernel.org>; Mon, 28 Aug 2023 16:26:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1C65C83F11
+	for <linux-riscv@archiver.kernel.org>; Mon, 28 Aug 2023 16:45:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cfOVEKrTv7delEuszzqPvuFnQZIzlLetSLTp51wcRUY=; b=P47/G4JRCqyCkw
-	bJuN1ptBjCM8A0kL5tMu7lhXCUZTPK3JDRoh3xeQOz95vvXtzn9+olYqPs7J66xhkIRFG0qSlJz4o
-	DygYEaLWMDnjZbYT98dqUSNpWkQyQo+Bc2OGvqusBBDv02TzZ4U9p2MSqcaclSHLoa8dXrCfiIOwg
-	x4jS7tT8smFp5OmvqtPh2TxHcxYCsWPUHR7QDYNa9kuBTqu/g+X/H75J2iL0RRRlRQCZWhcHXD481
-	eP2dSXjKn3q3zSJDHlhNKv+kNFzuCS2zWNT9zdDr2a00rOsI59Us7FGaBRUxz4JUcGCXSwE8o+vtX
-	JxJCz6I3IGLzc0o2jvFw==;
+	List-Owner; bh=WIsg2Ust+B2ZQY2NuBOlJf+abU4IdIecLc2p8jHaLuE=; b=MpRdUidqAIbItP
+	pcbto1RulbxzXsxv22WkC+87drfOzRcR+0+/KSRBQHlF42HoHl29Ey9+HMW6dCvY8q4p/t2SGJ1Nc
+	LXsRuxvPzLpIyuMhJdqfQHZ8v9GNfK6DdwFv6mg4pmcG9b08AoWUjX6NqfSreO+RRls2JOhst4pyI
+	lUFFZ5TseVfm2F7LVJ43wNqNB2EIEypDM386BF6Hl834KR+9G3WR2C45IFnMtPCUQoYCxzXW7t1tp
+	jn9MusFW/nNE5P/QnkEaaacmZhOs/QfQZRcW5iMV3LNVfQHpUTOQH6Hr8kqrKHQBkktVhCR99d1rb
+	Fdmu640dv7p3bxDSzPIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qaf3r-009tDG-0v;
-	Mon, 28 Aug 2023 16:25:55 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1qafN1-009veH-1w;
+	Mon, 28 Aug 2023 16:45:43 +0000
+Received: from mail-lf1-x12e.google.com ([2a00:1450:4864:20::12e])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qaf3n-009tCC-10;
-	Mon, 28 Aug 2023 16:25:53 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 3FC1F63C0B;
-	Mon, 28 Aug 2023 16:25:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 527CAC433C8;
-	Mon, 28 Aug 2023 16:25:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1693239949;
-	bh=efo+JXpZK7U33wiQxEQXmpYEfuh17YKjDXNzJo9Q3nI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=MJzsAPHZdDy5k0B8aCbXZXk5owW069GetdeUSLLZYWr6qDT0SwKZlMqUzB53SVcxW
-	 DC3/p5xVbtP8fwtolfQO5e2ycyHX9sG5SkaTRoY7PPtEOQqU2RwZ8JjrG7OQwbxjYy
-	 mOtmB4jtZ/gFpwL8RP5srDV4tnCVf++YR0DnUIAhN/Bwq5GuxZY9AueQZRpxL7ISVu
-	 5c/MLBldmD4R4Lwmf3IkNXpzD8TzPFQyBebjvg0pHBaRboNz0++Qi5p/SoK9GFSUGa
-	 Snd6MFPwdW+rvM8YtGWQKbBt60KOKDcK1r5yK5L9LPr6uX6FJc+nJLxkUGqt3vBvXr
-	 pqNQebIwONzNQ==
-Date: Tue, 29 Aug 2023 00:13:58 +0800
-From: Jisheng Zhang <jszhang@kernel.org>
-To: Serge Semin <fancer.lancer@gmail.com>
-Cc: "David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Jose Abreu <joabreu@synopsys.com>, Maxime@web.codeaurora.org,
-	Coquelin@web.codeaurora.org,
-	Simon Horman <simon.horman@corigine.com>, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH net-next v2 3/3] net: stmmac: add glue layer for T-HEAD
- TH1520 SoC
-Message-ID: <ZOzHxiaXloloVP/G@xhacker>
-References: <20230827091710.1483-1-jszhang@kernel.org>
- <20230827091710.1483-4-jszhang@kernel.org>
- <m4dnqswad55btiyzjbjsru2oaomr4gunqsgnvlhdcn2hhpcihm@eb6kyyz774n7>
+	id 1qafMy-009vcH-0O
+	for linux-riscv@lists.infradead.org;
+	Mon, 28 Aug 2023 16:45:41 +0000
+Received: by mail-lf1-x12e.google.com with SMTP id 2adb3069b0e04-5008faf4456so5353697e87.3
+        for <linux-riscv@lists.infradead.org>; Mon, 28 Aug 2023 09:45:33 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1693241132; x=1693845932;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=rUro7QwxD0vKwAUT+qWKm/yCMwnGx0UOQKp8vqTeg1M=;
+        b=JiBsCYeNmw+xE/uxWbWZ2NQ5KIvDu/V5/1h4D6e/NJSefDzz5G1tloYG0Tv09xfk4N
+         uLxI46vSsuZAPAt1jd2EhjrVoVnttHcDcf2qhwAvzVHMx+3xKCgoYUEFskrR+fbvRsEA
+         PuKjSS7G0aXu7hFc+T32BarkI55mj3Obnw1EpDPujWMc4qkSolaZ6cf6OXcq7f1DqqjN
+         o51nGop2VYsojhuRVLcyBPt6DTiAycygUUiNwRRBlqGiJ5hOz7OIdHsHMTpSiVC5pgoL
+         154JF5DIkjdchzxZxMBOu1OAvFo2irXuIvDnTtvo5YHT5Mv8AMghVKddK7noupmaMEgv
+         QPdQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1693241132; x=1693845932;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=rUro7QwxD0vKwAUT+qWKm/yCMwnGx0UOQKp8vqTeg1M=;
+        b=iJhhM+GBxf5Ifx1enVNE0R60o3JbfpGI757IHWi8QuXcGWUOou82hA0s6rmudpa8dS
+         XwzydOP5dVCPBQl8RWt84YubrLyTluiqaKpKY9xDE7E1LC1/l0pWrqftzNoyxbpMN2oT
+         TeJqeeOOFNH9vpPaVuxNJwksTTukRdg5U6AhEbhsdhpwIFSNE84aSzpdgOEo2fB5f8dm
+         ujE98hZdl9nWtpwwdaDJMQI9bLK4BB1WZQO2E2dkDPTtkXj+XAV6+6k6WwnL8gQn2nNN
+         flw7AOw2uA7ALs+CqRAYX2Ra1MB6iTsBkqs89BCSlLMjFi2X6jWQNiv5IrNY/85a156U
+         5Lrw==
+X-Gm-Message-State: AOJu0YwAAYQ5bkoxSVB11v7Fdm1EsPCrU56zVCkKAJOORrp6j/W/vKDl
+	G52iP9YNGzu8VqQn3ZG/6/dnymzS+p2XVXsuDtIVJA==
+X-Google-Smtp-Source: AGHT+IHT/JeNdaGMDQop2aCFdzEnxM4ijxxtyQfqFgtW/FreZE/60xXaqH+YO0DtQi7lOKEK6OYttesq0gJHhTGlg0Q=
+X-Received: by 2002:ac2:5f41:0:b0:4f8:72fd:ed95 with SMTP id
+ 1-20020ac25f41000000b004f872fded95mr14942201lfz.22.1693241131906; Mon, 28 Aug
+ 2023 09:45:31 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <m4dnqswad55btiyzjbjsru2oaomr4gunqsgnvlhdcn2hhpcihm@eb6kyyz774n7>
+References: <20230711201831.2695097-1-evan@rivosinc.com> <20230824-factual-jawed-2dddd2cf2bdd@wendy>
+ <CALs-Hss51fQE1yxe1Y1T86X+OfjPaAd386vosQ8gzRm=Njm1gw@mail.gmail.com>
+ <20230824-exploit-spectacle-ecedd91e9075@spud> <CALs-HssqaOjvUOdBVn=oN+uzkkmjguys2UttTYgdcqJwJB0HnQ@mail.gmail.com>
+ <20230825-374a82446ed3eea02fcb41e6@orel> <CALs-HstfA29DDrmVemP6bZe+kON9JDKYR3p132gG_WefA6d7eQ@mail.gmail.com>
+ <20230826-3869468d499caf2850681d08@orel>
+In-Reply-To: <20230826-3869468d499caf2850681d08@orel>
+From: Evan Green <evan@rivosinc.com>
+Date: Mon, 28 Aug 2023 09:44:55 -0700
+Message-ID: <CALs-HsskEUu3cu8pAc272Z47ro25e=fyuPt8jQBcJE2_RmFGtQ@mail.gmail.com>
+Subject: Re: [PATCH v4] RISC-V: Show accurate per-hart isa in /proc/cpuinfo
+To: Andrew Jones <ajones@ventanamicro.com>
+Cc: Conor Dooley <conor@kernel.org>, Conor Dooley <conor.dooley@microchip.com>, 
+	Anup Patel <apatel@ventanamicro.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Jonathan Corbet <corbet@lwn.net>, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Palmer Dabbelt <palmer@rivosinc.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Bagas Sanjaya <bagasdotme@gmail.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	linux-riscv@lists.infradead.org, Heiko Stuebner <heiko.stuebner@vrull.eu>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230828_092551_442637_361CD4D9 
-X-CRM114-Status: GOOD (  36.62  )
+X-CRM114-CacheID: sfid-20230828_094540_187844_3F038793 
+X-CRM114-Status: GOOD (  57.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,388 +91,124 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 28, 2023 at 06:58:11PM +0300, Serge Semin wrote:
-> On Sun, Aug 27, 2023 at 05:17:10PM +0800, Jisheng Zhang wrote:
-> > Add dwmac glue driver to support the dwmac on the T-HEAD TH1520 SoC.
-> > 
-> > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> > ---
-> >  drivers/net/ethernet/stmicro/stmmac/Kconfig   |  11 +
-> >  drivers/net/ethernet/stmicro/stmmac/Makefile  |   1 +
-> >  .../net/ethernet/stmicro/stmmac/dwmac-thead.c | 302 ++++++++++++++++++
-> >  3 files changed, 314 insertions(+)
-> >  create mode 100644 drivers/net/ethernet/stmicro/stmmac/dwmac-thead.c
-> > 
-> > diff --git a/drivers/net/ethernet/stmicro/stmmac/Kconfig b/drivers/net/ethernet/stmicro/stmmac/Kconfig
-> > index 06c6871f8788..1bf71804c270 100644
-> > --- a/drivers/net/ethernet/stmicro/stmmac/Kconfig
-> > +++ b/drivers/net/ethernet/stmicro/stmmac/Kconfig
-> > @@ -216,6 +216,17 @@ config DWMAC_SUN8I
-> >  	  stmmac device driver. This driver is used for H3/A83T/A64
-> >  	  EMAC ethernet controller.
-> >  
-> > +config DWMAC_THEAD
-> > +	tristate "T-HEAD dwmac support"
-> > +	depends on OF && (ARCH_THEAD || COMPILE_TEST)
-> > +	select MFD_SYSCON
-> > +	help
-> > +	  Support for ethernet controllers on T-HEAD RISC-V SoCs
-> > +
-> > +	  This selects the T-HEAD platform specific glue layer support for
-> > +	  the stmmac device driver. This driver is used for T-HEAD TH1520
-> > +	  ethernet controller.
-> > +
-> >  config DWMAC_IMX8
-> >  	tristate "NXP IMX8 DWMAC support"
-> >  	default ARCH_MXC
-> > diff --git a/drivers/net/ethernet/stmicro/stmmac/Makefile b/drivers/net/ethernet/stmicro/stmmac/Makefile
-> > index 5b57aee19267..d73171ed6ad7 100644
-> > --- a/drivers/net/ethernet/stmicro/stmmac/Makefile
-> > +++ b/drivers/net/ethernet/stmicro/stmmac/Makefile
-> > @@ -27,6 +27,7 @@ obj-$(CONFIG_DWMAC_STI)		+= dwmac-sti.o
-> >  obj-$(CONFIG_DWMAC_STM32)	+= dwmac-stm32.o
-> >  obj-$(CONFIG_DWMAC_SUNXI)	+= dwmac-sunxi.o
-> >  obj-$(CONFIG_DWMAC_SUN8I)	+= dwmac-sun8i.o
-> > +obj-$(CONFIG_DWMAC_THEAD)	+= dwmac-thead.o
-> >  obj-$(CONFIG_DWMAC_DWC_QOS_ETH)	+= dwmac-dwc-qos-eth.o
-> >  obj-$(CONFIG_DWMAC_INTEL_PLAT)	+= dwmac-intel-plat.o
-> >  obj-$(CONFIG_DWMAC_GENERIC)	+= dwmac-generic.o
-> > diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-thead.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-thead.c
-> > new file mode 100644
-> > index 000000000000..85135ef05906
-> > --- /dev/null
-> > +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-thead.c
-> > @@ -0,0 +1,302 @@
-> > +// SPDX-License-Identifier: GPL-2.0
-> > +/*
-> > + * T-HEAD DWMAC platform driver
-> > + *
-> > + * Copyright (C) 2021 Alibaba Group Holding Limited.
-> > + * Copyright (C) 2023 Jisheng Zhang <jszhang@kernel.org>
-> > + *
-> > + */
-> > +
-> > +#include <linux/bitfield.h>
-> > +#include <linux/mfd/syscon.h>
-> > +#include <linux/module.h>
-> > +#include <linux/of.h>
-> > +#include <linux/of_device.h>
-> > +#include <linux/of_net.h>
-> > +#include <linux/platform_device.h>
-> > +#include <linux/regmap.h>
-> > +
-> > +#include "stmmac_platform.h"
-> > +
-> > +#define GMAC_CLK_EN			0x00
-> > +#define  GMAC_TX_CLK_EN			BIT(1)
-> > +#define  GMAC_TX_CLK_N_EN		BIT(2)
-> > +#define  GMAC_TX_CLK_OUT_EN		BIT(3)
-> > +#define  GMAC_RX_CLK_EN			BIT(4)
-> > +#define  GMAC_RX_CLK_N_EN		BIT(5)
-> > +#define  GMAC_EPHY_REF_CLK_EN		BIT(6)
-> > +#define GMAC_RXCLK_DELAY_CTRL		0x04
-> > +#define  GMAC_RXCLK_BYPASS		BIT(15)
-> > +#define  GMAC_RXCLK_INVERT		BIT(14)
-> > +#define  GMAC_RXCLK_DELAY_MASK		GENMASK(4, 0)
-> > +#define  GMAC_RXCLK_DELAY_VAL(x)	FIELD_PREP(GMAC_RXCLK_DELAY_MASK, (x))
-> > +#define GMAC_TXCLK_DELAY_CTRL		0x08
-> > +#define  GMAC_TXCLK_BYPASS		BIT(15)
-> > +#define  GMAC_TXCLK_INVERT		BIT(14)
-> > +#define  GMAC_TXCLK_DELAY_MASK		GENMASK(4, 0)
-> > +#define  GMAC_TXCLK_DELAY_VAL(x)	FIELD_PREP(GMAC_RXCLK_DELAY_MASK, (x))
-> > +#define GMAC_PLLCLK_DIV			0x0c
-> > +#define  GMAC_PLLCLK_DIV_EN		BIT(31)
-> > +#define  GMAC_PLLCLK_DIV_MASK		GENMASK(7, 0)
-> > +#define  GMAC_PLLCLK_DIV_NUM(x)		FIELD_PREP(GMAC_PLLCLK_DIV_MASK, (x))
-> > +#define GMAC_GTXCLK_SEL			0x18
-> > +#define  GMAC_GTXCLK_SEL_PLL		BIT(0)
-> > +#define GMAC_INTF_CTRL			0x1c
-> > +#define  PHY_INTF_MASK			BIT(0)
-> > +#define  PHY_INTF_RGMII			FIELD_PREP(PHY_INTF_MASK, 1)
-> > +#define  PHY_INTF_MII_GMII		FIELD_PREP(PHY_INTF_MASK, 0)
-> > +#define GMAC_TXCLK_OEN			0x20
-> > +#define  TXCLK_DIR_MASK			BIT(0)
-> > +#define  TXCLK_DIR_OUTPUT		FIELD_PREP(TXCLK_DIR_MASK, 0)
-> > +#define  TXCLK_DIR_INPUT		FIELD_PREP(TXCLK_DIR_MASK, 1)
-> > +
-> > +#define GMAC_GMII_RGMII_RATE	125000000
-> > +#define GMAC_MII_RATE		25000000
-> > +
-> > +struct thead_dwmac {
-> > +	struct plat_stmmacenet_data *plat;
-> > +	struct regmap *apb_regmap;
-> > +	struct device *dev;
-> > +	u32 rx_delay;
-> > +	u32 tx_delay;
-> > +};
-> > +
-> > +static int thead_dwmac_set_phy_if(struct plat_stmmacenet_data *plat)
-> > +{
-> > +	struct thead_dwmac *dwmac = plat->bsp_priv;
-> > +	u32 phyif;
-> > +
-> > +	switch (plat->interface) {
-> > +	case PHY_INTERFACE_MODE_MII:
-> > +		phyif = PHY_INTF_MII_GMII;
-> > +		break;
-> > +	case PHY_INTERFACE_MODE_RGMII:
-> > +	case PHY_INTERFACE_MODE_RGMII_ID:
-> > +	case PHY_INTERFACE_MODE_RGMII_TXID:
-> > +	case PHY_INTERFACE_MODE_RGMII_RXID:
-> > +		phyif = PHY_INTF_RGMII;
-> > +		break;
-> > +	default:
-> > +		dev_err(dwmac->dev, "unsupported phy interface %d\n",
-> > +			plat->interface);
-> > +		return -EINVAL;
-> > +	};
-> > +
-> > +	regmap_write(dwmac->apb_regmap, GMAC_INTF_CTRL, phyif);
-> > +
-> > +	return 0;
-> > +}
-> > +
-> > +static int thead_dwmac_set_txclk_dir(struct plat_stmmacenet_data *plat)
-> > +{
-> > +	struct thead_dwmac *dwmac = plat->bsp_priv;
-> > +	u32 txclk_dir;
-> > +
-> > +	switch (plat->interface) {
-> > +	case PHY_INTERFACE_MODE_MII:
-> > +		txclk_dir = TXCLK_DIR_INPUT;
-> > +		break;
-> > +	case PHY_INTERFACE_MODE_RGMII:
-> > +	case PHY_INTERFACE_MODE_RGMII_ID:
-> > +	case PHY_INTERFACE_MODE_RGMII_TXID:
-> > +	case PHY_INTERFACE_MODE_RGMII_RXID:
-> > +		txclk_dir = TXCLK_DIR_OUTPUT;
-> > +		break;
-> > +	default:
-> > +		dev_err(dwmac->dev, "unsupported phy interface %d\n",
-> > +			plat->interface);
-> > +		return -EINVAL;
-> > +	};
-> > +
-> > +	regmap_write(dwmac->apb_regmap, GMAC_TXCLK_OEN, txclk_dir);
-> > +
-> > +	return 0;
-> > +}
-> > +
-> > +static void thead_dwmac_fix_speed(void *priv, unsigned int speed, unsigned int mode)
-> > +{
-> > +	struct thead_dwmac *dwmac = priv;
-> > +	struct plat_stmmacenet_data *plat = dwmac->plat;
-> > +	unsigned long rate;
-> > +	u32 div;
-> > +
-> > +	switch (plat->interface) {
-> > +	/* For MII, rxc/txc is provided by phy */
-> > +	case PHY_INTERFACE_MODE_MII:
-> > +		return;
-> > +
-> > +	case PHY_INTERFACE_MODE_RGMII:
-> > +	case PHY_INTERFACE_MODE_RGMII_ID:
-> > +	case PHY_INTERFACE_MODE_RGMII_RXID:
-> > +	case PHY_INTERFACE_MODE_RGMII_TXID:
-> > +		rate = clk_get_rate(plat->stmmac_clk);
-> > +		if (!rate || rate % GMAC_GMII_RGMII_RATE != 0 ||
-> > +		    rate % GMAC_MII_RATE != 0) {
-> > +			dev_err(dwmac->dev, "invalid gmac rate %ld\n", rate);
-> > +			return;
-> > +		}
-> > +
-> > +		regmap_update_bits(dwmac->apb_regmap, GMAC_PLLCLK_DIV, GMAC_PLLCLK_DIV_EN, 0);
-> > +
-> > +		switch (speed) {
-> > +		case SPEED_1000:
-> > +			div = rate / GMAC_GMII_RGMII_RATE;
-> > +			break;
-> > +		case SPEED_100:
-> > +			div = rate / GMAC_MII_RATE;
-> > +			break;
-> > +		case SPEED_10:
-> > +			div = rate * 10 / GMAC_MII_RATE;
-> > +			break;
-> > +		default:
-> > +			dev_err(dwmac->dev, "invalid speed %u\n", speed);
-> > +			return;
-> > +		}
-> > +		regmap_update_bits(dwmac->apb_regmap, GMAC_PLLCLK_DIV,
-> > +				   GMAC_PLLCLK_DIV_MASK, GMAC_PLLCLK_DIV_NUM(div));
-> > +
-> > +		regmap_update_bits(dwmac->apb_regmap, GMAC_PLLCLK_DIV,
-> > +				   GMAC_PLLCLK_DIV_EN, GMAC_PLLCLK_DIV_EN);
-> > +		break;
-> > +	default:
-> > +		dev_err(dwmac->dev, "unsupported phy interface %d\n",
-> > +			plat->interface);
-> > +		return;
-> > +	}
-> > +}
-> > +
-> > +static int thead_dwmac_enable_clk(struct plat_stmmacenet_data *plat)
-> > +{
-> > +	struct thead_dwmac *dwmac = plat->bsp_priv;
-> > +	u32 reg;
-> > +
-> > +	switch (plat->interface) {
-> > +	case PHY_INTERFACE_MODE_MII:
-> > +		reg = GMAC_RX_CLK_EN | GMAC_TX_CLK_EN;
-> > +		break;
-> > +
-> > +	case PHY_INTERFACE_MODE_RGMII:
-> > +	case PHY_INTERFACE_MODE_RGMII_ID:
-> > +	case PHY_INTERFACE_MODE_RGMII_RXID:
-> > +	case PHY_INTERFACE_MODE_RGMII_TXID:
-> > +		/* use pll */
-> > +		regmap_write(dwmac->apb_regmap, GMAC_GTXCLK_SEL, GMAC_GTXCLK_SEL_PLL);
-> > +
-> > +		reg = GMAC_TX_CLK_EN | GMAC_TX_CLK_N_EN | GMAC_TX_CLK_OUT_EN |
-> > +		      GMAC_RX_CLK_EN | GMAC_RX_CLK_N_EN;
-> > +		break;
-> > +
-> > +	default:
-> > +		dev_err(dwmac->dev, "unsupported phy interface %d\n",
-> > +			plat->interface);
-> > +		return -EINVAL;
-> > +	}
-> > +
-> > +	regmap_write(dwmac->apb_regmap, GMAC_CLK_EN, reg);
-> > +
-> > +	return 0;
-> > +}
-> > +
-> > +static int thead_dwmac_init(struct platform_device *pdev,
-> > +			    struct plat_stmmacenet_data *plat)
-> > +{
-> > +	struct thead_dwmac *dwmac = plat->bsp_priv;
-> > +	int ret;
-> > +
-> > +	ret = thead_dwmac_set_phy_if(plat);
-> > +	if (ret)
-> > +		return ret;
-> > +
-> > +	ret = thead_dwmac_set_txclk_dir(plat);
-> > +	if (ret)
-> > +		return ret;
-> > +
-> 
-> > +	regmap_write(dwmac->apb_regmap, GMAC_RXCLK_DELAY_CTRL,
-> > +		     GMAC_RXCLK_DELAY_VAL(dwmac->rx_delay));
-> > +	regmap_write(dwmac->apb_regmap, GMAC_TXCLK_DELAY_CTRL,
-> > +		     GMAC_TXCLK_DELAY_VAL(dwmac->tx_delay));
-> 
-> Just noticed. This doesn't look right because:
-> 1. Are you sure your hardware expects the delays being specified in
-> picoseconds. It's most likely a number of reference clock cycles and
-> thus the DT-properties values should be properly converted.
-
-Good catch! I need to check further.
-> 2. Both delays should be added only for "rgmii" phy-mode, Tx clock
-> delay - for "rgmii-rxid" phy-mode, Rx clock delay - for "rgmii-txid"
-> phy-mode.
-
-For MII, the rxc/txc is provided by phy, so setting those delays
-won't impact MII.
-> 
-> -Serge(y)
-> 
-> > +
-> > +	thead_dwmac_fix_speed(dwmac, SPEED_1000, 0);
-> > +
-> > +	return thead_dwmac_enable_clk(plat);
-> > +}
-> > +
-> > +static int thead_dwmac_probe(struct platform_device *pdev)
-> > +{
-> > +	struct plat_stmmacenet_data *plat;
-> > +	struct stmmac_resources stmmac_res;
-> > +	struct thead_dwmac *dwmac;
-> > +	struct device_node *np = pdev->dev.of_node;
-> > +	u32 delay_ps;
-> > +	int ret;
-> > +
-> > +	ret = stmmac_get_platform_resources(pdev, &stmmac_res);
-> > +	if (ret)
-> > +		return dev_err_probe(&pdev->dev, ret,
-> > +				     "failed to get resources\n");
-> > +
-> > +	plat = stmmac_probe_config_dt(pdev, stmmac_res.mac);
-> > +	if (IS_ERR(plat))
-> > +		return dev_err_probe(&pdev->dev, PTR_ERR(plat),
-> > +				     "dt configuration failed\n");
-> > +
-> > +	dwmac = devm_kzalloc(&pdev->dev, sizeof(*dwmac), GFP_KERNEL);
-> > +	if (!dwmac) {
-> > +		ret = -ENOMEM;
-> > +		goto err_remove_config_dt;
-> > +	}
-> > +
-> > +	if (!of_property_read_u32(np, "rx-internal-delay-ps", &delay_ps))
-> > +		dwmac->rx_delay = delay_ps;
-> > +	if (!of_property_read_u32(np, "tx-internal-delay-ps", &delay_ps))
-> > +		dwmac->tx_delay = delay_ps;
-> > +
-> > +	dwmac->apb_regmap = syscon_regmap_lookup_by_phandle(np, "thead,gmacapb");
-> > +	if (IS_ERR(dwmac->apb_regmap)) {
-> > +		ret = dev_err_probe(&pdev->dev, PTR_ERR(dwmac->apb_regmap),
-> > +				    "Failed to get gmac apb syscon\n");
-> > +		goto err_remove_config_dt;
-> > +	}
-> > +
-> > +	dwmac->dev = &pdev->dev;
-> > +	dwmac->plat = plat;
-> > +	plat->bsp_priv = dwmac;
-> > +	plat->fix_mac_speed = thead_dwmac_fix_speed;
-> > +
-> > +	ret = thead_dwmac_init(pdev, plat);
-> > +	if (ret)
-> > +		goto err_remove_config_dt;
-> > +
-> > +	ret = stmmac_dvr_probe(&pdev->dev, plat, &stmmac_res);
-> > +	if (ret)
-> > +		goto err_remove_config_dt;
-> > +
-> > +	return 0;
-> > +
-> > +err_remove_config_dt:
-> > +	stmmac_remove_config_dt(pdev, plat);
-> > +
-> > +	return ret;
-> > +}
-> > +
-> > +static const struct of_device_id thead_dwmac_match[] = {
-> > +	{ .compatible = "thead,th1520-dwmac" },
-> > +	{ }
-> > +};
-> > +MODULE_DEVICE_TABLE(of, thead_dwmac_match);
-> > +
-> > +static struct platform_driver thead_dwmac_driver = {
-> > +	.probe = thead_dwmac_probe,
-> > +	.remove_new = stmmac_pltfr_remove,
-> > +	.driver = {
-> > +		.name = "thead-dwmac",
-> > +		.pm = &stmmac_pltfr_pm_ops,
-> > +		.of_match_table = thead_dwmac_match,
-> > +	},
-> > +};
-> > +module_platform_driver(thead_dwmac_driver);
-> > +
-> > +MODULE_AUTHOR("T-HEAD");
-> > +MODULE_AUTHOR("Jisheng Zhang <jszhang@kernel.org>");
-> > +MODULE_DESCRIPTION("T-HEAD dwmac platform driver");
-> > +MODULE_LICENSE("GPL");
-> > -- 
-> > 2.40.1
-> > 
-> > 
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gU2F0LCBBdWcgMjYsIDIwMjMgYXQgMTowMeKAr0FNIEFuZHJldyBKb25lcyA8YWpvbmVzQHZl
+bnRhbmFtaWNyby5jb20+IHdyb3RlOgo+Cj4gT24gRnJpLCBBdWcgMjUsIDIwMjMgYXQgMDM6NTE6
+MjhQTSAtMDcwMCwgRXZhbiBHcmVlbiB3cm90ZToKPiA+IE9uIEZyaSwgQXVnIDI1LCAyMDIzIGF0
+IDE6MTbigK9BTSBBbmRyZXcgSm9uZXMgPGFqb25lc0B2ZW50YW5hbWljcm8uY29tPiB3cm90ZToK
+PiA+ID4KPiA+ID4gT24gVGh1LCBBdWcgMjQsIDIwMjMgYXQgMDM6MDY6NTNQTSAtMDcwMCwgRXZh
+biBHcmVlbiB3cm90ZToKPiA+ID4gPiBPbiBUaHUsIEF1ZyAyNCwgMjAyMyBhdCAxMDoyOeKAr0FN
+IENvbm9yIERvb2xleSA8Y29ub3JAa2VybmVsLm9yZz4gd3JvdGU6Cj4gPiA+IC4uLgo+ID4gPiA+
+ID4gRG8geW91IHdhbnQgdG8gaGF2ZSB0aGlzIG5ldyB0aGluZyBpbiBjcHVpbmZvIHRlbGwgdGhl
+IHVzZXIgInRoaXMgaGFydAo+ID4gPiA+ID4gaGFzIHh5eiBleHRlbnNpb25zIHRoYXQgYXJlIHN1
+cHBvcnRlZCBieSBhIGtlcm5lbCwgYnV0IG1heWJlIG5vdCB0aGlzCj4gPiA+ID4gPiBrZXJuZWwi
+IG9yIHRvIHRlbGwgdGhlIHVzZXIgInRoaXMgaGFydCBoYXMgeHl6IGV4dGVuc2lvbnMgdGhhdCBh
+cmUKPiA+ID4gPiA+IHN1cHBvcnRlZCBieSB0aGlzIGtlcm5lbCI/IFlvdXIgdGV4dCBhYm92ZSBz
+YXlzICJ1bmRlcnN0b29kIGJ5IHRoZQo+ID4gPiA+ID4ga2VybmVsIiwgYnV0IEkgdGhpbmsgdGhh
+dCdzIGEgcG9vciBkZWZpbml0aW9uIHRoYXQgbmVlZHMgdG8gYmUgaW1wcm92ZWQKPiA+ID4gPiA+
+IHRvIHNwZWxsIG91dCBleGFjdGx5IHdoYXQgeW91IG1lYW4uIElPVyBkb2VzICJ1bmRlcnN0b29k
+IiBtZWFuIHRoZQo+ID4gPiA+ID4ga2VybmVsIHdpbGwgcGFyc2UgdGhlbSBpbnRvIGEgc3RydWN0
+dXJlLCBvciBkb2VzIGl0IG1lYW4gInllcyB5b3UgY2FuCj4gPiA+ID4gPiB1c2UgdGhpcyBleHRl
+bnNpb24gb24gdGhpcyBwYXJ0aWN1bGFyIGhhcnQiLgo+ID4gPiA+Cj4gPiA+ID4gSSdtIGltYWdp
+bmluZyAvcHJvYy9jcHVpbmZvIGJlaW5nIGNsb3NlciB0byAidGhlIENQVSBoYXMgaXQgYW5kIHRo
+ZQo+ID4gPiA+IGtlcm5lbCBhdCBsZWFzdCB2YWd1ZWx5IHVuZGVyc3RhbmRzIGl0LCBidXQgbWF5
+IG5vdCBoYXZlIGZ1bGwgc3VwcG9ydAo+ID4gPiA+IGZvciBpdCBlbmFibGVkIi4gSSdtIGFzc3Vt
+aW5nIC9wcm9jL2NwdWluZm8gaXMgbW9zdGx5IHVzZWQgYnkgMSkKPiA+ID4gPiBodW1hbnMgd2Fu
+dGluZyB0byBrbm93IGlmIHRoZXkgaGF2ZSBoYXJkd2FyZSBzdXBwb3J0IGZvciBhIGZlYXR1cmUs
+Cj4gPiA+ID4gYW5kIDIpIGFkbWluaXN0cmF0b3JzIGNvbGxlY3RpbmcgdGVsZW1ldHJ5IHRvIG1h
+bmFnZSBmbGVldHMgKGllIGRvIEkKPiA+ID4gPiBoYXZlIGFueSBoYXJkd2FyZSBkZXBsb3llZCB0
+aGF0IHN1cHBvcnRzIFgpLgo+ID4gPgo+ID4gPiBJcyAoMikgYSBzcGVjaWFsIGNhc2Ugb2YgKDEp
+PyAoSSB3YW50IHRvIG1ha2Ugc3VyZSBJIHVuZGVyc3RhbmQgYWxsIHRoZQo+ID4gPiBjYXNlcy4p
+Cj4gPgo+ID4gTW9yZSBvciBsZXNzLCB5ZXMuIEluIGJ1Y2tldCB0d28gYXJlIGFsc28gZm9sa3Mg
+d29uZGVyaW5nIHRoaW5ncyBsaWtlCj4gPiAiYXJlIGFsbCB0aGVzZSBjcmFzaCByZXBvcnRzIEkn
+bSBnZXR0aW5nIHNwZWNpZmljIHRvIG1hY2hpbmVzIHdpdGggWCIuCj4gPgo+ID4gPgo+ID4gPiA+
+IFByb2dyYW1tZXJzIGxvb2tpbmcgdG8KPiA+ID4gPiBzZWUgImlzIHRoZSBrZXJuZWwgc3VwcG9y
+dCBmb3IgdGhpcyBmZWF0dXJlIHJlYWR5IHJpZ2h0IG5vdyIgd291bGQKPiA+ID4gPiBpZGVhbGx5
+IG5vdCBiZSBwYXJzaW5nIC9wcm9jL2NwdWluZm8gdGV4dCwgYXMgbW9yZSBkaXJlY3QgbWVjaGFu
+aXNtcwo+ID4gPiA+IGxpa2Ugc3BlY2lmaWMgaHdwcm9iZSBiaXRzIGZvciAiYW0gSSBmdWxseSBy
+ZWFkeSB0byBnbyIgd291bGQgYmUKPiA+ID4gPiBlYXNpZXIgdG8gd29yayB3aXRoLiBGZWVsIGZy
+ZWUgdG8geWVsbCBhdCBtZSBpZiB0aGlzIG92ZXJhbGwgdmlzaW9uCj4gPiA+ID4gc2VlbXMgZmxh
+d2VkLgo+ID4gPiA+Cj4gPiA+ID4gSSB0cmllZCB0byBsb29rIHRvIHNlZSBpZiB0aGVyZSB3YXMg
+Y29uc2Vuc3VzIGFtb25nIHRoZSBvdGhlcgo+ID4gPiA+IGFyY2hpdGVjdHVyZXMuIEFhcmNoNjQg
+c2VlbXMgdG8gZ28gd2l0aCAic3VwcG9ydGVkIGFuZCBmdWxseSBlbmFibGVkIiwKPiA+ID4gPiBh
+cyB0aGVpciBjcHVfaGFzX2ZlYXR1cmUoKSBkaXJlY3RseSB0ZXN0cyBlbGZfaHdjYXAsIGFuZCBl
+bGVtZW50cyBpbgo+ID4gPiA+IGFybTY0X2VsZl9od2NhcHNbXSBhcmUgS2NvbmZpZyBnYXRlZC4g
+WDg2IGlzIGNvbXBsaWNhdGVkLCBidXQgSUlSQyBpcwo+ID4gPiA+IG1vcmUgYWxvbmcgdGhlIGxp
+bmVzIG9mICJoYXJkd2FyZSBoYXMgaXQiLiBUaGV5IGhhdmUgdHdvIG1hY3JvcywKPiA+ID4gPiBj
+cHVfaGFzKCkgZm9yICJyYXcgY2FwYWJpbGl0eSIgYW5kIGNwdV9mZWF0dXJlX2VuYWJsZWQoKSBm
+b3IgImtlcm5lbAo+ID4gPiA+IGNhbiBkbyBpdCB0b28iLCBhbmQgdGhleSB1c2UgY3B1X2hhcygp
+IGZvciAvcHJvYy9jcHVpbmZvIGZsYWdzLgo+ID4gPiA+Cj4gPiA+Cj4gPiA+IEknZCBsZWFuIG1v
+cmUgdG93YXJkcyB0aGUgd2F5IEFBcmNoNjQgZ29lcywgYmVjYXVzZSwgdW5sZXNzIC9wcm9jL2Nw
+dWluZm8KPiA+ID4gaXMganVzdCBhIGJsaW5kIHJlZ3VyZ2l0YXRpb24gb2YgYW4gaXNhIHN0cmlu
+ZyBmcm9tIERUIC8gQUNQSSwgdGhlbiB0aGUKPiA+ID4ga2VybmVsIG11c3QgYXQgbGVhc3Qga25v
+dyBzb21ldGhpbmcgYWJvdXQgaXQuIEFkdmVydGlzaW5nIGEgZmVhdHVyZSB3aGljaAo+ID4gPiBp
+cyBrbm93biwgYnV0IGFsc28ga25vd24gbm90IHRvIHdvcmssIHNlZW1zIG9kZCB0byBtZS4gU28g
+bXkgdm90ZSBpcyB0aGF0Cj4gPiA+IG9ubHkgZmVhdHVyZXMgd2hpY2ggYXJlIHByZXNlbnQgYW5k
+IGVuYWJsZWQgaW4gdGhlIGtlcm5lbCBvciBwcmVzZW50IGFuZAo+ID4gPiBub3QgbmVjZXNzYXJ5
+IHRvIGJlIGVuYWJsZWQgaW4gdGhlIGtlcm5lbCBpbiBvcmRlciBmb3IgdXNlcnNwYWNlIG9yCj4g
+PiA+IHZpcnR1YWwgbWFjaGluZXMgdG8gdXNlIGJlIGFkdmVydGlzZWQgaW4gL3Byb2MvY3B1aW5m
+by4KPiA+ID4KPiA+ID4gV2Ugc3RpbGwgaGF2ZSBTTUJJT1MgKGRtaWRlY29kZSkgdG8gYmxpbmRs
+eSBkdW1wIHdoYXQgdGhlIGhhcmR3YXJlCj4gPiA+IHN1cHBvcnRzIGZvciBjYXNlcyAoMSkgYW5k
+ICgyKSBhYm92ZS4KPiA+Cj4gPiBZZWFoLCB0aGVyZSdzIGFuIGFyZ3VtZW50IHRvIGJlIG1hZGUg
+Zm9yIHRoYXQuIE15IHdvcnJ5IGlzIGl0J3MgYQo+ID4gZGlmZmljdWx0IGxpbmUgdG8gaG9sZC4g
+VGhlIGJhciB5b3UncmUgcmVhbGx5IHRyeWluZyB0byBkZXNjcmliZSAob3IKPiA+IGF0IGxlYXN0
+IHdoYXQgcGVvcGxlIG1pZ2h0IHRha2UgYXdheSBmcm9tIGl0KSBpcyAiaWYgaXQncyBsaXN0ZWQg
+aGVyZQo+ID4gdGhlbiBpdCdzIGZ1bGx5IHJlYWR5IHRvIGJlIHVzZWQgaW4gdXNlcnNwYWNlIi4g
+QnV0IHRoZW4gdGhpbmdzIGdldAo+ID4gc3F1aXNoeSB3aGVuIHRoZXJlIGFyZSBhZGRpdGlvbmFs
+IHdheXMgdG8gY29udHJvbCB0aGUgdXNlIG9mIHRoZQo+ID4gZmVhdHVyZSAocHJjdGxzKCkgaW4g
+aW5pdCB0byB0dXJuIGl0IG9uLCB1c2VybW9kZSBwb2xpY3kgdG8gdHVybiBpdAo+ID4gb2ZmLCBz
+ZWN1cml0eSBkb29kYWRzIHRoYXQgZGlzYWJsZSBpdCwgZXRjKS4gSSdtIGFzc3VtaW5nIG5vYm9k
+eSB3YW50cwo+ID4gYSB2ZXJzaW9uIG9mIC9wcm9jL2NwdWluZm8gdGhhdCBjaGFuZ2VzIGRlcGVu
+ZGluZyBvbiB3aGljaCBwcm9jZXNzIGlzCj4gPiBhc2tpbmcuIFNvIHRoZW4gdGhlIGxpbmUgd291
+bGQgaGF2ZSB0byBiZSBtb3JlIGNhcmVmdWxseSBkZXNjcmliZWQgYXMKPiA+ICJ3ZWxsLCB0aGUg
+aGFyZHdhcmUgY2FuIGRvIGl0LCBhbmQgdGhlIGtlcm5lbCBDT1VMRCBkbyBpdCB1bmRlciBzb21l
+Cj4gPiBjaXJjdW1zdGFuY2VzLCBidXQgWU1NViIsIHdoaWNoIGVuZHMgdXAgZmFsbGluZyBzb21l
+d2hhdCBzaG9ydCBvZiB0aGUKPiA+IG9yaWdpbmFsIGdvYWwuIEluIG15IG1pbmQga2VlcGluZyAv
+cHJvYy9jcHVpbmZvIGFzIGNsb3NlIHRvICJoZXJlJ3MKPiA+IHdoYXQgdGhlIGhhcmR3YXJlIGNh
+biBkbyIgc2VlbXMgbGlrZSBhIG1vcmUgZGVmZW5zaWJsZSBwb3NpdGlvbi4KPiA+IC1FdmFuCj4K
+PiBJIGFncmVlIHdpdGggdGhhdC4gSSB3YXMgYWN0dWFsbHkgZXZlbiB0cnlpbmcgdG8gc2F5IHRo
+ZSBzYW1lIHRoaW5nLAo+IGJ1dCBvbmx5IGJ5IGJyaW5naW5nIHVwIHZpcnR1YWwgbWFjaGluZXMu
+IE9uY2Ugd2UgZGVjaWRlIHdlJ2xsIGV4cG9zZQo+IGV4dGVuc2lvbnMgdG8gVk1zLCB3aGV0aGVy
+IG9yIG5vdCB0aGUgaG9zdCBrZXJuZWwgZW5hYmxlcyB0aGVtLCB0aGVuCj4gbm9uZSBvZiB0aGUg
+b3RoZXIgaG9zdCBrZXJuZWwgY29uZmlndXJhdGlvbnMgbWF0dGVyIHdpdGggcmVzcGVjdCB0bwo+
+IGFkdmVydGlzaW5nIHRoZSBmZWF0dXJlLCBzaW5jZSB0aGUgZ3Vlc3Qga2VybmVsIG1heSBoYXZl
+IGEgY29tcGxldGVseQo+IGRpZmZlcmVudCBzZXQgb2YgY29uZmlndXJhdGlvbnMuCgpNeSBoZWFk
+IHNwaW5zIGEgbGl0dGxlIHdoZW4gSSB0cnkgdG8gcGljdHVyZSBhIGZlYXR1cmUgd2hpY2ggMSkK
+cmVxdWlyZXMga2VybmVsIHN1cHBvcnQgdG8gdXNlLCAyKSBoYXMgdGhhdCBrZXJuZWwgc3VwcG9y
+dCB0dXJuZWQgb2ZmCmluIHRoZSBob3N0IGtlcm5lbCwgYnV0IDMpIGlzIHBhc3NlZCBkb3duIGlu
+dG8gZ3Vlc3Qga2VybmVscy4KR2VuZXJhbGx5IHRob3VnaCwgSSBhZ3JlZSB0aGF0IHRyeWluZyB0
+byB0aWUgdGhlIGd1YXJhbnRlZXMgb2YKZmVhdHVyZXMgaW4gL3Byb2MvY3B1aW5mbyB0b28gbXVj
+aCB0byBzb2Z0d2FyZSBnZXRzIGNvbmZ1c2luZyB3aGVuCnZpZXdlZCB0aHJvdWdoIHRoZSBkb3Vi
+bGUgbGVucyBvZiB2aXJ0dWFsaXphdGlvbi4KCj4KPiBTbyBJIHRoaW5rIHdlIHNob3VsZCBvbmx5
+IGJlIGZpbHRlcmluZyBvdXQgZXh0ZW5zaW9ucyB0aGF0IGFyZSBkaXNhYmxlZAo+IGJlY2F1c2Ug
+dGhleSdyZSBicm9rZW4gKGhhdmUgYSBkZXRlY3RlZCBlcnJhdHVtKSwgaGF2ZSBiZWVuICJoaWRk
+ZW4iCj4gKGhhdmUgYSBrZXJuZWwgY29tbWFuZCBsaW5lIGFsbG93aW5nIHRoZW0gdG8gYmUgdHJl
+YXRlZCBhcyBpZiBub3QKPiBwcmVzZW50KSwgb3IgY2Fubm90IGJlIHVzZWQgYXQgYWxsIGR1ZSB0
+byBtaXNzaW5nIGFjY29tcGFueWluZyBoYXJkd2FyZQo+IGRlc2NyaXB0aW9ucyAoc3VjaCBhcyBi
+bG9jayBzaXplIGluZm8gZm9yIENCTyBleHRlbnNpb25zKS4gSW4gYWxsIGNhc2VzLAo+IEkgcHJl
+c3VtZSB3ZSdkIHdpcmUgY2hlY2tzIHVwIGluIHJpc2N2X2lzYV9leHRlbnNpb25fY2hlY2soKSBh
+bmQgbm8KPiBjaGVja3Mgd291bGQgYmUgZ2F0ZWQgb24gS2NvbmZpZ3Mgb3IgYW55dGhpbmcgZWxz
+ZS4gQW5kLCBzaW5jZQo+IC9wcm9jL2NwdWluZm8gZ2V0cyBpdHMgbGlzdCBmcm9tIHRoZSBiaXRt
+YXAgdGhhdCdzIGFscmVhZHkgZmlsdGVyZWQgYnkKPiByaXNjdl9pc2FfZXh0ZW5zaW9uX2NoZWNr
+KCksIHRoZW4sIGxvbmcgc3Rvcnkgc2hvcnQsIHdlJ3JlIGdvb2QgdG8gZ28gOi0pCj4KPiBCdXQg
+bWF5YmUgd2UgY2FuIHRyeSB0byBzcGVsbCB0aGF0IHBvbGljeSBvdXQgYSBiaXQgbW9yZSBpbgo+
+IERvY3VtZW50YXRpb24vcmlzY3YvdWFiaS5yc3QuCgpSaWdodCwgdGhhdCBzb3VuZHMgcmVhc29u
+YWJsZSB0byBtZSwgYW5kIGlzIGNvbnNpc3RlbnQgd2l0aCB0aGUKYmVoYXZpb3Igd2UgYWxyZWFk
+eSBoYXZlLiBXaXRoIHRoaXMgZG9jdW1lbnRhdGlvbiBjaGFuZ2UgSSB3YXMgb25seQp0cnlpbmcg
+dG8gZGVmaW5lIHRoZSBsb3dlciBib3VuZCwgcmF0aGVyIHRoYW4gdGhlIGNvbXBsZXRlIGRlZmlu
+aXRpb24KZm9yIGV2ZXJ5IGNhc2UuIEluIG90aGVyIHdvcmRzLCBzZWVpbmcgYSBmZWF0dXJlIGlu
+IGNwdWluZm8gZ3VhcmFudGVlcwpvbmx5IHRoYXQgdGhlIGhhcmR3YXJlIChvciB2aXJ0dWFsaXpl
+ZCBoYXJkd2FyZSkgc3VwcG9ydHMgdGhlIGZlYXR1cmUsCmJ1dCB0aGF0J3MgYWxsIHRoZSBsYW5n
+dWFnZSBzYXlzLiBTbyBmb3IgaW5zdGFuY2UgTk9UIHNlZWluZyBhIGZlYXR1cmUKaW4gY3B1aW5m
+byBkb2Vzbid0IG5lY2Vzc2FyaWx5IG1lYW4gdGhlIGhhcmR3YXJlIGRvZXNuJ3Qgc3VwcG9ydCBp
+dC4KU29mdHdhcmUgdHVybmluZyBpdCBvZmYgZm9yIHRoZSByZWFzb25zIHlvdSBkZXNjcmliZSBJ
+TU8gZG9lc24ndApjb250cmFkaWN0IHdoYXQncyB3cml0dGVuIGhlcmUuIEkgd2FzIHBsYW5uaW5n
+IHRvIGxlYXZlIHRoYXQgdGFjaXQsCmJ1dCBpZiB5b3UgaGF2ZSBzdWdnZXN0aW9ucyBvbiBob3cg
+dG8gc3BlbGwgdGhhdCBvdXQgSSdkIHRha2UgdGhlbS4KCi1FdmFuCgpfX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QK
+bGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9y
+Zy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
