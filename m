@@ -4,77 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34EDEC83F11
-	for <linux-riscv@archiver.kernel.org>; Mon, 28 Aug 2023 17:14:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B51E6C71153
+	for <linux-riscv@archiver.kernel.org>; Mon, 28 Aug 2023 17:19:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NbklPj8WgZhLoOgJZkFFeIO4lVOuL1VMNUOSSj72lnQ=; b=iiFj/AdVWtuFwGvYcwMz1V1yWz
-	YlXoPMcKq3bwlxhTTvRnKlqjVzyoG0lgB8d18qsj9FL9k/z1YAKfSevPiHthzvSDeenS++TNFtxMi
-	A+DL4mtk+dwbLg11i6bu9Sjf3wJYltNa469VRYtrNjUVKTk4EGBd6nEnifj0QaJSM8MAIVFhkKO/J
-	FxJF60Hy15sIWgr3RsT5tAknGdKLZapkFk9IO14pO8k/WYPFYSiRz8X1tZ2Ib5F59AmvFV38qvD5n
-	2qiSEne8liuY0KBl6ldikF1m2MxOia8j/Ejjv1VV3HDXd+ZoehMUhJfN/rHEiDLDtNM+T7xwzLhud
-	Q8uDu3zg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=+opP41+q3rBh2ybOthOnWBRXNxHDzFuC2wRQUZeTY5Q=; b=o9ofD5zc51R9j8
+	Wuf4i5yDVKw101VtO4Tpmv9tZF1X5kAhyhw44WQixfOxu3gr/f0vxTF7ap5Ka8YpBh2WQcDJExc0E
+	wwUaMa2oNqgQXJ0ztkN/4QHuCHevOB/HpH501M5DDLNndSnYTTpIPT7hXab2a+CVlFS3sdzeXb7bT
+	CIbqgqaLJ6m1D7+pxCpZ1LiSwrXniKJy2Xi3FQzIdzNR/MluOBo1EJv+xyDqZCUY616G2w2KyPqJH
+	VBlvRKCpmTugg+tnutaIb932PnI2QXIFYzZrenUy8L5+xSmercQIpyy24WSJzC/js1dCFRyKqkVuF
+	ek8QxRuWn2LaWlFsKNgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qafoT-009ya9-2v;
-	Mon, 28 Aug 2023 17:14:05 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1qaftL-009z2Z-2w;
+	Mon, 28 Aug 2023 17:19:07 +0000
+Received: from mail-lf1-x12c.google.com ([2a00:1450:4864:20::12c])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qafoP-009yZg-38
+	id 1qaftI-009z17-2k
 	for linux-riscv@lists.infradead.org;
-	Mon, 28 Aug 2023 17:14:03 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 85A3B64DDD;
-	Mon, 28 Aug 2023 17:14:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3E49AC433C7;
-	Mon, 28 Aug 2023 17:13:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1693242840;
-	bh=FOkV7yPXUTKCY+8e4n1fvk3H2HGOvC/3kmnoKum8M+4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=LvS38BCw8YQG0WpYxcdTcAqnXRbR9rn3hB0mPrN788KlVO9qNZfDvWQOkc4N5Ipdw
-	 u/l5NzfXsxqK5Lao0VDNS/2CZeOncgmhn5m5nHX0fZcdT4T686b6/G9SC5ab4W8pNM
-	 G+XNJJoj4vNj8lS2DzoWNrLNcJdfBZIQOdKTmXEKdpcUOy3Gv2sh5p1mY1aBo3UMEt
-	 H7dw9Ov2dP5tis/Ysy63UA11F0R/7xP0lmcrBzyizV+EZWdi019OhxmCiZLNiJ7rD1
-	 dIuoFlOjVGyI56OrydvZQP9wX79ZJdWqdVCqQBtLNjgQ9L3sdh7SsRNsUSZTqJmPve
-	 3uLQfmA4dnzog==
-Date: Mon, 28 Aug 2023 18:13:54 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Evan Green <evan@rivosinc.com>
-Cc: Andrew Jones <ajones@ventanamicro.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Anup Patel <apatel@ventanamicro.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Jonathan Corbet <corbet@lwn.net>,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Palmer Dabbelt <palmer@rivosinc.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Bagas Sanjaya <bagasdotme@gmail.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	linux-riscv@lists.infradead.org,
-	Heiko Stuebner <heiko.stuebner@vrull.eu>
-Subject: Re: [PATCH v4] RISC-V: Show accurate per-hart isa in /proc/cpuinfo
-Message-ID: <20230828-unwelcome-cauterize-8db7188a5e07@spud>
-References: <20230711201831.2695097-1-evan@rivosinc.com>
- <20230824-factual-jawed-2dddd2cf2bdd@wendy>
- <CALs-Hss51fQE1yxe1Y1T86X+OfjPaAd386vosQ8gzRm=Njm1gw@mail.gmail.com>
- <20230824-exploit-spectacle-ecedd91e9075@spud>
- <CALs-HssqaOjvUOdBVn=oN+uzkkmjguys2UttTYgdcqJwJB0HnQ@mail.gmail.com>
- <20230825-374a82446ed3eea02fcb41e6@orel>
- <CALs-HstfA29DDrmVemP6bZe+kON9JDKYR3p132gG_WefA6d7eQ@mail.gmail.com>
- <20230826-3869468d499caf2850681d08@orel>
- <CALs-HsskEUu3cu8pAc272Z47ro25e=fyuPt8jQBcJE2_RmFGtQ@mail.gmail.com>
+	Mon, 28 Aug 2023 17:19:06 +0000
+Received: by mail-lf1-x12c.google.com with SMTP id 2adb3069b0e04-4ffae5bdc9aso5513295e87.1
+        for <linux-riscv@lists.infradead.org>; Mon, 28 Aug 2023 10:19:02 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1693243140; x=1693847940;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=JdKbGkiMEHDZxtvYcB55AX2r1kA+uiZkHP+paoU6rrc=;
+        b=tcLEXaH7U2rrkp8U48odL6CZ9G0Yj99XWgWuWbIi+UqEQJYr6rL/iyJYDlRli70j+I
+         82klvz+6xlCINNfhaFVHlwKtsUlC66SqJF62dBJ4FxDkL+qRg4k6KQJ/vRXGx3za+sR9
+         moDWg7GOcvn/MxBC0lJo5zvcj/6vwcdoiKrovRfh11G9Tzc3v/xrzHzimUAztd4zQIwE
+         rSEerbOTo3ZeWbU6t/FikfSDKLKcauIQS9NG8UvhiZoq7kSsfVfX2Erhs5TKasYRVnye
+         FwHjL+9IoegnxeNtkp5B1b8lo8ZAhhE6OdiY7gIctUHUOpsF+NLg5JI/saWY3GsNw2B+
+         fHcg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1693243140; x=1693847940;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=JdKbGkiMEHDZxtvYcB55AX2r1kA+uiZkHP+paoU6rrc=;
+        b=RMPojuPNzFM6cyjhkWOg4ywDCyAZhKSYjvRxjc7+jtm4Tt0BJF5Cw6wpqj7l8fAi5z
+         ee6AFuxYvQMa6ytRVmEuAAGdK6hY78UCAx7WOHFDk636pNXy992EQ8ywT3hIvKD3VJK+
+         4txP9vhFuGUKgiTEoxdEpy4piFggL/0p/x4l0KSNTIO0GhRGbAF2LT3nl7i6MxF1Bhyk
+         wpe7KJLsARfL8fV78TeYSLgVudsQ4m29vQqDjxJBTdiG4/TNuyCXDTF/6Yp6GPB5ClXV
+         HpRV0+rfYgpxNfXT3kJILD3K/jGTBixlkY5gFL18OlBdOVyvffcllrPy0x3Dc1sTH9XA
+         cBIQ==
+X-Gm-Message-State: AOJu0YxCUNLu7icS4bG5/xdqU6ivUSi4Z//4YltRZwht7qhogSGCeXs8
+	k8/hF3WpG85uvLTToI1dq0S97754j8vQ26rgdpDPpG8l9wssVTiQ
+X-Google-Smtp-Source: AGHT+IEYUWRZ0JpXXlpm+5EXrS0OW+lBPytKeqgJpS6Qt+weN8A4HwoSwMDa4hK4cbEiOzGW8mMIFOuVsIRkvH9Z9nw=
+X-Received: by 2002:a05:6512:108d:b0:4ff:9095:a817 with SMTP id
+ j13-20020a056512108d00b004ff9095a817mr23538756lfg.57.1693243140412; Mon, 28
+ Aug 2023 10:19:00 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <CALs-HsskEUu3cu8pAc272Z47ro25e=fyuPt8jQBcJE2_RmFGtQ@mail.gmail.com>
+References: <20230825231139.1145522-1-evan@rivosinc.com> <20230826-anguished-tutu-81d63b3081a7@spud>
+ <20230826-copper-suffocate-5f4f0e67f9a7@spud> <CALs-HsvwLpcUMPeKEs3ZW3tOwLGeGRQSe=grxE5L14Tj8b+XHw@mail.gmail.com>
+ <20230828-dangling-decency-ededaa58d014@spud>
+In-Reply-To: <20230828-dangling-decency-ededaa58d014@spud>
+From: Evan Green <evan@rivosinc.com>
+Date: Mon, 28 Aug 2023 10:18:24 -0700
+Message-ID: <CALs-Hss8KNV9zkEHujVmzb7Rf8Zp9OGkDF9Fj8BCjQuFDYaHHA@mail.gmail.com>
+Subject: Re: [PATCH v5] RISC-V: Show accurate per-hart isa in /proc/cpuinfo
+To: Conor Dooley <conor@kernel.org>
+Cc: Palmer Dabbelt <palmer@rivosinc.com>, Anup Patel <apatel@ventanamicro.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Heiko Stuebner <heiko@sntech.de>, 
+	Jonathan Corbet <corbet@lwn.net>, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Conor Dooley <conor.dooley@microchip.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Bagas Sanjaya <bagasdotme@gmail.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	linux-riscv@lists.infradead.org, Andrew Jones <ajones@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230828_101402_117093_AFA5F188 
-X-CRM114-Status: GOOD (  66.05  )
+X-CRM114-CacheID: sfid-20230828_101904_930532_09A2FCF1 
+X-CRM114-Status: GOOD (  60.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,197 +89,132 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============2069848640411608064=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============2069848640411608064==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="CLJlKiYV2dRbV0kf"
-Content-Disposition: inline
-
-
---CLJlKiYV2dRbV0kf
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Mon, Aug 28, 2023 at 09:44:55AM -0700, Evan Green wrote:
-> On Sat, Aug 26, 2023 at 1:01=E2=80=AFAM Andrew Jones <ajones@ventanamicro=
-=2Ecom> wrote:
-> >
-> > On Fri, Aug 25, 2023 at 03:51:28PM -0700, Evan Green wrote:
-> > > On Fri, Aug 25, 2023 at 1:16=E2=80=AFAM Andrew Jones <ajones@ventanam=
-icro.com> wrote:
-> > > >
-> > > > On Thu, Aug 24, 2023 at 03:06:53PM -0700, Evan Green wrote:
-> > > > > On Thu, Aug 24, 2023 at 10:29=E2=80=AFAM Conor Dooley <conor@kern=
-el.org> wrote:
-> > > > ...
-> > > > > > Do you want to have this new thing in cpuinfo tell the user "th=
-is hart
-> > > > > > has xyz extensions that are supported by a kernel, but maybe no=
-t this
-> > > > > > kernel" or to tell the user "this hart has xyz extensions that =
-are
-> > > > > > supported by this kernel"? Your text above says "understood by =
-the
-> > > > > > kernel", but I think that's a poor definition that needs to be =
-improved
-> > > > > > to spell out exactly what you mean. IOW does "understood" mean =
-the
-> > > > > > kernel will parse them into a structure, or does it mean "yes y=
-ou can
-> > > > > > use this extension on this particular hart".
-> > > > >
-> > > > > I'm imagining /proc/cpuinfo being closer to "the CPU has it and t=
-he
-> > > > > kernel at least vaguely understands it, but may not have full sup=
-port
-> > > > > for it enabled". I'm assuming /proc/cpuinfo is mostly used by 1)
-> > > > > humans wanting to know if they have hardware support for a featur=
-e,
-> > > > > and 2) administrators collecting telemetry to manage fleets (ie d=
-o I
-> > > > > have any hardware deployed that supports X).
-> > > >
-> > > > Is (2) a special case of (1)? (I want to make sure I understand all=
- the
-> > > > cases.)
-> > >
-> > > More or less, yes. In bucket two are also folks wondering things like
-> > > "are all these crash reports I'm getting specific to machines with X".
-> > >
-> > > >
-> > > > > Programmers looking to
-> > > > > see "is the kernel support for this feature ready right now" would
-> > > > > ideally not be parsing /proc/cpuinfo text, as more direct mechani=
-sms
-> > > > > like specific hwprobe bits for "am I fully ready to go" would be
-> > > > > easier to work with. Feel free to yell at me if this overall visi=
-on
-> > > > > seems flawed.
-> > > > >
-> > > > > I tried to look to see if there was consensus among the other
-> > > > > architectures. Aarch64 seems to go with "supported and fully enab=
-led",
-> > > > > as their cpu_has_feature() directly tests elf_hwcap, and elements=
- in
-> > > > > arm64_elf_hwcaps[] are Kconfig gated. X86 is complicated, but IIR=
-C is
-> > > > > more along the lines of "hardware has it". They have two macros,
-> > > > > cpu_has() for "raw capability" and cpu_feature_enabled() for "ker=
-nel
-> > > > > can do it too", and they use cpu_has() for /proc/cpuinfo flags.
-> > > > >
-> > > >
-> > > > I'd lean more towards the way AArch64 goes, because, unless /proc/c=
-puinfo
-> > > > is just a blind regurgitation of an isa string from DT / ACPI, then=
- the
-> > > > kernel must at least know something about it. Advertising a feature=
- which
-> > > > is known, but also known not to work, seems odd to me. So my vote i=
-s that
-> > > > only features which are present and enabled in the kernel or presen=
-t and
-> > > > not necessary to be enabled in the kernel in order for userspace or
-> > > > virtual machines to use be advertised in /proc/cpuinfo.
-> > > >
-> > > > We still have SMBIOS (dmidecode) to blindly dump what the hardware
-> > > > supports for cases (1) and (2) above.
-> > >
-> > > Yeah, there's an argument to be made for that. My worry is it's a
-> > > difficult line to hold. The bar you're really trying to describe (or
-> > > at least what people might take away from it) is "if it's listed here
-> > > then it's fully ready to be used in userspace". But then things get
-> > > squishy when there are additional ways to control the use of the
-> > > feature (prctls() in init to turn it on, usermode policy to turn it
-> > > off, security doodads that disable it, etc). I'm assuming nobody wants
-> > > a version of /proc/cpuinfo that changes depending on which process is
-> > > asking. So then the line would have to be more carefully described as
-> > > "well, the hardware can do it, and the kernel COULD do it under some
-> > > circumstances, but YMMV", which ends up falling somewhat short of the
-> > > original goal. In my mind keeping /proc/cpuinfo as close to "here's
-> > > what the hardware can do" seems like a more defensible position.
-> > > -Evan
-> >
-> > I agree with that. I was actually even trying to say the same thing,
-> > but only by bringing up virtual machines. Once we decide we'll expose
-> > extensions to VMs, whether or not the host kernel enables them, then
-> > none of the other host kernel configurations matter with respect to
-> > advertising the feature, since the guest kernel may have a completely
-> > different set of configurations.
->=20
-> My head spins a little when I try to picture a feature which 1)
-> requires kernel support to use, 2) has that kernel support turned off
-> in the host kernel, but 3) is passed down into guest kernels.
-
-Mine did too, but apparently these already exist for kvm guests. I can't
-find the exact email, but either Drew or Anup told me that Svpbmt can be
-used by a guest even if support for it is not present in the host
-kernel.
-
-Thanks,
-Conor.
-
-> Generally though, I agree that trying to tie the guarantees of
-> features in /proc/cpuinfo too much to software gets confusing when
-> viewed through the double lens of virtualization.
->=20
-> >
-> > So I think we should only be filtering out extensions that are disabled
-> > because they're broken (have a detected erratum), have been "hidden"
-> > (have a kernel command line allowing them to be treated as if not
-> > present), or cannot be used at all due to missing accompanying hardware
-> > descriptions (such as block size info for CBO extensions). In all cases,
-> > I presume we'd wire checks up in riscv_isa_extension_check() and no
-> > checks would be gated on Kconfigs or anything else. And, since
-> > /proc/cpuinfo gets its list from the bitmap that's already filtered by
-> > riscv_isa_extension_check(), then, long story short, we're good to go :=
--)
-> >
-> > But maybe we can try to spell that policy out a bit more in
-> > Documentation/riscv/uabi.rst.
->=20
-> Right, that sounds reasonable to me, and is consistent with the
-> behavior we already have. With this documentation change I was only
-> trying to define the lower bound, rather than the complete definition
-> for every case. In other words, seeing a feature in cpuinfo guarantees
-> only that the hardware (or virtualized hardware) supports the feature,
-> but that's all the language says. So for instance NOT seeing a feature
-> in cpuinfo doesn't necessarily mean the hardware doesn't support it.
-> Software turning it off for the reasons you describe IMO doesn't
-> contradict what's written here. I was planning to leave that tacit,
-> but if you have suggestions on how to spell that out I'd take them.
->=20
-> -Evan
-
---CLJlKiYV2dRbV0kf
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZOzV0gAKCRB4tDGHoIJi
-0uCkAQDrJJBsBDRdSmhWBJEcfmvJYdxtVq9gBPMdZtQUyGmYrwEAvclnY2T0sdV5
-yLXH80ZP8ZXhDRxsyrvq72AhliYbAgg=
-=xt3A
------END PGP SIGNATURE-----
-
---CLJlKiYV2dRbV0kf--
-
-
---===============2069848640411608064==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============2069848640411608064==--
-
+T24gTW9uLCBBdWcgMjgsIDIwMjMgYXQgOTo1M+KAr0FNIENvbm9yIERvb2xleSA8Y29ub3JAa2Vy
+bmVsLm9yZz4gd3JvdGU6Cj4KPiBPbiBNb24sIEF1ZyAyOCwgMjAyMyBhdCAwOToyNDowM0FNIC0w
+NzAwLCBFdmFuIEdyZWVuIHdyb3RlOgo+ID4gT24gU2F0LCBBdWcgMjYsIDIwMjMgYXQgMjo1NuKA
+r0FNIENvbm9yIERvb2xleSA8Y29ub3JAa2VybmVsLm9yZz4gd3JvdGU6Cj4gPiA+Cj4gPiA+IE9u
+IFNhdCwgQXVnIDI2LCAyMDIzIGF0IDEyOjI2OjI1QU0gKzAxMDAsIENvbm9yIERvb2xleSB3cm90
+ZToKPiA+ID4gPiBPbiBGcmksIEF1ZyAyNSwgMjAyMyBhdCAwNDoxMTozOFBNIC0wNzAwLCBFdmFu
+IEdyZWVuIHdyb3RlOgo+ID4gPiA+ID4gSW4gL3Byb2MvY3B1aW5mbywgbW9zdCBvZiB0aGUgaW5m
+b3JtYXRpb24gd2Ugc2hvdyBmb3IgZWFjaCBwcm9jZXNzb3IgaXMKPiA+ID4gPiA+IHNwZWNpZmlj
+IHRvIHRoYXQgaGFydDogbWFyY2hpZCwgbXZlbmRvcmlkLCBtaW1waWQsIHByb2Nlc3NvciwgaGFy
+dCwKPiA+ID4gPiA+IGNvbXBhdGlibGUsIGFuZCB0aGUgbW11IHNpemUuIEJ1dCB0aGUgSVNBIHN0
+cmluZyBnZXRzIGZpbHRlcmVkIHRocm91Z2ggYQo+ID4gPiA+ID4gbG93ZXN0IGNvbW1vbiBkZW5v
+bWluYXRvciBtYXNrLCBzbyB0aGF0IGlmIG9uZSBDUFUgaXMgbWlzc2luZyBhbiBJU0EKPiA+ID4g
+PiA+IGV4dGVuc2lvbiwgbm8gQ1BVcyB3aWxsIHNob3cgaXQuCj4gPiA+ID4gPgo+ID4gPiA+ID4g
+Tm93IHRoYXQgd2UgdHJhY2sgdGhlIElTQSBleHRlbnNpb25zIGZvciBlYWNoIGhhcnQsIGxldCdz
+IHJlcG9ydCBJU0EKPiA+ID4gPiA+IGV4dGVuc2lvbiBpbmZvIGFjY3VyYXRlbHkgcGVyLWhhcnQg
+aW4gL3Byb2MvY3B1aW5mby4gV2UgY2Fubm90IGNoYW5nZQo+ID4gPiA+ID4gdGhlICJpc2E6IiBs
+aW5lLCBhcyB1c2VybW9kZSBtYXkgYmUgcmVseWluZyBvbiB0aGF0IGxpbmUgdG8gc2hvdyBvbmx5
+Cj4gPiA+ID4gPiB0aGUgY29tbW9uIHNldCBvZiBleHRlbnNpb25zIHN1cHBvcnRlZCBhY3Jvc3Mg
+YWxsIGhhcnRzLiBBZGQgYSBuZXcgImhhcnQKPiA+ID4gPiA+IGlzYSIgbGluZSBpbnN0ZWFkLCB3
+aGljaCByZXBvcnRzIHRoZSB0cnVlIHNldCBvZiBleHRlbnNpb25zIGZvciB0aGF0Cj4gPiA+ID4g
+PiBoYXJ0Lgo+ID4gPiA+ID4KPiA+ID4gPiA+IFNpZ25lZC1vZmYtYnk6IEV2YW4gR3JlZW4gPGV2
+YW5Acml2b3NpbmMuY29tPgo+ID4gPiA+ID4gUmV2aWV3ZWQtYnk6IEFuZHJldyBKb25lcyA8YWpv
+bmVzQHZlbnRhbmFtaWNyby5jb20+Cj4gPiA+ID4KPiA+ID4gPiA+IFJldmlld2VkLWJ5OiBDb25v
+ciBEb29sZXkgPGNvbm9yLmRvb2xleUBtaWNyb2NoaXAuY29tPgo+ID4gPiA+Cj4gPiA+ID4gQ2Fu
+IHlvdSBkcm9wIHRoaXMgaWYgeW91IHJlcG9zdD8KPiA+Cj4gPiBXaWxsIGRvLgo+ID4KPiA+ID4g
+Pgo+ID4gPiA+ID4gKyJpc2EiIHZzICJoYXJ0IGlzYSIgbGluZXMgaW4gL3Byb2MvY3B1aW5mbwo+
+ID4gPiA+ID4gKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQo+ID4g
+PiA+ID4gKwo+ID4gPiA+ID4gK1RoZSAiaXNhIiBsaW5lIGluIC9wcm9jL2NwdWluZm8gZGVzY3Jp
+YmVzIHRoZSBsb3dlc3QgY29tbW9uIGRlbm9taW5hdG9yIG9mCj4gPiA+ID4gPiArUklTQy1WIElT
+QSBleHRlbnNpb25zIHJlY29nbml6ZWQgYnkgdGhlIGtlcm5lbCBhbmQgaW1wbGVtZW50ZWQgb24g
+YWxsIGhhcnRzLiBUaGUKPiA+ID4gPiA+ICsiaGFydCBpc2EiIGxpbmUsIGluIGNvbnRyYXN0LCBk
+ZXNjcmliZXMgdGhlIHNldCBvZiBleHRlbnNpb25zIHJlY29nbml6ZWQgYnkgdGhlCj4gPiA+ID4g
+PiAra2VybmVsIG9uIHRoZSBwYXJ0aWN1bGFyIGhhcnQgYmVpbmcgZGVzY3JpYmVkLCBldmVuIGlm
+IHRob3NlIGV4dGVuc2lvbnMgbWF5IG5vdAo+ID4gPiA+ID4gK2JlIHByZXNlbnQgb24gYWxsIGhh
+cnRzIGluIHRoZSBzeXN0ZW0uCj4gPiA+ID4KPiA+ID4gPiA+IEluIGJvdGggY2FzZXMsIHRoZSBw
+cmVzZW5jZSBvZiBhIGZlYXR1cmUKPiA+ID4gPiA+ICtpbiB0aGVzZSBsaW5lcyBndWFyYW50ZWVz
+IG9ubHkgdGhhdCB0aGUgaGFyZHdhcmUgaGFzIHRoZSBkZXNjcmliZWQgY2FwYWJpbGl0eS4KPiA+
+ID4gPiA+ICtBZGRpdGlvbmFsIGtlcm5lbCBzdXBwb3J0IG9yIHBvbGljeSBjb250cm9sIGNoYW5n
+ZXMgbWF5IGJlIHJlcXVpcmVkIGJlZm9yZSBhCj4gPiA+ID4gPiArZmVhdHVyZSBpcyBmdWxseSB1
+c2FibGUgYnkgdXNlcnNwYWNlIHByb2dyYW1zLgo+ID4gPiA+Cj4gPiA+ID4gSSBkbyBub3QgdGhp
+bmsgdGhhdCAiaW4gYm90aCBjYXNlcyIgbWF0Y2hlcyB0aGUgZXhwZWN0YXRpb25zIG9mCj4gPiA+
+ID4gdXNlcnNwYWNlIGZvciB0aGUgZXhpc3RpbmcgbGluZS4gSXQncyB0b28gbGF0ZSBhdCBuaWdo
+dCBmb3IgbWUgdG8gdGhpbmsKPiA+ID4gPiBwcm9wZXJseSwgYnV0IEkgdGhpbmsgb3VyIGV4aXN0
+aW5nIGltcGxlbWVudGF0aW9uIGRvZXMgd29yayBsaWtlIHlvdQo+ID4gPiA+IGhhdmUgZG9jdW1l
+bnRlZCBmb3IgRkQvVi4gSSB0aGluayBJIHByZXZpb3VzbHkgbWVudGlvbmVkIHRoYXQgaXQgY291
+bGQKPiA+ID4gPiBtaXNyZXBvcnQgdGhpbmdzIGZvciB2ZWN0b3IgZHVyaW5nIHRoZSByZXZpZXcg
+b2YgdGhlIHZlY3RvciBzZXJpZXMgYnV0Cj4gPiA+ID4gZm9yZ290IGFib3V0IGl0IHVudGlsIG5v
+dy4KPiA+ID4KPiA+ID4gSSB3ZW50IGFuZCBjaGVja2VkLCBhbmQgeWVzIGl0IGRvZXMgY3VycmVu
+dGx5IGRvIHRoYXQgZm9yIHZlY3Rvci4gSQo+ID4gPiBkb24ndCB0aGluayB0aGF0IHRoYXQgaXMg
+d2hhdCB1c2Vyc3BhY2Ugd291bGQgZXhwZWN0LCB0aGF0IEdvb2dsZQo+ID4gPiBjcHVfZmVhdHVy
+ZXMgcHJvamVjdCBmb3IgZXhhbXBsZSB3b3VsZCBkcmF3IGluY29ycmVjdCBjb25jbHVzaW9ucy4K
+PiA+Cj4gPiBJJ20gbG9zdCwgY291bGQgeW91IGV4cGxhaW4gYSBsaXR0bGUgbW9yZT8KPgo+IFRo
+ZXJlIChtYXkgYmUvKWFyZSB1c2Vyc3BhY2UgcHJvZ3JhbXMgdGhhdCB3aWxsIGludGVycHJldCB0
+aGUgYXBwZWFyYW5jZQo+IG9mIGV4dGVuc2lvbnMgaW4gY3B1aW5mbyBhcyBtZWFuaW5nIHRoZXkg
+Y2FuIGJlIHVzZWQgd2l0aG91dCBwZXJmb3JtaW5nCj4gYW55IGZ1cnRoZXIgY2hlY2tzLgo+Cj4g
+PiBNeSBnb2FsIHdhcyB0byBzYXkgdGhhdAo+ID4gdGhlcmUncyBubyBibGFua2V0IGd1YXJhbnRl
+ZSB0aGF0IHRoZSBmZWF0dXJlIGlzIDEwMCUgcmVhZHkgdG8gZ28gZm9yCj4gPiB1c2Vyc3BhY2Ug
+anVzdCBiZWNhdXNlIGl0J3Mgc2VlbiBoZXJlLgo+Cj4gUmlnaHQuIEkgd2FzIGFncmVlaW5nIHRo
+YXQgdGhpcyBpcyB0cnVlLCBidXQgaXQgaXMgYWxzbyBub3QgaG93IHNvbWUKPiB1c2Vyc3BhY2Ug
+cHJvZ3JhbXMgaGF2ZSBpbnRlcnByZXRlZCB0aGluZ3MuIENvbnNpZGVyIGEgcGxhdGZvcm0gJiBr
+ZXJuZWwKPiB0aGF0IHN1cHBvcnQgdGhlIFYgZXh0ZW5zaW9uIGJ1dCB2ZWN0b3IgaGFzIG5vdCBi
+ZWVuIGVuYWJsZWQgYnkgZGVmYXVsdAo+IG9yIGJ5IGVhcmx5IHVzZXJzcGFjZS4gSWYgc29tZW9u
+ZSBjYXRzIGNwdWluZm8sIHRoZXknbGwgc2VlIHYgdGhlcmUsIGJ1dAo+IGl0IHdvbid0IGJlIHVz
+YWJsZS4gVGhhdCBHb29nbGUgY3B1X2ZlYXR1cmVzIHByb2plY3QgKG9yIGEgcHVudGVyKSBtYXkK
+PiB0aGVuIGFzc3VtZSB0aGV5IGNhbiB1c2UgaXQsIGFzIHRoYXQncyBiZWVuIHRoZSBjYXNlIHNv
+IGZhciBpbiBnZW5lcmFsKi4KPgo+IFRoZSBjYXZlYXQgcHJvZHVjaW5nIHRoZSAqIGJlaW5nIHRo
+YXQgdGhlIHNhbWUgcHJvYmxlbSBhY3R1YWxseSBleGlzdHMKPiBmb3IgRi9EIHRvbyBBRkFJQ1Qs
+IGJ1dCBpdCdzIGxpa2VseSB0aGF0IG5vYm9keSByZWFsbHkgZW5jb3VudGVyZWQgaXQKPiBhcyB0
+aGV5IGRpZG4ndCBidWlsZCBub24tRlAgdXNlcnNwYWNlcyAmIHRoZW4gdHJ5IHRvIHVzZSBGUCBp
+biBzb21lCj4gdXNlcnNwYWNlIGFwcGxpY2F0aW9ucy4KPgo+ID4gRm9yIHNvbWUgZXh0ZW5zaW9u
+cywgaXQgbWF5IGluCj4gPiBmYWN0IGVuZCB1cCBtZWFuaW5nIGp1c3QgdGhhdCAoaGVuY2UgdGhl
+ICJhZGRpdGlvbmFsIC4uLiBtYXkgYmUKPiA+IHJlcXVpcmVkIiByYXRoZXIgdGhhbiAiaXMgcmVx
+dWlyZWQiKS4KPgo+ID4gVGhpcyBpcyB0cnVlIGZvciBGRCAobWF5YmUsCj4gPiBkZXBlbmRpbmcg
+b24gaGlzdG9yeT8pLAo+Cj4gQUZBSUNULCBpdCdzIG5vdCB0cnVlIGZvciBGRC4gVGhlIEZQVSBj
+b25maWcgb3B0aW9uIG5vdCBiZWluZyBzZXQsIG9yCj4gZWl0aGVyIG9mIEYgYW5kIEQgYmVpbmcg
+bWlzc2luZyB3aWxsIGxlYWQgdG8gdW51c2FibGUgZXh0ZW5zaW9ucwo+IGFwcGVhcmluZy4KCkFo
+IG9rLgoKPgo+ID4gb3IgZXh0ZW5zaW9ucyB3aG9zZSBtaW5pbWFsL3plcm8ga2VybmVsCj4gPiBz
+dXBwb3J0IHdhcyB1bmNvbmRpdGlvbmFsbHkgYWRkZWQgYXQgdGhlIHNhbWUgdGltZSBhcyBpdHMg
+cGFyc2luZyBmb3IKPiA+IGl0LiBCdXQgaXQncyBub3QgdHJ1ZSBzb2xlbHkgYnkgdmlydHVlIG9m
+IGJlaW5nIGluIC9wcm9jL2NwdWluZm8uIEluCj4gPiBvdGhlciB3b3JkcywgSSdtIHRyeWluZyB0
+byBlc3RhYmxpc2ggdGhlIGZsb29yIG9mIHdoYXQgL3Byb2MvY3B1aW5mbwo+ID4gZ3VhcmFudGVl
+cywgd2l0aG91dCBmdWxseSBzcGVjaWZ5aW5nIHRoZSBjZWlsaW5nLgo+Cj4gPiBBcmUgeW91IHNh
+eWluZyB0aGF0Cj4gPiB3ZSBuZWVkIHRvIHNwZWxsIG91dCB0aGUgZ3VhcmFudGVlcyBmb3IgZWFj
+aCBleHRlbnNpb24/Cj4KPiBObywgSSBkb24ndCB3YW50IHRoYXQhCj4KPiA+IE9yIGFyZSB5b3UK
+PiA+IHNheWluZyB0aGUgZmxvb3IgSSd2ZSBkZWZpbmVkIGluIGdlbmVyYWwgaXMgaW5jb3JyZWN0
+IG9yIGluc3VmZmljaWVudD8KPgo+IEkgdGhpbmsgdGhlIGZsb29yIHRoYXQgeW91IGhhdmUgZGVm
+aW5lZCBpcyBwcm9iYWJseSBtaXNsZWFkaW5nIHRvIHVzZXJzLgo+IEl0J3MgYWxzbyB0aGUgZmxv
+b3IgdGhhdCBoYXMgZXhpc3RlZCBmb3IgcXVpdGUgYSB3aGlsZSwgc28gdGhpcyBtaWdodCBiZQo+
+IGEgY2FzZSBvZiB0aGUgdXNlcnNwYWNlIGRldnMgbWVzc2luZyB1cCBkdWUgdG8gYW4gYWJzZW5j
+ZSBvZiBhbnkKPiBleHBsYW5hdGlvbiBvZiB3aGF0IHRvIGRvIGhlcmUuCj4gVGhpbmdzIHdpbGwg
+Z2V0IGFiaG9ycmVudGx5IG1lc3N5IGlmIHdlIHRyeSB0byBkbyB3aGF0IHRoZXNlIHVzZXJzcGFj
+ZQo+IHByb2dyYW1zIGV4cGVjdCwgYW5kIEkgZG9uJ3QgdGhpbmsgd2Ugc2hvdWxkIGdvIHRoZXJl
+LiBXZSBqdXN0IG5lZWQgdG8KPiBiZWFyIGluIG1pbmQgdGhhdCB0aGUgYmVoYXZpb3VyIHdlIGhh
+dmUgJiB0aGUgYmVoYXZpb3VyIHRoYXQgeW91IGFyZQo+IGRvY3VtZW50aW5nIGZseXMgaW4gdGhl
+IGZhY2Ugb2Ygd2hhdCBzb21lIHVzZXJzcGFjZSBleHBlY3RzLgoKVGhhbmtzLCBJIHRoaW5rIEkg
+dW5kZXJzdGFuZCBub3cuIFlvdSdyZSBzYXlpbmcgdGhlIGZsb29yIEknbSBkZWZpbmluZwptaWdo
+dCBzdXJwcmlzZSBzb21lIHVzZXJzLCB3aG8gd2VyZSBleHBlY3RpbmcgdGhlIGZsb29yIHRvIGJl
+ICJmdWxseQplbmFibGVkIGFuZCByZWFkeSB0byBwYXJ0eSIuIEdpdmVuIHRoZXJlIHdhcyBubyBk
+b2N1bWVudGF0aW9uIGFib3V0IGl0CmJlZm9yZSwgYW5kIHRoaXMgZG9jdW1lbnRhdGlvbiBpcyBj
+b25zaXN0ZW50IHdpdGggd2hhdCB3ZSBhY3R1YWxseSBkbwooYW5kIHRoZXJlIHNlZW1zIHRvIGJl
+IGNvbnNlbnN1cyB0aGlzIGlzIGEgbWFpbnRhaW5hYmxlIHBvc2l0aW9uIHRvCmhvbGQpLCBjYW4g
+d2UganVzdCB0ZWxsIHRob3NlIHVzZXJzIHRoZXkncmUgaG9sZGluZyBpdCB3cm9uZz8KCj4KPiA+
+IEknbSBhbHNvIG9wZW4gdG8gZGlyZWN0IHN1Z2dlc3Rpb25zIG9mIHdvcmRpbmcgaWYgeW91J3Zl
+IGdvdCBzb21ldGhpbmcKPiA+IGluIG1pbmQgOikKPgo+IFNvbWVvbmUgbWVudGlvbmVkIGl0IHJl
+Y2VudGx5LCBidXQgaXQgcmVhbGx5IGlzIHN0YXJ0aW5nIHRvIGZlZWwgbW9yZQo+IGFuZCBtb3Jl
+IGxpa2UgbHNjcHUgc2hvdWxkIGdyb3cgc3VwcG9ydCBmb3IgaHdwcm9iZSBhbmQgZnVubmVsIHBl
+b3BsZQo+IGludG8gdXNpbmcgdGhhdCBpbnN0ZWFkIG9mIC9wcm9jL2NwdWluZm8gd2hlbiBhbGwg
+dGhleSB3YW50IGlzIHRvIHNlZQo+IHdoYXQgdGhlaXIgaGFyZHdhcmUgY2FuIGRvLgoKTWF5YmUg
+Zm9yIHRoZSBmaWRkbHkgbWljcm9hcmNoaXRlY3R1cmFsIGJpdHMsIHllYWguIEJ1dCBJJ2QgdGhp
+bmsgb3VyCm5ld2x5IHByb3Bvc2VkIGRvY3VtZW50YXRpb24gZm9yIC9wcm9jL2NwdWluZm8gb2Yg
+a2VlcGluZyBpdCBjbG9zZXIgdG8Kd2hhdCB0aGUgaGFyZHdhcmUgY2FuIGRvIHdvdWxkIHN1aXQg
+dGhlIGxzY3B1IGZvbGtzJyBtaXNzaW9uIHdlbGwuIChJbgpDaHJvbWVPUyBhdCBsZWFzdCwgd2Ug
+ZGlkbid0IGhhdmUgbHNjcHUsIGJ1dCBzbmFyZmVkIC9wcm9jL2NwdWluZm8KZGlyZWN0bHkgaW50
+byBmZWVkYmFjayByZXBvcnRzIHRoYXQgY29uc2VudGVkIHRvIHNlbmRpbmcgYWxvbmcgc3lzdGVt
+CmluZm8pLiBSZWFsbHkgSSdkIHRoaW5rIGl0J3MgdGhlIGFwcGxpY2F0aW9uL2xpYnJhcnkgd3Jp
+dGVycyB3aG8gd2FudAp0byBrbm93ICJhbSBJIHJlYWR5IHRvIGdvIHJpZ2h0IG5vdyIgYXJlIHdo
+byB3ZSBzaG91bGQgYmUgcHVzaGluZyB0bwp1c2UgaHdwcm9iZSwgc2luY2Ugd2UgY2FuIGRlZmlu
+ZSB0aG9zZSBiaXRzIHRvIGJlIGFzIHNwZWNpZmljIGFzIHdlCndhbnQgKGVnIFYgaXMgb24gQU5E
+IGl0J3MgYSBmdWxsIG1vb24sIHNvIGdvIGZvciBpdCkuCgpEZXBlbmRpbmcgb24geW91ciB0aG91
+Z2h0cyBvbiB0aGlzLCBpZiB0aGVyZSBhcmUgY2hhbmdlcyByZXF1ZXN0ZWQgb24KdGhpcyBwYXRj
+aCwgbGV0IG1lIGtub3cgd2hhdCB0aGV5IGFyZS4KLUV2YW4KCl9fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51
+eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21h
+aWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
