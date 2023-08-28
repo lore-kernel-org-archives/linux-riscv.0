@@ -4,83 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27BE0C71153
-	for <linux-riscv@archiver.kernel.org>; Mon, 28 Aug 2023 18:20:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3071C71153
+	for <linux-riscv@archiver.kernel.org>; Mon, 28 Aug 2023 18:23:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=G24IN2wgO5PXl+9/yrGWecDUzOdHFCkQmyTIfwBYw/s=; b=dzckA7Uqmh8CVd
-	JuW6o9hqEc8J5ub7uYpv9qTyG1sawGKMT7Rt4m8kiZGddOMHwy2+mCZlv+KPYl/k+QA5h+p+MkxLU
-	vES4wkpnf5lHtOnv6NGCbohvhwoTCafuCxMg+Kty7wHQNlFSmnHegKUhbRA5iwIsQJbQgVnTVszba
-	lXeiMbUTMbg/ySVPFV4bntWStcUUD//JIPu6OrSUCudC4rKTJ2VN+4hj7ss/nOBEAs3Go8J+7U1Qh
-	VBDbfIpwLG0Qv1oZDJKNwaWKrtcGnGJ5nPKDxuP1U6LQzkByB5DsHDLYNNy3NTq92gizi41hanvne
-	a1VCpPVsJW7qJ+h2rr1A==;
+	List-Owner; bh=KVyv362JGo+6B3iEyFol8WabgUglrJtmtnJX1KCtWdE=; b=v2JY8orKi4lYkg
+	OTlLvvlZ6fDrztOVhHkl/wwXId4x6pRz2JATxFEKq/iZeJQhrsopVVnkiP3OK3s58rSs4wFGPgvv4
+	iaIIXOY0ys5hzxfIn4er/WxFWX3nQj1yQfN48O24KeDFG2RPCwJg7tM+Sin7QcLhTEUq6+UvAvYft
+	CLh82DO+voNVV7//A4HLuQf9rVyE6N3qWygGptH8dsickIOSWkjhgfMZYZCIhJoXp3KS+4Rjg5FQR
+	M5YZlAwu68K002aKLNTNumuL1fXVVQLbpFzB3B85B8rRWWrtrsoirYRPx7XozNai81DpVwAPMp+1d
+	OyXBHXSQ2a90fF1k2wAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qagr3-00A4Mq-10;
-	Mon, 28 Aug 2023 18:20:49 +0000
-Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
+	id 1qagt6-00A4Vn-0p;
+	Mon, 28 Aug 2023 18:22:56 +0000
+Received: from mail-oa1-x34.google.com ([2001:4860:4864:20::34])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qagqz-00A4MF-17
+	id 1qagt3-00A4Uc-2I
 	for linux-riscv@lists.infradead.org;
-	Mon, 28 Aug 2023 18:20:47 +0000
-Received: by mail-pf1-x42d.google.com with SMTP id d2e1a72fcca58-68c0d262933so2002174b3a.0
-        for <linux-riscv@lists.infradead.org>; Mon, 28 Aug 2023 11:20:43 -0700 (PDT)
+	Mon, 28 Aug 2023 18:22:55 +0000
+Received: by mail-oa1-x34.google.com with SMTP id 586e51a60fabf-1cd327d7cc1so1334073fac.3
+        for <linux-riscv@lists.infradead.org>; Mon, 28 Aug 2023 11:22:48 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1693246843; x=1693851643;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=FN5cReRcE/IqZFfedM5lG8adhDURm6Zmxuc1ut1q7kk=;
-        b=WeAqtd1ntNS0YgTuYZvuwkU6ZM/B/cG/JTeGYaHbuwa0edGOkauQbjP9QUfPvy4HfV
-         V/dqiEUmTwtNGzDHpMLZfIfMKUuvWcBXOpPYUQXJScPwiKH5J2vjubVyl429W6rsHOlg
-         7grzBQjC/I1RSDdlZ8OR3H9Wfiuwp58UNWUe1N7PghhbLznb8OY8i3kA7um87TT5WD65
-         nSmShNf71KD8ueXVatdu9MqAK5eny/zPGYWLSsOzFt7YNsZ3NizZdDLnoWwkmwJiGX4u
-         bt281fUeocyL5evTiyh3ngIgkF02EH7ttH9l6H5s3i901Y7wEy2KrcN0Sz4biRp/5N05
-         EhWw==
+        d=sifive.com; s=google; t=1693246968; x=1693851768;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=Ga2gVen33azZ76Qh5zvhdK58PNvnvDUlMbqHu7tcD5I=;
+        b=eOuzCOCIOr6mECywSLVO8rgl7EKRQ+tcA6n96uPCmIq5W2Uuxkk1UFNvQZSua/brRh
+         FgFYJUaGVwC9AFWo2nrDjA4UpSWEL3dBn4yPjGHHv4XT6G/Zne+x7DBLhNgn8ePyoO6B
+         4rs+NXufNjB+oyNTwJs+0dB4ZiJbSPaxJ27q8pC/C1Ke/UrTTlFWF59coqd+w7WBJnTB
+         J1bKh/vStpLLHxT5Jpg09fRg8cUBrwXC8Y7YCei/GonRFRa5uKcy+pAvscJYBz0R8C14
+         IRleuWRH+CtNqkfLMbQKZ39+xV8UbMeX3VM+vlPr2Dcov7MfhAwTigMpKqiriTs2rV82
+         Oz+A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1693246843; x=1693851643;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=FN5cReRcE/IqZFfedM5lG8adhDURm6Zmxuc1ut1q7kk=;
-        b=k3bY3LC+BmBi9WWIzkG7yfr3P8zKRgnEsHz7TsPGN5sgOBb32KMIfe604yjlLQALlF
-         805dlqDjIL/1WOQKmh2Dl9YhDHVpRaJHpa2FOrNgkAoZZezkww+cKPncfxC94q42aGVc
-         /sC3NQSptNESB4Lhh+CCJH/DQBvwnPNNVXgJv7cN9uQKv/s4fsozFM63eqVr/HXF1ne1
-         2ZbGl2dDFREEQNC1uf/Gfh9TCEkxs2gnVwurNueQ5nny2xnixlaAKcR6ODBqgqkT9stB
-         +TFlfNJ53St4SJrgXKGhEj5BuSkJ9dRMFAkKU7K1U98F3lKY0IsHaIRGk43lR3xozk4+
-         +mWA==
-X-Gm-Message-State: AOJu0YyI0WA9Kyv18TP0URAno7+rrp3NRikawSOq+XaKyDm0U1iw6QFd
-	BxQHrv5tv8odDkvCQ935CoknWw==
-X-Google-Smtp-Source: AGHT+IEBimujj4zlefxpuPomvv7iKDMVCw90Uhnkx9mm6W0jEamQc5Z5CAG92cyNacoMQoOSbNKXGw==
-X-Received: by 2002:a05:6a00:1a4e:b0:68a:553a:c0da with SMTP id h14-20020a056a001a4e00b0068a553ac0damr20938442pfv.24.1693246842918;
-        Mon, 28 Aug 2023 11:20:42 -0700 (PDT)
-Received: from ghost ([2601:647:5700:6860:1499:9915:c376:361b])
-        by smtp.gmail.com with ESMTPSA id 23-20020aa79117000000b00686ec858fb0sm6887959pfh.190.2023.08.28.11.20.41
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 28 Aug 2023 11:20:42 -0700 (PDT)
-Date: Mon, 28 Aug 2023 11:20:39 -0700
-From: Charlie Jenkins <charlie@rivosinc.com>
-To: Conor Dooley <conor@kernel.org>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu
-Subject: Re: [PATCH 1/5] riscv: Checksum header
-Message-ID: <ZOzld28wZjLpl4Hp@ghost>
-References: <20230827-turf-parched-b965bc697882@spud>
- <mhng-d43dc0a3-7985-4195-9611-5ca0c38390e7@palmer-ri-x1c9>
- <20230827-primer-conceal-b6f24b29e692@spud>
- <20230827-divisive-happy-cf93058c49bf@spud>
- <ZOzRlerSNjfzMYGH@ghost>
- <20230828-deserve-paging-25666290e312@spud>
+        d=1e100.net; s=20221208; t=1693246968; x=1693851768;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=Ga2gVen33azZ76Qh5zvhdK58PNvnvDUlMbqHu7tcD5I=;
+        b=djg8udb+QUxkCsQvuzRD+0YilQ3FU666H2N2zpYRtBDC/3crhoNXFDawqJrrnRHkFc
+         RoYQ5Z7dyV5taQHz1zQW7pqkuMHNXrjXDXdg/FQb1gYEP2J0Y+AWbCFLVWvh8PLyJ/BM
+         U3lIw4LCVfcQ5MjCGsMA17iGU2a8nLHYF4WEY+pBc0qOGHJQ+1T1kjVoYs9aRIHZouxU
+         qnwhsKpQLSVjvCGlssm083r8FtPKiODRsTZEVXxrOGD2GoAaYqgKA49+Ymowv2uZKEXh
+         O9cz4ew3O63UbBun3YsTsWQ84TU1yVZM4qRJ5BB8Ah2b1GNFSfwdUUA7+DqVkXVJcMeX
+         +zow==
+X-Gm-Message-State: AOJu0YxVZsFg519oDr2JnLeekr5RS6+Fs667V+EfYwlpQeyIJ6YXFQ34
+	ekhZUKQ9F1kNbpd9hTX+5YIDSQ==
+X-Google-Smtp-Source: AGHT+IF4mG5pKxGDzKy/ctxHKW2AxQgqLhU4jqhTnVrwSfVbGEHMHGMfLwB/H3ZEFoxfaByFCr2vgA==
+X-Received: by 2002:a05:6870:9a25:b0:1bb:5480:4b4 with SMTP id fo37-20020a0568709a2500b001bb548004b4mr13379044oab.8.1693246968227;
+        Mon, 28 Aug 2023 11:22:48 -0700 (PDT)
+Received: from ?IPV6:2600:1700:2000:b002:6140:58e3:2550:7e99? ([2600:1700:2000:b002:6140:58e3:2550:7e99])
+        by smtp.gmail.com with ESMTPSA id 21-20020a17090a19d500b00263f5ac814esm9891041pjj.38.2023.08.28.11.22.47
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 28 Aug 2023 11:22:47 -0700 (PDT)
+Message-ID: <0a8c98bf-46da-e77a-0431-a6c1e224af2e@sifive.com>
+Date: Mon, 28 Aug 2023 13:22:46 -0500
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230828-deserve-paging-25666290e312@spud>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/5] riscv: Vector checksum header
+Content-Language: en-US
+To: Charlie Jenkins <charlie@rivosinc.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20230826-optimize_checksum-v1-0-937501b4522a@rivosinc.com>
+ <20230826-optimize_checksum-v1-3-937501b4522a@rivosinc.com>
+From: Samuel Holland <samuel.holland@sifive.com>
+In-Reply-To: <20230826-optimize_checksum-v1-3-937501b4522a@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230828_112045_598272_4A32662F 
-X-CRM114-Status: GOOD (  70.15  )
+X-CRM114-CacheID: sfid-20230828_112253_804193_C2239C95 
+X-CRM114-Status: GOOD (  21.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,155 +95,148 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 28, 2023 at 06:08:40PM +0100, Conor Dooley wrote:
-> On Mon, Aug 28, 2023 at 09:55:49AM -0700, Charlie Jenkins wrote:
-> > On Sun, Aug 27, 2023 at 01:25:27PM +0100, Conor Dooley wrote:
-> > > On Sun, Aug 27, 2023 at 11:28:33AM +0100, Conor Dooley wrote:
-> > > > On Sat, Aug 26, 2023 at 07:00:47PM -0700, Palmer Dabbelt wrote:
-> > > > > On Sat, 26 Aug 2023 18:42:41 PDT (-0700), Conor Dooley wrote:
-> > > > > > On Sat, Aug 26, 2023 at 06:26:06PM -0700, Charlie Jenkins wrote:
-> > > > > > > Provide checksum algorithms that have been designed to leverage riscv
-> > > > > > > instructions such as rotate. In 64-bit, can take advantage of the larger
-> > > > > > > register to avoid some overflow checking.
-> > > > > > > 
-> > > > > > > Add configuration for Zba extension and add march for Zba and Zbb.
-> > > > > > > 
-> > > > > > > Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
-> > > > > > > ---
-> > > > > > >  arch/riscv/Kconfig                | 23 +++++++++++
-> > > > > > >  arch/riscv/Makefile               |  2 +
-> > > > > > >  arch/riscv/include/asm/checksum.h | 86 +++++++++++++++++++++++++++++++++++++++
-> > > > > > >  3 files changed, 111 insertions(+)
-> > > > > > > 
-> > > > > > > diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> > > > > > > index 4c07b9189c86..8d7e475ca28d 100644
-> > > > > > > --- a/arch/riscv/Kconfig
-> > > > > > > +++ b/arch/riscv/Kconfig
-> > > > > > > @@ -507,6 +507,29 @@ config RISCV_ISA_V_DEFAULT_ENABLE
-> > > > > > >  	  If you don't know what to do here, say Y.
-> > > > > > > +config TOOLCHAIN_HAS_ZBA
-> > > > > > > +	bool
-> > > > > > > +	default y
-> > > > > > > +	depends on !64BIT || $(cc-option,-mabi=lp64 -march=rv64ima_zba)
-> > > > > > > +	depends on !32BIT || $(cc-option,-mabi=ilp32 -march=rv32ima_zba)
-> > > > > > > +	depends on LLD_VERSION >= 150000 || LD_VERSION >= 23900
-> > > > > > > +	depends on AS_HAS_OPTION_ARCH
-> > > > > > > +
-> > > > > > > +config RISCV_ISA_ZBA
-> > > > > > > +	bool "Zba extension support for bit manipulation instructions"
-> > > > > > > +	depends on TOOLCHAIN_HAS_ZBA
-> > > > > > > +	depends on MMU
-> > > > > > > +	depends on RISCV_ALTERNATIVE
-> > > > > > > +	default y
-> > > > > > > +	help
-> > > > > > > +	   Adds support to dynamically detect the presence of the ZBA
-> > > > > > > +	   extension (basic bit manipulation) and enable its usage.
-> > > > > > > +
-> > > > > > > +	   The Zba extension provides instructions to accelerate a number
-> > > > > > > +	   of bit-specific address creation operations.
-> > > > > > > +
-> > > > > > > +	   If you don't know what to do here, say Y.
-> > > > > > > +
-> > > > > > >  config TOOLCHAIN_HAS_ZBB
-> > > > > > >  	bool
-> > > > > > >  	default y
-> > > > > > > diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
-> > > > > > > index 6ec6d52a4180..51fa3f67fc9a 100644
-> > > > > > > --- a/arch/riscv/Makefile
-> > > > > > > +++ b/arch/riscv/Makefile
-> > > > > > > @@ -61,6 +61,8 @@ riscv-march-$(CONFIG_ARCH_RV64I)	:= rv64ima
-> > > > > > >  riscv-march-$(CONFIG_FPU)		:= $(riscv-march-y)fd
-> > > > > > >  riscv-march-$(CONFIG_RISCV_ISA_C)	:= $(riscv-march-y)c
-> > > > > > >  riscv-march-$(CONFIG_RISCV_ISA_V)	:= $(riscv-march-y)v
-> > > > > > > +riscv-march-$(CONFIG_RISCV_ISA_ZBA)	:= $(riscv-march-y)_zba
-> > > > > > > +riscv-march-$(CONFIG_RISCV_ISA_ZBB)	:= $(riscv-march-y)_zbb
-> > > > > > 
-> > > > > > AFAICT, this is going to break immediately on any system that enables
-> > > > > > RISCV_ISA_ZBA (which will happen by default) but does not support the
-> > > > > > extension. You made the option depend on RISCV_ALTERNATIVE, but I do
-> > > > > > not see any use of alternatives in the code to actually perform the
-> > > > > > dynamic detection of Zba.
-> > > > > 
-> > > > > I guess we kind of have an ambiguity here: for stuff like C we just
-> > > > > unconditionally use the instructions, but for the rest we probe first.  We
-> > > > > should probably have three states for each extension: disabled, dynamically
-> > > > > detected, and assumed.
-> > > > 
-> > > > You mean, just add some comments to the makefile surrounding each
-> > > > section or to some rst documentation?
-> > > 
-> > > Also, the code here doesn't build w/
-> > > 	warning: invalid argument to '-march': '_zba_zbb_zicsr_zifencei_zihintpause'
-> > > so there's something else wrong with TOOLCHAIN_HAS_ZBA :)
-> > It is odd that this is missing 'rv64ima' or 'rv32ima' at the beginning of
-> > this string. What configuration are you using that could cause that to
-> > be left off?
+On 2023-08-26 8:26 PM, Charlie Jenkins wrote:
+> This patch is not ready for merge as vector support in the kernel is
+> limited. However, the code has been tested in QEMU so the algorithms
+> do work. It is written in assembly rather than using the GCC vector
+> instrinsics because they did not provide optimal code.
 > 
-> I don't know, but that configuration is pretty pervasive. The patchwork
-> CI blew up too & that is using kernel.org toolchains built by Arnd:
-> https://mirrors.edge.kernel.org/pub/tools/crosstool/
+> Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
+> ---
+>  arch/riscv/include/asm/checksum.h | 81 +++++++++++++++++++++++++++++++++++++++
+>  1 file changed, 81 insertions(+)
 > 
-> > Compiling with defconfig automatically enables Zba and appears to not
-> > cause this issue. I realized that I put the header definitions for
-> > do_csum and csum_ipv6_magic in this patch instead of the next one so the
-> > code will fail to compile from this but not due to march settings.
-> > > 
-> > > > 
-> > > > > > Note that for fd & v, we add it to riscv-march-y, but then immediately
-> > > > > > remove it again before passing to the compiler, only allow them in
-> > > > > > AFLAGS:
-> > > > > > 	# Remove F,D,V from isa string for all. Keep extensions between "fd" and "v" by
-> > > > > > 	# matching non-v and non-multi-letter extensions out with the filter ([^v_]*)
-> > > > > > 	KBUILD_CFLAGS += -march=$(shell echo $(riscv-march-y) | sed -E 's/(rv32ima|rv64ima)fd([^v_]*)v?/\1\2/')
-> > > > > > 
-> > > > > > What am I missing?
-> > > > > 
-> > > > > FD and V both have state that can be saved lazily, so we can't let arbitrary
-> > > > > code use them.  The extensions formally known as B don't add state, so they
-> > > > > are safe to flip on in arbitrary places (aside from the issues you pointed
-> > > > > out above).
-> > > > 
-> > > > I probably went about this badly since you missed the point. I was
-> > > > trying to point out that for anything other than the compressed
-> > > > extensions in the block above that we only pass them in march to the
-> > > > assembler, and not to the compiler, in contrast to this patch which just
-> > > > always passes them. I should have pointed to how we handled the
-> > > > in-kernel Zbb stuff & asked how this was any different, would probably
-> > > > have been clearer.
-> > > > 
-> > I supposed it might be better if I submit these changes in a different
-> > patch so we can have more discussion there. Zbb was previously only used
-> > by assembly files (arch/riscv/lib/strcmp.S, arch/riscv/lib/strlen.S,
-> > arch/riscv/lib/strncmp.S). I wanted to add them to the compiler so that
-> > that C programs could leverage these extensions. However, I neglected to
-> > consider machines that compile the kernel with these extensions but have
-> > cores without these extensions.
-> 
-> Less so cores, since we don't support heterogeneous stuff, and moreso
-> platforms that do not support the extensions. It's expected that the
-> same kernel could in theory be used across a wide variety of systems.
-> 
-> > The purpose of using these extensions is
-> > to save a couple of clock cycles, so if it is necessary to first
-> > check if the extension is enabled it may not be worth it for these
-> > functions.
-> 
-> That's still possible, it's what the alternatives mechanism exists for.
-> During boot the codepaths are patched to use what works for a given
-> machine, check out the code that makes use of Zbb or
-> riscv_has_extension_[un]likely(). You'd need to do something like the
-> existing users of Zbb instructions does, with an alternative used to
-> avoid the custom asm implementations when the hardware does not support
-> them. (That's what the CONFIG_ALTERNATIVE & CONFIG_AS_HAS_OPTION_ARCH
-> options you made the TOOLCHAIN_HAS_ZBA depend on are for).
+> diff --git a/arch/riscv/include/asm/checksum.h b/arch/riscv/include/asm/checksum.h
+> index af49b3409576..7e31c0ad6346 100644
+> --- a/arch/riscv/include/asm/checksum.h
+> +++ b/arch/riscv/include/asm/checksum.h
+> @@ -10,6 +10,10 @@
+>  #include <linux/in6.h>
+>  #include <linux/uaccess.h>
+>  
+> +#ifdef CONFIG_RISCV_ISA_V
+> +#include <riscv_vector.h>
+> +#endif
+> +
+>  /* Default version is sufficient for 32 bit */
+>  #ifdef CONFIG_64BIT
+>  #define _HAVE_ARCH_IPV6_CSUM
+> @@ -36,6 +40,46 @@ static inline __sum16 csum_fold(__wsum sum)
+>   *	without the bitmanip extensions zba/zbb.
+>   */
+>  #ifdef CONFIG_32BIT
+> +#ifdef CONFIG_RISCV_ISA_V
+> +static inline __sum16 ip_fast_csum(const void *iph, unsigned int ihl)
+> +{
+> +	vuint64m1_t prev_buffer;
+> +	vuint32m1_t curr_buffer;
+> +	unsigned int vl;
+> +	unsigned int high_result;
+> +	unsigned int low_result;
+> +
+> +	asm("vsetivli x0, 1, e64, ta, ma				\n\t\
 
-I can see how to get this to work if I port this code into assembly and
-write two different versions (one with Zbb and one without), but
-I don't see how this would work in C. Unless I am mistaken, there would
-need to be some sort of wrapper around the C code that told the compiler
-to compile it multiple times for different extension combinations and
-then use the riscv_has_extension_[un]likely() functions to determine
-which version to use at runtime. Is this feasible?
+The same concerns from patch 1 apply here as well. Vector assembly must be gated
+behind an alternative section or a call to has_vector(), so the kernel can fall
+back to a non-vector implementation at runtime.
+
+You are also missing calls to kernel_vector_begin()/kernel_vector_end(), as
+added by [1], which are required to avoid corrupting the user-mode vector
+register context.
+
+Regards,
+Samuel
+
+[1]: https://lore.kernel.org/linux-riscv/20230721112855.1006-3-andy.chiu@sifive.com/
+
+> +	vmv.v.i %[prev_buffer], 0					\n\t\
+> +	1:								\n\t\
+> +	vsetvli %[vl], %[ihl], e32, m1, ta, ma				\n\t\
+> +	vle32.v %[curr_buffer], (%[iph])				\n\t\
+> +	vwredsumu.vs %[prev_buffer], %[curr_buffer], %[prev_buffer]	\n\t\
+> +	sub %[ihl], %[ihl], %[vl]					\n\t"
+> +#ifdef CONFIG_RISCV_ISA_ZBA
+> +	"sh2add %[iph], %[vl], %[iph]					\n\t"
+> +#else
+> +	"slli %[vl], %[vl], 2						\n\
+> +	add %[iph], %[vl], %[iph]					\n\t"
+> +#endif
+> +	"bnez %[ihl], 1b						\n\
+> +	vsetivli x0, 1, e64, m1, ta, ma					\n\
+> +	vmv.x.s %[low_result], %[prev_buffer]				\n\
+> +	addi %[vl], x0, 32						\n\
+> +	vsrl.vx %[prev_buffer], %[prev_buffer], %[vl]			\n\
+> +	vmv.x.s %[high_result], %[prev_buffer]"
+> +	: [vl] "=&r" (vl), [prev_buffer] "=&vd" (prev_buffer),
+> +		[curr_buffer] "=&vd" (curr_buffer),
+> +		[high_result] "=&r" (high_result),
+> +		[low_result] "=&r" (low_result)
+> +	: [iph] "r" (iph), [ihl] "r" (ihl));
+> +
+> +	high_result += low_result;
+> +	high_result += high_result < low_result;
+> +	return csum_fold((__force __wsum)(high_result));
+> +}
+> +
+> +#else
+>  static inline __sum16 ip_fast_csum(const void *iph, unsigned int ihl)
+>  {
+>  	__wsum csum = 0;
+> @@ -47,8 +91,44 @@ static inline __sum16 ip_fast_csum(const void *iph, unsigned int ihl)
+>  	} while (++pos < ihl);
+>  	return csum_fold(csum);
+>  }
+> +#endif
+> +#else
+> +
+> +#ifdef CONFIG_RISCV_ISA_V
+> +static inline __sum16 ip_fast_csum(const void *iph, unsigned int ihl)
+> +{
+> +	vuint64m1_t prev_buffer;
+> +	vuint32m1_t curr_buffer;
+> +	unsigned long vl;
+> +	unsigned long result;
+> +
+> +	asm("vsetivli x0, 1, e64, ta, ma				\n\
+> +	vmv.v.i %[prev_buffer], 0					\n\
+> +	1:								\n\
+> +	# Setup 32-bit sum of iph					\n\
+> +	vsetvli %[vl], %[ihl], e32, m1, ta, ma				\n\
+> +	vle32.v %[curr_buffer], (%[iph])				\n\
+> +	# Sum each 32-bit segment of iph that can fit into a vector reg	\n\
+> +	vwredsumu.vs %[prev_buffer], %[curr_buffer], %[prev_buffer]     \n\
+> +	subw %[ihl], %[ihl], %[vl]					\n\t"
+> +#ifdef CONFIG_RISCV_ISA_ZBA
+> +	"sh2add %[iph], %[vl], %[iph]					\n\t"
+>  #else
+> +	"slli %[vl], %[vl], 2						\n\
+> +	addw %[iph], %[vl], %[iph]					\n\t"
+> +#endif
+> +	"# If not all of iph could fit into vector reg, do another sum	\n\
+> +	bnez %[ihl], 1b							\n\
+> +	vsetvli x0, x0, e64, m1, ta, ma					\n\
+> +	vmv.x.s %[result], %[prev_buffer]"
+> +	: [vl] "=&r" (vl), [prev_buffer] "=&vd" (prev_buffer),
+> +		[curr_buffer] "=&vd" (curr_buffer), [result] "=&r" (result)
+> +	: [iph] "r" (iph), [ihl] "r" (ihl));
+>  
+> +	result += (result >> 32) | (result << 32);
+> +	return csum_fold((__force __wsum)(result >> 32));
+> +}
+> +#else
+>  /*
+>   * Quickly compute an IP checksum with the assumption that IPv4 headers will
+>   * always be in multiples of 32-bits, and have an ihl of at least 5.
+> @@ -74,6 +154,7 @@ static inline __sum16 ip_fast_csum(const void *iph, unsigned int ihl)
+>  	return csum_fold((__force __wsum)(csum >> 32));
+>  }
+>  #endif
+> +#endif
+>  #define ip_fast_csum ip_fast_csum
+>  
+>  extern unsigned int do_csum(const unsigned char *buff, int len);
+> 
+
 
 _______________________________________________
 linux-riscv mailing list
