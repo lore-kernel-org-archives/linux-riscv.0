@@ -4,72 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 999A8C83F11
-	for <linux-riscv@archiver.kernel.org>; Mon, 28 Aug 2023 11:05:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D3CDC83F11
+	for <linux-riscv@archiver.kernel.org>; Mon, 28 Aug 2023 11:53:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2J8Gu3WutQXguYRw260LBSaDrBSkZ0Q/OMm0wzxrcWw=; b=UCbYAl8L6BWXACav3r54R+uBR3
-	Ss6eaMVLz21OfRgMTfC8cgoAJrrzKYHxvn60LEs8d1SLREFuCCnXBytEuEtBFHlrpgEgaOLrpjTuz
-	2rJXqN4CcPuxlojFvTl+AJGhIgM/KwswzTaPKd5ZqI0c4+ko+DouUxi+fm+ex5bbg3sagRYuo9rLX
-	xRTEZfFXS6lC7NEiqQhAli+yR07HIwnYUv47jZhp38+hCP+NH+oR0aawRMcJQlw8YYBNUO92ifoRS
-	VoybqJpdrQ6y1KOoZk7QeVwqKo3DtYHLQKMir8uL4Jxw7JDE1DU0VsDneaD2z0VdL9B6Bm8pwf/2t
-	LjdPefsw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Az4+1cuZk2ij0abLTUMNHaZ2rbH8VyrC8z8oHoIDUlo=; b=l4DexLf4ys47Kv
+	GuZekIqRvmqqXKXgCspaBHn/BFdBiNxIaGVsYND5Oyks4uajYxEUelDHo16VQqaZ8AsnfygSPdV0e
+	ea8ylUK762HpmZR9IE03rngbtzTfIsQhH0P+FahsNev8Z09cRr3TI7Z+qz7pzx81T6bnTVb+VYjOm
+	8eXBJsEHuiFPMxClXeqYo24rNC4jXww/qqflf2GtkthxadKy9NI8LKtmdhMjGhwDhaRV/PqWku7WI
+	NsIK3Ls2pEUph9jRGDe6PWpp+n+JcaS0yFidjgEZrcDP15qAJCLYSvhuv+iwmWjViSDOrQtwdxDW8
+	JGcB2XVMsobn2n6mhtvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qaa3H-009Tc9-15;
-	Mon, 28 Aug 2023 11:04:59 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qaa3D-009TbB-1B
+	id 1qaao5-009WAU-25;
+	Mon, 28 Aug 2023 11:53:21 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1qaanz-009WA7-1Z
 	for linux-riscv@lists.infradead.org;
-	Mon, 28 Aug 2023 11:04:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1693220695; x=1724756695;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=ri/l6M8mpTkwkRbAXaHeiv8dKUXmvnnn0gDOniLyOtY=;
-  b=yYtQ0rdXGnEn+1Fw+EoKGLiXdLFFATnlOLxxWvoEdfxKkVNZ24lRqK/d
-   0sngcYdHNHsl70qr01jkYwfEYg0rJX/CKejNmFHHHJIjiamKqBA1A/9kt
-   8yDRsJf9BOsmFspSiPax8qBaBqywVl5hR4toJqRPTMYKmibPfYJcxvcj1
-   vP9fS+psLXKSW1hk+RzOw8OgzB2npvcTymr7EORslmlaPBAgN569NcO6X
-   Bbe5bbZV9IG4Sf1jTUpuFfV/5S+0NfTdXFJXxNvt39Zs3lLO7zfSj0vrj
-   jKZ509lqtXY+VnC+KKaqTsk49HXwfsRWSuhMCTRgeZ2Bkw9hhs4s8+G1X
-   w==;
-X-IronPort-AV: E=Sophos;i="6.02,207,1688454000"; 
-   d="asc'?scan'208";a="232063736"
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa5.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 28 Aug 2023 04:04:21 -0700
-Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Mon, 28 Aug 2023 04:04:11 -0700
-Received: from wendy (10.10.85.11) by chn-vm-ex03.mchp-main.com (10.10.85.151)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
- Transport; Mon, 28 Aug 2023 04:04:10 -0700
-Date: Mon, 28 Aug 2023 12:03:28 +0100
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Andrei Coardos <aboutphysycs@gmail.com>
-CC: <linux-kernel@vger.kernel.org>, <linux-crypto@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, <alex@shruggie.ro>,
-	<herbert@gondor.apana.org.au>, <olivia@selenic.com>,
-	<daire.mcnamara@microchip.com>
-Subject: Re: [PATCH] char: hw_random: mpfs-rng: removed unneeded call to
- platform_set_drvdata()
-Message-ID: <20230828-citable-superjet-d235f036be99@wendy>
-References: <20230828101757.9724-1-aboutphysycs@gmail.com>
+	Mon, 28 Aug 2023 11:53:19 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id 3CFAE24E2EF;
+	Mon, 28 Aug 2023 19:52:43 +0800 (CST)
+Received: from EXMBX072.cuchost.com (172.16.6.82) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 28 Aug
+ 2023 19:52:43 +0800
+Received: from ubuntu.localdomain (113.72.145.245) by EXMBX072.cuchost.com
+ (172.16.6.82) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 28 Aug
+ 2023 19:52:42 +0800
+From: Hal Feng <hal.feng@starfivetech.com>
+To: Conor Dooley <conor+dt@kernel.org>, Emil Renner Berthing
+	<emil.renner.berthing@canonical.com>, Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Palmer Dabbelt
+	<palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou
+	<aou@eecs.berkeley.edu>
+CC: Hal Feng <hal.feng@starfivetech.com>, <devicetree@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: [-next v1] riscv: dts: starfive: visionfive 2: Enable usb0 and fix tdm pins sort order
+Date: Mon, 28 Aug 2023 19:52:39 +0800
+Message-ID: <20230828115239.16012-1-hal.feng@starfivetech.com>
+X-Mailer: git-send-email 2.38.1
 MIME-Version: 1.0
-In-Reply-To: <20230828101757.9724-1-aboutphysycs@gmail.com>
+X-Originating-IP: [113.72.145.245]
+X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX072.cuchost.com
+ (172.16.6.82)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230828_040455_427149_4E790AE1 
-X-CRM114-Status: GOOD (  19.28  )
+X-CRM114-CacheID: sfid-20230828_045315_697882_F69E7A7F 
+X-CRM114-Status: UNSURE (   9.88  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,87 +70,99 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1542627956720903871=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============1542627956720903871==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="ybobh3J4aOaUG3ga"
-Content-Disposition: inline
+usb0 was disabled by mistake when merging, so enable it.
+tdm_pins node should be sorted alphabetically.
 
---ybobh3J4aOaUG3ga
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Fixes: e7c304c0346d ("riscv: dts: starfive: jh7110: add the node and pins configuration for tdm")
+Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
+---
+ .../jh7110-starfive-visionfive-2.dtsi         | 49 ++++++++++---------
+ 1 file changed, 25 insertions(+), 24 deletions(-)
 
-On Mon, Aug 28, 2023 at 01:17:57PM +0300, Andrei Coardos wrote:
-> This function call was found to be unnecessary as there is no equivalent
-> platform_get_drvdata() call to access the private data of the driver. Als=
-o,
-> the private data is defined in this driver, so there is no risk of it bei=
-ng
-> accessed outside of this driver file.
+diff --git a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
+index d79f94432b27..382dfb5e64e4 100644
+--- a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
++++ b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
+@@ -440,30 +440,6 @@ GPOEN_ENABLE,
+ 		};
+ 	};
+ 
+-	uart0_pins: uart0-0 {
+-		tx-pins {
+-			pinmux = <GPIOMUX(5, GPOUT_SYS_UART0_TX,
+-					     GPOEN_ENABLE,
+-					     GPI_NONE)>;
+-			bias-disable;
+-			drive-strength = <12>;
+-			input-disable;
+-			input-schmitt-disable;
+-			slew-rate = <0>;
+-		};
+-
+-		rx-pins {
+-			pinmux = <GPIOMUX(6, GPOUT_LOW,
+-					     GPOEN_DISABLE,
+-					     GPI_SYS_UART0_RX)>;
+-			bias-disable; /* external pull-up */
+-			drive-strength = <2>;
+-			input-enable;
+-			input-schmitt-enable;
+-			slew-rate = <0>;
+-		};
+-	};
+-
+ 	tdm_pins: tdm-0 {
+ 		tx-pins {
+ 			pinmux = <GPIOMUX(44, GPOUT_SYS_TDM_TXD,
+@@ -497,6 +473,30 @@ GPOEN_DISABLE,
+ 			input-enable;
+ 		};
+ 	};
++
++	uart0_pins: uart0-0 {
++		tx-pins {
++			pinmux = <GPIOMUX(5, GPOUT_SYS_UART0_TX,
++					     GPOEN_ENABLE,
++					     GPI_NONE)>;
++			bias-disable;
++			drive-strength = <12>;
++			input-disable;
++			input-schmitt-disable;
++			slew-rate = <0>;
++		};
++
++		rx-pins {
++			pinmux = <GPIOMUX(6, GPOUT_LOW,
++					     GPOEN_DISABLE,
++					     GPI_SYS_UART0_RX)>;
++			bias-disable; /* external pull-up */
++			drive-strength = <2>;
++			input-enable;
++			input-schmitt-enable;
++			slew-rate = <0>;
++		};
++	};
+ };
+ 
+ &tdm {
+@@ -513,6 +513,7 @@ &uart0 {
+ 
+ &usb0 {
+ 	dr_mode = "peripheral";
++	status = "okay";
+ };
+ 
+ &U74_1 {
+-- 
+2.38.1
 
-I think Greg previously pointed out to you that is it not sufficient to
-check for platform_get_drvdata() alone, because the information could be
-accessed without going through that helper. That's not the case here,
-but it could be true elsewhere.
-
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-
-Thanks,
-Conor.
-
->=20
-> Signed-off-by: Andrei Coardos <aboutphysycs@gmail.com>
-> ---
->  drivers/char/hw_random/mpfs-rng.c | 2 --
->  1 file changed, 2 deletions(-)
->=20
-> diff --git a/drivers/char/hw_random/mpfs-rng.c b/drivers/char/hw_random/m=
-pfs-rng.c
-> index c6972734ae62..0994024daa70 100644
-> --- a/drivers/char/hw_random/mpfs-rng.c
-> +++ b/drivers/char/hw_random/mpfs-rng.c
-> @@ -79,8 +79,6 @@ static int mpfs_rng_probe(struct platform_device *pdev)
->  	rng_priv->rng.read =3D mpfs_rng_read;
->  	rng_priv->rng.name =3D pdev->name;
-> =20
-> -	platform_set_drvdata(pdev, rng_priv);
-> -
->  	ret =3D devm_hwrng_register(&pdev->dev, &rng_priv->rng);
->  	if (ret)
->  		return dev_err_probe(&pdev->dev, ret, "Failed to register MPFS hwrng\n=
-");
-> --=20
-> 2.34.1
->=20
-
---ybobh3J4aOaUG3ga
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZOx/AAAKCRB4tDGHoIJi
-0phKAQCmLUMIMFTcDFBxCWk4kaHBl9Ujv1n4I9MDnQh4EmQD6AEAj4EuDnlW9UJf
-RLVsSRWf8o2NQmLHWByqDCzAnhbTngY=
-=ZYKd
------END PGP SIGNATURE-----
-
---ybobh3J4aOaUG3ga--
-
-
---===============1542627956720903871==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============1542627956720903871==--
-
