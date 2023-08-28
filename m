@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E8ACC83F15
-	for <linux-riscv@archiver.kernel.org>; Mon, 28 Aug 2023 17:00:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68558C83F11
+	for <linux-riscv@archiver.kernel.org>; Mon, 28 Aug 2023 17:00:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yvYWilFqraoIXEgcXZGepUnEFAkx+DyH7YlOEySjcAY=; b=DCBgQb0HNrPJwp
-	KxXDdUP5FG4oCknGTeKLrgznSEwMLIJfHNEafITxHBHxzsSa3/g+sRYul/9kyB5G844XOUjkLbRAt
-	oq9FLBwqsWJ6F9Ox/mLF8VkaB8NHmC8rXqldo9ikw683QZ6hdxcxi2x2TUoZC507N7xwiqHJKHli2
-	g+QEpjByFPELHEwM7Cjf4QhYQ8oyWQAOIzDmhqjiKzZKC18GjlAKBrzrLXoG27KWchZSd0z3oYzkG
-	t6N6pS/HOdZ1cHib0XqcFWuQoH1cXjJi3PB1d2hHUqxzjtChrTKDFDb++yUMdeXtE6Jr8gAc7Gj8t
-	bImCNJvGK92Gq8U5bZlw==;
+	List-Owner; bh=0Kwcf9uqb5u8JOPe3aKIgVx/U1HzNwsBmBYQ1l/ztZ0=; b=2K3GELVnRAi2/g
+	9M49CnozNBU1+p6fkWWTFiaiDJvbEZh1tWZw2OWu40S4hMp/31DBmqZTamUqHiDGrXOE35I/KPMzO
+	xgaJAv1Chxj1ISS5pjLM2C8HVZe7PEzNkTGp5baaTOGwixWuivTlech7lYqNNztHmJDYN6wXaOQ+H
+	h5rj3sCNipmZ/iD+HAZyg0/0VhF9qGemi0/NxPxrWTrWhyu06gPtaQf50vvRN+k66+TuRHfKKPqB5
+	xcJdx9Cotlap6YpPUgObpASNVD15FvqE7ZzqLjxHEy6qpBA1sUrXW8dqJw0GcPvtEd7V41BdCYH6L
+	53aenpQ8hGDwCia5cekA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qafaz-009wxV-1o;
-	Mon, 28 Aug 2023 17:00:09 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1qafb3-009wyg-2v;
+	Mon, 28 Aug 2023 17:00:13 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qafaw-009wvI-0h
+	id 1qafaw-009wvK-0g
 	for linux-riscv@lists.infradead.org;
-	Mon, 28 Aug 2023 17:00:07 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-401bdff4cb4so23751965e9.3
+	Mon, 28 Aug 2023 17:00:09 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-3fee87dd251so32241165e9.2
         for <linux-riscv@lists.infradead.org>; Mon, 28 Aug 2023 10:00:01 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20221208; t=1693242000; x=1693846800;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=8P7/Zkeac2PFc5cssTAi6ZYqGhNKmBRPTm9VR7EbbnQ=;
-        b=k5b70U+ZUANzv/IDScpVmw3R2qaefcllK7WC8Nha9UpJvpdmbkS5pfzSapqRgPxfZo
-         T9p177CuHrWQGR9yj5JGvAYv9zaYYH+05pfrcKjjwtHPb/eqXq5rOLWjgu6fwHagd7l7
-         FwjMFX0biUYYB0LBJ/b/uvxG2jr+aFTe4MRBAeYHxcMeFsS/K7JZFkMCfDC2pYTF5UxV
-         pmjptilC7+XLgYiVah62rVoqBxlNacLZEW/uFl2r++7kaQHKRqhmc+ZEXZ4/MgJadxiN
-         SlZ9UxZ9lxzgzzjyg9R/9TyQNSNtqidAvkopPpQP3cU0w3DGRhIopD+MbMFu1DdfXQkN
-         trUA==
+        bh=8LWkgqqgT3SYbdvjKemhvyvHh20vmLJOrYQ40cB6+Bg=;
+        b=LUnBiaJR9HNaMKr1LuClW/7FqoIw2PQ2Z0IFqenS3bm2yHyyauI3R+G0/pkbbIlTwM
+         JXYCQCPKcVJBt1h/jgluTZ6LzA1ef5zEIsYPv6yzmSeqJ51D4L56T7I8Wj33cjBmXgwx
+         U7wMjawAfgvz7kO2+1t8lFdCnGx+mOcjw6h6AHkr1PhO12yF3s4GEEbMQ57zlCv/CLJ4
+         GzgMByWTJY2zUZC1C6msIRPHXQkVyCK/vGjHes4pUyHjF+64MhI0UclPrAj5TeXrApSm
+         qVdKj0V5BXMEiYQcFLbch9V32NTKrI92AAhpsDoL1HuP1YfJkxDJw9crejzS3o7llWtd
+         hz1g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20221208; t=1693242000; x=1693846800;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=8P7/Zkeac2PFc5cssTAi6ZYqGhNKmBRPTm9VR7EbbnQ=;
-        b=DDK2RdsaZDoCDa4Sd5WWYmMlam/TVVLQFS2PdXT2nfnjevh3mbNMgckBCQCsvCbmQ3
-         /DyE69W1tqbTEZr3c+BetuIqXeQToUjGsnk+NTM05oxcIBHhqupJt6u/Wr3+zF269u5Y
-         rkmVBVYQakE+Y0z6DZO8WEigKe0EjqOHd41F/u4lfMIw0plsWo0o28KrzSM/XOwv/bal
-         RyXID/WSi2Fx7HEVNQm2yjwuCgqWVlOD/tJ4dveb9r0ZSYJCv6k/U6QtR0qkCCt7si5S
-         b4M2SxdNCfQoiIXvoOqUt+94dty4SbhPzY0TlXwvyPRks89MoOlH2z0LNKnz5Ywdsnwz
-         RrQw==
-X-Gm-Message-State: AOJu0Yw/EGmDmgdcNZfU1mpRbRgYK6xLKKTWDsuTzLkJmNDpxptgdhkx
-	diL7/wqGQ97PcR5r9xy7T6Y=
-X-Google-Smtp-Source: AGHT+IHEmWlVZTHQ0UdjiaiuoDBvpVXt9N2cIoSQkZkdFqsjMRcSrFBXHhd6HB1m2RxLs3sY30C9cg==
-X-Received: by 2002:a1c:f304:0:b0:3fc:60:7dbf with SMTP id q4-20020a1cf304000000b003fc00607dbfmr20878500wmq.41.1693241999647;
-        Mon, 28 Aug 2023 09:59:59 -0700 (PDT)
+        bh=8LWkgqqgT3SYbdvjKemhvyvHh20vmLJOrYQ40cB6+Bg=;
+        b=gf3F07f7s6p/uFXKnrh4KVhJJcPF9+UjFLpF6oieaRWKUs3Fipyqe33iwA/EWSIBjg
+         AhbluqfqPCTUbvBKwORBLLqXgmaVXEirtOPHCrhjTQ3hg+nbgJeV6Ky/snVSN4f6pfjF
+         NfbDIAOD5MZz8IjH2JOg1g8gIpS378Ip7zeo6cq1vqruFYPt2cSIbXtWLoOegTuh3XkM
+         eusCG7igp0Vi7BDsIjPmvfiKnUcC17MNxYr3Rr6uHy4DBstWCIPm5kuVE5OqYt+lw9a6
+         UVLsGgL7HAWrVhSbyh+rpAKg+Wz5mjCxwMViel97UMts1pRVtWjcxYSFrT7U7wfRAf2Y
+         n00w==
+X-Gm-Message-State: AOJu0YzcRwBbFK6kyKPAr12pUVN6yPkg0ijDJzE82AMPGEcSLRsvI+zl
+	h2kU2M5QHJsG54MWPdbaUEDaf5PE/gOwTT5nUMM=
+X-Google-Smtp-Source: AGHT+IFRrBHo12Q5/MEtLWE7+/3+VDZFt/AjYftAS8bvWk0LIUMvDzPM19Se5PuDWca75Z9332GiBQ==
+X-Received: by 2002:a05:600c:21d5:b0:401:b6f6:d90c with SMTP id x21-20020a05600c21d500b00401b6f6d90cmr7298424wmj.35.1693242000307;
+        Mon, 28 Aug 2023 10:00:00 -0700 (PDT)
 Received: from ip-172-31-30-46.eu-west-1.compute.internal (ec2-54-170-241-106.eu-west-1.compute.amazonaws.com. [54.170.241.106])
         by smtp.gmail.com with ESMTPSA id g9-20020a056000118900b0031ad5fb5a0fsm11033613wrx.58.2023.08.28.09.59.59
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 28 Aug 2023 09:59:59 -0700 (PDT)
+        Mon, 28 Aug 2023 10:00:00 -0700 (PDT)
 From: Puranjay Mohan <puranjay12@gmail.com>
 To: paul.walmsley@sifive.com,
 	palmer@dabbelt.com,
@@ -80,16 +80,16 @@ To: paul.walmsley@sifive.com,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org
 Cc: puranjay12@gmail.com
-Subject: [PATCH bpf-next v3 1/3] riscv: extend patch_text_nosync() for multiple pages
-Date: Mon, 28 Aug 2023 16:59:56 +0000
-Message-Id: <20230828165958.1714079-2-puranjay12@gmail.com>
+Subject: [PATCH bpf-next v3 2/3] riscv: implement a memset like function for text
+Date: Mon, 28 Aug 2023 16:59:57 +0000
+Message-Id: <20230828165958.1714079-3-puranjay12@gmail.com>
 X-Mailer: git-send-email 2.40.1
 In-Reply-To: <20230828165958.1714079-1-puranjay12@gmail.com>
 References: <20230828165958.1714079-1-puranjay12@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230828_100006_278155_810141C1 
-X-CRM114-Status: GOOD (  15.49  )
+X-CRM114-CacheID: sfid-20230828_100006_277588_43F2A3C5 
+X-CRM114-Status: GOOD (  15.14  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,61 +101,150 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-VGhlIHBhdGNoX2luc25fd3JpdGUoKSBmdW5jdGlvbiBjdXJyZW50bHkgZG9lc24ndCB3b3JrIGZv
-ciBtdWx0aXBsZSBwYWdlcwpvZiBpbnN0cnVjdGlvbnMsIHRoZXJlZm9yZSBwYXRjaF90ZXh0X25v
-c3luYygpIHdpbGwgZmFpbCB3aXRoIGEgcGFnZSBmYXVsdAppZiBjYWxsZWQgd2l0aCBsZW5ndGhz
-IHNwYW5uaW5nIG11bHRpcGxlIHBhZ2VzLgoKVGhpcyBjb21taXQgZXh0ZW5kcyB0aGUgcGF0Y2hf
-aW5zbl93cml0ZSgpIGZ1bmN0aW9uIHRvIHN1cHBvcnQgbXVsdGlwbGUKcGFnZXMgYnkgY29weWlu
-ZyBhdCBtYXggMiBwYWdlcyBhdCBhIHRpbWUgaW4gYSBsb29wLiBUaGlzIGltcGxlbWVudGF0aW9u
-CmlzIHNpbWlsYXIgdG8gdGV4dF9wb2tlX2NvcHkoKSBmdW5jdGlvbiBvZiB4ODYuCgpTaWduZWQt
-b2ZmLWJ5OiBQdXJhbmpheSBNb2hhbiA8cHVyYW5qYXkxMkBnbWFpbC5jb20+ClJldmlld2VkLWJ5
-OiBCasO2cm4gVMO2cGVsIDxiam9ybkByaXZvc2luYy5jb20+Ci0tLQogYXJjaC9yaXNjdi9rZXJu
-ZWwvcGF0Y2guYyB8IDM3ICsrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrLS0tLS0KIDEg
-ZmlsZSBjaGFuZ2VkLCAzMiBpbnNlcnRpb25zKCspLCA1IGRlbGV0aW9ucygtKQoKZGlmZiAtLWdp
-dCBhL2FyY2gvcmlzY3Yva2VybmVsL3BhdGNoLmMgYi9hcmNoL3Jpc2N2L2tlcm5lbC9wYXRjaC5j
-CmluZGV4IDU3NWU3MWQ2YzhhZS4uMmM5N2UyNDZmNGRjIDEwMDY0NAotLS0gYS9hcmNoL3Jpc2N2
-L2tlcm5lbC9wYXRjaC5jCisrKyBiL2FyY2gvcmlzY3Yva2VybmVsL3BhdGNoLmMKQEAgLTUzLDEy
-ICs1MywxOCBAQCBzdGF0aWMgdm9pZCBwYXRjaF91bm1hcChpbnQgZml4bWFwKQogfQogTk9LUFJP
-QkVfU1lNQk9MKHBhdGNoX3VubWFwKTsKIAotc3RhdGljIGludCBwYXRjaF9pbnNuX3dyaXRlKHZv
-aWQgKmFkZHIsIGNvbnN0IHZvaWQgKmluc24sIHNpemVfdCBsZW4pCitzdGF0aWMgaW50IF9fcGF0
-Y2hfaW5zbl93cml0ZSh2b2lkICphZGRyLCBjb25zdCB2b2lkICppbnNuLCBzaXplX3QgbGVuKQog
-ewogCXZvaWQgKndhZGRyID0gYWRkcjsKIAlib29sIGFjcm9zc19wYWdlcyA9ICgoKHVpbnRwdHJf
-dCkgYWRkciAmIH5QQUdFX01BU0spICsgbGVuKSA+IFBBR0VfU0laRTsKIAlpbnQgcmV0OwogCisJ
-LyoKKwkgKiBPbmx5IHR3byBwYWdlcyBjYW4gYmUgbWFwcGVkIGF0IGEgdGltZSBmb3Igd3JpdGlu
-Zy4KKwkgKi8KKwlpZiAobGVuICsgb2Zmc2V0X2luX3BhZ2UoYWRkcikgPiAyICogUEFHRV9TSVpF
-KQorCQlyZXR1cm4gLUVJTlZBTDsKKwogCS8qCiAJICogQmVmb3JlIHJlYWNoaW5nIGhlcmUsIGl0
-IHdhcyBleHBlY3RlZCB0byBsb2NrIHRoZSB0ZXh0X211dGV4CiAJICogYWxyZWFkeSwgc28gd2Ug
-ZG9uJ3QgbmVlZCB0byBnaXZlIGFub3RoZXIgbG9jayBoZXJlIGFuZCBjb3VsZApAQCAtNzQsNyAr
-ODAsNyBAQCBzdGF0aWMgaW50IHBhdGNoX2luc25fd3JpdGUodm9pZCAqYWRkciwgY29uc3Qgdm9p
-ZCAqaW5zbiwgc2l6ZV90IGxlbikKIAkJbG9ja2RlcF9hc3NlcnRfaGVsZCgmdGV4dF9tdXRleCk7
-CiAKIAlpZiAoYWNyb3NzX3BhZ2VzKQotCQlwYXRjaF9tYXAoYWRkciArIGxlbiwgRklYX1RFWFRf
-UE9LRTEpOworCQlwYXRjaF9tYXAoYWRkciArIFBBR0VfU0laRSwgRklYX1RFWFRfUE9LRTEpOwog
-CiAJd2FkZHIgPSBwYXRjaF9tYXAoYWRkciwgRklYX1RFWFRfUE9LRTApOwogCkBAIC04NywxNSAr
-OTMsMzYgQEAgc3RhdGljIGludCBwYXRjaF9pbnNuX3dyaXRlKHZvaWQgKmFkZHIsIGNvbnN0IHZv
-aWQgKmluc24sIHNpemVfdCBsZW4pCiAKIAlyZXR1cm4gcmV0OwogfQotTk9LUFJPQkVfU1lNQk9M
-KHBhdGNoX2luc25fd3JpdGUpOworTk9LUFJPQkVfU1lNQk9MKF9fcGF0Y2hfaW5zbl93cml0ZSk7
-CiAjZWxzZQotc3RhdGljIGludCBwYXRjaF9pbnNuX3dyaXRlKHZvaWQgKmFkZHIsIGNvbnN0IHZv
-aWQgKmluc24sIHNpemVfdCBsZW4pCitzdGF0aWMgaW50IF9fcGF0Y2hfaW5zbl93cml0ZSh2b2lk
-ICphZGRyLCBjb25zdCB2b2lkICppbnNuLCBzaXplX3QgbGVuKQogewogCXJldHVybiBjb3B5X3Rv
-X2tlcm5lbF9ub2ZhdWx0KGFkZHIsIGluc24sIGxlbik7CiB9Ci1OT0tQUk9CRV9TWU1CT0wocGF0
-Y2hfaW5zbl93cml0ZSk7CitOT0tQUk9CRV9TWU1CT0woX19wYXRjaF9pbnNuX3dyaXRlKTsKICNl
-bmRpZiAvKiBDT05GSUdfTU1VICovCiAKK3N0YXRpYyBpbnQgcGF0Y2hfaW5zbl93cml0ZSh2b2lk
-ICphZGRyLCBjb25zdCB2b2lkICppbnNuLCBzaXplX3QgbGVuKQoreworCXNpemVfdCBwYXRjaGVk
-ID0gMDsKKwlzaXplX3Qgc2l6ZTsKKwlpbnQgcmV0ID0gMDsKKworCS8qCisJICogQ29weSB0aGUg
-aW5zdHJ1Y3Rpb25zIHRvIHRoZSBkZXN0aW5hdGlvbiBhZGRyZXNzLCB0d28gcGFnZXMgYXQgYSB0
-aW1lCisJICogYmVjYXVzZSBfX3BhdGNoX2luc25fd3JpdGUoKSBjYW4gb25seSBoYW5kbGUgbGVu
-IDw9IDIgKiBQQUdFX1NJWkUuCisJICovCisJd2hpbGUgKHBhdGNoZWQgPCBsZW4gJiYgIXJldCkg
-eworCQlzaXplID0gbWluX3Qoc2l6ZV90LCBQQUdFX1NJWkUgKiAyIC0gb2Zmc2V0X2luX3BhZ2Uo
-YWRkciArIHBhdGNoZWQpLCBsZW4gLSBwYXRjaGVkKTsKKwkJcmV0ID0gX19wYXRjaF9pbnNuX3dy
-aXRlKGFkZHIgKyBwYXRjaGVkLCBpbnNuICsgcGF0Y2hlZCwgc2l6ZSk7CisKKwkJcGF0Y2hlZCAr
-PSBzaXplOworCX0KKworCXJldHVybiByZXQ7Cit9CitOT0tQUk9CRV9TWU1CT0wocGF0Y2hfaW5z
-bl93cml0ZSk7CisKIGludCBwYXRjaF90ZXh0X25vc3luYyh2b2lkICphZGRyLCBjb25zdCB2b2lk
-ICppbnNucywgc2l6ZV90IGxlbikKIHsKIAl1MzIgKnRwID0gYWRkcjsKLS0gCjIuNDAuMQoKCl9f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2
-IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0
-cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+The BPF JIT needs to write invalid instructions to RX regions of memory to
+invalidate removed BPF programs. This needs a function like memset() that
+can work with RX memory.
+
+Implement patch_text_set_nosync() which is similar to text_poke_set() of
+x86.
+
+Signed-off-by: Puranjay Mohan <puranjay12@gmail.com>
+---
+ arch/riscv/include/asm/patch.h |  1 +
+ arch/riscv/kernel/patch.c      | 77 ++++++++++++++++++++++++++++++++++
+ 2 files changed, 78 insertions(+)
+
+diff --git a/arch/riscv/include/asm/patch.h b/arch/riscv/include/asm/patch.h
+index 63c98833d510..e88b52d39eac 100644
+--- a/arch/riscv/include/asm/patch.h
++++ b/arch/riscv/include/asm/patch.h
+@@ -7,6 +7,7 @@
+ #define _ASM_RISCV_PATCH_H
+ 
+ int patch_text_nosync(void *addr, const void *insns, size_t len);
++int patch_text_set_nosync(void *addr, u8 c, size_t len);
+ int patch_text(void *addr, u32 *insns, int ninsns);
+ 
+ extern int riscv_patch_in_stop_machine;
+diff --git a/arch/riscv/kernel/patch.c b/arch/riscv/kernel/patch.c
+index 2c97e246f4dc..13ee7bf589a1 100644
+--- a/arch/riscv/kernel/patch.c
++++ b/arch/riscv/kernel/patch.c
+@@ -6,6 +6,7 @@
+ #include <linux/spinlock.h>
+ #include <linux/mm.h>
+ #include <linux/memory.h>
++#include <linux/string.h>
+ #include <linux/uaccess.h>
+ #include <linux/stop_machine.h>
+ #include <asm/kprobes.h>
+@@ -53,6 +54,39 @@ static void patch_unmap(int fixmap)
+ }
+ NOKPROBE_SYMBOL(patch_unmap);
+ 
++static int __patch_insn_set(void *addr, u8 c, size_t len)
++{
++	void *waddr = addr;
++	bool across_pages = (((uintptr_t)addr & ~PAGE_MASK) + len) > PAGE_SIZE;
++
++	/*
++	 * Only two pages can be mapped at a time for writing.
++	 */
++	if (len + offset_in_page(addr) > 2 * PAGE_SIZE)
++		return -EINVAL;
++	/*
++	 * Before reaching here, it was expected to lock the text_mutex
++	 * already, so we don't need to give another lock here and could
++	 * ensure that it was safe between each cores.
++	 */
++	lockdep_assert_held(&text_mutex);
++
++	if (across_pages)
++		patch_map(addr + PAGE_SIZE, FIX_TEXT_POKE1);
++
++	waddr = patch_map(addr, FIX_TEXT_POKE0);
++
++	memset(waddr, c, len);
++
++	patch_unmap(FIX_TEXT_POKE0);
++
++	if (across_pages)
++		patch_unmap(FIX_TEXT_POKE1);
++
++	return 0;
++}
++NOKPROBE_SYMBOL(__patch_insn_set);
++
+ static int __patch_insn_write(void *addr, const void *insn, size_t len)
+ {
+ 	void *waddr = addr;
+@@ -95,6 +129,14 @@ static int __patch_insn_write(void *addr, const void *insn, size_t len)
+ }
+ NOKPROBE_SYMBOL(__patch_insn_write);
+ #else
++static int __patch_insn_set(void *addr, u8 c, size_t len)
++{
++	memset(addr, c, len);
++
++	return 0;
++}
++NOKPROBE_SYMBOL(__patch_insn_set);
++
+ static int __patch_insn_write(void *addr, const void *insn, size_t len)
+ {
+ 	return copy_to_kernel_nofault(addr, insn, len);
+@@ -102,6 +144,41 @@ static int __patch_insn_write(void *addr, const void *insn, size_t len)
+ NOKPROBE_SYMBOL(__patch_insn_write);
+ #endif /* CONFIG_MMU */
+ 
++static int patch_insn_set(void *addr, u8 c, size_t len)
++{
++	size_t patched = 0;
++	size_t size;
++	int ret = 0;
++
++	/*
++	 * __patch_insn_set() can only work on 2 pages at a time so call it in a
++	 * loop with len <= 2 * PAGE_SIZE.
++	 */
++	while (patched < len && !ret) {
++		size = min_t(size_t, PAGE_SIZE * 2 - offset_in_page(addr + patched), len - patched);
++		ret = __patch_insn_set(addr + patched, c, size);
++
++		patched += size;
++	}
++
++	return ret;
++}
++NOKPROBE_SYMBOL(patch_insn_set);
++
++int patch_text_set_nosync(void *addr, u8 c, size_t len)
++{
++	u32 *tp = addr;
++	int ret;
++
++	ret = patch_insn_set(tp, c, len);
++
++	if (!ret)
++		flush_icache_range((uintptr_t)tp, (uintptr_t)tp + len);
++
++	return ret;
++}
++NOKPROBE_SYMBOL(patch_text_set_nosync);
++
+ static int patch_insn_write(void *addr, const void *insn, size_t len)
+ {
+ 	size_t patched = 0;
+-- 
+2.40.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
