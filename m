@@ -4,74 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3BB8C71153
-	for <linux-riscv@archiver.kernel.org>; Mon, 28 Aug 2023 17:58:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27BE0C71153
+	for <linux-riscv@archiver.kernel.org>; Mon, 28 Aug 2023 18:20:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QGbXCTaiAmVrs1fWRpMUd/9lOKIDJB0EVy3MNvm7TvE=; b=HNpn7l26CI2RTKRvGiolOOovBZ
-	rC+qrIlLwO44LKDexCLOLu9Tyn5Jf4O5PS1pc61UzsksNA7qxhIBPjzEpQRGI/h3JhZcZkEXDFPQ6
-	yEPIjwEjJ6NcWN7p0HUBw2l3Hlt9aBzJyrXrX6sYS8L5fjGRdnUM15E8Upf1+nQNsy2UxCWre0Kg3
-	vAIZFB+8rOyWIu0Wlh4PAMN20dDS8B2ovwmH0JgRRDfCiELClcZrD5RSgD2Pqd3qmjszse44Tsr/0
-	EnoAFMMINY++7tlCM1laTk4c1gIqbl6TzytWW9BeqzOnfJHswCglm8vwulKZ6OJHm8jia/WjHYSi0
-	ixxsedUA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=G24IN2wgO5PXl+9/yrGWecDUzOdHFCkQmyTIfwBYw/s=; b=dzckA7Uqmh8CVd
+	JuW6o9hqEc8J5ub7uYpv9qTyG1sawGKMT7Rt4m8kiZGddOMHwy2+mCZlv+KPYl/k+QA5h+p+MkxLU
+	vES4wkpnf5lHtOnv6NGCbohvhwoTCafuCxMg+Kty7wHQNlFSmnHegKUhbRA5iwIsQJbQgVnTVszba
+	lXeiMbUTMbg/ySVPFV4bntWStcUUD//JIPu6OrSUCudC4rKTJ2VN+4hj7ss/nOBEAs3Go8J+7U1Qh
+	VBDbfIpwLG0Qv1oZDJKNwaWKrtcGnGJ5nPKDxuP1U6LQzkByB5DsHDLYNNy3NTq92gizi41hanvne
+	a1VCpPVsJW7qJ+h2rr1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qagVO-00A2lk-0E;
-	Mon, 28 Aug 2023 17:58:26 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1qagr3-00A4Mq-10;
+	Mon, 28 Aug 2023 18:20:49 +0000
+Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qagVK-00A2lH-38
+	id 1qagqz-00A4MF-17
 	for linux-riscv@lists.infradead.org;
-	Mon, 28 Aug 2023 17:58:24 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 3C7886123B;
-	Mon, 28 Aug 2023 17:58:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E6936C433C8;
-	Mon, 28 Aug 2023 17:58:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1693245501;
-	bh=bXx/kmNErccJ1kDScOf9v40zDw4ERKiaA2oGHkRg8LY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=FNzzYv/5GDgzpkVMgp8TtGso8ENsEfSH51zpHazWPFVIoncBn9jIoksrPz+2GciLd
-	 hmaX4TgfETJBMyNRu2SZPr2GN04CL8xE+a15H9VUYYnHnxft9HPMzBpos2PcWTAfo/
-	 wheuvfG4DqWv0Rt3nbqpf6lDj+u3VAZvplwf1mCBmY3A93JEPvNrXSngeNEEXpvEWW
-	 hvl5gVC6jH+6Dk+PqjelcBXSTwzwqLt/2pvB89teYOJMukdRtF34qInFnE9cT6lJzp
-	 HvbNvl98TeBL4ASEHGvgD5DaZk3lR1let1pfEhfpah0hdnTc4ntQ6XDOYCeGji9wyS
-	 ABuyr9fRcmCAg==
-Date: Mon, 28 Aug 2023 18:58:16 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Evan Green <evan@rivosinc.com>
-Cc: Palmer Dabbelt <palmer@rivosinc.com>,
-	Anup Patel <apatel@ventanamicro.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Heiko Stuebner <heiko@sntech.de>,
-	Jonathan Corbet <corbet@lwn.net>, linux-doc@vger.kernel.org,
+	Mon, 28 Aug 2023 18:20:47 +0000
+Received: by mail-pf1-x42d.google.com with SMTP id d2e1a72fcca58-68c0d262933so2002174b3a.0
+        for <linux-riscv@lists.infradead.org>; Mon, 28 Aug 2023 11:20:43 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1693246843; x=1693851643;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=FN5cReRcE/IqZFfedM5lG8adhDURm6Zmxuc1ut1q7kk=;
+        b=WeAqtd1ntNS0YgTuYZvuwkU6ZM/B/cG/JTeGYaHbuwa0edGOkauQbjP9QUfPvy4HfV
+         V/dqiEUmTwtNGzDHpMLZfIfMKUuvWcBXOpPYUQXJScPwiKH5J2vjubVyl429W6rsHOlg
+         7grzBQjC/I1RSDdlZ8OR3H9Wfiuwp58UNWUe1N7PghhbLznb8OY8i3kA7um87TT5WD65
+         nSmShNf71KD8ueXVatdu9MqAK5eny/zPGYWLSsOzFt7YNsZ3NizZdDLnoWwkmwJiGX4u
+         bt281fUeocyL5evTiyh3ngIgkF02EH7ttH9l6H5s3i901Y7wEy2KrcN0Sz4biRp/5N05
+         EhWw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1693246843; x=1693851643;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=FN5cReRcE/IqZFfedM5lG8adhDURm6Zmxuc1ut1q7kk=;
+        b=k3bY3LC+BmBi9WWIzkG7yfr3P8zKRgnEsHz7TsPGN5sgOBb32KMIfe604yjlLQALlF
+         805dlqDjIL/1WOQKmh2Dl9YhDHVpRaJHpa2FOrNgkAoZZezkww+cKPncfxC94q42aGVc
+         /sC3NQSptNESB4Lhh+CCJH/DQBvwnPNNVXgJv7cN9uQKv/s4fsozFM63eqVr/HXF1ne1
+         2ZbGl2dDFREEQNC1uf/Gfh9TCEkxs2gnVwurNueQ5nny2xnixlaAKcR6ODBqgqkT9stB
+         +TFlfNJ53St4SJrgXKGhEj5BuSkJ9dRMFAkKU7K1U98F3lKY0IsHaIRGk43lR3xozk4+
+         +mWA==
+X-Gm-Message-State: AOJu0YyI0WA9Kyv18TP0URAno7+rrp3NRikawSOq+XaKyDm0U1iw6QFd
+	BxQHrv5tv8odDkvCQ935CoknWw==
+X-Google-Smtp-Source: AGHT+IEBimujj4zlefxpuPomvv7iKDMVCw90Uhnkx9mm6W0jEamQc5Z5CAG92cyNacoMQoOSbNKXGw==
+X-Received: by 2002:a05:6a00:1a4e:b0:68a:553a:c0da with SMTP id h14-20020a056a001a4e00b0068a553ac0damr20938442pfv.24.1693246842918;
+        Mon, 28 Aug 2023 11:20:42 -0700 (PDT)
+Received: from ghost ([2601:647:5700:6860:1499:9915:c376:361b])
+        by smtp.gmail.com with ESMTPSA id 23-20020aa79117000000b00686ec858fb0sm6887959pfh.190.2023.08.28.11.20.41
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 28 Aug 2023 11:20:42 -0700 (PDT)
+Date: Mon, 28 Aug 2023 11:20:39 -0700
+From: Charlie Jenkins <charlie@rivosinc.com>
+To: Conor Dooley <conor@kernel.org>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Bagas Sanjaya <bagasdotme@gmail.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	linux-riscv@lists.infradead.org,
-	Andrew Jones <ajones@ventanamicro.com>
-Subject: Re: [PATCH v5] RISC-V: Show accurate per-hart isa in /proc/cpuinfo
-Message-ID: <20230828-stonewall-eaten-d79cd057c845@spud>
-References: <20230825231139.1145522-1-evan@rivosinc.com>
- <20230826-anguished-tutu-81d63b3081a7@spud>
- <20230826-copper-suffocate-5f4f0e67f9a7@spud>
- <CALs-HsvwLpcUMPeKEs3ZW3tOwLGeGRQSe=grxE5L14Tj8b+XHw@mail.gmail.com>
- <20230828-dangling-decency-ededaa58d014@spud>
- <CALs-Hss8KNV9zkEHujVmzb7Rf8Zp9OGkDF9Fj8BCjQuFDYaHHA@mail.gmail.com>
+	Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu
+Subject: Re: [PATCH 1/5] riscv: Checksum header
+Message-ID: <ZOzld28wZjLpl4Hp@ghost>
+References: <20230827-turf-parched-b965bc697882@spud>
+ <mhng-d43dc0a3-7985-4195-9611-5ca0c38390e7@palmer-ri-x1c9>
+ <20230827-primer-conceal-b6f24b29e692@spud>
+ <20230827-divisive-happy-cf93058c49bf@spud>
+ <ZOzRlerSNjfzMYGH@ghost>
+ <20230828-deserve-paging-25666290e312@spud>
 MIME-Version: 1.0
-In-Reply-To: <CALs-Hss8KNV9zkEHujVmzb7Rf8Zp9OGkDF9Fj8BCjQuFDYaHHA@mail.gmail.com>
+Content-Disposition: inline
+In-Reply-To: <20230828-deserve-paging-25666290e312@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230828_105823_092619_832A3682 
-X-CRM114-Status: GOOD (  69.27  )
+X-CRM114-CacheID: sfid-20230828_112045_598272_4A32662F 
+X-CRM114-Status: GOOD (  70.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,221 +92,162 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3528986594067952296=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Mon, Aug 28, 2023 at 06:08:40PM +0100, Conor Dooley wrote:
+> On Mon, Aug 28, 2023 at 09:55:49AM -0700, Charlie Jenkins wrote:
+> > On Sun, Aug 27, 2023 at 01:25:27PM +0100, Conor Dooley wrote:
+> > > On Sun, Aug 27, 2023 at 11:28:33AM +0100, Conor Dooley wrote:
+> > > > On Sat, Aug 26, 2023 at 07:00:47PM -0700, Palmer Dabbelt wrote:
+> > > > > On Sat, 26 Aug 2023 18:42:41 PDT (-0700), Conor Dooley wrote:
+> > > > > > On Sat, Aug 26, 2023 at 06:26:06PM -0700, Charlie Jenkins wrote:
+> > > > > > > Provide checksum algorithms that have been designed to leverage riscv
+> > > > > > > instructions such as rotate. In 64-bit, can take advantage of the larger
+> > > > > > > register to avoid some overflow checking.
+> > > > > > > 
+> > > > > > > Add configuration for Zba extension and add march for Zba and Zbb.
+> > > > > > > 
+> > > > > > > Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
+> > > > > > > ---
+> > > > > > >  arch/riscv/Kconfig                | 23 +++++++++++
+> > > > > > >  arch/riscv/Makefile               |  2 +
+> > > > > > >  arch/riscv/include/asm/checksum.h | 86 +++++++++++++++++++++++++++++++++++++++
+> > > > > > >  3 files changed, 111 insertions(+)
+> > > > > > > 
+> > > > > > > diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> > > > > > > index 4c07b9189c86..8d7e475ca28d 100644
+> > > > > > > --- a/arch/riscv/Kconfig
+> > > > > > > +++ b/arch/riscv/Kconfig
+> > > > > > > @@ -507,6 +507,29 @@ config RISCV_ISA_V_DEFAULT_ENABLE
+> > > > > > >  	  If you don't know what to do here, say Y.
+> > > > > > > +config TOOLCHAIN_HAS_ZBA
+> > > > > > > +	bool
+> > > > > > > +	default y
+> > > > > > > +	depends on !64BIT || $(cc-option,-mabi=lp64 -march=rv64ima_zba)
+> > > > > > > +	depends on !32BIT || $(cc-option,-mabi=ilp32 -march=rv32ima_zba)
+> > > > > > > +	depends on LLD_VERSION >= 150000 || LD_VERSION >= 23900
+> > > > > > > +	depends on AS_HAS_OPTION_ARCH
+> > > > > > > +
+> > > > > > > +config RISCV_ISA_ZBA
+> > > > > > > +	bool "Zba extension support for bit manipulation instructions"
+> > > > > > > +	depends on TOOLCHAIN_HAS_ZBA
+> > > > > > > +	depends on MMU
+> > > > > > > +	depends on RISCV_ALTERNATIVE
+> > > > > > > +	default y
+> > > > > > > +	help
+> > > > > > > +	   Adds support to dynamically detect the presence of the ZBA
+> > > > > > > +	   extension (basic bit manipulation) and enable its usage.
+> > > > > > > +
+> > > > > > > +	   The Zba extension provides instructions to accelerate a number
+> > > > > > > +	   of bit-specific address creation operations.
+> > > > > > > +
+> > > > > > > +	   If you don't know what to do here, say Y.
+> > > > > > > +
+> > > > > > >  config TOOLCHAIN_HAS_ZBB
+> > > > > > >  	bool
+> > > > > > >  	default y
+> > > > > > > diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
+> > > > > > > index 6ec6d52a4180..51fa3f67fc9a 100644
+> > > > > > > --- a/arch/riscv/Makefile
+> > > > > > > +++ b/arch/riscv/Makefile
+> > > > > > > @@ -61,6 +61,8 @@ riscv-march-$(CONFIG_ARCH_RV64I)	:= rv64ima
+> > > > > > >  riscv-march-$(CONFIG_FPU)		:= $(riscv-march-y)fd
+> > > > > > >  riscv-march-$(CONFIG_RISCV_ISA_C)	:= $(riscv-march-y)c
+> > > > > > >  riscv-march-$(CONFIG_RISCV_ISA_V)	:= $(riscv-march-y)v
+> > > > > > > +riscv-march-$(CONFIG_RISCV_ISA_ZBA)	:= $(riscv-march-y)_zba
+> > > > > > > +riscv-march-$(CONFIG_RISCV_ISA_ZBB)	:= $(riscv-march-y)_zbb
+> > > > > > 
+> > > > > > AFAICT, this is going to break immediately on any system that enables
+> > > > > > RISCV_ISA_ZBA (which will happen by default) but does not support the
+> > > > > > extension. You made the option depend on RISCV_ALTERNATIVE, but I do
+> > > > > > not see any use of alternatives in the code to actually perform the
+> > > > > > dynamic detection of Zba.
+> > > > > 
+> > > > > I guess we kind of have an ambiguity here: for stuff like C we just
+> > > > > unconditionally use the instructions, but for the rest we probe first.  We
+> > > > > should probably have three states for each extension: disabled, dynamically
+> > > > > detected, and assumed.
+> > > > 
+> > > > You mean, just add some comments to the makefile surrounding each
+> > > > section or to some rst documentation?
+> > > 
+> > > Also, the code here doesn't build w/
+> > > 	warning: invalid argument to '-march': '_zba_zbb_zicsr_zifencei_zihintpause'
+> > > so there's something else wrong with TOOLCHAIN_HAS_ZBA :)
+> > It is odd that this is missing 'rv64ima' or 'rv32ima' at the beginning of
+> > this string. What configuration are you using that could cause that to
+> > be left off?
+> 
+> I don't know, but that configuration is pretty pervasive. The patchwork
+> CI blew up too & that is using kernel.org toolchains built by Arnd:
+> https://mirrors.edge.kernel.org/pub/tools/crosstool/
+> 
+> > Compiling with defconfig automatically enables Zba and appears to not
+> > cause this issue. I realized that I put the header definitions for
+> > do_csum and csum_ipv6_magic in this patch instead of the next one so the
+> > code will fail to compile from this but not due to march settings.
+> > > 
+> > > > 
+> > > > > > Note that for fd & v, we add it to riscv-march-y, but then immediately
+> > > > > > remove it again before passing to the compiler, only allow them in
+> > > > > > AFLAGS:
+> > > > > > 	# Remove F,D,V from isa string for all. Keep extensions between "fd" and "v" by
+> > > > > > 	# matching non-v and non-multi-letter extensions out with the filter ([^v_]*)
+> > > > > > 	KBUILD_CFLAGS += -march=$(shell echo $(riscv-march-y) | sed -E 's/(rv32ima|rv64ima)fd([^v_]*)v?/\1\2/')
+> > > > > > 
+> > > > > > What am I missing?
+> > > > > 
+> > > > > FD and V both have state that can be saved lazily, so we can't let arbitrary
+> > > > > code use them.  The extensions formally known as B don't add state, so they
+> > > > > are safe to flip on in arbitrary places (aside from the issues you pointed
+> > > > > out above).
+> > > > 
+> > > > I probably went about this badly since you missed the point. I was
+> > > > trying to point out that for anything other than the compressed
+> > > > extensions in the block above that we only pass them in march to the
+> > > > assembler, and not to the compiler, in contrast to this patch which just
+> > > > always passes them. I should have pointed to how we handled the
+> > > > in-kernel Zbb stuff & asked how this was any different, would probably
+> > > > have been clearer.
+> > > > 
+> > I supposed it might be better if I submit these changes in a different
+> > patch so we can have more discussion there. Zbb was previously only used
+> > by assembly files (arch/riscv/lib/strcmp.S, arch/riscv/lib/strlen.S,
+> > arch/riscv/lib/strncmp.S). I wanted to add them to the compiler so that
+> > that C programs could leverage these extensions. However, I neglected to
+> > consider machines that compile the kernel with these extensions but have
+> > cores without these extensions.
+> 
+> Less so cores, since we don't support heterogeneous stuff, and moreso
+> platforms that do not support the extensions. It's expected that the
+> same kernel could in theory be used across a wide variety of systems.
+> 
+> > The purpose of using these extensions is
+> > to save a couple of clock cycles, so if it is necessary to first
+> > check if the extension is enabled it may not be worth it for these
+> > functions.
+> 
+> That's still possible, it's what the alternatives mechanism exists for.
+> During boot the codepaths are patched to use what works for a given
+> machine, check out the code that makes use of Zbb or
+> riscv_has_extension_[un]likely(). You'd need to do something like the
+> existing users of Zbb instructions does, with an alternative used to
+> avoid the custom asm implementations when the hardware does not support
+> them. (That's what the CONFIG_ALTERNATIVE & CONFIG_AS_HAS_OPTION_ARCH
+> options you made the TOOLCHAIN_HAS_ZBA depend on are for).
 
---===============3528986594067952296==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="NE90RS6KjVwl6f8L"
-Content-Disposition: inline
-
-
---NE90RS6KjVwl6f8L
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Mon, Aug 28, 2023 at 10:18:24AM -0700, Evan Green wrote:
-> On Mon, Aug 28, 2023 at 9:53=E2=80=AFAM Conor Dooley <conor@kernel.org> w=
-rote:
-> >
-> > On Mon, Aug 28, 2023 at 09:24:03AM -0700, Evan Green wrote:
-> > > On Sat, Aug 26, 2023 at 2:56=E2=80=AFAM Conor Dooley <conor@kernel.or=
-g> wrote:
-> > > >
-> > > > On Sat, Aug 26, 2023 at 12:26:25AM +0100, Conor Dooley wrote:
-> > > > > On Fri, Aug 25, 2023 at 04:11:38PM -0700, Evan Green wrote:
-> > > > > > In /proc/cpuinfo, most of the information we show for each proc=
-essor is
-> > > > > > specific to that hart: marchid, mvendorid, mimpid, processor, h=
-art,
-> > > > > > compatible, and the mmu size. But the ISA string gets filtered =
-through a
-> > > > > > lowest common denominator mask, so that if one CPU is missing a=
-n ISA
-> > > > > > extension, no CPUs will show it.
-> > > > > >
-> > > > > > Now that we track the ISA extensions for each hart, let's repor=
-t ISA
-> > > > > > extension info accurately per-hart in /proc/cpuinfo. We cannot =
-change
-> > > > > > the "isa:" line, as usermode may be relying on that line to sho=
-w only
-> > > > > > the common set of extensions supported across all harts. Add a =
-new "hart
-> > > > > > isa" line instead, which reports the true set of extensions for=
- that
-> > > > > > hart.
-> > > > > >
-> > > > > > Signed-off-by: Evan Green <evan@rivosinc.com>
-> > > > > > Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
-> > > > >
-> > > > > > Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-> > > > >
-> > > > > Can you drop this if you repost?
-> > >
-> > > Will do.
-> > >
-> > > > >
-> > > > > > +"isa" vs "hart isa" lines in /proc/cpuinfo
-> > > > > > +------------------------------------------
-> > > > > > +
-> > > > > > +The "isa" line in /proc/cpuinfo describes the lowest common de=
-nominator of
-> > > > > > +RISC-V ISA extensions recognized by the kernel and implemented=
- on all harts. The
-> > > > > > +"hart isa" line, in contrast, describes the set of extensions =
-recognized by the
-> > > > > > +kernel on the particular hart being described, even if those e=
-xtensions may not
-> > > > > > +be present on all harts in the system.
-> > > > >
-> > > > > > In both cases, the presence of a feature
-> > > > > > +in these lines guarantees only that the hardware has the descr=
-ibed capability.
-> > > > > > +Additional kernel support or policy control changes may be req=
-uired before a
-> > > > > > +feature is fully usable by userspace programs.
-> > > > >
-> > > > > I do not think that "in both cases" matches the expectations of
-> > > > > userspace for the existing line. It's too late at night for me to=
- think
-> > > > > properly, but I think our existing implementation does work like =
-you
-> > > > > have documented for FD/V. I think I previously mentioned that it =
-could
-> > > > > misreport things for vector during the review of the vector serie=
-s but
-> > > > > forgot about it until now.
-> > > >
-> > > > I went and checked, and yes it does currently do that for vector. I
-> > > > don't think that that is what userspace would expect, that Google
-> > > > cpu_features project for example would draw incorrect conclusions.
-> > >
-> > > I'm lost, could you explain a little more?
-> >
-> > There (may be/)are userspace programs that will interpret the appearance
-> > of extensions in cpuinfo as meaning they can be used without performing
-> > any further checks.
-> >
-> > > My goal was to say that
-> > > there's no blanket guarantee that the feature is 100% ready to go for
-> > > userspace just because it's seen here.
-> >
-> > Right. I was agreeing that this is true, but it is also not how some
-> > userspace programs have interpreted things. Consider a platform & kernel
-> > that support the V extension but vector has not been enabled by default
-> > or by early userspace. If someone cats cpuinfo, they'll see v there, but
-> > it won't be usable. That Google cpu_features project (or a punter) may
-> > then assume they can use it, as that's been the case so far in general*.
-> >
-> > The caveat producing the * being that the same problem actually exists
-> > for F/D too AFAICT, but it's likely that nobody really encountered it
-> > as they didn't build non-FP userspaces & then try to use FP in some
-> > userspace applications.
-> >
-> > > For some extensions, it may in
-> > > fact end up meaning just that (hence the "additional ... may be
-> > > required" rather than "is required").
-> >
-> > > This is true for FD (maybe,
-> > > depending on history?),
-> >
-> > AFAICT, it's not true for FD. The FPU config option not being set, or
-> > either of F and D being missing will lead to unusable extensions
-> > appearing.
->=20
-> Ah ok.
->=20
-> >
-> > > or extensions whose minimal/zero kernel
-> > > support was unconditionally added at the same time as its parsing for
-> > > it. But it's not true solely by virtue of being in /proc/cpuinfo. In
-> > > other words, I'm trying to establish the floor of what /proc/cpuinfo
-> > > guarantees, without fully specifying the ceiling.
-> >
-> > > Are you saying that
-> > > we need to spell out the guarantees for each extension?
-> >
-> > No, I don't want that!
-> >
-> > > Or are you
-> > > saying the floor I've defined in general is incorrect or insufficient?
-> >
-> > I think the floor that you have defined is probably misleading to users.
-> > It's also the floor that has existed for quite a while, so this might be
-> > a case of the userspace devs messing up due to an absence of any
-> > explanation of what to do here.
-> > Things will get abhorrently messy if we try to do what these userspace
-> > programs expect, and I don't think we should go there. We just need to
-> > bear in mind that the behaviour we have & the behaviour that you are
-> > documenting flys in the face of what some userspace expects.
->=20
-> Thanks, I think I understand now. You're saying the floor I'm defining
-> might surprise some users, who were expecting the floor to be "fully
-> enabled and ready to party".
-
-Yes.
-
-> Given there was no documentation about it
-> before, and this documentation is consistent with what we actually do
-> (and there seems to be consensus this is a maintainable position to
-> hold), can we just tell those users they're holding it wrong?
-
-I think we have to. Dealing with the vector prctls & sysctls here would
-be horrid, as I discussed with Andy on one of the versions of that
-series.
-
-> > > I'm also open to direct suggestions of wording if you've got something
-> > > in mind :)
-> >
-> > Someone mentioned it recently, but it really is starting to feel more
-> > and more like lscpu should grow support for hwprobe and funnel people
-> > into using that instead of /proc/cpuinfo when all they want is to see
-> > what their hardware can do.
->=20
-> Maybe for the fiddly microarchitectural bits, yeah. But I'd think our
-> newly proposed documentation for /proc/cpuinfo of keeping it closer to
-> what the hardware can do would suit the lscpu folks' mission well. (In
-> ChromeOS at least, we didn't have lscpu, but snarfed /proc/cpuinfo
-> directly into feedback reports that consented to sending along system
-> info). Really I'd think it's the application/library writers who want
-> to know "am I ready to go right now" are who we should be pushing to
-> use hwprobe, since we can define those bits to be as specific as we
-> want (eg V is on AND it's a full moon, so go for it).
->=20
-> Depending on your thoughts on this, if there are changes requested on
-> this patch, let me know what they are.
-
-Nah, I think it's fine & the r-b I left on the previous version can stay
-:)
-
---NE90RS6KjVwl6f8L
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZOzgOAAKCRB4tDGHoIJi
-0sGqAP0WR+lKNV6sYI3gk9/Pb8lzcwHW5J9KJX2jJTtEj7OCegEAkf2RsZ4lbi1Y
-t20plNNZNamNXHrilwTeFNa4KklKkgo=
-=A3qg
------END PGP SIGNATURE-----
-
---NE90RS6KjVwl6f8L--
-
-
---===============3528986594067952296==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+I can see how to get this to work if I port this code into assembly and
+write two different versions (one with Zbb and one without), but
+I don't see how this would work in C. Unless I am mistaken, there would
+need to be some sort of wrapper around the C code that told the compiler
+to compile it multiple times for different extension combinations and
+then use the riscv_has_extension_[un]likely() functions to determine
+which version to use at runtime. Is this feasible?
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============3528986594067952296==--
-
