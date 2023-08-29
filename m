@@ -4,87 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9712FC71153
-	for <linux-riscv@archiver.kernel.org>; Mon, 28 Aug 2023 22:56:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B6EBC83F11
+	for <linux-riscv@archiver.kernel.org>; Tue, 29 Aug 2023 00:54:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
-	Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Reply-To:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	References:List-Owner; bh=tnYhlYys47zNh2hU/5EG1PUZ5oWa3BKgVFp/JsDtlZs=; b=A3+
-	gm56InXGhqH79vRkPBqfnJaARJCG3oHMbl0Eojp0AbQi85HNyTU04Mc9AktqpWl1wo9IeT3YJ1Aj4
-	wsj4TjtlZpsBCJPY8/TXb/Qm3Mkq7tQyio/qAT0VJ7E2aGtWVsh3rHIgZkg63Qr0YWxmKp2w1aoRy
-	R+tbS2d592kFIVOv0xZo5th4ZDtVi34zKgzcExe+UIORe8DI5wrgQxE1ECeQP9+kgwSW6KfOvZcr/
-	BWra2H5eLQZWHHNsk8TWhu6oz09VBRAqcUQZ1XhRjMGsDXSzGWYAJ+HrZUVKSQhx0CQako+wJnAZq
-	FMbP9dhE4/ylik46NmgVbjs528NxmGw==;
+	List-Owner; bh=GZXZdyKJSVoImFi2AkW0Lb8hBSpMiUXI5yOZJKBmcoo=; b=KkcncMSLICu9qJ
+	P4KvROfNk4i2SlCln0WB/lpq4zvSbVcB7BnfcYoq4uCxnUJoMIoLusWJQacAXpY0MDWEW64WfqgMk
+	4BgXWCjsKEyfDV3sE4rMd5Sy/Yx25QA1UfAuClnPxIb4nNGClGJQqMtda7c1DZvQXtdPVB/LHGV5v
+	X3699CdI9Ab1PGpLCFyxu7w9oZoyRfcvZPys1cLRoCtyFYBGGjAs7pn5wq6cUv8+oH212qvg49YPE
+	nWKFrk83owFLc/cgiwPArS1n5oC8xXT+AYpJQZ0NpqA1u22K3Jm+WKssBlZP1+D1H4fIsfioX4+WX
+	tdcWGcsEMR7GTClqrtYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qal9j-00APJo-1m;
-	Mon, 28 Aug 2023 22:56:23 +0000
-Received: from mail-pg1-x549.google.com ([2607:f8b0:4864:20::549])
+	id 1qan08-00AWjC-0j;
+	Tue, 29 Aug 2023 00:54:36 +0000
+Received: from out-248.mta0.migadu.com ([2001:41d0:1004:224b::f8])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qal9d-00APH4-2Y
+	id 1qan04-00AWhj-28
 	for linux-riscv@lists.infradead.org;
-	Mon, 28 Aug 2023 22:56:22 +0000
-Received: by mail-pg1-x549.google.com with SMTP id 41be03b00d2f7-56f8c8fd8e7so2480960a12.1
-        for <linux-riscv@lists.infradead.org>; Mon, 28 Aug 2023 15:56:14 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20221208; t=1693263374; x=1693868174;
-        h=cc:to:from:subject:message-id:mime-version:in-reply-to:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=45FPDFU2bi5QNrTegRTZSI4D/kTsLJ5aPvVquLb6Kb4=;
-        b=pLOLnQlAccDWO/O5kVLkKwA9wRVSEEkjq7uLC+mlmD7Vfw3vEYXCkgTxxXccxGMWgZ
-         wRGNqorlmNPayZTm3R+GqSyo7GngRdVoeiMDanQ2qTLDbFHAwVr7soK6dbWp8LVur1IJ
-         7Dj7NDy10jedqv9lpI8G9Si/rF4w8XfNDjmoH8zHrZK+nE/CztRtHvsfpP2cZBuR/WSb
-         r1GFzm2yEAVnnjHec8JxS7mw13lbH162cn2tJ8OGbc1nr9IEbWJ5p7u+QgsCm1qR34DM
-         OtkAkqUjCP9VneeTOmcCYfI7wZJzfHg/Vici91Fsjq4cCd2IzQiQr/mxwrVo3egZBd6/
-         M4pg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1693263374; x=1693868174;
-        h=cc:to:from:subject:message-id:mime-version:in-reply-to:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=45FPDFU2bi5QNrTegRTZSI4D/kTsLJ5aPvVquLb6Kb4=;
-        b=AEJ2tgzEDbAWvMbf7zZid/xtL6jzoifeO4dXcvg/eW90ySoP3cLUBpsof5g84blNwO
-         7gze8TefdFqidBtg2VI3Z/l3lxegUySRkVTPQojJom4OdHXvaYB4gdvnzSRzXXnXpc8T
-         IeHXj18iY1+5DyEFkX/jhVmSIxPgqmM7dZzsn4uH2ZNtn4NZ3hVVRijFz4dp7wOg79Sx
-         oIrv7FJ4Rw901RXNSk0tvQvpfblreC4nEEHEnsYUPRGOBtWpk4W502OGO9k5Qw9IwmHD
-         ueY7HWIfpl0+S6TRSvFsENQqyknG1fitHr6rnkrNznL2MswSeMBTKtetXoZEuRGXCoHk
-         yX1w==
-X-Gm-Message-State: AOJu0YwFfXUZdFLFm23ZomcqDJcYkPjUt4Yi7x3tjQJewc4LNRo2zWB4
-	JSL3fo+l4XlT8w4qfok/EAx72/Y57mt9XtN4dA==
-X-Google-Smtp-Source: AGHT+IHiRfp4dtsSrmAF/uBzjUu2XQ3xTysjq4Ohm5oUAXB2N+6Zi644lMyKLSW9uEB1MtUrJ1+LGs2ibik7KIYLPQ==
-X-Received: from ackerleytng-ctop.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:13f8])
- (user=ackerleytng job=sendgmr) by 2002:a63:8f09:0:b0:566:2d6:f71b with SMTP
- id n9-20020a638f09000000b0056602d6f71bmr5097167pgd.12.1693263374002; Mon, 28
- Aug 2023 15:56:14 -0700 (PDT)
-Date: Mon, 28 Aug 2023 22:56:12 +0000
-In-Reply-To: <ZOO782YGRY0YMuPu@google.com> (message from Sean Christopherson
- on Mon, 21 Aug 2023 12:33:07 -0700)
-Mime-Version: 1.0
-Message-ID: <diqzttsiu67n.fsf@ackerleytng-ctop.c.googlers.com>
-Subject: Re: [RFC PATCH v11 12/29] KVM: Add KVM_CREATE_GUEST_MEMFD ioctl() for
- guest-specific backing memory
-From: Ackerley Tng <ackerleytng@google.com>
-To: Sean Christopherson <seanjc@google.com>
-Cc: pbonzini@redhat.com, maz@kernel.org, oliver.upton@linux.dev, 
-	chenhuacai@kernel.org, mpe@ellerman.id.au, anup@brainfault.org, 
-	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
-	willy@infradead.org, akpm@linux-foundation.org, paul@paul-moore.com, 
-	jmorris@namei.org, serge@hallyn.com, kvm@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
-	linux-fsdevel@vger.kernel.org, linux-mm@kvack.org, 
-	linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	chao.p.peng@linux.intel.com, tabba@google.com, jarkko@kernel.org, 
-	yu.c.zhang@linux.intel.com, vannapurve@google.com, mail@maciej.szmigiero.name, 
-	vbabka@suse.cz, david@redhat.com, qperret@google.com, michael.roth@amd.com, 
-	wei.w.wang@intel.com, liam.merwick@oracle.com, isaku.yamahata@gmail.com, 
-	kirill.shutemov@linux.intel.com
+	Tue, 29 Aug 2023 00:54:35 +0000
+Message-ID: <7b01b195-ee7e-b400-76f2-8b9085ac28bb@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1693270465; h=from:from:reply-to:reply-to:subject:subject:date:date:
+	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
+	 content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=kiAocASxCH7x27u5cYdC0uVadmL5/wCWLX59Dc7Q268=;
+	b=XIwv72SDgPazeikBq9fMVMvKUCuoy5KGai+SCx7SfWnfRo6nRIlaiYMWnlNxKrkhLpy5CQ
+	Pgcq5QKzYysOqQlDRfAmkSCLsub8AJaPC0gOQkjxK/iCXABkDhSAjSxkLfBS7kFKr+veOQ
+	tNFVIDKD//kpzlqRkIRx66i8zpV+ZKw=
+Date: Mon, 28 Aug 2023 20:54:21 -0400
+MIME-Version: 1.0
+Subject: Re: WARNING: CPU: 3 PID: 261 at kernel/bpf/memalloc.c:342
+Content-Language: en-US
+To: Hou Tao <houtao@huaweicloud.com>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?=
+ <bjorn@kernel.org>, bpf@vger.kernel.org
+Cc: linux-riscv@lists.infradead.org,
+ Alexei Starovoitov <alexei.starovoitov@gmail.com>
+References: <87jztjmmy4.fsf@all.your.base.are.belong.to.us>
+ <2f4f0dfc-ec06-8ac8-a56a-395cc2373def@linux.dev>
+ <200dcce6-34ff-83e0-02fb-709a24403cc6@huaweicloud.com>
+ <87zg2e88ds.fsf@all.your.base.are.belong.to.us>
+ <64873e42-9be1-1812-b80d-5ea86b4677f0@huaweicloud.com>
+ <87sf8684ex.fsf@all.your.base.are.belong.to.us>
+ <878r9wswwy.fsf@all.your.base.are.belong.to.us>
+ <fd07e0a3-f4da-b447-c47a-6e933220d452@linux.dev>
+ <65c9e8d9-7682-2c8d-cd4d-9f0ca1213066@huaweicloud.com>
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Yonghong Song <yonghong.song@linux.dev>
+In-Reply-To: <65c9e8d9-7682-2c8d-cd4d-9f0ca1213066@huaweicloud.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230828_155617_828899_BE1464B7 
-X-CRM114-Status: GOOD (  50.92  )
+X-CRM114-CacheID: sfid-20230828_175433_502921_38BCA8BE 
+X-CRM114-Status: GOOD (  26.86  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,179 +73,151 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Reply-To: yonghong.song@linux.dev
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Sean Christopherson <seanjc@google.com> writes:
-
-> On Mon, Aug 21, 2023, Ackerley Tng wrote:
->> Sean Christopherson <seanjc@google.com> writes:
->>
->> > On Tue, Aug 15, 2023, Ackerley Tng wrote:
->> >> Sean Christopherson <seanjc@google.com> writes:
->> >> > Nullifying the KVM pointer isn't sufficient, because without additional actions
->> >> > userspace could extract data from a VM by deleting its memslots and then binding
->> >> > the guest_memfd to an attacker controlled VM.  Or more likely with TDX and SNP,
->> >> > induce badness by coercing KVM into mapping memory into a guest with the wrong
->> >> > ASID/HKID.
->> >> >
->> >> > I can think of three ways to handle that:
->> >> >
->> >> >   (a) prevent a different VM from *ever* binding to the gmem instance
->> >> >   (b) free/zero physical pages when unbinding
->> >> >   (c) free/zero when binding to a different VM
->> >> >
->> >> > Option (a) is easy, but that pretty much defeats the purpose of decopuling
->> >> > guest_memfd from a VM.
->> >> >
->> >> > Option (b) isn't hard to implement, but it screws up the lifecycle of the memory,
->> >> > e.g. would require memory when a memslot is deleted.  That isn't necessarily a
->> >> > deal-breaker, but it runs counter to how KVM memlots currently operate.  Memslots
->> >> > are basically just weird page tables, e.g. deleting a memslot doesn't have any
->> >> > impact on the underlying data in memory.  TDX throws a wrench in this as removing
->> >> > a page from the Secure EPT is effectively destructive to the data (can't be mapped
->> >> > back in to the VM without zeroing the data), but IMO that's an oddity with TDX and
->> >> > not necessarily something we want to carry over to other VM types.
->> >> >
->> >> > There would also be performance implications (probably a non-issue in practice),
->> >> > and weirdness if/when we get to sharing, linking and/or mmap()ing gmem.  E.g. what
->> >> > should happen if the last memslot (binding) is deleted, but there outstanding userspace
->> >> > mappings?
->> >> >
->> >> > Option (c) is better from a lifecycle perspective, but it adds its own flavor of
->> >> > complexity, e.g. the performant way to reclaim TDX memory requires the TDMR
->> >> > (effectively the VM pointer), and so a deferred relcaim doesn't really work for
->> >> > TDX.  And I'm pretty sure it *can't* work for SNP, because RMP entries must not
->> >> > outlive the VM; KVM can't reuse an ASID if there are pages assigned to that ASID
->> >> > in the RMP, i.e. until all memory belonging to the VM has been fully freed.
->
-> ...
->
->> I agree with you that nulling the KVM pointer is insufficient to keep
->> host userspace out of the TCB. Among the three options (a) preventing a
->> different VM (HKID/ASID) from binding to the gmem instance, or zeroing
->> the memory either (b) on unbinding, or (c) on binding to another VM
->> (HKID/ASID),
->>
->> (a) sounds like adding a check issued to TDX/SNP upon binding and this
->>     check would just return OK for software-protected VMs (line of sight
->>     to removing host userspace from TCB).
->>
->> Or, we could go further for software-protected VMs and add tracking in
->> the inode to prevent the same inode from being bound to different
->> "HKID/ASID"s, perhaps like this:
->>
->> + On first binding, store the KVM pointer in the inode - not file (but
->>   not hold a refcount)
->> + On rebinding, check that the KVM matches the pointer in the inode
->> + On intra-host migration, update the KVM pointer in the inode to allow
->>   binding to the new struct kvm
->>
->> I think you meant associating the file with a struct kvm at creation
->> time as an implementation for (a), but technically since the inode is
->> the representation of memory, tracking of struct kvm should be with the
->> inode instead of the file.
->>
->> (b) You're right that this messes up the lifecycle of the memory and
->>     wouldn't work with intra-host migration.
->>
->> (c) sounds like doing the clearing on a check similar to that of (a)
->
-> Sort of, though it's much nastier, because it requires the "old" KVM instance to
-> be alive enough to support various operations.  I.e. we'd have to make stronger
-> guarantees about exactly when the handoff/transition could happen.
->
-
-Good point!
-
->> If we track struct kvm with the inode, then I think (a), (b) and (c) can
->> be independent of the refcounting method. What do you think?
->
-> No go.  Because again, the inode (physical memory) is coupled to the virtual machine
-> as a thing, not to a "struct kvm".  Or more concretely, the inode is coupled to an
-> ASID or an HKID, and there can be multiple "struct kvm" objects associated with a
-> single ASID.  And at some point in the future, I suspect we'll have multiple KVM
-> objects per HKID too.
->
-> The current SEV use case is for the migration helper, where two KVM objects share
-> a single ASID (the "real" VM and the helper).  I suspect TDX will end up with
-> similar behavior where helper "VMs" can use the HKID of the "real" VM.  For KVM,
-> that means multiple struct kvm objects being associated with a single HKID.
->
-> To prevent use-after-free, KVM "just" needs to ensure the helper instances can't
-> outlive the real instance, i.e. can't use the HKID/ASID after the owning virtual
-> machine has been destroyed.
->
-> To put it differently, "struct kvm" is a KVM software construct that _usually_,
-> but not always, is associated 1:1 with a virtual machine.
->
-> And FWIW, stashing the pointer without holding a reference would not be a complete
-> solution, because it couldn't guard against KVM reusing a pointer.  E.g. if a
-> struct kvm was unbound and then freed, KVM could reuse the same memory for a new
-> struct kvm, with a different ASID/HKID, and get a false negative on the rebinding
-> check.
-
-I agree that inode (physical memory) is coupled to the virtual machine
-as a more generic concept.
-
-I was hoping that in the absence of CC hardware providing a HKID/ASID,
-the struct kvm pointer could act as a representation of the "virtual
-machine". You're definitely right that KVM could reuse a pointer and so
-that idea doesn't stand.
-
-I thought about generating UUIDs to represent "virtual machines" in the
-absence of CC hardware, and this UUID could be transferred during
-intra-host migration, but this still doesn't take host userspace out of
-the TCB. A malicious host VMM could just use the migration ioctl to copy
-the UUID to a malicious dumper VM, which would then pass checks with a
-gmem file linked to the malicious dumper VM. This is fine for HKID/ASIDs
-because the memory is encrypted; with UUIDs there's no memory
-encryption.
-
-Circling back to the original topic, was associating the file with
-struct kvm at gmem file creation time meant to constrain the use of the
-gmem file to one struct kvm, or one virtual machine, or something else?
-
-Follow up questions:
-
-1. Since the physical memory's representation is the inode and should be
-   coupled to the virtual machine (as a concept, not struct kvm), should
-   the binding/coupling be with the file, or the inode?
-
-2. Should struct kvm still be bound to the file/inode at gmem file
-   creation time, since
-
-   + struct kvm isn't a good representation of a "virtual machine"
-   + we currently don't have anything that really represents a "virtual
-     machine" without hardware support
-
-
-I'd also like to bring up another userspace use case that Google has:
-re-use of gmem files for rebooting guests when the KVM instance is
-destroyed and rebuilt.
-
-When rebooting a VM there are some steps relating to gmem that are
-performance-sensitive:
-
-a.      Zeroing pages from the old VM when we close a gmem file/inode
-b. Deallocating pages from the old VM when we close a gmem file/inode
-c.   Allocating pages for the new VM from the new gmem file/inode
-d.      Zeroing pages on page allocation
-
-We want to reuse the gmem file to save re-allocating pages (b. and c.),
-and one of the two page zeroing allocations (a. or d.).
-
-Binding the gmem file to a struct kvm on creation time means the gmem
-file can't be reused with another VM on reboot. Also, host userspace is
-forced to close the gmem file to allow the old VM to be freed.
-
-For other places where files pin KVM, like the stats fd pinning vCPUs, I
-guess that matters less since there isn't much of a penalty to close and
-re-open the stats fd.
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+CgpPbiA4LzI4LzIzIDY6NTcgQU0sIEhvdSBUYW8gd3JvdGU6Cj4gSGksCj4gCj4gT24gOC8yNy8y
+MDIzIDEwOjUzIFBNLCBZb25naG9uZyBTb25nIHdyb3RlOgo+Pgo+Pgo+PiBPbiA4LzI3LzIzIDE6
+MzcgQU0sIEJqw7ZybiBUw7ZwZWwgd3JvdGU6Cj4+PiBCasO2cm4gVMO2cGVsIDxiam9ybkBrZXJu
+ZWwub3JnPiB3cml0ZXM6Cj4+Pgo+Pj4+IEhvdSBUYW8gPGhvdXRhb0BodWF3ZWljbG91ZC5jb20+
+IHdyaXRlczoKPj4+Pgo+Pj4+PiBIaSwKPj4+Pj4KPj4+Pj4gT24gOC8yNi8yMDIzIDU6MjMgUE0s
+IEJqw7ZybiBUw7ZwZWwgd3JvdGU6Cj4+Pj4+PiBIb3UgVGFvIDxob3V0YW9AaHVhd2VpY2xvdWQu
+Y29tPiB3cml0ZXM6Cj4+Pj4+Pgo+Pj4+Pj4+IEhpLAo+Pj4+Pj4+Cj4+Pj4+Pj4gT24gOC8yNS8y
+MDIzIDExOjI4IFBNLCBZb25naG9uZyBTb25nIHdyb3RlOgo+Pj4+Pj4+Pgo+Pj4+Pj4+PiBPbiA4
+LzI1LzIzIDM6MzIgQU0sIEJqw7ZybiBUw7ZwZWwgd3JvdGU6Cj4+Pj4+Pj4+PiBJJ20gY2hhc2lu
+ZyBhIHdvcmtxdWV1ZSBoYW5nIG9uIFJJU0MtVi9xZW11IChUQ0cpLCB1c2luZyB0aGUgYnBmCj4+
+Pj4+Pj4+PiBzZWxmdGVzdHMgb24gYnBmLW5leHQgOWUzYjQ3YWJlYjhmLgo+Pj4+Pj4+Pj4KPj4+
+Pj4+Pj4+IEknbSBhYmxlIHRvIHJlcHJvZHVjZSB0aGUgaGFuZyBieSBtdWx0aXBsZSBydW5zIG9m
+Ogo+Pj4+Pj4+Pj4gIMKgwqAgfCAuL3Rlc3RfcHJvZ3MgLWEgbGlua19hcGkgLWEgbGlua2VkX2xp
+c3QKPj4+Pj4+Pj4+IEknbSBjdXJyZW50bHkgaW52ZXN0aWdhdGluZyB0aGF0Lgo+Pj4+Pj4+Pj4K
+Pj4+Pj4+Pj4+IEJ1dCEgU29tZXRpbWVzIChldmVyeSBibHVlIG1vb24pIEkgZ2V0IGEgd2Fybl9v
+bl9vbmNlIGhpdDoKPj4+Pj4+Pj4+ICDCoMKgIHwgLS0tLS0tLS0tLS0tWyBjdXQgaGVyZSBdLS0t
+LS0tLS0tLS0tCj4+Pj4+Pj4+PiAgwqDCoCB8IFdBUk5JTkc6IENQVTogMyBQSUQ6IDI2MSBhdCBr
+ZXJuZWwvYnBmL21lbWFsbG9jLmM6MzQyCj4+Pj4+Pj4+PiBicGZfbWVtX3JlZmlsbCsweDFmYy8w
+eDIwNgo+Pj4+Pj4+Pj4gIMKgwqAgfCBNb2R1bGVzIGxpbmtlZCBpbjogYnBmX3Rlc3Rtb2QoT0Up
+Cj4+Pj4+Pj4+PiAgwqDCoCB8IENQVTogMyBQSUQ6IDI2MSBDb21tOiB0ZXN0X3Byb2dzLWNwdXYg
+VGFpbnRlZDogR8KgwqDCoMKgwqDCoMKgwqDCoMKgIE9FCj4+Pj4+Pj4+PiBOIDYuNS4wLXJjNS0w
+MTc0My1nZGNiMTUyYmI4MzI4ICMyCj4+Pj4+Pj4+PiAgwqDCoCB8IEhhcmR3YXJlIG5hbWU6IHJp
+c2N2LXZpcnRpbyxxZW11IChEVCkKPj4+Pj4+Pj4+ICDCoMKgIHwgZXBjIDogYnBmX21lbV9yZWZp
+bGwrMHgxZmMvMHgyMDYKPj4+Pj4+Pj4+ICDCoMKgIHzCoCByYSA6IGlycV93b3JrX3NpbmdsZSsw
+eDY4LzB4NzAKPj4+Pj4+Pj4+ICDCoMKgIHwgZXBjIDogZmZmZmZmZmY4MDFiMWJjNCByYSA6IGZm
+ZmZmZmZmODAxNWZlODQgc3AgOgo+Pj4+Pj4+Pj4gZmYyMDAwMDAwMDAxYmUyMAo+Pj4+Pj4+Pj4g
+IMKgwqAgfMKgIGdwIDogZmZmZmZmZmY4MmQyNjEzOCB0cCA6IGZmNjAwMDAwODQ3N2E4MDAgdDAg
+Ogo+Pj4+Pj4+Pj4gMDAwMDAwMDAwMDA0NjYwMAo+Pj4+Pj4+Pj4gIMKgwqAgfMKgIHQxIDogZmZm
+ZmZmZmY4MTJiNmRkYyB0MiA6IDAwMDAwMDAwMDAwMDAwMDAgczAgOgo+Pj4+Pj4+Pj4gZmYyMDAw
+MDAwMDAxYmU3MAo+Pj4+Pj4+Pj4gIMKgwqAgfMKgIHMxIDogZmY1ZmZmZmZmZmZlODk5OCBhMCA6
+IGZmNWZmZmZmZmZmZTg5OTggYTEgOgo+Pj4+Pj4+Pj4gZmY2MDAwMDNmZWY0YjAwMAo+Pj4+Pj4+
+Pj4gIMKgwqAgfMKgIGEyIDogMDAwMDAwMDAwMDAwMDAzZiBhMyA6IGZmZmZmZmZmODAwMDgyNTAg
+YTQgOgo+Pj4+Pj4+Pj4gMDAwMDAwMDAwMDAwMDA2MAo+Pj4+Pj4+Pj4gIMKgwqAgfMKgIGE1IDog
+MDAwMDAwMDAwMDAwMDA4MCBhNiA6IDAwMDAwMDAwMDAwMDAwMDAgYTcgOgo+Pj4+Pj4+Pj4gMDAw
+MDAwMDAwMDczNTA0OQo+Pj4+Pj4+Pj4gIMKgwqAgfMKgIHMyIDogZmY1ZmZmZmZmZmZlODk5OCBz
+MyA6IDAwMDAwMDAwMDAwMDAwMjIgczQgOgo+Pj4+Pj4+Pj4gMDAwMDAwMDAwMDAwMTAwMAo+Pj4+
+Pj4+Pj4gIMKgwqAgfMKgIHM1IDogMDAwMDAwMDAwMDAwMDAwNyBzNiA6IGZmNWZmZmZmZmZmZTg1
+NzAgczcgOgo+Pj4+Pj4+Pj4gZmZmZmZmZmY4MmQ2YmQzMAo+Pj4+Pj4+Pj4gIMKgwqAgfMKgIHM4
+IDogMDAwMDAwMDAwMDAwMDAzZiBzOSA6IGZmZmZmZmZmODJkMmM1ZTggczEwOgo+Pj4+Pj4+Pj4g
+MDAwMDAwMDAwMDAwZmZmZgo+Pj4+Pj4+Pj4gIMKgwqAgfMKgIHMxMTogZmZmZmZmZmY4MmQyYzVk
+OCB0MyA6IGZmZmZmZmZmODFlYThmMjggdDQgOgo+Pj4+Pj4+Pj4gMDAwMDAwMDAwMDAwMDAwMAo+
+Pj4+Pj4+Pj4gIMKgwqAgfMKgIHQ1IDogZmY2MDAwMDA4ZmQyODI3OCB0NiA6IDAwMDAwMDAwMDAw
+NDAwMDAKPj4+Pj4+Pj4+ICDCoMKgIHwgc3RhdHVzOiAwMDAwMDAwMjAwMDAwMTAwIGJhZGFkZHI6
+IDAwMDAwMDAwMDAwMDAwMDAgY2F1c2U6Cj4+Pj4+Pj4+PiAwMDAwMDAwMDAwMDAwMDAzCj4+Pj4+
+Pj4+PiAgwqDCoCB8IFs8ZmZmZmZmZmY4MDFiMWJjND5dIGJwZl9tZW1fcmVmaWxsKzB4MWZjLzB4
+MjA2Cj4+Pj4+Pj4+PiAgwqDCoCB8IFs8ZmZmZmZmZmY4MDE1ZmU4ND5dIGlycV93b3JrX3Npbmds
+ZSsweDY4LzB4NzAKPj4+Pj4+Pj4+ICDCoMKgIHwgWzxmZmZmZmZmZjgwMTVmZWI0Pl0gaXJxX3dv
+cmtfcnVuX2xpc3QrMHgyOC8weDM2Cj4+Pj4+Pj4+PiAgwqDCoCB8IFs8ZmZmZmZmZmY4MDE1ZmVm
+YT5dIGlycV93b3JrX3J1bisweDM4LzB4NjYKPj4+Pj4+Pj4+ICDCoMKgIHwgWzxmZmZmZmZmZjgw
+MDA4MjhhPl0gaGFuZGxlX0lQSSsweDNhLzB4YjQKPj4+Pj4+Pj4+ICDCoMKgIHwgWzxmZmZmZmZm
+ZjgwMGE1YzNhPl0gaGFuZGxlX3BlcmNwdV9kZXZpZF9pcnErMHhhNC8weDFmOAo+Pj4+Pj4+Pj4g
+IMKgwqAgfCBbPGZmZmZmZmZmODAwOWZhZmE+XSBnZW5lcmljX2hhbmRsZV9kb21haW5faXJxKzB4
+MjgvMHgzNgo+Pj4+Pj4+Pj4gIMKgwqAgfCBbPGZmZmZmZmZmODAwYWU1NzA+XSBpcGlfbXV4X3By
+b2Nlc3MrMHhhYy8weGZhCj4+Pj4+Pj4+PiAgwqDCoCB8IFs8ZmZmZmZmZmY4MDAwYThlYT5dIHNi
+aV9pcGlfaGFuZGxlKzB4MmUvMHg4OAo+Pj4+Pj4+Pj4gIMKgwqAgfCBbPGZmZmZmZmZmODAwOWZh
+ZmE+XSBnZW5lcmljX2hhbmRsZV9kb21haW5faXJxKzB4MjgvMHgzNgo+Pj4+Pj4+Pj4gIMKgwqAg
+fCBbPGZmZmZmZmZmODA3ZWU3MGU+XSByaXNjdl9pbnRjX2lycSsweDM2LzB4NGUKPj4+Pj4+Pj4+
+ICDCoMKgIHwgWzxmZmZmZmZmZjgxMmI1ZDNhPl0gaGFuZGxlX3Jpc2N2X2lycSsweDU0LzB4ODYK
+Pj4+Pj4+Pj4+ICDCoMKgIHwgWzxmZmZmZmZmZjgxMmI2OTA0Pl0gZG9faXJxKzB4NjYvMHg5OAo+
+Pj4+Pj4+Pj4gIMKgwqAgfCAtLS1bIGVuZCB0cmFjZSAwMDAwMDAwMDAwMDAwMDAwIF0tLS0KPj4+
+Pj4+Pj4+Cj4+Pj4+Pj4+PiBDb2RlOgo+Pj4+Pj4+Pj4gIMKgwqAgfCBzdGF0aWMgdm9pZCBmcmVl
+X2J1bGsoc3RydWN0IGJwZl9tZW1fY2FjaGUgKmMpCj4+Pj4+Pj4+PiAgwqDCoCB8IHsKPj4+Pj4+
+Pj4+ICDCoMKgIHzCoMKgwqDCoCBzdHJ1Y3QgYnBmX21lbV9jYWNoZSAqdGd0ID0gYy0+dGd0Owo+
+Pj4+Pj4+Pj4gIMKgwqAgfMKgwqDCoMKgIHN0cnVjdCBsbGlzdF9ub2RlICpsbG5vZGUsICp0Owo+
+Pj4+Pj4+Pj4gIMKgwqAgfMKgwqDCoMKgIHVuc2lnbmVkIGxvbmcgZmxhZ3M7Cj4+Pj4+Pj4+PiAg
+wqDCoCB8wqDCoMKgwqAgaW50IGNudDsKPj4+Pj4+Pj4+ICDCoMKgIHwKPj4+Pj4+Pj4+ICDCoMKg
+IHzCoMKgwqDCoCBXQVJOX09OX09OQ0UodGd0LT51bml0X3NpemUgIT0gYy0+dW5pdF9zaXplKTsK
+Pj4+Pj4+Pj4+ICDCoMKgIHwgLi4uCj4+Pj4+Pj4+Pgo+Pj4+Pj4+Pj4gSSdtIG5vdCB3ZWxsIHZl
+cnNlZCBpbiB0aGUgbWVtb3J5IGFsbG9jYXRvcjsgQmVmb3JlIEkgZGl2ZSBpbnRvCj4+Pj4+Pj4+
+PiBpdCAtLQo+Pj4+Pj4+Pj4gaGFzIGFueW9uZSBlbHNlIGhpdCBpdD8gSWRlYXMgb24gd2h5IHRo
+ZSB3YXJuX29uX29uY2UgaXMgaGl0Pwo+Pj4+Pj4+PiBNYXliZSB0YWtlIGEgbG9vayBhdCB0aGUg
+cGF0Y2gKPj4+Pj4+Pj4gIMKgwqAgODIyZmIyNmJkYjU1wqAgYnBmOiBBZGQgYSBoaW50IHRvIGFs
+bG9jYXRlZCBvYmplY3RzLgo+Pj4+Pj4+Pgo+Pj4+Pj4+PiBJbiB0aGUgYWJvdmUgcGF0Y2gsIHdl
+IGhhdmUKPj4+Pj4+Pj4KPj4+Pj4+Pj4gK8KgwqDCoMKgwqDCoCAvKgo+Pj4+Pj4+PiArwqDCoMKg
+wqDCoMKgwqAgKiBSZW1lbWJlciBicGZfbWVtX2NhY2hlIHRoYXQgYWxsb2NhdGVkIHRoaXMgb2Jq
+ZWN0Lgo+Pj4+Pj4+PiArwqDCoMKgwqDCoMKgwqAgKiBUaGUgaGludCBpcyBub3QgYWNjdXJhdGUu
+Cj4+Pj4+Pj4+ICvCoMKgwqDCoMKgwqDCoCAqLwo+Pj4+Pj4+PiArwqDCoMKgwqDCoMKgIGMtPnRn
+dCA9ICooc3RydWN0IGJwZl9tZW1fY2FjaGUgKiopbGxub2RlOwo+Pj4+Pj4+Pgo+Pj4+Pj4+PiBJ
+IHN1c3BlY3QgdGhhdCB0aGUgd2FybmluZyBtYXkgYmUgcmVsYXRlZCB0byB0aGUgYWJvdmUuCj4+
+Pj4+Pj4+IEkgdHJpZWQgdGhlIGFib3ZlIC4vdGVzdF9wcm9ncyBjb21tYW5kIGxpbmUgKHJ1bm5p
+bmcgbXVsdGlwbGUKPj4+Pj4+Pj4gYXQgdGhlIHNhbWUgdGltZSkgYW5kIGRpZG4ndCB0cmlnZ2Vy
+IHRoZSBpc3N1ZS4KPj4+Pj4+PiBUaGUgZXh0cmEgOC1ieXRlcyBiZWZvcmUgdGhlIGZyZWVkIHBv
+aW50ZXIgaXMgdXNlZCB0byBzYXZlIHRoZQo+Pj4+Pj4+IHBvaW50ZXIKPj4+Pj4+PiBvZiB0aGUg
+b3JpZ2luYWwgYnBmIG1lbW9yeSBhbGxvY2F0b3Igd2hlcmUgdGhlIGZyZWVkIHBvaW50ZXIgY2Ft
+ZQo+Pj4+Pj4+IGZyb20sCj4+Pj4+Pj4gc28gdW5pdF9mcmVlKCkgY291bGQgZnJlZSB0aGUgcG9p
+bnRlciBiYWNrIHRvIHRoZSBvcmlnaW5hbAo+Pj4+Pj4+IGFsbG9jYXRvciB0bwo+Pj4+Pj4+IHBy
+ZXZlbnQgYWxsb2MtYW5kLWZyZWUgdW5iYWxhbmNlLgo+Pj4+Pj4+Cj4+Pj4+Pj4gSSBzdXNwZWN0
+IHRoYXQgYSB3cm9uZyBwb2ludGVyIHdhcyBwYXNzZWQgdG8gYnBmX29ial9kcm9wLCBidXQgZG8K
+Pj4+Pj4+PiBub3QKPj4+Pj4+PiBmaW5kIGFueXRoaW5nIHN1c3BpY2lvdXMgYWZ0ZXIgY2hlY2tp
+bmcgbGlua2VkX2xpc3QuIEFub3RoZXIKPj4+Pj4+PiBwb3NzaWJpbGl0eQo+Pj4+Pj4+IGlzIHRo
+YXQgdGhlcmUgaXMgd3JpdGUtYWZ0ZXItZnJlZSBwcm9ibGVtIHdoaWNoIGNvcnJ1cHRzIHRoZSBl
+eHRyYQo+Pj4+Pj4+IDgtYnl0ZXMgYmVmb3JlIHRoZSBmcmVlZCBwb2ludGVyLiBDb3VsZCB5b3Ug
+cGxlYXNlIGFwcGx5IHRoZQo+Pj4+Pj4+IGZvbGxvd2luZwo+Pj4+Pj4+IGRlYnVnIHBhdGNoIHRv
+IGNoZWNrIHdoZXRoZXIgb3Igbm90IHRoZSBleHRyYSA4LWJ5dGVzIGFyZQo+Pj4+Pj4+IGNvcnJ1
+cHRlZCA/Cj4+Pj4+PiBUaGFua3MgZm9yIGdldHRpbmcgYmFjayEKPj4+Pj4+Cj4+Pj4+PiBJIHRv
+b2sgeW91ciBwYXRjaCBmb3IgYSBydW4sIGFuZCB0aGVyZSdzIGEgaGl0Ogo+Pj4+Pj4gIMKgwqAg
+fCBiYWQgY2FjaGUgZmY1ZmZmZmZmZmZlODU3MDogZ290IHNpemUgOTYgd29yawo+Pj4+Pj4gZmZm
+ZmZmZmY4MDFiMTljOCwgY2FjaGUgZmY1ZmZmZmZmZmZlODk4MCBleHAgc2l6ZSAxMjggd29yawo+
+Pj4+Pj4gZmZmZmZmZmY4MDFiMTljOAo+Pj4+Pgo+Pj4+PiBUaGUgZXh0cmEgOC1ieXRlcyBhcmUg
+bm90IGNvcnJ1cHRlZC4gQm90aCBvZiB0aGVzZSB0d28KPj4+Pj4gYnBmX21lbV9jYWNoZSBhcmUK
+Pj4+Pj4gdmFsaWQgYW5kIHRoZXJlIGFyZSBpbiB0aGUgY2FjaGUgYXJyYXkgZGVmaW5lZCBpbiBi
+cGZfbWVtX2NhY2hlcy4gQlBGCj4+Pj4+IG1lbW9yeSBhbGxvY2F0b3IgYWxsb2NhdGVkIHRoZSBw
+b2ludGVyIGZyb20gOTYtYnl0ZXMgc2l6ZWQtY2FjaGUsCj4+Pj4+IGJ1dCBpdAo+Pj4+PiB0cmll
+ZCB0byBmcmVlIHRoZSBwb2ludGVyIHRocm91Z2ggMTI4LWJ5dGVzIHNpemVkLWNhY2hlLgo+Pj4+
+Pgo+Pj4+PiBOb3cgSSBzdXNwZWN0IHRoZXJlIGlzIG5vIDk2LWJ5dGVzIHNsYWIgaW4geW91ciBz
+eXN0ZW0gYW5kIGtzaXplKHB0ciAtCj4+Pj4+IExMSVNUX05PREVfU1opIHJldHVybnMgMTI4LCBz
+byBicGYgbWVtb3J5IGFsbG9jYXRvciBzZWxlY3RlZCB0aGUKPj4+Pj4gMTI4LWJ5dGUgc2l6ZWQt
+Y2FjaGUgaW5zdGVhZCBvZiA5Ni1ieXRlcyBzaXplZC1jYWNoZS4gQ291bGQgeW91IHBsZWFzZQo+
+Pj4+PiBjaGVjayB0aGUgdmFsdWUgb2YgS01BTExPQ19NSU5fU0laRSBpbiB5b3VyIGtlcm5lbCAu
+Y29uZmlnIGFuZAo+Pj4+PiB1c2luZyB0aGUKPj4+Pj4gZm9sbG93aW5nIGNvbW1hbmQgdG8gY2hl
+Y2sgd2hldGhlciB0aGVyZSBpcyA5Ni1ieXRlcyBzbGFiIGluIHlvdXIKPj4+Pj4gc3lzdGVtOgo+
+Pj4+Cj4+Pj4gS01BTExPQ19NSU5fU0laRSBpcyA2NC4KPj4+Pgo+Pj4+PiAkIGNhdCAvcHJvYy9z
+bGFiaW5mbyB8Z3JlcCBrbWFsbG9jLTk2Cj4+Pj4+IGRtYS1rbWFsbG9jLTk2wqDCoMKgwqDCoMKg
+wqDCoCAwwqDCoMKgwqDCoCAwwqDCoMKgwqAgOTbCoMKgIDQywqDCoMKgIDEgOiB0dW5hYmxlc8Kg
+wqDCoCAwwqDCoMKgIDAKPj4+Pj4gMCA6IHNsYWJkYXRhwqDCoMKgwqDCoCAwwqDCoMKgwqDCoCAw
+wqDCoMKgwqDCoCAwCj4+Pj4+IGttYWxsb2MtOTbCoMKgwqDCoMKgwqDCoMKgwqAgMTg2NcKgwqAg
+MjI2OMKgwqDCoMKgIDk2wqDCoCA0MsKgwqDCoCAxIDogdHVuYWJsZXPCoMKgwqAgMMKgwqDCoCAw
+Cj4+Pj4+IDAgOiBzbGFiZGF0YcKgwqDCoMKgIDU0wqDCoMKgwqAgNTTCoMKgwqDCoMKgIDAKPj4+
+Pj4KPj4+Pj4gSW4gbXkgc3lzdGVtLCBzbGFiIGhhcyA5Ni1ieXRlcyBjYWNoZWQsIHNvIGdyZXAg
+b3V0cHV0cyBzb21ldGhpbmcsCj4+Pj4+IGJ1dCBJCj4+Pj4+IHRoaW5rIHRoZXJlIHdpbGwgbm8g
+b3V0cHV0IGluIHlvdXIgc3lzdGVtLgo+Pj4+Cj4+Pj4gWW91J3JlIHJpZ2h0ISBObyBrbWFsbG9j
+LTk2Lgo+Pj4KPj4+IFRvIGdldCByaWQgb2YgdGhlIHdhcm5pbmcsIGxpbWl0IGF2YWlsYWJsZSBz
+aXplcyBmcm9tCj4+PiBicGZfbWVtX2FsbG9jX2luaXQoKT8KPiAKPiBJdCBpcyBub3QgZW5vdWdo
+LiBXZSBuZWVkIHRvIGFkanVzdCBzaXplX2luZGV4IGFjY29yZGluZ2x5IGR1cmluZwo+IGluaXRp
+YWxpemF0aW9uLiBDb3VsZCB5b3UgcGxlYXNlIHRyeSB0aGUgYXR0YWNoZWQgcGF0Y2ggYmVsb3cg
+PyBJdCBpcwo+IG5vdCBhIGZvcm1hbCBwYXRjaCBhbmQgSSBhbSBjb25zaWRlcmluZyB0byBkaXNh
+YmxlIHByZWZpbGxpbmcgZm9yIHRoZXNlCj4gcmVkaXJlY3RlZCBicGZfbWVtX2NhY2hlcy4KPj4K
+Pj4gRG8geW91IGtub3cgd2h5IHlvdXIgc3lzdGVtIGRvZXMgbm90IGhhdmUga21hbGxvYy05Nj8K
+PiAKPiBBY2NvcmRpbmcgdG8gdGhlIGltcGxlbWVudGF0aW9uIG9mIHNldHVwX2ttYWxsb2NfY2Fj
+aGVfaW5kZXhfdGFibGUoKSBhbmQKPiBjcmVhdGVfa21hbGxvY19jYWNoZXMoKSzCoCB3aGVuIEtN
+QUxMT0NfTUlOX1NJWkUgaXMgZ3JlYXRlciB0aGFuIDY0LAo+IGttYWxsb2MtOTYgd2lsbCBiZSBv
+bWl0dGVkLiBJZiBLTUFMTE9DX01JTl9TSVpFIGlzIGdyZWF0ZXIgdGhhbiAxMjgsCj4ga21hbGxv
+Yy0xOTIgd2lsbCBiZSBvbWl0dGVkIGFzIHdlbGwuCgpUaGFua3MhIFRoaXMgaW5kZWVkIHRoZSBj
+YXNlIGV4Y2VwdCB0aGUgYWJvdmUgJ2dyZWF0ZXIgdGhhbicgc2hvdWxkIGJlCidncmVhdGVyIHRo
+YW4gb3IgZXF1YWwgdG8nLiBGb3IgZXhhbXBsZSwgZ3JlYXRlciB0aGFuIG9yIGVxdWFsIHRvIDY0
+Cm1lYW5zIHRoZSBtaW5pbXVtIGFsaWdubWVudCBpcyA2NCwgc28gOTYgaXMgcmVtb3ZlZC4gU2lt
+aWxhciBmb3IKZ3JlYXRlciB0aGFuIG9yIGVxdWFsIHRvIDEyOC4KCkkgYWdyZWUgaXQgaXMgYSBn
+b29kIGlkZWEgdG8gYWxpZ24gbWVtYWxsb2MgY2FjaGUgdW5pdCBzaXplIG1hdGNoaW5nCnVuZGVy
+bHlpbmcga21hbGxvYyBjYWNoZSB1bml0IHNpemUuCgo+Pgo+Pj4KPj4+Cj4+PiBCasO2cm4KPj4K
+Pj4gLgo+IAoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18K
+bGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcK
+aHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
