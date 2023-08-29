@@ -4,71 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 059C9C83F12
-	for <linux-riscv@archiver.kernel.org>; Tue, 29 Aug 2023 09:48:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F900C83F12
+	for <linux-riscv@archiver.kernel.org>; Tue, 29 Aug 2023 09:54:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=K/GsFqCYGS/JOgj+OwET3+bwxUwTcudOcXvbYp1lRsA=; b=dAZKBlcw3Wx+qJ
-	UKZ5DLMxGA4dGaGPM/XL/abWd2ueZ7wdskys4jfxJnAa7Dhqlk+ymjhn9Th87Q88l7fq7p5oPIs3Z
-	oq10zejCuYkVHlHOl0GXToNVVlA5jraDbD5JmTmHQd/MXgLT0ZvWG16CgcoVeM4dZdXNqq60WecEt
-	U9xBsq9oV22Y3Mz4nInQQlf6xUnHSAIZ9A5LU0+IqNe9PcSXOBzcI0qaCtnED2haKGiMG6/szbgCE
-	d5lZLCoiR0B1qCDYNjXkSTMt3GGELPVEn2STP5AyakIBpZuYf/v0aiffa1Urzq71DX8zxtSwOhcdH
-	9MtH6OL+n5VonwXjJTPg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:MIME-Version:
+	Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OZEhH8nzEapvyc92vnAr8pbDlMc2ZJ2crQ2pEk4MKmc=; b=bOiYc2iy/2TDs/Z9BYWEL7FKcM
+	rpCof9CuMjtjmZ1u3jxYfY0u99mhvnO8R2hSWzC+IR7KlmsKh3mt2Jjb0GW3y3kRU1bz+vISzUiZV
+	6TDquxYV2B7ma6ZDHckKIXSAIBfgCBxwppJSkJvQQ/egWTOn8YsxX1xJdpG9diN4F8Vae7LyX5VfE
+	rv0CeKIE7XbPRMKr01dX9sXfkOymoSOwSHwP6yx47Y/n2aZqIuwJFbQxZxOiU+lx/5Nvwq6DilPPE
+	OuC4HnvxVy2K21R9X9TaiZVh0b8moCCQ3D3i+TCJHXPpAn2nKhiV70scg1JZE8xl/0XLgrzG6WZIW
+	YawAcjew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qavKv-00BAuo-1g;
-	Tue, 29 Aug 2023 09:48:37 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1qavQz-00BBJB-2B;
+	Tue, 29 Aug 2023 09:54:53 +0000
+Received: from szxga01-in.huawei.com ([45.249.212.187])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qavKs-00BAuJ-26
-	for linux-riscv@lists.infradead.org;
-	Tue, 29 Aug 2023 09:48:35 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id A45E160AC5
-	for <linux-riscv@lists.infradead.org>; Tue, 29 Aug 2023 09:48:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 925B3C433CD
-	for <linux-riscv@lists.infradead.org>; Tue, 29 Aug 2023 09:48:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1693302512;
-	bh=Ie5xcTYnrckxg5XqByJnbSDX/dunTFFUtMXUS58dsIE=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=YNT4xgy7zjQeED/xAJkzhazs0cVi0PZzFcHbcPyB3fNMMk/1T7eruJjHxw4onQC3l
-	 7IOAaLRZ4tfKzwKPhexWoMsAR5QBxSXFu+nNcwdsH3hXvrvS681e7Y2fbV2H4VuuT8
-	 fJQw4TmIGhM63/lnUyIx8+Rq3K3ftr+lF2EnXHEOWh351NGUhIMCatpu0h02jfgLVo
-	 2IO2BlcU/qCdblDjMAuZ/h54bjVGRr6js2GXRRu2VPc8lr0JVDUtYkFnSKvgI1tfvv
-	 GJqAB+GbdRakKJqu7l3DjEX5j9VzoCVR3L8E+4Ry95coZHjBekwS6Ot7zoTVRPhJbJ
-	 uPPlvQ9Ah8LxA==
-Received: by mail-ed1-f46.google.com with SMTP id 4fb4d7f45d1cf-52a3aa99bcdso5870512a12.0
-        for <linux-riscv@lists.infradead.org>; Tue, 29 Aug 2023 02:48:32 -0700 (PDT)
-X-Gm-Message-State: AOJu0Yyn8UFp0O1Ji1dNpiDy9lnvPkaGMFd/IaghUbUD3K32rvONYfaI
-	hiwIpRxgMRKSspydEAs4ONzUentx8o3dz7P1ZeY=
-X-Google-Smtp-Source: AGHT+IGlVJEQGrdz0NMMhRYrrwdVqAz+hx4g2Fcuryt6QGy9sIKlI9nXA9wCpnaKjF5re6+FCHvT26gKZTR/GNPWOsw=
-X-Received: by 2002:a05:6402:b29:b0:523:4a4e:3b57 with SMTP id
- bo9-20020a0564020b2900b005234a4e3b57mr21591777edb.13.1693302510808; Tue, 29
- Aug 2023 02:48:30 -0700 (PDT)
+	id 1qavQu-00BBIZ-0X;
+	Tue, 29 Aug 2023 09:54:50 +0000
+Received: from dggpemm500016.china.huawei.com (unknown [172.30.72.57])
+	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4RZjNP5yT5zhZHV;
+	Tue, 29 Aug 2023 17:50:45 +0800 (CST)
+Received: from [10.67.108.26] (10.67.108.26) by dggpemm500016.china.huawei.com
+ (7.185.36.25) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.31; Tue, 29 Aug
+ 2023 17:54:36 +0800
+Message-ID: <4b4063c2-dfd3-474b-6827-8dbd1257af2d@huawei.com>
+Date: Tue, 29 Aug 2023 17:54:35 +0800
 MIME-Version: 1.0
-References: <20230829083614.117748-1-namcaov@gmail.com>
-In-Reply-To: <20230829083614.117748-1-namcaov@gmail.com>
-From: Guo Ren <guoren@kernel.org>
-Date: Tue, 29 Aug 2023 17:48:19 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTTdEY-H7QrVyY31Z5nCG0yqo4Zo9W1dBbGEzRqZdec55Q@mail.gmail.com>
-Message-ID: <CAJF2gTTdEY-H7QrVyY31Z5nCG0yqo4Zo9W1dBbGEzRqZdec55Q@mail.gmail.com>
-Subject: Re: [PATCH v2] riscv: provide riscv-specific is_trap_insn()
-To: Nam Cao <namcaov@gmail.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, bjorn@kernel.org, conor.dooley@microchip.com, 
-	=?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.9.0
+Subject: Re: [PATCH -next v9 0/2] support allocating crashkernel above 4G
+ explicitly on riscv
+To: <linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+	<kexec@lists.infradead.org>, <linux-doc@vger.kernel.org>,
+	<paul.walmsley@sifive.com>, <palmer@dabbelt.com>,
+	<conor.dooley@microchip.com>, <guoren@kernel.org>, <heiko@sntech.de>,
+	<bjorn@rivosinc.com>, <alex@ghiti.fr>, <akpm@linux-foundation.org>,
+	<atishp@rivosinc.com>, <bhe@redhat.com>, <thunder.leizhen@huawei.com>,
+	<horms@kernel.org>
+References: <20230726175000.2536220-1-chenjiahao16@huawei.com>
+Content-Language: en-US
+From: "chenjiahao (C)" <chenjiahao16@huawei.com>
+In-Reply-To: <20230726175000.2536220-1-chenjiahao16@huawei.com>
+X-Originating-IP: [10.67.108.26]
+X-ClientProxiedBy: dggems706-chm.china.huawei.com (10.3.19.183) To
+ dggpemm500016.china.huawei.com (7.185.36.25)
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230829_024834_772542_A81B4FE7 
-X-CRM114-Status: GOOD (  19.80  )
+X-CRM114-CacheID: sfid-20230829_025448_546018_33C09481 
+X-CRM114-Status: GOOD (  20.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,44 +69,108 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-VGh4IGZvciB0aGUgZml4LgoKUmV2aWV3ZWQtYnk6IEd1byBSZW4gPGd1b3JlbkBrZXJuZWwub3Jn
-PgoKT24gVHVlLCBBdWcgMjksIDIwMjMgYXQgNDozN+KAr1BNIE5hbSBDYW8gPG5hbWNhb3ZAZ21h
-aWwuY29tPiB3cm90ZToKPgo+IHVwcm9iZXMgZXhwZWN0cyBpc190cmFwX2luc24oKSB0byByZXR1
-cm4gdHJ1ZSBmb3IgYW55IHRyYXAgaW5zdHJ1Y3Rpb25zLAo+IG5vdCBqdXN0IHRoZSBvbmUgdXNl
-ZCBmb3IgaW5zdGFsbGluZyB1cHJvYmUuIFRoZSBjdXJyZW50IGRlZmF1bHQKPiBpbXBsZW1lbnRh
-dGlvbiBvbmx5IHJldHVybnMgdHJ1ZSBmb3IgMTYtYml0IGMuZWJyZWFrIGlmIEMgZXh0ZW5zaW9u
-IGlzCj4gZW5hYmxlZC4gVGhpcyBjYW4gY29uZnVzZSB1cHJvYmVzIGlmIGEgMzItYml0IGVicmVh
-ayBnZW5lcmF0ZXMgYSB0cmFwCj4gZXhjZXB0aW9uIGZyb20gdXNlcnNwYWNlOiB1cHJvYmVzIGFz
-a3MgaXNfdHJhcF9pbnNuKCkgd2hvIHNheXMgdGhlcmUgaXMgbm8KPiB0cmFwLCBzbyB1cHJvYmVz
-IGFzc3VtZSBhIHByb2JlIHdhcyB0aGVyZSBiZWZvcmUgYnV0IGhhcyBiZWVuIHJlbW92ZWQsIGFu
-ZAo+IHJldHVybiB0byB0aGUgdHJhcCBpbnN0cnVjdGlvbi4gVGhpcyBjYXVzZXMgYW4gaW5maW5p
-dGUgbG9vcCBvZiBlbnRlcmluZwo+IGFuZCBleGl0aW5nIHRyYXAgaGFuZGxlci4KPgo+IEluc3Rl
-YWQgb2YgdXNpbmcgdGhlIGRlZmF1bHQgaW1wbGVtZW50YXRpb24sIGltcGxlbWVudCB0aGlzIGZ1
-bmN0aW9uCj4gc3BlZmljaWFsbHkgZm9yIHJpc2N2IHdpdGggY2hlY2tzIGZvciBib3RoIGVicmVh
-ayBhbmQgYy5lYnJlYWsuCj4KPiBGaXhlczogNzQ3ODQwODFhYWM4ICgicmlzY3Y6IEFkZCB1cHJv
-YmVzIHN1cHBvcnRlZCIpCj4gU2lnbmVkLW9mZi1ieTogTmFtIENhbyA8bmFtY2FvdkBnbWFpbC5j
-b20+Cj4gVGVzdGVkLWJ5OiBCasO2cm4gVMO2cGVsIDxiam9ybkByaXZvc2luYy5jb20+Cj4gLS0t
-Cj4gdjI6IHJlbW92ZSAjaWZkZWYgQ09ORklHX1JJU0NWX0lTQV9DIChHdW8gUmVuKQo+Cj4gIGFy
-Y2gvcmlzY3Yva2VybmVsL3Byb2Jlcy91cHJvYmVzLmMgfCA2ICsrKysrKwo+ICAxIGZpbGUgY2hh
-bmdlZCwgNiBpbnNlcnRpb25zKCspCj4KPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9rZXJuZWwv
-cHJvYmVzL3Vwcm9iZXMuYyBiL2FyY2gvcmlzY3Yva2VybmVsL3Byb2Jlcy91cHJvYmVzLmMKPiBp
-bmRleCAxOTRmMTY2YjJjYzQuLjRiM2RjOGJlYWY3NyAxMDA2NDQKPiAtLS0gYS9hcmNoL3Jpc2N2
-L2tlcm5lbC9wcm9iZXMvdXByb2Jlcy5jCj4gKysrIGIvYXJjaC9yaXNjdi9rZXJuZWwvcHJvYmVz
-L3Vwcm9iZXMuYwo+IEBAIC0zLDYgKzMsNyBAQAo+ICAjaW5jbHVkZSA8bGludXgvaGlnaG1lbS5o
-Pgo+ICAjaW5jbHVkZSA8bGludXgvcHRyYWNlLmg+Cj4gICNpbmNsdWRlIDxsaW51eC91cHJvYmVz
-Lmg+Cj4gKyNpbmNsdWRlIDxhc20vaW5zbi5oPgo+Cj4gICNpbmNsdWRlICJkZWNvZGUtaW5zbi5o
-Igo+Cj4gQEAgLTE3LDYgKzE4LDExIEBAIGJvb2wgaXNfc3dicF9pbnNuKHVwcm9iZV9vcGNvZGVf
-dCAqaW5zbikKPiAgI2VuZGlmCj4gIH0KPgo+ICtib29sIGlzX3RyYXBfaW5zbih1cHJvYmVfb3Bj
-b2RlX3QgKmluc24pCj4gK3sKPiArICAgICAgIHJldHVybiByaXNjdl9pbnNuX2lzX2VicmVhaygq
-aW5zbikgfHwgcmlzY3ZfaW5zbl9pc19jX2VicmVhaygqaW5zbik7Cj4gK30KPiArCj4gIHVuc2ln
-bmVkIGxvbmcgdXByb2JlX2dldF9zd2JwX2FkZHIoc3RydWN0IHB0X3JlZ3MgKnJlZ3MpCj4gIHsK
-PiAgICAgICAgIHJldHVybiBpbnN0cnVjdGlvbl9wb2ludGVyKHJlZ3MpOwo+IC0tCj4gMi4zNC4x
-Cj4KCgotLSAKQmVzdCBSZWdhcmRzCiBHdW8gUmVuCgpfX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlz
-Y3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFu
-L2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+Hi folks,
+
+This is a friendly ping. Anyone has additional comments on this patch set?
+
+Best regards,
+Jiahao
+
+On 2023/7/27 1:49, Chen Jiahao wrote:
+> On riscv, the current crash kernel allocation logic is trying to
+> allocate within 32bit addressible memory region by default, if
+> failed, try to allocate without 4G restriction.
+>
+> In need of saving DMA zone memory while allocating a relatively large
+> crash kernel region, allocating the reserved memory top down in
+> high memory, without overlapping the DMA zone, is a mature solution.
+> Hence this patchset introduces the parameter option crashkernel=X,[high,low].
+>
+> One can reserve the crash kernel from high memory above DMA zone range
+> by explicitly passing "crashkernel=X,high"; or reserve a memory range
+> below 4G with "crashkernel=X,low". Besides, there are few rules need
+> to take notice:
+> 1. "crashkernel=X,[high,low]" will be ignored if "crashkernel=size"
+>     is specified.
+> 2. "crashkernel=X,low" is valid only when "crashkernel=X,high" is passed
+>     and there is enough memory to be allocated under 4G.
+> 3. When allocating crashkernel above 4G and no "crashkernel=X,low" is
+>     specified, a 128M low memory will be allocated automatically for
+>     swiotlb bounce buffer.
+> See Documentation/admin-guide/kernel-parameters.txt for more information.
+>
+> To verify loading the crashkernel, adapted kexec-tools is attached below:
+> https://github.com/chenjh005/kexec-tools/tree/build-test-riscv-v2
+>
+> Following test cases have been performed as expected:
+> 1) crashkernel=256M                          //low=256M
+> 2) crashkernel=1G                            //low=1G
+> 3) crashkernel=4G                            //high=4G, low=128M(default)
+> 4) crashkernel=4G crashkernel=256M,high      //high=4G, low=128M(default), high is ignored
+> 5) crashkernel=4G crashkernel=256M,low       //high=4G, low=128M(default), low is ignored
+> 6) crashkernel=4G,high                       //high=4G, low=128M(default)
+> 7) crashkernel=256M,low                      //low=0M, invalid
+> 8) crashkernel=4G,high crashkernel=256M,low  //high=4G, low=256M
+> 9) crashkernel=4G,high crashkernel=4G,low    //high=0M, low=0M, invalid
+> 10) crashkernel=512M@0xd0000000              //low=512M
+> 11) crashkernel=1G,high crashkernel=0M,low   //high=1G, low=0M
+>
+> Changes since [v9]:
+> 1. As per Conor's comment, rebase to correct base on riscv/for-next
+>     branch. No code logic changed.
+>
+> Changes since [v8]:
+> 1. Rebase to newest mainline head, not modifying any code logic.
+>
+> Changes since [v7]:
+> 1. Minor refactor: move crash_low_size = DEFAULT_CRASH_KERNEL_LOW_SIZE
+>     into the !high branch when the first allocation fails. Not changing
+>     the result but further align with Arm64 logic, refer to Baoquan's
+>     comment.
+> 2. Add test case "crashkernel=1G,high crashkernel=0M,low", the result
+>     also matches our expectation.
+>
+> Changes since [v6]:
+> 1. Introduce the "high" flag to mark whether "crashkernel=X,high"
+>     is passed. Fix the retrying logic between "crashkernel=X,high"
+>     case and others when the first allocation attempt fails.
+>
+> Changes since [v5]:
+> 1. Update the crashkernel allocation logic when crashkernel=X,high
+>     is specified. In this case, region above 4G will directly get
+>     reserved as crashkernel, rather than trying lower 32bit allocation
+>     first.
+>
+> Changes since [v4]:
+> 1. Update some imprecise code comments for cmdline parsing.
+>
+> Changes since [v3]:
+> 1. Update to print warning and return explicitly on failure when
+>     crashkernel=size@offset is specified. Not changing the result
+>     in this case but making the logic more straightforward.
+> 2. Some minor cleanup.
+>
+> Changes since [v2]:
+> 1. Update the allocation logic to ensure the high crashkernel
+>     region is reserved strictly above dma32_phys_limit.
+> 2. Clean up some minor format problems.
+>
+> Chen Jiahao (2):
+>    riscv: kdump: Implement crashkernel=X,[high,low]
+>    docs: kdump: Update the crashkernel description for riscv
+>
+>   .../admin-guide/kernel-parameters.txt         | 15 +--
+>   arch/riscv/kernel/setup.c                     |  5 +
+>   arch/riscv/mm/init.c                          | 93 +++++++++++++++++--
+>   3 files changed, 99 insertions(+), 14 deletions(-)
+>
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
