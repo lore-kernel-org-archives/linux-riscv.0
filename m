@@ -4,80 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 005A2C83F12
-	for <linux-riscv@archiver.kernel.org>; Tue, 29 Aug 2023 18:25:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CD45C83F12
+	for <linux-riscv@archiver.kernel.org>; Tue, 29 Aug 2023 18:55:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=P/vuaMmBNNBrC8UiVgKqiqoNwcb86e37PiYdNdJRHrE=; b=B4UXreVwRd4Yf7
-	7CFXyNKLZ3zULrASeROAu1ojz9CzD2BcdeNFWsb6aDuDoHTs+twTQ7bystGXHvYDzJzK8xzyRFlVk
-	vgTh/rYR8ulrU036NAQHv8Kdrg4JYMc+witQLGI8T44At/xWdR7vbATUqtNy4i4+n9rl5NrXKpMnm
-	s87LUTGxV7b9sEojm8zwE1f7Gklvf3+5xoHmxLFBt97P89guL1Q8jdQjGSAZ+jzMuTyHR8Vthl1nP
-	fgazMGko0yIsAykCLW1sZNCQ4bpjpAS2tDM6RYg3/U3OAnwoXst9McdsPsmgNQzxQnob4/ptD/+Yz
-	EBvm3ABbFsIOXYq9aNkA==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=fem/EuHTWtQRIFxPAVYH+0213UpKR7lANzli7OTcArA=; b=hZ8nXRXqPlg0fp
+	X8dGmbViJv7q0DeGglkzbxro8Mf45kVejwemklFfY6nhr+bgXn3xBl3V0aBSG7Tx9s7TvKnNU1LfX
+	EKjTMnEb9d4IGhhaMmur8BsmlrNCx3A0XbxsHmzaoZ+3vz5uriIdCDp/i4DMOP2eFV6qCsTy9Mti8
+	iBMMJmdg4ECaZf6F5svK/OMM+AVYsXllNBRT8kj07/39JNH3H7e8aziU25wrTOivMEYwgkJTtFDf3
+	0dS5TyNz+awzH6s61HP+pLNVDejDVvlqtnId9ciGnWNYqcWTi58tZ97QM3B8M8ZV57ErvgUOg9PUM
+	lIMm2WC3cioKw+0Yy7cA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qb3Ow-00C2m9-3B;
-	Tue, 29 Aug 2023 18:25:18 +0000
-Received: from mail-ej1-x62f.google.com ([2a00:1450:4864:20::62f])
+	id 1qb3re-00C5De-32;
+	Tue, 29 Aug 2023 18:54:58 +0000
+Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qb3Ou-00C2lm-0V
+	id 1qb3rc-00C5DG-22
 	for linux-riscv@lists.infradead.org;
-	Tue, 29 Aug 2023 18:25:17 +0000
-Received: by mail-ej1-x62f.google.com with SMTP id a640c23a62f3a-986d8332f50so613141066b.0
-        for <linux-riscv@lists.infradead.org>; Tue, 29 Aug 2023 11:25:15 -0700 (PDT)
+	Tue, 29 Aug 2023 18:54:57 +0000
+Received: by mail-ed1-x52a.google.com with SMTP id 4fb4d7f45d1cf-52683b68c2fso6270197a12.0
+        for <linux-riscv@lists.infradead.org>; Tue, 29 Aug 2023 11:54:55 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20221208; t=1693333514; x=1693938314;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=Q9wJKsxPPAwU8P0xFe6s5m7FtWYcJnzstIMaUssxows=;
-        b=USmTA0Zpnd39zNwCscgDhVmJfdimtkHk5M60JfbR4NeG8idAyycBdRUJ1DnrSNSWy5
-         d/TcIOMuxuZ7Y8tSH/7W+LBOE6px3hkflXWSzYmbdy6sddLkq3FPZ88L2jZTOJ5rxPte
-         t4JU2zKKw+hb1Q40geCpT1x2Q/DeRIkSYOMng6Q3W5cwB5fVZ6yYCNPcOF7bfvQjjDZL
-         ilESCvGar1donrPd8nsWESwyiH1w96XibWBDHI2q5+UESwBags9bLKpXqWrdUFvyBroa
-         Z+IA4W0euR01ZMNWvo8jmF73KyD5GYbnfFSdpVOla+Kudlzq+fHkf4aYh2tuwWaeGE8Y
-         CQIQ==
+        d=gmail.com; s=20221208; t=1693335294; x=1693940094;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=7rkeLzlKLJm6uIQxs6qrmHZPlBWb8A/YK44W7thpWJg=;
+        b=Q6SSiEaCrCkveJreuDnQ2goaa7FhBqB8eCiRKCGytyRoe1AQaSX/9r06XagFo7RffS
+         yobhr3xSrN3Cv32B4w0M9rzuiZ70qTqmC+fM3sGRMETsTMPLEUfwcqkuKAU6NHAGk7OU
+         R3wJuKLczA9Wz2ZVEwLcymk7BJQIKugtPaeIgEmTKbfMdoGq06run9f/+B7RxpVLPp/t
+         NxtsWVAh294H/o+XsBFU3dfZSm1mErvi4VKIPWuB6DpyLHi9evttCzrW5OUdvojTb0Jf
+         sP3mBl3F4b+aUQGn+sqb8grhjMfQdhkAJSYDtvf1MAyYoxPT9pt5HPMwF5UdPCa9fMqf
+         1A9Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1693333514; x=1693938314;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Q9wJKsxPPAwU8P0xFe6s5m7FtWYcJnzstIMaUssxows=;
-        b=dbZKaq5bFJ8ZdActU30AmnMZDSpjnxBaDoplmQ0tNKFIIQL4cxdlZwNn51IaXJKY5h
-         i9ZLWELShKmQiF6RO+0/NbUqGuJ/dbnc80L6bVz8N1Ukj/3TfJgFRNOpVmBDo8sY0gFi
-         17+xMeGPzITj11yy1LELMCgNGsC0hMTmiUVEPi+bBPiQ7mhXbzyWYM4iIxK/S2eaEYWK
-         L/WSLf3facgHMCmL02VFd5wq17qRl6BeuE5WdPxoiS2/r145rGoOjATFAatoHfTl3kV3
-         QAh3oIExMmL27+QMtsDGSsprzN+PaSGfVsOsO8lPSHUefEJDZBXwmO0w+3blvgVv1SiP
-         4itw==
-X-Gm-Message-State: AOJu0YyvBMp8k8On3iPDGJodnbHz39/mTlKYwiHA54Q73bayByy+M11N
-	RWmYTwPbAD+FJCSCBko3Kwk=
-X-Google-Smtp-Source: AGHT+IG09DLRH/DAaKEwd338k1tCj81ilV1q2bHbiBzkYx6c3tqUpN3c8PbENbHA3Hr5CoeQqX0aMA==
-X-Received: by 2002:a17:906:2009:b0:99b:dd38:864d with SMTP id 9-20020a170906200900b0099bdd38864dmr21889620ejo.23.1693333513740;
-        Tue, 29 Aug 2023 11:25:13 -0700 (PDT)
-Received: from nam-dell ([131.155.246.6])
-        by smtp.gmail.com with ESMTPSA id v24-20020a17090606d800b0099364d9f0e2sm6243333ejb.98.2023.08.29.11.25.12
+        d=1e100.net; s=20221208; t=1693335294; x=1693940094;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=7rkeLzlKLJm6uIQxs6qrmHZPlBWb8A/YK44W7thpWJg=;
+        b=ZRCXrMqFdZ7fndGk/Yub8u9GUjWc9CA1R3AeAnyJMxPXWMIfYTeWPrQl8ttX4Ku8vZ
+         TFu9B8n6PfC8dI5MTDL5tZLzNHh+QFWrMsavLe80hXDVXzvVXFbSJDOvZM2ZLBrgoQQu
+         r/zxqro5PZvvtIyXoKVQx5Hs1fFaO+2v+lD5kHulpWkhOiu+zrgRtqrZu3ptulkc7KZI
+         FdGAf2BLVG61POglty7PTolygNFjJItcD3kRKtHI6bXgxK+GG01sAe2UBbMKQkrDfQfD
+         0WxSw0wHVS2Rz5FHUpzm9eMWYSlAJ8kwgrUfmLweHcsGcmu2c9JTozRy2twe8L45wjMl
+         B+Fg==
+X-Gm-Message-State: AOJu0YwdHdmLS8zG+njcRl596newYIZYIhWal2zTG6zkY8H4Elabs8Fd
+	EiqqF1Fg1OW2YYXmRNPOUWo=
+X-Google-Smtp-Source: AGHT+IFcqzFt/WzR0tUdIWAOMjVgkWSBdToB/3XihxPZP5cmyTOr+ZsfKHhhDnE69wepr3vSv8v/Hg==
+X-Received: by 2002:a17:906:cc52:b0:9a2:139:f466 with SMTP id mm18-20020a170906cc5200b009a20139f466mr12104379ejb.13.1693335294289;
+        Tue, 29 Aug 2023 11:54:54 -0700 (PDT)
+Received: from nam-dell (ip-217-105-46-58.ip.prioritytelecom.net. [217.105.46.58])
+        by smtp.gmail.com with ESMTPSA id kb12-20020a1709070f8c00b0099297782aa9sm6195916ejc.49.2023.08.29.11.54.53
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 29 Aug 2023 11:25:13 -0700 (PDT)
+        Tue, 29 Aug 2023 11:54:53 -0700 (PDT)
+Date: Tue, 29 Aug 2023 20:54:52 +0200
 From: Nam Cao <namcaov@gmail.com>
-To: Paul Walmsley <paul.walmsley@sifive.com>,
+To: =?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@kernel.org>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: guoren@kernel.org,
-	Nam Cao <namcaov@gmail.com>,
-	stable@vger.kernel.org
-Subject: [PATCH] riscv: kprobes: allow writing to x0
-Date: Tue, 29 Aug 2023 20:25:00 +0200
-Message-Id: <20230829182500.61875-1-namcaov@gmail.com>
-X-Mailer: git-send-email 2.34.1
+	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, guoren@kernel.org
+Subject: Re: [PATCH] riscv: provide riscv-specific is_trap_insn()
+Message-ID: <ZO4+/P9B29Bpb0Yz@nam-dell>
+References: <20230827205641.46836-1-namcaov@gmail.com>
+ <874jkjl4e1.fsf@all.your.base.are.belong.to.us>
+ <ZOyhozSq3S36eRSq@nam-dell>
+ <ZOymDqhE9STgx4Mm@nam-dell>
+ <87edjmz864.fsf@all.your.base.are.belong.to.us>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <87edjmz864.fsf@all.your.base.are.belong.to.us>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230829_112516_736676_9E638881 
-X-CRM114-Status: GOOD (  11.07  )
+X-CRM114-CacheID: sfid-20230829_115456_675929_F33E7973 
+X-CRM114-Status: GOOD (  28.60  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,40 +93,81 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Instructions can write to x0, so we should simulate these instructions
-normally.
+On Tue, Aug 29, 2023 at 08:14:59AM +0200, Bj=F6rn T=F6pel wrote:
+> Nam Cao <namcaov@gmail.com> writes:
+> =
 
-Currently, the kernel hangs if an instruction who writes to x0 is
-simulated.
+> > On Mon, Aug 28, 2023 at 03:31:15PM +0200, Nam Cao wrote:
+> >> On Mon, Aug 28, 2023 at 02:48:06PM +0200, Bj=F6rn T=F6pel wrote:
+> >> > Nam Cao <namcaov@gmail.com> writes:
+> >> > =
 
-Fixes: c22b0bcb1dd0 ("riscv: Add kprobes supported")
-Cc: stable@vger.kernel.org
-Signed-off-by: Nam Cao <namcaov@gmail.com>
----
- arch/riscv/kernel/probes/simulate-insn.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+> >> > > uprobes expects is_trap_insn() to return true for any trap instruc=
+tions,
+> >> > > not just the one used for installing uprobe. The current default
+> >> > > implementation only returns true for 16-bit c.ebreak if C extensio=
+n is
+> >> > > enabled. This can confuse uprobes if a 32-bit ebreak generates a t=
+rap
+> >> > > exception from userspace: uprobes asks is_trap_insn() who says the=
+re is no
+> >> > > trap, so uprobes assume a probe was there before but has been remo=
+ved, and
+> >> > > return to the trap instruction. This cause an infinite loop of ent=
+ering
+> >> > > and exiting trap handler.
+> >> > >
+> >> > > Instead of using the default implementation, implement this functi=
+on
+> >> > > speficially for riscv which checks for both ebreak and c.ebreak.
+> >> > =
 
-diff --git a/arch/riscv/kernel/probes/simulate-insn.c b/arch/riscv/kernel/probes/simulate-insn.c
-index d3099d67816d..6c166029079c 100644
---- a/arch/riscv/kernel/probes/simulate-insn.c
-+++ b/arch/riscv/kernel/probes/simulate-insn.c
-@@ -24,7 +24,7 @@ static inline bool rv_insn_reg_set_val(struct pt_regs *regs, u32 index,
- 				       unsigned long val)
- {
- 	if (index == 0)
--		return false;
-+		return true;
- 	else if (index <= 31)
- 		*((unsigned long *)regs + index) = val;
- 	else
--- 
-2.34.1
+> >> > I took this for a spin, and it indeed fixes this new hang! Nice!
+> >> =
 
+> >> Great! Thanks for testing it.
+> >>  =
+
+> >> > However, when I tried setting an uprobe on the ebreak instruction
+> >> > (offset 0x118) from your example [1], the probe does not show up in =
+the
+> >> > trace buffer.
+> >> > =
+
+> >> > Any ideas?
+> >> =
+
+> >> >From my understanding, both uprobes and kprobes refuse to install bre=
+ak points
+> >> into existing trap instructions. Otherwise, we may conflict with somet=
+hing else
+> >> that is also using trap instructions.
+> >
+> > I just realize you probably ask this because uprobe can still be instal=
+led before
+> > applying the patch. But I think that is another bug that my patch also
+> > accidentally fix: uprobes should not install breakpoint into ebreak ins=
+tructions,
+> > but it incorrectly does so because it does not even know about the exis=
+tence of
+> > 32-bit ebreak.
+> =
+
+> FWIW, I can still install the uprobe at an ebreak with you patch. It's
+> not hit, but succeeds to install.
+
+It seems uprobes install failures are completely silent (see uprobe_mmap() =
+in
+kernel/events/uprobes.c). So I think although uprobes install seems fine, it
+actually is not.
+
+Best regards,
+Nam
 
 _______________________________________________
 linux-riscv mailing list
