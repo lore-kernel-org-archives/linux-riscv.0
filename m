@@ -4,90 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFA44C6FA8F
-	for <linux-riscv@archiver.kernel.org>; Tue, 29 Aug 2023 10:07:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9824AC83F14
+	for <linux-riscv@archiver.kernel.org>; Tue, 29 Aug 2023 11:08:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BpasuxTTJ5ermorfg3Z7pvTUO3MVSoKjKrW6f+avxSE=; b=PaIVvx6DR2+xP5
-	a/hSWw/LXDSoozA1pDpEAOknv0gtUqcIcql6+w2gI/TT7euhrJvRGrVQ/FXQLLhJc36BmWS4iUnZY
-	fKs184rZbcaltYy2g+SX6ZKimZZGN+cibYiO161WG0Ql/QX+lYz6boDDv6I/z1SLFfV9EjuAlU4st
-	02zCK2bb8pHabdeEXsxljyCw3wg5OR44v3P1Zfqss+63D0qPoebQ+5UiqdL4CtVCZszzBz8S3z+dA
-	xRdKwVjw2fop8W9gWAimAaXHamYol7388RLhOZ/4ow8z9WEhaF1VIdcHky0Z1JXK/f+FfLi2zKrYh
-	0dsb+NSrUtdbyBFd3A4Q==;
+	List-Owner; bh=O8m41N0U88GJZhv0gq7jG2Jlo5hSUwYQ8Jz6nnbQ3T4=; b=LRaRNl/wo5ZiXW
+	ZEcBoJWCaI3SdKnD8xWKZpzQ+NziExUuWW4WAZoZKE6V1A25MCU5a2GeBT8FlD0GC2GTvNhdk3f/Q
+	R6Qg4WVUzDpU9qdbmyDPsCJLYv7WX1u33S8EOr7SIlyUf4mPCApRZcx8V7o1pllttnO2/LGYs1Vlu
+	N1cCgRI9ci6bsChgJEcDbyz7Ox6VmekConndYZiwU6e7RqesGcYb6wBqI2voFyW1zAv2Bt56rs/SP
+	jLP/0KAAn0iamMySXQbUWZz5K8ym1CMyqFaC03r87Mm6s6e6zjq+kJ7OQ4OrdmPmAo/UuBrglH7/3
+	FTWJ6vg7VIs1vEFugymw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qavdX-00BC7S-3A;
-	Tue, 29 Aug 2023 10:07:51 +0000
-Received: from mail-lf1-x12c.google.com ([2a00:1450:4864:20::12c])
+	id 1qawaA-00BNoO-0i;
+	Tue, 29 Aug 2023 11:08:26 +0000
+Received: from mail-ej1-x630.google.com ([2a00:1450:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qavdT-00BC6S-0u;
-	Tue, 29 Aug 2023 10:07:49 +0000
-Received: by mail-lf1-x12c.google.com with SMTP id 2adb3069b0e04-50087d47d4dso6731894e87.1;
-        Tue, 29 Aug 2023 03:07:44 -0700 (PDT)
+	id 1qawa7-00BNlR-03
+	for linux-riscv@lists.infradead.org;
+	Tue, 29 Aug 2023 11:08:25 +0000
+Received: by mail-ej1-x630.google.com with SMTP id a640c23a62f3a-99c1f6f3884so529381766b.0
+        for <linux-riscv@lists.infradead.org>; Tue, 29 Aug 2023 04:08:16 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20221208; t=1693303663; x=1693908463;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=PUO8ZKe4asdNNkAbjODhObm1EaJSD75MY7fL8XiIQlM=;
-        b=UStHduqVZjCt1IRzNYpf4id7zB8Nxc0PMoKslNJUJG8Lzp/8RwGSmh0RuDwl0fEY/H
-         H2Nd/5edMVBNgpeYj1tuKPIZaGWc3UMdwKndyr25D/Rjed7iEQuqaxuiHxHKnHKrv1nO
-         nOHnqmei37rL3ua5azQHuqxKxl1y0Qa8z/Ws53GG9dPDZo/mXyyqgGGJosvx9YwRuCwv
-         fofFnnaq9sF+QBvO64v8QLCwDBq6vSAVRkwEleDieM2aoM99dQhotk52LBlWaW+09u3r
-         3NiYF+q11Vi1f9c1yOgGRJestRAzMYJBOWsBPwKHrtxYnx+3DKBv3nDRh9yEVRENmG/6
-         BmZQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1693303663; x=1693908463;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+        d=brainfault-org.20221208.gappssmtp.com; s=20221208; t=1693307296; x=1693912096;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=PUO8ZKe4asdNNkAbjODhObm1EaJSD75MY7fL8XiIQlM=;
-        b=CVfj6Isso6xQWgiiqJ3mbaiu5+nh31DlAXl8YNrfEwhB1qV8zDvT2tyK7TG0ppa9fO
-         RcXfNJpGcLED2LDkNY6OYLCKcNy/o3el/0X2Bgb1J6fU61fNOApHVscOE3s0bXPuIWws
-         k8TgoNCNzophrIkizEvtko+4Le/IoczlsoLp2HhhDyw28Ydph3hqzv44FVhf9fgVaHAg
-         KGwv46urhS+/Lw1PQhOmCgaEt5UkMF4bHVvTwD7TvsNHaU8RSkuI8L1SIDV42schDV38
-         +zhz+yOgMH4ixoKh8h+MD0KMuauBDfKBer3poJlYtx/73B3f4bplIVUX/Hl1ZALdxRWh
-         nyBw==
-X-Gm-Message-State: AOJu0YxM+FqBVBBwnX5LS7AVTxp9+B0EWPB/JLPI86rdFCvE+KNxyTqU
-	xW/Oa9/8U15XQGZPCG4AhRk=
-X-Google-Smtp-Source: AGHT+IFCV8hQr33CRd1SeJc9+16BSG/IM8sTnec6IPRhatINBzWHD2CYQjRk8SLo15VwVsWVSkza9w==
-X-Received: by 2002:a2e:9bcc:0:b0:2bc:f5a0:cc27 with SMTP id w12-20020a2e9bcc000000b002bcf5a0cc27mr7393351ljj.47.1693303662918;
-        Tue, 29 Aug 2023 03:07:42 -0700 (PDT)
-Received: from mobilestation ([178.176.56.174])
-        by smtp.gmail.com with ESMTPSA id v26-20020a2e925a000000b002b6cb25e3f1sm2043041ljg.108.2023.08.29.03.07.41
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 29 Aug 2023 03:07:42 -0700 (PDT)
-Date: Tue, 29 Aug 2023 13:07:39 +0300
-From: Serge Semin <fancer.lancer@gmail.com>
-To: Jisheng Zhang <jszhang@kernel.org>
-Cc: Emil Renner Berthing <kernel@esmil.dk>, 
-	"David S . Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Giuseppe Cavallaro <peppe.cavallaro@st.com>, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, Jose Abreu <joabreu@synopsys.com>, Maxime@web.codeaurora.org, 
-	Coquelin@web.codeaurora.org, Simon Horman <simon.horman@corigine.com>, netdev@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, 
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH net-next v2 3/3] net: stmmac: add glue layer for T-HEAD
- TH1520 SoC
-Message-ID: <4fhck6gnoenwuvlzxky433c4lj3enc7kwgko77stzrgllgm2lr@5cnhz57twx42>
-References: <20230827091710.1483-1-jszhang@kernel.org>
- <20230827091710.1483-4-jszhang@kernel.org>
- <maj7mkdtkhp3z7xzcwvopnup3lhm5h5wyxz3j2ljryjbwpwilx@xdizgwctqukn>
- <ZOzAO5xhWdGcBXD1@xhacker>
- <logkjnuiq2jgrphv4y7bqy523zsj6pskafwzpfdg6grvk5m7jk@hgucfu4e6azo>
- <ZO1jWUa7xgZuHdRH@xhacker>
+        bh=lrkTstjTEiNNJCQmVu1d/FovCHkCZm8dZOPspkYI3AQ=;
+        b=aGPdKZuY5NEJf+wG7N0dW1CJh5Gf/hgW5VTsJ7WTzCKsDAC4/aGS5ZxZ74acnjuN3b
+         P2wxkEvPv6U0jUxuBbv1WBGbhoGJGc0OaxgegbN4gz0DcMfefmllyA0FG1BztxcKTYC6
+         FxSwweAagOMweDERcV7pVJsNi9VEfTEOYSZJAK6uUiF/v/55Y0z8e/awq38FLF51zMfk
+         GcMG9OOSX4nxKn7NHOjrdkk+lLxMHqboYqu8jPT/to9vH7xBXiLpOUtBNBhN6B2qv5FE
+         Gi2EYBffcP54J7JLd9sVhrukdMpBegU64aN+rMLeXUWJbCNzLgSp5fmlLOaYALK5/FcM
+         CMSw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1693307296; x=1693912096;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=lrkTstjTEiNNJCQmVu1d/FovCHkCZm8dZOPspkYI3AQ=;
+        b=kv0K8lf0KLWdWfrE4PRY3py4POBBMc54c7pNCpL+bFSEBQEjCprfkFbBpyo6c6JrKh
+         ci8yONGfP4eVbx09HlkENBVSjaONMPHINgZeqAip3ddygt8CJ6j9W5YELuZZ8WqDspmY
+         gfGaD7zjTNlDFqU+10RUQBdC0fU9WZgFXIg2V0qHyyGQDjELsanZt6jIhTQsBNaFeZpr
+         ODci5xcEpyPu4tkrfQqIHUmPqDcfokFle2J57REOMV88W66KvKNnekRQRApjjIUbhJnP
+         dPSf5hel1M2REvm/Pgy3pYsM5JFqx80iYVLWCNZI2ITW4Ee/VcCwI0sWmcA/3xkk1gly
+         iAQg==
+X-Gm-Message-State: AOJu0YzjrS0jmB/RfqoIFyp9YIDukToMMsKPxdPQwrF+Iuohy3Ht1HAa
+	5UnbcDj3rKmQhSYPl9X0Z4mRBGRtdV7utD0/cYngKg==
+X-Google-Smtp-Source: AGHT+IG3A8cAB8JJ6IN+iWxSguNpowm0V0ics5K4fy5pDOF1Oup3H1x4LGxDiLXG0L4JABWAG2T/pMwv7Kd3RLs5qxs=
+X-Received: by 2002:a17:907:2cc8:b0:9a5:c9a4:ba1a with SMTP id
+ hg8-20020a1709072cc800b009a5c9a4ba1amr1224893ejc.59.1693307295498; Tue, 29
+ Aug 2023 04:08:15 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <ZO1jWUa7xgZuHdRH@xhacker>
+References: <20230806024715.3061589-1-xiao.w.wang@intel.com>
+In-Reply-To: <20230806024715.3061589-1-xiao.w.wang@intel.com>
+From: Anup Patel <anup@brainfault.org>
+Date: Tue, 29 Aug 2023 16:38:03 +0530
+Message-ID: <CAAhSdy2_djw2JX+8tmF2V190+x9KLvt7u8rCX-TaGCKQrUVOYQ@mail.gmail.com>
+Subject: Re: [PATCH] RISC-V: Optimize bitops with Zbb extension
+To: Xiao Wang <xiao.w.wang@intel.com>
+Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
+	ardb@kernel.org, haicheng.li@intel.com, linux-riscv@lists.infradead.org, 
+	linux-efi@vger.kernel.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230829_030747_328320_E2A2E597 
-X-CRM114-Status: GOOD (  48.08  )
+X-CRM114-CacheID: sfid-20230829_040823_278643_447CA58A 
+X-CRM114-Status: GOOD (  28.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,349 +84,204 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 29, 2023 at 11:17:45AM +0800, Jisheng Zhang wrote:
-> On Mon, Aug 28, 2023 at 08:30:50PM +0300, Serge Semin wrote:
-> > On Mon, Aug 28, 2023 at 11:41:47PM +0800, Jisheng Zhang wrote:
-> > > On Mon, Aug 28, 2023 at 04:40:19PM +0300, Serge Semin wrote:
-> > > > On Sun, Aug 27, 2023 at 05:17:10PM +0800, Jisheng Zhang wrote:
-> > > > > Add dwmac glue driver to support the dwmac on the T-HEAD TH1520 SoC.
-> > > > > 
-> > > > > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> > > > > ---
-> > > > >  drivers/net/ethernet/stmicro/stmmac/Kconfig   |  11 +
-> > > > >  drivers/net/ethernet/stmicro/stmmac/Makefile  |   1 +
-> > > > >  .../net/ethernet/stmicro/stmmac/dwmac-thead.c | 302 ++++++++++++++++++
-> > > > >  3 files changed, 314 insertions(+)
-> > > > >  create mode 100644 drivers/net/ethernet/stmicro/stmmac/dwmac-thead.c
-> > > > > 
-> > > > > diff --git a/drivers/net/ethernet/stmicro/stmmac/Kconfig b/drivers/net/ethernet/stmicro/stmmac/Kconfig
-> > > > > index 06c6871f8788..1bf71804c270 100644
-> > > > > --- a/drivers/net/ethernet/stmicro/stmmac/Kconfig
-> > > > > +++ b/drivers/net/ethernet/stmicro/stmmac/Kconfig
-> > > > > @@ -216,6 +216,17 @@ config DWMAC_SUN8I
-> > > > >  	  stmmac device driver. This driver is used for H3/A83T/A64
-> > > > >  	  EMAC ethernet controller.
-> > > > >  
-> > > > > +config DWMAC_THEAD
-> > > > > +	tristate "T-HEAD dwmac support"
-> > > > > +	depends on OF && (ARCH_THEAD || COMPILE_TEST)
-> > > > > +	select MFD_SYSCON
-> > > > > +	help
-> > > > > +	  Support for ethernet controllers on T-HEAD RISC-V SoCs
-> > > > > +
-> > > > > +	  This selects the T-HEAD platform specific glue layer support for
-> > > > > +	  the stmmac device driver. This driver is used for T-HEAD TH1520
-> > > > > +	  ethernet controller.
-> > > > > +
-> > > > >  config DWMAC_IMX8
-> > > > >  	tristate "NXP IMX8 DWMAC support"
-> > > > >  	default ARCH_MXC
-> > > > > diff --git a/drivers/net/ethernet/stmicro/stmmac/Makefile b/drivers/net/ethernet/stmicro/stmmac/Makefile
-> > > > > index 5b57aee19267..d73171ed6ad7 100644
-> > > > > --- a/drivers/net/ethernet/stmicro/stmmac/Makefile
-> > > > > +++ b/drivers/net/ethernet/stmicro/stmmac/Makefile
-> > > > > @@ -27,6 +27,7 @@ obj-$(CONFIG_DWMAC_STI)		+= dwmac-sti.o
-> > > > >  obj-$(CONFIG_DWMAC_STM32)	+= dwmac-stm32.o
-> > > > >  obj-$(CONFIG_DWMAC_SUNXI)	+= dwmac-sunxi.o
-> > > > >  obj-$(CONFIG_DWMAC_SUN8I)	+= dwmac-sun8i.o
-> > > > > +obj-$(CONFIG_DWMAC_THEAD)	+= dwmac-thead.o
-> > > > >  obj-$(CONFIG_DWMAC_DWC_QOS_ETH)	+= dwmac-dwc-qos-eth.o
-> > > > >  obj-$(CONFIG_DWMAC_INTEL_PLAT)	+= dwmac-intel-plat.o
-> > > > >  obj-$(CONFIG_DWMAC_GENERIC)	+= dwmac-generic.o
-> > > > > diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-thead.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-thead.c
-> > > > > new file mode 100644
-> > > > > index 000000000000..85135ef05906
-> > > > > --- /dev/null
-> > > > > +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-thead.c
-> > > > > @@ -0,0 +1,302 @@
-> > > > > +// SPDX-License-Identifier: GPL-2.0
-> > > > > +/*
-> > > > > + * T-HEAD DWMAC platform driver
-> > > > > + *
-> > > > > + * Copyright (C) 2021 Alibaba Group Holding Limited.
-> > > > > + * Copyright (C) 2023 Jisheng Zhang <jszhang@kernel.org>
-> > > > > + *
-> > > > > + */
-> > > > > +
-> > > > > +#include <linux/bitfield.h>
-> > > > > +#include <linux/mfd/syscon.h>
-> > > > > +#include <linux/module.h>
-> > > > > +#include <linux/of.h>
-> > > > > +#include <linux/of_device.h>
-> > > > > +#include <linux/of_net.h>
-> > > > > +#include <linux/platform_device.h>
-> > > > > +#include <linux/regmap.h>
-> > > > > +
-> > > > > +#include "stmmac_platform.h"
-> > > > > +
-> > > > > +#define GMAC_CLK_EN			0x00
-> > > > > +#define  GMAC_TX_CLK_EN			BIT(1)
-> > > > > +#define  GMAC_TX_CLK_N_EN		BIT(2)
-> > > > > +#define  GMAC_TX_CLK_OUT_EN		BIT(3)
-> > > > > +#define  GMAC_RX_CLK_EN			BIT(4)
-> > > > > +#define  GMAC_RX_CLK_N_EN		BIT(5)
-> > > > > +#define  GMAC_EPHY_REF_CLK_EN		BIT(6)
-> > > > > +#define GMAC_RXCLK_DELAY_CTRL		0x04
-> > > > > +#define  GMAC_RXCLK_BYPASS		BIT(15)
-> > > > > +#define  GMAC_RXCLK_INVERT		BIT(14)
-> > > > > +#define  GMAC_RXCLK_DELAY_MASK		GENMASK(4, 0)
-> > > > > +#define  GMAC_RXCLK_DELAY_VAL(x)	FIELD_PREP(GMAC_RXCLK_DELAY_MASK, (x))
-> > > > > +#define GMAC_TXCLK_DELAY_CTRL		0x08
-> > > > > +#define  GMAC_TXCLK_BYPASS		BIT(15)
-> > > > > +#define  GMAC_TXCLK_INVERT		BIT(14)
-> > > > > +#define  GMAC_TXCLK_DELAY_MASK		GENMASK(4, 0)
-> > > > > +#define  GMAC_TXCLK_DELAY_VAL(x)	FIELD_PREP(GMAC_RXCLK_DELAY_MASK, (x))
-> > > > > +#define GMAC_PLLCLK_DIV			0x0c
-> > > > > +#define  GMAC_PLLCLK_DIV_EN		BIT(31)
-> > > > > +#define  GMAC_PLLCLK_DIV_MASK		GENMASK(7, 0)
-> > > > > +#define  GMAC_PLLCLK_DIV_NUM(x)		FIELD_PREP(GMAC_PLLCLK_DIV_MASK, (x))
-> > > > > +#define GMAC_GTXCLK_SEL			0x18
-> > > > > +#define  GMAC_GTXCLK_SEL_PLL		BIT(0)
-> > > > > +#define GMAC_INTF_CTRL			0x1c
-> > > > > +#define  PHY_INTF_MASK			BIT(0)
-> > > > > +#define  PHY_INTF_RGMII			FIELD_PREP(PHY_INTF_MASK, 1)
-> > > > > +#define  PHY_INTF_MII_GMII		FIELD_PREP(PHY_INTF_MASK, 0)
-> > > > > +#define GMAC_TXCLK_OEN			0x20
-> > > > > +#define  TXCLK_DIR_MASK			BIT(0)
-> > > > > +#define  TXCLK_DIR_OUTPUT		FIELD_PREP(TXCLK_DIR_MASK, 0)
-> > > > > +#define  TXCLK_DIR_INPUT		FIELD_PREP(TXCLK_DIR_MASK, 1)
-> > > > > +
-> > > > > +#define GMAC_GMII_RGMII_RATE	125000000
-> > > > > +#define GMAC_MII_RATE		25000000
-> > > > > +
-> > > > > +struct thead_dwmac {
-> > > > > +	struct plat_stmmacenet_data *plat;
-> > > > > +	struct regmap *apb_regmap;
-> > > > > +	struct device *dev;
-> > > > > +	u32 rx_delay;
-> > > > > +	u32 tx_delay;
-> > > > > +};
-> > > > > +
-> > > > > +static int thead_dwmac_set_phy_if(struct plat_stmmacenet_data *plat)
-> > > > > +{
-> > > > > +	struct thead_dwmac *dwmac = plat->bsp_priv;
-> > > > > +	u32 phyif;
-> > > > > +
-> > > > > +	switch (plat->interface) {
-> > > > > +	case PHY_INTERFACE_MODE_MII:
-> > > > > +		phyif = PHY_INTF_MII_GMII;
-> > > > > +		break;
-> > > > > +	case PHY_INTERFACE_MODE_RGMII:
-> > > > > +	case PHY_INTERFACE_MODE_RGMII_ID:
-> > > > > +	case PHY_INTERFACE_MODE_RGMII_TXID:
-> > > > > +	case PHY_INTERFACE_MODE_RGMII_RXID:
-> > > > > +		phyif = PHY_INTF_RGMII;
-> > > > > +		break;
-> > > > > +	default:
-> > > > > +		dev_err(dwmac->dev, "unsupported phy interface %d\n",
-> > > > > +			plat->interface);
-> > > > > +		return -EINVAL;
-> > > > > +	};
-> > > > > +
-> > > > > +	regmap_write(dwmac->apb_regmap, GMAC_INTF_CTRL, phyif);
-> > > > > +
-> > > > > +	return 0;
-> > > > > +}
-> > > > > +
-> > > > > +static int thead_dwmac_set_txclk_dir(struct plat_stmmacenet_data *plat)
-> > > > > +{
-> > > > > +	struct thead_dwmac *dwmac = plat->bsp_priv;
-> > > > > +	u32 txclk_dir;
-> > > > > +
-> > > > > +	switch (plat->interface) {
-> > > > > +	case PHY_INTERFACE_MODE_MII:
-> > > > > +		txclk_dir = TXCLK_DIR_INPUT;
-> > > > > +		break;
-> > > > > +	case PHY_INTERFACE_MODE_RGMII:
-> > > > > +	case PHY_INTERFACE_MODE_RGMII_ID:
-> > > > > +	case PHY_INTERFACE_MODE_RGMII_TXID:
-> > > > > +	case PHY_INTERFACE_MODE_RGMII_RXID:
-> > > > > +		txclk_dir = TXCLK_DIR_OUTPUT;
-> > > > > +		break;
-> > > > > +	default:
-> > > > > +		dev_err(dwmac->dev, "unsupported phy interface %d\n",
-> > > > > +			plat->interface);
-> > > > > +		return -EINVAL;
-> > > > > +	};
-> > > > > +
-> > > > > +	regmap_write(dwmac->apb_regmap, GMAC_TXCLK_OEN, txclk_dir);
-> > > > > +
-> > > > > +	return 0;
-> > > > > +}
-> > > > > +
-> > > > > +static void thead_dwmac_fix_speed(void *priv, unsigned int speed, unsigned int mode)
-> > > > > +{
-> > > > > +	struct thead_dwmac *dwmac = priv;
-> > > > > +	struct plat_stmmacenet_data *plat = dwmac->plat;
-> > > > > +	unsigned long rate;
-> > > > > +	u32 div;
-> > > > > +
-> > > > > +	switch (plat->interface) {
-> > > > > +	/* For MII, rxc/txc is provided by phy */
-> > > > > +	case PHY_INTERFACE_MODE_MII:
-> > > > > +		return;
-> > > > > +
-> > > > > +	case PHY_INTERFACE_MODE_RGMII:
-> > > > > +	case PHY_INTERFACE_MODE_RGMII_ID:
-> > > > > +	case PHY_INTERFACE_MODE_RGMII_RXID:
-> > > > > +	case PHY_INTERFACE_MODE_RGMII_TXID:
-> > > > 
-> > > > > +		rate = clk_get_rate(plat->stmmac_clk);
-> > > > > +		if (!rate || rate % GMAC_GMII_RGMII_RATE != 0 ||
-> > > > > +		    rate % GMAC_MII_RATE != 0) {
-> > > > > +			dev_err(dwmac->dev, "invalid gmac rate %ld\n", rate);
-> > > > > +			return;
-> > > > > +		}
-> > > > > +
-> > > > > +		regmap_update_bits(dwmac->apb_regmap, GMAC_PLLCLK_DIV, GMAC_PLLCLK_DIV_EN, 0);
-> > > > > +
-> > > > > +		switch (speed) {
-> > > > > +		case SPEED_1000:
-> > > > > +			div = rate / GMAC_GMII_RGMII_RATE;
-> > > > > +			break;
-> > > > > +		case SPEED_100:
-> > > > > +			div = rate / GMAC_MII_RATE;
-> > > > > +			break;
-> > > > > +		case SPEED_10:
-> > > > > +			div = rate * 10 / GMAC_MII_RATE;
-> > > > > +			break;
-> > > > > +		default:
-> > > > > +			dev_err(dwmac->dev, "invalid speed %u\n", speed);
-> > > > > +			return;
-> > > > > +		}
-> > > > > +		regmap_update_bits(dwmac->apb_regmap, GMAC_PLLCLK_DIV,
-> > > > > +				   GMAC_PLLCLK_DIV_MASK, GMAC_PLLCLK_DIV_NUM(div));
-> > > > > +
-> > > > > +		regmap_update_bits(dwmac->apb_regmap, GMAC_PLLCLK_DIV,
-> > > > > +				   GMAC_PLLCLK_DIV_EN, GMAC_PLLCLK_DIV_EN);
-> > > > 
-> > > > This chunk looks like a hard-coded implementation of the
-> > > > CLK_SET_RATE_GATE Tx-clocks rate setup which parental clock is the
-> > > > "stmmaceth" clock. I suggest to move it to the respective driver, add
-> > > > a "tx" clock to the bindings and use the common clock kernel API
-> > > > methods here only.
-> > > 
-> > > I did consider your solution before writing the code, here are the
-> > > reasons why I dropped it:
-> > > 
-> > 
-> > > There's no any clk IP here, the HW just puts several
-> > > gmac related control bits here, such as rx/tx delay, bypass, invert
-> > > interface choice, clk direction. 
-> > 
-> > You omitted the essential part of your code which I pointed out.
-> > 
-> > > From this point of view, it looks more
-> > > like a syscon rather than clk.
-> > 
-
-> > Toggling control bits is surely the syscon work. But gating a parental
-> > clock, settings up the parental clock _divider_ and ungating the clock
-> > back is the clock controller function. So it means your syscon is just
-> > a normal multi-function device, which one of the function is the clock
-> > controller.
-> > 
-> > It's not like your situation is unique. For instance in case of a SoC
-> > I was working with recently Clock Control Unit (CCU) was actually a
-> > multi-function device which had:
-> > 1. PLLs and Dividers supplying the clocks to the SoC components.
-> 
-> Hi Serge,
-> 
-> This is the big difference between your case and TH1520 gmac.
-
-AFAICS my PCIe-part of the syscon is a similar story as your GMAC
-CSRs: enabled/disable several clock gates, setup a ref-clock divider,
-multiple flags with reset function and multiple flags/fields for the
-PCIe-controller tunings. All of that intermixed in a few registers. A
-similar thing was for the SATA-controller.
-
-> (PS: @Emil, I read your comments in another reply. IIUC, jh7110 puts a
-> real clk IP for gmac tx clock purpose)
-> 
-
-> However, There's no real clk IP in the TH1520 gmac related syscon, yep, div
-> and enable are some what clock related bits, but that's all, no more, no less.
-
-These bits/fields are the clock-controller function of the syscon.
-Based on that your syscon is a multi-functional device which support
-the GMAC tunings and controls a reference clock gating/dividing.  The
-outputs from the clock gate and divider gets to be supplied to the
-TH1520 GMAC.
-
-BTW Seeing you have only 0x20 bytes utilized in the glue driver I
-guess those registers chunk is a part of a bigger CSR space. Is it?
-
-> So even in this case, another abstraction layer via. clk subsystem is still
-> preferred? IOW, a seperate clk driver for the gmac?
-
-That's what I was told in a situation when I was trying to use a
-syscon to switch between the two parental clocks:
-https://lore.kernel.org/linux-ide/20220517201332.GB1462130-robh@kernel.org/
-
-In your case IMO it is more preferred at the very least because it
-gives a more correct device description. Your bindings currently do
-not define the Tx/Rx reference clocks meanwhile the TH1520 GMAC do
-have them.
-
--Serge(y)
-
-> 
-> Thanks
-> > 
-> > 2. SoC components reset controller.
-> > 3. I2C-interface controller.
-> > 4. AXI-bus errors report registers.
-> > 5. PCIe-controller tunings (LTSSM, link up/down, etc)
-> > 6. SATA-controller tunings.
-> > 7. Full SoC reset controller (syscon reboot),
-> > 8. L2-cache tunings controller.
-> > with the sub-functions CSRs joint in a single space. In that case the
-> > PCIe-controller tunings and a lot of its reference clocks settings
-> > were intermixed in a single chunk of the registers. So I had to create
-> > a driver for the clocks anyway including all the PCIe reference
-> > clock and refer to the syscon in the PCIe-controller device node for
-> > the respective PCIe platform-specific tunings.
-> > 
-> > > 
-> > > Secondly, I see other SoCs did similar for this case, such as
-> > > dwmac-visconti, dwmac-meson8b, dwmac-ipq806x, dwmac-socfpga and so on.
-> > > They met similar issue as the above.
-> > 
-> > First I failed to find any clock-related things in the dwmac-socfpga
-> 
-> I believe the ptp ref clk related is just to enable the clk by toggling
-> corresponding bit. Anyway that's not important part here.
-> 
-> > driver looking in anyway as yours. Second the dwmac-meson8b driver
-> > creates a generic clock handler right in the driver. I don't think
-> > it's a great solution but at the very least it registers the clock
-> > handler in the kernel. But seeing the PROG_ETHERNET CSR is of 8 bytes
-> > long there (0xc8834540 0x8) and defined at looking random base address
-> > it's definitely a part of a Meson system controller which just
-> > directly passed to the device driver. It's not correct. That part
-> > should have been at least specified as a syscon too. Third the
-> > dwmac-visconti driver is not a good example seeing it defines some
-> > specific registers way away from the NIC CSR space. It's most likely a
-> > separate device like syscon. Fourth dwmac-ipq806x driver
-> > implementation looks indeed like yours.
-> 
-> > In anyway I don't say your solution is fully wrong. At the very least
-> > you have a syscon node defined. But it just makes you adding
-> > incomplete device/platform bindings. Your network device do have the
-> > Tx reference clock as a part of the separate system controller, but
-> > you have to omit it because of the syscon property. You do have a
-> > syscon node, but don't have its clock function exported. So AFAICS in
-> > your case things can be implemented in a more canonical way than they
-> > are now.
-> > 
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gU3VuLCBBdWcgNiwgMjAyMyBhdCA4OjA54oCvQU0gWGlhbyBXYW5nIDx4aWFvLncud2FuZ0Bp
+bnRlbC5jb20+IHdyb3RlOgo+Cj4gVGhpcyBwYXRjaCBsZXZlcmFnZXMgdGhlIGFsdGVybmF0aXZl
+IG1lY2hhbmlzbSB0byBkeW5hbWljYWxseSBvcHRpbWl6ZQo+IGJpdG9wcyAoaW5jbHVkaW5nIF9f
+ZmZzLCBfX2ZscywgZmZzLCBmbHMpIHdpdGggWmJiIGluc3RydWN0aW9ucy4gV2hlbgo+IFpiYiBl
+eHQgaXMgbm90IHN1cHBvcnRlZCBieSB0aGUgcnVudGltZSBDUFUsIGxlZ2FjeSBpbXBsZW1lbnRh
+dGlvbiBpcwo+IHVzZWQuIElmIFpiYiBpcyBzdXBwb3J0ZWQsIHRoZW4gdGhlIG9wdGltaXplZCB2
+YXJpYW50cyB3aWxsIGJlIHNlbGVjdGVkCj4gdmlhIGFsdGVybmF0aXZlIHBhdGNoaW5nLgo+Cj4g
+VGhlIGxlZ2FjeSBiaXRvcHMgc3VwcG9ydCBpcyB0YWtlbiBmcm9tIHRoZSBnZW5lcmljIEMgaW1w
+bGVtZW50YXRpb24gYXMKPiBmYWxsYmFjay4KPgo+IElmIHRoZSBwYXJhbWV0ZXIgaXMgYSBidWls
+ZC10aW1lIGNvbnN0YW50LCB3ZSBsZXZlcmFnZSBjb21waWxlciBidWlsdGluIHRvCj4gY2FsY3Vs
+YXRlIHRoZSByZXN1bHQgZGlyZWN0bHksIHRoaXMgYXBwcm9hY2ggaXMgaW5zcGlyZWQgYnkgeDg2
+IGJpdG9wcwo+IGltcGxlbWVudGF0aW9uLgo+Cj4gRUZJIHN0dWIgcnVucyBiZWZvcmUgdGhlIGtl
+cm5lbCwgc28gYWx0ZXJuYXRpdmUgbWVjaGFuaXNtIHNob3VsZCBub3QgYmUKPiB1c2VkIHRoZXJl
+LCB0aGlzIHBhdGNoIGludHJvZHVjZXMgYSBtYWNybyBFRklfTk9fQUxURVJOQVRJVkUgZm9yIHRo
+aXMKPiBwdXJwb3NlLgoKSSBhbSBnZXR0aW5nIHRoZSBmb2xsb3dpbmcgY29tcGlsZSBlcnJvciB3
+aXRoIHRoaXMgcGF0Y2g6CgogIEdFTiAgICAgTWFrZWZpbGUKICBVUEQgICAgIGluY2x1ZGUvY29u
+ZmlnL2tlcm5lbC5yZWxlYXNlCiAgVVBEICAgICBpbmNsdWRlL2dlbmVyYXRlZC91dHNyZWxlYXNl
+LmgKICBDQyAgICAgIGtlcm5lbC9ib3VuZHMucwpJbiBmaWxlIGluY2x1ZGVkIGZyb20gL2hvbWUv
+YW51cC9Xb3JrL3Jpc2N2LXRlc3QvbGludXgvaW5jbHVkZS9saW51eC9iaXRtYXAuaDo5LAogICAg
+ICAgICAgICAgICAgIGZyb20KL2hvbWUvYW51cC9Xb3JrL3Jpc2N2LXRlc3QvbGludXgvYXJjaC9y
+aXNjdi9pbmNsdWRlL2FzbS9jcHVmZWF0dXJlLmg6OSwKICAgICAgICAgICAgICAgICBmcm9tCi9o
+b21lL2FudXAvV29yay9yaXNjdi10ZXN0L2xpbnV4L2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vaHdj
+YXAuaDo5MCwKICAgICAgICAgICAgICAgICBmcm9tCi9ob21lL2FudXAvV29yay9yaXNjdi10ZXN0
+L2xpbnV4L2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vYml0b3BzLmg6MjYsCiAgICAgICAgICAgICAg
+ICAgZnJvbQovaG9tZS9hbnVwL1dvcmsvcmlzY3YtdGVzdC9saW51eC9pbmNsdWRlL2xpbnV4L2Jp
+dG9wcy5oOjY4LAogICAgICAgICAgICAgICAgIGZyb20gL2hvbWUvYW51cC9Xb3JrL3Jpc2N2LXRl
+c3QvbGludXgvaW5jbHVkZS9saW51eC9sb2cyLmg6MTIsCiAgICAgICAgICAgICAgICAgZnJvbSAv
+aG9tZS9hbnVwL1dvcmsvcmlzY3YtdGVzdC9saW51eC9rZXJuZWwvYm91bmRzLmM6MTM6Ci9ob21l
+L2FudXAvV29yay9yaXNjdi10ZXN0L2xpbnV4L2luY2x1ZGUvbGludXgvZmluZC5oOiBJbiBmdW5j
+dGlvbgonZmluZF9uZXh0X2JpdCc6Ci9ob21lL2FudXAvV29yay9yaXNjdi10ZXN0L2xpbnV4L2lu
+Y2x1ZGUvbGludXgvZmluZC5oOjY0OjMwOiBlcnJvcjoKaW1wbGljaXQgZGVjbGFyYXRpb24gb2Yg
+ZnVuY3Rpb24gJ19fZmZzJwpbLVdlcnJvcj1pbXBsaWNpdC1mdW5jdGlvbi1kZWNsYXJhdGlvbl0K
+ICAgNjQgfCAgICAgICAgICAgICAgICAgcmV0dXJuIHZhbCA/IF9fZmZzKHZhbCkgOiBzaXplOwoK
+UmVnYXJkcywKQW51cAoKCj4KPiBTaWduZWQtb2ZmLWJ5OiBYaWFvIFdhbmcgPHhpYW8udy53YW5n
+QGludGVsLmNvbT4KPiAtLS0KPiAgYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9iaXRvcHMuaCAgICAg
+ICB8IDI2NiArKysrKysrKysrKysrKysrKysrKysrKysrLQo+ICBkcml2ZXJzL2Zpcm13YXJlL2Vm
+aS9saWJzdHViL01ha2VmaWxlIHwgICAyICstCj4gIDIgZmlsZXMgY2hhbmdlZCwgMjY0IGluc2Vy
+dGlvbnMoKyksIDQgZGVsZXRpb25zKC0pCj4KPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9pbmNs
+dWRlL2FzbS9iaXRvcHMuaCBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vYml0b3BzLmgKPiBpbmRl
+eCAzNTQwYjY5MDk0NGIuLmY3MjdmNjQ4OWNkNSAxMDA2NDQKPiAtLS0gYS9hcmNoL3Jpc2N2L2lu
+Y2x1ZGUvYXNtL2JpdG9wcy5oCj4gKysrIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9iaXRvcHMu
+aAo+IEBAIC0xNSwxMyArMTUsMjczIEBACj4gICNpbmNsdWRlIDxhc20vYmFycmllci5oPgo+ICAj
+aW5jbHVkZSA8YXNtL2JpdHNwZXJsb25nLmg+Cj4KPiArI2lmICFkZWZpbmVkKENPTkZJR19SSVND
+Vl9JU0FfWkJCKSB8fCBkZWZpbmVkKEVGSV9OT19BTFRFUk5BVElWRSkKPiAgI2luY2x1ZGUgPGFz
+bS1nZW5lcmljL2JpdG9wcy9fX2Zmcy5oPgo+IC0jaW5jbHVkZSA8YXNtLWdlbmVyaWMvYml0b3Bz
+L2Zmei5oPgo+IC0jaW5jbHVkZSA8YXNtLWdlbmVyaWMvYml0b3BzL2Zscy5oPgo+ICAjaW5jbHVk
+ZSA8YXNtLWdlbmVyaWMvYml0b3BzL19fZmxzLmg+Cj4gKyNpbmNsdWRlIDxhc20tZ2VuZXJpYy9i
+aXRvcHMvZmZzLmg+Cj4gKyNpbmNsdWRlIDxhc20tZ2VuZXJpYy9iaXRvcHMvZmxzLmg+Cj4gKwo+
+ICsjZWxzZQo+ICsjaW5jbHVkZSA8YXNtL2FsdGVybmF0aXZlLW1hY3Jvcy5oPgo+ICsjaW5jbHVk
+ZSA8YXNtL2h3Y2FwLmg+Cj4gKwo+ICsjaWYgKEJJVFNfUEVSX0xPTkcgPT0gNjQpCj4gKyNkZWZp
+bmUgQ1RaVyAgICJjdHp3ICIKPiArI2RlZmluZSBDTFpXICAgImNsencgIgo+ICsjZWxpZiAoQklU
+U19QRVJfTE9ORyA9PSAzMikKPiArI2RlZmluZSBDVFpXICAgImN0eiAiCj4gKyNkZWZpbmUgQ0xa
+VyAgICJjbHogIgo+ICsjZWxzZQo+ICsjZXJyb3IgIlVuZXhwZWN0ZWQgQklUU19QRVJfTE9ORyIK
+PiArI2VuZGlmCj4gKwo+ICtzdGF0aWMgX19hbHdheXNfaW5saW5lIHVuc2lnbmVkIGxvbmcgdmFy
+aWFibGVfX2Zmcyh1bnNpZ25lZCBsb25nIHdvcmQpCj4gK3sKPiArICAgICAgIGludCBudW07Cj4g
+Kwo+ICsgICAgICAgYXNtX3ZvbGF0aWxlX2dvdG8oCj4gKyAgICAgICAgICAgICAgIEFMVEVSTkFU
+SVZFKCJqICVsW2xlZ2FjeV0iLCAibm9wIiwgMCwgUklTQ1ZfSVNBX0VYVF9aQkIsIDEpCj4gKyAg
+ICAgICAgICAgICAgIDogOiA6IDogbGVnYWN5KTsKPiArCj4gKyAgICAgICBhc20gdm9sYXRpbGUg
+KAo+ICsgICAgICAgICAgICAgICAiLm9wdGlvbiBwdXNoXG4iCj4gKyAgICAgICAgICAgICAgICIu
+b3B0aW9uIGFyY2gsK3piYlxuIgo+ICsgICAgICAgICAgICAgICAiY3R6ICUwLCAlMVxuIgo+ICsg
+ICAgICAgICAgICAgICAiLm9wdGlvbiBwb3BcbiIKPiArICAgICAgICAgICAgICAgOiAiPXIiICh3
+b3JkKSA6ICJyIiAod29yZCkgOik7Cj4gKwo+ICsgICAgICAgcmV0dXJuIHdvcmQ7Cj4gKwo+ICts
+ZWdhY3k6Cj4gKyAgICAgICBudW0gPSAwOwo+ICsjaWYgQklUU19QRVJfTE9ORyA9PSA2NAo+ICsg
+ICAgICAgaWYgKCh3b3JkICYgMHhmZmZmZmZmZikgPT0gMCkgewo+ICsgICAgICAgICAgICAgICBu
+dW0gKz0gMzI7Cj4gKyAgICAgICAgICAgICAgIHdvcmQgPj49IDMyOwo+ICsgICAgICAgfQo+ICsj
+ZW5kaWYKPiArICAgICAgIGlmICgod29yZCAmIDB4ZmZmZikgPT0gMCkgewo+ICsgICAgICAgICAg
+ICAgICBudW0gKz0gMTY7Cj4gKyAgICAgICAgICAgICAgIHdvcmQgPj49IDE2Owo+ICsgICAgICAg
+fQo+ICsgICAgICAgaWYgKCh3b3JkICYgMHhmZikgPT0gMCkgewo+ICsgICAgICAgICAgICAgICBu
+dW0gKz0gODsKPiArICAgICAgICAgICAgICAgd29yZCA+Pj0gODsKPiArICAgICAgIH0KPiArICAg
+ICAgIGlmICgod29yZCAmIDB4ZikgPT0gMCkgewo+ICsgICAgICAgICAgICAgICBudW0gKz0gNDsK
+PiArICAgICAgICAgICAgICAgd29yZCA+Pj0gNDsKPiArICAgICAgIH0KPiArICAgICAgIGlmICgo
+d29yZCAmIDB4MykgPT0gMCkgewo+ICsgICAgICAgICAgICAgICBudW0gKz0gMjsKPiArICAgICAg
+ICAgICAgICAgd29yZCA+Pj0gMjsKPiArICAgICAgIH0KPiArICAgICAgIGlmICgod29yZCAmIDB4
+MSkgPT0gMCkKPiArICAgICAgICAgICAgICAgbnVtICs9IDE7Cj4gKyAgICAgICByZXR1cm4gbnVt
+Owo+ICt9Cj4gKwo+ICsvKioKPiArICogX19mZnMgLSBmaW5kIGZpcnN0IHNldCBiaXQgaW4gYSBs
+b25nIHdvcmQKPiArICogQHdvcmQ6IFRoZSB3b3JkIHRvIHNlYXJjaAo+ICsgKgo+ICsgKiBVbmRl
+ZmluZWQgaWYgbm8gc2V0IGJpdCBleGlzdHMsIHNvIGNvZGUgc2hvdWxkIGNoZWNrIGFnYWluc3Qg
+MCBmaXJzdC4KPiArICovCj4gKyNkZWZpbmUgX19mZnMod29yZCkgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgXAo+ICsgICAgICAgKF9fYnVpbHRpbl9jb25zdGFudF9wKHdvcmQpID8gICAgICAg
+ICAgIFwKPiArICAgICAgICAodW5zaWduZWQgbG9uZylfX2J1aWx0aW5fY3R6bCh3b3JkKSA6ICBc
+Cj4gKyAgICAgICAgdmFyaWFibGVfX2Zmcyh3b3JkKSkKPiArCj4gK3N0YXRpYyBfX2Fsd2F5c19p
+bmxpbmUgdW5zaWduZWQgbG9uZyB2YXJpYWJsZV9fZmxzKHVuc2lnbmVkIGxvbmcgd29yZCkKPiAr
+ewo+ICsgICAgICAgaW50IG51bTsKPiArCj4gKyAgICAgICBhc21fdm9sYXRpbGVfZ290bygKPiAr
+ICAgICAgICAgICAgICAgQUxURVJOQVRJVkUoImogJWxbbGVnYWN5XSIsICJub3AiLCAwLCBSSVND
+Vl9JU0FfRVhUX1pCQiwgMSkKPiArICAgICAgICAgICAgICAgOiA6IDogOiBsZWdhY3kpOwo+ICsK
+PiArICAgICAgIGFzbSB2b2xhdGlsZSAoCj4gKyAgICAgICAgICAgICAgICIub3B0aW9uIHB1c2hc
+biIKPiArICAgICAgICAgICAgICAgIi5vcHRpb24gYXJjaCwremJiXG4iCj4gKyAgICAgICAgICAg
+ICAgICJjbHogJTAsICUxXG4iCj4gKyAgICAgICAgICAgICAgICIub3B0aW9uIHBvcFxuIgo+ICsg
+ICAgICAgICAgICAgICA6ICI9ciIgKHdvcmQpIDogInIiICh3b3JkKSA6KTsKPiArCj4gKyAgICAg
+ICByZXR1cm4gQklUU19QRVJfTE9ORyAtIDEgLSB3b3JkOwo+ICsKPiArbGVnYWN5Ogo+ICsgICAg
+ICAgbnVtID0gQklUU19QRVJfTE9ORyAtIDE7Cj4gKyNpZiBCSVRTX1BFUl9MT05HID09IDY0Cj4g
+KyAgICAgICBpZiAoISh3b3JkICYgKH4wdWwgPDwgMzIpKSkgewo+ICsgICAgICAgICAgICAgICBu
+dW0gLT0gMzI7Cj4gKyAgICAgICAgICAgICAgIHdvcmQgPDw9IDMyOwo+ICsgICAgICAgfQo+ICsj
+ZW5kaWYKPiArICAgICAgIGlmICghKHdvcmQgJiAofjB1bCA8PCAoQklUU19QRVJfTE9ORy0xNikp
+KSkgewo+ICsgICAgICAgICAgICAgICBudW0gLT0gMTY7Cj4gKyAgICAgICAgICAgICAgIHdvcmQg
+PDw9IDE2Owo+ICsgICAgICAgfQo+ICsgICAgICAgaWYgKCEod29yZCAmICh+MHVsIDw8IChCSVRT
+X1BFUl9MT05HLTgpKSkpIHsKPiArICAgICAgICAgICAgICAgbnVtIC09IDg7Cj4gKyAgICAgICAg
+ICAgICAgIHdvcmQgPDw9IDg7Cj4gKyAgICAgICB9Cj4gKyAgICAgICBpZiAoISh3b3JkICYgKH4w
+dWwgPDwgKEJJVFNfUEVSX0xPTkctNCkpKSkgewo+ICsgICAgICAgICAgICAgICBudW0gLT0gNDsK
+PiArICAgICAgICAgICAgICAgd29yZCA8PD0gNDsKPiArICAgICAgIH0KPiArICAgICAgIGlmICgh
+KHdvcmQgJiAofjB1bCA8PCAoQklUU19QRVJfTE9ORy0yKSkpKSB7Cj4gKyAgICAgICAgICAgICAg
+IG51bSAtPSAyOwo+ICsgICAgICAgICAgICAgICB3b3JkIDw8PSAyOwo+ICsgICAgICAgfQo+ICsg
+ICAgICAgaWYgKCEod29yZCAmICh+MHVsIDw8IChCSVRTX1BFUl9MT05HLTEpKSkpCj4gKyAgICAg
+ICAgICAgICAgIG51bSAtPSAxOwo+ICsgICAgICAgcmV0dXJuIG51bTsKPiArfQo+ICsKPiArLyoq
+Cj4gKyAqIF9fZmxzIC0gZmluZCBsYXN0IHNldCBiaXQgaW4gYSBsb25nIHdvcmQKPiArICogQHdv
+cmQ6IHRoZSB3b3JkIHRvIHNlYXJjaAo+ICsgKgo+ICsgKiBVbmRlZmluZWQgaWYgbm8gc2V0IGJp
+dCBleGlzdHMsIHNvIGNvZGUgc2hvdWxkIGNoZWNrIGFnYWluc3QgMCBmaXJzdC4KPiArICovCj4g
+KyNkZWZpbmUgX19mbHMod29yZCkgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgXAo+ICsgICAgICAgKF9fYnVpbHRpbl9jb25zdGFudF9wKHdvcmQpID8g
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFwKPiArICAgICAgICAodW5zaWduZWQg
+bG9uZykoQklUU19QRVJfTE9ORyAtIDEgLSBfX2J1aWx0aW5fY2x6bCh3b3JkKSkgOiAgICBcCj4g
+KyAgICAgICAgdmFyaWFibGVfX2Zscyh3b3JkKSkKPiArCj4gK3N0YXRpYyBfX2Fsd2F5c19pbmxp
+bmUgaW50IHZhcmlhYmxlX2ZmcyhpbnQgeCkKPiArewo+ICsgICAgICAgaW50IHI7Cj4gKwo+ICsg
+ICAgICAgYXNtX3ZvbGF0aWxlX2dvdG8oCj4gKyAgICAgICAgICAgICAgIEFMVEVSTkFUSVZFKCJq
+ICVsW2xlZ2FjeV0iLCAibm9wIiwgMCwgUklTQ1ZfSVNBX0VYVF9aQkIsIDEpCj4gKyAgICAgICAg
+ICAgICAgIDogOiA6IDogbGVnYWN5KTsKPiArCj4gKyAgICAgICBhc20gdm9sYXRpbGUgKAo+ICsg
+ICAgICAgICAgICAgICAiLm9wdGlvbiBwdXNoXG4iCj4gKyAgICAgICAgICAgICAgICIub3B0aW9u
+IGFyY2gsK3piYlxuIgo+ICsgICAgICAgICAgICAgICAiYm5leiAlMSwgMWZcbiIKPiArICAgICAg
+ICAgICAgICAgImxpICUwLCAwXG4iCj4gKyAgICAgICAgICAgICAgICJqIDJmXG4iCj4gKyAgICAg
+ICAgICAgICAgICIxOlxuIgo+ICsgICAgICAgICAgICAgICBDVFpXICIlMCwgJTFcbiIKPiArICAg
+ICAgICAgICAgICAgImFkZGkgJTAsICUwLCAxXG4iCj4gKyAgICAgICAgICAgICAgICIyOlxuIgo+
+ICsgICAgICAgICAgICAgICAiLm9wdGlvbiBwb3BcbiIKPiArICAgICAgICAgICAgICAgOiAiPXIi
+IChyKSA6ICJyIiAoeCkgOik7Cj4gKwo+ICsgICAgICAgcmV0dXJuIHI7Cj4gKwo+ICtsZWdhY3k6
+Cj4gKyAgICAgICByID0gMTsKPiArICAgICAgIGlmICgheCkKPiArICAgICAgICAgICAgICAgcmV0
+dXJuIDA7Cj4gKyAgICAgICBpZiAoISh4ICYgMHhmZmZmKSkgewo+ICsgICAgICAgICAgICAgICB4
+ID4+PSAxNjsKPiArICAgICAgICAgICAgICAgciArPSAxNjsKPiArICAgICAgIH0KPiArICAgICAg
+IGlmICghKHggJiAweGZmKSkgewo+ICsgICAgICAgICAgICAgICB4ID4+PSA4Owo+ICsgICAgICAg
+ICAgICAgICByICs9IDg7Cj4gKyAgICAgICB9Cj4gKyAgICAgICBpZiAoISh4ICYgMHhmKSkgewo+
+ICsgICAgICAgICAgICAgICB4ID4+PSA0Owo+ICsgICAgICAgICAgICAgICByICs9IDQ7Cj4gKyAg
+ICAgICB9Cj4gKyAgICAgICBpZiAoISh4ICYgMykpIHsKPiArICAgICAgICAgICAgICAgeCA+Pj0g
+MjsKPiArICAgICAgICAgICAgICAgciArPSAyOwo+ICsgICAgICAgfQo+ICsgICAgICAgaWYgKCEo
+eCAmIDEpKSB7Cj4gKyAgICAgICAgICAgICAgIHggPj49IDE7Cj4gKyAgICAgICAgICAgICAgIHIg
+Kz0gMTsKPiArICAgICAgIH0KPiArICAgICAgIHJldHVybiByOwo+ICt9Cj4gKwo+ICsvKioKPiAr
+ICogZmZzIC0gZmluZCBmaXJzdCBzZXQgYml0IGluIGEgd29yZAo+ICsgKiBAeDogdGhlIHdvcmQg
+dG8gc2VhcmNoCj4gKyAqCj4gKyAqIFRoaXMgaXMgZGVmaW5lZCB0aGUgc2FtZSB3YXkgYXMgdGhl
+IGxpYmMgYW5kIGNvbXBpbGVyIGJ1aWx0aW4gZmZzIHJvdXRpbmVzLgo+ICsgKgo+ICsgKiBmZnMo
+dmFsdWUpIHJldHVybnMgMCBpZiB2YWx1ZSBpcyAwIG9yIHRoZSBwb3NpdGlvbiBvZiB0aGUgZmly
+c3Qgc2V0IGJpdCBpZgo+ICsgKiB2YWx1ZSBpcyBub256ZXJvLiBUaGUgZmlyc3QgKGxlYXN0IHNp
+Z25pZmljYW50KSBiaXQgaXMgYXQgcG9zaXRpb24gMS4KPiArICovCj4gKyNkZWZpbmUgZmZzKHgp
+IChfX2J1aWx0aW5fY29uc3RhbnRfcCh4KSA/IF9fYnVpbHRpbl9mZnMoeCkgOiB2YXJpYWJsZV9m
+ZnMoeCkpCj4gKwo+ICtzdGF0aWMgX19hbHdheXNfaW5saW5lIGludCB2YXJpYWJsZV9mbHModW5z
+aWduZWQgaW50IHgpCj4gK3sKPiArICAgICAgIGludCByOwo+ICsKPiArICAgICAgIGFzbV92b2xh
+dGlsZV9nb3RvKAo+ICsgICAgICAgICAgICAgICBBTFRFUk5BVElWRSgiaiAlbFtsZWdhY3ldIiwg
+Im5vcCIsIDAsIFJJU0NWX0lTQV9FWFRfWkJCLCAxKQo+ICsgICAgICAgICAgICAgICA6IDogOiA6
+IGxlZ2FjeSk7Cj4gKwo+ICsgICAgICAgYXNtIHZvbGF0aWxlICgKPiArICAgICAgICAgICAgICAg
+Ii5vcHRpb24gcHVzaFxuIgo+ICsgICAgICAgICAgICAgICAiLm9wdGlvbiBhcmNoLCt6YmJcbiIK
+PiArICAgICAgICAgICAgICAgImJuZXogJTEsIDFmXG4iCj4gKyAgICAgICAgICAgICAgICJsaSAl
+MCwgMFxuIgo+ICsgICAgICAgICAgICAgICAiaiAyZlxuIgo+ICsgICAgICAgICAgICAgICAiMTpc
+biIKPiArICAgICAgICAgICAgICAgQ0xaVyAiJTAsICUxXG4iCj4gKyAgICAgICAgICAgICAgICJu
+ZWcgJTAsICUwXG4iCj4gKyAgICAgICAgICAgICAgICJhZGRpICUwLCAlMCwgMzJcbiIKPiArICAg
+ICAgICAgICAgICAgIjI6XG4iCj4gKyAgICAgICAgICAgICAgICIub3B0aW9uIHBvcFxuIgo+ICsg
+ICAgICAgICAgICAgICA6ICI9ciIgKHIpIDogInIiICh4KSA6KTsKPiArCj4gKyAgICAgICByZXR1
+cm4gcjsKPiArCj4gK2xlZ2FjeToKPiArICAgICAgIHIgPSAzMjsKPiArICAgICAgIGlmICgheCkK
+PiArICAgICAgICAgICAgICAgcmV0dXJuIDA7Cj4gKyAgICAgICBpZiAoISh4ICYgMHhmZmZmMDAw
+MHUpKSB7Cj4gKyAgICAgICAgICAgICAgIHggPDw9IDE2Owo+ICsgICAgICAgICAgICAgICByIC09
+IDE2Owo+ICsgICAgICAgfQo+ICsgICAgICAgaWYgKCEoeCAmIDB4ZmYwMDAwMDB1KSkgewo+ICsg
+ICAgICAgICAgICAgICB4IDw8PSA4Owo+ICsgICAgICAgICAgICAgICByIC09IDg7Cj4gKyAgICAg
+ICB9Cj4gKyAgICAgICBpZiAoISh4ICYgMHhmMDAwMDAwMHUpKSB7Cj4gKyAgICAgICAgICAgICAg
+IHggPDw9IDQ7Cj4gKyAgICAgICAgICAgICAgIHIgLT0gNDsKPiArICAgICAgIH0KPiArICAgICAg
+IGlmICghKHggJiAweGMwMDAwMDAwdSkpIHsKPiArICAgICAgICAgICAgICAgeCA8PD0gMjsKPiAr
+ICAgICAgICAgICAgICAgciAtPSAyOwo+ICsgICAgICAgfQo+ICsgICAgICAgaWYgKCEoeCAmIDB4
+ODAwMDAwMDB1KSkgewo+ICsgICAgICAgICAgICAgICB4IDw8PSAxOwo+ICsgICAgICAgICAgICAg
+ICByIC09IDE7Cj4gKyAgICAgICB9Cj4gKyAgICAgICByZXR1cm4gcjsKPiArfQo+ICsKPiArLyoq
+Cj4gKyAqIGZscyAtIGZpbmQgbGFzdCBzZXQgYml0IGluIGEgd29yZAo+ICsgKiBAeDogdGhlIHdv
+cmQgdG8gc2VhcmNoCj4gKyAqCj4gKyAqIFRoaXMgaXMgZGVmaW5lZCBpbiBhIHNpbWlsYXIgd2F5
+IGFzIGZmcywgYnV0IHJldHVybnMgdGhlIHBvc2l0aW9uIG9mIHRoZSBtb3N0Cj4gKyAqIHNpZ25p
+ZmljYW50IHNldCBiaXQuCj4gKyAqCj4gKyAqIGZscyh2YWx1ZSkgcmV0dXJucyAwIGlmIHZhbHVl
+IGlzIDAgb3IgdGhlIHBvc2l0aW9uIG9mIHRoZSBsYXN0IHNldCBiaXQgaWYKPiArICogdmFsdWUg
+aXMgbm9uemVyby4gVGhlIGxhc3QgKG1vc3Qgc2lnbmlmaWNhbnQpIGJpdCBpcyBhdCBwb3NpdGlv
+biAzMi4KPiArICovCj4gKyNkZWZpbmUgZmxzKHgpICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXAo+ICsgICAgICAgKF9fYnVpbHRpbl9jb25z
+dGFudF9wKHgpID8gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFwKPiArICAg
+ICAgICAoaW50KSgoKHgpICE9IDApID8gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICBcCj4gKyAgICAgICAgIChzaXplb2YodW5zaWduZWQgaW50KSAqIDggLSBfX2J1
+aWx0aW5fY2x6KHgpKSA6IDApIDogICAgICAgICAgXAo+ICsgICAgICAgIHZhcmlhYmxlX2Zscyh4
+KSkKPiArCj4gKyNlbmRpZgo+ICsKPiArI2luY2x1ZGUgPGFzbS1nZW5lcmljL2JpdG9wcy9mZnou
+aD4KPiAgI2luY2x1ZGUgPGFzbS1nZW5lcmljL2JpdG9wcy9mbHM2NC5oPgo+ICAjaW5jbHVkZSA8
+YXNtLWdlbmVyaWMvYml0b3BzL3NjaGVkLmg+Cj4gLSNpbmNsdWRlIDxhc20tZ2VuZXJpYy9iaXRv
+cHMvZmZzLmg+Cj4KPiAgI2luY2x1ZGUgPGFzbS1nZW5lcmljL2JpdG9wcy9od2VpZ2h0Lmg+Cj4K
+PiBkaWZmIC0tZ2l0IGEvZHJpdmVycy9maXJtd2FyZS9lZmkvbGlic3R1Yi9NYWtlZmlsZSBiL2Ry
+aXZlcnMvZmlybXdhcmUvZWZpL2xpYnN0dWIvTWFrZWZpbGUKPiBpbmRleCAxNmQ2NGEzNGQxZTEu
+LmIwZjhjNDk1YzEwZiAxMDA2NDQKPiAtLS0gYS9kcml2ZXJzL2Zpcm13YXJlL2VmaS9saWJzdHVi
+L01ha2VmaWxlCj4gKysrIGIvZHJpdmVycy9maXJtd2FyZS9lZmkvbGlic3R1Yi9NYWtlZmlsZQo+
+IEBAIC0yOCw3ICsyOCw3IEBAIGNmbGFncy0kKENPTkZJR19BUk0pICAgICAgICAgICs9IC1ERUZJ
+X0hBVkVfU1RSTEVOIC1ERUZJX0hBVkVfU1RSTkxFTiBcCj4gICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAtREVGSV9IQVZFX01FTUNIUiAtREVGSV9IQVZFX1NUUlJDSFIgXAo+ICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgLURFRklfSEFWRV9TVFJDTVAgLWZuby1i
+dWlsdGluIC1mcGljIFwKPiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICQoY2Fs
+bCBjYy1vcHRpb24sLW1uby1zaW5nbGUtcGljLWJhc2UpCj4gLWNmbGFncy0kKENPTkZJR19SSVND
+VikgICAgICAgICArPSAtZnBpYwo+ICtjZmxhZ3MtJChDT05GSUdfUklTQ1YpICAgICAgICAgKz0g
+LWZwaWMgLURFRklfTk9fQUxURVJOQVRJVkUKPiAgY2ZsYWdzLSQoQ09ORklHX0xPT05HQVJDSCkg
+ICAgICs9IC1mcGllCj4KPiAgY2ZsYWdzLSQoQ09ORklHX0VGSV9QQVJBTVNfRlJPTV9GRFQpICAg
+Kz0gLUkkKHNyY3RyZWUpL3NjcmlwdHMvZHRjL2xpYmZkdAo+IC0tCj4gMi4yNS4xCj4KCl9fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1h
+aWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5p
+bmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
