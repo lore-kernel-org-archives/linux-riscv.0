@@ -4,80 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2471CC6FA8F
-	for <linux-riscv@archiver.kernel.org>; Tue, 29 Aug 2023 19:05:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAF35C6FA8F
+	for <linux-riscv@archiver.kernel.org>; Tue, 29 Aug 2023 20:08:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JP2ADZkvQRNyoeeZEitHxQ8gndC1993fhSbXBvUrpsk=; b=Uj9fFYS6nTsdLU
-	f2J29YPmqHYH7yQoasorrMxfPmLlgxlgUP8MFcDkNW3U6rU7kCpSGDwWs59zlVSVB9i/FewdTsAaN
-	w0ooUrJSyz1v+JQ5XlprfP5LyfPLJGnzyBqDlDIoOhiJDyQvShq+6nQm5uQZ20u6EU6aDBLeU2NYR
-	OURK7xsSyeZvjOYRacgZYj/BlCE4LzMWorxf96r+u9YCCQew2++6LejdmXBOuSg5C+QbTK4A93s3w
-	prGzgjyDhXaOyOZDBhfQCKwFC/u65sDE0/FTVCttHy2+B0Z71aY+bWTS+uoKo/Ln3Q2lIJNHb1ktU
-	JsYCy30qfNuBmNPlt8FA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=poZCLkGTw7NAT9JTjMkOKByY3Z06dOBPRPzQddo3Htw=; b=nsHi1NM4j2auEXvK6AchmcxTDM
+	rCNWIT/D+fKx6XJEtGDYbTFLEmts3aOkeU6ZMYZJZgDpEHtHM38bEkSiguvafVfdyQDfKjPdjcMVm
+	5cP2Y8Sw8+/585wAfz2Y7wV1zUqAJnr1phskj1ZP27GS+ij1j/yhQ+XjRJkxX1TIVFcqmvycP9+C2
+	Z+aV9pJTkDqQmKahmQWWhpORoFHLVmraF0WUrS/IExobtajTbOgxoX1crQ474GDNQlAsj5YgYaJxc
+	XCZ9eDBhFXBK+XB/yQ2oEQCSWeMBX8WQ2w4qlUXwGYv0SoPp7PYUr+mYZs41yRECETAYHh3NnMrjP
+	6pBB1uVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qb41O-00C6f2-2h;
-	Tue, 29 Aug 2023 19:05:02 +0000
-Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
+	id 1qb50D-00CCVs-1c;
+	Tue, 29 Aug 2023 20:07:53 +0000
+Received: from mout.kundenserver.de ([212.227.126.134])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qb41L-00C6db-1T
-	for linux-riscv@lists.infradead.org;
-	Tue, 29 Aug 2023 19:05:01 +0000
-Received: by mail-pj1-x102c.google.com with SMTP id 98e67ed59e1d1-271b0a8e7ecso692566a91.3
-        for <linux-riscv@lists.infradead.org>; Tue, 29 Aug 2023 12:04:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1693335897; x=1693940697; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=EkhRA/lQC5h1Knqaf4HRNhdd9OJwWl6v8O5LTA25fgQ=;
-        b=ZvuqHNPk87jYzIcEn9qTQbzg0AYjGqzTiTY2l4sMvlPZq8IaUj1AdSaQXOtRM/dZ85
-         vb/hWPOTHFw7VnZ4eeZqqj/KvzE8SGoQ+aI6nklMVQYYBkbOEp30ovwvgAhUR/C89H5s
-         dIaX4ltAZf9EM45f5DsSGEOzGUOK7z5jun2YZ2yfmjGn56ESwyaimTTt5CGlJ9jXmCSV
-         wNs9ZdQBNaJ8LJsdCYUL7SyNt+hrUYWhYO4Ns7MTclnIIMaHID/yOA50HCtZL78TZLVv
-         wjsKieyb3uEVOXd9g97zigtXAgbwLJPCEyoNqQKFqGGCZK46Kknmp6ePyfSchP0HHPWb
-         oybQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1693335897; x=1693940697;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=EkhRA/lQC5h1Knqaf4HRNhdd9OJwWl6v8O5LTA25fgQ=;
-        b=dMluPpa0/gvSzR+TZElrS8G5AQKnrXhJO3SUZlnLlURUr8Ozyeyb9V2R6updZUJuCv
-         hYlDlzsjVN1coJSZYYwNovme4jS4K4V68Y5/kF0B3INLJXhDylZ0WN46NjorZa4Rgke1
-         aNtxmyGnYKjRTzAWz3ENxo4HvBNrdCVOCnB2xd8WwehJE91j/qe6vvJ7URL34DfJ9QAD
-         0/TUY7CkZZU24VqjpJQ3MAzEjdP/8w2d4gcDl6sFJ4hptvxcDTtpVDz+xbqY//9+TYEo
-         lnqMRC3bosCvgd++ev8kdZF9aJAzJkasOvpIVrkJQDyDqvlWyjBkI69cYMNw+Ptqlw3z
-         sBtA==
-X-Gm-Message-State: AOJu0Yy67cLwLy2oYopQbDDBWzpTZJXvVgWpJ0miYXbbUhDBTiRvQ5k/
-	DHVBcTdhhEHq6zLcQZ53FuaG2Q==
-X-Google-Smtp-Source: AGHT+IEmWzR2EFRVld8dtFg6O30X0kJHSic7sbU0n0pIaph9jOGM2LqjeEEvBi7SdfgiWpDGjX3Tww==
-X-Received: by 2002:a17:90a:e015:b0:270:1611:484b with SMTP id u21-20020a17090ae01500b002701611484bmr105814pjy.41.1693335896703;
-        Tue, 29 Aug 2023 12:04:56 -0700 (PDT)
-Received: from ghost ([50.221.140.188])
-        by smtp.gmail.com with ESMTPSA id gd9-20020a17090b0fc900b0026d034f6badsm9189710pjb.38.2023.08.29.12.04.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 29 Aug 2023 12:04:56 -0700 (PDT)
-Date: Tue, 29 Aug 2023 12:04:53 -0700
-From: Charlie Jenkins <charlie@rivosinc.com>
-To: Nam Cao <namcaov@gmail.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, guoren@kernel.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCH] riscv: kprobes: allow writing to x0
-Message-ID: <ZO5BVWFbAwXLf0WS@ghost>
-References: <20230829182500.61875-1-namcaov@gmail.com>
+	id 1qb504-00CCUx-0v;
+	Tue, 29 Aug 2023 20:07:51 +0000
+Received: from leknes.fjasle.eu ([46.142.49.30]) by mrelayeu.kundenserver.de
+ (mreue011 [212.227.15.167]) with ESMTPSA (Nemesis) id
+ 1My2lr-1plB1Y2Khr-00zZZb; Tue, 29 Aug 2023 22:07:23 +0200
+Received: by leknes.fjasle.eu (Postfix, from userid 1000)
+	id 1A2013E768; Tue, 29 Aug 2023 22:07:19 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=fjasle.eu; s=mail;
+	t=1693339640; bh=l+HLj7y9TY6hnwNLh5Tvgor5q1S2kg+NBhBTFWf7BDE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=TZjNabJFSEjakaf8YUJrtigZNKhmAm/vXSk/OlmIWUMQpA+H/yNDSs0zMiyYamtp7
+	 tbZpqHv09gSqIzJk39c3HaMBGk+KKsV6TrkHj/EVF4TvbbXnVepzgpINm7goS0E79Q
+	 MD4EH+3oEaVdp1z7tYdc9/aj5vf+42HKlJWQmjBU=
+Date: Tue, 29 Aug 2023 22:07:19 +0200
+From: Nicolas Schier <nicolas@fjasle.eu>
+To: Masahiro Yamada <masahiroy@kernel.org>
+Cc: Michael Ellerman <mpe@ellerman.id.au>,
+	Kees Cook <keescook@chromium.org>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Randy Dunlap <rdunlap@infradead.org>, linux-kernel@vger.kernel.org,
+	x86@kernel.org, linux-arm-kernel@lists.infradead.org,
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org, linux-kbuild@vger.kernel.org,
+	linux-hardening@vger.kernel.org
+Subject: Re: [PATCH v2 0/2] kbuild: Show Kconfig fragments in "help"
+Message-ID: <ZO5P9597qqm3P+li@fjasle.eu>
+References: <20230825194329.gonna.911-kees@kernel.org>
+ <CAK7LNATcTw+btQVri7SBA8gFbDNMYz7D2gMQaoZp9sQGFjCw8Q@mail.gmail.com>
+ <87ttsjlmho.fsf@mail.lhotse>
+ <ZO2NVLipjlzIh0YS@bergen.fjasle.eu>
+ <CAK7LNARjsB+LTBGRfWX68Ld7oehhuBv9SY8scoC=Xk8EJc-OHw@mail.gmail.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230829182500.61875-1-namcaov@gmail.com>
+In-Reply-To: <CAK7LNARjsB+LTBGRfWX68Ld7oehhuBv9SY8scoC=Xk8EJc-OHw@mail.gmail.com>
+X-Provags-ID: V03:K1:H6j0VbafbOwtymffj5vqJ5spHUNhWSXsYRHmYahDmlcdTnCoTSZ
+ Y5deAqJtEaYxv+Zf/xYkwayr4y4RNjk3w2RNVWySOnUPB/x0mu0L/JGvGPQfzXd3wHiwRcN
+ YOMrA0qs7TWDwkPnZ+kORWHa27x5NXqsgFcQ2DBLwt4XYH7sv7LWUW+BfDZKHog98GfWyCc
+ M1HtNk4/feeh4gsXKAj9g==
+UI-OutboundReport: notjunk:1;M01:P0:2XmiLl1yasM=;KMTTmfRVTN212bF2Kt9kaQMqZPF
+ Z11wTERV8WQrNQIAM7JfN6QVLW3Y3+21p3yj291tqy5lYprc7M5ElxVCe3B+EQvoHW3VpYEFH
+ Dve6VnlQi0KTr+uuHojU23IR8nHEfLZAioXZEMdzBjiWAu8bl7Nr2WpCKHuUjszUjIEMxiaes
+ bFlR2MDadDjlaVu0Nwyo6hkdmO03N3wVxl/Qt7HbvClEY6m0YVo5KBWt0oJK9/iw3et5hiO8m
+ Vk+J1PFL1/bgavr7czMo+4UREiWiuKIgdA8k8U4ffo4FGhMzIgwZYFG8CLh5jg0dKqB/XH3ni
+ 8e//ASYixKBApJwhiaUiA/dCvaew9CbsGfWhlATWR1gejyEhRssXssBlDlkWq2UP6sXn7VgXe
+ Tzq+AekXaGOyZqsOR8LEKz2ElluoerReXmr9mgTFn1P/IDJ5tMpAPSzc9g88yaPH6GAtYag6Y
+ m+NgEYUJ6WHRh7MHBNk3PRAKNk/EjMKadhva+pvLfUzEeAhBeCr/xabJmu9n0M2uxCZcWJ82B
+ mQYO5q5PayoS1zds0k5MVYSZWokWPyTciQspklfBO8AdwRGqqtBYlO+nI9LIIjKBsEiQioyLp
+ P0IMOBkuSmpQrF7sCGqtOyi3QpM11ER6D0oj97ocIugmQkt7aHvKIkEX1jZnFwaEtqgX5a2LB
+ iW3dKg0t9/yZeSitA3NXEd1MasnC4h+kV4lU6RjS/9Zr8n4FFGQU6+iomPQHF4eismdl9WYls
+ sdd0TgL9ktwPLczl12QcTzM63FAqIkXgMiw8VS+7hpMsTfKi6If8BptgO81HZ5Kfsm0ZfHhn+
+ bwA8ulEILIJRQrci5TBcg4MRZl5zshn7s1LIx+0H8wI15Zg8jXNllPt/EZHiM2ulMb/P+Zxxb
+ ZKGlFDlYzQFc9Vg==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230829_120459_695782_C43A4E8D 
-X-CRM114-Status: GOOD (  20.67  )
+X-CRM114-CacheID: sfid-20230829_130745_367791_98787BB6 
+X-CRM114-Status: GOOD (  38.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,56 +89,234 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============8939483542038262474=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 29, 2023 at 08:25:00PM +0200, Nam Cao wrote:
-> Instructions can write to x0, so we should simulate these instructions
-> normally.
-> 
-> Currently, the kernel hangs if an instruction who writes to x0 is
-> simulated.
-> 
-> Fixes: c22b0bcb1dd0 ("riscv: Add kprobes supported")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Nam Cao <namcaov@gmail.com>
-> ---
->  arch/riscv/kernel/probes/simulate-insn.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/arch/riscv/kernel/probes/simulate-insn.c b/arch/riscv/kernel/probes/simulate-insn.c
-> index d3099d67816d..6c166029079c 100644
-> --- a/arch/riscv/kernel/probes/simulate-insn.c
-> +++ b/arch/riscv/kernel/probes/simulate-insn.c
-> @@ -24,7 +24,7 @@ static inline bool rv_insn_reg_set_val(struct pt_regs *regs, u32 index,
->  				       unsigned long val)
->  {
->  	if (index == 0)
-> -		return false;
-> +		return true;
->  	else if (index <= 31)
->  		*((unsigned long *)regs + index) = val;
->  	else
-> -- 
-> 2.34.1
-> 
-> 
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
-Thank you for this change. 
 
-simulate_auipc would previously fail with an rd = 0 which made sense
-because auipc it is defined as a HINT in the riscv spec when rd = 0,
-but QEMU and spike don't say it is an illegal instruction so I think
-it is okay to make this change.
+--===============8939483542038262474==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="jAIN7/hQsTcrQJVA"
+Content-Disposition: inline
 
-Reviewed-by: Charlie Jenkins <charlie@rivosinc.com>
+
+--jAIN7/hQsTcrQJVA
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Tue, Aug 29, 2023 at 11:57:19PM +0900 Masahiro Yamada wrote:
+> On Tue, Aug 29, 2023 at 3:55=E2=80=AFPM Nicolas Schier <nicolas@fjasle.eu=
+> wrote:
+> >
+> > On Mon 28 Aug 2023 16:17:07 GMT, Michael Ellerman wrote:
+> > > Masahiro Yamada <masahiroy@kernel.org> writes:
+> > > > On Sat, Aug 26, 2023 at 4:55=E2=80=AFAM Kees Cook <keescook@chromiu=
+m.org> wrote:
+> > > >>
+> > > >> Hi,
+> > > >>
+> > > >> This is my series to show *.config targets in the "help" target so=
+ these
+> > > >> various topics can be more easily discoverd.
+> > > >>
+> > > >> v2:
+> > > >>  - split .fragment from .config to hide "internal" fragments
+> > > >
+> > > > Please do not do this churn.
+> > >
+> > > That was my idea :}
+> > >
+> > > > Like Randy, I did not get "why" part quiet well,
+> > > > but if you are eager about this,
+> > > > you can show help message only when the following
+> > > > ("# Help:" prefix for example) is found in the first line.
+> > > >
+> > > > # Help: blah blah
+> > > > # other comment
+> > >
+> > > I did think of that, but wasn't sure how to do it in make.
+> >
+> > Something like this should do it:
+> >
+> >         @grep -Hnm1 -e '^# Help:' $(foreach f, $(sort $(notdir $(call c=
+onfigfiles,*.config))), $(firstword $(call configfiles,$(f)))) | \
+> >          while read loc dummy helptext; do \
+> >                 tmp=3D"$${loc%:#}"; file=3D"$${tmp%:*}"; line=3D"$${tmp=
+##*:}"; \
+> >                 [ "$${line}" =3D "1" ] && \
+> >                   printf "  %-25s - %s\\n" "$${file##*/}" "$${helptext}=
+"; \
+> >          done
+> >
+> > but this neither beautiful nor elegant it likes to be improved.
+> >
+> > Kind regards,
+> > Nicolas
+>=20
+>=20
+>=20
+>=20
+> The attached patch will work too.
+>=20
+> I dropped the "in the first line" restriction
+> because SPDX might be placed in the first line
+> of config fragments.
+>=20
+>=20
+>=20
+> --=20
+> Best Regards
+> Masahiro Yamada
+
+> diff --git a/Makefile b/Makefile
+> index e21bf66af6fd..23cd62a5ff05 100644
+> --- a/Makefile
+> +++ b/Makefile
+> @@ -1552,7 +1552,6 @@ help:
+>  	@echo  '  mrproper	  - Remove all generated files + config + various ba=
+ckup files'
+>  	@echo  '  distclean	  - mrproper + remove editor backup and patch files'
+>  	@echo  ''
+> -	@echo  'Configuration targets:'
+>  	@$(MAKE) -f $(srctree)/scripts/kconfig/Makefile help
+>  	@echo  ''
+>  	@echo  'Other generic targets:'
+> diff --git a/arch/x86/Makefile b/arch/x86/Makefile
+> index fdc2e3abd615..c4b2a8a19fc8 100644
+> --- a/arch/x86/Makefile
+> +++ b/arch/x86/Makefile
+> @@ -335,9 +335,5 @@ define archhelp
+>    echo  '			  bzdisk/fdimage*/hdimage/isoimage also accept:'
+>    echo  '			  FDARGS=3D"..."  arguments for the booted kernel'
+>    echo  '			  FDINITRD=3Dfile initrd for the booted kernel'
+> -  echo  ''
+> -  echo  '  kvm_guest.config	- Enable Kconfig items for running this kern=
+el as a KVM guest'
+> -  echo  '  xen.config		- Enable Kconfig items for running this kernel as=
+ a Xen guest'
+> -  echo  '  x86_debug.config	- Enable tip tree debugging options for test=
+ing'
+> =20
+>  endef
+> diff --git a/kernel/configs/kvm_guest.config b/kernel/configs/kvm_guest.c=
+onfig
+> index 208481d91090..d0877063d925 100644
+> --- a/kernel/configs/kvm_guest.config
+> +++ b/kernel/configs/kvm_guest.config
+> @@ -1,3 +1,4 @@
+> +# Help: Bootable as a KVM guest
+>  CONFIG_NET=3Dy
+>  CONFIG_NET_CORE=3Dy
+>  CONFIG_NETDEVICES=3Dy
+> diff --git a/kernel/configs/x86_debug.config b/kernel/configs/x86_debug.c=
+onfig
+> index 6fac5b405334..35f48671b8d5 100644
+> --- a/kernel/configs/x86_debug.config
+> +++ b/kernel/configs/x86_debug.config
+> @@ -1,3 +1,4 @@
+> +# Help: Debugging options for tip tree testing
+>  CONFIG_X86_DEBUG_FPU=3Dy
+>  CONFIG_LOCK_STAT=3Dy
+>  CONFIG_DEBUG_VM=3Dy
+> diff --git a/kernel/configs/xen.config b/kernel/configs/xen.config
+> index 436f806aa1ed..6878b9a49be8 100644
+> --- a/kernel/configs/xen.config
+> +++ b/kernel/configs/xen.config
+> @@ -1,3 +1,5 @@
+> +# Help: Bootable as a Xen guest
+> +#
+>  # global stuff - these enable us to allow some
+>  # of the not so generic stuff below for xen
+>  CONFIG_PARAVIRT=3Dy
+> diff --git a/scripts/kconfig/Makefile b/scripts/kconfig/Makefile
+> index af1c96198f49..e72c5ee659a9 100644
+> --- a/scripts/kconfig/Makefile
+> +++ b/scripts/kconfig/Makefile
+> @@ -93,11 +93,13 @@ endif
+>  %_defconfig: $(obj)/conf
+>  	$(Q)$< $(silent) --defconfig=3Darch/$(SRCARCH)/configs/$@ $(Kconfig)
+> =20
+> -configfiles=3D$(wildcard $(srctree)/kernel/configs/$@ $(srctree)/arch/$(=
+SRCARCH)/configs/$@)
+> +configfiles =3D $(wildcard $(srctree)/kernel/configs/$(1) $(srctree)/arc=
+h/$(SRCARCH)/configs/$(1))
+> +all-config-fragments =3D $(call configfiles,*)
+> +config-fragments =3D $(call configfiles,$@)
+> =20
+>  %.config: $(obj)/conf
+> -	$(if $(call configfiles),, $(error No configuration exists for this tar=
+get on this architecture))
+> -	$(Q)$(CONFIG_SHELL) $(srctree)/scripts/kconfig/merge_config.sh -m .conf=
+ig $(configfiles)
+> +	$(if $(config-fragments),, $(error $@ fragment does not exists on this =
+architecture))
+> +	$(Q)$(CONFIG_SHELL) $(srctree)/scripts/kconfig/merge_config.sh -m .conf=
+ig $(config-fragments)
+>  	$(Q)$(MAKE) -f $(srctree)/Makefile olddefconfig
+> =20
+>  PHONY +=3D tinyconfig
+> @@ -115,6 +117,7 @@ clean-files +=3D tests/.cache
+> =20
+>  # Help text used by make help
+>  help:
+> +	@echo  'Configuration targets:'
+>  	@echo  '  config	  - Update current config utilising a line-oriented pr=
+ogram'
+>  	@echo  '  nconfig         - Update current config utilising a ncurses m=
+enu based program'
+>  	@echo  '  menuconfig	  - Update current config utilising a menu based p=
+rogram'
+> @@ -141,6 +144,12 @@ help:
+>  	@echo  '                    default value without prompting'
+>  	@echo  '  tinyconfig	  - Configure the tiniest possible kernel'
+>  	@echo  '  testconfig	  - Run Kconfig unit tests (requires python3 and p=
+ytest)'
+> +	@echo  ''
+> +	@echo  'Configuration topic targets:'
+> +	@$(foreach f, $(all-config-fragments), \
+> +		if help=3D$$(grep -m1 '^# Help: ' $(f)); then \
+> +			printf '  %-25s - %s\n' '$(notdir $(f))' "$${help#*: }"; \
+> +		fi;)
+
+thanks, this looks much better, and SPDX is a good point.
+
+Kind regards,
+Nicolas
+
+--jAIN7/hQsTcrQJVA
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCAAdFiEEh0E3p4c3JKeBvsLGB1IKcBYmEmkFAmTuT/cACgkQB1IKcBYm
+EmlEpBAA7EkWGNiEhiWIxoOzhdqdsKaNQxgOjYbqO/5twfQCF8a28YvjT5rz5+4c
+zPaZ2m/zhowV0qsT8Ic7f6+g1ScrV4kyFmwDnsPy4nq/Kv+idjqKxp9fvrznAO9A
+4y3NL0GVRWYkfk50CSIU9QfxpArZdpfTmFI/C8hO4mxUnDWTkApYhaMo1arXxPaU
+eegk3YDPFW4C7jkOeZm+RNrx8WVCbFEshzKPUt1av0RcSwieZcSL3DiHMqYMapWj
+ydkoxuaC6R6L4nlZv0oLwLbSmIDqy4qVMscsEkREwROezN2+f0pJUnjELIFVpTbQ
+JSE9vEYdKdM362Fk1ehON8QZF4tY6Z9gz5tQ+61zutDCa3/ZZxSAzBdz16vYjPtn
+LzX4D+g1vbJUhQSmtsmnTVwnIf9X/TMGLVrKte+iB+wso642TqIdJCpI7Yn6th7h
+9ni2QcqIyCgkvoSX4T/2WYdCeipITjBRaMtP9pRo6ORQZN9D0WYakVoSXCgv2P0e
+WEWpp88brXiio9h66oXrxKexHqNuCnLB43eKBWIvNVN+5JoJJk8PBD66X66i53/u
+7MHJb/vaStGawuOLeic+YJ0qM4mKtHqwd7rdU+HE8BedURnxdQdKCtiSu7n6Kc+g
+gA7K076mUUemwOYxKPSTsu2NHn+iUKuziiqc47dT/pOS+cql8TY=
+=Fe5h
+-----END PGP SIGNATURE-----
+
+--jAIN7/hQsTcrQJVA--
+
+
+--===============8939483542038262474==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============8939483542038262474==--
+
