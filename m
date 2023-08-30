@@ -4,87 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8342C83F14
-	for <linux-riscv@archiver.kernel.org>; Wed, 30 Aug 2023 10:28:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EB15C83F15
+	for <linux-riscv@archiver.kernel.org>; Wed, 30 Aug 2023 12:09:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=onWNz19L/qiS9tZ3najHd+eO1uPLABQivRK7YdRyf9Y=; b=0WzNV0tFzvzchq
-	5QagbmNKnxLUB6kpNZN9RBdK6ktfzq/ULBH3IPFUSI5GQm60bHJqRBoCtDGxQuADJtf73prOiS50Q
-	wLgcX6GSwKeCjMc5MBuiGKrJZmi2j0Afmx+gykAKnPq1jGxGK6+gohcFM3jIx6Pv1jqUHzScYXmYB
-	H43AwaE7nKmCEFwuw6duOIdOGry2s9e7NK+HFS0XQhehQvcbcrb0z/cII+kW7YMN2Zs5/HVhDl9pf
-	QBvwJWlaATfejDqQyw2Q3Z1C8hXbbtNgvUFFiWB9AFtet7oIO8LJEMZFhPnwDlTVvVHhyjcUKK9za
-	8kut0CUKeveG9YDDVPIQ==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
+	Message-ID:From:References:Cc:To:Subject:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=Lt2X3bU32c9O04n0La0zkeZuyLO3XPQN7d0Gqrzki8Y=; b=CiSPubURG70jG0selK6pJb3r+f
+	Z8OE174y3Dn0nUXZaFQkl5rbS3vj6HrALxcS/ZCmJgzT1GaTBsiEY3kabyhOHa/FISVAbLO1SXDou
+	PgTsbC+nxVt1RkzHSYJ6tM5HcfcsuNE/ObkTU1HqP6KmA/67V6lKiz4uD0kKCsQZsp20vwgPNqPjR
+	e11yYpC7/gSuUF2lnluBWMCMJ8kUk8KoIE8LR8vv+4reUmnqJcswTsnWGswHgmE6btaIckb6gp5e6
+	y0Kwdt97OEMC3iDkDLK4qOQCekS0axmG8hw6ayVmILOgsr0OqdcFu3z6aSPcJoeSmJFUV6HxCQPki
+	ppkqF/0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qbIR9-00DGeh-1I;
-	Wed, 30 Aug 2023 10:28:35 +0000
-Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
+	id 1qbK0j-00DS7H-1T;
+	Wed, 30 Aug 2023 12:09:25 +0000
+Received: from [45.249.212.51] (helo=dggsgout11.his.huawei.com)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qbIR5-00DGZc-1M
+	id 1qbK0f-00DS54-1a
 	for linux-riscv@lists.infradead.org;
-	Wed, 30 Aug 2023 10:28:33 +0000
-Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id 2DEBF41D35
-	for <linux-riscv@lists.infradead.org>; Wed, 30 Aug 2023 10:28:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20210705; t=1693391307;
-	bh=0x71Jiks4crbLYMF8B7w24UzcWpOCQauPfqR/sxZV0g=;
-	h=MIME-Version:References:In-Reply-To:From:Date:Message-ID:Subject:
-	 To:Cc:Content-Type;
-	b=pm+uIcVEjgoNMMPEU15DjGahvJopLjdyEsZ3lVBRLnnEoZGajFmXcmGJCxNnhMGlo
-	 289uAiPO3Hcxnfwd1Cdq6AaPH9clsR0nIzdp8j5vLvsXBEO1ZZ/FOqQAF8M1cdyd2U
-	 9fbU1Y5jfkKDPEtHosWfG2JSEOSJXGO/MKZMPPFy9iMWVOpj/6EhSoMMIreZbdKKbv
-	 iMEFDZS1i8GZgtjhPbYEosrb3udYZDAWtOXEMRLKOELKH54HMjlPHBptcrZ+/YudOA
-	 K8/Fz1dMHcpak0lrnkaCK5MzYBaPnbAM1Uo7aXSNTCMUrdAFyNnyulmlMr3n8yYcxk
-	 M7BkdOumReMrw==
-Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-4108d23b401so59281871cf.1
-        for <linux-riscv@lists.infradead.org>; Wed, 30 Aug 2023 03:28:27 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1693391305; x=1693996105;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=0x71Jiks4crbLYMF8B7w24UzcWpOCQauPfqR/sxZV0g=;
-        b=HLUvYaief2IYmfpvgaejBBDmZazcmO/hDm0AMgU2PfjR1t3Y7XCsEEXRMAovgSOVKS
-         bjYfrXzLGbtFbh2jnOrzZkLJyWo7l8VE8RUT4FwlJiZmUwIZWKaORiapbJaRJ8Ya03sS
-         RSzyA8bPrXDAekdhjrzFCft6Un6VDbVPNvegVAecv5ARV5iCQJ/yS+AHpf17gfHRuihr
-         3UUVBKUu+ajdRAJyatpjpWRfGOCTke0wwUbVydYShA2EbwYtAd2rs8Lb2Mw7VidpCN2D
-         uJkh3f4OpUjfkg+ZOq+4DFAxOpopcC5oL66yXpoVj7uD6+eihew9pKmZ2RgEE5xwrmDt
-         lz4g==
-X-Gm-Message-State: AOJu0YyoXXdrN9Akbl5jUjo156bIfgvdWWON8VIE0u0rR0GhJF2BX5GA
-	CeXXK21JBh21BblSNkNlNL5MJL39oisV1cw1F/AKqXRDDa45VFJeuTFrp6oxn5A45Klvf9yAu6L
-	Q54sG8WglSJvr7TCU4bBdvGA0D3cycLXPmvNqaUIBuQYJFrrwidfLJfkLAd6jhA==
-X-Received: by 2002:ac8:4e89:0:b0:403:e958:b456 with SMTP id 9-20020ac84e89000000b00403e958b456mr2057139qtp.19.1693391305191;
-        Wed, 30 Aug 2023 03:28:25 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHUywKtZ9QBvF7SXkZ/+FtfBV0akTc4+5p56GkjMS3vEHZ1SMFeY9wEQ5cijc1CJI92RxPk+2KWSd+Z7E9kvN8=
-X-Received: by 2002:ac8:4e89:0:b0:403:e958:b456 with SMTP id
- 9-20020ac84e89000000b00403e958b456mr2057124qtp.19.1693391304908; Wed, 30 Aug
- 2023 03:28:24 -0700 (PDT)
+	Wed, 30 Aug 2023 12:09:23 +0000
+Received: from mail02.huawei.com (unknown [172.30.67.143])
+	by dggsgout11.his.huawei.com (SkyGuard) with ESMTP id 4RbNPN6SJQz4f3wQm
+	for <linux-riscv@lists.infradead.org>; Wed, 30 Aug 2023 20:08:56 +0800 (CST)
+Received: from [10.174.176.117] (unknown [10.174.176.117])
+	by APP4 (Coremail) with SMTP id gCh0CgBnQqVWMe9k8yDGBw--.27383S2;
+	Wed, 30 Aug 2023 20:08:58 +0800 (CST)
+Subject: Re: WARNING: CPU: 3 PID: 261 at kernel/bpf/memalloc.c:342
+To: Alexei Starovoitov <alexei.starovoitov@gmail.com>
+Cc: Yonghong Song <yonghong.song@linux.dev>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?=
+ <bjorn@kernel.org>, bpf <bpf@vger.kernel.org>,
+ linux-riscv <linux-riscv@lists.infradead.org>
+References: <87jztjmmy4.fsf@all.your.base.are.belong.to.us>
+ <2f4f0dfc-ec06-8ac8-a56a-395cc2373def@linux.dev>
+ <200dcce6-34ff-83e0-02fb-709a24403cc6@huaweicloud.com>
+ <87zg2e88ds.fsf@all.your.base.are.belong.to.us>
+ <64873e42-9be1-1812-b80d-5ea86b4677f0@huaweicloud.com>
+ <87sf8684ex.fsf@all.your.base.are.belong.to.us>
+ <878r9wswwy.fsf@all.your.base.are.belong.to.us>
+ <fd07e0a3-f4da-b447-c47a-6e933220d452@linux.dev>
+ <65c9e8d9-7682-2c8d-cd4d-9f0ca1213066@huaweicloud.com>
+ <CAADnVQJGVJCh=i1tuov4t1MmUx5=ybjF544i4F4m-SbHd5N6vA@mail.gmail.com>
+From: Hou Tao <houtao@huaweicloud.com>
+Message-ID: <76151038-155d-eac7-d6bb-d569c69fca3d@huaweicloud.com>
+Date: Wed, 30 Aug 2023 20:08:54 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
+ Thunderbird/78.6.0
 MIME-Version: 1.0
-References: <20230830031846.127957-1-william.qiu@starfivetech.com> <20230830031846.127957-3-william.qiu@starfivetech.com>
-In-Reply-To: <20230830031846.127957-3-william.qiu@starfivetech.com>
-From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-Date: Wed, 30 Aug 2023 12:28:08 +0200
-Message-ID: <CAJM55Z9CL8DN+uEhRoR7ZUuwtVudTUzA1+Q4Hn_rukCfT+SXeQ@mail.gmail.com>
-Subject: Re: [PATCH v1 2/3] mmc: starfive: Change tuning implementation
-To: William Qiu <william.qiu@starfivetech.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, linux-mmc@vger.kernel.org, 
-	Emil Renner Berthing <kernel@esmil.dk>, Rob Herring <robh+dt@kernel.org>, 
-	Jaehoon Chung <jh80.chung@samsung.com>, Ulf Hansson <ulf.hansson@linaro.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>
+In-Reply-To: <CAADnVQJGVJCh=i1tuov4t1MmUx5=ybjF544i4F4m-SbHd5N6vA@mail.gmail.com>
+Content-Language: en-US
+X-CM-TRANSID: gCh0CgBnQqVWMe9k8yDGBw--.27383S2
+X-Coremail-Antispam: 1UD129KBjvJXoW3WFWruF4UXrWkKF4UJrW8WFg_yoW3uw4kpr
+	W3JF1UGr48JF17Jr17tr15Jr1Utr1jy3W7Xry8Jr1UAr1q9r1UJr1UJr4UCr1DJr15C3W7
+	JryDt3yIvr1UJ3DanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUyKb4IE77IF4wAFF20E14v26r1j6r4UM7CY07I20VC2zVCF04k2
+	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
+	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xIIjxv20xvEc7Cj
+	xVAFwI0_Cr0_Gr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I
+	0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40E
+	x7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x
+	0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lc7I2V7IY0VAS07AlzVAYIcxG8wCF04k20xvY0x0E
+	wIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E74
+	80Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_JF0_Jw1lIxkGc2Ij64vIr41lIxAIcVC0
+	I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Jr0_Gr1lIxAIcVCF04
+	k26cxKx2IYs7xG6rW3Jr0E3s1lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY
+	1x0267AKxVWUJVW8JbIYCTnIWIevJa73UjIFyTuYvjxUzsqWUUUUU
+X-CM-SenderInfo: xkrx3t3r6k3tpzhluzxrxghudrp/
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230830_032831_829111_88DB3F0D 
-X-CRM114-Status: GOOD (  35.41  )
+X-CRM114-CacheID: sfid-20230830_050921_879152_FCDE22DC 
+X-CRM114-Status: GOOD (  27.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,247 +89,155 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 30 Aug 2023 at 05:21, William Qiu <william.qiu@starfivetech.com> wrote:
->
-> Before, we used syscon to achieve tuning, but the actual measurement
-> showed little effect, so the tuning implementation was modified here,
-> and it was realized by reading and writing the UHS_REG_EXT register.
->
-> Signed-off-by: William Qiu <william.qiu@starfivetech.com>
-> ---
->  drivers/mmc/host/dw_mmc-starfive.c | 131 ++++++++---------------------
->  1 file changed, 37 insertions(+), 94 deletions(-)
->
-> diff --git a/drivers/mmc/host/dw_mmc-starfive.c b/drivers/mmc/host/dw_mmc-starfive.c
-> index fd05a648a8bb..593c995e49f5 100644
-> --- a/drivers/mmc/host/dw_mmc-starfive.c
-> +++ b/drivers/mmc/host/dw_mmc-starfive.c
-> @@ -20,14 +20,6 @@
->  #define ALL_INT_CLR            0x1ffff
->  #define MAX_DELAY_CHAIN                32
->
-> -struct starfive_priv {
-> -       struct device *dev;
-> -       struct regmap *reg_syscon;
-> -       u32 syscon_offset;
-> -       u32 syscon_shift;
-> -       u32 syscon_mask;
-> -};
-> -
->  static void dw_mci_starfive_set_ios(struct dw_mci *host, struct mmc_ios *ios)
->  {
->         int ret;
-> @@ -44,117 +36,68 @@ static void dw_mci_starfive_set_ios(struct dw_mci *host, struct mmc_ios *ios)
->         }
->  }
->
-> +static void dw_mci_starfive_hs_set_bits(struct dw_mci *host, u32 smpl_phase)
-
-"set bits" is very generic. Maybe dw_mci_starfive_set_sample_phase()
-or something more descriptive.
-
-> +{
-> +       /* change driver phase and sample phase */
-> +       u32 mask = 0x1f;
-> +       u32 reg_value;
-> +
-> +       reg_value = mci_readl(host, UHS_REG_EXT);
-> +
-> +       /* In UHS_REG_EXT, only 5 bits valid in DRV_PHASE and SMPL_PHASE */
-> +       reg_value &= ~(mask << 16);
-> +       reg_value |= (smpl_phase << 16);
-> +       mci_writel(host, UHS_REG_EXT, reg_value);
-> +
-> +       /* We should delay 1ms wait for timing setting finished. */
-> +       mdelay(1);
-> +}
-
-This implementation could use some cleanup. Eg. why do we need the
-mask variable?
-How about something like this:
-
-#define STARFIVE_SMPL_PHASE     GENMASK(20, 16)
-
-u32 reg_value = mci_read(host, UHS_REG_EXT);
-reg_value &= ~STARFIVE_SMPL_PHASE;
-reg_value |= FIELD_PREP(STARFIVE_SMPL_PHASE, smpl_phase);
-mci_writel(host, UHS_REG_EXT, reg_value);
-...
-
->  static int dw_mci_starfive_execute_tuning(struct dw_mci_slot *slot,
->                                              u32 opcode)
->  {
->         static const int grade  = MAX_DELAY_CHAIN;
->         struct dw_mci *host = slot->host;
-> -       struct starfive_priv *priv = host->priv;
-> -       int rise_point = -1, fall_point = -1;
-> -       int err, prev_err = 0;
-> +       int err = -1;
-
-This variable is always set later so doesn't need initialization and
-is better called 'ret' as it's the return value of the function, and
-not necessarily an error.
-
-> +       int smpl_phase, smpl_raise = -1, smpl_fall = -1;
->         int i;
-> -       bool found = 0;
-> -       u32 regval;
-> -
-> -       /*
-> -        * Use grade as the max delay chain, and use the rise_point and
-> -        * fall_point to ensure the best sampling point of a data input
-> -        * signals.
-> -        */
-> +
->         for (i = 0; i < grade; i++) {
-> -               regval = i << priv->syscon_shift;
-> -               err = regmap_update_bits(priv->reg_syscon, priv->syscon_offset,
-> -                                               priv->syscon_mask, regval);
-> -               if (err)
-> -                       return err;
-> +               smpl_phase = i;
-
-This can now be written
-
-for (sampl_phase = 0; sampl_phase < grade; sampl_phase++)
-
-> +               dw_mci_starfive_hs_set_bits(host, smpl_phase);
->                 mci_writel(host, RINTSTS, ALL_INT_CLR);
->
->                 err = mmc_send_tuning(slot->mmc, opcode, NULL);
-> -               if (!err)
-> -                       found = 1;
-> -
-> -               if (i > 0) {
-> -                       if (err && !prev_err)
-> -                               fall_point = i - 1;
-> -                       if (!err && prev_err)
-> -                               rise_point = i;
-> -               }
->
-> -               if (rise_point != -1 && fall_point != -1)
-> -                       goto tuning_out;
-> -
-> -               prev_err = err;
-> -               err = 0;
-> -       }
-> -
-> -tuning_out:
-> -       if (found) {
-> -               if (rise_point == -1)
-> -                       rise_point = 0;
-> -               if (fall_point == -1)
-> -                       fall_point = grade - 1;
-> -               if (fall_point < rise_point) {
-> -                       if ((rise_point + fall_point) >
-> -                           (grade - 1))
-> -                               i = fall_point / 2;
-> -                       else
-> -                               i = (rise_point + grade - 1) / 2;
-> -               } else {
-> -                       i = (rise_point + fall_point) / 2;
-> +               if (!err && smpl_raise < 0) {
-> +                       smpl_raise = i;
-> +               } else if (err && smpl_raise >= 0) {
-> +                       smpl_fall = i - 1;
-> +                       break;
->                 }
-> +       }
->
-> -               regval = i << priv->syscon_shift;
-> -               err = regmap_update_bits(priv->reg_syscon, priv->syscon_offset,
-> -                                               priv->syscon_mask, regval);
-> -               if (err)
-> -                       return err;
-> -               mci_writel(host, RINTSTS, ALL_INT_CLR);
-> +       if (i >= grade && smpl_raise >= 0)
-> +               smpl_fall = grade - 1;
->
-> -               dev_info(host->dev, "Found valid delay chain! use it [delay=%d]\n", i);
-> -       } else {
-> +       if (smpl_raise < 0) {
->                 dev_err(host->dev, "No valid delay chain! use default\n");
-> +               dw_mci_starfive_hs_set_bits(host, 0);
->                 err = -EINVAL;
-> +       } else {
-> +               smpl_phase = (smpl_raise + smpl_fall) / 2;
-> +               dw_mci_starfive_hs_set_bits(host, smpl_phase);
-> +               dev_dbg(host->dev, "Found valid delay chain! use it [delay=%d]\n", smpl_phase);
-> +               err = 0;
->         }
-
-Maybe something like:
-
-  if (smpl_raise < 0) {
-    smpl_phase = 0;
-    dev_err(host->dev, "No valid delay chain, using default\n");
-    ret = -EINVAL;
-    goto out;
-  }
-
-  smpl_phase = (smpl_raise + smpl_fall) / 2;
-  dev_dbg(...);
-  ret = 0;
-
-out:
-  dw_mci_starfive_hs_set_bits(host, smpl_phase);
-  mci_writel(host, RINTSTS, ALL_INT_CLR);
-  return ret;
->  }
->
-> -static int dw_mci_starfive_parse_dt(struct dw_mci *host)
-> -{
-> -       struct of_phandle_args args;
-> -       struct starfive_priv *priv;
-> -       int ret;
-> -
-> -       priv = devm_kzalloc(host->dev, sizeof(*priv), GFP_KERNEL);
-> -       if (!priv)
-> -               return -ENOMEM;
-> -
-> -       ret = of_parse_phandle_with_fixed_args(host->dev->of_node,
-> -                                               "starfive,sysreg", 3, 0, &args);
-> -       if (ret) {
-> -               dev_err(host->dev, "Failed to parse starfive,sysreg\n");
-> -               return -EINVAL;
-> -       }
-> -
-> -       priv->reg_syscon = syscon_node_to_regmap(args.np);
-> -       of_node_put(args.np);
-> -       if (IS_ERR(priv->reg_syscon))
-> -               return PTR_ERR(priv->reg_syscon);
-> -
-> -       priv->syscon_offset = args.args[0];
-> -       priv->syscon_shift  = args.args[1];
-> -       priv->syscon_mask   = args.args[2];
-> -
-> -       host->priv = priv;
-> -
-> -       return 0;
-> -}
-> -
->  static const struct dw_mci_drv_data starfive_data = {
->         .common_caps            = MMC_CAP_CMD23,
->         .set_ios                = dw_mci_starfive_set_ios,
-> -       .parse_dt               = dw_mci_starfive_parse_dt,
->         .execute_tuning         = dw_mci_starfive_execute_tuning,
->  };
->
-> --
-> 2.34.1
->
->
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGksCgpPbiA4LzI5LzIwMjMgMTE6MjYgUE0sIEFsZXhlaSBTdGFyb3ZvaXRvdiB3cm90ZToKPiBP
+biBNb24sIEF1ZyAyOCwgMjAyMyBhdCA2OjU34oCvQU0gSG91IFRhbyA8aG91dGFvQGh1YXdlaWNs
+b3VkLmNvbT4gd3JvdGU6Cj4+IEhpLAo+Pgo+PiBPbiA4LzI3LzIwMjMgMTA6NTMgUE0sIFlvbmdo
+b25nIFNvbmcgd3JvdGU6Cj4+Pgo+Pj4gT24gOC8yNy8yMyAxOjM3IEFNLCBCasO2cm4gVMO2cGVs
+IHdyb3RlOgo+Pj4+IEJqw7ZybiBUw7ZwZWwgPGJqb3JuQGtlcm5lbC5vcmc+IHdyaXRlczoKPj4+
+Pgo+Pj4+PiBIb3UgVGFvIDxob3V0YW9AaHVhd2VpY2xvdWQuY29tPiB3cml0ZXM6Cj4+Pj4+Cj4+
+Pj4+PiBIaSwKPj4+Pj4+Cj4+Pj4+PiBPbiA4LzI2LzIwMjMgNToyMyBQTSwgQmrDtnJuIFTDtnBl
+bCB3cm90ZToKPj4+Pj4+PiBIb3UgVGFvIDxob3V0YW9AaHVhd2VpY2xvdWQuY29tPiB3cml0ZXM6
+Cj4+Pj4+Pj4KPj4+Pj4+Pj4gSGksCj4+Pj4+Pj4+Cj4+Pj4+Pj4+IE9uIDgvMjUvMjAyMyAxMToy
+OCBQTSwgWW9uZ2hvbmcgU29uZyB3cm90ZToKPj4+Pj4+Pj4+IE9uIDgvMjUvMjMgMzozMiBBTSwg
+QmrDtnJuIFTDtnBlbCB3cm90ZToKPj4+Pj4+Pj4+PiBJJ20gY2hhc2luZyBhIHdvcmtxdWV1ZSBo
+YW5nIG9uIFJJU0MtVi9xZW11IChUQ0cpLCB1c2luZyB0aGUgYnBmCj4+Pj4+Pj4+Pj4gc2VsZnRl
+c3RzIG9uIGJwZi1uZXh0IDllM2I0N2FiZWI4Zi4KPj4+Pj4+Pj4+Pgo+Pj4+Pj4+Pj4+IEknbSBh
+YmxlIHRvIHJlcHJvZHVjZSB0aGUgaGFuZyBieSBtdWx0aXBsZSBydW5zIG9mOgo+Pj4+Pj4+Pj4+
+ICAgIHwgLi90ZXN0X3Byb2dzIC1hIGxpbmtfYXBpIC1hIGxpbmtlZF9saXN0Cj4+Pj4+Pj4+Pj4g
+SSdtIGN1cnJlbnRseSBpbnZlc3RpZ2F0aW5nIHRoYXQuCj4+Pj4+Pj4+Pj4KPj4+Pj4+Pj4+PiBC
+dXQhIFNvbWV0aW1lcyAoZXZlcnkgYmx1ZSBtb29uKSBJIGdldCBhIHdhcm5fb25fb25jZSBoaXQ6
+Cj4+Pj4+Pj4+Pj4gICAgfCAtLS0tLS0tLS0tLS1bIGN1dCBoZXJlIF0tLS0tLS0tLS0tLS0KPj4+
+Pj4+Pj4+PiAgICB8IFdBUk5JTkc6IENQVTogMyBQSUQ6IDI2MSBhdCBrZXJuZWwvYnBmL21lbWFs
+bG9jLmM6MzQyCj4+Pj4+Pj4+Pj4gYnBmX21lbV9yZWZpbGwrMHgxZmMvMHgyMDYKPj4+Pj4+Pj4+
+PiAgICB8IE1vZHVsZXMgbGlua2VkIGluOiBicGZfdGVzdG1vZChPRSkKPj4+Pj4+Pj4+PiAgICB8
+IENQVTogMyBQSUQ6IDI2MSBDb21tOiB0ZXN0X3Byb2dzLWNwdXYgVGFpbnRlZDogRyAgICAgICAg
+ICAgT0UKPj4+Pj4+Pj4+PiBOIDYuNS4wLXJjNS0wMTc0My1nZGNiMTUyYmI4MzI4ICMyCj4+Pj4+
+Pj4+Pj4gICAgfCBIYXJkd2FyZSBuYW1lOiByaXNjdi12aXJ0aW8scWVtdSAoRFQpCj4+Pj4+Pj4+
+Pj4gICAgfCBlcGMgOiBicGZfbWVtX3JlZmlsbCsweDFmYy8weDIwNgo+Pj4+Pj4+Pj4+ICAgIHwg
+IHJhIDogaXJxX3dvcmtfc2luZ2xlKzB4NjgvMHg3MAo+Pj4+Pj4+Pj4+ICAgIHwgZXBjIDogZmZm
+ZmZmZmY4MDFiMWJjNCByYSA6IGZmZmZmZmZmODAxNWZlODQgc3AgOgo+Pj4+Pj4+Pj4+IGZmMjAw
+MDAwMDAwMWJlMjAKPj4+Pj4+Pj4+PiAgICB8ICBncCA6IGZmZmZmZmZmODJkMjYxMzggdHAgOiBm
+ZjYwMDAwMDg0NzdhODAwIHQwIDoKPj4+Pj4+Pj4+PiAwMDAwMDAwMDAwMDQ2NjAwCj4+Pj4+Pj4+
+Pj4gICAgfCAgdDEgOiBmZmZmZmZmZjgxMmI2ZGRjIHQyIDogMDAwMDAwMDAwMDAwMDAwMCBzMCA6
+Cj4+Pj4+Pj4+Pj4gZmYyMDAwMDAwMDAxYmU3MAo+Pj4+Pj4+Pj4+ICAgIHwgIHMxIDogZmY1ZmZm
+ZmZmZmZlODk5OCBhMCA6IGZmNWZmZmZmZmZmZTg5OTggYTEgOgo+Pj4+Pj4+Pj4+IGZmNjAwMDAz
+ZmVmNGIwMDAKPj4+Pj4+Pj4+PiAgICB8ICBhMiA6IDAwMDAwMDAwMDAwMDAwM2YgYTMgOiBmZmZm
+ZmZmZjgwMDA4MjUwIGE0IDoKPj4+Pj4+Pj4+PiAwMDAwMDAwMDAwMDAwMDYwCj4+Pj4+Pj4+Pj4g
+ICAgfCAgYTUgOiAwMDAwMDAwMDAwMDAwMDgwIGE2IDogMDAwMDAwMDAwMDAwMDAwMCBhNyA6Cj4+
+Pj4+Pj4+Pj4gMDAwMDAwMDAwMDczNTA0OQo+Pj4+Pj4+Pj4+ICAgIHwgIHMyIDogZmY1ZmZmZmZm
+ZmZlODk5OCBzMyA6IDAwMDAwMDAwMDAwMDAwMjIgczQgOgo+Pj4+Pj4+Pj4+IDAwMDAwMDAwMDAw
+MDEwMDAKPj4+Pj4+Pj4+PiAgICB8ICBzNSA6IDAwMDAwMDAwMDAwMDAwMDcgczYgOiBmZjVmZmZm
+ZmZmZmU4NTcwIHM3IDoKPj4+Pj4+Pj4+PiBmZmZmZmZmZjgyZDZiZDMwCj4+Pj4+Pj4+Pj4gICAg
+fCAgczggOiAwMDAwMDAwMDAwMDAwMDNmIHM5IDogZmZmZmZmZmY4MmQyYzVlOCBzMTA6Cj4+Pj4+
+Pj4+Pj4gMDAwMDAwMDAwMDAwZmZmZgo+Pj4+Pj4+Pj4+ICAgIHwgIHMxMTogZmZmZmZmZmY4MmQy
+YzVkOCB0MyA6IGZmZmZmZmZmODFlYThmMjggdDQgOgo+Pj4+Pj4+Pj4+IDAwMDAwMDAwMDAwMDAw
+MDAKPj4+Pj4+Pj4+PiAgICB8ICB0NSA6IGZmNjAwMDAwOGZkMjgyNzggdDYgOiAwMDAwMDAwMDAw
+MDQwMDAwCj4+Pj4+Pj4+Pj4gICAgfCBzdGF0dXM6IDAwMDAwMDAyMDAwMDAxMDAgYmFkYWRkcjog
+MDAwMDAwMDAwMDAwMDAwMCBjYXVzZToKPj4+Pj4+Pj4+PiAwMDAwMDAwMDAwMDAwMDAzCj4+Pj4+
+Pj4+Pj4gICAgfCBbPGZmZmZmZmZmODAxYjFiYzQ+XSBicGZfbWVtX3JlZmlsbCsweDFmYy8weDIw
+Ngo+Pj4+Pj4+Pj4+ICAgIHwgWzxmZmZmZmZmZjgwMTVmZTg0Pl0gaXJxX3dvcmtfc2luZ2xlKzB4
+NjgvMHg3MAo+Pj4+Pj4+Pj4+ICAgIHwgWzxmZmZmZmZmZjgwMTVmZWI0Pl0gaXJxX3dvcmtfcnVu
+X2xpc3QrMHgyOC8weDM2Cj4+Pj4+Pj4+Pj4gICAgfCBbPGZmZmZmZmZmODAxNWZlZmE+XSBpcnFf
+d29ya19ydW4rMHgzOC8weDY2Cj4+Pj4+Pj4+Pj4gICAgfCBbPGZmZmZmZmZmODAwMDgyOGE+XSBo
+YW5kbGVfSVBJKzB4M2EvMHhiNAo+Pj4+Pj4+Pj4+ICAgIHwgWzxmZmZmZmZmZjgwMGE1YzNhPl0g
+aGFuZGxlX3BlcmNwdV9kZXZpZF9pcnErMHhhNC8weDFmOAo+Pj4+Pj4+Pj4+ICAgIHwgWzxmZmZm
+ZmZmZjgwMDlmYWZhPl0gZ2VuZXJpY19oYW5kbGVfZG9tYWluX2lycSsweDI4LzB4MzYKPj4+Pj4+
+Pj4+PiAgICB8IFs8ZmZmZmZmZmY4MDBhZTU3MD5dIGlwaV9tdXhfcHJvY2VzcysweGFjLzB4ZmEK
+Pj4+Pj4+Pj4+PiAgICB8IFs8ZmZmZmZmZmY4MDAwYThlYT5dIHNiaV9pcGlfaGFuZGxlKzB4MmUv
+MHg4OAo+Pj4+Pj4+Pj4+ICAgIHwgWzxmZmZmZmZmZjgwMDlmYWZhPl0gZ2VuZXJpY19oYW5kbGVf
+ZG9tYWluX2lycSsweDI4LzB4MzYKPj4+Pj4+Pj4+PiAgICB8IFs8ZmZmZmZmZmY4MDdlZTcwZT5d
+IHJpc2N2X2ludGNfaXJxKzB4MzYvMHg0ZQo+Pj4+Pj4+Pj4+ICAgIHwgWzxmZmZmZmZmZjgxMmI1
+ZDNhPl0gaGFuZGxlX3Jpc2N2X2lycSsweDU0LzB4ODYKPj4+Pj4+Pj4+PiAgICB8IFs8ZmZmZmZm
+ZmY4MTJiNjkwND5dIGRvX2lycSsweDY2LzB4OTgKPj4+Pj4+Pj4+PiAgICB8IC0tLVsgZW5kIHRy
+YWNlIDAwMDAwMDAwMDAwMDAwMDAgXS0tLQo+Pj4+Pj4+Pj4+Cj4+Pj4+Pj4+Pj4gQ29kZToKPj4+
+Pj4+Pj4+PiAgICB8IHN0YXRpYyB2b2lkIGZyZWVfYnVsayhzdHJ1Y3QgYnBmX21lbV9jYWNoZSAq
+YykKPj4+Pj4+Pj4+PiAgICB8IHsKPj4+Pj4+Pj4+PiAgICB8ICAgICBzdHJ1Y3QgYnBmX21lbV9j
+YWNoZSAqdGd0ID0gYy0+dGd0Owo+Pj4+Pj4+Pj4+ICAgIHwgICAgIHN0cnVjdCBsbGlzdF9ub2Rl
+ICpsbG5vZGUsICp0Owo+Pj4+Pj4+Pj4+ICAgIHwgICAgIHVuc2lnbmVkIGxvbmcgZmxhZ3M7Cj4+
+Pj4+Pj4+Pj4gICAgfCAgICAgaW50IGNudDsKPj4+Pj4+Pj4+PiAgICB8Cj4+Pj4+Pj4+Pj4gICAg
+fCAgICAgV0FSTl9PTl9PTkNFKHRndC0+dW5pdF9zaXplICE9IGMtPnVuaXRfc2l6ZSk7Cj4+Pj4+
+Pj4+Pj4gICAgfCAuLi4KPj4+Pj4+Pj4+Pgo+Pj4+Pj4+Pj4+IEknbSBub3Qgd2VsbCB2ZXJzZWQg
+aW4gdGhlIG1lbW9yeSBhbGxvY2F0b3I7IEJlZm9yZSBJIGRpdmUgaW50bwo+Pj4+Pj4+Pj4+IGl0
+IC0tCj4+Pj4+Pj4+Pj4gaGFzIGFueW9uZSBlbHNlIGhpdCBpdD8gSWRlYXMgb24gd2h5IHRoZSB3
+YXJuX29uX29uY2UgaXMgaGl0Pwo+Pj4+Pj4+Pj4gTWF5YmUgdGFrZSBhIGxvb2sgYXQgdGhlIHBh
+dGNoCj4+Pj4+Pj4+PiAgICA4MjJmYjI2YmRiNTUgIGJwZjogQWRkIGEgaGludCB0byBhbGxvY2F0
+ZWQgb2JqZWN0cy4KPj4+Pj4+Pj4+Cj4+Pj4+Pj4+PiBJbiB0aGUgYWJvdmUgcGF0Y2gsIHdlIGhh
+dmUKPj4+Pj4+Pj4+Cj4+Pj4+Pj4+PiArICAgICAgIC8qCj4+Pj4+Pj4+PiArICAgICAgICAqIFJl
+bWVtYmVyIGJwZl9tZW1fY2FjaGUgdGhhdCBhbGxvY2F0ZWQgdGhpcyBvYmplY3QuCj4+Pj4+Pj4+
+PiArICAgICAgICAqIFRoZSBoaW50IGlzIG5vdCBhY2N1cmF0ZS4KPj4+Pj4+Pj4+ICsgICAgICAg
+ICovCj4+Pj4+Pj4+PiArICAgICAgIGMtPnRndCA9ICooc3RydWN0IGJwZl9tZW1fY2FjaGUgKiop
+bGxub2RlOwo+Pj4+Pj4+Pj4KPj4+Pj4+Pj4+IEkgc3VzcGVjdCB0aGF0IHRoZSB3YXJuaW5nIG1h
+eSBiZSByZWxhdGVkIHRvIHRoZSBhYm92ZS4KPj4+Pj4+Pj4+IEkgdHJpZWQgdGhlIGFib3ZlIC4v
+dGVzdF9wcm9ncyBjb21tYW5kIGxpbmUgKHJ1bm5pbmcgbXVsdGlwbGUKPj4+Pj4+Pj4+IGF0IHRo
+ZSBzYW1lIHRpbWUpIGFuZCBkaWRuJ3QgdHJpZ2dlciB0aGUgaXNzdWUuCj4+Pj4+Pj4+IFRoZSBl
+eHRyYSA4LWJ5dGVzIGJlZm9yZSB0aGUgZnJlZWQgcG9pbnRlciBpcyB1c2VkIHRvIHNhdmUgdGhl
+Cj4+Pj4+Pj4+IHBvaW50ZXIKPj4+Pj4+Pj4gb2YgdGhlIG9yaWdpbmFsIGJwZiBtZW1vcnkgYWxs
+b2NhdG9yIHdoZXJlIHRoZSBmcmVlZCBwb2ludGVyIGNhbWUKPj4+Pj4+Pj4gZnJvbSwKPj4+Pj4+
+Pj4gc28gdW5pdF9mcmVlKCkgY291bGQgZnJlZSB0aGUgcG9pbnRlciBiYWNrIHRvIHRoZSBvcmln
+aW5hbAo+Pj4+Pj4+PiBhbGxvY2F0b3IgdG8KPj4+Pj4+Pj4gcHJldmVudCBhbGxvYy1hbmQtZnJl
+ZSB1bmJhbGFuY2UuCj4+Pj4+Pj4+Cj4+Pj4+Pj4+IEkgc3VzcGVjdCB0aGF0IGEgd3JvbmcgcG9p
+bnRlciB3YXMgcGFzc2VkIHRvIGJwZl9vYmpfZHJvcCwgYnV0IGRvCj4+Pj4+Pj4+IG5vdAo+Pj4+
+Pj4+PiBmaW5kIGFueXRoaW5nIHN1c3BpY2lvdXMgYWZ0ZXIgY2hlY2tpbmcgbGlua2VkX2xpc3Qu
+IEFub3RoZXIKPj4+Pj4+Pj4gcG9zc2liaWxpdHkKPj4+Pj4+Pj4gaXMgdGhhdCB0aGVyZSBpcyB3
+cml0ZS1hZnRlci1mcmVlIHByb2JsZW0gd2hpY2ggY29ycnVwdHMgdGhlIGV4dHJhCj4+Pj4+Pj4+
+IDgtYnl0ZXMgYmVmb3JlIHRoZSBmcmVlZCBwb2ludGVyLiBDb3VsZCB5b3UgcGxlYXNlIGFwcGx5
+IHRoZQo+Pj4+Pj4+PiBmb2xsb3dpbmcKPj4+Pj4+Pj4gZGVidWcgcGF0Y2ggdG8gY2hlY2sgd2hl
+dGhlciBvciBub3QgdGhlIGV4dHJhIDgtYnl0ZXMgYXJlCj4+Pj4+Pj4+IGNvcnJ1cHRlZCA/Cj4+
+Pj4+Pj4gVGhhbmtzIGZvciBnZXR0aW5nIGJhY2shCj4+Pj4+Pj4KPj4+Pj4+PiBJIHRvb2sgeW91
+ciBwYXRjaCBmb3IgYSBydW4sIGFuZCB0aGVyZSdzIGEgaGl0Ogo+Pj4+Pj4+ICAgIHwgYmFkIGNh
+Y2hlIGZmNWZmZmZmZmZmZTg1NzA6IGdvdCBzaXplIDk2IHdvcmsKPj4+Pj4+PiBmZmZmZmZmZjgw
+MWIxOWM4LCBjYWNoZSBmZjVmZmZmZmZmZmU4OTgwIGV4cCBzaXplIDEyOCB3b3JrCj4+Pj4+Pj4g
+ZmZmZmZmZmY4MDFiMTljOAo+Pj4+Pj4gVGhlIGV4dHJhIDgtYnl0ZXMgYXJlIG5vdCBjb3JydXB0
+ZWQuIEJvdGggb2YgdGhlc2UgdHdvCj4+Pj4+PiBicGZfbWVtX2NhY2hlIGFyZQo+Pj4+Pj4gdmFs
+aWQgYW5kIHRoZXJlIGFyZSBpbiB0aGUgY2FjaGUgYXJyYXkgZGVmaW5lZCBpbiBicGZfbWVtX2Nh
+Y2hlcy4gQlBGCj4+Pj4+PiBtZW1vcnkgYWxsb2NhdG9yIGFsbG9jYXRlZCB0aGUgcG9pbnRlciBm
+cm9tIDk2LWJ5dGVzIHNpemVkLWNhY2hlLAo+Pj4+Pj4gYnV0IGl0Cj4+Pj4+PiB0cmllZCB0byBm
+cmVlIHRoZSBwb2ludGVyIHRocm91Z2ggMTI4LWJ5dGVzIHNpemVkLWNhY2hlLgo+Pj4+Pj4KPj4+
+Pj4+IE5vdyBJIHN1c3BlY3QgdGhlcmUgaXMgbm8gOTYtYnl0ZXMgc2xhYiBpbiB5b3VyIHN5c3Rl
+bSBhbmQga3NpemUocHRyIC0KPj4+Pj4+IExMSVNUX05PREVfU1opIHJldHVybnMgMTI4LCBzbyBi
+cGYgbWVtb3J5IGFsbG9jYXRvciBzZWxlY3RlZCB0aGUKPj4+Pj4+IDEyOC1ieXRlIHNpemVkLWNh
+Y2hlIGluc3RlYWQgb2YgOTYtYnl0ZXMgc2l6ZWQtY2FjaGUuIENvdWxkIHlvdSBwbGVhc2UKPj4+
+Pj4+IGNoZWNrIHRoZSB2YWx1ZSBvZiBLTUFMTE9DX01JTl9TSVpFIGluIHlvdXIga2VybmVsIC5j
+b25maWcgYW5kCj4+Pj4+PiB1c2luZyB0aGUKPj4+Pj4+IGZvbGxvd2luZyBjb21tYW5kIHRvIGNo
+ZWNrIHdoZXRoZXIgdGhlcmUgaXMgOTYtYnl0ZXMgc2xhYiBpbiB5b3VyCj4+Pj4+PiBzeXN0ZW06
+Cj4+Pj4+IEtNQUxMT0NfTUlOX1NJWkUgaXMgNjQuCj4+Pj4+Cj4+Pj4+PiAkIGNhdCAvcHJvYy9z
+bGFiaW5mbyB8Z3JlcCBrbWFsbG9jLTk2Cj4+Pj4+PiBkbWEta21hbGxvYy05NiAgICAgICAgIDAg
+ICAgICAwICAgICA5NiAgIDQyICAgIDEgOiB0dW5hYmxlcyAgICAwICAgIDAKPj4+Pj4+IDAgOiBz
+bGFiZGF0YSAgICAgIDAgICAgICAwICAgICAgMAo+Pj4+Pj4ga21hbGxvYy05NiAgICAgICAgICAx
+ODY1ICAgMjI2OCAgICAgOTYgICA0MiAgICAxIDogdHVuYWJsZXMgICAgMCAgICAwCj4+Pj4+PiAw
+IDogc2xhYmRhdGEgICAgIDU0ICAgICA1NCAgICAgIDAKPj4+Pj4+Cj4+Pj4+PiBJbiBteSBzeXN0
+ZW0sIHNsYWIgaGFzIDk2LWJ5dGVzIGNhY2hlZCwgc28gZ3JlcCBvdXRwdXRzIHNvbWV0aGluZywK
+Pj4+Pj4+IGJ1dCBJCj4+Pj4+PiB0aGluayB0aGVyZSB3aWxsIG5vIG91dHB1dCBpbiB5b3VyIHN5
+c3RlbS4KPj4+Pj4gWW91J3JlIHJpZ2h0ISBObyBrbWFsbG9jLTk2Lgo+Pj4+IFRvIGdldCByaWQg
+b2YgdGhlIHdhcm5pbmcsIGxpbWl0IGF2YWlsYWJsZSBzaXplcyBmcm9tCj4+Pj4gYnBmX21lbV9h
+bGxvY19pbml0KCk/Cj4+IEl0IGlzIG5vdCBlbm91Z2guIFdlIG5lZWQgdG8gYWRqdXN0IHNpemVf
+aW5kZXggYWNjb3JkaW5nbHkgZHVyaW5nCj4+IGluaXRpYWxpemF0aW9uLiBDb3VsZCB5b3UgcGxl
+YXNlIHRyeSB0aGUgYXR0YWNoZWQgcGF0Y2ggYmVsb3cgPyBJdCBpcwo+PiBub3QgYSBmb3JtYWwg
+cGF0Y2ggYW5kIEkgYW0gY29uc2lkZXJpbmcgdG8gZGlzYWJsZSBwcmVmaWxsaW5nIGZvciB0aGVz
+ZQo+PiByZWRpcmVjdGVkIGJwZl9tZW1fY2FjaGVzLgo+Pj4gRG8geW91IGtub3cgd2h5IHlvdXIg
+c3lzdGVtIGRvZXMgbm90IGhhdmUga21hbGxvYy05Nj8KPj4gQWNjb3JkaW5nIHRvIHRoZSBpbXBs
+ZW1lbnRhdGlvbiBvZiBzZXR1cF9rbWFsbG9jX2NhY2hlX2luZGV4X3RhYmxlKCkgYW5kCj4+IGNy
+ZWF0ZV9rbWFsbG9jX2NhY2hlcygpLCAgd2hlbiBLTUFMTE9DX01JTl9TSVpFIGlzIGdyZWF0ZXIg
+dGhhbiA2NCwKPj4ga21hbGxvYy05NiB3aWxsIGJlIG9taXR0ZWQuIElmIEtNQUxMT0NfTUlOX1NJ
+WkUgaXMgZ3JlYXRlciB0aGFuIDEyOCwKPj4ga21hbGxvYy0xOTIgd2lsbCBiZSBvbWl0dGVkIGFz
+IHdlbGwuCj4gR3JlYXQgY2F0Y2guIFRoZSBmaXggbG9va3MgZ29vZC4KPiBQbGVhc2Ugc3VibWl0
+IGl0IG9mZmljaWFsbHkgYW5kIGFkZCBhbiBlcnJvciBjaGVjayB0byBicGZfbWVtX2FsbG9jX2lu
+aXQoKQo+IHRoYXQgdmVyaWZpZXMgdGhhdCBrc2l6ZSgpIG1hdGNoZXMgdGhlIGV4cGVjdGF0aW9u
+cy4KCkRvIHlvdSBtZWFuIHRvIGNoZWNrIHRoZSByZXR1cm4gdmFsdWVzIG9mIGtzaXplKCkgZm9y
+IHRoZXNlIHByZWZpbGwKb2JqZWN0cyBpbiBmcmVlX2xsaXN0IGFyZSBleHBlY3RlZCwgcmlnaHQg
+Pwo+IFRoZSBhbHRlcm5hdGl2ZSBpcyB0byB1c2Uga21hbGxvY19zaXplX3JvdW5kdXAoKSBkdXJp
+bmcgYWxsb2MgZm9yCj4gY2hlY2tpbmcgaW5zdGVhZCBvZiBrc2l6ZSgpLgo+IFRlY2huaWNhbGx5
+IHdlIGNhbiB1c2Uga21hbGxvY19zaXplX3JvdW5kdXAgaW4gdW5pdF9hbGxvYygpIGFuZCBhdm9p
+ZAo+IHNldHVwX2ttYWxsb2NfY2FjaGVfaW5kZXhfdGFibGUoKS1saWtlIGNvcHkgcGFzdGUsIGJ1
+dCBwZXJmb3JtYW5jZQo+IG92ZXJoZWFkIG1pZ2h0IGJlIHRvbyBoaWdoLgo+IFNvIHlvdXIgcGF0
+Y2ggKyBlcnJvciBjaGVjayBhdCBicGZfbWVtX2FsbG9jX2luaXQoKSBpcyBwcmVmZXJyZWQuCkkg
+c2VlLiBVc2luZyBrbWFsbG9jX3NpemVfcm91bmQoKSBpbiBicGZfbWVtX2FsbG9jKCkgaXMgaW5k
+ZWVkIGFuCmFsdGVybmF0aXZlIHNvbHV0aW9uLiBXaWxsIHBvc3QgaXQuCgoKX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBs
+aXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVh
+ZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
