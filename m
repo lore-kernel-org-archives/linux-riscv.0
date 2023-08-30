@@ -4,79 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F1ECC6FA8F
-	for <linux-riscv@archiver.kernel.org>; Wed, 30 Aug 2023 16:23:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F580C83F15
+	for <linux-riscv@archiver.kernel.org>; Wed, 30 Aug 2023 16:42:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nLXGYMU1hs+HcWNuYS78vOGz8b7CJb6fLyOLCTtpJnU=; b=JJKBLQwRRFjnue
-	qwrqqhRknr1p4cB/ZAANBPdL/1WUfLoPidP+b6jiadwKdCGO1tuyD/fiS10B6ltH49pDidprtCFZf
-	OHQsdiQzkQwZ80UmgmCLBGmIT+MoYTSDsw5dSHlvDPZ9nrZydnf2JzU13quRhBBuBy2qiZXfhp3O6
-	LG85n4kkFavysznkHI+w8FnE73O6DeseDvWRNZnbXSSrX4Ba9f00mlCndCOzzWkfjr+GFhTz5EyVa
-	24H3NM4lwP4qsxd/lUq77FlOMyHCqgrka29U8++aJiDpx0o4my6PW+4VUy2DDRBIFFnTmYeaM1NFq
-	AZgbMy1Hsrvk7k306wUA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Na6ncuP4mUjbNYD2w6uA7Gmw6Yzih17P3rypmIXGO0s=; b=GlzHVBTp90F3a9b62JEdHZT2AB
+	OsOCweHPCAlWHWsmKyk9msRqOiZ9hiCtnqtc+oWtR6ZfwK1jic3q0lWeyYQvxOHtaGPlnKXWWWtKT
+	8/Z5EAl5IJ8Zh4F4eU/xOczisQ8zSQgBHjDJRA5USsp2/v1JYAxWBNCtZpADrt5Wm1S5yvfnaQUx7
+	fLb2wK3bz1HPO4p0Bzjs63DChABfxONTrR0IFrktrqS4ng3IL0UXlx8oE0lAdwzoq1o1qy91Bdz5B
+	wkT2Vtce4xlBPp27bSVVtOVq5mM2Q8Rpze3fV2PnyeI1hVjl/gbF6hHiBMv4eg0MHktng8TUPZd54
+	JSgwYgFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qbNyC-00DqTF-2m;
-	Wed, 30 Aug 2023 16:23:04 +0000
-Received: from mail-wm1-x343.google.com ([2a00:1450:4864:20::343])
+	id 1qbOH6-00Drmo-1I;
+	Wed, 30 Aug 2023 16:42:36 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qbNyA-00DqSj-1F
-	for linux-riscv@lists.infradead.org;
-	Wed, 30 Aug 2023 16:23:03 +0000
-Received: by mail-wm1-x343.google.com with SMTP id 5b1f17b1804b1-401ceda85cdso29401885e9.1
-        for <linux-riscv@lists.infradead.org>; Wed, 30 Aug 2023 09:23:00 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1693412579; x=1694017379; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=j+wvqE02epXHuncYqczfKaHUuShfR7zlmM7dmtciawU=;
-        b=aI417wxyKMw2s8HOSTpqUECb8MhkN3yqyrVw2PHLwAB3Bq2k+XvHZJFK2TkfWmtcYO
-         EFn+udfj9r1xXpcRGOO4Mr+Ikl+gWbN4g44uQww2bQoPGxJ03TCbslQlUbQP5byjvTHG
-         QA2a2DVkymwH36pqqbr2yDO973ubUytRE3vxX0COUpRWc/b8XrTz+Hy61VTHwhYc25Dw
-         wnmtn7tbbZZiGeQ7KDtYXo5Wh36wzSI36Wd27E1yuraMSKK90A/azcfRJEu2NAZKM2fN
-         Fhae3v+gr6bm+yJp4/B51u9AK8MzK1B3j8vbl6EF/xufvyVmqLGWPDTguQBmLjrsyXc9
-         btaw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1693412579; x=1694017379;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=j+wvqE02epXHuncYqczfKaHUuShfR7zlmM7dmtciawU=;
-        b=dJzF/x334UYMrYWw8zDn+OWf2CLBLGKfqUH2GydmINchkzNZfSkMaticf2Njrnt1sK
-         1o2h8DIITGFA6qI2FbnVehDOMnLdrrWRdXeM96+NXkoVKxK67YkxqOJZvMAEuH6pnGd/
-         nYnhzubOHpG9sQREMC3Ye9xGHMMGDR/veh+os2rjsyor1mb4VIwd7qW90+soM+PLWKGm
-         EqAf5kAKmdp+WWoC/OYkITp+o8hME0b4fBMTcdivYpQG6BgfGyZGXDLpsOiUnLHzR8Bi
-         uewwFVRDA/RXQ8icMhLihXg7YT04j7u/wp+3I/w7iBgfhbwjYKDIkdkwCXljOy2xz+Mm
-         ZNiw==
-X-Gm-Message-State: AOJu0YzsA2Nj5tcmZA9rMgj8S5Usp4bq1JccgzcekoSG9/CgzkCUlomS
-	ygyud9nJNTo35k6bEk4jUmVNIQ==
-X-Google-Smtp-Source: AGHT+IGOHxswzh+EE8Z6WEOpuGv2Tv96IpNEPUBcTd42dEBTFrKzr5zl8pPLHyGur9y3VAV79xSTEA==
-X-Received: by 2002:adf:e387:0:b0:317:5fe7:6844 with SMTP id e7-20020adfe387000000b003175fe76844mr2309228wrm.39.1693412579595;
-        Wed, 30 Aug 2023 09:22:59 -0700 (PDT)
-Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
-        by smtp.gmail.com with ESMTPSA id f12-20020adff44c000000b00319779ee691sm17119594wrp.28.2023.08.30.09.22.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 30 Aug 2023 09:22:58 -0700 (PDT)
-Date: Wed, 30 Aug 2023 18:22:57 +0200
-From: Andrew Jones <ajones@ventanamicro.com>
-To: patchwork-bot+linux-riscv@kernel.org
-Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com, 
-	palmer@dabbelt.com, aou@eecs.berkeley.edu, evan@rivosinc.com, 
-	conor.dooley@microchip.com, apatel@ventanamicro.com
-Subject: Re: [PATCH 0/6] RISC-V: Enable cbo.zero in usermode
-Message-ID: <20230830-416e25b9fc6054b36bf81aab@orel>
-References: <20230809115516.214537-8-ajones@ventanamicro.com>
- <169340163447.19859.7372275191513999075.git-patchwork-notify@kernel.org>
+	id 1qbOH3-00Drm8-1M;
+	Wed, 30 Aug 2023 16:42:34 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 72BDA61E1D;
+	Wed, 30 Aug 2023 16:42:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9F379C433C7;
+	Wed, 30 Aug 2023 16:42:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1693413751;
+	bh=+cegdjpC7G5umSHFHbrmT1BIlMdov4rtt+v2oJEk1tM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=VjbX4CCwh2T7VRmcGdTip7u/f/TaIxuYGePqe7e+D4VSLmbiZHbmccKJEensZqdYd
+	 /SkVtQoHfFek1l/akYZpl6ne+8eKdaeb9A2TuvGKtHgX54qQvFDVWxI1azmcGgWe2A
+	 TCS6C1oK4Z9Yi4kRDMDic1bnoquUGBouKD5MDQ3AY/kt+9FcjbvW5qvdsxbxoapCQj
+	 m6CelcYTizHCgj7uEUvmooKRW1IDpuIbzMXpLTY63MW/y+bD0wODuEHfxQZ27KwMGs
+	 UK+r1H9fjVVo3zf7MJOTbhSZBfN9GnYmDVX/HSF7zUQGGf3T2s6/zw2yHd96jP9gqw
+	 cyxOybFWimvpA==
+Date: Wed, 30 Aug 2023 17:42:18 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Szabolcs Nagy <Szabolcs.Nagy@arm.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	James Morse <james.morse@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Arnd Bergmann <arnd@arndb.de>, Oleg Nesterov <oleg@redhat.com>,
+	Eric Biederman <ebiederm@xmission.com>,
+	Kees Cook <keescook@chromium.org>, Shuah Khan <shuah@kernel.org>,
+	"Rick P. Edgecombe" <rick.p.edgecombe@intel.com>,
+	Deepak Gupta <debug@rivosinc.com>, Ard Biesheuvel <ardb@kernel.org>,
+	"H.J. Lu" <hjl.tools@gmail.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+	kvmarm@lists.linux.dev, linux-fsdevel@vger.kernel.org,
+	linux-arch@vger.kernel.org, linux-mm@kvack.org,
+	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v4 03/36] arm64/gcs: Document the ABI for Guarded Control
+ Stacks
+Message-ID: <9992beaf-f57d-41f8-9dbb-8044c783ddf4@sirena.org.uk>
+References: <aaea542c-929c-4c9b-8caa-ca67e0eb9c1e@sirena.org.uk>
+ <ZOTnL1SDJWZjHPUW@arm.com>
+ <43ec219d-bf20-47b8-a5f8-32bc3b64d487@sirena.org.uk>
+ <ZOXa98SqwYPwxzNP@arm.com>
+ <227e6552-353c-40a9-86c1-280587a40e3c@sirena.org.uk>
+ <ZOY3lz+Zyhd5ZyQ9@arm.com>
+ <ZOZEmO6WGyVAcOqK@arm.com>
+ <ef7272d2-d807-428f-9915-6fc9febadb5c@sirena.org.uk>
+ <ZOd6lzj29VksAp7L@arm.com>
+ <ZO84DWEiYk6dU3iR@arm.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <169340163447.19859.7372275191513999075.git-patchwork-notify@kernel.org>
+In-Reply-To: <ZO84DWEiYk6dU3iR@arm.com>
+X-Cookie: Immanuel doesn't pun, he Kant.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230830_092302_434023_44635F94 
-X-CRM114-Status: GOOD (  19.85  )
+X-CRM114-CacheID: sfid-20230830_094233_564948_1301A959 
+X-CRM114-Status: GOOD (  24.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,61 +98,91 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============8258225483564506512=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 30, 2023 at 01:20:34PM +0000, patchwork-bot+linux-riscv@kernel.org wrote:
-> Hello:
-> 
-> This series was applied to riscv/linux.git (for-next)
-> by Palmer Dabbelt <palmer@rivosinc.com>:
-> 
-> On Wed,  9 Aug 2023 13:55:17 +0200 you wrote:
-> > In order for usermode to issue cbo.zero, it needs privilege granted to
-> > issue the extension instruction (patch 2) and to know that the extension
-> > is available and its block size (patch 3). Patch 1 could be separate from
-> > this series (it just fixes up some error messages), patches 4-5 convert
-> > the hwprobe selftest to a statically-linked, TAP test and patch 6 adds a
-> > new hwprobe test for the new information as well as testing CBO
-> > instructions can or cannot be issued as appropriate.
-> > 
-> > [...]
-> 
-> Here is the summary with links:
->   - [1/6] RISC-V: Make zicbom/zicboz errors consistent
->     https://git.kernel.org/riscv/c/66e02b1d6430
->   - [2/6] RISC-V: Enable cbo.zero in usermode
->     https://git.kernel.org/riscv/c/090925374690
->   - [3/6] RISC-V: hwprobe: Expose Zicboz extension and its block size
->     https://git.kernel.org/riscv/c/d45243f8c239
->   - [4/6] RISC-V: selftests: Statically link hwprobe test
->     https://git.kernel.org/riscv/c/0ca410a80172
->   - [5/6] RISC-V: selftests: Convert hwprobe test to kselftest API
->     https://git.kernel.org/riscv/c/d79a646354a9
->   - [6/6] RISC-V: selftests: Add CBO tests
->     https://git.kernel.org/riscv/c/026645838c86
-> 
-> You are awesome, thank you!
-> -- 
-> Deet-doot-dot, I am a bot.
-> https://korg.docs.kernel.org/patchwork/pwbot.html
-> 
->
 
-Hi Palmer,
+--===============8258225483564506512==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="K/vjy3MP44rS/waF"
+Content-Disposition: inline
 
-This series needs a v2. There were couple minor comments on v1, and
-I just found out that I broke the compiling of the nolibc vector
-selftest.
 
-I'll post v2 in the next few minutes. Sorry for the hassle!
+--K/vjy3MP44rS/waF
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-Thanks,
-drew
+On Wed, Aug 30, 2023 at 01:37:33PM +0100, Szabolcs Nagy wrote:
+> The 08/24/2023 16:43, Catalin Marinas wrote:
+
+> > Is there a use-case for the unlocked configuration to allow disabling
+> > the GCS implicitly via a clone syscall?
+
+> how would you handle clone or clone3 without gcs specified?
+> (in the cases when clone creates a new thread with new stack)
+
+> (1) fail.
+> (2) allocate gcs.
+> (3) disable gcs.
+
+...
+
+> problem with (2) is that the size policy and lifetime management
+> is in the kernel then. (since only special cases are affected i
+> guess that is ok, but i assumed we want to avoid this by moving
+> to clone3 and user managed gcs).
+
+Right, it seems like if we go with this then we may as well just allow
+plain clone() too.
+
+> the problem with (3) is escaping the security measure, however
+> it only applies to very special threads that can always decide
+> to opt-in to gcs, so i don't see this as such a bad option and
+> at least bw compat with existing code. (in my threat model the
+> attacker cannot hijack clone syscalls as that seems stronger
+> than hijacking return addresses.)
+
+It doesn't seem great to have a feature which is to a large extent a
+security feature where we provide a fairly straightforward mechanism for
+disabling the feature and actively expect things to be using it.
+
+Given the timescales until this gets practically deployed on arm64 I
+would be inclined to go with making things fail and forcing updates in
+the users, though obviously that's less helpful for x86 where the
+hardware is in user hands already so it's more of a pressing issue (and
+there's already what is effectively option 2 in the code).  We could
+have the architectures diverge, as you say the effect is likely to be
+mainly in very low level code rather than general software.
+
+--K/vjy3MP44rS/waF
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmTvcWkACgkQJNaLcl1U
+h9BrNwf/ZAr2lf9jr/JbNkYpu9zm6Fga4tZrLQoMWCDnP9PGxphhBn9iAMWz6X+F
+0X05x9pIN7D4g7qLffjEzsFOpfukbLwIQ4wH/AdjNW7MvFpuH+4kt7iWwiDparY/
+wliRfw6VyCf8lMA40bSac+jlTEJowbBmX+nh1z+EI924BOUXDONu/PGGfoVtn9U0
+mOVw+DFx3lACf5cjCPKSE9JfYf74s+y9cH8fk9x1/D6jHuJuX5IOafLld3PytL/v
+Yxbc/C9XY0Qa9If9yV/NWPb7irX1i7vTMOcHJ8AAzwzHV7LjOOk2cBgRj0IJ2TBI
+1fuiPsv3RNuj2GUC01Od5Md0pPjifQ==
+=qSdV
+-----END PGP SIGNATURE-----
+
+--K/vjy3MP44rS/waF--
+
+
+--===============8258225483564506512==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============8258225483564506512==--
+
