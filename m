@@ -4,62 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA00EC83F01
-	for <linux-riscv@archiver.kernel.org>; Wed, 30 Aug 2023 06:35:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60E45C83F01
+	for <linux-riscv@archiver.kernel.org>; Wed, 30 Aug 2023 06:51:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=HoCfCaRsxnMIR92OCfnqii0FBxi33wtM7YUXUUVC+I0=; b=V1PueRyvoNxV1e
-	xTxxFKUVJnGb04YqhX7Qcqtd+QjIe5YprHQpCtXz/Caz4CZTTdS1vK7e0ovdH8gEh8oGvGI1/Kj8K
-	dJOoECmH/F1p3plwELLb98oxH6BuikH4C9f29OkH9FzuiZyCvetRAyJqhPZOeZPBWFvPY/4Y9+Pew
-	I8CdWnJ2GhLRgMHZ+7kiZGlY/eVrRpohfIJzwvaNnqN55NsQ6QzS3Ruqrx6RZ15GGEZaBvaQ/p3+O
-	IcG6KlFkU3YAFSgaeYAtLIBJ13bglwhAQmxThKbtbiSgu9t6zIdkaqVcUPGTdMRW4wpm2f9UX64FS
-	hIFXvq+/gRqVFp9azkKQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BE8mPg0eokaU97UzgCtYtyV6Ye/5R1KvBMDwZzUm4vQ=; b=k18N+CWDo5cWyQOaW2CPSmEjVI
+	JLvn4pgcZLHoHz/Cas4lAHilC6B4G5fU2nxkyEcTxpcXzkwAau08BzCbUIZNmZYR/o0buCWzXPC1F
+	H/+Ll/Jrguvo46gQam58qd7XLFncnY+DRrMQe8qKQw8p/e42FpDx9kxLbx4SDJSgFUK/+aniIddRF
+	z9Qh5bFnm/AhnPXt83pQzm7z2jYMYrs/7d+jWznitgaEiN58b/BqU2G44+O6e5GyjOFuKbHHsDIZ9
+	rKqHFZ08XnGIkH7sNfZPMk9w++g06VDMfUeplRqJJWMHz31tkeHdsHjQEO/PKZEzoN9byw2aPeNux
+	zQFh0YOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qbEnU-00CvU9-01;
-	Wed, 30 Aug 2023 06:35:24 +0000
-Received: from bg4.exmail.qq.com ([43.154.221.58])
+	id 1qbF38-00CwZh-1r;
+	Wed, 30 Aug 2023 06:51:34 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qbEnO-00CvTI-0n
+	id 1qbF36-00CwZM-18
 	for linux-riscv@lists.infradead.org;
-	Wed, 30 Aug 2023 06:35:22 +0000
-X-QQ-mid: bizesmtp72t1693377284t20dyyw5
-Received: from localhost.localdomain ( [221.226.144.218])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Wed, 30 Aug 2023 14:34:42 +0800 (CST)
-X-QQ-SSF: 01200000000000B0B000000A0000000
-X-QQ-FEAT: I8hG9CuxGDLVX4zYenMnZzfme72U6h6VUyCmh7+o/2/nV1SicSheCqLWUS/6f
-	6UBdxSE+5weyB8T4IXrP/HkOLySS94hUiIsCzTvD5UBUakxSArtJyUcT73pGsZfVR2aAx0u
-	X0NTTXxVE8YaME/T4o2p69r3PUsGs8E+PX+KlZWNJ/aCopGnPy+twcWgkdCRkQpOrGtxObS
-	t92LfKJyicKmsjEyxI21m68yYxHg416+39bO+IFEE4HEKtqI6EJqhBzGEPTuID98pPHXO/1
-	LQFFbENG8KfWdMSZD/8Yz9zNVHUAzjpcW4PKTXPvbaQx1JrNVtCamJ1z0lr1rby48BJ9pXB
-	L9dc0jYTFpe1jkv8MAvQrXdmPa4760QS2i6adCK
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 10736640701935298722
-From: Song Shuai <songshuaishuai@tinylab.org>
-To: paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	mick@ics.forth.gr,
-	alex@ghiti.fr
-Cc: linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Song Shuai <songshuaishuai@tinylab.org>
-Subject: [PATCH] riscv: kexec: Cleanup riscv_kexec_relocate
-Date: Wed, 30 Aug 2023 14:34:35 +0800
-Message-Id: <20230830063435.1105726-1-songshuaishuai@tinylab.org>
-X-Mailer: git-send-email 2.20.1
+	Wed, 30 Aug 2023 06:51:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1693378292; x=1724914292;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=iJiqQM/21AbbfFTBJGuHIq/kCZ7VDhCQMZ/MLtlN5jI=;
+  b=2Qmh3SFIXzCiecrkvR+sdB3gPxYlfiSJqx9z1Nm3Aseo45f4cDFPrUyO
+   mrStAst2lxeoRSmnD7WHEiD/1defdCfdDi2A3m3u6Z18pM3ZuQ9Bl8AdB
+   DMJdXwll0pdZ0QjFTONvH76fn1oo1fuMTAXGljBF2eVawv3hznedlWQY5
+   xuXRxd5WFgGVbOncuKNS1tjb6SUphRA62YMx0nO+C2P7pQXfY/koPz8zo
+   9Ip1MatD1+y8QeG/vIRDUkoWFM1FpDyB1ZpXZFgJzzBnVx7R1Bj0b8MTW
+   y/2a85kd2gN1OORXrc78smKLLRJZQNxNUt+uXv5TQgDqVy1hx/2CAD1ra
+   A==;
+X-IronPort-AV: E=Sophos;i="6.02,212,1688454000"; 
+   d="asc'?scan'208";a="169011728"
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa6.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 29 Aug 2023 23:51:26 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.21; Tue, 29 Aug 2023 23:51:22 -0700
+Received: from wendy (10.10.85.11) by chn-vm-ex04.mchp-main.com (10.10.85.152)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
+ Transport; Tue, 29 Aug 2023 23:51:20 -0700
+Date: Wed, 30 Aug 2023 07:50:37 +0100
+From: Conor Dooley <conor.dooley@microchip.com>
+To: William Qiu <william.qiu@starfivetech.com>
+CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, <linux-mmc@vger.kernel.org>, Emil Renner
+ Berthing <kernel@esmil.dk>, Rob Herring <robh+dt@kernel.org>, Jaehoon Chung
+	<jh80.chung@samsung.com>, Ulf Hansson <ulf.hansson@linaro.org>, Krzysztof
+ Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley
+	<conor+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer
+ Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
+Subject: Re: [PATCH v1 1/3] dt-bindings: mmc: Drop unused properties
+Message-ID: <20230830-commence-trickery-40eaa193cb15@wendy>
+References: <20230830031846.127957-1-william.qiu@starfivetech.com>
+ <20230830031846.127957-2-william.qiu@starfivetech.com>
 MIME-Version: 1.0
-X-QQ-SENDSIZE: 520
-Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrsz:qybglogicsvrsz4a-0
+In-Reply-To: <20230830031846.127957-2-william.qiu@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230829_233518_631416_A3D150DC 
-X-CRM114-Status: UNSURE (   9.20  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230829_235132_582848_EDA120F7 
+X-CRM114-Status: GOOD (  15.79  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,139 +84,106 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============8041482550090923396=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-For readability and simplicity, cleanup the riscv_kexec_relocate code:
+--===============8041482550090923396==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="VGI59nk8mzz/pDkD"
+Content-Disposition: inline
 
-- Re-sort the first 4 `mv` instructions against `riscv_kexec_method()`
-- Eliminate registers for debugging (s9,s10,s11) and storing const-value (s5,s6)
-- Replace `jalr` with `jr` for no-link jump
+--VGI59nk8mzz/pDkD
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-I tested this on Qemu virt machine and works as it was.
+On Wed, Aug 30, 2023 at 11:18:44AM +0800, William Qiu wrote:
+> Due to the change of tuning implementation, it's no longer necessary to
+> use the "starfive,sysreg" property in dts, so drop the relevant
+> description in dt-bindings here.
 
-Signed-off-by: Song Shuai <songshuaishuai@tinylab.org>
----
- arch/riscv/kernel/kexec_relocate.S | 52 +++++++++++++-----------------
- 1 file changed, 23 insertions(+), 29 deletions(-)
+How does changing your software implantation invalidate a description of
+the hardware?
 
-diff --git a/arch/riscv/kernel/kexec_relocate.S b/arch/riscv/kernel/kexec_relocate.S
-index 059c5e216ae7..de0a4b35d01e 100644
---- a/arch/riscv/kernel/kexec_relocate.S
-+++ b/arch/riscv/kernel/kexec_relocate.S
-@@ -17,27 +17,17 @@ SYM_CODE_START(riscv_kexec_relocate)
- 	 * s1: (const) Phys address to jump to after relocation
- 	 * s2: (const) Phys address of the FDT image
- 	 * s3: (const) The hartid of the current hart
--	 * s4: Pointer to the destination address for the relocation
--	 * s5: (const) Number of words per page
--	 * s6: (const) 1, used for subtraction
--	 * s7: (const) kernel_map.va_pa_offset, used when switching MMU off
--	 * s8: (const) Physical address of the main loop
--	 * s9: (debug) indirection page counter
--	 * s10: (debug) entry counter
--	 * s11: (debug) copied words counter
-+	 * s4: (const) kernel_map.va_pa_offset, used when switching MMU off
-+	 * s5: Pointer to the destination address for the relocation
-+	 * s6: (const) Physical address of the main loop
- 	 */
- 	mv	s0, a0
- 	mv	s1, a1
- 	mv	s2, a2
- 	mv	s3, a3
--	mv	s4, zero
--	li	s5, (PAGE_SIZE / RISCV_SZPTR)
--	li	s6, 1
--	mv	s7, a4
--	mv	s8, zero
--	mv	s9, zero
--	mv	s10, zero
--	mv	s11, zero
-+	mv	s4, a4
-+	mv	s5, zero
-+	mv	s6, zero
- 
- 	/* Disable / cleanup interrupts */
- 	csrw	CSR_SIE, zero
-@@ -52,21 +42,27 @@ SYM_CODE_START(riscv_kexec_relocate)
- 	 * the start of the loop below so that we jump there in
- 	 * any case.
- 	 */
--	la	s8, 1f
--	sub	s8, s8, s7
--	csrw	CSR_STVEC, s8
-+	la	s6, 1f
-+	sub	s6, s6, s4
-+	csrw	CSR_STVEC, s6
-+
-+	/*
-+	 * With C-extension, here we get 42 Bytes and the next
-+	 * .align directive would pad zeros here up to 44 Bytes.
-+	 * So manually put a nop here to avoid zeros padding.
-+	*/
-+	nop
- 
- 	/* Process entries in a loop */
- .align 2
- 1:
--	addi	s10, s10, 1
- 	REG_L	t0, 0(s0)		/* t0 = *image->entry */
- 	addi	s0, s0, RISCV_SZPTR	/* image->entry++ */
- 
- 	/* IND_DESTINATION entry ? -> save destination address */
- 	andi	t1, t0, 0x1
- 	beqz	t1, 2f
--	andi	s4, t0, ~0x1
-+	andi	s5, t0, ~0x1
- 	j	1b
- 
- 2:
-@@ -74,9 +70,8 @@ SYM_CODE_START(riscv_kexec_relocate)
- 	andi	t1, t0, 0x2
- 	beqz	t1, 2f
- 	andi	s0, t0, ~0x2
--	addi	s9, s9, 1
- 	csrw	CSR_SATP, zero
--	jalr	zero, s8, 0
-+	jr	s6
- 
- 2:
- 	/* IND_DONE entry ? -> jump to done label */
-@@ -92,14 +87,13 @@ SYM_CODE_START(riscv_kexec_relocate)
- 	andi	t1, t0, 0x8
- 	beqz	t1, 1b		/* Unknown entry type, ignore it */
- 	andi	t0, t0, ~0x8
--	mv	t3, s5		/* i = num words per page */
-+	li	t3, (PAGE_SIZE / RISCV_SZPTR)	/* i = num words per page */
- 3:	/* copy loop */
- 	REG_L	t1, (t0)	/* t1 = *src_ptr */
--	REG_S	t1, (s4)	/* *dst_ptr = *src_ptr */
-+	REG_S	t1, (s5)	/* *dst_ptr = *src_ptr */
- 	addi	t0, t0, RISCV_SZPTR /* stc_ptr++ */
--	addi	s4, s4, RISCV_SZPTR /* dst_ptr++ */
--	sub	t3, t3, s6	/* i-- */
--	addi	s11, s11, 1	/* c++ */
-+	addi	s5, s5, RISCV_SZPTR /* dst_ptr++ */
-+	addi	t3, t3, -0x1	/* i-- */
- 	beqz	t3, 1b		/* copy done ? */
- 	j	3b
- 
-@@ -146,7 +140,7 @@ SYM_CODE_START(riscv_kexec_relocate)
- 	 */
- 	fence.i
- 
--	jalr	zero, a2, 0
-+	jr	a2
- 
- SYM_CODE_END(riscv_kexec_relocate)
- riscv_kexec_relocate_end:
--- 
-2.20.1
+>=20
+> Signed-off-by: William Qiu <william.qiu@starfivetech.com>
+> ---
+>  .../bindings/mmc/starfive,jh7110-mmc.yaml         | 15 ---------------
+>  1 file changed, 15 deletions(-)
+>=20
+> diff --git a/Documentation/devicetree/bindings/mmc/starfive,jh7110-mmc.ya=
+ml b/Documentation/devicetree/bindings/mmc/starfive,jh7110-mmc.yaml
+> index 51e1b04e799f..10df41941331 100644
+> --- a/Documentation/devicetree/bindings/mmc/starfive,jh7110-mmc.yaml
+> +++ b/Documentation/devicetree/bindings/mmc/starfive,jh7110-mmc.yaml
+> @@ -36,26 +36,12 @@ properties:
+>    interrupts:
+>      maxItems: 1
+> =20
+> -  starfive,sysreg:
+> -    $ref: /schemas/types.yaml#/definitions/phandle-array
+> -    items:
+> -      - items:
+> -          - description: phandle to System Register Controller syscon no=
+de
+> -          - description: offset of SYS_SYSCONSAIF__SYSCFG register for M=
+MC controller
+> -          - description: shift of SYS_SYSCONSAIF__SYSCFG register for MM=
+C controller
+> -          - description: mask of SYS_SYSCONSAIF__SYSCFG register for MMC=
+ controller
+> -    description:
+> -      Should be four parameters, the phandle to System Register Controll=
+er
+> -      syscon node and the offset/shift/mask of SYS_SYSCONSAIF__SYSCFG re=
+gister
+> -      for MMC controller.
+> -
+>  required:
+>    - compatible
+>    - reg
+>    - clocks
+>    - clock-names
+>    - interrupts
+> -  - starfive,sysreg
+> =20
+>  unevaluatedProperties: false
+> =20
+> @@ -73,5 +59,4 @@ examples:
+>          fifo-depth =3D <32>;
+>          fifo-watermark-aligned;
+>          data-addr =3D <0>;
+> -        starfive,sysreg =3D <&sys_syscon 0x14 0x1a 0x7c000000>;
+>      };
+> --=20
+> 2.34.1
+>=20
 
+--VGI59nk8mzz/pDkD
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZO7mswAKCRB4tDGHoIJi
+0j0ZAPoD8g3POZOxVjU8MHAqAQsVrGSXh9a5G6ibHoCJuX5zqQD+OwU3VEu8ihr1
+DsPdiiCV8fgivVirHHYW8sFlFgF+jQg=
+=iZHY
+-----END PGP SIGNATURE-----
+
+--VGI59nk8mzz/pDkD--
+
+
+--===============8041482550090923396==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============8041482550090923396==--
+
