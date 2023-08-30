@@ -4,89 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F580C83F15
-	for <linux-riscv@archiver.kernel.org>; Wed, 30 Aug 2023 16:42:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2523DC83F15
+	for <linux-riscv@archiver.kernel.org>; Wed, 30 Aug 2023 16:45:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Na6ncuP4mUjbNYD2w6uA7Gmw6Yzih17P3rypmIXGO0s=; b=GlzHVBTp90F3a9b62JEdHZT2AB
-	OsOCweHPCAlWHWsmKyk9msRqOiZ9hiCtnqtc+oWtR6ZfwK1jic3q0lWeyYQvxOHtaGPlnKXWWWtKT
-	8/Z5EAl5IJ8Zh4F4eU/xOczisQ8zSQgBHjDJRA5USsp2/v1JYAxWBNCtZpADrt5Wm1S5yvfnaQUx7
-	fLb2wK3bz1HPO4p0Bzjs63DChABfxONTrR0IFrktrqS4ng3IL0UXlx8oE0lAdwzoq1o1qy91Bdz5B
-	wkT2Vtce4xlBPp27bSVVtOVq5mM2Q8Rpze3fV2PnyeI1hVjl/gbF6hHiBMv4eg0MHktng8TUPZd54
-	JSgwYgFw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
+	Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	References:List-Owner; bh=J4+N44c3WB2FndD2T7JGYDBHA1AH27oNgCovoLIPf/s=; b=AW3
+	kpMwvjwydB3Qz0qyr6p9QB+01lR8oOGGS4K4uJGDJswTlls73kMQ/uX2DBUeQOaynOnSM+KJIVU4S
+	tasDscnEphKp4l3Db88N+vApvF4+0Yhnh8cqAbbZtuIfsx7kohpOjnZZbhaxDcq9axHgfCG1JZiQA
+	TANuKkU/1m5l1sdLUx5T7Fj7yw2Xo0fdaOmY3S2XIlTfF9RulxoP849MOm0fhZ7T4RUHueg3i3xfi
+	U2vjhpWSZiTj2rdx047OmMqrlY1WNV3u68YEB3Km+OJnRDprMsH3p5CaKQgJN38G7VJfKurEkIN1x
+	wgaLDby8jr21kHP/aT69RDOzKieqvWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qbOH6-00Drmo-1I;
-	Wed, 30 Aug 2023 16:42:36 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1qbOJO-00Ds6B-25;
+	Wed, 30 Aug 2023 16:44:58 +0000
+Received: from mail-yw1-x114a.google.com ([2607:f8b0:4864:20::114a])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qbOH3-00Drm8-1M;
-	Wed, 30 Aug 2023 16:42:34 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 72BDA61E1D;
-	Wed, 30 Aug 2023 16:42:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9F379C433C7;
-	Wed, 30 Aug 2023 16:42:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1693413751;
-	bh=+cegdjpC7G5umSHFHbrmT1BIlMdov4rtt+v2oJEk1tM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=VjbX4CCwh2T7VRmcGdTip7u/f/TaIxuYGePqe7e+D4VSLmbiZHbmccKJEensZqdYd
-	 /SkVtQoHfFek1l/akYZpl6ne+8eKdaeb9A2TuvGKtHgX54qQvFDVWxI1azmcGgWe2A
-	 TCS6C1oK4Z9Yi4kRDMDic1bnoquUGBouKD5MDQ3AY/kt+9FcjbvW5qvdsxbxoapCQj
-	 m6CelcYTizHCgj7uEUvmooKRW1IDpuIbzMXpLTY63MW/y+bD0wODuEHfxQZ27KwMGs
-	 UK+r1H9fjVVo3zf7MJOTbhSZBfN9GnYmDVX/HSF7zUQGGf3T2s6/zw2yHd96jP9gqw
-	 cyxOybFWimvpA==
-Date: Wed, 30 Aug 2023 17:42:18 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Szabolcs Nagy <Szabolcs.Nagy@arm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	James Morse <james.morse@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Arnd Bergmann <arnd@arndb.de>, Oleg Nesterov <oleg@redhat.com>,
-	Eric Biederman <ebiederm@xmission.com>,
-	Kees Cook <keescook@chromium.org>, Shuah Khan <shuah@kernel.org>,
-	"Rick P. Edgecombe" <rick.p.edgecombe@intel.com>,
-	Deepak Gupta <debug@rivosinc.com>, Ard Biesheuvel <ardb@kernel.org>,
-	"H.J. Lu" <hjl.tools@gmail.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
-	kvmarm@lists.linux.dev, linux-fsdevel@vger.kernel.org,
-	linux-arch@vger.kernel.org, linux-mm@kvack.org,
-	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v4 03/36] arm64/gcs: Document the ABI for Guarded Control
- Stacks
-Message-ID: <9992beaf-f57d-41f8-9dbb-8044c783ddf4@sirena.org.uk>
-References: <aaea542c-929c-4c9b-8caa-ca67e0eb9c1e@sirena.org.uk>
- <ZOTnL1SDJWZjHPUW@arm.com>
- <43ec219d-bf20-47b8-a5f8-32bc3b64d487@sirena.org.uk>
- <ZOXa98SqwYPwxzNP@arm.com>
- <227e6552-353c-40a9-86c1-280587a40e3c@sirena.org.uk>
- <ZOY3lz+Zyhd5ZyQ9@arm.com>
- <ZOZEmO6WGyVAcOqK@arm.com>
- <ef7272d2-d807-428f-9915-6fc9febadb5c@sirena.org.uk>
- <ZOd6lzj29VksAp7L@arm.com>
- <ZO84DWEiYk6dU3iR@arm.com>
-MIME-Version: 1.0
-In-Reply-To: <ZO84DWEiYk6dU3iR@arm.com>
-X-Cookie: Immanuel doesn't pun, he Kant.
+	id 1qbOJL-00Ds08-1a
+	for linux-riscv@lists.infradead.org;
+	Wed, 30 Aug 2023 16:44:58 +0000
+Received: by mail-yw1-x114a.google.com with SMTP id 00721157ae682-58fc7afa4beso81751567b3.2
+        for <linux-riscv@lists.infradead.org>; Wed, 30 Aug 2023 09:44:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20221208; t=1693413893; x=1694018693; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:in-reply-to:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=Q7U5WETyc0Qx792+SyKBjLV43d3DHT0ObMpMrFVoeXw=;
+        b=gOaDcEzohnCW05gsHeD8lcyy6FFTC5Eo38SU8Xk0R6twTZKBZgCTfyw1qaGWhk+GbF
+         fiHk0HL4cgXtqbaUJfGQSaUzh6glCfiSq0qUhe2/DcydFgh/q0UQ5RxU/hbI/AWDqwrz
+         YwohhDg4vN06KNMEJMErqGLn1UFSyABoF6GHqxyA/QjssDCtn1PsF3qROYUXwZVY1jzV
+         O/R99U482loL+rQFfzg+DX/yh7a8QVm3CREgr0FgyJpdDWFPLZY1iNtwJuFrt6FIUcqA
+         io1MslmKrBSmyj6M0Q6TWozh+8BxkpIhDswtYnIAKaGPCzPo/nHplViTLV5yXcm7amf3
+         kebw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1693413893; x=1694018693;
+        h=cc:to:from:subject:message-id:mime-version:in-reply-to:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=Q7U5WETyc0Qx792+SyKBjLV43d3DHT0ObMpMrFVoeXw=;
+        b=Mx9vV/rB/vPKuVhZMYcy6ykxKYqzYPP8MGSfh++y6eyXoXxnIPeRJAp78limbcBOLJ
+         OPg80Eter5a58n/12WGPiSqZO760YGeou0QBD9MszxLQBQraaErPrD3JuBSZGE7+ep7I
+         H3VyLs1YGNIz5PE0/MWAML0KqxZVJwRrs1o2oXVqHLvihsJAwvtjENtxJ3QVnmvL857J
+         viQaZ/+O/xR/6V0KpwXNsSwTr3Z1Y7XdWBP5rPrQCydgXqgkOWepNzQOSA8DaLJpX8LH
+         rCHKT/dCiXEtF0sqp7retw4dbP/XnffANyyPb8ZDRG/MxQeyTBb4tjQsOm/Ag1gcR/y+
+         8TWQ==
+X-Gm-Message-State: AOJu0YxYwmRT1Vsdgl2JNF8a7IKd26wrM+i96oYL+wvMwG/aNS8nGpzI
+	8af00gV0gGOQJ5M6qvOmC8+jJV83W32yjscqHQ==
+X-Google-Smtp-Source: AGHT+IHtp9pD/5ci3MqPyr+0sXpcwrOb70482adH4y9FFBhT1onMN4Y2Yo7VfYMaFeFIQUgnoauWykiqo7sAzbNhxQ==
+X-Received: from ackerleytng-ctop.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:13f8])
+ (user=ackerleytng job=sendgmr) by 2002:a81:eb0b:0:b0:57a:793:7fb0 with SMTP
+ id n11-20020a81eb0b000000b0057a07937fb0mr78438ywm.3.1693413893177; Wed, 30
+ Aug 2023 09:44:53 -0700 (PDT)
+Date: Wed, 30 Aug 2023 16:44:51 +0000
+In-Reply-To: <30ffe039-c9e2-b996-500d-5e11bf6ea789@linux.intel.com> (message
+ from Binbin Wu on Wed, 30 Aug 2023 23:12:19 +0800)
+Mime-Version: 1.0
+Message-ID: <diqz5y4wfpj0.fsf@ackerleytng-ctop.c.googlers.com>
+Subject: Re: [RFC PATCH v11 12/29] KVM: Add KVM_CREATE_GUEST_MEMFD ioctl() for
+ guest-specific backing memory
+From: Ackerley Tng <ackerleytng@google.com>
+To: Binbin Wu <binbin.wu@linux.intel.com>
+Cc: seanjc@google.com, kvm@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
+	linux-fsdevel@vger.kernel.org, linux-mm@kvack.org, 
+	linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	pbonzini@redhat.com, maz@kernel.org, oliver.upton@linux.dev, 
+	chenhuacai@kernel.org, mpe@ellerman.id.au, anup@brainfault.org, 
+	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
+	willy@infradead.org, akpm@linux-foundation.org, paul@paul-moore.com, 
+	jmorris@namei.org, serge@hallyn.com, chao.p.peng@linux.intel.com, 
+	tabba@google.com, jarkko@kernel.org, yu.c.zhang@linux.intel.com, 
+	vannapurve@google.com, mail@maciej.szmigiero.name, vbabka@suse.cz, 
+	david@redhat.com, qperret@google.com, michael.roth@amd.com, 
+	wei.w.wang@intel.com, liam.merwick@oracle.com, isaku.yamahata@gmail.com, 
+	kirill.shutemov@linux.intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230830_094233_564948_1301A959 
-X-CRM114-Status: GOOD (  24.42  )
+X-CRM114-CacheID: sfid-20230830_094455_532242_6C83DB74 
+X-CRM114-Status: GOOD (  17.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,91 +97,114 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8258225483564506512=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Binbin Wu <binbin.wu@linux.intel.com> writes:
 
---===============8258225483564506512==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="K/vjy3MP44rS/waF"
-Content-Disposition: inline
+>> <snip>
+>>
+>> +static long kvm_gmem_allocate(struct inode *inode, loff_t offset, loff_t len)
+>> +{
+>> +	struct address_space *mapping = inode->i_mapping;
+>> +	pgoff_t start, index, end;
+>> +	int r;
+>> +
+>> +	/* Dedicated guest is immutable by default. */
+>> +	if (offset + len > i_size_read(inode))
+>> +		return -EINVAL;
+>> +
+>> +	filemap_invalidate_lock_shared(mapping);
+>> +
+>> +	start = offset >> PAGE_SHIFT;
+>> +	end = (offset + len) >> PAGE_SHIFT;
+>> +
+>> +	r = 0;
+>> +	for (index = start; index < end; ) {
+>> +		struct folio *folio;
+>> +
+>> +		if (signal_pending(current)) {
+>> +			r = -EINTR;
+>> +			break;
+>> +		}
+>> +
+>> +		folio = kvm_gmem_get_folio(inode, index);
+>> +		if (!folio) {
+>> +			r = -ENOMEM;
+>> +			break;
+>> +		}
+>> +
+>> +		index = folio_next_index(folio);
+>> +
+>> +		folio_unlock(folio);
+>> +		folio_put(folio);
+> May be a dumb question, why we get the folio and then put it immediately?
+> Will it make the folio be released back to the page allocator?
+>
 
+I was wondering this too, but it is correct.
 
---K/vjy3MP44rS/waF
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+In filemap_grab_folio(), the refcount is incremented in three places:
 
-On Wed, Aug 30, 2023 at 01:37:33PM +0100, Szabolcs Nagy wrote:
-> The 08/24/2023 16:43, Catalin Marinas wrote:
++ When the folio is created in filemap_alloc_folio(), it is given a
+  refcount of 1 in
 
-> > Is there a use-case for the unlocked configuration to allow disabling
-> > the GCS implicitly via a clone syscall?
+    filemap_alloc_folio() -> folio_alloc() -> __folio_alloc_node() ->
+    __folio_alloc() -> __alloc_pages() -> get_page_from_freelist() ->
+    prep_new_page() -> post_alloc_hook() -> set_page_refcounted()
 
-> how would you handle clone or clone3 without gcs specified?
-> (in the cases when clone creates a new thread with new stack)
++ Then, in filemap_add_folio(), the refcount is incremented twice:
 
-> (1) fail.
-> (2) allocate gcs.
-> (3) disable gcs.
+    + The first is from the filemap (1 refcount per page if this is a
+      hugepage):
 
-...
+        filemap_add_folio() -> __filemap_add_folio() -> folio_ref_add()
 
-> problem with (2) is that the size policy and lifetime management
-> is in the kernel then. (since only special cases are affected i
-> guess that is ok, but i assumed we want to avoid this by moving
-> to clone3 and user managed gcs).
+    + The second is a refcount from the lru list
 
-Right, it seems like if we go with this then we may as well just allow
-plain clone() too.
+        filemap_add_folio() -> folio_add_lru() -> folio_get() ->
+        folio_ref_inc()
 
-> the problem with (3) is escaping the security measure, however
-> it only applies to very special threads that can always decide
-> to opt-in to gcs, so i don't see this as such a bad option and
-> at least bw compat with existing code. (in my threat model the
-> attacker cannot hijack clone syscalls as that seems stronger
-> than hijacking return addresses.)
+In the other path, if the folio exists in the page cache (filemap), the
+refcount is also incremented through
 
-It doesn't seem great to have a feature which is to a large extent a
-security feature where we provide a fairly straightforward mechanism for
-disabling the feature and actively expect things to be using it.
+    filemap_grab_folio() -> __filemap_get_folio() -> filemap_get_entry()
+    -> folio_try_get_rcu()
 
-Given the timescales until this gets practically deployed on arm64 I
-would be inclined to go with making things fail and forcing updates in
-the users, though obviously that's less helpful for x86 where the
-hardware is in user hands already so it's more of a pressing issue (and
-there's already what is effectively option 2 in the code).  We could
-have the architectures diverge, as you say the effect is likely to be
-mainly in very low level code rather than general software.
+I believe all the branches in kvm_gmem_get_folio() are taking a refcount
+on the folio while the kernel does some work on the folio like clearing
+the folio in clear_highpage() or getting the next index, and then when
+done, the kernel does folio_put().
 
---K/vjy3MP44rS/waF
-Content-Type: application/pgp-signature; name="signature.asc"
+This pattern is also used in shmem and hugetlb. :)
 
------BEGIN PGP SIGNATURE-----
+I'm not sure whose refcount the folio_put() in kvm_gmem_allocate() is
+dropping though:
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmTvcWkACgkQJNaLcl1U
-h9BrNwf/ZAr2lf9jr/JbNkYpu9zm6Fga4tZrLQoMWCDnP9PGxphhBn9iAMWz6X+F
-0X05x9pIN7D4g7qLffjEzsFOpfukbLwIQ4wH/AdjNW7MvFpuH+4kt7iWwiDparY/
-wliRfw6VyCf8lMA40bSac+jlTEJowbBmX+nh1z+EI924BOUXDONu/PGGfoVtn9U0
-mOVw+DFx3lACf5cjCPKSE9JfYf74s+y9cH8fk9x1/D6jHuJuX5IOafLld3PytL/v
-Yxbc/C9XY0Qa9If9yV/NWPb7irX1i7vTMOcHJ8AAzwzHV7LjOOk2cBgRj0IJ2TBI
-1fuiPsv3RNuj2GUC01Od5Md0pPjifQ==
-=qSdV
------END PGP SIGNATURE-----
++ The refcount for the filemap depends on whether this is a hugepage or
+  not, but folio_put() strictly drops a refcount of 1.
++ The refcount for the lru list is just 1, but doesn't the page still
+  remain in the lru list?
 
---K/vjy3MP44rS/waF--
-
-
---===============8258225483564506512==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+>> +
+>> +		/* 64-bit only, wrapping the index should be impossible. */
+>> +		if (WARN_ON_ONCE(!index))
+>> +			break;
+>> +
+>> +		cond_resched();
+>> +	}
+>> +
+>> +	filemap_invalidate_unlock_shared(mapping);
+>> +
+>> +	return r;
+>> +}
+>> +
+>>
+>> <snip>
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============8258225483564506512==--
-
