@@ -4,79 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63253C6FA8F
-	for <linux-riscv@archiver.kernel.org>; Wed, 30 Aug 2023 13:24:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D6EFC83F14
+	for <linux-riscv@archiver.kernel.org>; Wed, 30 Aug 2023 13:24:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:From:MIME-Version:Date:Message-Id:
-	Subject:References:In-Reply-To:Reply-To:Cc:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:To:From:Cc:MIME-Version:Date:Message-Id
+	:Subject:References:In-Reply-To:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fxJFWZOkbKYzIzfY53kfQ8rCYKaIcQOVwnwqYch1ORA=; b=sitjgs9+nsyaQx
-	FJ/1Onk0Dqxrq0hCOvI45S+awn7WQVJjY2f4tpdvGVRRhMzdSuYa47ChXExV6v/WaEUe1dr+MoNbI
-	fnwgMJnFXpQcPE0nhFsPwUbGoG6mx0jUhij/VdYkUOAHbszafcoUJzhZNvnpX2w0rAMON05JVbz80
-	xtTFcwh8CDQpW9GyeplBKET5QXlyH5nx/jbLSqJt73y1ibwGuLPxsUh/2nGoddbt39qWNW4QGnkxU
-	vawUG+Nww894iyfhkzi/fI42EkBlKKUiBw/7+N8qb35ehkPZ17EoJC62N24Wh5v5apBNu4Jc4noe7
-	CDhs0vJNakvN3R7gLXLQ==;
+	List-Owner; bh=S1yPU5+yXsHjilFeN/DMqpVPww9EDicuQ7kQD+JJkvI=; b=k9g2GXLISgU3Ew
+	B431bbnPkHz4DYfDYxMxCZBKzyP/z7DFws4m824PNCcYoj2s3N5cl5DAzqRKHDZUoGmqY+PFjQIUe
+	9aPoXyYRJULJapH1wnrTLzDDiEN51m1LaQhCsPJUK0aEMgOiIfTBtUcjCeBE2NG1dLTr0k04aI+Vr
+	/0kvZglkSKZiqMI2RKM6PrjWG23JptDvMJjhn3iRg91tZ4o/j8zyPIcIxcmdPsWw0P0aB4k4xtklu
+	CzjeMYDjo21cXe0iqsnqdynNbMaiLhkYKOE170jlXqJv5ELibO6Fdr0/5nZ8LQUgPh/MSAwlqPG/T
+	WQJ6lBBsNE4Q7GfXGVEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qbLBj-00DZEM-1e;
-	Wed, 30 Aug 2023 13:24:51 +0000
-Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
+	id 1qbLBl-00DZFq-1J;
+	Wed, 30 Aug 2023 13:24:53 +0000
+Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qbLBf-00DZBw-1h
+	id 1qbLBi-00DZCT-0W
 	for linux-riscv@lists.infradead.org;
-	Wed, 30 Aug 2023 13:24:49 +0000
-Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-1bc0d39b52cso34503055ad.2
-        for <linux-riscv@lists.infradead.org>; Wed, 30 Aug 2023 06:24:47 -0700 (PDT)
+	Wed, 30 Aug 2023 13:24:51 +0000
+Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-68bee12e842so3861571b3a.3
+        for <linux-riscv@lists.infradead.org>; Wed, 30 Aug 2023 06:24:48 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1693401887; x=1694006687; darn=lists.infradead.org;
-        h=to:from:content-transfer-encoding:mime-version:date:message-id
+        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1693401888; x=1694006688; darn=lists.infradead.org;
+        h=to:from:cc:content-transfer-encoding:mime-version:date:message-id
          :subject:references:in-reply-to:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=cS6Q9Nda6J5ktOOJj5rlj7vp4gloDffAAQTkHig3BuQ=;
-        b=2gmbqi5HpF2Ln3gmb5QDo0HWw0LWGFdgxufDUfTw3nLTtZzhsUu5GMunDF1pNIGH7p
-         HnkVOkveKWSyXPR5SVr1B3y4w4JHFl6SCkA9owmr8qG7Qg4zmqf/WQbxGBhaB6f0as/3
-         LOQt+Obm4x24/TPHZJpHv4jzPL17aM1TqdIp3xrzdZvS78OOiKoqurVFuEi7CLD7zCy5
-         vZD49wN78Ta9jWDu3kXlYpzEzdzqvqjj5uhSkSUc6w+6peEgs5McivQfAAXaiwvtEqn0
-         gTfoAD3nDPTzSQUBZSY69gcYcW2mgz2V8hAKAUuzt93rnqqF2Iki0YIMVChjeTXU9K2c
-         k/yQ==
+        bh=ook+FTkyICrUjBd7fQtOEeWleupa/6WExjctivOBh1U=;
+        b=SDhZXMVF1V4F6Il40qKO2CqeGebggYQsAQtVbhVBQpj89jbEsDLN9GSHbhHaG6wtXw
+         QNe1SWnQx2EoqZGe/m2elugvOLzE8BNeabTFPtBo2cSi3VbMJGlEeIR8j6G+VwXZ7/nd
+         T1Sp3ydkC0TyyRda+rRiAxLsL2t19k/RlzN2IAXdquqv/e2x5fR1fZ2JrqVJ4uw1QXuk
+         iC++FGYFlX6qh937gMOu+L4MXUkZGaDxgRessUjFUOds7BCTAa4h8sQNDrBBqnSFGYpL
+         TE5oVZuM/34kZqwQDoMv8DRBcA9UbbuY6wBEznqyQ0Wxv9Wx3502Qz8/d6bgie+HeFmF
+         +gxQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1693401887; x=1694006687;
-        h=to:from:content-transfer-encoding:mime-version:date:message-id
+        d=1e100.net; s=20221208; t=1693401888; x=1694006688;
+        h=to:from:cc:content-transfer-encoding:mime-version:date:message-id
          :subject:references:in-reply-to:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=cS6Q9Nda6J5ktOOJj5rlj7vp4gloDffAAQTkHig3BuQ=;
-        b=luHlQ+mAQjmWbaLp2gA7/MyWv3k0i5SvWQyf3EbBGfUywVoPNxQGRsxrckhXNLb7tR
-         qOL/yvIKSeTDyH7Fea0jHOvGDeo9NFsu/YKD6+I8WTzpW3dh8AfAtYwEtZi23Vrn1cxG
-         0Kw2z67DpNA6nsH0nx//uCNcfijAL+f6QpgbHkS2bSh2NNuTT5nSbawQ6Cv8y80TpCXj
-         vUtsWvel2EySDYNeTXpnw0m8SnsV02r0TUzay8zwgdDtMrXzQX3X+mdn3XImtbdwx2fO
-         fSxq/r13jE9gwanIKidLEW+gSOtuH9gfNY98nrKLnTxf+2xtGM0oE5rJBBwRt8wJfU1o
-         OuQg==
-X-Gm-Message-State: AOJu0YwKk24hdOfwLIf6zOYhcTnztT5LJPEwCsBMW8/TZmCI8H7Pb1Ys
-	9znFDf7gyoKn3kHpM8itBzSizA==
-X-Google-Smtp-Source: AGHT+IGW5G1y37EAqJFJzOnhtad780Rl1Is3xQMmrx5OuV3OLnESR1H70dQS/JXhixw9HWX9IZgKug==
-X-Received: by 2002:a17:903:22ce:b0:1bd:b8c8:98f8 with SMTP id y14-20020a17090322ce00b001bdb8c898f8mr2328919plg.4.1693401886986;
-        Wed, 30 Aug 2023 06:24:46 -0700 (PDT)
+        bh=ook+FTkyICrUjBd7fQtOEeWleupa/6WExjctivOBh1U=;
+        b=UB2rArTHtiMQ6PE/0CR8oLaM7wHBxsphJhOl+aICokXY4eEP1irSng7jp8lJWO5c81
+         nhSxg6bmYFmhof4bj9CdElxdk8KvLzcMAvrfuDGrdM2FbDrekoQYekEO85FJ4P7P7cfi
+         qH1diJQHospkvDpEwG7eQqvFRuxi06/aN44WQvSyTlTW7aIPBsclSdmDCQrCnqeujSgY
+         LfGOctgxpTUPlRLID29dmnwNLglzONB4y2aWZ6AEoUTj/DULO/t6yJ76hzo8Qfh/8OgX
+         fBdrjckiatrYV2QtbPJDjjL2FAoXTXP/bUAnIKymP4+j1+ATDb06FJhzsBJ/oWszbhEA
+         Aaxw==
+X-Gm-Message-State: AOJu0Yzk2O8hqgfjgHHTxGX4of3jQPtLWVVrzYPwEHL/+8Q95xrDbinf
+	c9Ov6V+HdRr8QdFYdYgU7fu93g==
+X-Google-Smtp-Source: AGHT+IFxZTjAILqNa3f3RrZLF9BvSy4qVQtIlHlGVAYql2Bunt7iMjjyBJzDwiPBLi6U8zBDpWImyQ==
+X-Received: by 2002:a05:6a21:7781:b0:131:f3a:4020 with SMTP id bd1-20020a056a21778100b001310f3a4020mr2505730pzc.33.1693401888044;
+        Wed, 30 Aug 2023 06:24:48 -0700 (PDT)
 Received: from localhost ([135.180.227.0])
-        by smtp.gmail.com with ESMTPSA id w6-20020a170902d3c600b001bdb0483e65sm10980620plb.265.2023.08.30.06.24.46
+        by smtp.gmail.com with ESMTPSA id n26-20020aa7905a000000b00687375d9135sm10082581pfo.4.2023.08.30.06.24.47
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 30 Aug 2023 06:24:46 -0700 (PDT)
-In-Reply-To: <20230725053835.138910-1-namcaov@gmail.com>
-References: <20230725053835.138910-1-namcaov@gmail.com>
-Subject: Re: [PATCH] riscv: remove redundant mv instructions
-Message-Id: <169340187984.2480.1255424893144645227.b4-ty@rivosinc.com>
+        Wed, 30 Aug 2023 06:24:47 -0700 (PDT)
+In-Reply-To: <20230727160356.3874-1-jszhang@kernel.org>
+References: <20230727160356.3874-1-jszhang@kernel.org>
+Subject: Re: [PATCH] riscv: enable DEBUG_FORCE_FUNCTION_ALIGN_64B
+Message-Id: <169340187985.2480.18103495945853549626.b4-ty@rivosinc.com>
 Date: Wed, 30 Aug 2023 06:24:39 -0700
 MIME-Version: 1.0
 X-Mailer: b4 0.13-dev-901c5
+Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
 From: Palmer Dabbelt <palmer@rivosinc.com>
 To: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
-  Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-  Nam Cao <namcaov@gmail.com>
+  Albert Ou <aou@eecs.berkeley.edu>, Jisheng Zhang <jszhang@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230830_062447_565448_A3BBF458 
-X-CRM114-Status: UNSURE (   6.36  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230830_062450_201001_9F73A766 
+X-CRM114-Status: GOOD (  10.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,17 +93,24 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
-On Tue, 25 Jul 2023 07:38:35 +0200, Nam Cao wrote:
-> Some mv instructions were useful when first introduced to preserve a0 and
-> a1 before function calls. However the code has changed and they are now
-> redundant. Remove them.
+On Fri, 28 Jul 2023 00:03:56 +0800, Jisheng Zhang wrote:
+> Allow to force all function address 64B aligned as it is possible for
+> other architectures. This may be useful when verify if performance
+> bump is caused by function alignment changes.
 > 
+> Before commit 1bf18da62106 ("lib/Kconfig.debug: add ARCH dependency
+> for FUNCTION_ALIGN option"), riscv supports enabling the
+> DEBUG_FORCE_FUNCTION_ALIGN_64B option, but after that commit, each
+> arch needs to claim the support explicitly. I tried the config file in
+> [1] for both RV64 and RV32, I can't reproduce the build error as [1],
+> there is no reason for not allowing to enforce this function alignment.
 > 
+> [...]
 
 Applied, thanks!
 
-[1/1] riscv: remove redundant mv instructions
-      https://git.kernel.org/palmer/c/10f763532d58
+[1/1] riscv: enable DEBUG_FORCE_FUNCTION_ALIGN_64B
+      https://git.kernel.org/palmer/c/74f438e75483
 
 Best regards,
 -- 
