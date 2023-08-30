@@ -4,65 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAF9BC6FA8F
-	for <linux-riscv@archiver.kernel.org>; Wed, 30 Aug 2023 13:21:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82C17C83F14
+	for <linux-riscv@archiver.kernel.org>; Wed, 30 Aug 2023 13:21:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=43vzCb9j5bjNbgpDwRG2WcoUx+Dm9XFESRugapFJeqQ=; b=0DUFpvj/nqYGZi
-	nyj4qA/6tWfIMdH3Ltv2tGgUt4nE1YhNRF05Zq717I6MyVqoQFrh4pIXoOiy9R580TZI/MhWFo2e6
-	1KfNj/hLIpU6VvVZfzaVzpD9iG9jit8OeFgs8pUOGkI5Lz743ArXz8uYS6UPvJPuLcyNz+UBkRxYI
-	NQYBLbETq79b85oyk7OZMtsPj7NyaQJUNgy6UWTLxrvdQhpQDoOY0i/jAER5gZPkFJRi1PBd5LYx6
-	ETxAYJK5MrjYDxC2TewFw0ljQ9grdWl5sbUAPugG1CquO4d9QKmhBrdMlpAlPuqOct4PRqvNw2jEm
-	9t86D7b5mKDrRQ93jvNg==;
+	List-Owner; bh=P2rG6KLeUwsQ+TSWnfmFdO1/d4mZVDvYeWqbSkd8X2c=; b=UeZ9V/l+OMOu7k
+	ENoptf13WInNdSWY0cqNaBkVLegyTLBgCjwoZJfrneCnSKKW2jjq2ypc4JpgR/6g52I6zRhYWNl/g
+	jaet8u8fEaePMirBjEdUwJ8e4xMoKyac/uSZzevng3tdvean/t2fYfQPjjWD21+0Wrc0Xwz3huun6
+	xG9jpSRZ1pieBeROBKqPz3j2OGBDCggIXpqIGvDNug/l1D81aAy1CuSmZdsMIYv4ZZSDOBXMUdKEI
+	tabi73JsjpGm5kj3XOOnQ37s750sPEcuxhRsLY08QJIGYzWsBubjeqPVMkkenj4OvUcWX0OMgvGcX
+	KSacF46TKwJ7CN/xDeoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qbL82-00DXmx-0K;
-	Wed, 30 Aug 2023 13:21:02 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1qbL85-00DXrE-34;
+	Wed, 30 Aug 2023 13:21:05 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qbL7e-00DXWI-0K;
-	Wed, 30 Aug 2023 13:20:41 +0000
+	id 1qbL7g-00DXXt-0A
+	for linux-riscv@lists.infradead.org;
+	Wed, 30 Aug 2023 13:20:43 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id E2CBB620F4;
-	Wed, 30 Aug 2023 13:20:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id D33EAC433B9;
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 5E722622C1;
+	Wed, 30 Aug 2023 13:20:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id EE567C43215;
 	Wed, 30 Aug 2023 13:20:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1693401634;
-	bh=tfgC2rPGqs3W0ZYHuLX9hnjGH8CI6YtpqhQ6F+5mMJc=;
+	s=k20201202; t=1693401635;
+	bh=zW83V15pttqQqoyclpx9Yc+p0D/cxwhn1//298m9yXM=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=kAkVbc4BHhwXxn78wQNHDCr+Eg+V1XNpYC1LJHbyMBib5RTw9tBFMXQJ/py/+seRC
-	 bbpsg1JKL+Zd8JkdAFYOXdJfieHR33KKp9sboJf8WLGFXlQjFPuRhMgxrHD8KjpCj3
-	 6gg/nA9IpyMpVnHSE912J5vHmc+igse/+PJY6GxzNYWrRGo4tzuvafgzhnxRHF+Qay
-	 on+bZYqXQJkDjSzumXj1Qzj4nCKnUKOWZIrBEimvwu4k+W4Nsr+GiH9dJvPSRg8Dbi
-	 ZSu6e6n7/J4FQjjcJgwlzfH/5YAaH2J/yNIwvaR0rfQLJpIC5BCmrGrudCe4A5dFF2
-	 FeOG0H6gUcfPg==
+	b=MtprTzxLhEQg6X4K0qLXHGM67s0Zh4eOVAGDnSwhopvup8gGJ8o2c1qi/HMyv1Q2z
+	 /C2I2awv8OrFCeVCcrzXPljm1ymynSfwmffoN4SIOkGQijUlnbnPfOWrDGMLmHGLSZ
+	 Lm5uINVnRe7zSueEE39AZtGjuA/6Wv+5fdHIbng949u/PsjUurd1LB1ikS61cncyqN
+	 iIpm8YGPB0rNsE88cX7MdEb7IYQ8bYHnprmOoR+GMgAokhzovOq3wpWlU0HKcIjue5
+	 URAI6kMA+3LgHA+xMBciEvUOvnh3NB33r2eWnxGoUJRY0WEe7BN5T2ZCzyqxntlaM4
+	 sp0u5dll8eubQ==
 Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id BBBFDE29F34;
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id D9C94E26D49;
 	Wed, 30 Aug 2023 13:20:34 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH 0/3] arch: include asm/cacheflush.h in asm/hugetlb.h
+Subject: Re: [PATCH v2 0/2] riscv: support ELF format binaries in nommu mode
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <169340163476.19859.14725448715332530796.git-patchwork-notify@kernel.org>
+Message-Id: <169340163488.19859.4409393808859164434.git-patchwork-notify@kernel.org>
 Date: Wed, 30 Aug 2023 13:20:34 +0000
-References: <6d2acfa4-7f44-d3b4-b0a8-5495c5985e4c@google.com>
-In-Reply-To: <6d2acfa4-7f44-d3b4-b0a8-5495c5985e4c@google.com>
-To: Hugh Dickins <hughd@google.com>
-Cc: linux-riscv@lists.infradead.org, akpm@linux-foundation.org,
- mike.kravetz@oracle.com, linux@armlinux.org.uk, catalin.marinas@arm.com,
- will@kernel.org, palmer@dabbelt.com, linux-arm-kernel@lists.infradead.org,
- linux-mm@kvack.org
+References: <20230711130754.481209-1-gerg@kernel.org>
+In-Reply-To: <20230711130754.481209-1-gerg@kernel.org>
+To: Greg Ungerer <gerg@kernel.org>
+Cc: linux-riscv@lists.infradead.org, linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org, palmer@dabbelt.com, viro@zeniv.linux.org.uk,
+ ebiederm@xmission.com, keescook@chromium.org, brauner@kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230830_062038_187633_1D9FC8AF 
-X-CRM114-Status: UNSURE (   7.94  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230830_062040_150821_3960FE78 
+X-CRM114-Status: GOOD (  11.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,23 +83,23 @@ Hello:
 This series was applied to riscv/linux.git (for-next)
 by Palmer Dabbelt <palmer@rivosinc.com>:
 
-On Sun, 13 Aug 2023 21:50:34 -0700 (PDT) you wrote:
-> Three architectures are using PG_dcache_clean in their asm/hugetlb.h,
-> but relying on accident to include the asm/cacheflush.h which defines it.
+On Tue, 11 Jul 2023 23:07:52 +1000 you wrote:
+> The following changes add the ability to run ELF format binaries when
+> running RISC-V in nommu mode. That support is actually part of the
+> ELF-FDPIC loader, so these changes are all about making that work on
+> RISC-V.
 > 
-> 1/3 arm: include asm/cacheflush.h in asm/hugetlb.h
-> 2/3 arm64: include asm/cacheflush.h in asm/hugetlb.h
-> 3/3 riscv: include asm/cacheflush.h in asm/hugetlb.h
+> The first issue to deal with is making the ELF-FDPIC loader capable of
+> handling 64-bit ELF files. As coded right now it only supports 32-bit
+> ELF files.
 > 
 > [...]
 
 Here is the summary with links:
-  - [1/3] arm: include asm/cacheflush.h in asm/hugetlb.h
-    (no matching commit)
-  - [2/3] arm64: include asm/cacheflush.h in asm/hugetlb.h
-    (no matching commit)
-  - [3/3] riscv: include asm/cacheflush.h in asm/hugetlb.h
-    https://git.kernel.org/riscv/c/3aaad36808b5
+  - [v2,1/2] binfmt_elf_fdpic: support 64-bit systems
+    https://git.kernel.org/riscv/c/b922bf04d2c1
+  - [v2,2/2] riscv: support the elf-fdpic binfmt loader
+    https://git.kernel.org/riscv/c/9549fb354ef1
 
 You are awesome, thank you!
 -- 
