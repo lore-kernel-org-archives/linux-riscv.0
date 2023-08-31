@@ -4,60 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B1F8C83F2B
-	for <linux-riscv@archiver.kernel.org>; Thu, 31 Aug 2023 06:37:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E9DCC83F2B
+	for <linux-riscv@archiver.kernel.org>; Thu, 31 Aug 2023 06:57:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mk7M5VCpdbMeLo2NKPupxtgTuuRJRR6rylhNqVcOAxg=; b=JpFR217FO2DD/Y
-	AqIVnWogMTH5So4hqWBoYipNZJ0d0sKpenr46MvbhT8yTdaVlHuiIYBZJ+3k9JznKn0AEAiKjV1Bq
-	oJEw++8QDogDMa8mDZPraGQInLmjiBvZ1vxjl/9QKA73YoRWKlwkS53vQ0gVx01OtddkfZtHLFX9o
-	ttzzboaaZeGuRuNZC9NOkOUpnfi40Ydmur5c5vcoP+a7a7J5DXrd6qwM9OowhlzonYpsa6ahI0DGj
-	fmRJtvaVt2spYfWKMN+1g9Eba2HL5+7X7+77l9w5JXVSFCGFsNVVrQYJ3XPk6u4lcTZrZXaCS9XBs
-	AXKBSNLcL7BM9ZMl5eIw==;
+	List-Owner; bh=HhJL79loMIH1R2fqdWG5s8+/HRVq/22544jxrjdamRk=; b=Q+wrJKMyGM9viM
+	u0BOMzUqK4GRJRkk9cbuvsEmKtgf6gNGk9RPFZE3OcZOqAvGLEY/vQ8ugZRDhEOFSQLcgCPQTuBGT
+	HFaMqFz0dVVCVshOyqnbf+RkIKy6t23zlKKmJ/3G0WQyeuzxRzdw3CS5EqOXcUO0pcpA5Mlcfawkr
+	VX5Boafa8pjV4J7GY/dq6RKNezxs9qK8V4oWG+1lxOoime0jFWHaag1owDAoQgSO4gXpJWwG37+tZ
+	Hng7cWXfS4HLEewRterMFmRqvofc2975SPIbBB6vkFfccuqvhmDoWl/cFKIARbiZw7nDUHcGOgAA3
+	nSFqls7nnB9RShtHQyTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qbbIU-00ElMH-1Q;
-	Thu, 31 Aug 2023 06:36:54 +0000
-Received: from relmlor2.renesas.com ([210.160.252.172] helo=relmlie6.idc.renesas.com)
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qbbIR-00ElKk-2B
+	id 1qbbbs-00EmrP-32;
+	Thu, 31 Aug 2023 06:56:56 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1qbbbr-00EmrG-0s
+	for linux-riscv@bombadil.infradead.org;
+	Thu, 31 Aug 2023 06:56:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=z1tSA5gWe6Wvo9lakx79B07K3B5l68QWUYXrrVmhLaw=; b=Q5Qao/rDMZiZKFFeW2MbqK4tUB
+	w3XfSd0O8eO9PlD8cKUr3LS7TifhpNTd6y/QqICxcv3GCurvFsnOrMLKuVbiOEflWMD6tG9s5OjNn
+	Lr9IESwrk8WZd14mTBzSVaBYqzGZ+nAlkOw84/Or+rgsc++yOZE2r5VbaG5tV88pxbFUXJ2C7Lf0S
+	x+eVQLcUiFa0/YTo3vtfW0drzTdtOTLFT/CElRBjxabbwIaxGqj+VPMEYSMQaWD6tzrU2VochSRdR
+	GVzr0xUvPbnWjzf9TzpleASnMnaW9WgOn0neaWT4FLE6cuYAGkodkwtg5RKeWgWBE34Sz8PHSWBfH
+	FwwFTepg==;
+Received: from bg4.exmail.qq.com ([43.155.65.254])
+	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1qbbbg-00DIlV-1T
 	for linux-riscv@lists.infradead.org;
-	Thu, 31 Aug 2023 06:36:53 +0000
-X-IronPort-AV: E=Sophos;i="6.02,215,1688396400"; 
-   d="scan'208";a="178276026"
-Received: from unknown (HELO relmlir6.idc.renesas.com) ([10.200.68.152])
-  by relmlie6.idc.renesas.com with ESMTP; 31 Aug 2023 15:36:48 +0900
-Received: from localhost.localdomain (unknown [10.226.92.179])
-	by relmlir6.idc.renesas.com (Postfix) with ESMTP id 795A041881A9;
-	Thu, 31 Aug 2023 15:36:44 +0900 (JST)
-From: Biju Das <biju.das.jz@bp.renesas.com>
-To: Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: Biju Das <biju.das.jz@bp.renesas.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Magnus Damm <magnus.damm@gmail.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	linux-renesas-soc@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Prabhakar Mahadev Lad <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Subject: [PATCH v2 1/3] arm64: dts: renesas: rzg2ul-smarc-som: Enable serial NOR flash
-Date: Thu, 31 Aug 2023 07:36:33 +0100
-Message-Id: <20230831063635.2816-2-biju.das.jz@bp.renesas.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20230831063635.2816-1-biju.das.jz@bp.renesas.com>
-References: <20230831063635.2816-1-biju.das.jz@bp.renesas.com>
+	Thu, 31 Aug 2023 06:56:53 +0000
+X-QQ-mid: bizesmtp79t1693464956tdecde1n
+Received: from [10.4.6.71] ( [221.226.144.218])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Thu, 31 Aug 2023 14:55:54 +0800 (CST)
+X-QQ-SSF: 00200000000000B0B000000A0000000
+X-QQ-FEAT: lm7sZZPcOdZf/fpUyXb4FSBHuUW/npZsyyFuhkWADSPcz7fzI9mIBI2LDSPQ8
+	7qiMc4NaSIsMG0o7EU8hmj/v31OANN92+WG8sXN7NW3tBpAxxhXl1it1Wz+QCqVfdgkc3ux
+	zfVKFnhnw7+/Gf7uA7CFzPwU9vWxuIT66t7icyBwGLKxikmq+XGLxZqBsVWrKfyKLa8sUw5
+	omj/MI+0sXtHn09hY/yvGUFKWdMa5aNUkAukfEiUIgyuns+7KJmFSSgpdb2JxqBI1Naa8nr
+	hNaKF4eFwxc/KSyJV4HIZwhDJLmLLhJQAimyHd3+7ywHusMU1ZmXkUnZtD37dfLlOyWHh6s
+	+Kt2oHCQVV27A1XomWSfkJ3XpaQbQ==
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 17274139541364043981
+Message-ID: <FBD24A55B409E4DF+71a45adc-2e20-ea3c-a8ea-7341862991c6@tinylab.org>
+Date: Thu, 31 Aug 2023 14:55:54 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.13.0
+Subject: Re: [PATCH] riscv: kexec: Cleanup riscv_kexec_relocate
+To: Andreas Schwab <schwab@suse.de>
+Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+ mick@ics.forth.gr, alex@ghiti.fr, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20230830063435.1105726-1-songshuaishuai@tinylab.org>
+ <mvmmsy956xa.fsf@suse.de>
+From: Song Shuai <songshuaishuai@tinylab.org>
+In-Reply-To: <mvmmsy956xa.fsf@suse.de>
+X-QQ-SENDSIZE: 520
+Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrsz:qybglogicsvrsz4a-0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230830_233651_832665_8330A95A 
-X-CRM114-Status: UNSURE (   8.67  )
+X-CRM114-CacheID: sfid-20230831_075645_794558_543E0342 
+X-CRM114-Status: UNSURE (   8.35  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -70,105 +86,31 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Enable Renesas at25ql128a flash connected to QSPI0. Also disable
-the node from rzfive-smarc-som as it is untested.
-
-Signed-off-by: Biju Das <biju.das.jz@bp.renesas.com>
----
-v1->v2:
- * Enabled 4-bit tx support
----
- .../boot/dts/renesas/rzg2ul-smarc-som.dtsi    | 44 +++++++++++++++++++
- .../boot/dts/renesas/rzfive-smarc-som.dtsi    |  4 ++
- 2 files changed, 48 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/renesas/rzg2ul-smarc-som.dtsi b/arch/arm64/boot/dts/renesas/rzg2ul-smarc-som.dtsi
-index 97cdad2a12e2..b9e4e476ff7b 100644
---- a/arch/arm64/boot/dts/renesas/rzg2ul-smarc-som.dtsi
-+++ b/arch/arm64/boot/dts/renesas/rzg2ul-smarc-som.dtsi
-@@ -179,6 +179,18 @@ eth1_pins: eth1 {
- 			 <RZG2L_PORT_PINMUX(18, 5, 1)>; /* IRQ7 */
- 	};
- 
-+	qspi0_pins: qspi0 {
-+		qspi0-data {
-+			pins = "QSPI0_IO0", "QSPI0_IO1", "QSPI0_IO2", "QSPI0_IO3";
-+			power-source = <1800>;
-+		};
-+
-+		qspi0-ctrl {
-+			pins = "QSPI0_SPCLK", "QSPI0_SSL";
-+			power-source = <1800>;
-+		};
-+	};
-+
- 	sdhi0_emmc_pins: sd0emmc {
- 		sd0_emmc_data {
- 			pins = "SD0_DATA0", "SD0_DATA1", "SD0_DATA2", "SD0_DATA3",
-@@ -230,6 +242,38 @@ sd0_mux_uhs {
- 	};
- };
- 
-+&sbc {
-+	pinctrl-0 = <&qspi0_pins>;
-+	pinctrl-names = "default";
-+	status = "okay";
-+
-+	flash@0 {
-+		compatible = "jedec,spi-nor";
-+		reg = <0>;
-+		spi-max-frequency = <50000000>;
-+		spi-tx-bus-width = <4>;
-+		spi-rx-bus-width = <4>;
-+
-+		spi-cpol;
-+		spi-cpha;
-+		m25p,fast-read;
-+
-+		partitions {
-+			compatible = "fixed-partitions";
-+			#address-cells = <1>;
-+			#size-cells = <1>;
-+
-+			boot@0 {
-+				reg = <0x00000000 0x200000>;
-+				read-only;
-+			};
-+			user@200000 {
-+				reg = <0x200000 0xE00000>;
-+			};
-+		};
-+	};
-+};
-+
- #if (SW_SW0_DEV_SEL)
- &sdhi0 {
- 	pinctrl-0 = <&sdhi0_emmc_pins>;
-diff --git a/arch/riscv/boot/dts/renesas/rzfive-smarc-som.dtsi b/arch/riscv/boot/dts/renesas/rzfive-smarc-som.dtsi
-index c62debc7ca7e..0c9d72c32879 100644
---- a/arch/riscv/boot/dts/renesas/rzfive-smarc-som.dtsi
-+++ b/arch/riscv/boot/dts/renesas/rzfive-smarc-som.dtsi
-@@ -42,6 +42,10 @@ phy1: ethernet-phy@7 {
- 	};
- };
- 
-+&sbc {
-+	status = "disabled";
-+};
-+
- &sdhi0 {
- 	status = "disabled";
- };
--- 
-2.25.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGksIEFuZHJlYXM6CgrlnKggMjAyMy84LzMwIDE1OjI0LCBBbmRyZWFzIFNjaHdhYiDlhpnpgZM6
+Cj4gT24gQXVnIDMwIDIwMjMsIFNvbmcgU2h1YWkgd3JvdGU6Cj4gCj4+IEBAIC01MiwyMSArNDIs
+MjcgQEAgU1lNX0NPREVfU1RBUlQocmlzY3Zfa2V4ZWNfcmVsb2NhdGUpCj4+ICAgCSAqIHRoZSBz
+dGFydCBvZiB0aGUgbG9vcCBiZWxvdyBzbyB0aGF0IHdlIGp1bXAgdGhlcmUgaW4KPj4gICAJICog
+YW55IGNhc2UuCj4+ICAgCSAqLwo+PiAtCWxhCXM4LCAxZgo+PiAtCXN1YglzOCwgczgsIHM3Cj4+
+IC0JY3NydwlDU1JfU1RWRUMsIHM4Cj4+ICsJbGEJczYsIDFmCj4+ICsJc3ViCXM2LCBzNiwgczQK
+Pj4gKwljc3J3CUNTUl9TVFZFQywgczYKPj4gKwo+PiArCS8qCj4+ICsJICogV2l0aCBDLWV4dGVu
+c2lvbiwgaGVyZSB3ZSBnZXQgNDIgQnl0ZXMgYW5kIHRoZSBuZXh0Cj4+ICsJICogLmFsaWduIGRp
+cmVjdGl2ZSB3b3VsZCBwYWQgemVyb3MgaGVyZSB1cCB0byA0NCBCeXRlcy4KPj4gKwkgKiBTbyBt
+YW51YWxseSBwdXQgYSBub3AgaGVyZSB0byBhdm9pZCB6ZXJvcyBwYWRkaW5nLgo+PiArCSovCj4+
+ICsJbm9wCj4+ICAgCj4+ICAgCS8qIFByb2Nlc3MgZW50cmllcyBpbiBhIGxvb3AgKi8KPj4gICAu
+YWxpZ24gMgo+IAo+IFdoaWxlIHlvdSBhcmUgYXQgaXQsIEknZCBzdWdnZXN0IGJlaW5nIGV4cGxp
+Y2l0IGFib3V0IC5wYWxpZ24KPiB2cy4gLmJhbGlnbi4KPiAKSG93IGFib3V0IHRoaXMgY29tbWVt
+dDoKCkR1ZSB0byB0aGUgc3R2ZWMuQkFTRSA0LWJ5dGUgYWxpZ25tZW50IGNvbnN0cmFpbnQsIHRo
+ZSBmb2xsb3dpbmcgLmFsaWduCihhbGlhcyBvZiAucDJhbGlnbikgZGlyZWN0aXZlIHdpbGwgYWxp
+Z24gdGhlIG5leHQgaW5zdHJ1Y3Rpb24gdG8KYSA0LWJ5dGUgYm91bmRhcnkgYnkgcGFkZGluZyB6
+ZXJvcyBmb3IgdGhpcyAucm9kYXRhIHNlY3Rpb24uCgpXaXRoIEMtZXh0ZW5zaW9uLCBoZXJlIHdl
+IGdldCA0MiBCeXRlcyBhbmQgd291bGQgYmUgcGFkZGVkIHdpdGggemVyb3MKdXAgdG8gNDQgQnl0
+ZXMuIFNvIG1hbnVhbGx5IHB1dCBhIG5vcCBoZXJlIHRvIGF2b2lkIGl0LgoKLS0gClRoYW5rcwpT
+b25nIFNodWFpCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5v
+cmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNj
+dgo=
