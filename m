@@ -4,66 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A94A5C83F10
-	for <linux-riscv@archiver.kernel.org>; Thu, 31 Aug 2023 16:29:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C5BBC83F2E
+	for <linux-riscv@archiver.kernel.org>; Thu, 31 Aug 2023 16:32:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RggKTVf2NIZQzRjh9NJNiyiBsnN5HCg49r0ri2dIrvc=; b=U6V1CnWWFkwsUB8J4zZvorxpd1
-	iCZXNPihZhgxIxoqzkLcHdmNj1hBDTztWE4rkIc5KN6YlfVwajEYwtWq0tKinmhEx+YR0Q1qiY/om
-	Y7T4WvzO+kOpaIPngT86oIKQiBR4hmLvTFp0dkqFf4sWoEmyy6oPj1sBUyYxjNSiUtzicGN+bHTOD
-	REEnJ45oEkWREl/jVmQvLsbdvN8zgeHygB4y6ZLDmfkvzP41U8aC0nIB3e+8jGxIs1WWp7oInvJTT
-	IqxlN1jjhc/Jq0RW5vMWjux1tvNLpaC6zAypJLGDv3nZf6HdQt8RBYuMLtYVakosI/c8GO9cyN61g
-	3VGvtrPw==;
+	bh=30mgGgo9v4aH3cAhu6BvLF4lbasLnNNxe0qjfOk+aK4=; b=RtJavashynA+9ZG7MNFfvoZidu
+	V0qpchmPiO+RxIS7ZoaWCllGNJ6T6GFPTesWTJZqRaDlM9uTH1MHPe/23gVis/ZEsNMJAUZHclgwT
+	9jHc4C89XPddwYHAOhJvbmHOFjwUBy6XiLtshQa4ayYxrnA/ECfHOXUdLusPJZDJ6lgy5Fk5M7elO
+	i3B45XJZaEf7kmgNZpv2v4+BRJ5k4sxpzMYG3Qd90QdvSv++QVqkSJRYjEfektNb7m6Ed2TXr+0Gs
+	4lAyZU5xzDTzPHWr7FsQGautRWjwvMGcRgULlUBl5Ch5ufaeA2L1AeAqohTCoDkHCPQEhcgzu05+D
+	eGHcDDhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qbkYJ-00FZn7-1l;
-	Thu, 31 Aug 2023 16:29:51 +0000
+	id 1qbkaO-00FZxc-1Z;
+	Thu, 31 Aug 2023 16:32:00 +0000
 Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qbkYH-00FZmf-1a
+	id 1qbkaL-00FZx9-32
 	for linux-riscv@lists.infradead.org;
-	Thu, 31 Aug 2023 16:29:50 +0000
+	Thu, 31 Aug 2023 16:31:59 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id E2B0BB82347;
-	Thu, 31 Aug 2023 16:29:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AA047C433C8;
-	Thu, 31 Aug 2023 16:29:44 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 7484BB8229D;
+	Thu, 31 Aug 2023 16:31:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 243E1C433C8;
+	Thu, 31 Aug 2023 16:31:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1693499386;
-	bh=9Pr9fegNoNUn//WzmCMU1Histd8f9wgBhE+pRfO0JRU=;
+	s=k20201202; t=1693499515;
+	bh=c6bwVq38tu4XGHk2+06VjMxyjgqk3TQHdfoTO2nlQ0U=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=AuPs3RaYJA/9emJHcwCOySVCskILTl6kosxIZvHqkUtS3d4eylDKQknnFeQGEuMk/
-	 bDUFH28qqwkrlKsh19PS6GBfVNTFVuUV41Tk51hAkeiATEEJlKdeCkTQAdWDw31DXk
-	 u3E8hos4Qn3n0GQNALOvmIzjpgdeeDdU4B2e4YoenkyV46esTgKFUlYE7ixJHfW7lZ
-	 uTC9Spt4h5wSrUJSM0eqlaR1wCkQYlXdjdE2HgDZ+vf73GJNNPgkrbDMiv2f9rP9rz
-	 b2SgNof35GV+eWEp/mvsFFc3ydeNnS86dgPW/DYdTXq+G3KsGSIlWbKyJmwOEelR/P
-	 Qzz73QAPDzP6w==
-Date: Thu, 31 Aug 2023 17:29:42 +0100
+	b=NaPmYtvsph+EQDXRzQTzsUdBCQOjDKv1a2oU4c75PepO/mTrTQpwQWMvwaiA93Dp4
+	 W+WnoDbQLZCF+x9xLbSrkMAShfHQy4VxhaYdXmYliFYl140XFjAsamPDYwIV0m9VaB
+	 kxWiO3EARLg0eBTEQiItSLubgjJZ2BABG99HFckB05u3RM6ZJApi56vtA3+CHuFP4N
+	 dNlQtk9hzfAtCfPStDypyRnhxaM+z3/hmhvPxEBsMh9wZT1ZQDz0ozio6JO5V07xZT
+	 y8gjiQjE5nCwpNRadPHo5/LcjnWWBwGK6Ad9Y77Dh6ZDMa7KQiT5UgSL14vn4TGOM3
+	 LdSYqh3N1QAxQ==
+Date: Thu, 31 Aug 2023 17:31:51 +0100
 From: Conor Dooley <conor@kernel.org>
-To: Nam Cao <namcaov@gmail.com>
-Cc: Conor Dooley <conor.dooley@microchip.com>, Guo Ren <guoren@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, bjorn@kernel.org
-Subject: Re: [PATCH] riscv: provide riscv-specific is_trap_insn()
-Message-ID: <20230831-untidy-geologic-8c8232eb3cac@spud>
-References: <20230827205641.46836-1-namcaov@gmail.com>
- <CAJF2gTQysBBSbtFcx1uY_ztTnzN5jRWpG2OD4O3aJ0u9Ekwsag@mail.gmail.com>
- <20230829-unbridle-condense-2fc45a442bb6@wendy>
- <ZO2p1tScBT1UFMh1@nam-dell>
+To: Palmer Dabbelt <palmer@rivosinc.com>
+Cc: andy.chiu@sifive.com, linux-riscv@lists.infradead.org,
+	kernel test robot <lkp@intel.com>
+Subject: Re: [PATCH] RISC-V: Remove unused "size" in ptrace
+Message-ID: <20230831-pushup-race-b5820aa4bb7a@spud>
+References: <20230830203754.24940-1-palmer@rivosinc.com>
 MIME-Version: 1.0
-In-Reply-To: <ZO2p1tScBT1UFMh1@nam-dell>
+In-Reply-To: <20230830203754.24940-1-palmer@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230831_092949_680739_481636B8 
-X-CRM114-Status: GOOD (  12.39  )
+X-CRM114-CacheID: sfid-20230831_093158_130993_3974A946 
+X-CRM114-Status: GOOD (  11.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,44 +69,53 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8204614699197839178=="
+Content-Type: multipart/mixed; boundary="===============6742642449698959835=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============8204614699197839178==
+--===============6742642449698959835==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="pX1jrx4hiKgkc+Cg"
+	protocol="application/pgp-signature"; boundary="GfD0i/UrwE4gRiHo"
 Content-Disposition: inline
 
 
---pX1jrx4hiKgkc+Cg
+--GfD0i/UrwE4gRiHo
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-On Tue, Aug 29, 2023 at 10:18:30AM +0200, Nam Cao wrote:
+On Wed, Aug 30, 2023 at 01:37:54PM -0700, Palmer Dabbelt wrote:
+> Looks like this just got lost somewhere in the respins.
+>=20
+> Reported-by: kernel test robot <lkp@intel.com>
+> Closes: https://lore.kernel.org/oe-kbuild-all/202308310306.tOrkoBmI-lkp@i=
+ntel.com/
+> Fixes: dbe46b094026 ("RISC-V: Add ptrace support for vectors")
+> Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
 
-> Now I'm not sure what you mean. But I agree with Guo Ren here, users can use
-> compressed instructions but kernel does not have it enabled. So we should
-> always check c.ebreak regardless of RISCV_ISA_C.
+Huh, wonder how the patchwork automation missed that. Probably as good a
+reminder as any to update the toolchains in use there.
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 
-I think I was just being dumb, apologies for the noise.
+Thanks,
+Conor.
 
---pX1jrx4hiKgkc+Cg
+--GfD0i/UrwE4gRiHo
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZPC/9gAKCRB4tDGHoIJi
-0iNIAQDlFOLhVRwewDs3RynOY+M19AyVbnv6fuCWrcIVf6rtpQEAuxuaR9YxMsh/
-J1iTji590xUIscZGwQx0MV/Mn6UZTgA=
-=Oo6H
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZPDAdwAKCRB4tDGHoIJi
+0p6EAP4uVwzwVfBFE+Jf27WVMdDmB7nXIjyE/eXPuXWz1mvLcQD/UNl/24WwpR1R
+0n8Z611KYCs6KXrzXKxIJ5mMm0jwHA8=
+=dy+e
 -----END PGP SIGNATURE-----
 
---pX1jrx4hiKgkc+Cg--
+--GfD0i/UrwE4gRiHo--
 
 
---===============8204614699197839178==
+--===============6742642449698959835==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -123,5 +126,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============8204614699197839178==--
+--===============6742642449698959835==--
 
