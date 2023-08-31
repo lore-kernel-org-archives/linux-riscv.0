@@ -4,89 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AFE6C83F32
-	for <linux-riscv@archiver.kernel.org>; Thu, 31 Aug 2023 17:05:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78F26C83F2F
+	for <linux-riscv@archiver.kernel.org>; Thu, 31 Aug 2023 17:10:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=GFwQE6YKZ29G5GHK6DsFNndsfPTLWnhu/RcKmzDljSk=; b=xtc9WTUP49DdKh
-	s5j8vhg4tgisYPJssYnyozRnxFJa0IbFXXxTuFsj/3pDYnIHDFtrg/er90KLrUn0UqtE2jpasxEhA
-	LrNlARZYt17f82AkXMsATgG0XatOQ6ppV8lgor/rPbMHhxczsuqmcGQKRMXB8Booyf2azbWIEJI8s
-	coIlr1PTwppheanujz7ypkAKKJZqkP6ewfSMbXLiTJkXT4Ahq+1FBlgv6PXvT7HBFtNFn92xyXurB
-	4Zd430og8JVgPWyyxvRSleyAhpqGFJJ3VF2YHZeNPKYklORE9udFRlylcAORs3uxQbIf0a/uI5WD1
-	5ANaP3kHcC4Db9zSuTwQ==;
+	List-Owner; bh=PDn3HG/7CwPq6Hn8O7dFNMYroQxcMC4Evpl6zQLMG0k=; b=n1/I43Xh82/UH1
+	qClHvbMmarFWuzedj0gC3nT5HYDK0RyXC6jNzCCivE8xEqih5/coEOx095tMLTYU8ornuivwyK8nD
+	P0YkE57L+dLcG3ABD/OUevgHZETdJ0ehus2ufAcD9zV8rKtMe0J0jdZbeVnceO1qaGIWpGfBzgK3E
+	Bj35OasOOfCGo2VEo0qqTKKv2I8XTGzUB5T3gyyr1l78rb5TW9ze3vuBXja68QsPnO1jGl09+0GI0
+	ohM8UoPXvoRxUtX6Ojx3IVdMxyX1BWI9ovgT+fX4BLgmBaImSB9HjxVCw7UGjmi9ME4UKHgwlZVdr
+	LoKKLncvmumNzhpGrijA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qbl6e-00Fc6a-15;
-	Thu, 31 Aug 2023 17:05:20 +0000
-Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
+	id 1qblBn-00FcMm-0i;
+	Thu, 31 Aug 2023 17:10:39 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qbl6b-00Fc5e-0n
+	id 1qblBk-00FcMN-0Q
 	for linux-riscv@lists.infradead.org;
-	Thu, 31 Aug 2023 17:05:18 +0000
-Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-1c1e3a4a06fso7495895ad.3
-        for <linux-riscv@lists.infradead.org>; Thu, 31 Aug 2023 10:05:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20221208; t=1693501510; x=1694106310; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=2Pfgsvrc0Cq27hkjNFeSrt/ZRRwqRHUfzicJWZVHKsE=;
-        b=WmNphYc4aJwoDtYFO2uQSaikxu74pCeS8R44y0rXV2oSi/PzxyKGdUH4ryYr9ErtXZ
-         Yat4gB9YhXDKWlMcVf+ba2kTlDvs0fx5cAIMuRMXjaOEu76V0ioTUYmnXkE6m6F9FNWG
-         A3obigm/XJj57owdEyIlBCbhU9H5zK4RchefsMUvlijRuU/FwT1cYbDoj2rn/w0UewQ6
-         pfje5AJA6L9dpj86kKpil3mVAiVf3t9xngrvjyxn2gXUA48HTqd5x+h0/t8JyfSHNeiL
-         Dj1NzU4I2PcXZyZ3ZJ4nJWzCmjVhB5rTjgFWYOWWwtqFgCvy/rI83KHYXb1Ao+plDxsQ
-         RliA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1693501510; x=1694106310;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=2Pfgsvrc0Cq27hkjNFeSrt/ZRRwqRHUfzicJWZVHKsE=;
-        b=WHDvSQYwvN4kDlsdQSv/cgqWsbKF5ARC5s5i4BkAwgyCbN5Nrs6mWfLtWmdFiuZ1/Z
-         apGSnYIlSYF2jSvNo5CP7rb6oMu+m1W2EakhEfQC+Oehwy5lrN+ECf5xWmWXet4wr8Oj
-         rEvO83Q48WEr3jE9qH4TSHs5jkQIiEwf8EpjobJ9NIfZh4BT38ygwwMqtlQaudQX792c
-         /+LofDCDI+Ur4RbIbpryBHF4aXTkLdw9VuMKIHbBYhbR+cS1B4wfOW6+sdlaa0PLwuSy
-         rvDUyiU7ZTb6fZyuoVAkj0BvRlNiDLuJeiTYfSyJxe5zyedLJ1Vd5m/FMnCsjcYVjfIV
-         TCBw==
-X-Gm-Message-State: AOJu0Yz8JA2aiuWH9nzKfcflyc4HQ6jqckJFTYShGHuK8xozDhv/4nQM
-	fFYNcpkPHxij0NcqRODWmP5JQuskpDNR+cwYhS8ZXg==
-X-Google-Smtp-Source: AGHT+IEZpQJrLUAw1zvueub9KSo50xfn8glzjY4X7tAZK7QAtkNzy8u/SGkRxjDte9gslzgHknYZ+Q==
-X-Received: by 2002:a17:903:1cf:b0:1b9:e8a5:3699 with SMTP id e15-20020a17090301cf00b001b9e8a53699mr288895plh.21.1693501509951;
-        Thu, 31 Aug 2023 10:05:09 -0700 (PDT)
-Received: from google.com ([2620:15c:2d1:203:892a:3b04:5286:6211])
-        by smtp.gmail.com with ESMTPSA id jo6-20020a170903054600b001c1f0b3e900sm1477603plb.229.2023.08.31.10.05.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 31 Aug 2023 10:05:09 -0700 (PDT)
-Date: Thu, 31 Aug 2023 10:05:04 -0700
-From: Nick Desaulniers <ndesaulniers@google.com>
-To: Andy Chiu <andy.chiu@sifive.com>
-Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com,
-	greentime.hu@sifive.com, guoren@linux.alibaba.com,
-	20230816155450.26200-4-andy.chiu@sifive.com, bjorn@kernel.org,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Oleg Nesterov <oleg@redhat.com>,
-	Eric Biederman <ebiederm@xmission.com>,
-	Kees Cook <keescook@chromium.org>,
-	Vincent Chen <vincent.chen@sifive.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Benjamin Gray <bgray@linux.ibm.com>,
-	Qing Zhang <zhangqing@loongson.cn>,
-	Baruch Siach <baruch@tkos.co.il>, Rolf Eike Beer <eb@emlix.com>,
-	llvm@lists.linux.dev, nathan@kernel.org, regressions@leemhuis.info
-Subject: Re: [v2] RISC-V: Add ptrace support for vectors
-Message-ID: <ZPDIQEVaEJHXR5IW@google.com>
-References: <20230825050248.32681-1-andy.chiu@sifive.com>
+	Thu, 31 Aug 2023 17:10:37 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 2F55F63372
+	for <linux-riscv@lists.infradead.org>; Thu, 31 Aug 2023 17:10:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8E2F7C433D9
+	for <linux-riscv@lists.infradead.org>; Thu, 31 Aug 2023 17:10:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1693501834;
+	bh=uiLO/nSsSs1flvZrz0Clz6ISPAZ5Lq0D/ODFOp9fdgQ=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=rCgiIYm06eaOAocNQELX49Q8behSSuN+BfgZ8tfRRcQJ6pprAiVbiU29w3pyK5F1K
+	 H3Zk68nL8JE11nQpEdh2gbwoy8DtSgyOGUnMfgZwCCtuW3MoXscvHt4F+xcT0ie5Dd
+	 g9lPvvtaTQKAxQCQJZ/68a+tRRri4FAGanfXC9uWVwm9dJoN1DerP2zQ+HuR5X1ts4
+	 OkmATAirOgW47/gYcZppOoRTQRPsJxQKtzoSHmQZRrEpn6eAAPs2bUMC8EnWokw7Eg
+	 JqPD6fLLAnp9WIzBionw8w7KuzEVmBqM6H8gOg7i9uhrNNlLZ4tQBG+rUf+skQ4GF4
+	 sCnw8F9mSYYYg==
+Received: by mail-lf1-f48.google.com with SMTP id 2adb3069b0e04-4fe15bfb1adso1994928e87.0
+        for <linux-riscv@lists.infradead.org>; Thu, 31 Aug 2023 10:10:34 -0700 (PDT)
+X-Gm-Message-State: AOJu0Yymhv8hZssw+/QNEFB4BRx6A4oMw0Vjn33UaQ80ByJIXe9hlGpS
+	iWFehz0VbnOarw0SAcXib7PZlYgHRTeTeoXOVlA=
+X-Google-Smtp-Source: AGHT+IF8GFFoaBrYuN/cSSRBUoKAsriFhs5bDc+5Wc47CXydA/TFLIhQ4nA4ynwj24A7e02vE9Qk2y9Oa1etj/q0Vvw=
+X-Received: by 2002:ac2:499e:0:b0:500:b7ed:1055 with SMTP id
+ f30-20020ac2499e000000b00500b7ed1055mr4170875lfl.56.1693501832516; Thu, 31
+ Aug 2023 10:10:32 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230825050248.32681-1-andy.chiu@sifive.com>
+References: <20230726172958.1215472-1-ardb@kernel.org> <ZMy1DkYRBc1PxC8e@gondor.apana.org.au>
+ <CAMj1kXHCt6DJEZKYVYBXN0QhZ0w2ByCPUK2S2y2T5U06Ztrx9A@mail.gmail.com>
+In-Reply-To: <CAMj1kXHCt6DJEZKYVYBXN0QhZ0w2ByCPUK2S2y2T5U06Ztrx9A@mail.gmail.com>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Thu, 31 Aug 2023 19:10:21 +0200
+X-Gmail-Original-Message-ID: <CAMj1kXF0e+MKyDJPS7r=LWusEBCaw=t03JC=+Dz0Qk+GmY+uXw@mail.gmail.com>
+Message-ID: <CAMj1kXF0e+MKyDJPS7r=LWusEBCaw=t03JC=+Dz0Qk+GmY+uXw@mail.gmail.com>
+Subject: Re: [PATCH] crypto: riscv/aes - Implement scalar Zkn version for RV32
+To: Herbert Xu <herbert@gondor.apana.org.au>
+Cc: linux-crypto@vger.kernel.org, ebiggers@kernel.org, 
+	linux-riscv@lists.infradead.org, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	=?UTF-8?Q?Christoph_M=C3=BCllner?= <christoph.muellner@vrull.eu>, 
+	Heiko Stuebner <heiko.stuebner@vrull.eu>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230831_100517_290353_60158AD5 
-X-CRM114-Status: GOOD (  23.46  )
+X-CRM114-CacheID: sfid-20230831_101036_220349_17F518A2 
+X-CRM114-Status: GOOD (  11.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,78 +87,23 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 25, 2023 at 05:02:46AM +0000, Andy Chiu wrote:
-> This patch add back the ptrace support with the following fix:
->  - Define NT_RISCV_CSR and re-number NT_RISCV_VECTOR to prevent
->    conflicting with gdb's NT_RISCV_CSR.
->  - Use struct __riscv_v_regset_state to handle ptrace requests
-> 
-> Since gdb does not directly include the note description header in
-> Linux and has already defined NT_RISCV_CSR as 0x900, we decide to
-> sync with gdb and renumber NT_RISCV_VECTOR to solve and prevent future
-> conflicts.
-> 
-> Fixes: 0c59922c769a ("riscv: Add ptrace vector support")
-> Signed-off-by: Andy Chiu <andy.chiu@sifive.com>
+On Fri, 4 Aug 2023 at 10:31, Ard Biesheuvel <ardb@kernel.org> wrote:
+>
+> On Fri, 4 Aug 2023 at 10:21, Herbert Xu <herbert@gondor.apana.org.au> wrote:
+> >
+...
 
-Hi Andy, this is causing an instance of -Wunused-variable. PTAL.
+> > Hi Ard:
+> >
+> > Any chance you could postpone this til after I've finished removing
+> > crypto_cipher?
+> >
+>
+> That's fine with me. Do you have an ETA on that? Need any help?
+>
+> I have implemented the scalar 64-bit counterpart as well in the mean time
 
-Please use the following tags on the fix:
-
-Reported-by: "kernelci.org bot" <bot@kernelci.org>
-Closes: https://lore.kernel.org/linux-next/64f03ea1.170a0220.d3dbf.11fd@mx.google.com/
-
-Let's see if I can get the regzbot tag correct; first time trying it.
-
-#regzbot introduced dbe46b094026
-
-> diff --git a/arch/riscv/kernel/ptrace.c b/arch/riscv/kernel/ptrace.c
-> index 487303e3ef22..9a87e5d490b5 100644
-> --- a/arch/riscv/kernel/ptrace.c
-> +++ b/arch/riscv/kernel/ptrace.c
-> @@ -81,6 +84,71 @@ static int riscv_fpr_set(struct task_struct *target,
->  }
->  #endif
->  
-> +#ifdef CONFIG_RISCV_ISA_V
-> +static int riscv_vr_get(struct task_struct *target,
-> +			const struct user_regset *regset,
-> +			struct membuf to)
-> +{
-> +	struct __riscv_v_ext_state *vstate = &target->thread.vstate;
-> +	struct __riscv_v_regset_state ptrace_vstate;
-> +
-> +	if (!riscv_v_vstate_query(task_pt_regs(target)))
-> +		return -EINVAL;
-> +
-> +	/*
-> +	 * Ensure the vector registers have been saved to the memory before
-> +	 * copying them to membuf.
-> +	 */
-> +	if (target == current)
-> +		riscv_v_vstate_save(current, task_pt_regs(current));
-> +
-> +	ptrace_vstate.vstart = vstate->vstart;
-> +	ptrace_vstate.vl = vstate->vl;
-> +	ptrace_vstate.vtype = vstate->vtype;
-> +	ptrace_vstate.vcsr = vstate->vcsr;
-> +	ptrace_vstate.vlenb = vstate->vlenb;
-> +
-> +	/* Copy vector header from vstate. */
-> +	membuf_write(&to, &ptrace_vstate, sizeof(struct __riscv_v_regset_state));
-> +
-> +	/* Copy all the vector registers from vstate. */
-> +	return membuf_write(&to, vstate->datap, riscv_v_vsize);
-> +}
-> +
-> +static int riscv_vr_set(struct task_struct *target,
-> +			const struct user_regset *regset,
-> +			unsigned int pos, unsigned int count,
-> +			const void *kbuf, const void __user *ubuf)
-> +{
-> +	int ret, size;
-
-^ arch/riscv/kernel/ptrace.c:123:11: warning: unused variable 'size' [-Wunused-variable]
+Is this still happening?
 
 _______________________________________________
 linux-riscv mailing list
