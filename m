@@ -4,73 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D884C83F2B
-	for <linux-riscv@archiver.kernel.org>; Thu, 31 Aug 2023 05:34:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1831EC83F2B
+	for <linux-riscv@archiver.kernel.org>; Thu, 31 Aug 2023 06:37:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=in1Ptk+HSviCBG7HS8OiJFyRwaIQlw9QHw9As5e+iYc=; b=zIMNxk0TpZ5zrY1jyOldA64KjD
-	BsvDqxwt+YieXZhtBu9ADrlEe2uQANUlF+KIv5DF25TFfxJa8ZZIjs9qRbsB+/Nq80O72PLijfi+e
-	2lnHHnUbMtrx+amf11+lP9NMaHLNMWVSQyp6RX1RTysb04NXcYDMyBCKL9iPKLIHIJ9bBd4b1P5/z
-	oiZRRoBlLDly0bzTey0bRO35jtwwhzWXYwFsqtLOVcEu4ahDlIQ4SA6pKijLqI5UUet30VCo4jMh+
-	42JwEBzV5bhjhImI5tLBt7yVNCrocaYBJ81r012PJAAR3xHjkX3jeS0qM2Ih59ezYBbU+0KJ69mtu
-	xFQX1L6Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=RQKAWFNeUSCxYwGtwps5azmm6BUGvwJblxYZrqtHSE4=; b=AkJnasUMOvQ5w0
+	QH3+6CmGWWt2HdRg5sTXP7pUsXWVtAK0I4gJ9pFmdF43t6olKsd3swU4kbVMQANdzt/KIajy7liCh
+	rrvPbgbTrwdxqUXpbVxr318+4AOBDt7CNHIpdjH6aaszIufW/9ewgne+4GfN6ykK7vzaQOn9EIORY
+	J0l0gzY+rGKQLpaRI4ClVQZ5opxnsEd7BBmRiu4oZuZHVAn75Rj303i34BZ1b4zSlEn8pOPAM8dxX
+	oSxEQbfvREUv2RXERbxAlJ6L141FflVS35MhkP6ZKYL7c6S37WhJJJFJC6oMS99NEVoR9mbN9lQst
+	V1w9yviz/p4OtUh1UN/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qbaKA-00Egya-0c;
-	Thu, 31 Aug 2023 05:34:34 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qbaK5-00EgxO-0U;
-	Thu, 31 Aug 2023 05:34:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1693460069; x=1724996069;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=5fTpKtpTH7VHtgXBTshu0Z6bHpAk6pRiOhKHGWRzMK0=;
-  b=Ns6G0SCuqW1oV4sj9hTYOmBUHnPWgM/DLjHKUkeBnA9JuDhjE58RdEFs
-   uDLU3rl7CZ3FDvAyQKOEQYKKl33aL+WqD0qfB1XZInw3bOUuEXawz7Yfz
-   ctyrmfsaq0ypUi8QX8fkiLFPyiPBPsVlFOXWXM4T7s0Up6tsAG8sP6XA0
-   HGS16VbLM8GLV5Tn+04spddQkVopv7Er0kWAi48DN/RtBN6qAFxwYxdzR
-   xjqdW1TOb/yOgaio8sGKSzAnM4wZiYMJ2hfleTCCzhLD3owlKh93bdlDJ
-   1FfShAy4cVRapOM2XrAZR7lIYk4h/0AZOuGDeDcJdz9qsqVQvmKS4KkO/
-   Q==;
-X-IronPort-AV: E=Sophos;i="6.02,215,1688454000"; 
-   d="asc'?scan'208";a="2169620"
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa3.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 30 Aug 2023 22:34:24 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.87.72) by
- chn-vm-ex02.mchp-main.com (10.10.87.72) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Wed, 30 Aug 2023 22:34:24 -0700
-Received: from wendy (10.10.85.11) by chn-vm-ex02.mchp-main.com (10.10.85.144)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
- Transport; Wed, 30 Aug 2023 22:34:22 -0700
-Date: Thu, 31 Aug 2023 06:33:39 +0100
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Sami Tolvanen <samitolvanen@google.com>
-CC: Alexandre Ghiti <alexghiti@rivosinc.com>, Paul Walmsley
-	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, Ard Biesheuvel <ardb@kernel.org>, Kees Cook
-	<keescook@chromium.org>, <linux-riscv@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <linux-efi@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH v6 0/5] riscv: Introduce KASLR
-Message-ID: <20230831-reclusive-panning-f6a912e07fbf@wendy>
-References: <20230722123850.634544-1-alexghiti@rivosinc.com>
- <CABCJKucj78p4TBtXYmMdJ=vYK69XC=XU06uB+_fyfZLRnC4h0A@mail.gmail.com>
+	id 1qbbIT-00ElLw-2n;
+	Thu, 31 Aug 2023 06:36:53 +0000
+Received: from relmlor1.renesas.com ([210.160.252.171] helo=relmlie5.idc.renesas.com)
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1qbbIQ-00ElKQ-1Z
+	for linux-riscv@lists.infradead.org;
+	Thu, 31 Aug 2023 06:36:52 +0000
+X-IronPort-AV: E=Sophos;i="6.02,215,1688396400"; 
+   d="scan'208";a="174568736"
+Received: from unknown (HELO relmlir6.idc.renesas.com) ([10.200.68.152])
+  by relmlie5.idc.renesas.com with ESMTP; 31 Aug 2023 15:36:43 +0900
+Received: from localhost.localdomain (unknown [10.226.92.179])
+	by relmlir6.idc.renesas.com (Postfix) with ESMTP id F0C4E418875D;
+	Thu, 31 Aug 2023 15:36:39 +0900 (JST)
+From: Biju Das <biju.das.jz@bp.renesas.com>
+To: Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: Biju Das <biju.das.jz@bp.renesas.com>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	linux-renesas-soc@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Prabhakar Mahadev Lad <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Subject: [PATCH v2 0/3] Enable 4-bit tx support
+Date: Thu, 31 Aug 2023 07:36:32 +0100
+Message-Id: <20230831063635.2816-1-biju.das.jz@bp.renesas.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-In-Reply-To: <CABCJKucj78p4TBtXYmMdJ=vYK69XC=XU06uB+_fyfZLRnC4h0A@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230830_223429_198387_91CEE89D 
-X-CRM114-Status: GOOD (  10.98  )
+X-CRM114-CacheID: sfid-20230830_233650_637714_A4283725 
+X-CRM114-Status: UNSURE (   6.16  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,51 +68,36 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5242016691429500759=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============5242016691429500759==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="XwDbeznsdT2oG++s"
-Content-Disposition: inline
+This patch series aims to enable 4-bit tx support for
+RZ/{G2L,G2LC,G2UL,V2L} SMARC EVKs.
 
---XwDbeznsdT2oG++s
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+v1->v2:
+ * Enabled 4-bit tx support.
 
-On Wed, Aug 30, 2023 at 02:30:31PM -0700, Sami Tolvanen wrote:
+This patch series dependupon [1]
+[1] https://lore.kernel.org/all/20230830145835.296690-1-biju.das.jz@bp.renesas.com/
 
-> Conor, in another reply you mentioned you're planning on reviewing the
-> patches as well. Did you have any feedback or concerns?
+Biju Das (3):
+  arm64: dts: renesas: rzg2ul-smarc-som: Enable serial NOR flash
+  arm64: dts: renesas: rzg2l-smarc-som: Enable 4-bit tx support
+  arm64: dts: renesas: rzg2lc-smarc-som: Enable 4-bit tx support
 
-I didn't even look at it again. Been really short on time & I guess just
-deleted it from my queue when I noticed I'd tested it before.
+ .../boot/dts/renesas/rzg2l-smarc-som.dtsi     |  1 +
+ .../boot/dts/renesas/rzg2lc-smarc-som.dtsi    |  1 +
+ .../boot/dts/renesas/rzg2ul-smarc-som.dtsi    | 44 +++++++++++++++++++
+ .../boot/dts/renesas/rzfive-smarc-som.dtsi    |  4 ++
+ 4 files changed, 50 insertions(+)
 
---XwDbeznsdT2oG++s
-Content-Type: application/pgp-signature; name="signature.asc"
+-- 
+2.25.1
 
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZPAmLwAKCRB4tDGHoIJi
-0kjyAQDCH3DesLWi5bCCVWfpuHL32z+qMDgemCmZWh1kcLp/WAEA4qIw+dGQtQoi
-81uNCBhySZ9MfnKpn2soFTsYUfMujwI=
-=n/yh
------END PGP SIGNATURE-----
-
---XwDbeznsdT2oG++s--
-
-
---===============5242016691429500759==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============5242016691429500759==--
-
