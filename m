@@ -4,69 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27A61CA0FE3
-	for <linux-riscv@archiver.kernel.org>; Fri,  1 Sep 2023 03:12:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 317ECCA0FE6
+	for <linux-riscv@archiver.kernel.org>; Fri,  1 Sep 2023 03:46:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=b6GGkz7U0j7xNuoKNnXD1xPVJ167VJA/JEKBs3Hmi6s=; b=FD3Dmv9fhIf5gS
-	Zcq7zm2TB3qUc1CXpVunCSshZdoLRgBn38q2qRYU0wnL3RdhNNLSs4LEJmamPaUbrcH6fChiRsFRN
-	34dPzeNn2keCUYeyi40cNod1AOG4BWTF46dMJSNeqkMfv2q7OAW6CgbzMalPvY1vbuQMriGQnfiTy
-	+5PCPP5gPdeuRTDX5+gC0fGog0IJzP2/9haMIZVEh/vrCAiBvpsfJ85MDufe/Sy1/4etb0ore0IB0
-	H04XM6S+0hX1uh7CXqVZnZFRlB2OZtGfI0JtPgkS8MFkg1ogr+oalqgUAyiM23KNuOxg4lLOi3UgJ
-	NVkz4WEg4oJRyuFuMLNA==;
+	List-Owner; bh=ZzPSXfflYt6gpVzItHEt064mxhrGAPtDm3cO2s+SA+E=; b=zF4Z2ky9PedfaA
+	Y5M4pdEVIPtdC0xX8yqagAkooX86uvQ9bJxN8XfUdiD8zwqdnSm3MFb8cKSjRrc8d4pYGOqDvvKfe
+	EqFz4soej0YllNr3Eytmt4Wx6Y0eZNIjn/ea+IgYm3TrGe4DuF/W4wnrygKYUQBySlhlFIn1LS4TI
+	FfEGcITSmruehnWgHWnvYJFEPE2JQOowejSS4l4SmBQzM6lvA+8f1UMRrIk4yPEaPwsR8K5yEdf+u
+	bdrGw41UYoBT4k7qWdtX1NkipMRyAS+aCndOuvJAglnnH9ILow/V//GHgXNjUHAvOG2D0GxIfOJBY
+	MqZk62xmYv3t2kBWe8iQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qbuaT-00GMXH-1c;
-	Fri, 01 Sep 2023 03:12:45 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qbuaO-00GMW3-0U
-	for linux-riscv@lists.infradead.org;
-	Fri, 01 Sep 2023 03:12:43 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id 3AC3624E2D8;
-	Fri,  1 Sep 2023 11:12:23 +0800 (CST)
-Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 1 Sep
- 2023 11:12:23 +0800
-Received: from [192.168.125.128] (183.27.96.188) by EXMBX061.cuchost.com
- (172.16.6.61) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 1 Sep
- 2023 11:12:22 +0800
-Message-ID: <d341a254-d4f4-f3ee-22ee-955bb7ed052e@starfivetech.com>
-Date: Fri, 1 Sep 2023 11:07:14 +0800
+	id 1qbv6h-00GODd-0t;
+	Fri, 01 Sep 2023 03:46:03 +0000
+Received: from mgamail.intel.com ([192.55.52.151])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1qbv6d-00GOBk-0C;
+	Fri, 01 Sep 2023 03:46:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1693539958; x=1725075958;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=dQBtg8NKz/pLl187/eYnyafMQC+Yh2bQyqEr25y1Bps=;
+  b=MGA+Bn9JxqenVXs2WO4Zey09jjqw/BoC10Ay9bZ4i3Ar4GQxOwHuPceG
+   94lMNkEsMyzkMk+emPx6l/xCdRNj94Yd3AYER2d3jU0yP5h+35w3IJQBT
+   w5MHaCquEpj2zwqsBBl/LkharAEYPL/z8HwVFZ33MDSIe/K7V9Vkt4z9d
+   a07Af1iTfwQsrC00OrjqRTDy+p19sYDjYKeUSmOQgNoTQWRw9/aEGO00+
+   hfFTqn8gAJOCT9Wr+4BQCgBvr762NuQMzJbfWcW7VcORZ659g+hSiiCOS
+   U9ZZDIGVugZsMiPWPEbc12/u76+LRdZTk5PykEF90I3fqg7YcvDTKzRsu
+   w==;
+X-IronPort-AV: E=McAfee;i="6600,9927,10819"; a="356441903"
+X-IronPort-AV: E=Sophos;i="6.02,218,1688454000"; 
+   d="scan'208";a="356441903"
+Received: from fmsmga007.fm.intel.com ([10.253.24.52])
+  by fmsmga107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 31 Aug 2023 20:45:54 -0700
+X-ExtLoop1: 1
+X-IronPort-AV: E=McAfee;i="6600,9927,10819"; a="742962743"
+X-IronPort-AV: E=Sophos;i="6.02,218,1688454000"; 
+   d="scan'208";a="742962743"
+Received: from binbinwu-mobl.ccr.corp.intel.com (HELO [10.93.2.44]) ([10.93.2.44])
+  by fmsmga007-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 31 Aug 2023 20:45:45 -0700
+Message-ID: <f7aaf097-6f83-0ee9-e16d-713d392b2299@linux.intel.com>
+Date: Fri, 1 Sep 2023 11:45:43 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.14.0
-Subject: Re: [PATCH v4 2/3] clocksource: Add JH7110 timer driver
-Content-Language: en-US
-To: Walker Chen <walker.chen@starfivetech.com>, Daniel Lezcano
-	<daniel.lezcano@linaro.org>, Thomas Gleixner <tglx@linutronix.de>, "Emil
- Renner Berthing" <emil.renner.berthing@canonical.com>
-CC: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>, "Rob
- Herring" <robh+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley
-	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, Philipp Zabel <p.zabel@pengutronix.de>, Samin Guo
-	<samin.guo@starfivetech.com>, <linux-kernel@vger.kernel.org>, Conor Dooley
-	<conor@kernel.org>
-References: <20230814101603.166951-1-xingyu.wu@starfivetech.com>
- <20230814101603.166951-3-xingyu.wu@starfivetech.com>
- <6a5de6c1-aa80-e1a4-3da7-33789248bfde@starfivetech.com>
-From: Xingyu Wu <xingyu.wu@starfivetech.com>
-In-Reply-To: <6a5de6c1-aa80-e1a4-3da7-33789248bfde@starfivetech.com>
-X-Originating-IP: [183.27.96.188]
-X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX061.cuchost.com
- (172.16.6.61)
-X-YovoleRuleAgent: yovoleflag
+ Thunderbird/102.15.0
+Subject: Re: [RFC PATCH v11 12/29] KVM: Add KVM_CREATE_GUEST_MEMFD ioctl() for
+ guest-specific backing memory
+To: Ackerley Tng <ackerleytng@google.com>
+Cc: seanjc@google.com, kvm@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+ linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+ linux-fsdevel@vger.kernel.org, linux-mm@kvack.org,
+ linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org,
+ pbonzini@redhat.com, maz@kernel.org, oliver.upton@linux.dev,
+ chenhuacai@kernel.org, mpe@ellerman.id.au, anup@brainfault.org,
+ paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+ willy@infradead.org, akpm@linux-foundation.org, paul@paul-moore.com,
+ jmorris@namei.org, serge@hallyn.com, chao.p.peng@linux.intel.com,
+ tabba@google.com, jarkko@kernel.org, yu.c.zhang@linux.intel.com,
+ vannapurve@google.com, mail@maciej.szmigiero.name, vbabka@suse.cz,
+ david@redhat.com, qperret@google.com, michael.roth@amd.com,
+ wei.w.wang@intel.com, liam.merwick@oracle.com, isaku.yamahata@gmail.com,
+ kirill.shutemov@linux.intel.com
+References: <diqz5y4wfpj0.fsf@ackerleytng-ctop.c.googlers.com>
+From: Binbin Wu <binbin.wu@linux.intel.com>
+In-Reply-To: <diqz5y4wfpj0.fsf@ackerleytng-ctop.c.googlers.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230831_201240_626010_ECFD7EFE 
-X-CRM114-Status: GOOD (  28.90  )
+X-CRM114-CacheID: sfid-20230831_204559_118779_BBD0A0AE 
+X-CRM114-Status: GOOD (  23.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,534 +91,122 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2023/8/17 16:20, Walker Chen wrote:
-> 
-> 
-> On 2023/8/14 18:16, Xingyu Wu wrote:
->> Add timer driver for the StarFive JH7110 SoC.
->> 
->> Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
->> ---
->>  MAINTAINERS                        |   7 +
->>  drivers/clocksource/Kconfig        |  11 +
->>  drivers/clocksource/Makefile       |   1 +
->>  drivers/clocksource/timer-jh7110.c | 415 +++++++++++++++++++++++++++++
->>  4 files changed, 434 insertions(+)
->>  create mode 100644 drivers/clocksource/timer-jh7110.c
->> 
->> diff --git a/MAINTAINERS b/MAINTAINERS
->> index 0903d87b17cb..00cf6a22e13c 100644
->> --- a/MAINTAINERS
->> +++ b/MAINTAINERS
->> @@ -20287,6 +20287,13 @@ S:	Maintained
->>  F:	Documentation/devicetree/bindings/sound/starfive,jh7110-tdm.yaml
->>  F:	sound/soc/starfive/jh7110_tdm.c
->>  
->> +STARFIVE JH7110 TIMER DRIVER
->> +M:	Samin Guo <samin.guo@starfivetech.com>
->> +M:	Xingyu Wu <xingyu.wu@starfivetech.com>
->> +S:	Supported
->> +F:	Documentation/devicetree/bindings/timer/starfive,jh7110-timer.yaml
->> +F:	drivers/clocksource/timer-jh7110.c
->> +
->>  STARFIVE JH71X0 CLOCK DRIVERS
->>  M:	Emil Renner Berthing <kernel@esmil.dk>
->>  M:	Hal Feng <hal.feng@starfivetech.com>
->> diff --git a/drivers/clocksource/Kconfig b/drivers/clocksource/Kconfig
->> index c4d671a5a13d..171b9b54a499 100644
->> --- a/drivers/clocksource/Kconfig
->> +++ b/drivers/clocksource/Kconfig
->> @@ -648,6 +648,17 @@ config RISCV_TIMER
->>  	  is accessed via both the SBI and the rdcycle instruction.  This is
->>  	  required for all RISC-V systems.
->>  
->> +config STARFIVE_JH7110_TIMER
->> +	bool "Timer for the STARFIVE JH7110 SoC"
->> +	depends on ARCH_STARFIVE || COMPILE_TEST
->> +	select TIMER_OF
->> +	select CLKSRC_MMIO
->> +	default ARCH_STARFIVE
->> +	help
->> +	  This enables the timer for StarFive JH7110 SoCs. On RISC-V platform,
->> +	  the system has started RISCV_TIMER. But you can also use this timer
->> +	  which can provides four channels to do a lot more on JH7110 SoC.
-> 
-> Correct some grammar errors as follows:
-> This enables the timer for StarFive JH7110 SoC. On RISC-V platform,
-> the system has started RISCV_TIMER, but you can also use this timer
-> which can provide four channels to do a lot more things on JH7110 SoC.
 
-Will fix.
 
-> 
->> +
->>  config CLINT_TIMER
->>  	bool "CLINT Timer for the RISC-V platform" if COMPILE_TEST
->>  	depends on GENERIC_SCHED_CLOCK && RISCV
->> diff --git a/drivers/clocksource/Makefile b/drivers/clocksource/Makefile
->> index 5d93c9e3fc55..56bd6d9ddd87 100644
->> --- a/drivers/clocksource/Makefile
->> +++ b/drivers/clocksource/Makefile
->> @@ -81,6 +81,7 @@ obj-$(CONFIG_INGENIC_TIMER)		+= ingenic-timer.o
->>  obj-$(CONFIG_CLKSRC_ST_LPC)		+= clksrc_st_lpc.o
->>  obj-$(CONFIG_X86_NUMACHIP)		+= numachip.o
->>  obj-$(CONFIG_RISCV_TIMER)		+= timer-riscv.o
->> +obj-$(CONFIG_STARFIVE_JH7110_TIMER)	+= timer-jh7110.o
->>  obj-$(CONFIG_CLINT_TIMER)		+= timer-clint.o
->>  obj-$(CONFIG_CSKY_MP_TIMER)		+= timer-mp-csky.o
->>  obj-$(CONFIG_GX6605S_TIMER)		+= timer-gx6605s.o
->> diff --git a/drivers/clocksource/timer-jh7110.c b/drivers/clocksource/timer-jh7110.c
->> new file mode 100644
->> index 000000000000..fe3cfed55df7
->> --- /dev/null
->> +++ b/drivers/clocksource/timer-jh7110.c
->> @@ -0,0 +1,415 @@
->> +// SPDX-License-Identifier: GPL-2.0
->> +/*
->> + * Starfive JH7110 Timer driver
->> + *
->> + * Copyright (C) 2022-2023 StarFive Technology Co., Ltd.
->> + *
->> + * Author:
->> + * Xingyu Wu <xingyu.wu@starfivetech.com>
->> + * Samin Guo <samin.guo@starfivetech.com>
->> + */
->> +
->> +#include <linux/clk.h>
->> +#include <linux/clockchips.h>
->> +#include <linux/clocksource.h>
->> +#include <linux/err.h>
->> +#include <linux/interrupt.h>
->> +#include <linux/io.h>
->> +#include <linux/iopoll.h>
->> +#include <linux/irq.h>
->> +#include <linux/kernel.h>
->> +#include <linux/module.h>
->> +#include <linux/of.h>
->> +#include <linux/of_device.h>
->> +#include <linux/platform_device.h>
->> +#include <linux/reset.h>
->> +#include <linux/sched_clock.h>
->> +
->> +/* Bias: Ch0-0x0, Ch1-0x40, Ch2-0x80, and so on. */
->> +#define JH7110_TIMER_CH_LEN		0x40
->> +#define JH7110_TIMER_CH_BASE(x)		((x) * JH7110_TIMER_CH_LEN)
->> +#define JH7110_TIMER_CH_MAX		4
->> +
->> +#define JH7110_CLOCK_SOURCE_RATING	200
->> +#define JH7110_VALID_BITS		32
->> +#define JH7110_DELAY_US			0
->> +#define JH7110_TIMEOUT_US		10000
->> +#define JH7110_CLOCKEVENT_RATING	300
->> +#define JH7110_TIMER_MAX_TICKS		0xffffffff
->> +#define JH7110_TIMER_MIN_TICKS		0xf
->> +#define JH7110_TIMER_NAME_NUM		20
->> +
->> +#define JH7110_TIMER_INT_STATUS		0x00 /* RO[0:4]: Interrupt Status for channel0~4 */
->> +#define JH7110_TIMER_CTL		0x04 /* RW[0]: 0-continuous run, 1-single run */
->> +#define JH7110_TIMER_LOAD		0x08 /* RW: load value to counter */
->> +#define JH7110_TIMER_ENABLE		0x10 /* RW[0]: timer enable register */
->> +#define JH7110_TIMER_RELOAD		0x14 /* RW: write 1 or 0 both reload counter */
->> +#define JH7110_TIMER_VALUE		0x18 /* RO: timer value register */
->> +#define JH7110_TIMER_INT_CLR		0x20 /* RW: timer interrupt clear register */
->> +#define JH7110_TIMER_INT_MASK		0x24 /* RW[0]: timer interrupt mask register */
->> +#define JH7110_TIMER_INT_CLR_AVA_MASK	BIT(1)
->> +
->> +enum JH7110_TIMER_INTMASK {
->> +	JH7110_TIMER_INTMASK_DIS = 0,
->> +	JH7110_TIMER_INTMASK_ENA = 1
->> +};
->> +
->> +enum JH7110_TIMER_MOD {
->> +	JH7110_TIMER_MOD_CONTIN = 0,
->> +	JH7110_TIMER_MOD_SINGLE = 1
->> +};
->> +
->> +enum JH7110_TIMER_CTL_EN {
->> +	JH7110_TIMER_DIS = 0,
->> +	JH7110_TIMER_ENA = 1
->> +};
->> +
->> +struct jh7110_clkevt {
->> +	struct clock_event_device evt;
->> +	struct clocksource cs;
->> +	struct clk *clk;
->> +	char name[JH7110_TIMER_NAME_NUM];
->> +	int irq;
->> +	u32 periodic;
->> +	u32 rate;
->> +	u32 reload_val;
->> +	void __iomem *base;
->> +};
->> +
->> +struct jh7110_timer_priv {
->> +	struct device *dev;
->> +	void __iomem *base;
->> +	struct jh7110_clkevt clkevt[JH7110_TIMER_CH_MAX];
->> +};
->> +
->> +static inline struct jh7110_clkevt *to_jh7110_clkevt(struct clock_event_device *evt)
->> +{
->> +	return container_of(evt, struct jh7110_clkevt, evt);
->> +}
->> +
->> +/* 0:continuous-run mode, 1:single-run mode */
->> +static inline void jh7110_timer_set_continuous_mod(struct jh7110_clkevt *clkevt)
->> +{
->> +	writel(JH7110_TIMER_MOD_CONTIN, clkevt->base + JH7110_TIMER_CTL);
-> 
-> Why not write 0 directly? Seems that the macro JH7110_TIMER_MOD_CONTIN is redundant, because the function 
-> name 'jh7110_timer_set_continuous_mod' already expresses its purpose. 
+On 8/31/2023 12:44 AM, Ackerley Tng wrote:
+> Binbin Wu <binbin.wu@linux.intel.com> writes:
+>
+>>> <snip>
+>>>
+>>> +static long kvm_gmem_allocate(struct inode *inode, loff_t offset, loff_t len)
+>>> +{
+>>> +	struct address_space *mapping = inode->i_mapping;
+>>> +	pgoff_t start, index, end;
+>>> +	int r;
+>>> +
+>>> +	/* Dedicated guest is immutable by default. */
+>>> +	if (offset + len > i_size_read(inode))
+>>> +		return -EINVAL;
+>>> +
+>>> +	filemap_invalidate_lock_shared(mapping);
+>>> +
+>>> +	start = offset >> PAGE_SHIFT;
+>>> +	end = (offset + len) >> PAGE_SHIFT;
+>>> +
+>>> +	r = 0;
+>>> +	for (index = start; index < end; ) {
+>>> +		struct folio *folio;
+>>> +
+>>> +		if (signal_pending(current)) {
+>>> +			r = -EINTR;
+>>> +			break;
+>>> +		}
+>>> +
+>>> +		folio = kvm_gmem_get_folio(inode, index);
+>>> +		if (!folio) {
+>>> +			r = -ENOMEM;
+>>> +			break;
+>>> +		}
+>>> +
+>>> +		index = folio_next_index(folio);
+>>> +
+>>> +		folio_unlock(folio);
+>>> +		folio_put(folio);
+>> May be a dumb question, why we get the folio and then put it immediately?
+>> Will it make the folio be released back to the page allocator?
+>>
+> I was wondering this too, but it is correct.
+>
+> In filemap_grab_folio(), the refcount is incremented in three places:
+>
+> + When the folio is created in filemap_alloc_folio(), it is given a
+>    refcount of 1 in
+>
+>      filemap_alloc_folio() -> folio_alloc() -> __folio_alloc_node() ->
+>      __folio_alloc() -> __alloc_pages() -> get_page_from_freelist() ->
+>      prep_new_page() -> post_alloc_hook() -> set_page_refcounted()
+>
+> + Then, in filemap_add_folio(), the refcount is incremented twice:
+>
+>      + The first is from the filemap (1 refcount per page if this is a
+>        hugepage):
+>
+>          filemap_add_folio() -> __filemap_add_folio() -> folio_ref_add()
+>
+>      + The second is a refcount from the lru list
+>
+>          filemap_add_folio() -> folio_add_lru() -> folio_get() ->
+>          folio_ref_inc()
+>
+> In the other path, if the folio exists in the page cache (filemap), the
+> refcount is also incremented through
+>
+>      filemap_grab_folio() -> __filemap_get_folio() -> filemap_get_entry()
+>      -> folio_try_get_rcu()
+>
+> I believe all the branches in kvm_gmem_get_folio() are taking a refcount
+> on the folio while the kernel does some work on the folio like clearing
+> the folio in clear_highpage() or getting the next index, and then when
+> done, the kernel does folio_put().
+>
+> This pattern is also used in shmem and hugetlb. :)
 
-Will fix and drop the useless macros. The latter is also the same as.
+Thanks for your explanation. It helps a lot.
 
-> 
->> +}
->> +
->> +static inline void jh7110_timer_set_single_mod(struct jh7110_clkevt *clkevt)
->> +{
->> +	writel(JH7110_TIMER_MOD_SINGLE, clkevt->base + JH7110_TIMER_CTL);
-> 
-> Same as above.
-> 
->> +}
->> +
->> +/* Interrupt Mask Register, 0:Unmask, 1:Mask */
->> +static inline void jh7110_timer_int_enable(struct jh7110_clkevt *clkevt)
->> +{
->> +	writel(JH7110_TIMER_INTMASK_DIS, clkevt->base + JH7110_TIMER_INT_MASK);
-> 
-> Same, the enum variable 'JH7110_TIMER_INTMASK_DIS' is redundant, should be replaced with specific integer value
-> and drop the definition of enum JH7110_TIMER_INTMASK.
-> 
->> +}
->> +
->> +static inline void jh7110_timer_int_disable(struct jh7110_clkevt *clkevt)
->> +{
->> +	writel(JH7110_TIMER_INTMASK_ENA, clkevt->base + JH7110_TIMER_INT_MASK);
-> 
-> Same.
-> 
->> +}
->> +
->> +/*
->> + * BIT(0): Read value represent channel intr status.
->> + * Write 1 to this bit to clear interrupt. Write 0 has no effects.
->> + * BIT(1): "1" means that it is clearing interrupt. BIT(0) can not be written.
->> + */
->> +static inline int jh7110_timer_int_clear(struct jh7110_clkevt *clkevt)
->> +{
->> +	u32 value;
->> +	int ret;
->> +
->> +	/* waiting interrupt can be to clearing */
->> +	ret = readl_poll_timeout_atomic(clkevt->base + JH7110_TIMER_INT_CLR, value,
->> +					!(value & JH7110_TIMER_INT_CLR_AVA_MASK),
->> +					JH7110_DELAY_US, JH7110_TIMEOUT_US);
->> +	if (!ret)
->> +		writel(0x1, clkevt->base + JH7110_TIMER_INT_CLR);
->> +
->> +	return ret;
->> +}
->> +
->> +/*
->> + * The initial value to be loaded into the
->> + * counter and is also used as the reload value.
->> + * val = clock rate --> 1s
->> + */
->> +static inline void jh7110_timer_set_load(struct jh7110_clkevt *clkevt, u32 val)
->> +{
->> +	writel(val, clkevt->base + JH7110_TIMER_LOAD);
->> +}
->> +
->> +static inline u32 jh7110_timer_get_val(struct jh7110_clkevt *clkevt)
->> +{
->> +	return readl(clkevt->base + JH7110_TIMER_VALUE);
->> +}
->> +
->> +/*
->> + * Write RELOAD register to reload preset value to counter.
->> + * Write 0 and write 1 are both ok.
->> + */
->> +static inline void jh7110_timer_set_reload(struct jh7110_clkevt *clkevt)
->> +{
->> +	writel(0, clkevt->base + JH7110_TIMER_RELOAD);
->> +}
->> +
->> +static inline void jh7110_timer_enable(struct jh7110_clkevt *clkevt)
->> +{
->> +	writel(JH7110_TIMER_ENA, clkevt->base + JH7110_TIMER_ENABLE);
-> 
-> should be replaced with specific integer value and drop the definition of enum JH7110_TIMER_CTL_EN.
-> 
->> +}
->> +
->> +static inline void jh7110_timer_disable(struct jh7110_clkevt *clkevt)
->> +{
->> +	writel(JH7110_TIMER_DIS, clkevt->base + JH7110_TIMER_ENABLE);
-> 
-> Same as above.
-> 
->> +}
->> +
->> +static int jh7110_timer_int_init_enable(struct jh7110_clkevt *clkevt)
->> +{
->> +	int ret;
->> +
->> +	jh7110_timer_int_disable(clkevt);
->> +	ret = jh7110_timer_int_clear(clkevt);
->> +	if (ret)
->> +		return ret;
->> +
->> +	jh7110_timer_int_enable(clkevt);
->> +	jh7110_timer_enable(clkevt);
->> +
->> +	return 0;
->> +}
->> +
->> +static int jh7110_timer_shutdown(struct clock_event_device *evt)
->> +{
->> +	struct jh7110_clkevt *clkevt = to_jh7110_clkevt(evt);
->> +
->> +	jh7110_timer_disable(clkevt);
->> +	return jh7110_timer_int_clear(clkevt);
->> +}
->> +
->> +static void jh7110_timer_suspend(struct clock_event_device *evt)
->> +{
->> +	struct jh7110_clkevt *clkevt = to_jh7110_clkevt(evt);
->> +
->> +	clkevt->reload_val = jh7110_timer_get_val(clkevt);
->> +	jh7110_timer_shutdown(evt);
->> +}
->> +
->> +static void jh7110_timer_resume(struct clock_event_device *evt)
->> +{
->> +	struct jh7110_clkevt *clkevt = to_jh7110_clkevt(evt);
->> +
->> +	jh7110_timer_set_load(clkevt, clkevt->reload_val);
->> +	jh7110_timer_set_reload(clkevt);
->> +	jh7110_timer_int_enable(clkevt);
->> +	jh7110_timer_enable(clkevt);
->> +}
->> +
->> +static int jh7110_timer_tick_resume(struct clock_event_device *evt)
->> +{
->> +	jh7110_timer_resume(evt);
->> +
->> +	return 0;
->> +}
->> +
->> +/* IRQ handler for the timer */
->> +static irqreturn_t jh7110_timer_interrupt(int irq, void *priv)
->> +{
->> +	struct clock_event_device *evt = (struct clock_event_device *)priv;
->> +	struct jh7110_clkevt *clkevt = to_jh7110_clkevt(evt);
->> +
->> +	if (jh7110_timer_int_clear(clkevt))
->> +		return IRQ_NONE;
->> +
->> +	if (evt->event_handler)
->> +		evt->event_handler(evt);
->> +
->> +	return IRQ_HANDLED;
->> +}
->> +
->> +static int jh7110_timer_set_periodic(struct clock_event_device *evt)
->> +{
->> +	struct jh7110_clkevt *clkevt = to_jh7110_clkevt(evt);
->> +
->> +	clkevt->periodic = DIV_ROUND_CLOSEST(clkevt->rate, HZ);
->> +	jh7110_timer_disable(clkevt);
->> +	jh7110_timer_set_continuous_mod(clkevt);
->> +	jh7110_timer_set_load(clkevt, clkevt->periodic);
->> +
->> +	return jh7110_timer_int_init_enable(clkevt);
->> +}
->> +
->> +static int jh7110_timer_set_oneshot(struct clock_event_device *evt)
->> +{
->> +	struct jh7110_clkevt *clkevt = to_jh7110_clkevt(evt);
->> +
->> +	jh7110_timer_disable(clkevt);
->> +	jh7110_timer_set_single_mod(clkevt);
->> +	jh7110_timer_set_load(clkevt, JH7110_TIMER_MAX_TICKS);
->> +
->> +	return jh7110_timer_int_init_enable(clkevt);
->> +}
->> +
->> +static int jh7110_timer_set_next_event(unsigned long next,
->> +				       struct clock_event_device *evt)
->> +{
->> +	struct jh7110_clkevt *clkevt = to_jh7110_clkevt(evt);
->> +
->> +	jh7110_timer_disable(clkevt);
->> +	jh7110_timer_set_single_mod(clkevt);
->> +	jh7110_timer_set_load(clkevt, next);
->> +	jh7110_timer_enable(clkevt);
->> +
->> +	return 0;
->> +}
->> +
->> +static void jh7110_set_clockevent(struct clock_event_device *evt)
->> +{
->> +	evt->features = CLOCK_EVT_FEAT_PERIODIC |
->> +			CLOCK_EVT_FEAT_ONESHOT |
->> +			CLOCK_EVT_FEAT_DYNIRQ;
->> +	evt->set_state_shutdown = jh7110_timer_shutdown;
->> +	evt->set_state_periodic = jh7110_timer_set_periodic;
->> +	evt->set_state_oneshot = jh7110_timer_set_oneshot;
->> +	evt->set_state_oneshot_stopped = jh7110_timer_shutdown;
->> +	evt->tick_resume = jh7110_timer_tick_resume;
->> +	evt->set_next_event = jh7110_timer_set_next_event;
->> +	evt->suspend = jh7110_timer_suspend;
->> +	evt->resume = jh7110_timer_resume;
->> +	evt->rating = JH7110_CLOCKEVENT_RATING;
->> +}
->> +
->> +static u64 jh7110_timer_clocksource_read(struct clocksource *cs)
->> +{
->> +	struct jh7110_clkevt *clkevt = container_of(cs, struct jh7110_clkevt, cs);
->> +
->> +	return (u64)jh7110_timer_get_val(clkevt);
->> +}
->> +
->> +static int jh7110_clocksource_init(struct jh7110_clkevt *clkevt)
->> +{
->> +	int ret;
->> +
->> +	jh7110_timer_set_continuous_mod(clkevt);
->> +	jh7110_timer_set_load(clkevt, JH7110_TIMER_MAX_TICKS);
->> +
->> +	ret = jh7110_timer_int_init_enable(clkevt);
->> +	if (ret)
->> +		return ret;
->> +
->> +	clkevt->cs.name = clkevt->name;
->> +	clkevt->cs.rating = JH7110_CLOCK_SOURCE_RATING;
->> +	clkevt->cs.read = jh7110_timer_clocksource_read;
->> +	clkevt->cs.mask = CLOCKSOURCE_MASK(JH7110_VALID_BITS);
->> +	clkevt->cs.flags = CLOCK_SOURCE_IS_CONTINUOUS;
->> +
->> +	return clocksource_register_hz(&clkevt->cs, clkevt->rate);
->> +}
->> +
->> +static void jh7110_clockevents_register(struct jh7110_clkevt *clkevt)
->> +{
->> +	clkevt->rate = clk_get_rate(clkevt->clk);
->> +
->> +	jh7110_set_clockevent(&clkevt->evt);
->> +	clkevt->evt.name = clkevt->name;
->> +	clkevt->evt.irq = clkevt->irq;
->> +	clkevt->evt.cpumask = cpu_possible_mask;
->> +
->> +	clockevents_config_and_register(&clkevt->evt, clkevt->rate,
->> +					JH7110_TIMER_MIN_TICKS, JH7110_TIMER_MAX_TICKS);
->> +}
->> +
->> +static int jh7110_timer_probe(struct platform_device *pdev)
->> +{
->> +	char name[JH7110_TIMER_NAME_NUM];
->> +	struct jh7110_timer_priv *priv;
->> +	struct jh7110_clkevt *clkevt;
->> +	struct clk *pclk;
->> +	struct reset_control *rst;
->> +	int ch;
->> +	int ret;
->> +
->> +	priv = devm_kzalloc(&pdev->dev, struct_size(priv, clkevt, JH7110_TIMER_CH_MAX),
->> +			    GFP_KERNEL);
->> +	if (!priv)
->> +		return -ENOMEM;
->> +
->> +	priv->base = devm_platform_ioremap_resource(pdev, 0);
->> +	if (IS_ERR(priv->base))
->> +		return dev_err_probe(&pdev->dev, PTR_ERR(priv->base),
->> +				     "failed to map registers\n");
->> +
->> +	rst = devm_reset_control_get_exclusive(&pdev->dev, "apb");
->> +	if (IS_ERR(rst))
->> +		return dev_err_probe(&pdev->dev, PTR_ERR(rst), "failed to get apb reset\n");
->> +
->> +	pclk = devm_clk_get_enabled(&pdev->dev, "apb");
->> +	if (IS_ERR(pclk))
->> +		return dev_err_probe(&pdev->dev, PTR_ERR(pclk),
->> +				     "failed to get & enable apb clock\n");
->> +
->> +	ret = reset_control_deassert(rst);
->> +	if (ret)
->> +		return dev_err_probe(&pdev->dev, ret, "failed to deassert apb reset\n");
->> +
->> +	priv->dev = &pdev->dev;
->> +	platform_set_drvdata(pdev, priv);
->> +
->> +	for (ch = 0; ch < JH7110_TIMER_CH_MAX; ch++) {
->> +		clkevt = &priv->clkevt[ch];
->> +		snprintf(name, sizeof(name), "ch%d", ch);
->> +
->> +		clkevt->base = priv->base + JH7110_TIMER_CH_BASE(ch);
->> +		/* Ensure timers are disabled */
->> +		jh7110_timer_disable(clkevt);
->> +
->> +		rst = devm_reset_control_get_exclusive(&pdev->dev, name);
->> +		if (IS_ERR(rst))
->> +			return PTR_ERR(rst);
->> +
->> +		clkevt->clk = devm_clk_get_enabled(&pdev->dev, name);
->> +		if (IS_ERR(clkevt->clk))
->> +			return PTR_ERR(clkevt->clk);
->> +
->> +		ret = reset_control_deassert(rst);
->> +		if (ret)
->> +			return ret;
->> +
->> +		clkevt->irq = platform_get_irq(pdev, ch);
->> +		if (clkevt->irq < 0)
->> +			return clkevt->irq;
->> +
->> +		snprintf(clkevt->name, sizeof(clkevt->name), "%s.ch%d", pdev->name, ch);
->> +		jh7110_clockevents_register(clkevt);
->> +
->> +		ret = devm_request_irq(&pdev->dev, clkevt->irq, jh7110_timer_interrupt,
->> +				       IRQF_TIMER | IRQF_IRQPOLL,
->> +				       clkevt->name, &clkevt->evt);
->> +		if (ret)
->> +			return ret;
->> +
->> +		ret = jh7110_clocksource_init(clkevt);
->> +		if (ret)
->> +			return ret;
->> +	}
->> +
->> +	return 0;
->> +}
->> +
->> +static const struct of_device_id jh7110_timer_match[] = {
->> +	{ .compatible = "starfive,jh7110-timer", },
->> +	{ /* sentinel */ }
->> +};
->> +MODULE_DEVICE_TABLE(of, jh7110_timer_match);
->> +
->> +static struct platform_driver jh7110_timer_driver = {
->> +	.probe = jh7110_timer_probe,
->> +	.driver = {
->> +		.name = "jh7110-timer",
->> +		.of_match_table = jh7110_timer_match,
->> +	},
->> +};
->> +module_platform_driver(jh7110_timer_driver);
->> +
->> +MODULE_AUTHOR("Xingyu Wu <xingyu.wu@starfivetech.com>");
->> +MODULE_DESCRIPTION("StarFive JH7110 timer driver");
->> +MODULE_LICENSE("GPL");
+>
+> I'm not sure whose refcount the folio_put() in kvm_gmem_allocate() is
+> dropping though:
+>
+> + The refcount for the filemap depends on whether this is a hugepage or
+>    not, but folio_put() strictly drops a refcount of 1.
+> + The refcount for the lru list is just 1, but doesn't the page still
+>    remain in the lru list?
 
-Thanks,
-Xingyu Wu
+I guess the refcount drop here is the one get on the fresh allocation.
+Now the filemap has grabbed the folio, so the lifecycle of the folio now 
+is decided by the filemap/inode?
+
+>
+>>> +
+>>> +		/* 64-bit only, wrapping the index should be impossible. */
+>>> +		if (WARN_ON_ONCE(!index))
+>>> +			break;
+>>> +
+>>> +		cond_resched();
+>>> +	}
+>>> +
+>>> +	filemap_invalidate_unlock_shared(mapping);
+>>> +
+>>> +	return r;
+>>> +}
+>>> +
+>>>
+>>> <snip>
 
 
 _______________________________________________
