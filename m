@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBFB5CA0FE1
-	for <linux-riscv@archiver.kernel.org>; Fri,  1 Sep 2023 13:03:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1900CCA0FE9
+	for <linux-riscv@archiver.kernel.org>; Fri,  1 Sep 2023 13:03:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9uDdT1ivwpllIQwWGDm/ZzcEAZB8BX/zNZ/YqoqGvVM=; b=nGkhHH0WYfk5pV
-	WE7IOhsnq3yjiuUX+8YlbUDs2M24i2vh0l9OG52vOymdH2pJ0LsFStzqGlogTjYWTl8aIvZ33zxqW
-	VdPRhG0BT/yR9qRNmjZLlsJ5gsM4MaVBWqjHoYsvkUX1rttsVsIsmtZkFXDWYUBppSIUy9QRJ2p5Z
-	yfVDH7CWndhvhHPRoH/r6VxDU0+S8QsqAxSXjrsBQvr7AJi7FYz7hv6Brse0Ed9DcIjBGQNZL0fsV
-	MtFFocpzbo6vCBXaizLylwLtS1NLilNADXBT6zo+0vYRIi5FmZIxAfY1i7HW77rzc1yqzzY+mdFbu
-	KoW2ZV/uPvxR1iQEqu7Q==;
+	List-Owner; bh=Q9ZV1/CcBVHffgvghE4KwCr91lrbd6r6AfBFEHpwlAk=; b=XzUfykrhkO/hCf
+	yIe8iKnlrwjdhdp/gW1ockNjX0K0YeZA7U3CiZquPZ0YN/VeZE+8sgxEwySm8rxDS7Gg3CAu++p2z
+	nITPMaXPx8Z0WY7I1Aywwi4kwX6k64SEOLToAt3X3a5sf2xZk61IHWv2J+ObXCc0EDW8PAYdrcpWF
+	G+Bo9YSNbZUI0fVdD1lgHl3EpTd21NOzcTebQzhIxMo3/Cx7fKalmehTL9xVYjBTqGRR+g+AQf44B
+	2C98GhfvRBLY6zWiXSmlcvkS+/p46LPJ/vGpu1FEXGU+YxpNB3vUXP6SU8NIgA14/jkNVN84CW/k3
+	J4QMDYODa8SbJFe0mXFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qc3o5-00HXJ9-02;
-	Fri, 01 Sep 2023 13:03:25 +0000
-Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
+	id 1qc3oA-00HXMZ-1k;
+	Fri, 01 Sep 2023 13:03:30 +0000
+Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qc3o1-00HXFv-0b
+	id 1qc3o4-00HXGD-0m
 	for linux-riscv@lists.infradead.org;
-	Fri, 01 Sep 2023 13:03:23 +0000
-Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-31c73c21113so1593858f8f.1
-        for <linux-riscv@lists.infradead.org>; Fri, 01 Sep 2023 06:03:20 -0700 (PDT)
+	Fri, 01 Sep 2023 13:03:26 +0000
+Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-31c4d5bd69cso1659691f8f.3
+        for <linux-riscv@lists.infradead.org>; Fri, 01 Sep 2023 06:03:21 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1693573399; x=1694178199; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1693573400; x=1694178200; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=3XGN82il/1YBgFB1xd1FuzsdVFxN2VHyBDMO8DeBOOo=;
-        b=LD5+Cy99UFAqFMeaJo8bGeEp8vg6ddTAUvnLB7+8TCzGD2WNSswoxBY2vSUGhAwgLu
-         rIgv6FeflmOde1kcujKDb+YWhmnhfl55zPUgKokPSMJphgMugXTxcXVUSTvr4qP2Mez0
-         OZhs9YxaT5KRTeTdJXyYx71iqxo7EEvokc9/ylWMSEoczyintHA8ov/D3vwG46vncx7T
-         uwEJ8chl7sYiIsYGIsnmd+7ZEVLbThv58Lob1CbuF+eYfAENNYQ5KGMjM8xvDTWjwmix
-         eA7JV0u9y8PrhSzUEwJEfj5ycKybdjh4dK6hk8jF+S5jP8GB4rmcLZhFdb/Qk1KT7Z+5
-         q5uA==
+        bh=Lc2/PThdglNLGfS0qJb++8JNKia8ENWEPE++6QMdKJg=;
+        b=yozUIrLAXtANux2vtJ+1VBTXyeQBPftJiJQtRH+2BlONu7QRw8/rY9uQdyVx5bmRCJ
+         obn7yuZXVcXz08riLjJxzxvnn9+aLiNs/2sotqomYg4UE5s+SHgq1qmAmD+sbu95KdQN
+         lk7leAyjpOOqp+qRRodlNkx9Jxk3D/rEMmFRiaxq8yoyf76/AIOpzU6sv1KWyyp6FATI
+         uwtfqoAELsYP+/iLUp2Bsy3HaSFVc7YcZ+qsfVOy/SFU9XYyDebRvgczUxD658YHzvYs
+         3SmS8OMDDOwfNW7sxAFZF6gEHyDgdKORGQ9vbtPhloMrX29SRXFLh33zs343sOTdjTY3
+         /5fg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1693573399; x=1694178199;
+        d=1e100.net; s=20221208; t=1693573400; x=1694178200;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=3XGN82il/1YBgFB1xd1FuzsdVFxN2VHyBDMO8DeBOOo=;
-        b=iuBFFGUCvw4Q8zeRGC6YPo/BBz7MFtdYzfXRd7K4QK2E7Sifh1va0Xh8gvs78H2UQj
-         NMK4d302gibGmcA/ynUMbKryiR48fdXu840SGCC88woqTzzE+alU4j6GZXQ6gBDfIMOZ
-         DgA4q7sTsld0gRwgxsopEpfQRCEGflT4vLnvFZpGAg2M5CxpA+J2WAxszgf29XIUBzdB
-         2XLUU11xLIKLJ5l28TQDu7nuT/4sBG6FwfyQW6GLNK6e9Gh0uXzDPECLf7YG9sToj8z6
-         Jj2dfP3+aRfK/U+Piu5YCsNAhLT+fN3ZygAnuQWqTFjJSn9MbKtxYF/XaJ619AJ+lm6B
-         LQ9w==
-X-Gm-Message-State: AOJu0YzJKuFxU1VnLFVMcGBG6vXLb18fHaOHKIMFJjR/gtUi44o/itrb
-	dGu8tvtUgbaYXOge04Rt913jFw==
-X-Google-Smtp-Source: AGHT+IERLKj3sQli7kquAJo1LxhyV8dn8e2ozcL/AJpoVa8ta4GyQxSWCkp906EBGCj0hP1nYCxKOQ==
-X-Received: by 2002:adf:f282:0:b0:317:5d3d:c9df with SMTP id k2-20020adff282000000b003175d3dc9dfmr1892285wro.18.1693573397559;
-        Fri, 01 Sep 2023 06:03:17 -0700 (PDT)
+        bh=Lc2/PThdglNLGfS0qJb++8JNKia8ENWEPE++6QMdKJg=;
+        b=D4qJwD/6AI00dHzenxN/WwWv1aeqHQmdRJhOI085V4txCnsANP9oXmq1Ed6IJocPH+
+         NVW9pnAFPnmQSXO93QatBHVnaIRMY8J354fETGMsWbyl5/YMGdd0Uj5FMow0ervOVIJM
+         6O51pxywt+S2YVRyOwzFADvvWJ2KHCCKtBFi5uBpf8VadSmkzbTpfQT2y6RGMZTAnVYp
+         Kvj154lC9mUXpcX5N0WsNrLFhW2IseguvGdTRXw8Xpj1FB8coZ2Oio0PGef6klenaD5X
+         drRU76hK3ppe9ZCp/VS6ATUGV81+SFTveVAH/JZMnIfuW//0ipIeADHbiBPKQMAtGeFy
+         n3MA==
+X-Gm-Message-State: AOJu0YziGbXqiLvXomBGsd+p9wwlmhVzrGqQFEc5Bd2guepsz2yOh0lt
+	NTNCwMnMHxr6+8kMjpeQmxkTDw==
+X-Google-Smtp-Source: AGHT+IFhopL0OmPezFJfjy60UyNhSKg8ZqbBwJgAZmOJYjwD1j0DD1QYHLDKXKPgXXRmJOa5y8JoMw==
+X-Received: by 2002:adf:ecc6:0:b0:317:58e4:e941 with SMTP id s6-20020adfecc6000000b0031758e4e941mr1608494wro.33.1693573400353;
+        Fri, 01 Sep 2023 06:03:20 -0700 (PDT)
 Received: from vingu-book.. ([2a01:e0a:f:6020:e9bd:add1:d9ac:7b3e])
-        by smtp.gmail.com with ESMTPSA id i14-20020adfdece000000b003142e438e8csm5167452wrn.26.2023.09.01.06.03.16
+        by smtp.gmail.com with ESMTPSA id i14-20020adfdece000000b003142e438e8csm5167452wrn.26.2023.09.01.06.03.19
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 01 Sep 2023 06:03:16 -0700 (PDT)
+        Fri, 01 Sep 2023 06:03:19 -0700 (PDT)
 From: Vincent Guittot <vincent.guittot@linaro.org>
 To: linux@armlinux.org.uk,
 	catalin.marinas@arm.com,
@@ -91,16 +91,16 @@ Cc: conor.dooley@microchip.com,
 	ajones@ventanamicro.com,
 	lftan@kernel.org,
 	Vincent Guittot <vincent.guittot@linaro.org>
-Subject: [PATCH 1/4] sched: consolidate and cleanup access to CPU's max compute capacity
-Date: Fri,  1 Sep 2023 15:03:09 +0200
-Message-Id: <20230901130312.247719-2-vincent.guittot@linaro.org>
+Subject: [PATCH 2/4] topology: add a new arch_scale_freq_reference
+Date: Fri,  1 Sep 2023 15:03:10 +0200
+Message-Id: <20230901130312.247719-3-vincent.guittot@linaro.org>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20230901130312.247719-1-vincent.guittot@linaro.org>
 References: <20230901130312.247719-1-vincent.guittot@linaro.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230901_060321_226093_A4C32A7E 
-X-CRM114-Status: GOOD (  25.45  )
+X-CRM114-CacheID: sfid-20230901_060324_284902_39F855C4 
+X-CRM114-Status: GOOD (  17.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,231 +117,120 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Remove struct rq cpu_capacity_orig field and use arch_scale_cpu_capacity()
-instead.
+Create a new method to get a unique and fixed max frequency. Currently
+cpuinfo.max_freq or last item of performance domain are used as the max
+frequency when computing the frequency for a level of utilization but:
+- cpuinfo_max_freq can change at runtime. boost is one example of
+  such change.
+- cpuinfo.max_freq and last item of the PD can be different leading to
+  different results betwen cpufreq and energy model.
 
-Scheduler uses 3 methods to get access to the CPU's max compute capacity:
-- arch_scale_cpu_capacity(cpu) which is the default way to get CPU's capacity.
-- cpu_capacity_orig field which is periodically updated with
-  arch_scale_cpu_capacity().
-- capacity_orig_of(cpu) which encapsulates rq->cpu_capacity_orig
+We need to save the max frequency that has been used when computing the
+CPUs capacity and use this fixed and coherent value to convert between
+frequency and CPU's capacity.
 
-There is no real need to save the value returned by arch_scale_cpu_capacity()
-in struct rq. arch_scale_cpu_capacity() returns:
-- either a per_cpu variable.
-- or a const value for systems which have only one capacity.
-
-Remove cpu_capacity_orig and use arch_scale_cpu_capacity() everywhere.
-
-No functional changes.
-
-some tests of Arm64:
-small SMP device (hikey): no noticeable changes
-HMP device (RB5): hackbench shows minor improvement (1-2%)
-large smp (thx2): hackbench and tbench shows minor improvement (1%)
+In fact, we already save the frequency that has been used when computing
+the capacity of each CPU. We extend the precision to save khZ instead of
+Mhz currently and we modify the type to be aligned with other variables
+used when converting frequency to capacity and the other way.
 
 Signed-off-by: Vincent Guittot <vincent.guittot@linaro.org>
 ---
- kernel/sched/core.c        |  2 +-
- kernel/sched/cpudeadline.c |  2 +-
- kernel/sched/deadline.c    |  4 ++--
- kernel/sched/fair.c        | 18 ++++++++----------
- kernel/sched/rt.c          |  2 +-
- kernel/sched/sched.h       |  6 ------
- kernel/sched/topology.c    |  7 +++++--
- 7 files changed, 18 insertions(+), 23 deletions(-)
+ arch/arm/include/asm/topology.h   | 1 +
+ arch/arm64/include/asm/topology.h | 1 +
+ arch/riscv/include/asm/topology.h | 1 +
+ drivers/base/arch_topology.c      | 9 +++------
+ include/linux/arch_topology.h     | 7 +++++++
+ 5 files changed, 13 insertions(+), 6 deletions(-)
 
-diff --git a/kernel/sched/core.c b/kernel/sched/core.c
-index efe3848978a0..6560392f2f83 100644
---- a/kernel/sched/core.c
-+++ b/kernel/sched/core.c
-@@ -10014,7 +10014,7 @@ void __init sched_init(void)
- #ifdef CONFIG_SMP
- 		rq->sd = NULL;
- 		rq->rd = NULL;
--		rq->cpu_capacity = rq->cpu_capacity_orig = SCHED_CAPACITY_SCALE;
-+		rq->cpu_capacity = SCHED_CAPACITY_SCALE;
- 		rq->balance_callback = &balance_push_callback;
- 		rq->active_balance = 0;
- 		rq->next_balance = jiffies;
-diff --git a/kernel/sched/cpudeadline.c b/kernel/sched/cpudeadline.c
-index 57c92d751bcd..95baa12a1029 100644
---- a/kernel/sched/cpudeadline.c
-+++ b/kernel/sched/cpudeadline.c
-@@ -131,7 +131,7 @@ int cpudl_find(struct cpudl *cp, struct task_struct *p,
- 			if (!dl_task_fits_capacity(p, cpu)) {
- 				cpumask_clear_cpu(cpu, later_mask);
- 
--				cap = capacity_orig_of(cpu);
-+				cap = arch_scale_cpu_capacity(cpu);
- 
- 				if (cap > max_cap ||
- 				    (cpu == task_cpu(p) && cap == max_cap)) {
-diff --git a/kernel/sched/deadline.c b/kernel/sched/deadline.c
-index 58b542bf2893..c57ef2e0db41 100644
---- a/kernel/sched/deadline.c
-+++ b/kernel/sched/deadline.c
-@@ -132,7 +132,7 @@ static inline unsigned long __dl_bw_capacity(const struct cpumask *mask)
- 	int i;
- 
- 	for_each_cpu_and(i, mask, cpu_active_mask)
--		cap += capacity_orig_of(i);
-+		cap += arch_scale_cpu_capacity(i);
- 
- 	return cap;
- }
-@@ -144,7 +144,7 @@ static inline unsigned long __dl_bw_capacity(const struct cpumask *mask)
- static inline unsigned long dl_bw_capacity(int i)
- {
- 	if (!sched_asym_cpucap_active() &&
--	    capacity_orig_of(i) == SCHED_CAPACITY_SCALE) {
-+	    arch_scale_cpu_capacity(i) == SCHED_CAPACITY_SCALE) {
- 		return dl_bw_cpus(i) << SCHED_CAPACITY_SHIFT;
- 	} else {
- 		RCU_LOCKDEP_WARN(!rcu_read_lock_sched_held(),
-diff --git a/kernel/sched/fair.c b/kernel/sched/fair.c
-index 0b7445cd5af9..06d6d0dde48a 100644
---- a/kernel/sched/fair.c
-+++ b/kernel/sched/fair.c
-@@ -4690,7 +4690,7 @@ static inline void util_est_update(struct cfs_rq *cfs_rq,
- 	 * To avoid overestimation of actual task utilization, skip updates if
- 	 * we cannot grant there is idle time in this CPU.
- 	 */
--	if (task_util(p) > capacity_orig_of(cpu_of(rq_of(cfs_rq))))
-+	if (task_util(p) > arch_scale_cpu_capacity(cpu_of(rq_of(cfs_rq))))
- 		return;
- 
- 	/*
-@@ -4738,14 +4738,14 @@ static inline int util_fits_cpu(unsigned long util,
- 		return fits;
- 
- 	/*
--	 * We must use capacity_orig_of() for comparing against uclamp_min and
-+	 * We must use arch_scale_cpu_capacity() for comparing against uclamp_min and
- 	 * uclamp_max. We only care about capacity pressure (by using
- 	 * capacity_of()) for comparing against the real util.
- 	 *
- 	 * If a task is boosted to 1024 for example, we don't want a tiny
- 	 * pressure to skew the check whether it fits a CPU or not.
- 	 *
--	 * Similarly if a task is capped to capacity_orig_of(little_cpu), it
-+	 * Similarly if a task is capped to arch_scale_cpu_capacity(little_cpu), it
- 	 * should fit a little cpu even if there's some pressure.
- 	 *
- 	 * Only exception is for thermal pressure since it has a direct impact
-@@ -4757,7 +4757,7 @@ static inline int util_fits_cpu(unsigned long util,
- 	 * For uclamp_max, we can tolerate a drop in performance level as the
- 	 * goal is to cap the task. So it's okay if it's getting less.
- 	 */
--	capacity_orig = capacity_orig_of(cpu);
-+	capacity_orig = arch_scale_cpu_capacity(cpu);
- 	capacity_orig_thermal = capacity_orig - arch_scale_thermal_pressure(cpu);
- 
- 	/*
-@@ -7226,7 +7226,7 @@ select_idle_capacity(struct task_struct *p, struct sched_domain *sd, int target)
- 		 * Look for the CPU with best capacity.
- 		 */
- 		else if (fits < 0)
--			cpu_cap = capacity_orig_of(cpu) - thermal_load_avg(cpu_rq(cpu));
-+			cpu_cap = arch_scale_cpu_capacity(cpu) - thermal_load_avg(cpu_rq(cpu));
- 
- 		/*
- 		 * First, select CPU which fits better (-1 being better than 0).
-@@ -7468,7 +7468,7 @@ cpu_util(int cpu, struct task_struct *p, int dst_cpu, int boost)
- 		util = max(util, util_est);
- 	}
- 
--	return min(util, capacity_orig_of(cpu));
-+	return min(util, arch_scale_cpu_capacity(cpu));
- }
- 
- unsigned long cpu_util_cfs(int cpu)
-@@ -9251,8 +9251,6 @@ static void update_cpu_capacity(struct sched_domain *sd, int cpu)
- 	unsigned long capacity = scale_rt_capacity(cpu);
- 	struct sched_group *sdg = sd->groups;
- 
--	cpu_rq(cpu)->cpu_capacity_orig = arch_scale_cpu_capacity(cpu);
--
- 	if (!capacity)
- 		capacity = 1;
- 
-@@ -9328,7 +9326,7 @@ static inline int
- check_cpu_capacity(struct rq *rq, struct sched_domain *sd)
- {
- 	return ((rq->cpu_capacity * sd->imbalance_pct) <
--				(rq->cpu_capacity_orig * 100));
-+				(arch_scale_cpu_capacity(cpu_of(rq)) * 100));
- }
- 
- /*
-@@ -9339,7 +9337,7 @@ check_cpu_capacity(struct rq *rq, struct sched_domain *sd)
- static inline int check_misfit_status(struct rq *rq, struct sched_domain *sd)
- {
- 	return rq->misfit_task_load &&
--		(rq->cpu_capacity_orig < rq->rd->max_cpu_capacity ||
-+		(arch_scale_cpu_capacity(rq->cpu) < rq->rd->max_cpu_capacity ||
- 		 check_cpu_capacity(rq, sd));
- }
- 
-diff --git a/kernel/sched/rt.c b/kernel/sched/rt.c
-index 0597ba0f85ff..8f4e8db6e234 100644
---- a/kernel/sched/rt.c
-+++ b/kernel/sched/rt.c
-@@ -515,7 +515,7 @@ static inline bool rt_task_fits_capacity(struct task_struct *p, int cpu)
- 	min_cap = uclamp_eff_value(p, UCLAMP_MIN);
- 	max_cap = uclamp_eff_value(p, UCLAMP_MAX);
- 
--	cpu_cap = capacity_orig_of(cpu);
-+	cpu_cap = arch_scale_cpu_capacity(cpu);
- 
- 	return cpu_cap >= min(min_cap, max_cap);
- }
-diff --git a/kernel/sched/sched.h b/kernel/sched/sched.h
-index 3a01b7a2bf66..17ae151e90c0 100644
---- a/kernel/sched/sched.h
-+++ b/kernel/sched/sched.h
-@@ -1048,7 +1048,6 @@ struct rq {
- 	struct sched_domain __rcu	*sd;
- 
- 	unsigned long		cpu_capacity;
--	unsigned long		cpu_capacity_orig;
- 
- 	struct balance_callback *balance_callback;
- 
-@@ -2974,11 +2973,6 @@ static inline void cpufreq_update_util(struct rq *rq, unsigned int flags) {}
+diff --git a/arch/arm/include/asm/topology.h b/arch/arm/include/asm/topology.h
+index c7d2510e5a78..853c4f81ba4a 100644
+--- a/arch/arm/include/asm/topology.h
++++ b/arch/arm/include/asm/topology.h
+@@ -13,6 +13,7 @@
+ #define arch_set_freq_scale topology_set_freq_scale
+ #define arch_scale_freq_capacity topology_get_freq_scale
+ #define arch_scale_freq_invariant topology_scale_freq_invariant
++#define arch_scale_freq_ref topology_get_freq_ref
  #endif
  
- #ifdef CONFIG_SMP
--static inline unsigned long capacity_orig_of(int cpu)
--{
--	return cpu_rq(cpu)->cpu_capacity_orig;
--}
+ /* Replace task scheduler's default cpu-invariant accounting */
+diff --git a/arch/arm64/include/asm/topology.h b/arch/arm64/include/asm/topology.h
+index 9fab663dd2de..a323b109b9c4 100644
+--- a/arch/arm64/include/asm/topology.h
++++ b/arch/arm64/include/asm/topology.h
+@@ -23,6 +23,7 @@ void update_freq_counters_refs(void);
+ #define arch_set_freq_scale topology_set_freq_scale
+ #define arch_scale_freq_capacity topology_get_freq_scale
+ #define arch_scale_freq_invariant topology_scale_freq_invariant
++#define arch_scale_freq_ref topology_get_freq_ref
+ 
+ #ifdef CONFIG_ACPI_CPPC_LIB
+ #define arch_init_invariance_cppc topology_init_cpu_capacity_cppc
+diff --git a/arch/riscv/include/asm/topology.h b/arch/riscv/include/asm/topology.h
+index e316ab3b77f3..61183688bdd5 100644
+--- a/arch/riscv/include/asm/topology.h
++++ b/arch/riscv/include/asm/topology.h
+@@ -9,6 +9,7 @@
+ #define arch_set_freq_scale		topology_set_freq_scale
+ #define arch_scale_freq_capacity	topology_get_freq_scale
+ #define arch_scale_freq_invariant	topology_scale_freq_invariant
++#define arch_scale_freq_ref		topology_get_freq_ref
+ 
+ /* Replace task scheduler's default cpu-invariant accounting */
+ #define arch_scale_cpu_capacity	topology_get_cpu_scale
+diff --git a/drivers/base/arch_topology.c b/drivers/base/arch_topology.c
+index b741b5ba82bd..75fa67477a9d 100644
+--- a/drivers/base/arch_topology.c
++++ b/drivers/base/arch_topology.c
+@@ -26,7 +26,7 @@
+ static DEFINE_PER_CPU(struct scale_freq_data __rcu *, sft_data);
+ static struct cpumask scale_freq_counters_mask;
+ static bool scale_freq_invariant;
+-static DEFINE_PER_CPU(u32, freq_factor) = 1;
++DEFINE_PER_CPU(unsigned long, freq_factor) = 1;
+ 
+ static bool supports_scale_freq_counters(const struct cpumask *cpus)
+ {
+@@ -183,10 +183,7 @@ void topology_update_thermal_pressure(const struct cpumask *cpus,
+ 
+ 	cpu = cpumask_first(cpus);
+ 	max_capacity = arch_scale_cpu_capacity(cpu);
+-	max_freq = per_cpu(freq_factor, cpu);
 -
- /**
-  * enum cpu_util_type - CPU utilization type
-  * @FREQUENCY_UTIL:	Utilization used to select frequency
-diff --git a/kernel/sched/topology.c b/kernel/sched/topology.c
-index 05a5bc678c08..e6b0b6a8e60a 100644
---- a/kernel/sched/topology.c
-+++ b/kernel/sched/topology.c
-@@ -2479,12 +2479,15 @@ build_sched_domains(const struct cpumask *cpu_map, struct sched_domain_attr *att
- 	/* Attach the domains */
- 	rcu_read_lock();
- 	for_each_cpu(i, cpu_map) {
-+		unsigned long capacity;
+-	/* Convert to MHz scale which is used in 'freq_factor' */
+-	capped_freq /= 1000;
++	max_freq = arch_scale_freq_ref(cpu);
+ 
+ 	/*
+ 	 * Handle properly the boost frequencies, which should simply clean
+@@ -411,7 +408,7 @@ init_cpu_capacity_callback(struct notifier_block *nb,
+ 	cpumask_andnot(cpus_to_visit, cpus_to_visit, policy->related_cpus);
+ 
+ 	for_each_cpu(cpu, policy->related_cpus)
+-		per_cpu(freq_factor, cpu) = policy->cpuinfo.max_freq / 1000;
++		per_cpu(freq_factor, cpu) = policy->cpuinfo.max_freq;
+ 
+ 	if (cpumask_empty(cpus_to_visit)) {
+ 		topology_normalize_cpu_scale();
+diff --git a/include/linux/arch_topology.h b/include/linux/arch_topology.h
+index a07b510e7dc5..7a2dba9c3dc0 100644
+--- a/include/linux/arch_topology.h
++++ b/include/linux/arch_topology.h
+@@ -27,6 +27,13 @@ static inline unsigned long topology_get_cpu_scale(int cpu)
+ 
+ void topology_set_cpu_scale(unsigned int cpu, unsigned long capacity);
+ 
++DECLARE_PER_CPU(unsigned long, freq_factor);
 +
- 		rq = cpu_rq(i);
- 		sd = *per_cpu_ptr(d.sd, i);
++static inline unsigned long topology_get_freq_ref(int cpu)
++{
++	return per_cpu(freq_factor, cpu);
++}
++
+ DECLARE_PER_CPU(unsigned long, arch_freq_scale);
  
-+		capacity = arch_scale_cpu_capacity(i);
- 		/* Use READ_ONCE()/WRITE_ONCE() to avoid load/store tearing: */
--		if (rq->cpu_capacity_orig > READ_ONCE(d.rd->max_cpu_capacity))
--			WRITE_ONCE(d.rd->max_cpu_capacity, rq->cpu_capacity_orig);
-+		if (capacity > READ_ONCE(d.rd->max_cpu_capacity))
-+			WRITE_ONCE(d.rd->max_cpu_capacity, capacity);
- 
- 		cpu_attach_domain(sd, d.rd, i);
- 	}
+ static inline unsigned long topology_get_freq_scale(int cpu)
 -- 
 2.34.1
 
