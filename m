@@ -4,108 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5907FCA0FE1
-	for <linux-riscv@archiver.kernel.org>; Fri,  1 Sep 2023 08:21:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3D66CA0FE1
+	for <linux-riscv@archiver.kernel.org>; Fri,  1 Sep 2023 08:23:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Bm903ZB69oF9OpZADQh1QliYihh/FxM1gX2IIvv2Gt4=; b=kk9vhwDk9qofNi
-	aTaVkCWlSvwiIkRO2ct3HmhzPvGqZglPlSKTIqdrWLDhMvCiYaxLDNlQDC+41oLcCE8V+Z17sUPgw
-	Wop9HqHHCs8QCB1WpIvdDutlLa6A6MZHvEssYlalZmJlopN5uJ6JzYbYe87Y8lELiIdypELQACq+g
-	CMWJscQy9iK2igzS6CKcdpwsHFM6YEH5kgsgl9e6GbjMnz1wiZA+kPdbwbNlVGhxKkNqGc6vxTIIg
-	0pjgsUcz8Jmq8y+l/vhQ5V3ti2D5Meaay2ghHPy0n7Lt5rD1M/OL5hRowErc1t0J81sC9O58FoqGd
-	Gws71zEilyCL/z8G9h/w==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=q1bDSjP9jdmIiANMyBNzrM+U9bOJCLaoIDugTw1/oAA=; b=2paSFKLJOh2b7g
+	Ctkw/JN2qh+9itDBFpv2yMfj1kzOOh9ldL4fWFcYi5+b7vboDBcJKFiJ4nkJpaKKBGVhDixvSi1Xk
+	ws6PyZU66raEtmAcDa3PXGnA18u12FXK5gjb9YOm37qCRhUChHvK0kcRYxAZ1bXiVgENn1Cc/pEgg
+	9XNPv8Q+2M2/PnzM9hB4sj+W+qqV6nsQqcFVDDgpyW8m2y46mkVMDzdsYBZPWbffimVXKjxb1qZQ+
+	NZCXLMIiZlAzA98rGVCkY61SGlTiRhU3x2UND5t3evF4pInInmxIVgyWcZLonuvXGLyAko+wAf9O1
+	JJQUIKRA2KxABG0BVIuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qbzOm-00GgAl-1I;
-	Fri, 01 Sep 2023 08:21:00 +0000
-Received: from smtp-out1.suse.de ([2001:67c:2178:6::1c])
+	id 1qbzRE-00GgVe-36;
+	Fri, 01 Sep 2023 08:23:32 +0000
+Received: from smtp-out2.suse.de ([2001:67c:2178:6::1d])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qbzOh-00Gg3b-2w;
-	Fri, 01 Sep 2023 08:20:57 +0000
+	id 1qbzRA-00GgTW-2F;
+	Fri, 01 Sep 2023 08:23:30 +0000
 Received: from imap2.suse-dmz.suse.de (imap2.suse-dmz.suse.de [192.168.254.74])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (P-521) server-digest SHA512)
 	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id B16B32185C;
-	Fri,  1 Sep 2023 08:20:30 +0000 (UTC)
+	by smtp-out2.suse.de (Postfix) with ESMTPS id CBCAF1F45E;
+	Fri,  1 Sep 2023 08:23:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
-	t=1693556430; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:  content-transfer-encoding:content-transfer-encoding;
-	bh=0WI96qvBSKjcD8skIYDzJyfhIXrX2VNlBg1bDAXSO7w=;
-	b=r4AvfguvEQvHBhS4L8lDsEaveieeJTkNCYi5f+9IRURkHs9QHXGXU55bgZKYP/UIN96eLm
-	Su7gVEZFmwF5EXNaNlCErp7Hgj8GQqdQewKT6RBq+dcvYVgxoLUZe9WovHMiX8iQwt+NsA
-	NGR32KTwfyM1j9J07mti1C+WlqZc3DM=
+	t=1693556604; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=lM2jFMiCbU/7Z0Wt66YsVsUtlY4aIj0FUbivaBixA/c=;
+	b=zT4zGINVx2k3wPqz3jcmE9bmJBpBcsDBUwenKzhLerIp+oH2aCkG4+EXh39zRNryjQv5Db
+	syu8c53NOsHAVW9SIMV7rmXaawFxBmlGIS7oN+eGtRpy7NQAkXpdI57c9wkvRp8eiDiXja
+	uA4epJ/r7clJCygmuQc278PsV8l56iM=
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
-	s=susede2_ed25519; t=1693556430;
+	s=susede2_ed25519; t=1693556604;
 	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:  content-transfer-encoding:content-transfer-encoding;
-	bh=0WI96qvBSKjcD8skIYDzJyfhIXrX2VNlBg1bDAXSO7w=;
-	b=LDBeIJn7DjHmpeWPe/JUiDen1A1u3hmJEXiXvjRyh5pbOBnd20g14NvrGZHMhmcFppSIaI
-	jb3axaR9hQtT2aCA==
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=lM2jFMiCbU/7Z0Wt66YsVsUtlY4aIj0FUbivaBixA/c=;
+	b=ZsrMXAmASwR20bAW12DsiBEXD871qEuKP0anx4duKH2O41WOTWfcG8WLKUJiaYTSgmrfs1
+	lQlapOLm5eLYniDg==
 Received: from imap2.suse-dmz.suse.de (imap2.suse-dmz.suse.de [192.168.254.74])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (P-521) server-digest SHA512)
 	(No client certificate requested)
-	by imap2.suse-dmz.suse.de (Postfix) with ESMTPS id 27C7D1358B;
-	Fri,  1 Sep 2023 08:20:30 +0000 (UTC)
+	by imap2.suse-dmz.suse.de (Postfix) with ESMTPS id 3A66A1358B;
+	Fri,  1 Sep 2023 08:23:24 +0000 (UTC)
 Received: from dovecot-director2.suse.de ([192.168.254.65])
 	by imap2.suse-dmz.suse.de with ESMTPSA
-	id M/8FCc6e8WSYGwAAMHmgww
-	(envelope-from <vbabka@suse.cz>); Fri, 01 Sep 2023 08:20:30 +0000
-From: Vlastimil Babka <vbabka@suse.cz>
-To: seanjc@google.com
-Cc: ackerleytng@google.com,
-	akpm@linux-foundation.org,
-	anup@brainfault.org,
-	aou@eecs.berkeley.edu,
-	chao.p.peng@linux.intel.com,
-	chenhuacai@kernel.org,
-	david@redhat.com,
-	isaku.yamahata@gmail.com,
-	jarkko@kernel.org,
-	jmorris@namei.org,
-	kirill.shutemov@linux.intel.com,
-	kvm-riscv@lists.infradead.org,
-	kvm@vger.kernel.org,
-	kvmarm@lists.linux.dev,
-	liam.merwick@oracle.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-fsdevel@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-mips@vger.kernel.org,
-	linux-mm@kvack.org,
-	linux-riscv@lists.infradead.org,
-	linux-security-module@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	mail@maciej.szmigiero.name,
-	maz@kernel.org,
-	michael.roth@amd.com,
-	mpe@ellerman.id.au,
-	oliver.upton@linux.dev,
-	palmer@dabbelt.com,
-	paul.walmsley@sifive.com,
-	paul@paul-moore.com,
-	pbonzini@redhat.com,
-	qperret@google.com,
-	serge@hallyn.com,
-	tabba@google.com,
-	vannapurve@google.com,
-	vbabka@suse.cz,
-	wei.w.wang@intel.com,
-	willy@infradead.org,
-	yu.c.zhang@linux.intel.com
-Subject: [PATCH gmem FIXUP] mm, compaction: make testing mapping_unmovable() safe
-Date: Fri,  1 Sep 2023 10:20:26 +0200
-Message-ID: <20230901082025.20548-2-vbabka@suse.cz>
-X-Mailer: git-send-email 2.41.0
+	id BOk4DXyf8WREHQAAMHmgww
+	(envelope-from <vbabka@suse.cz>); Fri, 01 Sep 2023 08:23:24 +0000
+Message-ID: <2d9312bf-a5ad-0427-c197-fef6ea5cfe0a@suse.cz>
+Date: Fri, 1 Sep 2023 10:23:23 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.14.0
+Subject: Re: [RFC PATCH v11 10/29] mm: Add AS_UNMOVABLE to mark mapping as
+ completely unmovable
+To: Matthew Wilcox <willy@infradead.org>,
+ "Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
+Cc: Sean Christopherson <seanjc@google.com>,
+ Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>,
+ Oliver Upton <oliver.upton@linux.dev>, Huacai Chen <chenhuacai@kernel.org>,
+ Michael Ellerman <mpe@ellerman.id.au>, Anup Patel <anup@brainfault.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Andrew Morton <akpm@linux-foundation.org>, Paul Moore <paul@paul-moore.com>,
+ James Morris <jmorris@namei.org>, "Serge E. Hallyn" <serge@hallyn.com>,
+ kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ kvmarm@lists.linux.dev, linux-mips@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org,
+ linux-riscv@lists.infradead.org, linux-fsdevel@vger.kernel.org,
+ linux-mm@kvack.org, linux-security-module@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Chao Peng <chao.p.peng@linux.intel.com>,
+ Fuad Tabba <tabba@google.com>, Jarkko Sakkinen <jarkko@kernel.org>,
+ Yu Zhang <yu.c.zhang@linux.intel.com>,
+ Vishal Annapurve <vannapurve@google.com>,
+ Ackerley Tng <ackerleytng@google.com>,
+ Maciej Szmigiero <mail@maciej.szmigiero.name>,
+ David Hildenbrand <david@redhat.com>, Quentin Perret <qperret@google.com>,
+ Michael Roth <michael.roth@amd.com>, Wang <wei.w.wang@intel.com>,
+ Liam Merwick <liam.merwick@oracle.com>,
+ Isaku Yamahata <isaku.yamahata@gmail.com>
+References: <20230718234512.1690985-1-seanjc@google.com>
+ <20230718234512.1690985-11-seanjc@google.com>
+ <20230725102403.xywjqlhyqkrzjok6@box.shutemov.name>
+ <ZL/Fa4W2Ne9EVxoh@casper.infradead.org>
+Content-Language: en-US
+From: Vlastimil Babka <vbabka@suse.cz>
+In-Reply-To: <ZL/Fa4W2Ne9EVxoh@casper.infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230901_012056_114023_D576586D 
-X-CRM114-Status: GOOD (  16.80  )
+X-CRM114-CacheID: sfid-20230901_012329_039828_804965B1 
+X-CRM114-Status: GOOD (  25.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,116 +118,60 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-As Kirill pointed out, mapping can be removed under us due to
-truncation. Test it under folio lock as already done for the async
-compaction / dirty folio case. To prevent locking every folio with
-mapping to do the test, do it only for unevictable folios, as we can
-expect the unmovable mapping folios are also unevictable - it is the
-case for guest memfd folios.
+On 7/25/23 14:51, Matthew Wilcox wrote:
+> On Tue, Jul 25, 2023 at 01:24:03PM +0300, Kirill A . Shutemov wrote:
+>> On Tue, Jul 18, 2023 at 04:44:53PM -0700, Sean Christopherson wrote:
+>> > diff --git a/mm/compaction.c b/mm/compaction.c
+>> > index dbc9f86b1934..a3d2b132df52 100644
+>> > --- a/mm/compaction.c
+>> > +++ b/mm/compaction.c
+>> > @@ -1047,6 +1047,10 @@ isolate_migratepages_block(struct compact_control *cc, unsigned long low_pfn,
+>> >  		if (!mapping && (folio_ref_count(folio) - 1) > folio_mapcount(folio))
+>> >  			goto isolate_fail_put;
+>> >  
+>> > +		/* The mapping truly isn't movable. */
+>> > +		if (mapping && mapping_unmovable(mapping))
+>> > +			goto isolate_fail_put;
+>> > +
+>> 
+>> I doubt that it is safe to dereference mapping here. I believe the folio
+>> can be truncated from under us and the mapping freed with the inode.
+>> 
+>> The folio has to be locked to dereference mapping safely (given that the
+>> mapping is still tied to the folio).
+> 
+> There's even a comment to that effect later on in the function:
+> 
+>                         /*
+>                          * Only pages without mappings or that have a
+>                          * ->migrate_folio callback are possible to migrate
+>                          * without blocking. However, we can be racing with
+>                          * truncation so it's necessary to lock the page
+>                          * to stabilise the mapping as truncation holds
+>                          * the page lock until after the page is removed
+>                          * from the page cache.
+>                          */
+> 
+> (that could be reworded to make it clear how dangerous dereferencing
+> ->mapping is without the lock ... and it does need to be changed to say
+> "folio lock" instead of "page lock", so ...)
+> 
+> How does this look?
+> 
+>                         /*
+>                          * Only folios without mappings or that have
+>                          * a ->migrate_folio callback are possible to
+>                          * migrate without blocking. However, we can
+>                          * be racing with truncation, which can free
+>                          * the mapping.  Truncation holds the folio lock
+>                          * until after the folio is removed from the page
+>                          * cache so holding it ourselves is sufficient.
+>                          */
 
-Also incorporate comment update suggested by Matthew.
+Incorporated to my attempt at a fix (posted separately per the requested
+process):
 
-Fixes: 3424873596ce ("mm: Add AS_UNMOVABLE to mark mapping as completely unmovable")
-Signed-off-by: Vlastimil Babka <vbabka@suse.cz>
----
-Feel free to squash into 3424873596ce.
-
- mm/compaction.c | 49 ++++++++++++++++++++++++++++++++-----------------
- 1 file changed, 32 insertions(+), 17 deletions(-)
-
-diff --git a/mm/compaction.c b/mm/compaction.c
-index a3d2b132df52..e0e439b105b5 100644
---- a/mm/compaction.c
-+++ b/mm/compaction.c
-@@ -862,6 +862,7 @@ isolate_migratepages_block(struct compact_control *cc, unsigned long low_pfn,
- 
- 	/* Time to isolate some pages for migration */
- 	for (; low_pfn < end_pfn; low_pfn++) {
-+		bool is_dirty, is_unevictable;
- 
- 		if (skip_on_failure && low_pfn >= next_skip_pfn) {
- 			/*
-@@ -1047,10 +1048,6 @@ isolate_migratepages_block(struct compact_control *cc, unsigned long low_pfn,
- 		if (!mapping && (folio_ref_count(folio) - 1) > folio_mapcount(folio))
- 			goto isolate_fail_put;
- 
--		/* The mapping truly isn't movable. */
--		if (mapping && mapping_unmovable(mapping))
--			goto isolate_fail_put;
--
- 		/*
- 		 * Only allow to migrate anonymous pages in GFP_NOFS context
- 		 * because those do not depend on fs locks.
-@@ -1062,8 +1059,10 @@ isolate_migratepages_block(struct compact_control *cc, unsigned long low_pfn,
- 		if (!folio_test_lru(folio))
- 			goto isolate_fail_put;
- 
-+		is_unevictable = folio_test_unevictable(folio);
-+
- 		/* Compaction might skip unevictable pages but CMA takes them */
--		if (!(mode & ISOLATE_UNEVICTABLE) && folio_test_unevictable(folio))
-+		if (!(mode & ISOLATE_UNEVICTABLE) && is_unevictable)
- 			goto isolate_fail_put;
- 
- 		/*
-@@ -1075,26 +1074,42 @@ isolate_migratepages_block(struct compact_control *cc, unsigned long low_pfn,
- 		if ((mode & ISOLATE_ASYNC_MIGRATE) && folio_test_writeback(folio))
- 			goto isolate_fail_put;
- 
--		if ((mode & ISOLATE_ASYNC_MIGRATE) && folio_test_dirty(folio)) {
--			bool migrate_dirty;
-+		is_dirty = folio_test_dirty(folio);
-+
-+		if (((mode & ISOLATE_ASYNC_MIGRATE) && is_dirty)
-+		    || (mapping && is_unevictable)) {
-+			bool migrate_dirty = true;
-+			bool is_unmovable;
- 
- 			/*
--			 * Only pages without mappings or that have a
--			 * ->migrate_folio callback are possible to migrate
--			 * without blocking. However, we can be racing with
--			 * truncation so it's necessary to lock the page
--			 * to stabilise the mapping as truncation holds
--			 * the page lock until after the page is removed
--			 * from the page cache.
-+			 * Only folios without mappings or that have
-+			 * a ->migrate_folio callback are possible to migrate
-+			 * without blocking.
-+			 *
-+			 * Folios from unmovable mappings are not migratable.
-+			 *
-+			 * However, we can be racing with truncation, which can
-+			 * free the mapping that we need to check. Truncation
-+			 * holds the folio lock until after the folio is removed
-+			 * from the page so holding it ourselves is sufficient.
-+			 *
-+			 * To avoid this folio locking to inspect every folio
-+			 * with mapping for being unmovable, we assume every
-+			 * such folio is also unevictable, which is a cheaper
-+			 * test. If our assumption goes wrong, it's not a bug,
-+			 * just potentially wasted cycles.
- 			 */
- 			if (!folio_trylock(folio))
- 				goto isolate_fail_put;
- 
- 			mapping = folio_mapping(folio);
--			migrate_dirty = !mapping ||
--					mapping->a_ops->migrate_folio;
-+			if ((mode & ISOLATE_ASYNC_MIGRATE) && is_dirty) {
-+				migrate_dirty = !mapping ||
-+						mapping->a_ops->migrate_folio;
-+			}
-+			is_unmovable = mapping && mapping_unmovable(mapping);
- 			folio_unlock(folio);
--			if (!migrate_dirty)
-+			if (!migrate_dirty || is_unmovable)
- 				goto isolate_fail_put;
- 		}
- 
--- 
-2.41.0
-
+https://lore.kernel.org/all/20230901082025.20548-2-vbabka@suse.cz/
 
 _______________________________________________
 linux-riscv mailing list
