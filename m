@@ -4,76 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 603ACCA0FE4
-	for <linux-riscv@archiver.kernel.org>; Fri,  1 Sep 2023 15:52:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7908CA0FE5
+	for <linux-riscv@archiver.kernel.org>; Fri,  1 Sep 2023 16:25:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=UzsIprbX/Q6B9osEUVkKkLRE58UtXYAZciE9rzs1jnw=; b=ksh8m3YbdKyNcOreqnRrHjFAEN
-	W2ZA6/8pHnFLsXNjgYh8IXZ30+VO24rourvDJrZa1t0TU1A23nPN/pMcgdZSy5eqyiqMOe2S/9y5q
-	pfZOHGosYY2q5i8i7N35+wjEIeGO4UTgaR2PHuO8MHVG6GOL9e7DJhekLUgqLo8ZP3PXUDZvmGZyx
-	vGpW20QhgdwP+JQOMeUv+OI0Iy5H/01lot+uLkj6YgrL+tUL1LkyyWuw37oil6t952XGinAHIDA1D
-	erOBk2Fma99yTl0YQ9hK52LBW+RA95jdC61i87QAaMlH3zNhtaofqDLSNeQzDqfJdUkO2voUmexXw
-	eI1lpcfQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
+	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=U5vOVQ3wpfwVKb9D4WcBVNF/Voe0tnGmVF9F+RBEkvM=; b=qd4gMV6Skq1SSN
+	l7Q/0uDPuklHczZxXSws1RGXurw451B3xX+pLGb+iaQ/Xh3ENb91bdYPQ9t4sox8G/4Q3zbS3T8+y
+	I814HndYoHPxfWiLrldWmoSMssEoyIwTdF5uze2YBL9eb6YVQm/cJxi7NxJc3466tY02s2hNubE8q
+	sbywALT1FYJeyZAIKYzknCcCNBwJkJb8H0ulqTTOFrKme9YkxaRJIafI4UriwPcAKps14/X1TysA0
+	pkAriXf+hvTr6PQOE9QGkMy1YRZfzhus3wVmu7mTlfMWnWG9RoqVQ0WuS8tJ6D6bd/fFZ6i8mP8Yg
+	z66Fh7djpAUWLLZy42Kg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qc6Rw-0007He-1p;
-	Fri, 01 Sep 2023 15:52:44 +0000
-Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
+	id 1qc6xZ-000A6m-2e;
+	Fri, 01 Sep 2023 16:25:25 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qc6Rt-0007GU-1h
-	for linux-riscv@lists.infradead.org;
-	Fri, 01 Sep 2023 15:52:42 +0000
-Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-68a402c1fcdso1793299b3a.1
-        for <linux-riscv@lists.infradead.org>; Fri, 01 Sep 2023 08:52:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1693583558; x=1694188358; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=lqD6F9hQEjrLwITu6O6UtLx0oEpIDMvFu3M5X8+XSwI=;
-        b=YqqPaLZ+wu0Lqs13S+LIeSK4G6GkLeLei0D+Xs7AXC9JXKILiJTdTbEcCCaktRvpHu
-         6QfOYPlK8VfR8lu7U0u+uyzz4p3bJFc7GRDLdjsavZcy/Smt4f+xhptW4o5LKvztTYRA
-         6+cD+UGKdCNHK2G3sCOaY/IssBCqVNqoyQz3m6zePMmQ3iygYIsDAEtDI3GLjm4Sn+aX
-         g28flEpR1mR3tV+Sj4PbiPR7yh/r22592VdKVPpvpF+BV79PdmXbEUc8nuLZdxKqxS0l
-         pmib9O9uw0Y6iKPuWZeBpoaenhRJJ3zs/g4gOUjezCglmfwCJOalaaMs5nYYtKnVBy+B
-         LoLg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1693583558; x=1694188358;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=lqD6F9hQEjrLwITu6O6UtLx0oEpIDMvFu3M5X8+XSwI=;
-        b=LzvOgP0jN1julVsX/Nv60ovOPk1SiDQbJ0HAMbllGD2IMhtN+qnDFNa9RrL4RrT7am
-         uy+sVUuGcviowrvaIqJhRf1gdBVTBGRR3HLTZvWx1JBJ3h9mUf2zEgZ1Chkb3scCkXQe
-         soQVEtZnNW87Z2fLxBOAC+S9cjvnOPfpnmCpGOfqQKBILZyXnbExrFK7Fv9AJmKN6I4i
-         H4cxB3JSRHWAJidSDJLcTPr6sbVH473/XrbpmavXIEg64CBEjBZ2I5QjBG0R9hNAgikg
-         VtFkPJAlDZ9SHDmlljMHn7c2YKmJcz2DM0oxLxGaRJ4xZxrFBueAZ0HVc3GVFAtmobMV
-         SMxQ==
-X-Gm-Message-State: AOJu0Ywtpl1BasWpzmeQHZ3hxGkl2QzLGM6X4n0dPCN3VTBB+u5tvEKO
-	br4M2rLbOKqMsZ1rsUpG7bduZBM0NoxJj16cBuk=
-X-Google-Smtp-Source: AGHT+IEsJwd67wWu6obKIBkuyj8i6oFcNlHwVk6w5MP+PXzFL1qJikZmxVhuHEXPdkkBiS9v+qBf3A==
-X-Received: by 2002:a05:6a20:1612:b0:13f:5a05:6038 with SMTP id l18-20020a056a20161200b0013f5a056038mr3331551pzj.58.1693583558012;
-        Fri, 01 Sep 2023 08:52:38 -0700 (PDT)
-Received: from localhost ([135.180.227.0])
-        by smtp.gmail.com with ESMTPSA id q19-20020a62ae13000000b0068a49aad7d4sm3123612pff.79.2023.09.01.08.52.37
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 01 Sep 2023 08:52:37 -0700 (PDT)
-Date: Fri, 01 Sep 2023 08:52:37 -0700 (PDT)
-X-Google-Original-Date: Fri, 01 Sep 2023 08:52:35 PDT (-0700)
-Subject: Re: [GIT PULL] RISC-V Patches for the 6.6 Merge Window, Part 1
-In-Reply-To: <CAHk-=wj3iBTT5mcYvaUH+fX7Y+z=JUbx6O5nvNMkpe2k8Hcokw@mail.gmail.com>
-CC: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-From: Palmer Dabbelt <palmer@rivosinc.com>
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Message-ID: <mhng-2dd1e80e-1a99-4cf2-82cd-3a880957e16d@palmer-ri-x1c9>
-Mime-Version: 1.0 (MHng)
+	id 1qc6xT-000A0b-0M;
+	Fri, 01 Sep 2023 16:25:21 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by sin.source.kernel.org (Postfix) with ESMTPS id 63C6FCE23ED;
+	Fri,  1 Sep 2023 16:25:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 93AE4C433C9;
+	Fri,  1 Sep 2023 16:25:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1693585515;
+	bh=sHKOqNSdp4q7wIKiijKS4YQmgT1mGamM+gLYzuAIKt4=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=lyMZbDyjiAC9n4nQcawlnvJh/Y4UxIyNx5hbyU40khC7ww1Isrn9b0HqjFFyCSnuv
+	 kONl8Okhidd9vdCfJV9pFvQj/OlTnMjQPrR9c8FEVCO6vJExyFJyJ9JZPLmBDhjxgK
+	 ZrJYWLPlllbUCLSSllcHb5oyeAh2NUvTPE00Mg/iIwT74pQJTPCTRSxA99kde1SWsA
+	 UGDun1RUp9dSxyq+duIjemtcUhGw/y6gTZcyX3aQTRXyq0vvGRu2prJh+hhi6lHiYC
+	 /+ILX4aCoYI/2h00GBYFp1YT72Bfb/osua5wbHdi4WBaIRgMWef6Yv7IS0DBO+UwV1
+	 WjmcKg6aaIF9w==
+Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 78818C595D2;
+	Fri,  1 Sep 2023 16:25:15 +0000 (UTC)
+MIME-Version: 1.0
+Subject: Re: [PATCH v9 0/4] Add support for Allwinner GPADC on D1/T113s/R329/T507
+ SoCs
+From: patchwork-bot+linux-riscv@kernel.org
+Message-Id: <169358551548.8276.916609345616924463.git-patchwork-notify@kernel.org>
+Date: Fri, 01 Sep 2023 16:25:15 +0000
+References: <20230715091816.3074375-1-bigunclemax@gmail.com>
+In-Reply-To: <20230715091816.3074375-1-bigunclemax@gmail.com>
+To: Maksim Kiselev <bigunclemax@gmail.com>
+Cc: linux-riscv@lists.infradead.org, linux-iio@vger.kernel.org,
+ jic23@kernel.org, lars@metafoo.de, robh+dt@kernel.org,
+ krzysztof.kozlowski+dt@linaro.org, conor+dt@kernel.org, wens@csie.org,
+ jernej.skrabec@gmail.com, samuel@sholland.org, paul.walmsley@sifive.com,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, p.zabel@pengutronix.de,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230901_085241_567390_0B2A90A8 
-X-CRM114-Status: GOOD (  26.67  )
+X-CRM114-CacheID: sfid-20230901_092519_330928_C8C11647 
+X-CRM114-Status: UNSURE (   9.99  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,70 +78,44 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 01 Sep 2023 08:21:35 PDT (-0700), Linus Torvalds wrote:
-> On Fri, 1 Sept 2023 at 07:41, Palmer Dabbelt <palmer@rivosinc.com> wrote:
->>
->> for the other the result I ended up with was
->>
->> extern pgd_t early_pg_dir[PTRS_PER_PGD];
->> static pgd_t tmp_pg_dir[PTRS_PER_PGD] __page_aligned_bss;
->> static p4d_t tmp_p4d[PTRS_PER_P4D] __page_aligned_bss;
->> static pud_t tmp_pud[PTRS_PER_PUD] __page_aligned_bss;
->
-> That's wrong, you should have removed the 'early_pg_dir' declaration
-> that is now in <asm/pgtable.h>, as done by commit d2402048bc8a
-> ("riscv: mm: fix 2 instances of -Wmissing-variable-declarations").
+Hello:
 
-Thanks, Nick had pointed that out too but looks like I missed it.
+This series was applied to riscv/linux.git (fixes)
+by Jernej Skrabec <jernej.skrabec@gmail.com>:
 
->> though that's not showing up in the git diff, so I may have something odd going
->> on here.
->
-> So what's going on is that you resolved the merge conflict by taking
-> everything from one side (not correct, as above), and then git no
-> longer considers it a conflict after-the-fact.
->
-> Side n ote in case you care about the actual git logic:
+On Sat, 15 Jul 2023 12:18:12 +0300 you wrote:
+> This series adds support for general purpose ADC (GPADC) on new
+> Allwinner's SoCs, such as D1, T113s, T507 and R329. The implemented driver
+> provides basic functionality for getting ADC channels data.
+> 
+> Change History:
+> v9:
+> - Dropped fixes tag
+> - Reworded commits to remove 'This patch'
+> 
+> [...]
 
-Ya, I'm always interested to hear -- as I'm sure you can tell it's still 
-a bit of a mystery on my end, but I'd rather learn when I get lost than 
-just keep being lost ;)
+Here is the summary with links:
+  - [v9,1/4] iio: adc: Kconfig change description for Allwinner GPADC
+    (no matching commit)
+  - [v9,2/4] iio: adc: Add Allwinner D1/T113s/R329/T507 SoCs GPADC
+    (no matching commit)
+  - [v9,3/4] dt-bindings: iio: adc: Add Allwinner D1/T113s/R329/T507 SoCs GPADC
+    (no matching commit)
+  - [v9,4/4] riscv: dts: allwinner: d1: Add GPADC node
+    https://git.kernel.org/riscv/c/d0d73ee5e98c
 
-> The git rules for merge conflicts are different when doing the merge
-> and when showing the result after doing a merge.
->
-> When doing the merge, git will do the expensive history calculations
-> to figure out the merge base and do a 3-way merge of the base and the
-> two sides.
->
-> So at merge time, git looks back in the history from the two merge
-> heads, and does the three-way diff based on the history leading up to
-> the two points.
->
-> But after the merge, "git show" will basically do the reverse: it
-> won't look back in the history, but look at the *result* of the merge.
-> You are, after all, asking it to show the merge itself.
->
-> So then it will again do a three-way diff, but not of the merge base,
-> but of the merge _result_ and the two sides.
->
-> And if the merge result is the same as one of the sides, there's no
-> conflict remaining, and so no three-way diff.
->
-> So that's how conflicts sometimes "disappear" after the merge.
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
 
-OK, that explains why I get such different results between the pre and 
-post merge output -- my workflow involves commiting a merge and then 
-pushing it up to the test builders, so I guess I should just be 
-double-checking the pre-merge rather than trying to figure things out 
-after the fact from just looking at the merge.
 
->                        Linus
 
 _______________________________________________
 linux-riscv mailing list
