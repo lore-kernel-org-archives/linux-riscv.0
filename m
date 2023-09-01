@@ -4,63 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 501EACA0FE4
-	for <linux-riscv@archiver.kernel.org>; Fri,  1 Sep 2023 16:25:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BE2ECA0FE6
+	for <linux-riscv@archiver.kernel.org>; Fri,  1 Sep 2023 16:25:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=L6Ls0aK+zoabprf1jHdhINpeBn7unm69B8A6lpUlPIc=; b=uxQb3bGwl/6BCp
-	kF5eaNRPbC6Wp103pKP0tODO4GZss70TEOQdu1H7ocCoUhbr17NS8ev3PmWvkUAhkEhjRph7QCP4R
-	6TlmlmmYNY+EvccAkAV5KSVU3fehBFn9Hdkqfvncl0hBebL34CtzE1JR49X++BLnxFroy1FPiKRm5
-	VYOjBCMi+q60ukritUSPRbZXY18knfDXNUxHBzmry7APuR6VB+kBuiQS5AHzF5w6KNJSMb0W9Lbmv
-	tvphsFTkj6IdltP/qzzvoJ6hljcms9ZRLbUYYWPRSsFELGzbuTQZltWXJ2POjbrDMQBsEXaxNt6Om
-	cyyCEUCbhXPIpbtGq2Jw==;
+	List-Owner; bh=iGDiTmOlNAWigaNyy6iSkU42kDUozwEhH0YRweutv2A=; b=J4EYD/hVsqlTlb
+	zhEZ9IyEgMpi+drsoEcTVYbEn+M3Jh4pLI26UPN8NBXcbA4W7/4TLqEmBuNgibpQulnSbO601BVqa
+	0s6ubn8VNTKc+Rx7WdJI7EUjsP4KE+wMS5JjPejklQgaa2ySkCgWAD6r/lMfJF+Uv0sHCUl9T8ufv
+	Sb5UN+UILBi5HYbc+WLu/fPZNqm9ibQokLIgZQ8fDlca1pMbXH/92+x8P5pvjwmWJJZxH5JO4LRMv
+	335Q/HMTTb9lXNVqtPvOx+/p//kT+O5EbqmlgBDDEP1XpesjJOmbBMjbbrQ9IGqQdH1uEJtKOkRDc
+	dzbboiNdBjFMMbo3UsGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qc6xd-000A8p-0S;
-	Fri, 01 Sep 2023 16:25:29 +0000
+	id 1qc6xc-000A8V-1j;
+	Fri, 01 Sep 2023 16:25:28 +0000
 Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qc6xY-000A1R-3D
+	id 1qc6xY-000A1I-3D
 	for linux-riscv@lists.infradead.org;
 	Fri, 01 Sep 2023 16:25:26 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 4DE6BB825C1;
+	by ams.source.kernel.org (Postfix) with ESMTPS id 3BD84B825B9;
 	Fri,  1 Sep 2023 16:25:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id B26F9C433CD;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 9BFDBC433CB;
 	Fri,  1 Sep 2023 16:25:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1693585515;
-	bh=xFHHICU0oX7e9xcoLMZr0SP3idCLvPufOEnHfkrVwLI=;
+	bh=noAvIfpMGFcZorZdKdFmseXEzNomZCMzL+8qZXfzzJk=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=nnN8Pm8CqO1rSwNEp4GVKpQXmbBdVNwgrpUE4BD7il58RtdAqAsCYBd9W5+3nwU58
-	 oQRI2UNv2AXxzhJiyyFjFtBGnTANHXyZhkx1MmucPa5B1W76HRS6hvQNFGQEcjRPgc
-	 ld0aBTSQ6I6Kuze9qH4KnS50uzxcJLEgIHrm5UjUaF+85H0z6Vs2OeQM5jmViXNgRT
-	 FmGemGGavIQdqWQGn4+CxujbaEzV2AD0RSvdh30WZ/TLEeuc0yqb6tL7gs7YgOwmQs
-	 xEDFohIXEURXICq2qtzJaUYxNclIVLqdUb//DWDPYjhclvC/vzQGa+gNGpAxOxQItN
-	 SeGcK3+iH/1FA==
+	b=ZDKqWbh1gbOILnoUkmILmBnmCqApJbL1o4X6I7NxlIF5Bw86+I5KDeVng4+GDq532
+	 OVrw9hCGh38cvj+9jge4FUsv8m1q0r6cvbObtvuoLoN52kC9ge4s7QMkYUVoO2AvdL
+	 6SfgoZE0LKu2TAfDqhwBOyshO1UCyvW+PJl7BiieoEIN7swSAhOnLr5deHucUnqyGh
+	 ZO7AgqUyGwRbZ8PLm126bpbvQswhPJ8tgOxzpWzrFG2+g/sjnRpx11o60z8umIR3yu
+	 VgvB1sO1BR0dX/dt5wnPb/Z4K/yLPj4kZ82KqVTuQ0ge67eHf337Ok4gsb/nBiRC/5
+	 ZSfpO3lJgKsLw==
 Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 999D8C64457;
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 83DBEE29F3E;
 	Fri,  1 Sep 2023 16:25:15 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [GIT PULL] RISC-V Patches for the 6.6 Merge Window, Part 1
+Subject: Re: [PATCH v6 22/38] riscv: Implement the new page table range API
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <169358551562.8276.3620661978678741860.git-patchwork-notify@kernel.org>
+Message-Id: <169358551553.8276.14329578180496231845.git-patchwork-notify@kernel.org>
 Date: Fri, 01 Sep 2023 16:25:15 +0000
-References: <mhng-d12081f2-1ff7-4f68-b320-f3aa5c458365@palmer-ri-x1c9>
-In-Reply-To: <mhng-d12081f2-1ff7-4f68-b320-f3aa5c458365@palmer-ri-x1c9>
-To: Palmer Dabbelt <palmer@rivosinc.com>
-Cc: linux-riscv@lists.infradead.org, torvalds@linux-foundation.org,
- linux-kernel@vger.kernel.org
+References: <20230802151406.3735276-23-willy@infradead.org>
+In-Reply-To: <20230802151406.3735276-23-willy@infradead.org>
+To: Matthew Wilcox <willy@infradead.org>
+Cc: linux-riscv@lists.infradead.org, akpm@linux-foundation.org,
+ linux-arch@vger.kernel.org, linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+ alexghiti@rivosinc.com, rppt@kernel.org, paul.walmsley@sifive.com,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230901_092525_187102_3F1999E7 
-X-CRM114-Status: UNSURE (   8.74  )
+X-CRM114-CacheID: sfid-20230901_092525_185873_7678F113 
+X-CRM114-Status: UNSURE (   9.59  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -80,23 +82,26 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Hello:
 
-This pull request was applied to riscv/linux.git (fixes)
-by Linus Torvalds <torvalds@linux-foundation.org>:
+This patch was applied to riscv/linux.git (fixes)
+by Andrew Morton <akpm@linux-foundation.org>:
 
-On Fri, 01 Sep 2023 07:41:21 -0700 (PDT) you wrote:
-> The following changes since commit 06c2afb862f9da8dc5efa4b6076a0e48c3fbaaa5:
+On Wed,  2 Aug 2023 16:13:50 +0100 you wrote:
+> Add set_ptes(), update_mmu_cache_range() and flush_dcache_folio().
+> Change the PG_dcache_clean flag from being per-page to per-folio.
 > 
->   Linux 6.5-rc1 (2023-07-09 13:53:13 -0700)
-> 
-> are available in the Git repository at:
-> 
->   git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-6.6-mw1
+> Signed-off-by: Matthew Wilcox (Oracle) <willy@infradead.org>
+> Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+> Acked-by: Mike Rapoport (IBM) <rppt@kernel.org>
+> Cc: Paul Walmsley <paul.walmsley@sifive.com>
+> Cc: Palmer Dabbelt <palmer@dabbelt.com>
+> Cc: Albert Ou <aou@eecs.berkeley.edu>
+> Cc: linux-riscv@lists.infradead.org
 > 
 > [...]
 
 Here is the summary with links:
-  - [GIT,PULL] RISC-V Patches for the 6.6 Merge Window, Part 1
-    https://git.kernel.org/riscv/c/e0152e7481c6
+  - [v6,22/38] riscv: Implement the new page table range API
+    https://git.kernel.org/riscv/c/864609c6a0b5
 
 You are awesome, thank you!
 -- 
