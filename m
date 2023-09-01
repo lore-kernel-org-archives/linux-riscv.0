@@ -4,48 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39E88CA0FE8
-	for <linux-riscv@archiver.kernel.org>; Fri,  1 Sep 2023 20:27:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C08B5CA0FEC
+	for <linux-riscv@archiver.kernel.org>; Fri,  1 Sep 2023 21:06:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dGe+XEP9J1wKHOCZiy7BqgibC7xMohRtqv82ydkE5qI=; b=b84hNWGt/lSJ20
-	XTUcFYYMOJAlKLo5cc2CN6t/bYdlNrg2AnM1sgnkG0oLm09tLJKIUcHXVhzKpAT0rHzhbREvuwkLr
-	InFSIRpf/NpYeq7NQ9WjFFzYHD8niwtaxAJZBfmpS9b8xJFN6HbSFdbgIXr5MTdhuNj/gKM7GW1Tq
-	ze4Mc+Dr5IeWgNjtG9gNOxSjwXvq+qldEjqRqznr93zlJNe8Qi5d5o6UyM8hTggfnv6LJHObO3t3N
-	saCctKOP36ti4TWBwJYSoOw022fGqMI0eii7ioUhFAfMVIie7xiNcWTk2o09JxsG6KF7m8vMOcWLq
-	MgssrUqMJTS4dV5etqjw==;
+	List-Owner; bh=aJQ5MZm4fbepM7X0aHj8Y0Ikro065oBUPYxrahx4Da4=; b=xh8t3bQdws9NgC
+	DjBcEhc5sasxWFTWOqNqsZCERpsm4nvQPnEMdfAAxcFCDNO72xujPNQpgdl6tji8NQ/aoTApEaSWU
+	DSf5iyxI46MlCwEWD8mA79IEzg7UpW3esIGa/auINd4e1DKBiVQxzBFzC5a9+vieepUb5QzeJIMW/
+	m4rpvOUO8NM09BfvaudhjAb/xnPPScKJZeeUlYeih7fis4tISfTXzAPdLrnEq4YlZ8nJHH5VsUWTv
+	nMzqUxK7XmYJUhV6RUKgDOyF6XpbHE8APe2wG4p72/Staip+x8K8U7bUTY2W/G8Sv5qgEe5Kg3jdJ
+	j9yHFVtxD5QISHNoo/9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qcAjn-000MYo-2S;
-	Fri, 01 Sep 2023 20:27:27 +0000
-Received: from [2601:1c2:980:9ec0::2764]
-	by bombadil.infradead.org with esmtpsa (Exim 4.96 #2 (Red Hat Linux))
-	id 1qcAjj-000MYd-0W;
-	Fri, 01 Sep 2023 20:27:23 +0000
-Message-ID: <c9da6ffe-7a58-1efa-f625-41d73346d6a2@infradead.org>
-Date: Fri, 1 Sep 2023 13:27:16 -0700
+	id 1qcBLL-000OXl-0n;
+	Fri, 01 Sep 2023 21:06:15 +0000
+Received: from mgamail.intel.com ([134.134.136.24])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1qcBLF-000OW5-38;
+	Fri, 01 Sep 2023 21:06:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1693602369; x=1725138369;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=XHxocslFLQU8xD6gE26XwrfQlSg9WQxfvtoRwUmoXd4=;
+  b=cy846qCJjJZvvdxrpE3UYOOJZsTYxM/7k+BGkKMoytmDreWw5mZ/V42Z
+   7ojXGFjo6jQ5C32RRnPlkeQNiJhZCJoiPbTul+lpr34gNEBPTHLcGc6xm
+   0GTsFNVshQHvs5qfhKRWD4MN2tBUyIAJz4Te256IO7kXWth8QMZxYJEZ4
+   yZ01X0dOG6Yd7IqwX3txCZuazzJ0JIeOGv1ca28cCQ7AdyLakznzxFkSX
+   ds8Pd+J2VGDNLDb+hYuNniEbAsp9tkiksmCWuey58lUdoBVKSIsrZYKBm
+   Lko2b3UxhaaplttS35kQXSDqmjMROWcPH1Gczs4LQLXwPA9wkCEVZ2pkW
+   w==;
+X-IronPort-AV: E=McAfee;i="6600,9927,10819"; a="379031044"
+X-IronPort-AV: E=Sophos;i="6.02,220,1688454000"; 
+   d="scan'208";a="379031044"
+Received: from fmsmga005.fm.intel.com ([10.253.24.32])
+  by orsmga102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 01 Sep 2023 14:06:07 -0700
+X-ExtLoop1: 1
+X-IronPort-AV: E=McAfee;i="6600,9927,10819"; a="1070871974"
+X-IronPort-AV: E=Sophos;i="6.02,220,1688454000"; 
+   d="scan'208";a="1070871974"
+Received: from jroorda-mobl4.ger.corp.intel.com (HELO box.shutemov.name) ([10.252.32.118])
+  by fmsmga005-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 01 Sep 2023 14:05:58 -0700
+Received: by box.shutemov.name (Postfix, from userid 1000)
+	id 94702104994; Sat,  2 Sep 2023 00:05:55 +0300 (+03)
+Date: Sat, 2 Sep 2023 00:05:55 +0300
+From: kirill.shutemov@linux.intel.com
+To: Vlastimil Babka <vbabka@suse.cz>
+Cc: seanjc@google.com, ackerleytng@google.com, akpm@linux-foundation.org,
+	anup@brainfault.org, aou@eecs.berkeley.edu,
+	chao.p.peng@linux.intel.com, chenhuacai@kernel.org,
+	david@redhat.com, isaku.yamahata@gmail.com, jarkko@kernel.org,
+	jmorris@namei.org, kvm-riscv@lists.infradead.org,
+	kvm@vger.kernel.org, kvmarm@lists.linux.dev,
+	liam.merwick@oracle.com, linux-arm-kernel@lists.infradead.org,
+	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-mips@vger.kernel.org, linux-mm@kvack.org,
+	linux-riscv@lists.infradead.org,
+	linux-security-module@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, mail@maciej.szmigiero.name,
+	maz@kernel.org, michael.roth@amd.com, mpe@ellerman.id.au,
+	oliver.upton@linux.dev, palmer@dabbelt.com,
+	paul.walmsley@sifive.com, paul@paul-moore.com, pbonzini@redhat.com,
+	qperret@google.com, serge@hallyn.com, tabba@google.com,
+	vannapurve@google.com, wei.w.wang@intel.com, willy@infradead.org,
+	yu.c.zhang@linux.intel.com
+Subject: Re: [PATCH gmem FIXUP] mm, compaction: make testing
+ mapping_unmovable() safe
+Message-ID: <20230901210555.j5d5a4azmkxzlnn2@box.shutemov.name>
+References: <20230901082025.20548-2-vbabka@suse.cz>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.14.0
-Subject: Re: [PATCH] riscv: Kconfig.errata: Add dependency for RISCV_SBI in
- ERRATA_ANDES config
-Content-Language: en-US
-To: Prabhakar <prabhakar.csengg@gmail.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Conor Dooley <conor.dooley@microchip.com>,
- Geert Uytterhoeven <geert+renesas@glider.be>,
- linux-riscv <linux-riscv@lists.infradead.org>
-Cc: linux-kernel@vger.kernel.org,
- Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
- kernel test robot <lkp@intel.com>
-References: <20230901110320.312674-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
-From: Randy Dunlap <rdunlap@infradead.org>
-In-Reply-To: <20230901110320.312674-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+Content-Disposition: inline
+In-Reply-To: <20230901082025.20548-2-vbabka@suse.cz>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20230901_140610_059085_90D7EA4D 
+X-CRM114-Status: GOOD (  11.86  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -62,61 +99,24 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-On 9/1/23 04:03, Prabhakar wrote:
-> From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+On Fri, Sep 01, 2023 at 10:20:26AM +0200, Vlastimil Babka wrote:
+> As Kirill pointed out, mapping can be removed under us due to
+> truncation. Test it under folio lock as already done for the async
+> compaction / dirty folio case. To prevent locking every folio with
+> mapping to do the test, do it only for unevictable folios, as we can
+> expect the unmovable mapping folios are also unevictable - it is the
+> case for guest memfd folios.
 > 
-> Andes errata uses sbi_ecalll() which is only available if RISCV_SBI is
-> enabled. So add an dependency for RISCV_SBI in ERRATA_ANDES config to
-> avoid any build failures.
+> Also incorporate comment update suggested by Matthew.
 > 
-> Reported-by: kernel test robot <lkp@intel.com>
-> Closes: https://lore.kernel.org/oe-kbuild-all/202308311610.ec6bm2G8-lkp@intel.com/
-> Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-> ---
->  arch/riscv/Kconfig.errata | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/arch/riscv/Kconfig.errata b/arch/riscv/Kconfig.errata
-> index bee5d838763b..566bcefeab50 100644
-> --- a/arch/riscv/Kconfig.errata
-> +++ b/arch/riscv/Kconfig.errata
-> @@ -2,7 +2,7 @@ menu "CPU errata selection"
->  
->  config ERRATA_ANDES
->  	bool "Andes AX45MP errata"
-> -	depends on RISCV_ALTERNATIVE
-> +	depends on RISCV_ALTERNATIVE && RISCV_SBI
->  	help
->  	  All Andes errata Kconfig depend on this Kconfig. Disabling
->  	  this Kconfig will disable all Andes errata. Please say "Y"
+> Fixes: 3424873596ce ("mm: Add AS_UNMOVABLE to mark mapping as completely unmovable")
+> Signed-off-by: Vlastimil Babka <vbabka@suse.cz>
 
-
-I'm still seeing build warnings/errors after applying all 3 RISC-V
-Kconfig patches from today (2023 SEP 01).
-
-WARNING: unmet direct dependencies detected for ERRATA_ANDES
-  Depends on [n]: RISCV_ALTERNATIVE [=y] && RISCV_SBI [=n]
-  Selected by [y]:
-  - ARCH_R9A07G043 [=y] && SOC_RENESAS [=y] && RISCV [=y]
-
-../arch/riscv/errata/andes/errata.c: In function 'ax45mp_iocp_sw_workaround':
-../arch/riscv/errata/andes/errata.c:29:23: error: storage size of 'ret' isn't known
-   29 |         struct sbiret ret;
-      |                       ^~~
-../arch/riscv/errata/andes/errata.c:35:15: error: implicit declaration of function 'sbi_ecall' [-Werror=implicit-function-declaration]
-   35 |         ret = sbi_ecall(ANDESTECH_SBI_EXT_ANDES, ANDES_SBI_EXT_IOCP_SW_WORKAROUND,
-      |               ^~~~~~~~~
-../arch/riscv/errata/andes/errata.c:29:23: warning: unused variable 'ret' [-Wunused-variable]
-   29 |         struct sbiret ret;
-      |                       ^~~
-
-ARCH_R9A07G043 in drivers/soc/renesas/Kconfig selects ERRATA_ANDES and
-ERRATA_ANDES_CMO even though RISCV_SBI is not set/enabled.
+Superficially looks good to me. But I don't really understand this
+code path to Ack.
 
 -- 
-~Randy
+  Kiryl Shutsemau / Kirill A. Shutemov
 
 _______________________________________________
 linux-riscv mailing list
