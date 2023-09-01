@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7930ECA0FE2
-	for <linux-riscv@archiver.kernel.org>; Fri,  1 Sep 2023 02:34:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89DD8CA0FE2
+	for <linux-riscv@archiver.kernel.org>; Fri,  1 Sep 2023 02:40:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=X9yvICPD0uUS0bsYwZUEhJsi38b6d9YRNDmcV29K9yk=; b=I12KoSsyPVpvhS
-	drpbd4aI9E41Ow+s4dTZQGNPMxAEVZXQ0Uh6NWA1mrcBCnG3ZgztpAGK/HpfkcCSPYhWdfjoMd5EM
-	ATbAnnP+km48kltTpcGHb8YuNi3Qy+XOd+6S46vUiK6yiqrLztcF719VfYjHBxGWuY4CWK9DNiZsM
-	BaLluM9qe8tmy1tWY1Itcm5c2Tw/lPdu7vk2UnyWmaUWOnyOR4xUQF5qe5zHjxjcoMwTl28voQlQu
-	Mevw/cOtPGDE4LCnY5hrSmUVRunQJD1lQEfrpwLV3JyapY39x49zoAjw97z8qSZPGzjIRpm3r6L+p
-	81gVGR2I5unKpuTLQ9dQ==;
+	List-Owner; bh=Zfk0vouS7+xnchrx2qjX5eN6cbxy41WkzZ4aCBzh/iU=; b=ERaRKBzjF25zFi
+	M471P3f5OVQX3hTDgrO8qwZT1DfDe0yyoMMy78rGTvzfbGBQxYKLuhsn1ZzjMu1rHEokyY9x0dlgW
+	zy2IuMGkPIHSN4wU+1BozSmUaYUHwm8w1UTuTU1eQQ5YbSxIoKKkU9FAkVd0J5RHY1O1Ze8RAowqz
+	KOT6poLUX4f0tNZI4F/iwA2Is1myS/a7O2otIX5atPB+dIhHGzmdf2KCPqeJA5Umn7afAUEqujZph
+	uyoQT7sWHXY8z1raF7tqrBQbyjMTudEM8oTXInW+4h+ZA17DUReFjfcSroXowv+IirA11EjuSBkHE
+	mqMpXYpcwq5ro7e13bMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qbtzU-00GL1f-2z;
-	Fri, 01 Sep 2023 02:34:32 +0000
+	id 1qbu5U-00GLIx-13;
+	Fri, 01 Sep 2023 02:40:44 +0000
 Received: from ex01.ufhost.com ([61.152.239.75])
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qbtzP-00GL0K-20
+	id 1qbu5Q-00GLHx-2z
 	for linux-riscv@lists.infradead.org;
-	Fri, 01 Sep 2023 02:34:30 +0000
+	Fri, 01 Sep 2023 02:40:42 +0000
 Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
 	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id BC58224E2E6;
-	Fri,  1 Sep 2023 10:33:15 +0800 (CST)
-Received: from EXMBX168.cuchost.com (172.16.6.78) by EXMBX165.cuchost.com
+	by ex01.ufhost.com (Postfix) with ESMTP id 610D324E281;
+	Fri,  1 Sep 2023 10:39:53 +0800 (CST)
+Received: from EXMBX167.cuchost.com (172.16.6.77) by EXMBX165.cuchost.com
  (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 1 Sep
- 2023 10:33:15 +0800
-Received: from [192.168.120.76] (171.223.208.138) by EXMBX168.cuchost.com
- (172.16.6.78) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 1 Sep
- 2023 10:33:14 +0800
-Message-ID: <efab6f52-4d7f-ea3c-0fc3-4e3ad03c14c7@starfivetech.com>
-Date: Fri, 1 Sep 2023 10:33:13 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.14.0
-Subject: Re: [PATCH v1 1/3] dt-bindings: mmc: Drop unused properties
-To: Conor Dooley <conor.dooley@microchip.com>, Krzysztof Kozlowski
-	<krzysztof.kozlowski@linaro.org>
-CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, <linux-mmc@vger.kernel.org>, "Emil Renner
- Berthing" <kernel@esmil.dk>, Rob Herring <robh+dt@kernel.org>, Jaehoon Chung
-	<jh80.chung@samsung.com>, Ulf Hansson <ulf.hansson@linaro.org>, "Krzysztof
- Kozlowski" <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley
-	<conor+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, "Palmer
- Dabbelt" <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
-References: <20230830031846.127957-1-william.qiu@starfivetech.com>
- <20230830031846.127957-2-william.qiu@starfivetech.com>
- <20230830-commence-trickery-40eaa193cb15@wendy>
- <b375b88c-0d9c-30a9-21f6-283083cf3880@linaro.org>
- <20230830-procedure-frostbite-56c751f7c276@wendy>
+ 2023 10:39:53 +0800
+Received: from EXMBX168.cuchost.com (172.16.6.78) by EXMBX167.cuchost.com
+ (172.16.6.77) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 1 Sep
+ 2023 10:39:52 +0800
+Received: from EXMBX168.cuchost.com ([fe80::1869:e641:8a12:96d6]) by
+ EXMBX168.cuchost.com ([fe80::1869:e641:8a12:96d6%16]) with mapi id
+ 15.00.1497.044; Fri, 1 Sep 2023 10:39:52 +0800
+From: JiaJie Ho <jiajie.ho@starfivetech.com>
+To: Aurelien Jarno <aurelien@aurel32.net>, Conor Dooley
+	<conor.dooley@microchip.com>
+CC: "herbert@gondor.apana.org.au" <herbert@gondor.apana.org.au>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-crypto@vger.kernel.org" <linux-crypto@vger.kernel.org>,
+	"kernel@esmil.dk" <kernel@esmil.dk>, "linux-riscv@lists.infradead.org"
+	<linux-riscv@lists.infradead.org>, "davidlt@rivosinc.com"
+	<davidlt@rivosinc.com>
+Subject: RE: starfive crypto list_add corruption
+Thread-Topic: starfive crypto list_add corruption
+Thread-Index: AQHZ2yzjjWDz/x6w9kGlTSbBzWx+s7AEQLcAgAECsiA=
+Date: Fri, 1 Sep 2023 02:39:52 +0000
+Message-ID: <292c90859f2e4135b40307d61488692c@EXMBX168.cuchost.com>
+References: <20230830-track-glutinous-39f536b4ced1@wendy>
+ <ZPDlSLQQkYuIVLYJ@aurel32.net>
+In-Reply-To: <ZPDlSLQQkYuIVLYJ@aurel32.net>
+Accept-Language: en-US
 Content-Language: en-US
-From: William Qiu <william.qiu@starfivetech.com>
-In-Reply-To: <20230830-procedure-frostbite-56c751f7c276@wendy>
-X-Originating-IP: [171.223.208.138]
-X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX168.cuchost.com
- (172.16.6.78)
-X-YovoleRuleAgent: yovoleflag
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-exchange-transport-fromentityheader: Hosted
+x-originating-ip: [161.142.156.69]
+x-yovoleruleagent: yovoleflag
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230831_193427_966381_00BF6D32 
-X-CRM114-Status: GOOD (  18.62  )
+X-CRM114-CacheID: sfid-20230831_194041_276719_6437E203 
+X-CRM114-Status: GOOD (  16.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,40 +85,60 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hi Aurelian/Conor,
 
+Thanks for bringing this up.
 
-On 2023/8/30 16:34, Conor Dooley wrote:
-> On Wed, Aug 30, 2023 at 09:29:20AM +0200, Krzysztof Kozlowski wrote:
->> On 30/08/2023 08:50, Conor Dooley wrote:
->> > On Wed, Aug 30, 2023 at 11:18:44AM +0800, William Qiu wrote:
->> >> Due to the change of tuning implementation, it's no longer necessary to
->> >> use the "starfive,sysreg" property in dts, so drop the relevant
->> >> description in dt-bindings here.
->> > 
->> > How does changing your software implantation invalidate a description of
->> > the hardware?
->> > 
->> 
->> Which is kind of proof that this syscon was just to substitute
->> incomplete hardware description (e.g. missing clocks and phys). We
->> should have rejected it. Just like we should reject them in the future.
+> On 2023-08-30 11:26, Conor Dooley wrote:
+> > Hi,
+> >
+> > There's been a report on the irc fedora-riscv irc of list_add
+> > corruption with the starfive crypto stuff:
+> > 	list_add corruption. next->prev should be prev (ffffffff02f65320), but
+> was ffffffd8eef15848. (next=ffffffd8eef15840).
+> > 	------------[ cut here ]------------
+> > 	kernel BUG at lib/list_debug.c:29!
+> > 	Kernel BUG [#1]
 > 
-> :s I dunno what to do with this... I'm inclined to say not to remove it
-> from the binding or dts at all & only change the software.
+> [snip]
 > 
->> There are just few cases where syscon is reasonable. All others is just
->> laziness. It's not only starfivetech, of course. Several other
->> contributors do the same.
+> > I feel like this isn't the first report I saw, but the other might've
+> > been for the equivalent driver in the vendor tree & I probably didn't
+> > pay any attention to.
 > 
-> I'm not sure if laziness is fair, lack of understanding is usually more
-> likely.
+> I got this issue, if I remember correctly, I fixed it by enabling
+> CONFIG_ARM_AMBA and CONFIG_AMBA_PL08X. It improved things a bit,
 
-For this, I tend to keep it in binding, but remove it from required. Because
-we only modify the tuning implementation, it doesn't mean that this property
-need to be removed, it's just no longer be the required one.
+Thanks for bringing this up.
+I'll submit a patch to fix the Kconfig dependencies.
 
-Best Regards,
-William
+> but now the driver is still not functional and instead I get this kind of trace
+> appearing during the self test of the driver:
+> 
+> ------------[ cut here ]------------
+> WARNING: CPU: 3 PID: 292 at crypto/api.c:176
+> crypto_wait_for_test+0x8e/0x92 Modules linked in: nvme_fabrics ad7418
+> binfmt_misc jh7110_tdm snd_soc_core snd_pcm_dmaengine ofpart spi_nor
+> snd_pcm starfive_wdt mtd watchdog jh7110_crypto(+) snd_timer
+> jh7110_trng crypto_engine rng_core snd soundcore sfctemp cpufreq_dt drm
+> loop fuse drm_panel_orientation_quirks configfs ip_tables x_tables autofs4
+> ext4 crc32c_generic crc16 mbcache jbd2 rtc_ds1307 dm_mod dax nvme
+> xhci_pci nvme_core t10_pi crc64_rocksoft crc64 crc_t10dif crct10dif_generic
+> crct10dif_common xhci_hcd usbcore axp20x_regulator dwmac_starfive
+> stmmac_platform usb_common dw_mmc_starfive dw_mmc_pltfm
+> axp20x_i2c axp20x mfd_core regmap_i2c stmmac dw_mmc pcs_xpcs of_mdio
+> fixed_phy phylink fwnode_mdio mmc_core libphy clk_starfive_jh7110_vout
+> clk_starfive_jh7110_isp clk_starfive_jh7110_aon spi_cadence_quadspi
+> i2c_designware_platform clk_starfive_jh7110_stg phy_jh7110_usb
+> phy_jh7110_pcie i2c_designware_core
+> CPU: 3 PID: 292 Comm: (udev-worker) Not tainted 6.5.0-rc7+ #1 Hardware
+> name: StarFive VisionFive 2 v1.2A (DT) epc : crypto_wait_for_test+0x8e/0x92
+[...]
+
+I'll investigate this error.
+
+Thanks,
+Jia Jie
 
 _______________________________________________
 linux-riscv mailing list
