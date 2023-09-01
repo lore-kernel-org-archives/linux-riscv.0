@@ -4,71 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89DD8CA0FE2
-	for <linux-riscv@archiver.kernel.org>; Fri,  1 Sep 2023 02:40:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6693BCA0FE1
+	for <linux-riscv@archiver.kernel.org>; Fri,  1 Sep 2023 02:41:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Zfk0vouS7+xnchrx2qjX5eN6cbxy41WkzZ4aCBzh/iU=; b=ERaRKBzjF25zFi
-	M471P3f5OVQX3hTDgrO8qwZT1DfDe0yyoMMy78rGTvzfbGBQxYKLuhsn1ZzjMu1rHEokyY9x0dlgW
-	zy2IuMGkPIHSN4wU+1BozSmUaYUHwm8w1UTuTU1eQQ5YbSxIoKKkU9FAkVd0J5RHY1O1Ze8RAowqz
-	KOT6poLUX4f0tNZI4F/iwA2Is1myS/a7O2otIX5atPB+dIhHGzmdf2KCPqeJA5Umn7afAUEqujZph
-	uyoQT7sWHXY8z1raF7tqrBQbyjMTudEM8oTXInW+4h+ZA17DUReFjfcSroXowv+IirA11EjuSBkHE
-	mqMpXYpcwq5ro7e13bMQ==;
+	List-Owner; bh=o03VhYI2xVJ15FoPc7jyF+kfCoAYhYWrk3f/xoVJ3pA=; b=Qmhm1F3musLoXG
+	Me9EPGqBBrVhEaDb4E4KLxU7j4YSZLnZle50PIWfn3VmeYIjpDg4kgev5VuQB1QqAIeBNW4cLKHVl
+	CxR4C1PiAg6OjNPuRtFrCrtZYXp2m4i981NGDfVEmkcdr8c0vYiZTKYLN+lzJIadqoP+h6Tu+zPnU
+	2Uazk8wblazdfNaTGl++hMsDHk/fWqgEo6wcB/bfWwhqRSTAoxovFlZACIpLJnzaEdrAiLrLLwNcX
+	VV5GWhtQzltSs5+bdWFWGH6upFgBTol6c2cdRDCcy2rkVuzBFo3J2EXu3bOUh8/cmgezD++5/xRwh
+	QSohKdSyiHi+DNu2w35A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qbu5U-00GLIx-13;
-	Fri, 01 Sep 2023 02:40:44 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
+	id 1qbu6H-00GLN0-0N;
+	Fri, 01 Sep 2023 02:41:33 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qbu5Q-00GLHx-2z
+	id 1qbu6D-00GLLH-0K
 	for linux-riscv@lists.infradead.org;
-	Fri, 01 Sep 2023 02:40:42 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	Fri, 01 Sep 2023 02:41:31 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id 610D324E281;
-	Fri,  1 Sep 2023 10:39:53 +0800 (CST)
-Received: from EXMBX167.cuchost.com (172.16.6.77) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 1 Sep
- 2023 10:39:53 +0800
-Received: from EXMBX168.cuchost.com (172.16.6.78) by EXMBX167.cuchost.com
- (172.16.6.77) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 1 Sep
- 2023 10:39:52 +0800
-Received: from EXMBX168.cuchost.com ([fe80::1869:e641:8a12:96d6]) by
- EXMBX168.cuchost.com ([fe80::1869:e641:8a12:96d6%16]) with mapi id
- 15.00.1497.044; Fri, 1 Sep 2023 10:39:52 +0800
-From: JiaJie Ho <jiajie.ho@starfivetech.com>
-To: Aurelien Jarno <aurelien@aurel32.net>, Conor Dooley
-	<conor.dooley@microchip.com>
-CC: "herbert@gondor.apana.org.au" <herbert@gondor.apana.org.au>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-crypto@vger.kernel.org" <linux-crypto@vger.kernel.org>,
-	"kernel@esmil.dk" <kernel@esmil.dk>, "linux-riscv@lists.infradead.org"
-	<linux-riscv@lists.infradead.org>, "davidlt@rivosinc.com"
-	<davidlt@rivosinc.com>
-Subject: RE: starfive crypto list_add corruption
-Thread-Topic: starfive crypto list_add corruption
-Thread-Index: AQHZ2yzjjWDz/x6w9kGlTSbBzWx+s7AEQLcAgAECsiA=
-Date: Fri, 1 Sep 2023 02:39:52 +0000
-Message-ID: <292c90859f2e4135b40307d61488692c@EXMBX168.cuchost.com>
-References: <20230830-track-glutinous-39f536b4ced1@wendy>
- <ZPDlSLQQkYuIVLYJ@aurel32.net>
-In-Reply-To: <ZPDlSLQQkYuIVLYJ@aurel32.net>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-exchange-transport-fromentityheader: Hosted
-x-originating-ip: [161.142.156.69]
-x-yovoleruleagent: yovoleflag
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 7F82C80C4;
+	Fri,  1 Sep 2023 10:40:43 +0800 (CST)
+Received: from EXMBX168.cuchost.com (172.16.6.78) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 1 Sep
+ 2023 10:40:44 +0800
+Received: from [192.168.120.76] (171.223.208.138) by EXMBX168.cuchost.com
+ (172.16.6.78) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 1 Sep
+ 2023 10:40:42 +0800
+Message-ID: <f130f1c5-d59b-6d5c-e2e8-5ce3e6948543@starfivetech.com>
+Date: Fri, 1 Sep 2023 10:40:41 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.14.0
+Subject: Re: [PATCH v1 2/3] mmc: starfive: Change tuning implementation
+Content-Language: en-US
+To: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, <linux-mmc@vger.kernel.org>, "Emil Renner
+ Berthing" <kernel@esmil.dk>, Rob Herring <robh+dt@kernel.org>, Jaehoon Chung
+	<jh80.chung@samsung.com>, Ulf Hansson <ulf.hansson@linaro.org>, "Krzysztof
+ Kozlowski" <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley
+	<conor+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, "Palmer
+ Dabbelt" <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
+References: <20230830031846.127957-1-william.qiu@starfivetech.com>
+ <20230830031846.127957-3-william.qiu@starfivetech.com>
+ <CAJM55Z9CL8DN+uEhRoR7ZUuwtVudTUzA1+Q4Hn_rukCfT+SXeQ@mail.gmail.com>
+From: William Qiu <william.qiu@starfivetech.com>
+In-Reply-To: <CAJM55Z9CL8DN+uEhRoR7ZUuwtVudTUzA1+Q4Hn_rukCfT+SXeQ@mail.gmail.com>
+X-Originating-IP: [171.223.208.138]
+X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX168.cuchost.com
+ (172.16.6.78)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230831_194041_276719_6437E203 
-X-CRM114-Status: GOOD (  16.78  )
+X-CRM114-CacheID: sfid-20230831_194129_607175_7F855A5D 
+X-CRM114-Status: GOOD (  32.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,60 +81,254 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Aurelian/Conor,
 
-Thanks for bringing this up.
 
-> On 2023-08-30 11:26, Conor Dooley wrote:
-> > Hi,
-> >
-> > There's been a report on the irc fedora-riscv irc of list_add
-> > corruption with the starfive crypto stuff:
-> > 	list_add corruption. next->prev should be prev (ffffffff02f65320), but
-> was ffffffd8eef15848. (next=ffffffd8eef15840).
-> > 	------------[ cut here ]------------
-> > 	kernel BUG at lib/list_debug.c:29!
-> > 	Kernel BUG [#1]
+On 2023/8/30 18:28, Emil Renner Berthing wrote:
+> On Wed, 30 Aug 2023 at 05:21, William Qiu <william.qiu@starfivetech.com> wrote:
+>>
+>> Before, we used syscon to achieve tuning, but the actual measurement
+>> showed little effect, so the tuning implementation was modified here,
+>> and it was realized by reading and writing the UHS_REG_EXT register.
+>>
+>> Signed-off-by: William Qiu <william.qiu@starfivetech.com>
+>> ---
+>>  drivers/mmc/host/dw_mmc-starfive.c | 131 ++++++++---------------------
+>>  1 file changed, 37 insertions(+), 94 deletions(-)
+>>
+>> diff --git a/drivers/mmc/host/dw_mmc-starfive.c b/drivers/mmc/host/dw_mmc-starfive.c
+>> index fd05a648a8bb..593c995e49f5 100644
+>> --- a/drivers/mmc/host/dw_mmc-starfive.c
+>> +++ b/drivers/mmc/host/dw_mmc-starfive.c
+>> @@ -20,14 +20,6 @@
+>>  #define ALL_INT_CLR            0x1ffff
+>>  #define MAX_DELAY_CHAIN                32
+>>
+>> -struct starfive_priv {
+>> -       struct device *dev;
+>> -       struct regmap *reg_syscon;
+>> -       u32 syscon_offset;
+>> -       u32 syscon_shift;
+>> -       u32 syscon_mask;
+>> -};
+>> -
+>>  static void dw_mci_starfive_set_ios(struct dw_mci *host, struct mmc_ios *ios)
+>>  {
+>>         int ret;
+>> @@ -44,117 +36,68 @@ static void dw_mci_starfive_set_ios(struct dw_mci *host, struct mmc_ios *ios)
+>>         }
+>>  }
+>>
+>> +static void dw_mci_starfive_hs_set_bits(struct dw_mci *host, u32 smpl_phase)
 > 
-> [snip]
+> "set bits" is very generic. Maybe dw_mci_starfive_set_sample_phase()
+> or something more descriptive.
 > 
-> > I feel like this isn't the first report I saw, but the other might've
-> > been for the equivalent driver in the vendor tree & I probably didn't
-> > pay any attention to.
+Will update.
+>> +{
+>> +       /* change driver phase and sample phase */
+>> +       u32 mask = 0x1f;
+>> +       u32 reg_value;
+>> +
+>> +       reg_value = mci_readl(host, UHS_REG_EXT);
+>> +
+>> +       /* In UHS_REG_EXT, only 5 bits valid in DRV_PHASE and SMPL_PHASE */
+>> +       reg_value &= ~(mask << 16);
+>> +       reg_value |= (smpl_phase << 16);
+>> +       mci_writel(host, UHS_REG_EXT, reg_value);
+>> +
+>> +       /* We should delay 1ms wait for timing setting finished. */
+>> +       mdelay(1);
+>> +}
 > 
-> I got this issue, if I remember correctly, I fixed it by enabling
-> CONFIG_ARM_AMBA and CONFIG_AMBA_PL08X. It improved things a bit,
-
-Thanks for bringing this up.
-I'll submit a patch to fix the Kconfig dependencies.
-
-> but now the driver is still not functional and instead I get this kind of trace
-> appearing during the self test of the driver:
+> This implementation could use some cleanup. Eg. why do we need the
+> mask variable?
+> How about something like this:
 > 
-> ------------[ cut here ]------------
-> WARNING: CPU: 3 PID: 292 at crypto/api.c:176
-> crypto_wait_for_test+0x8e/0x92 Modules linked in: nvme_fabrics ad7418
-> binfmt_misc jh7110_tdm snd_soc_core snd_pcm_dmaengine ofpart spi_nor
-> snd_pcm starfive_wdt mtd watchdog jh7110_crypto(+) snd_timer
-> jh7110_trng crypto_engine rng_core snd soundcore sfctemp cpufreq_dt drm
-> loop fuse drm_panel_orientation_quirks configfs ip_tables x_tables autofs4
-> ext4 crc32c_generic crc16 mbcache jbd2 rtc_ds1307 dm_mod dax nvme
-> xhci_pci nvme_core t10_pi crc64_rocksoft crc64 crc_t10dif crct10dif_generic
-> crct10dif_common xhci_hcd usbcore axp20x_regulator dwmac_starfive
-> stmmac_platform usb_common dw_mmc_starfive dw_mmc_pltfm
-> axp20x_i2c axp20x mfd_core regmap_i2c stmmac dw_mmc pcs_xpcs of_mdio
-> fixed_phy phylink fwnode_mdio mmc_core libphy clk_starfive_jh7110_vout
-> clk_starfive_jh7110_isp clk_starfive_jh7110_aon spi_cadence_quadspi
-> i2c_designware_platform clk_starfive_jh7110_stg phy_jh7110_usb
-> phy_jh7110_pcie i2c_designware_core
-> CPU: 3 PID: 292 Comm: (udev-worker) Not tainted 6.5.0-rc7+ #1 Hardware
-> name: StarFive VisionFive 2 v1.2A (DT) epc : crypto_wait_for_test+0x8e/0x92
-[...]
+> #define STARFIVE_SMPL_PHASE     GENMASK(20, 16)
+> 
+> u32 reg_value = mci_read(host, UHS_REG_EXT);
+> reg_value &= ~STARFIVE_SMPL_PHASE;
+> reg_value |= FIELD_PREP(STARFIVE_SMPL_PHASE, smpl_phase);
+> mci_writel(host, UHS_REG_EXT, reg_value);
+> ...
+> 
+I'll try it.
+>>  static int dw_mci_starfive_execute_tuning(struct dw_mci_slot *slot,
+>>                                              u32 opcode)
+>>  {
+>>         static const int grade  = MAX_DELAY_CHAIN;
+>>         struct dw_mci *host = slot->host;
+>> -       struct starfive_priv *priv = host->priv;
+>> -       int rise_point = -1, fall_point = -1;
+>> -       int err, prev_err = 0;
+>> +       int err = -1;
+> 
+> This variable is always set later so doesn't need initialization and
+> is better called 'ret' as it's the return value of the function, and
+> not necessarily an error.
+Will update.
+> 
+>> +       int smpl_phase, smpl_raise = -1, smpl_fall = -1;
+>>         int i;
+>> -       bool found = 0;
+>> -       u32 regval;
+>> -
+>> -       /*
+>> -        * Use grade as the max delay chain, and use the rise_point and
+>> -        * fall_point to ensure the best sampling point of a data input
+>> -        * signals.
+>> -        */
+>> +
+>>         for (i = 0; i < grade; i++) {
+>> -               regval = i << priv->syscon_shift;
+>> -               err = regmap_update_bits(priv->reg_syscon, priv->syscon_offset,
+>> -                                               priv->syscon_mask, regval);
+>> -               if (err)
+>> -                       return err;
+>> +               smpl_phase = i;
+> 
+> This can now be written
+> 
+> for (sampl_phase = 0; sampl_phase < grade; sampl_phase++)
+> 
+Will update.
+>> +               dw_mci_starfive_hs_set_bits(host, smpl_phase);
+>>                 mci_writel(host, RINTSTS, ALL_INT_CLR);
+>>
+>>                 err = mmc_send_tuning(slot->mmc, opcode, NULL);
+>> -               if (!err)
+>> -                       found = 1;
+>> -
+>> -               if (i > 0) {
+>> -                       if (err && !prev_err)
+>> -                               fall_point = i - 1;
+>> -                       if (!err && prev_err)
+>> -                               rise_point = i;
+>> -               }
+>>
+>> -               if (rise_point != -1 && fall_point != -1)
+>> -                       goto tuning_out;
+>> -
+>> -               prev_err = err;
+>> -               err = 0;
+>> -       }
+>> -
+>> -tuning_out:
+>> -       if (found) {
+>> -               if (rise_point == -1)
+>> -                       rise_point = 0;
+>> -               if (fall_point == -1)
+>> -                       fall_point = grade - 1;
+>> -               if (fall_point < rise_point) {
+>> -                       if ((rise_point + fall_point) >
+>> -                           (grade - 1))
+>> -                               i = fall_point / 2;
+>> -                       else
+>> -                               i = (rise_point + grade - 1) / 2;
+>> -               } else {
+>> -                       i = (rise_point + fall_point) / 2;
+>> +               if (!err && smpl_raise < 0) {
+>> +                       smpl_raise = i;
+>> +               } else if (err && smpl_raise >= 0) {
+>> +                       smpl_fall = i - 1;
+>> +                       break;
+>>                 }
+>> +       }
+>>
+>> -               regval = i << priv->syscon_shift;
+>> -               err = regmap_update_bits(priv->reg_syscon, priv->syscon_offset,
+>> -                                               priv->syscon_mask, regval);
+>> -               if (err)
+>> -                       return err;
+>> -               mci_writel(host, RINTSTS, ALL_INT_CLR);
+>> +       if (i >= grade && smpl_raise >= 0)
+>> +               smpl_fall = grade - 1;
+>>
+>> -               dev_info(host->dev, "Found valid delay chain! use it [delay=%d]\n", i);
+>> -       } else {
+>> +       if (smpl_raise < 0) {
+>>                 dev_err(host->dev, "No valid delay chain! use default\n");
+>> +               dw_mci_starfive_hs_set_bits(host, 0);
+>>                 err = -EINVAL;
+>> +       } else {
+>> +               smpl_phase = (smpl_raise + smpl_fall) / 2;
+>> +               dw_mci_starfive_hs_set_bits(host, smpl_phase);
+>> +               dev_dbg(host->dev, "Found valid delay chain! use it [delay=%d]\n", smpl_phase);
+>> +               err = 0;
+>>         }
+> 
+> Maybe something like:
+> 
+>   if (smpl_raise < 0) {
+>     smpl_phase = 0;
+>     dev_err(host->dev, "No valid delay chain, using default\n");
+>     ret = -EINVAL;
+>     goto out;
+>   }
+> 
+>   smpl_phase = (smpl_raise + smpl_fall) / 2;
+>   dev_dbg(...);
+>   ret = 0;
+> 
+> out:
+>   dw_mci_starfive_hs_set_bits(host, smpl_phase);
+>   mci_writel(host, RINTSTS, ALL_INT_CLR);
+>   return ret;
+>>  }
+>>
+I'll try it.
 
-I'll investigate this error.
+Thanks for taking time to review this patch series and giving so much
+helpful suggestions.
 
-Thanks,
-Jia Jie
+Best regards,
+William
+>> -static int dw_mci_starfive_parse_dt(struct dw_mci *host)
+>> -{
+>> -       struct of_phandle_args args;
+>> -       struct starfive_priv *priv;
+>> -       int ret;
+>> -
+>> -       priv = devm_kzalloc(host->dev, sizeof(*priv), GFP_KERNEL);
+>> -       if (!priv)
+>> -               return -ENOMEM;
+>> -
+>> -       ret = of_parse_phandle_with_fixed_args(host->dev->of_node,
+>> -                                               "starfive,sysreg", 3, 0, &args);
+>> -       if (ret) {
+>> -               dev_err(host->dev, "Failed to parse starfive,sysreg\n");
+>> -               return -EINVAL;
+>> -       }
+>> -
+>> -       priv->reg_syscon = syscon_node_to_regmap(args.np);
+>> -       of_node_put(args.np);
+>> -       if (IS_ERR(priv->reg_syscon))
+>> -               return PTR_ERR(priv->reg_syscon);
+>> -
+>> -       priv->syscon_offset = args.args[0];
+>> -       priv->syscon_shift  = args.args[1];
+>> -       priv->syscon_mask   = args.args[2];
+>> -
+>> -       host->priv = priv;
+>> -
+>> -       return 0;
+>> -}
+>> -
+>>  static const struct dw_mci_drv_data starfive_data = {
+>>         .common_caps            = MMC_CAP_CMD23,
+>>         .set_ios                = dw_mci_starfive_set_ios,
+>> -       .parse_dt               = dw_mci_starfive_parse_dt,
+>>         .execute_tuning         = dw_mci_starfive_execute_tuning,
+>>  };
+>>
+>> --
+>> 2.34.1
+>>
+>>
+>> _______________________________________________
+>> linux-riscv mailing list
+>> linux-riscv@lists.infradead.org
+>> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
