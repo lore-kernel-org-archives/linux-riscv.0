@@ -4,82 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 317ECCA0FE6
-	for <linux-riscv@archiver.kernel.org>; Fri,  1 Sep 2023 03:46:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D6C5CA0FE6
+	for <linux-riscv@archiver.kernel.org>; Fri,  1 Sep 2023 03:56:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZzPSXfflYt6gpVzItHEt064mxhrGAPtDm3cO2s+SA+E=; b=zF4Z2ky9PedfaA
-	Y5M4pdEVIPtdC0xX8yqagAkooX86uvQ9bJxN8XfUdiD8zwqdnSm3MFb8cKSjRrc8d4pYGOqDvvKfe
-	EqFz4soej0YllNr3Eytmt4Wx6Y0eZNIjn/ea+IgYm3TrGe4DuF/W4wnrygKYUQBySlhlFIn1LS4TI
-	FfEGcITSmruehnWgHWnvYJFEPE2JQOowejSS4l4SmBQzM6lvA+8f1UMRrIk4yPEaPwsR8K5yEdf+u
-	bdrGw41UYoBT4k7qWdtX1NkipMRyAS+aCndOuvJAglnnH9ILow/V//GHgXNjUHAvOG2D0GxIfOJBY
-	MqZk62xmYv3t2kBWe8iQ==;
+	List-Owner; bh=g+q4X+B7w5vHUy+9M6IJd9cX1Og/rNsmvJUvsOL/41k=; b=ImlS+RJPWu2upC
+	qqq7u5fYgMyWarL87RQqyV5BCNfxoQ/XOcjyB4faF2eEcYeHHml5ESewaQ277G7cVuIxk6zJiCwt3
+	nzfXS3EqGtosz0Ren6lmSMiwKi0B67GRUXGpzTxckl0hWx2JIKfqGR8KrYJN+FDr94i4R9bFoplOb
+	dUVIeyisEuAuSUYrTZwYvufvCT+eSM7tnoLqB3QTjVplS5DzjSwGLgckZtF+a6P0tU8ftwuj4hzkE
+	QWGzwHkSeiVNMmUeqd+qsHAXxYJi2h+AcvEh0908Xbom/Givjq1thILqL8zqO1phMKqkgJiqTHVJX
+	dVAhxvuk0SYMNMcobzyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qbv6h-00GODd-0t;
-	Fri, 01 Sep 2023 03:46:03 +0000
-Received: from mgamail.intel.com ([192.55.52.151])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qbv6d-00GOBk-0C;
-	Fri, 01 Sep 2023 03:46:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1693539958; x=1725075958;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=dQBtg8NKz/pLl187/eYnyafMQC+Yh2bQyqEr25y1Bps=;
-  b=MGA+Bn9JxqenVXs2WO4Zey09jjqw/BoC10Ay9bZ4i3Ar4GQxOwHuPceG
-   94lMNkEsMyzkMk+emPx6l/xCdRNj94Yd3AYER2d3jU0yP5h+35w3IJQBT
-   w5MHaCquEpj2zwqsBBl/LkharAEYPL/z8HwVFZ33MDSIe/K7V9Vkt4z9d
-   a07Af1iTfwQsrC00OrjqRTDy+p19sYDjYKeUSmOQgNoTQWRw9/aEGO00+
-   hfFTqn8gAJOCT9Wr+4BQCgBvr762NuQMzJbfWcW7VcORZ659g+hSiiCOS
-   U9ZZDIGVugZsMiPWPEbc12/u76+LRdZTk5PykEF90I3fqg7YcvDTKzRsu
-   w==;
-X-IronPort-AV: E=McAfee;i="6600,9927,10819"; a="356441903"
-X-IronPort-AV: E=Sophos;i="6.02,218,1688454000"; 
-   d="scan'208";a="356441903"
-Received: from fmsmga007.fm.intel.com ([10.253.24.52])
-  by fmsmga107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 31 Aug 2023 20:45:54 -0700
-X-ExtLoop1: 1
-X-IronPort-AV: E=McAfee;i="6600,9927,10819"; a="742962743"
-X-IronPort-AV: E=Sophos;i="6.02,218,1688454000"; 
-   d="scan'208";a="742962743"
-Received: from binbinwu-mobl.ccr.corp.intel.com (HELO [10.93.2.44]) ([10.93.2.44])
-  by fmsmga007-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 31 Aug 2023 20:45:45 -0700
-Message-ID: <f7aaf097-6f83-0ee9-e16d-713d392b2299@linux.intel.com>
-Date: Fri, 1 Sep 2023 11:45:43 +0800
+	id 1qbvGi-00GQS5-1H;
+	Fri, 01 Sep 2023 03:56:24 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1qbvGd-00GQL1-23
+	for linux-riscv@lists.infradead.org;
+	Fri, 01 Sep 2023 03:56:23 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id 1EDDE24E2E2;
+	Fri,  1 Sep 2023 11:55:46 +0800 (CST)
+Received: from EXMBX171.cuchost.com (172.16.6.91) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 1 Sep
+ 2023 11:55:47 +0800
+Received: from [192.168.125.127] (183.27.96.188) by EXMBX171.cuchost.com
+ (172.16.6.91) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 1 Sep
+ 2023 11:55:44 +0800
+Message-ID: <c10ee267-67b9-8546-94bd-beccf069f82a@starfivetech.com>
+Date: Fri, 1 Sep 2023 11:55:44 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.15.0
-Subject: Re: [RFC PATCH v11 12/29] KVM: Add KVM_CREATE_GUEST_MEMFD ioctl() for
- guest-specific backing memory
-To: Ackerley Tng <ackerleytng@google.com>
-Cc: seanjc@google.com, kvm@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
- linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
- linux-fsdevel@vger.kernel.org, linux-mm@kvack.org,
- linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org,
- pbonzini@redhat.com, maz@kernel.org, oliver.upton@linux.dev,
- chenhuacai@kernel.org, mpe@ellerman.id.au, anup@brainfault.org,
- paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
- willy@infradead.org, akpm@linux-foundation.org, paul@paul-moore.com,
- jmorris@namei.org, serge@hallyn.com, chao.p.peng@linux.intel.com,
- tabba@google.com, jarkko@kernel.org, yu.c.zhang@linux.intel.com,
- vannapurve@google.com, mail@maciej.szmigiero.name, vbabka@suse.cz,
- david@redhat.com, qperret@google.com, michael.roth@amd.com,
- wei.w.wang@intel.com, liam.merwick@oracle.com, isaku.yamahata@gmail.com,
- kirill.shutemov@linux.intel.com
-References: <diqz5y4wfpj0.fsf@ackerleytng-ctop.c.googlers.com>
-From: Binbin Wu <binbin.wu@linux.intel.com>
-In-Reply-To: <diqz5y4wfpj0.fsf@ackerleytng-ctop.c.googlers.com>
+ Thunderbird/102.14.0
+Subject: Re: [PATCH v4 07/11] PCI: microchip: Rename IRQ init function
+Content-Language: en-US
+To: Conor Dooley <conor.dooley@microchip.com>
+CC: Daire McNamara <daire.mcnamara@microchip.com>, Conor Dooley
+	<conor@kernel.org>, Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	=?UTF-8?Q?Krzysztof_Wilczy=c5=84ski?= <kw@linux.com>, Emil Renner Berthing
+	<emil.renner.berthing@canonical.com>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+	<linux-pci@vger.kernel.org>, =?UTF-8?Q?Pali_Roh=c3=a1r?= <pali@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+	<palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Philipp Zabel
+	<p.zabel@pengutronix.de>, Mason Huo <mason.huo@starfivetech.com>, Leyfoon Tan
+	<leyfoon.tan@starfivetech.com>, Kevin Xie <kevin.xie@starfivetech.com>
+References: <20230825090129.65721-1-minda.chen@starfivetech.com>
+ <20230825090129.65721-8-minda.chen@starfivetech.com>
+ <20230825-undusted-detached-1d67370c0a18@wendy>
+ <20230825-numbness-easel-e0c827e97b99@wendy>
+From: Minda Chen <minda.chen@starfivetech.com>
+In-Reply-To: <20230825-numbness-easel-e0c827e97b99@wendy>
+X-Originating-IP: [183.27.96.188]
+X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX171.cuchost.com
+ (172.16.6.91)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230831_204559_118779_BBD0A0AE 
-X-CRM114-Status: GOOD (  23.28  )
+X-CRM114-CacheID: sfid-20230831_205620_125254_DC479B93 
+X-CRM114-Status: GOOD (  32.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,123 +82,257 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
 
-On 8/31/2023 12:44 AM, Ackerley Tng wrote:
-> Binbin Wu <binbin.wu@linux.intel.com> writes:
->
->>> <snip>
->>>
->>> +static long kvm_gmem_allocate(struct inode *inode, loff_t offset, loff_t len)
->>> +{
->>> +	struct address_space *mapping = inode->i_mapping;
->>> +	pgoff_t start, index, end;
->>> +	int r;
->>> +
->>> +	/* Dedicated guest is immutable by default. */
->>> +	if (offset + len > i_size_read(inode))
->>> +		return -EINVAL;
->>> +
->>> +	filemap_invalidate_lock_shared(mapping);
->>> +
->>> +	start = offset >> PAGE_SHIFT;
->>> +	end = (offset + len) >> PAGE_SHIFT;
->>> +
->>> +	r = 0;
->>> +	for (index = start; index < end; ) {
->>> +		struct folio *folio;
->>> +
->>> +		if (signal_pending(current)) {
->>> +			r = -EINTR;
->>> +			break;
->>> +		}
->>> +
->>> +		folio = kvm_gmem_get_folio(inode, index);
->>> +		if (!folio) {
->>> +			r = -ENOMEM;
->>> +			break;
->>> +		}
->>> +
->>> +		index = folio_next_index(folio);
->>> +
->>> +		folio_unlock(folio);
->>> +		folio_put(folio);
->> May be a dumb question, why we get the folio and then put it immediately?
->> Will it make the folio be released back to the page allocator?
->>
-> I was wondering this too, but it is correct.
->
-> In filemap_grab_folio(), the refcount is incremented in three places:
->
-> + When the folio is created in filemap_alloc_folio(), it is given a
->    refcount of 1 in
->
->      filemap_alloc_folio() -> folio_alloc() -> __folio_alloc_node() ->
->      __folio_alloc() -> __alloc_pages() -> get_page_from_freelist() ->
->      prep_new_page() -> post_alloc_hook() -> set_page_refcounted()
->
-> + Then, in filemap_add_folio(), the refcount is incremented twice:
->
->      + The first is from the filemap (1 refcount per page if this is a
->        hugepage):
->
->          filemap_add_folio() -> __filemap_add_folio() -> folio_ref_add()
->
->      + The second is a refcount from the lru list
->
->          filemap_add_folio() -> folio_add_lru() -> folio_get() ->
->          folio_ref_inc()
->
-> In the other path, if the folio exists in the page cache (filemap), the
-> refcount is also incremented through
->
->      filemap_grab_folio() -> __filemap_get_folio() -> filemap_get_entry()
->      -> folio_try_get_rcu()
->
-> I believe all the branches in kvm_gmem_get_folio() are taking a refcount
-> on the folio while the kernel does some work on the folio like clearing
-> the folio in clear_highpage() or getting the next index, and then when
-> done, the kernel does folio_put().
->
-> This pattern is also used in shmem and hugetlb. :)
-
-Thanks for your explanation. It helps a lot.
-
->
-> I'm not sure whose refcount the folio_put() in kvm_gmem_allocate() is
-> dropping though:
->
-> + The refcount for the filemap depends on whether this is a hugepage or
->    not, but folio_put() strictly drops a refcount of 1.
-> + The refcount for the lru list is just 1, but doesn't the page still
->    remain in the lru list?
-
-I guess the refcount drop here is the one get on the fresh allocation.
-Now the filemap has grabbed the folio, so the lifecycle of the folio now 
-is decided by the filemap/inode?
-
->
->>> +
->>> +		/* 64-bit only, wrapping the index should be impossible. */
->>> +		if (WARN_ON_ONCE(!index))
->>> +			break;
->>> +
->>> +		cond_resched();
->>> +	}
->>> +
->>> +	filemap_invalidate_unlock_shared(mapping);
->>> +
->>> +	return r;
->>> +}
->>> +
->>>
->>> <snip>
-
+On 2023/8/25 20:05, Conor Dooley wrote:
+> On Fri, Aug 25, 2023 at 12:56:03PM +0100, Conor Dooley wrote:
+>> Hey Minda,
+>> 
+>> I would like Daire to take a look at this, but I have a few more
+>> smaller comments on this.
+> 
+> And another one that is nitpickery..
+> 
+>> 
+>> On Fri, Aug 25, 2023 at 05:01:25PM +0800, Minda Chen wrote:
+>> > Rename IRQ init function and prepare for re-use
+>> > IRQ init function.
+>> > Add plda_pcie_ops function pointer data structure,
+>> > PolarFire PCIe uses function pointer to get
+>> > their events num.
+>> > 
+>> > rename list:
+>> > mc_init_interrupts()     -> plda_init_interrupts()
+>> > mc_pcie_init_irq_domain()-> plda_pcie_init_irq_domains()
+>> > 
+>> > Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
+>> > ---
+>> >  .../pci/controller/plda/pcie-microchip-host.c | 49 ++++++++++++++-----
+>> >  drivers/pci/controller/plda/pcie-plda.h       | 14 ++++++
+>> >  2 files changed, 51 insertions(+), 12 deletions(-)
+>> > 
+>> > diff --git a/drivers/pci/controller/plda/pcie-microchip-host.c b/drivers/pci/controller/plda/pcie-microchip-host.c
+>> > index b1d5b5b3cee5..03e8e93ea7e4 100644
+>> > --- a/drivers/pci/controller/plda/pcie-microchip-host.c
+>> > +++ b/drivers/pci/controller/plda/pcie-microchip-host.c
+>> > @@ -416,7 +416,10 @@ static void mc_handle_event(struct irq_desc *desc)
+>> >  
+>> >  	chained_irq_enter(chip, desc);
+>> >  
+>> > -	events = get_events(port);
+>> > +	if (port->ops && port->ops->get_events)
+>> > +		events = port->ops->get_events(port);
+>> > +	else
+>> > +		events = get_events(port);
+>> 
+>> I don't really understand why we are going to having two different sorts
+>> of event acquirers here. Is there a reason to not "just" register 
+>> get_events() as the default callback & remove the special casing?
+>> 
+That's ok. All in get_events() callback
+>> >  
+>> >  	for_each_set_bit(bit, &events, NUM_EVENTS)
+>> >  		generic_handle_domain_irq(port->event_domain, bit);
+>> > @@ -562,11 +565,12 @@ static int mc_pcie_init_clks(struct device *dev)
+>> >  	return 0;
+>> >  }
+>> >  
+>> > -static int mc_pcie_init_irq_domains(struct plda_pcie_rp *port)
+>> > +static int plda_pcie_init_irq_domains(struct plda_pcie_rp *port, struct plda_evt *evt)
+>> 
+>> Could you just spell out the word "event" in all of these data
+>> structures and variables? The existing code seems to always spell it
+>> out, so its a boon for consistency too.
+>> 
+ok
+>> >  {
+>> >  	struct device *dev = port->dev;
+>> >  	struct device_node *node = dev->of_node;
+>> >  	struct device_node *pcie_intc_node;
+>> > +	const struct irq_domain_ops *ops;
+>> >  
+>> >  	/* Setup INTx */
+>> >  	pcie_intc_node = of_get_next_child(node, NULL);
+>> > @@ -575,8 +579,9 @@ static int mc_pcie_init_irq_domains(struct plda_pcie_rp *port)
+>> >  		return -EINVAL;
+>> >  	}
+>> >  
+>> > -	port->event_domain = irq_domain_add_linear(pcie_intc_node, NUM_EVENTS,
+>> > -						   &event_domain_ops, port);
+>> > +	ops = evt->domain_ops ? evt->domain_ops : &event_domain_ops;
+>> > +	port->event_domain = irq_domain_add_linear(pcie_intc_node, port->num_events,
+>> > +						   ops, port);
+>> >  	if (!port->event_domain) {
+>> >  		dev_err(dev, "failed to get event domain\n");
+>> >  		of_node_put(pcie_intc_node);
+>> > @@ -661,14 +666,15 @@ static void mc_disable_interrupts(struct mc_pcie *port)
+>> >  	writel_relaxed(GENMASK(31, 0), bridge_base_addr + ISTATUS_HOST);
+>> >  }
+>> >  
+>> > -static int mc_init_interrupts(struct platform_device *pdev, struct plda_pcie_rp *port)
+>> > +static int plda_init_interrupts(struct platform_device *pdev,
+>> > +				struct plda_pcie_rp *port, struct plda_evt *evt)
+>> >  {
+>> >  	struct device *dev = &pdev->dev;
+>> >  	int irq;
+>> >  	int i, intx_irq, msi_irq, event_irq;
+>> >  	int ret;
+>> >  
+>> > -	ret = mc_pcie_init_irq_domains(port);
+>> > +	ret = plda_pcie_init_irq_domains(port, evt);
+>> >  	if (ret) {
+>> >  		dev_err(dev, "failed creating IRQ domains\n");
+>> >  		return ret;
+>> > @@ -678,15 +684,18 @@ static int mc_init_interrupts(struct platform_device *pdev, struct plda_pcie_rp
+>> >  	if (irq < 0)
+>> >  		return -ENODEV;
+>> >  
+>> > -	for (i = 0; i < NUM_EVENTS; i++) {
+>> > +	for (i = 0; i < port->num_events; i++) {
+>> >  		event_irq = irq_create_mapping(port->event_domain, i);
+>> >  		if (!event_irq) {
+>> >  			dev_err(dev, "failed to map hwirq %d\n", i);
+>> >  			return -ENXIO;
+>> >  		}
+>> >  
+>> > -		ret = devm_request_irq(dev, event_irq, mc_event_handler,
+>> > -				       0, event_cause[i].sym, port);
+>> > +		if (evt->request_evt_irq)
+>> > +			ret = evt->request_evt_irq(port, event_irq, i);
+>> > +		else
+>> > +			ret = devm_request_irq(dev, event_irq, plda_event_handler,
+>> > +					       0, NULL, port);
+>> >  		if (ret) {
+>> >  			dev_err(dev, "failed to request IRQ %d\n", event_irq);
+>> >  			return ret;
+>> > @@ -694,7 +703,7 @@ static int mc_init_interrupts(struct platform_device *pdev, struct plda_pcie_rp
+>> >  	}
+>> >  
+>> >  	intx_irq = irq_create_mapping(port->event_domain,
+>> > -				      EVENT_LOCAL_PM_MSI_INT_INTX);
+>> > +				      evt->intx_evt);
+>> >  	if (!intx_irq) {
+>> >  		dev_err(dev, "failed to map INTx interrupt\n");
+>> >  		return -ENXIO;
+>> > @@ -704,7 +713,7 @@ static int mc_init_interrupts(struct platform_device *pdev, struct plda_pcie_rp
+>> >  	irq_set_chained_handler_and_data(intx_irq, plda_handle_intx, port);
+>> >  
+>> >  	msi_irq = irq_create_mapping(port->event_domain,
+>> > -				     EVENT_LOCAL_PM_MSI_INT_MSI);
+>> > +				     evt->msi_evt);
+>> >  	if (!msi_irq)
+>> >  		return -ENXIO;
+>> >  
+>> > @@ -717,6 +726,17 @@ static int mc_init_interrupts(struct platform_device *pdev, struct plda_pcie_rp
+>> >  	return 0;
+>> >  }
+>> >  
+>> > +static int mc_request_evt_irq(struct plda_pcie_rp *plda, int event_irq,
+>> > +			      int evt)
+>> > +{
+>> > +	return devm_request_irq(plda->dev, event_irq, mc_event_handler,
+>> > +				0, event_cause[evt].sym, plda);
+>> > +}
+>> > +
+>> > +static const struct plda_pcie_ops plda_ops = {
+>> > +	.get_events = get_events,
+>> > +};
+>> 
+>> This struct gets left behind in the microchip driver file, but is named
+>> "plda_ops". That doesn't make sense to me, I think it should have an
+>> "mc" prefix like other stuff in the file (and the microchip version of
+>> get_events() should also grow a prefix IMO).
+>> 
+>> Thanks,
+>> Conor.
+>> 
+OK. thanks.
+>> > +
+>> >  static int mc_platform_init(struct pci_config_window *cfg)
+>> >  {
+>> >  	struct device *dev = cfg->parent;
+>> > @@ -724,6 +744,9 @@ static int mc_platform_init(struct pci_config_window *cfg)
+>> >  	void __iomem *bridge_base_addr =
+>> >  		port->axi_base_addr + MC_PCIE_BRIDGE_ADDR;
+>> >  	struct pci_host_bridge *bridge = platform_get_drvdata(pdev);
+>> > +	struct plda_evt evt = {&event_domain_ops, mc_request_evt_irq,
+>> > +			       EVENT_LOCAL_PM_MSI_INT_INTX,
+>> > +			       EVENT_LOCAL_PM_MSI_INT_MSI};
+> 
+> Isn't this the normal style for struct initialisers?
+> 	struct plda_evt evt = {
+> 		&event_domain_ops, mc_request_evt_irq,
+> 		EVENT_LOCAL_PM_MSI_INT_INTX,
+> 		EVENT_LOCAL_PM_MSI_INT_MSI
+> 	};
+> 
+>> >  	int ret;
+>> >  
+>> >  	/* Configure address translation table 0 for PCIe config space */
+>> > @@ -740,7 +763,7 @@ static int mc_platform_init(struct pci_config_window *cfg)
+>> >  		return ret;
+>> >  
+>> >  	/* Address translation is up; safe to enable interrupts */
+>> > -	ret = mc_init_interrupts(pdev, &port->plda);
+>> > +	ret = plda_init_interrupts(pdev, &port->plda, &evt);
+>> >  	if (ret)
+>> >  		return ret;
+>> >  
+>> > @@ -761,6 +784,8 @@ static int mc_host_probe(struct platform_device *pdev)
+>> >  
+>> >  	plda = &port->plda;
+>> >  	plda->dev = dev;
+>> > +	plda->num_events = NUM_EVENTS;
+>> > +	plda->ops = &plda_ops;
+>> >  
+>> >  	port->axi_base_addr = devm_platform_ioremap_resource(pdev, 1);
+>> >  	if (IS_ERR(port->axi_base_addr))
+>> > diff --git a/drivers/pci/controller/plda/pcie-plda.h b/drivers/pci/controller/plda/pcie-plda.h
+>> > index 315d9874b899..ef33c1365b3e 100644
+>> > --- a/drivers/pci/controller/plda/pcie-plda.h
+>> > +++ b/drivers/pci/controller/plda/pcie-plda.h
+>> > @@ -104,6 +104,12 @@
+>> >  
+>> >  #define PM_MSI_TO_MASK_OFFSET			19
+>> >  
+>> > +struct plda_pcie_rp;
+>> > +
+>> > +struct plda_pcie_ops {
+>> > +	u32 (*get_events)(struct plda_pcie_rp *pcie);
+>> > +};
+>> > +
+>> >  struct plda_msi {
+>> >  	struct mutex lock;		/* Protect used bitmap */
+>> >  	struct irq_domain *msi_domain;
+>> > @@ -119,10 +125,18 @@ struct plda_pcie_rp {
+>> >  	struct irq_domain *event_domain;
+>> >  	raw_spinlock_t lock;
+>> >  	struct plda_msi msi;
+>> > +	const struct plda_pcie_ops *ops;
+>> >  	void __iomem *bridge_addr;
+>> >  	int num_events;
+>> >  };
+>> >  
+>> > +struct plda_evt {
+>> > +	const struct irq_domain_ops *domain_ops;
+>> > +	int (*request_evt_irq)(struct plda_pcie_rp *pcie, int evt_irq, int event);
+>> > +	int intx_evt;
+>> > +	int msi_evt;
+>> > +};
+>> > +
+>> >  void plda_handle_msi(struct irq_desc *desc);
+>> >  int plda_allocate_msi_domains(struct plda_pcie_rp *port);
+>> >  irqreturn_t plda_event_handler(int irq, void *dev_id);
+>> > -- 
+>> > 2.17.1
+>> > 
+> 
+> 
 
 _______________________________________________
 linux-riscv mailing list
