@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C19BCA0FE1
-	for <linux-riscv@archiver.kernel.org>; Fri,  1 Sep 2023 10:52:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F11F4CA0FE1
+	for <linux-riscv@archiver.kernel.org>; Fri,  1 Sep 2023 11:00:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=16Dw8GS467YW9ePUjPhsLR9klNrexD+kioMsPMQm/AA=; b=ude4iP0NYot6Wh
-	vv0t/2qo1Em3x2iLTkiSjKAilOnZxARj67kasFUYg6MdymqAGF6z02wgM/YbNOuNx+CFvZPwuhTNZ
-	WZ3RoJnLt+6Q8UXhoSQWPEVMJv6DkhrwzSt9R+obioasKyhNrDl0yo0LP5nd0HauaiMVsgHINL9Mv
-	GRgWvTVwtCm17r1sJsaM/NDH/Dr4swdDUkh9DMVGiPR420ykXUCOc9ELCf0SHyb2m1eYFyJO3QnYM
-	oaGIv6BbWcvD8aA4PIes+wTImqhGieUv3XtUadO8hu2Y1ZZ0X92u4F1MbFLi6sIDwalxl+0uxPZPP
-	L/ioLRqLH916VMj12fkA==;
+	List-Owner; bh=4BeWmk4nml/1RUeAg/jGrfW+2QrtBdO6MCuadE0aRiw=; b=I6IkvFBppYMZ+d
+	b/V8+5vA8r5uR2OqBSBF7n3r5pqqtM5bNIIV0HI2YkF0IiypcwMwl9LC7l9BFUOQWGCEMljckR4Xt
+	p6MPW9Bnyja4aZmy4VQKY3J96S5h6YwoxxHSu1axBeN7QOjWo9TLA7hLyKiAesLvVuNSWFOcPc0mE
+	6PsURtECXEIkq5M5OXVUIu7e/ZJoERhe36qDzZ1M8gnGiNbkiMD9YD39cwaoZwEJFquQSmQY0bC/K
+	gwWwkExBG97e8ctMr4LSkcIvyXGcdPnsIC0PLFUKa3ys8P8cBm2jua/WbE+XwJGHwME8Ks6Wxp1Iw
+	rIrlX3yqSE4cvk7gOwPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qc1l7-00Gxgz-1y;
-	Fri, 01 Sep 2023 10:52:13 +0000
-Received: from mail-lj1-x236.google.com ([2a00:1450:4864:20::236])
+	id 1qc1sc-00H26F-2S;
+	Fri, 01 Sep 2023 10:59:58 +0000
+Received: from mail-lf1-x12c.google.com ([2a00:1450:4864:20::12c])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qc1l5-00GxaD-1P
+	id 1qc1sZ-00H23A-2M
 	for linux-riscv@lists.infradead.org;
-	Fri, 01 Sep 2023 10:52:12 +0000
-Received: by mail-lj1-x236.google.com with SMTP id 38308e7fff4ca-2bcc187e0b5so32474551fa.1
-        for <linux-riscv@lists.infradead.org>; Fri, 01 Sep 2023 03:52:02 -0700 (PDT)
+	Fri, 01 Sep 2023 10:59:57 +0000
+Received: by mail-lf1-x12c.google.com with SMTP id 2adb3069b0e04-5008d16cc36so3276337e87.2
+        for <linux-riscv@lists.infradead.org>; Fri, 01 Sep 2023 03:59:54 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20221208; t=1693565521; x=1694170321; darn=lists.infradead.org;
+        d=gmail.com; s=20221208; t=1693565993; x=1694170793; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=3Xmp9WqBbQgAo1cevlJdH0YFWuDdqUeSzKBH4Ev5l8s=;
-        b=WkC66/Ewo0klyDErEiHeejyoBzjbf7TZYw4+KY1KeqsEquttPZTvUUvdl3LMqnBUZm
-         sijjd5vSxUYBWWo7B3+N4Abiqn95UJAInwvt4q8VbKQ+k4fGinwu3e5g8/SG2kxwzuIR
-         g7WMzhTuYOU7jvcSlNX0S55H54RnkCoUBgw1pcRmFEU4nFCfuvyAJOFHp1pmeAjK5TC/
-         l80FBgEu3D5O84aDMSilkc9nuaHHGWnS3ZHCPnMuk3xlJVOiGaik/QXEQpAixltDcc8T
-         4LBTVyIEgzKW6kl2BRDB4YGUeqqGDUPvxo/wailj7kBKy0k3KpIeIZrxAlnXHTzdBwDf
-         yEqw==
+        bh=lPHcmAD9CRQ9UoDmbcvoNZ8a9fCLHJeehssHlOotx8k=;
+        b=eUbVVHKDtmJ9z9nKgRmHD2x4V798cYjhYFwdx2Eq4PZ4iJCi4MfFato/51Ul+Dq51s
+         o7eH0KNvykH7fnJvg1jAcW7o00bp7e1ntSeNtLEyhzvwL9xn6R+JBUr6u+6Z8tqe9xYH
+         yTgr1hQxt1z4xX4eZoDsQn1W7Zy/T9vNKlBdTT81dfgkHt4uYidoo0RnyxWLZgxn7bXU
+         AEQTU65biOp4BKaC03CfxhIeb10nzz3qPsJ9FYhfZw3y0Mf0/BNMXf4tEynoKgk/NSpr
+         rMSOBHf8y4G3NWW8f+P/FopGCyJBFeZMz/QG5CsIcWnH6yZ8jLtF0fZ91dwoNhs/hvk1
+         D5uw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1693565521; x=1694170321;
+        d=1e100.net; s=20221208; t=1693565993; x=1694170793;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=3Xmp9WqBbQgAo1cevlJdH0YFWuDdqUeSzKBH4Ev5l8s=;
-        b=Odstsi33O0OR6wgwydlUpW5E908UzWLolkzgLyCwdUi7V+zbv5FC4jXDw7yQdcckEl
-         /QJvaIXqn+K5UxhpdVpdhAL+CmopbyuJwMTWxpfb0AYaiTijLnXP3wb3GNphaILVLTRi
-         46fdTzGqVy88t4XWtM6IkJ8CeY3mTmONYn8oAGOnt7k/dpRiUnrUBtKOxl+m6PzfqyyY
-         KtWXAUbxm30JLAV/IzyjfzQgxbwdWgfhSKCaK7WPsX9yAe/vG3HS1YoJLrmXdWDPtLGP
-         lwsC7AeB/WWab22MfVfg3HjWGnipTKMzeDjl+FeEuj27aHPjpn6uNfVxARf/U+97wiKm
-         lL5A==
-X-Gm-Message-State: AOJu0YzmQQ5BAsfoteYxvkhYbgleWAI/8C/YPpjrgxK3+/+VKFWKpjVK
-	UgPyOf3dmN8u8c9DugT49dm+0oHhGIl8fA==
-X-Google-Smtp-Source: AGHT+IGGkITGqugrHo6c9lWxjv069VV2n6HMgoHi23eIRSVL/TtfI5z/CRm5kFpMVR3m/saeOUWXIQ==
-X-Received: by 2002:a2e:7403:0:b0:2b6:cdfb:d06a with SMTP id p3-20020a2e7403000000b002b6cdfbd06amr1275906ljc.22.1693565520727;
-        Fri, 01 Sep 2023 03:52:00 -0700 (PDT)
+        bh=lPHcmAD9CRQ9UoDmbcvoNZ8a9fCLHJeehssHlOotx8k=;
+        b=ERYmtrCsoJiuX+3W+WJasU0DRfYr9etTeZwxe0+ZbGyr6S+IYO3nh1Cy8DtvxeL/zJ
+         RK3nkA+21OJnrdQ5MITOeSOaMvLHjkQl5wyAy1QrNfQJp0GST73/iIQaSdJdgIevSWK9
+         qPFYHvVxAmqrOCMpzb+kWsKUDwHFLUvmBicRcNCuRlVaheCszm6Q2tn4aIjghelGQDwY
+         45fawDA715WwVT/Syer6wB/uuqp4h2A/l6cbZdkyPSJ5X0EbkuGpPd6NlEQB4ldXS5E4
+         dwJ9673lF795dJwEX+UIt/0/J0k1yYgAR/fqS6gW8u4I2ohNnWSNKJXfgQG0W9whGbfN
+         +N1w==
+X-Gm-Message-State: AOJu0YwmcE8FnG/1UOBfmwwiG3jDqnaqsq+lJxRg1ktlajOpP9iUf2+U
+	O/MstN0nQWJPJRgFA3maSuEwH08sZgMFEA==
+X-Google-Smtp-Source: AGHT+IFcg/nVsdjSQfPUUokzU+sRfNuxh2D+RuR5R16y1wHUCa60XciguEdDyvboW1fdR/xI87GXMQ==
+X-Received: by 2002:a05:6512:2114:b0:500:78ee:4cd7 with SMTP id q20-20020a056512211400b0050078ee4cd7mr1165114lfr.23.1693565992910;
+        Fri, 01 Sep 2023 03:59:52 -0700 (PDT)
 Received: from prasmi.home ([2a00:23c8:2501:c701:64d6:8737:b80d:a298])
-        by smtp.gmail.com with ESMTPSA id 16-20020a05600c025000b003fee7b67f67sm4497495wmj.31.2023.09.01.03.51.59
+        by smtp.gmail.com with ESMTPSA id 11-20020a05600c248b00b003fc01495383sm7657973wms.6.2023.09.01.03.59.52
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 01 Sep 2023 03:52:00 -0700 (PDT)
+        Fri, 01 Sep 2023 03:59:52 -0700 (PDT)
 From: Prabhakar <prabhakar.csengg@gmail.com>
 X-Google-Original-From: Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 To: Paul Walmsley <paul.walmsley@sifive.com>,
@@ -72,15 +72,14 @@ To: Paul Walmsley <paul.walmsley@sifive.com>,
 Cc: linux-kernel@vger.kernel.org,
 	Prabhakar <prabhakar.csengg@gmail.com>,
 	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Subject: [PATCH] riscv: Kconfig: Select DMA_DIRECT_REMAP only if MMU is enabled
-Date: Fri,  1 Sep 2023 11:51:11 +0100
-Message-Id: <20230901105111.311200-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+Subject: [PATCH] riscv: Kconfig.errata: Drop dependency for MMU in ERRATA_ANDES_CMO config
+Date: Fri,  1 Sep 2023 11:58:58 +0100
+Message-Id: <20230901105858.311745-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
 X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230901_035211_478765_EDD27561 
-X-CRM114-Status: UNSURE (   9.79  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230901_035956_241311_4C088B46 
+X-CRM114-Status: GOOD (  12.14  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,33 +98,33 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 
-kernel/dma/mapping.c has its use of pgprot_dmacoherent() inside
-an #ifdef CONFIG_MMU block. kernel/dma/pool.c has its use of
-pgprot_dmacoherent() inside an #ifdef CONFIG_DMA_DIRECT_REMAP block.
-So select DMA_DIRECT_REMAP only if MMU is enabled for RISCV_DMA_NONCOHERENT
-config.
+Now that RISCV_DMA_NONCOHERENT conditionally selects DMA_DIRECT_REMAP
+ie only if MMU is enabled, we no longer need the MMU dependency in
+ERRATA_ANDES_CMO config.
 
-This avoids users to explicitly select MMU.
-
-Suggested-by: Geert Uytterhoeven <geert+renesas@glider.be>
 Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 ---
- arch/riscv/Kconfig | 2 +-
+Note, this patch needs to be applied only if patch [1] is accepted or else
+we might see build issues with randconfig.
+
+[1] https://lore.kernel.org/linux-riscv/20230901105111.311200-1-prabhakar.mahadev-lad.rj@bp.renesas.com/T/#u
+---
+ arch/riscv/Kconfig.errata | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 468063780a93..a065abdc80e3 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -273,7 +273,7 @@ config RISCV_DMA_NONCOHERENT
- 	select ARCH_HAS_SYNC_DMA_FOR_CPU
- 	select ARCH_HAS_SYNC_DMA_FOR_DEVICE
- 	select DMA_BOUNCE_UNALIGNED_KMALLOC if SWIOTLB
--	select DMA_DIRECT_REMAP
-+	select DMA_DIRECT_REMAP if MMU
+diff --git a/arch/riscv/Kconfig.errata b/arch/riscv/Kconfig.errata
+index 92c779764b27..bee5d838763b 100644
+--- a/arch/riscv/Kconfig.errata
++++ b/arch/riscv/Kconfig.errata
+@@ -12,7 +12,7 @@ config ERRATA_ANDES
  
- config RISCV_NONSTANDARD_CACHE_OPS
- 	bool
+ config ERRATA_ANDES_CMO
+ 	bool "Apply Andes cache management errata"
+-	depends on ERRATA_ANDES && MMU && ARCH_R9A07G043
++	depends on ERRATA_ANDES && ARCH_R9A07G043
+ 	select RISCV_DMA_NONCOHERENT
+ 	default y
+ 	help
 -- 
 2.34.1
 
