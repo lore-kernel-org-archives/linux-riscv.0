@@ -4,104 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3D66CA0FE1
-	for <linux-riscv@archiver.kernel.org>; Fri,  1 Sep 2023 08:23:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B6EECA0FE6
+	for <linux-riscv@archiver.kernel.org>; Fri,  1 Sep 2023 09:06:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=q1bDSjP9jdmIiANMyBNzrM+U9bOJCLaoIDugTw1/oAA=; b=2paSFKLJOh2b7g
-	Ctkw/JN2qh+9itDBFpv2yMfj1kzOOh9ldL4fWFcYi5+b7vboDBcJKFiJ4nkJpaKKBGVhDixvSi1Xk
-	ws6PyZU66raEtmAcDa3PXGnA18u12FXK5gjb9YOm37qCRhUChHvK0kcRYxAZ1bXiVgENn1Cc/pEgg
-	9XNPv8Q+2M2/PnzM9hB4sj+W+qqV6nsQqcFVDDgpyW8m2y46mkVMDzdsYBZPWbffimVXKjxb1qZQ+
-	NZCXLMIiZlAzA98rGVCkY61SGlTiRhU3x2UND5t3evF4pInInmxIVgyWcZLonuvXGLyAko+wAf9O1
-	JJQUIKRA2KxABG0BVIuA==;
+	List-Owner; bh=eojjNvIyKgysB2j2UCVLRExcIYA0F51U2sTVpPvMh0s=; b=MmsHrnrml3zefY
+	T4uEpXmCSXYk0UZCL9HJf0avuLURqEKlwWmR3glKCRtgoAfMrZPkPqcqnr/Wg+1gxx4Wm7hEF6EnZ
+	1EP3StHRjWhPySCaUCzlLVy/7UGGKbra5OQpKLPkf/cIw8tvMspA5I39qoWN2CCW+X831VKvbeuWh
+	p1ReVfBGZ1ovbtMBjpxRG0KpZRnAFe3bBhjUIHWpoQTvTyo7sZcFS6EPRPjMDXnlCrF1xmXLigxW+
+	NY1Zuvv49STCNuvHbpIehGZDtyGHM4/uk/BYImJSaf5Fgk3cyPAvDxR/1+V7kYATJZfYIcNOM0+FT
+	xGaHkW9BT8iO20VjjdBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qbzRE-00GgVe-36;
-	Fri, 01 Sep 2023 08:23:32 +0000
-Received: from smtp-out2.suse.de ([2001:67c:2178:6::1d])
+	id 1qc06K-00Gimc-2B;
+	Fri, 01 Sep 2023 09:06:00 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qbzRA-00GgTW-2F;
-	Fri, 01 Sep 2023 08:23:30 +0000
-Received: from imap2.suse-dmz.suse.de (imap2.suse-dmz.suse.de [192.168.254.74])
+	id 1qc06G-00GilO-39
+	for linux-riscv@lists.infradead.org;
+	Fri, 01 Sep 2023 09:05:58 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (P-521) server-digest SHA512)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id CBCAF1F45E;
-	Fri,  1 Sep 2023 08:23:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
-	t=1693556604; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=lM2jFMiCbU/7Z0Wt66YsVsUtlY4aIj0FUbivaBixA/c=;
-	b=zT4zGINVx2k3wPqz3jcmE9bmJBpBcsDBUwenKzhLerIp+oH2aCkG4+EXh39zRNryjQv5Db
-	syu8c53NOsHAVW9SIMV7rmXaawFxBmlGIS7oN+eGtRpy7NQAkXpdI57c9wkvRp8eiDiXja
-	uA4epJ/r7clJCygmuQc278PsV8l56iM=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
-	s=susede2_ed25519; t=1693556604;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=lM2jFMiCbU/7Z0Wt66YsVsUtlY4aIj0FUbivaBixA/c=;
-	b=ZsrMXAmASwR20bAW12DsiBEXD871qEuKP0anx4duKH2O41WOTWfcG8WLKUJiaYTSgmrfs1
-	lQlapOLm5eLYniDg==
-Received: from imap2.suse-dmz.suse.de (imap2.suse-dmz.suse.de [192.168.254.74])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (P-521) server-digest SHA512)
-	(No client certificate requested)
-	by imap2.suse-dmz.suse.de (Postfix) with ESMTPS id 3A66A1358B;
-	Fri,  1 Sep 2023 08:23:24 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([192.168.254.65])
-	by imap2.suse-dmz.suse.de with ESMTPSA
-	id BOk4DXyf8WREHQAAMHmgww
-	(envelope-from <vbabka@suse.cz>); Fri, 01 Sep 2023 08:23:24 +0000
-Message-ID: <2d9312bf-a5ad-0427-c197-fef6ea5cfe0a@suse.cz>
-Date: Fri, 1 Sep 2023 10:23:23 +0200
+	by ams.source.kernel.org (Postfix) with ESMTPS id AADEBB823FC;
+	Fri,  1 Sep 2023 09:05:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ED147C433C7;
+	Fri,  1 Sep 2023 09:05:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1693559151;
+	bh=bqIQfHHns56XlqLjVZklK3xIcE+Q1rtzJas0HrLow6w=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=Z9SbDqJW8wKthxnD3bt/OkJ4t/JXVjKo6TwW0NTQnqvHfiVkxk61U0X55NvjAAixa
+	 Sh4kff34C0uwBzH1gwTENhVUNN5N6ybV7YFm6gIctrKWCVecUsJ97ihOy71pxnn60l
+	 rvHMFcPadyX10OANQlRDRdHE5cmV5z2d+Z4Rs8Oot5TQe0OxRn7jg3MdZNkkEPUV/T
+	 Ri9qnDPU7+GVCZcMo6seO0lo6hO4g/QrzEvPOGtp4RBk5HZTQ2EDmSLtQ3iFR48+S6
+	 7AvgoID8Szf61kM1Iy/F5fcw/b+L5Zwi4ntACILsV/QhH3tDVGThW0FzTEky0p4TJM
+	 QLgbvHkdfmpow==
+From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
+To: yunhui cui <cuiyunhui@bytedance.com>
+Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+ guoren@kernel.org, bjorn@rivosinc.com, conor.dooley@microchip.com,
+ jszhang@kernel.org, andy.chiu@sifive.com, dave.hansen@linux.intel.com,
+ elver@google.com, glider@google.com, cyphar@cyphar.com,
+ kirill.shutemov@linux.intel.com, keescook@chromium.org,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [External] Re: [PATCH v4] riscv: add userland instruction dump
+ to RISC-V splats
+In-Reply-To: <CAEEQ3wmL90oOZcmpv8G34u7kg44zGscpHJiiRHLi=_LAm=C1jg@mail.gmail.com>
+References: <20230818121504.60492-1-cuiyunhui@bytedance.com>
+ <878ra8o4qa.fsf@all.your.base.are.belong.to.us>
+ <CAEEQ3wmL90oOZcmpv8G34u7kg44zGscpHJiiRHLi=_LAm=C1jg@mail.gmail.com>
+Date: Fri, 01 Sep 2023 11:05:48 +0200
+Message-ID: <87msy6p8k3.fsf@all.your.base.are.belong.to.us>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.14.0
-Subject: Re: [RFC PATCH v11 10/29] mm: Add AS_UNMOVABLE to mark mapping as
- completely unmovable
-To: Matthew Wilcox <willy@infradead.org>,
- "Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
-Cc: Sean Christopherson <seanjc@google.com>,
- Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>,
- Oliver Upton <oliver.upton@linux.dev>, Huacai Chen <chenhuacai@kernel.org>,
- Michael Ellerman <mpe@ellerman.id.au>, Anup Patel <anup@brainfault.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Andrew Morton <akpm@linux-foundation.org>, Paul Moore <paul@paul-moore.com>,
- James Morris <jmorris@namei.org>, "Serge E. Hallyn" <serge@hallyn.com>,
- kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- kvmarm@lists.linux.dev, linux-mips@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org,
- linux-riscv@lists.infradead.org, linux-fsdevel@vger.kernel.org,
- linux-mm@kvack.org, linux-security-module@vger.kernel.org,
- linux-kernel@vger.kernel.org, Chao Peng <chao.p.peng@linux.intel.com>,
- Fuad Tabba <tabba@google.com>, Jarkko Sakkinen <jarkko@kernel.org>,
- Yu Zhang <yu.c.zhang@linux.intel.com>,
- Vishal Annapurve <vannapurve@google.com>,
- Ackerley Tng <ackerleytng@google.com>,
- Maciej Szmigiero <mail@maciej.szmigiero.name>,
- David Hildenbrand <david@redhat.com>, Quentin Perret <qperret@google.com>,
- Michael Roth <michael.roth@amd.com>, Wang <wei.w.wang@intel.com>,
- Liam Merwick <liam.merwick@oracle.com>,
- Isaku Yamahata <isaku.yamahata@gmail.com>
-References: <20230718234512.1690985-1-seanjc@google.com>
- <20230718234512.1690985-11-seanjc@google.com>
- <20230725102403.xywjqlhyqkrzjok6@box.shutemov.name>
- <ZL/Fa4W2Ne9EVxoh@casper.infradead.org>
-Content-Language: en-US
-From: Vlastimil Babka <vbabka@suse.cz>
-In-Reply-To: <ZL/Fa4W2Ne9EVxoh@casper.infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230901_012329_039828_804965B1 
-X-CRM114-Status: GOOD (  25.16  )
+X-CRM114-CacheID: sfid-20230901_020557_436096_85950386 
+X-CRM114-Status: GOOD (  14.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,67 +76,65 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 7/25/23 14:51, Matthew Wilcox wrote:
-> On Tue, Jul 25, 2023 at 01:24:03PM +0300, Kirill A . Shutemov wrote:
->> On Tue, Jul 18, 2023 at 04:44:53PM -0700, Sean Christopherson wrote:
->> > diff --git a/mm/compaction.c b/mm/compaction.c
->> > index dbc9f86b1934..a3d2b132df52 100644
->> > --- a/mm/compaction.c
->> > +++ b/mm/compaction.c
->> > @@ -1047,6 +1047,10 @@ isolate_migratepages_block(struct compact_control *cc, unsigned long low_pfn,
->> >  		if (!mapping && (folio_ref_count(folio) - 1) > folio_mapcount(folio))
->> >  			goto isolate_fail_put;
->> >  
->> > +		/* The mapping truly isn't movable. */
->> > +		if (mapping && mapping_unmovable(mapping))
->> > +			goto isolate_fail_put;
->> > +
->> 
->> I doubt that it is safe to dereference mapping here. I believe the folio
->> can be truncated from under us and the mapping freed with the inode.
->> 
->> The folio has to be locked to dereference mapping safely (given that the
->> mapping is still tied to the folio).
-> 
-> There's even a comment to that effect later on in the function:
-> 
->                         /*
->                          * Only pages without mappings or that have a
->                          * ->migrate_folio callback are possible to migrate
->                          * without blocking. However, we can be racing with
->                          * truncation so it's necessary to lock the page
->                          * to stabilise the mapping as truncation holds
->                          * the page lock until after the page is removed
->                          * from the page cache.
->                          */
-> 
-> (that could be reworded to make it clear how dangerous dereferencing
-> ->mapping is without the lock ... and it does need to be changed to say
-> "folio lock" instead of "page lock", so ...)
-> 
-> How does this look?
-> 
->                         /*
->                          * Only folios without mappings or that have
->                          * a ->migrate_folio callback are possible to
->                          * migrate without blocking. However, we can
->                          * be racing with truncation, which can free
->                          * the mapping.  Truncation holds the folio lock
->                          * until after the folio is removed from the page
->                          * cache so holding it ourselves is sufficient.
->                          */
-
-Incorporated to my attempt at a fix (posted separately per the requested
-process):
-
-https://lore.kernel.org/all/20230901082025.20548-2-vbabka@suse.cz/
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+eXVuaHVpIGN1aSA8Y3VpeXVuaHVpQGJ5dGVkYW5jZS5jb20+IHdyaXRlczoKCj4gSGkgQmrDtnJu
+77yMCj4KPiBPbiBGcmksIEF1ZyAxOCwgMjAyMyBhdCA5OjMz4oCvUE0gQmrDtnJuIFTDtnBlbCA8
+Ympvcm5Aa2VybmVsLm9yZz4gd3JvdGU6Cj4+Cj4+IFl1bmh1aSBDdWkgPGN1aXl1bmh1aUBieXRl
+ZGFuY2UuY29tPiB3cml0ZXM6Cj4+Cj4+ID4gQWRkIHVzZXJsYW5kIGluc3RydWN0aW9uIGR1bXAg
+YW5kIHJlbmFtZSBkdW1wX2tlcm5lbF9pbnN0cigpCj4+ID4gdG8gZHVtcF9pbnN0cigpLgo+PiA+
+Cj4+ID4gQW4gZXhhbXBsZToKPj4gPiBbICAgIDAuODIyNDM5XSBGcmVlaW5nIHVudXNlZCBrZXJu
+ZWwgaW1hZ2UgKGluaXRtZW0pIG1lbW9yeTogNjkxNksKPj4gPiBbICAgIDAuODIzODE3XSBSdW4g
+L2luaXQgYXMgaW5pdCBwcm9jZXNzCj4+ID4gWyAgICAwLjgzOTQxMV0gaW5pdFsxXTogdW5oYW5k
+bGVkIHNpZ25hbCA0IGNvZGUgMHgxIGF0IDB4MDAwMDAwMDAwMDA1YmUxOCBpbiBiYlsxMDAwMCs1
+ZmIwMDBdCj4+ID4gWyAgICAwLjg0MDc1MV0gQ1BVOiAwIFBJRDogMSBDb21tOiBpbml0IE5vdCB0
+YWludGVkIDUuMTQuMC1yYzQtMDAwNDktZ2JkNjQ0MjkwYWE3Mi1kaXJ0eSAjMTg3Cj4+ID4gWyAg
+ICAwLjg0MTM3M10gSGFyZHdhcmUgbmFtZTogICwgQklPUwo+PiA+IFsgICAgMC44NDE3NDNdIGVw
+YyA6IDAwMDAwMDAwMDAwNWJlMTggcmEgOiAwMDAwMDAwMDAwMDc5ZTc0IHNwIDogMDAwMDAwM2Zm
+ZmNhZmRhMAo+PiA+IFsgICAgMC44NDIyNzFdICBncCA6IGZmZmZmZmZmODE2ZTlkYzggdHAgOiAw
+MDAwMDAwMDAwMDAwMDAwIHQwIDogMDAwMDAwMDAwMDAwMDAwMAo+PiA+IFsgICAgMC44NDI5NDdd
+ICB0MSA6IDAwMDAwMDNmZmZjOWZkZjAgdDIgOiAwMDAwMDAwMDAwMDAwMDAwIHMwIDogMDAwMDAw
+MDAwMDAwMDAwMAo+PiA+IFsgICAgMC44NDM0MzRdICBzMSA6IDAwMDAwMDAwMDAwMDAwMDAgYTAg
+OiAwMDAwMDAzZmZmY2EwMTkwIGExIDogMDAwMDAwM2ZmZmNhZmUxOAo+PiA+IFsgICAgMC44NDM4
+OTFdICBhMiA6IDAwMDAwMDAwMDAwMDAwMDAgYTMgOiAwMDAwMDAwMDAwMDAwMDAwIGE0IDogMDAw
+MDAwMDAwMDAwMDAwMAo+PiA+IFsgICAgMC44NDQzNTddICBhNSA6IDAwMDAwMDAwMDAwMDAwMDAg
+YTYgOiAwMDAwMDAwMDAwMDAwMDAwIGE3IDogMDAwMDAwMDAwMDAwMDAwMAo+PiA+IFsgICAgMC44
+NDQ4MDNdICBzMiA6IDAwMDAwMDAwMDAwMDAwMDAgczMgOiAwMDAwMDAwMDAwMDAwMDAwIHM0IDog
+MDAwMDAwMDAwMDAwMDAwMAo+PiA+IFsgICAgMC44NDUyNTNdICBzNSA6IDAwMDAwMDAwMDAwMDAw
+MDAgczYgOiAwMDAwMDAwMDAwMDAwMDAwIHM3IDogMDAwMDAwMDAwMDAwMDAwMAo+PiA+IFsgICAg
+MC44NDU3MjJdICBzOCA6IDAwMDAwMDAwMDAwMDAwMDAgczkgOiAwMDAwMDAwMDAwMDAwMDAwIHMx
+MDogMDAwMDAwMDAwMDAwMDAwMAo+PiA+IFsgICAgMC44NDYxODBdICBzMTE6IDAwMDAwMDAwMDBk
+MTQ0ZTAgdDMgOiAwMDAwMDAwMDAwMDAwMDAwIHQ0IDogMDAwMDAwMDAwMDAwMDAwMAo+PiA+IFsg
+ICAgMC44NDY2MTZdICB0NSA6IDAwMDAwMDAwMDAwMDAwMDAgdDYgOiAwMDAwMDAwMDAwMDAwMDAw
+Cj4+ID4gWyAgICAwLjg0NzIwNF0gc3RhdHVzOiAwMDAwMDAwMjAwMDAwMDIwIGJhZGFkZHI6IDAw
+MDAwMDAwZjAwMjgwNTMgY2F1c2U6IDAwMDAwMDAwMDAwMDAwMDIKPj4gPiBbICAgIDAuODQ4MjE5
+XSBDb2RlOiBmMDZmIGZmNWYgMzgyMyBmYTExIDAxMTMgZmIwMSAyZTIzIDAyMDEgMDI5MyAwMDAw
+ICg4MDUzKSBmMDAyCj4+ID4gWyAgICAwLjg1MTAxNl0gS2VybmVsIHBhbmljIC0gbm90IHN5bmNp
+bmc6IEF0dGVtcHRlZCB0byBraWxsIGluaXQhIGV4aXRjb2RlPTB4MDAwMDAwMDQKPj4gPgo+PiA+
+IFNpZ25lZC1vZmYtYnk6IFl1bmh1aSBDdWkgPGN1aXl1bmh1aUBieXRlZGFuY2UuY29tPgo+Pgo+
+PiBOaWNlIQo+Pgo+PiBSZXZpZXdlZC1ieTogQmrDtnJuIFTDtnBlbCA8Ympvcm5Acml2b3NpbmMu
+Y29tPgo+Cj4gV2hlbiBjYW4gdGhpcyBwYXRjaCBiZSBhcHBsaWVkIHRvIHRoZSBsaW51eC1uZXh0
+IGJyYW5jaD8KCkl0IGxvb2tzIGxpa2UgeW91J3JlIGdldHRpbmcgYSBzcGFyc2Ugd2FybmluZyBv
+biB0aGUgcGF0Y2ggWzFdLCBhbmQKdGhhdCdzIHByb2JhYmx5IHdoeSBpdCBoYXNuJ3QgYmVlbiBj
+b25zaWRlcmVkLiBZb3UgbmVlZCBzb21ldGhpbmcgbGlrZToKCi0tCmRpZmYgLS1naXQgYS9hcmNo
+L3Jpc2N2L2tlcm5lbC90cmFwcy5jIGIvYXJjaC9yaXNjdi9rZXJuZWwvdHJhcHMuYwppbmRleCA2
+OWI1ZDE4YjVhZTkuLmM1MzY0MTMxYjhiZCAxMDA2NDQKLS0tIGEvYXJjaC9yaXNjdi9rZXJuZWwv
+dHJhcHMuYworKysgYi9hcmNoL3Jpc2N2L2tlcm5lbC90cmFwcy5jCkBAIC0zNCw3ICszNCw3IEBA
+IGludCBzaG93X3VuaGFuZGxlZF9zaWduYWxzID0gMTsKIHN0YXRpYyBERUZJTkVfU1BJTkxPQ0so
+ZGllX2xvY2spOwogCiAjZGVmaW5lIGdldF91c2VyX25vZmF1bHQodmFsLCBwdHIpICh7ICAgICAg
+ICAgICAgICAgICAgICAgICAgICBcCi0gICAgICAgY29uc3QgdHlwZW9mKHZhbCkgKl9fZ2tfcHRy
+ID0gKHB0cik7ICAgICAgICAgICAgICAgICAgICBcCisgICAgICAgY29uc3QgdHlwZW9mKHZhbCkg
+X191c2VyICpfX2drX3B0ciA9IChfX2ZvcmNlIGNvbnN0IHR5cGVvZih2YWwpIF9fdXNlciAqKShw
+dHIpOyBcCiAgICAgICAgY29weV9mcm9tX3VzZXJfbm9mYXVsdCgmKHZhbCksIF9fZ2tfcHRyLCBz
+aXplb2YodmFsKSk7XAogfSkKLS0KCklESywgbWF5YmUgaXQgd29ydGggcmVtb3ZpbmcgdGhlIGRl
+ZmluZSBhbGwgdG9nZXRoZXIsIGFuZCBqdXN0IG9wZW4gY29kZQppdC4KCldoZW4geW91J3JlIHN1
+Ym1pdHRpbmcgcGF0Y2hlcywgaXQncyBhIGdvb2QgdGhpbmcgdG8gdHJhY2sgcGF0Y2h3b3JrIGZv
+cgp3YXJuaW5ncy9lcnJvcnMuCgoKQmrDtnJuCgpbMV0gaHR0cHM6Ly9wYXRjaHdvcmsua2VybmVs
+Lm9yZy9wcm9qZWN0L2xpbnV4LXJpc2N2L3BhdGNoLzIwMjMwODE4MTIxNTA0LjYwNDkyLTEtY3Vp
+eXVuaHVpQGJ5dGVkYW5jZS5jb20vCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMu
+aW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZv
+L2xpbnV4LXJpc2N2Cg==
