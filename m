@@ -4,88 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FFC6CA0FE6
-	for <linux-riscv@archiver.kernel.org>; Fri,  1 Sep 2023 12:40:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBFB5CA0FE1
+	for <linux-riscv@archiver.kernel.org>; Fri,  1 Sep 2023 13:03:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
-	:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=SYWI0AZkAvp9ZEbagjNrjukPEwQ+lbx98h9z3/0dTAs=; b=CnE0XInBIyE85j
-	EdZbJgFHCVCl9R+E8pAvKcIO353Ustp423UGSGMzZirTXS8wxf/rUVyToz5xIeI+AdP8E1qi4Lggg
-	/FrCW9gNDIY9DK3JjhrxqeMG70v+vbrgn4DxcgIRjogAnU1Xub1y+v8bStKh3ayaQ2otUPKNED/zX
-	LX0YTI05hQnm3Q7Qgv0g+JCDZ+/IUoKogyaFiB4gXY9y1AhMAodaztQONVNYy4wVAVTOtPqin8vBt
-	aEvxmZw0hsoVqIB35botjLyU1cyyVQA6WGrr4Ntxq1VoWkW9KPZwRNkslhOFpu3cTKTWs4amEOaK5
-	XHQv7Rp5MCFgiTFBrMDA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=9uDdT1ivwpllIQwWGDm/ZzcEAZB8BX/zNZ/YqoqGvVM=; b=nGkhHH0WYfk5pV
+	WE7IOhsnq3yjiuUX+8YlbUDs2M24i2vh0l9OG52vOymdH2pJ0LsFStzqGlogTjYWTl8aIvZ33zxqW
+	VdPRhG0BT/yR9qRNmjZLlsJ5gsM4MaVBWqjHoYsvkUX1rttsVsIsmtZkFXDWYUBppSIUy9QRJ2p5Z
+	yfVDH7CWndhvhHPRoH/r6VxDU0+S8QsqAxSXjrsBQvr7AJi7FYz7hv6Brse0Ed9DcIjBGQNZL0fsV
+	MtFFocpzbo6vCBXaizLylwLtS1NLilNADXBT6zo+0vYRIi5FmZIxAfY1i7HW77rzc1yqzzY+mdFbu
+	KoW2ZV/uPvxR1iQEqu7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qc3Rm-00HTY9-1m;
-	Fri, 01 Sep 2023 12:40:22 +0000
-Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
+	id 1qc3o5-00HXJ9-02;
+	Fri, 01 Sep 2023 13:03:25 +0000
+Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qc3Ie-00HQLp-0c
+	id 1qc3o1-00HXFv-0b
 	for linux-riscv@lists.infradead.org;
-	Fri, 01 Sep 2023 12:30:57 +0000
-Received: by mail-pf1-x42f.google.com with SMTP id d2e1a72fcca58-68a56401c12so1572488b3a.2
-        for <linux-riscv@lists.infradead.org>; Fri, 01 Sep 2023 05:30:55 -0700 (PDT)
+	Fri, 01 Sep 2023 13:03:23 +0000
+Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-31c73c21113so1593858f8f.1
+        for <linux-riscv@lists.infradead.org>; Fri, 01 Sep 2023 06:03:20 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1693571455; x=1694176255; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:to
-         :from:from:to:cc:subject:date:message-id:reply-to;
-        bh=2OQC+A17dBwkV5biq6l7N28Il7bmSGqCXLaMTa2BoUI=;
-        b=iB8ctvC9skXQHmqZSwz0iX8LFNhj9V5UL2gXSZgJzvYjDABWM/uHt97dyfS+PLKVss
-         oepIMOPcK0C75RoRvG3QhG1Jt4SHJhqEFY7WxgSaLFXcC85j4MesX/SSVzSCwIPg3Od4
-         pZTxk3REmFZB8s1XEkv/DceSAJYw72z3H0GXiD9CN1Q+QVz+TCsJRMgscub78gsPcN0+
-         ysw0e9RdXVxyrw48Od1X7acUaQ74/u4tIKjSt8ppfnmL8LkESy+UkZzOX5kOHrUB9ARV
-         DE7nPCCPpJ7eEXfu3TMPP/cWveIOWcP/UqWeXjlN95L3FQHDpuS+Jx6FNvc6PgXtd4go
-         hmLg==
+        d=linaro.org; s=google; t=1693573399; x=1694178199; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=3XGN82il/1YBgFB1xd1FuzsdVFxN2VHyBDMO8DeBOOo=;
+        b=LD5+Cy99UFAqFMeaJo8bGeEp8vg6ddTAUvnLB7+8TCzGD2WNSswoxBY2vSUGhAwgLu
+         rIgv6FeflmOde1kcujKDb+YWhmnhfl55zPUgKokPSMJphgMugXTxcXVUSTvr4qP2Mez0
+         OZhs9YxaT5KRTeTdJXyYx71iqxo7EEvokc9/ylWMSEoczyintHA8ov/D3vwG46vncx7T
+         uwEJ8chl7sYiIsYGIsnmd+7ZEVLbThv58Lob1CbuF+eYfAENNYQ5KGMjM8xvDTWjwmix
+         eA7JV0u9y8PrhSzUEwJEfj5ycKybdjh4dK6hk8jF+S5jP8GB4rmcLZhFdb/Qk1KT7Z+5
+         q5uA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1693571455; x=1694176255;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:to
-         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=2OQC+A17dBwkV5biq6l7N28Il7bmSGqCXLaMTa2BoUI=;
-        b=j+2XIIxONb0m9RsJEFdMHR72yYiZTheElbUYiNoeN3g+qwfgw1zLwKqMT3J+5rpIQt
-         u4DqKHETld/qHTadUXx+QXC5eXItkYLhP7XHRFS3DLErnt13ld6UJ5cqPASoX9h8bgir
-         1HWoAS7XAx3MVBvYphhHTf7ajmCfgNGs2PnumQNChBrCxTBa95Vcrccf8kgMK6kC6PZm
-         cBt/YBIfLpTqeOsgM8IURULR5g+u8/cWSp21HC7oBYRTCPGMHVs6Td2BgBaqopjFPl8Y
-         Gz/liV8fpEu4YmY/OE67RK58O9q/xxOKxwtuzGGbAJveZUxP6lokVjLk0KNIMYF4qdjV
-         J/Rw==
-X-Gm-Message-State: AOJu0YxILm8N46Sp0LpVaikFtCX6Uzd6GIPnSkOVJ9RRycspasYAXIz6
-	XaKHp1ADjKhF/bO8CykimdNmIw==
-X-Google-Smtp-Source: AGHT+IFpH9TYzbvlVnhSRXGMUYD2omRkS3XxiP6OjYn9bZEgjSIYmWkrlFuNTdgydF6T77aIplkZIw==
-X-Received: by 2002:a05:6a21:3390:b0:147:fd40:2482 with SMTP id yy16-20020a056a21339000b00147fd402482mr2974232pzb.44.1693571454993;
-        Fri, 01 Sep 2023 05:30:54 -0700 (PDT)
-Received: from L6YN4KR4K9.bytedance.net ([139.177.225.249])
-        by smtp.gmail.com with ESMTPSA id s19-20020aa78293000000b006889081281bsm2861184pfm.138.2023.09.01.05.30.48
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Fri, 01 Sep 2023 05:30:53 -0700 (PDT)
-From: Yunhui Cui <cuiyunhui@bytedance.com>
-To: paul.walmsley@sifive.com,
+        d=1e100.net; s=20221208; t=1693573399; x=1694178199;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=3XGN82il/1YBgFB1xd1FuzsdVFxN2VHyBDMO8DeBOOo=;
+        b=iuBFFGUCvw4Q8zeRGC6YPo/BBz7MFtdYzfXRd7K4QK2E7Sifh1va0Xh8gvs78H2UQj
+         NMK4d302gibGmcA/ynUMbKryiR48fdXu840SGCC88woqTzzE+alU4j6GZXQ6gBDfIMOZ
+         DgA4q7sTsld0gRwgxsopEpfQRCEGflT4vLnvFZpGAg2M5CxpA+J2WAxszgf29XIUBzdB
+         2XLUU11xLIKLJ5l28TQDu7nuT/4sBG6FwfyQW6GLNK6e9Gh0uXzDPECLf7YG9sToj8z6
+         Jj2dfP3+aRfK/U+Piu5YCsNAhLT+fN3ZygAnuQWqTFjJSn9MbKtxYF/XaJ619AJ+lm6B
+         LQ9w==
+X-Gm-Message-State: AOJu0YzJKuFxU1VnLFVMcGBG6vXLb18fHaOHKIMFJjR/gtUi44o/itrb
+	dGu8tvtUgbaYXOge04Rt913jFw==
+X-Google-Smtp-Source: AGHT+IERLKj3sQli7kquAJo1LxhyV8dn8e2ozcL/AJpoVa8ta4GyQxSWCkp906EBGCj0hP1nYCxKOQ==
+X-Received: by 2002:adf:f282:0:b0:317:5d3d:c9df with SMTP id k2-20020adff282000000b003175d3dc9dfmr1892285wro.18.1693573397559;
+        Fri, 01 Sep 2023 06:03:17 -0700 (PDT)
+Received: from vingu-book.. ([2a01:e0a:f:6020:e9bd:add1:d9ac:7b3e])
+        by smtp.gmail.com with ESMTPSA id i14-20020adfdece000000b003142e438e8csm5167452wrn.26.2023.09.01.06.03.16
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 01 Sep 2023 06:03:16 -0700 (PDT)
+From: Vincent Guittot <vincent.guittot@linaro.org>
+To: linux@armlinux.org.uk,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	paul.walmsley@sifive.com,
 	palmer@dabbelt.com,
 	aou@eecs.berkeley.edu,
-	guoren@kernel.org,
-	bjorn@rivosinc.com,
-	conor.dooley@microchip.com,
-	jszhang@kernel.org,
-	andy.chiu@sifive.com,
-	cuiyunhui@bytedance.com,
-	dave.hansen@linux.intel.com,
-	elver@google.com,
-	glider@google.com,
-	cyphar@cyphar.com,
-	kirill.shutemov@linux.intel.com,
-	keescook@chromium.org,
+	sudeep.holla@arm.com,
+	gregkh@linuxfoundation.org,
+	rafael@kernel.org,
+	mingo@redhat.com,
+	peterz@infradead.org,
+	juri.lelli@redhat.com,
+	dietmar.eggemann@arm.com,
+	rostedt@goodmis.org,
+	bsegall@google.com,
+	mgorman@suse.de,
+	bristot@redhat.com,
+	vschneid@redhat.com,
+	viresh.kumar@linaro.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v5] riscv: add userland instruction dump to RISC-V splats
-Date: Fri,  1 Sep 2023 20:30:43 +0800
-Message-Id: <20230901123043.73700-1-cuiyunhui@bytedance.com>
-X-Mailer: git-send-email 2.39.2 (Apple Git-143)
+	linux-pm@vger.kernel.org
+Cc: conor.dooley@microchip.com,
+	suagrfillet@gmail.com,
+	ajones@ventanamicro.com,
+	lftan@kernel.org,
+	Vincent Guittot <vincent.guittot@linaro.org>
+Subject: [PATCH 1/4] sched: consolidate and cleanup access to CPU's max compute capacity
+Date: Fri,  1 Sep 2023 15:03:09 +0200
+Message-Id: <20230901130312.247719-2-vincent.guittot@linaro.org>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20230901130312.247719-1-vincent.guittot@linaro.org>
+References: <20230901130312.247719-1-vincent.guittot@linaro.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230901_053056_494733_6BA791D9 
-X-CRM114-Status: GOOD (  12.08  )
+X-CRM114-CacheID: sfid-20230901_060321_226093_A4C32A7E 
+X-CRM114-Status: GOOD (  25.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,88 +117,233 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add userland instruction dump and rename dump_kernel_instr()
-to dump_instr().
+Remove struct rq cpu_capacity_orig field and use arch_scale_cpu_capacity()
+instead.
 
-An example:
-[    0.822439] Freeing unused kernel image (initmem) memory: 6916K
-[    0.823817] Run /init as init process
-[    0.839411] init[1]: unhandled signal 4 code 0x1 at 0x000000000005be18 in bb[10000+5fb000]
-[    0.840751] CPU: 0 PID: 1 Comm: init Not tainted 5.14.0-rc4-00049-gbd644290aa72-dirty #187
-[    0.841373] Hardware name:  , BIOS
-[    0.841743] epc : 000000000005be18 ra : 0000000000079e74 sp : 0000003fffcafda0
-[    0.842271]  gp : ffffffff816e9dc8 tp : 0000000000000000 t0 : 0000000000000000
-[    0.842947]  t1 : 0000003fffc9fdf0 t2 : 0000000000000000 s0 : 0000000000000000
-[    0.843434]  s1 : 0000000000000000 a0 : 0000003fffca0190 a1 : 0000003fffcafe18
-[    0.843891]  a2 : 0000000000000000 a3 : 0000000000000000 a4 : 0000000000000000
-[    0.844357]  a5 : 0000000000000000 a6 : 0000000000000000 a7 : 0000000000000000
-[    0.844803]  s2 : 0000000000000000 s3 : 0000000000000000 s4 : 0000000000000000
-[    0.845253]  s5 : 0000000000000000 s6 : 0000000000000000 s7 : 0000000000000000
-[    0.845722]  s8 : 0000000000000000 s9 : 0000000000000000 s10: 0000000000000000
-[    0.846180]  s11: 0000000000d144e0 t3 : 0000000000000000 t4 : 0000000000000000
-[    0.846616]  t5 : 0000000000000000 t6 : 0000000000000000
-[    0.847204] status: 0000000200000020 badaddr: 00000000f0028053 cause: 0000000000000002
-[    0.848219] Code: f06f ff5f 3823 fa11 0113 fb01 2e23 0201 0293 0000 (8053) f002
-[    0.851016] Kernel panic - not syncing: Attempted to kill init! exitcode=0x00000004
+Scheduler uses 3 methods to get access to the CPU's max compute capacity:
+- arch_scale_cpu_capacity(cpu) which is the default way to get CPU's capacity.
+- cpu_capacity_orig field which is periodically updated with
+  arch_scale_cpu_capacity().
+- capacity_orig_of(cpu) which encapsulates rq->cpu_capacity_orig
 
-Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
+There is no real need to save the value returned by arch_scale_cpu_capacity()
+in struct rq. arch_scale_cpu_capacity() returns:
+- either a per_cpu variable.
+- or a const value for systems which have only one capacity.
+
+Remove cpu_capacity_orig and use arch_scale_cpu_capacity() everywhere.
+
+No functional changes.
+
+some tests of Arm64:
+small SMP device (hikey): no noticeable changes
+HMP device (RB5): hackbench shows minor improvement (1-2%)
+large smp (thx2): hackbench and tbench shows minor improvement (1%)
+
+Signed-off-by: Vincent Guittot <vincent.guittot@linaro.org>
 ---
- arch/riscv/kernel/traps.c | 19 ++++++++++++++++---
- 1 file changed, 16 insertions(+), 3 deletions(-)
+ kernel/sched/core.c        |  2 +-
+ kernel/sched/cpudeadline.c |  2 +-
+ kernel/sched/deadline.c    |  4 ++--
+ kernel/sched/fair.c        | 18 ++++++++----------
+ kernel/sched/rt.c          |  2 +-
+ kernel/sched/sched.h       |  6 ------
+ kernel/sched/topology.c    |  7 +++++--
+ 7 files changed, 18 insertions(+), 23 deletions(-)
 
-diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
-index f798c853bede..923b49c38985 100644
---- a/arch/riscv/kernel/traps.c
-+++ b/arch/riscv/kernel/traps.c
-@@ -33,7 +33,19 @@ int show_unhandled_signals = 1;
+diff --git a/kernel/sched/core.c b/kernel/sched/core.c
+index efe3848978a0..6560392f2f83 100644
+--- a/kernel/sched/core.c
++++ b/kernel/sched/core.c
+@@ -10014,7 +10014,7 @@ void __init sched_init(void)
+ #ifdef CONFIG_SMP
+ 		rq->sd = NULL;
+ 		rq->rd = NULL;
+-		rq->cpu_capacity = rq->cpu_capacity_orig = SCHED_CAPACITY_SCALE;
++		rq->cpu_capacity = SCHED_CAPACITY_SCALE;
+ 		rq->balance_callback = &balance_push_callback;
+ 		rq->active_balance = 0;
+ 		rq->next_balance = jiffies;
+diff --git a/kernel/sched/cpudeadline.c b/kernel/sched/cpudeadline.c
+index 57c92d751bcd..95baa12a1029 100644
+--- a/kernel/sched/cpudeadline.c
++++ b/kernel/sched/cpudeadline.c
+@@ -131,7 +131,7 @@ int cpudl_find(struct cpudl *cp, struct task_struct *p,
+ 			if (!dl_task_fits_capacity(p, cpu)) {
+ 				cpumask_clear_cpu(cpu, later_mask);
  
- static DEFINE_SPINLOCK(die_lock);
+-				cap = capacity_orig_of(cpu);
++				cap = arch_scale_cpu_capacity(cpu);
  
--static void dump_kernel_instr(const char *loglvl, struct pt_regs *regs)
-+static int copy_code(struct pt_regs *regs, u16 *val, const u16 *insns)
-+{
-+	if (!user_mode(regs))
-+		return get_kernel_nofault(*val, insns);
-+
-+	/* The user space code from other tasks cannot be accessed. */
-+	if (regs != task_pt_regs(current))
-+		return -EPERM;
-+
-+	return copy_from_user_nofault(val, insns, sizeof(*val));
-+}
-+
-+static void dump_instr(const char *loglvl, struct pt_regs *regs)
- {
- 	char str[sizeof("0000 ") * 12 + 2 + 1], *p = str;
- 	const u16 *insns = (u16 *)instruction_pointer(regs);
-@@ -42,7 +54,7 @@ static void dump_kernel_instr(const char *loglvl, struct pt_regs *regs)
+ 				if (cap > max_cap ||
+ 				    (cpu == task_cpu(p) && cap == max_cap)) {
+diff --git a/kernel/sched/deadline.c b/kernel/sched/deadline.c
+index 58b542bf2893..c57ef2e0db41 100644
+--- a/kernel/sched/deadline.c
++++ b/kernel/sched/deadline.c
+@@ -132,7 +132,7 @@ static inline unsigned long __dl_bw_capacity(const struct cpumask *mask)
  	int i;
  
- 	for (i = -10; i < 2; i++) {
--		bad = get_kernel_nofault(val, &insns[i]);
-+		bad = copy_code(regs, &val, &insns[i]);
- 		if (!bad) {
- 			p += sprintf(p, i == 0 ? "(%04hx) " : "%04hx ", val);
- 		} else {
-@@ -71,7 +83,7 @@ void die(struct pt_regs *regs, const char *str)
- 	print_modules();
- 	if (regs) {
- 		show_regs(regs);
--		dump_kernel_instr(KERN_EMERG, regs);
-+		dump_instr(KERN_EMERG, regs);
+ 	for_each_cpu_and(i, mask, cpu_active_mask)
+-		cap += capacity_orig_of(i);
++		cap += arch_scale_cpu_capacity(i);
+ 
+ 	return cap;
+ }
+@@ -144,7 +144,7 @@ static inline unsigned long __dl_bw_capacity(const struct cpumask *mask)
+ static inline unsigned long dl_bw_capacity(int i)
+ {
+ 	if (!sched_asym_cpucap_active() &&
+-	    capacity_orig_of(i) == SCHED_CAPACITY_SCALE) {
++	    arch_scale_cpu_capacity(i) == SCHED_CAPACITY_SCALE) {
+ 		return dl_bw_cpus(i) << SCHED_CAPACITY_SHIFT;
+ 	} else {
+ 		RCU_LOCKDEP_WARN(!rcu_read_lock_sched_held(),
+diff --git a/kernel/sched/fair.c b/kernel/sched/fair.c
+index 0b7445cd5af9..06d6d0dde48a 100644
+--- a/kernel/sched/fair.c
++++ b/kernel/sched/fair.c
+@@ -4690,7 +4690,7 @@ static inline void util_est_update(struct cfs_rq *cfs_rq,
+ 	 * To avoid overestimation of actual task utilization, skip updates if
+ 	 * we cannot grant there is idle time in this CPU.
+ 	 */
+-	if (task_util(p) > capacity_orig_of(cpu_of(rq_of(cfs_rq))))
++	if (task_util(p) > arch_scale_cpu_capacity(cpu_of(rq_of(cfs_rq))))
+ 		return;
+ 
+ 	/*
+@@ -4738,14 +4738,14 @@ static inline int util_fits_cpu(unsigned long util,
+ 		return fits;
+ 
+ 	/*
+-	 * We must use capacity_orig_of() for comparing against uclamp_min and
++	 * We must use arch_scale_cpu_capacity() for comparing against uclamp_min and
+ 	 * uclamp_max. We only care about capacity pressure (by using
+ 	 * capacity_of()) for comparing against the real util.
+ 	 *
+ 	 * If a task is boosted to 1024 for example, we don't want a tiny
+ 	 * pressure to skew the check whether it fits a CPU or not.
+ 	 *
+-	 * Similarly if a task is capped to capacity_orig_of(little_cpu), it
++	 * Similarly if a task is capped to arch_scale_cpu_capacity(little_cpu), it
+ 	 * should fit a little cpu even if there's some pressure.
+ 	 *
+ 	 * Only exception is for thermal pressure since it has a direct impact
+@@ -4757,7 +4757,7 @@ static inline int util_fits_cpu(unsigned long util,
+ 	 * For uclamp_max, we can tolerate a drop in performance level as the
+ 	 * goal is to cap the task. So it's okay if it's getting less.
+ 	 */
+-	capacity_orig = capacity_orig_of(cpu);
++	capacity_orig = arch_scale_cpu_capacity(cpu);
+ 	capacity_orig_thermal = capacity_orig - arch_scale_thermal_pressure(cpu);
+ 
+ 	/*
+@@ -7226,7 +7226,7 @@ select_idle_capacity(struct task_struct *p, struct sched_domain *sd, int target)
+ 		 * Look for the CPU with best capacity.
+ 		 */
+ 		else if (fits < 0)
+-			cpu_cap = capacity_orig_of(cpu) - thermal_load_avg(cpu_rq(cpu));
++			cpu_cap = arch_scale_cpu_capacity(cpu) - thermal_load_avg(cpu_rq(cpu));
+ 
+ 		/*
+ 		 * First, select CPU which fits better (-1 being better than 0).
+@@ -7468,7 +7468,7 @@ cpu_util(int cpu, struct task_struct *p, int dst_cpu, int boost)
+ 		util = max(util, util_est);
  	}
  
- 	cause = regs ? regs->cause : -1;
-@@ -104,6 +116,7 @@ void do_trap(struct pt_regs *regs, int signo, int code, unsigned long addr)
- 		print_vma_addr(KERN_CONT " in ", instruction_pointer(regs));
- 		pr_cont("\n");
- 		__show_regs(regs);
-+		dump_instr(KERN_EMERG, regs);
- 	}
+-	return min(util, capacity_orig_of(cpu));
++	return min(util, arch_scale_cpu_capacity(cpu));
+ }
  
- 	force_sig_fault(signo, code, (void __user *)addr);
+ unsigned long cpu_util_cfs(int cpu)
+@@ -9251,8 +9251,6 @@ static void update_cpu_capacity(struct sched_domain *sd, int cpu)
+ 	unsigned long capacity = scale_rt_capacity(cpu);
+ 	struct sched_group *sdg = sd->groups;
+ 
+-	cpu_rq(cpu)->cpu_capacity_orig = arch_scale_cpu_capacity(cpu);
+-
+ 	if (!capacity)
+ 		capacity = 1;
+ 
+@@ -9328,7 +9326,7 @@ static inline int
+ check_cpu_capacity(struct rq *rq, struct sched_domain *sd)
+ {
+ 	return ((rq->cpu_capacity * sd->imbalance_pct) <
+-				(rq->cpu_capacity_orig * 100));
++				(arch_scale_cpu_capacity(cpu_of(rq)) * 100));
+ }
+ 
+ /*
+@@ -9339,7 +9337,7 @@ check_cpu_capacity(struct rq *rq, struct sched_domain *sd)
+ static inline int check_misfit_status(struct rq *rq, struct sched_domain *sd)
+ {
+ 	return rq->misfit_task_load &&
+-		(rq->cpu_capacity_orig < rq->rd->max_cpu_capacity ||
++		(arch_scale_cpu_capacity(rq->cpu) < rq->rd->max_cpu_capacity ||
+ 		 check_cpu_capacity(rq, sd));
+ }
+ 
+diff --git a/kernel/sched/rt.c b/kernel/sched/rt.c
+index 0597ba0f85ff..8f4e8db6e234 100644
+--- a/kernel/sched/rt.c
++++ b/kernel/sched/rt.c
+@@ -515,7 +515,7 @@ static inline bool rt_task_fits_capacity(struct task_struct *p, int cpu)
+ 	min_cap = uclamp_eff_value(p, UCLAMP_MIN);
+ 	max_cap = uclamp_eff_value(p, UCLAMP_MAX);
+ 
+-	cpu_cap = capacity_orig_of(cpu);
++	cpu_cap = arch_scale_cpu_capacity(cpu);
+ 
+ 	return cpu_cap >= min(min_cap, max_cap);
+ }
+diff --git a/kernel/sched/sched.h b/kernel/sched/sched.h
+index 3a01b7a2bf66..17ae151e90c0 100644
+--- a/kernel/sched/sched.h
++++ b/kernel/sched/sched.h
+@@ -1048,7 +1048,6 @@ struct rq {
+ 	struct sched_domain __rcu	*sd;
+ 
+ 	unsigned long		cpu_capacity;
+-	unsigned long		cpu_capacity_orig;
+ 
+ 	struct balance_callback *balance_callback;
+ 
+@@ -2974,11 +2973,6 @@ static inline void cpufreq_update_util(struct rq *rq, unsigned int flags) {}
+ #endif
+ 
+ #ifdef CONFIG_SMP
+-static inline unsigned long capacity_orig_of(int cpu)
+-{
+-	return cpu_rq(cpu)->cpu_capacity_orig;
+-}
+-
+ /**
+  * enum cpu_util_type - CPU utilization type
+  * @FREQUENCY_UTIL:	Utilization used to select frequency
+diff --git a/kernel/sched/topology.c b/kernel/sched/topology.c
+index 05a5bc678c08..e6b0b6a8e60a 100644
+--- a/kernel/sched/topology.c
++++ b/kernel/sched/topology.c
+@@ -2479,12 +2479,15 @@ build_sched_domains(const struct cpumask *cpu_map, struct sched_domain_attr *att
+ 	/* Attach the domains */
+ 	rcu_read_lock();
+ 	for_each_cpu(i, cpu_map) {
++		unsigned long capacity;
++
+ 		rq = cpu_rq(i);
+ 		sd = *per_cpu_ptr(d.sd, i);
+ 
++		capacity = arch_scale_cpu_capacity(i);
+ 		/* Use READ_ONCE()/WRITE_ONCE() to avoid load/store tearing: */
+-		if (rq->cpu_capacity_orig > READ_ONCE(d.rd->max_cpu_capacity))
+-			WRITE_ONCE(d.rd->max_cpu_capacity, rq->cpu_capacity_orig);
++		if (capacity > READ_ONCE(d.rd->max_cpu_capacity))
++			WRITE_ONCE(d.rd->max_cpu_capacity, capacity);
+ 
+ 		cpu_attach_domain(sd, d.rd, i);
+ 	}
 -- 
-2.20.1
+2.34.1
 
 
 _______________________________________________
