@@ -4,81 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C615DCA0FE5
-	for <linux-riscv@archiver.kernel.org>; Fri,  1 Sep 2023 15:12:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D02ADCA0FE4
+	for <linux-riscv@archiver.kernel.org>; Fri,  1 Sep 2023 15:22:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UDbNgp5EfCyMfjkCBENR0ZF5+bONvGM09gbYh5svUsc=; b=WNI1b0ABKQ8RDE
-	LVfJ0r1vhHUwrhIO+mQuSmVdT/qO/K0MkepcV8GMNGyUTDIAQpMcmTjAV8s8SSyrZHNKfyNvWE5ZZ
-	F4QEkc4JLDGYQWQdSmmC+o88aWnXxcgbhVkPqecSgrFpjcCl1t0iMX/I79ASr9sDnie7O69rmeUrl
-	0c0wHkkDTTPqa7oP+RAMSJlA7z6MtlEf0WDEg0ccypw6JBrKlfsOLCU56DbcBotZkDP2nkTGYLY9M
-	jYZ7eGlNCrILqQ05pcgkZesMaE0Z0LdzFTW0x1b2B0sO4cXhqF37PeKE5kqVt8KY95CFUePc1s3uo
-	0Cn2VHwhLJA4A19WW0AA==;
+	List-Owner; bh=BsxcHfCDekViIHeAGFthRL9/XSI63dc4WtLewEPqeog=; b=gmuPq8VLG0F1/6
+	g1J5hchRcJsf+SrfEr8ebelB6oi05tSoV2UZfBFAe8YkWecRSnH5wd0mMMqFSaKcV3GYL7zONRviY
+	B9yIbbOUTSxwX1T4jI8q4F6FQRqFjRjp4ME3a3Z2seZGwXOZ1CgUceda+ZzM8oSiVzghb6XOWdgSk
+	ir/ooi8t0d9mJceP3FYBy/Ck89e0iiaOIiEdABHeCVrQb+KSldxXRQXEYVAkiGRmfhHGVvIcsWSzE
+	/X6o7cIyQTspsRga+Dm0ercRqGBXBqtOFhUB8GTl6gihgbY1gAMz1nqdVJpl4CkXfasZtRAIOz+kn
+	M5FsDiTNr5S8lV0uUaAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qc5ol-0004wp-2s;
-	Fri, 01 Sep 2023 15:12:15 +0000
-Received: from mail-wm1-x342.google.com ([2a00:1450:4864:20::342])
+	id 1qc5yG-0005WV-0e;
+	Fri, 01 Sep 2023 15:22:04 +0000
+Received: from mail-lf1-x12a.google.com ([2a00:1450:4864:20::12a])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qc5oh-0004wW-2l
+	id 1qc5yD-0005WB-05
 	for linux-riscv@lists.infradead.org;
-	Fri, 01 Sep 2023 15:12:13 +0000
-Received: by mail-wm1-x342.google.com with SMTP id 5b1f17b1804b1-401d6f6b2e0so404665e9.1
-        for <linux-riscv@lists.infradead.org>; Fri, 01 Sep 2023 08:12:11 -0700 (PDT)
+	Fri, 01 Sep 2023 15:22:02 +0000
+Received: by mail-lf1-x12a.google.com with SMTP id 2adb3069b0e04-4ff8cf11b90so3867807e87.1
+        for <linux-riscv@lists.infradead.org>; Fri, 01 Sep 2023 08:21:56 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1693581130; x=1694185930; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=3be2sF//osJAtnKeEdFbfwaeyJYeei57lis5INUcmXk=;
-        b=L//rd/klFCft2R2D9q85WMsbfX36SvbDioDEA3D4uqFkR8SjhCvVu0yxPl5tt7szJl
-         Y9eQCmqVX9CqOuh8IF8N5WBKgjqxQ7rZZnFNFfaBQNn1ahiWlZJMsrmbCNSCLKk35I0l
-         FykZKDleGonbY93YY+hq16w96gi72cOvIvxhoBaDlPBcuZae82TALGcsu5fMELVH3UAJ
-         JDpL4dYcWv96dYEcrMCtTQU4bVweHiJ9zGX2Cr5hgnKJ9Xdzs4A/4HI62TjQQd6KbE/y
-         IzP5BnMk/0TgmRJD7KbHjPfUyuHbvH63EozpjSOw4D4IrwM182407YazNjHFDiE7x4Jj
-         Ysjw==
+        d=linux-foundation.org; s=google; t=1693581714; x=1694186514; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=7A6PoNg2bWKzcv8thpGHMroeJ8aq0Z0HWATQwNtHOIw=;
+        b=UEPE+/6SQADsWHSWbRLOINtLvmLUxD9Qhg5QQGTchmhzDjkTlikCQe4dOhA/1n2oTL
+         ZLB4ermiV4GJy7Y9sHzIUhsf9FNXV24AvheItlI53uAx3Rs/LORf0BEh/XhbOfB8xscE
+         YTWcQ2qi5DwS4SMDh/ixLkWDgBsPw/l716lCY=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1693581130; x=1694185930;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=3be2sF//osJAtnKeEdFbfwaeyJYeei57lis5INUcmXk=;
-        b=WAfqTYY8FZYGmBekcZuNlVREyd9S27f1fWRQPgpm0x750k88wiNp7BPip/n6GjaA2z
-         DjxkDZpD0PFILsREmKLbv3/ft3ZWN2XBsehTvgOPVvPqXnTH4QJYoDOKBYWaHs15uzwG
-         EK6SotS/QXU3+yWfdR/H+UA4acpVAqbZAVBfMXHEYkbgH4YiWscYo9Dog6snQ3ldW+9y
-         P5I4wrLurr8FfxeXmkAHg0Yhve5qIz/k16ick+6KWUUpQEFFwtvyaBGtigpr22zVX9Dd
-         Pc5V7H3AutwlgkM9Wf8EEbpl41DVQzWJ/cCUqGZkNh4xct3n7ajUJVH5sS2XyhVa3aXp
-         PhSg==
-X-Gm-Message-State: AOJu0YzAe7ECwNhMIXBh3jXB4iax7lPatF+Lb2rEUEAJfFQDXfGEi0VL
-	j4e90T739ZELcTpjUdg2r5zM7Q==
-X-Google-Smtp-Source: AGHT+IHtAXP+yDUbm2K1XH4sJOJ+U+GVHzM53kEKfU13HKSe8uQKH4pdp5KHrhtBXzoNL+VoaeK/6g==
-X-Received: by 2002:a5d:6ac7:0:b0:313:f75b:c552 with SMTP id u7-20020a5d6ac7000000b00313f75bc552mr1974498wrw.15.1693581129700;
-        Fri, 01 Sep 2023 08:12:09 -0700 (PDT)
-Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
-        by smtp.gmail.com with ESMTPSA id o4-20020a5d6844000000b003197b85bad2sm5540732wrw.79.2023.09.01.08.12.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 01 Sep 2023 08:12:09 -0700 (PDT)
-Date: Fri, 1 Sep 2023 17:12:08 +0200
-From: Andrew Jones <ajones@ventanamicro.com>
-To: "Wang, Xiao W" <xiao.w.wang@intel.com>
-Cc: "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>, 
-	"paul.walmsley@sifive.com" <paul.walmsley@sifive.com>, "palmer@dabbelt.com" <palmer@dabbelt.com>, 
-	"aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>, "evan@rivosinc.com" <evan@rivosinc.com>, 
-	"conor.dooley@microchip.com" <conor.dooley@microchip.com>, "apatel@ventanamicro.com" <apatel@ventanamicro.com>
-Subject: Re: [PATCH v2 6/6] RISC-V: selftests: Add CBO tests
-Message-ID: <20230901-b4e5f6219de94391e5fa11d6@orel>
-References: <20230830164954.91987-8-ajones@ventanamicro.com>
- <20230830164954.91987-14-ajones@ventanamicro.com>
- <DM8PR11MB57513A1848E33ABF9131423AB8E4A@DM8PR11MB5751.namprd11.prod.outlook.com>
+        d=1e100.net; s=20221208; t=1693581714; x=1694186514;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=7A6PoNg2bWKzcv8thpGHMroeJ8aq0Z0HWATQwNtHOIw=;
+        b=juRTj1oUqVq2t1SGAhcJaa+x0rb0Yrldj77AdxOZ44TdfBW5TZPanL3xvN2VXxC88b
+         Vhp8xVYcqc7enM0sIrJaQjRhk5HjtMTJhS5IXLa9lfyMIa86ZKIlXJXWxEzagUlnf6st
+         LFGnjFLKSsUU7V0h+7yqzjIr5V84jBIeShkiK6sjLhyXScfHTd7rVHfzCJObRj1HQdLH
+         Fq/ZMmMsG1QGxxezX26joEJeTm3cUgZUBKsB0btBPQh7zYg1A2bPBHFYkkVpABQ4IMZF
+         Gwgfk2vGPQRUKb+vQBx94xxpwN48/bOWzfHee+oXfoi7sJ5LsLADMIhmzUN0rYhAzcYW
+         flWA==
+X-Gm-Message-State: AOJu0Yza+PXM3DDwk+pvt9Bcan2lQuqZgyPEX3xu44oNH85WrDtYDran
+	i983G3UR9i91deYXuT+fXYPgaSBBpKXcbWHKdHlaH64C
+X-Google-Smtp-Source: AGHT+IHlTj9h9dRn2mFa88D7+8qkBvLOr2+AlPeV+DvHAQH8BKlRhXSM00p5N4OJToIP6twoDgThIA==
+X-Received: by 2002:ac2:482d:0:b0:500:a2d3:3e65 with SMTP id 13-20020ac2482d000000b00500a2d33e65mr1856973lft.23.1693581714584;
+        Fri, 01 Sep 2023 08:21:54 -0700 (PDT)
+Received: from mail-lj1-f180.google.com (mail-lj1-f180.google.com. [209.85.208.180])
+        by smtp.gmail.com with ESMTPSA id i21-20020ac25235000000b00500921a0ad6sm669982lfl.98.2023.09.01.08.21.53
+        for <linux-riscv@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 01 Sep 2023 08:21:54 -0700 (PDT)
+Received: by mail-lj1-f180.google.com with SMTP id 38308e7fff4ca-2b9f0b7af65so34838931fa.1
+        for <linux-riscv@lists.infradead.org>; Fri, 01 Sep 2023 08:21:53 -0700 (PDT)
+X-Received: by 2002:a2e:a162:0:b0:2bc:be3c:9080 with SMTP id
+ u2-20020a2ea162000000b002bcbe3c9080mr2078264ljl.27.1693581713434; Fri, 01 Sep
+ 2023 08:21:53 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <DM8PR11MB57513A1848E33ABF9131423AB8E4A@DM8PR11MB5751.namprd11.prod.outlook.com>
+References: <mhng-d12081f2-1ff7-4f68-b320-f3aa5c458365@palmer-ri-x1c9>
+In-Reply-To: <mhng-d12081f2-1ff7-4f68-b320-f3aa5c458365@palmer-ri-x1c9>
+From: Linus Torvalds <torvalds@linux-foundation.org>
+Date: Fri, 1 Sep 2023 08:21:35 -0700
+X-Gmail-Original-Message-ID: <CAHk-=wj3iBTT5mcYvaUH+fX7Y+z=JUbx6O5nvNMkpe2k8Hcokw@mail.gmail.com>
+Message-ID: <CAHk-=wj3iBTT5mcYvaUH+fX7Y+z=JUbx6O5nvNMkpe2k8Hcokw@mail.gmail.com>
+Subject: Re: [GIT PULL] RISC-V Patches for the 6.6 Merge Window, Part 1
+To: Palmer Dabbelt <palmer@rivosinc.com>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230901_081211_892289_2DF5F8C2 
-X-CRM114-Status: GOOD (  30.56  )
+X-CRM114-CacheID: sfid-20230901_082201_479096_F6A686E2 
+X-CRM114-Status: GOOD (  16.86  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,154 +93,52 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 01, 2023 at 09:37:27AM +0000, Wang, Xiao W wrote:
-> Hi,
-> 
-> > -----Original Message-----
-> > From: linux-riscv <linux-riscv-bounces@lists.infradead.org> On Behalf Of
-> > Andrew Jones
-> > Sent: Thursday, August 31, 2023 12:50 AM
-> > To: linux-riscv@lists.infradead.org
-> > Cc: paul.walmsley@sifive.com; palmer@dabbelt.com;
-> > aou@eecs.berkeley.edu; evan@rivosinc.com; conor.dooley@microchip.com;
-> > apatel@ventanamicro.com
-> > Subject: [PATCH v2 6/6] RISC-V: selftests: Add CBO tests
-> > 
-> > Add hwprobe test for Zicboz and its block size. Also, when Zicboz is
-> > present, test that cbo.zero may be issued and works. Additionally
-> > test that the Zicbom instructions cause SIGILL and also that cbo.zero
-> > causes SIGILL when Zicboz is not present. Pinning the test to a subset
-> > of cpus with taskset will also restrict the hwprobe calls to that set.
-> > 
-> > Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
-> > ---
-> >  .../testing/selftests/riscv/hwprobe/Makefile  |   7 +-
-> >  tools/testing/selftests/riscv/hwprobe/cbo.c   | 162 ++++++++++++++++++
-> >  .../testing/selftests/riscv/hwprobe/hwprobe.c |  12 +-
-> >  .../testing/selftests/riscv/hwprobe/hwprobe.h |  15 ++
-> >  4 files changed, 184 insertions(+), 12 deletions(-)
-> >  create mode 100644 tools/testing/selftests/riscv/hwprobe/cbo.c
-> >  create mode 100644 tools/testing/selftests/riscv/hwprobe/hwprobe.h
-> > 
-> > diff --git a/tools/testing/selftests/riscv/hwprobe/Makefile
-> > b/tools/testing/selftests/riscv/hwprobe/Makefile
-> > index 5f614c3ba598..f224b84591fb 100644
-> > --- a/tools/testing/selftests/riscv/hwprobe/Makefile
-> > +++ b/tools/testing/selftests/riscv/hwprobe/Makefile
-> > @@ -2,9 +2,14 @@
-> >  # Copyright (C) 2021 ARM Limited
-> >  # Originally tools/testing/arm64/abi/Makefile
-> > 
-> > -TEST_GEN_PROGS := hwprobe
-> > +CFLAGS += -I$(top_srcdir)/tools/include
-> > +
-> > +TEST_GEN_PROGS := hwprobe cbo
-> > 
-> >  include ../../lib.mk
-> > 
-> >  $(OUTPUT)/hwprobe: hwprobe.c sys_hwprobe.S
-> >  	$(CC) -static -o$@ $(CFLAGS) $(LDFLAGS) $^
-> > +
-> > +$(OUTPUT)/cbo: cbo.c sys_hwprobe.S
-> > +	$(CC) -static -o$@ $(CFLAGS) $(LDFLAGS) $^
-> > diff --git a/tools/testing/selftests/riscv/hwprobe/cbo.c
-> > b/tools/testing/selftests/riscv/hwprobe/cbo.c
-> > new file mode 100644
-> > index 000000000000..920abfaa10c2
-> > --- /dev/null
-> > +++ b/tools/testing/selftests/riscv/hwprobe/cbo.c
-> > @@ -0,0 +1,162 @@
-> > +// SPDX-License-Identifier: GPL-2.0-only
-> > +/*
-> > + * Copyright (c) 2023 Ventana Micro Systems Inc.
-> > + *
-> > + * Run with 'taskset -c <cpu-list> cbo' to only execute hwprobe on a
-> > + * subset of cpus, as well as only executing the tests on those cpus.
-> > + */
-> > +#define _GNU_SOURCE
-> > +#include <stdbool.h>
-> > +#include <stdint.h>
-> > +#include <sched.h>
-> > +#include <signal.h>
-> > +#include <assert.h>
-> > +#include <linux/compiler.h>
-> > +#include <asm/ucontext.h>
-> > +
-> > +#include "hwprobe.h"
-> > +#include "../../kselftest.h"
-> > +
-> > +static char mem[4096] __aligned(4096) = { [0 ... 4095] = 0xa5 };
-> > +
-> > +static bool illegal_insn;
-> > +
-> > +static void sigill_handler(int sig, siginfo_t *info, void *context)
-> > +{
-> > +	unsigned long *regs = (unsigned long *)&((ucontext_t *)context)-
-> > >uc_mcontext;
-> > +	uint32_t insn = *(uint32_t *)regs[0];
-> > +
-> > +	assert(insn >> 20 == regs[11] &&
-> > +	       (insn & ((1 << 20) - 1)) == (10 << 15 | 2 << 12 | 0 << 7 | 15));
-> > +
-> > +	illegal_insn = true;
-> > +	regs[0] += 4;
-> > +}
-> > +
-> > +static void cbo_insn(int fn, char *base)
-> > +{
-> > +	asm volatile(
-> > +	"mv	a0, %0\n"
-> > +	"li	a1, %1\n"
-> > +	".4byte	%1 << 20 | 10 << 15 | 2 << 12 | 0 << 7 | 15\n"
-> > +	: : "r" (base), "i" (fn) : "a0", "a1", "memory");
-> > +}
-> > +
-> > +static void cbo_inval(char *base) { cbo_insn(0, base); }
-> > +static void cbo_clean(char *base) { cbo_insn(1, base); }
-> > +static void cbo_flush(char *base) { cbo_insn(2, base); }
-> > +static void cbo_zero(char *base)  { cbo_insn(4, base); }
-> > +
-> > +static void test_no_zicbom(void)
-> > +{
-> > +	illegal_insn = false;
-> > +	cbo_clean(&mem[0]);
-> > +	ksft_test_result(illegal_insn, "No cbo.clean\n");
-> > +
-> > +	illegal_insn = false;
-> > +	cbo_flush(&mem[0]);
-> > +	ksft_test_result(illegal_insn, "No cbo.flush\n");
-> > +
-> > +	illegal_insn = false;
-> > +	cbo_inval(&mem[0]);
-> > +	ksft_test_result(illegal_insn, "No cbo.inval\n");
-> > +}
-> > +
-> > +static void test_no_zicboz(void)
-> > +{
-> > +	illegal_insn = false;
-> > +	cbo_clean(&mem[0]);
-> 
-> Seems we need to call cbo_zero() instead of cbo_clean().
+On Fri, 1 Sept 2023 at 07:41, Palmer Dabbelt <palmer@rivosinc.com> wrote:
+>
+> for the other the result I ended up with was
+>
+> extern pgd_t early_pg_dir[PTRS_PER_PGD];
+> static pgd_t tmp_pg_dir[PTRS_PER_PGD] __page_aligned_bss;
+> static p4d_t tmp_p4d[PTRS_PER_P4D] __page_aligned_bss;
+> static pud_t tmp_pud[PTRS_PER_PUD] __page_aligned_bss;
 
-Nice catch, Xiao. Copy+paste mistake... Will fix for v3.
+That's wrong, you should have removed the 'early_pg_dir' declaration
+that is now in <asm/pgtable.h>, as done by commit d2402048bc8a
+("riscv: mm: fix 2 instances of -Wmissing-variable-declarations").
 
-Thanks,
-drew
+> though that's not showing up in the git diff, so I may have something odd going
+> on here.
 
-> 
-> BRs,
-> Xiao
-> 
-> > +	ksft_test_result(illegal_insn, "No cbo.zero\n");
-> > +}
-> > +
-> [...]
-> > 
-> > 
-> > _______________________________________________
-> > linux-riscv mailing list
-> > linux-riscv@lists.infradead.org
-> > http://lists.infradead.org/mailman/listinfo/linux-riscv
+So what's going on is that you resolved the merge conflict by taking
+everything from one side (not correct, as above), and then git no
+longer considers it a conflict after-the-fact.
+
+Side n ote in case you care about the actual git logic:
+
+The git rules for merge conflicts are different when doing the merge
+and when showing the result after doing a merge.
+
+When doing the merge, git will do the expensive history calculations
+to figure out the merge base and do a 3-way merge of the base and the
+two sides.
+
+So at merge time, git looks back in the history from the two merge
+heads, and does the three-way diff based on the history leading up to
+the two points.
+
+But after the merge, "git show" will basically do the reverse: it
+won't look back in the history, but look at the *result* of the merge.
+You are, after all, asking it to show the merge itself.
+
+So then it will again do a three-way diff, but not of the merge base,
+but of the merge _result_ and the two sides.
+
+And if the merge result is the same as one of the sides, there's no
+conflict remaining, and so no three-way diff.
+
+So that's how conflicts sometimes "disappear" after the merge.
+
+                       Linus
 
 _______________________________________________
 linux-riscv mailing list
