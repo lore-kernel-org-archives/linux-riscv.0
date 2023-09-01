@@ -4,76 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F8E6EE49B2
-	for <linux-riscv@archiver.kernel.org>; Thu, 31 Aug 2023 22:03:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7930ECA0FE2
+	for <linux-riscv@archiver.kernel.org>; Fri,  1 Sep 2023 02:34:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=gwHrvaUR8bpofAHSf+IDKB7ipARiy4MFLS4BuoNUXGI=; b=IVy7hTt7DoGmdMl22MAy9arERG
-	ZzY9ckFxyXc40u+WInRqW7b6J3jjezyzV1SH/Grc83DJpzozCdOVmW8KKoL+Th8EUK1slVwkjRAOK
-	GIetA1ZG+MruKHlkXV+rI/qApCFZFIqDMfCwtdo2FQ8kJjFoq/GYKTwT7tjQcoHEXaSfMKlzLp/jE
-	cc7rHjXVoJKzg1VtPHpjernfG1A+vN1h28sswrYspb6GZD0y+jXHycuHOXe8FfDLkLQDOzk5BS+QH
-	y9qoj3jDxlJX+bRcW5ePpx3CrdxTrsKmbYQ3j6FEpCaF8lsRFFjij5ePKf/YGttLUktfUFZcwiJ/4
-	okC4Z7kA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=X9yvICPD0uUS0bsYwZUEhJsi38b6d9YRNDmcV29K9yk=; b=I12KoSsyPVpvhS
+	drpbd4aI9E41Ow+s4dTZQGNPMxAEVZXQ0Uh6NWA1mrcBCnG3ZgztpAGK/HpfkcCSPYhWdfjoMd5EM
+	ATbAnnP+km48kltTpcGHb8YuNi3Qy+XOd+6S46vUiK6yiqrLztcF719VfYjHBxGWuY4CWK9DNiZsM
+	BaLluM9qe8tmy1tWY1Itcm5c2Tw/lPdu7vk2UnyWmaUWOnyOR4xUQF5qe5zHjxjcoMwTl28voQlQu
+	Mevw/cOtPGDE4LCnY5hrSmUVRunQJD1lQEfrpwLV3JyapY39x49zoAjw97z8qSZPGzjIRpm3r6L+p
+	81gVGR2I5unKpuTLQ9dQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qbpks-00FsGw-2Y;
-	Thu, 31 Aug 2023 22:03:10 +0000
-Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qbpki-00FsDD-1k
+	id 1qbtzU-00GL1f-2z;
+	Fri, 01 Sep 2023 02:34:32 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1qbtzP-00GL0K-20
 	for linux-riscv@lists.infradead.org;
-	Thu, 31 Aug 2023 22:03:03 +0000
-Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-68c0d886ea0so1140200b3a.2
-        for <linux-riscv@lists.infradead.org>; Thu, 31 Aug 2023 15:02:48 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1693519367; x=1694124167; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=6FXDOTJgVIy3p/w3/K72n2bBJ9a4aRqyoQSBv0VXeBs=;
-        b=DYnZWZA7/6+O6fapO9Zo+bwBCGOU3sBW2d2k0VwvRceybQOyr6eGOV/E+tA3/QhGt4
-         V/Z3E+ZcOhKmJqF0QbHzSHO5Zkoj85NBauYH2uUPq//sZYKcrHoZerE9WxpXeHOlLUuk
-         s1G7SDI4auuiUhJkzsR3mMwjZbLbc2xj2DguuYaSzJyS+h9xU+bt66TW1CLKZ6CooDvB
-         +AEovzyH/z4D36V/oiTNtXbs78p0pxglK/4yWLuX0jufKsonZXVIbTB/21c/2NSQy9qZ
-         Z0YvInDXHdXdbsfTyIggW0WUEA5Nm38tcT4XfIzJltIe85L+EDtTOLsYO5GbWZyYbHVv
-         ouGw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1693519367; x=1694124167;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=6FXDOTJgVIy3p/w3/K72n2bBJ9a4aRqyoQSBv0VXeBs=;
-        b=fa8vfkGcH9EClkugA/hWQ/2hhj2vFF6R8bEfO3n5JiKRxQTYUyNWC/2gj65O0oIvnX
-         UCEz932kOj0CsOFb/mTEt/H4GoPulGfRFy0fBX9Sz+70Urm9cgTDl3X9svarUmFUBKyt
-         74EWWChHDkCnt3ATChyH1MeBR73FHF4Sy1wZ6Sldv8rlU7XytZf5WxJgjWStiPlenoWw
-         TfypaS5Yb6e2ZzwLAtlvz8ePbWkxjwuUyVdVULhwiz+ijkKDKYFDEyhmKNA3XcjzJGZ4
-         8Es3DgP2B6RIvLAYU8v8DtRMpwzP3G9S8iYSreoD248grbaDOXJYLQrtMs3dkSvRodm4
-         Zf7g==
-X-Gm-Message-State: AOJu0YxChnMcCBCHR+Lw0RdbJsjH4easrJoBfdyXicwHNKH/aaYYd+Ie
-	MheAlSzKGJXVP8+1F2TtF4JzqB9ZExtNPScbtnY=
-X-Google-Smtp-Source: AGHT+IHvvQrZtCPeit45pg+srInBxN1ZARLTVgf/6cz1VOCYIfJFq2AzTxQ1+kIq5u3Npovyj5lO+A==
-X-Received: by 2002:a05:6a00:21cf:b0:68a:6305:a4cc with SMTP id t15-20020a056a0021cf00b0068a6305a4ccmr1187938pfj.5.1693519367627;
-        Thu, 31 Aug 2023 15:02:47 -0700 (PDT)
-Received: from localhost ([135.180.227.0])
-        by smtp.gmail.com with ESMTPSA id fm19-20020a056a002f9300b0068c1ac1784csm1719727pfb.59.2023.08.31.15.02.47
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 31 Aug 2023 15:02:47 -0700 (PDT)
-Date: Thu, 31 Aug 2023 15:02:47 -0700 (PDT)
-X-Google-Original-Date: Thu, 31 Aug 2023 15:02:08 PDT (-0700)
-Subject: Re: [PATCH] RISC-V: Remove unused "size" in ptrace
-In-Reply-To: <169351910648.23657.13688127900416740511.b4-ty@rivosinc.com>
-CC: linux-riscv@lists.infradead.org, lkp@intel.com
-From: Palmer Dabbelt <palmer@rivosinc.com>
-To: andy.chiu@sifive.com
-Message-ID: <mhng-86d610e1-acfa-4de7-87cc-e6051b6a113f@palmer-ri-x1c9>
-Mime-Version: 1.0 (MHng)
+	Fri, 01 Sep 2023 02:34:30 +0000
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id BC58224E2E6;
+	Fri,  1 Sep 2023 10:33:15 +0800 (CST)
+Received: from EXMBX168.cuchost.com (172.16.6.78) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 1 Sep
+ 2023 10:33:15 +0800
+Received: from [192.168.120.76] (171.223.208.138) by EXMBX168.cuchost.com
+ (172.16.6.78) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 1 Sep
+ 2023 10:33:14 +0800
+Message-ID: <efab6f52-4d7f-ea3c-0fc3-4e3ad03c14c7@starfivetech.com>
+Date: Fri, 1 Sep 2023 10:33:13 +0800
+MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.14.0
+Subject: Re: [PATCH v1 1/3] dt-bindings: mmc: Drop unused properties
+To: Conor Dooley <conor.dooley@microchip.com>, Krzysztof Kozlowski
+	<krzysztof.kozlowski@linaro.org>
+CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, <linux-mmc@vger.kernel.org>, "Emil Renner
+ Berthing" <kernel@esmil.dk>, Rob Herring <robh+dt@kernel.org>, Jaehoon Chung
+	<jh80.chung@samsung.com>, Ulf Hansson <ulf.hansson@linaro.org>, "Krzysztof
+ Kozlowski" <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley
+	<conor+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, "Palmer
+ Dabbelt" <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
+References: <20230830031846.127957-1-william.qiu@starfivetech.com>
+ <20230830031846.127957-2-william.qiu@starfivetech.com>
+ <20230830-commence-trickery-40eaa193cb15@wendy>
+ <b375b88c-0d9c-30a9-21f6-283083cf3880@linaro.org>
+ <20230830-procedure-frostbite-56c751f7c276@wendy>
+Content-Language: en-US
+From: William Qiu <william.qiu@starfivetech.com>
+In-Reply-To: <20230830-procedure-frostbite-56c751f7c276@wendy>
+X-Originating-IP: [171.223.208.138]
+X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX168.cuchost.com
+ (172.16.6.78)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230831_150300_609982_5E9422DF 
-X-CRM114-Status: GOOD (  10.67  )
+X-CRM114-CacheID: sfid-20230831_193427_966381_00BF6D32 
+X-CRM114-Status: GOOD (  18.62  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,28 +79,45 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 31 Aug 2023 14:58:26 PDT (-0700), Palmer Dabbelt wrote:
->
-> On Wed, 30 Aug 2023 13:37:54 -0700, Palmer Dabbelt wrote:
->> Looks like this just got lost somewhere in the respins.
->>
->>
->
-> Applied, thanks!
 
-I'm just squashing it in, as the offending patch was pretty much tip of 
-the tree.
 
->
-> [1/1] RISC-V: Remove unused "size" in ptrace
->       https://git.kernel.org/palmer/c/899230bac3b2
->
-> Best regards,
+On 2023/8/30 16:34, Conor Dooley wrote:
+> On Wed, Aug 30, 2023 at 09:29:20AM +0200, Krzysztof Kozlowski wrote:
+>> On 30/08/2023 08:50, Conor Dooley wrote:
+>> > On Wed, Aug 30, 2023 at 11:18:44AM +0800, William Qiu wrote:
+>> >> Due to the change of tuning implementation, it's no longer necessary to
+>> >> use the "starfive,sysreg" property in dts, so drop the relevant
+>> >> description in dt-bindings here.
+>> > 
+>> > How does changing your software implantation invalidate a description of
+>> > the hardware?
+>> > 
+>> 
+>> Which is kind of proof that this syscon was just to substitute
+>> incomplete hardware description (e.g. missing clocks and phys). We
+>> should have rejected it. Just like we should reject them in the future.
+> 
+> :s I dunno what to do with this... I'm inclined to say not to remove it
+> from the binding or dts at all & only change the software.
+> 
+>> There are just few cases where syscon is reasonable. All others is just
+>> laziness. It's not only starfivetech, of course. Several other
+>> contributors do the same.
+> 
+> I'm not sure if laziness is fair, lack of understanding is usually more
+> likely.
+
+For this, I tend to keep it in binding, but remove it from required. Because
+we only modify the tuning implementation, it doesn't mean that this property
+need to be removed, it's just no longer be the required one.
+
+Best Regards,
+William
 
 _______________________________________________
 linux-riscv mailing list
