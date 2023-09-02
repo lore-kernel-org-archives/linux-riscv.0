@@ -4,82 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2AADC71153
-	for <linux-riscv@archiver.kernel.org>; Sat,  2 Sep 2023 12:50:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84200C001DB
+	for <linux-riscv@archiver.kernel.org>; Sat,  2 Sep 2023 12:50:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PxiODXMGF1bplWdN4wgYrTU3mapuwuc1/a7z1cbkZGM=; b=NM3Ha8H9jEtLc6
-	YgVkgNomwaXdKe91D4P4/C5ruwbIIVIa99z4LlvQO1osi/1aa1nU8FKV8Qtoa8PSqG3iLIkGhpLqC
-	qzA2PV6D3gUENUntxzHx2/GdKnaaHxjRGvOSKPA4/+xZ72BIP8/SBkfQGro2dmQmaX/jN2nlkY3Jw
-	m9MrRgZfL1W90Al3LI/9Q0qU8xTy0I+ry38jGtJMMR/y2w5glElK5F/FvihO23oN6uaryjtNvEIYp
-	2ELHMLEPTyvfEgUVOef3Yjvp2Q22pzz23ojDoEdgZaSCJNR0iDx3sMdYRYA09PDohxLjcuRAxiLxm
-	PpH1YKyfKQlPgYv49pLg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=CN0Ex32wmAdbHBKaG7K6fF62iUrXMisWWnkk0kdCehs=; b=YtyFNaml7MIWdv
+	C/SpmethYtyuT+U0oArqdNhwhPb0Tz1+6KugywIcNrEHAqb5s2m/okDQ+qQyB03gqO8c45ql2k3Vm
+	RL3K/9vbHeEYUZljSnUBdtDztr3uIYlNw20V9bngN2xYoQbdwxkb3P4PQVammhoeAe2TZGhWTenQw
+	GLkTvkOkxMiRhWFHiP5G0wYtQcflP0sGk8Yn/euRMePTEfjq4Mheo2VOCAm5Dg155gagRwZ8rbUrt
+	MVf6dv6vkknYIksxu1EEwAYNMDLDlfvXqlRRyyKz50ZEsSqIQ3u9rhrtk0h1aAj0M5+VVkrhuldKf
+	Secr7GrO9FP8M6mubmOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qcQ4W-001Qy1-1K;
-	Sat, 02 Sep 2023 12:49:52 +0000
-Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
+	id 1qcQ5E-001R3n-1L;
+	Sat, 02 Sep 2023 12:50:36 +0000
+Received: from mgamail.intel.com ([134.134.136.20])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qcQ4T-001QxC-2F
-	for linux-riscv@lists.infradead.org;
-	Sat, 02 Sep 2023 12:49:51 +0000
-Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-269304c135aso2089070a91.3
-        for <linux-riscv@lists.infradead.org>; Sat, 02 Sep 2023 05:49:48 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1693658988; x=1694263788; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=AW9SiUYVqHU6gW9QOW3GIP5QwEKPh+27Ixy8DvS3Y44=;
-        b=FWclWjTUx94ZIVwHWgOT2RwDTgKz5ZKux+tTB4U6MhVKeBDiCSoOiMrRFQxb+U8Euc
-         kOXxzKL9ue7KYozyuUwehRSlcAFVm1byN4+yTNpRKaSD/m2OP2gw/b47v4sB9iOnSU9o
-         /iQgj1mxVgENdswK7QtgpfrPVVI33GU6MBRyLsj8aLRn/HdNH2xTnv7IyQQKYujKghZ0
-         NhZJ3KnjNmQc+/uf8UPLtnET+7Hn/yiTSxjj4Nl4Oau1q29C231UrGhBdpr2t0QmgJfU
-         6cfxwRAOHLDBQp8v9Fsv/XPLpQNTv1igjA7iqmdr1zT6+VC7iqZJpNDCacYbB7rhV+kJ
-         qFDg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1693658988; x=1694263788;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=AW9SiUYVqHU6gW9QOW3GIP5QwEKPh+27Ixy8DvS3Y44=;
-        b=BgDOWMw6TRyt17H8ug07rou3avzN47i+vyq1URhSskZOW6sRca47RilshnTxJ5sNzp
-         5wB/myg/GyUK1dVhg9rh5H+3tRPGBI9Aj1t/1/bgd2SPfVBlqX+n+Cgovb3U0w8iGyjz
-         qBPX55avx1c1T7udKLi7O91w1JMpUcIRD4POX+qNDmy2vWAzvKRC1WICz+39e3T/BIkP
-         4OTRJPZDB48zLwGLJTCJW2E6NPzuC5hC2KX0klbk+6lEwCmwR8A4ocUnfcuD9ldlzoGA
-         61fiqhZY+JfnSYUTmVNAd/r725hWXBUMhncqUzmLKd/G7M+yqvXlPArsYCdOzLOB4BCY
-         EorA==
-X-Gm-Message-State: AOJu0YwEIPSvIuIkB92nusH2aL3WkjPdpWo6ucUlvVVz1ZPM5LsqH3CR
-	VIqAltXCoRFyF070QH6BfmG2wuddNTq8ET7dhl0M8w==
-X-Google-Smtp-Source: AGHT+IFDRS9ZM1b0vV6N2s1IcuMRb6QLQJGFFuAGZLmjG60YfWA2e7cGTR6Esh/hH6bpB1lww/HhRGyd8M/o6jFSaCY=
-X-Received: by 2002:a17:90a:d486:b0:26b:280b:d24c with SMTP id
- s6-20020a17090ad48600b0026b280bd24cmr4549024pju.42.1693658987992; Sat, 02 Sep
- 2023 05:49:47 -0700 (PDT)
+	id 1qcQ5A-001R2a-1t;
+	Sat, 02 Sep 2023 12:50:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1693659032; x=1725195032;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=1yJ8TMy38aSsT7Y7ApKktxIaSJdCAx0h8LuoNfgnrN8=;
+  b=WlpTPRP9xL1wp0Xe64PVNc3q8fSN/faYRFIYrsWZsUfio1S4fhjpdLzi
+   8hUWLFiMUSw/5+6ah0+ow8ifak0/XqSDaVp4MI/truCeYEfJUDYDPssLN
+   t3VYoQk18eZJdq6wzpAQy+msyDYJ7oA25CE6n3smszEUb8Q/W48HbAkdv
+   w+AOSWfOdncPJeH2RaLnuj30enFy64TEzhmu9Vc+Z5RURm0D0lh8h9vwE
+   CCtvn24lHruC/QfmGvMmO6cpUSxFIvsSYdVSAe/HxMT79CVZnnuzHQjT/
+   mKzQwjQSttLSpsHy0d9WE4GDilXR6uVi+v1KHljZICkRLSrju0odVJKeW
+   w==;
+X-IronPort-AV: E=McAfee;i="6600,9927,10821"; a="366599150"
+X-IronPort-AV: E=Sophos;i="6.02,222,1688454000"; 
+   d="scan'208";a="366599150"
+Received: from fmsmga002.fm.intel.com ([10.253.24.26])
+  by orsmga101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Sep 2023 05:50:30 -0700
+X-ExtLoop1: 1
+X-IronPort-AV: E=McAfee;i="6600,9927,10821"; a="855021919"
+X-IronPort-AV: E=Sophos;i="6.02,222,1688454000"; 
+   d="scan'208";a="855021919"
+Received: from haibo-optiplex-7090.sh.intel.com ([10.239.159.132])
+  by fmsmga002-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Sep 2023 05:50:21 -0700
+From: Haibo Xu <haibo1.xu@intel.com>
+To: 
+Cc: xiaobo55x@gmail.com,
+	haibo1.xu@intel.com,
+	ajones@ventanamicro.com,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Shuah Khan <shuah@kernel.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	James Morse <james.morse@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Anup Patel <anup@brainfault.org>,
+	Atish Patra <atishp@atishpatra.org>,
+	Guo Ren <guoren@kernel.org>,
+	wchen <waylingii@gmail.com>,
+	Greentime Hu <greentime.hu@sifive.com>,
+	Sean Christopherson <seanjc@google.com>,
+	Ricardo Koller <ricarkol@google.com>,
+	Vishal Annapurve <vannapurve@google.com>,
+	Vipin Sharma <vipinsh@google.com>,
+	Aaron Lewis <aaronlewis@google.com>,
+	David Matlack <dmatlack@google.com>,
+	Mingwei Zhang <mizhang@google.com>,
+	Vitaly Kuznetsov <vkuznets@redhat.com>,
+	Ackerley Tng <ackerleytng@google.com>,
+	Lei Wang <lei4.wang@intel.com>,
+	Maxim Levitsky <mlevitsk@redhat.com>,
+	Peter Gonda <pgonda@google.com>,
+	Thomas Huth <thuth@redhat.com>,
+	Like Xu <likexu@tencent.com>,
+	=?UTF-8?q?Philippe=20Mathieu-Daud=C3=A9?= <philmd@linaro.org>,
+	David Woodhouse <dwmw@amazon.co.uk>,
+	Michal Luczaj <mhal@rbox.co>,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	kvm@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	kvm-riscv@lists.infradead.org
+Subject: [PATCH v2 0/8] RISCV: Add kvm Sstc timer selftest
+Date: Sat,  2 Sep 2023 20:59:22 +0800
+Message-Id: <cover.1693659382.git.haibo1.xu@intel.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-References: <20230901130312.247719-1-vincent.guittot@linaro.org>
- <20230901130312.247719-4-vincent.guittot@linaro.org> <20230902-clip-shortly-c9af45460915@spud>
-In-Reply-To: <20230902-clip-shortly-c9af45460915@spud>
-From: Vincent Guittot <vincent.guittot@linaro.org>
-Date: Sat, 2 Sep 2023 14:49:36 +0200
-Message-ID: <CAKfTPtCeAHtuasp2r7ZXwrapP5cE16GEJS5_DRB4amAbHYUKgA@mail.gmail.com>
-Subject: Re: [PATCH 3/4] cpufreq/schedutil: use a fixed reference frequency
-To: Conor Dooley <conor@kernel.org>
-Cc: linux@armlinux.org.uk, catalin.marinas@arm.com, will@kernel.org, 
-	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
-	sudeep.holla@arm.com, gregkh@linuxfoundation.org, rafael@kernel.org, 
-	mingo@redhat.com, peterz@infradead.org, juri.lelli@redhat.com, 
-	dietmar.eggemann@arm.com, rostedt@goodmis.org, bsegall@google.com, 
-	mgorman@suse.de, bristot@redhat.com, vschneid@redhat.com, 
-	viresh.kumar@linaro.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	linux-pm@vger.kernel.org, conor.dooley@microchip.com, suagrfillet@gmail.com, 
-	ajones@ventanamicro.com, lftan@kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230902_054949_855631_602B9E02 
-X-CRM114-Status: GOOD (  11.52  )
+X-CRM114-CacheID: sfid-20230902_055032_718671_D7D9886C 
+X-CRM114-Status: GOOD (  13.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,26 +118,85 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, 2 Sept 2023 at 12:57, Conor Dooley <conor@kernel.org> wrote:
->
-> On Fri, Sep 01, 2023 at 03:03:11PM +0200, Vincent Guittot wrote:
->
-> > +#ifdef arch_scale_freq_ref
-> > +/**
-> > + * arch_scale_freq_ref_policy - get the reference frequency of a given CPU that
-> > + * has been used to correlate frequency and compute capacity.
-> > + * @cpu: the CPU in question.
->
-> Copy-pasting fail? That's not what your parameter is called.
+The RISC-V arch_timer selftest is used to validate Sstc timer
+functionality in a guest, which sets up periodic timer interrupts
+and check the basic interrupt status upon its receipt.
 
-Yes, I forgot to change parameter and its description
+This KVM selftest was ported from aarch64 arch_timer and tested
+with Linux v6.5-rc5 on a Qemu riscv64 virt machine.
 
->
-> > + *
-> > + * Return: the reference CPU frequency.
-> > + */
-> > +static __always_inline
-> > +unsigned long  arch_scale_freq_ref_policy(struct cpufreq_policy *policy)
+---
+Changed since v1:
+  * Rebase to kvm-riscv/riscv_kvm_next
+  * Cherry-pick Sean's kselftest guest printf patch set
+    https://lore.kernel.org/all/20230729003643.1053367-1-seanjc@google.com/
+  * Copy the entire csr.h verbatim
+  * Unified the function names for exception vector table setup
+    void vm_init_vector_tables(struct kvm_vm *vm);
+    void vcpu_init_vector_tables(struct kvm_vcpu *vcpu);
+  * Format the handler.S asm file per Andrew's comments
+  * Consolidate the timer test code for arm64 and riscv
+    based on Andrew's and Sean's suggestion
+
+Haibo Xu (8):
+  KVM: selftests: Unify the codes for guest exception handling
+  KVM: arm64: selftest: Split arch_timer test code
+  tools: riscv: Add header file csr.h
+  KVM: riscv: selftests: Switch to use macro from csr.h
+  KVM: riscv: selftests: Add exception handling support
+  KVM: riscv: selftests: Add guest helper to get vcpu id
+  KVM: riscv: selftest: Change vcpu_has_ext to a common function
+  KVM: riscv: selftests: Add sstc timer test
+
+ tools/arch/riscv/include/asm/csr.h            | 521 ++++++++++++++++++
+ tools/testing/selftests/kvm/Makefile          |  11 +-
+ .../selftests/kvm/aarch64/arch_timer.c        | 292 +---------
+ .../selftests/kvm/aarch64/debug-exceptions.c  |   4 +-
+ .../selftests/kvm/aarch64/page_fault_test.c   |   4 +-
+ .../testing/selftests/kvm/aarch64/vgic_irq.c  |   4 +-
+ tools/testing/selftests/kvm/arch_timer.c      | 261 +++++++++
+ .../selftests/kvm/include/aarch64/processor.h |  12 +-
+ .../selftests/kvm/include/kvm_util_base.h     |   9 +
+ .../selftests/kvm/include/riscv/arch_timer.h  |  80 +++
+ .../selftests/kvm/include/riscv/processor.h   |  60 +-
+ .../selftests/kvm/include/timer_test.h        |  58 ++
+ .../selftests/kvm/include/x86_64/processor.h  |   5 -
+ .../selftests/kvm/lib/aarch64/processor.c     |   6 +-
+ .../selftests/kvm/lib/riscv/handlers.S        | 101 ++++
+ .../selftests/kvm/lib/riscv/processor.c       |  86 +++
+ .../selftests/kvm/lib/x86_64/processor.c      |   4 +-
+ .../testing/selftests/kvm/riscv/arch_timer.c  | 130 +++++
+ .../selftests/kvm/riscv/get-reg-list.c        |  14 -
+ tools/testing/selftests/kvm/x86_64/amx_test.c |   4 +-
+ .../selftests/kvm/x86_64/fix_hypercall_test.c |   4 +-
+ .../selftests/kvm/x86_64/hyperv_evmcs.c       |   4 +-
+ .../selftests/kvm/x86_64/hyperv_features.c    |   8 +-
+ .../testing/selftests/kvm/x86_64/hyperv_ipi.c |   6 +-
+ .../selftests/kvm/x86_64/kvm_pv_test.c        |   4 +-
+ .../selftests/kvm/x86_64/monitor_mwait_test.c |   4 +-
+ .../kvm/x86_64/pmu_event_filter_test.c        |   8 +-
+ .../smaller_maxphyaddr_emulation_test.c       |   4 +-
+ .../selftests/kvm/x86_64/svm_int_ctl_test.c   |   4 +-
+ .../kvm/x86_64/svm_nested_shutdown_test.c     |   4 +-
+ .../kvm/x86_64/svm_nested_soft_inject_test.c  |   4 +-
+ .../kvm/x86_64/ucna_injection_test.c          |   8 +-
+ .../kvm/x86_64/userspace_msr_exit_test.c      |   4 +-
+ .../vmx_exception_with_invalid_guest_state.c  |   4 +-
+ .../selftests/kvm/x86_64/vmx_pmu_caps_test.c  |   4 +-
+ .../selftests/kvm/x86_64/xapic_ipi_test.c     |   4 +-
+ .../selftests/kvm/x86_64/xcr0_cpuid_test.c    |   4 +-
+ .../selftests/kvm/x86_64/xen_shinfo_test.c    |   4 +-
+ 38 files changed, 1376 insertions(+), 376 deletions(-)
+ create mode 100644 tools/arch/riscv/include/asm/csr.h
+ create mode 100644 tools/testing/selftests/kvm/arch_timer.c
+ create mode 100644 tools/testing/selftests/kvm/include/riscv/arch_timer.h
+ create mode 100644 tools/testing/selftests/kvm/include/timer_test.h
+ create mode 100644 tools/testing/selftests/kvm/lib/riscv/handlers.S
+ create mode 100644 tools/testing/selftests/kvm/riscv/arch_timer.c
+
+-- 
+2.34.1
+
 
 _______________________________________________
 linux-riscv mailing list
