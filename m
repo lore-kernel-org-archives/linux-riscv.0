@@ -4,64 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A008CC83F2C
-	for <linux-riscv@archiver.kernel.org>; Mon,  4 Sep 2023 05:23:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4744DC71153
+	for <linux-riscv@archiver.kernel.org>; Mon,  4 Sep 2023 05:43:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Date:Subject:Message-Id:References:
-	In-Reply-To:Cc:To:From:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VPvPy6Y1wqzVm0gPMvzhfipnMeb7b02tcxpPxtBPl+A=; b=SJBfeRvMW+2Q+U
-	6wSrm12vFLN/lG9cbvDh0bEmOuwjveghOnXpQmP6ajU32VWn3kD/JZ6G8mYMkgqTkR5FXUxEl1Zne
-	FR/H5hJDSfydwUaqkpzjdbojv3w7te0BPeoeIUszUn5pN16LfGQsBAPqL9uT7T1GDQCge9iOT+flj
-	dKEnkRWRMyuG+MnOAUxq2IrASVIMQN2yVvZnflfD2ankYN9WcERCyuk5pGf6SQ+OgfgM66WVLK8RI
-	tiXY2u29XFWR6dFGANQck8r7gdRNCjqB3TWPFSzkwg23a2t6cGInFs9F9gXyaDuQW0sLJg9R9qb5q
-	XDkyA9JO3/5KFBIBD56Q==;
+	List-Owner; bh=DqtiVbmkRTjAKpswIvW+reieohbSHI+kv89lTNdNW3M=; b=gtn4gmsoyGSvXu
+	Flhvi/c++E3geVchOlDrnfxYF/lRgIdJrjU9jUamxHrCabwEuscPE1fzlxd13mbTR+tlA87rOsG/f
+	1Y5UrQtKjdhOtjr/jR7W3M58r/PLo0YbmCGFqQNE4jkFHccsNKm2tP94MpgVN4Sr0Hj4CuWgLhkXs
+	T3ioemW758d0slLdNoro1kUC5Bf5GeanKIzA3YufsmcsCCsrB4ip+h9eDG+l8IRcK6Fo+BGWbV2zi
+	Mrd6agr2FdkxpVXkzpAoSEIzCajwhCFL7mOrutSKu+KuP0iOnXeXWOWjPMOtluRs8fOimC40Oyiaq
+	1hsitSZsLcqbyMiOUcZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qd23P-003M17-0V;
-	Mon, 04 Sep 2023 05:23:15 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1qd2Mp-003MhC-21;
+	Mon, 04 Sep 2023 05:43:19 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qd23M-003Lzi-1h
-	for linux-riscv@lists.infradead.org;
-	Mon, 04 Sep 2023 05:23:14 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id BADF660F38;
-	Mon,  4 Sep 2023 05:23:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B9BDBC433C7;
-	Mon,  4 Sep 2023 05:23:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1693804982;
-	bh=AhObSTGqSQAU1+PsPv0SmiERR6jbys0w6afeTa4xQTk=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=kRg80CrC66UlN9oKSqcaXcPbNrq3DHre4b8l553VdCc4tPNE8oe3JEoOuK7iKLg6a
-	 BLM88Sfe2vaM84rfZAEu26lBsgNo4J9C11XS/b8euqkknPl2dtMfiTbbvnUdZ2gkMd
-	 oZmvL54PFU0+PaTaztERBmvec6nDAOFPEez0PFA5iDLjU12hwz0+oI+OqcdJcf/Cik
-	 bNWtCa5f0yDkMoirKsmSn5yLjKyRvnQdMUzZntVqjoV7u026VSeIJ6qCKidcGqu95i
-	 lpE7vDPGpP4FRPmInz70r/l59GHNiSZAOXfBUWKtT82vk2STSpqU6ycyOE83ixO51/
-	 S3NIuMpkTnoWw==
-Received: (nullmailer pid 731699 invoked by uid 1000);
-	Mon, 04 Sep 2023 05:22:59 -0000
+	id 1qd2Mn-003Mgz-1s
+	for linux-riscv@bombadil.infradead.org;
+	Mon, 04 Sep 2023 05:43:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=xdrF6N8HL4EbV22j8WXgXy3Ah6H26H5auVEub33/Rkc=; b=mbcGefQPJvyy3MtsBJlEVmmU7z
+	k6Vwbt0pfj59pUGR19y2nSS7PyBPJKcN66UzuSP2o3afH3ca43LitcWpevNNMu7HKr0s1JnJiaIwt
+	tKoCTvvvTlX9UqzzGZeYWSO3bblaF3WiCIFEi+1d6PoAEf9CUZl3JogHluZIh9GG9txGH5cSwGZPI
+	kW0qOgXxdq5iuknissB9P/wdEqTBBHNoccRktRYmtY3qH8QTHM3aJWOigbFUAJFOo3FmrxyENxRJa
+	oSUsruI/K6FkXVKyJ65dmlOlBSm5NDXyh4jQFxTtYSRgeDH/FXcubrb/EkEXCdTj+US6KSpLxIxns
+	FIpIPWNQ==;
+Received: from bg2.exmail.qq.com ([114.132.75.215])
+	by casper.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1qd2Me-00Cjqn-2f
+	for linux-riscv@lists.infradead.org; Mon, 04 Sep 2023 05:43:16 +0000
+X-QQ-mid: bizesmtp69t1693806064t61ncw53
+Received: from wangjiexun-virtual-machine.loca ( [120.225.34.249])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Mon, 04 Sep 2023 13:41:02 +0800 (CST)
+X-QQ-SSF: 01200000000000001000000A0000000
+X-QQ-FEAT: rZJGTgY0+YOS3vKl0NMirRR1pAhmed70/gLFuj/Gr660BtUWLKoHQ7PnNRXSp
+	X4pSLbZOdfAkBI4khh9tRvTDbOaTQlmcKegcyzoPBsaxHw25F18pQGBZDtYpE5OJ3kdPkqE
+	zwijwvHa/JIzv4ytcLinIVlEorFNeSv09106k4IKEpljgzyNnhgo+tah2zJJLYl1k8XWr4+
+	eOKAT4b8ezpPcdUycki4Vdq+okzxerMB29oA6vgy7xa29tA7V8mwxuxL8Y5LtlGjkwYIyH6
+	UYM2lN8Xy7WdmPIEXzR+HvsbvAOP+0YgUBM8CSyYsM4HgldighDFRgGbHJ6uj0goaRS1z8o
+	L2CcmKGSJ7jAzVqa4fUbg/AWACFeCZJeUqWmjDi
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 4421248991332191876
+From: Jiexun Wang <wangjiexun@tinylab.org>
+To: jszhang@kernel.org
+Cc: alexandre.torgue@foss.st.com,
+	conor+dt@kernel.org,
+	davem@davemloft.net,
+	devicetree@vger.kernel.org,
+	edumazet@google.com,
+	joabreu@synopsys.com,
+	krzysztof.kozlowski+dt@linaro.org,
+	kuba@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	netdev@vger.kernel.org,
+	pabeni@redhat.com,
+	peppe.cavallaro@st.com,
+	robh+dt@kernel.org,
+	simon.horman@corigine.com
+Subject: Re: [PATCH net-next v2 0/3] add the dwmac driver for T-HEAD TH1520 SoC
+Date: Mon,  4 Sep 2023 13:41:00 +0800
+Message-Id: <20230904054100.142575-1-wangjiexun@tinylab.org>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20230827091710.1483-1-jszhang@kernel.org>
+References: <20230827091710.1483-1-jszhang@kernel.org>
 MIME-Version: 1.0
-From: Rob Herring <robh@kernel.org>
-To: Kwanghoon Son <k.son@samsung.com>
-Cc: jszhang@kernel.org, wefu@redhat.com, palmer@dabbelt.com, devicetree@vger.kernel.org, robh+dt@kernel.org, krzysztof.kozlowski+dt@linaro.org, paul.walmsley@sifive.com, aou@eecs.berkeley.edu, linux-kernel@vger.kernel.org, conor+dt@kernel.org, linux-riscv@lists.infradead.org, guoren@kernel.org, p.zabel@pengutronix.de, inki.dae@samsung.com
-In-Reply-To: <20230904042559.2322997-2-k.son@samsung.com>
-References: <20230904042559.2322997-1-k.son@samsung.com>
- <CGME20230904042603epcas1p11db03427cc5f434578d29dd51bc3ae85@epcas1p1.samsung.com>
- <20230904042559.2322997-2-k.son@samsung.com>
-Message-Id: <169380497961.731683.17111917640316615720.robh@kernel.org>
-Subject: Re: [RFC PATCH 1/3] dt-bindings: reset: Document th1520 reset
- control
-Date: Mon, 04 Sep 2023 00:22:59 -0500
+X-QQ-SENDSIZE: 520
+Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrgz:qybglogicsvrgz5a-0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230903_222312_674805_C9A9C6E9 
-X-CRM114-Status: GOOD (  12.89  )
+X-CRM114-CacheID: sfid-20230904_064308_707997_24ECE90C 
+X-CRM114-Status: GOOD (  11.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,62 +101,38 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Sun, Aug 27, 2023 at 05:17:09PM +0800, Jisheng Zhang wrote:
+>Add the dwmac driver support for T-HEAD TH1520 SoC.
+>
+>Since the clk part isn't mainlined, so SoC dts(i) changes are not
+>included in this series. However, it can be tested by using fixed-clock.
+>
+>Since v1:
+>  - rebase on the lastest net-next
+>  - collect Reviewed-by tag
+>  - address Krzysztof's comment of the dt binding
+>  - fix "div is not initialised" issue pointed out by Simon
+>
+>Jisheng Zhang (3):
+>  dt-bindings: net: snps,dwmac: allow dwmac-3.70a to set pbl properties
+>  dt-bindings: net: add T-HEAD dwmac support
+>  net: stmmac: add glue layer for T-HEAD TH1520 SoC
+>
+> .../devicetree/bindings/net/snps,dwmac.yaml   |   2 +
+> .../devicetree/bindings/net/thead,dwmac.yaml  |  77 +++++
+> drivers/net/ethernet/stmicro/stmmac/Kconfig   |  11 +
+> drivers/net/ethernet/stmicro/stmmac/Makefile  |   1 +
+> .../net/ethernet/stmicro/stmmac/dwmac-thead.c | 302 ++++++++++++++++++
+> 5 files changed, 393 insertions(+)
+> create mode 100644 Documentation/devicetree/bindings/net/thead,dwmac.yaml
 
-On Mon, 04 Sep 2023 04:25:57 +0000, Kwanghoon Son wrote:
-> Add documentation to describe th1520 reset driver
-> 
-> Signed-off-by: Kwanghoon Son <k.son@samsung.com>
-> ---
->  .../bindings/reset/thead,th1520-reset.yaml    | 39 +++++++++++++++++++
->  1 file changed, 39 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/reset/thead,th1520-reset.yaml
-> 
+I would like to try this patch on my LicheePi 4A board, 
+but I don't know how to modify the dts file.
+Could you please share your modifications to the dts file?
+Thank you very much.
 
-My bot found errors running 'make DT_CHECKER_FLAGS=-m dt_binding_check'
-on your patch (DT_CHECKER_FLAGS is new in v5.13):
-
-yamllint warnings/errors:
-
-dtschema/dtc warnings/errors:
-Traceback (most recent call last):
-  File "/usr/local/bin/dt-doc-validate", line 64, in <module>
-    ret |= check_doc(f)
-           ^^^^^^^^^^^^
-  File "/usr/local/bin/dt-doc-validate", line 32, in check_doc
-    for error in sorted(dtsch.iter_errors(), key=lambda e: e.linecol):
-                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.11/dist-packages/dtschema/schema.py", line 135, in iter_errors
-    self.annotate_error(scherr, meta_schema, scherr.schema_path)
-  File "/usr/local/lib/python3.11/dist-packages/dtschema/schema.py", line 114, in annotate_error
-    schema = schema[p]
-             ~~~~~~^^^
-KeyError: 'type'
-Documentation/devicetree/bindings/reset/thead,th1520-reset.example.dts:18:18: fatal error: dt-bindings/reset/th1520-reset.h: No such file or directory
-   18 |         #include <dt-bindings/reset/th1520-reset.h>
-      |                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-compilation terminated.
-make[2]: *** [scripts/Makefile.lib:419: Documentation/devicetree/bindings/reset/thead,th1520-reset.example.dtb] Error 1
-make[2]: *** Waiting for unfinished jobs....
-make[1]: *** [/builds/robherring/dt-review-ci/linux/Makefile:1500: dt_binding_check] Error 2
-make: *** [Makefile:234: __sub-make] Error 2
-
-doc reference errors (make refcheckdocs):
-
-See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20230904042559.2322997-2-k.son@samsung.com
-
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
-
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
-
-pip3 install dtschema --upgrade
-
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
-
+Best regards,
+Jiexun Wang
 
 _______________________________________________
 linux-riscv mailing list
