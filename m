@@ -4,87 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 357E4C71153
-	for <linux-riscv@archiver.kernel.org>; Mon,  4 Sep 2023 07:30:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71DB6C83F3F
+	for <linux-riscv@archiver.kernel.org>; Mon,  4 Sep 2023 11:16:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PVcQIFdhF7Ghn4t+q9tsqTrc8KS/VovG6o80ZxXRHWU=; b=QN31P6g28L7laM
-	b3p2kr2wVyNdLjhAEn7hQLYZ+JGhBjkPpKgtE9aBngOB2KeLIuTtSlZ3SpvExC1vHAqu7RUawX/eJ
-	Tg3PfEeK0SJBz81Y3lDQ+U6+DbLAGEYLMTyIQhwICsuIxPVmFwIB+uV0SeixX6muSM0YDxA1fcEh9
-	vSLIT2ktC03hrcBUNqoEHZdj3aoeZ/HA0I96Wygk8uNZKYiSH4MUKVYQ1pvllyH8KO1aGzJ4ETziA
-	i8Y1WSEgvsgpR4cMuqOSjHOvO20tSBVA7ECa9giwMjOGRRAHgfZatRwp66gVnQ14CYQ2wcDw/ltQq
-	0HI92QrEfQOskd+Ku5oA==;
+	List-Owner; bh=F6RJ42TnpW0jmAVgCwJ8mxH7ALSqfgki0lB79WbUt30=; b=PEeuVNg73tS+SG
+	t82jHwldt07p+SunWXGsAoG8UUlJ0oeNsS4NqrvRiA1jAroClVbSRZsPQNnJ3ae7sBUF3R2hMMA77
+	0zxXIEIsp+awfRi14wAZMaZ2OTYsljXwSoGVNw6V80DNbGpjj1rHICDLum4U9qI4HaMO3K82Kbbhy
+	h6iwjkrYUb61S+GxQ72MqSW4YUJx6eDKHv4uEf1VSKunJ70z0f4TgLmyl227G83YbXKUwFI5P2u+B
+	exHGQ9fqGknbtSurl2DQeV26btww3TYZeuHJSk901RsCv642hbl4QsuRJP250z/IQOiCNb5wkmo1t
+	BEDZ/KfH6gh6MNIqEd/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qd423-003TzZ-1W;
-	Mon, 04 Sep 2023 07:29:59 +0000
-Received: from mail-ej1-x632.google.com ([2a00:1450:4864:20::632])
+	id 1qd7Yt-003z78-0Y;
+	Mon, 04 Sep 2023 11:16:07 +0000
+Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qd421-003Tyt-0x
+	id 1qd7Yp-003z5r-2g
 	for linux-riscv@lists.infradead.org;
-	Mon, 04 Sep 2023 07:29:58 +0000
-Received: by mail-ej1-x632.google.com with SMTP id a640c23a62f3a-99bc9e3cbf1so240279666b.0
-        for <linux-riscv@lists.infradead.org>; Mon, 04 Sep 2023 00:29:55 -0700 (PDT)
+	Mon, 04 Sep 2023 11:16:05 +0000
+Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-313e742a787so818391f8f.1
+        for <linux-riscv@lists.infradead.org>; Mon, 04 Sep 2023 04:16:02 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1693812594; x=1694417394; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=MQYtxZ4YMVufLg8cTj7D18vm0cjxwRPxw1iteFSZqzE=;
-        b=ez+V67Comz0+TxDIz6Sk80CUMcF9yvkCwccTzwoI3/6c4+pQWMG5Vl1KWoekPfz1qF
-         eUA9IkO4k30EF3lLJen1tknMkSL1liotkbcjVAQOpJobBFg2ZbZRfQDccdIOsqDzACLn
-         SFkcn4x4Ol/XiuR0dZdwlGilLdjHi4GF4p4oPvrB2B0AHZc4aFw3jFj8CoSQX6wkFmLD
-         xMItljva8+cmt5KNh+QthGFM9mKpxjJ9KTUS5uBJmqsPZL2Uf4HNk9sDwSGBJMnANKK9
-         9FhvhDWurjWDbJL21sbtBlogVKIBsG/6ZDEso11KYNBQkBBSJw2Aw/7H1kk64DQjkL0a
-         zFlQ==
+        d=ventanamicro.com; s=google; t=1693826161; x=1694430961; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=I9GCAlEvdvaQhIuQIQlH6uZieVhDq0JG0Q/Lab40q3Y=;
+        b=n3yFjOEWMnVje2jozvVCG7dssfADJmXKyb/M4iVxHtVqzhZPUwJwDRSfXF3V1Om+la
+         UgmtmIkYEnxPMSk8KbopX/OIw2JFb840r27RWkOd8IIdi+/FaqrxuR8N/U3AoxCYgvdH
+         ekS5dhAOgszTZCHAh7uLmlrSapQyY7KovRZ/agV4jLZ8UohQNGt+suVTwjNSOpZJyUQh
+         iKFMg0c0THeMlGXNKHRUn8EYqnAFy4MpfnwNsIZmR7xuN5p4FDr6X/utlCPwlda65GLo
+         3SXIEu0YQ1gqLG24Yk0twLIa5tStChwfoKMLpMiLj+d6tE8yWD7zaqM4y2RaUQGV2nWr
+         I1UA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1693812594; x=1694417394;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=MQYtxZ4YMVufLg8cTj7D18vm0cjxwRPxw1iteFSZqzE=;
-        b=XV3eTUsTX7Z/OvfcFfax6ottCntLP48joC8WgG0OMWlr4Ocq/5XP4l3BPddl78ybwI
-         7Jzzpr/kOjXlZL+KZwWrw6iAPP1tNxOqWQnnUSgGX13zhwVsenUIkWrWOJQ/uSNVMOay
-         /WvLqpkSitFZ8tFXpozAUzu+yVQG7UzwS53L4b4UVb6/qtgUOddjdwcHREXXSjlHQRZE
-         QEDL0/UHoCP9LQjW+whqeKeWF2MDgDYm8dMg4jvkgvdf81ex+voOWXvI57zLnvHNpKN2
-         ORczm/BIWSWjfQLvo1bGaOIMoLpJuKa59XIZ+oYJTkO2aoDJlSwFdQpo/4JPsGyu7Q/6
-         /6kQ==
-X-Gm-Message-State: AOJu0YxI4IF4WhNjljiyRM2vNeJ9tuKfNuntulA5R0ZmKO+13fST0Z30
-	DFZALCdvvW+7ZsBYwB0MVB0KKw==
-X-Google-Smtp-Source: AGHT+IFjTFQlvYaNRPC1WlRV6FzXxov+PWopPfMBZJArbcX2WyN8R1jmD7YdwV4eNao3JwXbLyZ7GQ==
-X-Received: by 2002:a17:906:51c5:b0:99c:5056:4e31 with SMTP id v5-20020a17090651c500b0099c50564e31mr9989300ejk.15.1693812593690;
-        Mon, 04 Sep 2023 00:29:53 -0700 (PDT)
-Received: from [192.168.0.22] (77-252-46-238.static.ip.netia.com.pl. [77.252.46.238])
-        by smtp.gmail.com with ESMTPSA id v7-20020a1709063bc700b0099bc80d5575sm5670697ejf.200.2023.09.04.00.29.52
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 04 Sep 2023 00:29:53 -0700 (PDT)
-Message-ID: <7329b120-2c8a-8382-3171-d6a9426182e3@linaro.org>
-Date: Mon, 4 Sep 2023 09:29:51 +0200
+        d=1e100.net; s=20221208; t=1693826161; x=1694430961;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=I9GCAlEvdvaQhIuQIQlH6uZieVhDq0JG0Q/Lab40q3Y=;
+        b=aZkEe1z+9EesGmF5SBEQO+io/NrorPEnHy+SVdgStrBhpr7kSRqh9sM7r+id1kxIa4
+         61ZCLM3+21iSafTsQV02enGkothRc+lwYDZRUE31kVNwOIxeNixsxyl4PYVBO8Vt25Ii
+         6JvrgSGVTLIHwA4eNticzABc2BoYvMbXoOkz9pWADwZ11BplPF+2qSrTOPiYG+hLs4F6
+         XML8urP6Cj959KRM7dw/LiSOSLyhR0iTdwAks4Va9aWZLpB+PtPm7k+QA5DN9FNdTft2
+         /o9GIHeW6Y8DUOwkBtArtBp/TCqR0ZFEhRzMBD+5tGXw0c0TRl57wiiTFARl0FbQQEql
+         ZsCQ==
+X-Gm-Message-State: AOJu0YysYgQSNeIqGi3ybDcAm/naYLEnswCZTzUHd6rtkMJHeOWGT0PZ
+	XiB1AaLirHBw3Q19mt4qiLpFTA==
+X-Google-Smtp-Source: AGHT+IHR3qJF/WADy7jFXe6yIqtW0lGNRVyiw5VlYSS4H2pPf8Rp4EorJnHY9mZBl7rKv7MV9xXpWQ==
+X-Received: by 2002:adf:ee90:0:b0:319:6b56:94d9 with SMTP id b16-20020adfee90000000b003196b5694d9mr8511545wro.2.1693826161050;
+        Mon, 04 Sep 2023 04:16:01 -0700 (PDT)
+Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
+        by smtp.gmail.com with ESMTPSA id x18-20020adfec12000000b0031989784d96sm14281097wrn.76.2023.09.04.04.15.57
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 04 Sep 2023 04:15:59 -0700 (PDT)
+Date: Mon, 4 Sep 2023 13:15:56 +0200
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Haibo Xu <haibo1.xu@intel.com>
+Cc: xiaobo55x@gmail.com, Sean Christopherson <seanjc@google.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Paolo Bonzini <pbonzini@redhat.com>, 
+	Shuah Khan <shuah@kernel.org>, Marc Zyngier <maz@kernel.org>, 
+	Oliver Upton <oliver.upton@linux.dev>, James Morse <james.morse@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
+	Anup Patel <anup@brainfault.org>, Atish Patra <atishp@atishpatra.org>, Guo Ren <guoren@kernel.org>, 
+	Greentime Hu <greentime.hu@sifive.com>, wchen <waylingii@gmail.com>, 
+	Daniel Henrique Barboza <dbarboza@ventanamicro.com>, Ricardo Koller <ricarkol@google.com>, 
+	Vishal Annapurve <vannapurve@google.com>, David Matlack <dmatlack@google.com>, 
+	Aaron Lewis <aaronlewis@google.com>, Mingwei Zhang <mizhang@google.com>, 
+	Vitaly Kuznetsov <vkuznets@redhat.com>, Ackerley Tng <ackerleytng@google.com>, 
+	Lei Wang <lei4.wang@intel.com>, Vipin Sharma <vipinsh@google.com>, 
+	Maxim Levitsky <mlevitsk@redhat.com>, Like Xu <likexu@tencent.com>, Peter Gonda <pgonda@google.com>, 
+	Thomas Huth <thuth@redhat.com>, Philippe =?utf-8?Q?Mathieu-Daud=C3=A9?= <philmd@linaro.org>, 
+	David Woodhouse <dwmw@amazon.co.uk>, Michal Luczaj <mhal@rbox.co>, 
+	zhang songyi <zhang.songyi@zte.com.cn>, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	kvm@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm-riscv@lists.infradead.org
+Subject: Re: [PATCH v2 1/8] KVM: selftests: Unify the codes for guest
+ exception handling
+Message-ID: <20230904-ba5051a5bf17d17f2711d7dc@orel>
+References: <cover.1693659382.git.haibo1.xu@intel.com>
+ <7affb0387d7272573f7093de7887872e1fb5979b.1693659382.git.haibo1.xu@intel.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.15.0
-Subject: Re: [RFC PATCH 3/3] riscv: dts: Add th1520 reset device tree
-Content-Language: en-US
-To: Kwanghoon Son <k.son@samsung.com>, p.zabel@pengutronix.de,
- robh+dt@kernel.org, krzysztof.kozlowski+dt@linaro.org, conor+dt@kernel.org,
- jszhang@kernel.org, guoren@kernel.org, wefu@redhat.com,
- paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
- inki.dae@samsung.com
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org
-References: <20230904042559.2322997-1-k.son@samsung.com>
- <CGME20230904042603epcas1p47c4e858d65f2618d747bdc214d350cf7@epcas1p4.samsung.com>
- <20230904042559.2322997-4-k.son@samsung.com>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <20230904042559.2322997-4-k.son@samsung.com>
+Content-Disposition: inline
+In-Reply-To: <7affb0387d7272573f7093de7887872e1fb5979b.1693659382.git.haibo1.xu@intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230904_002957_330550_975DB994 
-X-CRM114-Status: UNSURE (   9.22  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230904_041603_891806_53A262B7 
+X-CRM114-Status: GOOD (  14.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,32 +110,56 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 04/09/2023 06:25, Kwanghoon Son wrote:
-> Add reset device tree for th1520 SoC
+On Sat, Sep 02, 2023 at 08:59:23PM +0800, Haibo Xu wrote:
+> Rename the vm_init_descriptor_tables() and vcpu_init_vector_tables()
+                                             ^ vcpu_init_descriptor_tables()
+
+> prototypes to vm_init_vector_tables() and vcpu_init_vector_tables()
+> respectively, so that we can use common names for the architectures
+> (x86/aarch64/riscv) and then put them in a common header.
 > 
-> Signed-off-by: Kwanghoon Son <k.son@samsung.com>
+> By the way, vm_install_exception_handler() prototype were also moved to
+> the common header since they are commonly used across the architectures.
+> 
+> The patch is a preparation to share the guest exception handling codes
+> in riscv.
+> 
+> Suggested-by: Andrew Jones <ajones@ventanamicro.com>
+> Suggested-by: Sean Christopherson <seanjc@google.com>
+> Signed-off-by: Haibo Xu <haibo1.xu@intel.com>
 > ---
+>  tools/testing/selftests/kvm/aarch64/arch_timer.c          | 4 ++--
+>  tools/testing/selftests/kvm/aarch64/debug-exceptions.c    | 4 ++--
+>  tools/testing/selftests/kvm/aarch64/page_fault_test.c     | 4 ++--
+>  tools/testing/selftests/kvm/aarch64/vgic_irq.c            | 4 ++--
+>  tools/testing/selftests/kvm/include/aarch64/processor.h   | 8 +-------
+>  tools/testing/selftests/kvm/include/kvm_util_base.h       | 7 +++++++
+>  tools/testing/selftests/kvm/include/x86_64/processor.h    | 5 -----
+>  tools/testing/selftests/kvm/lib/aarch64/processor.c       | 6 +++---
+>  tools/testing/selftests/kvm/lib/x86_64/processor.c        | 4 ++--
+>  tools/testing/selftests/kvm/x86_64/amx_test.c             | 4 ++--
+>  tools/testing/selftests/kvm/x86_64/fix_hypercall_test.c   | 4 ++--
+>  tools/testing/selftests/kvm/x86_64/hyperv_evmcs.c         | 4 ++--
+>  tools/testing/selftests/kvm/x86_64/hyperv_features.c      | 8 ++++----
+>  tools/testing/selftests/kvm/x86_64/hyperv_ipi.c           | 6 +++---
+>  tools/testing/selftests/kvm/x86_64/kvm_pv_test.c          | 4 ++--
+>  tools/testing/selftests/kvm/x86_64/monitor_mwait_test.c   | 4 ++--
+>  .../testing/selftests/kvm/x86_64/pmu_event_filter_test.c  | 8 ++++----
+>  .../kvm/x86_64/smaller_maxphyaddr_emulation_test.c        | 4 ++--
+>  tools/testing/selftests/kvm/x86_64/svm_int_ctl_test.c     | 4 ++--
+>  .../selftests/kvm/x86_64/svm_nested_shutdown_test.c       | 4 ++--
+>  .../selftests/kvm/x86_64/svm_nested_soft_inject_test.c    | 4 ++--
+>  tools/testing/selftests/kvm/x86_64/ucna_injection_test.c  | 8 ++++----
+>  .../selftests/kvm/x86_64/userspace_msr_exit_test.c        | 4 ++--
+>  .../kvm/x86_64/vmx_exception_with_invalid_guest_state.c   | 4 ++--
+>  tools/testing/selftests/kvm/x86_64/vmx_pmu_caps_test.c    | 4 ++--
+>  tools/testing/selftests/kvm/x86_64/xapic_ipi_test.c       | 4 ++--
+>  tools/testing/selftests/kvm/x86_64/xcr0_cpuid_test.c      | 4 ++--
+>  tools/testing/selftests/kvm/x86_64/xen_shinfo_test.c      | 4 ++--
+>  28 files changed, 66 insertions(+), 70 deletions(-)
+>
 
-...
-
->  / {
->  	compatible = "thead,th1520";
-> @@ -418,5 +419,12 @@ portf: gpio-controller@0 {
->  				interrupts = <55 IRQ_TYPE_LEVEL_HIGH>;
->  			};
->  		};
-> +
-> +		rst: reset-controller@ffef014000 {
-> +			compatible = "thead,th1520-reset", "syscon";
-> +			reg = <0xff 0xef014000 0x0 0x1000>;
-> +			#reset-cells = <1>;
-> +			status = "disabled";
-
-Why do you disable it? There are no missing resources.
-
-Best regards,
-Krzysztof
-
+Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
 
 _______________________________________________
 linux-riscv mailing list
