@@ -4,88 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD33BC83F33
-	for <linux-riscv@archiver.kernel.org>; Mon,  4 Sep 2023 19:28:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 181CFC71153
+	for <linux-riscv@archiver.kernel.org>; Mon,  4 Sep 2023 19:43:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=L/r2Sjd/duBVoy3T+F6qsKUd0CxYADdXidVyRcxsqK0=; b=jTTpUEk5yh+HKS
-	CHnSmjvy6o2cTt2Ped3TBgcIp3wJcHpDqPCTi0itK0HhBSf8DGp9SZJyeBAclJx8eNnOGWCb8IPO8
-	B7j8kBdJ3jWsgudoisgNqxeA5MTJiq3Rhxcx8bYnykZpN1H6FJXYyRrdRl1AcijWf3Ei2t1eDiv6H
-	ntJbhjkWZimrQrM/16C7Aa0EkW6XAo6kl6YvkaxdVJ6hN7aKgyE11/ADh+gDV2TNJQDlgNL7p4PCE
-	7TJPr29I7ve5aKVPowRAPdOrX0Xp22u7SNxBEjiDPbbvhyC4+JCTUHttuW4sbpCd9tUtxSGZi4DsQ
-	OhDB97nFrILACoIZE/tg==;
+	List-Owner; bh=JeVU5qqBsNBvqZo44Xyftheeq6CgL5RwqGxqdQ/3+O8=; b=ttVVZxiYYvRUj4
+	pmvZe7SxOkKDJSBZxu+h6fh42HK8/j6xJzdIcXqDVjgRm1rVIepKjMyp6mdjURC9CUgzkqCAgt9bj
+	mAHTaczqv7mJCXltDbwA/uMM+L0/EBJFXRrZ5Yjet5cKPhEIVrrn+CNkn8tyYhiIN41qHBWy03v1Y
+	lRk961EHy8ZE95qS6aWpIdejv91YLQSTdvATmLhQ+FJd5FSGAgQrnAXKqCDz24d9MsMpe708tGuIQ
+	7iXNuRQ0QRNDDmdVlt/gVhGmkGf0p5M2HgmaoTHvS1ikvvO9xJkSZj8eHnZy7I5miyfC8+EH2K1uq
+	GzOd3xUVKdhPO+7R+C8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qdFEq-004hHZ-10;
-	Mon, 04 Sep 2023 19:27:56 +0000
-Received: from mail-pg1-x536.google.com ([2607:f8b0:4864:20::536])
+	id 1qdFTz-004iAL-1T;
+	Mon, 04 Sep 2023 19:43:35 +0000
+Received: from mail-pg1-x52e.google.com ([2607:f8b0:4864:20::52e])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qdFEl-004hHF-0R
+	id 1qdFTv-004i9l-2U
 	for linux-riscv@lists.infradead.org;
-	Mon, 04 Sep 2023 19:27:54 +0000
-Received: by mail-pg1-x536.google.com with SMTP id 41be03b00d2f7-53482b44007so671819a12.2
-        for <linux-riscv@lists.infradead.org>; Mon, 04 Sep 2023 12:27:49 -0700 (PDT)
+	Mon, 04 Sep 2023 19:43:33 +0000
+Received: by mail-pg1-x52e.google.com with SMTP id 41be03b00d2f7-56f84de64b9so1048966a12.1
+        for <linux-riscv@lists.infradead.org>; Mon, 04 Sep 2023 12:43:28 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1693855669; x=1694460469; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=yWREej5t+eIqMC63lmoGy+XChxC2cKp7ZhM4c1pDWR0=;
-        b=XYkOFATMpHtD56kKCoCCOeW1lYziPZwq7ryPvlsRtPfdDdqaHl2jvjiSARmHPvTeo1
-         +QKD++oj595aXPz91W1CG9yobWzkKtsGR8+KRcpxey7u1ZVgTVyZaLOxD6AjbrYQDFqD
-         ShCx9DsDNZJ6gNkcMpLaDeZ6ji75Qu2rBns4V8xi1wAkpPPAkUg3Gpea9Mrk6FJ00oM9
-         D7WS7RUUWo5PUlni/ZAxTh+UN6vw+24KMvdw0iX2BHIIGIB8fVnZ1fchLSklwxHdcMKJ
-         kfD3LLdq0pCCD/EP4/Akv6SZt0EQWLj36/v6dj7xOW2gxdCfkC/8tC9fm69N7foaTOul
-         Dvkg==
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1693856608; x=1694461408; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=rpgtqNc982jm6C77O91KC+VtBx5DYfDGNKAMWB7AFSc=;
+        b=n9GzO3lqCW/IuWA66LXwjVbrmhBvYXCOWecPvKwXc1YO0H6Wnckhr6p2Ry3ibgfU3d
+         6PU+VW5vWice9xFB4h308+oqcYe6dh3lUXfuRDj5z/xbx55m3TWTXq2DrsU2Mq35k8iv
+         XcFOwjvbgM8fkLc/ifYrnx20Tmb4NXW9uAw+f8ez0CJwTUkQCysugxmC7CzeFm6be4w6
+         k4vLq4VMu2H9DdG35WAM2z2FFwhKcML2NM18SRl+j3qpMERVz5K0humSkCCkLvUc7U5i
+         s5uoSUa6VOentVRNXmX4NohRo3SNyFa6Y+M5u/GfrB8ZV0E2VOsNwBVXb5PdFwS12Pur
+         rsuw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1693855669; x=1694460469;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=yWREej5t+eIqMC63lmoGy+XChxC2cKp7ZhM4c1pDWR0=;
-        b=Oct4mJIrJWf0Zi3Aw9OUWvuu8Uh2cu6rImHmMwaBkyYcrOPE58/pMHhwV1/Qap1l7G
-         yavlHg2VEWoyC3oSt/iPX27zXdxJp9z2iKDnjxVzDKm2SyaOl4e1CgQbOXYM1Oydn0J0
-         hWc6LMAyF4bWWFHfRHVp0Y60SFrh28pQ4G+Lx+kjo51Rf9ap8kOO+3P6KuWZOpQlyGYA
-         fBy8mly6ozpfLOV1z/MtPUKAK2lB/02FLAnXi5aYss4y7ykEO7HwFZEFv530GdfAN2Hl
-         Q5W6QdbjBY8WDSTht+2lKTsgKUEuC1hN0+LMVLnFlKh5GA9Ml0nkof9QlxG0xMy5ZVQ9
-         W5Kw==
-X-Gm-Message-State: AOJu0Yy2DdG/lS9bCBRKIlT54UuRQ4016QgMjDsemXPq3raV5ITrt2Us
-	4cEIZ6Fe78jGrokoZK2fvrwsYg==
-X-Google-Smtp-Source: AGHT+IF8jZgXYFF7x4w9/EJ+mUhvyY5RomvN8zh7QIx1a3gn13jt+ZjTcXlJuczNF8kMK83V8bbJpg==
-X-Received: by 2002:a05:6a21:4841:b0:14c:c511:387d with SMTP id au1-20020a056a21484100b0014cc511387dmr9713357pzc.9.1693855669066;
-        Mon, 04 Sep 2023 12:27:49 -0700 (PDT)
+        d=1e100.net; s=20221208; t=1693856608; x=1694461408;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=rpgtqNc982jm6C77O91KC+VtBx5DYfDGNKAMWB7AFSc=;
+        b=PhgsSl4x2qVcMu4IX2NHPg/S4CguxE27zHznqPuRxwar1eJzcuxTzbjECCYN/LLDRx
+         oQj6mH4TbAEjANtEQfcvTZ/hllfN4AltyxDVWS4fA01wOMuvIZzDHDGEDzRA4ULTXtgz
+         6Ui5YVx49Hw6B9j79C2v7RLn56Dp6Aa1+UJNHdsrQBKstQ9hF9csFHp/JgDSsrQNx9OO
+         gWDPUnzhQcFVMdurhPJi6QEU3uRF3FwURaIxLLVbui+3Ezv1UJO2pcQnnk+Z6i0/yRc8
+         nnxf7nWUjAu7imtzfgfjHcD28u0oSf8u6KO1eT9/9ZuZ29o30rdh+w+MnvnSuUfvh1iH
+         TdLw==
+X-Gm-Message-State: AOJu0YyYy9jUPz9oilG4RVCLy7WbrjNSv4ZXf7X+w12fx8viZuulml1z
+	0Wyu22QmG0htXvdHXABKL6zIbA==
+X-Google-Smtp-Source: AGHT+IGfcS2SDfogz0dRFnKhjncd+2SLbW5sc2UgXzdJiBdlv5fZg3HB0wO/3nWY6uYOWCJ5JMOBXg==
+X-Received: by 2002:a05:6a20:441c:b0:14e:2208:d62f with SMTP id ce28-20020a056a20441c00b0014e2208d62fmr17267240pzb.22.1693856608420;
+        Mon, 04 Sep 2023 12:43:28 -0700 (PDT)
 Received: from x1 ([2601:1c2:1800:f680:5de2:2323:20de:e26d])
-        by smtp.gmail.com with ESMTPSA id cg11-20020a056a00290b00b0068c9fc82bfbsm6591591pfb.197.2023.09.04.12.27.48
+        by smtp.gmail.com with ESMTPSA id y14-20020aa7854e000000b00687a4b66697sm7962611pfn.16.2023.09.04.12.43.26
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 04 Sep 2023 12:27:48 -0700 (PDT)
-Date: Mon, 4 Sep 2023 12:27:46 -0700
+        Mon, 04 Sep 2023 12:43:27 -0700 (PDT)
+Date: Mon, 4 Sep 2023 12:43:25 -0700
 From: Drew Fustini <dfustini@baylibre.com>
-To: Xi Ruoyao <xry111@xry111.site>
-Cc: Jisheng Zhang <jszhang@kernel.org>, Guo Ren <guoren@kernel.org>,
-	Fu Wei <wefu@redhat.com>, Conor Dooley <conor@kernel.org>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] riscv: dts: thead: set dma-noncoherent to soc bus
-Message-ID: <ZPYvsvCYWibrKXOz@x1>
-References: <20230820115353.1962-1-jszhang@kernel.org>
- <ZPUXhe7ogxvaB6Eg@x1>
- <ZPXtl1iWlsYwmixc@xhacker>
- <292198d3915bafbe1c82372da2f2755a1842512f.camel@xry111.site>
- <ZPYZZ4blDwaM8/ru@x1>
+To: Jisheng Zhang <jszhang@kernel.org>
+Subject: Re: [PATCH v2 1/2] riscv: errata: fix T-Head dcache.cva encoding
+Message-ID: <ZPYzXeYGyGCxJUuK@x1>
+References: <20230827090813.1353-1-jszhang@kernel.org>
+ <20230827090813.1353-2-jszhang@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <ZPYZZ4blDwaM8/ru@x1>
+In-Reply-To: <20230827090813.1353-2-jszhang@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230904_122751_178447_9BA09100 
-X-CRM114-Status: GOOD (  34.85  )
+X-CRM114-CacheID: sfid-20230904_124331_833334_D38F0492 
+X-CRM114-Status: GOOD (  20.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,136 +85,67 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Cc: Sergey Matyukevich <sergey.matyukevich@syntacore.com>, Albert Ou <aou@eecs.berkeley.edu>, linux-kernel@vger.kernel.org, Guo Ren <guoren@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org, Heiko Stuebner <heiko@sntech.de>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 04, 2023 at 10:52:39AM -0700, Drew Fustini wrote:
-> On Tue, Sep 05, 2023 at 12:28:41AM +0800, Xi Ruoyao wrote:
-> > On Mon, 2023-09-04 at 22:45 +0800, Jisheng Zhang wrote:
-> > > On Sun, Sep 03, 2023 at 04:32:21PM -0700, Drew Fustini wrote:
-> > > > On Sun, Aug 20, 2023 at 07:53:53PM +0800, Jisheng Zhang wrote:
-> > > > > riscv select ARCH_DMA_DEFAULT_COHERENT by default, and th1520 isn=
-'t
-> > > > > dma coherent, so set dma-noncoherent to reflect this fact.
-> > > > > =
+On Sun, Aug 27, 2023 at 05:08:12PM +0800, Jisheng Zhang wrote:
+> From: Icenowy Zheng <uwu@icenowy.me>
+> 
+> The dcache.cva encoding shown in the comments are wrong, it's for
+> dcache.cval1 (which is restricted to L1) instead.
+> 
+> Fix this in the comment and in the hardcoded instruction.
+> 
+> Signed-off-by: Icenowy Zheng <uwu@icenowy.me>
+> Tested-by: Sergey Matyukevich <sergey.matyukevich@syntacore.com>
+> Reviewed-by: Heiko Stuebner <heiko@sntech.de>
+> Reviewed-by: Guo Ren <guoren@kernel.org>
+> ---
+>  arch/riscv/include/asm/errata_list.h | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+> 
+> diff --git a/arch/riscv/include/asm/errata_list.h b/arch/riscv/include/asm/errata_list.h
+> index fb1a810f3d8c..feab334dd832 100644
+> --- a/arch/riscv/include/asm/errata_list.h
+> +++ b/arch/riscv/include/asm/errata_list.h
+> @@ -100,7 +100,7 @@ asm volatile(ALTERNATIVE(						\
+>   * | 31 - 25 | 24 - 20 | 19 - 15 | 14 - 12 | 11 - 7 | 6 - 0 |
+>   *   0000001    01001      rs1       000      00000  0001011
+>   * dcache.cva rs1 (clean, virtual address)
+> - *   0000001    00100      rs1       000      00000  0001011
+> + *   0000001    00101      rs1       000      00000  0001011
+>   *
+>   * dcache.cipa rs1 (clean then invalidate, physical address)
+>   * | 31 - 25 | 24 - 20 | 19 - 15 | 14 - 12 | 11 - 7 | 6 - 0 |
+> @@ -113,7 +113,7 @@ asm volatile(ALTERNATIVE(						\
+>   *   0000000    11001     00000      000      00000  0001011
+>   */
+>  #define THEAD_inval_A0	".long 0x0265000b"
+> -#define THEAD_clean_A0	".long 0x0245000b"
+> +#define THEAD_clean_A0	".long 0x0255000b"
+>  #define THEAD_flush_A0	".long 0x0275000b"
+>  #define THEAD_SYNC_S	".long 0x0190000b"
+>  
+> -- 
+> 2.40.1
+> 
 
-> > > > > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> > > > > ---
-> > > > > =A0arch/riscv/boot/dts/thead/th1520.dtsi | 1 +
-> > > > > =A01 file changed, 1 insertion(+)
-> > > > > =
+Tested-by: Drew Fustini <dfustini@baylibre.com>
 
-> > > > > diff --git a/arch/riscv/boot/dts/thead/th1520.dtsi b/arch/riscv/b=
-oot/dts/thead/th1520.dtsi
-> > > > > index 56a73134b49e..58108f0eb3fd 100644
-> > > > > --- a/arch/riscv/boot/dts/thead/th1520.dtsi
-> > > > > +++ b/arch/riscv/boot/dts/thead/th1520.dtsi
-> > > > > @@ -139,6 +139,7 @@ soc {
-> > > > > =A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0interrupt-parent =
-=3D <&plic>;
-> > > > > =A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0#address-cells =
-=3D <2>;
-> > > > > =A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0#size-cells =3D <=
-2>;
-> > > > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0dma-noncoherent;
-> > > > > =A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0ranges;
-> > > > > =A0
-> > > > > =A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0plic: interrupt-c=
-ontroller@ffd8000000 {
-> > > > > -- =
+I applied this on top of the emmc series [1] and the dma-noncoherent dts
+patch [2]. SDMA is now working with this patch applied. Before this
+patch, the filesystems on the emmc were corrupted after mounting. It
+makes sense that problem is solved by the correct cache clean
+instruction being used.
 
-> > > > > 2.40.1
-> > > > > =
+Thanks,
+Drew
 
-> > > > =
-
-> > > > Tested-by: Drew Fustini <dfustini@baylibre.com>
-> > > > =
-
-> > > > I tried this on the BeagleV Ahead. They system booted as expected a=
-nd I
-> > > > did not notice any problems in the boot log.
-> > > > =
-
-> > > > Are there other patches such as the dwmac series that I should test=
- this
-> > > > with?
-> > > =
-
-> > > Hmm, this patch is necessary to test dwmac, emmc ;)
-> > =
-
-> > Drew: does this fix the "broken DMA" issue you've mentioned in the EMMC
-> > support patch?
-> =
-
-> After I sent my reply yesterday, I then tried applying this patch on top
-> of my eMMC series. I removed SDHCI_QUIRK_BROKEN_DMA and I discovered
-> that SDMA did not immediately break and the mmcblk0 partitions appeared
-> in /dev [1]. Note - I am using CONFIG_INITRAMFS_SOURCE set to my
-> buidlroot rootfs.cpio so that the system will boot okay regardless of
-> the emmc.
-> =
-
-> I was able to mount the emmc boot partition /dev/mmcblk0p2. However,
-> after unmounting it, I noticed that I could not mount it again:
-> =
-
->   # mount /dev/mmcblk0p2 /mnt/p2 =
-
->   [   41.684899] EXT4-fs (mmcblk0p2): mounted filesystem 6ea98ccf-2178-48=
-a9-a1ad-0eb454f57268 r/w with ordered data mode
->   # ls -la /mnt/p2
->   total 22696
->   drwxr-xr-x    5 root     root          4096 Sep  4  2023 .
->   drwxr-xr-x    4 root     root             0 Jan  1 00:00 ..
->   -rw-rw-r--    1 1000     1000      26455552 Sep  4  2023 Image
->   drwxr-xr-x    2 root     root          4096 Jul 29  2023 extlinux
->   <snip>
->   # umount /mnt/p2
->   [   52.101003] EXT4-fs (mmcblk0p2): unmounting filesystem 6ea98ccf-2178=
--48a9-a1ad-0eb454f57268.
->   # mount /dev/mmcblk0p2 /mnt/p2
->   [   58.826078] JBD2: no valid journal superblock found
->   [   58.831041] EXT4-fs (mmcblk0p2): Could not load journal inode
->   mount: mounting /dev/mmcblk0p2 on /mnt/p2 failed: Invalid argument
-> =
-
-> I was completely unable to mount the root fs partition /dev/mmcblk0p3:
-> =
-
->   # mount /dev/mmcblk0p2 /mnt/p2
->   [   58.826078] JBD2: no valid journal superblock found
->   [   58.831041] EXT4-fs (mmcblk0p2): Could not load journal inode
->   mount: mounting /dev/mmcblk0p2 on /mnt/p2 failed: Invalid argument
->   # umount /mnt/p2
->   umount: can't unmount /mnt/p2: Invalid argument
-> =
-
-> I suspect there is some corruption of the buffers happening. I see there
-> are also these patch series from Jisheng so I will try applying them and
-> see if there is any difference:
-> =
-
->   [PATCH v2 0/2] riscv: errata: improve T-Head CMO
->   [PATCH] riscv: mm: update T-Head memory type definitions
-
-Good news, I applied "riscv: errata: improve T-Head CMO" [1] and SDMA is
-now working correctly. I can mount both boot and rootfs paritions and
-then is no problem umounting and then remounting [2].
-
-Note - I didn't 'riscv: mm: update T-Head memory type definitions' yet
-but I will do that next and make sure everything is still working.
-
-I'll post an update to my eMMC series.
-
--Drew
-
-[1] https://lore.kernel.org/all/20230827090813.1353-1-jszhang@kernel.org/
-[2] https://gist.github.com/pdp7/c72c91530c46ef560f4d1940ea1964c9
-
+[1] https://lore.kernel.org/linux-riscv/20230724-th1520-emmc-v2-0-132ed2e2171e@baylibre.com/
+[2] https://lore.kernel.org/linux-riscv/ZOIBQI3L4kP7c%2FT1@xhacker/
 
 _______________________________________________
 linux-riscv mailing list
