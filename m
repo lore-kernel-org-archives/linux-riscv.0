@@ -4,80 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94CECC83F33
-	for <linux-riscv@archiver.kernel.org>; Tue,  5 Sep 2023 07:10:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6EF5C83F3E
+	for <linux-riscv@archiver.kernel.org>; Tue,  5 Sep 2023 07:53:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=BAJpTH/1bypf0u73NKk4jVUnfXZHHUSt8SIkxq6ITsI=; b=1kXB6tpBvjiOwt
-	FGgyM/gtyjxgpPZsTLGGT7zi6pWmR6L+hp3RsEBvctvKhr+JArAo/Iq3jSNFBbc6N0YX0sY8cHNbK
-	Uyuhs67lmmn6hcvHRtoCm4HLyHtdeRX7srh3T9dUyQhdOfhIj0MLUA0IJWHbvXg6d6UcV8a3/iXq4
-	apYY2GGpG3nR0kpYpMjl6p91rj4Ybbp2eolLWsLJr6Xz02T7QrvRYxL+xXC9UkYE/zMLPDuSvstLM
-	iuYGQks2qzbm4Vs6BmLd2FJ6qsM1C/i2Gj1DeTJ7gMrZN5FRqyxeNRYuRoUrGJQgprPRVW8wOluub
-	/zNxquj3VBaeOokgkXBA==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=XLSPBry7gouQakkCsNbLGhYwG3609DQvos+IGCHXsjk=; b=oaToKseSKZbmKj
+	GqfgtQTZvRc9SH57EB6Hh12xiYca92Gjo4WgtFvB5nPNIC7DKs/0Kj6gTpNiBP+4EVildwvtPERSe
+	9EoPa8nvLgBGyZ00KUo/36f32DusgNkDCTY2cgoknEq3eO4dil9cs9b6E76UdmwuMwJhe15Is8Cqo
+	Fl5SX4i0XqyG3DBSY5XRj8W8a/ZSBu3zHErVicWEj00wPF4uH83aAiGBe93pnmEvSfe3IbVMYs4rn
+	/C+HSZHVFML15tTg1omumCRQsd6NZoD8Mxx71fl+hG3bAUnPgyLF3KBJ8WXn+wwz7WAn/mK01WxtJ
+	3pmfIiF8wrjBoi6JvBJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qdQCC-005Qjf-1A;
-	Tue, 05 Sep 2023 07:09:56 +0000
-Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
+	id 1qdQru-005TUL-25;
+	Tue, 05 Sep 2023 07:53:02 +0000
+Received: from mail-io1-xd2c.google.com ([2607:f8b0:4864:20::d2c])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qdQC9-005QjK-1N
+	id 1qdQrr-005TTM-2x
 	for linux-riscv@lists.infradead.org;
-	Tue, 05 Sep 2023 07:09:54 +0000
-Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-1bee82fad0fso12336095ad.2
-        for <linux-riscv@lists.infradead.org>; Tue, 05 Sep 2023 00:09:51 -0700 (PDT)
+	Tue, 05 Sep 2023 07:53:01 +0000
+Received: by mail-io1-xd2c.google.com with SMTP id ca18e2360f4ac-76c64da0e46so101128039f.0
+        for <linux-riscv@lists.infradead.org>; Tue, 05 Sep 2023 00:52:54 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1693897791; x=1694502591; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=A/t6gia3kis5Pkr4/PDqi3tggIgG29f6OdAUFBmTTOk=;
-        b=kc736FawpmT0MLpkXRu/Wt/agrkGZ5ht4FR7FaI3jdlCK+yCV9TxFVsjeyIgpZAbTE
-         WmmVVDPJdp2sKr05irhBFjwCO8qgWRPSLe/J2nxcyxyegfNMGsY7v/5XtTaedjP3UYcm
-         1p1X2j8waGj9aRdzgcbEUeVTEH+XwKVQf+8EELLADnt9GGQ8bkS1fsAdgOmUkba7ohJo
-         PF2NPZLmMTh/lnS8G1BF/J/V1hqMbqonBj46B4V6J9NJUO0iBK29nBTHd42etjHXm8t4
-         HqntudTQB21KXH/l3VXIbLdyP1I13/CI1owSKb8k5srTJGzEOW9byWooarAztjjNUqnd
-         yfPQ==
+        d=gmail.com; s=20221208; t=1693900374; x=1694505174; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=g/s66p9pwSSI1fSoYztzIq0uZUi+KONsknkXUZ5g+do=;
+        b=XATvsQ4PYMDNn/4HnIhMGHUS/OjlGrNyjVWusO+n1saUyzV9yrCFIZtsfGt3HTVwXa
+         T8csKq2XW2zIs21AZrMN9GlsP8O0DrsnRezp1zJTe8p9KAuVibYrkdNoGvmJSw/g86D4
+         b1Nv7kAwfmh/7Q9Rsw6u7fSCcYxqfHRK2nMiyzOJ9Vk43ZrBgpT7LTY5WUtqogX1XRK0
+         MHsQdobsNAi07+O7WDBwaxmKK5v086UqiXJ0WMeBi0IAm1HL6uNoZWHqwvvF45XmEUEC
+         V3u2S2qZYO8cAcjP/e+k0GLj+wvPM/PE9J13VfOF/BUjiO8jrHeg5f2AxqO8hXYkT5wc
+         xEig==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1693897791; x=1694502591;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=A/t6gia3kis5Pkr4/PDqi3tggIgG29f6OdAUFBmTTOk=;
-        b=g0ndKqDVvfQmQZD84CW8/IKNkRCZDp50xaKGTu1FcahtRyyVg+TzONWLfhLmVZ6vUN
-         xvgLmB/OVbx8dOv3IEgYhKyg/usbmDoRBPqbHscdIoxd2gc7H5iTh4nN3Fa/72iHo/nV
-         0U6rAxJkDz7dfuPdYdXJA+M7LbcdROwjicPOchPyWdIQHu/YtI8U80lfg7GWhKxdKH1E
-         Rg7VOHXYHircnMt3iVvqkLUfb99II7EOrtIS5LbX6zGi1FTFwi0+FtImMhbMEn5H5EJr
-         tITacOhB8LrP0y5u1Q6BtwSj9gMSN1ZC7g5NCMuOmdPJZ6XcMEDLmBUNLcNqfnj3lMgn
-         7HFQ==
-X-Gm-Message-State: AOJu0YwglBh7BuuyuoTOyM06q682KkRWayUZ2q632l2jQNAxbLTR+rZ4
-	Vuv2xE/4JQ6ZGlJULdLd5CpBeA==
-X-Google-Smtp-Source: AGHT+IFg5mjDF/xLoT8UBfYSdSyH069wYXbqbw5XRMPo3JKPzr9PBc5B4a/NsjiR4eXCDgNdqiCezQ==
-X-Received: by 2002:a17:903:183:b0:1b8:865d:6e1d with SMTP id z3-20020a170903018300b001b8865d6e1dmr12529712plg.51.1693897791009;
-        Tue, 05 Sep 2023 00:09:51 -0700 (PDT)
-Received: from Vincent-X1Extreme-TW.. (111-251-205-31.dynamic-ip.hinet.net. [111.251.205.31])
-        by smtp.gmail.com with ESMTPSA id m1-20020a170902d18100b001bf5c12e9fesm8613213plb.125.2023.09.05.00.09.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 05 Sep 2023 00:09:50 -0700 (PDT)
-From: Vincent Chen <vincent.chen@sifive.com>
-To: daniel.lezcano@linaro.org,
-	tglx@linutronix.de,
-	paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu
-Cc: linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	vincent.chen@sifive.com
-Subject: [PATCH] clocksource: extend the max_delta_ns of timer-riscv and timer-clint to ULONG_MAX
-Date: Tue,  5 Sep 2023 15:09:45 +0800
-Message-Id: <20230905070945.404653-1-vincent.chen@sifive.com>
-X-Mailer: git-send-email 2.34.1
+        d=1e100.net; s=20221208; t=1693900374; x=1694505174;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=g/s66p9pwSSI1fSoYztzIq0uZUi+KONsknkXUZ5g+do=;
+        b=APmYeJqkSMP0Sx8SIBLHHrFoTJoR0kNjzSa8UdYNDyV5bhA8zAUF2zhWg6sIY9hOfM
+         5eboqx+4Tkrh2bUK4qtqfYjKhQVRjl7Z3uZ+eUV/k+4+VNDkITFvfIOFfGV+HKG9mASH
+         3n1Yaftcmpkr2B064DFZsFT4ZYDbZf3UT4CKjWiJ0aodcZBDNOpPqlCHAuxtg6FgyrjJ
+         pADUtwJ38aakKaFp+Lmd1gvTRDlDmnX60XcgUJRx0uLz6cQIVqZYsEQ6mJYWVrxjbP6E
+         z8LHdV92KoxVh86pqihuNj+N5gfYNNmuyWJN8ltcw/WapnMPlQLnHo2MpVVk1eDqvgLV
+         O01Q==
+X-Gm-Message-State: AOJu0YxBL8W88mBn9wZf7vscG6VKVg1qBIFdWDA5raXA1Aljd+DUsJQr
+	kUuH+2lojVOnTdFZ9Jg0oRcxTXLAFX60bfy5Dx0=
+X-Google-Smtp-Source: AGHT+IEySP94eVLl7AiEPYh5FDmpxXtZ41VikaFi3omLii57sxmTMraaEjMpLk1CCaU/fWHLAoG/v/+5gKsnnWCUapQ=
+X-Received: by 2002:a05:6e02:128f:b0:349:9665:38b with SMTP id
+ y15-20020a056e02128f00b003499665038bmr11582256ilq.30.1693900373973; Tue, 05
+ Sep 2023 00:52:53 -0700 (PDT)
 MIME-Version: 1.0
+References: <20230901110320.312674-1-prabhakar.mahadev-lad.rj@bp.renesas.com> <20230902-plexiglas-cannot-e4ca8494ef95@spud>
+In-Reply-To: <20230902-plexiglas-cannot-e4ca8494ef95@spud>
+From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
+Date: Tue, 5 Sep 2023 08:52:27 +0100
+Message-ID: <CA+V-a8umzZ7eGDQ-CAL0+uV7mQcr6HC5BR3b=UWJoV2VjNm-4Q@mail.gmail.com>
+Subject: Re: [PATCH] riscv: Kconfig.errata: Add dependency for RISCV_SBI in
+ ERRATA_ANDES config
+To: Conor Dooley <conor@kernel.org>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Conor Dooley <conor.dooley@microchip.com>, 
+	Geert Uytterhoeven <geert+renesas@glider.be>, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, 
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, kernel test robot <lkp@intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230905_000953_557011_5D62CFC5 
-X-CRM114-Status: GOOD (  11.89  )
+X-CRM114-CacheID: sfid-20230905_005259_954553_1B15BA23 
+X-CRM114-Status: GOOD (  14.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,60 +87,30 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-When registering the riscv-timer or clint-timer as a clock_event device,
-the driver needs to specify the value of max_delta_ticks. This value
-directly influences the max_delta_ns, which represents the maximum time
-interval for configuring subsequent clock events. Currently, both
-riscv-timer and clint-timer are set with a max_delta_ticks value of
-0x7fff_ffff. When the timer operates at a high frequency, this values
-limists the system to sleep only for a short time. For the 1GHz case,
-the sleep cannot exceed two seconds. To address this limitation, refer to
-other timer implementations to extend it to 2^(bit-width of the timer) - 1.
-Because the bit-width of $mtimecmp is 64bit, this value becomes ULONG_MAX
-(0xffff_ffff_ffff_ffff).
-
-Signed-off-by: Vincent Chen <vincent.chen@sifive.com>
----
- drivers/clocksource/timer-clint.c | 2 +-
- drivers/clocksource/timer-riscv.c | 2 +-
- 2 files changed, 2 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/clocksource/timer-clint.c b/drivers/clocksource/timer-clint.c
-index 9a55e733ae99..09fd292eb83d 100644
---- a/drivers/clocksource/timer-clint.c
-+++ b/drivers/clocksource/timer-clint.c
-@@ -131,7 +131,7 @@ static int clint_timer_starting_cpu(unsigned int cpu)
- 	struct clock_event_device *ce = per_cpu_ptr(&clint_clock_event, cpu);
- 
- 	ce->cpumask = cpumask_of(cpu);
--	clockevents_config_and_register(ce, clint_timer_freq, 100, 0x7fffffff);
-+	clockevents_config_and_register(ce, clint_timer_freq, 100, ULONG_MAX);
- 
- 	enable_percpu_irq(clint_timer_irq,
- 			  irq_get_trigger_type(clint_timer_irq));
-diff --git a/drivers/clocksource/timer-riscv.c b/drivers/clocksource/timer-riscv.c
-index da3071b387eb..b25c91d41968 100644
---- a/drivers/clocksource/timer-riscv.c
-+++ b/drivers/clocksource/timer-riscv.c
-@@ -94,7 +94,7 @@ static int riscv_timer_starting_cpu(unsigned int cpu)
- 	ce->irq = riscv_clock_event_irq;
- 	if (riscv_timer_cannot_wake_cpu)
- 		ce->features |= CLOCK_EVT_FEAT_C3STOP;
--	clockevents_config_and_register(ce, riscv_timebase, 100, 0x7fffffff);
-+	clockevents_config_and_register(ce, riscv_timebase, 100, ULONG_MAX);
- 
- 	enable_percpu_irq(riscv_clock_event_irq,
- 			  irq_get_trigger_type(riscv_clock_event_irq));
--- 
-2.34.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgQ29ub3IsCgpPbiBTYXQsIFNlcCAyLCAyMDIzIGF0IDEyOjAy4oCvUE0gQ29ub3IgRG9vbGV5
+IDxjb25vckBrZXJuZWwub3JnPiB3cm90ZToKPgo+IE9uIEZyaSwgU2VwIDAxLCAyMDIzIGF0IDEy
+OjAzOjIwUE0gKzAxMDAsIFByYWJoYWthciB3cm90ZToKPiA+IEZyb206IExhZCBQcmFiaGFrYXIg
+PHByYWJoYWthci5tYWhhZGV2LWxhZC5yakBicC5yZW5lc2FzLmNvbT4KPiA+Cj4gPiBBbmRlcyBl
+cnJhdGEgdXNlcyBzYmlfZWNhbGxsKCkgd2hpY2ggaXMgb25seSBhdmFpbGFibGUgaWYgUklTQ1Zf
+U0JJIGlzCj4gPiBlbmFibGVkLiBTbyBhZGQgYW4gZGVwZW5kZW5jeSBmb3IgUklTQ1ZfU0JJIGlu
+IEVSUkFUQV9BTkRFUyBjb25maWcgdG8KPiA+IGF2b2lkIGFueSBidWlsZCBmYWlsdXJlcy4KPiA+
+Cj4gPiBSZXBvcnRlZC1ieToga2VybmVsIHRlc3Qgcm9ib3QgPGxrcEBpbnRlbC5jb20+Cj4gPiBD
+bG9zZXM6IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL29lLWtidWlsZC1hbGwvMjAyMzA4MzExNjEw
+LmVjNmJtMkc4LWxrcEBpbnRlbC5jb20vCj4gPiBTaWduZWQtb2ZmLWJ5OiBMYWQgUHJhYmhha2Fy
+IDxwcmFiaGFrYXIubWFoYWRldi1sYWQucmpAYnAucmVuZXNhcy5jb20+Cj4KPiBSZXBsaWVkIGhl
+cmUgZWFybGllciwgYnV0IHByZXNzZWQgdGhlIHdyb25nIGtleSAmIGl0IG9ubHkgd2VudCB0byB0
+aGUKPiBsaXN0Lgo+IEkgdGhpbmsgdGhpcyBwYXRjaCBwcm9iYWJseSBhbHNvIG5lZWRzIHRvIGdy
+b3cgYSBGaXhlcyB0YWcsIGZvcgo+IGNvbW1pdCBmMjg2M2YzMGQxYjAgKCJyaXNjdjogZXJyYXRh
+OiBBZGQgQW5kZXMgYWx0ZXJuYXRpdmUgcG9ydHMiKS4KPgo+IFRoZSA0IEtjb25maWcgcGF0Y2hl
+cyBpZGVhbGx5IHdvdWxkJ3ZlIGJlZW4gaW4gYSBzZXJpZXMsIHNpbmNlIDMgb2YgdGhlCj4gNCBz
+ZWVtIHRvIGJlIGZpeGVzICYgdGhlIDR0aCBkZXBlbmRzIG9uIG9uZSBvZiB0aGUgZml4ZXMgYmVp
+bmcgYXBwbGllZC4KPgpNeSBiYWQgSSBzaG91bGQgaSd2ZSBwb3N0ZWQgdGhlbSBhcyBhIHNlcmll
+cy4KCkNoZWVycywKUHJhYmhha2FyCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMu
+aW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZv
+L2xpbnV4LXJpc2N2Cg==
