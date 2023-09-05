@@ -4,82 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 269AFC83F2C
-	for <linux-riscv@archiver.kernel.org>; Tue,  5 Sep 2023 13:16:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B217C83F2C
+	for <linux-riscv@archiver.kernel.org>; Tue,  5 Sep 2023 13:22:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:
+	From:Subject:MIME-Version:Date:Message-ID:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DUVUid2gyt/VoTwur02WJ6V44hP5ApJzaJF5jv0XsI4=; b=IP7audgmxBTUIT
-	DUEyOdwFP4Zd7R2kKuBJoJ+58TVOK9lVm/ik7zc5aQ8wdGuSHY0Pxp4OtxkWRxgBXp6T3h22KCipI
-	pmaBu8LN2mMJPeekbtVzOSIB+pM+JELuHYSM7pqrLgBbRGyRLtfZ5uw6DduznkWmuklBlTpDm5kbN
-	R9fPw2H1gwI8a4yxyQC9wNwoIV/4VNh1gFhdvPO8Acgh3xmqZPSCOg0hpXBSJLWoftc1D3Mz+yBNP
-	iRreoVj1G9l6ErVv/ui6jgNDI9Fy4KRGaCufu4ddUK2inABRsnF6Ou5xpI5zzSuR2fOKSZWF/F/IU
-	7bH01QAeUtZj689wXPyg==;
+	List-Owner; bh=3GLy7DHYjPHsTK0c8efDDa84ONQmx62anqsDBHscxng=; b=S+H+iMsm+Qpw4p
+	TKQoOG1s0Unrn/qzozoJMXvKFum8RvdsnZNSDCFR0WaSDUwHuV2cT78FHFx45zfkGlOXj2HuMlNxq
+	QpU8dXXTDQ3cKfrJEgQcT/UL+vZvpYovmq1ptUb+K4xy8uUgyJoz3TYpkC5IW4BKXuVTkGuOXrK8y
+	8fq23MG6hhg66ItS3mo4+sAvTjs7LS300LA6ChbbGwuXdR0IxkoD3cc8/5GMgdeB99iX3PKRkTcDH
+	FeRazlQrswhAt9sfp4IhDY63impqOqxWQXtpeaGubXAPld6effjk1c8F9JLU3abbckIxymp5VmtfV
+	xvSIvXpGglAEb8kIqRdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qdVv1-0064vq-0d;
-	Tue, 05 Sep 2023 13:16:35 +0000
-Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
+	id 1qdW0Z-0065R5-19;
+	Tue, 05 Sep 2023 13:22:19 +0000
+Received: from wp530.webpack.hosteurope.de ([80.237.130.52])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qdVuy-0064uU-1I
+	id 1qdW0W-0065QJ-0T
 	for linux-riscv@lists.infradead.org;
-	Tue, 05 Sep 2023 13:16:33 +0000
-Received: by mail-pf1-x42f.google.com with SMTP id d2e1a72fcca58-68e26165676so289650b3a.0
-        for <linux-riscv@lists.infradead.org>; Tue, 05 Sep 2023 06:16:29 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1693919788; x=1694524588; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=erXQ5eudf2h+mjM/A19CSPwgUL1mwzyKAy3jWj8M0MM=;
-        b=EIHGtpEQYLIk+o3rRj+H4mrA0X14H9Vv2OnhBPE44fmbS3Z1cgFqDcz/8+ZpXV1tfy
-         mlpyTHH/VZo4sqM1xothBPcJuECWjRdly0x3HqIdIJD87gJ8VLkMVsOWjD1XFhVAcAf9
-         cUT2lZo1C4DH2REoFdoHj6BsECRWjgPn6a/jI1ZZlftM2mnH8pVLXodk9lLEDXjJNp+V
-         0+03ahOG2suYdfa1MON9aZ2GCS7rXSE++cDPUKVkZdFVLxaILD4jBT1VNX5cGVBj2FoC
-         zRkOkVFGsHQmhENAv0aArt6RLgYbJiYTIOAjfSFJbHwIM6cPoN3aUGnDiYbG1J4EYFQk
-         z2AA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1693919788; x=1694524588;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=erXQ5eudf2h+mjM/A19CSPwgUL1mwzyKAy3jWj8M0MM=;
-        b=VP8nwMfbsdwrOaIClj68eZy+dkp7vrzJrWJV1MkTKi+X4DftQqRNqciLqDr0G9cavc
-         ppCQjX6xOnEPg78ZMA66psacZTWC02qq+GdwyvARHS34qo5AGQicb18bd01p0j93hdOv
-         X5HSvJNzkb+AvJqtPm5BaW76ce7l4XxYeq+W2rOrQ4AGo5KTaLlkrJ7Pj7SmT8EMg2mO
-         hzwa75abHUXIE/JKLoeTntjh6Z+dy17FC8v8LrWQeas1V4do2uhX2s2A46oALO4uQAOp
-         0f73GEEqT4rP55yQ6H2aM3Ifk25i+9iaiVg2Y1moL0CMrsp/ns+0rr2Jqf7bLznytIZL
-         e/cw==
-X-Gm-Message-State: AOJu0YxQpXk8jIZvMyl8ruqUg2sCgw/AAdEWIfyleWcVhnNQloTJh9/n
-	383mKpiLe+tL2j9uWT2TCGHKbfXgv3OvdHOpJg0KdQ==
-X-Google-Smtp-Source: AGHT+IH1+9ZesuntgXO1B0Qubf+cgwm+/rcpVm2vlet/G3P2qMbSrDGXHFpqTkVoBj6UAQFNduQDgqruyYM7xIaeg9o=
-X-Received: by 2002:a17:90a:6089:b0:26d:609a:74cd with SMTP id
- z9-20020a17090a608900b0026d609a74cdmr14918486pji.24.1693919788583; Tue, 05
- Sep 2023 06:16:28 -0700 (PDT)
+	Tue, 05 Sep 2023 13:22:17 +0000
+Received: from [2a02:8108:8980:2478:8cde:aa2c:f324:937e]; authenticated
+	by wp530.webpack.hosteurope.de running ExIM with esmtpsa (TLS1.3:ECDHE_RSA_AES_128_GCM_SHA256:128)
+	id 1qdW0L-0002Yj-32; Tue, 05 Sep 2023 15:22:05 +0200
+Message-ID: <ea283ec4-5db2-488c-90e7-64dbb0e16b17@leemhuis.info>
+Date: Tue, 5 Sep 2023 15:22:03 +0200
 MIME-Version: 1.0
-References: <20230901130312.247719-1-vincent.guittot@linaro.org>
- <20230901130312.247719-5-vincent.guittot@linaro.org> <cd795543-53db-ed14-e9dd-b5738a4f3b9d@arm.com>
-In-Reply-To: <cd795543-53db-ed14-e9dd-b5738a4f3b9d@arm.com>
-From: Vincent Guittot <vincent.guittot@linaro.org>
-Date: Tue, 5 Sep 2023 15:16:17 +0200
-Message-ID: <CAKfTPtA2uWNFm+zqZODvjkNDy0joUKzRTnChEOppgi-eXBm+DQ@mail.gmail.com>
-Subject: Re: [PATCH 4/4] energy_model: use a fixed reference frequency
-To: Pierre Gondois <pierre.gondois@arm.com>
-Cc: linux@armlinux.org.uk, catalin.marinas@arm.com, will@kernel.org, 
-	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
-	sudeep.holla@arm.com, gregkh@linuxfoundation.org, rafael@kernel.org, 
-	mingo@redhat.com, peterz@infradead.org, juri.lelli@redhat.com, 
-	dietmar.eggemann@arm.com, rostedt@goodmis.org, bsegall@google.com, 
-	mgorman@suse.de, bristot@redhat.com, vschneid@redhat.com, 
-	viresh.kumar@linaro.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	linux-pm@vger.kernel.org, conor.dooley@microchip.com, suagrfillet@gmail.com, 
-	ajones@ventanamicro.com, lftan@kernel.org
+User-Agent: Mozilla Thunderbird
+Subject: Re: [v2] RISC-V: Add ptrace support for vectors
+Content-Language: en-US, de-DE
+From: "Linux regression tracking #update (Thorsten Leemhuis)"
+ <regressions@leemhuis.info>
+To: Nick Desaulniers <ndesaulniers@google.com>
+Cc: Conor Dooley <conor@kernel.org>, Andy Chiu <andy.chiu@sifive.com>,
+ linux-riscv@lists.infradead.org, palmer@dabbelt.com,
+ greentime.hu@sifive.com, guoren@linux.alibaba.com,
+ 20230816155450.26200-4-andy.chiu@sifive.com, bjorn@kernel.org,
+ Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Oleg Nesterov <oleg@redhat.com>, Eric Biederman <ebiederm@xmission.com>,
+ Kees Cook <keescook@chromium.org>, Vincent Chen <vincent.chen@sifive.com>,
+ Heiko Stuebner <heiko@sntech.de>, Conor Dooley <conor.dooley@microchip.com>,
+ Benjamin Gray <bgray@linux.ibm.com>, Qing Zhang <zhangqing@loongson.cn>,
+ Baruch Siach <baruch@tkos.co.il>, Rolf Eike Beer <eb@emlix.com>,
+ llvm@lists.linux.dev, nathan@kernel.org
+References: <20230825050248.32681-1-andy.chiu@sifive.com>
+ <ZPDIQEVaEJHXR5IW@google.com> <20230831-resize-spherical-4f46639097b8@spud>
+ <676f392a-12bb-b9ce-0b69-7d27261eaf33@leemhuis.info>
+ <CAKwvOdnGy_R_C3KsjMZ0+1+r0hVcqKrw9yDOUJuK=CCYL18gNg@mail.gmail.com>
+ <455be372-ee2c-7d96-9aaf-86256e018d25@leemhuis.info>
+In-Reply-To: <455be372-ee2c-7d96-9aaf-86256e018d25@leemhuis.info>
+X-bounce-key: webpack.hosteurope.de;regressions@leemhuis.info;1693920136;a5cbcc46;
+X-HE-SMSGID: 1qdW0L-0002Yj-32
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230905_061632_455601_AD6E95BD 
-X-CRM114-Status: GOOD (  34.14  )
+X-CRM114-CacheID: sfid-20230905_062216_350903_D37964D9 
+X-CRM114-Status: GOOD (  10.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,129 +72,37 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Reply-To: Linux regressions mailing list <regressions@lists.linux.dev>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 5 Sept 2023 at 12:05, Pierre Gondois <pierre.gondois@arm.com> wrote:
->
-> Hello Vincent,
-> I tried the patch-set on a platform using cppc_cpufreq and that has boosting
-> frequencies,
->
-> 1-
-> On such platform, the CPU capacity comes from the CPPC highest_frequency
-> field. The CPU capacity is set to the capacity of the boosting frequency.
-> This behaviour is different from DT platforms where the CPU capacity is
-> updated whenever the boosting mode is enabled (it seems).
-
-ok, I haven't noticed that cppc_cpufreq would be impacted by this
-change in arch_topology. I'm going to check how to fix that
-
->
-> Wouldn't it be better to have CPU max capacities set to their boosting
-> capacity as for CPPC base platforms ? It seems the max frequency is always
-> available somehow for all the cpufreq drivers with boosting available, i.e.
-> acpi-cpufreq, amd-pstate, cppc_cpufreq.
-
-Some platforms will never enable boost or  boost is only temporarily
-available before being capped. As a result some prefer to use a more
-sustainable freq for their max capacity. That's why we can't always
-use the max/boost freq
-
->
->
-> 2-
-> On the CPPC based platforms, the per_cpu freq_factor is not used/updated,
-> meaning that we have:
-> arch_scale_freq_ref_em()
-> \-arch_scale_freq_ref()
->    \-topology_get_freq_ref()
->      \-per_cpu(freq_factor, cpu) (set to the default value: 1)
-> and em_cpu_energy()'s ref_freq variable is then set to 1 instead of the max
-> frequency (leading to a 0 energy computation).
-
-IIUC, cppc uses the default cpu capacity of arch_topology and then
-never updates it  and it creates an EM for this SMP system.
-ok, so you have an EM sets with ACPI and SMP.
-
-I'm going to check where we could set this reference frequency for your case.
-
->
-> 3-
-> Also just in case, arch_scale_freq_ref_policy() and cpufreq_get_hw_max_freq()
-> seem to have close (but not identical) purpose,
->
-> Regards,
-> Pierre
->
-> On 9/1/23 15:03, Vincent Guittot wrote:
-> > The last item of a performance domain is not always the performance point
-> > that has been used to compute CPU's capacity. This can lead to different
-> > target frequency compared with other part of the system like schedutil and
-> > would result in wrong energy estimation.
-> >
-> > a new arch_scale_freq_ref() is available to return a fixed and coherent
-> > frequency reference that can be used when computing the CPU's frequency
-> > for an level of utilization. Use this function when available or fallback
-> > to the last performance domain item otherwise.
-> >
-> > Signed-off-by: Vincent Guittot <vincent.guittot@linaro.org>
-> > ---
-> >   include/linux/energy_model.h | 20 +++++++++++++++++---
-> >   1 file changed, 17 insertions(+), 3 deletions(-)
-> >
-> > diff --git a/include/linux/energy_model.h b/include/linux/energy_model.h
-> > index b9caa01dfac4..7ee07be6928e 100644
-> > --- a/include/linux/energy_model.h
-> > +++ b/include/linux/energy_model.h
-> > @@ -204,6 +204,20 @@ struct em_perf_state *em_pd_get_efficient_state(struct em_perf_domain *pd,
-> >       return ps;
-> >   }
-> >
-> > +#ifdef arch_scale_freq_ref
-> > +static __always_inline
-> > +unsigned long  arch_scale_freq_ref_em(int cpu, struct em_perf_domain *pd)
-> > +{
-> > +     return arch_scale_freq_ref(cpu);
-> > +}
-> > +#else
-> > +static __always_inline
-> > +unsigned long  arch_scale_freq_ref_em(int cpu, struct em_perf_domain *pd)
-> > +{
-> > +     return pd->table[pd->nr_perf_states - 1].frequency;
-> > +}
-> > +#endif
-> > +
-> >   /**
-> >    * em_cpu_energy() - Estimates the energy consumed by the CPUs of a
-> >    *          performance domain
-> > @@ -224,7 +238,7 @@ static inline unsigned long em_cpu_energy(struct em_perf_domain *pd,
-> >                               unsigned long max_util, unsigned long sum_util,
-> >                               unsigned long allowed_cpu_cap)
-> >   {
-> > -     unsigned long freq, scale_cpu;
-> > +     unsigned long freq, ref_freq, scale_cpu;
-> >       struct em_perf_state *ps;
-> >       int cpu;
-> >
-> > @@ -241,11 +255,11 @@ static inline unsigned long em_cpu_energy(struct em_perf_domain *pd,
-> >        */
-> >       cpu = cpumask_first(to_cpumask(pd->cpus));
-> >       scale_cpu = arch_scale_cpu_capacity(cpu);
-> > -     ps = &pd->table[pd->nr_perf_states - 1];
-> > +     ref_freq = arch_scale_freq_ref_em(cpu, pd);
-> >
-> >       max_util = map_util_perf(max_util);
-> >       max_util = min(max_util, allowed_cpu_cap);
-> > -     freq = map_util_freq(max_util, ps->frequency, scale_cpu);
-> > +     freq = map_util_freq(max_util, ref_freq, scale_cpu);
-> >
-> >       /*
-> >        * Find the lowest performance state of the Energy Model above the
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+W1RMRFI6IFRoaXMgbWFpbCBpbiBwcmltYXJpbHkgcmVsZXZhbnQgZm9yIExpbnV4IGtlcm5lbCBy
+ZWdyZXNzaW9uCnRyYWNraW5nLiBTZWUgbGluayBpbiBmb290ZXIgaWYgdGhlc2UgbWFpbHMgYW5u
+b3kgeW91Ll0KCk9uIDMxLjA4LjIzIDIwOjI0LCBUaG9yc3RlbiBMZWVtaHVpcyB3cm90ZToKPiBP
+biAzMS4wOC4yMyAxOTo1OSwgTmljayBEZXNhdWxuaWVycyB3cm90ZToKPj4gT24gVGh1LCBBdWcg
+MzEsIDIwMjMgYXQgMTA6NTDigK9BTSBUaG9yc3RlbiBMZWVtaHVpcwo+PiA8cmVncmVzc2lvbnNA
+bGVlbWh1aXMuaW5mbz4gd3JvdGU6Cj4+Pgo+Pj4gT24gMzEuMDguMjMgMTk6MTcsIENvbm9yIERv
+b2xleSB3cm90ZToKPj4+PiBPbiBUaHUsIEF1ZyAzMSwgMjAyMyBhdCAxMDowNTowNEFNIC0wNzAw
+LCBOaWNrIERlc2F1bG5pZXJzIHdyb3RlOgo+Pj4+PiBPbiBGcmksIEF1ZyAyNSwgMjAyMyBhdCAw
+NTowMjo0NkFNICswMDAwLCBBbmR5IENoaXUgd3JvdGU6Cj4+Pj4+PiBUaGlzIHBhdGNoIGFkZCBi
+YWNrIHRoZSBwdHJhY2Ugc3VwcG9ydCB3aXRoIHRoZSBmb2xsb3dpbmcgZml4Ogo+Pj4+Pj4gIC0g
+RGVmaW5lIE5UX1JJU0NWX0NTUiBhbmQgcmUtbnVtYmVyIE5UX1JJU0NWX1ZFQ1RPUiB0byBwcmV2
+ZW50Cj4+Pj4+PiAgICBjb25mbGljdGluZyB3aXRoIGdkYidzIE5UX1JJU0NWX0NTUi4KPj4+Pj4+
+ICAtIFVzZSBzdHJ1Y3QgX19yaXNjdl92X3JlZ3NldF9zdGF0ZSB0byBoYW5kbGUgcHRyYWNlIHJl
+cXVlc3RzCj4+Pj4+Pgo+Pj4+PiBIaSBBbmR5LCB0aGlzIGlzIGNhdXNpbmcgYW4gaW5zdGFuY2Ug
+b2YgLVd1bnVzZWQtdmFyaWFibGUuIFBUQUwuCj4gWy4uLl0KPj4+IFlvdSBtZWFuIHRoZSBjb21t
+aXQtaWQgb2YgdGhlIGNoYW5nZSBjdXJyZW50bHkga25vd24gYXMgZGJlNDZiMDk0MDI2Cj4+PiB3
+aWxsIGNoYW5nZT8gCgpUaGF0IGhhcHBlbmVkIGluIGJldHdlZW4gYW5kIHRoZSBmaXggd2FzIGZv
+bGRlZCBpbiwgc28gdGVsbCByZWd6Ym90IHRoaXMKd2FzIHJlc29sdmVkOgoKI3JlZ3pib3QgcmVz
+b2x2ZTogY3VscHJpdCB1cGRhdGVkIGFuZCBmaXggd2FzIGZvbGRlZCBpbiAoY3VycmVudGx5IGtu
+b3duCmFzIDkzMDBmMDA0Mzk3NCkKI3JlZ3pib3QgaWdub3JlLWFjdGl2aXR5CgpDaWFvLCBUaG9y
+c3RlbiAod2VhcmluZyBoaXMgJ3RoZSBMaW51eCBrZXJuZWwncyByZWdyZXNzaW9uIHRyYWNrZXIn
+IGhhdCkKLS0KRXZlcnl0aGluZyB5b3Ugd2FubmEga25vdyBhYm91dCBMaW51eCBrZXJuZWwgcmVn
+cmVzc2lvbiB0cmFja2luZzoKaHR0cHM6Ly9saW51eC1yZWd0cmFja2luZy5sZWVtaHVpcy5pbmZv
+L2Fib3V0LyN0bGRyClRoYXQgcGFnZSBhbHNvIGV4cGxhaW5zIHdoYXQgdG8gZG8gaWYgbWFpbHMg
+bGlrZSB0aGlzIGFubm95IHlvdS4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5p
+bmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8v
+bGludXgtcmlzY3YK
