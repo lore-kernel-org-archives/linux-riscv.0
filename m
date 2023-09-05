@@ -4,79 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8349CC71153
-	for <linux-riscv@archiver.kernel.org>; Mon,  4 Sep 2023 20:22:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94CECC83F33
+	for <linux-riscv@archiver.kernel.org>; Tue,  5 Sep 2023 07:10:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vD/B+AqgIaSeB9WfY6i9BlNsxzHjlA5rPYH7A0WOZ6E=; b=rapjdCaDwV3dXY
-	DKBHfqKqK64FXNg4z9jx+zSFgsD3eF/kRsvx7W94xVrVWb5Vvcx9AOGhbjkiF44TsRL30FzncBTav
-	uvv5B6stVeubzeZopAnUUGC+ig34nD2XDXjIqzh9hFUdnknI76lupRZ6yYIZE8LaV8+9KNCO6owaz
-	4SGmdlmWyFLOxgw9czKgwFPopYl7knCPXzdF0K/55v5YrNhWe5tWdrfSu8j+ERg41nhH17qiLzHbO
-	1ULKQAuIibiX7bbHke50dD4yh28/nFUxtWZtM/Lmcxa9i/9sIQ49WPkXbbAiOdIpRsnFlarGRdZC5
-	nAvxN+c+4Gc2BxkoMdOg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=BAJpTH/1bypf0u73NKk4jVUnfXZHHUSt8SIkxq6ITsI=; b=1kXB6tpBvjiOwt
+	FGgyM/gtyjxgpPZsTLGGT7zi6pWmR6L+hp3RsEBvctvKhr+JArAo/Iq3jSNFBbc6N0YX0sY8cHNbK
+	Uyuhs67lmmn6hcvHRtoCm4HLyHtdeRX7srh3T9dUyQhdOfhIj0MLUA0IJWHbvXg6d6UcV8a3/iXq4
+	apYY2GGpG3nR0kpYpMjl6p91rj4Ybbp2eolLWsLJr6Xz02T7QrvRYxL+xXC9UkYE/zMLPDuSvstLM
+	iuYGQks2qzbm4Vs6BmLd2FJ6qsM1C/i2Gj1DeTJ7gMrZN5FRqyxeNRYuRoUrGJQgprPRVW8wOluub
+	/zNxquj3VBaeOokgkXBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qdG5m-004kU9-26;
-	Mon, 04 Sep 2023 20:22:38 +0000
-Received: from mail-pf1-x42c.google.com ([2607:f8b0:4864:20::42c])
+	id 1qdQCC-005Qjf-1A;
+	Tue, 05 Sep 2023 07:09:56 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qdG5j-004kTb-1O
+	id 1qdQC9-005QjK-1N
 	for linux-riscv@lists.infradead.org;
-	Mon, 04 Sep 2023 20:22:37 +0000
-Received: by mail-pf1-x42c.google.com with SMTP id d2e1a72fcca58-68c0d4cc3a4so1026760b3a.1
-        for <linux-riscv@lists.infradead.org>; Mon, 04 Sep 2023 13:22:34 -0700 (PDT)
+	Tue, 05 Sep 2023 07:09:54 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-1bee82fad0fso12336095ad.2
+        for <linux-riscv@lists.infradead.org>; Tue, 05 Sep 2023 00:09:51 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1693858954; x=1694463754; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=sE+FlBZ0KYIiVYmRnx2Za3tZtM1vnyzitJj3+gSyToE=;
-        b=X86y821Ea3cgwOyLTfVomKqsuFWzHlAp93xiHy3do7SRXc4eUsyZu7Vyq3wOvoTUPg
-         9p9na2WGbA1AFoNShcQr8dE1QR5kUw9sG/DWSpLY0LDxuGXrU/NqcC4BNq8GaepF1RgQ
-         utbY12ov7pIlm6CQaFsBIvkC70+E25Zmk7yajdRFyulypcglWtn2oMwYKclxeGU87SmM
-         wLFnxtnuWhF1tzzojqkLdYhDuW5LyCommAKAb/LqoFLhF9WpetOCiv/WveAV6C+pMd2i
-         p2gbWSub4SJh6yd1Ixq25Lts+sTCyYZaSRdn2ziYJgx8nraff1FRg4YuG2VF6wCgPRdo
-         yEJQ==
+        d=sifive.com; s=google; t=1693897791; x=1694502591; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=A/t6gia3kis5Pkr4/PDqi3tggIgG29f6OdAUFBmTTOk=;
+        b=kc736FawpmT0MLpkXRu/Wt/agrkGZ5ht4FR7FaI3jdlCK+yCV9TxFVsjeyIgpZAbTE
+         WmmVVDPJdp2sKr05irhBFjwCO8qgWRPSLe/J2nxcyxyegfNMGsY7v/5XtTaedjP3UYcm
+         1p1X2j8waGj9aRdzgcbEUeVTEH+XwKVQf+8EELLADnt9GGQ8bkS1fsAdgOmUkba7ohJo
+         PF2NPZLmMTh/lnS8G1BF/J/V1hqMbqonBj46B4V6J9NJUO0iBK29nBTHd42etjHXm8t4
+         HqntudTQB21KXH/l3VXIbLdyP1I13/CI1owSKb8k5srTJGzEOW9byWooarAztjjNUqnd
+         yfPQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1693858954; x=1694463754;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=sE+FlBZ0KYIiVYmRnx2Za3tZtM1vnyzitJj3+gSyToE=;
-        b=GA62fiZ3+lRzL/KTefH1Mx5nd9KqYGIBHSGMPIxszsKzduSlk8mK9JYfjvxjMZ2TRh
-         73jbqmae0txikOrMfRbPzMQVrUfGpM2XBNGV5v6r2SGlmKZ9WoSa9GnOjq0+YjSuWcka
-         ys6qjnaRWXtQY61dD8JvGFVJwieLDIYHDM+Z5/4mC7OJLlk9a11UECv3RvFV8/W0LxAI
-         cAq9LwkE97bmr3Q15btD3VEiZSH8VnRgcjSCcWRommPTRQxsmjEb0kM7uZa/ELdI1zeR
-         ah5g+dpA0hAx1104cSDoNoqxtfLoUXGCOqhbYA259jDQfmUUqL5az7YXyBMbecuZBbeU
-         G2uw==
-X-Gm-Message-State: AOJu0Yw2fasAU7MNLjiSZkqv9yrxK3k9ou5+cfHfOXlKU/sJiyDKyIhn
-	MKTqNJq4tvJ/ayq9eJGd1V8IUA==
-X-Google-Smtp-Source: AGHT+IHKDIdLfsv7nmFqSNCjsF2ZBWBdJsYxqF8mF/BfAWpu96P9iOb0N9jOCanVylwHFYXu1I1mqQ==
-X-Received: by 2002:a05:6a21:6d9f:b0:13a:43e8:3fa6 with SMTP id wl31-20020a056a216d9f00b0013a43e83fa6mr10844133pzb.23.1693858954385;
-        Mon, 04 Sep 2023 13:22:34 -0700 (PDT)
-Received: from x1 ([2601:1c2:1800:f680:5de2:2323:20de:e26d])
-        by smtp.gmail.com with ESMTPSA id u6-20020a170902e5c600b001b8b2fb52d4sm7894454plf.203.2023.09.04.13.22.33
+        d=1e100.net; s=20221208; t=1693897791; x=1694502591;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=A/t6gia3kis5Pkr4/PDqi3tggIgG29f6OdAUFBmTTOk=;
+        b=g0ndKqDVvfQmQZD84CW8/IKNkRCZDp50xaKGTu1FcahtRyyVg+TzONWLfhLmVZ6vUN
+         xvgLmB/OVbx8dOv3IEgYhKyg/usbmDoRBPqbHscdIoxd2gc7H5iTh4nN3Fa/72iHo/nV
+         0U6rAxJkDz7dfuPdYdXJA+M7LbcdROwjicPOchPyWdIQHu/YtI8U80lfg7GWhKxdKH1E
+         Rg7VOHXYHircnMt3iVvqkLUfb99II7EOrtIS5LbX6zGi1FTFwi0+FtImMhbMEn5H5EJr
+         tITacOhB8LrP0y5u1Q6BtwSj9gMSN1ZC7g5NCMuOmdPJZ6XcMEDLmBUNLcNqfnj3lMgn
+         7HFQ==
+X-Gm-Message-State: AOJu0YwglBh7BuuyuoTOyM06q682KkRWayUZ2q632l2jQNAxbLTR+rZ4
+	Vuv2xE/4JQ6ZGlJULdLd5CpBeA==
+X-Google-Smtp-Source: AGHT+IFg5mjDF/xLoT8UBfYSdSyH069wYXbqbw5XRMPo3JKPzr9PBc5B4a/NsjiR4eXCDgNdqiCezQ==
+X-Received: by 2002:a17:903:183:b0:1b8:865d:6e1d with SMTP id z3-20020a170903018300b001b8865d6e1dmr12529712plg.51.1693897791009;
+        Tue, 05 Sep 2023 00:09:51 -0700 (PDT)
+Received: from Vincent-X1Extreme-TW.. (111-251-205-31.dynamic-ip.hinet.net. [111.251.205.31])
+        by smtp.gmail.com with ESMTPSA id m1-20020a170902d18100b001bf5c12e9fesm8613213plb.125.2023.09.05.00.09.49
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 04 Sep 2023 13:22:33 -0700 (PDT)
-Date: Mon, 4 Sep 2023 13:22:32 -0700
-From: Drew Fustini <dfustini@baylibre.com>
-To: Jisheng Zhang <jszhang@kernel.org>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Guo Ren <guoren@kernel.org>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] riscv: mm: update T-Head memory type definitions
-Message-ID: <ZPY8iB6BV9wXTqPV@x1>
-References: <20230827090644.1318-1-jszhang@kernel.org>
+        Tue, 05 Sep 2023 00:09:50 -0700 (PDT)
+From: Vincent Chen <vincent.chen@sifive.com>
+To: daniel.lezcano@linaro.org,
+	tglx@linutronix.de,
+	paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu
+Cc: linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	vincent.chen@sifive.com
+Subject: [PATCH] clocksource: extend the max_delta_ns of timer-riscv and timer-clint to ULONG_MAX
+Date: Tue,  5 Sep 2023 15:09:45 +0800
+Message-Id: <20230905070945.404653-1-vincent.chen@sifive.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230827090644.1318-1-jszhang@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230904_132235_467968_6BBBB0A3 
-X-CRM114-Status: GOOD (  16.75  )
+X-CRM114-CacheID: sfid-20230905_000953_557011_5D62CFC5 
+X-CRM114-Status: GOOD (  11.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,69 +94,53 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Aug 27, 2023 at 05:06:44PM +0800, Jisheng Zhang wrote:
-> Update T-Head memory type definitions according to C910 doc [1]
-> For NC and IO, SH property isn't configurable, hardcoded as SH,
-> so set SH for NOCACHE and IO.
-> 
-> And also set bit[61](Bufferable) for NOCACHE according to the
-> table 6.1 in the doc [1].
-> 
-> Link: https://github.com/T-head-Semi/openc910 [1]
-> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> ---
->  arch/riscv/include/asm/pgtable-64.h | 14 +++++++++-----
->  1 file changed, 9 insertions(+), 5 deletions(-)
-> 
-> diff --git a/arch/riscv/include/asm/pgtable-64.h b/arch/riscv/include/asm/pgtable-64.h
-> index 7a5097202e15..9a2c780a11e9 100644
-> --- a/arch/riscv/include/asm/pgtable-64.h
-> +++ b/arch/riscv/include/asm/pgtable-64.h
-> @@ -126,14 +126,18 @@ enum napot_cont_order {
->  
->  /*
->   * [63:59] T-Head Memory Type definitions:
-> - *
-> - * 00000 - NC   Weakly-ordered, Non-cacheable, Non-bufferable, Non-shareable, Non-trustable
-> + * bit[63] SO - Strong Order
-> + * bit[62] C - Cacheable
-> + * bit[61] B - Bufferable
-> + * bit[60] SH - Shareable
-> + * bit[59] Sec - Trustable
-> + * 00110 - NC   Weakly-ordered, Non-cacheable, Bufferable, Shareable, Non-trustable
->   * 01110 - PMA  Weakly-ordered, Cacheable, Bufferable, Shareable, Non-trustable
-> - * 10000 - IO   Strongly-ordered, Non-cacheable, Non-bufferable, Non-shareable, Non-trustable
-> + * 10010 - IO   Strongly-ordered, Non-cacheable, Non-bufferable, Shareable, Non-trustable
->   */
->  #define _PAGE_PMA_THEAD		((1UL << 62) | (1UL << 61) | (1UL << 60))
-> -#define _PAGE_NOCACHE_THEAD	0UL
-> -#define _PAGE_IO_THEAD		(1UL << 63)
-> +#define _PAGE_NOCACHE_THEAD	((1UL < 61) | (1UL << 60))
-> +#define _PAGE_IO_THEAD		((1UL << 63) | (1UL << 60))
->  #define _PAGE_MTMASK_THEAD	(_PAGE_PMA_THEAD | _PAGE_IO_THEAD | (1UL << 59))
->  
->  static inline u64 riscv_page_mtmask(void)
-> -- 
-> 2.40.1
-> 
+When registering the riscv-timer or clint-timer as a clock_event device,
+the driver needs to specify the value of max_delta_ticks. This value
+directly influences the max_delta_ns, which represents the maximum time
+interval for configuring subsequent clock events. Currently, both
+riscv-timer and clint-timer are set with a max_delta_ticks value of
+0x7fff_ffff. When the timer operates at a high frequency, this values
+limists the system to sleep only for a short time. For the 1GHz case,
+the sleep cannot exceed two seconds. To address this limitation, refer to
+other timer implementations to extend it to 2^(bit-width of the timer) - 1.
+Because the bit-width of $mtimecmp is 64bit, this value becomes ULONG_MAX
+(0xffff_ffff_ffff_ffff).
 
-Tested-by: Drew Fustini <dfustini@baylibre.com>
+Signed-off-by: Vincent Chen <vincent.chen@sifive.com>
+---
+ drivers/clocksource/timer-clint.c | 2 +-
+ drivers/clocksource/timer-riscv.c | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
 
-I applied this on top of:
+diff --git a/drivers/clocksource/timer-clint.c b/drivers/clocksource/timer-clint.c
+index 9a55e733ae99..09fd292eb83d 100644
+--- a/drivers/clocksource/timer-clint.c
++++ b/drivers/clocksource/timer-clint.c
+@@ -131,7 +131,7 @@ static int clint_timer_starting_cpu(unsigned int cpu)
+ 	struct clock_event_device *ce = per_cpu_ptr(&clint_clock_event, cpu);
+ 
+ 	ce->cpumask = cpumask_of(cpu);
+-	clockevents_config_and_register(ce, clint_timer_freq, 100, 0x7fffffff);
++	clockevents_config_and_register(ce, clint_timer_freq, 100, ULONG_MAX);
+ 
+ 	enable_percpu_irq(clint_timer_irq,
+ 			  irq_get_trigger_type(clint_timer_irq));
+diff --git a/drivers/clocksource/timer-riscv.c b/drivers/clocksource/timer-riscv.c
+index da3071b387eb..b25c91d41968 100644
+--- a/drivers/clocksource/timer-riscv.c
++++ b/drivers/clocksource/timer-riscv.c
+@@ -94,7 +94,7 @@ static int riscv_timer_starting_cpu(unsigned int cpu)
+ 	ce->irq = riscv_clock_event_irq;
+ 	if (riscv_timer_cannot_wake_cpu)
+ 		ce->features |= CLOCK_EVT_FEAT_C3STOP;
+-	clockevents_config_and_register(ce, riscv_timebase, 100, 0x7fffffff);
++	clockevents_config_and_register(ce, riscv_timebase, 100, ULONG_MAX);
+ 
+ 	enable_percpu_irq(riscv_clock_event_irq,
+ 			  irq_get_trigger_type(riscv_clock_event_irq));
+-- 
+2.34.1
 
- [1] riscv: errata: improve T-Head CMO
- [2] riscv: dts: thead: set dma-noncoherent to soc bus
- [3] RISC-V: Add basic eMMC support for BeagleV Ahead 
-
-The BeagleV Ahead eMMC continues to function okay in ADMA mode after
-this patch was applied.
-
-Thanks,
-Drew
-
-[1] https://lore.kernel.org/linux-riscv/20230827090813.1353-1-jszhang@kernel.org/
-[2] https://lore.kernel.org/linux-riscv/ZOIBQI3L4kP7c%2FT1@xhacker/
-[3] https://lore.kernel.org/linux-riscv/20230724-th1520-emmc-v2-0-132ed2e2171e@baylibre.com/
 
 _______________________________________________
 linux-riscv mailing list
