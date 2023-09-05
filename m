@@ -4,63 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B217C83F2C
-	for <linux-riscv@archiver.kernel.org>; Tue,  5 Sep 2023 13:22:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D128DC83F3E
+	for <linux-riscv@archiver.kernel.org>; Tue,  5 Sep 2023 13:51:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:
-	From:Subject:MIME-Version:Date:Message-ID:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3GLy7DHYjPHsTK0c8efDDa84ONQmx62anqsDBHscxng=; b=S+H+iMsm+Qpw4p
-	TKQoOG1s0Unrn/qzozoJMXvKFum8RvdsnZNSDCFR0WaSDUwHuV2cT78FHFx45zfkGlOXj2HuMlNxq
-	QpU8dXXTDQ3cKfrJEgQcT/UL+vZvpYovmq1ptUb+K4xy8uUgyJoz3TYpkC5IW4BKXuVTkGuOXrK8y
-	8fq23MG6hhg66ItS3mo4+sAvTjs7LS300LA6ChbbGwuXdR0IxkoD3cc8/5GMgdeB99iX3PKRkTcDH
-	FeRazlQrswhAt9sfp4IhDY63impqOqxWQXtpeaGubXAPld6effjk1c8F9JLU3abbckIxymp5VmtfV
-	xvSIvXpGglAEb8kIqRdA==;
+	List-Owner; bh=cNhHZZbh2+E+/jN7U3m7UyE2hphca93Gfr5aMvyP8s0=; b=QSCIa3D188FvQW
+	MwbCx8XLz0PDOtx6ph3MlW3ebDxfGx5K9ytEWMQXfCJ8bvX731+hFtmsNwJ498znalENTSFrQedo4
+	ggVm4Of9oGQwd0FreqN+IxN0vb53vLGvMjiTCmbI4S1SzuccHCHUoTUstY5XlcDoR4y+SSIT7p5Wn
+	YdDr3C/xrr/FM42GbSRm/Lwq6oSylIypzVSHonBk/32GqKsJ6ArZ6M5lEshtjGFci1zi9F87QgnhW
+	ZRfjYjSENgLUq06CCwCq7J4rya+NzY/wZWzzP+HYNahw8JaCp0Y5pwlbeVAd8SCo0jVa2b97ipaXF
+	oyoVfhHamudISjlXPVkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qdW0Z-0065R5-19;
-	Tue, 05 Sep 2023 13:22:19 +0000
-Received: from wp530.webpack.hosteurope.de ([80.237.130.52])
+	id 1qdWSB-0067Pm-2q;
+	Tue, 05 Sep 2023 13:50:51 +0000
+Received: from mail-pf1-x430.google.com ([2607:f8b0:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qdW0W-0065QJ-0T
+	id 1qdWS8-0067OF-1i
 	for linux-riscv@lists.infradead.org;
-	Tue, 05 Sep 2023 13:22:17 +0000
-Received: from [2a02:8108:8980:2478:8cde:aa2c:f324:937e]; authenticated
-	by wp530.webpack.hosteurope.de running ExIM with esmtpsa (TLS1.3:ECDHE_RSA_AES_128_GCM_SHA256:128)
-	id 1qdW0L-0002Yj-32; Tue, 05 Sep 2023 15:22:05 +0200
-Message-ID: <ea283ec4-5db2-488c-90e7-64dbb0e16b17@leemhuis.info>
-Date: Tue, 5 Sep 2023 15:22:03 +0200
+	Tue, 05 Sep 2023 13:50:50 +0000
+Received: by mail-pf1-x430.google.com with SMTP id d2e1a72fcca58-68a56401c12so1584493b3a.2
+        for <linux-riscv@lists.infradead.org>; Tue, 05 Sep 2023 06:50:46 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1693921846; x=1694526646; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=8746KGEIMDYvZy66/CTNAkcgr/TmGj5aYpS8lwWYVY4=;
+        b=mx5LYsA3K7lkwfmK2EKMur/d6lzWMkqGPgUJPqe1L14HQ1G2Ik+JtNIwgVSkq07s3L
+         lEXcxAKhoIecPaPsVOyszmt6q6F1oH1KuTv11Q9k/p8z0I64BxFcfCwrKailQqEft/48
+         vxrAMrGNZ4Jagk7O1bKsewEL3u5/UsUoGQlNltOy9RTT6PvumJYv95SJizB29q7py/iT
+         GDOhDxRwWJ+vDNTafymU68mQltxMeIRG07qWTjnU85AFBSjz3BbnEUoRZYrYzOEYBaik
+         F4TL7/xodtA/L4FMRT3NPwew6nj4dkULiDkVIXJPh0zz+Ntty+o3ww5BNVKhBmAk6ZMK
+         NmxQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1693921846; x=1694526646;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=8746KGEIMDYvZy66/CTNAkcgr/TmGj5aYpS8lwWYVY4=;
+        b=kD9F/sLg2AxWmj5kEQJoa+gPh4qY286+d/9TIV9IwEiGlFPUjNXaOoNJ4IIv4/dVzR
+         Jc2TzyIhJasXHtCgu+DloJRI/iDtAGHEyUAk0iaUD4Oaa1UUxRW4qDaTGhxZGqUfoipX
+         RuawRhGdzfChOf4aDOuL4LlXB4BwsEPosI/RRpOlwJS9Ucw9/HDpUpmzqq+pHJArc49i
+         aOW6vDjic1c1LxsA9GpE0clGs4h5jliQtyZnzZXpRQk8jCq5Q3FcXzqdnTIrHCLPGIYp
+         PATFIYRCccKtKerRqZqd42RdvcYIZpLjEHYLqadi2Njc8XXYXNJlUrvqBBUu4Jk2Xqep
+         zHSQ==
+X-Gm-Message-State: AOJu0YzYeP2W+vzqv5tupcq0AgHn72d22J+mVn6CepAU66wkpONMniqO
+	F+XkiN6Ab7zGwDfKXavy4OsIh7ityWACqW6zrYGtAw==
+X-Google-Smtp-Source: AGHT+IHyxlfWoLfe4fGuaYHNWVkerDWNPmsQOGwuwZTCoO+MCc5SzD8LdTfSRFNhOHbuXHxmu5RBbYiGz+ziPJEEFVE=
+X-Received: by 2002:a05:6a00:1705:b0:68c:33a9:e572 with SMTP id
+ h5-20020a056a00170500b0068c33a9e572mr13265343pfc.29.1693921846035; Tue, 05
+ Sep 2023 06:50:46 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [v2] RISC-V: Add ptrace support for vectors
-Content-Language: en-US, de-DE
-From: "Linux regression tracking #update (Thorsten Leemhuis)"
- <regressions@leemhuis.info>
-To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: Conor Dooley <conor@kernel.org>, Andy Chiu <andy.chiu@sifive.com>,
- linux-riscv@lists.infradead.org, palmer@dabbelt.com,
- greentime.hu@sifive.com, guoren@linux.alibaba.com,
- 20230816155450.26200-4-andy.chiu@sifive.com, bjorn@kernel.org,
- Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Oleg Nesterov <oleg@redhat.com>, Eric Biederman <ebiederm@xmission.com>,
- Kees Cook <keescook@chromium.org>, Vincent Chen <vincent.chen@sifive.com>,
- Heiko Stuebner <heiko@sntech.de>, Conor Dooley <conor.dooley@microchip.com>,
- Benjamin Gray <bgray@linux.ibm.com>, Qing Zhang <zhangqing@loongson.cn>,
- Baruch Siach <baruch@tkos.co.il>, Rolf Eike Beer <eb@emlix.com>,
- llvm@lists.linux.dev, nathan@kernel.org
-References: <20230825050248.32681-1-andy.chiu@sifive.com>
- <ZPDIQEVaEJHXR5IW@google.com> <20230831-resize-spherical-4f46639097b8@spud>
- <676f392a-12bb-b9ce-0b69-7d27261eaf33@leemhuis.info>
- <CAKwvOdnGy_R_C3KsjMZ0+1+r0hVcqKrw9yDOUJuK=CCYL18gNg@mail.gmail.com>
- <455be372-ee2c-7d96-9aaf-86256e018d25@leemhuis.info>
-In-Reply-To: <455be372-ee2c-7d96-9aaf-86256e018d25@leemhuis.info>
-X-bounce-key: webpack.hosteurope.de;regressions@leemhuis.info;1693920136;a5cbcc46;
-X-HE-SMSGID: 1qdW0L-0002Yj-32
+References: <20230901130312.247719-1-vincent.guittot@linaro.org>
+ <20230901130312.247719-4-vincent.guittot@linaro.org> <20230905112455.GD28319@noisy.programming.kicks-ass.net>
+In-Reply-To: <20230905112455.GD28319@noisy.programming.kicks-ass.net>
+From: Vincent Guittot <vincent.guittot@linaro.org>
+Date: Tue, 5 Sep 2023 15:50:34 +0200
+Message-ID: <CAKfTPtCt7m5c0y1ttF3k3coZ34fbALpAToK5vUpgtZVTPwNrzg@mail.gmail.com>
+Subject: Re: [PATCH 3/4] cpufreq/schedutil: use a fixed reference frequency
+To: Peter Zijlstra <peterz@infradead.org>
+Cc: linux@armlinux.org.uk, catalin.marinas@arm.com, will@kernel.org, 
+	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
+	sudeep.holla@arm.com, gregkh@linuxfoundation.org, rafael@kernel.org, 
+	mingo@redhat.com, juri.lelli@redhat.com, dietmar.eggemann@arm.com, 
+	rostedt@goodmis.org, bsegall@google.com, mgorman@suse.de, bristot@redhat.com, 
+	vschneid@redhat.com, viresh.kumar@linaro.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-pm@vger.kernel.org, 
+	conor.dooley@microchip.com, suagrfillet@gmail.com, ajones@ventanamicro.com, 
+	lftan@kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230905_062216_350903_D37964D9 
-X-CRM114-Status: GOOD (  10.22  )
+X-CRM114-CacheID: sfid-20230905_065048_573479_81A90EE0 
+X-CRM114-Status: GOOD (  20.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,37 +91,100 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Reply-To: Linux regressions mailing list <regressions@lists.linux.dev>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-W1RMRFI6IFRoaXMgbWFpbCBpbiBwcmltYXJpbHkgcmVsZXZhbnQgZm9yIExpbnV4IGtlcm5lbCBy
-ZWdyZXNzaW9uCnRyYWNraW5nLiBTZWUgbGluayBpbiBmb290ZXIgaWYgdGhlc2UgbWFpbHMgYW5u
-b3kgeW91Ll0KCk9uIDMxLjA4LjIzIDIwOjI0LCBUaG9yc3RlbiBMZWVtaHVpcyB3cm90ZToKPiBP
-biAzMS4wOC4yMyAxOTo1OSwgTmljayBEZXNhdWxuaWVycyB3cm90ZToKPj4gT24gVGh1LCBBdWcg
-MzEsIDIwMjMgYXQgMTA6NTDigK9BTSBUaG9yc3RlbiBMZWVtaHVpcwo+PiA8cmVncmVzc2lvbnNA
-bGVlbWh1aXMuaW5mbz4gd3JvdGU6Cj4+Pgo+Pj4gT24gMzEuMDguMjMgMTk6MTcsIENvbm9yIERv
-b2xleSB3cm90ZToKPj4+PiBPbiBUaHUsIEF1ZyAzMSwgMjAyMyBhdCAxMDowNTowNEFNIC0wNzAw
-LCBOaWNrIERlc2F1bG5pZXJzIHdyb3RlOgo+Pj4+PiBPbiBGcmksIEF1ZyAyNSwgMjAyMyBhdCAw
-NTowMjo0NkFNICswMDAwLCBBbmR5IENoaXUgd3JvdGU6Cj4+Pj4+PiBUaGlzIHBhdGNoIGFkZCBi
-YWNrIHRoZSBwdHJhY2Ugc3VwcG9ydCB3aXRoIHRoZSBmb2xsb3dpbmcgZml4Ogo+Pj4+Pj4gIC0g
-RGVmaW5lIE5UX1JJU0NWX0NTUiBhbmQgcmUtbnVtYmVyIE5UX1JJU0NWX1ZFQ1RPUiB0byBwcmV2
-ZW50Cj4+Pj4+PiAgICBjb25mbGljdGluZyB3aXRoIGdkYidzIE5UX1JJU0NWX0NTUi4KPj4+Pj4+
-ICAtIFVzZSBzdHJ1Y3QgX19yaXNjdl92X3JlZ3NldF9zdGF0ZSB0byBoYW5kbGUgcHRyYWNlIHJl
-cXVlc3RzCj4+Pj4+Pgo+Pj4+PiBIaSBBbmR5LCB0aGlzIGlzIGNhdXNpbmcgYW4gaW5zdGFuY2Ug
-b2YgLVd1bnVzZWQtdmFyaWFibGUuIFBUQUwuCj4gWy4uLl0KPj4+IFlvdSBtZWFuIHRoZSBjb21t
-aXQtaWQgb2YgdGhlIGNoYW5nZSBjdXJyZW50bHkga25vd24gYXMgZGJlNDZiMDk0MDI2Cj4+PiB3
-aWxsIGNoYW5nZT8gCgpUaGF0IGhhcHBlbmVkIGluIGJldHdlZW4gYW5kIHRoZSBmaXggd2FzIGZv
-bGRlZCBpbiwgc28gdGVsbCByZWd6Ym90IHRoaXMKd2FzIHJlc29sdmVkOgoKI3JlZ3pib3QgcmVz
-b2x2ZTogY3VscHJpdCB1cGRhdGVkIGFuZCBmaXggd2FzIGZvbGRlZCBpbiAoY3VycmVudGx5IGtu
-b3duCmFzIDkzMDBmMDA0Mzk3NCkKI3JlZ3pib3QgaWdub3JlLWFjdGl2aXR5CgpDaWFvLCBUaG9y
-c3RlbiAod2VhcmluZyBoaXMgJ3RoZSBMaW51eCBrZXJuZWwncyByZWdyZXNzaW9uIHRyYWNrZXIn
-IGhhdCkKLS0KRXZlcnl0aGluZyB5b3Ugd2FubmEga25vdyBhYm91dCBMaW51eCBrZXJuZWwgcmVn
-cmVzc2lvbiB0cmFja2luZzoKaHR0cHM6Ly9saW51eC1yZWd0cmFja2luZy5sZWVtaHVpcy5pbmZv
-L2Fib3V0LyN0bGRyClRoYXQgcGFnZSBhbHNvIGV4cGxhaW5zIHdoYXQgdG8gZG8gaWYgbWFpbHMg
-bGlrZSB0aGlzIGFubm95IHlvdS4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5p
-bmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8v
-bGludXgtcmlzY3YK
+On Tue, 5 Sept 2023 at 13:25, Peter Zijlstra <peterz@infradead.org> wrote:
+>
+> On Fri, Sep 01, 2023 at 03:03:11PM +0200, Vincent Guittot wrote:
+>
+> > +#ifdef arch_scale_freq_ref
+> > +/**
+> > + * arch_scale_freq_ref_policy - get the reference frequency of a given CPU that
+> > + * has been used to correlate frequency and compute capacity.
+> > + * @cpu: the CPU in question.
+> > + *
+> > + * Return: the reference CPU frequency.
+> > + */
+> > +static __always_inline
+> > +unsigned long  arch_scale_freq_ref_policy(struct cpufreq_policy *policy)
+> > +{
+> > +     return arch_scale_freq_ref(policy->cpu);
+> > +}
+> > +#else
+> > +static __always_inline
+> > +unsigned long  arch_scale_freq_ref_policy(struct cpufreq_policy *policy)
+>
+> double space    ^^
+
+I was expecting checkpatch.pl to catch it
+
+will fix them
+
+>
+> > +{
+> > +     if (arch_scale_freq_invariant())
+> > +             return policy->cpuinfo.max_freq;
+> > +
+> > +
+>
+> superfluous whitespace there.
+>
+> > +     return policy->cur;
+> > +}
+> > +#endif
+>
+> static __always_inline
+> unsigned long arch_scale_freq_ref_policy(struct cpufreq_policy *policy)
+> {
+> #ifdef arch_scale_freq_ref
+>         return arch_scale_freq_ref(policy->cpu);
+> #endif
+>
+>         if (arch_scale_freq_invariant())
+>                 return policy->cpuinfo.max_freq;
+>
+>         return policy->cur;
+> }
+>
+> Would have the lot in a single function and possibly easier to read?
+
+yes
+
+>
+> > +
+> >  /**
+> >   * get_next_freq - Compute a new frequency for a given cpufreq policy.
+> >   * @sg_policy: schedutil policy object to compute the new frequency for.
+> > @@ -139,11 +164,11 @@ static void sugov_deferred_update(struct sugov_policy *sg_policy)
+> >  static unsigned int get_next_freq(struct sugov_policy *sg_policy,
+> >                                 unsigned long util, unsigned long max)
+> >  {
+> > +     unsigned int freq;
+> >       struct cpufreq_policy *policy = sg_policy->policy;
+> > -     unsigned int freq = arch_scale_freq_invariant() ?
+> > -                             policy->cpuinfo.max_freq : policy->cur;
+>
+> Leave the variable below per the inverse christmas thing.
+>
+> >
+> >       util = map_util_perf(util);
+> > +     freq = arch_scale_freq_ref_policy(policy);
+> >       freq = map_util_freq(util, freq, max);
+> >
+> >       if (freq == sg_policy->cached_raw_freq && !sg_policy->need_freq_update)
+> > --
+> > 2.34.1
+> >
+>
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
