@@ -4,94 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E29EEB8FB5
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 Sep 2023 09:09:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC2B1EB8FA5
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 Sep 2023 10:01:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=eN0FgtMFFwN2sKDVVAVHgu4N1JKtAn/fFY+asg/oAWQ=; b=DO3CjLc6nGSyHj
-	L8Z2q6gxwbQUjpMNyPt1zRyvkRyRg2nRRLhqN0MAd//y/e+cG4SsuEirm4momuPHVwXltgNmGpI2P
-	imCTpvxzP/3YlglHJkFr/Gp9CJolnwGYqDmE00T1srpg8ktv4MR1bAbcj5DkY2MtAYRTw9gdFaT19
-	h/hfHRZUPo6nBn5ARxY8JGg4LLdLtqHymQKLpARCodwR92ZastU2eAx9XeavOxWROYlyvA6otgM0P
-	bbojAQVOoI+E3OTGglZbR2Q/Dz14410MGOO5fM45ErAL6ydhc56nZSYSNvIm5t6kRrpjPJe5A/X9A
-	Mu2XW6KBenfFoObvpRow==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=dwAdNxw4YbU4OyEDJXKP4QVVoBFFDIYwUStNT5hGCc0=; b=GJ7rp7iD2jdQJA
+	CJVdHo9ltNtn/AbB0ulWJr5tE07ZylVWjqvtshCTRLNhH80b4gH2H+GkRksUH6YoqUu43VYi/diW0
+	QXSKF3r+WpPXJUftZvHXzeiskQ0WBqQfN8jeYIacww6iYYX4xOVokxbeNCfIdpXvJW1M8anEJgyDl
+	gc4CjIz9OrDYzzJ+c5gGiLd0K/W9q5S8SQuqqs6XzXx5L/FO/kGixy6o822T0PJ3BCDiuRjihyv+z
+	xKW+NXvCVPp3+FhpNsfvegoJCTsQhPNlMcenK5YLzPKHjVVe35EaGEVkEninbnh7cjdJ7t47cpQ91
+	BZldsqbFIganYvQFFWcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qdoXb-007rQD-07;
-	Wed, 06 Sep 2023 09:09:39 +0000
-Received: from mail-lj1-x236.google.com ([2a00:1450:4864:20::236])
+	id 1qdpLm-00837S-0o;
+	Wed, 06 Sep 2023 10:01:30 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qdoXX-007rOg-2B;
-	Wed, 06 Sep 2023 09:09:37 +0000
-Received: by mail-lj1-x236.google.com with SMTP id 38308e7fff4ca-2b9d07a8d84so51394871fa.3;
-        Wed, 06 Sep 2023 02:09:33 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20221208; t=1693991372; x=1694596172; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=rFAc0ENvdawtNpNN8VvAfyOPRtP79Ec15LEe0csz82o=;
-        b=iciwE9OCLB6jib6k563KlHP3MqNX6qEkFBenw1r3zP6DEwYPeAHiQDkwe6o15IzInD
-         TVXuYyo0je/lxRxyZRGdxo4LsPs9VcqzWWcs/ASYSq4uL1XvqDhs78Z5ub9I1IcH6BQB
-         CEvPgbe5LwpWRN9DoKYEUmenl/S4v01jevhTnszXXPb068lc2KFhUAKa62Wp/CAdgohL
-         XotLk0JP1giGTOpwBRjesL8mnTkqiyNevev7N7fDV3oRy3nlzYdzW1Siuis+oe/ms5UE
-         gakEqc1I4rW5rEsbiv9OOPHaTM/wHEroTAy7cIbcRLmyli/rUniqQE9UfHgvBaHhCqfz
-         O9Hw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1693991372; x=1694596172;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=rFAc0ENvdawtNpNN8VvAfyOPRtP79Ec15LEe0csz82o=;
-        b=ja1l7wvndWudBKjyse1oD2SD+XRXciHrGRIXh5fDFphCyl0/dDds6DAgTbdqs9Ouaz
-         +bhFaY8sBsKr0eR03p/PUB5HBcNMHrxyEkUHfYqJmajRGpHgqo2PzCUbpkrkj/ESiLek
-         mWNDrWfn+no3L+Fu0yeTcE0bsOHmRp4p3zujsFPg91JbjXtndosTwJR8f9mCy/6LwsGh
-         0Dh1yjq+GGTpSR+VMQH730h9WKJjD9nQ3qrZzge43/djLurEhBXVj2CSQ2M4vTuzqUBX
-         YPWETeqckqCY36mrDrkWT9cQ+HhiC3OKV6yRgkLeomJCyvpGO5G5+3VO9VANVn1Hlkdj
-         WHXA==
-X-Gm-Message-State: AOJu0YwT30TggOf1yFXxCGFVIA6vBKAhc6zl4j50+1r6NSd1qlCqYjJw
-	I2XiM55Czt8/9FncA4A0jDIOlRxICnMCHGFoOx4=
-X-Google-Smtp-Source: AGHT+IGaZt6wsaWTbeCCw1/OFTccreQdD11HazSIZhfbhlO6zQVsNMMI+83UdqvCNrcOOuteAKYC2L4cc72BzWIWZ78=
-X-Received: by 2002:a2e:9859:0:b0:2bd:1fee:aacf with SMTP id
- e25-20020a2e9859000000b002bd1feeaacfmr1890357ljj.24.1693991372034; Wed, 06
- Sep 2023 02:09:32 -0700 (PDT)
+	id 1qdpLk-00836y-1A
+	for linux-riscv@bombadil.infradead.org;
+	Wed, 06 Sep 2023 10:01:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=qx6heqJfwZMssIcg1+/CXa/l64Lln4cl+ILrIU9bCbg=; b=oeOrY2PEkOmXGnyG878ffx79Uk
+	lbKrALvz7ZS109vlDO4t5Jpv4Za2775urWXyOJ6oLL+kSscNjPXb2zivo49E2RN77Dd/0OSPUErrP
+	QB8dqux9FllCN5FrL5UvRBsLS8fFu0nba1nd2KYdxKkNeWy4ktyUBotSFx216SgtgljLov+iBsjur
+	Rl9cQQiUFQGSdE0OGrVAZmZqdtMV/jgfkOE0W4Bsdf/eA2q3norCOW5kzH9HYfVaehAOQteAmacve
+	nYJu31cvjLgd+NXu5cLNue2jI+tLQcERrEWQjdf1wWYMsZDkKEO5hAhXSRwsO9zjs5zEuHLwaAy3T
+	/f1QkjRA==;
+Received: from bg2.exmail.qq.com ([114.132.63.24])
+	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1qdpLV-0012MX-2d
+	for linux-riscv@lists.infradead.org;
+	Wed, 06 Sep 2023 10:01:27 +0000
+X-QQ-mid: bizesmtp77t1693994304tbs1f5fp
+Received: from localhost.localdomain ( [221.226.144.218])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Wed, 06 Sep 2023 17:58:20 +0800 (CST)
+X-QQ-SSF: 01200000000000B0B000000A0000000
+X-QQ-FEAT: 1OQ4fzPuJwa4CnM18ZyX6sw3+4M5cE1N93fmTWEuCPfoL34gU/m35awvJ+qzy
+	KEqeeZow+/+yU3bTEtcEr9fDxqGOyP/Id1CRKrwzXmRu+b306s+jgkT1KMo9eSKQ1ys7ZYI
+	urhLlokF4HwS5LjITI3zbGJCZNoLYmX7mzFkDDgz2ej2f6tSHy9jqukP6u0lm+MritL4lVX
+	ZL0u0tFwmWGAN9cPaA4UdtahEf+9w0pY/zwajuTcZC4gzS/TfB0o+LXTTBaNN/sIrkZEfSD
+	Ipt8tVlpKrwhhcdYWJcEUcsnUO2AzHZQ4V266iSYWbOLuO1UQQ8CE1BUlMVa2eO/OMQHyl8
+	TyNs2jb4vxhzrA3Lvrww02GZS+eVRMI016bb6svEfr6OcqaTZ4=
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 9162341374277156945
+From: Song Shuai <songshuaishuai@tinylab.org>
+To: paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	lihuafei1@huawei.com,
+	conor.dooley@microchip.com,
+	liaochang1@huawei.com,
+	songshuaishuai@tinylab.org,
+	lizhengyu3@huawei.com
+Cc: linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH -fixes] riscv: kexec: Align the kexeced kernel entry
+Date: Wed,  6 Sep 2023 17:58:17 +0800
+Message-Id: <20230906095817.364390-1-songshuaishuai@tinylab.org>
+X-Mailer: git-send-email 2.20.1
 MIME-Version: 1.0
-References: <cover.1693659382.git.haibo1.xu@intel.com> <8173daae52720dbdabbd88a5d412f653e6706de1.1693659382.git.haibo1.xu@intel.com>
- <20230904-06f09083d5190fd50e53b1ea@orel> <CAJve8on7Yi7cDuXOVznuRdTvfUhig2hZy8g72nvnHkM7omoVAw@mail.gmail.com>
- <20230906-c35fdc0e07d2cc0f9cb93203@orel>
-In-Reply-To: <20230906-c35fdc0e07d2cc0f9cb93203@orel>
-From: Haibo Xu <xiaobo55x@gmail.com>
-Date: Wed, 6 Sep 2023 17:09:20 +0800
-Message-ID: <CAJve8ok-Z6VCziFj5t0=BoouZ-VLyGaqEng-dYGTFnP-CR36kw@mail.gmail.com>
-Subject: Re: [PATCH v2 3/8] tools: riscv: Add header file csr.h
-To: Andrew Jones <ajones@ventanamicro.com>
-Cc: Haibo Xu <haibo1.xu@intel.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Paolo Bonzini <pbonzini@redhat.com>, Shuah Khan <shuah@kernel.org>, Marc Zyngier <maz@kernel.org>, 
-	Oliver Upton <oliver.upton@linux.dev>, James Morse <james.morse@arm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
-	Anup Patel <anup@brainfault.org>, Atish Patra <atishp@atishpatra.org>, Guo Ren <guoren@kernel.org>, 
-	Conor Dooley <conor.dooley@microchip.com>, 
-	Daniel Henrique Barboza <dbarboza@ventanamicro.com>, wchen <waylingii@gmail.com>, 
-	Sean Christopherson <seanjc@google.com>, Ricardo Koller <ricarkol@google.com>, 
-	Vishal Annapurve <vannapurve@google.com>, Vipin Sharma <vipinsh@google.com>, 
-	Aaron Lewis <aaronlewis@google.com>, David Matlack <dmatlack@google.com>, 
-	Vitaly Kuznetsov <vkuznets@redhat.com>, Ackerley Tng <ackerleytng@google.com>, 
-	Mingwei Zhang <mizhang@google.com>, Lei Wang <lei4.wang@intel.com>, 
-	Maxim Levitsky <mlevitsk@redhat.com>, Peter Gonda <pgonda@google.com>, 
-	=?UTF-8?Q?Philippe_Mathieu=2DDaud=C3=A9?= <philmd@linaro.org>, 
-	Thomas Huth <thuth@redhat.com>, Like Xu <likexu@tencent.com>, 
-	David Woodhouse <dwmw@amazon.co.uk>, Michal Luczaj <mhal@rbox.co>, zhang songyi <zhang.songyi@zte.com.cn>, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	kvm@vger.kernel.org, linux-kselftest@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	kvm-riscv@lists.infradead.org
+X-QQ-SENDSIZE: 520
+Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrsz:qybglogicsvrsz4a-0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230906_020935_713207_A3240E19 
-X-CRM114-Status: GOOD (  26.26  )
+X-CRM114-CacheID: sfid-20230906_110116_043786_A5D7857D 
+X-CRM114-Status: UNSURE (   9.21  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,78 +88,52 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCBTZXAgNiwgMjAyMyBhdCAzOjEz4oCvUE0gQW5kcmV3IEpvbmVzIDxham9uZXNAdmVu
-dGFuYW1pY3JvLmNvbT4gd3JvdGU6Cj4KPiBPbiBXZWQsIFNlcCAwNiwgMjAyMyBhdCAwMjozNTo0
-MlBNICswODAwLCBIYWlibyBYdSB3cm90ZToKPiA+IE9uIE1vbiwgU2VwIDQsIDIwMjMgYXQgOToz
-M+KAr1BNIEFuZHJldyBKb25lcyA8YWpvbmVzQHZlbnRhbmFtaWNyby5jb20+IHdyb3RlOgo+ID4g
-Pgo+ID4gPiBPbiBTYXQsIFNlcCAwMiwgMjAyMyBhdCAwODo1OToyNVBNICswODAwLCBIYWlibyBY
-dSB3cm90ZToKPiA+ID4gPiBCb3Jyb3cgdGhlIGNzciBkZWZpbml0aW9ucyBhbmQgb3BlcmF0aW9u
-cyBmcm9tIGtlcm5lbCdzCj4gPiA+ID4gYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9jc3IuaCB0byB0
-b29scy8gZm9yIHJpc2N2Lgo+ID4gPiA+Cj4gPiA+ID4gU2lnbmVkLW9mZi1ieTogSGFpYm8gWHUg
-PGhhaWJvMS54dUBpbnRlbC5jb20+Cj4gPiA+ID4gLS0tCj4gPiA+ID4gIHRvb2xzL2FyY2gvcmlz
-Y3YvaW5jbHVkZS9hc20vY3NyLmggfCA1MjEgKysrKysrKysrKysrKysrKysrKysrKysrKysrKysK
-PiA+ID4gPiAgMSBmaWxlIGNoYW5nZWQsIDUyMSBpbnNlcnRpb25zKCspCj4gPiA+ID4gIGNyZWF0
-ZSBtb2RlIDEwMDY0NCB0b29scy9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2Nzci5oCj4gPiA+ID4K
-PiA+ID4gPiBkaWZmIC0tZ2l0IGEvdG9vbHMvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9jc3IuaCBi
-L3Rvb2xzL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vY3NyLmgKPiA+ID4gPiBuZXcgZmlsZSBtb2Rl
-IDEwMDY0NAo+ID4gPiA+IGluZGV4IDAwMDAwMDAwMDAwMC4uNGU4NmM4MmFhY2JkCj4gPiA+ID4g
-LS0tIC9kZXYvbnVsbAo+ID4gPiA+ICsrKyBiL3Rvb2xzL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20v
-Y3NyLmgKPiA+ID4gPiBAQCAtMCwwICsxLDUyMSBAQAo+ID4gPiA+ICsvKiBTUERYLUxpY2Vuc2Ut
-SWRlbnRpZmllcjogR1BMLTIuMC1vbmx5ICovCj4gPiA+ID4gKy8qCj4gPiA+ID4gKyAqIENvcHly
-aWdodCAoQykgMjAxNSBSZWdlbnRzIG9mIHRoZSBVbml2ZXJzaXR5IG9mIENhbGlmb3JuaWEKPiA+
-ID4gPiArICovCj4gPiA+ID4gKwo+ID4gPiA+ICsjaWZuZGVmIF9BU01fUklTQ1ZfQ1NSX0gKPiA+
-ID4gPiArI2RlZmluZSBfQVNNX1JJU0NWX0NTUl9ICj4gPiA+ID4gKwo+ID4gPiA+ICsjaW5jbHVk
-ZSA8bGludXgvYml0cy5oPgo+ID4gPiA+ICsKPiA+ID4gPiArLyogU3RhdHVzIHJlZ2lzdGVyIGZs
-YWdzICovCj4gPiA+ID4gKyNkZWZpbmUgU1JfU0lFICAgICAgICAgICAgICAgX0FDKDB4MDAwMDAw
-MDIsIFVMKSAvKiBTdXBlcnZpc29yIEludGVycnVwdCBFbmFibGUgKi8KPiA+ID4gPiArI2RlZmlu
-ZSBTUl9NSUUgICAgICAgICAgICAgICBfQUMoMHgwMDAwMDAwOCwgVUwpIC8qIE1hY2hpbmUgSW50
-ZXJydXB0IEVuYWJsZSAqLwo+ID4gPiA+ICsjZGVmaW5lIFNSX1NQSUUgICAgICAgICAgICAgIF9B
-QygweDAwMDAwMDIwLCBVTCkgLyogUHJldmlvdXMgU3VwZXJ2aXNvciBJRSAqLwo+ID4gPiA+ICsj
-ZGVmaW5lIFNSX01QSUUgICAgICAgICAgICAgIF9BQygweDAwMDAwMDgwLCBVTCkgLyogUHJldmlv
-dXMgTWFjaGluZSBJRSAqLwo+ID4gPiA+ICsjZGVmaW5lIFNSX1NQUCAgICAgICAgICAgICAgIF9B
-QygweDAwMDAwMTAwLCBVTCkgLyogUHJldmlvdXNseSBTdXBlcnZpc29yICovCj4gPiA+ID4gKyNk
-ZWZpbmUgU1JfTVBQICAgICAgICAgICAgICAgX0FDKDB4MDAwMDE4MDAsIFVMKSAvKiBQcmV2aW91
-c2x5IE1hY2hpbmUgKi8KPiA+ID4gPiArI2RlZmluZSBTUl9TVU0gICAgICAgICAgICAgICBfQUMo
-MHgwMDA0MDAwMCwgVUwpIC8qIFN1cGVydmlzb3IgVXNlciBNZW1vcnkgQWNjZXNzICovCj4gPiA+
-ID4gKwo+ID4gPiA+ICsjZGVmaW5lIFNSX0ZTICAgICAgICAgICAgICAgIF9BQygweDAwMDA2MDAw
-LCBVTCkgLyogRmxvYXRpbmctcG9pbnQgU3RhdHVzICovCj4gPiA+ID4gKyNkZWZpbmUgU1JfRlNf
-T0ZGICAgIF9BQygweDAwMDAwMDAwLCBVTCkKPiA+ID4gPiArI2RlZmluZSBTUl9GU19JTklUSUFM
-ICAgICAgICBfQUMoMHgwMDAwMjAwMCwgVUwpCj4gPiA+ID4gKyNkZWZpbmUgU1JfRlNfQ0xFQU4g
-IF9BQygweDAwMDA0MDAwLCBVTCkKPiA+ID4gPiArI2RlZmluZSBTUl9GU19ESVJUWSAgX0FDKDB4
-MDAwMDYwMDAsIFVMKQo+ID4gPiA+ICsKPiA+ID4gPiArI2RlZmluZSBTUl9WUyAgICAgICAgICAg
-ICAgICBfQUMoMHgwMDAwMDYwMCwgVUwpIC8qIFZlY3RvciBTdGF0dXMgKi8KPiA+ID4gPiArI2Rl
-ZmluZSBTUl9WU19PRkYgICAgX0FDKDB4MDAwMDAwMDAsIFVMKQo+ID4gPiA+ICsjZGVmaW5lIFNS
-X1ZTX0lOSVRJQUwgICAgICAgIF9BQygweDAwMDAwMjAwLCBVTCkKPiA+ID4gPiArI2RlZmluZSBT
-Ul9WU19DTEVBTiAgX0FDKDB4MDAwMDA0MDAsIFVMKQo+ID4gPiA+ICsjZGVmaW5lIFNSX1ZTX0RJ
-UlRZICBfQUMoMHgwMDAwMDYwMCwgVUwpCj4gPiA+ID4gKwo+ID4gPiA+ICsjZGVmaW5lIFNSX1hT
-ICAgICAgICAgICAgICAgIF9BQygweDAwMDE4MDAwLCBVTCkgLyogRXh0ZW5zaW9uIFN0YXR1cyAq
-Lwo+ID4gPiA+ICsjZGVmaW5lIFNSX1hTX09GRiAgICBfQUMoMHgwMDAwMDAwMCwgVUwpCj4gPiA+
-ID4gKyNkZWZpbmUgU1JfWFNfSU5JVElBTCAgICAgICAgX0FDKDB4MDAwMDgwMDAsIFVMKQo+ID4g
-PiA+ICsjZGVmaW5lIFNSX1hTX0NMRUFOICBfQUMoMHgwMDAxMDAwMCwgVUwpCj4gPiA+ID4gKyNk
-ZWZpbmUgU1JfWFNfRElSVFkgIF9BQygweDAwMDE4MDAwLCBVTCkKPiA+ID4gPiArCj4gPiA+ID4g
-KyNkZWZpbmUgU1JfRlNfVlMgICAgIChTUl9GUyB8IFNSX1ZTKSAvKiBWZWN0b3IgYW5kIEZsb2F0
-aW5nLVBvaW50IFVuaXQgKi8KPiA+ID4gPiArCj4gPiA+ID4gKyNpZm5kZWYgQ09ORklHXzY0QklU
-Cj4gPiA+Cj4gPiA+IEhvdyBkbyB3ZSBlbnN1cmUgQ09ORklHXzY0QklUIGlzIHNldD8KPiA+ID4K
-PiA+Cj4gPiBDdXJyZW50bHksIG5vIGV4cGxpY2l0IGNoZWNraW5nIGZvciB0aGlzLgo+ID4gU2hh
-bGwgd2UgYWRkIGEgZ2F0ZWtlZXBlciBpbiB0aGlzIGZpbGUgdG8gZW5zdXJlIGl0IGlzIHNldD8K
-Pgo+IE5vdCBpbiB0aGlzIGZpbGUsIHNpbmNlIHRoaXMgZmlsZSBpcyBzaGFyZWQgYnkgYWxsIHRo
-ZSB0b29scyBhbmQuLi4KPgo+ID4KPiA+ICNpZm5kZWYgQ09ORklHXzY0QklUCj4gPiAjZXJyb3Ig
-IkNPTkZJR182NEJJVCB3YXMgbm90IHNldCIKPiA+ICNlbmRpZgo+Cj4gLi4ud2UnbGwgc3VyZWx5
-IGhpdCB0aGlzIGVycm9yIHJpZ2h0IG5vdyBzaW5jZSBub3RoaW5nIGlzIHNldHRpbmcKPiBDT05G
-SUdfNjRCSVQgd2hlbiBjb21waWxpbmcgS1ZNIHNlbGZ0ZXN0cy4KPgo+IFdlIG5lZWQgdG8gZGVm
-aW5lIENPTkZJR182NEJJVCBpbiB0aGUgYnVpbGQgc29tZXdoZXJlIHByaW9yIHRvIGFueQo+IGhl
-YWRlcnMgd2hpY2ggZGVwZW5kIG9uIGl0IGJlaW5nIGluY2x1ZGVkLiBNYXliZSB3ZSBjYW4gc2lt
-cGx5Cj4gYWRkIC1EQ09ORklHXzY0QklUIHRvIENGTEFHUywgc2luY2UgYWxsIEtWTSBzZWxmdGVz
-dHMgc3VwcG9ydGVkCj4gYXJjaGl0ZWN0dXJlcyBhcmUgNjQtYml0Lgo+CgpNYWtlIHNlbnNlISBB
-bm90aGVyIG9wdGlvbiBjYW4gYmUganVzdCBhZGQgIiNkZWZpbmUgQ09ORklHXzY0QklUIiBhdAp0
-aGUgYmVnaW4gb2YgY3NyLmgKCj4gKFBsZWFzZSB0cmltIGVtYWlscywgYXMgSSd2ZSBiZWVuIGRv
-aW5nLCB3aGVuIGRpc2N1c3Npbmcgc3BlY2lmaWMgcGFydHMuKQo+CgpTdXJlLCB0aGFua3MgZm9y
-IHRoZSBzdWdnZXN0aW9ucyEKCj4gVGhhbmtzLAo+IGRyZXcKCl9fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51
-eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21h
-aWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+The current riscv boot protocol requires 2MB alignment for RV64
+and 4MB alignment for RV32.
+
+In KEXEC_FILE path, the elf_find_pbase() function should align
+the kexeced kernel entry according to the requirement, otherwise
+the kexeced kernel would silently BUG at the setup_vm().
+
+Fixes: 8acea455fafa ("RISC-V: Support for kexec_file on panic")
+Signed-off-by: Song Shuai <songshuaishuai@tinylab.org>
+---
+You can use my kexec-tools[1] to test the kexec-file-syscall and this patch.
+
+[1]: https://github.com/sugarfillet/kexec-tools/tree/fix-riscv 
+---
+ arch/riscv/kernel/elf_kexec.c | 8 +++++++-
+ 1 file changed, 7 insertions(+), 1 deletion(-)
+
+diff --git a/arch/riscv/kernel/elf_kexec.c b/arch/riscv/kernel/elf_kexec.c
+index 5372b708fae2..9a81d6926ac6 100644
+--- a/arch/riscv/kernel/elf_kexec.c
++++ b/arch/riscv/kernel/elf_kexec.c
+@@ -98,7 +98,13 @@ static int elf_find_pbase(struct kimage *image, unsigned long kernel_len,
+ 	kbuf.image = image;
+ 	kbuf.buf_min = lowest_paddr;
+ 	kbuf.buf_max = ULONG_MAX;
+-	kbuf.buf_align = PAGE_SIZE;
++
++	/*
++	 * Current riscv boot protocol requires 2MB alignment for
++	 * RV64 and 4MB alignment for RV32
++	 *
++	 */
++	kbuf.buf_align = PMD_SIZE;
+ 	kbuf.mem = KEXEC_BUF_MEM_UNKNOWN;
+ 	kbuf.memsz = ALIGN(kernel_len, PAGE_SIZE);
+ 	kbuf.top_down = false;
+-- 
+2.20.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
