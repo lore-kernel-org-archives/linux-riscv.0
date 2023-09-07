@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1ECEEE14D3
-	for <linux-riscv@archiver.kernel.org>; Thu,  7 Sep 2023 02:18:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B3D1EE14A9
+	for <linux-riscv@archiver.kernel.org>; Thu,  7 Sep 2023 02:19:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4SZac5U0LnqmLYGxWJoIYe1QS24GnD3VjZb4xYSoPZw=; b=ObO2i1uic8he9b
-	wiUI/kK/AYlmtQTQ/ceoeYBXudEYbvXEifkN3gKnkdktRKZ1IB/4k1exhNmp6DxBXb0YEC6kANWeF
-	0Pg3KI6TZTCjgicUyF0kMERz36BIVFa01p3j5srAcbbk7XeQOmgPZhmZqvKxXUgzYtyV3QCeF++PI
-	lxXQzbpO/jp90aOZ/4eW2+xoBF5fnaRIoaRgBH9UGqBnemQ//P01zTLo9z0gy9D5dDWyrvJceMDwT
-	blCBwSaebrU9Q7LEJ/hdJVOI0q3Hw/bi7F6WwbRbklLkwa00tQJ5Vf+IkCdmWP7DwwGgb0+I6o6aZ
-	MDJ6JItKaRkFN+lj3Gng==;
+	List-Owner; bh=CvNibiHXAztFgTcPpt9+JUgP5N5bldlhGt4vLJBAbCg=; b=ZTnesVyOST6H23
+	G4PGtWw3dM1aXLC2TmRG25SIc0XSxm2bsjE7eXBkLHjD4TF2O84QtdavxOKqeLHORCd24fxIJ5bLm
+	AXdkyNqO2WDdYsgUxMVlx3JfSRihMLkLp4fz0oBCptVkBFW2eLVrFoOhaR3fJbZPXozwg0rrnnrQr
+	/T++iJK7o3SYJHf98HTuwo3AaSaLJ1DDhg9WR4G2aDAcG7rLWpKDKoDPHYHay9Aqj6ZQjX8Iw38t3
+	S+9FHKWBy52KOgUpPkhmlPL4cWfFBbULLSU/uRoWLyk1lQJz7FPZqPXV1IUt8HtOIahcVPuyyYKgM
+	qOgxAkysN4gmxCi1A13g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qe4bd-00BBLf-1V;
-	Thu, 07 Sep 2023 02:18:53 +0000
+	id 1qe4bc-00BBKy-0s;
+	Thu, 07 Sep 2023 02:18:52 +0000
 Received: from 60-248-80-70.hinet-ip.hinet.net ([60.248.80.70] helo=Atcsqr.andestech.com)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qe4bV-00BBI8-28;
-	Thu, 07 Sep 2023 02:18:48 +0000
+	id 1qe4bV-00BBI7-1f;
+	Thu, 07 Sep 2023 02:18:47 +0000
 Received: from mail.andestech.com (ATCPCS16.andestech.com [10.0.1.222])
-	by Atcsqr.andestech.com with ESMTP id 3872IP4m024163;
-	Thu, 7 Sep 2023 10:18:25 +0800 (+08)
+	by Atcsqr.andestech.com with ESMTP id 3872IKK1024147;
+	Thu, 7 Sep 2023 10:18:20 +0800 (+08)
 	(envelope-from peterlin@andestech.com)
 Received: from swlinux02.andestech.com (10.0.15.183) by ATCPCS16.andestech.com
  (10.0.1.222) with Microsoft SMTP Server id 14.3.498.0; Thu, 7 Sep 2023
- 10:18:20 +0800
+ 10:18:15 +0800
 From: Yu Chien Peter Lin <peterlin@andestech.com>
 To: <linux-riscv@lists.infradead.org>, <linux-arm-kernel@lists.infradead.org>,
         <linux-kernel@vger.kernel.org>, <linux-perf-users@vger.kernel.org>,
@@ -45,19 +45,19 @@ CC: <ajones@ventanamicro.com>, <heiko@sntech.de>, <samuel@sholland.org>,
         <dminus@andestech.com>, <ycliang@andestech.com>,
         <tim609@andestech.com>, <locus84@andestech.com>, <dylan@andestech.com>,
         Yu Chien Peter Lin <peterlin@andestech.com>
-Subject: [PATCH 4/4] riscv: andes: Support symbolic FW and HW raw events
-Date: Thu, 7 Sep 2023 10:16:35 +0800
-Message-ID: <20230907021635.1002738-5-peterlin@andestech.com>
+Subject: [PATCH 3/4] riscv: errata: Add Andes PMU errata
+Date: Thu, 7 Sep 2023 10:16:34 +0800
+Message-ID: <20230907021635.1002738-4-peterlin@andestech.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20230907021635.1002738-1-peterlin@andestech.com>
 References: <20230907021635.1002738-1-peterlin@andestech.com>
 MIME-Version: 1.0
 X-Originating-IP: [10.0.15.183]
 X-DNSRBL: 
-X-MAIL: Atcsqr.andestech.com 3872IP4m024163
+X-MAIL: Atcsqr.andestech.com 3872IKK1024147
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230906_191846_141585_F1493C41 
-X-CRM114-Status: GOOD (  11.30  )
+X-CRM114-CacheID: sfid-20230906_191845_999610_7FE8636C 
+X-CRM114-Status: GOOD (  20.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,389 +74,243 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Locus Wei-Han Chen <locus84@andestech.com>
+Before the ratification of Sscofpmf, the Andes PMU extension
+implements the same mechanism and is compatible with existing
+SBI PMU driver of perf to support event sampling and mode
+filtering with programmable hardware performance counters.
 
-This patch adds the Andes AX45 JSON files in the perf tool,
-allowing perf to be used with symbolic event names.
+This patch adds PMU support for Andes 45-series CPUs by
+introducing a CPU errata.
 
-Signed-off-by: Locus Wei-Han Chen <locus84@andestech.com>
 Signed-off-by: Yu Chien Peter Lin <peterlin@andestech.com>
+Signed-off-by: Locus Wei-Han Chen <locus84@andestech.com>
 Reviewed-by: Charles Ci-Jyun Wu <dminus@andestech.com>
 Reviewed-by: Leo Yu-Chi Liang <ycliang@andestech.com>
 ---
- .../arch/riscv/andes/ax45/firmware.json       |  68 ++++++++++
- .../arch/riscv/andes/ax45/instructions.json   | 127 ++++++++++++++++++
- .../arch/riscv/andes/ax45/memory.json         |  57 ++++++++
- .../arch/riscv/andes/ax45/microarch.json      |  77 +++++++++++
- tools/perf/pmu-events/arch/riscv/mapfile.csv  |   1 +
- 5 files changed, 330 insertions(+)
- create mode 100644 tools/perf/pmu-events/arch/riscv/andes/ax45/firmware.json
- create mode 100644 tools/perf/pmu-events/arch/riscv/andes/ax45/instructions.json
- create mode 100644 tools/perf/pmu-events/arch/riscv/andes/ax45/memory.json
- create mode 100644 tools/perf/pmu-events/arch/riscv/andes/ax45/microarch.json
+ arch/riscv/Kconfig.errata            | 13 ++++++++
+ arch/riscv/errata/andes/errata.c     | 45 +++++++++++++++++++++++++++-
+ arch/riscv/include/asm/errata_list.h | 43 ++++++++++++++++++++++++--
+ drivers/perf/riscv_pmu_sbi.c         | 20 +++++++++----
+ 4 files changed, 111 insertions(+), 10 deletions(-)
 
-diff --git a/tools/perf/pmu-events/arch/riscv/andes/ax45/firmware.json b/tools/perf/pmu-events/arch/riscv/andes/ax45/firmware.json
-new file mode 100644
-index 000000000000..9b4a032186a7
---- /dev/null
-+++ b/tools/perf/pmu-events/arch/riscv/andes/ax45/firmware.json
-@@ -0,0 +1,68 @@
-+[
-+  {
-+    "ArchStdEvent": "FW_MISALIGNED_LOAD"
-+  },
-+  {
-+    "ArchStdEvent": "FW_MISALIGNED_STORE"
-+  },
-+  {
-+    "ArchStdEvent": "FW_ACCESS_LOAD"
-+  },
-+  {
-+    "ArchStdEvent": "FW_ACCESS_STORE"
-+  },
-+  {
-+    "ArchStdEvent": "FW_ILLEGAL_INSN"
-+  },
-+  {
-+    "ArchStdEvent": "FW_SET_TIMER"
-+  },
-+  {
-+    "ArchStdEvent": "FW_IPI_SENT"
-+  },
-+  {
-+    "ArchStdEvent": "FW_IPI_RECEIVED"
-+  },
-+  {
-+    "ArchStdEvent": "FW_FENCE_I_SENT"
-+  },
-+  {
-+    "ArchStdEvent": "FW_FENCE_I_RECEIVED"
-+  },
-+  {
-+    "ArchStdEvent": "FW_SFENCE_VMA_SENT"
-+  },
-+  {
-+    "ArchStdEvent": "FW_SFENCE_VMA_RECEIVED"
-+  },
-+  {
-+    "ArchStdEvent": "FW_SFENCE_VMA_RECEIVED"
-+  },
-+  {
-+    "ArchStdEvent": "FW_SFENCE_VMA_ASID_RECEIVED"
-+  },
-+  {
-+    "ArchStdEvent": "FW_HFENCE_GVMA_SENT"
-+  },
-+  {
-+    "ArchStdEvent": "FW_HFENCE_GVMA_RECEIVED"
-+  },
-+  {
-+    "ArchStdEvent": "FW_HFENCE_GVMA_VMID_SENT"
-+  },
-+  {
-+    "ArchStdEvent": "FW_HFENCE_GVMA_VMID_RECEIVED"
-+  },
-+  {
-+    "ArchStdEvent": "FW_HFENCE_VVMA_SENT"
-+  },
-+  {
-+    "ArchStdEvent": "FW_HFENCE_VVMA_RECEIVED"
-+  },
-+  {
-+    "ArchStdEvent": "FW_HFENCE_VVMA_ASID_SENT"
-+  },
-+  {
-+    "ArchStdEvent": "FW_HFENCE_VVMA_ASID_RECEIVED"
-+  }
-+]
-diff --git a/tools/perf/pmu-events/arch/riscv/andes/ax45/instructions.json b/tools/perf/pmu-events/arch/riscv/andes/ax45/instructions.json
-new file mode 100644
-index 000000000000..713a08c1a40f
---- /dev/null
-+++ b/tools/perf/pmu-events/arch/riscv/andes/ax45/instructions.json
-@@ -0,0 +1,127 @@
-+[
-+	{
-+		"EventCode": "0x10",
-+		"EventName": "cycle_count",
-+		"BriefDescription": "Cycle count"
-+	},
-+	{
-+		"EventCode": "0x20",
-+		"EventName": "inst_count",
-+		"BriefDescription": "Retired instruction count"
-+	},
-+	{
-+		"EventCode": "0x30",
-+		"EventName": "int_load_inst",
-+		"BriefDescription": "Integer load instruction count"
-+	},
-+	{
-+		"EventCode": "0x40",
-+		"EventName": "int_store_inst",
-+		"BriefDescription": "Integer store instruction count"
-+	},
-+	{
-+		"EventCode": "0x50",
-+		"EventName": "atomic_inst",
-+		"BriefDescription": "Atomic instruction count"
-+	},
-+	{
-+		"EventCode": "0x60",
-+		"EventName": "sys_inst",
-+		"BriefDescription": "System instruction count"
-+	},
-+	{
-+		"EventCode": "0x70",
-+		"EventName": "int_compute_inst",
-+		"BriefDescription": "Integer computational instruction count"
-+	},
-+	{
-+		"EventCode": "0x80",
-+		"EventName": "condition_br",
-+		"BriefDescription": "Conditional branch instruction count"
-+	},
-+	{
-+		"EventCode": "0x90",
-+		"EventName": "taken_condition_br",
-+		"BriefDescription": "Taken conditional branch instruction count"
-+	},
-+	{
-+		"EventCode": "0xA0",
-+		"EventName": "jal_inst",
-+		"BriefDescription": "JAL instruction count"
-+	},
-+	{
-+		"EventCode": "0xB0",
-+		"EventName": "jalr_inst",
-+		"BriefDescription": "JALR instruction count"
-+	},
-+	{
-+		"EventCode": "0xC0",
-+		"EventName": "ret_inst",
-+		"BriefDescription": "Return instruction count"
-+	},
-+	{
-+		"EventCode": "0xD0",
-+		"EventName": "control_trans_inst",
-+		"BriefDescription": "Control transfer instruction count"
-+	},
-+	{
-+		"EventCode": "0xE0",
-+		"EventName": "ex9_inst",
-+		"BriefDescription": "EXEC.IT instruction count"
-+	},
-+	{
-+		"EventCode": "0xF0",
-+		"EventName": "int_mul_inst",
-+		"BriefDescription": "Integer multiplication instruction count"
-+	},
-+	{
-+		"EventCode": "0x100",
-+		"EventName": "int_div_rem_inst",
-+		"BriefDescription": "Integer division/remainder instruction count"
-+	},
-+	{
-+		"EventCode": "0x110",
-+		"EventName": "float_load_inst",
-+		"BriefDescription": "Floating-point load instruction count"
-+	},
-+	{
-+		"EventCode": "0x120",
-+		"EventName": "float_store_inst",
-+		"BriefDescription": "Floating-point store instruction count"
-+	},
-+	{
-+		"EventCode": "0x130",
-+		"EventName": "float_add_sub_inst",
-+		"BriefDescription": "Floating-point addition/subtraction instruction count"
-+	},
-+	{
-+		"EventCode": "0x140",
-+		"EventName": "float_mul_inst",
-+		"BriefDescription": "Floating-point multiplication instruction count"
-+	},
-+	{
-+		"EventCode": "0x150",
-+		"EventName": "float_fused_muladd_inst",
-+		"BriefDescription": "Floating-point fused multiply-add instruction count"
-+	},
-+	{
-+		"EventCode": "0x160",
-+		"EventName": "float_div_sqrt_inst",
-+		"BriefDescription": "Floating-point division or square-root instruction count"
-+	},
-+	{
-+		"EventCode": "0x170",
-+		"EventName": "other_float_inst",
-+		"BriefDescription": "Other floating-point instruction count"
-+	},
-+	{
-+		"EventCode": "0x180",
-+		"EventName": "int_mul_add_sub_inst",
-+		"BriefDescription": "Integer multiplication and add/sub instruction count"
-+	},
-+	{
-+		"EventCode": "0x190",
-+		"EventName": "retired_ops",
-+		"BriefDescription": "Retired operation count"
+diff --git a/arch/riscv/Kconfig.errata b/arch/riscv/Kconfig.errata
+index 92c779764b27..a342b209c169 100644
+--- a/arch/riscv/Kconfig.errata
++++ b/arch/riscv/Kconfig.errata
+@@ -21,6 +21,19 @@ config ERRATA_ANDES_CMO
+ 
+ 	  If you don't know what to do here, say "Y".
+ 
++config ERRATA_ANDES_PMU
++	bool "Apply Andes PMU errata"
++	depends on ERRATA_ANDES && RISCV_PMU_SBI
++	default y
++	help
++	  The Andes 45-series cores implement a PMU overflow extension
++	  very similar to the core SSCOFPMF extension.
++
++	  This will apply the overflow errata to handle the non-standard
++	  behaviour via the regular SBI PMU driver and interface.
++
++	  If you don't know what to do here, say "Y".
++
+ config ERRATA_SIFIVE
+ 	bool "SiFive errata"
+ 	depends on RISCV_ALTERNATIVE
+diff --git a/arch/riscv/errata/andes/errata.c b/arch/riscv/errata/andes/errata.c
+index d2e1abcac967..19256691f1ba 100644
+--- a/arch/riscv/errata/andes/errata.c
++++ b/arch/riscv/errata/andes/errata.c
+@@ -56,11 +56,54 @@ static bool errata_probe_iocp(unsigned int stage, unsigned long arch_id, unsigne
+ 	return true;
+ }
+ 
++static bool errata_probe_pmu(unsigned int stage,
++			     unsigned long arch_id, unsigned long impid)
++{
++	if (!IS_ENABLED(CONFIG_ERRATA_ANDES_PMU))
++		return false;
++
++	if ((arch_id & 0xff) != 0x45)
++		return false;
++
++	if (stage == RISCV_ALTERNATIVES_EARLY_BOOT)
++		return false;
++
++	return true;
++}
++
++static u32 andes_errata_probe(unsigned int stage,
++			      unsigned long archid, unsigned long impid)
++{
++	u32 cpu_req_errata = 0;
++
++	if (errata_probe_pmu(stage, archid, impid))
++		cpu_req_errata |= BIT(ERRATA_ANDES_PMU);
++
++	return cpu_req_errata;
++}
++
+ void __init_or_module andes_errata_patch_func(struct alt_entry *begin, struct alt_entry *end,
+ 					      unsigned long archid, unsigned long impid,
+ 					      unsigned int stage)
+ {
++	struct alt_entry *alt;
++	u32 cpu_req_errata = andes_errata_probe(stage, archid, impid);
++	u32 tmp;
++
+ 	errata_probe_iocp(stage, archid, impid);
+ 
+-	/* we have nothing to patch here ATM so just return back */
++	for (alt = begin; alt < end; alt++) {
++		if (alt->vendor_id != ANDES_VENDOR_ID)
++			continue;
++		if (alt->patch_id >= ERRATA_ANDES_NUMBER)
++			continue;
++
++		tmp = (1U << alt->patch_id);
++		if (cpu_req_errata & tmp) {
++			mutex_lock(&text_mutex);
++			patch_text_nosync(ALT_OLD_PTR(alt), ALT_ALT_PTR(alt),
++					  alt->alt_len);
++			mutex_unlock(&text_mutex);
++		}
 +	}
-+]
-diff --git a/tools/perf/pmu-events/arch/riscv/andes/ax45/memory.json b/tools/perf/pmu-events/arch/riscv/andes/ax45/memory.json
-new file mode 100644
-index 000000000000..c7401b526c77
---- /dev/null
-+++ b/tools/perf/pmu-events/arch/riscv/andes/ax45/memory.json
-@@ -0,0 +1,57 @@
-+[
-+	{
-+		"EventCode": "0x01",
-+		"EventName": "ilm_access",
-+		"BriefDescription": "ILM access"
-+	},
-+	{
-+		"EventCode": "0x11",
-+		"EventName": "dlm_access",
-+		"BriefDescription": "DLM access"
-+	},
-+	{
-+		"EventCode": "0x21",
-+		"EventName": "icache_access",
-+		"BriefDescription": "ICACHE access"
-+	},
-+	{
-+		"EventCode": "0x31",
-+		"EventName": "icache_miss",
-+		"BriefDescription": "ICACHE miss"
-+	},
-+	{
-+		"EventCode": "0x41",
-+		"EventName": "dcache_access",
-+		"BriefDescription": "DCACHE access"
-+	},
-+	{
-+		"EventCode": "0x51",
-+		"EventName": "dcache_miss",
-+		"BriefDescription": "DCACHE miss"
-+	},
-+	{
-+		"EventCode": "0x61",
-+		"EventName": "dcache_load_access",
-+		"BriefDescription": "DCACHE load access"
-+	},
-+	{
-+		"EventCode": "0x71",
-+		"EventName": "dcache_load_miss",
-+		"BriefDescription": "DCACHE load miss"
-+	},
-+	{
-+		"EventCode": "0x81",
-+		"EventName": "dcache_store_access",
-+		"BriefDescription": "DCACHE store access"
-+	},
-+	{
-+		"EventCode": "0x91",
-+		"EventName": "dcache_store_miss",
-+		"BriefDescription": "DCACHE store miss"
-+	},
-+	{
-+		"EventCode": "0xA1",
-+		"EventName": "dcache_wb",
-+		"BriefDescription": "DCACHE writeback"
-+	}
-+]
-diff --git a/tools/perf/pmu-events/arch/riscv/andes/ax45/microarch.json b/tools/perf/pmu-events/arch/riscv/andes/ax45/microarch.json
-new file mode 100644
-index 000000000000..a6d378cbaa74
---- /dev/null
-+++ b/tools/perf/pmu-events/arch/riscv/andes/ax45/microarch.json
-@@ -0,0 +1,77 @@
-+[
-+	{
-+		"EventCode": "0xB1",
-+		"EventName": "cycle_wait_icache_fill",
-+		"BriefDescription": "Cycles waiting for ICACHE fill data"
-+	},
-+	{
-+		"EventCode": "0xC1",
-+		"EventName": "cycle_wait_dcache_fill",
-+		"BriefDescription": "Cycles waiting for DCACHE fill data"
-+	},
-+	{
-+		"EventCode": "0xD1",
-+		"EventName": "uncached_ifetch_from_bus",
-+		"BriefDescription": "Uncached ifetch data access from bus"
-+	},
-+	{
-+		"EventCode": "0xE1",
-+		"EventName": "uncached_load_from_bus",
-+		"BriefDescription": "Uncached load data access from bus"
-+	},
-+	{
-+		"EventCode": "0xF1",
-+		"EventName": "cycle_wait_uncached_ifetch",
-+		"BriefDescription": "Cycles waiting for uncached ifetch data from bus"
-+	},
-+	{
-+		"EventCode": "0x101",
-+		"EventName": "cycle_wait_uncached_load",
-+		"BriefDescription": "Cycles waiting for uncached load data from bus"
-+	},
-+	{
-+		"EventCode": "0x111",
-+		"EventName": "main_itlb_access",
-+		"BriefDescription": "Main ITLB access"
-+	},
-+	{
-+		"EventCode": "0x121",
-+		"EventName": "main_itlb_miss",
-+		"BriefDescription": "Main ITLB miss"
-+	},
-+	{
-+		"EventCode": "0x131",
-+		"EventName": "main_dtlb_access",
-+		"BriefDescription": "Main DTLB access"
-+	},
-+	{
-+		"EventCode": "0x141",
-+		"EventName": "main_dtlb_miss",
-+		"BriefDescription": "Main DTLB miss"
-+	},
-+	{
-+		"EventCode": "0x151",
-+		"EventName": "cycle_wait_itlb_fill",
-+		"BriefDescription": "Cycles waiting for Main ITLB fill data"
-+	},
-+	{
-+		"EventCode": "0x161",
-+		"EventName": "pipe_stall_cycle_dtlb_miss",
-+		"BriefDescription": "Pipeline stall cycles caused by Main DTLB miss"
-+	},
-+	{
-+		"EventCode": "0x02",
-+		"EventName": "mispredict_condition_br",
-+		"BriefDescription": "Misprediction of conditional branches"
-+	},
-+	{
-+		"EventCode": "0x12",
-+		"EventName": "mispredict_take_condition_br",
-+		"BriefDescription": "Misprediction of taken conditional branches"
-+	},
-+	{
-+		"EventCode": "0x22",
-+		"EventName": "mispredict_target_ret_inst",
-+		"BriefDescription": "Misprediction of targets of Return instructions"
-+	}
-+]
-diff --git a/tools/perf/pmu-events/arch/riscv/mapfile.csv b/tools/perf/pmu-events/arch/riscv/mapfile.csv
-index c61b3d6ef616..5bf09af14c1b 100644
---- a/tools/perf/pmu-events/arch/riscv/mapfile.csv
-+++ b/tools/perf/pmu-events/arch/riscv/mapfile.csv
-@@ -15,3 +15,4 @@
- #
- #MVENDORID-MARCHID-MIMPID,Version,Filename,EventType
- 0x489-0x8000000000000007-0x[[:xdigit:]]+,v1,sifive/u74,core
-+0x31e-0x8000000000008a45-0x[[:xdigit:]]+,v1,andes/ax45,core
+ }
+diff --git a/arch/riscv/include/asm/errata_list.h b/arch/riscv/include/asm/errata_list.h
+index 56ab40e64092..bb4c276e2c7f 100644
+--- a/arch/riscv/include/asm/errata_list.h
++++ b/arch/riscv/include/asm/errata_list.h
+@@ -13,7 +13,8 @@
+ 
+ #ifdef CONFIG_ERRATA_ANDES
+ #define ERRATA_ANDES_NO_IOCP 0
+-#define ERRATA_ANDES_NUMBER 1
++#define ERRATA_ANDES_PMU 1
++#define ERRATA_ANDES_NUMBER 2
+ #endif
+ 
+ #ifdef CONFIG_ERRATA_SIFIVE
+@@ -150,15 +151,51 @@ asm volatile(ALTERNATIVE_2(						\
+ #define THEAD_C9XX_RV_IRQ_PMU			17
+ #define THEAD_C9XX_CSR_SCOUNTEROF		0x5c5
+ 
++#define ANDES_RV_IRQ_PMU			18
++#define ANDES_SLI_CAUSE_BASE			256
++#define ANDES_CSR_SCOUNTEROF			0x9d4
++#define ANDES_CSR_SLIE				0x9c4
++#define ANDES_CSR_SLIP				0x9c5
++
+ #define ALT_SBI_PMU_OVERFLOW(__ovl)					\
+-asm volatile(ALTERNATIVE(						\
++asm volatile(ALTERNATIVE_2(						\
+ 	"csrr %0, " __stringify(CSR_SSCOUNTOVF),			\
+ 	"csrr %0, " __stringify(THEAD_C9XX_CSR_SCOUNTEROF),		\
+ 		THEAD_VENDOR_ID, ERRATA_THEAD_PMU,			\
+-		CONFIG_ERRATA_THEAD_PMU)				\
++		CONFIG_ERRATA_THEAD_PMU,				\
++	"csrr %0, " __stringify(ANDES_CSR_SCOUNTEROF),			\
++		ANDES_VENDOR_ID, ERRATA_ANDES_PMU,			\
++		CONFIG_ERRATA_ANDES_PMU)				\
+ 	: "=r" (__ovl) :						\
+ 	: "memory")
+ 
++#define ALT_SBI_PMU_OVF_CLEAR_PENDING(__irq_num)			\
++asm volatile(ALTERNATIVE(						\
++	"csrc " __stringify(CSR_IP) ", %0\n\t",				\
++	"csrc " __stringify(ANDES_CSR_SLIP) ", %0\n\t",			\
++		ANDES_VENDOR_ID, ERRATA_ANDES_PMU,			\
++		CONFIG_ERRATA_ANDES_PMU)				\
++	: : "r"(BIT(__irq_num))						\
++	: "memory")
++
++#define ALT_SBI_PMU_OVF_DISABLE(__irq_num)				\
++asm volatile(ALTERNATIVE(						\
++	"csrc " __stringify(CSR_IE) ", %0\n\t",				\
++	"csrc " __stringify(ANDES_CSR_SLIE) ", %0\n\t",			\
++		ANDES_VENDOR_ID, ERRATA_ANDES_PMU,			\
++		CONFIG_ERRATA_ANDES_PMU)				\
++	: : "r"(BIT(__irq_num))						\
++	: "memory")
++
++#define ALT_SBI_PMU_OVF_ENABLE(__irq_num)				\
++asm volatile(ALTERNATIVE(						\
++	"csrs " __stringify(CSR_IE) ", %0\n\t",				\
++	"csrs " __stringify(ANDES_CSR_SLIE) ", %0\n\t",			\
++		ANDES_VENDOR_ID, ERRATA_ANDES_PMU,			\
++		CONFIG_ERRATA_ANDES_PMU)				\
++	: : "r"(BIT(__irq_num))						\
++	: "memory")
++
+ #endif /* __ASSEMBLY__ */
+ 
+ #endif
+diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
+index 9a51053b1f99..8b67f202d2ae 100644
+--- a/drivers/perf/riscv_pmu_sbi.c
++++ b/drivers/perf/riscv_pmu_sbi.c
+@@ -687,7 +687,7 @@ static irqreturn_t pmu_sbi_ovf_handler(int irq, void *dev)
+ 	fidx = find_first_bit(cpu_hw_evt->used_hw_ctrs, RISCV_MAX_COUNTERS);
+ 	event = cpu_hw_evt->events[fidx];
+ 	if (!event) {
+-		csr_clear(CSR_SIP, BIT(riscv_pmu_irq_num));
++		ALT_SBI_PMU_OVF_CLEAR_PENDING(riscv_pmu_irq_num);
+ 		return IRQ_NONE;
+ 	}
+ 
+@@ -701,7 +701,7 @@ static irqreturn_t pmu_sbi_ovf_handler(int irq, void *dev)
+ 	 * Overflow interrupt pending bit should only be cleared after stopping
+ 	 * all the counters to avoid any race condition.
+ 	 */
+-	csr_clear(CSR_SIP, BIT(riscv_pmu_irq_num));
++	ALT_SBI_PMU_OVF_CLEAR_PENDING(riscv_pmu_irq_num);
+ 
+ 	/* No overflow bit is set */
+ 	if (!overflow)
+@@ -773,8 +773,8 @@ static int pmu_sbi_starting_cpu(unsigned int cpu, struct hlist_node *node)
+ 
+ 	if (riscv_pmu_use_irq) {
+ 		cpu_hw_evt->irq = riscv_pmu_irq;
+-		csr_clear(CSR_IP, BIT(riscv_pmu_irq_num));
+-		csr_set(CSR_IE, BIT(riscv_pmu_irq_num));
++		ALT_SBI_PMU_OVF_CLEAR_PENDING(riscv_pmu_irq_num);
++		ALT_SBI_PMU_OVF_ENABLE(riscv_pmu_irq_num);
+ 		enable_percpu_irq(riscv_pmu_irq, IRQ_TYPE_NONE);
+ 	}
+ 
+@@ -785,7 +785,7 @@ static int pmu_sbi_dying_cpu(unsigned int cpu, struct hlist_node *node)
+ {
+ 	if (riscv_pmu_use_irq) {
+ 		disable_percpu_irq(riscv_pmu_irq);
+-		csr_clear(CSR_IE, BIT(riscv_pmu_irq_num));
++		ALT_SBI_PMU_OVF_DISABLE(riscv_pmu_irq_num);
+ 	}
+ 
+ 	/* Disable all counters access for user mode now */
+@@ -809,6 +809,10 @@ static int pmu_sbi_setup_irqs(struct riscv_pmu *pmu, struct platform_device *pde
+ 		   riscv_cached_mimpid(0) == 0) {
+ 		riscv_pmu_irq_num = THEAD_C9XX_RV_IRQ_PMU;
+ 		riscv_pmu_use_irq = true;
++	} else if (IS_ENABLED(CONFIG_ERRATA_ANDES_PMU) &&
++		   riscv_cached_mvendorid(0) == ANDES_VENDOR_ID) {
++		riscv_pmu_irq_num = ANDES_RV_IRQ_PMU;
++		riscv_pmu_use_irq = true;
+ 	}
+ 
+ 	if (!riscv_pmu_use_irq)
+@@ -821,7 +825,11 @@ static int pmu_sbi_setup_irqs(struct riscv_pmu *pmu, struct platform_device *pde
+ 		return -ENODEV;
+ 	}
+ 
+-	riscv_pmu_irq = irq_create_mapping(domain, riscv_pmu_irq_num);
++	if (IS_ENABLED(CONFIG_ERRATA_ANDES_PMU))
++		riscv_pmu_irq = irq_create_mapping(
++			domain, ANDES_SLI_CAUSE_BASE + riscv_pmu_irq_num);
++	else
++		riscv_pmu_irq = irq_create_mapping(domain, riscv_pmu_irq_num);
+ 	if (!riscv_pmu_irq) {
+ 		pr_err("Failed to map PMU interrupt for node\n");
+ 		return -ENODEV;
 -- 
 2.34.1
 
