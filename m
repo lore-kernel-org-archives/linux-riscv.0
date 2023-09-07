@@ -4,67 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6073FEE14D0
-	for <linux-riscv@archiver.kernel.org>; Thu,  7 Sep 2023 09:27:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FFDEEE14D6
+	for <linux-riscv@archiver.kernel.org>; Thu,  7 Sep 2023 09:41:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:Cc:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w11Y0/rqryBWwZweijJ5SS5A63Mof6hNh+WMCEEWOpo=; b=X7v/+cu6vPRuVUdZ7KkvZYhE/5
-	iPQQyhdd7+NGew75EH13U3x2T/HyGi/4HkH/aZYmITx9YbnDs0iu1hfU6PXy1VrMlKwqjFRCK6kwe
-	VbW/Wd/ShNyL9taVNQPamU/BFAeTAYjM0sZZVdI1Zxn5EMOL7H725A9n4qkQuOOar2dVlPrcZN7ND
-	PkPGgDLWdb1/NiOjGl5ysaDZthNMR9RUkry1MxEMhQdIGTPOUcBI0DysG159ObNqNGOYxKb8bZUd+
-	xtSI9wRWBLcBZWF2ZPNvuOE08m7l7yF9t+CYigz4v/gxc2QUOJkAPQ+lmT3kM+5D73MT4slthJbqM
-	pewuw4Qg==;
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NQx0jL6IyOvRTGctTO5C5d1ew1OE+mD6fpdyRSDizWQ=; b=nEenSQFYPGkJvvE3teJb0aXBZH
+	YrPtZpYZqgyp7eouGpl5HvUyUstKMI1KQkB0SYCV6NQqsLgtq9WJGtxDlTVum7ibC5ta5stiKJkWG
+	27iQKWeTjlcp96+aGlUannzM8apGlXdaUHxwENiwmj9F8S30ZsV+wY20J3FrC6D0/epBjmwofqOz2
+	G6vcfY+pBTsgVC8pQ2cJhGVlnXEC73wyLvwIvIflhI1h6VOemoGsESiRY7u82o9rbajbPCK8oBxiK
+	AsF94IIXOwarM8HwfJXAgFjs6Xn7dBfZebCxIccwG/mV6hzKjh+yLnCdPBigs3Sphq+vwIXfm11Xx
+	BcBeZzCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qeBIG-00Bg1q-0v;
-	Thu, 07 Sep 2023 09:27:20 +0000
+	id 1qeBVY-00BhWr-1X;
+	Thu, 07 Sep 2023 09:41:04 +0000
 Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qeBIB-00Bg16-37;
-	Thu, 07 Sep 2023 09:27:18 +0000
+	id 1qeBVW-00BhWJ-0F
+	for linux-riscv@lists.infradead.org;
+	Thu, 07 Sep 2023 09:41:03 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id ECA39B81DC4;
-	Thu,  7 Sep 2023 09:27:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 16B44C433B7;
-	Thu,  7 Sep 2023 09:27:07 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTPS id B7759B81D91;
+	Thu,  7 Sep 2023 09:41:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CEC2BC433BB;
+	Thu,  7 Sep 2023 09:40:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1694078832;
-	bh=gfUw2CkyuebGdf6kVXtdNFVCIy9rVDXi7vP0kJLGY6E=;
+	s=k20201202; t=1694079659;
+	bh=fVwmDBjeb+tD3UPCUflOOiky/QrJqD59Xdcd3KL0bCA=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=JchFbwdcXWKMDtudwax6UKpVWB+B5U/v1vOXAZ44MZyf32x5/DDnprw96ijz2katQ
-	 6teeKX/1gteMf2HuzGtY6wrep9ZbqKHl8KSmIT3qOrxjbmg5CwtnOKvw5z/zrR6aYv
-	 AocwKLwjM9QiskyDl+ptZ9qmutu6SxW/OPE610xdTgJKgWeIu9jM6xhNX4C9z9ZjAj
-	 0tjG+ByI5lBEWcOE08A0+TVxhpZLqkRmlUB2gYJyV4HZKxj/dmpz+MYn0IVul97MeF
-	 4oGEEAR9P1J4yUsCGK0gKhqnW8ZvFM6TM6ARt4h9lDwxgGSEPoH8YmJp5GubRmRJsf
-	 4PU9JR2Bu+qHw==
-Date: Thu, 7 Sep 2023 10:27:03 +0100
+	b=P/osNB8gCPqa2lRmfE87JqSmWRoXMV3dskjicYBovNM9zCcUpyYTNtIYIvmazwCEQ
+	 p5YTTpENLPn3nOoM1a0p2GNeb8YIxNkP3Ukh1pmHnzopHSeMfsO6LzoA9jiJvHfuz+
+	 qlaHcPPm4HPXsTtRkCM5/eDYTKB9+WyWwXP6sfnnvFHNYBO2aG+cqbBQ5eut6zLwW9
+	 2o9hU3Cyj69tRWiTWyj90C/frxOfdp9UIrc3QhtsWm/QGMMz7q1ZdhtxhO8ru9AwT1
+	 litUokOsMXNx3Sj0azyaycZOBIfWirQGfCqEPOoudORgd3o85XZqGJ0e14IHotiLZk
+	 N7/N8c/XN4Fgw==
+Date: Thu, 7 Sep 2023 10:40:54 +0100
 From: Conor Dooley <conor@kernel.org>
-To: Yu Chien Peter Lin <peterlin@andestech.com>
-Cc: linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
-	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	conor.dooley@microchip.com, atishp@atishpatra.org,
-	anup@brainfault.org, prabhakar.mahadev-lad.rj@bp.renesas.com,
-	ajones@ventanamicro.com, heiko@sntech.de, samuel@sholland.org,
-	geert+renesas@glider.be, n.shubin@yadro.com, dminus@andestech.com,
-	ycliang@andestech.com, tim609@andestech.com, locus84@andestech.com,
-	dylan@andestech.com
-Subject: Re: [PATCH 3/4] riscv: errata: Add Andes PMU errata
-Message-ID: <20230907-158e1f7e1e866d8c02726c9c@fedora>
-References: <20230907021635.1002738-1-peterlin@andestech.com>
- <20230907021635.1002738-4-peterlin@andestech.com>
+To: Charlie Jenkins <charlie@rivosinc.com>
+Subject: Re: [PATCH v2 1/5] riscv: Checksum header
+Message-ID: <20230907-f8c8993dbeb24d5ea5310ec7@fedora>
+References: <20230905-optimize_checksum-v2-0-ccd658db743b@rivosinc.com>
+ <20230905-optimize_checksum-v2-1-ccd658db743b@rivosinc.com>
 MIME-Version: 1.0
-In-Reply-To: <20230907021635.1002738-4-peterlin@andestech.com>
+In-Reply-To: <20230905-optimize_checksum-v2-1-ccd658db743b@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230907_022716_291539_15BBB4C7 
-X-CRM114-Status: GOOD (  40.10  )
+X-CRM114-CacheID: sfid-20230907_024102_377622_12F56EE2 
+X-CRM114-Status: GOOD (  28.88  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,314 +68,185 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============2317708827452508628=="
+Cc: Albert Ou <aou@eecs.berkeley.edu>, linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org
+Content-Type: multipart/mixed; boundary="===============4188188415848678093=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============2317708827452508628==
+--===============4188188415848678093==
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="jMdrE/NsI/M9lmQR"
+	protocol="application/pgp-signature"; boundary="PvA718pBPhJra4oM"
 Content-Disposition: inline
 
 
---jMdrE/NsI/M9lmQR
+--PvA718pBPhJra4oM
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-Hey,
+Hey Charlie,
 
-On Thu, Sep 07, 2023 at 10:16:34AM +0800, Yu Chien Peter Lin wrote:
-> Before the ratification of Sscofpmf, the Andes PMU extension
-> implements the same mechanism and is compatible with existing
-> SBI PMU driver of perf to support event sampling and mode
-> filtering with programmable hardware performance counters.
+Just a passing thought that I can't really test since I am meant to be
+on holidays...
 
-If it actually was, you'd not need to modify the driver ;)
+On Tue, Sep 05, 2023 at 09:46:50PM -0700, Charlie Jenkins wrote:
+> Provide checksum algorithms that have been designed to leverage riscv
+> instructions such as rotate. In 64-bit, can take advantage of the larger
+> register to avoid some overflow checking.
+>=20
+> Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
+> ---
+>  arch/riscv/include/asm/checksum.h | 96 +++++++++++++++++++++++++++++++++=
+++++++
+>  1 file changed, 96 insertions(+)
+>=20
+> diff --git a/arch/riscv/include/asm/checksum.h b/arch/riscv/include/asm/c=
+hecksum.h
+> new file mode 100644
+> index 000000000000..573714b9ea15
+> --- /dev/null
+> +++ b/arch/riscv/include/asm/checksum.h
+> @@ -0,0 +1,96 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +/*
+> + * IP checksum routines
+> + *
+> + * Copyright (C) 2023 Rivos Inc.
+> + */
+> +#ifndef __ASM_RISCV_CHECKSUM_H
+> +#define __ASM_RISCV_CHECKSUM_H
+> +
+> +#include <linux/in6.h>
+> +#include <linux/uaccess.h>
+> +
+> +#ifdef CONFIG_32BIT
+> +typedef unsigned int csum_t;
+> +#else
+> +typedef unsigned long csum_t;
+> +#endif
+> +
+> +/*
+> + *	Fold a partial checksum without adding pseudo headers
+> + */
+> +static inline __sum16 csum_fold(__wsum sum)
+> +{
+> +	sum +=3D (sum >> 16) | (sum << 16);
+> +	return (__force __sum16)(~(sum >> 16));
+> +}
+> +
+> +#define csum_fold csum_fold
+> +
+> +/*
+> + * Quickly compute an IP checksum with the assumption that IPv4 headers =
+will
+> + * always be in multiples of 32-bits, and have an ihl of at least 5.
+> + * @ihl is the number of 32 bit segments and must be greater than or equ=
+al to 5.
+> + * @iph is assumed to be word aligned.
+> + */
+> +static inline __sum16 ip_fast_csum(const void *iph, unsigned int ihl)
+> +{
+> +	csum_t csum =3D 0;
+> +	int pos =3D 0;
+> +
+> +	do {
+> +		csum +=3D ((const unsigned int *)iph)[pos];
+> +#ifdef CONFIG_32BIT
+> +		csum +=3D csum < ((const unsigned int *)iph)[pos];
+> +#endif // !CONFIG_32BIT
 
-> This patch adds PMU support for Andes 45-series CPUs by
-> introducing a CPU errata.
+Some of this ifdeffery really should become IS_ENABLED(), there's
+nothing in some of them that can't just get removed by the compiler.
 
-I don't really understand this in all honesty. You don't have Sscofpmf
-support with a bug, you have something that is Sscofpmf-adjactent that
-predates it. Why claim to support an extension that you do not, only to
-have to come along and try to clean things up afterwards, instead of
-accurately declaring what you do support from the outset?
+> +	} while (++pos < ihl);
+> +
+> +#ifdef CONFIG_RISCV_ISA_ZBB
 
-(and just because someone already got away with it, doesn't mean that
-you get a free pass on it, sorry)
+This here I can't test since I'm supposed to be AFK, but can this also
+be an IS_ENABLED()? I know it is guarding code that the toolchain may
+not support, but does it get removed before that matters?
+
+I mainly ask because there's a host of ifdeffery here & the code would
+be a lot easier to understand if we could cut it down to a minimum.
+
+> +	if (IS_ENABLED(CONFIG_RISCV_ALTERNATIVE)) {
+> +		csum_t fold_temp;
+> +
+> +		asm_volatile_goto(ALTERNATIVE("j %l[no_zbb]", "nop", 0,
+> +					      RISCV_ISA_EXT_ZBB, 1)
+> +		    :
+> +		    :
+> +		    :
+> +		    : no_zbb);
+> +#ifdef CONFIG_32BIT
+> +		asm(".option push				\n\
+> +		.option arch,+zbb				\n\
+> +			rori %[fold_temp],%[csum],16		\n\
+> +			add %[csum],%[fold_temp],%[csum]	\n\
+> +		.option pop"
+> +		: [csum] "+r" (csum), [fold_temp] "=3D&r" (fold_temp));
+> +#else // !CONFIG_32BIT
+> +		asm(".option push				\n\
+> +		.option arch,+zbb				\n\
+> +		    rori %[fold_temp], %[csum], 32		\n\
+> +		    add %[csum], %[fold_temp], %[csum]		\n\
+> +		    srli %[csum], %[csum], 32			\n\
+> +		    roriw %[fold_temp], %[csum], 16		\n\
+> +		    addw %[csum], %[fold_temp], %[csum]		\n\
+> +		.option pop"
+> +		: [csum] "+r" (csum), [fold_temp] "=3D&r" (fold_temp));
+> +#endif // !CONFIG_32BIT
+
+These 3 I think are pretty easy to follow immediately, but...
+
+> +		return ~(csum >> 16);
+> +	}
+> +	/*
+> +	 * ZBB only saves three instructions on 32-bit and five on 64-bit so not
+> +	 * worth checking if supported without Alternatives.
+> +	 */
+> +no_zbb:
+> +#endif // CONFIG_RISCV_ISA_ZBB
+> +#ifdef CONFIG_32BIT
+> +#else // !CONFIG_32BIT
+> +	csum +=3D (csum >> 32) | (csum << 32);
+> +	csum >>=3D 16;
+> +#endif // !CONFIG_32BIT
+
+=2E..these ones here could be converted too, afaict.
 
 Thanks,
 Conor.
 
-> Signed-off-by: Yu Chien Peter Lin <peterlin@andestech.com>
-> Signed-off-by: Locus Wei-Han Chen <locus84@andestech.com>
-
-btw, what did Locus Wei-Han Chen do here? Are you missing
-a Co-developed-by: tag?
-
-> Reviewed-by: Charles Ci-Jyun Wu <dminus@andestech.com>
-> Reviewed-by: Leo Yu-Chi Liang <ycliang@andestech.com>
-> ---
->  arch/riscv/Kconfig.errata            | 13 ++++++++
->  arch/riscv/errata/andes/errata.c     | 45 +++++++++++++++++++++++++++-
->  arch/riscv/include/asm/errata_list.h | 43 ++++++++++++++++++++++++--
->  drivers/perf/riscv_pmu_sbi.c         | 20 +++++++++----
->  4 files changed, 111 insertions(+), 10 deletions(-)
+> +	return csum_fold((__force __wsum)csum);
+> +}
+> +
+> +#define ip_fast_csum ip_fast_csum
+> +
+> +#include <asm-generic/checksum.h>
+> +
+> +#endif // __ASM_RISCV_CHECKSUM_H
 >=20
-> diff --git a/arch/riscv/Kconfig.errata b/arch/riscv/Kconfig.errata
-> index 92c779764b27..a342b209c169 100644
-> --- a/arch/riscv/Kconfig.errata
-> +++ b/arch/riscv/Kconfig.errata
-> @@ -21,6 +21,19 @@ config ERRATA_ANDES_CMO
-> =20
->  	  If you don't know what to do here, say "Y".
-> =20
-> +config ERRATA_ANDES_PMU
-> +	bool "Apply Andes PMU errata"
-> +	depends on ERRATA_ANDES && RISCV_PMU_SBI
-> +	default y
-> +	help
-> +	  The Andes 45-series cores implement a PMU overflow extension
-> +	  very similar to the core SSCOFPMF extension.
-> +
-> +	  This will apply the overflow errata to handle the non-standard
-> +	  behaviour via the regular SBI PMU driver and interface.
-> +
-> +	  If you don't know what to do here, say "Y".
-> +
->  config ERRATA_SIFIVE
->  	bool "SiFive errata"
->  	depends on RISCV_ALTERNATIVE
-> diff --git a/arch/riscv/errata/andes/errata.c b/arch/riscv/errata/andes/e=
-rrata.c
-> index d2e1abcac967..19256691f1ba 100644
-> --- a/arch/riscv/errata/andes/errata.c
-> +++ b/arch/riscv/errata/andes/errata.c
-> @@ -56,11 +56,54 @@ static bool errata_probe_iocp(unsigned int stage, uns=
-igned long arch_id, unsigne
->  	return true;
->  }
-> =20
-> +static bool errata_probe_pmu(unsigned int stage,
-> +			     unsigned long arch_id, unsigned long impid)
-> +{
-> +	if (!IS_ENABLED(CONFIG_ERRATA_ANDES_PMU))
-> +		return false;
-> +
-> +	if ((arch_id & 0xff) !=3D 0x45)
-> +		return false;
-> +
-> +	if (stage =3D=3D RISCV_ALTERNATIVES_EARLY_BOOT)
-> +		return false;
-> +
-> +	return true;
-> +}
-> +
-> +static u32 andes_errata_probe(unsigned int stage,
-> +			      unsigned long archid, unsigned long impid)
-> +{
-> +	u32 cpu_req_errata =3D 0;
-> +
-> +	if (errata_probe_pmu(stage, archid, impid))
-> +		cpu_req_errata |=3D BIT(ERRATA_ANDES_PMU);
-> +
-> +	return cpu_req_errata;
-> +}
-> +
->  void __init_or_module andes_errata_patch_func(struct alt_entry *begin, s=
-truct alt_entry *end,
->  					      unsigned long archid, unsigned long impid,
->  					      unsigned int stage)
->  {
-> +	struct alt_entry *alt;
-> +	u32 cpu_req_errata =3D andes_errata_probe(stage, archid, impid);
-> +	u32 tmp;
-> +
->  	errata_probe_iocp(stage, archid, impid);
-> =20
-> -	/* we have nothing to patch here ATM so just return back */
-> +	for (alt =3D begin; alt < end; alt++) {
-> +		if (alt->vendor_id !=3D ANDES_VENDOR_ID)
-> +			continue;
-> +		if (alt->patch_id >=3D ERRATA_ANDES_NUMBER)
-> +			continue;
-> +
-> +		tmp =3D (1U << alt->patch_id);
-> +		if (cpu_req_errata & tmp) {
-> +			mutex_lock(&text_mutex);
-> +			patch_text_nosync(ALT_OLD_PTR(alt), ALT_ALT_PTR(alt),
-> +					  alt->alt_len);
-> +			mutex_unlock(&text_mutex);
-> +		}
-> +	}
->  }
-> diff --git a/arch/riscv/include/asm/errata_list.h b/arch/riscv/include/as=
-m/errata_list.h
-> index 56ab40e64092..bb4c276e2c7f 100644
-> --- a/arch/riscv/include/asm/errata_list.h
-> +++ b/arch/riscv/include/asm/errata_list.h
-> @@ -13,7 +13,8 @@
-> =20
->  #ifdef CONFIG_ERRATA_ANDES
->  #define ERRATA_ANDES_NO_IOCP 0
-> -#define ERRATA_ANDES_NUMBER 1
-> +#define ERRATA_ANDES_PMU 1
-> +#define ERRATA_ANDES_NUMBER 2
->  #endif
-> =20
->  #ifdef CONFIG_ERRATA_SIFIVE
-> @@ -150,15 +151,51 @@ asm volatile(ALTERNATIVE_2(						\
->  #define THEAD_C9XX_RV_IRQ_PMU			17
->  #define THEAD_C9XX_CSR_SCOUNTEROF		0x5c5
-> =20
-> +#define ANDES_RV_IRQ_PMU			18
-> +#define ANDES_SLI_CAUSE_BASE			256
-> +#define ANDES_CSR_SCOUNTEROF			0x9d4
-> +#define ANDES_CSR_SLIE				0x9c4
-> +#define ANDES_CSR_SLIP				0x9c5
-> +
->  #define ALT_SBI_PMU_OVERFLOW(__ovl)					\
-> -asm volatile(ALTERNATIVE(						\
-> +asm volatile(ALTERNATIVE_2(						\
->  	"csrr %0, " __stringify(CSR_SSCOUNTOVF),			\
->  	"csrr %0, " __stringify(THEAD_C9XX_CSR_SCOUNTEROF),		\
->  		THEAD_VENDOR_ID, ERRATA_THEAD_PMU,			\
-> -		CONFIG_ERRATA_THEAD_PMU)				\
-> +		CONFIG_ERRATA_THEAD_PMU,				\
-> +	"csrr %0, " __stringify(ANDES_CSR_SCOUNTEROF),			\
-> +		ANDES_VENDOR_ID, ERRATA_ANDES_PMU,			\
-> +		CONFIG_ERRATA_ANDES_PMU)				\
->  	: "=3Dr" (__ovl) :						\
->  	: "memory")
-> =20
-> +#define ALT_SBI_PMU_OVF_CLEAR_PENDING(__irq_num)			\
-> +asm volatile(ALTERNATIVE(						\
-> +	"csrc " __stringify(CSR_IP) ", %0\n\t",				\
-> +	"csrc " __stringify(ANDES_CSR_SLIP) ", %0\n\t",			\
-> +		ANDES_VENDOR_ID, ERRATA_ANDES_PMU,			\
-> +		CONFIG_ERRATA_ANDES_PMU)				\
-> +	: : "r"(BIT(__irq_num))						\
-> +	: "memory")
-> +
-> +#define ALT_SBI_PMU_OVF_DISABLE(__irq_num)				\
-> +asm volatile(ALTERNATIVE(						\
-> +	"csrc " __stringify(CSR_IE) ", %0\n\t",				\
-> +	"csrc " __stringify(ANDES_CSR_SLIE) ", %0\n\t",			\
-> +		ANDES_VENDOR_ID, ERRATA_ANDES_PMU,			\
-> +		CONFIG_ERRATA_ANDES_PMU)				\
-> +	: : "r"(BIT(__irq_num))						\
-> +	: "memory")
-> +
-> +#define ALT_SBI_PMU_OVF_ENABLE(__irq_num)				\
-> +asm volatile(ALTERNATIVE(						\
-> +	"csrs " __stringify(CSR_IE) ", %0\n\t",				\
-> +	"csrs " __stringify(ANDES_CSR_SLIE) ", %0\n\t",			\
-> +		ANDES_VENDOR_ID, ERRATA_ANDES_PMU,			\
-> +		CONFIG_ERRATA_ANDES_PMU)				\
-> +	: : "r"(BIT(__irq_num))						\
-> +	: "memory")
-> +
->  #endif /* __ASSEMBLY__ */
-> =20
->  #endif
-> diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
-> index 9a51053b1f99..8b67f202d2ae 100644
-> --- a/drivers/perf/riscv_pmu_sbi.c
-> +++ b/drivers/perf/riscv_pmu_sbi.c
-> @@ -687,7 +687,7 @@ static irqreturn_t pmu_sbi_ovf_handler(int irq, void =
-*dev)
->  	fidx =3D find_first_bit(cpu_hw_evt->used_hw_ctrs, RISCV_MAX_COUNTERS);
->  	event =3D cpu_hw_evt->events[fidx];
->  	if (!event) {
-> -		csr_clear(CSR_SIP, BIT(riscv_pmu_irq_num));
-> +		ALT_SBI_PMU_OVF_CLEAR_PENDING(riscv_pmu_irq_num);
->  		return IRQ_NONE;
->  	}
-> =20
-> @@ -701,7 +701,7 @@ static irqreturn_t pmu_sbi_ovf_handler(int irq, void =
-*dev)
->  	 * Overflow interrupt pending bit should only be cleared after stopping
->  	 * all the counters to avoid any race condition.
->  	 */
-> -	csr_clear(CSR_SIP, BIT(riscv_pmu_irq_num));
-> +	ALT_SBI_PMU_OVF_CLEAR_PENDING(riscv_pmu_irq_num);
-> =20
->  	/* No overflow bit is set */
->  	if (!overflow)
-> @@ -773,8 +773,8 @@ static int pmu_sbi_starting_cpu(unsigned int cpu, str=
-uct hlist_node *node)
-> =20
->  	if (riscv_pmu_use_irq) {
->  		cpu_hw_evt->irq =3D riscv_pmu_irq;
-> -		csr_clear(CSR_IP, BIT(riscv_pmu_irq_num));
-> -		csr_set(CSR_IE, BIT(riscv_pmu_irq_num));
-> +		ALT_SBI_PMU_OVF_CLEAR_PENDING(riscv_pmu_irq_num);
-> +		ALT_SBI_PMU_OVF_ENABLE(riscv_pmu_irq_num);
->  		enable_percpu_irq(riscv_pmu_irq, IRQ_TYPE_NONE);
->  	}
-> =20
-> @@ -785,7 +785,7 @@ static int pmu_sbi_dying_cpu(unsigned int cpu, struct=
- hlist_node *node)
->  {
->  	if (riscv_pmu_use_irq) {
->  		disable_percpu_irq(riscv_pmu_irq);
-> -		csr_clear(CSR_IE, BIT(riscv_pmu_irq_num));
-> +		ALT_SBI_PMU_OVF_DISABLE(riscv_pmu_irq_num);
->  	}
-> =20
->  	/* Disable all counters access for user mode now */
-> @@ -809,6 +809,10 @@ static int pmu_sbi_setup_irqs(struct riscv_pmu *pmu,=
- struct platform_device *pde
->  		   riscv_cached_mimpid(0) =3D=3D 0) {
->  		riscv_pmu_irq_num =3D THEAD_C9XX_RV_IRQ_PMU;
->  		riscv_pmu_use_irq =3D true;
-> +	} else if (IS_ENABLED(CONFIG_ERRATA_ANDES_PMU) &&
-> +		   riscv_cached_mvendorid(0) =3D=3D ANDES_VENDOR_ID) {
-> +		riscv_pmu_irq_num =3D ANDES_RV_IRQ_PMU;
-> +		riscv_pmu_use_irq =3D true;
->  	}
-> =20
->  	if (!riscv_pmu_use_irq)
-> @@ -821,7 +825,11 @@ static int pmu_sbi_setup_irqs(struct riscv_pmu *pmu,=
- struct platform_device *pde
->  		return -ENODEV;
->  	}
-> =20
-> -	riscv_pmu_irq =3D irq_create_mapping(domain, riscv_pmu_irq_num);
-> +	if (IS_ENABLED(CONFIG_ERRATA_ANDES_PMU))
-> +		riscv_pmu_irq =3D irq_create_mapping(
-> +			domain, ANDES_SLI_CAUSE_BASE + riscv_pmu_irq_num);
-> +	else
-> +		riscv_pmu_irq =3D irq_create_mapping(domain, riscv_pmu_irq_num);
->  	if (!riscv_pmu_irq) {
->  		pr_err("Failed to map PMU interrupt for node\n");
->  		return -ENODEV;
 > --=20
-> 2.34.1
+> 2.42.0
 >=20
->=20
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---jMdrE/NsI/M9lmQR
+--PvA718pBPhJra4oM
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEARYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZPmXYwAKCRB4tDGHoIJi
-0pxmAP9b/N+QTuiiGLQEWlt7cn6OD1zZfzRKLSdkzb5rJKST1gD/W1NhzNBFX6Y3
-bbE/vGgenMSmSIfKQAabZpl6s63mtwI=
-=Oz/Z
+iHUEARYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZPmapgAKCRB4tDGHoIJi
+0lt2AQCbafR8hu15IRQ5HxwqjZt2awaWYUECINcNIg8CoyA1rwEA4K4H9iZ3I9ZJ
+PGMG08r7ADQFrFvhT2ccfF2mxHkk/wQ=
+=XATt
 -----END PGP SIGNATURE-----
 
---jMdrE/NsI/M9lmQR--
+--PvA718pBPhJra4oM--
 
 
---===============2317708827452508628==
+--===============4188188415848678093==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -394,5 +257,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============2317708827452508628==--
+--===============4188188415848678093==--
 
