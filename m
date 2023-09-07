@@ -4,64 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 065AFEC8750
-	for <linux-riscv@archiver.kernel.org>; Thu,  7 Sep 2023 18:45:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F453EC874B
+	for <linux-riscv@archiver.kernel.org>; Thu,  7 Sep 2023 19:01:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HfFd/4UZWfqwzqjWWU/WKUKidOJf6mRdm1UVMmPMnnw=; b=kQ/81rJkNnesBn
-	AKForCRMXg8B6Oawf9uwxKMNpgZHlFSvF6GrFfXQd2yrrPmjCpCxM1HaLkD83dzmmTcsiEjJx9yKv
-	/sXnRSFt7EPfjxzbka5vyPNu9du6XcuDRRhy4qouDBHWYUC1x6vBNYvZc65hbpfQviQZYqiKa+Vod
-	9TMV5eNPsBc9fBlTLsVHdSI/QV99DHtdKV0/Mqctu/1tmrwvRv0zgyrEKM/7ifSVdEA7hUN8+szRD
-	8o5v0FQcJ8VQ403Lw51jfqPMJtgWS4qEr88XGEwvb8bK5NQK5p6HhB73gZTT9jP1/lgTfSdze62K3
-	vQG3g+9goJxxvjRhb8pw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wQWDcPHyRauPFNdV2YpzRYd8OKF2cQS2OFtDDkc47CE=; b=pKst76CBtF1xNKol/V7cQxTAJx
+	lYa3ribiHqzXnum08F/a2rodOIbMQbsmHPLNfpUDQLYMc3hUL3gUzwVDxJapPijKhVRHpboyUlXv8
+	uAzKPlMwfy9YjNWTf1IYbQFvRUXcyPqwJ/oSUOwfjX66s57/EG8KEKvUuscIZNiy3Asi4u0/XxW2z
+	9V+mrm8lS2a/vtDQ3ENSuamOBwXTyXm8MoYp6tL+n9+dbrW0RRzhHz2nyVxQfR1wkNbqZt2h8Sw2R
+	syfw0Ulk1B4xvfDl4dlfvMqLTCM60Yw5Dp8Iz//oz04vGud0AUyVPKHxcLjseFfwLEmGoQBozasRr
+	YpYGpEKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qeK0b-00CZZX-3A;
-	Thu, 07 Sep 2023 18:45:41 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1qeKFl-00Caju-0K;
+	Thu, 07 Sep 2023 19:01:21 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qeK0Y-00CZZB-2d
+	id 1qeKFh-00CahK-2L
 	for linux-riscv@lists.infradead.org;
-	Thu, 07 Sep 2023 18:45:40 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 3803461366;
-	Thu,  7 Sep 2023 18:45:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 199AEC433C8;
-	Thu,  7 Sep 2023 18:45:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1694112336;
-	bh=QXlLEPcw9T8cbpBpm+xTTvQEb5fFY7BYBMzEoncfs1w=;
-	h=From:To:Subject:In-Reply-To:References:Date:From;
-	b=FQYSpc/YwsYLsLl4MwCTQYuIUJv5RdIsiXNP7TtdCi00h3kOcAH8oGMaWFtF4BSID
-	 d6pwrhst3nsRHariq4NIshjUuJbHmGbvpNxewFuZA8eEJloTom+jhxy+LLRBWiooOv
-	 xBJXO2gM5PFlO2x8ghXkwnSEzxsXHKqV1PXngxt3643B2ILJyVyxDXR9g0K6HNBXWt
-	 zwzg84GXERQnqaqPtFlRTyKd4PTGD5PEPHWJ426+Oo5JNe1nsHSycPR8XCcbxcBAoH
-	 PoQ2GJnpg5pVvYGIOzSwcALE3lL0Vjl2SmCPf+LZSQVFBhC5kKsnD9y9QM6KYAguTR
-	 huvv4BEyKCNjw==
-From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-To: Yunhui Cui <cuiyunhui@bytedance.com>, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, guoren@kernel.org,
- bjorn@rivosinc.com, conor.dooley@microchip.com, jszhang@kernel.org,
- andy.chiu@sifive.com, cuiyunhui@bytedance.com,
- dave.hansen@linux.intel.com, elver@google.com, glider@google.com,
- cyphar@cyphar.com, kirill.shutemov@linux.intel.com, keescook@chromium.org,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v5] riscv: add userland instruction dump to RISC-V splats
-In-Reply-To: <20230901123043.73700-1-cuiyunhui@bytedance.com>
-References: <20230901123043.73700-1-cuiyunhui@bytedance.com>
-Date: Thu, 07 Sep 2023 20:45:33 +0200
-Message-ID: <878r9hvn3m.fsf@all.your.base.are.belong.to.us>
+	Thu, 07 Sep 2023 19:01:19 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-401b5516104so14252415e9.2
+        for <linux-riscv@lists.infradead.org>; Thu, 07 Sep 2023 12:01:13 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1694113272; x=1694718072; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=eociOZShIIhf6uzSUtfcCoJa3P8brx2laWW2HO9Th3Y=;
+        b=BfOAJNar+6lTVXJSg4O1uVDed832rvxE/bKSuNUpmNKhNmk+Lcb/k4GQ5sVbsteoLX
+         omoLeA/1YiwT1AZaR1OTdFTflQpn58MMYLQcNKhcgLKxOTASsqHSU01c0n1J7ygT/+vX
+         LlpFnLL5SS+HpqH2+f/B5q0TwY9JaWBqmxmviDV6FbRxEPRkhHu8Inmq6Hs4PZRukJf4
+         8S4xeKPdw2ERRaav7ymrNSHJ+VsBAsIzIh5+IyCp6thUYxZZ4f0DnvvgycUbARjDvEHR
+         HARFiq1UMHpDlZGyavXCwUWZpWb7UjESYJ31/vqFTNgjZ6TeJ4DnqP272dTNfAtN2BuG
+         cW/w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1694113272; x=1694718072;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=eociOZShIIhf6uzSUtfcCoJa3P8brx2laWW2HO9Th3Y=;
+        b=EAbjs5m5XQOvdJh3wB9K4Md+flTwJSzN0/opc7pSMbH/W/wTJF3j5yq2eeE/0Fk7zi
+         A9Lzi/xJnnU7L/pquAr/finuCS1ZPzlrOmaQ80yXqxaJhgepqpoCt8HKaZUWDv3jwYtB
+         N6h2AXn8UY877omImfiHYsxrrsvNskg78yZHML96PPZLiz29VNaTHVRxfJYFI7HNuyuP
+         QJ8kBQZm//Qr2tgN/nBmOylkNjfTLE+JdcSkW6kNu70qh3uXNR5crW7Mlra93ekbtREv
+         sFpSwFvverBfe20fG4+DH9RvHwwF+iN1pJ4F/5HbxC6Tp2llQNpt16dfNilZi2jVHNWT
+         z+7w==
+X-Gm-Message-State: AOJu0YyGIUGHtmeGY+9XrZLkLHjmF+mpc5PiEdyyPn410/8NAsavO/yC
+	iE/cC1wIlbV25uApjZciwLvsPg==
+X-Google-Smtp-Source: AGHT+IGhEgKQHBGkqLlsP4F/DGv1jyf9duZnERJIUkqYRa1UCO/fiKxyNhLBIfZMVQ0b4/1jnwd8TQ==
+X-Received: by 2002:a05:600c:3b1f:b0:401:b204:3b85 with SMTP id m31-20020a05600c3b1f00b00401b2043b85mr392330wms.36.1694113272221;
+        Thu, 07 Sep 2023 12:01:12 -0700 (PDT)
+Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
+        by smtp.gmail.com with ESMTPSA id q10-20020adfea0a000000b0031ae2a7adb5sm109334wrm.85.2023.09.07.12.01.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 07 Sep 2023 12:01:11 -0700 (PDT)
+Date: Thu, 7 Sep 2023 21:01:10 +0200
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Haibo Xu <xiaobo55x@gmail.com>
+Cc: Haibo Xu <haibo1.xu@intel.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Paolo Bonzini <pbonzini@redhat.com>, 
+	Shuah Khan <shuah@kernel.org>, Marc Zyngier <maz@kernel.org>, 
+	Oliver Upton <oliver.upton@linux.dev>, James Morse <james.morse@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
+	Anup Patel <anup@brainfault.org>, Atish Patra <atishp@atishpatra.org>, Guo Ren <guoren@kernel.org>, 
+	Conor Dooley <conor.dooley@microchip.com>, Greentime Hu <greentime.hu@sifive.com>, 
+	wchen <waylingii@gmail.com>, Daniel Henrique Barboza <dbarboza@ventanamicro.com>, 
+	Sean Christopherson <seanjc@google.com>, Ricardo Koller <ricarkol@google.com>, 
+	Vishal Annapurve <vannapurve@google.com>, David Matlack <dmatlack@google.com>, 
+	Aaron Lewis <aaronlewis@google.com>, Mingwei Zhang <mizhang@google.com>, 
+	Vitaly Kuznetsov <vkuznets@redhat.com>, Ackerley Tng <ackerleytng@google.com>, 
+	Vipin Sharma <vipinsh@google.com>, Maxim Levitsky <mlevitsk@redhat.com>, 
+	Peter Gonda <pgonda@google.com>, Philippe =?utf-8?Q?Mathieu-Daud=C3=A9?= <philmd@linaro.org>, 
+	Thomas Huth <thuth@redhat.com>, Like Xu <likexu@tencent.com>, 
+	David Woodhouse <dwmw@amazon.co.uk>, Michal Luczaj <mhal@rbox.co>, 
+	zhang songyi <zhang.songyi@zte.com.cn>, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	kvm@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm-riscv@lists.infradead.org
+Subject: Re: [PATCH v2 8/8] KVM: riscv: selftests: Add sstc timer test
+Message-ID: <20230907-5d3da2b6dca23bedb31b33a0@orel>
+References: <cover.1693659382.git.haibo1.xu@intel.com>
+ <d2b3c53537fef3f0a2d27d8be663a64123d4bc3c.1693659382.git.haibo1.xu@intel.com>
+ <20230904-a69c6a228bf4553cc58bca17@orel>
+ <CAJve8ok03P-t7pTA9mH=5vvkUy4NtxHac_Z_NM88cs55YQZATg@mail.gmail.com>
 MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="moqzehiniedyglk4"
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAJve8ok03P-t7pTA9mH=5vvkUy4NtxHac_Z_NM88cs55YQZATg@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230907_114538_962440_287C673F 
-X-CRM114-Status: GOOD (  16.56  )
+X-CRM114-CacheID: sfid-20230907_120117_764630_E515D30A 
+X-CRM114-Status: GOOD (  35.56  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,69 +110,223 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-WXVuaHVpIEN1aSA8Y3VpeXVuaHVpQGJ5dGVkYW5jZS5jb20+IHdyaXRlczoKCj4gQWRkIHVzZXJs
-YW5kIGluc3RydWN0aW9uIGR1bXAgYW5kIHJlbmFtZSBkdW1wX2tlcm5lbF9pbnN0cigpCj4gdG8g
-ZHVtcF9pbnN0cigpLgo+Cj4gQW4gZXhhbXBsZToKPiBbICAgIDAuODIyNDM5XSBGcmVlaW5nIHVu
-dXNlZCBrZXJuZWwgaW1hZ2UgKGluaXRtZW0pIG1lbW9yeTogNjkxNksKPiBbICAgIDAuODIzODE3
-XSBSdW4gL2luaXQgYXMgaW5pdCBwcm9jZXNzCj4gWyAgICAwLjgzOTQxMV0gaW5pdFsxXTogdW5o
-YW5kbGVkIHNpZ25hbCA0IGNvZGUgMHgxIGF0IDB4MDAwMDAwMDAwMDA1YmUxOCBpbiBiYlsxMDAw
-MCs1ZmIwMDBdCj4gWyAgICAwLjg0MDc1MV0gQ1BVOiAwIFBJRDogMSBDb21tOiBpbml0IE5vdCB0
-YWludGVkIDUuMTQuMC1yYzQtMDAwNDktZ2JkNjQ0MjkwYWE3Mi1kaXJ0eSAjMTg3Cj4gWyAgICAw
-Ljg0MTM3M10gSGFyZHdhcmUgbmFtZTogICwgQklPUwo+IFsgICAgMC44NDE3NDNdIGVwYyA6IDAw
-MDAwMDAwMDAwNWJlMTggcmEgOiAwMDAwMDAwMDAwMDc5ZTc0IHNwIDogMDAwMDAwM2ZmZmNhZmRh
-MAo+IFsgICAgMC44NDIyNzFdICBncCA6IGZmZmZmZmZmODE2ZTlkYzggdHAgOiAwMDAwMDAwMDAw
-MDAwMDAwIHQwIDogMDAwMDAwMDAwMDAwMDAwMAo+IFsgICAgMC44NDI5NDddICB0MSA6IDAwMDAw
-MDNmZmZjOWZkZjAgdDIgOiAwMDAwMDAwMDAwMDAwMDAwIHMwIDogMDAwMDAwMDAwMDAwMDAwMAo+
-IFsgICAgMC44NDM0MzRdICBzMSA6IDAwMDAwMDAwMDAwMDAwMDAgYTAgOiAwMDAwMDAzZmZmY2Ew
-MTkwIGExIDogMDAwMDAwM2ZmZmNhZmUxOAo+IFsgICAgMC44NDM4OTFdICBhMiA6IDAwMDAwMDAw
-MDAwMDAwMDAgYTMgOiAwMDAwMDAwMDAwMDAwMDAwIGE0IDogMDAwMDAwMDAwMDAwMDAwMAo+IFsg
-ICAgMC44NDQzNTddICBhNSA6IDAwMDAwMDAwMDAwMDAwMDAgYTYgOiAwMDAwMDAwMDAwMDAwMDAw
-IGE3IDogMDAwMDAwMDAwMDAwMDAwMAo+IFsgICAgMC44NDQ4MDNdICBzMiA6IDAwMDAwMDAwMDAw
-MDAwMDAgczMgOiAwMDAwMDAwMDAwMDAwMDAwIHM0IDogMDAwMDAwMDAwMDAwMDAwMAo+IFsgICAg
-MC44NDUyNTNdICBzNSA6IDAwMDAwMDAwMDAwMDAwMDAgczYgOiAwMDAwMDAwMDAwMDAwMDAwIHM3
-IDogMDAwMDAwMDAwMDAwMDAwMAo+IFsgICAgMC44NDU3MjJdICBzOCA6IDAwMDAwMDAwMDAwMDAw
-MDAgczkgOiAwMDAwMDAwMDAwMDAwMDAwIHMxMDogMDAwMDAwMDAwMDAwMDAwMAo+IFsgICAgMC44
-NDYxODBdICBzMTE6IDAwMDAwMDAwMDBkMTQ0ZTAgdDMgOiAwMDAwMDAwMDAwMDAwMDAwIHQ0IDog
-MDAwMDAwMDAwMDAwMDAwMAo+IFsgICAgMC44NDY2MTZdICB0NSA6IDAwMDAwMDAwMDAwMDAwMDAg
-dDYgOiAwMDAwMDAwMDAwMDAwMDAwCj4gWyAgICAwLjg0NzIwNF0gc3RhdHVzOiAwMDAwMDAwMjAw
-MDAwMDIwIGJhZGFkZHI6IDAwMDAwMDAwZjAwMjgwNTMgY2F1c2U6IDAwMDAwMDAwMDAwMDAwMDIK
-PiBbICAgIDAuODQ4MjE5XSBDb2RlOiBmMDZmIGZmNWYgMzgyMyBmYTExIDAxMTMgZmIwMSAyZTIz
-IDAyMDEgMDI5MyAwMDAwICg4MDUzKSBmMDAyCj4gWyAgICAwLjg1MTAxNl0gS2VybmVsIHBhbmlj
-IC0gbm90IHN5bmNpbmc6IEF0dGVtcHRlZCB0byBraWxsIGluaXQhIGV4aXRjb2RlPTB4MDAwMDAw
-MDQKPgo+IFNpZ25lZC1vZmYtYnk6IFl1bmh1aSBDdWkgPGN1aXl1bmh1aUBieXRlZGFuY2UuY29t
-Pgo+IC0tLQo+ICBhcmNoL3Jpc2N2L2tlcm5lbC90cmFwcy5jIHwgMTkgKysrKysrKysrKysrKysr
-Ky0tLQo+ICAxIGZpbGUgY2hhbmdlZCwgMTYgaW5zZXJ0aW9ucygrKSwgMyBkZWxldGlvbnMoLSkK
-Pgo+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2tlcm5lbC90cmFwcy5jIGIvYXJjaC9yaXNjdi9r
-ZXJuZWwvdHJhcHMuYwo+IGluZGV4IGY3OThjODUzYmVkZS4uOTIzYjQ5YzM4OTg1IDEwMDY0NAo+
-IC0tLSBhL2FyY2gvcmlzY3Yva2VybmVsL3RyYXBzLmMKPiArKysgYi9hcmNoL3Jpc2N2L2tlcm5l
-bC90cmFwcy5jCj4gQEAgLTMzLDcgKzMzLDE5IEBAIGludCBzaG93X3VuaGFuZGxlZF9zaWduYWxz
-ID0gMTsKPiAgCj4gIHN0YXRpYyBERUZJTkVfU1BJTkxPQ0soZGllX2xvY2spOwo+ICAKPiAtc3Rh
-dGljIHZvaWQgZHVtcF9rZXJuZWxfaW5zdHIoY29uc3QgY2hhciAqbG9nbHZsLCBzdHJ1Y3QgcHRf
-cmVncyAqcmVncykKPiArc3RhdGljIGludCBjb3B5X2NvZGUoc3RydWN0IHB0X3JlZ3MgKnJlZ3Ms
-IHUxNiAqdmFsLCBjb25zdCB1MTYgKmluc25zKQo+ICt7Cj4gKwlpZiAoIXVzZXJfbW9kZShyZWdz
-KSkKPiArCQlyZXR1cm4gZ2V0X2tlcm5lbF9ub2ZhdWx0KCp2YWwsIGluc25zKTsKPiArCj4gKwkv
-KiBUaGUgdXNlciBzcGFjZSBjb2RlIGZyb20gb3RoZXIgdGFza3MgY2Fubm90IGJlIGFjY2Vzc2Vk
-LiAqLwo+ICsJaWYgKHJlZ3MgIT0gdGFza19wdF9yZWdzKGN1cnJlbnQpKQo+ICsJCXJldHVybiAt
-RVBFUk07Cj4gKwo+ICsJcmV0dXJuIGNvcHlfZnJvbV91c2VyX25vZmF1bHQodmFsLCBpbnNucywg
-c2l6ZW9mKCp2YWwpKTsKCkhtbSwgSSB0aGluayB5b3UgbWlzc2VkIHRoZSBhY3R1YWwgcHJvYmxl
-bSBpbiBbMV0uIEknbSBzdGlsbCBnZXR0aW5nOgoKICB8ICAgQ0hFQ0sgICBhcmNoL3Jpc2N2L2tl
-cm5lbC90cmFwcy5jCiAgfCBhcmNoL3Jpc2N2L2tlcm5lbC90cmFwcy5jOjQ2OjQ0OiB3YXJuaW5n
-OiBpbmNvcnJlY3QgdHlwZSBpbiBhcmd1bWVudCAyIChkaWZmZXJlbnQgYWRkcmVzcyBzcGFjZXMp
-CiAgfCBhcmNoL3Jpc2N2L2tlcm5lbC90cmFwcy5jOjQ2OjQ0OiAgICBleHBlY3RlZCB2b2lkIGNv
-bnN0IFtub2RlcmVmXSBfX3VzZXIgKnNyYwogIHwgYXJjaC9yaXNjdi9rZXJuZWwvdHJhcHMuYzo0
-Njo0NDogICAgZ290IHVuc2lnbmVkIHNob3J0IGNvbnN0IFt1c2VydHlwZV0gKmluc25zCgpUaGlz
-IG9ubHkgbW92ZXMgdGhlIHByb2JsZW0uIFlvdSBuZWVkcyB0byBjYXN0IHRoZSAiaW5zbiIgd2l0
-aCBzb21ldGhpbmcKbGlrZToKCiAgfCBjb25zdCB2b2lkIF9fdXNlciAqdWFkZHIgPSAgKF9fZm9y
-Y2UgY29uc3Qgdm9pZCBfX3VzZXIgKilpbnNuOwoKLi4uYW5kIHBhc3MgdWFkZHIgdG8gY29weV9m
-cm9tX3VzZXJfbm9mYXVsdCgpLgoKICB8IGxvbmcgY29weV9mcm9tX3VzZXJfbm9mYXVsdCh2b2lk
-ICpkc3QsIGNvbnN0IHZvaWQgX191c2VyICpzcmMsIHNpemVfdCBzaXplKTsKCk5vdGljZSB0aGUg
-Il9fdXNlciIgdGFnIHRvIHNyYy4KCgpCasO2cm4KClsxXSBodHRwczovL2xvcmUua2VybmVsLm9y
-Zy9saW51eC1yaXNjdi84N21zeTZwOGszLmZzZkBhbGwueW91ci5iYXNlLmFyZS5iZWxvbmcudG8u
-dXMvCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51
-eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRw
-Oi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+
+--moqzehiniedyglk4
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+
+On Thu, Sep 07, 2023 at 12:20:29PM +0800, Haibo Xu wrote:
+> On Mon, Sep 4, 2023 at 10:58 PM Andrew Jones <ajones@ventanamicro.com> wrote:
+> >
+> > On Sat, Sep 02, 2023 at 08:59:30PM +0800, Haibo Xu wrote:
+> > > Add a KVM selftest to validate the Sstc timer functionality.
+> > > The test was ported from arm64 arch timer test.
+> > >
+> > > Signed-off-by: Haibo Xu <haibo1.xu@intel.com>
+> > > ---
+> 
+> > > diff --git a/tools/testing/selftests/kvm/riscv/arch_timer.c b/tools/testing/selftests/kvm/riscv/arch_timer.c
+> > > new file mode 100644
+> > > index 000000000000..c50a33c1e4f9
+> > > --- /dev/null
+> > > +++ b/tools/testing/selftests/kvm/riscv/arch_timer.c
+> > > @@ -0,0 +1,130 @@
+> > > +// SPDX-License-Identifier: GPL-2.0-only
+> > > +/*
+> > > + * arch_timer.c - Tests the riscv64 sstc timer IRQ functionality
+> > > + *
+> > > + * The test validates the sstc timer IRQs using vstimecmp registers.
+> > > + * It's ported from the aarch64 arch_timer test.
+> > > + *
+> 
+> > guest_run[_stage]() can be shared with aarch64, we just have a single
+> > stage=0 for riscv.
+> >
+> 
+> Yes, we can. But if we share the guest_run[_stage]() by moving it to
+> kvm/arch_timer.c
+> or kvm/include/timer_test.h, we need to declare extra sub-functions
+> somewhere in a
+> header file(etc. guest_configure_timer_action()).
+
+OK, whatever balances the reduction of duplicate code and avoidance of
+exporting helper functions. BTW, riscv may not need/want all the same
+helper functions as aarch64. Anyway, I guess I'll see how the next version
+turns out.
+
+> 
+> > > +
+> > > +static void guest_code(void)
+> > > +{
+> > > +     uint32_t cpu = guest_get_vcpuid();
+> > > +     struct test_vcpu_shared_data *shared_data = &vcpu_shared_data[cpu];
+> > > +
+> > > +     local_irq_disable();
+> > > +     timer_irq_disable();
+> > > +     local_irq_enable();
+> >
+> > I don't think we need to disable all interrupts when disabling the timer
+> > interrupt.
+> >
+> 
+> There is no local_irq_disable() protection during the initial debug
+> phase, but the test always
+> fail with below error messages:
+> 
+> Guest assert failed,  vcpu 0; stage; 0; iter: 0
+> ==== Test Assertion Failure ====
+>   riscv/arch_timer.c:78: config_iter + 1 == irq_iter
+>   pid=585 tid=586 errno=4 - Interrupted system call
+>   (stack trace empty)
+>   0x1 != 0x0 (config_iter + 1 != irq_iter)
+> 
+> To be frank, I am not quite sure why the local_irq_disable/enable() matters.
+> One possible reason may be some timer irq was triggered before we set up the
+> timecmp register.
+
+We should ensure we know the exact, expected state of the vcpu before,
+during, and after the test. If a state doesn't match expectations,
+then the test should assert and we should go investigate the test code
+to see if setup/checking is correct. If it is, then we've found a bug
+in KVM that we need to go investigate.
+
+For Sstc, a pending timer interrupt completely depends on stimecmp, so
+we need to watch that closely. Take a look at the attached simple timer
+test I pulled together to illustrate how stimecmp, timer interrupt enable,
+and all interrupt enable interact. You may want to use it to help port
+the arch_timer.
+
+Thanks,
+drew
+
+--moqzehiniedyglk4
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: attachment; filename="simple-riscv-timer-test.c"
+
+#include <stdio.h>
+
+#define CONFIG_64BIT
+#include "kvm_util.h"
+#include "riscv/arch_timer.h"
+
+static unsigned long timer_freq;
+static unsigned int irq_fired;
+
+void mdelay(unsigned long msecs)
+{
+	while (msecs--)
+		udelay(1000);
+}
+
+static void guest_irq_handler(struct ex_regs *regs)
+{
+	GUEST_PRINTF("%s\n", __func__);
+
+	GUEST_ASSERT_EQ(regs->cause & ~CAUSE_IRQ_FLAG, IRQ_S_TIMER);
+
+	irq_fired = 1;
+
+	csr_write(CSR_STIMECMP, -1);
+	while (csr_read(CSR_SIP) & IE_TIE)
+		cpu_relax();
+}
+
+static void guest_code(void)
+{
+	GUEST_PRINTF("stage 1\n");
+	mdelay(1000);
+
+	GUEST_ASSERT_EQ(irq_fired, 0);
+
+	GUEST_PRINTF("stage 2\n");
+	timer_set_next_cval_ms(500);
+	mdelay(1000);
+
+	GUEST_ASSERT_EQ(irq_fired, 1);
+	irq_fired = 0;
+
+	GUEST_PRINTF("stage 3\n");
+	csr_clear(CSR_SIE, IE_TIE);
+	timer_set_next_cval_ms(500);
+	mdelay(1000);
+
+	GUEST_ASSERT_EQ(irq_fired, 0);
+
+	GUEST_PRINTF("stage 4\n");
+	csr_set(CSR_SIE, IE_TIE);
+	mdelay(1);
+
+	GUEST_ASSERT_EQ(irq_fired, 1);
+	irq_fired = 0;
+
+	GUEST_PRINTF("stage 5\n");
+	csr_clear(CSR_SSTATUS, SR_IE);
+	timer_set_next_cval_ms(500);
+	mdelay(1000);
+
+	GUEST_ASSERT_EQ(irq_fired, 0);
+
+	GUEST_PRINTF("stage 6\n");
+	csr_set(CSR_SSTATUS, SR_IE);
+	mdelay(1);
+
+	GUEST_ASSERT_EQ(irq_fired, 1);
+	irq_fired = 0;
+
+	GUEST_PRINTF("guest done\n");
+	GUEST_DONE();
+}
+
+int main(void)
+{
+	struct kvm_vcpu *vcpu;
+	struct kvm_vm *vm;
+	struct ucall uc;
+	uint64_t val;
+	int done = 0;
+
+	vm = vm_create_with_one_vcpu(&vcpu, guest_code);
+	vm_init_vector_tables(vm);
+	vm_install_interrupt_handler(vm, guest_irq_handler);
+	vcpu_init_vector_tables(vcpu);
+	vcpu_set_reg(vcpu, RISCV_CSR_REG(sstatus), SR_IE);
+	vcpu_set_reg(vcpu, RISCV_CSR_REG(sie), IE_TIE);
+
+	vcpu_get_reg(vcpu, RISCV_TIMER_REG(frequency), &timer_freq);
+	sync_global_to_guest(vm, timer_freq);
+
+	vcpu_get_reg(vcpu, RISCV_TIMER_REG(compare), &val);
+	assert(val == -1);
+
+	while (!done) {
+		vcpu_run(vcpu);
+
+		switch (get_ucall(vcpu, &uc)) {
+		case UCALL_PRINTF:
+			printf("%s", uc.buffer);
+			break;
+		case UCALL_DONE:
+			printf("Done.\n");
+			done = 1;
+			break;
+		}
+	}
+}
+
+--moqzehiniedyglk4
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--moqzehiniedyglk4--
+
