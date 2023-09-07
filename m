@@ -4,87 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62DF6C83F17
-	for <linux-riscv@archiver.kernel.org>; Thu,  7 Sep 2023 10:50:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DBFBEE14DE
+	for <linux-riscv@archiver.kernel.org>; Thu,  7 Sep 2023 11:03:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/YQR6R9ZGZTKRnzk1oxNQFO6CTP5UyJ/cIeyp20WwuI=; b=yR41lXMEEXQ+BF
-	on9oDdfyU0HgcuLO6iEOtxUaxNbHSVe5z6V9/p9Pcscm3AVqOpiyXRaNLzJjaXoDotKDDbtt6nZpI
-	28Mu5dOGdrH2lqPgd07ULmfPzaA/NSsDWTAfIWEBGsMThWDTVqhwO0cWSCdioueZmkFQ0t9YHXd2v
-	hcswRQDKyuE6p1D5KAF656ucd0NETGi2p+qr4Kg2nK+49uZA27DL9vDwzMvFnGdK24ykACAvf9bT3
-	phFxEBS1D/iaFeuxg+UQ89l0x/PoPauigNLCGWWoiAsPB1wgiPTwYwg0ipBTs02zS/6cBbESEMIXw
-	XrXOYoP74RTMvDFFjkKg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9hoX+PzaT1yzLtI0EE6eFg0TOvWfMfUN1q+nU/1MQTQ=; b=tBYzcih1sktRgAdUZreQDKVY6i
+	kDuUOWUp0o+fYtZQkgMg/oCYhj/pAXvkSNmjWfh+BJ0EzOrYr/h4ej1wJ1WGgDaoUG7QVMSTz3TeN
+	MBK6hHQPFhwJaS4WY/1VKNcrxogh0vxhixDePfaqXC5PiOhYFbArA7WQtGeNEhcHGf/qo4Hxth1mv
+	zTTvp5Xpwm/a37oHwNaXSK+i7/ZPsfYv55enyuT5Fy0Gm8f0bS3Iiq1Imecf4lDa7t2mUmdOCxCVf
+	4Gt1NKIBxsR1DQcxhT44AuUddvKjXeaJ3/LFMDBYc5kUo5E2xH+AGuXmaYd5qlaLWb1wt0f29CIYp
+	iA3dlFDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qeCaQ-00BrJO-0l;
-	Thu, 07 Sep 2023 10:50:10 +0000
-Received: from mail-io1-xd2b.google.com ([2607:f8b0:4864:20::d2b])
+	id 1qeCmr-00ByBc-2r;
+	Thu, 07 Sep 2023 11:03:01 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qeCaN-00BrGG-0B
-	for linux-riscv@lists.infradead.org;
-	Thu, 07 Sep 2023 10:50:09 +0000
-Received: by mail-io1-xd2b.google.com with SMTP id ca18e2360f4ac-792979d4cb5so34617139f.2
-        for <linux-riscv@lists.infradead.org>; Thu, 07 Sep 2023 03:50:06 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20221208; t=1694083805; x=1694688605; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=brKbRdx1kpGoO2Y9NjS4SFjuuPU0IFk1738Z4hW7QPE=;
-        b=E+fGE0GYqn4zDMjh0Z3LE+JF1uZlpfHMuKGrZc3CCXdW2sZz9tmtfjrmOmhm9syACV
-         wOscxO93rAVSJQg+Fax+PQfNcrn8BO6fzsK9WKgdjpQmuywEh9c5rb/YXcx1bIQt9L89
-         OnyvyUmRRZYnrF4YMJQidbHtatYkojLePvMdZnvJuKje1x11b3cKsIDMVidHXNo6K97F
-         3DJi8y0Ups2dwswfu9UrYFndJiG24s+re1jW1ZFvhwZOCSHJ5Nvd9OSdhIEnz/eozpQK
-         gEuUG/ap7fJ51dEVWLd+BAXvmfzFVCGaRi4xhL+705Z5MkU55F2gjHjEV8nAezveF8gT
-         HGXw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1694083805; x=1694688605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=brKbRdx1kpGoO2Y9NjS4SFjuuPU0IFk1738Z4hW7QPE=;
-        b=POo7XbhAB/l+4BwcxpcLmMJnFPytiw2WpT3Qh/A75NCMNl7/fGp3chCzwV9Lc7dB/O
-         nOGRDrSdeXxD7z9gzjamJit6IF0Yjm+MnHkeO8IjYbuOB+oMEtcQJjb70NdKhMmnUVWC
-         0wpLp1P3iSSzBNLS4ti4LA23jckomidiUfveHBfLRI4IHLSpOSxkOrguRa34+jD2TSMK
-         ySOnlnTD8tO6lzT4WdTfZrOHTzInffjBZ9Q8JYJqb068YAbDb5uUKEY4SbDRYNqa2s7Z
-         XntIGLUO3WsTjW/bO4kbzllvJrme+Ni16qcyds56LM7gnHUge7kltZR836Ic/NoesluA
-         ugYA==
-X-Gm-Message-State: AOJu0YzHD0Rf3VebLyADrcvgTESj2O2s4BA7wtP1ib9eXvdz8WOtjcMt
-	0Fft0TTqbZhBhOm8nOkV1uuBFTjnw5FUsjIe/H8=
-X-Google-Smtp-Source: AGHT+IEB2hO+TGGIAGO65G3+5LgFgJwUd0dqMX6Dw9arpoFxlY11pB1Z3e5xVZisoM3mAw7p9kKP6mypD/66ucf4p3s=
-X-Received: by 2002:a6b:d315:0:b0:787:ff98:c38c with SMTP id
- s21-20020a6bd315000000b00787ff98c38cmr21570759iob.10.1694083805330; Thu, 07
- Sep 2023 03:50:05 -0700 (PDT)
+	id 1qeCmn-00ByAJ-2O;
+	Thu, 07 Sep 2023 11:03:00 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id B63F3B81977;
+	Thu,  7 Sep 2023 11:02:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C76C1C116B5;
+	Thu,  7 Sep 2023 11:02:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1694084574;
+	bh=LFYt9qnt8xqi5g2t1HQMqT+oIQ06UUExrIO1wp0wvAs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=CJ2jHttMQEtN179DSrfjvJ3XyTu+VHvUYRjDKHfCFE/wcxUXBizv7vTlqbN9mcRQb
+	 DaepAv0lXzMy35uAhow7Xn/fx38972qe5rAyqcNfmI3QZO5EhIqe5TArEtU2K7/X1y
+	 EXbgpJBzNHbmC9o7JHPfHBuszX8WbkT4GFnojnaM551HNpFsmVyt6a+qAUAF5BistI
+	 g2JVjci3yom67oJC9Gv2hMUGMtWqGy71jpcwQvHrk9h2CjNVA7JqCBr+hkYrwsQ8LF
+	 8T9mmSSXF5HcGpL0AnG6G9BLqreLsQAxRjLU0XrbJM3dfSegrnbEeFYoVrNV7/G7Y2
+	 FQyOBUUtaOFdg==
+Date: Thu, 7 Sep 2023 12:02:46 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Yu Chien Peter Lin <peterlin@andestech.com>
+Cc: linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
+	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	conor.dooley@microchip.com, atishp@atishpatra.org,
+	anup@brainfault.org, prabhakar.mahadev-lad.rj@bp.renesas.com,
+	ajones@ventanamicro.com, heiko@sntech.de, samuel@sholland.org,
+	geert+renesas@glider.be, n.shubin@yadro.com, dminus@andestech.com,
+	ycliang@andestech.com, tim609@andestech.com, locus84@andestech.com,
+	dylan@andestech.com
+Subject: Re: [PATCH 3/4] riscv: errata: Add Andes PMU errata
+Message-ID: <20230907-7bc08398d2f95c14e1c0bc76@fedora>
+References: <20230907021635.1002738-1-peterlin@andestech.com>
+ <20230907021635.1002738-4-peterlin@andestech.com>
+ <20230907-158e1f7e1e866d8c02726c9c@fedora>
 MIME-Version: 1.0
-References: <20230801085402.1168351-1-alexghiti@rivosinc.com>
- <20230801085402.1168351-5-alexghiti@rivosinc.com> <CA+V-a8t56xDqMTQfoKcsvPF8errkTMydaDz5V6nejLvVfJrW3g@mail.gmail.com>
- <CAHVXubiENHt36LrcSBoNU0rAMQ8EoT6tde9M8vLP3Hw2nwMm8g@mail.gmail.com>
- <CA+V-a8vJJFCKy3pCL2Qp1NogL-K5s9moGDbv3tTvx+z1FeKarw@mail.gmail.com>
- <CAHVXubhLB9Pw51C1ed1Youp9k0qTJKrokUAqf=Xnr+m3BoN5=g@mail.gmail.com>
- <CA+V-a8s0i=VMSbMa6WvOiZpqe_idAhq4cZ0inSdCNy39-rQeAg@mail.gmail.com>
- <CAHVXubjgjAwMOi0J5zZJkuX8RKwgfKp-_=tVTLDvKN=tBBdxNQ@mail.gmail.com>
- <CA+V-a8uxe=sT7oX4Dk4zppCbYzWdZgWt9Xh4m+pA2+3t8kfnjg@mail.gmail.com> <CAHVXubitpk9RxMPc9+ss0y=ZmpOrfv0ocP+UDQktR=TM+gy=KQ@mail.gmail.com>
-In-Reply-To: <CAHVXubitpk9RxMPc9+ss0y=ZmpOrfv0ocP+UDQktR=TM+gy=KQ@mail.gmail.com>
-From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
-Date: Thu, 7 Sep 2023 11:49:03 +0100
-Message-ID: <CA+V-a8tGGR8q1Wv=dJJKLkbAsfmH8p8Fn9Ycns7+1LCSzxvpZA@mail.gmail.com>
-Subject: Re: [PATCH v3 4/4] riscv: Improve flush_tlb_kernel_range()
-To: Alexandre Ghiti <alexghiti@rivosinc.com>
-Cc: Geert Uytterhoeven <geert+renesas@glider.be>, Will Deacon <will@kernel.org>, 
-	"Aneesh Kumar K . V" <aneesh.kumar@linux.ibm.com>, Andrew Morton <akpm@linux-foundation.org>, 
-	Nick Piggin <npiggin@gmail.com>, Peter Zijlstra <peterz@infradead.org>, 
-	Mayuresh Chitale <mchitale@ventanamicro.com>, Vincent Chen <vincent.chen@sifive.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, linux-arch@vger.kernel.org, linux-mm@kvack.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Andrew Jones <ajones@ventanamicro.com>
+In-Reply-To: <20230907-158e1f7e1e866d8c02726c9c@fedora>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230907_035007_116564_E782F8CD 
-X-CRM114-Status: GOOD (  48.63  )
+X-CRM114-CacheID: sfid-20230907_040258_078951_41B8FCEA 
+X-CRM114-Status: GOOD (  47.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,101 +77,345 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============7411481263858471995=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgQWxleGFuZHJlLAoKT24gVGh1LCBTZXAgNywgMjAyMyBhdCAxMDowNuKAr0FNIEFsZXhhbmRy
-ZSBHaGl0aSA8YWxleGdoaXRpQHJpdm9zaW5jLmNvbT4gd3JvdGU6Cj4KPiBIaSBQcmFiaGFrYXIs
-Cj4KPiBPbiBXZWQsIFNlcCA2LCAyMDIzIGF0IDM6NTXigK9QTSBMYWQsIFByYWJoYWthcgo+IDxw
-cmFiaGFrYXIuY3NlbmdnQGdtYWlsLmNvbT4gd3JvdGU6Cj4gPgo+ID4gSGkgQWxleGFuZHJlLAo+
-ID4KPiA+IE9uIFdlZCwgU2VwIDYsIDIwMjMgYXQgMTo0M+KAr1BNIEFsZXhhbmRyZSBHaGl0aSA8
-YWxleGdoaXRpQHJpdm9zaW5jLmNvbT4gd3JvdGU6Cj4gPiA+Cj4gPiA+IE9uIFdlZCwgU2VwIDYs
-IDIwMjMgYXQgMjoyNOKAr1BNIExhZCwgUHJhYmhha2FyCj4gPiA+IDxwcmFiaGFrYXIuY3Nlbmdn
-QGdtYWlsLmNvbT4gd3JvdGU6Cj4gPiA+ID4KPiA+ID4gPiBIaSBBbGV4YW5kcmUsCj4gPiA+ID4K
-PiA+ID4gPiBPbiBXZWQsIFNlcCA2LCAyMDIzIGF0IDE6MTjigK9QTSBBbGV4YW5kcmUgR2hpdGkg
-PGFsZXhnaGl0aUByaXZvc2luYy5jb20+IHdyb3RlOgo+ID4gPiA+ID4KPiA+ID4gPiA+IE9uIFdl
-ZCwgU2VwIDYsIDIwMjMgYXQgMjowOeKAr1BNIExhZCwgUHJhYmhha2FyCj4gPiA+ID4gPiA8cHJh
-Ymhha2FyLmNzZW5nZ0BnbWFpbC5jb20+IHdyb3RlOgo+ID4gPiA+ID4gPgo+ID4gPiA+ID4gPiBI
-aSBBbGV4YW5kcmUsCj4gPiA+ID4gPiA+Cj4gPiA+ID4gPiA+IE9uIFdlZCwgU2VwIDYsIDIwMjMg
-YXQgMTowMeKAr1BNIEFsZXhhbmRyZSBHaGl0aSA8YWxleGdoaXRpQHJpdm9zaW5jLmNvbT4gd3Jv
-dGU6Cj4gPiA+ID4gPiA+ID4KPiA+ID4gPiA+ID4gPiBIaSBQcmFiaGFrYXIsCj4gPiA+ID4gPiA+
-ID4KPiA+ID4gPiA+ID4gPiBPbiBXZWQsIFNlcCA2LCAyMDIzIGF0IDE6NDnigK9QTSBMYWQsIFBy
-YWJoYWthcgo+ID4gPiA+ID4gPiA+IDxwcmFiaGFrYXIuY3NlbmdnQGdtYWlsLmNvbT4gd3JvdGU6
-Cj4gPiA+ID4gPiA+ID4gPgo+ID4gPiA+ID4gPiA+ID4gSGkgQWxleGFuZHJlLAo+ID4gPiA+ID4g
-PiA+ID4KPiA+ID4gPiA+ID4gPiA+IE9uIFR1ZSwgQXVnIDEsIDIwMjMgYXQgOTo1OOKAr0FNIEFs
-ZXhhbmRyZSBHaGl0aSA8YWxleGdoaXRpQHJpdm9zaW5jLmNvbT4gd3JvdGU6Cj4gPiA+ID4gPiA+
-ID4gPiA+Cj4gPiA+ID4gPiA+ID4gPiA+IFRoaXMgZnVuY3Rpb24gdXNlZCB0byBzaW1wbHkgZmx1
-c2ggdGhlIHdob2xlIHRsYiBvZiBhbGwgaGFydHMsIGJlIG1vcmUKPiA+ID4gPiA+ID4gPiA+ID4g
-c3VidGlsZSBhbmQgdHJ5IHRvIG9ubHkgZmx1c2ggdGhlIHJhbmdlLgo+ID4gPiA+ID4gPiA+ID4g
-Pgo+ID4gPiA+ID4gPiA+ID4gPiBUaGUgcHJvYmxlbSBpcyB0aGF0IHdlIGNhbiBvbmx5IHVzZSBQ
-QUdFX1NJWkUgYXMgc3RyaWRlIHNpbmNlIHdlIGRvbid0IGtub3cKPiA+ID4gPiA+ID4gPiA+ID4g
-dGhlIHNpemUgb2YgdGhlIHVuZGVybHlpbmcgbWFwcGluZyBhbmQgdGhlbiB0aGlzIGZ1bmN0aW9u
-IHdpbGwgYmUgaW1wcm92ZWQKPiA+ID4gPiA+ID4gPiA+ID4gb25seSBpZiB0aGUgc2l6ZSBvZiB0
-aGUgcmVnaW9uIHRvIGZsdXNoIGlzIDwgdGhyZXNob2xkICogUEFHRV9TSVpFLgo+ID4gPiA+ID4g
-PiA+ID4gPgo+ID4gPiA+ID4gPiA+ID4gPiBTaWduZWQtb2ZmLWJ5OiBBbGV4YW5kcmUgR2hpdGkg
-PGFsZXhnaGl0aUByaXZvc2luYy5jb20+Cj4gPiA+ID4gPiA+ID4gPiA+IFJldmlld2VkLWJ5OiBB
-bmRyZXcgSm9uZXMgPGFqb25lc0B2ZW50YW5hbWljcm8uY29tPgo+ID4gPiA+ID4gPiA+ID4gPiAt
-LS0KPiA+ID4gPiA+ID4gPiA+ID4gIGFyY2gvcmlzY3YvaW5jbHVkZS9hc20vdGxiZmx1c2guaCB8
-IDExICsrKysrLS0tLS0KPiA+ID4gPiA+ID4gPiA+ID4gIGFyY2gvcmlzY3YvbW0vdGxiZmx1c2gu
-YyAgICAgICAgICB8IDM0ICsrKysrKysrKysrKysrKysrKysrKysrLS0tLS0tLS0KPiA+ID4gPiA+
-ID4gPiA+ID4gIDIgZmlsZXMgY2hhbmdlZCwgMzEgaW5zZXJ0aW9ucygrKSwgMTQgZGVsZXRpb25z
-KC0pCj4gPiA+ID4gPiA+ID4gPiA+Cj4gPiA+ID4gPiA+ID4gPiBBZnRlciBhcHBseWluZyB0aGlz
-IHBhdGNoLCBJIGFtIHNlZWluZyBtb2R1bGUgbG9hZCBpc3N1ZXMgb24gUlovRml2ZQo+ID4gPiA+
-ID4gPiA+ID4gKGNvbXBsZXRlIGxvZyBbMF0pLiBJIGFtIHRlc3RpbmcgZGVmY29uZmlnICsgWzFd
-IChyei9maXZlIHJlbGF0ZWQKPiA+ID4gPiA+ID4gPiA+IGNvbmZpZ3MpLgo+ID4gPiA+ID4gPiA+
-ID4KPiA+ID4gPiA+ID4gPiA+IEFueSBwb2ludGVycyBvbiB3aGF0IGNvdWxkIGJlIGFuIGlzc3Vl
-IGhlcmU/Cj4gPiA+ID4gPiA+ID4KPiA+ID4gPiA+ID4gPiBDYW4geW91IGdpdmUgbWUgdGhlIGV4
-YWN0IHZlcnNpb24gb2YgdGhlIGtlcm5lbCB5b3UgdXNlPyBUaGUgdHJhcAo+ID4gPiA+ID4gPiA+
-IGFkZHJlc3NlcyBhcmUgdm1hbGxvYyBhZGRyZXNzZXMsIGFuZCBhIGZpeCBmb3IgdGhvc2UgbGFu
-ZGVkIHZlcnkgbGF0ZQo+ID4gPiA+ID4gPiA+IGluIHRoZSByZWxlYXNlIGN5Y2xlLgo+ID4gPiA+
-ID4gPiA+Cj4gPiA+ID4gPiA+IEkgYW0gdXNpbmcgbmV4dC0yMDIzMDkwNiwgSXZlIHB1c2hlZCBh
-IGJyYW5jaCBbMV0gZm9yIHlvdSB0byBoYXZlIGEgbG9vay4KPiA+ID4gPiA+ID4KPiA+ID4gPiA+
-ID4gWzBdIGh0dHBzOi8vZ2l0aHViLmNvbS9wcmFiaGFrYXJsYWQvbGludXgvdHJlZS9yemZpdmUt
-ZGVidWcKPiA+ID4gPiA+Cj4gPiA+ID4gPiBHcmVhdCwgdGhhbmtzLCBJIGhhZCB0byBnZXQgcmlk
-IG9mIHRoaXMgcG9zc2liaWxpdHkgOikKPiA+ID4gPiA+Cj4gPiA+ID4gPiBBcy1pcywgSSBoYXZl
-IG5vIGlkZWEsIGNhbiB5b3UgdHJ5IHRvICJiaXNlY3QiIHRoZSBwcm9ibGVtPyBJIG1lYW4KPiA+
-ID4gPiA+IHdoaWNoIHBhdGNoIGluIHRoZSBzZXJpZXMgbGVhZHMgdG8gdGhvc2UgdHJhcHM/Cj4g
-PiA+ID4gPgo+ID4gPiA+IE9vcHMgc29ycnkgZm9yIG5vdCBtZW50aW9uaW5nIGVhcmxpZXIsIHRo
-aXMgaXMgdGhlIG9mZmVuZGluZyBwYXRjaAo+ID4gPiA+IHdoaWNoIGxlYWRzIHRvIHRoZSBpc3N1
-ZXMgc2VlbiBvbiByei9maXZlLgo+ID4gPgo+ID4gPiBPaywgc28gYXQgbGVhc3QgSSBmb3VuZCB0
-aGUgZm9sbG93aW5nIHByb2JsZW0sIGJ1dCBJIGRvbid0IHNlZSBob3cKPiA+ID4gdGhhdCBjb3Vs
-ZCBmaXggeW91ciBpc3N1ZTogY2FuIHlvdSBnaXZlIGEgdHJ5IGFueXdheT8gSSBrZWVwIGxvb2tp
-bmcKPiA+ID4gaW50byB0aGlzLCB0aGFua3MKPiA+ID4KPiA+ID4gZGlmZiAtLWdpdCBhL2FyY2gv
-cmlzY3YvbW0vdGxiZmx1c2guYyBiL2FyY2gvcmlzY3YvbW0vdGxiZmx1c2guYwo+ID4gPiBpbmRl
-eCBkZjJhMDgzOGMzYTEuLmI1NjkyYmM2Yzc2YSAxMDA2NDQKPiA+ID4gLS0tIGEvYXJjaC9yaXNj
-di9tbS90bGJmbHVzaC5jCj4gPiA+ICsrKyBiL2FyY2gvcmlzY3YvbW0vdGxiZmx1c2guYwo+ID4g
-PiBAQCAtMjM5LDcgKzIzOSw3IEBAIHZvaWQgZmx1c2hfdGxiX3JhbmdlKHN0cnVjdCB2bV9hcmVh
-X3N0cnVjdCAqdm1hLAo+ID4gPiB1bnNpZ25lZCBsb25nIHN0YXJ0LAo+ID4gPgo+ID4gPiAgdm9p
-ZCBmbHVzaF90bGJfa2VybmVsX3JhbmdlKHVuc2lnbmVkIGxvbmcgc3RhcnQsIHVuc2lnbmVkIGxv
-bmcgZW5kKQo+ID4gPiAgewo+ID4gPiAtICAgICAgIF9fZmx1c2hfdGxiX3JhbmdlKE5VTEwsIHN0
-YXJ0LCBlbmQsIFBBR0VfU0laRSk7Cj4gPiA+ICsgICAgICAgX19mbHVzaF90bGJfcmFuZ2UoTlVM
-TCwgc3RhcnQsIGVuZCAtIHN0YXJ0LCBQQUdFX1NJWkUpOwo+ID4gPiAgfQo+ID4gPgo+ID4gSSBh
-bSBhYmxlIHRvIHJlcHJvZHVjZSB0aGUgaXNzdWUgd2l0aCB0aGUgYWJvdmUgY2hhbmdlIHRvby4K
-Pgo+IEkgY2FuJ3QgcmVwcm9kdWNlIHRoZSBwcm9ibGVtIG9uIG15IFVubWF0Y2hlZCBvciBRZW11
-LCBzbyBpdCBpcyBub3QKPiBlYXN5IHRvIGRlYnVnLiBCdXQgSSB0b29rIGFub3RoZXIgbG9vayBh
-dCB5b3VyIHRyYWNlcyBhbmQgc29tZXRoaW5nIGlzCj4gd2VpcmQgdG8gbWUuIEluIHRoZSBmb2xs
-b3dpbmcgdHJhY2UgKGFuZCB0aGVyZSBpcyBhbm90aGVyIG9uZSksIHRoZQo+IHRyYXAgaXMgdGFr
-ZW4gYXQgMHhmZmZmZmZmZjAxNWNhMDM0LCB3aGljaCBpcyB0aGUgYmVnaW5uaW5nIG9mCj4gcnpf
-c3NpX3Byb2JlKCk6IHRoYXQncyBhIHBhZ2UgZmF1bHQsIHNvIG5vIHRyYW5zbGF0aW9uIHdhcyBm
-b3VuZCAob3IKPiBhbiBpbnZhbGlkIG9uZSBpcyBjYWNoZWQpLgo+Cj4gWyAgIDE2LjU4NjUyN10g
-VW5hYmxlIHRvIGhhbmRsZSBrZXJuZWwgcGFnaW5nIHJlcXVlc3QgYXQgdmlydHVhbAo+IGFkZHJl
-c3MgZmZmZmZmZmYwMTVjYTAzNAo+IFsgICAxNi41OTQ3NTBdIE9vcHMgWyMzXQo+IC4uLgo+IFsg
-ICAxNi42MjIwMDBdIGVwYyA6IHJ6X3NzaV9wcm9iZSsweDAvMHg1MmEgW3NuZF9zb2Nfcnpfc3Np
-XQo+IC4uLgo+IFsgICAxNi43MDg2OTddIHN0YXR1czogMDAwMDAwMDIwMDAwMDEyMCBiYWRhZGRy
-OiBmZmZmZmZmZjAxNWNhMDM0Cj4gY2F1c2U6IDAwMDAwMDAwMDAwMDAwMGMKPiBbICAgMTYuNzE2
-NTgwXSBbPGZmZmZmZmZmMDE1Y2EwMzQ+XSByel9zc2lfcHJvYmUrMHgwLzB4NTJhCj4gW3NuZF9z
-b2Nfcnpfc3NpXQo+IC4uLgo+Cj4gQnV0IHRoZW4gaGVyZSB3ZSBhcmUgYWJsZSB0byByZWFkIHRo
-ZSBjb2RlIGF0IHRoaXMgc2FtZSBhZGRyZXNzOgo+IFsgICAxNi44MjE2MjBdIENvZGU6IDAxMDkg
-NjU5NyAwMDAwIDg1OTMgNWY2NSA3MDk3IDdmMzQgODBlNyA3YWEwIGI3YTkKPiAoNzEzOSkgZjgy
-Mgo+Cj4gU28gdGhhdCBsb29rcyBsaWtlIGEgInRyYW5zaWVudCIgZXJyb3IuIERvIHlvdSBrbm93
-IGlmIHlvdSB1YXJjaAo+IGNhY2hlcyBpbnZhbGlkIFRMQiBlbnRyaWVzPyBJZiB5b3UgZG9uJ3Qg
-a25vdywgSSBoYXZlIGp1c3Qgd3JpdHRlbgo+IHNvbWUgcGllY2Ugb2YgY29kZSB0byBkZXRlcm1p
-bmUgaWYgaXQgZG9lcywgbGV0IG1lIGtub3cuCj4KTm8gSSBkb250LCBjYW4geW91IHBsZWFzZSBz
-aGFyZSB0aGUgZGV0YWlscyBzbyB0aGF0IEkgY2FuIHBhc3Mgb24gdGhlCmluZm9ybWF0aW9uIHRv
-IHlvdS4KCj4gRG8gdGhvc2UgZXJyb3JzIGFsd2F5cyBoYXBwZW4/Cj4KWWVzIHRoZXkgZG8uCgpD
-aGVlcnMsClByYWJoYWthcgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJh
-ZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51
-eC1yaXNjdgo=
+
+--===============7411481263858471995==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="iI3hr/Zt+A85czXE"
+Content-Disposition: inline
+
+
+--iI3hr/Zt+A85czXE
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Thu, Sep 07, 2023 at 10:27:03AM +0100, Conor Dooley wrote:
+> Hey,
+>=20
+> On Thu, Sep 07, 2023 at 10:16:34AM +0800, Yu Chien Peter Lin wrote:
+> > Before the ratification of Sscofpmf, the Andes PMU extension
+> > implements the same mechanism and is compatible with existing
+> > SBI PMU driver of perf to support event sampling and mode
+> > filtering with programmable hardware performance counters.
+>=20
+> If it actually was, you'd not need to modify the driver ;)
+>=20
+> > This patch adds PMU support for Andes 45-series CPUs by
+> > introducing a CPU errata.
+>=20
+> I don't really understand this in all honesty. You don't have Sscofpmf
+> support with a bug, you have something that is Sscofpmf-adjactent that
+> predates it. Why claim to support an extension that you do not, only to
+> have to come along and try to clean things up afterwards, instead of
+> accurately declaring what you do support from the outset?
+
+Reading this again, I don't think that I have been particularly clear,
+sorry. My point is that this is not a fix for a bug in your
+implementation of Sscofpmf, but rather adding probing for what is
+effectively a custom ISA extension that happens to be very similar to
+the standard one. As it is not an implementation bug, errata should
+not be abused to support vendor extensions, and either DT or ACPI should
+be used to inform the operating system about its presence.
+
+Cheers,
+Conor.
+
+>=20
+> (and just because someone already got away with it, doesn't mean that
+> you get a free pass on it, sorry)
+>=20
+> Thanks,
+> Conor.
+>=20
+> > Signed-off-by: Yu Chien Peter Lin <peterlin@andestech.com>
+> > Signed-off-by: Locus Wei-Han Chen <locus84@andestech.com>
+>=20
+> btw, what did Locus Wei-Han Chen do here? Are you missing
+> a Co-developed-by: tag?
+>=20
+> > Reviewed-by: Charles Ci-Jyun Wu <dminus@andestech.com>
+> > Reviewed-by: Leo Yu-Chi Liang <ycliang@andestech.com>
+> > ---
+> >  arch/riscv/Kconfig.errata            | 13 ++++++++
+> >  arch/riscv/errata/andes/errata.c     | 45 +++++++++++++++++++++++++++-
+> >  arch/riscv/include/asm/errata_list.h | 43 ++++++++++++++++++++++++--
+> >  drivers/perf/riscv_pmu_sbi.c         | 20 +++++++++----
+> >  4 files changed, 111 insertions(+), 10 deletions(-)
+> >=20
+> > diff --git a/arch/riscv/Kconfig.errata b/arch/riscv/Kconfig.errata
+> > index 92c779764b27..a342b209c169 100644
+> > --- a/arch/riscv/Kconfig.errata
+> > +++ b/arch/riscv/Kconfig.errata
+> > @@ -21,6 +21,19 @@ config ERRATA_ANDES_CMO
+> > =20
+> >  	  If you don't know what to do here, say "Y".
+> > =20
+> > +config ERRATA_ANDES_PMU
+> > +	bool "Apply Andes PMU errata"
+> > +	depends on ERRATA_ANDES && RISCV_PMU_SBI
+> > +	default y
+> > +	help
+> > +	  The Andes 45-series cores implement a PMU overflow extension
+> > +	  very similar to the core SSCOFPMF extension.
+> > +
+> > +	  This will apply the overflow errata to handle the non-standard
+> > +	  behaviour via the regular SBI PMU driver and interface.
+> > +
+> > +	  If you don't know what to do here, say "Y".
+> > +
+> >  config ERRATA_SIFIVE
+> >  	bool "SiFive errata"
+> >  	depends on RISCV_ALTERNATIVE
+> > diff --git a/arch/riscv/errata/andes/errata.c b/arch/riscv/errata/andes=
+/errata.c
+> > index d2e1abcac967..19256691f1ba 100644
+> > --- a/arch/riscv/errata/andes/errata.c
+> > +++ b/arch/riscv/errata/andes/errata.c
+> > @@ -56,11 +56,54 @@ static bool errata_probe_iocp(unsigned int stage, u=
+nsigned long arch_id, unsigne
+> >  	return true;
+> >  }
+> > =20
+> > +static bool errata_probe_pmu(unsigned int stage,
+> > +			     unsigned long arch_id, unsigned long impid)
+> > +{
+> > +	if (!IS_ENABLED(CONFIG_ERRATA_ANDES_PMU))
+> > +		return false;
+> > +
+> > +	if ((arch_id & 0xff) !=3D 0x45)
+> > +		return false;
+> > +
+> > +	if (stage =3D=3D RISCV_ALTERNATIVES_EARLY_BOOT)
+> > +		return false;
+> > +
+> > +	return true;
+> > +}
+> > +
+> > +static u32 andes_errata_probe(unsigned int stage,
+> > +			      unsigned long archid, unsigned long impid)
+> > +{
+> > +	u32 cpu_req_errata =3D 0;
+> > +
+> > +	if (errata_probe_pmu(stage, archid, impid))
+> > +		cpu_req_errata |=3D BIT(ERRATA_ANDES_PMU);
+> > +
+> > +	return cpu_req_errata;
+> > +}
+> > +
+> >  void __init_or_module andes_errata_patch_func(struct alt_entry *begin,=
+ struct alt_entry *end,
+> >  					      unsigned long archid, unsigned long impid,
+> >  					      unsigned int stage)
+> >  {
+> > +	struct alt_entry *alt;
+> > +	u32 cpu_req_errata =3D andes_errata_probe(stage, archid, impid);
+> > +	u32 tmp;
+> > +
+> >  	errata_probe_iocp(stage, archid, impid);
+> > =20
+> > -	/* we have nothing to patch here ATM so just return back */
+> > +	for (alt =3D begin; alt < end; alt++) {
+> > +		if (alt->vendor_id !=3D ANDES_VENDOR_ID)
+> > +			continue;
+> > +		if (alt->patch_id >=3D ERRATA_ANDES_NUMBER)
+> > +			continue;
+> > +
+> > +		tmp =3D (1U << alt->patch_id);
+> > +		if (cpu_req_errata & tmp) {
+> > +			mutex_lock(&text_mutex);
+> > +			patch_text_nosync(ALT_OLD_PTR(alt), ALT_ALT_PTR(alt),
+> > +					  alt->alt_len);
+> > +			mutex_unlock(&text_mutex);
+> > +		}
+> > +	}
+> >  }
+> > diff --git a/arch/riscv/include/asm/errata_list.h b/arch/riscv/include/=
+asm/errata_list.h
+> > index 56ab40e64092..bb4c276e2c7f 100644
+> > --- a/arch/riscv/include/asm/errata_list.h
+> > +++ b/arch/riscv/include/asm/errata_list.h
+> > @@ -13,7 +13,8 @@
+> > =20
+> >  #ifdef CONFIG_ERRATA_ANDES
+> >  #define ERRATA_ANDES_NO_IOCP 0
+> > -#define ERRATA_ANDES_NUMBER 1
+> > +#define ERRATA_ANDES_PMU 1
+> > +#define ERRATA_ANDES_NUMBER 2
+> >  #endif
+> > =20
+> >  #ifdef CONFIG_ERRATA_SIFIVE
+> > @@ -150,15 +151,51 @@ asm volatile(ALTERNATIVE_2(						\
+> >  #define THEAD_C9XX_RV_IRQ_PMU			17
+> >  #define THEAD_C9XX_CSR_SCOUNTEROF		0x5c5
+> > =20
+> > +#define ANDES_RV_IRQ_PMU			18
+> > +#define ANDES_SLI_CAUSE_BASE			256
+> > +#define ANDES_CSR_SCOUNTEROF			0x9d4
+> > +#define ANDES_CSR_SLIE				0x9c4
+> > +#define ANDES_CSR_SLIP				0x9c5
+> > +
+> >  #define ALT_SBI_PMU_OVERFLOW(__ovl)					\
+> > -asm volatile(ALTERNATIVE(						\
+> > +asm volatile(ALTERNATIVE_2(						\
+> >  	"csrr %0, " __stringify(CSR_SSCOUNTOVF),			\
+> >  	"csrr %0, " __stringify(THEAD_C9XX_CSR_SCOUNTEROF),		\
+> >  		THEAD_VENDOR_ID, ERRATA_THEAD_PMU,			\
+> > -		CONFIG_ERRATA_THEAD_PMU)				\
+> > +		CONFIG_ERRATA_THEAD_PMU,				\
+> > +	"csrr %0, " __stringify(ANDES_CSR_SCOUNTEROF),			\
+> > +		ANDES_VENDOR_ID, ERRATA_ANDES_PMU,			\
+> > +		CONFIG_ERRATA_ANDES_PMU)				\
+> >  	: "=3Dr" (__ovl) :						\
+> >  	: "memory")
+> > =20
+> > +#define ALT_SBI_PMU_OVF_CLEAR_PENDING(__irq_num)			\
+> > +asm volatile(ALTERNATIVE(						\
+> > +	"csrc " __stringify(CSR_IP) ", %0\n\t",				\
+> > +	"csrc " __stringify(ANDES_CSR_SLIP) ", %0\n\t",			\
+> > +		ANDES_VENDOR_ID, ERRATA_ANDES_PMU,			\
+> > +		CONFIG_ERRATA_ANDES_PMU)				\
+> > +	: : "r"(BIT(__irq_num))						\
+> > +	: "memory")
+> > +
+> > +#define ALT_SBI_PMU_OVF_DISABLE(__irq_num)				\
+> > +asm volatile(ALTERNATIVE(						\
+> > +	"csrc " __stringify(CSR_IE) ", %0\n\t",				\
+> > +	"csrc " __stringify(ANDES_CSR_SLIE) ", %0\n\t",			\
+> > +		ANDES_VENDOR_ID, ERRATA_ANDES_PMU,			\
+> > +		CONFIG_ERRATA_ANDES_PMU)				\
+> > +	: : "r"(BIT(__irq_num))						\
+> > +	: "memory")
+> > +
+> > +#define ALT_SBI_PMU_OVF_ENABLE(__irq_num)				\
+> > +asm volatile(ALTERNATIVE(						\
+> > +	"csrs " __stringify(CSR_IE) ", %0\n\t",				\
+> > +	"csrs " __stringify(ANDES_CSR_SLIE) ", %0\n\t",			\
+> > +		ANDES_VENDOR_ID, ERRATA_ANDES_PMU,			\
+> > +		CONFIG_ERRATA_ANDES_PMU)				\
+> > +	: : "r"(BIT(__irq_num))						\
+> > +	: "memory")
+> > +
+> >  #endif /* __ASSEMBLY__ */
+> > =20
+> >  #endif
+> > diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
+> > index 9a51053b1f99..8b67f202d2ae 100644
+> > --- a/drivers/perf/riscv_pmu_sbi.c
+> > +++ b/drivers/perf/riscv_pmu_sbi.c
+> > @@ -687,7 +687,7 @@ static irqreturn_t pmu_sbi_ovf_handler(int irq, voi=
+d *dev)
+> >  	fidx =3D find_first_bit(cpu_hw_evt->used_hw_ctrs, RISCV_MAX_COUNTERS);
+> >  	event =3D cpu_hw_evt->events[fidx];
+> >  	if (!event) {
+> > -		csr_clear(CSR_SIP, BIT(riscv_pmu_irq_num));
+> > +		ALT_SBI_PMU_OVF_CLEAR_PENDING(riscv_pmu_irq_num);
+> >  		return IRQ_NONE;
+> >  	}
+> > =20
+> > @@ -701,7 +701,7 @@ static irqreturn_t pmu_sbi_ovf_handler(int irq, voi=
+d *dev)
+> >  	 * Overflow interrupt pending bit should only be cleared after stoppi=
+ng
+> >  	 * all the counters to avoid any race condition.
+> >  	 */
+> > -	csr_clear(CSR_SIP, BIT(riscv_pmu_irq_num));
+> > +	ALT_SBI_PMU_OVF_CLEAR_PENDING(riscv_pmu_irq_num);
+> > =20
+> >  	/* No overflow bit is set */
+> >  	if (!overflow)
+> > @@ -773,8 +773,8 @@ static int pmu_sbi_starting_cpu(unsigned int cpu, s=
+truct hlist_node *node)
+> > =20
+> >  	if (riscv_pmu_use_irq) {
+> >  		cpu_hw_evt->irq =3D riscv_pmu_irq;
+> > -		csr_clear(CSR_IP, BIT(riscv_pmu_irq_num));
+> > -		csr_set(CSR_IE, BIT(riscv_pmu_irq_num));
+> > +		ALT_SBI_PMU_OVF_CLEAR_PENDING(riscv_pmu_irq_num);
+> > +		ALT_SBI_PMU_OVF_ENABLE(riscv_pmu_irq_num);
+> >  		enable_percpu_irq(riscv_pmu_irq, IRQ_TYPE_NONE);
+> >  	}
+> > =20
+> > @@ -785,7 +785,7 @@ static int pmu_sbi_dying_cpu(unsigned int cpu, stru=
+ct hlist_node *node)
+> >  {
+> >  	if (riscv_pmu_use_irq) {
+> >  		disable_percpu_irq(riscv_pmu_irq);
+> > -		csr_clear(CSR_IE, BIT(riscv_pmu_irq_num));
+> > +		ALT_SBI_PMU_OVF_DISABLE(riscv_pmu_irq_num);
+> >  	}
+> > =20
+> >  	/* Disable all counters access for user mode now */
+> > @@ -809,6 +809,10 @@ static int pmu_sbi_setup_irqs(struct riscv_pmu *pm=
+u, struct platform_device *pde
+> >  		   riscv_cached_mimpid(0) =3D=3D 0) {
+> >  		riscv_pmu_irq_num =3D THEAD_C9XX_RV_IRQ_PMU;
+> >  		riscv_pmu_use_irq =3D true;
+> > +	} else if (IS_ENABLED(CONFIG_ERRATA_ANDES_PMU) &&
+> > +		   riscv_cached_mvendorid(0) =3D=3D ANDES_VENDOR_ID) {
+> > +		riscv_pmu_irq_num =3D ANDES_RV_IRQ_PMU;
+> > +		riscv_pmu_use_irq =3D true;
+> >  	}
+> > =20
+> >  	if (!riscv_pmu_use_irq)
+> > @@ -821,7 +825,11 @@ static int pmu_sbi_setup_irqs(struct riscv_pmu *pm=
+u, struct platform_device *pde
+> >  		return -ENODEV;
+> >  	}
+> > =20
+> > -	riscv_pmu_irq =3D irq_create_mapping(domain, riscv_pmu_irq_num);
+> > +	if (IS_ENABLED(CONFIG_ERRATA_ANDES_PMU))
+> > +		riscv_pmu_irq =3D irq_create_mapping(
+> > +			domain, ANDES_SLI_CAUSE_BASE + riscv_pmu_irq_num);
+> > +	else
+> > +		riscv_pmu_irq =3D irq_create_mapping(domain, riscv_pmu_irq_num);
+> >  	if (!riscv_pmu_irq) {
+> >  		pr_err("Failed to map PMU interrupt for node\n");
+> >  		return -ENODEV;
+> > --=20
+> > 2.34.1
+> >=20
+> >=20
+> > _______________________________________________
+> > linux-riscv mailing list
+> > linux-riscv@lists.infradead.org
+> > http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+
+
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+
+--iI3hr/Zt+A85czXE
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEARYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZPmt1gAKCRB4tDGHoIJi
+0sT4AP9Wjv6Bs1Q5jvqgwPsVaXGObXsya6g9MIYUsZuldCsZ4gD/bwP83pmAgKhs
+cWs2FM/F7hoEZDM3C5T2E1bwqJNAcgA=
+=Jtx1
+-----END PGP SIGNATURE-----
+
+--iI3hr/Zt+A85czXE--
+
+
+--===============7411481263858471995==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============7411481263858471995==--
+
