@@ -4,87 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAD56EE14D3
-	for <linux-riscv@archiver.kernel.org>; Thu,  7 Sep 2023 08:52:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30C80EE14D0
+	for <linux-riscv@archiver.kernel.org>; Thu,  7 Sep 2023 08:52:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fzHH9uxqulgg4ddzhLG4hRUrhm9JSO6llzeStLYooTU=; b=IkYyGQ4wobxJMl
-	KA6fDJ4vnS/k+AWQ8sD9XKb0G9RRd4baVZgw5kueFU6qu31c+vUFbGo10IeP8YKE3xYjk7TRN4f0q
-	/mcc2MGWD7brIIFYFUnIu90AxiMrKiLZx07yZtZoqVeqGV1LyoBzkGVEWXSkr3fnJYGwpjZfRkIMi
-	/eA/mdhAI/9+iCu5WbIE5ZU0GJ8I4zHA0ALbbw2Bo2iyaUd6vmMaRkPP7SDlcEVuNCPPX0vKuwtZ3
-	pBQVEEFRHLWL3hAfTSBEID+lRrt5JwPNNJ18j4ccBUBur8+Y8KxWwjwCy0PRVaAOiAI8YqYaWF1Wb
-	iUN0PyUQyubmeh8pCHrA==;
+	List-Owner; bh=tLBKgobZPjGUO7sn9BfFeEx3LKtjwnqPDgWSuYWlAvE=; b=pb5LR1FaJgvyBY
+	7TnZzRuAIqvWW4XmhYis1jiyOiBYgWXhHAFSHSRf8Se6B9wnUCg0aogaszivkrJ2/h5qEt5Yhqf0+
+	ose9e7M4cpR3FFJcoyPUzi0W+LqTEGm7OpRLHudd0YN2+5U2gUAhdlOUHRPwvRUkhkFnmOew9xNKP
+	xJG40JlrxunBmnHVkqvgtTTz4RY0TwI38GojdxwAFb7Nr5kY0YQSojykcX+fQWY0K0BRXG9+JM2mA
+	T+8k6VGyz/OoxXeIfNrBSpdGOd1HBBktNWuvDREAm1kQ7/p2YxlVWzpyJPUPImBRgdeZxJKk5p+OG
+	mUdNc1u1OTTLs8+vAl1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qeAk8-00BcPh-3D;
-	Thu, 07 Sep 2023 08:52:04 +0000
-Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
+	id 1qeAkX-00BcTi-2B;
+	Thu, 07 Sep 2023 08:52:29 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qeAk5-00BcNz-2B
-	for linux-riscv@lists.infradead.org;
-	Thu, 07 Sep 2023 08:52:03 +0000
-Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-31aeee69de0so681742f8f.2
-        for <linux-riscv@lists.infradead.org>; Thu, 07 Sep 2023 01:51:52 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1694076711; x=1694681511; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=XeBbVRtX/aIWzlXHiHUn4OCigEvkTh1dLDX2VajCG9M=;
-        b=SpcBkvhC1J6R2VCcCXefk0ztqm7otIcD7nuyY2YmwM30efsoJv8Of1ZqnRAnAuDIDB
-         5vuoGapPgndJplUxVsU/mH+3I8MfPs+iwv+ZJyPkueLtqkhWjPegTJYqtMmNeMpMrAtm
-         PmFDsGDkw+bvQIsbTVsC+U3ti/Uky4DHHPPy2KBiCqW1q75iAgIr3nDCOe9yv/011MZ7
-         J+x7Qpr5XuWMPNlMWIBfEZoLWWCRehZWbdgY00RJJ1zsgPdY672jF0b/WfR3bWSq2phy
-         exn22HB+bINPnLLrnrpjDxkqKrsLIB15JhsrmkF1FgvZK0ApBGmovSAuAwcSIP5uVSiL
-         RoVw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1694076711; x=1694681511;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=XeBbVRtX/aIWzlXHiHUn4OCigEvkTh1dLDX2VajCG9M=;
-        b=hY7iqPlBCRq5EpIeS8LAAOWpMf/4diXQHYE98CoRixFDoCAd82U7vW856ruQNZcLVo
-         XRkS6b57TIqyd3oOsHMfqb5cHFjweg3MJQ0CqwP3fycndz/rwjRq3gzv3NKwo3he2872
-         zscqESmOtNHzhdsPOEbCpq04vDd9+iegUTmI1CTqVdEu0RfstoY3/NJSY+Vn5rPVaNnt
-         J/xqmHsDPyGnDpkcYKedaNuNb3HGzTAJD3X9BXCZnmyF83t70c2qoje/0aE7gW00+H4r
-         AARAnqSAsAjqmj3lhjyQMxNImqGcSD0XEVPU7o+q1GTr6gwYNildvaNv0LYkLTVfvzWR
-         NmfQ==
-X-Gm-Message-State: AOJu0Yy6Jr8JKZ9gNIvilSxFjmRdBdo+jVfF4r4vdpJMNvf3Vc9BMO+7
-	PYThHJmQ7Y6+bkoj/sEcb95XAw==
-X-Google-Smtp-Source: AGHT+IGEGmreaznUgLT0wco7186DbxtRAxnnEI6albp1jZXrz+2WijzMa2iZXNVK2n5/iINTQ0Yxlw==
-X-Received: by 2002:adf:fd4d:0:b0:316:fb57:26d1 with SMTP id h13-20020adffd4d000000b00316fb5726d1mr4496582wrs.8.1694076710917;
-        Thu, 07 Sep 2023 01:51:50 -0700 (PDT)
-Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
-        by smtp.gmail.com with ESMTPSA id l21-20020a1c7915000000b003fef6881350sm1853914wme.25.2023.09.07.01.51.50
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 07 Sep 2023 01:51:50 -0700 (PDT)
-Date: Thu, 7 Sep 2023 10:51:49 +0200
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Charlie Jenkins <charlie@rivosinc.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, jrtc27@jrtc27.com, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, kvm@vger.kernel.org, 
-	kvm-riscv@lists.infradead.org, bpf@vger.kernel.org, Paul Walmsley <paul.walmsley@sifive.com>, 
-	aou@eecs.berkeley.edu, peterz@infradead.org, jpoimboe@kernel.org, jbaron@akamai.com, 
-	rostedt@goodmis.org, Ard Biesheuvel <ardb@kernel.org>, anup@brainfault.org, 
-	atishp@atishpatra.org, ast@kernel.org, daniel@iogearbox.net, andrii@kernel.org, 
-	martin.lau@linux.dev, song@kernel.org, yhs@fb.com, john.fastabend@gmail.com, 
-	kpsingh@kernel.org, sdf@google.com, haoluo@google.com, jolsa@kernel.org, 
-	bjorn@kernel.org, luke.r.nels@gmail.com, xi.wang@gmail.com, namcaov@gmail.com
-Subject: Re: [PATCH 00/10] RISC-V: Refactor instructions
-Message-ID: <20230907-304f53e7de4e0386d04f4dcf@orel>
-References: <ZN5OJO/xOWUjLK2w@ghost>
- <mhng-7d609dde-ad47-42ed-a47b-6206e719020a@palmer-ri-x1c9a>
- <20230818-63347af7195b7385c146778d@orel>
- <ZPjKGd7VstwIKDV5@ghost>
-MIME-Version: 1.0
+	id 1qeAkU-00BcT4-0Y;
+	Thu, 07 Sep 2023 08:52:27 +0000
+Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.17.1.19/8.17.1.19) with ESMTP id 3878cQU1000733;
+	Thu, 7 Sep 2023 08:51:30 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=date : from : to : cc :
+ subject : message-id : references : content-type : in-reply-to :
+ mime-version; s=pp1; bh=fJTpsIq+wH0+3ox3kqJA6Hnx5aFY/FIBfaKD7qgThbI=;
+ b=CNxc4Rg/FziXKrAmAX9b17mRW5qa3qbczx7XylObPkLT8so50YN5p8IrZiDA1EQUPAbL
+ 8ZwYN09z/JXvrqUg03mhYGFqDn1XeNIajYTna00yLknCffFtPgy7lBaN11x+jFOvoRtX
+ DnqsV3Bzp3skHmj4/LWkjHBF2xPO1HR17j8dU0rRXYe+DOLk5yEBr2wpTw5yglj7XWYh
+ wiZ8CiepLf3OZpjTyQ980DNX9I/DoCCB9LXQK4+ibY+88IpcuC9yJS98LVfuMJqc3Y4U
+ nCnG1b5VJFzVnhj/Yzu8oJzb9rgccEZIloYRHmoDZebSjed5MfWNIFkHzzD5LZXhi7L3 Dg== 
+Received: from pps.reinject (localhost [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 3syay10gst-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 07 Sep 2023 08:51:29 +0000
+Received: from m0360083.ppops.net (m0360083.ppops.net [127.0.0.1])
+	by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 3878dY8b005926;
+	Thu, 7 Sep 2023 08:51:28 GMT
+Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 3syay10gs5-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 07 Sep 2023 08:51:28 +0000
+Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma22.wdc07v.mail.ibm.com (8.17.1.19/8.17.1.19) with ESMTP id 3877rAYs021360;
+	Thu, 7 Sep 2023 08:51:27 GMT
+Received: from smtprelay07.fra02v.mail.ibm.com ([9.218.2.229])
+	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 3svfrytgtj-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 07 Sep 2023 08:51:27 +0000
+Received: from smtpav01.fra02v.mail.ibm.com (smtpav01.fra02v.mail.ibm.com [10.20.54.100])
+	by smtprelay07.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 3878pN6X62652826
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 7 Sep 2023 08:51:24 GMT
+Received: from smtpav01.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id D842720040;
+	Thu,  7 Sep 2023 08:51:23 +0000 (GMT)
+Received: from smtpav01.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id EF02720043;
+	Thu,  7 Sep 2023 08:51:22 +0000 (GMT)
+Received: from osiris (unknown [9.152.212.60])
+	by smtpav01.fra02v.mail.ibm.com (Postfix) with ESMTPS;
+	Thu,  7 Sep 2023 08:51:22 +0000 (GMT)
+Date: Thu, 7 Sep 2023 10:51:19 +0200
+From: Heiko Carstens <hca@linux.ibm.com>
+To: j.granados@samsung.com
+Cc: Luis Chamberlain <mcgrof@kernel.org>, willy@infradead.org,
+        josh@joshtriplett.org, Kees Cook <keescook@chromium.org>,
+        Iurii Zaikin <yzaikin@google.com>, Vasily Gorbik <gor@linux.ibm.com>,
+        Alexander Gordeev <agordeev@linux.ibm.com>,
+        Christian Borntraeger <borntraeger@linux.ibm.com>,
+        Sven Schnelle <svens@linux.ibm.com>,
+        Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+        Russell King <linux@armlinux.org.uk>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+        Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
+        Borislav Petkov <bp@alien8.de>,
+        Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+        "H. Peter Anvin" <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>,
+        Paul Walmsley <paul.walmsley@sifive.com>,
+        Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+        Michael Ellerman <mpe@ellerman.id.au>,
+        Nicholas Piggin <npiggin@gmail.com>,
+        Christophe Leroy <christophe.leroy@csgroup.eu>,
+        Guo Ren <guoren@kernel.org>, linux-fsdevel@vger.kernel.org,
+        linux-s390@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
+        linuxppc-dev@lists.ozlabs.org, linux-ia64@vger.kernel.org,
+        linux-csky@vger.kernel.org
+Subject: Re: [PATCH 1/8] S390: Remove sentinel elem from ctl_table arrays
+Message-ID: <20230907085119.6134-A-hca@linux.ibm.com>
+References: <20230906-jag-sysctl_remove_empty_elem_arch-v1-0-3935d4854248@samsung.com>
+ <20230906-jag-sysctl_remove_empty_elem_arch-v1-1-3935d4854248@samsung.com>
 Content-Disposition: inline
-In-Reply-To: <ZPjKGd7VstwIKDV5@ghost>
+In-Reply-To: <20230906-jag-sysctl_remove_empty_elem_arch-v1-1-3935d4854248@samsung.com>
+X-TM-AS-GCONF: 00
+X-Proofpoint-ORIG-GUID: MpEEAkP1vgr2ZFXBjpilhxpWoREunUug
+X-Proofpoint-GUID: 9vYERwk7Ox9_cC-DaXYkOIKd1FOzxdpR
+X-Proofpoint-UnRewURL: 0 URL was un-rewritten
+MIME-Version: 1.0
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.267,Aquarius:18.0.957,Hydra:6.0.601,FMLib:17.11.176.26
+ definitions=2023-09-06_12,2023-09-05_01,2023-05-22_02
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxlogscore=720
+ lowpriorityscore=0 bulkscore=0 adultscore=0 phishscore=0 spamscore=0
+ malwarescore=0 clxscore=1011 priorityscore=1501 suspectscore=0
+ impostorscore=0 mlxscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.12.0-2308100000 definitions=main-2309070074
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230907_015201_716881_9060DCC9 
-X-CRM114-Status: GOOD (  25.18  )
+X-CRM114-CacheID: sfid-20230907_015226_216197_A47BB983 
+X-CRM114-Status: GOOD (  20.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,39 +133,30 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 06, 2023 at 11:51:05AM -0700, Charlie Jenkins wrote:
-> On Fri, Aug 18, 2023 at 09:30:32AM +0200, Andrew Jones wrote:
-> > On Thu, Aug 17, 2023 at 10:52:22AM -0700, Palmer Dabbelt wrote:
-> > > On Thu, 17 Aug 2023 09:43:16 PDT (-0700), Charlie Jenkins wrote:
-> > ...
-> > > > It seems to me that it will be significantly more challenging to use
-> > > > riscv-opcodes than it would for people to just hand create the macros
-> > > > that they need.
-> > > 
-> > > Ya, riscv-opcodes is pretty custy.  We stopped using it elsewhere ages ago.
-> > 
-> > Ah, pity I didn't know the history of it or I wouldn't have suggested it,
-> > wasting Charlie's time (sorry, Charlie!). So everywhere that needs
-> > encodings are manually scraping them from the PDFs? Or maybe we can write
-> > our own parser which converts adoc/wavedrom files[1] to Linux C?
-> > 
-> > [1] https://github.com/riscv/riscv-isa-manual/tree/main/src/images/wavedrom
+On Wed, Sep 06, 2023 at 12:03:22PM +0200, Joel Granados via B4 Relay wrote:
+> From: Joel Granados <j.granados@samsung.com>
 > 
-> The problem with the wavedrom files is that there are no standard for
-> how each instruction is identified. The title of of the adoc gives some
-> insight and there is generally a funct3 or specific opcode that is
-> associated with the instruction but it would be kind of messy to write a
-> script to parse that. I think manually constructing the instructions is
-> fine. When somebody wants to add a new instruction they probably will
-> not need to add very many at a time, so it should be only a couple of
-> lines that they will be able to test.
->
+> This commit comes at the tail end of a greater effort to remove the
+> empty elements at the end of the ctl_table arrays (sentinels) which
+> will reduce the overall build time size of the kernel and run time
+> memory bloat by ~64 bytes per sentinel (further information Link :
+> https://lore.kernel.org/all/ZO5Yx5JFogGi%2FcBo@bombadil.infradead.org/)
+> 
+> Remove the sentinel element from appldata_table, s390dbf_table,
+> topology_ctl_table, cmm_table and page_table_sysctl. Reduced the
+> memory allocation in appldata_register_ops by 1 effectively removing the
+> sentinel from ops->ctl_table.
+> 
+> Signed-off-by: Joel Granados <j.granados@samsung.com>
+> ---
+>  arch/s390/appldata/appldata_base.c | 6 ++----
+>  arch/s390/kernel/debug.c           | 3 +--
+>  arch/s390/kernel/topology.c        | 3 +--
+>  arch/s390/mm/cmm.c                 | 3 +--
+>  arch/s390/mm/pgalloc.c             | 3 +--
+>  5 files changed, 6 insertions(+), 12 deletions(-)
 
-OK, we'll just have to prop our eyelids open with toothpicks to get
-through the review of the initial mass conversion.
-
-Thanks,
-drew
+Acked-by: Heiko Carstens <hca@linux.ibm.com>
 
 _______________________________________________
 linux-riscv mailing list
