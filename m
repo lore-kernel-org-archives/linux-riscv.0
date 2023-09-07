@@ -4,149 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FFABEE14D3
-	for <linux-riscv@archiver.kernel.org>; Thu,  7 Sep 2023 07:38:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53B1BEE14D4
+	for <linux-riscv@archiver.kernel.org>; Thu,  7 Sep 2023 08:25:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	References:In-Reply-To:MIME-Version:Message-ID:Subject:CC:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gt3pStf0F1JnRsrKQQwHFgeMT3fAUNa1weNhP/kRnPM=; b=qjPcDNlIEMIgC85bYK/nEHcdU5
-	CJmO8WwHCEYmAr3DfBNnYVIAZu8VAXkDy110CSXPMXSiy5peQzHCU2rRaokNXpo52ebO5JK9Wu8TI
-	xHPImsv81MWGAP7ynkdLaLCsx42ylvx757DI/+Q6j53UznWaXvSRvqTm9dbXN46qnt8cqca5L3hWv
-	9BXdD2yT1vxd8xx3CJsDIrJ6Wyogz70dOuYAMMctqTs04BsS9E9xSUD3Yr8JdPbQevNmzQ52LlfYh
-	/kPtpBEWg/BVhEGD1jjNd1niQYGdHkctapwzyrt4k0wuP8nq8LKYx6fLLIP2asOGN5NmXsm0XGvAY
-	zt0XuwUg==;
+	bh=wRufcvxCdsMOuxvUq8qiK/WFNLdlWAVZ4FPL5Ctzdxw=; b=JAK9zcmNFZiW8TSakx/mOPzFiC
+	+JPwicikWLLN0gqYsRbi1+Kt3AZXZCAoE3LW3iiJEYElaBTMcHTU7CSdiTC6y5Rm+WA4NzNZL20K6
+	BvMHmSI4RKdGsnk80iuqt+HQl3fh+KEQ8zGUNjVwcJjJ3liL8ZII3g5nUF7uERGNwK9QM1UASz/MK
+	Vx9U8FROj7zwBl5SsMtm7J/yDTJlHamQmFBPDgCwLofzbzifYUFHcdmalcE6vjSZ5+MyAaKcaWhrP
+	HL3tIAi2hnl81qZTUAkLyA1XU1hXpTZ2CWhTGBDjfW8HXTKwJiTgWUHqaC2bUyfxzPwfYMUUbzceY
+	fBLwEhQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qe9az-00BWRX-1P;
-	Thu, 07 Sep 2023 07:38:33 +0000
-Received: from mailout1.w1.samsung.com ([210.118.77.11])
+	id 1qeAJu-00BaO5-1u;
+	Thu, 07 Sep 2023 08:24:58 +0000
+Received: from mailout2.w1.samsung.com ([210.118.77.12])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qe9au-00BWPT-2x;
-	Thu, 07 Sep 2023 07:38:32 +0000
-Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
-	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20230907073821euoutp01002074b8606e62b1296829278d0af8f5~Cjchfey8w0992609926euoutp01n;
-	Thu,  7 Sep 2023 07:38:21 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20230907073821euoutp01002074b8606e62b1296829278d0af8f5~Cjchfey8w0992609926euoutp01n
+	id 1qeAJq-00BaMo-0I;
+	Thu, 07 Sep 2023 08:24:56 +0000
+Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
+	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20230907082450euoutp0268091ba27c96f23d766e7e9b2b1c7f90~CkFGkfjh00383803838euoutp02D;
+	Thu,  7 Sep 2023 08:24:50 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20230907082450euoutp0268091ba27c96f23d766e7e9b2b1c7f90~CkFGkfjh00383803838euoutp02D
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1694072301;
-	bh=BXg5O6SPZ8P1tGzXTPI/wb0rr63NnHvgAcD+Vug4myU=;
+	s=mail20170921; t=1694075090;
+	bh=K84mrKgpu7Gp7E1wsEfRvrKyh+s/n5grmyvysB575oA=;
 	h=Date:From:To:CC:Subject:In-Reply-To:References:From;
-	b=CUBouVPc62jGHERVpVmLNya0vV9VQdPLQBWVNVnHrtfwrdzTJHvq4udyRdm86GlYS
-	 Kh7OLqiWje+o7JbiXygKFpsEtup2xm2FJXQkNZ6IPuAEqlyEEQO0CMvhV1rBOdgpUm
-	 YnpycD6F/uWg0AqL1Gm2H+2rr/bM6gRuVGAELQug=
+	b=QRQUlIzLacORSoSMsDwibDDr1BYQ+HS+FZVCFjc/Qbf/tYBTdXwdI0BeuBfcHwnS7
+	 dgfJVTShj9tf7mLW9YogkqachsUyS5kITxIW5Jsf2UjiUeTBPWh8c4OL1hAZoj5hTE
+	 TME64QTDO5rYgaiDPVClOhPNf+28jEa6gIb0BlEY=
 Received: from eusmges3new.samsung.com (unknown [203.254.199.245]) by
-	eucas1p2.samsung.com (KnoxPortal) with ESMTP id
-	20230907073820eucas1p2cea3f66d64ae8ae736c4734b87434645~Cjcg45TxF2457924579eucas1p2m;
-	Thu,  7 Sep 2023 07:38:20 +0000 (GMT)
-Received: from eucas1p2.samsung.com ( [182.198.249.207]) by
-	eusmges3new.samsung.com (EUCPMTA) with SMTP id EA.FA.37758.CED79F46; Thu,  7
-	Sep 2023 08:38:20 +0100 (BST)
-Received: from eusmtrp2.samsung.com (unknown [182.198.249.139]) by
+	eucas1p1.samsung.com (KnoxPortal) with ESMTP id
+	20230907082449eucas1p1e9bd7758045a0dff6a5f3886ea3ad042~CkFGUyCEr2852928529eucas1p1_;
+	Thu,  7 Sep 2023 08:24:49 +0000 (GMT)
+Received: from eucas1p1.samsung.com ( [182.198.249.206]) by
+	eusmges3new.samsung.com (EUCPMTA) with SMTP id B7.B6.37758.1D889F46; Thu,  7
+	Sep 2023 09:24:49 +0100 (BST)
+Received: from eusmtrp1.samsung.com (unknown [182.198.249.138]) by
 	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
-	20230907073820eucas1p15d62f2cb2f0b6e47279f8840e7d1c468~CjcgYTmvn2390823908eucas1p1Z;
-	Thu,  7 Sep 2023 07:38:20 +0000 (GMT)
-Received: from eusmgms1.samsung.com (unknown [182.198.249.179]) by
-	eusmtrp2.samsung.com (KnoxPortal) with ESMTP id
-	20230907073820eusmtrp218fd55524709f7729da4cdaf1fb21500~CjcgXEsNT0114801148eusmtrp2x;
-	Thu,  7 Sep 2023 07:38:20 +0000 (GMT)
-X-AuditID: cbfec7f5-7ffff7000002937e-51-64f97dec075b
+	20230907082449eucas1p19f0c5e38ee9aff84758df55c1a8f58a4~CkFFvjSM33088230882eucas1p1C;
+	Thu,  7 Sep 2023 08:24:49 +0000 (GMT)
+Received: from eusmgms2.samsung.com (unknown [182.198.249.180]) by
+	eusmtrp1.samsung.com (KnoxPortal) with ESMTP id
+	20230907082449eusmtrp1855d35a183294fcf6b365f66261d5f30~CkFFuaZY40859808598eusmtrp1C;
+	Thu,  7 Sep 2023 08:24:49 +0000 (GMT)
+X-AuditID: cbfec7f5-815ff7000002937e-b1-64f988d1d890
 Received: from eusmtip1.samsung.com ( [203.254.199.221]) by
-	eusmgms1.samsung.com (EUCPMTA) with SMTP id BC.E9.10549.CED79F46; Thu,  7
-	Sep 2023 08:38:20 +0100 (BST)
+	eusmgms2.samsung.com (EUCPMTA) with SMTP id 7F.E1.14344.1D889F46; Thu,  7
+	Sep 2023 09:24:49 +0100 (BST)
 Received: from CAMSVWEXC02.scsc.local (unknown [106.1.227.72]) by
 	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20230907073820eusmtip1522243b150116f1fd23668e31649b0f5~CjcgImOqA2199121991eusmtip1X;
-	Thu,  7 Sep 2023 07:38:20 +0000 (GMT)
+	20230907082448eusmtip1943ff4b432cd8a78ff577b90ad37c58e~CkFFaVBft1824118241eusmtip1c;
+	Thu,  7 Sep 2023 08:24:48 +0000 (GMT)
 Received: from localhost (106.210.248.249) by CAMSVWEXC02.scsc.local
 	(2002:6a01:e348::6a01:e348) with Microsoft SMTP Server (TLS) id 15.0.1497.2;
-	Thu, 7 Sep 2023 08:38:19 +0100
-Date: Thu, 7 Sep 2023 09:38:18 +0200
+	Thu, 7 Sep 2023 09:24:48 +0100
+Date: Thu, 7 Sep 2023 10:24:46 +0200
 From: Joel Granados <j.granados@samsung.com>
-To: Dave Hansen <dave.hansen@intel.com>
-CC: Luis Chamberlain <mcgrof@kernel.org>, <willy@infradead.org>,
-	<josh@joshtriplett.org>, Kees Cook <keescook@chromium.org>, Iurii Zaikin
-	<yzaikin@google.com>, Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik
-	<gor@linux.ibm.com>, Alexander Gordeev <agordeev@linux.ibm.com>, Christian
-	Borntraeger <borntraeger@linux.ibm.com>, Sven Schnelle
-	<svens@linux.ibm.com>, Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
-	Russell King <linux@armlinux.org.uk>, Catalin Marinas
-	<catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Mark Rutland
-	<mark.rutland@arm.com>, Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar
-	<mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen
-	<dave.hansen@linux.intel.com>, <x86@kernel.org>, "H. Peter Anvin"
-	<hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>, Paul Walmsley
-	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, Michael Ellerman <mpe@ellerman.id.au>, Nicholas
-	Piggin <npiggin@gmail.com>, Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Guo Ren <guoren@kernel.org>, <linux-fsdevel@vger.kernel.org>,
-	<linux-s390@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-riscv@lists.infradead.org>,
-	<linuxppc-dev@lists.ozlabs.org>, <linux-ia64@vger.kernel.org>,
-	<linux-csky@vger.kernel.org>
+To: Ingo Molnar <mingo@kernel.org>
+CC: Dave Hansen <dave.hansen@intel.com>, Luis Chamberlain
+	<mcgrof@kernel.org>, <willy@infradead.org>, <josh@joshtriplett.org>, Kees
+	Cook <keescook@chromium.org>, Iurii Zaikin <yzaikin@google.com>, Heiko
+	Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, Alexander
+	Gordeev <agordeev@linux.ibm.com>, Christian Borntraeger
+	<borntraeger@linux.ibm.com>, Sven Schnelle <svens@linux.ibm.com>, Gerald
+	Schaefer <gerald.schaefer@linux.ibm.com>, Russell King
+	<linux@armlinux.org.uk>, Catalin Marinas <catalin.marinas@arm.com>, Will
+	Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, Thomas
+	Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav
+	Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+	<x86@kernel.org>, "H. Peter Anvin" <hpa@zytor.com>, Andy Lutomirski
+	<luto@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+	<palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Michael Ellerman
+	<mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, Christophe Leroy
+	<christophe.leroy@csgroup.eu>, Guo Ren <guoren@kernel.org>,
+	<linux-fsdevel@vger.kernel.org>, <linux-s390@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-riscv@lists.infradead.org>, <linuxppc-dev@lists.ozlabs.org>,
+	<linux-ia64@vger.kernel.org>, <linux-csky@vger.kernel.org>
 Subject: Re: [PATCH 3/8] arch/x86: Remove sentinel elem from ctl_table
  arrays
-Message-ID: <20230907073818.n5dcc7sqpvzkpeaa@localhost>
+Message-ID: <20230907082446.a4o46vka2vtes3h4@localhost>
 MIME-Version: 1.0
-In-Reply-To: <d0d30ad4-7837-b0c4-39f4-3e317e35a41b@intel.com>
+In-Reply-To: <ZPj2F4retSgg3vAj@gmail.com>
 X-Originating-IP: [106.210.248.249]
 X-ClientProxiedBy: CAMSVWEXC01.scsc.local (2002:6a01:e347::6a01:e347) To
 	CAMSVWEXC02.scsc.local (2002:6a01:e348::6a01:e348)
-X-Brightmail-Tracker: H4sIAAAAAAAAA2WTe0xTVxzHc+697S1l4LWgPYEFBZlGUETm3DEbsi1u3sRlG4uJ2bIJVe7A
-	AC1rZaAZsQ5UYEigPAwFoUAsyGu1hSqPTtZtNDxWxCIwV5kKC5T3QMAGVtfuusxk/31+v+/v
-	+3uc5PBwQSHpwzslPs1IxaKEAC6f0HfZ+3fPpNljQh3Te9GNXhsXtawpSTT2l5GLljQOLppX
-	5wBkVUyQaNH2EKBJzSWA5tOPozvKFQ6aNJwn0HR5HUDFN4TomUqC+r5NRNqxIQ7SX8vAUIeh
-	m0ALmXMcZGkr4yL9UgYX5VWm48hYZABobdXBQf1tjRx0bXgAQyN5fwB0t1OFoWa5c7p9coRA
-	NksOji4qNyD1d40k0mmLcJRhfQ2tPXV2e6oZ4yB16wdvbadXL+QSdEN5A6AtQwM4XSofIOjl
-	X80YPWOzEfSPmU9IusomJ+hW5QOSVmmTaV1tEF3dYcPo+9PhtLYui0vPmc0knVfVCT4Sfsp/
-	M4ZJOPUVI91zMJofl99yD0/q2ZSqNJeRcqAQZAMeD1L7oO52QDZw4wmoWgAVJVuyAd/JTwDs
-	0LTgbLAEYOlKIcdV5TLcfPgDhxVqAJwYLeaydmdVYfcBlpsBvP6zyMUEFQhv9U0BF3OpXbB/
-	xoq72JvaAXuu15CuRjjVz4dZj6swl+BFfQiXlFn/TPOgXoeNlnGM5Y2wu2SccDFOpcLLleuE
-	6wSc8oU1Dp4r7UaFw7sl5YBddBvsumwlWE6DPc33MdcsSOncoW22FGOFQ3BR3oyz7AWnTM0k
-	yy/DZ60Vzw0FAN52LJBsUA+g+vzyc/cbMGNwnGQf8m04Vv0Fi55wZHYju6cnVOiv4GzaA2Ze
-	FLDG7bB+dIbIA9uUL1ymfOEy5X+XseldUNW+yP1fOhiqK6dxlsNhU9M8oQJkHRAyybLEWEb2
-	qphJCZGJEmXJ4tiQk5JELXB+ll6HafkWqJ36M8QIMB4wgkCn+bGm/g7wIcQSMRPg7TG3ZSVG
-	4BEjOnOWkUqipMkJjMwIfHlEgNAjOLz7pICKFZ1m4hkmiZH+q2I8Nx85lvRJ/qzQP/NC9Ijv
-	98KqWEurJd8vxRSZ+zHZWSA+azGWa+8JUzV57dE5OT6W/V6msLb3tGkVzOZDj7yOhg5G6Op+
-	vzrf93Wr/6ajfE5XweGeY9UK8y87uWWRRblb+VrZleKoI5M71BUnwhpklev700fFB5vOBKrj
-	Lz3Q7YyXZXvzygwTue96HvPPC3KETgvnPzvnN3bk5nG/NM2qfUXcLqxPt872p1iHwwy76wrn
-	flpPSTh8Ljc4cmip3a8yali/uMFu9Xwlrn5N9dI7NVtN9uCIwfc3/9aWs6Atk3QkKdquVun3
-	nPjSnfnmc/cIgcS0fsAgjzMX9D4KFuwbWq3wXp+wBBCyONHeIFwqE/0Nr1kOa6cEAAA=
-X-Brightmail-Tracker: H4sIAAAAAAAAA2WSe0xTVxzHPffe3hYSsmuh4wqauYqaMCktUDgQi9sSx2Vzi3N/ba66Dm54
-	SFtsKdFtTAwMEIF1TmQt8tyoG/IsrAMmC1SjwwdYqrUuoB0PSymBMd4B6wp1mcn++5zv73w/
-	5+TksFB2Ox7ASpFl0AqZJI2Le2O3XDeGQ6ayVhL552wEbL3lwOHPq1omHH1qxOFciwuHM7oi
-	AIfO2Znwb4cNwImWfABnco7Au9pFBpzoPo1BZ2U9gBda/eGzajm8fVYK9aMWBjTU5SLwSncf
-	Bv8qmGZAc9dFHBrmcnGorslBobG0G8DVJRcDDnQ1MmDdAxMCrepxAAd7qhHYnu0+fWXCikGH
-	uQiFedqXoK65kQnb9KUozB0SwtVlt225ZZQBdZ3vvb6LWvqqBKMaKhsAZbaYUKo824RRCw/7
-	EWrK4cCoqwXzTKrWkY1RndphJlWtV1FtPwZT319xINQfThGlrz+DU9P9/UxKXdsDDvp/xNur
-	kKsy6O3JcmWGiHtYAMN4gmjIC4uI5gnCo8QxYUJuaOzeRDotJZNWhMZ+wkv+WqNF0n/nnCgv
-	9M8GanYh8GKRRAT5i62XUQi8WWyiDpCGMR3qGWwlW+fvMzzsS65ZCnHPpllAmr+rQTyLdkAO
-	VT/eaGBEENlxexKsM07sIQemhjZyP2I3efOnS8z1Akrc8SafNLZsaH2Jd8n7j54x19mHiCIb
-	zWPPrfUIuXCt+flgM9mnGcPWGSUyybIZsztnuTmQvORircdehIgc1FQCz1V3kNeLhzAPZ5Fz
-	T58ANfDVvmDSvmDS/mfyxMGk1eVA/he/RupqnKiHRWRT0wxWDZj1wI9WKaVJUqWAp5RIlSpZ
-	Ei9BLtUD95c1XF9p6wCVk7M8I0BYwAiC3M2Rlst3QQAmk8torp/P9CuLiWyfRMnJz2iF/KhC
-	lUYrjUDofsZv0ABOgtz9/2UZRwWRfKEgIjKaL4yODOf6+8SnF0jYRJIkgz5G0+m04t8ewvIK
-	yEZ+jcO7y17uWbLdsCJvBx45n3/Id5+uYPSkxqrZNm4czLnpDIwaOTVQ1iDa+WdRb3EMj1M1
-	92XdSI7LlB915ouOsd0LRZc/eMOQFzi+P5U6vj3+LZFCFGfPPCCMqTBYfPfd8f88kBcecqqk
-	rzs+Xdxcpz7NepT6cfHx5v49izuLw89eTEy/Wr42Pf1mYwW/lNWZWWET/yAti+VnbbOYUuG8
-	Yy3u/Am/UcuOY+/0bmre+lBjs0+Kug47f7OzQ8HB8Qv7N+mFH3IeLD/O4VvzOCoFbt+1Jbnk
-	mhgJEd+rLZ89dE8XNGxxVm3p6k1JqCpgpG7+tJczfsDY5EK5drHJ59v3X+ViymSJIBhVKCX/
-	ABZq0BhHBAAA
-X-CMS-MailID: 20230907073820eucas1p15d62f2cb2f0b6e47279f8840e7d1c468
+X-Brightmail-Tracker: H4sIAAAAAAAAA2WTa0xTZxzG9/ac9hzqqseW0DdoRlaZTGWoDOe7ANvM2HbkgxI+LG5xkwbO
+	kA0KaS3zMpIyOiiChIAMVhnhMlpuOi6lDJRBugEiW6EiDB3gIl4oIBQoSiGUtTu4mezb7//8
+	n+fN8//wkpiwmPAm42SnGLlMGi/h8XFjt8P8mkXjiNlXUxSAGvqsPNS8qiXQxJqJhxbrnTw0
+	p8sGaDTvEYEWrH8BNFmfAdBc2qdoQPuEiybbU3E0XVID0LcNYrRemoh+y0pAjRPDXGSsVHPQ
+	tfZeHNk0s1w02FbMQ8ZFNQ/llqVhyFTQDtDqUycX9bdd5qLKPywcNJL7AKBa5w2AbnaWcpBB
+	5argmBzBkXUwG0Pp2i1I9+NlAjU1FmBIPXoArS67nlyun+AiXeuRd/zop9/k4HRdSR2gB4ct
+	GH1JZcHppdtmDj1jteL0Lxo7QZdbVTjdqh0j6NJGJd1UtZuuuGbl0HemQ+nGmkwePWs2E3Ru
+	eSeIEH/MD4lh4uOSGfnet6L4J7UFQ9ykIs/T800vq8AadR54kJAKgubeFnAe8EkhVQXg1PjK
+	xmAHsF+lwdlhEcDyKgP+LDKmuctlF3oAayrrwb+uHkv2xmAAUFfdSrgjOOULH2fmAzfzKH/Y
+	PzOKudmTksAK+/w/Hoyy8+GvZVFuFlFH4aI2k+tmAXUQXurMBCxvhb3f3cdZ/2k4dnfGpZMu
+	3gb1TtIte1C7YHpzB49tugN2XxjdaJ0CbxjucNzdINWxCTqamrnsIgzm6bs2WASnegwEy9th
+	X342zgbyAexw2gh2qHVdlrrEYV3BUH3r/kbiEFzVPMTdjSC1GY483soW3QzzjIUYKwugJl3I
+	unfC2vEZPBfs0D53mva507T/ncbK/rD06gLvf/IeqCubxlgOhVeuzOGlgKgBYkapSIhlFK/L
+	mC8DFNIEhVIWGxCdmNAIXJ+mz9mz9BOompoPMAEOCUzA1xW+V187ALxxWaKMkXgKZn2exAgF
+	MdIzZxl54gm5Mp5RmMA2EpeIBXtCe6OFVKz0FPMFwyQx8mdbDunhreL4vagfTj3s8dXPH74k
+	El3AjPvxz0XiziP+ynup2z86sPdhxVB+cuwwv+qHhvUZr1cewNCA40PjKUUyaiCoNk7o/6ft
+	mK26a+e79rzIImfqWVufzePNoC5SXXise8HUI79p50+Ei/hCvY8uLXyL9JNRuTw6q66FGoo4
+	MZ03NbJur8iRRpWr8TObbG2vXh+/jbdi69VJJd8ftfqah6aXmz+wCgJ77RmV72UN+/WMF7/Q
+	IglM0V8UO7wyciQhhwWHdrUlB600hHRd/ex4/xth5xIGCyczvCquRxyMNKyskYHGwJxyZbD6
+	/RafiKh9pGXqUeTbGZLlonPhjt/Tm8JuURNfB0twxUnp/t2YXCH9G3HexbOvBAAA
+X-Brightmail-Tracker: H4sIAAAAAAAAA2WTe0xTVxzHPbe3t4VIdgdlnIACKQwnzkqBwmE8nAljdy449o9ZmMI6enlE
+	aEkf6MwW6gQpz6CAC8URwFCQl1CxAsLsmLoBjocMhoTHNuTRoSAPoYxRVmiWmey/z/n9ft9P
+	fjk5h82wbSMc2QliOS0VCxO5hDXeY/px/PCAakPkVa3CUVOPgUC3N9UsNLXVSaCVRhOBFjU5
+	AI1dmWWhZcNvAM01ZgC0eDEK9avXmGiu4wKO5ktrALra5IC2yyToUXYS0k4NM5GuMg1D7R1d
+	OHqhWmCiwbZrBNKtpBEov/wiA3UWdQC0uW5ior62eiaq/HUAQyP50wDVmroBeqwvw1Cz0rzC
+	xtwIjgyDOQx0Sf0a0tysZ6Fb2iIGShsToE2jWWlsnGIiTeuJdw9Q6+l5OFVXWgeoweEBBlWi
+	HMCpl096MeqZwYBTP6hWWVSFQYlTrepxFlWmVVC3qj2p6+0GjBqdD6a0NZkEtdDby6LyK/Qg
+	wiGSFySVKOS0a7xEJg/mfspH3jx+AOJ5+wbw+D7+p9/xFnCPhASJ6MSEFFp6JOQzXryu7xEz
+	+SrnnKG9nqkEm2QWsGJD0heOqyaZWcCabUtWApi9/gRYGvtg0+oQ08J28O/hLMIytARg4XA2
+	bjk0A5j/+9f4zhROusPnmQW7aYJ8G/Y9G2PsMIfkwuurS6ydAINctYYbxvJdrR0ZDocmtlk7
+	bEP6wxJ9JrBYuzCYV/gAtzReh13FT3eZQabArZxZs5VtZidYZWLvlK3Ig/DS7XuEZVU3+DB3
+	DLfwV3BlawbkAzv1Kyb1Kyb1fyZL2ROOmAzY/8qHoKZ8nmHhYNjQsIiXAVYN4NAKWVJcksyb
+	JxMmyRTiOF6MJEkLzA9X93CjuQXc+HOJ1wkwNugE7ubkH421/cARF0vENJdjs+CyJrK1EQm/
+	OE9LJdFSRSIt6wQC8zVeZjjax0jMv0Asj+b7eQn4vn4BXoIAPx+ug80HySqhLRknlNNnaDqZ
+	lv6bw9hWjkospsytyic1MHColX9OLsk9GWZYH2o5ce3OjUV3kTKl7qfuQ3lu+m+xj6JPT+yP
+	0XTXyY6L1/yj7v11bOWu9fdLR11jjdsZ1cb9Xa7uNg2jrafm9yizNBGJX4ZG9Z8VNPVFckJH
+	HxftqTz/SQ5x+MPvQnPfdz77S2B662zae1WzMudNxZ19Lw8Wh/zc0v28D8y0+By/uYUxRbET
+	vEL3oM9nnNiXB6Ns0XRthJMwnJid7HFePumSpwun72phqvTUXu43JTGUQ29pU+AEx8P1gX2F
+	/v6bZ6bz7Q8cbV4J9/54+Y3i+zq+R2ZC2NMXG6UjF1L1bm/FemSEGQuuTHoei9zr5lKQHsrF
+	ZfFCvidDKhP+AyiHiRBNBAAA
+X-CMS-MailID: 20230907082449eucas1p19f0c5e38ee9aff84758df55c1a8f58a4
 X-Msg-Generator: CA
-X-RootMTR: 20230906144515eucas1p286690ee141d507d7d3a72cd8afa28408
+X-RootMTR: 20230906215901eucas1p27ce4a12bd251bde56d50568ac3ed1cf9
 X-EPHeader: CA
 CMS-TYPE: 201P
-X-CMS-RootMailID: 20230906144515eucas1p286690ee141d507d7d3a72cd8afa28408
+X-CMS-RootMailID: 20230906215901eucas1p27ce4a12bd251bde56d50568ac3ed1cf9
 References: <20230906-jag-sysctl_remove_empty_elem_arch-v1-0-3935d4854248@samsung.com>
 	<20230906-jag-sysctl_remove_empty_elem_arch-v1-3-3935d4854248@samsung.com>
-	<CGME20230906144515eucas1p286690ee141d507d7d3a72cd8afa28408@eucas1p2.samsung.com>
 	<d0d30ad4-7837-b0c4-39f4-3e317e35a41b@intel.com>
+	<CGME20230906215901eucas1p27ce4a12bd251bde56d50568ac3ed1cf9@eucas1p2.samsung.com>
+	<ZPj2F4retSgg3vAj@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230907_003829_467093_4888BAA1 
-X-CRM114-Status: GOOD (  25.18  )
+X-CRM114-CacheID: sfid-20230907_012454_531202_85B99816 
+X-CRM114-Status: GOOD (  24.79  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,88 +159,90 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4622201550002900596=="
+Content-Type: multipart/mixed; boundary="===============7655317419604237722=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============4622201550002900596==
+--===============7655317419604237722==
 Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="vbdr6hobr7rarecx"
+	protocol="application/pgp-signature"; boundary="xetpjh2dyeh26jbv"
 Content-Disposition: inline
 
---vbdr6hobr7rarecx
+--xetpjh2dyeh26jbv
 Content-Type: text/plain; charset="us-ascii"
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Wed, Sep 06, 2023 at 07:45:09AM -0700, Dave Hansen wrote:
-> On 9/6/23 03:03, Joel Granados via B4 Relay wrote:
-> > This commit comes at the tail end of a greater effort to remove the
-> > empty elements at the end of the ctl_table arrays (sentinels) which
-> > will reduce the overall build time size of the kernel and run time
-> > memory bloat by ~64 bytes per sentinel (further information Link :
-> > https://lore.kernel.org/all/ZO5Yx5JFogGi%2FcBo@bombadil.infradead.org/)
+On Wed, Sep 06, 2023 at 11:58:47PM +0200, Ingo Molnar wrote:
+>=20
+> * Dave Hansen <dave.hansen@intel.com> wrote:
+>=20
+> > On 9/6/23 03:03, Joel Granados via B4 Relay wrote:
+> > > This commit comes at the tail end of a greater effort to remove the
+> > > empty elements at the end of the ctl_table arrays (sentinels) which
+> > > will reduce the overall build time size of the kernel and run time
+> > > memory bloat by ~64 bytes per sentinel (further information Link :
+> > > https://lore.kernel.org/all/ZO5Yx5JFogGi%2FcBo@bombadil.infradead.org=
+/)
+> > >=20
+> > > Remove sentinel element from sld_sysctl and itmt_kern_table.
 > >=20
-> > Remove sentinel element from sld_sysctl and itmt_kern_table.
+> > There's a *LOT* of content to read for a reviewer to figure out what's
+> > going on here between all the links.  I would have appreciated one more
+> > sentence here, maybe:
+> >=20
+> > 	This is now safe because the sysctl registration code
+> > 	(register_sysctl()) implicitly uses ARRAY_SIZE() in addition
+> > 	to checking for a sentinel.
+> >=20
+> > That needs to be more prominent _somewhere_.  Maybe here, or maybe in
+> > the cover letter, but _somewhere_.
+> >=20
+> > That said, feel free to add this to the two x86 patches:
+> >=20
+> > Acked-by: Dave Hansen <dave.hansen@linux.intel.com> # for x86
 >=20
-> There's a *LOT* of content to read for a reviewer to figure out what's
-> going on here between all the links.  I would have appreciated one more
-> sentence here, maybe:
+> Absolutely needs to be in the title as well, something like:
 >=20
-> 	This is now safe because the sysctl registration code
-> 	(register_sysctl()) implicitly uses ARRAY_SIZE() in addition
-> 	to checking for a sentinel.
-Thx for the feedback. This is a great sentence to add at the end of the
-first paragraph instead of the link. I'll add it with a few changes as
-there are more than just one register function and the use of ARRAY_SIZE
-is implicit most of the time.
+>    arch/x86: Remove now superfluous sentinel elem from ctl_table arrays
+Done. Will wait to see if other ppl have more comments to send out V2
 
-  This is now safe because the sysctl registration code
-  (register_sysctl() and friends) use the array size in addition to
-  checking for a sentinel.
-
-I have changed my cover letter in case I send a V2 and for the other
-batches that are coming after the architecture one.
-
+Thx.
 >=20
-> That needs to be more prominent _somewhere_.  Maybe here, or maybe in
-> the cover letter, but _somewhere_.
-This is also a good point. I think having it in both the cover letter
-and each of the commits is an added value.
-
+> With that propagated into the whole series:
 >=20
-> That said, feel free to add this to the two x86 patches:
+>    Reviewed-by: Ingo Molnar <mingo@kernel.org>
 >=20
-> Acked-by: Dave Hansen <dave.hansen@linux.intel.com> # for x86
-
-Best
+> Thanks,
+>=20
+> 	Ingo
 
 --=20
 
 Joel Granados
 
---vbdr6hobr7rarecx
+--xetpjh2dyeh26jbv
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iQGzBAABCgAdFiEErkcJVyXmMSXOyyeQupfNUreWQU8FAmT5fecACgkQupfNUreW
-QU9Bhgv8DyTYJvCgE8sg+/Ap/JjJPKvGWZBDXfBIHFzHCpKXizcVg8yYUJfBl62v
-KxZtrKUrKnByfeqeUsYLmdzZVgYNpru/Ds1piqa9nr2dEYtnxCeV2Vl+GduB0J/O
-+XHzHnLZMldSfYdwmJ9hIsT0YoyiPZAQYKTvHfk2XhDx7oXaN83xqZwiQ/4KevGG
-hFHCDjYjn2NaD6+DtaZj7g3l+GUApVap07K6jTaWNLScoQsQ3ew89jYA/qvUuXJ8
-uiCeTLZhu1bCSSr0wAwrb9+PTwhgIABI/dP7UXnXXF/CNfsAacPnLTVYXwSFI18e
-cGsApL10swjpqwPITulSjYS0kVIcX7OYWTknodCBRpIebCshB0JftTXxnrTY007M
-FEKIDMwER++/mXSU3R7Oj18AWp4/IBNYcNIw9ajYmdbK9MdhVyLu2g83dVTDaWFA
-zwKLH+vJXrgAk+uQBlFo8mCvuGPBk9fHv2kmG/kjufz8X560KHQVxkPGPj8V0k9E
-387iV6oU
-=1yPf
+iQGzBAABCgAdFiEErkcJVyXmMSXOyyeQupfNUreWQU8FAmT5iM0ACgkQupfNUreW
+QU8bUwv/fHvrxw5jNdVywGXfBd7e+5oIULa8H+WaPDRFBqcXRCiP5e+Lm2mdytxR
+6Qy5bFl4klUIDRa6aQR6Rz02E0hmsNe+VsgDTRi0PWWF3407VH4E1wjmOj5aT2VG
+PLGzd4HXCHLQbzQeC11Io/4nlEYU75Dd4gnkaRucqUKcXPrOlkb9hy0xySwAw7D8
+5uzagt62DQOKNRhztEgNmWIIqaDojwCT6XT9JLtXXuCMuiTQF7S2nTKPKGzUqWVg
+S8uigDN5928T19ra+u4tLjCEP8/Cdmqp5jSZdV2RDpPp/iANEtWK+S4iSMq+P86D
+kZDrtJfMxSPx9I+TPaNrf0/FJwrU9fvVvuyx/SnF4Hl2K+10RRgMiBQxV9zMStAt
+vyVqngOs646y+02tKZ/Z3xfJeZ5W/DiHoOk1kBI0/EYBXuHbM5W2OUfz4rNWHw/a
+b43A8zoLfRKBzp9mKJixlprQk0sHv9jm8Y7RIbM2R6OkLgUJTDvwGX08WPDBA/ao
+HEVK/mlZ
+=aiqw
 -----END PGP SIGNATURE-----
 
---vbdr6hobr7rarecx--
+--xetpjh2dyeh26jbv--
 
 
---===============4622201550002900596==
+--===============7655317419604237722==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -250,5 +253,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============4622201550002900596==--
+--===============7655317419604237722==--
 
