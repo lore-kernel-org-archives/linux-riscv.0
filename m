@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5F7CEE57C6
-	for <linux-riscv@archiver.kernel.org>; Fri,  8 Sep 2023 05:14:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 736A8EE57C5
+	for <linux-riscv@archiver.kernel.org>; Fri,  8 Sep 2023 05:14:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=faWzNlvDYKNxxX04ocPu8xmaK68gDr+TYqHLQ6EUsUs=; b=txadd9pP4Vl810
-	v0bIKuvEr1HMyIfsOpzfOBqk6e570uDoJnqpwG4tf0xpU/H92jDY4HiXDarc86Ta6jYsLtCUsE1JQ
-	kwmCx6iciQ9t3iL40UKSJBgqxe5dmY4jBAFPbJKJFUdDBmagSO4urzXjBUt4YIXjREhqdIyBOmOU7
-	QxEPK3bHTtlFQVNRf8wr6l8x74bREGZQRM/SbaP9C/e9w9+8kaHO9ovxenaAAHCNLGWQepWLYqRxm
-	Qg5WHLxH7oWXyHY94/n4yRQkgH6fXrKrwI0I/Htlu++B5DIMGR4vNIFl8B1GFQbd/KftfKmD0+B1J
-	DlqwQaq8i4c5E3/UdOLA==;
+	List-Owner; bh=gXEcf0sF3opoxlVsvcv5K/Z8gI8JATtXvxl3jhciS50=; b=OclnHMcGPVtAHM
+	IOF+7Jxe8fHK56Wu0+5XH1vJzL7DkST/g1YXU4F1QZpP/I8Wo5h2inlgOMWVEoQqEGGqP+rJdgu9C
+	60nBB0/AGL8n1Pdm0dP7QSy9CGMAx3TFNnyol/0z8PSJ19maVTJF+COR2xtBZ0VNuJ/tq6ujuOiup
+	xgOYj67BwCtsQJam2+vYHLtYSpG7XBsYgFWg32neeDaaH0e5FlCXOsbDw3hrbzpVm3L9xxZi9mhU/
+	D6FO765ESLHzWt1lhKgdINrUWgwYM13lmtzA+0DndYSvS2N61zSiNaRzGZV4hUiyyNUdEyFCqxVxW
+	weiIJ8bce1Ychi8TMNAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qeTp1-00D55d-2u;
-	Fri, 08 Sep 2023 05:14:23 +0000
-Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
+	id 1qeTp3-00D562-1l;
+	Fri, 08 Sep 2023 05:14:25 +0000
+Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qeToy-00D53O-05
+	id 1qeToz-00D53r-0e
 	for linux-riscv@lists.infradead.org;
 	Fri, 08 Sep 2023 05:14:22 +0000
-Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-1bc8a2f71eeso14593205ad.0
-        for <linux-riscv@lists.infradead.org>; Thu, 07 Sep 2023 22:14:17 -0700 (PDT)
+Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-1c1ff5b741cso15188485ad.2
+        for <linux-riscv@lists.infradead.org>; Thu, 07 Sep 2023 22:14:18 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1694150057; x=1694754857; darn=lists.infradead.org;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1694150058; x=1694754858; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=Pvs8l9RK0fQwoI+7Ki0PLvMGd9Mkcx5Y5fApERW7gwU=;
-        b=ZP6ZkbxIw4JIvRdoN/WygQWSIjc8m4sKtmvclCltvM0qFUfnpoDt8FwcQKyh4z5DMg
-         9xMsbFqqkE8fNAwF6rInhPV38cDnd0IcBVtfZra0XQSaaReURYHFkaBT/FUU4rF1+BLQ
-         Agq1dncuawi1LEKlVaekBpmIZ/dk5OYKWLp7GIvYiCu80znQtavGkFkh6SXMsAxK0bCj
-         kJNiNAu7aMj/Q7sLcX4wFor+w3nTATb5p1dTd3aJGg2ZX8Wxxe1gpiZLyKAupUs4J2G8
-         ArNAJcCq5fdNWHJlKZyqCfwi7wd6kIch48JBnW7JBxDdA0vJk+5OBmDNH3uS9tMGohkc
-         d0tg==
+        bh=tb8pM+MPCYZ04bq/QFSvT9K0qDHTT+G01Hk2Be9XTNw=;
+        b=NriCw5qUyj72XDzVixN20knrv7AdFJUpqn7CEsAikf84ZxxJId+78lmlIHv13jhhB/
+         UqT5imqF8FcqjOD8QmUeO8lXX4BJ1IGA2SjlEyrzwj4EREUtXuYRsaZCrAuL+yfYilvW
+         bEAXubTW2LLxcMhiR9pCgM68ULK3EhigFtCN2MsIEY3DzbG/qMyx3lewfLWamdar2TXx
+         K6OfoC2CdRHGlK4CWVKAZTJCkzwpwZpoZmo7BpDVIxvJqve2kwaFFQFoy9NDc/Z1mmM4
+         oQu2gAvU0XccWCoAxwnBGxB4Dhq4eg1GZYLiDhRe2VC3Qk4x3YKT6gSZx4mMmu2Keetv
+         ZFqw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1694150057; x=1694754857;
+        d=1e100.net; s=20230601; t=1694150058; x=1694754858;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=Pvs8l9RK0fQwoI+7Ki0PLvMGd9Mkcx5Y5fApERW7gwU=;
-        b=Jai5wLkgOuYXZZkw54Mh62t3L7pL2fRCcgNQzH5J9QtAyqSsBToUpsMNj1nMGYOwpF
-         jkMjResc8SUrM5+15thM2t8mKCSlw+9Uh6cs/TGIFRf1LTEXFlsaDEULHeYuMfQtfv4q
-         U4gfivPnZW0mZCRPEmLuF37oyaQil0m5XgUSCF6VznFLJtx2PW51DwmPtMiMjEt4FsWi
-         W8+4bTp/cDd02p1rqmtdNmzc+NvmY//odjh1Nl/KqHnaB5k03enesWtLL6ogFI/0xXyq
-         V9STc1RQkc7n7KDhTqhjGbHFGPRJUxWXXl1bYmz3YQ7TIktgXboBbBjdgxZLeUAJJZMy
-         tM2g==
-X-Gm-Message-State: AOJu0YynnzIGMx5kVFwTKSY3de3bAi0LzKueGdtVUnMTsb4y2wplhiDd
-	WYhYB5nrn9ycjDbKteiVXaoa5A==
-X-Google-Smtp-Source: AGHT+IEryITA+jfdj3i4DnAj5hLTyBY50lsxZEucouJCy7fcMazRmJVQHKVqBg6AUzYAlwJMRidfdw==
-X-Received: by 2002:a17:902:8698:b0:1c3:49cc:4ff3 with SMTP id g24-20020a170902869800b001c349cc4ff3mr1166468plo.35.1694150057023;
-        Thu, 07 Sep 2023 22:14:17 -0700 (PDT)
+        bh=tb8pM+MPCYZ04bq/QFSvT9K0qDHTT+G01Hk2Be9XTNw=;
+        b=edZ4eTnHx9j476Bl7dwFUCRjmuZhrM1PLyaWQw2kYW6dNhicRLMM+/aC5Di2YVbsvV
+         ZWXX7sBmmWsGi2gqNu9WGUz7lt91qAJUim4CVqU+DNI8k/hMfIPI2TtJOUNbf9NgybHh
+         Nuz42yU/cVDHfRjdfJU/la1ABtOl9MeAMgt4PX6ItArSfUF6MoDNsvyGL2Ky0GzaxjQ3
+         0N+if1GZp5CIwot+hIH79tuWLKZvdQbtBpDPVPaJxMxeOcvdOaqUwf1wK10vNESiJFO3
+         RObDU6IPhHolpZSRUIEMdDEtog5HmOX/E3ppMHQXSFHrXbPVCIYVPsd9ltLvNWnNN/rv
+         aLnw==
+X-Gm-Message-State: AOJu0YxJwYgXOLK8lUprvpgXT0h8HrL3TqFqDhunt0FBJyinFpdnMr8O
+	YvFRpw8P7jHZyfr/ty/O1Sdfvw==
+X-Google-Smtp-Source: AGHT+IFBqUUWXwXlL8D68eWvUTcpwF+xAzJRUMAJ/rVJU/Bq3kgu1zeZuihVaei+WLU5e8PNJRGlNw==
+X-Received: by 2002:a17:903:188:b0:1c3:188c:a347 with SMTP id z8-20020a170903018800b001c3188ca347mr1763284plg.54.1694150058335;
+        Thu, 07 Sep 2023 22:14:18 -0700 (PDT)
 Received: from charlie.ba.rivosinc.com ([66.220.2.162])
-        by smtp.gmail.com with ESMTPSA id f5-20020a17090274c500b001a5fccab02dsm616482plt.177.2023.09.07.22.14.15
+        by smtp.gmail.com with ESMTPSA id f5-20020a17090274c500b001a5fccab02dsm616482plt.177.2023.09.07.22.14.17
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 07 Sep 2023 22:14:16 -0700 (PDT)
+        Thu, 07 Sep 2023 22:14:17 -0700 (PDT)
 From: Charlie Jenkins <charlie@rivosinc.com>
-Date: Thu, 07 Sep 2023 22:14:05 -0700
-Subject: [PATCH v3 2/5] riscv: Add checksum library
+Date: Thu, 07 Sep 2023 22:14:06 -0700
+Subject: [PATCH v3 3/5] riscv: Vector checksum header
 MIME-Version: 1.0
-Message-Id: <20230907-optimize_checksum-v3-2-c502d34d9d73@rivosinc.com>
+Message-Id: <20230907-optimize_checksum-v3-3-c502d34d9d73@rivosinc.com>
 References: <20230907-optimize_checksum-v3-0-c502d34d9d73@rivosinc.com>
 In-Reply-To: <20230907-optimize_checksum-v3-0-c502d34d9d73@rivosinc.com>
 To: Charlie Jenkins <charlie@rivosinc.com>, 
@@ -77,8 +77,8 @@ Cc: Paul Walmsley <paul.walmsley@sifive.com>,
  Albert Ou <aou@eecs.berkeley.edu>
 X-Mailer: b4 0.12.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230907_221420_066618_AC4A18AE 
-X-CRM114-Status: GOOD (  24.85  )
+X-CRM114-CacheID: sfid-20230907_221421_239246_04A3394D 
+X-CRM114-Status: GOOD (  11.57  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,276 +95,112 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Provide a 32 and 64 bit version of do_csum. When compiled for 32-bit
-will load from the buffer in groups of 32 bits, and when compiled for
-64-bit will load in groups of 64 bits. Benchmarking by proxy compiling
-csum_ipv6_magic (64-bit version) for an x86 chip as well as running
-the riscv generated code in QEMU, discovered that summing in a
-tree-like structure is about 4% faster than doing 64-bit reads.
+Vector code is written in assembly rather than using the GCC vector
+instrinsics because they did not provide optimal code. Vector
+instrinsic types are still used so the inline assembly can
+appropriately select vector registers. However, this code cannot be
+merged yet because it is currently not possible to use vector
+instrinsics in the kernel because vector support needs to be directly
+enabled by assembly.
 
 Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
 ---
- arch/riscv/include/asm/checksum.h |  11 ++
- arch/riscv/lib/Makefile           |   1 +
- arch/riscv/lib/csum.c             | 209 ++++++++++++++++++++++++++++++++++++++
- 3 files changed, 221 insertions(+)
+ arch/riscv/include/asm/checksum.h | 75 +++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 75 insertions(+)
 
 diff --git a/arch/riscv/include/asm/checksum.h b/arch/riscv/include/asm/checksum.h
-index bddfc571f93f..ced276dcd6be 100644
+index ced276dcd6be..f7b328553a07 100644
 --- a/arch/riscv/include/asm/checksum.h
 +++ b/arch/riscv/include/asm/checksum.h
-@@ -16,6 +16,14 @@ typedef unsigned int csum_t;
- typedef unsigned long csum_t;
- #endif
+@@ -10,6 +10,10 @@
+ #include <linux/in6.h>
+ #include <linux/uaccess.h>
  
-+/* Default version is sufficient for 32 bit */
-+#ifdef CONFIG_64BIT
-+#define _HAVE_ARCH_IPV6_CSUM
-+__sum16 csum_ipv6_magic(const struct in6_addr *saddr,
-+			const struct in6_addr *daddr,
-+			__u32 len, __u8 proto, __wsum sum);
++#ifdef CONFIG_RISCV_ISA_V
++#include <riscv_vector.h>
 +#endif
 +
- /*
-  *	Fold a partial checksum without adding pseudo headers
+ #ifdef CONFIG_32BIT
+ typedef unsigned int csum_t;
+ #else
+@@ -43,6 +47,77 @@ static inline __sum16 csum_fold(__wsum sum)
   */
-@@ -89,6 +97,9 @@ static inline __sum16 ip_fast_csum(const void *iph, unsigned int ihl)
- 
- #define ip_fast_csum ip_fast_csum
- 
-+extern unsigned int do_csum(const unsigned char *buff, int len);
-+#define do_csum do_csum
+ static inline __sum16 ip_fast_csum(const void *iph, unsigned int ihl)
+ {
++#ifdef CONFIG_RISCV_ISA_V
++	if (!has_vector())
++		goto no_vector;
 +
- #include <asm-generic/checksum.h>
- 
- #endif // __ASM_RISCV_CHECKSUM_H
-diff --git a/arch/riscv/lib/Makefile b/arch/riscv/lib/Makefile
-index 26cb2502ecf8..2aa1a4ad361f 100644
---- a/arch/riscv/lib/Makefile
-+++ b/arch/riscv/lib/Makefile
-@@ -6,6 +6,7 @@ lib-y			+= memmove.o
- lib-y			+= strcmp.o
- lib-y			+= strlen.o
- lib-y			+= strncmp.o
-+lib-y			+= csum.o
- lib-$(CONFIG_MMU)	+= uaccess.o
- lib-$(CONFIG_64BIT)	+= tishift.o
- lib-$(CONFIG_RISCV_ISA_ZICBOZ)	+= clear_page.o
-diff --git a/arch/riscv/lib/csum.c b/arch/riscv/lib/csum.c
-new file mode 100644
-index 000000000000..1402da888bb4
---- /dev/null
-+++ b/arch/riscv/lib/csum.c
-@@ -0,0 +1,209 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * IP checksum library
-+ *
-+ * Influenced by arch/arm64/lib/csum.c
-+ * Copyright (C) 2023 Rivos Inc.
-+ */
-+#include <linux/bitops.h>
-+#include <linux/compiler.h>
-+#include <linux/kasan-checks.h>
-+#include <linux/kernel.h>
-+
-+#include <net/checksum.h>
-+
-+/* Default version is sufficient for 32 bit */
-+#ifndef CONFIG_32BIT
-+__sum16 csum_ipv6_magic(const struct in6_addr *saddr,
-+			const struct in6_addr *daddr,
-+			__u32 len, __u8 proto, __wsum csum)
-+{
-+	/*
-+	 * Inform the compiler/processor that the operation we are performing is
-+	 * "Commutative and Associative" by summing parts of the checksum in a
-+	 * tree-like structure (Section 2(A) of "Computing the Internet
-+	 * Checksum"). Furthermore, defer the overflow until the end of the
-+	 * computation which is shown to be valid in Section 2(C)(1) of the
-+	 * same handbook.
-+	 */
-+	unsigned long sum, sum1, sum2, sum3, sum4, ulen, uproto;
-+
-+	uproto = htonl(proto);
-+	ulen = htonl(len);
-+
-+	sum   = saddr->s6_addr32[0];
-+	sum  += saddr->s6_addr32[1];
-+	sum1  = saddr->s6_addr32[2];
-+	sum1 += saddr->s6_addr32[3];
-+
-+	sum2  = daddr->s6_addr32[0];
-+	sum2 += daddr->s6_addr32[1];
-+	sum3  = daddr->s6_addr32[2];
-+	sum3 += daddr->s6_addr32[3];
-+
-+	sum4  = csum;
-+	sum4 += ulen;
-+	sum4 += uproto;
-+
-+	sum  += sum1;
-+	sum2 += sum3;
-+
-+	sum += sum2;
-+	sum += sum4;
-+
-+	if (IS_ENABLED(CONFIG_RISCV_ISA_ZBB) &&
-+	    IS_ENABLED(CONFIG_RISCV_ALTERNATIVE)) {
-+		csum_t fold_temp;
-+
-+		/*
-+		 * Zbb is likely available when the kernel is compiled with Zbb
-+		 * support, so nop when Zbb is available and jump when Zbb is
-+		 * not available.
-+		 */
-+		asm_volatile_goto(ALTERNATIVE("j %l[no_zbb]", "nop", 0,
-+					      RISCV_ISA_EXT_ZBB, 1)
-+				  :
-+				  :
-+				  :
-+				  : no_zbb);
-+		asm(".option push					\n\
-+		.option arch,+zbb					\n\
-+			rori	%[fold_temp], %[sum], 32		\n\
-+			add	%[sum], %[fold_temp], %[sum]		\n\
-+			srli	%[sum], %[sum], 32			\n\
-+			roriw	%[fold_temp], %[sum], 16		\n\
-+			addw	%[sum], %[fold_temp], %[sum]		\n\
-+		.option pop"
-+		: [sum] "+r" (sum), [fold_temp] "=&r" (fold_temp));
-+		return (__force __sum16)~(sum >> 16);
-+	}
-+no_zbb:
-+	sum += (sum >> 32) | (sum << 32);
-+	sum >>= 32;
-+	return csum_fold((__force __wsum)sum);
-+}
-+EXPORT_SYMBOL(csum_ipv6_magic);
-+#endif // !CONFIG_32BIT
-+
-+#ifdef CONFIG_32BIT
-+#define OFFSET_MASK 3
-+#elif CONFIG_64BIT
-+#define OFFSET_MASK 7
-+#endif
-+
-+/*
-+ * Perform a checksum on an arbitrary memory address.
-+ * Algorithm accounts for buff being misaligned.
-+ * If buff is not aligned, will over-read bytes but not use the bytes that it
-+ * shouldn't. The same thing will occur on the tail-end of the read.
-+ */
-+unsigned int __no_sanitize_address do_csum(const unsigned char *buff, int len)
-+{
-+	unsigned int offset, shift;
-+	csum_t csum, data;
-+	const csum_t *ptr;
-+
-+	if (unlikely(len <= 0))
-+		return 0;
-+	/*
-+	 * To align the address, grab the whole first byte in buff.
-+	 * Since it is inside of a same byte, it will never cross pages or cache
-+	 * lines.
-+	 * Directly call KASAN with the alignment we will be using.
-+	 */
-+	offset = (csum_t)buff & OFFSET_MASK;
-+	kasan_check_read(buff, len);
-+	ptr = (const csum_t *)(buff - offset);
-+	len = len + offset - sizeof(csum_t);
-+
-+	/*
-+	 * Clear the most signifant bits that were over-read if buff was not
-+	 * aligned.
-+	 */
-+	shift = offset * 8;
-+	data = *ptr;
-+#ifdef __LITTLE_ENDIAN
-+	data = (data >> shift) << shift;
-+#else
-+	data = (data << shift) >> shift;
-+#endif
-+	/*
-+	 * Do 32-bit reads on RV32 and 64-bit reads otherwise. This should be
-+	 * faster than doing 32-bit reads on architectures that support larger
-+	 * reads.
-+	 */
-+	while (len > 0) {
-+		csum += data;
-+		csum += csum < data;
-+		len -= sizeof(csum_t);
-+		ptr += 1;
-+		data = *ptr;
-+	}
-+
-+	/*
-+	 * Perform alignment (and over-read) bytes on the tail if any bytes
-+	 * leftover.
-+	 */
-+	shift = len * -8;
-+#ifdef __LITTLE_ENDIAN
-+	data = (data << shift) >> shift;
-+#else
-+	data = (data >> shift) << shift;
-+#endif
-+	csum += data;
-+	csum += csum < data;
-+
-+	if (!riscv_has_extension_likely(RISCV_ISA_EXT_ZBB))
-+		goto no_zbb;
-+
-+	unsigned int fold_temp;
++	vuint64m1_t prev_buffer;
++	vuint32m1_t curr_buffer;
++	unsigned int vl;
 +
 +	if (IS_ENABLED(CONFIG_32BIT)) {
-+		asm_volatile_goto(".option push			\n\
-+		.option arch,+zbb				\n\
-+			rori	%[fold_temp], %[csum], 16	\n\
-+			andi	%[offset], %[offset], 1		\n\
-+			add	%[csum], %[fold_temp], %[csum]	\n\
-+			beq	%[offset], zero, %l[end]	\n\
-+			rev8	%[csum], %[csum]		\n\
-+			zext.h	%[csum], %[csum]		\n\
-+		.option pop"
-+			: [csum] "+r" (csum), [fold_temp] "=&r" (fold_temp)
-+			: [offset] "r" (offset)
-+			:
-+			: end);
++		csum_t high_result, low_result;
 +
-+		return csum;
++		kernel_vector_begin();
++		asm(".option push						\n\
++		.option arch, +v						\n\
++		vsetivli	x0, 1, e64, ta, ma				\n\
++		vmv.v.i		%[prev_buffer], 0				\n\
++		1:								\n\
++		vsetvli		%[vl], %[ihl], e32, m1, ta, ma			\n\
++		vle32.v		%[curr_buffer], (%[iph])			\n\
++		vwredsumu.vs	%[prev_buffer], %[curr_buffer], %[prev_buffer]	\n\
++		sub %[ihl],	%[ihl], %[vl]					\n\
++		slli %[vl],	%[vl], 2					\n\
++		add %[iph],	%[vl], %[iph]					\n\
++		# If not all of iph could fit into vector reg, do another sum	\n\
++		bne		%[ihl], zero, 1b				\n\
++		vsetivli	x0, 1, e64, m1, ta, ma				\n\
++		vmv.x.s		%[low_result], %[prev_buffer]			\n\
++		addi		%[vl], x0, 32					\n\
++		vsrl.vx		%[prev_buffer], %[prev_buffer], %[vl]		\n\
++		vmv.x.s		%[high_result], %[prev_buffer]			\n\
++		.option pop"
++		: [vl] "=&r" (vl), [prev_buffer] "=&vd" (prev_buffer),
++			[curr_buffer] "=&vd" (curr_buffer),
++			[high_result] "=&r" (high_result),
++			[low_result] "=&r" (low_result)
++		: [iph] "r" (iph), [ihl] "r" (ihl));
++		kernel_vector_end();
++
++		high_result += low_result;
++		high_result += high_result < low_result;
 +	} else {
-+		asm_volatile_goto(".option push			\n\
-+		.option arch,+zbb				\n\
-+			rori	%[fold_temp], %[csum], 32	\n\
-+			add	%[csum], %[fold_temp], %[csum]	\n\
-+			srli	%[csum], %[csum], 32		\n\
-+			roriw	%[fold_temp], %[csum], 16	\n\
-+			addw	%[csum], %[fold_temp], %[csum]	\n\
-+			andi	%[offset], %[offset], 1		\n\
-+			beq	%[offset], zero, %l[end]	\n\
-+			rev8	%[csum], %[csum]		\n\
-+			srli	%[csum], %[csum], 32		\n\
-+			zext.h	%[csum], %[csum]		\n\
-+		.option pop"
-+			: [csum] "+r" (csum), [fold_temp] "=&r" (fold_temp)
-+			: [offset] "r" (offset)
-+			:
-+			: end);
++		csum_t result;
 +
-+		return csum;
++		kernel_vector_begin();
++		asm(".option push						\n\
++		.option arch, +v						\n\
++		vsetivli	x0, 1, e64, ta, ma				\n\
++		vmv.v.i		%[prev_buffer], 0				\n\
++		1:								\n\
++		# Setup 32-bit sum of iph					\n\
++		vsetvli		%[vl], %[ihl], e32, m1, ta, ma			\n\
++		vle32.v		%[curr_buffer], (%[iph])			\n\
++		# Sum each 32-bit segment of iph that can fit into a vector reg	\n\
++		vwredsumu.vs	%[prev_buffer], %[curr_buffer], %[prev_buffer]	\n\
++		subw %[ihl],	%[ihl], %[vl]					\n\
++		slli %[vl],	%[vl], 2					\n\
++		addw %[iph],	%[vl], %[iph]					\n\
++		# If not all of iph could fit into vector reg, do another sum	\n\
++		bne		%[ihl], zero, 1b				\n\
++		vsetvli	x0, x0, e64, m1, ta, ma					\n\
++		vmv.x.s	%[result], %[prev_buffer]				\n\
++		.option pop"
++		: [vl] "=&r" (vl), [prev_buffer] "=&vd" (prev_buffer),
++			[curr_buffer] "=&vd" (curr_buffer),
++			[result] "=&r" (result)
++		: [iph] "r" (iph), [ihl] "r" (ihl));
++		kernel_vector_end();
 +	}
-+end:
-+		return csum >> 16;
-+no_zbb:
-+#ifndef CONFIG_32BIT
-+		csum += (csum >> 32) | (csum << 32);
-+		csum >>= 32;
-+#endif
-+	csum = (unsigned int)csum + (((unsigned int)csum >> 16) | ((unsigned int)csum << 16));
-+	if (offset & 1)
-+		return (unsigned short)swab32(csum);
-+	return csum >> 16;
-+}
++no_vector:
++#endif // !CONFIG_RISCV_ISA_V
++
+ 	csum_t csum = 0;
+ 	int pos = 0;
+ 
 
 -- 
 2.42.0
