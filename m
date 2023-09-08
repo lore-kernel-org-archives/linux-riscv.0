@@ -4,81 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D648EE57C0
-	for <linux-riscv@archiver.kernel.org>; Fri,  8 Sep 2023 05:14:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5223EE57E0
+	for <linux-riscv@archiver.kernel.org>; Fri,  8 Sep 2023 07:42:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hA5yh9hfPoK9chkIGpsCq28nIZlMIO8fZmiA+yGAs8U=; b=z8J5Upce4Lvrn1
-	5OjjrjYKTbojAQGnGVCFvkNmEgp7WuegHS04LLC1yiJHIofWJJoIx9NVVQptgyyW+oYg9dtzuNulW
-	NpfLMekSRzDNJGf7l9mt3diPuquPvsaA06Ie8D2gS3pVl1IbwYd5KZBz09ygntLcvQdSOgrClya2C
-	pi+JuZUskZCJpDKuaDTIYIjgje1Z8NXVt6ESpk0SovCLszQG1WF5RVcz8lKNayciW67dcS/RQF1gA
-	fKlraPK+Wd5BSlgSifu9hbSkDHftHAKNgESazLwPCtCj5Y5ZMANvpOXUB+REJAn3CpZLhh4T7VaXY
-	mDRw0s8Ued3+EYfq47ng==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=rqZCvfMa49Eaaq8SFuzAKzKZ3nTA6yPmT+v+tCWskc0=; b=WEPp4j0TygOZ4c
+	IFF3xGEC6qpT3G2HZtjfdz4QvgLb5HPyv/i7Ulrt1AlUSb9htZ+Y+1Bb8WqQ+eIVIdrnwoDDP6woS
+	Xe2I7zAcPiwxCUC7Lb0z8qhO3CT7ZGTwyon1w4mJpqgO4Xe092s3e1Y5Cd+t07cjOIHUmxhrpxApr
+	H8uhs3hO9VJ29USDxo258NQt1B/F1gJqj10rCuB97EWTDjVvpD2hE273W3XlYwvlJ16POzAe1xclq
+	jPGewoxeOQUn7YSsFu/f5xisYB7DOL0TzCwvrIDu930qUPcGeT/KZXrh1GRUmXYrg1sH+8NuZMGnA
+	kScjJA5cbbwleocqeq1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qeTp1-00D552-18;
-	Fri, 08 Sep 2023 05:14:23 +0000
-Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
+	id 1qeW8Q-00DG3B-2g;
+	Fri, 08 Sep 2023 07:42:34 +0000
+Received: from smtp-out1.suse.de ([195.135.220.28])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qeTow-00D53N-1b
-	for linux-riscv@lists.infradead.org;
-	Fri, 08 Sep 2023 05:14:21 +0000
-Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-1c0db66af1bso12395475ad.2
-        for <linux-riscv@lists.infradead.org>; Thu, 07 Sep 2023 22:14:16 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1694150055; x=1694754855; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=fe+25j0FlfcBEBJLM6tn940z0gL7txI9g8Ukkd+3JzY=;
-        b=SYA+thn+4nSm0aejuyoUMcXpIamPmGVmUd2keXJGhAkj+bQdSepUVG+xPqphttMYUR
-         QKnK1SFOF6+0YXmVxMozGN3UMbhQe1ai8qSC/OtjP2jotlmDcqza3E97i8N7mOQHJ4KR
-         NDDL87Eh1TFNI3qX45ZRZcrrx9AeZD3u3+doSKVgm2syYkzeuZ5xhDNbp8HfrytDqrpp
-         CJpN843BHB/gpFiNIFy8qxR+YFGahfdshI4KV3fvK33/Q1LCEhh58xkxuA8wBykjT4Yt
-         a/yN/Yk8Ou2sYB93/q2A/E5N47s2NwCd3wBFFncXKnnok8qwmHVTQYG0stSE8fxJkjsr
-         RpOg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1694150055; x=1694754855;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=fe+25j0FlfcBEBJLM6tn940z0gL7txI9g8Ukkd+3JzY=;
-        b=IeL17Kq9kdGC9scAbsLnTxdcHvnTIpPhTy97MCgk8AKsekl8K5TfEu0UbvxXVbSV4z
-         1t/dHZzCfvkheN7XB+CqYu26OlIHKr0HpFYhvVH1BspF8AvWqJ+x08ILy4RXMvILDAI/
-         D1mcPf9AJsLV/GKYzWgCkNZYVtsxNcso/rpw0PSE3ES0kZMH2R00SO2zl5GFEdVmvTq4
-         Gs1SZF7zAyBuI/yYWbOlUFi9va+MrdyiripWSNRHYgEcwIetBe96UbvvFmBq+7MQ8iIO
-         tMfV2p+Tl5/RymQIykk5yqMFF6Y0vQgvQLYTT/KRubUa3jzFvVBc+m2+POUdnMM5RwPg
-         xw8Q==
-X-Gm-Message-State: AOJu0Yy8MHJitoTsoc6LVSZKtS5hLxyKiIZOLNMSb/YIRNrzOf3yn7OO
-	fHMg8PNDmPu931XNWX7azq3YEw==
-X-Google-Smtp-Source: AGHT+IFWbgY1Hxyt2+Y2+Zlz+3d2qFtQqnOR1On5xLS0tR1B5QSJEZ1a87MvoIQu6JS8NbWMhhA1DQ==
-X-Received: by 2002:a17:903:124c:b0:1bf:66c3:d4d4 with SMTP id u12-20020a170903124c00b001bf66c3d4d4mr1894945plh.16.1694150055603;
-        Thu, 07 Sep 2023 22:14:15 -0700 (PDT)
-Received: from charlie.ba.rivosinc.com ([66.220.2.162])
-        by smtp.gmail.com with ESMTPSA id f5-20020a17090274c500b001a5fccab02dsm616482plt.177.2023.09.07.22.14.14
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 07 Sep 2023 22:14:15 -0700 (PDT)
-From: Charlie Jenkins <charlie@rivosinc.com>
-Date: Thu, 07 Sep 2023 22:14:04 -0700
-Subject: [PATCH v3 1/5] riscv: Checksum header
+	id 1qeW8M-00DG1Z-1s;
+	Fri, 08 Sep 2023 07:42:32 +0000
+Received: from imap2.suse-dmz.suse.de (imap2.suse-dmz.suse.de [192.168.254.74])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (P-521) server-digest SHA512)
+	(No client certificate requested)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id 2588421832;
+	Fri,  8 Sep 2023 07:42:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
+	t=1694158947; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:  content-transfer-encoding:content-transfer-encoding;
+	bh=NHJKcpKlZ/+yii6ZB0cLfqW7JVxO+ELAe/deKUrmJ80=;
+	b=0Tr1RiLsGK9TKLdxwSc9RwxLIVKmEae8PGUWUTGhYIhqkvcnxmKXE3HYt5+5SqUjjUpxEZ
+	DCTZmPbwNt5ToqgWZJ00UT0I0Plhw1i14U2HJUY0Px379BJbaU56+RSKEu8z+V/xOMo2xd
+	woPLeoFeQ7kp5dfAXicDw3PDice1ftM=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
+	s=susede2_ed25519; t=1694158947;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:  content-transfer-encoding:content-transfer-encoding;
+	bh=NHJKcpKlZ/+yii6ZB0cLfqW7JVxO+ELAe/deKUrmJ80=;
+	b=r9UDzDCi5/bP4K3dBarcJVpQtk/FZHh8rlyYCrXu3EqfT7loeAs6cgqxhTivXkBssY2kKX
+	lV8TgWuOzutVQyDw==
+Received: from imap2.suse-dmz.suse.de (imap2.suse-dmz.suse.de [192.168.254.74])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (P-521) server-digest SHA512)
+	(No client certificate requested)
+	by imap2.suse-dmz.suse.de (Postfix) with ESMTPS id 96D2A132F2;
+	Fri,  8 Sep 2023 07:42:26 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([192.168.254.65])
+	by imap2.suse-dmz.suse.de with ESMTPSA
+	id WIYoJGLQ+mTfFQAAMHmgww
+	(envelope-from <vbabka@suse.cz>); Fri, 08 Sep 2023 07:42:26 +0000
+From: Vlastimil Babka <vbabka@suse.cz>
+To: seanjc@google.com
+Cc: ackerleytng@google.com,
+	akpm@linux-foundation.org,
+	anup@brainfault.org,
+	aou@eecs.berkeley.edu,
+	chao.p.peng@linux.intel.com,
+	chenhuacai@kernel.org,
+	david@redhat.com,
+	isaku.yamahata@gmail.com,
+	jarkko@kernel.org,
+	jmorris@namei.org,
+	kirill.shutemov@linux.intel.com,
+	kvm-riscv@lists.infradead.org,
+	kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	liam.merwick@oracle.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-fsdevel@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-mips@vger.kernel.org,
+	linux-mm@kvack.org,
+	linux-riscv@lists.infradead.org,
+	linux-security-module@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	mail@maciej.szmigiero.name,
+	maz@kernel.org,
+	michael.roth@amd.com,
+	mpe@ellerman.id.au,
+	oliver.upton@linux.dev,
+	palmer@dabbelt.com,
+	paul.walmsley@sifive.com,
+	paul@paul-moore.com,
+	pbonzini@redhat.com,
+	qperret@google.com,
+	serge@hallyn.com,
+	tabba@google.com,
+	vannapurve@google.com,
+	vbabka@suse.cz,
+	wei.w.wang@intel.com,
+	willy@infradead.org,
+	yu.c.zhang@linux.intel.com
+Subject: [PATCH gmem FIXUP v2] mm, compaction: make testing mapping_unmovable() safe
+Date: Fri,  8 Sep 2023 09:42:23 +0200
+Message-ID: <20230908074222.28723-2-vbabka@suse.cz>
+X-Mailer: git-send-email 2.42.0
 MIME-Version: 1.0
-Message-Id: <20230907-optimize_checksum-v3-1-c502d34d9d73@rivosinc.com>
-References: <20230907-optimize_checksum-v3-0-c502d34d9d73@rivosinc.com>
-In-Reply-To: <20230907-optimize_checksum-v3-0-c502d34d9d73@rivosinc.com>
-To: Charlie Jenkins <charlie@rivosinc.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Conor Dooley <conor@kernel.org>, 
- Samuel Holland <samuel.holland@sifive.com>, linux-riscv@lists.infradead.org, 
- linux-kernel@vger.kernel.org
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, 
- Albert Ou <aou@eecs.berkeley.edu>
-X-Mailer: b4 0.12.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230907_221418_533064_03BD7F1A 
-X-CRM114-Status: GOOD (  15.26  )
+X-CRM114-CacheID: sfid-20230908_004230_782164_5320C275 
+X-CRM114-Status: GOOD (  18.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,116 +122,145 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Provide checksum algorithms that have been designed to leverage riscv
-instructions such as rotate. In 64-bit, can take advantage of the larger
-register to avoid some overflow checking.
+As Kirill pointed out, mapping can be removed under us due to
+truncation. Test it under folio lock as already done for the async
+compaction / dirty folio case. To prevent locking every folio with
+mapping to do the test, do it only for unevictable folios, as we can
+expect the unmovable mapping folios are also unevictable. To enforce
+that expecation, make mapping_set_unmovable() also set AS_UNEVICTABLE.
 
-Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
+Also incorporate comment update suggested by Matthew.
+
+Fixes: 3424873596ce ("mm: Add AS_UNMOVABLE to mark mapping as completely unmovable")
+Signed-off-by: Vlastimil Babka <vbabka@suse.cz>
 ---
- arch/riscv/include/asm/checksum.h | 94 +++++++++++++++++++++++++++++++++++++++
- 1 file changed, 94 insertions(+)
+v2: mapping_set_unmovable() sets also AS_UNEVICTABLE, as Sean suggested.
 
-diff --git a/arch/riscv/include/asm/checksum.h b/arch/riscv/include/asm/checksum.h
-new file mode 100644
-index 000000000000..bddfc571f93f
---- /dev/null
-+++ b/arch/riscv/include/asm/checksum.h
-@@ -0,0 +1,94 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+/*
-+ * IP checksum routines
-+ *
-+ * Copyright (C) 2023 Rivos Inc.
-+ */
-+#ifndef __ASM_RISCV_CHECKSUM_H
-+#define __ASM_RISCV_CHECKSUM_H
-+
-+#include <linux/in6.h>
-+#include <linux/uaccess.h>
-+
-+#ifdef CONFIG_32BIT
-+typedef unsigned int csum_t;
-+#else
-+typedef unsigned long csum_t;
-+#endif
-+
-+/*
-+ *	Fold a partial checksum without adding pseudo headers
-+ */
-+static inline __sum16 csum_fold(__wsum sum)
-+{
-+	sum += (sum >> 16) | (sum << 16);
-+	return (__force __sum16)(~(sum >> 16));
-+}
-+
-+#define csum_fold csum_fold
-+
-+/*
-+ * Quickly compute an IP checksum with the assumption that IPv4 headers will
-+ * always be in multiples of 32-bits, and have an ihl of at least 5.
-+ * @ihl is the number of 32 bit segments and must be greater than or equal to 5.
-+ * @iph is assumed to be word aligned.
-+ */
-+static inline __sum16 ip_fast_csum(const void *iph, unsigned int ihl)
-+{
-+	csum_t csum = 0;
-+	int pos = 0;
-+
-+	do {
-+		csum += ((const unsigned int *)iph)[pos];
-+		if (IS_ENABLED(CONFIG_32BIT))
-+			csum += csum < ((const unsigned int *)iph)[pos];
-+	} while (++pos < ihl);
-+
+ include/linux/pagemap.h |  6 +++++
+ mm/compaction.c         | 49 +++++++++++++++++++++++++++--------------
+ virt/kvm/guest_mem.c    |  2 +-
+ 3 files changed, 39 insertions(+), 18 deletions(-)
+
+diff --git a/include/linux/pagemap.h b/include/linux/pagemap.h
+index 931d2f1da7d5..4070c59e6f25 100644
+--- a/include/linux/pagemap.h
++++ b/include/linux/pagemap.h
+@@ -276,6 +276,12 @@ static inline int mapping_use_writeback_tags(struct address_space *mapping)
+ 
+ static inline void mapping_set_unmovable(struct address_space *mapping)
+ {
 +	/*
-+	 * ZBB only saves three instructions on 32-bit and five on 64-bit so not
-+	 * worth checking if supported without Alternatives.
++	 * It's expected unmovable mappings are also unevictable. Compaction
++	 * migrate scanner (isolate_migratepages_block()) relies on this to
++	 * reduce page locking.
 +	 */
-+	if (IS_ENABLED(CONFIG_RISCV_ISA_ZBB) &&
-+	    IS_ENABLED(CONFIG_RISCV_ALTERNATIVE)) {
-+		csum_t fold_temp;
++	set_bit(AS_UNEVICTABLE, &mapping->flags);
+ 	set_bit(AS_UNMOVABLE, &mapping->flags);
+ }
+ 
+diff --git a/mm/compaction.c b/mm/compaction.c
+index a3d2b132df52..e0e439b105b5 100644
+--- a/mm/compaction.c
++++ b/mm/compaction.c
+@@ -862,6 +862,7 @@ isolate_migratepages_block(struct compact_control *cc, unsigned long low_pfn,
+ 
+ 	/* Time to isolate some pages for migration */
+ 	for (; low_pfn < end_pfn; low_pfn++) {
++		bool is_dirty, is_unevictable;
+ 
+ 		if (skip_on_failure && low_pfn >= next_skip_pfn) {
+ 			/*
+@@ -1047,10 +1048,6 @@ isolate_migratepages_block(struct compact_control *cc, unsigned long low_pfn,
+ 		if (!mapping && (folio_ref_count(folio) - 1) > folio_mapcount(folio))
+ 			goto isolate_fail_put;
+ 
+-		/* The mapping truly isn't movable. */
+-		if (mapping && mapping_unmovable(mapping))
+-			goto isolate_fail_put;
+-
+ 		/*
+ 		 * Only allow to migrate anonymous pages in GFP_NOFS context
+ 		 * because those do not depend on fs locks.
+@@ -1062,8 +1059,10 @@ isolate_migratepages_block(struct compact_control *cc, unsigned long low_pfn,
+ 		if (!folio_test_lru(folio))
+ 			goto isolate_fail_put;
+ 
++		is_unevictable = folio_test_unevictable(folio);
 +
-+		asm_volatile_goto(ALTERNATIVE("j %l[no_zbb]", "nop", 0,
-+					      RISCV_ISA_EXT_ZBB, 1)
-+		    :
-+		    :
-+		    :
-+		    : no_zbb);
+ 		/* Compaction might skip unevictable pages but CMA takes them */
+-		if (!(mode & ISOLATE_UNEVICTABLE) && folio_test_unevictable(folio))
++		if (!(mode & ISOLATE_UNEVICTABLE) && is_unevictable)
+ 			goto isolate_fail_put;
+ 
+ 		/*
+@@ -1075,26 +1074,42 @@ isolate_migratepages_block(struct compact_control *cc, unsigned long low_pfn,
+ 		if ((mode & ISOLATE_ASYNC_MIGRATE) && folio_test_writeback(folio))
+ 			goto isolate_fail_put;
+ 
+-		if ((mode & ISOLATE_ASYNC_MIGRATE) && folio_test_dirty(folio)) {
+-			bool migrate_dirty;
++		is_dirty = folio_test_dirty(folio);
 +
-+		if (IS_ENABLED(CONFIG_32BIT)) {
-+			asm(".option push				\n\
-+			.option arch,+zbb				\n\
-+				rori	%[fold_temp],%[csum],16		\n\
-+				add	%[csum],%[fold_temp],%[csum]	\n\
-+			.option pop"
-+			: [csum] "+r" (csum), [fold_temp] "=&r" (fold_temp));
-+		} else {
-+			asm(".option push				\n\
-+			.option arch,+zbb				\n\
-+				rori	%[fold_temp], %[csum], 32	\n\
-+				add	%[csum], %[fold_temp], %[csum]	\n\
-+				srli	%[csum], %[csum], 32		\n\
-+				roriw	%[fold_temp], %[csum], 16	\n\
-+				addw	%[csum], %[fold_temp], %[csum]	\n\
-+			.option pop"
-+			: [csum] "+r" (csum), [fold_temp] "=&r" (fold_temp));
-+		}
-+		return ~(csum >> 16);
-+	}
-+no_zbb:
-+#ifndef CONFIG_32BIT
-+		csum += (csum >> 32) | (csum << 32);
-+		csum >>= 32;
-+#endif
-+	return csum_fold((__force __wsum)csum);
-+}
-+
-+#define ip_fast_csum ip_fast_csum
-+
-+#include <asm-generic/checksum.h>
-+
-+#endif // __ASM_RISCV_CHECKSUM_H
-
++		if (((mode & ISOLATE_ASYNC_MIGRATE) && is_dirty)
++		    || (mapping && is_unevictable)) {
++			bool migrate_dirty = true;
++			bool is_unmovable;
+ 
+ 			/*
+-			 * Only pages without mappings or that have a
+-			 * ->migrate_folio callback are possible to migrate
+-			 * without blocking. However, we can be racing with
+-			 * truncation so it's necessary to lock the page
+-			 * to stabilise the mapping as truncation holds
+-			 * the page lock until after the page is removed
+-			 * from the page cache.
++			 * Only folios without mappings or that have
++			 * a ->migrate_folio callback are possible to migrate
++			 * without blocking.
++			 *
++			 * Folios from unmovable mappings are not migratable.
++			 *
++			 * However, we can be racing with truncation, which can
++			 * free the mapping that we need to check. Truncation
++			 * holds the folio lock until after the folio is removed
++			 * from the page so holding it ourselves is sufficient.
++			 *
++			 * To avoid this folio locking to inspect every folio
++			 * with mapping for being unmovable, we assume every
++			 * such folio is also unevictable, which is a cheaper
++			 * test. If our assumption goes wrong, it's not a bug,
++			 * just potentially wasted cycles.
+ 			 */
+ 			if (!folio_trylock(folio))
+ 				goto isolate_fail_put;
+ 
+ 			mapping = folio_mapping(folio);
+-			migrate_dirty = !mapping ||
+-					mapping->a_ops->migrate_folio;
++			if ((mode & ISOLATE_ASYNC_MIGRATE) && is_dirty) {
++				migrate_dirty = !mapping ||
++						mapping->a_ops->migrate_folio;
++			}
++			is_unmovable = mapping && mapping_unmovable(mapping);
+ 			folio_unlock(folio);
+-			if (!migrate_dirty)
++			if (!migrate_dirty || is_unmovable)
+ 				goto isolate_fail_put;
+ 		}
+ 
+diff --git a/virt/kvm/guest_mem.c b/virt/kvm/guest_mem.c
+index c81d2bb9ae93..85903c32163f 100644
+--- a/virt/kvm/guest_mem.c
++++ b/virt/kvm/guest_mem.c
+@@ -390,7 +390,7 @@ static int __kvm_gmem_create(struct kvm *kvm, loff_t size, u64 flags,
+ 	inode->i_size = size;
+ 	mapping_set_gfp_mask(inode->i_mapping, GFP_HIGHUSER);
+ 	mapping_set_large_folios(inode->i_mapping);
+-	mapping_set_unevictable(inode->i_mapping);
++	/* this also sets the mapping as unevictable */
+ 	mapping_set_unmovable(inode->i_mapping);
+ 
+ 	fd = get_unused_fd_flags(0);
 -- 
 2.42.0
 
