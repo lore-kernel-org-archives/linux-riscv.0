@@ -4,95 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5079EE7FF2
-	for <linux-riscv@archiver.kernel.org>; Fri,  8 Sep 2023 13:33:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5514EE8011
+	for <linux-riscv@archiver.kernel.org>; Fri,  8 Sep 2023 14:50:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=as0OE7S5xu7CiKmvNPlIExWtgYIe1wup0qxdEwX+49A=; b=bmDJhAc0avrPJn
-	nkKOVNFP8CZY9RBRsN0vGo0AL+9Dqmik9mmNQlpZbTgdx2f3W/i7psnTGnAZfrcj9ZQ8aX5I0ArnA
-	sYSRJ0UHORTQf7BpdVoK3d8SSXdnaPNnY1P8OTwYw8fNj9B0GfoZgrV+IzD+9haIMIIcP2UURP4t6
-	O9weMx92t92vipMQ1Mjgw45OU9sBDZsiriGTV+O/KV63DZX4ORtXxb0zND05X3yzTcVDV/G5qAHZb
-	GuUAvJD9tc+xTgHgBWbQLAGVU3NFfTRgLEhrJeTx2O+CskNjVLl9K8SD9yHCXAbRHUaQNIw6ectG8
-	Yc0gCU3TNzpoCf+pd4kA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OSJonuzNp6PXwQKo5qqpvtzhsGTS+G02GjqWoV+rN88=; b=LG4OAyudBLQX0vcxEZuy4og7zM
+	BRxHjrD/eqvAIMdJwKPOZw4RrRuIrQCRkYxVu3Mlm7IjU0FBQ6DMzZ30zCOUrlBz7hFrFr1ob1tQF
+	tyzFK7UGaCRGv+/aPO7UDmHX7ouh8J/+h90+ygubLRqv+9Erc+y+2menvE5cnP4iO95Th7Sw9YwX0
+	KvtVtlb6jFFHYtnmRau94aV7bBwxytd/oXhRLAhZbuo4BQPIqXQuu23F5qVFBXFAh8RCXNGHGjg/n
+	VMW5NMgo07gl3rRwLpqGXh8ZTh3KKs+50XLdM4hzmf4UUam9c41sdIVbbdQwyV23H7TfvrWStptDG
+	/vcoC4+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qebbc-00DqtI-1B;
-	Fri, 08 Sep 2023 13:33:04 +0000
-Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
+	id 1qeco9-00Dwyc-1w;
+	Fri, 08 Sep 2023 14:50:05 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qebbY-00DqsI-1K
+	id 1qeco1-00Dwxq-2u
 	for linux-riscv@lists.infradead.org;
-	Fri, 08 Sep 2023 13:33:03 +0000
-Received: from mail-lf1-f69.google.com (mail-lf1-f69.google.com [209.85.167.69])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 5CC093F65E
-	for <linux-riscv@lists.infradead.org>; Fri,  8 Sep 2023 13:32:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20210705; t=1694179974;
-	bh=zqnhyZNLywg0xbvkm1uHFRR58gPTiCIAHqj9eCxtNas=;
-	h=MIME-Version:References:In-Reply-To:From:Date:Message-ID:Subject:
-	 To:Cc:Content-Type;
-	b=dXXtwiZMalpJJNutx/AOuIn1L75t0RF+uF5ce5DgEnXFXIsLVX2McomXzJSCx0Bas
-	 i2vKn1cNQ8xvZKjPl++VOuHcS7lbyPMpR3oyoH7sukXtIOJZgPPY7wgksbzBSd/DtH
-	 razKroJBBVUXnvu5G+MvTMdY76LbLeIhrbpFlkeMWiftFYoTKxB2/3uDf+fXrbtBmA
-	 32rtOHze/9YKpYtWq8p6RMfX5MYPdHjjZi27SQ6Yx9RHdcS+Le1nhG2iS17TKxxKn6
-	 cQ1wWwEzYkjCs7FveGz2NE9vEO8u7vBxJPkYX2+reo4C4p7rebc6gSGDbUccw0MWWU
-	 wkC8qnvhLL69w==
-Received: by mail-lf1-f69.google.com with SMTP id 2adb3069b0e04-500c67585acso2145734e87.2
-        for <linux-riscv@lists.infradead.org>; Fri, 08 Sep 2023 06:32:54 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1694179974; x=1694784774;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=zqnhyZNLywg0xbvkm1uHFRR58gPTiCIAHqj9eCxtNas=;
-        b=WIlKOCBn1+EsAb+40aTR+te0cqZioySWgpejrkvlhcPk+0V6VYzTEVz3Jy/VUDSHqH
-         /LaxaMUnHH5kFjKjPLEFVYk2OA3QrLTJCrd14ZePva61wbNPcfGiQIb3IkL5wjrH7YMx
-         52flVGMgS6+yAMqWiV0txxpolizlWcvySaUXDWSL1eagcf7Bly8wz1f2BigmooMHjbsq
-         XavFRIDYp5krlQPzTrt5kbx7xRd5tY5odv8p+2TvCYcZraVlLRCYsHW24YSNtkILxkrL
-         TgKYlRhTtG9VdeO4VcBQ7HG7RaUjATOqOA8Xq4YxxIKTDNa1Zw1v6QpK5zQNs/nm/eUM
-         Wgpg==
-X-Gm-Message-State: AOJu0YzPbtEG9dlq4urHAN2jDBeawiC5XHMWt7zSTCuTzWp4zZEMuCI0
-	RZkGwzedpm45TvBdWswymib6Z8PNPdmgfRiSupPqDvCMzO29kUmAokITlqgNBADumot7Qtd8P4y
-	WC9c/jZLyGQygoaAclGpvOzfNyAezk/B3F5e5Xk20bFp7TJm2r5/GyPyR2b/XqA==
-X-Received: by 2002:a05:6512:3082:b0:4f9:586b:dba1 with SMTP id z2-20020a056512308200b004f9586bdba1mr2492958lfd.4.1694179973652;
-        Fri, 08 Sep 2023 06:32:53 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGQebtOEBXNF4XxOrD/m0xqiyvOa6CRhaA5PweNX/oEc3iI8U1qvOKmWus5LBiJh9SF87AJkxS4IXLdALU1FgM=
-X-Received: by 2002:a05:6512:3082:b0:4f9:586b:dba1 with SMTP id
- z2-20020a056512308200b004f9586bdba1mr2492928lfd.4.1694179973237; Fri, 08 Sep
- 2023 06:32:53 -0700 (PDT)
+	Fri, 08 Sep 2023 14:50:00 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <ukl@pengutronix.de>)
+	id 1qecnr-0000rL-8z; Fri, 08 Sep 2023 16:49:47 +0200
+Received: from [2a0a:edc0:0:900:1d::77] (helo=ptz.office.stw.pengutronix.de)
+	by drehscheibe.grey.stw.pengutronix.de with esmtp (Exim 4.94.2)
+	(envelope-from <ukl@pengutronix.de>)
+	id 1qecno-004tzA-BR; Fri, 08 Sep 2023 16:49:44 +0200
+Received: from ukl by ptz.office.stw.pengutronix.de with local (Exim 4.94.2)
+	(envelope-from <ukl@pengutronix.de>)
+	id 1qecnn-00HTuj-3Z; Fri, 08 Sep 2023 16:49:43 +0200
+Date: Fri, 8 Sep 2023 16:49:42 +0200
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
+To: Nylon Chen <nylon.chen@sifive.com>
+Cc: aou@eecs.berkeley.edu, conor@kernel.org,
+	emil.renner.berthing@canonical.com, geert+renesas@glider.be,
+	heiko@sntech.de, krzysztof.kozlowski+dt@linaro.org,
+	palmer@dabbelt.com, paul.walmsley@sifive.com, robh+dt@kernel.org,
+	thierry.reding@gmail.com, devicetree@vger.kernel.org,
+	linux-pwm@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, nylon7717@gmail.com,
+	zong.li@sifive.com, greentime.hu@sifive.com,
+	vincent.chen@sifive.com
+Subject: Re: [PATCH v2 2/2] pwm: sifive: change the PWM controlled LED
+ algorithm
+Message-ID: <20230908144942.d3feisuyctppfb3l@pengutronix.de>
+References: <20230130093229.27489-1-nylon.chen@sifive.com>
+ <20230130093229.27489-3-nylon.chen@sifive.com>
+ <20230130101707.pdvabl3na2wpwxqu@pengutronix.de>
+ <CAHh=Yk8R02NXK33aogQeJQB6x88B_gpbnjHj9wRrJEbDQf67Aw@mail.gmail.com>
 MIME-Version: 1.0
-References: <20230830031846.127957-1-william.qiu@starfivetech.com>
- <20230830031846.127957-2-william.qiu@starfivetech.com> <20230830-commence-trickery-40eaa193cb15@wendy>
- <b375b88c-0d9c-30a9-21f6-283083cf3880@linaro.org> <20230830-procedure-frostbite-56c751f7c276@wendy>
- <efab6f52-4d7f-ea3c-0fc3-4e3ad03c14c7@starfivetech.com> <20230901-remold-sublease-a1ddb1fc6348@spud>
- <9EF26965-10E5-4BCA-AC5E-93C5AA55A0DF@jrtc27.com> <20230901-affected-wanting-ab517791a870@spud>
- <dd63bb4f-a59b-0323-08fb-03f8cc048b6e@starfivetech.com>
-In-Reply-To: <dd63bb4f-a59b-0323-08fb-03f8cc048b6e@starfivetech.com>
-From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-Date: Fri, 8 Sep 2023 15:32:36 +0200
-Message-ID: <CAJM55Z8XowmB-Hfzr+hBtWu+SGL2v7jya6Nx5_rATf8=5qA4Fg@mail.gmail.com>
-Subject: Re: [PATCH v1 1/3] dt-bindings: mmc: Drop unused properties
-To: William Qiu <william.qiu@starfivetech.com>
-Cc: Conor Dooley <conor@kernel.org>, Jessica Clarke <jrtc27@jrtc27.com>, 
-	Conor Dooley <conor.dooley@microchip.com>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, LKML <linux-kernel@vger.kernel.org>, 
-	linux-riscv <linux-riscv@lists.infradead.org>, linux-mmc@vger.kernel.org, 
-	Emil Renner Berthing <kernel@esmil.dk>, Rob Herring <robh+dt@kernel.org>, 
-	Jaehoon Chung <jh80.chung@samsung.com>, Ulf Hansson <ulf.hansson@linaro.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>
+In-Reply-To: <CAHh=Yk8R02NXK33aogQeJQB6x88B_gpbnjHj9wRrJEbDQf67Aw@mail.gmail.com>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: ukl@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230908_063300_615875_08FFED0C 
-X-CRM114-Status: GOOD (  38.43  )
+X-CRM114-CacheID: sfid-20230908_074957_940661_96FFB6D3 
+X-CRM114-Status: GOOD (  39.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,71 +78,152 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============3362671632099772942=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCA4IFNlcHQgMjAyMyBhdCAxMjowMywgV2lsbGlhbSBRaXUgPHdpbGxpYW0ucWl1QHN0
-YXJmaXZldGVjaC5jb20+IHdyb3RlOgo+IE9uIDIwMjMvOS8yIDE6NDMsIENvbm9yIERvb2xleSB3
-cm90ZToKPiA+IE9uIEZyaSwgU2VwIDAxLCAyMDIzIGF0IDA2OjIwOjM4UE0gKzAxMDAsIEplc3Np
-Y2EgQ2xhcmtlIHdyb3RlOgo+ID4+IE9uIDEgU2VwIDIwMjMsIGF0IDE2OjQyLCBDb25vciBEb29s
-ZXkgPGNvbm9yQGtlcm5lbC5vcmc+IHdyb3RlOgo+ID4+ID4KPiA+PiA+IE9uIEZyaSwgU2VwIDAx
-LCAyMDIzIGF0IDEwOjMzOjEzQU0gKzA4MDAsIFdpbGxpYW0gUWl1IHdyb3RlOgo+ID4+ID4+Cj4g
-Pj4gPj4KPiA+PiA+PiBPbiAyMDIzLzgvMzAgMTY6MzQsIENvbm9yIERvb2xleSB3cm90ZToKPiA+
-PiA+Pj4gT24gV2VkLCBBdWcgMzAsIDIwMjMgYXQgMDk6Mjk6MjBBTSArMDIwMCwgS3J6eXN6dG9m
-IEtvemxvd3NraSB3cm90ZToKPiA+PiA+Pj4+IE9uIDMwLzA4LzIwMjMgMDg6NTAsIENvbm9yIERv
-b2xleSB3cm90ZToKPiA+PiA+Pj4+PiBPbiBXZWQsIEF1ZyAzMCwgMjAyMyBhdCAxMToxODo0NEFN
-ICswODAwLCBXaWxsaWFtIFFpdSB3cm90ZToKPiA+PiA+Pj4+Pj4gRHVlIHRvIHRoZSBjaGFuZ2Ug
-b2YgdHVuaW5nIGltcGxlbWVudGF0aW9uLCBpdCdzIG5vIGxvbmdlciBuZWNlc3NhcnkgdG8KPiA+
-PiA+Pj4+Pj4gdXNlIHRoZSAic3RhcmZpdmUsc3lzcmVnIiBwcm9wZXJ0eSBpbiBkdHMsIHNvIGRy
-b3AgdGhlIHJlbGV2YW50Cj4gPj4gPj4+Pj4+IGRlc2NyaXB0aW9uIGluIGR0LWJpbmRpbmdzIGhl
-cmUuCj4gPj4gPj4+Pj4KPiA+PiA+Pj4+PiBIb3cgZG9lcyBjaGFuZ2luZyB5b3VyIHNvZnR3YXJl
-IGltcGxhbnRhdGlvbiBpbnZhbGlkYXRlIGEgZGVzY3JpcHRpb24gb2YKPiA+PiA+Pj4+PiB0aGUg
-aGFyZHdhcmU/Cj4gPj4gPj4+Pj4KPiA+PiA+Pj4+Cj4gPj4gPj4+PiBXaGljaCBpcyBraW5kIG9m
-IHByb29mIHRoYXQgdGhpcyBzeXNjb24gd2FzIGp1c3QgdG8gc3Vic3RpdHV0ZQo+ID4+ID4+Pj4g
-aW5jb21wbGV0ZSBoYXJkd2FyZSBkZXNjcmlwdGlvbiAoZS5nLiBtaXNzaW5nIGNsb2NrcyBhbmQg
-cGh5cykuIFdlCj4gPj4gPj4+PiBzaG91bGQgaGF2ZSByZWplY3RlZCBpdC4gSnVzdCBsaWtlIHdl
-IHNob3VsZCByZWplY3QgdGhlbSBpbiB0aGUgZnV0dXJlLgo+ID4+ID4+Pgo+ID4+ID4+PiA6cyBJ
-IGR1bm5vIHdoYXQgdG8gZG8gd2l0aCB0aGlzLi4uIEknbSBpbmNsaW5lZCB0byBzYXkgbm90IHRv
-IHJlbW92ZSBpdAo+ID4+ID4+PiBmcm9tIHRoZSBiaW5kaW5nIG9yIGR0cyBhdCBhbGwgJiBvbmx5
-IGNoYW5nZSB0aGUgc29mdHdhcmUuCj4gPj4gPj4+Cj4gPj4gPj4+PiBUaGVyZSBhcmUganVzdCBm
-ZXcgY2FzZXMgd2hlcmUgc3lzY29uIGlzIHJlYXNvbmFibGUuIEFsbCBvdGhlcnMgaXMganVzdAo+
-ID4+ID4+Pj4gbGF6aW5lc3MuIEl0J3Mgbm90IG9ubHkgc3RhcmZpdmV0ZWNoLCBvZiBjb3Vyc2Uu
-IFNldmVyYWwgb3RoZXIKPiA+PiA+Pj4+IGNvbnRyaWJ1dG9ycyBkbyB0aGUgc2FtZS4KPiA+PiA+
-Pj4KPiA+PiA+Pj4gSSdtIG5vdCBzdXJlIGlmIGxhemluZXNzIGlzIGZhaXIsIGxhY2sgb2YgdW5k
-ZXJzdGFuZGluZyBpcyB1c3VhbGx5IG1vcmUKPiA+PiA+Pj4gbGlrZWx5Lgo+ID4+ID4+Cj4gPj4g
-Pj4gRm9yIHRoaXMsIEkgdGVuZCB0byBrZWVwIGl0IGluIGJpbmRpbmcsIGJ1dCByZW1vdmUgaXQg
-ZnJvbSByZXF1aXJlZC4gQmVjYXVzZQo+ID4+ID4+IHdlIG9ubHkgbW9kaWZ5IHRoZSB0dW5pbmcg
-aW1wbGVtZW50YXRpb24sIGl0IGRvZXNuJ3QgbWVhbiB0aGF0IHRoaXMgcHJvcGVydHkKPiA+PiA+
-PiBuZWVkIHRvIGJlIHJlbW92ZWQsIGl0J3MganVzdCBubyBsb25nZXIgYmUgdGhlIHJlcXVpcmVk
-IG9uZS4KPiA+PiA+Cj4gPj4gPiBQbGVhc2Ugb25seSByZW1vdmUgaXQgZnJvbSByZXF1aXJlZCBp
-ZiB0aGUgY3VycmVudCBkcml2ZXIgZG9lc24ndCBicmVhawo+ID4+ID4gaWYgdGhlIHJlZ21hcCBp
-cyByZW1vdmVkLgo+ID4+Cj4gPj4gRWl0aGVyIHdheSBwbGVhc2UgbWFrZSBzdXJlIHRoZSBkb2N1
-bWVudGF0aW9uIGNsZWFybHkgc3RhdGVzIOKAnG5ldmVyIHVzZQo+ID4+IHRoaXMsIGlmIHlvdeKA
-mXJlIHVzaW5nIGl0IHlvdeKAmXJlIGRvaW5nIGl0IHdyb25nLCB0aGlzIG9ubHkgZXhpc3RzCj4g
-Pj4gYmVjYXVzZSBpdCB3YXMgd3JvbmdseSB1c2VkIGluIHRoZSBwYXN04oCdLiBPdGhlcndpc2Ug
-cGVvcGxlIHdyaXRpbmcKPiA+PiBkcml2ZXJzIGZvciBvdGhlciBPU2VzIHdpbGwgcHJvYmFibHkg
-dXNlIGl0IHRvbyB0aGlua2luZyB0aGV5IG5lZWQgdG8uCj4gPgo+ID4gTWF5YmUgd2Ugc2hvdWxk
-IGp1c3QgZGVsZXRlIGl0IGlmIHRoZSBpbXBhY3QgaXMgZ29pbmcgdG8gYmUgbmVnbGlnaWJsZSwK
-PiA+IHNvdW5kcyBsaWtlIHlvdSdyZSBub3QgdXNpbmcgaXQgaW4gRnJlZUJTRCwgd2hpY2ggd2Fz
-IHBhcnQgb2Ygd2hhdCBJIHdhcwo+ID4gd29ycmllZCBhYm91dC4gR3Vlc3MgaXQgZGVwZW5kcyBv
-biB3aGF0IEVtaWwgJiB0aGUgZGlzdHJvIGhlYWRzIHRoaW5rLgo+IEhpIENvbm9yLAo+Cj4gQWZ0
-ZXIgZGlzY3Vzc2luZyBpdCB3aXRoIG91ciBjb2xsZWFndWVzLCB3ZSBkZWNpZGVkIHRoYXQgZGVs
-ZXRpbmcgaXQgd2FzIHRoZSBiZXN0Cj4gY291cnNlIG9mIGFjdGlvbi4gU2luY2UgdGhlcmUgd2ls
-bCBubyBsb25nZXIgYmUgYSByZWxhdGVkIGltcGxlbWVudGF0aW9uIG9mCj4gInN0YXJmaXZlLHN5
-c3JlZyIgaW4gZnV0dXJlIGRyaXZlcnMsIGV2ZW4gaWYgdGhlIGR0LWJpbmRpbmcgaXMgZGVzY3Jp
-YmVkLCBpdCB3aWxsCj4gYmUgIm5ldmVyIHVzZSIsIHNvIEkgdGhpbmsgaXQgc2hvdWxkIGJlIGRl
-bGV0ZWQuCj4KPiBXaGF0IGRvIHlvdSB0aGluaz8KClRoZSBkZXZpY2UgdHJlZSBzaG91bGQgYmUg
-YSBkZXNjcmlwdGlvbiBvZiB0aGUgaGFyZHdhcmUgYW5kIHRoZXJlCnJlYWxseSBpcyBhICd1MF9z
-ZGlvX2RhdGFfc3Ryb2JlX3BoYXNlX2N0cmwnIGZpZWxkIGluIHRoZSBzeXNyZWcKcmVnaXN0ZXJz
-WzFdIG9uIHRoZSBKSDcxMTAgdGhhdCBzZWVtcyB0byBkbyBfc29tZXRoaW5nXyByZWxhdGVkIHRv
-IHRoZQpzZGlvIGludGVyZmFjZS4gU28gSSBkb24ndCB0aGluayB0aGUgZmFjdCB0aGF0IHRoZSBM
-aW51eCBkcml2ZXIgbm8KbG9uZ2VyIHVzZXMgaXQgaXMgYSBnb29kIHJlYXNvbiB0byByZW1vdmUg
-aXQsIGJ1dCBpZiB0aGVyZSBhcmUgc29tZQpvdGhlciBwcmFnbWF0aWMgcmVhc29ucyB0byBkbyBz
-byB0aGVuIEknbSBmaW5lIHdpdGggaXQuIFJlbW92aW5nIGl0CmZyb20gdGhlIGxpc3Qgb2YgcmVx
-dWlyZWQgcHJvcGVydGllcyBzaG91bGQgYmUgZmluZSB0aG91Z2guCgovRW1pbAoKWzFdOiBodHRw
-czovL2RvYy1lbi5ydnNwYWNlLm9yZy9KSDcxMTAvVFJNL0pINzExMF9UUk0vc3lzX3N5c2Nvbi5o
-dG1sCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51
-eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRw
-Oi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+
+--===============3362671632099772942==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="sko3m4welni3xxse"
+Content-Disposition: inline
+
+
+--sko3m4welni3xxse
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+Hello,
+
+On Fri, Sep 08, 2023 at 06:41:00PM +0800, Nylon Chen wrote:
+> Sorry it's so long ago.
+>=20
+> I have completed the implementation of the new version, but there is
+> one thing about this letter that I still don't quite understand.
+>=20
+> Uwe Kleine-K=C3=B6nig <u.kleine-koenig@pengutronix.de> =E6=96=BC 2023=E5=
+=B9=B41=E6=9C=8830=E6=97=A5 =E9=80=B1=E4=B8=80 =E4=B8=8B=E5=8D=886:17=E5=AF=
+=AB=E9=81=93=EF=BC=9A
+> >
+> > On Mon, Jan 30, 2023 at 05:32:29PM +0800, Nylon Chen wrote:
+> > > The `frac` variable represents the pulse inactive time, and the resul=
+t of
+> > > this algorithm is the pulse active time. Therefore, we must reverse t=
+he
+> > > result.
+> > >
+> > > The reference is SiFive FU740-C000 Manual[0].
+> > >
+> > > [0]: https://sifive.cdn.prismic.io/sifive/1a82e600-1f93-4f41-b2d8-86e=
+d8b16acba_fu740-c000-manual-v1p6.pdf
+> > >
+> > > Signed-off-by: Nylon Chen <nylon.chen@sifive.com>
+> > > ---
+> > >  drivers/pwm/pwm-sifive.c | 1 +
+> > >  1 file changed, 1 insertion(+)
+> > >
+> > > diff --git a/drivers/pwm/pwm-sifive.c b/drivers/pwm/pwm-sifive.c
+> > > index 62b6acc6373d..a5eda165d071 100644
+> > > --- a/drivers/pwm/pwm-sifive.c
+> > > +++ b/drivers/pwm/pwm-sifive.c
+> > > @@ -158,6 +158,7 @@ static int pwm_sifive_apply(struct pwm_chip *chip=
+, struct pwm_device *pwm,
+> > >       frac =3D DIV64_U64_ROUND_CLOSEST(num, state->period);
+> > >       /* The hardware cannot generate a 100% duty cycle */
+> > >       frac =3D min(frac, (1U << PWM_SIFIVE_CMPWIDTH) - 1);
+> > > +     frac =3D (1U << PWM_SIFIVE_CMPWIDTH) - 1 - frac;
+> >
+> > The same problem exists in pwm_sifive_get_state(), doesn't it?
+> >
+> > As fixing this is an interruptive change anyhow, this is the opportunity
+> > to align the driver to the rules tested by PWM_DEBUG.
+> >
+> > The problems I see in the driver (only checked quickly, so I might be
+> > wrong):
+> >
+> >  - state->period !=3D ddata->approx_period isn't necessarily a problem.=
+ If
+> >    state->period > ddata->real_period that's fine and the driver should
+> >    continue
+>
+> I still don=E2=80=99t quite understand the description of this paragraph.
+>=20
+> state->period !=3D ddate->approx_period seems to be used to compare the
+> results of the previous and next two times.
+
+There are two things to consider:
+
+ - usually the hardware doesn't support all requestable states because
+   the hardware's quantum is > 1 ns. That is, it might for example
+   support periods in the form (160 ns * i / 3) for i in 1 .. 1023.
+
+   If this hardware runs with i =3D 500 (that is period ~=3D 26666.66
+   ns) because the first channel is configured to run with period =3D
+   26667, and .request is called for the 2nd channel with .period =3D
+   26700 ns, there is no need to refuse that, because 26666.66 is the
+   best possible approximation for 26700 ns anyhow.
+
+ - .apply is supposed to implement the highest possible period that
+   isn't bigger than the requested period. So in the above case even if
+   the hardware runs at 26666.66 ns without the possibility to change
+   that, a request to configure for period =3D 30000 ns could succeed (and
+   keep 26666.66 ns).
+
+> Would you suggest I send the new implementation version before
+> continuing the discussion?
+
+Note that the above implements the optimal behaviour for a driver.
+(For some definition of "optimal" that admittedly also yields strange
+behaviour at times. The reasoning for this to the be thing to implement
+is, that's the corner cases are easier to implement, idempotency is
+possible and it's easier to work with than rounding to the nearest
+possible value.)
+
+While I'd like to see the sifive driver to implement this optimal
+behaviour, it's not mandatory that you convert the driver to that
+behaviour. Just make sure to not make it worse.
+
+So to answer your question: If you understood what I wrote above and are
+motivated to improve the driver, it would be great to do that before the
+next review round.
+
+Best regards
+Uwe
+
+--=20
+Pengutronix e.K.                           | Uwe Kleine-K=C3=B6nig         =
+   |
+Industrial Linux Solutions                 | https://www.pengutronix.de/ |
+
+--sko3m4welni3xxse
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmT7NIYACgkQj4D7WH0S
+/k7+OQf/aB4uHhJdqYMAfP5Rn5iRxbBRaaQLJXyjJR+bimx8Ifz0f8kzeyYTS25Z
+TL/+jlQhpkbjafGdXzxd85LaVch+7shaSohfzWs824wO85zDRk1CgjQ7q69mmdtN
+A7lecYRDNxIT5/bYV9E/xizIs2RMWJ7o21mrFJiJxwY4B95CP/BSpIqAURkRN7KQ
+35yVWF/KxFrKKkJ4xgvt/g6AzAlqqphRrjLNugi8AMY19w0kiIqCifrnMkgNZ71c
+9fZqHhqo5x/dxm0pbOMoMvEkK8ZcEdS6bfV9P5iaiXUvnehkKnQnrj9yr3hOqGAm
+XshPrgtNxkkPdbH++33xOMQZ7tNd/g==
+=ZZNC
+-----END PGP SIGNATURE-----
+
+--sko3m4welni3xxse--
+
+
+--===============3362671632099772942==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============3362671632099772942==--
+
