@@ -4,102 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D147EE14AA
-	for <linux-riscv@archiver.kernel.org>; Sat,  9 Sep 2023 20:12:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2321EE57CC
+	for <linux-riscv@archiver.kernel.org>; Sat,  9 Sep 2023 20:17:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:Cc:References:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fVl9i99kF+Tg4RVDPb5nTz0h2DF2eg/uOwClfUYkiD8=; b=Vm7ycZ0iQD8tpw
-	LIQR+xAJDDP7waiKmEAMywKTqnf5p4JuekNEStv2hBTbfMWWsIH6U9CbZoXPGtxmjhaAFArqMNyVJ
-	88tXU5kyohqfik21/wWMkdAFWOkgf3d/WniIjKHvR+AWf4zV5bWL50lTjRxauTbblHtzWZapC8WGM
-	fTqjYxHLwPaNA9qPbYiciLiN5FNDA4COcxNMkieM0iA9IwNS56w7D9SERFlfxONffP+bDq0/X1tLs
-	4UIHL+JbVtIeMj9iLXJJf2pk62PMUgkgjm4R2TbfFl94SM6BOUjR9/92H20puggQQ3Ts7jCsLTr9B
-	H9/BcedQ7Nk0L1wRbsxQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=kJ6x+DDjJPeHPha+RR2KD3s9RE2Axub+F1KKp+TKTIA=; b=ILeqe4ACZf8n2q
+	rMSR6/H3TTv7mW35puRzmc35yiD3g43HR+KWE59nYoNpYNmmyXOUKQs2+YTK4K+C/8IhhMCx6avpj
+	CvBX9HCdwe48D2px9MO92Ht40oKoX0nEZBQwsD4TxsBivUCpQwmiKGgtSEpc8cIpZ03ez0CtrdVkp
+	9CvmHVK+RaYQO4sQEBjFbxTsLxxuS/f3FI8vPczQDhYOBeiTZB4wVTobGob4hAkOm0Fia9N1FO9Mx
+	2f+mL3zsyJM4/WbsE1OTKOsX9dFsy+/Syh/sF7quqZsMEgdtV46I/b8DGQ9sKlfNAibAjchoCG5eb
+	MclHhoMuMyT80Hto9XOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qf4JR-00Fka1-2n;
-	Sat, 09 Sep 2023 20:12:13 +0000
+	id 1qf4Ob-00Fkn7-2V;
+	Sat, 09 Sep 2023 20:17:33 +0000
 Received: from wout4-smtp.messagingengine.com ([64.147.123.20])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qf4JO-00FkXX-0t
+	id 1qf4OY-00FkmW-12
 	for linux-riscv@lists.infradead.org;
-	Sat, 09 Sep 2023 20:12:11 +0000
-Received: from compute3.internal (compute3.nyi.internal [10.202.2.43])
-	by mailout.west.internal (Postfix) with ESMTP id 97AC9320031A;
-	Sat,  9 Sep 2023 16:11:59 -0400 (EDT)
+	Sat, 09 Sep 2023 20:17:32 +0000
+Received: from compute4.internal (compute4.nyi.internal [10.202.2.44])
+	by mailout.west.internal (Postfix) with ESMTP id 18E023200805;
+	Sat,  9 Sep 2023 16:17:29 -0400 (EDT)
 Received: from mailfrontend2 ([10.202.2.163])
-  by compute3.internal (MEProxy); Sat, 09 Sep 2023 16:12:00 -0400
+  by compute4.internal (MEProxy); Sat, 09 Sep 2023 16:17:29 -0400
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sholland.org; h=
-	cc:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:sender:subject:subject:to:to; s=fm2; t=
-	1694290319; x=1694376719; bh=zFPfJmkCicfpsW/Di0U8iA3BaJhU5h7wnTH
-	y7qw0czU=; b=gFy0O1/wAKi4K5GDJJ9Cye9qUwU4RiR4mXj/oed9PUtpOKb5ukt
-	8R5ocgXAYJwu5qk1zVqe3sIPt6qZDDkLeGwZAVp+uzsyoL0LFMTy84HPIL1aDt7Q
-	8YUcwK20OGbtVZMErC9TPD1HHMPVxPd75g19DqBwzr6yb7H+LfH0MiRoQt2FOhXy
-	9Y8OeEaCKnJIGekOYPr9RyfjspMu5ldVcuaADaA0IZ4lADiVvYhsO183D6SBfRKn
-	q4jgCxwp7/2pzJmQqyhSQU1pGo9nwf6J5FrLYyNWgDshu+slbNmbj7sw5NdF9qyM
-	eGkS30uIVBkCiCeQ/+3h382FKVM/12veeDA==
+	cc:cc:content-transfer-encoding:content-type:date:date:from:from
+	:in-reply-to:message-id:mime-version:reply-to:sender:subject
+	:subject:to:to; s=fm2; t=1694290648; x=1694377048; bh=Hk6wknAc4l
+	ZaedMTDgYmfaNUU/MhXW2aKVUzRRXMt28=; b=Un7Tv41Q3wdz3Wgm5HiIlxYwVs
+	fN3illv7SBD32AjBR5kPcRLA0EU11tC+qB4tUulBOWf6XuMeJE0ztUW84a/JMkhF
+	q173Gy0q1doHfPxubc7XGwsdlqYM9KsnODCuvcjAg1XMsHL47AU+EywUDw+K4rVu
+	Jldiw3fnL0elu9DCclKPboPwVuM+Y9kkUGcUVLqJP+3nVOi/RumH4DNTdoOYiKxb
+	WpfG/mRepO8ztaVWCUoG8WWTYOyof5rZQ38FLro5P2hSCzU/Nevm/Rbgr7F57kQk
+	34EsberygQaG7NWy6Y8peTpUI66l0mAFMFa3cUGK2o5aYPi78CaaAuk+rW1A==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
 	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:sender:subject:subject:to:to:x-me-proxy
-	:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=
-	1694290319; x=1694376719; bh=zFPfJmkCicfpsW/Di0U8iA3BaJhU5h7wnTH
-	y7qw0czU=; b=N+8j8kNhAc0RFRDzU1ddxe8A81rWMqO8xuL+fdT1WwRKlwkCFW9
-	P3MOpFj5kA1YOz+ycot5Pf4r4/0YuYi1ACXlR2VUIAA4de8eFr8W76hSPJ2nwScP
-	gFUVXFXfag98IE83rHDBX3Dcsi0yBdenU7f5UVnvsDB5DiAloDYEZ0ObtbXwES1X
-	qmOw3swBG6OvrzxCJfTk7t+ONkC96QrzENw8X8cjFGuxIuW0faiK72AtxDgFBI8M
-	BtlFz5CJxhjmV6oQEJIslkty6TKRi5RWMC7GsXHsQWzsudTOOVM8Ry1G3j4nfAEc
-	3lpNoEvdvFwN5QGPtR5bSWj0/eG/KgLRyAw==
-X-ME-Sender: <xms:jtH8ZJCZJr-ISXwvM97HIa0hXnp2P2UKkMLMtecNx0eRMiHRBJRqAQ>
-    <xme:jtH8ZHjeHMoQi6HOYwwVd-sPvFSlLcxIP6pMw7Tq-Hph-vBy-H_p0YOYQpYqGqa4b
-    ZI82bpN87SLTYnp3Q>
-X-ME-Received: <xmr:jtH8ZEnhKhy-BmMkDPFWzS1SP9_OPftPmst665cn21gp7qZ34bxdaIKBhs7HjTJgLXkYGDOvWs_gkr2wqQrKIHf1X60DFZf3DR-zDfY0CKkKLjoO9TrsceEfEw>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedviedrudehledgudeggecutefuodetggdotefrod
+	:content-type:date:date:feedback-id:feedback-id:from:from
+	:in-reply-to:message-id:mime-version:reply-to:sender:subject
+	:subject:to:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender
+	:x-sasl-enc; s=fm1; t=1694290648; x=1694377048; bh=Hk6wknAc4lZae
+	dMTDgYmfaNUU/MhXW2aKVUzRRXMt28=; b=o8/vTDdesjQJE4xdC4uKNxUKB/bdx
+	3g4BJc8uRX0CprZNCnhhKlY8I4wNh/2SGaFl2RwNgFQAQtF0iPp82NyIwP4YbclO
+	rVuZfBt6KriLmiYkTbT3upJcQYL2qT/MyiWWknuu293+SWFNZRHY++OnZ5VYB1+G
+	pg6nCofyBtxcOp58ON2CsFQyrqRFjTaZVc4UoS0nwFHhL9GDLkaFd3OOo8+qLYR0
+	UU0RfMltu+h4UD8/fHBM+VP8Y14a5N8bIW+sg6ynZDW10DDQWWjgnkDV1Yu5qVtm
+	3IiQEaCGUrfv6b8yr0RcefGR6rmix0EcQm+8Um51up9iRH/pOieQkb14A==
+X-ME-Sender: <xms:2NL8ZDlswmi7zLKrN8eboJYF5zwdvDwDLkolqNpsu2eq9ZV0WiUGcQ>
+    <xme:2NL8ZG1mhcIJwNw9vQRXxsLP1cU2FF2uEM7NEt7SCIHZ9FoB05IvbL9iWVamkDR8R
+    v01aSYN1hJWdrV4uw>
+X-ME-Received: <xmr:2NL8ZJrirpbtqbIpRmlnyb_ua4p7fQ36CeOv5JwaziUAvj5Hdl3ZZWrxHv3rUFvcrQZBaFq7dKd7C04x2UMQfGdCkXFm1TRbNsjorWELlAtuYY2Zr_kbQ0eg4tjOBcFJppyUbA>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedviedrudehledgudeghecutefuodetggdotefrod
     ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfgh
     necuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmd
-    enucfjughrpefkffggfgfuvfhfvefhjggtgfesthejredttdefjeenucfhrhhomhepufgr
-    mhhuvghlucfjohhllhgrnhguuceoshgrmhhuvghlsehshhholhhlrghnugdrohhrgheqne
-    cuggftrfgrthhtvghrnhepffeliefgfefhgfelueejkeefueffteeiiefhudeghfeuleff
-    geefleelgeegtdffnecuffhomhgrihhnpehkvghrnhgvlhdrohhrghenucevlhhushhtvg
-    hrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpehsrghmuhgvlhesshhhohhl
-    lhgrnhgurdhorhhg
-X-ME-Proxy: <xmx:jtH8ZDzu2MaUeLfILkpT2Fe5ReUb89yNSeLMTiaMe9CTCKe5Vqqd7Q>
-    <xmx:jtH8ZOQb-3PqEXEVcNnEspKrJ49RWddKXx_brPTZ-fGhzUI5LJA5Mg>
-    <xmx:jtH8ZGZUEOx0kAbo479CiMdBcjTJ2-AnnGNvqsQSoUdoob2y3Li_gQ>
-    <xmx:j9H8ZIDMavRXNS-pKzc9aEEwVMAG_SxqyC0PcrxrP3jF9EGl4tjF4Q>
+    enucfjughrpefhvfevufffkffoggfgsedtkeertdertddtnecuhfhrohhmpefurghmuhgv
+    lhcujfholhhlrghnugcuoehsrghmuhgvlhesshhhohhllhgrnhgurdhorhhgqeenucggtf
+    frrghtthgvrhhnpeekheffteehtdetfffgfeetteejvdefleeuvedufffguedtjedvheel
+    vddvfffhveenucffohhmrghinhepkhgvrhhnvghlrdhorhhgnecuvehluhhsthgvrhfuih
+    iivgeptdenucfrrghrrghmpehmrghilhhfrhhomhepshgrmhhuvghlsehshhholhhlrghn
+    ugdrohhrgh
+X-ME-Proxy: <xmx:2NL8ZLlD6P4BP98h7HGLqexLcqWO4yRv1tk2vy6c00aeVvVma4xKUw>
+    <xmx:2NL8ZB3QjE6rgPcchM1XTdQdgT3HIrN24YiiR-JCeY5zYb4JycjRqg>
+    <xmx:2NL8ZKtGkXb97huSsxoPLt3NWo4sQrTn8jvgcmXbKGKhYII9Iw-Ifg>
+    <xmx:2NL8ZMTuSAloKitZByflDMPX7tELBBD58pJd1wh6vVHwZ4ZfwkRVnA>
 Feedback-ID: i0ad843c9:Fastmail
 Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sat,
- 9 Sep 2023 16:11:57 -0400 (EDT)
-Message-ID: <bd7f8612-e9bf-deab-450d-f0cde52cdd1b@sholland.org>
-Date: Sat, 9 Sep 2023 15:11:56 -0500
-MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux ppc64le; rv:102.0) Gecko/20100101
- Thunderbird/102.14.0
-Subject: Re: [PATCH v3 0/4] riscv: tlb flush improvements
-Content-Language: en-US
-To: Alexandre Ghiti <alexghiti@rivosinc.com>
-References: <20230801085402.1168351-1-alexghiti@rivosinc.com>
-Cc: Will Deacon <will@kernel.org>,
- "Aneesh Kumar K . V" <aneesh.kumar@linux.ibm.com>,
- Andrew Morton <akpm@linux-foundation.org>, Nick Piggin <npiggin@gmail.com>,
- Peter Zijlstra <peterz@infradead.org>,
- Mayuresh Chitale <mchitale@ventanamicro.com>,
- Vincent Chen <vincent.chen@sifive.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- linux-arch@vger.kernel.org, linux-mm@kvack.org,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+ 9 Sep 2023 16:17:27 -0400 (EDT)
 From: Samuel Holland <samuel@sholland.org>
-In-Reply-To: <20230801085402.1168351-1-alexghiti@rivosinc.com>
+To: Palmer Dabbelt <palmer@dabbelt.com>,
+	Alexandre Ghiti <alexghiti@rivosinc.com>,
+	linux-riscv@lists.infradead.org
+Cc: linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org,
+	Samuel Holland <samuel@sholland.org>
+Subject: [PATCH 0/7] riscv: ASID-related and UP-related TLB flush enhancements
+Date: Sat,  9 Sep 2023 15:16:28 -0500
+Message-ID: <20230909201727.10909-1-samuel@sholland.org>
+X-Mailer: git-send-email 2.41.0
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230909_131210_345565_35F7AADB 
-X-CRM114-Status: GOOD (  17.33  )
+X-CRM114-CacheID: sfid-20230909_131730_395911_17F52DA6 
+X-CRM114-Status: UNSURE (   7.81  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,58 +106,38 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 8/1/23 03:53, Alexandre Ghiti wrote:
-> This series optimizes the tlb flushes on riscv which used to simply
-> flush the whole tlb whatever the size of the range to flush or the size
-> of the stride.
-> 
-> Patch 3 introduces a threshold that is microarchitecture specific and
-> will very likely be modified by vendors, not sure though which mechanism
-> we'll use to do that (dt? alternatives? vendor initialization code?).
+While reviewing Alexandre Ghiti's "riscv: tlb flush improvements"
+series[1], I noticed that the TLB flushing functions mostly end up as
+flush_tlb_all() when SMP is disabled. This series resolves that. Along
+the way, I realized that we should be using single-ASID flushes wherever
+possible, so I implemented that as well. This series is mostly
+orthogonal to Alexandre's series, though it does remove the non-ASID
+code path from tlbflush.c, which turns out to be required for
+flush_tlb_kernel_range().
 
-Certainly we would want to set the threshold to zero on SiFive platforms
-affected by CIP-1200, since they cannot use address-based sfence.vma at
-all. At least this case could be handled in the existing errata patch
-function. I don't know about other platforms.
+[1]: https://lore.kernel.org/linux-riscv/20230801085402.1168351-1-alexghiti@rivosinc.com/
 
-Regards,
-Samuel
 
-> 
-> Next steps would be to implement:
-> - svinval extension as Mayuresh did here [1]
-> - BATCHED_UNMAP_TLB_FLUSH (I'll wait for arm64 patchset to land)
-> - MMU_GATHER_RCU_TABLE_FREE
-> - MMU_GATHER_MERGE_VMAS
-> 
-> Any other idea welcome.
-> 
-> [1] https://lore.kernel.org/linux-riscv/20230623123849.1425805-1-mchitale@ventanamicro.com/
-> 
-> Changes in v3:
-> - Add RB from Andrew, thanks!
-> - Unwrap a few lines, as suggested by Andrew
-> - Introduce defines for -1 constants used in tlbflush.c, as suggested by Andrew and Conor
-> - Use huge_page_size() directly instead of using the shift, as suggested by Andrew
-> - Remove misleading comments as suggested by Conor
-> 
-> Changes in v2:
-> - Make static tlb_flush_all_threshold, we'll figure out later how to
->   override this value on a vendor basis, as suggested by Conor and Palmer
-> - Fix nommu build, as reported by Conor
-> 
-> Alexandre Ghiti (4):
->   riscv: Improve flush_tlb()
->   riscv: Improve flush_tlb_range() for hugetlb pages
->   riscv: Make __flush_tlb_range() loop over pte instead of flushing the
->     whole tlb
->   riscv: Improve flush_tlb_kernel_range()
-> 
->  arch/riscv/include/asm/tlb.h      |  8 ++-
->  arch/riscv/include/asm/tlbflush.h | 12 ++--
->  arch/riscv/mm/tlbflush.c          | 98 ++++++++++++++++++++++++++-----
->  3 files changed, 99 insertions(+), 19 deletions(-)
-> 
+Samuel Holland (7):
+  riscv: Apply SiFive CIP-1200 workaround to single-ASID sfence.vma
+  riscv: mm: Introduce cntx2asid/cntx2version helper macros
+  riscv: mm: Use a fixed layout for the MM context ID
+  riscv: mm: Make asid_bits a local variable
+  riscv: mm: Preserve global TLB entries when switching contexts
+  riscv: mm: Always flush a single MM context by ASID
+  riscv: mm: Combine the SMP and non-SMP TLB flushing code
+
+ arch/riscv/include/asm/errata_list.h | 12 +++-
+ arch/riscv/include/asm/mmu.h         |  3 +
+ arch/riscv/include/asm/mmu_context.h |  2 -
+ arch/riscv/include/asm/tlbflush.h    | 41 ++++++-------
+ arch/riscv/mm/Makefile               |  5 +-
+ arch/riscv/mm/context.c              | 26 ++++----
+ arch/riscv/mm/tlbflush.c             | 92 +++++++---------------------
+ 7 files changed, 67 insertions(+), 114 deletions(-)
+
+-- 
+2.41.0
 
 
 _______________________________________________
