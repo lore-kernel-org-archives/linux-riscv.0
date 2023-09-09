@@ -4,94 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0210FEE14C3
-	for <linux-riscv@archiver.kernel.org>; Sat,  9 Sep 2023 20:17:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 300CAEE14C3
+	for <linux-riscv@archiver.kernel.org>; Sat,  9 Sep 2023 21:21:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1HWfo0SJRskoTmjuHFnlCXmFzgOh+/H54sG1vdYVGIk=; b=QuVYj5dOZq7HTi
-	2G//K0ZU1njHsxLEgh2jFzjU10Gw5PCH5Yu0n0oDeuEXXfKDdsXf6n36RRLTJP27qMIMNyi74OF2J
-	GODL4lq4xVTITzhhi0IAV98CKamt6Mic4mlWC+whUmMtpyZKciii3/K7tBpzxO7mCq899TlsWn4Bv
-	6PJk+5lrDoTwhTmQC90UGI9AwZ/8zXRn/1lFWBnRwZVFYjerHaYyzg2nStRRwQasiN1utCtzBJrX1
-	bLQd4j53KCQ7HIn1uIUt/IZ9hEUssHMwYBq74LdinsPe7B80fgcxs4ozXpDBO0apLVJdgKgLF0RpB
-	NiVIvvEypB4ssK1I7deA==;
+	List-Owner; bh=n8DJdNhDgbzcUvHBF7oZcMU2GCIYCkWNitnrb+v/zx0=; b=I/p7kj8bHWVuW5
+	49VQAFY0R5T+dINrQSEcCVQJxurDY8p5Rj4anxP0Vcq5jHLL8042LJiuKrEB7+xsN6sDNTIT1J6h8
+	h70ZhMiLS0q1lGW5nRk4wRpbi6lFys2kGRhhSAC5sb2YoJtH6fhOuUJ6i+cesLONgdijLSaCW3ZD7
+	vdUD6EpBJuF/Uk5AoThA9W7ADsbeRHyp2tQu3eVfvBb7QXJ7Z4/lBcyEoyVQixHoUCofUuVrcGCqf
+	sBmHywSDccJT0HiiJbE1dKOn0C1dEOY6WCrQk2E69UeLwyFkwQmA5Oj1sIEoSLioQzWZyBatY2h1F
+	hKRyBxnu43P9fcaqzWJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qf4Os-00Fl2Z-2p;
-	Sat, 09 Sep 2023 20:17:50 +0000
-Received: from wout4-smtp.messagingengine.com ([64.147.123.20])
+	id 1qf5Nw-00Fogy-2E;
+	Sat, 09 Sep 2023 21:20:56 +0000
+Received: from wout3-smtp.messagingengine.com ([64.147.123.19])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qf4Ol-00Fktp-27
+	id 1qf5Nu-00FogD-0p
 	for linux-riscv@lists.infradead.org;
-	Sat, 09 Sep 2023 20:17:45 +0000
-Received: from compute6.internal (compute6.nyi.internal [10.202.2.47])
-	by mailout.west.internal (Postfix) with ESMTP id A23CD3200805;
-	Sat,  9 Sep 2023 16:17:42 -0400 (EDT)
+	Sat, 09 Sep 2023 21:20:55 +0000
+Received: from compute4.internal (compute4.nyi.internal [10.202.2.44])
+	by mailout.west.internal (Postfix) with ESMTP id F3E5D3200805;
+	Sat,  9 Sep 2023 17:20:44 -0400 (EDT)
 Received: from mailfrontend2 ([10.202.2.163])
-  by compute6.internal (MEProxy); Sat, 09 Sep 2023 16:17:43 -0400
+  by compute4.internal (MEProxy); Sat, 09 Sep 2023 17:20:46 -0400
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sholland.org; h=
-	cc:cc:content-transfer-encoding:content-type:date:date:from:from
-	:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:sender:subject:subject:to:to; s=fm2; t=1694290662; x=
-	1694377062; bh=vYgeei/BDcJ6bUB2DAGppW0ND32ofla8o2DCj1NxYPE=; b=K
-	u0dd0RZHMaDqMns7iRitHO88BySItmXc1V/+Vb/OkmR3KGcO1DvaRAtq3OLHETze
-	naLsbxraep105inN1mW8i3aVWoN2CHwYKGEBnzeDVwtB/CY825a4Z6xplHeKufSB
-	j5nFyWllPSvSBWdcnnya2PQa8PQnYYZV8XJ5rJi+x/EQ026aTvbwXVV8VdsVpeGh
-	K6pNLRO3moFbl1eU9gKfEAOCfyD/8MKFiMMKp6OiMj6Z78ZchXerkP5VT2pQbY1v
-	Kah1XXspL8hkSGENcggXYwqoYZTnzsPBZM5B7wK0UGfXDstVHgvLEPFUuxcvWJ4X
-	I7OZP8RqM2VGeFapjE9CA==
+	cc:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:sender:subject:subject:to:to; s=fm2; t=
+	1694294444; x=1694380844; bh=Sn2F/0ubDOgcdhrssDrqzyRGCBkHH7oBOQI
+	2a3Dinvw=; b=GwMSj3GmmUGZUz+TzefxuyYs4BxeAeaAzAg9uFmhn+iuiHAcSS0
+	UCrIWMAq+eEhHxUOScsfTTCr+XCYuk61sWRBnWlP8byarAIQiuS05kS2uV7d/PO/
+	42LKGoTORm/viV/UehjHdWUmrJ68gBAdUbUzMSHTGSVVZKdj0NSHlw5a6g1Byax1
+	MKGw2IcAdCl789VxnsQeCAuDkRn+PiOki44TQvWQJKQlrh09KZ4Na9TPXxlvOizw
+	SXz7Ufzm0MNh7oi45zHJOXto8bXnuU9CudcCDRLSqtRqa7IJgU2CF594BnRhu6XT
+	HtyQ02B5tQQ7KIDGidfmFzHtMiAgzQZhSYQ==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
 	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:date:date:feedback-id:feedback-id:from:from
-	:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:sender:subject:subject:to:to:x-me-proxy:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1694290662; x=
-	1694377062; bh=vYgeei/BDcJ6bUB2DAGppW0ND32ofla8o2DCj1NxYPE=; b=J
-	6plQnuSCnXtX5IBcgF5KYZGLQQG5MhLcW0wynftAZ0np5C/3SOw1d4GtGQhHZoeA
-	RUCoGTMdxPBabmUAs8z9fzJypFl0W39j4LSRzE/kj+YtSJ+y2/NJxCWOMlC+OiBh
-	E06QkMy8GJfKVsumpoaI812sFBrDYMDbN7JgsvEuVRLEJ8/imdo2h3gHSfEr1mtS
-	U5OdXOVeblb2nv0zlpwDBRQC818RhI7+SAipU2efh9earF6Cmks7jZbChNmnwBYD
-	Vd/3hzPGOd+tI1EvQdpIoT/1VmuvUeJxT7/xF3v23ep25CoStRL7VhCvoOIJo699
-	CEAt1LarUDmRPpTBESL8w==
-X-ME-Sender: <xms:5tL8ZCxRHNq-vzK9N_uG8qqhbp1rBBZJvMQ9p4a7aAHLq3NtnewxUg>
-    <xme:5tL8ZOQzgpOWVkKdWgPPv6_cgUihWvwV0e4kJV3IgmdiyW0KJM_agwaPSvToF64mD
-    BKKgu6Gzmjz4Bhqnw>
-X-ME-Received: <xmr:5tL8ZEVIn04lOL8iEg7t_6-Bpd7rcM1EVp87tIIXdWdNEfB7mEw9ZCI9xIQrxqsnwjd_Vb-hOeWYdBkUxugRx_7CmdETWSKc1f38xGy0tjLYkUNXxf_DsCaJFXJl1xiuAhsZFg>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedviedrudehledgudegiecutefuodetggdotefrod
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:sender:subject:subject:to:to:x-me-proxy
+	:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=
+	1694294444; x=1694380844; bh=Sn2F/0ubDOgcdhrssDrqzyRGCBkHH7oBOQI
+	2a3Dinvw=; b=JXBPmsC1WwVG1Wi+i14PgkFlxICfX0K39Y0SIGAsyVutUYfpmoM
+	cbHhKaoaSqemWeyc0xBOOeK3Tceh8FpQJkhiFJYMl4xglCFqy3D0j0Wrc7hjgr6z
+	yChJgeyYjK3YajwhZM3AOcNnjZbfRXNYrYKLqfJz5Tr8ZAC+17VEAEX5j0JSF4oV
+	oNZtf2A8iquLvyd6W5V0ndEd/DO6KpISEf7uD4wci8agPvsbtBOM4fn9CuH7yNzb
+	03uYTZ8og4EsY/ST8/bcmJ+ywpwfyHDH6oeZePz8iOxD+A9NEAWNR+ijgNLzyujJ
+	C4dHWJkawuGx3OWcsdmrb7bFkSvW42Mc7Yg==
+X-ME-Sender: <xms:q-H8ZPgbPY-tZDHvFsPcSW49oPbyPvlJCr04wYBTLWbaSv0IPkEPAg>
+    <xme:q-H8ZMDUuwQUw-TBkbry3YApEn7IPWzGZL5_Yj9BETCm8liLsUzDxcyJXzckcp69Q
+    Z9bAnZEStQdIiCx0Q>
+X-ME-Received: <xmr:q-H8ZPFtfl2lcnF1mQFNxCxpAlI9sWLZ9OgYZQux4MGKilueQTRF1IrAioHmCUWzMYKYgXA6dtEMBtAVA9NGhmtTQBL4cV2oray7v4NxnpeaPemZ3hedkoZu3A>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedviedrudehledgudehlecutefuodetggdotefrod
     ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfgh
     necuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmd
-    enucfjughrpefhvfevufffkffojghfggfgsedtkeertdertddtnecuhfhrohhmpefurghm
-    uhgvlhcujfholhhlrghnugcuoehsrghmuhgvlhesshhhohhllhgrnhgurdhorhhgqeenuc
-    ggtffrrghtthgvrhhnpedukeetueduhedtleetvefguddvvdejhfefudelgfduveeggeeh
-    gfdufeeitdevteenucevlhhushhtvghrufhiiigvpedunecurfgrrhgrmhepmhgrihhlfh
-    hrohhmpehsrghmuhgvlhesshhhohhllhgrnhgurdhorhhg
-X-ME-Proxy: <xmx:5tL8ZIgvP082q9SgyvhZDbZ69buLo0piSwbSNT3_7U8OsZV6xK8lvg>
-    <xmx:5tL8ZEAxP4Bj3bU5vGdQ1eX2D8JNvBrwsjCMkx_b0-N6o3oStnzTuA>
-    <xmx:5tL8ZJIUDslnDG-sxfX_w_w2fCw2f6hdrGqre1Oxj6FtmZCr892DhQ>
-    <xmx:5tL8ZH9UTzbv1bS2mhrE2nMYvChZb-rj8vYZoG893ysjlGWDVmt9Dw>
+    enucfjughrpefkffggfgfuvfevfhfhjggtgfesthejredttdefjeenucfhrhhomhepufgr
+    mhhuvghlucfjohhllhgrnhguuceoshgrmhhuvghlsehshhholhhlrghnugdrohhrgheqne
+    cuggftrfgrthhtvghrnhepkeejleelfeeitdfhtdfgkeeghedufeduueegffdvhfdukeel
+    leeftdetjeehuddtnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilh
+    hfrhhomhepshgrmhhuvghlsehshhholhhlrghnugdrohhrgh
+X-ME-Proxy: <xmx:q-H8ZMTBqgLvdEJiU3F2cVwLmo6piZogtcSt106rPxcBSUoFEP-tMg>
+    <xmx:q-H8ZMxcvmFo-citqyBq2p4cKY6o--hIXpR_DweRNSv4E3D_6qoK9Q>
+    <xmx:q-H8ZC5nY5rEfTHrgzJsnaucjNyrPZGF7BcgNiMJ4OuDiVGEIzYTKw>
+    <xmx:rOH8ZIfbw2x-39473PQatEKS5LHn-7UshH0Ml9ilRqtCVpwKrOF-9A>
 Feedback-ID: i0ad843c9:Fastmail
 Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sat,
- 9 Sep 2023 16:17:41 -0400 (EDT)
-From: Samuel Holland <samuel@sholland.org>
-To: Palmer Dabbelt <palmer@dabbelt.com>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>,
-	linux-riscv@lists.infradead.org
-Cc: linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org,
-	Samuel Holland <samuel@sholland.org>
-Subject: [PATCH 6/7] riscv: mm: Always flush a single MM context by ASID
-Date: Sat,  9 Sep 2023 15:16:34 -0500
-Message-ID: <20230909201727.10909-7-samuel@sholland.org>
-X-Mailer: git-send-email 2.41.0
-In-Reply-To: <20230909201727.10909-1-samuel@sholland.org>
-References: <20230909201727.10909-1-samuel@sholland.org>
+ 9 Sep 2023 17:20:42 -0400 (EDT)
+Message-ID: <0e270067-cd2d-ecd0-512b-5dce4865fa4c@sholland.org>
+Date: Sat, 9 Sep 2023 16:20:41 -0500
 MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (X11; Linux ppc64le; rv:102.0) Gecko/20100101
+ Thunderbird/102.14.0
+Subject: Re: [PATCH v2] RISC-V: Fix use of non existent
+ CONFIG_HAVE_SOFTIRQ_ON_OWN_STACK
+Content-Language: en-US
+To: Jiexun Wang <wangjiexun@tinylab.org>
+Cc: guoren@kernel.org, paul.walmsley@sifive.com, palmer@dabbelt.com,
+ aou@eecs.berkeley.edu, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, falcon@tinylab.org, jszhang@kernel.org,
+ tglx@linutronix.de, conor@kernel.org
+References: <20230906123216.255932-1-wangjiexun@tinylab.org>
+From: Samuel Holland <samuel@sholland.org>
+In-Reply-To: <20230906123216.255932-1-wangjiexun@tinylab.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230909_131743_777474_E2497DF9 
-X-CRM114-Status: GOOD (  14.48  )
+X-CRM114-CacheID: sfid-20230909_142054_329714_41946F7F 
+X-CRM114-Status: GOOD (  20.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,172 +110,60 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Even if ASIDs are not supported, using the single-ASID variant of the
-sfence.vma instruction preserves TLB entries for global (kernel) pages.
-So it is always most efficient to use the single-ASID code path.
+Hi,
 
-Signed-off-by: Samuel Holland <samuel@sholland.org>
----
+The patch is correct, though the subject isn't quite accurate.
+CONFIG_HAVE_SOFTIRQ_ON_OWN_STACK exists; it is defined in arch/Kconfig.
+It's just the wrong option to use to guard the function definition.
 
- arch/riscv/include/asm/mmu_context.h |  2 -
- arch/riscv/include/asm/tlbflush.h    | 11 +++--
- arch/riscv/mm/context.c              |  3 +-
- arch/riscv/mm/tlbflush.c             | 68 ++++++----------------------
- 4 files changed, 24 insertions(+), 60 deletions(-)
+On 9/6/23 07:32, Jiexun Wang wrote:
+> If configuration options SOFTIRQ_ON_OWN_STACK and PREEMPT_RT 
+> are enabled simultaneously under RISC-V architecture,
+> it will result in a compilation failure:
+> 
+> arch/riscv/kernel/irq.c:64:6: error: redefinition of 'do_softirq_own_stack'
+>    64 | void do_softirq_own_stack(void)
+>       |      ^~~~~~~~~~~~~~~~~~~~
+> In file included from ./arch/riscv/include/generated/asm/softirq_stack.h:1,
+>                  from arch/riscv/kernel/irq.c:15:
+> ./include/asm-generic/softirq_stack.h:8:20: note: previous definition of 'do_softirq_own_stack' was here
+>     8 | static inline void do_softirq_own_stack(void)
+>       |                    ^~~~~~~~~~~~~~~~~~~~
+>       
+> After changing CONFIG_HAVE_SOFTIRQ_ON_OWN_STACK to CONFIG_SOFTIRQ_ON_OWN_STACK,
+> compilation can be successful.
+> 
+> Fixes: dd69d07a5a6c ("riscv: stack: Support HAVE_SOFTIRQ_ON_OWN_STACK")
+> Signed-off-by: Jiexun Wang <wangjiexun@tinylab.org>
+> ---
+> Changes in v2:
+> - changed to a more suitable subject line
+> - add a Fixes tag
+> 
+> ---
+>  arch/riscv/kernel/irq.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/arch/riscv/kernel/irq.c b/arch/riscv/kernel/irq.c
+> index a8efa053c4a5..a86f272ae2c3 100644
+> --- a/arch/riscv/kernel/irq.c
+> +++ b/arch/riscv/kernel/irq.c
+> @@ -60,7 +60,7 @@ static void init_irq_stacks(void)
+>  }
+>  #endif /* CONFIG_VMAP_STACK */
+>  
+> -#ifdef CONFIG_HAVE_SOFTIRQ_ON_OWN_STACK
+> +#ifdef CONFIG_SOFTIRQ_ON_OWN_STACK
 
-diff --git a/arch/riscv/include/asm/mmu_context.h b/arch/riscv/include/asm/mmu_context.h
-index 7030837adc1a..b0659413a080 100644
---- a/arch/riscv/include/asm/mmu_context.h
-+++ b/arch/riscv/include/asm/mmu_context.h
-@@ -33,8 +33,6 @@ static inline int init_new_context(struct task_struct *tsk,
- 	return 0;
- }
- 
--DECLARE_STATIC_KEY_FALSE(use_asid_allocator);
--
- #include <asm-generic/mmu_context.h>
- 
- #endif /* _ASM_RISCV_MMU_CONTEXT_H */
-diff --git a/arch/riscv/include/asm/tlbflush.h b/arch/riscv/include/asm/tlbflush.h
-index e55831edfc19..ba27cf68b170 100644
---- a/arch/riscv/include/asm/tlbflush.h
-+++ b/arch/riscv/include/asm/tlbflush.h
-@@ -54,13 +54,18 @@ void flush_pmd_tlb_range(struct vm_area_struct *vma, unsigned long start,
- #define flush_tlb_all() local_flush_tlb_all()
- #define flush_tlb_page(vma, addr) local_flush_tlb_page(addr)
- 
-+static inline void flush_tlb_mm(struct mm_struct *mm)
-+{
-+	unsigned long asid = cntx2asid(atomic_long_read(&mm->context.id));
-+
-+	local_flush_tlb_all_asid(asid);
-+}
-+
- static inline void flush_tlb_range(struct vm_area_struct *vma,
- 		unsigned long start, unsigned long end)
- {
--	local_flush_tlb_all();
-+	flush_tlb_mm(vma->vm_mm);
- }
--
--#define flush_tlb_mm(mm) flush_tlb_all()
- #endif /* !CONFIG_SMP || !CONFIG_MMU */
- 
- /* Flush a range of kernel pages */
-diff --git a/arch/riscv/mm/context.c b/arch/riscv/mm/context.c
-index 3ca9b653df7d..20057085ab8a 100644
---- a/arch/riscv/mm/context.c
-+++ b/arch/riscv/mm/context.c
-@@ -18,8 +18,7 @@
- 
- #ifdef CONFIG_MMU
- 
--DEFINE_STATIC_KEY_FALSE(use_asid_allocator);
--
-+static DEFINE_STATIC_KEY_FALSE(use_asid_allocator);
- static unsigned long num_asids;
- 
- static atomic_long_t current_version;
-diff --git a/arch/riscv/mm/tlbflush.c b/arch/riscv/mm/tlbflush.c
-index 54c3e70ccd81..56c2d40681a2 100644
---- a/arch/riscv/mm/tlbflush.c
-+++ b/arch/riscv/mm/tlbflush.c
-@@ -6,15 +6,6 @@
- #include <asm/sbi.h>
- #include <asm/mmu_context.h>
- 
--static inline void local_flush_tlb_range(unsigned long start,
--		unsigned long size, unsigned long stride)
--{
--	if (size <= stride)
--		local_flush_tlb_page(start);
--	else
--		local_flush_tlb_all();
--}
--
- static inline void local_flush_tlb_range_asid(unsigned long start,
- 		unsigned long size, unsigned long stride, unsigned long asid)
- {
-@@ -51,62 +42,33 @@ static void __ipi_flush_tlb_range_asid(void *info)
- 	local_flush_tlb_range_asid(d->start, d->size, d->stride, d->asid);
- }
- 
--static void __ipi_flush_tlb_range(void *info)
--{
--	struct flush_tlb_range_data *d = info;
--
--	local_flush_tlb_range(d->start, d->size, d->stride);
--}
--
- static void __flush_tlb_range(struct mm_struct *mm, unsigned long start,
- 			      unsigned long size, unsigned long stride)
- {
-+	unsigned long asid = cntx2asid(atomic_long_read(&mm->context.id));
- 	struct flush_tlb_range_data ftd;
- 	struct cpumask *cmask = mm_cpumask(mm);
- 	unsigned int cpuid;
--	bool broadcast;
- 
- 	if (cpumask_empty(cmask))
- 		return;
- 
- 	cpuid = get_cpu();
- 	/* check if the tlbflush needs to be sent to other CPUs */
--	broadcast = cpumask_any_but(cmask, cpuid) < nr_cpu_ids;
--	if (static_branch_unlikely(&use_asid_allocator)) {
--		unsigned long asid = cntx2asid(atomic_long_read(&mm->context.id));
--
--		if (broadcast) {
--			if (riscv_use_ipi_for_rfence()) {
--				ftd.asid = asid;
--				ftd.start = start;
--				ftd.size = size;
--				ftd.stride = stride;
--				on_each_cpu_mask(cmask,
--						 __ipi_flush_tlb_range_asid,
--						 &ftd, 1);
--			} else
--				sbi_remote_sfence_vma_asid(cmask,
--							   start, size, asid);
--		} else {
--			local_flush_tlb_range_asid(start, size, stride, asid);
--		}
--	} else {
--		if (broadcast) {
--			if (riscv_use_ipi_for_rfence()) {
--				ftd.asid = 0;
--				ftd.start = start;
--				ftd.size = size;
--				ftd.stride = stride;
--				on_each_cpu_mask(cmask,
--						 __ipi_flush_tlb_range,
--						 &ftd, 1);
--			} else
--				sbi_remote_sfence_vma(cmask, start, size);
--		} else {
--			local_flush_tlb_range(start, size, stride);
--		}
--	}
--
-+	if (cpumask_any_but(cmask, cpuid) < nr_cpu_ids) {
-+		if (riscv_use_ipi_for_rfence()) {
-+			ftd.asid = asid;
-+			ftd.start = start;
-+			ftd.size = size;
-+			ftd.stride = stride;
-+			on_each_cpu_mask(cmask,
-+					 __ipi_flush_tlb_range_asid,
-+					 &ftd, 1);
-+		} else
-+			sbi_remote_sfence_vma_asid(cmask,
-+						   start, size, asid);
-+	} else
-+		local_flush_tlb_range_asid(start, size, stride, asid);
- 	put_cpu();
- }
- 
--- 
-2.41.0
+It would be good to fix the #endif comment at the bottom of the function
+as well.
+
+Regards,
+Samuel
+
+>  void do_softirq_own_stack(void)
+>  {
+>  #ifdef CONFIG_IRQ_STACKS
 
 
 _______________________________________________
