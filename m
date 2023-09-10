@@ -4,67 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64616EE57CD
-	for <linux-riscv@archiver.kernel.org>; Sun, 10 Sep 2023 00:17:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8CC1EE14D8
+	for <linux-riscv@archiver.kernel.org>; Sun, 10 Sep 2023 08:30:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dpatKgDN2bLLbZWV/uTc2Y810L0FnNAkEoqwJu7yVaw=; b=Lgc6YNNdCGfKaS
-	BNDgLudKFGpKkrAvgmVgtbWDCNaPbGuW/wDcfJvVEMBX7+5yY4wnMJ5qZFFezZGUcnOOKWkPPZkw3
-	zcGNSaC4EkneXgDUZBcJ223yBiPjyBanvtjspAXg3Xcf2UVOuDBa2j+zZXU9dBXgdxAem1gA+/V2P
-	fv9BJlxl98eJ+65NDAtx+B7YlsF1+ic+axTDnal9tI/NpIM0domY6fSC8cL+PM0kXUYgPujJAqehc
-	A6ghpHoBikTFVRLD29pYU4TW2ZDRgyTK/D0dRfPFeWuagvkWmZOXSH35oYwmfRV8fiHCBD8JcLksq
-	iIlzhY7TbofubzVjJWpw==;
+	List-Owner; bh=jK6A5++dMpKNhceBoT2xbUi3k3+z3m3GBNdJvGcqmcs=; b=KbWNYVEf65MZDC
+	EGpgHAMTI+eXzNfKzl9OsrHjo+QXXrWYa+pFNxt/H8+2bJz3RjVToSvQVVW1XkkAGz2p5Oll6QAm+
+	0djRZUbcnOBShfx3K1SUiIbAs9UcqvsQ979ekYuvykwdJ7PUmXPv8lz6+YS4k3jUXuKsOmR3Y7xQp
+	iDlvnLENNJxwuB7rsBdrqovK9hQ+pIUIezphQ430NjD9POLFxjCQEdtW3R55kvWBLK1XN0uq2VwWE
+	tPl0bLSeeeaW1H+XusUadyr1pqHB8S+bu21eZJfhZoqHv/mrAb48Mp33KjFubOeWE7pGBFHdd8x1K
+	Towb9OaKPDsF8Aget2Cg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qf888-00FxBN-1t;
-	Sun, 10 Sep 2023 00:16:48 +0000
-Received: from bg2.exmail.qq.com ([106.55.200.77])
+	id 1qfFpj-00GHaL-1u;
+	Sun, 10 Sep 2023 08:30:19 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qf885-00FxB0-0m
+	id 1qfFpg-00GHZL-0O
 	for linux-riscv@lists.infradead.org;
-	Sun, 10 Sep 2023 00:16:47 +0000
-X-QQ-mid: bizesmtp62t1694304964txspi1h0
-Received: from wangjiexun-virtual-machine.loca ( [120.225.34.249])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Sun, 10 Sep 2023 08:16:02 +0800 (CST)
-X-QQ-SSF: 01200000000000101000000A0000000
-X-QQ-FEAT: LE7C6P2vL8T8dkxfHfUMK4hSz907dsoEo8Skjve4CIaYwaWm+SWYl7AWRESLI
-	ehkPraxg98x7BxgHqox8OAu/HvVe5UR7B/uh6GIpTqvIM4VlyioRIajkseCrD5vz0Zo+bMp
-	2O1OS8zKXW3HL705eWwadY6uOGid8YnJBkt3hu4yQAl9QBxVhr72wpv5hgaPYrroUi1S8VB
-	6tq+RaWxqUsVOblPxsz8V+MWqLRJwTyx2hOlBEl2ONG9mDsAtHeQTlSbEZbohMLT+PvaXl5
-	3PhxYZfntGPUz9cQV6W/Vx+YT1KJurmcNGlWIyCN+TJ2pqo3xSYgtehlDyeqsJsNi51+461
-	6PlUDSJeTOxhvyJadMEMCjQsNCPTILADZdTDnPvMeI5FpOUlN0=
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 9083973876487166381
-From: Jiexun Wang <wangjiexun@tinylab.org>
-To: samuel@sholland.org
-Cc: aou@eecs.berkeley.edu,
-	conor@kernel.org,
-	falcon@tinylab.org,
-	guoren@kernel.org,
-	jszhang@kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	palmer@dabbelt.com,
-	paul.walmsley@sifive.com,
+	Sun, 10 Sep 2023 08:30:17 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 6024E60C64;
+	Sun, 10 Sep 2023 08:30:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B04EEC433CA;
+	Sun, 10 Sep 2023 08:30:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1694334615;
+	bh=Z6iRHs/3ezKlGvEDJaadEcfbR2OWUTdx821B0UQrJ0E=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=vGqJX8UUqlRFp6uTjHgw4CF9dl5VBj6KpBXS8EDXe+7FJT/GTT2mnftqKCOhqQluj
+	 9HYFg/Gv/98xNDbPf71SKzJ5yUHjwqiekijV3Gl/Z/tVRYsyH2b/SwtriQURW0dS1v
+	 EmJ7PvcvmXEQXJybTg3UovrPUEe6ZYhERrZYnT3oyB/NMb1eeaWVqA+VwsFDQW5XHO
+	 ITyuMfJ44qXNu1OtoEIXy/xpXWStsGJBI3GQt1k4g/D9BEYsUuMb8MwhCfnLY66Mv7
+	 /6j1kvDg6QSnxgBi5Oj3hGq9Qha8C37PEiUneW+kjCPaFzFX3UfBRY7So76gSQEdbe
+	 nAz4x+JZXTNUg==
+From: guoren@kernel.org
+To: paul.walmsley@sifive.com,
+	anup@brainfault.org,
+	peterz@infradead.org,
+	mingo@redhat.com,
+	will@kernel.org,
+	palmer@rivosinc.com,
+	longman@redhat.com,
+	boqun.feng@gmail.com,
 	tglx@linutronix.de,
-	wangjiexun@tinylab.org
-Subject: Re: [PATCH v2] RISC-V: Fix use of non existent CONFIG_HAVE_SOFTIRQ_ON_OWN_STACK
-Date: Sun, 10 Sep 2023 08:16:01 +0800
-Message-Id: <20230910001601.371826-1-wangjiexun@tinylab.org>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <0e270067-cd2d-ecd0-512b-5dce4865fa4c@sholland.org>
-References: <0e270067-cd2d-ecd0-512b-5dce4865fa4c@sholland.org>
+	paulmck@kernel.org,
+	rostedt@goodmis.org,
+	rdunlap@infradead.org,
+	catalin.marinas@arm.com,
+	conor.dooley@microchip.com,
+	xiaoguang.xing@sophgo.com,
+	bjorn@rivosinc.com,
+	alexghiti@rivosinc.com,
+	keescook@chromium.org,
+	greentime.hu@sifive.com,
+	ajones@ventanamicro.com,
+	jszhang@kernel.org,
+	wefu@redhat.com,
+	wuwei2016@iscas.ac.cn,
+	leobras@redhat.com
+Cc: linux-arch@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-doc@vger.kernel.org,
+	kvm@vger.kernel.org,
+	virtualization@lists.linux-foundation.org,
+	linux-csky@vger.kernel.org,
+	Guo Ren <guoren@linux.alibaba.com>,
+	Guo Ren <guoren@kernel.org>
+Subject: [PATCH V11 01/17] asm-generic: ticket-lock: Reuse arch_spinlock_t of qspinlock
+Date: Sun, 10 Sep 2023 04:28:55 -0400
+Message-Id: <20230910082911.3378782-2-guoren@kernel.org>
+X-Mailer: git-send-email 2.36.1
+In-Reply-To: <20230910082911.3378782-1-guoren@kernel.org>
+References: <20230910082911.3378782-1-guoren@kernel.org>
 MIME-Version: 1.0
-X-QQ-SENDSIZE: 520
-Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrgz:qybglogicsvrgz5a-0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230909_171645_655054_6B0395E9 
-X-CRM114-Status: GOOD (  13.80  )
+X-CRM114-CacheID: sfid-20230910_013016_241753_A701B54E 
+X-CRM114-Status: GOOD (  11.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,71 +104,104 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, 9 Sep 2023 16:20:41 -0500, Samuel Holland wrote:
->Hi,
->
->The patch is correct, though the subject isn't quite accurate.
->CONFIG_HAVE_SOFTIRQ_ON_OWN_STACK exists; it is defined in arch/Kconfig.
->It's just the wrong option to use to guard the function definition.
->
+From: Guo Ren <guoren@linux.alibaba.com>
 
-I think I should send a new version of the patch with the subject:
-RISC-V: Fix wrong use of CONFIG_HAVE_SOFTIRQ_ON_OWN_STACK. 
-Does this subject look more appropriate?
+The arch_spinlock_t of qspinlock has contained the atomic_t val, which
+satisfies the ticket-lock requirement. Thus, unify the arch_spinlock_t
+into qspinlock_types.h. This is the preparation for the next combo
+spinlock.
 
->On 9/6/23 07:32, Jiexun Wang wrote:
->> If configuration options SOFTIRQ_ON_OWN_STACK and PREEMPT_RT 
->> are enabled simultaneously under RISC-V architecture,
->> it will result in a compilation failure:
->> 
->> arch/riscv/kernel/irq.c:64:6: error: redefinition of 'do_softirq_own_stack'
->>    64 | void do_softirq_own_stack(void)
->>       |      ^~~~~~~~~~~~~~~~~~~~
->> In file included from ./arch/riscv/include/generated/asm/softirq_stack.h:1,
->>                  from arch/riscv/kernel/irq.c:15:
->> ./include/asm-generic/softirq_stack.h:8:20: note: previous definition of 'do_softirq_own_stack' was here
->>     8 | static inline void do_softirq_own_stack(void)
->>       |                    ^~~~~~~~~~~~~~~~~~~~
->>       
->> After changing CONFIG_HAVE_SOFTIRQ_ON_OWN_STACK to CONFIG_SOFTIRQ_ON_OWN_STACK,
->> compilation can be successful.
->> 
->> Fixes: dd69d07a5a6c ("riscv: stack: Support HAVE_SOFTIRQ_ON_OWN_STACK")
->> Signed-off-by: Jiexun Wang <wangjiexun@tinylab.org>
->> ---
->> Changes in v2:
->> - changed to a more suitable subject line
->> - add a Fixes tag
->> 
->> ---
->>  arch/riscv/kernel/irq.c | 2 +-
->>  1 file changed, 1 insertion(+), 1 deletion(-)
->> 
->> diff --git a/arch/riscv/kernel/irq.c b/arch/riscv/kernel/irq.c
->> index a8efa053c4a5..a86f272ae2c3 100644
->> --- a/arch/riscv/kernel/irq.c
->> +++ b/arch/riscv/kernel/irq.c
->> @@ -60,7 +60,7 @@ static void init_irq_stacks(void)
->>  }
->>  #endif /* CONFIG_VMAP_STACK */
->>  
->> -#ifdef CONFIG_HAVE_SOFTIRQ_ON_OWN_STACK
->> +#ifdef CONFIG_SOFTIRQ_ON_OWN_STACK
->
->It would be good to fix the #endif comment at the bottom of the function
->as well.
+Signed-off-by: Guo Ren <guoren@kernel.org>
+Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+---
+ include/asm-generic/spinlock.h       | 14 +++++++-------
+ include/asm-generic/spinlock_types.h | 12 ++----------
+ 2 files changed, 9 insertions(+), 17 deletions(-)
 
-Thanks, I will fix this as well.
+diff --git a/include/asm-generic/spinlock.h b/include/asm-generic/spinlock.h
+index 90803a826ba0..4773334ee638 100644
+--- a/include/asm-generic/spinlock.h
++++ b/include/asm-generic/spinlock.h
+@@ -32,7 +32,7 @@
+ 
+ static __always_inline void arch_spin_lock(arch_spinlock_t *lock)
+ {
+-	u32 val = atomic_fetch_add(1<<16, lock);
++	u32 val = atomic_fetch_add(1<<16, &lock->val);
+ 	u16 ticket = val >> 16;
+ 
+ 	if (ticket == (u16)val)
+@@ -46,31 +46,31 @@ static __always_inline void arch_spin_lock(arch_spinlock_t *lock)
+ 	 * have no outstanding writes due to the atomic_fetch_add() the extra
+ 	 * orderings are free.
+ 	 */
+-	atomic_cond_read_acquire(lock, ticket == (u16)VAL);
++	atomic_cond_read_acquire(&lock->val, ticket == (u16)VAL);
+ 	smp_mb();
+ }
+ 
+ static __always_inline bool arch_spin_trylock(arch_spinlock_t *lock)
+ {
+-	u32 old = atomic_read(lock);
++	u32 old = atomic_read(&lock->val);
+ 
+ 	if ((old >> 16) != (old & 0xffff))
+ 		return false;
+ 
+-	return atomic_try_cmpxchg(lock, &old, old + (1<<16)); /* SC, for RCsc */
++	return atomic_try_cmpxchg(&lock->val, &old, old + (1<<16)); /* SC, for RCsc */
+ }
+ 
+ static __always_inline void arch_spin_unlock(arch_spinlock_t *lock)
+ {
+ 	u16 *ptr = (u16 *)lock + IS_ENABLED(CONFIG_CPU_BIG_ENDIAN);
+-	u32 val = atomic_read(lock);
++	u32 val = atomic_read(&lock->val);
+ 
+ 	smp_store_release(ptr, (u16)val + 1);
+ }
+ 
+ static __always_inline int arch_spin_value_unlocked(arch_spinlock_t lock)
+ {
+-	u32 val = lock.counter;
++	u32 val = lock.val.counter;
+ 
+ 	return ((val >> 16) == (val & 0xffff));
+ }
+@@ -84,7 +84,7 @@ static __always_inline int arch_spin_is_locked(arch_spinlock_t *lock)
+ 
+ static __always_inline int arch_spin_is_contended(arch_spinlock_t *lock)
+ {
+-	u32 val = atomic_read(lock);
++	u32 val = atomic_read(&lock->val);
+ 
+ 	return (s16)((val >> 16) - (val & 0xffff)) > 1;
+ }
+diff --git a/include/asm-generic/spinlock_types.h b/include/asm-generic/spinlock_types.h
+index 8962bb730945..f534aa5de394 100644
+--- a/include/asm-generic/spinlock_types.h
++++ b/include/asm-generic/spinlock_types.h
+@@ -3,15 +3,7 @@
+ #ifndef __ASM_GENERIC_SPINLOCK_TYPES_H
+ #define __ASM_GENERIC_SPINLOCK_TYPES_H
+ 
+-#include <linux/types.h>
+-typedef atomic_t arch_spinlock_t;
+-
+-/*
+- * qrwlock_types depends on arch_spinlock_t, so we must typedef that before the
+- * include.
+- */
+-#include <asm/qrwlock_types.h>
+-
+-#define __ARCH_SPIN_LOCK_UNLOCKED	ATOMIC_INIT(0)
++#include <asm-generic/qspinlock_types.h>
++#include <asm-generic/qrwlock_types.h>
+ 
+ #endif /* __ASM_GENERIC_SPINLOCK_TYPES_H */
+-- 
+2.36.1
 
-Best regards,
-Jiexun Wang
-
->
->Regards,
->Samuel
->
->>  void do_softirq_own_stack(void)
->>  {
 
 _______________________________________________
 linux-riscv mailing list
