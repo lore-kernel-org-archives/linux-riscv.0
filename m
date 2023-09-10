@@ -4,47 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8CC1EE14D8
-	for <linux-riscv@archiver.kernel.org>; Sun, 10 Sep 2023 08:30:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50958EEB580
+	for <linux-riscv@archiver.kernel.org>; Sun, 10 Sep 2023 08:30:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jK6A5++dMpKNhceBoT2xbUi3k3+z3m3GBNdJvGcqmcs=; b=KbWNYVEf65MZDC
-	EGpgHAMTI+eXzNfKzl9OsrHjo+QXXrWYa+pFNxt/H8+2bJz3RjVToSvQVVW1XkkAGz2p5Oll6QAm+
-	0djRZUbcnOBShfx3K1SUiIbAs9UcqvsQ979ekYuvykwdJ7PUmXPv8lz6+YS4k3jUXuKsOmR3Y7xQp
-	iDlvnLENNJxwuB7rsBdrqovK9hQ+pIUIezphQ430NjD9POLFxjCQEdtW3R55kvWBLK1XN0uq2VwWE
-	tPl0bLSeeeaW1H+XusUadyr1pqHB8S+bu21eZJfhZoqHv/mrAb48Mp33KjFubOeWE7pGBFHdd8x1K
-	Towb9OaKPDsF8Aget2Cg==;
+	List-Owner; bh=4L0nrjop/yYiW0hH7bWnUJW3x1Y2/z29AccgRVRtGJQ=; b=iQJ+cNE0UPz98m
+	csVnUhzqLl2rjuEOUfC+YpbtFNWCh2y+UNoXnbV8DhWN697TF18Q0nw5+MVq4R4lVhFd4SUReZi5G
+	0dQFD2Zmwm9IEEMuNkVjaQ2eRmeP1P3CAGM8BPioJecgfuph63p47wjl7zeaNZybr4wGkL6+rlXS9
+	XcRR4DO94575Yl84OvMg9VrhtSmHn7p1Eyz4VaXv5s2z1zaA/teyqEuioRkiYgTT+F88+XwxDhu25
+	SU4MrkqDYhkIGZD1mtB8gDj4dZi8An+Z9/5hpwiq6KW1LT/UxqVQay6mH62tDdZLWEFBMW4iVceKc
+	kmzjURUL+ntk1RHUT1Rw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qfFpj-00GHaL-1u;
-	Sun, 10 Sep 2023 08:30:19 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1qfFpx-00GHdE-2K;
+	Sun, 10 Sep 2023 08:30:33 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qfFpg-00GHZL-0O
+	id 1qfFpu-00GHcQ-0G
 	for linux-riscv@lists.infradead.org;
-	Sun, 10 Sep 2023 08:30:17 +0000
+	Sun, 10 Sep 2023 08:30:31 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 6024E60C64;
-	Sun, 10 Sep 2023 08:30:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B04EEC433CA;
-	Sun, 10 Sep 2023 08:30:09 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 4766DB80AF3;
+	Sun, 10 Sep 2023 08:30:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8F0A2C433CC;
+	Sun, 10 Sep 2023 08:30:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1694334615;
-	bh=Z6iRHs/3ezKlGvEDJaadEcfbR2OWUTdx821B0UQrJ0E=;
+	s=k20201202; t=1694334627;
+	bh=JHxtCSFAXXj+aAh2d1UzrcmVnbP7XJ2TAFbFny2j3pM=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=vGqJX8UUqlRFp6uTjHgw4CF9dl5VBj6KpBXS8EDXe+7FJT/GTT2mnftqKCOhqQluj
-	 9HYFg/Gv/98xNDbPf71SKzJ5yUHjwqiekijV3Gl/Z/tVRYsyH2b/SwtriQURW0dS1v
-	 EmJ7PvcvmXEQXJybTg3UovrPUEe6ZYhERrZYnT3oyB/NMb1eeaWVqA+VwsFDQW5XHO
-	 ITyuMfJ44qXNu1OtoEIXy/xpXWStsGJBI3GQt1k4g/D9BEYsUuMb8MwhCfnLY66Mv7
-	 /6j1kvDg6QSnxgBi5Oj3hGq9Qha8C37PEiUneW+kjCPaFzFX3UfBRY7So76gSQEdbe
-	 nAz4x+JZXTNUg==
+	b=gkC6EgOJCLxEIUZxkbIuR1YvLQRbsEdcIriRqReFcbydI85IYQob0oUNpPRgyojoN
+	 Ngd6SVyuYUJtvWMoqh6PbN8d13dOhFeQ6J2Gzu/aCowb49eOF7LBbcoUn40G3KqnDS
+	 Pdtvoj+iD080UL1k8d9qE19wDPh1uSP0OwUxMwi2n7mncnsNvPCJCMOyMx9hCYGlzd
+	 XwOnTEXflDp0+8Vfk/PHZSusn8wvbkhZFtrOifwwgZWYXuqhfdfpCog0ptjNWSqU6D
+	 Ig3SYK1z5xii6D7nfdzIEgQbg+tJf3vrftC1cnvT4pqDpP2WsggkJXCzcJPS5Hw+wr
+	 QhrAAJDCXpvvg==
 From: guoren@kernel.org
 To: paul.walmsley@sifive.com,
 	anup@brainfault.org,
@@ -78,16 +78,16 @@ Cc: linux-arch@vger.kernel.org,
 	linux-csky@vger.kernel.org,
 	Guo Ren <guoren@linux.alibaba.com>,
 	Guo Ren <guoren@kernel.org>
-Subject: [PATCH V11 01/17] asm-generic: ticket-lock: Reuse arch_spinlock_t of qspinlock
-Date: Sun, 10 Sep 2023 04:28:55 -0400
-Message-Id: <20230910082911.3378782-2-guoren@kernel.org>
+Subject: [PATCH V11 03/17] riscv: Use Zicbop in arch_xchg when available
+Date: Sun, 10 Sep 2023 04:28:57 -0400
+Message-Id: <20230910082911.3378782-4-guoren@kernel.org>
 X-Mailer: git-send-email 2.36.1
 In-Reply-To: <20230910082911.3378782-1-guoren@kernel.org>
 References: <20230910082911.3378782-1-guoren@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230910_013016_241753_A701B54E 
-X-CRM114-Status: GOOD (  11.65  )
+X-CRM114-CacheID: sfid-20230910_013030_425784_5F144C62 
+X-CRM114-Status: GOOD (  15.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,99 +106,153 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Guo Ren <guoren@linux.alibaba.com>
 
-The arch_spinlock_t of qspinlock has contained the atomic_t val, which
-satisfies the ticket-lock requirement. Thus, unify the arch_spinlock_t
-into qspinlock_types.h. This is the preparation for the next combo
-spinlock.
+Cache-block prefetch instructions are HINTs to the hardware to
+indicate that software intends to perform a particular type of
+memory access in the near future. Enable ARCH_HAS_PREFETCHW and
+improve the arch_xchg for qspinlock xchg_tail.
 
-Signed-off-by: Guo Ren <guoren@kernel.org>
 Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+Signed-off-by: Guo Ren <guoren@kernel.org>
 ---
- include/asm-generic/spinlock.h       | 14 +++++++-------
- include/asm-generic/spinlock_types.h | 12 ++----------
- 2 files changed, 9 insertions(+), 17 deletions(-)
+ arch/riscv/Kconfig                 | 15 +++++++++++++++
+ arch/riscv/include/asm/cmpxchg.h   |  4 +++-
+ arch/riscv/include/asm/hwcap.h     |  1 +
+ arch/riscv/include/asm/insn-def.h  |  5 +++++
+ arch/riscv/include/asm/processor.h | 13 +++++++++++++
+ arch/riscv/kernel/cpufeature.c     |  1 +
+ 6 files changed, 38 insertions(+), 1 deletion(-)
 
-diff --git a/include/asm-generic/spinlock.h b/include/asm-generic/spinlock.h
-index 90803a826ba0..4773334ee638 100644
---- a/include/asm-generic/spinlock.h
-+++ b/include/asm-generic/spinlock.h
-@@ -32,7 +32,7 @@
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index e9ae6fa232c3..2c346fe169c1 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -617,6 +617,21 @@ config RISCV_ISA_ZICBOZ
  
- static __always_inline void arch_spin_lock(arch_spinlock_t *lock)
- {
--	u32 val = atomic_fetch_add(1<<16, lock);
-+	u32 val = atomic_fetch_add(1<<16, &lock->val);
- 	u16 ticket = val >> 16;
+ 	   If you don't know what to do here, say Y.
  
- 	if (ticket == (u16)val)
-@@ -46,31 +46,31 @@ static __always_inline void arch_spin_lock(arch_spinlock_t *lock)
- 	 * have no outstanding writes due to the atomic_fetch_add() the extra
- 	 * orderings are free.
- 	 */
--	atomic_cond_read_acquire(lock, ticket == (u16)VAL);
-+	atomic_cond_read_acquire(&lock->val, ticket == (u16)VAL);
- 	smp_mb();
- }
++config RISCV_ISA_ZICBOP
++	bool "Zicbop extension support for cache block prefetch"
++	depends on MMU
++	depends on RISCV_ALTERNATIVE
++	default y
++	help
++	   Adds support to dynamically detect the presence of the ZICBOP
++	   extension (Cache Block Prefetch Operations) and enable its
++	   usage.
++
++	   The Zicbop extension can be used to prefetch cache block for
++	   read/write/instruction fetch.
++
++	   If you don't know what to do here, say Y.
++
+ config TOOLCHAIN_HAS_ZIHINTPAUSE
+ 	bool
+ 	default y
+diff --git a/arch/riscv/include/asm/cmpxchg.h b/arch/riscv/include/asm/cmpxchg.h
+index 702725727671..56eff7a9d2d2 100644
+--- a/arch/riscv/include/asm/cmpxchg.h
++++ b/arch/riscv/include/asm/cmpxchg.h
+@@ -11,6 +11,7 @@
  
- static __always_inline bool arch_spin_trylock(arch_spinlock_t *lock)
- {
--	u32 old = atomic_read(lock);
-+	u32 old = atomic_read(&lock->val);
+ #include <asm/barrier.h>
+ #include <asm/fence.h>
++#include <asm/processor.h>
  
- 	if ((old >> 16) != (old & 0xffff))
- 		return false;
+ #define __arch_xchg_masked(prepend, append, r, p, n)			\
+ ({									\
+@@ -25,6 +26,7 @@
+ 									\
+ 	__asm__ __volatile__ (						\
+ 	       prepend							\
++	       PREFETCHW_ASM(%5)					\
+ 	       "0:	lr.w %0, %2\n"					\
+ 	       "	and  %1, %0, %z4\n"				\
+ 	       "	or   %1, %1, %z3\n"				\
+@@ -32,7 +34,7 @@
+ 	       "	bnez %1, 0b\n"					\
+ 	       append							\
+ 	       : "=&r" (__retx), "=&r" (__rc), "+A" (*(__ptr32b))	\
+-	       : "rJ" (__newx), "rJ" (~__mask)				\
++	       : "rJ" (__newx), "rJ" (~__mask), "rJ" (__ptr32b)		\
+ 	       : "memory");						\
+ 									\
+ 	r = (__typeof__(*(p)))((__retx & __mask) >> __s);		\
+diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
+index b7b58258f6c7..78b7b8b53778 100644
+--- a/arch/riscv/include/asm/hwcap.h
++++ b/arch/riscv/include/asm/hwcap.h
+@@ -58,6 +58,7 @@
+ #define RISCV_ISA_EXT_ZICSR		40
+ #define RISCV_ISA_EXT_ZIFENCEI		41
+ #define RISCV_ISA_EXT_ZIHPM		42
++#define RISCV_ISA_EXT_ZICBOP		43
  
--	return atomic_try_cmpxchg(lock, &old, old + (1<<16)); /* SC, for RCsc */
-+	return atomic_try_cmpxchg(&lock->val, &old, old + (1<<16)); /* SC, for RCsc */
- }
+ #define RISCV_ISA_EXT_MAX		64
  
- static __always_inline void arch_spin_unlock(arch_spinlock_t *lock)
- {
- 	u16 *ptr = (u16 *)lock + IS_ENABLED(CONFIG_CPU_BIG_ENDIAN);
--	u32 val = atomic_read(lock);
-+	u32 val = atomic_read(&lock->val);
+diff --git a/arch/riscv/include/asm/insn-def.h b/arch/riscv/include/asm/insn-def.h
+index 6960beb75f32..dc590d331894 100644
+--- a/arch/riscv/include/asm/insn-def.h
++++ b/arch/riscv/include/asm/insn-def.h
+@@ -134,6 +134,7 @@
  
- 	smp_store_release(ptr, (u16)val + 1);
- }
+ #define RV_OPCODE_MISC_MEM	RV_OPCODE(15)
+ #define RV_OPCODE_SYSTEM	RV_OPCODE(115)
++#define RV_OPCODE_PREFETCH	RV_OPCODE(19)
  
- static __always_inline int arch_spin_value_unlocked(arch_spinlock_t lock)
- {
--	u32 val = lock.counter;
-+	u32 val = lock.val.counter;
+ #define HFENCE_VVMA(vaddr, asid)				\
+ 	INSN_R(OPCODE_SYSTEM, FUNC3(0), FUNC7(17),		\
+@@ -196,4 +197,8 @@
+ 	INSN_I(OPCODE_MISC_MEM, FUNC3(2), __RD(0),		\
+ 	       RS1(base), SIMM12(4))
  
- 	return ((val >> 16) == (val & 0xffff));
- }
-@@ -84,7 +84,7 @@ static __always_inline int arch_spin_is_locked(arch_spinlock_t *lock)
++#define CBO_prefetchw(base)					\
++	INSN_R(OPCODE_PREFETCH, FUNC3(6), FUNC7(0),		\
++	       RD(x0), RS1(base), RS2(x0))
++
+ #endif /* __ASM_INSN_DEF_H */
+diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/processor.h
+index de9da852f78d..7ad3a24212e8 100644
+--- a/arch/riscv/include/asm/processor.h
++++ b/arch/riscv/include/asm/processor.h
+@@ -12,6 +12,8 @@
+ #include <vdso/processor.h>
  
- static __always_inline int arch_spin_is_contended(arch_spinlock_t *lock)
- {
--	u32 val = atomic_read(lock);
-+	u32 val = atomic_read(&lock->val);
+ #include <asm/ptrace.h>
++#include <asm/insn-def.h>
++#include <asm/hwcap.h>
  
- 	return (s16)((val >> 16) - (val & 0xffff)) > 1;
- }
-diff --git a/include/asm-generic/spinlock_types.h b/include/asm-generic/spinlock_types.h
-index 8962bb730945..f534aa5de394 100644
---- a/include/asm-generic/spinlock_types.h
-+++ b/include/asm-generic/spinlock_types.h
-@@ -3,15 +3,7 @@
- #ifndef __ASM_GENERIC_SPINLOCK_TYPES_H
- #define __ASM_GENERIC_SPINLOCK_TYPES_H
+ #ifdef CONFIG_64BIT
+ #define DEFAULT_MAP_WINDOW	(UL(1) << (MMAP_VA_BITS - 1))
+@@ -103,6 +105,17 @@ static inline void arch_thread_struct_whitelist(unsigned long *offset,
+ #define KSTK_EIP(tsk)		(ulong)(task_pt_regs(tsk)->epc)
+ #define KSTK_ESP(tsk)		(ulong)(task_pt_regs(tsk)->sp)
  
--#include <linux/types.h>
--typedef atomic_t arch_spinlock_t;
--
--/*
-- * qrwlock_types depends on arch_spinlock_t, so we must typedef that before the
-- * include.
-- */
--#include <asm/qrwlock_types.h>
--
--#define __ARCH_SPIN_LOCK_UNLOCKED	ATOMIC_INIT(0)
-+#include <asm-generic/qspinlock_types.h>
-+#include <asm-generic/qrwlock_types.h>
++#define ARCH_HAS_PREFETCHW
++#define PREFETCHW_ASM(base)	ALTERNATIVE(__nops(1), \
++					    CBO_prefetchw(base), \
++					    0, \
++					    RISCV_ISA_EXT_ZICBOP, \
++					    CONFIG_RISCV_ISA_ZICBOP)
++static inline void prefetchw(const void *ptr)
++{
++	asm volatile(PREFETCHW_ASM(%0)
++		: : "r" (ptr) : "memory");
++}
  
- #endif /* __ASM_GENERIC_SPINLOCK_TYPES_H */
+ /* Do necessary setup to start up a newly executed thread. */
+ extern void start_thread(struct pt_regs *regs,
+diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+index ef7b4fd9e876..e0b897db0b97 100644
+--- a/arch/riscv/kernel/cpufeature.c
++++ b/arch/riscv/kernel/cpufeature.c
+@@ -159,6 +159,7 @@ const struct riscv_isa_ext_data riscv_isa_ext[] = {
+ 	__RISCV_ISA_EXT_DATA(h, RISCV_ISA_EXT_h),
+ 	__RISCV_ISA_EXT_DATA(zicbom, RISCV_ISA_EXT_ZICBOM),
+ 	__RISCV_ISA_EXT_DATA(zicboz, RISCV_ISA_EXT_ZICBOZ),
++	__RISCV_ISA_EXT_DATA(zicbop, RISCV_ISA_EXT_ZICBOP),
+ 	__RISCV_ISA_EXT_DATA(zicntr, RISCV_ISA_EXT_ZICNTR),
+ 	__RISCV_ISA_EXT_DATA(zicsr, RISCV_ISA_EXT_ZICSR),
+ 	__RISCV_ISA_EXT_DATA(zifencei, RISCV_ISA_EXT_ZIFENCEI),
 -- 
 2.36.1
 
