@@ -4,47 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED999EE57DF
-	for <linux-riscv@archiver.kernel.org>; Sun, 10 Sep 2023 08:31:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8B1AEC8748
+	for <linux-riscv@archiver.kernel.org>; Sun, 10 Sep 2023 08:31:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wONEt2rJlaYIgaiH2N3HbqK0/5iX0fUN+JlBPH1T484=; b=mJJRZI0POxkJoy
-	uVb5pfOGbmVoydeMKA+xEeOd8OdKeHLhs0k8KiusAkpm9KQyo+rF9dsdHledWbLdgt4okMLAxEUEq
-	ZPfHP3H7o6pcZdEkCcCH+b1wWN9+plvE3R9Rbo4jGjzMmzO7tY6kzkif9p4sXaKZMMW/9QNeb4/gy
-	keySJHC00Ejc0oYiak6B18Cepjd++8BBCxvypt/2gHGofx36zLoR/C8hxzcCTXihxgBXUuYcc16mO
-	jHbg9gxJBLSq0C4w6fQY6DXX6qyZfuTesotst0MXEnoMp3LFCcs1BXkETF+DkumqKmx6860ZH+BWK
-	Wz/xIxHGD9VDF+q9u5OQ==;
+	List-Owner; bh=+r/2DLi4O8ED13MMQ0BjjhkRO5FTlYDB/ktBgH07W0M=; b=OWPwh0uzKRCMpR
+	zs2M1ULKXsLMSwkg2b+Eu5OSWv3ibyXdR6xPSjGqqSycXy79q+ZD8PtLazpQXTKuakJJdhzNQyS0g
+	tI6/Al+Tc6MsvpTAbgf6jZJjiVviVYrMOVAhYCj2QO5cwZd4qKURsq+Dvw9JYlYrrrXZPEOvHxoyn
+	ZyZvbkbK96A6y31ynWYYFm2aYtCIvnCY0Zs7/yg/xPiGHtI215HC2S2zdyymN16bz1yRSaoPMSScK
+	HOHXEsT9nw+q3j/a/ipExcnedAaaV5FLDkiKSW4eIU6gnKhYqaeKd5JtzD5Rn6w50p7jTlqk9rCmF
+	ItroEBFLuMzA6vLTCJyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qfFrB-00GIKx-2C;
-	Sun, 10 Sep 2023 08:31:49 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1qfFrF-00GIO4-22;
+	Sun, 10 Sep 2023 08:31:53 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qfFr8-00GIHx-2d
+	id 1qfFrD-00GIM1-0e
 	for linux-riscv@lists.infradead.org;
-	Sun, 10 Sep 2023 08:31:48 +0000
+	Sun, 10 Sep 2023 08:31:52 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 7CDFAB80A08;
-	Sun, 10 Sep 2023 08:31:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B9E9EC433CC;
-	Sun, 10 Sep 2023 08:31:38 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id B253560BBF;
+	Sun, 10 Sep 2023 08:31:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A4096C43397;
+	Sun, 10 Sep 2023 08:31:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1694334704;
-	bh=tpG0qs5PAINQkIjiDJ8exNbKv+PcxlsE0HzNne/Tprg=;
+	s=k20201202; t=1694334710;
+	bh=ZxSSeBb/S16STGNIjLgLnRd4gdTK7GWBFlxeOcsXSwE=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=sN4CiTuLj+fKGOxNmVD/dq9nzK5ZoHMKqLYmlFAv7css2f2JamMteH2zIgF0kI2h9
-	 LtrkfsHrJv2ttQ2tR7fZgNZfKHPdaXkuEYLDf0xHxwsKxf/Ij18aiXvrD/G6+4W8LL
-	 UESq0HFfC1VSX89J7WeTrY7V2KWW51N7KqM/cUXNQq0lM0EVqpmx4L5J6JmVeUz18F
-	 dnJcT4QKqMl4BXyq5wA0t2eafC2mMNWIS4jvnv0GlKG25iQcJ9QcQOWZ8N8QADPTj9
-	 FKnOqJu2xzpgjWHoT+W2IjoPTh2/w7nWS26LAEl94FA8EYuKG9AxTcxJTygsgWJckW
-	 nnTsHXsZDjPBA==
+	b=r+LRgGMW/xx8261kzbec/7ectryiunjI7NOKoSUJZMQ5GO9xW2FzxB+MpQTjPJwrP
+	 GqZmGTDK/Cn5Uldm9Mx54IZVN/eDq1LT+Hrd6ayDASK2ZXJSqpekvxQPcGwsuaX5J2
+	 U41UBqPSUW/oUH3AuoETyRMVkb9twscE6eYAz1hJSWU9FodNY8BV2gv7nBtWI0BMYk
+	 gDPHGGttiPk/+RxqXz0RzsFAlZOZxTaiTRLevDEXWEaO/LtMjz+hekQH0J1QF/dJuq
+	 CVBIe+GUx3doKxK4ICkFhf1vXR716rIvyf8B97hkgFqJ6R+xJQkXq0oOtqrgScC3qw
+	 ALUrMl2iBo61w==
 From: guoren@kernel.org
 To: paul.walmsley@sifive.com,
 	anup@brainfault.org,
@@ -78,16 +78,17 @@ Cc: linux-arch@vger.kernel.org,
 	linux-csky@vger.kernel.org,
 	Guo Ren <guoren@linux.alibaba.com>,
 	Guo Ren <guoren@kernel.org>
-Subject: [PATCH V11 16/17] RISC-V: paravirt: pvqspinlock: KVM: Add paravirt qspinlock skeleton
-Date: Sun, 10 Sep 2023 04:29:10 -0400
-Message-Id: <20230910082911.3378782-17-guoren@kernel.org>
+Subject: [PATCH V11 17/17] RISC-V: paravirt: pvqspinlock: KVM: Implement kvm_sbi_ext_pvlock_kick_cpu()
+Date: Sun, 10 Sep 2023 04:29:11 -0400
+Message-Id: <20230910082911.3378782-18-guoren@kernel.org>
 X-Mailer: git-send-email 2.36.1
 In-Reply-To: <20230910082911.3378782-1-guoren@kernel.org>
 References: <20230910082911.3378782-1-guoren@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230910_013147_131233_FF5B9C3C 
-X-CRM114-Status: GOOD (  16.73  )
+X-CRM114-CacheID: sfid-20230910_013151_276107_B4103C8F 
+X-CRM114-Status: UNSURE (   9.93  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,116 +107,53 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Guo Ren <guoren@linux.alibaba.com>
 
-Add the files functions needed to support the SBI PVLOCK (paravirt
-qspinlock kick_cpu) extension. This is a preparation for the next
-core implementation of kick_cpu.
+We only need to call the kvm_vcpu_kick() and bring target_vcpu
+from the halt state. No irq raised, no other request, just a pure
+vcpu_kick.
 
 Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
 Signed-off-by: Guo Ren <guoren@kernel.org>
 ---
- arch/riscv/include/asm/kvm_vcpu_sbi.h |  1 +
- arch/riscv/include/uapi/asm/kvm.h     |  1 +
- arch/riscv/kvm/Makefile               |  1 +
- arch/riscv/kvm/vcpu_sbi.c             |  4 +++
- arch/riscv/kvm/vcpu_sbi_pvlock.c      | 38 +++++++++++++++++++++++++++
- 5 files changed, 45 insertions(+)
- create mode 100644 arch/riscv/kvm/vcpu_sbi_pvlock.c
+ arch/riscv/kvm/vcpu_sbi_pvlock.c | 19 +++++++++++++++++++
+ 1 file changed, 19 insertions(+)
 
-diff --git a/arch/riscv/include/asm/kvm_vcpu_sbi.h b/arch/riscv/include/asm/kvm_vcpu_sbi.h
-index cdcf0ff07be7..7b4d60b54d7e 100644
---- a/arch/riscv/include/asm/kvm_vcpu_sbi.h
-+++ b/arch/riscv/include/asm/kvm_vcpu_sbi.h
-@@ -71,6 +71,7 @@ extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_srst;
- extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_hsm;
- extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_experimental;
- extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_vendor;
-+extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_pvlock;
- 
- #ifdef CONFIG_RISCV_PMU_SBI
- extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_pmu;
-diff --git a/arch/riscv/include/uapi/asm/kvm.h b/arch/riscv/include/uapi/asm/kvm.h
-index 992c5e407104..d005c229f2da 100644
---- a/arch/riscv/include/uapi/asm/kvm.h
-+++ b/arch/riscv/include/uapi/asm/kvm.h
-@@ -148,6 +148,7 @@ enum KVM_RISCV_SBI_EXT_ID {
- 	KVM_RISCV_SBI_EXT_PMU,
- 	KVM_RISCV_SBI_EXT_EXPERIMENTAL,
- 	KVM_RISCV_SBI_EXT_VENDOR,
-+	KVM_RISCV_SBI_EXT_PVLOCK,
- 	KVM_RISCV_SBI_EXT_MAX,
- };
- 
-diff --git a/arch/riscv/kvm/Makefile b/arch/riscv/kvm/Makefile
-index 4c2067fc59fc..6112750a3a0c 100644
---- a/arch/riscv/kvm/Makefile
-+++ b/arch/riscv/kvm/Makefile
-@@ -26,6 +26,7 @@ kvm-$(CONFIG_RISCV_SBI_V01) += vcpu_sbi_v01.o
- kvm-y += vcpu_sbi_base.o
- kvm-y += vcpu_sbi_replace.o
- kvm-y += vcpu_sbi_hsm.o
-+kvm-y += vcpu_sbi_pvlock.o
- kvm-y += vcpu_timer.o
- kvm-$(CONFIG_RISCV_PMU_SBI) += vcpu_pmu.o vcpu_sbi_pmu.o
- kvm-y += aia.o
-diff --git a/arch/riscv/kvm/vcpu_sbi.c b/arch/riscv/kvm/vcpu_sbi.c
-index 9cd97091c723..c03c3d489b2b 100644
---- a/arch/riscv/kvm/vcpu_sbi.c
-+++ b/arch/riscv/kvm/vcpu_sbi.c
-@@ -74,6 +74,10 @@ static const struct kvm_riscv_sbi_extension_entry sbi_ext[] = {
- 		.ext_idx = KVM_RISCV_SBI_EXT_VENDOR,
- 		.ext_ptr = &vcpu_sbi_ext_vendor,
- 	},
-+	{
-+		.ext_idx = KVM_RISCV_SBI_EXT_PVLOCK,
-+		.ext_ptr = &vcpu_sbi_ext_pvlock,
-+	},
- };
- 
- void kvm_riscv_vcpu_sbi_forward(struct kvm_vcpu *vcpu, struct kvm_run *run)
 diff --git a/arch/riscv/kvm/vcpu_sbi_pvlock.c b/arch/riscv/kvm/vcpu_sbi_pvlock.c
-new file mode 100644
-index 000000000000..544a456c5041
---- /dev/null
+index 544a456c5041..914fc58aedfe 100644
+--- a/arch/riscv/kvm/vcpu_sbi_pvlock.c
 +++ b/arch/riscv/kvm/vcpu_sbi_pvlock.c
-@@ -0,0 +1,38 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Copyright (c), 2023 Alibaba Cloud
-+ *
-+ * Authors:
-+ *     Guo Ren <guoren@linux.alibaba.com>
-+ */
-+
-+#include <linux/errno.h>
-+#include <linux/err.h>
-+#include <linux/kvm_host.h>
-+#include <asm/sbi.h>
-+#include <asm/kvm_vcpu_sbi.h>
-+
-+static int kvm_sbi_ext_pvlock_handler(struct kvm_vcpu *vcpu, struct kvm_run *run,
-+				      struct kvm_vcpu_sbi_return *retdata)
+@@ -12,6 +12,24 @@
+ #include <asm/sbi.h>
+ #include <asm/kvm_vcpu_sbi.h>
+ 
++static int kvm_sbi_ext_pvlock_kick_cpu(struct kvm_vcpu *vcpu)
 +{
-+	int ret = 0;
 +	struct kvm_cpu_context *cp = &vcpu->arch.guest_context;
-+	unsigned long funcid = cp->a6;
++	struct kvm *kvm = vcpu->kvm;
++	struct kvm_vcpu *target;
 +
-+	switch (funcid) {
-+	case SBI_EXT_PVLOCK_KICK_CPU:
-+		break;
-+	default:
-+		ret = SBI_ERR_NOT_SUPPORTED;
-+	}
++	target = kvm_get_vcpu_by_id(kvm, cp->a0);
++	if (!target)
++		return SBI_ERR_INVALID_PARAM;
 +
-+	retdata->err_val = ret;
++	kvm_vcpu_kick(target);
 +
-+	return 0;
++	if (READ_ONCE(target->ready))
++		kvm_vcpu_yield_to(target);
++
++	return SBI_SUCCESS;
 +}
 +
-+const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_pvlock = {
-+	.extid_start = SBI_EXT_PVLOCK,
-+	.extid_end = SBI_EXT_PVLOCK,
-+	.handler = kvm_sbi_ext_pvlock_handler,
-+};
+ static int kvm_sbi_ext_pvlock_handler(struct kvm_vcpu *vcpu, struct kvm_run *run,
+ 				      struct kvm_vcpu_sbi_return *retdata)
+ {
+@@ -21,6 +39,7 @@ static int kvm_sbi_ext_pvlock_handler(struct kvm_vcpu *vcpu, struct kvm_run *run
+ 
+ 	switch (funcid) {
+ 	case SBI_EXT_PVLOCK_KICK_CPU:
++		ret = kvm_sbi_ext_pvlock_kick_cpu(vcpu);
+ 		break;
+ 	default:
+ 		ret = SBI_ERR_NOT_SUPPORTED;
 -- 
 2.36.1
 
