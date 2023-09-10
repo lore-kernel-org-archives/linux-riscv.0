@@ -4,92 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 133C5EE57CD
-	for <linux-riscv@archiver.kernel.org>; Sat,  9 Sep 2023 23:23:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64616EE57CD
+	for <linux-riscv@archiver.kernel.org>; Sun, 10 Sep 2023 00:17:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:
-	Mime-Version:References:In-Reply-To:From:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=5DjhDu5drjZIDZrKkDps3YdTtTq838amk+7J7+wS1VI=; b=V0oFdRN9QfYlyTw7sLp4DcR5oy
-	ggoL0R+DICyZqBf6c8Vko6s7iQCq/+wF87T8R3mKS9L9fLVzYmtLwycUBOY83/9Pi4g5wc3j4P9vp
-	QNaHwuG9t6IrGiQXC6q4CM2iTKdy8PXIuQeVmbGCe02Dl5rT6xwaEP7Dmo8nRrIfz6yj3Y9eesZRw
-	+1pMv8D+LKX6hvquqZg6bwdOkFcjRaeAvLJi+7GCEN/zJut/HtwrS7GhFab7sM6y1GcHk7OLCQidL
-	F7100ZY4NU/yaCGmxw0+Y7WO2guMCvz1YVQp/zP92ydVG+FJo6Cxa6n9bcS0YdoLi6fuIOAs26GRY
-	F082odRA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=dpatKgDN2bLLbZWV/uTc2Y810L0FnNAkEoqwJu7yVaw=; b=Lgc6YNNdCGfKaS
+	BNDgLudKFGpKkrAvgmVgtbWDCNaPbGuW/wDcfJvVEMBX7+5yY4wnMJ5qZFFezZGUcnOOKWkPPZkw3
+	zcGNSaC4EkneXgDUZBcJ223yBiPjyBanvtjspAXg3Xcf2UVOuDBa2j+zZXU9dBXgdxAem1gA+/V2P
+	fv9BJlxl98eJ+65NDAtx+B7YlsF1+ic+axTDnal9tI/NpIM0domY6fSC8cL+PM0kXUYgPujJAqehc
+	A6ghpHoBikTFVRLD29pYU4TW2ZDRgyTK/D0dRfPFeWuagvkWmZOXSH35oYwmfRV8fiHCBD8JcLksq
+	iIlzhY7TbofubzVjJWpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qf7Ir-00FvRa-0l;
-	Sat, 09 Sep 2023 23:23:49 +0000
-Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
+	id 1qf888-00FxBN-1t;
+	Sun, 10 Sep 2023 00:16:48 +0000
+Received: from bg2.exmail.qq.com ([106.55.200.77])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qf7Io-00FvRA-0n
+	id 1qf885-00FxB0-0m
 	for linux-riscv@lists.infradead.org;
-	Sat, 09 Sep 2023 23:23:47 +0000
-Received: from mail-qv1-f72.google.com (mail-qv1-f72.google.com [209.85.219.72])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id C6E083F13F
-	for <linux-riscv@lists.infradead.org>; Sat,  9 Sep 2023 23:23:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20210705; t=1694301822;
-	bh=g38mnsqH2vU/74bmC9caLvWkHP+AyVA0JTu2qX2Y3fc=;
-	h=From:In-Reply-To:References:Mime-Version:Date:Message-ID:Subject:
-	 To:Cc:Content-Type;
-	b=A7MjM8AiNyKAAxHfQXK7OMgnD2qlHb+AkiLGTkegEyOl/Th4Y3DsDd9TattRjgCAe
-	 /wgQLmW1Bu9UNIGjPQ43NxvGy53McbRE8FmTNLLsekneQNZCLyMcjSmP8b3Hpnn8si
-	 +ClFV9jrOKM6hxQzE1KyhVAiaPASTuvxLQWWMCI4SjOU8NJaVgyj4n4RN6We700j8p
-	 AoxKRil/9qgKMmbla/gkEctwmm0tEdBuZrwv3lVU8Y1doh7F4w9ZmgXGC5Ijnz3FyE
-	 v7zScmqyI6UMoOSCo/YT13UnXaQRTvH7kGzxGX6z7a/W6EnRXonTwYui8uA+G/cenI
-	 TnbXZLjuA8hag==
-Received: by mail-qv1-f72.google.com with SMTP id 6a1803df08f44-6496d9acb98so36552266d6.0
-        for <linux-riscv@lists.infradead.org>; Sat, 09 Sep 2023 16:23:42 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1694301821; x=1694906621;
-        h=cc:to:subject:message-id:date:mime-version:references:in-reply-to
-         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=g38mnsqH2vU/74bmC9caLvWkHP+AyVA0JTu2qX2Y3fc=;
-        b=YPXSUxxH8MRB171O2lLjscf1kPeLmGMh2m7IRFijfuYvnZ/6Tg5sfzuXQTqycdjpMe
-         fh/B1rMnBrqoZIDQdMKIXib2COrlMxRiVaRnMT6kXuBj9JnJgWcTntkDO98uJoE/NHiP
-         03Rj2911y6jYeDGSrYmk0qx59+Ou/S6H9wLSOVynweTv+LQPv1mpMQJOMzxPeCy6LLi3
-         sW4FnNZ54pESoXB7kn9fN0bn6r+kVhXJrVQx/Fus52Wezpv1iv0N4jzkeeIdKjd3+92r
-         9wVp5nwCHGVZf/PQ4FdB2mvxeALzvi4mMhspAeX4Oo2d99TRWhrjgIv9rOq5vTuPVVDM
-         lYbw==
-X-Gm-Message-State: AOJu0Yy2Qp46oonljurRRTwKT+SenYlJ7VwMi+wHV6SU6SaG7u0FsQna
-	OJCCQvUSg3Fq4Y5NGhtqBxQiSBx5QHa5FcOsM/kv89Nz+AyQvIwinEOOTSWKc8VZtDMIkc3j7g5
-	Z4upfL0TWvNSaqByykp1rldRAJHgXMp+aT4p1fyLjJZVoGjUS3nH4YR4NZwH9Sg==
-X-Received: by 2002:ac8:5fd1:0:b0:403:3583:68eb with SMTP id k17-20020ac85fd1000000b00403358368ebmr8328318qta.19.1694301821759;
-        Sat, 09 Sep 2023 16:23:41 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IEligNCMo7eGYPMSQx5GN7uRZvx7+f7h9gFSFY5WF33IvudVpZLJQrGFnyPQi+7GeUnGV3ayeuhZMSG/0dtB0o=
-X-Received: by 2002:ac8:5fd1:0:b0:403:3583:68eb with SMTP id
- k17-20020ac85fd1000000b00403358368ebmr8328310qta.19.1694301821519; Sat, 09
- Sep 2023 16:23:41 -0700 (PDT)
-Received: from 348282803490 named unknown by gmailapi.google.com with
- HTTPREST; Sat, 9 Sep 2023 16:23:41 -0700
-From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-In-Reply-To: <20230907053742.250444-4-xingyu.wu@starfivetech.com>
-References: <20230907053742.250444-1-xingyu.wu@starfivetech.com> <20230907053742.250444-4-xingyu.wu@starfivetech.com>
-Mime-Version: 1.0
-Date: Sat, 9 Sep 2023 16:23:41 -0700
-Message-ID: <CAJM55Z9VkLLN9y=1ZBb7g+23vWomgJHKpGe0o9sSv0UEQsdJRg@mail.gmail.com>
-Subject: Re: [PATCH v5 3/3] riscv: dts: jh7110: starfive: Add timer node
-To: Xingyu Wu <xingyu.wu@starfivetech.com>, Daniel Lezcano <daniel.lezcano@linaro.org>, 
-	Thomas Gleixner <tglx@linutronix.de>, 
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>, 
-	Walker Chen <walker.chen@starfivetech.com>
-Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
-	Rob Herring <robh+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Samin Guo <samin.guo@starfivetech.com>, linux-kernel@vger.kernel.org, 
-	Conor Dooley <conor@kernel.org>
+	Sun, 10 Sep 2023 00:16:47 +0000
+X-QQ-mid: bizesmtp62t1694304964txspi1h0
+Received: from wangjiexun-virtual-machine.loca ( [120.225.34.249])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Sun, 10 Sep 2023 08:16:02 +0800 (CST)
+X-QQ-SSF: 01200000000000101000000A0000000
+X-QQ-FEAT: LE7C6P2vL8T8dkxfHfUMK4hSz907dsoEo8Skjve4CIaYwaWm+SWYl7AWRESLI
+	ehkPraxg98x7BxgHqox8OAu/HvVe5UR7B/uh6GIpTqvIM4VlyioRIajkseCrD5vz0Zo+bMp
+	2O1OS8zKXW3HL705eWwadY6uOGid8YnJBkt3hu4yQAl9QBxVhr72wpv5hgaPYrroUi1S8VB
+	6tq+RaWxqUsVOblPxsz8V+MWqLRJwTyx2hOlBEl2ONG9mDsAtHeQTlSbEZbohMLT+PvaXl5
+	3PhxYZfntGPUz9cQV6W/Vx+YT1KJurmcNGlWIyCN+TJ2pqo3xSYgtehlDyeqsJsNi51+461
+	6PlUDSJeTOxhvyJadMEMCjQsNCPTILADZdTDnPvMeI5FpOUlN0=
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 9083973876487166381
+From: Jiexun Wang <wangjiexun@tinylab.org>
+To: samuel@sholland.org
+Cc: aou@eecs.berkeley.edu,
+	conor@kernel.org,
+	falcon@tinylab.org,
+	guoren@kernel.org,
+	jszhang@kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	palmer@dabbelt.com,
+	paul.walmsley@sifive.com,
+	tglx@linutronix.de,
+	wangjiexun@tinylab.org
+Subject: Re: [PATCH v2] RISC-V: Fix use of non existent CONFIG_HAVE_SOFTIRQ_ON_OWN_STACK
+Date: Sun, 10 Sep 2023 08:16:01 +0800
+Message-Id: <20230910001601.371826-1-wangjiexun@tinylab.org>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <0e270067-cd2d-ecd0-512b-5dce4865fa4c@sholland.org>
+References: <0e270067-cd2d-ecd0-512b-5dce4865fa4c@sholland.org>
+MIME-Version: 1.0
+X-QQ-SENDSIZE: 520
+Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrgz:qybglogicsvrgz5a-0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230909_162346_436655_DFC326E0 
-X-CRM114-Status: GOOD (  11.30  )
+X-CRM114-CacheID: sfid-20230909_171645_655054_6B0395E9 
+X-CRM114-Status: GOOD (  13.80  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,52 +81,71 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Xingyu Wu wrote:
-> Add the timer node for the Starfive JH7110 SoC.
+On Sat, 9 Sep 2023 16:20:41 -0500, Samuel Holland wrote:
+>Hi,
+>
+>The patch is correct, though the subject isn't quite accurate.
+>CONFIG_HAVE_SOFTIRQ_ON_OWN_STACK exists; it is defined in arch/Kconfig.
+>It's just the wrong option to use to guard the function definition.
 >
 
-Reviewed-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+I think I should send a new version of the patch with the subject:
+RISC-V: Fix wrong use of CONFIG_HAVE_SOFTIRQ_ON_OWN_STACK. 
+Does this subject look more appropriate?
 
-> Reviewed-by: Walker Chen <walker.chen@starfivetech.com>
-> Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
-> ---
->  arch/riscv/boot/dts/starfive/jh7110.dtsi | 20 ++++++++++++++++++++
->  1 file changed, 20 insertions(+)
+>On 9/6/23 07:32, Jiexun Wang wrote:
+>> If configuration options SOFTIRQ_ON_OWN_STACK and PREEMPT_RT 
+>> are enabled simultaneously under RISC-V architecture,
+>> it will result in a compilation failure:
+>> 
+>> arch/riscv/kernel/irq.c:64:6: error: redefinition of 'do_softirq_own_stack'
+>>    64 | void do_softirq_own_stack(void)
+>>       |      ^~~~~~~~~~~~~~~~~~~~
+>> In file included from ./arch/riscv/include/generated/asm/softirq_stack.h:1,
+>>                  from arch/riscv/kernel/irq.c:15:
+>> ./include/asm-generic/softirq_stack.h:8:20: note: previous definition of 'do_softirq_own_stack' was here
+>>     8 | static inline void do_softirq_own_stack(void)
+>>       |                    ^~~~~~~~~~~~~~~~~~~~
+>>       
+>> After changing CONFIG_HAVE_SOFTIRQ_ON_OWN_STACK to CONFIG_SOFTIRQ_ON_OWN_STACK,
+>> compilation can be successful.
+>> 
+>> Fixes: dd69d07a5a6c ("riscv: stack: Support HAVE_SOFTIRQ_ON_OWN_STACK")
+>> Signed-off-by: Jiexun Wang <wangjiexun@tinylab.org>
+>> ---
+>> Changes in v2:
+>> - changed to a more suitable subject line
+>> - add a Fixes tag
+>> 
+>> ---
+>>  arch/riscv/kernel/irq.c | 2 +-
+>>  1 file changed, 1 insertion(+), 1 deletion(-)
+>> 
+>> diff --git a/arch/riscv/kernel/irq.c b/arch/riscv/kernel/irq.c
+>> index a8efa053c4a5..a86f272ae2c3 100644
+>> --- a/arch/riscv/kernel/irq.c
+>> +++ b/arch/riscv/kernel/irq.c
+>> @@ -60,7 +60,7 @@ static void init_irq_stacks(void)
+>>  }
+>>  #endif /* CONFIG_VMAP_STACK */
+>>  
+>> -#ifdef CONFIG_HAVE_SOFTIRQ_ON_OWN_STACK
+>> +#ifdef CONFIG_SOFTIRQ_ON_OWN_STACK
 >
-> diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-> index ec2e70011a73..84bb9717be13 100644
-> --- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
-> +++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-> @@ -502,6 +502,26 @@ sysgpio: pinctrl@13040000 {
->  			#gpio-cells = <2>;
->  		};
+>It would be good to fix the #endif comment at the bottom of the function
+>as well.
+
+Thanks, I will fix this as well.
+
+Best regards,
+Jiexun Wang
+
 >
-> +		timer@13050000 {
-> +			compatible = "starfive,jh7110-timer";
-> +			reg = <0x0 0x13050000 0x0 0x10000>;
-> +			interrupts = <69>, <70>, <71> ,<72>;
-> +			clocks = <&syscrg JH7110_SYSCLK_TIMER_APB>,
-> +				 <&syscrg JH7110_SYSCLK_TIMER0>,
-> +				 <&syscrg JH7110_SYSCLK_TIMER1>,
-> +				 <&syscrg JH7110_SYSCLK_TIMER2>,
-> +				 <&syscrg JH7110_SYSCLK_TIMER3>;
-> +			clock-names = "apb", "ch0", "ch1",
-> +				      "ch2", "ch3";
-> +			resets = <&syscrg JH7110_SYSRST_TIMER_APB>,
-> +				 <&syscrg JH7110_SYSRST_TIMER0>,
-> +				 <&syscrg JH7110_SYSRST_TIMER1>,
-> +				 <&syscrg JH7110_SYSRST_TIMER2>,
-> +				 <&syscrg JH7110_SYSRST_TIMER3>;
-> +			reset-names = "apb", "ch0", "ch1",
-> +				      "ch2", "ch3";
-> +		};
-> +
->  		watchdog@13070000 {
->  			compatible = "starfive,jh7110-wdt";
->  			reg = <0x0 0x13070000 0x0 0x10000>;
-> --
-> 2.25.1
+>Regards,
+>Samuel
 >
+>>  void do_softirq_own_stack(void)
+>>  {
 
 _______________________________________________
 linux-riscv mailing list
