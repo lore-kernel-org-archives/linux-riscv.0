@@ -4,63 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58283C71153
-	for <linux-riscv@archiver.kernel.org>; Sun, 10 Sep 2023 21:21:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66EF8EEB580
+	for <linux-riscv@archiver.kernel.org>; Sun, 10 Sep 2023 21:38:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hyooVNlKjWkACRm4Dv1eMkIckvMxmVIAhd86jhVFAs0=; b=OEpLZUDVyR7Wdg
-	1AYkHdDR6nHZJDvAWk5N0sKF1CmptkW7ZK2z15aNpifcFgNUfuDdHRYKHFw23PCQrVRDNFCjbI/30
-	FZRiIgT0HPVemEnTmuRd5q/COTDTYJa74xQUtbizAaD+PF3yQ5haZ6wyR4Wz0nQKjpFMqqfIrMkjH
-	CdSmoXhS7M+MoxVH7Z4aM69B/tEWbsV1rUdoqk+avWpUud3w7VJU6hpMu4NxFy0KqsmulA4q16qlR
-	t01KJZqR8uRersORneM8UOxjV5Si0Y4N6l1QTUmScdQDCypxMdnG+C10j8HLNbjpJtEhiBW/VRxSB
-	UR4KkdEpANcQRg6cwEQg==;
+	List-Owner; bh=BLra6NBmEDpUVl4vA6K9x2+49UTxJejnkqyEs9IC4PA=; b=g5o4ztgXTNDDQj
+	VMAYGPg5x7drRIQ4ZR8HpOpVvcZzLzh4cvFeiKi6wHi+8fgkgWGoyJJxOAoJFEx2QmfBcpHuuBsiG
+	FwAJjAqvAWWgl8pP/e9qCHG4MRIcuZSCntj/HqhXR00Wr/RhmCFfWJ+9lv9/LqqcBzgxG7rJNwbcw
+	HEVZMzRVkWKtXptJIWgrLIk26YPCuchhhBlcO9Tn1bgEY/62nf59kshNqHHh9JAIZVcyicESmH5QB
+	DnEuaJgR/ZJs43RomKK3B0nSA2vVZnt+qpXWIWSQeTV8E98S3Yu7rN7aBLyIRDYM/2muDqFUExMkc
+	nwz1dad1bXzQeO5CKDeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qfRrZ-00GuNd-0c;
-	Sun, 10 Sep 2023 21:21:01 +0000
-Received: from eu-smtp-delivery-151.mimecast.com ([185.58.85.151])
+	id 1qfS8M-00Guv3-1k;
+	Sun, 10 Sep 2023 21:38:22 +0000
+Received: from domac.alu.unizg.hr ([2001:b68:2:2800::3] helo=domac.alu.hr)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qfRrW-00GuN0-1P
+	id 1qfS8I-00Guui-2V
 	for linux-riscv@lists.infradead.org;
-	Sun, 10 Sep 2023 21:21:00 +0000
-Received: from AcuMS.aculab.com (156.67.243.121 [156.67.243.121]) by
- relay.mimecast.com with ESMTP with both STARTTLS and AUTH (version=TLSv1.2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384) id
- uk-mta-146-jIjh0yxkNzCFrfh3QFoU7A-1; Sun, 10 Sep 2023 22:20:42 +0100
-X-MC-Unique: jIjh0yxkNzCFrfh3QFoU7A-1
-Received: from AcuMS.Aculab.com (10.202.163.4) by AcuMS.aculab.com
- (10.202.163.4) with Microsoft SMTP Server (TLS) id 15.0.1497.48; Sun, 10 Sep
- 2023 22:20:33 +0100
-Received: from AcuMS.Aculab.com ([::1]) by AcuMS.aculab.com ([::1]) with mapi
- id 15.00.1497.048; Sun, 10 Sep 2023 22:20:33 +0100
-From: David Laight <David.Laight@ACULAB.COM>
-To: 'Charlie Jenkins' <charlie@rivosinc.com>, Conor Dooley <conor@kernel.org>
-Subject: RE: [PATCH v2 1/5] riscv: Checksum header
-Thread-Topic: [PATCH v2 1/5] riscv: Checksum header
-Thread-Index: AQHZ4bMJWeMEu2xwd0uaIDwvnyVCgbAUlGVw
-Date: Sun, 10 Sep 2023 21:20:33 +0000
-Message-ID: <cec0f23506a54b9aaaef054ea949e4aa@AcuMS.aculab.com>
-References: <20230905-optimize_checksum-v2-0-ccd658db743b@rivosinc.com>
- <20230905-optimize_checksum-v2-1-ccd658db743b@rivosinc.com>
- <20230907-f8c8993dbeb24d5ea5310ec7@fedora> <ZPoMAGYlIxPZsE7+@ghost>
-In-Reply-To: <ZPoMAGYlIxPZsE7+@ghost>
-Accept-Language: en-GB, en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-exchange-transport-fromentityheader: Hosted
-x-originating-ip: [10.202.205.107]
+	Sun, 10 Sep 2023 21:38:21 +0000
+Received: from localhost (localhost [127.0.0.1])
+	by domac.alu.hr (Postfix) with ESMTP id 7E0F16015E;
+	Sun, 10 Sep 2023 23:38:10 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=alu.unizg.hr; s=mail;
+	t=1694381890; bh=MObt01+7aZfA9W2P7HVKiFQpaZwKZaKiEmCR728AsxI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=ie7WUum+9vqlaLz+b4zeY4CqqmnrDEAQpAG63R2rtAf9/cWgaDLjonISzhkuU7aHS
+	 U+Ay9/nAegHSAPSEUZhUSIb3gWCW0yygknxbkKdx1HulGEFpBefVo+djuv2icH8Nql
+	 nS5oFw85hAq+cY1+wdoqwAUMEiuKdbG/jn5gi46gRLcDF34wGcVlEF4TzCRUgHZe8A
+	 eJAeBIgVj6Bo46NGkyqKFy0zR/RzKjAX3iV+b4ohe+1p2fU0i31vUOSndtmJn1HPcr
+	 iTaSRZ3xzeUAo/yEw5WiNdKKnlwTXjOw2crJr0ov8OqMqZWPBoAZ0tk0OE/dFFUt8V
+	 JffiZC9xds3QQ==
+X-Virus-Scanned: Debian amavisd-new at domac.alu.hr
+Received: from domac.alu.hr ([127.0.0.1])
+	by localhost (domac.alu.hr [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id rhkT2tBqoYB9; Sun, 10 Sep 2023 23:38:07 +0200 (CEST)
+Received: from [192.168.1.6] (78-2-200-212.adsl.net.t-com.hr [78.2.200.212])
+	by domac.alu.hr (Postfix) with ESMTPSA id 209DB60157;
+	Sun, 10 Sep 2023 23:38:04 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=alu.unizg.hr; s=mail;
+	t=1694381887; bh=MObt01+7aZfA9W2P7HVKiFQpaZwKZaKiEmCR728AsxI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=WZ2b/hzYYFO9caWVgRBRf++18NH9RHKbkn1/HIp74e8vmFn+iYaBUFif3HQfffcHv
+	 55CDQKpL84quBEhlJbbNjEHPrlrsexY6FHF+geCejB0BYSV5AaIMXqE5CXwE4Dew+t
+	 owiES2LgzpZqrZ0VVr+cybyqJiYIRh0CSnJ3/RRWChzmsxfzdyJzQ9wZ4wE2XAqWG8
+	 tS+ZkEgWzqiwFrGLfX8tqHrxV8XfbTr62hpT3ukeYyi+AgGmiEDZtQUSwL0Nv0N5MA
+	 tCblY2Y6l4i6oeGOZQ8df2Gt3lzgFZATfABXd9fGyHtfacR+nZZO9BL6Vad/14BoW2
+	 CEumojshO+1Xg==
+Message-ID: <de0c0a43-97bd-de86-6e13-7b92610d5fdd@alu.unizg.hr>
+Date: Sun, 10 Sep 2023 23:38:03 +0200
 MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: aculab.com
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.15.0
+Subject: Re: starfive crypto list_add corruption
 Content-Language: en-US
+To: Chris Hofstaedtler <chris@hofstaedtler.name>, jiajie.ho@starfivetech.com
+Cc: aurelien@aurel32.net, conor.dooley@microchip.com, davidlt@rivosinc.com,
+ herbert@gondor.apana.org.au, kernel@esmil.dk, linux-crypto@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+References: <24laigwzjtx6scexj5otiesaolgytduhfp7ahqi7hvyhyc4fnv@vc2gqkxnp7v3>
+From: Mirsad Todorovac <mirsad.todorovac@alu.unizg.hr>
+In-Reply-To: <24laigwzjtx6scexj5otiesaolgytduhfp7ahqi7hvyhyc4fnv@vc2gqkxnp7v3>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230910_142058_742191_9A979501 
-X-CRM114-Status: UNSURE (   8.30  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230910_143819_371466_0E61C5EB 
+X-CRM114-Status: GOOD (  13.01  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,39 +83,125 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Albert Ou <aou@eecs.berkeley.edu>, "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-...
-> > > +/*
-> > > + *	Fold a partial checksum without adding pseudo headers
-> > > + */
-> > > +static inline __sum16 csum_fold(__wsum sum)
-> > > +{
-> > > +	sum += (sum >> 16) | (sum << 16);
-> > > +	return (__force __sum16)(~(sum >> 16));
-> > > +}
+On 9/10/23 22:59, Chris Hofstaedtler wrote:
+>>> I got this issue, if I remember correctly, I fixed it by enabling
+>>> CONFIG_ARM_AMBA and CONFIG_AMBA_PL08X. It improved things a bit,
+> 
+> I still see the list_add corruption trace with CONFIG_ARM_AMBA and
+> CONFIG_AMBA_PL08X set:
+> 
+> [    3.528140] ------------[ cut here ]------------
+> [    3.528535] dwmmc_starfive 16020000.mmc: IDMAC supports 32-bit address mode.
+> [    3.532795] list_add corruption. next->prev should be prev (ffffffff816ec4d0), but was ffffffff80e33f38. (next=ffffffd8c0133c40).
+> [    3.539866] dwmmc_starfive 16020000.mmc: Using internal DMA controller.
+> [    3.551539] WARNING: CPU: 2 PID: 10 at lib/list_debug.c:27 __list_add_valid+0x8a/0xac
+> [    3.551564] Modules linked in:
+> [    3.551574] CPU: 2 PID: 10 Comm: kworker/u8:0 Not tainted 6.5.0zeha3-00072-g385eddf4e78f #6
+> [    3.551586] Hardware name: StarFive VisionFive 2 v1.2A (DT)
+> [    3.551592] Workqueue: events_unbound deferred_probe_work_func
+> [    3.551607] epc : __list_add_valid+0x8a/0xac
+> [    3.551618]  ra : __list_add_valid+0x8a/0xac
+> [    3.551628] epc : ffffffff804d21be ra : ffffffff804d21be sp : ffffffc80006bb50
+> [    3.551636]  gp : ffffffff81723980 tp : ffffffd8c0156780 t0 : 2000000000000000
+> [    3.551644]  t1 : 000000000000006c t2 : 206464615f747369 s0 : ffffffc80006bb60
+> [    3.551652]  s1 : ffffffd8c200ae40 a0 : 0000000000000075 a1 : 0000000000000018
+> [    3.551659]  a2 : 0000000000000010 a3 : 0000000000000000 a4 : 0000000000000000
+> [    3.551665]  a5 : 0000000000000000 a6 : ffffffd8c0242640 a7 : 0000000000000038
+> [    3.551672]  s2 : ffffffd8c0133c40 s3 : ffffffff816ec400 s4 : ffffffd8c00f7410
+> [    3.551680]  s5 : ffffffd8c200af30 s6 : ffffffff816ec4d0 s7 : ffffffd8c004c038
+> [    3.551687]  s8 : 0000000000000402 s9 : ffffffff80024be4 s10: 0000000000001000
+> [    3.551694]  s11: ffffffd8c008fc00 t3 : ffffffff81736f17 t4 : ffffffff81736f17
+> [    3.551701]  t5 : ffffffff81736f18 t6 : ffffffff81736f17
+> [    3.551707] status: 0000000200000120 badaddr: 0000000000000000 cause: 0000000000000003
+> [    3.551715] [<ffffffff804d21be>] __list_add_valid+0x8a/0xac
+> [    3.551727] [<ffffffff808672a8>] starfive_cryp_probe+0x184/0x3fa
+> [    3.551745] [<ffffffff8061fcfa>] platform_probe+0x4e/0x92
+> [    3.551759] [<ffffffff8061d96a>] really_probe+0x82/0x210
+> [    3.551770] [<ffffffff8061db54>] __driver_probe_device+0x5c/0xd0
+> [    3.551782] [<ffffffff8061dbf4>] driver_probe_device+0x2c/0xb0
+> [    3.551793] [<ffffffff8061dce6>] __device_attach_driver+0x6e/0x8e
+> [    3.551805] [<ffffffff8061bc66>] bus_for_each_drv+0x5c/0xb0
+> [    3.551816] [<ffffffff8061dfa4>] __device_attach+0x82/0x144
+> [    3.551827] [<ffffffff8061e1dc>] device_initial_probe+0xe/0x16
+> [    3.551839] [<ffffffff8061cb76>] bus_probe_device+0x86/0x88
+> [    3.551849] [<ffffffff8061d73c>] deferred_probe_work_func+0x86/0xbe
+> [    3.551861] [<ffffffff80024a0c>] process_one_work+0x162/0x284
+> [    3.551876] [<ffffffff80024cd2>] worker_thread+0x1a4/0x348
+> [    3.551889] [<ffffffff8002bde6>] kthread+0xc2/0xd6
+> [    3.551900] [<ffffffff8000336a>] ret_from_fork+0xa/0x1c
+> [    3.551913] ---[ end trace 0000000000000000 ]---
+> 
+>>> name: StarFive VisionFive 2 v1.2A (DT) epc : crypto_wait_for_test+0x8e/0x92
+> [..]
+>> I'll investigate this error.
+> 
+> I also see this panic:
+> 
+> [    3.558296] jh7110-crypto 16000000.crypto: will run requests pump with realtime priority
+> [    3.565961] dwmmc_starfive 16020000.mmc: Version ID is 290a
+> [    3.566016] dwmmc_starfive 16020000.mmc: DW MMC controller at irq 70,32 bit host data width,32 deep fifo
+> [    3.574329] cfg80211: Loading compiled-in X.509 certificates for regulatory database
+> [    3.577585] mmc_host mmc1: card is polling.
+> [    3.606327] Unable to handle kernel paging request at virtual address ffffffff800fab24
+> [    3.820748] Oops [#1]
+> [    3.823027] Modules linked in:
+> [    3.826090] CPU: 0 PID: 1 Comm: swapper/0 Tainted: G        W          6.5.0zeha3-00072-g385eddf4e78f #6
+> [    3.832229] mmc_host mmc1: Bus speed (slot 0) = 49500000Hz (slot req 400000Hz, actual 399193HZ div = 62)
+> [    3.835566] Hardware name: StarFive VisionFive 2 v1.2A (DT)
+> [    3.850595] epc : starfive_rsa_enc_core+0x30/0x116
+> [    3.855402]  ra : starfive_rsa_enc+0x5e/0xbc
+> [    3.859679] epc : ffffffff8086937a ra : ffffffff808694be sp : ffffffc800023910
+> [    3.866898]  gp : ffffffff81723980 tp : ffffffd8c0150000 t0 : ffffffd8c22380c8
+> [    3.874117]  t1 : 0000000000000000 t2 : 472f9351d07df710 s0 : ffffffc800023960
+> [    3.881335]  s1 : ffffffd8c013ea80 a0 : ffffffd8c013ea80 a1 : 0000000000000001
+> [    3.888553]  a2 : 0000010000000000 a3 : ffffffd8c0133c40 a4 : 0000000000000002
+> [    3.895770]  a5 : ffffffff800fab24 a6 : ffffffd8ff1d6d90 a7 : 0000000000000000
+> [    3.902988]  s2 : ffffffd8c013ea40 s3 : ffffffd8c2238180 s4 : 0000000000000001
+> [    3.910206]  s5 : ffffffd8c22380b0 s6 : ffffffd8c0133c40 s7 : 00000000000002a8
+> [    3.917425]  s8 : ffffffff8114c240 s9 : 000000001f030000 s10: 0000000000000001
+> [    3.924642]  s11: ffffffd8c0048300 t3 : 0a1255840a4b7df8 t4 : 28fc2f2b1f3b4e7d
+> [    3.931861]  t5 : e2bb8080e13469b3 t6 : ffffffd8c2238440
+> [    3.937170] status: 0000000200000120 badaddr: ffffffff800fab24 cause: 000000000000000f
+> [    3.945083] [<ffffffff8086937a>] starfive_rsa_enc_core+0x30/0x116
+> [    3.951183] [<ffffffff808694be>] starfive_rsa_enc+0x5e/0xbc
+> [    3.956762] [<ffffffff8045edc4>] pkcs1pad_verify+0xb2/0xea
+> [    3.962256] [<ffffffff8045e21a>] crypto_sig_verify+0xa2/0xd0
+> [    3.967919] [<ffffffff8047e8c0>] public_key_verify_signature+0x168/0x1d2
+> [    3.974625] [<ffffffff80480018>] x509_check_for_self_signed+0x58/0xa0
+> [    3.981071] [<ffffffff8047f486>] x509_cert_parse+0x148/0x19e
+> [    3.986735] [<ffffffff8047fd08>] x509_key_preparse+0x20/0x18c
+> [    3.992485] [<ffffffff8047d8b4>] asymmetric_key_preparse+0x52/0x86
+> [    3.998668] [<ffffffff8044fcb8>] __key_create_or_update+0x16c/0x372
+> [    4.004941] [<ffffffff8044fecc>] key_create_or_update+0xe/0x16
+> [    4.010780] [<ffffffff8047fc78>] x509_load_certificate_list+0x86/0xf6
+> [    4.017226] [<ffffffff80c3a59a>] regulatory_init_db+0x92/0x124
+> [    4.023068] [<ffffffff800020f0>] do_one_initcall+0x38/0x17c
+> [    4.028646] [<ffffffff80c00f1c>] kernel_init_freeable+0x1a2/0x204
+> [    4.034749] [<ffffffff80bb4b56>] kernel_init+0x1e/0x10a
+> [    4.039979] [<ffffffff8000336a>] ret_from_fork+0xa/0x1c
+> [    4.045218] Code: 0205 84aa 8a2e 000f 0140 3783 030b 4709 8793 4007 (c398) 2783
+> [    4.052715] ---[ end trace 0000000000000000 ]---
+> [    4.057339] Kernel panic - not syncing: Attempted to kill init! exitcode=0x0000000b
+> [    4.064990] SMP: stopping secondary CPUs
+> [    4.068927] ---[ end Kernel panic - not syncing: Attempted to kill init! exitcode=0x0000000b ]---
+> 
+> Maybe this can also be investigated.
+> 
+> Thanks,
+> Chris
 
-I'm intrigued, gcc normally compiler that quite well.
-The very similar (from arch/arc):
-	return (~sum - rol32(sum, 16)) >> 16;
-is slightly better on most architectures.
-(Especially if the ~sum and rol() can be executed together.)
+Hi, Chris,
 
-The only odd archs I saw were sparc32 (carry flag bug no rotate)
-and arm (barrel shifter on all instructions).
+Just a hint: running the kernel log output through decode_stacktrace.sh might make it more
+useful for the developers ...
 
-It is better than the current asm for a lot of archs including x64.
-
-	David
-
--
-Registered Address Lakeside, Bramley Road, Mount Farm, Milton Keynes, MK1 1PT, UK
-Registration No: 1397386 (Wales)
-
+Best regards,
+Mirsad Todorovac
 
 _______________________________________________
 linux-riscv mailing list
