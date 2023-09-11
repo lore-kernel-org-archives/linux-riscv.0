@@ -4,59 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E13DBEE57DF
-	for <linux-riscv@archiver.kernel.org>; Mon, 11 Sep 2023 08:34:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CD0FEE7FF4
+	for <linux-riscv@archiver.kernel.org>; Mon, 11 Sep 2023 12:36:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=EIX/Pvu6mYedlZ9HGcHjkqO3bZAfHhvm4h30LJvVSMU=; b=qjnIKzHD4T4KAF
-	v+li7yv0VXfH71UEu0vY/FsA1vXGXAGgINK7v+VoTRE6KT5Ir5y9DX+rkVr1Ca7kptBK1WjMX4DIu
-	gTXNqVXke2JH3dQC2CuaeHKC6WMGe0zq6KVHRSMQudLsc+sjjPmbQGgGn5MuzVuCLRazV4txeoVew
-	kEbSpQv+81qxviqFQLPrOF/9hhmH3Xy+rGsbPfXsxy6s28zklCiZ60wtnlP1cvCLT5ZjfId9Y1izG
-	J9AzD901vRE4iP1D26ZlIO0ZM1SMZjSXeM9E/gHAqtGZMRBZtc6odBBZSN3JsMRpdrjSHTTYObV14
-	IReJcCGijVP2vqUkXF1g==;
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=URq+VdQVSwq+dpDVwpLNz2v6Vji9PryEG/JT8Crd2DY=; b=c2F1JRz36yENhFh6pIvSK5OyW6
+	Nlm/smznHWQAC1jz1t0+8KPuVrGbNBnK/fvyMJEvrXZwEizF03lC0wPnteBWzyZ8SEo9ju3Gi+WA1
+	9ovdbgizfLVr9fYJoIk/KexpsfBzPOtDeoXHIH2IR4rf2hvGoU+Y27ecZZN79CWx7twBoMT9D6hvs
+	D29m2sG6ZpYayXvJWtzKmTqgBHrdsB9RKMVYe3CDTyEJlPk6rJT/dQDcypfSWeejkF9h1WBiTZBW1
+	YCsAfOgYJA7OLCRfIF5CPedmGo5JVXRszf+/CSpH1bclR9QdnQ4uk5VJ8CECG57nKbJifdfvQJ8Aa
+	AUyq+1hQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qfcMn-00HY8N-1j;
-	Mon, 11 Sep 2023 08:33:57 +0000
-Received: from relay2-d.mail.gandi.net ([217.70.183.194])
+	id 1qfg96-000UnA-0F;
+	Mon, 11 Sep 2023 12:36:04 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qfcMj-00HY74-0r
-	for linux-riscv@lists.infradead.org;
-	Mon, 11 Sep 2023 08:33:55 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id A6B7E40003;
-	Mon, 11 Sep 2023 08:33:39 +0000 (UTC)
-Message-ID: <adb67b73-7b6b-edbd-81f2-2319999c1fd8@ghiti.fr>
-Date: Mon, 11 Sep 2023 10:33:38 +0200
+	id 1qfg92-000UmF-0s;
+	Mon, 11 Sep 2023 12:36:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1694435760; x=1725971760;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=nJFDCSCYRu6WgqpO0P8o9k8Fk7g2YG2V+UabQjK1F0I=;
+  b=b/XfjxknNkRml+6PzoYBZU7Y4KFpjU2gdnJzfRt5XibPYnvBbbNE3foa
+   4e2Q/pHpVHUZLitJ7rDtYRPdpjpTDthzE8CzdEl74tg/avU1uQd7P8IC7
+   iTKzou99bsxJlgddIDtqkkJ5Ge+J/+vG/FcXroo7hfmmZ/vg/9Z1Zg6OV
+   gy5uhSXXB8zqh83uHUV9B/VewL8qSULBxwNBZfa4mCkeZlHsN0CXJ1rUu
+   gDuhU1dOruhwU5ZHoMN+3KVLu/bxgAEz/H6WkG9mlZLapp42LuDzbysBR
+   Icdk2+wdHlmHyMEoTobP77/iTXr265oiWZLpxEYDOkstdpuuTV3XGuiHz
+   w==;
+X-CSE-ConnectionGUID: 6ljN90N3QJ+9ydbJ9OLrug==
+X-CSE-MsgGUID: K4MjJXbnQt6wrUlyUlkyaw==
+X-ThreatScanner-Verdict: Negative
+X-IronPort-AV: E=Sophos;i="6.02,244,1688454000"; 
+   d="asc'?scan'208";a="3976159"
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 11 Sep 2023 05:35:45 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.21; Mon, 11 Sep 2023 05:35:40 -0700
+Received: from wendy (10.10.85.11) by chn-vm-ex04.mchp-main.com (10.10.85.152)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
+ Transport; Mon, 11 Sep 2023 05:35:36 -0700
+Date: Mon, 11 Sep 2023 13:35:21 +0100
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Yu-Chien Peter Lin <peterlin@andestech.com>
+CC: Conor Dooley <conor@kernel.org>, <linux-riscv@lists.infradead.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<linux-perf-users@vger.kernel.org>, <paul.walmsley@sifive.com>,
+	<palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <atishp@atishpatra.org>,
+	<anup@brainfault.org>, <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	<ajones@ventanamicro.com>, <heiko@sntech.de>, <samuel@sholland.org>,
+	<geert+renesas@glider.be>, <n.shubin@yadro.com>, <dminus@andestech.com>,
+	<ycliang@andestech.com>, <tim609@andestech.com>, <locus84@andestech.com>,
+	<dylan@andestech.com>
+Subject: Re: [PATCH 3/4] riscv: errata: Add Andes PMU errata
+Message-ID: <20230911-worry-reformat-fbb5c473085d@wendy>
+References: <20230907021635.1002738-1-peterlin@andestech.com>
+ <20230907021635.1002738-4-peterlin@andestech.com>
+ <20230907-158e1f7e1e866d8c02726c9c@fedora>
+ <20230907-7bc08398d2f95c14e1c0bc76@fedora>
+ <ZP6ADIAqZn0kkxwB@APC323>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.15.0
-Subject: Re: [PATCH v3 4/4] riscv: Improve flush_tlb_kernel_range()
-Content-Language: en-US
-To: Samuel Holland <samuel@sholland.org>,
- Alexandre Ghiti <alexghiti@rivosinc.com>
-Cc: Andrew Jones <ajones@ventanamicro.com>, Will Deacon <will@kernel.org>,
- "Aneesh Kumar K . V" <aneesh.kumar@linux.ibm.com>,
- Andrew Morton <akpm@linux-foundation.org>, Nick Piggin <npiggin@gmail.com>,
- Peter Zijlstra <peterz@infradead.org>,
- Mayuresh Chitale <mchitale@ventanamicro.com>,
- Vincent Chen <vincent.chen@sifive.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- linux-arch@vger.kernel.org, linux-mm@kvack.org,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20230801085402.1168351-1-alexghiti@rivosinc.com>
- <20230801085402.1168351-5-alexghiti@rivosinc.com>
- <0e101df0-397a-0d1a-0080-2e60c68c79b6@sholland.org>
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <0e101df0-397a-0d1a-0080-2e60c68c79b6@sholland.org>
-X-GND-Sasl: alex@ghiti.fr
+In-Reply-To: <ZP6ADIAqZn0kkxwB@APC323>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230911_013353_600387_E77DE9AC 
-X-CRM114-Status: GOOD (  28.02  )
+X-CRM114-CacheID: sfid-20230911_053600_418328_554DD0BE 
+X-CRM114-Status: GOOD (  44.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,155 +91,117 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: multipart/mixed; boundary="===============9092412296236603923=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+--===============9092412296236603923==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="+9uiuXeVPrdkDknr"
+Content-Disposition: inline
 
-On 09/09/2023 21:00, Samuel Holland wrote:
-> Hi Alex,
->
-> On 8/1/23 03:54, Alexandre Ghiti wrote:
->> This function used to simply flush the whole tlb of all harts, be more
->> subtile and try to only flush the range.
->>
->> The problem is that we can only use PAGE_SIZE as stride since we don't know
->> the size of the underlying mapping and then this function will be improved
->> only if the size of the region to flush is < threshold * PAGE_SIZE.
->>
->> Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
->> Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
->> ---
->>   arch/riscv/include/asm/tlbflush.h | 11 +++++-----
->>   arch/riscv/mm/tlbflush.c          | 34 +++++++++++++++++++++++--------
->>   2 files changed, 31 insertions(+), 14 deletions(-)
->>
->> diff --git a/arch/riscv/include/asm/tlbflush.h b/arch/riscv/include/asm/tlbflush.h
->> index f5c4fb0ae642..7426fdcd8ec5 100644
->> --- a/arch/riscv/include/asm/tlbflush.h
->> +++ b/arch/riscv/include/asm/tlbflush.h
->> @@ -37,6 +37,7 @@ void flush_tlb_mm_range(struct mm_struct *mm, unsigned long start,
->>   void flush_tlb_page(struct vm_area_struct *vma, unsigned long addr);
->>   void flush_tlb_range(struct vm_area_struct *vma, unsigned long start,
->>   		     unsigned long end);
->> +void flush_tlb_kernel_range(unsigned long start, unsigned long end);
->>   #ifdef CONFIG_TRANSPARENT_HUGEPAGE
->>   #define __HAVE_ARCH_FLUSH_PMD_TLB_RANGE
->>   void flush_pmd_tlb_range(struct vm_area_struct *vma, unsigned long start,
->> @@ -53,15 +54,15 @@ static inline void flush_tlb_range(struct vm_area_struct *vma,
->>   	local_flush_tlb_all();
->>   }
->>   
->> -#define flush_tlb_mm(mm) flush_tlb_all()
->> -#define flush_tlb_mm_range(mm, start, end, page_size) flush_tlb_all()
->> -#endif /* !CONFIG_SMP || !CONFIG_MMU */
->> -
->>   /* Flush a range of kernel pages */
->>   static inline void flush_tlb_kernel_range(unsigned long start,
->>   	unsigned long end)
->>   {
->> -	flush_tlb_all();
->> +	local_flush_tlb_all();
->>   }
->>   
->> +#define flush_tlb_mm(mm) flush_tlb_all()
->> +#define flush_tlb_mm_range(mm, start, end, page_size) flush_tlb_all()
->> +#endif /* !CONFIG_SMP || !CONFIG_MMU */
->> +
->>   #endif /* _ASM_RISCV_TLBFLUSH_H */
->> diff --git a/arch/riscv/mm/tlbflush.c b/arch/riscv/mm/tlbflush.c
->> index 0c955c474f3a..687808013758 100644
->> --- a/arch/riscv/mm/tlbflush.c
->> +++ b/arch/riscv/mm/tlbflush.c
->> @@ -120,18 +120,27 @@ static void __flush_tlb_range(struct mm_struct *mm, unsigned long start,
->>   			      unsigned long size, unsigned long stride)
->>   {
->>   	struct flush_tlb_range_data ftd;
->> -	struct cpumask *cmask = mm_cpumask(mm);
->> -	unsigned int cpuid;
->> +	struct cpumask *cmask, full_cmask;
->>   	bool broadcast;
->>   
->> -	if (cpumask_empty(cmask))
->> -		return;
->> +	if (mm) {
->> +		unsigned int cpuid;
->> +
->> +		cmask = mm_cpumask(mm);
->> +		if (cpumask_empty(cmask))
->> +			return;
->> +
->> +		cpuid = get_cpu();
->> +		/* check if the tlbflush needs to be sent to other CPUs */
->> +		broadcast = cpumask_any_but(cmask, cpuid) < nr_cpu_ids;
->> +	} else {
->> +		cpumask_setall(&full_cmask);
->> +		cmask = &full_cmask;
->> +		broadcast = true;
->> +	}
->>   
->> -	cpuid = get_cpu();
->> -	/* check if the tlbflush needs to be sent to other CPUs */
->> -	broadcast = cpumask_any_but(cmask, cpuid) < nr_cpu_ids;
->>   	if (static_branch_unlikely(&use_asid_allocator)) {
->> -		unsigned long asid = atomic_long_read(&mm->context.id) & asid_mask;
->> +		unsigned long asid = mm ? atomic_long_read(&mm->context.id) & asid_mask : 0;
-> I think the bug is here. Passing a value of 0 for the ASID is not the
-> same as passing the ASID in register x0. Only in the latter case does
-> the TLB flush apply to global mappings, which is what you need for
-> flush_tlb_kernel_range().
+--+9uiuXeVPrdkDknr
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
+On Mon, Sep 11, 2023 at 10:48:44AM +0800, Yu-Chien Peter Lin wrote:
+> On Thu, Sep 07, 2023 at 12:02:46PM +0100, Conor Dooley wrote:
+> > On Thu, Sep 07, 2023 at 10:27:03AM +0100, Conor Dooley wrote:
+> > > Hey,
+> > >=20
+> > > On Thu, Sep 07, 2023 at 10:16:34AM +0800, Yu Chien Peter Lin wrote:
+> > > > Before the ratification of Sscofpmf, the Andes PMU extension
+> > > > implements the same mechanism and is compatible with existing
+> > > > SBI PMU driver of perf to support event sampling and mode
+> > > > filtering with programmable hardware performance counters.
+> > >=20
+> > > If it actually was, you'd not need to modify the driver ;)
+> > >=20
+> > > > This patch adds PMU support for Andes 45-series CPUs by
+> > > > introducing a CPU errata.
+> > >=20
+> > > I don't really understand this in all honesty. You don't have Sscofpmf
+> > > support with a bug, you have something that is Sscofpmf-adjactent that
+> > > predates it. Why claim to support an extension that you do not, only =
+to
+> > > have to come along and try to clean things up afterwards, instead of
+> > > accurately declaring what you do support from the outset?
+> >=20
+> > Reading this again, I don't think that I have been particularly clear,
+> > sorry. My point is that this is not a fix for a bug in your
+> > implementation of Sscofpmf, but rather adding probing for what is
+> > effectively a custom ISA extension that happens to be very similar to
+> > the standard one. As it is not an implementation bug, errata should
+> > not be abused to support vendor extensions, and either DT or ACPI should
+> > be used to inform the operating system about its presence.
+> >=20
+> > Cheers,
+> > Conor.
+> >=20
+> > >=20
+> > > (and just because someone already got away with it, doesn't mean that
+> > > you get a free pass on it, sorry)
+>=20
+> Apologize for any confusion caused by the name. I thought it would make it
+> easier to find the related functions and files in OpenSBI, didn't expect
+> that it may have misled people to abuse the use of errata, you are right,
+> I should have chosen my words more carefully.
 
-Fantastic, thank you, I was miles away from finding this! Really nice 
-catch, thanks again.
+I'm not sure what you mean here. The commit message is not the problem,
+nor is the comparison in it to Sscofpmf - my issue is with pretending
+that things like this are errata and using mvendorid etc to probe them.
 
-I'm fixing this and while doing so, I may be stepping a bit on your 
-patchset (some code removal), sorry about that. I'll provide a new 
-version quickly for Prabhakar to test, and we'll see how we'll rebase 
-each other series.
+> In my opinion, this is simply a pre-sepc solution to enable missing perf
+> features before the standard is finalized.
 
-Thanks again Samuel, well done!
+Right, I don't think there's any disagreement about that. What I am
+objecting to is adding more cases of pretending that something never
+intended to be the standard extension is the standard extension with an
+erratum. I know the T-Head stuff does do exactly this, but I don't think
+we should continue to allow feature probing using the errata framework,
+but instead communicate supported features via DT or ACPI. (If I could
+re-review the T-Head PMU patch now, I'd say the same thing there).
+Maybe Palmer et al disagree & there is some extenuating circumstance
+that applies here.
 
-Alex
+> The underlying logic remains the
+> same, so we can still use the errata to patch a few lines of CSR accesses
+> and align with other vendors. This way, we can make minimal changes and
+> avoid performance overhead to the driver.
+
+I think you're conflating errata with alternatives. I have no problem
+with the use of alternatives for this purpose & the perf parts of the
+patch are okay to me, if the overhead of having a platform specific ops
+struct is unacceptable.
+
+Thanks,
+Conor.
+
+--+9uiuXeVPrdkDknr
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZP8JiQAKCRB4tDGHoIJi
+0sHNAP90SbNP+JXIdUjtQoulfh1Ab/AVAk4Yd7SL2NtaDT8a/gD+NOzFbAhx9vMW
+gJg2KArKlDrcTTo/q2pWYEbItZdvowc=
+=k83d
+-----END PGP SIGNATURE-----
+
+--+9uiuXeVPrdkDknr--
 
 
-> Regards,
-> Samuel
->
->>   
->>   		if (broadcast) {
->>   			if (riscv_use_ipi_for_rfence()) {
->> @@ -165,7 +174,8 @@ static void __flush_tlb_range(struct mm_struct *mm, unsigned long start,
->>   		}
->>   	}
->>   
->> -	put_cpu();
->> +	if (mm)
->> +		put_cpu();
->>   }
->>   
->>   void flush_tlb_mm(struct mm_struct *mm)
->> @@ -196,6 +206,12 @@ void flush_tlb_range(struct vm_area_struct *vma, unsigned long start,
->>   
->>   	__flush_tlb_range(vma->vm_mm, start, end - start, stride_size);
->>   }
->> +
->> +void flush_tlb_kernel_range(unsigned long start, unsigned long end)
->> +{
->> +	__flush_tlb_range(NULL, start, end, PAGE_SIZE);
->> +}
->> +
->>   #ifdef CONFIG_TRANSPARENT_HUGEPAGE
->>   void flush_pmd_tlb_range(struct vm_area_struct *vma, unsigned long start,
->>   			unsigned long end)
->
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+--===============9092412296236603923==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============9092412296236603923==--
+
