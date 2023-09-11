@@ -4,82 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CD0FEE7FF4
-	for <linux-riscv@archiver.kernel.org>; Mon, 11 Sep 2023 12:36:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FA6BEE57DF
+	for <linux-riscv@archiver.kernel.org>; Mon, 11 Sep 2023 12:53:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=URq+VdQVSwq+dpDVwpLNz2v6Vji9PryEG/JT8Crd2DY=; b=c2F1JRz36yENhFh6pIvSK5OyW6
-	Nlm/smznHWQAC1jz1t0+8KPuVrGbNBnK/fvyMJEvrXZwEizF03lC0wPnteBWzyZ8SEo9ju3Gi+WA1
-	9ovdbgizfLVr9fYJoIk/KexpsfBzPOtDeoXHIH2IR4rf2hvGoU+Y27ecZZN79CWx7twBoMT9D6hvs
-	D29m2sG6ZpYayXvJWtzKmTqgBHrdsB9RKMVYe3CDTyEJlPk6rJT/dQDcypfSWeejkF9h1WBiTZBW1
-	YCsAfOgYJA7OLCRfIF5CPedmGo5JVXRszf+/CSpH1bclR9QdnQ4uk5VJ8CECG57nKbJifdfvQJ8Aa
-	AUyq+1hQ==;
+	bh=Htg8+LNjwjtnXPMCiVIRtrIg15pR4rsAmbyq+ORMV6A=; b=jefC4HV8+TY8xRPNEOaMLu7qDE
+	TrrxFpBlPuRbITFrT4vA70XMarRvvm4GTuo7ZXFaWCBSJ9CScPrBUUekoVf1nEZhZp4KGxE/HBpxK
+	+r8Feh07X87H05h1QxJxlABgosvClPvs/rVDGygzgs7Cg3+9k9cnOH8YJ5pmswi7ZAyOfZwHCezD7
+	PuB96sdL/zS7VEe0NAhumMuZ1NAQ/ngTnIbzuYg43LyDwTPtwLXnFEKqRKUhXhpVTvOGOAcQMCrXy
+	q63d4yH+tZYe1jdvlS4Smu/IVVWkEkFvJmMr084bLEoZFAhbcIZlOYtfXYPtvx5GDNeH22CksuucS
+	Lcx1VEBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qfg96-000UnA-0F;
-	Mon, 11 Sep 2023 12:36:04 +0000
+	id 1qfgQA-000WSY-10;
+	Mon, 11 Sep 2023 12:53:42 +0000
 Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qfg92-000UmF-0s;
-	Mon, 11 Sep 2023 12:36:02 +0000
+	id 1qfgQ6-000WRr-1h
+	for linux-riscv@lists.infradead.org;
+	Mon, 11 Sep 2023 12:53:40 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1694435760; x=1725971760;
+  t=1694436818; x=1725972818;
   h=date:from:to:cc:subject:message-id:references:
    mime-version:in-reply-to;
-  bh=nJFDCSCYRu6WgqpO0P8o9k8Fk7g2YG2V+UabQjK1F0I=;
-  b=b/XfjxknNkRml+6PzoYBZU7Y4KFpjU2gdnJzfRt5XibPYnvBbbNE3foa
-   4e2Q/pHpVHUZLitJ7rDtYRPdpjpTDthzE8CzdEl74tg/avU1uQd7P8IC7
-   iTKzou99bsxJlgddIDtqkkJ5Ge+J/+vG/FcXroo7hfmmZ/vg/9Z1Zg6OV
-   gy5uhSXXB8zqh83uHUV9B/VewL8qSULBxwNBZfa4mCkeZlHsN0CXJ1rUu
-   gDuhU1dOruhwU5ZHoMN+3KVLu/bxgAEz/H6WkG9mlZLapp42LuDzbysBR
-   Icdk2+wdHlmHyMEoTobP77/iTXr265oiWZLpxEYDOkstdpuuTV3XGuiHz
-   w==;
-X-CSE-ConnectionGUID: 6ljN90N3QJ+9ydbJ9OLrug==
-X-CSE-MsgGUID: K4MjJXbnQt6wrUlyUlkyaw==
+  bh=F18RZdFWM4GMQROAAbnXFN2k3b4JLezGGc1Iq3gZ/zs=;
+  b=Qof1Tn7Drz2q5pJBs19D48KXqtndp0XKgs3tlMDifP76PS338MECL1dh
+   WAHlq0xoY3413x9Ban2Nz06RWbaUnazYlREVnPkuBmtj1XKmChE9bgUO/
+   1qKK+RKn5M6v6RiuoxrUBr45xcjSm0pgbL5P3aoOzKMQW9X0Vc4LY5wIs
+   alLHvVcJ7epXnzlDZzBDE5eowV9oDvRZx9VFc4sRm/n1U0h0ZCh0wvmKN
+   AYNlxz6QqdgDcbFHFnpb7ym6k0CXbBo7aatj6c+g8BcbjrzPCiaQut6Wf
+   mUyNOChpsyMtz9EqSSWL0V/8fxR2hJ87nCpUURCYcLOA4q9/UidAVnyzp
+   A==;
+X-CSE-ConnectionGUID: rGMnXp3/ScCh2he0ZE8W7g==
+X-CSE-MsgGUID: +aT+43DkQw6jnFnRFXnEkQ==
 X-ThreatScanner-Verdict: Negative
 X-IronPort-AV: E=Sophos;i="6.02,244,1688454000"; 
-   d="asc'?scan'208";a="3976159"
+   d="asc'?scan'208";a="3979966"
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 11 Sep 2023 05:35:45 -0700
-Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 11 Sep 2023 05:53:37 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Mon, 11 Sep 2023 05:35:40 -0700
-Received: from wendy (10.10.85.11) by chn-vm-ex04.mchp-main.com (10.10.85.152)
+ 15.1.2507.21; Mon, 11 Sep 2023 05:53:19 -0700
+Received: from wendy (10.10.85.11) by chn-vm-ex01.mchp-main.com (10.10.85.143)
  with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
- Transport; Mon, 11 Sep 2023 05:35:36 -0700
-Date: Mon, 11 Sep 2023 13:35:21 +0100
+ Transport; Mon, 11 Sep 2023 05:53:14 -0700
+Date: Mon, 11 Sep 2023 13:52:59 +0100
 From: Conor Dooley <conor.dooley@microchip.com>
-To: Yu-Chien Peter Lin <peterlin@andestech.com>
-CC: Conor Dooley <conor@kernel.org>, <linux-riscv@lists.infradead.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<linux-perf-users@vger.kernel.org>, <paul.walmsley@sifive.com>,
-	<palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <atishp@atishpatra.org>,
-	<anup@brainfault.org>, <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	<ajones@ventanamicro.com>, <heiko@sntech.de>, <samuel@sholland.org>,
-	<geert+renesas@glider.be>, <n.shubin@yadro.com>, <dminus@andestech.com>,
-	<ycliang@andestech.com>, <tim609@andestech.com>, <locus84@andestech.com>,
-	<dylan@andestech.com>
-Subject: Re: [PATCH 3/4] riscv: errata: Add Andes PMU errata
-Message-ID: <20230911-worry-reformat-fbb5c473085d@wendy>
-References: <20230907021635.1002738-1-peterlin@andestech.com>
- <20230907021635.1002738-4-peterlin@andestech.com>
- <20230907-158e1f7e1e866d8c02726c9c@fedora>
- <20230907-7bc08398d2f95c14e1c0bc76@fedora>
- <ZP6ADIAqZn0kkxwB@APC323>
+To: Guo Ren <guoren@kernel.org>
+CC: Conor Dooley <conor@kernel.org>, <paul.walmsley@sifive.com>,
+	<anup@brainfault.org>, <peterz@infradead.org>, <mingo@redhat.com>,
+	<will@kernel.org>, <palmer@rivosinc.com>, <longman@redhat.com>,
+	<boqun.feng@gmail.com>, <tglx@linutronix.de>, <paulmck@kernel.org>,
+	<rostedt@goodmis.org>, <rdunlap@infradead.org>, <catalin.marinas@arm.com>,
+	<xiaoguang.xing@sophgo.com>, <bjorn@rivosinc.com>, <alexghiti@rivosinc.com>,
+	<keescook@chromium.org>, <greentime.hu@sifive.com>,
+	<ajones@ventanamicro.com>, <jszhang@kernel.org>, <wefu@redhat.com>,
+	<wuwei2016@iscas.ac.cn>, <leobras@redhat.com>, <linux-arch@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, <linux-doc@vger.kernel.org>,
+	<kvm@vger.kernel.org>, <virtualization@lists.linux-foundation.org>,
+	<linux-csky@vger.kernel.org>, Guo Ren <guoren@linux.alibaba.com>
+Subject: Re: [PATCH V11 00/17] riscv: Add Native/Paravirt qspinlock support
+Message-ID: <20230911-nimbly-outcome-496efae7adc6@wendy>
+References: <20230910082911.3378782-1-guoren@kernel.org>
+ <20230910-esteemed-exodus-706aaae940b1@spud>
+ <CAJF2gTRQd_dNuZHNwfg3SwD0XERaYXYUdFUFQiarym40kpxFRQ@mail.gmail.com>
+ <20230910-baggage-accent-ec5331b58c8e@spud>
+ <CAJF2gTS8Vh5XdMUcgLA_GJzW6Nm3JKHxuMN9jYSNe_YCEjgCXA@mail.gmail.com>
+ <20230910-facsimile-answering-60d1452b8c10@spud>
+ <CAJF2gTSP1rxVhuwOKyWiE2vFFijJFc2aKRU2=0rTK9nDc8AbsQ@mail.gmail.com>
 MIME-Version: 1.0
-In-Reply-To: <ZP6ADIAqZn0kkxwB@APC323>
+In-Reply-To: <CAJF2gTSP1rxVhuwOKyWiE2vFFijJFc2aKRU2=0rTK9nDc8AbsQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230911_053600_418328_554DD0BE 
-X-CRM114-Status: GOOD (  44.17  )
+X-CRM114-CacheID: sfid-20230911_055338_626978_9DA27B88 
+X-CRM114-Status: GOOD (  38.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,108 +97,156 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============9092412296236603923=="
+Content-Type: multipart/mixed; boundary="===============0656841607564287292=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============9092412296236603923==
+--===============0656841607564287292==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="+9uiuXeVPrdkDknr"
+	protocol="application/pgp-signature"; boundary="GbfQjpg1lIhwJuEz"
 Content-Disposition: inline
 
---+9uiuXeVPrdkDknr
-Content-Type: text/plain; charset=us-ascii
+--GbfQjpg1lIhwJuEz
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Mon, Sep 11, 2023 at 10:48:44AM +0800, Yu-Chien Peter Lin wrote:
-> On Thu, Sep 07, 2023 at 12:02:46PM +0100, Conor Dooley wrote:
-> > On Thu, Sep 07, 2023 at 10:27:03AM +0100, Conor Dooley wrote:
-> > > Hey,
-> > >=20
-> > > On Thu, Sep 07, 2023 at 10:16:34AM +0800, Yu Chien Peter Lin wrote:
-> > > > Before the ratification of Sscofpmf, the Andes PMU extension
-> > > > implements the same mechanism and is compatible with existing
-> > > > SBI PMU driver of perf to support event sampling and mode
-> > > > filtering with programmable hardware performance counters.
-> > >=20
-> > > If it actually was, you'd not need to modify the driver ;)
-> > >=20
-> > > > This patch adds PMU support for Andes 45-series CPUs by
-> > > > introducing a CPU errata.
-> > >=20
-> > > I don't really understand this in all honesty. You don't have Sscofpmf
-> > > support with a bug, you have something that is Sscofpmf-adjactent that
-> > > predates it. Why claim to support an extension that you do not, only =
-to
-> > > have to come along and try to clean things up afterwards, instead of
-> > > accurately declaring what you do support from the outset?
-> >=20
-> > Reading this again, I don't think that I have been particularly clear,
-> > sorry. My point is that this is not a fix for a bug in your
-> > implementation of Sscofpmf, but rather adding probing for what is
-> > effectively a custom ISA extension that happens to be very similar to
-> > the standard one. As it is not an implementation bug, errata should
-> > not be abused to support vendor extensions, and either DT or ACPI should
-> > be used to inform the operating system about its presence.
-> >=20
-> > Cheers,
-> > Conor.
-> >=20
-> > >=20
-> > > (and just because someone already got away with it, doesn't mean that
-> > > you get a free pass on it, sorry)
+On Mon, Sep 11, 2023 at 11:36:27AM +0800, Guo Ren wrote:
+> On Mon, Sep 11, 2023 at 3:45=E2=80=AFAM Conor Dooley <conor@kernel.org> w=
+rote:
+> >
+> > On Sun, Sep 10, 2023 at 05:49:13PM +0800, Guo Ren wrote:
+> > > On Sun, Sep 10, 2023 at 5:32=E2=80=AFPM Conor Dooley <conor@kernel.or=
+g> wrote:
+> > > >
+> > > > On Sun, Sep 10, 2023 at 05:16:46PM +0800, Guo Ren wrote:
+> > > > > On Sun, Sep 10, 2023 at 4:58=E2=80=AFPM Conor Dooley <conor@kerne=
+l.org> wrote:
+> > > > > >
+> > > > > > On Sun, Sep 10, 2023 at 04:28:54AM -0400, guoren@kernel.org wro=
+te:
+> > > > > >
+> > > > > > > Changlog:
+> > > > > > > V11:
+> > > > > > >  - Based on Leonardo Bras's cmpxchg_small patches v5.
+> > > > > > >  - Based on Guo Ren's Optimize arch_spin_value_unlocked patch=
+ v3.
+> > > > > > >  - Remove abusing alternative framework and use jump_label in=
+stead.
+> > > > > >
+> > > > > > btw, I didn't say that using alternatives was the problem, it w=
+as
+> > > > > > abusing the errata framework to perform feature detection that =
+I had
+> > > > > > a problem with. That's not changed in v11.
+> > > > > I've removed errata feature detection. The only related patches a=
+re:
+> > > > >  - riscv: qspinlock: errata: Add ERRATA_THEAD_WRITE_ONCE fixup
+> > > > >  - riscv: qspinlock: errata: Enable qspinlock for T-HEAD processo=
+rs
+> > > > >
+> > > > > Which one is your concern? Could you reply on the exact patch thr=
+ead? Thx.
+> > > >
+> > > > riscv: qspinlock: errata: Enable qspinlock for T-HEAD processors
+> > > >
+> > > > Please go back and re-read the comments I left on v11 about using t=
+he
+> > > > errata code for feature detection.
+> > > >
+> > > > > > A stronger forward progress guarantee is not an erratum, AFAICT.
+> > > >
+> > > > > Sorry, there is no erratum of "stronger forward progress guarante=
+e" in the V11.
+> > > >
+> > > > "riscv: qspinlock: errata: Enable qspinlock for T-HEAD processors" =
+still
+> > > > uses the errata framework to detect the presence of the stronger fo=
+rward
+> > > > progress guarantee in v11.
+> > > Oh, thx for pointing it out. I could replace it with this:
+> > >
+> > > diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+> > > index 88690751f2ee..4be92766d3e3 100644
+> > > --- a/arch/riscv/kernel/setup.c
+> > > +++ b/arch/riscv/kernel/setup.c
+> > > @@ -310,7 +310,8 @@ static void __init riscv_spinlock_init(void)
+> > >  {
+> > >  #ifdef CONFIG_RISCV_COMBO_SPINLOCKS
+> > >         if (!enable_qspinlock_key &&
+> > > -           (sbi_get_firmware_id() !=3D SBI_EXT_BASE_IMPL_ID_KVM)) {
+> > > +           (sbi_get_firmware_id() !=3D SBI_EXT_BASE_IMPL_ID_KVM) &&
+> > > +           (sbi_get_mvendorid() !=3D THEAD_VENDOR_ID)) {
+> > >                 static_branch_disable(&combo_qspinlock_key);
+> > >                 pr_info("Ticket spinlock: enabled\n");
+> > >         } else {
+> >
+> > As I said on v11, I am opposed to feature probing using mvendorid & Co,
+> > partially due to the exact sort of check here to see if the kernel is
+> > running as a KVM guest. IMO, whether a platform has this stronger
+
+> KVM can't use any fairness lock, so forcing it using a Test-Set lock
+> or paravirt qspinlock is the right way. KVM is not a vendor platform.
+
+My point is that KVM should be telling the guest what additional features
+it is capable of using, rather than the kernel making some assumptions
+based on$vendorid etc that are invalid when the kernel is running as a
+KVM guest.
+If the mvendorid etc related assumptions were dropped, the kernel would
+then default away from your qspinlock & there'd not be a need to
+special-case KVM AFAICT.
+
+> > guarantee needs to be communicated by firmware, using ACPI or DT.
+> > I made some comments on v11, referring similar discussion about the
+> > thead vector stuff. Please go take a look at that.
+> I prefer forcing T-HEAD processors using qspinlock, but if all people
+> thought it must be in the ACPI or DT, I would compromise. Then, I
+> would delete the qspinlock cmdline param patch and move it into DT.
 >=20
-> Apologize for any confusion caused by the name. I thought it would make it
-> easier to find the related functions and files in OpenSBI, didn't expect
-> that it may have misled people to abuse the use of errata, you are right,
-> I should have chosen my words more carefully.
+> By the way, what's the kind of DT format? How about:
 
-I'm not sure what you mean here. The commit message is not the problem,
-nor is the comparison in it to Sscofpmf - my issue is with pretending
-that things like this are errata and using mvendorid etc to probe them.
+I added the new "riscv,isa-extensions" property in part to make
+communicating vendor extensions like this easier. Please try to use
+that. "qspinlock" is software configuration though, the vendor extension
+should focus on the guarantee of strong forward progress, since that is
+the non-standard aspect of your IP.
 
-> In my opinion, this is simply a pre-sepc solution to enable missing perf
-> features before the standard is finalized.
-
-Right, I don't think there's any disagreement about that. What I am
-objecting to is adding more cases of pretending that something never
-intended to be the standard extension is the standard extension with an
-erratum. I know the T-Head stuff does do exactly this, but I don't think
-we should continue to allow feature probing using the errata framework,
-but instead communicate supported features via DT or ACPI. (If I could
-re-review the T-Head PMU patch now, I'd say the same thing there).
-Maybe Palmer et al disagree & there is some extenuating circumstance
-that applies here.
-
-> The underlying logic remains the
-> same, so we can still use the errata to patch a few lines of CSR accesses
-> and align with other vendors. This way, we can make minimal changes and
-> avoid performance overhead to the driver.
-
-I think you're conflating errata with alternatives. I have no problem
-with the use of alternatives for this purpose & the perf parts of the
-patch are okay to me, if the overhead of having a platform specific ops
-struct is unacceptable.
+A commandline property may still be desirable, to control the locking
+method used, since the DT should be a description of the hardware, not
+for configuring software policy in your operating system.
 
 Thanks,
 Conor.
 
---+9uiuXeVPrdkDknr
+>         cpus {
+>                 #address-cells =3D <1>;
+>                 #size-cells =3D <0>;
+> +              qspinlock;
+>                 cpu0: cpu@0 {
+>                         compatible =3D "sifive,bullet0", "riscv";
+>                         device_type =3D "cpu";
+>                         i-cache-block-size =3D <64>;
+>                         i-cache-sets =3D <128>;
+>=20
+> --
+> Best Regards
+>  Guo Ren
+
+--GbfQjpg1lIhwJuEz
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZP8JiQAKCRB4tDGHoIJi
-0sHNAP90SbNP+JXIdUjtQoulfh1Ab/AVAk4Yd7SL2NtaDT8a/gD+NOzFbAhx9vMW
-gJg2KArKlDrcTTo/q2pWYEbItZdvowc=
-=k83d
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZP8NqwAKCRB4tDGHoIJi
+0ldAAP9GGcetHG7gYZ4HG1QKhxMohQaaxgboYx7iHBroM1TWOQD/ZjZA5Wijf1OK
+1IInfX9naDCgcUU+DJfxo1FhU6ifVAA=
+=zWg1
 -----END PGP SIGNATURE-----
 
---+9uiuXeVPrdkDknr--
+--GbfQjpg1lIhwJuEz--
 
 
---===============9092412296236603923==
+--===============0656841607564287292==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -203,5 +257,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============9092412296236603923==--
+--===============0656841607564287292==--
 
