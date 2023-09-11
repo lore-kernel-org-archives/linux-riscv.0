@@ -4,83 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84D36EE7FF4
-	for <linux-riscv@archiver.kernel.org>; Mon, 11 Sep 2023 15:04:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35C26EE7FF4
+	for <linux-riscv@archiver.kernel.org>; Mon, 11 Sep 2023 15:22:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hv5ZR2oem+vpHeF6dGqh4FCaq4cgf6CpJ+ud0DOGAcs=; b=Ufr6sshL7AbvX0
-	zddOZJDRI8phTgycqWnOZfQOBjbmFacMOhKYVl+y52xA3vnxHvRxFCYquGOsqRWGMcxCyW7GFbOLx
-	BmppfUxpkjlpcRuNzrMERl5Njpcv/ElkTz0kVCX+fhrQWfEOIaGI+wKQxiL6S1FWjn44H85k6FgzO
-	izkoC8zDdMcmbxBDP/+bmaOs30X/8R41MiTySV89okPNZ89aunOMp57QqRhzafHPaFzC/FlaEY6PT
-	MMtPOkZ6JNY4jWASh7/6gvo4CaOlXJrcpu6mtm2Hek5HeoxqwO5JCOYRlZPRuvdslDEbpNNf/YCUR
-	oT1NuPzKnauCQFCBY21Q==;
+	List-Owner; bh=vJpebsuxfKzWMaMSkIoq8s4k4weYg+hudx2e8DXxvUo=; b=PH0L+1uUO76OGH
+	2Y3/2/pGyrZwsaHGUyDWNu6IGDZzj3/pDQqrAAf+gAV0r4qGHJAbZusGlJUAfhhnNht2I51MOwW7j
+	CR6k0XCRzTnNNe4H5WoVU5mNpiT426aZ00yXCwhtCDMv2hudUYiAO8wBXZBAMXqYiLo2GtWgtnP43
+	KsXKNdm0jgcD9q6koHH0npsSOBQtR8mRkrtPrTjz/USCOZ6SwN/kDjfqGjFGx6rE9jlVH8AKFonSC
+	UWYVJILSzq+FRIy9jsPudVtJhHjv7l7Y4KW516zdZNyHFiac2K2qFYo6LGu5Adt0EsvF+bcyi/0Qo
+	aDBvMnZy7AVszN2WfIkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qfiSh-000oFU-2P;
-	Mon, 11 Sep 2023 15:04:27 +0000
-Received: from mail-qv1-xf35.google.com ([2607:f8b0:4864:20::f35])
+	id 1qfik9-000rph-1l;
+	Mon, 11 Sep 2023 15:22:29 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qfiSd-000oCG-2C
+	id 1qfik6-000rp0-3D
 	for linux-riscv@lists.infradead.org;
-	Mon, 11 Sep 2023 15:04:27 +0000
-Received: by mail-qv1-xf35.google.com with SMTP id 6a1803df08f44-655dccc9977so13173906d6.0
-        for <linux-riscv@lists.infradead.org>; Mon, 11 Sep 2023 08:04:18 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20221208; t=1694444658; x=1695049458; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=72EyxoHPMhyqLAN1Oi5hC6bDHujWPuBTVHMDoLceg0U=;
-        b=DcFkq2OuIIob6fJIfmyV0GFE+IAM4jphhrjk9mUigPXYApzP+gncPZwRx1Ou26DvFr
-         EW3mGtG72TNmr4gMXHaEmL7ywpk/2XDSQ92l6MO8ssGfOJmD6vdwQLltbF/GygjIs7kg
-         cqQOOLcpmREyEX6SMYoLoD2Z7tUKJBo0nDFSENI8/CEbd8nJ3gL8tq6QytehTtH5zG34
-         weC4uSRPoVSA4jjRGZ7m4YPFJ6EUjoapHLKrPO4ygLKCGkxRg7LxzXGu84yxzYVuF1a1
-         B/2aHnpe9bG7zGk7tTdZMO1Aff34pIpvsy1ydcEUS3rEPWs7L7Dh8dSEDn83xU1mb8ta
-         voOA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1694444658; x=1695049458;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=72EyxoHPMhyqLAN1Oi5hC6bDHujWPuBTVHMDoLceg0U=;
-        b=ERfCMp2MLL1FZ6+xvkYeExk/kAhksy5PatdrSINRytu8IAlGgI/KZxzOAwhRi28BHb
-         PsuGFp5BRkYauFWseVTP2P5HhYYjJwVJGdXDtPtzLxMotGZckcYidV1p+SEXdnsGs+ca
-         kJGjBAV9f+ZOMnXx+JUtNeBv+ykeaaEXIJE/kST1R1jq4Ul6ROd0pDA8n8EgvApKHVEf
-         Lq8W7h2Ty3rf0tc+N4YRs0suM7SA8ogJE+VK7fV4Bhy1w9819GREGuLX8r9UpmyO/4ft
-         XruNKGtvrp6HyiKWrxHdnHSFnPDbX9p1XcNDRHbMf7YqIzU33d92J9gsPZJLhxQzCEm7
-         nWuw==
-X-Gm-Message-State: AOJu0YyqmKyE/NzjOMZAzZMeUD7Fz2QnF7IgnLJJjkcfTQ3XOj7YXas4
-	lx1ZKa7yUlwZR4Aco9t7IbfAo/31dkINolFF6meH2Q==
-X-Google-Smtp-Source: AGHT+IEy+PPH0r7bh0RyH/liXMUverdXDjbmX5RZMKLrtXIE9sF+UTS35KMMBa00g3J4ID/JpCvC9ESAIt2ZGXz6O90=
-X-Received: by 2002:a0c:b30c:0:b0:64f:4dbe:c675 with SMTP id
- s12-20020a0cb30c000000b0064f4dbec675mr9695545qve.25.1694444657841; Mon, 11
- Sep 2023 08:04:17 -0700 (PDT)
+	Mon, 11 Sep 2023 15:22:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1694445745;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=m6+UTvfQcsvDPdhGXSi2AAvjsiLi7Cpcaa64YOiSPW8=;
+	b=ZSn02oZqfCrXtbm5EJ1KsZV+OVYS6tiewgF/BTV11oDKNEmxiBfCOllFMg5TlqsvBF3mJK
+	9ZCoL1P+CaFgIv9XJSkQHjFnifsV4x3gOHwjtmC9tPTskPcy+qSPujyh61uLFFztGN0ACO
+	qDMuCE0Sg4sKI9PBq7M2ioJhVFlcpIg=
+Received: from mimecast-mx02.redhat.com (mx-ext.redhat.com [66.187.233.73])
+ by relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ us-mta-647-lqKOgAgdOfK27hptzaDxOw-1; Mon, 11 Sep 2023 11:22:20 -0400
+X-MC-Unique: lqKOgAgdOfK27hptzaDxOw-1
+Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.rdu2.redhat.com [10.11.54.1])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 79C873C1ACE8;
+	Mon, 11 Sep 2023 15:22:18 +0000 (UTC)
+Received: from [10.22.32.237] (unknown [10.22.32.237])
+	by smtp.corp.redhat.com (Postfix) with ESMTP id 5CB4040C200B;
+	Mon, 11 Sep 2023 15:22:16 +0000 (UTC)
+Message-ID: <11f2a7a5-5219-a46e-5d16-4bdd400f5d9b@redhat.com>
+Date: Mon, 11 Sep 2023 11:22:16 -0400
 MIME-Version: 1.0
-References: <20230909003715.3579761-25-sashal@kernel.org> <mhng-e2cedb63-0933-4752-bfd8-592e4e1f6e2c@palmer-ri-x1c9>
-In-Reply-To: <mhng-e2cedb63-0933-4752-bfd8-592e4e1f6e2c@palmer-ri-x1c9>
-From: Sami Tolvanen <samitolvanen@google.com>
-Date: Mon, 11 Sep 2023 08:03:38 -0700
-Message-ID: <CABCJKucm3KjYKgjP9OT4GLe8KZ3QxpRk9GqPD5JgwMaoZumnQQ@mail.gmail.com>
-Subject: Re: [PATCH AUTOSEL 6.4 25/25] riscv: Add CFI error handling
-To: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: sashal@kernel.org, linux-kernel@vger.kernel.org, stable@vger.kernel.org, 
-	keescook@chromium.org, Conor Dooley <conor.dooley@microchip.com>, nathan@kernel.org, 
-	Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu, ndesaulniers@google.com, 
-	peterz@infradead.org, ajones@ventanamicro.com, heiko@sntech.de, 
-	prabhakar.mahadev-lad.rj@bp.renesas.com, liaochang1@huawei.com, 
-	namcaov@gmail.com, andy.chiu@sifive.com, guoren@kernel.org, 
-	alexghiti@rivosinc.com, Bjorn Topel <bjorn@rivosinc.com>, jeeheng.sia@starfivetech.com, 
-	jszhang@kernel.org, greentime.hu@sifive.com, masahiroy@kernel.org, 
-	apatel@ventanamicro.com, mnissler@rivosinc.com, coelacanthushex@gmail.com, 
-	linux-riscv@lists.infradead.org, llvm@lists.linux.dev
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.14.0
+Subject: Re: [PATCH V11 07/17] riscv: qspinlock: Introduce qspinlock param for
+ command line
+Content-Language: en-US
+To: guoren@kernel.org, paul.walmsley@sifive.com, anup@brainfault.org,
+ peterz@infradead.org, mingo@redhat.com, will@kernel.org,
+ palmer@rivosinc.com, boqun.feng@gmail.com, tglx@linutronix.de,
+ paulmck@kernel.org, rostedt@goodmis.org, rdunlap@infradead.org,
+ catalin.marinas@arm.com, conor.dooley@microchip.com,
+ xiaoguang.xing@sophgo.com, bjorn@rivosinc.com, alexghiti@rivosinc.com,
+ keescook@chromium.org, greentime.hu@sifive.com, ajones@ventanamicro.com,
+ jszhang@kernel.org, wefu@redhat.com, wuwei2016@iscas.ac.cn,
+ leobras@redhat.com
+Cc: linux-arch@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-doc@vger.kernel.org, kvm@vger.kernel.org,
+ virtualization@lists.linux-foundation.org, linux-csky@vger.kernel.org,
+ Guo Ren <guoren@linux.alibaba.com>
+References: <20230910082911.3378782-1-guoren@kernel.org>
+ <20230910082911.3378782-8-guoren@kernel.org>
+From: Waiman Long <longman@redhat.com>
+In-Reply-To: <20230910082911.3378782-8-guoren@kernel.org>
+X-Scanned-By: MIMEDefang 3.1 on 10.11.54.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230911_080423_723499_E6E3C6D9 
-X-CRM114-Status: UNSURE (   8.65  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230911_082227_111748_09ECF2DA 
+X-CRM114-Status: GOOD (  16.71  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,18 +90,47 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCBTZXAgOCwgMjAyMyBhdCA4OjMz4oCvUE0gUGFsbWVyIERhYmJlbHQgPHBhbG1lckBk
-YWJiZWx0LmNvbT4gd3JvdGU6Cj4gU2FtaSBwcm9iYWJseSB1bmRlcnN0YW5kcyB0aGUgZGVwZW5k
-ZW5jaWVzIGJldHRlciB0aGFuIEkgZG8sIGJ1dCBJIGRvbid0Cj4gdGhpbmsgdGhpcyBvbmUgaXMg
-c2FuZSB0byBqdXN0IGJhY2twb3J0IC0tIHRoZXJlJ3MgYSB3aG9sZSBzZXJpZXMgaGVyZSwKPiBh
-bmQgSUlSQyB3ZSBoYWQgdG8gc2V0IHVwIHNvbWUgY2xhbmcgYml0cyBmb3IgaXQgdG8gd29yayBj
-b3JyZWN0bHkuCgpBZ3JlZWQsIGl0IGRvZXNuJ3QgcmVhbGx5IG1ha2Ugc2Vuc2UgdG8gYmFja3Bv
-cnQgdGhpcyBwYXRjaC4KClNhbWkKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5p
-bmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8v
-bGludXgtcmlzY3YK
+On 9/10/23 04:29, guoren@kernel.org wrote:
+> From: Guo Ren <guoren@linux.alibaba.com>
+>
+> Allow cmdline to force the kernel to use queued_spinlock when
+> CONFIG_RISCV_COMBO_SPINLOCKS=y.
+>
+> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+> Signed-off-by: Guo Ren <guoren@kernel.org>
+> ---
+>   Documentation/admin-guide/kernel-parameters.txt |  2 ++
+>   arch/riscv/kernel/setup.c                       | 16 +++++++++++++++-
+>   2 files changed, 17 insertions(+), 1 deletion(-)
+>
+> diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
+> index 7dfb540c4f6c..61cacb8dfd0e 100644
+> --- a/Documentation/admin-guide/kernel-parameters.txt
+> +++ b/Documentation/admin-guide/kernel-parameters.txt
+> @@ -4693,6 +4693,8 @@
+>   			[KNL] Number of legacy pty's. Overwrites compiled-in
+>   			default number.
+>   
+> +	qspinlock	[RISCV] Force to use qspinlock or auto-detect spinlock.
+> +
+>   	qspinlock.numa_spinlock_threshold_ns=	[NUMA, PV_OPS]
+>   			Set the time threshold in nanoseconds for the
+>   			number of intra-node lock hand-offs before the
+
+Your patch series is still based on top of numa-aware qspinlock patchset 
+which isn't upstream yet. Please rebase it without that as that will 
+cause merge conflict during upstream merge.
+
+Cheers,
+Longman
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
