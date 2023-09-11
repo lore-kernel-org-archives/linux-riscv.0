@@ -4,62 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4F4FC71153
-	for <linux-riscv@archiver.kernel.org>; Mon, 11 Sep 2023 02:49:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53B4EC71153
+	for <linux-riscv@archiver.kernel.org>; Mon, 11 Sep 2023 03:10:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FBUt6A2FkNG/rEPNqkI5uLpohDbx+ovMx8v0QJ8Vaok=; b=AIumtYlpGU+zn/
-	LVs16r+Jku5/IiwztqvXnLLVmLALlHm2TO43993W+QOdgKgVm2KYHejOtfwETxYWFPlVlz/aPVB7o
-	T5zL5GFnmCVDlhwStqZfL3xhE7NH7358cJtAsckcndsUG6eItMHrtKrm2gmLlOR0Fqc6AI7PiTirj
-	+KH+/oPNSJyYycxGHip1cHaFSK+KrbKiGfJH9s5ogbOWhcCKXO5rcbY2P+SxVlOB6NyWTFVL43Jo5
-	wAWkgdEDDNKlH9Xgfl7jNUHaMGvTGVpSZwcUIpjRDIe1bYHdeXjIKcRhbJUCRqZgTwGzHIQQYFuW5
-	8NpAGNSbIOlEpzAT+R+w==;
+	List-Owner; bh=4xm7wfI6+aF03DsbjIMPLoJnfs0cmXlOCkJAPRLTWuA=; b=HBUBBW6/ufNb7x
+	ZB+da7lxM8RxQOlzZN3XrppfCTWZEN4UUQ1M6ShyIUflLWTmGgwj3TZK3f2obyP/Xp0brSe/UAply
+	d7pNDUqF/2d8jTcsPdwowSlkm+Q+Wn5bmdBI86jUjr37oGFqc3LLLnVmeiDUltvWLhQKUztBJWA/0
+	Bs655sclBDvp/YO25fpgBChzc0pYwypdW2DYKFXF8sCwW8hTR8oo5M69J7uxUDH3WnlcrkpxuVIT2
+	4uQslKsiNJIgKWNC6CTmb+OQ63uZBK4M+XPDgTPI2KFKWBtf2kYTz2lAS3lwLBfYmfPiVQgCC0RFM
+	QsWT2G2S0xDS+NvieBBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qfWzU-00H7Js-1W;
-	Mon, 11 Sep 2023 02:49:32 +0000
-Received: from 60-248-80-70.hinet-ip.hinet.net ([60.248.80.70] helo=Atcsqr.andestech.com)
+	id 1qfXJa-00H8g6-1l;
+	Mon, 11 Sep 2023 03:10:18 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qfWzQ-00H7JO-17;
-	Mon, 11 Sep 2023 02:49:30 +0000
-Received: from mail.andestech.com (ATCPCS16.andestech.com [10.0.1.222])
-	by Atcsqr.andestech.com with ESMTP id 38B2mndQ062834;
-	Mon, 11 Sep 2023 10:48:49 +0800 (+08)
-	(envelope-from peterlin@andestech.com)
-Received: from APC323 (10.0.12.98) by ATCPCS16.andestech.com (10.0.1.222) with
- Microsoft SMTP Server id 14.3.498.0; Mon, 11 Sep 2023 10:48:48 +0800
-Date: Mon, 11 Sep 2023 10:48:44 +0800
-From: Yu-Chien Peter Lin <peterlin@andestech.com>
-To: Conor Dooley <conor@kernel.org>
-CC: <linux-riscv@lists.infradead.org>, <linux-arm-kernel@lists.infradead.org>,
-        <linux-kernel@vger.kernel.org>, <linux-perf-users@vger.kernel.org>,
-        <paul.walmsley@sifive.com>, <palmer@dabbelt.com>,
-        <aou@eecs.berkeley.edu>, <conor.dooley@microchip.com>,
-        <atishp@atishpatra.org>, <anup@brainfault.org>,
-        <prabhakar.mahadev-lad.rj@bp.renesas.com>, <ajones@ventanamicro.com>,
-        <heiko@sntech.de>, <samuel@sholland.org>, <geert+renesas@glider.be>,
-        <n.shubin@yadro.com>, <dminus@andestech.com>, <ycliang@andestech.com>,
-        <tim609@andestech.com>, <locus84@andestech.com>, <dylan@andestech.com>
-Subject: Re: [PATCH 3/4] riscv: errata: Add Andes PMU errata
-Message-ID: <ZP6ADIAqZn0kkxwB@APC323>
-References: <20230907021635.1002738-1-peterlin@andestech.com>
- <20230907021635.1002738-4-peterlin@andestech.com>
- <20230907-158e1f7e1e866d8c02726c9c@fedora>
- <20230907-7bc08398d2f95c14e1c0bc76@fedora>
+	id 1qfXJX-00H8f3-1w
+	for linux-riscv@lists.infradead.org;
+	Mon, 11 Sep 2023 03:10:16 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 20E3D60ED8
+	for <linux-riscv@lists.infradead.org>; Mon, 11 Sep 2023 03:10:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6C892C433CA
+	for <linux-riscv@lists.infradead.org>; Mon, 11 Sep 2023 03:10:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1694401811;
+	bh=UONvhmizn0JJhF+HaALbacTSzlI5SR6Is+F9ac10n7o=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=C6RvUKn4NRYtphWoqfwaddafP0zABGlMvpxOoSnLUI6Y/ROq6HSQrhQG/jwc/oV9R
+	 UYXqZweYL0YYfBgtBO1SYP81TJJfLl54UfWKfPZ/E8kD+wyqeNDzvyvN+QMP9sMC6O
+	 1qATIkJ5YjPAGZXg7sxkkLYdqSvQBn9KaKqX3GVGxhhUCBMpVe54CMJZ4Qz2pIxkII
+	 LRjry0c01jnCWvarBpA/cmMGgPZlGCeVpJXsE94yF2bcDzEC5zvX1tk/AZ5lMzBBTy
+	 F1bfSEe5HzGa+zQNFY+Dv2+V/6bIiCu0ywQB73nfOLvYqo0FrzXW1C6sCi5jdYJams
+	 aChRK7d+p6JrQ==
+Received: by mail-ed1-f43.google.com with SMTP id 4fb4d7f45d1cf-52e297c7c39so4918578a12.2
+        for <linux-riscv@lists.infradead.org>; Sun, 10 Sep 2023 20:10:11 -0700 (PDT)
+X-Gm-Message-State: AOJu0Ywmhe2ejLQihlnJmamYLmvWkJtoU39z9OBNluK6jDQEw0eqBlNf
+	y4GBMKtex/Is07F3juGB5CD0UgwapPdMYSYSoAk=
+X-Google-Smtp-Source: AGHT+IEXrD5I7ibaP2mQt3kJW4nPV6v0QD/O5Y3rF3MfAruuPpiiUMuOKBJ5qG3F9j3sqa55PILnojVoXbzY49w8TF8=
+X-Received: by 2002:a17:907:7795:b0:9a1:db97:62a1 with SMTP id
+ ky21-20020a170907779500b009a1db9762a1mr6313893ejc.46.1694401809871; Sun, 10
+ Sep 2023 20:10:09 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230907-7bc08398d2f95c14e1c0bc76@fedora>
-User-Agent: Mutt/2.2.10 (2023-03-25)
-X-Originating-IP: [10.0.12.98]
-X-DNSRBL: 
-X-MAIL: Atcsqr.andestech.com 38B2mndQ062834
+References: <20230910082911.3378782-1-guoren@kernel.org> <20230910082911.3378782-5-guoren@kernel.org>
+ <f091ead0-99b9-b30a-a295-730ce321ac60@redhat.com>
+In-Reply-To: <f091ead0-99b9-b30a-a295-730ce321ac60@redhat.com>
+From: Guo Ren <guoren@kernel.org>
+Date: Mon, 11 Sep 2023 11:09:58 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTSbUUdLhN8PFdFzQd0M1T2MVOL1cdZn46WKq1S8MuQYHw@mail.gmail.com>
+Message-ID: <CAJF2gTSbUUdLhN8PFdFzQd0M1T2MVOL1cdZn46WKq1S8MuQYHw@mail.gmail.com>
+Subject: Re: [PATCH V11 04/17] locking/qspinlock: Improve xchg_tail for number
+ of cpus >= 16k
+To: Waiman Long <longman@redhat.com>
+Cc: paul.walmsley@sifive.com, anup@brainfault.org, peterz@infradead.org, 
+	mingo@redhat.com, will@kernel.org, palmer@rivosinc.com, boqun.feng@gmail.com, 
+	tglx@linutronix.de, paulmck@kernel.org, rostedt@goodmis.org, 
+	rdunlap@infradead.org, catalin.marinas@arm.com, conor.dooley@microchip.com, 
+	xiaoguang.xing@sophgo.com, bjorn@rivosinc.com, alexghiti@rivosinc.com, 
+	keescook@chromium.org, greentime.hu@sifive.com, ajones@ventanamicro.com, 
+	jszhang@kernel.org, wefu@redhat.com, wuwei2016@iscas.ac.cn, 
+	leobras@redhat.com, linux-arch@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-doc@vger.kernel.org, 
+	kvm@vger.kernel.org, virtualization@lists.linux-foundation.org, 
+	linux-csky@vger.kernel.org, Guo Ren <guoren@linux.alibaba.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230910_194928_845104_7E82F83B 
-X-CRM114-Status: GOOD (  34.30  )
+X-CRM114-CacheID: sfid-20230910_201015_723811_F619153B 
+X-CRM114-Status: GOOD (  23.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,83 +89,57 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 07, 2023 at 12:02:46PM +0100, Conor Dooley wrote:
-> On Thu, Sep 07, 2023 at 10:27:03AM +0100, Conor Dooley wrote:
-> > Hey,
-> > 
-> > On Thu, Sep 07, 2023 at 10:16:34AM +0800, Yu Chien Peter Lin wrote:
-> > > Before the ratification of Sscofpmf, the Andes PMU extension
-> > > implements the same mechanism and is compatible with existing
-> > > SBI PMU driver of perf to support event sampling and mode
-> > > filtering with programmable hardware performance counters.
-> > 
-> > If it actually was, you'd not need to modify the driver ;)
-> > 
-> > > This patch adds PMU support for Andes 45-series CPUs by
-> > > introducing a CPU errata.
-> > 
-> > I don't really understand this in all honesty. You don't have Sscofpmf
-> > support with a bug, you have something that is Sscofpmf-adjactent that
-> > predates it. Why claim to support an extension that you do not, only to
-> > have to come along and try to clean things up afterwards, instead of
-> > accurately declaring what you do support from the outset?
-> 
-> Reading this again, I don't think that I have been particularly clear,
-> sorry. My point is that this is not a fix for a bug in your
-> implementation of Sscofpmf, but rather adding probing for what is
-> effectively a custom ISA extension that happens to be very similar to
-> the standard one. As it is not an implementation bug, errata should
-> not be abused to support vendor extensions, and either DT or ACPI should
-> be used to inform the operating system about its presence.
-> 
-> Cheers,
-> Conor.
-> 
-> > 
-> > (and just because someone already got away with it, doesn't mean that
-> > you get a free pass on it, sorry)
-
-Apologize for any confusion caused by the name. I thought it would make it
-easier to find the related functions and files in OpenSBI, didn't expect
-that it may have misled people to abuse the use of errata, you are right,
-I should have chosen my words more carefully.
-
-In my opinion, this is simply a pre-sepc solution to enable missing perf
-features before the standard is finalized. The underlying logic remains the
-same, so we can still use the errata to patch a few lines of CSR accesses
-and align with other vendors. This way, we can make minimal changes and
-avoid performance overhead to the driver.
-
-> > Thanks,
-> > Conor.
-> > 
-> > > Signed-off-by: Yu Chien Peter Lin <peterlin@andestech.com>
-> > > Signed-off-by: Locus Wei-Han Chen <locus84@andestech.com>
-> > 
-> > btw, what did Locus Wei-Han Chen do here? Are you missing
-> > a Co-developed-by: tag?
-
-Yes I missed the CD-tag, will fix it.
-Thanks for the review.
-
-> > > Reviewed-by: Charles Ci-Jyun Wu <dminus@andestech.com>
-> > > Reviewed-by: Leo Yu-Chi Liang <ycliang@andestech.com>
-> > > ---
-> > >  arch/riscv/Kconfig.errata            | 13 ++++++++
-> > >  arch/riscv/errata/andes/errata.c     | 45 +++++++++++++++++++++++++++-
-> > >  arch/riscv/include/asm/errata_list.h | 43 ++++++++++++++++++++++++--
-> > >  drivers/perf/riscv_pmu_sbi.c         | 20 +++++++++----
-> > >  4 files changed, 111 insertions(+), 10 deletions(-)
-
-Best regards,
-Peter Lin
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gTW9uLCBTZXAgMTEsIDIwMjMgYXQgMTA6MzXigK9BTSBXYWltYW4gTG9uZyA8bG9uZ21hbkBy
+ZWRoYXQuY29tPiB3cm90ZToKPgo+Cj4gT24gOS8xMC8yMyAwNDoyOCwgZ3VvcmVuQGtlcm5lbC5v
+cmcgd3JvdGU6Cj4gPiBGcm9tOiBHdW8gUmVuIDxndW9yZW5AbGludXguYWxpYmFiYS5jb20+Cj4g
+Pgo+ID4gVGhlIHRhcmdldCBvZiB4Y2hnX3RhaWwgaXMgdG8gd3JpdGUgdGhlIHRhaWwgdG8gdGhl
+IGxvY2sgdmFsdWUsIHNvCj4gPiBhZGRpbmcgcHJlZmV0Y2h3IGNvdWxkIGhlbHAgdGhlIG5leHQg
+Y21weGNoZyBzdGVwLCB3aGljaCBtYXkKPiA+IGRlY3JlYXNlIHRoZSBjbXB4Y2hnIHJldHJ5IGxv
+b3BzIG9mIHhjaGdfdGFpbC4gU29tZSBwcm9jZXNzb3JzIG1heQo+ID4gdXRpbGl6ZSB0aGlzIGZl
+YXR1cmUgdG8gZ2l2ZSBhIGZvcndhcmQgZ3VhcmFudGVlLCBlLmcuLCBSSVNDLVYKPiA+IFh1YW5U
+aWUgcHJvY2Vzc29ycyB3b3VsZCBibG9jayB0aGUgc25vb3AgY2hhbm5lbCAmIGlycSBmb3Igc2V2
+ZXJhbAo+ID4gY3ljbGVzIHdoZW4gcHJlZmV0Y2gudyBpbnN0cnVjdGlvbiAoZnJvbSBaaWNib3Ag
+ZXh0ZW5zaW9uKSByZXRpcmVkLAo+ID4gd2hpY2ggZ3VhcmFudGVlcyB0aGUgbmV4dCBjbXB4Y2hn
+IHN1Y2NlZWRzLgo+ID4KPiA+IFNpZ25lZC1vZmYtYnk6IEd1byBSZW4gPGd1b3JlbkBsaW51eC5h
+bGliYWJhLmNvbT4KPiA+IFNpZ25lZC1vZmYtYnk6IEd1byBSZW4gPGd1b3JlbkBrZXJuZWwub3Jn
+Pgo+ID4gLS0tCj4gPiAgIGtlcm5lbC9sb2NraW5nL3FzcGlubG9jay5jIHwgNSArKysrLQo+ID4g
+ICAxIGZpbGUgY2hhbmdlZCwgNCBpbnNlcnRpb25zKCspLCAxIGRlbGV0aW9uKC0pCj4gPgo+ID4g
+ZGlmZiAtLWdpdCBhL2tlcm5lbC9sb2NraW5nL3FzcGlubG9jay5jIGIva2VybmVsL2xvY2tpbmcv
+cXNwaW5sb2NrLmMKPiA+IGluZGV4IGQzZjk5MDYwYjYwZi4uOTZiNTRlMmFkZTg2IDEwMDY0NAo+
+ID4gLS0tIGEva2VybmVsL2xvY2tpbmcvcXNwaW5sb2NrLmMKPiA+ICsrKyBiL2tlcm5lbC9sb2Nr
+aW5nL3FzcGlubG9jay5jCj4gPiBAQCAtMjIzLDcgKzIyMywxMCBAQCBzdGF0aWMgX19hbHdheXNf
+aW5saW5lIHZvaWQgY2xlYXJfcGVuZGluZ19zZXRfbG9ja2VkKHN0cnVjdCBxc3BpbmxvY2sgKmxv
+Y2spCj4gPiAgICAqLwo+ID4gICBzdGF0aWMgX19hbHdheXNfaW5saW5lIHUzMiB4Y2hnX3RhaWwo
+c3RydWN0IHFzcGlubG9jayAqbG9jaywgdTMyIHRhaWwpCj4gPiAgIHsKPiA+IC0gICAgIHUzMiBv
+bGQsIG5ldywgdmFsID0gYXRvbWljX3JlYWQoJmxvY2stPnZhbCk7Cj4gPiArICAgICB1MzIgb2xk
+LCBuZXcsIHZhbDsKPiA+ICsKPiA+ICsgICAgIHByZWZldGNodygmbG9jay0+dmFsKTsKPiA+ICsg
+ICAgIHZhbCA9IGF0b21pY19yZWFkKCZsb2NrLT52YWwpOwo+ID4KPiA+ICAgICAgIGZvciAoOzsp
+IHsKPiA+ICAgICAgICAgICAgICAgbmV3ID0gKHZhbCAmIF9RX0xPQ0tFRF9QRU5ESU5HX01BU0sp
+IHwgdGFpbDsKPgo+IFRoYXQgbG9va3MgYSBiaXQgd2VpcmQuIFlvdSBwcmUtZmV0Y2ggYW5kIHRo
+ZW4gaW1tZWRpYXRlbHkgcmVhZCBpdC4gSG93Cj4gbXVjaCBwZXJmb3JtYW5jZSBnYWluIHlvdSBn
+ZXQgYnkgdGhpcyBjaGFuZ2UgYWxvbmU/Cj4KPiBNYXliZSB5b3UgY2FuIGRlZmluZSBhbiBhcmNo
+IHNwZWNpZmljIHByaW1pdGl2ZSB0aGF0IGRlZmF1bHQgYmFjayB0bwo+IGF0b21pY19yZWFkKCkg
+aWYgbm90IGRlZmluZWQuClRoeCBmb3IgdGhlIHJlcGx5LiBUaGlzIGlzIGEgZ2VuZXJpYyBvcHRp
+bWl6YXRpb24gcG9pbnQgSSB3b3VsZCBsaWtlCnRvIHRhbGsgYWJvdXQgd2l0aCB5b3UuCgpGaXJz
+dCwgcHJlZmV0Y2h3KCkgbWFrZXMgY2FjaGVsaW5lIGFuIGV4Y2x1c2l2ZSBzdGF0ZSBhbmQgc2Vy
+dmVzIGZvcgp0aGUgbmV4dCBjbXB4Y2hnIGxvb3Agc2VtYW50aWMsIHdoaWNoIHdyaXRlcyB0aGUg
+aWR4X3RhaWwgcGFydCBvZgphcmNoX3NwaW5fbG9jay4gVGhlIGF0b21pY19yZWFkIG9ubHkgbWFr
+ZXMgY2FjaGVsaW5lIGluIHRoZSBzaGFyZWQKc3RhdGUsIHdoaWNoIGNvdWxkbid0IGdpdmUgYW55
+IGd1YXJhbnRlZSBmb3IgdGhlIG5leHQgY21weGNoZyBsb29wCnNlbWFudGljLiBNaWNyby1hcmNo
+aXRlY3R1cmUgY291bGQgdXRpbGl6ZSBwcmVmZXRjaHcoKSB0byBwcm92aWRlIGEKc3Ryb25nIGZv
+cndhcmQgcHJvZ3Jlc3MgZ3VhcmFudGVlIGZvciB0aGUgeGNoZ190YWlsLCBlLmcuLCB0aGUgVC1I
+RUFEClh1YW5UaWUgcHJvY2Vzc29yIHdvdWxkIGhvbGQgdGhlIGV4Y2x1c2l2ZSBjYWNoZWxpbmUg
+c3RhdGUgdW50aWwgdGhlCm5leHQgY21weGNoZyB3cml0ZSBzdWNjZXNzLgoKSW4gdGhlIGVuZCwg
+TGV0J3MgZ28gYmFjayB0byB0aGUgcHJpbmNpcGxlOiB0aGUgeGNoZ190YWlsIGlzIGFuIGF0b21p
+Ywpzd2FwIG9wZXJhdGlvbiB0aGF0IGNvbnRhaW5zIHdyaXRlIGV2ZW50dWFsbHksIHNvIGdpdmlu
+ZyBhIHByZWZldGNodygpCmF0IHRoZSBiZWdpbm5pbmcgaXMgYWNjZXB0YWJsZSBmb3IgYWxsIGFy
+Y2hpdGVjdHVyZXMuLgoKPgo+IENoZWVycywKPiBMb25nbWFuCj4KCgotLSAKQmVzdCBSZWdhcmRz
+CiBHdW8gUmVuCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+XwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9y
+ZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2
+Cg==
