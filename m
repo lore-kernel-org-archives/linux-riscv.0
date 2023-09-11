@@ -4,74 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50ED4EE57DF
-	for <linux-riscv@archiver.kernel.org>; Mon, 11 Sep 2023 13:05:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85E33EE7FF4
+	for <linux-riscv@archiver.kernel.org>; Mon, 11 Sep 2023 13:07:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eid+xGwZV1diLwhKrzPrEuvQQ9k3OM89l8rGuzU+e60=; b=DFCqsl9xFrvDxXbhmS/Sc9cMdK
-	UwGZ2a/yGnSciiJsAMhBcaICr+iKyfR6QOZVasrmgvxtD3A+WPbAYipWRBG4YR7y1CVY+NP64m2wk
-	gWgId8TxKgqMgh7wkBHA47wqsd/cgYcx2I/211YRxo8lp7zh8mv8Tl5K1lkMm/okDSHPv4JgWemun
-	fEvXUN4SKjsEUvAefRSGuF0tl3sQfJMCMZIiEiHjk7HE+f1gzn/ue1l8aoIM4qAf8W/zskcgLPyzA
-	zu2pMpWk/qaUDm90GfHYQrGeI7cx94xyeUYArZqhlnvlfhKRN0AI4Gps5/InxOLIH1UoL+LbBR+KG
-	iGtv5NCQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:Cc:
+	Date:In-Reply-To:From:Subject:Mime-Version:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=rbvMEAFsYISVb61vIqLFkcr6XZOypC9Pt6hzXOcncvU=; b=nNgwj1oqYW5+IJ
+	iqjN3+/odpDaWipy8P53OzhWgC/edZEYgsOi0iv5zCb1eSEEItMPiYG0Na5mX1SNnmjbQ8mSHl5lq
+	IZSh7YalzdBx/u+lw6ltmf/muao0OHZzk5dEescK7M4V4gL/D2MJQ0APaCimTFgDEEhyRtUdDikuN
+	45wnf3rKRw/fQiEbZFrcmCquIR7Lmxwd126lHXZUlbKwLTw67p57VuLX7BL5QySuWgi/TD57VmL80
+	2JQTp+hTxhaWTUk4RuJgP/zfUssLXQsuyMmnhkd6gE3jqI+uWuASvUTc5/w00HGdRH7sZnM3xChA6
+	m0g+2dIQmP4RY+wfBvug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qfgbY-000YyR-0T;
-	Mon, 11 Sep 2023 13:05:28 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1qfgcz-000ZE5-0X;
+	Mon, 11 Sep 2023 13:06:57 +0000
+Received: from mail-pf1-x434.google.com ([2607:f8b0:4864:20::434])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qfgbV-000YxV-2j
+	id 1qfgcv-000ZDC-1Q
 	for linux-riscv@lists.infradead.org;
-	Mon, 11 Sep 2023 13:05:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1694437525; x=1725973525;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=SMSvAIK8f24bxto0iuALkwzOXDi8ggcjv/HOf5OUMyk=;
-  b=W63P0lmeUeArusRnJ7+fnBndRyA6BbSYc639cS7NHTu0obSWyMRc+bj9
-   iVBG2AnOoADwflxYEsaR1QmLb2z5+DJUzsMI5SAoc5MUFEePR9rFCffGf
-   hXwdpavggnuQBshoCfPR5VQGP74W8E5oW3po+GdTWcS3ekN7FCnG9Bg4D
-   klB9gERsheXPJ01kQ9dB0cphcnBBftum8GZNk2gM8Z957dLIgspaaQrRD
-   FVHVn91grmliesGsMtbDoPD2DsIcCCZuCf+FsrSYcG6QZW+kWzhljnqR+
-   BRuDuxyKSKwNokLY+/ltCqFKqNmFVASXnLcb8quyD8uTM6EurVDO0fOou
-   g==;
-X-CSE-ConnectionGUID: VDayhyd4Rw2TIoz7MS5k0Q==
-X-CSE-MsgGUID: 1DSYGvUiRcaFtXRwQG1SZw==
-X-ThreatScanner-Verdict: Negative
-X-IronPort-AV: E=Sophos;i="6.02,244,1688454000"; 
-   d="asc'?scan'208";a="3886195"
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 11 Sep 2023 06:05:23 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Mon, 11 Sep 2023 06:05:23 -0700
-Received: from wendy (10.10.85.11) by chn-vm-ex01.mchp-main.com (10.10.85.143)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
- Transport; Mon, 11 Sep 2023 06:05:21 -0700
-Date: Mon, 11 Sep 2023 14:05:06 +0100
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Jinyu Tang <tangjinyu@tinylab.org>
-CC: <william.qiu@starfivetech.com>, <hal.feng@starfivetech.com>,
-	<palmer@dabbelt.com>, <apatel@ventanamicro.com>, <ttjjyystupid@163.com>,
-	<falcon@tinylab.org>, <wangjiexun@tinylab.org>,
-	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH] riscv: defconfig : add CONFIG_MMC_DW for starfive
-Message-ID: <20230911-uneaten-shuffling-27c862d5fb10@wendy>
-References: <20230911125955.8937-1-tangjinyu@tinylab.org>
-MIME-Version: 1.0
-In-Reply-To: <20230911125955.8937-1-tangjinyu@tinylab.org>
+	Mon, 11 Sep 2023 13:06:55 +0000
+Received: by mail-pf1-x434.google.com with SMTP id d2e1a72fcca58-68fb71ded6dso860290b3a.0
+        for <linux-riscv@lists.infradead.org>; Mon, 11 Sep 2023 06:06:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sifive.com; s=google; t=1694437612; x=1695042412; darn=lists.infradead.org;
+        h=to:references:message-id:content-transfer-encoding:reply-to:cc:date
+         :in-reply-to:from:subject:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=UC0qFPbWeIAnNY2crnDoiyfH4L4DNcPUzmyIOiPmNaw=;
+        b=PyZZWgzkPQ1WYY0f58ia2Sdb+Yd4AnTsb7g+CIVXQbSqxCsvzDFd21sfT3whkHPgH1
+         Iqy8uFyxNEyZC3aRmQ8vx+cXGliKIADrT5Eowg5bTT85A+jC1Z5Xdf5rO9uk0PwHVJY9
+         Pt+2Nqnine8Hso/mFLQTXnhp23aimWhHAqah8RYan3shFdisBKFWXNbmYbqJhYZ//zBY
+         xIY7kjGa6uhuavnJmaOpy3nSmgfxgAwMMaLCdAfvoo29FpvOZVv5hSBAI1AboEtiXzKi
+         poXP3rKvUUHduZ9WMLq6puFOBhrxCpakzyCKLNiFx5cvSrWfNCtVF4yptd60qR4t9Zgq
+         Ou/A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1694437612; x=1695042412;
+        h=to:references:message-id:content-transfer-encoding:reply-to:cc:date
+         :in-reply-to:from:subject:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=UC0qFPbWeIAnNY2crnDoiyfH4L4DNcPUzmyIOiPmNaw=;
+        b=qdvnkRmm8dUtETSwxOEzBpsRwzN2NkEkS92eH4MPBx02/wm0sifN7fC98DfGsdTo6T
+         XWD6eYVk9aTENjRHjOjRBJAz/TSqr5FZlJ9ViGnQiL1n+E41XaGHJhyQ3/DfyLyk8hf7
+         Ws0or14J8ldl/fbllDs6PsmnZMjbMHEP5trEyDbPs+gFT5OYmwBkI3g9WZoqB4j22OcS
+         br8iHcsMK4LMLU5AOxjFb1bJHfAb9am6SIv0JfwiGpybaAE7eK+7s8V/CmO4ETSKcDfo
+         VMEsUEgSyBfrzri3WJbMlP5XQVbqp/fcojRl7+okpHU4tTRNziBQoXL/+FMTr4o8JG5T
+         x0JQ==
+X-Gm-Message-State: AOJu0Yxj35e5xhzxbpYA7qMKU0skvZxAwC2iS5GxVXCmad+bRWmJg9Y5
+	Vsr3noIeqLzECkPLDNLnBn+tHw==
+X-Google-Smtp-Source: AGHT+IHHHsd8mK5/qRvQGb/rxDKfPMV90hFOs3PpoPszjaiqIs9Gy83oAs6eYTFLtxvjaV6gsb9LYA==
+X-Received: by 2002:a05:6a00:22c2:b0:68e:2c3a:8775 with SMTP id f2-20020a056a0022c200b0068e2c3a8775mr9544336pfj.33.1694437612188;
+        Mon, 11 Sep 2023 06:06:52 -0700 (PDT)
+Received: from ?IPv6:2402:7500:4dc:9c7e:4872:7ce3:318e:18f5? ([2402:7500:4dc:9c7e:4872:7ce3:318e:18f5])
+        by smtp.gmail.com with ESMTPSA id s21-20020a62e715000000b0068991abe1desm5787400pfh.176.2023.09.11.06.06.49
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 11 Sep 2023 06:06:51 -0700 (PDT)
+Mime-Version: 1.0 (Mac OS X Mail 11.5 \(3445.9.7\))
+Subject: Re: [PATCH v4 10/12] RISC-V: crypto: add Zvkned accelerated AES
+ encryption implementation
+From: Jerry Shih <jerry.shih@sifive.com>
+In-Reply-To: <20230721054036.GD847@sol.localdomain>
+Date: Mon, 11 Sep 2023 21:06:47 +0800
+Cc: Heiko Stuebner <heiko@sntech.de>,
+ palmer@dabbelt.com,
+ paul.walmsley@sifive.com,
+ aou@eecs.berkeley.edu,
+ herbert@gondor.apana.org.au,
+ davem@davemloft.net,
+ conor.dooley@microchip.com,
+ linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org,
+ linux-crypto@vger.kernel.org,
+ christoph.muellner@vrull.eu,
+ Heiko Stuebner <heiko.stuebner@vrull.eu>
+Message-Id: <CCA32056-CCE2-4FB5-8CFC-62444CDDA89F@sifive.com>
+References: <20230711153743.1970625-1-heiko@sntech.de>
+ <20230711153743.1970625-11-heiko@sntech.de>
+ <20230721054036.GD847@sol.localdomain>
+To: Eric Biggers <ebiggers@kernel.org>
+X-Mailer: Apple Mail (2.3445.9.7)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230911_060525_943861_B75DB9F9 
-X-CRM114-Status: GOOD (  16.71  )
+X-CRM114-CacheID: sfid-20230911_060653_497372_663E05AA 
+X-CRM114-Status: GOOD (  13.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,85 +100,38 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5667722881700507505=="
+Reply-To: 20230721054036.GD847@sol.localdomain
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============5667722881700507505==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="5zK+w15ftwOdzKYN"
-Content-Disposition: inline
+On Jul 21, 2023, at 13:40, Eric Biggers <ebiggers@kernel.org> wrote:
 
---5zK+w15ftwOdzKYN
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+> I'm looking forward to having direct support for these AES modes, especially the
+> modes needed for storage encryption: XTS, and CBC or CTS!  None of these AES
+> modes is actually implemented in this patch yet, though, so they can't be
+> claimed in the kconfig help text yet.  This patch is just a starting point, as
+> it just adds support for the bare AES block cipher ("aes" in the crypto API).
+> 
+> (BTW, I'm much more interested in, say, AES-XTS support than SM4 support, which
+> this patchset does include.  SM4 is a "national pride cipher" which is somewhat
+> of a niche thing.  I suppose there are already people pushing it for RISC-V
+> though, as they are everywhere else, so that's to be expected...)
+> 
 
-On Mon, Sep 11, 2023 at 08:59:55PM +0800, Jinyu Tang wrote:
-> If these config not set, mmc can't run for jh7110, rootfs can't
-> be found when using SD card. So set CONFIG_MMC_DW=3Dy like arm64
-> defconfig, and set CONFIG_MMC_DW_STARFIVE=3Dy for starfive. Then
-> starfive vf2 can start SD card rootfs with mainline defconfig and
-> dtb.
->=20
-> Signed-off-by: Jinyu Tang <tangjinyu@tinylab.org>
-> ---
->  arch/riscv/configs/defconfig | 2 ++
->  1 file changed, 2 insertions(+)
->=20
-> diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
-> index ab86ec3b9..0664b92d1 100644
-> --- a/arch/riscv/configs/defconfig
-> +++ b/arch/riscv/configs/defconfig
-> @@ -170,6 +170,8 @@ CONFIG_MMC_SDHCI_PLTFM=3Dy
->  CONFIG_MMC_SDHCI_CADENCE=3Dy
->  CONFIG_MMC_SPI=3Dy
->  CONFIG_MMC_SUNXI=3Dy
-> +CONFIG_MMC_DW=3Dy
-> +CONFIG_MMC_DW_STARFIVE=3Dy
+We have further optimization for RISC-V platform in OpenSSL PR[1]. It will include
+AES with CBC, CTR, and XTS mode. Comparing to the generic AES implementation,
+the specialized AES-XTS one have about 3X performance improvement using
+OpenSSL benchmark tool. If OpenSSL accepts that PR, we will create the
+corresponding patch for Linux kernel.
 
-Is this where savedefconfig puts them? The order here looks different to
-the arm64 defconfig.
+[1]
+https://github.com/openssl/openssl/pull/21923
 
-Thanks,
-Conor.
-
->  CONFIG_RTC_CLASS=3Dy
->  CONFIG_RTC_DRV_SUN6I=3Dy
->  CONFIG_DMADEVICES=3Dy
-> --=20
-> 2.39.2
->=20
->=20
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---5zK+w15ftwOdzKYN
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZP8QgQAKCRB4tDGHoIJi
-0u/kAP0VaymayQ4ZAvwWzzzA6lrwMVpsmhM3WvJUeveCP5FEAgD+O6xt7cT5wC+X
-dKTvwNOFq60zyYKn/kFF3XNdxk6l8Ag=
-=Dg11
------END PGP SIGNATURE-----
-
---5zK+w15ftwOdzKYN--
-
-
---===============5667722881700507505==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+-Jerry
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============5667722881700507505==--
-
