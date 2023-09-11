@@ -4,81 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFC0DEE57DF
-	for <linux-riscv@archiver.kernel.org>; Mon, 11 Sep 2023 15:34:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E7CEEE57DF
+	for <linux-riscv@archiver.kernel.org>; Mon, 11 Sep 2023 16:07:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
+	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TuGfHFSbIcOvyfckWIbtDYE7UXp/g/wMWowI0N+igAs=; b=sLia6e7ZtUOtU5
-	pDh3u61Pi3hOQ/tGiSY31or7u+o6IrD6X+Bbl8EZhoSewWpeFpS/2tyGCCqu2A1TNpxkGWWDLTAzg
-	O71e7SbHXUeOzXRwjoxNrthjqKmYCUfp9QoPoTZxso5rC5KGMq9XkA8HQBraOjAEwyQSFyIt+42sY
-	muiVcoEdGVsf84f/CiLgDwgCuBSogiIDZYoZoBm5/k99+tGJeBqaVkcDuhzUxQhzMUOR02V5U3E8Q
-	ar6s1jN6Kz2ua9gtVU0hvxC20WFKvQsnYxnE7B/zn3mdVcyk999qfVqspL5FHkUtJAyhamXWnuowp
-	FY12NDCDJS7YFQuNHKMw==;
+	List-Owner; bh=1/47EuvHbkxH7IievWkl+FbrTbjf3H/zdburyH05mYE=; b=A4tt5DjRb+DvqB
+	ypJKM3ci9yH38P9IuIQF5TGKX+nLLHlw0qMx2jFzodeYtwZ/KwvxbdrdSN9MQ5TbofVEXAnZB7LFZ
+	gn64uJ3JpFBgtkNjm4TmIEy2WTA0Qpd37+gDYWWgs1w8cPVu/F0O6MNhPYD8hw22auNM5xp0qO/mH
+	LY4EPtfRht0+mqUxk7t7fjrlMffwoLfz3/E4c8z9AgiH30pZ/NIxwneLFV+Ajxqp+lojLmHjq03D3
+	TxPFq5f1bPcUIzeBuGbNYwFZrjIfM4YXgallv78z4FTlKEwPLlwAkRJVHdQibh8/jYRDR94k/ziNW
+	XYpMX1+swp2SSyaHeB1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qfivd-000uUN-1U;
-	Mon, 11 Sep 2023 15:34:21 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1qfjRV-000yP3-2u;
+	Mon, 11 Sep 2023 16:07:17 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qfiva-000uTP-1s
+	id 1qfjRT-000yOd-2M
 	for linux-riscv@lists.infradead.org;
-	Mon, 11 Sep 2023 15:34:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1694446457;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=H0hlG5FAGp8RmPoZ3E3s3/+3No0cdG4KvSkd6VNEwic=;
-	b=IHhM6Qem/3nEfzc4yLTanbBi3Jb08wowb/QR1r7En9iZNL/lfzuslNyQR+vns4tG5kX/6z
-	i1m4laUtBpIVvdC3iQ3rflOnxXBKmQu2X69sV74cKTe4cpVJRX8abOrIP2SeC+hqnm00Eu
-	7ZYGfonNtfd3vm8n8tLjxkoNipYSZ2s=
-Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
- [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-196-7swe91uhPdmELgDadpzMYA-1; Mon, 11 Sep 2023 11:34:13 -0400
-X-MC-Unique: 7swe91uhPdmELgDadpzMYA-1
-Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.rdu2.redhat.com [10.11.54.2])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	Mon, 11 Sep 2023 16:07:17 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 8D615183689B;
-	Mon, 11 Sep 2023 15:34:11 +0000 (UTC)
-Received: from [10.22.32.237] (unknown [10.22.32.237])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id D391140C6EBF;
-	Mon, 11 Sep 2023 15:34:09 +0000 (UTC)
-Message-ID: <5ba0b8f3-f8f5-3a25-e9b7-f29a1abe654a@redhat.com>
-Date: Mon, 11 Sep 2023 11:34:09 -0400
+	by dfw.source.kernel.org (Postfix) with ESMTPS id C25CC611E4;
+	Mon, 11 Sep 2023 16:07:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 2FD8FC433CA;
+	Mon, 11 Sep 2023 16:07:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1694448433;
+	bh=tmX2pVfVNI/+1kYGhGjNbTdmCPLP9KsEEtgDj6OGzTc=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=cYEKcVUcXtLchc89h1zMTm7bx/jEQFjR8mRaNRm3NOWZbYbdiY3DpRQQatuYATHH7
+	 v/6XeGAcgmBUfUcpmFBu50EaUsZ5BVfpBSwxnUAeQ5dOSl6swrfWBGXWz4hpuBKSBy
+	 7PnKyAREgRRaqw8ajGa9+jwmoror6gIw7H35YFT/+/JzGAjbQAJ3kWVQWMrnWi9Jdj
+	 T5Nzj4baIXtTGCNMy+nQfy5pOoFGYIJXvHgbs1K4fjX2s4/DhjCt6a/vOayaRO8dRi
+	 y3wimlY6tdJm9dOsSfz5W9Y8RhuBLoK7b7NL6YoXv+qvldLaVwu5L9NluAOoqLPlMl
+	 WPq06TYjLOB/A==
+Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 1A516E1C281;
+	Mon, 11 Sep 2023 16:07:13 +0000 (UTC)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.14.0
-Subject: Re: [PATCH V11 07/17] riscv: qspinlock: Introduce qspinlock param for
- command line
-Content-Language: en-US
-To: guoren@kernel.org, paul.walmsley@sifive.com, anup@brainfault.org,
- peterz@infradead.org, mingo@redhat.com, will@kernel.org,
- palmer@rivosinc.com, boqun.feng@gmail.com, tglx@linutronix.de,
- paulmck@kernel.org, rostedt@goodmis.org, rdunlap@infradead.org,
- catalin.marinas@arm.com, conor.dooley@microchip.com,
- xiaoguang.xing@sophgo.com, bjorn@rivosinc.com, alexghiti@rivosinc.com,
- keescook@chromium.org, greentime.hu@sifive.com, ajones@ventanamicro.com,
- jszhang@kernel.org, wefu@redhat.com, wuwei2016@iscas.ac.cn,
- leobras@redhat.com
-Cc: linux-arch@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-doc@vger.kernel.org, kvm@vger.kernel.org,
- virtualization@lists.linux-foundation.org, linux-csky@vger.kernel.org,
- Guo Ren <guoren@linux.alibaba.com>
-References: <20230910082911.3378782-1-guoren@kernel.org>
- <20230910082911.3378782-8-guoren@kernel.org>
-From: Waiman Long <longman@redhat.com>
-In-Reply-To: <20230910082911.3378782-8-guoren@kernel.org>
-X-Scanned-By: MIMEDefang 3.1 on 10.11.54.2
+Subject: Re: [GIT PULL] RISC-V Patches for the 6.6 Merge Window, Part 2 (try 2)
+From: patchwork-bot+linux-riscv@kernel.org
+Message-Id: <169444843310.24126.17288767595067619083.git-patchwork-notify@kernel.org>
+Date: Mon, 11 Sep 2023 16:07:13 +0000
+References: <mhng-2cae48f5-f42a-4432-b0e2-bc1ee3e01ce5@palmer-ri-x1c9>
+In-Reply-To: <mhng-2cae48f5-f42a-4432-b0e2-bc1ee3e01ce5@palmer-ri-x1c9>
+To: Palmer Dabbelt <palmer@rivosinc.com>
+Cc: linux-riscv@lists.infradead.org, torvalds@linux-foundation.org,
+ linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230911_083418_702720_256B4C27 
-X-CRM114-Status: GOOD (  18.20  )
+X-CRM114-CacheID: sfid-20230911_090715_833806_4BC5BC7A 
+X-CRM114-Status: UNSURE (   7.96  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,53 +73,35 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 9/10/23 04:29, guoren@kernel.org wrote:
-> From: Guo Ren <guoren@linux.alibaba.com>
->
-> Allow cmdline to force the kernel to use queued_spinlock when
-> CONFIG_RISCV_COMBO_SPINLOCKS=y.
->
-> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-> Signed-off-by: Guo Ren <guoren@kernel.org>
-> ---
->   Documentation/admin-guide/kernel-parameters.txt |  2 ++
->   arch/riscv/kernel/setup.c                       | 16 +++++++++++++++-
->   2 files changed, 17 insertions(+), 1 deletion(-)
->
-> diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
-> index 7dfb540c4f6c..61cacb8dfd0e 100644
-> --- a/Documentation/admin-guide/kernel-parameters.txt
-> +++ b/Documentation/admin-guide/kernel-parameters.txt
-> @@ -4693,6 +4693,8 @@
->   			[KNL] Number of legacy pty's. Overwrites compiled-in
->   			default number.
->   
-> +	qspinlock	[RISCV] Force to use qspinlock or auto-detect spinlock.
-> +
->   	qspinlock.numa_spinlock_threshold_ns=	[NUMA, PV_OPS]
->   			Set the time threshold in nanoseconds for the
->   			number of intra-node lock hand-offs before the
-> diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-> index a447cf360a18..0f084f037651 100644
-> --- a/arch/riscv/kernel/setup.c
-> +++ b/arch/riscv/kernel/setup.c
-> @@ -270,6 +270,15 @@ static void __init parse_dtb(void)
->   }
->   
->   #ifdef CONFIG_RISCV_COMBO_SPINLOCKS
-> +bool enable_qspinlock_key = false;
+Hello:
 
-You can use __ro_after_init qualifier for enable_qspinlock_key. BTW, 
-this is not a static key, just a simple flag. So what is the point of 
-the _key suffix?
+This pull request was applied to riscv/linux.git (for-next)
+by Linus Torvalds <torvalds@linux-foundation.org>:
 
-Cheers,
-Longman
+On Sat, 09 Sep 2023 07:25:43 -0700 (PDT) you wrote:
+> merged tag 'riscv-for-linus-6.6-mw1'
+> The following changes since commit e0152e7481c6c63764d6ea8ee41af5cf9dfac5e9:
+> 
+>   Merge tag 'riscv-for-linus-6.6-mw1' of git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux (2023-09-01 08:09:48 -0700)
+> 
+> are available in the Git repository at:
+> 
+> [...]
+
+Here is the summary with links:
+  - [GIT,PULL] RISC-V Patches for the 6.6 Merge Window, Part 2 (try 2)
+    https://git.kernel.org/riscv/c/1b37a0a2d46f
+
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
 
 
 _______________________________________________
