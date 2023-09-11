@@ -4,80 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2517C71153
-	for <linux-riscv@archiver.kernel.org>; Mon, 11 Sep 2023 04:49:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 025F3C71153
+	for <linux-riscv@archiver.kernel.org>; Mon, 11 Sep 2023 04:49:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=iIYpRRrjgAAhtuNuu6dxE0KTu1uOstdJY3lozMrW1BU=; b=CYgvUViyGP0Xlk
-	Q9QEBtFmQoU+pT7f5sVRRM9s06tn+a2V95JaCdbgh/9BoB2WHaqWcuxQfvAguEnkRqSxS6vWC8kHO
-	47leQwot+kElKlBC3yBDKM19qAYQWAJWX1QJT6gU9UZK43r4J1k0GM7pTgrFVaemNgBMkor1iU7w7
-	k7mjBgm0d2wfg+FSPUxMO8tA10z1VgM1owlMKfQzqLm3ofGprX6te8dK4nGfTsYqwUZz5AgaWouVv
-	SPU29t4kI0ELbP1HBBMTAU6kBoUOjm9i2nEhpeR5lJBFpEvqM1WUrLXt/Oa0sIxwkVnGQvgf3qPgz
-	mX8fQGnibRoparjquIjQ==;
+	List-Owner; bh=f6YgNLkusKcxP6QBRSdiTUcHkoDPWm2+dw5rjwgMjTQ=; b=MlqEJqZi/YTlUi
+	JAutVak+H/PRGPlfPSSZ9RCaSznQHwisEny8QGonm7v2B3WfeYz270pya2+Ri/28bUoEdBSXLtF2B
+	rsNK7uaqiq969HcsQDs8dGpd8H11tZc9l3x4VU89IyXnaAgCYMvybUwqfJf4n8fVycGxNH1PnHnk6
+	O8qXGmlXZgAZxK+J6kBtE8Jx7jELzB6qKW4x/+kDE2+MbAUiPllmrCFHURBrOYP8hxW9rwq3Yqoqe
+	VW3zM03spie7fV6mkSfzzHsMCV2B+8BaKPFpWhrhATOySbcDEWciRIuaE0LnyMDp6bGuE8LoN8N/a
+	hU6XdmbqZXS1bZb1ut7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qfYrF-00HElU-1I;
-	Mon, 11 Sep 2023 04:49:09 +0000
+	id 1qfYrD-00HEkZ-1n;
+	Mon, 11 Sep 2023 04:49:07 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qfYr9-00HEjY-34;
+	id 1qfYr9-00HEjW-33;
 	Mon, 11 Sep 2023 04:49:05 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 5849160F16;
-	Mon, 11 Sep 2023 04:49:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 593E7C43395;
+	by dfw.source.kernel.org (Postfix) with ESMTPS id B93E560F1D;
+	Mon, 11 Sep 2023 04:49:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 4AC93C433CD;
 	Mon, 11 Sep 2023 04:49:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1694407740;
-	bh=4lLgVJb3LOG8DBSrlEzmuFBXuW0+M3lIby4bathQEJQ=;
+	bh=B+BA/wventHVJsSezWS2OunhdTGAZAZ+4bFsflnSOAY=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=C6/eNd9fiXyxGRt5Q8ahEQOhSgCzOfaDjiTl1H8jdUB7+nyLMvI8Z8jnvHGjBdQ49
-	 pDudL3FXplQYq7jTK8HLgIy9ITXlxnbVaDIU/4PMDDSn6qJkGjrWtox5bdK/GK3F5p
-	 C4G4DS2Wf1CiQbnf16oHi2/OLxkMc9s/eBeQrSQGCwpUsCE1in9Is3GDGfvYRWlM/7
-	 2tlXMXWIRD3zJvcrlFXk8QeGnir5Z0kGUyv09GiSS8f+5ARo1lX8qkv1qJbHYp6gz6
-	 YuEAVFmOzlKTCXnu+2B+mWUy9DGN2PXOf9rTw2PXn8k2N7iypmSeDiYERSZBfuV9XL
-	 EZljecptFgb1A==
+	b=Z3zrXwT/q/hreCYxPS2EE70ljquRd84Fah9X6JkVO3NxaC9eDkqnJ4VHWw85v5dmT
+	 Stotx/y+10r9bDYbshfInvSGWR8w7PxzWsKks/sIqhqc5ZnyVhbcF6AIQulFwrvMpj
+	 DlsYPOQ605oic6i5NjHH///uQZIeo95OJe7AsQtDoleQvzpeIQUiPTcplU8/M6qBpd
+	 D948Mv/Y1Y81wEQjMlHTjxT97AgBOwfgAjXS5VoAL/eqyJJC8pmmM1wcupo+BqB16h
+	 A7zeLFelWhnQNvY+B64ILh3nvysOgtbYDft4kq/HRFHPVAyQVvdHxynMtFHIBdDHPn
+	 B2BdLJUcHuAxQ==
 Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 3D213E21EC1;
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 31C47E1F67F;
 	Mon, 11 Sep 2023 04:49:00 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH] pwm: Explicitly include correct DT includes
+Subject: Re: [PATCH 00/10] pwm: Constistenly name pwm_chip variables "chip"
 From: patchwork-bot+chrome-platform@kernel.org
-Message-Id: <169440774024.22573.12945048122079663648.git-patchwork-notify@kernel.org>
+Message-Id: <169440774020.22573.10062500641878947449.git-patchwork-notify@kernel.org>
 Date: Mon, 11 Sep 2023 04:49:00 +0000
-References: <20230714174852.4062251-1-robh@kernel.org>
-In-Reply-To: <20230714174852.4062251-1-robh@kernel.org>
-To: Rob Herring <robh@kernel.org>
-Cc: thierry.reding@gmail.com, u.kleine-koenig@pengutronix.de,
- marcan@marcan.st, sven@svenpeter.dev, alyssa@rosenzweig.io,
- nicolas.ferre@microchip.com, alexandre.belloni@bootlin.com,
- claudiu.beznea@microchip.com, bleung@chromium.org, groeck@chromium.org,
- shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
- festevam@gmail.com, linux-imx@nxp.com, paul@crapouillou.net, vz@mleia.com,
- neil.armstrong@linaro.org, khilman@baylibre.com, jbrunet@baylibre.com,
- martin.blumenstingl@googlemail.com, conor.dooley@microchip.com,
- daire.mcnamara@microchip.com, matthias.bgg@gmail.com,
- angelogioacchino.delregno@collabora.com, palmer@dabbelt.com,
- paul.walmsley@sifive.com, michael@walle.cc, orsonzhai@gmail.com,
- baolin.wang@linux.alibaba.com, zhang.lyra@gmail.com, wens@csie.org,
- jernej.skrabec@gmail.com, samuel@sholland.org, hammerh0314@gmail.com,
- jonathanh@nvidia.com, nobuhiro1.iwamatsu@toshiba.co.jp,
- devicetree@vger.kernel.org, linux-pwm@vger.kernel.org,
- linux-kernel@vger.kernel.org, asahi@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, chrome-platform@lists.linux.dev,
- linux-mips@vger.kernel.org, linux-amlogic@lists.infradead.org,
- linux-riscv@lists.infradead.org, linux-mediatek@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-tegra@vger.kernel.org
+References: <20230714205623.2496590-1-u.kleine-koenig@pengutronix.de>
+In-Reply-To: <20230714205623.2496590-1-u.kleine-koenig@pengutronix.de>
+To: =?utf-8?q?Uwe_Kleine-K=C3=B6nig_=3Cu=2Ekleine-koenig=40pengutronix=2Ede=3E?=@ci.codeaurora.org
+Cc: thierry.reding@gmail.com, nicolas.ferre@microchip.com,
+ alexandre.belloni@bootlin.com, claudiu.beznea@microchip.com,
+ florian.fainelli@broadcom.com, rjui@broadcom.com, sbranden@broadcom.com,
+ bleung@chromium.org, heiko@sntech.de, palmer@dabbelt.com,
+ paul.walmsley@sifive.com, michael@walle.cc, johan@kernel.org,
+ elder@kernel.org, gregkh@linuxfoundation.org, linux-pwm@vger.kernel.org,
+ kernel@pengutronix.de, linux-arm-kernel@lists.infradead.org,
+ bcm-kernel-feedback-list@broadcom.com, groeck@chromium.org,
+ chrome-platform@lists.linux.dev, linux-rockchip@lists.infradead.org,
+ linux-riscv@lists.infradead.org, greybus-dev@lists.linaro.org,
+ linux-staging@lists.linux.dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230910_214904_070000_DD0F28DB 
-X-CRM114-Status: UNSURE (   9.90  )
+X-CRM114-CacheID: sfid-20230910_214904_070265_1C41A078 
+X-CRM114-Status: UNSURE (   9.27  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -100,21 +91,26 @@ Hello:
 This patch was applied to chrome-platform/linux.git (for-next)
 by Thierry Reding <thierry.reding@gmail.com>:
 
-On Fri, 14 Jul 2023 11:48:50 -0600 you wrote:
-> The DT of_device.h and of_platform.h date back to the separate
-> of_platform_bus_type before it as merged into the regular platform bus.
-> As part of that merge prepping Arm DT support 13 years ago, they
-> "temporarily" include each other. They also include platform_device.h
-> and of.h. As a result, there's a pretty much random mix of those include
-> files used throughout the tree. In order to detangle these headers and
-> replace the implicit includes with struct declarations, users need to
-> explicitly include the correct includes.
+On Fri, 14 Jul 2023 22:56:13 +0200 you wrote:
+> while working on an extension for the pwm framework, I noticed that some
+> drivers and even the core only nearly consistently named all variables
+> and struct members holding a pointer to a struct pwm_chip "chip":
+> 
+> $ git grep -Pho 'struct pwm_chip \**[a-z0-9_]+(*nla:[\(a-z0-9_])' v6.5-rc1 | sort | uniq -c | sort -n
+>       1 struct pwm_chip *pwm
+>       1 struct pwm_chip pwm
+>       1 struct pwm_chip pwm_chip
+>       2 struct pwm_chip *_chip
+>       4 struct pwm_chip *c
+>       8 struct pwm_chip *pc
+>      57 struct pwm_chip chip
+>     358 struct pwm_chip *chip
 > 
 > [...]
 
 Here is the summary with links:
-  - pwm: Explicitly include correct DT includes
-    https://git.kernel.org/chrome-platform/c/0a41b0c5d97a
+  - [05/10] pwm: cros-ec: Consistenly name pwm_chip variables "chip"
+    https://git.kernel.org/chrome-platform/c/5996cdf132da
 
 You are awesome, thank you!
 -- 
