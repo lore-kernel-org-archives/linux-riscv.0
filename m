@@ -4,88 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACCC8CA0EC3
-	for <linux-riscv@archiver.kernel.org>; Tue, 12 Sep 2023 02:14:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B4F3CA0EC3
+	for <linux-riscv@archiver.kernel.org>; Tue, 12 Sep 2023 02:49:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
-	:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=L4mriFLNQcbUMrGbOKnpAzpu69DIxfDs/BqqTH3hW5o=; b=lMclj4fdL7YokC
-	xF/EO06DxGqx3NY+YF1mTuPjVleWwRd5mfk6EZpx7zBudcIhsM9qX+EAIsg97L1gcd1tC5gCPwDjM
-	Nhu47RUCfO4YepMixk13uu6vekO6gEmKTb/euxHlQgK94rmhWsgxI58mMkwkpmPsqEI9AasRjBZpe
-	3+c2YE5wEa9OQhjPXBWennAx91C3ZaPhbAc28XR5eq7GNrKsupfNRwX55M3qEytaDy8oDnju/iWiW
-	SAv2wChbcd2RBjmbCjwoJO2a1wVWWK6PqFdyqVW26raZLuWZ+kySTzv7pPJDEfevAxznOit/R82FV
-	P4OxS/tXcipPjBboQzNg==;
+	List-Archive:List-Unsubscribe:List-Id:References:MIME-Version:Message-Id:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	List-Owner; bh=7k+vlC+/DU6jWlgiT1UloDmWzFaRvj3DCdFelICqG2U=; b=ACs+0P9FOy2Ip7
+	uf+Q3yHGh3vIDqTh0OhWi2L1AEYGcvZgbsJjHdzSpIiOpREEPnmBKvLcXIHJ4o1Ad8CA5YiM3UhmO
+	C1wKFLAXino4LvldIM3Ms+gPHdyiBOOX7qEv9as9Uv/f9mK0jSrohqm6q/B4pzTHi51/XOa2HZ0uU
+	zDUQu6C2tLMbj0qUScHuykOkpSytePwK3x89gKIm663luNKcudpA8MhphztLuQDPUJVHkH43DHbjj
+	hTTPxPBNJl9myTpTKItTDEYLe7n5l6MH8UJfrHbQd7+LkuT8XrzVSmnO55kDn9GacYiUR1nQz5Xyb
+	i5LE2ZrWL1GVEZ+HsjOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qfsuw-001spk-1V;
-	Tue, 12 Sep 2023 02:14:18 +0000
-Received: from mail-pf1-x42c.google.com ([2607:f8b0:4864:20::42c])
+	id 1qftT7-001zLa-2q;
+	Tue, 12 Sep 2023 02:49:38 +0000
+Received: from mailout2.samsung.com ([203.254.224.25])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qfsuu-001soK-0I
+	id 1qftSx-001zIz-28
 	for linux-riscv@lists.infradead.org;
-	Tue, 12 Sep 2023 02:14:17 +0000
-Received: by mail-pf1-x42c.google.com with SMTP id d2e1a72fcca58-68fbd31d9ddso1345964b3a.0
-        for <linux-riscv@lists.infradead.org>; Mon, 11 Sep 2023 19:14:15 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1694484855; x=1695089655; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:to
-         :from:from:to:cc:subject:date:message-id:reply-to;
-        bh=GMdI++gNYIzHXCNz0NYasP3u8jZS+14rJqhqLVImQDs=;
-        b=I3HBom/bhjMxLVALIrvY4fkmYj+El6GNDFOLE69yrh9NF4UAgndb96EaCzoawtM4eU
-         jIpmGunlckFCPQWmGMgag0WYALSO1rcO7WQNjXKfIRsxKfJVAf3nvDXMMR5pgvfBfiRM
-         VxsDJWyKHBa1dnkkowvuArutAi8HRWan1Vp6Za5uYXYJ5HI05sKlCZeV9vaSGkoqwOU2
-         LN6AyQQeMzXs0vR6SgfZwhXzuBChgaRaVAE5Zca1ZbJ8t1X3KtTywmF7t1S5N5V/NZpm
-         dkvVubINbm+wj8NQekwcrZVXX3MAvMr6lJqV2SZvmYd1L/9s60L5vwdgPY8epr2Q/cKb
-         1c6w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1694484855; x=1695089655;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:to
-         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=GMdI++gNYIzHXCNz0NYasP3u8jZS+14rJqhqLVImQDs=;
-        b=UgJkf39khkedzIqPvV3Xc3OrtTYw8V0R5ZaQVaFdtMFikIT6xuPyoDVtlFP6RtcTS2
-         tH8XkEle0NalQMk6G+Coi/SpEpnU+QhIkMCGoioC32FUhf4ZSZ5dCRZh0Bj7ww4aQ2pX
-         AKNEg+3fTvZ2btUqeTO5XSQQ/e4k+rBXI5KBI2FWJvapUfjnBue5UtNHR7gXcgnefzZp
-         aBJx61kvI9220EK+YBCi0C+Zu3s/Cah71hu9uBRHB6KUQT/21sj60TMqD0qYOXRrjRkG
-         4jKSa7H+YeIS+Icrb8EzKmbhK+WwZwd92XC2Guq3AFlKHA8C2Vp9b3kk1wLQzJkrS8aB
-         c4AA==
-X-Gm-Message-State: AOJu0YzEkAi6RVn0a3a2A6FM+PLlr3Tw6QZ32oViGlXMimGb8Q5h4x0w
-	Ors0kqEmPidIK/aK/Ks41w5D9w==
-X-Google-Smtp-Source: AGHT+IFJ8bD5SV0c6ZwDJS8oPfnvL8ApGejDumlH0l8Gj0ZH3x4lpjB48U9RQa+O95ArOwni7dQVDw==
-X-Received: by 2002:a05:6a00:4395:b0:68f:e0c2:6d46 with SMTP id bt21-20020a056a00439500b0068fe0c26d46mr1952828pfb.23.1694484855307;
-        Mon, 11 Sep 2023 19:14:15 -0700 (PDT)
-Received: from L6YN4KR4K9.bytedance.net ([61.213.176.9])
-        by smtp.gmail.com with ESMTPSA id e17-20020a637451000000b0055387ffef10sm2991543pgn.24.2023.09.11.19.14.10
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Mon, 11 Sep 2023 19:14:14 -0700 (PDT)
-From: Yunhui Cui <cuiyunhui@bytedance.com>
-To: paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	guoren@kernel.org,
-	bjorn@rivosinc.com,
-	conor.dooley@microchip.com,
-	jszhang@kernel.org,
-	andy.chiu@sifive.com,
-	cuiyunhui@bytedance.com,
-	dave.hansen@linux.intel.com,
-	elver@google.com,
-	glider@google.com,
-	cyphar@cyphar.com,
-	kirill.shutemov@linux.intel.com,
-	keescook@chromium.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v6] riscv: add userland instruction dump to RISC-V splats
-Date: Tue, 12 Sep 2023 10:13:49 +0800
-Message-Id: <20230912021349.28302-1-cuiyunhui@bytedance.com>
-X-Mailer: git-send-email 2.39.2 (Apple Git-143)
+	Tue, 12 Sep 2023 02:49:35 +0000
+Received: from epcas1p2.samsung.com (unknown [182.195.41.46])
+	by mailout2.samsung.com (KnoxPortal) with ESMTP id 20230912024919epoutp02ad976e646080a3299e0d10ad5640f446~EBulbnSbh2348423484epoutp02v
+	for <linux-riscv@lists.infradead.org>; Tue, 12 Sep 2023 02:49:19 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.samsung.com 20230912024919epoutp02ad976e646080a3299e0d10ad5640f446~EBulbnSbh2348423484epoutp02v
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1694486959;
+	bh=J3vjc1MlEpCgHPb593cMs7GqPe/HBS5l1vuBfQvuZz8=;
+	h=From:To:Cc:Subject:Date:References:From;
+	b=lF8cVIF9CoXgKA/xbrPOnXd+41Wi2+m2LDWBNwNcVKhaqpUW0Tl1stsGf/0/JkMZl
+	 TFWJKT2o+BWPtj4t5O+JQDNAe2FI93vrnUcXgTzjCSHmzjGw84f7B95QDGcIFpwOyc
+	 WwxmuLeVzZ7Szxcnf+593a27+ZEf0fFN1SjXaehM=
+Received: from epsnrtp2.localdomain (unknown [182.195.42.163]) by
+	epcas1p1.samsung.com (KnoxPortal) with ESMTP id
+	20230912024918epcas1p1589fbca8bdfc6c1b60d5043cfca4163a~EBuk9zgfF0386603866epcas1p1e;
+	Tue, 12 Sep 2023 02:49:18 +0000 (GMT)
+Received: from epsmges1p3.samsung.com (unknown [182.195.36.136]) by
+	epsnrtp2.localdomain (Postfix) with ESMTP id 4Rl7Md4lHtz4x9Q0; Tue, 12 Sep
+	2023 02:49:17 +0000 (GMT)
+Received: from epcas1p1.samsung.com ( [182.195.41.45]) by
+	epsmges1p3.samsung.com (Symantec Messaging Gateway) with SMTP id
+	C6.29.09646.DA1DFF46; Tue, 12 Sep 2023 11:49:17 +0900 (KST)
+Received: from epsmtrp2.samsung.com (unknown [182.195.40.14]) by
+	epcas1p2.samsung.com (KnoxPortal) with ESMTPA id
+	20230912024917epcas1p29a513dcf6019fb7c63275aa0e39b1c71~EBujusJ6v1134811348epcas1p2o;
+	Tue, 12 Sep 2023 02:49:17 +0000 (GMT)
+Received: from epsmgmc1p1new.samsung.com (unknown [182.195.42.40]) by
+	epsmtrp2.samsung.com (KnoxPortal) with ESMTP id
+	20230912024917epsmtrp2b7ecb178a158574f3b41766a81a29bf7~EBujtx6b31886418864epsmtrp2f;
+	Tue, 12 Sep 2023 02:49:17 +0000 (GMT)
+X-AuditID: b6c32a37-b23ff700000025ae-25-64ffd1ad372b
+Received: from epsmtip1.samsung.com ( [182.195.34.30]) by
+	epsmgmc1p1new.samsung.com (Symantec Messaging Gateway) with SMTP id
+	61.A7.08649.DA1DFF46; Tue, 12 Sep 2023 11:49:17 +0900 (KST)
+Received: from mediaserver.. (unknown [10.113.111.131]) by
+	epsmtip1.samsung.com (KnoxPortal) with ESMTPA id
+	20230912024916epsmtip1708e1d09b1c490385c9cbac2943f215a~EBujalbgJ0070800708epsmtip1f;
+	Tue, 12 Sep 2023 02:49:16 +0000 (GMT)
+From: k.son@samsung.com
+To: p.zabel@pengutronix.de, robh+dt@kernel.org,
+	krzysztof.kozlowski+dt@linaro.org, conor+dt@kernel.org, jszhang@kernel.org,
+	guoren@kernel.org, wefu@redhat.com, paul.walmsley@sifive.com,
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, inki.dae@samsung.com
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, Kwanghoon Son <k.son@samsung.com>
+Subject: [PATCH 0/3] Introduce reset driver for T-HEAD th1520 SoC
+Date: Tue, 12 Sep 2023 02:49:11 +0000
+Message-Id: <20230912024914.3769440-1-k.son@samsung.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFtrLJsWRmVeSWpSXmKPExsWy7bCmru7ai/9TDC63qFps/T2L3WLN3nNM
+	FvOPnGO1eLG3kcVi0v0JLBbNx9azWfSuucpk0ffiIbPF5V1z2Cy2fW5hs7h77wSLxcvLPcwW
+	bbP4LVr3HmG3aNk/hcWB3+PNy5csHoc7vrB7bFrVyeZx59oeNo/NS+o9+v8aeLzfd5XNo2/L
+	KkaPS83X2T0+b5IL4IrKtslITUxJLVJIzUvOT8nMS7dV8g6Od443NTMw1DW0tDBXUshLzE21
+	VXLxCdB1y8wBekJJoSwxpxQoFJBYXKykb2dTlF9akqqQkV9cYquUWpCSU2BaoFecmFtcmpeu
+	l5daYmVoYGBkClSYkJ2x+Mdi1oI5PBX9B0QbGI9zdjFyckgImEg82vmTvYuRi0NIYAejxKlF
+	d1khnE+MEofuz2aGcL4xSpxY1M8G03J11w4miMReRolnX4+yQDhvGCXeXpnKAlLFJiAu0Xlt
+	JSNIQkTgP6PEmz+tYC3MAk2MErPbZoDNEhZwlPjy4T2YzSKgKrHkxHcwm1fAQmLPg04miH3y
+	EvsPnmWGiAtKnJz5BGwDM1C8eSvEgRICazkkDiybww7R4CKxaPErqGOFJV4d3wIVl5L4/G4v
+	VDxb4uhHGLtE4vqsRawQtrHE/qWTgRZzAC3QlFi/Sx8irCix8/dcRoi9fBLvvvawgpRICPBK
+	dLQJQZjyErc6yyGqRSXOPP0INdxD4s/JDcwgJUICsRLNV0MmMMrPQvLLLCS/zEJYu4CReRWj
+	WGpBcW56arFhgTE8UpPzczcxgtOxlvkOxmlvP+gdYmTiYDzEKMHBrCTCW3Lob4oQb0piZVVq
+	UX58UWlOavEhRlNg6E5klhJNzgdmhLySeEMTSwMTMyNjEwtDM0Mlcd5bz3pThATSE0tSs1NT
+	C1KLYPqYODilGpgOnpUQu20/9zj3itWhr2dNtU/psuFXND/d+JDpbI9tfUfK8UrHRUIGHRsZ
+	eXW8l0+6Pf122CObet7LafNk+mtDHPl3e1WL9F0slTRVvN7TdPPxRd8g0/s7LRqqLDU2ljTd
+	nS/0adHumLSzC7bnHcpRW/1mkl3TPx+uSc68QfasZ49Ee+scXmYYYb2+IF5mzaoJvm0uqpt8
+	Tb6bTrDWr95ae/hG0MwVzSqzJT7tZcj14i9efYDj0sOojOXB8aZ/W6c8sJ0z76Xou8jPhtdn
+	bn83S4l7yqPL99ruZFYtiZVw7eTYEbkluzD8dt28DR5ibatTNiY+y3gW9uN7ywWJGKNWJ9YH
+	iw4x8KgY/rPWVVJiKc5INNRiLipOBABV9yxiUAQAAA==
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFnrLLMWRmVeSWpSXmKPExsWy7bCSnO7ai/9TDOY2cFps/T2L3WLN3nNM
+	FvOPnGO1eLG3kcVi0v0JLBbNx9azWfSuucpk0ffiIbPF5V1z2Cy2fW5hs7h77wSLxcvLPcwW
+	bbP4LVr3HmG3aNk/hcWB3+PNy5csHoc7vrB7bFrVyeZx59oeNo/NS+o9+v8aeLzfd5XNo2/L
+	KkaPS83X2T0+b5IL4IrisklJzcksSy3St0vgylj8YzFrwRyeiv4Dog2Mxzm7GDk5JARMJK7u
+	2sHUxcjFISSwm1Hi7+5rTBAJUYmOy42MXYwcQLawxOHDxRA1rxglfk24yAJSwyYgLtF5bSUj
+	SEJEoJdJ4sPHJWCTmAXaGCVOfNjKDFIlLOAo8eXDezYQm0VAVWLJie9gNq+AhcSeB51Q2+Ql
+	9h88ywwRF5Q4OfMJ2AZmoHjz1tnMExj5ZiFJzUKSWsDItIpRMrWgODc9N9mwwDAvtVyvODG3
+	uDQvXS85P3cTIzhGtDR2MN6b/0/vECMTB+MhRgkOZiUR3pJDf1OEeFMSK6tSi/Lji0pzUosP
+	MUpzsCiJ8xrOmJ0iJJCeWJKanZpakFoEk2Xi4JRqYHrQcOaPD//VpU7frt6IfCdnu5b/5slt
+	8z6qeHNdCTwS915NNbksnXlNwY7SpLwfZW+cFGv28T69NydUoU3JecpE8UUX5+8Of/T+TFdk
+	mznXD/5f4S8DWJbVnxbatzjEqc5+VbPO5jjlrReubgr8FfiKededkH/VdxtyvL0+77os1yI7
+	R3nDggnOEzY/eijs+/tLScoipYVblrHyrU9PqZj0v9H7QjOTyLReo46zrSLvt/txRdirVD3b
+	+sGcIX7nvaW3y4wcdxyZLdT6z0wip1U+IbOV6+DlJT1r707lzbrl1vlh46WCA+qfMgTmb52V
+	+CAgx9r/ROeF1TJs2SWB+dsfftzoFJ7IWO46ozr9V6oSS3FGoqEWc1FxIgBp427iAAMAAA==
+X-CMS-MailID: 20230912024917epcas1p29a513dcf6019fb7c63275aa0e39b1c71
+X-Msg-Generator: CA
+X-Sendblock-Type: SVC_REQ_APPROVE
+CMS-TYPE: 101P
+DLP-Filter: Pass
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20230912024917epcas1p29a513dcf6019fb7c63275aa0e39b1c71
+References: <CGME20230912024917epcas1p29a513dcf6019fb7c63275aa0e39b1c71@epcas1p2.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230911_191416_130465_235112B1 
-X-CRM114-Status: GOOD (  12.37  )
+X-CRM114-CacheID: sfid-20230911_194928_260926_549510DB 
+X-CRM114-Status: GOOD (  17.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,90 +136,51 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add userland instruction dump and rename dump_kernel_instr()
-to dump_instr().
+From: Kwanghoon Son <k.son@samsung.com>
 
-An example:
-[    0.822439] Freeing unused kernel image (initmem) memory: 6916K
-[    0.823817] Run /init as init process
-[    0.839411] init[1]: unhandled signal 4 code 0x1 at 0x000000000005be18 in bb[10000+5fb000]
-[    0.840751] CPU: 0 PID: 1 Comm: init Not tainted 5.14.0-rc4-00049-gbd644290aa72-dirty #187
-[    0.841373] Hardware name:  , BIOS
-[    0.841743] epc : 000000000005be18 ra : 0000000000079e74 sp : 0000003fffcafda0
-[    0.842271]  gp : ffffffff816e9dc8 tp : 0000000000000000 t0 : 0000000000000000
-[    0.842947]  t1 : 0000003fffc9fdf0 t2 : 0000000000000000 s0 : 0000000000000000
-[    0.843434]  s1 : 0000000000000000 a0 : 0000003fffca0190 a1 : 0000003fffcafe18
-[    0.843891]  a2 : 0000000000000000 a3 : 0000000000000000 a4 : 0000000000000000
-[    0.844357]  a5 : 0000000000000000 a6 : 0000000000000000 a7 : 0000000000000000
-[    0.844803]  s2 : 0000000000000000 s3 : 0000000000000000 s4 : 0000000000000000
-[    0.845253]  s5 : 0000000000000000 s6 : 0000000000000000 s7 : 0000000000000000
-[    0.845722]  s8 : 0000000000000000 s9 : 0000000000000000 s10: 0000000000000000
-[    0.846180]  s11: 0000000000d144e0 t3 : 0000000000000000 t4 : 0000000000000000
-[    0.846616]  t5 : 0000000000000000 t6 : 0000000000000000
-[    0.847204] status: 0000000200000020 badaddr: 00000000f0028053 cause: 0000000000000002
-[    0.848219] Code: f06f ff5f 3823 fa11 0113 fb01 2e23 0201 0293 0000 (8053) f002
-[    0.851016] Kernel panic - not syncing: Attempted to kill init! exitcode=0x00000004
+This patchset adds initial support for reset driver.
+Register information is from vendor kernel [1].
+I sent an e-mail to get permission the original author,
+but there was no answer. So I upload patch since it has GPL license.
 
-Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
----
- arch/riscv/kernel/traps.c | 21 ++++++++++++++++++---
- 1 file changed, 18 insertions(+), 3 deletions(-)
+This patch also can be tested with watchdog simply with 
+```
+		watchdog0: watchdog@ffefc30000 {
+			compatible = "snps,dw-wdt";
+			reg = <0xff 0xefc30000 0x0 0x1000>;
+			interrupts = <24 IRQ_TYPE_LEVEL_HIGH>;
+			clocks = <&osc>;
+			resets = <&rst TH1520_RESET_WDT0>;
+			status = "okay";
+		};
+```
 
-diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
-index f798c853bede..bd2e8fa25c43 100644
---- a/arch/riscv/kernel/traps.c
-+++ b/arch/riscv/kernel/traps.c
-@@ -33,7 +33,21 @@ int show_unhandled_signals = 1;
- 
- static DEFINE_SPINLOCK(die_lock);
- 
--static void dump_kernel_instr(const char *loglvl, struct pt_regs *regs)
-+static int copy_code(struct pt_regs *regs, u16 *val, const u16 *insns)
-+{
-+	const void __user *uaddr = (__force const void __user *)insns;
-+
-+	if (!user_mode(regs))
-+		return get_kernel_nofault(*val, insns);
-+
-+	/* The user space code from other tasks cannot be accessed. */
-+	if (regs != task_pt_regs(current))
-+		return -EPERM;
-+
-+	return copy_from_user_nofault(val, uaddr, sizeof(*val));
-+}
-+
-+static void dump_instr(const char *loglvl, struct pt_regs *regs)
- {
- 	char str[sizeof("0000 ") * 12 + 2 + 1], *p = str;
- 	const u16 *insns = (u16 *)instruction_pointer(regs);
-@@ -42,7 +56,7 @@ static void dump_kernel_instr(const char *loglvl, struct pt_regs *regs)
- 	int i;
- 
- 	for (i = -10; i < 2; i++) {
--		bad = get_kernel_nofault(val, &insns[i]);
-+		bad = copy_code(regs, &val, &insns[i]);
- 		if (!bad) {
- 			p += sprintf(p, i == 0 ? "(%04hx) " : "%04hx ", val);
- 		} else {
-@@ -71,7 +85,7 @@ void die(struct pt_regs *regs, const char *str)
- 	print_modules();
- 	if (regs) {
- 		show_regs(regs);
--		dump_kernel_instr(KERN_EMERG, regs);
-+		dump_instr(KERN_EMERG, regs);
- 	}
- 
- 	cause = regs ? regs->cause : -1;
-@@ -104,6 +118,7 @@ void do_trap(struct pt_regs *regs, int signo, int code, unsigned long addr)
- 		print_vma_addr(KERN_CONT " in ", instruction_pointer(regs));
- 		pr_cont("\n");
- 		__show_regs(regs);
-+		dump_instr(KERN_EMERG, regs);
- 	}
- 
- 	force_sig_fault(signo, code, (void __user *)addr);
+[1] https://github.com/revyos/thead-kernel.git
+
+Changelog:
+rfc:
+https://lore.kernel.org/linux-riscv/20230904042559.2322997-1-k.son@samsung.com/
+- dt_binding_check
+- enable reset controller default
+
+Kwanghoon Son (3):
+  dt-bindings: reset: Document th1520 reset control
+  reset: Add th1520 reset driver support
+  riscv: dts: Add th1520 reset device tree
+
+ .../bindings/reset/thead,th1520-reset.yaml    |  47 ++++++++
+ arch/riscv/boot/dts/thead/th1520.dtsi         |   8 ++
+ drivers/reset/Kconfig                         |  10 ++
+ drivers/reset/Makefile                        |   1 +
+ drivers/reset/reset-th1520.c                  | 109 ++++++++++++++++++
+ include/dt-bindings/reset/th1520-reset.h      |   9 ++
+ 6 files changed, 184 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/reset/thead,th1520-reset.yaml
+ create mode 100644 drivers/reset/reset-th1520.c
+ create mode 100644 include/dt-bindings/reset/th1520-reset.h
+
 -- 
-2.20.1
+2.34.1
 
 
 _______________________________________________
