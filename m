@@ -4,63 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9E43CA0ECA
-	for <linux-riscv@archiver.kernel.org>; Tue, 12 Sep 2023 10:53:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2895FCA0EC3
+	for <linux-riscv@archiver.kernel.org>; Tue, 12 Sep 2023 10:58:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yUS0hGGze3t/PjfD5mjv/rp1dz7lQTIQZ620/yrNENc=; b=X/YKKmMo5G+TBT
-	dKOv6s0E7W7BEagR08v3nJhb2HJ/IIzpythWocZxsqzwmfmKEmtP2dTfdw0bBGOUZoIvHuakkJ6Qb
-	s7XrLqyKRU2OjvZzRa3to4+3s1RhybccJgOP9vEBGb/tDYNjD/am8kXSvTLcOfWQThrD2wdbF0DEZ
-	fyduj4qbO4IjaU39KZsSh6oLHiUhjBMco7ps57EnBtlDU4lbFeTKzpQjPISvz+v2G+o+iTGy7RM2o
-	vXA2XttomLZl1tTZIxlZG/ZQ0/1cQ2sx/5VuH9vnx7Ycld8TnooQFgPWSZSyfEsWIDxaKydrN+Vs5
-	9bZ1GqGcJEUKelH5yDtw==;
+	List-Owner; bh=tsX7HZHRpGmF8NXXQgVihbg2ccfIt4k5f4v/TUmR3LQ=; b=CbndibReT1UlDq
+	tFTqFBaUJXTLUqPM7YraM8+Nke2B8JiuquvsU6QBw+j0crt6KfQmR8281+FM7y3g9z9dS5sPQ4mpE
+	+IPRN0ZUkoL5IoZJvwkWPNsPtowhr7gyxvXCDH+OVsIKIvmK7IZ4qcozklZOivUeH4V1xWNtlECBj
+	Y/38B8m1icX1SBBxp6m5pBvThJ2UHwcjfsxlIo9zK463IolYg+XiXGIXup/3WhoSvq9BK55PV1dXu
+	Efd3PKPilU94lfq2ijZGzTshGJQhG+bU7gwA26u07qQFe7XXB/NCOtJi94eNFk8ZTz9Y6enn1r1K5
+	J0/cMjFpMWnT0/QLySAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qg11E-0030vx-2Y;
-	Tue, 12 Sep 2023 10:53:20 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1qg16P-00343V-36;
+	Tue, 12 Sep 2023 10:58:41 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qg11B-0030uV-2b
+	id 1qg16M-003416-2V
 	for linux-riscv@lists.infradead.org;
-	Tue, 12 Sep 2023 10:53:20 +0000
+	Tue, 12 Sep 2023 10:58:40 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id CF937B81B96;
-	Tue, 12 Sep 2023 10:53:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3238FC433C8;
-	Tue, 12 Sep 2023 10:53:12 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 330DB6090C
+	for <linux-riscv@lists.infradead.org>; Tue, 12 Sep 2023 10:58:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 99C0BC433CA
+	for <linux-riscv@lists.infradead.org>; Tue, 12 Sep 2023 10:58:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1694515994;
-	bh=/lh/xqNz+KJ1a33s/hi7OahZFaqWsPBdktgYRGQAeOg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=IM4b2kn0hRnhyNsUYTxxTZzfLWMbeGQR5GZYLOqZ2yWqepQdjDcaE7oKb7L8wJljn
-	 43OIxTgu0RIEzCNTsSpW1IDvIbRvu/9zuBrPH8jsYgt81xFEljFdh7U4ql8/G1KP5Z
-	 uo3ppUE3K3DGHvoVQkYWhOjk+S7StXXkbMV6cktaVbOfS9tz4CXbGZGljkcmc+WCd/
-	 BplbPcTHcBM5X1qcpwaMV2BH9BU8mjSKm2PXPqwBRSWPljGtRdOrIK4G/1lVO8uyg1
-	 BnwE8O4ESoiiVcAYKXvAouuqu3IhzU7r2L+2Z8riHje3IgEYcGdcEz9w1REx+cAw++
-	 exA+hBu5WF62A==
-Date: Tue, 12 Sep 2023 06:53:09 -0400
-From: Guo Ren <guoren@kernel.org>
-To: Jisheng Zhang <jszhang@kernel.org>, Arnd Bergmann <arnd@arndb.de>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Arnd Bergmann <arnd@arndb.de>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] riscv: errata: thead: use riscv_nonstd_cache_ops for CMO
-Message-ID: <ZQBDFa0fGNiaqAgh@gmail.com>
-References: <20230912072740.2544-1-jszhang@kernel.org>
+	s=k20201202; t=1694516317;
+	bh=bMazgWjiUns7bxIOW7iDcJXKsG8+oY7C1L0a2QPDtNQ=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=N5amLBUeuaQQfQrkRGbMQPohZMxyrm/E+1U8aGzLmQkBBe1SjxaKm3mBIDG1j3MB7
+	 mEelEBPOX/CgAHNU5OpXYjmkc9An28zQLE48MZaqrAk2d1j2J6LiO4u10zUyVtPwxI
+	 0dD7Os9rGlNUQy5YIVpQnMAFAXwIEfKHXjBzrypBIE/g+a4kKPKv2jy3wWCHQcfED4
+	 +soa92eXj4Bwepl+2a0I2nUKXZIa/VuBhP0LjZ1cT4PMwY+lVBfLdL/YoYKX+I07iT
+	 TzenYk+RO9bhdZaKU2TuaZjIPxWPmKt/+hiSYduBOx7DeXFqVWzBVWLz79ChMaiSsn
+	 YgpE96OaS9lrg==
+Received: by mail-ej1-f51.google.com with SMTP id a640c23a62f3a-9936b3d0286so720117666b.0
+        for <linux-riscv@lists.infradead.org>; Tue, 12 Sep 2023 03:58:37 -0700 (PDT)
+X-Gm-Message-State: AOJu0Yz6YxNL+2asyEZ1xXWwP6hGXikX7uAnML9o8MhG/swdCfVTQ5TB
+	WidfbpghQrms33DJ3X/CjDaHX+8cuNAuvWsFjwM=
+X-Google-Smtp-Source: AGHT+IFlJTroWUzDrpNmu1jFhrEOedb4AZCufJm4Yw5gh0F+6q7MG2VcUbiSngUFjwNHEEx8rscVSAFajHlgNpUUEAg=
+X-Received: by 2002:a17:906:2d1:b0:9ad:7d5b:ba68 with SMTP id
+ 17-20020a17090602d100b009ad7d5bba68mr1879773ejk.32.1694516316048; Tue, 12 Sep
+ 2023 03:58:36 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230912072740.2544-1-jszhang@kernel.org>
+References: <20230910082911.3378782-1-guoren@kernel.org> <20230910-esteemed-exodus-706aaae940b1@spud>
+ <CAJF2gTRQd_dNuZHNwfg3SwD0XERaYXYUdFUFQiarym40kpxFRQ@mail.gmail.com>
+ <20230910-baggage-accent-ec5331b58c8e@spud> <CAJF2gTS8Vh5XdMUcgLA_GJzW6Nm3JKHxuMN9jYSNe_YCEjgCXA@mail.gmail.com>
+ <20230910-facsimile-answering-60d1452b8c10@spud> <CAJF2gTSP1rxVhuwOKyWiE2vFFijJFc2aKRU2=0rTK9nDc8AbsQ@mail.gmail.com>
+ <20230911-nimbly-outcome-496efae7adc6@wendy> <CAJF2gTTSDtnc7WRAZ0eLjiwZHZFbOcPZaQ_c8LiLcctBNsKCaA@mail.gmail.com>
+ <20230912-snitch-astronaut-41e1b694d24f@wendy>
+In-Reply-To: <20230912-snitch-astronaut-41e1b694d24f@wendy>
+From: Guo Ren <guoren@kernel.org>
+Date: Tue, 12 Sep 2023 18:58:22 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTQXhjvP3WRDKOJ67Bv+KSB-Dh2LAuSsf0kv12HJCmSL7Q@mail.gmail.com>
+Message-ID: <CAJF2gTQXhjvP3WRDKOJ67Bv+KSB-Dh2LAuSsf0kv12HJCmSL7Q@mail.gmail.com>
+Subject: Re: [PATCH V11 00/17] riscv: Add Native/Paravirt qspinlock support
+To: Conor Dooley <conor.dooley@microchip.com>
+Cc: Conor Dooley <conor@kernel.org>, paul.walmsley@sifive.com, anup@brainfault.org, 
+	peterz@infradead.org, mingo@redhat.com, will@kernel.org, palmer@rivosinc.com, 
+	longman@redhat.com, boqun.feng@gmail.com, tglx@linutronix.de, 
+	paulmck@kernel.org, rostedt@goodmis.org, rdunlap@infradead.org, 
+	catalin.marinas@arm.com, xiaoguang.xing@sophgo.com, bjorn@rivosinc.com, 
+	alexghiti@rivosinc.com, keescook@chromium.org, greentime.hu@sifive.com, 
+	ajones@ventanamicro.com, jszhang@kernel.org, wefu@redhat.com, 
+	wuwei2016@iscas.ac.cn, leobras@redhat.com, linux-arch@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-doc@vger.kernel.org, 
+	kvm@vger.kernel.org, virtualization@lists.linux-foundation.org, 
+	linux-csky@vger.kernel.org, Guo Ren <guoren@linux.alibaba.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230912_035318_152147_67DE8688 
-X-CRM114-Status: GOOD (  31.30  )
+X-CRM114-CacheID: sfid-20230912_035838_896085_34C826F9 
+X-CRM114-Status: GOOD (  20.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,267 +92,39 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 12, 2023 at 03:27:40PM +0800, Jisheng Zhang wrote:
-> Previously, we use alternative mechanism to dynamically patch
-> the CMO operations for THEAD C906/C910 during boot for performance
-> reason. But as pointed out by Arnd, "there is already a significant
-> cost in accessing the invalidated cache lines afterwards, which is
-> likely going to be much higher than the cost of an indirect branch".
-> And indeed, there's no performance difference with GMAC and EMMC per
-> my test on Sipeed Lichee Pi 4A board.
-> 
-> Use riscv_nonstd_cache_ops for THEAD C906/C910 CMO to simplify
-> the alternative code, and to acchieve Arnd's goal -- "I think
-> moving the THEAD ops at the same level as all nonstandard operations
-> makes sense, but I'd still leave CMO as an explicit fast path that
-> avoids the indirect branch. This seems like the right thing to do both
-> for readability and for platforms on which the indirect branch has a
-> noticeable overhead."
-> 
-> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> ---
->  arch/riscv/Kconfig.errata            |  1 +
->  arch/riscv/errata/thead/errata.c     | 76 +++++++++++++++++++++++++++-
->  arch/riscv/include/asm/errata_list.h | 50 +++---------------
->  3 files changed, 81 insertions(+), 46 deletions(-)
-> 
-> diff --git a/arch/riscv/Kconfig.errata b/arch/riscv/Kconfig.errata
-> index 566bcefeab50..d7972914f9de 100644
-> --- a/arch/riscv/Kconfig.errata
-> +++ b/arch/riscv/Kconfig.errata
-> @@ -78,6 +78,7 @@ config ERRATA_THEAD_CMO
->  	bool "Apply T-Head cache management errata"
->  	depends on ERRATA_THEAD && MMU
->  	select RISCV_DMA_NONCOHERENT
-> +	select RISCV_NONSTANDARD_CACHE_OPS
->  	default y
->  	help
->  	  This will apply the cache management errata to handle the
-> diff --git a/arch/riscv/errata/thead/errata.c b/arch/riscv/errata/thead/errata.c
-> index 0554ed4bf087..1c320abfe446 100644
-> --- a/arch/riscv/errata/thead/errata.c
-> +++ b/arch/riscv/errata/thead/errata.c
-> @@ -12,8 +12,10 @@
->  #include <asm/alternative.h>
->  #include <asm/cacheflush.h>
->  #include <asm/cpufeature.h>
-> +#include <asm/dma-noncoherent.h>
->  #include <asm/errata_list.h>
->  #include <asm/hwprobe.h>
-> +#include <asm/io.h>
->  #include <asm/patch.h>
->  #include <asm/vendorid_list.h>
->  
-> @@ -33,6 +35,75 @@ static bool errata_probe_pbmt(unsigned int stage,
->  	return false;
->  }
->  
-> +/*
-> + * dcache.ipa rs1 (invalidate, physical address)
-> + * | 31 - 25 | 24 - 20 | 19 - 15 | 14 - 12 | 11 - 7 | 6 - 0 |
-> + *   0000001    01010      rs1       000      00000  0001011
-> + * dache.iva rs1 (invalida, virtual address)
-> + *   0000001    00110      rs1       000      00000  0001011
-Remove dache.iva rs1 ...
-
-> + *
-> + * dcache.cpa rs1 (clean, physical address)
-> + * | 31 - 25 | 24 - 20 | 19 - 15 | 14 - 12 | 11 - 7 | 6 - 0 |
-> + *   0000001    01001      rs1       000      00000  0001011
-Remove dcache.cpa rs1 ...
-
-> + * dcache.cva rs1 (clean, virtual address)
-> + *   0000001    00101      rs1       000      00000  0001011
-Remove dcache.cva rs1 ...
-
-> + *
-> + * dcache.cipa rs1 (clean then invalidate, physical address)
-> + * | 31 - 25 | 24 - 20 | 19 - 15 | 14 - 12 | 11 - 7 | 6 - 0 |
-> + *   0000001    01011      rs1       000      00000  0001011
-> + * dcache.civa rs1 (... virtual address)
-> + *   0000001    00111      rs1       000      00000  0001011
-Remove dcache.civa rs1 ...
-
-> + *
-> + * sync.s (make sure all cache operations finished)
-> + * | 31 - 25 | 24 - 20 | 19 - 15 | 14 - 12 | 11 - 7 | 6 - 0 |
-> + *   0000000    11001     00000      000      00000  0001011
-> + */
-> +#define THEAD_inval_A0	".long 0x0265000b"
-> +#define THEAD_clean_A0	".long 0x0255000b"
-> +#define THEAD_flush_A0	".long 0x0275000b"
-> +#define THEAD_SYNC_S	".long 0x0190000b"
-> +
-> +#define THEAD_CMO_OP(_op, _start, _size, _cachesize)			\
-> +asm volatile("mv a0, %1\n\t"						\
-> +	     "j 2f\n\t"							\
-> +	     "3:\n\t"							\
-> +	     THEAD_##_op##_A0 "\n\t"					\
-> +	     "add a0, a0, %0\n\t"					\
-> +	     "2:\n\t"							\
-> +	     "bltu a0, %2, 3b\n\t"					\
-> +	     THEAD_SYNC_S						\
-> +	     : : "r"(_cachesize),					\
-> +		 "r"((unsigned long)(_start) & ~((_cachesize) - 1UL)),	\
-> +		 "r"((unsigned long)(_start) + (_size))			\
-> +	     : "a0")
-> +
-> +static void thead_errata_cache_inv(phys_addr_t paddr, size_t size)
-> +{
-> +	void *vaddr = phys_to_virt(paddr);
-No need to phys_to_virt, and we could use paddr directly (dcache.ipa
-rs1).
-
-> +
-> +	THEAD_CMO_OP(inval, vaddr, size, riscv_cbom_block_size);
-> +}
-> +
-> +static void thead_errata_cache_wback(phys_addr_t paddr, size_t size)
-> +{
-> +	void *vaddr = phys_to_virt(paddr);
-> +
-> +	THEAD_CMO_OP(clean, vaddr, size, riscv_cbom_block_size);
-> +}
-Please remove the thead_errata_cache_wback because T-HEAD processors
-would prioritize using an invalid cacheline instead of evicting an
-existing cacheline. When we do dcache clean, the following operations
-are to let other interconnect masters read. So, keeping wback_inv for
-T-HEAD processors is the best choice, and maybe some other processors'
-vendor has a different idea, but please use the wback_inv instead of
-wback_only for the T-HEAD processors.
-
-> +
-> +static void thead_errata_cache_wback_inv(phys_addr_t paddr, size_t size)
-> +{
-> +	void *vaddr = phys_to_virt(paddr);
-Ditto.
-
-> +
-> +	THEAD_CMO_OP(flush, vaddr, size, riscv_cbom_block_size);
-> +}
-> +
-> +static const struct riscv_nonstd_cache_ops thead_errata_cmo_ops = {
-> +	.wback = &thead_errata_cache_wback,
-Please  .wback = &thead_errata_cache_wback_inv,
-
-
-> +	.inv = &thead_errata_cache_inv,
-> +	.wback_inv = &thead_errata_cache_wback_inv,
-> +};
-> +
->  static bool errata_probe_cmo(unsigned int stage,
->  			     unsigned long arch_id, unsigned long impid)
->  {
-> @@ -48,6 +119,8 @@ static bool errata_probe_cmo(unsigned int stage,
->  	if (stage == RISCV_ALTERNATIVES_BOOT) {
->  		riscv_cbom_block_size = L1_CACHE_BYTES;
->  		riscv_noncoherent_supported();
-> +		if (IS_ENABLED(CONFIG_RISCV_NONSTANDARD_CACHE_OPS))
-> +			riscv_noncoherent_register_cache_ops(&thead_errata_cmo_ops);
->  	}
->  
->  	return true;
-> @@ -77,8 +150,7 @@ static u32 thead_errata_probe(unsigned int stage,
->  	if (errata_probe_pbmt(stage, archid, impid))
->  		cpu_req_errata |= BIT(ERRATA_THEAD_PBMT);
->  
-> -	if (errata_probe_cmo(stage, archid, impid))
-> -		cpu_req_errata |= BIT(ERRATA_THEAD_CMO);
-> +	errata_probe_cmo(stage, archid, impid);
->  
->  	if (errata_probe_pmu(stage, archid, impid))
->  		cpu_req_errata |= BIT(ERRATA_THEAD_PMU);
-> diff --git a/arch/riscv/include/asm/errata_list.h b/arch/riscv/include/asm/errata_list.h
-> index b55b434f0059..ea33288f8a25 100644
-> --- a/arch/riscv/include/asm/errata_list.h
-> +++ b/arch/riscv/include/asm/errata_list.h
-> @@ -24,9 +24,8 @@
->  
->  #ifdef CONFIG_ERRATA_THEAD
->  #define	ERRATA_THEAD_PBMT 0
-> -#define	ERRATA_THEAD_CMO 1
-> -#define	ERRATA_THEAD_PMU 2
-> -#define	ERRATA_THEAD_NUMBER 3
-> +#define	ERRATA_THEAD_PMU 1
-> +#define	ERRATA_THEAD_NUMBER 2
->  #endif
->  
->  #ifdef __ASSEMBLY__
-> @@ -94,54 +93,17 @@ asm volatile(ALTERNATIVE(						\
->  #define ALT_THEAD_PMA(_val)
->  #endif
->  
-> -/*
-> - * dcache.ipa rs1 (invalidate, physical address)
-> - * | 31 - 25 | 24 - 20 | 19 - 15 | 14 - 12 | 11 - 7 | 6 - 0 |
-> - *   0000001    01010      rs1       000      00000  0001011
-> - * dache.iva rs1 (invalida, virtual address)
-> - *   0000001    00110      rs1       000      00000  0001011
-> - *
-> - * dcache.cpa rs1 (clean, physical address)
-> - * | 31 - 25 | 24 - 20 | 19 - 15 | 14 - 12 | 11 - 7 | 6 - 0 |
-> - *   0000001    01001      rs1       000      00000  0001011
-> - * dcache.cva rs1 (clean, virtual address)
-> - *   0000001    00101      rs1       000      00000  0001011
-> - *
-> - * dcache.cipa rs1 (clean then invalidate, physical address)
-> - * | 31 - 25 | 24 - 20 | 19 - 15 | 14 - 12 | 11 - 7 | 6 - 0 |
-> - *   0000001    01011      rs1       000      00000  0001011
-> - * dcache.civa rs1 (... virtual address)
-> - *   0000001    00111      rs1       000      00000  0001011
-> - *
-> - * sync.s (make sure all cache operations finished)
-> - * | 31 - 25 | 24 - 20 | 19 - 15 | 14 - 12 | 11 - 7 | 6 - 0 |
-> - *   0000000    11001     00000      000      00000  0001011
-> - */
-> -#define THEAD_inval_A0	".long 0x0265000b"
-> -#define THEAD_clean_A0	".long 0x0255000b"
-> -#define THEAD_flush_A0	".long 0x0275000b"
-> -#define THEAD_SYNC_S	".long 0x0190000b"
-> -
->  #define ALT_CMO_OP(_op, _start, _size, _cachesize)			\
-> -asm volatile(ALTERNATIVE_2(						\
-> -	__nops(6),							\
-> +asm volatile(ALTERNATIVE(						\
-> +	__nops(5),							\
->  	"mv a0, %1\n\t"							\
->  	"j 2f\n\t"							\
->  	"3:\n\t"							\
->  	CBO_##_op(a0)							\
->  	"add a0, a0, %0\n\t"						\
->  	"2:\n\t"							\
-> -	"bltu a0, %2, 3b\n\t"						\
-> -	"nop", 0, RISCV_ISA_EXT_ZICBOM, CONFIG_RISCV_ISA_ZICBOM,	\
-> -	"mv a0, %1\n\t"							\
-> -	"j 2f\n\t"							\
-> -	"3:\n\t"							\
-> -	THEAD_##_op##_A0 "\n\t"						\
-> -	"add a0, a0, %0\n\t"						\
-> -	"2:\n\t"							\
-> -	"bltu a0, %2, 3b\n\t"						\
-> -	THEAD_SYNC_S, THEAD_VENDOR_ID,					\
-> -			ERRATA_THEAD_CMO, CONFIG_ERRATA_THEAD_CMO)	\
-> +	"bltu a0, %2, 3b\n\t",						\
-> +	0, RISCV_ISA_EXT_ZICBOM, CONFIG_RISCV_ISA_ZICBOM)		\
->  	: : "r"(_cachesize),						\
->  	    "r"((unsigned long)(_start) & ~((_cachesize) - 1UL)),	\
->  	    "r"((unsigned long)(_start) + (_size))			\
-> -- 
-> 2.40.1
-> 
-> 
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
-> 
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVHVlLCBTZXAgMTIsIDIwMjMgYXQgNDowOOKAr1BNIENvbm9yIERvb2xleSA8Y29ub3IuZG9v
+bGV5QG1pY3JvY2hpcC5jb20+IHdyb3RlOgo+Cj4gT24gVHVlLCBTZXAgMTIsIDIwMjMgYXQgMDk6
+MzM6NTdBTSArMDgwMCwgR3VvIFJlbiB3cm90ZToKPiA+IE9uIE1vbiwgU2VwIDExLCAyMDIzIGF0
+IDg6NTPigK9QTSBDb25vciBEb29sZXkgPGNvbm9yLmRvb2xleUBtaWNyb2NoaXAuY29tPiB3cm90
+ZToKPgo+ID4gPiBJIGFkZGVkIHRoZSBuZXcgInJpc2N2LGlzYS1leHRlbnNpb25zIiBwcm9wZXJ0
+eSBpbiBwYXJ0IHRvIG1ha2UKPiA+ID4gY29tbXVuaWNhdGluZyB2ZW5kb3IgZXh0ZW5zaW9ucyBs
+aWtlIHRoaXMgZWFzaWVyLiBQbGVhc2UgdHJ5IHRvIHVzZQo+ID4gPiB0aGF0LiAicXNwaW5sb2Nr
+IiBpcyBzb2Z0d2FyZSBjb25maWd1cmF0aW9uIHRob3VnaCwgdGhlIHZlbmRvciBleHRlbnNpb24K
+PiA+ID4gc2hvdWxkIGZvY3VzIG9uIHRoZSBndWFyYW50ZWUgb2Ygc3Ryb25nIGZvcndhcmQgcHJv
+Z3Jlc3MsIHNpbmNlIHRoYXQgaXMKPiA+ID4gdGhlIG5vbi1zdGFuZGFyZCBhc3BlY3Qgb2YgeW91
+ciBJUC4KPiA+Cj4gPiBUaGUgcXNwaW5sb2NrIGNvbnRhaW5zIHRocmVlIHBhdGhzOgo+ID4gIC0g
+TmF0aXZlIHFzcGlubG9jaywgdGhpcyBpcyB5b3VyIHN0cm9uZyBmb3J3YXJkIHByb2dyZXNzLgo+
+ID4gIC0gdmlydF9zcGluX2xvY2ssIGZvciBLVk0gZ3Vlc3Qgd2hlbiBwYXJhdmlydCBxc3Bpbmxv
+Y2sgZGlzYWJsZWQuCj4gPiAgICBodHRwczovL2xvcmUua2VybmVsLm9yZy9saW51eC1yaXNjdi8y
+MDIzMDkxMDA4MjkxMS4zMzc4NzgyLTktZ3VvcmVuQGtlcm5lbC5vcmcvCj4gPiAgLSBwYXJhdmly
+dCBxc3BpbmxvY2ssIGZvciBLVk0gZ3Vlc3QKPiA+Cj4gPiBTbywgd2UgbmVlZCBhIHNvZnR3YXJl
+IGNvbmZpZ3VyYXRpb24gaGVyZSwgInJpc2N2LGlzYS1leHRlbnNpb25zIiBpcwo+ID4gYWxsIGFi
+b3V0IHZlbmRvciBleHRlbnNpb24uCj4KPiBBaCByaWdodCwgeWVzIGl0IHdvdWxkIG9ubHkgYmUg
+YWJsZSB0byBiZSB1c2VkIHRvIGRldGVybWluZSB3aGV0aGVyIG9yCj4gbm90IHRoZSBwbGF0Zm9y
+bSBpcyBjYXBhYmxlIG9mIHN1cHBvcnRpbmcgdGhlc2Ugc3BpbmxvY2tzLCBub3Qgd2hldGhlciBv
+cgo+IG5vdCB0aGUga2VybmVsIGlzIGEgZ3Vlc3QuIEkgdGhpbmsgSSBtaXNpbnRlcnByZXRlZCB0
+aGF0IHNuaXBwZXQgeW91IHBvc3RlZCwKPiB0aGlua2luZyB5b3Ugd2VyZSB0cnlpbmcgdG8gZGlz
+YWJsZSB5b3VyIG5ldyBzcGlubG9jayBmb3IgS1ZNLCBzb3JyeS4KPiBPbiB0aGF0IG5vdGUgdGhv
+dWdoLCB3aGF0IGFib3V0IG90aGVyIHNvcnRzIG9mIGd1ZXN0cz8gV2lsbCBub24tS1ZNCj4gZ3Vl
+c3RzIG5vdCBhbHNvIHdhbnQgdG8gdXNlIHRoaXMgdmlydCBzcGlubG9jaz8KSSBvbmx5IHB1dCBL
+Vk0gZ3Vlc3RzIGhlcmUsIGFuZCBJIGNhbid0IGFuc3dlciBvdGhlciBoeXBlcnZpc29yIHRoYXQK
+aXMgYW5vdGhlciB0b3BpYy4KCj4KPiBUaGFua3MsCj4gQ29ub3IuCgoKCi0tIApCZXN0IFJlZ2Fy
+ZHMKIEd1byBSZW4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQu
+b3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlz
+Y3YK
