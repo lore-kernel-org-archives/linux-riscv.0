@@ -4,90 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1718CA0EC3
-	for <linux-riscv@archiver.kernel.org>; Tue, 12 Sep 2023 13:23:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2DF1CA0ECF
+	for <linux-riscv@archiver.kernel.org>; Tue, 12 Sep 2023 13:32:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:
-	Mime-Version:References:In-Reply-To:From:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=2X/tPaCRCjZCBvNgpPpn1RfLE7mSznpb4ztMj/m/0Xg=; b=nT0tCi7PEvokOaZZqdEf4g+xE3
-	p/LDzCcZmF/fYtNWmM3RjlpPwkwlZXN8ifG1THrzY75aRt9ZyYZUv6QljKZAc0mrQPjSq+4x+plA/
-	c1rYV8KFEM/P3tEomMADq4ELxow1iAw28iGvey7swRrq/XihIXbPSOuAhn8CJKFdwl3HlYSYmSNl9
-	spcQ5wB6KufcnXhshF2J/3OlsqvMs5DQdsKEP4738qV3F2wkZYRh2ntANraKinXqdfq08Gtse0oqB
-	LMbdZzb+ZTE1KJkNRby5sNfHJ15RkQzf8JS1ItgOic03B51N2K0ev4azWXvTNHzKkBGfmg753/IUl
-	jqy+rJJA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=cA6mvDfeWEnx7+NjhX86k4RHokE7P6uitVN8ekw0Fkw=; b=tLP5JHFVsHNpR0
+	9LBEqn8LAU8NUDRwMFxWJwdVPDj4/NE00GnQjNH23NhdhN2luHQCV+HrWp+qEcwAKLdtgoEX+9g+T
+	CXye5Ayt0lsl31fbFv9Qx9OssvyQkpeW+MoiBH+EM6D2H1t0KYLs2sipFjUOR3Tv8uah1+97/1GYG
+	vnC6vOHtpSw3xovoPwJzqWYMITNCTSIsmTrhLMBbLXgy71Pw4ZwMHJO9eo3J7K/wskjPvHXuDLJBB
+	l0ptm1iLH2YAK2o49A0bbIjJDVGp5jg57mFaiFAfXEsLg9SwxkjOiWvgS76XJy3JosJwIK8YchiX5
+	me6OXb5vt6Zf4VNc/tzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qg3Mn-003PqH-2p;
-	Tue, 12 Sep 2023 13:23:45 +0000
-Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
+	id 1qg3VM-003RIB-0V;
+	Tue, 12 Sep 2023 13:32:36 +0000
+Received: from bg4.exmail.qq.com ([43.155.67.158])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qg3Ml-003Ppb-1o
+	id 1qg3VC-003R1s-1O
 	for linux-riscv@lists.infradead.org;
-	Tue, 12 Sep 2023 13:23:45 +0000
-Received: from mail-oi1-f197.google.com (mail-oi1-f197.google.com [209.85.167.197])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id 50EC23F639
-	for <linux-riscv@lists.infradead.org>; Tue, 12 Sep 2023 13:23:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20210705; t=1694525022;
-	bh=5Lxiti3504/sLyp6T4S9ryQpCZcLlVdHH9n53WPzN64=;
-	h=From:In-Reply-To:References:Mime-Version:Date:Message-ID:Subject:
-	 To:Cc:Content-Type;
-	b=JR2/VTNmKqgZr3X+J+U7tyaP2bK4NiL8N9otbebnPBmVTvb+pB4BN8jgdsx2EG58S
-	 ozBerDRenqkMxJbJxlBE7QsfSFr6Yv3iwaN+E6rmDY94F0NylGyl5OJzDb+YJKWEw+
-	 7qPWuPUIM7KYij4XTnpjrTgMkH1O64+XuATZmsfLEtBd7xhoEHC//d/wR7EPHNh3pc
-	 5UAj1t28oYs1pEV4YUfeT+CArRMdobOBRTH3nqYlA4xO0LmhHoZMMZse4cMDnWt5CP
-	 Yp/PmmEFoxCB8m0rWw2XqXceoFGRfesmXDBPIwYkITZnsOCUyYwSZi9PFDdDhqG+jd
-	 dZ6oT2urTPIjg==
-Received: by mail-oi1-f197.google.com with SMTP id 5614622812f47-3aa17bcf306so6170278b6e.0
-        for <linux-riscv@lists.infradead.org>; Tue, 12 Sep 2023 06:23:42 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1694525021; x=1695129821;
-        h=cc:to:subject:message-id:date:mime-version:references:in-reply-to
-         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=5Lxiti3504/sLyp6T4S9ryQpCZcLlVdHH9n53WPzN64=;
-        b=NU9B91ib3ab4Biln98uiVsf1QnQc9VzVsD9+f/GJO4NRZOay0wcChwPlkWWO+uEERl
-         CiCRLpeUYfACusWpnmIuL2jXuBTt4nJ3t8bOaXD023VaeZMGn1haJzImfPguQMe7DZnS
-         eiyXGJLxDJ1Ht4WzTFZ1osBT+fnj9jjOlVPeJOr7JMisN3gbdIZPbuLP0sGhRWV29gZ6
-         8os02mnX2F5fK7DRYNwtezucYXn81TsCrViJWjRk/6sBdOx2coKbVqxM5DY1GglROZxN
-         jVnUs2QOFjiSPlHtDSku+OY8V6FxLMiUiEOEbYrRppLT1Sicgcy91elJ/0cRmyxoWiM2
-         rfhw==
-X-Gm-Message-State: AOJu0YzDjpHVrk4/oVBRl8p4/+GzJs2dn0Dns23mb5bYScIO+Cq9ggd+
-	lsBifS5Oe6VfmygQjR8U4tooVQTU1dEFLNeCSoO8PpQHt9TlEMOgiwKTwsqK7owvRJlq1ujShqu
-	M3eEsINNzw0WkfRMvpiZ880kJ2jnR8KMlYsMMm3Jk/ueWdZOI+BptDRhaOOolrw==
-X-Received: by 2002:a05:6808:2394:b0:3a7:72e8:2728 with SMTP id bp20-20020a056808239400b003a772e82728mr16500918oib.36.1694525021074;
-        Tue, 12 Sep 2023 06:23:41 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHaUEsbuPdJZYyDwnlg26xZulU68nzVT5NwGrT5q6SFOIuKio1J4UMpbDyFSeywa38u/Cm3m/nJRvaJkVWQaSY=
-X-Received: by 2002:a05:6808:2394:b0:3a7:72e8:2728 with SMTP id
- bp20-20020a056808239400b003a772e82728mr16500907oib.36.1694525020862; Tue, 12
- Sep 2023 06:23:40 -0700 (PDT)
-Received: from 348282803490 named unknown by gmailapi.google.com with
- HTTPREST; Tue, 12 Sep 2023 06:23:40 -0700
-From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-In-Reply-To: <20230912081402.51477-7-william.qiu@starfivetech.com>
-References: <20230912081402.51477-1-william.qiu@starfivetech.com> <20230912081402.51477-7-william.qiu@starfivetech.com>
-Mime-Version: 1.0
-Date: Tue, 12 Sep 2023 06:23:40 -0700
-Message-ID: <CAJM55Z-_V6Ty61u1bF=BziBRwn7bzTygE02g_4B3UW9tG4yikw@mail.gmail.com>
-Subject: Re: [PATCH v2 3/3] riscv: dts: starfive: Drop unused properties and
- limit frquency
-To: William Qiu <william.qiu@starfivetech.com>, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	linux-mmc@vger.kernel.org
-Cc: Emil Renner Berthing <kernel@esmil.dk>, Rob Herring <robh+dt@kernel.org>, 
-	Jaehoon Chung <jh80.chung@samsung.com>, Ulf Hansson <ulf.hansson@linaro.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>
+	Tue, 12 Sep 2023 13:32:29 +0000
+X-QQ-mid: bizesmtpipv602t1694525493t476
+Received: from localhost.localdomain ( [255.55.58.5])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Tue, 12 Sep 2023 21:31:31 +0800 (CST)
+X-QQ-SSF: 01200000000000302000000A0000000
+X-QQ-FEAT: n5ZZfu71JLxz6MwOEsrJsuqDcH7rEDQR0btq3jRrn7DHcQvGJ9LVMjdKmIjvh
+	JCDktGeOKpmJZBOTGF5AyusOz1RPbqXIaM+xW3oBUwYNF+XjMgdTm37xKaYK/xl6O7j+2Zh
+	sVfvh/bHB73yBUjDSy7VomzjLsl0c1zKxDjPinRcCrvHTpAaXpiXxcrYzpsOl0Pv9l+LXjQ
+	dnMjpdkxDoZHR6uALLyruupAvTm0C9fNHKcF7K67PdiYIOQ+3asQkwGJY83M06PEQKpxBAV
+	xh+zM1X97JhIoX+EORYPwL+Wwu2CVA1vL4mJQTZcqUuSkzl2+TTLc1fGerQl9FHuMKgrY0r
+	fvZxKscTVAdHMhOW3g=
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 3363788168851752325
+From: Jinyu Tang <tangjinyu@tinylab.org>
+To: william.qiu@starfivetech.com,
+	hal.feng@starfivetech.com,
+	conor.dooley@microchip.com,
+	palmer@dabbelt.com,
+	apatel@ventanamicro.com
+Cc: ttjjyystupid@163.com,
+	falcon@tinylab.org,
+	wangjiexun@tinylab.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Jinyu Tang <tangjinyu@tinylab.org>
+Subject: [PATCH v2] riscv: defconfig : add CONFIG_MMC_DW for starfive
+Date: Tue, 12 Sep 2023 21:31:28 +0800
+Message-Id: <20230912133128.5247-1-tangjinyu@tinylab.org>
+X-Mailer: git-send-email 2.39.2
+MIME-Version: 1.0
+X-QQ-SENDSIZE: 520
+Feedback-ID: bizesmtpipv:tinylab.org:qybglogicsvrsz:qybglogicsvrsz3a-0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230912_062343_738004_BE96330C 
-X-CRM114-Status: GOOD (  15.99  )
+X-CRM114-CacheID: sfid-20230912_063226_851642_93068A84 
+X-CRM114-Status: UNSURE (   6.68  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,74 +79,37 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-William Qiu wrote:
-> Drop unused properties and limit cclk_in to 50M, thus cancelling the
-> internal frequency and adopting the by-pass mode.
+If these config not set, mmc can't run for jh7110, rootfs can't
+be found when using SD card. So set CONFIG_MMC_DW=y like arm64
+defconfig, and set CONFIG_MMC_DW_STARFIVE=y for starfive. Then
+starfive vf2 board can start SD card rootfs with mainline defconfig
+and dtb.
 
-That's two unrelated changes which should really be in different patches. But
-again the hardware still has the relevant field in the syscon registers even if
-the driver doesn't use it, so maybe just leave them and just keep this patch
-adding the assigned-clock* properties.
+Signed-off-by: Jinyu Tang <tangjinyu@tinylab.org>
+---
+v1 -> v2:
+Change the order of these by using savedefconfig, thanks to
+Conor Dooley.
 
-/Emil
+ arch/riscv/configs/defconfig | 2 ++
+ 1 file changed, 2 insertions(+)
 
->
-> Signed-off-by: William Qiu <william.qiu@starfivetech.com>
-> ---
->  .../riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi | 4 ++++
->  arch/riscv/boot/dts/starfive/jh7110.dtsi                      | 2 --
->  2 files changed, 4 insertions(+), 2 deletions(-)
->
-> diff --git a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
-> index d79f94432b27..d1f2ec308bca 100644
-> --- a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
-> +++ b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
-> @@ -205,6 +205,8 @@ &i2c6 {
->
->  &mmc0 {
->  	max-frequency = <100000000>;
-> +	assigned-clocks = <&syscrg JH7110_SYSCLK_SDIO0_SDCARD>;
-> +	assigned-clock-rates = <50000000>;
->  	bus-width = <8>;
->  	cap-mmc-highspeed;
->  	mmc-ddr-1_8v;
-> @@ -221,6 +223,8 @@ &mmc0 {
->
->  &mmc1 {
->  	max-frequency = <100000000>;
-> +	assigned-clocks = <&syscrg JH7110_SYSCLK_SDIO1_SDCARD>;
-> +	assigned-clock-rates = <50000000>;
->  	bus-width = <4>;
->  	no-sdio;
->  	no-mmc;
-> diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-> index e85464c328d0..7b8e841aeef8 100644
-> --- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
-> +++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-> @@ -870,7 +870,6 @@ mmc0: mmc@16010000 {
->  			fifo-depth = <32>;
->  			fifo-watermark-aligned;
->  			data-addr = <0>;
-> -			starfive,sysreg = <&sys_syscon 0x14 0x1a 0x7c000000>;
->  			status = "disabled";
->  		};
->
-> @@ -886,7 +885,6 @@ mmc1: mmc@16020000 {
->  			fifo-depth = <32>;
->  			fifo-watermark-aligned;
->  			data-addr = <0>;
-> -			starfive,sysreg = <&sys_syscon 0x9c 0x1 0x3e>;
->  			status = "disabled";
->  		};
->
-> --
-> 2.34.1
->
->
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
+index ab86ec3b9..76c43a532 100644
+--- a/arch/riscv/configs/defconfig
++++ b/arch/riscv/configs/defconfig
+@@ -169,6 +169,8 @@ CONFIG_MMC_SDHCI=y
+ CONFIG_MMC_SDHCI_PLTFM=y
+ CONFIG_MMC_SDHCI_CADENCE=y
+ CONFIG_MMC_SPI=y
++CONFIG_MMC_DW=y
++CONFIG_MMC_DW_STARFIVE=y
+ CONFIG_MMC_SUNXI=y
+ CONFIG_RTC_CLASS=y
+ CONFIG_RTC_DRV_SUN6I=y
+-- 
+2.39.2
+
 
 _______________________________________________
 linux-riscv mailing list
