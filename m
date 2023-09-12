@@ -4,74 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CCBCCA0EC3
-	for <linux-riscv@archiver.kernel.org>; Tue, 12 Sep 2023 09:10:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7711ACA0ECE
+	for <linux-riscv@archiver.kernel.org>; Tue, 12 Sep 2023 09:13:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=z7vBMTTc/RX0d4GwplaSpTauAxYmGQVm8u1TQeqYQC8=; b=BFll/3RNgVnAa9
-	yc2/rBK4u1lx9sUjiW6izc4m4v5OzVYlD2UQ4dW1aJP1k2CDYP4sLKF7nvAXwFeGWukxh1F1csoiP
-	Olhi42E7lF7vXuwIldfsQ3yDz/KQ/yF2tz2rqs8aY47fzlR3hp0pG4m2XsyUFugn6j+/FWMwNPKD3
-	d57w9xKJfi5rb443EfvRiOhO9sYGoXFY3eSFjIGzH+Er6f27LlW2flm9tOoCxWCWyR3wBV22xRHYh
-	5BkPM5JL6BC9TXHpKEj0VnfGhFEtaPUldUduPh+kRFthuh+kT1QtjF8lltmBwVc5NyS93j0poa0b8
-	KpeuTdqVEScdKDoSXERg==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:
+	Mime-Version:References:In-Reply-To:From:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=L7DCy81sj0v9b/K61Z/oJOa0eSL35RO+8EPPhOdqYJA=; b=Ru9atIEztlBnA1PA270OREUk6B
+	nXxbedJ1QPLZt0uSEsyblrk88hxQd4+4vUZ0Z9BJSml9Qa7DRVWLwZqZxE/PLn+Vcoyw1Iq1A7hLc
+	zny9MlIsGOV8zyz5f96XP+cLy8zyhYr630VFyZ3y6oqpbzW1ZSN5DFS17PQFM92w6K5qO1gUlUAGA
+	48DRzEyeszWK0Gb7ksJ+RHVN5GPm59UX7gVOo/XeWi++8W1AEhPUAlvHmDBbfaencmkDtskFEENkK
+	uiIr9y5DZDCuxSIPVgZy2nfXCUw/rM1GZ+I6Bvytx4fnRzrjLaSswJmxYi6bnctE2PT8RJGje4Q7l
+	34JQUMOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qfzPl-002gD7-0V;
-	Tue, 12 Sep 2023 09:10:33 +0000
-Received: from mail-yw1-x1132.google.com ([2607:f8b0:4864:20::1132])
+	id 1qfzS5-002gda-0j;
+	Tue, 12 Sep 2023 09:12:57 +0000
+Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qfzPh-002gBr-2s
+	id 1qfzS1-002gc3-1X
 	for linux-riscv@lists.infradead.org;
-	Tue, 12 Sep 2023 09:10:31 +0000
-Received: by mail-yw1-x1132.google.com with SMTP id 00721157ae682-58e6c05f529so53733527b3.3
-        for <linux-riscv@lists.infradead.org>; Tue, 12 Sep 2023 02:10:28 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1694509828; x=1695114628; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=4wS5QgdUOCC9VaeBKhtLVMz+PTz3QdvRlZVKaTgTJWE=;
-        b=tV05hViCj4/vzOtY0Fztd4XR92lSZ+IDpoGiLwBC1wyLcwaXWrxAlomDWETj4SMaIS
-         i0/8zP4vehFl83A9Xb8Xkf6jQpqeB4GK3uWlKc1mBRvFnt4E+8tv9gwvqKENTcaN6uJw
-         X+nQPLAtolqSOKshIFoXJrzQqd+StNeE8kBaoL7VRRbAjFLajWxHZGKSMd/SOeh9cNPL
-         sFTMe3IMsvL99DtKB3I02kjG8jz+hPxihyuwwwHMY1m2V4MLLkUhw0T0d1Nh5Suca526
-         6F5l+oBAICeHrAQwD5H3l2oQ+w2XGudfHuQViEPNFNrGVkrgShAbeLN+5nzB/VNUk1zK
-         bPIQ==
+	Tue, 12 Sep 2023 09:12:55 +0000
+Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 8E5603F660
+	for <linux-riscv@lists.infradead.org>; Tue, 12 Sep 2023 09:12:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+	s=20210705; t=1694509966;
+	bh=XqCmz97wiINzvOoT4WgJ0jIs9/XOEFkVGg6FT5TVn8s=;
+	h=From:In-Reply-To:References:Mime-Version:Date:Message-ID:Subject:
+	 To:Cc:Content-Type;
+	b=AfP5do/6J5GIGAwXM5VWuPUlh1EAWHOhJdVtno3OjG1ctcBXJiQZatDq7avxUPtqc
+	 2lwZsaguzKfck41ndLSI+4HTawnb00sAKqFBUERkuZXcjCWUB4dPF10dulYGE95gMP
+	 8ymATo9/kgFeC5c9aD2/VGUFEXA76xfLUQlDNtRIeFuyPb9U3Zksy6yV6Cwvj8CJ3a
+	 qU6IBKt6cYWDnPFk693yUHf1D7W9ltKxNJ0bREg5Vi/ZXZPowZkl59OWjLP6EnIokN
+	 pNOPG38WgUVRro62gfOyFu7L6Cb+CxNMBv38r8n3xh5eyq9STldtYAzaqmPuHT2yLc
+	 SdvZWNjDZcZDA==
+Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-411fc812914so65767161cf.0
+        for <linux-riscv@lists.infradead.org>; Tue, 12 Sep 2023 02:12:46 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1694509828; x=1695114628;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=4wS5QgdUOCC9VaeBKhtLVMz+PTz3QdvRlZVKaTgTJWE=;
-        b=woV2xwGPTqwYeKPxQ7veXoGLhIhfbt9Fx3UH9VwwT6PRHv7heFMbOhb/2/5dfIMGUq
-         Lr3AH6ZwrWAoXcKmwfpLYdJgxBm2SNtHYjy8wqBP+Fu1E9o9LoOiEvSgF2GTGjiRiXJW
-         RPEaG6KryQbLGrDlm/2uQLAuv9rLMRtxsuHbe5bMWNvUre6N+apeQ6KJjS+y+YrRb5mv
-         KhabwO+97tw6iDCeIP5gJDRNwcMGcSDCV8THL92wOvSXPuh36dtkwocf/tLTJg1h0OCH
-         zZCY6YNOY8qtcz0EV3muV+UkiydvrRU3rND/Hh8T9CfvXi/YlNGsuqlnoDHw1XH4x6DU
-         BNrA==
-X-Gm-Message-State: AOJu0Yy6VCAD4s107jPnqzSlKZ7LD6m+RWNQXIhmyjsfXORr33Cb6yPX
-	KPyUkyEji7x2XXVMWVzo52W2sQJm2TIeW0o6PG11mw==
-X-Google-Smtp-Source: AGHT+IHaJe8TVI8OD48JzqiIz2fgcaPOPkTxwV3k9ta7dUaBVJiSwzwwTaqTlLeLEY/v/DqmQCJAEEnkVBsSvzdrZo0=
-X-Received: by 2002:a25:2409:0:b0:d71:8729:23b8 with SMTP id
- k9-20020a252409000000b00d71872923b8mr11479439ybk.13.1694509828307; Tue, 12
- Sep 2023 02:10:28 -0700 (PDT)
-MIME-Version: 1.0
-References: <20230911-scouring-squash-3ef2cc8b1ee2@spud>
-In-Reply-To: <20230911-scouring-squash-3ef2cc8b1ee2@spud>
-From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Tue, 12 Sep 2023 11:09:51 +0200
-Message-ID: <CAPDyKFqB_2KiqYy1Li1sGkXPiEAnc2GOUO7SdqCxy5G+YkeLcA@mail.gmail.com>
-Subject: Re: Missed soc/genpd PR for 6.6 mw
-To: Conor Dooley <conor@kernel.org>
-Cc: arnd@arndb.de, Changhuang Liang <changhuang.liang@starfivetech.com>, 
-	Walker Chen <walker.chen@starfivetech.com>, linux-riscv@lists.infradead.org, 
-	Rob Herring <robh@kernel.org>, Jia Jie Ho <jiajie.ho@starfivetech.com>, linux-pm@vger.kernel.org
+        d=1e100.net; s=20230601; t=1694509965; x=1695114765;
+        h=cc:to:subject:message-id:date:mime-version:references:in-reply-to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=XqCmz97wiINzvOoT4WgJ0jIs9/XOEFkVGg6FT5TVn8s=;
+        b=ZKYIaaflTRVTRIzZ9jlQJAYVsTRirMviawJPCYQJxX9fvdQ9vU2wBVTveJdAh4jAGB
+         FFI7J56jfcjy8dx3vgsIBjMKyeAjT97Qzb6o/hGaI/1lI7wucjekQCBThLMepSvseyJR
+         Ej9j2ZeS0/uz6j67JoTkkz1qNAsP/YP+hAHGkxwEc0kOpNUWWvrToxxhTq/ZgUqK44pP
+         +DVART2FuSoH9MEWGidHpzALu2W35RhFb2AAbTrjYOCml16f+UVsEB/ABKgg8fgIuPCK
+         VK+eyU+htO2Rf657CXZ6xJsjflJDZWlmYDu7VMV4J8DcU+jGEq1zjLTpsN1kqiajVcbv
+         Pd2A==
+X-Gm-Message-State: AOJu0YxLhAJsMiwjs3yiezZjUs1gloq9g7uQ5Ez1LiI66PbRU4u6jIWz
+	5I0lrtjysuwwQ6SxotpnCqahFulwxFySy7uCQHm6w+5y/fM/9YRGIgkVu5VjmpY4JX41MsB+VX0
+	K/EXRyxn9+ToXqJZsAgKMrhe+cVYLEZzc6wfZHHXXiPlNCeAK3IA6NxoRqRGsbQ==
+X-Received: by 2002:ac8:5a89:0:b0:412:1c5f:4783 with SMTP id c9-20020ac85a89000000b004121c5f4783mr15578478qtc.10.1694509965369;
+        Tue, 12 Sep 2023 02:12:45 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IFQQlGlQgk/r9shaDmrB/tSYmyaL8Wp5LDCM9Gtr+QkolQC9uKaGfomkgojXdkeuMHTeIyAFpf8bRY5ZqnJUC4=
+X-Received: by 2002:ac8:5a89:0:b0:412:1c5f:4783 with SMTP id
+ c9-20020ac85a89000000b004121c5f4783mr15578458qtc.10.1694509965100; Tue, 12
+ Sep 2023 02:12:45 -0700 (PDT)
+Received: from 348282803490 named unknown by gmailapi.google.com with
+ HTTPREST; Tue, 12 Sep 2023 02:12:44 -0700
+From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+In-Reply-To: <20230912081402.51477-1-william.qiu@starfivetech.com>
+References: <20230912081402.51477-1-william.qiu@starfivetech.com>
+Mime-Version: 1.0
+Date: Tue, 12 Sep 2023 02:12:44 -0700
+Message-ID: <CAJM55Z_NjSVwCcS0MfHw3mAwsBuScAU0OXX1Ga1+TfQNHKB7Vw@mail.gmail.com>
+Subject: Re: [PATCH 1/3] dt-bindings: mmc: Remove properties from required
+To: William Qiu <william.qiu@starfivetech.com>, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	linux-mmc@vger.kernel.org
+Cc: Emil Renner Berthing <kernel@esmil.dk>, Rob Herring <robh+dt@kernel.org>, 
+	Jaehoon Chung <jh80.chung@samsung.com>, Ulf Hansson <ulf.hansson@linaro.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230912_021029_928760_75292980 
-X-CRM114-Status: GOOD (  15.94  )
+X-CRM114-CacheID: sfid-20230912_021253_638194_59AD02AD 
+X-CRM114-Status: GOOD (  15.96  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,33 +103,48 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 12 Sept 2023 at 00:11, Conor Dooley <conor@kernel.org> wrote:
->
-> Hey all,
->
-> So I've been informed that I made a hames of things and forgot to send
-> my soc driver PR for the 6.6 merge window. There's not too much in my
-> branch
-> https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/log/?h=riscv-soc-for-next
-> so I would've kicked the can to 6.7, but the majority of changes there were
-> made to the starfive pmu driver that has since moved to the new genpd
-> subsystem.
->
-> Sending a PR to Arnd for 6.7 with the pmu bits & based on v6.5-rc1 doesn't
-> seem to make all that much sense to me, since that stuff is no longer in
-> drivers/soc, but rebasing on top of v6.6-rc1 would make these genpd changes,
-> with a different path to Linus.
->
-> What's the best way to rectify me screwing this up? Should I split out
-> the non genpd patch and send a PR for that for the genpd tree for 6.7?
+William Qiu wrote:
+> Due to the change of tuning implementation, it's no longer necessary to
+> use the "starfive,sysreg" property in dts, so remove it from required.
 
-Yep, that seems like the best option.
+nit: again the device tree should be a description of the hardware, so the
+justification here shouldn't be that the Linux driver doesn't use the field,
+but that it turns out the registers aren't required for the peripheral to work
+properly. Don't respin the series just for this though.
 
-If you think it's better to re-post the re-based genpd patches, I can
-certainly pick them up from the mailing lists too.
+Reviewed-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
 
-Kind regards
-Uffe
+> Signed-off-by: William Qiu <william.qiu@starfivetech.com>
+> ---
+>  Documentation/devicetree/bindings/mmc/starfive,jh7110-mmc.yaml | 2 --
+>  1 file changed, 2 deletions(-)
+>
+> diff --git a/Documentation/devicetree/bindings/mmc/starfive,jh7110-mmc.yaml b/Documentation/devicetree/bindings/mmc/starfive,jh7110-mmc.yaml
+> index 51e1b04e799f..553a75195c2e 100644
+> --- a/Documentation/devicetree/bindings/mmc/starfive,jh7110-mmc.yaml
+> +++ b/Documentation/devicetree/bindings/mmc/starfive,jh7110-mmc.yaml
+> @@ -55,7 +55,6 @@ required:
+>    - clocks
+>    - clock-names
+>    - interrupts
+> -  - starfive,sysreg
+>
+>  unevaluatedProperties: false
+>
+> @@ -73,5 +72,4 @@ examples:
+>          fifo-depth = <32>;
+>          fifo-watermark-aligned;
+>          data-addr = <0>;
+> -        starfive,sysreg = <&sys_syscon 0x14 0x1a 0x7c000000>;
+>      };
+> --
+> 2.34.1
+>
+>
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
