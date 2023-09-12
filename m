@@ -4,86 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04BF0CA0EC3
-	for <linux-riscv@archiver.kernel.org>; Tue, 12 Sep 2023 10:24:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9E43CA0ECA
+	for <linux-riscv@archiver.kernel.org>; Tue, 12 Sep 2023 10:53:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:
-	Mime-Version:References:In-Reply-To:From:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=u6IQxLd/K3FkGWaRBwi0Lxbn6RtGRLXHEhT7eIjdBjo=; b=t4Y8+75FEao0SUsDAKV/m3YUzG
-	BMt7mIvq5NY7ob12IYp3QiAkNYItFrPgiw36cyMBYImQXU7xEP2XsKiDLt9swZuO6bnebIQbK0NID
-	z7SbT8c69AWPJdK/dVwvizsc4krCPXhx/bov0wigYYyBRXIEnkZLqBy0i5GS/7PrGlhZ+oVN4/QIA
-	DfDgCVtsGs/k1gpLSxygqZjn9VC6L5XTgMZodBfcb2rErfOGLlClQwlOPHI/pacHGogoXWGxHaQDU
-	UkM/9cw5NjZTV3eTqN2BvxkYI4b7ikWlpiOPqiAwU7KCkaYh13eHJZNSmlnxeYdlM9C59ei50k4gT
-	+fVZlQcA==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=yUS0hGGze3t/PjfD5mjv/rp1dz7lQTIQZ620/yrNENc=; b=X/YKKmMo5G+TBT
+	dKOv6s0E7W7BEagR08v3nJhb2HJ/IIzpythWocZxsqzwmfmKEmtP2dTfdw0bBGOUZoIvHuakkJ6Qb
+	s7XrLqyKRU2OjvZzRa3to4+3s1RhybccJgOP9vEBGb/tDYNjD/am8kXSvTLcOfWQThrD2wdbF0DEZ
+	fyduj4qbO4IjaU39KZsSh6oLHiUhjBMco7ps57EnBtlDU4lbFeTKzpQjPISvz+v2G+o+iTGy7RM2o
+	vXA2XttomLZl1tTZIxlZG/ZQ0/1cQ2sx/5VuH9vnx7Ycld8TnooQFgPWSZSyfEsWIDxaKydrN+Vs5
+	9bZ1GqGcJEUKelH5yDtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qg0ZS-002xFD-2f;
-	Tue, 12 Sep 2023 10:24:38 +0000
-Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
+	id 1qg11E-0030vx-2Y;
+	Tue, 12 Sep 2023 10:53:20 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qg0ZP-002xEf-0e
+	id 1qg11B-0030uV-2b
 	for linux-riscv@lists.infradead.org;
-	Tue, 12 Sep 2023 10:24:37 +0000
-Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
+	Tue, 12 Sep 2023 10:53:20 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id E0CBA3F660
-	for <linux-riscv@lists.infradead.org>; Tue, 12 Sep 2023 10:24:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20210705; t=1694514271;
-	bh=l8BkGdGGrHPYHMDfqGr70IoZdJP5aCZ3/gTRxv7NEnI=;
-	h=From:In-Reply-To:References:Mime-Version:Date:Message-ID:Subject:
-	 To:Cc:Content-Type;
-	b=bxPqtTxhUB7c+h8857W3uzUWNAG/Li/T41vNUM4SbRLx3rrwtMwnsVykJR0ZhmnGP
-	 r/fhigXL1PMzxHWZm/plx6EOzKrjK0SWsBxzXEVYoLd1y3CtdLrN7rSn24y76Bi2mm
-	 g8U2Tw+/RraFHDnPkDRIrQuCy+pK7uEvl4VJO4Af01H+vH0mXYhuQ2U3Euy7CHE/01
-	 j0yLoQx2N89fC53nRj7yKMiZndvMW+PqT8C9Xa+EaidtT2FuASdSTVHww9G/QvebEC
-	 752sP6l0owF57nhhmpwUtRavLpVuKF2GMtb/zMTTg5fmfZOmHKvhQkxJrYH2EqbXKt
-	 ITNwGXBdJk8Dw==
-Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-414d73cb191so49863441cf.0
-        for <linux-riscv@lists.infradead.org>; Tue, 12 Sep 2023 03:24:31 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1694514270; x=1695119070;
-        h=cc:to:subject:message-id:date:mime-version:references:in-reply-to
-         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=l8BkGdGGrHPYHMDfqGr70IoZdJP5aCZ3/gTRxv7NEnI=;
-        b=Lx319vIctCUG2dFgnmBoiTTNW8G7PE/bSxp/UGr8OwU6cFzTK08wInz0EeJ8rjrDPs
-         gw+SnuvFMQY2O/E7232ZVCjoWXnI5GwRhKXS+ML4fbRze51IxUWeMckHly37FH+aSYEd
-         sZ55J6hb9fgVA7YK/iz9ixV1RiTYMOCKR9dHRJttyFus33cjdvOXy6u2BTqArsKmieJF
-         ij8yEbiVRE9KxAWw6hVXj7u/Ym/bLTEdiC7f+XLtmdis9JDU02+lONjFBTmlgdQbcbEE
-         N3Uh0aDI4BJ/B65WE2eDm4xRofAulZko9d5ugWAxhRhwHWOlk1Df4O+noqN3NgBMYttS
-         BAUw==
-X-Gm-Message-State: AOJu0YziHxlsF4O8gma+WLZRoeCLHABKVpLVweEoslHYvnJyBCDbvD8k
-	EE3hgzV2sqEdXbxhnYMD/9rg1LgpbGYxCAF7MS+aRO7WGr/MywshhtRhho9B0kC1cec4oEGhbeF
-	tMFPrHUsAgD9icJqcIkJU6HlYuUFO2cAO7ex6nI+dxlTU+czWxLWpE6adt71QwrtE0sAKWg==
-X-Received: by 2002:ac8:5bc6:0:b0:410:a92f:1dbc with SMTP id b6-20020ac85bc6000000b00410a92f1dbcmr2597646qtb.11.1694514270633;
-        Tue, 12 Sep 2023 03:24:30 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFcRRNlOxn0auXsus2rU7wb6g+N0hAl2+PusClukejrqFC+4BhUnEqgdRBRLS8X1AS8tFGKnIp2FEizUwCOONg=
-X-Received: by 2002:ac8:5bc6:0:b0:410:a92f:1dbc with SMTP id
- b6-20020ac85bc6000000b00410a92f1dbcmr2597632qtb.11.1694514270378; Tue, 12 Sep
- 2023 03:24:30 -0700 (PDT)
-Received: from 348282803490 named unknown by gmailapi.google.com with
- HTTPREST; Tue, 12 Sep 2023 03:24:29 -0700
-From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-In-Reply-To: <20230911-optimize_checksum-v4-1-77cc2ad9e9d7@rivosinc.com>
-References: <20230911-optimize_checksum-v4-0-77cc2ad9e9d7@rivosinc.com> <20230911-optimize_checksum-v4-1-77cc2ad9e9d7@rivosinc.com>
-Mime-Version: 1.0
-Date: Tue, 12 Sep 2023 03:24:29 -0700
-Message-ID: <CAJM55Z-kj8eWKvR32At4kx+PPPn9OMaR88BhEqppQHSL03n50Q@mail.gmail.com>
-Subject: Re: [PATCH v4 1/5] riscv: Checksum header
-To: Charlie Jenkins <charlie@rivosinc.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Conor Dooley <conor@kernel.org>, Samuel Holland <samuel.holland@sifive.com>, 
-	David Laight <David.Laight@aculab.com>, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>
+	by ams.source.kernel.org (Postfix) with ESMTPS id CF937B81B96;
+	Tue, 12 Sep 2023 10:53:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3238FC433C8;
+	Tue, 12 Sep 2023 10:53:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1694515994;
+	bh=/lh/xqNz+KJ1a33s/hi7OahZFaqWsPBdktgYRGQAeOg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=IM4b2kn0hRnhyNsUYTxxTZzfLWMbeGQR5GZYLOqZ2yWqepQdjDcaE7oKb7L8wJljn
+	 43OIxTgu0RIEzCNTsSpW1IDvIbRvu/9zuBrPH8jsYgt81xFEljFdh7U4ql8/G1KP5Z
+	 uo3ppUE3K3DGHvoVQkYWhOjk+S7StXXkbMV6cktaVbOfS9tz4CXbGZGljkcmc+WCd/
+	 BplbPcTHcBM5X1qcpwaMV2BH9BU8mjSKm2PXPqwBRSWPljGtRdOrIK4G/1lVO8uyg1
+	 BnwE8O4ESoiiVcAYKXvAouuqu3IhzU7r2L+2Z8riHje3IgEYcGdcEz9w1REx+cAw++
+	 exA+hBu5WF62A==
+Date: Tue, 12 Sep 2023 06:53:09 -0400
+From: Guo Ren <guoren@kernel.org>
+To: Jisheng Zhang <jszhang@kernel.org>, Arnd Bergmann <arnd@arndb.de>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Arnd Bergmann <arnd@arndb.de>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] riscv: errata: thead: use riscv_nonstd_cache_ops for CMO
+Message-ID: <ZQBDFa0fGNiaqAgh@gmail.com>
+References: <20230912072740.2544-1-jszhang@kernel.org>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20230912072740.2544-1-jszhang@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230912_032435_573849_9B35B0A8 
-X-CRM114-Status: GOOD (  22.57  )
+X-CRM114-CacheID: sfid-20230912_035318_152147_67DE8688 
+X-CRM114-Status: GOOD (  31.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,137 +77,260 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Charlie Jenkins wrote:
-> Provide checksum algorithms that have been designed to leverage riscv
-> instructions such as rotate. In 64-bit, can take advantage of the larger
-> register to avoid some overflow checking.
->
-> Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
+On Tue, Sep 12, 2023 at 03:27:40PM +0800, Jisheng Zhang wrote:
+> Previously, we use alternative mechanism to dynamically patch
+> the CMO operations for THEAD C906/C910 during boot for performance
+> reason. But as pointed out by Arnd, "there is already a significant
+> cost in accessing the invalidated cache lines afterwards, which is
+> likely going to be much higher than the cost of an indirect branch".
+> And indeed, there's no performance difference with GMAC and EMMC per
+> my test on Sipeed Lichee Pi 4A board.
+> 
+> Use riscv_nonstd_cache_ops for THEAD C906/C910 CMO to simplify
+> the alternative code, and to acchieve Arnd's goal -- "I think
+> moving the THEAD ops at the same level as all nonstandard operations
+> makes sense, but I'd still leave CMO as an explicit fast path that
+> avoids the indirect branch. This seems like the right thing to do both
+> for readability and for platforms on which the indirect branch has a
+> noticeable overhead."
+> 
+> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
 > ---
->  arch/riscv/include/asm/checksum.h | 95 +++++++++++++++++++++++++++++++++++++++
->  1 file changed, 95 insertions(+)
->
-> diff --git a/arch/riscv/include/asm/checksum.h b/arch/riscv/include/asm/checksum.h
-> new file mode 100644
-> index 000000000000..0d7fc8275a5e
-> --- /dev/null
-> +++ b/arch/riscv/include/asm/checksum.h
-> @@ -0,0 +1,95 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
+>  arch/riscv/Kconfig.errata            |  1 +
+>  arch/riscv/errata/thead/errata.c     | 76 +++++++++++++++++++++++++++-
+>  arch/riscv/include/asm/errata_list.h | 50 +++---------------
+>  3 files changed, 81 insertions(+), 46 deletions(-)
+> 
+> diff --git a/arch/riscv/Kconfig.errata b/arch/riscv/Kconfig.errata
+> index 566bcefeab50..d7972914f9de 100644
+> --- a/arch/riscv/Kconfig.errata
+> +++ b/arch/riscv/Kconfig.errata
+> @@ -78,6 +78,7 @@ config ERRATA_THEAD_CMO
+>  	bool "Apply T-Head cache management errata"
+>  	depends on ERRATA_THEAD && MMU
+>  	select RISCV_DMA_NONCOHERENT
+> +	select RISCV_NONSTANDARD_CACHE_OPS
+>  	default y
+>  	help
+>  	  This will apply the cache management errata to handle the
+> diff --git a/arch/riscv/errata/thead/errata.c b/arch/riscv/errata/thead/errata.c
+> index 0554ed4bf087..1c320abfe446 100644
+> --- a/arch/riscv/errata/thead/errata.c
+> +++ b/arch/riscv/errata/thead/errata.c
+> @@ -12,8 +12,10 @@
+>  #include <asm/alternative.h>
+>  #include <asm/cacheflush.h>
+>  #include <asm/cpufeature.h>
+> +#include <asm/dma-noncoherent.h>
+>  #include <asm/errata_list.h>
+>  #include <asm/hwprobe.h>
+> +#include <asm/io.h>
+>  #include <asm/patch.h>
+>  #include <asm/vendorid_list.h>
+>  
+> @@ -33,6 +35,75 @@ static bool errata_probe_pbmt(unsigned int stage,
+>  	return false;
+>  }
+>  
 > +/*
-> + * IP checksum routines
+> + * dcache.ipa rs1 (invalidate, physical address)
+> + * | 31 - 25 | 24 - 20 | 19 - 15 | 14 - 12 | 11 - 7 | 6 - 0 |
+> + *   0000001    01010      rs1       000      00000  0001011
+> + * dache.iva rs1 (invalida, virtual address)
+> + *   0000001    00110      rs1       000      00000  0001011
+Remove dache.iva rs1 ...
+
 > + *
-> + * Copyright (C) 2023 Rivos Inc.
+> + * dcache.cpa rs1 (clean, physical address)
+> + * | 31 - 25 | 24 - 20 | 19 - 15 | 14 - 12 | 11 - 7 | 6 - 0 |
+> + *   0000001    01001      rs1       000      00000  0001011
+Remove dcache.cpa rs1 ...
+
+> + * dcache.cva rs1 (clean, virtual address)
+> + *   0000001    00101      rs1       000      00000  0001011
+Remove dcache.cva rs1 ...
+
+> + *
+> + * dcache.cipa rs1 (clean then invalidate, physical address)
+> + * | 31 - 25 | 24 - 20 | 19 - 15 | 14 - 12 | 11 - 7 | 6 - 0 |
+> + *   0000001    01011      rs1       000      00000  0001011
+> + * dcache.civa rs1 (... virtual address)
+> + *   0000001    00111      rs1       000      00000  0001011
+Remove dcache.civa rs1 ...
+
+> + *
+> + * sync.s (make sure all cache operations finished)
+> + * | 31 - 25 | 24 - 20 | 19 - 15 | 14 - 12 | 11 - 7 | 6 - 0 |
+> + *   0000000    11001     00000      000      00000  0001011
 > + */
-> +#ifndef __ASM_RISCV_CHECKSUM_H
-> +#define __ASM_RISCV_CHECKSUM_H
+> +#define THEAD_inval_A0	".long 0x0265000b"
+> +#define THEAD_clean_A0	".long 0x0255000b"
+> +#define THEAD_flush_A0	".long 0x0275000b"
+> +#define THEAD_SYNC_S	".long 0x0190000b"
 > +
-> +#include <linux/in6.h>
-> +#include <linux/uaccess.h>
+> +#define THEAD_CMO_OP(_op, _start, _size, _cachesize)			\
+> +asm volatile("mv a0, %1\n\t"						\
+> +	     "j 2f\n\t"							\
+> +	     "3:\n\t"							\
+> +	     THEAD_##_op##_A0 "\n\t"					\
+> +	     "add a0, a0, %0\n\t"					\
+> +	     "2:\n\t"							\
+> +	     "bltu a0, %2, 3b\n\t"					\
+> +	     THEAD_SYNC_S						\
+> +	     : : "r"(_cachesize),					\
+> +		 "r"((unsigned long)(_start) & ~((_cachesize) - 1UL)),	\
+> +		 "r"((unsigned long)(_start) + (_size))			\
+> +	     : "a0")
 > +
-> +#ifdef CONFIG_32BIT
-> +typedef unsigned int csum_t;
-> +#else
-> +typedef unsigned long csum_t;
-> +#endif
-
-Hi Charlie,
-
-Isn't unsigned long already 32bit on 32bit RISC-V, so why is this #ifdef
-needed?
-
-> +
-> +/*
-> + *	Fold a partial checksum without adding pseudo headers
-> + */
-> +static inline __sum16 csum_fold(__wsum sum)
+> +static void thead_errata_cache_inv(phys_addr_t paddr, size_t size)
 > +{
-> +	return (~sum - ror32(sum, 16)) >> 16;
+> +	void *vaddr = phys_to_virt(paddr);
+No need to phys_to_virt, and we could use paddr directly (dcache.ipa
+rs1).
+
+> +
+> +	THEAD_CMO_OP(inval, vaddr, size, riscv_cbom_block_size);
 > +}
 > +
-> +#define csum_fold csum_fold
-> +
-> +/*
-> + * Quickly compute an IP checksum with the assumption that IPv4 headers will
-> + * always be in multiples of 32-bits, and have an ihl of at least 5.
-> + * @ihl is the number of 32 bit segments and must be greater than or equal to 5.
-> + * @iph is assumed to be word aligned.
-> + */
-> +static inline __sum16 ip_fast_csum(const void *iph, unsigned int ihl)
+> +static void thead_errata_cache_wback(phys_addr_t paddr, size_t size)
 > +{
-> +	csum_t csum = 0;
-> +	int pos = 0;
+> +	void *vaddr = phys_to_virt(paddr);
 > +
-> +	do {
-> +		csum += ((const unsigned int *)iph)[pos];
-> +		if (IS_ENABLED(CONFIG_32BIT))
-> +			csum += csum < ((const unsigned int *)iph)[pos];
-> +	} while (++pos < ihl);
-> +
-> +	/*
-> +	 * ZBB only saves three instructions on 32-bit and five on 64-bit so not
-> +	 * worth checking if supported without Alternatives.
-> +	 */
-> +	if (IS_ENABLED(CONFIG_RISCV_ISA_ZBB) &&
-> +	    IS_ENABLED(CONFIG_RISCV_ALTERNATIVE)) {
-> +		csum_t fold_temp;
-> +
-> +		asm_volatile_goto(ALTERNATIVE("j %l[no_zbb]", "nop", 0,
-> +					      RISCV_ISA_EXT_ZBB, 1)
-> +		    :
-> +		    :
-> +		    :
-> +		    : no_zbb);
-> +
-> +		if (IS_ENABLED(CONFIG_32BIT)) {
-> +			asm(".option push				\n\
-> +			.option arch,+zbb				\n\
-> +				not	%[fold_temp], %[csum]		\n\
-> +				rori	%[csum], %[csum], 16		\n\
-> +				sub	%[csum], %[fold_temp], %[csum]	\n\
-> +			.option pop"
-> +			: [csum] "+r" (csum), [fold_temp] "=&r" (fold_temp));
-> +		} else {
-> +			asm(".option push				\n\
-> +			.option arch,+zbb				\n\
-> +				rori	%[fold_temp], %[csum], 32	\n\
-> +				add	%[csum], %[fold_temp], %[csum]	\n\
-> +				srli	%[csum], %[csum], 32		\n\
-> +				not	%[fold_temp], %[csum]		\n\
-> +				roriw	%[csum], %[csum], 16		\n\
-> +				subw	%[csum], %[fold_temp], %[csum]	\n\
-> +			.option pop"
-> +			: [csum] "+r" (csum), [fold_temp] "=&r" (fold_temp));
-> +		}
-> +		return csum >> 16;
-> +	}
-> +no_zbb:
-> +#ifndef CONFIG_32BIT
-> +		csum += (csum >> 32) | (csum << 32);
-> +		csum >>= 32;
+> +	THEAD_CMO_OP(clean, vaddr, size, riscv_cbom_block_size);
+> +}
+Please remove the thead_errata_cache_wback because T-HEAD processors
+would prioritize using an invalid cacheline instead of evicting an
+existing cacheline. When we do dcache clean, the following operations
+are to let other interconnect masters read. So, keeping wback_inv for
+T-HEAD processors is the best choice, and maybe some other processors'
+vendor has a different idea, but please use the wback_inv instead of
+wback_only for the T-HEAD processors.
 
-The indentation seems off here.
+> +
+> +static void thead_errata_cache_wback_inv(phys_addr_t paddr, size_t size)
+> +{
+> +	void *vaddr = phys_to_virt(paddr);
+Ditto.
 
-/Emil
-
-> +#endif
-> +	return csum_fold((__force __wsum)csum);
+> +
+> +	THEAD_CMO_OP(flush, vaddr, size, riscv_cbom_block_size);
 > +}
 > +
-> +#define ip_fast_csum ip_fast_csum
+> +static const struct riscv_nonstd_cache_ops thead_errata_cmo_ops = {
+> +	.wback = &thead_errata_cache_wback,
+Please  .wback = &thead_errata_cache_wback_inv,
+
+
+> +	.inv = &thead_errata_cache_inv,
+> +	.wback_inv = &thead_errata_cache_wback_inv,
+> +};
 > +
-> +#include <asm-generic/checksum.h>
-> +
-> +#endif // __ASM_RISCV_CHECKSUM_H
->
-> --
-> 2.42.0
->
->
+>  static bool errata_probe_cmo(unsigned int stage,
+>  			     unsigned long arch_id, unsigned long impid)
+>  {
+> @@ -48,6 +119,8 @@ static bool errata_probe_cmo(unsigned int stage,
+>  	if (stage == RISCV_ALTERNATIVES_BOOT) {
+>  		riscv_cbom_block_size = L1_CACHE_BYTES;
+>  		riscv_noncoherent_supported();
+> +		if (IS_ENABLED(CONFIG_RISCV_NONSTANDARD_CACHE_OPS))
+> +			riscv_noncoherent_register_cache_ops(&thead_errata_cmo_ops);
+>  	}
+>  
+>  	return true;
+> @@ -77,8 +150,7 @@ static u32 thead_errata_probe(unsigned int stage,
+>  	if (errata_probe_pbmt(stage, archid, impid))
+>  		cpu_req_errata |= BIT(ERRATA_THEAD_PBMT);
+>  
+> -	if (errata_probe_cmo(stage, archid, impid))
+> -		cpu_req_errata |= BIT(ERRATA_THEAD_CMO);
+> +	errata_probe_cmo(stage, archid, impid);
+>  
+>  	if (errata_probe_pmu(stage, archid, impid))
+>  		cpu_req_errata |= BIT(ERRATA_THEAD_PMU);
+> diff --git a/arch/riscv/include/asm/errata_list.h b/arch/riscv/include/asm/errata_list.h
+> index b55b434f0059..ea33288f8a25 100644
+> --- a/arch/riscv/include/asm/errata_list.h
+> +++ b/arch/riscv/include/asm/errata_list.h
+> @@ -24,9 +24,8 @@
+>  
+>  #ifdef CONFIG_ERRATA_THEAD
+>  #define	ERRATA_THEAD_PBMT 0
+> -#define	ERRATA_THEAD_CMO 1
+> -#define	ERRATA_THEAD_PMU 2
+> -#define	ERRATA_THEAD_NUMBER 3
+> +#define	ERRATA_THEAD_PMU 1
+> +#define	ERRATA_THEAD_NUMBER 2
+>  #endif
+>  
+>  #ifdef __ASSEMBLY__
+> @@ -94,54 +93,17 @@ asm volatile(ALTERNATIVE(						\
+>  #define ALT_THEAD_PMA(_val)
+>  #endif
+>  
+> -/*
+> - * dcache.ipa rs1 (invalidate, physical address)
+> - * | 31 - 25 | 24 - 20 | 19 - 15 | 14 - 12 | 11 - 7 | 6 - 0 |
+> - *   0000001    01010      rs1       000      00000  0001011
+> - * dache.iva rs1 (invalida, virtual address)
+> - *   0000001    00110      rs1       000      00000  0001011
+> - *
+> - * dcache.cpa rs1 (clean, physical address)
+> - * | 31 - 25 | 24 - 20 | 19 - 15 | 14 - 12 | 11 - 7 | 6 - 0 |
+> - *   0000001    01001      rs1       000      00000  0001011
+> - * dcache.cva rs1 (clean, virtual address)
+> - *   0000001    00101      rs1       000      00000  0001011
+> - *
+> - * dcache.cipa rs1 (clean then invalidate, physical address)
+> - * | 31 - 25 | 24 - 20 | 19 - 15 | 14 - 12 | 11 - 7 | 6 - 0 |
+> - *   0000001    01011      rs1       000      00000  0001011
+> - * dcache.civa rs1 (... virtual address)
+> - *   0000001    00111      rs1       000      00000  0001011
+> - *
+> - * sync.s (make sure all cache operations finished)
+> - * | 31 - 25 | 24 - 20 | 19 - 15 | 14 - 12 | 11 - 7 | 6 - 0 |
+> - *   0000000    11001     00000      000      00000  0001011
+> - */
+> -#define THEAD_inval_A0	".long 0x0265000b"
+> -#define THEAD_clean_A0	".long 0x0255000b"
+> -#define THEAD_flush_A0	".long 0x0275000b"
+> -#define THEAD_SYNC_S	".long 0x0190000b"
+> -
+>  #define ALT_CMO_OP(_op, _start, _size, _cachesize)			\
+> -asm volatile(ALTERNATIVE_2(						\
+> -	__nops(6),							\
+> +asm volatile(ALTERNATIVE(						\
+> +	__nops(5),							\
+>  	"mv a0, %1\n\t"							\
+>  	"j 2f\n\t"							\
+>  	"3:\n\t"							\
+>  	CBO_##_op(a0)							\
+>  	"add a0, a0, %0\n\t"						\
+>  	"2:\n\t"							\
+> -	"bltu a0, %2, 3b\n\t"						\
+> -	"nop", 0, RISCV_ISA_EXT_ZICBOM, CONFIG_RISCV_ISA_ZICBOM,	\
+> -	"mv a0, %1\n\t"							\
+> -	"j 2f\n\t"							\
+> -	"3:\n\t"							\
+> -	THEAD_##_op##_A0 "\n\t"						\
+> -	"add a0, a0, %0\n\t"						\
+> -	"2:\n\t"							\
+> -	"bltu a0, %2, 3b\n\t"						\
+> -	THEAD_SYNC_S, THEAD_VENDOR_ID,					\
+> -			ERRATA_THEAD_CMO, CONFIG_ERRATA_THEAD_CMO)	\
+> +	"bltu a0, %2, 3b\n\t",						\
+> +	0, RISCV_ISA_EXT_ZICBOM, CONFIG_RISCV_ISA_ZICBOM)		\
+>  	: : "r"(_cachesize),						\
+>  	    "r"((unsigned long)(_start) & ~((_cachesize) - 1UL)),	\
+>  	    "r"((unsigned long)(_start) + (_size))			\
+> -- 
+> 2.40.1
+> 
+> 
 > _______________________________________________
 > linux-riscv mailing list
 > linux-riscv@lists.infradead.org
-> http://lists.inradead.org/mailman/listinfo/linux-riscv
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
+> 
 
 _______________________________________________
 linux-riscv mailing list
