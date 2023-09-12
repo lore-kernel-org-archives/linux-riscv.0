@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBD4CCA0EF2
-	for <linux-riscv@archiver.kernel.org>; Tue, 12 Sep 2023 16:06:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5A6ACA0EEB
+	for <linux-riscv@archiver.kernel.org>; Tue, 12 Sep 2023 16:23:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VXrWFl2+KdLLaj56sE48fmDtTubjFAjeaFf0BSt2p5s=; b=svEZ+4IiicUAvXUm3VFg7/m1wm
-	z5r27plUQnldKYYQKYOFdYb6oyb1Jg2kpjlcH1aKufCEKTBb0P64MKPmQntPeNmK3Af+hgUVL85sD
-	zq4nX1DTL1CIQqT/UpIXu15ZpcT8RXPK3Pl/Yw6Q/AMlPO1hXAx5YwSAnGeJX5f8d/mZUctxPQ65+
-	87DRU+Z3WRojFCe/0ueuVXofRLuPWzZqeqT/+p+MUB/essgU4sMjGGvzjkTqztYQKOj71esw0eMvi
-	HB6HyVAwZ4SlfgNGEntxOV/Y+CeLH9Q0yJ5QK0naQRIuCYAG4CVD4lqQtr//gSzhibBfJJpwxYPN8
-	0oZmlUtg==;
+	bh=WqMLewtdOftOlthhQLrT/WyaDnOjBFXiTeKsI2a3SsU=; b=Gyqn7TySwBr51AbKHpE6EYhllo
+	MMtMd8PLVhPAU7tv5FG5GrgX+EVaEclDYDz7JIFBs8YLEJHTLFRL4B1K7+jmNv6E49GAwaAETWOuI
+	MgDPwBzF6TrY/j2Yrd8tcLbyw5i1vpqFzOeYFX9izN9fqEbrisFn+5mKkGSlTtfoPjJ5B9H90eKV6
+	D5yFRNtYgPuRb48ZsUkCQPdUuQgsjRwtWr55MNtRyF873BsM4/Vr7fvKsEwlG6Tu00xIiXX3lmqHA
+	rAMSyJmD0ge0Ud1XQwpDJ2fHkJzjP5lsN31v9fxxzK3W/e/DiLI2M23m05KgI4vJPcdx9G0uN7iPe
+	Kno7OslQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qg5tv-003mnn-1C;
-	Tue, 12 Sep 2023 16:06:07 +0000
+	id 1qg6B4-003p4K-0n;
+	Tue, 12 Sep 2023 16:23:50 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qg5ts-003mmu-0y
+	id 1qg6B1-003p3e-0F
 	for linux-riscv@lists.infradead.org;
-	Tue, 12 Sep 2023 16:06:05 +0000
+	Tue, 12 Sep 2023 16:23:48 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 7E8C6614C5;
-	Tue, 12 Sep 2023 16:06:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2EA50C433C8;
-	Tue, 12 Sep 2023 16:06:01 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 62B4D61470;
+	Tue, 12 Sep 2023 16:23:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9B0E8C433C8;
+	Tue, 12 Sep 2023 16:23:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1694534762;
-	bh=Q/TEkMWLXQKDzVgkahRn+n43VpZCdu0lgRVofBA7+Q8=;
+	s=k20201202; t=1694535825;
+	bh=biFFduZ1C4O3DX/VQihj7MaVYd4W5bX5wM/9wVdt810=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=JpDQ5mpok4kTlzsx+0W8ao1sDPfIZK7GybvEEX/87ZRQSoz6ufqt0O629BFP0gQfW
-	 JXrGpqPM921dMCTs5Jb1Df87osNZhr5BaoeZI4wbBmipnKSJtiWPl/ttr+gdGobpb1
-	 AJyo8+zH60kbFZFfWoGgM3mNdCApQETLq5RxG8g8/tsnFT6OECEInSXKbdu3nZrugj
-	 O7UJSTAb5LWhHD8SCDamfH58UFh75LbaenlPmw/HDzoBJDd6cvdUdCftj3NUXGNdJL
-	 1YpZZ2plXX9+L/dU/YREAUYHzMQHsodMn++icX7y+dNAEYE332+gcjDfHAJ+Zoh2C4
-	 kg+zz/7Owl1rQ==
-Date: Tue, 12 Sep 2023 17:05:58 +0100
+	b=eR0fW+KyZ9Eq2rtV2L9yQcFxmU2NXDiOo79n6SCdi990t7zSmCIuZG918ca0p7ABi
+	 HNNtw2azE5jJFXaLQaX22cYrcDsAyq+PAys56QZSxuMgDCNUc9UB0PYSJkWwTwpM85
+	 VkOij5Kmo8l/L4TZP2XDxPEf/EWijK9XazVq7Zl83wawhRvW8GZ4zByo3/vY/nycSe
+	 TMPznE7kLaojYC4zRmND6QhDly+vTyOKMu/pUzMCey8iwzfRWT3JyYPU7dstmUSFul
+	 c/929Q+Ghwm2xBQUsYb1z+bhz+S3RyEU7ezTkcAFrHMJuaS/KW0BJP6RuQ+wsesqRu
+	 0iEJuyxKDEJTA==
+Date: Tue, 12 Sep 2023 17:23:41 +0100
 From: Conor Dooley <conor@kernel.org>
-To: Ulf Hansson <ulf.hansson@linaro.org>
-Cc: arnd@arndb.de, Changhuang Liang <changhuang.liang@starfivetech.com>,
-	Walker Chen <walker.chen@starfivetech.com>,
-	linux-riscv@lists.infradead.org, Rob Herring <robh@kernel.org>,
-	Jia Jie Ho <jiajie.ho@starfivetech.com>, linux-pm@vger.kernel.org
-Subject: Re: Missed soc/genpd PR for 6.6 mw
-Message-ID: <20230912-postal-succulent-d83861d769ad@spud>
-References: <20230911-scouring-squash-3ef2cc8b1ee2@spud>
- <CAPDyKFqB_2KiqYy1Li1sGkXPiEAnc2GOUO7SdqCxy5G+YkeLcA@mail.gmail.com>
+To: Jinyu Tang <tangjinyu@tinylab.org>
+Cc: william.qiu@starfivetech.com, hal.feng@starfivetech.com,
+	conor.dooley@microchip.com, palmer@dabbelt.com,
+	apatel@ventanamicro.com, ttjjyystupid@163.com, falcon@tinylab.org,
+	wangjiexun@tinylab.org, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] riscv: defconfig : add CONFIG_MMC_DW for starfive
+Message-ID: <20230912-breeching-zealous-84c859e90eb7@spud>
+References: <20230912133128.5247-1-tangjinyu@tinylab.org>
 MIME-Version: 1.0
-In-Reply-To: <CAPDyKFqB_2KiqYy1Li1sGkXPiEAnc2GOUO7SdqCxy5G+YkeLcA@mail.gmail.com>
+In-Reply-To: <20230912133128.5247-1-tangjinyu@tinylab.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230912_090604_380602_55072DBB 
-X-CRM114-Status: GOOD (  21.34  )
+X-CRM114-CacheID: sfid-20230912_092347_176111_56B457F9 
+X-CRM114-Status: GOOD (  18.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,69 +72,82 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============7259313474858934671=="
+Content-Type: multipart/mixed; boundary="===============5295068787481577209=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============7259313474858934671==
+--===============5295068787481577209==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="gdsE8Rlaoyspx0wO"
+	protocol="application/pgp-signature"; boundary="tOfKvfF/NMI329BY"
 Content-Disposition: inline
 
 
---gdsE8Rlaoyspx0wO
+--tOfKvfF/NMI329BY
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Tue, Sep 12, 2023 at 11:09:51AM +0200, Ulf Hansson wrote:
-> On Tue, 12 Sept 2023 at 00:11, Conor Dooley <conor@kernel.org> wrote:
-> >
-> > Hey all,
-> >
-> > So I've been informed that I made a hames of things and forgot to send
-> > my soc driver PR for the 6.6 merge window. There's not too much in my
-> > branch
-> > https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/log/?h=
-=3Driscv-soc-for-next
-> > so I would've kicked the can to 6.7, but the majority of changes there =
-were
-> > made to the starfive pmu driver that has since moved to the new genpd
-> > subsystem.
-> >
-> > Sending a PR to Arnd for 6.7 with the pmu bits & based on v6.5-rc1 does=
-n't
-> > seem to make all that much sense to me, since that stuff is no longer in
-> > drivers/soc, but rebasing on top of v6.6-rc1 would make these genpd cha=
-nges,
-> > with a different path to Linus.
-> >
-> > What's the best way to rectify me screwing this up? Should I split out
-> > the non genpd patch and send a PR for that for the genpd tree for 6.7?
+On Tue, Sep 12, 2023 at 09:31:28PM +0800, Jinyu Tang wrote:
+> If these config not set, mmc can't run for jh7110, rootfs can't
+> be found when using SD card. So set CONFIG_MMC_DW=3Dy like arm64
+> defconfig, and set CONFIG_MMC_DW_STARFIVE=3Dy for starfive. Then
+> starfive vf2 board can start SD card rootfs with mainline defconfig
+> and dtb.
 >=20
-> Yep, that seems like the best option.
+> Signed-off-by: Jinyu Tang <tangjinyu@tinylab.org>
+
+
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+
+Thanks,
+Conor.
+
+> ---
+> v1 -> v2:
+> Change the order of these by using savedefconfig, thanks to
+> Conor Dooley.
 >=20
-> If you think it's better to re-post the re-based genpd patches, I can
-> certainly pick them up from the mailing lists too.
+>  arch/riscv/configs/defconfig | 2 ++
+>  1 file changed, 2 insertions(+)
+>=20
+> diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
+> index ab86ec3b9..76c43a532 100644
+> --- a/arch/riscv/configs/defconfig
+> +++ b/arch/riscv/configs/defconfig
+> @@ -169,6 +169,8 @@ CONFIG_MMC_SDHCI=3Dy
+>  CONFIG_MMC_SDHCI_PLTFM=3Dy
+>  CONFIG_MMC_SDHCI_CADENCE=3Dy
+>  CONFIG_MMC_SPI=3Dy
+> +CONFIG_MMC_DW=3Dy
+> +CONFIG_MMC_DW_STARFIVE=3Dy
+>  CONFIG_MMC_SUNXI=3Dy
+>  CONFIG_RTC_CLASS=3Dy
+>  CONFIG_RTC_DRV_SUN6I=3Dy
+> --=20
+> 2.39.2
+>=20
+>=20
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
-Cool, I'll try to do one of the above tomorrow. Thanks!
-
---gdsE8Rlaoyspx0wO
+--tOfKvfF/NMI329BY
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZQCMZgAKCRB4tDGHoIJi
-0k/RAP0ZqY8mLJi3PfQkOA/0RkMdz91zRn/e7yBskW8Y/TgEQwEA50GlQEqMfL00
-22snh32/SkoUK7nbNCGoVBF2nmqBKgY=
-=FxtK
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZQCQjQAKCRB4tDGHoIJi
+0unBAQDNHlf3rnnuIDjF1ENKvc6GsCR/WCMXJ+6S2YLmJ5M8QQD9HQzsZqQnlVZc
+fOvWx1ylOXG7jDJHiIh+c39+luEFBAY=
+=6mo+
 -----END PGP SIGNATURE-----
 
---gdsE8Rlaoyspx0wO--
+--tOfKvfF/NMI329BY--
 
 
---===============7259313474858934671==
+--===============5295068787481577209==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -145,5 +158,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============7259313474858934671==--
+--===============5295068787481577209==--
 
