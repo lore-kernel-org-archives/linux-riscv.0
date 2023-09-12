@@ -4,63 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD8F2CA0EC3
-	for <linux-riscv@archiver.kernel.org>; Tue, 12 Sep 2023 08:14:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB9C0CA0ECA
+	for <linux-riscv@archiver.kernel.org>; Tue, 12 Sep 2023 08:46:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jLWuC4Zivu69P2S4c9zPzv8lK5M3+3ju8NV9uPk3L0U=; b=tUBOFFesxa4JY7
-	tLPG8e4BTzSjqBHKiZmG5e67XMQsMxfcdMk30pDiYWlW0I+trG7O/L/cW3NFO9mH/L3KpL+1+UqNy
-	MUnXXoY/Ez3ywbHwCs+BnmLsAuRSrN1NC1CjSP30hd7jZTPfSR8W++BjVtFdrR6DeM5zQUtwtxkIN
-	yrZ3Zb8XnCqblF4zmQ7pK8QRPPKpsPpnFjjn3DXzyOmpavBodqds/65d11hUmU4oPZtSYfeicd1bb
-	Zz7XOgpkYeD3NuTGbNmAb3dcKRYcZfupS1HWuQhTDDYDBIfLtY3RZ+z75+ayjCWoY2xS29Ko6Rxz4
-	TZnPpQoBtoOb8NcdD04w==;
+	List-Owner; bh=8uXA6Uz7o+r3ER5bQLdABqpFHGKoBEaCDYV7N0AyBbo=; b=s7dNsVWDdt3rQS
+	5SBgCe4SDEd+G9LpDb4zMGp8kAmjYhb/g+3whaPOSUdZTf3Ir04PbtZEcJp2JPnZOd4Un+HW168RT
+	LplWY9O/LO/KmGWCSfTWJQY4XF5Vxh8iMYGqw8oiHI7i4HiWJPdzOAGeDwwDQPx0ALldDN3IOkfF1
+	6YHKKqKLdEyh/epwpc9VkWUZ3rjTOKT5y3gculFjPpfHyDFKaGQgyp6qVz4pRJlyp6jg6kXwo36tz
+	V4cKpIo5xRUa0uDTPpQ13FdUYQHRJS04eGRTYOgjyM2otLREuZvrFp1erqWDjyd3mDrx4mQNlGhl4
+	LiP48I6bbGnllLueYYsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qfyXl-002XWT-0t;
-	Tue, 12 Sep 2023 08:14:45 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qfyXb-002XOe-2g
+	id 1qfz2A-002cZC-1b;
+	Tue, 12 Sep 2023 08:46:10 +0000
+Received: from eu-smtp-delivery-151.mimecast.com ([185.58.86.151])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1qfz24-002cUy-2N
 	for linux-riscv@lists.infradead.org;
-	Tue, 12 Sep 2023 08:14:40 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 01B8080BE;
-	Tue, 12 Sep 2023 16:14:06 +0800 (CST)
-Received: from EXMBX168.cuchost.com (172.16.6.78) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 12 Sep
- 2023 16:14:06 +0800
-Received: from williamqiu-virtual-machine.starfivetech.com (171.223.208.138)
- by EXMBX168.cuchost.com (172.16.6.78) with Microsoft SMTP Server (TLS) id
- 15.0.1497.42; Tue, 12 Sep 2023 16:14:04 +0800
-From: William Qiu <william.qiu@starfivetech.com>
-To: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, <linux-mmc@vger.kernel.org>
-CC: Emil Renner Berthing <kernel@esmil.dk>, Rob Herring <robh+dt@kernel.org>,
-	Jaehoon Chung <jh80.chung@samsung.com>, Ulf Hansson <ulf.hansson@linaro.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley
-	<conor+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, "Palmer
- Dabbelt" <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, William Qiu
-	<william.qiu@starfivetech.com>
-Subject: [PATCH v2 0/3] Change tuning implementation
-Date: Tue, 12 Sep 2023 16:13:59 +0800
-Message-ID: <20230912081402.51477-4-william.qiu@starfivetech.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20230912081402.51477-1-william.qiu@starfivetech.com>
-References: <20230912081402.51477-1-william.qiu@starfivetech.com>
+	Tue, 12 Sep 2023 08:46:09 +0000
+Received: from AcuMS.aculab.com (156.67.243.121 [156.67.243.121]) by
+ relay.mimecast.com with ESMTP with both STARTTLS and AUTH (version=TLSv1.2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384) id
+ uk-mta-251-xsmTvxyCNdS6PTrhFzXR5w-1; Tue, 12 Sep 2023 09:45:42 +0100
+X-MC-Unique: xsmTvxyCNdS6PTrhFzXR5w-1
+Received: from AcuMS.Aculab.com (10.202.163.6) by AcuMS.aculab.com
+ (10.202.163.6) with Microsoft SMTP Server (TLS) id 15.0.1497.48; Tue, 12 Sep
+ 2023 09:45:39 +0100
+Received: from AcuMS.Aculab.com ([::1]) by AcuMS.aculab.com ([::1]) with mapi
+ id 15.00.1497.048; Tue, 12 Sep 2023 09:45:39 +0100
+From: David Laight <David.Laight@ACULAB.COM>
+To: 'Charlie Jenkins' <charlie@rivosinc.com>, Palmer Dabbelt
+	<palmer@dabbelt.com>, Conor Dooley <conor@kernel.org>, Samuel Holland
+	<samuel.holland@sifive.com>, "linux-riscv@lists.infradead.org"
+	<linux-riscv@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>
+CC: Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou
+	<aou@eecs.berkeley.edu>
+Subject: RE: [PATCH v4 2/5] riscv: Add checksum library
+Thread-Topic: [PATCH v4 2/5] riscv: Add checksum library
+Thread-Index: AQHZ5QNmAqaxDkDqBUuW+t+6iXe0brAW2+/w
+Date: Tue, 12 Sep 2023 08:45:38 +0000
+Message-ID: <1818c4114b0e4144a9df21f235984840@AcuMS.aculab.com>
+References: <20230911-optimize_checksum-v4-0-77cc2ad9e9d7@rivosinc.com>
+ <20230911-optimize_checksum-v4-2-77cc2ad9e9d7@rivosinc.com>
+In-Reply-To: <20230911-optimize_checksum-v4-2-77cc2ad9e9d7@rivosinc.com>
+Accept-Language: en-GB, en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-exchange-transport-fromentityheader: Hosted
+x-originating-ip: [10.202.205.107]
 MIME-Version: 1.0
-X-Originating-IP: [171.223.208.138]
-X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX168.cuchost.com
- (172.16.6.78)
-X-YovoleRuleAgent: yovoleflag
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: aculab.com
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230912_011436_047895_C7916669 
-X-CRM114-Status: GOOD (  10.32  )
+X-CRM114-CacheID: sfid-20230912_014605_047281_455D6C31 
+X-CRM114-Status: GOOD (  13.05  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,36 +81,76 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
+From: Charlie Jenkins
+> Sent: 11 September 2023 23:57
+> 
+> Provide a 32 and 64 bit version of do_csum. When compiled for 32-bit
+> will load from the buffer in groups of 32 bits, and when compiled for
+> 64-bit will load in groups of 64 bits. Benchmarking by proxy compiling
+> csum_ipv6_magic (64-bit version) for an x86 chip as well as running
+> the riscv generated code in QEMU, discovered that summing in a
+> tree-like structure is about 4% faster than doing 64-bit reads.
+> 
+...
+> +	sum   = saddr->s6_addr32[0];
+> +	sum  += saddr->s6_addr32[1];
+> +	sum1  = saddr->s6_addr32[2];
+> +	sum1 += saddr->s6_addr32[3];
+> +
+> +	sum2  = daddr->s6_addr32[0];
+> +	sum2 += daddr->s6_addr32[1];
+> +	sum3  = daddr->s6_addr32[2];
+> +	sum3 += daddr->s6_addr32[3];
+> +
+> +	sum4  = csum;
+> +	sum4 += ulen;
+> +	sum4 += uproto;
+> +
+> +	sum  += sum1;
+> +	sum2 += sum3;
+> +
+> +	sum += sum2;
+> +	sum += sum4;
 
-This series of patches changes the tuning implementation, from the
-previous way of reading and writing system controller registers to
-reading and writing UHS_REG_EXT register, thus optimizing the tuning
-of obtaining delay-chain.
+Have you got gcc to compile that as-is?
 
-Changes v1->v2:
-- Rebased to v6.6rc1.
-- Keeped "starfive,sysreg" in dt-bindings but removed from required.
-- Changed the function interface name.
-- Maked the code implementation more concise.
+Whenever I've tried to get a 'tree add' compiled so that the
+early adds can be executed in parallel gcc always pessimises
+it to a linear sequence of adds.
 
-The patch series is based on v6.6rc1.
+But I agree that adding 32bit values to a 64bit register
+may be no slower than trying to do an 'add carry' sequence
+that is guaranteed to only do one add/clock.
+(And on Intel cpu from core-2 until IIRC Haswell adc took 2 clocks!)
 
-William Qiu (3):
-  dt-bindings: mmc: Remove properties from required
-  mmc: starfive: Change tuning implementation
-  riscv: dts: starfive: Drop unused properties and limit frquency
+IIRC RISCV doesn't have a carry flag, so the adc sequence
+is hard - probably takes two extra instructions per value.
+Although with parallel execute it may not matter.
+Consider:
+	val = buf[offset];
+	sum += val;
+	carry += sum < val;
+	val = buf[offset1];
+	sum += val;
+	...
+the compare and 'carry +=' can be executed at the same time
+as the following two instructions.
+You do then a final sum += carry; sum += sum < carry;
 
- .../bindings/mmc/starfive,jh7110-mmc.yaml     |   2 -
- .../jh7110-starfive-visionfive-2.dtsi         |   4 +
- arch/riscv/boot/dts/starfive/jh7110.dtsi      |   2 -
- drivers/mmc/host/dw_mmc-starfive.c            | 137 +++++-------------
- 4 files changed, 44 insertions(+), 101 deletions(-)
+Assuming all instructions are 1 clock and any read delays
+get filled with other instructions (by source or hardware
+instruction re-ordering) even without parallel execute
+that is 4 clocks for 64 bits, which is much the same as the
+2 clocks for 32 bits.
 
---
-2.34.1
+Remember that all the 32bit values can summed first as
+they won't overflow.
 
+	David
 
+-
+Registered Address Lakeside, Bramley Road, Mount Farm, Milton Keynes, MK1 1PT, UK
+Registration No: 1397386 (Wales)
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
