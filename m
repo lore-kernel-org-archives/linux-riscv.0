@@ -4,66 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D5B3CA0EC3
-	for <linux-riscv@archiver.kernel.org>; Tue, 12 Sep 2023 06:56:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB472CA0EC3
+	for <linux-riscv@archiver.kernel.org>; Tue, 12 Sep 2023 07:05:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Kg5eAuJ7CyFwkCn/d3y7R0nHeCb5iCwVvZ68DP+asCk=; b=gHFChKEG39/cFC
-	v5N3Grh6ZC4f6OFjHaXLPE11ZlC3698Ikwh+gsfg0kfaQrvQdgmWCb7Kf+bXXDVdUgrq8jfDsCswJ
-	16vkQibeMo4lQrAG1ndEd+XBnJSGKVFvLjZ/Ahj2tvP4uPfm0Z9V3f9WxZtjYNArfIR0P69F8WhyS
-	hTbfc+4mXFF7kyUcpDh2PhBIbpbwdqY6Qo+UeCZHsDEdYiYhv6bV/1CA5ZwF82MLQdLcw3boGBHXe
-	bncp1/GUVnAdBVsQtkVu1eVGrp+/TzZk8Ox4NYkQ3bGDOkQPlc/TprRC+NXv6ZxHTb4R2QmXdw8Y/
-	J43hkc0l7gWTnCC+nxjw==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=TrDVndE8iJHOfZYfFGOQC6/dcFfw39nXY01nDlwhFj4=; b=kfKPF8d3cVxn1s
+	Z3eS50QAo4ijCcjAjmcSe8CtZMt1QkyHE5k121k8eLuxB5KrwCknr4hY7CeF6zjC55YtUuRUxR2Sm
+	5c5o2HjcA3/ngyr/MZvceqRzwAh+w68NslwoZDEEtPbwIj27RK6T10bBXGg8o1nqYWfw9D5MYClC8
+	6aH03owCLefX4O/umFkXhjVL92RenmEz1/j6hZfK8LNP/EqtmOBVvmH9Qr8nZQf9dleIu/aOD0Vd2
+	FpqGMdKdX2ZvLFuX4s+5VTfoCYeg9tDSZqSyPzpR5Gc5xhSNL5Pl7vJyHqvdgu6JPsgweDcOsY34n
+	3rasDe/azFXW/Ct7EHeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qfxKA-002Kd3-0s;
-	Tue, 12 Sep 2023 06:56:38 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1qfxSF-002Li2-1f;
+	Tue, 12 Sep 2023 07:04:59 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qfxK7-002KcM-10
+	id 1qfxSA-002Lgh-0S
 	for linux-riscv@lists.infradead.org;
-	Tue, 12 Sep 2023 06:56:36 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 359A660F98;
-	Tue, 12 Sep 2023 06:56:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3D400C433C7;
-	Tue, 12 Sep 2023 06:56:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1694501793;
-	bh=ACq4UovHGdsS/35TyjryQ/+Lm+A5dK/cB8Beun04Eg4=;
-	h=From:To:Cc:Subject:Date:From;
-	b=hl8PyhhukPibWgT7UB5eKKyk1cSrK6mmQfdkENKV5r9iIl1rgqSx0kMjsvFosBy2V
-	 6Bt+bm0l/X1sWzOwqeImCQCCLXEt5Z+5aOPIBRrnRW4eH0JwVVHVbn6Sytykb9YYyG
-	 uBX0ta5sWPf59uk4juiqRgroHKrqRBNguVOWaZwGS+U4RY8sKJ/SkFSAuEA/y0aecS
-	 9plt4R4apoX9MffEtQ7xsMQVp05QS8JfMR4ZoBXJU5M0c3Y5pTozsuV9PYo3bg07ng
-	 RsoIhaeUyPN3MlR/r+Q091tLCVTOwUGPJawYWr+hMTsDPzZivRl95VMw644VR/bZC0
-	 NT+kQR2L8gk+w==
-From: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>
-To: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	linux-riscv@lists.infradead.org,
-	Guo Ren <guoren@kernel.org>
-Cc: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@rivosinc.com>,
-	linux-kernel@vger.kernel.org,
-	linux-trace-kernel@vger.kernel.org,
-	Nam Cao <namcaov@gmail.com>,
-	Puranjay Mohan <puranjay12@gmail.com>
-Subject: [PATCH v3] riscv: Only consider swbp/ss handlers for correct privileged mode
-Date: Tue, 12 Sep 2023 08:56:19 +0200
-Message-Id: <20230912065619.62020-1-bjorn@kernel.org>
-X-Mailer: git-send-email 2.39.2
+	Tue, 12 Sep 2023 07:04:55 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-400a087b0bfso56312585e9.2
+        for <linux-riscv@lists.infradead.org>; Tue, 12 Sep 2023 00:04:51 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1694502290; x=1695107090; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=6LYSAyqOGAquE7WJUWpSo20AQyTJGIFtgc4llB7UU2A=;
+        b=OXSzZ7ibDHrqyzeQNVleuivCnvXNuiuc3Wlmg1JHfW5DvHkgEaNi+7AFQy1/IyEDKJ
+         FZeaiJJ9JpslMrf3SeObNLtFAtY248aLjbNl8iez7PSlOGo38UQqDolr6AuIEmWogScv
+         EJqBCShtJQSFNnWOFcWr05lee00vIKf0kFI26knN3L+yBLbUQhI1lQwgZFuBf/OYyZZK
+         rui3S2LIt3Aql43oZ3gCDNPChPmYuhEymikpzlrh2MkcvYTxcpJDmDoNVEjx6u/4VUa+
+         KRSMMdj2ju71imrGHOaQMQF2R92IW2XyIqXpYPd31/MmD1v3u+8/t1vxRoDnNO5FUtbO
+         holA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1694502290; x=1695107090;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=6LYSAyqOGAquE7WJUWpSo20AQyTJGIFtgc4llB7UU2A=;
+        b=rtwr6Tt/AHkymN15WigTsm2gMQUV1yi3fkSJVfomFqZGnCZYQsYR0IZfUaFxFzY2ld
+         4o/7MeAB6j2f+KZ4u8xQCMyU1y4OR+exPvxsdK/RFdhAxdSot7+gw9izSAiLJdNpMCFZ
+         fz2tXuFa6gJCCuMGVGdrYAKf+L0XhaP579nkWpEz0NzXjwy9Slkvbo4C6vB5VukwgvfS
+         /7OanU6Zbg3eZ+tIk6+bxzDR0GL4fjqXjAVzwKBitb2HF5cQGYI5QZa7EYno0xYvHeHT
+         xTIlywp/0TtX71SIQJQpBQVGc89CCn81t5MUQwmxUTwfzd7jX1KnvXT+a5OhHrVJwrIC
+         cKAg==
+X-Gm-Message-State: AOJu0YykCks+nExcjY/IvO0Vz4BySQLWkt8RS9ipgne/v7Wd+9zMjrdA
+	bxLwRTxTc+igUtowNIEa2IaKcNzL150IyA2hoNY=
+X-Google-Smtp-Source: AGHT+IGDPgmBAH+Gv4gPep6zQB5ZcHI+8juP8EnWdQ5W/MaG4tXyzUAhDYJSgVfdo5qrPdjOy7lXrA==
+X-Received: by 2002:a7b:cc8e:0:b0:3fe:687a:abb8 with SMTP id p14-20020a7bcc8e000000b003fe687aabb8mr10368161wma.7.1694502290167;
+        Tue, 12 Sep 2023 00:04:50 -0700 (PDT)
+Received: from [192.168.1.20] ([178.197.214.188])
+        by smtp.gmail.com with ESMTPSA id a16-20020a5d4570000000b00317f70240afsm12024520wrc.27.2023.09.12.00.04.48
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 12 Sep 2023 00:04:49 -0700 (PDT)
+Message-ID: <9da4efe6-bbff-62af-8d05-b05cf12a4c31@linaro.org>
+Date: Tue, 12 Sep 2023 09:04:47 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.15.0
+Subject: Re: [PATCH 1/3] dt-bindings: reset: Document th1520 reset control
+Content-Language: en-US
+To: k.son@samsung.com, p.zabel@pengutronix.de, robh+dt@kernel.org,
+ krzysztof.kozlowski+dt@linaro.org, conor+dt@kernel.org, jszhang@kernel.org,
+ guoren@kernel.org, wefu@redhat.com, paul.walmsley@sifive.com,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, inki.dae@samsung.com
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org
+References: <20230912024914.3769440-1-k.son@samsung.com>
+ <CGME20230912024917epcas1p4bb4d649f97b592c3245b10b6450d32cf@epcas1p4.samsung.com>
+ <20230912024914.3769440-2-k.son@samsung.com>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+In-Reply-To: <20230912024914.3769440-2-k.son@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230911_235635_460739_EE06FCDE 
-X-CRM114-Status: GOOD (  14.25  )
+X-CRM114-CacheID: sfid-20230912_000454_177884_F2CC77E3 
+X-CRM114-Status: GOOD (  16.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,90 +94,105 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RnJvbTogQmrDtnJuIFTDtnBlbCA8Ympvcm5Acml2b3NpbmMuY29tPgoKUklTQy1WIHNvZnR3YXJl
-IGJyZWFrcG9pbnQgdHJhcCBoYW5kbGVycyBhcmUgdXNlZCBmb3Ige2ssdX1wcm9iZXMuCgpXaGVu
-IHRyYXBwaW5nIGZyb20ga2VybmVsbW9kZSwgb25seSB0aGUga2VybmVsbW9kZSBoYW5kbGVycyBz
-aG91bGQgYmUKY29uc2lkZXJlZC4gVmljZSB2ZXJzYSwgb25seSB1c2VybW9kZSBoYW5kbGVycyBm
-b3IgdXNlcm1vZGUKdHJhcHMuIFRoaXMgaXMgbm90IHRoZSBjYXNlIG9uIFJJU0MtViwgd2hpY2gg
-Y2FuIHRyaWdnZXIgYSBidWcgaWYgYQp1c2Vyc3BhY2UgcHJvY2VzcyB1c2VzIHVwcm9iZXMsIGFu
-ZCBhIFdBUk4oKSBpcyB0cmlnZ2VyZWQgZnJvbQprZXJuZWxtb2RlICh3aGljaCBpcyBpbXBsZW1l
-bnRlZCB2aWEge2MuLH1lYnJlYWspLgoKVGhlIGtlcm5lbCB3aWxsIHRyYXAgb24gdGhlIGtlcm5l
-bG1vZGUge2MuLH1lYnJlYWssIGxvb2sgZm9yIHVwcm9iZXMKaGFuZGxlcnMsIHJlYWxpemUgaW5j
-b3JyZWN0bHkgdGhhdCB1cHJvYmVzIG5lZWQgdG8gYmUgaGFuZGxlZCwgYW5kCmV4aXQgdGhlIHRy
-YXAgaGFuZGxlciBlYXJseS4gVGhlIHRyYXAgcmV0dXJucyB0byByZS1leGVjdXRpbmcgdGhlCntj
-Lix9ZWJyZWFrLCBhbmQgZW50ZXIgYW4gaW5maW5pdGUgdHJhcC1sb29wLgoKVGhlIGlzc3VlIHdh
-cyBmb3VuZCBydW5uaW5nIHRoZSBCUEYgc2VsZnRlc3QgWzFdLgoKRml4IHRoaXMgaXNzdWUgYnkg
-b25seSBjb25zaWRlcmluZyB0aGUgc3dicC9zcyBoYW5kbGVycyBmb3IKa2VybmVsL3VzZXJtb2Rl
-IHJlc3BlY3RpdmVseS4gQWxzbywgbW92ZSBDT05GSUcgaWZkZWZmZXJ5IGZyb20gdHJhcHMuYwp0
-byB0aGUgYXNtL3trLHV9cHJvYmVzLmggaGVhZGVycy4KCk5vdGUgdGhhdCBsaW51eC91cHJvYmVz
-Lmggb25seSBpbmNsdWRlIGFzbS91cHJvYmVzLmggaWYgQ09ORklHX1VQUk9CRVMKaXMgZGVmaW5l
-ZCwgd2hpY2ggaXMgd2h5IGFzbS91cHJvYmVzLmggbmVlZHMgdG8gYmUgdW5jb25kaXRpb25hbGx5
-CmluY2x1ZGVkIGluIHRyYXBzLmMKCkxpbms6IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2xpbnV4
-LXJpc2N2Lzg3djhkMTlhdW4uZnNmQGFsbC55b3VyLmJhc2UuYXJlLmJlbG9uZy50by51cy8gIyBb
-MV0KRml4ZXM6IDc0Nzg0MDgxYWFjOCAoInJpc2N2OiBBZGQgdXByb2JlcyBzdXBwb3J0ZWQiKQpS
-ZXZpZXdlZC1ieTogR3VvIFJlbiA8Z3VvcmVuQGtlcm5lbC5vcmc+ClJldmlld2VkLWJ5OiBOYW0g
-Q2FvIDxuYW1jYW92QGdtYWlsLmNvbT4KVGVzdGVkLWJ5OiBQdXJhbmpheSBNb2hhbiA8cHVyYW5q
-YXkxMkBnbWFpbC5jb20+ClNpZ25lZC1vZmYtYnk6IEJqw7ZybiBUw7ZwZWwgPGJqb3JuQHJpdm9z
-aW5jLmNvbT4KLS0tCnYyLT52MzogUmVtb3ZlIGluY29ycmVjdCB0YWdzIChDb25vcikKICAgICAg
-ICBDb2xsZWN0IHJldmlldy90ZXN0IHRhZ3MKdjEtPnYyOiBGaXggQ2xhbmcgYnVpbGQgd2Fybmlu
-ZyAoa2VybmVsIHRlc3Qgcm9ib3QpCi0tLQogYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9rcHJvYmVz
-LmggfCAxMSArKysrKysrKysrLQogYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS91cHJvYmVzLmggfCAx
-MyArKysrKysrKysrKystCiBhcmNoL3Jpc2N2L2tlcm5lbC90cmFwcy5jICAgICAgICB8IDI4ICsr
-KysrKysrKysrKysrKysrKy0tLS0tLS0tLS0KIDMgZmlsZXMgY2hhbmdlZCwgNDAgaW5zZXJ0aW9u
-cygrKSwgMTIgZGVsZXRpb25zKC0pCgpkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9pbmNsdWRlL2Fz
-bS9rcHJvYmVzLmggYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2twcm9iZXMuaAppbmRleCBlNzg4
-MmNjYjBmZDQuLjc4ZWE0NGY3NjcxOCAxMDA2NDQKLS0tIGEvYXJjaC9yaXNjdi9pbmNsdWRlL2Fz
-bS9rcHJvYmVzLmgKKysrIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9rcHJvYmVzLmgKQEAgLTQw
-LDYgKzQwLDE1IEBAIHZvaWQgYXJjaF9yZW1vdmVfa3Byb2JlKHN0cnVjdCBrcHJvYmUgKnApOwog
-aW50IGtwcm9iZV9mYXVsdF9oYW5kbGVyKHN0cnVjdCBwdF9yZWdzICpyZWdzLCB1bnNpZ25lZCBp
-bnQgdHJhcG5yKTsKIGJvb2wga3Byb2JlX2JyZWFrcG9pbnRfaGFuZGxlcihzdHJ1Y3QgcHRfcmVn
-cyAqcmVncyk7CiBib29sIGtwcm9iZV9zaW5nbGVfc3RlcF9oYW5kbGVyKHN0cnVjdCBwdF9yZWdz
-ICpyZWdzKTsKLQorI2Vsc2UKK3N0YXRpYyBpbmxpbmUgYm9vbCBrcHJvYmVfYnJlYWtwb2ludF9o
-YW5kbGVyKHN0cnVjdCBwdF9yZWdzICpyZWdzKQoreworCXJldHVybiBmYWxzZTsKK30KKworc3Rh
-dGljIGlubGluZSBib29sIGtwcm9iZV9zaW5nbGVfc3RlcF9oYW5kbGVyKHN0cnVjdCBwdF9yZWdz
-ICpyZWdzKQoreworCXJldHVybiBmYWxzZTsKK30KICNlbmRpZiAvKiBDT05GSUdfS1BST0JFUyAq
-LwogI2VuZGlmIC8qIF9BU01fUklTQ1ZfS1BST0JFU19IICovCmRpZmYgLS1naXQgYS9hcmNoL3Jp
-c2N2L2luY2x1ZGUvYXNtL3Vwcm9iZXMuaCBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vdXByb2Jl
-cy5oCmluZGV4IGYyMTgzZTAwZmRkMi4uM2ZjN2RlZGE5MTkwIDEwMDY0NAotLS0gYS9hcmNoL3Jp
-c2N2L2luY2x1ZGUvYXNtL3Vwcm9iZXMuaAorKysgYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3Vw
-cm9iZXMuaApAQCAtMzQsNyArMzQsMTggQEAgc3RydWN0IGFyY2hfdXByb2JlIHsKIAlib29sIHNp
-bXVsYXRlOwogfTsKIAorI2lmZGVmIENPTkZJR19VUFJPQkVTCiBib29sIHVwcm9iZV9icmVha3Bv
-aW50X2hhbmRsZXIoc3RydWN0IHB0X3JlZ3MgKnJlZ3MpOwogYm9vbCB1cHJvYmVfc2luZ2xlX3N0
-ZXBfaGFuZGxlcihzdHJ1Y3QgcHRfcmVncyAqcmVncyk7Ci0KKyNlbHNlCitzdGF0aWMgaW5saW5l
-IGJvb2wgdXByb2JlX2JyZWFrcG9pbnRfaGFuZGxlcihzdHJ1Y3QgcHRfcmVncyAqcmVncykKK3sK
-KwlyZXR1cm4gZmFsc2U7Cit9CisKK3N0YXRpYyBpbmxpbmUgYm9vbCB1cHJvYmVfc2luZ2xlX3N0
-ZXBfaGFuZGxlcihzdHJ1Y3QgcHRfcmVncyAqcmVncykKK3sKKwlyZXR1cm4gZmFsc2U7Cit9Cisj
-ZW5kaWYgLyogQ09ORklHX1VQUk9CRVMgKi8KICNlbmRpZiAvKiBfQVNNX1JJU0NWX1VQUk9CRVNf
-SCAqLwpkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9rZXJuZWwvdHJhcHMuYyBiL2FyY2gvcmlzY3Yv
-a2VybmVsL3RyYXBzLmMKaW5kZXggMTk4MDdjNGQzODA1Li5mYWU4ZjYxMGQ4NjcgMTAwNjQ0Ci0t
-LSBhL2FyY2gvcmlzY3Yva2VybmVsL3RyYXBzLmMKKysrIGIvYXJjaC9yaXNjdi9rZXJuZWwvdHJh
-cHMuYwpAQCAtMTMsNiArMTMsOCBAQAogI2luY2x1ZGUgPGxpbnV4L2tkZWJ1Zy5oPgogI2luY2x1
-ZGUgPGxpbnV4L3VhY2Nlc3MuaD4KICNpbmNsdWRlIDxsaW51eC9rcHJvYmVzLmg+CisjaW5jbHVk
-ZSA8bGludXgvdXByb2Jlcy5oPgorI2luY2x1ZGUgPGFzbS91cHJvYmVzLmg+CiAjaW5jbHVkZSA8
-bGludXgvbW0uaD4KICNpbmNsdWRlIDxsaW51eC9tb2R1bGUuaD4KICNpbmNsdWRlIDxsaW51eC9p
-cnEuaD4KQEAgLTI0NywyMiArMjQ5LDI4IEBAIHN0YXRpYyBpbmxpbmUgdW5zaWduZWQgbG9uZyBn
-ZXRfYnJlYWtfaW5zbl9sZW5ndGgodW5zaWduZWQgbG9uZyBwYykKIAlyZXR1cm4gR0VUX0lOU05f
-TEVOR1RIKGluc24pOwogfQogCitzdGF0aWMgYm9vbCBwcm9iZV9zaW5nbGVfc3RlcF9oYW5kbGVy
-KHN0cnVjdCBwdF9yZWdzICpyZWdzKQoreworCWJvb2wgdXNlciA9IHVzZXJfbW9kZShyZWdzKTsK
-KworCXJldHVybiB1c2VyID8gdXByb2JlX3NpbmdsZV9zdGVwX2hhbmRsZXIocmVncykgOiBrcHJv
-YmVfc2luZ2xlX3N0ZXBfaGFuZGxlcihyZWdzKTsKK30KKworc3RhdGljIGJvb2wgcHJvYmVfYnJl
-YWtwb2ludF9oYW5kbGVyKHN0cnVjdCBwdF9yZWdzICpyZWdzKQoreworCWJvb2wgdXNlciA9IHVz
-ZXJfbW9kZShyZWdzKTsKKworCXJldHVybiB1c2VyID8gdXByb2JlX2JyZWFrcG9pbnRfaGFuZGxl
-cihyZWdzKSA6IGtwcm9iZV9icmVha3BvaW50X2hhbmRsZXIocmVncyk7Cit9CisKIHZvaWQgaGFu
-ZGxlX2JyZWFrKHN0cnVjdCBwdF9yZWdzICpyZWdzKQogewotI2lmZGVmIENPTkZJR19LUFJPQkVT
-Ci0JaWYgKGtwcm9iZV9zaW5nbGVfc3RlcF9oYW5kbGVyKHJlZ3MpKQorCWlmIChwcm9iZV9zaW5n
-bGVfc3RlcF9oYW5kbGVyKHJlZ3MpKQogCQlyZXR1cm47CiAKLQlpZiAoa3Byb2JlX2JyZWFrcG9p
-bnRfaGFuZGxlcihyZWdzKSkKLQkJcmV0dXJuOwotI2VuZGlmCi0jaWZkZWYgQ09ORklHX1VQUk9C
-RVMKLQlpZiAodXByb2JlX3NpbmdsZV9zdGVwX2hhbmRsZXIocmVncykpCisJaWYgKHByb2JlX2Jy
-ZWFrcG9pbnRfaGFuZGxlcihyZWdzKSkKIAkJcmV0dXJuOwogCi0JaWYgKHVwcm9iZV9icmVha3Bv
-aW50X2hhbmRsZXIocmVncykpCi0JCXJldHVybjsKLSNlbmRpZgogCWN1cnJlbnQtPnRocmVhZC5i
-YWRfY2F1c2UgPSByZWdzLT5jYXVzZTsKIAogCWlmICh1c2VyX21vZGUocmVncykpCgpiYXNlLWNv
-bW1pdDogMGJiODBlY2MzM2E4ZmI1YTY4MjIzNjQ0M2MxZTc0MGQ1YzkxN2QxZAotLSAKMi4zOS4y
-CgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgt
-cmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDov
-L2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+On 12/09/2023 04:49, k.son@samsung.com wrote:
+> From: Kwanghoon Son <k.son@samsung.com>
+> 
+> Add documentation to describe th1520 reset device
+
+Full stop.
+
+> 
+> Signed-off-by: Kwanghoon Son <k.son@samsung.com>
+
+This is v2, not v1. Please provide changelog after ---.
+
+
+> ---
+>  .../bindings/reset/thead,th1520-reset.yaml    | 47 +++++++++++++++++++
+>  include/dt-bindings/reset/th1520-reset.h      |  9 ++++
+>  2 files changed, 56 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/reset/thead,th1520-reset.yaml
+>  create mode 100644 include/dt-bindings/reset/th1520-reset.h
+> 
+> diff --git a/Documentation/devicetree/bindings/reset/thead,th1520-reset.yaml b/Documentation/devicetree/bindings/reset/thead,th1520-reset.yaml
+> new file mode 100644
+> index 000000000000..6724a9ccdd55
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/reset/thead,th1520-reset.yaml
+> @@ -0,0 +1,47 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/reset/thead,th1520-reset.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: T-HEAD th1520 SoC Reset Controller
+> +
+> +maintainers:
+> +  - Kwanghoon Son <k.son@samsung.com>
+> +
+> +allOf:
+> +  - $ref: /schemas/mfd/syscon.yaml#
+
+Why do you need it? Which existing file suggested such code?
+
+> +
+> +properties:
+> +  compatible:
+> +    items:
+> +      - const: thead,th1520-reset
+> +      - const: syscon
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  '#reset-cells':
+> +    const: 1
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - '#reset-cells'
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/reset/th1520-reset.h>
+> +
+> +    soc {
+> +      #address-cells = <2>;
+
+Your indentation is messed up. Here two spaces, further four. Just keep
+one indentation for the example - 4 spaces.
+
+> +      #size-cells = <2>;
+> +
+> +      reset-controller@ffef014000 {
+> +          compatible = "thead,th1520-reset", "syscon";
+> +          reg = <0xff 0xef014000 0x0 0x1000>;
+> +          #reset-cells = <1>;
+> +      };
+> +    };
+> diff --git a/include/dt-bindings/reset/th1520-reset.h b/include/dt-bindings/reset/th1520-reset.h
+> new file mode 100644
+> index 000000000000..ec10751814e5
+> --- /dev/null
+> +++ b/include/dt-bindings/reset/th1520-reset.h
+
+Filename matching bindings/compatible - missing vendor prefix.
+
+
+Best regards,
+Krzysztof
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
