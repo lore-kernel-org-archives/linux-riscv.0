@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9271CA0ECF
-	for <linux-riscv@archiver.kernel.org>; Tue, 12 Sep 2023 08:14:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A47CDCA0ECA
+	for <linux-riscv@archiver.kernel.org>; Tue, 12 Sep 2023 08:14:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=m6d1RkYio62Bapdzkkh6Buw9Mjmr4ItDQEWRuePpZHw=; b=0qmaO5gqP8gnop
-	tuYhSLuzVeQEwBXJO7MEX8WsP7qLjVexj/MDbxyCVKerZy88ZETsfCgiZ05JGTXcMpNK49Ic6JIla
-	23rcRYo+CJKsb7AtFEVdvs5N18No8JW85a8Ky0rWqL/qrTJuN4Q6i2sWOZoRI9Db/+5p8eDe5K67w
-	977jJOaA9dE3JOo9V0vC8GG9qBLokv81vRo6jH1KxNG4/hWV877BGPf+vi21Q3SQgMVgx9fBez0Si
-	AvT0QAmvzHxd+k7D9h5ywAW0I0jPdP4Vwcq84Od9OPRAb2RDofv9+siU7jF9TMWQiaFzaNoYNkHDa
-	l2Vv7LnmrGh3DMjVkrYA==;
+	List-Owner; bh=m6d1RkYio62Bapdzkkh6Buw9Mjmr4ItDQEWRuePpZHw=; b=bnpbZug/pw36j1
+	YN9xk5GE9vKFgq0thwjLrVjFI87iQpwLy+lI9ZkSfpos81bFPjVId/jeRsfJlqyzaUY6S21HLHJyD
+	Zx/17qqM3q3xRfYOQCDlmLNLrJrl7sj8ToHQfA1Pv4WpP0Sl9TNgCpCG5cR0fOI78kH6YsrOnLjI7
+	L/BHVTXdQmSJy5WBunQEWQkbJ1aRTNn4heVb0V4yvsJvuGy/NCrMQmlNv5n5+8nHJAeOJVmD0uuay
+	obVqvKf0Gtp9Y1Dt4KsQlUyZmzMhZkvh/7kex7zwwzTX7i/VoJQ/UHAvuhYf1ktWvKyWvVAqOgIPl
+	Q4wq/i3py1Te8LhX9Y/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qfyXk-002XW6-2E;
+	id 1qfyXk-002XVf-0N;
 	Tue, 12 Sep 2023 08:14:44 +0000
 Received: from fd01.gateway.ufhost.com ([61.152.239.71])
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qfyXb-002XOf-2g
+	id 1qfyXb-002XOg-2g
 	for linux-riscv@lists.infradead.org;
 	Tue, 12 Sep 2023 08:14:39 +0000
 Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
 	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 26AE4807D;
-	Tue, 12 Sep 2023 16:14:05 +0800 (CST)
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 3AADF80CF;
+	Tue, 12 Sep 2023 16:14:08 +0800 (CST)
 Received: from EXMBX168.cuchost.com (172.16.6.78) by EXMBX165.cuchost.com
  (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 12 Sep
- 2023 16:14:05 +0800
+ 2023 16:14:08 +0800
 Received: from williamqiu-virtual-machine.starfivetech.com (171.223.208.138)
  by EXMBX168.cuchost.com (172.16.6.78) with Microsoft SMTP Server (TLS) id
- 15.0.1497.42; Tue, 12 Sep 2023 16:14:04 +0800
+ 15.0.1497.42; Tue, 12 Sep 2023 16:14:07 +0800
 From: William Qiu <william.qiu@starfivetech.com>
 To: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
 	<linux-riscv@lists.infradead.org>, <linux-mmc@vger.kernel.org>
@@ -47,9 +47,9 @@ CC: Emil Renner Berthing <kernel@esmil.dk>, Rob Herring <robh+dt@kernel.org>,
 	<conor+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, "Palmer
  Dabbelt" <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, William Qiu
 	<william.qiu@starfivetech.com>
-Subject: [PATCH 3/3] riscv: dts: starfive: Drop unused properties and limit frquency
-Date: Tue, 12 Sep 2023 16:13:58 +0800
-Message-ID: <20230912081402.51477-3-william.qiu@starfivetech.com>
+Subject: [PATCH v2 3/3] riscv: dts: starfive: Drop unused properties and limit frquency
+Date: Tue, 12 Sep 2023 16:14:02 +0800
+Message-ID: <20230912081402.51477-7-william.qiu@starfivetech.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20230912081402.51477-1-william.qiu@starfivetech.com>
 References: <20230912081402.51477-1-william.qiu@starfivetech.com>
@@ -59,8 +59,8 @@ X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX168.cuchost.com
  (172.16.6.78)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230912_011436_052707_E7C65F36 
-X-CRM114-Status: GOOD (  11.32  )
+X-CRM114-CacheID: sfid-20230912_011436_046593_963D8618 
+X-CRM114-Status: GOOD (  11.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
