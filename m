@@ -4,81 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 630B3EE0211
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 Sep 2023 21:05:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4ABC4EE0210
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 Sep 2023 22:31:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ewzy+aRXBls/yvK/3L5wUQYDqWWhca3OeqkHS6S5K8k=; b=GoqKb1z6wttfhF
-	6pk0nFlJnSwhzfknHkSwuMdcSsrCOXUvyIhI8UnXd4szGzWorOG6rwf46n/3ijLlCzH35F07qRSqP
-	E5i3EBaV5/yN3NVKrzmQrkYcWKS3WGHdOgzaaEwJNOsnEB2F0KOp5B+68YO9sjA920/BOo0EE791Q
-	ZuuzYZiTgIaph8svDihTF2YMh1J0mosNlagNuQmNEYU1g2I//ylhfUfHRg1Oq65OdZNMzEu5JzjA4
-	RduKNqw7dYH+t2vRzadC5N12jjmMTbHbl9su7ZmcYD6IVjLbIxPwT/o5k5VG6LM5sP2+XBrCmL4Qn
-	TijAL5xNz0j+v8xkWPjQ==;
+	List-Owner; bh=TFyw+b845dwFQ7TJz+9l7D6++MDSfxogestXh8MXC40=; b=fkL0439F9640TY
+	XwtqxBU6hdQQxCtnySDgaHcH2VobtCKkQ4KaINn5WUVgLqjG1x5RZM5JE8CNmZQLJCuT+H0pHj1NN
+	Xn/6nON/aopohOxot2BeBjQo7HsUzZpaIhzyh3pznQ2ZP8+LgPKwZAG2yvRGqEGJXazeJZDmxhhQl
+	nPpCXsBzxB+qBuMX7c1yUg5N824oASzTWerleLDEj0WNn5J8ScZFTrZlmY+W1qyJpUB5eNU3nwKWh
+	8y/0CvoDUTIWde4oiW38oc5zUXm38Nm15VcNgFQQxdYRAYskDnNkUayA0RNU63quSV6eqZshrTqp/
+	9eYrmoKrYOLZMSBM1mhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgX3V-006j8u-1a;
-	Wed, 13 Sep 2023 21:05:49 +0000
-Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
+	id 1qgYNx-006oPb-1t;
+	Wed, 13 Sep 2023 22:31:01 +0000
+Received: from mail-yw1-x112e.google.com ([2607:f8b0:4864:20::112e])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgX3R-006j5p-1j
+	id 1qgYNu-006oPF-1t
 	for linux-riscv@lists.infradead.org;
-	Wed, 13 Sep 2023 21:05:47 +0000
-Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-1bf7423ef3eso1820375ad.3
-        for <linux-riscv@lists.infradead.org>; Wed, 13 Sep 2023 14:05:43 -0700 (PDT)
+	Wed, 13 Sep 2023 22:30:59 +0000
+Received: by mail-yw1-x112e.google.com with SMTP id 00721157ae682-5922380064bso3548547b3.2
+        for <linux-riscv@lists.infradead.org>; Wed, 13 Sep 2023 15:30:57 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1694639142; x=1695243942; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=JtSREAAsc0PfBIKOVZpOeKFMlctC6IiggFW+Cf905O0=;
-        b=SXhZ9XNo4vhF5/dcFyFF+sQbgbaE6eRndESoeVvK19qvCPqS7rRzXlOmYsQcFYfufU
-         HVbs/bByad5HDc6iW4ZHAjnc1hnehpmTaZOruN+S5LJVXxC5gdYNZYoD8yQ0SeKbFroe
-         Nh2tnTI+BLQ6nIV4VS3i6gTm1LhGg/NMGSKOyz9eTtzApyFSWDgligfOfKm5DX6ukglg
-         6fMO2xWHJBPhn/+mqyikYlx0oXpcTxskALg2wjz3eGHEuYPVxEelPRBOtVg08Tg5ItmA
-         pVXNilcuO0KW5Rv+M7iuSWGk58AVn5CW14Y39HJqdKqsS7iC5Nuhim9GNylG/giJfEUJ
-         mrqg==
+        d=linaro.org; s=google; t=1694644256; x=1695249056; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=LpRvRmdLKZN1fAsXTvuEC4vXsjz/GIuJNG6GTfaK4Ls=;
+        b=FnlySOkyNPYI32I9XHqP08JgAphNPiz4h7FxiKg1nizQDB16MLookWp7LMm6rBR74L
+         8MYFQ7KjZ98y/hNbm1NEqX5hkrOyWBOlIvM9O+H8C5TQTWkVqFHuhxh/tz6Q8kFBN2hm
+         HuP0AenGbGG3lDqtNP97Jc4jlWupX+83uywENkDPmLRSimeEyouENEo1hnhepgCI8ToS
+         BM90eXkDVwhrWWljbp+eXuoOV6Jfiqu/7wIbm+OMSTaSHGaJubQjlBXjVKXL06tHgj6J
+         UVs259ItHPIqCPHJ9uu9v/P+5HVySGz+fbYJgENTeGmKFQj+/Vgx8WhkL6h/AsWt4pny
+         idNw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1694639142; x=1695243942;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=JtSREAAsc0PfBIKOVZpOeKFMlctC6IiggFW+Cf905O0=;
-        b=m3Ft/1mNgNeMlL6vNySzbPx158S96IWuZRveHcTFihfCMBjrg6mw4yLRDD2jlDs56d
-         TFQ15I95Gdn18944m2kr1D6mm0CztE3ZiIRt5D6cnUEhTdww1i8P8SmPmdi0vQXSB1+/
-         xlmhVqcQq7bPveW/cYjxTikyz+BQ/aANqRpCLTS40OV+UVM6sl4DQ7LNNNZ2hCBJNFOF
-         GieelwZFT48yO1sygXamEeDb4Dr6u9jWNEcSZ1UqaDQ7r3oFvWdiBOGIxr8pYtBpuzIo
-         CalYClB0DPwh1nK9JOV0gO0gMSQ51PWDQ505yj/w2diaNbJpJQplOCA0du/6ryUePORZ
-         dufQ==
-X-Gm-Message-State: AOJu0YwU9tJu3t0fnS0zmIUhXFJAzhUardc47rbGPJvQ+aMjvW0CaVtT
-	SgmjJ0ra0QVGexT1IVFMjDiJiOUsd7SJloL/oPM=
-X-Google-Smtp-Source: AGHT+IHPv/vMc9Dxb8fCwIXYWHfUTJZjK2DX1bxPyMPPN672DPWOWr8BN7Fo+XQ7gtPWklS/0alodw==
-X-Received: by 2002:a17:902:ab8d:b0:1b8:6cab:db7f with SMTP id f13-20020a170902ab8d00b001b86cabdb7fmr3666918plr.53.1694639142356;
-        Wed, 13 Sep 2023 14:05:42 -0700 (PDT)
-Received: from charlie.ba.rivosinc.com ([66.220.2.162])
-        by smtp.gmail.com with ESMTPSA id z16-20020a170903019000b001ab2b4105ddsm66323plg.60.2023.09.13.14.05.41
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 13 Sep 2023 14:05:41 -0700 (PDT)
-From: Charlie Jenkins <charlie@rivosinc.com>
-Date: Wed, 13 Sep 2023 14:04:50 -0700
-Subject: [PATCH 2/2] riscv: Add tests for riscv module loading
+        d=1e100.net; s=20230601; t=1694644256; x=1695249056;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=LpRvRmdLKZN1fAsXTvuEC4vXsjz/GIuJNG6GTfaK4Ls=;
+        b=MaR4OECvewbJCNcCF7DwSaLI2pggiWDfyD1EmSMT6E8Neh5FusImJVQw8JMj65i/3J
+         YjDOQYRdBMWvkFq57jsG7ANFeiU2p+HU3MceLPyD2drWVh6tCdsn2cZI4/Kh05p5DqVA
+         Jt+MymOA6ql2IMJp4Kj0wX7HVz/JG321a3cbAE1MnNih8ApQdb8uRJp0/ut0WfKExmtG
+         p/N/Qs1ufrrDGBOSoHE7aVyvIJMp99FumDtnuWv4E3WgZD15dQkawG+ZzJ4attx1rxg+
+         10GrMajnxdnDcn69q3DRrEDsym0XD8x0ZvwIxAAC9+3lV4hWBfSxVdIJR9D08h7oa0jW
+         ox1w==
+X-Gm-Message-State: AOJu0YyhXRaZYilIV/L+GDCQOCixojR2LUeF1z4U4zNnaHowVU1SCit/
+	G4ivSH7WsRdpGr+F47dvsHiUgP12r6BcP2Z+iFnlpQ==
+X-Google-Smtp-Source: AGHT+IEg5emrh3Qk7P/wBxCbLwpiY1lTtDrRo47SLgbxFH5mT1OakFbaAVGWO+TMZ4ICQLGHbBFMooRRI5AfjrnsXWk=
+X-Received: by 2002:a25:8389:0:b0:d7a:c527:38cd with SMTP id
+ t9-20020a258389000000b00d7ac52738cdmr3460613ybk.63.1694644256645; Wed, 13 Sep
+ 2023 15:30:56 -0700 (PDT)
 MIME-Version: 1.0
-Message-Id: <20230913-module_relocations-v1-2-bb3d8467e793@rivosinc.com>
-References: <20230913-module_relocations-v1-0-bb3d8467e793@rivosinc.com>
-In-Reply-To: <20230913-module_relocations-v1-0-bb3d8467e793@rivosinc.com>
-To: linux-riscv@lists.infradead.org, linux-mm@kvack.org, 
- linux-kernel@vger.kernel.org
-Cc: Eric Biederman <ebiederm@xmission.com>, 
- Kees Cook <keescook@chromium.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Charlie Jenkins <charlie@rivosinc.com>
-X-Mailer: b4 0.12.3
+References: <20230913-bloomers-scorebook-fb45e0a2aa19@spud>
+In-Reply-To: <20230913-bloomers-scorebook-fb45e0a2aa19@spud>
+From: Ulf Hansson <ulf.hansson@linaro.org>
+Date: Thu, 14 Sep 2023 00:30:20 +0200
+Message-ID: <CAPDyKFoENVp7+VjKkPpJWDecowxYD=QM6TSa6HjyzOZ=z7r81w@mail.gmail.com>
+Subject: Re: [GIT PULL 0/5] Missed starfive pmdomain changes for v6.6, now for v6.7
+To: Conor Dooley <conor@kernel.org>
+Cc: Conor Dooley <conor.dooley@microchip.com>, arnd@arndb.de, 
+	changhuang.liang@starfivetech.com, jiajie.ho@starfivetech.com, 
+	linux-pm@vger.kernel.org, linux-riscv@lists.infradead.org, robh@kernel.org, 
+	walker.chen@starfivetech.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230913_140545_598008_EF82783C 
-X-CRM114-Status: GOOD (  16.75  )
+X-CRM114-CacheID: sfid-20230913_153058_626107_FE9D7015 
+X-CRM114-Status: GOOD (  16.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,440 +89,56 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add test cases for the two main groups of relocations added: SUB and
-SET.
+On Wed, 13 Sept 2023 at 15:56, Conor Dooley <conor@kernel.org> wrote:
+>
+> From: Conor Dooley <conor.dooley@microchip.com>
+>
+> Hey Uffe,
+>
+> Here's those missed changes in patch form. I figured it might be a bit
+> easier this way given the name of the subsystem is in flux, doubly so if
+> you'd like to put the header change of Rob's on fixes.
 
-Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
----
- arch/riscv/Kconfig.debug                           |  1 +
- arch/riscv/kernel/Makefile                         |  1 +
- arch/riscv/kernel/tests/Kconfig.debug              | 32 +++++++++++
- arch/riscv/kernel/tests/Makefile                   |  1 +
- arch/riscv/kernel/tests/module_test/Makefile       | 11 ++++
- .../tests/module_test/test_module_linking_main.c   | 64 ++++++++++++++++++++++
- arch/riscv/kernel/tests/module_test/test_set16.S   | 23 ++++++++
- arch/riscv/kernel/tests/module_test/test_set32.S   | 20 +++++++
- arch/riscv/kernel/tests/module_test/test_set6.S    | 23 ++++++++
- arch/riscv/kernel/tests/module_test/test_set8.S    | 23 ++++++++
- arch/riscv/kernel/tests/module_test/test_sub16.S   | 22 ++++++++
- arch/riscv/kernel/tests/module_test/test_sub32.S   | 22 ++++++++
- arch/riscv/kernel/tests/module_test/test_sub6.S    | 22 ++++++++
- arch/riscv/kernel/tests/module_test/test_sub64.S   | 27 +++++++++
- arch/riscv/kernel/tests/module_test/test_sub8.S    | 22 ++++++++
- 15 files changed, 314 insertions(+)
+Not sure we really need to queue up patch 1 for fixes - or is it
+fixing a real problem for us?
 
-diff --git a/arch/riscv/Kconfig.debug b/arch/riscv/Kconfig.debug
-index e69de29bb2d1..eafe17ebf710 100644
---- a/arch/riscv/Kconfig.debug
-+++ b/arch/riscv/Kconfig.debug
-@@ -0,0 +1 @@
-+source "arch/riscv/kernel/tests/Kconfig.debug"
-diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
-index 6ac56af42f4a..8310f62732fe 100644
---- a/arch/riscv/kernel/Makefile
-+++ b/arch/riscv/kernel/Makefile
-@@ -56,6 +56,7 @@ obj-y	+= stacktrace.o
- obj-y	+= cacheinfo.o
- obj-y	+= patch.o
- obj-y	+= probes/
-+obj-y	+= tests/
- obj-$(CONFIG_MMU) += vdso.o vdso/
- 
- obj-$(CONFIG_RISCV_M_MODE)	+= traps_misaligned.o
-diff --git a/arch/riscv/kernel/tests/Kconfig.debug b/arch/riscv/kernel/tests/Kconfig.debug
-new file mode 100644
-index 000000000000..05ca55fb4645
---- /dev/null
-+++ b/arch/riscv/kernel/tests/Kconfig.debug
-@@ -0,0 +1,32 @@
-+# SPDX-License-Identifier: GPL-2.0-only
-+menu "arch/riscv/kernel Testing and Coverage"
-+
-+menuconfig RUNTIME_KERNEL_TESTING_MENU
-+       bool "arch/riscv/kernel runtime Testing"
-+       def_bool y
-+       help
-+         Enable riscv kernel runtime testing.
-+
-+if RUNTIME_KERNEL_TESTING_MENU
-+
-+config RISCV_MODULE_LINKING_KUNIT
-+       bool "KUnit test riscv module linking at runtime" if !KUNIT_ALL_TESTS
-+       depends on KUNIT
-+       default KUNIT_ALL_TESTS
-+       help
-+         Enable this option to test riscv module linking at boot. This will
-+	 enable a module called "test_module_linking".
-+
-+         KUnit tests run during boot and output the results to the debug log
-+         in TAP format (http://testanything.org/). Only useful for kernel devs
-+         running the KUnit test harness, and not intended for inclusion into a
-+         production build.
-+
-+         For more information on KUnit and unit tests in general please refer
-+         to the KUnit documentation in Documentation/dev-tools/kunit/.
-+
-+         If unsure, say N.
-+
-+endif # RUNTIME_TESTING_MENU
-+
-+endmenu # "arch/riscv/kernel runtime Testing"
-diff --git a/arch/riscv/kernel/tests/Makefile b/arch/riscv/kernel/tests/Makefile
-new file mode 100644
-index 000000000000..7d6c76cffe20
---- /dev/null
-+++ b/arch/riscv/kernel/tests/Makefile
-@@ -0,0 +1 @@
-+obj-$(CONFIG_RISCV_MODULE_LINKING_KUNIT)	+= module_test/
-diff --git a/arch/riscv/kernel/tests/module_test/Makefile b/arch/riscv/kernel/tests/module_test/Makefile
-new file mode 100644
-index 000000000000..4b54978468ec
---- /dev/null
-+++ b/arch/riscv/kernel/tests/module_test/Makefile
-@@ -0,0 +1,11 @@
-+obj-m += test_module_linking.o
-+
-+test_sub := test_sub6.o test_sub8.o test_sub16.o test_sub32.o test_sub64.o
-+
-+test_set := test_set6.o test_set8.o test_set16.o test_set32.o
-+
-+test_module_linking-objs += $(test_sub)
-+
-+test_module_linking-objs += $(test_set)
-+
-+test_module_linking-objs += test_module_linking_main.o
-diff --git a/arch/riscv/kernel/tests/module_test/test_module_linking_main.c b/arch/riscv/kernel/tests/module_test/test_module_linking_main.c
-new file mode 100644
-index 000000000000..61e053520b83
---- /dev/null
-+++ b/arch/riscv/kernel/tests/module_test/test_module_linking_main.c
-@@ -0,0 +1,64 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Copyright (C) 2023 Rivos Inc.
-+ */
-+
-+#include <linux/module.h>
-+#include <linux/kernel.h>
-+#include <linux/init.h>
-+#include <kunit/test.h>
-+
-+MODULE_LICENSE("GPL");
-+
-+extern int test_set32(void);
-+extern int test_set16(void);
-+extern int test_set8(void);
-+extern int test_set6(void);
-+extern long test_sub64(void);
-+extern int test_sub32(void);
-+extern int test_sub16(void);
-+extern int test_sub8(void);
-+extern int test_sub6(void);
-+
-+#define CHECK_EQ(lhs, rhs) KUNIT_ASSERT_EQ(test, lhs, rhs)
-+
-+void run_test_set(struct kunit *test)
-+{
-+	int val32 = test_set32();
-+	int val16 = test_set16();
-+	int val8 = test_set8();
-+	int val6 = test_set6();
-+
-+	CHECK_EQ(val32, 0);
-+	CHECK_EQ(val16, 0);
-+	CHECK_EQ(val8, 0);
-+	CHECK_EQ(val6, 0);
-+}
-+
-+void run_test_sub(struct kunit *test)
-+{
-+	int val64 = test_sub64();
-+	int val32 = test_sub32();
-+	int val16 = test_sub16();
-+	int val8 = test_sub8();
-+	int val6 = test_sub6();
-+
-+	CHECK_EQ(val64, 0);
-+	CHECK_EQ(val32, 0);
-+	CHECK_EQ(val16, 0);
-+	CHECK_EQ(val8, 0);
-+	CHECK_EQ(val6, 0);
-+}
-+
-+static struct kunit_case __refdata riscv_module_linking_test_cases[] = {
-+	KUNIT_CASE(run_test_set),
-+	KUNIT_CASE(run_test_sub),
-+	{}
-+};
-+
-+static struct kunit_suite riscv_module_linking_test_suite = {
-+	.name = "riscv_checksum",
-+	.test_cases = riscv_module_linking_test_cases,
-+};
-+
-+kunit_test_suites(&riscv_module_linking_test_suite);
-diff --git a/arch/riscv/kernel/tests/module_test/test_set16.S b/arch/riscv/kernel/tests/module_test/test_set16.S
-new file mode 100644
-index 000000000000..2be0e441a12e
---- /dev/null
-+++ b/arch/riscv/kernel/tests/module_test/test_set16.S
-@@ -0,0 +1,23 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+/*
-+ * Copyright (C) 2023 Rivos Inc.
-+ */
-+
-+.text
-+.global test_set16
-+test_set16:
-+	lw	a0, set16
-+	la	t0, set16
-+#ifdef CONFIG_32BIT
-+	slli	t0, t0, 16
-+	srli	t0, t0, 16
-+#else
-+	slli	t0, t0, 48
-+	srli	t0, t0, 48
-+#endif
-+	sub	a0, a0, t0
-+	ret
-+.data
-+set16:
-+	.reloc set16, R_RISCV_SET16, set16
-+	.word 0
-diff --git a/arch/riscv/kernel/tests/module_test/test_set32.S b/arch/riscv/kernel/tests/module_test/test_set32.S
-new file mode 100644
-index 000000000000..de0444537e67
---- /dev/null
-+++ b/arch/riscv/kernel/tests/module_test/test_set32.S
-@@ -0,0 +1,20 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+/*
-+ * Copyright (C) 2023 Rivos Inc.
-+ */
-+
-+.text
-+.global test_set32
-+test_set32:
-+	lw	a0, set32
-+	la	t0, set32
-+#ifndef CONFIG_32BIT
-+	slli	t0, t0, 32
-+	srli	t0, t0, 32
-+#endif
-+	sub	a0, a0, t0
-+	ret
-+.data
-+set32:
-+	.reloc set32, R_RISCV_SET32, set32
-+	.word 0
-diff --git a/arch/riscv/kernel/tests/module_test/test_set6.S b/arch/riscv/kernel/tests/module_test/test_set6.S
-new file mode 100644
-index 000000000000..c39ce4c219eb
---- /dev/null
-+++ b/arch/riscv/kernel/tests/module_test/test_set6.S
-@@ -0,0 +1,23 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+/*
-+ * Copyright (C) 2023 Rivos Inc.
-+ */
-+
-+.text
-+.global test_set6
-+test_set6:
-+	lw	a0, set6
-+	la	t0, set6
-+#ifdef CONFIG_32BIT
-+	slli	t0, t0, 26
-+	srli	t0, t0, 26
-+#else
-+	slli	t0, t0, 58
-+	srli	t0, t0, 58
-+#endif
-+	sub	a0, a0, t0
-+	ret
-+.data
-+set6:
-+	.reloc set6, R_RISCV_SET6, set6
-+	.word 0
-diff --git a/arch/riscv/kernel/tests/module_test/test_set8.S b/arch/riscv/kernel/tests/module_test/test_set8.S
-new file mode 100644
-index 000000000000..a656173f6f99
---- /dev/null
-+++ b/arch/riscv/kernel/tests/module_test/test_set8.S
-@@ -0,0 +1,23 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+/*
-+ * Copyright (C) 2023 Rivos Inc.
-+ */
-+
-+.text
-+.global test_set8
-+test_set8:
-+	lw	a0, set8
-+	la	t0, set8
-+#ifdef CONFIG_32BIT
-+	slli	t0, t0, 24
-+	srli	t0, t0, 24
-+#else
-+	slli	t0, t0, 56
-+	srli	t0, t0, 56
-+#endif
-+	sub	a0, a0, t0
-+	ret
-+.data
-+set8:
-+	.reloc set8, R_RISCV_SET8, set8
-+	.word 0
-diff --git a/arch/riscv/kernel/tests/module_test/test_sub16.S b/arch/riscv/kernel/tests/module_test/test_sub16.S
-new file mode 100644
-index 000000000000..c561e155d1db
---- /dev/null
-+++ b/arch/riscv/kernel/tests/module_test/test_sub16.S
-@@ -0,0 +1,22 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+/*
-+ * Copyright (C) 2023 Rivos Inc.
-+ */
-+
-+.text
-+.global test_sub16
-+test_sub16:
-+	lh	a0, sub16
-+	addi	a0, a0, -32
-+	ret
-+first:
-+	.rept 8
-+	.word 0
-+	.endr
-+second:
-+
-+.data
-+sub16:
-+	.reloc		sub16, R_RISCV_ADD16, second
-+	.reloc		sub16, R_RISCV_SUB16, first
-+	.half		0
-diff --git a/arch/riscv/kernel/tests/module_test/test_sub32.S b/arch/riscv/kernel/tests/module_test/test_sub32.S
-new file mode 100644
-index 000000000000..93232c70cae6
---- /dev/null
-+++ b/arch/riscv/kernel/tests/module_test/test_sub32.S
-@@ -0,0 +1,22 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+/*
-+ * Copyright (C) 2023 Rivos Inc.
-+ */
-+
-+.text
-+.global test_sub32
-+test_sub32:
-+	lw	a0, sub32
-+	addi	a0, a0, -32
-+	ret
-+first:
-+	.rept 8
-+	.word 0
-+	.endr
-+second:
-+
-+.data
-+sub32:
-+	.reloc		sub32, R_RISCV_ADD32, second
-+	.reloc		sub32, R_RISCV_SUB32, first
-+	.word		0
-diff --git a/arch/riscv/kernel/tests/module_test/test_sub6.S b/arch/riscv/kernel/tests/module_test/test_sub6.S
-new file mode 100644
-index 000000000000..d9c9526ceb62
---- /dev/null
-+++ b/arch/riscv/kernel/tests/module_test/test_sub6.S
-@@ -0,0 +1,22 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+/*
-+ * Copyright (C) 2023 Rivos Inc.
-+ */
-+
-+.text
-+.global test_sub6
-+test_sub6:
-+	lb	a0, sub6
-+	addi	a0, a0, -32
-+	ret
-+first:
-+	.rept 8
-+	.word 0
-+	.endr
-+second:
-+
-+.data
-+sub6:
-+	.reloc		sub6, R_RISCV_SET6, second
-+	.reloc		sub6, R_RISCV_SUB6, first
-+	.byte		0
-diff --git a/arch/riscv/kernel/tests/module_test/test_sub64.S b/arch/riscv/kernel/tests/module_test/test_sub64.S
-new file mode 100644
-index 000000000000..6d260e2a5d98
---- /dev/null
-+++ b/arch/riscv/kernel/tests/module_test/test_sub64.S
-@@ -0,0 +1,27 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+/*
-+ * Copyright (C) 2023 Rivos Inc.
-+ */
-+
-+.text
-+.global test_sub64
-+test_sub64:
-+#ifdef CONFIG_32BIT
-+	lw	a0, sub64
-+#else
-+	ld	a0, sub64
-+#endif
-+	addi	a0, a0, -32
-+	ret
-+first:
-+	.rept 8
-+	.word 0
-+	.endr
-+second:
-+
-+.data
-+sub64:
-+	.reloc		sub64, R_RISCV_ADD64, second
-+	.reloc		sub64, R_RISCV_SUB64, first
-+	.word		0
-+	.word		0
-diff --git a/arch/riscv/kernel/tests/module_test/test_sub8.S b/arch/riscv/kernel/tests/module_test/test_sub8.S
-new file mode 100644
-index 000000000000..af7849115d4d
---- /dev/null
-+++ b/arch/riscv/kernel/tests/module_test/test_sub8.S
-@@ -0,0 +1,22 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+/*
-+ * Copyright (C) 2023 Rivos Inc.
-+ */
-+
-+.text
-+.global test_sub8
-+test_sub8:
-+	lb	a0, sub8
-+	addi	a0, a0, -32
-+	ret
-+first:
-+	.rept 8
-+	.word 0
-+	.endr
-+second:
-+
-+.data
-+sub8:
-+	.reloc		sub8, R_RISCV_ADD8, second
-+	.reloc		sub8, R_RISCV_SUB8, first
-+	.byte		0
+>
+> I had this out for LKP last night, seemed to get a clean bill of health,
+> before I rebased it on top of the new name this afternoon, and ofc it was
+> in linux-next on top of v6.5 for quite a while...
+>
+> Thanks,
+> Conor.
+>
+> CC: arnd@arndb.de
+> CC: changhuang.liang@starfivetech.com
+> CC: jiajie.ho@starfivetech.com
+> CC: linux-pm@vger.kernel.org
+> CC: linux-riscv@lists.infradead.org
+> CC: robh@kernel.org
+> CC: ulf.hansson@linaro.org
+> CC: walker.chen@starfivetech.com
+>
+> Changhuang Liang (4):
+>   dt-bindings: power: Add power-domain header for JH7110
+>   pmdomain: starfive: Replace SOC_STARFIVE with ARCH_STARFIVE
+>   pmdomain: starfive: Extract JH7110 pmu private operations
+>   pmdomain: starfive: Add JH7110 AON PMU support
+>
+> Rob Herring (1):
+>   pmdomain: starfive: Explicitly include correct DT includes
+>
+>  MAINTAINERS                                   |   1 +
+>  drivers/pmdomain/starfive/jh71xx-pmu.c        | 139 ++++++++++++++----
+>  drivers/soc/starfive/Kconfig                  |   4 +-
+>  .../dt-bindings/power/starfive,jh7110-pmu.h   |   5 +-
+>  4 files changed, 117 insertions(+), 32 deletions(-)
+>
 
--- 
-2.34.1
+The series applied for next, thanks!
 
+Kind regards
+Uffe
 
 _______________________________________________
 linux-riscv mailing list
