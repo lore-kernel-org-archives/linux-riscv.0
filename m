@@ -4,59 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0658DEE01E2
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 Sep 2023 16:42:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A97FEE01E3
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 Sep 2023 16:42:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MlkLfIwzFrScD+BOffs66GByn30GmxCBC0folDNpo6Q=; b=js4tBk/jh73A0L
-	pWYy1+i+lR9exBO/kkFP6MvIvZdRxUN5GG5qa31wtYByKQJcrvpz6J9BXioYRV5FVudzyUEp+dv2P
-	FYPyhbIuKO2Kv/tw4hbrZ0O+f+znYzBpwLfCiQMxkpkGEU7ggMApwqKc/q7T5JCd/R/k9FWpL9KdI
-	PISuenUxx+p0ONGSIj76FEmH4LtSnfdec7uJW2PEaUnmYpmHLaEhS9dqaFiUf/9WF0+gAb9JhcsBg
-	G5dSOrtYA5MMyqXIouDO+uRq//VUlIheD8hK5Ly/eDHWpyVOVT81UZU3yJAz9k88PGQW7nCInocQu
-	m9Kw1soysmfmKoyBq8vg==;
+	List-Owner; bh=kjd+m7/ZesAhkN930iMwe7KOuO2LoDddtWiXzmZkSpE=; b=YKmmzg/EDVnBFk
+	QFps1DBzAAs1pi9NdQpHXtrniNesS614layfo+dQPv0MYl9u56oJHp6624A9lBhzdhpFQCCDomTaQ
+	/treVU9tJK4oA1FqW2CxRGEjV647qMBrNgMI8b7ktSE7SUYWPEEJkftJ7clcXyo3J6i/N+81KmMUn
+	GCF5+x6CponJPTC7TMlR2BPNB41LbrW1QmHZ/RQXgamsL4Nn32CJBVbRxW+La1DQJKfngxnckTVGm
+	LVPI85bcC2PuU5j23GhzwvUI3njWxjzdQaLpFieZzuIe4eBRLlp1kx4dc5mWUJrZYtLiHea0oK8xU
+	pjP1+ZyzRJTbdfZPtT6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgSwy-006Owo-2T;
-	Wed, 13 Sep 2023 16:42:48 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgSuK-006LoO-0C;
-	Wed, 13 Sep 2023 16:40:09 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4D35AC15;
-	Wed, 13 Sep 2023 09:40:40 -0700 (PDT)
-Received: from merodach.members.linode.com (unknown [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 51B823F5A1;
-	Wed, 13 Sep 2023 09:40:01 -0700 (PDT)
-From: James Morse <james.morse@arm.com>
-To: linux-pm@vger.kernel.org,
-	loongarch@lists.linux.dev,
-	linux-acpi@vger.kernel.org,
-	linux-arch@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
+	id 1qgSx2-006P28-18;
+	Wed, 13 Sep 2023 16:42:52 +0000
+Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1qgSuU-006Lx2-38
+	for linux-riscv@lists.infradead.org;
+	Wed, 13 Sep 2023 16:40:19 +0000
+Received: by mail-pf1-x42f.google.com with SMTP id d2e1a72fcca58-68fb5bd8f02so3499068b3a.0
+        for <linux-riscv@lists.infradead.org>; Wed, 13 Sep 2023 09:40:12 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1694623212; x=1695228012; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=qenuytjXSLiGJ5kC+qcQ9TcZYC4A59ZzfaqAy8GW1hM=;
+        b=LfzuEBwFHi9xNDoqcFrWfUmj4rn7UuDXJHQtyVVLpsc6eMi9OR9VH0jcNzCR7E366P
+         4jx0XhlVg5Wp0X2jV0aupMNyjERqJnoCfyD9+lmVv3pOD1rAMxl7zMbC1JYJ+8QU7JxK
+         NxxdXjiH4uo6jGLovhrxg4eWkBjDEYRFGFmqHt+h9DwaAHBLoqLe7rxM2YFCWN4DStSN
+         IhinxJRdPRKdZcLsIPQ+KoT0OzCvPz4e5xx33+xdHjy6mZPaOXbCMb6kuMR3jJ+Fl9Q5
+         0QjiJKcNZzrtgb6WOxAvcUBfF2qsgeZeQuX2ci/ol/Yd59nJmEA/L4QHUJbjbx1+fiur
+         vzIQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1694623212; x=1695228012;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=qenuytjXSLiGJ5kC+qcQ9TcZYC4A59ZzfaqAy8GW1hM=;
+        b=ATVUpVGPlurgFcypyVMzT9K7fhIb2Etgudme7nsZBwvLoLyrmflvIjjiaJmTsQh7Th
+         8f1fdXOgYUe8BD+vA/gobQhg78ZWVVI6Er1NdzewkASNgPWbGqMwbJUs6oIfpuoWhogn
+         v/CDqjtFqG3itPrjewPExR4e9sk8vhtl0Nbb8Z+V+X94c7QvGbuR7eG93I8OJdrY3ZWW
+         ai8vwXYUeN79JoWmCsKretah5HDdJsRDcyiVsr7renXHTxcxat6FZqMmdSuIBEKmFp7u
+         GvSj0tNSMjkQC9qhQVBCbAAozcBqvJn8MTCFaD4dYxOFkxpOPJ3qlQMRjArghz/iCFyV
+         la3w==
+X-Gm-Message-State: AOJu0YxdBxsdUTE/N2wz2PFuW/K/GsKCXlSqfD4ha2dEKtcAI0loEgxl
+	fCfotLoCZqkDgPcBGMDC1JA7Iw==
+X-Google-Smtp-Source: AGHT+IEdFy3Ow6J8ZnhgA5RICyAg1M67g+2y3qpcX9JXSprca6USli5lcOy8CCm03zHegv6l3xiriQ==
+X-Received: by 2002:a05:6a20:d426:b0:14c:6cd9:bf9d with SMTP id il38-20020a056a20d42600b0014c6cd9bf9dmr2589416pzb.35.1694623212048;
+        Wed, 13 Sep 2023 09:40:12 -0700 (PDT)
+Received: from mchitale-vm.. ([103.97.165.210])
+        by smtp.googlemail.com with ESMTPSA id je15-20020a170903264f00b001b243a20f26sm10577756plb.273.2023.09.13.09.40.04
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 13 Sep 2023 09:40:11 -0700 (PDT)
+From: Mayuresh Chitale <mchitale@ventanamicro.com>
+To: Palmer Dabbelt <palmer@dabbelt.com>,
+	Anup Patel <anup@brainfault.org>
+Cc: Mayuresh Chitale <mchitale@ventanamicro.com>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Atish Patra <atishp@atishpatra.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
 	linux-riscv@lists.infradead.org,
-	kvmarm@lists.linux.dev
-Cc: x86@kernel.org,
-	Salil Mehta <salil.mehta@huawei.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Jean-Philippe Brucker <jean-philippe@linaro.org>,
-	jianyong.wu@arm.com,
-	justin.he@arm.com
-Subject: [RFC PATCH v2 35/35] cpumask: Add enabled cpumask for present CPUs that can be brought online
-Date: Wed, 13 Sep 2023 16:38:23 +0000
-Message-Id: <20230913163823.7880-36-james.morse@arm.com>
-X-Mailer: git-send-email 2.20.1
-In-Reply-To: <20230913163823.7880-1-james.morse@arm.com>
-References: <20230913163823.7880-1-james.morse@arm.com>
+	kvm-riscv@lists.infradead.org,
+	Conor Dooley <conor@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Rob Herring <robh+dt@kernel.org>,
+	devicetree@vger.kernel.org
+Subject: [PATCH v5 6/7] RISCV: KVM: Add sstateen0 context save/restore
+Date: Wed, 13 Sep 2023 22:09:04 +0530
+Message-Id: <20230913163905.480819-7-mchitale@ventanamicro.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20230913163905.480819-1-mchitale@ventanamicro.com>
+References: <20230913163905.480819-1-mchitale@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230913_094004_215469_D3773646 
-X-CRM114-Status: GOOD (  13.77  )
+X-CRM114-CacheID: sfid-20230913_094015_243714_43CEB18A 
+X-CRM114-Status: GOOD (  12.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,173 +102,96 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The 'offline' file in sysfs shows all offline CPUs, including those
-that aren't present. User-space is expected to remove not-present CPUs
-from this list to learn which CPUs could be brought online.
+Define sstateen0 and add sstateen0 save/restore for guest VCPUs.
 
-CPUs can be present but not-enabled. These CPUs can't be brought online
-until the firmware policy changes, which comes with an ACPI notification
-that will register the CPUs.
-
-With only the offline and present files, user-space is unable to
-determine which CPUs it can try to bring online. Add a new CPU mask
-that shows this based on all the registered CPUs.
-
-Signed-off-by: James Morse <james.morse@arm.com>
+Signed-off-by: Mayuresh Chitale <mchitale@ventanamicro.com>
+Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
 ---
- drivers/base/cpu.c      | 10 ++++++++++
- include/linux/cpumask.h | 25 +++++++++++++++++++++++++
- kernel/cpu.c            |  3 +++
- 3 files changed, 38 insertions(+)
+ arch/riscv/include/asm/csr.h      |  1 +
+ arch/riscv/include/asm/kvm_host.h |  8 ++++++++
+ arch/riscv/kvm/vcpu.c             | 12 ++++++++++++
+ 3 files changed, 21 insertions(+)
 
-diff --git a/drivers/base/cpu.c b/drivers/base/cpu.c
-index c709747c4a18..a19a8be93102 100644
---- a/drivers/base/cpu.c
-+++ b/drivers/base/cpu.c
-@@ -95,6 +95,7 @@ void unregister_cpu(struct cpu *cpu)
- {
- 	int logical_cpu = cpu->dev.id;
+diff --git a/arch/riscv/include/asm/csr.h b/arch/riscv/include/asm/csr.h
+index 65b871dbf7e8..306a19a5509c 100644
+--- a/arch/riscv/include/asm/csr.h
++++ b/arch/riscv/include/asm/csr.h
+@@ -288,6 +288,7 @@
+ #define CSR_STVEC		0x105
+ #define CSR_SCOUNTEREN		0x106
+ #define CSR_SENVCFG		0x10a
++#define CSR_SSTATEEN0		0x10c
+ #define CSR_SSCRATCH		0x140
+ #define CSR_SEPC		0x141
+ #define CSR_SCAUSE		0x142
+diff --git a/arch/riscv/include/asm/kvm_host.h b/arch/riscv/include/asm/kvm_host.h
+index 1980be6a3e79..0eefd9c991ae 100644
+--- a/arch/riscv/include/asm/kvm_host.h
++++ b/arch/riscv/include/asm/kvm_host.h
+@@ -170,6 +170,10 @@ struct kvm_vcpu_config {
+ 	u64 hstateen0;
+ };
  
-+	set_cpu_enabled(logical_cpu, false);
- 	unregister_cpu_under_node(logical_cpu, cpu_to_node(logical_cpu));
- 
- 	device_unregister(&cpu->dev);
-@@ -273,6 +274,13 @@ static ssize_t print_cpus_offline(struct device *dev,
- }
- static DEVICE_ATTR(offline, 0444, print_cpus_offline, NULL);
- 
-+static ssize_t print_cpus_enabled(struct device *dev,
-+				  struct device_attribute *attr, char *buf)
-+{
-+	return sysfs_emit(buf, "%*pbl\n", cpumask_pr_args(cpu_enabled_mask));
-+}
-+static DEVICE_ATTR(enabled, 0444, print_cpus_enabled, NULL);
++struct kvm_vcpu_smstateen_csr {
++	unsigned long sstateen0;
++};
 +
- static ssize_t print_cpus_isolated(struct device *dev,
- 				  struct device_attribute *attr, char *buf)
- {
-@@ -413,6 +421,7 @@ int register_cpu(struct cpu *cpu, int num)
- 	register_cpu_under_node(num, cpu_to_node(num));
- 	dev_pm_qos_expose_latency_limit(&cpu->dev,
- 					PM_QOS_RESUME_LATENCY_NO_CONSTRAINT);
-+	set_cpu_enabled(num, true);
+ struct kvm_vcpu_arch {
+ 	/* VCPU ran at least once */
+ 	bool ran_atleast_once;
+@@ -190,6 +194,7 @@ struct kvm_vcpu_arch {
+ 	unsigned long host_stvec;
+ 	unsigned long host_scounteren;
+ 	unsigned long host_senvcfg;
++	unsigned long host_sstateen0;
  
- 	return 0;
- }
-@@ -494,6 +503,7 @@ static struct attribute *cpu_root_attrs[] = {
- 	&cpu_attrs[2].attr.attr,
- 	&dev_attr_kernel_max.attr,
- 	&dev_attr_offline.attr,
-+	&dev_attr_enabled.attr,
- 	&dev_attr_isolated.attr,
- #ifdef CONFIG_NO_HZ_FULL
- 	&dev_attr_nohz_full.attr,
-diff --git a/include/linux/cpumask.h b/include/linux/cpumask.h
-index f10fb87d49db..a29ee03f13ff 100644
---- a/include/linux/cpumask.h
-+++ b/include/linux/cpumask.h
-@@ -92,6 +92,7 @@ static inline void set_nr_cpu_ids(unsigned int nr)
-  *
-  *     cpu_possible_mask- has bit 'cpu' set iff cpu is populatable
-  *     cpu_present_mask - has bit 'cpu' set iff cpu is populated
-+ *     cpu_enabled_mask  - has bit 'cpu' set iff cpu can be brought online
-  *     cpu_online_mask  - has bit 'cpu' set iff cpu available to scheduler
-  *     cpu_active_mask  - has bit 'cpu' set iff cpu available to migration
-  *
-@@ -124,11 +125,13 @@ static inline void set_nr_cpu_ids(unsigned int nr)
+ 	/* CPU context of Host */
+ 	struct kvm_cpu_context host_context;
+@@ -200,6 +205,9 @@ struct kvm_vcpu_arch {
+ 	/* CPU CSR context of Guest VCPU */
+ 	struct kvm_vcpu_csr guest_csr;
  
- extern struct cpumask __cpu_possible_mask;
- extern struct cpumask __cpu_online_mask;
-+extern struct cpumask __cpu_enabled_mask;
- extern struct cpumask __cpu_present_mask;
- extern struct cpumask __cpu_active_mask;
- extern struct cpumask __cpu_dying_mask;
- #define cpu_possible_mask ((const struct cpumask *)&__cpu_possible_mask)
- #define cpu_online_mask   ((const struct cpumask *)&__cpu_online_mask)
-+#define cpu_enabled_mask   ((const struct cpumask *)&__cpu_enabled_mask)
- #define cpu_present_mask  ((const struct cpumask *)&__cpu_present_mask)
- #define cpu_active_mask   ((const struct cpumask *)&__cpu_active_mask)
- #define cpu_dying_mask    ((const struct cpumask *)&__cpu_dying_mask)
-@@ -973,6 +976,7 @@ extern const DECLARE_BITMAP(cpu_all_bits, NR_CPUS);
- #else
- #define for_each_possible_cpu(cpu) for_each_cpu((cpu), cpu_possible_mask)
- #define for_each_online_cpu(cpu)   for_each_cpu((cpu), cpu_online_mask)
-+#define for_each_enabled_cpu(cpu)   for_each_cpu((cpu), cpu_enabled_mask)
- #define for_each_present_cpu(cpu)  for_each_cpu((cpu), cpu_present_mask)
- #endif
- 
-@@ -995,6 +999,15 @@ set_cpu_possible(unsigned int cpu, bool possible)
- 		cpumask_clear_cpu(cpu, &__cpu_possible_mask);
- }
- 
-+static inline void
-+set_cpu_enabled(unsigned int cpu, bool can_be_onlined)
-+{
-+	if (can_be_onlined)
-+		cpumask_set_cpu(cpu, &__cpu_enabled_mask);
-+	else
-+		cpumask_clear_cpu(cpu, &__cpu_enabled_mask);
-+}
++	/* CPU Smstateen CSR context of Guest VCPU */
++	struct kvm_vcpu_smstateen_csr smstateen_csr;
 +
- static inline void
- set_cpu_present(unsigned int cpu, bool present)
+ 	/* CPU context upon Guest VCPU reset */
+ 	struct kvm_cpu_context guest_reset_context;
+ 
+diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
+index 3013ae30c3af..c061a1c5fe98 100644
+--- a/arch/riscv/kvm/vcpu.c
++++ b/arch/riscv/kvm/vcpu.c
+@@ -621,16 +621,28 @@ static void kvm_riscv_update_hvip(struct kvm_vcpu *vcpu)
+ 
+ static __always_inline void kvm_riscv_vcpu_swap_in_guest_state(struct kvm_vcpu *vcpu)
  {
-@@ -1074,6 +1087,7 @@ static __always_inline unsigned int num_online_cpus(void)
- 	return raw_atomic_read(&__num_online_cpus);
- }
- #define num_possible_cpus()	cpumask_weight(cpu_possible_mask)
-+#define num_enabled_cpus()	cpumask_weight(cpu_enabled_mask)
- #define num_present_cpus()	cpumask_weight(cpu_present_mask)
- #define num_active_cpus()	cpumask_weight(cpu_active_mask)
++	struct kvm_vcpu_smstateen_csr *smcsr = &vcpu->arch.smstateen_csr;
+ 	struct kvm_vcpu_csr *csr = &vcpu->arch.guest_csr;
++	struct kvm_vcpu_config *cfg = &vcpu->arch.cfg;
  
-@@ -1082,6 +1096,11 @@ static inline bool cpu_online(unsigned int cpu)
- 	return cpumask_test_cpu(cpu, cpu_online_mask);
- }
- 
-+static inline bool cpu_enabled(unsigned int cpu)
-+{
-+	return cpumask_test_cpu(cpu, cpu_enabled_mask);
-+}
-+
- static inline bool cpu_possible(unsigned int cpu)
- {
- 	return cpumask_test_cpu(cpu, cpu_possible_mask);
-@@ -1106,6 +1125,7 @@ static inline bool cpu_dying(unsigned int cpu)
- 
- #define num_online_cpus()	1U
- #define num_possible_cpus()	1U
-+#define num_enabled_cpus()	1U
- #define num_present_cpus()	1U
- #define num_active_cpus()	1U
- 
-@@ -1119,6 +1139,11 @@ static inline bool cpu_possible(unsigned int cpu)
- 	return cpu == 0;
+ 	vcpu->arch.host_senvcfg = csr_swap(CSR_SENVCFG, csr->senvcfg);
++	if (riscv_has_extension_unlikely(RISCV_ISA_EXT_SMSTATEEN) &&
++	    (cfg->hstateen0 & SMSTATEEN0_SSTATEEN0))
++		vcpu->arch.host_sstateen0 = csr_swap(CSR_SSTATEEN0,
++						     smcsr->sstateen0);
  }
  
-+static inline bool cpu_enabled(unsigned int cpu)
-+{
-+	return cpu == 0;
-+}
-+
- static inline bool cpu_present(unsigned int cpu)
+ static __always_inline void kvm_riscv_vcpu_swap_in_host_state(struct kvm_vcpu *vcpu)
  {
- 	return cpu == 0;
-diff --git a/kernel/cpu.c b/kernel/cpu.c
-index 6de7c6bb74ee..2201a6a449b5 100644
---- a/kernel/cpu.c
-+++ b/kernel/cpu.c
-@@ -3101,6 +3101,9 @@ EXPORT_SYMBOL(__cpu_possible_mask);
- struct cpumask __cpu_online_mask __read_mostly;
- EXPORT_SYMBOL(__cpu_online_mask);
++	struct kvm_vcpu_smstateen_csr *smcsr = &vcpu->arch.smstateen_csr;
+ 	struct kvm_vcpu_csr *csr = &vcpu->arch.guest_csr;
++	struct kvm_vcpu_config *cfg = &vcpu->arch.cfg;
  
-+struct cpumask __cpu_enabled_mask __read_mostly;
-+EXPORT_SYMBOL(__cpu_enabled_mask);
-+
- struct cpumask __cpu_present_mask __read_mostly;
- EXPORT_SYMBOL(__cpu_present_mask);
+ 	csr->senvcfg = csr_swap(CSR_SENVCFG, vcpu->arch.host_senvcfg);
++	if (riscv_has_extension_unlikely(RISCV_ISA_EXT_SMSTATEEN) &&
++	    (cfg->hstateen0 & SMSTATEEN0_SSTATEEN0))
++		smcsr->sstateen0 = csr_swap(CSR_SSTATEEN0,
++					    vcpu->arch.host_sstateen0);
+ }
  
+ /*
 -- 
-2.39.2
+2.34.1
 
 
 _______________________________________________
