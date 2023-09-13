@@ -4,84 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E705CCA5512
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 Sep 2023 09:19:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CE6DCA5531
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 Sep 2023 10:15:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:Mime-Version
-	:References:In-Reply-To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZDzSWyOfyv8U32Na7hWq5u1GbRi73Jik9Mb6f7xNnZ0=; b=bn88REKJf1XuH8
-	ywD0AgkPxpv1Heekrz4EHIBs41faJ/zLpB/m/byLVo/KELuPmx0ggy/3S1+cxJ26801qxi1c0S/fq
-	NRKRfWuDcJqyQ++Pi1SDVsMW5GhYw1M2TQPXH/bdewQjQ9UmiNLLb1+09XQDM0z9naLfH16xIJNVF
-	qZNB/bEQXyIxMHEwZQL9f0ZdQJylZehGU6ZXNMvTky8Eg6adrPl7onbHLeByxWQX9hQKd8t6Iw+U1
-	kdWO0lr/Fiq+4aITO/hMlXj7TuLfdfitY/Gv/ftN91llE9UaM0Elrz8IC2ygVXo3GP6DmIQDoKA1F
-	2NNKi1+o4LfJjIBLeNOA==;
+	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id
+	:Date:Subject:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=PWQu/XwoSXppUmAs8sN22V+Wr5aKOng2SNUQgxC7Tkk=; b=I1pr1O5Fwg5aJi
+	LJv6KtRF+AqN9Nbi3zPIW9Ses7Yv9BuJOaFtIu2GeLN4naSQvx3dSh4qb+GggGaLqrUPnEhHUfGab
+	Eg2M98Hhif70TWTVCcJ1qBmV7MS4dJg4mLh+A1eqOQldDUVXEpxUw1TuEonw5H3O1NL5FTqXu/hHe
+	L/CnjRODTtSmS4OC4+Z809yvV0mOhaenY9yMIUCiUuXAJ6sqVCmijjGn20I3YJs8Gag+WiGtYpEZV
+	+jXjVVcB6GGObDenmUTC6i5jQTT6USbnThNW2PyYJbEfw56e4lTXBmxoXWJxyPAMbM29cW5vrO4Kb
+	C5GgUxk8Go3zkwRx542A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgM2O-005IGk-0P;
-	Wed, 13 Sep 2023 09:19:56 +0000
-Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
+	id 1qgMuE-005Ny8-28;
+	Wed, 13 Sep 2023 10:15:34 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgM2J-005IDi-17
-	for linux-riscv@lists.infradead.org;
-	Wed, 13 Sep 2023 09:19:53 +0000
-Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
+	id 1qgLuG-005FYm-1a;
+	Wed, 13 Sep 2023 09:11:34 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id B26793F671
-	for <linux-riscv@lists.infradead.org>; Wed, 13 Sep 2023 09:19:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20210705; t=1694596785;
-	bh=QtCA0UtRzCSjKL8jQ8LuLqlWRxghJL7WuWVY8knUOsQ=;
-	h=From:In-Reply-To:References:Mime-Version:Date:Message-ID:Subject:
-	 To:Cc:Content-Type;
-	b=X5Fny7FYuObTIPO3NToF+rc3XSp3Rnty3cIBwb78GkwpNkJ2QYFa2ijHLelNrU4WT
-	 T9Ltewab6+841dU0xHDGK9nHpm7wU7pM/7t5z1gmsCtjEMfjVMhJcJiSBs1s3nC78U
-	 suvLXt9AiKCE3YCxvuGNWHL5PCwu6kvJQBGjBOl1HuvDtYlNEL+ENyQXa2b6cm4ljG
-	 UEY1lb1xMQ4hvmKoiakBfA9i1zYnek9i/272Dr0HvpfVFN4kTldmx4bp8I+7ll7vQM
-	 eCsxmxT7zuwgEIUxUwiIdrxg8eGgAnWU8FVfJNTR5LBZw9+gHqvaO5X0TIVnrYzgn5
-	 QPVaixAI8+DoQ==
-Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-4150f8480c5so57254801cf.2
-        for <linux-riscv@lists.infradead.org>; Wed, 13 Sep 2023 02:19:45 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1694596784; x=1695201584;
-        h=cc:to:subject:message-id:date:mime-version:references:in-reply-to
-         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=QtCA0UtRzCSjKL8jQ8LuLqlWRxghJL7WuWVY8knUOsQ=;
-        b=J5b8KqfLeYsPdcCTFAu8cS42uT0xb8C4ACXDSsdxMoqY5fgroyHGprJmSR2cbwBBTE
-         JUDPG954a5myIndrJvOimA4KkgcYmHUNkMsf/v3hsvJ9eHzhaz0Qr+9nO01MTu/DvCe/
-         lJql1edZ2RYh0C7RJ5vmH7msN9MAUzgy0rYUhllPDoZdP0hjvClCfmqxXp92+7mx3CDp
-         W5huze9+kl7sJ6PNGBrOkTRZFt65WkO1Y1TaU2ZVZKYuvjx5ucW2Pa1tEToQ8k0/sOhe
-         gcbtebga1X7HlPvRHlwuYtFLKzt6QOkU9KX7i4Jo39MI+MY4Sp8AoP1SXnxss3tJIhWV
-         feUQ==
-X-Gm-Message-State: AOJu0YzdT2M+IyWJB1CFHxyStAyINAW8gIxcSoouFb+IWgFDoDCCsCRQ
-	5paZ609Ni12IuBKjQyT3EKzdCXMCuUBPcwXCzhN+YDCKcJW10EX5FcTY7UZk1rFZ/VRrT2BKRby
-	xsveJ4NC8IiK2Orbx1hwP94wfu2iOvDSzoecWYv4QvszqeJydyLiPsfCu4tFPew==
-X-Received: by 2002:ac8:5e50:0:b0:410:8873:aca with SMTP id i16-20020ac85e50000000b0041088730acamr1946441qtx.52.1694596784431;
-        Wed, 13 Sep 2023 02:19:44 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHEPEk+g8sSB+NpwuSLALIeaLj2VlTbMgY40JOMaj8TmrfLzRbqL3eZIJfaog8DKhpLdeY+wYP5elUu40uvzLk=
-X-Received: by 2002:ac8:5e50:0:b0:410:8873:aca with SMTP id
- i16-20020ac85e50000000b0041088730acamr1946425qtx.52.1694596784130; Wed, 13
- Sep 2023 02:19:44 -0700 (PDT)
-Received: from 348282803490 named unknown by gmailapi.google.com with
- HTTPREST; Wed, 13 Sep 2023 02:19:43 -0700
-From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-In-Reply-To: <ZQEgi9v1gt6MlkDv@ghost>
-References: <20230911-optimize_checksum-v4-0-77cc2ad9e9d7@rivosinc.com>
- <20230911-optimize_checksum-v4-1-77cc2ad9e9d7@rivosinc.com>
- <CAJM55Z-kj8eWKvR32At4kx+PPPn9OMaR88BhEqppQHSL03n50Q@mail.gmail.com> <ZQEgi9v1gt6MlkDv@ghost>
-Mime-Version: 1.0
-Date: Wed, 13 Sep 2023 02:19:43 -0700
-Message-ID: <CAJM55Z9SC0ET=tBJ7s0pz+L4tRSC02yogsWtmsuhr=-jf04yjQ@mail.gmail.com>
-Subject: Re: [PATCH v4 1/5] riscv: Checksum header
-To: Charlie Jenkins <charlie@rivosinc.com>, 
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 2DDB46181B;
+	Wed, 13 Sep 2023 09:11:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 823C4C433C7;
+	Wed, 13 Sep 2023 09:11:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1694596290;
+	bh=IF6j2/SpYlg2pfwUX2eh+AoPnu93Roh0uk49wRv/q+Y=;
+	h=From:Subject:Date:To:Cc:Reply-To:From;
+	b=o3v1Q0AfOS98gJRgbnbYgSFhJATKnAvbBJjBxbwn9AC7FIEBGLlRtFYi99uY7nV4M
+	 JOrf5t82biXrDRr5EtdvK+2PcQaxHhjxkGalXZv2hecWcXdCDwFhL87diGF2fVkeet
+	 hjTXvYIbY+7pJUzqsIqnJvSsGclXxVeTaR8f6C0Yk8gK9U+4jKKLuglOz2AzNyuXSs
+	 e/lLStT/8DRe6NSajTHgAS0KheQv7Tjs5EtrJFsypzCdY6XXee66vdGFDGY7SAr/J5
+	 jzK7lIj5Ba8XNKS7W/DjrohUJqxf7pVpNo4bANYheFqqLnDB74eVT/Lh4JDaSsNWqg
+	 V8eya7i54N8NA==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 5E9D1CA5518;
+	Wed, 13 Sep 2023 09:11:30 +0000 (UTC)
+From: Joel Granados via B4 Relay <devnull+j.granados.samsung.com@kernel.org>
+Subject: [PATCH v2 0/8] sysctl: Remove sentinel elements from arch
+Date: Wed, 13 Sep 2023 11:10:54 +0200
+Message-Id: <20230913-jag-sysctl_remove_empty_elem_arch-v2-0-d1bd13a29bae@samsung.com>
+MIME-Version: 1.0
+X-B4-Tracking: v=1; b=H4sIAJ58AWUC/42NQQ6CMBAAv0L2bE0phYAn/2FIU8sKNZSSLjYSw
+ t+tJN49zhxmNiAMFgku2QYBoyXrpwTilIEZ9NQjs11iEFwUvOGSPXXPaCWzjCqg8xEVunlZFY7
+ olA5mYHXe3bmusDJGQurMAR/2fTxubeLB0uLDeixj/rW/evVHPeaMs6Ipyk7WpRSyvpJ29Jr6s
+ /EO2n3fPyJm99bUAAAA
+To: Luis Chamberlain <mcgrof@kernel.org>, willy@infradead.org, 
+ josh@joshtriplett.org, Kees Cook <keescook@chromium.org>, 
+ Iurii Zaikin <yzaikin@google.com>, Heiko Carstens <hca@linux.ibm.com>, 
+ Vasily Gorbik <gor@linux.ibm.com>, 
+ Alexander Gordeev <agordeev@linux.ibm.com>, 
+ Christian Borntraeger <borntraeger@linux.ibm.com>, 
+ Sven Schnelle <svens@linux.ibm.com>, 
+ Gerald Schaefer <gerald.schaefer@linux.ibm.com>, 
+ Russell King <linux@armlinux.org.uk>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+ Mark Rutland <mark.rutland@arm.com>, Thomas Gleixner <tglx@linutronix.de>, 
+ Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+ Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
+ "H. Peter Anvin" <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, 
+ Christophe Leroy <christophe.leroy@csgroup.eu>, Guo Ren <guoren@kernel.org>, 
+ Alexey Gladkov <legion@kernel.org>
+Cc: linux-fsdevel@vger.kernel.org, linux-s390@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-riscv@lists.infradead.org, linuxppc-dev@lists.ozlabs.org, 
+ linux-ia64@vger.kernel.org, linux-csky@vger.kernel.org, 
+ Joel Granados <j.granados@samsung.com>, Ingo Molnar <mingo@kernel.org>
+X-Mailer: b4 0.13-dev-86aa5
+X-Developer-Signature: v=1; a=openpgp-sha256; l=8698;
+ i=j.granados@samsung.com; h=from:subject:message-id;
+ bh=KIqswrAVMdhaWb/JbcZcIzXf/NYrgSb7sP/BTqWOdYY=;
+ b=owEB7QES/pANAwAKAbqXzVK3lkFPAcsmYgBlAXy963a+0HLyfnoYmbG27az0WEoNmgVTomdUX
+ Hr6xAbPgcuJAbMEAAEKAB0WIQSuRwlXJeYxJc7LJ5C6l81St5ZBTwUCZQF8vQAKCRC6l81St5ZB
+ T8o4C/0Zq95HrASlp0txb2/xovzLqmJ9WEKkTKx2USnCrRDjlxRQmgR5U7DmMUuohQFIV+0KR9S
+ vyHAWw53ehtrNqeX++6LB6slyNaFUJeY4mDs/l3MjRAzWhYJ7yWZV51U77MLeFn1YuiScWaHIo2
+ xXk6mQ8R6ZUUpXKkYIhsfH5ozGwLJYGChNF6/1UhfehOaYd5mUAhzy4RMsHC97fAlUTQtfxW1NT
+ dUPcHF6ZSfLHD2MDKITxxbWh+qZgAXSgibDGmOaM8Tmo1axwGvXqJxSez/zax7kUPjPJ3WT6hb4
+ rbWXkzRkT7XJg9dGYAhWhjGHDk1bqcDMOCLkLDw+PfhYXUKSpBDtmoRrKD6kThbn+IelfgDr9Yt
+ RISkf0KOqi8SKPATEEMtz/SScWjBavkqQvxZe3tIOoEb+ezASWYTlcBKSbiHSOTFjxLXc+Gp29Y
+ jdNYL0jmq2y5Y6G4u+FXOrVCfHlFsP/QKZ14pwBmq9CpPV3G5eg2foyffZMFJXmfqiwS4=
+X-Developer-Key: i=j.granados@samsung.com; a=openpgp;
+ fpr=F1F8E46D30F0F6C4A45FF4465895FAAC338C6E77
+X-Endpoint-Received: by B4 Relay for j.granados@samsung.com/default with auth_id=70
+X-Original-From: Joel Granados <j.granados@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230913_021951_523220_17ABD03B 
-X-CRM114-Status: GOOD (  32.31  )
+X-CRM114-CacheID: sfid-20230913_021132_631507_3D494CE9 
+X-CRM114-Status: GOOD (  27.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,154 +111,202 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Albert Ou <aou@eecs.berkeley.edu>, linux-kernel@vger.kernel.org, Conor Dooley <conor@kernel.org>, David Laight <David.Laight@aculab.com>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org
+Reply-To: j.granados@samsung.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Charlie Jenkins wrote:
-> On Tue, Sep 12, 2023 at 03:24:29AM -0700, Emil Renner Berthing wrote:
-> > Charlie Jenkins wrote:
-> > > Provide checksum algorithms that have been designed to leverage riscv
-> > > instructions such as rotate. In 64-bit, can take advantage of the larger
-> > > register to avoid some overflow checking.
-> > >
-> > > Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
-> > > ---
-> > >  arch/riscv/include/asm/checksum.h | 95 +++++++++++++++++++++++++++++++++++++++
-> > >  1 file changed, 95 insertions(+)
-> > >
-> > > diff --git a/arch/riscv/include/asm/checksum.h b/arch/riscv/include/asm/checksum.h
-> > > new file mode 100644
-> > > index 000000000000..0d7fc8275a5e
-> > > --- /dev/null
-> > > +++ b/arch/riscv/include/asm/checksum.h
-> > > @@ -0,0 +1,95 @@
-> > > +/* SPDX-License-Identifier: GPL-2.0 */
-> > > +/*
-> > > + * IP checksum routines
-> > > + *
-> > > + * Copyright (C) 2023 Rivos Inc.
-> > > + */
-> > > +#ifndef __ASM_RISCV_CHECKSUM_H
-> > > +#define __ASM_RISCV_CHECKSUM_H
-> > > +
-> > > +#include <linux/in6.h>
-> > > +#include <linux/uaccess.h>
-> > > +
-> > > +#ifdef CONFIG_32BIT
-> > > +typedef unsigned int csum_t;
-> > > +#else
-> > > +typedef unsigned long csum_t;
-> > > +#endif
-> >
-> > Hi Charlie,
-> >
-> > Isn't unsigned long already 32bit on 32bit RISC-V, so why is this #ifdef
-> > needed?
-> Oh, I wasn't sure so I ran sizeof(long) in qemu-system-riscv32 and it
-> gave me 8 so assumed a long was 8 bytes. Do you think it would make what
-> is going on more clear if I use u32 and u64 or would you recommend just
-> using long?
+From: Joel Granados <j.granados@samsung.com>
 
-Yeah, it doesn't seem like csum_t is used anywhere else, so I'd just use
-unsigned long if all you want is a register sized unsigned value. It'll be more
-familiar and easier to read for most people.
+What?
+These commits remove the sentinel element (last empty element) from the
+sysctl arrays of all the files under the "arch/" directory that use a
+sysctl array for registration. The merging of the preparation patches
+(in https://lore.kernel.org/all/ZO5Yx5JFogGi%2FcBo@bombadil.infradead.org/)
+to mainline allows us to just remove sentinel elements without changing
+behavior. This is now safe because the sysctl registration code
+(register_sysctl() and friends) use the array size in addition to
+checking for a sentinel ([1] for more info).
 
-> >
-> > > +
-> > > +/*
-> > > + *	Fold a partial checksum without adding pseudo headers
-> > > + */
-> > > +static inline __sum16 csum_fold(__wsum sum)
-> > > +{
-> > > +	return (~sum - ror32(sum, 16)) >> 16;
-> > > +}
-> > > +
-> > > +#define csum_fold csum_fold
-> > > +
-> > > +/*
-> > > + * Quickly compute an IP checksum with the assumption that IPv4 headers will
-> > > + * always be in multiples of 32-bits, and have an ihl of at least 5.
-> > > + * @ihl is the number of 32 bit segments and must be greater than or equal to 5.
-> > > + * @iph is assumed to be word aligned.
-> > > + */
-> > > +static inline __sum16 ip_fast_csum(const void *iph, unsigned int ihl)
-> > > +{
-> > > +	csum_t csum = 0;
-> > > +	int pos = 0;
-> > > +
-> > > +	do {
-> > > +		csum += ((const unsigned int *)iph)[pos];
-> > > +		if (IS_ENABLED(CONFIG_32BIT))
-> > > +			csum += csum < ((const unsigned int *)iph)[pos];
-> > > +	} while (++pos < ihl);
-> > > +
-> > > +	/*
-> > > +	 * ZBB only saves three instructions on 32-bit and five on 64-bit so not
-> > > +	 * worth checking if supported without Alternatives.
-> > > +	 */
-> > > +	if (IS_ENABLED(CONFIG_RISCV_ISA_ZBB) &&
-> > > +	    IS_ENABLED(CONFIG_RISCV_ALTERNATIVE)) {
-> > > +		csum_t fold_temp;
-> > > +
-> > > +		asm_volatile_goto(ALTERNATIVE("j %l[no_zbb]", "nop", 0,
-> > > +					      RISCV_ISA_EXT_ZBB, 1)
-> > > +		    :
-> > > +		    :
-> > > +		    :
-> > > +		    : no_zbb);
-> > > +
-> > > +		if (IS_ENABLED(CONFIG_32BIT)) {
-> > > +			asm(".option push				\n\
-> > > +			.option arch,+zbb				\n\
-> > > +				not	%[fold_temp], %[csum]		\n\
-> > > +				rori	%[csum], %[csum], 16		\n\
-> > > +				sub	%[csum], %[fold_temp], %[csum]	\n\
-> > > +			.option pop"
-> > > +			: [csum] "+r" (csum), [fold_temp] "=&r" (fold_temp));
-> > > +		} else {
-> > > +			asm(".option push				\n\
-> > > +			.option arch,+zbb				\n\
-> > > +				rori	%[fold_temp], %[csum], 32	\n\
-> > > +				add	%[csum], %[fold_temp], %[csum]	\n\
-> > > +				srli	%[csum], %[csum], 32		\n\
-> > > +				not	%[fold_temp], %[csum]		\n\
-> > > +				roriw	%[csum], %[csum], 16		\n\
-> > > +				subw	%[csum], %[fold_temp], %[csum]	\n\
-> > > +			.option pop"
-> > > +			: [csum] "+r" (csum), [fold_temp] "=&r" (fold_temp));
-> > > +		}
-> > > +		return csum >> 16;
-> > > +	}
-> > > +no_zbb:
-> > > +#ifndef CONFIG_32BIT
-> > > +		csum += (csum >> 32) | (csum << 32);
-> > > +		csum >>= 32;
-> >
-> > The indentation seems off here.
-> >
-> > /Emil
-> >
-> > > +#endif
-> > > +	return csum_fold((__force __wsum)csum);
-> > > +}
-> > > +
-> > > +#define ip_fast_csum ip_fast_csum
-> > > +
-> > > +#include <asm-generic/checksum.h>
-> > > +
-> > > +#endif // __ASM_RISCV_CHECKSUM_H
-> > >
-> > > --
-> > > 2.42.0
-> > >
-> > >
-> > > _______________________________________________
-> > > linux-riscv mailing list
-> > > linux-riscv@lists.infradead.org
-> > > http://lists.inradead.org/mailman/listinfo/linux-riscv
+These commits are part of a bigger set (bigger patchset here
+https://github.com/Joelgranados/linux/tree/tag/sysctl_remove_empty_elem_V4)
+that remove the ctl_table sentinel. The idea is to make the review
+process easier by chunking the 52 commits into manageable pieces. By
+sending out one chunk at a time, they can be reviewed separately without
+noise from parallel sets. After the "arch/" commits in this set are
+reviewed, I will continue with drivers/*, fs/*, kernel/*, net/* and
+miscellaneous. The final set will remove the unneeded check for
+->procname == NULL.
+
+Why?
+By removing the sysctl sentinel elements we avoid kernel bloat as
+ctl_table arrays get moved out of kernel/sysctl.c into their own
+respective subsystems. This move was started long ago to avoid merge
+conflicts; the sentinel removal bit came after Mathew Wilcox suggested
+it to avoid bloating the kernel by one element as arrays moved out. This
+patchset will reduce the overall build time size of the kernel and run
+time memory bloat by about ~64 bytes per declared ctl_table array. I
+have consolidated some links that shed light on the history of this
+effort [2].
+
+V2:
+* Added clarification both in the commit messages and the coverletter as
+  to why this patch is safe to apply.
+* Added {Acked,Reviewed,Tested}-by from list
+* Link to v1: https://lore.kernel.org/r/20230906-jag-sysctl_remove_empty_elem_arch-v1-0-3935d4854248@samsung.com
+
+Testing:
+* Ran sysctl selftests (./tools/testing/selftests/sysctl/sysctl.sh)
+* Ran this through 0-day with no errors or warnings
+
+Size saving after removing all sentinels:
+  A consequence of eventually removing all the sentinels (64 bytes per
+  sentinel) is the bytes we save. These are *not* numbers that we will
+  get after this patch set; these are the numbers that we will get after
+  removing all the sentinels. I included them here because they are
+  relevant and to get an idea of just how much memory we are talking
+  about.
+    * bloat-o-meter:
+        - The "yesall" configuration results save 9158 bytes (bloat-o-meter output here
+          https://lore.kernel.org/all/20230621091000.424843-1-j.granados@samsung.com/)
+        - The "tiny" config + CONFIG_SYSCTL save 1215 bytes (bloat-o-meter output here
+          https://lore.kernel.org/all/20230809105006.1198165-1-j.granados@samsung.com/)
+    * memory usage:
+        we save some bytes in main memory as well. In my testing kernel
+        I measured a difference of 7296 bytes. I include the way to
+        measure in [3]
+
+Size saving after this patchset:
+  Here I give the values that I measured for the architecture that I'm
+  running (x86_64). This can give an approximation of how many bytes are
+  saved for each arch. I won't publish for all the archs because I don't
+  have access to all of them.
+    * bloat-o-meter
+        - The "yesall" config saves 192 bytes (bloat-o-meter output [4])
+        - The "tiny" config saves 64 bytes (bloat-o-meter output [5])
+    * memory usage:
+        In this case there were no bytes saved. To measure it comment the
+        printk in `new_dir` and uncomment the if conditional in `new_links`
+        [3].
+
+Comments/feedback greatly appreciated
+
+Best
+Joel
+
+[1]
+https://lore.kernel.org/all/20230809105006.1198165-1-j.granados@samsung.com/
+
+[2]
+Links Related to the ctl_table sentinel removal:
+* Good summary from Luis sent with the "pull request" for the
+  preparation patches.
+  https://lore.kernel.org/all/ZO5Yx5JFogGi%2FcBo@bombadil.infradead.org/
+* Another very good summary from Luis.
+  https://lore.kernel.org/all/ZMFizKFkVxUFtSqa@bombadil.infradead.org/
+* This is a patch set that replaces register_sysctl_table with register_sysctl
+  https://lore.kernel.org/all/20230302204612.782387-1-mcgrof@kernel.org/
+* Patch set to deprecate register_sysctl_paths()
+  https://lore.kernel.org/all/20230302202826.776286-1-mcgrof@kernel.org/
+* Here there is an explicit expectation for the removal of the sentinel element.
+  https://lore.kernel.org/all/20230321130908.6972-1-frank.li@vivo.com
+* The "ARRAY_SIZE" approach was mentioned (proposed?) in this thread
+  https://lore.kernel.org/all/20220220060626.15885-1-tangmeng@uniontech.com
+
+[3]
+To measure the in memory savings apply this on top of this patchset.
+
+"
+diff --git a/fs/proc/proc_sysctl.c b/fs/proc/proc_sysctl.c
+index c88854df0b62..e0073a627bac 100644
+--- a/fs/proc/proc_sysctl.c
++++ b/fs/proc/proc_sysctl.c
+@@ -976,6 +976,8 @@ static struct ctl_dir *new_dir(struct ctl_table_set *set,
+        table[0].procname = new_name;
+        table[0].mode = S_IFDIR|S_IRUGO|S_IXUGO;
+        init_header(&new->header, set->dir.header.root, set, node, table, 1);
++       // Counts additional sentinel used for each new dir.
++       printk("%ld sysctl saved mem kzalloc \n", sizeof(struct ctl_table));
+
+        return new;
+ }
+@@ -1199,6 +1201,9 @@ static struct ctl_table_header *new_links(struct ctl_dir *dir, struct ctl_table_
+                link_name += len;
+                link++;
+        }
++       // Counts additional sentinel used for each new registration
++       //if ((head->ctl_table + head->ctl_table_size)->procname)
++               printk("%ld sysctl saved mem kzalloc \n", sizeof(struct ctl_table));
+        init_header(links, dir->header.root, dir->header.set, node, link_table,
+                    head->ctl_table_size);
+        links->nreg = nr_entries;
+"
+and then run the following bash script in the kernel:
+
+accum=0
+for n in $(dmesg | grep kzalloc | awk '{print $3}') ; do
+    echo $n
+    accum=$(calc "$accum + $n")
+done
+echo $accum
+
+[4]
+add/remove: 0/0 grow/shrink: 0/3 up/down: 0/-192 (-192)
+Function                                     old     new   delta
+sld_sysctls                                  128      64     -64
+itmt_kern_table                              128      64     -64
+abi_table2                                   128      64     -64
+Total: Before=429173594, After=429173402, chg -0.00%
+
+[5]
+add/remove: 0/0 grow/shrink: 1/0 up/down: 64/0 (64)
+Function                                     old     new   delta
+sld_sysctls                                   64     128     +64
+Total: Before=1886119, After=1886183, chg +0.00%
+
+Signed-off-by: Joel Granados <j.granados@samsung.com>
+
+---
+
+---
+Joel Granados (8):
+      S390: Remove now superfluous sentinel elem from ctl_table arrays
+      arm: Remove now superfluous sentinel elem from ctl_table arrays
+      arch/x86: Remove now superfluous sentinel elem from ctl_table arrays
+      x86/vdso: Remove now superfluous sentinel element from ctl_table array
+      riscv: Remove now superfluous sentinel element from ctl_table array
+      powerpc: Remove now superfluous sentinel element from ctl_table arrays
+      ia64: Remove now superfluous sentinel element from ctl_table array
+      c-sky: Remove now superfluous sentinel element from ctl_talbe array
+
+ arch/arm/kernel/isa.c                     | 4 ++--
+ arch/arm64/kernel/armv8_deprecated.c      | 8 +++-----
+ arch/arm64/kernel/fpsimd.c                | 6 ++----
+ arch/arm64/kernel/process.c               | 3 +--
+ arch/csky/abiv1/alignment.c               | 3 +--
+ arch/ia64/kernel/crash.c                  | 3 +--
+ arch/powerpc/kernel/idle.c                | 3 +--
+ arch/powerpc/platforms/pseries/mobility.c | 3 +--
+ arch/riscv/kernel/vector.c                | 3 +--
+ arch/s390/appldata/appldata_base.c        | 6 ++----
+ arch/s390/kernel/debug.c                  | 3 +--
+ arch/s390/kernel/topology.c               | 3 +--
+ arch/s390/mm/cmm.c                        | 3 +--
+ arch/s390/mm/pgalloc.c                    | 3 +--
+ arch/x86/entry/vdso/vdso32-setup.c        | 3 +--
+ arch/x86/kernel/cpu/intel.c               | 3 +--
+ arch/x86/kernel/itmt.c                    | 3 +--
+ drivers/perf/arm_pmuv3.c                  | 3 +--
+ 18 files changed, 23 insertions(+), 43 deletions(-)
+---
+base-commit: 708283abf896dd4853e673cc8cba70acaf9bf4ea
+change-id: 20230904-jag-sysctl_remove_empty_elem_arch-81db0a6e6cc4
+
+Best regards,
+-- 
+Joel Granados <j.granados@samsung.com>
+
 
 _______________________________________________
 linux-riscv mailing list
