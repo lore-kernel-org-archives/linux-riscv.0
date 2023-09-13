@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05D0FEE01E2
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F16ABEE01E0
 	for <linux-riscv@archiver.kernel.org>; Wed, 13 Sep 2023 16:42:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,40 +12,26 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=stzohhzd3lpUBL2E2UtYXh0/Yxt1wnllow+HlJ3Cd1g=; b=dqfK94oNPntb7/
-	Xroe8zosI1sI30iDyxFzyFHQa+kySrUvABisMraPUm7ZYttYiOONnNYDaIEjuzAJXDtERxVxkJGQ9
-	qWIBkGe4flpefflm7ynIuJBoArCPg+PInF5lpM9tyslyHPZaNHDidArJ8s6moS6URjZtwMPuPBysG
-	HMVzijSDNw8zv1fbFwhqSvSpmRwvXwdBIRbeuFUNkOSv0Eeg+XDKVSNBIOIklTDblG5JkoyfKfJ9I
-	WuCOB3UG4xKbObaMEoIuJCoPRQzyzRN5p0eLTU8DRI5G6KAaDA+k4M7SwF4W5gYxG8PYowMwC91SU
-	zH8IhaqjtAAn0rB1lx0g==;
+	List-Owner; bh=z//miT5h3594R0MYgy95Vhy1m5LRc6YLBWqLSiozz/s=; b=h5zqZNITs96pxB
+	R6dJ1o/XGw6LhJGQ1toqhXLe9geZrsoEobWNTHHhekBjDSSlJoeF2pcTyRHpjfByNK7xpAKwxrGNO
+	qAb7xCs7y7h1owpQI4ujaizcacqWoXSP2KSpT+k84/FQ2eL7V2OWGAo2RIydT0W7L8/yPWajA6kSX
+	EPA1MJxQegr0qYyklRNFkjRzMUGmOUucwRpowESbCFq1PDLcYOUY9CHHhlLjgVS1xF1uG/3T2JXyy
+	Ggr53Nli4v8nuc13A8hpWkWZ60DNiKKmueIIRcyQXKJEC3nnRy+6b42DKQXMwhIieAMDnY55Y+nhe
+	14lHUezTu347Zd2TnW5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgSwm-006OfT-00;
-	Wed, 13 Sep 2023 16:42:37 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgSuI-006LmN-1f;
-	Wed, 13 Sep 2023 16:40:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=smaW/o8bd+rKbnDSaMbVWU9xJol1PXqasCCdXHQGEUg=; b=as5/DJgJbkfiDI1M/lDS2GEkTq
-	/IkY3XiBrWXOO3G5n+cOy98ycGyiU9yz5S9CuE4M68W+dGazgy3U+0V0GvsgHJHfLeKabPIHoKx7V
-	V6TMdd6ycICGNz5cZ6QfPu24/BAppAbE9xCPinmJ1+M8YhjKY2urLaUUizIaLnM7Mt7CjfqtO4JYW
-	ItZGImCHgPKvw5na8XZ6W4vlMSTK6OK21IcDPbf85CIEuzHWIwGE3D7fqss712/16/fU5qaDhtOK+
-	VgElNlMoMjD04qP8V8B1/BuO0GVie5W8ZZo38QJukfHb5fYMS17YmddLyCXmsN/NkuyQ/RbYmWcB2
-	ikd1H1UA==;
+	id 1qgSws-006OnQ-0c;
+	Wed, 13 Sep 2023 16:42:42 +0000
 Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgSuB-007AQK-2F;
-	Wed, 13 Sep 2023 16:40:00 +0000
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1qgSuF-006LW4-1C;
+	Wed, 13 Sep 2023 16:40:03 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 505AE139F;
-	Wed, 13 Sep 2023 09:40:28 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4DC6DFEC;
+	Wed, 13 Sep 2023 09:40:36 -0700 (PDT)
 Received: from merodach.members.linode.com (unknown [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 55C453F5A1;
-	Wed, 13 Sep 2023 09:39:49 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4F3433F5A1;
+	Wed, 13 Sep 2023 09:39:57 -0700 (PDT)
 From: James Morse <james.morse@arm.com>
 To: linux-pm@vger.kernel.org,
 	loongarch@lists.linux.dev,
@@ -61,16 +47,16 @@ Cc: x86@kernel.org,
 	Jean-Philippe Brucker <jean-philippe@linaro.org>,
 	jianyong.wu@arm.com,
 	justin.he@arm.com
-Subject: [RFC PATCH v2 29/35] irqchip/gic-v3: Don't return errors from gic_acpi_match_gicc()
-Date: Wed, 13 Sep 2023 16:38:17 +0000
-Message-Id: <20230913163823.7880-30-james.morse@arm.com>
+Subject: [RFC PATCH v2 33/35] arm64: document virtual CPU hotplug's expectations
+Date: Wed, 13 Sep 2023 16:38:21 +0000
+Message-Id: <20230913163823.7880-34-james.morse@arm.com>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20230913163823.7880-1-james.morse@arm.com>
 References: <20230913163823.7880-1-james.morse@arm.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230913_173957_382562_F40B3110 
-X-CRM114-Status: GOOD (  16.37  )
+X-CRM114-CacheID: sfid-20230913_093959_552593_F9086301 
+X-CRM114-Status: GOOD (  24.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,63 +73,114 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-gic_acpi_match_gicc() is only called via gic_acpi_count_gicr_regions().
-It should only count the number of enabled redistributors, but it
-also tries to sanity check the GICC entry, currently returning an
-error if the Enabled bit is set, but the gicr_base_address is zero.
-
-Adding support for the online-capable bit to the sanity check
-complicates it, for no benefit. The existing check implicitly
-depends on gic_acpi_count_gicr_regions() previous failing to find
-any GICR regions (as it is valid to have gicr_base_address of zero if
-the redistributors are described via a GICR entry).
-
-Instead of complicating the check, remove it. Failures that happen
-at this point cause the irqchip not to register, meaning no irqs
-can be requested. The kernel grinds to a panic() pretty quickly.
-
-Without the check, MADT tables that exhibit this problem are still
-caught by gic_populate_rdist(), which helpfully also prints what
-went wrong:
-| CPU4: mpidr 100 has no re-distributor!
+Add a description of physical and virtual CPU hotplug, explain the
+differences and elaborate on what is required in ACPI for a working
+virtual hotplug system.
 
 Signed-off-by: James Morse <james.morse@arm.com>
 ---
- drivers/irqchip/irq-gic-v3.c | 18 ++++++------------
- 1 file changed, 6 insertions(+), 12 deletions(-)
+ Documentation/arch/arm64/cpu-hotplug.rst | 79 ++++++++++++++++++++++++
+ Documentation/arch/arm64/index.rst       |  1 +
+ 2 files changed, 80 insertions(+)
+ create mode 100644 Documentation/arch/arm64/cpu-hotplug.rst
 
-diff --git a/drivers/irqchip/irq-gic-v3.c b/drivers/irqchip/irq-gic-v3.c
-index 72d3cdebdad1..0f54811262eb 100644
---- a/drivers/irqchip/irq-gic-v3.c
-+++ b/drivers/irqchip/irq-gic-v3.c
-@@ -2415,21 +2415,15 @@ static int __init gic_acpi_match_gicc(union acpi_subtable_headers *header,
- 
- 	/*
- 	 * If GICC is enabled and has valid gicr base address, then it means
--	 * GICR base is presented via GICC
-+	 * GICR base is presented via GICC. The redistributor is only known to
-+	 * be accessible if the GICC is marked as enabled. If this bit is not
-+	 * set, we'd need to add the redistributor at runtime, which isn't
-+	 * supported.
- 	 */
--	if (acpi_gicc_is_usable(gicc) && gicc->gicr_base_address) {
-+	if (gicc->flags & ACPI_MADT_ENABLED && gicc->gicr_base_address)
- 		acpi_data.enabled_rdists++;
--		return 0;
--	}
- 
--	/*
--	 * It's perfectly valid firmware can pass disabled GICC entry, driver
--	 * should not treat as errors, skip the entry instead of probe fail.
--	 */
--	if (!acpi_gicc_is_usable(gicc))
--		return 0;
--
--	return -ENODEV;
-+	return 0;
- }
- 
- static int __init gic_acpi_count_gicr_regions(void)
+diff --git a/Documentation/arch/arm64/cpu-hotplug.rst b/Documentation/arch/arm64/cpu-hotplug.rst
+new file mode 100644
+index 000000000000..76ba8d932c72
+--- /dev/null
++++ b/Documentation/arch/arm64/cpu-hotplug.rst
+@@ -0,0 +1,79 @@
++.. SPDX-License-Identifier: GPL-2.0
++.. _cpuhp_index:
++
++====================
++CPU Hotplug and ACPI
++====================
++
++CPU hotplug in the arm64 world is commonly used to describe the kernel taking
++CPUs online/offline using PSCI. This document is about ACPI firmware allowing
++CPUs that were not available during boot to be added to the system later.
++
++``possible`` and ``present`` refer to the state of the CPU as seen by linux.
++
++
++CPU Hotplug on physical systems - CPUs not present at boot
++----------------------------------------------------------
++
++Physical systems need to mark a CPU that is ``possible`` but not ``present`` as
++being ``present``. An example would be a dual socket machine, where the package
++in one of the sockets can be replaced while the system is running.
++
++This is not supported.
++
++In the arm64 world CPUs are not a single device but a slice of the system.
++There are no systems that support the physical addition (or removal) of CPUs
++while the system is running, and ACPI is not able to sufficiently describe
++them.
++
++e.g. New CPUs come with new caches, but the platform's cache toplogy is
++described in a static table, the PPTT. How caches are shared between CPUs is
++not discoverable, and must be described by firmware.
++
++e.g. The GIC redistributor for each CPU must be accessed by the driver during
++boot to discover the system wide supported features. ACPI's MADT GICC
++structures can describe a redistributor associated with a disabled CPU, but
++can't describe whether the redistributor is accessible, only that it is not
++'always on'.
++
++arm64's ACPI tables assume that everything described is ``present``.
++
++
++CPU Hotplug on virtual systems - CPUs not enabled at boot
++---------------------------------------------------------
++
++Virtual systems have the advantage that all the properties the system will
++ever have can be described at boot. There are no power-domain considerations
++as such devices are emulated.
++
++CPU Hotplug on virtual systems is supported. It is distinct from physical
++CPU Hotplug as all resources are described as ``present``, but CPUs may be
++marked as disabled by firmware. Only the CPU's online/offline behaviour is
++influenced by firmware. An example is where a virtual machine boots with a
++single CPU, and additional CPUs are added once a cloud orchestrator deploys
++the workload.
++
++For a virtual machine, the VMM (e.g. Qemu) plays the part of firmware.
++
++Virtual hotplug is implemented as a firmware policy affecting which CPUs can be
++brought online. Firmware can enforce its policy via PSCI's return codes. e.g.
++``DENIED``.
++
++The ACPI tables must describe all the resources of the virtual machine. CPUs
++that firmware wishes to disable either from boot (or later) should not be
++``enabled`` in the MADT GICC structures, but should have the ``online capable``
++bit set, to indicate they can be enabled later. The boot CPU must be marked as
++``enabled``.  The 'always on' GICR structure must be used to describe the
++redistributors.
++
++CPUs described as ``online capable`` but not ``enabled`` can be set to enabled
++by the DSDT's Processor object's _STA method. On virtual systems the _STA method
++must always report the CPU as ``present``. Changes to the firmware policy can
++be notified to the OS via device-check or eject-request.
++
++CPUs described as ``enabled`` in the static table, should not have their _STA
++modified dynamically by firmware. Soft-restart features such as kexec will
++re-read the static properties of the system from these static tables, and
++may malfunction if these no longer describe the running system. Linux will
++re-discover the dynamic properties of the system from the _STA method later
++during boot.
+diff --git a/Documentation/arch/arm64/index.rst b/Documentation/arch/arm64/index.rst
+index d08e924204bf..78544de0a8a9 100644
+--- a/Documentation/arch/arm64/index.rst
++++ b/Documentation/arch/arm64/index.rst
+@@ -13,6 +13,7 @@ ARM64 Architecture
+     asymmetric-32bit
+     booting
+     cpu-feature-registers
++    cpu-hotplug
+     elf_hwcaps
+     hugetlbpage
+     kdump
 -- 
 2.39.2
 
