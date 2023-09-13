@@ -4,98 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E46D8CA5504
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 Sep 2023 08:16:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81633CA5505
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 Sep 2023 08:24:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=r6Y+hvSJ9WlPOrq8fkvIzpJkyfhYByjitiQBFLVBTKk=; b=kZi1/462k6Vceo
-	g8ciyWn046vY1AbAYG1+KA231wGe3jefIEwFgRUIq13OVT71h1wB8G5RlSWjMdBYC2Vum+9E4DlDs
-	zzj8rlMasKOvyaiY6dLJ+kPS2EeSUwMLtdzTkXj/iHDfwBVs2ZKAv7s96FUEXc4c2mbtjrOuaMScw
-	PQnB3mwD4vSyH2vQfIafSp0RvUnRO12a22iVC4NkmP29Sd1CiF6jlCDunhuyX9N//sD5wc56wS9dC
-	M9VvHilcDWI+4ezXsLmTjwgrlOyn+Zi1nkWUJs7DGobSPeJLRDR3lBsV4dt36DFpn77kU6Ec4idTd
-	0fMAhSDoyVc9yjfmqxdg==;
+	List-Owner; bh=NQj11ehgMM1rdybbtyU2qGH+QE6TCAN1pw27JxWAy/k=; b=4PigleQQdY7WYQ
+	/1yE6QITqLb3NFpdN/4grxzLo6TUl4YHfNKJhKzsTHcNB3kWjOox24MlbYvpRbfBQgmh2BGntaZbH
+	ESbZqE6fO3nNvfJ+FUgSqXu/Zz/oB2qrxOpEFWo2iEmJdBneNtxflQOksrbtTBO6TbRvLqlqfVrxH
+	/mE7C0VsENdQlplG++twYeCpo4J/tuGFOisS5rRCNsQKbu7OJTKZgg5W21pwETZ4iqui87iLovj+7
+	GPiTFnS8cLDld8drMGU2KvnmfnkpzN40N09QvxjjN1CuNaJOewpDEgmrB9ESsREX528xlXQAJyXrk
+	n9gJLVP9gz4DT547CANA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgL2l-0053jz-2Y;
-	Wed, 13 Sep 2023 08:16:15 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1qgLAf-0055No-1c;
+	Wed, 13 Sep 2023 08:24:25 +0000
+Received: from mail-ua1-x92c.google.com ([2607:f8b0:4864:20::92c])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgL2i-0053iB-0R
+	id 1qgLAc-0055LT-0S
 	for linux-riscv@lists.infradead.org;
-	Wed, 13 Sep 2023 08:16:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1694592962;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=jC7cBaRtwiLtOqIw5mLAFy7L+zLW4t61GX8cvLgSZ6Q=;
-	b=YHfG4FnNQo8zV27yca7XWFH6SPkd97VKHap7P4koFKINiAHwfbOTY2gqKhomYxehOGm2Rn
-	gMGpMhRTI5ypZn7msTuuNUFbZmhaMXIwu/wGf3wL8DBov8uQND47atHfvX26kwN2ubqzfV
-	8yScGrz5OwejSplGcy+BIb4XqPoS6TA=
-Received: from mail-oa1-f71.google.com (mail-oa1-f71.google.com
- [209.85.160.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-324-0WoSbqz-OUuFjEUkfjh2YA-1; Wed, 13 Sep 2023 04:16:01 -0400
-X-MC-Unique: 0WoSbqz-OUuFjEUkfjh2YA-1
-Received: by mail-oa1-f71.google.com with SMTP id 586e51a60fabf-1d5aa672aa4so4267371fac.2
-        for <linux-riscv@lists.infradead.org>; Wed, 13 Sep 2023 01:16:01 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1694592961; x=1695197761;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+	Wed, 13 Sep 2023 08:24:23 +0000
+Received: by mail-ua1-x92c.google.com with SMTP id a1e0cc1a2514c-7a803afa8c5so1276743241.0
+        for <linux-riscv@lists.infradead.org>; Wed, 13 Sep 2023 01:24:20 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20221208; t=1694593459; x=1695198259; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=jC7cBaRtwiLtOqIw5mLAFy7L+zLW4t61GX8cvLgSZ6Q=;
-        b=Hmck2B2hBsDP2B0omdB4b/kbGo/0gZz5bwufrGl20v12B+B4NClaRz7Y1oTKhajfC7
-         bXoL+wEfAO5fNRKOiC2d4dm0VPmB/mmZp0+El74XmXXwOVEPC7KYjnvQ8nip0KMqSOtH
-         tiSipmfYo6ulYo7lTKSrxgvjLd/y4RR7zEws5Cwzp4FGXsuJAkkd7Zf1UqjcIgut2tVs
-         BZDpOl04qEwoAzVw1QhmLV/DDV/sqcDcqzX0nr5BunS/pHqVKWJ+SdqdntMHH8Ub7Yqs
-         yBQpyjTSCZw0u7i/UYS90EWv29m3IlfnqcSMH2HYsssVnHywOtM7FHTYgRl1IE0VnVaG
-         NAUg==
-X-Gm-Message-State: AOJu0YwfmzzYloKtuHbWprrqhAM5EBlah3AdSack6qrMEJE46oBNZI99
-	17OJ5TWsAEK2npfzuZI1Knp6//9wzg5vTNoxb+cFiOa9I8Xe87+EhcLA+lQ1FZteqwtT9jRHggj
-	RCQsUxdmSBBV1a1zYT8Vz3R/Zsuou
-X-Received: by 2002:a05:6870:8a29:b0:1bb:ac7:2e34 with SMTP id p41-20020a0568708a2900b001bb0ac72e34mr2086699oaq.40.1694592960755;
-        Wed, 13 Sep 2023 01:16:00 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFOZaoTn/FO9XWZIjXe4DzC8fn4zXFZUBlh/tx8ipyh0Rk/Pu3d+gYYuWAYZlcTSDNBgzo2Hg==
-X-Received: by 2002:a05:6870:8a29:b0:1bb:ac7:2e34 with SMTP id p41-20020a0568708a2900b001bb0ac72e34mr2086683oaq.40.1694592960455;
-        Wed, 13 Sep 2023 01:16:00 -0700 (PDT)
-Received: from redhat.com ([2804:1b3:a803:4ff9:7c29:fe41:6aa7:43df])
-        by smtp.gmail.com with ESMTPSA id e2-20020a056870944200b001d533004669sm6032266oal.32.2023.09.13.01.15.53
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 13 Sep 2023 01:16:00 -0700 (PDT)
-Date: Wed, 13 Sep 2023 05:15:51 -0300
-From: Leonardo Bras <leobras@redhat.com>
-To: guoren@kernel.org
-Cc: paul.walmsley@sifive.com, anup@brainfault.org, peterz@infradead.org,
-	mingo@redhat.com, will@kernel.org, palmer@rivosinc.com,
-	longman@redhat.com, boqun.feng@gmail.com, tglx@linutronix.de,
-	paulmck@kernel.org, rostedt@goodmis.org, rdunlap@infradead.org,
-	catalin.marinas@arm.com, conor.dooley@microchip.com,
-	xiaoguang.xing@sophgo.com, bjorn@rivosinc.com,
-	alexghiti@rivosinc.com, keescook@chromium.org,
-	greentime.hu@sifive.com, ajones@ventanamicro.com,
-	jszhang@kernel.org, wefu@redhat.com, wuwei2016@iscas.ac.cn,
-	linux-arch@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-doc@vger.kernel.org, kvm@vger.kernel.org,
-	virtualization@lists.linux-foundation.org,
-	linux-csky@vger.kernel.org, Guo Ren <guoren@linux.alibaba.com>
-Subject: Re: [PATCH V11 02/17] asm-generic: ticket-lock: Move into
- ticket_spinlock.h
-Message-ID: <ZQFvt2nW4IwpdDo3@redhat.com>
-References: <20230910082911.3378782-1-guoren@kernel.org>
- <20230910082911.3378782-3-guoren@kernel.org>
+        bh=pvSkwLLGuwL6+FzTiaUPYz7u0MiA133oxHxQzz8keyY=;
+        b=HcYZuc374scdmFIqnA/3olBnryXlqkGfgC7+ikaqk0PUDF4FOsGFM2zQfs1ng7fbxb
+         sryuplILyyCGvLw0Dxiv5VHfTZPtdxPU/otzLds4cLWKCVMMt2gp5F5joo4G5HhnHv0D
+         VjxWvLcQmdlxupqN4mSKqcP6B+AdXHSB4exaFIlaL4vEYLicBQ0NSviWzQsseds2Mf14
+         M2tq1x88PdOPKxGE7tqnFGYPWaMITsK97HS7guAEKVaC0ac6uzlNie9boxoHB9Muep0+
+         Hdb/FsN8HCRVKRSd5JYAqlBot5UEENSMKUjF4dO24QrfJJWDEgPwF2EYklMd5+/v+s+y
+         Uvjg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1694593459; x=1695198259;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=pvSkwLLGuwL6+FzTiaUPYz7u0MiA133oxHxQzz8keyY=;
+        b=cO/sANXNhnzPW05gJ3fN30109PBJyAeyLH7t+2rrbXU5eRLuNCQtCJelG7+sY9+kj5
+         S4q8tVrM8iOyfaHKr0AULJ039tvL7waVuOwdGjTjk/UYIfOyTnpwpqI+BVEVclRc8L/c
+         nIDTOd8wYGIGr1lGEqOxbdyuPCbxadEs3fTw7CoSlt82iGfS7oJZPlVpv2zBMfELG/EP
+         zXta9f4s4/5Z2lTh8BUdabyYHSIXLdwuRLXn5xA18tFaibAUEg2+uHgldYBnl0OJhukq
+         19ZtS+gokrsea11yei2u3Sk3wrRswZR9137FQ7EXwT+x8l6W1CDQSdImMDrdsi6+8+L6
+         rLIA==
+X-Gm-Message-State: AOJu0Yw96/6zJtiTBk/eL+MEd+fmqcc4OsqS7mIscIoS5AYp2J3kjUnd
+	i28aYYaiRbmly9AZShHtnOd/MQdNw3k2yCTyjjU=
+X-Google-Smtp-Source: AGHT+IFO0NSs41b73GFK5JRqE11oXhcmyBkl1ReBcxdhr7hcXRn9Fd+MyqqH9Ssyk1jO/UvqE7kpKxzJ24mPzPRKrQc=
+X-Received: by 2002:a1f:6d03:0:b0:48d:2a1:5d26 with SMTP id
+ i3-20020a1f6d03000000b0048d02a15d26mr2126287vkc.4.1694593459187; Wed, 13 Sep
+ 2023 01:24:19 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <20230910082911.3378782-3-guoren@kernel.org>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
-Content-Disposition: inline
+References: <20230911131224.61924-1-alexghiti@rivosinc.com>
+ <20230911131224.61924-5-alexghiti@rivosinc.com> <CAHVXubiVH=q9pnTLQyjS3X3W-hvuA=ZMM2D2xYPFkGjFnAgbWg@mail.gmail.com>
+In-Reply-To: <CAHVXubiVH=q9pnTLQyjS3X3W-hvuA=ZMM2D2xYPFkGjFnAgbWg@mail.gmail.com>
+From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
+Date: Wed, 13 Sep 2023 09:23:08 +0100
+Message-ID: <CA+V-a8tYzee-cX8rMiQ66ENWb+rLLFHmkOdovft0L-8ASQ3eog@mail.gmail.com>
+Subject: Re: [PATCH v4 4/4] riscv: Improve flush_tlb_kernel_range()
+To: Alexandre Ghiti <alexghiti@rivosinc.com>
+Cc: Will Deacon <will@kernel.org>, "Aneesh Kumar K . V" <aneesh.kumar@linux.ibm.com>, 
+	Andrew Morton <akpm@linux-foundation.org>, Nick Piggin <npiggin@gmail.com>, 
+	Peter Zijlstra <peterz@infradead.org>, Mayuresh Chitale <mchitale@ventanamicro.com>, 
+	Vincent Chen <vincent.chen@sifive.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, linux-arch@vger.kernel.org, 
+	linux-mm@kvack.org, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Samuel Holland <samuel@sholland.org>, 
+	Andrew Jones <ajones@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230913_011612_463935_60A8EB77 
-X-CRM114-Status: GOOD (  34.30  )
+X-CRM114-CacheID: sfid-20230913_012422_179575_627E32BE 
+X-CRM114-Status: GOOD (  31.71  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,262 +90,103 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Sep 10, 2023 at 04:28:56AM -0400, guoren@kernel.org wrote:
-> From: Guo Ren <guoren@linux.alibaba.com>
-> 
-> Move ticket-lock definition into an independent file. This is the
-> preparation for the next combo spinlock of riscv.
-> 
-> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-> Signed-off-by: Guo Ren <guoren@kernel.org>
-> ---
->  include/asm-generic/spinlock.h        |  87 +---------------------
->  include/asm-generic/ticket_spinlock.h | 103 ++++++++++++++++++++++++++
->  2 files changed, 104 insertions(+), 86 deletions(-)
->  create mode 100644 include/asm-generic/ticket_spinlock.h
-> 
-> diff --git a/include/asm-generic/spinlock.h b/include/asm-generic/spinlock.h
-> index 4773334ee638..970590baf61b 100644
-> --- a/include/asm-generic/spinlock.h
-> +++ b/include/asm-generic/spinlock.h
-> @@ -1,94 +1,9 @@
->  /* SPDX-License-Identifier: GPL-2.0 */
->  
-> -/*
-> - * 'Generic' ticket-lock implementation.
-> - *
-> - * It relies on atomic_fetch_add() having well defined forward progress
-> - * guarantees under contention. If your architecture cannot provide this, stick
-> - * to a test-and-set lock.
-> - *
-> - * It also relies on atomic_fetch_add() being safe vs smp_store_release() on a
-> - * sub-word of the value. This is generally true for anything LL/SC although
-> - * you'd be hard pressed to find anything useful in architecture specifications
-> - * about this. If your architecture cannot do this you might be better off with
-> - * a test-and-set.
-> - *
-> - * It further assumes atomic_*_release() + atomic_*_acquire() is RCpc and hence
-> - * uses atomic_fetch_add() which is RCsc to create an RCsc hot path, along with
-> - * a full fence after the spin to upgrade the otherwise-RCpc
-> - * atomic_cond_read_acquire().
-> - *
-> - * The implementation uses smp_cond_load_acquire() to spin, so if the
-> - * architecture has WFE like instructions to sleep instead of poll for word
-> - * modifications be sure to implement that (see ARM64 for example).
-> - *
-> - */
-> -
->  #ifndef __ASM_GENERIC_SPINLOCK_H
->  #define __ASM_GENERIC_SPINLOCK_H
->  
-> -#include <linux/atomic.h>
-> -#include <asm-generic/spinlock_types.h>
-> -
-> -static __always_inline void arch_spin_lock(arch_spinlock_t *lock)
-> -{
-> -	u32 val = atomic_fetch_add(1<<16, &lock->val);
-> -	u16 ticket = val >> 16;
-> -
-> -	if (ticket == (u16)val)
-> -		return;
-> -
-> -	/*
-> -	 * atomic_cond_read_acquire() is RCpc, but rather than defining a
-> -	 * custom cond_read_rcsc() here we just emit a full fence.  We only
-> -	 * need the prior reads before subsequent writes ordering from
-> -	 * smb_mb(), but as atomic_cond_read_acquire() just emits reads and we
-> -	 * have no outstanding writes due to the atomic_fetch_add() the extra
-> -	 * orderings are free.
-> -	 */
-> -	atomic_cond_read_acquire(&lock->val, ticket == (u16)VAL);
-> -	smp_mb();
-> -}
-> -
-> -static __always_inline bool arch_spin_trylock(arch_spinlock_t *lock)
-> -{
-> -	u32 old = atomic_read(&lock->val);
-> -
-> -	if ((old >> 16) != (old & 0xffff))
-> -		return false;
-> -
-> -	return atomic_try_cmpxchg(&lock->val, &old, old + (1<<16)); /* SC, for RCsc */
-> -}
-> -
-> -static __always_inline void arch_spin_unlock(arch_spinlock_t *lock)
-> -{
-> -	u16 *ptr = (u16 *)lock + IS_ENABLED(CONFIG_CPU_BIG_ENDIAN);
-> -	u32 val = atomic_read(&lock->val);
-> -
-> -	smp_store_release(ptr, (u16)val + 1);
-> -}
-> -
-> -static __always_inline int arch_spin_value_unlocked(arch_spinlock_t lock)
-> -{
-> -	u32 val = lock.val.counter;
-> -
-> -	return ((val >> 16) == (val & 0xffff));
-> -}
-> -
-> -static __always_inline int arch_spin_is_locked(arch_spinlock_t *lock)
-> -{
-> -	arch_spinlock_t val = READ_ONCE(*lock);
-> -
-> -	return !arch_spin_value_unlocked(val);
-> -}
-> -
-> -static __always_inline int arch_spin_is_contended(arch_spinlock_t *lock)
-> -{
-> -	u32 val = atomic_read(&lock->val);
-> -
-> -	return (s16)((val >> 16) - (val & 0xffff)) > 1;
-> -}
-> -
-> +#include <asm-generic/ticket_spinlock.h>
->  #include <asm/qrwlock.h>
->  
->  #endif /* __ASM_GENERIC_SPINLOCK_H */
-> diff --git a/include/asm-generic/ticket_spinlock.h b/include/asm-generic/ticket_spinlock.h
-> new file mode 100644
-> index 000000000000..cfcff22b37b3
-> --- /dev/null
-> +++ b/include/asm-generic/ticket_spinlock.h
-> @@ -0,0 +1,103 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +
-> +/*
-> + * 'Generic' ticket-lock implementation.
-> + *
-> + * It relies on atomic_fetch_add() having well defined forward progress
-> + * guarantees under contention. If your architecture cannot provide this, stick
-> + * to a test-and-set lock.
-> + *
-> + * It also relies on atomic_fetch_add() being safe vs smp_store_release() on a
-> + * sub-word of the value. This is generally true for anything LL/SC although
-> + * you'd be hard pressed to find anything useful in architecture specifications
-> + * about this. If your architecture cannot do this you might be better off with
-> + * a test-and-set.
-> + *
-> + * It further assumes atomic_*_release() + atomic_*_acquire() is RCpc and hence
-> + * uses atomic_fetch_add() which is RCsc to create an RCsc hot path, along with
-> + * a full fence after the spin to upgrade the otherwise-RCpc
-> + * atomic_cond_read_acquire().
-> + *
-> + * The implementation uses smp_cond_load_acquire() to spin, so if the
-> + * architecture has WFE like instructions to sleep instead of poll for word
-> + * modifications be sure to implement that (see ARM64 for example).
-> + *
-> + */
-> +
-> +#ifndef __ASM_GENERIC_TICKET_SPINLOCK_H
-> +#define __ASM_GENERIC_TICKET_SPINLOCK_H
-> +
-> +#include <linux/atomic.h>
-> +#include <asm-generic/spinlock_types.h>
-> +
-> +static __always_inline void ticket_spin_lock(arch_spinlock_t *lock)
-> +{
-> +	u32 val = atomic_fetch_add(1<<16, &lock->val);
-> +	u16 ticket = val >> 16;
-> +
-> +	if (ticket == (u16)val)
-> +		return;
-> +
-> +	/*
-> +	 * atomic_cond_read_acquire() is RCpc, but rather than defining a
-> +	 * custom cond_read_rcsc() here we just emit a full fence.  We only
-> +	 * need the prior reads before subsequent writes ordering from
-> +	 * smb_mb(), but as atomic_cond_read_acquire() just emits reads and we
-> +	 * have no outstanding writes due to the atomic_fetch_add() the extra
-> +	 * orderings are free.
-> +	 */
-> +	atomic_cond_read_acquire(&lock->val, ticket == (u16)VAL);
-> +	smp_mb();
-> +}
-> +
-> +static __always_inline bool ticket_spin_trylock(arch_spinlock_t *lock)
-> +{
-> +	u32 old = atomic_read(&lock->val);
-> +
-> +	if ((old >> 16) != (old & 0xffff))
-> +		return false;
-> +
-> +	return atomic_try_cmpxchg(&lock->val, &old, old + (1<<16)); /* SC, for RCsc */
-> +}
-> +
-> +static __always_inline void ticket_spin_unlock(arch_spinlock_t *lock)
-> +{
-> +	u16 *ptr = (u16 *)lock + IS_ENABLED(CONFIG_CPU_BIG_ENDIAN);
-> +	u32 val = atomic_read(&lock->val);
-> +
-> +	smp_store_release(ptr, (u16)val + 1);
-> +}
-> +
-> +static __always_inline int ticket_spin_value_unlocked(arch_spinlock_t lock)
-> +{
-> +	u32 val = lock.val.counter;
-> +
-> +	return ((val >> 16) == (val & 0xffff));
-> +}
-> +
-> +static __always_inline int ticket_spin_is_locked(arch_spinlock_t *lock)
-> +{
-> +	arch_spinlock_t val = READ_ONCE(*lock);
-> +
-> +	return !ticket_spin_value_unlocked(val);
-> +}
-> +
-> +static __always_inline int ticket_spin_is_contended(arch_spinlock_t *lock)
-> +{
-> +	u32 val = atomic_read(&lock->val);
-> +
-> +	return (s16)((val >> 16) - (val & 0xffff)) > 1;
-> +}
-> +
-> +/*
-> + * Remapping spinlock architecture specific functions to the corresponding
-> + * ticket spinlock functions.
-> + */
-> +#define arch_spin_is_locked(l)		ticket_spin_is_locked(l)
-> +#define arch_spin_is_contended(l)	ticket_spin_is_contended(l)
-> +#define arch_spin_value_unlocked(l)	ticket_spin_value_unlocked(l)
-> +#define arch_spin_lock(l)		ticket_spin_lock(l)
-> +#define arch_spin_trylock(l)		ticket_spin_trylock(l)
-> +#define arch_spin_unlock(l)		ticket_spin_unlock(l)
-> +
-> +#endif /* __ASM_GENERIC_TICKET_SPINLOCK_H */
-
-IIUC here most of the file was moved, and the above defines are introduced.
-
-I understand this pattern of creating the defines at the end of the file is 
-the same used in "asm-generic/qspinlock.h" but I don't actually think this
-is a good way of doing this.
-
-Instead of having those defines here (and similarly on 
-"asm-generic/qspinlock.h", I think it would be better to have those defines 
-in the arch-specific header including them, which would allow the arch to 
-include multiple spinlock versions and decide (compile-time, even run-time)
-which version to use. It gives decision power to the arch code.
-
-(And it would remove the need of undefining them on a later patch)
-
-There are only 3 archs which use this arch-generic qspinlock, so should 
-not be a huge deal to have the defines copied there:
-
-# git grep asm-generic/qspinlock.h
-arch/loongarch/include/asm/qspinlock.h:16:#include <asm-generic/qspinlock.h>
-arch/sparc/include/asm/qspinlock.h:6:#include <asm-generic/qspinlock.h>
-arch/x86/include/asm/qspinlock.h:107:#include <asm-generic/qspinlock.h>
-
-Other than that:
-Reviewed-by: Leonardo Bras <leobras@redhat.com>
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgQWxleGFuZHJlLAoKT24gV2VkLCBTZXAgMTMsIDIwMjMgYXQgOTowNOKAr0FNIEFsZXhhbmRy
+ZSBHaGl0aSA8YWxleGdoaXRpQHJpdm9zaW5jLmNvbT4gd3JvdGU6Cj4KPiBATGFkLCBQcmFiaGFr
+YXIgQW55IGNoYW5jZSB5b3UgZ2l2ZSBhIHRyeSB0byB0aGlzIG5ldyBwYXRjaHNldD8gU28KPiB0
+aGF0IHdlIG1ha2Ugc3VyZSBTYW11ZWwgZm91bmQgeW91ciBpc3N1ZSA6KQo+CkkgaGF2ZSBnaXZl
+biB0aGUgcGF0Y2hlcyBhIHRyeSBhbmQgbm90IHNlZW4gdGhlIG1vZHVsZSBsb2FkIGZhaWx1cmVz
+CmFzIHNlZW4gcHJldmlvdXNseS4gSSBoYXZlIHNvbWUgcmlnb3JvdXMgdGVzdHMgd2hpY2ggdGVz
+dCB0aGUgY29tcGxldGUKcGxhdGZvcm0uIEknbSBqdXN0IHdhaXRpbmcgZm9yIGl0IHRvIGNvbXBs
+ZXRlIGJlZm9yZSBJIGdpdmUgVGVzdGVkIGJ5LgoKQ2hlZXJzLApQcmFiaGFrYXIKCj4gT24gTW9u
+LCBTZXAgMTEsIDIwMjMgYXQgMzoxNuKAr1BNIEFsZXhhbmRyZSBHaGl0aSA8YWxleGdoaXRpQHJp
+dm9zaW5jLmNvbT4gd3JvdGU6Cj4gPgo+ID4gVGhpcyBmdW5jdGlvbiB1c2VkIHRvIHNpbXBseSBm
+bHVzaCB0aGUgd2hvbGUgdGxiIG9mIGFsbCBoYXJ0cywgYmUgbW9yZQo+ID4gc3VidGlsZSBhbmQg
+dHJ5IHRvIG9ubHkgZmx1c2ggdGhlIHJhbmdlLgo+ID4KPiA+IFRoZSBwcm9ibGVtIGlzIHRoYXQg
+d2UgY2FuIG9ubHkgdXNlIFBBR0VfU0laRSBhcyBzdHJpZGUgc2luY2Ugd2UgZG9uJ3Qga25vdwo+
+ID4gdGhlIHNpemUgb2YgdGhlIHVuZGVybHlpbmcgbWFwcGluZyBhbmQgdGhlbiB0aGlzIGZ1bmN0
+aW9uIHdpbGwgYmUgaW1wcm92ZWQKPiA+IG9ubHkgaWYgdGhlIHNpemUgb2YgdGhlIHJlZ2lvbiB0
+byBmbHVzaCBpcyA8IHRocmVzaG9sZCAqIFBBR0VfU0laRS4KPiA+Cj4gPiBTaWduZWQtb2ZmLWJ5
+OiBBbGV4YW5kcmUgR2hpdGkgPGFsZXhnaGl0aUByaXZvc2luYy5jb20+Cj4gPiBSZXZpZXdlZC1i
+eTogQW5kcmV3IEpvbmVzIDxham9uZXNAdmVudGFuYW1pY3JvLmNvbT4KPiA+IC0tLQo+ID4gIGFy
+Y2gvcmlzY3YvaW5jbHVkZS9hc20vdGxiZmx1c2guaCB8IDExICsrKysrKy0tLS0tCj4gPiAgYXJj
+aC9yaXNjdi9tbS90bGJmbHVzaC5jICAgICAgICAgIHwgMzMgKysrKysrKysrKysrKysrKysrKysr
+Ky0tLS0tLS0tLQo+ID4gIDIgZmlsZXMgY2hhbmdlZCwgMzAgaW5zZXJ0aW9ucygrKSwgMTQgZGVs
+ZXRpb25zKC0pCj4gPgo+ID4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vdGxi
+Zmx1c2guaCBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vdGxiZmx1c2guaAo+ID4gaW5kZXggMTcw
+YTQ5YzUzMWM2Li44ZjM0MThjNWYxNzIgMTAwNjQ0Cj4gPiAtLS0gYS9hcmNoL3Jpc2N2L2luY2x1
+ZGUvYXNtL3RsYmZsdXNoLmgKPiA+ICsrKyBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vdGxiZmx1
+c2guaAo+ID4gQEAgLTQwLDYgKzQwLDcgQEAgdm9pZCBmbHVzaF90bGJfbW1fcmFuZ2Uoc3RydWN0
+IG1tX3N0cnVjdCAqbW0sIHVuc2lnbmVkIGxvbmcgc3RhcnQsCj4gPiAgdm9pZCBmbHVzaF90bGJf
+cGFnZShzdHJ1Y3Qgdm1fYXJlYV9zdHJ1Y3QgKnZtYSwgdW5zaWduZWQgbG9uZyBhZGRyKTsKPiA+
+ICB2b2lkIGZsdXNoX3RsYl9yYW5nZShzdHJ1Y3Qgdm1fYXJlYV9zdHJ1Y3QgKnZtYSwgdW5zaWdu
+ZWQgbG9uZyBzdGFydCwKPiA+ICAgICAgICAgICAgICAgICAgICAgIHVuc2lnbmVkIGxvbmcgZW5k
+KTsKPiA+ICt2b2lkIGZsdXNoX3RsYl9rZXJuZWxfcmFuZ2UodW5zaWduZWQgbG9uZyBzdGFydCwg
+dW5zaWduZWQgbG9uZyBlbmQpOwo+ID4gICNpZmRlZiBDT05GSUdfVFJBTlNQQVJFTlRfSFVHRVBB
+R0UKPiA+ICAjZGVmaW5lIF9fSEFWRV9BUkNIX0ZMVVNIX1BNRF9UTEJfUkFOR0UKPiA+ICB2b2lk
+IGZsdXNoX3BtZF90bGJfcmFuZ2Uoc3RydWN0IHZtX2FyZWFfc3RydWN0ICp2bWEsIHVuc2lnbmVk
+IGxvbmcgc3RhcnQsCj4gPiBAQCAtNTYsMTUgKzU3LDE1IEBAIHN0YXRpYyBpbmxpbmUgdm9pZCBm
+bHVzaF90bGJfcmFuZ2Uoc3RydWN0IHZtX2FyZWFfc3RydWN0ICp2bWEsCj4gPiAgICAgICAgIGxv
+Y2FsX2ZsdXNoX3RsYl9hbGwoKTsKPiA+ICB9Cj4gPgo+ID4gLSNkZWZpbmUgZmx1c2hfdGxiX21t
+KG1tKSBmbHVzaF90bGJfYWxsKCkKPiA+IC0jZGVmaW5lIGZsdXNoX3RsYl9tbV9yYW5nZShtbSwg
+c3RhcnQsIGVuZCwgcGFnZV9zaXplKSBmbHVzaF90bGJfYWxsKCkKPiA+IC0jZW5kaWYgLyogIUNP
+TkZJR19TTVAgfHwgIUNPTkZJR19NTVUgKi8KPiA+IC0KPiA+ICAvKiBGbHVzaCBhIHJhbmdlIG9m
+IGtlcm5lbCBwYWdlcyAqLwo+ID4gIHN0YXRpYyBpbmxpbmUgdm9pZCBmbHVzaF90bGJfa2VybmVs
+X3JhbmdlKHVuc2lnbmVkIGxvbmcgc3RhcnQsCj4gPiAgICAgICAgIHVuc2lnbmVkIGxvbmcgZW5k
+KQo+ID4gIHsKPiA+IC0gICAgICAgZmx1c2hfdGxiX2FsbCgpOwo+ID4gKyAgICAgICBsb2NhbF9m
+bHVzaF90bGJfYWxsKCk7Cj4gPiAgfQo+ID4KPiA+ICsjZGVmaW5lIGZsdXNoX3RsYl9tbShtbSkg
+Zmx1c2hfdGxiX2FsbCgpCj4gPiArI2RlZmluZSBmbHVzaF90bGJfbW1fcmFuZ2UobW0sIHN0YXJ0
+LCBlbmQsIHBhZ2Vfc2l6ZSkgZmx1c2hfdGxiX2FsbCgpCj4gPiArI2VuZGlmIC8qICFDT05GSUdf
+U01QIHx8ICFDT05GSUdfTU1VICovCj4gPiArCj4gPiAgI2VuZGlmIC8qIF9BU01fUklTQ1ZfVExC
+RkxVU0hfSCAqLwo+ID4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvbW0vdGxiZmx1c2guYyBiL2Fy
+Y2gvcmlzY3YvbW0vdGxiZmx1c2guYwo+ID4gaW5kZXggMmMxMTM2ZDczNDExLi4yOGNkODUzOWI1
+NzUgMTAwNjQ0Cj4gPiAtLS0gYS9hcmNoL3Jpc2N2L21tL3RsYmZsdXNoLmMKPiA+ICsrKyBiL2Fy
+Y2gvcmlzY3YvbW0vdGxiZmx1c2guYwo+ID4gQEAgLTk3LDE5ICs5NywyNyBAQCBzdGF0aWMgdm9p
+ZCBfX2ZsdXNoX3RsYl9yYW5nZShzdHJ1Y3QgbW1fc3RydWN0ICptbSwgdW5zaWduZWQgbG9uZyBz
+dGFydCwKPiA+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHVuc2lnbmVkIGxvbmcgc2l6
+ZSwgdW5zaWduZWQgbG9uZyBzdHJpZGUpCj4gPiAgewo+ID4gICAgICAgICBzdHJ1Y3QgZmx1c2hf
+dGxiX3JhbmdlX2RhdGEgZnRkOwo+ID4gLSAgICAgICBzdHJ1Y3QgY3B1bWFzayAqY21hc2sgPSBt
+bV9jcHVtYXNrKG1tKTsKPiA+ICsgICAgICAgc3RydWN0IGNwdW1hc2sgKmNtYXNrLCBmdWxsX2Nt
+YXNrOwo+ID4gICAgICAgICB1bnNpZ25lZCBsb25nIGFzaWQgPSBGTFVTSF9UTEJfTk9fQVNJRDsK
+PiA+IC0gICAgICAgdW5zaWduZWQgaW50IGNwdWlkOwo+ID4gICAgICAgICBib29sIGJyb2FkY2Fz
+dDsKPiA+Cj4gPiAtICAgICAgIGlmIChjcHVtYXNrX2VtcHR5KGNtYXNrKSkKPiA+IC0gICAgICAg
+ICAgICAgICByZXR1cm47Cj4gPiArICAgICAgIGlmIChtbSkgewo+ID4gKyAgICAgICAgICAgICAg
+IHVuc2lnbmVkIGludCBjcHVpZDsKPiA+ICsKPiA+ICsgICAgICAgICAgICAgICBjbWFzayA9IG1t
+X2NwdW1hc2sobW0pOwo+ID4gKyAgICAgICAgICAgICAgIGlmIChjcHVtYXNrX2VtcHR5KGNtYXNr
+KSkKPiA+ICsgICAgICAgICAgICAgICAgICAgICAgIHJldHVybjsKPiA+Cj4gPiAtICAgICAgIGNw
+dWlkID0gZ2V0X2NwdSgpOwo+ID4gLSAgICAgICAvKiBjaGVjayBpZiB0aGUgdGxiZmx1c2ggbmVl
+ZHMgdG8gYmUgc2VudCB0byBvdGhlciBDUFVzICovCj4gPiAtICAgICAgIGJyb2FkY2FzdCA9IGNw
+dW1hc2tfYW55X2J1dChjbWFzaywgY3B1aWQpIDwgbnJfY3B1X2lkczsKPiA+ICsgICAgICAgICAg
+ICAgICBjcHVpZCA9IGdldF9jcHUoKTsKPiA+ICsgICAgICAgICAgICAgICAvKiBjaGVjayBpZiB0
+aGUgdGxiZmx1c2ggbmVlZHMgdG8gYmUgc2VudCB0byBvdGhlciBDUFVzICovCj4gPiArICAgICAg
+ICAgICAgICAgYnJvYWRjYXN0ID0gY3B1bWFza19hbnlfYnV0KGNtYXNrLCBjcHVpZCkgPCBucl9j
+cHVfaWRzOwo+ID4gKyAgICAgICB9IGVsc2Ugewo+ID4gKyAgICAgICAgICAgICAgIGNwdW1hc2tf
+c2V0YWxsKCZmdWxsX2NtYXNrKTsKPiA+ICsgICAgICAgICAgICAgICBjbWFzayA9ICZmdWxsX2Nt
+YXNrOwo+ID4gKyAgICAgICAgICAgICAgIGJyb2FkY2FzdCA9IHRydWU7Cj4gPiArICAgICAgIH0K
+PiA+Cj4gPiAtICAgICAgIGlmIChzdGF0aWNfYnJhbmNoX3VubGlrZWx5KCZ1c2VfYXNpZF9hbGxv
+Y2F0b3IpKQo+ID4gKyAgICAgICBpZiAoc3RhdGljX2JyYW5jaF91bmxpa2VseSgmdXNlX2FzaWRf
+YWxsb2NhdG9yKSAmJiBtbSkKPiA+ICAgICAgICAgICAgICAgICBhc2lkID0gYXRvbWljX2xvbmdf
+cmVhZCgmbW0tPmNvbnRleHQuaWQpICYgYXNpZF9tYXNrOwo+ID4KPiA+ICAgICAgICAgaWYgKGJy
+b2FkY2FzdCkgewo+ID4gQEAgLTEyOCw3ICsxMzYsOCBAQCBzdGF0aWMgdm9pZCBfX2ZsdXNoX3Rs
+Yl9yYW5nZShzdHJ1Y3QgbW1fc3RydWN0ICptbSwgdW5zaWduZWQgbG9uZyBzdGFydCwKPiA+ICAg
+ICAgICAgICAgICAgICBsb2NhbF9mbHVzaF90bGJfcmFuZ2VfYXNpZChzdGFydCwgc2l6ZSwgc3Ry
+aWRlLCBhc2lkKTsKPiA+ICAgICAgICAgfQo+ID4KPiA+IC0gICAgICAgcHV0X2NwdSgpOwo+ID4g
+KyAgICAgICBpZiAobW0pCj4gPiArICAgICAgICAgICAgICAgcHV0X2NwdSgpOwo+ID4gIH0KPiA+
+Cj4gPiAgdm9pZCBmbHVzaF90bGJfbW0oc3RydWN0IG1tX3N0cnVjdCAqbW0pCj4gPiBAQCAtMTg5
+LDYgKzE5OCwxMiBAQCB2b2lkIGZsdXNoX3RsYl9yYW5nZShzdHJ1Y3Qgdm1fYXJlYV9zdHJ1Y3Qg
+KnZtYSwgdW5zaWduZWQgbG9uZyBzdGFydCwKPiA+Cj4gPiAgICAgICAgIF9fZmx1c2hfdGxiX3Jh
+bmdlKHZtYS0+dm1fbW0sIHN0YXJ0LCBlbmQgLSBzdGFydCwgc3RyaWRlX3NpemUpOwo+ID4gIH0K
+PiA+ICsKPiA+ICt2b2lkIGZsdXNoX3RsYl9rZXJuZWxfcmFuZ2UodW5zaWduZWQgbG9uZyBzdGFy
+dCwgdW5zaWduZWQgbG9uZyBlbmQpCj4gPiArewo+ID4gKyAgICAgICBfX2ZsdXNoX3RsYl9yYW5n
+ZShOVUxMLCBzdGFydCwgZW5kIC0gc3RhcnQsIFBBR0VfU0laRSk7Cj4gPiArfQo+ID4gKwo+ID4g
+ICNpZmRlZiBDT05GSUdfVFJBTlNQQVJFTlRfSFVHRVBBR0UKPiA+ICB2b2lkIGZsdXNoX3BtZF90
+bGJfcmFuZ2Uoc3RydWN0IHZtX2FyZWFfc3RydWN0ICp2bWEsIHVuc2lnbmVkIGxvbmcgc3RhcnQs
+Cj4gPiAgICAgICAgICAgICAgICAgICAgICAgICB1bnNpZ25lZCBsb25nIGVuZCkKPiA+IC0tCj4g
+PiAyLjM5LjIKPiA+CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFk
+Lm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJp
+c2N2Cg==
