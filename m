@@ -4,70 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0BE8EDEC53
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 Sep 2023 13:56:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82A9BEDEC53
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 Sep 2023 14:07:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Rxmyv/H4RPtC/VE6UQCvAcn4ooSJ4Cl4rKitlWnyG58=; b=Tor1YyaNaBxKtO
-	5eiZI2TD7ja+9X0zY8JRTd6EO5WavXlbagcrxPSEB9dQ8uAVfmP/k6/GO6e0fEB+9/6TZCo847E90
-	msLfIfaa5qct0rx4bgGnGtRihynyuY534zz9J9zjW8q2UR7RkK9oWanKFQgaiL95pVR4MB/gJZSO+
-	Lq4B52QxQyPlrDOlymJmOGF0CNJnZFQKE54nu4iTzppC3P8ntgEW7BDW82qiFxcRIckw4skVoNhrx
-	m0vHn5WYqhBM/tsqlUi9lr+1eX2c9hbASLeOM9NDj0PNxjOh0GA8EWg4q4bw0AqYTxlQKrsI+TuNj
-	lOjlH7zlCnDJTO6wgeYw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=TncsEbu4UDVyL94bYG0YAYQcm4O1KQpPeWMRKlGXV6g=; b=E8SFQ+4ugzPbxn
+	aHCd9FOe/pjBNiVXgZH++E81MNFdQrxT7JXPukkrvKjbsJzkIVOaC+T+jocodI1hIxG3Rkfh5VTUS
+	o0usNndTov/C6kaRSt4zSOG/hV2X/nEjg2PJyQTgcsbwOCwLqkBgqFXlGqa8XxY2Ja3qZnP5NYy0q
+	wWL7d7wRwcIgl6j7rkO2YH/I8jAvQ5NizsRrCpoltmNksGjGNTjyrVyrFk73gHDHsAHaKMwrb2Xp0
+	2o8+BFryQuFoNJFYCAPLh9LHDLJoxGDrgCiJq8qUij578CJPN4Wf3/tIdFqp6T6J5nd9NhpQfIWtY
+	wqlsJqWeae3SdlZdKwJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgQLy-0064Jz-0S;
-	Wed, 13 Sep 2023 13:56:26 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1qgQWg-0065Zf-28;
+	Wed, 13 Sep 2023 14:07:30 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgQLu-0064II-22
+	id 1qgQWe-0065YO-34
 	for linux-riscv@lists.infradead.org;
-	Wed, 13 Sep 2023 13:56:24 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 2F5CCB8241F;
-	Wed, 13 Sep 2023 13:56:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C03D6C433CA;
-	Wed, 13 Sep 2023 13:56:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1694613379;
-	bh=Q6WalZ8TpU7f6rAirYPjnlGFBA7Iavog/gfu/KD0rr4=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=I1ppQjTJo3S4b7S3L8DWA+RTwdkl4GgYwdRn2Wz7xSpS94DTcYJ0aueQoj25rWcnW
-	 RvxkdcF3S4m4fR542BA5h4YjMBec/nE0SkdYwORpEbWQZZqF2/FhDk3jeUWi9+ceh6
-	 jLZFUGpHIdl+970u+3SDTM/47ZV9gWaItYHKnMMDkx+9i+681QvACFkVV+kJ4hAsZg
-	 VEodejJjhDMsm1vvWYLLYJfWbHy1wWGu/A4U2EwZpIoWap4qYDz/EV6chOINuS8iTL
-	 ZXNARkfn/WYZT/hMY6ZorRbcDKS7IyorXtM+CGel6pBCoqnaUcyhR6ED63Oy0eA7kH
-	 fSKwdh6YUIE1g==
-From: Conor Dooley <conor@kernel.org>
-To: ulf.hansson@linaro.org
-Cc: conor@kernel.org,
-	Conor Dooley <conor.dooley@microchip.com>,
-	arnd@arndb.de,
-	changhuang.liang@starfivetech.com,
-	jiajie.ho@starfivetech.com,
-	linux-pm@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	robh@kernel.org,
-	walker.chen@starfivetech.com
-Subject: [GIT PULL 5/5] pmdomain: starfive: Add JH7110 AON PMU support
-Date: Wed, 13 Sep 2023 14:54:28 +0100
-Message-Id: <20230913-dude-imprecise-fc32622bc947@spud>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20230913-bloomers-scorebook-fb45e0a2aa19@spud>
-References: <20230913-bloomers-scorebook-fb45e0a2aa19@spud>
+	Wed, 13 Sep 2023 14:07:30 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-401ce65dfc4so20492695e9.0
+        for <linux-riscv@lists.infradead.org>; Wed, 13 Sep 2023 07:07:26 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1694614045; x=1695218845; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=eUcO5LOOz7EzwAPKcG26jxLJeh1V8AQ265+bz+A8SoI=;
+        b=CJuZllU35tS9RI8G+MPWYg48MKnfTMXowk/SpYyoolA9rm2nVNGfZ4qdh45vFfPcOi
+         r+rC4/Q1melhPyAvmrXy7eJnnRYSREF0nrvy3+hTCrqteE8H2iXKnbbugBGAjYbRIHBw
+         R5+O+XyTDbW7ZXz0kS3zY/teFtuLYcsC10a940YNCpc0eKw3OcGDHB/yNNAdX3D+bgLA
+         mt+byhibx/LSeec+e5yUFmcCvR3jUpN4p12h+amyqk5bWTlCzUBRdcDOyJXmtmYfJUeP
+         YWHj3F58hRJ+QAQxSwl4lv2e0pQS3MSaNpZqIlf057MeWZgz67gNORFx2FfDouikSwSJ
+         NW7w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1694614045; x=1695218845;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=eUcO5LOOz7EzwAPKcG26jxLJeh1V8AQ265+bz+A8SoI=;
+        b=XaEXfIijoaUenwKEU/W97mbDi19cGRToRnvOzTKY4GE+f5AH4kjdyUtk8RERvRk6YK
+         reDKSY/5DkUKMOVcJl7ePsLpH1yKuXTERbV4ddqE0srqvq0MUmJgeAJchqCFx5z2NQGE
+         gEotC77xCa1G07hysJBwtk/QBUUQWII3aqkrVrmpYZ/tE+nhIIXmwf3ef5VEt/irKuJe
+         7XYeG4sB4ZAhcNnN2bcRu+Ro0QS4irk524xHUfbB+LSDzY0Tw7V4IHBy7+psfH8zLpM8
+         TGdiMXAJSfBcUVJmVBtcMp0KubKvaCtUtBIVCIJgdg2+ln9vIquJzev8bfJjEmtFCpnh
+         8f8w==
+X-Gm-Message-State: AOJu0Ywodve9Nq67d0ybJVulCqg33HJWH23dS+J2rpo6RCxHmAd6Ew9f
+	W1RmusLG3Z7wENNJo26qNPGEFQ==
+X-Google-Smtp-Source: AGHT+IGCH9EQFNujQ2CA3x2E+UgIyr58wi0F+nWTVuTCbTQOTY+VR6HOeI5WcUFS+BmJOSuQbmxsDA==
+X-Received: by 2002:a05:600c:1da2:b0:401:7d3b:cc84 with SMTP id p34-20020a05600c1da200b004017d3bcc84mr2256337wms.0.1694614044700;
+        Wed, 13 Sep 2023 07:07:24 -0700 (PDT)
+Received: from carbon-x1.. ([2a01:e0a:999:a3a0:8fed:c1bc:8957:f1f0])
+        by smtp.gmail.com with ESMTPSA id q5-20020a7bce85000000b004013797efb6sm2166222wmj.9.2023.09.13.07.07.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 13 Sep 2023 07:07:23 -0700 (PDT)
+From: =?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>
+To: Shuah Khan <shuah@kernel.org>,
+	Gabriel Krisman Bertazi <krisman@collabora.com>,
+	linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Cc: =?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>
+Subject: [PATCH] selftests: sud_test: return correct emulated syscall value on RISC-V
+Date: Wed, 13 Sep 2023 16:07:11 +0200
+Message-Id: <20230913140711.266975-1-cleger@rivosinc.com>
+X-Mailer: git-send-email 2.40.1
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4052; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=5Q3tk4+W6UmElYB6O/7FZbKQ8pSZfsYJMQxdffVIkaw=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDKmM+wW3FNppPxbr5vN92fxrQt807ne8/19t8l82e66pz +bCrOOGHaUsDGIcDLJiiiyJt/tapNb/cdnh3PMWZg4rE8gQBi5OAZhI3FVGhvOpse7Z846eTPN8 K1zNk1n764R3dNSNir33zQt+X/2cosjwv0LnqazhhosOOj3XXCte7Jg0WWWxw1/tsP2xcS8qNhj lcAAA
-X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230913_065622_972804_A633A960 
-X-CRM114-Status: GOOD (  17.55  )
+X-CRM114-CacheID: sfid-20230913_070728_986883_617A1D57 
+X-CRM114-Status: GOOD (  10.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,147 +87,33 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Changhuang Liang <changhuang.liang@starfivetech.com>
-
-Add AON PMU for StarFive JH7110 SoC. It can be used to turn on/off the
-dphy rx/tx power switch.
-
-Reviewed-by: Walker Chen <walker.chen@starfivetech.com>
-Signed-off-by: Changhuang Liang <changhuang.liang@starfivetech.com>
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
----
- MAINTAINERS                            |  1 +
- drivers/pmdomain/starfive/jh71xx-pmu.c | 57 +++++++++++++++++++++++---
- 2 files changed, 53 insertions(+), 5 deletions(-)
-
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 4d9e7d42412f..f1c34484c9b2 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -20512,6 +20512,7 @@ F:	drivers/usb/cdns3/cdns3-starfive.c
- 
- STARFIVE JH71XX PMU CONTROLLER DRIVER
- M:	Walker Chen <walker.chen@starfivetech.com>
-+M:	Changhuang Liang <changhuang.liang@starfivetech.com>
- S:	Supported
- F:	Documentation/devicetree/bindings/power/starfive*
- F:	drivers/pmdomain/starfive/jh71xx-pmu.c
-diff --git a/drivers/pmdomain/starfive/jh71xx-pmu.c b/drivers/pmdomain/starfive/jh71xx-pmu.c
-index 547cd3b9df11..2724bee7e85f 100644
---- a/drivers/pmdomain/starfive/jh71xx-pmu.c
-+++ b/drivers/pmdomain/starfive/jh71xx-pmu.c
-@@ -2,7 +2,7 @@
- /*
-  * StarFive JH71XX PMU (Power Management Unit) Controller Driver
-  *
-- * Copyright (C) 2022 StarFive Technology Co., Ltd.
-+ * Copyright (C) 2022-2023 StarFive Technology Co., Ltd.
-  */
- 
- #include <linux/interrupt.h>
-@@ -23,6 +23,9 @@
- #define JH71XX_PMU_EVENT_STATUS		0x88
- #define JH71XX_PMU_INT_STATUS		0x8C
- 
-+/* aon pmu register offset */
-+#define JH71XX_AON_PMU_SWITCH		0x00
-+
- /* sw encourage cfg */
- #define JH71XX_PMU_SW_ENCOURAGE_EN_LO	0x05
- #define JH71XX_PMU_SW_ENCOURAGE_EN_HI	0x50
-@@ -159,6 +162,26 @@ static int jh7110_pmu_set_state(struct jh71xx_pmu_dev *pmd, u32 mask, bool on)
- 	return 0;
- }
- 
-+static int jh7110_aon_pmu_set_state(struct jh71xx_pmu_dev *pmd, u32 mask, bool on)
-+{
-+	struct jh71xx_pmu *pmu = pmd->pmu;
-+	unsigned long flags;
-+	u32 val;
-+
-+	spin_lock_irqsave(&pmu->lock, flags);
-+	val = readl(pmu->base + JH71XX_AON_PMU_SWITCH);
-+
-+	if (on)
-+		val |= mask;
-+	else
-+		val &= ~mask;
-+
-+	writel(val, pmu->base + JH71XX_AON_PMU_SWITCH);
-+	spin_unlock_irqrestore(&pmu->lock, flags);
-+
-+	return 0;
-+}
-+
- static int jh71xx_pmu_set_state(struct jh71xx_pmu_dev *pmd, u32 mask, bool on)
- {
- 	struct jh71xx_pmu *pmu = pmd->pmu;
-@@ -316,10 +339,12 @@ static int jh71xx_pmu_probe(struct platform_device *pdev)
- 	if (!match_data)
- 		return -EINVAL;
- 
--	ret = match_data->pmu_parse_irq(pdev, pmu);
--	if (ret) {
--		dev_err(dev, "failed to parse irq\n");
--		return ret;
-+	if (match_data->pmu_parse_irq) {
-+		ret = match_data->pmu_parse_irq(pdev, pmu);
-+		if (ret) {
-+			dev_err(dev, "failed to parse irq\n");
-+			return ret;
-+		}
- 	}
- 
- 	pmu->genpd = devm_kcalloc(dev, match_data->num_domains,
-@@ -393,10 +418,31 @@ static const struct jh71xx_pmu_match_data jh7110_pmu = {
- 	.pmu_set_state = jh7110_pmu_set_state,
- };
- 
-+static const struct jh71xx_domain_info jh7110_aon_power_domains[] = {
-+	[JH7110_PD_DPHY_TX] = {
-+		.name = "DPHY-TX",
-+		.bit = 30,
-+	},
-+	[JH7110_PD_DPHY_RX] = {
-+		.name = "DPHY-RX",
-+		.bit = 31,
-+	},
-+};
-+
-+static const struct jh71xx_pmu_match_data jh7110_aon_pmu = {
-+	.num_domains = ARRAY_SIZE(jh7110_aon_power_domains),
-+	.domain_info = jh7110_aon_power_domains,
-+	.pmu_status = JH71XX_AON_PMU_SWITCH,
-+	.pmu_set_state = jh7110_aon_pmu_set_state,
-+};
-+
- static const struct of_device_id jh71xx_pmu_of_match[] = {
- 	{
- 		.compatible = "starfive,jh7110-pmu",
- 		.data = (void *)&jh7110_pmu,
-+	}, {
-+		.compatible = "starfive,jh7110-aon-syscon",
-+		.data = (void *)&jh7110_aon_pmu,
- 	}, {
- 		/* sentinel */
- 	}
-@@ -413,5 +459,6 @@ static struct platform_driver jh71xx_pmu_driver = {
- builtin_platform_driver(jh71xx_pmu_driver);
- 
- MODULE_AUTHOR("Walker Chen <walker.chen@starfivetech.com>");
-+MODULE_AUTHOR("Changhuang Liang <changhuang.liang@starfivetech.com>");
- MODULE_DESCRIPTION("StarFive JH71XX PMU Driver");
- MODULE_LICENSE("GPL");
--- 
-2.39.2
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+Q3VycmVudGx5LCB0aGUgc3VkX3Rlc3QgZXhwZWN0cyB0aGUgZW11bGF0ZWQgc3lzY2FsbCB0byBy
+ZXR1cm4gdGhlCmVtdWxhdGVkIHN5c2NhbGwgbnVtYmVyLiBUaGlzIGFzc3VtcHRpb24gb25seSB3
+b3JrcyBvbiBhcmNoaXRlY3R1cmVzCndlcmUgdGhlIHN5c2NhbGwgY2FsbGluZyBjb252ZW50aW9u
+IHVzZSB0aGUgc2FtZSByZWdpc3RlciBmb3Igc3lzY2FsbApudW1iZXIvc3lzY2FsbCByZXR1cm4g
+dmFsdWUuIFRoaXMgaXMgbm90IHRoZSBjYXNlIGZvciBSSVNDLVYgYW5kIHRodXMKdGhlIHJldHVy
+biB2YWx1ZSBtdXN0IGJlIGFsc28gZW11bGF0ZWQgdXNpbmcgdGhlIHByb3ZpZGVkIHVjb250ZXh0
+LgoKU2lnbmVkLW9mZi1ieTogQ2zDqW1lbnQgTMOpZ2VyIDxjbGVnZXJAcml2b3NpbmMuY29tPgot
+LS0KIHRvb2xzL3Rlc3Rpbmcvc2VsZnRlc3RzL3N5c2NhbGxfdXNlcl9kaXNwYXRjaC9zdWRfdGVz
+dC5jIHwgOCArKysrKysrKwogMSBmaWxlIGNoYW5nZWQsIDggaW5zZXJ0aW9ucygrKQoKZGlmZiAt
+LWdpdCBhL3Rvb2xzL3Rlc3Rpbmcvc2VsZnRlc3RzL3N5c2NhbGxfdXNlcl9kaXNwYXRjaC9zdWRf
+dGVzdC5jIGIvdG9vbHMvdGVzdGluZy9zZWxmdGVzdHMvc3lzY2FsbF91c2VyX2Rpc3BhdGNoL3N1
+ZF90ZXN0LmMKaW5kZXggYjVkNTkyZDQwOTllLi4xYjU1NTNjMTk3MDAgMTAwNjQ0Ci0tLSBhL3Rv
+b2xzL3Rlc3Rpbmcvc2VsZnRlc3RzL3N5c2NhbGxfdXNlcl9kaXNwYXRjaC9zdWRfdGVzdC5jCisr
+KyBiL3Rvb2xzL3Rlc3Rpbmcvc2VsZnRlc3RzL3N5c2NhbGxfdXNlcl9kaXNwYXRjaC9zdWRfdGVz
+dC5jCkBAIC0xNTgsNiArMTU4LDE0IEBAIHN0YXRpYyB2b2lkIGhhbmRsZV9zaWdzeXMoaW50IHNp
+Zywgc2lnaW5mb190ICppbmZvLCB2b2lkICp1Y29udGV4dCkKIAogCS8qIEluIHByZXBhcmF0aW9u
+IGZvciBzaWdyZXR1cm4uICovCiAJU1lTQ0FMTF9ESVNQQVRDSF9PRkYoZ2xvYl9zZWwpOworCisJ
+LyoKKwkgKiBNb2RpZnkgaW50ZXJydXB0ZWQgY29udGV4dCByZXR1cm5lZCB2YWx1ZSBhY2NvcmRp
+bmcgdG8gc3lzY2FsbAorCSAqIGNhbGxpbmcgY29udmVudGlvbgorCSAqLworI2lmIGRlZmluZWQo
+X19yaXNjdikKKwkoKHVjb250ZXh0X3QqKXVjb250ZXh0KS0+dWNfbWNvbnRleHQuX19ncmVnc1tS
+RUdfQTBdID0gTUFHSUNfU1lTQ0FMTF8xOworI2VuZGlmCiB9CiAKIFRFU1QoZGlzcGF0Y2hfYW5k
+X3JldHVybikKLS0gCjIuNDAuMQoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5p
+bmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8v
+bGludXgtcmlzY3YK
