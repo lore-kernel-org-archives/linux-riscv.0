@@ -4,47 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8C09EDEC52
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 Sep 2023 13:56:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57278EDEC4D
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 Sep 2023 13:56:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=E8n9bq0Uqd8/EZw1kQrhOkso+YB2NhnWuqN6X21ncRg=; b=nfEvECXpjthTb3
-	nGI/mhhqap49qv8FSq7v+AYqmGDbi9mKtZag+qjo1+L657OPtC87Nk/wxSLYU7+b8KABxXuQH6RvE
-	Q6f94PlXMFzyBBdFYOB/w4VvauVdvxiSbF8Urnf6jnhkVoJqFWtEib/Xkg+JP8xF6L0bAvff4qgve
-	VM2Xf6unzhgrAQqVoQmCGfr3Lse6kYCKVoTBvIYmJIC0G3W+1xht8ZviA5oeYDxnGjKedU4XehHAQ
-	U8glmVuWdR9hbo6z4rH2NuLuu9Ltm+lzMnqlSpyyEjAQ0cC9jO6T23iBz+WkXC5Dy5D6AXY3J0jWe
-	cxvzZFK0OUcQ+Ci83HVg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Kqtnpk9OixtwEJCMPrf/k2P68lGh31k60205eXjcuHI=; b=24MsBv36qdmt4Y
+	ohZlwexTIgB1SaaDGYHgvyk/vXUNpNQaFVTZvOim1BwUQgBsVwVtFJtiGsX0hfIsSF0gmDdQdAMO9
+	g0HCj+sJqN/cW0m11NHN50Hm67+5yaxPVvIL2f8gDC2taUrO3zE/o6KUXyDWrFio8iTVLVd2iEcp1
+	SpambNMUZUiwYlBUlm01PQf8SPbAd3HKRsGWfia4A1+VdtwKf5mBOehlzpZfFJ8DgrjpWdFHPOi7L
+	I9+9viUj5BTzSoM3cT89iRl7Z5SCEan2oHgMhcwmd6rkn1T/kVbnfjUDdfWLqHnOptfnSdmp2t9HE
+	NUR+FscI3gJwMrp09ynQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgQLp-0064Gs-27;
-	Wed, 13 Sep 2023 13:56:17 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1qgQLq-0064HA-1H;
+	Wed, 13 Sep 2023 13:56:18 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgQLm-0064F9-1Y
+	id 1qgQLn-0064GG-2w
 	for linux-riscv@lists.infradead.org;
-	Wed, 13 Sep 2023 13:56:15 +0000
+	Wed, 13 Sep 2023 13:56:17 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 1781861950;
-	Wed, 13 Sep 2023 13:56:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6BA1DC433C7;
-	Wed, 13 Sep 2023 13:56:05 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 72EF261973;
+	Wed, 13 Sep 2023 13:56:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D3854C433C9;
+	Wed, 13 Sep 2023 13:56:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1694613367;
-	bh=cPW3ngQcLFNVapX0q9aS5nmb5CE6JzKHtu3Dbmcap1M=;
-	h=From:To:Cc:Subject:Date:From;
-	b=KKMvp/l1Rq1L9185vo8pIgTFQuMzeAq6JuWHg+TWaOmaNUXrYeUjRM+tKOOvDFDuQ
-	 zNZfsAEdV+e95VXY/g58J4djh6Ax8xrkc7e2qeDOsw6Z0j53jaHAu7KIpYJVD30wrl
-	 G3qHY0TCu19q3QO6/LvVTvjqkWZxp6BqSRhhr/rVVZpZAP+bEL03S1YNgkNAsTbBeJ
-	 LXtkcjwyhtzTsd25tV1cN7k4+EF6aSkgk9GkF+rwtnWt+DJGEH3LreOWSM6h7Qu4HG
-	 +BofmIevmezasMvQjD/fTbMTaX32VroLZVA8egkHzWGuTGpW8zlfMKJDjzxW72ZzG6
-	 IdV0Z863yOSbQ==
+	s=k20201202; t=1694613374;
+	bh=WyGoT/IpS4j5guw4pY2xjfZcTVdCNCPd7Kqn0VeALVg=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=GIJP4AIvy0hbT5V2SKk9Xef/Tet7mmZsFqwesBKgS0l/MJcvZRnrwSfaYQOg5sI5B
+	 VDszCrfPZYxDgVjH4Kli3Ra6USYi6QnTBzWeMrDxDruxZq2XSABptBehKv0irJ+VN6
+	 egn88/8CYZrfyS4KHwd5sQXx1hLX7sxg8cpUGMu/rippOTS3zSO9IOFVEOtOqrkMQn
+	 vYwaS+3kggf0yyDlYZ4a/uTxc63xZfXrIMdqaVIyDSDrI/fNfzDrgRxZNqL46Wm8B2
+	 VmzY/t4NirRGAhKKJV1ULWXhVyBgtAcuN1BJjsg12EH7aALHIGTs/wCxllbpzcGVxm
+	 uy0Kukji+LjlA==
 From: Conor Dooley <conor@kernel.org>
 To: ulf.hansson@linaro.org
 Cc: conor@kernel.org,
@@ -56,16 +56,19 @@ Cc: conor@kernel.org,
 	linux-riscv@lists.infradead.org,
 	robh@kernel.org,
 	walker.chen@starfivetech.com
-Subject: [GIT PULL 0/5] Missed starfive pmdomain changes for v6.6, now for v6.7
-Date: Wed, 13 Sep 2023 14:54:23 +0100
-Message-Id: <20230913-bloomers-scorebook-fb45e0a2aa19@spud>
+Subject: [GIT PULL 3/5] pmdomain: starfive: Replace SOC_STARFIVE with ARCH_STARFIVE
+Date: Wed, 13 Sep 2023 14:54:26 +0100
+Message-Id: <20230913-legibly-treachery-567cffcb5604@spud>
 X-Mailer: git-send-email 2.39.2
+In-Reply-To: <20230913-bloomers-scorebook-fb45e0a2aa19@spud>
+References: <20230913-bloomers-scorebook-fb45e0a2aa19@spud>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1129; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=EKO/JXotiZvRjrciydNKo5TqXwavOcF+4xIEn9RLlOY=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDKmM+/nPGSu+vpKQG/txu+X0tv7YgENZZ4+tUpep27iQ/ WNU+zXujlIWBjEOBlkxRZbE230tUuv/uOxw7nkLM4eVCWQIAxenAEyk6Cojw/I1Mxe/6xXT4k1w zXMsnDc5dtvas2KG0/dscDM97sCxtJqR4czvOEmOtnXxGjxRE9+HZIu2lLBssONaEtEoc1DyZq4 VGwA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=920; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=ROTpWeJDGZli0o85OeBFiNqOQk1oLZRZwx1V2xQWjsQ=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDKmM+wX8dq5l7svdNaMwJ6/jAdvtOas8BA7q+j4+cPNqI /Om+DiDjlIWBjEOBlkxRZbE230tUuv/uOxw7nkLM4eVCWQIAxenAEykZDnDL+Yd3r82bvJefniC NLvGiYRLn6qET0y3LZHdtmBHwNG25ZIMf3ivbNmzOuDpg03rQkS46vortgjZ9HY8bb+c3Cq6dLe WITMA
 X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230913_065614_579472_F354BDA6 
-X-CRM114-Status: GOOD (  10.51  )
+X-CRM114-CacheID: sfid-20230913_065615_988884_7A402908 
+X-CRM114-Status: UNSURE (   9.28  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,45 +85,33 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Conor Dooley <conor.dooley@microchip.com>
+From: Changhuang Liang <changhuang.liang@starfivetech.com>
 
-Hey Uffe,
+Using ARCH_FOO symbol is preferred than SOC_FOO.
 
-Here's those missed changes in patch form. I figured it might be a bit
-easier this way given the name of the subsystem is in flux, doubly so if
-you'd like to put the header change of Rob's on fixes.
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+Reviewed-by: Walker Chen <walker.chen@starfivetech.com>
+Signed-off-by: Changhuang Liang <changhuang.liang@starfivetech.com>
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+---
+ drivers/soc/starfive/Kconfig | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-I had this out for LKP last night, seemed to get a clean bill of health,
-before I rebased it on top of the new name this afternoon, and ofc it was
-in linux-next on top of v6.5 for quite a while...
-
-Thanks,
-Conor.
-
-CC: arnd@arndb.de
-CC: changhuang.liang@starfivetech.com
-CC: jiajie.ho@starfivetech.com
-CC: linux-pm@vger.kernel.org
-CC: linux-riscv@lists.infradead.org
-CC: robh@kernel.org
-CC: ulf.hansson@linaro.org
-CC: walker.chen@starfivetech.com
-
-Changhuang Liang (4):
-  dt-bindings: power: Add power-domain header for JH7110
-  pmdomain: starfive: Replace SOC_STARFIVE with ARCH_STARFIVE
-  pmdomain: starfive: Extract JH7110 pmu private operations
-  pmdomain: starfive: Add JH7110 AON PMU support
-
-Rob Herring (1):
-  pmdomain: starfive: Explicitly include correct DT includes
-
- MAINTAINERS                                   |   1 +
- drivers/pmdomain/starfive/jh71xx-pmu.c        | 139 ++++++++++++++----
- drivers/soc/starfive/Kconfig                  |   4 +-
- .../dt-bindings/power/starfive,jh7110-pmu.h   |   5 +-
- 4 files changed, 117 insertions(+), 32 deletions(-)
-
+diff --git a/drivers/soc/starfive/Kconfig b/drivers/soc/starfive/Kconfig
+index bdb96dc4c989..1e9b0c414fec 100644
+--- a/drivers/soc/starfive/Kconfig
++++ b/drivers/soc/starfive/Kconfig
+@@ -3,8 +3,8 @@
+ config JH71XX_PMU
+ 	bool "Support PMU for StarFive JH71XX Soc"
+ 	depends on PM
+-	depends on SOC_STARFIVE || COMPILE_TEST
+-	default SOC_STARFIVE
++	depends on ARCH_STARFIVE || COMPILE_TEST
++	default ARCH_STARFIVE
+ 	select PM_GENERIC_DOMAINS
+ 	help
+ 	  Say 'y' here to enable support power domain support.
 -- 
 2.39.2
 
