@@ -4,56 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80B9FCA553B
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 Sep 2023 16:25:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C756CA553C
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 Sep 2023 16:38:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9sKqelyZ74FEQDYcv4t8xw3gTS3oBpQFMrOEJNlirVs=; b=AaIMA3sb1Gg4Dn
-	UJ+/3gWPq4kdQ7Xu3wOsCIARkO245+xyzfHlxb+b2XJ8W+umd7B1XmrUiQMz/sYcKwr3JqJBbrahl
-	fEh818ooc+zadW+Jd8LDxnXt9AccdGIj0p6vP8m/R3uvjCa7KPAsshBzkHpIw7WoWaiu+c4beBsww
-	X3hkEE72wb30zfaFM107fj6UDKjpM/0zKZSYpdV+YGQ7110K94TRMjvdx6cm8Nuu6+ZLMt+Gz3NcW
-	femEXuGCQVBYmWXyCIG5bUx/aMHWBo02vzoJvkV6xMxgna975epyhw3e51fywNnl9QI5FeYM/T5N1
-	hrUoEgwq2NVf8A88Rfzw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=SSOeCldk+e7qo3zzAxxGuM/Ttl6dMweuBsrZyIS365s=; b=JCPJC0Vy+Zu/IU
+	7VnpZFrGeO06fJpkiDYQOExJEfId+EqJCPsdMPJkftCkOxp5bdihdvVMzM9XPw5kgZhRGc2DRVqOk
+	H/1TnzMBtQh3466aU2c/ULGVi5k7YMuqP33hunMseTs1iYuECds1AlQg5y0SYELfmCS0a2iUwKpfW
+	cGBPZQXIWt7NkGgHQHNRmqIqTBA16wnXWzzbhdakmeWufOls+ca+99Ah4vA+wrCmHprtkxSIfH6l6
+	1E3sYaYa5Hreoy/s/VkSTnpgyvI8M+fnTdw4rq4cqrmhJQ2aPSJA1Ois4mx4d8BrFxbWhSBZJR/ZH
+	R6RkD2tAKENE2pTMmkJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgSgN-006JsV-0D;
-	Wed, 13 Sep 2023 16:25:39 +0000
-Received: from 60-248-80-70.hinet-ip.hinet.net ([60.248.80.70] helo=Atcsqr.andestech.com)
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgSgJ-006Jqu-2k
-	for linux-riscv@lists.infradead.org;
-	Wed, 13 Sep 2023 16:25:37 +0000
-Received: from mail.andestech.com (ATCPCS16.andestech.com [10.0.1.222])
-	by Atcsqr.andestech.com with ESMTP id 38DGPHsx042655;
-	Thu, 14 Sep 2023 00:25:17 +0800 (+08)
-	(envelope-from peterlin@andestech.com)
-Received: from atctrx.andestech.com (10.0.15.173) by ATCPCS16.andestech.com
- (10.0.1.222) with Microsoft SMTP Server id 14.3.498.0; Thu, 14 Sep 2023
- 00:25:12 +0800
-From: Yu Chien Peter Lin <peterlin@andestech.com>
-To: <paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
-        <david@redhat.com>, <akpm@linux-foundation.org>,
-        <alexghiti@rivosinc.com>, <bjorn@rivosinc.com>,
-        <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-CC: <ycliang@andestech.com>, Yu Chien Peter Lin <peterlin@andestech.com>
-Subject: [PATCH 3/3] riscv: Introduce NAPOT field to PTDUMP
-Date: Thu, 14 Sep 2023 00:24:58 +0800
-Message-ID: <20230913162458.2931065-3-peterlin@andestech.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20230913162458.2931065-1-peterlin@andestech.com>
-References: <20230913162458.2931065-1-peterlin@andestech.com>
+	id 1qgStA-006KoM-1O;
+	Wed, 13 Sep 2023 16:38:52 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1qgSt5-006KnK-19;
+	Wed, 13 Sep 2023 16:38:49 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 042891FB;
+	Wed, 13 Sep 2023 09:39:18 -0700 (PDT)
+Received: from merodach.members.linode.com (unknown [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D8CB83F7C5;
+	Wed, 13 Sep 2023 09:38:38 -0700 (PDT)
+From: James Morse <james.morse@arm.com>
+To: linux-pm@vger.kernel.org,
+	loongarch@lists.linux.dev,
+	linux-acpi@vger.kernel.org,
+	linux-arch@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	kvmarm@lists.linux.dev
+Cc: x86@kernel.org,
+	Salil Mehta <salil.mehta@huawei.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Jean-Philippe Brucker <jean-philippe@linaro.org>,
+	jianyong.wu@arm.com,
+	justin.he@arm.com
+Subject: [RFC PATCH v2 00/35] ACPI/arm64: add support for virtual cpuhotplug
+Date: Wed, 13 Sep 2023 16:37:48 +0000
+Message-Id: <20230913163823.7880-1-james.morse@arm.com>
+X-Mailer: git-send-email 2.20.1
 MIME-Version: 1.0
-X-Originating-IP: [10.0.15.173]
-X-DNSRBL: 
-X-MAIL: Atcsqr.andestech.com 38DGPHsx042655
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230913_092536_317829_4C03EF68 
-X-CRM114-Status: UNSURE (   8.58  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230913_093847_510802_1B54F402 
+X-CRM114-Status: GOOD (  33.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,31 +71,210 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patch introduces the NAPOT field to PTDUMP, allowing it
-to display the letter "N" for pages that have the 63rd bit set.
+Hello!
 
-Signed-off-by: Yu Chien Peter Lin <peterlin@andestech.com>
+Changes since RFC-v1:
+ * riscv is new, ia64 is gone
+ * The KVM support is different, and upstream - no need to patch the host.
+
 ---
- arch/riscv/mm/ptdump.c | 4 ++++
- 1 file changed, 4 insertions(+)
 
-diff --git a/arch/riscv/mm/ptdump.c b/arch/riscv/mm/ptdump.c
-index 2a89c66f837a..bc9f3f005461 100644
---- a/arch/riscv/mm/ptdump.c
-+++ b/arch/riscv/mm/ptdump.c
-@@ -136,6 +136,10 @@ struct prot_bits {
- static const struct prot_bits pte_bits[] = {
- 	{
- #ifdef CONFIG_64BIT
-+		.mask = _PAGE_NAPOT,
-+		.set = "N",
-+		.clear = ".",
-+	}, {
- 		.mask = _PAGE_MTMASK_SVPBMT,
- 		.set = "MT(%s)",
- 		.clear = "      ",
+This series adds what looks like cpuhotplug support to arm64 for use in
+virtual machines. It does this by moving the cpu_register() calls for
+architectures that support ACPI out of the arch code by using
+GENERIC_CPU_DEVICES, then into the ACPI processor driver.
+
+The kubernetes folk really want to be able to add CPUs to an existing VM,
+in exactly the same way they do on x86. The use-case is pre-booting guests
+with one CPU, then adding the number that were actually needed when the
+workload is provisioned.
+
+Wait? Doesn't arm64 support cpuhotplug already!?
+In the arm world, cpuhotplug gets used to mean removing the power from a CPU.
+The CPU is offline, and remains present. For x86, and ACPI, cpuhotplug
+has the additional step of physically removing the CPU, so that it isn't
+present anymore.
+
+Arm64 doesn't support this, and can't support it: CPUs are really a slice
+of the SoC, and there is not enough information in the existing ACPI tables
+to describe which bits of the slice also got removed. Without a reference
+machine: adding this support to the spec is a wild goose chase.
+
+Critically: everything described in the firmware tables must remain present.
+
+For a virtual machine this is easy as all the other bits of 'virtual SoC'
+are emulated, so they can (and do) remain present when a vCPU is 'removed'.
+
+On a system that supports cpuhotplug the MADT has to describe every possible
+CPU at boot. Under KVM, the vGIC needs to know about every possible vCPU before
+the guest is started.
+With these constraints, virtual-cpuhotplug is really just a hypervisor/firmware
+policy about which CPUs can be brought online.
+
+This series adds support for virtual-cpuhotplug as exactly that: firmware
+policy. This may even work on a physical machine too; for a guest the part of
+firmware is played by the VMM. (typically Qemu).
+
+PSCI support is modified to return 'DENIED' if the CPU can't be brought
+online/enabled yet. The CPU object's _STA method's enabled bit is used to
+indicate firmware's current disposition. If the CPU has its enabled bit clear,
+it will not be registered with sysfs, and attempts to bring it online will
+fail. The notifications that _STA has changed its value then work in the same
+way as physical hotplug, and firmware can cause the CPU to be registered some
+time later, allowing it to be brought online.
+
+This creates something that looks like cpuhotplug to user-space, as the sysfs
+files appear and disappear, and the udev notifications look the same.
+
+One notable difference is the CPU present mask, which is exposed via sysfs.
+Because the CPUs remain present throughout, they can still be seen in that mask.
+This value does get used by webbrowsers to estimate the number of CPUs
+as the CPU online mask is constantly changed on mobile phones.
+
+Linux is tolerant of PSCI returning errors, as its always been allowed to do
+that. To avoid confusing OS that can't tolerate this, we needed an additional
+bit in the MADT GICC flags. This series copies ACPI_MADT_ONLINE_CAPABLE, which
+appears to be for this purpose, but calls it ACPI_MADT_GICC_CPU_CAPABLE as it
+has a different bit position in the GICC.
+
+This code is unconditionally enabled for all ACPI architectures.
+If there are problems with firmware tables on some devices, the CPUs will
+already be online by the time the acpi_processor_make_enabled() is called.
+A mismatch here causes a firmware-bug message and kernel taint. This should
+only affect people with broken firmware who also boot with maxcpus=1, and
+bring CPUs online later.
+
+I had a go at switching the remaining architectures over to GENERIC_CPU_DEVICES,
+so that the Kconfig symbol can be removed, but I got stuck with powerpc
+and s390.
+
+I've only build tested Loongarch and riscv. I've removed the ia64 specific
+patches, but left the changes in other patches to make git-grep review of
+renames easier.
+
+If folk want to play along at home, you'll need a copy of Qemu that supports this.
+https://github.com/salil-mehta/qemu.git salil/virt-cpuhp-armv8/rfc-v2-rc6
+
+Replace your '-smp' argument with something like:
+| -smp cpus=1,maxcpus=3,cores=3,threads=1,sockets=1
+
+then feed the following to the Qemu montior;
+| (qemu) device_add driver=host-arm-cpu,core-id=1,id=cpu1
+| (qemu) device_del cpu1
+
+
+Why is this still an RFC? I'm still looking for confirmation from the
+kubernetes/kata folk that this works for them. Because of this I've culled
+the CC list...
+
+
+This series is based on v6.6-rc1, and can be retrieved from:
+https://git.kernel.org/pub/scm/linux/kernel/git/morse/linux.git/ virtual_cpu_hotplug/rfc/v2
+
+
+Thanks,
+
+James Morse (34):
+  ACPI: Move ACPI_HOTPLUG_CPU to be disabled on arm64 and riscv
+  drivers: base: Use present CPUs in GENERIC_CPU_DEVICES
+  drivers: base: Allow parts of GENERIC_CPU_DEVICES to be overridden
+  drivers: base: Move cpu_dev_init() after node_dev_init()
+  drivers: base: Print a warning instead of panic() when register_cpu()
+    fails
+  arm64: setup: Switch over to GENERIC_CPU_DEVICES using
+    arch_register_cpu()
+  x86: intel_epb: Don't rely on link order
+  x86/topology: Switch over to GENERIC_CPU_DEVICES
+  LoongArch: Switch over to GENERIC_CPU_DEVICES
+  riscv: Switch over to GENERIC_CPU_DEVICES
+  arch_topology: Make register_cpu_capacity_sysctl() tolerant to late
+    CPUs
+  ACPI: Use the acpi_device_is_present() helper in more places
+  ACPI: Rename acpi_scan_device_not_present() to be about enumeration
+  ACPI: Only enumerate enabled (or functional) devices
+  ACPI: processor: Add support for processors described as container
+    packages
+  ACPI: processor: Register CPUs that are online, but not described in
+    the DSDT
+  ACPI: processor: Register all CPUs from acpi_processor_get_info()
+  ACPI: Rename ACPI_HOTPLUG_CPU to include 'present'
+  ACPI: Move acpi_bus_trim_one() before acpi_scan_hot_remove()
+  ACPI: Rename acpi_processor_hotadd_init and remove pre-processor
+    guards
+  ACPI: Add post_eject to struct acpi_scan_handler for cpu hotplug
+  ACPI: Check _STA present bit before making CPUs not present
+  ACPI: Warn when the present bit changes but the feature is not enabled
+  drivers: base: Implement weak arch_unregister_cpu()
+  LoongArch: Use the __weak version of arch_unregister_cpu()
+  arm64: acpi: Move get_cpu_for_acpi_id() to a header
+  ACPICA: Add new MADT GICC flags fields [code first?]
+  arm64, irqchip/gic-v3, ACPI: Move MADT GICC enabled check into a
+    helper
+  irqchip/gic-v3: Don't return errors from gic_acpi_match_gicc()
+  irqchip/gic-v3: Add support for ACPI's disabled but 'online capable'
+    CPUs
+  ACPI: add support to register CPUs based on the _STA enabled bit
+  arm64: document virtual CPU hotplug's expectations
+  ACPI: Add _OSC bits to advertise OS support for toggling CPU
+    present/enabled
+  cpumask: Add enabled cpumask for present CPUs that can be brought
+    online
+
+Jean-Philippe Brucker (1):
+  arm64: psci: Ignore DENIED CPUs
+
+ Documentation/arch/arm64/cpu-hotplug.rst   |  79 ++++++++++
+ Documentation/arch/arm64/index.rst         |   1 +
+ arch/arm64/Kconfig                         |   1 +
+ arch/arm64/include/asm/acpi.h              |  11 ++
+ arch/arm64/include/asm/cpu.h               |   1 -
+ arch/arm64/kernel/acpi_numa.c              |  11 --
+ arch/arm64/kernel/psci.c                   |   2 +-
+ arch/arm64/kernel/setup.c                  |  13 +-
+ arch/arm64/kernel/smp.c                    |   5 +-
+ arch/ia64/Kconfig                          |   2 +
+ arch/ia64/include/asm/acpi.h               |   2 +-
+ arch/ia64/include/asm/cpu.h                |   5 -
+ arch/ia64/kernel/acpi.c                    |   6 +-
+ arch/ia64/kernel/setup.c                   |   2 +-
+ arch/ia64/kernel/topology.c                |   2 +-
+ arch/loongarch/Kconfig                     |   2 +
+ arch/loongarch/configs/loongson3_defconfig |   2 +-
+ arch/loongarch/kernel/acpi.c               |   4 +-
+ arch/loongarch/kernel/topology.c           |  38 +----
+ arch/riscv/Kconfig                         |   1 +
+ arch/riscv/kernel/setup.c                  |  19 +--
+ arch/x86/Kconfig                           |   3 +
+ arch/x86/include/asm/cpu.h                 |   6 -
+ arch/x86/kernel/acpi/boot.c                |   4 +-
+ arch/x86/kernel/cpu/intel_epb.c            |   2 +-
+ arch/x86/kernel/topology.c                 |  25 +---
+ drivers/acpi/Kconfig                       |  14 +-
+ drivers/acpi/acpi_processor.c              | 160 ++++++++++++++++-----
+ drivers/acpi/bus.c                         |  16 +++
+ drivers/acpi/device_pm.c                   |   2 +-
+ drivers/acpi/device_sysfs.c                |   2 +-
+ drivers/acpi/internal.h                    |   1 -
+ drivers/acpi/processor_core.c              |   2 +-
+ drivers/acpi/property.c                    |   2 +-
+ drivers/acpi/scan.c                        | 147 ++++++++++++-------
+ drivers/base/arch_topology.c               |  38 +++--
+ drivers/base/cpu.c                         |  40 ++++--
+ drivers/base/init.c                        |   2 +-
+ drivers/firmware/psci/psci.c               |   2 +
+ drivers/irqchip/irq-gic-v3.c               |  38 ++---
+ include/acpi/acpi_bus.h                    |   1 +
+ include/acpi/actbl2.h                      |   1 +
+ include/acpi/processor.h                   |   2 +-
+ include/linux/acpi.h                       |  14 +-
+ include/linux/cpu.h                        |   6 +
+ include/linux/cpumask.h                    |  25 ++++
+ kernel/cpu.c                               |   3 +
+ 47 files changed, 516 insertions(+), 251 deletions(-)
+ create mode 100644 Documentation/arch/arm64/cpu-hotplug.rst
+
 -- 
-2.34.1
+2.39.2
 
 
 _______________________________________________
