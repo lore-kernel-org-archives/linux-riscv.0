@@ -4,64 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88224EEB58C
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 Sep 2023 03:48:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E54EEEB593
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 Sep 2023 05:31:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=36BVZMsRroG4QQqdFY4bDFi5Ev/j3X/ICvszututVzE=; b=ANoot0vaAbMYkp
-	AmUDhPZF25afGFYjTP0VpufOAgj8+e4InpwHXiBS+WRvT8aGFKx+iNrOAz06ADCbFenSqmkfqMNgD
-	iq5POLqtSLooMCUUBruPcrvFVdw/TeHBT7P50rFY0cGxJYWfjqzJUe38KrQnFHTy2EzAhyFZ03UJp
-	zq8pd39jhR/8uC+vpAeVKEQy2BHpaNmyIylzypE9Yo4J5DzNEYwvFQ2oTLVuYVoiGkn1HH+TAok3d
-	BDcptc+M6A6kdCEEoSUk3hErwufoo/psp+R7blndJ9ON7TW3nvqN1x6n4iMW8hpLbMbWWTHpIiGXa
-	FZR4L49KGRqPtwBISlWA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=J/zp0appCuWeW5IKa+mD1118zmHLglXbsmvX+Pc85VY=; b=Kz3d+HmT5LbiqG
+	WfPj8o0EylAxBb7L/AWDdlprqb8UJyaKB28MW5N/KAz2ZiWu91diOOckAwQcV/j6tDqHJ5S6hipbz
+	lNHWRWHSboCddJ8295UgXKs+64Xl9dix0hW++QtVrYtSifbFgVNn5dEMS0rD7OftZf92GZsJmjSnn
+	brqptV3zCsg9r51Nqa5xKxYZdMHPWwuMmKLwNyVqI/UfiJXLRmG87cUiviUKBX5N2nXpnrU0yuTcs
+	xO8XV2n0mtI6RH6Ny//8bx40VMv7QZ5RnXIQljZ4PkM4bl7S47MiJjJQH/osxjVa0OQKSanUr9SMY
+	VY6tiTMYBM3FYZmcKdJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgGrH-004Vv6-01;
-	Wed, 13 Sep 2023 03:48:07 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgGrD-004Vr6-1v
+	id 1qgISj-004frZ-0r;
+	Wed, 13 Sep 2023 05:30:53 +0000
+Received: from bg2.exmail.qq.com ([106.55.200.77])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1qgISf-004foy-37
 	for linux-riscv@lists.infradead.org;
-	Wed, 13 Sep 2023 03:48:05 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 3D3FB8132;
-	Wed, 13 Sep 2023 11:47:24 +0800 (CST)
-Received: from EXMBX172.cuchost.com (172.16.6.92) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 13 Sep
- 2023 11:47:24 +0800
-Received: from [192.168.125.55] (113.72.145.181) by EXMBX172.cuchost.com
- (172.16.6.92) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 13 Sep
- 2023 11:47:23 +0800
-Message-ID: <c417d55d-d886-f66d-15a9-73b297d28d59@starfivetech.com>
-Date: Wed, 13 Sep 2023 11:47:22 +0800
+	Wed, 13 Sep 2023 05:30:52 +0000
+X-QQ-mid: bizesmtp89t1694582995tg1po50m
+Received: from wangjiexun-virtual-machine.loca ( [183.230.12.200])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Wed, 13 Sep 2023 13:29:53 +0800 (CST)
+X-QQ-SSF: 01200000000000102000000A0000000
+X-QQ-FEAT: ILHsT53NKPjfD7b8Zb6jchmbIcw0qlMMQyN/QLoYTr77IR2msFhRMvJYrb4ot
+	9WPBXDgryN09kt/n3PrdGPV55+xlfk5oD+LMpFQJOHDXCjKJHvxq/wtLCTun5iMYkiRtMdH
+	urMDa/pLTLzA81GK+Ja8MkTs22OlbcRN0eMJYDOo6iVSEI+3yj1T7CJFyfUOsrWYvkAn74k
+	tWRU9rqSF+66wmn6pmwA6Y1sMx1klkuMRkgRAo+dQMSSZiR82uf/CLQwQcCOfhAOVFT1rAp
+	q6+W5Os5CxkuM08q46YQqcrbWtHmAdMQt6fngc/h7EWAlLTbUlAcuX0oKsx+R3/pFaJthKc
+	fAi71Qb3Qsmf8rsgtOMk3TpB9dDedBf4wjY5+aprjaiqUkjuHGwYmkM2720zQ==
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 10456565237369855809
+From: Jiexun Wang <wangjiexun@tinylab.org>
+To: samuel@sholland.org
+Cc: conor@kernel.org,
+	guoren@kernel.org,
+	paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	falcon@tinylab.org,
+	jszhang@kernel.org,
+	tglx@linutronix.de,
+	Jiexun Wang <wangjiexun@tinylab.org>
+Subject: [PATCH v3] RISC-V: Fix wrong use of CONFIG_HAVE_SOFTIRQ_ON_OWN_STACK
+Date: Wed, 13 Sep 2023 13:29:40 +0800
+Message-Id: <20230913052940.374686-1-wangjiexun@tinylab.org>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.3.2
-Subject: Re: [-next v2 1/2] riscv: dts: starfive: visionfive 2: Enable usb0
-To: Conor Dooley <conor+dt@kernel.org>, Emil Renner Berthing
-	<emil.renner.berthing@canonical.com>, Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Palmer Dabbelt
-	<palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou
-	<aou@eecs.berkeley.edu>
-CC: <devicetree@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>
-References: <20230829020511.26844-1-hal.feng@starfivetech.com>
-Content-Language: en-US
-From: Hal Feng <hal.feng@starfivetech.com>
-In-Reply-To: <20230829020511.26844-1-hal.feng@starfivetech.com>
-X-Originating-IP: [113.72.145.181]
-X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX172.cuchost.com
- (172.16.6.92)
-X-YovoleRuleAgent: yovoleflag
+X-QQ-SENDSIZE: 520
+Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrgz:qybglogicsvrgz5a-0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230912_204803_802025_B7A56591 
-X-CRM114-Status: GOOD (  11.56  )
+X-CRM114-CacheID: sfid-20230912_223050_365872_999535BA 
+X-CRM114-Status: GOOD (  12.01  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,33 +79,62 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 29 Aug 2023 10:05:10 +0800, Hal Feng wrote:
-> usb0 was disabled by mistake when merging, so enable it.
-> 
-> Fixes: e7c304c0346d ("riscv: dts: starfive: jh7110: add the node and pins configuration for tdm")
-> Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
-> ---
->  arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi | 1 +
->  1 file changed, 1 insertion(+)
-> 
-> diff --git a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
-> index d79f94432b27..85f40df93f25 100644
-> --- a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
-> +++ b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
-> @@ -513,6 +513,7 @@ &uart0 {
->  
->  &usb0 {
->  	dr_mode = "peripheral";
-> +	status = "okay";
->  };
+If configuration options SOFTIRQ_ON_OWN_STACK and PREEMPT_RT 
+are enabled simultaneously under RISC-V architecture,
+it will result in a compilation failure:
 
-Hi, Conor,
+arch/riscv/kernel/irq.c:64:6: error: redefinition of 'do_softirq_own_stack'
+   64 | void do_softirq_own_stack(void)
+      |      ^~~~~~~~~~~~~~~~~~~~
+In file included from ./arch/riscv/include/generated/asm/softirq_stack.h:1,
+                 from arch/riscv/kernel/irq.c:15:
+./include/asm-generic/softirq_stack.h:8:20: note: previous definition of 'do_softirq_own_stack' was here
+    8 | static inline void do_softirq_own_stack(void)
+      |                    ^~~~~~~~~~~~~~~~~~~~
+      
+After changing CONFIG_HAVE_SOFTIRQ_ON_OWN_STACK to CONFIG_SOFTIRQ_ON_OWN_STACK,
+compilation can be successful.
 
-As v6.6-rc1 is already released, would you apply this series
-in rc2 or the later rc versions?
+Fixes: dd69d07a5a6c ("riscv: stack: Support HAVE_SOFTIRQ_ON_OWN_STACK")
+Reviewed-by: Guo Ren <guoren@kernel.org>
+Signed-off-by: Jiexun Wang <wangjiexun@tinylab.org>
+---
+Changes in v3:
+- changed to a more suitable subject line
+- fix the #endif comment at the bottom of the function
 
-Best regards,
-Hal
+Changes in v2:
+- changed to a more suitable subject line
+- add a Fixes tag
+
+---
+ arch/riscv/kernel/irq.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/arch/riscv/kernel/irq.c b/arch/riscv/kernel/irq.c
+index a8efa053c4a5..9cc0a7669271 100644
+--- a/arch/riscv/kernel/irq.c
++++ b/arch/riscv/kernel/irq.c
+@@ -60,7 +60,7 @@ static void init_irq_stacks(void)
+ }
+ #endif /* CONFIG_VMAP_STACK */
+ 
+-#ifdef CONFIG_HAVE_SOFTIRQ_ON_OWN_STACK
++#ifdef CONFIG_SOFTIRQ_ON_OWN_STACK
+ void do_softirq_own_stack(void)
+ {
+ #ifdef CONFIG_IRQ_STACKS
+@@ -92,7 +92,7 @@ void do_softirq_own_stack(void)
+ #endif
+ 		__do_softirq();
+ }
+-#endif /* CONFIG_HAVE_SOFTIRQ_ON_OWN_STACK */
++#endif /* CONFIG_SOFTIRQ_ON_OWN_STACK */
+ 
+ #else
+ static void init_irq_stacks(void) {}
+-- 
+2.34.1
 
 _______________________________________________
 linux-riscv mailing list
