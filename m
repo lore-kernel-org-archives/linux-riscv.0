@@ -4,115 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 575B6CA5512
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 Sep 2023 09:12:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81A5DCA5512
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 Sep 2023 09:15:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:
-	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RR2uilMIaEOecxmICg5UBhrIhhtXZmnYPncB1gwTJWA=; b=mE2irP23wNLC7R
-	aH9fKQCcIdGbq/no+ufzvndRtH/wFkGF+WhQTiQe676zDcDwP0FBqmeGD0xiwco0PEbIuywAhjILl
-	TY2H1uS6MyWeyrhh/e3+9NyZ281JkUkcZTIJ7Os8hLTobsLjFhmt7ohNQldDSEsWnIzo8RO/HHzTc
-	FW7FHL3lEKzIot8M5xivc0GMCWEtgoLUQ0oMMpoIp5mZkkpfJIOviAacKjITseFpaQiidi7LSPYDi
-	89oksm5+SuLyw+iyghFCo2zZp2iqdMgIlru8cekdgeGAr+xlkM5PksBPk1E3M7RSBtEklWVjfnkFd
-	iR4WJGSjxg9z0Zcrb8pA==;
+	List-Owner; bh=WfVVRi84IKTXzBf8iUEI/4zUt6fBMmv/eBXC+4VnP7U=; b=IkxfOZT6Xt49mv
+	L0CwfVN37hkU5Ig6d6NeheGJxy6JvwqG7tDAl4Kb5xp4HE0e0tZdoYuSA1kG9ycNdLV2s3cTn3Pqf
+	LxZzEVa9WQfvfwsCUU5QLc/sMSGiRvjjI71hO7KPC3gzmuHF7wdzCmb9/mgg/CiSPi+/qnTnHe3em
+	SmtIEp1vq2DWteu0TEkVLf1oRUG8BqQmouUw1rA/FJ7Ytu1uGZdRZZqDyjraYdspDx467mpbKLjgP
+	rQtaDpfqIvdYRlA9dNtkxBw1uIDcts4R7n4lHSQJt5+Erl9V3NO7ZbHkrH7E3bkK/tD0H0MQB8PZQ
+	oxGcFjLOkYy6z8+zbleg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgLuo-005G5S-1H;
-	Wed, 13 Sep 2023 09:12:06 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1qgLyJ-005HUg-0c;
+	Wed, 13 Sep 2023 09:15:43 +0000
+Received: from madras.collabora.co.uk ([2a00:1098:0:82:1000:25:2eeb:e5ab])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgLud-005Fs2-2S;
-	Wed, 13 Sep 2023 09:11:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Reply-To:Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Content-ID:Content-Description;
-	bh=loNI37XhxnwCkXFWQjquvOLYjlIGsswit/WDqGDquHw=; b=JcTjGk+i62xGuH43h8JcA4T/2H
-	knjCFLl1UMf8eqVlM6ZmXehZoXjOuMTbCWtvhyk+uXeRnf/RCKhMdSsXekLKxW0/reYQDgqIUlqMG
-	YEi5JiWuVj7uvFMSzsxrfUaG35vVX0WayghwmRwXhFEW85P65xak1hZxgW1S5vphx3TgblxypO1YG
-	vTzxz0vempyYDOBWaabmId5XY8DLBHEdsfHXtPyqwnbDzUmNZZdGMg9DcWhu/6j6Qz3Q/FsT1oOQ/
-	EjTdpgD5ykeMOaSyb4Lki9qbI9y6WqCWOdoSZZm0a/J0DjNXo+c5e/nGefIRYIj+EthiUQ3l7K7Hu
-	h7dK+skQ==;
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
-	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgLuQ-006wSb-1e;
-	Wed, 13 Sep 2023 09:11:54 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	id 1qgLyF-005HTE-0e;
+	Wed, 13 Sep 2023 09:15:40 +0000
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 2067D61879;
-	Wed, 13 Sep 2023 09:11:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 2438FC116A4;
-	Wed, 13 Sep 2023 09:11:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1694596291;
-	bh=neku3bTCLd8IglpTrtn5YSfS1u8bct6QtrT0n8vQ+lQ=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=ERVWG+xelJhWJO/pE6ZpZqbYBufn/m6Org9hCcDXMkTmBpkBJNwrGcPjHjggWwSjg
-	 xHSwzqHBlZEaRvodwTEsTM2UPPEWIcriaDpPyFrPAVtt0aMxdW7R25OmEcQQUIO1iq
-	 BFzpp7+o/G7EMsNhqHZpkhyqKwHYmiagZH+yHECEv0qdbMzn4txgV9xb0AB6vtd0WP
-	 O3zX1B9D7AWoHLEwnVBvNiwAdyk18/HGfvAhpqONmEMHQvA6MTM9pFo7GH7nwksmiC
-	 3cepVxgJG8gcgElZlEO9vwZ+0fBYaHr56xvhry9vyHUgdx7Vq2R2Pzfd00GKowmfBN
-	 6tO/av8ZPNvzA==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 0C42BCA5517;
-	Wed, 13 Sep 2023 09:11:31 +0000 (UTC)
-From: Joel Granados via B4 Relay <devnull+j.granados.samsung.com@kernel.org>
-Date: Wed, 13 Sep 2023 11:11:00 +0200
-Subject: [PATCH v2 6/8] powerpc: Remove now superfluous sentinel element
- from ctl_table arrays
+	(Authenticated sender: kholk11)
+	by madras.collabora.co.uk (Postfix) with ESMTPSA id 02D43660732C;
+	Wed, 13 Sep 2023 10:15:35 +0100 (BST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1694596537;
+	bh=+x1Lus2omcxwTQh/70pIi5tcxa6KKlOel+MXnr2anU0=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=hcXsAp5siwSYtRCayPcgeqa3e7E80a/nScSBAx0id8t3e3QvJE0LhZTRx3dwT2NCO
+	 q2cR4FFecXHuX+sQV4K9YolHUnqVmLq9/hfEqQAwQWIf8+rg4cLoasbOJUYd8eGb1N
+	 lyfZbNP3MhqJkgpaxazLxCeqyL4LTyMMK/yyc5QBFGGKBYmWld41mA+BTQytRFw6L8
+	 Tj5qVxT1eF1r6EFTaFKqEHJGoPwMgj9UGWATja2Su7FtARhiPcJpHyZK9L9VX9l61N
+	 mUdYl5lPw7q3KPnicFNnUKvAhjUZcwurIBTbBkYLQAYKKvMakR9HqEPoVziC5g5Pe/
+	 h1BTNoISIvWJw==
+Message-ID: <93074a59-8747-910e-0b76-4682e827ff73@collabora.com>
+Date: Wed, 13 Sep 2023 11:15:34 +0200
 MIME-Version: 1.0
-Message-Id: <20230913-jag-sysctl_remove_empty_elem_arch-v2-6-d1bd13a29bae@samsung.com>
-References: <20230913-jag-sysctl_remove_empty_elem_arch-v2-0-d1bd13a29bae@samsung.com>
-In-Reply-To: <20230913-jag-sysctl_remove_empty_elem_arch-v2-0-d1bd13a29bae@samsung.com>
-To: Luis Chamberlain <mcgrof@kernel.org>, willy@infradead.org, 
- josh@joshtriplett.org, Kees Cook <keescook@chromium.org>, 
- Iurii Zaikin <yzaikin@google.com>, Heiko Carstens <hca@linux.ibm.com>, 
- Vasily Gorbik <gor@linux.ibm.com>, 
- Alexander Gordeev <agordeev@linux.ibm.com>, 
- Christian Borntraeger <borntraeger@linux.ibm.com>, 
- Sven Schnelle <svens@linux.ibm.com>, 
- Gerald Schaefer <gerald.schaefer@linux.ibm.com>, 
- Russell King <linux@armlinux.org.uk>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
- Mark Rutland <mark.rutland@arm.com>, Thomas Gleixner <tglx@linutronix.de>, 
- Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
- Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
- "H. Peter Anvin" <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>, 
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, 
- Christophe Leroy <christophe.leroy@csgroup.eu>, Guo Ren <guoren@kernel.org>, 
- Alexey Gladkov <legion@kernel.org>
-Cc: linux-fsdevel@vger.kernel.org, linux-s390@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-riscv@lists.infradead.org, linuxppc-dev@lists.ozlabs.org, 
- linux-ia64@vger.kernel.org, linux-csky@vger.kernel.org, 
- Joel Granados <j.granados@samsung.com>
-X-Mailer: b4 0.13-dev-86aa5
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1652;
- i=j.granados@samsung.com; h=from:subject:message-id;
- bh=Y5aFvjpy8hnP3BxMe92wukoMH7BspM7ptVXcM2uJq5s=;
- b=owEB7QES/pANAwAKAbqXzVK3lkFPAcsmYgBlAXy/xLS9tN6wR4DTogukmf0SR2Ukel+W6p3j5
- MCK5Hj/WweJAbMEAAEKAB0WIQSuRwlXJeYxJc7LJ5C6l81St5ZBTwUCZQF8vwAKCRC6l81St5ZB
- T1XIC/sE7BuNn+96xT2x1msylJMtzgid9hN+e61HJ/NrDH1qqtScW6m30OKC6e0si6quzFz+YTi
- pAV4GZ7idF5xMOvHsbvwHIV1RwdZ9DhNtNL/LcDHG/XvJ7MwTgh/8AoLebpm6OVkPQzqaWghP1b
- bzT8rmYjV96saQgi8rPwt5ll57v8gv1g5ILyY4y+b+6f2Be19zRDDsj4YI3KdSau+0Rkw0OzdOr
- YOniWyBhmeW8vrb7Dfj3gECbAbjc2ndqLK72/WvPmgSrYzSVOezRh/xCsdldI9yTZOMnsLSSH+X
- GdOpAmEzI2XbDYlu3A2G8O7cg/mK+ZxT0+EA+PGFF8F8/pkZzHBXH02cunz12+R+VITnonmfxDD
- evvGMCqFZn2DmF/LgB+pptc/gO+Gs4uaedB1/T1oRlknK5y5fLNj0ce0Dw6GubZDNd5LaWme77D
- rnaLwKeVw2DfKOzgC+qKXHFSFjgISSSh1/pXUwVODumOI/GkOK8K95eDP4hfIXZ3+/M1Y=
-X-Developer-Key: i=j.granados@samsung.com; a=openpgp;
- fpr=F1F8E46D30F0F6C4A45FF4465895FAAC338C6E77
-X-Endpoint-Received: by B4 Relay for j.granados@samsung.com/default with auth_id=70
-X-Original-From: Joel Granados <j.granados@samsung.com>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.15.0
+Subject: Re: [PATCH -next v2 19/25] spi: mtk-snfi: Use helper function
+ devm_clk_get_enabled()
+Content-Language: en-US
+To: Li Zetao <lizetao1@huawei.com>
+Cc: andrew@aj.id.au, avifishman70@gmail.com,
+ bcm-kernel-feedback-list@broadcom.com, benjaminfair@google.com,
+ broonie@kernel.org, chin-ting_kuo@aspeedtech.com, clg@kaod.org,
+ conor.dooley@microchip.com, daire.mcnamara@microchip.com,
+ fancer.lancer@gmail.com, florian.fainelli@broadcom.com, heiko@sntech.de,
+ jbrunet@baylibre.com, joel@jms.id.au, khilman@baylibre.com,
+ linus.walleij@linaro.org, linux-amlogic@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
+ linux-mediatek@lists.infradead.org, linux-riscv@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-rpi-kernel@lists.infradead.org,
+ linux-spi@vger.kernel.org, martin.blumenstingl@googlemail.com,
+ matthias.bgg@gmail.com, neil.armstrong@linaro.org, olteanv@gmail.com,
+ openbmc@lists.ozlabs.org, rjui@broadcom.com, sbranden@broadcom.com,
+ tali.perry1@gmail.com, tmaimon77@gmail.com, venture@google.com,
+ yuenn@google.com, Jonathan Cameron <Jonathan.Cameron@huawei.com>
+References: <20230822131237.1022815-1-lizetao1@huawei.com>
+ <20230823133938.1359106-1-lizetao1@huawei.com>
+ <20230823133938.1359106-20-lizetao1@huawei.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+In-Reply-To: <20230823133938.1359106-20-lizetao1@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230913_101151_801844_F7264AE6 
-X-CRM114-Status: GOOD (  15.48  )
+X-CRM114-CacheID: sfid-20230913_021539_376683_62CED104 
+X-CRM114-Status: UNSURE (   8.40  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,61 +87,27 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Reply-To: j.granados@samsung.com
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Joel Granados <j.granados@samsung.com>
+Il 23/08/23 15:39, Li Zetao ha scritto:
+> Since commit 7ef9651e9792 ("clk: Provide new devm_clk helpers for prepared
+> and enabled clocks"), devm_clk_get() and clk_prepare_enable() can now be
+> replaced by devm_clk_get_enabled() when driver enables (and possibly
+> prepares) the clocks for the whole lifetime of the device. Moreover, it is
+> no longer necessary to unprepare and disable the clocks explicitly.
+> Also, devm_clk_get_optional() and clk_prepare_enable() can now be
+> replaced by devm_clk_get_optional_enabled().Moreover, the two functions
+> mtk_snand_enable_clk() and mtk_snand_disable_clk() no longer are used,
+> drop them for clean code.
+> 
+> Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+> Signed-off-by: Li Zetao <lizetao1@huawei.com>
 
-This commit comes at the tail end of a greater effort to remove the
-empty elements at the end of the ctl_table arrays (sentinels) which
-will reduce the overall build time size of the kernel and run time
-memory bloat by ~64 bytes per sentinel (further information Link :
-https://lore.kernel.org/all/ZO5Yx5JFogGi%2FcBo@bombadil.infradead.org/)
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
-Remove sentinel from powersave_nap_ctl_table and nmi_wd_lpm_factor_ctl_table.
-This removal is safe because register_sysctl implicitly uses ARRAY_SIZE()
-in addition to checking for the sentinel.
-
-Signed-off-by: Joel Granados <j.granados@samsung.com>
----
- arch/powerpc/kernel/idle.c                | 3 +--
- arch/powerpc/platforms/pseries/mobility.c | 3 +--
- 2 files changed, 2 insertions(+), 4 deletions(-)
-
-diff --git a/arch/powerpc/kernel/idle.c b/arch/powerpc/kernel/idle.c
-index b1c0418b25c8..a8591f5fa70e 100644
---- a/arch/powerpc/kernel/idle.c
-+++ b/arch/powerpc/kernel/idle.c
-@@ -104,8 +104,7 @@ static struct ctl_table powersave_nap_ctl_table[] = {
- 		.maxlen		= sizeof(int),
- 		.mode		= 0644,
- 		.proc_handler	= proc_dointvec,
--	},
--	{}
-+	}
- };
- 
- static int __init
-diff --git a/arch/powerpc/platforms/pseries/mobility.c b/arch/powerpc/platforms/pseries/mobility.c
-index 0161226d8fec..d82b0c802fbb 100644
---- a/arch/powerpc/platforms/pseries/mobility.c
-+++ b/arch/powerpc/platforms/pseries/mobility.c
-@@ -60,8 +60,7 @@ static struct ctl_table nmi_wd_lpm_factor_ctl_table[] = {
- 		.maxlen		= sizeof(int),
- 		.mode		= 0644,
- 		.proc_handler	= proc_douintvec_minmax,
--	},
--	{}
-+	}
- };
- 
- static int __init register_nmi_wd_lpm_factor_sysctl(void)
-
--- 
-2.30.2
 
 
 _______________________________________________
