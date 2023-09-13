@@ -4,62 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1345DCA550A
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 Sep 2023 08:48:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65284CA550A
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 Sep 2023 08:50:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=V6N4HyPV7pmZbCshXDIjPC9fZUVl0kf+SwSXQrkQGGE=; b=H4+CXa5Y+ZPUzT
-	WexHK0OhC+DQcSQsjw6l0A6i7tpUQQpmPpbVMPou81MRGdclaqR59DuxIfNcLq4lU27+41ylULI8n
-	RDV4chkxigaaHtJZv+NXbiUke7WESfdRYlvkkflFURJXYRpDk5t46cjrmVqjj3C6bg4tNwkm27K7o
-	nVjlCrO76il+2hwABnO/iSlyvZZ/eix3LVYWGlsIZLX9wMSBxkc8L2DBdFZAzv/iGqlLK0VdwEVb5
-	okQbwgoWUP/2LI6y3WOyw4wnXYDubNMPWmBgstkXyLHgufE/HIfbfPAkgnEUlD28EOMk51NQA8aFC
-	4g3AnCafu+lYMlS6rL6Q==;
+	List-Owner; bh=FQ3V4Q04Go29sIDGYCA7fYVuMtG2sJ5nm2mDK7QGA68=; b=TGRi9CMl/PGgix
+	Ih7QwXjM3lDA3+4GewKwAP5bN0/kdf4n1AuP6U3A00KqCWJBzn251DcFMCYmd3Bbpg06RWoXnmMgb
+	bXC+VSDRCCR1Ij6eOrbLb6P11VBQsj5Bq/vkMRU3pm2PpXy647/4UqsDPxg9jPi81ucJACcWub47P
+	NIYoPhA4rMrIb1T6sfYb6+6ndaPqL3MxmnJU9oQY4/rThYg7d1X3nCLuo/9Kg6B1zb91NikVQNK2z
+	GH10ziIFy849rIoWh7jQxD4VAzVg4K2IRQfnI45UKhcWAJgR1e28+DeAmaS4t6Lte2YvH+40TxOJL
+	xsyrKjx0N5lOLsDoos8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgLXf-005BGX-2M;
-	Wed, 13 Sep 2023 08:48:11 +0000
-Received: from eu-smtp-delivery-151.mimecast.com ([185.58.85.151])
+	id 1qgLZV-005Bhi-17;
+	Wed, 13 Sep 2023 08:50:05 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgLXd-005BDm-02
+	id 1qgLZQ-005Beg-0P
 	for linux-riscv@lists.infradead.org;
-	Wed, 13 Sep 2023 08:48:11 +0000
-Received: from AcuMS.aculab.com (156.67.243.121 [156.67.243.121]) by
- relay.mimecast.com with ESMTP with both STARTTLS and AUTH (version=TLSv1.2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384) id
- uk-mta-266-m12S0s3ZOouc56uUjgkHeA-1; Wed, 13 Sep 2023 09:47:52 +0100
-X-MC-Unique: m12S0s3ZOouc56uUjgkHeA-1
-Received: from AcuMS.Aculab.com (10.202.163.6) by AcuMS.aculab.com
- (10.202.163.6) with Microsoft SMTP Server (TLS) id 15.0.1497.48; Wed, 13 Sep
- 2023 09:47:49 +0100
-Received: from AcuMS.Aculab.com ([::1]) by AcuMS.aculab.com ([::1]) with mapi
- id 15.00.1497.048; Wed, 13 Sep 2023 09:47:49 +0100
-From: David Laight <David.Laight@ACULAB.COM>
-To: 'Charlie Jenkins' <charlie@rivosinc.com>
-Subject: RE: [PATCH v4 2/5] riscv: Add checksum library
-Thread-Topic: [PATCH v4 2/5] riscv: Add checksum library
-Thread-Index: AQHZ5QNmAqaxDkDqBUuW+t+6iXe0brAW2+/wgAEox4CAAGmkUA==
-Date: Wed, 13 Sep 2023 08:47:49 +0000
-Message-ID: <b503e341f2334d6b9b902a6e621ed7c3@AcuMS.aculab.com>
-References: <20230911-optimize_checksum-v4-0-77cc2ad9e9d7@rivosinc.com>
- <20230911-optimize_checksum-v4-2-77cc2ad9e9d7@rivosinc.com>
- <1818c4114b0e4144a9df21f235984840@AcuMS.aculab.com> <ZQEn+8Bi8dxNgg3g@ghost>
-In-Reply-To: <ZQEn+8Bi8dxNgg3g@ghost>
-Accept-Language: en-GB, en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-exchange-transport-fromentityheader: Hosted
-x-originating-ip: [10.202.205.107]
+	Wed, 13 Sep 2023 08:50:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1694594998;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=CEEbRM+L5SAUMWcCbxhNrqKQfIPsl4YV6xdR61UZGBA=;
+	b=JfrhzYw69RA4utN4l8KiP2dZFeW3JT53tPaSYbIPw1AIhIHcYi8g+ixBQ3i0llHEDRAaFu
+	h7pJOvfLHo+hGqkiS+kA7pzsryLSW1f9Pfa56Q76/6cKhrhgv4aY3jefPwd95iD/wrnAE4
+	QBIwpDZ6mtai/Q2bN/kFrYj0pzxkhcE=
+Received: from mail-ot1-f72.google.com (mail-ot1-f72.google.com
+ [209.85.210.72]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-153-4Z2HfBnKP1q77zBjIHVbzw-1; Wed, 13 Sep 2023 04:49:56 -0400
+X-MC-Unique: 4Z2HfBnKP1q77zBjIHVbzw-1
+Received: by mail-ot1-f72.google.com with SMTP id 46e09a7af769-6c0d445555eso4493455a34.0
+        for <linux-riscv@lists.infradead.org>; Wed, 13 Sep 2023 01:49:56 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1694594996; x=1695199796;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=CEEbRM+L5SAUMWcCbxhNrqKQfIPsl4YV6xdR61UZGBA=;
+        b=CizaUon64Y4zdxAWLHVwHOzKfk2mf6goJbzb3jaaUnKsknzzl0+QeTAPMVnoX3aKOj
+         iJxjYO0Ah+jXavIBYZlflKAeqfKNpqChytfZx5nuVswamMwDIzYwruZ6pgm/0VT6rjxE
+         k0IhYAdSd+gSjFGmAyBrE49lETHrDJ0SkhFtT6LlOETBrt3caJe8YZCl3oEosLJuPtgO
+         ZMG2juVin9aVOv0BG4jKg0YNxnM+bPZQO4ppLwFT/R47FMqFgDgZ6TurXvRz1OBmNjSJ
+         UPvCwa6vNJPBkB/Jjbne3G0hRRKzVG3f5M3fcov45LxBDhfQWAbZmMwH4SyRcirKbllj
+         cBog==
+X-Gm-Message-State: AOJu0YyEi1QEDMYKVSIQ7q/VNoU28ya5wO/sHq4aXrq/Em58LfXhdP44
+	v/Bv0wX51QUaLgtp63ebGLswwLCWtd+MUDeHTUPuDRTJeQy6vNQvNH4T8iDWK8fnOemgWG8OiIZ
+	WZtU5BvA7eLawKAYsBCXYsBiOr/PB
+X-Received: by 2002:a05:6830:42:b0:6bd:1059:8212 with SMTP id d2-20020a056830004200b006bd10598212mr2442878otp.26.1694594996255;
+        Wed, 13 Sep 2023 01:49:56 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGbL4AK6cS8gntncrHkfFRvxragh1Vk4rkFly+C/wOw+cgMI41aIbdMzJtL31SZ/Ari+MYAwA==
+X-Received: by 2002:a05:6830:42:b0:6bd:1059:8212 with SMTP id d2-20020a056830004200b006bd10598212mr2442845otp.26.1694594996010;
+        Wed, 13 Sep 2023 01:49:56 -0700 (PDT)
+Received: from redhat.com ([2804:1b3:a803:4ff9:7c29:fe41:6aa7:43df])
+        by smtp.gmail.com with ESMTPSA id f18-20020a4ada52000000b00578a0824ff6sm1312546oou.20.2023.09.13.01.49.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 13 Sep 2023 01:49:55 -0700 (PDT)
+Date: Wed, 13 Sep 2023 05:49:45 -0300
+From: Leonardo Bras <leobras@redhat.com>
+To: guoren@kernel.org
+Cc: paul.walmsley@sifive.com, anup@brainfault.org, peterz@infradead.org,
+	mingo@redhat.com, will@kernel.org, palmer@rivosinc.com,
+	longman@redhat.com, boqun.feng@gmail.com, tglx@linutronix.de,
+	paulmck@kernel.org, rostedt@goodmis.org, rdunlap@infradead.org,
+	catalin.marinas@arm.com, conor.dooley@microchip.com,
+	xiaoguang.xing@sophgo.com, bjorn@rivosinc.com,
+	alexghiti@rivosinc.com, keescook@chromium.org,
+	greentime.hu@sifive.com, ajones@ventanamicro.com,
+	jszhang@kernel.org, wefu@redhat.com, wuwei2016@iscas.ac.cn,
+	linux-arch@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-doc@vger.kernel.org, kvm@vger.kernel.org,
+	virtualization@lists.linux-foundation.org,
+	linux-csky@vger.kernel.org, Guo Ren <guoren@linux.alibaba.com>
+Subject: Re: [PATCH V11 03/17] riscv: Use Zicbop in arch_xchg when available
+Message-ID: <ZQF3qS1KRYAt3coC@redhat.com>
+References: <20230910082911.3378782-1-guoren@kernel.org>
+ <20230910082911.3378782-4-guoren@kernel.org>
 MIME-Version: 1.0
+In-Reply-To: <20230910082911.3378782-4-guoren@kernel.org>
 X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: aculab.com
-Content-Language: en-US
+X-Mimecast-Originator: redhat.com
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230913_014809_331545_998CF0F6 
-X-CRM114-Status: GOOD (  38.75  )
+X-CRM114-CacheID: sfid-20230913_015000_253529_6DE2F497 
+X-CRM114-Status: GOOD (  28.75  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,136 +106,188 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Albert Ou <aou@eecs.berkeley.edu>, "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, Conor Dooley <conor@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Charlie Jenkins
-> Sent: 13 September 2023 04:10
+On Sun, Sep 10, 2023 at 04:28:57AM -0400, guoren@kernel.org wrote:
+> From: Guo Ren <guoren@linux.alibaba.com>
 > 
-> On Tue, Sep 12, 2023 at 08:45:38AM +0000, David Laight wrote:
-> > From: Charlie Jenkins
-> > > Sent: 11 September 2023 23:57
-> > >
-> > > Provide a 32 and 64 bit version of do_csum. When compiled for 32-bit
-> > > will load from the buffer in groups of 32 bits, and when compiled for
-> > > 64-bit will load in groups of 64 bits. Benchmarking by proxy compiling
-> > > csum_ipv6_magic (64-bit version) for an x86 chip as well as running
-> > > the riscv generated code in QEMU, discovered that summing in a
-> > > tree-like structure is about 4% faster than doing 64-bit reads.
-> > >
-> > ...
-> > > +	sum   = saddr->s6_addr32[0];
-> > > +	sum  += saddr->s6_addr32[1];
-> > > +	sum1  = saddr->s6_addr32[2];
-> > > +	sum1 += saddr->s6_addr32[3];
-> > > +
-> > > +	sum2  = daddr->s6_addr32[0];
-> > > +	sum2 += daddr->s6_addr32[1];
-> > > +	sum3  = daddr->s6_addr32[2];
-> > > +	sum3 += daddr->s6_addr32[3];
-> > > +
-> > > +	sum4  = csum;
-> > > +	sum4 += ulen;
-> > > +	sum4 += uproto;
-> > > +
-> > > +	sum  += sum1;
-> > > +	sum2 += sum3;
-> > > +
-> > > +	sum += sum2;
-> > > +	sum += sum4;
-> >
-> > Have you got gcc to compile that as-is?
-> >
-> > Whenever I've tried to get a 'tree add' compiled so that the
-> > early adds can be executed in parallel gcc always pessimises
-> > it to a linear sequence of adds.
-> >
-> > But I agree that adding 32bit values to a 64bit register
-> > may be no slower than trying to do an 'add carry' sequence
-> > that is guaranteed to only do one add/clock.
-> > (And on Intel cpu from core-2 until IIRC Haswell adc took 2 clocks!)
-> >
-> > IIRC RISCV doesn't have a carry flag, so the adc sequence
-> > is hard - probably takes two extra instructions per value.
-> > Although with parallel execute it may not matter.
-> > Consider:
-> > 	val = buf[offset];
-> > 	sum += val;
-> > 	carry += sum < val;
-> > 	val = buf[offset1];
-> > 	sum += val;
-> > 	...
-> > the compare and 'carry +=' can be executed at the same time
-> > as the following two instructions.
-> > You do then a final sum += carry; sum += sum < carry;
-> >
-> > Assuming all instructions are 1 clock and any read delays
-> > get filled with other instructions (by source or hardware
-> > instruction re-ordering) even without parallel execute
-> > that is 4 clocks for 64 bits, which is much the same as the
-> > 2 clocks for 32 bits.
-> >
-> > Remember that all the 32bit values can summed first as
-> > they won't overflow.
-> >
-> > 	David
-
-> Yeah it does seem like the tree-add does just do a linear add. All three
-> of them were pretty much the same on riscv so I used the version that
-> did best on x86 with the knowledge that my QEMU setup does not
-> accurately represent real hardware.
-
-The problem there is that any measurement on x86 has pretty much
-no relevance to what any RISCV cpu might do.
-The multiple execution units and out of order execution on x86
-are far different from anything any RISCV cpu is likely to have
-for many years.
-You might get nearer running on one of the Atom cpu - but it won't
-really match.
-There are too many fundamental differences between the architectures.
-
-All you can do is to find and read the instruction timings for
-a target physical cpu and look for things like:
-- Whether arithmetic results are available next clock.
-  (It probably is)
-- How many clocks it takes for read data to be available.
-  I suspect the cpu will stall if the data is needed.
-  A block of sequential reads is one way to avoid the stall.
-  On x86 the instruction that needs the data is just deferred
-  until it is available, the following instructions execute
-  (provided their input are all available).
-- Clock delays for taken/not taken predicted/not predicted branches.
-  
-> I don't quite understand how doing the carry in the middle of each
-> stage, even though it can be executed at the same time, would be faster
-> than just doing a single overflow check at the end.
-
-You need to do half as many reads and adds.
-
-> I can just revert
-> back to the non-tree add version since there is no improvement on riscv.
-
-The 'tree' version is only likely to be faster on cpu (like x86)
-that can (at least sometimes) do two memory reads in one clock
-and can do two adds and two read in the same clock.
-Even then, without out of order execution, it is hard to get right.
-
-Oh, you might want to try getting the default csum_fold() to
-be the faster 'arc' version rather than adding your own version.
-
-	David
-
-> I can also revert back to the default version that uses carry += sum < val
-> as well.
+> Cache-block prefetch instructions are HINTs to the hardware to
+> indicate that software intends to perform a particular type of
+> memory access in the near future. Enable ARCH_HAS_PREFETCHW and
+> improve the arch_xchg for qspinlock xchg_tail.
 > 
-> - Charlie
+> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+> Signed-off-by: Guo Ren <guoren@kernel.org>
+> ---
+>  arch/riscv/Kconfig                 | 15 +++++++++++++++
+>  arch/riscv/include/asm/cmpxchg.h   |  4 +++-
+>  arch/riscv/include/asm/hwcap.h     |  1 +
+>  arch/riscv/include/asm/insn-def.h  |  5 +++++
+>  arch/riscv/include/asm/processor.h | 13 +++++++++++++
+>  arch/riscv/kernel/cpufeature.c     |  1 +
+>  6 files changed, 38 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index e9ae6fa232c3..2c346fe169c1 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -617,6 +617,21 @@ config RISCV_ISA_ZICBOZ
+>  
+>  	   If you don't know what to do here, say Y.
+>  
+> +config RISCV_ISA_ZICBOP
+> +	bool "Zicbop extension support for cache block prefetch"
+> +	depends on MMU
+> +	depends on RISCV_ALTERNATIVE
+> +	default y
+> +	help
+> +	   Adds support to dynamically detect the presence of the ZICBOP
+> +	   extension (Cache Block Prefetch Operations) and enable its
+> +	   usage.
+> +
+> +	   The Zicbop extension can be used to prefetch cache block for
+> +	   read/write/instruction fetch.
+> +
+> +	   If you don't know what to do here, say Y.
+> +
+>  config TOOLCHAIN_HAS_ZIHINTPAUSE
+>  	bool
+>  	default y
+> diff --git a/arch/riscv/include/asm/cmpxchg.h b/arch/riscv/include/asm/cmpxchg.h
+> index 702725727671..56eff7a9d2d2 100644
+> --- a/arch/riscv/include/asm/cmpxchg.h
+> +++ b/arch/riscv/include/asm/cmpxchg.h
+> @@ -11,6 +11,7 @@
+>  
+>  #include <asm/barrier.h>
+>  #include <asm/fence.h>
+> +#include <asm/processor.h>
+>  
+>  #define __arch_xchg_masked(prepend, append, r, p, n)			\
+>  ({									\
+> @@ -25,6 +26,7 @@
+>  									\
+>  	__asm__ __volatile__ (						\
+>  	       prepend							\
+> +	       PREFETCHW_ASM(%5)					\
+>  	       "0:	lr.w %0, %2\n"					\
+>  	       "	and  %1, %0, %z4\n"				\
+>  	       "	or   %1, %1, %z3\n"				\
+> @@ -32,7 +34,7 @@
+>  	       "	bnez %1, 0b\n"					\
+>  	       append							\
+>  	       : "=&r" (__retx), "=&r" (__rc), "+A" (*(__ptr32b))	\
+> -	       : "rJ" (__newx), "rJ" (~__mask)				\
+> +	       : "rJ" (__newx), "rJ" (~__mask), "rJ" (__ptr32b)		\
+>  	       : "memory");						\
+>  									\
+>  	r = (__typeof__(*(p)))((__retx & __mask) >> __s);		\
+> diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
+> index b7b58258f6c7..78b7b8b53778 100644
+> --- a/arch/riscv/include/asm/hwcap.h
+> +++ b/arch/riscv/include/asm/hwcap.h
+> @@ -58,6 +58,7 @@
+>  #define RISCV_ISA_EXT_ZICSR		40
+>  #define RISCV_ISA_EXT_ZIFENCEI		41
+>  #define RISCV_ISA_EXT_ZIHPM		42
+> +#define RISCV_ISA_EXT_ZICBOP		43
+>  
+>  #define RISCV_ISA_EXT_MAX		64
+>  
+> diff --git a/arch/riscv/include/asm/insn-def.h b/arch/riscv/include/asm/insn-def.h
+> index 6960beb75f32..dc590d331894 100644
+> --- a/arch/riscv/include/asm/insn-def.h
+> +++ b/arch/riscv/include/asm/insn-def.h
+> @@ -134,6 +134,7 @@
+>  
+>  #define RV_OPCODE_MISC_MEM	RV_OPCODE(15)
+>  #define RV_OPCODE_SYSTEM	RV_OPCODE(115)
+> +#define RV_OPCODE_PREFETCH	RV_OPCODE(19)
+>  
+>  #define HFENCE_VVMA(vaddr, asid)				\
+>  	INSN_R(OPCODE_SYSTEM, FUNC3(0), FUNC7(17),		\
+> @@ -196,4 +197,8 @@
+>  	INSN_I(OPCODE_MISC_MEM, FUNC3(2), __RD(0),		\
+>  	       RS1(base), SIMM12(4))
+>  
+> +#define CBO_prefetchw(base)					\
+> +	INSN_R(OPCODE_PREFETCH, FUNC3(6), FUNC7(0),		\
+> +	       RD(x0), RS1(base), RS2(x0))
+> +
 
--
-Registered Address Lakeside, Bramley Road, Mount Farm, Milton Keynes, MK1 1PT, UK
-Registration No: 1397386 (Wales)
+I understand that here you create the instruction via bitfield, following 
+the ISA, and this enables using instructions not available on the 
+toolchain.
+
+It took me some time to find the document with this instruction, so please 
+add this to the commit msg:
+
+https://github.com/riscv/riscv-CMOs/blob/master/specifications/cmobase-v1.0.pdf
+Page 23.
+
+IIUC, the instruction is "prefetch.w".
+
+Maybe I am missing something, but in the document the rs2 field 
+(PREFETCH.W) contains a 0x3, while the above looks to have a 0 instead.
+
+rs2 field = 0x0 would be a prefetch.i (instruction prefetch) instead.
+
+Is the above correct, or am I missing something?
+
+
+Thanks!
+Leo
+
+>  #endif /* __ASM_INSN_DEF_H */
+> diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/processor.h
+> index de9da852f78d..7ad3a24212e8 100644
+> --- a/arch/riscv/include/asm/processor.h
+> +++ b/arch/riscv/include/asm/processor.h
+> @@ -12,6 +12,8 @@
+>  #include <vdso/processor.h>
+>  
+>  #include <asm/ptrace.h>
+> +#include <asm/insn-def.h>
+> +#include <asm/hwcap.h>
+>  
+>  #ifdef CONFIG_64BIT
+>  #define DEFAULT_MAP_WINDOW	(UL(1) << (MMAP_VA_BITS - 1))
+> @@ -103,6 +105,17 @@ static inline void arch_thread_struct_whitelist(unsigned long *offset,
+>  #define KSTK_EIP(tsk)		(ulong)(task_pt_regs(tsk)->epc)
+>  #define KSTK_ESP(tsk)		(ulong)(task_pt_regs(tsk)->sp)
+>  
+> +#define ARCH_HAS_PREFETCHW
+> +#define PREFETCHW_ASM(base)	ALTERNATIVE(__nops(1), \
+> +					    CBO_prefetchw(base), \
+> +					    0, \
+> +					    RISCV_ISA_EXT_ZICBOP, \
+> +					    CONFIG_RISCV_ISA_ZICBOP)
+> +static inline void prefetchw(const void *ptr)
+> +{
+> +	asm volatile(PREFETCHW_ASM(%0)
+> +		: : "r" (ptr) : "memory");
+> +}
+>  
+>  /* Do necessary setup to start up a newly executed thread. */
+>  extern void start_thread(struct pt_regs *regs,
+> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+> index ef7b4fd9e876..e0b897db0b97 100644
+> --- a/arch/riscv/kernel/cpufeature.c
+> +++ b/arch/riscv/kernel/cpufeature.c
+> @@ -159,6 +159,7 @@ const struct riscv_isa_ext_data riscv_isa_ext[] = {
+>  	__RISCV_ISA_EXT_DATA(h, RISCV_ISA_EXT_h),
+>  	__RISCV_ISA_EXT_DATA(zicbom, RISCV_ISA_EXT_ZICBOM),
+>  	__RISCV_ISA_EXT_DATA(zicboz, RISCV_ISA_EXT_ZICBOZ),
+> +	__RISCV_ISA_EXT_DATA(zicbop, RISCV_ISA_EXT_ZICBOP),
+>  	__RISCV_ISA_EXT_DATA(zicntr, RISCV_ISA_EXT_ZICNTR),
+>  	__RISCV_ISA_EXT_DATA(zicsr, RISCV_ISA_EXT_ZICSR),
+>  	__RISCV_ISA_EXT_DATA(zifencei, RISCV_ISA_EXT_ZIFENCEI),
+> -- 
+> 2.36.1
+> 
 
 
 _______________________________________________
