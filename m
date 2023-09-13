@@ -4,72 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBB4FEDEC7C
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 Sep 2023 16:24:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A2E4CA553C
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 Sep 2023 16:25:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yvpn453MIPlh/JbBVdyImN++5ffV9pntixlztekQnRE=; b=ABCAQwgbhQEva9hMEd/pOSpYi/
-	5s1NYILMiyZqn0/qXv3ozQV9WT27tFNl0CZaJWorrDOKN1s07Dj7jF8CMiFbeRbHSTAtw23Z0gPK6
-	AXb+RM1ba0XwLuUAJIApf/AbgeEIkpPbzQzosSUSUAhGcoKmdjwEnSj2zebvN2uCvkYVkn3xk4PcN
-	UW4m1gqXwCWd4vHqgyNLxNIR+exOuE1bXQ8B7OGXRHoPY6ZgJ0b7HHhTru/yAk4c6iENcZKIAd2Nz
-	VZuebI7MNsO9Krffjly+kp1dEQkx3BjtKU3tFeOGO76f6aUPm2zalqw0HKLxk6OU2Gtbk8TFpXRVO
-	/wsHryeg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=NDzYlCyNz0v12XACj4Kh2igQj7J8JrTaEouxz0+MOIk=; b=NxUoPXvfPPQBsj
+	Awz/vYufzSAbi8rFcVHUmmB3ZkxhBwlChW+5F+6feNs3PK3FebAM6V25VPiK2vTs+C+lgD58nC+4O
+	yf2hzPYpyy7N7I3gFgPBnSL+mXl/EI2RY0I4lQM23yI7COIUNOtj0dRSFAtjKrFV33T9X1196cIS9
+	JmUcIjjz3cVxzUzwu91emRrVSw9scIiZxFG2wlYpss9GtBWoGBcPG2AChZs/JnjrGd8gEOG5ILeFR
+	ctJj5PQYkVKoIyqN4NYWi3qizEyccGPhTXU/2Jrap6f7xQkPXZrvkTvZ+rbac9LBLib9ub/M7IeyS
+	/isxXv3rVzjBT9cw8lBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgSel-006Jdn-2p;
-	Wed, 13 Sep 2023 16:23:59 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1qgSgE-006Jpj-1T;
+	Wed, 13 Sep 2023 16:25:30 +0000
+Received: from 60-248-80-70.hinet-ip.hinet.net ([60.248.80.70] helo=Atcsqr.andestech.com)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgSei-006JdA-1z
+	id 1qgSgB-006JoV-1M
 	for linux-riscv@lists.infradead.org;
-	Wed, 13 Sep 2023 16:23:58 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id B2331619E5;
-	Wed, 13 Sep 2023 16:23:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D4E09C433CA;
-	Wed, 13 Sep 2023 16:23:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1694622234;
-	bh=8VoScEvUyoiDW9AdnpzrCROK3tKKfb5CZhsEihgoG3g=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=N7s1IOoxxPdu4onAmi4d9534YJpOJUqFgHZrygzVHfp7xJuM6OEw+NEPML68xaiAF
-	 Pjcfnj8Cy4TI2y6H1NBr1OVzxGLk7rQ4yiTf5xtYPH059dhRCOZ46cqr+Vvt6/f1GR
-	 D2OxnXn6/tUKYeBLTYTfGbZl18skl2vnJSbxivGkeGLA93tg3dKfVqrJ2kYBr6CAyI
-	 qWcSV0vV+tMQrqZl+fZpUIL44/nH5sYPA6x/QrS4X/0+VoWiPG8IJ3e/dIBZ8caTBK
-	 qntSNTgoj5Uf8yIyv8dnfhsZf5v8IGEDkal8YE7Lu7N4y1iN4b/CAx0YH4uivRKphw
-	 1Awad78OmONew==
-Date: Wed, 13 Sep 2023 17:23:48 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Pu Lehui <pulehui@huaweicloud.com>
-Cc: bpf@vger.kernel.org, linux-riscv@lists.infradead.org,
-	netdev@vger.kernel.org,
-	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@kernel.org>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>,
-	Yonghong Song <yhs@fb.com>,
-	John Fastabend <john.fastabend@gmail.com>,
-	KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@google.com>,
-	Hao Luo <haoluo@google.com>, Jiri Olsa <jolsa@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Luke Nelson <luke.r.nels@gmail.com>, Pu Lehui <pulehui@huawei.com>
-Subject: Re: [PATCH bpf-next 4/6] riscv, bpf: Add necessary Zbb instructions
-Message-ID: <20230913-granny-heat-35d70b49ac85@spud>
-References: <20230913153413.1446068-1-pulehui@huaweicloud.com>
- <20230913153413.1446068-5-pulehui@huaweicloud.com>
+	Wed, 13 Sep 2023 16:25:30 +0000
+Received: from mail.andestech.com (ATCPCS16.andestech.com [10.0.1.222])
+	by Atcsqr.andestech.com with ESMTP id 38DGP6xf041799;
+	Thu, 14 Sep 2023 00:25:06 +0800 (+08)
+	(envelope-from peterlin@andestech.com)
+Received: from atctrx.andestech.com (10.0.15.173) by ATCPCS16.andestech.com
+ (10.0.1.222) with Microsoft SMTP Server id 14.3.498.0; Thu, 14 Sep 2023
+ 00:25:03 +0800
+From: Yu Chien Peter Lin <peterlin@andestech.com>
+To: <paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
+        <david@redhat.com>, <akpm@linux-foundation.org>,
+        <alexghiti@rivosinc.com>, <bjorn@rivosinc.com>,
+        <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+CC: <ycliang@andestech.com>, Yu Chien Peter Lin <peterlin@andestech.com>
+Subject: [PATCH 1/3] riscv: Improve PTDUMP to show RSW with non-zero value
+Date: Thu, 14 Sep 2023 00:24:56 +0800
+Message-ID: <20230913162458.2931065-1-peterlin@andestech.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-In-Reply-To: <20230913153413.1446068-5-pulehui@huaweicloud.com>
+X-Originating-IP: [10.0.15.173]
+X-DNSRBL: 
+X-MAIL: Atcsqr.andestech.com 38DGP6xf041799
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230913_092356_757095_E59C38B8 
-X-CRM114-Status: GOOD (  22.77  )
+X-CRM114-CacheID: sfid-20230913_092527_943507_6F752A45 
+X-CRM114-Status: GOOD (  15.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,129 +62,135 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8012506848974581837=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+RSW field is allowed to encode 2 bits of information, currently
+PTDUMP only prints RSW when its value is 1 or 3.
 
---===============8012506848974581837==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="gdnSM3Xp1zOMi15X"
-Content-Disposition: inline
+To fix this issue and enhance the debug experience with PTDUMP,
+allow it to print the RSW with any non-zero value, otherwise,
+it will print a empty string for each row.
 
+This patch also removes the val from the struct prot_bits
+as it is no longer needed.
 
---gdnSM3Xp1zOMi15X
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Signed-off-by: Yu Chien Peter Lin <peterlin@andestech.com>
+---
+ arch/riscv/include/asm/pgtable-bits.h |  2 +-
+ arch/riscv/mm/ptdump.c                | 33 ++++++++++++---------------
+ 2 files changed, 15 insertions(+), 20 deletions(-)
 
-On Wed, Sep 13, 2023 at 11:34:11PM +0800, Pu Lehui wrote:
-> From: Pu Lehui <pulehui@huawei.com>
->=20
-> Add necessary Zbb instructions introduced by [0] to reduce code size and
-> improve performance of RV64 JIT. At the same time, a helper is added to
-> check whether the CPU supports Zbb instructions.
->=20
-> [0] https://github.com/riscv/riscv-bitmanip/releases/download/1.0.0/bitma=
-nip-1.0.0-38-g865e7a7.pdf
->=20
-> Signed-off-by: Pu Lehui <pulehui@huawei.com>
-> ---
->  arch/riscv/net/bpf_jit.h | 26 ++++++++++++++++++++++++++
->  1 file changed, 26 insertions(+)
->=20
-> diff --git a/arch/riscv/net/bpf_jit.h b/arch/riscv/net/bpf_jit.h
-> index 8e0ef4d08..7ee59d1f6 100644
-> --- a/arch/riscv/net/bpf_jit.h
-> +++ b/arch/riscv/net/bpf_jit.h
-> @@ -18,6 +18,11 @@ static inline bool rvc_enabled(void)
->  	return IS_ENABLED(CONFIG_RISCV_ISA_C);
->  }
-> =20
-> +static inline bool rvzbb_enabled(void)
-> +{
-> +	return IS_ENABLED(CONFIG_RISCV_ISA_ZBB);
-> +}
+diff --git a/arch/riscv/include/asm/pgtable-bits.h b/arch/riscv/include/asm/pgtable-bits.h
+index f896708e8331..d5e828b7d7c6 100644
+--- a/arch/riscv/include/asm/pgtable-bits.h
++++ b/arch/riscv/include/asm/pgtable-bits.h
+@@ -16,7 +16,7 @@
+ #define _PAGE_GLOBAL    (1 << 5)    /* Global */
+ #define _PAGE_ACCESSED  (1 << 6)    /* Set by hardware on any access */
+ #define _PAGE_DIRTY     (1 << 7)    /* Set by hardware on any write */
+-#define _PAGE_SOFT      (1 << 8)    /* Reserved for software */
++#define _PAGE_SOFT      (3 << 8)    /* Reserved for software */
+ 
+ #define _PAGE_SPECIAL   _PAGE_SOFT
+ #define _PAGE_TABLE     _PAGE_PRESENT
+diff --git a/arch/riscv/mm/ptdump.c b/arch/riscv/mm/ptdump.c
+index 20a9f991a6d7..62bbea17d475 100644
+--- a/arch/riscv/mm/ptdump.c
++++ b/arch/riscv/mm/ptdump.c
+@@ -129,7 +129,6 @@ static struct ptd_mm_info efi_ptd_info = {
+ /* Page Table Entry */
+ struct prot_bits {
+ 	u64 mask;
+-	u64 val;
+ 	const char *set;
+ 	const char *clear;
+ };
+@@ -137,47 +136,38 @@ struct prot_bits {
+ static const struct prot_bits pte_bits[] = {
+ 	{
+ 		.mask = _PAGE_SOFT,
+-		.val = _PAGE_SOFT,
+-		.set = "RSW",
+-		.clear = "   ",
++		.set = "RSW(%d)",
++		.clear = "      ",
+ 	}, {
+ 		.mask = _PAGE_DIRTY,
+-		.val = _PAGE_DIRTY,
+ 		.set = "D",
+ 		.clear = ".",
+ 	}, {
+ 		.mask = _PAGE_ACCESSED,
+-		.val = _PAGE_ACCESSED,
+ 		.set = "A",
+ 		.clear = ".",
+ 	}, {
+ 		.mask = _PAGE_GLOBAL,
+-		.val = _PAGE_GLOBAL,
+ 		.set = "G",
+ 		.clear = ".",
+ 	}, {
+ 		.mask = _PAGE_USER,
+-		.val = _PAGE_USER,
+ 		.set = "U",
+ 		.clear = ".",
+ 	}, {
+ 		.mask = _PAGE_EXEC,
+-		.val = _PAGE_EXEC,
+ 		.set = "X",
+ 		.clear = ".",
+ 	}, {
+ 		.mask = _PAGE_WRITE,
+-		.val = _PAGE_WRITE,
+ 		.set = "W",
+ 		.clear = ".",
+ 	}, {
+ 		.mask = _PAGE_READ,
+-		.val = _PAGE_READ,
+ 		.set = "R",
+ 		.clear = ".",
+ 	}, {
+ 		.mask = _PAGE_PRESENT,
+-		.val = _PAGE_PRESENT,
+ 		.set = "V",
+ 		.clear = ".",
+ 	}
+@@ -208,15 +198,20 @@ static void dump_prot(struct pg_state *st)
+ 	unsigned int i;
+ 
+ 	for (i = 0; i < ARRAY_SIZE(pte_bits); i++) {
+-		const char *s;
+-
+-		if ((st->current_prot & pte_bits[i].mask) == pte_bits[i].val)
+-			s = pte_bits[i].set;
++		char s[7];
++		unsigned long val;
++
++		val = st->current_prot & pte_bits[i].mask;
++		if (val) {
++			if (pte_bits[i].mask == _PAGE_SOFT)
++				sprintf(s, pte_bits[i].set, val >> 8);
++			else
++				sprintf(s, "%s", pte_bits[i].set);
++		}
+ 		else
+-			s = pte_bits[i].clear;
++			sprintf(s, "%s", pte_bits[i].clear);
+ 
+-		if (s)
+-			pt_dump_seq_printf(st->seq, " %s", s);
++		pt_dump_seq_printf(st->seq, " %s", s);
+ 	}
+ }
+ 
+-- 
+2.34.1
 
-I dunno much about bpf, so passing question that may be a bit obvious:
-Is this meant to be a test as to whether the kernel binary is built with
-support for the extension, or whether the underlying platform is capable
-of executing zbb instructions.
-
-Sorry if that would be obvious to a bpf aficionado, context I have here
-is the later user and the above rvc_enabled() test, which functions
-differently to Zbb and so doesn't really help me.
-
-Thanks,
-Conor.
-
-> +
->  enum {
->  	RV_REG_ZERO =3D	0,	/* The constant value 0 */
->  	RV_REG_RA =3D	1,	/* Return address */
-> @@ -727,6 +732,27 @@ static inline u16 rvc_swsp(u32 imm8, u8 rs2)
->  	return rv_css_insn(0x6, imm, rs2, 0x2);
->  }
-> =20
-> +/* RVZBB instrutions. */
-> +static inline u32 rvzbb_sextb(u8 rd, u8 rs1)
-> +{
-> +       return rv_i_insn(0x604, rs1, 1, rd, 0x13);
-> +}
-> +
-> +static inline u32 rvzbb_sexth(u8 rd, u8 rs1)
-> +{
-> +       return rv_i_insn(0x605, rs1, 1, rd, 0x13);
-> +}
-> +
-> +static inline u32 rvzbb_zexth(u8 rd, u8 rs)
-> +{
-> +       return rv_i_insn(0x80, rs, 4, rd, __riscv_xlen =3D=3D 64 ? 0x3b :=
- 0x33);
-> +}
-> +
-> +static inline u32 rvzbb_rev8(u8 rd, u8 rs)
-> +{
-> +       return rv_i_insn(__riscv_xlen =3D=3D 64 ? 0x6b8 : 0x698, rs, 5, r=
-d, 0x13);
-> +}
-> +
->  /*
->   * RV64-only instructions.
->   *
-> --=20
-> 2.25.1
->=20
->=20
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---gdnSM3Xp1zOMi15X
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZQHiFAAKCRB4tDGHoIJi
-0rE3AQDJSqVf5PFuL9NuR1rG1fneRG6aQgIytEsKp73KeKKgKQEA1wYuSNQw6iEB
-xZzZo8l2LAK8kyranGvVj6Wc1QSFyQI=
-=zvto
------END PGP SIGNATURE-----
-
---gdnSM3Xp1zOMi15X--
-
-
---===============8012506848974581837==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============8012506848974581837==--
-
