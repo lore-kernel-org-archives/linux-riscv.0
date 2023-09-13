@@ -4,89 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A2DCEE01E5
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 Sep 2023 16:41:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52281EE01E3
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 Sep 2023 16:41:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7qf65T2gEHx2hFGG1jpU3V+hWIbMpagvrXaWiCOzYVQ=; b=KChYKhV9RhekY3
-	XJJXXS5GzDaPcawu3Bc9x1saEWTEoMEZFJKF1JgJF/DBAwvHV7SeJXUpcF74JYwVeaWhCYCBQNN2t
-	jnD5otxs/vg+3DAXMCNDIuGviGUzsHWqTizKywoYttTBOXDPIuRtQMC6crFtRnGUDbrnLfplk20uZ
-	Xz/txjwFgrqhNbe0YAo17T8TbKkEkYiMbjprD78Cnu0tCfEWVgG8DVHWSsaLNeK3qveO9JAhxGooy
-	WMH66FpLVDcSPPdTSXV3OBwb46S9DchuWKfLzmsqSg0t7YPoXnRCMGrO3j+3IzfqGMRRpEfFQmBYw
-	9kphtO1WTaHtnFt3FwBA==;
+	List-Owner; bh=O49z8CoUNXqYZDH/ZZCIfHSU3QkfilxmBFXqndJIO4k=; b=YLRCO2Ks2T543+
+	2L7PsuAvkkkcLeOnfCp1eKS0e+dQ5NchjTBmUVbrD+J1IqCFy/kB0U9JEbb+g0ET6/AU69gBJfvMC
+	VfaqSe0lEOC1/F5vQMePlv60LRelrsv6RYlGRK9+65dmgpv5pcw1jA8F5z5sZ4X4XLN3pRWM9h3TU
+	mTYLcaGmiI4E4rNQUO9/tkOXHBJJmDJXNRpNjqgcCFsHUg5aZM9o0pzf+0qCDQwAwddDkwjpgT7sx
+	t73wp8u0QGj9ztt3gs86lBCwuilXDEwE4Z9K0aEttA1qEE6+QN2EJQPPgPrUuNxEgDp8oz6GQWSWz
+	uERv6vk2qyyLFrJhTjTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgSvP-006My2-0O;
-	Wed, 13 Sep 2023 16:41:11 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgStu-006LR1-2i
-	for linux-riscv@lists.infradead.org;
-	Wed, 13 Sep 2023 16:39:41 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-1c337aeefbdso64174335ad.0
-        for <linux-riscv@lists.infradead.org>; Wed, 13 Sep 2023 09:39:35 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1694623175; x=1695227975; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=2Zby5+/epktKP7RzS2B2FPnhW8r4eiR79ZVht5gtpaE=;
-        b=SiqpTQGlS0R4crfJv+uXSHCpSsvfo64GBHxoqgVv2Xlj82yo+6/sverwyn8CPaFpko
-         hj2lBvTApLYWfiZHTs4RaYs8mbHddEZJOZItqEDC4T98awfZ9pI/lcecXXSRYGH18CD6
-         Wlzh9p55cY3mW2pfsUqxQLBJd7NxvbChqZ0CyU2Fxk8EWxl7Ea2GK6AZx+5FyQFwAqvA
-         /UKPdf+LeEEpoQqzZFBS132vcG1v3SBzd5/gPH57Jlvf9YM+u8cnnTDViibmH1BHsd20
-         386nPBKIduh/TNJSzckaQ6jS1MYixCcoj/fEPxArk7WnpTsLE4jLItHhMOGT7erOaVIT
-         YRrA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1694623175; x=1695227975;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=2Zby5+/epktKP7RzS2B2FPnhW8r4eiR79ZVht5gtpaE=;
-        b=HWDB1a0FPzoM1PusOBjAAgK2BBQIIzNIPg02wP29ULqAOLjhX4coxmQXI/7/TLBSej
-         Ye/+XEFbArOcf9PNUdgCi6unxgGqJqlU4OlRVZNeNx8EkBdnqKl1tHngS+E38/YQcF6M
-         8TdrgvfuExtPm0SFUmSxqRBaLL7U60d1fcXxtVj2KUrD/M9F4rh7ML+1XgZcFULFxL/l
-         9r+SyBEzTNM1Odbj7gPwl7KKz8YmrCNppwFMN7VYvVBOBBJgSvAIXwzRSzxAh4cQ8YFB
-         WI63YksmcSjeSlrYso6O798g8+GnH76j9zdSPV2lTpw5nnM+bvA63QSJhw3qGS0R4c5w
-         fJuA==
-X-Gm-Message-State: AOJu0YypsbJ76xkH8U/O5o7rYoR4bWKoHIwK94m+m0edDWmOYDQPibv/
-	YYJ/uO5v8RgwrZHCs6FnjTTy4w==
-X-Google-Smtp-Source: AGHT+IE+Du3wPvNeFNAy1mivF0yBnb12TBRANhZ3bSo3f8HVCcVn2kfKLuwT7ptWG0e6c8766ubRJQ==
-X-Received: by 2002:a17:902:e883:b0:1bc:203f:3b3c with SMTP id w3-20020a170902e88300b001bc203f3b3cmr4306877plg.24.1694623174896;
-        Wed, 13 Sep 2023 09:39:34 -0700 (PDT)
-Received: from mchitale-vm.. ([103.97.165.210])
-        by smtp.googlemail.com with ESMTPSA id je15-20020a170903264f00b001b243a20f26sm10577756plb.273.2023.09.13.09.39.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 13 Sep 2023 09:39:34 -0700 (PDT)
-From: Mayuresh Chitale <mchitale@ventanamicro.com>
-To: Palmer Dabbelt <palmer@dabbelt.com>,
-	Anup Patel <anup@brainfault.org>
-Cc: Mayuresh Chitale <mchitale@ventanamicro.com>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Atish Patra <atishp@atishpatra.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
+	id 1qgSvQ-006MzJ-0y;
+	Wed, 13 Sep 2023 16:41:12 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1qgSts-006LRX-2b;
+	Wed, 13 Sep 2023 16:39:39 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 758D8C15;
+	Wed, 13 Sep 2023 09:40:12 -0700 (PDT)
+Received: from merodach.members.linode.com (unknown [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6006F3F5A1;
+	Wed, 13 Sep 2023 09:39:33 -0700 (PDT)
+From: James Morse <james.morse@arm.com>
+To: linux-pm@vger.kernel.org,
+	loongarch@lists.linux.dev,
+	linux-acpi@vger.kernel.org,
+	linux-arch@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
 	linux-riscv@lists.infradead.org,
-	kvm-riscv@lists.infradead.org,
-	Conor Dooley <conor@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Rob Herring <robh+dt@kernel.org>,
-	devicetree@vger.kernel.org
-Subject: [PATCH v5 1/7] RISC-V: Detect Smstateen extension
-Date: Wed, 13 Sep 2023 22:08:59 +0530
-Message-Id: <20230913163905.480819-2-mchitale@ventanamicro.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20230913163905.480819-1-mchitale@ventanamicro.com>
-References: <20230913163905.480819-1-mchitale@ventanamicro.com>
+	kvmarm@lists.linux.dev
+Cc: x86@kernel.org,
+	Salil Mehta <salil.mehta@huawei.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Jean-Philippe Brucker <jean-philippe@linaro.org>,
+	jianyong.wu@arm.com,
+	justin.he@arm.com
+Subject: [RFC PATCH v2 21/35] ACPI: Add post_eject to struct acpi_scan_handler for cpu hotplug
+Date: Wed, 13 Sep 2023 16:38:09 +0000
+Message-Id: <20230913163823.7880-22-james.morse@arm.com>
+X-Mailer: git-send-email 2.20.1
+In-Reply-To: <20230913163823.7880-1-james.morse@arm.com>
+References: <20230913163823.7880-1-james.morse@arm.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230913_093938_972501_3482825C 
-X-CRM114-Status: UNSURE (   9.65  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230913_093937_110313_95DFE626 
+X-CRM114-Status: GOOD (  21.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,43 +73,172 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Extend the ISA string parsing to detect the Smstateen extension. If the
-extension is enabled then access to certain 'state' such as AIA CSRs in
-VS mode is controlled by *stateen0 registers.
+struct acpi_scan_handler has a detach callback that is used to remove
+a driver when a bus is changed. When interacting with an eject-request,
+the detach callback is called before _EJ0.
 
-Signed-off-by: Mayuresh Chitale <mchitale@ventanamicro.com>
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+This means the ACPI processor driver can't use _STA to determine if a
+CPU has been made not-present, or some of the other _STA bits have been
+changed. acpi_processor_remove() needs to know the value of _STA after
+_EJ0 has been called.
+
+Add a post_eject callback to struct acpi_scan_handler. This is called
+after acpi_scan_hot_remove() has successfully called _EJ0. Because
+acpi_bus_trim_one() also clears the handler pointer, it needs to be
+told if the caller will go on to call acpi_bus_post_eject(), so
+that acpi_device_clear_enumerated() and clearing the handler pointer
+can be deferred. The existing not-used pointer is used for this.
+
+Signed-off-by: James Morse <james.morse@arm.com>
 ---
- arch/riscv/include/asm/hwcap.h | 1 +
- arch/riscv/kernel/cpufeature.c | 1 +
- 2 files changed, 2 insertions(+)
+ drivers/acpi/acpi_processor.c |  4 +--
+ drivers/acpi/scan.c           | 52 ++++++++++++++++++++++++++++++-----
+ include/acpi/acpi_bus.h       |  1 +
+ 3 files changed, 48 insertions(+), 9 deletions(-)
 
-diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
-index b7b58258f6c7..0f520f7d058a 100644
---- a/arch/riscv/include/asm/hwcap.h
-+++ b/arch/riscv/include/asm/hwcap.h
-@@ -58,6 +58,7 @@
- #define RISCV_ISA_EXT_ZICSR		40
- #define RISCV_ISA_EXT_ZIFENCEI		41
- #define RISCV_ISA_EXT_ZIHPM		42
-+#define RISCV_ISA_EXT_SMSTATEEN		43
+diff --git a/drivers/acpi/acpi_processor.c b/drivers/acpi/acpi_processor.c
+index 22a15a614f95..00dcc23d49a8 100644
+--- a/drivers/acpi/acpi_processor.c
++++ b/drivers/acpi/acpi_processor.c
+@@ -459,7 +459,7 @@ static int acpi_processor_add(struct acpi_device *device,
  
- #define RISCV_ISA_EXT_MAX		64
+ #ifdef CONFIG_ACPI_HOTPLUG_PRESENT_CPU
+ /* Removal */
+-static void acpi_processor_remove(struct acpi_device *device)
++static void acpi_processor_post_eject(struct acpi_device *device)
+ {
+ 	struct acpi_processor *pr;
  
-diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-index 1cfbba65d11a..3755a8c2a9de 100644
---- a/arch/riscv/kernel/cpufeature.c
-+++ b/arch/riscv/kernel/cpufeature.c
-@@ -175,6 +175,7 @@ const struct riscv_isa_ext_data riscv_isa_ext[] = {
- 	__RISCV_ISA_EXT_DATA(zbb, RISCV_ISA_EXT_ZBB),
- 	__RISCV_ISA_EXT_DATA(zbs, RISCV_ISA_EXT_ZBS),
- 	__RISCV_ISA_EXT_DATA(smaia, RISCV_ISA_EXT_SMAIA),
-+	__RISCV_ISA_EXT_DATA(smstateen, RISCV_ISA_EXT_SMSTATEEN),
- 	__RISCV_ISA_EXT_DATA(ssaia, RISCV_ISA_EXT_SSAIA),
- 	__RISCV_ISA_EXT_DATA(sscofpmf, RISCV_ISA_EXT_SSCOFPMF),
- 	__RISCV_ISA_EXT_DATA(sstc, RISCV_ISA_EXT_SSTC),
+@@ -627,7 +627,7 @@ static struct acpi_scan_handler processor_handler = {
+ 	.ids = processor_device_ids,
+ 	.attach = acpi_processor_add,
+ #ifdef CONFIG_ACPI_HOTPLUG_PRESENT_CPU
+-	.detach = acpi_processor_remove,
++	.post_eject = acpi_processor_post_eject,
+ #endif
+ 	.hotplug = {
+ 		.enabled = true,
+diff --git a/drivers/acpi/scan.c b/drivers/acpi/scan.c
+index a675333618ae..b6d2f01640a9 100644
+--- a/drivers/acpi/scan.c
++++ b/drivers/acpi/scan.c
+@@ -244,18 +244,28 @@ static int acpi_scan_try_to_offline(struct acpi_device *device)
+ 	return 0;
+ }
+ 
+-static int acpi_bus_trim_one(struct acpi_device *adev, void *not_used)
++/**
++ * acpi_bus_trim_one() - Detach scan handlers and drivers from ACPI device
++ *                       objects.
++ * @adev:       Root of the ACPI namespace scope to walk.
++ * @eject:      Pointer to a bool that indicates if this was due to an
++ *              eject-request.
++ *
++ * Must be called under acpi_scan_lock.
++ * If @eject points to true, clearing the device enumeration is deferred until
++ * acpi_bus_post_eject() is called.
++ */
++static int acpi_bus_trim_one(struct acpi_device *adev, void *eject)
+ {
+ 	struct acpi_scan_handler *handler = adev->handler;
++	bool is_eject = *(bool *)eject;
+ 
+-	acpi_dev_for_each_child_reverse(adev, acpi_bus_trim_one, NULL);
++	acpi_dev_for_each_child_reverse(adev, acpi_bus_trim_one, eject);
+ 
+ 	adev->flags.match_driver = false;
+ 	if (handler) {
+ 		if (handler->detach)
+ 			handler->detach(adev);
+-
+-		adev->handler = NULL;
+ 	} else {
+ 		device_release_driver(&adev->dev);
+ 	}
+@@ -265,7 +275,12 @@ static int acpi_bus_trim_one(struct acpi_device *adev, void *not_used)
+ 	 */
+ 	acpi_device_set_power(adev, ACPI_STATE_D3_COLD);
+ 	adev->flags.initialized = false;
+-	acpi_device_clear_enumerated(adev);
++
++	/* For eject this is deferred to acpi_bus_post_eject() */
++	if (!is_eject) {
++		adev->handler = NULL;
++		acpi_device_clear_enumerated(adev);
++	}
+ 
+ 	return 0;
+ }
+@@ -278,15 +293,36 @@ static int acpi_bus_trim_one(struct acpi_device *adev, void *not_used)
+  */
+ void acpi_bus_trim(struct acpi_device *adev)
+ {
+-	acpi_bus_trim_one(adev, NULL);
++	bool eject = false;
++
++	acpi_bus_trim_one(adev, &eject);
+ }
+ EXPORT_SYMBOL_GPL(acpi_bus_trim);
+ 
++static int acpi_bus_post_eject(struct acpi_device *adev, void *not_used)
++{
++	struct acpi_scan_handler *handler = adev->handler;
++
++	acpi_dev_for_each_child_reverse(adev, acpi_bus_post_eject, NULL);
++
++	if (handler) {
++		if (handler->post_eject)
++			handler->post_eject(adev);
++
++		adev->handler = NULL;
++	}
++
++	acpi_device_clear_enumerated(adev);
++
++	return 0;
++}
++
+ static int acpi_scan_hot_remove(struct acpi_device *device)
+ {
+ 	acpi_handle handle = device->handle;
+ 	unsigned long long sta;
+ 	acpi_status status;
++	bool eject = true;
+ 
+ 	if (device->handler && device->handler->hotplug.demand_offline) {
+ 		if (!acpi_scan_is_offline(device, true))
+@@ -299,7 +335,7 @@ static int acpi_scan_hot_remove(struct acpi_device *device)
+ 
+ 	acpi_handle_debug(handle, "Ejecting\n");
+ 
+-	acpi_bus_trim(device);
++	acpi_bus_trim_one(device, &eject);
+ 
+ 	acpi_evaluate_lck(handle, 0);
+ 	/*
+@@ -322,6 +358,8 @@ static int acpi_scan_hot_remove(struct acpi_device *device)
+ 	} else if (sta & ACPI_STA_DEVICE_ENABLED) {
+ 		acpi_handle_warn(handle,
+ 			"Eject incomplete - status 0x%llx\n", sta);
++	} else {
++		acpi_bus_post_eject(device, NULL);
+ 	}
+ 
+ 	return 0;
+diff --git a/include/acpi/acpi_bus.h b/include/acpi/acpi_bus.h
+index 254685085c82..1b7e1acf925b 100644
+--- a/include/acpi/acpi_bus.h
++++ b/include/acpi/acpi_bus.h
+@@ -127,6 +127,7 @@ struct acpi_scan_handler {
+ 	bool (*match)(const char *idstr, const struct acpi_device_id **matchid);
+ 	int (*attach)(struct acpi_device *dev, const struct acpi_device_id *id);
+ 	void (*detach)(struct acpi_device *dev);
++	void (*post_eject)(struct acpi_device *dev);
+ 	void (*bind)(struct device *phys_dev);
+ 	void (*unbind)(struct device *phys_dev);
+ 	struct acpi_hotplug_profile hotplug;
 -- 
-2.34.1
+2.39.2
 
 
 _______________________________________________
