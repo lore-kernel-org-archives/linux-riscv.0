@@ -4,68 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71781EDEC73
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 Sep 2023 15:28:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60A59EDEC78
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 Sep 2023 15:34:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8jKyVj51X1LS+HGYSsTl74N7/Hqb7Jw3OpThqf1WbVY=; b=uvWFEWgc05E+wX
-	82Swqcapnl62t4F1e/5f0TWxqgetClnOwPqZTNXuVqgK5uLtJ9WZy7cro+JXvvKBLdCP/EYLYGP/K
-	qk21jzDBGvWpIQDL51JGbXpFF5jGPX8uuKtFMLEWszDCviXvKq+ruV2705mopHpzNtxRGIMFAjr6c
-	DP6ZljKGgkvx8yrA0L5/r0Ry3+hqJMZTJIKzGKiUQMqaakAy73p/EnSwjZMrg61J8sCEMN0m2K10g
-	BZMmWyUcxRgt+lXA68W+LvT+rbMxv2fSDfNUDw5lnOHq3mkB4cmym6UBqYvUBDzQo44rI9wRHkSKK
-	eL6hohpO2eRI1m+KTqjQ==;
+	List-Owner; bh=Sz6uU0AOyPZ/F1lyyRzenr9K2V6WPCbInVRCMas44+c=; b=r3IfvSmUKwTzHQ
+	eJzUuW72jrR01YOVkxnWgpq1i6atej8xyrXt7T7VC9FlogdRlNGgjroiGF6h81IVUqPdnim3f3U6w
+	dHQ198ly52Qpl94NwiEUQwgSQKLG5G3Uh4hdc5RNhNgnMm+DJHNEgb9t1ydQUMOJyUQG05cu2PvEP
+	BCbVje31B/7jy1a7YO83GH6DnndF+dTwgY1roOwemLOed9W4JtSuoJCLNjWTIbyGaKDrvmUls6rBf
+	GE+q40Cj+wp/ShUklnjR5IGjlVUM4KxXdevvVlEFk67j6kVtzZUAF3Lr0cmZ3SynjZogGPoXd9Ui7
+	HiM0HRsGOrUcZ3Mk2VWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgRmg-006Dqj-1z;
-	Wed, 13 Sep 2023 15:28:06 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1qgRsa-006EqA-2N;
+	Wed, 13 Sep 2023 15:34:12 +0000
+Received: from dggsgout11.his.huawei.com ([45.249.212.51])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgRmc-006Dpn-00
+	id 1qgRsT-006Eli-2L
 	for linux-riscv@lists.infradead.org;
-	Wed, 13 Sep 2023 15:28:05 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by sin.source.kernel.org (Postfix) with ESMTPS id 758B2CE2160;
-	Wed, 13 Sep 2023 15:27:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BCE31C433C8;
-	Wed, 13 Sep 2023 15:27:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1694618876;
-	bh=2y+HoufOHHUVUfMzbkjqlYospySETxzf4s/h/0ToUik=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=mwhYSI/NopuKBkart4AAsJuHdwYJgbyn/73+4F5K8xdZle0iVLbgMRjqlMFlyqrhC
-	 h9Hrs8dGe2NFfPkiEvg08LeRLvjU6ea2l6Cu4KBjlIT+FpUPSwhcuKB11KVFxuqILl
-	 OOczz6ZeIWsx33bUT74kJVbk6TowG3CFVaAw3oeVm2f+9gWQnh3NVISAKJAFnjSu4Y
-	 D3pNU6PYDiqB8Arc87uaE5sznBFgjdvJE8svk/MU6UUTozDDdaqyGBWlh4mPZQmQMC
-	 BjUY0rXv6GcRQ7APLBvUArlBQ+Qs25AFdXnNWegiWC68ofqVAidFyh1MpOX8+6Wfve
-	 B2T/5GzAM4c6g==
-Date: Wed, 13 Sep 2023 23:15:57 +0800
-From: Jisheng Zhang <jszhang@kernel.org>
-To: Conor Dooley <conor@kernel.org>
-Cc: Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
+	Wed, 13 Sep 2023 15:34:09 +0000
+Received: from mail02.huawei.com (unknown [172.30.67.143])
+	by dggsgout11.his.huawei.com (SkyGuard) with ESMTP id 4Rm4HK5RZpz4f3k5m
+	for <linux-riscv@lists.infradead.org>; Wed, 13 Sep 2023 23:33:49 +0800 (CST)
+Received: from ultra.huawei.com (unknown [10.90.53.71])
+	by APP2 (Coremail) with SMTP id Syh0CgAXIAVd1gFltNV8AQ--.25893S3;
+	Wed, 13 Sep 2023 23:33:50 +0800 (CST)
+From: Pu Lehui <pulehui@huaweicloud.com>
+To: bpf@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	netdev@vger.kernel.org
+Cc: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Song Liu <song@kernel.org>,
+	Yonghong Song <yhs@fb.com>,
+	John Fastabend <john.fastabend@gmail.com>,
+	KP Singh <kpsingh@kernel.org>,
+	Stanislav Fomichev <sdf@google.com>,
+	Hao Luo <haoluo@google.com>,
+	Jiri Olsa <jolsa@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Drew Fustini <dfustini@baylibre.com>
-Subject: Re: [PATCH v2] riscv: dts: thead: set dma-noncoherent to soc bus
-Message-ID: <ZQHSLdPufI6CXApg@xhacker>
-References: <20230912072232.2455-1-jszhang@kernel.org>
- <20230912-trailing-pampered-52738ec6f009@spud>
+	Luke Nelson <luke.r.nels@gmail.com>,
+	Pu Lehui <pulehui@huawei.com>,
+	Pu Lehui <pulehui@huaweicloud.com>
+Subject: [PATCH bpf-next 1/6] riscv, bpf: Unify 32-bit sign-extension to emit_sextw
+Date: Wed, 13 Sep 2023 23:34:08 +0800
+Message-Id: <20230913153413.1446068-2-pulehui@huaweicloud.com>
+X-Mailer: git-send-email 2.39.2
+In-Reply-To: <20230913153413.1446068-1-pulehui@huaweicloud.com>
+References: <20230913153413.1446068-1-pulehui@huaweicloud.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230912-trailing-pampered-52738ec6f009@spud>
+X-CM-TRANSID: Syh0CgAXIAVd1gFltNV8AQ--.25893S3
+X-Coremail-Antispam: 1UD129KBjvJXoW7uryrWw45KFWxKrWUXFWxtFb_yoW8KFy7pa
+	1jkrs3CrZ2qF4FqasrJFn7Wr45JF4YvF43KryfW398Jan2qFsrG3WFkw4YyFy5GFyrWayr
+	ZFWjkr1fCa4vgrJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUBE14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_Jr4l82xGYIkIc2
+	x26xkF7I0E14v26r4j6ryUM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2z4x0
+	Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr1j6F4UJw
+	A2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AKxVW0oVCq3wAS
+	0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2
+	IY67AKxVWUGVWUXwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0
+	Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628vn2kIc2
+	xKxwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v2
+	6r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_GFv_WrylIxkGc2
+	Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUCVW8JwCI42IY6xIIjxv20xvEc7CjxVAFwI0_
+	Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r4j6F4UMI
+	IF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x0JUSYLPUUUUU
+	=
+X-CM-SenderInfo: psxovxtxl6x35dzhxuhorxvhhfrp/
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230913_082802_237659_E4FEC234 
-X-CRM114-Status: GOOD (  17.19  )
+X-CRM114-CacheID: sfid-20230913_083406_294823_E14546E7 
+X-CRM114-Status: UNSURE (   9.38  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,49 +100,77 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 12, 2023 at 05:27:31PM +0100, Conor Dooley wrote:
-> On Tue, Sep 12, 2023 at 03:22:32PM +0800, Jisheng Zhang wrote:
-> > riscv select ARCH_DMA_DEFAULT_COHERENT by default, and th1520 isn't
-> > dma coherent, so set dma-noncoherent to reflect this fact.
-> > 
-> > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> > Tested-by: Drew Fustini <dfustini@baylibre.com>
-> > ---
-> > 
-> > Since v1:
-> >  - rebase on v6.6-rc1
-> >  - collect Tested-by tag
-> 
-> Does this mean you're expecting me to take this?
+From: Pu Lehui <pulehui@huawei.com>
 
-Hi Conor,
+For code unification, add emit_sextw wrapper to unify all the 32-bit
+sign-extension operations.
 
-I think I will take this and send PR to soc people. The reason
-I send v2 is the rebasing on new rc1 and v1 wasn't in linux-riscv
-mailist due to typo;
+Signed-off-by: Pu Lehui <pulehui@huawei.com>
+---
+ arch/riscv/net/bpf_jit.h        |  5 +++++
+ arch/riscv/net/bpf_jit_comp64.c | 10 +++++-----
+ 2 files changed, 10 insertions(+), 5 deletions(-)
 
-Thank you so much
-> 
-> > 
-> >  arch/riscv/boot/dts/thead/th1520.dtsi | 1 +
-> >  1 file changed, 1 insertion(+)
-> > 
-> > diff --git a/arch/riscv/boot/dts/thead/th1520.dtsi b/arch/riscv/boot/dts/thead/th1520.dtsi
-> > index ce708183b6f6..ff364709a6df 100644
-> > --- a/arch/riscv/boot/dts/thead/th1520.dtsi
-> > +++ b/arch/riscv/boot/dts/thead/th1520.dtsi
-> > @@ -139,6 +139,7 @@ soc {
-> >  		interrupt-parent = <&plic>;
-> >  		#address-cells = <2>;
-> >  		#size-cells = <2>;
-> > +		dma-noncoherent;
-> >  		ranges;
-> >  
-> >  		plic: interrupt-controller@ffd8000000 {
-> > -- 
-> > 2.40.1
-> > 
-
+diff --git a/arch/riscv/net/bpf_jit.h b/arch/riscv/net/bpf_jit.h
+index d21c6c92a..03a6ecb43 100644
+--- a/arch/riscv/net/bpf_jit.h
++++ b/arch/riscv/net/bpf_jit.h
+@@ -1084,6 +1084,11 @@ static inline void emit_subw(u8 rd, u8 rs1, u8 rs2, struct rv_jit_context *ctx)
+ 		emit(rv_subw(rd, rs1, rs2), ctx);
+ }
+ 
++static inline void emit_sextw(u8 rd, u8 rs, struct rv_jit_context *ctx)
++{
++	emit_addiw(rd, rs, 0, ctx);
++}
++
+ #endif /* __riscv_xlen == 64 */
+ 
+ void bpf_jit_build_prologue(struct rv_jit_context *ctx);
+diff --git a/arch/riscv/net/bpf_jit_comp64.c b/arch/riscv/net/bpf_jit_comp64.c
+index 8423f4ddf..8b654c0cf 100644
+--- a/arch/riscv/net/bpf_jit_comp64.c
++++ b/arch/riscv/net/bpf_jit_comp64.c
+@@ -413,8 +413,8 @@ static void emit_zext_32_rd_rs(u8 *rd, u8 *rs, struct rv_jit_context *ctx)
+ 
+ static void emit_sext_32_rd_rs(u8 *rd, u8 *rs, struct rv_jit_context *ctx)
+ {
+-	emit_addiw(RV_REG_T2, *rd, 0, ctx);
+-	emit_addiw(RV_REG_T1, *rs, 0, ctx);
++	emit_sextw(RV_REG_T2, *rd, ctx);
++	emit_sextw(RV_REG_T1, *rs, ctx);
+ 	*rd = RV_REG_T2;
+ 	*rs = RV_REG_T1;
+ }
+@@ -429,7 +429,7 @@ static void emit_zext_32_rd_t1(u8 *rd, struct rv_jit_context *ctx)
+ 
+ static void emit_sext_32_rd(u8 *rd, struct rv_jit_context *ctx)
+ {
+-	emit_addiw(RV_REG_T2, *rd, 0, ctx);
++	emit_sextw(RV_REG_T2, *rd, ctx);
+ 	*rd = RV_REG_T2;
+ }
+ 
+@@ -1057,7 +1057,7 @@ int bpf_jit_emit_insn(const struct bpf_insn *insn, struct rv_jit_context *ctx,
+ 			emit_srai(rd, RV_REG_T1, 64 - insn->off, ctx);
+ 			break;
+ 		case 32:
+-			emit_addiw(rd, rs, 0, ctx);
++			emit_sextw(rd, rs, ctx);
+ 			break;
+ 		}
+ 		if (!is64 && !aux->verifier_zext)
+@@ -1457,7 +1457,7 @@ int bpf_jit_emit_insn(const struct bpf_insn *insn, struct rv_jit_context *ctx,
+ 		 * as t1 is used only in comparison against zero.
+ 		 */
+ 		if (!is64 && imm < 0)
+-			emit_addiw(RV_REG_T1, RV_REG_T1, 0, ctx);
++			emit_sextw(RV_REG_T1, RV_REG_T1, ctx);
+ 		e = ctx->ninsns;
+ 		rvoff -= ninsns_rvoff(e - s);
+ 		emit_branch(BPF_JNE, RV_REG_T1, RV_REG_ZERO, rvoff, ctx);
+-- 
+2.25.1
 
 
 _______________________________________________
