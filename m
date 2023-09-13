@@ -4,89 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 200A8EE01EB
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 Sep 2023 16:42:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69111EE01E3
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 Sep 2023 16:42:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=X4Ogg+dImdSIaKIDo/kTrGDRYItzKteggITm6gfp+3Q=; b=oSBMzLUSXKIuMK
-	yqE22zToWWOjB3NstUNeLoutsF36Ib9458+OMqCkN4ofaMhWcgSZ481G05vEzx74k5qRtr+l/EF2L
-	GlK5ybZEzTx2Wmz5Jwe4boMj7WfsjU5GDrBUauvJAJL7HSm0e5U1UnucItH3Zwua+u6yZXtlFLOC6
-	1VvdjP5wx5ewIqy0hzdWbyuYb/Bzv2qym7CX+8rIpgLKYfxL1cErQVLXcvKHmOd6YJsCw9Y3N5hee
-	V5uIUpKGv4YpkapOUpg3DXmI89OzqA5Wl1v6FIPqq6NouN/g1onf5vwm0aLOCdJOM5BlgqOQGIZgL
-	oEw1ZgJonJQNbFlVLUYg==;
+	List-Owner; bh=q8xW5VON48UMN8V7kfBiAo1jq1P53FZahos7kohrmUE=; b=lqweQABImJN8Eo
+	71UxWv7KE/mQhFn2z/itYkbmbgsKBo7mDLM7Hf/X6UssVX2PAS2PWqQcizc5D7/k2JkdCNiQ3aVTN
+	dItZ53J0cjSty9dlhi2uTFFa0riI/E6TxdZvjZkL6S4eT2qAaak9x/GyzeLcspccj9vQqh7W2y6cW
+	QAsdMY/By51nTZDqhyJ2pmYchMcF+S0b4BB1qAnDirB6rdnXSkIOEL6XOCblVeRLRep/rCZueMc+j
+	a2f5Ir7SrqK3xqJiluxj9iFkGdd2SCx6c8n6kSllndAwn60sp9MfA94dBl1ZHAJeGCYDn0nxbe2f6
+	IpSF4VTWnoUrRZj5yxmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgSwP-006O7B-18;
-	Wed, 13 Sep 2023 16:42:13 +0000
-Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgSuF-006LYY-2g
-	for linux-riscv@lists.infradead.org;
-	Wed, 13 Sep 2023 16:40:04 +0000
-Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-1c39a4f14bcso39826005ad.3
-        for <linux-riscv@lists.infradead.org>; Wed, 13 Sep 2023 09:39:52 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1694623186; x=1695227986; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=JqR2RDc36TENwkhRWI02ORvUk5zlxgidXHuawQH9lCY=;
-        b=pb3+fe3yMV/VvI9cHSBHRp57ityZmH6XQKfaK38bLZxP+rzyISJuVAYnYPTqipbqPW
-         EqmZXZKFgirLSvtzX++dJis6iUblDNQK86wT404wa/DDHgR34wpEbHRWkTN7l72E5GZB
-         VITd8ijPhxVbZdWmpODicGAb/lNhYtUkkx8cdSUVGnxdMvkML0ZfWaLaHOW+1Q48Gxil
-         r+NdauHlkyWtNQ3KJgMd9W7HjeuLQU+5ShG3XjBMUoXz6Q1mOUsUG/JkePQpeRZsi9b3
-         UYrXk+1BJy4KC0SZE+n4egRn02lGIWToFP7GZN0OG5cUYrFSYdTkVVw5iSa/MRFoyZum
-         9DaQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1694623186; x=1695227986;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=JqR2RDc36TENwkhRWI02ORvUk5zlxgidXHuawQH9lCY=;
-        b=VJLmPHNNzYw3ShAGvMh9FUGp618hRXgryM0ATviTFYKZqg2wCJvJHFcOcisaUZ/VW0
-         d2M2RADLs6zD5071JLpF5sVRa87F/q85FmNCHO/NMB24AGIB22rIcE8hDOVitdgfAs+4
-         IIhoUHwI70i4sjus1quKAeANIdfFJziWWoBbNj5x2XdvVmsosHtcVMn+dkkbvOdnNOCS
-         3Uc7qctv8q0GkSFaa/WwYzI2N+7Wk2gT1SZfwdEvUk8DbUlr4SMb9K9ecN655X2wj+8Z
-         D1PnyWVQlEFxeApLB3iihAsFTZU7GeT2ZsRzNANnCZdhBeGE2vhCmMvmPdzDnd825QaE
-         ofzw==
-X-Gm-Message-State: AOJu0YzKYbYO3Liw2mFhT+xFAn9X0/04WpoBGfJHb/WT9bTUmnYbzhw+
-	Eu847BkVWThKCAYqmgRqUX5rnw==
-X-Google-Smtp-Source: AGHT+IHMtbIOTfz0kRmTGyfIpfQHbUb9g1Cnj+NRQvjNsmXJk227T21iqKzhdHXAvFmjWS65dl3poA==
-X-Received: by 2002:a17:902:7589:b0:1bd:bbc3:c87b with SMTP id j9-20020a170902758900b001bdbbc3c87bmr2860052pll.41.1694623181428;
-        Wed, 13 Sep 2023 09:39:41 -0700 (PDT)
-Received: from mchitale-vm.. ([103.97.165.210])
-        by smtp.googlemail.com with ESMTPSA id je15-20020a170903264f00b001b243a20f26sm10577756plb.273.2023.09.13.09.39.35
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 13 Sep 2023 09:39:41 -0700 (PDT)
-From: Mayuresh Chitale <mchitale@ventanamicro.com>
-To: Palmer Dabbelt <palmer@dabbelt.com>,
-	Anup Patel <anup@brainfault.org>
-Cc: Mayuresh Chitale <mchitale@ventanamicro.com>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Atish Patra <atishp@atishpatra.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
+	id 1qgSwU-006OG9-2m;
+	Wed, 13 Sep 2023 16:42:18 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1qgSuD-006LYT-28;
+	Wed, 13 Sep 2023 16:40:00 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6EFCDC15;
+	Wed, 13 Sep 2023 09:40:20 -0700 (PDT)
+Received: from merodach.members.linode.com (unknown [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5C0403F5A1;
+	Wed, 13 Sep 2023 09:39:41 -0700 (PDT)
+From: James Morse <james.morse@arm.com>
+To: linux-pm@vger.kernel.org,
+	loongarch@lists.linux.dev,
+	linux-acpi@vger.kernel.org,
+	linux-arch@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
 	linux-riscv@lists.infradead.org,
-	kvm-riscv@lists.infradead.org,
-	Conor Dooley <conor@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Rob Herring <robh+dt@kernel.org>,
-	devicetree@vger.kernel.org,
-	Conor Dooley <conor.dooley@microchip.com>
-Subject: [PATCH v5 2/7] dt-bindings: riscv: Add smstateen entry
-Date: Wed, 13 Sep 2023 22:09:00 +0530
-Message-Id: <20230913163905.480819-3-mchitale@ventanamicro.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20230913163905.480819-1-mchitale@ventanamicro.com>
-References: <20230913163905.480819-1-mchitale@ventanamicro.com>
+	kvmarm@lists.linux.dev
+Cc: x86@kernel.org,
+	Salil Mehta <salil.mehta@huawei.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Jean-Philippe Brucker <jean-philippe@linaro.org>,
+	jianyong.wu@arm.com,
+	justin.he@arm.com
+Subject: [RFC PATCH v2 25/35] LoongArch: Use the __weak version of arch_unregister_cpu()
+Date: Wed, 13 Sep 2023 16:38:13 +0000
+Message-Id: <20230913163823.7880-26-james.morse@arm.com>
+X-Mailer: git-send-email 2.20.1
+In-Reply-To: <20230913163823.7880-1-james.morse@arm.com>
+References: <20230913163823.7880-1-james.morse@arm.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230913_093959_928148_4EF1E500 
-X-CRM114-Status: UNSURE (   8.24  )
+X-CRM114-CacheID: sfid-20230913_093957_946812_2A076A30 
+X-CRM114-Status: UNSURE (   6.59  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -104,35 +74,41 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add an entry for the Smstateen extension to the riscv,isa-extensions
-property.
+LoongArch provides its own arch_unregister_cpu(). This clears the
+hotpluggable flag, then unregisters the CPU.
 
-Signed-off-by: Mayuresh Chitale <mchitale@ventanamicro.com>
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+It isn't necessary to clear the hotpluggable flag when unregistering
+a cpu. unregister_cpu() writes NULL to the percpu cpu_sys_devices
+pointer, meaning cpu_is_hotpluggable() will return false, as
+get_cpu_device() has returned NULL.
+
+Remove arch_unregister_cpu() and use the __weak version.
+
+Signed-off-by: James Morse <james.morse@arm.com>
 ---
- Documentation/devicetree/bindings/riscv/extensions.yaml | 6 ++++++
- 1 file changed, 6 insertions(+)
+ arch/loongarch/kernel/topology.c | 9 ---------
+ 1 file changed, 9 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/riscv/extensions.yaml b/Documentation/devicetree/bindings/riscv/extensions.yaml
-index cc1f546fdbdc..36ff6749fbba 100644
---- a/Documentation/devicetree/bindings/riscv/extensions.yaml
-+++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
-@@ -128,6 +128,12 @@ properties:
-             changes to interrupts as frozen at commit ccbddab ("Merge pull
-             request #42 from riscv/jhauser-2023-RC4") of riscv-aia.
- 
-+        - const: smstateen
-+          description: |
-+            The standard Smstateen extension for controlling access to CSRs
-+            added by other RISC-V extensions in H/S/VS/U/VU modes and as
-+            ratified at commit a28bfae (Ratified (#7)) of riscv-state-enable.
-+
-         - const: ssaia
-           description: |
-             The standard Ssaia supervisor-level extension for the advanced
+diff --git a/arch/loongarch/kernel/topology.c b/arch/loongarch/kernel/topology.c
+index 8e4441c1ff39..5a75e2cc0848 100644
+--- a/arch/loongarch/kernel/topology.c
++++ b/arch/loongarch/kernel/topology.c
+@@ -16,13 +16,4 @@ int arch_register_cpu(int cpu)
+ 	return register_cpu(c, cpu);
+ }
+ EXPORT_SYMBOL(arch_register_cpu);
+-
+-void arch_unregister_cpu(int cpu)
+-{
+-	struct cpu *c = &per_cpu(cpu_devices, cpu);
+-
+-	c->hotpluggable = 0;
+-	unregister_cpu(c);
+-}
+-EXPORT_SYMBOL(arch_unregister_cpu);
+ #endif
 -- 
-2.34.1
+2.39.2
 
 
 _______________________________________________
