@@ -4,64 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 719A2EE3F39
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 Sep 2023 00:37:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB049EE3F39
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 Sep 2023 00:37:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ghgFk4XhnzuKfFgstvZSh+/vyqIKQ9xxi+ePrgaLQZQ=; b=EUQpWFAZbARPq9
-	OTn2eBhzPw1L0ULttQWgs9Uq3TmQXHncPIx6jVYLLEAWr8/cu6HDPYgFt6vpzjl5ZGmwvd2q85PBm
-	FMq+JDjYFGbJwnx5dt3h3Ig5/V6UqJEHFpXzmeBZqZYadi7SPw8VDuYzKcUz/ROigL6+3EWrumh6w
-	I7TlCSTs04CTX6pFjnvpCkzLIMyENQzlVzRofG8ZUA6eO4RjyxUZB7+eA2tWmSeXZdUpudjB7Cp+p
-	aIAVag3brC+r3Cj+f/TnkTqATrmYn8xoVEaiKF7NEFKFZLo8x5S1MdrUaPRSMcMj4g0Kog3841YjY
-	cKp8jZB/LDUe4FDfELFA==;
+	List-Owner; bh=Uw35ONvrdTvZYNgd13E+qtiNPngsGSBth7H1JqLTL2Y=; b=I5VKnTYov1UPis
+	FwtNJfxEmnzmmVyNVvQWwKfBleXL86sodUlBdNFONrkQrL8761WgxIFcNwFeiYXeTliiaoZjFcYaE
+	CipYB4GfwjLaIPAf+hdERGTIoAeUxuNFmCGvmSDVjl2KLEh9xwr7AvZUk7ymqL6JgPEQ27BT0S9Dm
+	JyYeo0zNoaoY+pOt2fb88iFphpIKDdSLwqDwZrDzpf4uXQbOwVj/XT0BqlKoupxg+sOUs3cdh3dlE
+	3qTnHho3o0KHkTVZ/NnZ0XvRLh7TBjbVmsQcuNzOla1eIh/WcJyb/1/iSiglF3OU7YSVV7Gk6FQ3y
+	NqAgJWwfE3yRBG6eV2oQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgDsU-004Lst-2w;
+	id 1qgDsU-004Lsp-16;
 	Wed, 13 Sep 2023 00:37:10 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgDsO-004Lqh-1B
+	id 1qgDsO-004Lqf-0B
 	for linux-riscv@lists.infradead.org;
 	Wed, 13 Sep 2023 00:37:08 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by sin.source.kernel.org (Postfix) with ESMTPS id 15771CE1FD1;
-	Wed, 13 Sep 2023 00:37:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 51A6BC433CA;
+	by ams.source.kernel.org (Postfix) with ESMTPS id 9B584B821B7;
+	Wed, 13 Sep 2023 00:37:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 3CD9BC433C9;
 	Wed, 13 Sep 2023 00:37:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1694565420;
-	bh=QLIbIliIzoX8mYCbj7k2VtC9RtEwWULaWzil7YqJrF4=;
+	bh=HgcPYkQCEMqwS01o+/ylolT9Zi+5eZaHSwKnIn092ag=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=O83Lbr9c1crtDI00vKKCCy53BfUR8hFWoh68Nl+Ee6XE4DXB8Q3MWwjO3AJE5nyTG
-	 g9gGjwUIyIcJ2FD6XCoThgFCCAMlPQasUkomyH6X59kaY2wWfj6esXYfh3ZFJEPdKE
-	 pjAE79vvCU8/3itysUiSSwdyAvhgOtTdIYR7ILnouMv7h4rrAd05r+RWgBjfIseGiF
-	 0ggFGO3tE4pMkcBCR0eILHg8SurdwShRvf3B7+nJRmtBS6yPO2euZuYiLH7lUyKppx
-	 iE54zne0PGBu4jkpnPS1ROQEkCfuB/GnPK8IeFZG2m58cnoqQPfqnKYeY1n9zBZMy1
-	 m1aJuiFlle8Gw==
+	b=nDGWSfho1BlquLhL+yWTOKYwVYqxwdyDAURH+0HnGN7Ql2S7nnNpmPRho9YUqSxDl
+	 wFxO5Dhk2Buhn4HkSmEQe3hm4ufeKjPA5ONZrOnejFJ9vz4goh4dAbejMxEP0jggrl
+	 aCkrNDsoZ+jQbmLKnKLmnb8W3cBEtzMJYME22/vpClhN8rEuprCFxWSqKD21u0XjjU
+	 AIEjEIuW/qQzpVlcWv8HtlVVVuQl5dbkt5ay5vH66PrDQyR/BX/KGcKz2b6xkwhY+8
+	 ZqYVfKJAUDYGMc8hygXAH1BGnWjjV6j+SHikSfR06+x1vmiErnqcy9m/jPI454/cpE
+	 8Gtrpq3GAhW8w==
 Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 37F7EE49FA7;
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 2168BE1C282;
 	Wed, 13 Sep 2023 00:37:00 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH v2 0/2] riscv: errata: improve T-Head CMO
+Subject: Re: [PATCH -fixes] riscv: kexec: Align the kexeced kernel entry
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <169456542022.30716.3944233771389169729.git-patchwork-notify@kernel.org>
+Message-Id: <169456542013.30716.9158601549505953112.git-patchwork-notify@kernel.org>
 Date: Wed, 13 Sep 2023 00:37:00 +0000
-References: <20230827090813.1353-1-jszhang@kernel.org>
-In-Reply-To: <20230827090813.1353-1-jszhang@kernel.org>
-To: Jisheng Zhang <jszhang@kernel.org>
+References: <20230906095817.364390-1-songshuaishuai@tinylab.org>
+In-Reply-To: <20230906095817.364390-1-songshuaishuai@tinylab.org>
+To: Song Shuai <songshuaishuai@tinylab.org>
 Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, guoren@kernel.org,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, lihuafei1@huawei.com,
+ conor.dooley@microchip.com, liaochang1@huawei.com, lizhengyu3@huawei.com,
  linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230912_173704_599952_022BD5B6 
-X-CRM114-Status: UNSURE (   8.23  )
+X-CRM114-CacheID: sfid-20230912_173704_245089_23747BD3 
+X-CRM114-Status: UNSURE (   8.94  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -81,25 +82,22 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Hello:
 
-This series was applied to riscv/linux.git (fixes)
+This patch was applied to riscv/linux.git (fixes)
 by Palmer Dabbelt <palmer@rivosinc.com>:
 
-On Sun, 27 Aug 2023 17:08:11 +0800 you wrote:
-> This is a renew of Icenowy patch series[1], patch1 is necessary to
-> make T-Head C910 powered SoCs CMO work correctly. patch2 is to name
-> those instructions following thead-extension-spec.
+On Wed,  6 Sep 2023 17:58:17 +0800 you wrote:
+> The current riscv boot protocol requires 2MB alignment for RV64
+> and 4MB alignment for RV32.
 > 
-> Icenowy Zheng (2):
->   riscv: errata: fix T-Head dcache.cva encoding
->   riscv: errata: prefix T-Head mnemonics with th.
+> In KEXEC_FILE path, the elf_find_pbase() function should align
+> the kexeced kernel entry according to the requirement, otherwise
+> the kexeced kernel would silently BUG at the setup_vm().
 > 
 > [...]
 
 Here is the summary with links:
-  - [v2,1/2] riscv: errata: fix T-Head dcache.cva encoding
-    https://git.kernel.org/riscv/c/8eb8fe67e2c8
-  - [v2,2/2] riscv: errata: prefix T-Head mnemonics with th.
-    (no matching commit)
+  - [-fixes] riscv: kexec: Align the kexeced kernel entry
+    https://git.kernel.org/riscv/c/1bfb2b618d52
 
 You are awesome, thank you!
 -- 
