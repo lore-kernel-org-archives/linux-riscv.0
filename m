@@ -4,77 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C0C5EEB596
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 Sep 2023 06:22:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0928EEB596
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 Sep 2023 06:45:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+fcwA2VIKV5yN8PkkE/IcN4jVrTIM+GcfPYNTYTjnWI=; b=ZX/i6rO4uDbOUChB9Bq2XKQWDm
-	QXqFSUbum/rko/BXs5+FfBr8oUScHqqMkQL1Qr1Yb2xaqJuhOagunAIM0g0GcPuzb7JsSrhuHAai2
-	/RPIAcv6I1W/peWCqxplJclaKrES4QwV9AwQaCg+dsb4RSA/mxoO45xmDcSAl3Jsn4h0Bf3KJqulF
-	hx4t+2uPPlcvgU3VTyDrzsv0JkKjN8bEpZrP0AUeyTT01pyz/78vtFBNm+5TMljFg2Dms1SHAtV9t
-	rbzr+795E054RYF91gKcZLhwW0rYW5nCyOOgkx17YD1appE3J3My/EUItWL0ifftvqI8q7U75NdNR
-	qa49FiVw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=br7+7NWFHKwDbp1b1uKj7d2bDBNnNm70Mym42KFt1+c=; b=LpzNlIAy808qm6
+	4RnINr4OOAK/2+YFvphV5P81C4Dfrjta5q9BCMaprxfGgafw1j/Af5GNG6VkbAP1DkdfCa/Ugj99s
+	u3atLU2BpNRKyzFGlEzdzdK5vbjicmvxLgz4/QUaxaDlqnPnQ6fEZxRc2AQlBLj6tyTijVp6CGtFt
+	9e0GoyajseOCKhdLZT00kzyWu6m2JrmBibRKdJKbdahokHwOFOJnNEos/9DCFgO7AXUYmLCtQ9YoR
+	f0yNnqmOY7oj4fGRheglhIXBY7B3dDTWZyP4ZbZOGF4juP8oYyFGyBFqIOeDpTLYzLCprZm3PxF6g
+	hbAaF6efDRk8Y5hIdYmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgJG4-004n9m-39;
-	Wed, 13 Sep 2023 06:21:53 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgJG1-004n8H-2v
+	id 1qgJdI-004qIT-0a;
+	Wed, 13 Sep 2023 06:45:52 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1qgJdC-004qGF-29
 	for linux-riscv@lists.infradead.org;
-	Wed, 13 Sep 2023 06:21:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1694586110; x=1726122110;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=yQ/j7D4OXBoW16GrBTc/hnFxI50i0+gh0HACschoKSA=;
-  b=uAf6RwzJ5TO2b46fB1lYi87o54HYZ26Ne0qoWHDvXtT0QLmfqH6k5NXQ
-   ZBTiNUeVY+WUH2k9U+2gdWwBIiX3CxhN/fmzIidqhPGMTE7QzL2Xs/KJO
-   loWl4u1SlrbLlbHopWFBLiZaXGO/9pV4ypOLHCbmqB6QGbcEQKs9Epeds
-   UibVFtDu8OgvnmiyujHPzaM2XVdqHSdAkkxo0uQTY2bn5VvYKw9+nAe4e
-   348T7fkUWzBmfBVocjUwXQA6byAPq0qlFRAGTb9l3AbW4wsgFQeBd6RjE
-   2SjhipMCJdoInFIFe8qsbu2y8a1sZh7upykAFhAPH9HCq9Twij+Ob6dRz
-   g==;
-X-CSE-ConnectionGUID: 7XmvrzgjQjiO7en38VZV5Q==
-X-CSE-MsgGUID: Lz0HCdHbTEyKqaPCKhfWKw==
-X-ThreatScanner-Verdict: Negative
-X-IronPort-AV: E=Sophos;i="6.02,142,1688454000"; 
-   d="asc'?scan'208";a="234927951"
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 12 Sep 2023 23:21:47 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Tue, 12 Sep 2023 23:21:12 -0700
-Received: from wendy (10.10.85.11) by chn-vm-ex01.mchp-main.com (10.10.85.143)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
- Transport; Tue, 12 Sep 2023 23:21:10 -0700
-Date: Wed, 13 Sep 2023 07:20:54 +0100
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Hal Feng <hal.feng@starfivetech.com>
+	Wed, 13 Sep 2023 06:45:51 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id 7EAB824E3D6;
+	Wed, 13 Sep 2023 14:45:23 +0800 (CST)
+Received: from EXMBX172.cuchost.com (172.16.6.92) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 13 Sep
+ 2023 14:45:21 +0800
+Received: from [192.168.125.55] (113.72.145.181) by EXMBX172.cuchost.com
+ (172.16.6.92) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 13 Sep
+ 2023 14:45:20 +0800
+Message-ID: <f31b97b1-ce81-c259-cd19-6978d9fcec55@starfivetech.com>
+Date: Wed, 13 Sep 2023 14:45:19 +0800
+MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.3.2
+Subject: Re: [-next v2 1/2] riscv: dts: starfive: visionfive 2: Enable usb0
+To: Conor Dooley <conor.dooley@microchip.com>
 CC: Conor Dooley <conor+dt@kernel.org>, Emil Renner Berthing
 	<emil.renner.berthing@canonical.com>, Rob Herring <robh+dt@kernel.org>,
 	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Palmer Dabbelt
 	<palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou
 	<aou@eecs.berkeley.edu>, <devicetree@vger.kernel.org>,
 	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [-next v2 1/2] riscv: dts: starfive: visionfive 2: Enable usb0
-Message-ID: <20230913-mockup-liable-9dcf94ed4568@wendy>
 References: <20230829020511.26844-1-hal.feng@starfivetech.com>
  <c417d55d-d886-f66d-15a9-73b297d28d59@starfivetech.com>
-MIME-Version: 1.0
-In-Reply-To: <c417d55d-d886-f66d-15a9-73b297d28d59@starfivetech.com>
+ <20230913-mockup-liable-9dcf94ed4568@wendy>
+Content-Language: en-US
+From: Hal Feng <hal.feng@starfivetech.com>
+In-Reply-To: <20230913-mockup-liable-9dcf94ed4568@wendy>
+X-Originating-IP: [113.72.145.181]
+X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX172.cuchost.com
+ (172.16.6.92)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230912_232149_946112_B13349F3 
-X-CRM114-Status: GOOD (  18.68  )
+X-CRM114-CacheID: sfid-20230912_234547_022907_CB5CC6D0 
+X-CRM114-Status: GOOD (  16.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,75 +75,47 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1082503541667768208=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============1082503541667768208==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="6s20so3aHOodvuXr"
-Content-Disposition: inline
+On Wed, 13 Sep 2023 07:20:54 +0100, Conor Dooley wrote:
+> On Wed, Sep 13, 2023 at 11:47:22AM +0800, Hal Feng wrote:
+>> On Tue, 29 Aug 2023 10:05:10 +0800, Hal Feng wrote:
+>> > usb0 was disabled by mistake when merging, so enable it.
+>> > 
+>> > Fixes: e7c304c0346d ("riscv: dts: starfive: jh7110: add the node and pins configuration for tdm")
+>> > Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
+>> > ---
+>> >  arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi | 1 +
+>> >  1 file changed, 1 insertion(+)
+>> > 
+>> > diff --git a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
+>> > index d79f94432b27..85f40df93f25 100644
+>> > --- a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
+>> > +++ b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
+>> > @@ -513,6 +513,7 @@ &uart0 {
+>> >  
+>> >  &usb0 {
+>> >  	dr_mode = "peripheral";
+>> > +	status = "okay";
+>> >  };
+>> 
+>> Hi, Conor,
+>> 
+>> As v6.6-rc1 is already released, would you apply this series
+>> in rc2 or the later rc versions?
+> 
+> Yes, I was planning on doing a sweep for potential fixes today. There's
+> 3 or 4 I think.
 
---6s20so3aHOodvuXr
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+I see. Thanks a lot.
 
-On Wed, Sep 13, 2023 at 11:47:22AM +0800, Hal Feng wrote:
-> On Tue, 29 Aug 2023 10:05:10 +0800, Hal Feng wrote:
-> > usb0 was disabled by mistake when merging, so enable it.
-> >=20
-> > Fixes: e7c304c0346d ("riscv: dts: starfive: jh7110: add the node and pi=
-ns configuration for tdm")
-> > Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
-> > ---
-> >  arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi | 1 +
-> >  1 file changed, 1 insertion(+)
-> >=20
-> > diff --git a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.=
-dtsi b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
-> > index d79f94432b27..85f40df93f25 100644
-> > --- a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
-> > +++ b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
-> > @@ -513,6 +513,7 @@ &uart0 {
-> > =20
-> >  &usb0 {
-> >  	dr_mode =3D "peripheral";
-> > +	status =3D "okay";
-> >  };
->=20
-> Hi, Conor,
->=20
-> As v6.6-rc1 is already released, would you apply this series
-> in rc2 or the later rc versions?
-
-Yes, I was planning on doing a sweep for potential fixes today. There's
-3 or 4 I think.
-
---6s20so3aHOodvuXr
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZQFUuAAKCRB4tDGHoIJi
-0nRsAQCTaqgoWUbeumzMTXR5EzAQXSylZNGF84sjQsGXntCqYgD9ErLrcWMRsBL/
-Ez8Q3a7Spg2MhCfTWPzCpJX74CDvhAs=
-=+OgF
------END PGP SIGNATURE-----
-
---6s20so3aHOodvuXr--
-
-
---===============1082503541667768208==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Best regards,
+Hal
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============1082503541667768208==--
-
