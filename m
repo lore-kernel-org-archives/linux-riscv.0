@@ -4,34 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06479EE01E2
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 Sep 2023 16:42:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05D0FEE01E2
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 Sep 2023 16:42:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yP9OUFZ5SrYD5WxKDJB406FByK+kRYc8k24C9QO4+Pg=; b=TglUVQCH12C3Tk
-	fhsFp/ztiJezxSe7TWt0ByNWzdP0bUJlqvPS+TE4NkHNmVHICFRWjGDSUa8VURAGEmm77c5mdzZdi
-	BlyL+HKyQJQXUDpW9YLsrgUgDaQvALACmZ+FNxKAhosvLInFeQa5QtJKQ9mrYcGo9rpqAuRxGjja3
-	YGag+Fa/x//9e5b/C/804TN4Ujwwr02GO5dRJ4Irv8q+ivJcu3AQaVAh1f8UXJc3a5JO/3L1NjgVY
-	tL9NMLs0J/oez+XDBfZvHqK+mD0IGqOTl48ccdNdTWRpLBELk/thr5729Q9WMlYWe5BNKMQPW4SAt
-	YGRbg8t4tZPWsc8ywxYQ==;
+	List-Owner; bh=stzohhzd3lpUBL2E2UtYXh0/Yxt1wnllow+HlJ3Cd1g=; b=dqfK94oNPntb7/
+	Xroe8zosI1sI30iDyxFzyFHQa+kySrUvABisMraPUm7ZYttYiOONnNYDaIEjuzAJXDtERxVxkJGQ9
+	qWIBkGe4flpefflm7ynIuJBoArCPg+PInF5lpM9tyslyHPZaNHDidArJ8s6moS6URjZtwMPuPBysG
+	HMVzijSDNw8zv1fbFwhqSvSpmRwvXwdBIRbeuFUNkOSv0Eeg+XDKVSNBIOIklTDblG5JkoyfKfJ9I
+	WuCOB3UG4xKbObaMEoIuJCoPRQzyzRN5p0eLTU8DRI5G6KAaDA+k4M7SwF4W5gYxG8PYowMwC91SU
+	zH8IhaqjtAAn0rB1lx0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgSwe-006OV0-0b;
-	Wed, 13 Sep 2023 16:42:28 +0000
+	id 1qgSwm-006OfT-00;
+	Wed, 13 Sep 2023 16:42:37 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1qgSuI-006LmN-1f;
+	Wed, 13 Sep 2023 16:40:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=smaW/o8bd+rKbnDSaMbVWU9xJol1PXqasCCdXHQGEUg=; b=as5/DJgJbkfiDI1M/lDS2GEkTq
+	/IkY3XiBrWXOO3G5n+cOy98ycGyiU9yz5S9CuE4M68W+dGazgy3U+0V0GvsgHJHfLeKabPIHoKx7V
+	V6TMdd6ycICGNz5cZ6QfPu24/BAppAbE9xCPinmJ1+M8YhjKY2urLaUUizIaLnM7Mt7CjfqtO4JYW
+	ItZGImCHgPKvw5na8XZ6W4vlMSTK6OK21IcDPbf85CIEuzHWIwGE3D7fqss712/16/fU5qaDhtOK+
+	VgElNlMoMjD04qP8V8B1/BuO0GVie5W8ZZo38QJukfHb5fYMS17YmddLyCXmsN/NkuyQ/RbYmWcB2
+	ikd1H1UA==;
 Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgSuE-006Lgh-0e;
-	Wed, 13 Sep 2023 16:40:03 +0000
+	by desiato.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1qgSuB-007AQK-2F;
+	Wed, 13 Sep 2023 16:40:00 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4B8EB13D5;
-	Wed, 13 Sep 2023 09:40:34 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 505AE139F;
+	Wed, 13 Sep 2023 09:40:28 -0700 (PDT)
 Received: from merodach.members.linode.com (unknown [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 50C7C3F5A1;
-	Wed, 13 Sep 2023 09:39:55 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 55C453F5A1;
+	Wed, 13 Sep 2023 09:39:49 -0700 (PDT)
 From: James Morse <james.morse@arm.com>
 To: linux-pm@vger.kernel.org,
 	loongarch@lists.linux.dev,
@@ -47,16 +61,16 @@ Cc: x86@kernel.org,
 	Jean-Philippe Brucker <jean-philippe@linaro.org>,
 	jianyong.wu@arm.com,
 	justin.he@arm.com
-Subject: [RFC PATCH v2 32/35] ACPI: add support to register CPUs based on the _STA enabled bit
-Date: Wed, 13 Sep 2023 16:38:20 +0000
-Message-Id: <20230913163823.7880-33-james.morse@arm.com>
+Subject: [RFC PATCH v2 29/35] irqchip/gic-v3: Don't return errors from gic_acpi_match_gicc()
+Date: Wed, 13 Sep 2023 16:38:17 +0000
+Message-Id: <20230913163823.7880-30-james.morse@arm.com>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20230913163823.7880-1-james.morse@arm.com>
 References: <20230913163823.7880-1-james.morse@arm.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230913_093958_583161_D60D0157 
-X-CRM114-Status: GOOD (  14.30  )
+X-CRM114-CacheID: sfid-20230913_173957_382562_F40B3110 
+X-CRM114-Status: GOOD (  16.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,84 +87,63 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-acpi_processor_get_info() registers all present CPUs. Registering a
-CPU is what creates the sysfs entries and triggers the udev
-notifications.
+gic_acpi_match_gicc() is only called via gic_acpi_count_gicr_regions().
+It should only count the number of enabled redistributors, but it
+also tries to sanity check the GICC entry, currently returning an
+error if the Enabled bit is set, but the gicr_base_address is zero.
 
-arm64 virtual machines that support 'virtual cpu hotplug' use the
-enabled bit to indicate whether the CPU can be brought online, as
-the existing ACPI tables require all hardware to be described and
-present.
+Adding support for the online-capable bit to the sanity check
+complicates it, for no benefit. The existing check implicitly
+depends on gic_acpi_count_gicr_regions() previous failing to find
+any GICR regions (as it is valid to have gicr_base_address of zero if
+the redistributors are described via a GICR entry).
 
-If firmware describes a CPU as present, but disabled, skip the
-registration. Such CPUs are present, but can't be brought online for
-whatever reason. (e.g. firmware/hypervisor policy).
+Instead of complicating the check, remove it. Failures that happen
+at this point cause the irqchip not to register, meaning no irqs
+can be requested. The kernel grinds to a panic() pretty quickly.
 
-Once firmware sets the enabled bit, the CPU can be registered and
-brought online by user-space. Online CPUs, or CPUs that are missing
-an _STA method must always be registered.
+Without the check, MADT tables that exhibit this problem are still
+caught by gic_populate_rdist(), which helpfully also prints what
+went wrong:
+| CPU4: mpidr 100 has no re-distributor!
 
 Signed-off-by: James Morse <james.morse@arm.com>
 ---
- drivers/acpi/acpi_processor.c | 31 ++++++++++++++++++++++++++++++-
- 1 file changed, 30 insertions(+), 1 deletion(-)
+ drivers/irqchip/irq-gic-v3.c | 18 ++++++------------
+ 1 file changed, 6 insertions(+), 12 deletions(-)
 
-diff --git a/drivers/acpi/acpi_processor.c b/drivers/acpi/acpi_processor.c
-index b67616079751..b49859eab01a 100644
---- a/drivers/acpi/acpi_processor.c
-+++ b/drivers/acpi/acpi_processor.c
-@@ -227,6 +227,32 @@ static int acpi_processor_make_present(struct acpi_processor *pr)
- 	return ret;
- }
+diff --git a/drivers/irqchip/irq-gic-v3.c b/drivers/irqchip/irq-gic-v3.c
+index 72d3cdebdad1..0f54811262eb 100644
+--- a/drivers/irqchip/irq-gic-v3.c
++++ b/drivers/irqchip/irq-gic-v3.c
+@@ -2415,21 +2415,15 @@ static int __init gic_acpi_match_gicc(union acpi_subtable_headers *header,
  
-+static int acpi_processor_make_enabled(struct acpi_processor *pr)
-+{
-+	unsigned long long sta;
-+	acpi_status status;
-+	bool present, enabled;
-+
-+	if (!acpi_has_method(pr->handle, "_STA"))
-+		return arch_register_cpu(pr->id);
-+
-+	status = acpi_evaluate_integer(pr->handle, "_STA", NULL, &sta);
-+	if (ACPI_FAILURE(status))
-+		return -ENODEV;
-+
-+	present = sta & ACPI_STA_DEVICE_PRESENT;
-+	enabled = sta & ACPI_STA_DEVICE_ENABLED;
-+
-+	if (cpu_online(pr->id) && (!present || !enabled)) {
-+		pr_err_once(FW_BUG "CPU %u is online, but described as not present or disabled!\n", pr->id);
-+		add_taint(TAINT_FIRMWARE_WORKAROUND, LOCKDEP_STILL_OK);
-+	} else if (!present || !enabled) {
-+		return -ENODEV;
-+	}
-+
-+	return arch_register_cpu(pr->id);
-+}
-+
- static int acpi_processor_get_info(struct acpi_device *device)
- {
- 	union acpi_object object = { 0 };
-@@ -318,7 +344,7 @@ static int acpi_processor_get_info(struct acpi_device *device)
+ 	/*
+ 	 * If GICC is enabled and has valid gicr base address, then it means
+-	 * GICR base is presented via GICC
++	 * GICR base is presented via GICC. The redistributor is only known to
++	 * be accessible if the GICC is marked as enabled. If this bit is not
++	 * set, we'd need to add the redistributor at runtime, which isn't
++	 * supported.
  	 */
- 	if (!invalid_logical_cpuid(pr->id) && cpu_present(pr->id) &&
- 	    !get_cpu_device(pr->id)) {
--		int ret = arch_register_cpu(pr->id);
-+		int ret = acpi_processor_make_enabled(pr);
+-	if (acpi_gicc_is_usable(gicc) && gicc->gicr_base_address) {
++	if (gicc->flags & ACPI_MADT_ENABLED && gicc->gicr_base_address)
+ 		acpi_data.enabled_rdists++;
+-		return 0;
+-	}
  
- 		if (ret)
- 			return ret;
-@@ -526,6 +552,9 @@ static void acpi_processor_post_eject(struct acpi_device *device)
- 		acpi_processor_make_not_present(device);
- 		return;
- 	}
-+
-+	if (cpu_present(pr->id) && !(sta & ACPI_STA_DEVICE_ENABLED))
-+		arch_unregister_cpu(pr->id);
+-	/*
+-	 * It's perfectly valid firmware can pass disabled GICC entry, driver
+-	 * should not treat as errors, skip the entry instead of probe fail.
+-	 */
+-	if (!acpi_gicc_is_usable(gicc))
+-		return 0;
+-
+-	return -ENODEV;
++	return 0;
  }
  
- #ifdef CONFIG_ARCH_MIGHT_HAVE_ACPI_PDC
+ static int __init gic_acpi_count_gicr_regions(void)
 -- 
 2.39.2
 
