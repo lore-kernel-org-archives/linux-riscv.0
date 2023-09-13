@@ -4,86 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57A0AEE01FD
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 Sep 2023 17:47:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB396EE0202
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 Sep 2023 18:54:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+y3GTUFVWpO5jfxYuKvPNrMO1cFQbLRRPkaEjrUAwyg=; b=zly2k7TOR9KOwW
-	hka9Mnl/8c5NJulD/L7YUrrfdlm2IsocMUy71+1PN9HmasbsU918/+WlBnh637XMGW4i26XWtUMlf
-	EfR4zhiwkasraeYojsgPdawjyChA/yH4EjOVT8IbRQGvpjbf8t3Z8wf1VGwVXK8JEeVq7NxRceYPL
-	6d/ii91q/USpGKgNfBrTxmin0YNuwGDmKhRacXq9BoFrQuu9fnwj0tuMZiXpTmUIbQTseMNI3K/6v
-	3C+cT06/Kie/V3sFa5o2/JbROZXzBo/vXjcvNQ7tbTzpGIigNUS5pU0z9i6CucbjTVjQhxvnkEKhf
-	tcoNxaNv9ib3U7tRRXVg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=DTarOOJ7iFD2P51tiu+UR1Of1zO1TCbG4I7q0LXC5eE=; b=shVeqUzV3wsMBxCLXmA9dzNR0I
+	Ul59Y5+/y2KTqq+mJoa8EJx2aRDn5T56XM/wGvDElqdjw2shPgtQ9+o8DJofYOyi88uFcX7C/fjjD
+	cCWORelspVknBjHpGLOw9QIvzcXDUoJ3b0qlG8mrDKal4Z8/kuGakOoqZIQLwMhQkmLQdYZfenPhW
+	mezMi5FqjfkIJUtRLaj73DJNqV9IZkGGdqwwA6srG+QvO9c/oJIuwdlQe41lGngQDWuISaTXQZqxl
+	2Gb697FOXbrt2cz8Bg2hVZqU41RGWBlRJQHYbnSvoiMiVYd+zlddCGB8ixn67M5I4SEdZt3sxsfCW
+	FZW+ogQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgTx1-006VWY-2g;
-	Wed, 13 Sep 2023 17:46:55 +0000
-Received: from mail-lf1-x12f.google.com ([2a00:1450:4864:20::12f])
+	id 1qgV0O-006ZVD-1E;
+	Wed, 13 Sep 2023 18:54:28 +0000
+Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgTwx-006VVt-2D
+	id 1qgV0K-006ZSm-2S
 	for linux-riscv@lists.infradead.org;
-	Wed, 13 Sep 2023 17:46:53 +0000
-Received: by mail-lf1-x12f.google.com with SMTP id 2adb3069b0e04-501bd164fbfso96655e87.0
-        for <linux-riscv@lists.infradead.org>; Wed, 13 Sep 2023 10:46:50 -0700 (PDT)
+	Wed, 13 Sep 2023 18:54:26 +0000
+Received: by mail-pf1-x42e.google.com with SMTP id d2e1a72fcca58-68fb46f38f9so108223b3a.1
+        for <linux-riscv@lists.infradead.org>; Wed, 13 Sep 2023 11:54:23 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1694627209; x=1695232009; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=GaTGM+r0T4ix55Ks/rV8r7oM4itiRsvvp6UH3VlxOdQ=;
-        b=dyNuxVWL6e2GtoNxMNjkk/Lq/B6BgQcOou3dVqMTiLm+w7a52JWWLhICDYLXALXUUY
-         b3xu/JNgY9jSjLYY+L8FjGKJqVMNHjtBBF2dfQsUO5y8qVs5mzTFfQgEsMHafb39vyMw
-         Tuko5PgtCeJMa9P7mFfvVuRSWPihzJHgVE9ed/K62M7X1oY6DSnsXWWUmBC6sjZ4vhba
-         GjHEBLfcqI7mEnPp4py3u6RlZpBghTtb/uu88ZrOFR8CW9HfOMLCca4nApTfUZiE1kV3
-         AzFiMX01fePr5AD63o2ScxNyltcgLcs8a6Fut7+Y4J+v/UlSpQVw2DpYvdHa29qoRbCZ
-         ynTw==
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1694631263; x=1695236063; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=AeNR7qwQLkJOVuge8P10O3vzgVEpbjfLDo4ctIHKwbU=;
+        b=XZZ1kMMIgGBzihaj9IwQgnEHF03bAJEu4a4p1H2NWDL+jbR+H8zu9qWC5g4pM1xb0i
+         JAUma+rJ2Lv+FcxCaQbM5LvyKI7WwpO0mi4rh1WldYn6zhgKH+xj8+saReEsNQ1+15fu
+         TSSw8Pgf+VctmB9D/6HA4YcSpy8cJHzZA9mM2OH6QbPUrT35P6S7PsAHP5vVVc4sHV67
+         WtV6RB7+7oh9YQ8GTEiBK6qbNypglozO5pAI+I88e77Uzx7YI3YyW7aFitYo1WhTdbnY
+         uWHy7S6x9P4bLXZqpMpBYENi4sspER6OLfoY0ioJx32+x9MIqeLI1YAydyj3l3wfLUz6
+         LxWw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1694627209; x=1695232009;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=GaTGM+r0T4ix55Ks/rV8r7oM4itiRsvvp6UH3VlxOdQ=;
-        b=JXY5hq8hum9YYcKkApLZYVbbcWgsGhiH3iD5D1aOtIZKGIJbknmwhwC8XhM9V8c6CC
-         45PO6hDiGg4cHqid1z8OmEIxIGWf8VAgi96UzRIT+oN17ablrmnZ+ZHt3Ov/KL9ggM75
-         EO+Ze/pnFvGOJ+jf6fRWPvjezsL2CE8tET8aX9vP9h4HSTnvxScMPsT/tz1ZZNOwmciN
-         EsxhBL15gPsKneLKldhcvIFzdEGpE7DWyqXPI18GFZoeAZQqwJy/iYZzLV0dEMnh+jas
-         8uG18tJcB599zrgoahlLCrSyzJL7mpHl+Q8Hi59aEC/pFlW9p4dgcjNxic8FBD9G5+HK
-         FWXg==
-X-Gm-Message-State: AOJu0Yyzw/d5T4jJ4JXl28pNl4oPpQtQp6nHF/k1Hl+1HsgTXQKW7v94
-	9QFL7Bqa0dASR8vH3qO/m+FQV4DFtOhgsSwl9O8eDA==
-X-Google-Smtp-Source: AGHT+IE8E3aGdajd07Jo/Ih9J3B6jb58k/6rIP3DKaSrxVurSVnQGYrTxs5UZkMcis8uKeqpgsLkQQJT1GTPpmQeX2Q=
-X-Received: by 2002:a05:6512:3e26:b0:4fd:ddbc:1577 with SMTP id
- i38-20020a0565123e2600b004fdddbc1577mr3100760lfv.2.1694627209317; Wed, 13 Sep
- 2023 10:46:49 -0700 (PDT)
-MIME-Version: 1.0
-References: <20230818194136.4084400-1-evan@rivosinc.com> <20230818194136.4084400-2-evan@rivosinc.com>
- <CAMuHMdVtXGjP8VFMiv-7OMFz1XvfU1cz=Fw4jL3fcp4wO1etzQ@mail.gmail.com>
-In-Reply-To: <CAMuHMdVtXGjP8VFMiv-7OMFz1XvfU1cz=Fw4jL3fcp4wO1etzQ@mail.gmail.com>
-From: Evan Green <evan@rivosinc.com>
-Date: Wed, 13 Sep 2023 10:46:13 -0700
-Message-ID: <CALs-Hsvu7BsK8P0+xeuLmKEqg-q=kQANbf8FkiPGPhwhnSXpmA@mail.gmail.com>
-Subject: Re: [PATCH v4 1/2] RISC-V: Probe for unaligned access speed
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: Palmer Dabbelt <palmer@rivosinc.com>, Heiko Stuebner <heiko@sntech.de>, linux-doc@vger.kernel.org, 
-	=?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>, 
-	Conor Dooley <conor.dooley@microchip.com>, Guo Ren <guoren@kernel.org>, 
-	Jisheng Zhang <jszhang@kernel.org>, linux-riscv@lists.infradead.org, 
-	Jonathan Corbet <corbet@lwn.net>, Sia Jee Heng <jeeheng.sia@starfivetech.com>, 
-	Marc Zyngier <maz@kernel.org>, Masahiro Yamada <masahiroy@kernel.org>, 
-	Greentime Hu <greentime.hu@sifive.com>, Simon Hosie <shosie@rivosinc.com>, 
-	Andrew Jones <ajones@ventanamicro.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alexghiti@rivosinc.com>, Ley Foon Tan <leyfoon.tan@starfivetech.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Anup Patel <apatel@ventanamicro.com>, 
-	linux-kernel@vger.kernel.org, Xianting Tian <xianting.tian@linux.alibaba.com>, 
-	David Laight <David.Laight@aculab.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Andy Chiu <andy.chiu@sifive.com>
+        d=1e100.net; s=20230601; t=1694631263; x=1695236063;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=AeNR7qwQLkJOVuge8P10O3vzgVEpbjfLDo4ctIHKwbU=;
+        b=KZDItat7J45hj75SOp/GDfqv2E5GwI/xAZVcNimjqRV+rl9bFfMOP55dlzC2jWPjdP
+         DKnU8KWaTuEMx7GICtg0rBuPp8nE1FwHYSG56mUPkmb87nIoOWY6cdcvkGnPdf6zHmTu
+         PJSsnEs0Y+Vh6wA49eEB8TECT6M3VV1kfz1f2rQ5iWaJ8RnFXqB6dLi8BKnPrIbjGDAI
+         pFNkb7j7UEZrCgPv0dSAMgGloK+ZlSjXKaY1VdsLqA6ZiwaxEofmeXfOQpAteAQpRtRm
+         28aIfBenqvcP3h27N3kFEWfY04SVRehCP8+Le36MSE+MRw3Mq08PYzIAa9vwqAu1bedi
+         nPxg==
+X-Gm-Message-State: AOJu0YwLNOYzji1hVLNOKOSv7GX0sJ+jVdAsx3IX9glT+UlNV30zWyI0
+	IaNipDckK2M4+J57lGkvZ17m+Q==
+X-Google-Smtp-Source: AGHT+IHWJanL/mhSZzKNrnjgZ9a4L8x4QH7mCct+onuawdEUp8h+RhW5cHMtW3sNV708kZgryFVaZg==
+X-Received: by 2002:a05:6a21:329c:b0:12e:98a3:77b7 with SMTP id yt28-20020a056a21329c00b0012e98a377b7mr3872648pzb.59.1694631262697;
+        Wed, 13 Sep 2023 11:54:22 -0700 (PDT)
+Received: from localhost ([135.180.227.0])
+        by smtp.gmail.com with ESMTPSA id x14-20020a170902ec8e00b001a6d4ea7301sm10765184plg.251.2023.09.13.11.54.21
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 13 Sep 2023 11:54:21 -0700 (PDT)
+Date: Wed, 13 Sep 2023 11:54:21 -0700 (PDT)
+X-Google-Original-Date: Wed, 13 Sep 2023 11:54:19 PDT (-0700)
+Subject: Re: [PATCH V10 07/19] riscv: qspinlock: errata: Introduce ERRATA_THEAD_QSPINLOCK
+In-Reply-To: <ae320af5-6cca-4689-aa66-9d0193713d40@app.fastmail.com>
+CC: guoren@kernel.org, Paul Walmsley <paul.walmsley@sifive.com>, anup@brainfault.org,
+  peterz@infradead.org, mingo@redhat.com, Will Deacon <will@kernel.org>, longman@redhat.com,
+  boqun.feng@gmail.com, tglx@linutronix.de, paulmck@kernel.org, rostedt@goodmis.org,
+  rdunlap@infradead.org, Catalin Marinas <catalin.marinas@arm.com>,
+  Conor Dooley <conor.dooley@microchip.com>, xiaoguang.xing@sophgo.com, Bjorn Topel <bjorn@rivosinc.com>,
+  alexghiti@rivosinc.com, keescook@chromium.org, greentime.hu@sifive.com, ajones@ventanamicro.com,
+  jszhang@kernel.org, wefu@redhat.com, wuwei2016@iscas.ac.cn, linux-arch@vger.kernel.org,
+  linux-riscv@lists.infradead.org, linux-doc@vger.kernel.org, kvm@vger.kernel.org,
+  virtualization@lists.linux-foundation.org, linux-csky@vger.kernel.org, guoren@linux.alibaba.com
+From: Palmer Dabbelt <palmer@rivosinc.com>
+To: sorear@fastmail.com
+Message-ID: <mhng-ee184bd2-7666-402d-b0df-d484ed6d8236@palmer-ri-x1c9>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230913_104651_974197_214EB31C 
-X-CRM114-Status: GOOD (  36.95  )
+X-CRM114-CacheID: sfid-20230913_115425_023880_88D2A53E 
+X-CRM114-Status: GOOD (  31.49  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,108 +93,203 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCBTZXAgMTMsIDIwMjMgYXQgNTozNuKAr0FNIEdlZXJ0IFV5dHRlcmhvZXZlbiA8Z2Vl
-cnRAbGludXgtbTY4ay5vcmc+IHdyb3RlOgo+Cj4gSGkgRXZhbiwKPgo+IE9uIEZyaSwgQXVnIDE4
-LCAyMDIzIGF0IDk6NDTigK9QTSBFdmFuIEdyZWVuIDxldmFuQHJpdm9zaW5jLmNvbT4gd3JvdGU6
-Cj4gPiBSYXRoZXIgdGhhbiBkZWZlcnJpbmcgdW5hbGlnbmVkIGFjY2VzcyBzcGVlZCBkZXRlcm1p
-bmF0aW9ucyB0byBhIHZlbmRvcgo+ID4gZnVuY3Rpb24sIGxldCdzIHByb2JlIHRoZW0gYW5kIGZp
-bmQgb3V0IGhvdyBmYXN0IHRoZXkgYXJlLiBJZiB3ZQo+ID4gZGV0ZXJtaW5lIHRoYXQgYW4gdW5h
-bGlnbmVkIHdvcmQgYWNjZXNzIGlzIGZhc3RlciB0aGFuIE4gYnl0ZSBhY2Nlc3NlcywKPiA+IG1h
-cmsgdGhlIGhhcmR3YXJlJ3MgdW5hbGlnbmVkIGFjY2VzcyBhcyAiZmFzdCIuIE90aGVyd2lzZSwg
-d2UgbWFyawo+ID4gYWNjZXNzZXMgYXMgc2xvdy4KPiA+Cj4gPiBUaGUgYWxnb3JpdGhtIGl0c2Vs
-ZiBydW5zIGZvciBhIGZpeGVkIGFtb3VudCBvZiBqaWZmaWVzLiBXaXRoaW4gZWFjaAo+ID4gaXRl
-cmF0aW9uIGl0IGF0dGVtcHRzIHRvIHRpbWUgYSBzaW5nbGUgbG9vcCwgYW5kIHRoZW4ga2VlcHMg
-b25seSB0aGUgYmVzdAo+ID4gKGZhc3Rlc3QpIGxvb3AgaXQgc2F3LiBUaGlzIGFsZ29yaXRobSB3
-YXMgZm91bmQgdG8gaGF2ZSBsb3dlciB2YXJpYW5jZSBmcm9tCj4gPiBydW4gdG8gcnVuIHRoYW4g
-bXkgZmlyc3QgYXR0ZW1wdCwgd2hpY2ggY291bnRlZCB0aGUgdG90YWwgbnVtYmVyIG9mCj4gPiBp
-dGVyYXRpb25zIHRoYXQgY291bGQgYmUgZG9uZSBpbiB0aGF0IGZpeGVkIGFtb3VudCBvZiBqaWZm
-aWVzLiBCeSB0YWtpbmcKPiA+IG9ubHkgdGhlIGJlc3QgaXRlcmF0aW9uIGluIHRoZSBsb29wLCBh
-c3N1bWluZyBhdCBsZWFzdCBvbmUgbG9vcCB3YXNuJ3QKPiA+IHBlcnR1cmJlZCBieSBhbiBpbnRl
-cnJ1cHQsIHdlIGVsaW1pbmF0ZSB0aGUgZWZmZWN0cyBvZiBpbnRlcnJ1cHRzIGFuZAo+ID4gb3Ro
-ZXIgIndhcm0gdXAiIGZhY3RvcnMgbGlrZSBicmFuY2ggcHJlZGljdGlvbi4gVGhlIG9ubHkgZG93
-bnNpZGUgaXMgaXQKPiA+IGRlcGVuZHMgb24gaGF2aW5nIGFuIHJkdGltZSBncmFudWxhciBhbmQg
-YWNjdXJhdGUgZW5vdWdoIHRvIG1lYXN1cmUgYQo+ID4gc2luZ2xlIGNvcHkuIElmIHdlIGV2ZXIg
-bWFuYWdlIHRvIGNvbXBsZXRlIGEgbG9vcCBpbiAwIHJkdGltZSB0aWNrcywgd2UKPiA+IGxlYXZl
-IHRoZSB1bmFsaWduZWQgc2V0dGluZyBhdCBVTktOT1dOLgo+ID4KPiA+IFRoZXJlIGlzIGEgc2xp
-Z2h0IGNoYW5nZSBpbiB1c2VyLXZpc2libGUgYmVoYXZpb3IgaGVyZS4gUHJldmlvdXNseSwgYWxs
-Cj4gPiBib2FyZHMgZXhjZXB0IHRoZSBUSGVhZCBDOTA2IHJlcG9ydGVkIG1pc2FsaWduZWQgYWNj
-ZXNzIHNwZWVkIG9mCj4gPiBVTktOT1dOLiBDOTA2IHJlcG9ydGVkIEZBU1QuIFdpdGggdGhpcyBj
-aGFuZ2UsIHNpbmNlIHdlJ3JlIG5vdyBtZWFzdXJpbmcKPiA+IG1pc2FsaWduZWQgYWNjZXNzIHNw
-ZWVkIG9uIGVhY2ggaGFydCwgYWxsIFJJU0MtViBzeXN0ZW1zIHdpbGwgaGF2ZSB0aGlzCj4gPiBr
-ZXkgc2V0IGFzIGVpdGhlciBGQVNUIG9yIFNMT1cuCj4gPgo+ID4gQ3VycmVudGx5LCB3ZSBkb24n
-dCBoYXZlIGEgd2F5IHRvIGNvbmZpZGVudGx5IG1lYXN1cmUgdGhlIGRpZmZlcmVuY2UgYmV0d2Vl
-bgo+ID4gU0xPVyBhbmQgRU1VTEFURUQsIHNvIHdlIGxhYmVsIGFueXRoaW5nIG5vdCBmYXN0IGFz
-IFNMT1cuIFRoaXMgd2lsbAo+ID4gbWlzbGFiZWwgc29tZSBzeXN0ZW1zIHRoYXQgYXJlIGFjdHVh
-bGx5IEVNVUxBVEVEIGFzIFNMT1cuIFdoZW4gd2UgZ2V0Cj4gPiBzdXBwb3J0IGZvciBkZWxlZ2F0
-aW5nIG1pc2FsaWduZWQgYWNjZXNzIHRyYXBzIHRvIHRoZSBrZXJuZWwgKGFzIG9wcG9zZWQKPiA+
-IHRvIHRoZSBmaXJtd2FyZSBxdWlldGx5IGhhbmRsaW5nIGl0KSwgd2UgY2FuIGV4cGxpY2l0bHkg
-dGVzdCBpbiBMaW51eCB0bwo+ID4gc2VlIGlmIHVuYWxpZ25lZCBhY2Nlc3NlcyB0cmFwLiBUaG9z
-ZSBzeXN0ZW1zIHdpbGwgc3RhcnQgdG8gcmVwb3J0Cj4gPiBFTVVMQVRFRCwgdGhvdWdoIG9sZGVy
-ICh0b2RheSdzKSBzeXN0ZW1zIHdpdGhvdXQgdGhhdCBuZXcgU0JJIG1lY2hhbmlzbQo+ID4gd2ls
-bCBjb250aW51ZSB0byByZXBvcnQgU0xPVy4KPiA+Cj4gPiBJJ3ZlIHVwZGF0ZWQgdGhlIGRvY3Vt
-ZW50YXRpb24gZm9yIHRob3NlIGh3cHJvYmUgdmFsdWVzIHRvIHJlZmxlY3QKPiA+IHRoaXMsIHNw
-ZWNpZmljYWxseTogU0xPVyBtYXkgb3IgbWF5IG5vdCBiZSBlbXVsYXRlZCBieSBzb2Z0d2FyZSwg
-YW5kIEZBU1QKPiA+IHJlcHJlc2VudHMgbWVhbnMgYmVpbmcgZmFzdGVyIHRoYW4gZXF1aXZhbGVu
-dCBieXRlIGFjY2Vzc2VzLiBUaGUgY2hhbmdlCj4gPiBpbiBkb2N1bWVudGF0aW9uIGlzIGFjY3Vy
-YXRlIHdpdGggcmVzcGVjdCB0byBib3RoIHRoZSBmb3JtZXIgYW5kIGN1cnJlbnQKPiA+IGJlaGF2
-aW9yLgo+ID4KPiA+IFNpZ25lZC1vZmYtYnk6IEV2YW4gR3JlZW4gPGV2YW5Acml2b3NpbmMuY29t
-Pgo+ID4gQWNrZWQtYnk6IENvbm9yIERvb2xleSA8Y29ub3IuZG9vbGV5QG1pY3JvY2hpcC5jb20+
-Cj4KPiBUaGFua3MgZm9yIHlvdXIgcGF0Y2gsIHdoaWNoIGlzIG5vdyBjb21taXQgNTg0ZWE2NTY0
-YmNhZWFkMiAoIlJJU0MtVjoKPiBQcm9iZSBmb3IgdW5hbGlnbmVkIGFjY2VzcyBzcGVlZCIpIGlu
-IHY2LjYtcmMxLgo+Cj4gT24gdGhlIGJvYXJkcyBJIGhhdmUsIEkgZ2V0Ogo+Cj4gICAgIHJ6Zml2
-ZToKPiAgICAgICAgIGNwdTA6IFJhdGlvIG9mIGJ5dGUgYWNjZXNzIHRpbWUgdG8gdW5hbGlnbmVk
-IHdvcmQgYWNjZXNzIGlzCj4gMS4wNSwgdW5hbGlnbmVkIGFjY2Vzc2VzIGFyZSBmYXN0CgpIcm0s
-IEknbSBhIGxpdHRsZSBzdXJwcmlzZWQgdG8gYmUgc2VlaW5nIHRoaXMgbnVtYmVyIGNvbWUgb3V0
-IHNvIGNsb3NlCnRvIDEuIElmIHlvdSByZWJvb3QgYSBmZXcgdGltZXMsIHdoYXQga2luZCBvZiB2
-YXJpYW5jZSBkbyB5b3UgZ2V0IG9uCnRoaXM/Cgo+Cj4gICAgIGljaWNsZToKPgo+ICAgICAgICAg
-Y3B1MTogUmF0aW8gb2YgYnl0ZSBhY2Nlc3MgdGltZSB0byB1bmFsaWduZWQgd29yZCBhY2Nlc3Mg
-aXMKPiAwLjAwLCB1bmFsaWduZWQgYWNjZXNzZXMgYXJlIHNsb3cKPiAgICAgICAgIGNwdTI6IFJh
-dGlvIG9mIGJ5dGUgYWNjZXNzIHRpbWUgdG8gdW5hbGlnbmVkIHdvcmQgYWNjZXNzIGlzCj4gMC4w
-MCwgdW5hbGlnbmVkIGFjY2Vzc2VzIGFyZSBzbG93Cj4gICAgICAgICBjcHUzOiBSYXRpbyBvZiBi
-eXRlIGFjY2VzcyB0aW1lIHRvIHVuYWxpZ25lZCB3b3JkIGFjY2VzcyBpcwo+IDAuMDAsIHVuYWxp
-Z25lZCBhY2Nlc3NlcyBhcmUgc2xvdwo+Cj4gICAgICAgICBjcHUwOiBSYXRpbyBvZiBieXRlIGFj
-Y2VzcyB0aW1lIHRvIHVuYWxpZ25lZCB3b3JkIGFjY2VzcyBpcwo+IDAuMDAsIHVuYWxpZ25lZCBh
-Y2Nlc3NlcyBhcmUgc2xvdwo+Cj4gICAgIGsyMTA6Cj4KPiAgICAgICAgIGNwdTE6IFJhdGlvIG9m
-IGJ5dGUgYWNjZXNzIHRpbWUgdG8gdW5hbGlnbmVkIHdvcmQgYWNjZXNzIGlzCj4gMC4wMiwgdW5h
-bGlnbmVkIGFjY2Vzc2VzIGFyZSBzbG93Cj4gICAgICAgICBjcHUwOiBSYXRpbyBvZiBieXRlIGFj
-Y2VzcyB0aW1lIHRvIHVuYWxpZ25lZCB3b3JkIGFjY2VzcyBpcwo+IDAuMDIsIHVuYWxpZ25lZCBh
-Y2Nlc3NlcyBhcmUgc2xvdwo+Cj4gICAgIHN0YXJsaWdodDoKPgo+ICAgICAgICAgY3B1MTogUmF0
-aW8gb2YgYnl0ZSBhY2Nlc3MgdGltZSB0byB1bmFsaWduZWQgd29yZCBhY2Nlc3MgaXMKPiAwLjAx
-LCB1bmFsaWduZWQgYWNjZXNzZXMgYXJlIHNsb3cKPiAgICAgICAgIGNwdTA6IFJhdGlvIG9mIGJ5
-dGUgYWNjZXNzIHRpbWUgdG8gdW5hbGlnbmVkIHdvcmQgYWNjZXNzIGlzCj4gMC4wMiwgdW5hbGln
-bmVkIGFjY2Vzc2VzIGFyZSBzbG93Cj4KPiAgICAgdmV4cmlzY3Yvb3JhbmdlY3JhYjoKPgo+ICAg
-ICAgICAgY3B1MDogUmF0aW8gb2YgYnl0ZSBhY2Nlc3MgdGltZSB0byB1bmFsaWduZWQgd29yZCBh
-Y2Nlc3MgaXMKPiAwLjAwLCB1bmFsaWduZWQgYWNjZXNzZXMgYXJlIHNsb3cKPgo+IEkgYW0gYSBi
-aXQgc3VycHJpc2VkIGJ5IHRoZSBuZWFyLXplcm8gdmFsdWVzLiAgQXJlIHRoZXNlIGV4cGVjdGVk
-Pwo+IFRoYW5rcyEKClRoaXMgY291bGQgYmUgZXhwZWN0ZWQsIGlmIGZpcm13YXJlIGlzIHRyYXBw
-aW5nIHRoZSB1bmFsaWduZWQgYWNjZXNzZXMKYW5kIGNvbWluZyBvdXQgPjEwMHggc2xvd2VyIHRo
-YW4gYSBuYXRpdmUgYWNjZXNzLiBJZiB5b3UncmUgaW50ZXJlc3RlZAppbiBnZXR0aW5nIGEgbGl0
-dGxlIG1vcmUgcmVzb2x1dGlvbiwgeW91IGNvdWxkIHRyeSB0byBwcmludCBhIGZldyBtb3JlCmRl
-Y2ltYWwgcGxhY2VzIHdpdGggc29tZXRoaW5nIGxpa2UgKHNvcnJ5IGdtYWlsIG1hbmdsZXMgdGhl
-IHdoaXRlc3BhY2UKb24gdGhpcyk6CgpkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9rZXJuZWwvY3B1
-ZmVhdHVyZS5jIGIvYXJjaC9yaXNjdi9rZXJuZWwvY3B1ZmVhdHVyZS5jCmluZGV4IDFjZmJiYTY1
-ZDExYS4uMmMwOTQwMzc2NThhIDEwMDY0NAotLS0gYS9hcmNoL3Jpc2N2L2tlcm5lbC9jcHVmZWF0
-dXJlLmMKKysrIGIvYXJjaC9yaXNjdi9rZXJuZWwvY3B1ZmVhdHVyZS5jCkBAIC02MzIsMTEgKzYz
-MiwxMSBAQCB2b2lkIGNoZWNrX3VuYWxpZ25lZF9hY2Nlc3MoaW50IGNwdSkKICAgICAgICBpZiAo
-d29yZF9jeWNsZXMgPCBieXRlX2N5Y2xlcykKICAgICAgICAgICAgICAgIHNwZWVkID0gUklTQ1Zf
-SFdQUk9CRV9NSVNBTElHTkVEX0ZBU1Q7CgotICAgICAgIHJhdGlvID0gZGl2X3U2NCgoYnl0ZV9j
-eWNsZXMgKiAxMDApLCB3b3JkX2N5Y2xlcyk7Ci0gICAgICAgcHJfaW5mbygiY3B1JWQ6IFJhdGlv
-IG9mIGJ5dGUgYWNjZXNzIHRpbWUgdG8gdW5hbGlnbmVkIHdvcmQKYWNjZXNzIGlzICVkLiUwMmQs
-IHVuYWxpZ25lZCBhY2Nlc3NlcyBhcmUgJXNcbiIsCisgICAgICAgcmF0aW8gPSBkaXZfdTY0KChi
-eXRlX2N5Y2xlcyAqIDEwMDAwMCksIHdvcmRfY3ljbGVzKTsKKyAgICAgICBwcl9pbmZvKCJjcHUl
-ZDogUmF0aW8gb2YgYnl0ZSBhY2Nlc3MgdGltZSB0byB1bmFsaWduZWQgd29yZAphY2Nlc3MgaXMg
-JWQuJTA1ZCwgdW5hbGlnbmVkIGFjY2Vzc2VzIGFyZSAlc1xuIiwKICAgICAgICAgICAgICAgIGNw
-dSwKLSAgICAgICAgICAgICAgIHJhdGlvIC8gMTAwLAotICAgICAgICAgICAgICAgcmF0aW8gJSAx
-MDAsCisgICAgICAgICAgICAgICByYXRpbyAvIDEwMDAwMCwKKyAgICAgICAgICAgICAgIHJhdGlv
-ICUgMTAwMDAwLAogICAgICAgICAgICAgICAgKHNwZWVkID09IFJJU0NWX0hXUFJPQkVfTUlTQUxJ
-R05FRF9GQVNUKSA/ICJmYXN0IiA6ICJzbG93Iik7CgogICAgICAgIHBlcl9jcHUobWlzYWxpZ25l
-ZF9hY2Nlc3Nfc3BlZWQsIGNwdSkgPSBzcGVlZDsKCklmIHlvdSBkaWQsIEknZCBiZSBpbnRlcmVz
-dGVkIHRvIHNlZSB0aGUgcmVzdWx0cy4KLUV2YW4KCl9fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNj
-dkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4v
-bGlzdGluZm8vbGludXgtcmlzY3YK
+On Sun, 06 Aug 2023 22:23:34 PDT (-0700), sorear@fastmail.com wrote:
+> On Wed, Aug 2, 2023, at 12:46 PM, guoren@kernel.org wrote:
+>> From: Guo Ren <guoren@linux.alibaba.com>
+>>
+>> According to qspinlock requirements, RISC-V gives out a weak LR/SC
+>> forward progress guarantee which does not satisfy qspinlock. But
+>> many vendors could produce stronger forward guarantee LR/SC to
+>> ensure the xchg_tail could be finished in time on any kind of
+>> hart. T-HEAD is the vendor which implements strong forward
+>> guarantee LR/SC instruction pairs, so enable qspinlock for T-HEAD
+>> with errata help.
+>>
+>> T-HEAD early version of processors has the merge buffer delay
+>> problem, so we need ERRATA_WRITEONCE to support qspinlock.
+>>
+>> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+>> Signed-off-by: Guo Ren <guoren@kernel.org>
+>> ---
+>>  arch/riscv/Kconfig.errata              | 13 +++++++++++++
+>>  arch/riscv/errata/thead/errata.c       | 24 ++++++++++++++++++++++++
+>>  arch/riscv/include/asm/errata_list.h   | 20 ++++++++++++++++++++
+>>  arch/riscv/include/asm/vendorid_list.h |  3 ++-
+>>  arch/riscv/kernel/cpufeature.c         |  3 ++-
+>>  5 files changed, 61 insertions(+), 2 deletions(-)
+>>
+>> diff --git a/arch/riscv/Kconfig.errata b/arch/riscv/Kconfig.errata
+>> index 4745a5c57e7c..eb43677b13cc 100644
+>> --- a/arch/riscv/Kconfig.errata
+>> +++ b/arch/riscv/Kconfig.errata
+>> @@ -96,4 +96,17 @@ config ERRATA_THEAD_WRITE_ONCE
+>>
+>>  	  If you don't know what to do here, say "Y".
+>>
+>> +config ERRATA_THEAD_QSPINLOCK
+>> +	bool "Apply T-Head queued spinlock errata"
+>> +	depends on ERRATA_THEAD
+>> +	default y
+>> +	help
+>> +	  The T-HEAD C9xx processors implement strong fwd guarantee LR/SC to
+>> +	  match the xchg_tail requirement of qspinlock.
+>> +
+>> +	  This will apply the QSPINLOCK errata to handle the non-standard
+>> +	  behavior via using qspinlock instead of ticket_lock.
+>> +
+>> +	  If you don't know what to do here, say "Y".
+>
+> If this is to be applied, I would like to see a detailed explanation somewhere,
+> preferably with citations, of:
+>
+> (a) The memory model requirements for qspinlock
+> (b) Why, with arguments, RISC-V does not architecturally meet (a)
+> (c) Why, with arguments, T-HEAD C9xx meets (a)
+> (d) Why at least one other architecture which defines ARCH_USE_QUEUED_SPINLOCKS
+>     meets (a)
+
+I agree.
+
+Just having a magic fence that makes qspinlocks stop livelocking on some 
+processors is going to lead to a mess -- I'd argue this means those 
+processors just don't provide the forward progress guarantee, but we'd 
+really need something written down about what this new custom 
+instruction aliasing as a fence does.
+
+> As far as I can tell, the RISC-V guarantees concerning constrained LR/SC loops
+> (livelock freedom but no starvation freedom) are exactly the same as those in
+> Armv8 (as of 0487F.c) for equivalent loops, and xchg_tail compiles to a
+> constrained LR/SC loop with guaranteed eventual success (with -O1).  Clearly you
+> disagree; I would like to see your perspective.
+
+It sounds to me like this processor might be quite broken: if it's 
+permanently holding stores in a buffer we're going to have more issues 
+than just qspinlock, pretty much anything concurrent is going to have 
+issues -- and that's not just in the kernel, there's concurrent 
+userspace code as well.
+
+> -s
+>
+>> +
+>>  endmenu # "CPU errata selection"
+>> diff --git a/arch/riscv/errata/thead/errata.c b/arch/riscv/errata/thead/errata.c
+>> index 881729746d2e..d560dc45c0e7 100644
+>> --- a/arch/riscv/errata/thead/errata.c
+>> +++ b/arch/riscv/errata/thead/errata.c
+>> @@ -86,6 +86,27 @@ static bool errata_probe_write_once(unsigned int stage,
+>>  	return false;
+>>  }
+>>
+>> +static bool errata_probe_qspinlock(unsigned int stage,
+>> +				   unsigned long arch_id, unsigned long impid)
+>> +{
+>> +	if (!IS_ENABLED(CONFIG_ERRATA_THEAD_QSPINLOCK))
+>> +		return false;
+>> +
+>> +	/*
+>> +	 * The queued_spinlock torture would get in livelock without
+>> +	 * ERRATA_THEAD_WRITE_ONCE fixup for the early versions of T-HEAD
+>> +	 * processors.
+>> +	 */
+>> +	if (arch_id == 0 && impid == 0 &&
+>> +	    !IS_ENABLED(CONFIG_ERRATA_THEAD_WRITE_ONCE))
+>> +		return false;
+>> +
+>> +	if (stage == RISCV_ALTERNATIVES_EARLY_BOOT)
+>> +		return true;
+>> +
+>> +	return false;
+>> +}
+>> +
+>>  static u32 thead_errata_probe(unsigned int stage,
+>>  			      unsigned long archid, unsigned long impid)
+>>  {
+>> @@ -103,6 +124,9 @@ static u32 thead_errata_probe(unsigned int stage,
+>>  	if (errata_probe_write_once(stage, archid, impid))
+>>  		cpu_req_errata |= BIT(ERRATA_THEAD_WRITE_ONCE);
+>>
+>> +	if (errata_probe_qspinlock(stage, archid, impid))
+>> +		cpu_req_errata |= BIT(ERRATA_THEAD_QSPINLOCK);
+>> +
+>>  	return cpu_req_errata;
+>>  }
+>>
+>> diff --git a/arch/riscv/include/asm/errata_list.h
+>> b/arch/riscv/include/asm/errata_list.h
+>> index fbb2b8d39321..a696d18d1b0d 100644
+>> --- a/arch/riscv/include/asm/errata_list.h
+>> +++ b/arch/riscv/include/asm/errata_list.h
+>> @@ -141,6 +141,26 @@ asm volatile(ALTERNATIVE(						\
+>>  	: "=r" (__ovl) :						\
+>>  	: "memory")
+>>
+>> +static __always_inline bool
+>> +riscv_has_errata_thead_qspinlock(void)
+>> +{
+>> +	if (IS_ENABLED(CONFIG_RISCV_ALTERNATIVE)) {
+>> +		asm_volatile_goto(
+>> +		ALTERNATIVE(
+>> +		"j	%l[l_no]", "nop",
+>> +		THEAD_VENDOR_ID,
+>> +		ERRATA_THEAD_QSPINLOCK,
+>> +		CONFIG_ERRATA_THEAD_QSPINLOCK)
+>> +		: : : : l_no);
+>> +	} else {
+>> +		goto l_no;
+>> +	}
+>> +
+>> +	return true;
+>> +l_no:
+>> +	return false;
+>> +}
+>> +
+>>  #endif /* __ASSEMBLY__ */
+>>
+>>  #endif
+>> diff --git a/arch/riscv/include/asm/vendorid_list.h
+>> b/arch/riscv/include/asm/vendorid_list.h
+>> index 73078cfe4029..1f1d03877f5f 100644
+>> --- a/arch/riscv/include/asm/vendorid_list.h
+>> +++ b/arch/riscv/include/asm/vendorid_list.h
+>> @@ -19,7 +19,8 @@
+>>  #define	ERRATA_THEAD_CMO 1
+>>  #define	ERRATA_THEAD_PMU 2
+>>  #define	ERRATA_THEAD_WRITE_ONCE 3
+>> -#define	ERRATA_THEAD_NUMBER 4
+>> +#define	ERRATA_THEAD_QSPINLOCK 4
+>> +#define	ERRATA_THEAD_NUMBER 5
+>>  #endif
+>>
+>>  #endif
+>> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+>> index f8dbbe1bbd34..d9694fe40a9a 100644
+>> --- a/arch/riscv/kernel/cpufeature.c
+>> +++ b/arch/riscv/kernel/cpufeature.c
+>> @@ -342,7 +342,8 @@ void __init riscv_fill_hwcap(void)
+>>  		 * spinlock value, the only way is to change from queued_spinlock to
+>>  		 * ticket_spinlock, but can not be vice.
+>>  		 */
+>> -		if (!force_qspinlock) {
+>> +		if (!force_qspinlock &&
+>> +		    !riscv_has_errata_thead_qspinlock()) {
+>>  			set_bit(RISCV_ISA_EXT_XTICKETLOCK, isainfo->isa);
+>>  		}
+>>  #endif
+>> --
+>> 2.36.1
+>>
+>>
+>> _______________________________________________
+>> linux-riscv mailing list
+>> linux-riscv@lists.infradead.org
+>> http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
