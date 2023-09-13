@@ -4,84 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 117B3EDEC4D
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 Sep 2023 13:43:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70FB0EDEC54
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 Sep 2023 13:56:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hhRg+SiUw9fWrVpL3R1zG7fsNLSGCQBihVZL2O3b7uQ=; b=WPpdAKPuRf21HE
-	Jfj1D4jgI0ICmRsmR3woR/YxIl9WA+XKug8RE8ysvI1RTxr3xr5gOdZ/flm2whFRgJJmVMSf0jUuY
-	EqKQCRDV+Kn233KbVkT+Ifel2PdegajOoT1e1HITI9v+v8t1/JdI8Z3GPE3E0B7+gZqCsKrf7GGHr
-	T04SjWomYAXsGX0QUrVMR47sdPA+EHsXkAJKPowSquO3TpC4c2TaOgX2qWH9lh3nrD0saRZZMvw9W
-	2R5wgi24OU1Wb67dpD5ZRfvyM9gEEW+tkvDKKlus9NaCxDONSQJzpUwanOnEac7+dc2LY3o0D63Ky
-	ajG2F/jaIMXJwahRuuOw==;
+	List-Owner; bh=ICevJj6xd3trHYZ/75NTu000lX147EAl4joy7+XiwYU=; b=jMkyUSQtSKhUEE
+	QApuExPOcbMOrzwHUgi5VeJa11+etMP3OIJ9JepEV7M47auB2mEHrOHZe4Lwv6gU9nIcLsNPo5kqH
+	Epwq2eUhHG+9ixglGPOV81fmb8o6maqK7c0FbB5GIf1Q+kGA2eX5lk/TzJDbY86eNlsxGwNd0GiU2
+	6udAjftuGvuuMQnpHnj9dgX2YvLJtVrYNIeQvikMoCOqE20Ss5KcHBZVyRHEeVHoifZu8wJMJ54Qw
+	jmw4WJbyKUzZ8ivRnsHpyuQL/1Xte0AL7/Y3C812FiEUTdPUUd3oLXbEEru5QzgCt+OO6kS7hrWaj
+	v1ZNb/xA6oq+canfpZKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgQ9A-0060H9-1W;
-	Wed, 13 Sep 2023 13:43:12 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1qgQLl-0064Fm-2f;
+	Wed, 13 Sep 2023 13:56:13 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgQ98-0060GH-0J
+	id 1qgQLi-0064FB-2u
 	for linux-riscv@lists.infradead.org;
-	Wed, 13 Sep 2023 13:43:11 +0000
+	Wed, 13 Sep 2023 13:56:12 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by sin.source.kernel.org (Postfix) with ESMTPS id 4E5FFCE1F1B;
-	Wed, 13 Sep 2023 13:43:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 38425C433C9;
-	Wed, 13 Sep 2023 13:43:00 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 29BA761976;
+	Wed, 13 Sep 2023 13:56:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E7120C433CB;
+	Wed, 13 Sep 2023 13:56:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1694612584;
-	bh=a6eJFMD7UYNieE8ipLLApaS7mzhbB7aFjI27sQ41vYk=;
+	s=k20201202; t=1694613370;
+	bh=9eSoQKn81k97ZS3dPFMO8j6znDqsfS9i9/EwB0IgH0M=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=IJi+xGH0yrj+npciZCHvuvASWqtk4I+kILeKP67P3Q9Di+vGZr3SGaZB12YH6aj0f
-	 unXLzNF8vC11jYZncTri1Peu5A48lOmWd02PkhinYT56fObW6hnOLKwVO775t3ycVR
-	 dqsmV/XSDlpYDaxBFngOszwFk5974F05Po7xOgaMMI8GfFMq4cUZ/ORh24wT7SyY9T
-	 4rrNUMTLayZrnqbMyj3j0F4zjoIEn7o1QuT/KEIZ0zirf2GpnzOllxb+i8DBttOXQt
-	 RTGKQXTCXoG8Gdeqxnj4RdDFiAzm+NItzHDwbqnkUeeE26oPkOockb77oUwKOl2FTQ
-	 i86CCqZx/Cxbw==
+	b=HXIDbRgaTvRE9wOoUV1pRzrzmyXKk5c4VzDGUqW17nHjTjv3EmCm1IDZ0+E8Sjd8G
+	 S9LTCpOl8wkvxyeIVQJrl6aM0b/fALVuTbtBhVXVBm69apSCwbJcpfIyzu1DfUT313
+	 2I44VdkZPk1/HXYdmWuQ7kP7Dvf8TqeHq5Ntk5yujhU4pJarqvxuNXG/eJxUW8LfC6
+	 E3uSkuoi8YW3ljbluieEdqqDhAgaN/Io3px4U2XsoYAqYibKxKF5o+rAA+5haE754r
+	 zdhE7Rjj/J651MbD6eCKWfpuMwDzNW1oxA3C+ossSFgGuA4SXu/Q95Z9IG4p/mi052
+	 ryQUDGc8nhidQ==
 From: Conor Dooley <conor@kernel.org>
-To: Mark Brown <broonie@kernel.org>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>,
-	Claudiu Beznea <claudiu.beznea@microchip.com>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Walker Chen <walker.chen@starfivetech.com>,
-	Xingyu Wu <xingyu.wu@starfivetech.com>,
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
-	Hal Feng <hal.feng@starfivetech.com>,
-	Claudiu Beznea <Claudiu.Beznea@microchip.com>,
-	Maxim Kochetkov <fido_max@inbox.ru>
+To: ulf.hansson@linaro.org
 Cc: conor@kernel.org,
 	Conor Dooley <conor.dooley@microchip.com>,
-	alsa-devel@alsa-project.org,
-	devicetree@vger.kernel.org,
+	arnd@arndb.de,
+	changhuang.liang@starfivetech.com,
+	jiajie.ho@starfivetech.com,
+	linux-pm@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Jose Abreu <joabreu@synopsys.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>
-Subject: Re: (subset) [PATCH v2 0/5] Add I2S support for the StarFive JH7110 SoC
-Date: Wed, 13 Sep 2023 14:42:51 +0100
-Message-Id: <20230913-duly-ecosystem-523099962151@spud>
+	robh@kernel.org,
+	walker.chen@starfivetech.com
+Subject: [GIT PULL 1/5] pmdomain: starfive: Explicitly include correct DT includes
+Date: Wed, 13 Sep 2023 14:54:24 +0100
+Message-Id: <20230913-swooned-ecosphere-aff4a05c1556@spud>
 X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20230821144151.207339-1-xingyu.wu@starfivetech.com>
-References: <20230821144151.207339-1-xingyu.wu@starfivetech.com>
+In-Reply-To: <20230913-bloomers-scorebook-fb45e0a2aa19@spud>
+References: <20230913-bloomers-scorebook-fb45e0a2aa19@spud>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1006; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=gTDwtdWsXuWMdJzLCtxk+GWpTOa8FGy41bK8MQux3T0=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDKmMe6Jmt63vkdN3PNruwzAj8ueZByc8bA+Wdn9RK5tZK M7ylLuxo5SFQYyDQVZMkSXxdl+L1Po/Ljuce97CzGFlAhnCwMUpABNRXsTIsMCPa/OK6Jt/p4Qe UbzmUH11/Z5dzG3aHBWLfqqvTzdR9WJkOPNyR9Dk6/cqJpcFJi/7+mPy4x7VL2sb9x7ecLGLTTO hnwUA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1216; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=i5+EOM4kxuguOQSjSgCFjQq+qj0s7s7Br7dC6PPPcmY=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDKmM+/ljbe0VzzMoZG1WemA2Z9vaAyvvPzZYVjppw9Xrv ur1zue3dJSyMIhxMMiKKbIk3u5rkVr/x2WHc89bmDmsTCBDGLg4BWAiyZIM/6Pe562TLPp+WELm vnCNyM/0uYXRZ64ZinVHscw4ut1t62GG/xGZe7Qubue2cdLKqW7/5lv8l/tQH9uO2VsOMBXNmK1 7mwUA
 X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230913_064310_310841_3BBA7999 
-X-CRM114-Status: GOOD (  15.30  )
+X-CRM114-CacheID: sfid-20230913_065611_007166_B2D6ED23 
+X-CRM114-Status: GOOD (  10.49  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,34 +84,38 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Conor Dooley <conor.dooley@microchip.com>
+From: Rob Herring <robh@kernel.org>
 
-On Mon, 21 Aug 2023 22:41:46 +0800, Xingyu Wu wrote:
-> This patch series adds I2S support for the StarFive JH7110 RISC-V
-> SoC based on Designware I2S controller. There has three I2S channels
-> (RX/TX0/TX1) on the JH7110 SoC, one of which is for record(RX) and
-> two for playback(TX).
-> 
-> The first patch adds support for the StarFive JH7110 SoC in the
-> Designware I2S bindings.
-> The second patch adds the ops to get data from platform bus in the
-> I2S driver.
-> The third patch adds support for the StarFive JH7110 SoC in
-> the Designware I2S driver.
-> The fourth patch fixes the name of I2STX1 pinmux.
-> The last patch adds device node of I2S RX/TX0/TX1 in JH7110 dts.
-> 
-> [...]
+The DT of_device.h and of_platform.h date back to the separate
+of_platform_bus_type before it as merged into the regular platform bus.
+As part of that merge prepping Arm DT support 13 years ago, they
+"temporarily" include each other. They also include platform_device.h
+and of.h. As a result, there's a pretty much random mix of those include
+files used throughout the tree. In order to detangle these headers and
+replace the implicit includes with struct declarations, users need to
+explicitly include the correct includes.
 
-Applied to riscv-dt-for-next, thanks!
+Signed-off-by: Rob Herring <robh@kernel.org>
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+---
+ drivers/pmdomain/starfive/jh71xx-pmu.c | 1 -
+ 1 file changed, 1 deletion(-)
 
-[4/5] riscv: dts: starfive: pinfunc: Fix the pins name of I2STX1
-      https://git.kernel.org/conor/c/4e1abae5688a
-[5/5] riscv: dts: starfive: Add the nodes and pins of I2Srx/I2Stx0/I2Stx1
-      https://git.kernel.org/conor/c/92cfc35838b2
+diff --git a/drivers/pmdomain/starfive/jh71xx-pmu.c b/drivers/pmdomain/starfive/jh71xx-pmu.c
+index 7d5f50d71c0d..d3b78a619d40 100644
+--- a/drivers/pmdomain/starfive/jh71xx-pmu.c
++++ b/drivers/pmdomain/starfive/jh71xx-pmu.c
+@@ -10,7 +10,6 @@
+ #include <linux/iopoll.h>
+ #include <linux/module.h>
+ #include <linux/of.h>
+-#include <linux/of_device.h>
+ #include <linux/platform_device.h>
+ #include <linux/pm_domain.h>
+ #include <dt-bindings/power/starfive,jh7110-pmu.h>
+-- 
+2.39.2
 
-Thanks,
-Conor.
 
 _______________________________________________
 linux-riscv mailing list
