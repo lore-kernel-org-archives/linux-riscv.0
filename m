@@ -4,34 +4,34 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB4A2EE01E3
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 Sep 2023 16:40:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8449AEE01E0
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 Sep 2023 16:40:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tlVPu81OAF9MVxEglnII+89tG2YF0j7TitXswe+nObo=; b=rt2wsvLzqd1nwc
-	ecYuIi5sKpXLYggYUFsunWblANyjaYcNr4WOw5vkWU8yf7NcDRN+wT8SDSmvw9jD/yyt39xm8w1Uh
-	E8/+FBhjI2Bns1c7vY5n2TnrzgtkSjNRqcKuC4mOXmj8yyTH93g/l1Ebn2BBHTQJNHyRq0Q12SPPY
-	U73uVPF2BnB+mbZEhrZVomgTsEUX4fHyrGKgLHy1Sm4GUJBBaP7xIrLCLADqzmZmR+T6DAj00vesl
-	MdPCmt/DUgupm7C3B5VY8z4kbv//r7vcog1dkJesAX2iNg3ECrGXJCgf1YrJpGDAVV8aEa0M8a/yI
-	CrAKNvtNo7GWU7BTOKlQ==;
+	List-Owner; bh=n/R/yTwbpFbHzftBuM8H3Ypk7ZWMImZJHZblOGCTiBQ=; b=sqoDwB2L+PuE+R
+	1bVLt+N1oceAXOX6BptH+jMwKlfoS6ihwS9UHTqYvBRHgr8zcxUOMBr0pZv8w7RYw82CrK3o8/EVr
+	4WZNbSkHLF0dgOQopyAnP1QILNN87W6BEj0mASDbKwPPMU1p+p9BobPQ2r9c45FppENec0JMoZcDN
+	gKXuSCafWMncyzLXrDTrNQ/OdjkPpyzqRKOdg760/B8Sc25RzziC+f3R79uonbnsC95e0yuGVTtfO
+	rvUMvEo6eGopntR8tTK0VSgmZSt36vs6w05DEkjxiZLZWHFDrt9to45VutkXLehRBcTCVYejO6PqY
+	ZMTXVmS/KUekqJ70tFwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgSus-006MOy-1m;
-	Wed, 13 Sep 2023 16:40:38 +0000
+	id 1qgSuz-006MVm-2Q;
+	Wed, 13 Sep 2023 16:40:45 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgSth-006LEp-36;
-	Wed, 13 Sep 2023 16:39:28 +0000
+	id 1qgStj-006LDV-0n;
+	Wed, 13 Sep 2023 16:39:29 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 35227FEC;
-	Wed, 13 Sep 2023 09:40:02 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 33FD11FB;
+	Wed, 13 Sep 2023 09:40:04 -0700 (PDT)
 Received: from merodach.members.linode.com (unknown [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3A6373F5A1;
-	Wed, 13 Sep 2023 09:39:23 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3895B3F5A1;
+	Wed, 13 Sep 2023 09:39:25 -0700 (PDT)
 From: James Morse <james.morse@arm.com>
 To: linux-pm@vger.kernel.org,
 	loongarch@lists.linux.dev,
@@ -47,16 +47,16 @@ Cc: x86@kernel.org,
 	Jean-Philippe Brucker <jean-philippe@linaro.org>,
 	jianyong.wu@arm.com,
 	justin.he@arm.com
-Subject: [RFC PATCH v2 16/35] ACPI: processor: Register CPUs that are online, but not described in the DSDT
-Date: Wed, 13 Sep 2023 16:38:04 +0000
-Message-Id: <20230913163823.7880-17-james.morse@arm.com>
+Subject: [RFC PATCH v2 17/35] ACPI: processor: Register all CPUs from acpi_processor_get_info()
+Date: Wed, 13 Sep 2023 16:38:05 +0000
+Message-Id: <20230913163823.7880-18-james.morse@arm.com>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20230913163823.7880-1-james.morse@arm.com>
 References: <20230913163823.7880-1-james.morse@arm.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230913_093926_091500_F278D3DB 
-X-CRM114-Status: GOOD (  13.06  )
+X-CRM114-CacheID: sfid-20230913_093927_349519_931DE6F0 
+X-CRM114-Status: GOOD (  16.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,61 +73,60 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-ACPI has two descriptions of CPUs, one in the MADT/APIC table, the other
-in the DSDT. Both are required. (ACPI 6.5's 8.4 "Declaring Processors"
-says "Each processor in the system must be declared in the ACPI
-namespace"). Having two descriptions allows firmware authors to get
-this wrong.
+To allow ACPI to skip the call to arch_register_cpu() when the _STA
+value indicates the CPU can't be brought online right now, move the
+arch_register_cpu() call into acpi_processor_get_info().
 
-If CPUs are described in the MADT/APIC, they will be brought online
-early during boot. Once the register_cpu() calls are moved to ACPI,
-they will be based on the DSDT description of the CPUs. When CPUs are
-missing from the DSDT description, they will end up online, but not
-registered.
+Systems can still be booted with 'acpi=off', or not include an
+ACPI description at all. For these, the CPUs continue to be
+registered by cpu_dev_register_generic().
 
-Add a helper that runs after acpi_init() has completed to register
-CPUs that are online, but weren't found in the DSDT. Any CPU that
-is registered by this code triggers a firmware-bug warning and kernel
-taint.
-
-Qemu TCG only describes the first CPU in the DSDT, unless cpu-hotplug
-is configured.
+This moves the CPU register logic back to a subsys_initcall(),
+while the memory nodes will have been registered earlier.
 
 Signed-off-by: James Morse <james.morse@arm.com>
 ---
- drivers/acpi/acpi_processor.c | 19 +++++++++++++++++++
- 1 file changed, 19 insertions(+)
+ drivers/acpi/acpi_processor.c | 13 +++++++++++++
+ drivers/base/cpu.c            |  2 +-
+ 2 files changed, 14 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/acpi/acpi_processor.c b/drivers/acpi/acpi_processor.c
-index b4bde78121bb..a01e315aa16a 100644
+index a01e315aa16a..867782bc50b0 100644
 --- a/drivers/acpi/acpi_processor.c
 +++ b/drivers/acpi/acpi_processor.c
-@@ -790,6 +790,25 @@ void __init acpi_processor_init(void)
- 	acpi_pcc_cpufreq_init();
- }
+@@ -313,6 +313,19 @@ static int acpi_processor_get_info(struct acpi_device *device)
+ 			cpufreq_add_device("acpi-cpufreq");
+ 	}
  
-+static int __init acpi_processor_register_missing_cpus(void)
-+{
-+	int cpu;
++	/*
++	 * Register CPUs that are present.
++	 * Use get_cpu_device() to skip duplicate CPU descriptions from
++	 * firmware.
++	 */
++	if (!invalid_logical_cpuid(pr->id) && cpu_present(pr->id) &&
++	    !get_cpu_device(pr->id)) {
++		int ret = arch_register_cpu(pr->id);
 +
-+	if (acpi_disabled)
-+		return 0;
-+
-+	for_each_online_cpu(cpu) {
-+		if (!get_cpu_device(cpu)) {
-+			pr_err_once(FW_BUG "CPU %u has no ACPI namespace description!\n", cpu);
-+			add_taint(TAINT_FIRMWARE_WORKAROUND, LOCKDEP_STILL_OK);
-+			arch_register_cpu(cpu);
-+		}
++		if (ret)
++			return ret;
 +	}
 +
-+	return 0;
-+}
-+subsys_initcall_sync(acpi_processor_register_missing_cpus);
-+
- #ifdef CONFIG_ACPI_PROCESSOR_CSTATE
- /**
-  * acpi_processor_claim_cst_control - Request _CST control from the platform.
+ 	/*
+ 	 *  Extra Processor objects may be enumerated on MP systems with
+ 	 *  less than the max # of CPUs. They should be ignored _iff
+diff --git a/drivers/base/cpu.c b/drivers/base/cpu.c
+index d31c936f0955..677f963e02ce 100644
+--- a/drivers/base/cpu.c
++++ b/drivers/base/cpu.c
+@@ -537,7 +537,7 @@ static void __init cpu_dev_register_generic(void)
+ {
+ 	int i, ret;
+ 
+-	if (!IS_ENABLED(CONFIG_GENERIC_CPU_DEVICES))
++	if (!IS_ENABLED(CONFIG_GENERIC_CPU_DEVICES) || !acpi_disabled)
+ 		return;
+ 
+ 	for_each_present_cpu(i) {
 -- 
 2.39.2
 
