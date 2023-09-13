@@ -4,47 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81F15EDEC53
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 Sep 2023 13:56:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B0D5EDEC4D
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 Sep 2023 13:56:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Dh81vQ7gqdGaQMDDJmrfngGzkCfRDkcuDeB70GO9vq0=; b=OxvekQXT0liYZz
-	HNV4VPD0kO6bLWa6Yu9/J+I5wnIOQSBGi1q7tePrqEtxzCuh4NyNfwBpJV1FtX4pdzPIUnVfw1l4K
-	tht7Lkoaza3sG1PjZf6Fpzkdq97OzxnP8BmuivYDTFdsDljA3ZTBhdZYdHfdKcTTozkeqEWIsLoi1
-	u+Wd/ggXMS//GsWWlB+Ag5n8djOHcid1FPgDYCI6THKpRdkqauSb+CJ0XMlXRIwe9VJO6jhqwBV4A
-	u7hSlEcg+lFJ0zSq1oKVpemNSM0v2swTf8f9LeH3aZt6G4y3v1pozqI1V5xzCG0L7weu4EuxsINsQ
-	0aXORrsqcV9QWzkxz2cQ==;
+	List-Owner; bh=IojmCMJXsGEsRHxVMReVELMi6Tu58gGReSn3Xea5zwQ=; b=rLE6hLL5VxFyvL
+	lVNo231BT9DhmQjN/IizLM5X0Ze1XrWTuDxw4agCOZdTJxIvhN/Wxt+zCAOhQ6twxaIeQxLLeBJhH
+	WOSBWbO6NV4jb4wbmHo+yDbDiLyCAVTUN3UQYDO+lzQQmUbLAHy4TuSUh0VyOZ07Xh86W7iV1kvja
+	Pp4HDRsNW47hd37aB3n1Nml3olmXeA1BainTQAtpQT0H739/xyYG2CPIzkR5UGXHDXn4AreZELeeA
+	d1Pqc0+d0Xs3IGGTRsM3cRRWwkvsavUFLac3w3okDsWa3wIHTTHpzglLCzfP+VaClHu4tPKoSaaiO
+	Ho01rIkBwwOk+JbP5ltg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgQLt-0064I3-0Y;
-	Wed, 13 Sep 2023 13:56:21 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1qgQLw-0064Is-01;
+	Wed, 13 Sep 2023 13:56:24 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgQLq-0064Gq-2w
+	id 1qgQLr-0064HO-3A
 	for linux-riscv@lists.infradead.org;
-	Wed, 13 Sep 2023 13:56:20 +0000
+	Wed, 13 Sep 2023 13:56:21 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by sin.source.kernel.org (Postfix) with ESMTPS id 330F1CE2258;
-	Wed, 13 Sep 2023 13:56:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6448AC433C7;
-	Wed, 13 Sep 2023 13:56:10 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTPS id A5A24B82418;
+	Wed, 13 Sep 2023 13:56:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4F66EC433CB;
+	Wed, 13 Sep 2023 13:56:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1694613372;
-	bh=o4jDMBY/hW8fInCN3I+ux6T0Enwz8Oe9i7WgkTQcpOk=;
+	s=k20201202; t=1694613377;
+	bh=cgBRTpOCoQ02lX8+ZHrREg0hGUDkddmlWjO3J9n11zg=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=ndsj7tPzacC0Ar6PaF4k28acwyFWjDnI3ko/E/fWbfx+h/QwAibD4UXiPEw8iIdXr
-	 UOU99wLcXgEVHrIl7zeQZ1V6Dw6b7cHYTCjHVfKcenmM3gKYG04SdvAMCHLZEIkeRh
-	 psdDvTStuQ6+kcLwTJynXcufmncpXS2OMHnKrgfxEvb3H9Yz2VeWktdkhPBZYtH/sS
-	 sNkg2YnQJq9058UVtH8QYZixcyZCQMh87lOWsWuirZAK651bzKnLBv6Tz+2HkamIvV
-	 +hf++tbbi4n1BMBaYK49sxuunA4xs2PzBiA223s5SxTfdwQOCJcJhOBM0kNJEwpvb0
-	 VbEZiLtrGzjtA==
+	b=nHG/3/f/73gQRc6fTowhamRBshwoB0WUeFE5IiPWuHOXDLEnerVq7p1iqK+Uu/+O1
+	 XBvmifvqFUhVmlaZxb8w4CtKbUjDvY9ypDQaOmJSbhj2VmYbzoECNOy1HDTRFsiAXI
+	 xqW+uoly/42bIRm3H2byj0yxi+NOhRJ5dz0x4+O+oRspC2XnentOIjvOXZ5g0oCaul
+	 ZtwgcfrLHnfnDf2q78zR88x2scLZYkd/bkwje+fe6fXCSo7+djotTO0a6Tjoqnu8bX
+	 JbJsoENflpQNYc67K8WQVaJ+tUizeP+aM/B+mW/5sPE557wSAHqyLGmWHyZN0NmkzJ
+	 b+yU3xMhtHwuw==
 From: Conor Dooley <conor@kernel.org>
 To: ulf.hansson@linaro.org
 Cc: conor@kernel.org,
@@ -56,18 +56,18 @@ Cc: conor@kernel.org,
 	linux-riscv@lists.infradead.org,
 	robh@kernel.org,
 	walker.chen@starfivetech.com
-Subject: [GIT PULL 2/5] dt-bindings: power: Add power-domain header for JH7110
-Date: Wed, 13 Sep 2023 14:54:25 +0100
-Message-Id: <20230913-grumbly-rewrite-34c85539f2ed@spud>
+Subject: [GIT PULL 4/5] pmdomain: starfive: Extract JH7110 pmu private operations
+Date: Wed, 13 Sep 2023 14:54:27 +0100
+Message-Id: <20230913-slideshow-luckiness-38ff17de84c6@spud>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20230913-bloomers-scorebook-fb45e0a2aa19@spud>
 References: <20230913-bloomers-scorebook-fb45e0a2aa19@spud>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1054; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=UZA+qdMFmjRCS72vsUWIOMkmR/rc8R2MaitOCzwhKaI=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDKmM+wUSfWNlL7slf9jvGTC5ReKH7Ykfn17OkbFfen3PM s7UNSkLO0pZGMQ4GGTFFFkSb/e1SK3/47LDuectzBxWJpAhDFycAjAR8z+MDL+FEm5m6c4qOFrM vWLbux72+t9/3fYJdR3Zt43r184yLUeG/1FKikGq//azc1h/mz7v1e9+3QaBKmHfJv3yc7eW2B8 5ywkA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=5331; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=6vY7S9qkB6xWv0jxylFj8LgeyML+j8MwARcipZNCtvg=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDKmM+wWEV/6XKul5Ilh67OkHiVn/3/6/XH7Dy5Oz+tap7 J8RNhwvOkpZGMQ4GGTFFFkSb/e1SK3/47LDuectzBxWJpAhDFycAjARz60M/5PmlQUI/eHqryvc 1vtt+tMofvdY2wtOu97XPItdN79aU5zhf55oW/1x9pffQ365rrjNskvp2JpbRzRNn71cvbqSa23 XFW4A
 X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230913_065619_183049_EAB6CAA1 
-X-CRM114-Status: GOOD (  10.17  )
+X-CRM114-CacheID: sfid-20230913_065620_310412_EEEE8C0F 
+X-CRM114-Status: GOOD (  18.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,35 +86,179 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Changhuang Liang <changhuang.liang@starfivetech.com>
 
-Add power-domain header for JH7110 SoC, it can use to operate dphy
-power.
+Move JH7110 private operation into private data of compatible. Convenient
+to add AON PMU which would not have interrupts property.
 
 Signed-off-by: Changhuang Liang <changhuang.liang@starfivetech.com>
+Reviewed-by: Walker Chen <walker.chen@starfivetech.com>
 Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- include/dt-bindings/power/starfive,jh7110-pmu.h | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
+ drivers/pmdomain/starfive/jh71xx-pmu.c | 89 ++++++++++++++++++--------
+ 1 file changed, 62 insertions(+), 27 deletions(-)
 
-diff --git a/include/dt-bindings/power/starfive,jh7110-pmu.h b/include/dt-bindings/power/starfive,jh7110-pmu.h
-index 132bfe401fc8..341e2a0676ba 100644
---- a/include/dt-bindings/power/starfive,jh7110-pmu.h
-+++ b/include/dt-bindings/power/starfive,jh7110-pmu.h
-@@ -1,6 +1,6 @@
- /* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
- /*
-- * Copyright (C) 2022 StarFive Technology Co., Ltd.
-+ * Copyright (C) 2022-2023 StarFive Technology Co., Ltd.
-  * Author: Walker Chen <walker.chen@starfivetech.com>
-  */
- #ifndef __DT_BINDINGS_POWER_JH7110_POWER_H__
-@@ -14,4 +14,7 @@
- #define JH7110_PD_ISP		5
- #define JH7110_PD_VENC		6
+diff --git a/drivers/pmdomain/starfive/jh71xx-pmu.c b/drivers/pmdomain/starfive/jh71xx-pmu.c
+index d3b78a619d40..547cd3b9df11 100644
+--- a/drivers/pmdomain/starfive/jh71xx-pmu.c
++++ b/drivers/pmdomain/starfive/jh71xx-pmu.c
+@@ -50,9 +50,17 @@ struct jh71xx_domain_info {
+ 	u8 bit;
+ };
  
-+#define JH7110_PD_DPHY_TX	0
-+#define JH7110_PD_DPHY_RX	1
++struct jh71xx_pmu;
++struct jh71xx_pmu_dev;
 +
- #endif
+ struct jh71xx_pmu_match_data {
+ 	const struct jh71xx_domain_info *domain_info;
+ 	int num_domains;
++	unsigned int pmu_status;
++	int (*pmu_parse_irq)(struct platform_device *pdev,
++			     struct jh71xx_pmu *pmu);
++	int (*pmu_set_state)(struct jh71xx_pmu_dev *pmd,
++			     u32 mask, bool on);
+ };
+ 
+ struct jh71xx_pmu {
+@@ -78,12 +86,12 @@ static int jh71xx_pmu_get_state(struct jh71xx_pmu_dev *pmd, u32 mask, bool *is_o
+ 	if (!mask)
+ 		return -EINVAL;
+ 
+-	*is_on = readl(pmu->base + JH71XX_PMU_CURR_POWER_MODE) & mask;
++	*is_on = readl(pmu->base + pmu->match_data->pmu_status) & mask;
+ 
+ 	return 0;
+ }
+ 
+-static int jh71xx_pmu_set_state(struct jh71xx_pmu_dev *pmd, u32 mask, bool on)
++static int jh7110_pmu_set_state(struct jh71xx_pmu_dev *pmd, u32 mask, bool on)
+ {
+ 	struct jh71xx_pmu *pmu = pmd->pmu;
+ 	unsigned long flags;
+@@ -91,22 +99,8 @@ static int jh71xx_pmu_set_state(struct jh71xx_pmu_dev *pmd, u32 mask, bool on)
+ 	u32 mode;
+ 	u32 encourage_lo;
+ 	u32 encourage_hi;
+-	bool is_on;
+ 	int ret;
+ 
+-	ret = jh71xx_pmu_get_state(pmd, mask, &is_on);
+-	if (ret) {
+-		dev_dbg(pmu->dev, "unable to get current state for %s\n",
+-			pmd->genpd.name);
+-		return ret;
+-	}
+-
+-	if (is_on == on) {
+-		dev_dbg(pmu->dev, "pm domain [%s] is already %sable status.\n",
+-			pmd->genpd.name, on ? "en" : "dis");
+-		return 0;
+-	}
+-
+ 	spin_lock_irqsave(&pmu->lock, flags);
+ 
+ 	/*
+@@ -165,6 +159,29 @@ static int jh71xx_pmu_set_state(struct jh71xx_pmu_dev *pmd, u32 mask, bool on)
+ 	return 0;
+ }
+ 
++static int jh71xx_pmu_set_state(struct jh71xx_pmu_dev *pmd, u32 mask, bool on)
++{
++	struct jh71xx_pmu *pmu = pmd->pmu;
++	const struct jh71xx_pmu_match_data *match_data = pmu->match_data;
++	bool is_on;
++	int ret;
++
++	ret = jh71xx_pmu_get_state(pmd, mask, &is_on);
++	if (ret) {
++		dev_dbg(pmu->dev, "unable to get current state for %s\n",
++			pmd->genpd.name);
++		return ret;
++	}
++
++	if (is_on == on) {
++		dev_dbg(pmu->dev, "pm domain [%s] is already %sable status.\n",
++			pmd->genpd.name, on ? "en" : "dis");
++		return 0;
++	}
++
++	return match_data->pmu_set_state(pmd, mask, on);
++}
++
+ static int jh71xx_pmu_on(struct generic_pm_domain *genpd)
+ {
+ 	struct jh71xx_pmu_dev *pmd = container_of(genpd,
+@@ -225,6 +242,25 @@ static irqreturn_t jh71xx_pmu_interrupt(int irq, void *data)
+ 	return IRQ_HANDLED;
+ }
+ 
++static int jh7110_pmu_parse_irq(struct platform_device *pdev, struct jh71xx_pmu *pmu)
++{
++	struct device *dev = &pdev->dev;
++	int ret;
++
++	pmu->irq = platform_get_irq(pdev, 0);
++	if (pmu->irq < 0)
++		return pmu->irq;
++
++	ret = devm_request_irq(dev, pmu->irq, jh71xx_pmu_interrupt,
++			       0, pdev->name, pmu);
++	if (ret)
++		dev_err(dev, "failed to request irq\n");
++
++	jh71xx_pmu_int_enable(pmu, JH71XX_PMU_INT_ALL_MASK & ~JH71XX_PMU_INT_PCH_FAIL, true);
++
++	return 0;
++}
++
+ static int jh71xx_pmu_init_domain(struct jh71xx_pmu *pmu, int index)
+ {
+ 	struct jh71xx_pmu_dev *pmd;
+@@ -274,19 +310,18 @@ static int jh71xx_pmu_probe(struct platform_device *pdev)
+ 	if (IS_ERR(pmu->base))
+ 		return PTR_ERR(pmu->base);
+ 
+-	pmu->irq = platform_get_irq(pdev, 0);
+-	if (pmu->irq < 0)
+-		return pmu->irq;
+-
+-	ret = devm_request_irq(dev, pmu->irq, jh71xx_pmu_interrupt,
+-			       0, pdev->name, pmu);
+-	if (ret)
+-		dev_err(dev, "failed to request irq\n");
++	spin_lock_init(&pmu->lock);
+ 
+ 	match_data = of_device_get_match_data(dev);
+ 	if (!match_data)
+ 		return -EINVAL;
+ 
++	ret = match_data->pmu_parse_irq(pdev, pmu);
++	if (ret) {
++		dev_err(dev, "failed to parse irq\n");
++		return ret;
++	}
++
+ 	pmu->genpd = devm_kcalloc(dev, match_data->num_domains,
+ 				  sizeof(struct generic_pm_domain *),
+ 				  GFP_KERNEL);
+@@ -306,9 +341,6 @@ static int jh71xx_pmu_probe(struct platform_device *pdev)
+ 		}
+ 	}
+ 
+-	spin_lock_init(&pmu->lock);
+-	jh71xx_pmu_int_enable(pmu, JH71XX_PMU_INT_ALL_MASK & ~JH71XX_PMU_INT_PCH_FAIL, true);
+-
+ 	ret = of_genpd_add_provider_onecell(np, &pmu->genpd_data);
+ 	if (ret) {
+ 		dev_err(dev, "failed to register genpd driver: %d\n", ret);
+@@ -356,6 +388,9 @@ static const struct jh71xx_domain_info jh7110_power_domains[] = {
+ static const struct jh71xx_pmu_match_data jh7110_pmu = {
+ 	.num_domains = ARRAY_SIZE(jh7110_power_domains),
+ 	.domain_info = jh7110_power_domains,
++	.pmu_status = JH71XX_PMU_CURR_POWER_MODE,
++	.pmu_parse_irq = jh7110_pmu_parse_irq,
++	.pmu_set_state = jh7110_pmu_set_state,
+ };
+ 
+ static const struct of_device_id jh71xx_pmu_of_match[] = {
 -- 
 2.39.2
 
