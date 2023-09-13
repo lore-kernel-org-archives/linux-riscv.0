@@ -4,77 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E22B4EE020A
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 Sep 2023 19:53:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A914EE020B
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 Sep 2023 20:29:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=bZxqX7Zmbjt3xeqmcL0TwqI1vL4SrEl7fPHS7wAkbro=; b=HiETnJgTGklpuGVLMU5yCvJ+QB
-	hIr0zkZVBynd4Ybe2lpvitBNx6mEHF5UwBhQeb1V+52lKMFQNYLeYv465ULJMZ7d/u9qQEFdGoLm1
-	q/S7eXa2e23xpHifyjy9NcRRFXETVRenrJ2InKJbh2m30wUFX736oQwssfTzvMFWx1Txmit+nfRkE
-	dmgbpnWGEhS3RSe7jpAwN5CetKPeOF2uQwdwTgS7FbDTTIxitZsxiXGd1qO4NCOimCAPnMJvK7tao
-	lp8rTUVGRVrQZc9PNF1Q91FTW4mER7E9S5Usy5smESi8kvZK3L9pHUB2jPszyq/VyuWEno2/Xyzfh
-	7Oc9abOQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=6YmJwytD96/FV7msBqcdnt22YdEl4Tp8enHrdQauzgM=; b=OMRbOn/67NmxMZ
+	nYw2izC3bcgMqNGFyAS/9BXIYJBJzvOasoNTPY8FRaxmbzoTmHucJDp0s4EzBTeGHbyqjyPx50qPj
+	y9opZWJEliMwXhFxl74bMpktkuBxk+3RGCtA9GK8HCu3WK4GE6ddFdl5cWMmWsPyE1NGBLN+6+nNX
+	aLhPmNCSj6ZyIzmPUCcvX6ZFFwkuDJoSFCZkzOOf8i2S4qATo/iGyrUSuJuEhvi3yz7D1AMvZotjI
+	iS4DMF4xIikoHmNHnvfC983wEYcNxB1i36nQnH6o+eeRNYYGrTY1eWhaVAiTQUH1Gm9OREPmKZ0s7
+	sh4vOEn17hZF7nS7wsNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgVvf-006dOo-2I;
-	Wed, 13 Sep 2023 19:53:39 +0000
-Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
+	id 1qgWTs-006g0h-2P;
+	Wed, 13 Sep 2023 20:29:00 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgVvb-006dOQ-3B
+	id 1qgWTp-006fzf-2W
 	for linux-riscv@lists.infradead.org;
-	Wed, 13 Sep 2023 19:53:37 +0000
-Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-1bf6ea270b2so1399715ad.0
-        for <linux-riscv@lists.infradead.org>; Wed, 13 Sep 2023 12:53:35 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20230601.gappssmtp.com; s=20230601; t=1694634815; x=1695239615; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=u9SvNhyrhf06/biCddE0mhgRTAe9HxsppqeIKhJEHHw=;
-        b=0w+Pk88xBsOVFSFjU8aUDKQ8uLtm/pLNuwWMNZpAg66hq8amnaFj63W8mKB2MENNVC
-         XJnH6zcdDmOLeMyE84z/vDQyGI2ma6p2tRd8oDNV2piwurkI/cTZosYKzifyCGpTVYBU
-         Z5yHsTznsNWeUWRbY0I/efG97nZSierM8vyS+DLplU5YbdLC49mTb5oAUSusXlGQyEk4
-         Pmq/49IWv1d4Mxq1bV5fJaGvyMIajb+OZIQwn2dPTCh6saOIj2ta+tzJOv6o+0+vJMEW
-         WsDJ0GDbFqtxP5y/eURqTkW+DPbcEHVmG/sRoY/hvcAta9xa6n7A3qsMd/yVa8SBcE5E
-         MqEg==
+	Wed, 13 Sep 2023 20:28:59 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1694636936;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=KWfSi/Oh0HZxZDE9tCJBSd53XsFmWhDfyXRPjUbLnKo=;
+	b=NvRqKpUAgkG5PjJ9P06GGRvm6hpsmONrT99qL4mHP52lpXkJR6T5ifSWx1eQGFtl3Qv0Sp
+	9PRrw8AHLKqLMGLeIYJRhYzU4F1xRGCw2KdVJO7GFHrcbkFGPlCceFdD7CaROBgdwLX0rZ
+	M+nZqcu6IypOMO2mmQ3SQI6jeBzteoY=
+Received: from mail-oo1-f71.google.com (mail-oo1-f71.google.com
+ [209.85.161.71]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-161-uZKsK_KpMA6xNg3XuvGm9g-1; Wed, 13 Sep 2023 16:28:54 -0400
+X-MC-Unique: uZKsK_KpMA6xNg3XuvGm9g-1
+Received: by mail-oo1-f71.google.com with SMTP id 006d021491bc7-5712ca7aba8so355806eaf.1
+        for <linux-riscv@lists.infradead.org>; Wed, 13 Sep 2023 13:28:53 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1694634815; x=1695239615;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20230601; t=1694636933; x=1695241733;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=u9SvNhyrhf06/biCddE0mhgRTAe9HxsppqeIKhJEHHw=;
-        b=ppEW1ZcHHFCeufI3gJuEHTMTuRj3EmKo8cUIHdyRPdKJBzp/tvwpMZztWhgpR8dg92
-         koilqkvq6fXyGvDcVi3u5byBmd9a8Y0O/x/lOtJMG++NY5eyN0N8sxgGm1+Xs0eeSpJw
-         TGD9vKPuBJMjwaRod4fAxNYDiTPjkTGp1U2wKu89Pl1P06knfFkOpwaCMyJy81YF1o/x
-         rTwi3rZrr8a9jyzDEAl6HObMhDWvruoqB/fIbxIcP7FdnAd5CrlDcvmOZpqU74AKvkqr
-         mx5nRg5DeqQm25IgKHBUBWk+KzhrIBYQSdZnI6L3q3YxWonOhOYwg32805cEAgis/nJn
-         uvhg==
-X-Gm-Message-State: AOJu0YwMHAR+X3/k33BMJJSl20Q9VQEjWqSFtM5SVlCA4YTgi+DEXZQa
-	uIgfTdxsMoU31akGxjvlu2+ocw==
-X-Google-Smtp-Source: AGHT+IGN0lfCQvmijbmo/lUZ+6ry8zzWVSas6LrREeVihPX25DD5UletVgl9mC1u252CXPv8aZMaWw==
-X-Received: by 2002:a17:903:22cb:b0:1c0:c640:3f3e with SMTP id y11-20020a17090322cb00b001c0c6403f3emr4551140plg.42.1694634814754;
-        Wed, 13 Sep 2023 12:53:34 -0700 (PDT)
-Received: from localhost ([135.180.227.0])
-        by smtp.gmail.com with ESMTPSA id w5-20020a170902d3c500b001b8943b37a5sm12252plb.24.2023.09.13.12.53.33
+        bh=KWfSi/Oh0HZxZDE9tCJBSd53XsFmWhDfyXRPjUbLnKo=;
+        b=B8AlS9o+oRqiLQ9Qdg76klNsKEWBY/RnrYUXU1RrdAMDKiluyBYF8BOYqWRsN8+unA
+         L5cl3+KyBNoatWZ8krPy+maRpFqM/n6k8VhNGj5jKGGvA+IJazoF9DR8VSVsSQ1U1sqM
+         tjjF+NidPPy8WOFdENOx72Uek2yI2rl7+nmGW1Ot6uDvT0gdojYY39gMuOCCuE4A6kYt
+         yD+qjPexAoQuTVRuTcLEivfjfjHY6evTaq7e2llaTtTOYGHOGNQFI01j8ftL+aulXNdK
+         AFUEJt4ReHDHIVrConp6SN8NOhUNBkt4sOww4tZrOd5O0NyzEW8b+bCch+rA6hf3Eep9
+         Mbfg==
+X-Gm-Message-State: AOJu0YyBiAAUghFGmlDfyhjQSeObT3enEjPDstTvJqW5h0PG1dNWUKsg
+	7T22KLR2H01NtMGdAOggmwEZhsb7ERMgAAPREmGfeuCDqfswCD6OvjLd1UtpCD3F3zXzhLu1oyG
+	24FeGnDRcJD7WLS1yGXtYIUqD8gMZ
+X-Received: by 2002:a05:6870:d58e:b0:1a6:cfcc:befd with SMTP id u14-20020a056870d58e00b001a6cfccbefdmr2460154oao.5.1694636933279;
+        Wed, 13 Sep 2023 13:28:53 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IEosvqU1OmLV+VJSPzBQB9wJjlW4Hu8XnlJnqgJRY8LGsur+q00iHnUVagueksTtX/wtOrk+g==
+X-Received: by 2002:a05:6870:d58e:b0:1a6:cfcc:befd with SMTP id u14-20020a056870d58e00b001a6cfccbefdmr2460120oao.5.1694636932964;
+        Wed, 13 Sep 2023 13:28:52 -0700 (PDT)
+Received: from redhat.com ([2804:1b3:a803:4ff9:7c29:fe41:6aa7:43df])
+        by smtp.gmail.com with ESMTPSA id ee23-20020a056870c81700b001cd20f30898sm52574oab.24.2023.09.13.13.28.45
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 13 Sep 2023 12:53:34 -0700 (PDT)
-Date: Wed, 13 Sep 2023 12:53:34 -0700 (PDT)
-X-Google-Original-Date: Wed, 13 Sep 2023 12:53:32 PDT (-0700)
-Subject: Re: boot time regressed a lot due to misaligned access probe
-In-Reply-To: <CALs-HssesyM7RJVaoHhPFk6SQP-J1pHF79rseYDZp=A++Cuy3g@mail.gmail.com>
-CC: jszhang@kernel.org, ben.dooks@codethink.co.uk, linux-riscv@lists.infradead.org,
-  Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: Evan Green <evan@rivosinc.com>
-Message-ID: <mhng-9359993d-6872-4134-83ce-c97debe1cf9a@palmer-ri-x1c9>
-Mime-Version: 1.0 (MHng)
+        Wed, 13 Sep 2023 13:28:52 -0700 (PDT)
+Date: Wed, 13 Sep 2023 17:28:42 -0300
+From: Leonardo Bras <leobras@redhat.com>
+To: guoren@kernel.org
+Cc: paul.walmsley@sifive.com, anup@brainfault.org, peterz@infradead.org,
+	mingo@redhat.com, will@kernel.org, palmer@rivosinc.com,
+	longman@redhat.com, boqun.feng@gmail.com, tglx@linutronix.de,
+	paulmck@kernel.org, rostedt@goodmis.org, rdunlap@infradead.org,
+	catalin.marinas@arm.com, conor.dooley@microchip.com,
+	xiaoguang.xing@sophgo.com, bjorn@rivosinc.com,
+	alexghiti@rivosinc.com, keescook@chromium.org,
+	greentime.hu@sifive.com, ajones@ventanamicro.com,
+	jszhang@kernel.org, wefu@redhat.com, wuwei2016@iscas.ac.cn,
+	linux-arch@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-doc@vger.kernel.org, kvm@vger.kernel.org,
+	virtualization@lists.linux-foundation.org,
+	linux-csky@vger.kernel.org, Guo Ren <guoren@linux.alibaba.com>
+Subject: Re: [PATCH V11 05/17] riscv: qspinlock: Add basic queued_spinlock
+ support
+Message-ID: <ZQIbejhIev5tx6vl@redhat.com>
+References: <20230910082911.3378782-1-guoren@kernel.org>
+ <20230910082911.3378782-6-guoren@kernel.org>
+MIME-Version: 1.0
+In-Reply-To: <20230910082911.3378782-6-guoren@kernel.org>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230913_125336_252417_1A2E68DF 
-X-CRM114-Status: GOOD (  36.41  )
+X-CRM114-CacheID: sfid-20230913_132857_891978_AD98461C 
+X-CRM114-Status: GOOD (  23.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,62 +107,182 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCAxMyBTZXAgMjAyMyAxMjo1MDo1NCBQRFQgKC0wNzAwKSwgRXZhbiBHcmVlbiB3cm90
-ZToKPiBPbiBXZWQsIFNlcCAxMywgMjAyMyBhdCA4OjIz4oCvQU0gSmlzaGVuZyBaaGFuZyA8anN6
-aGFuZ0BrZXJuZWwub3JnPiB3cm90ZToKPj4KPj4gT24gV2VkLCBTZXAgMTMsIDIwMjMgYXQgMTE6
-NDY6MjhBTSArMDEwMCwgQmVuIERvb2tzIHdyb3RlOgo+PiA+IE9uIDEzLzA5LzIwMjMgMDE6MTQs
-IEppc2hlbmcgWmhhbmcgd3JvdGU6Cj4+ID4gPiBIaSBhbGwsCj4+ID4gPgo+PiA+ID4gUHJvYmlu
-ZyBvbmUgY3B1IGZvciBtaXNhbGlnbmVkIGFjY2VzcyBjb3N0IGFib3V0IDAuMDZzLCBzbyBpdCB3
-aWxsIGNvc3QKPj4gPiA+IGFib3V0IDMuOHMgb24gcGxhdGZvcm1zIHdpdGggNjQgQ1BVcywgZm9y
-IGV4YW1wbGUsIG1pbGt2IHBpb25lZXIgd2hpY2gKPj4gPiA+IGlzIHBvd2VyZWQgYnkgc2cyMDQy
-Lgo+PiA+ID4KPj4gPiA+IEknbSBub3Qgc3VyZSB0aGUgcmVhc29uIG9mIHByb2JpbmcgbWlzYWxp
-Z25lZCBhY2Nlc3MgZm9yIGFsbCBDUFVzLiBJZgo+PiA+ID4gdGhlIEhXIGRvZXNuJ3QgYmVoYXZl
-IGFzIFNNUCBmcm9tIG1pc2FsbGlnbmVkIGFjY2VzcyBzaWRlLCB0aGVuIHVubGVzcwo+PiA+ID4g
-dXNlcnNwYWNlIHByb2Nlc3NlcyBmb3JjZSBjcHUgYWZmaW5pdHksIHRoZXkgYWx3YXlzIHN1ZmZl
-ciBmcm9tIHRoaXMKPj4gPiA+IG5vbi1TTVAgcGFpbi4KPj4gPiA+Cj4+ID4gPiBTbywgY2FuIHdl
-IG9ubHkgcHJvYmUgdGhlIGJvb3QgY3B1Pwo+Cj4gSGkgSmlzaGVuZywKPiBUaGFua3MgZm9yIGlk
-ZW50aWZ5aW5nIHRoaXMgcmVncmVzc2lvbi4gSSdkIHByZWZlciB0byBrZWVwIHRoZSBwcm9iaW5n
-Cj4gb24gZWFjaCBjcHUsIGFzIEkgZG9uJ3QgdGhpbmsgaXQncyBzYWZlIHRvIGFzc3VtZSBiZWhh
-dmlvciBpcyB0aGUgc2FtZQo+IGFjcm9zcyBhbGwgY29yZXMuIEJ1dCB0aGVyZSdzIG5vIHJlYXNv
-biB0aGlzIG5lZWRzIHRvIGJlIGRvbmUKPiBzZXJpYWxseSwgd2Ugc2hvdWxkIGJlIGFibGUgdG8g
-ZG8gdGhlIGNoZWNraW5nIGluIHBhcmFsbGVsIG9uIGVhY2gKPiBjcHUuIEkgZG9uJ3QgaGF2ZSBh
-IHBoeXNpY2FsIDY0LWNvcmUgc3lzdGVtLCBidXQgSSBleHBlcmltZW50ZWQgd2l0aAo+IHFlbXUg
-YSBiaXQ6Cj4KPiBXaXRoIG1pc2FsaWduZWQgcHJvYmluZwo+IFsgICAgMC41NTg5MzBdIHNtcDog
-QnJpbmdpbmcgdXAgc2Vjb25kYXJ5IENQVXMgLi4uCj4gWyAgICA3LjYzNTU4MF0gc21wOiBCcm91
-Z2h0IHVwIDEgbm9kZSwgNjQgQ1BVcwo+Cj4gV2l0aCBubyBtaXNhbGlnbmVkIHByb2JpbmcKPiBb
-ICAgIDAuNDczMDEyXSBzbXA6IEJyaW5naW5nIHVwIHNlY29uZGFyeSBDUFVzIC4uLgo+IFsgICAg
-NS40Mzg0NTBdIHNtcDogQnJvdWdodCB1cCAxIG5vZGUsIDY0IENQVXMKPgo+IFdpdGggY2hhbmdl
-IGJlbG93Ogo+IFsgICAgMC42MTU2ODRdIHNtcDogQnJpbmdpbmcgdXAgc2Vjb25kYXJ5IENQVXMg
-Li4uCj4gWyAgICA1LjQ4OTA0NV0gc21wOiBCcm91Z2h0IHVwIDEgbm9kZSwgNjQgQ1BVcwo+Cj4g
-SSBhbHNvIGNvbW1lbnRlZCBvdXQgdGhlIHByX2luZm8oKSBpbiBteSB0ZXN0aW5nLCBtb3N0bHkg
-dG8ga2VlcCB0aGUKPiBVQVJUIG91dCBvZiB0aGUgd2F5LiBXZSBzaG91bGQgc3RyaXZlIHRvIGlt
-cHJvdmUgdGhlIHNtcCBjb3JlIGJyaW5ndXAKPiB0aW1lIGluIGdlbmVyYWwsIGJ1dCBob3BlZnVs
-bHkgd2l0aCB0aGlzIHRoZSBtaXNhbGlnbmVkIHByb2Jpbmcgd29uJ3QKPiBiZSBtYWtpbmcgaXQg
-d29yc2UuIElmIHRoaXMgd29ya3MgZm9yIHlvdSBJIGNhbiBjbGVhbiBpdCB1cCBhbmQgc3VibWl0
-Cj4gYSBwYXRjaCAoc29ycnkgZ21haWwgbWFuZ2xlcyB0aGUgZGlmZik6CgpUaGFua3MuICBJIHRo
-aW5rIHdlIGNhbiBjYWxsIHNvbWV0aGluZyBsaWtlIHRoaXMgYSBmaXguCgo+Cj4gZGlmZiAtLWdp
-dCBhL2FyY2gvcmlzY3Yva2VybmVsL3NtcGJvb3QuYyBiL2FyY2gvcmlzY3Yva2VybmVsL3NtcGJv
-b3QuYwo+IGluZGV4IDFiOGRhNGU0MGE0ZC4uN2RjZTMwYjdjODY4IDEwMDY0NAo+IC0tLSBhL2Fy
-Y2gvcmlzY3Yva2VybmVsL3NtcGJvb3QuYwo+ICsrKyBiL2FyY2gvcmlzY3Yva2VybmVsL3NtcGJv
-b3QuYwo+IEBAIC0yMjMsOCArMjIzLDE4IEBAIGludCBfX2NwdV91cCh1bnNpZ25lZCBpbnQgY3B1
-LCBzdHJ1Y3QgdGFza19zdHJ1Y3QgKnRpZGxlKQo+ICAgICAgICAgcmV0dXJuIHJldDsKPiAgfQo+
-Cj4gK3N0YXRpYyB2b2lkIGNoZWNrX3VuYWxpZ25lZF9hY2Nlc3NfY3B1KHZvaWQgKnVudXNlZCkK
-PiArewo+ICsgICAgICAgdW5zaWduZWQgaW50IGNwdSA9IHNtcF9wcm9jZXNzb3JfaWQoKTsKPiAr
-Cj4gKyAgICAgICAvKiBTb21lb25lIGhhcyB0byBzdGF5IGJlaGluZCBhbmQgdGVuZCB0aGUgamlm
-Zmllcy4gKi8KPiArICAgICAgIGlmIChjcHUgIT0gMCkKPiArICAgICAgICAgICAgICAgY2hlY2tf
-dW5hbGlnbmVkX2FjY2VzcyhjcHUpOwo+ICt9Cj4gKwo+ICB2b2lkIF9faW5pdCBzbXBfY3B1c19k
-b25lKHVuc2lnbmVkIGludCBtYXhfY3B1cykKPiAgewo+ICsgICAgICAgb25fZWFjaF9jcHUoY2hl
-Y2tfdW5hbGlnbmVkX2FjY2Vzc19jcHUsIE5VTEwsIDApOwo+ICB9Cj4KPiAgLyoKPiBAQCAtMjQ2
-LDcgKzI1Niw2IEBAIGFzbWxpbmthZ2UgX192aXNpYmxlIHZvaWQgc21wX2NhbGxpbih2b2lkKQo+
-Cj4gICAgICAgICBudW1hX2FkZF9jcHUoY3Vycl9jcHVpZCk7Cj4gICAgICAgICBzZXRfY3B1X29u
-bGluZShjdXJyX2NwdWlkLCAxKTsKPiAtICAgICAgIGNoZWNrX3VuYWxpZ25lZF9hY2Nlc3MoY3Vy
-cl9jcHVpZCk7Cj4KPiAgICAgICAgIGlmIChoYXNfdmVjdG9yKCkpIHsKPiAgICAgICAgICAgICAg
-ICAgaWYgKHJpc2N2X3Zfc2V0dXBfdnNpemUoKSkKPgo+IC1FdmFuCgpfX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QK
-bGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9y
-Zy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Sun, Sep 10, 2023 at 04:28:59AM -0400, guoren@kernel.org wrote:
+> From: Guo Ren <guoren@linux.alibaba.com>
+> 
+> The requirements of qspinlock have been documented by commit:
+> a8ad07e5240c ("asm-generic: qspinlock: Indicate the use of mixed-size
+> atomics").
+> 
+> Although RISC-V ISA gives out a weaker forward guarantee LR/SC, which
+> doesn't satisfy the requirements of qspinlock above, it won't prevent
+> some riscv vendors from implementing a strong fwd guarantee LR/SC in
+> microarchitecture to match xchg_tail requirement. T-HEAD C9xx processor
+> is the one.
+> 
+> We've tested the patch on SOPHGO sg2042 & th1520 and passed the stress
+> test on Fedora & Ubuntu & OpenEuler ... Here is the performance
+> comparison between qspinlock and ticket_lock on sg2042 (64 cores):
+> 
+> sysbench test=threads threads=32 yields=100 lock=8 (+13.8%):
+>   queued_spinlock 0.5109/0.00
+>   ticket_spinlock 0.5814/0.00
+> 
+> perf futex/hash (+6.7%):
+>   queued_spinlock 1444393 operations/sec (+- 0.09%)
+>   ticket_spinlock 1353215 operations/sec (+- 0.15%)
+> 
+> perf futex/wake-parallel (+8.6%):
+>   queued_spinlock (waking 1/64 threads) in 0.0253 ms (+-2.90%)
+>   ticket_spinlock (waking 1/64 threads) in 0.0275 ms (+-3.12%)
+> 
+> perf futex/requeue (+4.2%):
+>   queued_spinlock Requeued 64 of 64 threads in 0.0785 ms (+-0.55%)
+>   ticket_spinlock Requeued 64 of 64 threads in 0.0818 ms (+-4.12%)
+> 
+> System Benchmarks (+6.4%)
+>   queued_spinlock:
+>     System Benchmarks Index Values               BASELINE       RESULT    INDEX
+>     Dhrystone 2 using register variables         116700.0  628613745.4  53865.8
+>     Double-Precision Whetstone                       55.0     182422.8  33167.8
+>     Execl Throughput                                 43.0      13116.6   3050.4
+>     File Copy 1024 bufsize 2000 maxblocks          3960.0    7762306.2  19601.8
+>     File Copy 256 bufsize 500 maxblocks            1655.0    3417556.8  20649.9
+>     File Copy 4096 bufsize 8000 maxblocks          5800.0    7427995.7  12806.9
+>     Pipe Throughput                               12440.0   23058600.5  18535.9
+>     Pipe-based Context Switching                   4000.0    2835617.7   7089.0
+>     Process Creation                                126.0      12537.3    995.0
+>     Shell Scripts (1 concurrent)                     42.4      57057.4  13456.9
+>     Shell Scripts (8 concurrent)                      6.0       7367.1  12278.5
+>     System Call Overhead                          15000.0   33308301.3  22205.5
+>                                                                        ========
+>     System Benchmarks Index Score                                       12426.1
+> 
+>   ticket_spinlock:
+>     System Benchmarks Index Values               BASELINE       RESULT    INDEX
+>     Dhrystone 2 using register variables         116700.0  626541701.9  53688.2
+>     Double-Precision Whetstone                       55.0     181921.0  33076.5
+>     Execl Throughput                                 43.0      12625.1   2936.1
+>     File Copy 1024 bufsize 2000 maxblocks          3960.0    6553792.9  16550.0
+>     File Copy 256 bufsize 500 maxblocks            1655.0    3189231.6  19270.3
+>     File Copy 4096 bufsize 8000 maxblocks          5800.0    7221277.0  12450.5
+>     Pipe Throughput                               12440.0   20594018.7  16554.7
+>     Pipe-based Context Switching                   4000.0    2571117.7   6427.8
+>     Process Creation                                126.0      10798.4    857.0
+>     Shell Scripts (1 concurrent)                     42.4      57227.5  13497.1
+>     Shell Scripts (8 concurrent)                      6.0       7329.2  12215.3
+>     System Call Overhead                          15000.0   30766778.4  20511.2
+>                                                                        ========
+>     System Benchmarks Index Score                                       11670.7
+> 
+> The qspinlock has a significant improvement on SOPHGO SG2042 64
+> cores platform than the ticket_lock.
+> 
+> Signed-off-by: Guo Ren <guoren@kernel.org>
+> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+> ---
+>  arch/riscv/Kconfig                | 16 ++++++++++++++++
+>  arch/riscv/include/asm/Kbuild     |  3 ++-
+>  arch/riscv/include/asm/spinlock.h | 17 +++++++++++++++++
+>  3 files changed, 35 insertions(+), 1 deletion(-)
+>  create mode 100644 arch/riscv/include/asm/spinlock.h
+> 
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index 2c346fe169c1..7f39bfc75744 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -471,6 +471,22 @@ config NODES_SHIFT
+>  	  Specify the maximum number of NUMA Nodes available on the target
+>  	  system.  Increases memory reserved to accommodate various tables.
+>  
+> +choice
+> +	prompt "RISC-V spinlock type"
+> +	default RISCV_TICKET_SPINLOCKS
+> +
+> +config RISCV_TICKET_SPINLOCKS
+> +	bool "Using ticket spinlock"
+> +
+> +config RISCV_QUEUED_SPINLOCKS
+> +	bool "Using queued spinlock"
+> +	depends on SMP && MMU
+> +	select ARCH_USE_QUEUED_SPINLOCKS
+> +	help
+> +	  Make sure your micro arch LL/SC has a strong forward progress guarantee.
+> +	  Otherwise, stay at ticket-lock.
+> +endchoice
+> +
+>  config RISCV_ALTERNATIVE
+>  	bool
+>  	depends on !XIP_KERNEL
+> diff --git a/arch/riscv/include/asm/Kbuild b/arch/riscv/include/asm/Kbuild
+> index 504f8b7e72d4..a0dc85e4a754 100644
+> --- a/arch/riscv/include/asm/Kbuild
+> +++ b/arch/riscv/include/asm/Kbuild
+> @@ -2,10 +2,11 @@
+>  generic-y += early_ioremap.h
+>  generic-y += flat.h
+>  generic-y += kvm_para.h
+> +generic-y += mcs_spinlock.h
+>  generic-y += parport.h
+> -generic-y += spinlock.h
+
+IIUC here you take the asm-generic/spinlock.h (which defines arch_spin_*()) 
+and include the asm-generic headers of mcs_spinlock and qspinlock. 
+
+In this case, the qspinlock.h will provide the arch_spin_*() interfaces, 
+which seems the oposite of the above description (ticket spinlocks being 
+the standard).
+
+Shouldn't ticket-spinlock.h also get included here?
+(Also, I am probably missing something, as I dont' see the use of 
+mcs_spinlock here.)
+
+>  generic-y += spinlock_types.h
+>  generic-y += qrwlock.h
+>  generic-y += qrwlock_types.h
+> +generic-y += qspinlock.h
+>  generic-y += user.h
+>  generic-y += vmlinux.lds.h
+> diff --git a/arch/riscv/include/asm/spinlock.h b/arch/riscv/include/asm/spinlock.h
+> new file mode 100644
+> index 000000000000..c644a92d4548
+> --- /dev/null
+> +++ b/arch/riscv/include/asm/spinlock.h
+> @@ -0,0 +1,17 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +
+> +#ifndef __ASM_RISCV_SPINLOCK_H
+> +#define __ASM_RISCV_SPINLOCK_H
+> +
+> +#ifdef CONFIG_QUEUED_SPINLOCKS
+> +#define _Q_PENDING_LOOPS	(1 << 9)
+> +#endif
+
+Any reason the above define couldn't be merged on the ifdef below?
+
+> +
+> +#ifdef CONFIG_QUEUED_SPINLOCKS
+> +#include <asm/qspinlock.h>
+> +#include <asm/qrwlock.h>
+> +#else
+> +#include <asm-generic/spinlock.h>
+> +#endif
+> +
+> +#endif /* __ASM_RISCV_SPINLOCK_H */
+> -- 
+> 2.36.1
+> 
+
+Thanks!
+Leo
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
