@@ -4,66 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3D8AEEAA40
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 Sep 2023 14:04:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 084D1EEAA40
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 Sep 2023 14:07:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+t8mEAl4RHLTS6oDOi6LYOPixoj/9HW7GYe0bNOCLwk=; b=TRqrVJ0lubZuT7
-	RgaoD8y4kKYqim1FiIi3Q1jHhBLWGpTCIDU0gzQWlftiySI88iltVbTa6fUxYkC4Kt1eLN0xCEL6H
-	XzazwQePWwsu0EEamVWu7N9Hnj0XonBx1quEAm8irGsX1m5WMhT/3gZd0cUiY9V65o7tpnuoMTDiC
-	zv8i55ZnEMNuim71GuetC6c8gMuPWaTM12NQraFnlxAUzjFXd6J1tMVSY2ISDNhZxyFq3Om2gT96x
-	8cemyzWvwS2dyEM5EJZAQ9Wj0dicB8Fhwj9oTyMxZV1KQC4LFey188hoEQ352t0NN9sTI7HuEHmGo
-	05mYMxEYXdi6w1FCHanQ==;
+	List-Owner; bh=qzoDL3C36EQMvOFjS7r2QKSKk0+6e9awFs5Z95NVVC8=; b=Sg1MN4p2pZRCtz
+	ikTep7rpKl8zx18BiaOaTbFNhzb1Wg5lDOWEf1VZSZDOj7flyp/TtUrvEwlpbz6W/gRJN1V9Hhjyj
+	NjWVzP9HlcyF9eOW6lYfBlkxM8vbs1yk6HALcv/d3NJwXd9PB6Zl5VRqwkR5pIWLPRlg/kLELPXP7
+	O4m6AT8zGVDW1WeSqEHUbzgkbLhe65ylHcGp3Z9rB9vg3lNuRb1nYk/GX+ydfU8QmYEJiHH2O4pSI
+	oLNEf692BjmPWEF7LTMV5f7vRvJW7qhAQ37la3hcJdF3PvN20oQHaFTJRxYRUxr5S6+pyJT0jgAnw
+	gfDI6kW31MRh7pBNySig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgmxC-008aVz-2L;
-	Thu, 14 Sep 2023 14:04:22 +0000
-Received: from szxga02-in.huawei.com ([45.249.212.188])
+	id 1qgn0J-008auj-06;
+	Thu, 14 Sep 2023 14:07:35 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgmx8-008aUx-2n
-	for linux-riscv@lists.infradead.org;
-	Thu, 14 Sep 2023 14:04:21 +0000
-Received: from kwepemi500020.china.huawei.com (unknown [172.30.72.57])
-	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4Rmf8y1GDlzGppB;
-	Thu, 14 Sep 2023 22:00:18 +0800 (CST)
-Received: from [10.67.109.184] (10.67.109.184) by
- kwepemi500020.china.huawei.com (7.221.188.8) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.31; Thu, 14 Sep 2023 22:04:01 +0800
-Message-ID: <aacefd22-39df-6941-4d43-d47f72caa9d2@huawei.com>
-Date: Thu, 14 Sep 2023 22:04:00 +0800
+	id 1qgn0F-008atM-16;
+	Thu, 14 Sep 2023 14:07:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=GIdT/cJmFA2qx50pgPlJRNzy/bheI4vUqGYQu+a7PMI=; b=raixHrVeNVHHMS+SmMW0fsVxI+
+	rZLO2b1FApnkXyJLVlkjBZUzsfFxmDi2JMVVu/R8wleWSzTAHzOFKzQL/zWb/JJhTJQkeyGGl2H3d
+	1EsUw8fAPKHCZzu4CyyEqx+rG9yuFwm7T+vos+z7VLqGttytZaDieHznwmb3696A6aPLvSAslWr7a
+	thmdyxIrHQUHf4/fW3Cr1tTqOrfips0KHORhG+5wXWbJd9QGypzhjjzPeg+uOfhgIbBdTkF3z9ckY
+	NUhze25dfC5TxiZv0q43BsedV3/l/zOQC9B/nOQb7gFNThJ/nZ0J8fzai0g8EC7sBDROC7wVMPZBJ
+	p/hgjtbQ==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:37510)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1qgn08-0004Jo-2O;
+	Thu, 14 Sep 2023 15:07:24 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.94.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1qgn06-0004ol-Vs; Thu, 14 Sep 2023 15:07:22 +0100
+Date: Thu, 14 Sep 2023 15:07:22 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+Cc: James Morse <james.morse@arm.com>, linux-pm@vger.kernel.org,
+	loongarch@lists.linux.dev, linux-acpi@vger.kernel.org,
+	linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org, kvmarm@lists.linux.dev,
+	x86@kernel.org, Salil Mehta <salil.mehta@huawei.com>,
+	Jean-Philippe Brucker <jean-philippe@linaro.org>,
+	jianyong.wu@arm.com, justin.he@arm.com
+Subject: Re: [RFC PATCH v2 06/35] arm64: setup: Switch over to
+ GENERIC_CPU_DEVICES using arch_register_cpu()
+Message-ID: <ZQMTmi7blj/4FpbI@shell.armlinux.org.uk>
+References: <20230913163823.7880-1-james.morse@arm.com>
+ <20230913163823.7880-7-james.morse@arm.com>
+ <20230914122715.000076be@Huawei.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.3.0
-Subject: Re: [PATCH bpf-next 4/6] riscv, bpf: Add necessary Zbb instructions
-Content-Language: en-US
-To: Conor Dooley <conor.dooley@microchip.com>, Conor Dooley <conor@kernel.org>
-CC: Pu Lehui <pulehui@huaweicloud.com>, <bpf@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, <netdev@vger.kernel.org>,
-	=?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>, Alexei Starovoitov
-	<ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko
-	<andrii@kernel.org>, Martin KaFai Lau <martin.lau@linux.dev>, Song Liu
-	<song@kernel.org>, Yonghong Song <yhs@fb.com>, John Fastabend
-	<john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>, Stanislav Fomichev
-	<sdf@google.com>, Hao Luo <haoluo@google.com>, Jiri Olsa <jolsa@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>, Luke Nelson <luke.r.nels@gmail.com>
-References: <20230913153413.1446068-1-pulehui@huaweicloud.com>
- <20230913153413.1446068-5-pulehui@huaweicloud.com>
- <20230913-granny-heat-35d70b49ac85@spud>
- <20230914-ought-hypnotize-64cee0e27ed2@wendy>
-From: Pu Lehui <pulehui@huawei.com>
-In-Reply-To: <20230914-ought-hypnotize-64cee0e27ed2@wendy>
-X-Originating-IP: [10.67.109.184]
-X-ClientProxiedBy: dggems701-chm.china.huawei.com (10.3.19.178) To
- kwepemi500020.china.huawei.com (7.221.188.8)
-X-CFilter-Loop: Reflected
+Content-Disposition: inline
+In-Reply-To: <20230914122715.000076be@Huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230914_070419_279761_0201B38E 
-X-CRM114-Status: GOOD (  16.32  )
+X-CRM114-CacheID: sfid-20230914_070731_385434_E17F9FE7 
+X-CRM114-Status: GOOD (  21.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,70 +81,66 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-On 2023/9/14 21:02, Conor Dooley wrote:
-> On Wed, Sep 13, 2023 at 05:23:48PM +0100, Conor Dooley wrote:
->> On Wed, Sep 13, 2023 at 11:34:11PM +0800, Pu Lehui wrote:
->>> From: Pu Lehui <pulehui@huawei.com>
->>>
->>> Add necessary Zbb instructions introduced by [0] to reduce code size and
->>> improve performance of RV64 JIT. At the same time, a helper is added to
->>> check whether the CPU supports Zbb instructions.
->>>
->>> [0] https://github.com/riscv/riscv-bitmanip/releases/download/1.0.0/bitmanip-1.0.0-38-g865e7a7.pdf
->>>
->>> Signed-off-by: Pu Lehui <pulehui@huawei.com>
->>> ---
->>>   arch/riscv/net/bpf_jit.h | 26 ++++++++++++++++++++++++++
->>>   1 file changed, 26 insertions(+)
->>>
->>> diff --git a/arch/riscv/net/bpf_jit.h b/arch/riscv/net/bpf_jit.h
->>> index 8e0ef4d08..7ee59d1f6 100644
->>> --- a/arch/riscv/net/bpf_jit.h
->>> +++ b/arch/riscv/net/bpf_jit.h
->>> @@ -18,6 +18,11 @@ static inline bool rvc_enabled(void)
->>>   	return IS_ENABLED(CONFIG_RISCV_ISA_C);
->>>   }
->>>   
->>> +static inline bool rvzbb_enabled(void)
->>> +{
->>> +	return IS_ENABLED(CONFIG_RISCV_ISA_ZBB);
->>> +}
->>
->> I dunno much about bpf, so passing question that may be a bit obvious:
->> Is this meant to be a test as to whether the kernel binary is built with
->> support for the extension, or whether the underlying platform is capable
->> of executing zbb instructions.
->>
->> Sorry if that would be obvious to a bpf aficionado, context I have here
->> is the later user and the above rvc_enabled() test, which functions
->> differently to Zbb and so doesn't really help me.
+On Thu, Sep 14, 2023 at 12:27:15PM +0100, Jonathan Cameron wrote:
+> On Wed, 13 Sep 2023 16:37:54 +0000
+> James Morse <james.morse@arm.com> wrote:
 > 
-> FTR, I got an off-list reply about this & it is meant to be a check as
-> to whether the underlying platform supports the extension. The current
-> test here is insufficient for that.
+> > To allow ACPI's _STA value to hide CPUs that are present, but not
+> > available to online right now due to VMM or firmware policy, the
+> > register_cpu() call needs to be made by the ACPI machinery when ACPI
+> > is in use. This allows it to hide CPUs that are unavailable from sysfs.
+> > 
+> > Switching to GENERIC_CPU_DEVICES is an intermediate step to allow all
+> > five ACPI architectures to be modified at once.
+> > 
+> > Switch over to GENERIC_CPU_DEVICES, and provide an arch_register_cpu()
+> > that populates the hotpluggable flag. arch_register_cpu() is also the
+> > interface the ACPI machinery expects.
+> > 
+> > The struct cpu in struct cpuinfo_arm64 is never used directly, remove
+> > it to use the one GENERIC_CPU_DEVICES provides.
+> > 
+> > This changes the CPUs visible in sysfs from possible to present, but
+> > on arm64 smp_prepare_cpus() ensures these are the same.
+> > 
+> > Signed-off-by: James Morse <james.morse@arm.com>
 > 
+> After this the earlier question about ordering of cpu_dev_init()
+> and node_dev_init() is relevant.   
+> 
+> Why won't node_dev_init() call
+> get_cpu_devce() which queries per_cpu(cpu_sys_devices)
+> and get NULL as we haven't yet filled that in?
+> 
+> Or does it do so but that doesn't matter as well create the
+> relevant links later?
 
-Thanks Conor for explain me lot about the difference between Compressed 
-instructions and Zbb instructions. As the compressed instructions are a 
-build-time option, while the Zbb is runtime detected. We need to add 
-additional runtime detection as show bellow:
+node_dev_init() will walk through the nodes calling register_one_node()
+on each. This will trickle down to __register_one_node() which walks
+all present CPUs, calling register_cpu_under_node() on each.
 
-riscv_has_extension_likely(RISCV_ISA_EXT_ZBB)
+register_cpu_under_node() will call get_cpu_device(cpu) for each and
+will return NULL until the CPU is registered using register_cpu(),
+which will now happen _after_ node_dev_init().
 
-will patch this suggestion to the next version.
+So, at this point, CPUs won't get registered, and initially one might
+think that's a problem.
 
-Thanks,
-Lehui.
+However, register_cpu() will itself call register_cpu_under_node(),
+where get_cpu_device() will return the now populated entry, and the
+sysfs links will be created.
 
-> Thanks,
-> Conor.
+So, I think what you've spotted is a potential chunk of code that
+isn't necessary when using GENERIC_CPU_DEVICES after this change!
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
 _______________________________________________
 linux-riscv mailing list
