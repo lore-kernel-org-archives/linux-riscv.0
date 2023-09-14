@@ -4,61 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A191EEAA52
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 Sep 2023 16:01:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC129EEAA53
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 Sep 2023 16:02:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Rh0dy/B/WNpJS4GDWU0oh8QjA6VOrWCOIaIL1mKxsCU=; b=K88RjUUSTsfy73
-	wteNpjpSB2O46xCJxJVGhpnB+ukvrIPAxviIdN63ZQSQrpshmYHSbpOSEKgBH8+orCOZcuTO4b66C
-	JHcJTTtBSMuJxWa0xb00Ajz+pzmG5d8pDFdkhiFlcN0ZRdtxqHsUG9deZvcyrQS9iHdPKlvpkKT6/
-	vS3ZIh5OSgjG5ewtUz81rtrlO17If8NhtaLGTZmezLpjC8H9U19suWKaqBOgfUFGDJHjmbi8tveSK
-	tYw9gZNSEqLHsJeQCWeRw2+Rw5miIvguHQir21ZZdo12MStE+dCYEgv0L8KYGRJUcalJ8qVSyKJ+8
-	ugCQw2SRUFg528LTbr/w==;
+	List-Owner; bh=3/Rn+oiZzArFgbRzaWvPO2DerozvcrC244Umq02CDo4=; b=uA0tLRet5tcytH
+	Hk4Zaf2K+mrOD4uofuHJUvzzAe6TD6tc6QOWGCdL/6Gn/mhmJU484tPODfSMJxlLyytiUN6bP11tA
+	tKMqFroZlMWJJL2WgRPO15rl3SuAopbzNiiAxL6irNDBQaVoNr7Y2/n8yqtHV6MVjWuTcVrgOb0zE
+	QcFi4Md8ZO64MEsUcdbCDo3U0xfzUYlOUiLkTixCTD/jFIdFxY4w3nJoV9bOl9HyZT7p8Kswy6wgn
+	BTWmS/oZjoXKPhv8TdoygJpySZNzAbaxEhQ6PQVOOmK7ks25wPyVFx/A7g3AAfNUZjnt4fRAVFQw1
+	KVTQKqLJ0vy0PAcnkvEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgomk-008qr6-1Q;
-	Thu, 14 Sep 2023 16:01:42 +0000
-Received: from todd.t-8ch.de ([2a01:4f8:c010:41de::1])
+	id 1qgonN-008r5q-0I;
+	Thu, 14 Sep 2023 16:02:21 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgomh-008qpa-2n
-	for linux-riscv@lists.infradead.org;
-	Thu, 14 Sep 2023 16:01:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=weissschuh.net;
-	s=mail; t=1694707293;
-	bh=Cu53Z9oyo5nGu95h1+MArmP5k33gYn4AQCWOgwsV/Ac=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=nJXJ1xXHesT1KczhMwLWfm4v2NTSTPtV6KAFS2C4/pVvhrkdw5iJnNuZPfzcNH81X
-	 EtTjjm+ZcV9Z7OFkbIZxH8hQi/WlF1z44FUARs5NxJ4SAmGq+cjERWC0zZPVi655jx
-	 B+V7D+nxIi6ovzre3715c/cC7TfgIxPeombwOIp4=
-From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <linux@weissschuh.net>
-Date: Thu, 14 Sep 2023 18:01:19 +0200
-Subject: [PATCH 3/4] tools/nolibc: don't define new syscall number
+	id 1qgonI-008qzo-1R;
+	Thu, 14 Sep 2023 16:02:18 +0000
+Received: from lhrpeml500005.china.huawei.com (unknown [172.18.147.200])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4Rmhlw1C71z67Jb4;
+	Thu, 14 Sep 2023 23:57:16 +0800 (CST)
+Received: from localhost (10.202.227.76) by lhrpeml500005.china.huawei.com
+ (7.191.163.240) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.31; Thu, 14 Sep
+ 2023 17:01:56 +0100
+Date: Thu, 14 Sep 2023 17:01:55 +0100
+From: Jonathan Cameron <Jonathan.Cameron@Huawei.com>
+To: James Morse <james.morse@arm.com>
+CC: <linux-pm@vger.kernel.org>, <loongarch@lists.linux.dev>,
+	<linux-acpi@vger.kernel.org>, <linux-arch@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-riscv@lists.infradead.org>, <kvmarm@lists.linux.dev>,
+	<x86@kernel.org>, Salil Mehta <salil.mehta@huawei.com>, Russell King
+	<linux@armlinux.org.uk>, Jean-Philippe Brucker <jean-philippe@linaro.org>,
+	<jianyong.wu@arm.com>, <justin.he@arm.com>
+Subject: Re: [RFC PATCH v2 31/35] arm64: psci: Ignore DENIED CPUs
+Message-ID: <20230914170155.000065cf@Huawei.com>
+In-Reply-To: <20230913163823.7880-32-james.morse@arm.com>
+References: <20230913163823.7880-1-james.morse@arm.com>
+	<20230913163823.7880-32-james.morse@arm.com>
+Organization: Huawei Technologies Research and Development (UK) Ltd.
+X-Mailer: Claws Mail 4.1.0 (GTK 3.24.33; x86_64-w64-mingw32)
 MIME-Version: 1.0
-Message-Id: <20230914-nolibc-syscall-nr-v1-3-e50df410da11@weissschuh.net>
-References: <20230914-nolibc-syscall-nr-v1-0-e50df410da11@weissschuh.net>
-In-Reply-To: <20230914-nolibc-syscall-nr-v1-0-e50df410da11@weissschuh.net>
-To: Willy Tarreau <w@1wt.eu>, Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Shuah Khan <shuah@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
- linux-kselftest@vger.kernel.org, 
- =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <linux@weissschuh.net>
-X-Mailer: b4 0.12.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1694707292; l=1227;
- i=linux@weissschuh.net; s=20221212; h=from:subject:message-id;
- bh=Cu53Z9oyo5nGu95h1+MArmP5k33gYn4AQCWOgwsV/Ac=;
- b=gJVRysrB+1Fm++kEZkA6QvwJaFYmt27QWy1msKjd+eJjR2FaQgck9iIwYB4bxpA6by3xzT2p2
- PzfnrKof6pvBVVTgIWWtMX9cfqisWMmTH2n3Am9bIT64PWNQbOqeho2
-X-Developer-Key: i=linux@weissschuh.net; a=ed25519;
- pk=KcycQgFPX2wGR5azS7RhpBqedglOZVgRPfdFSPB1LNw=
+X-Originating-IP: [10.202.227.76]
+X-ClientProxiedBy: lhrpeml100005.china.huawei.com (7.191.160.25) To
+ lhrpeml500005.china.huawei.com (7.191.163.240)
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230914_090140_076378_F58CA295 
-X-CRM114-Status: UNSURE (   7.23  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230914_090216_764417_09A938A9 
+X-CRM114-Status: GOOD (  22.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,32 +69,89 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-QWxsIHN5bWJvbHMgY3JlYXRlZCBieSBub2xpYmMgYXJlIGFsc28gdmlzaWJsZSB0byB1c2VyIGNv
-ZGUuClN5c2NhbGwgY29uc3RhbnRzIGFyZSBleHBlY3RlZCB0byBjb21lIGZyb20gdGhlIGtlcm5l
-bCBoZWFkZXJzIGFuZApzaG91bGQgbm90IGJlIG1hZGUgdXAgYnkgbm9saWJjLgoKUmVmYWN0b3Ig
-dGhlIGxvZ2ljIHRvIGF2b2lkIGRlZmluaW5nIHN5c2NhbGwgbnVtYmVycy4KQWxzbyB0aGUgbmV3
-IGNvZGUgaXMgZWFzaWVyIHRvIHVuZGVyc3RhbmQuCgpTaWduZWQtb2ZmLWJ5OiBUaG9tYXMgV2Vp
-w59zY2h1aCA8bGludXhAd2Vpc3NzY2h1aC5uZXQ+Ci0tLQogdG9vbHMvaW5jbHVkZS9ub2xpYmMv
-c3lzLmggfCA3ICsrKy0tLS0KIDEgZmlsZSBjaGFuZ2VkLCAzIGluc2VydGlvbnMoKyksIDQgZGVs
-ZXRpb25zKC0pCgpkaWZmIC0tZ2l0IGEvdG9vbHMvaW5jbHVkZS9ub2xpYmMvc3lzLmggYi90b29s
-cy9pbmNsdWRlL25vbGliYy9zeXMuaAppbmRleCBiYzU2MzEwYzZiZGYuLmQ5NmYyYWE3ZDk4NyAx
-MDA2NDQKLS0tIGEvdG9vbHMvaW5jbHVkZS9ub2xpYmMvc3lzLmgKKysrIGIvdG9vbHMvaW5jbHVk
-ZS9ub2xpYmMvc3lzLmgKQEAgLTk1NCwxMSArOTU0LDEwIEBAIGludCBzeXNfc2VsZWN0KGludCBu
-ZmRzLCBmZF9zZXQgKnJmZHMsIGZkX3NldCAqd2ZkcywgZmRfc2V0ICplZmRzLCBzdHJ1Y3QgdGlt
-ZXZhCiAJCXQudHZfbnNlYyA9IHRpbWVvdXQtPnR2X3VzZWMgKiAxMDAwOwogCX0KIAlyZXR1cm4g
-bXlfc3lzY2FsbDYoX19OUl9wc2VsZWN0NiwgbmZkcywgcmZkcywgd2ZkcywgZWZkcywgdGltZW91
-dCA/ICZ0IDogTlVMTCwgTlVMTCk7Ci0jZWxpZiBkZWZpbmVkKF9fTlJfX25ld3NlbGVjdCkgfHwg
-ZGVmaW5lZChfX05SX3NlbGVjdCkKLSNpZm5kZWYgX19OUl9fbmV3c2VsZWN0Ci0jZGVmaW5lIF9f
-TlJfX25ld3NlbGVjdCBfX05SX3NlbGVjdAotI2VuZGlmCisjZWxpZiBkZWZpbmVkKF9fTlJfX25l
-d3NlbGVjdCkKIAlyZXR1cm4gbXlfc3lzY2FsbDUoX19OUl9fbmV3c2VsZWN0LCBuZmRzLCByZmRz
-LCB3ZmRzLCBlZmRzLCB0aW1lb3V0KTsKKyNlbGlmIGRlZmluZWQoX19OUl9zZWxlY3QpCisJcmV0
-dXJuIG15X3N5c2NhbGw1KF9fTlJfc2VsZWN0LCBuZmRzLCByZmRzLCB3ZmRzLCBlZmRzLCB0aW1l
-b3V0KTsKICNlbHNlCiAJKHZvaWQpbmZkczsKIAkodm9pZClyZmRzOwoKLS0gCjIuNDIuMAoKCl9f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2
-IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0
-cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On Wed, 13 Sep 2023 16:38:19 +0000
+James Morse <james.morse@arm.com> wrote:
+
+> From: Jean-Philippe Brucker <jean-philippe@linaro.org>
+> 
+> When a CPU is marked as disabled, but online capable in the MADT, PSCI
+> applies some firmware policy to control when it can be brought online.
+> PSCI returns DENIED to a CPU_ON request if this is not currently
+> permitted. The OS can learn the current policy from the _STA enabled bit.
+> 
+> Handle the PSCI DENIED return code gracefully instead of printing an
+> error.
+
+Specification reference would be good particularly as it's only been
+added as a possibility fairly recently.
+
+> 
+> Signed-off-by: Jean-Philippe Brucker <jean-philippe@linaro.org>
+> [ morse: Rewrote commit message ]
+> Signed-off-by: James Morse <james.morse@arm.com>
+> ---
+>  arch/arm64/kernel/psci.c     | 2 +-
+>  arch/arm64/kernel/smp.c      | 3 ++-
+>  drivers/firmware/psci/psci.c | 2 ++
+>  3 files changed, 5 insertions(+), 2 deletions(-)
+> 
+> diff --git a/arch/arm64/kernel/psci.c b/arch/arm64/kernel/psci.c
+> index 29a8e444db83..4fcc0cdd757b 100644
+> --- a/arch/arm64/kernel/psci.c
+> +++ b/arch/arm64/kernel/psci.c
+> @@ -40,7 +40,7 @@ static int cpu_psci_cpu_boot(unsigned int cpu)
+>  {
+>  	phys_addr_t pa_secondary_entry = __pa_symbol(secondary_entry);
+>  	int err = psci_ops.cpu_on(cpu_logical_map(cpu), pa_secondary_entry);
+> -	if (err)
+> +	if (err && err != -EPROBE_DEFER)
+
+Hmm. EPROBE_DEFER has very specific meaning around driver requesting a retry
+when some other bit of the system has finished booting. 
+I'm not sure it's a good idea for this use case.  Maybe just keep to EPERM
+as psci_to_linux_errno() will return anyway.  Seems valid to me, or
+is the requirement to use EPROBE_DEFER coming from further up the stack?
+
+
+
+>  		pr_err("failed to boot CPU%d (%d)\n", cpu, err);
+>  
+>  	return err;
+> diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
+> index 8c8f55721786..e958db987665 100644
+> --- a/arch/arm64/kernel/smp.c
+> +++ b/arch/arm64/kernel/smp.c
+> @@ -124,7 +124,8 @@ int __cpu_up(unsigned int cpu, struct task_struct *idle)
+>  	/* Now bring the CPU into our world */
+>  	ret = boot_secondary(cpu, idle);
+>  	if (ret) {
+> -		pr_err("CPU%u: failed to boot: %d\n", cpu, ret);
+> +		if (ret != -EPROBE_DEFER)
+> +			pr_err("CPU%u: failed to boot: %d\n", cpu, ret);
+>  		return ret;
+>  	}
+>  
+> diff --git a/drivers/firmware/psci/psci.c b/drivers/firmware/psci/psci.c
+> index d9629ff87861..f7ab3fed3528 100644
+> --- a/drivers/firmware/psci/psci.c
+> +++ b/drivers/firmware/psci/psci.c
+> @@ -218,6 +218,8 @@ static int __psci_cpu_on(u32 fn, unsigned long cpuid, unsigned long entry_point)
+>  	int err;
+>  
+>  	err = invoke_psci_fn(fn, cpuid, entry_point, 0);
+> +	if (err == PSCI_RET_DENIED)
+> +		return -EPROBE_DEFER;
+>  	return psci_to_linux_errno(err);
+>  }
+>  
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
