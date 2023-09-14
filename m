@@ -4,61 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA720EEAA63
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 Sep 2023 18:39:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 946A0EEAA62
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 Sep 2023 19:12:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zRIhJ7ii8vwAQgbb5/UZ4vP7oFT6F72Ev3enlvB0O+E=; b=lyWDcxJYpfu3N0
-	1LhW9L3T06pdtrd7iNufFzMCAc9Vtp0CwDelI97ULiKPxUyaU5MmeNn6zPoK4nviAvssGF38dyhoP
-	IrET3HOS+ZE/SMTExeamZFLdhdjVh56jkFH47Ra2WP4l6pTW3O1cgUqsXYYoQMhNoTTazDvIkbX2m
-	RGhhnaV0ywXo3tubnmPT7LCy18lRgRP5yihkdvsFnN/yjU4zPoeFGYZXezIUmPVj/A7SJfPxRbszc
-	uNn2pgGuDmBI2T7TMFwJoADyIOrblfqEIIMXrLaUvrvoL6CChsNL8Na2l0QdBHvpdQg/JLWeIhWI7
-	NPudPe7VfUcq4w1Jmv+w==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
+	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=YXP9DtVGcXGqMpQD1JccI7oU0CtDM69Us8aTFGZFP9E=; b=BalG7IjDR/qtCpjwgX/vXHgkLx
+	+Fgd5vUKAMxKWTD4GpCyGK/5P4oHRbwvsEkjhBHgxtcJWlmpPcpduoknKo7nx1TLNh38bOOc0Fsv7
+	iEGO93Ig5YmoNp459Fm1zF0FWSUrt5vYfOmgu7hznerQaarAyVlcUxtdAalfN5lRRkjrykLA3oNWR
+	Fz00gRSNBl4vVBr49Wfivuk7Dx9zsli3JpxbCq9fNRoprAptg2NfPE5+7UJhGe1MydiAF8DZCMTBf
+	WeoUmBzF5SxXVLsd+RXBQt/enfrP8MxVGlcWJV0+T8UCrv46RKr5aVnxhCw7hoRRZXPVaISliUEWj
+	iy4Mgwug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgrFK-00959L-03;
-	Thu, 14 Sep 2023 18:39:22 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1qgrlG-0098sQ-2m;
+	Thu, 14 Sep 2023 19:12:22 +0000
+Received: from mail-yb1-xb49.google.com ([2607:f8b0:4864:20::b49])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgrF5-0094tz-0e
+	id 1qgrlD-0098q0-1R
 	for linux-riscv@lists.infradead.org;
-	Thu, 14 Sep 2023 18:39:08 +0000
-From: John Ogness <john.ogness@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1694716745;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=FNItZDOSVbjUj/GhN7qtDvHsswbZnbm/OUZHY8Hfuqo=;
-	b=wknKwa1kLvdaAYCvkZu9Z81f2T8Ta+CKva4N8RP76TA/NcMmJlm+Kil2JepCpHxBw1BEJU
-	K5pPqaYbTwLXrS3/UGwnuSoqeuuWpaEqqES2YbBrkQQJBM2jxPSbaryW3lTtByRM/tMtwh
-	gLrH5uhCtN8myDHRj74sRARHv9IwiNLbYc/k8O+0uLooKYlN4mT5AxH563k4Ct6BKNLKBa
-	6sfWSVIRNQrC7RUyNp3GxrdgJpqbYtOp6pNuQ7JQPlbSa8eoVNCfaBWQPqRdeKSwo43PTo
-	78iMfhiAozSI/V0aIgMpjYRus2ommjIBSLG4FVydEquKML+4oWBSdSlxxdKnPA==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1694716745;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=FNItZDOSVbjUj/GhN7qtDvHsswbZnbm/OUZHY8Hfuqo=;
-	b=HCL13mxdtEEBqe3txMOM+VDtV2848oD66CWe/CXn/8/B7TEVd4hlSi4SRJ+K0c3B4MuVs7
-	ZsMM+w8fmLRiVrBg==
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Subject: [PATCH tty v1 61/74] serial: sifive: Use port lock wrappers
-Date: Thu, 14 Sep 2023 20:44:18 +0206
-Message-Id: <20230914183831.587273-62-john.ogness@linutronix.de>
-In-Reply-To: <20230914183831.587273-1-john.ogness@linutronix.de>
-References: <20230914183831.587273-1-john.ogness@linutronix.de>
-MIME-Version: 1.0
+	Thu, 14 Sep 2023 19:12:20 +0000
+Received: by mail-yb1-xb49.google.com with SMTP id 3f1490d57ef6-d818fb959f4so1324249276.1
+        for <linux-riscv@lists.infradead.org>; Thu, 14 Sep 2023 12:12:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1694718736; x=1695323536; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=SYBWSie1WcKieNCkM5oJg6niwnE6sJx6iHmmYDkBNI4=;
+        b=ICEhhwa283lfBEiqk5qreh+SBa2UgkFjALQF5bQIiWFvMn6ILMHYYYesEwbBQomnP4
+         x/iP36NJe6gg+vOeUGGA7CEFiUi8pLzkakUne3JLDBgR0aDSsd5v+SmwlLSAejfgZ6MX
+         c9/ZVVkiamwGTWh0vf5wiM7SPQTqhlBj81kx+X/4yQtc1NsU7V7U9SIU/+ICMzOsKB20
+         o7q6F3KkSVb60Ut1n1uvc9Ih1z6d82iTga16MWJeCab9AAdtVXNaLXxBGwiEdYEekXC7
+         EvXuvHjEgBDEIFlXoROKDIbD5TsAOCjVntxestc9vSMHr0z9LbjS9F5S/DRUhP0s0J1S
+         0Fiw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1694718736; x=1695323536;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=SYBWSie1WcKieNCkM5oJg6niwnE6sJx6iHmmYDkBNI4=;
+        b=WfJu8/AFSjZc598dcbwK+50LGmXAlARIInDZT9hUEPu05aaMQWrBXYQbkjzv3/AwLv
+         NerkfoMsCtZNS+jxgmwdzJM7Tcwyr2RfdoEPqzpRZj+JQeFr28FX/f5xHlJfxmECkuL5
+         HL+PrdCiEd0vqorzYTacdaJXYub4BORvFNUSAxnqZUrvYp81h7xE4yIGzra/SVwINN5q
+         ib6GJz9TJ7FOl3RAZ++pyDmds3PKagUcgVyNU+zW9edFGWcsrSNteC8AnvOhBO01bgTS
+         wTHq1+Zdx3ejg4TDJgTdRCJBkVwuiZMn79VMUS42ArbNCMPscstlI3qa3xidB9Yjmu1s
+         hFFA==
+X-Gm-Message-State: AOJu0YwPbgDmYSXxjlwMEj4rk1ZLSmDoWorPCEHwZDfotMhezJs+m5m6
+	Mi/OWKZBwK+bjlmt+x2EldWK+B4q9GY=
+X-Google-Smtp-Source: AGHT+IEbiNaBi+bbmiwHYIoXYm8wvREABvNIqLAChDCxgGMZnU/PhXOjKBEoc76witsZv+IRa9HvnC8Otog=
+X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
+ (user=seanjc job=sendgmr) by 2002:a25:bc7:0:b0:d77:fb4e:d85e with SMTP id
+ 190-20020a250bc7000000b00d77fb4ed85emr138869ybl.6.1694718735743; Thu, 14 Sep
+ 2023 12:12:15 -0700 (PDT)
+Date: Thu, 14 Sep 2023 12:12:14 -0700
+In-Reply-To: <253965df-6d80-bbfd-ab01-f9e69b274bf3@quicinc.com>
+Mime-Version: 1.0
+References: <diqzttsiu67n.fsf@ackerleytng-ctop.c.googlers.com> <253965df-6d80-bbfd-ab01-f9e69b274bf3@quicinc.com>
+Message-ID: <ZQNbDt6vqwC4gZmi@google.com>
+Subject: Re: [RFC PATCH v11 12/29] KVM: Add KVM_CREATE_GUEST_MEMFD ioctl() for
+ guest-specific backing memory
+From: Sean Christopherson <seanjc@google.com>
+To: Elliot Berman <quic_eberman@quicinc.com>
+Cc: Ackerley Tng <ackerleytng@google.com>, pbonzini@redhat.com, maz@kernel.org, 
+	oliver.upton@linux.dev, chenhuacai@kernel.org, mpe@ellerman.id.au, 
+	anup@brainfault.org, paul.walmsley@sifive.com, palmer@dabbelt.com, 
+	aou@eecs.berkeley.edu, willy@infradead.org, akpm@linux-foundation.org, 
+	paul@paul-moore.com, jmorris@namei.org, serge@hallyn.com, kvm@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
+	linux-fsdevel@vger.kernel.org, linux-mm@kvack.org, 
+	linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	chao.p.peng@linux.intel.com, tabba@google.com, jarkko@kernel.org, 
+	yu.c.zhang@linux.intel.com, vannapurve@google.com, mail@maciej.szmigiero.name, 
+	vbabka@suse.cz, david@redhat.com, qperret@google.com, michael.roth@amd.com, 
+	wei.w.wang@intel.com, liam.merwick@oracle.com, isaku.yamahata@gmail.com, 
+	kirill.shutemov@linux.intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230914_113907_531400_973D681B 
-X-CRM114-Status: GOOD (  14.61  )
+X-CRM114-CacheID: sfid-20230914_121219_490162_60258478 
+X-CRM114-Status: GOOD (  17.91  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,112 +97,52 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Petr Mladek <pmladek@suse.com>, Yangtao Li <frank.li@vivo.com>, Richard GENOUD <richard.genoud@gmail.com>, Ruan Jinjie <ruanjinjie@huawei.com>, linux-kernel@vger.kernel.org, Nick Hu <nick.hu@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, linux-serial@vger.kernel.org, Paul Walmsley <paul.walmsley@sifive.com>, Thomas Gleixner <tglx@linutronix.de>, Jiri Slaby <jirislaby@kernel.org>, linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Thomas Gleixner <tglx@linutronix.de>
+On Mon, Aug 28, 2023, Elliot Berman wrote:
+> I had a 3rd question that's related to how to wire the gmem up to a virtual
+> machine:
+> 
+> I learned of a usecase to implement copy-on-write for gmem. The premise
+> would be to have a "golden copy" of the memory that multiple virtual
+> machines can map in as RO. If a virtual machine tries to write to those
+> pages, they get copied to a virtual machine-specific page that isn't shared
+> with other VMs. How do we track those pages?
 
-When a serial port is used for kernel console output, then all
-modifications to the UART registers which are done from other contexts,
-e.g. getty, termios, are interference points for the kernel console.
+The answer is going to be gunyah specific, because gmem itself isn't designed to
+provide a virtualization layer ("virtual" in the virtual memory sense, not in the
+virtual machine sense).  Like any other CoW implementation, the RO page would need
+to be copied to a different physical page, and whatever layer translates gfns
+to physical pages would need to be updated.  E.g. in gmem terms, allocate a new
+gmem page/instance and update the gfn=>gmem[offset] translation in KVM/gunyah.
 
-So far this has been ignored and the printk output is based on the
-principle of hope. The rework of the console infrastructure which aims to
-support threaded and atomic consoles, requires to mark sections which
-modify the UART registers as unsafe. This allows the atomic write function
-to make informed decisions and eventually to restore operational state. It
-also allows to prevent the regular UART code from modifying UART registers
-while printk output is in progress.
+For VMA-based memory, that translation happens in the primary MMU, and is largely
+transparent to KVM (or any other secondary MMU).  E.g. the primary MMU works with
+the backing store (if necessary) to allocate a new page and do the copy, notifies
+secondary MMUs, zaps the old PTE(s), and then installs the new PTE(s).  KVM/gunyah
+just needs to react to the mmu_notifier event, e.g. zap secondary MMU PTEs, and
+then KVM/gunyah naturally gets the new, writable page/PTE when following the host
+virtual address, e.g. via gup().
 
-All modifications of UART registers are guarded by the UART port lock,
-which provides an obvious synchronization point with the console
-infrastructure.
+The downside of eliminating the middle-man (primary MMU) from gmem is that the
+"owner" (KVM or gunyah) is now responsible for these types of operations.  For some
+things, e.g. page migration, it's actually easier in some ways, but for CoW it's
+quite a bit more work for KVM/gunyah because KVM/gunyah now needs to do things
+that were previously handled by the primary MMU.
 
-To avoid adding this functionality to all UART drivers, wrap the
-spin_[un]lock*() invocations for uart_port::lock into helper functions
-which just contain the spin_[un]lock*() invocations for now. In a
-subsequent step these helpers will gain the console synchronization
-mechanisms.
+In KVM, assuming no additional support in KVM, doing CoW would mean modifying
+memslots to redirect the gfn from the RO page to the writable page.  For a variety
+of reasons, that would be _extremely_ expensive in KVM, but still possible.  If
+there were a strong use case for supporting CoW with KVM+gmem, then I suspect that
+we'd probably implement new KVM uAPI of some form to provide reasonable performance.
 
-Converted with coccinelle. No functional change.
-
-Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
----
- drivers/tty/serial/sifive.c | 16 ++++++++--------
- 1 file changed, 8 insertions(+), 8 deletions(-)
-
-diff --git a/drivers/tty/serial/sifive.c b/drivers/tty/serial/sifive.c
-index d195c5de52e7..b296e57a9dee 100644
---- a/drivers/tty/serial/sifive.c
-+++ b/drivers/tty/serial/sifive.c
-@@ -521,11 +521,11 @@ static irqreturn_t sifive_serial_irq(int irq, void *dev_id)
- 	struct sifive_serial_port *ssp = dev_id;
- 	u32 ip;
- 
--	spin_lock(&ssp->port.lock);
-+	uart_port_lock(&ssp->port);
- 
- 	ip = __ssp_readl(ssp, SIFIVE_SERIAL_IP_OFFS);
- 	if (!ip) {
--		spin_unlock(&ssp->port.lock);
-+		uart_port_unlock(&ssp->port);
- 		return IRQ_NONE;
- 	}
- 
-@@ -534,7 +534,7 @@ static irqreturn_t sifive_serial_irq(int irq, void *dev_id)
- 	if (ip & SIFIVE_SERIAL_IP_TXWM_MASK)
- 		__ssp_transmit_chars(ssp);
- 
--	spin_unlock(&ssp->port.lock);
-+	uart_port_unlock(&ssp->port);
- 
- 	return IRQ_HANDLED;
- }
-@@ -653,7 +653,7 @@ static void sifive_serial_set_termios(struct uart_port *port,
- 				  ssp->port.uartclk / 16);
- 	__ssp_update_baud_rate(ssp, rate);
- 
--	spin_lock_irqsave(&ssp->port.lock, flags);
-+	uart_port_lock_irqsave(&ssp->port, &flags);
- 
- 	/* Update the per-port timeout */
- 	uart_update_timeout(port, termios->c_cflag, rate);
-@@ -670,7 +670,7 @@ static void sifive_serial_set_termios(struct uart_port *port,
- 	if (v != old_v)
- 		__ssp_writel(v, SIFIVE_SERIAL_RXCTRL_OFFS, ssp);
- 
--	spin_unlock_irqrestore(&ssp->port.lock, flags);
-+	uart_port_unlock_irqrestore(&ssp->port, flags);
- }
- 
- static void sifive_serial_release_port(struct uart_port *port)
-@@ -795,9 +795,9 @@ static void sifive_serial_console_write(struct console *co, const char *s,
- 	if (ssp->port.sysrq)
- 		locked = 0;
- 	else if (oops_in_progress)
--		locked = spin_trylock(&ssp->port.lock);
-+		locked = uart_port_trylock(&ssp->port);
- 	else
--		spin_lock(&ssp->port.lock);
-+		uart_port_lock(&ssp->port);
- 
- 	ier = __ssp_readl(ssp, SIFIVE_SERIAL_IE_OFFS);
- 	__ssp_writel(0, SIFIVE_SERIAL_IE_OFFS, ssp);
-@@ -807,7 +807,7 @@ static void sifive_serial_console_write(struct console *co, const char *s,
- 	__ssp_writel(ier, SIFIVE_SERIAL_IE_OFFS, ssp);
- 
- 	if (locked)
--		spin_unlock(&ssp->port.lock);
-+		uart_port_unlock(&ssp->port);
- 	local_irq_restore(flags);
- }
- 
--- 
-2.39.2
-
+But I highly doubt we'll ever do that, because one of core tenets of KVM+gmem is
+to isolate guest memory from the rest of the world, and especially from host
+userspace, and that just doesn't mesh well with CoW'd memory being shared across
+multiple VMs.
 
 _______________________________________________
 linux-riscv mailing list
