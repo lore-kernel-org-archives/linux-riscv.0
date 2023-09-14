@@ -4,53 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 712CDCA0ECE
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 Sep 2023 01:40:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32BA1EE0212
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 Sep 2023 01:41:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=j3ypxRhQlr+GC8/A4guVJ/oUVYkuowjB7d81Q73qNvo=; b=GHjoYyCYtbTTBD
-	xt7JqhK2dgH57tXnDWRD5TqC0unAEGkFaCi/3EgN+pXOsMCZjFWbszD25UDuhdvIdWPu8Soe+QXj9
-	5lzC9QYlb4YilMq4AMDWP1mxBaEtqcha12nyd1yt7iXKvn7Sj05WQbtJGREKRUkt9q7DenltRZy6F
-	tY92lRpvjnYeWezBF5lsFL/cLbpPRE04WHHfWzg+u3m1mkBQ08nKu1CjcWI6l1wFLj8wQGKaR8jEF
-	NvNhJKvQii4045TWtTMO/nqSVu3R9onB521OdngDOXs5i/gw6eZPAnwIFe4drUOIwayDzQbcipktu
-	Y8RJgN9i+5zMMZNrhLfA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=KeddOsb5raAizF9iKzPoWd6qEnTLBM9N+K/VaSpAJC8=; b=JES1uuJBNM9I0O
+	Rnt2li+H5u3KuOdsFGDcg6uv/vrjyOqp2WW7hEbzNz+/L3D+zcQoUHxE+YMIUl5tJPmiHRYjpoCXf
+	4a6oTl0fXLNqy7AfKdIUOEBZFhm45mTWzfLNsxexI9v+nRQ1+4aS9kIFomdq01BSTc/pMuBWCm1U7
+	Ui+bz4rz+04LfBRkKBGQN7W+B1m52S4vAs9fose3VpV2P/AU9OXJPovwhyAt9DdVjd2Mru4ZYKNIm
+	A3tjOjbNETb92CGLA6fRdHpaJ0UiHnPPgXGuhYUt51JSI/BQASEDq+13Jo5L0Q9xJc0PFfvu2C1EP
+	Gl1iR6U/cQHUL2NpRiFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgbLf-0071Vg-36;
-	Thu, 14 Sep 2023 01:40:51 +0000
+	id 1qgbLn-0071Yc-37;
+	Thu, 14 Sep 2023 01:40:59 +0000
 Received: from 60-248-80-70.hinet-ip.hinet.net ([60.248.80.70] helo=Atcsqr.andestech.com)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgbLc-0071Up-0U
+	id 1qgbLl-0071W4-13
 	for linux-riscv@lists.infradead.org;
-	Thu, 14 Sep 2023 01:40:50 +0000
+	Thu, 14 Sep 2023 01:40:58 +0000
 Received: from mail.andestech.com (ATCPCS16.andestech.com [10.0.1.222])
-	by Atcsqr.andestech.com with ESMTP id 38E1eVM3060589;
-	Thu, 14 Sep 2023 09:40:31 +0800 (+08)
+	by Atcsqr.andestech.com with ESMTP id 38E1eaCW060607;
+	Thu, 14 Sep 2023 09:40:36 +0800 (+08)
 	(envelope-from peterlin@andestech.com)
 Received: from atctrx.andestech.com (10.0.15.173) by ATCPCS16.andestech.com
  (10.0.1.222) with Microsoft SMTP Server id 14.3.498.0; Thu, 14 Sep 2023
- 09:40:31 +0800
+ 09:40:32 +0800
 From: Yu Chien Peter Lin <peterlin@andestech.com>
 To: <paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
         <david@redhat.com>, <akpm@linux-foundation.org>,
         <alexghiti@rivosinc.com>, <bjorn@rivosinc.com>,
         <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>
 CC: <ycliang@andestech.com>, Yu Chien Peter Lin <peterlin@andestech.com>
-Subject: [PATCH v2 1/3] riscv: Improve PTDUMP to show RSW with non-zero value
-Date: Thu, 14 Sep 2023 09:40:25 +0800
-Message-ID: <20230914014027.273002-1-peterlin@andestech.com>
+Subject: [PATCH v2 2/3] riscv: Introduce PBMT field to PTDUMP
+Date: Thu, 14 Sep 2023 09:40:26 +0800
+Message-ID: <20230914014027.273002-2-peterlin@andestech.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20230914014027.273002-1-peterlin@andestech.com>
+References: <20230914014027.273002-1-peterlin@andestech.com>
 MIME-Version: 1.0
 X-Originating-IP: [10.0.15.173]
 X-DNSRBL: 
-X-MAIL: Atcsqr.andestech.com 38E1eVM3060589
+X-MAIL: Atcsqr.andestech.com 38E1eaCW060607
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230913_184048_623733_F1CB9DE3 
-X-CRM114-Status: GOOD (  15.65  )
+X-CRM114-CacheID: sfid-20230913_184057_822976_01A6D446 
+X-CRM114-Status: UNSURE (   9.91  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,131 +70,48 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RSW field can be used to encode 2 bits of software defined
-information, currently PTDUMP only prints RSW when its value
-is 1 or 3.
-
-To fix this issue and enhance the debug experience with PTDUMP,
-we use _PAGE_SOFT as the RSW mask and redefine _PAGE_SPECIAL to
-(1 << 8), allow it to print the RSW with any non-zero value,
-otherwise, it will print an empty string for each row.
-
-This patch also removes the val from the struct prot_bits as
-it is no longer needed.
+This patch introduces the PBMT field to the PTDUMP, so it can
+display the memory attributes for NC or IO.
 
 Signed-off-by: Yu Chien Peter Lin <peterlin@andestech.com>
 ---
- arch/riscv/include/asm/pgtable-bits.h |  4 +--
- arch/riscv/mm/ptdump.c                | 36 +++++++++++----------------
- 2 files changed, 17 insertions(+), 23 deletions(-)
+ arch/riscv/mm/ptdump.c | 16 ++++++++++++++++
+ 1 file changed, 16 insertions(+)
 
-diff --git a/arch/riscv/include/asm/pgtable-bits.h b/arch/riscv/include/asm/pgtable-bits.h
-index f896708e8331..99e60fd3eb72 100644
---- a/arch/riscv/include/asm/pgtable-bits.h
-+++ b/arch/riscv/include/asm/pgtable-bits.h
-@@ -16,9 +16,9 @@
- #define _PAGE_GLOBAL    (1 << 5)    /* Global */
- #define _PAGE_ACCESSED  (1 << 6)    /* Set by hardware on any access */
- #define _PAGE_DIRTY     (1 << 7)    /* Set by hardware on any write */
--#define _PAGE_SOFT      (1 << 8)    /* Reserved for software */
-+#define _PAGE_SOFT      (3 << 8)    /* Reserved for software */
- 
--#define _PAGE_SPECIAL   _PAGE_SOFT
-+#define _PAGE_SPECIAL   (1 << 8)
- #define _PAGE_TABLE     _PAGE_PRESENT
- 
- /*
 diff --git a/arch/riscv/mm/ptdump.c b/arch/riscv/mm/ptdump.c
-index 20a9f991a6d7..85686652f342 100644
+index 85686652f342..b5026fc867e8 100644
 --- a/arch/riscv/mm/ptdump.c
 +++ b/arch/riscv/mm/ptdump.c
-@@ -129,7 +129,6 @@ static struct ptd_mm_info efi_ptd_info = {
- /* Page Table Entry */
- struct prot_bits {
- 	u64 mask;
--	u64 val;
- 	const char *set;
- 	const char *clear;
- };
-@@ -137,47 +136,38 @@ struct prot_bits {
+@@ -135,6 +135,12 @@ struct prot_bits {
+ 
  static const struct prot_bits pte_bits[] = {
  	{
- 		.mask = _PAGE_SOFT,
--		.val = _PAGE_SOFT,
--		.set = "RSW",
--		.clear = "   ",
-+		.set = "RSW(%d)",
++#ifdef CONFIG_64BIT
++		.mask = _PAGE_MTMASK_SVPBMT,
++		.set = "MT(%s)",
 +		.clear = "      ",
- 	}, {
- 		.mask = _PAGE_DIRTY,
--		.val = _PAGE_DIRTY,
- 		.set = "D",
- 		.clear = ".",
- 	}, {
- 		.mask = _PAGE_ACCESSED,
--		.val = _PAGE_ACCESSED,
- 		.set = "A",
- 		.clear = ".",
- 	}, {
- 		.mask = _PAGE_GLOBAL,
--		.val = _PAGE_GLOBAL,
- 		.set = "G",
- 		.clear = ".",
- 	}, {
- 		.mask = _PAGE_USER,
--		.val = _PAGE_USER,
- 		.set = "U",
- 		.clear = ".",
- 	}, {
- 		.mask = _PAGE_EXEC,
--		.val = _PAGE_EXEC,
- 		.set = "X",
- 		.clear = ".",
- 	}, {
- 		.mask = _PAGE_WRITE,
--		.val = _PAGE_WRITE,
- 		.set = "W",
- 		.clear = ".",
- 	}, {
- 		.mask = _PAGE_READ,
--		.val = _PAGE_READ,
- 		.set = "R",
- 		.clear = ".",
- 	}, {
- 		.mask = _PAGE_PRESENT,
--		.val = _PAGE_PRESENT,
- 		.set = "V",
- 		.clear = ".",
- 	}
-@@ -208,15 +198,19 @@ static void dump_prot(struct pg_state *st)
- 	unsigned int i;
- 
- 	for (i = 0; i < ARRAY_SIZE(pte_bits); i++) {
--		const char *s;
--
--		if ((st->current_prot & pte_bits[i].mask) == pte_bits[i].val)
--			s = pte_bits[i].set;
--		else
--			s = pte_bits[i].clear;
--
--		if (s)
--			pt_dump_seq_printf(st->seq, " %s", s);
-+		char s[7];
-+		unsigned long val;
-+
-+		val = st->current_prot & pte_bits[i].mask;
-+		if (val) {
-+			if (pte_bits[i].mask == _PAGE_SOFT)
-+				sprintf(s, pte_bits[i].set, val >> 8);
-+			else
-+				sprintf(s, "%s", pte_bits[i].set);
-+		} else
-+			sprintf(s, "%s", pte_bits[i].clear);
-+
-+		pt_dump_seq_printf(st->seq, " %s", s);
- 	}
- }
- 
++	}, {
++#endif
+ 		.mask = _PAGE_SOFT,
+ 		.set = "RSW(%d)",
+ 		.clear = "      ",
+@@ -205,6 +211,16 @@ static void dump_prot(struct pg_state *st)
+ 		if (val) {
+ 			if (pte_bits[i].mask == _PAGE_SOFT)
+ 				sprintf(s, pte_bits[i].set, val >> 8);
++#ifdef CONFIG_64BIT
++			else if (pte_bits[i].mask == _PAGE_MTMASK_SVPBMT) {
++				if (val == _PAGE_NOCACHE_SVPBMT)
++					sprintf(s, pte_bits[i].set, "NC");
++				else if (val == _PAGE_IO_SVPBMT)
++					sprintf(s, pte_bits[i].set, "IO");
++				else
++					sprintf(s, pte_bits[i].set, "??");
++			}
++#endif
+ 			else
+ 				sprintf(s, "%s", pte_bits[i].set);
+ 		} else
 -- 
 2.34.1
 
