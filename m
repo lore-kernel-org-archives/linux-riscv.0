@@ -4,77 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C60A6EEAA40
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 Sep 2023 14:09:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62732EEAA40
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 Sep 2023 14:10:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yCg25m2GDO4StvaSeCLS/CNZVcvSdhdS4KWnXVxYTnI=; b=myb9oqF/6OzJFy
-	Y6WzmQ91PVhdbecqbDSdjNXyLVm6YH7V8uEFE+5PUPDPNCfqCDeAhhzrtfFjSjD1FVARLKOGYoPpa
-	MwqdprYt6GI9L2UzUoquRLZySX8drdsZ1poLFoDqSqY5F5o2qGw6bU2rRLcBG26/e10lAoJ+Mcoqw
-	5YKfzbM5Pygq8pMm0dWbq4msx4QuNhuLdItbxZksvlf8hnSHcRY1kjTEz5zDZeEVfA4AsXXBjVLE1
-	Q8MQHK4VikF0ftpsnNa91l5eX45ONHNmvRQqvJxOAWodDl4rWtygRoIjnAx9a8FQ9x4LF8+8s4Ufp
-	GAFbOw3k4OW3qhJJQp9Q==;
+	List-Owner; bh=hB0Q2PF7bVhDtg2KvneqPBtYuIPWWtiZtj6rKrFJA7Q=; b=0SLn+G8QRFGFB+
+	UF28ZiD88FVYbmiCUK//3RpOC2bT0R4ybFB6KT8Wv/OVrb/Aym6M6Hjdnks4A+QBsQ1nZMo+Zi+a3
+	fuFr++17oo6R7O10Vjwn8CoS7QCHut/tDrus8KmU8pNwvRoaFJG9MC/w3Yqcu3kVAPcYYa7yBbks/
+	8AKQoqD+mGzEzsrfMvT6XdZ93salthYNmMlJuQsPPiAW54GyNq+h+JnDl8jhXoeB18DEF0AKR9zGy
+	ozhWWC99wvc+8kkScTNgabbkb0u5P1K2qW6cC4Y2SsJnCoNBDuxCEhmy3s6qleSl8EiF7lZw+aTNZ
+	ynaVAyeTFi6SKyEL8A3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgn2X-008bBs-0U;
-	Thu, 14 Sep 2023 14:09:53 +0000
-Received: from mail-yb1-xb2d.google.com ([2607:f8b0:4864:20::b2d])
+	id 1qgn3F-008bHP-1T;
+	Thu, 14 Sep 2023 14:10:37 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgn2V-008bBQ-0l
-	for linux-riscv@lists.infradead.org;
-	Thu, 14 Sep 2023 14:09:52 +0000
-Received: by mail-yb1-xb2d.google.com with SMTP id 3f1490d57ef6-d8032efa2bfso1445229276.1
-        for <linux-riscv@lists.infradead.org>; Thu, 14 Sep 2023 07:09:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1694700590; x=1695305390; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=J9IGYP5VQdwee25nV5jOO+j3P/uh5L2lbtVFrt/kEhY=;
-        b=I0u2SNhq8KBGXY4+uCCMEepVnZU4wwGNuqLKquEEKHwAQwRzqPUBGdHJyDKvmQKjZ5
-         LZNWnVfd37ar8qLYlHw3z1HkW8DB3XcXuE5chVhtVLDAxskjJhIlyiKkvGKNgkNcUJDQ
-         zpa7oyuTYsKUWEYsjIABJ8HVA6SZcnvHEt0kfwisBWQ4PeUBpjKmisuLVIU//Z9DwU7O
-         HGR6WWYtK6u9VotvZS4FauRuSaxtXiyC0AjcMUu+KvyIsk24nB/ItY3pQw9DPFaQ9jBr
-         rfwBDQqeRzEwIn8gNu14pkRxy/DHSRHHuydOTHRXuzw6GHGf9NXze29n9dMY/k7MjnCI
-         NxFw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1694700590; x=1695305390;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=J9IGYP5VQdwee25nV5jOO+j3P/uh5L2lbtVFrt/kEhY=;
-        b=fdyS1mseaHycp04cgUDAC3iNd8/qReATOD/FXut+MVuB4m1HZ+LIbTi1wj3z6Ndc+g
-         rVkMYif0gwq4O1+Fitb37STRaW8GNIBnFMVVFYdTu1Cpv+mOLVrf46+YnGj9Ns1G0aRT
-         MF9ODeYIyCRL2H9yIxL9+jOFgfeDwBpn4XlXeMAYimi8iNf318tKloPt9vJbHZAlq3Jt
-         qIc2QZ+xppmF7Z8rxlVtGQXR0GN54eWla10AnLJQQtQp9NlTYMfRLBkN/v94TYnZWfN6
-         5M+sA6VdNqPtO+E0BMbq4EETXixer6jTpbN1O9X1sVDbO8YpNjeFzTD6Kcg8zgrgTUOi
-         q0Kg==
-X-Gm-Message-State: AOJu0Yw1Cqo6lcVpA08D5cn0/DK3m0JkxbMahN0lff9lqmMaR4l6gEYd
-	NpbWIc4qb1o12p+gJ7+M0unw2ztEZO9ST+t4pQg+zg==
-X-Google-Smtp-Source: AGHT+IEyLK5w2EfQvefblMOe1KUYzBa/9AVnRDeL+Ut6bf+JBgWjwLbElfH0D8BGNdeScufwUK1hsKQJF+zOJRBa99Y=
-X-Received: by 2002:a25:7714:0:b0:d07:b677:3349 with SMTP id
- s20-20020a257714000000b00d07b6773349mr1369288ybc.25.1694700590048; Thu, 14
- Sep 2023 07:09:50 -0700 (PDT)
+	id 1qgn3B-008bFr-2J;
+	Thu, 14 Sep 2023 14:10:35 +0000
+Received: from lhrpeml500005.china.huawei.com (unknown [172.18.147.226])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4RmfMy0jWJz67Q1Y;
+	Thu, 14 Sep 2023 22:09:50 +0800 (CST)
+Received: from localhost (10.202.227.76) by lhrpeml500005.china.huawei.com
+ (7.191.163.240) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.31; Thu, 14 Sep
+ 2023 15:10:26 +0100
+Date: Thu, 14 Sep 2023 15:10:25 +0100
+From: Jonathan Cameron <Jonathan.Cameron@Huawei.com>
+To: James Morse <james.morse@arm.com>
+CC: <linux-pm@vger.kernel.org>, <loongarch@lists.linux.dev>,
+	<linux-acpi@vger.kernel.org>, <linux-arch@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-riscv@lists.infradead.org>, <kvmarm@lists.linux.dev>,
+	<x86@kernel.org>, Salil Mehta <salil.mehta@huawei.com>, Russell King
+	<linux@armlinux.org.uk>, Jean-Philippe Brucker <jean-philippe@linaro.org>,
+	<jianyong.wu@arm.com>, <justin.he@arm.com>
+Subject: Re: [RFC PATCH v2 19/35] ACPI: Move acpi_bus_trim_one() before
+ acpi_scan_hot_remove()
+Message-ID: <20230914151025.00003cef@Huawei.com>
+In-Reply-To: <20230913163823.7880-20-james.morse@arm.com>
+References: <20230913163823.7880-1-james.morse@arm.com>
+	<20230913163823.7880-20-james.morse@arm.com>
+Organization: Huawei Technologies Research and Development (UK) Ltd.
+X-Mailer: Claws Mail 4.1.0 (GTK 3.24.33; x86_64-w64-mingw32)
 MIME-Version: 1.0
-References: <20230913-bloomers-scorebook-fb45e0a2aa19@spud>
- <CAPDyKFoENVp7+VjKkPpJWDecowxYD=QM6TSa6HjyzOZ=z7r81w@mail.gmail.com> <CAL_JsqLxxmdPTLhZ6MTfuAcM0V7pmfRLiK8L3AZhhQKcvy_PCw@mail.gmail.com>
-In-Reply-To: <CAL_JsqLxxmdPTLhZ6MTfuAcM0V7pmfRLiK8L3AZhhQKcvy_PCw@mail.gmail.com>
-From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Thu, 14 Sep 2023 16:09:14 +0200
-Message-ID: <CAPDyKFo-KXK37iRwXZ631MH6L5_RbaezGUz5GAn8cVt4OzOApQ@mail.gmail.com>
-Subject: Re: [GIT PULL 0/5] Missed starfive pmdomain changes for v6.6, now for v6.7
-To: Rob Herring <robh@kernel.org>
-Cc: Conor Dooley <conor@kernel.org>, Conor Dooley <conor.dooley@microchip.com>, arnd@arndb.de, 
-	changhuang.liang@starfivetech.com, jiajie.ho@starfivetech.com, 
-	linux-pm@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	walker.chen@starfivetech.com
+X-Originating-IP: [10.202.227.76]
+X-ClientProxiedBy: lhrpeml100002.china.huawei.com (7.191.160.241) To
+ lhrpeml500005.china.huawei.com (7.191.163.240)
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230914_070951_276359_1466DE27 
-X-CRM114-Status: GOOD (  15.27  )
+X-CRM114-CacheID: sfid-20230914_071034_034227_42D9DEB1 
+X-CRM114-Status: GOOD (  20.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,27 +70,126 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVGh1LCAxNCBTZXB0IDIwMjMgYXQgMTU6NTcsIFJvYiBIZXJyaW5nIDxyb2JoQGtlcm5lbC5v
-cmc+IHdyb3RlOgo+Cj4gT24gV2VkLCBTZXAgMTMsIDIwMjMgYXQgNTozMeKAr1BNIFVsZiBIYW5z
-c29uIDx1bGYuaGFuc3NvbkBsaW5hcm8ub3JnPiB3cm90ZToKPiA+Cj4gPiBPbiBXZWQsIDEzIFNl
-cHQgMjAyMyBhdCAxNTo1NiwgQ29ub3IgRG9vbGV5IDxjb25vckBrZXJuZWwub3JnPiB3cm90ZToK
-PiA+ID4KPiA+ID4gRnJvbTogQ29ub3IgRG9vbGV5IDxjb25vci5kb29sZXlAbWljcm9jaGlwLmNv
-bT4KPiA+ID4KPiA+ID4gSGV5IFVmZmUsCj4gPiA+Cj4gPiA+IEhlcmUncyB0aG9zZSBtaXNzZWQg
-Y2hhbmdlcyBpbiBwYXRjaCBmb3JtLiBJIGZpZ3VyZWQgaXQgbWlnaHQgYmUgYSBiaXQKPiA+ID4g
-ZWFzaWVyIHRoaXMgd2F5IGdpdmVuIHRoZSBuYW1lIG9mIHRoZSBzdWJzeXN0ZW0gaXMgaW4gZmx1
-eCwgZG91Ymx5IHNvIGlmCj4gPiA+IHlvdSdkIGxpa2UgdG8gcHV0IHRoZSBoZWFkZXIgY2hhbmdl
-IG9mIFJvYidzIG9uIGZpeGVzLgo+ID4KPiA+IE5vdCBzdXJlIHdlIHJlYWxseSBuZWVkIHRvIHF1
-ZXVlIHVwIHBhdGNoIDEgZm9yIGZpeGVzIC0gb3IgaXMgaXQKPiA+IGZpeGluZyBhIHJlYWwgcHJv
-YmxlbSBmb3IgdXM/Cj4KPiBJdCdzIGEgZGVwZW5kZW5jeSB0byByZW1vdmUgc29tZSBpbXBsaWNp
-dCBpbmNsdWRlcywgYnV0IEkgc3RpbGwgaGF2ZQo+IG1vcmUgZml4ZXMgZm9yIDYuNiBzbyBlaXRo
-ZXIgaXMgZmluZS4KCk9rYXksIEkga2VlcCBpdCBmb3IgdjYuNyB0aGVuLiBKdXN0IGxldCBtZSBr
-bm93IGlmIHRoaW5ncyBjaGFuZ2UgdGhlbgpJIGNhbiBtb3ZlIGl0IHRvIHY2LjYtcmNzCgpLaW5k
-IHJlZ2FyZHMKVWZmZQoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVh
-ZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1y
-aXNjdgo=
+On Wed, 13 Sep 2023 16:38:07 +0000
+James Morse <james.morse@arm.com> wrote:
+
+> A subsequent patch will change acpi_scan_hot_remove() to call
+> acpi_bus_trim_one() instead of acpi_bus_trim(), meaning it can no longer
+> rely on the prototype in the header file.
+> 
+> Move these functions further up the file.
+> No change in behaviour.
+> 
+> Signed-off-by: James Morse <james.morse@arm.com>
+FWIW
+Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+
+> ---
+>  drivers/acpi/scan.c | 76 ++++++++++++++++++++++-----------------------
+>  1 file changed, 38 insertions(+), 38 deletions(-)
+> 
+> diff --git a/drivers/acpi/scan.c b/drivers/acpi/scan.c
+> index f898591ce05f..a675333618ae 100644
+> --- a/drivers/acpi/scan.c
+> +++ b/drivers/acpi/scan.c
+> @@ -244,6 +244,44 @@ static int acpi_scan_try_to_offline(struct acpi_device *device)
+>  	return 0;
+>  }
+>  
+> +static int acpi_bus_trim_one(struct acpi_device *adev, void *not_used)
+> +{
+> +	struct acpi_scan_handler *handler = adev->handler;
+> +
+> +	acpi_dev_for_each_child_reverse(adev, acpi_bus_trim_one, NULL);
+> +
+> +	adev->flags.match_driver = false;
+> +	if (handler) {
+> +		if (handler->detach)
+> +			handler->detach(adev);
+> +
+> +		adev->handler = NULL;
+> +	} else {
+> +		device_release_driver(&adev->dev);
+> +	}
+> +	/*
+> +	 * Most likely, the device is going away, so put it into D3cold before
+> +	 * that.
+> +	 */
+> +	acpi_device_set_power(adev, ACPI_STATE_D3_COLD);
+> +	adev->flags.initialized = false;
+> +	acpi_device_clear_enumerated(adev);
+> +
+> +	return 0;
+> +}
+> +
+> +/**
+> + * acpi_bus_trim - Detach scan handlers and drivers from ACPI device objects.
+> + * @adev: Root of the ACPI namespace scope to walk.
+> + *
+> + * Must be called under acpi_scan_lock.
+> + */
+> +void acpi_bus_trim(struct acpi_device *adev)
+> +{
+> +	acpi_bus_trim_one(adev, NULL);
+> +}
+> +EXPORT_SYMBOL_GPL(acpi_bus_trim);
+> +
+>  static int acpi_scan_hot_remove(struct acpi_device *device)
+>  {
+>  	acpi_handle handle = device->handle;
+> @@ -2506,44 +2544,6 @@ int acpi_bus_scan(acpi_handle handle)
+>  }
+>  EXPORT_SYMBOL(acpi_bus_scan);
+>  
+> -static int acpi_bus_trim_one(struct acpi_device *adev, void *not_used)
+> -{
+> -	struct acpi_scan_handler *handler = adev->handler;
+> -
+> -	acpi_dev_for_each_child_reverse(adev, acpi_bus_trim_one, NULL);
+> -
+> -	adev->flags.match_driver = false;
+> -	if (handler) {
+> -		if (handler->detach)
+> -			handler->detach(adev);
+> -
+> -		adev->handler = NULL;
+> -	} else {
+> -		device_release_driver(&adev->dev);
+> -	}
+> -	/*
+> -	 * Most likely, the device is going away, so put it into D3cold before
+> -	 * that.
+> -	 */
+> -	acpi_device_set_power(adev, ACPI_STATE_D3_COLD);
+> -	adev->flags.initialized = false;
+> -	acpi_device_clear_enumerated(adev);
+> -
+> -	return 0;
+> -}
+> -
+> -/**
+> - * acpi_bus_trim - Detach scan handlers and drivers from ACPI device objects.
+> - * @adev: Root of the ACPI namespace scope to walk.
+> - *
+> - * Must be called under acpi_scan_lock.
+> - */
+> -void acpi_bus_trim(struct acpi_device *adev)
+> -{
+> -	acpi_bus_trim_one(adev, NULL);
+> -}
+> -EXPORT_SYMBOL_GPL(acpi_bus_trim);
+> -
+>  int acpi_bus_register_early_device(int type)
+>  {
+>  	struct acpi_device *device = NULL;
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
