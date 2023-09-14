@@ -4,69 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 836DFEE021A
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 Sep 2023 01:58:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65B60EE0212
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 Sep 2023 01:58:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
 	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zhfTtixNQ811j23Poy5t1ZtpgvE13Rmf34xUKH9h0Bw=; b=NTDYphHunMcBfa
-	XBAnHyax1LohAxwBEAoch/Eh87Stfv8QbB+NVyfBRDtdZ0ohn2WCp26HSHjOXNIu5jaWKon1CDtzy
-	5kX/Xq99JaBmbMzNNSLjmDCZeLVXKbDgj/V6BnsEAlFGaqomh6crfzYhjLcHXY+SY1+oCpINxFTSY
-	RJWeK2QMWPArZ1k/Njf/Gyj834YWvH89JbouAPfgBM1lDF4AKuwZzqyEVDnOx7KSr4RWAUsnzNYOs
-	pEVl1c2FIBg3u5TtaFtv0GjdeXjZ+H/xLHMJNuyL+H0TI7sG2lN2NRuVYu6iUNEW+3Vrp66yTl2WS
-	/2MrlfyK0bBTRCtj3NDg==;
+	List-Owner; bh=Se+a013uwUKEYlcsexIa19r4XS7DyDPSHn+Cum/vxWM=; b=EpyibaOIuqrFke
+	k9RhOXtNd/TtdvunIchPvbV4sDxO9M1NQP6dIGCxj76j14+Sly7bC50q0pMjzWHPgA8e8QLQB6ESz
+	LGcFJybRQzqdOxBug/jO/zPz1Zwopz4RZD+EGuhQs74X7qmNe1z0iR1hl2hUd61XeLdwlxNW7CUgc
+	8jWiVms9amHgeT3ngi8Lq12E/DxVeTBNnfJZB8nD7Uh4BAeoscaFepSjtCjHIEuOhq6RJifQ+rNTr
+	0FmLl/JEig1Z++/ZtkD7h/18EwIP8zTmscc5FD/+NfYTlOatD+V2UqRi5WzXWXECJNaK7yKPqIIWC
+	HXcRYlwmgX5ZuJl8zi0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgbd5-0075jB-0d;
-	Thu, 14 Sep 2023 01:58:51 +0000
-Received: from mail-yw1-x114a.google.com ([2607:f8b0:4864:20::114a])
+	id 1qgbd9-0075p2-00;
+	Thu, 14 Sep 2023 01:58:55 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgbaf-0073Px-2H
+	id 1qgbam-0073ZP-3B
+	for linux-riscv@bombadil.infradead.org;
+	Thu, 14 Sep 2023 01:56:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
+	Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:Sender:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=TEdWNzKShragyniQ9J+Ve2p49++UXy1fA45JB0RVd2M=; b=dpndtheXLkKVYboLVIEEuWZAx9
+	piKYunQpq2eBzx76l36+iE54N/0Yz9vU6PVmBfYrT/BOGXYdr6swr2hH3ZKTEJV43E+bJBnGT7Be1
+	XwOCzfK67wuvi31DNpF3RUPOWcmOfH5GZWPkVXOMDUtVwSuJ198ToWz1szp89YAv9GII+ittrCaQH
+	BWiMX+q6sm5wpDWo91uSTXKGMIWhzyupkkmVinY0xbIA6Dg3un5/j/bJJrttRzyQCT+CIzMdDeeaI
+	evKRLlhfc0pQ1SWiTwlCpDYND2oIE6W2LeZveYGetGiJtalOkMUQKr/F61S5/VUIs6dKeaI7UT7Kb
+	N3cW/mlA==;
+Received: from mail-yw1-x114a.google.com ([2607:f8b0:4864:20::114a])
+	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1qgbaf-007TbG-1m
 	for linux-riscv@lists.infradead.org;
-	Thu, 14 Sep 2023 01:56:26 +0000
-Received: by mail-yw1-x114a.google.com with SMTP id 00721157ae682-58c9d29588aso6682897b3.0
-        for <linux-riscv@lists.infradead.org>; Wed, 13 Sep 2023 18:56:20 -0700 (PDT)
+	Thu, 14 Sep 2023 01:56:27 +0000
+Received: by mail-yw1-x114a.google.com with SMTP id 00721157ae682-5924b2aac52so6443147b3.2
+        for <linux-riscv@lists.infradead.org>; Wed, 13 Sep 2023 18:56:15 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1694656579; x=1695261379; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1694656573; x=1695261373; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=m3Tc/K++HKyC1JKw6ryTn8bhcHxW+fZqtY22WqzjI8E=;
-        b=txO9nNWjYoueaT0Kq5AqzU9FsGGJ2oGjwispxtDpY8HLj1reLCcz+V7XgEjptmcKMi
-         86Y4+lZUoguYCbnZKUUI22kGBWOOUyKNKOArCuxDeoKw5cQDNIaltX+SrR68rRxs4A47
-         k1Nust5tewwd6tkqv4GKHBYiLYLlgKLLY3Z9F99QkPFVXZm5WcWT5fctNKXvU8er9K58
-         TbW5wPKg53ZdXi4PIPN71FhTmWkX2sY3dofIy/I9+vJJERy76zrxqrTkysJRT7A1gZNI
-         TuQeaNHT2esAgPViIbWXTfjUJLL0XiQOc/lc3xxRbG35y4iB2SKYOb56BPE37pmXpE+R
-         CNJw==
+        bh=TEdWNzKShragyniQ9J+Ve2p49++UXy1fA45JB0RVd2M=;
+        b=39FWY/rwJopwN2cTQCj3NPq9KxzHRSeERi29xsZ7qKk5/62o7x3Acg93asEbGHABOl
+         gEpzOJtrmfHXH+CnlWJLpEwGxqdvxyDdGEJzaleBSHDHUJh9jLSnkeHBBNF60BOwlwng
+         z6L2LVm3CA0bcpED80l0d6cJGdoBiSOU1oHBsXObL1bz4/wCXy/hC42L0cMU8omqt4GZ
+         l1OjsS1nB6CCRVxgUH3KXFiFD4NgeiQu0FiTJF1SPZDHjMQKRmr0Y7lGV3bQkdeCXo/d
+         ooNGrsl1+gNdYGDvNp9mp8nlWj67IMteXzJQKptlibXYvAsN9nHfiRb1biqGhgromOXx
+         i30A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1694656579; x=1695261379;
+        d=1e100.net; s=20230601; t=1694656573; x=1695261373;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=m3Tc/K++HKyC1JKw6ryTn8bhcHxW+fZqtY22WqzjI8E=;
-        b=pMwR6RzSFXjCvi90cPLpre84Dub1I3aaq/MBZN1Cl8lObUmvOeWBiMNRYdC+HiPl3b
-         yB/urNoQMYsGrzRbtABl8jRllf559CjV7mJtAhYOFrCGeXv238yGSQrY7kgqCVPmgC4I
-         guPf+qo4LHaXBKbhd/k9QRQ34gQMi91VbTiNr+jDLzj6rqoKNHT1W+PASEyondwWVRLP
-         BzVBFCNnzTxcKSJyuuwuW32XV+hbgpV4HCpxYTWUsPsbVdFthRAOkAP27rAaIY/iB6Vb
-         oH/FfmAkVaEqcnJULR0HMqoSPLNzdxH3oftLHNzCgU3I4/EM6ekkdEJ6EKE77EbVrQPU
-         7vkA==
-X-Gm-Message-State: AOJu0YzVyKKkwadF0F/Ai2/28xITeqhM2uYjL2J0UjtVUdeREIfsDbhj
-	VJDEPEE64ggVP1poCcOQi7DwzjU0IxU=
-X-Google-Smtp-Source: AGHT+IFDxQWOII5kHYcZMuAOGuYKUEYlYg+M0lPpcGlC7jaodEdrBYecqjufioLD9d6AjHIxw5JvKtydhZY=
+        bh=TEdWNzKShragyniQ9J+Ve2p49++UXy1fA45JB0RVd2M=;
+        b=erQLi8o5Ygl9MgMq1SjxLqbjNOIYoR6z8vkDB1CZvzrzxC6yfPFaXawbeUI5N2JXsH
+         qrNXu81Resa38Pg8MF5OCJZEUbaYXroe4a82751NAgipBI7bvkZr3okzgXKU+xSal9IM
+         wzv2adbgCjBEAsR3yL9j2AuvyZYmGkd1YbIMWyIUTnkfoQsI10fYGpGkMQRnqNsoYUJp
+         jdDnl5cZMbn+5/AgIiPffMMXGKUoYcYsYFV3XwQPxGW9EZgWtAwkvKtPXRGJBmqBkjjn
+         xrkrWlDs4QkrzN4FkqDNULtZZD5q5XSMtAKFEqDaOnsP5FisfOPaLBfLY+K2dVXaS0No
+         CQnQ==
+X-Gm-Message-State: AOJu0YwDqczR0hrjCpj/LN4Vsp6XTkAoL3G3dxpfe5JNb5qf0kG9HMFy
+	lAXoD5MMZai7ALp2/g7t/pgXyswE4xw=
+X-Google-Smtp-Source: AGHT+IGYm//r9vLVsRhCBexYLsW+kyUM6dthNH5+IPZo7SQZB/dk4at291uiQmKPgon5iad9USRf5MgW9tA=
 X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
- (user=seanjc job=sendgmr) by 2002:a81:ae59:0:b0:59b:e669:c940 with SMTP id
- g25-20020a81ae59000000b0059be669c940mr41958ywk.5.1694656579341; Wed, 13 Sep
- 2023 18:56:19 -0700 (PDT)
-Date: Wed, 13 Sep 2023 18:55:20 -0700
+ (user=seanjc job=sendgmr) by 2002:a81:400c:0:b0:589:a855:7af with SMTP id
+ l12-20020a81400c000000b00589a85507afmr107415ywn.7.1694656573483; Wed, 13 Sep
+ 2023 18:56:13 -0700 (PDT)
+Date: Wed, 13 Sep 2023 18:55:17 -0700
 In-Reply-To: <20230914015531.1419405-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20230914015531.1419405-1-seanjc@google.com>
 X-Mailer: git-send-email 2.42.0.283.g2d96d420d3-goog
-Message-ID: <20230914015531.1419405-23-seanjc@google.com>
-Subject: [RFC PATCH v12 22/33] KVM: selftests: Drop unused kvm_userspace_memory_region_find()
- helper
+Message-ID: <20230914015531.1419405-20-seanjc@google.com>
+Subject: [RFC PATCH v12 19/33] KVM: Drop superfluous __KVM_VCPU_MULTIPLE_ADDRESS_SPACE
+ macro
 From: Sean Christopherson <seanjc@google.com>
 To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
 	Oliver Upton <oliver.upton@linux.dev>, Huacai Chen <chenhuacai@kernel.org>, 
@@ -92,8 +107,8 @@ Cc: kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	Liam Merwick <liam.merwick@oracle.com>, Isaku Yamahata <isaku.yamahata@gmail.com>, 
 	"Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230913_185621_778335_1606405E 
-X-CRM114-Status: UNSURE (   8.31  )
+X-CRM114-CacheID: sfid-20230914_025623_467118_87FB2A50 
+X-CRM114-Status: UNSURE (   9.83  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -112,72 +127,43 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Drop kvm_userspace_memory_region_find(), it's unused and a terrible API
-(probably why it's unused).  If anything outside of kvm_util.c needs to
-get at the memslot, userspace_mem_region_find() can be exposed to give
-others full access to all memory region/slot information.
+Drop __KVM_VCPU_MULTIPLE_ADDRESS_SPACE and instead check the value of
+KVM_ADDRESS_SPACE_NUM.
 
+No functional change intended.
+
+Reviewed-by: Paolo Bonzini <pbonzini@redhat.com>
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- .../selftests/kvm/include/kvm_util_base.h     |  4 ---
- tools/testing/selftests/kvm/lib/kvm_util.c    | 29 -------------------
- 2 files changed, 33 deletions(-)
+ arch/x86/include/asm/kvm_host.h | 1 -
+ include/linux/kvm_host.h        | 2 +-
+ 2 files changed, 1 insertion(+), 2 deletions(-)
 
-diff --git a/tools/testing/selftests/kvm/include/kvm_util_base.h b/tools/testing/selftests/kvm/include/kvm_util_base.h
-index a18db6a7b3cf..967eaaeacd75 100644
---- a/tools/testing/selftests/kvm/include/kvm_util_base.h
-+++ b/tools/testing/selftests/kvm/include/kvm_util_base.h
-@@ -776,10 +776,6 @@ vm_adjust_num_guest_pages(enum vm_guest_mode mode, unsigned int num_guest_pages)
- 	return n;
- }
+diff --git a/arch/x86/include/asm/kvm_host.h b/arch/x86/include/asm/kvm_host.h
+index 91a28ddf7cfd..78d641056ec5 100644
+--- a/arch/x86/include/asm/kvm_host.h
++++ b/arch/x86/include/asm/kvm_host.h
+@@ -2126,7 +2126,6 @@ enum {
+ #define HF_SMM_MASK		(1 << 1)
+ #define HF_SMM_INSIDE_NMI_MASK	(1 << 2)
  
--struct kvm_userspace_memory_region *
--kvm_userspace_memory_region_find(struct kvm_vm *vm, uint64_t start,
--				 uint64_t end);
--
- #define sync_global_to_guest(vm, g) ({				\
- 	typeof(g) *_p = addr_gva2hva(vm, (vm_vaddr_t)&(g));	\
- 	memcpy(_p, &(g), sizeof(g));				\
-diff --git a/tools/testing/selftests/kvm/lib/kvm_util.c b/tools/testing/selftests/kvm/lib/kvm_util.c
-index 7a8af1821f5d..f09295d56c23 100644
---- a/tools/testing/selftests/kvm/lib/kvm_util.c
-+++ b/tools/testing/selftests/kvm/lib/kvm_util.c
-@@ -590,35 +590,6 @@ userspace_mem_region_find(struct kvm_vm *vm, uint64_t start, uint64_t end)
- 	return NULL;
- }
+-# define __KVM_VCPU_MULTIPLE_ADDRESS_SPACE
+ # define KVM_ADDRESS_SPACE_NUM 2
+ # define kvm_arch_vcpu_memslots_id(vcpu) ((vcpu)->arch.hflags & HF_SMM_MASK ? 1 : 0)
+ # define kvm_memslots_for_spte_role(kvm, role) __kvm_memslots(kvm, (role).smm)
+diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
+index 18d8f02a99a3..aea1b4306129 100644
+--- a/include/linux/kvm_host.h
++++ b/include/linux/kvm_host.h
+@@ -692,7 +692,7 @@ bool kvm_arch_irqchip_in_kernel(struct kvm *kvm);
+ #define KVM_MEM_SLOTS_NUM SHRT_MAX
+ #define KVM_USER_MEM_SLOTS (KVM_MEM_SLOTS_NUM - KVM_INTERNAL_MEM_SLOTS)
  
--/*
-- * KVM Userspace Memory Region Find
-- *
-- * Input Args:
-- *   vm - Virtual Machine
-- *   start - Starting VM physical address
-- *   end - Ending VM physical address, inclusive.
-- *
-- * Output Args: None
-- *
-- * Return:
-- *   Pointer to overlapping region, NULL if no such region.
-- *
-- * Public interface to userspace_mem_region_find. Allows tests to look up
-- * the memslot datastructure for a given range of guest physical memory.
-- */
--struct kvm_userspace_memory_region *
--kvm_userspace_memory_region_find(struct kvm_vm *vm, uint64_t start,
--				 uint64_t end)
--{
--	struct userspace_mem_region *region;
--
--	region = userspace_mem_region_find(vm, start, end);
--	if (!region)
--		return NULL;
--
--	return &region->region;
--}
--
- __weak void vcpu_arch_free(struct kvm_vcpu *vcpu)
+-#ifndef __KVM_VCPU_MULTIPLE_ADDRESS_SPACE
++#if KVM_ADDRESS_SPACE_NUM == 1
+ static inline int kvm_arch_vcpu_memslots_id(struct kvm_vcpu *vcpu)
  {
- 
+ 	return 0;
 -- 
 2.42.0.283.g2d96d420d3-goog
 
