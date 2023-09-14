@@ -4,69 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 516B3EE0219
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 Sep 2023 01:59:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5061BEE0213
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 Sep 2023 02:00:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
 	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Kr7MBUVBurrMaehLMOM3yhPXjhSHbMcyW1IhT8PWiF4=; b=SsV77tEgRHEFA7
-	xLcf0ZUISElQ+odY5smQpTOZND2Es4vgmhLx71td1uuBs+vz8L3zrFQ2b6Oj8TFcSY/xQtJnSLdVL
-	XGbzQ64Hp9VqLSCTJ62dl5MGBnv8fCjGa9Rs5vQgHaJBca64v59Lxt4ghxq9goL6yjHX8wyc94Spf
-	VeqQF3KSmSZcW8fT9M/AX/l8YP5o1qQeKngAKRMpw2uggZp0w726Yhg3T8uEaysA/fiWVSXzoXo6G
-	lBmcncFwk7L1LEppTcLSJyuU3NWUaZ747pWel103+h0vb1eWC4L6l/dFsQJ/CDMzW51rBYlZiRkMA
-	VLpZHa471w41F3anvLNA==;
+	List-Owner; bh=vfoXhH/FUsoc66yJt5eFi9ZMsjBxs7GWKjyqt2+6XsA=; b=Cz8DOYVDbb17BG
+	k2s6VzTFQ2SC5tCv1dLAvxoS/4Wg1RglosjLTVHcc8DS9eF1vXJY728zrzm4UokyipnQ+n+EKcrkU
+	MYVCY/54ODyXI+VFBxYLJYmydYjb0cOBnF3gPZ9a7pU4akK+yk+KOShqCfhTbTv/O3MDeuRHj6kSC
+	RgexM9mH9LYRQu3kVXkcrvhqQNmgA248IUIIWj/9I1Gyze6pkaSCOtTmHOo5Fv8kpZEvweaeHEFJ8
+	5WaZ9SCUm8T8+d7H6sS01QBGb2L85uhLdDRA4A0XWWUGDIDhDnp5VhOLjRX5JdJvqF9xFK/vdI4DQ
+	yH0KWwVY7hp4h8r3DFqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgbe4-0076xd-1W;
-	Thu, 14 Sep 2023 01:59:52 +0000
-Received: from mail-pl1-x64a.google.com ([2607:f8b0:4864:20::64a])
+	id 1qgbe7-00770P-1A;
+	Thu, 14 Sep 2023 01:59:55 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgbat-0073eX-0y
+	id 1qgbb2-0073q1-1w
+	for linux-riscv@bombadil.infradead.org;
+	Thu, 14 Sep 2023 01:56:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
+	Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:Sender:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=6d59dJ9WRF4CIf/96OLgpi5904fNPKOKnB6AeL+fWuI=; b=byMUhJRdxlupho7h9KkGmcgfdV
+	Qz77mPpaU0UK+uPLBCkc2NQv59J+30j5CxJG8zh5QOIgfHdxk3XfDn29w3Q1zU9ivEVe5LPdoEy08
+	sXj7vHHqElYXSMh+ESo2yfWIzfkYDIE6kySDHCYG7FViCtXKiCk0+maGdNQPoAUJA/0vc0s/SGnUa
+	4hnWh+AHLJKkdVTDP2FucrPPPv0DELT+YyHOnzMFeexsE2xcXMXOhgbEMVfBLmOo4BTtIlPVFkPn6
+	wTejmz9WOqTUdafvYLy6tJT/EsJhNDpwPxRMobjIGUxrF56tGi0+2uoF+B4bBYMUCyndn9of/7YNw
+	gblurw7A==;
+Received: from mail-pl1-x64a.google.com ([2607:f8b0:4864:20::64a])
+	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1qgbau-007TiX-2O
 	for linux-riscv@lists.infradead.org;
-	Thu, 14 Sep 2023 01:56:39 +0000
-Received: by mail-pl1-x64a.google.com with SMTP id d9443c01a7336-1c0cfc2b995so3900315ad.2
-        for <linux-riscv@lists.infradead.org>; Wed, 13 Sep 2023 18:56:33 -0700 (PDT)
+	Thu, 14 Sep 2023 01:56:42 +0000
+Received: by mail-pl1-x64a.google.com with SMTP id d9443c01a7336-1c1fe87fc29so4092945ad.0
+        for <linux-riscv@lists.infradead.org>; Wed, 13 Sep 2023 18:56:37 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1694656592; x=1695261392; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1694656594; x=1695261394; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=Vjv0zC4RrtxbIkJLIAO5e3EhKuQZW28HjcF6ypERxIg=;
-        b=f2Q7KwVZcA7ARUZvEkLPxe8q0wQM3AF8wyQ3E1DQlUE1u0z9j3Ls8POieQSSwCpmQ+
-         /W0Zi11WsPtct6PwjrKgANcGbN77qE0SU1LS/uTmGEMtPp/0r4WFha5p//Quw/S1E6Ri
-         KrOv7Yl/fuNE0VMFh/uGuQ7o/yJ79bv0ajYhqdQy3Be69Jb3CsDjR048JKV+5FTrcuOB
-         dfT7pMGvpXKkZeUEdidq0D1yy2Dgu2nhueKyhLxTZh/sdVM0hDzGLVDnH5Kd5VtiZEa9
-         HXQyKG5Oq5R7mdfRQ604b2LNIJL60+x7pDxaPEYUgMOw5SnKHvqtWWpYWzT8SYD6gDzG
-         pjow==
+        bh=6d59dJ9WRF4CIf/96OLgpi5904fNPKOKnB6AeL+fWuI=;
+        b=oliZjvgQE1IxPz/ZxKAPvV4liJ6ZSH/UdmPHrvAYumGXmPEe1fTqXQdIoHb3ZniklO
+         WbcwkPn+RiHFSIaZCm5sgIVv3GlUS4ki8lMv/+4IQw6onFye8nbnTK55JI/JgptuLbIB
+         3LJkm9sID0RPVcGmxdCmwnrKqheP4D2HGaEzjfDsFfHycTFq6mUaWm/xfNJggxDhIFQ6
+         c7k4UINhSNoUcq0DPynHTHD3NprgWxK+L1UKMtuCAWy1X6HFcsuxjTJVW6KHwtLTnkLJ
+         ofpWPEnNKecEB3BZqQ7KGLObCmG+dPGwcO5035w1wR2J9jUJ9vIWY6X3iFh7AoCVhZVt
+         ftew==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1694656592; x=1695261392;
+        d=1e100.net; s=20230601; t=1694656594; x=1695261394;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=Vjv0zC4RrtxbIkJLIAO5e3EhKuQZW28HjcF6ypERxIg=;
-        b=PVN2RQbzJLILxF+tcZ/46Fn0xxbbYi/KP41T5fzSEcMaV480k6PJE7MT2gV8aKu2jh
-         bjroRs59Clr+0J6ibIa6dMAHKSEi7ZFjNZzMhAcy5zVytbB2n+dC4AdvrdG4PeBKq4fs
-         RV7GJkINHcyNtVMM1+C33VRVJyVkcye+j1qhR8hBxYHkVu1h9DNkXqJ15SPMd9bYv4Gc
-         lR/OAJENlC2qgaMPL6eaPHx0YF0ShmSuVrEa3uf6kdrQGNXYuTwsOEao1uGGQJTEgCS1
-         EwBazb3qVaj5Du5O9RC1tk0PX8WE1IIPrPkU1LDb6zhtojCvU2b/c2QjS7k5jEgkTBXb
-         ctLg==
-X-Gm-Message-State: AOJu0YyQfTBIsG2RXA0JmD8cwwpUL2Ohi+udvLitAoMHLIeS9gX0IpNR
-	9Z3mbNBD8hPNZCoLiQhQQk29ldtO3YA=
-X-Google-Smtp-Source: AGHT+IH29SvaM4IJ2/NXJnaPAeFMS+fjtgLQL7Rq48UqpO83PYLOZng2qV6FMiS0c4sL4jzOiYmTHdNxdV0=
+        bh=6d59dJ9WRF4CIf/96OLgpi5904fNPKOKnB6AeL+fWuI=;
+        b=F5RhGHcqRmkpUC/fGrZm17QF/I3mh7HrEMgyQFNUHL5Q2Ewbp7JRhRxotQvU0n7g7s
+         wkeA6ukbAREj2QxALMuE4HC919h34A3WxD+hD5+/uh+uIower+KdEONC2PD0WdnXAfuX
+         2zRIcAVFHd9oDcrNAjq4SG8GBweFGALTWau7W7WXrC6D8qDKUJzKFJL+C5/hX6q8IOcH
+         G2EEeljZX/SYtxm1c1/D9fIGwFwNxOyLJdLRfHDQlq8b6UfyBcOv1hdjjPWIrMl44jds
+         Pw7KYC6xPtO0Gholh0mKdFPjVuBgLiNJRFZIah9uEs+P2Dbx6jFWYkKJZVkRvHqQ5N9o
+         3dyg==
+X-Gm-Message-State: AOJu0YzoDzXeZW3ca5Zab32sJYvubXsQKMzkyweydD8T0P2CUy1s4nre
+	+xuIEGajQ0Z1YhP4Iwx8uFfQu4q4Yx4=
+X-Google-Smtp-Source: AGHT+IFzfhVkixKoPQtGcLMCaK6G8PArrix4K5c3tLhejBjfYUO+G8+9tOF2VAFi/BYmIBrSELG28dy7Zc8=
 X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
- (user=seanjc job=sendgmr) by 2002:a17:902:e551:b0:1c3:a4f2:7c85 with SMTP id
- n17-20020a170902e55100b001c3a4f27c85mr212223plf.6.1694656591946; Wed, 13 Sep
- 2023 18:56:31 -0700 (PDT)
-Date: Wed, 13 Sep 2023 18:55:26 -0700
+ (user=seanjc job=sendgmr) by 2002:a17:902:c701:b0:1bf:4e9d:8fc9 with SMTP id
+ p1-20020a170902c70100b001bf4e9d8fc9mr148367plp.11.1694656593996; Wed, 13 Sep
+ 2023 18:56:33 -0700 (PDT)
+Date: Wed, 13 Sep 2023 18:55:27 -0700
 In-Reply-To: <20230914015531.1419405-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20230914015531.1419405-1-seanjc@google.com>
 X-Mailer: git-send-email 2.42.0.283.g2d96d420d3-goog
-Message-ID: <20230914015531.1419405-29-seanjc@google.com>
-Subject: [RFC PATCH v12 28/33] KVM: selftests: Add GUEST_SYNC[1-6] macros for
- synchronizing more data
+Message-ID: <20230914015531.1419405-30-seanjc@google.com>
+Subject: [RFC PATCH v12 29/33] KVM: selftests: Add x86-only selftest for
+ private memory conversions
 From: Sean Christopherson <seanjc@google.com>
 To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
 	Oliver Upton <oliver.upton@linux.dev>, Huacai Chen <chenhuacai@kernel.org>, 
@@ -92,9 +107,8 @@ Cc: kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	Liam Merwick <liam.merwick@oracle.com>, Isaku Yamahata <isaku.yamahata@gmail.com>, 
 	"Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230913_185635_453227_585A12EB 
-X-CRM114-Status: UNSURE (   7.31  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230914_025638_428853_9E09B218 
+X-CRM114-Status: GOOD (  27.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,37 +126,465 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add GUEST_SYNC[1-6]() so that tests can pass the maximum amount of
-information supported via ucall(), without needing to resort to shared
-memory.
+From: Vishal Annapurve <vannapurve@google.com>
 
+Add a selftest to exercise implicit/explicit conversion functionality
+within KVM and verify:
+
+ - Shared memory is visible to host userspace
+ - Private memory is not visible to host userspace
+ - Host userspace and guest can communicate over shared memory
+ - Data in shared backing is preserved across conversions (test's
+   host userspace doesn't free the data)
+ - Private memory is bound to the lifetime of the VM
+
+Ideally, KVM's selftests infrastructure would be reworked to allow backing
+a single region of guest memory with multiple memslots for _all_ backing
+types and shapes, i.e. ideally the code for using a single backing fd
+across multiple memslots would work for "regular" memory as well.  But
+sadly, support for KVM_CREATE_GUEST_MEMFD has languished for far too long,
+and overhauling selftests' memslots infrastructure would likely open a can
+of worms, i.e. delay things even further.
+
+Signed-off-by: Vishal Annapurve <vannapurve@google.com>
+Co-developed-by: Ackerley Tng <ackerleytng@google.com>
+Signed-off-by: Ackerley Tng <ackerleytng@google.com>
+Co-developed-by: Sean Christopherson <seanjc@google.com>
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- tools/testing/selftests/kvm/include/ucall_common.h | 11 +++++++++++
- 1 file changed, 11 insertions(+)
+ tools/testing/selftests/kvm/Makefile          |   1 +
+ .../kvm/x86_64/private_mem_conversions_test.c | 410 ++++++++++++++++++
+ 2 files changed, 411 insertions(+)
+ create mode 100644 tools/testing/selftests/kvm/x86_64/private_mem_conversions_test.c
 
-diff --git a/tools/testing/selftests/kvm/include/ucall_common.h b/tools/testing/selftests/kvm/include/ucall_common.h
-index 112bc1da732a..7cf40aba7add 100644
---- a/tools/testing/selftests/kvm/include/ucall_common.h
-+++ b/tools/testing/selftests/kvm/include/ucall_common.h
-@@ -54,6 +54,17 @@ int ucall_nr_pages_required(uint64_t page_size);
- #define GUEST_SYNC_ARGS(stage, arg1, arg2, arg3, arg4)	\
- 				ucall(UCALL_SYNC, 6, "hello", stage, arg1, arg2, arg3, arg4)
- #define GUEST_SYNC(stage)	ucall(UCALL_SYNC, 2, "hello", stage)
-+#define GUEST_SYNC1(arg0)	ucall(UCALL_SYNC, 1, arg0)
-+#define GUEST_SYNC2(arg0, arg1)	ucall(UCALL_SYNC, 2, arg0, arg1)
-+#define GUEST_SYNC3(arg0, arg1, arg2) \
-+				ucall(UCALL_SYNC, 3, arg0, arg1, arg2)
-+#define GUEST_SYNC4(arg0, arg1, arg2, arg3) \
-+				ucall(UCALL_SYNC, 4, arg0, arg1, arg2, arg3)
-+#define GUEST_SYNC5(arg0, arg1, arg2, arg3, arg4) \
-+				ucall(UCALL_SYNC, 5, arg0, arg1, arg2, arg3, arg4)
-+#define GUEST_SYNC6(arg0, arg1, arg2, arg3, arg4, arg5) \
-+				ucall(UCALL_SYNC, 6, arg0, arg1, arg2, arg3, arg4, arg5)
+diff --git a/tools/testing/selftests/kvm/Makefile b/tools/testing/selftests/kvm/Makefile
+index a3bb36fb3cfc..b709a52d5cdb 100644
+--- a/tools/testing/selftests/kvm/Makefile
++++ b/tools/testing/selftests/kvm/Makefile
+@@ -81,6 +81,7 @@ TEST_GEN_PROGS_x86_64 += x86_64/monitor_mwait_test
+ TEST_GEN_PROGS_x86_64 += x86_64/nested_exceptions_test
+ TEST_GEN_PROGS_x86_64 += x86_64/platform_info_test
+ TEST_GEN_PROGS_x86_64 += x86_64/pmu_event_filter_test
++TEST_GEN_PROGS_x86_64 += x86_64/private_mem_conversions_test
+ TEST_GEN_PROGS_x86_64 += x86_64/set_boot_cpu_id
+ TEST_GEN_PROGS_x86_64 += x86_64/set_sregs_test
+ TEST_GEN_PROGS_x86_64 += x86_64/smaller_maxphyaddr_emulation_test
+diff --git a/tools/testing/selftests/kvm/x86_64/private_mem_conversions_test.c b/tools/testing/selftests/kvm/x86_64/private_mem_conversions_test.c
+new file mode 100644
+index 000000000000..50541246d6fd
+--- /dev/null
++++ b/tools/testing/selftests/kvm/x86_64/private_mem_conversions_test.c
+@@ -0,0 +1,410 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Copyright (C) 2022, Google LLC.
++ */
++#define _GNU_SOURCE /* for program_invocation_short_name */
++#include <fcntl.h>
++#include <limits.h>
++#include <pthread.h>
++#include <sched.h>
++#include <signal.h>
++#include <stdio.h>
++#include <stdlib.h>
++#include <string.h>
++#include <sys/ioctl.h>
 +
- #define GUEST_PRINTF(_fmt, _args...) ucall_fmt(UCALL_PRINTF, _fmt, ##_args)
- #define GUEST_DONE()		ucall(UCALL_DONE, 0)
- 
++#include <linux/compiler.h>
++#include <linux/kernel.h>
++#include <linux/kvm_para.h>
++#include <linux/memfd.h>
++#include <linux/sizes.h>
++
++#include <test_util.h>
++#include <kvm_util.h>
++#include <processor.h>
++
++#define BASE_DATA_SLOT		10
++#define BASE_DATA_GPA		((uint64_t)(1ull << 32))
++#define PER_CPU_DATA_SIZE	((uint64_t)(SZ_2M + PAGE_SIZE))
++
++/* Horrific macro so that the line info is captured accurately :-( */
++#define memcmp_g(gpa, pattern,  size)							\
++do {											\
++	uint8_t *mem = (uint8_t *)gpa;							\
++	size_t i;									\
++											\
++	for (i = 0; i < size; i++)							\
++		__GUEST_ASSERT(mem[i] == pattern,					\
++			       "Expected 0x%x at offset %lu (gpa 0x%llx), got 0x%x",	\
++			       pattern, i, gpa + i, mem[i]);				\
++} while (0)
++
++static void memcmp_h(uint8_t *mem, uint8_t pattern, size_t size)
++{
++	size_t i;
++
++	for (i = 0; i < size; i++)
++		TEST_ASSERT(mem[i] == pattern,
++			    "Expected 0x%x at offset %lu, got 0x%x",
++			    pattern, i, mem[i]);
++}
++
++/*
++ * Run memory conversion tests with explicit conversion:
++ * Execute KVM hypercall to map/unmap gpa range which will cause userspace exit
++ * to back/unback private memory. Subsequent accesses by guest to the gpa range
++ * will not cause exit to userspace.
++ *
++ * Test memory conversion scenarios with following steps:
++ * 1) Access private memory using private access and verify that memory contents
++ *   are not visible to userspace.
++ * 2) Convert memory to shared using explicit conversions and ensure that
++ *   userspace is able to access the shared regions.
++ * 3) Convert memory back to private using explicit conversions and ensure that
++ *   userspace is again not able to access converted private regions.
++ */
++
++#define GUEST_STAGE(o, s) { .offset = o, .size = s }
++
++enum ucall_syncs {
++	SYNC_SHARED,
++	SYNC_PRIVATE,
++};
++
++static void guest_sync_shared(uint64_t gpa, uint64_t size,
++			      uint8_t current_pattern, uint8_t new_pattern)
++{
++	GUEST_SYNC5(SYNC_SHARED, gpa, size, current_pattern, new_pattern);
++}
++
++static void guest_sync_private(uint64_t gpa, uint64_t size, uint8_t pattern)
++{
++	GUEST_SYNC4(SYNC_PRIVATE, gpa, size, pattern);
++}
++
++/* Arbitrary values, KVM doesn't care about the attribute flags. */
++#define MAP_GPA_SHARED		BIT(0)
++#define MAP_GPA_DO_FALLOCATE	BIT(1)
++
++static void guest_map_mem(uint64_t gpa, uint64_t size, bool map_shared,
++			  bool do_fallocate)
++{
++	uint64_t flags = 0;
++
++	if (map_shared)
++		flags |= MAP_GPA_SHARED;
++	if (do_fallocate)
++		flags |= MAP_GPA_DO_FALLOCATE;
++	kvm_hypercall_map_gpa_range(gpa, size, flags);
++}
++
++static void guest_map_shared(uint64_t gpa, uint64_t size, bool do_fallocate)
++{
++	guest_map_mem(gpa, size, true, do_fallocate);
++}
++
++static void guest_map_private(uint64_t gpa, uint64_t size, bool do_fallocate)
++{
++	guest_map_mem(gpa, size, false, do_fallocate);
++}
++
++static void guest_run_test(uint64_t base_gpa, bool do_fallocate)
++{
++	struct {
++		uint64_t offset;
++		uint64_t size;
++		uint8_t pattern;
++	} stages[] = {
++		GUEST_STAGE(0, PAGE_SIZE),
++		GUEST_STAGE(0, SZ_2M),
++		GUEST_STAGE(PAGE_SIZE, PAGE_SIZE),
++		GUEST_STAGE(PAGE_SIZE, SZ_2M),
++		GUEST_STAGE(SZ_2M, PAGE_SIZE),
++	};
++	const uint8_t init_p = 0xcc;
++	uint64_t j;
++	int i;
++
++	/* Memory should be shared by default. */
++	memset((void *)base_gpa, ~init_p, PER_CPU_DATA_SIZE);
++	guest_sync_shared(base_gpa, PER_CPU_DATA_SIZE, (uint8_t)~init_p, init_p);
++	memcmp_g(base_gpa, init_p, PER_CPU_DATA_SIZE);
++
++	for (i = 0; i < ARRAY_SIZE(stages); i++) {
++		uint64_t gpa = base_gpa + stages[i].offset;
++		uint64_t size = stages[i].size;
++		uint8_t p1 = 0x11;
++		uint8_t p2 = 0x22;
++		uint8_t p3 = 0x33;
++		uint8_t p4 = 0x44;
++
++		/*
++		 * Set the test region to pattern one to differentiate it from
++		 * the data range as a whole (contains the initial pattern).
++		 */
++		memset((void *)gpa, p1, size);
++
++		/*
++		 * Convert to private, set and verify the private data, and
++		 * then verify that the rest of the data (map shared) still
++		 * holds the initial pattern, and that the host always sees the
++		 * shared memory (initial pattern).  Unlike shared memory,
++		 * punching a hole in private memory is destructive, i.e.
++		 * previous values aren't guaranteed to be preserved.
++		 */
++		guest_map_private(gpa, size, do_fallocate);
++
++		if (size > PAGE_SIZE) {
++			memset((void *)gpa, p2, PAGE_SIZE);
++			goto skip;
++		}
++
++		memset((void *)gpa, p2, size);
++		guest_sync_private(gpa, size, p1);
++
++		/*
++		 * Verify that the private memory was set to pattern two, and
++		 * that shared memory still holds the initial pattern.
++		 */
++		memcmp_g(gpa, p2, size);
++		if (gpa > base_gpa)
++			memcmp_g(base_gpa, init_p, gpa - base_gpa);
++		if (gpa + size < base_gpa + PER_CPU_DATA_SIZE)
++			memcmp_g(gpa + size, init_p,
++				 (base_gpa + PER_CPU_DATA_SIZE) - (gpa + size));
++
++		/*
++		 * Convert odd-number page frames back to shared to verify KVM
++		 * also correctly handles holes in private ranges.
++		 */
++		for (j = 0; j < size; j += PAGE_SIZE) {
++			if ((j >> PAGE_SHIFT) & 1) {
++				guest_map_shared(gpa + j, PAGE_SIZE, do_fallocate);
++				guest_sync_shared(gpa + j, PAGE_SIZE, p1, p3);
++
++				memcmp_g(gpa + j, p3, PAGE_SIZE);
++			} else {
++				guest_sync_private(gpa + j, PAGE_SIZE, p1);
++			}
++		}
++
++skip:
++		/*
++		 * Convert the entire region back to shared, explicitly write
++		 * pattern three to fill in the even-number frames before
++		 * asking the host to verify (and write pattern four).
++		 */
++		guest_map_shared(gpa, size, do_fallocate);
++		memset((void *)gpa, p3, size);
++		guest_sync_shared(gpa, size, p3, p4);
++		memcmp_g(gpa, p4, size);
++
++		/* Reset the shared memory back to the initial pattern. */
++		memset((void *)gpa, init_p, size);
++
++		/*
++		 * Free (via PUNCH_HOLE) *all* private memory so that the next
++		 * iteration starts from a clean slate, e.g. with respect to
++		 * whether or not there are pages/folios in guest_mem.
++		 */
++		guest_map_shared(base_gpa, PER_CPU_DATA_SIZE, true);
++	}
++}
++
++static void guest_code(uint64_t base_gpa)
++{
++	/*
++	 * Run everything twice, with and without doing fallocate() on the
++	 * guest_memfd backing when converting between shared and private.
++	 */
++	guest_run_test(base_gpa, false);
++	guest_run_test(base_gpa, true);
++	GUEST_DONE();
++}
++
++static void handle_exit_hypercall(struct kvm_vcpu *vcpu)
++{
++	struct kvm_run *run = vcpu->run;
++	uint64_t gpa = run->hypercall.args[0];
++	uint64_t size = run->hypercall.args[1] * PAGE_SIZE;
++	bool map_shared = run->hypercall.args[2] & MAP_GPA_SHARED;
++	bool do_fallocate = run->hypercall.args[2] & MAP_GPA_DO_FALLOCATE;
++	struct kvm_vm *vm = vcpu->vm;
++
++	TEST_ASSERT(run->hypercall.nr == KVM_HC_MAP_GPA_RANGE,
++		    "Wanted MAP_GPA_RANGE (%u), got '%llu'",
++		    KVM_HC_MAP_GPA_RANGE, run->hypercall.nr);
++
++	if (do_fallocate)
++		vm_guest_mem_fallocate(vm, gpa, size, map_shared);
++
++	vm_set_memory_attributes(vm, gpa, size,
++				 map_shared ? 0 : KVM_MEMORY_ATTRIBUTE_PRIVATE);
++	run->hypercall.ret = 0;
++}
++
++static bool run_vcpus;
++
++static void *__test_mem_conversions(void *__vcpu)
++{
++	struct kvm_vcpu *vcpu = __vcpu;
++	struct kvm_run *run = vcpu->run;
++	struct kvm_vm *vm = vcpu->vm;
++	struct ucall uc;
++
++	while (!READ_ONCE(run_vcpus))
++		;
++
++	for ( ;; ) {
++		vcpu_run(vcpu);
++
++		if (run->exit_reason == KVM_EXIT_HYPERCALL) {
++			handle_exit_hypercall(vcpu);
++			continue;
++		}
++
++		TEST_ASSERT(run->exit_reason == KVM_EXIT_IO,
++			    "Wanted KVM_EXIT_IO, got exit reason: %u (%s)",
++			    run->exit_reason, exit_reason_str(run->exit_reason));
++
++		switch (get_ucall(vcpu, &uc)) {
++		case UCALL_ABORT:
++			REPORT_GUEST_ASSERT(uc);
++		case UCALL_SYNC: {
++			uint8_t *hva = addr_gpa2hva(vm, uc.args[1]);
++			uint64_t size = uc.args[2];
++
++			TEST_ASSERT(uc.args[0] == SYNC_SHARED ||
++				    uc.args[0] == SYNC_PRIVATE,
++				    "Unknown sync command '%ld'", uc.args[0]);
++
++			/* In all cases, the host should observe the shared data. */
++			memcmp_h(hva, uc.args[3], size);
++
++			/* For shared, write the new pattern to guest memory. */
++			if (uc.args[0] == SYNC_SHARED)
++				memset(hva, uc.args[4], size);
++			break;
++		}
++		case UCALL_DONE:
++			return NULL;
++		default:
++			TEST_FAIL("Unknown ucall 0x%lx.", uc.cmd);
++		}
++	}
++}
++
++static void test_mem_conversions(enum vm_mem_backing_src_type src_type, uint32_t nr_vcpus,
++				 uint32_t nr_memslots)
++{
++	/*
++	 * Allocate enough memory so that each vCPU's chunk of memory can be
++	 * naturally aligned with respect to the size of the backing store.
++	 */
++	const size_t size = align_up(PER_CPU_DATA_SIZE, get_backing_src_pagesz(src_type));
++	const size_t memfd_size = size * nr_vcpus;
++	struct kvm_vcpu *vcpus[KVM_MAX_VCPUS];
++	pthread_t threads[KVM_MAX_VCPUS];
++	uint64_t gmem_flags;
++	struct kvm_vm *vm;
++	int memfd, i, r;
++
++	const struct vm_shape shape = {
++		.mode = VM_MODE_DEFAULT,
++		.type = KVM_X86_SW_PROTECTED_VM,
++	};
++
++	vm = __vm_create_with_vcpus(shape, nr_vcpus, 0, guest_code, vcpus);
++
++	vm_enable_cap(vm, KVM_CAP_EXIT_HYPERCALL, (1 << KVM_HC_MAP_GPA_RANGE));
++
++	if (backing_src_can_be_huge(src_type))
++		gmem_flags = KVM_GUEST_MEMFD_ALLOW_HUGEPAGE;
++	else
++		gmem_flags = 0;
++	memfd = vm_create_guest_memfd(vm, memfd_size, gmem_flags);
++
++	for (i = 0; i < nr_memslots; i++)
++		vm_mem_add(vm, src_type, BASE_DATA_GPA + size * i,
++			   BASE_DATA_SLOT + i, size / vm->page_size,
++			   KVM_MEM_PRIVATE, memfd, size * i);
++
++	for (i = 0; i < nr_vcpus; i++) {
++		uint64_t gpa =  BASE_DATA_GPA + i * size;
++
++		vcpu_args_set(vcpus[i], 1, gpa);
++
++		virt_map(vm, gpa, gpa, size / vm->page_size);
++
++		pthread_create(&threads[i], NULL, __test_mem_conversions, vcpus[i]);
++	}
++
++	WRITE_ONCE(run_vcpus, true);
++
++	for (i = 0; i < nr_vcpus; i++)
++		pthread_join(threads[i], NULL);
++
++	kvm_vm_free(vm);
++
++	/*
++	 * Allocate and free memory from the guest_memfd after closing the VM
++	 * fd.  The guest_memfd is gifted a reference to its owning VM, i.e.
++	 * should prevent the VM from being fully destroyed until the last
++	 * reference to the guest_memfd is also put.
++	 */
++	r = fallocate(memfd, FALLOC_FL_KEEP_SIZE | FALLOC_FL_PUNCH_HOLE, 0, memfd_size);
++	TEST_ASSERT(!r, __KVM_SYSCALL_ERROR("fallocate()", r));
++
++	r = fallocate(memfd, FALLOC_FL_KEEP_SIZE, 0, memfd_size);
++	TEST_ASSERT(!r, __KVM_SYSCALL_ERROR("fallocate()", r));
++}
++
++static void usage(const char *cmd)
++{
++	puts("");
++	printf("usage: %s [-h] [-m] [-s mem_type] [-n nr_vcpus]\n", cmd);
++	puts("");
++	backing_src_help("-s");
++	puts("");
++	puts(" -n: specify the number of vcpus (default: 1)");
++	puts("");
++	puts(" -m: use multiple memslots (default: 1)");
++	puts("");
++}
++
++int main(int argc, char *argv[])
++{
++	enum vm_mem_backing_src_type src_type = DEFAULT_VM_MEM_SRC;
++	bool use_multiple_memslots = false;
++	uint32_t nr_vcpus = 1;
++	uint32_t nr_memslots;
++	int opt;
++
++	TEST_REQUIRE(kvm_has_cap(KVM_CAP_GUEST_MEMFD));
++	TEST_REQUIRE(kvm_has_cap(KVM_CAP_EXIT_HYPERCALL));
++	TEST_REQUIRE(kvm_check_cap(KVM_CAP_VM_TYPES) & BIT(KVM_X86_SW_PROTECTED_VM));
++
++	while ((opt = getopt(argc, argv, "hms:n:")) != -1) {
++		switch (opt) {
++		case 's':
++			src_type = parse_backing_src_type(optarg);
++			break;
++		case 'n':
++			nr_vcpus = atoi_positive("nr_vcpus", optarg);
++			break;
++		case 'm':
++			use_multiple_memslots = true;
++			break;
++		case 'h':
++		default:
++			usage(argv[0]);
++			exit(0);
++		}
++	}
++
++	nr_memslots = use_multiple_memslots ? nr_vcpus : 1;
++
++	test_mem_conversions(src_type, nr_vcpus, nr_memslots);
++
++	return 0;
++}
 -- 
 2.42.0.283.g2d96d420d3-goog
 
