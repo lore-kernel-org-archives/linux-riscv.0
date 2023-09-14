@@ -4,68 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C1CDEE021D
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 Sep 2023 01:56:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9944AEE0212
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 Sep 2023 01:56:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
 	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5U3Ms7yhXhANULRIPBf8X0+edAjIx6puw0TyWebQnDE=; b=2o5ToCFDwBjb1/
-	h8g+GDWjjncyQuvuNWHEHmKtS3OnoZ2M8VM7aiaUZktP7CB64ylipQdk9/5M8419epyA5njD4d5uC
-	NqC6Gh5JL2j+zj9HJgN3IBqJ6sIsgPMbKUszmCaj+FkSosmj2ZoYeO9hu4MUp48TUZ/qf6Bn8b3ir
-	o2p14HjO7PhwqOtRs1n/61N8bVary/67BZ8Psgu6D5W1h5HRDxDboH06KYDUB5WqdMHgOJp/NtKAI
-	DfgGMpkmA9jNBXRPBoN1yE79q06b4wH68FH9bSEpCFjMHrm/rDvA95CtFa04XN/9TD/gziG/MQpKE
-	MFqlwqogNE3W5En1jz8w==;
+	List-Owner; bh=nyAOe1Di9IYnhKsRwsOXbn0yJ464AdElBMmZGmPqLA4=; b=AXQag15RQe+BpM
+	Xb/zJSOgi2IEMEmIIEbiwwyLgpFQAqAXfPjhMuB4er3ucMyFkxc9kcF1CmruTvC/olBuhtZTeZO93
+	biHDBnmU5+TQe1PZcpFtuEs4Ie/6k8olYI0UbVn9QCTVHw74rLhNGL+bUzP+iKhHczI/zgmxb+Wuf
+	dAAr9JuYlH1vUJmrbsWhiHy0oT1bplmDzAacFJneZ+D37ksSJnlob2klSPf4ZekmM920cNPLVDJOf
+	IZhio0fUOqftXoSNzOhzVCkTAKcIb94ZfayMVFc2oPjvddj+Sano2Jhic/hQBaFteTPAmIIqDiILO
+	TDPT2/i47RflBu5yhfww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgbaf-0073Q8-2c;
-	Thu, 14 Sep 2023 01:56:21 +0000
-Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
+	id 1qgbbB-00740J-36;
+	Thu, 14 Sep 2023 01:56:53 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgba6-0072mu-3A
+	id 1qgbaI-00730L-0J
+	for linux-riscv@bombadil.infradead.org;
+	Thu, 14 Sep 2023 01:55:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
+	Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:Sender:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=5olfKKfAgOBEIWorNeGA6oMvbpwHV/k+KeYKQRUdq04=; b=BQjQquKbzkaeLXa4Vl1JVWXPeL
+	vxedDalA0XrpkhRm5zSBUA2xSZgAs348Fer4+bzn7gr/S7mc5qO1mDo75YPLEXsiu/+PR15Q7TmIA
+	zHL6Wyr+jVE7CfgQfj6WxoJGzR7a2lUJYbjKWLrSf1x4OsZWqjBQENdCg3rTre8GR8D1/97ne4nju
+	8Z1rgDoOYwm5rPEIMQVo9n+LsGXTwL13QZPoSS4qp3vldwuGitmX9cTUM4Vy6qs5paEsIHw2HdV4R
+	DcxJL9szax5ZnPBQrgMKLcJqQodKEWP/HO18ry9+TYmcVpXOaYhVZ00M14bXA33qC2wtd9t26f4mC
+	P9SZv8og==;
+Received: from mail-yb1-xb49.google.com ([2607:f8b0:4864:20::b49])
+	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1qgba9-007TUI-1F
 	for linux-riscv@lists.infradead.org;
-	Thu, 14 Sep 2023 01:55:53 +0000
-Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-1c0c3ccd3d6so3996275ad.1
+	Thu, 14 Sep 2023 01:55:56 +0000
+Received: by mail-yb1-xb49.google.com with SMTP id 3f1490d57ef6-d7e8e12df78so539516276.3
         for <linux-riscv@lists.infradead.org>; Wed, 13 Sep 2023 18:55:46 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1694656545; x=1695261345; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1694656544; x=1695261344; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=oEzTBc+DjRhLKf7NebwS7BLBkXRA7c8m0o570Q7bCVE=;
-        b=uSV4BvsjjSnVNcM9krpERDF2HCbHaMWiDTUkDkQMzD7pSma6uYvTSZQPn8BidDISAR
-         sfshv/24cJwl7rFBG14NuYePwlgJy68Z++iwt/sgOiPh6lpBTTcdbWy+it3vaOpfLP7b
-         M351twzM6OVKqxPxjxyt6vbqsZvksW1XEjh4D6pM5QG+FMwRen0OBHohlut4qgLVRA3t
-         fz6AxLWe6UhuqKcQ3lKFJm+7KOTNClYJM0sW7XADhOW+IHDsFwY1O1dRJfLwp4TQH4au
-         WE6qQex11S42vpia3jyWol7Xjckz3DFcz2/mkG6wcYeaB2GFba+A6o2B5Zyg2++MnW4+
-         2hIA==
+        bh=5olfKKfAgOBEIWorNeGA6oMvbpwHV/k+KeYKQRUdq04=;
+        b=xGgPdrApNNsYcbj3CG+T6beOVHOS8VkhZhCErrKC8Pv31bcB6pnu8sgWznYKJ4V31T
+         KxpAULCIJZCWYds4kS4gnbOBGu1cTWSsumdg8sySCIIL0gA8IxV26Fdlf4GFwGt4ft94
+         V/lN7jfmMHmXUxNpqYXsMqy/27P798mZN3KNPWoyyBlUidRx/8+jvag2kfX5mb4bPTU3
+         xWTqptQs0t7ew1fPk53Jhw8DM4eNcXpZtrGbdPkEdkXbJIcyX2A2qUtuFOxkN3LfRkDA
+         ToLfOhHU3mRqcxOzLJ/6FzgXxQ+70nJ5N+yrUyKNMr2F5e0Pi2AebaSxfu6qph5toeoX
+         Zg4g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1694656545; x=1695261345;
+        d=1e100.net; s=20230601; t=1694656544; x=1695261344;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=oEzTBc+DjRhLKf7NebwS7BLBkXRA7c8m0o570Q7bCVE=;
-        b=PIMOC9PcVMBgO60YFqzZunq08b56z5FAr1IaV8VnlSbRy+RKiW/WmeaCU6whtWaWgZ
-         u0576mL5ykpgQILHv9YoBUX36zjmLQohyUndw9AZplVjFlMbl+7PC6wy8C6y8x+2purm
-         7kVZQ1620XzH3Ws+0QNGLb/ShIe8qoLYEdb4utoMNoRz/K1OfpjWENfSGZw27sPtfolS
-         1jvqA6S7iPwC1rkMmsjCrm6LpDdeXm+FyFa1J0AiSpeiEVi2Tg+G1p6I+o0gzORVkM3c
-         8tayLNe6IkRZ9HF14q0KdMd+qaBTraH5W/dBZ1jjjmCQiWaWYHjTjvvWRIj5uTRm1qL1
-         xTAg==
-X-Gm-Message-State: AOJu0Yzp4bqDiwnyodSybK0l9U3mKR43Hglt3IG8Bm8OGmu/8Ax6MTlV
-	/+2/cKF7NKSYJa0oN8eblXEjo368uwM=
-X-Google-Smtp-Source: AGHT+IHntm7+Cf6jIX24jK1AXJaXRvd807TiTvEX0TOOWnFxE7V55dOmRO8z+0ko8RJbayizJ7xaJWYuYwQ=
+        bh=5olfKKfAgOBEIWorNeGA6oMvbpwHV/k+KeYKQRUdq04=;
+        b=niU+AB479GmMsHepcecSRwp4kdelDHEp//R/EESEwo+dm6He7M5h7j0GrMzerfHgwo
+         D9KgBwFIjoizzNsIiaMsYxH+qzLZQHa4GJtVkw80woXOr5//bFqztTxxzYJKNiUf6DOn
+         GBcjzsxh4SgZO/HQ9RT+5b9JUspSIzpAwFa2g9lBxdQWmp4eNgUTMNpmMll3VIWncDst
+         sKHXCYuN2xbKR+PtodkvVKGIn3zQOSUHpRMwAH43CyPuLV0TyXQLIcM3B8t0AiruUMV5
+         Rl4VQ2lAjcqrIBOFDoKhjavZVdEZey8NZiZakP2HOHedT9vj2Csvt9OQu7GehnMQjy2N
+         G1VA==
+X-Gm-Message-State: AOJu0YxF0qlNo5YPWOyCd+zueXKRohkbj+Equvixfe/I5yf2p4YJrSiu
+	kTCL4QZeA2aY0qH8udlxeBSTRPsm9x0=
+X-Google-Smtp-Source: AGHT+IFAWDIKY3pID0CrDZgtjj2bXptPteu0k42w51y6Ps+oH46knUj2OnzhEQTEbd0IbAu5MzXei5K4JBI=
 X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
- (user=seanjc job=sendgmr) by 2002:a17:902:c701:b0:1bf:4e9d:8fc9 with SMTP id
- p1-20020a170902c70100b001bf4e9d8fc9mr148342plp.11.1694656545655; Wed, 13 Sep
- 2023 18:55:45 -0700 (PDT)
-Date: Wed, 13 Sep 2023 18:55:03 -0700
+ (user=seanjc job=sendgmr) by 2002:a05:6902:684:b0:d81:8e4d:b681 with SMTP id
+ i4-20020a056902068400b00d818e4db681mr15248ybt.12.1694656543919; Wed, 13 Sep
+ 2023 18:55:43 -0700 (PDT)
+Date: Wed, 13 Sep 2023 18:55:02 -0700
 In-Reply-To: <20230914015531.1419405-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20230914015531.1419405-1-seanjc@google.com>
 X-Mailer: git-send-email 2.42.0.283.g2d96d420d3-goog
-Message-ID: <20230914015531.1419405-6-seanjc@google.com>
-Subject: [RFC PATCH v12 05/33] KVM: Convert KVM_ARCH_WANT_MMU_NOTIFIER to CONFIG_KVM_GENERIC_MMU_NOTIFIER
+Message-ID: <20230914015531.1419405-5-seanjc@google.com>
+Subject: [RFC PATCH v12 04/33] KVM: PPC: Return '1' unconditionally for KVM_CAP_SYNC_MMU
 From: Sean Christopherson <seanjc@google.com>
 To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
 	Oliver Upton <oliver.upton@linux.dev>, Huacai Chen <chenhuacai@kernel.org>, 
@@ -91,8 +106,9 @@ Cc: kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	Liam Merwick <liam.merwick@oracle.com>, Isaku Yamahata <isaku.yamahata@gmail.com>, 
 	"Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230913_185547_125046_81B2223C 
-X-CRM114-Status: GOOD (  16.36  )
+X-CRM114-CacheID: sfid-20230914_025551_808822_DAC6BF72 
+X-CRM114-Status: UNSURE (   8.91  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,318 +126,37 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Convert KVM_ARCH_WANT_MMU_NOTIFIER into a Kconfig and select it where
-appropriate to effectively maintain existing behavior.  Using a proper
-Kconfig will simplify building more functionality on top of KVM's
-mmu_notifier infrastructure.
+Advertise that KVM's MMU is synchronized with the primary MMU for all
+flavors of PPC KVM support, i.e. advertise that the MMU is synchronized
+when CONFIG_KVM_BOOK3S_HV_POSSIBLE=y but the VM is not using hypervisor
+mode (a.k.a. PR VMs).  PR VMs, via kvm_unmap_gfn_range_pr(), do the right
+thing for mmu_notifier invalidation events, and more tellingly, KVM
+returns '1' for KVM_CAP_SYNC_MMU when CONFIG_KVM_BOOK3S_HV_POSSIBLE=n
+and CONFIG_KVM_BOOK3S_PR_POSSIBLE=y, i.e. KVM already advertises a
+synchronized MMU for PR VMs, just not when CONFIG_KVM_BOOK3S_HV_POSSIBLE=y.
 
-Add a forward declaration of kvm_gfn_range to kvm_types.h so that
-including arch/powerpc/include/asm/kvm_ppc.h's with CONFIG_KVM=n doesn't
-generate warnings due to kvm_gfn_range being undeclared.  PPC defines
-hooks for PR vs. HV without guarding them via #ifdeffery, e.g.
-
-  bool (*unmap_gfn_range)(struct kvm *kvm, struct kvm_gfn_range *range);
-  bool (*age_gfn)(struct kvm *kvm, struct kvm_gfn_range *range);
-  bool (*test_age_gfn)(struct kvm *kvm, struct kvm_gfn_range *range);
-  bool (*set_spte_gfn)(struct kvm *kvm, struct kvm_gfn_range *range);
-
-Alternatively, PPC could forward declare kvm_gfn_range, but there's no
-good reason not to define it in common KVM.
-
+Suggested-by: Paolo Bonzini <pbonzini@redhat.com>
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- arch/arm64/include/asm/kvm_host.h   |  2 --
- arch/arm64/kvm/Kconfig              |  2 +-
- arch/mips/include/asm/kvm_host.h    |  2 --
- arch/mips/kvm/Kconfig               |  2 +-
- arch/powerpc/include/asm/kvm_host.h |  2 --
- arch/powerpc/kvm/Kconfig            |  8 ++++----
- arch/powerpc/kvm/powerpc.c          |  4 +---
- arch/riscv/include/asm/kvm_host.h   |  2 --
- arch/riscv/kvm/Kconfig              |  2 +-
- arch/x86/include/asm/kvm_host.h     |  2 --
- arch/x86/kvm/Kconfig                |  2 +-
- include/linux/kvm_host.h            |  6 +++---
- include/linux/kvm_types.h           |  1 +
- virt/kvm/Kconfig                    |  4 ++++
- virt/kvm/kvm_main.c                 | 10 +++++-----
- 15 files changed, 22 insertions(+), 29 deletions(-)
+ arch/powerpc/kvm/powerpc.c | 4 ----
+ 1 file changed, 4 deletions(-)
 
-diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index af06ccb7ee34..9e046b64847a 100644
---- a/arch/arm64/include/asm/kvm_host.h
-+++ b/arch/arm64/include/asm/kvm_host.h
-@@ -921,8 +921,6 @@ int __kvm_arm_vcpu_get_events(struct kvm_vcpu *vcpu,
- int __kvm_arm_vcpu_set_events(struct kvm_vcpu *vcpu,
- 			      struct kvm_vcpu_events *events);
- 
--#define KVM_ARCH_WANT_MMU_NOTIFIER
--
- void kvm_arm_halt_guest(struct kvm *kvm);
- void kvm_arm_resume_guest(struct kvm *kvm);
- 
-diff --git a/arch/arm64/kvm/Kconfig b/arch/arm64/kvm/Kconfig
-index 83c1e09be42e..1a777715199f 100644
---- a/arch/arm64/kvm/Kconfig
-+++ b/arch/arm64/kvm/Kconfig
-@@ -22,7 +22,7 @@ menuconfig KVM
- 	bool "Kernel-based Virtual Machine (KVM) support"
- 	depends on HAVE_KVM
- 	select KVM_GENERIC_HARDWARE_ENABLING
--	select MMU_NOTIFIER
-+	select KVM_GENERIC_MMU_NOTIFIER
- 	select PREEMPT_NOTIFIERS
- 	select HAVE_KVM_CPU_RELAX_INTERCEPT
- 	select KVM_MMIO
-diff --git a/arch/mips/include/asm/kvm_host.h b/arch/mips/include/asm/kvm_host.h
-index 54a85f1d4f2c..179f320cc231 100644
---- a/arch/mips/include/asm/kvm_host.h
-+++ b/arch/mips/include/asm/kvm_host.h
-@@ -810,8 +810,6 @@ int kvm_mips_mkclean_gpa_pt(struct kvm *kvm, gfn_t start_gfn, gfn_t end_gfn);
- pgd_t *kvm_pgd_alloc(void);
- void kvm_mmu_free_memory_caches(struct kvm_vcpu *vcpu);
- 
--#define KVM_ARCH_WANT_MMU_NOTIFIER
--
- /* Emulation */
- enum emulation_result update_pc(struct kvm_vcpu *vcpu, u32 cause);
- int kvm_get_badinstr(u32 *opc, struct kvm_vcpu *vcpu, u32 *out);
-diff --git a/arch/mips/kvm/Kconfig b/arch/mips/kvm/Kconfig
-index a8cdba75f98d..c04987d2ed2e 100644
---- a/arch/mips/kvm/Kconfig
-+++ b/arch/mips/kvm/Kconfig
-@@ -25,7 +25,7 @@ config KVM
- 	select HAVE_KVM_EVENTFD
- 	select HAVE_KVM_VCPU_ASYNC_IOCTL
- 	select KVM_MMIO
--	select MMU_NOTIFIER
-+	select KVM_GENERIC_MMU_NOTIFIER
- 	select INTERVAL_TREE
- 	select KVM_GENERIC_HARDWARE_ENABLING
- 	help
-diff --git a/arch/powerpc/include/asm/kvm_host.h b/arch/powerpc/include/asm/kvm_host.h
-index 14ee0dece853..4b5c3f2acf78 100644
---- a/arch/powerpc/include/asm/kvm_host.h
-+++ b/arch/powerpc/include/asm/kvm_host.h
-@@ -62,8 +62,6 @@
- 
- #include <linux/mmu_notifier.h>
- 
--#define KVM_ARCH_WANT_MMU_NOTIFIER
--
- #define HPTEG_CACHE_NUM			(1 << 15)
- #define HPTEG_HASH_BITS_PTE		13
- #define HPTEG_HASH_BITS_PTE_LONG	12
-diff --git a/arch/powerpc/kvm/Kconfig b/arch/powerpc/kvm/Kconfig
-index 902611954200..b33358ee6424 100644
---- a/arch/powerpc/kvm/Kconfig
-+++ b/arch/powerpc/kvm/Kconfig
-@@ -42,7 +42,7 @@ config KVM_BOOK3S_64_HANDLER
- config KVM_BOOK3S_PR_POSSIBLE
- 	bool
- 	select KVM_MMIO
--	select MMU_NOTIFIER
-+	select KVM_GENERIC_MMU_NOTIFIER
- 
- config KVM_BOOK3S_HV_POSSIBLE
- 	bool
-@@ -85,7 +85,7 @@ config KVM_BOOK3S_64_HV
- 	tristate "KVM for POWER7 and later using hypervisor mode in host"
- 	depends on KVM_BOOK3S_64 && PPC_POWERNV
- 	select KVM_BOOK3S_HV_POSSIBLE
--	select MMU_NOTIFIER
-+	select KVM_GENERIC_MMU_NOTIFIER
- 	select CMA
- 	help
- 	  Support running unmodified book3s_64 guest kernels in
-@@ -194,7 +194,7 @@ config KVM_E500V2
- 	depends on !CONTEXT_TRACKING_USER
- 	select KVM
- 	select KVM_MMIO
--	select MMU_NOTIFIER
-+	select KVM_GENERIC_MMU_NOTIFIER
- 	help
- 	  Support running unmodified E500 guest kernels in virtual machines on
- 	  E500v2 host processors.
-@@ -211,7 +211,7 @@ config KVM_E500MC
- 	select KVM
- 	select KVM_MMIO
- 	select KVM_BOOKE_HV
--	select MMU_NOTIFIER
-+	select KVM_GENERIC_MMU_NOTIFIER
- 	help
- 	  Support running unmodified E500MC/E5500/E6500 guest kernels in
- 	  virtual machines on E500MC/E5500/E6500 host processors.
 diff --git a/arch/powerpc/kvm/powerpc.c b/arch/powerpc/kvm/powerpc.c
-index 8d3ec483bc2b..aac75c98a956 100644
+index b0a512ede764..8d3ec483bc2b 100644
 --- a/arch/powerpc/kvm/powerpc.c
 +++ b/arch/powerpc/kvm/powerpc.c
-@@ -632,9 +632,7 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
- 		break;
+@@ -635,11 +635,7 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
+ #if !defined(CONFIG_MMU_NOTIFIER) || !defined(KVM_ARCH_WANT_MMU_NOTIFIER)
+ 		BUILD_BUG();
  #endif
- 	case KVM_CAP_SYNC_MMU:
--#if !defined(CONFIG_MMU_NOTIFIER) || !defined(KVM_ARCH_WANT_MMU_NOTIFIER)
--		BUILD_BUG();
--#endif
-+		BUILD_BUG_ON(!IS_ENABLED(CONFIG_KVM_GENERIC_MMU_NOTIFIER));
+-#ifdef CONFIG_KVM_BOOK3S_HV_POSSIBLE
+-		r = hv_enabled;
+-#else
  		r = 1;
+-#endif
  		break;
  #ifdef CONFIG_KVM_BOOK3S_HV_POSSIBLE
-diff --git a/arch/riscv/include/asm/kvm_host.h b/arch/riscv/include/asm/kvm_host.h
-index 1ebf20dfbaa6..66ee9ff483e9 100644
---- a/arch/riscv/include/asm/kvm_host.h
-+++ b/arch/riscv/include/asm/kvm_host.h
-@@ -249,8 +249,6 @@ struct kvm_vcpu_arch {
- static inline void kvm_arch_sync_events(struct kvm *kvm) {}
- static inline void kvm_arch_sched_in(struct kvm_vcpu *vcpu, int cpu) {}
- 
--#define KVM_ARCH_WANT_MMU_NOTIFIER
--
- #define KVM_RISCV_GSTAGE_TLB_MIN_ORDER		12
- 
- void kvm_riscv_local_hfence_gvma_vmid_gpa(unsigned long vmid,
-diff --git a/arch/riscv/kvm/Kconfig b/arch/riscv/kvm/Kconfig
-index dfc237d7875b..ae2e05f050ec 100644
---- a/arch/riscv/kvm/Kconfig
-+++ b/arch/riscv/kvm/Kconfig
-@@ -30,7 +30,7 @@ config KVM
- 	select KVM_GENERIC_HARDWARE_ENABLING
- 	select KVM_MMIO
- 	select KVM_XFER_TO_GUEST_WORK
--	select MMU_NOTIFIER
-+	select KVM_GENERIC_MMU_NOTIFIER
- 	select PREEMPT_NOTIFIERS
- 	help
- 	  Support hosting virtualized guest machines.
-diff --git a/arch/x86/include/asm/kvm_host.h b/arch/x86/include/asm/kvm_host.h
-index 1a4def36d5bb..3a2b53483524 100644
---- a/arch/x86/include/asm/kvm_host.h
-+++ b/arch/x86/include/asm/kvm_host.h
-@@ -2131,8 +2131,6 @@ enum {
- # define kvm_memslots_for_spte_role(kvm, role) __kvm_memslots(kvm, 0)
- #endif
- 
--#define KVM_ARCH_WANT_MMU_NOTIFIER
--
- int kvm_cpu_has_injectable_intr(struct kvm_vcpu *v);
- int kvm_cpu_has_interrupt(struct kvm_vcpu *vcpu);
- int kvm_cpu_has_extint(struct kvm_vcpu *v);
-diff --git a/arch/x86/kvm/Kconfig b/arch/x86/kvm/Kconfig
-index ed90f148140d..091b74599c22 100644
---- a/arch/x86/kvm/Kconfig
-+++ b/arch/x86/kvm/Kconfig
-@@ -24,7 +24,7 @@ config KVM
- 	depends on HIGH_RES_TIMERS
- 	depends on X86_LOCAL_APIC
- 	select PREEMPT_NOTIFIERS
--	select MMU_NOTIFIER
-+	select KVM_GENERIC_MMU_NOTIFIER
- 	select HAVE_KVM_IRQCHIP
- 	select HAVE_KVM_PFNCACHE
- 	select HAVE_KVM_IRQFD
-diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
-index 11d091688346..5faba69403ac 100644
---- a/include/linux/kvm_host.h
-+++ b/include/linux/kvm_host.h
-@@ -253,7 +253,7 @@ bool kvm_setup_async_pf(struct kvm_vcpu *vcpu, gpa_t cr2_or_gpa,
- int kvm_async_pf_wakeup_all(struct kvm_vcpu *vcpu);
- #endif
- 
--#ifdef KVM_ARCH_WANT_MMU_NOTIFIER
-+#ifdef CONFIG_KVM_GENERIC_MMU_NOTIFIER
- union kvm_mmu_notifier_arg {
- 	pte_t pte;
- };
-@@ -783,7 +783,7 @@ struct kvm {
- 	struct hlist_head irq_ack_notifier_list;
- #endif
- 
--#if defined(CONFIG_MMU_NOTIFIER) && defined(KVM_ARCH_WANT_MMU_NOTIFIER)
-+#ifdef CONFIG_KVM_GENERIC_MMU_NOTIFIER
- 	struct mmu_notifier mmu_notifier;
- 	unsigned long mmu_invalidate_seq;
- 	long mmu_invalidate_in_progress;
-@@ -1946,7 +1946,7 @@ extern const struct _kvm_stats_desc kvm_vm_stats_desc[];
- extern const struct kvm_stats_header kvm_vcpu_stats_header;
- extern const struct _kvm_stats_desc kvm_vcpu_stats_desc[];
- 
--#if defined(CONFIG_MMU_NOTIFIER) && defined(KVM_ARCH_WANT_MMU_NOTIFIER)
-+#ifdef CONFIG_KVM_GENERIC_MMU_NOTIFIER
- static inline int mmu_invalidate_retry(struct kvm *kvm, unsigned long mmu_seq)
- {
- 	if (unlikely(kvm->mmu_invalidate_in_progress))
-diff --git a/include/linux/kvm_types.h b/include/linux/kvm_types.h
-index 6f4737d5046a..9d1f7835d8c1 100644
---- a/include/linux/kvm_types.h
-+++ b/include/linux/kvm_types.h
-@@ -6,6 +6,7 @@
- struct kvm;
- struct kvm_async_pf;
- struct kvm_device_ops;
-+struct kvm_gfn_range;
- struct kvm_interrupt;
- struct kvm_irq_routing_table;
- struct kvm_memory_slot;
-diff --git a/virt/kvm/Kconfig b/virt/kvm/Kconfig
-index 484d0873061c..ecae2914c97e 100644
---- a/virt/kvm/Kconfig
-+++ b/virt/kvm/Kconfig
-@@ -92,3 +92,7 @@ config HAVE_KVM_PM_NOTIFIER
- 
- config KVM_GENERIC_HARDWARE_ENABLING
-        bool
-+
-+config KVM_GENERIC_MMU_NOTIFIER
-+       select MMU_NOTIFIER
-+       bool
-diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
-index 4fad3b01dc1f..8d21757cd5e9 100644
---- a/virt/kvm/kvm_main.c
-+++ b/virt/kvm/kvm_main.c
-@@ -535,7 +535,7 @@ void kvm_destroy_vcpus(struct kvm *kvm)
- }
- EXPORT_SYMBOL_GPL(kvm_destroy_vcpus);
- 
--#if defined(CONFIG_MMU_NOTIFIER) && defined(KVM_ARCH_WANT_MMU_NOTIFIER)
-+#ifdef CONFIG_KVM_GENERIC_MMU_NOTIFIER
- static inline struct kvm *mmu_notifier_to_kvm(struct mmu_notifier *mn)
- {
- 	return container_of(mn, struct kvm, mmu_notifier);
-@@ -960,14 +960,14 @@ static int kvm_init_mmu_notifier(struct kvm *kvm)
- 	return mmu_notifier_register(&kvm->mmu_notifier, current->mm);
- }
- 
--#else  /* !(CONFIG_MMU_NOTIFIER && KVM_ARCH_WANT_MMU_NOTIFIER) */
-+#else  /* !CONFIG_KVM_GENERIC_MMU_NOTIFIER */
- 
- static int kvm_init_mmu_notifier(struct kvm *kvm)
- {
- 	return 0;
- }
- 
--#endif /* CONFIG_MMU_NOTIFIER && KVM_ARCH_WANT_MMU_NOTIFIER */
-+#endif /* CONFIG_KVM_GENERIC_MMU_NOTIFIER */
- 
- #ifdef CONFIG_HAVE_KVM_PM_NOTIFIER
- static int kvm_pm_notifier_call(struct notifier_block *bl,
-@@ -1287,7 +1287,7 @@ static struct kvm *kvm_create_vm(unsigned long type, const char *fdname)
- out_err_no_debugfs:
- 	kvm_coalesced_mmio_free(kvm);
- out_no_coalesced_mmio:
--#if defined(CONFIG_MMU_NOTIFIER) && defined(KVM_ARCH_WANT_MMU_NOTIFIER)
-+#ifdef CONFIG_KVM_GENERIC_MMU_NOTIFIER
- 	if (kvm->mmu_notifier.ops)
- 		mmu_notifier_unregister(&kvm->mmu_notifier, current->mm);
- #endif
-@@ -1347,7 +1347,7 @@ static void kvm_destroy_vm(struct kvm *kvm)
- 		kvm->buses[i] = NULL;
- 	}
- 	kvm_coalesced_mmio_free(kvm);
--#if defined(CONFIG_MMU_NOTIFIER) && defined(KVM_ARCH_WANT_MMU_NOTIFIER)
-+#ifdef CONFIG_KVM_GENERIC_MMU_NOTIFIER
- 	mmu_notifier_unregister(&kvm->mmu_notifier, kvm->mm);
- 	/*
- 	 * At this point, pending calls to invalidate_range_start()
+ 	case KVM_CAP_PPC_HTAB_FD:
 -- 
 2.42.0.283.g2d96d420d3-goog
 
