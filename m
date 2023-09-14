@@ -4,61 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66F80EEAA56
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 Sep 2023 16:55:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73A96EEAA5C
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 Sep 2023 17:24:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=46kEyJV29znl4GG1KpTNTjLEJsE/7qvG8PTZwruwiwo=; b=UXjcTIeiGwM9BN
-	j1eELlGb8vZ8brEcQroC8/5JE6CzvyAUFAsDDWWRZ4/PIPaV2QiVlNGDMaaDaYfvuxx2/+hN/LW1S
-	wdM5sD6RgtoZJiTTiPWQH2aKXtgWy/alcJvr/RpvnHnXlfk5kEZX1kJBfX+9UJ184FMmK4wf5ve5y
-	gR6pDizYGd3m8PeE/g/iNRFj4StGq+PVWxJDx19oU/v9PEpNdtP12tnkUEH2CdtOBcSqcTyVSea2Q
-	dF0+Ox+ikedaeeVdrjkM3DGLB9DU8g0Z1oPb06VgXdwG79VIRbRoP75p+zL/NOCGzYV+Yz3buNP33
-	zxpDhOPs5ktTY+CmjVGg==;
+	List-Owner; bh=oTKXon+LcNoovRP7nfdCviIqhcFm9Ye/0h1Lwe491jY=; b=dj7tVIhVZwD5yB
+	kd6ediIXzjQCJQ8l9/HnjWtYFLoG5tc61CBR1tid9jCbsKVPnrRK49Qfdfdt6es+nTCwNnz4SfJXA
+	N4cewx+DdunTtJDzocuhmsV8Al9iylvuxh0UNrGLcZb/my/A8/HlwfE9eRf50k+w27lbhsf4/cx0P
+	+qaF9lBXpqjatL00APkZ3qcJh7VQL2o0wWSwAS6kdn6kmFNapTLVmP/KyMSzvouRG+PZtt1gG7wT5
+	hNOZRXthAOpQbnu8Nsp+9eALEkG3NJf5PY6XeHtyzkzNSbPY8FnbvcZ2a7KZ1WDd/Mw1N3PL+O7Cq
+	j0hP2Qbp+ESslmPyIgaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgpcG-008wgm-0V;
-	Thu, 14 Sep 2023 16:54:56 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1qgq4W-008zIi-08;
+	Thu, 14 Sep 2023 17:24:08 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgpcB-008wfl-1X;
-	Thu, 14 Sep 2023 16:54:53 +0000
-Received: from lhrpeml500005.china.huawei.com (unknown [172.18.147.201])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4Rmk1X02Syz6K66F;
-	Fri, 15 Sep 2023 00:54:07 +0800 (CST)
-Received: from localhost (10.202.227.76) by lhrpeml500005.china.huawei.com
- (7.191.163.240) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.31; Thu, 14 Sep
- 2023 17:54:44 +0100
-Date: Thu, 14 Sep 2023 17:54:43 +0100
-From: Jonathan Cameron <Jonathan.Cameron@Huawei.com>
-To: James Morse <james.morse@arm.com>
-CC: <linux-pm@vger.kernel.org>, <loongarch@lists.linux.dev>,
-	<linux-acpi@vger.kernel.org>, <linux-arch@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-riscv@lists.infradead.org>, <kvmarm@lists.linux.dev>,
-	<x86@kernel.org>, Salil Mehta <salil.mehta@huawei.com>, Russell King
-	<linux@armlinux.org.uk>, Jean-Philippe Brucker <jean-philippe@linaro.org>,
-	<jianyong.wu@arm.com>, <justin.he@arm.com>
-Subject: Re: [RFC PATCH v2 35/35] cpumask: Add enabled cpumask for present
- CPUs that can be brought online
-Message-ID: <20230914175443.000038f6@Huawei.com>
-In-Reply-To: <20230913163823.7880-36-james.morse@arm.com>
-References: <20230913163823.7880-1-james.morse@arm.com>
-	<20230913163823.7880-36-james.morse@arm.com>
-Organization: Huawei Technologies Research and Development (UK) Ltd.
-X-Mailer: Claws Mail 4.1.0 (GTK 3.24.33; x86_64-w64-mingw32)
+	id 1qgq4S-008zHf-2p
+	for linux-riscv@lists.infradead.org;
+	Thu, 14 Sep 2023 17:24:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1694712243;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=N0ikbkJVQghcPjJgsQrA+sUTUrPSvE6Jh+YB8KXgR/g=;
+	b=K5qusLIIZLZWsuv9t5WhgEYusKpD1NDoIrdxcFy5WmRpfSxoxJdGGKTjkIf5hyxTM74dsD
+	AwKkz/Hi9zw4H3hvrNkA6MIdKcEIssuVoabJwadQ1UKr6z3yMBMlIdNplyOy/X2hCqTTyV
+	i51eImcsH86bQIhhB9oeYfsnHj6AFSs=
+Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
+ [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ us-mta-41-mt1uKXGTNm6m770irEEv9Q-1; Thu, 14 Sep 2023 13:24:02 -0400
+X-MC-Unique: mt1uKXGTNm6m770irEEv9Q-1
+Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.rdu2.redhat.com [10.11.54.1])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id A1F4684ACAA;
+	Thu, 14 Sep 2023 17:24:00 +0000 (UTC)
+Received: from [10.22.34.133] (unknown [10.22.34.133])
+	by smtp.corp.redhat.com (Postfix) with ESMTP id 5003640C2070;
+	Thu, 14 Sep 2023 17:23:57 +0000 (UTC)
+Message-ID: <fb7d6e67-f396-dfe7-1461-8790bdeaad01@redhat.com>
+Date: Thu, 14 Sep 2023 13:23:57 -0400
 MIME-Version: 1.0
-X-Originating-IP: [10.202.227.76]
-X-ClientProxiedBy: lhrpeml500005.china.huawei.com (7.191.163.240) To
- lhrpeml500005.china.huawei.com (7.191.163.240)
-X-CFilter-Loop: Reflected
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.14.0
+Subject: Re: [PATCH V11 07/17] riscv: qspinlock: Introduce qspinlock param for
+ command line
+Content-Language: en-US
+To: Leonardo Bras <leobras@redhat.com>, Guo Ren <guoren@kernel.org>
+Cc: paul.walmsley@sifive.com, anup@brainfault.org, peterz@infradead.org,
+ mingo@redhat.com, will@kernel.org, palmer@rivosinc.com,
+ boqun.feng@gmail.com, tglx@linutronix.de, paulmck@kernel.org,
+ rostedt@goodmis.org, rdunlap@infradead.org, catalin.marinas@arm.com,
+ conor.dooley@microchip.com, xiaoguang.xing@sophgo.com, bjorn@rivosinc.com,
+ alexghiti@rivosinc.com, keescook@chromium.org, greentime.hu@sifive.com,
+ ajones@ventanamicro.com, jszhang@kernel.org, wefu@redhat.com,
+ wuwei2016@iscas.ac.cn, linux-arch@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-doc@vger.kernel.org,
+ kvm@vger.kernel.org, virtualization@lists.linux-foundation.org,
+ linux-csky@vger.kernel.org, Guo Ren <guoren@linux.alibaba.com>
+References: <20230910082911.3378782-1-guoren@kernel.org>
+ <20230910082911.3378782-8-guoren@kernel.org>
+ <5ba0b8f3-f8f5-3a25-e9b7-f29a1abe654a@redhat.com>
+ <CAJF2gTT2hRxgnQt+WJ9P0YBWnUaZJ1-9g3ZE9tOz_MiLSsUjwQ@mail.gmail.com>
+ <ZQK2-CIL9U_QdMjh@redhat.com>
+From: Waiman Long <longman@redhat.com>
+In-Reply-To: <ZQK2-CIL9U_QdMjh@redhat.com>
+X-Scanned-By: MIMEDefang 3.1 on 10.11.54.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230914_095451_800443_0F454891 
-X-CRM114-Status: GOOD (  24.82  )
+X-CRM114-CacheID: sfid-20230914_102404_985009_7B420554 
+X-CRM114-Status: GOOD (  21.93  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,190 +92,58 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 13 Sep 2023 16:38:23 +0000
-James Morse <james.morse@arm.com> wrote:
-
-> The 'offline' file in sysfs shows all offline CPUs, including those
-> that aren't present. User-space is expected to remove not-present CPUs
-> from this list to learn which CPUs could be brought online.
-> 
-> CPUs can be present but not-enabled. These CPUs can't be brought online
-> until the firmware policy changes, which comes with an ACPI notification
-> that will register the CPUs.
-> 
-> With only the offline and present files, user-space is unable to
-> determine which CPUs it can try to bring online. Add a new CPU mask
-> that shows this based on all the registered CPUs.
-
-Bikeshed should be blue.
-
-Enabled is a really confusing name for this - to the extent that I'm not sure
-what it means.  Assuming I have the sense right, how about the horrible
-onlineable or online_capable?
-
-
-> 
-> Signed-off-by: James Morse <james.morse@arm.com>
-> ---
->  drivers/base/cpu.c      | 10 ++++++++++
->  include/linux/cpumask.h | 25 +++++++++++++++++++++++++
->  kernel/cpu.c            |  3 +++
->  3 files changed, 38 insertions(+)
-> 
-> diff --git a/drivers/base/cpu.c b/drivers/base/cpu.c
-> index c709747c4a18..a19a8be93102 100644
-> --- a/drivers/base/cpu.c
-> +++ b/drivers/base/cpu.c
-> @@ -95,6 +95,7 @@ void unregister_cpu(struct cpu *cpu)
->  {
->  	int logical_cpu = cpu->dev.id;
->  
-> +	set_cpu_enabled(logical_cpu, false);
->  	unregister_cpu_under_node(logical_cpu, cpu_to_node(logical_cpu));
->  
->  	device_unregister(&cpu->dev);
-> @@ -273,6 +274,13 @@ static ssize_t print_cpus_offline(struct device *dev,
->  }
->  static DEVICE_ATTR(offline, 0444, print_cpus_offline, NULL);
->  
-> +static ssize_t print_cpus_enabled(struct device *dev,
-> +				  struct device_attribute *attr, char *buf)
-> +{
-> +	return sysfs_emit(buf, "%*pbl\n", cpumask_pr_args(cpu_enabled_mask));
-> +}
-> +static DEVICE_ATTR(enabled, 0444, print_cpus_enabled, NULL);
-> +
->  static ssize_t print_cpus_isolated(struct device *dev,
->  				  struct device_attribute *attr, char *buf)
->  {
-> @@ -413,6 +421,7 @@ int register_cpu(struct cpu *cpu, int num)
->  	register_cpu_under_node(num, cpu_to_node(num));
->  	dev_pm_qos_expose_latency_limit(&cpu->dev,
->  					PM_QOS_RESUME_LATENCY_NO_CONSTRAINT);
-> +	set_cpu_enabled(num, true);
->  
->  	return 0;
->  }
-> @@ -494,6 +503,7 @@ static struct attribute *cpu_root_attrs[] = {
->  	&cpu_attrs[2].attr.attr,
->  	&dev_attr_kernel_max.attr,
->  	&dev_attr_offline.attr,
-> +	&dev_attr_enabled.attr,
->  	&dev_attr_isolated.attr,
->  #ifdef CONFIG_NO_HZ_FULL
->  	&dev_attr_nohz_full.attr,
-> diff --git a/include/linux/cpumask.h b/include/linux/cpumask.h
-> index f10fb87d49db..a29ee03f13ff 100644
-> --- a/include/linux/cpumask.h
-> +++ b/include/linux/cpumask.h
-> @@ -92,6 +92,7 @@ static inline void set_nr_cpu_ids(unsigned int nr)
->   *
->   *     cpu_possible_mask- has bit 'cpu' set iff cpu is populatable
->   *     cpu_present_mask - has bit 'cpu' set iff cpu is populated
-> + *     cpu_enabled_mask  - has bit 'cpu' set iff cpu can be brought online
->   *     cpu_online_mask  - has bit 'cpu' set iff cpu available to scheduler
->   *     cpu_active_mask  - has bit 'cpu' set iff cpu available to migration
->   *
-> @@ -124,11 +125,13 @@ static inline void set_nr_cpu_ids(unsigned int nr)
->  
->  extern struct cpumask __cpu_possible_mask;
->  extern struct cpumask __cpu_online_mask;
-> +extern struct cpumask __cpu_enabled_mask;
->  extern struct cpumask __cpu_present_mask;
->  extern struct cpumask __cpu_active_mask;
->  extern struct cpumask __cpu_dying_mask;
->  #define cpu_possible_mask ((const struct cpumask *)&__cpu_possible_mask)
->  #define cpu_online_mask   ((const struct cpumask *)&__cpu_online_mask)
-> +#define cpu_enabled_mask   ((const struct cpumask *)&__cpu_enabled_mask)
->  #define cpu_present_mask  ((const struct cpumask *)&__cpu_present_mask)
->  #define cpu_active_mask   ((const struct cpumask *)&__cpu_active_mask)
->  #define cpu_dying_mask    ((const struct cpumask *)&__cpu_dying_mask)
-> @@ -973,6 +976,7 @@ extern const DECLARE_BITMAP(cpu_all_bits, NR_CPUS);
->  #else
->  #define for_each_possible_cpu(cpu) for_each_cpu((cpu), cpu_possible_mask)
->  #define for_each_online_cpu(cpu)   for_each_cpu((cpu), cpu_online_mask)
-> +#define for_each_enabled_cpu(cpu)   for_each_cpu((cpu), cpu_enabled_mask)
->  #define for_each_present_cpu(cpu)  for_each_cpu((cpu), cpu_present_mask)
->  #endif
->  
-> @@ -995,6 +999,15 @@ set_cpu_possible(unsigned int cpu, bool possible)
->  		cpumask_clear_cpu(cpu, &__cpu_possible_mask);
->  }
->  
-> +static inline void
-> +set_cpu_enabled(unsigned int cpu, bool can_be_onlined)
-> +{
-> +	if (can_be_onlined)
-> +		cpumask_set_cpu(cpu, &__cpu_enabled_mask);
-> +	else
-> +		cpumask_clear_cpu(cpu, &__cpu_enabled_mask);
-> +}
-> +
->  static inline void
->  set_cpu_present(unsigned int cpu, bool present)
->  {
-> @@ -1074,6 +1087,7 @@ static __always_inline unsigned int num_online_cpus(void)
->  	return raw_atomic_read(&__num_online_cpus);
->  }
->  #define num_possible_cpus()	cpumask_weight(cpu_possible_mask)
-> +#define num_enabled_cpus()	cpumask_weight(cpu_enabled_mask)
->  #define num_present_cpus()	cpumask_weight(cpu_present_mask)
->  #define num_active_cpus()	cpumask_weight(cpu_active_mask)
->  
-> @@ -1082,6 +1096,11 @@ static inline bool cpu_online(unsigned int cpu)
->  	return cpumask_test_cpu(cpu, cpu_online_mask);
->  }
->  
-> +static inline bool cpu_enabled(unsigned int cpu)
-> +{
-> +	return cpumask_test_cpu(cpu, cpu_enabled_mask);
-> +}
-> +
->  static inline bool cpu_possible(unsigned int cpu)
->  {
->  	return cpumask_test_cpu(cpu, cpu_possible_mask);
-> @@ -1106,6 +1125,7 @@ static inline bool cpu_dying(unsigned int cpu)
->  
->  #define num_online_cpus()	1U
->  #define num_possible_cpus()	1U
-> +#define num_enabled_cpus()	1U
->  #define num_present_cpus()	1U
->  #define num_active_cpus()	1U
->  
-> @@ -1119,6 +1139,11 @@ static inline bool cpu_possible(unsigned int cpu)
->  	return cpu == 0;
->  }
->  
-> +static inline bool cpu_enabled(unsigned int cpu)
-> +{
-> +	return cpu == 0;
-> +}
-> +
->  static inline bool cpu_present(unsigned int cpu)
->  {
->  	return cpu == 0;
-> diff --git a/kernel/cpu.c b/kernel/cpu.c
-> index 6de7c6bb74ee..2201a6a449b5 100644
-> --- a/kernel/cpu.c
-> +++ b/kernel/cpu.c
-> @@ -3101,6 +3101,9 @@ EXPORT_SYMBOL(__cpu_possible_mask);
->  struct cpumask __cpu_online_mask __read_mostly;
->  EXPORT_SYMBOL(__cpu_online_mask);
->  
-> +struct cpumask __cpu_enabled_mask __read_mostly;
-> +EXPORT_SYMBOL(__cpu_enabled_mask);
-> +
->  struct cpumask __cpu_present_mask __read_mostly;
->  EXPORT_SYMBOL(__cpu_present_mask);
->  
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gOS8xNC8yMyAwMzozMiwgTGVvbmFyZG8gQnJhcyB3cm90ZToKPiBPbiBUdWUsIFNlcCAxMiwg
+MjAyMyBhdCAwOTowODozNEFNICswODAwLCBHdW8gUmVuIHdyb3RlOgo+PiBPbiBNb24sIFNlcCAx
+MSwgMjAyMyBhdCAxMTozNOKAr1BNIFdhaW1hbiBMb25nIDxsb25nbWFuQHJlZGhhdC5jb20+IHdy
+b3RlOgo+Pj4gT24gOS8xMC8yMyAwNDoyOSwgZ3VvcmVuQGtlcm5lbC5vcmcgd3JvdGU6Cj4+Pj4g
+RnJvbTogR3VvIFJlbiA8Z3VvcmVuQGxpbnV4LmFsaWJhYmEuY29tPgo+Pj4+Cj4+Pj4gQWxsb3cg
+Y21kbGluZSB0byBmb3JjZSB0aGUga2VybmVsIHRvIHVzZSBxdWV1ZWRfc3BpbmxvY2sgd2hlbgo+
+Pj4+IENPTkZJR19SSVNDVl9DT01CT19TUElOTE9DS1M9eS4KPj4+Pgo+Pj4+IFNpZ25lZC1vZmYt
+Ynk6IEd1byBSZW4gPGd1b3JlbkBsaW51eC5hbGliYWJhLmNvbT4KPj4+PiBTaWduZWQtb2ZmLWJ5
+OiBHdW8gUmVuIDxndW9yZW5Aa2VybmVsLm9yZz4KPj4+PiAtLS0KPj4+PiAgICBEb2N1bWVudGF0
+aW9uL2FkbWluLWd1aWRlL2tlcm5lbC1wYXJhbWV0ZXJzLnR4dCB8ICAyICsrCj4+Pj4gICAgYXJj
+aC9yaXNjdi9rZXJuZWwvc2V0dXAuYyAgICAgICAgICAgICAgICAgICAgICAgfCAxNiArKysrKysr
+KysrKysrKystCj4+Pj4gICAgMiBmaWxlcyBjaGFuZ2VkLCAxNyBpbnNlcnRpb25zKCspLCAxIGRl
+bGV0aW9uKC0pCj4+Pj4KPj4+PiBkaWZmIC0tZ2l0IGEvRG9jdW1lbnRhdGlvbi9hZG1pbi1ndWlk
+ZS9rZXJuZWwtcGFyYW1ldGVycy50eHQgYi9Eb2N1bWVudGF0aW9uL2FkbWluLWd1aWRlL2tlcm5l
+bC1wYXJhbWV0ZXJzLnR4dAo+Pj4+IGluZGV4IDdkZmI1NDBjNGY2Yy4uNjFjYWNiOGRmZDBlIDEw
+MDY0NAo+Pj4+IC0tLSBhL0RvY3VtZW50YXRpb24vYWRtaW4tZ3VpZGUva2VybmVsLXBhcmFtZXRl
+cnMudHh0Cj4+Pj4gKysrIGIvRG9jdW1lbnRhdGlvbi9hZG1pbi1ndWlkZS9rZXJuZWwtcGFyYW1l
+dGVycy50eHQKPj4+PiBAQCAtNDY5Myw2ICs0NjkzLDggQEAKPj4+PiAgICAgICAgICAgICAgICAg
+ICAgICAgIFtLTkxdIE51bWJlciBvZiBsZWdhY3kgcHR5J3MuIE92ZXJ3cml0ZXMgY29tcGlsZWQt
+aW4KPj4+PiAgICAgICAgICAgICAgICAgICAgICAgIGRlZmF1bHQgbnVtYmVyLgo+Pj4+Cj4+Pj4g
+KyAgICAgcXNwaW5sb2NrICAgICAgIFtSSVNDVl0gRm9yY2UgdG8gdXNlIHFzcGlubG9jayBvciBh
+dXRvLWRldGVjdCBzcGlubG9jay4KPj4+PiArCj4+Pj4gICAgICAgIHFzcGlubG9jay5udW1hX3Nw
+aW5sb2NrX3RocmVzaG9sZF9ucz0gICBbTlVNQSwgUFZfT1BTXQo+Pj4+ICAgICAgICAgICAgICAg
+ICAgICAgICAgU2V0IHRoZSB0aW1lIHRocmVzaG9sZCBpbiBuYW5vc2Vjb25kcyBmb3IgdGhlCj4+
+Pj4gICAgICAgICAgICAgICAgICAgICAgICBudW1iZXIgb2YgaW50cmEtbm9kZSBsb2NrIGhhbmQt
+b2ZmcyBiZWZvcmUgdGhlCj4+Pj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yva2VybmVsL3NldHVw
+LmMgYi9hcmNoL3Jpc2N2L2tlcm5lbC9zZXR1cC5jCj4+Pj4gaW5kZXggYTQ0N2NmMzYwYTE4Li4w
+ZjA4NGYwMzc2NTEgMTAwNjQ0Cj4+Pj4gLS0tIGEvYXJjaC9yaXNjdi9rZXJuZWwvc2V0dXAuYwo+
+Pj4+ICsrKyBiL2FyY2gvcmlzY3Yva2VybmVsL3NldHVwLmMKPj4+PiBAQCAtMjcwLDYgKzI3MCwx
+NSBAQCBzdGF0aWMgdm9pZCBfX2luaXQgcGFyc2VfZHRiKHZvaWQpCj4+Pj4gICAgfQo+Pj4+Cj4+
+Pj4gICAgI2lmZGVmIENPTkZJR19SSVNDVl9DT01CT19TUElOTE9DS1MKPj4+PiArYm9vbCBlbmFi
+bGVfcXNwaW5sb2NrX2tleSA9IGZhbHNlOwo+Pj4gWW91IGNhbiB1c2UgX19yb19hZnRlcl9pbml0
+IHF1YWxpZmllciBmb3IgZW5hYmxlX3FzcGlubG9ja19rZXkuIEJUVywKPj4+IHRoaXMgaXMgbm90
+IGEgc3RhdGljIGtleSwganVzdCBhIHNpbXBsZSBmbGFnLiBTbyB3aGF0IGlzIHRoZSBwb2ludCBv
+Zgo+Pj4gdGhlIF9rZXkgc3VmZml4Pwo+PiBPa2F5LCBJIHdvdWxkIGNoYW5nZSBpdCB0bzoKPj4g
+Ym9vbCBlbmFibGVfcXNwaW5sb2NrX2ZsYWcgX19yb19hZnRlcl9pbml0ID0gZmFsc2U7Cj4gSUlV
+QywgdGhpcyBib29sIC8gZmxhZyBpcyB1c2VkIGluIGEgc2luZ2xlIGZpbGUsIHNvIGl0IG1ha2Vz
+IHNlbnNlIGZvciBpdAo+IHRvIGJlIHN0YXRpYy4gQmVpbmcgc3RhdGljIG1lYW5zIGl0IGRvZXMg
+bm90IG5lZWQgdG8gYmUgaW5pdGlhbGl6ZWQgdG8KPiBmYWxzZSwgYXMgaXQncyBzdGFuZGFyZCB0
+byB6ZXJvLWZpbGwgdGhpcyBhcmVhcy4KPgo+IEFsc28sIHNpbmNlIGl0J3MgYSBib29sLCBpdCBk
+b2VzIG5vdCBuZWVkIHRvIGJlIGNhbGxlZCBfZmxhZy4KPgo+IEkgd291bGQgZ28gd2l0aDoKPgo+
+IHN0YXRpYyBib29sIGVuYWJsZV9xc3BpbmxvY2sgX19yb19hZnRlcl9pbml0OwoKSSBhY3R1YWxs
+eSB3YXMgdGhpbmtpbmcgYWJvdXQgdGhlIHNhbWUgc3VnZ2VzdGlvbiB0byBhZGQgc3RhdGljLiBU
+aGVuIEkgCnJlYWxpemVkIHRoYXQgdGhlIGZsYWcgd2FzIGFsc28gdXNlZCBpbiBhbm90aGVyIGZp
+bGUgaW4gYSBsYXRlciBwYXRjaC4gCk9mIGNvdXJzZSwgaWYgaXQgdHVybnMgb3V0IHRoYXQgdGhp
+cyBmbGFnIGlzIG5vIGxvbmdlciBuZWVkZWQgb3V0c2lkZSBvZiAKdGhpcyBmaWxlLCBpdCBzaG91
+bGQgYmUgc3RhdGljLgoKQ2hlZXJzLApMb25nbWFuCgoKX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJp
+c2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1h
+bi9saXN0aW5mby9saW51eC1yaXNjdgo=
