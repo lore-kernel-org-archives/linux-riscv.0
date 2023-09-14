@@ -4,72 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 084D1EEAA40
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 Sep 2023 14:07:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C60A6EEAA40
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 Sep 2023 14:09:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qzoDL3C36EQMvOFjS7r2QKSKk0+6e9awFs5Z95NVVC8=; b=Sg1MN4p2pZRCtz
-	ikTep7rpKl8zx18BiaOaTbFNhzb1Wg5lDOWEf1VZSZDOj7flyp/TtUrvEwlpbz6W/gRJN1V9Hhjyj
-	NjWVzP9HlcyF9eOW6lYfBlkxM8vbs1yk6HALcv/d3NJwXd9PB6Zl5VRqwkR5pIWLPRlg/kLELPXP7
-	O4m6AT8zGVDW1WeSqEHUbzgkbLhe65ylHcGp3Z9rB9vg3lNuRb1nYk/GX+ydfU8QmYEJiHH2O4pSI
-	oLNEf692BjmPWEF7LTMV5f7vRvJW7qhAQ37la3hcJdF3PvN20oQHaFTJRxYRUxr5S6+pyJT0jgAnw
-	gfDI6kW31MRh7pBNySig==;
+	List-Owner; bh=yCg25m2GDO4StvaSeCLS/CNZVcvSdhdS4KWnXVxYTnI=; b=myb9oqF/6OzJFy
+	Y6WzmQ91PVhdbecqbDSdjNXyLVm6YH7V8uEFE+5PUPDPNCfqCDeAhhzrtfFjSjD1FVARLKOGYoPpa
+	MwqdprYt6GI9L2UzUoquRLZySX8drdsZ1poLFoDqSqY5F5o2qGw6bU2rRLcBG26/e10lAoJ+Mcoqw
+	5YKfzbM5Pygq8pMm0dWbq4msx4QuNhuLdItbxZksvlf8hnSHcRY1kjTEz5zDZeEVfA4AsXXBjVLE1
+	Q8MQHK4VikF0ftpsnNa91l5eX45ONHNmvRQqvJxOAWodDl4rWtygRoIjnAx9a8FQ9x4LF8+8s4Ufp
+	GAFbOw3k4OW3qhJJQp9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgn0J-008auj-06;
-	Thu, 14 Sep 2023 14:07:35 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1qgn2X-008bBs-0U;
+	Thu, 14 Sep 2023 14:09:53 +0000
+Received: from mail-yb1-xb2d.google.com ([2607:f8b0:4864:20::b2d])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgn0F-008atM-16;
-	Thu, 14 Sep 2023 14:07:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=GIdT/cJmFA2qx50pgPlJRNzy/bheI4vUqGYQu+a7PMI=; b=raixHrVeNVHHMS+SmMW0fsVxI+
-	rZLO2b1FApnkXyJLVlkjBZUzsfFxmDi2JMVVu/R8wleWSzTAHzOFKzQL/zWb/JJhTJQkeyGGl2H3d
-	1EsUw8fAPKHCZzu4CyyEqx+rG9yuFwm7T+vos+z7VLqGttytZaDieHznwmb3696A6aPLvSAslWr7a
-	thmdyxIrHQUHf4/fW3Cr1tTqOrfips0KHORhG+5wXWbJd9QGypzhjjzPeg+uOfhgIbBdTkF3z9ckY
-	NUhze25dfC5TxiZv0q43BsedV3/l/zOQC9B/nOQb7gFNThJ/nZ0J8fzai0g8EC7sBDROC7wVMPZBJ
-	p/hgjtbQ==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:37510)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1qgn08-0004Jo-2O;
-	Thu, 14 Sep 2023 15:07:24 +0100
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.94.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1qgn06-0004ol-Vs; Thu, 14 Sep 2023 15:07:22 +0100
-Date: Thu, 14 Sep 2023 15:07:22 +0100
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-Cc: James Morse <james.morse@arm.com>, linux-pm@vger.kernel.org,
-	loongarch@lists.linux.dev, linux-acpi@vger.kernel.org,
-	linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org, kvmarm@lists.linux.dev,
-	x86@kernel.org, Salil Mehta <salil.mehta@huawei.com>,
-	Jean-Philippe Brucker <jean-philippe@linaro.org>,
-	jianyong.wu@arm.com, justin.he@arm.com
-Subject: Re: [RFC PATCH v2 06/35] arm64: setup: Switch over to
- GENERIC_CPU_DEVICES using arch_register_cpu()
-Message-ID: <ZQMTmi7blj/4FpbI@shell.armlinux.org.uk>
-References: <20230913163823.7880-1-james.morse@arm.com>
- <20230913163823.7880-7-james.morse@arm.com>
- <20230914122715.000076be@Huawei.com>
+	id 1qgn2V-008bBQ-0l
+	for linux-riscv@lists.infradead.org;
+	Thu, 14 Sep 2023 14:09:52 +0000
+Received: by mail-yb1-xb2d.google.com with SMTP id 3f1490d57ef6-d8032efa2bfso1445229276.1
+        for <linux-riscv@lists.infradead.org>; Thu, 14 Sep 2023 07:09:50 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1694700590; x=1695305390; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=J9IGYP5VQdwee25nV5jOO+j3P/uh5L2lbtVFrt/kEhY=;
+        b=I0u2SNhq8KBGXY4+uCCMEepVnZU4wwGNuqLKquEEKHwAQwRzqPUBGdHJyDKvmQKjZ5
+         LZNWnVfd37ar8qLYlHw3z1HkW8DB3XcXuE5chVhtVLDAxskjJhIlyiKkvGKNgkNcUJDQ
+         zpa7oyuTYsKUWEYsjIABJ8HVA6SZcnvHEt0kfwisBWQ4PeUBpjKmisuLVIU//Z9DwU7O
+         HGR6WWYtK6u9VotvZS4FauRuSaxtXiyC0AjcMUu+KvyIsk24nB/ItY3pQw9DPFaQ9jBr
+         rfwBDQqeRzEwIn8gNu14pkRxy/DHSRHHuydOTHRXuzw6GHGf9NXze29n9dMY/k7MjnCI
+         NxFw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1694700590; x=1695305390;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=J9IGYP5VQdwee25nV5jOO+j3P/uh5L2lbtVFrt/kEhY=;
+        b=fdyS1mseaHycp04cgUDAC3iNd8/qReATOD/FXut+MVuB4m1HZ+LIbTi1wj3z6Ndc+g
+         rVkMYif0gwq4O1+Fitb37STRaW8GNIBnFMVVFYdTu1Cpv+mOLVrf46+YnGj9Ns1G0aRT
+         MF9ODeYIyCRL2H9yIxL9+jOFgfeDwBpn4XlXeMAYimi8iNf318tKloPt9vJbHZAlq3Jt
+         qIc2QZ+xppmF7Z8rxlVtGQXR0GN54eWla10AnLJQQtQp9NlTYMfRLBkN/v94TYnZWfN6
+         5M+sA6VdNqPtO+E0BMbq4EETXixer6jTpbN1O9X1sVDbO8YpNjeFzTD6Kcg8zgrgTUOi
+         q0Kg==
+X-Gm-Message-State: AOJu0Yw1Cqo6lcVpA08D5cn0/DK3m0JkxbMahN0lff9lqmMaR4l6gEYd
+	NpbWIc4qb1o12p+gJ7+M0unw2ztEZO9ST+t4pQg+zg==
+X-Google-Smtp-Source: AGHT+IEyLK5w2EfQvefblMOe1KUYzBa/9AVnRDeL+Ut6bf+JBgWjwLbElfH0D8BGNdeScufwUK1hsKQJF+zOJRBa99Y=
+X-Received: by 2002:a25:7714:0:b0:d07:b677:3349 with SMTP id
+ s20-20020a257714000000b00d07b6773349mr1369288ybc.25.1694700590048; Thu, 14
+ Sep 2023 07:09:50 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230914122715.000076be@Huawei.com>
+References: <20230913-bloomers-scorebook-fb45e0a2aa19@spud>
+ <CAPDyKFoENVp7+VjKkPpJWDecowxYD=QM6TSa6HjyzOZ=z7r81w@mail.gmail.com> <CAL_JsqLxxmdPTLhZ6MTfuAcM0V7pmfRLiK8L3AZhhQKcvy_PCw@mail.gmail.com>
+In-Reply-To: <CAL_JsqLxxmdPTLhZ6MTfuAcM0V7pmfRLiK8L3AZhhQKcvy_PCw@mail.gmail.com>
+From: Ulf Hansson <ulf.hansson@linaro.org>
+Date: Thu, 14 Sep 2023 16:09:14 +0200
+Message-ID: <CAPDyKFo-KXK37iRwXZ631MH6L5_RbaezGUz5GAn8cVt4OzOApQ@mail.gmail.com>
+Subject: Re: [GIT PULL 0/5] Missed starfive pmdomain changes for v6.6, now for v6.7
+To: Rob Herring <robh@kernel.org>
+Cc: Conor Dooley <conor@kernel.org>, Conor Dooley <conor.dooley@microchip.com>, arnd@arndb.de, 
+	changhuang.liang@starfivetech.com, jiajie.ho@starfivetech.com, 
+	linux-pm@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	walker.chen@starfivetech.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230914_070731_385434_E17F9FE7 
-X-CRM114-Status: GOOD (  21.20  )
+X-CRM114-CacheID: sfid-20230914_070951_276359_1466DE27 
+X-CRM114-Status: GOOD (  15.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,68 +86,27 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 14, 2023 at 12:27:15PM +0100, Jonathan Cameron wrote:
-> On Wed, 13 Sep 2023 16:37:54 +0000
-> James Morse <james.morse@arm.com> wrote:
-> 
-> > To allow ACPI's _STA value to hide CPUs that are present, but not
-> > available to online right now due to VMM or firmware policy, the
-> > register_cpu() call needs to be made by the ACPI machinery when ACPI
-> > is in use. This allows it to hide CPUs that are unavailable from sysfs.
-> > 
-> > Switching to GENERIC_CPU_DEVICES is an intermediate step to allow all
-> > five ACPI architectures to be modified at once.
-> > 
-> > Switch over to GENERIC_CPU_DEVICES, and provide an arch_register_cpu()
-> > that populates the hotpluggable flag. arch_register_cpu() is also the
-> > interface the ACPI machinery expects.
-> > 
-> > The struct cpu in struct cpuinfo_arm64 is never used directly, remove
-> > it to use the one GENERIC_CPU_DEVICES provides.
-> > 
-> > This changes the CPUs visible in sysfs from possible to present, but
-> > on arm64 smp_prepare_cpus() ensures these are the same.
-> > 
-> > Signed-off-by: James Morse <james.morse@arm.com>
-> 
-> After this the earlier question about ordering of cpu_dev_init()
-> and node_dev_init() is relevant.   
-> 
-> Why won't node_dev_init() call
-> get_cpu_devce() which queries per_cpu(cpu_sys_devices)
-> and get NULL as we haven't yet filled that in?
-> 
-> Or does it do so but that doesn't matter as well create the
-> relevant links later?
-
-node_dev_init() will walk through the nodes calling register_one_node()
-on each. This will trickle down to __register_one_node() which walks
-all present CPUs, calling register_cpu_under_node() on each.
-
-register_cpu_under_node() will call get_cpu_device(cpu) for each and
-will return NULL until the CPU is registered using register_cpu(),
-which will now happen _after_ node_dev_init().
-
-So, at this point, CPUs won't get registered, and initially one might
-think that's a problem.
-
-However, register_cpu() will itself call register_cpu_under_node(),
-where get_cpu_device() will return the now populated entry, and the
-sysfs links will be created.
-
-So, I think what you've spotted is a potential chunk of code that
-isn't necessary when using GENERIC_CPU_DEVICES after this change!
-
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVGh1LCAxNCBTZXB0IDIwMjMgYXQgMTU6NTcsIFJvYiBIZXJyaW5nIDxyb2JoQGtlcm5lbC5v
+cmc+IHdyb3RlOgo+Cj4gT24gV2VkLCBTZXAgMTMsIDIwMjMgYXQgNTozMeKAr1BNIFVsZiBIYW5z
+c29uIDx1bGYuaGFuc3NvbkBsaW5hcm8ub3JnPiB3cm90ZToKPiA+Cj4gPiBPbiBXZWQsIDEzIFNl
+cHQgMjAyMyBhdCAxNTo1NiwgQ29ub3IgRG9vbGV5IDxjb25vckBrZXJuZWwub3JnPiB3cm90ZToK
+PiA+ID4KPiA+ID4gRnJvbTogQ29ub3IgRG9vbGV5IDxjb25vci5kb29sZXlAbWljcm9jaGlwLmNv
+bT4KPiA+ID4KPiA+ID4gSGV5IFVmZmUsCj4gPiA+Cj4gPiA+IEhlcmUncyB0aG9zZSBtaXNzZWQg
+Y2hhbmdlcyBpbiBwYXRjaCBmb3JtLiBJIGZpZ3VyZWQgaXQgbWlnaHQgYmUgYSBiaXQKPiA+ID4g
+ZWFzaWVyIHRoaXMgd2F5IGdpdmVuIHRoZSBuYW1lIG9mIHRoZSBzdWJzeXN0ZW0gaXMgaW4gZmx1
+eCwgZG91Ymx5IHNvIGlmCj4gPiA+IHlvdSdkIGxpa2UgdG8gcHV0IHRoZSBoZWFkZXIgY2hhbmdl
+IG9mIFJvYidzIG9uIGZpeGVzLgo+ID4KPiA+IE5vdCBzdXJlIHdlIHJlYWxseSBuZWVkIHRvIHF1
+ZXVlIHVwIHBhdGNoIDEgZm9yIGZpeGVzIC0gb3IgaXMgaXQKPiA+IGZpeGluZyBhIHJlYWwgcHJv
+YmxlbSBmb3IgdXM/Cj4KPiBJdCdzIGEgZGVwZW5kZW5jeSB0byByZW1vdmUgc29tZSBpbXBsaWNp
+dCBpbmNsdWRlcywgYnV0IEkgc3RpbGwgaGF2ZQo+IG1vcmUgZml4ZXMgZm9yIDYuNiBzbyBlaXRo
+ZXIgaXMgZmluZS4KCk9rYXksIEkga2VlcCBpdCBmb3IgdjYuNyB0aGVuLiBKdXN0IGxldCBtZSBr
+bm93IGlmIHRoaW5ncyBjaGFuZ2UgdGhlbgpJIGNhbiBtb3ZlIGl0IHRvIHY2LjYtcmNzCgpLaW5k
+IHJlZ2FyZHMKVWZmZQoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVh
+ZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1y
+aXNjdgo=
