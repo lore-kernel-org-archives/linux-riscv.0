@@ -4,75 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 392A1EEAA40
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 Sep 2023 14:18:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F9E6EEAA44
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 Sep 2023 14:20:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iB3y1/AB7X8ccmcBVINJx1PBJtq1gB9Q8dhzJxT7/QY=; b=FlZK3XGRax/ny0Vdbh6SmiBa/a
-	26voPXyXqy8jIeYpxd0lOAFsBRfO3MaUlB3idVd1itgN6YaYu14Z9aSV/Wbl+qwGR5mSHnUu2oQLY
-	1ZExBBOtwkcmH1KZBsqQgTMlI+eV2jG1UYdNtgqfbFje+A4AbKFetji2STBTDvDVthKziCjrMIzzJ
-	PoRXxlRx13lS6HahtcksZamb9XCA9kQgq+r5Ao0RIUH8M+O/kK93eaHSMw7yYRYJ749lDD7JIIh37
-	0hqieYSPbLRMiAAtvB10jVt0zyCPjfSx+jN6dzcLUvtRDi5fzWSkLyBIbHTXXSRBIHm/P3xQ1G5pG
-	cQdZqzWw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
+	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=R/wP7wUKxOgpLmQpVY/jR3Ofpv3Ow1hEuYkjDyjA2cI=; b=Y8V+IQi4DjYCEShqqxcp0i/5H6
+	YsW3yveJTlLbZKz2DpEapR+HV6Y0MIJqv51IHJBnqHMcAsSHIPeONQ/EEgWTfkAa7FOL5+btI13b3
+	kNBBGpgHS6rrsC8pli9WTWCV1eNuh/AqKVJka7nhooM+puAH1mAm4D+gaONxodiQjBbaxiDdADB7+
+	Dzx6Ht9Za5aWfLFN2CzxdE9Z023b8U5GjVhD2HzjMSl5a+Eq4aP+RRHqnnDhbrY6iUP+L8uiPSYBW
+	PNYbpMxPcpG0rfD3OZ2VHg75FtMLAZyKe0nKtAIeKsnPW74ZRLSbWF6HV+fKo2/DWqRWlvJZTOl0h
+	h0yAxdKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgnAp-008c4V-1I;
-	Thu, 14 Sep 2023 14:18:27 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1qgnCT-008cOn-0U;
+	Thu, 14 Sep 2023 14:20:09 +0000
+Received: from mail-yb1-xb49.google.com ([2607:f8b0:4864:20::b49])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgnAm-008c3O-0E
+	id 1qgnCP-008cKr-2i
 	for linux-riscv@lists.infradead.org;
-	Thu, 14 Sep 2023 14:18:25 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by sin.source.kernel.org (Postfix) with ESMTPS id B7AC0CE26FB;
-	Thu, 14 Sep 2023 14:18:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DE83BC433C7;
-	Thu, 14 Sep 2023 14:18:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1694701100;
-	bh=O0Vdo75uGuQ70r2R2tPq6kz4JrAy5xHqML/ZtLJgtv0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=rmAOOQtmHbVUufqL3SindTElEfz7B4/drHCv7tui7JsAlw3gKPsTtr3iHKt3MeeK9
-	 HgbLY9d/0tE3N0sIXPQNuf5kjviENlSUtiK7v24bq3uvjZsXjwLQHZngjOINy65MSa
-	 BPz5FeozhwN+XhFRal2oHtg++2DC+veSc10+M848z0xgnq5eoMHLmaDivQ58/v+qft
-	 TMYboF0fIU9XV0M3tormeFx4M/s4qrXbmZEomLZn6cKnU4LdGIlAcTWWGOudsWHSA1
-	 lzYnZ4vG9t6ESnD0AF/CWFhNAjWQgRfYu+36UCly8mTZ3CpQshY1G+qF4ivVRsEU40
-	 ZDk2Cf+eRZkew==
-Date: Thu, 14 Sep 2023 15:18:14 +0100
-From: Conor Dooley <conor@kernel.org>
-To: =?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@kernel.org>
-Cc: Conor Dooley <conor.dooley@microchip.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
-	Andy Chiu <andy.chiu@sifive.com>,
-	Greentime Hu <greentime.hu@sifive.com>,
-	"Jason A . Donenfeld" <Jason@zx2c4.com>,
-	Samuel Neves <sneves@dei.uc.pt>,
-	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	"David S. Miller" <davem@davemloft.net>,
-	linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [RFC PATCH 0/6] RISC-V BLAKE2s Vector implementation
-Message-ID: <20230914-squad-ripping-e8c98e2d336b@spud>
-References: <20230912115728.172982-1-bjorn@kernel.org>
- <20230914-roaming-plunging-948c78d9831c@wendy>
- <87pm2kap1p.fsf@all.your.base.are.belong.to.us>
- <20230914-float-uneven-7cd1a18b3978@wendy>
- <87zg1o3kpd.fsf@all.your.base.are.belong.to.us>
-MIME-Version: 1.0
-In-Reply-To: <87zg1o3kpd.fsf@all.your.base.are.belong.to.us>
+	Thu, 14 Sep 2023 14:20:07 +0000
+Received: by mail-yb1-xb49.google.com with SMTP id 3f1490d57ef6-d818e01823aso1038492276.2
+        for <linux-riscv@lists.infradead.org>; Thu, 14 Sep 2023 07:19:59 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1694701199; x=1695305999; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=OinN3M2z4I/Qg8aCda0iI1MRdyz332KlEPPYu5muKwI=;
+        b=slQNUNCzXQ58gA2pzJ1JTI8KiPP/U7z9RgBrjkoo+seEaZTc2/M/PjDMIOOBh0PIiT
+         BbOl+7ieHo2jKoSFcrcJyaSKzHPxxONSh+rFkVdu2zDjpU0bIFa6GFqBspZp+9iYfYw2
+         WHWvh+Pr4A/wLwOWV1difuHaevIJrPzPR1o79tfweiMdAP/t+TQWfU+R7b51F8yk5TNq
+         hvyWVInrjX9kUVJC9u88jztO9DUacgHh0MZ0CWR7vpVR3pjAUTu9Adfc5YLl58CX0/yz
+         8ywDMMnSHoX/IELTy4KgPlOeXM6SK7hDoHUBpVLx/5HiDdo+UVItcBrtOaO/JFanT3CR
+         bYng==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1694701199; x=1695305999;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=OinN3M2z4I/Qg8aCda0iI1MRdyz332KlEPPYu5muKwI=;
+        b=OPlZDoPbLLCgF1GeHSc8n8P8p5L2Arq+Fd7Us8HcjLkC0h55jOszpav3kBMLqjrWUG
+         y2ssk7mgJ56Nz8j8g5JRAA09xH/guRmpMzwYN1/NUmh3Hj22IrhsW1NIGVUwEAy9ebWp
+         BTi7Wh+pf9h8QVSz8O/zQRYQueT//Z43Mpvu51blXmSYiKbcAhry1n1PX7YglX7VdUu7
+         u82heoQr4BuxdMFzUoeor393dkN4ooiNqMd08gfCfHSXtHKVow+6sKIZeArsrIzzlikR
+         1YjflJ0ZbuxGxALTLsbpOg8lHgoYB4t1TmPE126aYr4Yc5VbH1t38e4iIgbjBMjlS8Yw
+         J1Aw==
+X-Gm-Message-State: AOJu0Yy5FjzccVkPDOHZIMzob8AjgPRedZb/wgcXOOm+P9ua0t/AKVvF
+	6xKEOnGjsFXjGnWUdOzoTUp28EwTsY8=
+X-Google-Smtp-Source: AGHT+IEn69IOl2rxglDVCjXW4KTdScyqCw6tLi48MQpyb+nW1MjRKbjq1lfqPgEextp+IedkDxkiKrdOCXU=
+X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
+ (user=seanjc job=sendgmr) by 2002:a25:e6c4:0:b0:d78:f45:d7bd with SMTP id
+ d187-20020a25e6c4000000b00d780f45d7bdmr129688ybh.4.1694701199053; Thu, 14 Sep
+ 2023 07:19:59 -0700 (PDT)
+Date: Thu, 14 Sep 2023 07:19:57 -0700
+In-Reply-To: <54d3e6bf-d374-caa5-0920-bb2fe3b7595c@linux.intel.com>
+Mime-Version: 1.0
+References: <20230914015531.1419405-1-seanjc@google.com> <20230914015531.1419405-3-seanjc@google.com>
+ <54d3e6bf-d374-caa5-0920-bb2fe3b7595c@linux.intel.com>
+Message-ID: <ZQMWjbt/SzKvag2K@google.com>
+Subject: Re: [RFC PATCH v12 02/33] KVM: Use gfn instead of hva for mmu_notifier_retry
+From: Sean Christopherson <seanjc@google.com>
+To: Binbin Wu <binbin.wu@linux.intel.com>
+Cc: Chao Peng <chao.p.peng@linux.intel.com>, kvm@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
+	linux-fsdevel@vger.kernel.org, linux-mm@kvack.org, 
+	linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
+	Oliver Upton <oliver.upton@linux.dev>, Huacai Chen <chenhuacai@kernel.org>, 
+	Michael Ellerman <mpe@ellerman.id.au>, Anup Patel <anup@brainfault.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, "Matthew Wilcox (Oracle)" <willy@infradead.org>, 
+	Andrew Morton <akpm@linux-foundation.org>, Paul Moore <paul@paul-moore.com>, 
+	James Morris <jmorris@namei.org>, "Serge E. Hallyn" <serge@hallyn.com>, Fuad Tabba <tabba@google.com>, 
+	Jarkko Sakkinen <jarkko@kernel.org>, Anish Moorthy <amoorthy@google.com>, 
+	Yu Zhang <yu.c.zhang@linux.intel.com>, Isaku Yamahata <isaku.yamahata@intel.com>, 
+	Xu Yilun <yilun.xu@intel.com>, Vlastimil Babka <vbabka@suse.cz>, 
+	Vishal Annapurve <vannapurve@google.com>, Ackerley Tng <ackerleytng@google.com>, 
+	Maciej Szmigiero <mail@maciej.szmigiero.name>, David Hildenbrand <david@redhat.com>, 
+	Quentin Perret <qperret@google.com>, Michael Roth <michael.roth@amd.com>, Wang <wei.w.wang@intel.com>, 
+	Liam Merwick <liam.merwick@oracle.com>, Isaku Yamahata <isaku.yamahata@gmail.com>, 
+	"Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230914_071824_453061_BBBA6B36 
-X-CRM114-Status: GOOD (  20.62  )
+X-CRM114-CacheID: sfid-20230914_072005_886352_80D215D4 
+X-CRM114-Status: GOOD (  19.67  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,82 +103,75 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4013658974914627673=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Thu, Sep 14, 2023, Binbin Wu wrote:
+> 
+> On 9/14/2023 9:55 AM, Sean Christopherson wrote:
+> > +void kvm_mmu_invalidate_end(struct kvm *kvm)
+> >   {
+> >   	/*
+> >   	 * This sequence increase will notify the kvm page fault that
+> > @@ -833,6 +848,13 @@ void kvm_mmu_invalidate_end(struct kvm *kvm, unsigned long start,
+> >   	 * in conjunction with the smp_rmb in mmu_invalidate_retry().
+> >   	 */
+> >   	kvm->mmu_invalidate_in_progress--;
+> > +
+> > +	/*
+> > +	 * Assert that at least one range must be added between start() and
+> > +	 * end().  Not adding a range isn't fatal, but it is a KVM bug.
+> > +	 */
+> > +	WARN_ON_ONCE(kvm->mmu_invalidate_in_progress &&
+> > +		     kvm->mmu_invalidate_range_start == INVALID_GPA);
+> Should the check happen before the decrease of kvm->mmu_invalidate_in_progress?
+> Otherwise, KVM calls kvm_mmu_invalidate_begin(), then kvm_mmu_invalidate_end()
+> the check will not take effect.
 
---===============4013658974914627673==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="BoFtOlqfEEGc0sg6"
-Content-Disposition: inline
+Indeed.  I'm pretty sure I added this code, not sure what I was thinking.  There's
+no reason to check mmu_invalidate_in_progress, it's not like KVM allows
+mmu_invalidate_in_progress to go negative.  The comment is also a bit funky.  I'll
+post a fixup patch to make it look like this (assuming I'm not forgetting a subtle
+reason for guarding the check with the in-progress flag):
 
+	/*
+	 * Assert that at least one range was added between start() and end().
+	 * Not adding a range isn't fatal, but it is a KVM bug.
+	 */
+	WARN_ON_ONCE(kvm->mmu_invalidate_range_start == INVALID_GPA);
 
---BoFtOlqfEEGc0sg6
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Regarding kvm->mmu_invalidate_in_progress, this would be a good opportunity to
+move the BUG_ON() into the common end(), e.g. as is, an end() without a start()
+from something other than the generic mmu_notifier would go unnoticed.  And I
+_think_ we can replace the BUG_ON() with a KVM_BUG_ON() without putting the
+kernel at risk.  E.g.
 
-On Thu, Sep 14, 2023 at 04:15:10PM +0200, Bj=F6rn T=F6pel wrote:
-> Conor Dooley <conor.dooley@microchip.com> writes:
->=20
-> > On Thu, Sep 14, 2023 at 02:59:30PM +0200, Bj=F6rn T=F6pel wrote:
-> >> Conor Dooley <conor.dooley@microchip.com> writes:
-> >>=20
-> >> > On Tue, Sep 12, 2023 at 01:57:22PM +0200, Bj=F6rn T=F6pel wrote:
-> >> >> From: Bj=F6rn T=F6pel <bjorn@rivosinc.com>
-> >> >>=20
-> >> >> Hi,
-> >> >>=20
-> >> >> This is Andy's kernel mode vector V2 series [1], with my BLAKE2s
-> >> >> AVX-512-to-RISC-V translation patch appended.
-> >> >>=20
-> >> >> I've tagged it as RFC, since Andy's series is still not in-tree yet.
-> >> >>=20
-> >> >> It's a first step towards a Vector aided Wireguard! ;-)
-> >> >
-> >> > This has the same problems as Andy's stuff & doesn't build properly =
-for the
-> >> > automation. What is the plan between yourself and Andy for submittin=
-g a
-> >> > version of the in-kernel vector support that passes build testing?
-> >>=20
-> >> I'll synch up with Andy! I'm not even sure the blake2s patch should pa=
-rt
-> >> of the "in-kernel vector" series at all.
-> >
-> > The in-kernel vector stuff should come with a user, otherwise it's dead
-> > code :)
->=20
-> Sure, just so we're on the same page; Patch 3 (Vector XOR) is a user
-> from my perspective, no?
+diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
+index dd948276e5d6..54480655bcce 100644
+--- a/virt/kvm/kvm_main.c
++++ b/virt/kvm/kvm_main.c
+@@ -870,6 +870,7 @@ void kvm_mmu_invalidate_end(struct kvm *kvm)
+         * in conjunction with the smp_rmb in mmu_invalidate_retry().
+         */
+        kvm->mmu_invalidate_in_progress--;
++       KVM_BUG_ON(kvm->mmu_invalidate_in_progress < 0, kvm);
+ 
+        /*
+         * Assert that at least one range was added between start() and end().
+@@ -905,8 +906,6 @@ static void kvm_mmu_notifier_invalidate_range_end(struct mmu_notifier *mn,
+         */
+        if (wake)
+                rcuwait_wake_up(&kvm->mn_memslots_update_rcuwait);
+-
+-       BUG_ON(kvm->mmu_invalidate_in_progress < 0);
+ }
+ 
+ static int kvm_mmu_notifier_clear_flush_young(struct mmu_notifier *mn,
 
-D'oh
-
---BoFtOlqfEEGc0sg6
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZQMWJgAKCRB4tDGHoIJi
-0mSZAP9QxZxEOa2w5PdNwZc4V1YJq0no6zTaa5YmzIbEImXKBwEAzXGzM8jb/VBR
-mo1rZ4gmHUV8MTurBVpK8FYf9j+bLAo=
-=vx8E
------END PGP SIGNATURE-----
-
---BoFtOlqfEEGc0sg6--
-
-
---===============4013658974914627673==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============4013658974914627673==--
-
