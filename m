@@ -4,69 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEBECEE0216
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 Sep 2023 01:58:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5AA2EE0219
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 Sep 2023 01:58:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
 	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=f6zGzijwek4Xkk0TPhj9cWE4w0nJ4WE3/9rH2cerAGA=; b=c0KPhHDRmstKzL
-	sv1gkGhjQywJQpiooiIO+U9+a53L4Ru0FuCBH+VEMPQ8hRhe6s2KyYNs/I8Vr19w5cY2h75iR8oy+
-	cTBrjgzEdq4QbxkLQbT7rRQv4Nl3Cp8BoiPYqodyj2fHJL8kZwReeeWtXdO/S8AmV87yPszmoQ296
-	VoNIbtEoaFJRQ3ie/dUARdwiawrA2q/f9UxM3Kmf3e7zJoGq+2esdNHA13xLBDNnRrZOKPTIHHzEe
-	RYgx78dcdamjmdUj5iv9tyQDivL8doXo5Ofm8KuXeGxyV4uRlDKXXes7qdnuHvnlR1zdJZjWr4xMf
-	30Ui7gb8FpTrEo1BTfxw==;
+	List-Owner; bh=3T8M6bbSYr7GzpLn86woacfbv786j7xHXvQRfUc4Pqw=; b=pnzycHrNQZMeAz
+	MbzxMDoaFJRoebEu9mUfw+EXLrZsPP4MjDARMIRxz4PkN1YqCevUGiCR33Xt0LR1DbWZfE8GJbOBq
+	tvZYJs47soL3Ozx/93EUP8X2Rb23eFcTSyZtq2UVwP1BwxcLMI0eZpue9S7f56N21hhd6DzsfFWh0
+	1AQ6RNs53f/ozqLTRWhl+VpcHuA0u8k9RGk4U+bELOF6p8GqlZiIwuC1fymDpGZUa5mYGKEQdguC/
+	gMIRUS+f1zpB4bmgm7ZbbOv1ZLYsQbPAJw2Fo83UjfCEuTW8r/1gu6bW9GYC4eZnB+ZLDT/FmCMq8
+	qWDIYFOfP0s/nioNcm8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgbcs-0075WB-1g;
-	Thu, 14 Sep 2023 01:58:38 +0000
-Received: from mail-yw1-x114a.google.com ([2607:f8b0:4864:20::114a])
+	id 1qgbd0-0075er-2M;
+	Thu, 14 Sep 2023 01:58:46 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgbaW-0073Ev-0H
+	id 1qgbak-0073Wr-1t
+	for linux-riscv@bombadil.infradead.org;
+	Thu, 14 Sep 2023 01:56:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
+	Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:Sender:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=kuaopqTQwIJoODQjwL8UCc8nafSHAqskK1PNRD1zt6Q=; b=l8UCldfNRdKM/D3ZLNy4Cy2c6K
+	KZGOxo0mpSGipjjy6Uxe/rM+5HIYXrsBjTMzfxlGs7BNfHMewWoBzUfGzmZgvGYXzKERSvcZNJHSu
+	2gbIMUySMuPu7oYq5xQkSPHmsYDowIBc+Nr+ZOnkyUb/q9sUhzpbf00ABaiVBH67pdx7I063Psotk
+	O6sCatw+fWEGpkElU1fFnE85Se5ce0z35DUNDa4O8qWddwKkY6IS+wleRN0r1r6RokPKv2pSLuvMb
+	er/PSU0qRTbkpMAs5CEzlBgAqVhV/fv7KWXVR5as96LEvJwAt6ZHBIojo5o5H3/NUpD4kDkqBYMwg
+	qWLNm0Sg==;
+Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
+	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1qgbab-007TcS-0U
 	for linux-riscv@lists.infradead.org;
-	Thu, 14 Sep 2023 01:56:20 +0000
-Received: by mail-yw1-x114a.google.com with SMTP id 00721157ae682-58c8b2d6784so6312157b3.3
-        for <linux-riscv@lists.infradead.org>; Wed, 13 Sep 2023 18:56:10 -0700 (PDT)
+	Thu, 14 Sep 2023 01:56:24 +0000
+Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-1c3fa9a27ffso4434845ad.0
+        for <linux-riscv@lists.infradead.org>; Wed, 13 Sep 2023 18:56:17 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1694656570; x=1695261370; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1694656576; x=1695261376; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=hXg+c13z5FpxpMh0dTDS8MDb5ldwgANdA63niVsOR7o=;
-        b=IGywXcudLSs26pk+Yzkv6xbcvLD2HeeZUBHMn+wDWBKBOYC74WyLELdGh0SRb3LT5b
-         Xb0LXo2iBW3ZqgHGSFAFOiKLdFkjkRrk4melxQII+Wlyx18OaBqI697mXjr2id1cJ5/O
-         /zjvXp9L1uoBFXHDLoaQLIUaYDkpL7OU5SW8adpkSzATpvSF85cRWdzXvtRUu/c/5CU1
-         J7DTvitlTULQZhV2/hfSKFdGcvrU9yBoGwrT68eYzIJS7GcFfH+AzDGogPOcz8+lTiPu
-         cpoWQ60UUYikGpjIX5p96wA8zvG/yIEApyDvuW3e1gj1u+putgXjdod7vy9qK6I9mHUy
-         TDtA==
+        bh=kuaopqTQwIJoODQjwL8UCc8nafSHAqskK1PNRD1zt6Q=;
+        b=c6NwBxFmg+euGQx8Ds4Au1lyhIgk76VNs7mYkJ70Ddqr7PLWmrxwSyP5Phf/JuNKZ0
+         k/GV6g6WNraYIpFscWNDbhAyJJI9f7MxdN7/4k8a+0VNtnqHJ/jlqllTJ4VuXkwPMpM5
+         rHWuh56cOMB3M7Vr82WKZXu4Ei11SXs41ndXBIy1ZgcLi7719a6Fq6E5/1bsqh2fMGr6
+         hgcSkSC4BUUg3bZwfoaLbwn9+8s5Zu1H4rdQFNPxCLHTSKBi7giwAvvNl9XmmPxbZZ/w
+         9YuxMgd1hxwfSWuhq4a9Ev/Z3OpwM+nB0iU96nrlkiw0Sh6Pyz7zUod/gyOs8XWClFmx
+         d5eA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1694656570; x=1695261370;
+        d=1e100.net; s=20230601; t=1694656576; x=1695261376;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=hXg+c13z5FpxpMh0dTDS8MDb5ldwgANdA63niVsOR7o=;
-        b=m7kRqzSeE+rOkT3J0KqPHXOZkHhFl0K/v7VTbAkWu5ITi367sYhQl9ebNt0JSczw5x
-         FokR/b14+iGFNst+0CI1AWlmx8+mmL9gj8kM6hLDDRdRsOlPSfq6criMW6HILDP52wQM
-         aZKA0jyKMIVO6aekYypf7X4M28LQX9OCv9D+Rpeh4rMHwPFFqGrMd1ggCIeojcnf19Qg
-         Vl2d7rXHT4eZjwWN4bcJTcdxOvGJxkx28TUJqNXdPLiv2h4mg7yfazJCeAkFkIeCasUe
-         g8N8a//ui0b2ZaFbqe9CPcgBOcmGlMUwIJikUpa0Npse9IGneviWLAO9c9oe8U0mQu2t
-         SjHw==
-X-Gm-Message-State: AOJu0Yy7rYfghN8ok8FNTQeuSdI+ETULyKfEDXeKP3UdzKgBqYiZZiSq
-	xeRRQZVfMreIojw/5GFpUY79xNp6fvo=
-X-Google-Smtp-Source: AGHT+IHPiLkfoLFlIeGbzzjp2cxBfgGGv6hvIzEJvebBRPzJegHp6YgbGy/UCdWVr8MsxooaabenVz16PQA=
+        bh=kuaopqTQwIJoODQjwL8UCc8nafSHAqskK1PNRD1zt6Q=;
+        b=DOEYQ+DC5hydModaH5Dxn4iLzUushW5bxodvuG3jf++hfCE2JajdB+FccmEJiQztQL
+         YY7weGm7vcQ5MF6asPJuWwXKw5wj/ms6KBUBJuHmQb7n4ogf4GpzIj6SRFuPoKiGi8bV
+         emgMX9PQ2cTRkWqDWjPbFowEW7/rKFc2wmpV32/q/pwvDzi1drE+FpAgkz8+fNqOXg+0
+         V1O89r0ALwRfdgaQydfZE9GAOdR0DTRMoILNP1xuVeXYoQ+RNhKUsL0kVDz9qVObDHw5
+         ZcdYkMUnw4dCZrteUCkujPSlbIHpRERif4Iv/pzrMxHHEEx3i6j4zqUkAYYilzEg9TXc
+         3D+w==
+X-Gm-Message-State: AOJu0YwO9Sc8pOJcxhGvTt363HeMnnI0Z1ZE8+eUBs53QKz83usSeuw+
+	B359OpxRk0iT6h7VEas9EjKGXYQKyVA=
+X-Google-Smtp-Source: AGHT+IFIYZjFKMw6WHtNJEOGL2Eon5EsR/54GlB+Thrn8G9XTPh/MDdknE8YBd4objuzaOAQYplftVof7WQ=
 X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
- (user=seanjc job=sendgmr) by 2002:a05:690c:72a:b0:59b:b8bf:5973 with SMTP id
- bt10-20020a05690c072a00b0059bb8bf5973mr115588ywb.0.1694656569799; Wed, 13 Sep
- 2023 18:56:09 -0700 (PDT)
-Date: Wed, 13 Sep 2023 18:55:15 -0700
+ (user=seanjc job=sendgmr) by 2002:a17:902:ec83:b0:1c3:77cd:6520 with SMTP id
+ x3-20020a170902ec8300b001c377cd6520mr179995plg.11.1694656575520; Wed, 13 Sep
+ 2023 18:56:15 -0700 (PDT)
+Date: Wed, 13 Sep 2023 18:55:18 -0700
 In-Reply-To: <20230914015531.1419405-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20230914015531.1419405-1-seanjc@google.com>
 X-Mailer: git-send-email 2.42.0.283.g2d96d420d3-goog
-Message-ID: <20230914015531.1419405-18-seanjc@google.com>
-Subject: [RFC PATCH v12 17/33] KVM: x86: Disallow hugepages when memory
- attributes are mixed
+Message-ID: <20230914015531.1419405-21-seanjc@google.com>
+Subject: [RFC PATCH v12 20/33] KVM: Allow arch code to track number of memslot
+ address spaces per VM
 From: Sean Christopherson <seanjc@google.com>
 To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
 	Oliver Upton <oliver.upton@linux.dev>, Huacai Chen <chenhuacai@kernel.org>, 
@@ -92,8 +107,8 @@ Cc: kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	Liam Merwick <liam.merwick@oracle.com>, Isaku Yamahata <isaku.yamahata@gmail.com>, 
 	"Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230913_185612_213988_D33BF0DD 
-X-CRM114-Status: GOOD (  25.59  )
+X-CRM114-CacheID: sfid-20230914_025619_797786_65FF0165 
+X-CRM114-Status: GOOD (  21.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,235 +126,313 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Chao Peng <chao.p.peng@linux.intel.com>
+Let x86 track the number of address spaces on a per-VM basis so that KVM
+can disallow SMM memslots for confidential VMs.  Confidentials VMs are
+fundamentally incompatible with emulating SMM, which as the name suggests
+requires being able to read and write guest memory and register state.
 
-Disallow creating hugepages with mixed memory attributes, e.g. shared
-versus private, as mapping a hugepage in this case would allow the guest
-to access memory with the wrong attributes, e.g. overlaying private memory
-with a shared hugepage.
+Disallowing SMM will simplify support for guest private memory, as KVM
+will not need to worry about tracking memory attributes for multiple
+address spaces (SMM is the only "non-default" address space across all
+architectures).
 
-Tracking whether or not attributes are mixed via the existing
-disallow_lpage field, but use the most significant bit in 'disallow_lpage'
-to indicate a hugepage has mixed attributes instead using the normal
-refcounting.  Whether or not attributes are mixed is binary; either they
-are or they aren't.  Attempting to squeeze that info into the refcount is
-unnecessarily complex as it would require knowing the previous state of
-the mixed count when updating attributes.  Using a flag means KVM just
-needs to ensure the current status is reflected in the memslots.
-
-Signed-off-by: Chao Peng <chao.p.peng@linux.intel.com>
-Co-developed-by: Sean Christopherson <seanjc@google.com>
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- arch/x86/include/asm/kvm_host.h |   3 +
- arch/x86/kvm/mmu/mmu.c          | 152 +++++++++++++++++++++++++++++++-
- arch/x86/kvm/x86.c              |   4 +
- 3 files changed, 157 insertions(+), 2 deletions(-)
+ arch/powerpc/kvm/book3s_hv.c    |  2 +-
+ arch/x86/include/asm/kvm_host.h |  8 +++++++-
+ arch/x86/kvm/debugfs.c          |  2 +-
+ arch/x86/kvm/mmu/mmu.c          |  8 ++++----
+ arch/x86/kvm/mmu/tdp_mmu.c      |  2 +-
+ arch/x86/kvm/x86.c              |  2 +-
+ include/linux/kvm_host.h        | 17 +++++++++++------
+ virt/kvm/dirty_ring.c           |  2 +-
+ virt/kvm/kvm_main.c             | 26 ++++++++++++++------------
+ 9 files changed, 41 insertions(+), 28 deletions(-)
 
+diff --git a/arch/powerpc/kvm/book3s_hv.c b/arch/powerpc/kvm/book3s_hv.c
+index 130bafdb1430..9b0eaa17275a 100644
+--- a/arch/powerpc/kvm/book3s_hv.c
++++ b/arch/powerpc/kvm/book3s_hv.c
+@@ -6084,7 +6084,7 @@ static int kvmhv_svm_off(struct kvm *kvm)
+ 	}
+ 
+ 	srcu_idx = srcu_read_lock(&kvm->srcu);
+-	for (i = 0; i < KVM_ADDRESS_SPACE_NUM; i++) {
++	for (i = 0; i < kvm_arch_nr_memslot_as_ids(kvm); i++) {
+ 		struct kvm_memory_slot *memslot;
+ 		struct kvm_memslots *slots = __kvm_memslots(kvm, i);
+ 		int bkt;
 diff --git a/arch/x86/include/asm/kvm_host.h b/arch/x86/include/asm/kvm_host.h
-index 3a2b53483524..91a28ddf7cfd 100644
+index 78d641056ec5..44d67a97304e 100644
 --- a/arch/x86/include/asm/kvm_host.h
 +++ b/arch/x86/include/asm/kvm_host.h
-@@ -1838,6 +1838,9 @@ int kvm_mmu_create(struct kvm_vcpu *vcpu);
- int kvm_mmu_init_vm(struct kvm *kvm);
- void kvm_mmu_uninit_vm(struct kvm *kvm);
+@@ -2126,9 +2126,15 @@ enum {
+ #define HF_SMM_MASK		(1 << 1)
+ #define HF_SMM_INSIDE_NMI_MASK	(1 << 2)
  
-+void kvm_mmu_init_memslot_memory_attributes(struct kvm *kvm,
-+					    struct kvm_memory_slot *slot);
+-# define KVM_ADDRESS_SPACE_NUM 2
++# define KVM_MAX_NR_ADDRESS_SPACES	2
+ # define kvm_arch_vcpu_memslots_id(vcpu) ((vcpu)->arch.hflags & HF_SMM_MASK ? 1 : 0)
+ # define kvm_memslots_for_spte_role(kvm, role) __kvm_memslots(kvm, (role).smm)
 +
- void kvm_mmu_after_set_cpuid(struct kvm_vcpu *vcpu);
- void kvm_mmu_reset_context(struct kvm_vcpu *vcpu);
- void kvm_mmu_slot_remove_write_access(struct kvm *kvm,
++static inline int kvm_arch_nr_memslot_as_ids(struct kvm *kvm)
++{
++	return KVM_MAX_NR_ADDRESS_SPACES;
++}
++
+ #else
+ # define kvm_memslots_for_spte_role(kvm, role) __kvm_memslots(kvm, 0)
+ #endif
+diff --git a/arch/x86/kvm/debugfs.c b/arch/x86/kvm/debugfs.c
+index ee8c4c3496ed..42026b3f3ff3 100644
+--- a/arch/x86/kvm/debugfs.c
++++ b/arch/x86/kvm/debugfs.c
+@@ -111,7 +111,7 @@ static int kvm_mmu_rmaps_stat_show(struct seq_file *m, void *v)
+ 	mutex_lock(&kvm->slots_lock);
+ 	write_lock(&kvm->mmu_lock);
+ 
+-	for (i = 0; i < KVM_ADDRESS_SPACE_NUM; i++) {
++	for (i = 0; i < kvm_arch_nr_memslot_as_ids(kvm); i++) {
+ 		int bkt;
+ 
+ 		slots = __kvm_memslots(kvm, i);
 diff --git a/arch/x86/kvm/mmu/mmu.c b/arch/x86/kvm/mmu/mmu.c
-index 0f0231d2b74f..a079f36a8bf5 100644
+index 9b48d8d0300b..269d4dc47c98 100644
 --- a/arch/x86/kvm/mmu/mmu.c
 +++ b/arch/x86/kvm/mmu/mmu.c
-@@ -795,16 +795,26 @@ static struct kvm_lpage_info *lpage_info_slot(gfn_t gfn,
- 	return &slot->arch.lpage_info[level - 2][idx];
- }
+@@ -3755,7 +3755,7 @@ static int mmu_first_shadow_root_alloc(struct kvm *kvm)
+ 	    kvm_page_track_write_tracking_enabled(kvm))
+ 		goto out_success;
  
-+/*
-+ * The most significant bit in disallow_lpage tracks whether or not memory
-+ * attributes are mixed, i.e. not identical for all gfns at the current level.
-+ * The lower order bits are used to refcount other cases where a hugepage is
-+ * disallowed, e.g. if KVM has shadow a page table at the gfn.
-+ */
-+#define KVM_LPAGE_MIXED_FLAG	BIT(31)
-+
- static void update_gfn_disallow_lpage_count(const struct kvm_memory_slot *slot,
- 					    gfn_t gfn, int count)
- {
- 	struct kvm_lpage_info *linfo;
--	int i;
-+	int old, i;
+-	for (i = 0; i < KVM_ADDRESS_SPACE_NUM; i++) {
++	for (i = 0; i < kvm_arch_nr_memslot_as_ids(kvm); i++) {
+ 		slots = __kvm_memslots(kvm, i);
+ 		kvm_for_each_memslot(slot, bkt, slots) {
+ 			/*
+@@ -6301,7 +6301,7 @@ static bool kvm_rmap_zap_gfn_range(struct kvm *kvm, gfn_t gfn_start, gfn_t gfn_e
+ 	if (!kvm_memslots_have_rmaps(kvm))
+ 		return flush;
  
- 	for (i = PG_LEVEL_2M; i <= KVM_MAX_HUGEPAGE_LEVEL; ++i) {
- 		linfo = lpage_info_slot(gfn, slot, i);
-+
-+		old = linfo->disallow_lpage;
- 		linfo->disallow_lpage += count;
--		WARN_ON_ONCE(linfo->disallow_lpage < 0);
-+		WARN_ON_ONCE((old ^ linfo->disallow_lpage) & KVM_LPAGE_MIXED_FLAG);
+-	for (i = 0; i < KVM_ADDRESS_SPACE_NUM; i++) {
++	for (i = 0; i < kvm_arch_nr_memslot_as_ids(kvm); i++) {
+ 		slots = __kvm_memslots(kvm, i);
+ 
+ 		kvm_for_each_memslot_in_gfn_range(&iter, slots, gfn_start, gfn_end) {
+@@ -6341,7 +6341,7 @@ void kvm_zap_gfn_range(struct kvm *kvm, gfn_t gfn_start, gfn_t gfn_end)
+ 	flush = kvm_rmap_zap_gfn_range(kvm, gfn_start, gfn_end);
+ 
+ 	if (tdp_mmu_enabled) {
+-		for (i = 0; i < KVM_ADDRESS_SPACE_NUM; i++)
++		for (i = 0; i < kvm_arch_nr_memslot_as_ids(kvm); i++)
+ 			flush = kvm_tdp_mmu_zap_leafs(kvm, i, gfn_start,
+ 						      gfn_end, true, flush);
  	}
- }
+@@ -6802,7 +6802,7 @@ void kvm_mmu_invalidate_mmio_sptes(struct kvm *kvm, u64 gen)
+ 	 * modifier prior to checking for a wrap of the MMIO generation so
+ 	 * that a wrap in any address space is detected.
+ 	 */
+-	gen &= ~((u64)KVM_ADDRESS_SPACE_NUM - 1);
++	gen &= ~((u64)kvm_arch_nr_memslot_as_ids(kvm) - 1);
  
-@@ -7172,3 +7182,141 @@ void kvm_mmu_pre_destroy_vm(struct kvm *kvm)
- 	if (kvm->arch.nx_huge_page_recovery_thread)
- 		kthread_stop(kvm->arch.nx_huge_page_recovery_thread);
- }
-+
-+#ifdef CONFIG_KVM_GENERIC_MEMORY_ATTRIBUTES
-+static bool hugepage_test_mixed(struct kvm_memory_slot *slot, gfn_t gfn,
-+				int level)
-+{
-+	return lpage_info_slot(gfn, slot, level)->disallow_lpage & KVM_LPAGE_MIXED_FLAG;
-+}
-+
-+static void hugepage_clear_mixed(struct kvm_memory_slot *slot, gfn_t gfn,
-+				 int level)
-+{
-+	lpage_info_slot(gfn, slot, level)->disallow_lpage &= ~KVM_LPAGE_MIXED_FLAG;
-+}
-+
-+static void hugepage_set_mixed(struct kvm_memory_slot *slot, gfn_t gfn,
-+			       int level)
-+{
-+	lpage_info_slot(gfn, slot, level)->disallow_lpage |= KVM_LPAGE_MIXED_FLAG;
-+}
-+
-+static bool hugepage_has_attrs(struct kvm *kvm, struct kvm_memory_slot *slot,
-+			       gfn_t gfn, int level, unsigned long attrs)
-+{
-+	const unsigned long start = gfn;
-+	const unsigned long end = start + KVM_PAGES_PER_HPAGE(level);
-+
-+	if (level == PG_LEVEL_2M)
-+		return kvm_range_has_memory_attributes(kvm, start, end, attrs);
-+
-+	for (gfn = start; gfn < end; gfn += KVM_PAGES_PER_HPAGE(level - 1)) {
-+		if (hugepage_test_mixed(slot, gfn, level - 1) ||
-+		    attrs != kvm_get_memory_attributes(kvm, gfn))
-+			return false;
-+	}
-+	return true;
-+}
-+
-+bool kvm_arch_post_set_memory_attributes(struct kvm *kvm,
-+					 struct kvm_gfn_range *range)
-+{
-+	unsigned long attrs = range->arg.attributes;
-+	struct kvm_memory_slot *slot = range->slot;
-+	int level;
-+
-+	lockdep_assert_held_write(&kvm->mmu_lock);
-+	lockdep_assert_held(&kvm->slots_lock);
-+
-+	/*
-+	 * KVM x86 currently only supports KVM_MEMORY_ATTRIBUTE_PRIVATE, skip
-+	 * the slot if the slot will never consume the PRIVATE attribute.
-+	 */
-+	if (!kvm_slot_can_be_private(slot))
-+		return false;
-+
-+	/*
-+	 * The sequence matters here: upper levels consume the result of lower
-+	 * level's scanning.
-+	 */
-+	for (level = PG_LEVEL_2M; level <= KVM_MAX_HUGEPAGE_LEVEL; level++) {
-+		gfn_t nr_pages = KVM_PAGES_PER_HPAGE(level);
-+		gfn_t gfn = gfn_round_for_level(range->start, level);
-+
-+		/* Process the head page if it straddles the range. */
-+		if (gfn != range->start || gfn + nr_pages > range->end) {
-+			/*
-+			 * Skip mixed tracking if the aligned gfn isn't covered
-+			 * by the memslot, KVM can't use a hugepage due to the
-+			 * misaligned address regardless of memory attributes.
-+			 */
-+			if (gfn >= slot->base_gfn) {
-+				if (hugepage_has_attrs(kvm, slot, gfn, level, attrs))
-+					hugepage_clear_mixed(slot, gfn, level);
-+				else
-+					hugepage_set_mixed(slot, gfn, level);
-+			}
-+			gfn += nr_pages;
-+		}
-+
-+		/*
-+		 * Pages entirely covered by the range are guaranteed to have
-+		 * only the attributes which were just set.
-+		 */
-+		for ( ; gfn + nr_pages <= range->end; gfn += nr_pages)
-+			hugepage_clear_mixed(slot, gfn, level);
-+
-+		/*
-+		 * Process the last tail page if it straddles the range and is
-+		 * contained by the memslot.  Like the head page, KVM can't
-+		 * create a hugepage if the slot size is misaligned.
-+		 */
-+		if (gfn < range->end &&
-+		    (gfn + nr_pages) <= (slot->base_gfn + slot->npages)) {
-+			if (hugepage_has_attrs(kvm, slot, gfn, level, attrs))
-+				hugepage_clear_mixed(slot, gfn, level);
-+			else
-+				hugepage_set_mixed(slot, gfn, level);
-+		}
-+	}
-+	return false;
-+}
-+
-+void kvm_mmu_init_memslot_memory_attributes(struct kvm *kvm,
-+					    struct kvm_memory_slot *slot)
-+{
-+	int level;
-+
-+	if (!kvm_slot_can_be_private(slot))
-+		return;
-+
-+	for (level = PG_LEVEL_2M; level <= KVM_MAX_HUGEPAGE_LEVEL; level++) {
-+		/*
-+		 * Don't bother tracking mixed attributes for pages that can't
-+		 * be huge due to alignment, i.e. process only pages that are
-+		 * entirely contained by the memslot.
-+		 */
-+		gfn_t end = gfn_round_for_level(slot->base_gfn + slot->npages, level);
-+		gfn_t start = gfn_round_for_level(slot->base_gfn, level);
-+		gfn_t nr_pages = KVM_PAGES_PER_HPAGE(level);
-+		gfn_t gfn;
-+
-+		if (start < slot->base_gfn)
-+			start += nr_pages;
-+
-+		/*
-+		 * Unlike setting attributes, every potential hugepage needs to
-+		 * be manually checked as the attributes may already be mixed.
-+		 */
-+		for (gfn = start; gfn < end; gfn += nr_pages) {
-+			unsigned long attrs = kvm_get_memory_attributes(kvm, gfn);
-+
-+			if (hugepage_has_attrs(kvm, slot, gfn, level, attrs))
-+				hugepage_clear_mixed(slot, gfn, level);
-+			else
-+				hugepage_set_mixed(slot, gfn, level);
-+		}
-+	}
-+}
-+#endif
+ 	/*
+ 	 * The very rare case: if the MMIO generation number has wrapped,
+diff --git a/arch/x86/kvm/mmu/tdp_mmu.c b/arch/x86/kvm/mmu/tdp_mmu.c
+index 6c63f2d1675f..ca7ec39f17d3 100644
+--- a/arch/x86/kvm/mmu/tdp_mmu.c
++++ b/arch/x86/kvm/mmu/tdp_mmu.c
+@@ -905,7 +905,7 @@ void kvm_tdp_mmu_zap_all(struct kvm *kvm)
+ 	 * is being destroyed or the userspace VMM has exited.  In both cases,
+ 	 * KVM_RUN is unreachable, i.e. no vCPUs will ever service the request.
+ 	 */
+-	for (i = 0; i < KVM_ADDRESS_SPACE_NUM; i++) {
++	for (i = 0; i < kvm_arch_nr_memslot_as_ids(kvm); i++) {
+ 		for_each_tdp_mmu_root_yield_safe(kvm, root, i)
+ 			tdp_mmu_zap_root(kvm, root, false);
+ 	}
 diff --git a/arch/x86/kvm/x86.c b/arch/x86/kvm/x86.c
-index 8d21b7b09bb5..ac36a5b7b5a3 100644
+index ac36a5b7b5a3..f1da61236670 100644
 --- a/arch/x86/kvm/x86.c
 +++ b/arch/x86/kvm/x86.c
-@@ -12598,6 +12598,10 @@ static int kvm_alloc_memslot_metadata(struct kvm *kvm,
- 		}
+@@ -12447,7 +12447,7 @@ void __user * __x86_set_memory_region(struct kvm *kvm, int id, gpa_t gpa,
+ 		hva = slot->userspace_addr;
  	}
  
-+#ifdef CONFIG_KVM_GENERIC_MEMORY_ATTRIBUTES
-+	kvm_mmu_init_memslot_memory_attributes(kvm, slot);
-+#endif
-+
- 	if (kvm_page_track_create_memslot(kvm, slot, npages))
- 		goto out_free;
+-	for (i = 0; i < KVM_ADDRESS_SPACE_NUM; i++) {
++	for (i = 0; i < kvm_arch_nr_memslot_as_ids(kvm); i++) {
+ 		struct kvm_userspace_memory_region2 m;
  
+ 		m.slot = id | (i << 16);
+diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
+index aea1b4306129..8c5c017ab4e9 100644
+--- a/include/linux/kvm_host.h
++++ b/include/linux/kvm_host.h
+@@ -80,8 +80,8 @@
+ /* Two fragments for cross MMIO pages. */
+ #define KVM_MAX_MMIO_FRAGMENTS	2
+ 
+-#ifndef KVM_ADDRESS_SPACE_NUM
+-#define KVM_ADDRESS_SPACE_NUM	1
++#ifndef KVM_MAX_NR_ADDRESS_SPACES
++#define KVM_MAX_NR_ADDRESS_SPACES	1
+ #endif
+ 
+ /*
+@@ -692,7 +692,12 @@ bool kvm_arch_irqchip_in_kernel(struct kvm *kvm);
+ #define KVM_MEM_SLOTS_NUM SHRT_MAX
+ #define KVM_USER_MEM_SLOTS (KVM_MEM_SLOTS_NUM - KVM_INTERNAL_MEM_SLOTS)
+ 
+-#if KVM_ADDRESS_SPACE_NUM == 1
++#if KVM_MAX_NR_ADDRESS_SPACES == 1
++static inline int kvm_arch_nr_memslot_as_ids(struct kvm *kvm)
++{
++	return KVM_MAX_NR_ADDRESS_SPACES;
++}
++
+ static inline int kvm_arch_vcpu_memslots_id(struct kvm_vcpu *vcpu)
+ {
+ 	return 0;
+@@ -747,9 +752,9 @@ struct kvm {
+ 	struct mm_struct *mm; /* userspace tied to this vm */
+ 	unsigned long nr_memslot_pages;
+ 	/* The two memslot sets - active and inactive (per address space) */
+-	struct kvm_memslots __memslots[KVM_ADDRESS_SPACE_NUM][2];
++	struct kvm_memslots __memslots[KVM_MAX_NR_ADDRESS_SPACES][2];
+ 	/* The current active memslot set for each address space */
+-	struct kvm_memslots __rcu *memslots[KVM_ADDRESS_SPACE_NUM];
++	struct kvm_memslots __rcu *memslots[KVM_MAX_NR_ADDRESS_SPACES];
+ 	struct xarray vcpu_array;
+ 	/*
+ 	 * Protected by slots_lock, but can be read outside if an
+@@ -1018,7 +1023,7 @@ void kvm_put_kvm_no_destroy(struct kvm *kvm);
+ 
+ static inline struct kvm_memslots *__kvm_memslots(struct kvm *kvm, int as_id)
+ {
+-	as_id = array_index_nospec(as_id, KVM_ADDRESS_SPACE_NUM);
++	as_id = array_index_nospec(as_id, KVM_MAX_NR_ADDRESS_SPACES);
+ 	return srcu_dereference_check(kvm->memslots[as_id], &kvm->srcu,
+ 			lockdep_is_held(&kvm->slots_lock) ||
+ 			!refcount_read(&kvm->users_count));
+diff --git a/virt/kvm/dirty_ring.c b/virt/kvm/dirty_ring.c
+index c1cd7dfe4a90..86d267db87bb 100644
+--- a/virt/kvm/dirty_ring.c
++++ b/virt/kvm/dirty_ring.c
+@@ -58,7 +58,7 @@ static void kvm_reset_dirty_gfn(struct kvm *kvm, u32 slot, u64 offset, u64 mask)
+ 	as_id = slot >> 16;
+ 	id = (u16)slot;
+ 
+-	if (as_id >= KVM_ADDRESS_SPACE_NUM || id >= KVM_USER_MEM_SLOTS)
++	if (as_id >= kvm_arch_nr_memslot_as_ids(kvm) || id >= KVM_USER_MEM_SLOTS)
+ 		return;
+ 
+ 	memslot = id_to_memslot(__kvm_memslots(kvm, as_id), id);
+diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
+index 68a6119e09e4..a83dfef1316e 100644
+--- a/virt/kvm/kvm_main.c
++++ b/virt/kvm/kvm_main.c
+@@ -615,7 +615,7 @@ static __always_inline kvm_mn_ret_t __kvm_handle_hva_range(struct kvm *kvm,
+ 
+ 	idx = srcu_read_lock(&kvm->srcu);
+ 
+-	for (i = 0; i < KVM_ADDRESS_SPACE_NUM; i++) {
++	for (i = 0; i < kvm_arch_nr_memslot_as_ids(kvm); i++) {
+ 		struct interval_tree_node *node;
+ 
+ 		slots = __kvm_memslots(kvm, i);
+@@ -1248,7 +1248,7 @@ static struct kvm *kvm_create_vm(unsigned long type, const char *fdname)
+ 		goto out_err_no_irq_srcu;
+ 
+ 	refcount_set(&kvm->users_count, 1);
+-	for (i = 0; i < KVM_ADDRESS_SPACE_NUM; i++) {
++	for (i = 0; i < kvm_arch_nr_memslot_as_ids(kvm); i++) {
+ 		for (j = 0; j < 2; j++) {
+ 			slots = &kvm->__memslots[i][j];
+ 
+@@ -1391,7 +1391,7 @@ static void kvm_destroy_vm(struct kvm *kvm)
+ #endif
+ 	kvm_arch_destroy_vm(kvm);
+ 	kvm_destroy_devices(kvm);
+-	for (i = 0; i < KVM_ADDRESS_SPACE_NUM; i++) {
++	for (i = 0; i < kvm_arch_nr_memslot_as_ids(kvm); i++) {
+ 		kvm_free_memslots(kvm, &kvm->__memslots[i][0]);
+ 		kvm_free_memslots(kvm, &kvm->__memslots[i][1]);
+ 	}
+@@ -1674,7 +1674,7 @@ static void kvm_swap_active_memslots(struct kvm *kvm, int as_id)
+ 	 * space 0 will use generations 0, 2, 4, ... while address space 1 will
+ 	 * use generations 1, 3, 5, ...
+ 	 */
+-	gen += KVM_ADDRESS_SPACE_NUM;
++	gen += kvm_arch_nr_memslot_as_ids(kvm);
+ 
+ 	kvm_arch_memslots_updated(kvm, gen);
+ 
+@@ -2044,7 +2044,7 @@ int __kvm_set_memory_region(struct kvm *kvm,
+ 	    (mem->gmem_offset & (PAGE_SIZE - 1) ||
+ 	     mem->gmem_offset + mem->memory_size < mem->gmem_offset))
+ 		return -EINVAL;
+-	if (as_id >= KVM_ADDRESS_SPACE_NUM || id >= KVM_MEM_SLOTS_NUM)
++	if (as_id >= kvm_arch_nr_memslot_as_ids(kvm) || id >= KVM_MEM_SLOTS_NUM)
+ 		return -EINVAL;
+ 	if (mem->guest_phys_addr + mem->memory_size < mem->guest_phys_addr)
+ 		return -EINVAL;
+@@ -2180,7 +2180,7 @@ int kvm_get_dirty_log(struct kvm *kvm, struct kvm_dirty_log *log,
+ 
+ 	as_id = log->slot >> 16;
+ 	id = (u16)log->slot;
+-	if (as_id >= KVM_ADDRESS_SPACE_NUM || id >= KVM_USER_MEM_SLOTS)
++	if (as_id >= kvm_arch_nr_memslot_as_ids(kvm) || id >= KVM_USER_MEM_SLOTS)
+ 		return -EINVAL;
+ 
+ 	slots = __kvm_memslots(kvm, as_id);
+@@ -2242,7 +2242,7 @@ static int kvm_get_dirty_log_protect(struct kvm *kvm, struct kvm_dirty_log *log)
+ 
+ 	as_id = log->slot >> 16;
+ 	id = (u16)log->slot;
+-	if (as_id >= KVM_ADDRESS_SPACE_NUM || id >= KVM_USER_MEM_SLOTS)
++	if (as_id >= kvm_arch_nr_memslot_as_ids(kvm) || id >= KVM_USER_MEM_SLOTS)
+ 		return -EINVAL;
+ 
+ 	slots = __kvm_memslots(kvm, as_id);
+@@ -2354,7 +2354,7 @@ static int kvm_clear_dirty_log_protect(struct kvm *kvm,
+ 
+ 	as_id = log->slot >> 16;
+ 	id = (u16)log->slot;
+-	if (as_id >= KVM_ADDRESS_SPACE_NUM || id >= KVM_USER_MEM_SLOTS)
++	if (as_id >= kvm_arch_nr_memslot_as_ids(kvm) || id >= KVM_USER_MEM_SLOTS)
+ 		return -EINVAL;
+ 
+ 	if (log->first_page & 63)
+@@ -2494,7 +2494,7 @@ static __always_inline void kvm_handle_gfn_range(struct kvm *kvm,
+ 	gfn_range.only_private = false;
+ 	gfn_range.only_shared = false;
+ 
+-	for (i = 0; i < KVM_ADDRESS_SPACE_NUM; i++) {
++	for (i = 0; i < kvm_arch_nr_memslot_as_ids(kvm); i++) {
+ 		slots = __kvm_memslots(kvm, i);
+ 
+ 		kvm_for_each_memslot_in_gfn_range(&iter, slots, range->start, range->end) {
+@@ -4833,9 +4833,11 @@ static int kvm_vm_ioctl_check_extension_generic(struct kvm *kvm, long arg)
+ 	case KVM_CAP_IRQ_ROUTING:
+ 		return KVM_MAX_IRQ_ROUTES;
+ #endif
+-#if KVM_ADDRESS_SPACE_NUM > 1
++#if KVM_MAX_NR_ADDRESS_SPACES > 1
+ 	case KVM_CAP_MULTI_ADDRESS_SPACE:
+-		return KVM_ADDRESS_SPACE_NUM;
++		if (kvm)
++			return kvm_arch_nr_memslot_as_ids(kvm);
++		return KVM_MAX_NR_ADDRESS_SPACES;
+ #endif
+ 	case KVM_CAP_NR_MEMSLOTS:
+ 		return KVM_USER_MEM_SLOTS;
+@@ -4939,7 +4941,7 @@ bool kvm_are_all_memslots_empty(struct kvm *kvm)
+ 
+ 	lockdep_assert_held(&kvm->slots_lock);
+ 
+-	for (i = 0; i < KVM_ADDRESS_SPACE_NUM; i++) {
++	for (i = 0; i < kvm_arch_nr_memslot_as_ids(kvm); i++) {
+ 		if (!kvm_memslots_empty(__kvm_memslots(kvm, i)))
+ 			return false;
+ 	}
 -- 
 2.42.0.283.g2d96d420d3-goog
 
