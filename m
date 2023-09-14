@@ -4,61 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BED2DEEAA4F
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 Sep 2023 15:02:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EC63EEAA51
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 Sep 2023 15:34:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pKOigpPc/sgySoEpkLJ9NaT7bIuUo1rJu0eDAQxyUBc=; b=gUN2+jmtah5Hu0
-	dKn8XDTY7pG/EeCvqrg6ZNd5uM4KqfXDnLN9B6jeajW0n9Fj2/4NJ5aJGdXIiDS76O16eTeIlGgMF
-	iQVklNc3prc3x93Vyk3voBhxhr1HOlg3lfQ7WawW/URzBuBCkQJNpla1gVN125KoaViL+V3Avj8OQ
-	XYb1c27AG0/0DSbJk9V+vryjjOH9K1OyjV4oD9DFJgpcmWr4xgFXQ6jR/z1eBBMPIrSgjoaYu/3Ab
-	hdRrbr/x8kdLfEqokTKdm5fKxIdBBytyXO3h880spiiGakjS7sxtnMSORnPgEtMVeBw7+RNsn3ReS
-	hnrlsDJdweLggSeZM4AA==;
+	List-Owner; bh=/j0YoKgay5tx3SxgdMZIU+MyETLfTTDwprp9Vbk1JKc=; b=2MEd0NpzO+GomB
+	kDPe4H+DkxAChHf/KuyaXvtI1xZk1gcwGZ34O0BkLTnG6x7CfjFJ5yxDIZsudce0XwAH/xgUBlM/2
+	mXy/GiZY9s7OtU1VJrBwfHVfomShzLg8lJD15T8gy5DxSgd+h39tAwfGim81spsXzEPTq6AhSnNnq
+	vR9vgfPM5j0K4/NV8AtRkVDShYJGFdRX1foOnsDJm6jzbogjwy2/UEA0t+b9Wtf+c5dwtv77stDKC
+	jaL456PfrHuRkA7xEi37dkKX4Yvn5MUWHw5fEtD1WD0YxF+w/3p4SjC2eFwdYUS2Z1pWigMU5+EwY
+	GC6iAXtXK58Wh+X6os7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgnrZ-008jLF-08;
-	Thu, 14 Sep 2023 15:02:37 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1qgoMd-008nqm-2G;
+	Thu, 14 Sep 2023 15:34:43 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgnrW-008jIR-0i;
-	Thu, 14 Sep 2023 15:02:35 +0000
-Received: from lhrpeml500005.china.huawei.com (unknown [172.18.147.200])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4RmgWw1VMVz6K5sT;
-	Thu, 14 Sep 2023 23:01:48 +0800 (CST)
-Received: from localhost (10.202.227.76) by lhrpeml500005.china.huawei.com
- (7.191.163.240) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.31; Thu, 14 Sep
- 2023 16:02:24 +0100
-Date: Thu, 14 Sep 2023 16:02:23 +0100
-From: Jonathan Cameron <Jonathan.Cameron@Huawei.com>
-To: James Morse <james.morse@arm.com>
-CC: <linux-pm@vger.kernel.org>, <loongarch@lists.linux.dev>,
-	<linux-acpi@vger.kernel.org>, <linux-arch@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-riscv@lists.infradead.org>, <kvmarm@lists.linux.dev>,
-	<x86@kernel.org>, Salil Mehta <salil.mehta@huawei.com>, Russell King
-	<linux@armlinux.org.uk>, Jean-Philippe Brucker <jean-philippe@linaro.org>,
-	<jianyong.wu@arm.com>, <justin.he@arm.com>
-Subject: Re: [RFC PATCH v2 29/35] irqchip/gic-v3: Don't return errors from
- gic_acpi_match_gicc()
-Message-ID: <20230914160223.0000782f@Huawei.com>
-In-Reply-To: <20230913163823.7880-30-james.morse@arm.com>
-References: <20230913163823.7880-1-james.morse@arm.com>
-	<20230913163823.7880-30-james.morse@arm.com>
-Organization: Huawei Technologies Research and Development (UK) Ltd.
-X-Mailer: Claws Mail 4.1.0 (GTK 3.24.33; x86_64-w64-mingw32)
+	id 1qgoMa-008npX-3A;
+	Thu, 14 Sep 2023 15:34:42 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 4868C61DF1;
+	Thu, 14 Sep 2023 15:34:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ACE9AC433C8;
+	Thu, 14 Sep 2023 15:34:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1694705679;
+	bh=TC5noj5ktH2x7QwQggxt68bg/J4n39+D6FUOyZfzpR8=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=VhZ3lpyNJ5JBnKIJXQOzqzyIyRP8YcFLhoDiqbK4XOP9op/up4vR9RzbsJ7Pv804p
+	 1KFaej6Kan7MvEO6Pff3K4+JM46O38+EbToWV3Bm57EFMSKdtyiTKP8sGrZqGcoNdp
+	 CZVXZ7ghIgZvbiwLSS2efunPvRGUYvHx4DmsMMhmbogIs5mrsYaG/1ZVOjhrE2UAhz
+	 Tn0tyQ2lp9STPxG+fwsM3Aw/uNkTbUagLsBC1h2k74xzjTz5o/s0LCn+IvEaZY/DjV
+	 QdWtANlmUc8rNkMzESluMKsL114Kx9zJGiTuZMwgoFyXLwvPd/RJc/dXHmUviwA8Eq
+	 xR45CY7Bl5RKw==
+Received: by mail-lf1-f45.google.com with SMTP id 2adb3069b0e04-502d9ce31cbso1875868e87.3;
+        Thu, 14 Sep 2023 08:34:39 -0700 (PDT)
+X-Gm-Message-State: AOJu0Yx4nRu1lGMOY3YC/YyhQi1x153Gewb4DwUzfRhrMC+uS3EtXTF+
+	nEWavuaoVo8h+PggQrat2lscf4lP2N8I7syRGPU=
+X-Google-Smtp-Source: AGHT+IHQWhXWk9WB76jsul3E8BXF8FIj2XgeZXziogZ8+9RlZta9SMLLLzxXno0++LBAsD2vWnMl44SVOfg370+hAkA=
+X-Received: by 2002:a05:6512:452:b0:500:bb99:69a7 with SMTP id
+ y18-20020a056512045200b00500bb9969a7mr4588249lfk.14.1694705677877; Thu, 14
+ Sep 2023 08:34:37 -0700 (PDT)
 MIME-Version: 1.0
-X-Originating-IP: [10.202.227.76]
-X-ClientProxiedBy: lhrpeml500006.china.huawei.com (7.191.161.198) To
- lhrpeml500005.china.huawei.com (7.191.163.240)
-X-CFilter-Loop: Reflected
+References: <20230913163823.7880-1-james.morse@arm.com> <20230913163823.7880-28-james.morse@arm.com>
+ <CAMj1kXHRAt7ecB9p_dm3MjDL5wZkAsVh30hMY2SV_XUe=bm6Vg@mail.gmail.com> <20230914155459.00002dba@Huawei.com>
+In-Reply-To: <20230914155459.00002dba@Huawei.com>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Thu, 14 Sep 2023 17:34:25 +0200
+X-Gmail-Original-Message-ID: <CAMj1kXFquiLGCMow3iujHUU4GBZx2t9KfKy1R9iqjBFjY+acaA@mail.gmail.com>
+Message-ID: <CAMj1kXFquiLGCMow3iujHUU4GBZx2t9KfKy1R9iqjBFjY+acaA@mail.gmail.com>
+Subject: Re: [RFC PATCH v2 27/35] ACPICA: Add new MADT GICC flags fields [code first?]
+To: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+Cc: James Morse <james.morse@arm.com>, linux-pm@vger.kernel.org, 
+	loongarch@lists.linux.dev, linux-acpi@vger.kernel.org, 
+	linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, 
+	kvmarm@lists.linux.dev, x86@kernel.org, Salil Mehta <salil.mehta@huawei.com>, 
+	Russell King <linux@armlinux.org.uk>, Jean-Philippe Brucker <jean-philippe@linaro.org>, jianyong.wu@arm.com, 
+	justin.he@arm.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230914_080234_541526_B7D0B68E 
-X-CRM114-Status: GOOD (  23.83  )
+X-CRM114-CacheID: sfid-20230914_083441_105883_E04BB575 
+X-CRM114-Status: GOOD (  28.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,70 +88,59 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 13 Sep 2023 16:38:17 +0000
-James Morse <james.morse@arm.com> wrote:
+On Thu, 14 Sept 2023 at 16:55, Jonathan Cameron
+<Jonathan.Cameron@huawei.com> wrote:
+>
+> On Thu, 14 Sep 2023 09:57:44 +0200
+> Ard Biesheuvel <ardb@kernel.org> wrote:
+>
+> > Hello James,
+> >
+> > On Wed, 13 Sept 2023 at 18:41, James Morse <james.morse@arm.com> wrote:
+> > >
+> > > Add the new flag field to the MADT's GICC structure.
+> > >
+> > > 'Online Capable' indicates a disabled CPU can be enabled later.
+> > >
+> >
+> > Why do we need a bit for this? What would be the point of describing
+> > disabled CPUs that cannot be enabled (and are you are aware of
+> > firmware doing this?).
+>
+> Enabled being not set is common at some similar ACPI tables at least.
+>
+> This is available in most ACPI tables to allow firmware to use 'nearly'
+> static tables and just tweak the 'enabled' bit to say if the record should
+> be ignored or not. Also _STA not present which is for same trick.
+> If you are doing clever dynamic tables, then you can just not present
+> the entry.
+>
+> With that existing use case in mind, need another bit to say this
+> one might one day turn up.  Note this is copied from x86 though no
+> one seems to have implemented the kernel support for them yet.
+>
+> Note as per my other reply - this isn't a code first proposal. It's in the
+> spec already (via a code first proposal last year I think).
+>
+> >
+> > So why are we not able to assume that this new bit can always be treated as '1'?
+>
+> Given above, need the extra bit to size stuff to allow for the CPU showing up
+> late.
+>
 
-> gic_acpi_match_gicc() is only called via gic_acpi_count_gicr_regions().
-> It should only count the number of enabled redistributors, but it
-> also tries to sanity check the GICC entry, currently returning an
-> error if the Enabled bit is set, but the gicr_base_address is zero.
-> 
-> Adding support for the online-capable bit to the sanity check
-> complicates it, for no benefit. The existing check implicitly
-> depends on gic_acpi_count_gicr_regions() previous failing to find
-> any GICR regions (as it is valid to have gicr_base_address of zero if
-> the redistributors are described via a GICR entry).
-> 
-> Instead of complicating the check, remove it. Failures that happen
-> at this point cause the irqchip not to register, meaning no irqs
-> can be requested. The kernel grinds to a panic() pretty quickly.
-> 
-> Without the check, MADT tables that exhibit this problem are still
-> caught by gic_populate_rdist(), which helpfully also prints what
-> went wrong:
-> | CPU4: mpidr 100 has no re-distributor!
-> 
-> Signed-off-by: James Morse <james.morse@arm.com>
-> ---
->  drivers/irqchip/irq-gic-v3.c | 18 ++++++------------
->  1 file changed, 6 insertions(+), 12 deletions(-)
-> 
-> diff --git a/drivers/irqchip/irq-gic-v3.c b/drivers/irqchip/irq-gic-v3.c
-> index 72d3cdebdad1..0f54811262eb 100644
-> --- a/drivers/irqchip/irq-gic-v3.c
-> +++ b/drivers/irqchip/irq-gic-v3.c
-> @@ -2415,21 +2415,15 @@ static int __init gic_acpi_match_gicc(union acpi_subtable_headers *header,
->  
->  	/*
->  	 * If GICC is enabled and has valid gicr base address, then it means
-> -	 * GICR base is presented via GICC
-> +	 * GICR base is presented via GICC. The redistributor is only known to
-> +	 * be accessible if the GICC is marked as enabled. If this bit is not
-> +	 * set, we'd need to add the redistributor at runtime, which isn't
-> +	 * supported.
->  	 */
-> -	if (acpi_gicc_is_usable(gicc) && gicc->gicr_base_address) {
-> +	if (gicc->flags & ACPI_MADT_ENABLED && gicc->gicr_base_address)
+So does this mean that on x86, the CPU object is instantiated only
+when the hardware level hotplug occurs? And before that, the object
+does not exist at all?
 
-Going in circles...
+Because it seems to me that _STA, having both enabled and present
+bits, could already describe what we need here, and arguably, a CPU
+that is not both present and enabled should not be used by the OS.
+This would leave room for representing off-line CPUs as present but
+not enabled.
 
->  		acpi_data.enabled_rdists++;
-> -		return 0;
-> -	}
->  
-> -	/*
-> -	 * It's perfectly valid firmware can pass disabled GICC entry, driver
-> -	 * should not treat as errors, skip the entry instead of probe fail.
-> -	 */
-> -	if (!acpi_gicc_is_usable(gicc))
-> -		return 0;
-> -
-> -	return -ENODEV;
-> +	return 0;
->  }
->  
->  static int __init gic_acpi_count_gicr_regions(void)
-
+Apologies if I am missing something obvious here - the whole rationale
+behind this thing is rather confusing to me.
 
 _______________________________________________
 linux-riscv mailing list
