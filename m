@@ -4,83 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B53FEE0212
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 Sep 2023 01:11:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5E96EE0212
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 Sep 2023 01:28:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lgjNDbabyABCaO9SHRl/olC9PqP9t3AEcwrWJuGhuOY=; b=FE3RaDxgFwiWIL
-	sqajp+1XZPEqJjKOwdgzuMaHRbfudGSr/zrVgpd16WGN16D+eFNpwy33YhuRZfyvMKuWImJfHFbD5
-	4+f+o09CsMQWjPh8NsI3L7AabwlTOW8coHkIerrucREM9wnHZaU9gkk5Nk+Imk9FaGi3hTWUPiL4K
-	rpGikv28jreq2q1K/dHwdwTcLzK1C72Jb9WdN1cdtTBJLrJGQmUfxpxqg1Uwf27FArzBY+IvjY8rc
-	3Ng9mZbQxktgMHVlSz+fM31eLrmUkv4jW6kVKifRyuswfrqphw3v0OGMWDmV2N3SW7WpHBE4kdyRn
-	+QyEAm8iyPAUBp9rhufA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=eFztBwEOnLrN2Q48qGQhvgmVrfyiUsvSCCmdUKph5zE=; b=4EZeD/rbPjnnxp
+	v14GpeiLUA0jA7q3JX0UWbFbIfeJhu2IZ1UC8hJKXucEZONTLGdF4ppnjkjzQy23xTfvfT4eZWbEj
+	SSXNvX05VwqqgQDmmnpqnBWZGiwoLZ4LP8d4DpNgFrJkOnwtgtNalCYsWsaHEjdR0kVmy4qNqrKQk
+	tXWKPmzTAIXGhTig8b+fDivD8GkL1vVb4QljYJ/2M1Si7eO4FgJpOTicFsuFsKWodVBkZGLShgBQV
+	+SAL3sJnqFw9Cn9Y5E4YpBPpVwgv1LnTCPoq6JaVSq9oo3gPjbyTDoGNYkvrh612uW+XhDUCrpO3m
+	/RhoFbgIshqPDnK07Vxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgasn-006ykG-2r;
-	Thu, 14 Sep 2023 01:11:01 +0000
-Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
+	id 1qgb9I-006zZH-15;
+	Thu, 14 Sep 2023 01:28:04 +0000
+Received: from mgamail.intel.com ([192.55.52.120])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgask-006yjW-1S
-	for linux-riscv@lists.infradead.org;
-	Thu, 14 Sep 2023 01:10:59 +0000
-Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-1c1ff5b741cso3588975ad.2
-        for <linux-riscv@lists.infradead.org>; Wed, 13 Sep 2023 18:10:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1694653857; x=1695258657; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=14DxahOjQVITg89U+rNjNpjXPaY0eKHfBvvG2rNIDbQ=;
-        b=W8Aqx0IbMrMAR9h9aJowFhfx1TQT42xUmTmuIZBz9NQ8TnxTN6hBiF9p1KCuZSxehk
-         bKmbv/uxLIhPgYeGgVEBL8pwg2shK/OH/2Z6K0mym3OVlAGtPtT1yHHfXXeKV+Umw091
-         HztDvT0pcnQVh8iIToAPtCUYbxYDgURmFOvHQi1LdzEGnNGuMSzA7RzUVJERjdSNJ8Ts
-         zKYCwiC2GUdaSHFnv9EQIiNwiN9zgBoqafYRo14Lp4tNbN1AjwoZ4VwB1o2WycA+l6uA
-         VloT7P0RNHQrcxyGVOP0XD5i+5F6V91TI4eXqb/E6vo1LkSweEIpbUTBNCAHctDSOGYm
-         PhtQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1694653857; x=1695258657;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=14DxahOjQVITg89U+rNjNpjXPaY0eKHfBvvG2rNIDbQ=;
-        b=GLe+SK4KBWiaAMIxQDMkXWUaDim0DGGAU9Mn2khGqt4xOREeZkup4JOGF//Ih+p35C
-         yrxLLDMRgpUP100O29CS0hCiN2Upjgz0vHzvryIVp2qw1s+IwGYlWe6UTTNSBuv33fvt
-         5odoYuIseRJMNDfgrujmbDtI6MAyY1TRPCqJJpEpK3r15fJObbbAX7YZx0VhmX5qMDHA
-         iboDCnUsi3sFQ9KEVfRSP6DEMP9ZFvvZST/pRRslUBAxED0vDJvV7wO/+WD8CVYUi3Li
-         LmxJau1lqso8ZiJH3KnO0JwjiJdpzHTwgM1Kd+j3688k746aElksvNnboWvManzUnjFJ
-         KLTA==
-X-Gm-Message-State: AOJu0Yw2Ocaupm/4ZcIFh9KsEBMgBZJGN51HysLdyP/BG/hULZlHWo9z
-	2ieQS0aglI+n8uKzerdomCCmyA==
-X-Google-Smtp-Source: AGHT+IEY+/BKNCHPHuaKMXDV/8l1HaolfYgSVJTHDIJZEnBg1zJunOBNTfLVDJIkmH+IRBGj/Nwl5Q==
-X-Received: by 2002:a17:902:bf03:b0:1b6:6e3a:77fb with SMTP id bi3-20020a170902bf0300b001b66e3a77fbmr3944820plb.2.1694653856720;
-        Wed, 13 Sep 2023 18:10:56 -0700 (PDT)
-Received: from ghost ([50.168.177.73])
-        by smtp.gmail.com with ESMTPSA id a11-20020a170903100b00b001bdc664ecd3sm228824plb.307.2023.09.13.18.10.54
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 13 Sep 2023 18:10:56 -0700 (PDT)
-Date: Wed, 13 Sep 2023 21:10:52 -0400
-From: Charlie Jenkins <charlie@rivosinc.com>
-To: Eric Biggers <ebiggers@kernel.org>
-Cc: Heiko Stuebner <heiko@sntech.de>, palmer@dabbelt.com,
-	paul.walmsley@sifive.com, aou@eecs.berkeley.edu,
-	herbert@gondor.apana.org.au, davem@davemloft.net,
-	conor.dooley@microchip.com, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-crypto@vger.kernel.org,
-	christoph.muellner@vrull.eu,
-	Heiko Stuebner <heiko.stuebner@vrull.eu>
-Subject: Re: [PATCH v4 00/12] RISC-V: support some cryptography accelerations
-Message-ID: <ZQJdnCwf99Glggin@ghost>
-References: <20230711153743.1970625-1-heiko@sntech.de>
- <20230914001144.GA924@sol.localdomain>
+	id 1qgb9E-006zXz-1Y;
+	Thu, 14 Sep 2023 01:28:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1694654880; x=1726190880;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=ueE/011k9DiwV0Anf9SWAZccz4IuGXFEGSyhfc+Fk0k=;
+  b=QSftS22Chh7qkxvaSMnOFRjc1oKA5veczlJMykIDRYMPpAle4sNTxy0E
+   84CoMIFxPE2U6I6Iw87I7b68gbluyMP+UCr0jKYv1+n6+ErKLRS+xEEoH
+   u3vKIlfU1Bt5wrhUTWamraT8te82iNTxvIf/vfBMBzANUKWPcVOZi9Kta
+   /W3VFxLw7Smr1xYtadG3mL1JqHW4343PtcNMbtDvypdDNzrzV24IMJsNX
+   EdtdtC0uwFbzbLn7AoscrRRq2+43Gw1Z+H2DOdS0ZRGoJgAdO7hPApfBP
+   jON+ng54X5D63ixlfwqNem1bWbzeZGBduwkzk8PrXMIqv3vuzEVhzuWZX
+   Q==;
+X-IronPort-AV: E=McAfee;i="6600,9927,10832"; a="377733960"
+X-IronPort-AV: E=Sophos;i="6.02,144,1688454000"; 
+   d="scan'208";a="377733960"
+Received: from orsmga003.jf.intel.com ([10.7.209.27])
+  by fmsmga104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Sep 2023 18:27:55 -0700
+X-ExtLoop1: 1
+X-IronPort-AV: E=McAfee;i="6600,9927,10832"; a="694048860"
+X-IronPort-AV: E=Sophos;i="6.02,144,1688454000"; 
+   d="scan'208";a="694048860"
+Received: from haibo-optiplex-7090.sh.intel.com ([10.239.159.132])
+  by orsmga003-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Sep 2023 18:27:48 -0700
+From: Haibo Xu <haibo1.xu@intel.com>
+To: 
+Cc: xiaobo55x@gmail.com,
+	haibo1.xu@intel.com,
+	ajones@ventanamicro.com,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Shuah Khan <shuah@kernel.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	James Morse <james.morse@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Anup Patel <anup@brainfault.org>,
+	Atish Patra <atishp@atishpatra.org>,
+	Sean Christopherson <seanjc@google.com>,
+	Ricardo Koller <ricarkol@google.com>,
+	Vishal Annapurve <vannapurve@google.com>,
+	Like Xu <likexu@tencent.com>,
+	Vipin Sharma <vipinsh@google.com>,
+	David Matlack <dmatlack@google.com>,
+	Thomas Huth <thuth@redhat.com>,
+	Colton Lewis <coltonlewis@google.com>,
+	Aaron Lewis <aaronlewis@google.com>,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	kvm@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	kvm-riscv@lists.infradead.org
+Subject: [PATCH v3 0/9] RISCV: Add kvm Sstc timer selftests
+Date: Thu, 14 Sep 2023 09:36:54 +0800
+Message-Id: <cover.1694421911.git.haibo1.xu@intel.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230914001144.GA924@sol.localdomain>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230913_181058_513200_75C76558 
-X-CRM114-Status: GOOD (  21.32  )
+X-CRM114-CacheID: sfid-20230913_182800_530029_A0887E0A 
+X-CRM114-Status: GOOD (  12.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,39 +107,84 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 13, 2023 at 05:11:44PM -0700, Eric Biggers wrote:
-> On Tue, Jul 11, 2023 at 05:37:31PM +0200, Heiko Stuebner wrote:
-> > From: Heiko Stuebner <heiko.stuebner@vrull.eu>
-> > 
-> > This series provides cryptographic implementations using the vector
-> > crypto extensions.
-> > 
-> > v13 of the vector patchset dropped the patches for in-kernel usage of
-> > vector instructions, I picked the ones from v12 over into this series
-> > for now.
-> > 
-> > My basic goal was to not re-invent cryptographic code, so the heavy
-> > lifting is done by those perl-asm scripts used in openssl and the perl
-> > code used here-in stems from code that is targetted at openssl [0] and is
-> > unmodified from there to limit needed review effort.
-> > 
-> > With a matching qemu (there are patches for vector-crypto flying around)
-> > the in-kernel crypto-selftests (also the extended ones) are very happy
-> > so far.
-> 
-> Hi Heiko!  Are you still working on this patchset?  And which of its
-> prerequisites still haven't been merged upstream?
-> 
-> - Eric
-> 
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
-It is my understanding that Heiko is taking a break from development, I
-don't think he will be working on this soon.
+The RISC-V arch_timer selftests is used to validate Sstc timer
+functionality in a guest, which sets up periodic timer interrupts
+and check the basic interrupt status upon its receipt.
 
-- Charlie
+This KVM selftests was ported from aarch64 arch_timer and tested
+with Linux v6.6-rc1 on a Qemu riscv64 virt machine.
+
+---
+Changed since v2:
+  * Rebase to Linux 6.6-rc1
+  * Add separate patch for kvm/Makefile improvement
+  * Move aarch64 specific macros to aarch64/arch_timer.c
+  * Add -DCONFIG_64BIT to kvm/Makefile CFLAGS to ensure
+    only 64bit registers were available in csr.h
+  * Avoid some #ifdef in kvm/arch_timer.c by setting some
+    aarch64 specific variable to 0 on risc-v
+
+Haibo Xu (9):
+  KVM: selftests: Unify the codes for guest exception handling
+  KVM: selftests: Unify the makefile rule for split targets
+  KVM: arm64: selftests: Split arch_timer test code
+  tools: riscv: Add header file csr.h
+  KVM: riscv: selftests: Switch to use macro from csr.h
+  KVM: riscv: selftests: Add exception handling support
+  KVM: riscv: selftests: Add guest helper to get vcpu id
+  KVM: riscv: selftests: Change vcpu_has_ext to a common function
+  KVM: riscv: selftests: Add sstc timer test
+
+ tools/arch/riscv/include/asm/csr.h            | 521 ++++++++++++++++++
+ tools/testing/selftests/kvm/Makefile          |  14 +-
+ .../selftests/kvm/aarch64/arch_timer.c        | 291 +---------
+ .../selftests/kvm/aarch64/debug-exceptions.c  |   4 +-
+ .../selftests/kvm/aarch64/page_fault_test.c   |   4 +-
+ .../testing/selftests/kvm/aarch64/vgic_irq.c  |   4 +-
+ tools/testing/selftests/kvm/arch_timer.c      | 250 +++++++++
+ .../selftests/kvm/include/aarch64/processor.h |  12 +-
+ .../selftests/kvm/include/kvm_util_base.h     |   9 +
+ .../selftests/kvm/include/riscv/arch_timer.h  |  80 +++
+ .../selftests/kvm/include/riscv/processor.h   |  63 ++-
+ .../testing/selftests/kvm/include/test_util.h |   2 +
+ .../selftests/kvm/include/timer_test.h        |  43 ++
+ .../selftests/kvm/include/x86_64/processor.h  |   5 -
+ .../selftests/kvm/lib/aarch64/processor.c     |   6 +-
+ .../selftests/kvm/lib/riscv/handlers.S        | 101 ++++
+ .../selftests/kvm/lib/riscv/processor.c       |  86 +++
+ .../selftests/kvm/lib/x86_64/processor.c      |   4 +-
+ .../testing/selftests/kvm/riscv/arch_timer.c  | 107 ++++
+ .../selftests/kvm/riscv/get-reg-list.c        |  16 +-
+ tools/testing/selftests/kvm/x86_64/amx_test.c |   4 +-
+ .../selftests/kvm/x86_64/fix_hypercall_test.c |   4 +-
+ .../selftests/kvm/x86_64/hyperv_evmcs.c       |   4 +-
+ .../selftests/kvm/x86_64/hyperv_features.c    |   8 +-
+ .../testing/selftests/kvm/x86_64/hyperv_ipi.c |   6 +-
+ .../selftests/kvm/x86_64/kvm_pv_test.c        |   4 +-
+ .../selftests/kvm/x86_64/monitor_mwait_test.c |   4 +-
+ .../kvm/x86_64/pmu_event_filter_test.c        |   8 +-
+ .../smaller_maxphyaddr_emulation_test.c       |   4 +-
+ .../selftests/kvm/x86_64/svm_int_ctl_test.c   |   4 +-
+ .../kvm/x86_64/svm_nested_shutdown_test.c     |   4 +-
+ .../kvm/x86_64/svm_nested_soft_inject_test.c  |   4 +-
+ .../kvm/x86_64/ucna_injection_test.c          |   8 +-
+ .../kvm/x86_64/userspace_msr_exit_test.c      |   4 +-
+ .../vmx_exception_with_invalid_guest_state.c  |   4 +-
+ .../selftests/kvm/x86_64/vmx_pmu_caps_test.c  |   4 +-
+ .../selftests/kvm/x86_64/xapic_ipi_test.c     |   4 +-
+ .../selftests/kvm/x86_64/xcr0_cpuid_test.c    |   4 +-
+ .../selftests/kvm/x86_64/xen_shinfo_test.c    |   4 +-
+ 39 files changed, 1338 insertions(+), 374 deletions(-)
+ create mode 100644 tools/arch/riscv/include/asm/csr.h
+ create mode 100644 tools/testing/selftests/kvm/arch_timer.c
+ create mode 100644 tools/testing/selftests/kvm/include/riscv/arch_timer.h
+ create mode 100644 tools/testing/selftests/kvm/include/timer_test.h
+ create mode 100644 tools/testing/selftests/kvm/lib/riscv/handlers.S
+ create mode 100644 tools/testing/selftests/kvm/riscv/arch_timer.c
+
+-- 
+2.34.1
+
 
 _______________________________________________
 linux-riscv mailing list
