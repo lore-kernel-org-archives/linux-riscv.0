@@ -4,89 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD759EEAA7B
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 Sep 2023 23:19:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BF5DEEAA7A
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 Sep 2023 23:30:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
-	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=ErVLot+QPk+G/ToY9DZe/5ZvLcQ8kpn4nDcbnq+Jvwc=; b=jrN88U1YhQGPA7j+tuKwvuTeGO
-	eOluGHxzeSBd3Ue73eRsgHASvqs9GZhjuTVQ0slEMW90C4wlEgmay2R8ALwcLqb5qNfdBBikWuuW3
-	WETl/NsYdlWcgouVwwpPiKMH9OkMUfsBucd4mVat9Gmx83gN+NzHJUk+ifdfcLemNxjfr9XNgJUW7
-	iBnj4TwpHae8uJw4PjoInmHYhppIuD3VA/6dnhHP/payektWp+FNW3K+mGAArvY3X28aS6D2rD1xV
-	Kg9PkdWd4CVFdzn6mQLHagnj/KXaGf1JAkr5KSjPK1A8uHsL2GwUZMfSLOPsW5h/suwe6ifmUGgYw
-	PluCCdqg==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Dm9ctxHvq189n4M7UawnBEQo9bWWXyxv4t5yKUEOkjM=; b=28BaY4D/S82k2o
+	fnuFpXnu1O9z6VkefHBjdeVQO8ko7LHSIBnjYX8nzik5WA9wJYLHST1H7JrCViAkEEAQKUSbh2iia
+	58st0vXzDj0xyafd5E1oPiJGxhK5CJUvFQQbi6KifX8/ydo+5ym0EiRNA94hwQRaTr5LEboNeVxUP
+	X20GICKuKphnJO4DzdE6UjZdI/AVI8BQqj78vJlMe8D4HTHv9mg2D3dSO8+qVVa2cvPS3K/hKx0Xo
+	mkL4JcW2b2cXaHOGNf7mDR4RssHC1Vj/9U3dQvrSWqCrY4GQSldBinZkt2DTbvzUjkMJ8DaKeNMO7
+	QII5yBSu0m7+8gufQiwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgvcd-009QCt-0y;
-	Thu, 14 Sep 2023 23:19:43 +0000
-Received: from mail-yb1-xb49.google.com ([2607:f8b0:4864:20::b49])
+	id 1qgvnG-009RWO-0N;
+	Thu, 14 Sep 2023 23:30:42 +0000
+Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgvcZ-009QAs-0B
+	id 1qgvnB-009RVg-1m
 	for linux-riscv@lists.infradead.org;
-	Thu, 14 Sep 2023 23:19:40 +0000
-Received: by mail-yb1-xb49.google.com with SMTP id 3f1490d57ef6-d7e8bb74b59so1856876276.2
-        for <linux-riscv@lists.infradead.org>; Thu, 14 Sep 2023 16:19:37 -0700 (PDT)
+	Thu, 14 Sep 2023 23:30:40 +0000
+Received: by mail-pj1-x1034.google.com with SMTP id 98e67ed59e1d1-271d9823cacso1297962a91.1
+        for <linux-riscv@lists.infradead.org>; Thu, 14 Sep 2023 16:30:36 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1694733577; x=1695338377; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=4dPufiPQCtPzWz5WHSfvhHWIcWm8zH/JZg221REQo40=;
-        b=bYb5r0XwfeQPzCBy+svXi19tZEnBN1mmeHfN45/Kit3fIIhB7vsXaHV8ZZWnT62txM
-         rRtJuxI+52+wQR0rUdbqy5ditVyhZTFodfjHqBYtQAb217M8kos9mYkGpbWXwkFEN++0
-         WHZ0+jCZ1buaEX+r+Y8dUVCDgOsvTsIWAiPDRGHb/aroSusSSuQNI1jYqSAEzN3txF9+
-         AST8sfAq1EipU4bFYmEiQ9TEG3skd1IeFlw2NnnZU7f8YkBRNQXlpZc7/DgTJE3EJVPG
-         m+CHTwmpcIPDKTNeMxGha5Oi+6y7sD4yqHk3ATsM3COmdRb1aouuynGDmpad8lfj2BIp
-         ugVw==
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1694734236; x=1695339036; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=L5Atq17mYlT6kG+rBiO4juTIlMt9CxnTqo+M16pkWhM=;
+        b=o3GChlhRsWbaWwx/ueBK0b9XYgj05YEQeSbPatKlRecx7CxPA6a9Zml+hiSJECdVBs
+         VyDr5kkfNJn65vOU5JdbOo1EvOqZqGRpErDfKFEHJFoET3HQGATN+M2Qf8rh3NhcJyWV
+         OaAzXxLQOrDKSENSIHFMSOkkkgUVXnF4MWhQtniKYfXyGX+rvHvpMrvRKTTNcUHkDl5i
+         Ioh0turGvwRooUS85EAMiV7OvFQBPUHYtl8hg9ZTYBYg76HXTbdeelM9deKG+aoDojwh
+         3VyxthUc7Xwry4kebCwwGSW7WokJ3FowKcU20WpUBy/QmuCw6Cl1HixTPcawUcMce+Kz
+         BcXA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1694733577; x=1695338377;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=4dPufiPQCtPzWz5WHSfvhHWIcWm8zH/JZg221REQo40=;
-        b=N9jIU/PahxrcDJK+wtPVvN+SdKoRfHb+75l9hIMTAWeVmeiq8wBRvH26aKRsctM/2J
-         +CeI98vDX7pqZVkzYYHgKJqysDeVk4A/FgVeOS7//8jllJO0i04BusVoNeeDhFN7Y+7f
-         4svwCpLJYHHOw2UhvtHt2hGSye9Rbp5V4gnduU7/H+GZgve3QoP0jl716TpVbRwcqupA
-         hofmDpLs8+j6OIWhcnWI35NDv10z4zgVFLkK1xX8AICCoIpF5uYz7CiO7o6jU/RCw5AN
-         qqvLWGvnCm/Ot/jaXuWDqjbtbcSqt354YXWjN+vcUVo5D1SHUzVFRRKz/8q/zhXyp5he
-         H6Ug==
-X-Gm-Message-State: AOJu0YzIn/pdRgmeLXtRxe0TeFjyn5cIrZYDIzA8lJnlKBLsusUfEsWk
-	Qm+wIlKjdDvHKd4sASKc7Xb7Qq4f2U34lgza0Q==
-X-Google-Smtp-Source: AGHT+IGXEzZPfzBJslkSHoMTui4zDBSgnXtUGummxt07D80J/zY1rCAlKy2IgGo0zSECxNr/ULgwmLbLuPQoPz0S1A==
-X-Received: from ackerleytng-ctop.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:13f8])
- (user=ackerleytng job=sendgmr) by 2002:a25:aa83:0:b0:d77:984e:c770 with SMTP
- id t3-20020a25aa83000000b00d77984ec770mr158034ybi.5.1694733576882; Thu, 14
- Sep 2023 16:19:36 -0700 (PDT)
-Date: Thu, 14 Sep 2023 23:19:34 +0000
-In-Reply-To: <ZQNN2AyDJ8dF0/6D@google.com>
-Mime-Version: 1.0
-References: <ZOO782YGRY0YMuPu@google.com> <diqzttsiu67n.fsf@ackerleytng-ctop.c.googlers.com>
- <ZQNN2AyDJ8dF0/6D@google.com>
-Message-ID: <diqzv8ccjqbd.fsf@ackerleytng-ctop.c.googlers.com>
-Subject: Re: [RFC PATCH v11 12/29] KVM: Add KVM_CREATE_GUEST_MEMFD ioctl() for
- guest-specific backing memory
-From: Ackerley Tng <ackerleytng@google.com>
-To: Sean Christopherson <seanjc@google.com>
-Cc: pbonzini@redhat.com, maz@kernel.org, oliver.upton@linux.dev, 
-	chenhuacai@kernel.org, mpe@ellerman.id.au, anup@brainfault.org, 
-	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
-	willy@infradead.org, akpm@linux-foundation.org, paul@paul-moore.com, 
-	jmorris@namei.org, serge@hallyn.com, kvm@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
-	linux-fsdevel@vger.kernel.org, linux-mm@kvack.org, 
-	linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	chao.p.peng@linux.intel.com, tabba@google.com, jarkko@kernel.org, 
-	yu.c.zhang@linux.intel.com, vannapurve@google.com, mail@maciej.szmigiero.name, 
-	vbabka@suse.cz, david@redhat.com, qperret@google.com, michael.roth@amd.com, 
-	wei.w.wang@intel.com, liam.merwick@oracle.com, isaku.yamahata@gmail.com, 
-	kirill.shutemov@linux.intel.com
+        d=1e100.net; s=20230601; t=1694734236; x=1695339036;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=L5Atq17mYlT6kG+rBiO4juTIlMt9CxnTqo+M16pkWhM=;
+        b=gCoGi8y0Dzl+EbHR/4CWdlNx/Lzo/GQku3985Asyv9g9I+FwebTiMgWVJIbw7lY8I6
+         GuRDVcrf44zrj+GzfCfpkpjO7hxP/q3gSeaoOoyPeKKP1/M4kvdKJa6FU951rpaxsfC4
+         BIMkYrm8fGezArJA/pfVTU3r3tEt15hbvNZXmwzj6ltU0Ut5/jDZ49DJ4YwNYLL97a5I
+         3HPPs7cGeA7+zIJ2rycKcuC0JNU9Ly6sUBTw9PVL9JztRxAzvP6+vZPcpvWd4bKkRy06
+         jgv68f5j95VdxsNsYmPclCkq2USmbmWx6KG1na3XU/9o0SYkfqJUBxKDj77Z/2pEgRSc
+         TW1A==
+X-Gm-Message-State: AOJu0Ywuy6gamwcIesc3UxOMGpbVUdxYOaia83nyrzsm/9bqW96ByUvj
+	Q3NGssNVGaZZMfxRhgjGp9tAYQ==
+X-Google-Smtp-Source: AGHT+IHTae6MGOouJH7+uAsD0l07KjxO1N76fOI883eWFzpYbooJalY2ts/KiMx+iHvSfJFWDphUKQ==
+X-Received: by 2002:a17:90a:7f91:b0:273:f887:be17 with SMTP id m17-20020a17090a7f9100b00273f887be17mr6929040pjl.47.1694734236251;
+        Thu, 14 Sep 2023 16:30:36 -0700 (PDT)
+Received: from ghost ([50.168.177.76])
+        by smtp.gmail.com with ESMTPSA id w7-20020a17090a460700b002746d2a54fesm1713196pjg.8.2023.09.14.16.30.33
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 14 Sep 2023 16:30:35 -0700 (PDT)
+Date: Thu, 14 Sep 2023 19:30:30 -0400
+From: Charlie Jenkins <charlie@rivosinc.com>
+To: Conor Dooley <conor@kernel.org>
+Subject: Re: [PATCH v4 2/5] riscv: Add checksum library
+Message-ID: <ZQOXlsCeA92mVSK9@ghost>
+References: <20230911-optimize_checksum-v4-0-77cc2ad9e9d7@rivosinc.com>
+ <20230911-optimize_checksum-v4-2-77cc2ad9e9d7@rivosinc.com>
+ <20230914-mural-deskbound-0e37d0767f6f@wendy>
+ <ZQNJ0LQhZyJWlcSy@ghost>
+ <20230914-thinness-overtly-70c49b219c26@spud>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20230914-thinness-overtly-70c49b219c26@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230914_161939_137134_887C821B 
-X-CRM114-Status: GOOD (  40.62  )
+X-CRM114-CacheID: sfid-20230914_163037_818885_3CD0A59F 
+X-CRM114-Status: GOOD (  13.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,119 +88,34 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: Albert Ou <aou@eecs.berkeley.edu>, linux-kernel@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>, David Laight <David.Laight@aculab.com>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Sean Christopherson <seanjc@google.com> writes:
+On Thu, Sep 14, 2023 at 07:02:29PM +0100, Conor Dooley wrote:
+> > > > +#ifndef CONFIG_32BIT
+> > > 
+> > > These can also be moved to IS_ENABLED() FYI, since there's no 32-bit
+> > > stuff here that'd break the build for 64-bit. Ditto elsewhere where
+> > > you've got similar stuff.
+> > > 
+> > > Cheers,
+> > > Conor.
+> > This is an ifndef, so 32-bit compilation would throw a warning about
+> > shifting by 32 bits if IS_ENABLED was used instead.
+> 
+>  Fair enough. I did accidentally invert things in my mail, I did notice
+>  the n, I just thought it did the elimination beforehand those checks,
+>  sorry for the noise.
 
-> On Mon, Aug 28, 2023, Ackerley Tng wrote:
->> Sean Christopherson <seanjc@google.com> writes:
->> >> If we track struct kvm with the inode, then I think (a), (b) and (c) can
->> >> be independent of the refcounting method. What do you think?
->> >
->> > No go.  Because again, the inode (physical memory) is coupled to the virtual machine
->> > as a thing, not to a "struct kvm".  Or more concretely, the inode is coupled to an
->> > ASID or an HKID, and there can be multiple "struct kvm" objects associated with a
->> > single ASID.  And at some point in the future, I suspect we'll have multiple KVM
->> > objects per HKID too.
->> >
->> > The current SEV use case is for the migration helper, where two KVM objects share
->> > a single ASID (the "real" VM and the helper).  I suspect TDX will end up with
->> > similar behavior where helper "VMs" can use the HKID of the "real" VM.  For KVM,
->> > that means multiple struct kvm objects being associated with a single HKID.
->> >
->> > To prevent use-after-free, KVM "just" needs to ensure the helper instances can't
->> > outlive the real instance, i.e. can't use the HKID/ASID after the owning virtual
->> > machine has been destroyed.
->> >
->> > To put it differently, "struct kvm" is a KVM software construct that _usually_,
->> > but not always, is associated 1:1 with a virtual machine.
->> >
->> > And FWIW, stashing the pointer without holding a reference would not be a complete
->> > solution, because it couldn't guard against KVM reusing a pointer.  E.g. if a
->> > struct kvm was unbound and then freed, KVM could reuse the same memory for a new
->> > struct kvm, with a different ASID/HKID, and get a false negative on the rebinding
->> > check.
->> 
->> I agree that inode (physical memory) is coupled to the virtual machine
->> as a more generic concept.
->> 
->> I was hoping that in the absence of CC hardware providing a HKID/ASID,
->> the struct kvm pointer could act as a representation of the "virtual
->> machine". You're definitely right that KVM could reuse a pointer and so
->> that idea doesn't stand.
->> 
->> I thought about generating UUIDs to represent "virtual machines" in the
->> absence of CC hardware, and this UUID could be transferred during
->> intra-host migration, but this still doesn't take host userspace out of
->> the TCB. A malicious host VMM could just use the migration ioctl to copy
->> the UUID to a malicious dumper VM, which would then pass checks with a
->> gmem file linked to the malicious dumper VM. This is fine for HKID/ASIDs
->> because the memory is encrypted; with UUIDs there's no memory
->> encryption.
->
-> I don't understand what problem you're trying to solve.  I don't see a need to
-> provide a single concrete representation/definition of a "virtual machine".  E.g.
-> there's no need for a formal definition to securely perform intrahost migration,
-> KVM just needs to ensure that the migration doesn't compromise guest security,
-> functionality, etc.
->
-> That gets a lot more complex if the target KVM instance (module, not "struct kvm")
-> is a different KVM, e.g. when migrating to a different host.  Then there needs to
-> be a way to attest that the target is trusted and whatnot, but that still doesn't
-> require there to be a formal definition of a "virtual machine".
->
->> Circling back to the original topic, was associating the file with
->> struct kvm at gmem file creation time meant to constrain the use of the
->> gmem file to one struct kvm, or one virtual machine, or something else?
->
-> It's meant to keep things as simple as possible (relatively speaking).  A 1:1
-> association between a KVM instance and a gmem instance means we don't have to
-> worry about the edge cases and oddities I pointed out earlier in this thread.
->
+It appears that LLVM is smart enough to not attempt to compile code that
+will never execute but GCC is not. Pretty interesting because it allows the
+".option arch" code to be encased in IS_ENABLED because it is only not
+supported on LLVM, but the shifting code needs to be in ifdef because
+otherwise gcc will complain.
 
-I looked through this thread again and re-read the edge cases and
-oddities that was pointed out earlier (last paragraph at [1]) and I
-think I understand better, and I have just one last clarification.
-
-It was previously mentioned that binding on creation time simplifies the
-lifecycle of memory:
-
-"(a) prevent a different VM from *ever* binding to the gmem instance" [1]
-
-Does this actually mean
-
-"prevent a different struct kvm from *ever* binding to this gmem file"
-
-?
-
-If so, then binding on creation
-
-+ Makes the gmem *file* (and just not the bindings xarray) the binding
-  between struct kvm and the file.
-+ Simplifies the KVM-userspace contract to "this gmem file can only be
-  used with this struct kvm"
-
-Binding on creation doesn't offer any way to block the contents of the
-inode from being used with another "virtual machine" though, since we
-can have more than one gmem file pointing to the same inode, and the
-other gmem file is associated with another struct kvm. (And a strut kvm
-isn't associated 1:1 with a virtual machine [2])
-
-The point about an inode needing to be coupled to a virtual machine as a
-thing [2] led me to try to find a single concrete representation of a
-"virtual machine".
-
-Is locking inode contents to a "virtual machine" outside the scope of
-gmem? If so, then it is fine to bind on creation time, use a VM ioctl
-over a system ioctl, and the method of refcounting in gmem v12 is okay.
-
-[1] https://lore.kernel.org/lkml/ZNKv9ul2I7A4V7IF@google.com/
-[2] https://lore.kernel.org/lkml/ZOO782YGRY0YMuPu@google.com/
-
-> <snip>
 
 _______________________________________________
 linux-riscv mailing list
