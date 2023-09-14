@@ -4,68 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7148CA553C
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 Sep 2023 12:59:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BC6BCA553C
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 Sep 2023 13:02:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QjAKWm7U5B6c5n1uXQmce08Kjn+otA3NlTFlM9bzw2s=; b=YOaiOto83QaPMe
-	jUfUXvGI55K90fzuJ4l/gP4T2B2U9YkN6aU2TT9k3UwBygZMcdwD0AdC4Q7PqMt6ruJk3OzADEL4h
-	9N6pXuQQGTQykrAa0UEiz+7XOvAsO6iKM5rMVbLwYDqZng5U6NOKQ333DpK5HMDqQOtDdOtXLHe7B
-	EyBfZ7plX1X+aeH+iJ5EGw5s9Glxul/m6bII/OPDm+0WDcLEwIYTlmYfZZ/uN9aKESz3koMmMiNZc
-	VIpKuYvJ02iznH40Ftx2T/CD/mXefEJWElHVyvRpL3UR8I/XJD4qM41JTWBKioTXpkQgzS5z1dGb4
-	wqOgukvmcAeadw25+78g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rqD9VQl2rPWYUFaPw2yGmVdKWRoonbcUeDgvNw+BD1g=; b=JtqEa6QdgX8k4AXOMVXhf/wG5Q
+	dQShyDnh4hHgDqdXf4ONlGEVsm/UK6qZPLYwQvpUAREmInCOz4v36/4wCtU3q4f8ApzbkfVIIPyER
+	GPbuiJFzce2KX20bWauiPv2cgwGIo/Y5AjFnbVWRuk57MVxt4NR+8FAi8qf/3gCNNFLUjNjg/pVzu
+	pJ531bY6SpVKR8rS8l6GWY0F0wJZS/CojtG15t3w+cVGey+KyR/4HOKaTFDnHM/FyF6YJpebMlf6R
+	N0F0qQO2tvXUFNtynwv+PvC5ZdbP3F1Z/zSQyf5p/6swsEOOnrMpgAKJDvwS7oCyQaHD0choDBPmX
+	0M3IKRfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qglwZ-008OOx-16;
-	Thu, 14 Sep 2023 12:59:39 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1qglzN-008OnG-2e;
+	Thu, 14 Sep 2023 13:02:33 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qglwX-008ONu-0J
+	id 1qglzK-008Omf-37
 	for linux-riscv@lists.infradead.org;
-	Thu, 14 Sep 2023 12:59:38 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by sin.source.kernel.org (Postfix) with ESMTPS id 0C525CE26C7;
-	Thu, 14 Sep 2023 12:59:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D35FEC433C7;
-	Thu, 14 Sep 2023 12:59:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1694696373;
-	bh=7vDP4g7jMMD/RN1sC/k/VT5TGJ/WVi77BDoNV/0fFWE=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=akOU2uK04oc6pz08pJcQmp/jc3wstHcgLS41MvhzK9nmEk7WS64SThd+WBOcGmfNU
-	 COCgTsB9O8Ummya+Y6fj4Rax9Kf2TjyXj4uLbSOd2jZxfGn5tUM0y3s6m4nwckHbn6
-	 YTcIqQAPdBlxCRiIut1SAeel8Ad3TB5hosq2pAVZkh91C1Amn2J0MZ6ikYUkWyc1zL
-	 2j53lCMx5paGTcvluuwn8sbFcPnW1IhnEhyXQsdMw6HE+BfZQ+IJyZ1rtWWCzRu54Y
-	 RcLivIFavDnc2+2Rt3gZmi1slV3ep/8zOx4eeK/kMCsW16doT3BOkV20IJrlwMfgps
-	 VXD3TYzeFKrDg==
-From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-To: Conor Dooley <conor.dooley@microchip.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- linux-riscv@lists.infradead.org, Andy Chiu <andy.chiu@sifive.com>,
- Greentime Hu <greentime.hu@sifive.com>, "Jason A . Donenfeld"
- <Jason@zx2c4.com>, Samuel Neves <sneves@dei.uc.pt>, =?utf-8?B?QmrDtnJu?=
- =?utf-8?B?IFTDtnBlbA==?=
- <bjorn@rivosinc.com>, Heiko Stuebner <heiko@sntech.de>, Herbert Xu
- <herbert@gondor.apana.org.au>, "David S. Miller" <davem@davemloft.net>,
- linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [RFC PATCH 0/6] RISC-V BLAKE2s Vector implementation
-In-Reply-To: <20230914-roaming-plunging-948c78d9831c@wendy>
-References: <20230912115728.172982-1-bjorn@kernel.org>
- <20230914-roaming-plunging-948c78d9831c@wendy>
-Date: Thu, 14 Sep 2023 14:59:30 +0200
-Message-ID: <87pm2kap1p.fsf@all.your.base.are.belong.to.us>
+	Thu, 14 Sep 2023 13:02:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1694696551; x=1726232551;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=FKfzwEgabNmnr7ctogDVTVjqR+tQlE/LAJw2UQIySqk=;
+  b=jhbdWVQ19qavqMA4H9fIuBcZl/kUaaACDRlWQFzQRHhV4AVG5IZsS+Nf
+   63kSTBR3XnJ7Nj3oqoJII1N9IyOXkkIHyIH9M2OzmZhtoqkKFJISVGmyE
+   IWKji3fy9XxRWzaGHqkLzC4Rw4xAKkdNmYFbDeRDKbfWOKJjsdDKFTAyP
+   5+NnWW9ikCqUEgkqepK3tcJkJwxYB0hBIyrYovaP5QCa2WwnZQYV1AOFy
+   VRA1s+uTN80UGwHvTjDKrxaNZiBPJwlGCC0eEFaG+enQquwCwf1D7J8+S
+   OXY/v4neco/9GZNdAud71Wsw7vA+E9MebU4bHnHJQicOzQm8a4Kc+qcnj
+   Q==;
+X-CSE-ConnectionGUID: AFW5LNIURoy9wLgAfO/wEA==
+X-CSE-MsgGUID: MPvWWLIsRTuZD0YJFcDjng==
+X-ThreatScanner-Verdict: Negative
+X-IronPort-AV: E=Sophos;i="6.02,146,1688454000"; 
+   d="asc'?scan'208";a="235193637"
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 14 Sep 2023 06:02:26 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.21; Thu, 14 Sep 2023 06:02:24 -0700
+Received: from wendy (10.10.85.11) by chn-vm-ex04.mchp-main.com (10.10.85.152)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
+ Transport; Thu, 14 Sep 2023 06:02:20 -0700
+Date: Thu, 14 Sep 2023 14:02:04 +0100
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Conor Dooley <conor@kernel.org>
+CC: Pu Lehui <pulehui@huaweicloud.com>, <bpf@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, <netdev@vger.kernel.org>,
+	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@kernel.org>, Alexei Starovoitov
+	<ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko
+	<andrii@kernel.org>, Martin KaFai Lau <martin.lau@linux.dev>, Song Liu
+	<song@kernel.org>, Yonghong Song <yhs@fb.com>, John Fastabend
+	<john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>, Stanislav Fomichev
+	<sdf@google.com>, Hao Luo <haoluo@google.com>, Jiri Olsa <jolsa@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>, Luke Nelson <luke.r.nels@gmail.com>, Pu
+ Lehui <pulehui@huawei.com>
+Subject: Re: [PATCH bpf-next 4/6] riscv, bpf: Add necessary Zbb instructions
+Message-ID: <20230914-ought-hypnotize-64cee0e27ed2@wendy>
+References: <20230913153413.1446068-1-pulehui@huaweicloud.com>
+ <20230913153413.1446068-5-pulehui@huaweicloud.com>
+ <20230913-granny-heat-35d70b49ac85@spud>
 MIME-Version: 1.0
+In-Reply-To: <20230913-granny-heat-35d70b49ac85@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230914_055937_306486_A8AF8231 
-X-CRM114-Status: GOOD (  10.72  )
+X-CRM114-CacheID: sfid-20230914_060231_009398_EA5FA52D 
+X-CRM114-Status: GOOD (  24.44  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,25 +91,89 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============1335930525939705546=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Q29ub3IgRG9vbGV5IDxjb25vci5kb29sZXlAbWljcm9jaGlwLmNvbT4gd3JpdGVzOgoKPiBPbiBU
-dWUsIFNlcCAxMiwgMjAyMyBhdCAwMTo1NzoyMlBNICswMjAwLCBCasO2cm4gVMO2cGVsIHdyb3Rl
-Ogo+PiBGcm9tOiBCasO2cm4gVMO2cGVsIDxiam9ybkByaXZvc2luYy5jb20+Cj4+IAo+PiBIaSwK
-Pj4gCj4+IFRoaXMgaXMgQW5keSdzIGtlcm5lbCBtb2RlIHZlY3RvciBWMiBzZXJpZXMgWzFdLCB3
-aXRoIG15IEJMQUtFMnMKPj4gQVZYLTUxMi10by1SSVNDLVYgdHJhbnNsYXRpb24gcGF0Y2ggYXBw
-ZW5kZWQuCj4+IAo+PiBJJ3ZlIHRhZ2dlZCBpdCBhcyBSRkMsIHNpbmNlIEFuZHkncyBzZXJpZXMg
-aXMgc3RpbGwgbm90IGluLXRyZWUgeWV0Lgo+PiAKPj4gSXQncyBhIGZpcnN0IHN0ZXAgdG93YXJk
-cyBhIFZlY3RvciBhaWRlZCBXaXJlZ3VhcmQhIDstKQo+Cj4gVGhpcyBoYXMgdGhlIHNhbWUgcHJv
-YmxlbXMgYXMgQW5keSdzIHN0dWZmICYgZG9lc24ndCBidWlsZCBwcm9wZXJseSBmb3IgdGhlCj4g
-YXV0b21hdGlvbi4gV2hhdCBpcyB0aGUgcGxhbiBiZXR3ZWVuIHlvdXJzZWxmIGFuZCBBbmR5IGZv
-ciBzdWJtaXR0aW5nIGEKPiB2ZXJzaW9uIG9mIHRoZSBpbi1rZXJuZWwgdmVjdG9yIHN1cHBvcnQg
-dGhhdCBwYXNzZXMgYnVpbGQgdGVzdGluZz8KCkknbGwgc3luY2ggdXAgd2l0aCBBbmR5ISBJJ20g
-bm90IGV2ZW4gc3VyZSB0aGUgYmxha2UycyBwYXRjaCBzaG91bGQgcGFydApvZiB0aGUgImluLWtl
-cm5lbCB2ZWN0b3IiIHNlcmllcyBhdCBhbGwuCgpUaGFua3MsCkJqw7ZybgoKX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBs
-aXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVh
-ZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+--===============1335930525939705546==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="UdjAGp0Chm4M5aeN"
+Content-Disposition: inline
+
+--UdjAGp0Chm4M5aeN
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Wed, Sep 13, 2023 at 05:23:48PM +0100, Conor Dooley wrote:
+> On Wed, Sep 13, 2023 at 11:34:11PM +0800, Pu Lehui wrote:
+> > From: Pu Lehui <pulehui@huawei.com>
+> >=20
+> > Add necessary Zbb instructions introduced by [0] to reduce code size and
+> > improve performance of RV64 JIT. At the same time, a helper is added to
+> > check whether the CPU supports Zbb instructions.
+> >=20
+> > [0] https://github.com/riscv/riscv-bitmanip/releases/download/1.0.0/bit=
+manip-1.0.0-38-g865e7a7.pdf
+> >=20
+> > Signed-off-by: Pu Lehui <pulehui@huawei.com>
+> > ---
+> >  arch/riscv/net/bpf_jit.h | 26 ++++++++++++++++++++++++++
+> >  1 file changed, 26 insertions(+)
+> >=20
+> > diff --git a/arch/riscv/net/bpf_jit.h b/arch/riscv/net/bpf_jit.h
+> > index 8e0ef4d08..7ee59d1f6 100644
+> > --- a/arch/riscv/net/bpf_jit.h
+> > +++ b/arch/riscv/net/bpf_jit.h
+> > @@ -18,6 +18,11 @@ static inline bool rvc_enabled(void)
+> >  	return IS_ENABLED(CONFIG_RISCV_ISA_C);
+> >  }
+> > =20
+> > +static inline bool rvzbb_enabled(void)
+> > +{
+> > +	return IS_ENABLED(CONFIG_RISCV_ISA_ZBB);
+> > +}
+>=20
+> I dunno much about bpf, so passing question that may be a bit obvious:
+> Is this meant to be a test as to whether the kernel binary is built with
+> support for the extension, or whether the underlying platform is capable
+> of executing zbb instructions.
+>=20
+> Sorry if that would be obvious to a bpf aficionado, context I have here
+> is the later user and the above rvc_enabled() test, which functions
+> differently to Zbb and so doesn't really help me.
+
+FTR, I got an off-list reply about this & it is meant to be a check as
+to whether the underlying platform supports the extension. The current
+test here is insufficient for that.
+
+Thanks,
+Conor.
+
+--UdjAGp0Chm4M5aeN
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZQMETAAKCRB4tDGHoIJi
+0r2GAP9G/Tqz8CZj+46l3JPNeu10+ifMteg0qvwIC0WpXczpbAEAoZJnprYePgJx
+FLwHEzyRTZklaezLKQvJLVjjuM4DjQ8=
+=qF/h
+-----END PGP SIGNATURE-----
+
+--UdjAGp0Chm4M5aeN--
+
+
+--===============1335930525939705546==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============1335930525939705546==--
+
