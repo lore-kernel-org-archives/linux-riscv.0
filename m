@@ -4,94 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F9E6EEAA44
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 Sep 2023 14:20:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D76B1EEAA45
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 Sep 2023 14:25:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
-	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=R/wP7wUKxOgpLmQpVY/jR3Ofpv3Ow1hEuYkjDyjA2cI=; b=Y8V+IQi4DjYCEShqqxcp0i/5H6
-	YsW3yveJTlLbZKz2DpEapR+HV6Y0MIJqv51IHJBnqHMcAsSHIPeONQ/EEgWTfkAa7FOL5+btI13b3
-	kNBBGpgHS6rrsC8pli9WTWCV1eNuh/AqKVJka7nhooM+puAH1mAm4D+gaONxodiQjBbaxiDdADB7+
-	Dzx6Ht9Za5aWfLFN2CzxdE9Z023b8U5GjVhD2HzjMSl5a+Eq4aP+RRHqnnDhbrY6iUP+L8uiPSYBW
-	PNYbpMxPcpG0rfD3OZ2VHg75FtMLAZyKe0nKtAIeKsnPW74ZRLSbWF6HV+fKo2/DWqRWlvJZTOl0h
-	h0yAxdKg==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=7C+pvMLX+wLT1XBGwFs3W594onAxAY6YYABLdHjq+QM=; b=vZRKan5/eSaXR4
+	47ghXUCETArz/iQfcsAxm5SfvFeby4pAkMMwIFsDeCIxRpV+v07BXZMWUFPWbd3GKRC8WquUdoi29
+	MTT8xEI7U5/xc5AYxVbIhxlxj7MvrrNj3P1xmcVN5CQQqZKlP4j/BLV5xXeW5V7LxjKib9IPerx3w
+	+PvSCgUifiQT+lJNd/EW373nrOavIgxGov2X8EqgGk7C6mbWYfYbAjjrHeXgxF1vxdJIX2Zxuew3g
+	24qqYV6rjZVo91ApGVl5koJqKweIbUtv0K+ljLe+TCscZoYnZyQb5aDZ+Owo0abYBajU1TaOxthsV
+	xAuBQz7bcKh1o9pdcNXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgnCT-008cOn-0U;
-	Thu, 14 Sep 2023 14:20:09 +0000
-Received: from mail-yb1-xb49.google.com ([2607:f8b0:4864:20::b49])
+	id 1qgnHQ-008d6g-1M;
+	Thu, 14 Sep 2023 14:25:16 +0000
+Received: from mail-lj1-x230.google.com ([2a00:1450:4864:20::230])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgnCP-008cKr-2i
+	id 1qgnHN-008d5J-2Y
 	for linux-riscv@lists.infradead.org;
-	Thu, 14 Sep 2023 14:20:07 +0000
-Received: by mail-yb1-xb49.google.com with SMTP id 3f1490d57ef6-d818e01823aso1038492276.2
-        for <linux-riscv@lists.infradead.org>; Thu, 14 Sep 2023 07:19:59 -0700 (PDT)
+	Thu, 14 Sep 2023 14:25:15 +0000
+Received: by mail-lj1-x230.google.com with SMTP id 38308e7fff4ca-2bf5bf33bcdso17051421fa.0
+        for <linux-riscv@lists.infradead.org>; Thu, 14 Sep 2023 07:25:10 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1694701199; x=1695305999; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=OinN3M2z4I/Qg8aCda0iI1MRdyz332KlEPPYu5muKwI=;
-        b=slQNUNCzXQ58gA2pzJ1JTI8KiPP/U7z9RgBrjkoo+seEaZTc2/M/PjDMIOOBh0PIiT
-         BbOl+7ieHo2jKoSFcrcJyaSKzHPxxONSh+rFkVdu2zDjpU0bIFa6GFqBspZp+9iYfYw2
-         WHWvh+Pr4A/wLwOWV1difuHaevIJrPzPR1o79tfweiMdAP/t+TQWfU+R7b51F8yk5TNq
-         hvyWVInrjX9kUVJC9u88jztO9DUacgHh0MZ0CWR7vpVR3pjAUTu9Adfc5YLl58CX0/yz
-         8ywDMMnSHoX/IELTy4KgPlOeXM6SK7hDoHUBpVLx/5HiDdo+UVItcBrtOaO/JFanT3CR
-         bYng==
+        d=sifive.com; s=google; t=1694701509; x=1695306309; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=HsrwoDLjRwnaUZYSy5S/KIF4yMwSVKMWZIEdp6t3G5c=;
+        b=aKe4Q5a2+JxXYqRNmLdDroKC6wXyVtV7umywy7+XOrD/uLHx0b05tymzm8FTg40Foe
+         DGl/45S9NQ/e0MTa/bAtb3Li4MaotJVNVLIfETke5dvZDpJkHsi3o7SzB89vXJlRW0AF
+         hzvxSCc9/sTeJU1skYXkvZkAn1McGvHj7ygiS9wECTgF3iSRkFt5hp+eOI7CIxncCiFM
+         zoNQ1dqDRoKMt8r+HmFSwDFgdu4cgUcgRW7XiincB8O/uxzbeSP0rlXslbhbsUoER6xb
+         dqwkPM7Em0mdvAyOUZcUBJGrIy0cnCK7tk35HmK5cALUbC5FZzocj9RaNvQlbAzT2lib
+         4pVg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1694701199; x=1695305999;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=OinN3M2z4I/Qg8aCda0iI1MRdyz332KlEPPYu5muKwI=;
-        b=OPlZDoPbLLCgF1GeHSc8n8P8p5L2Arq+Fd7Us8HcjLkC0h55jOszpav3kBMLqjrWUG
-         y2ssk7mgJ56Nz8j8g5JRAA09xH/guRmpMzwYN1/NUmh3Hj22IrhsW1NIGVUwEAy9ebWp
-         BTi7Wh+pf9h8QVSz8O/zQRYQueT//Z43Mpvu51blXmSYiKbcAhry1n1PX7YglX7VdUu7
-         u82heoQr4BuxdMFzUoeor393dkN4ooiNqMd08gfCfHSXtHKVow+6sKIZeArsrIzzlikR
-         1YjflJ0ZbuxGxALTLsbpOg8lHgoYB4t1TmPE126aYr4Yc5VbH1t38e4iIgbjBMjlS8Yw
-         J1Aw==
-X-Gm-Message-State: AOJu0Yy5FjzccVkPDOHZIMzob8AjgPRedZb/wgcXOOm+P9ua0t/AKVvF
-	6xKEOnGjsFXjGnWUdOzoTUp28EwTsY8=
-X-Google-Smtp-Source: AGHT+IEn69IOl2rxglDVCjXW4KTdScyqCw6tLi48MQpyb+nW1MjRKbjq1lfqPgEextp+IedkDxkiKrdOCXU=
-X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
- (user=seanjc job=sendgmr) by 2002:a25:e6c4:0:b0:d78:f45:d7bd with SMTP id
- d187-20020a25e6c4000000b00d780f45d7bdmr129688ybh.4.1694701199053; Thu, 14 Sep
- 2023 07:19:59 -0700 (PDT)
-Date: Thu, 14 Sep 2023 07:19:57 -0700
-In-Reply-To: <54d3e6bf-d374-caa5-0920-bb2fe3b7595c@linux.intel.com>
-Mime-Version: 1.0
-References: <20230914015531.1419405-1-seanjc@google.com> <20230914015531.1419405-3-seanjc@google.com>
- <54d3e6bf-d374-caa5-0920-bb2fe3b7595c@linux.intel.com>
-Message-ID: <ZQMWjbt/SzKvag2K@google.com>
-Subject: Re: [RFC PATCH v12 02/33] KVM: Use gfn instead of hva for mmu_notifier_retry
-From: Sean Christopherson <seanjc@google.com>
-To: Binbin Wu <binbin.wu@linux.intel.com>
-Cc: Chao Peng <chao.p.peng@linux.intel.com>, kvm@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
-	linux-fsdevel@vger.kernel.org, linux-mm@kvack.org, 
-	linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
-	Oliver Upton <oliver.upton@linux.dev>, Huacai Chen <chenhuacai@kernel.org>, 
-	Michael Ellerman <mpe@ellerman.id.au>, Anup Patel <anup@brainfault.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, "Matthew Wilcox (Oracle)" <willy@infradead.org>, 
-	Andrew Morton <akpm@linux-foundation.org>, Paul Moore <paul@paul-moore.com>, 
-	James Morris <jmorris@namei.org>, "Serge E. Hallyn" <serge@hallyn.com>, Fuad Tabba <tabba@google.com>, 
-	Jarkko Sakkinen <jarkko@kernel.org>, Anish Moorthy <amoorthy@google.com>, 
-	Yu Zhang <yu.c.zhang@linux.intel.com>, Isaku Yamahata <isaku.yamahata@intel.com>, 
-	Xu Yilun <yilun.xu@intel.com>, Vlastimil Babka <vbabka@suse.cz>, 
-	Vishal Annapurve <vannapurve@google.com>, Ackerley Tng <ackerleytng@google.com>, 
-	Maciej Szmigiero <mail@maciej.szmigiero.name>, David Hildenbrand <david@redhat.com>, 
-	Quentin Perret <qperret@google.com>, Michael Roth <michael.roth@amd.com>, Wang <wei.w.wang@intel.com>, 
-	Liam Merwick <liam.merwick@oracle.com>, Isaku Yamahata <isaku.yamahata@gmail.com>, 
-	"Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
+        d=1e100.net; s=20230601; t=1694701509; x=1695306309;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=HsrwoDLjRwnaUZYSy5S/KIF4yMwSVKMWZIEdp6t3G5c=;
+        b=sWARat2/4n0e6Gau29SCdSHX8EeK0ZN76wpgiunNgoJ4CeJaMLxcKS0lmKDqoqwgV9
+         zsAndmtHl7nU2Uq+ZqG7gs6NeA9oVUBoJKpQToo7B0km2yUks5YYuYbkEU0ltT5yo8C2
+         CbzGUJunNMdhMd81Yf28nbSFs7a4M6q5lrSmjS9HPZ2Z7rQZkDgvBbvro+ag+hAcssl7
+         Y9ZZovYuULEIG91f9tYCt/JpEwcx+DQ89C+nIjJXNHDJBelu7Yv6urdE9rVCjBeGvOJf
+         dHvpc3+alSjEFDGA81BOtQHdE6Mm7EIgSRvORrM7VDarcwVO7LTXesOqSko3s3KRQnb1
+         CR2Q==
+X-Gm-Message-State: AOJu0YySg7AvSplnJ1Qj7MxMJvfiMb+E7T9NWucNox/hVCANYTo8uqeT
+	FTByKEGDx/LCKz4cIB6nYDN/rS/OnNKaQKAMJoJucQ==
+X-Google-Smtp-Source: AGHT+IFyq+HOt9ZCbHlcgwJ92zFW7w8JnSXnuczSf+sy7/bCSbqTHrj1vp8l9l0tUJyltYlfynCBiC2Z1KNZnnePLY0=
+X-Received: by 2002:a05:6512:3988:b0:4f8:7124:6803 with SMTP id
+ j8-20020a056512398800b004f871246803mr5641252lfu.35.1694701509009; Thu, 14 Sep
+ 2023 07:25:09 -0700 (PDT)
+MIME-Version: 1.0
+References: <20230912115728.172982-1-bjorn@kernel.org> <20230914-roaming-plunging-948c78d9831c@wendy>
+ <87pm2kap1p.fsf@all.your.base.are.belong.to.us> <20230914-float-uneven-7cd1a18b3978@wendy>
+ <87zg1o3kpd.fsf@all.your.base.are.belong.to.us> <20230914-squad-ripping-e8c98e2d336b@spud>
+In-Reply-To: <20230914-squad-ripping-e8c98e2d336b@spud>
+From: Andy Chiu <andy.chiu@sifive.com>
+Date: Thu, 14 Sep 2023 22:24:57 +0800
+Message-ID: <CABgGipW6NhfOstpe-P7RZeaF-w72GLqiE2sxLsZVzJx1AC6kqA@mail.gmail.com>
+Subject: Re: [RFC PATCH 0/6] RISC-V BLAKE2s Vector implementation
+To: Conor Dooley <conor@kernel.org>
+Cc: =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>, 
+	Conor Dooley <conor.dooley@microchip.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	linux-riscv@lists.infradead.org, Greentime Hu <greentime.hu@sifive.com>, 
+	"Jason A . Donenfeld" <Jason@zx2c4.com>, Samuel Neves <sneves@dei.uc.pt>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>, 
+	Heiko Stuebner <heiko@sntech.de>, Herbert Xu <herbert@gondor.apana.org.au>, 
+	"David S. Miller" <davem@davemloft.net>, linux-crypto@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230914_072005_886352_80D215D4 
-X-CRM114-Status: GOOD (  19.67  )
+X-CRM114-CacheID: sfid-20230914_072513_880991_FC632552 
+X-CRM114-Status: GOOD (  21.13  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,75 +91,38 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 14, 2023, Binbin Wu wrote:
-> 
-> On 9/14/2023 9:55 AM, Sean Christopherson wrote:
-> > +void kvm_mmu_invalidate_end(struct kvm *kvm)
-> >   {
-> >   	/*
-> >   	 * This sequence increase will notify the kvm page fault that
-> > @@ -833,6 +848,13 @@ void kvm_mmu_invalidate_end(struct kvm *kvm, unsigned long start,
-> >   	 * in conjunction with the smp_rmb in mmu_invalidate_retry().
-> >   	 */
-> >   	kvm->mmu_invalidate_in_progress--;
-> > +
-> > +	/*
-> > +	 * Assert that at least one range must be added between start() and
-> > +	 * end().  Not adding a range isn't fatal, but it is a KVM bug.
-> > +	 */
-> > +	WARN_ON_ONCE(kvm->mmu_invalidate_in_progress &&
-> > +		     kvm->mmu_invalidate_range_start == INVALID_GPA);
-> Should the check happen before the decrease of kvm->mmu_invalidate_in_progress?
-> Otherwise, KVM calls kvm_mmu_invalidate_begin(), then kvm_mmu_invalidate_end()
-> the check will not take effect.
-
-Indeed.  I'm pretty sure I added this code, not sure what I was thinking.  There's
-no reason to check mmu_invalidate_in_progress, it's not like KVM allows
-mmu_invalidate_in_progress to go negative.  The comment is also a bit funky.  I'll
-post a fixup patch to make it look like this (assuming I'm not forgetting a subtle
-reason for guarding the check with the in-progress flag):
-
-	/*
-	 * Assert that at least one range was added between start() and end().
-	 * Not adding a range isn't fatal, but it is a KVM bug.
-	 */
-	WARN_ON_ONCE(kvm->mmu_invalidate_range_start == INVALID_GPA);
-
-Regarding kvm->mmu_invalidate_in_progress, this would be a good opportunity to
-move the BUG_ON() into the common end(), e.g. as is, an end() without a start()
-from something other than the generic mmu_notifier would go unnoticed.  And I
-_think_ we can replace the BUG_ON() with a KVM_BUG_ON() without putting the
-kernel at risk.  E.g.
-
-diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
-index dd948276e5d6..54480655bcce 100644
---- a/virt/kvm/kvm_main.c
-+++ b/virt/kvm/kvm_main.c
-@@ -870,6 +870,7 @@ void kvm_mmu_invalidate_end(struct kvm *kvm)
-         * in conjunction with the smp_rmb in mmu_invalidate_retry().
-         */
-        kvm->mmu_invalidate_in_progress--;
-+       KVM_BUG_ON(kvm->mmu_invalidate_in_progress < 0, kvm);
- 
-        /*
-         * Assert that at least one range was added between start() and end().
-@@ -905,8 +906,6 @@ static void kvm_mmu_notifier_invalidate_range_end(struct mmu_notifier *mn,
-         */
-        if (wake)
-                rcuwait_wake_up(&kvm->mn_memslots_update_rcuwait);
--
--       BUG_ON(kvm->mmu_invalidate_in_progress < 0);
- }
- 
- static int kvm_mmu_notifier_clear_flush_young(struct mmu_notifier *mn,
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVGh1LCBTZXAgMTQsIDIwMjMgYXQgMTA6MTjigK9QTSBDb25vciBEb29sZXkgPGNvbm9yQGtl
+cm5lbC5vcmc+IHdyb3RlOgo+Cj4gT24gVGh1LCBTZXAgMTQsIDIwMjMgYXQgMDQ6MTU6MTBQTSAr
+MDIwMCwgQmrDtnJuIFTDtnBlbCB3cm90ZToKPiA+IENvbm9yIERvb2xleSA8Y29ub3IuZG9vbGV5
+QG1pY3JvY2hpcC5jb20+IHdyaXRlczoKPiA+Cj4gPiA+IE9uIFRodSwgU2VwIDE0LCAyMDIzIGF0
+IDAyOjU5OjMwUE0gKzAyMDAsIEJqw7ZybiBUw7ZwZWwgd3JvdGU6Cj4gPiA+PiBDb25vciBEb29s
+ZXkgPGNvbm9yLmRvb2xleUBtaWNyb2NoaXAuY29tPiB3cml0ZXM6Cj4gPiA+Pgo+ID4gPj4gPiBP
+biBUdWUsIFNlcCAxMiwgMjAyMyBhdCAwMTo1NzoyMlBNICswMjAwLCBCasO2cm4gVMO2cGVsIHdy
+b3RlOgo+ID4gPj4gPj4gRnJvbTogQmrDtnJuIFTDtnBlbCA8Ympvcm5Acml2b3NpbmMuY29tPgo+
+ID4gPj4gPj4KPiA+ID4+ID4+IEhpLAo+ID4gPj4gPj4KPiA+ID4+ID4+IFRoaXMgaXMgQW5keSdz
+IGtlcm5lbCBtb2RlIHZlY3RvciBWMiBzZXJpZXMgWzFdLCB3aXRoIG15IEJMQUtFMnMKPiA+ID4+
+ID4+IEFWWC01MTItdG8tUklTQy1WIHRyYW5zbGF0aW9uIHBhdGNoIGFwcGVuZGVkLgo+ID4gPj4g
+Pj4KPiA+ID4+ID4+IEkndmUgdGFnZ2VkIGl0IGFzIFJGQywgc2luY2UgQW5keSdzIHNlcmllcyBp
+cyBzdGlsbCBub3QgaW4tdHJlZSB5ZXQuCj4gPiA+PiA+Pgo+ID4gPj4gPj4gSXQncyBhIGZpcnN0
+IHN0ZXAgdG93YXJkcyBhIFZlY3RvciBhaWRlZCBXaXJlZ3VhcmQhIDstKQo+ID4gPj4gPgo+ID4g
+Pj4gPiBUaGlzIGhhcyB0aGUgc2FtZSBwcm9ibGVtcyBhcyBBbmR5J3Mgc3R1ZmYgJiBkb2Vzbid0
+IGJ1aWxkIHByb3Blcmx5IGZvciB0aGUKPiA+ID4+ID4gYXV0b21hdGlvbi4gV2hhdCBpcyB0aGUg
+cGxhbiBiZXR3ZWVuIHlvdXJzZWxmIGFuZCBBbmR5IGZvciBzdWJtaXR0aW5nIGEKPiA+ID4+ID4g
+dmVyc2lvbiBvZiB0aGUgaW4ta2VybmVsIHZlY3RvciBzdXBwb3J0IHRoYXQgcGFzc2VzIGJ1aWxk
+IHRlc3Rpbmc/Cj4gPiA+Pgo+ID4gPj4gSSdsbCBzeW5jaCB1cCB3aXRoIEFuZHkhIEknbSBub3Qg
+ZXZlbiBzdXJlIHRoZSBibGFrZTJzIHBhdGNoIHNob3VsZCBwYXJ0Cj4gPiA+PiBvZiB0aGUgImlu
+LWtlcm5lbCB2ZWN0b3IiIHNlcmllcyBhdCBhbGwuCgpIaSwgeWVzLCBJIGhhdmUgYSBwbGFuIHRv
+IGZpeCBpdCByZWNlbnRseS4gUGxlYXNlIGV4cGVjdCBhIHJlc3BpbiBvZgp0aGUga2VybmVsLW1v
+ZGUgdmVjdG9yIGluIDF+MiB3ZWVrcywgaWYgdGhpcyBkb2Vzbid0IHNlZW0gdG9vIGxvbmcgdG8K
+eW91LgoKPiA+ID4KPiA+ID4gVGhlIGluLWtlcm5lbCB2ZWN0b3Igc3R1ZmYgc2hvdWxkIGNvbWUg
+d2l0aCBhIHVzZXIsIG90aGVyd2lzZSBpdCdzIGRlYWQKPiA+ID4gY29kZSA6KQo+ID4KPiA+IFN1
+cmUsIGp1c3Qgc28gd2UncmUgb24gdGhlIHNhbWUgcGFnZTsgUGF0Y2ggMyAoVmVjdG9yIFhPUikg
+aXMgYSB1c2VyCj4gPiBmcm9tIG15IHBlcnNwZWN0aXZlLCBubz8KPgo+IEQnb2gKClRoYW5rcywK
+QW5keQoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGlu
+dXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0
+cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
