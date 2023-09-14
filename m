@@ -4,68 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73D06EE0217
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 Sep 2023 01:56:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C912EE021A
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 Sep 2023 01:57:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
 	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OR3zkVPFzwh9GV1SPlXPhWvov7X1kd5bFhQ/FwS9ces=; b=ovjCQEcx2ksBoI
-	LSkVphbBDUuPFllqDWrtAj7RpswpMmATjWwf2ivU6vxd483cP5P6n7zpqTZQ50pUO3ieJ7/4KfCmx
-	cdCFz5EYaSxEI19wHiaV7HWhynJci339PFQ9v4P5VNGCKIt4wHFklsHTnCyJqzlB76tuqNzxwY8dV
-	+WM4ck7ZgyWrc2slSV3F8kED8PxNJqRKBIKlU7j13knDv3e0Nzwkm8vcKzgYoV8oSVc9JwgKXdqQ7
-	SkPJOogHBkTcZCI2JZ61rYEQtTW82R08MHqG4gv1zdRwF6pzwZJWB1GipGQmiMOMrSrPkWDhc9bsv
-	RoAZFKNNQ0dom1tgMU3g==;
+	List-Owner; bh=6BhtMyezZ42dhJhWBZuDmJcUev2pO/Uny+DE/8/wdic=; b=Bzy0Tq7BBP/gbv
+	YEOJAzTRHKWJu4bqqJTEnyWLCxzP1NFpGbEdjX0w8UHwW7eBu4sjZ7aYcjEMTd2zpFqHWkOReasw1
+	YOij33gsFaHOfDBCMnHom/VKepXC76o0qZBfeWz3jA/iGKVuiHmvEC8/inT6Og4wSPHcPXXdHtr7Z
+	Q76NkK0hZSarMbqHGepj8HYWu2SFiuI6RcmM4KL1mKWz63ujj4cjfeYnKQ+aZ+IRbGuvWP7jgWkHt
+	PCnUU+Yf5fyuVQJI+ex3m5BXdtF2YaxOwZdAFSym8o39aGqdA8gr+SgLXHTAQMQg56egwDpMTlkWe
+	keGP+JoCjl1DnfItoYhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgbbB-0073zJ-0S;
-	Thu, 14 Sep 2023 01:56:53 +0000
-Received: from mail-yw1-x1149.google.com ([2607:f8b0:4864:20::1149])
+	id 1qgbbD-00741U-0z;
+	Thu, 14 Sep 2023 01:56:55 +0000
+Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgbaA-0072qL-1p
+	id 1qgbaB-0072rn-2a
 	for linux-riscv@lists.infradead.org;
-	Thu, 14 Sep 2023 01:55:56 +0000
-Received: by mail-yw1-x1149.google.com with SMTP id 00721157ae682-59bdb9fe821so6905747b3.0
-        for <linux-riscv@lists.infradead.org>; Wed, 13 Sep 2023 18:55:49 -0700 (PDT)
+	Thu, 14 Sep 2023 01:55:58 +0000
+Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-1bf681d3d04so3894495ad.2
+        for <linux-riscv@lists.infradead.org>; Wed, 13 Sep 2023 18:55:50 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1694656548; x=1695261348; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1694656550; x=1695261350; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=BhxGep0GRUEwAUAzFvnYRN6yWfiwAK/IRlQcI8pBhpQ=;
-        b=20gwxGq2ZRDc8nVNJlmdt39XtoqiwhC3xW6d9scNGeUB5BcLyitP448+xtzUi184tb
-         IngOclcGM+s5XOxqgM9nOeGZfwZInCrroIGA2tzYv3HP+2FHUJO92c/gKlyS/cJf5Mse
-         QeCB18Zx3RgynIi+dGaQfFe0f45OV07ASaDh+haznR9ZS8Ka6X52tL6Q5SB4Zkw6OZLU
-         DalCbJ4PlHUX4yNqFDjj/S1jT0e+aCHLFSaRm/8rbaTVgLyniTmd8SP1bGF+cof30vyS
-         E6QHOCs3KPuWL8T7thPtUVA3ZPuORr4ujDm3K9cprEM1hUrYdcrA4OZmHnp4cRER9L4e
-         l8Uw==
+        bh=o3ncWp87Xrx57ugLKytKkEWMncW9euHhZSqjHZ5fZmU=;
+        b=RGC/4Ty/rDfzaIN5w3hspDbZJvKsGGRSel7nkRFR3pExkXgbIeonn7yyAtH/yy3kEr
+         MPcLCz6oo1oqYJU8XOVdMNJ3+iVoRsFbYUTbUYE9BM5Zhbycu1kpvJxAZt+4We/C4Ur7
+         qQClcsOviHfOaxfKvJz8DZSI1lwh+yHQphpaf6l4IICWpX9b5JXg3XOhjzivLqrV19/u
+         NELtBu8lo7tQ/3V1XJNb0OkFr5iqhgqJvvRDJ4X7nOXRdZxZjC24kFDJuSuebBoAhXTd
+         Pfcs6mqHCmNuO4MeI1p1cY3j3VRFLHMW7NZNGcASAFcPyd6fU5JoQ3/6bB0b6mb+b8NX
+         ZSLg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1694656548; x=1695261348;
+        d=1e100.net; s=20230601; t=1694656550; x=1695261350;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=BhxGep0GRUEwAUAzFvnYRN6yWfiwAK/IRlQcI8pBhpQ=;
-        b=V7b64Iuh/2Tg9PgpP+kWhY6t05kuJjzZtPhkGfxFn+Or1sQ1OEfOi8fgV2oK9w4NAM
-         Ibxt4WDxkMprYY5oUkHgqYqr9F95C7Znt0Nw3DXjUBofFsxrmJapCUAqeMM0KyJgGdr9
-         foy83c0SgfxcMwcrgjhdirtPtnMa/bAQ0zYgMOiXy+7b5o4UolVvyeoRbOG7xn4Q2fth
-         3F+YRoaLQwBvepZaD4T0w23+B+TdVoU9SY1Gin/k7lrpPWUAwQRGe6Lkry4H9EwXICKs
-         tLXecYXjHNIjpB3zp3xPQXCgPLepLko5il//tLrXN3/Aow9DFmbEvcRwLU/ucIeTQFYb
-         iMIQ==
-X-Gm-Message-State: AOJu0YzJJ9gybRgUAkgvG6uD13uth7Tj6CSVJ8YtMrUNTqVRsWePo4wj
-	Iqsha/vou62ercBsB8P2W3lBC19nFYA=
-X-Google-Smtp-Source: AGHT+IFIu1rjOq9FW+JbDj5fY4BKSa/epsGGWccSSMIHRlmCarPy2ezJLxiJZod49VfvzwgQV9RD5huQPI8=
+        bh=o3ncWp87Xrx57ugLKytKkEWMncW9euHhZSqjHZ5fZmU=;
+        b=PE6J4JhrjMEFs56j+ac/wQGfx94EYLBtxEKuraGJ2+lMe8r3GM53YSfwOhxBhybhGV
+         vzmW1NHiBuL4xvKBWqsqkED5TWXE02xndzVCd6QGp0Uwq/LlWfneOOPjLWqeQsdKQrzi
+         TdnxOp3P3IRjfh1kMixP37fyBW22nGG1j4WQgzpnLF6ysoK2CJqF1VcDNID3+aFsuYvw
+         Npa3UwjSk1tVGzXtGNEqSxjw939yfwy2Gtmwh5RvxXhNrKCtbwJiO6txKfxgJ6ELANFE
+         DUtM0ZIqpxX5/g9Vpj5mrukzhzh5jCqoFSLWLG7AGJInGAzzLzz8bXFZR/1HrnN9v5Mg
+         XUwQ==
+X-Gm-Message-State: AOJu0YxiPyWhEgDLgDrFVqEqtdabAWF2Oun6WgyYMweaEH0HjBKoiSwb
+	GC0+KkwMfwu1orvDea2ALt9STi1nNt4=
+X-Google-Smtp-Source: AGHT+IGMCwYjc3KV33cqzPB4diNP6tSuJVwUoEl1ZPejd5zU17fdiva4810hnuR1hhtSq7kLalb8uulnWEI=
 X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
- (user=seanjc job=sendgmr) by 2002:a25:4207:0:b0:d81:536d:2978 with SMTP id
- p7-20020a254207000000b00d81536d2978mr74175yba.2.1694656548405; Wed, 13 Sep
- 2023 18:55:48 -0700 (PDT)
-Date: Wed, 13 Sep 2023 18:55:04 -0700
+ (user=seanjc job=sendgmr) by 2002:a17:902:6bca:b0:1b8:80c9:a98e with SMTP id
+ m10-20020a1709026bca00b001b880c9a98emr149786plt.13.1694656550053; Wed, 13 Sep
+ 2023 18:55:50 -0700 (PDT)
+Date: Wed, 13 Sep 2023 18:55:05 -0700
 In-Reply-To: <20230914015531.1419405-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20230914015531.1419405-1-seanjc@google.com>
 X-Mailer: git-send-email 2.42.0.283.g2d96d420d3-goog
-Message-ID: <20230914015531.1419405-7-seanjc@google.com>
-Subject: [RFC PATCH v12 06/33] KVM: Introduce KVM_SET_USER_MEMORY_REGION2
+Message-ID: <20230914015531.1419405-8-seanjc@google.com>
+Subject: [RFC PATCH v12 07/33] KVM: Add KVM_EXIT_MEMORY_FAULT exit to report
+ faults to userspace
 From: Sean Christopherson <seanjc@google.com>
 To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
 	Oliver Upton <oliver.upton@linux.dev>, Huacai Chen <chenhuacai@kernel.org>, 
@@ -91,8 +92,8 @@ Cc: kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	Liam Merwick <liam.merwick@oracle.com>, Isaku Yamahata <isaku.yamahata@gmail.com>, 
 	"Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230913_185550_648123_A7DA06F9 
-X-CRM114-Status: GOOD (  22.60  )
+X-CRM114-CacheID: sfid-20230913_185551_853051_D7AC877A 
+X-CRM114-Status: GOOD (  22.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,193 +111,171 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Introduce a "version 2" of KVM_SET_USER_MEMORY_REGION so that additional
-information can be supplied without setting userspace up to fail.  The
-padding in the new kvm_userspace_memory_region2 structure will be used to
-pass a file descriptor in addition to the userspace_addr, i.e. allow
-userspace to point at a file descriptor and map memory into a guest that
-is NOT mapped into host userspace.
+From: Chao Peng <chao.p.peng@linux.intel.com>
 
-Alternatively, KVM could simply add "struct kvm_userspace_memory_region2"
-without a new ioctl(), but as Paolo pointed out, adding a new ioctl()
-makes detection of bad flags a bit more robust, e.g. if the new fd field
-is guarded only by a flag and not a new ioctl(), then a userspace bug
-(setting a "bad" flag) would generate out-of-bounds access instead of an
--EINVAL error.
+Add a new KVM exit type to allow userspace to handle memory faults that
+KVM cannot resolve, but that userspace *may* be able to handle (without
+terminating the guest).
 
-Cc: Jarkko Sakkinen <jarkko@kernel.org>
-Reviewed-by: Paolo Bonzini <pbonzini@redhat.com>
+KVM will initially use KVM_EXIT_MEMORY_FAULT to report implicit
+conversions between private and shared memory.  With guest private memory,
+there will be  two kind of memory conversions:
+
+  - explicit conversion: happens when the guest explicitly calls into KVM
+    to map a range (as private or shared)
+
+  - implicit conversion: happens when the guest attempts to access a gfn
+    that is configured in the "wrong" state (private vs. shared)
+
+On x86 (first architecture to support guest private memory), explicit
+conversions will be reported via KVM_EXIT_HYPERCALL+KVM_HC_MAP_GPA_RANGE,
+but reporting KVM_EXIT_HYPERCALL for implicit conversions is undesriable
+as there is (obviously) no hypercall, and there is no guarantee that the
+guest actually intends to convert between private and shared, i.e. what
+KVM thinks is an implicit conversion "request" could actually be the
+result of a guest code bug.
+
+KVM_EXIT_MEMORY_FAULT will be used to report memory faults that appear to
+be implicit conversions.
+
+Place "struct memory_fault" in a second anonymous union so that filling
+memory_fault doesn't clobber state from other yet-to-be-fulfilled exits,
+and to provide additional information if KVM does NOT ultimately exit to
+userspace with KVM_EXIT_MEMORY_FAULT, e.g. if KVM suppresses (or worse,
+loses) the exit, as KVM often suppresses exits for memory failures that
+occur when accessing paravirt data structures.  The initial usage for
+private memory will be all-or-nothing, but other features such as the
+proposed "userfault on missing mappings" support will use
+KVM_EXIT_MEMORY_FAULT for potentially _all_ guest memory accesses, i.e.
+will run afoul of KVM's various quirks.
+
+Use bit 3 for flagging private memory so that KVM can use bits 0-2 for
+capturing RWX behavior if/when userspace needs such information.
+
+Note!  To allow for future possibilities where KVM reports
+KVM_EXIT_MEMORY_FAULT and fills run->memory_fault on _any_ unresolved
+fault, KVM returns "-EFAULT" (-1 with errno == EFAULT from userspace's
+perspective), not '0'!  Due to historical baggage within KVM, exiting to
+userspace with '0' from deep callstacks, e.g. in emulation paths, is
+infeasible as doing so would require a near-complete overhaul of KVM,
+whereas KVM already propagates -errno return codes to userspace even when
+the -errno originated in a low level helper.
+
+Link: https://lore.kernel.org/all/20230908222905.1321305-5-amoorthy@google.com
+Cc: Anish Moorthy <amoorthy@google.com>
+Suggested-by: Sean Christopherson <seanjc@google.com>
+Co-developed-by: Yu Zhang <yu.c.zhang@linux.intel.com>
+Signed-off-by: Yu Zhang <yu.c.zhang@linux.intel.com>
+Signed-off-by: Chao Peng <chao.p.peng@linux.intel.com>
+Co-developed-by: Sean Christopherson <seanjc@google.com>
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- arch/x86/kvm/x86.c       |  2 +-
- include/linux/kvm_host.h |  4 ++--
- include/uapi/linux/kvm.h | 13 +++++++++++++
- virt/kvm/kvm_main.c      | 38 ++++++++++++++++++++++++++++++--------
- 4 files changed, 46 insertions(+), 11 deletions(-)
+ Documentation/virt/kvm/api.rst | 24 ++++++++++++++++++++++++
+ include/linux/kvm_host.h       | 15 +++++++++++++++
+ include/uapi/linux/kvm.h       | 24 ++++++++++++++++++++++++
+ 3 files changed, 63 insertions(+)
 
-diff --git a/arch/x86/kvm/x86.c b/arch/x86/kvm/x86.c
-index 6c9c81e82e65..8356907079e1 100644
---- a/arch/x86/kvm/x86.c
-+++ b/arch/x86/kvm/x86.c
-@@ -12447,7 +12447,7 @@ void __user * __x86_set_memory_region(struct kvm *kvm, int id, gpa_t gpa,
- 	}
+diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
+index 21a7578142a1..e28a13439a95 100644
+--- a/Documentation/virt/kvm/api.rst
++++ b/Documentation/virt/kvm/api.rst
+@@ -6702,6 +6702,30 @@ array field represents return values. The userspace should update the return
+ values of SBI call before resuming the VCPU. For more details on RISC-V SBI
+ spec refer, https://github.com/riscv/riscv-sbi-doc.
  
- 	for (i = 0; i < KVM_ADDRESS_SPACE_NUM; i++) {
--		struct kvm_userspace_memory_region m;
-+		struct kvm_userspace_memory_region2 m;
++::
++
++		/* KVM_EXIT_MEMORY_FAULT */
++		struct {
++  #define KVM_MEMORY_EXIT_FLAG_PRIVATE	(1ULL << 3)
++			__u64 flags;
++			__u64 gpa;
++			__u64 size;
++		} memory;
++
++KVM_EXIT_MEMORY_FAULT indicates the vCPU has encountered a memory fault that
++could not be resolved by KVM.  The 'gpa' and 'size' (in bytes) describe the
++guest physical address range [gpa, gpa + size) of the fault.  The 'flags' field
++describes properties of the faulting access that are likely pertinent:
++
++ - KVM_MEMORY_EXIT_FLAG_PRIVATE - When set, indicates the memory fault occurred
++   on a private memory access.  When clear, indicates the fault occurred on a
++   shared access.
++
++Note!  KVM_EXIT_MEMORY_FAULT is unique among all KVM exit reasons in that it
++accompanies a return code of '-1', not '0'!  errno will always be set to EFAULT
++or EHWPOISON when KVM exits with KVM_EXIT_MEMORY_FAULT, userspace should assume
++kvm_run.exit_reason is stale/undefined for all other error numbers.
++
+ ::
  
- 		m.slot = id | (i << 16);
- 		m.flags = 0;
+     /* KVM_EXIT_NOTIFY */
 diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
-index 5faba69403ac..4e741ff27af3 100644
+index 4e741ff27af3..d8c6ce6c8211 100644
 --- a/include/linux/kvm_host.h
 +++ b/include/linux/kvm_host.h
-@@ -1146,9 +1146,9 @@ enum kvm_mr_change {
- };
+@@ -2327,4 +2327,19 @@ static inline void kvm_account_pgtable_pages(void *virt, int nr)
+ /* Max number of entries allowed for each kvm dirty ring */
+ #define  KVM_DIRTY_RING_MAX_ENTRIES  65536
  
- int kvm_set_memory_region(struct kvm *kvm,
--			  const struct kvm_userspace_memory_region *mem);
-+			  const struct kvm_userspace_memory_region2 *mem);
- int __kvm_set_memory_region(struct kvm *kvm,
--			    const struct kvm_userspace_memory_region *mem);
-+			    const struct kvm_userspace_memory_region2 *mem);
- void kvm_arch_free_memslot(struct kvm *kvm, struct kvm_memory_slot *slot);
- void kvm_arch_memslots_updated(struct kvm *kvm, u64 gen);
- int kvm_arch_prepare_memory_region(struct kvm *kvm,
++static inline void kvm_prepare_memory_fault_exit(struct kvm_vcpu *vcpu,
++						 gpa_t gpa, gpa_t size,
++						 bool is_write, bool is_exec,
++						 bool is_private)
++{
++	vcpu->run->exit_reason = KVM_EXIT_MEMORY_FAULT;
++	vcpu->run->memory_fault.gpa = gpa;
++	vcpu->run->memory_fault.size = size;
++
++	/* RWX flags are not (yet) defined or communicated to userspace. */
++	vcpu->run->memory_fault.flags = 0;
++	if (is_private)
++		vcpu->run->memory_fault.flags |= KVM_MEMORY_EXIT_FLAG_PRIVATE;
++}
++
+ #endif
 diff --git a/include/uapi/linux/kvm.h b/include/uapi/linux/kvm.h
-index 13065dd96132..bd1abe067f28 100644
+index bd1abe067f28..d2d913acf0df 100644
 --- a/include/uapi/linux/kvm.h
 +++ b/include/uapi/linux/kvm.h
-@@ -95,6 +95,16 @@ struct kvm_userspace_memory_region {
- 	__u64 userspace_addr; /* start of the userspace allocated memory */
+@@ -274,6 +274,7 @@ struct kvm_xen_exit {
+ #define KVM_EXIT_RISCV_SBI        35
+ #define KVM_EXIT_RISCV_CSR        36
+ #define KVM_EXIT_NOTIFY           37
++#define KVM_EXIT_MEMORY_FAULT     38
+ 
+ /* For KVM_EXIT_INTERNAL_ERROR */
+ /* Emulate instruction failed. */
+@@ -541,6 +542,29 @@ struct kvm_run {
+ 		struct kvm_sync_regs regs;
+ 		char padding[SYNC_REGS_SIZE_BYTES];
+ 	} s;
++
++	/*
++	 * This second exit union holds structs for exit types which may be
++	 * triggered after KVM has already initiated a different exit, or which
++	 * may be ultimately dropped by KVM.
++	 *
++	 * For example, because of limitations in KVM's uAPI, KVM x86 can
++	 * generate a memory fault exit an MMIO exit is initiated (exit_reason
++	 * and kvm_run.mmio are filled).  And conversely, KVM often disables
++	 * paravirt features if a memory fault occurs when accessing paravirt
++	 * data instead of reporting the error to userspace.
++	 */
++	union {
++		/* KVM_EXIT_MEMORY_FAULT */
++		struct {
++#define KVM_MEMORY_EXIT_FLAG_PRIVATE	(1ULL << 3)
++			__u64 flags;
++			__u64 gpa;
++			__u64 size;
++		} memory_fault;
++		/* Fix the size of the union. */
++		char padding2[256];
++	};
  };
  
-+/* for KVM_SET_USER_MEMORY_REGION2 */
-+struct kvm_userspace_memory_region2 {
-+	__u32 slot;
-+	__u32 flags;
-+	__u64 guest_phys_addr;
-+	__u64 memory_size;
-+	__u64 userspace_addr;
-+	__u64 pad[16];
-+};
-+
- /*
-  * The bit 0 ~ bit 15 of kvm_userspace_memory_region::flags are visible for
-  * userspace, other bits are reserved for kvm internal use which are defined
-@@ -1192,6 +1202,7 @@ struct kvm_ppc_resize_hpt {
- #define KVM_CAP_COUNTER_OFFSET 227
- #define KVM_CAP_ARM_EAGER_SPLIT_CHUNK_SIZE 228
- #define KVM_CAP_ARM_SUPPORTED_BLOCK_SIZES 229
-+#define KVM_CAP_USER_MEMORY2 230
- 
- #ifdef KVM_CAP_IRQ_ROUTING
- 
-@@ -1473,6 +1484,8 @@ struct kvm_vfio_spapr_tce {
- 					struct kvm_userspace_memory_region)
- #define KVM_SET_TSS_ADDR          _IO(KVMIO,   0x47)
- #define KVM_SET_IDENTITY_MAP_ADDR _IOW(KVMIO,  0x48, __u64)
-+#define KVM_SET_USER_MEMORY_REGION2 _IOW(KVMIO, 0x49, \
-+					 struct kvm_userspace_memory_region2)
- 
- /* enable ucontrol for s390 */
- struct kvm_s390_ucas_mapping {
-diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
-index 8d21757cd5e9..7c0e38752526 100644
---- a/virt/kvm/kvm_main.c
-+++ b/virt/kvm/kvm_main.c
-@@ -1571,7 +1571,7 @@ static void kvm_replace_memslot(struct kvm *kvm,
- 	}
- }
- 
--static int check_memory_region_flags(const struct kvm_userspace_memory_region *mem)
-+static int check_memory_region_flags(const struct kvm_userspace_memory_region2 *mem)
- {
- 	u32 valid_flags = KVM_MEM_LOG_DIRTY_PAGES;
- 
-@@ -1973,7 +1973,7 @@ static bool kvm_check_memslot_overlap(struct kvm_memslots *slots, int id,
-  * Must be called holding kvm->slots_lock for write.
-  */
- int __kvm_set_memory_region(struct kvm *kvm,
--			    const struct kvm_userspace_memory_region *mem)
-+			    const struct kvm_userspace_memory_region2 *mem)
- {
- 	struct kvm_memory_slot *old, *new;
- 	struct kvm_memslots *slots;
-@@ -2077,7 +2077,7 @@ int __kvm_set_memory_region(struct kvm *kvm,
- EXPORT_SYMBOL_GPL(__kvm_set_memory_region);
- 
- int kvm_set_memory_region(struct kvm *kvm,
--			  const struct kvm_userspace_memory_region *mem)
-+			  const struct kvm_userspace_memory_region2 *mem)
- {
- 	int r;
- 
-@@ -2089,7 +2089,7 @@ int kvm_set_memory_region(struct kvm *kvm,
- EXPORT_SYMBOL_GPL(kvm_set_memory_region);
- 
- static int kvm_vm_ioctl_set_memory_region(struct kvm *kvm,
--					  struct kvm_userspace_memory_region *mem)
-+					  struct kvm_userspace_memory_region2 *mem)
- {
- 	if ((u16)mem->slot >= KVM_USER_MEM_SLOTS)
- 		return -EINVAL;
-@@ -4559,6 +4559,7 @@ static int kvm_vm_ioctl_check_extension_generic(struct kvm *kvm, long arg)
- {
- 	switch (arg) {
- 	case KVM_CAP_USER_MEMORY:
-+	case KVM_CAP_USER_MEMORY2:
- 	case KVM_CAP_DESTROY_MEMORY_REGION_WORKS:
- 	case KVM_CAP_JOIN_MEMORY_REGIONS_WORKS:
- 	case KVM_CAP_INTERNAL_ERROR_DATA:
-@@ -4814,6 +4815,14 @@ static int kvm_vm_ioctl_get_stats_fd(struct kvm *kvm)
- 	return fd;
- }
- 
-+#define SANITY_CHECK_MEM_REGION_FIELD(field)					\
-+do {										\
-+	BUILD_BUG_ON(offsetof(struct kvm_userspace_memory_region, field) !=		\
-+		     offsetof(struct kvm_userspace_memory_region2, field));	\
-+	BUILD_BUG_ON(sizeof_field(struct kvm_userspace_memory_region, field) !=		\
-+		     sizeof_field(struct kvm_userspace_memory_region2, field));	\
-+} while (0)
-+
- static long kvm_vm_ioctl(struct file *filp,
- 			   unsigned int ioctl, unsigned long arg)
- {
-@@ -4836,15 +4845,28 @@ static long kvm_vm_ioctl(struct file *filp,
- 		r = kvm_vm_ioctl_enable_cap_generic(kvm, &cap);
- 		break;
- 	}
-+	case KVM_SET_USER_MEMORY_REGION2:
- 	case KVM_SET_USER_MEMORY_REGION: {
--		struct kvm_userspace_memory_region kvm_userspace_mem;
-+		struct kvm_userspace_memory_region2 mem;
-+		unsigned long size;
-+
-+		if (ioctl == KVM_SET_USER_MEMORY_REGION)
-+			size = sizeof(struct kvm_userspace_memory_region);
-+		else
-+			size = sizeof(struct kvm_userspace_memory_region2);
-+
-+		/* Ensure the common parts of the two structs are identical. */
-+		SANITY_CHECK_MEM_REGION_FIELD(slot);
-+		SANITY_CHECK_MEM_REGION_FIELD(flags);
-+		SANITY_CHECK_MEM_REGION_FIELD(guest_phys_addr);
-+		SANITY_CHECK_MEM_REGION_FIELD(memory_size);
-+		SANITY_CHECK_MEM_REGION_FIELD(userspace_addr);
- 
- 		r = -EFAULT;
--		if (copy_from_user(&kvm_userspace_mem, argp,
--						sizeof(kvm_userspace_mem)))
-+		if (copy_from_user(&mem, argp, size))
- 			goto out;
- 
--		r = kvm_vm_ioctl_set_memory_region(kvm, &kvm_userspace_mem);
-+		r = kvm_vm_ioctl_set_memory_region(kvm, &mem);
- 		break;
- 	}
- 	case KVM_GET_DIRTY_LOG: {
+ /* for KVM_REGISTER_COALESCED_MMIO / KVM_UNREGISTER_COALESCED_MMIO */
 -- 
 2.42.0.283.g2d96d420d3-goog
 
