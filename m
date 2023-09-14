@@ -4,92 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E43E5EE0213
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 Sep 2023 03:07:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F09AEE021E
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 Sep 2023 03:32:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0Lw1aUrSKmOiFpnR0OBdtBHQAnVi22yc/jlZBBv6bv0=; b=du2jJCiY4llxhk
-	G8djP/MPM8YBwuGaFlbj4rFUM2SWW1loCTrq4vWblC1sormd2/9nt5OuLzdh1gq/PqaNuJUIe0edH
-	05/oiDklTQ6w5AsNdMflShJlDtcK0ItKPdaJOSGNS2Z7ES1Sw+thFdj/SIM6cO0v7aOwmsRpKH2zX
-	pdphypME7ZlsTEtCQ5if3ODWvD9BH5NWdA/TRgeUABk3PgGF0tU3PIJ4aJvTPAHzqQLNf2mWUH/7w
-	9wjDF6ZYKdyqOMx3o0YMQlNNZb8BGs2g5IGmZTazTYQaVcUtxkNqKGIV562LCNPcoRH0YJcK5/1EL
-	6F4vYx5ivHrj9SoykC0Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=WI63SYBwE038iwgwQGIgVGVXvVfJJcTs2dzjixBHE8M=; b=b0UvWNz15gIqLr
+	2/TIkbECQK91sVjy5CcRN1uSoziS9TduKNhKspff7Y3JWxpJctQBFgciQsKfDF6lrmttWHxdTrpEh
+	WlDgAp1sraHiPIH/Jzx0OmNLB7W/hXbST5bclAJ5VFI/gU2M41VgCh709aey44NHV/RLGh/V1+OV1
+	NAUfZpSAqq/0l9P59Qx55vWTq5qWRKFytOn1DPPPqD1I2X6ocvpoDdWvYFGPKGp8zpviEf2dRDAl4
+	bSmtKofuqutzxisE2T8wgp7H8Kdg2ZLN3znmwpd2tGPbI6V6VRpR1Afv8V4NpcxmXzqwbBj46m+oV
+	hR6C+vW9waGO6qmXiFVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgchV-007DbV-2Z;
-	Thu, 14 Sep 2023 03:07:29 +0000
-Received: from mgamail.intel.com ([134.134.136.65])
+	id 1qgd5G-007FZv-3A;
+	Thu, 14 Sep 2023 03:32:02 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgchR-007Da3-2v;
-	Thu, 14 Sep 2023 03:07:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1694660845; x=1726196845;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=hQLGmdNELjYMZnPnnmaVF9DnSi0UkgWqzZbEZVq1o/k=;
-  b=mCXXyygruGOfHd5Hi/MSRLkRhy4D1wsFatChc/O7EqsYgEJJBq4ANTaO
-   BPDTeexuOIrMKYORdcqau306OIoOxgHKMMRgX/cOK8zONN1dORd8l+84Q
-   xMxTsVt/f4Wifn1MO4IogM1N7I1JWWS0KP96WXIktJc+vto1ogkqVKmmc
-   3EJ6EExaTFQW0MY32xy57YJ66QBdUg4eWWilc4B8L7bBDOOHftMMCpWNr
-   H4WRawaSRlJtggjeT6NyspWMk7wVtCj6allqEJv3MDpYRg769QTcMgnHv
-   3Ub6qX0G2urAWY16KNvj9FeRdO1S4G0dz89Y3g1k26IZ8xfFEp50KQxPQ
-   A==;
-X-IronPort-AV: E=McAfee;i="6600,9927,10832"; a="382644881"
-X-IronPort-AV: E=Sophos;i="6.02,144,1688454000"; 
-   d="scan'208";a="382644881"
-Received: from fmsmga007.fm.intel.com ([10.253.24.52])
-  by orsmga103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Sep 2023 20:07:23 -0700
-X-ExtLoop1: 1
-X-IronPort-AV: E=McAfee;i="6600,9927,10832"; a="747565104"
-X-IronPort-AV: E=Sophos;i="6.02,144,1688454000"; 
-   d="scan'208";a="747565104"
-Received: from binbinwu-mobl.ccr.corp.intel.com (HELO [10.238.8.84]) ([10.238.8.84])
-  by fmsmga007-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Sep 2023 20:07:14 -0700
-Message-ID: <54d3e6bf-d374-caa5-0920-bb2fe3b7595c@linux.intel.com>
-Date: Thu, 14 Sep 2023 11:07:12 +0800
+	id 1qgd5E-007FYY-0Z
+	for linux-riscv@lists.infradead.org;
+	Thu, 14 Sep 2023 03:32:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1694662314;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=hudU0FKKSfKGoT5NXgs2s+9GzsdTCr22QtjS8oAgCWE=;
+	b=YEqY2joo9qPNM7uakEmIFnAFgLRHu6x/kSlytcKjaGa7b1LQO9T6h1fMYfIpOyDIMkMz9K
+	JpzfpJ3aLBHrhq5qfTPnsAf/M/a5rynvLnEtVdFHMkIlj76XLscafOPH5AyxZY1vrBtlm5
+	p8X4hUqgebXmR9qgRZPG4LHMGIfQnZU=
+Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
+ [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ us-mta-80-_icoECdnMROGvFx-gn-GJA-1; Wed, 13 Sep 2023 23:31:50 -0400
+X-MC-Unique: _icoECdnMROGvFx-gn-GJA-1
+Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.rdu2.redhat.com [10.11.54.3])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id CC9EC857A9D;
+	Thu, 14 Sep 2023 03:31:49 +0000 (UTC)
+Received: from MiWiFi-R3L-srv.redhat.com (unknown [10.72.112.51])
+	by smtp.corp.redhat.com (Postfix) with ESMTP id 98D0F10085C0;
+	Thu, 14 Sep 2023 03:31:45 +0000 (UTC)
+From: Baoquan He <bhe@redhat.com>
+To: linux-kernel@vger.kernel.org
+Cc: akpm@linux-foundation.org,
+	thunder.leizhen@huawei.com,
+	catalin.marinas@arm.com,
+	chenjiahao16@huawei.com,
+	kexec@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	x86@kernel.org,
+	Baoquan He <bhe@redhat.com>
+Subject: [PATCH v3 0/9] kdump: use generic functions to simplify crashkernel reservation in arch
+Date: Thu, 14 Sep 2023 11:31:33 +0800
+Message-ID: <20230914033142.676708-1-bhe@redhat.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.15.1
-Subject: Re: [RFC PATCH v12 02/33] KVM: Use gfn instead of hva for
- mmu_notifier_retry
-To: Sean Christopherson <seanjc@google.com>,
- Chao Peng <chao.p.peng@linux.intel.com>
-Cc: kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- kvmarm@lists.linux.dev, linux-mips@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org,
- linux-riscv@lists.infradead.org, linux-fsdevel@vger.kernel.org,
- linux-mm@kvack.org, linux-security-module@vger.kernel.org,
- linux-kernel@vger.kernel.org, Paolo Bonzini <pbonzini@redhat.com>,
- Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
- Huacai Chen <chenhuacai@kernel.org>, Michael Ellerman <mpe@ellerman.id.au>,
- Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- "Matthew Wilcox (Oracle)" <willy@infradead.org>,
- Andrew Morton <akpm@linux-foundation.org>, Paul Moore <paul@paul-moore.com>,
- James Morris <jmorris@namei.org>, "Serge E. Hallyn" <serge@hallyn.com>,
- Fuad Tabba <tabba@google.com>, Jarkko Sakkinen <jarkko@kernel.org>,
- Anish Moorthy <amoorthy@google.com>, Yu Zhang <yu.c.zhang@linux.intel.com>,
- Isaku Yamahata <isaku.yamahata@intel.com>, Xu Yilun <yilun.xu@intel.com>,
- Vlastimil Babka <vbabka@suse.cz>, Vishal Annapurve <vannapurve@google.com>,
- Ackerley Tng <ackerleytng@google.com>,
- Maciej Szmigiero <mail@maciej.szmigiero.name>,
- David Hildenbrand <david@redhat.com>, Quentin Perret <qperret@google.com>,
- Michael Roth <michael.roth@amd.com>, Wang <wei.w.wang@intel.com>,
- Liam Merwick <liam.merwick@oracle.com>,
- Isaku Yamahata <isaku.yamahata@gmail.com>,
- "Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
-References: <20230914015531.1419405-1-seanjc@google.com>
- <20230914015531.1419405-3-seanjc@google.com>
-From: Binbin Wu <binbin.wu@linux.intel.com>
-In-Reply-To: <20230914015531.1419405-3-seanjc@google.com>
+X-Scanned-By: MIMEDefang 3.1 on 10.11.54.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230913_200726_054586_7A4A3B6E 
-X-CRM114-Status: GOOD (  20.87  )
+X-CRM114-CacheID: sfid-20230913_203200_316969_19781CAB 
+X-CRM114-Status: GOOD (  19.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,119 +79,115 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+In the current arm64, crashkernel=,high support has been finished after
+several rounds of posting and careful reviewing. The code in arm64 which
+parses crashkernel kernel parameters firstly, then reserve memory can be
+a good example for other ARCH to refer to.
+
+Whereas in x86_64, the code mixing crashkernel parameter parsing and
+memory reserving is twisted, and looks messy. Refactoring the code to
+make it more readable maintainable is necessary.
+
+Here, firstly abstract the crashkernel parameter parsing code into
+parse_crashkernel() to make it be able to parse crashkernel=,high|low.
+Then abstract the crashkernel memory reserving code into a generic
+function reserve_crashkernel_generic(). Finally, in ARCH which
+crashkernel=,high support is needed, a simple arch_reserve_crashkernel()
+can be added to call above two functions. This can remove the duplicated
+implmentation code in each ARCH, like arm64, x86_64 and riscv.
+
+I only did testing on x86_64 and arm64 for below cases, haven't tested
+riscv. If riscv people can help apply the patchset and give it a shot,
+it would be great.
+
+crashkernel=512M,high
+crashkernel=512M,high crashkernel=256M,low
+crashkernel=512M,high crashkernel=0M,low
+crashkernel=0M,high crashkernel=256M,low
+crashkernel=512M
+crashkernel=512M@0x4f000000
+crashkernel=1G-4G:256M,4G-64G:320M,64G-:576M
+crashkernel=0M
+
+History:
+v2->v3:
+- Move crashk_res and crashk_low_res codes into crash_core.c, and add
+  <asm/crash_core.h> including in <linux/crash_core.h>. These two fix
+  compiling error reported by LKP when CONFIG_CRASH_CORE=on while
+  CONFIG_KEXEC_CORE is unset.
+- Adjust the if-else and return logic in parse_crashkernel() according
+  to Lei's suggestion.
+- Make riscv use the generic interface to simplify crahskernel
+  reservation code too since crashkernel=,high support has been added
+  into riscv.
+- Some minor changes suggested by Lei.
+
+v1->v2:
+- Change to add asm/crash_core.h into x86 and arm64 to contain those
+  arch specific macro definitions for generic reservaton. This fixes the
+  compiling error reported by LKP in v1.
+  https://lore.kernel.org/all/202308272150.p3kRkMoF-lkp@intel.com/T/#u
+- Fix a log typo in patch 8, thanks to Samuel.
+
+- RFC->v1:
+  https://lore.kernel.org/all/20230619055951.45620-1-bhe@redhat.com/T/#u
+  [RFC PATCH 0/4] kdump: add generic functions to simplify crashkernel crashkernel in architecture
+  Dave and Philipp commented the old parse_crashkernel_common() and
+  parse_crashkernel_generic() are quite confusing. In this formal post,
+  I made change to address the concern by unifying all crashkernel
+  parsing into parse_crashkernel().
 
 
-On 9/14/2023 9:55 AM, Sean Christopherson wrote:
-> From: Chao Peng <chao.p.peng@linux.intel.com>
->
-> Currently in mmu_notifier invalidate path, hva range is recorded and
-> then checked against by mmu_notifier_retry_hva() in the page fault
-> handling path. However, for the to be introduced private memory, a page
-> fault may not have a hva associated, checking gfn(gpa) makes more sense.
->
-> For existing hva based shared memory, gfn is expected to also work. The
-> only downside is when aliasing multiple gfns to a single hva, the
-> current algorithm of checking multiple ranges could result in a much
-> larger range being rejected. Such aliasing should be uncommon, so the
-> impact is expected small.
->
-> Suggested-by: Sean Christopherson <seanjc@google.com>
-> Signed-off-by: Chao Peng <chao.p.peng@linux.intel.com>
-> Reviewed-by: Fuad Tabba <tabba@google.com>
-> Tested-by: Fuad Tabba <tabba@google.com>
-> [sean: convert vmx_set_apic_access_page_addr() to gfn-based API]
-> Signed-off-by: Sean Christopherson <seanjc@google.com>
-> ---
->   arch/x86/kvm/mmu/mmu.c   | 10 ++++++----
->   arch/x86/kvm/vmx/vmx.c   | 11 +++++------
->   include/linux/kvm_host.h | 33 +++++++++++++++++++++------------
->   virt/kvm/kvm_main.c      | 40 +++++++++++++++++++++++++++++++---------
->   4 files changed, 63 insertions(+), 31 deletions(-)
->
-[...]
->   
-> -void kvm_mmu_invalidate_begin(struct kvm *kvm, unsigned long start,
-> -			      unsigned long end)
-> +void kvm_mmu_invalidate_begin(struct kvm *kvm)
->   {
-> +	lockdep_assert_held_write(&kvm->mmu_lock);
->   	/*
->   	 * The count increase must become visible at unlock time as no
->   	 * spte can be established without taking the mmu_lock and
->   	 * count is also read inside the mmu_lock critical section.
->   	 */
->   	kvm->mmu_invalidate_in_progress++;
-> +
-> +	if (likely(kvm->mmu_invalidate_in_progress == 1))
-> +		kvm->mmu_invalidate_range_start = INVALID_GPA;
-> +}
-> +
-> +void kvm_mmu_invalidate_range_add(struct kvm *kvm, gfn_t start, gfn_t end)
-> +{
-> +	lockdep_assert_held_write(&kvm->mmu_lock);
-> +
-> +	WARN_ON_ONCE(!kvm->mmu_invalidate_in_progress);
-> +
->   	if (likely(kvm->mmu_invalidate_in_progress == 1)) {
->   		kvm->mmu_invalidate_range_start = start;
->   		kvm->mmu_invalidate_range_end = end;
-> @@ -771,6 +781,12 @@ void kvm_mmu_invalidate_begin(struct kvm *kvm, unsigned long start,
->   	}
->   }
->   
-> +static bool kvm_mmu_unmap_gfn_range(struct kvm *kvm, struct kvm_gfn_range *range)
-> +{
-> +	kvm_mmu_invalidate_range_add(kvm, range->start, range->end);
-> +	return kvm_unmap_gfn_range(kvm, range);
-> +}
-> +
->   static int kvm_mmu_notifier_invalidate_range_start(struct mmu_notifier *mn,
->   					const struct mmu_notifier_range *range)
->   {
-> @@ -778,7 +794,7 @@ static int kvm_mmu_notifier_invalidate_range_start(struct mmu_notifier *mn,
->   	const struct kvm_mmu_notifier_range hva_range = {
->   		.start		= range->start,
->   		.end		= range->end,
-> -		.handler	= kvm_unmap_gfn_range,
-> +		.handler	= kvm_mmu_unmap_gfn_range,
->   		.on_lock	= kvm_mmu_invalidate_begin,
->   		.on_unlock	= kvm_arch_guest_memory_reclaimed,
->   		.flush_on_ret	= true,
-> @@ -817,8 +833,7 @@ static int kvm_mmu_notifier_invalidate_range_start(struct mmu_notifier *mn,
->   	return 0;
->   }
->   
-> -void kvm_mmu_invalidate_end(struct kvm *kvm, unsigned long start,
-> -			    unsigned long end)
-> +void kvm_mmu_invalidate_end(struct kvm *kvm)
->   {
->   	/*
->   	 * This sequence increase will notify the kvm page fault that
-> @@ -833,6 +848,13 @@ void kvm_mmu_invalidate_end(struct kvm *kvm, unsigned long start,
->   	 * in conjunction with the smp_rmb in mmu_invalidate_retry().
->   	 */
->   	kvm->mmu_invalidate_in_progress--;
-> +
-> +	/*
-> +	 * Assert that at least one range must be added between start() and
-> +	 * end().  Not adding a range isn't fatal, but it is a KVM bug.
-> +	 */
-> +	WARN_ON_ONCE(kvm->mmu_invalidate_in_progress &&
-> +		     kvm->mmu_invalidate_range_start == INVALID_GPA);
-Should the check happen before the decrease of 
-kvm->mmu_invalidate_in_progress?
-Otherwise, KVM calls kvm_mmu_invalidate_begin(), then 
-kvm_mmu_invalidate_end()
-the check will not take effect.
+Baoquan He (9):
+  crash_core.c: remove unnecessary parameter of function
+  crash_core: change the prototype of function parse_crashkernel()
+  crash_core: change parse_crashkernel() to support
+    crashkernel=,high|low parsing
+  crash_core: add generic function to do reservation
+  crash_core: move crashk_*res definition into crash_core.c
+  x86: kdump: use generic interface to simplify crashkernel reservation
+    code
+  arm64: kdump: use generic interface to simplify crashkernel
+    reservation
+  riscv: kdump: use generic interface to simplify crashkernel
+    reservation
+  crash_core.c: remove unneeded functions
 
->   }
->   
->   static void kvm_mmu_notifier_invalidate_range_end(struct mmu_notifier *mn,
+ arch/arm/kernel/setup.c              |   3 +-
+ arch/arm64/Kconfig                   |   3 +
+ arch/arm64/include/asm/crash_core.h  |  10 ++
+ arch/arm64/mm/init.c                 | 140 ++------------------
+ arch/ia64/kernel/setup.c             |   2 +-
+ arch/loongarch/kernel/setup.c        |   4 +-
+ arch/mips/kernel/setup.c             |   3 +-
+ arch/powerpc/kernel/fadump.c         |   2 +-
+ arch/powerpc/kexec/core.c            |   2 +-
+ arch/powerpc/mm/nohash/kaslr_booke.c |   2 +-
+ arch/riscv/Kconfig                   |   3 +
+ arch/riscv/include/asm/crash_core.h  |  11 ++
+ arch/riscv/include/asm/processor.h   |   2 +
+ arch/riscv/mm/init.c                 | 141 ++------------------
+ arch/s390/kernel/setup.c             |   4 +-
+ arch/sh/kernel/machine_kexec.c       |   2 +-
+ arch/x86/Kconfig                     |   3 +
+ arch/x86/include/asm/crash_core.h    |  34 +++++
+ arch/x86/kernel/setup.c              | 143 +++------------------
+ include/linux/crash_core.h           |  49 ++++++-
+ include/linux/kexec.h                |   4 -
+ kernel/crash_core.c                  | 184 ++++++++++++++++++++++++---
+ kernel/kexec_core.c                  |  17 ---
+ 23 files changed, 321 insertions(+), 447 deletions(-)
+ create mode 100644 arch/arm64/include/asm/crash_core.h
+ create mode 100644 arch/riscv/include/asm/crash_core.h
+ create mode 100644 arch/x86/include/asm/crash_core.h
+
+-- 
+2.41.0
 
 
 _______________________________________________
