@@ -4,75 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 025B2EEAA52
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 Sep 2023 15:49:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11CC0EEAA53
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 Sep 2023 15:56:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hh+t1KfvdkBgIGDYq4eVIF8uoYF88NIU5O8ODHIPzMw=; b=tfl4XhVBC94tj8
-	v2SCVxUX+8+Chu4eMhHRM3N+CQwKAFnfxy2SLINYkxfx6BvRqktPEcSQvAN5/zyu+CADeFoXFG/TX
-	0BAqEfG7SElDt0uSyhYsb+9sHQVxkBVglZ1bXxQ174QvOsYbSvIo5xpvF3kt7pfKQl8zBSKQirL9Z
-	eoY+LMndPvZyVWiWeGr4TcaVSPWCOuta11p5FUHstpg6OBvHw/KdYNvQAzXqcdOhtlJqA3Fss3MY2
-	v+AJmyR/yeV5Sg9I9HeZxSn89YxefdrPxtZVFErsMQQkr8gSFf/gbRi9lCmx1W1zSp8Zk21O4A9Z2
-	YzFeE7g8Ul03wf7Zxw9g==;
+	List-Owner; bh=kNoNVv2KQ+VX5Eup+JllMZrvPS43OSuLxBwGLjGjxlI=; b=mlZoFj2fohWJ9u
+	Vp2Z2TNccSS9DaxnCLZYGvze+lRd/PZQVebJ4uvTH7T38Q9wG6swQ8x2tr3V8JLkT85FHCQlkNcZk
+	YURk1DMWee4gEjKcprweZA8urv9ynpnrUDSQayGKM/mfCKOReAx6jLRhOzuNJKydjdnDSLNnLYs7v
+	I6LVY6Xb7CSQdYWPrXBcb3EKisOt3XSTv57qVrlF+9+3emR4aeZF4mxMGdzODo+uVeTFStWs4s149
+	aCKdmhLdfJgWmYTibikfbjNnbcWfd2IbxylloeKc2fpvQthajEn7CuRzfQASa1Fo0Kk0zu1aR0GzB
+	jDo2/fO4fl6OwcHuD4Fg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgob2-008pYF-1l;
-	Thu, 14 Sep 2023 15:49:36 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1qgohG-008qHd-1i;
+	Thu, 14 Sep 2023 15:56:02 +0000
+Received: from eu-smtp-delivery-151.mimecast.com ([185.58.85.151])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgoay-008pWO-2k;
-	Thu, 14 Sep 2023 15:49:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=BFzL5nWshjNO+gGzPLGG7amQwxVIEQcjvrpBXODERXE=; b=wBPyigZMdRRZ3FXnl6RoYQXGjF
-	VRP5jKgtu36nH1BjozS+X/R2uzgBOPgsRSEc2ShIVGwPkKbRxm4Bqjx66JdoJgTrR/CJNmFYV9LoF
-	hoJE/323mTiQKR82F1Q4U1vkykPjmoHwFO11IW3ysV61Qcir1S3dy3qizF78dFjSPyiwBOpLF6/AG
-	IFO0oFYtDAFvjeJcbduBErHv3c+M30DMs2gpuUtLxRemFVY54dGfSj1gsLtO2xf/+S7HlLF5HabEX
-	Q7qZ7xylJbB7H42D4VnHzq9esWEv8QsAv2bDPYNqVCvhwxo4YMfzLcA8Dfvd3iWkeVxCiunF9+goK
-	rTP4niwA==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:40270)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1qgoap-0004Ye-1b;
-	Thu, 14 Sep 2023 16:49:23 +0100
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.94.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1qgoap-0004tx-4A; Thu, 14 Sep 2023 16:49:23 +0100
-Date: Thu, 14 Sep 2023 16:49:23 +0100
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Ard Biesheuvel <ardb@kernel.org>
-Cc: Jonathan Cameron <Jonathan.Cameron@huawei.com>,
-	James Morse <james.morse@arm.com>, linux-pm@vger.kernel.org,
-	loongarch@lists.linux.dev, linux-acpi@vger.kernel.org,
-	linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org, kvmarm@lists.linux.dev,
-	x86@kernel.org, Salil Mehta <salil.mehta@huawei.com>,
-	Jean-Philippe Brucker <jean-philippe@linaro.org>,
-	jianyong.wu@arm.com, justin.he@arm.com
-Subject: Re: [RFC PATCH v2 27/35] ACPICA: Add new MADT GICC flags fields
- [code first?]
-Message-ID: <ZQMrg5he3OIsqKsD@shell.armlinux.org.uk>
-References: <20230913163823.7880-1-james.morse@arm.com>
- <20230913163823.7880-28-james.morse@arm.com>
- <CAMj1kXHRAt7ecB9p_dm3MjDL5wZkAsVh30hMY2SV_XUe=bm6Vg@mail.gmail.com>
- <20230914155459.00002dba@Huawei.com>
- <CAMj1kXFquiLGCMow3iujHUU4GBZx2t9KfKy1R9iqjBFjY+acaA@mail.gmail.com>
+	id 1qgohC-008qGg-2n
+	for linux-riscv@lists.infradead.org;
+	Thu, 14 Sep 2023 15:56:00 +0000
+Received: from AcuMS.aculab.com (156.67.243.121 [156.67.243.121]) by
+ relay.mimecast.com with ESMTP with both STARTTLS and AUTH (version=TLSv1.2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384) id
+ uk-mta-162-aexGLwkiOnauP1AYfmqQIw-1; Thu, 14 Sep 2023 16:55:45 +0100
+X-MC-Unique: aexGLwkiOnauP1AYfmqQIw-1
+Received: from AcuMS.Aculab.com (10.202.163.6) by AcuMS.aculab.com
+ (10.202.163.6) with Microsoft SMTP Server (TLS) id 15.0.1497.48; Thu, 14 Sep
+ 2023 16:55:41 +0100
+Received: from AcuMS.Aculab.com ([::1]) by AcuMS.aculab.com ([::1]) with mapi
+ id 15.00.1497.048; Thu, 14 Sep 2023 16:55:41 +0100
+From: David Laight <David.Laight@ACULAB.COM>
+To: 'Evan Green' <evan@rivosinc.com>
+CC: Geert Uytterhoeven <geert@linux-m68k.org>, Palmer Dabbelt
+	<palmer@rivosinc.com>, Heiko Stuebner <heiko@sntech.de>,
+	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
+	=?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>, Conor Dooley
+	<conor.dooley@microchip.com>, Guo Ren <guoren@kernel.org>, Jisheng Zhang
+	<jszhang@kernel.org>, "linux-riscv@lists.infradead.org"
+	<linux-riscv@lists.infradead.org>, Jonathan Corbet <corbet@lwn.net>, "Sia Jee
+ Heng" <jeeheng.sia@starfivetech.com>, Marc Zyngier <maz@kernel.org>,
+	"Masahiro Yamada" <masahiroy@kernel.org>, Greentime Hu
+	<greentime.hu@sifive.com>, "Simon Hosie" <shosie@rivosinc.com>, Andrew Jones
+	<ajones@ventanamicro.com>, "Albert Ou" <aou@eecs.berkeley.edu>, Alexandre
+ Ghiti <alexghiti@rivosinc.com>, "Ley Foon Tan"
+	<leyfoon.tan@starfivetech.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+	Anup Patel <apatel@ventanamicro.com>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, Xianting Tian
+	<xianting.tian@linux.alibaba.com>, Palmer Dabbelt <palmer@dabbelt.com>, "Andy
+ Chiu" <andy.chiu@sifive.com>
+Subject: RE: [PATCH v4 1/2] RISC-V: Probe for unaligned access speed
+Thread-Topic: [PATCH v4 1/2] RISC-V: Probe for unaligned access speed
+Thread-Index: AQHZ5t2uDoI3R+Ee30ay/cEMVFilT7AaADQQgABZ2YCAABclwA==
+Date: Thu, 14 Sep 2023 15:55:41 +0000
+Message-ID: <172bc43cc2ac45239ec40477d53d263a@AcuMS.aculab.com>
+References: <20230818194136.4084400-1-evan@rivosinc.com>
+ <20230818194136.4084400-2-evan@rivosinc.com>
+ <CAMuHMdVtXGjP8VFMiv-7OMFz1XvfU1cz=Fw4jL3fcp4wO1etzQ@mail.gmail.com>
+ <CALs-Hsvu7BsK8P0+xeuLmKEqg-q=kQANbf8FkiPGPhwhnSXpmA@mail.gmail.com>
+ <CAMuHMdV594xA1UoTeVixpXm3i5LDFO5cT=dd_iRwWLwvxQctZg@mail.gmail.com>
+ <de95229a14614198894a8ce421c30d94@AcuMS.aculab.com>
+ <CALs-Hstcz3OAxUi80nm+U0R56VBUUPQT=+XMOLpVJsn2ZOcM1A@mail.gmail.com>
+In-Reply-To: <CALs-Hstcz3OAxUi80nm+U0R56VBUUPQT=+XMOLpVJsn2ZOcM1A@mail.gmail.com>
+Accept-Language: en-GB, en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-exchange-transport-fromentityheader: Hosted
+x-originating-ip: [10.202.205.107]
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAMj1kXFquiLGCMow3iujHUU4GBZx2t9KfKy1R9iqjBFjY+acaA@mail.gmail.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: aculab.com
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230914_084932_885968_04876B39 
-X-CRM114-Status: GOOD (  32.86  )
+X-CRM114-CacheID: sfid-20230914_085559_171682_8586A7AC 
+X-CRM114-Status: GOOD (  37.90  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,81 +92,84 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 14, 2023 at 05:34:25PM +0200, Ard Biesheuvel wrote:
-> On Thu, 14 Sept 2023 at 16:55, Jonathan Cameron
-> <Jonathan.Cameron@huawei.com> wrote:
-> >
-> > On Thu, 14 Sep 2023 09:57:44 +0200
-> > Ard Biesheuvel <ardb@kernel.org> wrote:
-> >
-> > > Hello James,
-> > >
-> > > On Wed, 13 Sept 2023 at 18:41, James Morse <james.morse@arm.com> wrote:
-> > > >
-> > > > Add the new flag field to the MADT's GICC structure.
-> > > >
-> > > > 'Online Capable' indicates a disabled CPU can be enabled later.
-> > > >
-> > >
-> > > Why do we need a bit for this? What would be the point of describing
-> > > disabled CPUs that cannot be enabled (and are you are aware of
-> > > firmware doing this?).
-> >
-> > Enabled being not set is common at some similar ACPI tables at least.
-> >
-> > This is available in most ACPI tables to allow firmware to use 'nearly'
-> > static tables and just tweak the 'enabled' bit to say if the record should
-> > be ignored or not. Also _STA not present which is for same trick.
-> > If you are doing clever dynamic tables, then you can just not present
-> > the entry.
-> >
-> > With that existing use case in mind, need another bit to say this
-> > one might one day turn up.  Note this is copied from x86 though no
-> > one seems to have implemented the kernel support for them yet.
-> >
-> > Note as per my other reply - this isn't a code first proposal. It's in the
-> > spec already (via a code first proposal last year I think).
-> >
-> > >
-> > > So why are we not able to assume that this new bit can always be treated as '1'?
-> >
-> > Given above, need the extra bit to size stuff to allow for the CPU showing up
-> > late.
-> >
-> 
-> So does this mean that on x86, the CPU object is instantiated only
-> when the hardware level hotplug occurs? And before that, the object
-> does not exist at all?
-> 
-> Because it seems to me that _STA, having both enabled and present
-> bits, could already describe what we need here, and arguably, a CPU
-> that is not both present and enabled should not be used by the OS.
-> This would leave room for representing off-line CPUs as present but
-> not enabled.
-> 
-> Apologies if I am missing something obvious here - the whole rationale
-> behind this thing is rather confusing to me.
-
-Note that the bit is in the ACPI spec:
-
-https://uefi.org/specs/ACPI/6.5/05_ACPI_Software_Programming_Model.html#gicc-cpu-interface-flags
-
-The new bit has the same description as per the local-APIC equivalent:
-
-https://uefi.org/specs/ACPI/6.5/05_ACPI_Software_Programming_Model.html#local-apic-flags
-
-for a popular architecture that does have hot-pluggable physical CPUs ;)
-
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+RnJvbTogRXZhbiBHcmVlbg0KPiBTZW50OiAxNCBTZXB0ZW1iZXIgMjAyMyAxNjowMQ0KPiANCj4g
+T24gVGh1LCBTZXAgMTQsIDIwMjMgYXQgMTo0N+KAr0FNIERhdmlkIExhaWdodCA8RGF2aWQuTGFp
+Z2h0QGFjdWxhYi5jb20+IHdyb3RlOg0KPiA+DQo+ID4gRnJvbTogR2VlcnQgVXl0dGVyaG9ldmVu
+DQo+ID4gPiBTZW50OiAxNCBTZXB0ZW1iZXIgMjAyMyAwODozMw0KPiA+IC4uLg0KPiA+ID4gPiA+
+ICAgICByemZpdmU6DQo+ID4gPiA+ID4gICAgICAgICBjcHUwOiBSYXRpbyBvZiBieXRlIGFjY2Vz
+cyB0aW1lIHRvIHVuYWxpZ25lZCB3b3JkIGFjY2VzcyBpcw0KPiA+ID4gPiA+IDEuMDUsIHVuYWxp
+Z25lZCBhY2Nlc3NlcyBhcmUgZmFzdA0KPiA+ID4gPg0KPiA+ID4gPiBIcm0sIEknbSBhIGxpdHRs
+ZSBzdXJwcmlzZWQgdG8gYmUgc2VlaW5nIHRoaXMgbnVtYmVyIGNvbWUgb3V0IHNvIGNsb3NlDQo+
+ID4gPiA+IHRvIDEuIElmIHlvdSByZWJvb3QgYSBmZXcgdGltZXMsIHdoYXQga2luZCBvZiB2YXJp
+YW5jZSBkbyB5b3UgZ2V0IG9uDQo+ID4gPiA+IHRoaXM/DQo+ID4gPg0KPiA+ID4gUm9jay1zb2xp
+ZCBhdCAxLjA1IChldmVuIHdpdGggaW5jcmVhc2VkIHJlc29sdXRpb246IDEuMDU4NTMgb24gMyB0
+cmllcykNCj4gPg0KPiA+IFdvdWxkIHRoYXQgbWF0Y2ggemVybyBvdmVyaGVhZCB1bmxlc3MgdGhl
+IGFjY2VzcyBjcm9zc2VzIGENCj4gPiBjYWNoZSBsaW5lIGJvdW5kYXJ5Pw0KPiA+IChJIGNhbid0
+IHJlbWVtYmVyIHdoZXRoZXIgdGhlIHRlc3QgaXMgdXNpbmcgaW5jcmVhc2luZyBhZGRyZXNzZXMu
+KQ0KPiANCj4gWWVzLCB0aGUgdGVzdCBkb2VzIHVzZSBpbmNyZWFzaW5nIGFkZHJlc3NlcywgaXQg
+Y29waWVzIGFjcm9zcyA0IHBhZ2VzLg0KPiBXZSBzdGFydCB3aXRoIGEgd2FybXVwLCBzbyBjYWNo
+aW5nIGVmZmVjdHMgYmV5b25kIEwxIGFyZSBsYXJnZWx5IG5vdA0KPiB0YWtlbiBpbnRvIGFjY291
+bnQuDQoNClRoYXQgc2VlbXMgZW50aXJlbHkgZXhjZXNzaXZlLg0KSWYgeW91IHdhbnQgdG8gYXZv
+aWQgZGF0YSBjYWNoZSBpc3N1ZXMgKHdoaWNoIHByb2JhYmx5IGRvKQ0KdGhlbiBqdXN0IHJlcGVh
+dGluZyBhIHNpbmdsZSBhY2Nlc3Mgd291bGQgYWxtb3N0IGNlcnRhaW5seQ0Kc3VmZmljZS4NClJl
+cGVhdGVkbHkgdXNpbmcgYSBzaG9ydCBidWZmZXIgKHNheSAyNTYgYnl0ZXMpIHdvbid0IGFkZA0K
+bXVjaCBsb29wIG92ZXJoZWFkLg0KQWx0aG91Z2ggeW91IG1heSB3YW50IHRvIGRvIGEgdGVzdCB0
+aGF0IGF2b2lkcyB0cmFuc2ZlcnMNCnRoYXQgY3Jvc3MgY2FjaGUgbGluZSBhbmQgZXNwZWNpYWxs
+eSBwYWdlIGJvdW5kYXJpZXMuDQpFaXRoZXIgb2YgdGhvc2UgY291bGQgZWFzaWx5IGJlIG11Y2gg
+c2xvd2VyIHRoYW4gYSByZWFkDQp0aGF0IGlzIGVudGlyZWx5IHdpdGhpbiBhIGNhY2hlIGxpbmUu
+DQoNCi4uLg0KPiA+ID4gPiA+ICAgICB2ZXhyaXNjdi9vcmFuZ2VjcmFiOg0KPiA+ID4gPiA+DQo+
+ID4gPiA+ID4gICAgICAgICBjcHUwOiBSYXRpbyBvZiBieXRlIGFjY2VzcyB0aW1lIHRvIHVuYWxp
+Z25lZCB3b3JkIGFjY2VzcyBpcw0KPiA+ID4gPiA+IDAuMDAsIHVuYWxpZ25lZCBhY2Nlc3NlcyBh
+cmUgc2xvdw0KPiA+ID4NCj4gPiA+IGNwdTA6IFJhdGlvIG9mIGJ5dGUgYWNjZXNzIHRpbWUgdG8g
+dW5hbGlnbmVkIHdvcmQgYWNjZXNzIGlzIDAuMDA0MTcsDQo+ID4gPiB1bmFsaWduZWQgYWNjZXNz
+ZXMgYXJlIHNsb3cNCj4gPiA+DQo+ID4gPiA+ID4gSSBhbSBhIGJpdCBzdXJwcmlzZWQgYnkgdGhl
+IG5lYXItemVybyB2YWx1ZXMuICBBcmUgdGhlc2UgZXhwZWN0ZWQ/DQo+ID4gPiA+DQo+ID4gPiA+
+IFRoaXMgY291bGQgYmUgZXhwZWN0ZWQsIGlmIGZpcm13YXJlIGlzIHRyYXBwaW5nIHRoZSB1bmFs
+aWduZWQgYWNjZXNzZXMNCj4gPiA+ID4gYW5kIGNvbWluZyBvdXQgPjEwMHggc2xvd2VyIHRoYW4g
+YSBuYXRpdmUgYWNjZXNzLiBJZiB5b3UncmUgaW50ZXJlc3RlZA0KPiA+ID4gPiBpbiBnZXR0aW5n
+IGEgbGl0dGxlIG1vcmUgcmVzb2x1dGlvbiwgeW91IGNvdWxkIHRyeSB0byBwcmludCBhIGZldyBt
+b3JlDQo+ID4gPiA+IGRlY2ltYWwgcGxhY2VzIHdpdGggc29tZXRoaW5nIGxpa2UgKHNvcnJ5IGdt
+YWlsIG1hbmdsZXMgdGhlIHdoaXRlc3BhY2UNCj4gPiA+ID4gb24gdGhpcyk6DQo+ID4NCj4gPiBJ
+J2QgZXhwZWN0IG9uZSBvZiB0aHJlZSBwb3NzaWJsZSB2YWx1ZXM6DQo+ID4gLSAxLjB4OiBCYXNp
+Y2FsbHkgemVybyBjb3N0IGV4Y2VwdCBmb3IgY2FjaGUgbGluZS9wYWdlIGJvdW5kYXJpZXMuDQo+
+ID4gLSB+MjogSGFyZHdhcmUgZG9lcyB0d28gcmVhZHMgYW5kIG1lcmdlcyB0aGUgdmFsdWVzLg0K
+PiA+IC0gPjEwMDogVHJhcCBmaXhlZCB1cCBpbiBzb2Z0d2FyZS4NCj4gPg0KPiA+IEknZCB0aGlu
+ayB0aGUgJzInIGNhc2UgY291bGQgYmUgY29uc2lkZXJlZCBmYXN0Lg0KPiA+IFlvdSBvbmx5IG5l
+ZWQgdG8gdGltZSBvbmUgYWNjZXNzIHRvIHNlZSBpZiBpdCB3YXMgYSBmYXVsdC4NCj4gDQo+IFdl
+J3JlIGNvbXBhcmluZyBtaXNhbGlnbmVkIHdvcmQgYWNjZXNzZXMgd2l0aCBieXRlIGFjY2Vzc2Vz
+IG9mIHRoZQ0KPiBzYW1lIHRvdGFsIHNpemUuIFNvIDEuMCBtZWFucyBhIG1pc2FsaWduZWQgbG9h
+ZCBpcyBiYXNpY2FsbHkgbm8NCj4gZGlmZmVyZW50IGZyb20gOCBieXRlIGxvYWRzLiBUaGUgZ29h
+bCB3YXMgdG8gaGVscCBwZW9wbGUgdGhhdCBhcmUNCj4gZm9yY2VkIHRvIGRvIG9kZCBsb2FkcyBh
+bmQgc3RvcmVzIGRlY2lkZSB3aGV0aGVyIHRoZXkgYXJlIGJldHRlciBvZmYNCj4gbW92aW5nIGJ5
+IGJ5dGVzIG9yIGJ5IG1pc2FsaWduZWQgd29yZHMuIChJbiBjb250cmFzdCwgdGhlIGFuc3dlciB0
+bw0KPiAic2hvdWxkIEkgZG8gYSBtaXNhbGlnbmVkIHdvcmQgbG9hZCBvciBhbiBhbGlnbmVkIHdv
+cmQgbG9hZCIgaXMNCj4gZ2VuZXJhbGx5IGFsd2F5cyAiZG8gdGhlIGFsaWduZWQgb25lIGlmIHlv
+dSBjYW4iLCBzbyBjb21wYXJpbmcgdGhvc2UNCj4gdHdvIHRoaW5ncyBkaWRuJ3Qgc2VlbSBhcyB1
+c2VmdWwpLg0KDQpBaCwgSSdkIGhhdmUgY29tcGFyZWQgdGhlIGNvc3Qgb2YgYWxpZ25lZCBhY2Nl
+c3NlcyB3aXRoIG1pc2FsaWduZWQgb25lcy4NClRoYXQgd291bGQgdGVsbCB5b3Ugd2hldGhlciB5
+b3UgcmVhbGx5IG5lZWQgdG8gYXZvaWQgdGhlbS4NClRoZSBjb3N0IG9mIGJ5dGUgYW5kIGFsaWdu
+ZWQgd29yZCBhY2Nlc3NlcyBzaG91bGQgYmUgbXVjaCB0aGUgc2FtZQ0KKGZvciBlYWNoIGFjY2Vz
+cyB0aGF0IGlzKSAtIGlmIG5vdCB5b3UndmUgZ290IGEgcmVhbCBib3R0bGVuZWNrLg0KDQpJZiBh
+IG1pc2FsaWduZWQgYWNjZXNzIGlzIDggdGltZXMgc2xvd2VyIHRoYW4gYW4gYWxpZ25lZCBvbmUN
+Cml0IGlzIHN0aWxsICdxdWl0ZSBzbG93Jy4NCkknZCBkZWZpbml0ZWx5IGNhbGwgdGhhdCA4IG5v
+dCAxIC0gZXZlbiBpZiB5b3UgdHJlYXQgaXQgYXMgJ2Zhc3QnLg0KDQpGb3IgY29tcGFyaXNvbiB5
+b3UgKHdlbGwgSSkgY2FuIHdyaXRlIHg2NC02NCBhc20gZm9yIHRoZSBpcC1jaGVja3N1bQ0KbG9v
+cCB0aGF0IHdpbGwgZXhlY3V0ZSAxIG1lbW9yeSByZWFkIGV2ZXJ5IGNsb2NrICg4IGJ5dGVzL2Ns
+b2NrKS4NCkl0IGlzIHZlcnkgc2xpZ2h0bHkgc2xvd2VyIGZvciBtaXNhbGlnbmVkIGJ1ZmZlcnMs
+IGJ1dCBieSBsZXNzDQp0aGFuIDEgY2xvY2sgcGVyIGNhY2hlIGxpbmUuDQpUaGF0J3Mgd2hhdCBJ
+J2QgY2FsbCAxLjAgOi0pDQoNCkknZCBleHBlY3QgZXZlbiBzaW1wbGUgaGFyZHdhcmUgdG8gZG8g
+bWlzYWxpZ25lZCByZWFkcyBhcyB0d28NCnJlYWRzIGFuZCB0aGVuIG1lcmdlIHRoZSBkYXRhIC0g
+c28gc2hvdWxkIHJlYWxseSBiZSBubyBzbG93ZXINCnRoYW4gdHdvIHNlcGFyYXRlIGFsaWduZWQg
+cmVhZHMuDQpTaW5jZSB5b3UnZCBleHBlY3QgYSBjcHUgdG8gZG8gYW4gTDEgZGF0YSBjYWNoZSBy
+ZWFkIGV2ZXJ5IGNsb2NrDQoocHJvYmFibHkgcGlwZWxpbmVkKSB0aGUgbWlzYWxpZ25lZCByZWFk
+IHNob3VsZCBqdXN0IGFkZCAxIGNsb2NrLg0KDQoJRGF2aWQNCg0KLQ0KUmVnaXN0ZXJlZCBBZGRy
+ZXNzIExha2VzaWRlLCBCcmFtbGV5IFJvYWQsIE1vdW50IEZhcm0sIE1pbHRvbiBLZXluZXMsIE1L
+MSAxUFQsIFVLDQpSZWdpc3RyYXRpb24gTm86IDEzOTczODYgKFdhbGVzKQ0KX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBs
+aXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVh
+ZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
