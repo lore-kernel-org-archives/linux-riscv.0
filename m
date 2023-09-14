@@ -4,57 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 333A4EEAA78
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 Sep 2023 21:10:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD759EEAA7B
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 Sep 2023 23:19:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=swnXCfzyp8G1+YUvlrAls6D/aGcDIIU4Y2lQ9HJuGJU=; b=IeWYgXEDOlyMO3
-	c9fy1XEE7wdGxJ385viyIbqIzYVDmmF0DtdjfIq7KP7EzPamndeOPiHUUffiaSraZZG3YT8BKuNyP
-	fHdriliWWjtPE65HVlGyULbqRKAepdkFrOuMJBkic7R8dnB9XSpBcoocq2ceot25tSFQZV+//n9WP
-	Cx3vl17Hfy7yydwvcfWRgrZKG2V1JUe4vxrCwQ87eznsoy9rpUJApqiyz9KRRyk6qDSy7OYBINcBl
-	m1JjkXfQjBK4r/wnez1Scn0IvYswD1P1D4ntds2btPE/YFzpvNE6btIU+2Uq4iqkvOc+D/WEs6Bpn
-	7/IBp+7HPFx5elYeTTaA==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
+	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=ErVLot+QPk+G/ToY9DZe/5ZvLcQ8kpn4nDcbnq+Jvwc=; b=jrN88U1YhQGPA7j+tuKwvuTeGO
+	eOluGHxzeSBd3Ue73eRsgHASvqs9GZhjuTVQ0slEMW90C4wlEgmay2R8ALwcLqb5qNfdBBikWuuW3
+	WETl/NsYdlWcgouVwwpPiKMH9OkMUfsBucd4mVat9Gmx83gN+NzHJUk+ifdfcLemNxjfr9XNgJUW7
+	iBnj4TwpHae8uJw4PjoInmHYhppIuD3VA/6dnhHP/payektWp+FNW3K+mGAArvY3X28aS6D2rD1xV
+	Kg9PkdWd4CVFdzn6mQLHagnj/KXaGf1JAkr5KSjPK1A8uHsL2GwUZMfSLOPsW5h/suwe6ifmUGgYw
+	PluCCdqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgtbX-009I0R-2y;
-	Thu, 14 Sep 2023 21:10:27 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1qgvcd-009QCt-0y;
+	Thu, 14 Sep 2023 23:19:43 +0000
+Received: from mail-yb1-xb49.google.com ([2607:f8b0:4864:20::b49])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgrEt-0094k0-0v;
-	Thu, 14 Sep 2023 18:38:58 +0000
-From: John Ogness <john.ogness@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1694716719;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=aQcu0Tj+ffJBWZVQ9fNZPj8/IhtyreTS7DJJKIPF900=;
-	b=Z8UeMKj4Fav9MLhk6d+JmpTi5nJHEpVJNO1ur5Ad3vBiVWCnoe9Eog0Qg33XlH6id3FWbz
-	S8l2Lt2jSbU2XHwf8xi9UIitF4+b8K7paGx1bjjYr5t2rdTDVV0Fim6UAKFi2CtuZ1mb3L
-	E0TJN4HYA+tWtKTLOiVDx3F+jVsGlfsYYAnFZvFt3iKUUrP7SkGJJcZ1UIkJ/UqIQ0831V
-	SMEuLB8ZIcl+FG04i7hT9/QWq5F02SyOTdFIc9j7ps1+LHHwMSHMPuADoGutw3ZHkUAICp
-	RXxdloN+Gh4cSEl07/GwEgsU+m8aqlGccQ2NbBYv7A5wSEzPoJaqC36jkiHDjg==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1694716719;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=aQcu0Tj+ffJBWZVQ9fNZPj8/IhtyreTS7DJJKIPF900=;
-	b=6i/Rykkl4Rl5SBtIHP9RIQNQNOB8Crkkj2AcFISLN8Dmxq51odZMyUMI6Usmo7xHPgkuGu
-	8OGeRMSrDoYZsqCg==
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Subject: [PATCH tty v1 00/74] serial: wrappers for uart port lock
-Date: Thu, 14 Sep 2023 20:43:17 +0206
-Message-Id: <20230914183831.587273-1-john.ogness@linutronix.de>
-MIME-Version: 1.0
+	id 1qgvcZ-009QAs-0B
+	for linux-riscv@lists.infradead.org;
+	Thu, 14 Sep 2023 23:19:40 +0000
+Received: by mail-yb1-xb49.google.com with SMTP id 3f1490d57ef6-d7e8bb74b59so1856876276.2
+        for <linux-riscv@lists.infradead.org>; Thu, 14 Sep 2023 16:19:37 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1694733577; x=1695338377; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=4dPufiPQCtPzWz5WHSfvhHWIcWm8zH/JZg221REQo40=;
+        b=bYb5r0XwfeQPzCBy+svXi19tZEnBN1mmeHfN45/Kit3fIIhB7vsXaHV8ZZWnT62txM
+         rRtJuxI+52+wQR0rUdbqy5ditVyhZTFodfjHqBYtQAb217M8kos9mYkGpbWXwkFEN++0
+         WHZ0+jCZ1buaEX+r+Y8dUVCDgOsvTsIWAiPDRGHb/aroSusSSuQNI1jYqSAEzN3txF9+
+         AST8sfAq1EipU4bFYmEiQ9TEG3skd1IeFlw2NnnZU7f8YkBRNQXlpZc7/DgTJE3EJVPG
+         m+CHTwmpcIPDKTNeMxGha5Oi+6y7sD4yqHk3ATsM3COmdRb1aouuynGDmpad8lfj2BIp
+         ugVw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1694733577; x=1695338377;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=4dPufiPQCtPzWz5WHSfvhHWIcWm8zH/JZg221REQo40=;
+        b=N9jIU/PahxrcDJK+wtPVvN+SdKoRfHb+75l9hIMTAWeVmeiq8wBRvH26aKRsctM/2J
+         +CeI98vDX7pqZVkzYYHgKJqysDeVk4A/FgVeOS7//8jllJO0i04BusVoNeeDhFN7Y+7f
+         4svwCpLJYHHOw2UhvtHt2hGSye9Rbp5V4gnduU7/H+GZgve3QoP0jl716TpVbRwcqupA
+         hofmDpLs8+j6OIWhcnWI35NDv10z4zgVFLkK1xX8AICCoIpF5uYz7CiO7o6jU/RCw5AN
+         qqvLWGvnCm/Ot/jaXuWDqjbtbcSqt354YXWjN+vcUVo5D1SHUzVFRRKz/8q/zhXyp5he
+         H6Ug==
+X-Gm-Message-State: AOJu0YzIn/pdRgmeLXtRxe0TeFjyn5cIrZYDIzA8lJnlKBLsusUfEsWk
+	Qm+wIlKjdDvHKd4sASKc7Xb7Qq4f2U34lgza0Q==
+X-Google-Smtp-Source: AGHT+IGXEzZPfzBJslkSHoMTui4zDBSgnXtUGummxt07D80J/zY1rCAlKy2IgGo0zSECxNr/ULgwmLbLuPQoPz0S1A==
+X-Received: from ackerleytng-ctop.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:13f8])
+ (user=ackerleytng job=sendgmr) by 2002:a25:aa83:0:b0:d77:984e:c770 with SMTP
+ id t3-20020a25aa83000000b00d77984ec770mr158034ybi.5.1694733576882; Thu, 14
+ Sep 2023 16:19:36 -0700 (PDT)
+Date: Thu, 14 Sep 2023 23:19:34 +0000
+In-Reply-To: <ZQNN2AyDJ8dF0/6D@google.com>
+Mime-Version: 1.0
+References: <ZOO782YGRY0YMuPu@google.com> <diqzttsiu67n.fsf@ackerleytng-ctop.c.googlers.com>
+ <ZQNN2AyDJ8dF0/6D@google.com>
+Message-ID: <diqzv8ccjqbd.fsf@ackerleytng-ctop.c.googlers.com>
+Subject: Re: [RFC PATCH v11 12/29] KVM: Add KVM_CREATE_GUEST_MEMFD ioctl() for
+ guest-specific backing memory
+From: Ackerley Tng <ackerleytng@google.com>
+To: Sean Christopherson <seanjc@google.com>
+Cc: pbonzini@redhat.com, maz@kernel.org, oliver.upton@linux.dev, 
+	chenhuacai@kernel.org, mpe@ellerman.id.au, anup@brainfault.org, 
+	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
+	willy@infradead.org, akpm@linux-foundation.org, paul@paul-moore.com, 
+	jmorris@namei.org, serge@hallyn.com, kvm@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
+	linux-fsdevel@vger.kernel.org, linux-mm@kvack.org, 
+	linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	chao.p.peng@linux.intel.com, tabba@google.com, jarkko@kernel.org, 
+	yu.c.zhang@linux.intel.com, vannapurve@google.com, mail@maciej.szmigiero.name, 
+	vbabka@suse.cz, david@redhat.com, qperret@google.com, michael.roth@amd.com, 
+	wei.w.wang@intel.com, liam.merwick@oracle.com, isaku.yamahata@gmail.com, 
+	kirill.shutemov@linux.intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230914_113855_627177_99EEF4C5 
-X-CRM114-Status: GOOD (  15.88  )
-X-Mailman-Approved-At: Thu, 14 Sep 2023 14:10:24 -0700
+X-CRM114-CacheID: sfid-20230914_161939_137134_887C821B 
+X-CRM114-Status: GOOD (  40.62  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,351 +98,119 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Geert Uytterhoeven <geert+renesas@glider.be>, Alim Akhtar <alim.akhtar@samsung.com>, Peter Korsgaard <jacmet@sunsite.dk>, linux-stm32@st-md-mailman.stormreply.com, Karol Gugala <kgugala@antmicro.com>, Jerome Brunet <jbrunet@baylibre.com>, linux-samsung-soc@vger.kernel.org, Kevin Hilman <khilman@baylibre.com>, Hugo Villeneuve <hvilleneuve@dimonoff.com>, Christophe Leroy <christophe.leroy@csgroup.eu>, Hammer Hsieh <hammerh0314@gmail.com>, Jiamei Xie <jiamei.xie@arm.com>, NXP Linux Team <linux-imx@nxp.com>, Vineet Gupta <vgupta@kernel.org>, Thierry Reding <treding@nvidia.com>, Petr Mladek <pmladek@suse.com>, Arend van Spriel <arend.vanspriel@broadcom.com>, Sascha Hauer <s.hauer@pengutronix.de>, Nicholas Piggin <npiggin@gmail.com>, linux-unisoc@lists.infradead.org, Thomas Gleixner <tglx@linutronix.de>, Andrew Jeffery <andrew@aj.id.au>, linux-kernel@vger.kernel.org, Richard Genoud <richard.genoud@gmail.com>, Pengutronix Kernel Team <kernel@pengutronix.de>, Andrew Morton <akpm@linux-foundation.org>, "Maciej W. Rozycki" <macro@orcam.me.uk>, Alexandre Belloni <alexandre.belloni@bootlin.com>, linux-aspeed@lists.ozlabs.org, Laxman Dewangan <ldewangan@nvidia.com>, Dmitry Rokosov <ddrokosov@sberdevices.ru>, Xiongfeng Wang <wangxiongfeng2@huawei.com>, Matthias Schiffer <matthias.schiffer@ew.tq-group.com>, delisun <delisun@pateo.com.cn>, Fabio Estevam <festevam@gmail.com>, Ruan Jinjie <ruanjinjie@huawei.com>, Matthew Howell <matthew.howell@sealevel.com>, Jonathan Hunter <jonathanh@nvidia.com>, Gabriel Somlo <gsomlo@gmail.com>, Hongyu Xie <xiehongyu1@kylinos.cn>, Tobias Klauser <tklauser@distanz.ch>, Yangtao Li <frank.li@vivo.com>, Martin Blumenstingl <martin.blumenstingl@googlemail.com>, linux-arm-msm@vger.kernel.org, linux-actions@lists.infradead.org, Biju Das <biju.das.jz@bp.renesas.com>, linux-amlogic@lists.infradead.org, Michal Simek <michal.simek@amd.com>, Sherry Sun <sherry.sun@nxp.com>, Neil Armstrong <neil.armstrong@linaro.org>, Chunyan Zhang <zhang.lyra@gmail.com>, "David S. Miller" <davem@davemloft.net>, Kumaravel Thiagarajan <kumaravel.thiagarajan@microchip.com>, Lukas Wunner <lukas@wunner.de>, Sergey Organov <sorganov@gmail.com>, Mukesh Ojha <quic_mojha@quicinc.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, Michael Ellerman <mpe@ellerman.id.au>, =?UTF-8?q?Pali=20Roh=C3=A1r?= <pali@kernel.org>, Lino Sanfilippo <l.sanfilippo@kunbus.com>, Tom Rix <trix@redhat.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, Al Cooper <alcooperx@gmail.com>, Yuan Can <yuancan@huawei.com>, Isaac True <isaac.true@canonical.com>, linux-tegra@vger.kernel.org, Jiri Slaby <jirislaby@kernel.org>, Rob Herring <robh@kernel.org>, Florian Fainelli <f.fainelli@gmail.com>, Mateusz Holenko <mholenko@antmicro.com>, Kevin Cernekee <cernekee@gmail.com>, Andy Shevchenko <andy.shevchenko@gmail.com>, Shenwei Wang <shenwei.wang@nxp.com>, Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Joel Stanley <joel@jms.id.au>, Chen-Yu Tsai <wenst@chromium.org>, =?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, linux-snps-arc@lists.infradead.org, Patrice Chotard <patrice.chotard@foss.st.com>, Jacky Huang <ychuang3@nuvoton.com>, Arnd Bergmann <arnd@arndb.de>, =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>, =?UTF-8?q?Jonathan=20Neusch=C3=A4fer?= <j.neuschaefer@gmx.net>, Vladimir Zapolskiy <vz@mleia.com>, Baolin Wang <baolin.wang@linux.alibaba.com>, Orson Zhai <orsonzhai@gmail.com>, Tharun Kumar P <tharunkumar.pasumarthi@microchip.com>, Timur Tabi <timur@kernel.org>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Konrad Dybcio <konrad.dybcio@linaro.org>, Thierry Reding <thierry.reding@gmail.com>, Sudeep Holla <sudeep.holla@arm.com>, Shawn Guo <shawnguo@kernel.org>, =?UTF-8?q?Andreas=20F=C3=A4rber?= <afaerber@suse.de>, Baruch Siach <baruch@tkos.co.il>, Valentin Caron <valentin.caron@foss.st.com>, Tony Lindgren <tony@atomide.com>, Sebastian Andrzej Siewior <bigeasy@linutronix.de>, Liviu Dudau <liviu.dudau@arm.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, sparclinux@vger.kernel.org,
- Shan-Chun Hung <schung@nuvoton.com>, linux-riscv@lists.infradead.org, Marek Vasut <marex@denx.de>, Lech Perczak <lech.perczak@camlingroup.com>, Russell King <linux@armlinux.org.uk>, Nick Hu <nick.hu@sifive.com>, Andy Gross <agross@kernel.org>, linux-serial@vger.kernel.org, Lukas Bulwahn <lukas.bulwahn@gmail.com>, Manivannan Sadhasivam <mani@kernel.org>, Johan Hovold <johan@kernel.org>, linux-mediatek@lists.infradead.org, Paul Walmsley <paul.walmsley@sifive.com>, Matthias Brugger <matthias.bgg@gmail.com>, Andy Shevchenko <andriy.shevchenko@linux.intel.com>, AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, linux-arm-kernel@lists.infradead.org, Taichi Sugaya <sugaya.taichi@socionext.com>, Bjorn Andersson <andersson@kernel.org>, Nicolas Ferre <nicolas.ferre@microchip.com>, Lucas Tanure <tanure@linux.com>, Andrew Davis <afd@ti.com>, Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, Palmer Dabbelt <palmer@dabbelt.com>, Takao Orito <orito.takao@socionext.com>, linuxppc-dev@lists.ozlabs.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-When a serial port is used for kernel console output, then all
-modifications to the UART registers which are done from other contexts,
-e.g. getty, termios, are interference points for the kernel console.
+Sean Christopherson <seanjc@google.com> writes:
 
-So far this has been ignored and the printk output is based on the
-principle of hope. The rework of the console infrastructure which aims to
-support threaded and atomic consoles, requires to mark sections which
-modify the UART registers as unsafe. This allows the atomic write function
-to make informed decisions and eventually to restore operational state. It
-also allows to prevent the regular UART code from modifying UART registers
-while printk output is in progress.
+> On Mon, Aug 28, 2023, Ackerley Tng wrote:
+>> Sean Christopherson <seanjc@google.com> writes:
+>> >> If we track struct kvm with the inode, then I think (a), (b) and (c) can
+>> >> be independent of the refcounting method. What do you think?
+>> >
+>> > No go.  Because again, the inode (physical memory) is coupled to the virtual machine
+>> > as a thing, not to a "struct kvm".  Or more concretely, the inode is coupled to an
+>> > ASID or an HKID, and there can be multiple "struct kvm" objects associated with a
+>> > single ASID.  And at some point in the future, I suspect we'll have multiple KVM
+>> > objects per HKID too.
+>> >
+>> > The current SEV use case is for the migration helper, where two KVM objects share
+>> > a single ASID (the "real" VM and the helper).  I suspect TDX will end up with
+>> > similar behavior where helper "VMs" can use the HKID of the "real" VM.  For KVM,
+>> > that means multiple struct kvm objects being associated with a single HKID.
+>> >
+>> > To prevent use-after-free, KVM "just" needs to ensure the helper instances can't
+>> > outlive the real instance, i.e. can't use the HKID/ASID after the owning virtual
+>> > machine has been destroyed.
+>> >
+>> > To put it differently, "struct kvm" is a KVM software construct that _usually_,
+>> > but not always, is associated 1:1 with a virtual machine.
+>> >
+>> > And FWIW, stashing the pointer without holding a reference would not be a complete
+>> > solution, because it couldn't guard against KVM reusing a pointer.  E.g. if a
+>> > struct kvm was unbound and then freed, KVM could reuse the same memory for a new
+>> > struct kvm, with a different ASID/HKID, and get a false negative on the rebinding
+>> > check.
+>> 
+>> I agree that inode (physical memory) is coupled to the virtual machine
+>> as a more generic concept.
+>> 
+>> I was hoping that in the absence of CC hardware providing a HKID/ASID,
+>> the struct kvm pointer could act as a representation of the "virtual
+>> machine". You're definitely right that KVM could reuse a pointer and so
+>> that idea doesn't stand.
+>> 
+>> I thought about generating UUIDs to represent "virtual machines" in the
+>> absence of CC hardware, and this UUID could be transferred during
+>> intra-host migration, but this still doesn't take host userspace out of
+>> the TCB. A malicious host VMM could just use the migration ioctl to copy
+>> the UUID to a malicious dumper VM, which would then pass checks with a
+>> gmem file linked to the malicious dumper VM. This is fine for HKID/ASIDs
+>> because the memory is encrypted; with UUIDs there's no memory
+>> encryption.
+>
+> I don't understand what problem you're trying to solve.  I don't see a need to
+> provide a single concrete representation/definition of a "virtual machine".  E.g.
+> there's no need for a formal definition to securely perform intrahost migration,
+> KVM just needs to ensure that the migration doesn't compromise guest security,
+> functionality, etc.
+>
+> That gets a lot more complex if the target KVM instance (module, not "struct kvm")
+> is a different KVM, e.g. when migrating to a different host.  Then there needs to
+> be a way to attest that the target is trusted and whatnot, but that still doesn't
+> require there to be a formal definition of a "virtual machine".
+>
+>> Circling back to the original topic, was associating the file with
+>> struct kvm at gmem file creation time meant to constrain the use of the
+>> gmem file to one struct kvm, or one virtual machine, or something else?
+>
+> It's meant to keep things as simple as possible (relatively speaking).  A 1:1
+> association between a KVM instance and a gmem instance means we don't have to
+> worry about the edge cases and oddities I pointed out earlier in this thread.
+>
 
-All modifications of UART registers are guarded by the UART port lock,
-which provides an obvious synchronization point with the console
-infrastructure.
+I looked through this thread again and re-read the edge cases and
+oddities that was pointed out earlier (last paragraph at [1]) and I
+think I understand better, and I have just one last clarification.
 
-Provide and use wrapper functions for spin_[un]lock*(port->lock)
-invocations so that the console mechanics can be applied later on at a
-single place and does not require to copy the same logic all over the
-drivers.
+It was previously mentioned that binding on creation time simplifies the
+lifecycle of memory:
 
-Patch 1 adds the wrapper functions.
+"(a) prevent a different VM from *ever* binding to the gmem instance" [1]
 
-Patches 2-74 switch all uart port locking call sites to use the new
-wrappers. These patches were automatically generated using coccinelle.
-The 2 used coccinelle scripts are included below and executed as
-follows:
+Does this actually mean
 
-$ spatch --sp-file uartlock-1.cocci $FILE
-$ spatch --sp-file uartlock-2.cocci --recursive-includes $FILE
+"prevent a different struct kvm from *ever* binding to this gmem file"
 
-This series brings no functional change.
+?
 
-Patches 2-74 contain identical commit message bodies. Feel free to
-fold them into a single commit if that seems more reasonable.
+If so, then binding on creation
 
-Thomas Gleixner (74):
-  serial: core: Provide port lock wrappers
-  serial: core: Use lock wrappers
-  serial: 21285: Use port lock wrappers
-  serial: 8250_aspeed_vuart: Use port lock wrappers
-  serial: 8250_bcm7271: Use port lock wrappers
-  serial: 8250: Use port lock wrappers
-  serial: 8250_dma: Use port lock wrappers
-  serial: 8250_dw: Use port lock wrappers
-  serial: 8250_exar: Use port lock wrappers
-  serial: 8250_fsl: Use port lock wrappers
-  serial: 8250_mtk: Use port lock wrappers
-  serial: 8250_omap: Use port lock wrappers
-  serial: 8250_pci1xxxx: Use port lock wrappers
-  serial: altera_jtaguart: Use port lock wrappers
-  serial: altera_uart: Use port lock wrappers
-  serial: amba-pl010: Use port lock wrappers
-  serial: amba-pl011: Use port lock wrappers
-  serial: apb: Use port lock wrappers
-  serial: ar933x: Use port lock wrappers
-  serial: arc_uart: Use port lock wrappers
-  serial: atmel: Use port lock wrappers
-  serial: bcm63xx-uart: Use port lock wrappers
-  serial: cpm_uart: Use port lock wrappers
-  serial: digicolor: Use port lock wrappers
-  serial: dz: Use port lock wrappers
-  serial: linflexuart: Use port lock wrappers
-  serial: fsl_lpuart: Use port lock wrappers
-  serial: icom: Use port lock wrappers
-  serial: imx: Use port lock wrappers
-  serial: ip22zilog: Use port lock wrappers
-  serial: jsm: Use port lock wrappers
-  serial: liteuart: Use port lock wrappers
-  serial: lpc32xx_hs: Use port lock wrappers
-  serial: ma35d1: Use port lock wrappers
-  serial: mcf: Use port lock wrappers
-  serial: men_z135_uart: Use port lock wrappers
-  serial: meson: Use port lock wrappers
-  serial: milbeaut_usio: Use port lock wrappers
-  serial: mpc52xx: Use port lock wrappers
-  serial: mps2-uart: Use port lock wrappers
-  serial: msm: Use port lock wrappers
-  serial: mvebu-uart: Use port lock wrappers
-  serial: omap: Use port lock wrappers
-  serial: owl: Use port lock wrappers
-  serial: pch: Use port lock wrappers
-  serial: pic32: Use port lock wrappers
-  serial: pmac_zilog: Use port lock wrappers
-  serial: pxa: Use port lock wrappers
-  serial: qcom-geni: Use port lock wrappers
-  serial: rda: Use port lock wrappers
-  serial: rp2: Use port lock wrappers
-  serial: sa1100: Use port lock wrappers
-  serial: samsung_tty: Use port lock wrappers
-  serial: sb1250-duart: Use port lock wrappers
-  serial: sc16is7xx: Use port lock wrappers
-  serial: tegra: Use port lock wrappers
-  serial: core: Use port lock wrappers
-  serial: mctrl_gpio: Use port lock wrappers
-  serial: txx9: Use port lock wrappers
-  serial: sh-sci: Use port lock wrappers
-  serial: sifive: Use port lock wrappers
-  serial: sprd: Use port lock wrappers
-  serial: st-asc: Use port lock wrappers
-  serial: stm32: Use port lock wrappers
-  serial: sunhv: Use port lock wrappers
-  serial: sunplus-uart: Use port lock wrappers
-  serial: sunsab: Use port lock wrappers
-  serial: sunsu: Use port lock wrappers
-  serial: sunzilog: Use port lock wrappers
-  serial: timbuart: Use port lock wrappers
-  serial: uartlite: Use port lock wrappers
-  serial: ucc_uart: Use port lock wrappers
-  serial: vt8500: Use port lock wrappers
-  serial: xilinx_uartps: Use port lock wrappers
++ Makes the gmem *file* (and just not the bindings xarray) the binding
+  between struct kvm and the file.
++ Simplifies the KVM-userspace contract to "this gmem file can only be
+  used with this struct kvm"
 
- drivers/tty/serial/21285.c                  |   8 +-
- drivers/tty/serial/8250/8250_aspeed_vuart.c |   6 +-
- drivers/tty/serial/8250/8250_bcm7271.c      |  28 +++---
- drivers/tty/serial/8250/8250_core.c         |  12 +--
- drivers/tty/serial/8250/8250_dma.c          |   8 +-
- drivers/tty/serial/8250/8250_dw.c           |   8 +-
- drivers/tty/serial/8250/8250_exar.c         |   4 +-
- drivers/tty/serial/8250/8250_fsl.c          |   6 +-
- drivers/tty/serial/8250/8250_mtk.c          |   8 +-
- drivers/tty/serial/8250/8250_omap.c         |  52 +++++-----
- drivers/tty/serial/8250/8250_pci1xxxx.c     |   8 +-
- drivers/tty/serial/8250/8250_port.c         | 100 ++++++++++----------
- drivers/tty/serial/altera_jtaguart.c        |  28 +++---
- drivers/tty/serial/altera_uart.c            |  20 ++--
- drivers/tty/serial/amba-pl010.c             |  20 ++--
- drivers/tty/serial/amba-pl011.c             |  72 +++++++-------
- drivers/tty/serial/apbuart.c                |   8 +-
- drivers/tty/serial/ar933x_uart.c            |  26 ++---
- drivers/tty/serial/arc_uart.c               |  16 ++--
- drivers/tty/serial/atmel_serial.c           |  24 ++---
- drivers/tty/serial/bcm63xx_uart.c           |  22 ++---
- drivers/tty/serial/cpm_uart.c               |   8 +-
- drivers/tty/serial/digicolor-usart.c        |  18 ++--
- drivers/tty/serial/dz.c                     |  32 +++----
- drivers/tty/serial/fsl_linflexuart.c        |  26 ++---
- drivers/tty/serial/fsl_lpuart.c             |  88 ++++++++---------
- drivers/tty/serial/icom.c                   |  26 ++---
- drivers/tty/serial/imx.c                    |  84 ++++++++--------
- drivers/tty/serial/ip22zilog.c              |  36 +++----
- drivers/tty/serial/jsm/jsm_neo.c            |   4 +-
- drivers/tty/serial/jsm/jsm_tty.c            |  16 ++--
- drivers/tty/serial/liteuart.c               |  20 ++--
- drivers/tty/serial/lpc32xx_hs.c             |  26 ++---
- drivers/tty/serial/ma35d1_serial.c          |  22 ++---
- drivers/tty/serial/mcf.c                    |  20 ++--
- drivers/tty/serial/men_z135_uart.c          |   8 +-
- drivers/tty/serial/meson_uart.c             |  30 +++---
- drivers/tty/serial/milbeaut_usio.c          |  16 ++--
- drivers/tty/serial/mpc52xx_uart.c           |  12 +--
- drivers/tty/serial/mps2-uart.c              |  16 ++--
- drivers/tty/serial/msm_serial.c             |  38 ++++----
- drivers/tty/serial/mvebu-uart.c             |  18 ++--
- drivers/tty/serial/omap-serial.c            |  38 ++++----
- drivers/tty/serial/owl-uart.c               |  26 ++---
- drivers/tty/serial/pch_uart.c               |  10 +-
- drivers/tty/serial/pic32_uart.c             |  20 ++--
- drivers/tty/serial/pmac_zilog.c             |  52 +++++-----
- drivers/tty/serial/pxa.c                    |  30 +++---
- drivers/tty/serial/qcom_geni_serial.c       |   8 +-
- drivers/tty/serial/rda-uart.c               |  34 +++----
- drivers/tty/serial/rp2.c                    |  20 ++--
- drivers/tty/serial/sa1100.c                 |  20 ++--
- drivers/tty/serial/samsung_tty.c            |  50 +++++-----
- drivers/tty/serial/sb1250-duart.c           |  12 +--
- drivers/tty/serial/sc16is7xx.c              |  40 ++++----
- drivers/tty/serial/serial-tegra.c           |  32 +++----
- drivers/tty/serial/serial_core.c            |  88 ++++++++---------
- drivers/tty/serial/serial_mctrl_gpio.c      |   4 +-
- drivers/tty/serial/serial_port.c            |   4 +-
- drivers/tty/serial/serial_txx9.c            |  26 ++---
- drivers/tty/serial/sh-sci.c                 |  68 ++++++-------
- drivers/tty/serial/sifive.c                 |  16 ++--
- drivers/tty/serial/sprd_serial.c            |  30 +++---
- drivers/tty/serial/st-asc.c                 |  18 ++--
- drivers/tty/serial/stm32-usart.c            |  38 ++++----
- drivers/tty/serial/sunhv.c                  |  28 +++---
- drivers/tty/serial/sunplus-uart.c           |  26 ++---
- drivers/tty/serial/sunsab.c                 |  34 +++----
- drivers/tty/serial/sunsu.c                  |  46 ++++-----
- drivers/tty/serial/sunzilog.c               |  42 ++++----
- drivers/tty/serial/timbuart.c               |   8 +-
- drivers/tty/serial/uartlite.c               |  18 ++--
- drivers/tty/serial/ucc_uart.c               |   4 +-
- drivers/tty/serial/vt8500_serial.c          |   8 +-
- drivers/tty/serial/xilinx_uartps.c          |  56 +++++------
- include/linux/serial_core.h                 |  91 ++++++++++++++++--
- 76 files changed, 1086 insertions(+), 1007 deletions(-)
+Binding on creation doesn't offer any way to block the contents of the
+inode from being used with another "virtual machine" though, since we
+can have more than one gmem file pointing to the same inode, and the
+other gmem file is associated with another struct kvm. (And a strut kvm
+isn't associated 1:1 with a virtual machine [2])
 
+The point about an inode needing to be coupled to a virtual machine as a
+thing [2] led me to try to find a single concrete representation of a
+"virtual machine".
 
-base-commit: 0bb80ecc33a8fb5a682236443c1e740d5c917d1d
--- 
-2.39.2
+Is locking inode contents to a "virtual machine" outside the scope of
+gmem? If so, then it is fine to bind on creation time, use a VM ioctl
+over a system ioctl, and the method of refcounting in gmem v12 is okay.
 
---------------8<--------------
-// uartlock-1.cocci
+[1] https://lore.kernel.org/lkml/ZNKv9ul2I7A4V7IF@google.com/
+[2] https://lore.kernel.org/lkml/ZOO782YGRY0YMuPu@google.com/
 
-@r1@
-struct uart_port *U;
-@@
-
--spin_lock(&U->lock)
-+uart_port_lock(U)
-
-@r2@
-struct uart_port *U;
-@@
-
--spin_lock_irq(&U->lock)
-+uart_port_lock_irq(U)
-
-@r3@
-struct uart_port *U;
-identifier F;
-@@
-
--spin_lock_irqsave(&U->lock, F)
-+uart_port_lock_irqsave(U, &F)
-
-@r4@
-struct uart_port *U;
-@@
-
--spin_unlock(&U->lock)
-+uart_port_unlock(U)
-
-@r5@
-struct uart_port *U;
-@@
-
--spin_unlock_irq(&U->lock)
-+uart_port_unlock_irq(U)
-
-@r6@
-struct uart_port *U;
-identifier F;
-@@
-
--spin_unlock_irqrestore(&U->lock, F)
-+uart_port_unlock_irqrestore(U, F)
-
-@r7@
-struct uart_port *U;
-@@
-
--spin_trylock(&U->lock)
-+uart_port_trylock(U)
-
-@r8@
-struct uart_port *U;
-identifier F;
-@@
-
--spin_trylock_irqsave(&U->lock, F)
-+uart_port_trylock_irqsave(U, &F)
-
---------------8<--------------
-// uartlock-2.cocci
-
-@r10@
-type T1;
-identifier U;
-@@
-
-T1 {
-   ...
-   struct uart_port U;
-   ...
-};
-
-@r11@
-r10.T1 *E;
-identifier r10.U;
-@@
-
--spin_lock(&E->U.lock)
-+uart_port_lock(&E->U)
-
-@r12@
-r10.T1 *E;
-identifier r10.U;
-@@
-
--spin_lock_irq(&E->U.lock)
-+uart_port_lock_irq(&E->U)
-
-@r13@
-r10.T1 *E;
-identifier r10.U;
-identifier F;
-@@
-
--spin_lock_irqsave(&E->U.lock, F)
-+uart_port_lock_irqsave(&E->U, &F)
-
-@r14@
-r10.T1 *E;
-identifier r10.U;
-@@
-
--spin_unlock(&E->U.lock)
-+uart_port_unlock(&E->U)
-
-@r15@
-r10.T1 *E;
-identifier r10.U;
-@@
-
--spin_unlock_irq(&E->U.lock)
-+uart_port_unlock_irq(&E->U)
-
-@r16@
-r10.T1 *E;
-identifier r10.U;
-identifier F;
-@@
-
--spin_unlock_irqrestore(&E->U.lock, F)
-+uart_port_unlock_irqrestore(&E->U, F)
-
-@r17@
-r10.T1 *E;
-identifier r10.U;
-@@
-
--spin_trylock(&E->U.lock)
-+uart_port_trylock(&E->U)
-
-@r18@
-r10.T1 *E;
-identifier r10.U;
-identifier F;
-@@
-
--spin_trylock_irqsave(&E->U.lock, F)
-+uart_port_trylock_irqsave(&E->U, &F)
-
+> <snip>
 
 _______________________________________________
 linux-riscv mailing list
