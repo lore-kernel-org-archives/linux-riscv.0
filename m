@@ -4,89 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0765EDE995
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 Sep 2023 08:37:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B936EEDE995
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 Sep 2023 08:43:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:
-	Mime-Version:References:In-Reply-To:From:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=5WJdv6MEZ1EiBsGtDUBZ1+lIaNykVzkvF7U2Of4FRwE=; b=cW/OPh+bzPQ5afFMc94DYO2VWZ
-	rDysaPuGZsMHwC080itj1jmevZXhe2b86i+NLtOnPB/35KU/lFCXTmgph+ebBEgpejqSZp9Il72mo
-	RYUm5K54sggmRG67dDCdTbfPulGC1VfjZ8ZgWJHekO0KmrVfsdHfZGcgb6xgsIo6avbk582yFNoQQ
-	ORTBckThBLLFymvCLFcBGc+UwffQ/ZAdwgLPJP4kRLqYgTT/1nuRkW/ivFNIlWkv4qFEI7I1AuS6s
-	EomDlRSXhZFvDTyGBB2PqLkrnMbpOyO/ixpBLTtSdEuzjoMxaw47Ihct7H+JiIL7kQvF0Mdj+uxuQ
-	VG5kM/ZA==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=ckPhlZj74TbEVWa/qWctN/o/HukG7FAECUk6BfTXFmU=; b=2kB9TIit0MFxld
+	JC/kTf3y1Px5vVUVu4nATdzo92RDMy8pAqIJoQZj7gNMmgKCD1tB+cwZbo9RgZ0XVWxVguVJ0Zcpn
+	4myqS1BkYfc67unrcVy/o5q0QC7dfFiGGgeSs4BmK5vV03Uu5eENoGJDB5GGGdQAexeW1dsdILCJl
+	sRNmUKYD7ujCltrtFQ7hX3DqNq9kp5DOuXC+bRj9QmfT+wJib5ACbxR0EfbarspKVCDytTdq4oEza
+	2DDl3VYPTlOCbms1R5bbaqTflm+SfNbYBDuKkSSvs9ubbUvSl4ThjjGWEdkRMnewePujX+X5ensBT
+	zBWPxyLhxTX0n+PMICOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qghqv-007j2j-0J;
-	Thu, 14 Sep 2023 08:37:33 +0000
-Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
+	id 1qghwa-007jbc-1t;
+	Thu, 14 Sep 2023 08:43:24 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qghqr-007j1i-0p
+	id 1qghwV-007jYy-0W
 	for linux-riscv@lists.infradead.org;
-	Thu, 14 Sep 2023 08:37:31 +0000
-Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id 73F1B3F67B
-	for <linux-riscv@lists.infradead.org>; Thu, 14 Sep 2023 08:37:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20210705; t=1694680645;
-	bh=D8/vdg5WWy297srdvLmeFBOUg2iKk4zetQQ/8UfG4Fs=;
-	h=From:In-Reply-To:References:Mime-Version:Date:Message-ID:Subject:
-	 To:Cc:Content-Type;
-	b=hxcMLj3nvUMdJ5FWf5q2rluFdAolF5PNL6wLhuemiVUS0yt2wUDW/Y75sSgYwh9F1
-	 5o2DkqjkpljbUtW8T9aJTFp+1l1qgXOG3ppAOfqHm7DJrGydmBKENig1YsQqpvQNO7
-	 Q98Vg9TbRdLYYr7PyGdXwl2Mc8eIBAFlT1z+Wv4M4ZL9JNkgAnu2FwZS4FlzZLVv5+
-	 oN7UvYy5KQKMS9ue+Toip4B5fPaKTyOFyLxdVK/kyg52ZfXQgxMgeJAXefV3jcUKnx
-	 fRgj/oRIb8QXxf/chKzwC/uOzHNGx/LwxUuYO2JJ02eA1t8KOxM09L7tDyPke5dZDL
-	 7AWCdDphakWaw==
-Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-41219864601so8039171cf.0
-        for <linux-riscv@lists.infradead.org>; Thu, 14 Sep 2023 01:37:25 -0700 (PDT)
+	Thu, 14 Sep 2023 08:43:22 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-402cc6b8bedso7733295e9.1
+        for <linux-riscv@lists.infradead.org>; Thu, 14 Sep 2023 01:43:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1694680995; x=1695285795; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=KMS+MJKGdnNO0UsMv29klbKRBKRho0UWtG/KudVElHw=;
+        b=F5blY5fvSe97kWnDHKWB99XhlkuaLoB6lRoBqFcR2+PpyAEUNk3YdgA8/1cqJluTJR
+         l4PQqraz3WPdfZPGhp4o5MO03ot94fLSvr1DsxyW660lI8Icnw8KhT6hRiVwIoDcGaHp
+         wGb0YIrPoYzVofk8RdAq1Az/IjqScWa9Imb/gKAW216xJ+NwC2/4TJEAqiwN7HYFRIQE
+         P3lRYm1u1g4A5D+dZPtsuu3SgSJUEISIjzL+NYclS231IIO7Ve82+hU/Qj1rJd5peOES
+         hIOU0LQ+2u0giZM1Tt+W114IMeHh5mq0EPILE4m/UTcJpmV+Btkbnig4znxHgMIxW2g3
+         7MAg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1694680644; x=1695285444;
-        h=cc:to:subject:message-id:date:mime-version:references:in-reply-to
-         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=D8/vdg5WWy297srdvLmeFBOUg2iKk4zetQQ/8UfG4Fs=;
-        b=OL1QcxV0K2Xjbo1hSxzylNeBvjnENEuypUA5cUvvk17oVVlcTwjfi3L023Ryeo2GQa
-         W+SguJLqkNhSlrotWhTJZrikn5gkLCTJLDruX+IGo67xNgS8mCaPW3j2HE1yRgv/p/B9
-         qeIGqZSKs8EyIIPuGEV25rwBxkqAijwRrKFU302rXhsA6GfoMMS7vTfbb3CDPWu68bII
-         l8/1KnMfVTyR+ic9gWwIjgx+gDkOpmCWTgqJWeEz+2Gzp07kXyB/wLpD61siGqg49o17
-         aJLUDYke/ngGF0MXTfA89xL37JadpeKzprNBb+hAGlQ8zLgglovsZAcLzEbZkRfE7m+e
-         31kg==
-X-Gm-Message-State: AOJu0Yzllgm7M6q3jPG3lw+xUHVWpBLdDfCyCVolPGt/Kc0d8WrVd9mo
-	A/sVzO51wonSVwh3zd8CH3R9S+9RPcFJpo77WE7Z9LdrwFEEUwM6Nd159btssFr2cSeoJ9fOr01
-	vLSLDIJTif6yasgOwziicGbj4NQa3GUKuAzFJPgYK0RoWffVAv6dgbbDbG6nUyw==
-X-Received: by 2002:a05:622a:14d0:b0:412:184d:cfe7 with SMTP id u16-20020a05622a14d000b00412184dcfe7mr5526751qtx.26.1694680643772;
-        Thu, 14 Sep 2023 01:37:23 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHNnZ+nGTMsCn0DRQNe0Qzahm4pMoonr/P+YAcKTP/sMMuWeo6QZg94wyWt7YgQ3pHq4DHx2t63CBIKEdArydA=
-X-Received: by 2002:a05:622a:14d0:b0:412:184d:cfe7 with SMTP id
- u16-20020a05622a14d000b00412184dcfe7mr5526722qtx.26.1694680643522; Thu, 14
- Sep 2023 01:37:23 -0700 (PDT)
-Received: from 348282803490 named unknown by gmailapi.google.com with
- HTTPREST; Thu, 14 Sep 2023 01:37:23 -0700
-From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-In-Reply-To: <20230914020044.1397356-3-songshuaishuai@tinylab.org>
-References: <20230914020044.1397356-1-songshuaishuai@tinylab.org> <20230914020044.1397356-3-songshuaishuai@tinylab.org>
-Mime-Version: 1.0
-Date: Thu, 14 Sep 2023 01:37:23 -0700
-Message-ID: <CAJM55Z8D3yJREg0+UtecW3wpgrGKxZYP73Pvbi2oaQfsZf4Gfw@mail.gmail.com>
-Subject: Re: [PATCH 2/2] riscv: kexec_file: Support loading Image binary file
-To: Song Shuai <songshuaishuai@tinylab.org>, paul.walmsley@sifive.com, 
-	palmer@dabbelt.com, aou@eecs.berkeley.edu, lihuafei1@huawei.com, 
-	conor.dooley@microchip.com, liaochang1@huawei.com, guoren@kernel.org, 
-	ajones@ventanamicro.com, alexghiti@rivosinc.com, evan@rivosinc.com, 
-	sunilvl@ventanamicro.com, xianting.tian@linux.alibaba.com, 
-	samitolvanen@google.com, masahiroy@kernel.org, apatel@ventanamicro.com, 
-	jszhang@kernel.org, duwe@suse.de, eric.devolder@oracle.com
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+        d=1e100.net; s=20230601; t=1694680995; x=1695285795;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=KMS+MJKGdnNO0UsMv29klbKRBKRho0UWtG/KudVElHw=;
+        b=Crca59EQX3Sjqdxq6BimX21qMggeLmA2p0npooc6uNKSAWCohDaP0/SURyXWzm2TdC
+         C5CiXqCeCHtYvQ4VUht2OEumgxgSNQE2dTbk8IBD42OwuiIc15oCKlWKHSkPFQdbZf1F
+         GVDL9rS9szgTky0M+8K0H5GywRqIi34N16Mcm7huUZlBxXgvBj98Mi53VJvNpiQB4zuI
+         JKtsRtXcmojOpv72xyNT6v8yIxSNMHhoJQZfzI/SKJ2RyzbfkZfdLZnoecAVDW8zywtp
+         ro63cPl27fYSD3dN/DsT78Gb8Zdva4KG6ENIjhY4/R5aKXlQXPhV0EnRqX8V0bnSadei
+         B91A==
+X-Gm-Message-State: AOJu0YwqwGK1h3/DdT5NchJxrXRBx8Vg2bg0huu7cND7SQFlJd5K/wnP
+	+2CJz/8PeWoTAA5mGRuYApC0xg==
+X-Google-Smtp-Source: AGHT+IEwR7yEvqxHeQhojBJArT9VyZFsvYPMxHz39kcYusFW9lolluB+9cF7umQtY47xn7AIbUQh6w==
+X-Received: by 2002:a7b:c7d5:0:b0:401:4542:5edd with SMTP id z21-20020a7bc7d5000000b0040145425eddmr4003943wmk.34.1694680995079;
+        Thu, 14 Sep 2023 01:43:15 -0700 (PDT)
+Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
+        by smtp.gmail.com with ESMTPSA id 7-20020a05600c020700b003fe2de3f94fsm1331500wmi.12.2023.09.14.01.43.14
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 14 Sep 2023 01:43:14 -0700 (PDT)
+Date: Thu, 14 Sep 2023 10:43:08 +0200
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Haibo Xu <haibo1.xu@intel.com>
+Cc: xiaobo55x@gmail.com, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Paolo Bonzini <pbonzini@redhat.com>, Shuah Khan <shuah@kernel.org>, Marc Zyngier <maz@kernel.org>, 
+	Oliver Upton <oliver.upton@linux.dev>, James Morse <james.morse@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
+	Anup Patel <anup@brainfault.org>, Atish Patra <atishp@atishpatra.org>, 
+	Sean Christopherson <seanjc@google.com>, Ricardo Koller <ricarkol@google.com>, 
+	Vishal Annapurve <vannapurve@google.com>, David Matlack <dmatlack@google.com>, 
+	Vipin Sharma <vipinsh@google.com>, Thomas Huth <thuth@redhat.com>, 
+	Colton Lewis <coltonlewis@google.com>, Aaron Lewis <aaronlewis@google.com>, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, kvm@vger.kernel.org, 
+	linux-kselftest@vger.kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	kvm-riscv@lists.infradead.org
+Subject: Re: [PATCH v3 3/9] KVM: arm64: selftests: Split arch_timer test code
+Message-ID: <20230914-5827d3a3a5269d480c5c2d50@orel>
+References: <cover.1694421911.git.haibo1.xu@intel.com>
+ <66f81991b15de608c43c96c911387cf0ee0a49b1.1694421911.git.haibo1.xu@intel.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <66f81991b15de608c43c96c911387cf0ee0a49b1.1694421911.git.haibo1.xu@intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230914_013729_441259_E22D65D4 
-X-CRM114-Status: GOOD (  24.14  )
+X-CRM114-CacheID: sfid-20230914_014319_204635_4E89DB31 
+X-CRM114-Status: GOOD (  32.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,193 +103,718 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Song Shuai wrote:
-> This patch creates image_kexec_ops to load Image binary file
-> for kexec_file_load() syscall.
->
-> Signed-off-by: Song Shuai <songshuaishuai@tinylab.org>
+On Thu, Sep 14, 2023 at 09:36:57AM +0800, Haibo Xu wrote:
+> Split the arch-neutral test code out of aarch64/arch_timer.c
+> and put them into a common arch_timer.c. This is a preparation
+> to share timer test codes in riscv.
+> 
+> Suggested-by: Andrew Jones <ajones@ventanamicro.com>
+> Signed-off-by: Haibo Xu <haibo1.xu@intel.com>
 > ---
->  arch/riscv/include/asm/image.h         |  2 +
->  arch/riscv/include/asm/kexec.h         |  1 +
->  arch/riscv/kernel/Makefile             |  2 +-
->  arch/riscv/kernel/kexec_image.c        | 97 ++++++++++++++++++++++++++
->  arch/riscv/kernel/machine_kexec_file.c |  1 +
->  5 files changed, 102 insertions(+), 1 deletion(-)
->  create mode 100644 arch/riscv/kernel/kexec_image.c
->
-> diff --git a/arch/riscv/include/asm/image.h b/arch/riscv/include/asm/image.h
-> index e0b319af3681..8927a6ea1127 100644
-> --- a/arch/riscv/include/asm/image.h
-> +++ b/arch/riscv/include/asm/image.h
-> @@ -30,6 +30,8 @@
->  			      RISCV_HEADER_VERSION_MINOR)
->
->  #ifndef __ASSEMBLY__
-> +#define riscv_image_flag_field(flags, field)\
-> +			       (((flags) >> field##_SHIFT) & field##_MASK)
-
-Hi Song,
-
-This macro is almost FIELD_GET from linux/bitfield.h ..
-
->  /**
->   * struct riscv_image_header - riscv kernel image header
->   * @code0:		Executable code
-> diff --git a/arch/riscv/include/asm/kexec.h b/arch/riscv/include/asm/kexec.h
-> index 518825fe4160..b9ee8346cc8c 100644
-> --- a/arch/riscv/include/asm/kexec.h
-> +++ b/arch/riscv/include/asm/kexec.h
-> @@ -56,6 +56,7 @@ extern riscv_kexec_method riscv_kexec_norelocate;
->
->  #ifdef CONFIG_KEXEC_FILE
->  extern const struct kexec_file_ops elf_kexec_ops;
-> +extern const struct kexec_file_ops image_kexec_ops;
->
->  struct purgatory_info;
->  int arch_kexec_apply_relocations_add(struct purgatory_info *pi,
-> diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
-> index 1c62c639e875..9ecba3231a36 100644
-> --- a/arch/riscv/kernel/Makefile
-> +++ b/arch/riscv/kernel/Makefile
-> @@ -86,7 +86,7 @@ endif
->  obj-$(CONFIG_HOTPLUG_CPU)	+= cpu-hotplug.o
->  obj-$(CONFIG_KGDB)		+= kgdb.o
->  obj-$(CONFIG_KEXEC_CORE)	+= kexec_relocate.o crash_save_regs.o machine_kexec.o
-> -obj-$(CONFIG_KEXEC_FILE)	+= kexec_elf.o machine_kexec_file.o
-> +obj-$(CONFIG_KEXEC_FILE)	+= kexec_elf.o kexec_image.o machine_kexec_file.o
->  obj-$(CONFIG_CRASH_DUMP)	+= crash_dump.o
->  obj-$(CONFIG_CRASH_CORE)	+= crash_core.o
->
-> diff --git a/arch/riscv/kernel/kexec_image.c b/arch/riscv/kernel/kexec_image.c
+>  tools/testing/selftests/kvm/Makefile          |   3 +-
+>  .../selftests/kvm/aarch64/arch_timer.c        | 275 +-----------------
+>  tools/testing/selftests/kvm/arch_timer.c      | 248 ++++++++++++++++
+>  .../testing/selftests/kvm/include/test_util.h |   2 +
+>  .../selftests/kvm/include/timer_test.h        |  42 +++
+>  5 files changed, 300 insertions(+), 270 deletions(-)
+>  create mode 100644 tools/testing/selftests/kvm/arch_timer.c
+>  create mode 100644 tools/testing/selftests/kvm/include/timer_test.h
+> 
+> diff --git a/tools/testing/selftests/kvm/Makefile b/tools/testing/selftests/kvm/Makefile
+> index 7972269e8c5f..0102a0297b84 100644
+> --- a/tools/testing/selftests/kvm/Makefile
+> +++ b/tools/testing/selftests/kvm/Makefile
+> @@ -140,7 +140,6 @@ TEST_GEN_PROGS_x86_64 += system_counter_offset_test
+>  TEST_GEN_PROGS_EXTENDED_x86_64 += x86_64/nx_huge_pages_test
+>  
+>  TEST_GEN_PROGS_aarch64 += aarch64/aarch32_id_regs
+> -TEST_GEN_PROGS_aarch64 += aarch64/arch_timer
+>  TEST_GEN_PROGS_aarch64 += aarch64/debug-exceptions
+>  TEST_GEN_PROGS_aarch64 += aarch64/hypercalls
+>  TEST_GEN_PROGS_aarch64 += aarch64/page_fault_test
+> @@ -150,6 +149,7 @@ TEST_GEN_PROGS_aarch64 += aarch64/vcpu_width_config
+>  TEST_GEN_PROGS_aarch64 += aarch64/vgic_init
+>  TEST_GEN_PROGS_aarch64 += aarch64/vgic_irq
+>  TEST_GEN_PROGS_aarch64 += access_tracking_perf_test
+> +TEST_GEN_PROGS_aarch64 += arch_timer
+>  TEST_GEN_PROGS_aarch64 += demand_paging_test
+>  TEST_GEN_PROGS_aarch64 += dirty_log_test
+>  TEST_GEN_PROGS_aarch64 += dirty_log_perf_test
+> @@ -188,6 +188,7 @@ TEST_GEN_PROGS_riscv += kvm_page_table_test
+>  TEST_GEN_PROGS_riscv += set_memory_region_test
+>  TEST_GEN_PROGS_riscv += kvm_binary_stats_test
+>  
+> +SPLIT_TESTS += arch_timer
+>  SPLIT_TESTS += get-reg-list
+>  
+>  TEST_PROGS += $(TEST_PROGS_$(ARCH_DIR))
+> diff --git a/tools/testing/selftests/kvm/aarch64/arch_timer.c b/tools/testing/selftests/kvm/aarch64/arch_timer.c
+> index b63859829a96..4688b258247c 100644
+> --- a/tools/testing/selftests/kvm/aarch64/arch_timer.c
+> +++ b/tools/testing/selftests/kvm/aarch64/arch_timer.c
+> @@ -1,64 +1,19 @@
+>  // SPDX-License-Identifier: GPL-2.0-only
+>  /*
+> - * arch_timer.c - Tests the aarch64 timer IRQ functionality
+> - *
+>   * The test validates both the virtual and physical timer IRQs using
+> - * CVAL and TVAL registers. This consitutes the four stages in the test.
+> - * The guest's main thread configures the timer interrupt for a stage
+> - * and waits for it to fire, with a timeout equal to the timer period.
+> - * It asserts that the timeout doesn't exceed the timer period.
+> - *
+> - * On the other hand, upon receipt of an interrupt, the guest's interrupt
+> - * handler validates the interrupt by checking if the architectural state
+> - * is in compliance with the specifications.
+> - *
+> - * The test provides command-line options to configure the timer's
+> - * period (-p), number of vCPUs (-n), and iterations per stage (-i).
+> - * To stress-test the timer stack even more, an option to migrate the
+> - * vCPUs across pCPUs (-m), at a particular rate, is also provided.
+> + * CVAL and TVAL registers.
+>   *
+>   * Copyright (c) 2021, Google LLC.
+>   */
+>  #define _GNU_SOURCE
+>  
+> -#include <stdlib.h>
+> -#include <pthread.h>
+> -#include <linux/kvm.h>
+> -#include <linux/sizes.h>
+> -#include <linux/bitmap.h>
+> -#include <sys/sysinfo.h>
+> -
+> -#include "kvm_util.h"
+> -#include "processor.h"
+> -#include "delay.h"
+>  #include "arch_timer.h"
+> +#include "delay.h"
+>  #include "gic.h"
+> +#include "processor.h"
+> +#include "timer_test.h"
+>  #include "vgic.h"
+>  
+> -#define NR_VCPUS_DEF			4
+> -#define NR_TEST_ITERS_DEF		5
+> -#define TIMER_TEST_PERIOD_MS_DEF	10
+> -#define TIMER_TEST_ERR_MARGIN_US	100
+> -#define TIMER_TEST_MIGRATION_FREQ_MS	2
+> -
+> -struct test_args {
+> -	int nr_vcpus;
+> -	int nr_iter;
+> -	int timer_period_ms;
+> -	int migration_freq_ms;
+> -	struct kvm_arm_counter_offset offset;
+> -};
+> -
+> -static struct test_args test_args = {
+> -	.nr_vcpus = NR_VCPUS_DEF,
+> -	.nr_iter = NR_TEST_ITERS_DEF,
+> -	.timer_period_ms = TIMER_TEST_PERIOD_MS_DEF,
+> -	.migration_freq_ms = TIMER_TEST_MIGRATION_FREQ_MS,
+> -	.offset = { .reserved = 1 },
+> -};
+> -
+> -#define msecs_to_usecs(msec)		((msec) * 1000LL)
+> -
+>  #define GICD_BASE_GPA			0x8000000ULL
+>  #define GICR_BASE_GPA			0x80A0000ULL
+>  
+> @@ -70,22 +25,8 @@ enum guest_stage {
+>  	GUEST_STAGE_MAX,
+>  };
+>  
+> -/* Shared variables between host and guest */
+> -struct test_vcpu_shared_data {
+> -	int nr_iter;
+> -	enum guest_stage guest_stage;
+> -	uint64_t xcnt;
+> -};
+> -
+> -static struct kvm_vcpu *vcpus[KVM_MAX_VCPUS];
+> -static pthread_t pt_vcpu_run[KVM_MAX_VCPUS];
+> -static struct test_vcpu_shared_data vcpu_shared_data[KVM_MAX_VCPUS];
+> -
+>  static int vtimer_irq, ptimer_irq;
+>  
+> -static unsigned long *vcpu_done_map;
+> -static pthread_mutex_t vcpu_done_map_lock;
+> -
+>  static void
+>  guest_configure_timer_action(struct test_vcpu_shared_data *shared_data)
+>  {
+> @@ -222,137 +163,6 @@ static void guest_code(void)
+>  	GUEST_DONE();
+>  }
+>  
+> -static void *test_vcpu_run(void *arg)
+> -{
+> -	unsigned int vcpu_idx = (unsigned long)arg;
+> -	struct ucall uc;
+> -	struct kvm_vcpu *vcpu = vcpus[vcpu_idx];
+> -	struct kvm_vm *vm = vcpu->vm;
+> -	struct test_vcpu_shared_data *shared_data = &vcpu_shared_data[vcpu_idx];
+> -
+> -	vcpu_run(vcpu);
+> -
+> -	/* Currently, any exit from guest is an indication of completion */
+> -	pthread_mutex_lock(&vcpu_done_map_lock);
+> -	__set_bit(vcpu_idx, vcpu_done_map);
+> -	pthread_mutex_unlock(&vcpu_done_map_lock);
+> -
+> -	switch (get_ucall(vcpu, &uc)) {
+> -	case UCALL_SYNC:
+> -	case UCALL_DONE:
+> -		break;
+> -	case UCALL_ABORT:
+> -		sync_global_from_guest(vm, *shared_data);
+> -		fprintf(stderr, "Guest assert failed,  vcpu %u; stage; %u; iter: %u\n",
+> -			vcpu_idx, shared_data->guest_stage, shared_data->nr_iter);
+> -		REPORT_GUEST_ASSERT(uc);
+> -		break;
+> -	default:
+> -		TEST_FAIL("Unexpected guest exit\n");
+> -	}
+> -
+> -	return NULL;
+> -}
+> -
+> -static uint32_t test_get_pcpu(void)
+> -{
+> -	uint32_t pcpu;
+> -	unsigned int nproc_conf;
+> -	cpu_set_t online_cpuset;
+> -
+> -	nproc_conf = get_nprocs_conf();
+> -	sched_getaffinity(0, sizeof(cpu_set_t), &online_cpuset);
+> -
+> -	/* Randomly find an available pCPU to place a vCPU on */
+> -	do {
+> -		pcpu = rand() % nproc_conf;
+> -	} while (!CPU_ISSET(pcpu, &online_cpuset));
+> -
+> -	return pcpu;
+> -}
+> -
+> -static int test_migrate_vcpu(unsigned int vcpu_idx)
+> -{
+> -	int ret;
+> -	cpu_set_t cpuset;
+> -	uint32_t new_pcpu = test_get_pcpu();
+> -
+> -	CPU_ZERO(&cpuset);
+> -	CPU_SET(new_pcpu, &cpuset);
+> -
+> -	pr_debug("Migrating vCPU: %u to pCPU: %u\n", vcpu_idx, new_pcpu);
+> -
+> -	ret = pthread_setaffinity_np(pt_vcpu_run[vcpu_idx],
+> -				     sizeof(cpuset), &cpuset);
+> -
+> -	/* Allow the error where the vCPU thread is already finished */
+> -	TEST_ASSERT(ret == 0 || ret == ESRCH,
+> -		    "Failed to migrate the vCPU:%u to pCPU: %u; ret: %d\n",
+> -		    vcpu_idx, new_pcpu, ret);
+> -
+> -	return ret;
+> -}
+> -
+> -static void *test_vcpu_migration(void *arg)
+> -{
+> -	unsigned int i, n_done;
+> -	bool vcpu_done;
+> -
+> -	do {
+> -		usleep(msecs_to_usecs(test_args.migration_freq_ms));
+> -
+> -		for (n_done = 0, i = 0; i < test_args.nr_vcpus; i++) {
+> -			pthread_mutex_lock(&vcpu_done_map_lock);
+> -			vcpu_done = test_bit(i, vcpu_done_map);
+> -			pthread_mutex_unlock(&vcpu_done_map_lock);
+> -
+> -			if (vcpu_done) {
+> -				n_done++;
+> -				continue;
+> -			}
+> -
+> -			test_migrate_vcpu(i);
+> -		}
+> -	} while (test_args.nr_vcpus != n_done);
+> -
+> -	return NULL;
+> -}
+> -
+> -static void test_run(struct kvm_vm *vm)
+> -{
+> -	pthread_t pt_vcpu_migration;
+> -	unsigned int i;
+> -	int ret;
+> -
+> -	pthread_mutex_init(&vcpu_done_map_lock, NULL);
+> -	vcpu_done_map = bitmap_zalloc(test_args.nr_vcpus);
+> -	TEST_ASSERT(vcpu_done_map, "Failed to allocate vcpu done bitmap\n");
+> -
+> -	for (i = 0; i < (unsigned long)test_args.nr_vcpus; i++) {
+> -		ret = pthread_create(&pt_vcpu_run[i], NULL, test_vcpu_run,
+> -				     (void *)(unsigned long)i);
+> -		TEST_ASSERT(!ret, "Failed to create vCPU-%d pthread\n", i);
+> -	}
+> -
+> -	/* Spawn a thread to control the vCPU migrations */
+> -	if (test_args.migration_freq_ms) {
+> -		srand(time(NULL));
+> -
+> -		ret = pthread_create(&pt_vcpu_migration, NULL,
+> -					test_vcpu_migration, NULL);
+> -		TEST_ASSERT(!ret, "Failed to create the migration pthread\n");
+> -	}
+> -
+> -
+> -	for (i = 0; i < test_args.nr_vcpus; i++)
+> -		pthread_join(pt_vcpu_run[i], NULL);
+> -
+> -	if (test_args.migration_freq_ms)
+> -		pthread_join(pt_vcpu_migration, NULL);
+> -
+> -	bitmap_free(vcpu_done_map);
+> -}
+> -
+>  static void test_init_timer_irq(struct kvm_vm *vm)
+>  {
+>  	/* Timer initid should be same for all the vCPUs, so query only vCPU-0 */
+> @@ -369,7 +179,7 @@ static void test_init_timer_irq(struct kvm_vm *vm)
+>  
+>  static int gic_fd;
+>  
+> -static struct kvm_vm *test_vm_create(void)
+> +struct kvm_vm *test_vm_create(void)
+>  {
+>  	struct kvm_vm *vm;
+>  	unsigned int i;
+> @@ -400,81 +210,8 @@ static struct kvm_vm *test_vm_create(void)
+>  	return vm;
+>  }
+>  
+> -static void test_vm_cleanup(struct kvm_vm *vm)
+> +void test_vm_cleanup(struct kvm_vm *vm)
+>  {
+>  	close(gic_fd);
+>  	kvm_vm_free(vm);
+>  }
+> -
+> -static void test_print_help(char *name)
+> -{
+> -	pr_info("Usage: %s [-h] [-n nr_vcpus] [-i iterations] [-p timer_period_ms]\n",
+> -		name);
+> -	pr_info("\t-n: Number of vCPUs to configure (default: %u; max: %u)\n",
+> -		NR_VCPUS_DEF, KVM_MAX_VCPUS);
+> -	pr_info("\t-i: Number of iterations per stage (default: %u)\n",
+> -		NR_TEST_ITERS_DEF);
+> -	pr_info("\t-p: Periodicity (in ms) of the guest timer (default: %u)\n",
+> -		TIMER_TEST_PERIOD_MS_DEF);
+> -	pr_info("\t-m: Frequency (in ms) of vCPUs to migrate to different pCPU. 0 to turn off (default: %u)\n",
+> -		TIMER_TEST_MIGRATION_FREQ_MS);
+> -	pr_info("\t-o: Counter offset (in counter cycles, default: 0)\n");
+> -	pr_info("\t-h: print this help screen\n");
+> -}
+> -
+> -static bool parse_args(int argc, char *argv[])
+> -{
+> -	int opt;
+> -
+> -	while ((opt = getopt(argc, argv, "hn:i:p:m:o:")) != -1) {
+> -		switch (opt) {
+> -		case 'n':
+> -			test_args.nr_vcpus = atoi_positive("Number of vCPUs", optarg);
+> -			if (test_args.nr_vcpus > KVM_MAX_VCPUS) {
+> -				pr_info("Max allowed vCPUs: %u\n",
+> -					KVM_MAX_VCPUS);
+> -				goto err;
+> -			}
+> -			break;
+> -		case 'i':
+> -			test_args.nr_iter = atoi_positive("Number of iterations", optarg);
+> -			break;
+> -		case 'p':
+> -			test_args.timer_period_ms = atoi_positive("Periodicity", optarg);
+> -			break;
+> -		case 'm':
+> -			test_args.migration_freq_ms = atoi_non_negative("Frequency", optarg);
+> -			break;
+> -		case 'o':
+> -			test_args.offset.counter_offset = strtol(optarg, NULL, 0);
+> -			test_args.offset.reserved = 0;
+> -			break;
+> -		case 'h':
+> -		default:
+> -			goto err;
+> -		}
+> -	}
+> -
+> -	return true;
+> -
+> -err:
+> -	test_print_help(argv[0]);
+> -	return false;
+> -}
+> -
+> -int main(int argc, char *argv[])
+> -{
+> -	struct kvm_vm *vm;
+> -
+> -	if (!parse_args(argc, argv))
+> -		exit(KSFT_SKIP);
+> -
+> -	__TEST_REQUIRE(!test_args.migration_freq_ms || get_nprocs() >= 2,
+> -		       "At least two physical CPUs needed for vCPU migration");
+> -
+> -	vm = test_vm_create();
+> -	test_run(vm);
+> -	test_vm_cleanup(vm);
+> -
+> -	return 0;
+> -}
+> diff --git a/tools/testing/selftests/kvm/arch_timer.c b/tools/testing/selftests/kvm/arch_timer.c
 > new file mode 100644
-> index 000000000000..b6aa7f59bd53
+> index 000000000000..ea3dd1a772b0
 > --- /dev/null
-> +++ b/arch/riscv/kernel/kexec_image.c
-> @@ -0,0 +1,97 @@
-> +// SPDX-License-Identifier: GPL-2.0
+> +++ b/tools/testing/selftests/kvm/arch_timer.c
+> @@ -0,0 +1,248 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
 > +/*
-> + * RISC-V Kexec image loader
+> + * arch_timer.c - Tests the arch timer IRQ functionality
 > + *
+> + * The guest's main thread configures the timer interrupt and waits
+> + * for it to fire, with a timeout equal to the timer period.
+> + * It asserts that the timeout doesn't exceed the timer period.
+
+While this text is a faithful port of the original, I think we should
+change it to "...exceed the timer period plus an error margin of 100 us.
+
+(And maybe we should allow that error margin to be configured. But
+making it configurable should be done in separate patches either before
+or after the splitting of the test. I'm OK with leaving it
+non-configurable for now. We can change it later if we want to.)
+
+> + *
+> + * On the other hand, upon receipt of an interrupt, the guest's interrupt
+> + * handler validates the interrupt by checking if the architectural state
+> + * is in compliance with the specifications.
+> + *
+> + * The test provides command-line options to configure the timer's
+> + * period (-p), number of vCPUs (-n), and iterations per stage (-i).
+> + * To stress-test the timer stack even more, an option to migrate the
+> + * vCPUs across pCPUs (-m), at a particular rate, is also provided.
+> + *
+> + * Copyright (c) 2021, Google LLC.
 > + */
 > +
-> +#define pr_fmt(fmt)	"kexec_file(Image): " fmt
+> +#define _GNU_SOURCE
 > +
-> +#include <linux/err.h>
-> +#include <linux/errno.h>
-> +#include <linux/kernel.h>
-> +#include <linux/kexec.h>
-> +#include <linux/pe.h>
-> +#include <linux/string.h>
-> +#include <asm/byteorder.h>
-> +#include <asm/image.h>
+> +#include <stdlib.h>
+> +#include <pthread.h>
+> +#include <linux/sizes.h>
+> +#include <linux/bitmap.h>
+> +#include <sys/sysinfo.h>
 > +
-> +static int image_probe(const char *kernel_buf, unsigned long kernel_len)
+> +#include "timer_test.h"
+> +
+> +struct test_args test_args = {
+> +	.nr_vcpus = NR_VCPUS_DEF,
+> +	.nr_iter = NR_TEST_ITERS_DEF,
+> +	.timer_period_ms = TIMER_TEST_PERIOD_MS_DEF,
+> +	.migration_freq_ms = TIMER_TEST_MIGRATION_FREQ_MS,
+> +	.offset = { .reserved = 1 },
+> +};
+> +
+> +struct kvm_vcpu *vcpus[KVM_MAX_VCPUS];
+> +struct test_vcpu_shared_data vcpu_shared_data[KVM_MAX_VCPUS];
+> +
+> +static pthread_t pt_vcpu_run[KVM_MAX_VCPUS];
+> +static unsigned long *vcpu_done_map;
+> +static pthread_mutex_t vcpu_done_map_lock;
+> +
+> +static void *test_vcpu_run(void *arg)
 > +{
-> +	const struct riscv_image_header *h =
-> +		(const struct riscv_image_header *)(kernel_buf);
+> +	unsigned int vcpu_idx = (unsigned long)arg;
+> +	struct ucall uc;
+> +	struct kvm_vcpu *vcpu = vcpus[vcpu_idx];
+> +	struct kvm_vm *vm = vcpu->vm;
+> +	struct test_vcpu_shared_data *shared_data = &vcpu_shared_data[vcpu_idx];
 > +
-> +	if (!h || (kernel_len < sizeof(*h)))
-> +		return -EINVAL;
+> +	vcpu_run(vcpu);
 > +
-> +	/* According to Documentation/riscv/boot-image-header.rst,
-> +	 * use "magic2" field to check when version >= 0.2.
-> +	 */
+> +	/* Currently, any exit from guest is an indication of completion */
+> +	pthread_mutex_lock(&vcpu_done_map_lock);
+> +	__set_bit(vcpu_idx, vcpu_done_map);
+> +	pthread_mutex_unlock(&vcpu_done_map_lock);
 > +
-> +	if (h->version >= RISCV_HEADER_VERSION &&
-> +	    memcmp(&h->magic2, RISCV_IMAGE_MAGIC2, sizeof(h->magic2)))
-> +		return -EINVAL;
+> +	switch (get_ucall(vcpu, &uc)) {
+> +	case UCALL_SYNC:
+> +	case UCALL_DONE:
+> +		break;
+> +	case UCALL_ABORT:
+> +		sync_global_from_guest(vm, *shared_data);
+> +		fprintf(stderr, "Guest assert failed,  vcpu %u; stage; %u; iter: %u\n",
+> +			vcpu_idx, shared_data->guest_stage, shared_data->nr_iter);
+> +		REPORT_GUEST_ASSERT(uc);
+> +		break;
+> +	default:
+> +		TEST_FAIL("Unexpected guest exit\n");
+> +	}
+> +
+> +	return NULL;
+> +}
+> +
+> +static uint32_t test_get_pcpu(void)
+> +{
+> +	uint32_t pcpu;
+> +	unsigned int nproc_conf;
+> +	cpu_set_t online_cpuset;
+> +
+> +	nproc_conf = get_nprocs_conf();
+> +	sched_getaffinity(0, sizeof(cpu_set_t), &online_cpuset);
+> +
+> +	/* Randomly find an available pCPU to place a vCPU on */
+> +	do {
+> +		pcpu = rand() % nproc_conf;
+> +	} while (!CPU_ISSET(pcpu, &online_cpuset));
+> +
+> +	return pcpu;
+> +}
+> +
+> +static int test_migrate_vcpu(unsigned int vcpu_idx)
+> +{
+> +	int ret;
+> +	cpu_set_t cpuset;
+> +	uint32_t new_pcpu = test_get_pcpu();
+> +
+> +	CPU_ZERO(&cpuset);
+> +	CPU_SET(new_pcpu, &cpuset);
+> +
+> +	pr_debug("Migrating vCPU: %u to pCPU: %u\n", vcpu_idx, new_pcpu);
+> +
+> +	ret = pthread_setaffinity_np(pt_vcpu_run[vcpu_idx],
+> +				     sizeof(cpuset), &cpuset);
+> +
+> +	/* Allow the error where the vCPU thread is already finished */
+> +	TEST_ASSERT(ret == 0 || ret == ESRCH,
+> +		    "Failed to migrate the vCPU:%u to pCPU: %u; ret: %d\n",
+> +		    vcpu_idx, new_pcpu, ret);
+> +
+> +	return ret;
+> +}
+> +
+> +static void *test_vcpu_migration(void *arg)
+> +{
+> +	unsigned int i, n_done;
+> +	bool vcpu_done;
+> +
+> +	do {
+> +		usleep(msecs_to_usecs(test_args.migration_freq_ms));
+> +
+> +		for (n_done = 0, i = 0; i < test_args.nr_vcpus; i++) {
+> +			pthread_mutex_lock(&vcpu_done_map_lock);
+> +			vcpu_done = test_bit(i, vcpu_done_map);
+> +			pthread_mutex_unlock(&vcpu_done_map_lock);
+> +
+> +			if (vcpu_done) {
+> +				n_done++;
+> +				continue;
+> +			}
+> +
+> +			test_migrate_vcpu(i);
+> +		}
+> +	} while (test_args.nr_vcpus != n_done);
+> +
+> +	return NULL;
+> +}
+> +
+> +static void test_run(struct kvm_vm *vm)
+> +{
+> +	pthread_t pt_vcpu_migration;
+> +	unsigned int i;
+> +	int ret;
+> +
+> +	pthread_mutex_init(&vcpu_done_map_lock, NULL);
+> +	vcpu_done_map = bitmap_zalloc(test_args.nr_vcpus);
+> +	TEST_ASSERT(vcpu_done_map, "Failed to allocate vcpu done bitmap\n");
+> +
+> +	for (i = 0; i < (unsigned long)test_args.nr_vcpus; i++) {
+> +		ret = pthread_create(&pt_vcpu_run[i], NULL, test_vcpu_run,
+> +				     (void *)(unsigned long)i);
+> +		TEST_ASSERT(!ret, "Failed to create vCPU-%d pthread\n", i);
+> +	}
+> +
+> +	/* Spawn a thread to control the vCPU migrations */
+> +	if (test_args.migration_freq_ms) {
+> +		srand(time(NULL));
+> +
+> +		ret = pthread_create(&pt_vcpu_migration, NULL,
+> +					test_vcpu_migration, NULL);
+> +		TEST_ASSERT(!ret, "Failed to create the migration pthread\n");
+> +	}
+> +
+> +
+> +	for (i = 0; i < test_args.nr_vcpus; i++)
+> +		pthread_join(pt_vcpu_run[i], NULL);
+> +
+> +	if (test_args.migration_freq_ms)
+> +		pthread_join(pt_vcpu_migration, NULL);
+> +
+> +	bitmap_free(vcpu_done_map);
+> +}
+> +
+> +static void test_print_help(char *name)
+> +{
+> +	pr_info("Usage: %s [-h] [-n nr_vcpus] [-i iterations] [-p timer_period_ms]\n",
+> +		name);
+> +	pr_info("\t-n: Number of vCPUs to configure (default: %u; max: %u)\n",
+> +		NR_VCPUS_DEF, KVM_MAX_VCPUS);
+> +	pr_info("\t-i: Number of iterations per stage (default: %u)\n",
+> +		NR_TEST_ITERS_DEF);
+> +	pr_info("\t-p: Periodicity (in ms) of the guest timer (default: %u)\n",
+> +		TIMER_TEST_PERIOD_MS_DEF);
+> +	pr_info("\t-m: Frequency (in ms) of vCPUs to migrate to different pCPU. 0 to turn off (default: %u)\n",
+> +		TIMER_TEST_MIGRATION_FREQ_MS);
+> +	pr_info("\t-o: Counter offset (in counter cycles, default: 0)\n");
+> +	pr_info("\t-h: print this help screen\n");
+> +}
+> +
+> +static bool parse_args(int argc, char *argv[])
+> +{
+> +	int opt;
+> +
+> +	while ((opt = getopt(argc, argv, "hn:i:p:m:o:")) != -1) {
+> +		switch (opt) {
+> +		case 'n':
+> +			test_args.nr_vcpus = atoi_positive("Number of vCPUs", optarg);
+> +			if (test_args.nr_vcpus > KVM_MAX_VCPUS) {
+> +				pr_info("Max allowed vCPUs: %u\n",
+> +					KVM_MAX_VCPUS);
+> +				goto err;
+> +			}
+> +			break;
+> +		case 'i':
+> +			test_args.nr_iter = atoi_positive("Number of iterations", optarg);
+> +			break;
+> +		case 'p':
+> +			test_args.timer_period_ms = atoi_positive("Periodicity", optarg);
+> +			break;
+> +		case 'm':
+> +			test_args.migration_freq_ms = atoi_non_negative("Frequency", optarg);
+> +			break;
+> +		case 'o':
+> +			test_args.offset.counter_offset = strtol(optarg, NULL, 0);
+> +			test_args.offset.reserved = 0;
+> +			break;
+> +		case 'h':
+> +		default:
+> +			goto err;
+> +		}
+> +	}
+> +
+> +	return true;
+> +
+> +err:
+> +	test_print_help(argv[0]);
+> +	return false;
+> +}
+> +
+> +int main(int argc, char *argv[])
+> +{
+> +	struct kvm_vm *vm;
+> +
+> +	if (!parse_args(argc, argv))
+> +		exit(KSFT_SKIP);
+> +
+> +	__TEST_REQUIRE(!test_args.migration_freq_ms || get_nprocs() >= 2,
+> +		       "At least two physical CPUs needed for vCPU migration");
+> +
+> +	vm = test_vm_create();
+> +	test_run(vm);
+> +	test_vm_cleanup(vm);
 > +
 > +	return 0;
 > +}
+> diff --git a/tools/testing/selftests/kvm/include/test_util.h b/tools/testing/selftests/kvm/include/test_util.h
+> index 7e614adc6cf4..c019675f6259 100644
+> --- a/tools/testing/selftests/kvm/include/test_util.h
+> +++ b/tools/testing/selftests/kvm/include/test_util.h
+> @@ -20,6 +20,8 @@
+>  #include <sys/mman.h>
+>  #include "kselftest.h"
+>  
+> +#define msecs_to_usecs(msec)    ((msec) * 1000LL)
 > +
-> +static void *image_load(struct kimage *image,
-> +				char *kernel, unsigned long kernel_len,
-> +				char *initrd, unsigned long initrd_len,
-> +				char *cmdline, unsigned long cmdline_len)
-> +{
-> +	struct riscv_image_header *h;
-> +	u64 flags;
-> +	bool be_image, be_kernel;
-> +	struct kexec_buf kbuf;
-> +	int ret;
+>  static inline int _no_printf(const char *format, ...) { return 0; }
+>  
+>  #ifdef DEBUG
+> diff --git a/tools/testing/selftests/kvm/include/timer_test.h b/tools/testing/selftests/kvm/include/timer_test.h
+> new file mode 100644
+> index 000000000000..04e8aff2dc22
+> --- /dev/null
+> +++ b/tools/testing/selftests/kvm/include/timer_test.h
+> @@ -0,0 +1,42 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only */
+> +/*
+> + * timer test specific header
+> + *
+> + * Copyright (C) 2018, Google LLC
+> + */
 > +
-> +	/* Check Image header */
-> +	h = (struct riscv_image_header *)kernel;
-> +	if (!h->image_size) {
-> +		ret = -EINVAL;
-> +		goto out;
-> +	}
+> +#ifndef SELFTEST_KVM_TIMER_TEST_H
+> +#define SELFTEST_KVM_TIMER_TEST_H
 > +
-> +	/* Check endianness */
-> +	flags = le64_to_cpu(h->flags);
-> +	be_image = riscv_image_flag_field(flags, RISCV_IMAGE_FLAG_BE);
+> +#include "kvm_util.h"
+> +
+> +#define NR_VCPUS_DEF            4
+> +#define NR_TEST_ITERS_DEF       5
+> +#define TIMER_TEST_PERIOD_MS_DEF    10
+> +#define TIMER_TEST_ERR_MARGIN_US    100
+> +#define TIMER_TEST_MIGRATION_FREQ_MS    2
+> +
+> +/* Timer test cmdline parameters */
+> +struct test_args {
+> +	int nr_vcpus;
+> +	int nr_iter;
+> +	int timer_period_ms;
+> +	int migration_freq_ms;
+> +	struct kvm_arm_counter_offset offset;
 
-..but here you're just testing a single bit, so since be_image is a bool it
-could just be
-	be_image = flags & RISCV_IMAGE_FLAG_BE_MASK;
+nit:
+I see a later patch changes this arm-specific part. This patch could add a
+TODO comment here, which would get removed with the later patch.
 
-/Emil
-
-> +	be_kernel = IS_ENABLED(CONFIG_CPU_BIG_ENDIAN);
-> +	if (be_image != be_kernel) {
-> +		ret = -EINVAL;
-> +		goto out;
-> +	}
-> +
-> +	/* Load the kernel image */
-> +	kbuf.image = image;
-> +	kbuf.buf_min = 0;
-> +	kbuf.buf_max = ULONG_MAX;
-> +	kbuf.top_down = false;
-> +
-> +	kbuf.buffer = kernel;
-> +	kbuf.bufsz = kernel_len;
-> +	kbuf.mem = KEXEC_BUF_MEM_UNKNOWN;
-> +	kbuf.memsz = le64_to_cpu(h->image_size);
-> +	kbuf.buf_align = le64_to_cpu(h->text_offset);
-> +
-> +	ret = kexec_add_buffer(&kbuf);
-> +	if (ret) {
-> +		pr_err("Error add kernel image ret=%d\n", ret);
-> +		goto out;
-> +	}
-> +
-> +	image->start = kbuf.mem;
-> +
-> +	pr_info("Loaded kernel at 0x%lx bufsz=0x%lx memsz=0x%lx\n",
-> +				kbuf.mem, kbuf.bufsz, kbuf.memsz);
-> +
-> +	ret = load_extra_segments(image, kbuf.mem, kbuf.memsz,
-> +				  initrd, initrd_len, cmdline, cmdline_len);
-> +
-> +out:
-> +	return ret ? ERR_PTR(ret) : NULL;
-> +}
-> +
-> +const struct kexec_file_ops image_kexec_ops = {
-> +	.probe = image_probe,
-> +	.load = image_load,
 > +};
-> diff --git a/arch/riscv/kernel/machine_kexec_file.c b/arch/riscv/kernel/machine_kexec_file.c
-> index aedb8c16a283..5dc700834f1e 100644
-> --- a/arch/riscv/kernel/machine_kexec_file.c
-> +++ b/arch/riscv/kernel/machine_kexec_file.c
-> @@ -17,6 +17,7 @@
+> +
+> +/* Shared variables between host and guest */
+> +struct test_vcpu_shared_data {
+> +	int nr_iter;
+> +	int guest_stage;
+> +	uint64_t xcnt;
+> +};
+> +
+> +extern struct test_args test_args;
+> +extern struct kvm_vcpu *vcpus[];
+> +extern struct test_vcpu_shared_data vcpu_shared_data[];
+> +
+> +struct kvm_vm *test_vm_create(void);
+> +void test_vm_cleanup(struct kvm_vm *vm);
+> +
+> +#endif /* SELFTEST_KVM_TIMER_TEST_H */
+> -- 
+> 2.34.1
 >
->  const struct kexec_file_ops * const kexec_file_loaders[] = {
->  	&elf_kexec_ops,
-> +	&image_kexec_ops,
->  	NULL
->  };
->
-> --
-> 2.20.1
->
->
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+Besides my comment about the test description including the error margin,
+which could probably be done as a separate patch anyway since we should
+modify as little as possible when moving code, then this looks good to me
+
+Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+
+Thanks,
+drew
 
 _______________________________________________
 linux-riscv mailing list
