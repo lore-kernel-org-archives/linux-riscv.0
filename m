@@ -4,61 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2E31EEAA40
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 Sep 2023 13:56:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61CB2EEAA41
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 Sep 2023 13:57:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NoVxO062UigTVG9AzJCUxliKQPM3yGLCF2blgnMOgQE=; b=3ck0GzIiikxR/B
-	nEbM+k8c7LDNukKDIFE7+ooeWN17sLgquPdoN2N5MdRFMmooZNvthlr3Q8sJBFCHhMB1lJbSSKcar
-	11lWKc047UssKP+cADKNB/oKQ3QNuWeM5mP29FDr0z0SQh5fBvkw2hWy3OJolOHPvuQnyVXkU4HeZ
-	af+VGDkFynXbrrVMYVAcOcf/oAAcaikX0Z9NqdsAgLan5L02MauDqm0HsqWIQh9kw9frgxLTipIJQ
-	8Ts7xCMFtnseV4FwejzDrL0Eiao6hiT398BmzOigpeaTlk7N9V7CbRIbGmZzLZT8Xlv59Wjyx+rN/
-	sWqH4Db/VF+VdxPFNTcw==;
+	List-Owner; bh=12l61jgH4Uv17KZFk8j6qCyi9ny0CBWx2DGLvesLxwA=; b=hp59ElXTTw2H4y
+	s51CRw/VPf3kVEVO4V5auD192q5lSz6ZIFrLNnrqy7V7TlEfdHe09RnpdGMJFZzD3kIZiQnyAYQ3H
+	keicUaPPf7x3YsPappTIGslE7GvmObEmztwJWP2Zy0ArptdSNJfsSIbBRYtHWNO4rQqVHj7fm1E3A
+	wdrX/NCC9oCrKBY6m1QwGAkfcHUgrMukF2+8zTcMWD8GBNE7P44SdxFUCHEKkkzMaKUDnQ66guwV6
+	f058rblaeiwa5RYxMCJazWKFfGHCRmC2/RXU5yfKeJBAb9R/jQm+A6hJeW/XbTytJQuJDnGACRVJj
+	ki1f3McIh28Y7EfH4lWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgmpL-008Z3t-1M;
-	Thu, 14 Sep 2023 13:56:15 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1qgmqv-008ZNl-1o;
+	Thu, 14 Sep 2023 13:57:53 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgmpI-008Z2m-03;
-	Thu, 14 Sep 2023 13:56:13 +0000
-Received: from lhrpeml500005.china.huawei.com (unknown [172.18.147.226])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4Rmf2700D8z6HJb0;
-	Thu, 14 Sep 2023 21:54:22 +0800 (CST)
-Received: from localhost (10.202.227.76) by lhrpeml500005.china.huawei.com
- (7.191.163.240) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.31; Thu, 14 Sep
- 2023 14:56:08 +0100
-Date: Thu, 14 Sep 2023 14:56:07 +0100
-From: Jonathan Cameron <Jonathan.Cameron@Huawei.com>
-To: James Morse <james.morse@arm.com>
-CC: <linux-pm@vger.kernel.org>, <loongarch@lists.linux.dev>,
-	<linux-acpi@vger.kernel.org>, <linux-arch@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-riscv@lists.infradead.org>, <kvmarm@lists.linux.dev>,
-	<x86@kernel.org>, Salil Mehta <salil.mehta@huawei.com>, Russell King
-	<linux@armlinux.org.uk>, Jean-Philippe Brucker <jean-philippe@linaro.org>,
-	<jianyong.wu@arm.com>, <justin.he@arm.com>
-Subject: Re: [RFC PATCH v2 16/35] ACPI: processor: Register CPUs that are
- online, but not described in the DSDT
-Message-ID: <20230914145607.00006f9b@Huawei.com>
-In-Reply-To: <20230913163823.7880-17-james.morse@arm.com>
-References: <20230913163823.7880-1-james.morse@arm.com>
-	<20230913163823.7880-17-james.morse@arm.com>
-Organization: Huawei Technologies Research and Development (UK) Ltd.
-X-Mailer: Claws Mail 4.1.0 (GTK 3.24.33; x86_64-w64-mingw32)
+	id 1qgmqt-008ZN4-1C
+	for linux-riscv@lists.infradead.org;
+	Thu, 14 Sep 2023 13:57:52 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 207F461D98
+	for <linux-riscv@lists.infradead.org>; Thu, 14 Sep 2023 13:57:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 76053C433CD
+	for <linux-riscv@lists.infradead.org>; Thu, 14 Sep 2023 13:57:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1694699869;
+	bh=Z0KDPgWeo5efMthoztpzOwWCTyxNs6un0zRktA7SDYk=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=SRiUQ4cbahnMav6KqOA3GbBaLpxpFjP8/2il91aOk1pb7dhobJxjBWX0xkTYRCv1E
+	 uLCReUMvbCC8fh0lpsC5ftxYr1DdhI9X7kX847r+EbWJieKxEtNgD/1SlrZlvZjTmh
+	 bJ2Ci90BXURGza5QTuFfGTnY/0CUsqdeZELpjSXmcdUkUFQocmag3eb0iOhWzoz4Xg
+	 96d7nvGMTftr2zXk4uoHnAEzkP/rDRVbFF10Ng7T2438OTQ51CpEmxGylTQXh3qInd
+	 Ao/6kbcpExGoJolmLp3IEWU5VulKhntIs8w5XbzqqGtIdtNx8OwOLVCC7zEMKqPWtD
+	 14iNpvX8KE6rA==
+Received: by mail-lf1-f44.google.com with SMTP id 2adb3069b0e04-501bef6e0d3so1669510e87.1
+        for <linux-riscv@lists.infradead.org>; Thu, 14 Sep 2023 06:57:49 -0700 (PDT)
+X-Gm-Message-State: AOJu0YxlF19oXo0EFWWdsrN9hXZbeQ0pI4rN6q7bZdEeuLFk3WkvqVl3
+	mLe4MKxO1G1xtpDVOO0WshFM7wsxqk1TP2ROxg==
+X-Google-Smtp-Source: AGHT+IHNdUOKkW3vz5F79REP5vnA/Wx2ToSwyPSlJlky6TGP6WTmHPQrFclX9Rm3JGY8kBBMtjsqiC2wd7kqF+WVhFA=
+X-Received: by 2002:a19:2d5a:0:b0:502:c950:592e with SMTP id
+ t26-20020a192d5a000000b00502c950592emr4029898lft.25.1694699867677; Thu, 14
+ Sep 2023 06:57:47 -0700 (PDT)
 MIME-Version: 1.0
-X-Originating-IP: [10.202.227.76]
-X-ClientProxiedBy: lhrpeml500006.china.huawei.com (7.191.161.198) To
- lhrpeml500005.china.huawei.com (7.191.163.240)
-X-CFilter-Loop: Reflected
+References: <20230913-bloomers-scorebook-fb45e0a2aa19@spud> <CAPDyKFoENVp7+VjKkPpJWDecowxYD=QM6TSa6HjyzOZ=z7r81w@mail.gmail.com>
+In-Reply-To: <CAPDyKFoENVp7+VjKkPpJWDecowxYD=QM6TSa6HjyzOZ=z7r81w@mail.gmail.com>
+From: Rob Herring <robh@kernel.org>
+Date: Thu, 14 Sep 2023 08:57:35 -0500
+X-Gmail-Original-Message-ID: <CAL_JsqLxxmdPTLhZ6MTfuAcM0V7pmfRLiK8L3AZhhQKcvy_PCw@mail.gmail.com>
+Message-ID: <CAL_JsqLxxmdPTLhZ6MTfuAcM0V7pmfRLiK8L3AZhhQKcvy_PCw@mail.gmail.com>
+Subject: Re: [GIT PULL 0/5] Missed starfive pmdomain changes for v6.6, now for v6.7
+To: Ulf Hansson <ulf.hansson@linaro.org>
+Cc: Conor Dooley <conor@kernel.org>, Conor Dooley <conor.dooley@microchip.com>, arnd@arndb.de, 
+	changhuang.liang@starfivetech.com, jiajie.ho@starfivetech.com, 
+	linux-pm@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	walker.chen@starfivetech.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230914_065612_193479_FD0F9DAA 
-X-CRM114-Status: GOOD (  23.02  )
+X-CRM114-CacheID: sfid-20230914_065751_470423_14FE7B9F 
+X-CRM114-Status: GOOD (  14.56  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,79 +80,23 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 13 Sep 2023 16:38:04 +0000
-James Morse <james.morse@arm.com> wrote:
-
-> ACPI has two descriptions of CPUs, one in the MADT/APIC table, the other
-> in the DSDT. Both are required. (ACPI 6.5's 8.4 "Declaring Processors"
-> says "Each processor in the system must be declared in the ACPI
-> namespace"). Having two descriptions allows firmware authors to get
-> this wrong.
-> 
-> If CPUs are described in the MADT/APIC, they will be brought online
-> early during boot. Once the register_cpu() calls are moved to ACPI,
-> they will be based on the DSDT description of the CPUs. When CPUs are
-> missing from the DSDT description, they will end up online, but not
-> registered.
-> 
-> Add a helper that runs after acpi_init() has completed to register
-> CPUs that are online, but weren't found in the DSDT. Any CPU that
-> is registered by this code triggers a firmware-bug warning and kernel
-> taint.
-> 
-> Qemu TCG only describes the first CPU in the DSDT, unless cpu-hotplug
-> is configured.
-
-We should fix that as who likes warnings and taint :)
-I dread to think how common this will turn out to be.
-
-> 
-> Signed-off-by: James Morse <james.morse@arm.com>
-LGTM
-Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-
-> ---
->  drivers/acpi/acpi_processor.c | 19 +++++++++++++++++++
->  1 file changed, 19 insertions(+)
-> 
-> diff --git a/drivers/acpi/acpi_processor.c b/drivers/acpi/acpi_processor.c
-> index b4bde78121bb..a01e315aa16a 100644
-> --- a/drivers/acpi/acpi_processor.c
-> +++ b/drivers/acpi/acpi_processor.c
-> @@ -790,6 +790,25 @@ void __init acpi_processor_init(void)
->  	acpi_pcc_cpufreq_init();
->  }
->  
-> +static int __init acpi_processor_register_missing_cpus(void)
-> +{
-> +	int cpu;
-> +
-> +	if (acpi_disabled)
-> +		return 0;
-> +
-> +	for_each_online_cpu(cpu) {
-> +		if (!get_cpu_device(cpu)) {
-> +			pr_err_once(FW_BUG "CPU %u has no ACPI namespace description!\n", cpu);
-> +			add_taint(TAINT_FIRMWARE_WORKAROUND, LOCKDEP_STILL_OK);
-> +			arch_register_cpu(cpu);
-> +		}
-> +	}
-> +
-> +	return 0;
-> +}
-> +subsys_initcall_sync(acpi_processor_register_missing_cpus);
-> +
->  #ifdef CONFIG_ACPI_PROCESSOR_CSTATE
->  /**
->   * acpi_processor_claim_cst_control - Request _CST control from the platform.
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gV2VkLCBTZXAgMTMsIDIwMjMgYXQgNTozMeKAr1BNIFVsZiBIYW5zc29uIDx1bGYuaGFuc3Nv
+bkBsaW5hcm8ub3JnPiB3cm90ZToKPgo+IE9uIFdlZCwgMTMgU2VwdCAyMDIzIGF0IDE1OjU2LCBD
+b25vciBEb29sZXkgPGNvbm9yQGtlcm5lbC5vcmc+IHdyb3RlOgo+ID4KPiA+IEZyb206IENvbm9y
+IERvb2xleSA8Y29ub3IuZG9vbGV5QG1pY3JvY2hpcC5jb20+Cj4gPgo+ID4gSGV5IFVmZmUsCj4g
+Pgo+ID4gSGVyZSdzIHRob3NlIG1pc3NlZCBjaGFuZ2VzIGluIHBhdGNoIGZvcm0uIEkgZmlndXJl
+ZCBpdCBtaWdodCBiZSBhIGJpdAo+ID4gZWFzaWVyIHRoaXMgd2F5IGdpdmVuIHRoZSBuYW1lIG9m
+IHRoZSBzdWJzeXN0ZW0gaXMgaW4gZmx1eCwgZG91Ymx5IHNvIGlmCj4gPiB5b3UnZCBsaWtlIHRv
+IHB1dCB0aGUgaGVhZGVyIGNoYW5nZSBvZiBSb2IncyBvbiBmaXhlcy4KPgo+IE5vdCBzdXJlIHdl
+IHJlYWxseSBuZWVkIHRvIHF1ZXVlIHVwIHBhdGNoIDEgZm9yIGZpeGVzIC0gb3IgaXMgaXQKPiBm
+aXhpbmcgYSByZWFsIHByb2JsZW0gZm9yIHVzPwoKSXQncyBhIGRlcGVuZGVuY3kgdG8gcmVtb3Zl
+IHNvbWUgaW1wbGljaXQgaW5jbHVkZXMsIGJ1dCBJIHN0aWxsIGhhdmUKbW9yZSBmaXhlcyBmb3Ig
+Ni42IHNvIGVpdGhlciBpcyBmaW5lLgoKUm9iCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZA
+bGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xp
+c3RpbmZvL2xpbnV4LXJpc2N2Cg==
