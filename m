@@ -4,98 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2CACEDE98F
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 Sep 2023 08:02:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19C7EEDE98F
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 Sep 2023 08:09:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Q4gPmmCZo3QkvX8C1RYQCU8Wg61ZBVQk2sBeXjqanro=; b=boTT2qzWdThT9G
-	O35VeHLZIQlz+ltDWmXilrb1u7G4ooL3rSf0xiOi3nMveMi5fRELXnrZBEqLF9UptDpcFvZtXlfmH
-	Q16Tq9QKKYFwzjov/rp9K+v/I1fA5SH0V9oiS4h+VOJI92iaqaFt4g8cD1c5jMdPsnRIk46gdaLsK
-	DYAvmwRmqv2LgzwNowyC3qx9nRMrdexjZvO/XuRNP1BOGc8niYxVHnKvPhPrLq/6svixq5535ywYk
-	WEuHQm2eIsI3K6QomqP2wS/pMXGw9eu3kaQR0u08mXcDKlVpNldsl7Ceea0bPmF5lNYrWavrXKlTH
-	lP9HQEwKgxMDqqZtUffQ==;
+	List-Owner; bh=dDHZnGTUZo+fIodX2/tRdschz5m1vsxiMgoQPj/Jnlw=; b=IS8UMcW6o5N1S8
+	johDiCZAMkKFRDDYXUXArzZKH+lItWuI1kUmAWuSeNvSLXfNcZrR8lp1pT9JAjrd3eg9k3vQDwykZ
+	bKZmIujv+4F9XcSOyMPT17PAiJ/L1e+MqYEW4o0buSqgXdWU+wjRqj3/jrCGSi1REZ2xIi6ovWOw2
+	T2vg912GhioAd451bqQnSS7+DBCyV29GwKAslIasR3Bh6oCLvqM339on9iWXuaCrWJzwzse7MaZp4
+	tOnzouNhV0ysqLFgiZO2a0ji5OazhKWPhIvJJx5DfXmyp9ha/k7mljHgA+eLlF5sqVfwBH/hMqw+t
+	Hyt+pjOViqhB5OGIrVRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qghIp-007e8a-0e;
-	Thu, 14 Sep 2023 08:02:19 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1qghPr-007fHI-1U;
+	Thu, 14 Sep 2023 08:09:35 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qghIl-007e5K-1L
-	for linux-riscv@lists.infradead.org;
-	Thu, 14 Sep 2023 08:02:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1694678534;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=HiAk3bKOlav/oFfLlqTgtje3RXVlrppDZ8NfAR80XpM=;
-	b=F5p1TBTAl2lu4wJZEUQLgihIpQInffc1Cn18P8RPGpJCBCYchL7NtsrZIR8kewUI5ue/Mr
-	ZYrj5877uT1WRkesQidXSaWkBWXRyzbWvntGJfXF9uSuLYM4CG/9Tc3a3Sppbd41pPx2cm
-	Ek44Ey82RW+pwQrTpcalqxxP5fn6Whk=
-Received: from mail-oo1-f69.google.com (mail-oo1-f69.google.com
- [209.85.161.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-544-GRdXgqIAO_KPlizStvLX6Q-1; Thu, 14 Sep 2023 04:02:12 -0400
-X-MC-Unique: GRdXgqIAO_KPlizStvLX6Q-1
-Received: by mail-oo1-f69.google.com with SMTP id 006d021491bc7-573452f333dso894651eaf.2
-        for <linux-riscv@lists.infradead.org>; Thu, 14 Sep 2023 01:02:12 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1694678532; x=1695283332;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=HiAk3bKOlav/oFfLlqTgtje3RXVlrppDZ8NfAR80XpM=;
-        b=tZqN50r53qRy8idWj1srmWKDjtQwfWWqw/yfxNqC9BIvEFAVMh7pl7U5jKeXwtci9j
-         Z0SmR6oVoGJZfhiIBoAhrDxf5TbY5tDa+ahbcscL3y7BfBFC4drnHQOOzVyQUrQ8CauT
-         65uHvnAj8sykkPqboaXwDORHZ22iuBPrHvHbIL3uQDHagP5gTAmdE4IoeCkUyPr0sZK9
-         Rk2HCT4+ZPsRkczBQ44sMDW4TRhTE0aB48zBX8cSAxyR6+CJpnj5a7KO7+uZCV+wqCRn
-         0b/rETvfY7p0+OcSC45J4z6COrq291SUEeuLOvBnj5XnfTZfZJspMNY9HViifvZLIRyS
-         Xsvw==
-X-Gm-Message-State: AOJu0YyqbXs6cFJJXf4qPjCWve9kO/l1X+qP93dyZovHPk4PaH6So4Q7
-	ZdeUTs6CRxAaTt6AYOJ7b4OB61DAPNHeesChEm7S44qDAjGhrg5wjlNTCumPMknBG7q1kqMbqh3
-	bxgltv/g50o0he6ng7ZT44iN9ioya
-X-Received: by 2002:a05:6870:35d3:b0:1b3:f1f7:999e with SMTP id c19-20020a05687035d300b001b3f1f7999emr5781393oak.45.1694678531978;
-        Thu, 14 Sep 2023 01:02:11 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHjL5jH2q/nmHiozebZyY/fKINysNQaR6CzFyALeT3Qe+deBNOrapEDdrbheaETCUL++womdw==
-X-Received: by 2002:a05:6870:35d3:b0:1b3:f1f7:999e with SMTP id c19-20020a05687035d300b001b3f1f7999emr5781382oak.45.1694678531699;
-        Thu, 14 Sep 2023 01:02:11 -0700 (PDT)
-Received: from redhat.com ([2804:1b3:a803:4ff9:7c29:fe41:6aa7:43df])
-        by smtp.gmail.com with ESMTPSA id h22-20020a056870a3d600b001ccab369c09sm515214oak.42.2023.09.14.01.02.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 14 Sep 2023 01:02:11 -0700 (PDT)
-Date: Thu, 14 Sep 2023 05:02:02 -0300
-From: Leonardo Bras <leobras@redhat.com>
-To: guoren@kernel.org
-Cc: paul.walmsley@sifive.com, anup@brainfault.org, peterz@infradead.org,
-	mingo@redhat.com, will@kernel.org, palmer@rivosinc.com,
-	longman@redhat.com, boqun.feng@gmail.com, tglx@linutronix.de,
-	paulmck@kernel.org, rostedt@goodmis.org, rdunlap@infradead.org,
-	catalin.marinas@arm.com, conor.dooley@microchip.com,
-	xiaoguang.xing@sophgo.com, bjorn@rivosinc.com,
-	alexghiti@rivosinc.com, keescook@chromium.org,
-	greentime.hu@sifive.com, ajones@ventanamicro.com,
-	jszhang@kernel.org, wefu@redhat.com, wuwei2016@iscas.ac.cn,
-	linux-arch@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-doc@vger.kernel.org, kvm@vger.kernel.org,
-	virtualization@lists.linux-foundation.org,
-	linux-csky@vger.kernel.org, Guo Ren <guoren@linux.alibaba.com>
-Subject: Re: [PATCH V11 08/17] riscv: qspinlock: Add virt_spin_lock() support
- for KVM guest
-Message-ID: <ZQK9-tn2MepXlY1u@redhat.com>
-References: <20230910082911.3378782-1-guoren@kernel.org>
- <20230910082911.3378782-9-guoren@kernel.org>
+	id 1qghPo-007fEB-1H;
+	Thu, 14 Sep 2023 08:09:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=V/HxvkqbaFoEQh0p6Z3aJgJbBAL0SNdKKsE6KdqG0nE=; b=KhfLjilliuR7OQ+8EDr63FTB4v
+	6d+97T4jo2zB5AAn+T5RS1DCNlEsaeb5wOLcreZIM5Na+eZk55qGGLA5xUf5nxiY8k21kfWlR16PF
+	7Z81lh6wIe6EhAowPDpP84Xnf9Pzh1MQtHV6UmOJUab/33630JIRctho5GODeY5BgxlNPzzvzZuyG
+	sW3XRKEJ3o3MfAD3x7SzKPvMFP01dNFuvp66fX9BFjqArv2MLU7jl5QGQ8O79cQU8O4sdyN4dHcFg
+	3lATjUULKaMiw7VOjintw3rKhil4Qn/rc6qF2n6GUV0ApCFQwTNRS2MrIdCHPQ0J1+WT+FxxeGpu4
+	4jUVLgoQ==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:55678)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1qghPc-0003g5-37;
+	Thu, 14 Sep 2023 09:09:21 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.94.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1qghPY-0004ZU-U9; Thu, 14 Sep 2023 09:09:17 +0100
+Date: Thu, 14 Sep 2023 09:09:16 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: James Morse <james.morse@arm.com>
+Cc: linux-pm@vger.kernel.org, loongarch@lists.linux.dev,
+	linux-acpi@vger.kernel.org, linux-arch@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org, kvmarm@lists.linux.dev,
+	x86@kernel.org, Salil Mehta <salil.mehta@huawei.com>,
+	Jean-Philippe Brucker <jean-philippe@linaro.org>,
+	jianyong.wu@arm.com, justin.he@arm.com
+Subject: Re: [RFC PATCH v2 28/35] arm64, irqchip/gic-v3, ACPI: Move MADT GICC
+ enabled check into a helper
+Message-ID: <ZQK/rM/+1fGhM18m@shell.armlinux.org.uk>
+References: <20230913163823.7880-1-james.morse@arm.com>
+ <20230913163823.7880-29-james.morse@arm.com>
 MIME-Version: 1.0
-In-Reply-To: <20230910082911.3378782-9-guoren@kernel.org>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
 Content-Disposition: inline
+In-Reply-To: <20230913163823.7880-29-james.morse@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230914_010215_522360_C9E8C19C 
-X-CRM114-Status: GOOD (  32.19  )
+X-CRM114-CacheID: sfid-20230914_010932_433520_4CB95BD8 
+X-CRM114-Status: UNSURE (   6.59  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,206 +85,16 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Sep 10, 2023 at 04:29:02AM -0400, guoren@kernel.org wrote:
-> From: Guo Ren <guoren@linux.alibaba.com>
-> 
-> Add a static key controlling whether virt_spin_lock() should be
-> called or not. When running on bare metal set the new key to
-> false.
-> 
-> The KVM guests fall back to a Test-and-Set spinlock, because fair
-> locks have horrible lock 'holder' preemption issues. The
-> virt_spin_lock_key would shortcut for the
-> queued_spin_lock_slowpath() function that allow virt_spin_lock to
-> hijack it.
-> 
-> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-> Signed-off-by: Guo Ren <guoren@kernel.org>
-> ---
->  .../admin-guide/kernel-parameters.txt         |  4 +++
->  arch/riscv/include/asm/sbi.h                  |  8 +++++
->  arch/riscv/include/asm/spinlock.h             | 22 ++++++++++++++
->  arch/riscv/kernel/sbi.c                       |  2 +-
->  arch/riscv/kernel/setup.c                     | 30 ++++++++++++++++++-
->  5 files changed, 64 insertions(+), 2 deletions(-)
-> 
-> diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
-> index 61cacb8dfd0e..f75bedc50e00 100644
-> --- a/Documentation/admin-guide/kernel-parameters.txt
-> +++ b/Documentation/admin-guide/kernel-parameters.txt
-> @@ -3927,6 +3927,10 @@
->  	no_uaccess_flush
->  	                [PPC] Don't flush the L1-D cache after accessing user data.
->  
-> +	no_virt_spin	[RISC-V] Disable virt_spin_lock in KVM guest to use
-> +			native_queued_spinlock when the nopvspin option is enabled.
-> +			This would help vcpu=pcpu scenarios.
-> +
->  	novmcoredd	[KNL,KDUMP]
->  			Disable device dump. Device dump allows drivers to
->  			append dump data to vmcore so you can collect driver
-> diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
-> index 501e06e52078..e0233b3d7a5f 100644
-> --- a/arch/riscv/include/asm/sbi.h
-> +++ b/arch/riscv/include/asm/sbi.h
-> @@ -50,6 +50,13 @@ enum sbi_ext_base_fid {
->  	SBI_EXT_BASE_GET_MIMPID,
->  };
->  
-> +enum sbi_ext_base_impl_id {
-> +	SBI_EXT_BASE_IMPL_ID_BBL = 0,
-> +	SBI_EXT_BASE_IMPL_ID_OPENSBI,
-> +	SBI_EXT_BASE_IMPL_ID_XVISOR,
-> +	SBI_EXT_BASE_IMPL_ID_KVM,
-> +};
-> +
->  enum sbi_ext_time_fid {
->  	SBI_EXT_TIME_SET_TIMER = 0,
->  };
-> @@ -269,6 +276,7 @@ int sbi_console_getchar(void);
->  long sbi_get_mvendorid(void);
->  long sbi_get_marchid(void);
->  long sbi_get_mimpid(void);
-> +long sbi_get_firmware_id(void);
->  void sbi_set_timer(uint64_t stime_value);
->  void sbi_shutdown(void);
->  void sbi_send_ipi(unsigned int cpu);
-> diff --git a/arch/riscv/include/asm/spinlock.h b/arch/riscv/include/asm/spinlock.h
-> index 8ea0fee80652..6b38d6616f14 100644
-> --- a/arch/riscv/include/asm/spinlock.h
-> +++ b/arch/riscv/include/asm/spinlock.h
-> @@ -4,6 +4,28 @@
->  #define __ASM_RISCV_SPINLOCK_H
->  
->  #ifdef CONFIG_QUEUED_SPINLOCKS
-> +/*
-> + * The KVM guests fall back to a Test-and-Set spinlock, because fair locks
-> + * have horrible lock 'holder' preemption issues. The virt_spin_lock_key
-> + * would shortcut for the queued_spin_lock_slowpath() function that allow
-> + * virt_spin_lock to hijack it.
-> + */
-> +DECLARE_STATIC_KEY_TRUE(virt_spin_lock_key);
-> +
-> +#define virt_spin_lock virt_spin_lock
-> +static inline bool virt_spin_lock(struct qspinlock *lock)
+On Wed, Sep 13, 2023 at 04:38:16PM +0000, James Morse wrote:
+> +static inline bool acpi_gicc_is_usable(struct acpi_madt_generic_interrupt *gicc)
 > +{
-> +	if (!static_branch_likely(&virt_spin_lock_key))
-> +		return false;
-> +
-> +	do {
-> +		while (atomic_read(&lock->val) != 0)
-> +			cpu_relax();
-> +	} while (atomic_cmpxchg(&lock->val, 0, _Q_LOCKED_VAL) != 0);
-> +
-> +	return true;
-> +}
-> +
->  #define _Q_PENDING_LOOPS	(1 << 9)
->  #endif
->  
-> diff --git a/arch/riscv/kernel/sbi.c b/arch/riscv/kernel/sbi.c
-> index 88eea3a99ee0..cdd45edc8db4 100644
-> --- a/arch/riscv/kernel/sbi.c
-> +++ b/arch/riscv/kernel/sbi.c
-> @@ -555,7 +555,7 @@ static inline long sbi_get_spec_version(void)
->  	return __sbi_base_ecall(SBI_EXT_BASE_GET_SPEC_VERSION);
->  }
->  
-> -static inline long sbi_get_firmware_id(void)
-> +long sbi_get_firmware_id(void)
->  {
->  	return __sbi_base_ecall(SBI_EXT_BASE_GET_IMP_ID);
->  }
-> diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-> index 0f084f037651..c57d15b05160 100644
-> --- a/arch/riscv/kernel/setup.c
-> +++ b/arch/riscv/kernel/setup.c
-> @@ -26,6 +26,7 @@
->  #include <asm/alternative.h>
->  #include <asm/cacheflush.h>
->  #include <asm/cpu_ops.h>
-> +#include <asm/cpufeature.h>
->  #include <asm/early_ioremap.h>
->  #include <asm/pgtable.h>
->  #include <asm/setup.h>
-> @@ -283,16 +284,43 @@ DEFINE_STATIC_KEY_TRUE(combo_qspinlock_key);
->  EXPORT_SYMBOL(combo_qspinlock_key);
->  #endif
->  
-> +#ifdef CONFIG_QUEUED_SPINLOCKS
-> +static bool no_virt_spin_key = false;
+> +	return (gicc->flags & ACPI_MADT_ENABLED);
 
-I suggest no _key, also there is no need for "= false".
-To be consistent with enable_qspinlock, I also suggest
-adding __ro_after_init:
+These parens are not needed.
 
-static bool no_virt_spin __ro_after_init; 
-
-
-
-> +DEFINE_STATIC_KEY_TRUE(virt_spin_lock_key);
-> +
-> +static int __init no_virt_spin_setup(char *p)
-> +{
-> +	no_virt_spin_key = true;
-> +
-> +	return 0;
-> +}
-> +early_param("no_virt_spin", no_virt_spin_setup);
-> +
-> +static void __init virt_spin_lock_init(void)
-> +{
-> +	if (sbi_get_firmware_id() != SBI_EXT_BASE_IMPL_ID_KVM ||
-> +	    no_virt_spin_key)
-> +		static_branch_disable(&virt_spin_lock_key);
-> +	else
-> +		pr_info("Enable virt_spin_lock\n");
-> +}
-> +#endif
-> +
-
-A new virt_no_spin kernel parameter was introduced, but without 
-CONFIG_QUEUED_SPINLOCKS it will silently fail.
-
-I would suggest an #else clause here with a function to print an error / 
-warning message about no_virt_spin being invalid in this scenario.
-It will probably help future debugging.
-
-
->  static void __init riscv_spinlock_init(void)
->  {
->  #ifdef CONFIG_RISCV_COMBO_SPINLOCKS
-> -	if (!enable_qspinlock_key) {
-> +	if (!enable_qspinlock_key &&
-> +	    (sbi_get_firmware_id() != SBI_EXT_BASE_IMPL_ID_KVM)) {
->  		static_branch_disable(&combo_qspinlock_key);
->  		pr_info("Ticket spinlock: enabled\n");
->  	} else {
->  		pr_info("Queued spinlock: enabled\n");
->  	}
->  #endif
-> +
-> +#ifdef CONFIG_QUEUED_SPINLOCKS
-> +	virt_spin_lock_init();
-> +#endif
->  }
->  
->  extern void __init init_rt_signal_env(void);
-> -- 
-> 2.36.1
-> 
-
-I am probably missing something out, but it looks to me that this patch is 
-causing 2 different changes:
-1 - Enabling no_virt_spin parameter
-2 - Disabling queued spinlocks for some firmware_id
-
-Wouldn't be better to split those changes in multiple patches? 
-Or am I missing the point on why they need to be together?
-
-Thanks!
-Leo
-
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
 _______________________________________________
 linux-riscv mailing list
