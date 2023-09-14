@@ -4,73 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 848C9EDE9A4
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 Sep 2023 11:11:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D83DCEDE9A4
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 Sep 2023 11:16:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0V9vFdl0HWpbCUIS3yeBJ/HTjXtyfGfHBZQ4cpTF4yA=; b=jOqImMWlavb43Y
-	fz0oV/d0DBNo0AS7Bqex6PljBTXAKUBGXIVdBVTn+F0WJfW7Mv0gnSxUV5Tg0LgUPY7pxu8pJx8iy
-	uRDSuC9qiAYulBLCK/45Ckd5UxwoySwVfFGf+eNgNTkMqS6nxXzWPx/wALUPGjsA1yTlB2GLh18/n
-	xfCBXD5u8o4enKrnsmgjqdnTICWbwKCvYt4WAZrZMRM3+vzQIW0pZOnRmunneKTQ+JxvkRDSCoabm
-	DbI9W3zgna2TtzfMmIh9mSQUckfYb7cu0Hf/lrxUJad+E4QpoUFqm8K0dKe7K4cAfdvzeuyUn74ll
-	UHL/puIJiHafA7RZ+4bA==;
+	List-Owner; bh=ovOMMOQ+PXf7j13R8OpYzGDCPieTBxWpvJltMhVUFXI=; b=VFttcZ6hNTIm0c
+	sfho9UU8ur7S9p8nKWOJCeAoCySxug6/SLW6v4uBRVRvXuxah9wXh5hIHLs61hljeCqKWqGQdoQWc
+	nN8xMp9/N3hFVLlZWLzm9qSVn0JUiovfFDG6zNWrw358AqQYCwvThf/JUoxV8Kb8MjEMGTLBPXTNd
+	deufN6stN31ToajhwwkPdZRHR8hs3HVhJC2yoqqBgSPDJO5bLQXVYNFEtJjNcmcyNoOALvw/Lh67S
+	Zum9U2dIjZy04dcc7cE56WOZAbF6tGfeLao0A+EiGGJd68vTaB10l+k5zr1fg9SXiEFGQkCgydfAP
+	DTn4u93/mS+H+AXr5e3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgkFd-008Cf3-1O;
-	Thu, 14 Sep 2023 11:11:13 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1qgkKe-008D0u-0z;
+	Thu, 14 Sep 2023 11:16:24 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgkFZ-008CeL-2O;
-	Thu, 14 Sep 2023 11:11:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=mJIualwweUZGp55FBJbOqzxQCkNxNmUE1MPBTrTAheg=; b=lQUPBh86IwhBsrufNHvbGJoswo
-	o9WAIvldkMVcmqVtmLe5/6bLSewxs+Z2zKOFUciTaBwoznYr/4l9q1BrCNdgMNpyyPJ/FQAJQqRpt
-	HHPuTWXi9FGJI4Fsakq2zuSMCKpyqM9oWOuYFQg3YEY87mcZjBbVyzCG8PlrEOJO4eUs3JYcUsNSV
-	8M1bStdBbGXRz//qXyqilYXz8P/SR3qc6qUFRIBYgyqe6k/ZgeXQE3yBRrtC1g7RGzGLmqTUy/SDw
-	/fKly5ax5mvdKXPRIs0p+eZHMMcY7PYLdgGANRVsDAltijZWEvJAGZoJa9kIJdA5fKcBYM17kUQa+
-	XM7+8THQ==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:55622)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1qgkFT-0003wU-1z;
-	Thu, 14 Sep 2023 12:11:03 +0100
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.94.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1qgkFT-0004iX-Gc; Thu, 14 Sep 2023 12:11:03 +0100
-Date: Thu, 14 Sep 2023 12:11:03 +0100
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-Cc: James Morse <james.morse@arm.com>, linux-pm@vger.kernel.org,
-	loongarch@lists.linux.dev, linux-acpi@vger.kernel.org,
-	linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org, kvmarm@lists.linux.dev,
-	x86@kernel.org, Salil Mehta <salil.mehta@huawei.com>,
-	Jean-Philippe Brucker <jean-philippe@linaro.org>,
-	jianyong.wu@arm.com, justin.he@arm.com
-Subject: Re: [RFC PATCH v2 02/35] drivers: base: Use present CPUs in
- GENERIC_CPU_DEVICES
-Message-ID: <ZQLqRzSeOlBiKCuB@shell.armlinux.org.uk>
+	id 1qgkKa-008CzQ-0K;
+	Thu, 14 Sep 2023 11:16:22 +0000
+Received: from lhrpeml500005.china.huawei.com (unknown [172.18.147.207])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4RmZTc4Qg3z6HJdP;
+	Thu, 14 Sep 2023 19:14:28 +0800 (CST)
+Received: from localhost (10.202.227.76) by lhrpeml500005.china.huawei.com
+ (7.191.163.240) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.31; Thu, 14 Sep
+ 2023 12:16:13 +0100
+Date: Thu, 14 Sep 2023 12:16:12 +0100
+From: Jonathan Cameron <Jonathan.Cameron@Huawei.com>
+To: James Morse <james.morse@arm.com>
+CC: <linux-pm@vger.kernel.org>, <loongarch@lists.linux.dev>,
+	<linux-acpi@vger.kernel.org>, <linux-arch@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-riscv@lists.infradead.org>, <kvmarm@lists.linux.dev>,
+	<x86@kernel.org>, Salil Mehta <salil.mehta@huawei.com>, Russell King
+	<linux@armlinux.org.uk>, Jean-Philippe Brucker <jean-philippe@linaro.org>,
+	<jianyong.wu@arm.com>, <justin.he@arm.com>
+Subject: Re: [RFC PATCH v2 04/35] drivers: base: Move cpu_dev_init() after
+ node_dev_init()
+Message-ID: <20230914121612.00006ac7@Huawei.com>
+In-Reply-To: <20230913163823.7880-5-james.morse@arm.com>
 References: <20230913163823.7880-1-james.morse@arm.com>
- <20230913163823.7880-3-james.morse@arm.com>
- <ZQLCZsw+ZGbTM8oK@shell.armlinux.org.uk>
- <20230914115613.0000778e@Huawei.com>
+	<20230913163823.7880-5-james.morse@arm.com>
+Organization: Huawei Technologies Research and Development (UK) Ltd.
+X-Mailer: Claws Mail 4.1.0 (GTK 3.24.33; x86_64-w64-mingw32)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230914115613.0000778e@Huawei.com>
+X-Originating-IP: [10.202.227.76]
+X-ClientProxiedBy: lhrpeml100003.china.huawei.com (7.191.160.210) To
+ lhrpeml500005.china.huawei.com (7.191.163.240)
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230914_041109_802135_7DEDCD68 
-X-CRM114-Status: GOOD (  32.55  )
+X-CRM114-CacheID: sfid-20230914_041620_278286_1E7C764C 
+X-CRM114-Status: GOOD (  14.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,91 +75,44 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 14, 2023 at 11:56:13AM +0100, Jonathan Cameron wrote:
-> On Thu, 14 Sep 2023 09:20:54 +0100
-> "Russell King (Oracle)" <linux@armlinux.org.uk> wrote:
+On Wed, 13 Sep 2023 16:37:52 +0000
+James Morse <james.morse@arm.com> wrote:
+
+> NUMA systems require the node descriptions to be ready before CPUs are
+> registered. This is so that the node symlinks can be created in sysfs.
 > 
-> > On Wed, Sep 13, 2023 at 04:37:50PM +0000, James Morse wrote:
-> > > Three of the five ACPI architectures create sysfs entries using
-> > > register_cpu() for present CPUs, whereas arm64, riscv and all
-> > > GENERIC_CPU_DEVICES do this for possible CPUs.
-> > > 
-> > > Registering a CPU is what causes them to show up in sysfs.
-> > > 
-> > > It makes very little sense to register all possible CPUs. Registering
-> > > a CPU is what triggers the udev notifications allowing user-space to
-> > > react to newly added CPUs.
-> > > 
-> > > To allow all five ACPI architectures to use GENERIC_CPU_DEVICES, change
-> > > it to use for_each_present_cpu(). Making the ACPI architectures use
-> > > GENERIC_CPU_DEVICES is a pre-requisite step to centralise their
-> > > cpu_register() logic, before moving it into the ACPI processor driver.
-> > > When ACPI is disabled this work would be done by
-> > > cpu_dev_register_generic().
-> > > 
-> > > Of the ACPI architectures that register possible CPUs, arm64 and riscv
-> > > do not support making possible CPUs present as they use the weak 'always
-> > > fails' version of arch_register_cpu().
-> > > 
-> > > Only two of the eight architectures that use GENERIC_CPU_DEVICES have a
-> > > distinction between present and possible CPUs.
-> > > 
-> > > The following architectures use GENERIC_CPU_DEVICES but are not SMP,
-> > > so possible == present:
-> > >  * m68k
-> > >  * microblaze
-> > >  * nios2
-> > > 
-> > > The following architectures use GENERIC_CPU_DEVICES and consider
-> > > possible == present:
-> > >  * csky: setup_smp()
-> > >  * parisc: smp_prepare_boot_cpu() marks the boot cpu as present,
-> > >    processor_probe() sets possible for all CPUs and present for all CPUs
-> > >    except the boot cpu.  
-> > 
-> > However, init/main.c::start_kernel() calls boot_cpu_init() which sets
-> > the boot CPU in the online, active, present and possible masks. So,
-> > _every_ architecture gets the boot CPU in all these masks no matter
-> > what.
-> > 
-> > Only of something then clears the boot CPU from these masks (which
-> > would be silly) would the boot CPU not be in all of these masks.
-> Hi Russel,
+> Currently no NUMA platform uses GENERIC_CPU_DEVICES, meaning that CPUs
+> are registered by arch code, instead of cpu_dev_init().
+
+Worth saying why this matters I think.  I wrote a nice note on that being a possible
+problem path as node_dev_init() uses the results of cpu_dev_init() if
+CONFIG_GENERIC_CPU_DEVICES before seeing this comment and realizing you
+had it covered (sort of anyway).
+
 > 
-> Upshot is that the code in parisc smp_prepare_boot_cpu() can be dropped?
-> Seems like another useful simplification to add to front of this series.
+> Move cpu_dev_init() after node_dev_init() so that NUMA architectures
+> can use GENERIC_CPU_DEVICES.
+> 
+> Signed-off-by: James Morse <james.morse@arm.com>
+> ---
+>  drivers/base/init.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/drivers/base/init.c b/drivers/base/init.c
+> index 397eb9880cec..c4954835128c 100644
+> --- a/drivers/base/init.c
+> +++ b/drivers/base/init.c
+> @@ -35,8 +35,8 @@ void __init driver_init(void)
+>  	of_core_init();
+>  	platform_bus_init();
+>  	auxiliary_bus_init();
+> -	cpu_dev_init();
+>  	memory_dev_init();
+>  	node_dev_init();
+> +	cpu_dev_init();
+>  	container_dev_init();
+>  }
 
-Yes - but I personally (and probably others) would like to see progress
-made towards getting at least some of the changes in this series merged,
-rather than seeing this series hang around longer and grow. Nothing in
-this series touches any architecture's smp_prepare_boot_cpu(), so such
-a change would not interfere with this series.
-
-Therefore, I suggest that removing those two set_cpu_*() calls in
-smp_prepare_boot_cpu() is something that could happen irrespective of
-anything in this series, and I would encourage PA-RISC folk to do that
-anway.
-
-The same is true of Loongarch, mips, sh, and sparc32, and they can
-independently sort this.
-
-> Seems there are lots of other empty implementations of smp_prepare_boot_cpu()
-> maybe worth making that optional whilst here and dropping all the empty ones?
-
-Yes, and again, this could be a series separate from this one. If one
-arch wants to add the empty weak version of smp_prepare_boot_cpu(),
-then it would be a matter of others deleting their empty implementation
-(possibly after first having cleaned up the unnecessary set_cpu_*()
-calls).
-
-In any case, I would expect that patches doing any of the above would
-end up being cherry-picked from a series by arch maintainers, so at
-least to me it makes zero sense to include it with this already large
-series, and would make the management of this series more complex.
-
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
 _______________________________________________
 linux-riscv mailing list
