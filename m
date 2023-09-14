@@ -4,61 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0012EEEAA54
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 Sep 2023 16:13:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03BB4EEAA53
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 Sep 2023 16:14:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cNfRr2wOv4pg+uv3ADVWP+yvkmRmY35z5i4rPuq7r+o=; b=ERIu+XXasAU2VV
-	H2fk9WWDod+yiprsUieyRgcizHtIjJvnKb8YWHvwWQCqaCAKqH62PUSGx47F6ZLPYC7ynsXyRe6nN
-	rcANXr2EWK2DFbh9R41VjlmUGWKLPB5EpPiOi+cNW8VqluurRiCZzCzU0ZUOEizH7kk+ksBHB4kXn
-	IKZGG/M4Zlp3NkkBlhqwa/EG/wpxNGCVA94SOoIj8MPwaH1fVkkDSE0d9XxzAwTpqjdfZETBnZqZw
-	5qpMwfc+s1DJ7TylBkUhzd48GO1h5avdVvGD9KtS57St2J8G9yVuxri5d5u88kdsGXtW6CxbJklnv
-	MUD6ypRwcLxhuwP3ie6g==;
+	List-Owner; bh=UPSGooYqLkCKvx+C8tMfSmrnsIAkRbiqC3Tgz6wYkMM=; b=SZ+CGXA/CCECLy
+	k4oLIHKrPNW7t2nt+yVAzP+3BpWg17h5ricKcvx4ClPYjLiW68dpLmRjkwf52APltTsYhygYlFrtl
+	uz4vel1UgZUG1hVbUP93LAGBpzBQ7nWyT75D66GLr1REXab3kk/bR3fWeoKsBzJq4ZUq0cPYY0RtB
+	nUUQSl23zw63legNvtQRkGtTg3VOIMjIJrqKlr7J6uh6O3+HQxFHhVmffe4df9fUOeat/h7ENO0mM
+	klurCKmNXSPG7fOacnKbJchV8kNWDPxGSKpNkJYUKPCu3kHdkr+ZylQaDrzkqskc7XtaoeIf/yEtz
+	W90nl4mSVxy/Dhoz4nRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgoyZ-008tC2-0Y;
-	Thu, 14 Sep 2023 16:13:55 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1qgoz2-008tH0-1i;
+	Thu, 14 Sep 2023 16:14:24 +0000
+Received: from mail-pj1-x1036.google.com ([2607:f8b0:4864:20::1036])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgoyU-008tA4-2H;
-	Thu, 14 Sep 2023 16:13:53 +0000
-Received: from lhrpeml500005.china.huawei.com (unknown [172.18.147.226])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4Rmj4r2vBYz6HJcg;
-	Fri, 15 Sep 2023 00:11:56 +0800 (CST)
-Received: from localhost (10.202.227.76) by lhrpeml500005.china.huawei.com
- (7.191.163.240) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.31; Thu, 14 Sep
- 2023 17:13:41 +0100
-Date: Thu, 14 Sep 2023 17:13:41 +0100
-From: Jonathan Cameron <Jonathan.Cameron@Huawei.com>
-To: James Morse <james.morse@arm.com>
-CC: <linux-pm@vger.kernel.org>, <loongarch@lists.linux.dev>,
-	<linux-acpi@vger.kernel.org>, <linux-arch@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-riscv@lists.infradead.org>, <kvmarm@lists.linux.dev>,
-	<x86@kernel.org>, Salil Mehta <salil.mehta@huawei.com>, Russell King
-	<linux@armlinux.org.uk>, Jean-Philippe Brucker <jean-philippe@linaro.org>,
-	<jianyong.wu@arm.com>, <justin.he@arm.com>
-Subject: Re: [RFC PATCH v2 32/35] ACPI: add support to register CPUs based
- on the _STA enabled bit
-Message-ID: <20230914171341.00006e51@Huawei.com>
-In-Reply-To: <20230913163823.7880-33-james.morse@arm.com>
-References: <20230913163823.7880-1-james.morse@arm.com>
-	<20230913163823.7880-33-james.morse@arm.com>
-Organization: Huawei Technologies Research and Development (UK) Ltd.
-X-Mailer: Claws Mail 4.1.0 (GTK 3.24.33; x86_64-w64-mingw32)
+	id 1qgoyz-008tFz-1o
+	for linux-riscv@lists.infradead.org;
+	Thu, 14 Sep 2023 16:14:23 +0000
+Received: by mail-pj1-x1036.google.com with SMTP id 98e67ed59e1d1-2747b49cac4so523734a91.0
+        for <linux-riscv@lists.infradead.org>; Thu, 14 Sep 2023 09:14:20 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1694708060; x=1695312860; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=nE0aoCznO4lO1M+q3CiqWDdRUIUR9dxzkIRDNw4yOmY=;
+        b=v/deccuB909daqP50jU2x3n2sUCFTBpG3eLubNuJp0rGoRh1wBcH4X7BSXx2OVdd8g
+         VFmk0f8yQ8GPATY97DGqCLUmfzVLjlP28Z9foMcX2DkgzwCPwoIF6hCy5XRkaJ3SCsEJ
+         RNRl/BA/ABJ/L0iGfiulWQT3bA7WMahtu2b35Y9OIsDJgyTJXKX1w3WgLFFKC2UK0kIP
+         kezSNF5fWvhXukfwS0jo0T6a+I2m/X89cvjuxfAnVPxTtYAm4tHTxfkFqJbmCwnWPEuR
+         T71V7MfSR/g014DTd+0p8+ukKs+aOw76dvABU+LohtIkd4AS2ZPbELXb+oQADesNlksg
+         iK+Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1694708060; x=1695312860;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=nE0aoCznO4lO1M+q3CiqWDdRUIUR9dxzkIRDNw4yOmY=;
+        b=GAIFMvcrYWNGFGuhDwisFkpkOVM+vIAc1MUk3f4DUCDrOihlvEidz6ia5XHU+4tvHQ
+         1zjJADjsrBcEoVbhxATnZXKSk+Fu4/qQXcN9wUIEkb6spOzPuiWWUyW9r00KZfJVht4n
+         b5uGFqUjBkZWKYjT7velZcW5wWZ6TfnnfaiG23OyU5PAI3u+DYnFMJ8kutaivHoWLMT7
+         kKv93pJjVJR1WbOUcUbB97XmCFV7GJzAEBfPSYaamxOxiohcBtf8dkcE1o6zzvlJ7FTW
+         SGLpvacCBXgpqYfm76RsyRXo1Y0O0aSoDvyjnPC2l2nYMj9mCUk87lzrSw+oUDdIcEtP
+         NSQg==
+X-Gm-Message-State: AOJu0YwTfnk8xbU5EUtoGl2hN2O4Z/fyVEd7dRy0QcV1z6Xpk9pgN2aw
+	PwJ6HPSFRfKKrKylAfrwUhIzWg==
+X-Google-Smtp-Source: AGHT+IGyECtUBVI/6INcM8krANysLZY5xSVet68OyZ4X0m4nqHcUmrkpbyiqT0B82hdqoIIv7vyLbg==
+X-Received: by 2002:a17:90b:4b84:b0:26b:2538:d717 with SMTP id lr4-20020a17090b4b8400b0026b2538d717mr5811694pjb.25.1694708060108;
+        Thu, 14 Sep 2023 09:14:20 -0700 (PDT)
+Received: from ghost ([50.168.177.76])
+        by smtp.gmail.com with ESMTPSA id j5-20020a17090aeb0500b0026b4ca7f62csm1504449pjz.39.2023.09.14.09.14.18
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 14 Sep 2023 09:14:19 -0700 (PDT)
+Date: Thu, 14 Sep 2023 12:14:16 -0400
+From: Charlie Jenkins <charlie@rivosinc.com>
+To: Conor Dooley <conor.dooley@microchip.com>
+Subject: Re: [PATCH v4 4/5] riscv: Vector checksum library
+Message-ID: <ZQMxWPczYeDMCokP@ghost>
+References: <20230911-optimize_checksum-v4-0-77cc2ad9e9d7@rivosinc.com>
+ <20230911-optimize_checksum-v4-4-77cc2ad9e9d7@rivosinc.com>
+ <20230914-pennant-obligate-db3adf056281@wendy>
 MIME-Version: 1.0
-X-Originating-IP: [10.202.227.76]
-X-ClientProxiedBy: lhrpeml500006.china.huawei.com (7.191.161.198) To
- lhrpeml500005.china.huawei.com (7.191.163.240)
-X-CFilter-Loop: Reflected
+Content-Disposition: inline
+In-Reply-To: <20230914-pennant-obligate-db3adf056281@wendy>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230914_091351_027357_E15F00FC 
-X-CRM114-Status: GOOD (  23.34  )
+X-CRM114-CacheID: sfid-20230914_091421_802347_883E8F93 
+X-CRM114-Status: GOOD (  21.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,117 +86,50 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: Albert Ou <aou@eecs.berkeley.edu>, linux-kernel@vger.kernel.org, Conor Dooley <conor@kernel.org>, David Laight <David.Laight@aculab.com>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 13 Sep 2023 16:38:20 +0000
-James Morse <james.morse@arm.com> wrote:
-
-> acpi_processor_get_info() registers all present CPUs. Registering a
-> CPU is what creates the sysfs entries and triggers the udev
-> notifications.
+On Thu, Sep 14, 2023 at 01:46:29PM +0100, Conor Dooley wrote:
+> On Mon, Sep 11, 2023 at 03:57:14PM -0700, Charlie Jenkins wrote:
+> > This patch is not ready for merge as vector support in the kernel is
+> > limited. However, the code has been tested in QEMU so the algorithms
+> > do work. This code requires the kernel to be compiled with C vector
+> > support, but that is not yet possible. It is written in assembly
+> > rather than using the GCC vector instrinsics because they did not
+> > provide optimal code.
+> > 
+> > Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
+> > ---
+> >  arch/riscv/lib/csum.c | 92 +++++++++++++++++++++++++++++++++++++++++++++++++++
+> >  1 file changed, 92 insertions(+)
+> > 
+> > diff --git a/arch/riscv/lib/csum.c b/arch/riscv/lib/csum.c
+> > index 47d98c51bab2..eb4596fc7f5b 100644
+> > --- a/arch/riscv/lib/csum.c
+> > +++ b/arch/riscv/lib/csum.c
+> > @@ -12,6 +12,10 @@
+> >  
+> >  #include <net/checksum.h>
+> >  
+> > +#ifdef CONFIG_RISCV_ISA_V
+> > +#include <riscv_vector.h>
 > 
-> arm64 virtual machines that support 'virtual cpu hotplug' use the
-> enabled bit to indicate whether the CPU can be brought online, as
-> the existing ACPI tables require all hardware to be described and
-> present.
+> What actually includes this header, I don't see it in either Andy's
+> in-kernel vector series or Bjorn's blake2 one.
+> Can you link to the pre-requisites in your cover letter please.
 > 
-> If firmware describes a CPU as present, but disabled, skip the
-> registration. Such CPUs are present, but can't be brought online for
-> whatever reason. (e.g. firmware/hypervisor policy).
-> 
-> Once firmware sets the enabled bit, the CPU can be registered and
-> brought online by user-space. Online CPUs, or CPUs that are missing
-> an _STA method must always be registered.
-> 
-> Signed-off-by: James Morse <james.morse@arm.com>
-A small argument with myself inline. Feel free to ignore.
+> Thanks,
+> Conor.
 
-Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+It is defined here:
+https://github.com/riscv-non-isa/rvv-intrinsic-doc/blob/main/doc/rvv-intrinsic-spec.adoc.
+The header is for the vector intrinsics that are supported by llvm and
+gcc.
 
-> ---
->  drivers/acpi/acpi_processor.c | 31 ++++++++++++++++++++++++++++++-
->  1 file changed, 30 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/acpi/acpi_processor.c b/drivers/acpi/acpi_processor.c
-> index b67616079751..b49859eab01a 100644
-> --- a/drivers/acpi/acpi_processor.c
-> +++ b/drivers/acpi/acpi_processor.c
-> @@ -227,6 +227,32 @@ static int acpi_processor_make_present(struct acpi_processor *pr)
->  	return ret;
->  }
->  
-> +static int acpi_processor_make_enabled(struct acpi_processor *pr)
-> +{
-> +	unsigned long long sta;
-> +	acpi_status status;
-> +	bool present, enabled;
-> +
-> +	if (!acpi_has_method(pr->handle, "_STA"))
-> +		return arch_register_cpu(pr->id);
-> +
-> +	status = acpi_evaluate_integer(pr->handle, "_STA", NULL, &sta);
-> +	if (ACPI_FAILURE(status))
-> +		return -ENODEV;
-> +
-> +	present = sta & ACPI_STA_DEVICE_PRESENT;
-> +	enabled = sta & ACPI_STA_DEVICE_ENABLED;
-> +
-> +	if (cpu_online(pr->id) && (!present || !enabled)) {
-> +		pr_err_once(FW_BUG "CPU %u is online, but described as not present or disabled!\n", pr->id);
-
-Why once?  If this for some reason happened on multiple CPUs I think we'd want to know.
-
-> +		add_taint(TAINT_FIRMWARE_WORKAROUND, LOCKDEP_STILL_OK);
-> +	} else if (!present || !enabled) {
-> +		return -ENODEV;
-> +	}
-
-I guess you didn't do a nested if here to avoid even longer lines.
-Could flip things around though I don't like this much either as it makes
-the normal good path exit mid way down.
-
-	if (present && enabled)
-		return arch_register_cpu(pr->id);
-
-	if (!cpu_online(pr->id))
-		return -ENODEV;
-
-	pr_err...
-	add_taint(...
-
-	return arch_register_cpu(pr->id);
-
-Ah well. Some code just has to be less than pretty.	
-
-> +
-> +	return arch_register_cpu(pr->id);
-> +}
-> +
->  static int acpi_processor_get_info(struct acpi_device *device)
->  {
->  	union acpi_object object = { 0 };
-> @@ -318,7 +344,7 @@ static int acpi_processor_get_info(struct acpi_device *device)
->  	 */
->  	if (!invalid_logical_cpuid(pr->id) && cpu_present(pr->id) &&
->  	    !get_cpu_device(pr->id)) {
-> -		int ret = arch_register_cpu(pr->id);
-> +		int ret = acpi_processor_make_enabled(pr);
->  
->  		if (ret)
->  			return ret;
-> @@ -526,6 +552,9 @@ static void acpi_processor_post_eject(struct acpi_device *device)
->  		acpi_processor_make_not_present(device);
->  		return;
->  	}
-> +
-> +	if (cpu_present(pr->id) && !(sta & ACPI_STA_DEVICE_ENABLED))
-> +		arch_unregister_cpu(pr->id);
->  }
->  
->  #ifdef CONFIG_ARCH_MIGHT_HAVE_ACPI_PDC
+- Charlie
 
 
 _______________________________________________
