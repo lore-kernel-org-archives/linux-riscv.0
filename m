@@ -4,90 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B462EEAA4E
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 Sep 2023 15:01:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BED2DEEAA4F
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 Sep 2023 15:02:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Qh+i0SKq63q9xCeCDPUr2STTazGvzjH7nbNXzOj4ORg=; b=xt7CS9jW0LgK95
-	m+BULnrC32FVb2HJPUMng+4GtJNB/KDhrR1r/vxLphpYaZl2EIV1I+JKZRtZF2AEM4q4NKUU5KJwN
-	T2I/AuWvwUiwKtamiVBFeIZ9ZlBxhX6RFrNiVtQHnflbq2wxnFbuJdTWRPR7uZKX8q1//FHkZFkeG
-	HJW1jqzGPor6Yy2yCRg3sFDYUOHXOQr3nfTsh7ImL0dIssSk6QzWo+GpbJGHI5pyUSy/ePLkWKKmd
-	BMr3K77SUUtuOGYA4pK31D9pJfVPSVsDniIS3WKH4+q2y5LaQATmfEXvX+2XO0hT7X+xZ67Xk7uuG
-	KU9WMNh/VUmWHtVOtpCw==;
+	List-Owner; bh=pKOigpPc/sgySoEpkLJ9NaT7bIuUo1rJu0eDAQxyUBc=; b=gUN2+jmtah5Hu0
+	dKn8XDTY7pG/EeCvqrg6ZNd5uM4KqfXDnLN9B6jeajW0n9Fj2/4NJ5aJGdXIiDS76O16eTeIlGgMF
+	iQVklNc3prc3x93Vyk3voBhxhr1HOlg3lfQ7WawW/URzBuBCkQJNpla1gVN125KoaViL+V3Avj8OQ
+	XYb1c27AG0/0DSbJk9V+vryjjOH9K1OyjV4oD9DFJgpcmWr4xgFXQ6jR/z1eBBMPIrSgjoaYu/3Ab
+	hdRrbr/x8kdLfEqokTKdm5fKxIdBBytyXO3h880spiiGakjS7sxtnMSORnPgEtMVeBw7+RNsn3ReS
+	hnrlsDJdweLggSeZM4AA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgnqg-008j5l-1u;
-	Thu, 14 Sep 2023 15:01:42 +0000
-Received: from mail-lf1-x12f.google.com ([2a00:1450:4864:20::12f])
+	id 1qgnrZ-008jLF-08;
+	Thu, 14 Sep 2023 15:02:37 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgnqd-008j4m-19
-	for linux-riscv@lists.infradead.org;
-	Thu, 14 Sep 2023 15:01:41 +0000
-Received: by mail-lf1-x12f.google.com with SMTP id 2adb3069b0e04-501bd6f7d11so1791105e87.1
-        for <linux-riscv@lists.infradead.org>; Thu, 14 Sep 2023 08:01:39 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1694703698; x=1695308498; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=5lwTM7NAptIePULa3PTJyJA+6Q6I8uSQc1kUpAUbvFQ=;
-        b=nTw/yCtXKs/fdx71QGlQTDKV3yA1Z+OAiUb3EQAwaNEF5oOHFG1GU7H91fTILGttYl
-         bhAPm6zG0lbhrNLaUXv5F0BhjZ+6NN/WREHTYZOtPYaO/j1TQcPB3RDJfmwvR6Eo2tIZ
-         Y115mTE+yG1KCuZkC1g3w5x+5jLqNxUR9StAJSvGK1pSqUn2TWjyVF/lmFBQIo5cuvi+
-         Lnkr/v9Q8RZRNajZxjpraXTdA6t+huglxbgm7rPpo6YcvyI5H6Fq67PjHtcWuSF8oh6X
-         RUW+olJbitScPgot1IknhXZJFbl4DwFeDun9zlYiaj6TJnW77ShvoJ+nolyF++JojXBQ
-         rsRA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1694703698; x=1695308498;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=5lwTM7NAptIePULa3PTJyJA+6Q6I8uSQc1kUpAUbvFQ=;
-        b=bRqCIdCF+fLp/3FA2vsWK7qTrxOdfLL3H3e56+iSPbJvVNsrOgnqPt6F0OmcCxqz6R
-         wQncCqNVXfUdGGbcbVNZUbgnXILWNLy0aXSJ4Je8xdI5NpZLjFqB7qA2cybmNWICQ3RW
-         V3RYnjOM6+ydYRWVIXEgTUCq1GWsxMwSxYtREu2UZdjUkNn81t7ErXxnJ+l/FUEYSZzs
-         qiBbdhP4as2WDvFyVcoRWbkpQdqBfhVPSzpX+VOT/M4h6DNey6xVu44Ob3oH5Qsqv/DK
-         V/zo9jyyy3CpsplHvSfnGjLSaulsFATAhkv6/xW7o/iD/fnMjycyWWWgoUGvjdYACWD9
-         x0Gg==
-X-Gm-Message-State: AOJu0YwNXxpZD2LNOK0S0PGPfKGTxzuV3PsfCZCz8XXH3E5Uoi9wOU4k
-	Jpst81lx0pGyoqLqDa02Cxt1ZeFSkpu8N2xmHcenjQ==
-X-Google-Smtp-Source: AGHT+IFcyTtDdaB1eVUQNQHCHqX6jsxMHYXjYH0JAqO643ytu1xJEJomtzaxCmNjZVzVVmvB2enLxjJb9sajIitl9Q0=
-X-Received: by 2002:a05:6512:39c2:b0:500:bddc:56d5 with SMTP id
- k2-20020a05651239c200b00500bddc56d5mr5478034lfu.37.1694703697683; Thu, 14 Sep
- 2023 08:01:37 -0700 (PDT)
+	id 1qgnrW-008jIR-0i;
+	Thu, 14 Sep 2023 15:02:35 +0000
+Received: from lhrpeml500005.china.huawei.com (unknown [172.18.147.200])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4RmgWw1VMVz6K5sT;
+	Thu, 14 Sep 2023 23:01:48 +0800 (CST)
+Received: from localhost (10.202.227.76) by lhrpeml500005.china.huawei.com
+ (7.191.163.240) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.31; Thu, 14 Sep
+ 2023 16:02:24 +0100
+Date: Thu, 14 Sep 2023 16:02:23 +0100
+From: Jonathan Cameron <Jonathan.Cameron@Huawei.com>
+To: James Morse <james.morse@arm.com>
+CC: <linux-pm@vger.kernel.org>, <loongarch@lists.linux.dev>,
+	<linux-acpi@vger.kernel.org>, <linux-arch@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-riscv@lists.infradead.org>, <kvmarm@lists.linux.dev>,
+	<x86@kernel.org>, Salil Mehta <salil.mehta@huawei.com>, Russell King
+	<linux@armlinux.org.uk>, Jean-Philippe Brucker <jean-philippe@linaro.org>,
+	<jianyong.wu@arm.com>, <justin.he@arm.com>
+Subject: Re: [RFC PATCH v2 29/35] irqchip/gic-v3: Don't return errors from
+ gic_acpi_match_gicc()
+Message-ID: <20230914160223.0000782f@Huawei.com>
+In-Reply-To: <20230913163823.7880-30-james.morse@arm.com>
+References: <20230913163823.7880-1-james.morse@arm.com>
+	<20230913163823.7880-30-james.morse@arm.com>
+Organization: Huawei Technologies Research and Development (UK) Ltd.
+X-Mailer: Claws Mail 4.1.0 (GTK 3.24.33; x86_64-w64-mingw32)
 MIME-Version: 1.0
-References: <20230818194136.4084400-1-evan@rivosinc.com> <20230818194136.4084400-2-evan@rivosinc.com>
- <CAMuHMdVtXGjP8VFMiv-7OMFz1XvfU1cz=Fw4jL3fcp4wO1etzQ@mail.gmail.com>
- <CALs-Hsvu7BsK8P0+xeuLmKEqg-q=kQANbf8FkiPGPhwhnSXpmA@mail.gmail.com>
- <CAMuHMdV594xA1UoTeVixpXm3i5LDFO5cT=dd_iRwWLwvxQctZg@mail.gmail.com> <de95229a14614198894a8ce421c30d94@AcuMS.aculab.com>
-In-Reply-To: <de95229a14614198894a8ce421c30d94@AcuMS.aculab.com>
-From: Evan Green <evan@rivosinc.com>
-Date: Thu, 14 Sep 2023 08:01:01 -0700
-Message-ID: <CALs-Hstcz3OAxUi80nm+U0R56VBUUPQT=+XMOLpVJsn2ZOcM1A@mail.gmail.com>
-Subject: Re: [PATCH v4 1/2] RISC-V: Probe for unaligned access speed
-To: David Laight <David.Laight@aculab.com>
-Cc: Geert Uytterhoeven <geert@linux-m68k.org>, Palmer Dabbelt <palmer@rivosinc.com>, 
-	Heiko Stuebner <heiko@sntech.de>, "linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>, 
-	=?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>, 
-	Conor Dooley <conor.dooley@microchip.com>, Guo Ren <guoren@kernel.org>, 
-	Jisheng Zhang <jszhang@kernel.org>, 
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>, Jonathan Corbet <corbet@lwn.net>, 
-	Sia Jee Heng <jeeheng.sia@starfivetech.com>, Marc Zyngier <maz@kernel.org>, 
-	Masahiro Yamada <masahiroy@kernel.org>, Greentime Hu <greentime.hu@sifive.com>, 
-	Simon Hosie <shosie@rivosinc.com>, Andrew Jones <ajones@ventanamicro.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alexghiti@rivosinc.com>, 
-	Ley Foon Tan <leyfoon.tan@starfivetech.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Anup Patel <apatel@ventanamicro.com>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
-	Xianting Tian <xianting.tian@linux.alibaba.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Andy Chiu <andy.chiu@sifive.com>
+X-Originating-IP: [10.202.227.76]
+X-ClientProxiedBy: lhrpeml500006.china.huawei.com (7.191.161.198) To
+ lhrpeml500005.china.huawei.com (7.191.163.240)
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230914_080139_591358_0754E800 
-X-CRM114-Status: GOOD (  30.86  )
+X-CRM114-CacheID: sfid-20230914_080234_541526_B7D0B68E 
+X-CRM114-Status: GOOD (  23.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,71 +70,77 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVGh1LCBTZXAgMTQsIDIwMjMgYXQgMTo0N+KAr0FNIERhdmlkIExhaWdodCA8RGF2aWQuTGFp
-Z2h0QGFjdWxhYi5jb20+IHdyb3RlOgo+Cj4gRnJvbTogR2VlcnQgVXl0dGVyaG9ldmVuCj4gPiBT
-ZW50OiAxNCBTZXB0ZW1iZXIgMjAyMyAwODozMwo+IC4uLgo+ID4gPiA+ICAgICByemZpdmU6Cj4g
-PiA+ID4gICAgICAgICBjcHUwOiBSYXRpbyBvZiBieXRlIGFjY2VzcyB0aW1lIHRvIHVuYWxpZ25l
-ZCB3b3JkIGFjY2VzcyBpcwo+ID4gPiA+IDEuMDUsIHVuYWxpZ25lZCBhY2Nlc3NlcyBhcmUgZmFz
-dAo+ID4gPgo+ID4gPiBIcm0sIEknbSBhIGxpdHRsZSBzdXJwcmlzZWQgdG8gYmUgc2VlaW5nIHRo
-aXMgbnVtYmVyIGNvbWUgb3V0IHNvIGNsb3NlCj4gPiA+IHRvIDEuIElmIHlvdSByZWJvb3QgYSBm
-ZXcgdGltZXMsIHdoYXQga2luZCBvZiB2YXJpYW5jZSBkbyB5b3UgZ2V0IG9uCj4gPiA+IHRoaXM/
-Cj4gPgo+ID4gUm9jay1zb2xpZCBhdCAxLjA1IChldmVuIHdpdGggaW5jcmVhc2VkIHJlc29sdXRp
-b246IDEuMDU4NTMgb24gMyB0cmllcykKPgo+IFdvdWxkIHRoYXQgbWF0Y2ggemVybyBvdmVyaGVh
-ZCB1bmxlc3MgdGhlIGFjY2VzcyBjcm9zc2VzIGEKPiBjYWNoZSBsaW5lIGJvdW5kYXJ5Pwo+IChJ
-IGNhbid0IHJlbWVtYmVyIHdoZXRoZXIgdGhlIHRlc3QgaXMgdXNpbmcgaW5jcmVhc2luZyBhZGRy
-ZXNzZXMuKQoKWWVzLCB0aGUgdGVzdCBkb2VzIHVzZSBpbmNyZWFzaW5nIGFkZHJlc3NlcywgaXQg
-Y29waWVzIGFjcm9zcyA0IHBhZ2VzLgpXZSBzdGFydCB3aXRoIGEgd2FybXVwLCBzbyBjYWNoaW5n
-IGVmZmVjdHMgYmV5b25kIEwxIGFyZSBsYXJnZWx5IG5vdAp0YWtlbiBpbnRvIGFjY291bnQuCgo+
-Cj4gLi4uCj4gPiA+ID4gICAgIHZleHJpc2N2L29yYW5nZWNyYWI6Cj4gPiA+ID4KPiA+ID4gPiAg
-ICAgICAgIGNwdTA6IFJhdGlvIG9mIGJ5dGUgYWNjZXNzIHRpbWUgdG8gdW5hbGlnbmVkIHdvcmQg
-YWNjZXNzIGlzCj4gPiA+ID4gMC4wMCwgdW5hbGlnbmVkIGFjY2Vzc2VzIGFyZSBzbG93Cj4gPgo+
-ID4gY3B1MDogUmF0aW8gb2YgYnl0ZSBhY2Nlc3MgdGltZSB0byB1bmFsaWduZWQgd29yZCBhY2Nl
-c3MgaXMgMC4wMDQxNywKPiA+IHVuYWxpZ25lZCBhY2Nlc3NlcyBhcmUgc2xvdwo+ID4KPiA+ID4g
-PiBJIGFtIGEgYml0IHN1cnByaXNlZCBieSB0aGUgbmVhci16ZXJvIHZhbHVlcy4gIEFyZSB0aGVz
-ZSBleHBlY3RlZD8KPiA+ID4KPiA+ID4gVGhpcyBjb3VsZCBiZSBleHBlY3RlZCwgaWYgZmlybXdh
-cmUgaXMgdHJhcHBpbmcgdGhlIHVuYWxpZ25lZCBhY2Nlc3Nlcwo+ID4gPiBhbmQgY29taW5nIG91
-dCA+MTAweCBzbG93ZXIgdGhhbiBhIG5hdGl2ZSBhY2Nlc3MuIElmIHlvdSdyZSBpbnRlcmVzdGVk
-Cj4gPiA+IGluIGdldHRpbmcgYSBsaXR0bGUgbW9yZSByZXNvbHV0aW9uLCB5b3UgY291bGQgdHJ5
-IHRvIHByaW50IGEgZmV3IG1vcmUKPiA+ID4gZGVjaW1hbCBwbGFjZXMgd2l0aCBzb21ldGhpbmcg
-bGlrZSAoc29ycnkgZ21haWwgbWFuZ2xlcyB0aGUgd2hpdGVzcGFjZQo+ID4gPiBvbiB0aGlzKToK
-Pgo+IEknZCBleHBlY3Qgb25lIG9mIHRocmVlIHBvc3NpYmxlIHZhbHVlczoKPiAtIDEuMHg6IEJh
-c2ljYWxseSB6ZXJvIGNvc3QgZXhjZXB0IGZvciBjYWNoZSBsaW5lL3BhZ2UgYm91bmRhcmllcy4K
-PiAtIH4yOiBIYXJkd2FyZSBkb2VzIHR3byByZWFkcyBhbmQgbWVyZ2VzIHRoZSB2YWx1ZXMuCj4g
-LSA+MTAwOiBUcmFwIGZpeGVkIHVwIGluIHNvZnR3YXJlLgo+Cj4gSSdkIHRoaW5rIHRoZSAnMicg
-Y2FzZSBjb3VsZCBiZSBjb25zaWRlcmVkIGZhc3QuCj4gWW91IG9ubHkgbmVlZCB0byB0aW1lIG9u
-ZSBhY2Nlc3MgdG8gc2VlIGlmIGl0IHdhcyBhIGZhdWx0LgoKV2UncmUgY29tcGFyaW5nIG1pc2Fs
-aWduZWQgd29yZCBhY2Nlc3NlcyB3aXRoIGJ5dGUgYWNjZXNzZXMgb2YgdGhlCnNhbWUgdG90YWwg
-c2l6ZS4gU28gMS4wIG1lYW5zIGEgbWlzYWxpZ25lZCBsb2FkIGlzIGJhc2ljYWxseSBubwpkaWZm
-ZXJlbnQgZnJvbSA4IGJ5dGUgbG9hZHMuIFRoZSBnb2FsIHdhcyB0byBoZWxwIHBlb3BsZSB0aGF0
-IGFyZQpmb3JjZWQgdG8gZG8gb2RkIGxvYWRzIGFuZCBzdG9yZXMgZGVjaWRlIHdoZXRoZXIgdGhl
-eSBhcmUgYmV0dGVyIG9mZgptb3ZpbmcgYnkgYnl0ZXMgb3IgYnkgbWlzYWxpZ25lZCB3b3Jkcy4g
-KEluIGNvbnRyYXN0LCB0aGUgYW5zd2VyIHRvCiJzaG91bGQgSSBkbyBhIG1pc2FsaWduZWQgd29y
-ZCBsb2FkIG9yIGFuIGFsaWduZWQgd29yZCBsb2FkIiBpcwpnZW5lcmFsbHkgYWx3YXlzICJkbyB0
-aGUgYWxpZ25lZCBvbmUgaWYgeW91IGNhbiIsIHNvIGNvbXBhcmluZyB0aG9zZQp0d28gdGhpbmdz
-IGRpZG4ndCBzZWVtIGFzIHVzZWZ1bCkuCgpXZSBvcHRlZCBmb3IgMS4wIGFzIGEgY3V0b2ZmLCBz
-aW5jZSBldmVuIGF0IDEuMDUsIHlvdSBnZXQgYSBib29zdCBmcm9tCmRvaW5nIG1pc2FsaWduZWQg
-d29yZCBsb2FkcyBvdmVyIGJ5dGUgY29waWVzLiBJIGFza2VkIGFib3V0IHRoZQp2YXJpYW5jZSBi
-ZWNhdXNlIEkgZG9uJ3Qgd2FudCB0byBzZWUgbWFjaGluZXMgdGhhdCBjaGFuZ2UgdGhlaXIgbWlu
-ZApmcm9tIGJvb3QgdG8gYm9vdC4gSSBvcmlnaW5hbGx5IGNvbnNpZGVyZWQgdHJ5aW5nIHRvIGNy
-ZWF0ZSBhICJncmF5CnpvbmUiIHdoZXJlIHRoZSBhbnN3ZXIgZ29lcyBiYWNrIHRvIFVOS05PV04s
-IGJ1dCBpbiB0aGUgZW5kIHRoYXQganVzdAptb3ZlcyB0aGUgZmlkZGx5IHBvaW50IHJhdGhlciB0
-aGFuIHJlYWxseSBlbGltaW5hdGluZyBpdC4KCllvdSdyZSByaWdodCB0aGF0IGluIHRoZW9yeSB3
-ZSBqdXN0IG5lZWQgb25lIHBlcmZlY3QgYWNjZXNzIHRvIHRlc3QsCmJ1dCB0ZXN0aW5nIG9ubHkg
-b25jZSBtYWtlcyBpdCBzdXNjZXB0aWJsZSB0byBoaWNjdXBzLiBXZSB3ZW50IHdpdGgKZG9pbmcg
-aXQgbWFueSB0aW1lcyBpbiBhIGZpeGVkIHBlcmlvZCBhbmQgdGFraW5nIHRoZSBtaW5pbXVtIHRv
-CmhvcGVmdWxseSByZW1vdmUgbm9pc2UgbGlrZSBOTUktbGlrZSB0aGluZ3MsIGJyYW5jaCBwcmVk
-aWN0aW9uIG1pc3NlcywKb3IgY2FjaGUgZXZpY3Rpb24uCgpHZWVydCwKVGhhbmtzIGZvciBwcm92
-aWRpbmcgdGhlIG51bWJlcnMuIFllcywgd2UgY291bGQgYWRkIGFub3RoZXIgZGlnaXQgdG8KdGhl
-IHByaW50LiBUaG91Z2ggaWYgeW91IGFscmVhZHkga25vdyB5b3UncmUgYXQgbGVhc3QgMTAweCBz
-bG93ZXIsCm1heWJlIGtub3dpbmcgZXhhY3RseSBob3cgbXVjaCBzbG93ZXIgaXNuJ3Qgc3VwZXIg
-bWVhbmluZ2Z1bCwganVzdAp2ZXJ5IG11Y2ggYXZvaWQgdW5hbGlnbmVkIGFjY2Vzc2VzIG9uIHRo
-ZXNlIHN5c3RlbXMgOikuIEhvcGVmdWxseSBvdmVyCnRpbWUgdGhlIG51bWJlciBvZiBzeXN0ZW1z
-IGxpa2UgdGhpcyB3aWxsIGR3aW5kbGUuCgotRXZhbgoKX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJp
-c2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1h
-bi9saXN0aW5mby9saW51eC1yaXNjdgo=
+On Wed, 13 Sep 2023 16:38:17 +0000
+James Morse <james.morse@arm.com> wrote:
+
+> gic_acpi_match_gicc() is only called via gic_acpi_count_gicr_regions().
+> It should only count the number of enabled redistributors, but it
+> also tries to sanity check the GICC entry, currently returning an
+> error if the Enabled bit is set, but the gicr_base_address is zero.
+> 
+> Adding support for the online-capable bit to the sanity check
+> complicates it, for no benefit. The existing check implicitly
+> depends on gic_acpi_count_gicr_regions() previous failing to find
+> any GICR regions (as it is valid to have gicr_base_address of zero if
+> the redistributors are described via a GICR entry).
+> 
+> Instead of complicating the check, remove it. Failures that happen
+> at this point cause the irqchip not to register, meaning no irqs
+> can be requested. The kernel grinds to a panic() pretty quickly.
+> 
+> Without the check, MADT tables that exhibit this problem are still
+> caught by gic_populate_rdist(), which helpfully also prints what
+> went wrong:
+> | CPU4: mpidr 100 has no re-distributor!
+> 
+> Signed-off-by: James Morse <james.morse@arm.com>
+> ---
+>  drivers/irqchip/irq-gic-v3.c | 18 ++++++------------
+>  1 file changed, 6 insertions(+), 12 deletions(-)
+> 
+> diff --git a/drivers/irqchip/irq-gic-v3.c b/drivers/irqchip/irq-gic-v3.c
+> index 72d3cdebdad1..0f54811262eb 100644
+> --- a/drivers/irqchip/irq-gic-v3.c
+> +++ b/drivers/irqchip/irq-gic-v3.c
+> @@ -2415,21 +2415,15 @@ static int __init gic_acpi_match_gicc(union acpi_subtable_headers *header,
+>  
+>  	/*
+>  	 * If GICC is enabled and has valid gicr base address, then it means
+> -	 * GICR base is presented via GICC
+> +	 * GICR base is presented via GICC. The redistributor is only known to
+> +	 * be accessible if the GICC is marked as enabled. If this bit is not
+> +	 * set, we'd need to add the redistributor at runtime, which isn't
+> +	 * supported.
+>  	 */
+> -	if (acpi_gicc_is_usable(gicc) && gicc->gicr_base_address) {
+> +	if (gicc->flags & ACPI_MADT_ENABLED && gicc->gicr_base_address)
+
+Going in circles...
+
+>  		acpi_data.enabled_rdists++;
+> -		return 0;
+> -	}
+>  
+> -	/*
+> -	 * It's perfectly valid firmware can pass disabled GICC entry, driver
+> -	 * should not treat as errors, skip the entry instead of probe fail.
+> -	 */
+> -	if (!acpi_gicc_is_usable(gicc))
+> -		return 0;
+> -
+> -	return -ENODEV;
+> +	return 0;
+>  }
+>  
+>  static int __init gic_acpi_count_gicr_regions(void)
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
