@@ -4,85 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE7DCEE6427
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 Sep 2023 07:32:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7232DEE642D
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 Sep 2023 07:33:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6u9LbI3HYUen4blssGBv0A5Pn1WVOsxsQL//VejQwqg=; b=UqNwHOPzcip/08
-	Yq5WKuaehG9yFuxBardwaWaeBeazETkmhh6BTnRXajMlEoyNlbVl7HUEprZHqEwnYjD822vojDCxQ
-	rd6JjAXdcKx+ZJ67huAgA4E/U1CyZHsYKL2WkscTMgfHtP6eCEFMpevSgC/lOUCFFIq43PWK88hvU
-	oJLXJZHYWw3g/ZzWMoNV88eGOhE/jw0mU6iyH4IZyZ3wC8C9oLORV+tSqutCn93WmuFkETq4dWk/e
-	Rqrz0gIkqWTRvza29OqDUW5zybCyM37awTUcjYHpQY5QP+2ZrNjcJ6Bm9p/T32wefsN2Fay2ZZT6F
-	GBYm2i12CkHDhS6WVlKQ==;
+	List-Owner; bh=tdceb11BGVfD22j0FzdaumVIJBpjAXGCVuqVjECVQXk=; b=Sfm/rwflDhaOR+
+	9C8zlThPeTLbce2l6v8qLmB7u+D15v+3KjjDabkmSswnHphxh4VG5qXtlFCRWBIJY5TxJWIknxtpn
+	OaIJaS1nkPtX5r6I6trxUYF1edY6Gpik0HkmOiaDFiqTx3bVnSXHZ951EmxEz7Jm7q1S/mWTwvYF9
+	lPXRlq1NyZbDVqBnqb1HmIHubsp3LfzEQIYREJJjz17B9b6dz+gnbmL5pym46htgOAHbgeD47iZiX
+	5Pe7TL37k0+ZbdyHdcXBiBlENkK1TihDFUckmHwvK9fskHGTt1lN586qS+KMAqktEXdCd6xSxYxRu
+	uD3xbGeqTomZTTvv/fgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qh3JJ-00A3N9-18;
-	Fri, 15 Sep 2023 07:32:17 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1qh3KM-00A3W1-0L;
+	Fri, 15 Sep 2023 07:33:22 +0000
+Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qh3JG-00A3MW-32
+	id 1qh3KI-00A3V3-32
 	for linux-riscv@lists.infradead.org;
-	Fri, 15 Sep 2023 07:32:16 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-3ff1c397405so19989015e9.3
-        for <linux-riscv@lists.infradead.org>; Fri, 15 Sep 2023 00:32:12 -0700 (PDT)
+	Fri, 15 Sep 2023 07:33:20 +0000
+Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-31f4a286ae1so1533998f8f.3
+        for <linux-riscv@lists.infradead.org>; Fri, 15 Sep 2023 00:33:18 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1694763131; x=1695367931; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1694763197; x=1695367997; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=1pFfXlJOJvNpdcADR+2RDuK6BOaq4eRQB5oTZpxIz5k=;
-        b=sTzzW7UZMmnQVmFpaH+k1f22+mdqewstUP4wJQ0Hd9j8n1JA3Q7WtyNXNOYms/YtVh
-         MGvrmJ9/h0FBYtmJjB1Za/EiQxjtgZQkNg7MwiT5jhVg42k8a2ww4NSBxn7QZDOfEvrl
-         GZRAejvNAWJGoC9FJGectzf/TjXSnvpSwcF4CaDstD/xIXNsPValXHr74D6E2O75YVug
-         VqkljQO91oG8nN7RTn8pGPYlQj98R/7leZn2nfVOFgbhrs86SEtgwWK8zsGw6Na55MRy
-         mBBjyCkpA/PoF+0mPlIZ4+wuaH4xuSfpLlq+fi2x0QzuEFVh51dd8drCuyhYC4v0UePJ
-         8skw==
+        bh=Hfitv4X6lwToXcy41tlreOifKHqkBiKe2Y188NSkf/E=;
+        b=flAwBkoosfXTp54fbx2+mO+1FBgmQxrd80JRcRbY30t2pP1Rw9YNu0eqYnZE4tQRvT
+         2euYZAWxeP1iZMCC7UMAChVrXxnge6gjJvkcvYmPd+zmB3eB5i62BKrMqAtEoSW6ogx5
+         sihAqOAdfnSstICApt8bKjSMHXLBgLr45CXeui47eceSTSNCGKup4EPbuWFy676vHjZs
+         7xBSdatg+ImNkz+MakuosA+ZRY5Ys5eJkAy01UmrlmlUH6dRdoioHItjMWJb4Di4VdJh
+         FHWTSPiP34CmRnDOkB8f4l5vg3N8We+AsiqYq7+66RsauAqWPJ8ah8AvznwG7JxkYWq5
+         jpfg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1694763131; x=1695367931;
+        d=1e100.net; s=20230601; t=1694763197; x=1695367997;
         h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=1pFfXlJOJvNpdcADR+2RDuK6BOaq4eRQB5oTZpxIz5k=;
-        b=l9XZCKBRwNxmtLVNtmH8M79GOSn88pnuJTQxsq1anFTLSa2cDZP6fq+irn16r8uUs8
-         lHe7ZUdXSRR0Vm7P9tCEscGWAoaPTZ9RSv3V3rO7PSzubbjf/3aYKy/NKOUx3USg6yxF
-         AMT1DlqwZ6HlKkabxR02lC6hG3EsKJgKLgEcU45/ZayXvGGPjWlHc9mprc3Fx3ieHAPM
-         JZxWay8TFPQ1nnM1BZn1TXOzeVSgxuCWxP8gEwAPrNvq8nD0+AkAFtQEkFbQP+B+Qmvd
-         H4tfbCON03McJNbt4wr4DJEGVWjboaynFaXiFl4auc4btubRQhOp4E5L5TOoJxgGoX1v
-         WqbA==
-X-Gm-Message-State: AOJu0YxnAvXG7YI+26Z/Yyax+M9XbEvRyMhsonlR4bMo/zt7uiDGoZSY
-	SJ4+F6VlVq2uG/aE64oxUHhBCQ==
-X-Google-Smtp-Source: AGHT+IEk8DMEDkEsYiFq89U3dw2MEH+q7FpthgjHUbEXaIRWLW2niQ9IP4LJHDt5iGn63/nNROlsew==
-X-Received: by 2002:adf:f310:0:b0:317:e04c:6791 with SMTP id i16-20020adff310000000b00317e04c6791mr739845wro.62.1694763131275;
-        Fri, 15 Sep 2023 00:32:11 -0700 (PDT)
+        bh=Hfitv4X6lwToXcy41tlreOifKHqkBiKe2Y188NSkf/E=;
+        b=UUUbC8QqQRsJNAOr0vwbCksIgCnhO0IRbtDqaudxpi3WgKsedZBdw4shXT8rmS0nih
+         z9abjEj4/Nbe9FcbnphtPV+1SZIdsm0e6tsPoIrepg5sYFPdee4nEiuOkpw9t/7f3pBD
+         9wGSG7W/tUCAY/c5LTjozSdYD5HYWh2ZAxFKIS/AUIXkayiqoL7N+CX2/5a+/3tL3Nft
+         8WNAR+QvJ/i20QjFQ/eHgnNgoLAxEjhPKxpCdXk70+VJ4t5Mh0fiItetyGDTM9CbafPV
+         DrxFAf+tmRASjSrGoDw2UlsHMrM//dEKKulWqoojYiL3v9ChjgMKaK3iTp5zYYl55ulq
+         30/w==
+X-Gm-Message-State: AOJu0YxrIESLTyfRFHvhsgKaTgG7HDc0twfkgxsc0YU3d+WsOTJ6flw+
+	ezpQMBh5/SS8aFtyBOIr5MOH5w==
+X-Google-Smtp-Source: AGHT+IHX3L0cvYtW1rLjajL2hbQapX8lSDljHUYvbrbSihTE5UDsyi8Cdbldh20ED7vBOil/5s2bYQ==
+X-Received: by 2002:adf:eccc:0:b0:316:efb9:ffa with SMTP id s12-20020adfeccc000000b00316efb90ffamr792560wro.35.1694763197069;
+        Fri, 15 Sep 2023 00:33:17 -0700 (PDT)
 Received: from [192.168.1.20] ([178.197.214.188])
-        by smtp.gmail.com with ESMTPSA id j6-20020adfff86000000b0031c56218984sm3628569wrr.104.2023.09.15.00.32.09
+        by smtp.gmail.com with ESMTPSA id f3-20020adff983000000b003143c6e09ccsm3663543wrr.16.2023.09.15.00.33.15
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 15 Sep 2023 00:32:10 -0700 (PDT)
-Message-ID: <acd83ee9-951d-928c-eb9f-e3295ae7ad55@linaro.org>
-Date: Fri, 15 Sep 2023 09:32:08 +0200
+        Fri, 15 Sep 2023 00:33:16 -0700 (PDT)
+Message-ID: <803daa8f-f4bd-34b7-f826-89e1db5f24f6@linaro.org>
+Date: Fri, 15 Sep 2023 09:33:14 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
  Thunderbird/102.15.0
-Subject: Re: [PATCH 11/12] riscv: dts: sophgo: Add sophgo,sg2024-uart
- compatibles
+Subject: Re: [PATCH 10/12] serial: 8250_dw: Add Sophgo SG2042 support
 Content-Language: en-US
 To: Wang Chen <unicornxw@gmail.com>, linux-riscv@lists.infradead.org,
  conor@kernel.org, aou@eecs.berkeley.edu, krzysztof.kozlowski+dt@linaro.org,
  palmer@dabbelt.com, paul.walmsley@sifive.com, robh+dt@kernel.org
 Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  jszhang@kernel.org, guoren@kernel.org, chao.wei@sophgo.com,
- xiaoguang.xing@sophgo.com, Wang Chen <wangchen20@iscas.ac.cn>,
+ xiaoguang.xing@sophgo.com,
  Emil Renner Berthing <emil.renner.berthing@canonical.com>
-References: <20230915072624.118388-1-wangchen20@iscas.ac.cn>
+References: <20230915072558.118325-1-wangchen20@iscas.ac.cn>
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <20230915072624.118388-1-wangchen20@iscas.ac.cn>
+In-Reply-To: <20230915072558.118325-1-wangchen20@iscas.ac.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230915_003214_977262_94BC5C10 
-X-CRM114-Status: GOOD (  13.25  )
+X-CRM114-CacheID: sfid-20230915_003318_988625_B518AEBC 
+X-CRM114-Status: GOOD (  15.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,28 +98,47 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 15/09/2023 09:26, Wang Chen wrote:
-> Add compatible for uart.
+On 15/09/2023 09:25, Wang Chen wrote:
+> From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+> 
+> Add quirk to skip setting the input clock rate for the uarts on the
+> Sophgo SG2042 SoC similar to the StarFive JH7100.
 > 
 > Signed-off-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-> Signed-off-by: Wang Chen <wangchen20@iscas.ac.cn>
-> ---
->  arch/riscv/boot/dts/sophgo/sg2042.dtsi | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/arch/riscv/boot/dts/sophgo/sg2042.dtsi b/arch/riscv/boot/dts/sophgo/sg2042.dtsi
-> index 5c4b82f13207..87f7667bbe63 100644
-> --- a/arch/riscv/boot/dts/sophgo/sg2042.dtsi
-> +++ b/arch/riscv/boot/dts/sophgo/sg2042.dtsi
-> @@ -492,7 +492,7 @@ &cpu63_intc  0xffffffff &cpu63_intc  9
->  		};
->  
->  		uart0: serial@7040000000 {
-> -			compatible = "snps,dw-apb-uart";
-> +			compatible = "sophgo,sg2042-uart", "snps,dw-apb-uart";
 
-No, you just added this file. Do not add buggy code which is fixed in
-next patch.
+Missing SoB.
+
+> ---
+>  drivers/tty/serial/8250/8250_dw.c | 5 +++--
+>  1 file changed, 3 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/tty/serial/8250/8250_dw.c b/drivers/tty/serial/8250/8250_dw.c
+> index f4cafca1a7da..6c344877a07f 100644
+> --- a/drivers/tty/serial/8250/8250_dw.c
+> +++ b/drivers/tty/serial/8250/8250_dw.c
+> @@ -770,7 +770,7 @@ static const struct dw8250_platform_data dw8250_renesas_rzn1_data = {
+>  	.quirks = DW_UART_QUIRK_IS_DMA_FC,
+>  };
+>  
+> -static const struct dw8250_platform_data dw8250_starfive_jh7100_data = {
+> +static const struct dw8250_platform_data dw8250_skip_set_rate_data = {
+
+Why? What is wrong with old name?
+
+>  	.usr_reg = DW_UART_USR,
+>  	.quirks = DW_UART_QUIRK_SKIP_SET_RATE,
+>  };
+> @@ -780,7 +780,8 @@ static const struct of_device_id dw8250_of_match[] = {
+>  	{ .compatible = "cavium,octeon-3860-uart", .data = &dw8250_octeon_3860_data },
+>  	{ .compatible = "marvell,armada-38x-uart", .data = &dw8250_armada_38x_data },
+>  	{ .compatible = "renesas,rzn1-uart", .data = &dw8250_renesas_rzn1_data },
+> -	{ .compatible = "starfive,jh7100-uart", .data = &dw8250_starfive_jh7100_data },
+> +	{ .compatible = "sophgo,sg2042-uart", .data = &dw8250_skip_set_rate_data },
+> +	{ .compatible = "starfive,jh7100-uart", .data = &dw8250_skip_set_rate_data },
+
+So devices are fully compatible? Then use compatibility and drop this
+patch entirely.
+
 
 Best regards,
 Krzysztof
