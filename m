@@ -4,87 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3396EE6425
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 Sep 2023 07:09:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30BEDEE6428
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 Sep 2023 07:09:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=X8whGAQoEtg6I46E8Xoekqh3lD+ZGbG7fQx3DUQnDB0=; b=gIsXXfd5JxXVky
-	G5hlJfK1Ffo3f/LHIpbT4K+HrY9HXNrw1ZTjg2WEgBh37Z+S+varnHQgAWOqcxYGY7Mq/2ezenA5J
-	34u+PimtdW1M+L0rCoaPssmhdiCX8LKHhpk9AWwKPXhlQqg0yg4zbnzWXyJwRvPp02yG/4jRI8mKZ
-	2v/+Kk+vT7f1h09CafKttYTTKHRNXTHW4EckTzFo3Oic2IDQCWMw3MWxDkF+8MkbDc5WIW4xmlV1D
-	lLcvBHprlQEbptHoaY9hVLtzNl3Gb3ZvRHkXpfpCCR5STVf6wq+DCeyI+GNX/VhBIsxJHdWSwvCm6
-	/re1JUnTiA+DNgxjOQ/A==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=v4BOWDzWxiXz1OalKbllzzLIcDtFp2hOERjnuMmKqJ8=; b=cFfCLXDPiMqaT7
+	opHOXUO3bfnP59VNceulUeNqh++39DvNCfIG8GUQhMNcMlc+lHchjGYz7YWdKFT+hlGj+DODkhc6/
+	DERTYeU4G5v6/ArWyx8dYNf3xrUsjpbJRbOwoouHSTJCf89Sfo5jD1N1S22FTwo7vicJ10WYK8ZZI
+	d7Cey32L+x9rfvO7tMrcoL1aNI+XhKYJHD5CLPKg1O2GEAryYWrfziVYkS6wOFx88IJdm46lQam52
+	QoYCgattiiavs+mtJ5cVsNJrNftxaD8UpT/3/OZS3D0MbZtTy5iwBvvWez/rI75zzVvYXhgLrLVjh
+	NlUtVOuhFbihCj8e2Z2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qh2xO-009zWe-2D;
-	Fri, 15 Sep 2023 07:09:38 +0000
-Received: from mail-ot1-x32d.google.com ([2607:f8b0:4864:20::32d])
+	id 1qh2xT-009zZp-37;
+	Fri, 15 Sep 2023 07:09:43 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qh2xL-009zVZ-2O
-	for linux-riscv@lists.infradead.org;
-	Fri, 15 Sep 2023 07:09:37 +0000
-Received: by mail-ot1-x32d.google.com with SMTP id 46e09a7af769-6c0e8345c1eso1138924a34.0
-        for <linux-riscv@lists.infradead.org>; Fri, 15 Sep 2023 00:09:34 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1694761774; x=1695366574; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=bJl6f0UNgp9s5U6+NACE5ZojfzRIittwLj+OcfEUzag=;
-        b=fDYX2aW6+PQyj8hdV2ZdGdpWB+EuTiA/CvkWfTO/bAGnaFbnEutwA6yltsd2RUIutK
-         PaoM29Oz5f6DdpCR26CUPxYBXSSQ6S3aaNGd6t+R1UgFrH8WKeGm46ZX8INjie5l+tbB
-         l6xAD+CCwxkP4ppdGW3GQWsivoybxxlY6VcyQbCI1ruA7SYR5nz4Ii3uKKSCr5WGN4l+
-         tsrOPLUkK59+6eluzu2VPIG0wZGUzWuuEAm3VgXWZhZHtn3n4CNks7e+szTiCgs09+ev
-         bFHuVPc1mNXGNI5156vbqFNZj8no5gMlCZ/C/BY0PW2VuGPBHpIhYxdKFoqesHXnuuB/
-         jlvw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1694761774; x=1695366574;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=bJl6f0UNgp9s5U6+NACE5ZojfzRIittwLj+OcfEUzag=;
-        b=Vc1fNC3DJ9swMxPpbH93A4+YG0LNjmY7I+90jieTY0RHS/oPzVYmPtSa7o3KCPHDMF
-         XYEDKT1zLdNF1jMZIcO/qS9krIZAk5ZZ7thrDpkzx3DqtxVjmavo7SYNWG11ZoqtZDIw
-         rMhfDsPEZfdTylNKGIxsgTscnaynF7qU80wTF6l0Vg2n1RqDNVx4zTbfyJdmUujcvGjP
-         kgPsjCZevHIF8+o5qzIX2wNjyZ86OqY5JE14Mur64KUPzYLtpCxeJMV1BQYd+00xqTWz
-         V5MtpdT5HnYHMixvLINcNiz96IdFXxGdgJRypi5MYinxqvZQmuckZnR9asIGlq0IjV8V
-         X/Xw==
-X-Gm-Message-State: AOJu0YzBQPrpCMi0iMybYRwqCJa52ubVV8ssic4cOlsk000xGYhWixlB
-	DBXmQUOJcIc4QDqsxkgC3fdIWL9L59jQoRMu
-X-Google-Smtp-Source: AGHT+IFd+uJ28ZuLKFUpC0OCCnpyF8Le/2xhZDsYf6fEP9cxkrrHtulYRtTtZ8W5VK2u/bT6/SM10w==
-X-Received: by 2002:a05:6358:90d:b0:134:d128:9f5f with SMTP id r13-20020a056358090d00b00134d1289f5fmr700984rwi.9.1694761773768;
-        Fri, 15 Sep 2023 00:09:33 -0700 (PDT)
-Received: from localhost.localdomain ([222.95.63.58])
-        by smtp.gmail.com with ESMTPSA id h2-20020a63b002000000b005777a911342sm2159018pgf.59.2023.09.15.00.09.27
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 15 Sep 2023 00:09:33 -0700 (PDT)
-From: Wang Chen <unicornxw@gmail.com>
-X-Google-Original-From: Wang Chen <wangchen20@iscas.ac.cn>
-To: linux-riscv@lists.infradead.org,
-	conor@kernel.org,
-	aou@eecs.berkeley.edu,
-	krzysztof.kozlowski+dt@linaro.org,
-	palmer@dabbelt.com,
-	paul.walmsley@sifive.com,
-	robh+dt@kernel.org
-Cc: devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	jszhang@kernel.org,
-	guoren@kernel.org,
-	chao.wei@sophgo.com,
-	xiaoguang.xing@sophgo.com,
-	Wang Chen <wangchen20@iscas.ac.cn>
-Subject: [PATCH 00/12] Add Milk-V Pioneer RISC-V board support
-Date: Fri, 15 Sep 2023 15:08:56 +0800
-Message-Id: <20230915070856.117514-1-wangchen20@iscas.ac.cn>
-X-Mailer: git-send-email 2.25.1
+	id 1qh2xQ-009zWu-2z;
+	Fri, 15 Sep 2023 07:09:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=IO8svM9r91GxPSxrPIglbeq86oJ/FKDbJ+lBe36BJYc=; b=nLlE6W1QoxubyvNpaxsJh8jzSR
+	/d5Lf0iTnNQyN9DC4SlP84mxxOmAcgYGHW9si9eE8NiFR9lGM1kX2SNH6SfP+LOj9Q0yDw90kQIl4
+	9P5GRkhAmpz8ushDyws83FOx0ZaDux9kxNevsrN6bb08cRo1sEhN0NDRwMTyXk8KaK2T630WX+MSa
+	ZhvPIz8oIWSgu3WCEn1Zl3zJglEsl7TSxhMRq4kLqYITKU5X8LHgc13rfTd0aFODSmtXLQ2yShJbY
+	EQ0RSbcqGMXPe4bGcqG9ns6yl1/JX3Mg3ep6z6Tf6ife4cVQjnjij5Trg+ivckApl2S9ZSJ/YTZZc
+	g94ctEMg==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:37980)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1qh2xD-0005H3-1N;
+	Fri, 15 Sep 2023 08:09:27 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.94.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1qh2xB-0005bU-2C; Fri, 15 Sep 2023 08:09:25 +0100
+Date: Fri, 15 Sep 2023 08:09:25 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Salil Mehta <salil.mehta@huawei.com>
+Cc: Ard Biesheuvel <ardb@kernel.org>,
+	Jonathan Cameron <jonathan.cameron@huawei.com>,
+	James Morse <james.morse@arm.com>,
+	"linux-pm@vger.kernel.org" <linux-pm@vger.kernel.org>,
+	"loongarch@lists.linux.dev" <loongarch@lists.linux.dev>,
+	"linux-acpi@vger.kernel.org" <linux-acpi@vger.kernel.org>,
+	"linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
+	"x86@kernel.org" <x86@kernel.org>,
+	Jean-Philippe Brucker <jean-philippe@linaro.org>,
+	"jianyong.wu@arm.com" <jianyong.wu@arm.com>,
+	"justin.he@arm.com" <justin.he@arm.com>
+Subject: Re: [RFC PATCH v2 27/35] ACPICA: Add new MADT GICC flags fields
+ [code first?]
+Message-ID: <ZQQDJT6MOaIOPmq5@shell.armlinux.org.uk>
+References: <20230913163823.7880-1-james.morse@arm.com>
+ <20230913163823.7880-28-james.morse@arm.com>
+ <CAMj1kXHRAt7ecB9p_dm3MjDL5wZkAsVh30hMY2SV_XUe=bm6Vg@mail.gmail.com>
+ <20230914155459.00002dba@Huawei.com>
+ <CAMj1kXFquiLGCMow3iujHUU4GBZx2t9KfKy1R9iqjBFjY+acaA@mail.gmail.com>
+ <f5d9beea95e149ab89364dcdb0f8bf69@huawei.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <f5d9beea95e149ab89364dcdb0f8bf69@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230915_000935_781283_CD7BE76E 
-X-CRM114-Status: GOOD (  12.51  )
+X-CRM114-CacheID: sfid-20230915_000940_964241_0FC21AB7 
+X-CRM114-Status: UNSURE (   9.65  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,66 +97,25 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Milk-V Pioneer [1] is a developer motherboard based on SOPHON SG2042 [2]
-in a standard mATX form factor. Add minimal device
-tree files for the SG2042 SOC and the Milk-V Pioneer board.
+On Fri, Sep 15, 2023 at 02:29:13AM +0000, Salil Mehta wrote:
+> On x86, during init, if the MADT entry for LAPIC is found to be
+> online-capable and is enabled as well then possible and present
 
-Now only support basic uart drivers to boot up into a basic console.
+Note that the ACPI spec says enabled + online-capable isn't defined.
 
-The patch series is based on v6.6-rc1. You can simply review or test 
-the patches at the link [3]. Hope this series will be merged soon.
+"The information conveyed by this bit depends on the value of the
+Enabled bit. If the Enabled bit is set, this bit is reserved and
+must be zero."
 
-Thanks
-
-[1]: https://milkv.io/pioneer
-[2]: https://en.sophgo.com/product/introduce/sg2042.html
-[3]: https://github.com/unicornx/linux-riscv/commits/milkv-pioneer-minimal
-
-Emil Renner Berthing (2):
-  dt-bindings: serial: snps-dw-apb-uart: Add Sophgo SG2042 uarts
-  serial: 8250_dw: Add Sophgo SG2042 support
-
-Inochi Amaoto (1):
-  dt-bindings: timer: Add Sophgo sg2042 clint
-
-Wang Chen (8):
-  dt-bindings: vendor-prefixes: add milkv/sophgo
-  dt-bindings: riscv: add sophgo sg2042 bindings
-  dt-bindings: riscv: Add T-HEAD C920 compatibles
-  dt-bindings: interrupt-controller: Add SOPHGO's SG2042 PLIC
-  riscv: dts: add initial SOPHGO SG2042 SoC device tree
-  riscv: dts: sophgo: add Milk-V Pioneer board device tree
-  riscv: dts: sophgo: Add sophgo,sg2024-uart compatibles
-  riscv: defconfig: enable SOPHGO SoC
-
-xiaoguang.xing (1):
-  riscv: Add SOPHGO SOC family Kconfig support
-
- .../sifive,plic-1.0.0.yaml                    |    1 +
- .../devicetree/bindings/riscv/cpus.yaml       |    1 +
- .../devicetree/bindings/riscv/sophgo.yaml     |   28 +
- .../bindings/serial/snps-dw-apb-uart.yaml     |    3 +
- .../bindings/timer/sifive,clint.yaml          |   26 +
- .../devicetree/bindings/vendor-prefixes.yaml  |    4 +
- MAINTAINERS                                   |    7 +
- arch/riscv/Kconfig.socs                       |   10 +
- arch/riscv/boot/dts/Makefile                  |    1 +
- arch/riscv/boot/dts/sophgo/Makefile           |    3 +
- arch/riscv/boot/dts/sophgo/sg2042-cpus.dtsi   | 1794 +++++++++++++++++
- .../boot/dts/sophgo/sg2042-milkv-pioneer.dts  |   16 +
- arch/riscv/boot/dts/sophgo/sg2042.dtsi        |  513 +++++
- arch/riscv/configs/defconfig                  |    1 +
- drivers/tty/serial/8250/8250_dw.c             |    5 +-
- 15 files changed, 2411 insertions(+), 2 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/riscv/sophgo.yaml
- create mode 100644 arch/riscv/boot/dts/sophgo/Makefile
- create mode 100644 arch/riscv/boot/dts/sophgo/sg2042-cpus.dtsi
- create mode 100644 arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts
- create mode 100644 arch/riscv/boot/dts/sophgo/sg2042.dtsi
+So, if x86 is doing something with the enabled && online-capable
+state (other than ignoring the online-capable) then technically it
+is doing something that the spec doesn't define - and it's
+completely fine if aarch64 does something else (maybe treating it
+strictly as per the spec and ignoring online-capable.)
 
 -- 
-2.25.1
-
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
 _______________________________________________
 linux-riscv mailing list
