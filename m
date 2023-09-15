@@ -4,82 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28E66EE021A
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 Sep 2023 03:49:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15F71EE021D
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 Sep 2023 05:42:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vDCSBfrYW9Zsiu8C1PevAqfoptRJDH2ENyiI5MjRJsQ=; b=KS3emK2NRsaaLb
-	OmfrQkVqBP8BhAVI4sLMHOp0ZH6KP4qn49quwCAfS0IQiQhS3qPkn5CBYZwTMKzAqj47ABLKzNs2i
-	CWsZ/A0ggw+0HGJdr2FRYOZ6r648CHb4jEyDKISlwU9UrYFDzEVzxrOh4xSgdYQ8+s7vGjEgguwuk
-	VYhFBx98mQnCwdFj1g5rYRF8zla9A/sW6d+qWwW3rI/rjQqjQp4hsi1BpkbBSUIo2r0xS80xlSurf
-	B1yaKlhNNP9FGn4J4JVslJfIQQ4RbEvY+ShxyZqZD5N6HCP6jRhKrjlTYlJ77HF2Po77d/W5IsCbM
-	APN4X1AWse2jGBpaS0JQ==;
+	List-Owner; bh=KN5h4BH1rR1oKwg/QKxx1xDwyg8WD9fPqqtWA2bGVz4=; b=ge6oMgaDV9dq8L
+	aLJTbuYe+hFn3IucROpu3OmR3cwA+w6YnARNC6uZrFyDasxWVSFpDI93FA7p7vAhtmuNpHQuI8Mzw
+	IdEItCgcUb1TUT1tPBUv9cTtLbqytcLgc/4thbHsRHZi2cHOKYlmsZL88BMkCVLZ6SaoiKbvkxMcr
+	xF4mH4gf6VAjuEC/zwwYO3RnD2AM6ZXM6ti0yvAsed+imiz5ZNntYErafET6eFxFvWxUbCfSd4ej9
+	DFLqXrWS2ZJfIRe3RmpuP87zaAs95OP81ksX0jP2YrgaSMLy2hBEDhjYEOjBcRkHZ4OY9cczW3c6l
+	61tcPTn4NS92IKnzTSng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgzq1-009h1e-17;
-	Fri, 15 Sep 2023 03:49:49 +0000
-Received: from mail-pg1-x532.google.com ([2607:f8b0:4864:20::532])
+	id 1qh1bG-009pAm-0D;
+	Fri, 15 Sep 2023 05:42:42 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgzpx-009gzs-2m
+	id 1qh1bD-009p91-0E
 	for linux-riscv@lists.infradead.org;
-	Fri, 15 Sep 2023 03:49:47 +0000
-Received: by mail-pg1-x532.google.com with SMTP id 41be03b00d2f7-577fff1cae6so836145a12.1
-        for <linux-riscv@lists.infradead.org>; Thu, 14 Sep 2023 20:49:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1694749785; x=1695354585; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=CyaSMvzVf/GL9jUMPj8Pe5Mgy8bVy6kL5NApChG9qVE=;
-        b=tpEWy99nc11OVyJxe5P9XLm8YESpxuJFmKHOExuFvK/c/kQPKgDxNVfn4HEdRKujIg
-         XCAlMq9eUshfqJUSa/l0WKtBqy5zoOOu5U5otgYRWGdvPJcVfe1RmltghsB54g3KHl0A
-         m80MMwyZHixVOrXT2L/i0jxCmXvOM6vS0wF4fEEe/MTOOjBmhSYnQNfvBLJary8TzMTV
-         2v9QGh5LYQJ3XmYBu6OERzld7eVHohQ/3/CIWVdjUrXJGV4H46DeaDl65/XpKFaBVoWs
-         d0sIb/45sQU3gZmjB4jpY6XBBlOoWjZLPJYlYBXkxd6DJqhPlclwjDipOR/EaZbBGkjJ
-         JKAw==
+	Fri, 15 Sep 2023 05:42:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1694756552;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=gFO8+T730lSxbR4eXXN1KRpuEmnACBgmkqkqaO3f0p0=;
+	b=KKwViUoygnfHpo7hUnyI+rgP2Mxz7BqSTgep4QBIRsd0sqHB2zSWKJKvUk4dgjAPsBRcGi
+	X5yeafMprYhWUDCze5peZhxnxbvOnoG7XmFfM8RPIL2Ub+OP02hxlVhH4E0vMT1uhPwb43
+	9XiM3JSHEpZxXt6WT3C2uA2gPxAEZ+4=
+Received: from mail-oa1-f69.google.com (mail-oa1-f69.google.com
+ [209.85.160.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-645-V1e2bmbRONeqEz6j8jiQ_A-1; Fri, 15 Sep 2023 01:42:31 -0400
+X-MC-Unique: V1e2bmbRONeqEz6j8jiQ_A-1
+Received: by mail-oa1-f69.google.com with SMTP id 586e51a60fabf-1c0ed186cf5so2669246fac.1
+        for <linux-riscv@lists.infradead.org>; Thu, 14 Sep 2023 22:42:31 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1694749785; x=1695354585;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=CyaSMvzVf/GL9jUMPj8Pe5Mgy8bVy6kL5NApChG9qVE=;
-        b=r7W1vaAtuyFwnCukPmVwyIff2csv7H/Qikr05seXfOaf1pMkrrDs8FUH2sIXZadhxx
-         rBBukKn00QgOwuw7Z7293qTFBS8RlbWJ/xY0mXL5vAwmVnwXVSVzkIa/lnF8y1hRFiaF
-         3zEsV/yc87sCelVkWWtIprmuRy2bEkNoG2hFQCoF3E6KVSoErT/Y5bV1VFRGRvzR5ECz
-         T03AG1Rsy1BYZzihNbRfvJ/6t8TU81xA6ywdb1Ur+e0tCE7UQevUxbG+KDBPJ6QodAo8
-         BiQmxPsBcPMnXVRsIag7+dzmkd382kjv4hVTjRpG4oacix1v7uKIuUGB81ihqyfxIZbY
-         WaeA==
-X-Gm-Message-State: AOJu0YywVgxDJ7tdZwiWC/CeVfWoDgTH8UfwnEhPgKalpI6nRjkeGaTU
-	IvwHvvar0DMXM86TvH/B5yUy7w==
-X-Google-Smtp-Source: AGHT+IG8l2ff2fjLOIKGzkLdUaUXWPF7qWzbLfj8TW8lJXDEqGesj3MWvBJuyy7F0rvq3Dy5/Djasg==
-X-Received: by 2002:a17:90a:a602:b0:26d:689f:4253 with SMTP id c2-20020a17090aa60200b0026d689f4253mr5159733pjq.6.1694749784779;
-        Thu, 14 Sep 2023 20:49:44 -0700 (PDT)
-Received: from charlie.ba.rivosinc.com ([66.220.2.162])
-        by smtp.gmail.com with ESMTPSA id g5-20020a17090adac500b002739282db53sm3881409pjx.32.2023.09.14.20.49.43
+        d=1e100.net; s=20230601; t=1694756550; x=1695361350;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=gFO8+T730lSxbR4eXXN1KRpuEmnACBgmkqkqaO3f0p0=;
+        b=KK7Cn7RaaWvEhiMlK6DpFmNf85WhBuaE5yAJmlWIMZy+1Ysb3rnWM27GXM+Hs85cyR
+         FhW+zX5ZkpDWNCcq6YzNUin7Bun0xBT4VrAtu30YH+Z7Vc05JHYMQ0O22tdvcOKHdhcM
+         TAXYwGKmZPxZ7mNhhoOa3iwsnIV+JczPb0ab03m+5G09BamgHrUFHDBxK1nlhHeTZ5fZ
+         Mn7jiYtNTN0a7cEDx077wEwy85kaanclhc2A4pnbiFatnqgLm0hF8PNBSgDMv88sws3k
+         /gTNRjkQ2Q5ybirQHze4lZNEK32RXZ4hY/yOQjV8W9IErStvNDW+JXgwZOSLX9nt2Scl
+         BzyQ==
+X-Gm-Message-State: AOJu0YxsCc60sXw/FGlYxHz2HcytyC1g2vTxL2LO7Wq9RzMa2aF3SvwR
+	fozqWyr/VAXbM2qXn8EHWS/AGcYXGYTdVwdJha/z6OjCEx+pfk+WlyAnB1TWp2KpQRtZoU2tTCS
+	tb2Q75WcvBGpyeJLTms5uMhGeGvGV
+X-Received: by 2002:a05:6870:659e:b0:1d5:a72e:154e with SMTP id fp30-20020a056870659e00b001d5a72e154emr914832oab.36.1694756550527;
+        Thu, 14 Sep 2023 22:42:30 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IHt0gjdD2W1OMPtXYFw18q1B6hx8A/UEEDl5ieKzaDTp4knHfwN8c0lVL2v/Jr+kPERmtLQiw==
+X-Received: by 2002:a05:6870:659e:b0:1d5:a72e:154e with SMTP id fp30-20020a056870659e00b001d5a72e154emr914789oab.36.1694756550218;
+        Thu, 14 Sep 2023 22:42:30 -0700 (PDT)
+Received: from redhat.com ([2804:1b3:a803:4ff9:7c29:fe41:6aa7:43df])
+        by smtp.gmail.com with ESMTPSA id ed23-20020a056870b79700b001cd14c60b35sm1591100oab.5.2023.09.14.22.42.22
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 14 Sep 2023 20:49:44 -0700 (PDT)
-From: Charlie Jenkins <charlie@rivosinc.com>
-Date: Thu, 14 Sep 2023 20:49:39 -0700
-Subject: [PATCH v5 3/4] riscv: Add checksum library
+        Thu, 14 Sep 2023 22:42:29 -0700 (PDT)
+Date: Fri, 15 Sep 2023 02:42:20 -0300
+From: Leonardo Bras <leobras@redhat.com>
+To: guoren@kernel.org
+Cc: paul.walmsley@sifive.com, anup@brainfault.org, peterz@infradead.org,
+	mingo@redhat.com, will@kernel.org, palmer@rivosinc.com,
+	longman@redhat.com, boqun.feng@gmail.com, tglx@linutronix.de,
+	paulmck@kernel.org, rostedt@goodmis.org, rdunlap@infradead.org,
+	catalin.marinas@arm.com, conor.dooley@microchip.com,
+	xiaoguang.xing@sophgo.com, bjorn@rivosinc.com,
+	alexghiti@rivosinc.com, keescook@chromium.org,
+	greentime.hu@sifive.com, ajones@ventanamicro.com,
+	jszhang@kernel.org, wefu@redhat.com, wuwei2016@iscas.ac.cn,
+	linux-arch@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-doc@vger.kernel.org, kvm@vger.kernel.org,
+	virtualization@lists.linux-foundation.org,
+	linux-csky@vger.kernel.org, Guo Ren <guoren@linux.alibaba.com>
+Subject: Re: [PATCH V11 11/17] RISC-V: paravirt: pvqspinlock: Add paravirt
+ qspinlock skeleton
+Message-ID: <ZQPuvCNq5IAYlMR6@redhat.com>
+References: <20230910082911.3378782-1-guoren@kernel.org>
+ <20230910082911.3378782-12-guoren@kernel.org>
 MIME-Version: 1.0
-Message-Id: <20230914-optimize_checksum-v5-3-c95b82a2757e@rivosinc.com>
-References: <20230914-optimize_checksum-v5-0-c95b82a2757e@rivosinc.com>
-In-Reply-To: <20230914-optimize_checksum-v5-0-c95b82a2757e@rivosinc.com>
-To: Charlie Jenkins <charlie@rivosinc.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Conor Dooley <conor@kernel.org>, 
- Samuel Holland <samuel.holland@sifive.com>, 
- David Laight <David.Laight@aculab.com>, linux-riscv@lists.infradead.org, 
- linux-kernel@vger.kernel.org
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, 
- Albert Ou <aou@eecs.berkeley.edu>
-X-Mailer: b4 0.12.3
+In-Reply-To: <20230910082911.3378782-12-guoren@kernel.org>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230914_204945_899618_6519A283 
-X-CRM114-Status: GOOD (  22.80  )
+X-CRM114-CacheID: sfid-20230914_224239_197873_E584C395 
+X-CRM114-Status: GOOD (  28.67  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,259 +112,244 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Provide a 32 and 64 bit version of do_csum. When compiled for 32-bit
-will load from the buffer in groups of 32 bits, and when compiled for
-64-bit will load in groups of 64 bits.
+On Sun, Sep 10, 2023 at 04:29:05AM -0400, guoren@kernel.org wrote:
+> From: Guo Ren <guoren@linux.alibaba.com>
+> 
+> Using static_call to switch between:
+>   native_queued_spin_lock_slowpath()    __pv_queued_spin_lock_slowpath()
+>   native_queued_spin_unlock()           __pv_queued_spin_unlock()
+> 
+> Finish the pv_wait implementation, but pv_kick needs the SBI
+> definition of the next patches.
+> 
+> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+> Signed-off-by: Guo Ren <guoren@kernel.org>
+> ---
+>  arch/riscv/include/asm/Kbuild               |  1 -
+>  arch/riscv/include/asm/qspinlock.h          | 35 +++++++++++++
+>  arch/riscv/include/asm/qspinlock_paravirt.h | 29 +++++++++++
+>  arch/riscv/include/asm/spinlock.h           |  2 +-
+>  arch/riscv/kernel/qspinlock_paravirt.c      | 57 +++++++++++++++++++++
+>  arch/riscv/kernel/setup.c                   |  4 ++
+>  6 files changed, 126 insertions(+), 2 deletions(-)
+>  create mode 100644 arch/riscv/include/asm/qspinlock.h
+>  create mode 100644 arch/riscv/include/asm/qspinlock_paravirt.h
+>  create mode 100644 arch/riscv/kernel/qspinlock_paravirt.c
+> 
+> diff --git a/arch/riscv/include/asm/Kbuild b/arch/riscv/include/asm/Kbuild
+> index a0dc85e4a754..b89cb3b73c13 100644
+> --- a/arch/riscv/include/asm/Kbuild
+> +++ b/arch/riscv/include/asm/Kbuild
+> @@ -7,6 +7,5 @@ generic-y += parport.h
+>  generic-y += spinlock_types.h
+>  generic-y += qrwlock.h
+>  generic-y += qrwlock_types.h
+> -generic-y += qspinlock.h
+>  generic-y += user.h
+>  generic-y += vmlinux.lds.h
+> diff --git a/arch/riscv/include/asm/qspinlock.h b/arch/riscv/include/asm/qspinlock.h
+> new file mode 100644
+> index 000000000000..7d4f416c908c
+> --- /dev/null
+> +++ b/arch/riscv/include/asm/qspinlock.h
+> @@ -0,0 +1,35 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +/*
+> + * Copyright (c), 2023 Alibaba Cloud
+> + * Authors:
+> + *	Guo Ren <guoren@linux.alibaba.com>
+> + */
+> +
+> +#ifndef _ASM_RISCV_QSPINLOCK_H
+> +#define _ASM_RISCV_QSPINLOCK_H
+> +
+> +#ifdef CONFIG_PARAVIRT_SPINLOCKS
+> +#include <asm/qspinlock_paravirt.h>
+> +
+> +/* How long a lock should spin before we consider blocking */
+> +#define SPIN_THRESHOLD		(1 << 15)
+> +
+> +void native_queued_spin_lock_slowpath(struct qspinlock *lock, u32 val);
+> +void __pv_init_lock_hash(void);
+> +void __pv_queued_spin_lock_slowpath(struct qspinlock *lock, u32 val);
+> +
+> +static inline void queued_spin_lock_slowpath(struct qspinlock *lock, u32 val)
+> +{
+> +	static_call(pv_queued_spin_lock_slowpath)(lock, val);
+> +}
+> +
+> +#define queued_spin_unlock	queued_spin_unlock
+> +static inline void queued_spin_unlock(struct qspinlock *lock)
+> +{
+> +	static_call(pv_queued_spin_unlock)(lock);
+> +}
+> +#endif /* CONFIG_PARAVIRT_SPINLOCKS */
+> +
+> +#include <asm-generic/qspinlock.h>
+> +
+> +#endif /* _ASM_RISCV_QSPINLOCK_H */
+> diff --git a/arch/riscv/include/asm/qspinlock_paravirt.h b/arch/riscv/include/asm/qspinlock_paravirt.h
+> new file mode 100644
+> index 000000000000..9681e851f69d
+> --- /dev/null
+> +++ b/arch/riscv/include/asm/qspinlock_paravirt.h
+> @@ -0,0 +1,29 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +/*
+> + * Copyright (c), 2023 Alibaba Cloud
+> + * Authors:
+> + *	Guo Ren <guoren@linux.alibaba.com>
+> + */
+> +
+> +#ifndef _ASM_RISCV_QSPINLOCK_PARAVIRT_H
+> +#define _ASM_RISCV_QSPINLOCK_PARAVIRT_H
+> +
+> +void pv_wait(u8 *ptr, u8 val);
+> +void pv_kick(int cpu);
+> +
+> +void dummy_queued_spin_lock_slowpath(struct qspinlock *lock, u32 val);
+> +void dummy_queued_spin_unlock(struct qspinlock *lock);
+> +
+> +DECLARE_STATIC_CALL(pv_queued_spin_lock_slowpath, dummy_queued_spin_lock_slowpath);
+> +DECLARE_STATIC_CALL(pv_queued_spin_unlock, dummy_queued_spin_unlock);
+> +
+> +void __init pv_qspinlock_init(void);
+> +
+> +static inline bool pv_is_native_spin_unlock(void)
+> +{
+> +	return false;
+> +}
+> +
+> +void __pv_queued_spin_unlock(struct qspinlock *lock);
+> +
+> +#endif /* _ASM_RISCV_QSPINLOCK_PARAVIRT_H */
+> diff --git a/arch/riscv/include/asm/spinlock.h b/arch/riscv/include/asm/spinlock.h
+> index 6b38d6616f14..ed4253f491fe 100644
+> --- a/arch/riscv/include/asm/spinlock.h
+> +++ b/arch/riscv/include/asm/spinlock.h
+> @@ -39,7 +39,7 @@ static inline bool virt_spin_lock(struct qspinlock *lock)
+>  #undef arch_spin_trylock
+>  #undef arch_spin_unlock
+>  
+> -#include <asm-generic/qspinlock.h>
+> +#include <asm/qspinlock.h>
+>  #include <linux/jump_label.h>
+>  
+>  #undef arch_spin_is_locked
+> diff --git a/arch/riscv/kernel/qspinlock_paravirt.c b/arch/riscv/kernel/qspinlock_paravirt.c
+> new file mode 100644
+> index 000000000000..85ff5a3ec234
+> --- /dev/null
+> +++ b/arch/riscv/kernel/qspinlock_paravirt.c
+> @@ -0,0 +1,57 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * Copyright (c), 2023 Alibaba Cloud
+> + * Authors:
+> + *	Guo Ren <guoren@linux.alibaba.com>
+> + */
+> +
+> +#include <linux/static_call.h>
+> +#include <asm/qspinlock_paravirt.h>
+> +#include <asm/sbi.h>
+> +
+> +void pv_kick(int cpu)
+> +{
+> +	return;
+> +}
+> +
+> +void pv_wait(u8 *ptr, u8 val)
+> +{
+> +	unsigned long flags;
+> +
+> +	if (in_nmi())
+> +		return;
+> +
+> +	local_irq_save(flags);
+> +	if (READ_ONCE(*ptr) != val)
+> +		goto out;
+> +
+> +	/* wait_for_interrupt(); */
+> +out:
+> +	local_irq_restore(flags);
+> +}
+> +
+> +static void native_queued_spin_unlock(struct qspinlock *lock)
+> +{
+> +	smp_store_release(&lock->locked, 0);
+> +}
+> +
+> +DEFINE_STATIC_CALL(pv_queued_spin_lock_slowpath, native_queued_spin_lock_slowpath);
+> +EXPORT_STATIC_CALL(pv_queued_spin_lock_slowpath);
+> +
+> +DEFINE_STATIC_CALL(pv_queued_spin_unlock, native_queued_spin_unlock);
+> +EXPORT_STATIC_CALL(pv_queued_spin_unlock);
+> +
+> +void __init pv_qspinlock_init(void)
+> +{
+> +	if (num_possible_cpus() == 1)
+> +		return;
+> +
+> +	if(sbi_get_firmware_id() != SBI_EXT_BASE_IMPL_ID_KVM)
 
-Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
----
- arch/riscv/include/asm/checksum.h |  12 +++
- arch/riscv/lib/Makefile           |   1 +
- arch/riscv/lib/csum.c             | 198 ++++++++++++++++++++++++++++++++++++++
- 3 files changed, 211 insertions(+)
+Checks like this seem to be very common on this patchset.
+For someone not much familiar with this, it can be hard to 
+understand.
 
-diff --git a/arch/riscv/include/asm/checksum.h b/arch/riscv/include/asm/checksum.h
-index 2f0f224682bd..52e7926ff3ce 100644
---- a/arch/riscv/include/asm/checksum.h
-+++ b/arch/riscv/include/asm/checksum.h
-@@ -12,6 +12,18 @@
- 
- #define ip_fast_csum ip_fast_csum
- 
-+extern unsigned int do_csum(const unsigned char *buff, int len);
-+#define do_csum do_csum
-+
-+/* Default version is sufficient for 32 bit */
-+#ifdef CONFIG_64BIT
-+#define _HAVE_ARCH_IPV6_CSUM
-+__sum16 csum_ipv6_magic(const struct in6_addr *saddr,
-+			const struct in6_addr *daddr,
-+			__u32 len, __u8 proto, __wsum sum);
-+#endif
-+
-+// Define riscv versions of functions before importing asm-generic/checksum.h
- #include <asm-generic/checksum.h>
- 
- /*
-diff --git a/arch/riscv/lib/Makefile b/arch/riscv/lib/Makefile
-index 26cb2502ecf8..2aa1a4ad361f 100644
---- a/arch/riscv/lib/Makefile
-+++ b/arch/riscv/lib/Makefile
-@@ -6,6 +6,7 @@ lib-y			+= memmove.o
- lib-y			+= strcmp.o
- lib-y			+= strlen.o
- lib-y			+= strncmp.o
-+lib-y			+= csum.o
- lib-$(CONFIG_MMU)	+= uaccess.o
- lib-$(CONFIG_64BIT)	+= tishift.o
- lib-$(CONFIG_RISCV_ISA_ZICBOZ)	+= clear_page.o
-diff --git a/arch/riscv/lib/csum.c b/arch/riscv/lib/csum.c
-new file mode 100644
-index 000000000000..06e1d16b29ca
---- /dev/null
-+++ b/arch/riscv/lib/csum.c
-@@ -0,0 +1,198 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * IP checksum library
-+ *
-+ * Influenced by arch/arm64/lib/csum.c
-+ * Copyright (C) 2023 Rivos Inc.
-+ */
-+#include <linux/bitops.h>
-+#include <linux/compiler.h>
-+#include <linux/kasan-checks.h>
-+#include <linux/kernel.h>
-+
-+#include <net/checksum.h>
-+
-+/* Default version is sufficient for 32 bit */
-+#ifndef CONFIG_32BIT
-+__sum16 csum_ipv6_magic(const struct in6_addr *saddr,
-+			const struct in6_addr *daddr,
-+			__u32 len, __u8 proto, __wsum csum)
-+{
-+	unsigned int ulen, uproto;
-+	unsigned long sum = csum;
-+
-+	sum += saddr->s6_addr32[0];
-+	sum += saddr->s6_addr32[1];
-+	sum += saddr->s6_addr32[2];
-+	sum += saddr->s6_addr32[3];
-+
-+	sum += daddr->s6_addr32[0];
-+	sum += daddr->s6_addr32[1];
-+	sum += daddr->s6_addr32[2];
-+	sum += daddr->s6_addr32[3];
-+
-+	ulen = htonl((unsigned int)len);
-+	sum += ulen;
-+
-+	uproto = htonl(proto);
-+	sum += uproto;
-+
-+	if (IS_ENABLED(CONFIG_RISCV_ISA_ZBB) &&
-+	    IS_ENABLED(CONFIG_RISCV_ALTERNATIVE)) {
-+		unsigned long fold_temp;
-+
-+		/*
-+		 * Zbb is likely available when the kernel is compiled with Zbb
-+		 * support, so nop when Zbb is available and jump when Zbb is
-+		 * not available.
-+		 */
-+		asm_volatile_goto(ALTERNATIVE("j %l[no_zbb]", "nop", 0,
-+					      RISCV_ISA_EXT_ZBB, 1)
-+				  :
-+				  :
-+				  :
-+				  : no_zbb);
-+		asm(".option push					\n\
-+		.option arch,+zbb					\n\
-+			rori	%[fold_temp], %[sum], 32		\n\
-+			add	%[sum], %[fold_temp], %[sum]		\n\
-+			srli	%[sum], %[sum], 32			\n\
-+			not	%[fold_temp], %[sum]			\n\
-+			roriw	%[sum], %[sum], 16			\n\
-+			subw	%[sum], %[fold_temp], %[sum]		\n\
-+		.option pop"
-+		: [sum] "+r" (sum), [fold_temp] "=&r" (fold_temp));
-+		return (__force __sum16)(sum >> 16);
-+	}
-+no_zbb:
-+	sum += (sum >> 32) | (sum << 32);
-+	sum >>= 32;
-+	return csum_fold((__force __wsum)sum);
-+}
-+EXPORT_SYMBOL(csum_ipv6_magic);
-+#endif // !CONFIG_32BIT
-+
-+#ifdef CONFIG_32BIT
-+#define OFFSET_MASK 3
-+#elif CONFIG_64BIT
-+#define OFFSET_MASK 7
-+#endif
-+
-+/*
-+ * Perform a checksum on an arbitrary memory address.
-+ * Algorithm accounts for buff being misaligned.
-+ * If buff is not aligned, will over-read bytes but not use the bytes that it
-+ * shouldn't. The same thing will occur on the tail-end of the read.
-+ */
-+unsigned int __no_sanitize_address do_csum(const unsigned char *buff, int len)
-+{
-+	unsigned int offset, shift;
-+	unsigned long csum = 0, data;
-+	const unsigned long *ptr;
-+
-+	if (unlikely(len <= 0))
-+		return 0;
-+	/*
-+	 * To align the address, grab the whole first byte in buff.
-+	 * Since it is inside of a same byte, it will never cross pages or cache
-+	 * lines.
-+	 * Directly call KASAN with the alignment we will be using.
-+	 */
-+	offset = (unsigned long)buff & OFFSET_MASK;
-+	kasan_check_read(buff, len);
-+	ptr = (const unsigned long *)(buff - offset);
-+	len = len + offset - sizeof(unsigned long);
-+
-+	/*
-+	 * Clear the most signifant bits that were over-read if buff was not
-+	 * aligned.
-+	 */
-+	shift = offset * 8;
-+	data = *ptr;
-+	if (IS_ENABLED(__LITTLE_ENDIAN))
-+		data = (data >> shift) << shift;
-+	else
-+		data = (data << shift) >> shift;
-+
-+	/*
-+	 * Do 32-bit reads on RV32 and 64-bit reads otherwise. This should be
-+	 * faster than doing 32-bit reads on architectures that support larger
-+	 * reads.
-+	 */
-+	while (len > 0) {
-+		csum += data;
-+		csum += csum < data;
-+		len -= sizeof(unsigned long);
-+		ptr += 1;
-+		data = *ptr;
-+	}
-+
-+	/*
-+	 * Perform alignment (and over-read) bytes on the tail if any bytes
-+	 * leftover.
-+	 */
-+	shift = len * -8;
-+	if (IS_ENABLED(__LITTLE_ENDIAN))
-+		data = (data << shift) >> shift;
-+	else
-+		data = (data >> shift) << shift;
-+
-+	csum += data;
-+	csum += csum < data;
-+
-+	if (IS_ENABLED(CONFIG_RISCV_ISA_ZBB) &&
-+	    riscv_has_extension_likely(RISCV_ISA_EXT_ZBB)) {
-+		unsigned int fold_temp;
-+
-+		if (IS_ENABLED(CONFIG_32BIT)) {
-+			asm_volatile_goto(".option push			\n\
-+			.option arch,+zbb				\n\
-+				rori	%[fold_temp], %[csum], 16	\n\
-+				andi	%[offset], %[offset], 1		\n\
-+				add	%[csum], %[fold_temp], %[csum]	\n\
-+				beq	%[offset], zero, %l[end]	\n\
-+				rev8	%[csum], %[csum]		\n\
-+				zext.h	%[csum], %[csum]		\n\
-+			.option pop"
-+				: [csum] "+r" (csum),
-+				  [fold_temp] "=&r" (fold_temp)
-+				: [offset] "r" (offset)
-+				:
-+				: end);
-+
-+			return csum;
-+		} else {
-+			asm_volatile_goto(".option push			\n\
-+			.option arch,+zbb				\n\
-+				rori	%[fold_temp], %[csum], 32	\n\
-+				add	%[csum], %[fold_temp], %[csum]	\n\
-+				srli	%[csum], %[csum], 32		\n\
-+				roriw	%[fold_temp], %[csum], 16	\n\
-+				addw	%[csum], %[fold_temp], %[csum]	\n\
-+				andi	%[offset], %[offset], 1		\n\
-+				beq	%[offset], zero, %l[end]	\n\
-+				rev8	%[csum], %[csum]		\n\
-+				srli	%[csum], %[csum], 32		\n\
-+				zext.h	%[csum], %[csum]		\n\
-+			.option pop"
-+				: [csum] "+r" (csum),
-+				  [fold_temp] "=&r" (fold_temp)
-+				: [offset] "r" (offset)
-+				:
-+				: end);
-+
-+			return csum;
-+		}
-+end:
-+			return csum >> 16;
-+	}
-+
-+#ifndef CONFIG_32BIT
-+	csum += (csum >> 32) | (csum << 32);
-+	csum >>= 32;
-+#endif
-+	csum = (unsigned int)csum + (((unsigned int)csum >> 16) | ((unsigned int)csum << 16));
-+	if (offset & 1)
-+		return (unsigned short)swab32(csum);
-+	return csum >> 16;
-+}
+I mean, on patch 8/17 you introduce those IDs, which look to be 
+incremental ( ID == N includes stuff from ID < N ), but I am not sure as I 
+couln't find much documentation on that.
 
--- 
-2.42.0
+Then above you test for the id being different than 
+SBI_EXT_BASE_IMPL_ID_KVM, but if they are actually incremental and a new 
+version lands, the new version will also return early because it passes the 
+test.
+
+I am no sure if above is right, but it's all I could understand without 
+documentation.
+
+Well, my point is: this seems hard to understand & review, so it would be 
+nice to have a macro like this to be used instead:
+
+#define sbi_fw_implements_kvm() \
+	(sbi_get_firmware_id() >= SBI_EXT_BASE_IMPL_ID_KVM)
+
+if(!sbi_fw_implements_kvm())
+	return;
+
+What do you think?
+
+Other than that, LGTM.
+
+Thanks!
+Leo
+
+> +		return;
+> +
+> +	pr_info("PV qspinlocks enabled\n");
+> +	__pv_init_lock_hash();
+> +
+> +	static_call_update(pv_queued_spin_lock_slowpath, __pv_queued_spin_lock_slowpath);
+> +	static_call_update(pv_queued_spin_unlock, __pv_queued_spin_unlock);
+> +}
+> diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+> index c57d15b05160..88690751f2ee 100644
+> --- a/arch/riscv/kernel/setup.c
+> +++ b/arch/riscv/kernel/setup.c
+> @@ -321,6 +321,10 @@ static void __init riscv_spinlock_init(void)
+>  #ifdef CONFIG_QUEUED_SPINLOCKS
+>  	virt_spin_lock_init();
+>  #endif
+> +
+> +#ifdef CONFIG_PARAVIRT_SPINLOCKS
+> +	pv_qspinlock_init();
+> +#endif
+>  }
+>  
+>  extern void __init init_rt_signal_env(void);
+> -- 
+> 2.36.1
+> 
 
 
 _______________________________________________
