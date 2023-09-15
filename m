@@ -4,86 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47456EE644B
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 Sep 2023 10:07:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E91DEE644B
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 Sep 2023 10:08:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=a4ctMRSJx25j1mgfogDj4XBCx2I2X+KbKA0K9+t/fzA=; b=D2ckLVhVdaMZUN
-	ePd7VbT3UBzQQMo9+/O7+91Pscq9BsFH4slvHHJz43tpXAAYQrldSSsSHd6B1ENujlTwIa9Lb4c/Q
-	OtWkbsnv/16tHDiVm5ZUzBFPZlcLZ8Jfzqll5l/XltAYohDd+KVlBDOfa+zn4lgVOlgpZIOHSo4o0
-	eXH2F+NsIbn/zoSRXeGAkqpvmgw4DhKUUe3wRKQWAbTumTOjFa1il4wb/oysFBiqwx4XONGmgDjyg
-	X7KIlc5JeREblFowFl8Ou1HD5daMwut+dTv7uUaUuN23UsZ/k1iM8y1SHY2BDlq86WwWYO4avEbpU
-	1+bHIq6D8isDvTNXqLKw==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:
+	Mime-Version:References:In-Reply-To:From:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=+N9RoW5WAs4iX5VJdRNf+fTky4mW0+4H4zP9JvV2YYI=; b=d7gdNwc1+6jC1kongG/wwuLc48
+	HYEjXfuYe6JPa2tB0fwrCCibIQIbSF5SyCAk27o1mWWCEq2fy23PnM8/Zr+NKpr3ZIFlsjwKrcylf
+	KJHUzi+Md1ofWkTgSGPkV3uymKu64Ey25m1IK9ZJgLB5SGonLbJcahBU5ikEri6e7sjoaPnDHSPg2
+	Ixj+cjT5jOCJsO7TNrFmeWlk+w6pFYJgBbj+ugSkRefu+c+3CV5DgrvwfVIbHNnzvx1d1wKAud2Z5
+	IQZzlt5JQSMTzuphb5VEoQ92EU3K9i9uTTCGGPlw338Xrn0XjXXFz1UtHBn9Ppu5FbR1W5lieCVs4
+	6ESDIbYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qh5jQ-00AMVP-1S;
-	Fri, 15 Sep 2023 10:07:24 +0000
-Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
+	id 1qh5k4-00AMYu-0C;
+	Fri, 15 Sep 2023 10:08:04 +0000
+Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qh5jL-00AMUC-1S
+	id 1qh5k1-00AMXD-0V
 	for linux-riscv@lists.infradead.org;
-	Fri, 15 Sep 2023 10:07:22 +0000
-Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-99bf3f59905so255751266b.3
-        for <linux-riscv@lists.infradead.org>; Fri, 15 Sep 2023 03:07:17 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1694772436; x=1695377236; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=tIOsoLWZh5rJG/1YfIOAx2GIO6JUFBkc7NqnYEd6i84=;
-        b=CC4N02EyjLq81ti7flIW6EtVt7VwbByZeA3jYa2KNlWVX9smAT1j1K9RFmHhofWO0z
-         l/pM3QOYVdf7jwlivLzmmlMuvSy7GgByzZgadaJcI31DKTYl6r6TiKuiKpUiDEzvy13n
-         AuWlFovxCww+m4j14EkUTADz1HPJOIbAm2OgoSP24C4fFIPTPV+CzW4IZRO6Zy35CNFM
-         CgVSlK5ut/VAuUI7j4/TYnharJMncPD6dMbWmxC73+0ffCFHNb2MJYundhMCMeyVt7KU
-         V2LFRiCZAT2Y6RB72yIdJabA5Qxxr3VnJgXrJObfK8biv1+XDeDjPF5JltRhjElr4y6U
-         iAmA==
+	Fri, 15 Sep 2023 10:08:02 +0000
+Received: from mail-qt1-f199.google.com (mail-qt1-f199.google.com [209.85.160.199])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id 57CCE3F633
+	for <linux-riscv@lists.infradead.org>; Fri, 15 Sep 2023 10:07:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+	s=20210705; t=1694772461;
+	bh=CePvDk/TxgBw6w90UlCCAlVR7GMFDlWsOITzDbSZkZE=;
+	h=From:In-Reply-To:References:Mime-Version:Date:Message-ID:Subject:
+	 To:Cc:Content-Type;
+	b=LxOQBjnL2SkexEhi5PNFoyFTo5OnhoCImKpNsPePVcdPnt9prpiWmR8EGydLo2hps
+	 M+BW4j+fRaxoHYXT2DqlvHjpRhdGBZTD4ulVae88OAzNi23qtHSkCvxxBMPeR1uCa2
+	 OCa1Bq8ntMFWsXcnB2cmk8+6a5gT+iscK9DbYO5s30HXZfvocUSL0wF0FKEioqmIyj
+	 59Tllb4v+eM8i9xe1E7+6bhIEfaTKJLfqYyva4MQqmVOKViNqVbGD2xw7TNDGyAf4p
+	 HCyTYh5pkcOorH2WGTfKP1G11jvQ72vtaQd4r3Y/4umi2YNIi47WwVxBDwsQ/HpU33
+	 4OD4nSd/DJM9g==
+Received: by mail-qt1-f199.google.com with SMTP id d75a77b69052e-4121ae638c2so19875381cf.3
+        for <linux-riscv@lists.infradead.org>; Fri, 15 Sep 2023 03:07:41 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1694772436; x=1695377236;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=tIOsoLWZh5rJG/1YfIOAx2GIO6JUFBkc7NqnYEd6i84=;
-        b=gydIsiapYYf5TYi93RgUyYE99zeV56I7VIAItgt9yO1rMMaBois/4Hwgl7ruzwzsMB
-         npj7PhVJhCsV58PAqBQHo9w8YvO6ygNbkyyfwEgqzHGQO5Gzrrggqx2BM4+NxPyr7lTG
-         bNp+UkI3hZetMUyZEfxEHYfpbxE9V6ZwoeBcYnM8e6/gf2nsXydn+i0zU6f2/UBWyd7C
-         1Zeqt8sTWJvGms7/t/87o2rH3ek59qNhUPgi7ESPrJfu4b2JDM759Q136kPZJlj8WHX4
-         94UL0EkjiuxCX0lYOZaivY2W5Z/i6Q5ndDRiW+8gv5ldpr6GDXtnXPCxNa/lmZ6qA7XY
-         J8Hw==
-X-Gm-Message-State: AOJu0Yz8Lxuz2ljPNqnd1PS9HgHY3hv4BzpF+5x75uHZG25qZmXiKSbK
-	y48C6PY/QbXjdFDZTUKHG5oCnQ==
-X-Google-Smtp-Source: AGHT+IHVDXtlJMX8pYFZuW54VGTOuf0bTZVgZR6yMV40BZzJvKHWbNORMLTbJ3Zb0tHHlGkaQajY2A==
-X-Received: by 2002:a17:907:2cc9:b0:9aa:1e43:d0b9 with SMTP id hg9-20020a1709072cc900b009aa1e43d0b9mr886782ejc.5.1694772436590;
-        Fri, 15 Sep 2023 03:07:16 -0700 (PDT)
-Received: from [192.168.1.20] ([178.197.214.188])
-        by smtp.gmail.com with ESMTPSA id ay21-20020a170906d29500b00992e14af9b9sm2192760ejb.134.2023.09.15.03.07.14
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 15 Sep 2023 03:07:16 -0700 (PDT)
-Message-ID: <862905cc-48c3-2dc9-6032-6ee189a629e6@linaro.org>
-Date: Fri, 15 Sep 2023 12:07:14 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.15.0
-Subject: Re: [PATCH 10/12] serial: 8250_dw: Add Sophgo SG2042 support
-Content-Language: en-US
-To: Emil Renner Berthing <emil.renner.berthing@canonical.com>,
- Wang Chen <unicornxw@gmail.com>, linux-riscv@lists.infradead.org,
- conor@kernel.org, aou@eecs.berkeley.edu, krzysztof.kozlowski+dt@linaro.org,
- palmer@dabbelt.com, paul.walmsley@sifive.com, robh+dt@kernel.org
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- jszhang@kernel.org, guoren@kernel.org, chao.wei@sophgo.com,
- xiaoguang.xing@sophgo.com
-References: <20230915072558.118325-1-wangchen20@iscas.ac.cn>
- <803daa8f-f4bd-34b7-f826-89e1db5f24f6@linaro.org>
- <CAJM55Z-GMm5Hmk7-QWt8Prvp7qyFzOrQVjOjB7jfoX-oiT_C1A@mail.gmail.com>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <CAJM55Z-GMm5Hmk7-QWt8Prvp7qyFzOrQVjOjB7jfoX-oiT_C1A@mail.gmail.com>
+        d=1e100.net; s=20230601; t=1694772460; x=1695377260;
+        h=cc:to:subject:message-id:date:mime-version:references:in-reply-to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=CePvDk/TxgBw6w90UlCCAlVR7GMFDlWsOITzDbSZkZE=;
+        b=iVGUXrVHtxMHgtoTsoOG/7rw+lLLgO6G3G5fpey0flDodHN52iPw9aAiHyFkZEaepZ
+         OcyZMl3Pdn1ms0XcoGdlFBCDGzAEBqS7IL7L0yFDBOMTn4dgV2t9y4LnKCKvnKEDD0HS
+         AkaIC+hgbE4avC4ecmd0jX3ltTFiv34P1W8V4ieuvzXht/pFfJgk31qk8ZRs+l9U2mKr
+         mhfbSovxLnrJBy/4clNgbdmb1uBlVPvbIxJ3MsuWvvzczFqT/JJOj138IQBb6y3bo6Km
+         69U5b+mlxaxYaynM14BcSExTyNgSwR+7VlJWuOYA319dXcxpCsjzNRz6P2YJ4JEzZswh
+         oDZw==
+X-Gm-Message-State: AOJu0YxyI6bYC7lnvjwIcFzUzuEdIsPimOKsCt+8q3D/jVXFoJdbB1Xm
+	7yS2CF6aiMyd5gknSRPN9IdlLSO7ZC9TBZHVkB6tpIDe1zguNjVtiUNIRJNLSvyspCzPrZVg2/Y
+	1pdCE/ceHRSxNbUe+Dz+2lIuE7z7SpT1sRIsPrnlwKwmBtZ0iCIcPDvdh4Q+n6A==
+X-Received: by 2002:ac8:59ca:0:b0:412:1ba6:32af with SMTP id f10-20020ac859ca000000b004121ba632afmr1121510qtf.19.1694772460112;
+        Fri, 15 Sep 2023 03:07:40 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IH+ttv6EU1BRZWt+DGbR4+QlOm43LirF30qz5OYUZ4PVhJmX/0LnnR85y4NNlsb75YxMffLnjCJzd0uf44Zpgw=
+X-Received: by 2002:ac8:59ca:0:b0:412:1ba6:32af with SMTP id
+ f10-20020ac859ca000000b004121ba632afmr1121495qtf.19.1694772459877; Fri, 15
+ Sep 2023 03:07:39 -0700 (PDT)
+Received: from 348282803490 named unknown by gmailapi.google.com with
+ HTTPREST; Fri, 15 Sep 2023 03:07:39 -0700
+From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+In-Reply-To: <20230914-optimize_checksum-v5-2-c95b82a2757e@rivosinc.com>
+References: <20230914-optimize_checksum-v5-0-c95b82a2757e@rivosinc.com> <20230914-optimize_checksum-v5-2-c95b82a2757e@rivosinc.com>
+Mime-Version: 1.0
+Date: Fri, 15 Sep 2023 03:07:39 -0700
+Message-ID: <CAJM55Z8Pjbu8uCqh9Heaj=ScuAoYgqsEzFuxwBUCfiZmMmk+KQ@mail.gmail.com>
+Subject: Re: [PATCH v5 2/4] riscv: Checksum header
+To: Charlie Jenkins <charlie@rivosinc.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Conor Dooley <conor@kernel.org>, Samuel Holland <samuel.holland@sifive.com>, 
+	David Laight <David.Laight@aculab.com>, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230915_030721_066591_44A70671 
-X-CRM114-Status: GOOD (  20.11  )
+X-CRM114-CacheID: sfid-20230915_030801_334551_5CCABF65 
+X-CRM114-Status: GOOD (  21.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,70 +100,113 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 15/09/2023 12:02, Emil Renner Berthing wrote:
-> Krzysztof Kozlowski wrote:
->> On 15/09/2023 09:25, Wang Chen wrote:
->>> From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
->>>
->>> Add quirk to skip setting the input clock rate for the uarts on the
->>> Sophgo SG2042 SoC similar to the StarFive JH7100.
->>>
->>> Signed-off-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
->>
->> Missing SoB.
->>
->>> ---
->>>  drivers/tty/serial/8250/8250_dw.c | 5 +++--
->>>  1 file changed, 3 insertions(+), 2 deletions(-)
->>>
->>> diff --git a/drivers/tty/serial/8250/8250_dw.c b/drivers/tty/serial/8250/8250_dw.c
->>> index f4cafca1a7da..6c344877a07f 100644
->>> --- a/drivers/tty/serial/8250/8250_dw.c
->>> +++ b/drivers/tty/serial/8250/8250_dw.c
->>> @@ -770,7 +770,7 @@ static const struct dw8250_platform_data dw8250_renesas_rzn1_data = {
->>>  	.quirks = DW_UART_QUIRK_IS_DMA_FC,
->>>  };
->>>
->>> -static const struct dw8250_platform_data dw8250_starfive_jh7100_data = {
->>> +static const struct dw8250_platform_data dw8250_skip_set_rate_data = {
->>
->> Why? What is wrong with old name?
->>
->>>  	.usr_reg = DW_UART_USR,
->>>  	.quirks = DW_UART_QUIRK_SKIP_SET_RATE,
->>>  };
->>> @@ -780,7 +780,8 @@ static const struct of_device_id dw8250_of_match[] = {
->>>  	{ .compatible = "cavium,octeon-3860-uart", .data = &dw8250_octeon_3860_data },
->>>  	{ .compatible = "marvell,armada-38x-uart", .data = &dw8250_armada_38x_data },
->>>  	{ .compatible = "renesas,rzn1-uart", .data = &dw8250_renesas_rzn1_data },
->>> -	{ .compatible = "starfive,jh7100-uart", .data = &dw8250_starfive_jh7100_data },
->>> +	{ .compatible = "sophgo,sg2042-uart", .data = &dw8250_skip_set_rate_data },
->>> +	{ .compatible = "starfive,jh7100-uart", .data = &dw8250_skip_set_rate_data },
->>
->> So devices are fully compatible? Then use compatibility and drop this
->> patch entirely.
-> 
-> I'm fine with this, but these are two different companies and SoCs that just
-> happens to have both implemented the Designware UART with an inflexible input
-> clock. So if fx. a real quirk is found on the JH7110 then we'd need to either
-> change the compatible on an unrelated SoC or change compatible on the JH7110 to
+Charlie Jenkins wrote:
+> Provide checksum algorithms that have been designed to leverage riscv
+> instructions such as rotate. In 64-bit, can take advantage of the larger
+> register to avoid some overflow checking.
+>
+> Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
+> ---
+>  arch/riscv/include/asm/checksum.h | 79 +++++++++++++++++++++++++++++++++++++++
+>  1 file changed, 79 insertions(+)
+>
+> diff --git a/arch/riscv/include/asm/checksum.h b/arch/riscv/include/asm/checksum.h
+> new file mode 100644
+> index 000000000000..2f0f224682bd
+> --- /dev/null
+> +++ b/arch/riscv/include/asm/checksum.h
+> @@ -0,0 +1,79 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +/*
+> + * IP checksum routines
+> + *
+> + * Copyright (C) 2023 Rivos Inc.
+> + */
+> +#ifndef __ASM_RISCV_CHECKSUM_H
+> +#define __ASM_RISCV_CHECKSUM_H
+> +
+> +#include <linux/in6.h>
+> +#include <linux/uaccess.h>
+> +
+> +#define ip_fast_csum ip_fast_csum
+> +
+> +#include <asm-generic/checksum.h>
+> +
+> +/*
+> + * Quickly compute an IP checksum with the assumption that IPv4 headers will
+> + * always be in multiples of 32-bits, and have an ihl of at least 5.
+> + * @ihl is the number of 32 bit segments and must be greater than or equal to 5.
+> + * @iph is assumed to be word aligned.
+> + */
+> +static inline __sum16 ip_fast_csum(const void *iph, unsigned int ihl)
+> +{
+> +	unsigned long csum = 0;
+> +	int pos = 0;
+> +
+> +	do {
+> +		csum += ((const unsigned int *)iph)[pos];
+> +		if (IS_ENABLED(CONFIG_32BIT))
+> +			csum += csum < ((const unsigned int *)iph)[pos];
+> +	} while (++pos < ihl);
+> +
+> +	/*
+> +	 * ZBB only saves three instructions on 32-bit and five on 64-bit so not
+> +	 * worth checking if supported without Alternatives.
+> +	 */
+> +	if (IS_ENABLED(CONFIG_RISCV_ISA_ZBB) &&
+> +	    IS_ENABLED(CONFIG_RISCV_ALTERNATIVE)) {
+> +		unsigned long fold_temp;
+> +
+> +		asm_volatile_goto(ALTERNATIVE("j %l[no_zbb]", "nop", 0,
+> +					      RISCV_ISA_EXT_ZBB, 1)
+> +		    :
+> +		    :
+> +		    :
+> +		    : no_zbb);
+> +
+> +		if (IS_ENABLED(CONFIG_32BIT)) {
+> +			asm(".option push				\n\
+> +			.option arch,+zbb				\n\
+> +				not	%[fold_temp], %[csum]		\n\
+> +				rori	%[csum], %[csum], 16		\n\
+> +				sub	%[csum], %[fold_temp], %[csum]	\n\
+> +			.option pop"
+> +			: [csum] "+r" (csum), [fold_temp] "=&r" (fold_temp));
+> +		} else {
+> +			asm(".option push				\n\
+> +			.option arch,+zbb				\n\
+> +				rori	%[fold_temp], %[csum], 32	\n\
+> +				add	%[csum], %[fold_temp], %[csum]	\n\
+> +				srli	%[csum], %[csum], 32		\n\
+> +				not	%[fold_temp], %[csum]		\n\
+> +				roriw	%[csum], %[csum], 16		\n\
+> +				subw	%[csum], %[fold_temp], %[csum]	\n\
+> +			.option pop"
+> +			: [csum] "+r" (csum), [fold_temp] "=&r" (fold_temp));
+> +		}
+> +		return csum >> 16;
+> +	}
+> +no_zbb:
+> +#ifndef CONFIG_32BIT
+> +		csum += (csum >> 32) | (csum << 32);
+> +		csum >>= 32;
 
-Wait, why? The compatible is still there, so you just add here proper
-entry, if ever needed.
+This indentation is still weird.
 
-> something like "starfive,jh7100-uart-with-quirk" and "starfive,jh7100-uart" will
-> forever be a quirky way to spell "dw8250 with inflexible input clock".
-> Is that how device trees are supposed to work?
-
-I don't get this part. But anyway if the blocks are really designed or
-done independently and there is no shared part, except the DWC block,
-then indeed the compatibility might be just a coincidence...
-
-
-
-Best regards,
-Krzysztof
-
+> +#endif
+> +	return csum_fold((__force __wsum)csum);
+> +}
+> +
+> +#endif // __ASM_RISCV_CHECKSUM_H
+>
+> --
+> 2.42.0
+>
+>
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
