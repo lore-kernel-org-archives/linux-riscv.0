@@ -4,94 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4240EE6457
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 Sep 2023 14:26:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0D71EEB596
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 Sep 2023 14:50:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
-	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=YukzmYWKvRmE8ii2AkRCsJxORMFj/5TefPBNsi+L0OA=; b=xcO/E1ZXoI+7Vk49e7CEd70X/H
-	PGkZFmZpdt/Zxar8dsjJ7J1n91kqfu/RzHffzrdGcah0aoVnC1ajfG1r1lZlDvtx8G3lrcJMY4ib3
-	TJeAqa6zoPfxbmvDhUW87d9sl3K0wfnR83GwR0jdwV8arKww3wbXOY7QHw+buB+iKBeIVIdjr6fiq
-	Zux40chibpY7jamm9E4Ly7sR6e/4XFt0LmwVBK4CADDOtEAKUtt+KFNUPLeUrY2KLksXZyYgsIdpV
-	xaEZaCie+dQpD5c7U+qshHyAhPSBueSuT85xutfhJj0Tj5rvhh96FZTCmUzcwHpg0S7lgZp2pxllY
-	YqhM2yzg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=ST7muyRlj0PIACnOYGmWHOdvnJicp1ImHaLzad3kH1c=; b=jwomPaweisZ7SI
+	Rih0mHcE2uyaoY/mwzUjwSp199Z4JGU2aG3hwXPQF/6sK2Z2f+yPfXOJtKEaKCxo4CzXbpvXNfJ0/
+	eQQ8jyr21+QNFMxJhU16UPGCpQtP2NXio1pQinOBhkbKAbB+a5P7ez9mgtpXhG1WQ0FzXf1Wh93hZ
+	TUgBcD52sXCMOA6Fs0zafu5c5gO8uQd2zN3Pp3ra6S4hOkd3QXCwKVJem9sWvBibQeebEmGeonM84
+	6Zour9ksMrUCwTBw/M5cHGW4qnWZyOVTGl3gqVbjcEIxYOd/EDOreipyzmoXCIn/pW91J25/2F7U7
+	Hp8SRyYYhPExI6SRdr3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qh9m5-00Asl2-1m;
-	Fri, 15 Sep 2023 14:26:25 +0000
-Received: from mail-yw1-x114a.google.com ([2607:f8b0:4864:20::114a])
+	id 1qhA8p-00Auwv-19;
+	Fri, 15 Sep 2023 14:49:55 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qh9m2-00AsjU-1w
-	for linux-riscv@lists.infradead.org;
-	Fri, 15 Sep 2023 14:26:24 +0000
-Received: by mail-yw1-x114a.google.com with SMTP id 00721157ae682-59c0dd156e5so8652417b3.3
-        for <linux-riscv@lists.infradead.org>; Fri, 15 Sep 2023 07:26:19 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1694787978; x=1695392778; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=n3wwM0IxTv36mTuzbjanMwII1EwyeoxiFmog5O5ddM4=;
-        b=zR2R+ZSkVaF2g3NyPF2akT0g6EfFKyrPgEz2+uuSIuO2H7yevH/SloMDdK4DAbmojE
-         8N5Twa/+clARRajQWBi0kkUImlsqowooiNPcgltxKFzAfuDCL+wrOUxMo76M/29twGIr
-         1A4jPIDs5YQr6ffHsylqPGla9qtoXTDnf3LnLwh8j+I3WM7jv+3EInSepuQNVmHXBEQs
-         qEFzcy4UZsEloBbK3Pr+tDtvUq0gfEmf/cKh3wmNuLSZoZXwKP/sMMRd4WGgPNSLWwdY
-         s+Whn3oJ9s+X7kgKMcOQrezrhqdsgDM818hDznlfvhw+1c+M5dVWcuGRSoTC7QTCFmv7
-         zPMQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1694787978; x=1695392778;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=n3wwM0IxTv36mTuzbjanMwII1EwyeoxiFmog5O5ddM4=;
-        b=MoP/Pb22Dp6FffCZqp5fg2I4vsPI8u/bwUy2nCkHFXxpBOAETKey8UcjRROOFSuToJ
-         4oIE1UWFS1KraUvRepoZWiUEU3Fa4srwn4iLbkWvOO54xqgj3NT5HVGQMsQzfmUm4TyP
-         Um1sC161/s9yBqzB9NodYmIG8Kd8xfN7vqmWChB5ufX2gdCjf65EzTQZyu5IW9n3yiou
-         YFXKJJJByecFOyhgJJTSFT3+H0iPyZprF1WQoywMIVoFxH4H2uJtqlc9d5fY5LUqW716
-         CRT4zHpEB7p82GJLUK8Yns72ef6CTDYa8CHYzwIsS7ay1jBZc3nDxq7kUbmWvoADavgh
-         POUw==
-X-Gm-Message-State: AOJu0YzC5VemUr+kwIPixfptjgs2Kid1/d9OzQgSeQ8xbJafp+B78xyR
-	6WjjrCcJzGeLsQ6cCzKgaWucFqmAf/c=
-X-Google-Smtp-Source: AGHT+IEtd+ZFiwjGOxGj1IwoYm6uY+zMlhHeo3LWWwltDCF+cgsfqNfOOXS7Bflkew1pSHX6ZJTGM/96YR0=
-X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
- (user=seanjc job=sendgmr) by 2002:a25:bc8:0:b0:d80:eb4:9ca with SMTP id
- 191-20020a250bc8000000b00d800eb409camr37310ybl.0.1694787978719; Fri, 15 Sep
- 2023 07:26:18 -0700 (PDT)
-Date: Fri, 15 Sep 2023 07:26:16 -0700
-In-Reply-To: <ZQPuMK6D/7UzDH+D@yzhao56-desk.sh.intel.com>
-Mime-Version: 1.0
-References: <20230914015531.1419405-1-seanjc@google.com> <20230914015531.1419405-19-seanjc@google.com>
- <ZQPuMK6D/7UzDH+D@yzhao56-desk.sh.intel.com>
-Message-ID: <ZQRpiOd1DNDDJQ3r@google.com>
-Subject: Re: [RFC PATCH v12 18/33] KVM: x86/mmu: Handle page fault for private memory
-From: Sean Christopherson <seanjc@google.com>
-To: Yan Zhao <yan.y.zhao@intel.com>
-Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
-	Oliver Upton <oliver.upton@linux.dev>, Huacai Chen <chenhuacai@kernel.org>, 
-	Michael Ellerman <mpe@ellerman.id.au>, Anup Patel <anup@brainfault.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, "Matthew Wilcox (Oracle)" <willy@infradead.org>, 
-	Andrew Morton <akpm@linux-foundation.org>, Paul Moore <paul@paul-moore.com>, 
-	James Morris <jmorris@namei.org>, "Serge E. Hallyn" <serge@hallyn.com>, kvm@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
-	linux-fsdevel@vger.kernel.org, linux-mm@kvack.org, 
-	linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Chao Peng <chao.p.peng@linux.intel.com>, Fuad Tabba <tabba@google.com>, 
-	Jarkko Sakkinen <jarkko@kernel.org>, Anish Moorthy <amoorthy@google.com>, 
-	Yu Zhang <yu.c.zhang@linux.intel.com>, Isaku Yamahata <isaku.yamahata@intel.com>, 
-	Xu Yilun <yilun.xu@intel.com>, Vlastimil Babka <vbabka@suse.cz>, 
-	Vishal Annapurve <vannapurve@google.com>, Ackerley Tng <ackerleytng@google.com>, 
-	Maciej Szmigiero <mail@maciej.szmigiero.name>, David Hildenbrand <david@redhat.com>, 
-	Quentin Perret <qperret@google.com>, Michael Roth <michael.roth@amd.com>, Wang <wei.w.wang@intel.com>, 
-	Liam Merwick <liam.merwick@oracle.com>, Isaku Yamahata <isaku.yamahata@gmail.com>, 
-	"Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
+	id 1qhA8k-00Auuh-2l;
+	Fri, 15 Sep 2023 14:49:52 +0000
+Received: from lhrpeml100002.china.huawei.com (unknown [172.18.147.200])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4RnH630yTpz67Nc8;
+	Fri, 15 Sep 2023 22:44:59 +0800 (CST)
+Received: from lhrpeml500001.china.huawei.com (7.191.163.213) by
+ lhrpeml100002.china.huawei.com (7.191.160.241) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.31; Fri, 15 Sep 2023 15:49:41 +0100
+Received: from lhrpeml500001.china.huawei.com ([7.191.163.213]) by
+ lhrpeml500001.china.huawei.com ([7.191.163.213]) with mapi id 15.01.2507.031;
+ Fri, 15 Sep 2023 15:49:41 +0100
+From: Salil Mehta <salil.mehta@huawei.com>
+To: "Rafael J. Wysocki" <rafael@kernel.org>
+CC: "Russell King (Oracle)" <linux@armlinux.org.uk>, Ard Biesheuvel
+	<ardb@kernel.org>, Jonathan Cameron <jonathan.cameron@huawei.com>, "James
+ Morse" <james.morse@arm.com>, "linux-pm@vger.kernel.org"
+	<linux-pm@vger.kernel.org>, "loongarch@lists.linux.dev"
+	<loongarch@lists.linux.dev>, "linux-acpi@vger.kernel.org"
+	<linux-acpi@vger.kernel.org>, "linux-arch@vger.kernel.org"
+	<linux-arch@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-riscv@lists.infradead.org"
+	<linux-riscv@lists.infradead.org>, "kvmarm@lists.linux.dev"
+	<kvmarm@lists.linux.dev>, "x86@kernel.org" <x86@kernel.org>, "Jean-Philippe
+ Brucker" <jean-philippe@linaro.org>, "jianyong.wu@arm.com"
+	<jianyong.wu@arm.com>, "justin.he@arm.com" <justin.he@arm.com>
+Subject: RE: [RFC PATCH v2 27/35] ACPICA: Add new MADT GICC flags fields [code
+ first?]
+Thread-Topic: [RFC PATCH v2 27/35] ACPICA: Add new MADT GICC flags fields
+ [code first?]
+Thread-Index: AQHZ5mDqpYLh+nkhC0mj9mPBt3XEBLAZ5MMAgAB0lICAAAsFgIAAEfIQgADzSoCAABq9gIAAG4DQ////VACAAFZdgA==
+Date: Fri, 15 Sep 2023 14:49:41 +0000
+Message-ID: <cec8f4ad16434c2daa0b5db7f6d60a6b@huawei.com>
+References: <20230913163823.7880-1-james.morse@arm.com>
+	<20230913163823.7880-28-james.morse@arm.com>
+	<CAMj1kXHRAt7ecB9p_dm3MjDL5wZkAsVh30hMY2SV_XUe=bm6Vg@mail.gmail.com>
+	<20230914155459.00002dba@Huawei.com>
+	<CAMj1kXFquiLGCMow3iujHUU4GBZx2t9KfKy1R9iqjBFjY+acaA@mail.gmail.com>
+	<f5d9beea95e149ab89364dcdb0f8bf69@huawei.com>
+	<ZQQDJT6MOaIOPmq5@shell.armlinux.org.uk>
+	<CAJZ5v0jUQ+4G5ArYAtu1gvYF4356CK_QVTO4oWn0ukwdOiZaHA@mail.gmail.com>
+	<80e36ff513504a0382a1cbce83e42295@huawei.com>
+ <CAJZ5v0gou9Pdj_CPC=vLJ-6S-hz+0VY+GMgXcRJk=6t9mL1ykw@mail.gmail.com>
+In-Reply-To: <CAJZ5v0gou9Pdj_CPC=vLJ-6S-hz+0VY+GMgXcRJk=6t9mL1ykw@mail.gmail.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-originating-ip: [10.126.174.239]
+MIME-Version: 1.0
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230915_072622_684484_6A841D57 
-X-CRM114-Status: GOOD (  20.33  )
+X-CRM114-CacheID: sfid-20230915_074951_194760_DE4A1842 
+X-CRM114-Status: GOOD (  21.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,75 +90,70 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 15, 2023, Yan Zhao wrote:
-> On Wed, Sep 13, 2023 at 06:55:16PM -0700, Sean Christopherson wrote:
-> ....
-> > +static void kvm_mmu_prepare_memory_fault_exit(struct kvm_vcpu *vcpu,
-> > +					      struct kvm_page_fault *fault)
-> > +{
-> > +	kvm_prepare_memory_fault_exit(vcpu, fault->gfn << PAGE_SHIFT,
-> > +				      PAGE_SIZE, fault->write, fault->exec,
-> > +				      fault->is_private);
-> > +}
-> > +
-> > +static int kvm_faultin_pfn_private(struct kvm_vcpu *vcpu,
-> > +				   struct kvm_page_fault *fault)
-> > +{
-> > +	int max_order, r;
-> > +
-> > +	if (!kvm_slot_can_be_private(fault->slot)) {
-> > +		kvm_mmu_prepare_memory_fault_exit(vcpu, fault);
-> > +		return -EFAULT;
-> > +	}
-> > +
-> > +	r = kvm_gmem_get_pfn(vcpu->kvm, fault->slot, fault->gfn, &fault->pfn,
-> > +			     &max_order);
-> > +	if (r) {
-> > +		kvm_mmu_prepare_memory_fault_exit(vcpu, fault);
-> > +		return r;
-> > +	}
-> > +
-> > +	fault->max_level = min(kvm_max_level_for_order(max_order),
-> > +			       fault->max_level);
-> > +	fault->map_writable = !(fault->slot->flags & KVM_MEM_READONLY);
-> > +
-> > +	return RET_PF_CONTINUE;
-> > +}
-> > +
-> >  static int __kvm_faultin_pfn(struct kvm_vcpu *vcpu, struct kvm_page_fault *fault)
-> >  {
-> >  	struct kvm_memory_slot *slot = fault->slot;
-> > @@ -4293,6 +4356,14 @@ static int __kvm_faultin_pfn(struct kvm_vcpu *vcpu, struct kvm_page_fault *fault
-> >  			return RET_PF_EMULATE;
-> >  	}
-> >  
-> > +	if (fault->is_private != kvm_mem_is_private(vcpu->kvm, fault->gfn)) {
-> In patch 21,
-> fault->is_private is set as:
-> 	".is_private = kvm_mem_is_private(vcpu->kvm, cr2_or_gpa >> PAGE_SHIFT)",
-> then, the inequality here means memory attribute has been updated after
-> last check.
-> So, why an exit to user space for converting is required instead of a mere retry?
-> 
-> Or, is it because how .is_private is assigned in patch 21 is subjected to change
-> in future? 
-
-This.  Retrying on SNP or TDX would hang the guest.  I suppose we could special
-case VMs where .is_private is derived from the memory attributes, but the
-SW_PROTECTED_VM type is primary a development vehicle at this point.  I'd like to
-have it mimic SNP/TDX as much as possible; performance is a secondary concern.
-
-E.g. userspace needs to be prepared for "spurious" exits due to races on SNP and
-TDX, which this can theoretically exercise.  Though the window is quite small so
-I doubt that'll actually happen in practice; which of course also makes it less
-important to retry instead of exiting.
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+PiBGcm9tOiBSYWZhZWwgSi4gV3lzb2NraSA8cmFmYWVsQGtlcm5lbC5vcmc+DQo+IFNlbnQ6IEZy
+aWRheSwgU2VwdGVtYmVyIDE1LCAyMDIzIDExOjIxIEFNDQo+IFRvOiBTYWxpbCBNZWh0YSA8c2Fs
+aWwubWVodGFAaHVhd2VpLmNvbT4NCj4gQ2M6IFJhZmFlbCBKLiBXeXNvY2tpIDxyYWZhZWxAa2Vy
+bmVsLm9yZz47IFJ1c3NlbGwgS2luZyAoT3JhY2xlKQ0KPiA8bGludXhAYXJtbGludXgub3JnLnVr
+PjsgQXJkIEJpZXNoZXV2ZWwgPGFyZGJAa2VybmVsLm9yZz47IEpvbmF0aGFuIENhbWVyb24NCj4g
+PGpvbmF0aGFuLmNhbWVyb25AaHVhd2VpLmNvbT47IEphbWVzIE1vcnNlIDxqYW1lcy5tb3JzZUBh
+cm0uY29tPjsgbGludXgtDQo+IHBtQHZnZXIua2VybmVsLm9yZzsgbG9vbmdhcmNoQGxpc3RzLmxp
+bnV4LmRldjsgbGludXgtYWNwaUB2Z2VyLmtlcm5lbC5vcmc7DQo+IGxpbnV4LWFyY2hAdmdlci5r
+ZXJuZWwub3JnOyBsaW51eC1rZXJuZWxAdmdlci5rZXJuZWwub3JnOyBsaW51eC1hcm0tDQo+IGtl
+cm5lbEBsaXN0cy5pbmZyYWRlYWQub3JnOyBsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3Jn
+Ow0KPiBrdm1hcm1AbGlzdHMubGludXguZGV2OyB4ODZAa2VybmVsLm9yZzsgSmVhbi1QaGlsaXBw
+ZSBCcnVja2VyIDxqZWFuLQ0KPiBwaGlsaXBwZUBsaW5hcm8ub3JnPjsgamlhbnlvbmcud3VAYXJt
+LmNvbTsganVzdGluLmhlQGFybS5jb20NCj4gU3ViamVjdDogUmU6IFtSRkMgUEFUQ0ggdjIgMjcv
+MzVdIEFDUElDQTogQWRkIG5ldyBNQURUIEdJQ0MgZmxhZ3MgZmllbGRzDQo+IFtjb2RlIGZpcnN0
+P10NCj4gDQo+IE9uIEZyaSwgU2VwIDE1LCAyMDIzIGF0IDExOjM04oCvQU0gU2FsaWwgTWVodGEg
+PHNhbGlsLm1laHRhQGh1YXdlaS5jb20+DQo+IHdyb3RlOg0KPiA+DQo+ID4NCj4gPiA+IEZyb206
+IFJhZmFlbCBKLiBXeXNvY2tpIDxyYWZhZWxAa2VybmVsLm9yZz4NCj4gPiA+IFNlbnQ6IEZyaWRh
+eSwgU2VwdGVtYmVyIDE1LCAyMDIzIDk6NDUgQU0NCj4gPiA+IFRvOiBSdXNzZWxsIEtpbmcgKE9y
+YWNsZSkgPGxpbnV4QGFybWxpbnV4Lm9yZy51az4NCj4gPiA+IENjOiBTYWxpbCBNZWh0YSA8c2Fs
+aWwubWVodGFAaHVhd2VpLmNvbT47IEFyZCBCaWVzaGV1dmVsIDxhcmRiQGtlcm5lbC5vcmc+Ow0K
+PiA+ID4gSm9uYXRoYW4gQ2FtZXJvbiA8am9uYXRoYW4uY2FtZXJvbkBodWF3ZWkuY29tPjsgSmFt
+ZXMgTW9yc2UgDQo+ID4gPiA8amFtZXMubW9yc2VAYXJtLmNvbT47IGxpbnV4LXBtQHZnZXIua2Vy
+bmVsLm9yZzsgbG9vbmdhcmNoQGxpc3RzLmxpbnV4LmRldjsNCj4gPiA+IGxpbnV4LWFjcGlAdmdl
+ci5rZXJuZWwub3JnOyBsaW51eC1hcmNoQHZnZXIua2VybmVsLm9yZzsgbGludXgtDQo+ID4gPiBr
+ZXJuZWxAdmdlci5rZXJuZWwub3JnOyBsaW51eC1hcm0ta2VybmVsQGxpc3RzLmluZnJhZGVhZC5v
+cmc7IGxpbnV4LQ0KPiA+ID4gcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZzsga3ZtYXJtQGxpc3Rz
+LmxpbnV4LmRldjsgeDg2QGtlcm5lbC5vcmc7DQo+IEplYW4tDQo+ID4gPiBQaGlsaXBwZSBCcnVj
+a2VyIDxqZWFuLXBoaWxpcHBlQGxpbmFyby5vcmc+OyBqaWFueW9uZy53dUBhcm0uY29tOw0KPiA+
+ID4ganVzdGluLmhlQGFybS5jb20NCj4gPiA+IFN1YmplY3Q6IFJlOiBbUkZDIFBBVENIIHYyIDI3
+LzM1XSBBQ1BJQ0E6IEFkZCBuZXcgTUFEVCBHSUNDIGZsYWdzDQo+IGZpZWxkcw0KPiA+ID4gW2Nv
+ZGUgZmlyc3Q/XQ0KPiA+ID4NCj4gPiA+IE9uIEZyaSwgU2VwIDE1LCAyMDIzIGF0IDk6MDnigK9B
+TSBSdXNzZWxsIEtpbmcgKE9yYWNsZSkNCj4gPiA+IDxsaW51eEBhcm1saW51eC5vcmcudWs+IHdy
+b3RlOg0KPiA+ID4gPg0KPiA+ID4gPiBPbiBGcmksIFNlcCAxNSwgMjAyMyBhdCAwMjoyOToxM0FN
+ICswMDAwLCBTYWxpbCBNZWh0YSB3cm90ZToNCj4gPiA+ID4gPiBPbiB4ODYsIGR1cmluZyBpbml0
+LCBpZiB0aGUgTUFEVCBlbnRyeSBmb3IgTEFQSUMgaXMgZm91bmQgdG8gYmUNCj4gPiA+ID4gPiBv
+bmxpbmUtY2FwYWJsZSBhbmQgaXMgZW5hYmxlZCBhcyB3ZWxsIHRoZW4gcG9zc2libGUgYW5kIHBy
+ZXNlbnQNCj4gPiA+ID4NCj4gPiA+ID4gTm90ZSB0aGF0IHRoZSBBQ1BJIHNwZWMgc2F5cyBlbmFi
+bGVkICsgb25saW5lLWNhcGFibGUgaXNuJ3QgZGVmaW5lZC4NCj4gPiA+ID4NCj4gPiA+ID4gIlRo
+ZSBpbmZvcm1hdGlvbiBjb252ZXllZCBieSB0aGlzIGJpdCBkZXBlbmRzIG9uIHRoZSB2YWx1ZSBv
+ZiB0aGUNCj4gPiA+ID4gRW5hYmxlZCBiaXQuIElmIHRoZSBFbmFibGVkIGJpdCBpcyBzZXQsIHRo
+aXMgYml0IGlzIHJlc2VydmVkIGFuZA0KPiA+ID4gPiBtdXN0IGJlIHplcm8uIg0KPiA+ID4gPg0K
+PiA+ID4gPiBTbywgaWYgeDg2IGlzIGRvaW5nIHNvbWV0aGluZyB3aXRoIHRoZSBlbmFibGVkICYm
+IG9ubGluZS1jYXBhYmxlDQo+ID4gPiA+IHN0YXRlIChvdGhlciB0aGFuIGlnbm9yaW5nIHRoZSBv
+bmxpbmUtY2FwYWJsZSkgdGhlbiB0ZWNobmljYWxseSBpdA0KPiA+ID4gPiBpcyBkb2luZyBzb21l
+dGhpbmcgdGhhdCB0aGUgc3BlYyBkb2Vzbid0IGRlZmluZQ0KPiA+ID4NCj4gPiA+IEFuZCBzbyBp
+dCBpcyB3cm9uZy4NCj4gPg0KPiA+DQo+ID4gT3IgbWF5YmUsIHNwZWNpZmljYXRpb24gaGFzIG5v
+dCBiZWVuIHVwZGF0ZWQgeWV0LiBjb2RlLWZpcnN0Pw0KPiANCj4gV2VsbCwgaWYgeW91IGFyZSBh
+d2FyZSBvZiBhbnkgY2hhbmdlIHJlcXVlc3RzIHJlbGF0ZWQgdG8gdGhpcyBhbmQNCj4gcG9zdGVk
+IGFzIGNvZGUtZmlyc3QsIHBsZWFzZSBsZXQgbWUga25vdy4NCg0KSSBhbSBub3QgYXdhcmUgb2Yg
+YW55IG9uIHg4Ni4gTWF5YmUgd2UgY2FuIGRvIGl0IG9uIEFSTSBmaXJzdCBhbmQNCmxldCBvdGhl
+ciBBcmNoIHBpdGNoLWluIHRoZWlyIG9iamVjdGlvbiBsYXRlcj8gQWZ0ZXJhbGwsIHRoZXJlIGlz
+DQphIGxlZ2l0aW1hdGUgdXNlLWNhc2UgaW4gY2FzZSBvZiBBUk0uIEhhdmluZyBtdXR1YWxseSBl
+eGNsdXNpdmUNCmJpdHMgYnJlYWtzIGNlcnRhaW4gdXNlLWNhc2VzIGFuZCB3ZSBoYXZlIHRvIGRv
+IHRoZSB0cmFkZW9mZnMuIA0KDQpUaGlzIGNhbiBiZSBkb25lIGluIHBhcmFsbGVsIHdoaWxlIG90
+aGVyIHBhdGNoZXMgYXJlIGdldHRpbmcNCnJldmlld2VkIGFuZCBtb21lbnRhcmlseSBsaXZpbmcg
+d2l0aCB0aGUgdHJhZGVvZmZzIHRpbGwNCnNwZWNpZmljYXRpb24gaXMgc29ydGVkLiBCdXQgb2Yg
+Y291cnNlIGl0IGRlcGVuZHMgdXBvbiB3aGF0DQpvdGhlciBzdGFrZSBob2xkZXJzIGFuZCBtb3N0
+IGltcG9ydGFudGx5IHdoYXQgQVJNIEFyY2ggcGVvcGxlDQp0aGluayBvZiBpdC4NCg0KVGhhbmtz
+DQpTYWxpbC4NCg0KICANCg0KDQoNCg0KDQoNCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBs
+aXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlz
+dGluZm8vbGludXgtcmlzY3YK
