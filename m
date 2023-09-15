@@ -4,75 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3317EE6452
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 Sep 2023 10:21:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84113EE6452
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 Sep 2023 10:23:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=djKCgWDZSlsjKEIlqA436ouz5hsbRgf4HpWj2iCoUlU=; b=anG/SFjjBIHYka
-	nCeL4a5x0h28ibkdPcgY1hNgkl/ohTyI+MQeGWrklNlNHN8Lm2NnouCOUdbTFpZb1/PPHd6zWNnyI
-	ZQBG2S2G/e73gXUe0MrLQerkkTmtzThDfJzqxiqUhdqgI6pmfCpF4DVzmOXB94pAy0iZTIRVWk2mO
-	3pf3QdmU3PFk+I3CASnlS+oGEIkIIcB0lVT2G+txAusZIzITinDbL4hl/eEpFFGRZQvAWnx5Utt3c
-	Bucx6rErf7wYsCtDEb0f5kS7gVpX5i4SEgibnwRDFPuZT8I2GGWZVIx33AKONDTjUtJZ4nRRQXgSf
-	kjK59RossJnKJi/cDwwQ==;
+	List-Owner; bh=n7V8flcDbJUVQOKhkATWr7ZOqlBLbK2pSRDtaU5u17A=; b=2A+rPaQHc4Dx6P
+	Jzf88Rt4RCDzq+lI3C2v9/ELM/uOdaF6irFTbzroKPdaf81QbvtFBrJsO/vlIDg7g294Zh+5kqixJ
+	3qXkOa0CEwQHi1oqbtqaDk0c57wI11+p1yJ9Wp96MOafZju1FOlS3BCcUbJckuSuGYOs1pK92ZybM
+	cRJ3at6qIie/YC6PUPD2rgvraX3yhvLx9LBnY6LjGXMQY4nbQTpz8ib3yXognpF9qVHK+mvV3txnp
+	Lu4FCZrRoxj5bsyhXazOcLBB6jTD4LpHQ4nq4UnC96kblvNZrgngRBQrMY6DvjJEQb6SdL9P0Fuqh
+	pFKNfajMdlWe1W015dDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qh5x0-00ANnN-2q;
-	Fri, 15 Sep 2023 10:21:26 +0000
-Received: from mail-oi1-f169.google.com ([209.85.167.169])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qh5ww-00ANmF-1i;
-	Fri, 15 Sep 2023 10:21:23 +0000
-Received: by mail-oi1-f169.google.com with SMTP id 5614622812f47-3ab8e324725so381259b6e.0;
-        Fri, 15 Sep 2023 03:21:20 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1694773280; x=1695378080;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=T2EQISS+TI6FymgehjVGYiebl+s7fB1qqSBohFwF18Y=;
-        b=P+EF0FsrvfxiZzYsgJcxvnPGgsJWQ80+EHolMWAD/Xz7rLHVbXCddmkCSVAps8Q1KM
-         lJAgjc+UJWEMXIejFuJT6ifLjgIU0VZX15qhZeKoUhLHAp0STyNBuN+uPf/Vl3f1jzDU
-         QBCJsx4to6Laz/gJidwIx8VGnPLfZWunbTMVKO3MpYmXVjHM3rmqr9wprAo3WCo2fn9V
-         Zf9Tq0aZ+wRN/iuEdI+EFbz7OWsfporzQ0VjQ+ccnb8GxzjNHaIsWzCChuCH6w4m4BWx
-         1rM4ZvrXhsgD3vDQOrPxbnSJsrt2j7KV3xbDM34AawB1WuuQ/V6bO7ymDvat9i3ezf3F
-         lJrg==
-X-Gm-Message-State: AOJu0Yze2/dj3DSaFnUxX8fn0W0664v4joIA+7op+XoAhPvpIkSwZdS7
-	bfi2P2pTx9he48tVGGd+OoKztNa9ftPVSlHOg/s=
-X-Google-Smtp-Source: AGHT+IE91hPOK8y/kVeJFKJe8XyQhu0n/Q+0x2/bog6c455z4TN1+FSBkfJT1sJVgSvtor6J5rMGJgfx0mnsyytHqT0=
-X-Received: by 2002:a4a:de83:0:b0:56e:94ed:c098 with SMTP id
- v3-20020a4ade83000000b0056e94edc098mr1206706oou.0.1694773279760; Fri, 15 Sep
- 2023 03:21:19 -0700 (PDT)
+	id 1qh5ys-00AO7U-2C;
+	Fri, 15 Sep 2023 10:23:22 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1qh5yo-00AO1Y-0g
+	for linux-riscv@lists.infradead.org;
+	Fri, 15 Sep 2023 10:23:20 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id B8A518571;
+	Fri, 15 Sep 2023 18:22:46 +0800 (CST)
+Received: from EXMBX171.cuchost.com (172.16.6.91) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 15 Sep
+ 2023 18:22:46 +0800
+Received: from ubuntu.localdomain (113.72.144.67) by EXMBX171.cuchost.com
+ (172.16.6.91) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 15 Sep
+ 2023 18:22:45 +0800
+From: Minda Chen <minda.chen@starfivetech.com>
+To: Daire McNamara <daire.mcnamara@microchip.com>, Conor Dooley
+	<conor@kernel.org>, Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kw@linux.com>, Emil Renner Berthing
+	<emil.renner.berthing@canonical.com>
+CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, <linux-pci@vger.kernel.org>,
+	=?UTF-8?q?Pali=20Roh=C3=A1r?= <pali@kernel.org>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Philipp Zabel <p.zabel@pengutronix.de>, Mason Huo
+	<mason.huo@starfivetech.com>, Leyfoon Tan <leyfoon.tan@starfivetech.com>,
+	Kevin Xie <kevin.xie@starfivetech.com>, Minda Chen
+	<minda.chen@starfivetech.com>
+Subject: [PATCH v6 01/19] dt-bindings: PCI: Add PLDA XpressRICH PCIe host common properties
+Date: Fri, 15 Sep 2023 18:22:25 +0800
+Message-ID: <20230915102243.59775-2-minda.chen@starfivetech.com>
+X-Mailer: git-send-email 2.17.1
+In-Reply-To: <20230915102243.59775-1-minda.chen@starfivetech.com>
+References: <20230915102243.59775-1-minda.chen@starfivetech.com>
 MIME-Version: 1.0
-References: <20230913163823.7880-1-james.morse@arm.com> <20230913163823.7880-28-james.morse@arm.com>
- <CAMj1kXHRAt7ecB9p_dm3MjDL5wZkAsVh30hMY2SV_XUe=bm6Vg@mail.gmail.com>
- <20230914155459.00002dba@Huawei.com> <CAMj1kXFquiLGCMow3iujHUU4GBZx2t9KfKy1R9iqjBFjY+acaA@mail.gmail.com>
- <f5d9beea95e149ab89364dcdb0f8bf69@huawei.com> <ZQQDJT6MOaIOPmq5@shell.armlinux.org.uk>
- <CAJZ5v0jUQ+4G5ArYAtu1gvYF4356CK_QVTO4oWn0ukwdOiZaHA@mail.gmail.com> <80e36ff513504a0382a1cbce83e42295@huawei.com>
-In-Reply-To: <80e36ff513504a0382a1cbce83e42295@huawei.com>
-From: "Rafael J. Wysocki" <rafael@kernel.org>
-Date: Fri, 15 Sep 2023 12:21:08 +0200
-Message-ID: <CAJZ5v0gou9Pdj_CPC=vLJ-6S-hz+0VY+GMgXcRJk=6t9mL1ykw@mail.gmail.com>
-Subject: Re: [RFC PATCH v2 27/35] ACPICA: Add new MADT GICC flags fields [code first?]
-To: Salil Mehta <salil.mehta@huawei.com>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>, "Russell King (Oracle)" <linux@armlinux.org.uk>, 
-	Ard Biesheuvel <ardb@kernel.org>, Jonathan Cameron <jonathan.cameron@huawei.com>, 
-	James Morse <james.morse@arm.com>, "linux-pm@vger.kernel.org" <linux-pm@vger.kernel.org>, 
-	"loongarch@lists.linux.dev" <loongarch@lists.linux.dev>, 
-	"linux-acpi@vger.kernel.org" <linux-acpi@vger.kernel.org>, 
-	"linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>, 
-	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>, "x86@kernel.org" <x86@kernel.org>, 
-	Jean-Philippe Brucker <jean-philippe@linaro.org>, "jianyong.wu@arm.com" <jianyong.wu@arm.com>, 
-	"justin.he@arm.com" <justin.he@arm.com>
+X-Originating-IP: [113.72.144.67]
+X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX171.cuchost.com
+ (172.16.6.91)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230915_032122_595921_09039D73 
-X-CRM114-Status: GOOD (  18.95  )
+X-CRM114-CacheID: sfid-20230915_032318_561259_799644EF 
+X-CRM114-Status: GOOD (  13.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,44 +78,198 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCBTZXAgMTUsIDIwMjMgYXQgMTE6MzTigK9BTSBTYWxpbCBNZWh0YSA8c2FsaWwubWVo
-dGFAaHVhd2VpLmNvbT4gd3JvdGU6Cj4KPgo+ID4gRnJvbTogUmFmYWVsIEouIFd5c29ja2kgPHJh
-ZmFlbEBrZXJuZWwub3JnPgo+ID4gU2VudDogRnJpZGF5LCBTZXB0ZW1iZXIgMTUsIDIwMjMgOTo0
-NSBBTQo+ID4gVG86IFJ1c3NlbGwgS2luZyAoT3JhY2xlKSA8bGludXhAYXJtbGludXgub3JnLnVr
-Pgo+ID4gQ2M6IFNhbGlsIE1laHRhIDxzYWxpbC5tZWh0YUBodWF3ZWkuY29tPjsgQXJkIEJpZXNo
-ZXV2ZWwgPGFyZGJAa2VybmVsLm9yZz47Cj4gPiBKb25hdGhhbiBDYW1lcm9uIDxqb25hdGhhbi5j
-YW1lcm9uQGh1YXdlaS5jb20+OyBKYW1lcyBNb3JzZQo+ID4gPGphbWVzLm1vcnNlQGFybS5jb20+
-OyBsaW51eC1wbUB2Z2VyLmtlcm5lbC5vcmc7IGxvb25nYXJjaEBsaXN0cy5saW51eC5kZXY7Cj4g
-PiBsaW51eC1hY3BpQHZnZXIua2VybmVsLm9yZzsgbGludXgtYXJjaEB2Z2VyLmtlcm5lbC5vcmc7
-IGxpbnV4LQo+ID4ga2VybmVsQHZnZXIua2VybmVsLm9yZzsgbGludXgtYXJtLWtlcm5lbEBsaXN0
-cy5pbmZyYWRlYWQub3JnOyBsaW51eC0KPiA+IHJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmc7IGt2
-bWFybUBsaXN0cy5saW51eC5kZXY7IHg4NkBrZXJuZWwub3JnOyBKZWFuLQo+ID4gUGhpbGlwcGUg
-QnJ1Y2tlciA8amVhbi1waGlsaXBwZUBsaW5hcm8ub3JnPjsgamlhbnlvbmcud3VAYXJtLmNvbTsK
-PiA+IGp1c3Rpbi5oZUBhcm0uY29tCj4gPiBTdWJqZWN0OiBSZTogW1JGQyBQQVRDSCB2MiAyNy8z
-NV0gQUNQSUNBOiBBZGQgbmV3IE1BRFQgR0lDQyBmbGFncyBmaWVsZHMKPiA+IFtjb2RlIGZpcnN0
-P10KPiA+Cj4gPiBPbiBGcmksIFNlcCAxNSwgMjAyMyBhdCA5OjA54oCvQU0gUnVzc2VsbCBLaW5n
-IChPcmFjbGUpCj4gPiA8bGludXhAYXJtbGludXgub3JnLnVrPiB3cm90ZToKPiA+ID4KPiA+ID4g
-T24gRnJpLCBTZXAgMTUsIDIwMjMgYXQgMDI6Mjk6MTNBTSArMDAwMCwgU2FsaWwgTWVodGEgd3Jv
-dGU6Cj4gPiA+ID4gT24geDg2LCBkdXJpbmcgaW5pdCwgaWYgdGhlIE1BRFQgZW50cnkgZm9yIExB
-UElDIGlzIGZvdW5kIHRvIGJlCj4gPiA+ID4gb25saW5lLWNhcGFibGUgYW5kIGlzIGVuYWJsZWQg
-YXMgd2VsbCB0aGVuIHBvc3NpYmxlIGFuZCBwcmVzZW50Cj4gPiA+Cj4gPiA+IE5vdGUgdGhhdCB0
-aGUgQUNQSSBzcGVjIHNheXMgZW5hYmxlZCArIG9ubGluZS1jYXBhYmxlIGlzbid0IGRlZmluZWQu
-Cj4gPiA+Cj4gPiA+ICJUaGUgaW5mb3JtYXRpb24gY29udmV5ZWQgYnkgdGhpcyBiaXQgZGVwZW5k
-cyBvbiB0aGUgdmFsdWUgb2YgdGhlCj4gPiA+IEVuYWJsZWQgYml0LiBJZiB0aGUgRW5hYmxlZCBi
-aXQgaXMgc2V0LCB0aGlzIGJpdCBpcyByZXNlcnZlZCBhbmQKPiA+ID4gbXVzdCBiZSB6ZXJvLiIK
-PiA+ID4KPiA+ID4gU28sIGlmIHg4NiBpcyBkb2luZyBzb21ldGhpbmcgd2l0aCB0aGUgZW5hYmxl
-ZCAmJiBvbmxpbmUtY2FwYWJsZQo+ID4gPiBzdGF0ZSAob3RoZXIgdGhhbiBpZ25vcmluZyB0aGUg
-b25saW5lLWNhcGFibGUpIHRoZW4gdGVjaG5pY2FsbHkgaXQKPiA+ID4gaXMgZG9pbmcgc29tZXRo
-aW5nIHRoYXQgdGhlIHNwZWMgZG9lc24ndCBkZWZpbmUKPiA+Cj4gPiBBbmQgc28gaXQgaXMgd3Jv
-bmcuCj4KPgo+IE9yIG1heWJlLCBzcGVjaWZpY2F0aW9uIGhhcyBub3QgYmVlbiB1cGRhdGVkIHll
-dC4gY29kZS1maXJzdD8KCldlbGwsIGlmIHlvdSBhcmUgYXdhcmUgb2YgYW55IGNoYW5nZSByZXF1
-ZXN0cyByZWxhdGVkIHRvIHRoaXMgYW5kCnBvc3RlZCBhcyBjb2RlLWZpcnN0LCBwbGVhc2UgbGV0
-IG1lIGtub3cuCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-XwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9y
-ZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2
-Cg==
+Add PLDA XpressRICH PCIe host common properties dt-binding doc.
+Microchip PolarFire PCIe host using PLDA IP.
+Move common properties from Microchip PolarFire PCIe host
+to PLDA files.
+
+Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
+Reviewed-by: Hal Feng <hal.feng@starfivetech.com>
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+Reviewed-by: Rob Herring <robh@kernel.org>
+---
+ .../bindings/pci/microchip,pcie-host.yaml     | 55 +-------------
+ .../pci/plda,xpressrich3-axi-common.yaml      | 75 +++++++++++++++++++
+ 2 files changed, 76 insertions(+), 54 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/pci/plda,xpressrich3-axi-common.yaml
+
+diff --git a/Documentation/devicetree/bindings/pci/microchip,pcie-host.yaml b/Documentation/devicetree/bindings/pci/microchip,pcie-host.yaml
+index f7a3c2636355..7c2d51221f65 100644
+--- a/Documentation/devicetree/bindings/pci/microchip,pcie-host.yaml
++++ b/Documentation/devicetree/bindings/pci/microchip,pcie-host.yaml
+@@ -10,21 +10,13 @@ maintainers:
+   - Daire McNamara <daire.mcnamara@microchip.com>
+ 
+ allOf:
+-  - $ref: /schemas/pci/pci-bus.yaml#
++  - $ref: plda,xpressrich3-axi-common.yaml#
+   - $ref: /schemas/interrupt-controller/msi-controller.yaml#
+ 
+ properties:
+   compatible:
+     const: microchip,pcie-host-1.0 # PolarFire
+ 
+-  reg:
+-    maxItems: 2
+-
+-  reg-names:
+-    items:
+-      - const: cfg
+-      - const: apb
+-
+   clocks:
+     description:
+       Fabric Interface Controllers, FICs, are the interface between the FPGA
+@@ -52,18 +44,6 @@ properties:
+     items:
+       pattern: '^fic[0-3]$'
+ 
+-  interrupts:
+-    minItems: 1
+-    items:
+-      - description: PCIe host controller
+-      - description: builtin MSI controller
+-
+-  interrupt-names:
+-    minItems: 1
+-    items:
+-      - const: pcie
+-      - const: msi
+-
+   ranges:
+     maxItems: 1
+ 
+@@ -71,39 +51,6 @@ properties:
+     minItems: 1
+     maxItems: 6
+ 
+-  msi-controller:
+-    description: Identifies the node as an MSI controller.
+-
+-  msi-parent:
+-    description: MSI controller the device is capable of using.
+-
+-  interrupt-controller:
+-    type: object
+-    properties:
+-      '#address-cells':
+-        const: 0
+-
+-      '#interrupt-cells':
+-        const: 1
+-
+-      interrupt-controller: true
+-
+-    required:
+-      - '#address-cells'
+-      - '#interrupt-cells'
+-      - interrupt-controller
+-
+-    additionalProperties: false
+-
+-required:
+-  - reg
+-  - reg-names
+-  - "#interrupt-cells"
+-  - interrupts
+-  - interrupt-map-mask
+-  - interrupt-map
+-  - msi-controller
+-
+ unevaluatedProperties: false
+ 
+ examples:
+diff --git a/Documentation/devicetree/bindings/pci/plda,xpressrich3-axi-common.yaml b/Documentation/devicetree/bindings/pci/plda,xpressrich3-axi-common.yaml
+new file mode 100644
+index 000000000000..31bb17b11e58
+--- /dev/null
++++ b/Documentation/devicetree/bindings/pci/plda,xpressrich3-axi-common.yaml
+@@ -0,0 +1,75 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/pci/plda,xpressrich3-axi-common.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: PLDA XpressRICH PCIe host common properties
++
++maintainers:
++  - Daire McNamara <daire.mcnamara@microchip.com>
++  - Kevin Xie <kevin.xie@starfivetech.com>
++
++description:
++  Generic PLDA XpressRICH PCIe host common properties.
++
++allOf:
++  - $ref: /schemas/pci/pci-bus.yaml#
++
++properties:
++  reg:
++    maxItems: 2
++
++  reg-names:
++    items:
++      - const: cfg
++      - const: apb
++
++  interrupts:
++    minItems: 1
++    items:
++      - description: PCIe host controller
++      - description: builtin MSI controller
++
++  interrupt-names:
++    minItems: 1
++    items:
++      - const: pcie
++      - const: msi
++
++  msi-controller:
++    description: Identifies the node as an MSI controller.
++
++  msi-parent:
++    description: MSI controller the device is capable of using.
++
++  interrupt-controller:
++    type: object
++    properties:
++      '#address-cells':
++        const: 0
++
++      '#interrupt-cells':
++        const: 1
++
++      interrupt-controller: true
++
++    required:
++      - '#address-cells'
++      - '#interrupt-cells'
++      - interrupt-controller
++
++    additionalProperties: false
++
++required:
++  - reg
++  - reg-names
++  - interrupts
++  - msi-controller
++  - "#interrupt-cells"
++  - interrupt-map-mask
++  - interrupt-map
++
++additionalProperties: true
++
++...
+-- 
+2.17.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
