@@ -4,87 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC138EE6425
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 Sep 2023 07:15:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49D01EE6427
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 Sep 2023 07:19:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=VzecgKp6Sz8os9R7BRl5JEBaCJb9CL+QKVi2OGLMPhc=; b=h4FzguS+GLkXgn
-	wFSNnDpj3pvREXTNzQ82ouOSv9dWraMyubVZh30M9JJM49/XZIgDZMetVjX3PTQaySnwFRoYrZll8
-	H42HYRm9iRFIjxVSDrV8bkjxSTTk4HW5cfN7as72UomPbpLwT+K4hzJn6Twhn3YlcrDQByOQvvGaO
-	fwNMIomu9Ymo9XI0hGU1uA/ZHwJ56pskvcRyXFo8RzBPk/CfAKR5aG6ojX6V2hESOHCExpIEQ4UeE
-	UrobPpwFwGCDKKiL4OlwFCYjaT5EKcAx1LdMqdDsvGEPHlbnV6to1kz/y0Atidrqs3rJ5IXyX2l79
-	d75Fgpw12UxuihTEVFBw==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=o6l2QYaXKpXvcGjHt+o9YmABWHtjF5bv4r6rd3ugIsA=; b=SchVx95/E8Jzws
+	ORxvaESBxqk7gFY30bkLgn/A8K52MkPxaXbL/cxoIWJkr25z+4nupiwQTH0Dm13Q+Sdu19QtHLVjU
+	pEoaX97Ai8ZzTeR8oQmMZ5SiLrmp5cRjdr6DiITaYsedcx4bGTRcbigIZJUoLnS3mr24iOwWABviA
+	UEGWRe6IhF2otFhMxjBnkZngU1aW7ucY8bWii1fjIXPEYAINgfgVDKQhqbv4aJLrcvvz+J17hvNUJ
+	K9X5HsC6GpZ6gUROCgFlpaBYY8NFMUXL2nmSMk+vV94AqvX+FjDKgEghx64yZS4mg8f9m1mmtPy+t
+	X5r/owlTNehHFtLY1NlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qh337-00A0Kq-0P;
-	Fri, 15 Sep 2023 07:15:33 +0000
-Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
+	id 1qh37K-00A0dC-2z;
+	Fri, 15 Sep 2023 07:19:54 +0000
+Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qh334-00A0KS-1F
+	id 1qh37I-00A0cL-07
 	for linux-riscv@lists.infradead.org;
-	Fri, 15 Sep 2023 07:15:31 +0000
-Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-1c3cbfa40d6so16388675ad.1
-        for <linux-riscv@lists.infradead.org>; Fri, 15 Sep 2023 00:15:29 -0700 (PDT)
+	Fri, 15 Sep 2023 07:19:53 +0000
+Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-31c93d2a24fso1630966f8f.2
+        for <linux-riscv@lists.infradead.org>; Fri, 15 Sep 2023 00:19:49 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1694762129; x=1695366929; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=xPt+lflGxmD7kew86V+AaK7Q6nPGEAHxfdx7vSqNo0w=;
-        b=B2LiCTo6LZkCBgdUon/Z1W/I7bvL8CtGS8v/b9aWBIn9vWtqn2yLt3VX6LLbo+fd6O
-         8DWlzusoiVuD3CvwFFQmXLNTI/fdD4wCKTmp05jI1T0iBMS9yG/mVHluTwEKBAg/qodB
-         qvX4N6hSIR75dBVr2lac6OkUhIXrvZke9ED1Am58v/BnwL0B7nCrD2aok1JfZ1aU5xe+
-         XKWXs83CLnpTxXK66BrZId6o0qMUTOIiNeimbW8DYcg6R5Chfd56nOyDkRewkNzfsJjF
-         zqtsTJ8cgIAyEYOgy59zGaZ6Ju/uZbMrU0X5UkoPLMzx8jZZNUc8YTEWX5QHgEZ8dcvl
-         oGOQ==
+        d=linaro.org; s=google; t=1694762388; x=1695367188; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=UWppzIvE71bQdSmepb9Q7KfKBm9EUT935/Q3Gt6YfSo=;
+        b=gFKHLcMkN5hftrBF7J4hEp2xQZ8S4bbP5NiUrTLbLoOjzlGAWSFPyUyvLO2/s32Fx4
+         O5IIjY4jeDidE5+s2hhFNelq+zSb4hl9M4Z446jxYTbh4IWVTcwTja14IG10DK8/5Bzw
+         oDrrbiuB6KprtFWcHJ7ro3KFTdg5XoSy+TDx4hLuLCiaCR+L7TxKWbWOcPJCLupGmGhY
+         rUizvEkUvJ31YYattez6nOu0mYj73Yyc98Y6elPby5E57YxwhcOssgVVhyN88t0Txio6
+         DGLTOulOd83dZzyp7TftzFbh1GYYfE1z+bHkX15Jri+wCu3IMAITedSsppQjThFi9FFH
+         lo1A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1694762129; x=1695366929;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=xPt+lflGxmD7kew86V+AaK7Q6nPGEAHxfdx7vSqNo0w=;
-        b=miG3uDEqamMA7qnj4KZv9iJuX1AM/+5fJsGBe+CTmbdJHdYqcGWhPKYRT/gSYF7rdT
-         XZG8p275O5UT3r1V4hbrUExt5vEy+PZ2+UbdG8fXv6QEdLhDFnPDleBr6cOm/YeWykBD
-         Nt/G0HZ85j0+ZhISpJL5T0WvabyJaTfNGHK4YhFcd0sHtuqzSq9YZTdcAlgfzX+hV8f+
-         ZW+8qyJKIvv2gSQZH/Iv/b77MQ19+/79sAIIBFDt+1qwSafV/B5wpI716lVKillysa2P
-         3/J/afZSwZFZ8pYK5SF0eHhM9qHG3JwmC7NsiSUax9mRYlg1ib2ZDRgwbDtpxT7moxA1
-         bAlA==
-X-Gm-Message-State: AOJu0YwXLgDPJhCzevQMRIgotBYtig6cvER2AkWxT/pt4kIVsKrLmwdE
-	HfDCzzOPdbPKIfPsXCNckxVKT/+0af1/H34f
-X-Google-Smtp-Source: AGHT+IFCdr2RrtfYmIsOzqNUg5/c7ZTKK3DcpYDUDxfJxaRuGC+qz4+2B1LFXLrvhMSnOIofAHGA+g==
-X-Received: by 2002:a17:902:a3cc:b0:1b8:1bac:3782 with SMTP id q12-20020a170902a3cc00b001b81bac3782mr889683plb.6.1694762128648;
-        Fri, 15 Sep 2023 00:15:28 -0700 (PDT)
-Received: from localhost.localdomain ([222.95.63.58])
-        by smtp.gmail.com with ESMTPSA id q23-20020a170902789700b001bdc6e13665sm2723958pll.275.2023.09.15.00.15.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 15 Sep 2023 00:15:28 -0700 (PDT)
-From: Wang Chen <unicornxw@gmail.com>
-X-Google-Original-From: Wang Chen <wangchen20@iscas.ac.cn>
-To: linux-riscv@lists.infradead.org,
-	conor@kernel.org,
-	aou@eecs.berkeley.edu,
-	krzysztof.kozlowski+dt@linaro.org,
-	palmer@dabbelt.com,
-	paul.walmsley@sifive.com,
-	robh+dt@kernel.org
-Cc: devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	jszhang@kernel.org,
-	guoren@kernel.org,
-	chao.wei@sophgo.com,
-	xiaoguang.xing@sophgo.com,
-	Wang Chen <wangchen20@iscas.ac.cn>
-Subject: [PATCH 02/12] dt-bindings: vendor-prefixes: add milkv/sophgo
-Date: Fri, 15 Sep 2023 15:14:09 +0800
-Message-Id: <20230915071409.117692-1-wangchen20@iscas.ac.cn>
-X-Mailer: git-send-email 2.25.1
+        d=1e100.net; s=20230601; t=1694762388; x=1695367188;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=UWppzIvE71bQdSmepb9Q7KfKBm9EUT935/Q3Gt6YfSo=;
+        b=ttLuA1xqWz7solGhyIkn1swj1ZFnJoKLy4CcaG1f8t3nQS1iUojVe+FDrcAB8hp8wL
+         uxGK6vyChvrVH8HFwdEZOWaKUQ3EqG2eWQzEGIIx9rsbxOwSG1xQAWVibCNyvfhViHik
+         T9ZqFWLNvI6uxun9pe3ap+/J5C9K0xDFCuefPULESlS+fY+ymnqO+LaDbWctT1IYnDYw
+         Uf3rrmajRWeSGJgf1si8g2dKK8TXSjrL/Ogqu7udIWOEadax4naFMGvR8nOd7QS7afnX
+         xXdavIbAlXdkvzVGLtkfXwfU7d0PhbFUw9ElcSxdNNjM6jpOuTf7Ldd76jCKXmuTIIa0
+         i2HQ==
+X-Gm-Message-State: AOJu0Yzt1IGKsXyZ5qzdRDo+x7E3Yu7NNSuqB4wlGFXhBRCHzaY0V8Ci
+	X8O/vCjvoCM+jrOgup4IR8XJpQ==
+X-Google-Smtp-Source: AGHT+IEtogEt5SzjYHhCTVd0LkUEWxZ8PBeGANpHgtQjRN4h7y4lYJIqFvei9LFkm8l25UnU9mIeyQ==
+X-Received: by 2002:adf:ef8a:0:b0:314:1ce9:3c86 with SMTP id d10-20020adfef8a000000b003141ce93c86mr794603wro.0.1694762388245;
+        Fri, 15 Sep 2023 00:19:48 -0700 (PDT)
+Received: from [192.168.1.20] ([178.197.214.188])
+        by smtp.gmail.com with ESMTPSA id a4-20020a5d4d44000000b00317e77106dbsm3622789wru.48.2023.09.15.00.19.46
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 15 Sep 2023 00:19:47 -0700 (PDT)
+Message-ID: <e087f579-198b-49b9-97f0-b642400feaef@linaro.org>
+Date: Fri, 15 Sep 2023 09:19:45 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.15.0
+Subject: Re: [PATCH 02/12] dt-bindings: vendor-prefixes: add milkv/sophgo
+Content-Language: en-US
+To: Wang Chen <unicornxw@gmail.com>, linux-riscv@lists.infradead.org,
+ conor@kernel.org, aou@eecs.berkeley.edu, krzysztof.kozlowski+dt@linaro.org,
+ palmer@dabbelt.com, paul.walmsley@sifive.com, robh+dt@kernel.org
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ jszhang@kernel.org, guoren@kernel.org, chao.wei@sophgo.com,
+ xiaoguang.xing@sophgo.com, Wang Chen <wangchen20@iscas.ac.cn>
+References: <20230915071409.117692-1-wangchen20@iscas.ac.cn>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+In-Reply-To: <20230915071409.117692-1-wangchen20@iscas.ac.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230915_001530_444588_1F84BEF8 
-X-CRM114-Status: UNSURE (   7.29  )
+X-CRM114-CacheID: sfid-20230915_001952_106811_82DAEA66 
+X-CRM114-Status: UNSURE (   8.36  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -102,38 +98,23 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add new vendor strings to dt bindings.
+On 15/09/2023 09:14, Wang Chen wrote:
+> Add new vendor strings to dt bindings.
 
-Signed-off-by: Wang Chen <wangchen20@iscas.ac.cn>
-Signed-off-by: Xiaoguang Xing <xiaoguang.xing@sophgo.com>
----
- Documentation/devicetree/bindings/vendor-prefixes.yaml | 4 ++++
- 1 file changed, 4 insertions(+)
+Why? Where is the user?
 
-diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
-index 573578db9509..fcca9e070a9a 100644
---- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
-+++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
-@@ -863,6 +863,8 @@ patternProperties:
-     description: MikroElektronika d.o.o.
-   "^mikrotik,.*":
-     description: MikroTik
-+  "^milkv,.*":
-+    description: MilkV Technology Co., Ltd
-   "^miniand,.*":
-     description: Miniand Tech
-   "^minix,.*":
-@@ -1273,6 +1275,8 @@ patternProperties:
-     description: Solomon Systech Limited
-   "^sony,.*":
-     description: Sony Corporation
-+  "^sophgo,.*":
-+    description: Sophgo Technology Inc.
-   "^sourceparts,.*":
-     description: Source Parts Inc.
-   "^spansion,.*":
--- 
-2.25.1
+Why did I got only 2/12?
+
+> 
+> Signed-off-by: Wang Chen <wangchen20@iscas.ac.cn>
+> Signed-off-by: Xiaoguang Xing <xiaoguang.xing@sophgo.com>
+> ---
+>  Documentation/devicetree/bindings/vendor-prefixes.yaml | 4 ++++
+>  1 file changed, 4 insertions(+)
+
+
+Best regards,
+Krzysztof
 
 
 _______________________________________________
