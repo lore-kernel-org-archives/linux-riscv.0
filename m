@@ -4,63 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C174BEED602
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 Sep 2023 15:04:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D3B8EED600
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 Sep 2023 15:06:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MzoSDmGOC7LzB5VEtoNG99eVGDU2BnbZALbqSCtxcgQ=; b=yjJehxSrUd/Njp
-	Bw0ugQMcCMZB5yNhGj1f7/Utkl51xCGyBLac1fIfBWc11Iq4Z3CggBtB5gkQub5a9MoVMSPgz3m8f
-	MhouaeK6A05hYj31GC7rwHTqTlpoFGMzX8MKqgg6hMyIzQaFGbAdWQz5d0ZKhVuFO0ohreK04Pxrs
-	YNoyeiqs8ucaFpvbnsXOTSXJM1w1NQwwvQTnlx0pc+z43ee4D/TB+I/nJLl9dmRjb+6fWLn5/Fl8Y
-	0agNGOfdw2y1nljes6a5i1EGna1q1lWsLS7X55tZZL9Of/C5fURexDohpDnVBT7n4Kji2VhzMMeoH
-	LfKcP1XuNTNQYQhCwi/w==;
+	List-Owner; bh=85yNzr5F9tXdV94oC+GOBqHDZyWH7LU1G2lMiN8WNAw=; b=tSNk/TxM2hJtgH
+	LfrL4/lL9QBJ5txhEpwBtYZzMNt8C2xgOT5CMp1YzGpXoejVNYoJHRbGOWYbhH8HSZ+Slz1eF0Ytb
+	KKRh80u07CjZp4XwbCi2TyuzUDhyz8/otVIAvzNSjtKZJMj+7PyTnql9WWGJ2WRNu/TOQ/0VeA1yK
+	f8MmiNhecz0up0Iz+eJTudJsPx25USyCN7QKct/Tft5JS5KCJ20tAFCV2F5AT+NlBJjcuynnrTt8Q
+	Gy71H7yo6G1QPcktafxXgIxJBzD03p0fP/AY+mEXVw/vKt45NfOiDZQjHp9bZTeIbpXyoXOZLFexO
+	6JaE1o+1wTxlitthNRYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qhAN7-00AwIg-2l;
-	Fri, 15 Sep 2023 15:04:41 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1qhAON-00AwP6-1N;
+	Fri, 15 Sep 2023 15:05:59 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qhAN5-00AwI6-0r
+	id 1qhAOK-00AwOc-1k
 	for linux-riscv@lists.infradead.org;
-	Fri, 15 Sep 2023 15:04:40 +0000
+	Fri, 15 Sep 2023 15:05:58 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 72395B82AE7;
-	Fri, 15 Sep 2023 15:04:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B063CC433C7;
-	Fri, 15 Sep 2023 15:04:34 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTPS id CA9DECE2B28;
+	Fri, 15 Sep 2023 15:05:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A668EC433CA;
+	Fri, 15 Sep 2023 15:05:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1694790276;
-	bh=tVYfV/FQ4TuHJ0bVqoaP+aOcfUDlOtABzOf5hv1Hfg4=;
+	s=k20201202; t=1694790352;
+	bh=HTR0jnRq7Qok2GBZIdglCxy34OjHIAkdXarc7/JXfQQ=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=EweW9D8o+n+9qE2ej+Iyg7KegRJ6h600oZdgnpuS3nogKT+8Ut0LB0udvbKp6URtf
-	 VgVYssOyUxBbRyhE71kNoUVm6UCDS/603L0nJ9DEy2bIlm+V3nG9OmsujAHEBvlRhC
-	 Ea+BlYnS9B33UbSfpwh4/Msl3vJldpvv2Di+FlIGh4Ry7ts6CzrVTuaoy4B8wYt0vd
-	 ug0tcUtN9OHnPNf3gThuKKmRkQtGyqSc7gi71J0rxrh0ibcjtv/+SteUsAzh7JT2k6
-	 /u8hetHcSXSHqusB854BDIpUb+uuMsm/oh17XBRGdGbijdHV8T4MCv2PBn7qDFVeOo
-	 rcA/SQTj3ug+w==
-Received: (nullmailer pid 3731047 invoked by uid 1000);
-	Fri, 15 Sep 2023 15:04:33 -0000
-Date: Fri, 15 Sep 2023 10:04:33 -0500
+	b=GKmJvd6jL5PxazkTqlOPvFB6fgldVOUnGXxbFUr04cSxCmFPH5GpvF++pTgucnCpP
+	 jl6LYtMflhK/860BedJQYoaBhwn66cSl+4JI0A87Lcv15+OpRf395MJ6dt3Hza0iEe
+	 I2qekF3WCEAsu4sDY1eyoDRoQaLq0nrA1+37c121d/qiaw72tD5lO839W/hgilSWI1
+	 3kvGBDYAqvBndv1iH+ummMArHJ0ScNqrpiRLJcMUINwQNZrUS9iMC1zhTjbn8RqAa5
+	 JYFVkc5wPpn1H1fo+OCOhKPlO2k0bSUR97YEek0AgPw7cJl8Z2VPjlyU8Q2jo/cng0
+	 A7wkuJcZtkJBA==
+Received: (nullmailer pid 3732603 invoked by uid 1000);
+	Fri, 15 Sep 2023 15:05:49 -0000
+Date: Fri, 15 Sep 2023 10:05:49 -0500
 From: Rob Herring <robh@kernel.org>
 To: Wang Chen <unicornxw@gmail.com>
-Cc: linux-riscv@lists.infradead.org, conor@kernel.org, aou@eecs.berkeley.edu, krzysztof.kozlowski+dt@linaro.org, palmer@dabbelt.com, paul.walmsley@sifive.com, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, jszhang@kernel.org, guoren@kernel.org, chao.wei@sophgo.com, xiaoguang.xing@sophgo.com, Wang Chen <wangchen20@iscas.ac.cn>
-Subject: Re: [PATCH 05/12] dt-bindings: interrupt-controller: Add SOPHGO's
- SG2042 PLIC
-Message-ID: <20230915150433.GA3730052-robh@kernel.org>
-References: <20230915072358.118045-1-wangchen20@iscas.ac.cn>
+Cc: linux-riscv@lists.infradead.org, conor@kernel.org, aou@eecs.berkeley.edu, krzysztof.kozlowski+dt@linaro.org, palmer@dabbelt.com, paul.walmsley@sifive.com, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, jszhang@kernel.org, guoren@kernel.org, chao.wei@sophgo.com, xiaoguang.xing@sophgo.com, Inochi Amaoto <inochiama@outlook.com>
+Subject: Re: [PATCH 06/12] dt-bindings: timer: Add Sophgo sg2042 clint
+Message-ID: <20230915150549.GA3731700-robh@kernel.org>
+References: <20230915072415.118100-1-wangchen20@iscas.ac.cn>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20230915072358.118045-1-wangchen20@iscas.ac.cn>
+In-Reply-To: <20230915072415.118100-1-wangchen20@iscas.ac.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230915_080439_450106_BBC70037 
-X-CRM114-Status: GOOD (  13.25  )
+X-CRM114-CacheID: sfid-20230915_080556_923292_29412A88 
+X-CRM114-Status: GOOD (  18.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,30 +76,67 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 15, 2023 at 03:23:58PM +0800, Wang Chen wrote:
-> Add compatible string for SOPHGO SG2042 plic.
+On Fri, Sep 15, 2023 at 03:24:15PM +0800, Wang Chen wrote:
+> From: Inochi Amaoto <inochiama@outlook.com>
 > 
-> Signed-off-by: Wang Chen <wangchen20@iscas.ac.cn>
-> Signed-off-by: Xiaoguang Xing <xiaoguang.xing@sophgo.com>
+> The timer and ipi(mswi) of sg2042 are on different addresses. With the
+> same compatible string, this will cause a mismatch when is processed by
+> SBI.
+> 
+> Add two new compatible string formatted like `C9xx-clint-xxx` to identify
+> the timer and ipi device separately, and do not allow c900-clint as the
+> fallback to avoid conflict.
+> 
+> Signed-off-by: Inochi Amaoto <inochiama@outlook.com>
 
-Same problem with authorship and S-o-b order here.
+Missing your S-o-b as any patch you send should have yours (last).
 
 > ---
->  .../bindings/interrupt-controller/sifive,plic-1.0.0.yaml         | 1 +
->  1 file changed, 1 insertion(+)
+>  .../bindings/timer/sifive,clint.yaml          | 26 +++++++++++++++++++
+>  1 file changed, 26 insertions(+)
 > 
-> diff --git a/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml b/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
-> index dc1f28e55266..3abb1f68ea62 100644
-> --- a/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
-> +++ b/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
-> @@ -66,6 +66,7 @@ properties:
->            - enum:
->                - allwinner,sun20i-d1-plic
->                - thead,th1520-plic
-> +              - sophgo,sg2042-plic
->            - const: thead,c900-plic
+> diff --git a/Documentation/devicetree/bindings/timer/sifive,clint.yaml b/Documentation/devicetree/bindings/timer/sifive,clint.yaml
+> index a0185e15a42f..2a86b80c3f1e 100644
+> --- a/Documentation/devicetree/bindings/timer/sifive,clint.yaml
+> +++ b/Documentation/devicetree/bindings/timer/sifive,clint.yaml
+> @@ -39,6 +39,14 @@ properties:
+>                - allwinner,sun20i-d1-clint
+>                - thead,th1520-clint
+>            - const: thead,c900-clint
+> +      - items:
+> +          - enum:
+> +              - sophgo,sg2042-clint-mtimer
+> +          - const: thead,c900-clint-mtimer
+> +      - items:
+> +          - enum:
+> +              - sophgo,sg2042-clint-mswi
+> +          - const: thead,c900-clint-mswi
 >        - items:
->            - const: sifive,plic-1.0.0
+>            - const: sifive,clint0
+>            - const: riscv,clint0
+> @@ -74,4 +82,22 @@ examples:
+>                              <&cpu4intc 3>, <&cpu4intc 7>;
+>         reg = <0x2000000 0x10000>;
+>      };
+> +  - |
+> +    clint-mtimer@ac010000 {
+> +      compatible = "sophgo,sg2042-clint-mtimer", "thead,c900-clint-mtimer";
+> +      interrupts-extended = <&cpu1intc 7>,
+> +                            <&cpu2intc 7>,
+> +                            <&cpu3intc 7>,
+> +                            <&cpu4intc 7>;
+> +      reg = <0xac010000 0x00007ff8>;
+> +    };
+> +  - |
+> +    clint-mswi@94000000 {
+> +      compatible = "sophgo,sg2042-clint-mswi", "thead,c900-clint-mswi";
+> +      interrupts-extended = <&cpu1intc 3>,
+> +                            <&cpu2intc 3>,
+> +                            <&cpu3intc 3>,
+> +                            <&cpu4intc 3>;
+> +      reg = <0x94000000 0x00004000>;
+> +    };
+>  ...
 > -- 
 > 2.25.1
 > 
