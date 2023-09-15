@@ -4,72 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96016EE6457
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 Sep 2023 13:14:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A03D4EE6457
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 Sep 2023 13:20:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Jtn0r+sNcAZPJpYQkEEwonQtP1e9XCGAeopUvyVoN6M=; b=KR3bn1ld9MQeEU
-	woKt7Km6yibvfOygkXgr6RWnni5xDBIhPahwGU6aAXhH5hb+gWY/YeBHxoDwKhFGY+tGMxkK8o12N
-	Y9k1g0SCGrii7XGNrnKRWzRfHY5HtnxBq4SlRjZ9yzNjuPER7700oDIvcENFQIFePUb5MUfv7CZJb
-	uiI3zXLtkQZ7SjkHQHgMQ+3J9U60HeR+p95iF/7MATDjdL3szlOHxHjkmlF31bXuJcQ6XLJGt0Ocb
-	TXLaYuDuRlmWxe5CiLhTsMgMfjs8XyQMeWaUvXZC/oUmhMhFCtve4jjow9gGQh4FdqN2vHI9hEGiw
-	dbrTDWsChqoq3e8rwXPw==;
+	List-Owner; bh=c5y5Tb/XVAkGmHTL4hbTy/jxLdm9s3baTCdcNa3E4gc=; b=fj8mDTjsAohjGK
+	+GAH7v9R2LMGKm8Wh9F98DyJ4tDip0Z/ea/QqqhCFRTiLiPSt4kcBIiAnUQxK5FOkEjEvEwkpI9kt
+	FP9ma3pT7FYZF8Yyh+bICp5E2tBXO+8VTJ1RJFuaVQPYb/X9MFfJaRvydEHj9JUxWacmp44ORThWc
+	eiz3ZVQzyRmXTzfhnHnAxvK31/iP422VWBKwKCwLQ+E/t9RMFa7wBW6Jol78KZFeSR3yioJo90NjA
+	yCSoECtmk9w/pE9yiIjpOWYE6uLVuFx1nU3nm2iCtOMQ/2lhzXS2mHdg5NMwlWvTUpZ7gJHWG0pkn
+	xtn52V3pNOgqnI5lgE7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qh8e6-00Amhj-3D;
-	Fri, 15 Sep 2023 13:14:07 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1qh8kT-00AnPA-11;
+	Fri, 15 Sep 2023 13:20:41 +0000
+Received: from mail-pj1-x1035.google.com ([2607:f8b0:4864:20::1035])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qh8e3-00Amgg-1s
+	id 1qh8kR-00AnOP-11
 	for linux-riscv@lists.infradead.org;
-	Fri, 15 Sep 2023 13:14:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1694783642;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=sb5wr0wfo93KZmmG9iONfAq+eRQpW+VSRFFBiRCmnG8=;
-	b=ME90bPtPrqAK51sH/D1eRBecNBH8eVB0ed92BhbTjJtvNyzo2qzSR23+3TDqKtvhD7T038
-	beKJ5wMpyOE94Saae2m2jTiqoKWOTrvw2pR4YPzu0eu8z4PPXgkpzes5D5HR5VwyZuUn4l
-	dECaujLAGd/slmOscEP5wodgtWYwdJs=
-Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
- [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-219-qPOpJlElMJyjGulFdS2cwQ-1; Fri, 15 Sep 2023 09:13:52 -0400
-X-MC-Unique: qPOpJlElMJyjGulFdS2cwQ-1
-Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com [10.11.54.4])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id C1227858285;
-	Fri, 15 Sep 2023 13:13:51 +0000 (UTC)
-Received: from localhost (unknown [10.72.113.71])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 806C32026D68;
-	Fri, 15 Sep 2023 13:13:50 +0000 (UTC)
-Date: Fri, 15 Sep 2023 21:13:47 +0800
-From: Baoquan He <bhe@redhat.com>
-To: kernel test robot <lkp@intel.com>, akpm@linux-foundation.org
-Cc: linux-kernel@vger.kernel.org, llvm@lists.linux.dev,
-	oe-kbuild-all@lists.linux.dev, akpm@linux-foundation.org,
-	thunder.leizhen@huawei.com, catalin.marinas@arm.com,
-	chenjiahao16@huawei.com, kexec@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org, x86@kernel.org
-Subject: Re: [PATCH v3 6/9] x86: kdump: use generic interface to simplify
- crashkernel reservation code
-Message-ID: <ZQRYixr2AtJtRFrh@MiWiFi-R3L-srv>
-References: <20230914033142.676708-7-bhe@redhat.com>
- <202309141534.moH4dTcz-lkp@intel.com>
+	Fri, 15 Sep 2023 13:20:40 +0000
+Received: by mail-pj1-x1035.google.com with SMTP id 98e67ed59e1d1-271d9823cacso1746641a91.1
+        for <linux-riscv@lists.infradead.org>; Fri, 15 Sep 2023 06:20:37 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1694784037; x=1695388837; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=BaoDBq4J2WQTMoM6JUbluW9HfoAxhmWc40Mme5H8iVo=;
+        b=u5FLgOP26E995ys2ckI8E10OsoncIpQbz9L4980HBHw+shwyKvn+TsGQuFTTQEYK7j
+         aLHxsUcx9miIX8lOnj15dDfSl0B0kylBC1nqzGtrucZRn9yImliG0FcHaXsgZ2keAs9q
+         dgBurZHCd7fFW4InfHRKu4UiBUDTcaw3zLYpCDDyo0Yhb+uTlvM8GsGzDJZWQaAwXWwS
+         OaIAoZgCl4ZUWdLsj74Xfej9Tq7iW2F/7HOA8cPPpT4AjxCEsa7An8LAXVwGGJtSX4LA
+         BT4ssgKm7a1pBYM393Ttiy6tt5u8CN+XnFS5KWneUuBFerVToW9eAvWbnOiQlyumEjWq
+         /ODw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1694784037; x=1695388837;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=BaoDBq4J2WQTMoM6JUbluW9HfoAxhmWc40Mme5H8iVo=;
+        b=GudiDsA/FAePUaER7BzLYIwgO5ksdtlvGdlScuM8G7rSUZjVBcwAySIZo5OucB1D5q
+         M2n3lAw04qoTAlMJuq5c/thFaLN4v9ViFHbxfCb1uucy4nXJUd3MY1eH+16VnsNT3iW7
+         qTDaO817o4BdlTAv+ZXGQr4KpCq8QdfY8sUWRbaTgSJ37XyRM85xj9eC8f84aD6j1Pbv
+         sPTv6W2rUlK7+cAANjnTAVb4aVUrWvss8XjPtAO/JqtdFuudwfeU4QtXTT7XEswH0fku
+         9fzEudhgqcNJLl7IxcLSiCk2tNZ1ZIY4QWWHIsnohgzpks7oygYm+y9j2CbDE0qmOHQu
+         +/uQ==
+X-Gm-Message-State: AOJu0YwnTKF8hz2/12KTFtSxXOwmnZs5k/N7O5PKB6/zNA/QUtZzhDng
+	Vf8A/EpTI2JQVAHt1XnizcuXv7CPbAgaaSZozIniyg==
+X-Google-Smtp-Source: AGHT+IEvUA9BR5BcrVOwtToL5WSZnMVL5hq1LhRR/C2UP2bV5CCmF6GnSfYb0YjLTzwW2flky6W/bE61lpkBlQ/Gnuc=
+X-Received: by 2002:a17:90a:4b06:b0:26f:2c5a:bbb3 with SMTP id
+ g6-20020a17090a4b0600b0026f2c5abbb3mr1316852pjh.40.1694784036728; Fri, 15 Sep
+ 2023 06:20:36 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <202309141534.moH4dTcz-lkp@intel.com>
-X-Scanned-By: MIMEDefang 3.1 on 10.11.54.4
+References: <20230901130312.247719-1-vincent.guittot@linaro.org>
+ <20230901130312.247719-2-vincent.guittot@linaro.org> <be527eb1-d253-b9fe-ecc9-4c7b04da9efd@arm.com>
+In-Reply-To: <be527eb1-d253-b9fe-ecc9-4c7b04da9efd@arm.com>
+From: Vincent Guittot <vincent.guittot@linaro.org>
+Date: Fri, 15 Sep 2023 15:20:25 +0200
+Message-ID: <CAKfTPtANMnLAdw9y86zsx_HdjpWxQPA+Gnaa=qvXC+4xWwNa=A@mail.gmail.com>
+Subject: Re: [PATCH 1/4] sched: consolidate and cleanup access to CPU's max
+ compute capacity
+To: Dietmar Eggemann <dietmar.eggemann@arm.com>
+Cc: linux@armlinux.org.uk, catalin.marinas@arm.com, will@kernel.org, 
+	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
+	sudeep.holla@arm.com, gregkh@linuxfoundation.org, rafael@kernel.org, 
+	mingo@redhat.com, peterz@infradead.org, juri.lelli@redhat.com, 
+	rostedt@goodmis.org, bsegall@google.com, mgorman@suse.de, bristot@redhat.com, 
+	vschneid@redhat.com, viresh.kumar@linaro.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-pm@vger.kernel.org, 
+	conor.dooley@microchip.com, suagrfillet@gmail.com, ajones@ventanamicro.com, 
+	lftan@kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230915_061403_742999_BA6C4709 
-X-CRM114-Status: GOOD (  24.10  )
+X-CRM114-CacheID: sfid-20230915_062039_383077_F0661CAB 
+X-CRM114-Status: GOOD (  18.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,108 +97,51 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 09/14/23 at 04:12pm, kernel test robot wrote:
-> Hi Baoquan,
-> 
-> kernel test robot noticed the following build warnings:
-> 
-> [auto build test WARNING on powerpc/next]
-> [also build test WARNING on powerpc/fixes linus/master v6.6-rc1 next-20230914]
-> [cannot apply to arm64/for-next/core tip/x86/core]
-> [If your patch is applied to the wrong git tree, kindly drop us a note.
-> And when submitting patch, we suggest to use '--base' as documented in
-> https://git-scm.com/docs/git-format-patch#_base_tree_information]
-> 
-> url:    https://github.com/intel-lab-lkp/linux/commits/Baoquan-He/crash_core-c-remove-unnecessary-parameter-of-function/20230914-113546
-> base:   https://git.kernel.org/pub/scm/linux/kernel/git/powerpc/linux.git next
-> patch link:    https://lore.kernel.org/r/20230914033142.676708-7-bhe%40redhat.com
-> patch subject: [PATCH v3 6/9] x86: kdump: use generic interface to simplify crashkernel reservation code
-> config: i386-allnoconfig (https://download.01.org/0day-ci/archive/20230914/202309141534.moH4dTcz-lkp@intel.com/config)
-> compiler: clang version 16.0.4 (https://github.com/llvm/llvm-project.git ae42196bc493ffe877a7e3dff8be32035dea4d07)
-> reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20230914/202309141534.moH4dTcz-lkp@intel.com/reproduce)
-> 
-> If you fix the issue in a separate patch/commit (i.e. not just a new version of
-> the same patch/commit), kindly add following tags
-> | Reported-by: kernel test robot <lkp@intel.com>
-> | Closes: https://lore.kernel.org/oe-kbuild-all/202309141534.moH4dTcz-lkp@intel.com/
-> 
-> All warnings (new ones prefixed by >>):
-> 
-> >> arch/x86/kernel/setup.c:476:15: warning: no previous prototype for function 'crash_low_size_default' [-Wmissing-prototypes]
->    unsigned long crash_low_size_default(void)
->                  ^
->    arch/x86/kernel/setup.c:476:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
->    unsigned long crash_low_size_default(void)
->    ^
->    static 
->    1 warning generated.
+On Thu, 14 Sept 2023 at 22:46, Dietmar Eggemann
+<dietmar.eggemann@arm.com> wrote:
+>
+> On 01/09/2023 15:03, Vincent Guittot wrote:
+> > Remove struct rq cpu_capacity_orig field and use arch_scale_cpu_capacity()
+> > instead.
+> >
+> > Scheduler uses 3 methods to get access to the CPU's max compute capacity:
+> > - arch_scale_cpu_capacity(cpu) which is the default way to get CPU's capacity.
+> > - cpu_capacity_orig field which is periodically updated with
+> >   arch_scale_cpu_capacity().
+> > - capacity_orig_of(cpu) which encapsulates rq->cpu_capacity_orig
+> >
+> > There is no real need to save the value returned by arch_scale_cpu_capacity()
+> > in struct rq. arch_scale_cpu_capacity() returns:
+> > - either a per_cpu variable.
+> > - or a const value for systems which have only one capacity.
+> >
+> > Remove cpu_capacity_orig and use arch_scale_cpu_capacity() everywhere.
+> >
+> > No functional changes.
+> >
+> > some tests of Arm64:
+> > small SMP device (hikey): no noticeable changes
+> > HMP device (RB5): hackbench shows minor improvement (1-2%)
+> > large smp (thx2): hackbench and tbench shows minor improvement (1%)
+> >
+> > Signed-off-by: Vincent Guittot <vincent.guittot@linaro.org>
+>
+> Next to util_fits_cpu() which uses capacity_orig as a local variable
+> (which is fine) there is sis() referring to capacity_orig in a comment.
+>
+> Documentation/scheduler/sched-capacity.rst uses the term `capacity_orig`
+> in chapter 1.2 to explain the difference between CPU's maximum
+> (attainable) capacity and capacity as the former reduced by pressure.
 
-Thanks for reporting this. I can reproduced this warning on x86_64
-machine by retrieving the LKP's config and build it with below command:
+ok, I will have a look at those references to capacity_orig
 
-	make ARCH=i386 -j128 W=1 arch/x86/kernel/
+>
+> Not sure if you want to change those refs as well with this patch?
+> People might get confused about the term `capacity_orig` pretty soon.
+>
+> Reviewed-by: Dietmar Eggemann <dietmar.eggemann@arm.com>
 
-I can fix it by moving crash_low_size_default() into arch/x86/include/asm/crash_core.h 
-and make it as static inline as below draft change.
-
-Hi Andrew,
-
-I should post v4 of the whole series or just v4 of this patch?
-
-[PATCH v3 6/9] x86: kdump: use generic interface to simplify crashkernel reservation code
-
-
-diff --git a/arch/x86/include/asm/crash_core.h b/arch/x86/include/asm/crash_core.h
-index 5fc5e4f94521..76af98f4e801 100644
---- a/arch/x86/include/asm/crash_core.h
-+++ b/arch/x86/include/asm/crash_core.h
-@@ -18,6 +18,7 @@
-  * no good way to detect the paging mode of the target kernel which will be
-  * loaded for dumping.
-  */
-+extern unsigned long swiotlb_size_or_default(void);
- 
- #ifdef CONFIG_X86_32
- # define CRASH_ADDR_LOW_MAX     SZ_512M
-@@ -29,6 +30,13 @@
- 
- # define DEFAULT_CRASH_KERNEL_LOW_SIZE crash_low_size_default()
- 
--extern unsigned long crash_low_size_default(void);
-+static inline unsigned long crash_low_size_default(void)
-+{
-+#ifdef CONFIG_X86_64
-+	return max(swiotlb_size_or_default() + (8UL << 20), 256UL << 20);
-+#else
-+	return 0;
-+#endif
-+}
- 
- #endif /* _X86_CRASH_CORE_H */
-diff --git a/arch/x86/kernel/setup.c b/arch/x86/kernel/setup.c
-index 0acc86587fc0..d7baa567c68e 100644
---- a/arch/x86/kernel/setup.c
-+++ b/arch/x86/kernel/setup.c
-@@ -470,18 +470,6 @@ static void __init memblock_x86_reserve_range_setup_data(void)
- 	}
- }
- 
--/*
-- * --------- Crashkernel reservation ------------------------------
-- */
--unsigned long crash_low_size_default(void)
--{
--#ifdef CONFIG_X86_64
--	return max(swiotlb_size_or_default() + (8UL << 20), 256UL << 20);
--#else
--	return 0;
--#endif
--}
--
- static void __init arch_reserve_crashkernel(void)
- {
- 	unsigned long long crash_base, crash_size, low_size = 0;
-
+Thanks
 
 _______________________________________________
 linux-riscv mailing list
