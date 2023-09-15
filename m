@@ -4,78 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53EBEEE6422
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 Sep 2023 06:58:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BC58EE6423
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 Sep 2023 06:59:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bRa3dmfvshm97vmOl7HkPQO+S/GTniDMNKp1EToSfeU=; b=otnxHrfs2dUm1k
-	JYJ3UQ7SZno75w7oxovLG6nfJ7DZEoK2a7dQ5ZnnqwHxnVgzRs7eGEc2Evnr+KIZTDNWlKmvglWEs
-	UEzJIHKvuCKo3nMcjI2GN4HXsToH00/LGq3ob8kdS9ZKqeJY8Mjf5mRZx1Zqs2WMHEWI42BHkgNbh
-	ymjs9qvIUPdTVbSEIXEG0uiFc1sJhY3neU4lpe7W5fwxiT0I7y3m8U8AHtI4KOkwl1AmwW93CXoUR
-	r0s9wun47VGY0aEjDRV/pOit7+yabbP2jUWvmWox+tEzfpWoMkRKUM3InYnpBaDsW7N7k7/TeqoiQ
-	9HctLEIbBhbEn3InN7Dw==;
+	List-Owner; bh=ORv3bfXY5l1fAK5xfGfn29jvRr1ZN4nJJWTKWyVtC2Y=; b=fwDS1OKNgRyCGh
+	0AcbH7ZzP/iAYwnUyrBa6i6rFqhg4fEy+F1GotR0WAq3a4Y7Jyn07u0shB9lCZ11mrT3r7aA5aF9I
+	LxJ6ecIbL1LrQvIKZhtWE2P4or8QmQTIkGSfarPacE2uDAGyecFgOI3gq6tZCFUCYpwucy2BW5nIE
+	P4dJLdUT/mboOrDUDBpoSBmGDFtftQf0b0N6aodXOEKYJkVS4ZhsTeqY8BUxzYYPmc9Tg0V/pMrGz
+	RyevPDNUh2b3d7Pv5x72hg0qq9DocI8ih/104Z536IOZzyYtoeGa2TgYkwrgW7hrwk/UqdBxtlpFi
+	it0/QmyupF+l5cdrZ2OQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qh2mP-009xWC-1T;
-	Fri, 15 Sep 2023 06:58:17 +0000
-Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
+	id 1qh2no-009xqi-1W;
+	Fri, 15 Sep 2023 06:59:44 +0000
+Received: from mgamail.intel.com ([192.55.52.136])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qh2mM-009xUq-09
-	for linux-riscv@lists.infradead.org;
-	Fri, 15 Sep 2023 06:58:15 +0000
-Received: by mail-pj1-x102b.google.com with SMTP id 98e67ed59e1d1-2749b003363so256390a91.2
-        for <linux-riscv@lists.infradead.org>; Thu, 14 Sep 2023 23:58:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1694761092; x=1695365892; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=1sgHfASFh3gAMSRsD4T8u/tQ4O/8NbFhdumsAYnmZ04=;
-        b=SRrWurIgkfJz+hvigvsH43pEuuxfzjtATsnOrHu2pSX2Cx0YPYG8q18TpGepFjGGVP
-         FyCgMlgwAp0zyCb5PfYrBlUa7zi1wG+a3N4Hetops4yP5moxhvTjHaaMV43w9vBYij/I
-         YcBRCI0OwyQ6kLBJXfFhftVGIeFKeweldljNoLLvNoJqz/pSFQiVSWsrX+fVhdgz5QFj
-         X6GKSGzb09TXnKXqxZKiT3gWwfK6Dwjk8pycQsMENohDrbzh1cgvYbjfoGXx0V6Khn26
-         sZN+x2a48vdZewlR04YLDdO3MGRl4+oF3SuASwHb83s6mWh9rQsuLwOiXWWvAe77kSr8
-         Faig==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1694761092; x=1695365892;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=1sgHfASFh3gAMSRsD4T8u/tQ4O/8NbFhdumsAYnmZ04=;
-        b=A1cAbm1ihvMvezwLiP7hIkMBHNpPSMHpnr/p1MB6mz4gbNNqT59JibhzCJq7LBJ24T
-         8b/OmcKfqKDm/MB9dP0X8ERz3kOF/hB5Xi0kuPflrjI+/1DdkIEF/txF8mJUPN5M8NGM
-         GVhRuMZtLksadPMkscX5Dh9oqeNBo5/SeOooj6nco9DIMTvpdg2FgzA1EgGJD0fZcA/e
-         kVTeARqFsCXFL/SPnPllREbqVJy1GghGsX5stA5S/vq6zT4mA6UDNmhaRLbSOeYLy6c8
-         3Bvg6ZQ0utFn3dY08LM4dzUTQVFbtE2trVYjrBpahS3qKRJBIf4eQLNnUueZDXrvzVQa
-         x2sQ==
-X-Gm-Message-State: AOJu0YwxMUh57elnCvqxukzfSr+eT3WKJ3ObBeGQZ43c/T1uFvVHMMZ+
-	DsmP4PHRru/X50JIhKQtB+tKGgAAGXQy+jviFeoZxg==
-X-Google-Smtp-Source: AGHT+IEXGX3qdnpoVEB63l/vmhNINtjvr5hIW4tkdfNIQMCuMg9uAsM2xQSTRv+vJwFnG4MdfPbX0nye1IfP5YTNyjM=
-X-Received: by 2002:a17:90b:128a:b0:26b:698f:dda7 with SMTP id
- fw10-20020a17090b128a00b0026b698fdda7mr628681pjb.32.1694761091749; Thu, 14
- Sep 2023 23:58:11 -0700 (PDT)
+	id 1qh2nl-009xpT-1l;
+	Fri, 15 Sep 2023 06:59:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1694761181; x=1726297181;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=dPtcah0OyDGwjZpZkbV34b0j98rPVMmEo0QNnYG6xIQ=;
+  b=Z0EkJAnthkln7LvLY88aA3AxUR9oLIcwmrXnJwzsw57AhXtjylJjfH1n
+   RcDtO3bnMLzDI0T0WmTOWF6F9L/4/0hA9YACReOm1zqWtDNU+6Umrtnx3
+   fQeJAEuiUe0Nl6uei7QlsVYzoWaFN8qbNYCgbNubE7eNhVemhDaKcHVqu
+   P2+1Jd6cvGxsBdpuIJ2hmm7vZuNTKKS/HGXoa8q8bcY1sexCF8sYSNgZW
+   kjX1z+uP6IfpI0JVcpeL1Y8RrgK/czi9Fn4QMvEJVYqNfWk4TznaVh/nt
+   USWrk6PR17YtAkYot9TrbxSXpShW81GVvqE11E58rJtF0kHVo4qsCeJku
+   w==;
+X-IronPort-AV: E=McAfee;i="6600,9927,10833"; a="358591055"
+X-IronPort-AV: E=Sophos;i="6.02,148,1688454000"; 
+   d="scan'208";a="358591055"
+Received: from fmsmga001.fm.intel.com ([10.253.24.23])
+  by fmsmga106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Sep 2023 23:59:39 -0700
+X-ExtLoop1: 1
+X-IronPort-AV: E=McAfee;i="6600,9927,10833"; a="888124710"
+X-IronPort-AV: E=Sophos;i="6.02,148,1688454000"; 
+   d="scan'208";a="888124710"
+Received: from xiaoyaol-hp-g830.ccr.corp.intel.com (HELO [10.93.29.154]) ([10.93.29.154])
+  by fmsmga001-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Sep 2023 23:58:52 -0700
+Message-ID: <17947d72-22fb-b600-aada-c5a4008e3995@intel.com>
+Date: Fri, 15 Sep 2023 14:59:23 +0800
 MIME-Version: 1.0
-References: <20230913163905.480819-1-mchitale@ventanamicro.com>
-In-Reply-To: <20230913163905.480819-1-mchitale@ventanamicro.com>
-From: Anup Patel <apatel@ventanamicro.com>
-Date: Fri, 15 Sep 2023 12:27:59 +0530
-Message-ID: <CAK9=C2VF0Q=sZn48fhqOCY5jBq8OR-YyJOrh6AREsYhUnivcVA@mail.gmail.com>
-Subject: Re: [PATCH v5 0/7] Risc-V Kvm Smstateen
-To: Mayuresh Chitale <mchitale@ventanamicro.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, Anup Patel <anup@brainfault.org>, 
-	Andrew Jones <ajones@ventanamicro.com>, Atish Patra <atishp@atishpatra.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	linux-riscv@lists.infradead.org, kvm-riscv@lists.infradead.org, 
-	Conor Dooley <conor@kernel.org>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
-	Rob Herring <robh+dt@kernel.org>, devicetree@vger.kernel.org
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Firefox/102.0 Thunderbird/102.15.1
+Subject: Re: [RFC PATCH v12 06/33] KVM: Introduce KVM_SET_USER_MEMORY_REGION2
+Content-Language: en-US
+To: Sean Christopherson <seanjc@google.com>,
+ Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>,
+ Oliver Upton <oliver.upton@linux.dev>, Huacai Chen <chenhuacai@kernel.org>,
+ Michael Ellerman <mpe@ellerman.id.au>, Anup Patel <anup@brainfault.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ "Matthew Wilcox (Oracle)" <willy@infradead.org>,
+ Andrew Morton <akpm@linux-foundation.org>, Paul Moore <paul@paul-moore.com>,
+ James Morris <jmorris@namei.org>, "Serge E. Hallyn" <serge@hallyn.com>
+Cc: kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ kvmarm@lists.linux.dev, linux-mips@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org,
+ linux-riscv@lists.infradead.org, linux-fsdevel@vger.kernel.org,
+ linux-mm@kvack.org, linux-security-module@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Chao Peng <chao.p.peng@linux.intel.com>,
+ Fuad Tabba <tabba@google.com>, Jarkko Sakkinen <jarkko@kernel.org>,
+ Anish Moorthy <amoorthy@google.com>, Yu Zhang <yu.c.zhang@linux.intel.com>,
+ Isaku Yamahata <isaku.yamahata@intel.com>, Xu Yilun <yilun.xu@intel.com>,
+ Vlastimil Babka <vbabka@suse.cz>, Vishal Annapurve <vannapurve@google.com>,
+ Ackerley Tng <ackerleytng@google.com>,
+ Maciej Szmigiero <mail@maciej.szmigiero.name>,
+ David Hildenbrand <david@redhat.com>, Quentin Perret <qperret@google.com>,
+ Michael Roth <michael.roth@amd.com>, Wang <wei.w.wang@intel.com>,
+ Liam Merwick <liam.merwick@oracle.com>,
+ Isaku Yamahata <isaku.yamahata@gmail.com>,
+ "Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
+References: <20230914015531.1419405-1-seanjc@google.com>
+ <20230914015531.1419405-7-seanjc@google.com>
+From: Xiaoyao Li <xiaoyao.li@intel.com>
+In-Reply-To: <20230914015531.1419405-7-seanjc@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230914_235814_080389_210F59EE 
-X-CRM114-Status: GOOD (  19.41  )
+X-CRM114-CacheID: sfid-20230914_235941_612998_4CA0FE4F 
+X-CRM114-Status: GOOD (  31.86  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,53 +101,204 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCBTZXAgMTMsIDIwMjMgYXQgMTA6MTDigK9QTSBNYXl1cmVzaCBDaGl0YWxlCjxtY2hp
-dGFsZUB2ZW50YW5hbWljcm8uY29tPiB3cm90ZToKPgo+IFRoaXMgc2VyaWVzIGFkZHMgc3VwcG9y
-dCB0byBkZXRlY3QgdGhlIFNtc3RhdGVlbiBleHRlbnNpb24gZm9yIGJvdGgsIHRoZQo+IGhvc3Qg
-YW5kIHRoZSBndWVzdCB2Y3B1LiBJdCBhbHNvIGFkZHMgc2VudmNmZyBhbmQgc3N0YXRlZW4wIHRv
-IHRoZSBPTkVfUkVHCj4gaW50ZXJmYWNlIGFuZCB0aGUgdmNwdSBjb250ZXh0IHNhdmUvcmVzdG9y
-ZS4KPgo+IFRoZSBtb3RpdmF0aW9uIGJlaGluZCBTbXN0YXRlZW4gZnJvbSB0aGUgc3BlYwo+ICho
-dHRwczovL2dpdGh1Yi5jb20vcmlzY3YvcmlzY3Ytc3RhdGUtZW5hYmxlKToKPiAiVGhlIGltcGxl
-bWVudGF0aW9uIG9mIG9wdGlvbmFsIFJJU0MtViBleHRlbnNpb25zIGhhcyB0aGUgcG90ZW50aWFs
-IHRvIG9wZW4KPiBjb3ZlcnQgY2hhbm5lbHMgYmV0d2VlbiBzZXBhcmF0ZSB1c2VyIHRocmVhZHMs
-IG9yIGJldHdlZW4gc2VwYXJhdGUgZ3Vlc3QgT1Nlcwo+IHJ1bm5pbmcgdW5kZXIgYSBoeXBlcnZp
-c29yLiBUaGUgcHJvYmxlbSBvY2N1cnMgd2hlbiBhbiBleHRlbnNpb24gYWRkcyBwcm9jZXNzb3IK
-PiBzdGF0ZS0tLXVzdWFsbHkgZXhwbGljaXQgcmVnaXN0ZXJzLCBidXQgcG9zc2libHkgb3RoZXIg
-Zm9ybXMgb2Ygc3RhdGUtLS10aGF0Cj4gdGhlIG1haW4gT1Mgb3IgaHlwZXJ2aXNvciBpcyB1bmF3
-YXJlIG9mIChhbmQgaGVuY2Ugd29u4oCZdCBjb250ZXh0LXN3aXRjaCkgYnV0Cj4gdGhhdCBjYW4g
-YmUgbW9kaWZpZWQvd3JpdHRlbiBieSBvbmUgdXNlciB0aHJlYWQgb3IgZ3Vlc3QgT1MgYW5kIHBl
-cmNlaXZlZC8KPiBleGFtaW5lZC9yZWFkIGJ5IGFub3RoZXIuIgo+Cj4gQ2hhbmdlcyBpbiB2NToK
-PiAtIFJlYmFzZWQgb24gbGF0ZXN0IGxpbnV4IG1hc3Rlcgo+Cj4gQ2hhbmdlcyBpbiB2NDoKPiAt
-IFVwZGF0ZSBjb21taXQgZGVzY3JpcHRpb24gZm9yIHBhdGNoIDEKPiAtIFJlYmFzZSB0byBrdm1f
-cmlzY3ZfcXVldWUKPiAtIEFkZCByZXZpZXdlZC1ieSB0YWcKPgo+IENoYW5nZXMgaW4gdjM6Cj4g
-LSBNb3ZlIERUIGJpbmRpbmdzIGNoYW5nZSB0byBhIHNlcGFyYXRlIHBhdGNoCj4gLSBNb3ZlIHNl
-bnZjZmcvc3N0YXRlZW4wIHNhdmUvcmVzdG9yZSB0byBzZXBhcmF0ZSBmdW5jdGlvbgo+Cj4gQ2hh
-bmdlcyBpbiB2MjoKPiAtIEFkZCBzbXN0YWVlbiBkZXNjcmlwdGlvbiBpbiByaXNjdi9leHRlbnNp
-b25zLnlhbWwKPiAtIEF2b2lkIGxpbmUgd3JhcCBhdCA4MCBjaGFycwo+Cj4gTWF5dXJlc2ggQ2hp
-dGFsZSAoNyk6Cj4gICBSSVNDLVY6IERldGVjdCBTbXN0YXRlZW4gZXh0ZW5zaW9uCj4gICBkdC1i
-aW5kaW5nczogcmlzY3Y6IEFkZCBzbXN0YXRlZW4gZW50cnkKPiAgIFJJU0MtVjogS1ZNOiBBZGQg
-a3ZtX3ZjcHVfY29uZmlnCj4gICBSSVNDLVY6IEtWTTogRW5hYmxlIFNtc3RhdGVlbiBhY2Nlc3Nl
-cwo+ICAgUklTQ1Y6IEtWTTogQWRkIHNlbnZjZmcgY29udGV4dCBzYXZlL3Jlc3RvcmUKPiAgIFJJ
-U0NWOiBLVk06IEFkZCBzc3RhdGVlbjAgY29udGV4dCBzYXZlL3Jlc3RvcmUKPiAgIFJJU0NWOiBL
-Vk06IEFkZCBzc3RhdGVlbjAgdG8gT05FX1JFRwoKUXVldWVkIHRoaXMgc2VyaWVzIGZvciBMaW51
-eC02LjcKClRoYW5rcywKQW51cAoKPgo+ICAuLi4vZGV2aWNldHJlZS9iaW5kaW5ncy9yaXNjdi9l
-eHRlbnNpb25zLnlhbWwgfCAgNiArKwo+ICBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2Nzci5oICAg
-ICAgICAgICAgICAgICAgfCAxOCArKysrKwo+ICBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2h3Y2Fw
-LmggICAgICAgICAgICAgICAgfCAgMSArCj4gIGFyY2gvcmlzY3YvaW5jbHVkZS9hc20va3ZtX2hv
-c3QuaCAgICAgICAgICAgICB8IDE4ICsrKysrCj4gIGFyY2gvcmlzY3YvaW5jbHVkZS91YXBpL2Fz
-bS9rdm0uaCAgICAgICAgICAgICB8IDEwICsrKwo+ICBhcmNoL3Jpc2N2L2tlcm5lbC9jcHVmZWF0
-dXJlLmMgICAgICAgICAgICAgICAgfCAgMSArCj4gIGFyY2gvcmlzY3Yva3ZtL3ZjcHUuYyAgICAg
-ICAgICAgICAgICAgICAgICAgICB8IDcwICsrKysrKysrKysrKysrKy0tLS0KPiAgYXJjaC9yaXNj
-di9rdm0vdmNwdV9vbmVyZWcuYyAgICAgICAgICAgICAgICAgIHwgNDEgKysrKysrKysrKysKPiAg
-OCBmaWxlcyBjaGFuZ2VkLCAxNTIgaW5zZXJ0aW9ucygrKSwgMTMgZGVsZXRpb25zKC0pCj4KPiAt
-LQo+IDIuMzQuMQo+Cj4KPiAtLQo+IGt2bS1yaXNjdiBtYWlsaW5nIGxpc3QKPiBrdm0tcmlzY3ZA
-bGlzdHMuaW5mcmFkZWFkLm9yZwo+IGh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4v
-bGlzdGluZm8va3ZtLXJpc2N2CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5m
-cmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xp
-bnV4LXJpc2N2Cg==
+On 9/14/2023 9:55 AM, Sean Christopherson wrote:
+> Introduce a "version 2" of KVM_SET_USER_MEMORY_REGION so that additional
+> information can be supplied without setting userspace up to fail.  The
+> padding in the new kvm_userspace_memory_region2 structure will be used to
+> pass a file descriptor in addition to the userspace_addr, i.e. allow
+> userspace to point at a file descriptor and map memory into a guest that
+> is NOT mapped into host userspace.
+> 
+> Alternatively, KVM could simply add "struct kvm_userspace_memory_region2"
+> without a new ioctl(), but as Paolo pointed out, adding a new ioctl()
+> makes detection of bad flags a bit more robust, e.g. if the new fd field
+> is guarded only by a flag and not a new ioctl(), then a userspace bug
+> (setting a "bad" flag) would generate out-of-bounds access instead of an
+> -EINVAL error.
+> 
+> Cc: Jarkko Sakkinen <jarkko@kernel.org> > Reviewed-by: Paolo Bonzini <pbonzini@redhat.com>
+
+Reviewed-by: Xiaoyao Li <xiaoyao.li@intel.com>
+
+> Signed-off-by: Sean Christopherson <seanjc@google.com>
+> ---
+>   arch/x86/kvm/x86.c       |  2 +-
+>   include/linux/kvm_host.h |  4 ++--
+>   include/uapi/linux/kvm.h | 13 +++++++++++++
+>   virt/kvm/kvm_main.c      | 38 ++++++++++++++++++++++++++++++--------
+>   4 files changed, 46 insertions(+), 11 deletions(-)
+> 
+> diff --git a/arch/x86/kvm/x86.c b/arch/x86/kvm/x86.c
+> index 6c9c81e82e65..8356907079e1 100644
+> --- a/arch/x86/kvm/x86.c
+> +++ b/arch/x86/kvm/x86.c
+> @@ -12447,7 +12447,7 @@ void __user * __x86_set_memory_region(struct kvm *kvm, int id, gpa_t gpa,
+>   	}
+>   
+>   	for (i = 0; i < KVM_ADDRESS_SPACE_NUM; i++) {
+> -		struct kvm_userspace_memory_region m;
+> +		struct kvm_userspace_memory_region2 m;
+>   
+>   		m.slot = id | (i << 16);
+>   		m.flags = 0;
+> diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
+> index 5faba69403ac..4e741ff27af3 100644
+> --- a/include/linux/kvm_host.h
+> +++ b/include/linux/kvm_host.h
+> @@ -1146,9 +1146,9 @@ enum kvm_mr_change {
+>   };
+>   
+>   int kvm_set_memory_region(struct kvm *kvm,
+> -			  const struct kvm_userspace_memory_region *mem);
+> +			  const struct kvm_userspace_memory_region2 *mem);
+>   int __kvm_set_memory_region(struct kvm *kvm,
+> -			    const struct kvm_userspace_memory_region *mem);
+> +			    const struct kvm_userspace_memory_region2 *mem);
+>   void kvm_arch_free_memslot(struct kvm *kvm, struct kvm_memory_slot *slot);
+>   void kvm_arch_memslots_updated(struct kvm *kvm, u64 gen);
+>   int kvm_arch_prepare_memory_region(struct kvm *kvm,
+> diff --git a/include/uapi/linux/kvm.h b/include/uapi/linux/kvm.h
+> index 13065dd96132..bd1abe067f28 100644
+> --- a/include/uapi/linux/kvm.h
+> +++ b/include/uapi/linux/kvm.h
+> @@ -95,6 +95,16 @@ struct kvm_userspace_memory_region {
+>   	__u64 userspace_addr; /* start of the userspace allocated memory */
+>   };
+>   
+> +/* for KVM_SET_USER_MEMORY_REGION2 */
+> +struct kvm_userspace_memory_region2 {
+> +	__u32 slot;
+> +	__u32 flags;
+> +	__u64 guest_phys_addr;
+> +	__u64 memory_size;
+> +	__u64 userspace_addr;
+> +	__u64 pad[16];
+> +};
+> +
+>   /*
+>    * The bit 0 ~ bit 15 of kvm_userspace_memory_region::flags are visible for
+>    * userspace, other bits are reserved for kvm internal use which are defined
+> @@ -1192,6 +1202,7 @@ struct kvm_ppc_resize_hpt {
+>   #define KVM_CAP_COUNTER_OFFSET 227
+>   #define KVM_CAP_ARM_EAGER_SPLIT_CHUNK_SIZE 228
+>   #define KVM_CAP_ARM_SUPPORTED_BLOCK_SIZES 229
+> +#define KVM_CAP_USER_MEMORY2 230
+>   
+>   #ifdef KVM_CAP_IRQ_ROUTING
+>   
+> @@ -1473,6 +1484,8 @@ struct kvm_vfio_spapr_tce {
+>   					struct kvm_userspace_memory_region)
+>   #define KVM_SET_TSS_ADDR          _IO(KVMIO,   0x47)
+>   #define KVM_SET_IDENTITY_MAP_ADDR _IOW(KVMIO,  0x48, __u64)
+> +#define KVM_SET_USER_MEMORY_REGION2 _IOW(KVMIO, 0x49, \
+> +					 struct kvm_userspace_memory_region2)
+>   
+>   /* enable ucontrol for s390 */
+>   struct kvm_s390_ucas_mapping {
+> diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
+> index 8d21757cd5e9..7c0e38752526 100644
+> --- a/virt/kvm/kvm_main.c
+> +++ b/virt/kvm/kvm_main.c
+> @@ -1571,7 +1571,7 @@ static void kvm_replace_memslot(struct kvm *kvm,
+>   	}
+>   }
+>   
+> -static int check_memory_region_flags(const struct kvm_userspace_memory_region *mem)
+> +static int check_memory_region_flags(const struct kvm_userspace_memory_region2 *mem)
+>   {
+>   	u32 valid_flags = KVM_MEM_LOG_DIRTY_PAGES;
+>   
+> @@ -1973,7 +1973,7 @@ static bool kvm_check_memslot_overlap(struct kvm_memslots *slots, int id,
+>    * Must be called holding kvm->slots_lock for write.
+>    */
+>   int __kvm_set_memory_region(struct kvm *kvm,
+> -			    const struct kvm_userspace_memory_region *mem)
+> +			    const struct kvm_userspace_memory_region2 *mem)
+>   {
+>   	struct kvm_memory_slot *old, *new;
+>   	struct kvm_memslots *slots;
+> @@ -2077,7 +2077,7 @@ int __kvm_set_memory_region(struct kvm *kvm,
+>   EXPORT_SYMBOL_GPL(__kvm_set_memory_region);
+>   
+>   int kvm_set_memory_region(struct kvm *kvm,
+> -			  const struct kvm_userspace_memory_region *mem)
+> +			  const struct kvm_userspace_memory_region2 *mem)
+>   {
+>   	int r;
+>   
+> @@ -2089,7 +2089,7 @@ int kvm_set_memory_region(struct kvm *kvm,
+>   EXPORT_SYMBOL_GPL(kvm_set_memory_region);
+>   
+>   static int kvm_vm_ioctl_set_memory_region(struct kvm *kvm,
+> -					  struct kvm_userspace_memory_region *mem)
+> +					  struct kvm_userspace_memory_region2 *mem)
+>   {
+>   	if ((u16)mem->slot >= KVM_USER_MEM_SLOTS)
+>   		return -EINVAL;
+> @@ -4559,6 +4559,7 @@ static int kvm_vm_ioctl_check_extension_generic(struct kvm *kvm, long arg)
+>   {
+>   	switch (arg) {
+>   	case KVM_CAP_USER_MEMORY:
+> +	case KVM_CAP_USER_MEMORY2:
+>   	case KVM_CAP_DESTROY_MEMORY_REGION_WORKS:
+>   	case KVM_CAP_JOIN_MEMORY_REGIONS_WORKS:
+>   	case KVM_CAP_INTERNAL_ERROR_DATA:
+> @@ -4814,6 +4815,14 @@ static int kvm_vm_ioctl_get_stats_fd(struct kvm *kvm)
+>   	return fd;
+>   }
+>   
+> +#define SANITY_CHECK_MEM_REGION_FIELD(field)					\
+> +do {										\
+> +	BUILD_BUG_ON(offsetof(struct kvm_userspace_memory_region, field) !=		\
+> +		     offsetof(struct kvm_userspace_memory_region2, field));	\
+> +	BUILD_BUG_ON(sizeof_field(struct kvm_userspace_memory_region, field) !=		\
+> +		     sizeof_field(struct kvm_userspace_memory_region2, field));	\
+> +} while (0)
+> +
+>   static long kvm_vm_ioctl(struct file *filp,
+>   			   unsigned int ioctl, unsigned long arg)
+>   {
+> @@ -4836,15 +4845,28 @@ static long kvm_vm_ioctl(struct file *filp,
+>   		r = kvm_vm_ioctl_enable_cap_generic(kvm, &cap);
+>   		break;
+>   	}
+> +	case KVM_SET_USER_MEMORY_REGION2:
+>   	case KVM_SET_USER_MEMORY_REGION: {
+> -		struct kvm_userspace_memory_region kvm_userspace_mem;
+> +		struct kvm_userspace_memory_region2 mem;
+> +		unsigned long size;
+> +
+> +		if (ioctl == KVM_SET_USER_MEMORY_REGION)
+> +			size = sizeof(struct kvm_userspace_memory_region);
+> +		else
+> +			size = sizeof(struct kvm_userspace_memory_region2);
+> +
+> +		/* Ensure the common parts of the two structs are identical. */
+> +		SANITY_CHECK_MEM_REGION_FIELD(slot);
+> +		SANITY_CHECK_MEM_REGION_FIELD(flags);
+> +		SANITY_CHECK_MEM_REGION_FIELD(guest_phys_addr);
+> +		SANITY_CHECK_MEM_REGION_FIELD(memory_size);
+> +		SANITY_CHECK_MEM_REGION_FIELD(userspace_addr);
+>   
+>   		r = -EFAULT;
+> -		if (copy_from_user(&kvm_userspace_mem, argp,
+> -						sizeof(kvm_userspace_mem)))
+> +		if (copy_from_user(&mem, argp, size))
+>   			goto out;
+>   
+> -		r = kvm_vm_ioctl_set_memory_region(kvm, &kvm_userspace_mem);
+> +		r = kvm_vm_ioctl_set_memory_region(kvm, &mem);
+>   		break;
+>   	}
+>   	case KVM_GET_DIRTY_LOG: {
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
