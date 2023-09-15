@@ -4,176 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACEF3EEB596
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 Sep 2023 06:39:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEC7CEEB596
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 Sep 2023 06:47:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	References:Message-ID:Subject:CC:To:From:Date:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2GCrzqJrYqODTAFUglHuLnZrqhT4doEP9Dt50C65gts=; b=MooPfw5dOxsy4Z
-	3rf1do0JsYIAzOKEZbK41jmFfI/ZyjmsKLYQL8JMA5tyzbqsbOLlNZ/ZDUwsqzYjvc7XbJWNlNZhc
-	R45zAO855RN3gSv7U43Gyt9mVum+PWIGlNnCRuhnwuKq4ZVsqg5iWx2TpJZXjCnFho6M+ENJBwJQx
-	+ZK1ae2rdE62Tpd8EmB5pACrmNOfn7b8LovaJ4WVlJUqubQ3vsQZp1aSdEsFWe5W25IHSJVNdCFZy
-	oVKm48sgdvOu82yyUXj2qjUseJrUNBrwnoas5kKCfBYsdHbxsKANBUX90gDyk0J8AgL+zwNwYl0jz
-	VBnaamMh1+6YMb3j731w==;
+	List-Owner; bh=/g7xGUDV43hObD/LYjACWtBL957017KoFthFKlaqNLc=; b=FaVnBrTbjtgg0c
+	KJzSVcLwiVNyId7a/NmewkrtSvYtWHzKhjZlIqxILPlmjFl0EsyqRw6Smjg06Yq+FEAEe12z1vgOS
+	sB8oEXj5xNRT5y+74m6wdCk7+/0veR2LO7iHNSnY+b1YlBRjHP6Xm4nVe3hWhdcUU2eJ29Cfb6Wj2
+	emb53kPUDsT/nHs2tXkxPVOJrgD5Eu5eBOjhC4I/1je0E0ZfRCYSu1GjnuCRlLIO44Nii9IcmR7Mx
+	7eeKCqXaVoTklgnnd2/Uw8gfTz/buWoef6keCSYtITSpJpYwmljlJU44WWrWUtHxOBPNEmyv6qo8L
+	QpPAaxNVwlWH4r2b9G0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qh2UY-009vN0-11;
-	Fri, 15 Sep 2023 06:39:50 +0000
-Received: from mgamail.intel.com ([192.55.52.136])
+	id 1qh2bR-009vvI-30;
+	Fri, 15 Sep 2023 06:46:57 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qh2UU-009vJy-0l;
-	Fri, 15 Sep 2023 06:39:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1694759986; x=1726295986;
-  h=date:from:to:cc:subject:message-id:reply-to:references:
-   in-reply-to:mime-version;
-  bh=SqEO1q33yHRvCpHPoQpO8Nj7ZsCMuLR2UvC+IIj4eKE=;
-  b=UQPzyG+3KyZI0Vxtzt3JqvfSnHNz3wIEZEtsUDifEcFYEHyaG2DOcYWc
-   lpAO7audJONveZMp+LqGUCauXdCnpetn2CM/n6uXQdUXwG6TsFRqgSx3G
-   0BeWrX870MCq7OOAL20XgLzXDw0gvmHOB5pQDCm6unjKCqF4FgExNtDEW
-   Jytc/UpzjVLPw738M5uzntYc/BKfgI9j7eSmhDWdhA3INDEJYTDKzjaza
-   eiWw/oM/OITvmAvrwinT/DMjlHkWJ/QRjXyv28Mfn7+AdiD/oFnOHqueg
-   9a5rhFTl4GiePdNz659jYyVzSsx3cf5sNhQPYNm+f2qJq2xeJkUE9G13a
-   Q==;
-X-IronPort-AV: E=McAfee;i="6600,9927,10833"; a="358587473"
-X-IronPort-AV: E=Sophos;i="6.02,148,1688454000"; 
-   d="scan'208";a="358587473"
-Received: from fmsmga001.fm.intel.com ([10.253.24.23])
-  by fmsmga106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Sep 2023 23:39:37 -0700
-X-ExtLoop1: 1
-X-IronPort-AV: E=McAfee;i="6600,9927,10833"; a="888119276"
-X-IronPort-AV: E=Sophos;i="6.02,148,1688454000"; 
-   d="scan'208";a="888119276"
-Received: from fmsmsx601.amr.corp.intel.com ([10.18.126.81])
-  by fmsmga001.fm.intel.com with ESMTP/TLS/AES256-GCM-SHA384; 14 Sep 2023 23:38:57 -0700
-Received: from fmsmsx611.amr.corp.intel.com (10.18.126.91) by
- fmsmsx601.amr.corp.intel.com (10.18.126.81) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.32; Thu, 14 Sep 2023 23:39:31 -0700
-Received: from fmsmsx611.amr.corp.intel.com (10.18.126.91) by
- fmsmsx611.amr.corp.intel.com (10.18.126.91) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.32; Thu, 14 Sep 2023 23:39:30 -0700
-Received: from fmsedg601.ED.cps.intel.com (10.1.192.135) by
- fmsmsx611.amr.corp.intel.com (10.18.126.91) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.32 via Frontend Transport; Thu, 14 Sep 2023 23:39:30 -0700
-Received: from NAM10-DM6-obe.outbound.protection.outlook.com (104.47.58.107)
- by edgegateway.intel.com (192.55.55.70) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2507.32; Thu, 14 Sep 2023 23:39:30 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=KltgjbSqvZSu3M/hO7dvoFGAZkcC9X4bRkTqhmdO5OCVN1RFHgybXvDZ19RCaSDgFrI4GKOAsgnpDNdVsYfzy9y7881ky168jCCFlIa1YrgEBIvzuuvVnniB72GWLYEBuhRaqxUQosntstf2SzAk5cWnype+5Gma8xu6f1ink06kctIqtiR0MvBN+jRqCVU399LHALodWZrfN0yMZwSwJ6An771aBx/WrqZnaT9zWgoBnnhMHXdBD5xd7DgBshaNON7CXsvyJxb9wDfmjYWeGbQsuCv5Er08U6sTTNUZ2774G694FQMtKRAi14LmKsrODwFgWQ3Ug1R7eS7sKZ2Gsg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=uDNWp7dMCdOr1KSS0slekM3Q8lsOC0AP//2RE6MPJ4w=;
- b=aXQ3gutK4pJgSvQL6XR10qgDqLAA2YyXkYxZG47A4MzXE0Csc4dIW65R5u3SD9lMKL3rWM5+SBXb/naPwHc9s9MKsn9tQMMnhC0YEb5yuASkGAUl40qnwE0OFd4b2Un+HoVnyGcqORWio3sFR/GmkgTF3CnoNZJ7p49JAkRnAiJDeBoabQcRibVbMMZ9ElgitkoIIRy6H4aoemwNf709wGtnJixA5X6NjBebLSVFkFp8BjYRutYMNAgpHzSkspXtr1C7DG+TBPSuQDVYDkWdqITKeDGqLP7Zc2mYpXdueWoHtdwzBB4aASy6ebrIfBh3hlwHu0/qmvlzdbubM+bQjg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from DS7PR11MB5966.namprd11.prod.outlook.com (2603:10b6:8:71::6) by
- DS0PR11MB7579.namprd11.prod.outlook.com (2603:10b6:8:14d::5) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.6768.34; Fri, 15 Sep 2023 06:39:22 +0000
-Received: from DS7PR11MB5966.namprd11.prod.outlook.com
- ([fe80::5e79:2d52:51e:f602]) by DS7PR11MB5966.namprd11.prod.outlook.com
- ([fe80::5e79:2d52:51e:f602%6]) with mapi id 15.20.6768.029; Fri, 15 Sep 2023
- 06:39:21 +0000
-Date: Fri, 15 Sep 2023 14:11:18 +0800
-From: Yan Zhao <yan.y.zhao@intel.com>
-To: Sean Christopherson <seanjc@google.com>
-CC: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, Oliver
- Upton <oliver.upton@linux.dev>, Huacai Chen <chenhuacai@kernel.org>, Michael
- Ellerman <mpe@ellerman.id.au>, Anup Patel <anup@brainfault.org>, Paul
- Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, "Matthew Wilcox (Oracle)"
-	<willy@infradead.org>, Andrew Morton <akpm@linux-foundation.org>, Paul Moore
-	<paul@paul-moore.com>, James Morris <jmorris@namei.org>, "Serge E. Hallyn"
-	<serge@hallyn.com>, <kvm@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <kvmarm@lists.linux.dev>,
-	<linux-mips@vger.kernel.org>, <linuxppc-dev@lists.ozlabs.org>,
-	<kvm-riscv@lists.infradead.org>, <linux-riscv@lists.infradead.org>,
-	<linux-fsdevel@vger.kernel.org>, <linux-mm@kvack.org>,
-	<linux-security-module@vger.kernel.org>, <linux-kernel@vger.kernel.org>, Chao
- Peng <chao.p.peng@linux.intel.com>, Fuad Tabba <tabba@google.com>, Jarkko
- Sakkinen <jarkko@kernel.org>, Anish Moorthy <amoorthy@google.com>, Yu Zhang
-	<yu.c.zhang@linux.intel.com>, Isaku Yamahata <isaku.yamahata@intel.com>, Xu
- Yilun <yilun.xu@intel.com>, Vlastimil Babka <vbabka@suse.cz>, Vishal
- Annapurve <vannapurve@google.com>, Ackerley Tng <ackerleytng@google.com>,
-	Maciej Szmigiero <mail@maciej.szmigiero.name>, David Hildenbrand
-	<david@redhat.com>, Quentin Perret <qperret@google.com>, Michael Roth
-	<michael.roth@amd.com>, Wang <wei.w.wang@intel.com>, "Liam Merwick"
-	<liam.merwick@oracle.com>, Isaku Yamahata <isaku.yamahata@gmail.com>, "Kirill
- A . Shutemov" <kirill.shutemov@linux.intel.com>
-Subject: Re: [RFC PATCH v12 14/33] KVM: Add KVM_CREATE_GUEST_MEMFD ioctl()
- for guest-specific backing memory
-Message-ID: <ZQP1hiV7c9UGLRfu@yzhao56-desk.sh.intel.com>
-References: <20230914015531.1419405-1-seanjc@google.com>
- <20230914015531.1419405-15-seanjc@google.com>
-Content-Disposition: inline
-In-Reply-To: <20230914015531.1419405-15-seanjc@google.com>
-X-ClientProxiedBy: SI2PR01CA0045.apcprd01.prod.exchangelabs.com
- (2603:1096:4:193::19) To DS7PR11MB5966.namprd11.prod.outlook.com
- (2603:10b6:8:71::6)
+	id 1qh2bN-009vue-0M
+	for linux-riscv@lists.infradead.org;
+	Fri, 15 Sep 2023 06:46:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1694760412;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=OFHb1X8GwFAV1GjpBawvQP043vGn+wTnVbsA2Tbt+oQ=;
+	b=HwW0RsaoEiPJQqHsypzsHj8cB2sQeP+LBlCTjbhGUk0ARoMt+Ve/LVDSxqsmgMt6Vfc/Wk
+	Q8wvCpslpwAC64nYEfZ15lqQqu52WkH+so/BPiyHYtOpOX5xjOLnbgpg8MhQ23F3nI7gnI
+	xKUYXxzeXtLRIhNEaGX0XM4PT737COA=
+Received: from mail-ot1-f70.google.com (mail-ot1-f70.google.com
+ [209.85.210.70]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-513-mcwRiAamPNe9zLp0_wwzHA-1; Fri, 15 Sep 2023 02:46:48 -0400
+X-MC-Unique: mcwRiAamPNe9zLp0_wwzHA-1
+Received: by mail-ot1-f70.google.com with SMTP id 46e09a7af769-6bb31e13a13so2177924a34.1
+        for <linux-riscv@lists.infradead.org>; Thu, 14 Sep 2023 23:46:48 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1694760408; x=1695365208;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=OFHb1X8GwFAV1GjpBawvQP043vGn+wTnVbsA2Tbt+oQ=;
+        b=K7fmOLTsgqpwA035aPOFV4V14ZRWYV/OpdN6IdqQ3zKldbHX4GRzBn4yoYo5Wi2Bov
+         jp12IaOTCTjQt9QQOIAOV+Bu7eZOe8i37E9+AmPiuMcniE+qThbQI5ucvPzmuRFy/OZ7
+         peBKAUU2CF2xJ9qDRlNgPrl8iUqPfY75AbYvA6weZi/b7TP3VvXZYxesLof6/W7aYCL0
+         ojuJdsK55j9nUJ297gnwmTMnLXI2wJB0Uc2WDuL7h/lZXpSXKW97cE2MUI5sHYwiA9wu
+         DcFTmFjloU0z6oohaKpWCGbTaS3jMbi4Q9qPr9fimVv10NaR9ViX/uQWlyAkICc/7LgP
+         1P9Q==
+X-Gm-Message-State: AOJu0Yy3xrt2TMpv2lk69gn2Xvb7JYw6NAgSkG3zceduXwbgRshu3gyF
+	Q+RkFwG3oRZQapjEG1zMbgno5O8LSZWUjJ80yW0DEA9camDLr2CgzgGE9yfuBZiJbPXD/wrJrYS
+	TcC9L+9n5dymjZKYccjcFrYkn5Fah
+X-Received: by 2002:a9d:7381:0:b0:6bd:5bc:7bda with SMTP id j1-20020a9d7381000000b006bd05bc7bdamr729250otk.19.1694760408025;
+        Thu, 14 Sep 2023 23:46:48 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGDSdP3X8SAOYzXngeublio68T/+1l2GRslaw0MtT+GBt9TTzrGejFOiVGHPrfU6Zh2om+sYA==
+X-Received: by 2002:a9d:7381:0:b0:6bd:5bc:7bda with SMTP id j1-20020a9d7381000000b006bd05bc7bdamr729233otk.19.1694760407778;
+        Thu, 14 Sep 2023 23:46:47 -0700 (PDT)
+Received: from redhat.com ([2804:1b3:a803:4ff9:7c29:fe41:6aa7:43df])
+        by smtp.gmail.com with ESMTPSA id v5-20020a05683011c500b006b9e872c0a0sm1366615otq.68.2023.09.14.23.46.40
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 14 Sep 2023 23:46:47 -0700 (PDT)
+Date: Fri, 15 Sep 2023 03:46:37 -0300
+From: Leonardo Bras <leobras@redhat.com>
+To: guoren@kernel.org
+Cc: paul.walmsley@sifive.com, anup@brainfault.org, peterz@infradead.org,
+	mingo@redhat.com, will@kernel.org, palmer@rivosinc.com,
+	longman@redhat.com, boqun.feng@gmail.com, tglx@linutronix.de,
+	paulmck@kernel.org, rostedt@goodmis.org, rdunlap@infradead.org,
+	catalin.marinas@arm.com, conor.dooley@microchip.com,
+	xiaoguang.xing@sophgo.com, bjorn@rivosinc.com,
+	alexghiti@rivosinc.com, keescook@chromium.org,
+	greentime.hu@sifive.com, ajones@ventanamicro.com,
+	jszhang@kernel.org, wefu@redhat.com, wuwei2016@iscas.ac.cn,
+	linux-arch@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-doc@vger.kernel.org, kvm@vger.kernel.org,
+	virtualization@lists.linux-foundation.org,
+	linux-csky@vger.kernel.org, Guo Ren <guoren@linux.alibaba.com>
+Subject: Re: [PATCH V11 16/17] RISC-V: paravirt: pvqspinlock: KVM: Add
+ paravirt qspinlock skeleton
+Message-ID: <ZQP9zSl70Jd2T5wp@redhat.com>
+References: <20230910082911.3378782-1-guoren@kernel.org>
+ <20230910082911.3378782-17-guoren@kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS7PR11MB5966:EE_|DS0PR11MB7579:EE_
-X-MS-Office365-Filtering-Correlation-Id: d124c74f-f70b-4ed2-14b3-08dbb5b67e12
-X-LD-Processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: NIw6hxPN7hhBAwhQDNNnvuWA0tTTlfsknANlXPjN1o5gOZqRlV8YdrIyZzqH8NN9levkV850Cj54z6tqYwGRz9SYmOBv/GUkHELzzppgdRb60ClSk3OmoidRr3buiJ51DR7cVXChrnGs7qn0IGggHWMFF0jEwjhGRISwslLCqGIEYe2+E9UopaazZr34Cp55W/V4nH4iWX87lAXo6D9nvbA/WSwSf4IGgZSrG4o+UmkW6sYzdgJ2O1SYVE3ms4Z9hJGvPwH2CoOJaiRKMVubtPkpe7YUrWpQiVsIOnRcfpglRVPR3/XsCy2z9WFY1R3AxFUjNXrAi2+mYeDAQa1oG2qf0p5klAd+vkAdy8O/Sf0vy1UYwoWAtyq5kP4RN3951pvKEJ6fWfFsda6yxgXBNqYeeX0uxcAPDjGVGzydTfFRpN4BXfNee1s3mlnKxz3Z2th7Q52nWOMIpP4Oybcnw26yn3eLNfuRq5jFMCCfRPMXAmVYd2TqXWTRt54Xs/YQCOd2irtRctHrdII+IPni9toZq83BHsXwAvvm7E23Dn3/RW5zk9Dm391WIx0kRt4Z
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS7PR11MB5966.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230031)(346002)(366004)(39860400002)(396003)(136003)(376002)(186009)(451199024)(1800799009)(7416002)(66556008)(7406005)(3450700001)(5660300002)(83380400001)(82960400001)(38100700002)(4326008)(8676002)(86362001)(8936002)(2906002)(54906003)(41300700001)(6916009)(316002)(66476007)(66946007)(6512007)(6506007)(6666004)(26005)(6486002)(478600001);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Wze4+W/RB4/agTl5gWPVTYnm7jRXog5N7Pzs+NwlVnosfVw7k6YCOLuIeI/K?=
- =?us-ascii?Q?ry9nDTGa8oA+wPPsan04I3GsR6wFeq66jJrBpX3xNhpDgbY7D/WXMxs+VKE4?=
- =?us-ascii?Q?dGAKTiCi6BQT0id2+AIKGlbD+NAVajhQ/GCDfMw8R8cLe32ZMJctzI7BPK3J?=
- =?us-ascii?Q?z/bkd55mxAnQF414ImG2QITX6r1oJw1poGcUCTKSDkfjbHU5BAiIipYl3ePu?=
- =?us-ascii?Q?gBlfv4ME/6c0w9lKeQdw8+m5q6U3WG7HTeOO28q/FYMUOraMZU6wGZiHbXn/?=
- =?us-ascii?Q?k28EUQDeMF4bYGs6podOCCmq1gKtTOGCnkqqR6mfBECOIaClq5aE4xHOS5P8?=
- =?us-ascii?Q?4+gN5f8R/NcKM6G+yV/0cH9GlP3/PYN73uSTtaa3ipV9CdPkGJ1Y2n/e+q2Q?=
- =?us-ascii?Q?/0po363cayO+oTB91nYmvYOhWaRzUY5Eq4Y2TnMl6x5ghMrT3zwbndpBCWHL?=
- =?us-ascii?Q?F1BX3HVNz0giQ3Aw5Gx+lIKvTA0f8UgmrtNIo0N7T7zQ5CuPYVWHoNnpRDZZ?=
- =?us-ascii?Q?N8JU2uYGuaMzbBMYl1NuPyUtZsx6iY8qkuP8BrVU4DAuF/weGxgcXGIDzHb+?=
- =?us-ascii?Q?ijy144yKiHoN26vbJjHoOHQmCmW0jOZ6xI7ngxSB82fphh3RB/IZ6blmjzRS?=
- =?us-ascii?Q?68FblHwKvOSHStd1yooKmpVmfqx5N89nbLZ6IziDLMPgtGhNY40RDYs8eGRu?=
- =?us-ascii?Q?FISP5NjNdmOCT3juQ3iaXWbDGqZVrIbW4Qa0t9EIfGEbFeGnhh8FI6NKO2Dz?=
- =?us-ascii?Q?cFLWM17HtsgtYEGZH3A3cSiQgjy9fqjkGEFvhPTW/wW1YkrzGT9+iGXsLRIH?=
- =?us-ascii?Q?xGiZ0fXGb4WgLkirkkJClitjKYj+VldJfNk0w0J5JzLw1rEJGh8Ni6c/uCZe?=
- =?us-ascii?Q?S2oPymoujixMdhCaw4V2c/n6jrsQDO+XNOQZHwon+0VSE4biCM4p7csQEYYv?=
- =?us-ascii?Q?YZvFf7mdLWSO2bfGFvlkPPgcJIBz4hYJthCvdI+4vwPKPgRmhrX+GFsSnhMb?=
- =?us-ascii?Q?3SKMFCix2wZseYIcewz/K8zmGJ1vpWaQQdfIJj/zJ8+Kp+hMHGNpTqFKL/rN?=
- =?us-ascii?Q?4nj+rzqpiqhrP4xBYblP1JcHFJyNj568pD04TZ4lAx19WHJOE4TkJi18RgpK?=
- =?us-ascii?Q?c7/0xzYep0eSocp+m/M1b8s6vTBF28sUUJbxkUaxAcWTqheMILT8wjnsJHhw?=
- =?us-ascii?Q?Y5PCtsOFdye764j50/F/BSTfJq1KEnhm4860s2nrc8F/SBiobVWMprEN+VQ4?=
- =?us-ascii?Q?90n6izs8C+pHXbDcq4fLnJfgtMXbQG5hs5NlWOh8KQI3I/ZISoHuUGN4kqJK?=
- =?us-ascii?Q?QZMtqQkQ0FzkYP4efo0Ld6MDyIBsYJEBskEtGPQNcpmB84lhghliNDe1nG1h?=
- =?us-ascii?Q?+vig59cKYh9KyBBOZkyb0hFLtom326jcv+i+5ICfNXZOB++yhh+KCXzZ0nPY?=
- =?us-ascii?Q?ist9qBU3LADPAHgCia7dmLFZAoM54dVHPa9vmAXCdqgFJxGMJqWVofPU9DLJ?=
- =?us-ascii?Q?0a0Dal8UjCGO0hZuCRr2AftXwfWSAhNq3Vxv23WOVCtk9VY1TUx3lMqzdWkf?=
- =?us-ascii?Q?1FFfaI1eSbKeH5YrlJnpMXeCslPr74qMWylEXVdx?=
-X-MS-Exchange-CrossTenant-Network-Message-Id: d124c74f-f70b-4ed2-14b3-08dbb5b67e12
-X-MS-Exchange-CrossTenant-AuthSource: DS7PR11MB5966.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Sep 2023 06:39:21.3299
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: zOtdxo02B1MFVYtli7VKhZzLljLay4z3HQvUoFRWGMO7xKB7vP+zTct6RAamwt1pPe6gs3+PewYRyF8/i4ElKQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR11MB7579
-X-OriginatorOrg: intel.com
+In-Reply-To: <20230910082911.3378782-17-guoren@kernel.org>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230914_233946_309987_B706D392 
-X-CRM114-Status: GOOD (  19.36  )
+X-CRM114-CacheID: sfid-20230914_234653_218010_D2177492 
+X-CRM114-Status: GOOD (  23.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -185,48 +107,141 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Reply-To: Yan Zhao <yan.y.zhao@intel.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 13, 2023 at 06:55:12PM -0700, Sean Christopherson wrote:
-> +static struct folio *kvm_gmem_get_folio(struct file *file, pgoff_t index)
+On Sun, Sep 10, 2023 at 04:29:10AM -0400, guoren@kernel.org wrote:
+> From: Guo Ren <guoren@linux.alibaba.com>
+> 
+> Add the files functions needed to support the SBI PVLOCK (paravirt
+> qspinlock kick_cpu) extension. This is a preparation for the next
+> core implementation of kick_cpu.
+> 
+> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+> Signed-off-by: Guo Ren <guoren@kernel.org>
+> ---
+>  arch/riscv/include/asm/kvm_vcpu_sbi.h |  1 +
+>  arch/riscv/include/uapi/asm/kvm.h     |  1 +
+>  arch/riscv/kvm/Makefile               |  1 +
+>  arch/riscv/kvm/vcpu_sbi.c             |  4 +++
+>  arch/riscv/kvm/vcpu_sbi_pvlock.c      | 38 +++++++++++++++++++++++++++
+>  5 files changed, 45 insertions(+)
+>  create mode 100644 arch/riscv/kvm/vcpu_sbi_pvlock.c
+> 
+> diff --git a/arch/riscv/include/asm/kvm_vcpu_sbi.h b/arch/riscv/include/asm/kvm_vcpu_sbi.h
+> index cdcf0ff07be7..7b4d60b54d7e 100644
+> --- a/arch/riscv/include/asm/kvm_vcpu_sbi.h
+> +++ b/arch/riscv/include/asm/kvm_vcpu_sbi.h
+> @@ -71,6 +71,7 @@ extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_srst;
+>  extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_hsm;
+>  extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_experimental;
+>  extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_vendor;
+> +extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_pvlock;
+>  
+>  #ifdef CONFIG_RISCV_PMU_SBI
+>  extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_pmu;
+> diff --git a/arch/riscv/include/uapi/asm/kvm.h b/arch/riscv/include/uapi/asm/kvm.h
+> index 992c5e407104..d005c229f2da 100644
+> --- a/arch/riscv/include/uapi/asm/kvm.h
+> +++ b/arch/riscv/include/uapi/asm/kvm.h
+> @@ -148,6 +148,7 @@ enum KVM_RISCV_SBI_EXT_ID {
+>  	KVM_RISCV_SBI_EXT_PMU,
+>  	KVM_RISCV_SBI_EXT_EXPERIMENTAL,
+>  	KVM_RISCV_SBI_EXT_VENDOR,
+> +	KVM_RISCV_SBI_EXT_PVLOCK,
+>  	KVM_RISCV_SBI_EXT_MAX,
+>  };
+>  
+> diff --git a/arch/riscv/kvm/Makefile b/arch/riscv/kvm/Makefile
+> index 4c2067fc59fc..6112750a3a0c 100644
+> --- a/arch/riscv/kvm/Makefile
+> +++ b/arch/riscv/kvm/Makefile
+> @@ -26,6 +26,7 @@ kvm-$(CONFIG_RISCV_SBI_V01) += vcpu_sbi_v01.o
+>  kvm-y += vcpu_sbi_base.o
+>  kvm-y += vcpu_sbi_replace.o
+>  kvm-y += vcpu_sbi_hsm.o
+> +kvm-y += vcpu_sbi_pvlock.o
+>  kvm-y += vcpu_timer.o
+>  kvm-$(CONFIG_RISCV_PMU_SBI) += vcpu_pmu.o vcpu_sbi_pmu.o
+>  kvm-y += aia.o
+> diff --git a/arch/riscv/kvm/vcpu_sbi.c b/arch/riscv/kvm/vcpu_sbi.c
+> index 9cd97091c723..c03c3d489b2b 100644
+> --- a/arch/riscv/kvm/vcpu_sbi.c
+> +++ b/arch/riscv/kvm/vcpu_sbi.c
+> @@ -74,6 +74,10 @@ static const struct kvm_riscv_sbi_extension_entry sbi_ext[] = {
+>  		.ext_idx = KVM_RISCV_SBI_EXT_VENDOR,
+>  		.ext_ptr = &vcpu_sbi_ext_vendor,
+>  	},
+> +	{
+> +		.ext_idx = KVM_RISCV_SBI_EXT_PVLOCK,
+> +		.ext_ptr = &vcpu_sbi_ext_pvlock,
+> +	},
+>  };
+>  
+>  void kvm_riscv_vcpu_sbi_forward(struct kvm_vcpu *vcpu, struct kvm_run *run)
+> diff --git a/arch/riscv/kvm/vcpu_sbi_pvlock.c b/arch/riscv/kvm/vcpu_sbi_pvlock.c
+> new file mode 100644
+> index 000000000000..544a456c5041
+> --- /dev/null
+> +++ b/arch/riscv/kvm/vcpu_sbi_pvlock.c
+> @@ -0,0 +1,38 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * Copyright (c), 2023 Alibaba Cloud
+> + *
+> + * Authors:
+> + *     Guo Ren <guoren@linux.alibaba.com>
+> + */
+> +
+> +#include <linux/errno.h>
+> +#include <linux/err.h>
+> +#include <linux/kvm_host.h>
+> +#include <asm/sbi.h>
+> +#include <asm/kvm_vcpu_sbi.h>
+> +
+> +static int kvm_sbi_ext_pvlock_handler(struct kvm_vcpu *vcpu, struct kvm_run *run,
+> +				      struct kvm_vcpu_sbi_return *retdata)
 > +{
-> +	struct folio *folio;
+> +	int ret = 0;
+> +	struct kvm_cpu_context *cp = &vcpu->arch.guest_context;
+> +	unsigned long funcid = cp->a6;
 > +
-> +	/* TODO: Support huge pages. */
-> +	folio = filemap_grab_folio(file->f_mapping, index);
-> +	if (IS_ERR_OR_NULL(folio))
-> +		return NULL;
-> +
-> +	/*
-> +	 * Use the up-to-date flag to track whether or not the memory has been
-> +	 * zeroed before being handed off to the guest.  There is no backing
-> +	 * storage for the memory, so the folio will remain up-to-date until
-> +	 * it's removed.
-> +	 *
-> +	 * TODO: Skip clearing pages when trusted firmware will do it when
-> +	 * assigning memory to the guest.
-> +	 */
-> +	if (!folio_test_uptodate(folio)) {
-> +		unsigned long nr_pages = folio_nr_pages(folio);
-> +		unsigned long i;
-> +
-> +		for (i = 0; i < nr_pages; i++)
-> +			clear_highpage(folio_page(folio, i));
-> +
-> +		folio_mark_uptodate(folio);
+> +	switch (funcid) {
+> +	case SBI_EXT_PVLOCK_KICK_CPU:
+> +		break;
+
+IIUC, the kick implementation comes in the next patch but here it becomes a 
+no-op. Is there any chance this may break a future bisect?
+
+I don't understand a lot, but I would suggest either removing this no-op 
+case SBI_EXT_PVLOCK_KICK_CPU, or merging this patch with the next one.
+
+Other than that, LGTM.
+
+Thanks,
+Leo
+
+
+
+> +	default:
+> +		ret = SBI_ERR_NOT_SUPPORTED;
 > +	}
 > +
-> +	/*
-> +	 * Ignore accessed, referenced, and dirty flags.  The memory is
-> +	 * unevictable and there is no storage to write back to.
-> +	 */
-> +	return folio;
+> +	retdata->err_val = ret;
+> +
+> +	return 0;
 > +}
-If VFIO wants to map a private page, is it required to call this function for PFN?
+> +
+> +const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_pvlock = {
+> +	.extid_start = SBI_EXT_PVLOCK,
+> +	.extid_end = SBI_EXT_PVLOCK,
+> +	.handler = kvm_sbi_ext_pvlock_handler,
+> +};
+> -- 
+> 2.36.1
+> 
 
 
 _______________________________________________
