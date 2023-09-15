@@ -4,85 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A70CEE642E
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 Sep 2023 07:35:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 428CBEE6431
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 Sep 2023 07:57:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/j7P+koDHTe74dxEGA+uAGJVJ2MEEDDZVwbrwi41s64=; b=BCDENzcMUVx5UR
-	J2l//s5p+t7N8pNNywi7v3DDj2/NLddO+O1G3yBbMkvxjAO1gnjcI7XYYlBqu0uLlzadasskauyC7
-	WR6IvWBp/dowpED6r3C/GMuun9n3swclcyzuz3/YDtWbR4Jg8kalLvE2PoysMrPYmD3j7TyxV5F+z
-	q0Uhy1tnJEYhTlay9BhXy8n00wWnNGCpYJ0Yzjk7t4hR5QBfzAXlodBeosViRWnL+Tlwuat72AmPi
-	hlSGoMFkS5A+n28HmA5s4U+Jtg1zoJ4l2De+oojPKxOXpP04h7AfA4OWsgOcwIhzPNt/RL8PpvQ9R
-	lyodOcVl83R9Fz3oSKsQ==;
+	List-Owner; bh=sPGruukxZPiShdgAT3VeI40QsU+O2MsqtR/VEtIr/vQ=; b=LK1agyzGPyxwLO
+	75cLKQdYZPymA7KLptbVVjmAeORNAnTp+PPfJJsG3ZaOEjeUiDrlSM0rXNvqhUEZsEFjBDs3p99vn
+	kRplMvo9K1FU5E8UB7rQdmEGs62a6U0nYT3mWJ1IrWHEr/dZ416awR5N0tY9xtkp5wJmOC3Tx3LG5
+	RyhubMpQJDUJPhkNT704H8jTZx4bU1Kjo2ZDt6s6pa6TgtSKX9sUnFcbVQFteUB2QTDY/Zpmeja0j
+	Mrbn3unKTZLmtPV820NsSZOYOH21GjcR7fW0Qs0yOE/Fw9vSTinQyLGzcPwp/WSGCZM+Q6ScxqmSh
+	dQBXJC4/TEj1h0GHKG1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qh3Ly-00A3v1-3C;
-	Fri, 15 Sep 2023 07:35:03 +0000
-Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
+	id 1qh3hp-00A5fv-2k;
+	Fri, 15 Sep 2023 07:57:37 +0000
+Received: from eu-smtp-delivery-151.mimecast.com ([185.58.86.151])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qh3Lw-00A3tk-0Q
+	id 1qh3hm-00A5fU-1w
 	for linux-riscv@lists.infradead.org;
-	Fri, 15 Sep 2023 07:35:01 +0000
-Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-31c93d2a24fso1642068f8f.2
-        for <linux-riscv@lists.infradead.org>; Fri, 15 Sep 2023 00:34:58 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1694763297; x=1695368097; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=qOhwwySDKn21smjpOk6dEq+GSuFI63bl1UFYi1EKI04=;
-        b=MKZnvOmaPSZ0UlTtPo1WJu4TQHyd1nZNBv3+cD5cxa5Bq3Y3vaPSYxWjxqIDVsm1pu
-         enU3A1r+PKx1ACjykKmAIjTkQ9Ghoai7uqwYc3Zxa7ZV87s0MJNMlO3w9GqgadQHkRFu
-         TEA7zF1BTFB3pdQcJHFQmGrh8u/VkJQPtcPn6qg4e6Nhc5PrgVojJKtgrCT5ZM+IzFa+
-         8b38Wmc2k8+Th1MVEqgkef+NRIweN9NMU9KKOdmXRfLZ8XXGql1VQJACo+FSmtLiaHMX
-         WcIQ9M7E8tYUZKYVTpgIGKjftJSyeaEN1Yg6hbWBZroyco3XFX6HXnJzEhpcWA1dQNat
-         jvbw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1694763297; x=1695368097;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=qOhwwySDKn21smjpOk6dEq+GSuFI63bl1UFYi1EKI04=;
-        b=vPFykZD+x2cguPe+iWxd+LbEibJPJRQWtz5Zur63eVBbfX71nMEeNIqSPcX0vcabHN
-         7uyn5SLDhUD81yet6CvevDRSuZGKWwRapoipIHmZvBy3e9x1d8OPe5tS0Q/VuEL0Dmju
-         4DfJRryOKhVJR7xwH3To+KladX8ovE2dZBxWMtjEp94GepUfz3JoD+NMfEDivsdGbcWy
-         UeBXKOJPPEuJ1INbKnu6rKZXPhs+WlmpVNwgT26ubKyisIW1eeYScSvkhIztcyjEwuLt
-         AetOv1W/2IBrR6F21c9rusCimkjrA7TSrxNg3bzqvqcRv/C7gpJbD0oy69BSkSc1lVBC
-         Lo+w==
-X-Gm-Message-State: AOJu0Yyc8b+bxRPzdGKLSfEHcnIvunyWSgEhuoHI+ynZNTqzQz+L7N6M
-	kyhFUxvmHrhCTRgNB2StK/o7Cw==
-X-Google-Smtp-Source: AGHT+IExuGBnRGeiPUMGNEcpJuC9JYDa0ARcsc3STMPxBsCsHrtn9sUbxB+m5v9Cwhl0shqQDvwc+g==
-X-Received: by 2002:adf:eec5:0:b0:31f:9860:2325 with SMTP id a5-20020adfeec5000000b0031f98602325mr610529wrp.67.1694763297409;
-        Fri, 15 Sep 2023 00:34:57 -0700 (PDT)
-Received: from [192.168.1.20] ([178.197.214.188])
-        by smtp.gmail.com with ESMTPSA id u8-20020a5d6ac8000000b0031416362e23sm3731001wrw.3.2023.09.15.00.34.55
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 15 Sep 2023 00:34:56 -0700 (PDT)
-Message-ID: <fa554890-7315-97cb-a9d3-d0acf18d0ff2@linaro.org>
-Date: Fri, 15 Sep 2023 09:34:54 +0200
+	Fri, 15 Sep 2023 07:57:36 +0000
+Received: from AcuMS.aculab.com (156.67.243.121 [156.67.243.121]) by
+ relay.mimecast.com with ESMTP with both STARTTLS and AUTH (version=TLSv1.2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384) id
+ uk-mta-319-ooYdAIyBNp-dk--bK--xgg-1; Fri, 15 Sep 2023 08:57:26 +0100
+X-MC-Unique: ooYdAIyBNp-dk--bK--xgg-1
+Received: from AcuMS.Aculab.com (10.202.163.4) by AcuMS.aculab.com
+ (10.202.163.4) with Microsoft SMTP Server (TLS) id 15.0.1497.48; Fri, 15 Sep
+ 2023 08:57:22 +0100
+Received: from AcuMS.Aculab.com ([::1]) by AcuMS.aculab.com ([::1]) with mapi
+ id 15.00.1497.048; Fri, 15 Sep 2023 08:57:22 +0100
+From: David Laight <David.Laight@ACULAB.COM>
+To: 'Evan Green' <evan@rivosinc.com>
+CC: Geert Uytterhoeven <geert@linux-m68k.org>, Palmer Dabbelt
+	<palmer@rivosinc.com>, Heiko Stuebner <heiko@sntech.de>,
+	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
+	=?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>, Conor Dooley
+	<conor.dooley@microchip.com>, Guo Ren <guoren@kernel.org>, Jisheng Zhang
+	<jszhang@kernel.org>, "linux-riscv@lists.infradead.org"
+	<linux-riscv@lists.infradead.org>, Jonathan Corbet <corbet@lwn.net>, "Sia Jee
+ Heng" <jeeheng.sia@starfivetech.com>, Marc Zyngier <maz@kernel.org>,
+	"Masahiro Yamada" <masahiroy@kernel.org>, Greentime Hu
+	<greentime.hu@sifive.com>, "Simon Hosie" <shosie@rivosinc.com>, Andrew Jones
+	<ajones@ventanamicro.com>, "Albert Ou" <aou@eecs.berkeley.edu>, Alexandre
+ Ghiti <alexghiti@rivosinc.com>, "Ley Foon Tan"
+	<leyfoon.tan@starfivetech.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+	Anup Patel <apatel@ventanamicro.com>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, Xianting Tian
+	<xianting.tian@linux.alibaba.com>, Palmer Dabbelt <palmer@dabbelt.com>, "Andy
+ Chiu" <andy.chiu@sifive.com>
+Subject: RE: [PATCH v4 1/2] RISC-V: Probe for unaligned access speed
+Thread-Topic: [PATCH v4 1/2] RISC-V: Probe for unaligned access speed
+Thread-Index: AQHZ5t2uDoI3R+Ee30ay/cEMVFilT7AaADQQgABZ2YCAABclwIAAA5uAgAEQ8sA=
+Date: Fri, 15 Sep 2023 07:57:22 +0000
+Message-ID: <abdde70ac5b947508c8c71d72ec4f294@AcuMS.aculab.com>
+References: <20230818194136.4084400-1-evan@rivosinc.com>
+ <20230818194136.4084400-2-evan@rivosinc.com>
+ <CAMuHMdVtXGjP8VFMiv-7OMFz1XvfU1cz=Fw4jL3fcp4wO1etzQ@mail.gmail.com>
+ <CALs-Hsvu7BsK8P0+xeuLmKEqg-q=kQANbf8FkiPGPhwhnSXpmA@mail.gmail.com>
+ <CAMuHMdV594xA1UoTeVixpXm3i5LDFO5cT=dd_iRwWLwvxQctZg@mail.gmail.com>
+ <de95229a14614198894a8ce421c30d94@AcuMS.aculab.com>
+ <CALs-Hstcz3OAxUi80nm+U0R56VBUUPQT=+XMOLpVJsn2ZOcM1A@mail.gmail.com>
+ <172bc43cc2ac45239ec40477d53d263a@AcuMS.aculab.com>
+ <CALs-HsvMfrsPsG2b9imLNOJFH6Xk45G0=UPWGtExePiMKV6+1Q@mail.gmail.com>
+In-Reply-To: <CALs-HsvMfrsPsG2b9imLNOJFH6Xk45G0=UPWGtExePiMKV6+1Q@mail.gmail.com>
+Accept-Language: en-GB, en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-exchange-transport-fromentityheader: Hosted
+x-originating-ip: [10.202.205.107]
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.15.0
-Subject: Re: [PATCH 08/12] riscv: dts: sophgo: add Milk-V Pioneer board device
- tree
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: aculab.com
 Content-Language: en-US
-To: Wang Chen <unicornxw@gmail.com>, linux-riscv@lists.infradead.org,
- conor@kernel.org, aou@eecs.berkeley.edu, krzysztof.kozlowski+dt@linaro.org,
- palmer@dabbelt.com, paul.walmsley@sifive.com, robh+dt@kernel.org
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- jszhang@kernel.org, guoren@kernel.org, chao.wei@sophgo.com,
- xiaoguang.xing@sophgo.com, Wang Chen <wangchen20@iscas.ac.cn>,
- Inochi Amaoto <inochiama@outlook.com>
-References: <20230915072451.118209-1-wangchen20@iscas.ac.cn>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <20230915072451.118209-1-wangchen20@iscas.ac.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230915_003500_175524_F491BF99 
-X-CRM114-Status: GOOD (  19.01  )
+X-CRM114-CacheID: sfid-20230915_005734_905114_A55B8E33 
+X-CRM114-Status: GOOD (  27.13  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,83 +94,53 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 15/09/2023 09:24, Wang Chen wrote:
-> Milk-V Pioneer [1] is a developer motherboard based on SOPHON
-> SG2042 in a standard mATX form factor. It is a good
-> choice for RISC-V developers and hardware pioneers to
-> experience the cutting edge technology of RISC-V.
-> 
-> Currently only support booting into console with only uart
-> enabled, other features will be added soon later.
-> 
-> [1]: https://milkv.io/pioneer
-> 
-> Signed-off-by: Xiaoguang Xing <xiaoguang.xing@sophgo.com>
-> Signed-off-by: Inochi Amaoto <inochiama@outlook.com>
-> Signed-off-by: Wang Chen <wangchen20@iscas.ac.cn>
-> ---
->  arch/riscv/boot/dts/Makefile                     |  1 +
->  arch/riscv/boot/dts/sophgo/Makefile              |  3 +++
->  .../boot/dts/sophgo/sg2042-milkv-pioneer.dts     | 16 ++++++++++++++++
->  3 files changed, 20 insertions(+)
->  create mode 100644 arch/riscv/boot/dts/sophgo/Makefile
->  create mode 100644 arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts
-> 
-> diff --git a/arch/riscv/boot/dts/Makefile b/arch/riscv/boot/dts/Makefile
-> index f60a280abb15..94788486f13e 100644
-> --- a/arch/riscv/boot/dts/Makefile
-> +++ b/arch/riscv/boot/dts/Makefile
-> @@ -6,5 +6,6 @@ subdir-y += renesas
->  subdir-y += sifive
->  subdir-y += starfive
->  subdir-y += thead
-> +subdir-y += sophgo
->  
->  obj-$(CONFIG_BUILTIN_DTB) := $(addsuffix /, $(subdir-y))
-> diff --git a/arch/riscv/boot/dts/sophgo/Makefile b/arch/riscv/boot/dts/sophgo/Makefile
-> new file mode 100644
-> index 000000000000..5a471b19df22
-> --- /dev/null
-> +++ b/arch/riscv/boot/dts/sophgo/Makefile
-> @@ -0,0 +1,3 @@
-> +# SPDX-License-Identifier: GPL-2.0
-> +dtb-$(CONFIG_ARCH_SOPHGO) += sg2042-milkv-pioneer.dtb
-> +
-> diff --git a/arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts b/arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts
-> new file mode 100644
-> index 000000000000..4f480ff88fbd
-> --- /dev/null
-> +++ b/arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts
-> @@ -0,0 +1,16 @@
-> +// SPDX-License-Identifier: GPL-2.0 OR MIT
-> +/*
-> + * Copyright (C) 2022 Sophgo Technology Inc. All rights reserved.
-> + */
-> +
-> +#include "sg2042.dtsi"
-> +
-> +/ {
-> +	model = "Milk-V Pioneer";
-> +	compatible = "milkv,pioneer", "sophgo,sg2042";
-> +
-> +	info {
-
-Drop, there is no such node. Otherwise, please point me where are the
-bindings for it?
-
-Anyway your submissions is incomplete. Your DTS should enable some
-peripherals, like serials etc.
-
-Best regards,
-Krzysztof
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+RnJvbTogRXZhbiBHcmVlbg0KPiBTZW50OiAxNCBTZXB0ZW1iZXIgMjAyMyAxNzozNw0KPiANCj4g
+T24gVGh1LCBTZXAgMTQsIDIwMjMgYXQgODo1NeKAr0FNIERhdmlkIExhaWdodCA8RGF2aWQuTGFp
+Z2h0QGFjdWxhYi5jb20+IHdyb3RlOg0KPiA+DQo+ID4gRnJvbTogRXZhbiBHcmVlbg0KPiA+ID4g
+U2VudDogMTQgU2VwdGVtYmVyIDIwMjMgMTY6MDENCj4gPiA+DQo+ID4gPiBPbiBUaHUsIFNlcCAx
+NCwgMjAyMyBhdCAxOjQ34oCvQU0gRGF2aWQgTGFpZ2h0IDxEYXZpZC5MYWlnaHRAYWN1bGFiLmNv
+bT4gd3JvdGU6DQo+ID4gPiA+DQo+ID4gPiA+IEZyb206IEdlZXJ0IFV5dHRlcmhvZXZlbg0KPiA+
+ID4gPiA+IFNlbnQ6IDE0IFNlcHRlbWJlciAyMDIzIDA4OjMzDQo+ID4gPiA+IC4uLg0KPiA+ID4g
+PiA+ID4gPiAgICAgcnpmaXZlOg0KPiA+ID4gPiA+ID4gPiAgICAgICAgIGNwdTA6IFJhdGlvIG9m
+IGJ5dGUgYWNjZXNzIHRpbWUgdG8gdW5hbGlnbmVkIHdvcmQgYWNjZXNzIGlzDQo+ID4gPiA+ID4g
+PiA+IDEuMDUsIHVuYWxpZ25lZCBhY2Nlc3NlcyBhcmUgZmFzdA0KPiA+ID4gPiA+ID4NCj4gPiA+
+ID4gPiA+IEhybSwgSSdtIGEgbGl0dGxlIHN1cnByaXNlZCB0byBiZSBzZWVpbmcgdGhpcyBudW1i
+ZXIgY29tZSBvdXQgc28gY2xvc2UNCj4gPiA+ID4gPiA+IHRvIDEuIElmIHlvdSByZWJvb3QgYSBm
+ZXcgdGltZXMsIHdoYXQga2luZCBvZiB2YXJpYW5jZSBkbyB5b3UgZ2V0IG9uDQo+ID4gPiA+ID4g
+PiB0aGlzPw0KPiA+ID4gPiA+DQo+ID4gPiA+ID4gUm9jay1zb2xpZCBhdCAxLjA1IChldmVuIHdp
+dGggaW5jcmVhc2VkIHJlc29sdXRpb246IDEuMDU4NTMgb24gMyB0cmllcykNCj4gPiA+ID4NCj4g
+PiA+ID4gV291bGQgdGhhdCBtYXRjaCB6ZXJvIG92ZXJoZWFkIHVubGVzcyB0aGUgYWNjZXNzIGNy
+b3NzZXMgYQ0KPiA+ID4gPiBjYWNoZSBsaW5lIGJvdW5kYXJ5Pw0KPiA+ID4gPiAoSSBjYW4ndCBy
+ZW1lbWJlciB3aGV0aGVyIHRoZSB0ZXN0IGlzIHVzaW5nIGluY3JlYXNpbmcgYWRkcmVzc2VzLikN
+Cj4gPiA+DQo+ID4gPiBZZXMsIHRoZSB0ZXN0IGRvZXMgdXNlIGluY3JlYXNpbmcgYWRkcmVzc2Vz
+LCBpdCBjb3BpZXMgYWNyb3NzIDQgcGFnZXMuDQo+ID4gPiBXZSBzdGFydCB3aXRoIGEgd2FybXVw
+LCBzbyBjYWNoaW5nIGVmZmVjdHMgYmV5b25kIEwxIGFyZSBsYXJnZWx5IG5vdA0KPiA+ID4gdGFr
+ZW4gaW50byBhY2NvdW50Lg0KPiA+DQo+ID4gVGhhdCBzZWVtcyBlbnRpcmVseSBleGNlc3NpdmUu
+DQo+ID4gSWYgeW91IHdhbnQgdG8gYXZvaWQgZGF0YSBjYWNoZSBpc3N1ZXMgKHdoaWNoIHByb2Jh
+Ymx5IGRvKQ0KPiA+IHRoZW4ganVzdCByZXBlYXRpbmcgYSBzaW5nbGUgYWNjZXNzIHdvdWxkIGFs
+bW9zdCBjZXJ0YWlubHkNCj4gPiBzdWZmaWNlLg0KPiA+IFJlcGVhdGVkbHkgdXNpbmcgYSBzaG9y
+dCBidWZmZXIgKHNheSAyNTYgYnl0ZXMpIHdvbid0IGFkZA0KPiA+IG11Y2ggbG9vcCBvdmVyaGVh
+ZC4NCj4gPiBBbHRob3VnaCB5b3UgbWF5IHdhbnQgdG8gZG8gYSB0ZXN0IHRoYXQgYXZvaWRzIHRy
+YW5zZmVycw0KPiA+IHRoYXQgY3Jvc3MgY2FjaGUgbGluZSBhbmQgZXNwZWNpYWxseSBwYWdlIGJv
+dW5kYXJpZXMuDQo+ID4gRWl0aGVyIG9mIHRob3NlIGNvdWxkIGVhc2lseSBiZSBtdWNoIHNsb3dl
+ciB0aGFuIGEgcmVhZA0KPiA+IHRoYXQgaXMgZW50aXJlbHkgd2l0aGluIGEgY2FjaGUgbGluZS4N
+Cj4gDQo+IFdlIHdvbid0IGJlIGZhdWx0aW5nIG9uIGFueSBvZiB0aGVzZSBwYWdlcywgYW5kIHRo
+ZXkgc2hvdWxkIHJlbWFpbiBpbg0KPiB0aGUgVExCLCBzbyBJIGRvbid0IGV4cGVjdCBtYW55IHBh
+Z2UgYm91bmRhcnkgc3BlY2lmaWMgZWZmZWN0cy4gSWYNCj4gdGhlcmUgaXMgYSBzdGVlcCBwZW5h
+bHR5IGZvciBtaXNhbGlnbmVkIGxvYWRzIGFjcm9zcyBhIGNhY2hlIGxpbmUsDQo+IHN1Y2ggdGhh
+dCBpdCdzIHdvcnNlIHRoYW4gZG9pbmcgYnl0ZSBhY2Nlc3NlcywgSSB3YW50IHRoZSB0ZXN0IHJl
+c3VsdHMNCj4gdG8gYmUgZGluZ2VkIGZvciB0aGF0Lg0KDQpUaGF0IGlzIGFuIGVudGlyZWx5IGRp
+ZmZlcmVudCBpc3N1ZS4NCg0KQXJlIHlvdSBhYnNvbHV0ZWx5IGNlcnRhaW4gdGhhdCB0aGUgcmVh
+c29uIDggYnl0ZSBsb2FkcyB0YWtlDQphcyBsb25nIGFzIGEgNjQtYml0IG1pcy1hbGlnbmVkIGxv
+YWQgaXNuJ3QgYmVjYXVzZSB0aGUgZW50aXJlDQp0ZXN0IGlzIGxpbWl0ZWQgYnkgTDEgY2FjaGUg
+ZmlsbHM/DQoNCglEYXZpZA0KDQotDQpSZWdpc3RlcmVkIEFkZHJlc3MgTGFrZXNpZGUsIEJyYW1s
+ZXkgUm9hZCwgTW91bnQgRmFybSwgTWlsdG9uIEtleW5lcywgTUsxIDFQVCwgVUsNClJlZ2lzdHJh
+dGlvbiBObzogMTM5NzM4NiAoV2FsZXMpDQpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlz
+dHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3Rp
+bmZvL2xpbnV4LXJpc2N2Cg==
