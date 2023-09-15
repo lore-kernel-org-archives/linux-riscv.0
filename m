@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9910BEE3F2E
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 Sep 2023 06:25:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1826CEEB596
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 Sep 2023 06:33:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=M0aKe4Cm0flwsj+r47Ae3OsS8E1l+lCsLP47rmgLvSI=; b=OurYM84CT11/mv
-	hdw7kREjKey1hiCtbm4tQi42OiiLlhELQ1owtSwGasZoTvY4qYOb1r29TwQWn9+nADvkMARiI/3LA
-	j9rfKJjUFtQ1/32D6wGiybDiN2BPfYU1rR2sBo8sPzW5PCT9hKXVy5AFOYHgONr3J5zDzqQKRUKA6
-	+KLcN++Fy7TwFWBL8qmpuIUFIxoz9MPn/GI7JYv2gwN8CehErfBYsfYWIWV/9VrcQZgmVVonoBJRf
-	+rS4LIsmgvHGizmZJZsQmECmItojZfgUjX9WVEgbYUPuUOUGWX13vsI/q7HIRHcbugfEjQi8lFai/
-	bqHeRx+Fv7SJpltf20wA==;
+	List-Owner; bh=yrkrJi7aOTnZ3OvEIqnAauwZA/BwL9Fa+fibE10LBXA=; b=fMe+BIfHSy4Bzb
+	48ZAZmm2dG599zzjRAMftwbQ1Mb3MvGPmuaHgGVgFk+xGqJDCMOgityFQJTS6J77WGIZkyePqJ1l0
+	oWJqS3qPxwjUfxhBrbReutWluoZzPHgiALL+E5YxoN/kR+pS97s61OF9EAUZDfxiCKspLKRtmIjD4
+	4c90xc+pzscr7MnPCQWI3TruPMJZbVrafXPMXeTBQQrlQ0UWETV9eEQji40dNAKjy7chVrF0Yiw2F
+	hqKYMhG7LUe45pnJaQRfbhZwIOuNNc6AUNSFqKuwQI5zfNL2+Ku+w5jT1aWJKIJfef2YT0ACMQUx7
+	VaqFqBzl8H8vruZPKRPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qh2Gw-009uAf-0K;
-	Fri, 15 Sep 2023 06:25:46 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1qh2Of-009ums-1A;
+	Fri, 15 Sep 2023 06:33:45 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qh2Gs-009u9W-2k
+	id 1qh2Ob-009ulp-31
 	for linux-riscv@lists.infradead.org;
-	Fri, 15 Sep 2023 06:25:44 +0000
+	Fri, 15 Sep 2023 06:33:43 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1694759141;
+	s=mimecast20190719; t=1694759620;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 in-reply-to:in-reply-to:references:references;
-	bh=9+jnNNi5vRzRYE59Q36xUOPPsHIe6r3BvoxI49Al2Kk=;
-	b=dW94XWGlxTwd3QtNWFmnPLPJOUmCC3G20IAGF+Catp0YXhdN4WHbQdG9cU+xE7Y+ymfaEQ
-	DsTcX01jI5+sb2IGnJGRybTrjWNYhPtHuc327HieEpMZo/y2ixmIVlA00y7P7j+qIWT++W
-	Br71wyzYRMCX4KFWaAcHIM/HnRhOObc=
-Received: from mail-oi1-f200.google.com (mail-oi1-f200.google.com
- [209.85.167.200]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=M6B2vGE/qYo8MCpoCMonhjxP6SK9Wu8X9xpVpnxFZRw=;
+	b=NKeyuVmYWRn52Q3hxSXYHw5I5ZCk/WRp1SV/D5Z/tpmzGOSkd640x46YtaLgBWjaMGdpHK
+	jx6zgoadpGdIqynPPTIT/Ai2wADYrEoWjn2K3er15s4zwzC2qSEcTMnkaVQzdEULU1BIgE
+	kAx+L2sWkErJs7YkOW2QqjbUDo5S/mk=
+Received: from mail-ot1-f72.google.com (mail-ot1-f72.google.com
+ [209.85.210.72]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-533-ZxGlXVs9OMCs2ok8cPtURg-1; Fri, 15 Sep 2023 02:25:40 -0400
-X-MC-Unique: ZxGlXVs9OMCs2ok8cPtURg-1
-Received: by mail-oi1-f200.google.com with SMTP id 5614622812f47-3aa0fabef2cso2306103b6e.1
-        for <linux-riscv@lists.infradead.org>; Thu, 14 Sep 2023 23:25:40 -0700 (PDT)
+ us-mta-626-S1rEf_-WMMCJ6ZEiSpdDyA-1; Fri, 15 Sep 2023 02:33:39 -0400
+X-MC-Unique: S1rEf_-WMMCJ6ZEiSpdDyA-1
+Received: by mail-ot1-f72.google.com with SMTP id 46e09a7af769-6b9c82f64b7so1892977a34.3
+        for <linux-riscv@lists.infradead.org>; Thu, 14 Sep 2023 23:33:39 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1694759139; x=1695363939;
+        d=1e100.net; s=20230601; t=1694759618; x=1695364418;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=9+jnNNi5vRzRYE59Q36xUOPPsHIe6r3BvoxI49Al2Kk=;
-        b=Q6FjWJqctgzFy8HzYHDDWUaETSPu6LKmALsNxIWJRyNb1dL176qUSox750lfK3mFaS
-         Eg3aavMisovIYGu+eYmPPH/SEk0dKtcwbDmBEnjluYnfkzOl4txy9bFLRzlQ9xbvW+xX
-         /IDPFI6UeuqegNKUmNV1LGWNJiI7/BvlWhmMf+46ejSxhDpqOWrQTQu9Iw5awP7MmlvA
-         AfztFCbGIcyhWiT/yGXmzuvnC9/NHsRS6lu4wprM2GUe9JbaKyMr/rGw5SGaewT5wyB8
-         9/31/T8ogBRvFAhZExaBphr/X0em1o3CjlhGTLWA98Jfbyo1eTr30GLqn3WvHqxS/6yN
-         A3eA==
-X-Gm-Message-State: AOJu0YzmNMZb+lvpHdFGtvhFpmB3cuBcKN9qKOOSMFlZmA9GCrWJlzrX
-	Z4UQ0gJzSP82VFRe+pBIO/reSufthCYla1r4RUXYTtcEyS+gVn8Rvm5F0uu1PBPJfaQLWDp4W+8
-	cvOR+rX5Sp5LhYvT7AXFIPLzRlQrL
-X-Received: by 2002:a05:6808:b34:b0:3ac:ab36:2741 with SMTP id t20-20020a0568080b3400b003acab362741mr797318oij.53.1694759139624;
-        Thu, 14 Sep 2023 23:25:39 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IEMHaFc+UC1EHaQRMbCwUpAmphXEf20cxE2AiOsjMs+KiUT0/fC2jPyxpfPcipU6ikyGrIg1Q==
-X-Received: by 2002:a05:6808:b34:b0:3ac:ab36:2741 with SMTP id t20-20020a0568080b3400b003acab362741mr797288oij.53.1694759139377;
-        Thu, 14 Sep 2023 23:25:39 -0700 (PDT)
+        bh=M6B2vGE/qYo8MCpoCMonhjxP6SK9Wu8X9xpVpnxFZRw=;
+        b=wTg/35/MhmZp9vyulxYheqIItsUfjBEbisd6B640m54IleH/ALTJe/WbNCG2zwvBbM
+         IbLJBs3Eir1+EhY4EdQSP/wUWoGNF867ieOu1vlSeGHqMwXNE2jWGqZ1HDekmzyHRW51
+         S6Z/0/jencCf86VDQtalkG/9ybcyOXs9bUr4YtBj6DSJLvU0IfwNuRKHULBEeVSzViCF
+         3aTtjds8L3LiTPwaVywxA210GszW1s363BMRnFEPBfp1XXWqAZVHgwK+au//hzGZZhkk
+         /T9/7wQmOXJ3HvdmhAZoxqgUGMgBZMZ304D2vD9KZDKb4ISAvNAzZVo9Rcwxs6cUl+LC
+         2K1w==
+X-Gm-Message-State: AOJu0YxVcI5CHU4ysptCG6viL/fT68z0VrSDzQ4Fkao6SKu4A5xv/cbS
+	dDhQ4buAJaLon4E3/SlNC2VgmIo8oLTAvvFA+m6WV9mvazh7ICKnzn+Jek5sVJc0sfMm5DVhW1+
+	4ItraUQdvDx7OyNEY1w96GWGbSgt6
+X-Received: by 2002:a9d:6c12:0:b0:6bc:f328:696e with SMTP id f18-20020a9d6c12000000b006bcf328696emr645973otq.0.1694759618636;
+        Thu, 14 Sep 2023 23:33:38 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IEg2wKTh/3f4h4NZJfBt03fkh0Ht7ue8oylu+n1hmD3VO/kWUY4ohRhbMwCK4nhGQgkzaw/AQ==
+X-Received: by 2002:a9d:6c12:0:b0:6bc:f328:696e with SMTP id f18-20020a9d6c12000000b006bcf328696emr645950otq.0.1694759618397;
+        Thu, 14 Sep 2023 23:33:38 -0700 (PDT)
 Received: from redhat.com ([2804:1b3:a803:4ff9:7c29:fe41:6aa7:43df])
-        by smtp.gmail.com with ESMTPSA id e27-20020a05680809bb00b003a37372e6b2sm1294124oig.21.2023.09.14.23.25.32
+        by smtp.gmail.com with ESMTPSA id g13-20020a9d618d000000b006b75242d6c3sm1378794otk.38.2023.09.14.23.33.30
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 14 Sep 2023 23:25:38 -0700 (PDT)
-Date: Fri, 15 Sep 2023 03:25:29 -0300
+        Thu, 14 Sep 2023 23:33:37 -0700 (PDT)
+Date: Fri, 15 Sep 2023 03:33:21 -0300
 From: Leonardo Bras <leobras@redhat.com>
 To: guoren@kernel.org
 Cc: paul.walmsley@sifive.com, anup@brainfault.org, peterz@infradead.org,
@@ -83,19 +83,19 @@ Cc: paul.walmsley@sifive.com, anup@brainfault.org, peterz@infradead.org,
 	linux-doc@vger.kernel.org, kvm@vger.kernel.org,
 	virtualization@lists.linux-foundation.org,
 	linux-csky@vger.kernel.org, Guo Ren <guoren@linux.alibaba.com>
-Subject: Re: [PATCH V11 14/17] RISC-V: paravirt: pvqspinlock: Add kconfig
- entry
-Message-ID: <ZQP42f5SC2ecaAKE@redhat.com>
+Subject: Re: [PATCH V11 15/17] RISC-V: paravirt: pvqspinlock: Add trace point
+ for pv_kick/wait
+Message-ID: <ZQP6sby4lnvO0Cad@redhat.com>
 References: <20230910082911.3378782-1-guoren@kernel.org>
- <20230910082911.3378782-15-guoren@kernel.org>
+ <20230910082911.3378782-16-guoren@kernel.org>
 MIME-Version: 1.0
-In-Reply-To: <20230910082911.3378782-15-guoren@kernel.org>
+In-Reply-To: <20230910082911.3378782-16-guoren@kernel.org>
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230914_232542_960708_90418F08 
-X-CRM114-Status: GOOD (  15.63  )
+X-CRM114-CacheID: sfid-20230914_233342_047412_74C7EB0E 
+X-CRM114-Status: GOOD (  17.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,52 +112,148 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Sep 10, 2023 at 04:29:08AM -0400, guoren@kernel.org wrote:
+On Sun, Sep 10, 2023 at 04:29:09AM -0400, guoren@kernel.org wrote:
 > From: Guo Ren <guoren@linux.alibaba.com>
 > 
-> Add kconfig entry for paravirt_spinlock, an unfair qspinlock
-> virtualization-friendly backend, by halting the virtual CPU rather
-> than spinning.
+> Add trace point for pv_kick/wait, here is the output:
+> 
+>  entries-in-buffer/entries-written: 33927/33927   #P:12
+> 
+>                                 _-----=> irqs-off/BH-disabled
+>                                / _----=> need-resched
+>                               | / _---=> hardirq/softirq
+>                               || / _--=> preempt-depth
+>                               ||| / _-=> migrate-disable
+>                               |||| /     delay
+>            TASK-PID     CPU#  |||||  TIMESTAMP  FUNCTION
+>               | |         |   |||||     |         |
+>              sh-100     [001] d..2.    28.312294: pv_wait: cpu 1 out of wfi
+>          <idle>-0       [000] d.h4.    28.322030: pv_kick: cpu 0 kick target cpu 1
+>              sh-100     [001] d..2.    30.982631: pv_wait: cpu 1 out of wfi
+>          <idle>-0       [000] d.h4.    30.993289: pv_kick: cpu 0 kick target cpu 1
+>              sh-100     [002] d..2.    44.987573: pv_wait: cpu 2 out of wfi
+>          <idle>-0       [000] d.h4.    44.989000: pv_kick: cpu 0 kick target cpu 2
+>          <idle>-0       [003] d.s3.    51.593978: pv_kick: cpu 3 kick target cpu 4
+>       rcu_sched-15      [004] d..2.    51.595192: pv_wait: cpu 4 out of wfi
+> lock_torture_wr-115     [004] ...2.    52.656482: pv_kick: cpu 4 kick target cpu 2
+> lock_torture_wr-113     [002] d..2.    52.659146: pv_wait: cpu 2 out of wfi
+> lock_torture_wr-114     [008] d..2.    52.659507: pv_wait: cpu 8 out of wfi
+> lock_torture_wr-114     [008] d..2.    52.663503: pv_wait: cpu 8 out of wfi
+> lock_torture_wr-113     [002] ...2.    52.666128: pv_kick: cpu 2 kick target cpu 8
+> lock_torture_wr-114     [008] d..2.    52.667261: pv_wait: cpu 8 out of wfi
+> lock_torture_wr-114     [009] .n.2.    53.141515: pv_kick: cpu 9 kick target cpu 11
+> lock_torture_wr-113     [002] d..2.    53.143339: pv_wait: cpu 2 out of wfi
+> lock_torture_wr-116     [007] d..2.    53.143412: pv_wait: cpu 7 out of wfi
+> lock_torture_wr-118     [000] d..2.    53.143457: pv_wait: cpu 0 out of wfi
+> lock_torture_wr-115     [008] d..2.    53.143481: pv_wait: cpu 8 out of wfi
+> lock_torture_wr-117     [011] d..2.    53.143522: pv_wait: cpu 11 out of wfi
+> lock_torture_wr-117     [011] ...2.    53.143987: pv_kick: cpu 11 kick target cpu 8
+> lock_torture_wr-115     [008] ...2.    53.144269: pv_kick: cpu 8 kick target cpu 7
 > 
 > Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
 > Signed-off-by: Guo Ren <guoren@kernel.org>
 > ---
->  arch/riscv/Kconfig         | 12 ++++++++++++
->  arch/riscv/kernel/Makefile |  1 +
->  2 files changed, 13 insertions(+)
+>  arch/riscv/kernel/qspinlock_paravirt.c        |  8 +++
+>  .../kernel/trace_events_filter_paravirt.h     | 60 +++++++++++++++++++
+>  2 files changed, 68 insertions(+)
+>  create mode 100644 arch/riscv/kernel/trace_events_filter_paravirt.h
 > 
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index 4bcff2860f48..ec0da24ed6fb 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -813,6 +813,18 @@ config RELOCATABLE
+> diff --git a/arch/riscv/kernel/qspinlock_paravirt.c b/arch/riscv/kernel/qspinlock_paravirt.c
+> index 571626f350be..5d298e989b99 100644
+> --- a/arch/riscv/kernel/qspinlock_paravirt.c
+> +++ b/arch/riscv/kernel/qspinlock_paravirt.c
+> @@ -9,10 +9,16 @@
+>  #include <asm/qspinlock_paravirt.h>
+>  #include <asm/sbi.h>
 >  
->            If unsure, say N.
->  
-> +config PARAVIRT_SPINLOCKS
-> +	bool "Paravirtualization layer for spinlocks"
-> +	depends on QUEUED_SPINLOCKS
-> +	default y
-> +	help
-> +	  Paravirtualized spinlocks allow a unfair qspinlock to replace the
-> +	  test-set kvm-guest virt spinlock implementation with something
-> +	  virtualization-friendly, for example, halt the virtual CPU rather
-> +	  than spinning.
+> +#define CREATE_TRACE_POINTS
+> +#include "trace_events_filter_paravirt.h"
 > +
-> +	  If you are unsure how to answer this question, answer Y.
+>  void pv_kick(int cpu)
+>  {
+>  	sbi_ecall(SBI_EXT_PVLOCK, SBI_EXT_PVLOCK_KICK_CPU,
+>  		  cpuid_to_hartid_map(cpu), 0, 0, 0, 0, 0);
 > +
->  endmenu # "Kernel features"
+> +	trace_pv_kick(smp_processor_id(), cpu);
+> +
+>  	return;
+>  }
 >  
->  menu "Boot options"
-> diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
-> index 671ad85f28f2..114b29234c46 100644
-> --- a/arch/riscv/kernel/Makefile
-> +++ b/arch/riscv/kernel/Makefile
-> @@ -103,3 +103,4 @@ obj-$(CONFIG_ARCH_RV64ILP32)	+= compat_signal.o
+> @@ -28,6 +34,8 @@ void pv_wait(u8 *ptr, u8 val)
+>  		goto out;
 >  
->  obj-$(CONFIG_64BIT)		+= pi/
->  obj-$(CONFIG_ACPI)		+= acpi.o
-> +obj-$(CONFIG_PARAVIRT_SPINLOCKS) += qspinlock_paravirt.o
+>  	wait_for_interrupt();
+> +
+> +	trace_pv_wait(smp_processor_id());
+>  out:
+>  	local_irq_restore(flags);
+>  }
+> diff --git a/arch/riscv/kernel/trace_events_filter_paravirt.h b/arch/riscv/kernel/trace_events_filter_paravirt.h
+> new file mode 100644
+> index 000000000000..9ff5aa451b12
+> --- /dev/null
+> +++ b/arch/riscv/kernel/trace_events_filter_paravirt.h
+> @@ -0,0 +1,60 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * Copyright (c), 2023 Alibaba Cloud
+> + * Authors:
+> + *	Guo Ren <guoren@linux.alibaba.com>
+> + */
+> +#undef TRACE_SYSTEM
+> +#define TRACE_SYSTEM paravirt
+> +
+> +#if !defined(_TRACE_PARAVIRT_H) || defined(TRACE_HEADER_MULTI_READ)
+> +#define _TRACE_PARAVIRT_H
+> +
+> +#include <linux/tracepoint.h>
+> +
+> +TRACE_EVENT(pv_kick,
+> +	TP_PROTO(int cpu, int target),
+> +	TP_ARGS(cpu, target),
+> +
+> +	TP_STRUCT__entry(
+> +		__field(int, cpu)
+> +		__field(int, target)
+> +	),
+> +
+> +	TP_fast_assign(
+> +		__entry->cpu = cpu;
+> +		__entry->target = target;
+> +	),
+> +
+> +	TP_printk("cpu %d kick target cpu %d",
+> +		__entry->cpu,
+> +		__entry->target
+> +	)
+> +);
+> +
+> +TRACE_EVENT(pv_wait,
+> +	TP_PROTO(int cpu),
+> +	TP_ARGS(cpu),
+> +
+> +	TP_STRUCT__entry(
+> +		__field(int, cpu)
+> +	),
+> +
+> +	TP_fast_assign(
+> +		__entry->cpu = cpu;
+> +	),
+> +
+> +	TP_printk("cpu %d out of wfi",
+> +		__entry->cpu
+> +	)
+> +);
+> +
+> +#endif /* _TRACE_PARAVIRT_H || TRACE_HEADER_MULTI_READ */
+> +
+> +#undef TRACE_INCLUDE_PATH
+> +#undef TRACE_INCLUDE_FILE
+> +#define TRACE_INCLUDE_PATH ../../../arch/riscv/kernel/
+> +#define TRACE_INCLUDE_FILE trace_events_filter_paravirt
+> +
+> +/* This part must be outside protection */
+> +#include <trace/define_trace.h>
 > -- 
 > 2.36.1
 > 
