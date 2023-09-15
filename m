@@ -4,82 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46BEFEE645C
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 Sep 2023 13:36:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D8D3EE645C
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 Sep 2023 13:45:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2NTK0WhEg4TB7injo094eC1O15HtBZsKjHQeAeouihU=; b=ogUw/9dIwSFM8L
-	/sMx5NWfXu0Jloh4V1oabnhHoD9UvbDAubl76rCsoAsadCHU0X6miU74Lb26/cLz3ZzHGZqaq2q5+
-	8+qJuCRWQRL1TXGBuoWlXBCLDxlQTdfoPSW5G/krtalYlddO6LKxFHEi98jtWB654iqjen0EywQWl
-	vCfrayddh+HKlfEgvxALqUWXJTZoyJ0Lw0etfkDCjiyhB8zogTZKr5d+kMuDgZl1+s/DABr9r02M7
-	yAijBNmsy7yL89s2OUOv8pDuYakZW3C/B22bYGhI+7jvbEIWU4UoiPpPBmXbOCacMkLrSR7rEaDd5
-	ilb2Vn/KDLe8JZSTmFgA==;
+	List-Owner; bh=rolmyMuI0IklraxH+WC1he/NEJujyDCeOUCSc3QlFr4=; b=eCK+EO01FDDaan
+	y45r6Zi++pyLNOyN0aEMgeaA3IAeegQ5/PSOgzUsJaAU5G0QtwBZ6/+uXQscXzQa7SW3KtVr7qFjy
+	FPIOr8pRf5wsKNERvr9H0YIw2Cb7g58GODG2EWNHmomHxuz6wm9mMeusMHB8Gs5fiZV1rw7GOFN/n
+	fSItQ3eI90PvB2MLjnFfDnFZiDysgk+sQmD5RxMrnBwgVC6+BXTOLyEbs5k+A5mAMEDvxtKeqOS59
+	JUqqjbcsEQxGy246AL84DLXjUW/vaWjJb6ksVJU2eC9S8wdlEaHx27rVoNH68BKO7qCcq5/JJgTvT
+	OY5tEWJtgZ/thOvCrxwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qh8zJ-00Ap94-2a;
-	Fri, 15 Sep 2023 13:36:01 +0000
-Received: from mail-pj1-x1035.google.com ([2607:f8b0:4864:20::1035])
+	id 1qh98Y-00AppR-2i;
+	Fri, 15 Sep 2023 13:45:34 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qh8zG-00Ap87-0b
-	for linux-riscv@lists.infradead.org;
-	Fri, 15 Sep 2023 13:35:59 +0000
-Received: by mail-pj1-x1035.google.com with SMTP id 98e67ed59e1d1-2746af1b835so1475729a91.2
-        for <linux-riscv@lists.infradead.org>; Fri, 15 Sep 2023 06:35:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1694784957; x=1695389757; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=OZ8CSbGWetSq5KjL5/lk3LJxa/SsVHXEdQVhCsaB3uQ=;
-        b=CZHUCSdNIqFwgSD/tMpfrVC9qgA265mjBWgHWWqiF3nwJ+TW3AXpku411Y/H5/ITNn
-         X7fqc4pXZ0RQKgIzBnTTbPTD8pIuKROhQfnKQPTNjGq7X/6UmYNfHmMFE0q7gxZOp3ag
-         c1UptwSHtKgNqSqUlBQ178Uy8NfMjqb+JskRVojlPuxfDS99AWoFXwLfwaBQeBBVyH1q
-         oJ+ikHvjaOxrYaxuPjiYYDdunW3Cisjbev0b59vD13t8qCQ5SoE2Z4PrdvVpYuIcPSpv
-         GMf1aUjt0pyih29XHVJVPVOdYJZRGBjWbN3d080acqi7lQKTAkq4kQm4MctGlGqAeIF9
-         yrPg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1694784957; x=1695389757;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=OZ8CSbGWetSq5KjL5/lk3LJxa/SsVHXEdQVhCsaB3uQ=;
-        b=jw1wSK8/N8qXBqJmileVo0MH6IALfhGf5gYQlhqvWPl530Hmbs9T896Aak9l/8g87K
-         lFDlOCKjAjRxqKT4r9zCL1E447OIL0NaF7gNSlMjNV6nZE/Jby2eI1Pcu+zqKo1IzdV/
-         nFnj0OLwWL9Erc4r3sgCHy+m5nQ8O4UeJhhonh3N6bzvxfQ8ZoDkPLlJ46/BzzqyiEqG
-         WCWmIirXXIndHF1hbqky9R4U4BpSMLJrDxMjLHbM9B4cM5+QnPxExMGU50YJgvq4QGm+
-         QrOVoy6FMq02uRyWcl6VqEg7/Ki0PSxXNiMv3KHT/BO4x+nhfUDKM6fHP1u/REZYj46N
-         Lvrg==
-X-Gm-Message-State: AOJu0YzaIVrUHMmgOjPbM4b2K/Jlj+F6ucVwj9rMhvwU3x5OXOe+pggm
-	ex2WWBJ3FfQivB2mNT6nEyqA3btg7HZEqTGEjK171g==
-X-Google-Smtp-Source: AGHT+IFwjT0h9F2Ard6U8WLpdM+nhA36OwS1IIu8c2vCtkZ5nia7iOFHTHVgtD7ruyjxTYqWUmmfnL6OvVnvqIMepmU=
-X-Received: by 2002:a17:90a:6746:b0:269:524f:2a19 with SMTP id
- c6-20020a17090a674600b00269524f2a19mr1537651pjm.26.1694784957249; Fri, 15 Sep
- 2023 06:35:57 -0700 (PDT)
+	id 1qh98V-00ApfE-0F;
+	Fri, 15 Sep 2023 13:45:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=MDmOVUGFw7psqGT5ektePsIj1IbCfn8TY/XxeJGVNTw=; b=rtC74pAlfCcyhcB3Wyl8LKCPB0
+	Xwz14Qd36TL0PKhw7Zk+LHnxUd5XgAmKuJEe7akvV+FC/sROu11SxSxKI+0wEMV+5tyG+iCX3Olrr
+	lO0y6WnYO8QsojbcRYxX9UrQdN/L/OAffvM0kt7yypxuwclbo3I2J8b4RIOb+s/+WUwGejgTGc/Xo
+	dStNDrPrXV6sXo2DJ/ln2JUAiLUi/5f/0lMGJHd3Kav6/MEdvhDb63mrP0ECRMh5DT6Wb67I6BORS
+	s9AtdfQyX3WJB4LjYZCrgQaddENsVW+TeUjrQddQqbbbUdsUALBFXgdcFgNaR305NNyFce8J7knKh
+	AzEeS2ng==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:40636)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1qh96C-0005hw-0w;
+	Fri, 15 Sep 2023 14:43:08 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.94.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1qh969-0005qV-Do; Fri, 15 Sep 2023 14:43:05 +0100
+Date: Fri, 15 Sep 2023 14:43:05 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Salil Mehta <salil.mehta@huawei.com>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Jonathan Cameron <jonathan.cameron@huawei.com>,
+	James Morse <james.morse@arm.com>,
+	"linux-pm@vger.kernel.org" <linux-pm@vger.kernel.org>,
+	"loongarch@lists.linux.dev" <loongarch@lists.linux.dev>,
+	"linux-acpi@vger.kernel.org" <linux-acpi@vger.kernel.org>,
+	"linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
+	"x86@kernel.org" <x86@kernel.org>,
+	Jean-Philippe Brucker <jean-philippe@linaro.org>,
+	"jianyong.wu@arm.com" <jianyong.wu@arm.com>,
+	"justin.he@arm.com" <justin.he@arm.com>
+Subject: Re: [RFC PATCH v2 27/35] ACPICA: Add new MADT GICC flags fields
+ [code first?]
+Message-ID: <ZQRfaYYwrYQEfICN@shell.armlinux.org.uk>
+References: <20230913163823.7880-1-james.morse@arm.com>
+ <20230913163823.7880-28-james.morse@arm.com>
+ <CAMj1kXHRAt7ecB9p_dm3MjDL5wZkAsVh30hMY2SV_XUe=bm6Vg@mail.gmail.com>
+ <20230914155459.00002dba@Huawei.com>
+ <CAMj1kXFquiLGCMow3iujHUU4GBZx2t9KfKy1R9iqjBFjY+acaA@mail.gmail.com>
+ <f5d9beea95e149ab89364dcdb0f8bf69@huawei.com>
+ <ZQQDJT6MOaIOPmq5@shell.armlinux.org.uk>
+ <CAJZ5v0jUQ+4G5ArYAtu1gvYF4356CK_QVTO4oWn0ukwdOiZaHA@mail.gmail.com>
+ <80e36ff513504a0382a1cbce83e42295@huawei.com>
 MIME-Version: 1.0
-References: <20230901130312.247719-1-vincent.guittot@linaro.org>
- <20230901130312.247719-5-vincent.guittot@linaro.org> <8cfa9edb-67f9-80f9-0a5c-1920f95b338a@arm.com>
-In-Reply-To: <8cfa9edb-67f9-80f9-0a5c-1920f95b338a@arm.com>
-From: Vincent Guittot <vincent.guittot@linaro.org>
-Date: Fri, 15 Sep 2023 15:35:46 +0200
-Message-ID: <CAKfTPtDxJjj6wtpRnLjUi65j+5sQyYcHsQzbd+eSQCf4MVOiWA@mail.gmail.com>
-Subject: Re: [PATCH 4/4] energy_model: use a fixed reference frequency
-To: Dietmar Eggemann <dietmar.eggemann@arm.com>
-Cc: linux@armlinux.org.uk, catalin.marinas@arm.com, will@kernel.org, 
-	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
-	sudeep.holla@arm.com, gregkh@linuxfoundation.org, rafael@kernel.org, 
-	mingo@redhat.com, peterz@infradead.org, juri.lelli@redhat.com, 
-	rostedt@goodmis.org, bsegall@google.com, mgorman@suse.de, bristot@redhat.com, 
-	vschneid@redhat.com, viresh.kumar@linaro.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, linux-pm@vger.kernel.org, 
-	conor.dooley@microchip.com, suagrfillet@gmail.com, ajones@ventanamicro.com, 
-	lftan@kernel.org
+Content-Disposition: inline
+In-Reply-To: <80e36ff513504a0382a1cbce83e42295@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230915_063558_251138_4C72C30C 
-X-CRM114-Status: GOOD (  16.76  )
+X-CRM114-CacheID: sfid-20230915_064531_133451_82615301 
+X-CRM114-Status: GOOD (  18.05  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,75 +100,42 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 14 Sept 2023 at 23:07, Dietmar Eggemann
-<dietmar.eggemann@arm.com> wrote:
->
-> On 01/09/2023 15:03, Vincent Guittot wrote:
->
-> [...]
->
-> > diff --git a/include/linux/energy_model.h b/include/linux/energy_model.h
-> > index b9caa01dfac4..7ee07be6928e 100644
-> > --- a/include/linux/energy_model.h
-> > +++ b/include/linux/energy_model.h
-> > @@ -204,6 +204,20 @@ struct em_perf_state *em_pd_get_efficient_state(struct em_perf_domain *pd,
-> >       return ps;
-> >  }
-> >
-> > +#ifdef arch_scale_freq_ref
-> > +static __always_inline
-> > +unsigned long  arch_scale_freq_ref_em(int cpu, struct em_perf_domain *pd)
->
-> Why is this function named with the arch prefix?
->
-> So far we have 5 arch functions (arch_scale_freq_tick() <->
-> arch_scale_freq_ref()) and e.g. Arm/Arm64 defines them with there
-> topology_foo implementations.
->
-> Isn't arch_scale_freq_ref_em() (as well as arch_scale_freq_ref_policy())
-> different in this sense and so a proper EM function which should
-> manifest in its name?
+On Fri, Sep 15, 2023 at 09:34:46AM +0000, Salil Mehta wrote:
+> > > Note that the ACPI spec says enabled + online-capable isn't defined.
+> > >
+> > > "The information conveyed by this bit depends on the value of the
+> > > Enabled bit. If the Enabled bit is set, this bit is reserved and
+> > > must be zero."
+> > >
+> > > So, if x86 is doing something with the enabled && online-capable
+> > > state (other than ignoring the online-capable) then technically it
+> > > is doing something that the spec doesn't define
+> > 
+> > And so it is wrong.
+> 
+> Or maybe, specification has not been updated yet. code-first?
 
-arch_scale_freq_ref_em() is there to handle cases where
-arch_scale_freq_ref() is not defined by arch. I keep arch_ prefix
-because this should be provided by architecture which wants to use EM.
+What is the point in speculating. If you want to speculate about it,
+fine, but please don't use speculation as a reason that "oh we need
+to sort this out before we can merge the patches".
 
-In the case of EM, it's only there for allyes|randconfig on arch that
-doesn't use arch_topology.c like x86_64
+This is precisely why engineers are bad at producing products. They
+like to continually tweak the design, and the design never gets out
+the door. You need someone who is a project manager to tell engineers
+when to stop. Without a project manager to do that, eventually the
+project fades into insignificance because it becomes no longer relevant
+or has its funding cut.
 
->
-> > +{
-> > +     return arch_scale_freq_ref(cpu);
-> > +}
-> > +#else
-> > +static __always_inline
-> > +unsigned long  arch_scale_freq_ref_em(int cpu, struct em_perf_domain *pd)
-> > +{
-> > +     return pd->table[pd->nr_perf_states - 1].frequency;
-> > +}
-> > +#endif
->
-> [...]
->
-> > @@ -241,11 +255,11 @@ static inline unsigned long em_cpu_energy(struct em_perf_domain *pd,
-> >        */
-> >       cpu = cpumask_first(to_cpumask(pd->cpus));
-> >       scale_cpu = arch_scale_cpu_capacity(cpu);
-> > -     ps = &pd->table[pd->nr_perf_states - 1];
-> > +     ref_freq = arch_scale_freq_ref_em(cpu, pd);
->
-> Why not using existing `unsigned long freq` here like in schedutil's
-> get_next_freq()?
+Hotplug VCPU on aarch64 feels exactly like that - it seems to be an
+engineer project that is just going to for-ever rumble on and never
+actually see the light of day.
 
-Find it easier to read and understand and will not make any difference
-in the compiled code
+So please - stop speculating and lets get vCPU hotplug *actually*
+delivered and usable. Even if it's not 100% perfect.
 
->
-> >
-> >       max_util = map_util_perf(max_util);
->
-> [...]
->
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
 _______________________________________________
 linux-riscv mailing list
