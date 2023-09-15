@@ -4,77 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1F98EED60B
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 Sep 2023 15:45:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3496EED618
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 Sep 2023 16:32:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BMW6AooUrtmtaa3kN589gAiFpAMFWJn8jv3/vUrRByQ=; b=c7+33msGBMLY0F
-	vNGipoeJWoVS8K6lQXRj/+M4d9agg2qTdCcjhNsZkiIFHb0BIpjoqW4liXRz1UNldpxVkKb3EEji5
-	jr0UzsbaiBP0A2AmtvTckqwHqu+JPJH6ACoLQNDC7JNOXuQZp8I5wpkscl7cBajJ8viABdEj3U3XH
-	s9kG2rxTKHXLmTgkHMZ/k8xSyX60+bjX6MLUcwfC38E+ynT7I2TTtimTTwCu3rvyzyChdyU0oRxlT
-	ZwdZ92EnzM6vslAdZvKS5NZMblAK+caLEe+qnSqTJkTLuGbQe0PVlxe3BQGsMqnE44G1PAUVLTDNq
-	vzzOXaYVI+2l9Tn49pvg==;
+	List-Owner; bh=6ELFMCQIce5pHX8qr/EuaCVu1gZP+6m2AVjSDSrDVfM=; b=DMCVikiMOq8xTq
+	VExrIWUaJKgVw6ZWVf/mkXQNaXl/j4mw4ZtpQoPyAMOu/EDNNgTyUae3pXfftehINnfq+zuvfA4eX
+	cz0EG5e3bqKK94A6RBQQf2903YED57a1aPXSOmrpaw9A97plR77BArvAagksKKbp2qYY6nWMPsDxx
+	eqadwE5exf2//hfbjOOe5fs1S6F5jSfLSQ5cls4iVJ3ZECMTb9/sLNR3zs9v8xZBMg2KIoO0lwzOS
+	udcLwwqhjyvwk+iA8/HO7BP7QKA65XwloBdwCGu9J5QsYjp6A9IaI2C/CVDl6srvp6XBppGX/F5eC
+	wNhH0fIukERP/kYLFkbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qhB0a-00B0iK-0B;
-	Fri, 15 Sep 2023 15:45:28 +0000
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+	id 1qhBjd-00B3gH-0q;
+	Fri, 15 Sep 2023 16:32:01 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qhB0X-00B0hy-1e
-	for linux-riscv@lists.infradead.org;
-	Fri, 15 Sep 2023 15:45:26 +0000
-Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-1c4194f7635so12443775ad.0
-        for <linux-riscv@lists.infradead.org>; Fri, 15 Sep 2023 08:45:23 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1694792722; x=1695397522; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Th8NoXT19fs06IrPnES4vcAsMrYG/0js4/EA9rEsqpw=;
-        b=YAUpJmKUPJBcxvSUMam52lWNbpnI3qR8/LHaOHitsTCHwVY+KbpWeC6AFomerQGlNB
-         dQoYRcvDXcWtFSO8FNbC9Ni9Gc8Yix2AQC4Lc35C75R3D/uuBiaPSPq7U0lGJAfJNQ+L
-         bBPeepJ0WvBmFXf23sKC0LD63x16gdOQnFDj+lU80lRB/DWq43Do7x0hR1ohyqWf31/d
-         gkUPBnolSjmvOE4BAfHB93oSx+j31kATqcZPnFNI1kzd5UKw4BYBIGCIZTHb+diA5bCy
-         O/bkdVagqT1XMhbJo+6wTN7BblGnDM0iro+eBkvS40voI12GTLOIb9UytwuM0Pzt/Pn0
-         Ov1g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1694792722; x=1695397522;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Th8NoXT19fs06IrPnES4vcAsMrYG/0js4/EA9rEsqpw=;
-        b=AZY+M9jVM/fEiH2JQ7nJ1I3PQ0K4httyx+qosAytjvO3rlQL5E91cuPIBSueEpMA8R
-         hbT2i3LAak6hT0+vNljt9wfUBGATKouPlMK1a523FxXuu5XV0JULv533FcHp3LcrE0RD
-         d4qFJ9DJThfpKYuloLL6WaKWQqT+yVOEWMwTd/gDCCSRI3o6m5UDDhGFgzts4oakUF+8
-         rYOJEUDopcFY3N6L5NQh2kJtRwlBxxgvoTcZ1rCcA5MND7kA9qkGQZuLUOkMc+ETXwfZ
-         vQVff9Y6yXFlMnsMezyAn00PM8FAHh0k74VlrjBK3w1FhS24ZyajuJKxUkgUlSGH7/l1
-         yc0A==
-X-Gm-Message-State: AOJu0YxBt0RVQznfNXIpAgzNiipexXVhBlOgmbjJHuU3bXtGUC566Xc8
-	DWQGLG14jRhNGkWWrvcaSBj/Dg==
-X-Google-Smtp-Source: AGHT+IFzz6+B5OKe9dHaMHtROHjdT+of6Br718R8Aq13I6lpQoCwBt1c/60xCps1YzrgztPc4tY0Ig==
-X-Received: by 2002:a17:902:ea0b:b0:1c3:9928:7b28 with SMTP id s11-20020a170902ea0b00b001c399287b28mr7149415plg.6.1694792722551;
-        Fri, 15 Sep 2023 08:45:22 -0700 (PDT)
-Received: from ghost ([50.168.177.76])
-        by smtp.gmail.com with ESMTPSA id u6-20020a170902b28600b001b672af624esm3640532plr.164.2023.09.15.08.45.21
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 15 Sep 2023 08:45:22 -0700 (PDT)
-Date: Fri, 15 Sep 2023 11:45:19 -0400
-From: Charlie Jenkins <charlie@rivosinc.com>
-To: David Laight <David.Laight@aculab.com>
-Subject: Re: [PATCH v5 1/4] asm-generic: Improve csum_fold
-Message-ID: <ZQR8DyY2wlHE1QHZ@ghost>
-References: <20230914-optimize_checksum-v5-0-c95b82a2757e@rivosinc.com>
- <20230914-optimize_checksum-v5-1-c95b82a2757e@rivosinc.com>
- <b6bd38541255470b97bbaf3e6cdb4265@AcuMS.aculab.com>
+	id 1qh7YX-00Agu5-0u;
+	Fri, 15 Sep 2023 12:04:18 +0000
+From: Thomas Gleixner <tglx@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1694779455;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=q3Ibg3p9cDagivhDktxq8eP8BYordpmk7hum3Axk04g=;
+	b=hfofoNUXRajtM0GjlTDL3S8uCPrZulnUAl3sDOuUPa5oy4jGgAgNbuoN9zq30CvsIMo6cQ
+	76S8YLIyYmUWLWqXq+B6LailcKKqcikZGHOc4Erpeot3J8LvMzg2R6WVBIi3xzRwnUY395
+	pS/yCtuKAjRQXT0+x4oEIpQyUhpbeGdMECufG8cXCZoM+44lexmwXf4O2LHWyQ5xwYsTtI
+	hG+jNq5wP5koi7uiKsR8aQVs4cDip7FcG5dlrN7qOoLDiEan+8YKeUcutQq6RBBnllQ/za
+	F8F1a6fTyU+1T0L+VnAkTGdL1QBpNnEZDKqVeyezp0ZEm/31ANRktL+QyqAdKA==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1694779455;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=q3Ibg3p9cDagivhDktxq8eP8BYordpmk7hum3Axk04g=;
+	b=XoGHAuaQljzpxY7rNPRk66q5CkUTImgsUWadAIDMEofDY3WaI6vm1ZUxH4Wc2bfKw2zqPJ
+	9SjBirKXUrFTwlAA==
+To: "Maciej W. Rozycki" <macro@orcam.me.uk>, John Ogness
+ <john.ogness@linutronix.de>
+Subject: Re: [PATCH tty v1 00/74] serial: wrappers for uart port lock
+In-Reply-To: <alpine.DEB.2.21.2309141959100.57368@angie.orcam.me.uk>
+References: <20230914183831.587273-1-john.ogness@linutronix.de>
+ <alpine.DEB.2.21.2309141959100.57368@angie.orcam.me.uk>
+Date: Fri, 15 Sep 2023 14:04:14 +0200
+Message-ID: <87il8b1w3l.ffs@tglx>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <b6bd38541255470b97bbaf3e6cdb4265@AcuMS.aculab.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230915_084525_568199_DD3C5E63 
-X-CRM114-Status: GOOD (  26.37  )
+X-CRM114-CacheID: sfid-20230915_050417_602009_1D7E4F3E 
+X-CRM114-Status: GOOD (  10.52  )
+X-Mailman-Approved-At: Fri, 15 Sep 2023 09:31:59 -0700
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,71 +70,28 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Albert Ou <aou@eecs.berkeley.edu>, "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, Conor Dooley <conor@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
+Cc: Geert Uytterhoeven <geert+renesas@glider.be>, Alim Akhtar <alim.akhtar@samsung.com>, Peter Korsgaard <jacmet@sunsite.dk>, linux-stm32@st-md-mailman.stormreply.com, Karol Gugala <kgugala@antmicro.com>, Jerome Brunet <jbrunet@baylibre.com>, linux-samsung-soc@vger.kernel.org, Michael Ellerman <mpe@ellerman.id.au>, Hugo Villeneuve <hvilleneuve@dimonoff.com>, Christophe Leroy <christophe.leroy@csgroup.eu>, Hammer Hsieh <hammerh0314@gmail.com>, Jiamei Xie <jiamei.xie@arm.com>, NXP Linux Team <linux-imx@nxp.com>, Vineet Gupta <vgupta@kernel.org>, Thierry Reding <treding@nvidia.com>, Petr Mladek <pmladek@suse.com>, Arend van Spriel <arend.vanspriel@broadcom.com>, Sascha Hauer <s.hauer@pengutronix.de>, Nicholas Piggin <npiggin@gmail.com>, linux-unisoc@lists.infradead.org, Andrew Jeffery <andrew@aj.id.au>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-kernel@vger.kernel.org, Richard Genoud <richard.genoud@gmail.com>, Pengutronix Kernel Team <kernel@pengutronix.de>, Andrew Morton <akpm@linux-foundation.org>, Alexandre Belloni <alexandre.belloni@bootlin.com>, linux-aspeed@lists.ozlabs.org, Laxman Dewangan <ldewangan@nvidia.com>, Dmitry Rokosov <ddrokosov@sberdevices.ru>, Xiongfeng Wang <wangxiongfeng2@huawei.com>, Matthias Schiffer <matthias.schiffer@ew.tq-group.com>, delisun <delisun@pateo.com.cn>, Fabio Estevam <festevam@gmail.com>, Ruan Jinjie <ruanjinjie@huawei.com>, Matthew Howell <matthew.howell@sealevel.com>, Jonathan Hunter <jonathanh@nvidia.com>, Gabriel Somlo <gsomlo@gmail.com>, Hongyu Xie <xiehongyu1@kylinos.cn>, Tobias Klauser <tklauser@distanz.ch>, Yangtao Li <frank.li@vivo.com>, Martin Blumenstingl <martin.blumenstingl@googlemail.com>, linux-arm-msm@vger.kernel.org, linux-actions@lists.infradead.org, Biju Das <biju.das.jz@bp.renesas.com>, linux-amlogic@lists.infradead.org, Michal Simek <michal.simek@amd.com>, Sherry Sun <sherry.sun@nxp.com>, Neil Armstrong <neil.armstrong@linaro.org>, Chunyan Zhang <zhang.lyra@gmail.com>, "David
+ S. Miller" <davem@davemloft.net>, Kumaravel Thiagarajan <kumaravel.thiagarajan@microchip.com>, Lukas Wunner <lukas@wunner.de>, Sergey Organov <sorganov@gmail.com>, Mukesh Ojha <quic_mojha@quicinc.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, Kevin Hilman <khilman@baylibre.com>, Pali =?utf-8?Q?Roh=C3=A1r?= <pali@kernel.org>, Lino Sanfilippo <l.sanfilippo@kunbus.com>, Tom Rix <trix@redhat.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, Al Cooper <alcooperx@gmail.com>, Yuan Can <yuancan@huawei.com>, Isaac True <isaac.true@canonical.com>, linux-tegra@vger.kernel.org, Jiri Slaby <jirislaby@kernel.org>, Rob Herring <robh@kernel.org>, Florian Fainelli <f.fainelli@gmail.com>, Mateusz Holenko <mholenko@antmicro.com>, Kevin Cernekee <cernekee@gmail.com>, Andy Shevchenko <andy.shevchenko@gmail.com>, Shenwei Wang <shenwei.wang@nxp.com>, Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Joel Stanley <joel@jms.id.au>, Chen-Yu Tsai <wenst@chromium.org>, Ilpo =?utf-8?Q?J?= =?utf-8?Q?=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, linux-snps-arc@lists.infradead.org, Patrice Chotard <patrice.chotard@foss.st.com>, Jacky Huang <ychuang3@nuvoton.com>, Arnd Bergmann <arnd@arndb.de>, Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>, Jonathan =?utf-8?Q?Neusch=C3=A4fer?= <j.neuschaefer@gmx.net>, Vladimir Zapolskiy <vz@mleia.com>, Baolin Wang <baolin.wang@linux.alibaba.com>, Orson Zhai <orsonzhai@gmail.com>, Tharun Kumar P <tharunkumar.pasumarthi@microchip.com>, Timur Tabi <timur@kernel.org>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Konrad Dybcio <konrad.dybcio@linaro.org>, Thierry Reding <thierry.reding@gmail.com>, Sudeep Holla <sudeep.holla@arm.com>, Shawn Guo <shawnguo@kernel.org>, Andreas =?utf-8?Q?F=C3=A4rber?= <afaerber@suse.de>, Baruch Siach <baruch@tkos.co.il>, Valentin Caron <valentin.caron@foss.st.com>, Tony Lindgren <tony@atomide.com>, Sebastian Andrzej Siewior <bigeasy@linutronix.de>, Liviu Dudau <liviu.dudau@arm.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, sparclinux@vger.kernel.org, Shan-Chun Hung <schung@nuvoton.com>, linux-riscv@lists.infradead.org, Marek Vasut <marex@denx.de>, Lech Perczak <lech.perczak@camlingroup.com>, Russell King <linux@armlinux.org.uk>, Nick Hu <nick.hu@sifive.com>, Andy Gross <agross@kernel.org>, linux-serial@vger.kernel.org, Lukas Bulwahn <lukas.bulwahn@gmail.com>, Manivannan Sadhasivam <mani@kernel.org>, Johan Hovold <johan@kernel.org>, linux-mediatek@lists.infradead.org, Paul Walmsley <paul.walmsley@sifive.com>, Matthias Brugger <matthias.bgg@gmail.com>, Andy Shevchenko <andriy.shevchenko@linux.intel.com>, AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, linux-arm-kernel@lists.infradead.org, Taichi Sugaya <sugaya.taichi@socionext.com>, Bjorn Andersson <andersson@kernel.org>, Nicolas Ferre <nicolas.ferre@microchip.com>, Lucas Tanure <tanure@linux.com>, Andrew Davis <afd@ti.com>, Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, Palmer Dabbelt <palmer@dabbelt.com>, Takao Orito <orito.takao@socionext.com>, linuxppc-dev@lists.ozlabs.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 15, 2023 at 07:29:23AM +0000, David Laight wrote:
-> From: Charlie Jenkins
-> > Sent: 15 September 2023 04:50
-> > 
-> > This csum_fold implementation introduced into arch/arc by Vineet Gupta
-> > is better than the default implementation on at least arc, x86, arm, and
-> > riscv. Using GCC trunk and compiling non-inlined version, this
-> > implementation has 41.6667%, 25%, 16.6667% fewer instructions on
-> > riscv64, x86-64, and arm64 respectively with -O3 optimization.
-> 
-> Nit-picking the commit message...
-> Some of those architectures have their own asm implementation.
-> The arm one is better than the C code below, the x86 ones aren't.
-I can clean up the commit message to be more accurate.
-> 
-> I think that only sparc32 (carry flag but no rotate) and
-> arm/arm64 (barrel shifter on every instruction) have versions
-> that are better than the one here.
-> 
-> Since I suggested it to Charlie:
-> 
-> Reviewed-by: David Laight <david.laight@aculab.com>
-> 
-> > 
-> > Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
-> > ---
-> >  include/asm-generic/checksum.h | 5 +----
-> >  1 file changed, 1 insertion(+), 4 deletions(-)
-> > 
-> > diff --git a/include/asm-generic/checksum.h b/include/asm-generic/checksum.h
-> > index 43e18db89c14..adab9ac4312c 100644
-> > --- a/include/asm-generic/checksum.h
-> > +++ b/include/asm-generic/checksum.h
-> > @@ -30,10 +30,7 @@ extern __sum16 ip_fast_csum(const void *iph, unsigned int ihl);
-> >   */
-> >  static inline __sum16 csum_fold(__wsum csum)
-> >  {
-> > -	u32 sum = (__force u32)csum;
-> 
-> You'll need to re-instate that line to stop sparse complaining.
+On Thu, Sep 14 2023 at 20:01, Maciej W. Rozycki wrote:
 
-I will add that back, thanks.
+> On Thu, 14 Sep 2023, John Ogness wrote:
+>
+>> Patches 2-74 switch all uart port locking call sites to use the new
+>> wrappers. These patches were automatically generated using coccinelle.
+>
+>  Hmm, no need to do this for drivers/tty/serial/zs.c?
 
-- Charlie
-> 
-> > -	sum = (sum & 0xffff) + (sum >> 16);
-> > -	sum = (sum & 0xffff) + (sum >> 16);
-> > -	return (__force __sum16)~sum;
-> > +	return (__force __sum16)((~csum - ror32(csum, 16)) >> 16);
-> >  }
-> >  #endif
-> > 
-> > 
-> > --
-> > 2.42.0
-> 
-> -
-> Registered Address Lakeside, Bramley Road, Mount Farm, Milton Keynes, MK1 1PT, UK
-> Registration No: 1397386 (Wales)
+zs.c does not use port lock at all. It has like a couple of other
+drivers a local homebrewn spinlock.
+
+Thanks,
+
+        tglx
 
 _______________________________________________
 linux-riscv mailing list
