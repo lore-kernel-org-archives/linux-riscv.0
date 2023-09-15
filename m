@@ -4,82 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30BEDEE6428
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 Sep 2023 07:09:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4381EE6427
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 Sep 2023 07:11:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=v4BOWDzWxiXz1OalKbllzzLIcDtFp2hOERjnuMmKqJ8=; b=cFfCLXDPiMqaT7
-	opHOXUO3bfnP59VNceulUeNqh++39DvNCfIG8GUQhMNcMlc+lHchjGYz7YWdKFT+hlGj+DODkhc6/
-	DERTYeU4G5v6/ArWyx8dYNf3xrUsjpbJRbOwoouHSTJCf89Sfo5jD1N1S22FTwo7vicJ10WYK8ZZI
-	d7Cey32L+x9rfvO7tMrcoL1aNI+XhKYJHD5CLPKg1O2GEAryYWrfziVYkS6wOFx88IJdm46lQam52
-	QoYCgattiiavs+mtJ5cVsNJrNftxaD8UpT/3/OZS3D0MbZtTy5iwBvvWez/rI75zzVvYXhgLrLVjh
-	NlUtVOuhFbihCj8e2Z2w==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=40yUJL98/XQ3fPKMm4SG1fghm5micxxoAkP2m01Wur8=; b=Cc13f0XrQu7Lm/
+	wmmBNjN9QYnaSg7WKdpJCznTXZwZxjjFBo5WxRIndjI1r448jLvRTveNuJxD1kARw6Zt1uWpHoUG0
+	m0ZUcRw0XUfiCl/aRh7kHRzdP7ToLEzHn6ejJu2YKt8A+l0+uUKLbWW7M89AUET2E1VS2gaALl9at
+	2epvxsWvU1FDUm73GxA9Pu1w1/vLsUWVMMXmyJdZyDBD2qMNo2FKPYG6aK8k2A80+3RFecUWWvuNU
+	dja4nYqhLLrXR65Y9mvW2lqLoPjVoh35S9JWdtohzpLcsTscJWwtwsROL5SrlHHNRqGzEcUGCD/uS
+	5L66e+pZbwVWsViVV3xg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qh2xT-009zZp-37;
-	Fri, 15 Sep 2023 07:09:43 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1qh2yj-009zkY-1t;
+	Fri, 15 Sep 2023 07:11:01 +0000
+Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qh2xQ-009zWu-2z;
-	Fri, 15 Sep 2023 07:09:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=IO8svM9r91GxPSxrPIglbeq86oJ/FKDbJ+lBe36BJYc=; b=nLlE6W1QoxubyvNpaxsJh8jzSR
-	/d5Lf0iTnNQyN9DC4SlP84mxxOmAcgYGHW9si9eE8NiFR9lGM1kX2SNH6SfP+LOj9Q0yDw90kQIl4
-	9P5GRkhAmpz8ushDyws83FOx0ZaDux9kxNevsrN6bb08cRo1sEhN0NDRwMTyXk8KaK2T630WX+MSa
-	ZhvPIz8oIWSgu3WCEn1Zl3zJglEsl7TSxhMRq4kLqYITKU5X8LHgc13rfTd0aFODSmtXLQ2yShJbY
-	EQ0RSbcqGMXPe4bGcqG9ns6yl1/JX3Mg3ep6z6Tf6ife4cVQjnjij5Trg+ivckApl2S9ZSJ/YTZZc
-	g94ctEMg==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:37980)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1qh2xD-0005H3-1N;
-	Fri, 15 Sep 2023 08:09:27 +0100
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.94.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1qh2xB-0005bU-2C; Fri, 15 Sep 2023 08:09:25 +0100
-Date: Fri, 15 Sep 2023 08:09:25 +0100
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Salil Mehta <salil.mehta@huawei.com>
-Cc: Ard Biesheuvel <ardb@kernel.org>,
-	Jonathan Cameron <jonathan.cameron@huawei.com>,
-	James Morse <james.morse@arm.com>,
-	"linux-pm@vger.kernel.org" <linux-pm@vger.kernel.org>,
-	"loongarch@lists.linux.dev" <loongarch@lists.linux.dev>,
-	"linux-acpi@vger.kernel.org" <linux-acpi@vger.kernel.org>,
-	"linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
-	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
-	"x86@kernel.org" <x86@kernel.org>,
-	Jean-Philippe Brucker <jean-philippe@linaro.org>,
-	"jianyong.wu@arm.com" <jianyong.wu@arm.com>,
-	"justin.he@arm.com" <justin.he@arm.com>
-Subject: Re: [RFC PATCH v2 27/35] ACPICA: Add new MADT GICC flags fields
- [code first?]
-Message-ID: <ZQQDJT6MOaIOPmq5@shell.armlinux.org.uk>
-References: <20230913163823.7880-1-james.morse@arm.com>
- <20230913163823.7880-28-james.morse@arm.com>
- <CAMj1kXHRAt7ecB9p_dm3MjDL5wZkAsVh30hMY2SV_XUe=bm6Vg@mail.gmail.com>
- <20230914155459.00002dba@Huawei.com>
- <CAMj1kXFquiLGCMow3iujHUU4GBZx2t9KfKy1R9iqjBFjY+acaA@mail.gmail.com>
- <f5d9beea95e149ab89364dcdb0f8bf69@huawei.com>
+	id 1qh2yh-009zk3-0Y
+	for linux-riscv@lists.infradead.org;
+	Fri, 15 Sep 2023 07:11:00 +0000
+Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-1c397ed8681so15330795ad.2
+        for <linux-riscv@lists.infradead.org>; Fri, 15 Sep 2023 00:10:58 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1694761857; x=1695366657; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=qQmq9ukAgL6NI2NMuw97RcY8w9KjAc8eVRWmfFz2hDw=;
+        b=MyMLOyBUI/ZOxJ0AstKNt3S7z/HTljr0M4awmjPbnvn9nZKz9cJDKwVTXeK8JGaZIM
+         rVCIAuwbl9sp3U2qVCLkY8wE4nXnJyipPh+FSuUx8+6+5KV9e0e8VXOJZLxNC4XxwH5D
+         NkM0eRZyJGXgdVyhjQ0mu8I1E6ReRVQxOrQfGHlg29ov6jSS6RnD1Mo4hKuGLM5CcRcg
+         SYaL9X5/ZWsaDbas6YWcXFS/e3tIMR7ow0SeMzsW8Q0wDtMlK1fUcaNadxmfUx+6kfWr
+         TfqV6oGF6JZxsVjwxSEVKMaLYfC9NTtIjGTB4onIcl+WVKKwBCYZww70BQ1jK8bd+zrs
+         JLEA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1694761857; x=1695366657;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=qQmq9ukAgL6NI2NMuw97RcY8w9KjAc8eVRWmfFz2hDw=;
+        b=ILtjbp37DUWi4P5pClgBZdKx+CrBOgSJ6peGC65fNGtB01Cf+CyRMqu0KJARO7BXn6
+         iSEqSVrewL6CjEqaobIfQBiQyGlKh6BM0hTkB4Rsa5/oZUs2IkYMMFKGSm5HglXpfyl3
+         hAx9x6NqRlvdlzAitCryANdP/L7TZQAVHoo9rDP55422exaDCuPVh72Rv62AZrhWzlQI
+         Ng1Rb7DW/cckf3aHl59LFXfLjPT+fSuYMPg+cfa5TIMJ/nIEOINXOGdlLGdZA3qfdSYn
+         YzslVsbT+REtSMc+iaDvXnuiYLo8y4c2H66yOjhp95Sa+hZRH7HJhk2gjUrIZwa+9vP0
+         c6Sw==
+X-Gm-Message-State: AOJu0Yzt9cMJuoRaa7RtqD/QNeayxOMbK3JG90ENhT0XzJHbKdwfZVhL
+	a6F+NOo8FymdJsl516OfiwaLcTooheCBIdWV
+X-Google-Smtp-Source: AGHT+IF3DJKc1rTypHdvtMUd/6ki1y/rSqs2TXtFWiq1JzuCqZ1o5VF+3dtVHRWFnjxmHBgSmPXI5Q==
+X-Received: by 2002:a17:902:c941:b0:1c3:ea2a:9058 with SMTP id i1-20020a170902c94100b001c3ea2a9058mr786561pla.65.1694761857415;
+        Fri, 15 Sep 2023 00:10:57 -0700 (PDT)
+Received: from localhost.localdomain ([222.95.63.58])
+        by smtp.gmail.com with ESMTPSA id a15-20020a170902eccf00b001c0c79b386esm2749955plh.95.2023.09.15.00.10.35
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 15 Sep 2023 00:10:57 -0700 (PDT)
+From: Wang Chen <unicornxw@gmail.com>
+X-Google-Original-From: Wang Chen <wangchen20@iscas.ac.cn>
+To: linux-riscv@lists.infradead.org,
+	conor@kernel.org,
+	aou@eecs.berkeley.edu,
+	krzysztof.kozlowski+dt@linaro.org,
+	palmer@dabbelt.com,
+	paul.walmsley@sifive.com,
+	robh+dt@kernel.org
+Cc: devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	jszhang@kernel.org,
+	guoren@kernel.org,
+	chao.wei@sophgo.com,
+	xiaoguang.xing@sophgo.com,
+	Wang Chen <wangchen20@iscas.ac.cn>
+Subject: [PATCH 01/12] riscv: Add SOPHGO SOC family Kconfig support
+Date: Fri, 15 Sep 2023 15:10:05 +0800
+Message-Id: <20230915071005.117575-1-wangchen20@iscas.ac.cn>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <f5d9beea95e149ab89364dcdb0f8bf69@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230915_000940_964241_0FC21AB7 
-X-CRM114-Status: UNSURE (   9.65  )
+X-CRM114-CacheID: sfid-20230915_001059_212574_48622434 
+X-CRM114-Status: UNSURE (   8.48  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -97,25 +102,39 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 15, 2023 at 02:29:13AM +0000, Salil Mehta wrote:
-> On x86, during init, if the MADT entry for LAPIC is found to be
-> online-capable and is enabled as well then possible and present
+From: "xiaoguang.xing" <xiaoguang.xing@sophgo.com>
 
-Note that the ACPI spec says enabled + online-capable isn't defined.
+The first SoC in the SOPHGO series is SG2042, which contains 64 RISC-V
+cores.
 
-"The information conveyed by this bit depends on the value of the
-Enabled bit. If the Enabled bit is set, this bit is reserved and
-must be zero."
+Signed-off-by: xiaoguang.xing <xiaoguang.xing@sophgo.com>
+Signed-off-by: Wang Chen <wangchen20@iscas.ac.cn>
+---
+ arch/riscv/Kconfig.socs | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
 
-So, if x86 is doing something with the enabled && online-capable
-state (other than ignoring the online-capable) then technically it
-is doing something that the spec doesn't define - and it's
-completely fine if aarch64 does something else (maybe treating it
-strictly as per the spec and ignoring online-capable.)
-
+diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
+index 6833d01e2e70..fc7b5e6c7def 100644
+--- a/arch/riscv/Kconfig.socs
++++ b/arch/riscv/Kconfig.socs
+@@ -110,4 +110,14 @@ config SOC_CANAAN_K210_DTB_SOURCE
+ 
+ endif # ARCH_CANAAN
+ 
++config ARCH_SOPHGO
++	bool "Sophgo SoCs"
++	select SIFIVE_PLIC
++	help
++	  This enables support for Sophgo SoC platform hardware.
++	  SOPHGO is committed to become a provider of universal
++	  computing power, focusing on the development and
++	  promotion of computing power products such as AI and
++	  RISC-V CPU.
++
+ endmenu # "SoC selection"
 -- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+2.25.1
+
 
 _______________________________________________
 linux-riscv mailing list
