@@ -4,73 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75111EED603
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 Sep 2023 15:12:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 829E3EED604
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 Sep 2023 15:16:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:To:From:CC:Subject
-	:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=NLmOBvVjkPV6JnmJtpwzKqak5r6BypEeDTMTiIu3ygc=; b=xhvI9xLgaIi81x
-	TNX/NOyo+/nVg1ZwXTJNAqeIx0RhMaU/snanm7iu7M2a7oCgbcQkpPwgQPhO7dVLzfAxQ68CMJ1r7
-	bCP7HQQR1YXYfi+UYa6QwvwguNPGgEJ8vkOw4FZOniK5jnK0kcQ9NSZZEBmpmi9hF4hf4jY/zr9bM
-	ecJfnP3JQT5/M8dW5BIMMrm2mu8ozQUGPyhT0y+VZxtTq5KXi9v3jeUUuk5TwAY9pi/beglHciJUI
-	XK7j+JNPPNqq52NjiWtejp+NW3LoFMh+ksYSd2Y2mF8q28SdVcE1LEzH9zxmv3RRoW42i+EhmqP4G
-	tYQOy89e5xIyEMf0KuCg==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=TkJ4mt0faiSG19BQA32vFfx7BNKsQEjO9SbY9pdJRHA=; b=WozMLYhmFZXevb
+	mB6UhV4eX8fYKeHoMeEBA3IMLetAgtALIxrt4E4xifVZ0ROx0zL9tMg4TDWO6Ku1gn8dtVAEf9PcV
+	n9RYNcmLdvZArTBDyOmofIKQPOls6XxxV48YBnmNptN3Dw9NwDBLM679TpwHFDADJIJaqkqpVxlv2
+	b+ovD+69J95THKsh2IVn++vdnRI9cVthE8FOpiyqbQ9x0ZVlrd/q1kVbsC6iSSPQ/d3d9LnKC39h3
+	7mT5wuWxgdrqX0IpCGqBFFVhiPUaPPDoUrCvgYM1NuGuH0ByaEmJX/uMsKv2VCgXdtEYHpmm6YOeb
+	oNiM8Drz29gH2bncMWiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qhAUj-00AxDi-1e;
-	Fri, 15 Sep 2023 15:12:33 +0000
-Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
+	id 1qhAYn-00Axa7-0r;
+	Fri, 15 Sep 2023 15:16:45 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qhAUf-00AxD0-2u
-	for linux-riscv@lists.infradead.org;
-	Fri, 15 Sep 2023 15:12:31 +0000
-Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-1bf7a6509deso17835155ad.3
-        for <linux-riscv@lists.infradead.org>; Fri, 15 Sep 2023 08:12:27 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1694790746; x=1695395546; darn=lists.infradead.org;
-        h=message-id:to:from:cc:subject:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=TvdZikewOGbtBJy4jV7eLfxgLdyicvd893nAAhG6Kr4=;
-        b=x7riRWJSDqUu0LvbDNy+AUF56i83nvNVEJ1C+nbdYNQFwhpVeRoKg0u4iEvJliu+Zh
-         wuDRNJemhgcGMKWMcIPdcfPm2u3TmNdiAvYUWAtoML/GEFLzHGsrjGw4uGUzaUgFD7hl
-         GY93Ba1QztdaIhYtfd82L60P5BZ5F0aeFUgg+JqEp4RzwFMYumBMBUW2JuZK4J9qpYkN
-         rHQnavgl98bk0n7gb5KrJc7//WSPCMS+pr4CgMa6HEUAwQEQeBDhyVVnZySHeq8kMUGN
-         ssxRAhjW+zooL/KohA+NQ63AFO1HFuBbmsCdPVxNx0vwT/l/ycB5vLcXg72CyUh9WNin
-         p6lA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1694790746; x=1695395546;
-        h=message-id:to:from:cc:subject:date:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=TvdZikewOGbtBJy4jV7eLfxgLdyicvd893nAAhG6Kr4=;
-        b=vAKXyUXKyG4LyyK2BcfreuStrI15X0Rrs/R3lpJWfX9O0kqjPrycCYpGz/TLEk9e6c
-         hDGG4zfhssfNvjSTQkSXBI2aHW4cdC9saBRbGu76VF71fe8buDy2yDT2tYmZ6buynTp/
-         XBYnflLxaZjvvx/sjzyT5PmdMvQarNWaq8M8Hgy8EdxCGdrZgFajr3hIZrc6bOcPHVFP
-         xB8cj7MC2Z6cdIZUK6zWwFLDgE3g9EJDCu064tgJjfmhIWzpSfFk+qtW5vu4wo37OT1b
-         Ky9e8h7qTnW0jNzXsqKra1mU966Zo+CrMl95/bYbJPFf3AMg7+oBnFqPFAjIX0VkOq3q
-         v4Bg==
-X-Gm-Message-State: AOJu0YxCYaTMn+tYggU9ZVwZRh+CGUTzaVxGhxC12dR96pM7OnMVWyC1
-	bvpOmC/pJNt2TqV4Xs8oYQGBRHKu0QW6MXRG2qk=
-X-Google-Smtp-Source: AGHT+IEgHQ3UNAjBW7KxV/WQLG8LILuRF6I7lSNAITcN9JQHLMiivMx8BGW0JezRPOZ6qFEwYnU70A==
-X-Received: by 2002:a17:902:6806:b0:1c3:7628:fcb5 with SMTP id h6-20020a170902680600b001c37628fcb5mr1873527plk.62.1694790745936;
-        Fri, 15 Sep 2023 08:12:25 -0700 (PDT)
-Received: from localhost ([135.180.227.0])
-        by smtp.gmail.com with ESMTPSA id a5-20020a1709027d8500b001b896686c78sm3595063plm.66.2023.09.15.08.12.25
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 15 Sep 2023 08:12:25 -0700 (PDT)
-Date: Fri, 15 Sep 2023 08:12:25 -0700 (PDT)
-X-Google-Original-Date: Fri, 15 Sep 2023 08:12:22 PDT (-0700)
-Subject: [GIT PULL] RISC-V Fixes for 6.6-rc2
-CC: linux-riscv@lists.infradead.org,        linux-kernel@vger.kernel.org
-From: Palmer Dabbelt <palmer@rivosinc.com>
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Message-ID: <mhng-28c66ddb-6068-4bcc-a1be-28c830775838@palmer-ri-x1c9>
+	id 1qhAYj-00AxZ1-1n;
+	Fri, 15 Sep 2023 15:16:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=UOiyQ0tdZAGc1P6pnaM1XhDTukLQhBrH8Z/l/V1nSz0=; b=OMVJ9mkqZe3HMOFA1ea27odBxI
+	cNPtMwnyBfMxgm+ny9zHU4Qk2sm5a8BKOL7j1meKXZ5iCm0fkQdsfhuz48Dakr6PY9gRXb5vnvxSb
+	8jeyKQw7DRz8PgrzCL6y4TD8rDkDVj9eT1Wubi7XRIQFGx8QTiaNnhkZ35Wgo0j2tXBlQ1fz2HBf6
+	1p1YVXgdzVGMXljBV3BjlvKlJLjkwOKgzoC9pHro+dtG05g+4uFO7KprAoJXLB2zeaoTD0y6Gy8kQ
+	KuXLTnmhzfk8osSJY9663oTMHxzRfCgy3aR2V4muXsyVbbIbcmdHEzBGEkfW8pjCkUp4+6az4D3nh
+	ZXDHjY+A==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:53798)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1qhAYR-0005mC-26;
+	Fri, 15 Sep 2023 16:16:23 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.94.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1qhAYR-0005to-Dr; Fri, 15 Sep 2023 16:16:23 +0100
+Date: Fri, 15 Sep 2023 16:16:23 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Salil Mehta <salil.mehta@huawei.com>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Jonathan Cameron <jonathan.cameron@huawei.com>,
+	James Morse <james.morse@arm.com>,
+	"linux-pm@vger.kernel.org" <linux-pm@vger.kernel.org>,
+	"loongarch@lists.linux.dev" <loongarch@lists.linux.dev>,
+	"linux-acpi@vger.kernel.org" <linux-acpi@vger.kernel.org>,
+	"linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
+	"x86@kernel.org" <x86@kernel.org>,
+	Jean-Philippe Brucker <jean-philippe@linaro.org>,
+	"jianyong.wu@arm.com" <jianyong.wu@arm.com>,
+	"justin.he@arm.com" <justin.he@arm.com>
+Subject: Re: [RFC PATCH v2 27/35] ACPICA: Add new MADT GICC flags fields
+ [code first?]
+Message-ID: <ZQR1R+okAxfJrS0p@shell.armlinux.org.uk>
+References: <20230913163823.7880-28-james.morse@arm.com>
+ <CAMj1kXHRAt7ecB9p_dm3MjDL5wZkAsVh30hMY2SV_XUe=bm6Vg@mail.gmail.com>
+ <20230914155459.00002dba@Huawei.com>
+ <CAMj1kXFquiLGCMow3iujHUU4GBZx2t9KfKy1R9iqjBFjY+acaA@mail.gmail.com>
+ <f5d9beea95e149ab89364dcdb0f8bf69@huawei.com>
+ <ZQQDJT6MOaIOPmq5@shell.armlinux.org.uk>
+ <CAJZ5v0jUQ+4G5ArYAtu1gvYF4356CK_QVTO4oWn0ukwdOiZaHA@mail.gmail.com>
+ <80e36ff513504a0382a1cbce83e42295@huawei.com>
+ <CAJZ5v0gou9Pdj_CPC=vLJ-6S-hz+0VY+GMgXcRJk=6t9mL1ykw@mail.gmail.com>
+ <cec8f4ad16434c2daa0b5db7f6d60a6b@huawei.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <cec8f4ad16434c2daa0b5db7f6d60a6b@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230915_081230_119957_1B55C5DB 
-X-CRM114-Status: UNSURE (   6.69  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230915_081641_597367_6464C47F 
+X-CRM114-Status: GOOD (  17.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,41 +96,57 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The following changes since commit 0bb80ecc33a8fb5a682236443c1e740d5c917d1d:
+On Fri, Sep 15, 2023 at 02:49:41PM +0000, Salil Mehta wrote:
+> I am not aware of any on x86. Maybe we can do it on ARM first and
+> let other Arch pitch-in their objection later? Afterall, there is
+> a legitimate use-case in case of ARM. Having mutually exclusive
+> bits breaks certain use-cases and we have to do the tradeoffs. 
 
-  Linux 6.6-rc1 (2023-09-10 16:28:41 -0700)
+... but let's not use that as an argument to delay the forward
+progress of getting aarch64 vCPU hotplug patches merged.
 
-are available in the Git repository at:
+If we want to later propose that Enabled=1 Online-Capable=1 means
+that the CPU can be hot-unplugged, then that's something that can
+be added to the spec later, and added to the kernel later. There
+is no need to go through more iterations of patch sets to add this
+feature before considering that aarch64 vCPU hotplug is ready to
+be merged.
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-6.6-rc2
+Like I said in my other email, it's time to stop this "well, if we
+do this, then we can do that" cycle - stop playing games with what
+can be done.
 
-for you to fetch changes up to 8eb8fe67e2c84324398f5983c41b4f831d0705b3:
+Delaying merging this code means not only does the maintenance
+burden keep increasing (because more and more patches accumulate
+which have to be constantly forward ported) but those who *want*
+this feature are deprived for what, another year? two years?
+decades? before it gets merged.
 
-  riscv: errata: fix T-Head dcache.cva encoding (2023-09-12 13:58:40 -0700)
+So please, stop dreaming up new features. Let's get aarch64 vCPU
+hotplug that is compliant with the current ACPI spec, merged into
+upstream. If we _then_ want to consider additional features, that's
+the time to do it.
 
-----------------------------------------------------------------
-RISC-V Fixes for 6.6-rc2
+If you're not prepared to do that, do not be surprised if someone
+else (such as myself) decides to fork James' work in order to get
+it merged upstream - and yes, I _will_ do that if these games
+carry on. I have already started to do that by proposing a patch
+that is different from what James has to at least get some of
+James' desired changes upstream - and I will continue doing that
+all the time that (a) I see that there's a better way to address
+something in James' patch and (b) I think in the longer term it
+will reduce the maintenance burden of this patch set.
 
-* A fix to align kexec'd kernels to PMD boundries.
-* The T-Head dcache.cva encoding was incorrect, it has been fixed to
-  invalidate all caches (as opposed to just the L1).
+People are getting sick and tired of waiting for this feature.
 
-----------------------------------------------------------------
-Icenowy Zheng (1):
-      riscv: errata: fix T-Head dcache.cva encoding
-
-Song Shuai (1):
-      riscv: kexec: Align the kexeced kernel entry
-
- arch/riscv/include/asm/errata_list.h | 4 ++--
- arch/riscv/kernel/elf_kexec.c        | 8 +++++++-
- 2 files changed, 9 insertions(+), 3 deletions(-)
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
 _______________________________________________
 linux-riscv mailing list
