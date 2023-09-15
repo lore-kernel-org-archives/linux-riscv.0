@@ -4,89 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E464BEEAA7D
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 Sep 2023 00:34:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 227B1EEAA7E
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 Sep 2023 01:07:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
-	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=AoIBbUd72j6ZTubh/FqeAz1/Ggj1UyEGAV8XA2PdVi0=; b=qyWkmRh1p1DJQtDWZgmTST6WvH
-	4VlqR81SW9JHtcUjRS1o5BbNMnvyS61Y+cYPP8GVtedeVYHddb0oFajhpVkyGmAyr1Gp9SlkhvUH3
-	3aE6TGoEIWSssxAu9ucIwD4ZTcwY2wVVSoXCWbUgqiNRrcY/QLjitTendeFAlMj9PD4pnJknV4aMc
-	VucE8IrAb8FGQw0O/klRo4TwPN+e1vnik8zKM6jmJF0+U7NOUiVC4s92DjL1cOJ4fXYpUKLYTIJUY
-	6VU+7GgFPi8iegoJupKvkPL8uY24A60ifgmChP6LOKTzpugyQf4USe4KiDEhYFdutyQR1aVkDF/NM
-	JqnjKa+g==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=lU/hOa2JhZZCnCdhYOXxYjZGf1+xFcP2Or3gydgAMVk=; b=L+VGaiAnPVyZ3q
+	4NNw4Vab3qL2iriS5/yNjpKXyI/l8plpncKmVw1p5uX9tn1fs8j+nuvUY5wDtm0Vdvj1f575KHCfh
+	DaHzFLCed/pRBlsPx02Quck9/sAopHgIbWl/8146hVPaAFeFsuUnh4hAMF/aqX63h+dZfAkpy08w4
+	FE+41f2CRJf62V+RaYlR/umjUz8mqBa5FCsnU04jW8gXozVpwuP4lfoOFJ6ws08P9K3rjYIMirHYI
+	Bm506dZs1If2Z1wJkytKTF6r5ONQZU9wRUq+oXs9DuMWIKO7I4kn6VOLWuoys9RX991PxvUGPbDff
+	AO/nJ4Nj4C89HzAVccjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgwmd-009VXe-1B;
-	Fri, 15 Sep 2023 00:34:07 +0000
-Received: from mail-yw1-x1149.google.com ([2607:f8b0:4864:20::1149])
+	id 1qgxJB-009XT5-1c;
+	Fri, 15 Sep 2023 01:07:45 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qgwmY-009VUM-1J
+	id 1qgxJ8-009XSb-1y
 	for linux-riscv@lists.infradead.org;
-	Fri, 15 Sep 2023 00:34:05 +0000
-Received: by mail-yw1-x1149.google.com with SMTP id 00721157ae682-59bcabc69easo21648507b3.1
-        for <linux-riscv@lists.infradead.org>; Thu, 14 Sep 2023 17:33:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1694738035; x=1695342835; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=J23lG2GsSAJUhRlfXZ8Nll1xYHKwqpwqAHVfDlHiwRQ=;
-        b=g71BQcfs92fo8Cpval91PPu3kUZ0dlnudtymUnTMhOztZRd6WQncyyPcQYwmdslNdS
-         CYdR9ByLoNMVRLqsEkowSzR2k53WgB4K2RmXJKgRbivFfU+23kcRQ4YiBaJz4fmS5+g6
-         8vTcgEuzJs2nQdFNSUVk96xFuXvwC7c6xxaNWWe12dZCrqN/noX6OX7w9ajfYH+itPA+
-         j99RUK8ViRdHs3g+rcXeAIa9hGnQom861Y4N9qhm5AT7EtlQKe/kxlkVmJ6tQMyrANjF
-         pXxr8YQ/qFnoDdQWwqq+IQwhnNUP0Uf9XZKm+zibmJSfmLV0/t9q6mpI3miW5XFWlt5w
-         joNg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1694738035; x=1695342835;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=J23lG2GsSAJUhRlfXZ8Nll1xYHKwqpwqAHVfDlHiwRQ=;
-        b=Jgmxpw5Wpv5eHYOH9qLbS+8oG6xiLLvyIhcoeoWihc7XkMW3/tpg5Oy/HNxIas7Hou
-         rl1+sDs//DP2l0ey1cm0m0/aFU8paaUNI4738hOqBcUIALwFqSCOO6U+kV28fQC3WcmP
-         gTYMIbPmU4nO4wkrmpErbA32X7m31d8sn1b85zLYJHzL7oe0KV7Dp9D4kLvPAq035lCL
-         WRbsOH91I5XrVoB8wed6o6nwZTidolXDdelqQzypu4Dk3Hzr5qk53YTk+l6hxdedwyaD
-         1+c6rtq/YRV1z5EVr6hsz16UeevfXvLBvEA4vnTXz/EbkW4WHV+LGnULlwKSQl4fhbKV
-         dWjg==
-X-Gm-Message-State: AOJu0Ywm6OUfkHwXF+mf67NxiihrJlbToT8e0KDR+FGAZHg+egBmK2/w
-	NQq6N5WlgJiqrA5y3t+wK2adwhRRWLI=
-X-Google-Smtp-Source: AGHT+IHBN6t0jhuW16tvzWJMbA1thelqq1JkZNxaAmcO8xrBGxWQKZuWbB7lmKVGkcmoGzwdDBC0p73x1Zc=
-X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
- (user=seanjc job=sendgmr) by 2002:a25:ad5c:0:b0:d7b:9830:c172 with SMTP id
- l28-20020a25ad5c000000b00d7b9830c172mr2934ybe.0.1694738035530; Thu, 14 Sep
- 2023 17:33:55 -0700 (PDT)
-Date: Thu, 14 Sep 2023 17:33:53 -0700
-In-Reply-To: <diqzv8ccjqbd.fsf@ackerleytng-ctop.c.googlers.com>
-Mime-Version: 1.0
-References: <ZOO782YGRY0YMuPu@google.com> <diqzttsiu67n.fsf@ackerleytng-ctop.c.googlers.com>
- <ZQNN2AyDJ8dF0/6D@google.com> <diqzv8ccjqbd.fsf@ackerleytng-ctop.c.googlers.com>
-Message-ID: <ZQOmcc969s90DwNz@google.com>
-Subject: Re: [RFC PATCH v11 12/29] KVM: Add KVM_CREATE_GUEST_MEMFD ioctl() for
- guest-specific backing memory
-From: Sean Christopherson <seanjc@google.com>
-To: Ackerley Tng <ackerleytng@google.com>
-Cc: pbonzini@redhat.com, maz@kernel.org, oliver.upton@linux.dev, 
-	chenhuacai@kernel.org, mpe@ellerman.id.au, anup@brainfault.org, 
-	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
-	willy@infradead.org, akpm@linux-foundation.org, paul@paul-moore.com, 
-	jmorris@namei.org, serge@hallyn.com, kvm@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
-	linux-fsdevel@vger.kernel.org, linux-mm@kvack.org, 
-	linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	chao.p.peng@linux.intel.com, tabba@google.com, jarkko@kernel.org, 
-	yu.c.zhang@linux.intel.com, vannapurve@google.com, mail@maciej.szmigiero.name, 
-	vbabka@suse.cz, david@redhat.com, qperret@google.com, michael.roth@amd.com, 
-	wei.w.wang@intel.com, liam.merwick@oracle.com, isaku.yamahata@gmail.com, 
-	kirill.shutemov@linux.intel.com
+	Fri, 15 Sep 2023 01:07:44 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by sin.source.kernel.org (Postfix) with ESMTPS id BF3FCCE28C0;
+	Fri, 15 Sep 2023 01:07:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F1D5BC433C7;
+	Fri, 15 Sep 2023 01:07:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1694740059;
+	bh=2qssThBD41Ylgnh5IP3e9vNCGvCHCnS+bbAGYPLGYQE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=OgdWViioCfGP6/WRmuTRIkX97grm99L4oGuroxy2Pbrc07prZUqoCnFXHR6A8ixpT
+	 4N1nswvDo5bTzJWh362I62TLLtCRKp57o3E6Mb8ST8gCU3LnJm9vBQDhPcNqZeLn1W
+	 OtiWKIG8xK8GWb5vCbpCcTTsrtP80ghof0pxE0yX869h0OdmW0BjJx8rtue0IHenbR
+	 BlHZWlplX/Y/5aHaikqWlaf80SHiGEL7WTsGOCQ6Bqdv2RUsOrkmTZdPvBl2aYSVQx
+	 8u8DEbnM1TMCYOl1z23yy+VmQaVXGaieaZphxHJBP4gAeU8wFn6cEJY5aBfIbErwNq
+	 J2AEjR5jRQYzg==
+Date: Fri, 15 Sep 2023 08:55:42 +0800
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Evan Green <evan@rivosinc.com>
+Cc: Ben Dooks <ben.dooks@codethink.co.uk>, linux-riscv@lists.infradead.org,
+	PalmerDabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>
+Subject: Re: boot time regressed a lot due to misaligned access probe
+Message-ID: <ZQOrjszzxsO8YJag@xhacker>
+References: <ZQD+0BWNU8wlnC9d@xhacker>
+ <17d351c6-e6c3-43ce-a466-691778ba05c3@codethink.co.uk>
+ <ZQHREHx4XCN70iUq@xhacker>
+ <CALs-HssesyM7RJVaoHhPFk6SQP-J1pHF79rseYDZp=A++Cuy3g@mail.gmail.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <CALs-HssesyM7RJVaoHhPFk6SQP-J1pHF79rseYDZp=A++Cuy3g@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230914_173402_460272_7D1F8A32 
-X-CRM114-Status: GOOD (  56.69  )
+X-CRM114-CacheID: sfid-20230914_180743_002308_78694A3B 
+X-CRM114-Status: GOOD (  34.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,155 +75,63 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 14, 2023, Ackerley Tng wrote:
-> Sean Christopherson <seanjc@google.com> writes:
-> 
-> > On Mon, Aug 28, 2023, Ackerley Tng wrote:
-> >> Sean Christopherson <seanjc@google.com> writes:
-> >> >> If we track struct kvm with the inode, then I think (a), (b) and (c) can
-> >> >> be independent of the refcounting method. What do you think?
-> >> >
-> >> > No go.  Because again, the inode (physical memory) is coupled to the virtual machine
-> >> > as a thing, not to a "struct kvm".  Or more concretely, the inode is coupled to an
-> >> > ASID or an HKID, and there can be multiple "struct kvm" objects associated with a
-> >> > single ASID.  And at some point in the future, I suspect we'll have multiple KVM
-> >> > objects per HKID too.
-> >> >
-> >> > The current SEV use case is for the migration helper, where two KVM objects share
-> >> > a single ASID (the "real" VM and the helper).  I suspect TDX will end up with
-> >> > similar behavior where helper "VMs" can use the HKID of the "real" VM.  For KVM,
-> >> > that means multiple struct kvm objects being associated with a single HKID.
-> >> >
-> >> > To prevent use-after-free, KVM "just" needs to ensure the helper instances can't
-> >> > outlive the real instance, i.e. can't use the HKID/ASID after the owning virtual
-> >> > machine has been destroyed.
-> >> >
-> >> > To put it differently, "struct kvm" is a KVM software construct that _usually_,
-> >> > but not always, is associated 1:1 with a virtual machine.
-> >> >
-> >> > And FWIW, stashing the pointer without holding a reference would not be a complete
-> >> > solution, because it couldn't guard against KVM reusing a pointer.  E.g. if a
-> >> > struct kvm was unbound and then freed, KVM could reuse the same memory for a new
-> >> > struct kvm, with a different ASID/HKID, and get a false negative on the rebinding
-> >> > check.
-> >> 
-> >> I agree that inode (physical memory) is coupled to the virtual machine
-> >> as a more generic concept.
-> >> 
-> >> I was hoping that in the absence of CC hardware providing a HKID/ASID,
-> >> the struct kvm pointer could act as a representation of the "virtual
-> >> machine". You're definitely right that KVM could reuse a pointer and so
-> >> that idea doesn't stand.
-> >> 
-> >> I thought about generating UUIDs to represent "virtual machines" in the
-> >> absence of CC hardware, and this UUID could be transferred during
-> >> intra-host migration, but this still doesn't take host userspace out of
-> >> the TCB. A malicious host VMM could just use the migration ioctl to copy
-> >> the UUID to a malicious dumper VM, which would then pass checks with a
-> >> gmem file linked to the malicious dumper VM. This is fine for HKID/ASIDs
-> >> because the memory is encrypted; with UUIDs there's no memory
-> >> encryption.
-> >
-> > I don't understand what problem you're trying to solve.  I don't see a need to
-> > provide a single concrete representation/definition of a "virtual machine".  E.g.
-> > there's no need for a formal definition to securely perform intrahost migration,
-> > KVM just needs to ensure that the migration doesn't compromise guest security,
-> > functionality, etc.
-> >
-> > That gets a lot more complex if the target KVM instance (module, not "struct kvm")
-> > is a different KVM, e.g. when migrating to a different host.  Then there needs to
-> > be a way to attest that the target is trusted and whatnot, but that still doesn't
-> > require there to be a formal definition of a "virtual machine".
-> >
-> >> Circling back to the original topic, was associating the file with
-> >> struct kvm at gmem file creation time meant to constrain the use of the
-> >> gmem file to one struct kvm, or one virtual machine, or something else?
-> >
-> > It's meant to keep things as simple as possible (relatively speaking).  A 1:1
-> > association between a KVM instance and a gmem instance means we don't have to
-> > worry about the edge cases and oddities I pointed out earlier in this thread.
-> >
-> 
-> I looked through this thread again and re-read the edge cases and
-> oddities that was pointed out earlier (last paragraph at [1]) and I
-> think I understand better, and I have just one last clarification.
-> 
-> It was previously mentioned that binding on creation time simplifies the
-> lifecycle of memory:
-> 
-> "(a) prevent a different VM from *ever* binding to the gmem instance" [1]
-> 
-> Does this actually mean
-> 
-> "prevent a different struct kvm from *ever* binding to this gmem file"
-> 
-> ?
-
-Yes.
-
-> If so, then binding on creation
-> 
-> + Makes the gmem *file* (and just not the bindings xarray) the binding
->   between struct kvm and the file.
-
-Yep.
-
-> + Simplifies the KVM-userspace contract to "this gmem file can only be
->   used with this struct kvm"
-
-Yep.
-
-> Binding on creation doesn't offer any way to block the contents of the
-> inode from being used with another "virtual machine" though, since we
-> can have more than one gmem file pointing to the same inode, and the
-> other gmem file is associated with another struct kvm. (And a strut kvm
-> isn't associated 1:1 with a virtual machine [2])
-
-Yep.
-
-> The point about an inode needing to be coupled to a virtual machine as a
-> thing [2] led me to try to find a single concrete representation of a
-> "virtual machine".
-> 
-> Is locking inode contents to a "virtual machine" outside the scope of
-> gmem?
-
-Yes, because it's not gmem's responsibility to define "secure" (from a guest
-perspective) or "safe" (from a platform stability and correctness perspective).
-
-E.g. inserting additional vCPUs into the VM a la the SEV migration helper thing
-is comically insecure without some way to attest the helper code.  Building policy
-into the host kernel/KVM to do that attestation or otherwise determine what code
-is/isn't safe for the guest to run is firmly out-of-scope.  KVM can certainly
-provide the tools and help with enforcement, but the policy needs to be defined
-elsewhere.  Even for something like pKVM, where KVM is in the TCB, KVM still doesn't
-define who/what to trust (though KVM is heavily involved in enforcing security
-stuff).
-
-And for platform safety, e.g. not allowing two VMs to use the same HKID (ignoring
-helpers for the moment), that's a KVM problem but NOT a gmem problem.  The point
-I raised in link[2] about a gmem inode and thus the HKID/ASID associated with the
-inode being bound to the "virtual machine" still holds true, but (a) it's not a
-1:1 correlation, e.g. a VM could utilize multiple gmem inodes (all with the same
-HKID/ASID), and (b) the safety and functional correctness aspects aren't unique
-to gmem, e.g. even when when gmem isn't in the picture, KVM needs to make sure it
-manages ASIDs correctly.  The only difference with SNP in the picture is that if
-KVM screws up ASID management, bad things happen to the host, not (just) the guest.
-
->  If so, then it is fine to bind on creation time, use a VM ioctl
-> over a system ioctl, and the method of refcounting in gmem v12 is okay.
-> 
-> [1] https://lore.kernel.org/lkml/ZNKv9ul2I7A4V7IF@google.com/
-> [2] https://lore.kernel.org/lkml/ZOO782YGRY0YMuPu@google.com/
-> 
-> > <snip>
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gV2VkLCBTZXAgMTMsIDIwMjMgYXQgMTI6NTA6NTRQTSAtMDcwMCwgRXZhbiBHcmVlbiB3cm90
+ZToKPiBPbiBXZWQsIFNlcCAxMywgMjAyMyBhdCA4OjIz4oCvQU0gSmlzaGVuZyBaaGFuZyA8anN6
+aGFuZ0BrZXJuZWwub3JnPiB3cm90ZToKPiA+Cj4gPiBPbiBXZWQsIFNlcCAxMywgMjAyMyBhdCAx
+MTo0NjoyOEFNICswMTAwLCBCZW4gRG9va3Mgd3JvdGU6Cj4gPiA+IE9uIDEzLzA5LzIwMjMgMDE6
+MTQsIEppc2hlbmcgWmhhbmcgd3JvdGU6Cj4gPiA+ID4gSGkgYWxsLAo+ID4gPiA+Cj4gPiA+ID4g
+UHJvYmluZyBvbmUgY3B1IGZvciBtaXNhbGlnbmVkIGFjY2VzcyBjb3N0IGFib3V0IDAuMDZzLCBz
+byBpdCB3aWxsIGNvc3QKPiA+ID4gPiBhYm91dCAzLjhzIG9uIHBsYXRmb3JtcyB3aXRoIDY0IENQ
+VXMsIGZvciBleGFtcGxlLCBtaWxrdiBwaW9uZWVyIHdoaWNoCj4gPiA+ID4gaXMgcG93ZXJlZCBi
+eSBzZzIwNDIuCj4gPiA+ID4KPiA+ID4gPiBJJ20gbm90IHN1cmUgdGhlIHJlYXNvbiBvZiBwcm9i
+aW5nIG1pc2FsaWduZWQgYWNjZXNzIGZvciBhbGwgQ1BVcy4gSWYKPiA+ID4gPiB0aGUgSFcgZG9l
+c24ndCBiZWhhdmUgYXMgU01QIGZyb20gbWlzYWxsaWduZWQgYWNjZXNzIHNpZGUsIHRoZW4gdW5s
+ZXNzCj4gPiA+ID4gdXNlcnNwYWNlIHByb2Nlc3NlcyBmb3JjZSBjcHUgYWZmaW5pdHksIHRoZXkg
+YWx3YXlzIHN1ZmZlciBmcm9tIHRoaXMKPiA+ID4gPiBub24tU01QIHBhaW4uCj4gPiA+ID4KPiA+
+ID4gPiBTbywgY2FuIHdlIG9ubHkgcHJvYmUgdGhlIGJvb3QgY3B1Pwo+IAo+IEhpIEppc2hlbmcs
+Cj4gVGhhbmtzIGZvciBpZGVudGlmeWluZyB0aGlzIHJlZ3Jlc3Npb24uIEknZCBwcmVmZXIgdG8g
+a2VlcCB0aGUgcHJvYmluZwo+IG9uIGVhY2ggY3B1LCBhcyBJIGRvbid0IHRoaW5rIGl0J3Mgc2Fm
+ZSB0byBhc3N1bWUgYmVoYXZpb3IgaXMgdGhlIHNhbWUKPiBhY3Jvc3MgYWxsIGNvcmVzLiBCdXQg
+dGhlcmUncyBubyByZWFzb24gdGhpcyBuZWVkcyB0byBiZSBkb25lCj4gc2VyaWFsbHksIHdlIHNo
+b3VsZCBiZSBhYmxlIHRvIGRvIHRoZSBjaGVja2luZyBpbiBwYXJhbGxlbCBvbiBlYWNoCj4gY3B1
+LiBJIGRvbid0IGhhdmUgYSBwaHlzaWNhbCA2NC1jb3JlIHN5c3RlbSwgYnV0IEkgZXhwZXJpbWVu
+dGVkIHdpdGgKPiBxZW11IGEgYml0Ogo+IAo+IFdpdGggbWlzYWxpZ25lZCBwcm9iaW5nCj4gWyAg
+ICAwLjU1ODkzMF0gc21wOiBCcmluZ2luZyB1cCBzZWNvbmRhcnkgQ1BVcyAuLi4KPiBbICAgIDcu
+NjM1NTgwXSBzbXA6IEJyb3VnaHQgdXAgMSBub2RlLCA2NCBDUFVzCj4gCj4gV2l0aCBubyBtaXNh
+bGlnbmVkIHByb2JpbmcKPiBbICAgIDAuNDczMDEyXSBzbXA6IEJyaW5naW5nIHVwIHNlY29uZGFy
+eSBDUFVzIC4uLgo+IFsgICAgNS40Mzg0NTBdIHNtcDogQnJvdWdodCB1cCAxIG5vZGUsIDY0IENQ
+VXMKPiAKPiBXaXRoIGNoYW5nZSBiZWxvdzoKPiBbICAgIDAuNjE1Njg0XSBzbXA6IEJyaW5naW5n
+IHVwIHNlY29uZGFyeSBDUFVzIC4uLgo+IFsgICAgNS40ODkwNDVdIHNtcDogQnJvdWdodCB1cCAx
+IG5vZGUsIDY0IENQVXMKPiAKPiBJIGFsc28gY29tbWVudGVkIG91dCB0aGUgcHJfaW5mbygpIGlu
+IG15IHRlc3RpbmcsIG1vc3RseSB0byBrZWVwIHRoZQo+IFVBUlQgb3V0IG9mIHRoZSB3YXkuIFdl
+IHNob3VsZCBzdHJpdmUgdG8gaW1wcm92ZSB0aGUgc21wIGNvcmUgYnJpbmd1cAo+IHRpbWUgaW4g
+Z2VuZXJhbCwgYnV0IGhvcGVmdWxseSB3aXRoIHRoaXMgdGhlIG1pc2FsaWduZWQgcHJvYmluZyB3
+b24ndAo+IGJlIG1ha2luZyBpdCB3b3JzZS4gSWYgdGhpcyB3b3JrcyBmb3IgeW91IEkgY2FuIGNs
+ZWFuIGl0IHVwIGFuZCBzdWJtaXQKPiBhIHBhdGNoIChzb3JyeSBnbWFpbCBtYW5nbGVzIHRoZSBk
+aWZmKToKClRoZSBwYXRjaCBpbXByb3ZlZCB0aGUgYm9vdCB0aW1lIGEgbG90ISBUaGFua3MKCkZl
+ZWwgZnJlZSB0byBhZGQ6ClRlc3RlZC1ieTogSmlzaGVuZyBaaGFuZyA8anN6aGFuZ0BrZXJuZWwu
+b3JnPgo+IAo+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2tlcm5lbC9zbXBib290LmMgYi9hcmNo
+L3Jpc2N2L2tlcm5lbC9zbXBib290LmMKPiBpbmRleCAxYjhkYTRlNDBhNGQuLjdkY2UzMGI3Yzg2
+OCAxMDA2NDQKPiAtLS0gYS9hcmNoL3Jpc2N2L2tlcm5lbC9zbXBib290LmMKPiArKysgYi9hcmNo
+L3Jpc2N2L2tlcm5lbC9zbXBib290LmMKPiBAQCAtMjIzLDggKzIyMywxOCBAQCBpbnQgX19jcHVf
+dXAodW5zaWduZWQgaW50IGNwdSwgc3RydWN0IHRhc2tfc3RydWN0ICp0aWRsZSkKPiAgICAgICAg
+IHJldHVybiByZXQ7Cj4gIH0KPiAKPiArc3RhdGljIHZvaWQgY2hlY2tfdW5hbGlnbmVkX2FjY2Vz
+c19jcHUodm9pZCAqdW51c2VkKQo+ICt7Cj4gKyAgICAgICB1bnNpZ25lZCBpbnQgY3B1ID0gc21w
+X3Byb2Nlc3Nvcl9pZCgpOwo+ICsKPiArICAgICAgIC8qIFNvbWVvbmUgaGFzIHRvIHN0YXkgYmVo
+aW5kIGFuZCB0ZW5kIHRoZSBqaWZmaWVzLiAqLwo+ICsgICAgICAgaWYgKGNwdSAhPSAwKQo+ICsg
+ICAgICAgICAgICAgICBjaGVja191bmFsaWduZWRfYWNjZXNzKGNwdSk7Cj4gK30KPiArCj4gIHZv
+aWQgX19pbml0IHNtcF9jcHVzX2RvbmUodW5zaWduZWQgaW50IG1heF9jcHVzKQo+ICB7Cj4gKyAg
+ICAgICBvbl9lYWNoX2NwdShjaGVja191bmFsaWduZWRfYWNjZXNzX2NwdSwgTlVMTCwgMCk7Cj4g
+IH0KPiAKPiAgLyoKPiBAQCAtMjQ2LDcgKzI1Niw2IEBAIGFzbWxpbmthZ2UgX192aXNpYmxlIHZv
+aWQgc21wX2NhbGxpbih2b2lkKQo+IAo+ICAgICAgICAgbnVtYV9hZGRfY3B1KGN1cnJfY3B1aWQp
+Owo+ICAgICAgICAgc2V0X2NwdV9vbmxpbmUoY3Vycl9jcHVpZCwgMSk7Cj4gLSAgICAgICBjaGVj
+a191bmFsaWduZWRfYWNjZXNzKGN1cnJfY3B1aWQpOwo+IAo+ICAgICAgICAgaWYgKGhhc192ZWN0
+b3IoKSkgewo+ICAgICAgICAgICAgICAgICBpZiAocmlzY3Zfdl9zZXR1cF92c2l6ZSgpKQo+IAo+
+IC1FdmFuCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwps
+aW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpo
+dHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
