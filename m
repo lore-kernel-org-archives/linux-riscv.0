@@ -4,82 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09EA4EED61A
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 Sep 2023 17:02:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 596CAEED61A
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 Sep 2023 17:07:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=eHmhAWhVmI5F+R43TLivDTESK5+Izkjel7ldd4uUwNU=; b=p3JCDaGYZVGpNn
-	6DI8QS0q63D8D4Ho8Wd1wjtJB633YLQBl4gDWJrfx5x0KV9TDeXHOVIHhnxszWBtHLWy72BurV//n
-	NLV74SLVHppYAT908dOHmjPCK4iWg9BSAJHcY4muCWB4QsCAIenF+wCj3xWr1umD7+CdUZjzzhMY9
-	6n9r1VM1UsyoEHdV3gzMJX0CHxzTdzRtpzlY85COWbNyKxa2aAmuCENPX6geyoqkDjVQ7YVm9D+8v
-	fqH/psALUtnP0XtXVIYm686BPiBhL2RVtLuOd2xjHdExW4Vxmfzt8b69JmLw3l+FJhVOU62QynWYq
-	TThfq7uHguyKw0Ba25cA==;
+	List-Owner; bh=Gwx+ErEjqdghMnF1YWJdWfIwaPjKUT6wXYrothi/TyQ=; b=KmfEwFqKIl764e
+	o7mqXJYD5kgMPbPWfzk5fF2/MIdRMVERZiZo39J2+Xnah8bMkJUIzzgeVrVZGRh23t8v8Pmke4Q8Z
+	KJO4zxmiD+vh/2emYkJNauQP361vcqyI8xuU+Tbxy9W3gEgghSpVkjcDsRhghfvZeZWMJH51EAOqs
+	x0pb0ozhxcMxeGshkWoAxioNTnqs0gn0O0evyIHgu3HgDx0Q1O2FSPdHg63h+kAKazNLMZwGV/oam
+	SGqzmCueD6tPLf/gwzMFEqLD1WMJ4kTOrUPJ1FSbxkmsaUHq4fEHGtQU1BFwxazy0lCGrwo57+mNq
+	fSLxXg/0O9v6MG+afRFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qhCDJ-00B6B5-0z;
-	Fri, 15 Sep 2023 17:02:41 +0000
-Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
+	id 1qhCHy-00B6vy-1Z;
+	Fri, 15 Sep 2023 17:07:30 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qhCDC-00B68Z-2g
-	for linux-riscv@lists.infradead.org;
-	Fri, 15 Sep 2023 17:02:36 +0000
-Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-1c3d8fb23d9so20065875ad.0
-        for <linux-riscv@lists.infradead.org>; Fri, 15 Sep 2023 10:02:33 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1694797352; x=1695402152; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=1k75qxIvoyjoXO7i5f1b9o5ew6JdXdHy21zFkpaW4Nc=;
-        b=M4dKpzqzgWj8rhI8djFG7u0eEWUZkUDeu4w48J4wxppz6qEclMp7rJm379iC+/myBb
-         3V5EKOsX2kUME+GMVEbovwL7abI6yM54b2SfXjrPAMgmO6IejfScaFf37xZiPEfxnrv+
-         7rskJClR+ovoAFy5yIvQTpcZ5GDvFsDkOQf7ioILjh/aNGHodlm3qFOEo4bSGdTtPulj
-         p5cTvmLFd+NogZhgXm1sHCLVfcRnlkF4DqopUi5Nu9K3Pl9ECFAaQDWADg6qXsNJFBYf
-         NAfo0ScnTzpMmuDOreBRKg/fbRKMtlXdVHi618NWvJhchvnahk/1oHm2PLGA83TwCL0q
-         L1ag==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1694797352; x=1695402152;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=1k75qxIvoyjoXO7i5f1b9o5ew6JdXdHy21zFkpaW4Nc=;
-        b=Bug33Fs+F4enCQYlEdTUEPJyN/U/jusKS6tDrMkAtMKkCaMz9j9yPBbQdcjHHmtFeS
-         xSretqeUvi3J4N/+id8zLIbItLfAkDHnKF5MEZYsNTmB9P62ZtO7nqbfca132BFagnWL
-         i/qud84uZZeGgAjFq6Zo7wnOUUQJLh0qGfwSGEjYK3gNJ6mQxgmK6rLGtwSMiW0FSsgg
-         Tskd4NXuhyzxRS0au1jxk5AFZfIs2c57+Pt6EdXGKBTSbzRcf5LIQ/m4RMdnAaYxl5yh
-         SKBz1yV4xOIFxc66QWkdlbZ83SjkRgpJd78l8n68PSM6+/DD4AfPEUupdUV9dFNWnuWo
-         H0JQ==
-X-Gm-Message-State: AOJu0Yw684/BFfDQUpjP8Wj9z4urezIXMbsy+GnJS/ielzReEDl+GE1R
-	7rcR0eorPxAz4SeoOaa/JxYkN5iWxbMp+K+/scQ=
-X-Google-Smtp-Source: AGHT+IH1jPn04soXbAnfI7sIsWevrTzCm19sW4JGO/9RBel+0bsUazXseS8iwam4Uk1qhMvvhuehhw==
-X-Received: by 2002:a17:902:ab5d:b0:1c3:8679:6ed4 with SMTP id ij29-20020a170902ab5d00b001c386796ed4mr2424521plb.8.1694797352279;
-        Fri, 15 Sep 2023 10:02:32 -0700 (PDT)
-Received: from charlie.ba.rivosinc.com ([66.220.2.162])
-        by smtp.gmail.com with ESMTPSA id g22-20020a1709029f9600b001c44c8d857esm34299plq.120.2023.09.15.10.02.31
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 15 Sep 2023 10:02:31 -0700 (PDT)
-From: Charlie Jenkins <charlie@rivosinc.com>
-Date: Fri, 15 Sep 2023 10:01:18 -0700
-Subject: [PATCH v6 2/4] riscv: Checksum header
+	id 1qhCHu-00B6vX-1V;
+	Fri, 15 Sep 2023 17:07:29 +0000
+Received: from lhrpeml500001.china.huawei.com (unknown [172.18.147.226])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4RnL8v5Njxz67KXG;
+	Sat, 16 Sep 2023 01:02:39 +0800 (CST)
+Received: from lhrpeml500001.china.huawei.com (7.191.163.213) by
+ lhrpeml500001.china.huawei.com (7.191.163.213) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.31; Fri, 15 Sep 2023 18:07:22 +0100
+Received: from lhrpeml500001.china.huawei.com ([7.191.163.213]) by
+ lhrpeml500001.china.huawei.com ([7.191.163.213]) with mapi id 15.01.2507.031;
+ Fri, 15 Sep 2023 18:07:21 +0100
+From: Salil Mehta <salil.mehta@huawei.com>
+To: Russell King <linux@armlinux.org.uk>
+CC: "Rafael J. Wysocki" <rafael@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
+	Jonathan Cameron <jonathan.cameron@huawei.com>, James Morse
+	<james.morse@arm.com>, "linux-pm@vger.kernel.org" <linux-pm@vger.kernel.org>,
+	"loongarch@lists.linux.dev" <loongarch@lists.linux.dev>,
+	"linux-acpi@vger.kernel.org" <linux-acpi@vger.kernel.org>,
+	"linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-riscv@lists.infradead.org"
+	<linux-riscv@lists.infradead.org>, "kvmarm@lists.linux.dev"
+	<kvmarm@lists.linux.dev>, "x86@kernel.org" <x86@kernel.org>, "Jean-Philippe
+ Brucker" <jean-philippe@linaro.org>, "jianyong.wu@arm.com"
+	<jianyong.wu@arm.com>, "justin.he@arm.com" <justin.he@arm.com>
+Subject: RE: [RFC PATCH v2 27/35] ACPICA: Add new MADT GICC flags fields [code
+ first?]
+Thread-Topic: [RFC PATCH v2 27/35] ACPICA: Add new MADT GICC flags fields
+ [code first?]
+Thread-Index: AQHZ5mDqpYLh+nkhC0mj9mPBt3XEBLAZ5MMAgAB0lICAAAsFgIAAEfIQgADzSoCAABq9gIAAG4DQgAA3wICAACNmMP///ZyAgAAmTMA=
+Date: Fri, 15 Sep 2023 17:07:21 +0000
+Message-ID: <e13a455952964434a3f0a93bc472311a@huawei.com>
+References: <20230913163823.7880-28-james.morse@arm.com>
+	<CAMj1kXHRAt7ecB9p_dm3MjDL5wZkAsVh30hMY2SV_XUe=bm6Vg@mail.gmail.com>
+	<20230914155459.00002dba@Huawei.com>
+	<CAMj1kXFquiLGCMow3iujHUU4GBZx2t9KfKy1R9iqjBFjY+acaA@mail.gmail.com>
+	<f5d9beea95e149ab89364dcdb0f8bf69@huawei.com>
+	<ZQQDJT6MOaIOPmq5@shell.armlinux.org.uk>
+	<CAJZ5v0jUQ+4G5ArYAtu1gvYF4356CK_QVTO4oWn0ukwdOiZaHA@mail.gmail.com>
+	<80e36ff513504a0382a1cbce83e42295@huawei.com>
+	<ZQRfaYYwrYQEfICN@shell.armlinux.org.uk>
+	<9e327ad1128045fa80eebf327abaa8f0@huawei.com>
+ <ZQR7GY1Z57wK8RaX@shell.armlinux.org.uk>
+In-Reply-To: <ZQR7GY1Z57wK8RaX@shell.armlinux.org.uk>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-originating-ip: [10.126.174.239]
 MIME-Version: 1.0
-Message-Id: <20230915-optimize_checksum-v6-2-14a6cf61c618@rivosinc.com>
-References: <20230915-optimize_checksum-v6-0-14a6cf61c618@rivosinc.com>
-In-Reply-To: <20230915-optimize_checksum-v6-0-14a6cf61c618@rivosinc.com>
-To: Charlie Jenkins <charlie@rivosinc.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Conor Dooley <conor@kernel.org>, 
- Samuel Holland <samuel.holland@sifive.com>, 
- David Laight <David.Laight@aculab.com>, linux-riscv@lists.infradead.org, 
- linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Arnd Bergmann <arnd@arndb.de>
-X-Mailer: b4 0.12.3
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230915_100234_887553_81A568AF 
-X-CRM114-Status: GOOD (  14.54  )
+X-CRM114-CacheID: sfid-20230915_100726_794314_4336C909 
+X-CRM114-Status: GOOD (  47.13  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,103 +96,129 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Provide checksum algorithms that have been designed to leverage riscv
-instructions such as rotate. In 64-bit, can take advantage of the larger
-register to avoid some overflow checking.
+Hi Russel,
 
-Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
----
- arch/riscv/include/asm/checksum.h | 79 +++++++++++++++++++++++++++++++++++++++
- 1 file changed, 79 insertions(+)
+> From: Russell King <linux@armlinux.org.uk>
+> Sent: Friday, September 15, 2023 4:41 PM
+> To: Salil Mehta <salil.mehta@huawei.com>
+> Cc: Rafael J. Wysocki <rafael@kernel.org>; Ard Biesheuvel
+> <ardb@kernel.org>; Jonathan Cameron <jonathan.cameron@huawei.com>; James
+> Morse <james.morse@arm.com>; linux-pm@vger.kernel.org;
+> loongarch@lists.linux.dev; linux-acpi@vger.kernel.org; linux-
+> arch@vger.kernel.org; linux-kernel@vger.kernel.org; linux-arm-
+> kernel@lists.infradead.org; linux-riscv@lists.infradead.org;
+> kvmarm@lists.linux.dev; x86@kernel.org; Jean-Philippe Brucker <jean-
+> philippe@linaro.org>; jianyong.wu@arm.com; justin.he@arm.com
+> Subject: Re: [RFC PATCH v2 27/35] ACPICA: Add new MADT GICC flags fields
+> [code first?]
+> 
+> On Fri, Sep 15, 2023 at 03:17:21PM +0000, Salil Mehta wrote:
+> > Hi Russel,
+> > Thanks for highlighting your concerns.
+> >
+> > > From: Russell King <linux@armlinux.org.uk>
+> > > Sent: Friday, September 15, 2023 2:43 PM
+> > > To: Salil Mehta <salil.mehta@huawei.com>
+> > > Cc: Rafael J. Wysocki <rafael@kernel.org>; Ard Biesheuvel
+> > > <ardb@kernel.org>; Jonathan Cameron <jonathan.cameron@huawei.com>; James
+> > > Morse <james.morse@arm.com>; linux-pm@vger.kernel.org;
+> > > loongarch@lists.linux.dev; linux-acpi@vger.kernel.org; linux-
+> > > arch@vger.kernel.org; linux-kernel@vger.kernel.org; linux-arm-
+> > > kernel@lists.infradead.org; linux-riscv@lists.infradead.org;
+> > > kvmarm@lists.linux.dev; x86@kernel.org; Jean-Philippe Brucker <jean-
+> > > philippe@linaro.org>; jianyong.wu@arm.com; justin.he@arm.com
+> > > Subject: Re: [RFC PATCH v2 27/35] ACPICA: Add new MADT GICC flags fields
+> > > [code first?]
+> > >
+> > > On Fri, Sep 15, 2023 at 09:34:46AM +0000, Salil Mehta wrote:
+> > > > > > Note that the ACPI spec says enabled + online-capable isn't defined.
+> > > > > >
+> > > > > > "The information conveyed by this bit depends on the value of the
+> > > > > > Enabled bit. If the Enabled bit is set, this bit is reserved and
+> > > > > > must be zero."
+> > > > > >
+> > > > > > So, if x86 is doing something with the enabled && online-capable
+> > > > > > state (other than ignoring the online-capable) then technically it
+> > > > > > is doing something that the spec doesn't define
+> > > > >
+> > > > > And so it is wrong.
+> > > >
+> > > > Or maybe, specification has not been updated yet. code-first?
+> > >
+> > > What is the point in speculating. If you want to speculate about it,
+> > > fine, but please don't use speculation as a reason that "oh we need
+> > > to sort this out before we can merge the patches".
+> >
+> > [already replied in other thread but repeating it here]
+> >
+> > Sorry, I am not aware but I was suggesting this. Can we have this
+> > done for ARM first because there is a legitimate use-case. This
+> > can be done in parallel while other patches are getting reviewed.
+> > It would be great if they get accepted even in the current form.
+> >
+> >
+> > > This is precisely why engineers are bad at producing products. They
+> > > like to continually tweak the design, and the design never gets out
+> > > the door. You need someone who is a project manager to tell engineers
+> > > when to stop. Without a project manager to do that, eventually the
+> > > project fades into insignificance because it becomes no longer relevant
+> > > or has its funding cut.
+> > >
+> > > Hotplug VCPU on aarch64 feels exactly like that - it seems to be an
+> > > engineer project that is just going to for-ever rumble on and never
+> > > actually see the light of day.
+> >
+> >
+> > Sometimes things are not in single persons control. Yes, it is
+> > frustrating, I do understand that.
+> >
+> >
+> > > So please - stop speculating and lets get vCPU hotplug *actually*
+> > > delivered and usable. Even if it's not 100% perfect.
+> >
+> > We need to decide what is the criteria of acceptability and it can
+> > vary across organizations. It depends upon internal requirements.
+> > The issues what I pointed are,
+> >
+> > 1. Legacy OS will not boot on latest platform with hotplug support.
+> >    - Try running older windows on ARM platform with hotplug support.
+> >      - older windows will only see boot cpu with online-capable bit.
+> >      - Will windows use _OSC to check compatibility?
+> >    - We have verified this with older Linux and it only shows 1 CPU.
+> > 2. Hot(un)plug of cold-booted CPUs.
+> >    - Its use-case is subjective. Maybe you can throw light on this.
+> >
+> > With current composition of bits both 1 & 2 cannot be supported
+> > simultaneously.
+> >
+> > It is perfectly okay to live with them while clearly indicating
+> > what we intend to support or are in process of supporting it.
+> > But we do need an open discussion about how to proceed. This is
+> > to avoid surprises later on.
+> >
+> > BTW, I am just trying to make every one aware of the problems.
+> 
+> Please do it as a separate discussion then - rather than starting a
+> thread in response to a posting of patches which are _supposed_ to
+> be being reviewed.
 
-diff --git a/arch/riscv/include/asm/checksum.h b/arch/riscv/include/asm/checksum.h
-new file mode 100644
-index 000000000000..dc0dd89f2a13
---- /dev/null
-+++ b/arch/riscv/include/asm/checksum.h
-@@ -0,0 +1,79 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+/*
-+ * IP checksum routines
-+ *
-+ * Copyright (C) 2023 Rivos Inc.
-+ */
-+#ifndef __ASM_RISCV_CHECKSUM_H
-+#define __ASM_RISCV_CHECKSUM_H
-+
-+#include <linux/in6.h>
-+#include <linux/uaccess.h>
-+
-+#define ip_fast_csum ip_fast_csum
-+
-+#include <asm-generic/checksum.h>
-+
-+/*
-+ * Quickly compute an IP checksum with the assumption that IPv4 headers will
-+ * always be in multiples of 32-bits, and have an ihl of at least 5.
-+ * @ihl is the number of 32 bit segments and must be greater than or equal to 5.
-+ * @iph is assumed to be word aligned.
-+ */
-+static inline __sum16 ip_fast_csum(const void *iph, unsigned int ihl)
-+{
-+	unsigned long csum = 0;
-+	int pos = 0;
-+
-+	do {
-+		csum += ((const unsigned int *)iph)[pos];
-+		if (IS_ENABLED(CONFIG_32BIT))
-+			csum += csum < ((const unsigned int *)iph)[pos];
-+	} while (++pos < ihl);
-+
-+	/*
-+	 * ZBB only saves three instructions on 32-bit and five on 64-bit so not
-+	 * worth checking if supported without Alternatives.
-+	 */
-+	if (IS_ENABLED(CONFIG_RISCV_ISA_ZBB) &&
-+	    IS_ENABLED(CONFIG_RISCV_ALTERNATIVE)) {
-+		unsigned long fold_temp;
-+
-+		asm_volatile_goto(ALTERNATIVE("j %l[no_zbb]", "nop", 0,
-+					      RISCV_ISA_EXT_ZBB, 1)
-+		    :
-+		    :
-+		    :
-+		    : no_zbb);
-+
-+		if (IS_ENABLED(CONFIG_32BIT)) {
-+			asm(".option push				\n\
-+			.option arch,+zbb				\n\
-+				not	%[fold_temp], %[csum]		\n\
-+				rori	%[csum], %[csum], 16		\n\
-+				sub	%[csum], %[fold_temp], %[csum]	\n\
-+			.option pop"
-+			: [csum] "+r" (csum), [fold_temp] "=&r" (fold_temp));
-+		} else {
-+			asm(".option push				\n\
-+			.option arch,+zbb				\n\
-+				rori	%[fold_temp], %[csum], 32	\n\
-+				add	%[csum], %[fold_temp], %[csum]	\n\
-+				srli	%[csum], %[csum], 32		\n\
-+				not	%[fold_temp], %[csum]		\n\
-+				roriw	%[csum], %[csum], 16		\n\
-+				subw	%[csum], %[fold_temp], %[csum]	\n\
-+			.option pop"
-+			: [csum] "+r" (csum), [fold_temp] "=&r" (fold_temp));
-+		}
-+		return csum >> 16;
-+	}
-+no_zbb:
-+#ifndef CONFIG_32BIT
-+	csum += (csum >> 32) | (csum << 32);
-+	csum >>= 32;
-+#endif
-+	return csum_fold((__force __wsum)csum);
-+}
-+
-+#endif // __ASM_RISCV_CHECKSUM_H
+Yes, we can discuss it as part of separate thread.
 
--- 
-2.42.0
+> Bringing up issues which are in effect future enhancements without
+> explicitly stating that they are future enhancements makes it look like
+> the patch set isn't ready to be merged - and is a distraction to trying
+> to get the series merged.
+
+I beg to disagree on this as these are not enhancements/features
+but problems. But yes, we can sort these out in a step wise fashion
+subsequently even after patches have been accepted. Totally agree
+that this can cause distraction so let us defer it for a moment.
+
+The original purpose was to highlight them here briefly, which 
+has been achieved!
+
+Thanks
+Salil.
 
 
 _______________________________________________
