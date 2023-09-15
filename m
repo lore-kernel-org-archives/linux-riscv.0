@@ -4,76 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8F23EE6427
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 Sep 2023 07:22:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D064EE6425
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 Sep 2023 07:23:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Fz6Ko2+trykARY4hJ+CUE+isuvOGGwxamrQRfruGt88=; b=iI4acYAasGiVKMvhrSoCC/V8b7
-	56x8iXEGJUpANsUldb7Nr3LWCgEPJJ9ycKGivBM4CH6abiDc04X5zF2NLCkAzbX529Mzm1MZZcTZF
-	F1sUij6cImvelXwSMeBtmanLzcB1VP2VmEnejAkhGE3ywz3USWtrAdMNT5bZsZTdkDLjHC4IXDbU2
-	blcpJuoTbbbJtvZGK+MNNMSTN2g16yo3e5qC3WkwhQ0pmiJ65rqJI1dQDwPICGqaa8A0PPgVMdrFr
-	Lx8fYsfEaY9wglBi/IEE41uFqQUpSYKJZEOja/M8YswHcsK1dlfcSluA/bZYMwIuc8u3mr/dXTaw3
-	T4J31c1w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=c3bLePSwMmrE+XJCpZBdYsii4510+ueSLVv03tD94uU=; b=exBRx0Jq1HxgPx
+	LpejKDMvxZCxFy50ZCCSHnlEw/eJffcEBQYcP3gVGuhUamien3jnhRDLCi3p6dhC0CxT5dR6D4MGT
+	z3r2Fo+BdXUmYdO7xg8XRNpuCOFh/oPChGMPNrGlbDXpiXCVWCNTyLHSJEFw9bFUB7uvCi7YCppQB
+	cBZOGJKhTMOVjwg1e4K+FcEUtHj8FcxRRrOrvhqFUopxGvycImmIiGIJRxOACxrF4CT7qi4ti7JZG
+	iX90n86K9w3uo5kTv4WFmmDtJExTzC55ZZ+XVJazrjhKH04fEKet8pNRBZtuyL1iJwOBVf1gqjUx6
+	x3JA+dsbrvoG+PNnGu2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qh39L-00A0sn-20;
-	Fri, 15 Sep 2023 07:21:59 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1qh3AK-00A13k-1M;
+	Fri, 15 Sep 2023 07:23:00 +0000
+Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qh39J-00A0rc-1A
+	id 1qh3AH-00A12h-16
 	for linux-riscv@lists.infradead.org;
-	Fri, 15 Sep 2023 07:21:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1694762517; x=1726298517;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=M4MdyYvS188dmohfyr3Ng6SXGiimV/7aAt2AMiSOjC0=;
-  b=Xbe5mJ1wp3yNjUZrGZ2lhwObW1K8dm5nOcuhBiI7kTQxrAw1v3+VimXf
-   wv6uQzccBhr0SaJVbY6IRc1dPbvRFFdly3Dgcc4jz6E/DQLJtLj+LRtOY
-   SRXfVooRZ4Jjrm+gUUMLRKhGHWIUqdRBYpntyrEICTPqg9PAQbmWqdDes
-   onoM90roNaqyF5G4riJtoyoBwungY9iP+TTUF1sBpXuuveigEDJkZhs1f
-   c+EqIpVyisS2xbzID0Jr7a3UuYkwO6/nmYu12QfhMkNdSFkAjxSI/06H7
-   AruRT7mlxyD5M2rJeL0ReyYw+02oebvn9yugX4dW7GvV9pmA+lv/cCcvP
-   Q==;
-X-CSE-ConnectionGUID: qjf/CPgLSIiOkW0KeB76sA==
-X-CSE-MsgGUID: vmFXfJT0Q7+3bnF21wV70g==
-X-ThreatScanner-Verdict: Negative
-X-IronPort-AV: E=Sophos;i="6.02,148,1688454000"; 
-   d="asc'?scan'208";a="4992792"
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa1.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 15 Sep 2023 00:21:51 -0700
-Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Fri, 15 Sep 2023 00:21:38 -0700
-Received: from wendy (10.10.85.11) by chn-vm-ex03.mchp-main.com (10.10.85.151)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
- Transport; Fri, 15 Sep 2023 00:21:35 -0700
-Date: Fri, 15 Sep 2023 08:21:19 +0100
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Wang Chen <unicornxw@gmail.com>
-CC: <linux-riscv@lists.infradead.org>, <conor@kernel.org>,
-	<aou@eecs.berkeley.edu>, <krzysztof.kozlowski+dt@linaro.org>,
-	<palmer@dabbelt.com>, <paul.walmsley@sifive.com>, <robh+dt@kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<jszhang@kernel.org>, <guoren@kernel.org>, <chao.wei@sophgo.com>,
-	<xiaoguang.xing@sophgo.com>, Wang Chen <wangchen20@iscas.ac.cn>
-Subject: Re: [PATCH 01/12] riscv: Add SOPHGO SOC family Kconfig support
-Message-ID: <20230915-groovy-fragile-8c3a3a7b038e@wendy>
-References: <20230915071005.117575-1-wangchen20@iscas.ac.cn>
+	Fri, 15 Sep 2023 07:22:58 +0000
+Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-1bd9b4f8e0eso14294165ad.1
+        for <linux-riscv@lists.infradead.org>; Fri, 15 Sep 2023 00:22:54 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1694762574; x=1695367374; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=LyY1P/Um0of8SC7pIExKL3uasiY0J3NOHqMMObs04Ac=;
+        b=eXquN1n+hUgVQwlzjsPtUX86ZE0NF+2GxAr1znPAeHq0OtLdmNUFF787p/5kasH5gC
+         YmV2GvUeQJx7K0b9HrR7e4z57FZUhLkr3LWQrQ38H26gqM2B2m8feFqwzR2nNKxRQ8XR
+         30pxMJAlynhL4aZRxpppwxDETgHVrWeLgHCoGEfWQsjO43lv4FiyIl41CNznArw17khl
+         2mqqN91ta5bN7dfvb1/VISNVCXkUijurB4a9wbD12w30/qUYnhi23qfJZcDRNJxsgSzz
+         2/jD6BtT5lRQrcsbcGSy6y44UjnYEvKavQ2IXe7oMA6wuhigjvX1v84eQleQob64Z+JO
+         SA6A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1694762574; x=1695367374;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=LyY1P/Um0of8SC7pIExKL3uasiY0J3NOHqMMObs04Ac=;
+        b=Bb3SrkLP9xuQxtz1cB6Tjx304xYvxvvGkaRX+06oaxIGTbcpCVMpgg9hrxZLqQvgEU
+         NAUsx4ORmYpvJdRttAl14OXRPvDsyiQanPOHVyeMy8Kr/XP7U2HHJ2JSVyFNCLuOp8cB
+         ICfQM6mtx22BM4wU+knvft+Uqzr57Z4adSMqjkoPiGS1ylsHCeo3z4HlkWK733c1v3yf
+         jnb7vDw2t2CxfdVyzhSPhmC2r/gY187ifjaj9Gr8nvcgAwTTttODVnHC4X/4R0K6gnQV
+         ktpKUMsKRPKDULDQpD0LKQNT5kPvK7Hg7vfNMDzsjdhfXCBLftTeqzU8iePMPacgZME9
+         8pLg==
+X-Gm-Message-State: AOJu0Yz7bgcufXXQ0YVevOoY3/lnx/uOKgZNPk/vRhqjscWETDIkoRC9
+	OY9WmEx06FBoVI2+nUL1hoYHdQZVaZbOrg==
+X-Google-Smtp-Source: AGHT+IGvr8WzjvcDBHoMtkleaP3mPTG/02siLWI4WX6UguEA5/t1b5l6/usIgOQuhI+avenUMMmXEg==
+X-Received: by 2002:a17:90a:528c:b0:268:352c:9d13 with SMTP id w12-20020a17090a528c00b00268352c9d13mr751765pjh.0.1694762573570;
+        Fri, 15 Sep 2023 00:22:53 -0700 (PDT)
+Received: from localhost.localdomain ([222.95.63.58])
+        by smtp.gmail.com with ESMTPSA id j5-20020a17090aeb0500b0026b4ca7f62csm2348283pjz.39.2023.09.15.00.22.47
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 15 Sep 2023 00:22:53 -0700 (PDT)
+From: Wang Chen <unicornxw@gmail.com>
+X-Google-Original-From: Wang Chen <wangchen20@iscas.ac.cn>
+To: linux-riscv@lists.infradead.org,
+	conor@kernel.org,
+	aou@eecs.berkeley.edu,
+	krzysztof.kozlowski+dt@linaro.org,
+	palmer@dabbelt.com,
+	paul.walmsley@sifive.com,
+	robh+dt@kernel.org
+Cc: devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	jszhang@kernel.org,
+	guoren@kernel.org,
+	chao.wei@sophgo.com,
+	xiaoguang.xing@sophgo.com,
+	Wang Chen <wangchen20@iscas.ac.cn>
+Subject: [PATCH 03/12] dt-bindings: riscv: add sophgo sg2042 bindings
+Date: Fri, 15 Sep 2023 15:22:42 +0800
+Message-Id: <20230915072242.117935-1-wangchen20@iscas.ac.cn>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-In-Reply-To: <20230915071005.117575-1-wangchen20@iscas.ac.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230915_002157_569688_23494C87 
-X-CRM114-Status: GOOD (  18.05  )
+X-CRM114-CacheID: sfid-20230915_002257_379489_37951835 
+X-CRM114-Status: GOOD (  11.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,96 +96,81 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6935530602200831787=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============6935530602200831787==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="ENGkoMse754EbNpY"
-Content-Disposition: inline
+Add DT binding documentation for the Sophgo SG2042 Soc [1] and the
+Milk-V Pioneer board [2].
 
---ENGkoMse754EbNpY
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+[1]: https://en.sophgo.com/product/introduce/sg2042.html
+[2]: https://milkv.io/pioneer
 
-Yo,
+Signed-off-by: Wang Chen <wangchen20@iscas.ac.cn>
+Signed-off-by: Xiaoguang Xing <xiaoguang.xing@sophgo.com>
+---
+ .../devicetree/bindings/riscv/sophgo.yaml     | 28 +++++++++++++++++++
+ MAINTAINERS                                   |  6 ++++
+ 2 files changed, 34 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/riscv/sophgo.yaml
 
-On Fri, Sep 15, 2023 at 03:10:05PM +0800, Wang Chen wrote:
-> From: "xiaoguang.xing" <xiaoguang.xing@sophgo.com>
+diff --git a/Documentation/devicetree/bindings/riscv/sophgo.yaml b/Documentation/devicetree/bindings/riscv/sophgo.yaml
+new file mode 100644
+index 000000000000..82468ae915db
+--- /dev/null
++++ b/Documentation/devicetree/bindings/riscv/sophgo.yaml
+@@ -0,0 +1,28 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/riscv/sophgo.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Sophgo SoC-based boards
++
++maintainers:
++  - Chao Wei <chao.wei@sophgo.com>
++  - Xiaoguang Xing <xiaoguang.xing@sophgo.com>
++
++description:
++  Sophgo SoC-based boards
++
++properties:
++  $nodename:
++    const: '/'
++  compatible:
++    oneOf:
++      - items:
++          - enum:
++              - milkv,pioneer
++          - const: sophgo,sg2042
++
++additionalProperties: true
++
++...
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 90f13281d297..0e0d477dab38 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -20063,6 +20063,12 @@ F:	drivers/char/sonypi.c
+ F:	drivers/platform/x86/sony-laptop.c
+ F:	include/linux/sony-laptop.h
+ 
++SOPHGO DEVICETREES
++M:	Xiaoguang Xing <xiaoguang.xing@sophgo.com>
++M:	Chao Wei <chao.wei@sophgo.com>
++S:	Maintained
++F:	Documentation/devicetree/bindings/riscv/sophgo.yaml
++
+ SOUND
+ M:	Jaroslav Kysela <perex@perex.cz>
+ M:	Takashi Iwai <tiwai@suse.com>
+-- 
+2.25.1
 
-This needs to be a name, not the contents of their email address.
-Probably just needs the . swapped for a space?
-
-> The first SoC in the SOPHGO series is SG2042, which contains 64 RISC-V
-> cores.
->=20
-> Signed-off-by: xiaoguang.xing <xiaoguang.xing@sophgo.com>
-> Signed-off-by: Wang Chen <wangchen20@iscas.ac.cn>
-> ---
->  arch/riscv/Kconfig.socs | 10 ++++++++++
->  1 file changed, 10 insertions(+)
->=20
-> diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
-> index 6833d01e2e70..fc7b5e6c7def 100644
-> --- a/arch/riscv/Kconfig.socs
-> +++ b/arch/riscv/Kconfig.socs
-> @@ -110,4 +110,14 @@ config SOC_CANAAN_K210_DTB_SOURCE
-> =20
->  endif # ARCH_CANAAN
-> =20
-> +config ARCH_SOPHGO
-> +	bool "Sophgo SoCs"
-> +	select SIFIVE_PLIC
-
-This should not be needed, this should be selected at the arch level.
-
-> +	help
-> +	  This enables support for Sophgo SoC platform hardware.
-> +	  SOPHGO is committed to become a provider of universal
-> +	  computing power, focusing on the development and
-> +	  promotion of computing power products such as AI and
-> +	  RISC-V CPU.
-
-This is not a place for marketing blurbs, please take a look at the
-other entries.
-Also, this should not be placed at the end of the list, it should be
-before ARCH_SUNXI.
-
-Thanks,
-Conor.
-
-> +
->  endmenu # "SoC selection"
-> --=20
-> 2.25.1
->=20
-
---ENGkoMse754EbNpY
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZQQF6QAKCRB4tDGHoIJi
-0oTJAP9c52u8XECYZvn+Qt9RdRvorAS3pVREBUDao12bLGJQcQEAxhTfNeJImtXF
-WhPAFatMpxtY1G/qD8E+TiVnTwgm4Qo=
-=FBOL
------END PGP SIGNATURE-----
-
---ENGkoMse754EbNpY--
-
-
---===============6935530602200831787==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============6935530602200831787==--
-
