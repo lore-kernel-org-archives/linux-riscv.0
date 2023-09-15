@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15F71EE021D
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 Sep 2023 05:42:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 720E5EE021D
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 Sep 2023 06:05:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KN5h4BH1rR1oKwg/QKxx1xDwyg8WD9fPqqtWA2bGVz4=; b=ge6oMgaDV9dq8L
-	aLJTbuYe+hFn3IucROpu3OmR3cwA+w6YnARNC6uZrFyDasxWVSFpDI93FA7p7vAhtmuNpHQuI8Mzw
-	IdEItCgcUb1TUT1tPBUv9cTtLbqytcLgc/4thbHsRHZi2cHOKYlmsZL88BMkCVLZ6SaoiKbvkxMcr
-	xF4mH4gf6VAjuEC/zwwYO3RnD2AM6ZXM6ti0yvAsed+imiz5ZNntYErafET6eFxFvWxUbCfSd4ej9
-	DFLqXrWS2ZJfIRe3RmpuP87zaAs95OP81ksX0jP2YrgaSMLy2hBEDhjYEOjBcRkHZ4OY9cczW3c6l
-	61tcPTn4NS92IKnzTSng==;
+	List-Owner; bh=eClUSLxIKy0cFIjIMONQO44xBIyeEJUWRW+DQI5jliA=; b=d0kcTV7ct0giVq
+	oNAPcxCrvZySqhufRcaNQ84+YGsOCySGUSsxzHjAWC1Rl3mbxYcsuMKvYjsE/OnteTaMtfz9N0jSm
+	FgdXk8HMKW3IcOEVbdiKAVs0fb1ZKhRvc4mhc3atStLMLXIroSww3nfZ1qnLvL11BVLAwNpL3U7Rm
+	JfC2Q/RsV4F/nbrlsBqTgRYXrnSHr+fjzBSMKhHdR5/WPqlZ8kXHnAK+f75ySVZWPtxx3a9iEhypk
+	2Tuh5SAUOXvYv9HJSgKnzSitcBlInH7RXAkGob3zZj4FkRdgZYcnPZlX5N4DSurIT2hfWXwkU+gGf
+	vH0q6azY9t5/j9UobskA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qh1bG-009pAm-0D;
-	Fri, 15 Sep 2023 05:42:42 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1qh1xA-009rpJ-22;
+	Fri, 15 Sep 2023 06:05:20 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qh1bD-009p91-0E
+	id 1qh1x8-009roR-1a
 	for linux-riscv@lists.infradead.org;
-	Fri, 15 Sep 2023 05:42:40 +0000
+	Fri, 15 Sep 2023 06:05:19 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1694756552;
+	s=mimecast20190719; t=1694757917;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 in-reply-to:in-reply-to:references:references;
-	bh=gFO8+T730lSxbR4eXXN1KRpuEmnACBgmkqkqaO3f0p0=;
-	b=KKwViUoygnfHpo7hUnyI+rgP2Mxz7BqSTgep4QBIRsd0sqHB2zSWKJKvUk4dgjAPsBRcGi
-	X5yeafMprYhWUDCze5peZhxnxbvOnoG7XmFfM8RPIL2Ub+OP02hxlVhH4E0vMT1uhPwb43
-	9XiM3JSHEpZxXt6WT3C2uA2gPxAEZ+4=
-Received: from mail-oa1-f69.google.com (mail-oa1-f69.google.com
- [209.85.160.69]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=3vjvuseUg6qNQpV7yl7mlZYb0V/K1W4pCetzu6/7ou8=;
+	b=GBY1VdZalRnLPCZ5jrVL38UBQTICfdmsvCgi2P+m3IpWjRUDwMIMoM4J2KEnsC0MXwQ8NE
+	I+W1agIvZw5L1GFXmUa9/5+11YPOg6811WNdksz48oIZ6GLT4SojGRFa9pp1TvZk4a8ZCo
+	WdFAEsZBdTAxTVh2iV96qrJixL3fjIc=
+Received: from mail-ot1-f70.google.com (mail-ot1-f70.google.com
+ [209.85.210.70]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-645-V1e2bmbRONeqEz6j8jiQ_A-1; Fri, 15 Sep 2023 01:42:31 -0400
-X-MC-Unique: V1e2bmbRONeqEz6j8jiQ_A-1
-Received: by mail-oa1-f69.google.com with SMTP id 586e51a60fabf-1c0ed186cf5so2669246fac.1
-        for <linux-riscv@lists.infradead.org>; Thu, 14 Sep 2023 22:42:31 -0700 (PDT)
+ us-mta-494-DBKzuvEBNbKmOmLVqyE_lA-1; Fri, 15 Sep 2023 02:05:15 -0400
+X-MC-Unique: DBKzuvEBNbKmOmLVqyE_lA-1
+Received: by mail-ot1-f70.google.com with SMTP id 46e09a7af769-6bdb30c45f6so2229009a34.2
+        for <linux-riscv@lists.infradead.org>; Thu, 14 Sep 2023 23:05:15 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1694756550; x=1695361350;
+        d=1e100.net; s=20230601; t=1694757915; x=1695362715;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=gFO8+T730lSxbR4eXXN1KRpuEmnACBgmkqkqaO3f0p0=;
-        b=KK7Cn7RaaWvEhiMlK6DpFmNf85WhBuaE5yAJmlWIMZy+1Ysb3rnWM27GXM+Hs85cyR
-         FhW+zX5ZkpDWNCcq6YzNUin7Bun0xBT4VrAtu30YH+Z7Vc05JHYMQ0O22tdvcOKHdhcM
-         TAXYwGKmZPxZ7mNhhoOa3iwsnIV+JczPb0ab03m+5G09BamgHrUFHDBxK1nlhHeTZ5fZ
-         Mn7jiYtNTN0a7cEDx077wEwy85kaanclhc2A4pnbiFatnqgLm0hF8PNBSgDMv88sws3k
-         /gTNRjkQ2Q5ybirQHze4lZNEK32RXZ4hY/yOQjV8W9IErStvNDW+JXgwZOSLX9nt2Scl
-         BzyQ==
-X-Gm-Message-State: AOJu0YxsCc60sXw/FGlYxHz2HcytyC1g2vTxL2LO7Wq9RzMa2aF3SvwR
-	fozqWyr/VAXbM2qXn8EHWS/AGcYXGYTdVwdJha/z6OjCEx+pfk+WlyAnB1TWp2KpQRtZoU2tTCS
-	tb2Q75WcvBGpyeJLTms5uMhGeGvGV
-X-Received: by 2002:a05:6870:659e:b0:1d5:a72e:154e with SMTP id fp30-20020a056870659e00b001d5a72e154emr914832oab.36.1694756550527;
-        Thu, 14 Sep 2023 22:42:30 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHt0gjdD2W1OMPtXYFw18q1B6hx8A/UEEDl5ieKzaDTp4knHfwN8c0lVL2v/Jr+kPERmtLQiw==
-X-Received: by 2002:a05:6870:659e:b0:1d5:a72e:154e with SMTP id fp30-20020a056870659e00b001d5a72e154emr914789oab.36.1694756550218;
-        Thu, 14 Sep 2023 22:42:30 -0700 (PDT)
+        bh=3vjvuseUg6qNQpV7yl7mlZYb0V/K1W4pCetzu6/7ou8=;
+        b=NjE56seL1QVb4sw5bJi9bjZBOpX87ngDOGDFE5QFBzQjhBb+4k0IpzF+SZC/eX/Dco
+         F0fASEgOPNdsuj4aDHqPhwuvq5VoiScdvUsg8MtaglvAaETbc7drcgLXR2aLZ4lEgX41
+         dFvDDDNFr8qSSff/wCcjMpntf8ZMVNZxMALtmGPbU9iiVE7taZiJb2n7cgB34FMYATm9
+         jeJL3qeBnCMaivWM+gjFn97QLqnZRb5Z+dz6r/xjeNPIR1qm20EKt/UndtSZCmiFX59f
+         tUxnvvt+jYK1O2IgMtEQpWs7Ft0T/MikW9oLnWHZT+SHBTGpIdxAbYMZLYWn18YJsACo
+         slhg==
+X-Gm-Message-State: AOJu0YzUTMEflPinyyn/uK227ZfOVK9A0tkK4mZR242tmDr6tBxOLq7k
+	v/nOeSttSPNsfK8o9rVarlUIk8OFCFnIJ6OcNQpQVdKUpqMu3SMehuh0qpH+eBcibPw+/8twX6V
+	9n32xdiBRr9B6CmqTyT+Qv4hTBT5W
+X-Received: by 2002:a9d:639a:0:b0:6bb:1c21:c52e with SMTP id w26-20020a9d639a000000b006bb1c21c52emr621375otk.15.1694757914810;
+        Thu, 14 Sep 2023 23:05:14 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IHNTkcLzZRrBx+Jpr7GLG62ISgWsC1FQJ/6MO+vKOCF0E/D50pmRfuPJnzxZifFOuWDgu4/ZQ==
+X-Received: by 2002:a9d:639a:0:b0:6bb:1c21:c52e with SMTP id w26-20020a9d639a000000b006bb1c21c52emr621363otk.15.1694757914520;
+        Thu, 14 Sep 2023 23:05:14 -0700 (PDT)
 Received: from redhat.com ([2804:1b3:a803:4ff9:7c29:fe41:6aa7:43df])
-        by smtp.gmail.com with ESMTPSA id ed23-20020a056870b79700b001cd14c60b35sm1591100oab.5.2023.09.14.22.42.22
+        by smtp.gmail.com with ESMTPSA id c9-20020a056830000900b006ba864f5b37sm1353275otp.12.2023.09.14.23.05.06
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 14 Sep 2023 22:42:29 -0700 (PDT)
-Date: Fri, 15 Sep 2023 02:42:20 -0300
+        Thu, 14 Sep 2023 23:05:13 -0700 (PDT)
+Date: Fri, 15 Sep 2023 03:05:04 -0300
 From: Leonardo Bras <leobras@redhat.com>
 To: guoren@kernel.org
 Cc: paul.walmsley@sifive.com, anup@brainfault.org, peterz@infradead.org,
@@ -83,19 +83,19 @@ Cc: paul.walmsley@sifive.com, anup@brainfault.org, peterz@infradead.org,
 	linux-doc@vger.kernel.org, kvm@vger.kernel.org,
 	virtualization@lists.linux-foundation.org,
 	linux-csky@vger.kernel.org, Guo Ren <guoren@linux.alibaba.com>
-Subject: Re: [PATCH V11 11/17] RISC-V: paravirt: pvqspinlock: Add paravirt
- qspinlock skeleton
-Message-ID: <ZQPuvCNq5IAYlMR6@redhat.com>
+Subject: Re: [PATCH V11 12/17] RISC-V: paravirt: pvqspinlock: Add nopvspin
+ kernel parameter
+Message-ID: <ZQP0EJc4ClA-iT6J@redhat.com>
 References: <20230910082911.3378782-1-guoren@kernel.org>
- <20230910082911.3378782-12-guoren@kernel.org>
+ <20230910082911.3378782-13-guoren@kernel.org>
 MIME-Version: 1.0
-In-Reply-To: <20230910082911.3378782-12-guoren@kernel.org>
+In-Reply-To: <20230910082911.3378782-13-guoren@kernel.org>
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230914_224239_197873_E584C395 
-X-CRM114-Status: GOOD (  28.67  )
+X-CRM114-CacheID: sfid-20230914_230518_643515_C8E6D28B 
+X-CRM114-Status: GOOD (  19.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,241 +112,69 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Sep 10, 2023 at 04:29:05AM -0400, guoren@kernel.org wrote:
+On Sun, Sep 10, 2023 at 04:29:06AM -0400, guoren@kernel.org wrote:
 > From: Guo Ren <guoren@linux.alibaba.com>
 > 
-> Using static_call to switch between:
->   native_queued_spin_lock_slowpath()    __pv_queued_spin_lock_slowpath()
->   native_queued_spin_unlock()           __pv_queued_spin_unlock()
-> 
-> Finish the pv_wait implementation, but pv_kick needs the SBI
-> definition of the next patches.
+> Disables the qspinlock slow path using PV optimizations which
+> allow the hypervisor to 'idle' the guest on lock contention.
 > 
 > Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
 > Signed-off-by: Guo Ren <guoren@kernel.org>
 > ---
->  arch/riscv/include/asm/Kbuild               |  1 -
->  arch/riscv/include/asm/qspinlock.h          | 35 +++++++++++++
->  arch/riscv/include/asm/qspinlock_paravirt.h | 29 +++++++++++
->  arch/riscv/include/asm/spinlock.h           |  2 +-
->  arch/riscv/kernel/qspinlock_paravirt.c      | 57 +++++++++++++++++++++
->  arch/riscv/kernel/setup.c                   |  4 ++
->  6 files changed, 126 insertions(+), 2 deletions(-)
->  create mode 100644 arch/riscv/include/asm/qspinlock.h
->  create mode 100644 arch/riscv/include/asm/qspinlock_paravirt.h
->  create mode 100644 arch/riscv/kernel/qspinlock_paravirt.c
+>  Documentation/admin-guide/kernel-parameters.txt |  2 +-
+>  arch/riscv/kernel/qspinlock_paravirt.c          | 13 +++++++++++++
+>  2 files changed, 14 insertions(+), 1 deletion(-)
 > 
-> diff --git a/arch/riscv/include/asm/Kbuild b/arch/riscv/include/asm/Kbuild
-> index a0dc85e4a754..b89cb3b73c13 100644
-> --- a/arch/riscv/include/asm/Kbuild
-> +++ b/arch/riscv/include/asm/Kbuild
-> @@ -7,6 +7,5 @@ generic-y += parport.h
->  generic-y += spinlock_types.h
->  generic-y += qrwlock.h
->  generic-y += qrwlock_types.h
-> -generic-y += qspinlock.h
->  generic-y += user.h
->  generic-y += vmlinux.lds.h
-> diff --git a/arch/riscv/include/asm/qspinlock.h b/arch/riscv/include/asm/qspinlock.h
-> new file mode 100644
-> index 000000000000..7d4f416c908c
-> --- /dev/null
-> +++ b/arch/riscv/include/asm/qspinlock.h
-> @@ -0,0 +1,35 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +/*
-> + * Copyright (c), 2023 Alibaba Cloud
-> + * Authors:
-> + *	Guo Ren <guoren@linux.alibaba.com>
-> + */
-> +
-> +#ifndef _ASM_RISCV_QSPINLOCK_H
-> +#define _ASM_RISCV_QSPINLOCK_H
-> +
-> +#ifdef CONFIG_PARAVIRT_SPINLOCKS
-> +#include <asm/qspinlock_paravirt.h>
-> +
-> +/* How long a lock should spin before we consider blocking */
-> +#define SPIN_THRESHOLD		(1 << 15)
-> +
-> +void native_queued_spin_lock_slowpath(struct qspinlock *lock, u32 val);
-> +void __pv_init_lock_hash(void);
-> +void __pv_queued_spin_lock_slowpath(struct qspinlock *lock, u32 val);
-> +
-> +static inline void queued_spin_lock_slowpath(struct qspinlock *lock, u32 val)
-> +{
-> +	static_call(pv_queued_spin_lock_slowpath)(lock, val);
-> +}
-> +
-> +#define queued_spin_unlock	queued_spin_unlock
-> +static inline void queued_spin_unlock(struct qspinlock *lock)
-> +{
-> +	static_call(pv_queued_spin_unlock)(lock);
-> +}
-> +#endif /* CONFIG_PARAVIRT_SPINLOCKS */
-> +
-> +#include <asm-generic/qspinlock.h>
-> +
-> +#endif /* _ASM_RISCV_QSPINLOCK_H */
-> diff --git a/arch/riscv/include/asm/qspinlock_paravirt.h b/arch/riscv/include/asm/qspinlock_paravirt.h
-> new file mode 100644
-> index 000000000000..9681e851f69d
-> --- /dev/null
-> +++ b/arch/riscv/include/asm/qspinlock_paravirt.h
-> @@ -0,0 +1,29 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +/*
-> + * Copyright (c), 2023 Alibaba Cloud
-> + * Authors:
-> + *	Guo Ren <guoren@linux.alibaba.com>
-> + */
-> +
-> +#ifndef _ASM_RISCV_QSPINLOCK_PARAVIRT_H
-> +#define _ASM_RISCV_QSPINLOCK_PARAVIRT_H
-> +
-> +void pv_wait(u8 *ptr, u8 val);
-> +void pv_kick(int cpu);
-> +
-> +void dummy_queued_spin_lock_slowpath(struct qspinlock *lock, u32 val);
-> +void dummy_queued_spin_unlock(struct qspinlock *lock);
-> +
-> +DECLARE_STATIC_CALL(pv_queued_spin_lock_slowpath, dummy_queued_spin_lock_slowpath);
-> +DECLARE_STATIC_CALL(pv_queued_spin_unlock, dummy_queued_spin_unlock);
-> +
-> +void __init pv_qspinlock_init(void);
-> +
-> +static inline bool pv_is_native_spin_unlock(void)
-> +{
-> +	return false;
-> +}
-> +
-> +void __pv_queued_spin_unlock(struct qspinlock *lock);
-> +
-> +#endif /* _ASM_RISCV_QSPINLOCK_PARAVIRT_H */
-> diff --git a/arch/riscv/include/asm/spinlock.h b/arch/riscv/include/asm/spinlock.h
-> index 6b38d6616f14..ed4253f491fe 100644
-> --- a/arch/riscv/include/asm/spinlock.h
-> +++ b/arch/riscv/include/asm/spinlock.h
-> @@ -39,7 +39,7 @@ static inline bool virt_spin_lock(struct qspinlock *lock)
->  #undef arch_spin_trylock
->  #undef arch_spin_unlock
+> diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
+> index f75bedc50e00..e74aed631573 100644
+> --- a/Documentation/admin-guide/kernel-parameters.txt
+> +++ b/Documentation/admin-guide/kernel-parameters.txt
+> @@ -3857,7 +3857,7 @@
+>  			as generic guest with no PV drivers. Currently support
+>  			XEN HVM, KVM, HYPER_V and VMWARE guest.
 >  
-> -#include <asm-generic/qspinlock.h>
-> +#include <asm/qspinlock.h>
->  #include <linux/jump_label.h>
->  
->  #undef arch_spin_is_locked
+> -	nopvspin	[X86,XEN,KVM]
+> +	nopvspin	[X86,XEN,KVM,RISC-V]
+>  			Disables the qspinlock slow path using PV optimizations
+>  			which allow the hypervisor to 'idle' the guest on lock
+>  			contention.
 > diff --git a/arch/riscv/kernel/qspinlock_paravirt.c b/arch/riscv/kernel/qspinlock_paravirt.c
-> new file mode 100644
-> index 000000000000..85ff5a3ec234
-> --- /dev/null
+> index 85ff5a3ec234..a0ad4657f437 100644
+> --- a/arch/riscv/kernel/qspinlock_paravirt.c
 > +++ b/arch/riscv/kernel/qspinlock_paravirt.c
-> @@ -0,0 +1,57 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Copyright (c), 2023 Alibaba Cloud
-> + * Authors:
-> + *	Guo Ren <guoren@linux.alibaba.com>
-> + */
-> +
-> +#include <linux/static_call.h>
-> +#include <asm/qspinlock_paravirt.h>
-> +#include <asm/sbi.h>
-> +
-> +void pv_kick(int cpu)
-> +{
-> +	return;
-> +}
-> +
-> +void pv_wait(u8 *ptr, u8 val)
-> +{
-> +	unsigned long flags;
-> +
-> +	if (in_nmi())
-> +		return;
-> +
-> +	local_irq_save(flags);
-> +	if (READ_ONCE(*ptr) != val)
-> +		goto out;
-> +
-> +	/* wait_for_interrupt(); */
-> +out:
-> +	local_irq_restore(flags);
-> +}
-> +
-> +static void native_queued_spin_unlock(struct qspinlock *lock)
-> +{
-> +	smp_store_release(&lock->locked, 0);
-> +}
-> +
-> +DEFINE_STATIC_CALL(pv_queued_spin_lock_slowpath, native_queued_spin_lock_slowpath);
-> +EXPORT_STATIC_CALL(pv_queued_spin_lock_slowpath);
-> +
-> +DEFINE_STATIC_CALL(pv_queued_spin_unlock, native_queued_spin_unlock);
-> +EXPORT_STATIC_CALL(pv_queued_spin_unlock);
-> +
-> +void __init pv_qspinlock_init(void)
-> +{
-> +	if (num_possible_cpus() == 1)
-> +		return;
-> +
-> +	if(sbi_get_firmware_id() != SBI_EXT_BASE_IMPL_ID_KVM)
+> @@ -41,8 +41,21 @@ EXPORT_STATIC_CALL(pv_queued_spin_lock_slowpath);
+>  DEFINE_STATIC_CALL(pv_queued_spin_unlock, native_queued_spin_unlock);
+>  EXPORT_STATIC_CALL(pv_queued_spin_unlock);
+>  
+> +static bool nopvspin;
 
-Checks like this seem to be very common on this patchset.
-For someone not much familiar with this, it can be hard to 
-understand.
+It is only used in init, so it makes sense to add __initdata.
 
-I mean, on patch 8/17 you introduce those IDs, which look to be 
-incremental ( ID == N includes stuff from ID < N ), but I am not sure as I 
-couln't find much documentation on that.
+static bool nopvspin __initdata;
 
-Then above you test for the id being different than 
-SBI_EXT_BASE_IMPL_ID_KVM, but if they are actually incremental and a new 
-version lands, the new version will also return early because it passes the 
-test.
-
-I am no sure if above is right, but it's all I could understand without 
-documentation.
-
-Well, my point is: this seems hard to understand & review, so it would be 
-nice to have a macro like this to be used instead:
-
-#define sbi_fw_implements_kvm() \
-	(sbi_get_firmware_id() >= SBI_EXT_BASE_IMPL_ID_KVM)
-
-if(!sbi_fw_implements_kvm())
-	return;
-
-What do you think?
-
-Other than that, LGTM.
+Other than that, LGTM:
+Reviewed-by: Leonardo Bras <leobras@redhat.com>
 
 Thanks!
 Leo
 
-> +		return;
-> +
-> +	pr_info("PV qspinlocks enabled\n");
-> +	__pv_init_lock_hash();
-> +
-> +	static_call_update(pv_queued_spin_lock_slowpath, __pv_queued_spin_lock_slowpath);
-> +	static_call_update(pv_queued_spin_unlock, __pv_queued_spin_unlock);
+> +static __init int parse_nopvspin(char *arg)
+> +{
+> +       nopvspin = true;
+> +       return 0;
 > +}
-> diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-> index c57d15b05160..88690751f2ee 100644
-> --- a/arch/riscv/kernel/setup.c
-> +++ b/arch/riscv/kernel/setup.c
-> @@ -321,6 +321,10 @@ static void __init riscv_spinlock_init(void)
->  #ifdef CONFIG_QUEUED_SPINLOCKS
->  	virt_spin_lock_init();
->  #endif
+> +early_param("nopvspin", parse_nopvspin);
 > +
-> +#ifdef CONFIG_PARAVIRT_SPINLOCKS
-> +	pv_qspinlock_init();
-> +#endif
->  }
+>  void __init pv_qspinlock_init(void)
+>  {
+> +	if (nopvspin) {
+> +		pr_info("PV qspinlocks disabled\n");
+> +		return;
+> +	}
+> +
+>  	if (num_possible_cpus() == 1)
+>  		return;
 >  
->  extern void __init init_rt_signal_env(void);
 > -- 
 > 2.36.1
 > 
