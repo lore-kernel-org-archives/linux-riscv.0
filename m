@@ -4,81 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2785EED603
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 Sep 2023 15:17:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6557BEED60B
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 Sep 2023 15:23:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gmbUcfk6++VZPrU37q201Fi6X9nfuFKMHXTie9mB/BU=; b=dnoeXIkHClIef+
-	2YFtTXBUDk5BxlFQIOZrC4w3++R3b82fFnVlAuvL6r9Cqyvm58mgZA0nuNFN1GtAgWPZ+nGF0FbXr
-	igIDxdOmAplULgjYAhET4M3N356wMiWfoBgSHWgm9XpcrgOUjXz/Ptjd0MPSb2UlKj0A8MZoqKrjQ
-	EGYOFR5JbNPMaRtHP67+vxBvl0DQJMTi+0skXlZBTFYehnKZEB7qggyw/VAr/r+1tFLnr8XTq+vmO
-	ULPFnWFUknNU+6jIX1cc8RjPF8P2rmU81XgSgmhDxfjd7MDK/i10Xd3xKS+jGeTYOPalUa+SoN1vS
-	WkTWW/5C9jw0K8bHQCdA==;
+	List-Owner; bh=0kFhlI+DR7WsTGLTLJPRl9rZojFDMMDikXcz6+wc4as=; b=BShpORf4reWC4G
+	gAKOXK7jHhkEyUZHGR1wNLWh4aID1/5KlLgGGUHffJNPaz8wYmBjAJWefqculiEdWgZqhUckY5OpZ
+	43O2XUo/PgaaPa7pZWRltYOW+D37nRaYl+cVmEFEVIJCSl/khlUTMniAAoorWbnIuFsZJt+UInADM
+	vahGMiundieFfmXXcaNJoksnfv8dbSGoXjqnKyQl1DmmMhlE53PR7v6vEfeZFK8mKEJcG1eXC8rY5
+	vSkHSiLWTCgzvixHmRZLwqRFclpoowCeXh0G8LPpA0Sh8hTZc4UKPsYkTacnJdvu//VTVKpcBUSiX
+	Hs+54x47IkK25l/VBt4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qhAZa-00AxfS-1x;
-	Fri, 15 Sep 2023 15:17:34 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1qhAf8-00AyN9-0o;
+	Fri, 15 Sep 2023 15:23:18 +0000
+Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qhAZV-00AxeE-36;
-	Fri, 15 Sep 2023 15:17:32 +0000
-Received: from lhrpeml500004.china.huawei.com (unknown [172.18.147.226])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4RnHnK2q72z6HJbP;
-	Fri, 15 Sep 2023 23:15:33 +0800 (CST)
-Received: from lhrpeml500001.china.huawei.com (7.191.163.213) by
- lhrpeml500004.china.huawei.com (7.191.163.9) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.31; Fri, 15 Sep 2023 16:17:21 +0100
-Received: from lhrpeml500001.china.huawei.com ([7.191.163.213]) by
- lhrpeml500001.china.huawei.com ([7.191.163.213]) with mapi id 15.01.2507.031;
- Fri, 15 Sep 2023 16:17:21 +0100
-From: Salil Mehta <salil.mehta@huawei.com>
-To: Russell King <linux@armlinux.org.uk>
-CC: "Rafael J. Wysocki" <rafael@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
-	Jonathan Cameron <jonathan.cameron@huawei.com>, James Morse
-	<james.morse@arm.com>, "linux-pm@vger.kernel.org" <linux-pm@vger.kernel.org>,
-	"loongarch@lists.linux.dev" <loongarch@lists.linux.dev>,
-	"linux-acpi@vger.kernel.org" <linux-acpi@vger.kernel.org>,
-	"linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-riscv@lists.infradead.org"
-	<linux-riscv@lists.infradead.org>, "kvmarm@lists.linux.dev"
-	<kvmarm@lists.linux.dev>, "x86@kernel.org" <x86@kernel.org>, "Jean-Philippe
- Brucker" <jean-philippe@linaro.org>, "jianyong.wu@arm.com"
-	<jianyong.wu@arm.com>, "justin.he@arm.com" <justin.he@arm.com>
-Subject: RE: [RFC PATCH v2 27/35] ACPICA: Add new MADT GICC flags fields [code
- first?]
-Thread-Topic: [RFC PATCH v2 27/35] ACPICA: Add new MADT GICC flags fields
- [code first?]
-Thread-Index: AQHZ5mDqpYLh+nkhC0mj9mPBt3XEBLAZ5MMAgAB0lICAAAsFgIAAEfIQgADzSoCAABq9gIAAG4DQgAA3wICAACNmMA==
-Date: Fri, 15 Sep 2023 15:17:21 +0000
-Message-ID: <9e327ad1128045fa80eebf327abaa8f0@huawei.com>
-References: <20230913163823.7880-1-james.morse@arm.com>
-	<20230913163823.7880-28-james.morse@arm.com>
-	<CAMj1kXHRAt7ecB9p_dm3MjDL5wZkAsVh30hMY2SV_XUe=bm6Vg@mail.gmail.com>
-	<20230914155459.00002dba@Huawei.com>
-	<CAMj1kXFquiLGCMow3iujHUU4GBZx2t9KfKy1R9iqjBFjY+acaA@mail.gmail.com>
-	<f5d9beea95e149ab89364dcdb0f8bf69@huawei.com>
-	<ZQQDJT6MOaIOPmq5@shell.armlinux.org.uk>
-	<CAJZ5v0jUQ+4G5ArYAtu1gvYF4356CK_QVTO4oWn0ukwdOiZaHA@mail.gmail.com>
-	<80e36ff513504a0382a1cbce83e42295@huawei.com>
- <ZQRfaYYwrYQEfICN@shell.armlinux.org.uk>
-In-Reply-To: <ZQRfaYYwrYQEfICN@shell.armlinux.org.uk>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-originating-ip: [10.126.174.239]
+	id 1qhAf4-00AyL1-3A
+	for linux-riscv@lists.infradead.org;
+	Fri, 15 Sep 2023 15:23:16 +0000
+Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-69042d398b1so910094b3a.0
+        for <linux-riscv@lists.infradead.org>; Fri, 15 Sep 2023 08:23:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1694791389; x=1695396189; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=JzUny5ZDY3B8dwGvMbx7t3ZOXwBY6DGZ8A+gn9ETcXA=;
+        b=W/9mfRANi0lmk66S/ZLMD7QeFBnxx7p+DDrDm0/KNrMCR45U6BSZRImjX1beJ9GiSC
+         7wAgxSDQvF+t8LrwJOVJdMsl9Uge4oaquc5dY47iq3bgHDMRZVvhlNOj/aAV9I6JXVbA
+         jkRcd0lBjesQpA+AcHqgyrjZmJwOJMgOG6uAUrih06e33ueXNvTFJ7tf8/t+IR6tGP1o
+         aXt5h8tQCEOtD7D/dslZGbSRzfR/or6UywqwZCOX0xtqdOfybPd+bkXVbDJ017zceHYz
+         EitbTZtka1UpWgavjnxx5fkTL8v+gnC6dPy3LPOH7fa6tcwmVEpnNDRQzVq+5Q+LCsFH
+         21cg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1694791389; x=1695396189;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=JzUny5ZDY3B8dwGvMbx7t3ZOXwBY6DGZ8A+gn9ETcXA=;
+        b=s8/Mqt83c6uokZfhUqb9eoD02JsClBF2SLUzuVKCdP/izxtWE78Kjx0i8bBBmMg7Wl
+         YTfehJ5GuXk7S5KzpPvy8BN0Afk+B/fjBSyFeh1+aSkKUbUimEb7T2xVx8/WY8zBMpZF
+         sipRgoUfP3LijQIH9e+UXOZFiWnJSdPcheMBUBBufPA+pe6/SLXxyzPA9T4CbvuaTa2X
+         2ovcC/4q62FRealVaovWJgFnSJHAQGEXQ9FHnQoPGpT6HsUe24gPG4o/YwbdLpbxUvbC
+         DfAjLqm1KNpX6UUyWii4ZtssIaBU+h9TQc5m/DdyJrKnUDVwdIkmXkqgC0YOTgeVerRo
+         2mSw==
+X-Gm-Message-State: AOJu0YwOvQUKY41/Oyh0UWZdiPvgfEIVOEVEYi+XDMs0c80NGu93j7KP
+	QDz7ZF69BfuG334P72/dkSLCyg==
+X-Google-Smtp-Source: AGHT+IElDW4bTTqtNEHxEJSI2zqsGM7eb0Y6Wp/U3CPQiwi0iSahU1mcqFPPoZA/wBkxBNyUQ3xnlg==
+X-Received: by 2002:a05:6a00:3186:b0:690:1857:3349 with SMTP id bj6-20020a056a00318600b0069018573349mr1453397pfb.25.1694791389091;
+        Fri, 15 Sep 2023 08:23:09 -0700 (PDT)
+Received: from ghost ([50.168.177.76])
+        by smtp.gmail.com with ESMTPSA id c15-20020aa78c0f000000b0068fb5e44827sm3087719pfd.67.2023.09.15.08.23.07
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 15 Sep 2023 08:23:08 -0700 (PDT)
+Date: Fri, 15 Sep 2023 11:23:05 -0400
+From: Charlie Jenkins <charlie@rivosinc.com>
+To: Alexandre Ghiti <alexghiti@rivosinc.com>
+Cc: Shuah Khan <shuah@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, linux-kselftest@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH -fixes] riscv: kselftests: Fix mm build by removing
+ testcases subdirectory
+Message-ID: <ZQR22QUisvS2CPQS@ghost>
+References: <20230915100113.13131-1-alexghiti@rivosinc.com>
 MIME-Version: 1.0
-X-CFilter-Loop: Reflected
+Content-Disposition: inline
+In-Reply-To: <20230915100113.13131-1-alexghiti@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230915_081730_285331_FA8D9A7E 
-X-CRM114-Status: GOOD (  31.01  )
+X-CRM114-CacheID: sfid-20230915_082315_024008_B30298B9 
+X-CRM114-Status: GOOD (  16.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,98 +94,91 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Russel,
-Thanks for highlighting your concerns.
-
-> From: Russell King <linux@armlinux.org.uk>
-> Sent: Friday, September 15, 2023 2:43 PM
-> To: Salil Mehta <salil.mehta@huawei.com>
-> Cc: Rafael J. Wysocki <rafael@kernel.org>; Ard Biesheuvel
-> <ardb@kernel.org>; Jonathan Cameron <jonathan.cameron@huawei.com>; James
-> Morse <james.morse@arm.com>; linux-pm@vger.kernel.org;
-> loongarch@lists.linux.dev; linux-acpi@vger.kernel.org; linux-
-> arch@vger.kernel.org; linux-kernel@vger.kernel.org; linux-arm-
-> kernel@lists.infradead.org; linux-riscv@lists.infradead.org;
-> kvmarm@lists.linux.dev; x86@kernel.org; Jean-Philippe Brucker <jean-
-> philippe@linaro.org>; jianyong.wu@arm.com; justin.he@arm.com
-> Subject: Re: [RFC PATCH v2 27/35] ACPICA: Add new MADT GICC flags fields
-> [code first?]
+On Fri, Sep 15, 2023 at 12:01:13PM +0200, Alexandre Ghiti wrote:
+> kselftests fails to build because the mm/testcases subdirectory is not
+> created and then the compiler fails to output the binary there.
 > 
-> On Fri, Sep 15, 2023 at 09:34:46AM +0000, Salil Mehta wrote:
-> > > > Note that the ACPI spec says enabled + online-capable isn't defined.
-> > > >
-> > > > "The information conveyed by this bit depends on the value of the
-> > > > Enabled bit. If the Enabled bit is set, this bit is reserved and
-> > > > must be zero."
-> > > >
-> > > > So, if x86 is doing something with the enabled && online-capable
-> > > > state (other than ignoring the online-capable) then technically it
-> > > > is doing something that the spec doesn't define
-> > >
-> > > And so it is wrong.
-> >
-> > Or maybe, specification has not been updated yet. code-first?
+> So fix this by simply removing this subdirectory which is not very
+> useful.
 > 
-> What is the point in speculating. If you want to speculate about it,
-> fine, but please don't use speculation as a reason that "oh we need
-> to sort this out before we can merge the patches".
-
-[already replied in other thread but repeating it here]
-
-Sorry, I am not aware but I was suggesting this. Can we have this
-done for ARM first because there is a legitimate use-case. This
-can be done in parallel while other patches are getting reviewed.
-It would be great if they get accepted even in the current form.
-
-
-> This is precisely why engineers are bad at producing products. They
-> like to continually tweak the design, and the design never gets out
-> the door. You need someone who is a project manager to tell engineers
-> when to stop. Without a project manager to do that, eventually the
-> project fades into insignificance because it becomes no longer relevant
-> or has its funding cut.
+> Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+> ---
+>  tools/testing/selftests/riscv/mm/Makefile                   | 6 +++---
+>  .../selftests/riscv/mm/{testcases => }/mmap_bottomup.c      | 2 +-
+>  .../selftests/riscv/mm/{testcases => }/mmap_default.c       | 2 +-
+>  .../testing/selftests/riscv/mm/{testcases => }/mmap_test.h  | 0
+>  .../testing/selftests/riscv/mm/{testcases => }/run_mmap.sh  | 0
+>  5 files changed, 5 insertions(+), 5 deletions(-)
+>  rename tools/testing/selftests/riscv/mm/{testcases => }/mmap_bottomup.c (97%)
+>  rename tools/testing/selftests/riscv/mm/{testcases => }/mmap_default.c (97%)
+>  rename tools/testing/selftests/riscv/mm/{testcases => }/mmap_test.h (100%)
+>  rename tools/testing/selftests/riscv/mm/{testcases => }/run_mmap.sh (100%)
 > 
-> Hotplug VCPU on aarch64 feels exactly like that - it seems to be an
-> engineer project that is just going to for-ever rumble on and never
-> actually see the light of day.
+> diff --git a/tools/testing/selftests/riscv/mm/Makefile b/tools/testing/selftests/riscv/mm/Makefile
+> index 11e0f0568923..c333263f2b27 100644
+> --- a/tools/testing/selftests/riscv/mm/Makefile
+> +++ b/tools/testing/selftests/riscv/mm/Makefile
+> @@ -5,11 +5,11 @@
+>  # Additional include paths needed by kselftest.h and local headers
+>  CFLAGS += -D_GNU_SOURCE -std=gnu99 -I.
+>  
+> -TEST_GEN_FILES := testcases/mmap_default testcases/mmap_bottomup
+> +TEST_GEN_FILES := mmap_default mmap_bottomup
+>  
+> -TEST_PROGS := testcases/run_mmap.sh
+> +TEST_PROGS := run_mmap.sh
+>  
+>  include ../../lib.mk
+>  
+> -$(OUTPUT)/mm: testcases/mmap_default.c testcases/mmap_bottomup.c testcases/mmap_tests.h
+> +$(OUTPUT)/mm: mmap_default.c mmap_bottomup.c mmap_tests.h
+>  	$(CC) -o$@ $(CFLAGS) $(LDFLAGS) $^
+> diff --git a/tools/testing/selftests/riscv/mm/testcases/mmap_bottomup.c b/tools/testing/selftests/riscv/mm/mmap_bottomup.c
+> similarity index 97%
+> rename from tools/testing/selftests/riscv/mm/testcases/mmap_bottomup.c
+> rename to tools/testing/selftests/riscv/mm/mmap_bottomup.c
+> index b29379f7e478..1757d19ca89b 100644
+> --- a/tools/testing/selftests/riscv/mm/testcases/mmap_bottomup.c
+> +++ b/tools/testing/selftests/riscv/mm/mmap_bottomup.c
+> @@ -1,6 +1,6 @@
+>  // SPDX-License-Identifier: GPL-2.0-only
+>  #include <sys/mman.h>
+> -#include <testcases/mmap_test.h>
+> +#include <mmap_test.h>
+>  
+>  #include "../../kselftest_harness.h"
+>  
+> diff --git a/tools/testing/selftests/riscv/mm/testcases/mmap_default.c b/tools/testing/selftests/riscv/mm/mmap_default.c
+> similarity index 97%
+> rename from tools/testing/selftests/riscv/mm/testcases/mmap_default.c
+> rename to tools/testing/selftests/riscv/mm/mmap_default.c
+> index d1accb91b726..c63c60b9397e 100644
+> --- a/tools/testing/selftests/riscv/mm/testcases/mmap_default.c
+> +++ b/tools/testing/selftests/riscv/mm/mmap_default.c
+> @@ -1,6 +1,6 @@
+>  // SPDX-License-Identifier: GPL-2.0-only
+>  #include <sys/mman.h>
+> -#include <testcases/mmap_test.h>
+> +#include <mmap_test.h>
+>  
+>  #include "../../kselftest_harness.h"
+>  
+> diff --git a/tools/testing/selftests/riscv/mm/testcases/mmap_test.h b/tools/testing/selftests/riscv/mm/mmap_test.h
+> similarity index 100%
+> rename from tools/testing/selftests/riscv/mm/testcases/mmap_test.h
+> rename to tools/testing/selftests/riscv/mm/mmap_test.h
+> diff --git a/tools/testing/selftests/riscv/mm/testcases/run_mmap.sh b/tools/testing/selftests/riscv/mm/run_mmap.sh
+> similarity index 100%
+> rename from tools/testing/selftests/riscv/mm/testcases/run_mmap.sh
+> rename to tools/testing/selftests/riscv/mm/run_mmap.sh
+> -- 
+> 2.39.2
+> 
+Fixes the problem.
 
+Reviewed-by: Charlie Jenkins <charlie@rivosinc.com>
 
-Sometimes things are not in single persons control. Yes, it is
-frustrating, I do understand that.
-
-
-> So please - stop speculating and lets get vCPU hotplug *actually*
-> delivered and usable. Even if it's not 100% perfect.
-
-We need to decide what is the criteria of acceptability and it can
-vary across organizations. It depends upon internal requirements.
-The issues what I pointed are,
-
-1. Legacy OS will not boot on latest platform with hotplug support.
-   - Try running older windows on ARM platform with hotplug support.
-     - older windows will only see boot cpu with online-capable bit.
-     - Will windows use _OSC to check compatibility?
-   - We have verified this with older Linux and it only shows 1 CPU.
-2. Hot(un)plug of cold-booted CPUs.  
-   - Its use-case is subjective. Maybe you can throw light on this.
-
-With current composition of bits both 1 & 2 cannot be supported
-simultaneously. 
-
-It is perfectly okay to live with them while clearly indicating
-what we intend to support or are in process of supporting it.
-But we do need an open discussion about how to proceed. This is
-to avoid surprises later on.
-
-BTW, I am just trying to make every one aware of the problems.
-
-Many thanks!
-
-Best regards
-Salil.
-
-
-
+- Charlie
 
 _______________________________________________
 linux-riscv mailing list
