@@ -4,99 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 940FCCD379F
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 Sep 2023 20:33:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 953A0CD37AA
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 Sep 2023 21:05:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DvWO6gTiVN4po1KJf63ZTJzTGJZv+WLEAnNrisaQY+E=; b=x4qPt3ZTPGs6wV
-	R8lmUvdaGPIULzE6w6sHw3Yfp9Fq+NPx/CVp0ZDHrtMRkKyWHilX0+XsLClZrboLFVB+v83nGAiB+
-	7AkjIzMfJD23vVIrt9Ej9CEVrmh3gzknq4vof0xvWIW8Csial0HMO5/V4TGLakJUeAdBtetp4DzLw
-	bYtgrp99jnr7Pi+wbZ8SrZgVcva5UE/TQeEpIgQXFt2GyKpp5+/VcJqd53Vr7saO2zvWwUuOPFN5E
-	d/Z1GApDCbhQhxW4QNviXA41iCQ2SagAIrhoKpqA/O5MPrmwTPAUguhgWFAT+OaydOnj7XM+4MK3U
-	VKEO6jJoNwIEiH4t1V9A==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
+	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=rtmydvhN91dS+NhvdBzfmDSK90XsfQW5UKIfMobQl6s=; b=0jiHKzjLYtq/ZyBIUdM9SkH0HI
+	rlCZHh2grp1DnOeJvcPDci597tECAVQsh1zOI0pTwkVS2s1kUjQBt3+kQymPQbzMisJFenM/P1efM
+	2B23Qzwz+EP1LXqG6WrbMJRYMrlGGYMsiV9A7KMtlUI5w8dwGi0g65W99sEPT1SoPHZEVRsuqsmex
+	QGiA/5dKwNUxXlEBHCxoVjGpy/N9+6M6BqdKfOhSeXS7mkxnUbVOYMeOb19RNeA6x8OFMLyR9aTlL
+	kz1PYVQGnIM9gQJMpfRtEz7K+BpU+kiCvXwnr3oiMiNf2xfMarjiIRSRGI+BjVCeMRQaHhFSzw0Ji
+	qfEQ7M0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qhFV2-00BKqo-1Q;
-	Fri, 15 Sep 2023 20:33:12 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1qhG0M-00BOEj-20;
+	Fri, 15 Sep 2023 21:05:34 +0000
+Received: from mail-oo1-xc4a.google.com ([2607:f8b0:4864:20::c4a])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qhFUv-00BKpT-32
+	id 1qhG0J-00BOD7-1O
 	for linux-riscv@lists.infradead.org;
-	Fri, 15 Sep 2023 20:33:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1694809985;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=WrVjZ7kgC4jcFpjJhN66OHF12lqiZOVlHb3znhdjkek=;
-	b=Bmy8n6yBFrSIg9KcCVOV1sfrTKJqte4EFS0iICDWpe3etF7BOiSXhUBfnC0AwFSvylQ/9w
-	yLaJ1EAhu9Ajw6GPerM0eaZEiIBxNaA7oH7bzWdQuUfM+uz/hfWjwq6w/CidrCBrU94IVB
-	JVOsv5SEXigo8cGYagUy6PB/4f10GGE=
-Received: from mail-oo1-f69.google.com (mail-oo1-f69.google.com
- [209.85.161.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-668-XOUVp3FTNSeeuNqhIhRJ3A-1; Fri, 15 Sep 2023 16:33:03 -0400
-X-MC-Unique: XOUVp3FTNSeeuNqhIhRJ3A-1
-Received: by mail-oo1-f69.google.com with SMTP id 006d021491bc7-573325a9d49so3549411eaf.1
-        for <linux-riscv@lists.infradead.org>; Fri, 15 Sep 2023 13:33:03 -0700 (PDT)
+	Fri, 15 Sep 2023 21:05:33 +0000
+Received: by mail-oo1-xc4a.google.com with SMTP id 006d021491bc7-5735bb13261so3701516eaf.0
+        for <linux-riscv@lists.infradead.org>; Fri, 15 Sep 2023 14:05:30 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1694811929; x=1695416729; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=yleJC+7YBNlUjlYVNZzM9vt9cQFuPW3G+hVjyHJnwaw=;
+        b=tR8JkMa8Sg0n63+tNDwhHHPcHH/P1iRqoGw0mQnN0nhfHyPIwcDpujMGdRAa8A3E/1
+         yZuE8CORSfywVz64RbiQj9X1WTyUr75/r9U80u/6owJMPiUtedPRoR6qEBjdG+x1hf5D
+         PaZrEKHOMhW8OOglVqX32VmlK4el+aIO460hY76/GMSDs4Y/rO73AZQ0w9uptci/hRo8
+         qO1uuK0FkNmqkKxnY9dqlZm6SuwHVyebewY1JI4YSdHTThnmECMNSPEMhQ5Wp0IBu02H
+         vhvwYf/kmcpSqQDqU9eE1JqFw5UZFMnLhnnQsoMyoQlhb5egT17qLHMAlVQmWpqhzyM2
+         Cmcw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1694809983; x=1695414783;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=WrVjZ7kgC4jcFpjJhN66OHF12lqiZOVlHb3znhdjkek=;
-        b=lVXjMmvu4JviszkGzkk9D3UT9zmdbeZp2+S7aPRl553rs8JMydXln3tutqKAXmRxPS
-         /zYnn3zhyhsMhvqJImDlzm+xMh1Rqy3mKTtISYPGVogjGiwIiWMPp3wMzjRXPs8ayVvP
-         MQ+0Kg1Bi512yfxXdarzJyhnWRMKOzlKwBm98swhOAy/dUtif4pFOAfXNKNcG6jubiaX
-         cHGTO0o/1IK8K6UZBEZMEs4aXWwaWC/U3WPahv1FPgZSRb3utp3rGB6683G0K4rzWAvN
-         86mQpUPUNpBgF+SgyKu/cu1qBzXsP27kTC3y9fl+rCnaqQUEIa52ANg9RovDUGn/9qhV
-         Nzkg==
-X-Gm-Message-State: AOJu0Yy7sD1pV53r/HnLYX6L2wpm0E8Cec3Cxi/GxgagJa1dJ0wRyC2c
-	INh1WvTA5yBH4JyE8Pgo44CjYpuUxxNBHz9xBOr12Qb7tzQ1KvTUYsqYQnQEYSzGPO1cZ68LRsJ
-	IR4rc4qy6ZcN/j7z9f98tdbTY9WQA
-X-Received: by 2002:a05:6820:288:b0:571:28d5:2c78 with SMTP id q8-20020a056820028800b0057128d52c78mr3082809ood.4.1694809982783;
-        Fri, 15 Sep 2023 13:33:02 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHwxF2PNP32An2sFg0rqEJUH0BvQzKLEJn+zbHJmo4XuW0EFunfLplYJcbkoEVl93ib63Hqtw==
-X-Received: by 2002:a05:6820:288:b0:571:28d5:2c78 with SMTP id q8-20020a056820028800b0057128d52c78mr3082766ood.4.1694809982501;
-        Fri, 15 Sep 2023 13:33:02 -0700 (PDT)
-Received: from redhat.com ([2804:1b3:a803:677d:42e9:f426:9422:f020])
-        by smtp.gmail.com with ESMTPSA id e8-20020a4a5508000000b00573a3e283e1sm2172349oob.39.2023.09.15.13.32.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 15 Sep 2023 13:33:02 -0700 (PDT)
-Date: Fri, 15 Sep 2023 17:32:51 -0300
-From: Leonardo Bras <leobras@redhat.com>
-To: Andrew Jones <ajones@ventanamicro.com>
-Cc: guoren@kernel.org, paul.walmsley@sifive.com, anup@brainfault.org,
-	peterz@infradead.org, mingo@redhat.com, will@kernel.org,
-	palmer@rivosinc.com, longman@redhat.com, boqun.feng@gmail.com,
-	tglx@linutronix.de, paulmck@kernel.org, rostedt@goodmis.org,
-	rdunlap@infradead.org, catalin.marinas@arm.com,
-	conor.dooley@microchip.com, xiaoguang.xing@sophgo.com,
-	bjorn@rivosinc.com, alexghiti@rivosinc.com, keescook@chromium.org,
-	greentime.hu@sifive.com, jszhang@kernel.org, wefu@redhat.com,
-	wuwei2016@iscas.ac.cn, linux-arch@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-doc@vger.kernel.org,
-	kvm@vger.kernel.org, virtualization@lists.linux-foundation.org,
-	linux-csky@vger.kernel.org, Guo Ren <guoren@linux.alibaba.com>
-Subject: Re: [PATCH V11 03/17] riscv: Use Zicbop in arch_xchg when available
-Message-ID: <ZQS_cw2m3AtnkJxp@redhat.com>
-References: <20230910082911.3378782-1-guoren@kernel.org>
- <20230910082911.3378782-4-guoren@kernel.org>
- <20230914-1ce4f391a14e56b456d88188@orel>
- <ZQQUQjOaAIc95GXP@redhat.com>
- <20230915-85238ac7734cf543bff3ddad@orel>
-MIME-Version: 1.0
-In-Reply-To: <20230915-85238ac7734cf543bff3ddad@orel>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
-Content-Disposition: inline
+        d=1e100.net; s=20230601; t=1694811929; x=1695416729;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=yleJC+7YBNlUjlYVNZzM9vt9cQFuPW3G+hVjyHJnwaw=;
+        b=Hqm5GVNeM0r3Z5aqdgE4aQrlB/k+hBZnbpnQsx21fxjJciSA+Jh8sznnYvgCnCg7v+
+         jH8VFbh/DBy0wj6wObfx2rLVNUr87LoyUJE+stquLRS/PVoJHF0uvMqwJBnhamz2Ecf8
+         5cmc/rO8AzppsRoOAdgBMkjTD6JDJRqWgkePmAR99AKxz5rp6/1REbxJSXW588UvehlU
+         7+/vzjBBhCyjnJ3WuS6b6hRgeLz3LDFhZInCcLPMUdZP6+PxaiUOBylMdO5CGUBLi3H3
+         vEVtB7ciLgGKxGyIUk4JpwtgiwujRQyqVZDcTluTeAXb224GIa0j5uHqY7nYkGrtcdpk
+         odHw==
+X-Gm-Message-State: AOJu0Ywntve39MjUBDDkLAOCTpiKdfGsN8CtSOXt0QKfwAqxv9UHmpuN
+	USsVmdaUO4uvAykovzJqAY0+DS/XgNs=
+X-Google-Smtp-Source: AGHT+IF9PpTOkzcgimAJrduyF4qwfWt2KP5EbzIhLTMy/s4gm21Ep/5FIgTjRytGlNZlubXZjpDBAQBvLB0=
+X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
+ (user=seanjc job=sendgmr) by 2002:a4a:2c02:0:b0:571:1762:7718 with SMTP id
+ o2-20020a4a2c02000000b0057117627718mr908496ooo.1.1694811929595; Fri, 15 Sep
+ 2023 14:05:29 -0700 (PDT)
+Date: Fri, 15 Sep 2023 14:05:27 -0700
+In-Reply-To: <d4166c97-6ab3-89a2-eb12-f492f7521f69@intel.com>
+Mime-Version: 1.0
+References: <20230914015531.1419405-1-seanjc@google.com> <20230914015531.1419405-2-seanjc@google.com>
+ <d4166c97-6ab3-89a2-eb12-f492f7521f69@intel.com>
+Message-ID: <ZQTHF3J+6FXwRx98@google.com>
+Subject: Re: [RFC PATCH v12 01/33] KVM: Tweak kvm_hva_range and hva_handler_t
+ to allow reusing for gfn ranges
+From: Sean Christopherson <seanjc@google.com>
+To: Xiaoyao Li <xiaoyao.li@intel.com>
+Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
+	Oliver Upton <oliver.upton@linux.dev>, Huacai Chen <chenhuacai@kernel.org>, 
+	Michael Ellerman <mpe@ellerman.id.au>, Anup Patel <anup@brainfault.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, "Matthew Wilcox (Oracle)" <willy@infradead.org>, 
+	Andrew Morton <akpm@linux-foundation.org>, Paul Moore <paul@paul-moore.com>, 
+	James Morris <jmorris@namei.org>, "Serge E. Hallyn" <serge@hallyn.com>, kvm@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
+	linux-fsdevel@vger.kernel.org, linux-mm@kvack.org, 
+	linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Chao Peng <chao.p.peng@linux.intel.com>, Fuad Tabba <tabba@google.com>, 
+	Jarkko Sakkinen <jarkko@kernel.org>, Anish Moorthy <amoorthy@google.com>, 
+	Yu Zhang <yu.c.zhang@linux.intel.com>, Isaku Yamahata <isaku.yamahata@intel.com>, 
+	Xu Yilun <yilun.xu@intel.com>, Vlastimil Babka <vbabka@suse.cz>, 
+	Vishal Annapurve <vannapurve@google.com>, Ackerley Tng <ackerleytng@google.com>, 
+	Maciej Szmigiero <mail@maciej.szmigiero.name>, David Hildenbrand <david@redhat.com>, 
+	Quentin Perret <qperret@google.com>, Michael Roth <michael.roth@amd.com>, Wang <wei.w.wang@intel.com>, 
+	Liam Merwick <liam.merwick@oracle.com>, Isaku Yamahata <isaku.yamahata@gmail.com>, 
+	"Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230915_133309_094070_37D3875B 
-X-CRM114-Status: GOOD (  35.83  )
+X-CRM114-CacheID: sfid-20230915_140531_468613_E0782140 
+X-CRM114-Status: GOOD (  16.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,127 +109,35 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 15, 2023 at 01:07:40PM +0200, Andrew Jones wrote:
-> On Fri, Sep 15, 2023 at 05:22:26AM -0300, Leonardo Bras wrote:
-> > On Thu, Sep 14, 2023 at 03:47:59PM +0200, Andrew Jones wrote:
-> > > On Sun, Sep 10, 2023 at 04:28:57AM -0400, guoren@kernel.org wrote:
-> > > > From: Guo Ren <guoren@linux.alibaba.com>
-> ...
-> > > > diff --git a/arch/riscv/include/asm/insn-def.h b/arch/riscv/include/asm/insn-def.h
-> > > > index 6960beb75f32..dc590d331894 100644
-> > > > --- a/arch/riscv/include/asm/insn-def.h
-> > > > +++ b/arch/riscv/include/asm/insn-def.h
-> > > > @@ -134,6 +134,7 @@
-> > > >  
-> > > >  #define RV_OPCODE_MISC_MEM	RV_OPCODE(15)
-> > > >  #define RV_OPCODE_SYSTEM	RV_OPCODE(115)
-> > > > +#define RV_OPCODE_PREFETCH	RV_OPCODE(19)
-> > > 
-> > > This should be named RV_OPCODE_OP_IMM and be placed in
-> > > numerical order with the others, i.e. above SYSTEM.
-> > > 
-> > > >  
-> > > >  #define HFENCE_VVMA(vaddr, asid)				\
-> > > >  	INSN_R(OPCODE_SYSTEM, FUNC3(0), FUNC7(17),		\
-> > > > @@ -196,4 +197,8 @@
-> > > >  	INSN_I(OPCODE_MISC_MEM, FUNC3(2), __RD(0),		\
-> > > >  	       RS1(base), SIMM12(4))
-> > > >  
-> > > > +#define CBO_prefetchw(base)					\
-> > > 
-> > > Please name this 'PREFETCH_w' and it should take an immediate parameter,
-> > > even if we intend to pass 0 for it.
+On Fri, Sep 15, 2023, Xiaoyao Li wrote:
+> On 9/14/2023 9:54 AM, Sean Christopherson wrote:
+> > Rework and rename "struct kvm_hva_range" into "kvm_mmu_notifier_range" so
+> > that the structure can be used to handle notifications that operate on gfn
+> > context, i.e. that aren't tied to a host virtual address.
 > > 
-> > It makes sense.
+> > Practically speaking, this is a nop for 64-bit kernels as the only
+> > meaningful change is to store start+end as u64s instead of unsigned longs.
 > > 
-> > The mnemonic in the previously mentioned documentation is:
+> > Reviewed-by: Paolo Bonzini <pbonzini@redhat.com>
+> > Signed-off-by: Sean Christopherson <seanjc@google.com>
+> > ---
+> >   virt/kvm/kvm_main.c | 34 +++++++++++++++++++---------------
+> >   1 file changed, 19 insertions(+), 15 deletions(-)
 > > 
-> > prefetch.w offset(base)
-> > 
-> > So yeah, makes sense to have both offset and base as parameters for 
-> > CBO_prefetchw (or PREFETCH_w, I have no strong preference).
+> > diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
+> > index 486800a7024b..0524933856d4 100644
+> > --- a/virt/kvm/kvm_main.c
+> > +++ b/virt/kvm/kvm_main.c
+> > @@ -541,18 +541,22 @@ static inline struct kvm *mmu_notifier_to_kvm(struct mmu_notifier *mn)
+> >   	return container_of(mn, struct kvm, mmu_notifier);
+> >   }
+> > -typedef bool (*hva_handler_t)(struct kvm *kvm, struct kvm_gfn_range *range);
+> > +typedef bool (*gfn_handler_t)(struct kvm *kvm, struct kvm_gfn_range *range);
 > 
-> I have a strong preference :-)
-> 
-> PREFETCH_w is consistent with the naming we already have for e.g.
-> cbo.clean, which is CBO_clean. The instruction we're picking a name
-> for now is prefetch.w, not cbo.prefetchw.
-> 
-> > 
-> > > 
-> > > > +	INSN_R(OPCODE_PREFETCH, FUNC3(6), FUNC7(0),		\
-> > > > +	       RD(x0), RS1(base), RS2(x0))
-> > > 
-> > > prefetch.w is not an R-type instruction, it's an S-type. While the bit
-> > > shifts are the same, the names are different. We need to add S-type
-> > > names while defining this instruction. 
-> > 
-> > That is correct, it is supposed to look like a store instruction (S-type), 
-> > even though documentation don't explicitly state that.
-> > 
-> > Even though it works fine with the R-type definition, code documentation 
-> > would be wrong, and future changes could break it.
-> > 
-> > > Then, this define would be
-> > > 
-> > >  #define PREFETCH_w(base, imm) \
-> 
-> I should have suggested 'offset' instead of 'imm' for the second parameter
-> name.
-> 
-> > >      INSN_S(OPCODE_OP_IMM, FUNC3(6), IMM_11_5(imm), __IMM_4_0(0), \
-> > >             RS1(base), __RS2(3))
-> > 
-> > s/OPCODE_OP_IMM/OPCODE_PREFETCH
-> > 0x4 vs 0x13
-> 
-> There's no major opcode named "PREFETCH" and the spec says that the major
-> opcode used for prefetch instructions is OP-IMM. That's why we want to
-> name this OPCODE_OP_IMM. I'm not sure where the 0x4 you're referring to
-> comes from
+> Is it worth mentioning the rename of it as well in changelog?
 
-Oh, you are right.
-
-Sorry about this, I misinterpreted table 24.1 from the 
-Unprivileged ISA (20191213). 
-
-Yeap, everything make sense now, and the define below is not actually 
-needed:
-
-> > > > +#define RV_OPCODE_PREFETCH     RV_OPCODE(19)
-
-Thanks!
-Leo
-
-
-> . A 32-bit instruction has the lowest two bits set (figure 1.1
-> of the unpriv spec) and table 27.1 of the unpriv spec shows OP-IMM is
-> 0b00100xx, so we have 0b0010011. Keeping the naming of the opcode macros
-> consistent with the spec also keeps them consistent with the .insn
-> directive where we could even use the names directly, i.e.
-> 
->  .insn s OP_IMM, 6, x3, 0(a0)
-> 
-> > > 
-> > > When the assembler as insn_r I hope it will validate that
-> 
-> I meant insn_s here, which would be the macro for '.insn s'
-> 
-> > > (imm & 0xfe0) == imm
-> 
-> I played with it. It won't do what we want for prefetch, only
-> what works for s-type instructions in general, i.e. it allows
-> +/-2047 offsets and fails for everything else. That's good enough.
-> We can just mask off the low 5 bits here in our macro
-> 
->  #define PREFETCH_w(base, offset) \
->     INSN_S(OPCODE_OP_IMM, FUNC3(6), IMM_11_5((offset) & ~0x1f), \
->            __IMM_4_0(0), RS1(base), __RS2(3))
-> 
-> Thanks,
-> drew
-> 
-
+Meh, I suppose.  At some point, we do have to assume a certain level of code
+literacy though :-)
 
 _______________________________________________
 linux-riscv mailing list
