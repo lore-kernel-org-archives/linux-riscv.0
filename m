@@ -4,82 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 091AAEE644C
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 Sep 2023 10:01:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB439EE644C
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 Sep 2023 10:03:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=+y5tG4VcVGn/SM9Gr0bBoMEtXeZxMoPHkosQPGZ4fB0=; b=Gar9VSVtYkOnAO
-	Rd81izSETV0CjYR5GqdpskIQhf4Sd9qXBDXLjD0h3qSfjynfyHR8dJ6Qr/O8bIKZzKzVZ5yZj7NNh
-	e5iFzuEtlTdq6DCbdz15cIrMvUmuPeiXbARUPaM0qMu83u3Zwz8lTD3fMH3KBkTIkUBk74ZJFKG6E
-	u3p2NLp5AWoKWv6uSAP3Up1mOolTRYpyrqEHsrKY2nNy4UUAacs0CklU83V3uEwZFJWlaEWvBI8Tr
-	X0azWmqJTNvXXZHT/wRkV0y/JQzsveAYCkNzbu0CHVynfIrPy15KtSkcHZjrvKWRyJHNXA6dlgYvw
-	Suh+KWlVnH8jDBhIMogA==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:
+	Mime-Version:References:In-Reply-To:From:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=JpHNa6Qxp7xss2ybQVMqyToM/bgBVzVWUtEZ/oTpnwM=; b=q7W1QIukseONg+G+ROTJkvWyZ2
+	vnphjNVKfIZYrOj6Js09y4sNFxgXVIdZ4YdJgJd3/NLdgm0WSjenPSPmTkS3SiuAUnDUImdbLlJVl
+	PDnXMVN+J438ap+mmmmW21UQloKnZOIeZEAVU364fSwefP+Vt57ZuIfCZxmEy90NeyxcJPOQ0YAdE
+	eUPhGkylfV3eLJSYqRzFmO2668Tpovlj7rO6alTdqpQ/aR6gqktjhuosOO45gp+HFa6oCksD7n4rn
+	VHu60yPvHegMvlw1JFwVG6vIv5nVC/bvhEGaO6SYUNyV7/41JBARNbJY3+YtUaX8ooFBLCziZ5GEu
+	Cu97HuhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qh5db-00ALmF-0M;
-	Fri, 15 Sep 2023 10:01:23 +0000
-Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
+	id 1qh5f8-00ALxS-0N;
+	Fri, 15 Sep 2023 10:02:58 +0000
+Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qh5dX-00ALlS-2m
+	id 1qh5f4-00ALw8-10
 	for linux-riscv@lists.infradead.org;
-	Fri, 15 Sep 2023 10:01:21 +0000
-Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-31fe3426a61so1285473f8f.1
-        for <linux-riscv@lists.infradead.org>; Fri, 15 Sep 2023 03:01:18 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1694772077; x=1695376877; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=9YXFI+WhfAISDbsXD1xioqZrn+hF0Uu9c9p7iUiwhwc=;
-        b=jxguE/GFOgOysDFk+BNeOpUXLFOjWex8uqqgIE7XZk8EGbH3iVv3GTdOtQ9ZK4tTli
-         FPk44yEMDxORabnA1RogU+1vQJGX27Ymqm3WBsEI2hI/Wk7tUFfJZGomSRZRNsa/YTuq
-         1Sbq9/8vvZclZl32MFj3A+KU4NEnJ9XYbYHjOSWLyox0GsjD95GecEc8Jbf3b8kg+s1b
-         fqXz+4W0gvY0SZxwnZe7Tlonm67rMSV40J87Yob0PtFSLEf2TR86qQs4isv6rZ+qDlm6
-         HPwIdFO5Bf/ZTGitgwhndtcIXc4BS0YKCTWkNUau+ewS3hoPo6PbfoTSRCscvoU3pgs5
-         FI+Q==
+	Fri, 15 Sep 2023 10:02:56 +0000
+Received: from mail-qt1-f198.google.com (mail-qt1-f198.google.com [209.85.160.198])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id D122D3F67A
+	for <linux-riscv@lists.infradead.org>; Fri, 15 Sep 2023 10:02:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+	s=20210705; t=1694772168;
+	bh=QkyFp7kf2CVO2Ub+8zdfAbl+jurBUvZ+r3KzB+EtSOE=;
+	h=From:In-Reply-To:References:Mime-Version:Date:Message-ID:Subject:
+	 To:Cc:Content-Type;
+	b=Cl633bW+qJNcebsrcec5ajCpi/p/4uooYtmUqZHFdVJuY1li6JWm2W68Het3EM1E4
+	 UBGpdfieeKjRhykQNDs8UxLtaX7iRm6cVHJ6PsU/z2UKhzUi7MVeX1oP/IUBIL3g3q
+	 1S0DfTnSn78XaO4LrmxnFP1wAzPpxL68mlNPXJe2Aj9VmqJim6IeryxfW2z9rS+/bG
+	 h8KI2jJ/NKgNAjlzs5sK4GVm+2wxkmougECfwH+FJVwHmenG9iHslENzA1VkS2tbc8
+	 x66Q0Xj4zyw4LMpVY32E8dyAdoR+2qz1l6CQ9BhGcdfO2F6yNmJ5OjFlnAkH1sqbjH
+	 rUh9ejCIqiJQA==
+Received: by mail-qt1-f198.google.com with SMTP id d75a77b69052e-41360d145b1so22139941cf.1
+        for <linux-riscv@lists.infradead.org>; Fri, 15 Sep 2023 03:02:48 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1694772077; x=1695376877;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=9YXFI+WhfAISDbsXD1xioqZrn+hF0Uu9c9p7iUiwhwc=;
-        b=B7KSt6N+G9CjGhg3B1KwIsDv/vlZLOz6gHREBYSlgMy8glQf+DORecARg3dbDr/YQz
-         TpVMQxq9RAR/15rSjcbMjeugrv5//zrMD4z9mpoj7zuAC3BjriXTPJc/Z2Un5Jb1igp8
-         kA15QsFvCA5Cu1GthRSYrM1qzWTGj/Qxt6Yes99kYPX4Ac7ZcYarCu99thVgqMDsqS3i
-         FHHcLw9RLN8/hq/q3cwSso4IFHLqjIM3RbZK6DLEpLOXoeEqlSuJrQDSHOJBPUhFOtvA
-         GeNuNCuiDbmwttalgQL81SE/zvEyfJ+N1lEjWTMjrSh/X/QLrj3u7cGcPLPGiEl5pbVs
-         gyUQ==
-X-Gm-Message-State: AOJu0Yy7F9q2CPiKqa5MHIEAeuPu3Vjs3bey7IgVotr+UCfNxMb/uHDk
-	y5rkZireyNibLK27JXwdcr7JBg==
-X-Google-Smtp-Source: AGHT+IFjJ+aht9zx/gPFks21b7hJ4FuUG1vcbtzV4LI5E5IEoy/v218pa5LbKYLuHYFo6Stc9Z5KtA==
-X-Received: by 2002:adf:a303:0:b0:31f:f84e:f63e with SMTP id c3-20020adfa303000000b0031ff84ef63emr540429wrb.54.1694772076646;
-        Fri, 15 Sep 2023 03:01:16 -0700 (PDT)
-Received: from alex-rivos.home (amontpellier-656-1-456-62.w92-145.abo.wanadoo.fr. [92.145.124.62])
-        by smtp.gmail.com with ESMTPSA id f4-20020adfdb44000000b00317f29ad113sm4057900wrj.32.2023.09.15.03.01.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 15 Sep 2023 03:01:15 -0700 (PDT)
-From: Alexandre Ghiti <alexghiti@rivosinc.com>
-To: Shuah Khan <shuah@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Charlie Jenkins <charlie@rivosinc.com>,
-	linux-kselftest@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
-Subject: [PATCH -fixes] riscv: kselftests: Fix mm build by removing testcases subdirectory
-Date: Fri, 15 Sep 2023 12:01:13 +0200
-Message-Id: <20230915100113.13131-1-alexghiti@rivosinc.com>
-X-Mailer: git-send-email 2.39.2
-MIME-Version: 1.0
+        d=1e100.net; s=20230601; t=1694772166; x=1695376966;
+        h=cc:to:subject:message-id:date:mime-version:references:in-reply-to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=QkyFp7kf2CVO2Ub+8zdfAbl+jurBUvZ+r3KzB+EtSOE=;
+        b=sAJNhtyjGUPspUK0ZSsGomqVIg2eiTXJAjoD1kdfO9uYNBvakajHRLx0eo7ZwEEeL+
+         yZJ5WMWVnDfj8iT6Bjx77MtrfchtSVF2e+KeJCEFj+Q4ReqnmefnJRLoGQDpjR4MfVS7
+         8yVjb6y6QrYXJ/nQQny0YmW3Y/zZEWzUQPNMbDaLRTMLFS/FWJlsYMhrZhGz8qibC/Sd
+         HRfjOYlCWodLAEY1DtGqavRUsTIg4FHmUMTpQyBGWNPFdFwBFF0NZEGbsiEaHvFR9D8A
+         IhWn/MSyNAHPFdlSEUzlV7yHbLJSX0WgdK0v3Bj+SY9ES27ilOTCvL/VOIiCmUftb1r8
+         ki+g==
+X-Gm-Message-State: AOJu0Yzf/3owIxPBF8MvShLNOeYWTwyhXv2MHXJ13Po/dG6yzMcOBwei
+	mzHLD6O8auBa70oNiYFIefak2RYcw7Abs3M/bCot4XeM+/zlDsG7heclxeWdQzUMogfvOvsTRaJ
+	GadiW0KuRdu+lkO7HqZKSY3OMPhLXZivITZ+RJ/4zW0v0TyT8az3MX0fs8Qa/ww==
+X-Received: by 2002:a05:622a:50f:b0:413:3384:d43f with SMTP id l15-20020a05622a050f00b004133384d43fmr1205913qtx.11.1694772166711;
+        Fri, 15 Sep 2023 03:02:46 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IHcuEVbIaKxRfintolzQeQEqh1KYU8VcadUoiPE32/xiQVSV3jCFDSTK9K4fjz4v/l2KVtOBfxlhc7L+2IchGU=
+X-Received: by 2002:a05:622a:50f:b0:413:3384:d43f with SMTP id
+ l15-20020a05622a050f00b004133384d43fmr1205890qtx.11.1694772166482; Fri, 15
+ Sep 2023 03:02:46 -0700 (PDT)
+Received: from 348282803490 named unknown by gmailapi.google.com with
+ HTTPREST; Fri, 15 Sep 2023 03:02:46 -0700
+From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+In-Reply-To: <803daa8f-f4bd-34b7-f826-89e1db5f24f6@linaro.org>
+References: <20230915072558.118325-1-wangchen20@iscas.ac.cn> <803daa8f-f4bd-34b7-f826-89e1db5f24f6@linaro.org>
+Mime-Version: 1.0
+Date: Fri, 15 Sep 2023 03:02:45 -0700
+Message-ID: <CAJM55Z-GMm5Hmk7-QWt8Prvp7qyFzOrQVjOjB7jfoX-oiT_C1A@mail.gmail.com>
+Subject: Re: [PATCH 10/12] serial: 8250_dw: Add Sophgo SG2042 support
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, Wang Chen <unicornxw@gmail.com>, 
+	linux-riscv@lists.infradead.org, conor@kernel.org, aou@eecs.berkeley.edu, 
+	krzysztof.kozlowski+dt@linaro.org, palmer@dabbelt.com, 
+	paul.walmsley@sifive.com, robh+dt@kernel.org
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	jszhang@kernel.org, guoren@kernel.org, chao.wei@sophgo.com, 
+	xiaoguang.xing@sophgo.com, 
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230915_030119_899967_EBF5780B 
-X-CRM114-Status: UNSURE (   9.10  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230915_030254_771666_1D916F60 
+X-CRM114-Status: GOOD (  20.14  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,85 +103,66 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-kselftests fails to build because the mm/testcases subdirectory is not
-created and then the compiler fails to output the binary there.
+Krzysztof Kozlowski wrote:
+> On 15/09/2023 09:25, Wang Chen wrote:
+> > From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+> >
+> > Add quirk to skip setting the input clock rate for the uarts on the
+> > Sophgo SG2042 SoC similar to the StarFive JH7100.
+> >
+> > Signed-off-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+>
+> Missing SoB.
+>
+> > ---
+> >  drivers/tty/serial/8250/8250_dw.c | 5 +++--
+> >  1 file changed, 3 insertions(+), 2 deletions(-)
+> >
+> > diff --git a/drivers/tty/serial/8250/8250_dw.c b/drivers/tty/serial/8250/8250_dw.c
+> > index f4cafca1a7da..6c344877a07f 100644
+> > --- a/drivers/tty/serial/8250/8250_dw.c
+> > +++ b/drivers/tty/serial/8250/8250_dw.c
+> > @@ -770,7 +770,7 @@ static const struct dw8250_platform_data dw8250_renesas_rzn1_data = {
+> >  	.quirks = DW_UART_QUIRK_IS_DMA_FC,
+> >  };
+> >
+> > -static const struct dw8250_platform_data dw8250_starfive_jh7100_data = {
+> > +static const struct dw8250_platform_data dw8250_skip_set_rate_data = {
+>
+> Why? What is wrong with old name?
+>
+> >  	.usr_reg = DW_UART_USR,
+> >  	.quirks = DW_UART_QUIRK_SKIP_SET_RATE,
+> >  };
+> > @@ -780,7 +780,8 @@ static const struct of_device_id dw8250_of_match[] = {
+> >  	{ .compatible = "cavium,octeon-3860-uart", .data = &dw8250_octeon_3860_data },
+> >  	{ .compatible = "marvell,armada-38x-uart", .data = &dw8250_armada_38x_data },
+> >  	{ .compatible = "renesas,rzn1-uart", .data = &dw8250_renesas_rzn1_data },
+> > -	{ .compatible = "starfive,jh7100-uart", .data = &dw8250_starfive_jh7100_data },
+> > +	{ .compatible = "sophgo,sg2042-uart", .data = &dw8250_skip_set_rate_data },
+> > +	{ .compatible = "starfive,jh7100-uart", .data = &dw8250_skip_set_rate_data },
+>
+> So devices are fully compatible? Then use compatibility and drop this
+> patch entirely.
 
-So fix this by simply removing this subdirectory which is not very
-useful.
+I'm fine with this, but these are two different companies and SoCs that just
+happens to have both implemented the Designware UART with an inflexible input
+clock. So if fx. a real quirk is found on the JH7110 then we'd need to either
+change the compatible on an unrelated SoC or change compatible on the JH7110 to
+something like "starfive,jh7100-uart-with-quirk" and "starfive,jh7100-uart" will
+forever be a quirky way to spell "dw8250 with inflexible input clock".
+Is that how device trees are supposed to work?
 
-Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
----
- tools/testing/selftests/riscv/mm/Makefile                   | 6 +++---
- .../selftests/riscv/mm/{testcases => }/mmap_bottomup.c      | 2 +-
- .../selftests/riscv/mm/{testcases => }/mmap_default.c       | 2 +-
- .../testing/selftests/riscv/mm/{testcases => }/mmap_test.h  | 0
- .../testing/selftests/riscv/mm/{testcases => }/run_mmap.sh  | 0
- 5 files changed, 5 insertions(+), 5 deletions(-)
- rename tools/testing/selftests/riscv/mm/{testcases => }/mmap_bottomup.c (97%)
- rename tools/testing/selftests/riscv/mm/{testcases => }/mmap_default.c (97%)
- rename tools/testing/selftests/riscv/mm/{testcases => }/mmap_test.h (100%)
- rename tools/testing/selftests/riscv/mm/{testcases => }/run_mmap.sh (100%)
-
-diff --git a/tools/testing/selftests/riscv/mm/Makefile b/tools/testing/selftests/riscv/mm/Makefile
-index 11e0f0568923..c333263f2b27 100644
---- a/tools/testing/selftests/riscv/mm/Makefile
-+++ b/tools/testing/selftests/riscv/mm/Makefile
-@@ -5,11 +5,11 @@
- # Additional include paths needed by kselftest.h and local headers
- CFLAGS += -D_GNU_SOURCE -std=gnu99 -I.
- 
--TEST_GEN_FILES := testcases/mmap_default testcases/mmap_bottomup
-+TEST_GEN_FILES := mmap_default mmap_bottomup
- 
--TEST_PROGS := testcases/run_mmap.sh
-+TEST_PROGS := run_mmap.sh
- 
- include ../../lib.mk
- 
--$(OUTPUT)/mm: testcases/mmap_default.c testcases/mmap_bottomup.c testcases/mmap_tests.h
-+$(OUTPUT)/mm: mmap_default.c mmap_bottomup.c mmap_tests.h
- 	$(CC) -o$@ $(CFLAGS) $(LDFLAGS) $^
-diff --git a/tools/testing/selftests/riscv/mm/testcases/mmap_bottomup.c b/tools/testing/selftests/riscv/mm/mmap_bottomup.c
-similarity index 97%
-rename from tools/testing/selftests/riscv/mm/testcases/mmap_bottomup.c
-rename to tools/testing/selftests/riscv/mm/mmap_bottomup.c
-index b29379f7e478..1757d19ca89b 100644
---- a/tools/testing/selftests/riscv/mm/testcases/mmap_bottomup.c
-+++ b/tools/testing/selftests/riscv/mm/mmap_bottomup.c
-@@ -1,6 +1,6 @@
- // SPDX-License-Identifier: GPL-2.0-only
- #include <sys/mman.h>
--#include <testcases/mmap_test.h>
-+#include <mmap_test.h>
- 
- #include "../../kselftest_harness.h"
- 
-diff --git a/tools/testing/selftests/riscv/mm/testcases/mmap_default.c b/tools/testing/selftests/riscv/mm/mmap_default.c
-similarity index 97%
-rename from tools/testing/selftests/riscv/mm/testcases/mmap_default.c
-rename to tools/testing/selftests/riscv/mm/mmap_default.c
-index d1accb91b726..c63c60b9397e 100644
---- a/tools/testing/selftests/riscv/mm/testcases/mmap_default.c
-+++ b/tools/testing/selftests/riscv/mm/mmap_default.c
-@@ -1,6 +1,6 @@
- // SPDX-License-Identifier: GPL-2.0-only
- #include <sys/mman.h>
--#include <testcases/mmap_test.h>
-+#include <mmap_test.h>
- 
- #include "../../kselftest_harness.h"
- 
-diff --git a/tools/testing/selftests/riscv/mm/testcases/mmap_test.h b/tools/testing/selftests/riscv/mm/mmap_test.h
-similarity index 100%
-rename from tools/testing/selftests/riscv/mm/testcases/mmap_test.h
-rename to tools/testing/selftests/riscv/mm/mmap_test.h
-diff --git a/tools/testing/selftests/riscv/mm/testcases/run_mmap.sh b/tools/testing/selftests/riscv/mm/run_mmap.sh
-similarity index 100%
-rename from tools/testing/selftests/riscv/mm/testcases/run_mmap.sh
-rename to tools/testing/selftests/riscv/mm/run_mmap.sh
--- 
-2.39.2
-
+/Emil
+>
+> Best regards,
+> Krzysztof
+>
+>
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
