@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4A87EE6425
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 Sep 2023 07:24:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36E07EE6427
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 Sep 2023 07:24:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=0yjRodQmmPYw2M1cEYBBT2WeKrBqTwLbrNYXRPw3Nzc=; b=Nq4qoai6CnXYmF
-	FssiLiDk7Xe1A4o8hyC+ShWs5UTUpFW+QW0RCj8yaZ6TuHTSjS5HBvmT4Ye2kG8Zi6/ekdck90t2y
-	vHKi05JDFtr7wvclr7+aYwT6ouZy6eF6WS9WKkrw1XuYh4DK2yoR8fhQ/Rs89vBXLgV3/HHxoPJVu
-	goFsxuSMecZuJtGEcgNIcC6Daa6wP3DBckXoGCFBtEmEJN50dtRmc77b9IcXiJTgAhj3O71Dav8Z0
-	aNm/hNHKIYwusU6pEG8qgTUwrpasz4s7oYH+b4uo5siwCbN5Rq0A3RSPcn5whRFgeSQfxPrjzflKA
-	Xp02FxZWfpuHle/+Hv/w==;
+	List-Owner; bh=h/OovWphAPIRCPQCdExM+qht8dyrxTA4EuVLA7bDnKk=; b=btFogHzMNz0cuJ
+	zTBJE71q/udDVGDiuZ43TbB0/eX9pIbJ0RcFnSeuuBvTqlOpJRXIOKbjq4qRwbcTxCyRCkh+HHTyY
+	SORbZWXjX51OoW/iHSn/lnUxOB/5+CVZLi0EoquqqVv+x1m53h97C5BOrH9T++58VNPEDpT3qC/YS
+	ViInFeQPYTl2A5wQtZnk670dFSMPe2/0Eee3NrKkY5DS+c/HLPlkPnSaih3ezUkSDxHYxvxfQYLci
+	vn6jiGIC+GivAlZ2ZvjP2He9k5rWpRrk78SpBCrT6CJxd8gQsunLQhZJePBcHP1R/xB/xKxchl5+C
+	IiilfqNJ6etULPG+XLkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qh3BT-00A1GW-1u;
-	Fri, 15 Sep 2023 07:24:11 +0000
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+	id 1qh3Bm-00A1LY-26;
+	Fri, 15 Sep 2023 07:24:30 +0000
+Received: from mail-pg1-x535.google.com ([2607:f8b0:4864:20::535])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qh3BR-00A1FX-2X
+	id 1qh3Bk-00A1K9-23
 	for linux-riscv@lists.infradead.org;
-	Fri, 15 Sep 2023 07:24:11 +0000
-Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-1c0ecb9a075so15239735ad.2
-        for <linux-riscv@lists.infradead.org>; Fri, 15 Sep 2023 00:24:08 -0700 (PDT)
+	Fri, 15 Sep 2023 07:24:30 +0000
+Received: by mail-pg1-x535.google.com with SMTP id 41be03b00d2f7-51b4ef5378bso1444228a12.1
+        for <linux-riscv@lists.infradead.org>; Fri, 15 Sep 2023 00:24:26 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1694762647; x=1695367447; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1694762665; x=1695367465; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=QaNp6vd76nBX4EIgc/17q2XiC73X4sxuT4uDWwfKOL4=;
-        b=kCVAVC9gB8gE1BSGQ3+KI7geTqtyXXhPno0LpTaOHYfZtGhTfTZ8qVfBFkS06EicdT
-         sH34L089XHKJ0ZyOTdoRQfo7ZMbDmDKVnxJ7bGrpC6k8kqF6gRQCq30GVyf+12z6vLsV
-         LaWVhRGMMclyink7He83Nqr7gQNtHXaTXkhSBdfjtmpWzKVtiRmFuFDVFQJH9BqBQr0w
-         PqC58Yh8Pw4cPB0D+DJuKvo8ktQz1WohvbgNxCQkwHQI+lxYP5zL9q66llJsY2dzjPwv
-         AHf2YOL5j7f2mmrpQmaiKLDZ4YolsBZJnTNnu9zYawrD2Kz91mBmkKYSTHYBtdDxPp39
-         D4og==
+        bh=FJzMSRsFGWXl1x3CI8KZnuJ0K/8zXSh3L5yWA+KvyC4=;
+        b=DMustf5COsYKsOsO7ZlndXnjz0tkTcHI56oiTNrN2X/yMajRGWJkc6Hl5MyZCJzmC5
+         ScIFiN4uDb0fGK7SuLYXB+rsW28grNjuNMHnv8XpIF29R00IQEfHPQjnIYTE7DnM45a0
+         RNCk3LlKqfIJ0E7r/q0gQ9HCwxywMHJWFy7mgNQgolC30I5V7OR3xQhRKThQogRUAZ6L
+         tiyWLbdUt+xh2YljnGfHkx/vyEvBsEUJjr97FMcqeQplC87qvQOK/xPR2f+Ha8xw2zmI
+         Gs45MUHw9mfqZAQhDG4LDNSf9skBAp7no2KtgzUzb0FuwvIqMyw1MRxrPJ6G8oZI8bXU
+         gUEg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1694762647; x=1695367447;
+        d=1e100.net; s=20230601; t=1694762665; x=1695367465;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=QaNp6vd76nBX4EIgc/17q2XiC73X4sxuT4uDWwfKOL4=;
-        b=CiBJeP9bBXdhs5Y5wMRIVkCO/Omeoazhn3ZUCpBHpsX5dLhHgfsvuM+5lQIarTULcH
-         S09zcHvs2t3zmS+us93SYYfS1Bktz4pND3zmK/2O6AZZWrmPBtbM3LnDao7nR8ZjZ9o5
-         VeKg5HZahwP0dQJOr82KYP1UTUXMxm+XjrZirzH1F3z/6hLjTq+49si4PT8Y0TXJKibT
-         n77XjgBySGqgSuNRnmyF/FrHgD939KaY/yE1DBoSQDuj5Um56rxRoT10ZSa3Q0ruDrZQ
-         99vH/XPuPLqD0bDA4VU58XRXpsz+kK9OoRfAlMcHNTPeaqIYJxYlgPBR7HPactUBURAl
-         xlfw==
-X-Gm-Message-State: AOJu0YwgkrHAa8OcAHjqyinqpJ+5qc7EYZmBL0c76jjKUw6JXfFrifuI
-	HhcEuqCf/ncofVwWh+NBIuinmVDmYOsdSA==
-X-Google-Smtp-Source: AGHT+IHyv/ddLA7MSNkIAr2jiHyMnYSlV0XYvR0QP7EyYs9q3c9bwg8H3ZjmKsWw+CfJpBwlz9L5jA==
-X-Received: by 2002:a17:902:7081:b0:1bc:7001:6e62 with SMTP id z1-20020a170902708100b001bc70016e62mr740375plk.35.1694762647382;
-        Fri, 15 Sep 2023 00:24:07 -0700 (PDT)
+        bh=FJzMSRsFGWXl1x3CI8KZnuJ0K/8zXSh3L5yWA+KvyC4=;
+        b=IkaN5RpoP67AxdpkqvkKorSm/Ts4+4IlcVfLzzw2sRlvltO7pHBuHUeFX/LOdCirtS
+         ji5st9bgNziooewNtP5+xJSuleJeMa0+bHg7UJtBDb36NFONs9iF63e2f+bh43OOPJaX
+         ozZ/PBwYcvji5kCWgCoQBcMAx6LENpywT815CWoRwNztZ3snhgUroSopMfhYYzRY6D9N
+         a6ufWNWp6vhwM9NGPwU/9oJiJ87QLLbjibtBaeAEtIVjQGi8aACznrD4h0IYku5ua4av
+         4Xrj6Zu2QzZWbtKo7Moqu5fh/26Xfq5tCwIqeDMnDbTJZEuMIwk34nP0/s8n/s/hQ3Hc
+         QKCg==
+X-Gm-Message-State: AOJu0YwCfrIjrNd0VTWPTE+b7LuMwY/VBU1/KQ4Pth9FRds/dccb87Wo
+	mOoFgws6F6thfDzEPmq++y4TY7zqMWy42A==
+X-Google-Smtp-Source: AGHT+IGcjDGq/pgBeaCYUPSCvCko2Srj453SkMBJJGtrdJ8Q+8SCbaXebokzJrDTdZf7vscyLfhB/Q==
+X-Received: by 2002:a17:90b:4a0d:b0:274:862f:3433 with SMTP id kk13-20020a17090b4a0d00b00274862f3433mr656664pjb.18.1694762665416;
+        Fri, 15 Sep 2023 00:24:25 -0700 (PDT)
 Received: from localhost.localdomain ([222.95.63.58])
-        by smtp.gmail.com with ESMTPSA id bd12-20020a170902830c00b001b86dd825e7sm717590plb.108.2023.09.15.00.24.01
+        by smtp.gmail.com with ESMTPSA id 8-20020a17090a004800b0026b420ae167sm4590589pjb.17.2023.09.15.00.24.20
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 15 Sep 2023 00:24:07 -0700 (PDT)
+        Fri, 15 Sep 2023 00:24:25 -0700 (PDT)
 From: Wang Chen <unicornxw@gmail.com>
 X-Google-Original-From: Wang Chen <wangchen20@iscas.ac.cn>
 To: linux-riscv@lists.infradead.org,
@@ -76,16 +76,15 @@ Cc: devicetree@vger.kernel.org,
 	guoren@kernel.org,
 	chao.wei@sophgo.com,
 	xiaoguang.xing@sophgo.com,
-	Wang Chen <wangchen20@iscas.ac.cn>
-Subject: [PATCH 05/12] dt-bindings: interrupt-controller: Add SOPHGO's SG2042 PLIC
-Date: Fri, 15 Sep 2023 15:23:58 +0800
-Message-Id: <20230915072358.118045-1-wangchen20@iscas.ac.cn>
+	Inochi Amaoto <inochiama@outlook.com>
+Subject: [PATCH 06/12] dt-bindings: timer: Add Sophgo sg2042 clint
+Date: Fri, 15 Sep 2023 15:24:15 +0800
+Message-Id: <20230915072415.118100-1-wangchen20@iscas.ac.cn>
 X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230915_002409_825055_10CF044A 
-X-CRM114-Status: UNSURE (   7.78  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230915_002428_677673_E8F1C9F4 
+X-CRM114-Status: GOOD (  10.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,26 +101,63 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add compatible string for SOPHGO SG2042 plic.
+From: Inochi Amaoto <inochiama@outlook.com>
 
-Signed-off-by: Wang Chen <wangchen20@iscas.ac.cn>
-Signed-off-by: Xiaoguang Xing <xiaoguang.xing@sophgo.com>
+The timer and ipi(mswi) of sg2042 are on different addresses. With the
+same compatible string, this will cause a mismatch when is processed by
+SBI.
+
+Add two new compatible string formatted like `C9xx-clint-xxx` to identify
+the timer and ipi device separately, and do not allow c900-clint as the
+fallback to avoid conflict.
+
+Signed-off-by: Inochi Amaoto <inochiama@outlook.com>
 ---
- .../bindings/interrupt-controller/sifive,plic-1.0.0.yaml         | 1 +
- 1 file changed, 1 insertion(+)
+ .../bindings/timer/sifive,clint.yaml          | 26 +++++++++++++++++++
+ 1 file changed, 26 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml b/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
-index dc1f28e55266..3abb1f68ea62 100644
---- a/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
-+++ b/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
-@@ -66,6 +66,7 @@ properties:
-           - enum:
-               - allwinner,sun20i-d1-plic
-               - thead,th1520-plic
-+              - sophgo,sg2042-plic
-           - const: thead,c900-plic
+diff --git a/Documentation/devicetree/bindings/timer/sifive,clint.yaml b/Documentation/devicetree/bindings/timer/sifive,clint.yaml
+index a0185e15a42f..2a86b80c3f1e 100644
+--- a/Documentation/devicetree/bindings/timer/sifive,clint.yaml
++++ b/Documentation/devicetree/bindings/timer/sifive,clint.yaml
+@@ -39,6 +39,14 @@ properties:
+               - allwinner,sun20i-d1-clint
+               - thead,th1520-clint
+           - const: thead,c900-clint
++      - items:
++          - enum:
++              - sophgo,sg2042-clint-mtimer
++          - const: thead,c900-clint-mtimer
++      - items:
++          - enum:
++              - sophgo,sg2042-clint-mswi
++          - const: thead,c900-clint-mswi
        - items:
-           - const: sifive,plic-1.0.0
+           - const: sifive,clint0
+           - const: riscv,clint0
+@@ -74,4 +82,22 @@ examples:
+                             <&cpu4intc 3>, <&cpu4intc 7>;
+        reg = <0x2000000 0x10000>;
+     };
++  - |
++    clint-mtimer@ac010000 {
++      compatible = "sophgo,sg2042-clint-mtimer", "thead,c900-clint-mtimer";
++      interrupts-extended = <&cpu1intc 7>,
++                            <&cpu2intc 7>,
++                            <&cpu3intc 7>,
++                            <&cpu4intc 7>;
++      reg = <0xac010000 0x00007ff8>;
++    };
++  - |
++    clint-mswi@94000000 {
++      compatible = "sophgo,sg2042-clint-mswi", "thead,c900-clint-mswi";
++      interrupts-extended = <&cpu1intc 3>,
++                            <&cpu2intc 3>,
++                            <&cpu3intc 3>,
++                            <&cpu4intc 3>;
++      reg = <0x94000000 0x00004000>;
++    };
+ ...
 -- 
 2.25.1
 
