@@ -4,69 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33201EE6452
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 Sep 2023 10:23:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02A51EE6452
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 Sep 2023 10:23:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+MeFrA+uVn3iA+AxoKtgIi8YG+xAvK6iX/Z2LVZdNwM=; b=DNQ799Zfb+eK8/
-	sFEHCNrYNgjhnYxYdiwL80xqOR2ybWsM9O0pr/V/JvT/NeWwjpRgcEDDPX+WJC99ypBMVTDUKFpGM
-	2iLpTwYu6dGRFvKRVwOEwSlf9q/UBshV188WjXGRHwNn4Pia3eKMYLvHHka0vjw+MtuTCL6muzhBE
-	UCSmCg1KB17jMdw+Eej1Dse5aTRZgMVty8XT3+VsXOa1dIb/yYr9CmQJjWSBTfKwAUwpnk6nK4IqF
-	gFl/qhvOrjrF0iIxejBRJPCKDoj8AM/JadYcYQNbz70IK49ZvfkphxqHqdV9cEgfNDIjOFlOSiFP9
-	fmuPOFu513S3nCjw4kow==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:
+	Mime-Version:References:In-Reply-To:From:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=yJqcqr7voEyE1e3q4qWAO/5dKahNSW4WmK0HRJh5KxI=; b=HVn2dpycEWSxdRAhpEnAn0Ry5n
+	zgbwpa67DHQ9q0n32mnGkeB4SGy060s9q5x24oN/3UUtnqAHGtFiwRfgz/Swf6pTdf0qo1ExGUebH
+	G21kk+Mvc5eB9T5dRkEES2Mr+IVL1XZ8ykegMMJ1DwRmt4eQ72wM7KB3wRIjE8aUJsym/v2o1bIf5
+	4xM4NmiorLmgiVJrqKvHv9Xw+D4SMOKqYqz2YUc95JJ1L7GSNfg5uHlyqDFQkbC+EdAFvigQCSrSx
+	GI5hPM9GVmgIN/SZo+dkROEMMfHyiVvx6S19kgOw/B3Ln9gQnNtpht69ERY7KbbEkzAibY3ns4GHX
+	MqTHyAkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qh5zB-00AONw-1z;
-	Fri, 15 Sep 2023 10:23:41 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qh5z8-00AO1U-0D
+	id 1qh5zE-00AOQz-14;
+	Fri, 15 Sep 2023 10:23:44 +0000
+Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1qh5z9-00AOJZ-20
 	for linux-riscv@lists.infradead.org;
-	Fri, 15 Sep 2023 10:23:39 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id A066A83FE;
-	Fri, 15 Sep 2023 18:22:47 +0800 (CST)
-Received: from EXMBX171.cuchost.com (172.16.6.91) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 15 Sep
- 2023 18:22:47 +0800
-Received: from ubuntu.localdomain (113.72.144.67) by EXMBX171.cuchost.com
- (172.16.6.91) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 15 Sep
- 2023 18:22:46 +0800
-From: Minda Chen <minda.chen@starfivetech.com>
-To: Daire McNamara <daire.mcnamara@microchip.com>, Conor Dooley
-	<conor@kernel.org>, Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kw@linux.com>, Emil Renner Berthing
-	<emil.renner.berthing@canonical.com>
-CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, <linux-pci@vger.kernel.org>,
-	=?UTF-8?q?Pali=20Roh=C3=A1r?= <pali@kernel.org>, Paul Walmsley
-	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, Philipp Zabel <p.zabel@pengutronix.de>, Mason Huo
-	<mason.huo@starfivetech.com>, Leyfoon Tan <leyfoon.tan@starfivetech.com>,
-	Kevin Xie <kevin.xie@starfivetech.com>, Minda Chen
-	<minda.chen@starfivetech.com>
-Subject: [PATCH v6 02/19] PCI: microchip: Move pcie-microchip-host.c to plda directory
-Date: Fri, 15 Sep 2023 18:22:26 +0800
-Message-ID: <20230915102243.59775-3-minda.chen@starfivetech.com>
-X-Mailer: git-send-email 2.17.1
-In-Reply-To: <20230915102243.59775-1-minda.chen@starfivetech.com>
-References: <20230915102243.59775-1-minda.chen@starfivetech.com>
-MIME-Version: 1.0
-X-Originating-IP: [113.72.144.67]
-X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX171.cuchost.com
- (172.16.6.91)
-X-YovoleRuleAgent: yovoleflag
+	Fri, 15 Sep 2023 10:23:41 +0000
+Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id CCD5E3F665
+	for <linux-riscv@lists.infradead.org>; Fri, 15 Sep 2023 10:23:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+	s=20210705; t=1694773417;
+	bh=DVQzFwUpbsXuIGkXzoIV2yaJxsbZHyDDscyAWq7j40I=;
+	h=From:In-Reply-To:References:Mime-Version:Date:Message-ID:Subject:
+	 To:Cc:Content-Type;
+	b=vbfWrkTsVXwxRtukXn0W/a6Fga69sSStSQflzKQYlgKnejRq7VKYr+H/dxFbTxppz
+	 rXMw/jRgWmgJsJGTNirnbNpnt/z9OBKRQNREqpLbHI5d2vn15Y0EHl4Ac/B1hEaW1h
+	 JZ2cb45s5ka7pPCqEH+vnPTxzQCwuVu24ccZyyLHvZS1Tc+bU+foXy4Y64KNEX5EtX
+	 or3QMMNsl/xdQgqMTALb30WhewDWA+6vrolassZWme9QImlfmL2tWE+UFDyT3XnGbG
+	 F9XTZ1GjNztz/odwzo5ONLtSXnAvFX7orNnPqPqExSN9NjuAuNNC9dKsRFDozh7YET
+	 wRxLfUvhZlE1Q==
+Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-414cac7beaaso20514271cf.1
+        for <linux-riscv@lists.infradead.org>; Fri, 15 Sep 2023 03:23:37 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1694773417; x=1695378217;
+        h=cc:to:subject:message-id:date:mime-version:references:in-reply-to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=DVQzFwUpbsXuIGkXzoIV2yaJxsbZHyDDscyAWq7j40I=;
+        b=sXvaJF4HDwZxJdOTlMbMujTBPdJb4YSoeHzpV/MSmp6S6EC5YzQWp9G/JjR4UQnRx6
+         +5FP8IF/KoUMnMm/xJzwt/Ouzm6UnPuJOBYuBTfzI2Mb96s9r9SmqkTtf8zA/TnaKP3H
+         F47VWvnnTgzNklxAFPA7jRhJFyomjibKmvfBIZG3vNQOVVeP7AuXMAifeVL4H7ggBCgl
+         mIPimkZcVVqIvHWkzhIRaIphvLevvDYSaUdH6mhZDE+Gsiz7y0vgQ0do09lRjPPdwsnu
+         4M632zMmkDXUAKiyKAg/rxIjBTsZxco8B2mCGPjFuqkWght6DL4iqEoE+JmzGMX9crXM
+         H+hQ==
+X-Gm-Message-State: AOJu0Ywrvk5psxruqKstxT2Sh0aHGsj4bLWwVOyYRB2lV6Hg0l97MdAp
+	qX4164brp0C8Q/X5/mVvzdGUJY0Fy7T7/0m3Ks/YT+x8Urvx5+Zk3Dno2TpCysh33ozKzgy8J+O
+	LHwezn18Rfe5PLrJfvQsyqHpfklrlslj2iCkB0s2MjdQTe12J+Bs4IxoN5e+D7w==
+X-Received: by 2002:a05:622a:1492:b0:403:e1d1:8b91 with SMTP id t18-20020a05622a149200b00403e1d18b91mr1304338qtx.60.1694773416768;
+        Fri, 15 Sep 2023 03:23:36 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IEz6XoHpeoa1FTEaRyEIa8VosrmBlxM/6MYyeWBvLfPWnf7jhkHcp8hPE2RmqA1ElsiydQSlVI4+mzX7w4v7/U=
+X-Received: by 2002:a05:622a:1492:b0:403:e1d1:8b91 with SMTP id
+ t18-20020a05622a149200b00403e1d18b91mr1304322qtx.60.1694773416535; Fri, 15
+ Sep 2023 03:23:36 -0700 (PDT)
+Received: from 348282803490 named unknown by gmailapi.google.com with
+ HTTPREST; Fri, 15 Sep 2023 03:23:36 -0700
+From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+In-Reply-To: <862905cc-48c3-2dc9-6032-6ee189a629e6@linaro.org>
+References: <20230915072558.118325-1-wangchen20@iscas.ac.cn>
+ <803daa8f-f4bd-34b7-f826-89e1db5f24f6@linaro.org> <CAJM55Z-GMm5Hmk7-QWt8Prvp7qyFzOrQVjOjB7jfoX-oiT_C1A@mail.gmail.com>
+ <862905cc-48c3-2dc9-6032-6ee189a629e6@linaro.org>
+Mime-Version: 1.0
+Date: Fri, 15 Sep 2023 03:23:36 -0700
+Message-ID: <CAJM55Z8WDcjRER3ffnj+6V=QWEmudZyaO9z2iPUvreU1okq27A@mail.gmail.com>
+Subject: Re: [PATCH 10/12] serial: 8250_dw: Add Sophgo SG2042 support
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>, Wang Chen <unicornxw@gmail.com>, 
+	linux-riscv@lists.infradead.org, conor@kernel.org, aou@eecs.berkeley.edu, 
+	krzysztof.kozlowski+dt@linaro.org, palmer@dabbelt.com, 
+	paul.walmsley@sifive.com, robh+dt@kernel.org
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	jszhang@kernel.org, guoren@kernel.org, chao.wei@sophgo.com, 
+	xiaoguang.xing@sophgo.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230915_032338_388783_AB11CC54 
-X-CRM114-Status: GOOD (  16.46  )
+X-CRM114-CacheID: sfid-20230915_032339_939127_FF0178D4 
+X-CRM114-Status: GOOD (  23.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,128 +105,74 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-For Microchip Polarfire PCIe host is PLDA XpressRich IP,
-move to plda directory. Prepare for refactor the codes.
+Krzysztof Kozlowski wrote:
+> On 15/09/2023 12:02, Emil Renner Berthing wrote:
+> > Krzysztof Kozlowski wrote:
+> >> On 15/09/2023 09:25, Wang Chen wrote:
+> >>> From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+> >>>
+> >>> Add quirk to skip setting the input clock rate for the uarts on the
+> >>> Sophgo SG2042 SoC similar to the StarFive JH7100.
+> >>>
+> >>> Signed-off-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+> >>
+> >> Missing SoB.
+> >>
+> >>> ---
+> >>>  drivers/tty/serial/8250/8250_dw.c | 5 +++--
+> >>>  1 file changed, 3 insertions(+), 2 deletions(-)
+> >>>
+> >>> diff --git a/drivers/tty/serial/8250/8250_dw.c b/drivers/tty/serial/8250/8250_dw.c
+> >>> index f4cafca1a7da..6c344877a07f 100644
+> >>> --- a/drivers/tty/serial/8250/8250_dw.c
+> >>> +++ b/drivers/tty/serial/8250/8250_dw.c
+> >>> @@ -770,7 +770,7 @@ static const struct dw8250_platform_data dw8250_renesas_rzn1_data = {
+> >>>  	.quirks = DW_UART_QUIRK_IS_DMA_FC,
+> >>>  };
+> >>>
+> >>> -static const struct dw8250_platform_data dw8250_starfive_jh7100_data = {
+> >>> +static const struct dw8250_platform_data dw8250_skip_set_rate_data = {
+> >>
+> >> Why? What is wrong with old name?
+> >>
+> >>>  	.usr_reg = DW_UART_USR,
+> >>>  	.quirks = DW_UART_QUIRK_SKIP_SET_RATE,
+> >>>  };
+> >>> @@ -780,7 +780,8 @@ static const struct of_device_id dw8250_of_match[] = {
+> >>>  	{ .compatible = "cavium,octeon-3860-uart", .data = &dw8250_octeon_3860_data },
+> >>>  	{ .compatible = "marvell,armada-38x-uart", .data = &dw8250_armada_38x_data },
+> >>>  	{ .compatible = "renesas,rzn1-uart", .data = &dw8250_renesas_rzn1_data },
+> >>> -	{ .compatible = "starfive,jh7100-uart", .data = &dw8250_starfive_jh7100_data },
+> >>> +	{ .compatible = "sophgo,sg2042-uart", .data = &dw8250_skip_set_rate_data },
+> >>> +	{ .compatible = "starfive,jh7100-uart", .data = &dw8250_skip_set_rate_data },
+> >>
+> >> So devices are fully compatible? Then use compatibility and drop this
+> >> patch entirely.
+> >
+> > I'm fine with this, but these are two different companies and SoCs that just
+> > happens to have both implemented the Designware UART with an inflexible input
+> > clock. So if fx. a real quirk is found on the JH7110 then we'd need to either
+> > change the compatible on an unrelated SoC or change compatible on the JH7110 to
+>
+> Wait, why? The compatible is still there, so you just add here proper
+> entry, if ever needed.
 
-Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
----
- MAINTAINERS                                        |  2 +-
- drivers/pci/controller/Kconfig                     |  9 +--------
- drivers/pci/controller/Makefile                    |  2 +-
- drivers/pci/controller/plda/Kconfig                | 14 ++++++++++++++
- drivers/pci/controller/plda/Makefile               |  2 ++
- .../controller/{ => plda}/pcie-microchip-host.c    |  2 +-
- 6 files changed, 20 insertions(+), 11 deletions(-)
- create mode 100644 drivers/pci/controller/plda/Kconfig
- create mode 100644 drivers/pci/controller/plda/Makefile
- rename drivers/pci/controller/{ => plda}/pcie-microchip-host.c (99%)
+Sorry, I messed up my example by writing JH7110 where I meant JH7100
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 90f13281d297..b1050804e6d2 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -16647,7 +16647,7 @@ M:	Daire McNamara <daire.mcnamara@microchip.com>
- L:	linux-pci@vger.kernel.org
- S:	Supported
- F:	Documentation/devicetree/bindings/pci/microchip*
--F:	drivers/pci/controller/*microchip*
-+F:	drivers/pci/controller/plda/*microchip*
- 
- PCIE DRIVER FOR QUALCOMM MSM
- M:	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-diff --git a/drivers/pci/controller/Kconfig b/drivers/pci/controller/Kconfig
-index c0c3f2824990..80e23013c229 100644
---- a/drivers/pci/controller/Kconfig
-+++ b/drivers/pci/controller/Kconfig
-@@ -215,14 +215,6 @@ config PCIE_MT7621
- 	help
- 	  This selects a driver for the MediaTek MT7621 PCIe Controller.
- 
--config PCIE_MICROCHIP_HOST
--	tristate "Microchip AXI PCIe controller"
--	depends on PCI_MSI && OF
--	select PCI_HOST_COMMON
--	help
--	  Say Y here if you want kernel to support the Microchip AXI PCIe
--	  Host Bridge driver.
--
- config PCI_HYPERV_INTERFACE
- 	tristate "Microsoft Hyper-V PCI Interface"
- 	depends on ((X86 && X86_64) || ARM64) && HYPERV && PCI_MSI
-@@ -345,4 +337,5 @@ config PCIE_XILINX_CPM
- source "drivers/pci/controller/cadence/Kconfig"
- source "drivers/pci/controller/dwc/Kconfig"
- source "drivers/pci/controller/mobiveil/Kconfig"
-+source "drivers/pci/controller/plda/Kconfig"
- endmenu
-diff --git a/drivers/pci/controller/Makefile b/drivers/pci/controller/Makefile
-index 37c8663de7fe..93236dc97b21 100644
---- a/drivers/pci/controller/Makefile
-+++ b/drivers/pci/controller/Makefile
-@@ -32,7 +32,6 @@ obj-$(CONFIG_PCIE_ROCKCHIP_EP) += pcie-rockchip-ep.o
- obj-$(CONFIG_PCIE_ROCKCHIP_HOST) += pcie-rockchip-host.o
- obj-$(CONFIG_PCIE_MEDIATEK) += pcie-mediatek.o
- obj-$(CONFIG_PCIE_MEDIATEK_GEN3) += pcie-mediatek-gen3.o
--obj-$(CONFIG_PCIE_MICROCHIP_HOST) += pcie-microchip-host.o
- obj-$(CONFIG_VMD) += vmd.o
- obj-$(CONFIG_PCIE_BRCMSTB) += pcie-brcmstb.o
- obj-$(CONFIG_PCI_LOONGSON) += pci-loongson.o
-@@ -43,6 +42,7 @@ obj-$(CONFIG_PCIE_MT7621) += pcie-mt7621.o
- # pcie-hisi.o quirks are needed even without CONFIG_PCIE_DW
- obj-y				+= dwc/
- obj-y				+= mobiveil/
-+obj-y				+= plda/
- 
- 
- # The following drivers are for devices that use the generic ACPI
-diff --git a/drivers/pci/controller/plda/Kconfig b/drivers/pci/controller/plda/Kconfig
-new file mode 100644
-index 000000000000..5cb3be4fc98c
---- /dev/null
-+++ b/drivers/pci/controller/plda/Kconfig
-@@ -0,0 +1,14 @@
-+# SPDX-License-Identifier: GPL-2.0
-+
-+menu "PLDA-based PCIe controllers"
-+	depends on PCI
-+
-+config PCIE_MICROCHIP_HOST
-+	tristate "Microchip AXI PCIe controller"
-+	depends on PCI_MSI && OF
-+	select PCI_HOST_COMMON
-+	help
-+	  Say Y here if you want kernel to support the Microchip AXI PCIe
-+	  Host Bridge driver.
-+
-+endmenu
-diff --git a/drivers/pci/controller/plda/Makefile b/drivers/pci/controller/plda/Makefile
-new file mode 100644
-index 000000000000..e1a265cbf91c
---- /dev/null
-+++ b/drivers/pci/controller/plda/Makefile
-@@ -0,0 +1,2 @@
-+# SPDX-License-Identifier: GPL-2.0
-+obj-$(CONFIG_PCIE_MICROCHIP_HOST) += pcie-microchip-host.o
-diff --git a/drivers/pci/controller/pcie-microchip-host.c b/drivers/pci/controller/plda/pcie-microchip-host.c
-similarity index 99%
-rename from drivers/pci/controller/pcie-microchip-host.c
-rename to drivers/pci/controller/plda/pcie-microchip-host.c
-index 137fb8570ba2..cb09a8137e25 100644
---- a/drivers/pci/controller/pcie-microchip-host.c
-+++ b/drivers/pci/controller/plda/pcie-microchip-host.c
-@@ -18,7 +18,7 @@
- #include <linux/pci-ecam.h>
- #include <linux/platform_device.h>
- 
--#include "../pci.h"
-+#include "../../pci.h"
- 
- /* Number of MSI IRQs */
- #define MC_MAX_NUM_MSI_IRQS			32
--- 
-2.17.1
+> > something like "starfive,jh7100-uart-with-quirk" and "starfive,jh7100-uart" will
+> > forever be a quirky way to spell "dw8250 with inflexible input clock".
+> > Is that how device trees are supposed to work?
+>
+> I don't get this part. But anyway if the blocks are really designed or
+> done independently and there is no shared part, except the DWC block,
+> then indeed the compatibility might be just a coincidence...
+>
 
+It is. Sophgo and StarFive are not the same company. Sophgo are using RISC-V
+cores from T-Head and StarFive are using cores from SiFive. They just happen to
+both use the Designware UART in the same way.
+
+/Emil
 
 _______________________________________________
 linux-riscv mailing list
