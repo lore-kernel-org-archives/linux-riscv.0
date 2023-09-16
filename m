@@ -4,78 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFF97CD37AF
-	for <linux-riscv@archiver.kernel.org>; Sat, 16 Sep 2023 00:05:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11F09CD37AF
+	for <linux-riscv@archiver.kernel.org>; Sat, 16 Sep 2023 00:07:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JQMQaZmHCK+4UXzorsl1rer1tAYGCNPC5rmB7amv2LM=; b=wbeiX/NnlJWrS6FEQl+6AQGLsC
-	tCgAD19wPPqnrKSbMp4b7V6Ml+72eL+2Gjc7SmsRUsziVqs0TJsb0fxZmXJAZ1H8UjXhpN8cB5IhF
-	2/cTUytFK9N7aD4FtsjdkCGMh8Noq7MLntaEEgDdx16NAuHGSXBqGn7gf9qFxqsP9Ua+n3sobgYPM
-	M6QsC/x/zwG4romi6jPwGxB5ntQhMJrS6/ADI68PNNROKN9XOtTKTVqCFTIJ9NTmTewOZ9FuaOesF
-	mk3QSMc1FKN2803zsu0lyu8qa2AFSPw8JBDyUGoqG/wzSLuTeJltldOVNsXXC118hu/Z75obHEkOO
-	UKmCGIcQ==;
+	bh=ph796bIkVDko/katSpNKmiOPoP+fGIN5AlR3lLuO5f8=; b=Bs9gIQsBk6euX7DAAdNBBZddwy
+	p0kwvt615OIHAd5dVKpmpr+x43JS0ewqvch8qg5W2CmvrO3E7XEw/M2b9X1COneOJWqvPtlbq0t4H
+	FpPNiSeioID3gN39sen4JhzcAQ1obM/4x5FjhuAUkEvvWzOTOJ2ZeEXZTxlUkY3ZECjgwENNoPA+3
+	eeWAtXD75MzORGZKVQbuEy2S1+FYJkNeN/exuT2uzlDXuuQwZblOTUkjZ9zDZfid/qVICzzujW2Eb
+	mVCsco1nT6hOy+Sm/SKa0j2c3wKduXk6vt2rx3XBwQKzKOsjF7Gn+shfOB9ZOTtCVzcyVqsIJnYZq
+	FVr7e1ew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qhIoT-00BZhv-25;
-	Sat, 16 Sep 2023 00:05:29 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1qhIq9-00BZpx-3B;
+	Sat, 16 Sep 2023 00:07:13 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qhIoQ-00BZhM-2x
+	id 1qhIq7-00BZpS-0M
 	for linux-riscv@lists.infradead.org;
-	Sat, 16 Sep 2023 00:05:28 +0000
+	Sat, 16 Sep 2023 00:07:12 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 7C818B80CA1;
-	Sat, 16 Sep 2023 00:05:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 40E21C433C8;
-	Sat, 16 Sep 2023 00:05:18 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTPS id 6D3BFCE2AEF;
+	Sat, 16 Sep 2023 00:07:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EBBAEC433C8;
+	Sat, 16 Sep 2023 00:07:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1694822724;
-	bh=vctKEIVGP3jo41NodFrzo2PyPGkaneh5Qtgc7YTfVy8=;
+	s=k20201202; t=1694822826;
+	bh=8Yu+GwYPHDePl3LqNlzEzfrFvMmCmV66DDHEshoQFPs=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=upwh/GV+3JSILYkPe87ZUKghNshHvukRMJHhvQP3IbYsimJbl+S5W4OhhCGyQeYyU
-	 M5TPguaN6clvhbXaBW/kjlnKL4yKyu3hHMXFX1a+QihEaLPH/QWeOnIsZEMhoYaiKS
-	 qhvtO0wAycKQR+CP+oMhRrJpBgd9mo9zXLvhvBqDkY/44K9qyeUGBIQG0/rs4BvXEP
-	 Q1FSSJYYu4lqRk9jbwRNezA4BB4gkMbGAm6dT7GVMQIkHFEeSmlCeRDDMQGsQz9Jn4
-	 PQutUyaA0/SasBzef/ZZEFJV3ioPSANwtc5fJdPR5+zBL/zkzk9+Y6noFp/gAJdxKU
-	 exbgwKrV/NknA==
-Date: Sat, 16 Sep 2023 01:05:15 +0100
+	b=CNH6CLgxFzU1zRS0ABaVNSmRwjWQmVfC7I+QNZrLanrYn2S10zMTqneXnbPwIx8U+
+	 9+DYbJCYWmEjSRJLFUD0KnU4SrTfH4U70goBTEtWJYYgE+3CDQj+S3xahTybXlvnI8
+	 4+hXbVGzT3NrhxXoS7XMOoswH8SBrs7wuJAcOF/OO9C3feM3vkPLoLdSn2ljVt86RK
+	 5e7cGHkB2Lxc38+DNvVOM9w4WpQtgBzaL7RK4nBiIaLc/XKkVS+PdQE+h/FYgT5qjw
+	 v+xWeWSrzk26/qThAn9dkn6BUyKeIP3f7IuSP+BCNnVyKI4KQN3Z7AGLxQNSa/LO+P
+	 g8EQp9/9wUiPw==
+Date: Sat, 16 Sep 2023 01:07:00 +0100
 From: Conor Dooley <conor@kernel.org>
-To: Conor Dooley <conor.dooley@microchip.com>
-Cc: Andrew Jones <ajones@ventanamicro.com>,
-	Leonardo Bras <leobras@redhat.com>, guoren@kernel.org,
-	paul.walmsley@sifive.com, anup@brainfault.org, peterz@infradead.org,
-	mingo@redhat.com, will@kernel.org, palmer@rivosinc.com,
-	longman@redhat.com, boqun.feng@gmail.com, tglx@linutronix.de,
-	paulmck@kernel.org, rostedt@goodmis.org, rdunlap@infradead.org,
-	catalin.marinas@arm.com, xiaoguang.xing@sophgo.com,
-	bjorn@rivosinc.com, alexghiti@rivosinc.com, keescook@chromium.org,
-	greentime.hu@sifive.com, jszhang@kernel.org, wefu@redhat.com,
-	wuwei2016@iscas.ac.cn, linux-arch@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-doc@vger.kernel.org,
-	kvm@vger.kernel.org, virtualization@lists.linux-foundation.org,
-	linux-csky@vger.kernel.org, Guo Ren <guoren@linux.alibaba.com>
-Subject: Re: [PATCH V11 03/17] riscv: Use Zicbop in arch_xchg when available
-Message-ID: <20230916-display-mounted-55707daeb175@spud>
-References: <20230910082911.3378782-1-guoren@kernel.org>
- <20230910082911.3378782-4-guoren@kernel.org>
- <20230914-1ce4f391a14e56b456d88188@orel>
- <ZQQUQjOaAIc95GXP@redhat.com>
- <20230915-85238ac7734cf543bff3ddad@orel>
- <20230915-take-virus-1245c5dfed0a@wendy>
- <20230915-1c2b122672642e2cbcbaaaef@orel>
- <20230915-banana-undusted-ec336f45bc78@wendy>
+To: Minda Chen <minda.chen@starfivetech.com>
+Cc: Daire McNamara <daire.mcnamara@microchip.com>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-pci@vger.kernel.org,
+	Pali =?iso-8859-1?Q?Roh=E1r?= <pali@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Mason Huo <mason.huo@starfivetech.com>,
+	Leyfoon Tan <leyfoon.tan@starfivetech.com>,
+	Kevin Xie <kevin.xie@starfivetech.com>
+Subject: Re: [PATCH v6 19/19] riscv: dts: starfive: add PCIe dts
+ configuration for JH7110
+Message-ID: <20230916-monitor-idiom-86d6894b1e88@spud>
+References: <20230915102243.59775-1-minda.chen@starfivetech.com>
+ <20230915102243.59775-20-minda.chen@starfivetech.com>
 MIME-Version: 1.0
-In-Reply-To: <20230915-banana-undusted-ec336f45bc78@wendy>
+In-Reply-To: <20230915102243.59775-20-minda.chen@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230915_170527_098671_62CE27C7 
-X-CRM114-Status: GOOD (  16.21  )
+X-CRM114-CacheID: sfid-20230915_170711_321842_A2174FE8 
+X-CRM114-Status: UNSURE (   9.05  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,56 +87,47 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6853276778020133039=="
+Content-Type: multipart/mixed; boundary="===============4722995540197463047=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============6853276778020133039==
+--===============4722995540197463047==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="CBSVVsPBvOO/PaEY"
+	protocol="application/pgp-signature"; boundary="+RcYDkBcBEoWjbZf"
 Content-Disposition: inline
 
 
---CBSVVsPBvOO/PaEY
+--+RcYDkBcBEoWjbZf
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Fri, Sep 15, 2023 at 01:42:56PM +0100, Conor Dooley wrote:
+On Fri, Sep 15, 2023 at 06:22:43PM +0800, Minda Chen wrote:
+> Add PCIe dts configuraion for JH7110 SoC platform.
 >=20
-> > > If this isn't being used in a similar manner, then the w has no reason
-> > > to be in the odd lowercase form.
-> >=20
-> > Other than to be consistent... However, the CBO_* instructions are not
-> > consistent with the rest of macros. If we don't need lowercase for any
-> > reason, then my preference would be to bite the bullet and change all t=
-he
-> > callsites of CBO_* macros and then introduce this new instruction as
-> > PREFETCH_W
->=20
-> Aye, I probably should've done it to begin with. Maybe there was some
-> other consideration at the time.
+> Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
+> Reviewed-by: Hal Feng <hal.feng@starfivetech.com>
+> Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
 
-FWIW, I sent a patch for this earlier today. I figure you saw it Drew,
-but nonetheless:
-https://lore.kernel.org/all/20230915-aloe-dollar-994937477776@spud/
+Not really important, but checkpatch whinges about the double signoff
+here, since both are you"
 
---CBSVVsPBvOO/PaEY
+--+RcYDkBcBEoWjbZf
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZQTxOwAKCRB4tDGHoIJi
-0tAgAP9WdDjbNTKMkQ31CBU3G4RL71V08fPsy4V0wDAkAgevNAEAyzP9q9ig4Ui7
-PSoplGlIAPNmRiyp2N8CL+TEK26fjQ0=
-=6kw4
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZQTxpAAKCRB4tDGHoIJi
+0lj9AQDNWfMti/9mi01vMJjKM7GVM2xrI3XaabEtUXwy9R9NmAD7BHYTvEI4JQ/I
++ECDoV1Pnxx67atTC+kUEC0W38scYQw=
+=uVmt
 -----END PGP SIGNATURE-----
 
---CBSVVsPBvOO/PaEY--
+--+RcYDkBcBEoWjbZf--
 
 
---===============6853276778020133039==
+--===============4722995540197463047==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -147,5 +138,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============6853276778020133039==--
+--===============4722995540197463047==--
 
