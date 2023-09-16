@@ -4,68 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9058FCD37B0
-	for <linux-riscv@archiver.kernel.org>; Sat, 16 Sep 2023 00:34:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC22BCD37B2
+	for <linux-riscv@archiver.kernel.org>; Sat, 16 Sep 2023 00:34:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
 	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WQ/5Mx9TirlHrtBBTX/SMQXiqn8u+tVdXiv6YlsF9V0=; b=NbGgHEr7gDXajY
-	rBfe2Ikpxw6BazrFgQbvywVbepc4YYaS9dsXIZ7PnQ//wfNxkJ2PeoMxE4zIwQ853b+WlCMCu2HZJ
-	MhfBuks/5nXGzkfCom2DSfevii9uiyRpTjehGYoKfHBEINrgqZSMdrjxzvgdoJN5DmT7Da6xgnw9/
-	YbWkoY0rTga9lFwcz2v9OcBQp9u72g1PHkTmWxLtu28PKk0OdkCBpBzaqsMX6ZPshqDBGd3c33lMo
-	9G2mMqVDhEQlIXQlMZp/S95SxI/Bfp0ld+zaVMckv4fQs4iMEZJ9S+7BPrKB57R6YxcJqybml07PH
-	fXoNxKcV9GdxizgrFULQ==;
+	List-Owner; bh=0cnjOUY1P32Rjc17+RxiAm7vZZOMd8mgmQ2OL+fg69I=; b=jqUYwwXQYmOIZS
+	RvXrNEEc5k9xtDR3f+wrRG6HJewfUqmf+VBOOPLA3tJwC1LkySvt8Q/SwNpnwabxYPUaFnoAAUOdC
+	LCS/jRuxyoPA+D2qskCeL4+72Y1RIskjokJlje1RHyLJmiZx6Fdv7iwhM6aE3JJQoJrEYqS+4R/8J
+	i9B91HAO6exrqLGwx4RhwlXJ7flT995JptPtLXXGSW0u6Ace3zbmaeZrDQjO3VQWjIWIt9z+Lu267
+	+/ZkZwWQRh4hGl5WDFxHMLk/EPiYQmjhiex1RoiJGLwP+wwNFRM7TrN5CB74ADo8IiE5MmFrL/BKk
+	5MoprQPPvB6AuV3wcphA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qhJGo-00BfVn-0H;
-	Sat, 16 Sep 2023 00:34:46 +0000
-Received: from mail-yb1-f202.google.com ([209.85.219.202])
+	id 1qhJGt-00BfcH-34;
+	Sat, 16 Sep 2023 00:34:51 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qhJEI-00Bd7u-0x
+	id 1qhJER-00BdIv-0E
+	for linux-riscv@bombadil.infradead.org;
+	Sat, 16 Sep 2023 00:32:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
+	Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:Sender:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=0VtgUtus3LRehL4neqp1OYPW/02VDjf+LHA0REetHQw=; b=pdzWXnEvH+qjIs2j7xeypTX1rg
+	qIlocvRfb4PAqRDqHnDMAmr5pGXKWpAWNYy1pe/M1bkDj5Ed0O4qo1AgrEIjoS1m3iE78rZha+bDD
+	7WaJaoWBUXZa9emdccNnm9kGaipj1E40tuwd7jxqr+Z1+LFDTk2bJN95S1qp7JOeeUews43TGAPSG
+	rdCMzF2xfeVxO9gTAfnSvpm6aExjrDQQBiLPKMjRpIe3wqEJylTjhqr87AWzlcfgjOMbJDOfZf8EY
+	vUc6UtxlHhdyvnBdymLtcakvL2A4i2fTJflz1zyVq5lEcLPWVnkQrpIG5JzZcN2d5lBUNb5VnHSTJ
+	YoC2RHjA==;
+Received: from mail-yw1-x114a.google.com ([2607:f8b0:4864:20::114a])
+	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1qhJEH-009jv5-2u
 	for linux-riscv@lists.infradead.org;
-	Sat, 16 Sep 2023 00:32:16 +0000
-Received: by mail-yb1-f202.google.com with SMTP id 3f1490d57ef6-d7b957fd276so3276376276.0
-        for <linux-riscv@lists.infradead.org>; Fri, 15 Sep 2023 17:32:07 -0700 (PDT)
+	Sat, 16 Sep 2023 00:32:14 +0000
+Received: by mail-yw1-x114a.google.com with SMTP id 00721157ae682-59b6a51f360so33312107b3.1
+        for <linux-riscv@lists.infradead.org>; Fri, 15 Sep 2023 17:32:10 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1694824327; x=1695429127; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1694824329; x=1695429129; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=g87cF9aMFFIIQhALNgZyjDSNT/0Iy7aXKR5wCizfY2Q=;
-        b=bu6bG/xQph3dS3elJuDNyCsbzE6caFlxcfxcIM7kc2JdNNaSZTTQs+tkGmg+X5EQfp
-         pUCaqUXuBdBs8fahr4y083gpCosmKHHwPvNr6qKYNg71jeBoAaQN9s4QmYL1xN7QhxTd
-         6K6wCJIwwo+bAWZue8LJ0edmElc25OlDtsP6/eU9YiMhV1+sanfyMe1hyZ0CgCb5Vpj7
-         qosvRFElG5X/8ynEC9vFiSbicYVsyvDyUOsVv/+StWQwz7O6R+5jxR6qEgbVhivEcn8v
-         azU83ioFydLOUW0jPAcfjf14yiEzyD31ev71Fw5zSODvo58C6ESiqJo+3HFBbms44Cae
-         m+wg==
+        bh=0VtgUtus3LRehL4neqp1OYPW/02VDjf+LHA0REetHQw=;
+        b=gjUhE0vNMgu2uJGQH+peDOUYhVf06S++4j6/2jkon6ZZY6jozUCL0TMyMp/b0c560r
+         GIp1h7bYZXtFFFp19Y5rhsMrfD/E8+XMxMm7foxJUnGBQWQfN9HdIsB9wfiz6qkAZ+V3
+         mvzWn+ziSoTvlt7bfUYOzVzDvmtn4+cb/wWGdTy4WJhkDhZnVnfKAaVJmnQlSiBKEXkN
+         My7qZyvU4zikjudzJSBg/NPoYOtJgJmtz/qbLzJPgsQ8yjbFxz+VMLResWyxmGik/Ug9
+         BK+xGEnG2U6eBUgkJf/JYft7+olqSKQACX1dCW4vPttFBW/6SYtQ+V4myMQGxqje7Jcs
+         dD7Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1694824327; x=1695429127;
+        d=1e100.net; s=20230601; t=1694824329; x=1695429129;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=g87cF9aMFFIIQhALNgZyjDSNT/0Iy7aXKR5wCizfY2Q=;
-        b=EE/JkQeCIwzyArfNEkcyc8l1/OKD55/xd0eilS+l4U2zdFWprIJ+wuM6o1f3XrEQ69
-         3eQOxIzZ4f2Qq1mxBzD5ONNfx2hO++2FsZqXDpwEd1O1RSuMmMqMGzOCwAehtYMTzOyI
-         Kwbi0/CZIO3sq8K3o9b98K7pBu/H2jZJQ7iws5iyyqntN2hwpDfWzv+LtulDkXKSwPym
-         ngO12J7joNV6AAzggWezJuZm05tpCszqQ2R53lvwvYsZVpTDB9guWoYbaVkeg6ntNQtS
-         fNJ4IpSHx1Zk2j36rOTL3ETPm7KQLbijPSu2GzOxNl+6Fnk6ejBPIElVxAuyMZNYUVez
-         Qzkg==
-X-Gm-Message-State: AOJu0YxBTgNZFYUGx59UAOISHsPA06M4FuyuJflqfR0owzYmN8GFYP6t
-	XCR5eBuL2jPuAe0FA+lnnfkR+RaaQIc=
-X-Google-Smtp-Source: AGHT+IFjtTFMkJb5nyS/TbDu5WGvlim/mDgHE3y34bDt9PwwLEa+gj6fWVowFGkCoq7czWyFJVVkIfy0aAQ=
+        bh=0VtgUtus3LRehL4neqp1OYPW/02VDjf+LHA0REetHQw=;
+        b=SyCG74UZnisrqJWb88JzYpoJCvZN5ff6R8VgObglEp8OFJi+w4RN2g9NvGXkkVYyUd
+         jtCkxE7rJorYIFxVVU/qz8SGxvXHXfNhJEDmYdHVYOixMHKNAEIhLEqXdDhsLVI+tqPq
+         5Z5EwieQAmF111k9rZq+0QySsSNb3EhesGTQ1Fsz/VfWKTJ4izLMCpqimvYMPvoKUoga
+         hGXANym7WGwqzMCHnoFUAlxJbLjYMPcXVZxG3AqOD5COTuFi/xbuSaHO0TAB4TFKfmv0
+         m9r0e5aOUAMU+t4YpqPiMNu8PjOi/Yat+0nP6JgXngUbPsOpKXxbeVOIts9/8zg447YC
+         hI2A==
+X-Gm-Message-State: AOJu0YyXMTMIB03vFZax51CoivefFdGuOv2a6ejf7nr+kAHy+NFR6EXu
+	MC0w/xVXH0g+k8rXsFc0td5haXuMfn0=
+X-Google-Smtp-Source: AGHT+IGS7sQUeRqIzboGgj+JmfOv6SrnKFoWg2KC/khh+vzWzgZdEe9LRtHGjdK8tkWZSSHoGr6LIc8WFow=
 X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
- (user=seanjc job=sendgmr) by 2002:a25:d28b:0:b0:d0c:c83b:94ed with SMTP id
- j133-20020a25d28b000000b00d0cc83b94edmr70330ybg.10.1694824326852; Fri, 15 Sep
- 2023 17:32:06 -0700 (PDT)
-Date: Fri, 15 Sep 2023 17:31:15 -0700
+ (user=seanjc job=sendgmr) by 2002:a81:b620:0:b0:58c:a9b4:a64c with SMTP id
+ u32-20020a81b620000000b0058ca9b4a64cmr86672ywh.1.1694824328926; Fri, 15 Sep
+ 2023 17:32:08 -0700 (PDT)
+Date: Fri, 15 Sep 2023 17:31:16 -0700
 In-Reply-To: <20230916003118.2540661-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20230916003118.2540661-1-seanjc@google.com>
 X-Mailer: git-send-email 2.42.0.459.ge4e396fd5e-goog
-Message-ID: <20230916003118.2540661-24-seanjc@google.com>
-Subject: [PATCH 23/26] KVM: arm64: Move and consolidate "public" functions in asm/kvm_host.h
+Message-ID: <20230916003118.2540661-25-seanjc@google.com>
+Subject: [PATCH 24/26] powerpc/xics: Move declaration of xics_wake_cpu() out
+ of kvm_ppc.h
 From: Sean Christopherson <seanjc@google.com>
 To: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
 	Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
@@ -90,8 +106,8 @@ Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
 	Anish Ghulati <aghulati@google.com>, Venkatesh Srinivas <venkateshs@chromium.org>, 
 	Andrew Thornton <andrewth@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230915_173210_378361_8821657B 
-X-CRM114-Status: GOOD (  11.51  )
+X-CRM114-CacheID: sfid-20230916_013211_506251_13479036 
+X-CRM114-Status: GOOD (  11.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,97 +125,40 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Move a variety of "public" symbols in arm64's kvm_host.h, i.e. symbols and
-functions that are used by non-KVM code, towards the top of the header.
-This will allow hiding the "private" code in kvm_host.h, i.e. the stuff
-that is intended to be KVM-internal, with a minimal amount of #ifdeffery.
+xics_wake_cpu() is provided by core PPC code, not by KVM.  Move its
+declaration out of kvm_ppc.h and into xics.h.
 
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- arch/arm64/include/asm/kvm_host.h | 48 ++++++++++++++-----------------
- 1 file changed, 22 insertions(+), 26 deletions(-)
+ arch/powerpc/include/asm/kvm_ppc.h | 2 --
+ arch/powerpc/include/asm/xics.h    | 3 +++
+ 2 files changed, 3 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index 90cfbf420545..89b40c34f0af 100644
---- a/arch/arm64/include/asm/kvm_host.h
-+++ b/arch/arm64/include/asm/kvm_host.h
-@@ -67,10 +67,32 @@ enum kvm_mode {
- };
- #ifdef CONFIG_KVM
- enum kvm_mode kvm_get_mode(void);
-+
-+extern phys_addr_t hyp_mem_base;
-+extern phys_addr_t hyp_mem_size;
-+void __init kvm_hyp_reserve(void);
-+
-+void kvm_set_pmu_events(u32 set, struct perf_event_attr *attr);
-+void kvm_clr_pmu_events(u32 clr);
-+bool kvm_set_pmuserenr(u64 val);
+diff --git a/arch/powerpc/include/asm/kvm_ppc.h b/arch/powerpc/include/asm/kvm_ppc.h
+index b4da8514af43..72fee202d3ec 100644
+--- a/arch/powerpc/include/asm/kvm_ppc.h
++++ b/arch/powerpc/include/asm/kvm_ppc.h
+@@ -1072,6 +1072,4 @@ static inline ulong kvmppc_get_ea_indexed(struct kvm_vcpu *vcpu, int ra, int rb)
+ 	return ea;
+ }
+ 
+-extern void xics_wake_cpu(int cpu);
+-
+ #endif /* __POWERPC_KVM_PPC_H__ */
+diff --git a/arch/powerpc/include/asm/xics.h b/arch/powerpc/include/asm/xics.h
+index 89090485bec1..17a45c022bd9 100644
+--- a/arch/powerpc/include/asm/xics.h
++++ b/arch/powerpc/include/asm/xics.h
+@@ -32,6 +32,9 @@
+ extern int icp_native_init(void);
+ extern void icp_native_flush_interrupt(void);
+ extern void icp_native_cause_ipi_rm(int cpu);
++#ifdef CONFIG_SMP
++extern void xics_wake_cpu(int cpu);
++#endif
  #else
- static inline enum kvm_mode kvm_get_mode(void) { return KVM_MODE_NONE; };
-+
-+static inline void kvm_hyp_reserve(void) { }
-+
-+static inline void kvm_set_pmu_events(u32 set, struct perf_event_attr *attr) {}
-+static inline void kvm_clr_pmu_events(u32 clr) {}
-+static inline bool kvm_set_pmuserenr(u64 val)
-+{
-+	return false;
-+}
+ static inline int icp_native_init(void) { return -ENODEV; }
  #endif
- 
-+static inline bool kvm_pmu_counter_deferred(struct perf_event_attr *attr)
-+{
-+	return (!has_vhe() && attr->exclude_host);
-+}
-+
- DECLARE_STATIC_KEY_FALSE(userspace_irqchip_in_use);
- 
- extern unsigned int __ro_after_init kvm_sve_max_vl;
-@@ -1086,28 +1108,10 @@ void kvm_arch_vcpu_ctxsync_fp(struct kvm_vcpu *vcpu);
- void kvm_arch_vcpu_put_fp(struct kvm_vcpu *vcpu);
- void kvm_vcpu_unshare_task_fp(struct kvm_vcpu *vcpu);
- 
--static inline bool kvm_pmu_counter_deferred(struct perf_event_attr *attr)
--{
--	return (!has_vhe() && attr->exclude_host);
--}
--
- /* Flags for host debug state */
- void kvm_arch_vcpu_load_debug_state_flags(struct kvm_vcpu *vcpu);
- void kvm_arch_vcpu_put_debug_state_flags(struct kvm_vcpu *vcpu);
- 
--#ifdef CONFIG_KVM
--void kvm_set_pmu_events(u32 set, struct perf_event_attr *attr);
--void kvm_clr_pmu_events(u32 clr);
--bool kvm_set_pmuserenr(u64 val);
--#else
--static inline void kvm_set_pmu_events(u32 set, struct perf_event_attr *attr) {}
--static inline void kvm_clr_pmu_events(u32 clr) {}
--static inline bool kvm_set_pmuserenr(u64 val)
--{
--	return false;
--}
--#endif
--
- void kvm_vcpu_load_sysregs_vhe(struct kvm_vcpu *vcpu);
- void kvm_vcpu_put_sysregs_vhe(struct kvm_vcpu *vcpu);
- 
-@@ -1142,14 +1146,6 @@ bool kvm_arm_vcpu_is_finalized(struct kvm_vcpu *vcpu);
- 	(test_bit(KVM_ARCH_FLAG_HAS_RAN_ONCE, &(kvm)->arch.flags))
- 
- int kvm_trng_call(struct kvm_vcpu *vcpu);
--#ifdef CONFIG_KVM
--extern phys_addr_t hyp_mem_base;
--extern phys_addr_t hyp_mem_size;
--void __init kvm_hyp_reserve(void);
--#else
--static inline void kvm_hyp_reserve(void) { }
--#endif
--
- void kvm_arm_vcpu_power_off(struct kvm_vcpu *vcpu);
- bool kvm_arm_vcpu_stopped(struct kvm_vcpu *vcpu);
- 
 -- 
 2.42.0.459.ge4e396fd5e-goog
 
