@@ -4,65 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA04DCD37AA
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 Sep 2023 21:07:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFF97CD37AF
+	for <linux-riscv@archiver.kernel.org>; Sat, 16 Sep 2023 00:05:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pgkUwhVmC/WSH20ncgtXOXdARGH4zYYWHeUMgQNbbKg=; b=RRryoclBYP2rsSUMD/Df1fah0V
-	Fj3YnmFJ23zIxVWVcpq47j5C+VyYJ8j06HrrlWHj0EEgB5+uqvG0E9zGEkQlvI+aHL5C6Qi+fc+sY
-	gz0uSsESRIrvvsnbZigCgL9+aDde9KkWTgfKfX8ZWY4OnNnbM5OK5ysww6haO4GQfZHmW19NuvGIR
-	0or90zuiHbRZWpP5bEM96tSLpumSY3eJmGqQBExYgajbMP403CekUSMiFl6TR8oKWt0rCTQXVXfqz
-	OOQYdneOuzklJN22t5k3v06casoP2cYtIPi4bAc51USXYb1KUNaG2km37WzwzRTYikUV0feei4gCO
-	N72tvRUA==;
+	bh=JQMQaZmHCK+4UXzorsl1rer1tAYGCNPC5rmB7amv2LM=; b=wbeiX/NnlJWrS6FEQl+6AQGLsC
+	tCgAD19wPPqnrKSbMp4b7V6Ml+72eL+2Gjc7SmsRUsziVqs0TJsb0fxZmXJAZ1H8UjXhpN8cB5IhF
+	2/cTUytFK9N7aD4FtsjdkCGMh8Noq7MLntaEEgDdx16NAuHGSXBqGn7gf9qFxqsP9Ua+n3sobgYPM
+	M6QsC/x/zwG4romi6jPwGxB5ntQhMJrS6/ADI68PNNROKN9XOtTKTVqCFTIJ9NTmTewOZ9FuaOesF
+	mk3QSMc1FKN2803zsu0lyu8qa2AFSPw8JBDyUGoqG/wzSLuTeJltldOVNsXXC118hu/Z75obHEkOO
+	UKmCGIcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qhG2X-00BOX9-2M;
-	Fri, 15 Sep 2023 21:07:49 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1qhIoT-00BZhv-25;
+	Sat, 16 Sep 2023 00:05:29 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qhG2V-00BOWT-1r
+	id 1qhIoQ-00BZhM-2x
 	for linux-riscv@lists.infradead.org;
-	Fri, 15 Sep 2023 21:07:48 +0000
+	Sat, 16 Sep 2023 00:05:28 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by sin.source.kernel.org (Postfix) with ESMTPS id 55720CE2D43;
-	Fri, 15 Sep 2023 21:07:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B9AE6C433C8;
-	Fri, 15 Sep 2023 21:07:40 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 7C818B80CA1;
+	Sat, 16 Sep 2023 00:05:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 40E21C433C8;
+	Sat, 16 Sep 2023 00:05:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1694812062;
-	bh=yWUk6FUlYOLjDYbRClgivGA5rBQf/ssbmNXyCcG5dBQ=;
+	s=k20201202; t=1694822724;
+	bh=vctKEIVGP3jo41NodFrzo2PyPGkaneh5Qtgc7YTfVy8=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=X8q+80RgmydYetEN7N0GuV/XpsFwFSajEX0D3KmsUTxIw9rvCQcWvk0fpEBDmsEYT
-	 vYIYaJV0uZ6gzsiMgLZUf9OpNnY3nMKS6M5RH2Qew5MZwU3Ksy/tuCdiyFjFhkc3mE
-	 aD4pM9bDK4eEddohaQrgLBJfveET1P97K+buMbvWtcuTUYQECsjTOjK0DYOmIIiamk
-	 yR9SBKszFgdOeAjPIjovoalbwt4nDjhrPu/ZUKe9rr+j6k0iiUMx1X4KGlUOrF2378
-	 44fTiEFhgPC7INW74fZwPuS76j7V/G/RkyQZcGCZwl/vRofGKuZAPJlAKA+GGi1DDL
-	 DU9nr+905/RsA==
-Date: Fri, 15 Sep 2023 22:07:38 +0100
+	b=upwh/GV+3JSILYkPe87ZUKghNshHvukRMJHhvQP3IbYsimJbl+S5W4OhhCGyQeYyU
+	 M5TPguaN6clvhbXaBW/kjlnKL4yKyu3hHMXFX1a+QihEaLPH/QWeOnIsZEMhoYaiKS
+	 qhvtO0wAycKQR+CP+oMhRrJpBgd9mo9zXLvhvBqDkY/44K9qyeUGBIQG0/rs4BvXEP
+	 Q1FSSJYYu4lqRk9jbwRNezA4BB4gkMbGAm6dT7GVMQIkHFEeSmlCeRDDMQGsQz9Jn4
+	 PQutUyaA0/SasBzef/ZZEFJV3ioPSANwtc5fJdPR5+zBL/zkzk9+Y6noFp/gAJdxKU
+	 exbgwKrV/NknA==
+Date: Sat, 16 Sep 2023 01:05:15 +0100
 From: Conor Dooley <conor@kernel.org>
-To: Rob Herring <robh@kernel.org>
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Palmer Dabbelt <palmer@sifive.com>, linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] dt-bindings: riscv: cpus: Add missing
- additionalProperties on interrupt-controller node
-Message-ID: <20230915-ethanol-doorframe-f500a5d9521e@spud>
-References: <20230915201946.4184468-1-robh@kernel.org>
+To: Conor Dooley <conor.dooley@microchip.com>
+Cc: Andrew Jones <ajones@ventanamicro.com>,
+	Leonardo Bras <leobras@redhat.com>, guoren@kernel.org,
+	paul.walmsley@sifive.com, anup@brainfault.org, peterz@infradead.org,
+	mingo@redhat.com, will@kernel.org, palmer@rivosinc.com,
+	longman@redhat.com, boqun.feng@gmail.com, tglx@linutronix.de,
+	paulmck@kernel.org, rostedt@goodmis.org, rdunlap@infradead.org,
+	catalin.marinas@arm.com, xiaoguang.xing@sophgo.com,
+	bjorn@rivosinc.com, alexghiti@rivosinc.com, keescook@chromium.org,
+	greentime.hu@sifive.com, jszhang@kernel.org, wefu@redhat.com,
+	wuwei2016@iscas.ac.cn, linux-arch@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-doc@vger.kernel.org,
+	kvm@vger.kernel.org, virtualization@lists.linux-foundation.org,
+	linux-csky@vger.kernel.org, Guo Ren <guoren@linux.alibaba.com>
+Subject: Re: [PATCH V11 03/17] riscv: Use Zicbop in arch_xchg when available
+Message-ID: <20230916-display-mounted-55707daeb175@spud>
+References: <20230910082911.3378782-1-guoren@kernel.org>
+ <20230910082911.3378782-4-guoren@kernel.org>
+ <20230914-1ce4f391a14e56b456d88188@orel>
+ <ZQQUQjOaAIc95GXP@redhat.com>
+ <20230915-85238ac7734cf543bff3ddad@orel>
+ <20230915-take-virus-1245c5dfed0a@wendy>
+ <20230915-1c2b122672642e2cbcbaaaef@orel>
+ <20230915-banana-undusted-ec336f45bc78@wendy>
 MIME-Version: 1.0
-In-Reply-To: <20230915201946.4184468-1-robh@kernel.org>
+In-Reply-To: <20230915-banana-undusted-ec336f45bc78@wendy>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230915_140747_803158_ED7EB575 
-X-CRM114-Status: GOOD (  15.28  )
+X-CRM114-CacheID: sfid-20230915_170527_098671_62CE27C7 
+X-CRM114-Status: GOOD (  16.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,71 +87,56 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============7587639864749099769=="
+Content-Type: multipart/mixed; boundary="===============6853276778020133039=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============7587639864749099769==
+--===============6853276778020133039==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="064DYEBcFbFiNMAU"
+	protocol="application/pgp-signature"; boundary="CBSVVsPBvOO/PaEY"
 Content-Disposition: inline
 
 
---064DYEBcFbFiNMAU
+--CBSVVsPBvOO/PaEY
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Fri, Sep 15, 2023 at 03:19:36PM -0500, Rob Herring wrote:
-> The "interrupt-controller" CPU child node is missing constraints on
-> extra properties. Add "additionalProperties: false" to fix this.
+On Fri, Sep 15, 2023 at 01:42:56PM +0100, Conor Dooley wrote:
 >=20
-> Signed-off-by: Rob Herring <robh@kernel.org>
-
-Was wondering why I couldn't see this in my dt queue, guess
-get_maintainer.pl struggled with the multiple claims on the file :)
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-
-Thanks,
-Conor.
-
-> ---
->  Documentation/devicetree/bindings/riscv/cpus.yaml | 1 +
->  1 file changed, 1 insertion(+)
+> > > If this isn't being used in a similar manner, then the w has no reason
+> > > to be in the odd lowercase form.
+> >=20
+> > Other than to be consistent... However, the CBO_* instructions are not
+> > consistent with the rest of macros. If we don't need lowercase for any
+> > reason, then my preference would be to bite the bullet and change all t=
+he
+> > callsites of CBO_* macros and then introduce this new instruction as
+> > PREFETCH_W
 >=20
-> diff --git a/Documentation/devicetree/bindings/riscv/cpus.yaml b/Document=
-ation/devicetree/bindings/riscv/cpus.yaml
-> index 38c0b5213736..97e8441eda1c 100644
-> --- a/Documentation/devicetree/bindings/riscv/cpus.yaml
-> +++ b/Documentation/devicetree/bindings/riscv/cpus.yaml
-> @@ -91,6 +91,7 @@ properties:
-> =20
->    interrupt-controller:
->      type: object
-> +    additionalProperties: false
->      description: Describes the CPU's local interrupt controller
-> =20
->      properties:
-> --=20
-> 2.40.1
->=20
+> Aye, I probably should've done it to begin with. Maybe there was some
+> other consideration at the time.
 
---064DYEBcFbFiNMAU
+FWIW, I sent a patch for this earlier today. I figure you saw it Drew,
+but nonetheless:
+https://lore.kernel.org/all/20230915-aloe-dollar-994937477776@spud/
+
+--CBSVVsPBvOO/PaEY
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZQTHmgAKCRB4tDGHoIJi
-0g91AP0YiS0atHOPqWoysBPu+aFzJt8G+4W+Ng/yWcAqOg2rmAEAyWksUAWE2Blw
-L+/D+8Tq4OdxCfKJjDcWuW8QGTBZZQ8=
-=BkiN
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZQTxOwAKCRB4tDGHoIJi
+0tAgAP9WdDjbNTKMkQ31CBU3G4RL71V08fPsy4V0wDAkAgevNAEAyzP9q9ig4Ui7
+PSoplGlIAPNmRiyp2N8CL+TEK26fjQ0=
+=6kw4
 -----END PGP SIGNATURE-----
 
---064DYEBcFbFiNMAU--
+--CBSVVsPBvOO/PaEY--
 
 
---===============7587639864749099769==
+--===============6853276778020133039==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -149,5 +147,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============7587639864749099769==--
+--===============6853276778020133039==--
 
