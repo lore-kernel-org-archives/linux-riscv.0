@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30EA6CD37B0
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6271CD37B2
 	for <linux-riscv@archiver.kernel.org>; Sat, 16 Sep 2023 00:34:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,60 +12,76 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
 	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KPVvAPrtSZpQ+uN6T6D5gqfeHjWda1vvHac7cOOhXK0=; b=JakMd3Qqq7D00r
-	UGRALask8wGPYuy+JR02ZPEc/kquxbV5ICjq2JOuebmquPJuITXyznirDw6zfB69uo528r7GKR/ml
-	9P3SqgiE83KEGkFIqXSUS+cZ9dY3fv2yVp2szjrGqsh9YhUzxftfG6knC5SogCmYaVEmLVj7NktaW
-	QbyyhDsRCGrsgHOc9bpKLZye4xasZ4np37Wwtz+K7iM49bt6M7mcmnS4MsICz2S3PPB/Vb7f/5gqw
-	QSNGhZW1PiISgl0bVJ1by39bSts6qBnk/tV+7aY79qlcIIkkddi/n9PuuK/90m7fOHrGdf1C/EkOX
-	bB/6l7Ips1DgItMBVjIA==;
+	List-Owner; bh=1ihWou7NYTW4dGjQggE0OqT4+asUl5cMkP9QxdtO5aU=; b=YObnbZWH8uDdei
+	wML51iLq5piX5t/LzxxNIXYLRRECAch95e7u49b1yGO5cqKMSUSy19/p57opSRp3SevrIljXwM1hb
+	ir6gTnkPMQ150Xlf69z6p5dA2lSJySkJeGKuPPnIqTztn88os7qW4k0kBA2TEARzttwMteoMp/Tyq
+	K7bLuT1NyTMdkQNcC3Ttl4M1fzSu00Ju4DYAJ7TIvHKK9KZGHtB4frFz3HhcD9Xf90eAoTVGbhsCj
+	vmfAYrIpUewDMMRq3bZTsNwjBSPfrkgMZ5igB9UvZnjVi1kPkBKb+zNuDp6fiv2+82qPhEjeF7uiA
+	9P6vIwfbTTLZUHYH6DVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qhJGR-00Bf6C-0q;
-	Sat, 16 Sep 2023 00:34:23 +0000
-Received: from mail-yw1-x1149.google.com ([2607:f8b0:4864:20::1149])
+	id 1qhJGU-00Bf9x-08;
+	Sat, 16 Sep 2023 00:34:26 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qhJEC-00Bd3O-28
+	id 1qhJEG-00Bd8E-1v
+	for linux-riscv@bombadil.infradead.org;
+	Sat, 16 Sep 2023 00:32:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
+	Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:Sender:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=B1dRB8XO+KspaRMyC7zp9UYo9xj54whk7JRM1+EstQc=; b=CP1v4n2P56nVYhEd9Ciz9upwzw
+	i77a1kcF4t2FfzB5IdQDytjJ3C7D5zO39Q2/TYp3g4QFBtabpzITqa5+vR2MXCrc3ifg5vtrpFmcN
+	hVHNhYWRbaPXrFx/iZxZjjhKtdGt4EYtGK+XCZdQO3uY7nTH0Ju9R5bLqN5JLIGXsR0zHvYbNWNLt
+	o7lbgbQbO2zxgedRdvgA90Hlv8bSCIJ87J1n5ssjoFoAtNofp1jkRuZ/PeW3c8NOMGhqDidQC5NAe
+	4cDGBNaq/vYnxdX7hGelIuCqTMUzndw2eEem6e6ZCzCxuMn9bSX5QpHZ1Mq1YcyIN4wHDPDvEiwqg
+	S1Z+DzWg==;
+Received: from mail-pg1-x549.google.com ([2607:f8b0:4864:20::549])
+	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1qhJEA-009jsY-1x
 	for linux-riscv@lists.infradead.org;
-	Sat, 16 Sep 2023 00:32:09 +0000
-Received: by mail-yw1-x1149.google.com with SMTP id 00721157ae682-59c12d31d04so12968097b3.1
-        for <linux-riscv@lists.infradead.org>; Fri, 15 Sep 2023 17:32:03 -0700 (PDT)
+	Sat, 16 Sep 2023 00:32:06 +0000
+Received: by mail-pg1-x549.google.com with SMTP id 41be03b00d2f7-56f89b2535dso2528689a12.2
+        for <linux-riscv@lists.infradead.org>; Fri, 15 Sep 2023 17:32:02 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1694824323; x=1695429123; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1694824321; x=1695429121; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=kZSgVl8Q+hmlGcu9E42B+6nCYbsSFCH4k+E/cwlLEa8=;
-        b=Kt3hlIXqw3efHDA0Y+qA3OWfblVgjo3swNseeHFIZC9u+cvlRssqJOrnQQNm5g6+7I
-         kU4DGUXOah2DjmPExDjtcdYb9hLLtTBGNSnVatcDXz4p9zmx5UK0lYilhy56LXEWYQEk
-         3un42rxZcm6wOkgtUVHw934HU9hx9C5awH7FMWTiAyw+2BKXEppsIv3w+80Qongo80gz
-         ulDVVwVnrknzteKaQMrgdVkE+/OsZ8rnxJziHSxxwODeslJvosvHQhEJnvSRHI5DOc7d
-         jaRnVzkoIMn7fFdEXTSn+ZV4PvlyW5LpJFGSUpmVeYS71On8ApsYszzdc5sFXht3RIzT
-         guwA==
+        bh=B1dRB8XO+KspaRMyC7zp9UYo9xj54whk7JRM1+EstQc=;
+        b=ppv8foM9ee6IjseFHBBEPEVc/ld6lFbSZsuqZuRotu0mCLZoUlBDIAvcAU6f59owbr
+         PrnuV0HcX+np+cukoC6pH+2QY4K2adEa/ukPgY8BDb/7PgqwKU+hVBf4BPWijDTliuxC
+         3tTSJ2f2zQlysd4mf7wEM+cSapYjMgOewyfG0jhGaZRoYu22Ga1d+C5YurWwQV0XAmUc
+         WK66dCR7bQWHI4b0k25YKbcizzaQrTpyZOtvCFHmfFvkZb4Yxga7OPtlQXIblk7eUltO
+         J/ZeysjVKI+P0zxDKcuxYoqHnWR1IyObe+7oJTo/ll8CSnvjywaX1wFK5MATtPlXFgfS
+         9iCw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1694824323; x=1695429123;
+        d=1e100.net; s=20230601; t=1694824321; x=1695429121;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=kZSgVl8Q+hmlGcu9E42B+6nCYbsSFCH4k+E/cwlLEa8=;
-        b=qKmg7Zhyqr2JsPdBUY7JFJHDq+Xph8BdQmVC1FkK8UMMAfdmwmMVbTTFe0nw+iYKJi
-         h2CSZeW6U0oV7bWJREki0qqYE3O2xxR/LpBSVOB7zoNbH0j0FLwLefPnR8MSbdBz+KgX
-         4VHXJAVCN5HPUpb/U2XYyiVuy5hWL8jKCbQV8gYlR4Wl4Su51SjEhHkeBD63ln7z3fnI
-         eNu9fop5EvsYBHg53zxpZQUWgbEKnbUeZL/2HHGPFN9JWUOKVqhamV+3GYN6lS6gNYaf
-         gAdAbKjeaaCvSRrObncfoj04cvRjbGtbfUitZxiEdUpXTAuvTX//10qL1rthAmT68UiG
-         tHHA==
-X-Gm-Message-State: AOJu0YyFSuDDGrzPVJsUHEhbW+RkwLl39BXTil2jCKBakjg+hLWKdoLv
-	E9jZaMG48/MtK7Z/mSs7ncr+/WQ8HgE=
-X-Google-Smtp-Source: AGHT+IGvK90kPH1o5bQH0EPib2Mktorl92L52Xc3vYMLm3HoBq+aka+3/3i87f2Q/TuhX6d+6vnq3Y1BBZw=
+        bh=B1dRB8XO+KspaRMyC7zp9UYo9xj54whk7JRM1+EstQc=;
+        b=TPlrJ0UAsGwE5lOJH67+m6flW+Fr+zkk64sIYtgtIIUNCsykR44YVqLxwwGp3Dspwd
+         UkKS9f7grhcCPcy6ab89hmE+AylNqcsDUAH4ZuIm8c3BwK7M3HpR+bX+k8wLqiDbp4/I
+         aYodIudk4ZDvuIrFaGGCC84eBNrvH8/KzjXAryLKF6+N6dRIjMdM1lRPWXKtECcfzn65
+         kGbRvu68f5wYCHExcK6l53uxKlnK7GdVc8IfPl0eoiOeULs3IimrolrVY5HmyvrGjGn+
+         FS2Ui/xDbZTT3j907WNiqkvOaOD9Uh6E5qp6VIL9hSJK6Pd6iCdzr7Q73ktlBUAttEgC
+         r8ZA==
+X-Gm-Message-State: AOJu0YwZoZXGzNQpRbWKK8uLtXRMSCIBRdK2Ne8bB6m2hYYW03oWHH+K
+	IvAZqR8yfTT3OjTrvVFcEdr6N4DWuok=
+X-Google-Smtp-Source: AGHT+IEG3geNQyBEinQ/Gc8L0qGg6gjLTemmwswG1GJ9AY1G6CN5uqCE+2kqm1oXbdjIn4d5e6QeKtFd3X4=
 X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
- (user=seanjc job=sendgmr) by 2002:a81:b60c:0:b0:586:a58d:2e24 with SMTP id
- u12-20020a81b60c000000b00586a58d2e24mr95790ywh.5.1694824323076; Fri, 15 Sep
- 2023 17:32:03 -0700 (PDT)
-Date: Fri, 15 Sep 2023 17:31:13 -0700
+ (user=seanjc job=sendgmr) by 2002:a63:7057:0:b0:574:535:60f with SMTP id
+ a23-20020a637057000000b005740535060fmr69376pgn.11.1694824320845; Fri, 15 Sep
+ 2023 17:32:00 -0700 (PDT)
+Date: Fri, 15 Sep 2023 17:31:12 -0700
 In-Reply-To: <20230916003118.2540661-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20230916003118.2540661-1-seanjc@google.com>
 X-Mailer: git-send-email 2.42.0.459.ge4e396fd5e-goog
-Message-ID: <20230916003118.2540661-22-seanjc@google.com>
-Subject: [PATCH 21/26] entry/kvm: Drop @vcpu param from arch_xfer_to_guest_mode_handle_work()
+Message-ID: <20230916003118.2540661-21-seanjc@google.com>
+Subject: [PATCH 20/26] perf/x86: KVM: Have perf define a dedicated struct for
+ getting guest PEBS data
 From: Sean Christopherson <seanjc@google.com>
 To: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
 	Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
@@ -90,8 +106,8 @@ Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
 	Anish Ghulati <aghulati@google.com>, Venkatesh Srinivas <venkateshs@chromium.org>, 
 	Andrew Thornton <andrewth@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230915_173204_766128_0177F882 
-X-CRM114-Status: GOOD (  12.13  )
+X-CRM114-CacheID: sfid-20230916_013204_630335_787EA681 
+X-CRM114-Status: GOOD (  23.88  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,53 +125,249 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Drop the "struct kvm_vcpu" parameter from
-arch_xfer_to_guest_mode_handle_work() as a preparatory step towards
-removing the vCPU parameter from xfer_to_guest_mode_work() as well.
+Have perf define a struct for getting guest PEBS data from KVM instead of
+poking into the kvm_pmu structure.  Passing in an entire "struct kvm_pmu"
+_as an opaque pointer_ to get at three fields is silly, especially since
+one of the fields exists purely to convey information to perf, i.e. isn't
+used by KVM.
+
+Perf should also own its APIs, i.e. define what fields/data it needs, not
+rely on KVM to throw fields into data structures that effectively hold
+KVM-internal state.
 
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- include/linux/entry-kvm.h | 7 ++-----
- kernel/entry/kvm.c        | 2 +-
- 2 files changed, 3 insertions(+), 6 deletions(-)
+ arch/x86/events/core.c            |  5 +++--
+ arch/x86/events/intel/core.c      | 18 +++++++++---------
+ arch/x86/events/perf_event.h      |  3 ++-
+ arch/x86/include/asm/kvm_host.h   |  9 ---------
+ arch/x86/include/asm/perf_event.h | 12 ++++++++++--
+ arch/x86/kvm/vmx/pmu_intel.c      | 16 +++++++++++++---
+ arch/x86/kvm/vmx/vmx.c            | 10 ++++++----
+ arch/x86/kvm/vmx/vmx.h            |  2 +-
+ 8 files changed, 44 insertions(+), 31 deletions(-)
 
-diff --git a/include/linux/entry-kvm.h b/include/linux/entry-kvm.h
-index 6813171afccb..e7d90d06e566 100644
---- a/include/linux/entry-kvm.h
-+++ b/include/linux/entry-kvm.h
-@@ -25,18 +25,15 @@ struct kvm_vcpu;
- /**
-  * arch_xfer_to_guest_mode_handle_work - Architecture specific xfer to guest
-  *					 mode work handling function.
-- * @vcpu:	Pointer to current's VCPU data
-  * @ti_work:	Cached TIF flags gathered in xfer_to_guest_mode_handle_work()
-  *
-  * Invoked from xfer_to_guest_mode_handle_work(). Defaults to NOOP. Can be
-  * replaced by architecture specific code.
-  */
--static inline int arch_xfer_to_guest_mode_handle_work(struct kvm_vcpu *vcpu,
--						      unsigned long ti_work);
-+static inline int arch_xfer_to_guest_mode_handle_work(unsigned long ti_work);
- 
- #ifndef arch_xfer_to_guest_mode_work
--static inline int arch_xfer_to_guest_mode_handle_work(struct kvm_vcpu *vcpu,
--						      unsigned long ti_work)
-+static inline int arch_xfer_to_guest_mode_handle_work(unsigned long ti_work)
- {
- 	return 0;
+diff --git a/arch/x86/events/core.c b/arch/x86/events/core.c
+index 185f902e5f28..3b015cfcf41d 100644
+--- a/arch/x86/events/core.c
++++ b/arch/x86/events/core.c
+@@ -695,9 +695,10 @@ void x86_pmu_disable_all(void)
+ 	}
  }
-diff --git a/kernel/entry/kvm.c b/kernel/entry/kvm.c
-index 2e0f75bcb7fd..c2fc39824157 100644
---- a/kernel/entry/kvm.c
-+++ b/kernel/entry/kvm.c
-@@ -19,7 +19,7 @@ static int xfer_to_guest_mode_work(struct kvm_vcpu *vcpu, unsigned long ti_work)
- 		if (ti_work & _TIF_NOTIFY_RESUME)
- 			resume_user_mode_work(NULL);
  
--		ret = arch_xfer_to_guest_mode_handle_work(vcpu, ti_work);
-+		ret = arch_xfer_to_guest_mode_handle_work(ti_work);
- 		if (ret)
- 			return ret;
+-struct perf_guest_switch_msr *perf_guest_get_msrs(int *nr, void *data)
++struct perf_guest_switch_msr *perf_guest_get_msrs(int *nr,
++						  struct x86_guest_pebs *guest_pebs)
+ {
+-	return static_call(x86_pmu_guest_get_msrs)(nr, data);
++	return static_call(x86_pmu_guest_get_msrs)(nr, guest_pebs);
+ }
+ EXPORT_SYMBOL_GPL(perf_guest_get_msrs);
+ 
+diff --git a/arch/x86/events/intel/core.c b/arch/x86/events/intel/core.c
+index fa355d3658a6..9b848d7ebaaf 100644
+--- a/arch/x86/events/intel/core.c
++++ b/arch/x86/events/intel/core.c
+@@ -14,7 +14,6 @@
+ #include <linux/slab.h>
+ #include <linux/export.h>
+ #include <linux/nmi.h>
+-#include <linux/kvm_host.h>
+ 
+ #include <asm/cpufeature.h>
+ #include <asm/hardirq.h>
+@@ -4053,11 +4052,11 @@ static int intel_pmu_hw_config(struct perf_event *event)
+  * when it uses {RD,WR}MSR, which should be handled by the KVM context,
+  * specifically in the intel_pmu_{get,set}_msr().
+  */
+-static struct perf_guest_switch_msr *intel_guest_get_msrs(int *nr, void *data)
++static struct perf_guest_switch_msr *intel_guest_get_msrs(int *nr,
++							  struct x86_guest_pebs *guest_pebs)
+ {
+ 	struct cpu_hw_events *cpuc = this_cpu_ptr(&cpu_hw_events);
+ 	struct perf_guest_switch_msr *arr = cpuc->guest_switch_msrs;
+-	struct kvm_pmu *kvm_pmu = (struct kvm_pmu *)data;
+ 	u64 intel_ctrl = hybrid(cpuc->pmu, intel_ctrl);
+ 	u64 pebs_mask = cpuc->pebs_enabled & x86_pmu.pebs_capable;
+ 	int global_ctrl, pebs_enable;
+@@ -4090,20 +4089,20 @@ static struct perf_guest_switch_msr *intel_guest_get_msrs(int *nr, void *data)
+ 		return arr;
+ 	}
+ 
+-	if (!kvm_pmu || !x86_pmu.pebs_ept)
++	if (!guest_pebs || !x86_pmu.pebs_ept)
+ 		return arr;
+ 
+ 	arr[(*nr)++] = (struct perf_guest_switch_msr){
+ 		.msr = MSR_IA32_DS_AREA,
+ 		.host = (unsigned long)cpuc->ds,
+-		.guest = kvm_pmu->ds_area,
++		.guest = guest_pebs->ds_area,
+ 	};
+ 
+ 	if (x86_pmu.intel_cap.pebs_baseline) {
+ 		arr[(*nr)++] = (struct perf_guest_switch_msr){
+ 			.msr = MSR_PEBS_DATA_CFG,
+ 			.host = cpuc->active_pebs_data_cfg,
+-			.guest = kvm_pmu->pebs_data_cfg,
++			.guest = guest_pebs->data_cfg,
+ 		};
+ 	}
+ 
+@@ -4119,8 +4118,8 @@ static struct perf_guest_switch_msr *intel_guest_get_msrs(int *nr, void *data)
+ 		arr[pebs_enable].guest = 0;
+ 	} else {
+ 		/* Disable guest PEBS thoroughly for cross-mapped PEBS counters. */
+-		arr[pebs_enable].guest &= ~kvm_pmu->host_cross_mapped_mask;
+-		arr[global_ctrl].guest &= ~kvm_pmu->host_cross_mapped_mask;
++		arr[pebs_enable].guest &= ~guest_pebs->cross_mapped_mask;
++		arr[global_ctrl].guest &= ~guest_pebs->cross_mapped_mask;
+ 		/* Set hw GLOBAL_CTRL bits for PEBS counter when it runs for guest */
+ 		arr[global_ctrl].guest |= arr[pebs_enable].guest;
+ 	}
+@@ -4128,7 +4127,8 @@ static struct perf_guest_switch_msr *intel_guest_get_msrs(int *nr, void *data)
+ 	return arr;
+ }
+ 
+-static struct perf_guest_switch_msr *core_guest_get_msrs(int *nr, void *data)
++static struct perf_guest_switch_msr *core_guest_get_msrs(int *nr,
++							 struct x86_guest_pebs *guest_pebs)
+ {
+ 	struct cpu_hw_events *cpuc = this_cpu_ptr(&cpu_hw_events);
+ 	struct perf_guest_switch_msr *arr = cpuc->guest_switch_msrs;
+diff --git a/arch/x86/events/perf_event.h b/arch/x86/events/perf_event.h
+index c8ba2be7585d..d805c9007e35 100644
+--- a/arch/x86/events/perf_event.h
++++ b/arch/x86/events/perf_event.h
+@@ -920,7 +920,8 @@ struct x86_pmu {
+ 	/*
+ 	 * Intel host/guest support (KVM)
+ 	 */
+-	struct perf_guest_switch_msr *(*guest_get_msrs)(int *nr, void *data);
++	struct perf_guest_switch_msr *(*guest_get_msrs)(int *nr,
++							struct x86_guest_pebs *guest_pebs);
+ 
+ 	/*
+ 	 * Check period value for PERF_EVENT_IOC_PERIOD ioctl.
+diff --git a/arch/x86/include/asm/kvm_host.h b/arch/x86/include/asm/kvm_host.h
+index 1a4def36d5bb..29db870dbaae 100644
+--- a/arch/x86/include/asm/kvm_host.h
++++ b/arch/x86/include/asm/kvm_host.h
+@@ -548,15 +548,6 @@ struct kvm_pmu {
+ 	u64 pebs_data_cfg;
+ 	u64 pebs_data_cfg_mask;
+ 
+-	/*
+-	 * If a guest counter is cross-mapped to host counter with different
+-	 * index, its PEBS capability will be temporarily disabled.
+-	 *
+-	 * The user should make sure that this mask is updated
+-	 * after disabling interrupts and before perf_guest_get_msrs();
+-	 */
+-	u64 host_cross_mapped_mask;
+-
+ 	/*
+ 	 * The gate to release perf_events not marked in
+ 	 * pmc_in_use only once in a vcpu time slice.
+diff --git a/arch/x86/include/asm/perf_event.h b/arch/x86/include/asm/perf_event.h
+index 85a9fd5a3ec3..34c2c9a0b02b 100644
+--- a/arch/x86/include/asm/perf_event.h
++++ b/arch/x86/include/asm/perf_event.h
+@@ -564,11 +564,19 @@ static inline void perf_events_lapic_init(void)	{ }
+ static inline void perf_check_microcode(void) { }
+ #endif
+ 
++struct x86_guest_pebs {
++	u64	ds_area;
++	u64	data_cfg;
++	u64	cross_mapped_mask;
++};
++
+ #if defined(CONFIG_PERF_EVENTS) && defined(CONFIG_CPU_SUP_INTEL)
+-extern struct perf_guest_switch_msr *perf_guest_get_msrs(int *nr, void *data);
++extern struct perf_guest_switch_msr *perf_guest_get_msrs(int *nr,
++							 struct x86_guest_pebs *guest_pebs);
+ extern void x86_perf_get_lbr(struct x86_pmu_lbr *lbr);
+ #else
+-struct perf_guest_switch_msr *perf_guest_get_msrs(int *nr, void *data);
++struct perf_guest_switch_msr *perf_guest_get_msrs(int *nr,
++						  struct x86_guest_pebs *guest_pebs);
+ static inline void x86_perf_get_lbr(struct x86_pmu_lbr *lbr)
+ {
+ 	memset(lbr, 0, sizeof(*lbr));
+diff --git a/arch/x86/kvm/vmx/pmu_intel.c b/arch/x86/kvm/vmx/pmu_intel.c
+index f2efa0bf7ae8..3b3929871f7e 100644
+--- a/arch/x86/kvm/vmx/pmu_intel.c
++++ b/arch/x86/kvm/vmx/pmu_intel.c
+@@ -765,11 +765,20 @@ static void intel_pmu_cleanup(struct kvm_vcpu *vcpu)
+ 		intel_pmu_release_guest_lbr_event(vcpu);
+ }
+ 
+-void intel_pmu_cross_mapped_check(struct kvm_pmu *pmu)
++u64 intel_pmu_get_cross_mapped_mask(struct kvm_pmu *pmu)
+ {
+-	struct kvm_pmc *pmc = NULL;
++	u64 host_cross_mapped_mask;
++	struct kvm_pmc *pmc;
+ 	int bit, hw_idx;
+ 
++	if (!(pmu->pebs_enable & pmu->global_ctrl))
++		return 0;
++
++	/*
++	 * If a guest counter is cross-mapped to host counter with different
++	 * index, its PEBS capability will be temporarily disabled.
++	 */
++	host_cross_mapped_mask = 0;
+ 	for_each_set_bit(bit, (unsigned long *)&pmu->global_ctrl,
+ 			 X86_PMC_IDX_MAX) {
+ 		pmc = intel_pmc_idx_to_pmc(pmu, bit);
+@@ -784,8 +793,9 @@ void intel_pmu_cross_mapped_check(struct kvm_pmu *pmu)
+ 		 */
+ 		hw_idx = pmc->perf_event->hw.idx;
+ 		if (hw_idx != pmc->idx && hw_idx > -1)
+-			pmu->host_cross_mapped_mask |= BIT_ULL(hw_idx);
++			host_cross_mapped_mask |= BIT_ULL(hw_idx);
+ 	}
++	return host_cross_mapped_mask;
+ }
+ 
+ struct kvm_pmu_ops intel_pmu_ops __initdata = {
+diff --git a/arch/x86/kvm/vmx/vmx.c b/arch/x86/kvm/vmx/vmx.c
+index 72e3943f3693..faf0071566ef 100644
+--- a/arch/x86/kvm/vmx/vmx.c
++++ b/arch/x86/kvm/vmx/vmx.c
+@@ -7131,12 +7131,14 @@ static void atomic_switch_perf_msrs(struct vcpu_vmx *vmx)
+ 	struct perf_guest_switch_msr *msrs;
+ 	struct kvm_pmu *pmu = vcpu_to_pmu(&vmx->vcpu);
+ 
+-	pmu->host_cross_mapped_mask = 0;
+-	if (pmu->pebs_enable & pmu->global_ctrl)
+-		intel_pmu_cross_mapped_check(pmu);
++	struct x86_guest_pebs guest_pebs = {
++		.ds_area = pmu->ds_area,
++		.data_cfg = pmu->pebs_data_cfg,
++		.cross_mapped_mask = intel_pmu_get_cross_mapped_mask(pmu),
++	};
+ 
+ 	/* Note, nr_msrs may be garbage if perf_guest_get_msrs() returns NULL. */
+-	msrs = perf_guest_get_msrs(&nr_msrs, (void *)pmu);
++	msrs = perf_guest_get_msrs(&nr_msrs, &guest_pebs);
+ 	if (!msrs)
+ 		return;
+ 
+diff --git a/arch/x86/kvm/vmx/vmx.h b/arch/x86/kvm/vmx/vmx.h
+index c2130d2c8e24..476119670d82 100644
+--- a/arch/x86/kvm/vmx/vmx.h
++++ b/arch/x86/kvm/vmx/vmx.h
+@@ -670,7 +670,7 @@ static inline bool intel_pmu_lbr_is_enabled(struct kvm_vcpu *vcpu)
+ 	return !!vcpu_to_lbr_records(vcpu)->nr;
+ }
+ 
+-void intel_pmu_cross_mapped_check(struct kvm_pmu *pmu);
++u64 intel_pmu_get_cross_mapped_mask(struct kvm_pmu *pmu);
+ int intel_pmu_create_guest_lbr_event(struct kvm_vcpu *vcpu);
+ void vmx_passthrough_lbr_msrs(struct kvm_vcpu *vcpu);
  
 -- 
 2.42.0.459.ge4e396fd5e-goog
