@@ -4,100 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48429CD37B0
-	for <linux-riscv@archiver.kernel.org>; Sat, 16 Sep 2023 01:26:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 929CDCD37B0
+	for <linux-riscv@archiver.kernel.org>; Sat, 16 Sep 2023 01:46:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
+	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2QBaytcwZt42dD5H+BTw/1tuvYOod+n8X+0JgGpmyLE=; b=GepzeNbZdgeAJB
-	CUhzj1yZcXZIFi6hw16xpGm/2lpk4/MxBn+rby/UwajyPKRTSdMhhRnj+kXeGTnMcO8TRd9fTb9aU
-	dxjAkyq90dIIQXeKyMVVZK2U1oQSEcKy/rET4SjE44VMPtXloZu8r2swLcSWKoHEPUhjynz9ayz14
-	TRN6h27hpd3tSJGvTMrRhk+ntz18fNPasc1V/uSmHMcpSY6WZyKwnmYNaqcO9jha1Y0Am9EZAJPKC
-	ebbEFY52qCaDWwddUendieuQsPjZw2ZQQPzoA1eTaOJI4huKergfdj/+fLZGsrRXUO1PCeiNrxeO2
-	OdL5xWl988LBWyMgjYSA==;
+	List-Owner; bh=nj2fdQy8WYdjxzr1ZUJD3r94wz8n/DLNEVGpinrhlqk=; b=hBGQhgtydUByg4
+	qEdEeObMRN8ImHsACZ2keBmCvn30xAO8H4ZvugIoWyq/pzVuNu6q+8sNBywSoAvChvUeHnx+5OLF3
+	H9Dhl93AegHSnATQx81tGCcTigt7icJyy2chdP61skyAo96g+BPNW+wbgZUxqzSaLpOCMnN8+L/ct
+	dJB6JUSpnLICLvAqbMG/YokuOTJcVRzuoP0ptMAqtYD7GZy0XKwzPmwUkRyv8Md9hO+XRjb947glk
+	/kCm6GmV6Cr5/V1DyQQl/vsUH8cd33FoPVyEBN2t2hT4zYoonMFtf1N2JdWahKIRNVqb2gRICLN1N
+	E4sU5JDtcvD6RlBPQg2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qhK4N-00BjYI-2K;
-	Sat, 16 Sep 2023 01:25:59 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1qhKNq-00BkJO-0G;
+	Sat, 16 Sep 2023 01:46:06 +0000
+Received: from mail-yb1-xb4a.google.com ([2607:f8b0:4864:20::b4a])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qhK4K-00BjXP-0I
+	id 1qhJDe-00BcRf-1H
 	for linux-riscv@lists.infradead.org;
-	Sat, 16 Sep 2023 01:25:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1694827550;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=a841Dj9MVAHe6LjBb/D3WBLUQoc5e6SIAZrfTaBUOzc=;
-	b=Faj0gjzdeOSNK18cnOOy0KN2ADRXVDtt/ZMyScrXCtTxyB5DZ3BjJoWt6R1p75NTvbBabP
-	6R+2mIdVtK4+WYJTchwjjZQ7O8ZvjtPt63AoMOCZBpNkN9QPOHZZS0x3I+Umma7pQRWeG8
-	n1OEh3O1OU6KP5B2Kxdywnndq1/cwUM=
-Received: from mail-ot1-f69.google.com (mail-ot1-f69.google.com
- [209.85.210.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-595-NO8cDdulMtSc6tkgmUa4Rg-1; Fri, 15 Sep 2023 21:25:48 -0400
-X-MC-Unique: NO8cDdulMtSc6tkgmUa4Rg-1
-Received: by mail-ot1-f69.google.com with SMTP id 46e09a7af769-6c0d445555eso3676733a34.0
-        for <linux-riscv@lists.infradead.org>; Fri, 15 Sep 2023 18:25:48 -0700 (PDT)
+	Sat, 16 Sep 2023 00:31:36 +0000
+Received: by mail-yb1-xb4a.google.com with SMTP id 3f1490d57ef6-d7e79ec07b4so3171301276.0
+        for <linux-riscv@lists.infradead.org>; Fri, 15 Sep 2023 17:31:29 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1694824289; x=1695429089; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
+        bh=XNfaWnR713DgNOXX6oC0phI1nRzZDxqQCByPnT54704=;
+        b=vxxuhdul9xo2nGLb9KoiBumXP3cVlNjnYREwcmcNFURvUHLHcf0REESba1INUbT67R
+         TJ7gLsQBJ4F/lt7AiT/xBDMjnFMhl83dqLIPeaoLgsFk8d8YXwZR41v2iImfMR486eIz
+         1gRmxT4KzayJW2Cg5+kYLrH0t5mGgFCVDlSPTlfkuUNrL9z4itEgTO0t19J3julpnn2S
+         JbhAwy0bl7ueuedl1GAKH4i3NL9hCYvzgg+0QjRMgdO3riAqHP8jMJplwoBNiOzsxTbp
+         iH8WM3GCg/O63wW44VMIpVBSTwq+ypAyYp9G/naeGsIxbRG2DqvBxQHdeiN2QeDOXGGr
+         BHZw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1694827548; x=1695432348;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=a841Dj9MVAHe6LjBb/D3WBLUQoc5e6SIAZrfTaBUOzc=;
-        b=Gc0N8AEj8MrO9VOWD1P2gFrPK5AL+86/grxAhOF2WPR2G2o7HgzKMg8jdpgAbw+FR0
-         Qf+f5CsgmHvxhAtlPlZ+CvOr1A4/rNtfGbnKaQBaVu+Tg5xfACAbimua/0doWLLrv9dW
-         xJJK233UeNld6ejXUzbqOfP4vOJjlkA5R11q49JAqQ8L9jrzlEQAlxhU0/fgdXGpMHt6
-         K1DYiEFWwg223cQtAJvDzZjH+WfaApDvFyugDVxRVCk7VoLaIGtwiPGYbC8S9EBCAU5x
-         NW3d1g8RpsMrHid8p4Cm5Bk94/ceca1O+jPfvIAlLfSC2KIZuM24XovTrfrEPDUok3ZY
-         xj/A==
-X-Gm-Message-State: AOJu0YwJ0o1Rk/hxK2XpUY4l6+ZXY2y1XDmoYqX4YxvchhfM21xOP0oe
-	w3Us1smMKIq8PMlWBr8mEcG483PIRThID/nSOZGeOOfmKeLoYycWkkrGqdC+sUlyiEINI+Q0TIN
-	n7SR5BEt6UPqkwdxUn9eHYKdaNUfC
-X-Received: by 2002:a05:6830:1e5c:b0:6b9:1af3:3307 with SMTP id e28-20020a0568301e5c00b006b91af33307mr3240732otj.17.1694827548003;
-        Fri, 15 Sep 2023 18:25:48 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IG/U7QGt/zB+NEyg+/yyYN+WrebgCYeIPjC/Iw6wpK8vc1LFQt+wzF39sF5ABwfBunU6FyGiw==
-X-Received: by 2002:a05:6830:1e5c:b0:6b9:1af3:3307 with SMTP id e28-20020a0568301e5c00b006b91af33307mr3240694otj.17.1694827547715;
-        Fri, 15 Sep 2023 18:25:47 -0700 (PDT)
-Received: from redhat.com ([2804:1b3:a803:677d:42e9:f426:9422:f020])
-        by smtp.gmail.com with ESMTPSA id d5-20020a05683018e500b006b9443ce478sm2192319otf.27.2023.09.15.18.25.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 15 Sep 2023 18:25:47 -0700 (PDT)
-Date: Fri, 15 Sep 2023 22:25:37 -0300
-From: Leonardo Bras <leobras@redhat.com>
-To: Guo Ren <guoren@kernel.org>
-Cc: paul.walmsley@sifive.com, anup@brainfault.org, peterz@infradead.org,
-	mingo@redhat.com, will@kernel.org, palmer@rivosinc.com,
-	longman@redhat.com, boqun.feng@gmail.com, tglx@linutronix.de,
-	paulmck@kernel.org, rostedt@goodmis.org, rdunlap@infradead.org,
-	catalin.marinas@arm.com, conor.dooley@microchip.com,
-	xiaoguang.xing@sophgo.com, bjorn@rivosinc.com,
-	alexghiti@rivosinc.com, keescook@chromium.org,
-	greentime.hu@sifive.com, ajones@ventanamicro.com,
-	jszhang@kernel.org, wefu@redhat.com, wuwei2016@iscas.ac.cn,
-	linux-arch@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-doc@vger.kernel.org, kvm@vger.kernel.org,
-	virtualization@lists.linux-foundation.org,
-	linux-csky@vger.kernel.org, Guo Ren <guoren@linux.alibaba.com>
-Subject: Re: [PATCH V11 03/17] riscv: Use Zicbop in arch_xchg when available
-Message-ID: <ZQUEEckIEbtxwLEG@redhat.com>
-References: <20230910082911.3378782-1-guoren@kernel.org>
- <20230910082911.3378782-4-guoren@kernel.org>
- <ZQF3qS1KRYAt3coC@redhat.com>
- <CAJF2gTT5s2-vhgrxnkE1EGqJMvXn8ftYrrwRMdJH1tjEqAv5kQ@mail.gmail.com>
-MIME-Version: 1.0
-In-Reply-To: <CAJF2gTT5s2-vhgrxnkE1EGqJMvXn8ftYrrwRMdJH1tjEqAv5kQ@mail.gmail.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
-Content-Disposition: inline
+        d=1e100.net; s=20230601; t=1694824289; x=1695429089;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=XNfaWnR713DgNOXX6oC0phI1nRzZDxqQCByPnT54704=;
+        b=Qd76zXBl4pxvNUqDZKxIflXZLnPBwqOBTWzPyJDOrWEhK7B6h4LWFizYn1nHjnSYD1
+         8gVzz4nuerXPyuHhHwP3kp/bXv5SM7fhSN/+ZiG+5h4BNKC3zwY39hlybsBsHT8Y00Wt
+         AY96d/XYSBUZU7KrZGilquurNa4hYZaj6x/wwZpn/6ltvsiUYEFNhoeick/bg3W4xiLh
+         qo3eqMY7OKRp09svJ4hpl/MIzhkX+Lbsw7xt3+8jz8uBYlgAu4TTw3u+PkKieWvOjC9j
+         iX8iqhzk+3u2Oer7p9lcs6Ic92rhix71V4sD7hYynuIgSMizQUGulwsrsdQW1Ccj/nVP
+         xaYA==
+X-Gm-Message-State: AOJu0YzOjMCz7EvxYmK+xDJLMH1CWa30b02yIAA7+THOZItZnYxOwanK
+	HnC5B0bArKYL3vCCiBfkbG7EyGwgQrE=
+X-Google-Smtp-Source: AGHT+IGvtU4vAL07Ep1DYBA3eTFA34U05IWJGHx1Y/tLzKqZb8SnlC6/6SqqxeE2xQbrWfOJDU/nK++52MU=
+X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
+ (user=seanjc job=sendgmr) by 2002:a25:d856:0:b0:d13:856b:c10a with SMTP id
+ p83-20020a25d856000000b00d13856bc10amr78847ybg.3.1694824288887; Fri, 15 Sep
+ 2023 17:31:28 -0700 (PDT)
+Date: Fri, 15 Sep 2023 17:30:56 -0700
+In-Reply-To: <20230916003118.2540661-1-seanjc@google.com>
+Mime-Version: 1.0
+References: <20230916003118.2540661-1-seanjc@google.com>
+X-Mailer: git-send-email 2.42.0.459.ge4e396fd5e-goog
+Message-ID: <20230916003118.2540661-5-seanjc@google.com>
+Subject: [PATCH 04/26] vfio: Add struct to hold KVM assets and dedup group vs.
+ iommufd code
+From: Sean Christopherson <seanjc@google.com>
+To: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
+	Huacai Chen <chenhuacai@kernel.org>, Michael Ellerman <mpe@ellerman.id.au>, 
+	Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
+	Alexander Gordeev <agordeev@linux.ibm.com>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
+	Janosch Frank <frankja@linux.ibm.com>, Claudio Imbrenda <imbrenda@linux.ibm.com>, 
+	Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
+	Peter Zijlstra <peterz@infradead.org>, Arnaldo Carvalho de Melo <acme@kernel.org>, 
+	Sean Christopherson <seanjc@google.com>, Paolo Bonzini <pbonzini@redhat.com>, 
+	Tony Krowiak <akrowiak@linux.ibm.com>, Halil Pasic <pasic@linux.ibm.com>, 
+	Jason Herne <jjherne@linux.ibm.com>, Harald Freudenberger <freude@linux.ibm.com>, 
+	Alex Williamson <alex.williamson@redhat.com>, Andy Lutomirski <luto@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-mips@vger.kernel.org, kvm@vger.kernel.org, 
+	linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org, 
+	Anish Ghulati <aghulati@google.com>, Venkatesh Srinivas <venkateshs@chromium.org>, 
+	Andrew Thornton <andrewth@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230915_182556_199306_10515231 
-X-CRM114-Status: GOOD (  38.91  )
+X-CRM114-CacheID: sfid-20230915_173130_479007_9E0EECD0 
+X-CRM114-Status: GOOD (  21.93  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,158 +104,282 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Reply-To: Sean Christopherson <seanjc@google.com>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCBTZXAgMTUsIDIwMjMgYXQgMDg6MzY6MzFQTSArMDgwMCwgR3VvIFJlbiB3cm90ZToK
-PiBPbiBXZWQsIFNlcCAxMywgMjAyMyBhdCA0OjUw4oCvUE0gTGVvbmFyZG8gQnJhcyA8bGVvYnJh
-c0ByZWRoYXQuY29tPiB3cm90ZToKPiA+Cj4gPiBPbiBTdW4sIFNlcCAxMCwgMjAyMyBhdCAwNDoy
-ODo1N0FNIC0wNDAwLCBndW9yZW5Aa2VybmVsLm9yZyB3cm90ZToKPiA+ID4gRnJvbTogR3VvIFJl
-biA8Z3VvcmVuQGxpbnV4LmFsaWJhYmEuY29tPgo+ID4gPgo+ID4gPiBDYWNoZS1ibG9jayBwcmVm
-ZXRjaCBpbnN0cnVjdGlvbnMgYXJlIEhJTlRzIHRvIHRoZSBoYXJkd2FyZSB0bwo+ID4gPiBpbmRp
-Y2F0ZSB0aGF0IHNvZnR3YXJlIGludGVuZHMgdG8gcGVyZm9ybSBhIHBhcnRpY3VsYXIgdHlwZSBv
-Zgo+ID4gPiBtZW1vcnkgYWNjZXNzIGluIHRoZSBuZWFyIGZ1dHVyZS4gRW5hYmxlIEFSQ0hfSEFT
-X1BSRUZFVENIVyBhbmQKPiA+ID4gaW1wcm92ZSB0aGUgYXJjaF94Y2hnIGZvciBxc3BpbmxvY2sg
-eGNoZ190YWlsLgo+ID4gPgo+ID4gPiBTaWduZWQtb2ZmLWJ5OiBHdW8gUmVuIDxndW9yZW5AbGlu
-dXguYWxpYmFiYS5jb20+Cj4gPiA+IFNpZ25lZC1vZmYtYnk6IEd1byBSZW4gPGd1b3JlbkBrZXJu
-ZWwub3JnPgo+ID4gPiAtLS0KPiA+ID4gIGFyY2gvcmlzY3YvS2NvbmZpZyAgICAgICAgICAgICAg
-ICAgfCAxNSArKysrKysrKysrKysrKysKPiA+ID4gIGFyY2gvcmlzY3YvaW5jbHVkZS9hc20vY21w
-eGNoZy5oICAgfCAgNCArKystCj4gPiA+ICBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2h3Y2FwLmgg
-ICAgIHwgIDEgKwo+ID4gPiAgYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9pbnNuLWRlZi5oICB8ICA1
-ICsrKysrCj4gPiA+ICBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3Byb2Nlc3Nvci5oIHwgMTMgKysr
-KysrKysrKysrKwo+ID4gPiAgYXJjaC9yaXNjdi9rZXJuZWwvY3B1ZmVhdHVyZS5jICAgICB8ICAx
-ICsKPiA+ID4gIDYgZmlsZXMgY2hhbmdlZCwgMzggaW5zZXJ0aW9ucygrKSwgMSBkZWxldGlvbigt
-KQo+ID4gPgo+ID4gPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9LY29uZmlnIGIvYXJjaC9yaXNj
-di9LY29uZmlnCj4gPiA+IGluZGV4IGU5YWU2ZmEyMzJjMy4uMmMzNDZmZTE2OWMxIDEwMDY0NAo+
-ID4gPiAtLS0gYS9hcmNoL3Jpc2N2L0tjb25maWcKPiA+ID4gKysrIGIvYXJjaC9yaXNjdi9LY29u
-ZmlnCj4gPiA+IEBAIC02MTcsNiArNjE3LDIxIEBAIGNvbmZpZyBSSVNDVl9JU0FfWklDQk9aCj4g
-PiA+Cj4gPiA+ICAgICAgICAgIElmIHlvdSBkb24ndCBrbm93IHdoYXQgdG8gZG8gaGVyZSwgc2F5
-IFkuCj4gPiA+Cj4gPiA+ICtjb25maWcgUklTQ1ZfSVNBX1pJQ0JPUAo+ID4gPiArICAgICBib29s
-ICJaaWNib3AgZXh0ZW5zaW9uIHN1cHBvcnQgZm9yIGNhY2hlIGJsb2NrIHByZWZldGNoIgo+ID4g
-PiArICAgICBkZXBlbmRzIG9uIE1NVQo+ID4gPiArICAgICBkZXBlbmRzIG9uIFJJU0NWX0FMVEVS
-TkFUSVZFCj4gPiA+ICsgICAgIGRlZmF1bHQgeQo+ID4gPiArICAgICBoZWxwCj4gPiA+ICsgICAg
-ICAgIEFkZHMgc3VwcG9ydCB0byBkeW5hbWljYWxseSBkZXRlY3QgdGhlIHByZXNlbmNlIG9mIHRo
-ZSBaSUNCT1AKPiA+ID4gKyAgICAgICAgZXh0ZW5zaW9uIChDYWNoZSBCbG9jayBQcmVmZXRjaCBP
-cGVyYXRpb25zKSBhbmQgZW5hYmxlIGl0cwo+ID4gPiArICAgICAgICB1c2FnZS4KPiA+ID4gKwo+
-ID4gPiArICAgICAgICBUaGUgWmljYm9wIGV4dGVuc2lvbiBjYW4gYmUgdXNlZCB0byBwcmVmZXRj
-aCBjYWNoZSBibG9jayBmb3IKPiA+ID4gKyAgICAgICAgcmVhZC93cml0ZS9pbnN0cnVjdGlvbiBm
-ZXRjaC4KPiA+ID4gKwo+ID4gPiArICAgICAgICBJZiB5b3UgZG9uJ3Qga25vdyB3aGF0IHRvIGRv
-IGhlcmUsIHNheSBZLgo+ID4gPiArCj4gPiA+ICBjb25maWcgVE9PTENIQUlOX0hBU19aSUhJTlRQ
-QVVTRQo+ID4gPiAgICAgICBib29sCj4gPiA+ICAgICAgIGRlZmF1bHQgeQo+ID4gPiBkaWZmIC0t
-Z2l0IGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9jbXB4Y2hnLmggYi9hcmNoL3Jpc2N2L2luY2x1
-ZGUvYXNtL2NtcHhjaGcuaAo+ID4gPiBpbmRleCA3MDI3MjU3Mjc2NzEuLjU2ZWZmN2E5ZDJkMiAx
-MDA2NDQKPiA+ID4gLS0tIGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9jbXB4Y2hnLmgKPiA+ID4g
-KysrIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9jbXB4Y2hnLmgKPiA+ID4gQEAgLTExLDYgKzEx
-LDcgQEAKPiA+ID4KPiA+ID4gICNpbmNsdWRlIDxhc20vYmFycmllci5oPgo+ID4gPiAgI2luY2x1
-ZGUgPGFzbS9mZW5jZS5oPgo+ID4gPiArI2luY2x1ZGUgPGFzbS9wcm9jZXNzb3IuaD4KPiA+ID4K
-PiA+ID4gICNkZWZpbmUgX19hcmNoX3hjaGdfbWFza2VkKHByZXBlbmQsIGFwcGVuZCwgciwgcCwg
-bikgICAgICAgICAgICAgICAgIFwKPiA+ID4gICh7ICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFwKPiA+ID4gQEAgLTI1LDYg
-KzI2LDcgQEAKPiA+ID4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgIFwKPiA+ID4gICAgICAgX19hc21fXyBfX3ZvbGF0
-aWxlX18gKCAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFwKPiA+ID4g
-ICAgICAgICAgICAgIHByZXBlbmQgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgIFwKPiA+ID4gKyAgICAgICAgICAgIFBSRUZFVENIV19BU00oJTUpICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFwKPiA+ID4gICAgICAgICAgICAgICIw
-OiAgICAgIGxyLncgJTAsICUyXG4iICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFwK
-PiA+ID4gICAgICAgICAgICAgICIgICAgICAgIGFuZCAgJTEsICUwLCAlejRcbiIgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgIFwKPiA+ID4gICAgICAgICAgICAgICIgICAgICAgIG9yICAgJTEs
-ICUxLCAlejNcbiIgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFwKPiA+ID4gQEAgLTMyLDcg
-KzM0LDcgQEAKPiA+ID4gICAgICAgICAgICAgICIgICAgICAgIGJuZXogJTEsIDBiXG4iICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgIFwKPiA+ID4gICAgICAgICAgICAgIGFwcGVuZCAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFwKPiA+ID4g
-ICAgICAgICAgICAgIDogIj0mciIgKF9fcmV0eCksICI9JnIiIChfX3JjKSwgIitBIiAoKihfX3B0
-cjMyYikpICAgICAgIFwKPiA+ID4gLSAgICAgICAgICAgIDogInJKIiAoX19uZXd4KSwgInJKIiAo
-fl9fbWFzaykgICAgICAgICAgICAgICAgICAgICAgICAgIFwKPiA+ID4gKyAgICAgICAgICAgIDog
-InJKIiAoX19uZXd4KSwgInJKIiAofl9fbWFzayksICJySiIgKF9fcHRyMzJiKSAgICAgICAgIFwK
-PiA+ID4gICAgICAgICAgICAgIDogIm1lbW9yeSIpOyAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgIFwKPiA+ID4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFwKPiA+ID4gICAgICAgciA9
-IChfX3R5cGVvZl9fKCoocCkpKSgoX19yZXR4ICYgX19tYXNrKSA+PiBfX3MpOyAgICAgICAgICAg
-ICAgIFwKPiA+ID4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vaHdjYXAuaCBi
-L2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vaHdjYXAuaAo+ID4gPiBpbmRleCBiN2I1ODI1OGY2Yzcu
-Ljc4YjdiOGI1Mzc3OCAxMDA2NDQKPiA+ID4gLS0tIGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9o
-d2NhcC5oCj4gPiA+ICsrKyBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vaHdjYXAuaAo+ID4gPiBA
-QCAtNTgsNiArNTgsNyBAQAo+ID4gPiAgI2RlZmluZSBSSVNDVl9JU0FfRVhUX1pJQ1NSICAgICAg
-ICAgIDQwCj4gPiA+ICAjZGVmaW5lIFJJU0NWX0lTQV9FWFRfWklGRU5DRUkgICAgICAgICAgICAg
-ICA0MQo+ID4gPiAgI2RlZmluZSBSSVNDVl9JU0FfRVhUX1pJSFBNICAgICAgICAgIDQyCj4gPiA+
-ICsjZGVmaW5lIFJJU0NWX0lTQV9FWFRfWklDQk9QICAgICAgICAgNDMKPiA+ID4KPiA+ID4gICNk
-ZWZpbmUgUklTQ1ZfSVNBX0VYVF9NQVggICAgICAgICAgICA2NAo+ID4gPgo+ID4gPiBkaWZmIC0t
-Z2l0IGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9pbnNuLWRlZi5oIGIvYXJjaC9yaXNjdi9pbmNs
-dWRlL2FzbS9pbnNuLWRlZi5oCj4gPiA+IGluZGV4IDY5NjBiZWI3NWYzMi4uZGM1OTBkMzMxODk0
-IDEwMDY0NAo+ID4gPiAtLS0gYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2luc24tZGVmLmgKPiA+
-ID4gKysrIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9pbnNuLWRlZi5oCj4gPiA+IEBAIC0xMzQs
-NiArMTM0LDcgQEAKPiA+ID4KPiA+ID4gICNkZWZpbmUgUlZfT1BDT0RFX01JU0NfTUVNICAgUlZf
-T1BDT0RFKDE1KQo+ID4gPiAgI2RlZmluZSBSVl9PUENPREVfU1lTVEVNICAgICBSVl9PUENPREUo
-MTE1KQo+ID4gPiArI2RlZmluZSBSVl9PUENPREVfUFJFRkVUQ0ggICBSVl9PUENPREUoMTkpCj4g
-PiA+Cj4gPiA+ICAjZGVmaW5lIEhGRU5DRV9WVk1BKHZhZGRyLCBhc2lkKSAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgXAo+ID4gPiAgICAgICBJTlNOX1IoT1BDT0RFX1NZU1RFTSwgRlVOQzMo
-MCksIEZVTkM3KDE3KSwgICAgICAgICAgICAgIFwKPiA+ID4gQEAgLTE5Niw0ICsxOTcsOCBAQAo+
-ID4gPiAgICAgICBJTlNOX0koT1BDT0RFX01JU0NfTUVNLCBGVU5DMygyKSwgX19SRCgwKSwgICAg
-ICAgICAgICAgIFwKPiA+ID4gICAgICAgICAgICAgIFJTMShiYXNlKSwgU0lNTTEyKDQpKQo+ID4g
-Pgo+ID4gPiArI2RlZmluZSBDQk9fcHJlZmV0Y2h3KGJhc2UpICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgIFwKPiA+ID4gKyAgICAgSU5TTl9SKE9QQ09ERV9QUkVGRVRDSCwgRlVOQzMo
-NiksIEZVTkM3KDApLCAgICAgICAgICAgICBcCj4gPiA+ICsgICAgICAgICAgICBSRCh4MCksIFJT
-MShiYXNlKSwgUlMyKHgwKSkKPiA+ID4gKwo+ID4KPiA+IEkgdW5kZXJzdGFuZCB0aGF0IGhlcmUg
-eW91IGNyZWF0ZSB0aGUgaW5zdHJ1Y3Rpb24gdmlhIGJpdGZpZWxkLCBmb2xsb3dpbmcKPiA+IHRo
-ZSBJU0EsIGFuZCB0aGlzIGVuYWJsZXMgdXNpbmcgaW5zdHJ1Y3Rpb25zIG5vdCBhdmFpbGFibGUg
-b24gdGhlCj4gPiB0b29sY2hhaW4uCj4gPgo+ID4gSXQgdG9vayBtZSBzb21lIHRpbWUgdG8gZmlu
-ZCB0aGUgZG9jdW1lbnQgd2l0aCB0aGlzIGluc3RydWN0aW9uLCBzbyBwbGVhc2UKPiA+IGFkZCB0
-aGlzIHRvIHRoZSBjb21taXQgbXNnOgo+ID4KPiA+IGh0dHBzOi8vZ2l0aHViLmNvbS9yaXNjdi9y
-aXNjdi1DTU9zL2Jsb2IvbWFzdGVyL3NwZWNpZmljYXRpb25zL2Ntb2Jhc2UtdjEuMC5wZGYKPiA+
-IFBhZ2UgMjMuCj4gPgo+ID4gSUlVQywgdGhlIGluc3RydWN0aW9uIGlzICJwcmVmZXRjaC53Ii4K
-PiA+Cj4gPiBNYXliZSBJIGFtIG1pc3Npbmcgc29tZXRoaW5nLCBidXQgaW4gdGhlIGRvY3VtZW50
-IHRoZSByczIgZmllbGQKPiA+IChQUkVGRVRDSC5XKSBjb250YWlucyBhIDB4Mywgd2hpbGUgdGhl
-IGFib3ZlIGxvb2tzIHRvIGhhdmUgYSAwIGluc3RlYWQuCj4gPgo+ID4gcnMyIGZpZWxkID0gMHgw
-IHdvdWxkIGJlIGEgcHJlZmV0Y2guaSAoaW5zdHJ1Y3Rpb24gcHJlZmV0Y2gpIGluc3RlYWQuCj4g
-Pgo+ID4gSXMgdGhlIGFib3ZlIGNvcnJlY3QsIG9yIGFtIEkgbWlzc2luZyBzb21ldGhpbmc/Cj4g
-T2gsIHlvdSBhcmUgcmlnaHQuIE15IGZhdWx0LCB0aHggZm9yIHBvaW50aW5nIG91dC4gSXQgc2hv
-dWxkIGJlOgo+ICsgICAgICAgSU5TTl9SKE9QQ09ERV9QUkVGRVRDSCwgRlVOQzMoNiksIEZVTkM3
-KDApLCAgICAgICAgICAgICBcCj4gKyAgICAgICAgICAgICAgUkQoeDApLCBSUzEoYmFzZSksIFJT
-Mih4MykpCgpOb3cgSSBhbSBjdXJpb3VzIHRvIGNoZWNrIGlmIC8gaG93IHdpbGwgdGhpcyBpbXBh
-Y3QgcGVyZm9ybWFuY2UuIDopCihQbGVhc2UgbGV0IG1lIGtub3cpCgoKPiAKPiA+Cj4gPgo+ID4g
-VGhhbmtzIQo+ID4gTGVvCj4gPgo+ID4gPiAgI2VuZGlmIC8qIF9fQVNNX0lOU05fREVGX0ggKi8K
-PiA+ID4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vcHJvY2Vzc29yLmggYi9h
-cmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3Byb2Nlc3Nvci5oCj4gPiA+IGluZGV4IGRlOWRhODUyZjc4
-ZC4uN2FkM2EyNDIxMmU4IDEwMDY0NAo+ID4gPiAtLS0gYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNt
-L3Byb2Nlc3Nvci5oCj4gPiA+ICsrKyBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vcHJvY2Vzc29y
-LmgKPiA+ID4gQEAgLTEyLDYgKzEyLDggQEAKPiA+ID4gICNpbmNsdWRlIDx2ZHNvL3Byb2Nlc3Nv
-ci5oPgo+ID4gPgo+ID4gPiAgI2luY2x1ZGUgPGFzbS9wdHJhY2UuaD4KPiA+ID4gKyNpbmNsdWRl
-IDxhc20vaW5zbi1kZWYuaD4KPiA+ID4gKyNpbmNsdWRlIDxhc20vaHdjYXAuaD4KPiA+ID4KPiA+
-ID4gICNpZmRlZiBDT05GSUdfNjRCSVQKPiA+ID4gICNkZWZpbmUgREVGQVVMVF9NQVBfV0lORE9X
-ICAgKFVMKDEpIDw8IChNTUFQX1ZBX0JJVFMgLSAxKSkKPiA+ID4gQEAgLTEwMyw2ICsxMDUsMTcg
-QEAgc3RhdGljIGlubGluZSB2b2lkIGFyY2hfdGhyZWFkX3N0cnVjdF93aGl0ZWxpc3QodW5zaWdu
-ZWQgbG9uZyAqb2Zmc2V0LAo+ID4gPiAgI2RlZmluZSBLU1RLX0VJUCh0c2spICAgICAgICAgICAg
-ICAgICh1bG9uZykodGFza19wdF9yZWdzKHRzayktPmVwYykKPiA+ID4gICNkZWZpbmUgS1NUS19F
-U1AodHNrKSAgICAgICAgICAgICAgICAodWxvbmcpKHRhc2tfcHRfcmVncyh0c2spLT5zcCkKPiA+
-ID4KPiA+ID4gKyNkZWZpbmUgQVJDSF9IQVNfUFJFRkVUQ0hXCj4gPiA+ICsjZGVmaW5lIFBSRUZF
-VENIV19BU00oYmFzZSkgIEFMVEVSTkFUSVZFKF9fbm9wcygxKSwgXAo+ID4gPiArICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBDQk9fcHJlZmV0Y2h3KGJhc2UpLCBcCj4g
-PiA+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDAsIFwKPiA+ID4g
-KyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgUklTQ1ZfSVNBX0VYVF9a
-SUNCT1AsIFwKPiA+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-Q09ORklHX1JJU0NWX0lTQV9aSUNCT1ApCj4gPiA+ICtzdGF0aWMgaW5saW5lIHZvaWQgcHJlZmV0
-Y2h3KGNvbnN0IHZvaWQgKnB0cikKPiA+ID4gK3sKPiA+ID4gKyAgICAgYXNtIHZvbGF0aWxlKFBS
-RUZFVENIV19BU00oJTApCj4gPiA+ICsgICAgICAgICAgICAgOiA6ICJyIiAocHRyKSA6ICJtZW1v
-cnkiKTsKPiA+ID4gK30KPiA+ID4KPiA+ID4gIC8qIERvIG5lY2Vzc2FyeSBzZXR1cCB0byBzdGFy
-dCB1cCBhIG5ld2x5IGV4ZWN1dGVkIHRocmVhZC4gKi8KPiA+ID4gIGV4dGVybiB2b2lkIHN0YXJ0
-X3RocmVhZChzdHJ1Y3QgcHRfcmVncyAqcmVncywKPiA+ID4gZGlmZiAtLWdpdCBhL2FyY2gvcmlz
-Y3Yva2VybmVsL2NwdWZlYXR1cmUuYyBiL2FyY2gvcmlzY3Yva2VybmVsL2NwdWZlYXR1cmUuYwo+
-ID4gPiBpbmRleCBlZjdiNGZkOWU4NzYuLmUwYjg5N2RiMGI5NyAxMDA2NDQKPiA+ID4gLS0tIGEv
-YXJjaC9yaXNjdi9rZXJuZWwvY3B1ZmVhdHVyZS5jCj4gPiA+ICsrKyBiL2FyY2gvcmlzY3Yva2Vy
-bmVsL2NwdWZlYXR1cmUuYwo+ID4gPiBAQCAtMTU5LDYgKzE1OSw3IEBAIGNvbnN0IHN0cnVjdCBy
-aXNjdl9pc2FfZXh0X2RhdGEgcmlzY3ZfaXNhX2V4dFtdID0gewo+ID4gPiAgICAgICBfX1JJU0NW
-X0lTQV9FWFRfREFUQShoLCBSSVNDVl9JU0FfRVhUX2gpLAo+ID4gPiAgICAgICBfX1JJU0NWX0lT
-QV9FWFRfREFUQSh6aWNib20sIFJJU0NWX0lTQV9FWFRfWklDQk9NKSwKPiA+ID4gICAgICAgX19S
-SVNDVl9JU0FfRVhUX0RBVEEoemljYm96LCBSSVNDVl9JU0FfRVhUX1pJQ0JPWiksCj4gPiA+ICsg
-ICAgIF9fUklTQ1ZfSVNBX0VYVF9EQVRBKHppY2JvcCwgUklTQ1ZfSVNBX0VYVF9aSUNCT1ApLAo+
-ID4gPiAgICAgICBfX1JJU0NWX0lTQV9FWFRfREFUQSh6aWNudHIsIFJJU0NWX0lTQV9FWFRfWklD
-TlRSKSwKPiA+ID4gICAgICAgX19SSVNDVl9JU0FfRVhUX0RBVEEoemljc3IsIFJJU0NWX0lTQV9F
-WFRfWklDU1IpLAo+ID4gPiAgICAgICBfX1JJU0NWX0lTQV9FWFRfREFUQSh6aWZlbmNlaSwgUklT
-Q1ZfSVNBX0VYVF9aSUZFTkNFSSksCj4gPiA+IC0tCj4gPiA+IDIuMzYuMQo+ID4gPgo+ID4KPiAK
-PiAKPiAtLSAKPiBCZXN0IFJlZ2FyZHMKPiAgR3VvIFJlbgo+IAoKCl9fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdAps
-aW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3Jn
-L21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+Add a struct to hold the KVM assets need to manage and pass along KVM
+references to VFIO devices.  Providing a common struct deduplicates the
+group vs. iommufd code, and will make it easier to rework the attachment
+logic so that VFIO doesn't have to do a symbol lookup to retrieve the
+get/put helpers from KVM.
+
+Signed-off-by: Sean Christopherson <seanjc@google.com>
+---
+ drivers/vfio/device_cdev.c |  9 +-------
+ drivers/vfio/group.c       | 18 ++--------------
+ drivers/vfio/vfio.h        | 22 +++++++++----------
+ drivers/vfio/vfio_main.c   | 43 +++++++++++++++++++++++++++-----------
+ 4 files changed, 45 insertions(+), 47 deletions(-)
+
+diff --git a/drivers/vfio/device_cdev.c b/drivers/vfio/device_cdev.c
+index e75da0a70d1f..e484d6d6400a 100644
+--- a/drivers/vfio/device_cdev.c
++++ b/drivers/vfio/device_cdev.c
+@@ -46,13 +46,6 @@ int vfio_device_fops_cdev_open(struct inode *inode, struct file *filep)
+ 	return ret;
+ }
+ 
+-static void vfio_df_get_kvm_safe(struct vfio_device_file *df)
+-{
+-	spin_lock(&df->kvm_ref_lock);
+-	vfio_device_get_kvm_safe(df->device, df->kvm);
+-	spin_unlock(&df->kvm_ref_lock);
+-}
+-
+ long vfio_df_ioctl_bind_iommufd(struct vfio_device_file *df,
+ 				struct vfio_device_bind_iommufd __user *arg)
+ {
+@@ -99,7 +92,7 @@ long vfio_df_ioctl_bind_iommufd(struct vfio_device_file *df,
+ 	 * a reference.  This reference is held until device closed.
+ 	 * Save the pointer in the device for use by drivers.
+ 	 */
+-	vfio_df_get_kvm_safe(df);
++	vfio_device_get_kvm_safe(df->device, &df->kvm_ref);
+ 
+ 	ret = vfio_df_open(df);
+ 	if (ret)
+diff --git a/drivers/vfio/group.c b/drivers/vfio/group.c
+index 610a429c6191..756e47ff4cf0 100644
+--- a/drivers/vfio/group.c
++++ b/drivers/vfio/group.c
+@@ -157,13 +157,6 @@ static int vfio_group_ioctl_set_container(struct vfio_group *group,
+ 	return ret;
+ }
+ 
+-static void vfio_device_group_get_kvm_safe(struct vfio_device *device)
+-{
+-	spin_lock(&device->group->kvm_ref_lock);
+-	vfio_device_get_kvm_safe(device, device->group->kvm);
+-	spin_unlock(&device->group->kvm_ref_lock);
+-}
+-
+ static int vfio_df_group_open(struct vfio_device_file *df)
+ {
+ 	struct vfio_device *device = df->device;
+@@ -184,7 +177,7 @@ static int vfio_df_group_open(struct vfio_device_file *df)
+ 	 * the pointer in the device for use by drivers.
+ 	 */
+ 	if (device->open_count == 0)
+-		vfio_device_group_get_kvm_safe(device);
++		vfio_device_get_kvm_safe(device, &device->group->kvm_ref);
+ 
+ 	df->iommufd = device->group->iommufd;
+ 	if (df->iommufd && vfio_device_is_noiommu(device) && device->open_count == 0) {
+@@ -560,7 +553,7 @@ static struct vfio_group *vfio_group_alloc(struct iommu_group *iommu_group,
+ 
+ 	refcount_set(&group->drivers, 1);
+ 	mutex_init(&group->group_lock);
+-	spin_lock_init(&group->kvm_ref_lock);
++	spin_lock_init(&group->kvm_ref.lock);
+ 	INIT_LIST_HEAD(&group->device_list);
+ 	mutex_init(&group->device_lock);
+ 	group->iommu_group = iommu_group;
+@@ -884,13 +877,6 @@ bool vfio_group_enforced_coherent(struct vfio_group *group)
+ 	return ret;
+ }
+ 
+-void vfio_group_set_kvm(struct vfio_group *group, struct kvm *kvm)
+-{
+-	spin_lock(&group->kvm_ref_lock);
+-	group->kvm = kvm;
+-	spin_unlock(&group->kvm_ref_lock);
+-}
+-
+ /**
+  * vfio_file_has_dev - True if the VFIO file is a handle for device
+  * @file: VFIO file to check
+diff --git a/drivers/vfio/vfio.h b/drivers/vfio/vfio.h
+index c26d1ad68105..a1f741365075 100644
+--- a/drivers/vfio/vfio.h
++++ b/drivers/vfio/vfio.h
+@@ -12,18 +12,23 @@
+ #include <linux/module.h>
+ #include <linux/vfio.h>
+ 
++struct kvm;
+ struct iommufd_ctx;
+ struct iommu_group;
+ struct vfio_container;
+ 
++struct vfio_kvm_reference {
++	struct kvm			*kvm;
++	spinlock_t			lock;
++};
++
+ struct vfio_device_file {
+ 	struct vfio_device *device;
+ 	struct vfio_group *group;
+ 
+ 	u8 access_granted;
+ 	u32 devid; /* only valid when iommufd is valid */
+-	spinlock_t kvm_ref_lock; /* protect kvm field */
+-	struct kvm *kvm;
++	struct vfio_kvm_reference kvm_ref;
+ 	struct iommufd_ctx *iommufd; /* protected by struct vfio_device_set::lock */
+ };
+ 
+@@ -88,11 +93,10 @@ struct vfio_group {
+ #endif
+ 	enum vfio_group_type		type;
+ 	struct mutex			group_lock;
+-	struct kvm			*kvm;
++	struct vfio_kvm_reference	kvm_ref;
+ 	struct file			*opened_file;
+ 	struct blocking_notifier_head	notifier;
+ 	struct iommufd_ctx		*iommufd;
+-	spinlock_t			kvm_ref_lock;
+ 	unsigned int			cdev_device_open_cnt;
+ };
+ 
+@@ -108,7 +112,6 @@ void vfio_device_group_unuse_iommu(struct vfio_device *device);
+ void vfio_df_group_close(struct vfio_device_file *df);
+ struct vfio_group *vfio_group_from_file(struct file *file);
+ bool vfio_group_enforced_coherent(struct vfio_group *group);
+-void vfio_group_set_kvm(struct vfio_group *group, struct kvm *kvm);
+ bool vfio_device_has_container(struct vfio_device *device);
+ int __init vfio_group_init(void);
+ void vfio_group_cleanup(void);
+@@ -171,10 +174,6 @@ static inline bool vfio_group_enforced_coherent(struct vfio_group *group)
+ 	return true;
+ }
+ 
+-static inline void vfio_group_set_kvm(struct vfio_group *group, struct kvm *kvm)
+-{
+-}
+-
+ static inline bool vfio_device_has_container(struct vfio_device *device)
+ {
+ 	return false;
+@@ -435,11 +434,12 @@ static inline void vfio_virqfd_exit(void)
+ #endif
+ 
+ #if IS_ENABLED(CONFIG_KVM)
+-void vfio_device_get_kvm_safe(struct vfio_device *device, struct kvm *kvm);
++void vfio_device_get_kvm_safe(struct vfio_device *device,
++			      struct vfio_kvm_reference *ref);
+ void vfio_device_put_kvm(struct vfio_device *device);
+ #else
+ static inline void vfio_device_get_kvm_safe(struct vfio_device *device,
+-					    struct kvm *kvm)
++					    struct vfio_kvm_reference *ref)
+ {
+ }
+ 
+diff --git a/drivers/vfio/vfio_main.c b/drivers/vfio/vfio_main.c
+index 124cc88966a7..e77e8c6aae2f 100644
+--- a/drivers/vfio/vfio_main.c
++++ b/drivers/vfio/vfio_main.c
+@@ -397,7 +397,7 @@ vfio_allocate_device_file(struct vfio_device *device)
+ 		return ERR_PTR(-ENOMEM);
+ 
+ 	df->device = device;
+-	spin_lock_init(&df->kvm_ref_lock);
++	spin_lock_init(&df->kvm_ref.lock);
+ 
+ 	return df;
+ }
+@@ -1303,7 +1303,8 @@ bool vfio_file_enforced_coherent(struct file *file)
+ EXPORT_SYMBOL_GPL(vfio_file_enforced_coherent);
+ 
+ #if IS_ENABLED(CONFIG_KVM)
+-void vfio_device_get_kvm_safe(struct vfio_device *device, struct kvm *kvm)
++void vfio_device_get_kvm_safe(struct vfio_device *device,
++			      struct vfio_kvm_reference *ref)
+ {
+ 	void (*pfn)(struct kvm *kvm);
+ 	bool (*fn)(struct kvm *kvm);
+@@ -1311,28 +1312,33 @@ void vfio_device_get_kvm_safe(struct vfio_device *device, struct kvm *kvm)
+ 
+ 	lockdep_assert_held(&device->dev_set->lock);
+ 
+-	if (!kvm)
+-		return;
++	spin_lock(&ref->lock);
++
++	if (!ref->kvm)
++		goto out;
+ 
+ 	pfn = symbol_get(kvm_put_kvm);
+ 	if (WARN_ON(!pfn))
+-		return;
++		goto out;
+ 
+ 	fn = symbol_get(kvm_get_kvm_safe);
+ 	if (WARN_ON(!fn)) {
+ 		symbol_put(kvm_put_kvm);
+-		return;
++		goto out;
+ 	}
+ 
+-	ret = fn(kvm);
++	ret = fn(ref->kvm);
+ 	symbol_put(kvm_get_kvm_safe);
+ 	if (!ret) {
+ 		symbol_put(kvm_put_kvm);
+-		return;
++		goto out;
+ 	}
+ 
+ 	device->put_kvm = pfn;
+-	device->kvm = kvm;
++	device->kvm = ref->kvm;
++
++out:
++	spin_unlock(&ref->lock);
+ }
+ 
+ void vfio_device_put_kvm(struct vfio_device *device)
+@@ -1353,6 +1359,21 @@ void vfio_device_put_kvm(struct vfio_device *device)
+ 	device->kvm = NULL;
+ }
+ 
++static void vfio_device_set_kvm(struct vfio_kvm_reference *ref,
++				struct kvm *kvm)
++{
++	spin_lock(&ref->lock);
++	ref->kvm = kvm;
++	spin_unlock(&ref->lock);
++}
++
++static void vfio_group_set_kvm(struct vfio_group *group, struct kvm *kvm)
++{
++#if IS_ENABLED(CONFIG_VFIO_GROUP)
++	vfio_device_set_kvm(&group->kvm_ref, kvm);
++#endif
++}
++
+ static void vfio_device_file_set_kvm(struct file *file, struct kvm *kvm)
+ {
+ 	struct vfio_device_file *df = file->private_data;
+@@ -1362,9 +1383,7 @@ static void vfio_device_file_set_kvm(struct file *file, struct kvm *kvm)
+ 	 * be propagated to vfio_device::kvm when the file is bound to
+ 	 * iommufd successfully in the vfio device cdev path.
+ 	 */
+-	spin_lock(&df->kvm_ref_lock);
+-	df->kvm = kvm;
+-	spin_unlock(&df->kvm_ref_lock);
++	vfio_device_set_kvm(&df->kvm_ref, kvm);
+ }
+ 
+ /**
+-- 
+2.42.0.459.ge4e396fd5e-goog
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
