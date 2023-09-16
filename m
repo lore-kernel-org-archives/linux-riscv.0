@@ -4,58 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79E95CD37B7
-	for <linux-riscv@archiver.kernel.org>; Sat, 16 Sep 2023 11:40:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2889ACD37BC
+	for <linux-riscv@archiver.kernel.org>; Sat, 16 Sep 2023 14:48:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=J6baThsjkBGJaJF/ux2WVNIEAA2o+BjlD4265fnxZiY=; b=A5l
-	bMz6rTVmBh0f3jgIoiwTuDllsEzzXrNN6h3XM6454wzOjmSBO1PzUktF9JIwxzKfNTDm6tKGgizKu
-	GSwhPmafWiX4VDYvjCSD+f9QwjrX8vn8S3e8azne4NzvfsORpm6DC1rrYSh7hza07OD4NB3nKqDw3
-	E/hakdo03OKIL63U/XMqlpwTwgaFmSJx4DCrkG6DkD0bZrCLehqe0Hlql9zMs96d7qQtpFkhY0Ham
-	0v9rZVyLJVHyqs3u9RK2BGSvOelP70ecQ6OdxHI2JCGFJT5wOFha6AVmE1X48FyS1hB+R1xB2+tIp
-	50X2bFxeF9uArSH8zv4ek5sSMk3spdw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=eiGbXs9rXcZQSntHVLhMSQkEUjLhwqjve8BqfTtT9Z0=; b=tLCP/XcSarTrHq
+	//HfwxiVJKNBSP04bKVBG5THzejLdgC3HbNVtjg+IWfsrKI/Z9D1B90ywVJIGDIgHdniBsicVyXLF
+	7pJ+XM3yA/L6OTpPdduTTfpIypruSNE+cbTqSy3R40+L5spR+DCvByKZyt1NxDQi/4lC3J5GX9I0z
+	YB1RJF9i99u+EhDdri8gz40UbHkT2oFsO2ipWM9o8CAyJV5lVh4sV7x3QZYzGhBtnJtjkasoVNmxS
+	yhdbmyGO+JGSrdtaAx9hsQgwhWNxpbh/04kCUMFGOO8Fh+bNDF4tpyO+2zrkQFkEjgkEHkhV8SHQL
+	3Cj5fnuz8V94IPwtfEzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qhTew-00CTBr-1g;
-	Sat, 16 Sep 2023 11:40:22 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1qhWaP-00CaCl-1y;
+	Sat, 16 Sep 2023 14:47:53 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qhTet-00CTBS-36
+	id 1qhWaM-00CaC5-1A
 	for linux-riscv@lists.infradead.org;
-	Sat, 16 Sep 2023 11:40:21 +0000
+	Sat, 16 Sep 2023 14:47:51 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by sin.source.kernel.org (Postfix) with ESMTPS id 48EA0CE2CF5;
-	Sat, 16 Sep 2023 11:40:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4849CC433C8;
-	Sat, 16 Sep 2023 11:40:13 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id EEC6D60F7A;
+	Sat, 16 Sep 2023 14:47:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E4018C433C7;
+	Sat, 16 Sep 2023 14:47:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1694864414;
-	bh=cHMPcuPh8+Za+hDzq8C00lnzde6XX7qIJ9RyXmaUUh8=;
-	h=Date:From:List-Id:To:List-Id:Cc:Subject:From;
-	b=jcRZmLLGwZ6Lf5bKBSxzxKccFZCNOyhveRcIOPWof8VTHN0rbmm+DLMJxzXO/0r8k
-	 U2rb6XtCaCmMgimVjrkf+1D7Y5l9MpWI6NT0Luc+PwywyaLEbH4agj2duIhpic0ir/
-	 Nr8qeFzHGJ0eKyyuB+ICdGISg6A0ncT+murGHEzCnKR2p2svjA3zGoJOwBiVfnacfw
-	 sce9QNeXoTKcORHwgTZAodC6w78rNgrG/X3G9RNrYBWwykgFcf3mj6f4NmGHyvai5u
-	 vjl1LzfkdSIhp9dKKIQlmNsOXt0tNSjkMWXXGc2Zi7jO8z+SxGl421hJG6rnr2mYcZ
-	 ZkMLMsA+iVCvA==
-Date: Sat, 16 Sep 2023 12:40:10 +0100
-From: Conor Dooley <conor@kernel.org>
-To: soc@kernel.org
-Cc: conor@kernel.org, palmer@dabbelt.com, arnd@arndb.de,
-	linux-riscv@lists.infradead.org, soc@kernel.org
-Subject: [GIT PULL] RISC-V Devicetree fixes for v6.6-rc3
-Message-ID: <20230916-previous-oversold-9d30891ac6cf@spud>
+	s=k20201202; t=1694875668;
+	bh=DrpFaRSh/IAeouBerVCYqiVaRBz09LVTL2zZXjVhk0A=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=BcGZXd7tGQX9f5peC25KLnAHHnsRMglQ2tX2ZQlXPodNBeeEDSPRM7LaDVUwchSK/
+	 aGU6cA7qLoXcoqcfKRaoydd98XmsKv7GZOS/LlXhPk7q480dXWJG3xedTzLac2/Vtj
+	 +RrsniiJQHOplMRj9R0agcXR6IgVBKnUqwLSyneJ0os+zB6TD2vm3GfzubIBSIshVh
+	 XDS2Y9MJAjZ+wQsdDdr7q1B1bQJj6MUlDEX2FyR00OcO4loRd5/40PVIQUW77Bx6i1
+	 qrvl27ZSLI5oiokE6B7zjD88dfkhIKS+0R5xygnHUnSTMAAhV6FkC4MyaFQi0AnTtO
+	 rJ2GwPydVg5uA==
+Date: Sat, 16 Sep 2023 16:47:42 +0200
+From: Simon Horman <horms@kernel.org>
+To: Pu Lehui <pulehui@huaweicloud.com>
+Cc: bpf@vger.kernel.org, linux-riscv@lists.infradead.org,
+	netdev@vger.kernel.org,
+	=?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>,
+	Yonghong Song <yhs@fb.com>,
+	John Fastabend <john.fastabend@gmail.com>,
+	KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@google.com>,
+	Hao Luo <haoluo@google.com>, Jiri Olsa <jolsa@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Luke Nelson <luke.r.nels@gmail.com>, Pu Lehui <pulehui@huawei.com>
+Subject: Re: [PATCH bpf-next 3/6] riscv, bpf: Simplify sext and zext logics
+ in branch instructions
+Message-ID: <20230916144742.GB1125562@kernel.org>
+References: <20230913153413.1446068-1-pulehui@huaweicloud.com>
+ <20230913153413.1446068-4-pulehui@huaweicloud.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20230913153413.1446068-4-pulehui@huaweicloud.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230916_044020_211600_F2874EFE 
-X-CRM114-Status: GOOD (  11.15  )
+X-CRM114-CacheID: sfid-20230916_074750_463950_5B9B4A80 
+X-CRM114-Status: GOOD (  13.87  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,87 +83,41 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8712039393981611880=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Wed, Sep 13, 2023 at 11:34:10PM +0800, Pu Lehui wrote:
+> From: Pu Lehui <pulehui@huawei.com>
+> 
+> There are many extension helpers in the current branch instructions, and
+> the implementation is a bit complicated. We simplify this logic through
+> two simple extension helpers with alternate register.
+> 
+> Signed-off-by: Pu Lehui <pulehui@huawei.com>
+> ---
+>  arch/riscv/net/bpf_jit_comp64.c | 82 +++++++++++++--------------------
+>  1 file changed, 31 insertions(+), 51 deletions(-)
+> 
+> diff --git a/arch/riscv/net/bpf_jit_comp64.c b/arch/riscv/net/bpf_jit_comp64.c
+> index 4a649e195..1728ce16d 100644
+> --- a/arch/riscv/net/bpf_jit_comp64.c
+> +++ b/arch/riscv/net/bpf_jit_comp64.c
+> @@ -141,6 +141,19 @@ static bool in_auipc_jalr_range(s64 val)
+>  		val < ((1L << 31) - (1L << 11));
+>  }
+>  
+> +/* Modify rd pointer to alternate reg to avoid corrupting orignal reg */
 
---===============8712039393981611880==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="dDqUBxu6tEVz3/8G"
-Content-Disposition: inline
+Hi Pu Lehui,
 
+nit: original
 
---dDqUBxu6tEVz3/8G
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-
-Hey Arnd,
-
-Please pull some fixes for the Starfive devicetrees, been sitting around
-since before the mw (but after my last PR), so figured I'd get them out
-sooner rather than later.
-
-Thanks!
-
-The following changes since commit 0bb80ecc33a8fb5a682236443c1e740d5c917d1d:
-
-  Linux 6.6-rc1 (2023-09-10 16:28:41 -0700)
-
-are available in the Git repository at:
-
-  https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/ riscv-dt-fixes-for-v6.6-rc3
-
-for you to fetch changes up to 1558209533f140624a00408bdab796ab3f309450:
-
-  riscv: dts: starfive: visionfive 2: Fix uart0 pins sort order (2023-09-13 14:24:56 +0100)
-
-----------------------------------------------------------------
-RISC-V Devicetree fixes for v6.6-rc3
-
-Starfive:
-A fix for the size of the NOR flash that was causing complaints from the
-MTD subsystem during boot & two issues that a certain someone introduced
-while resolving merge conflicts. Of the latter, one is a cosmetic
-ordering change & the other lead to the usb controller being disabled.
-
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-
-----------------------------------------------------------------
-Aurelien Jarno (1):
-      riscv: dts: starfive: fix NOR flash reserved-data partition size
-
-Hal Feng (2):
-      riscv: dts: starfive: visionfive 2: Enable usb0
-      riscv: dts: starfive: visionfive 2: Fix uart0 pins sort order
-
- .../dts/starfive/jh7110-starfive-visionfive-2.dtsi | 51 +++++++++++-----------
- 1 file changed, 26 insertions(+), 25 deletions(-)
-
---dDqUBxu6tEVz3/8G
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZQWUGgAKCRB4tDGHoIJi
-0kqfAP4kEKCUZ1FF4QNq9Uh2Zbg+JEc4kthnW91iNSWANbWO0gEAjtcWhnLmEgvM
-sBhAN/4oH2p76ENwsod6nkM2u4q9hgk=
-=6Dnk
------END PGP SIGNATURE-----
-
---dDqUBxu6tEVz3/8G--
-
-
---===============8712039393981611880==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+I suggest running checkpatch --codespell over this series before submitting
+v2.
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============8712039393981611880==--
-
