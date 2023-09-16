@@ -4,65 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C627CD37B0
-	for <linux-riscv@archiver.kernel.org>; Sat, 16 Sep 2023 00:31:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE498CD37B0
+	for <linux-riscv@archiver.kernel.org>; Sat, 16 Sep 2023 00:31:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
-	:Mime-Version:Date:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=vh6f/CaceztZ1/kf2QTfJTYf2PPjLLucJaTJmDp7e5g=; b=ixE2jjQgbCVVLJ
-	ziGj4cY1RuHMlXhGOoGDnyAi7R/tOIanFxZBpv0jrzq/7bsug4VVt0sUOzErFKTO96rd3WAMawwJ1
-	+JMjFMhh/jHxoLZXdkAgxDjcuHAlYu8PXNEuM0o2WmMP7IT7ryBSi2RqsV7RvM5abx9LCdiSggkiy
-	YIsWO2/VuzNhtT2T2YjFV4r39HZ0/i170RLuEzQsF+Xx5qtm0F/M9/bn81+6h2l7NZLTzNg6cCT1h
-	s03P5vOcTmNkoo1XiDMnPXio+/PM460/z73aCN+IKoVRtV+EfTdO5ZCaqF/R011Uwi6cAqvOK1C7/
-	gmq4BvvIwf2hXd4dWF6w==;
+	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=p3EYwMzYOmIeNCk0OI/ChKSZg4TfMVj8gk447r89wmQ=; b=CloCUf6EfW4Q17
+	B6N99+vS/IlvwkwkiEgRAHib2DivIdHHfAJMINzBDMkKh3QFT8eJMv3g3nh5Vj4AHW9pcNVRs4NWN
+	ZhZ8eH8RYSSZLdeGECRdcvHvwskbcRNcA+q1p5rRcdB10c7aLgbW/xPfvk/MLEWsLSUfFkGPXYUf/
+	OlVWxOoKgXZGDSxa/InP4PL+unFsIvfzDrgEU16I+YXBkE4/Uiie3cgmUMY18iwQjAixV/pj9KXLk
+	DBKcWBeBCZGjp/cOJISRmAi1R5LugK6B8pPQw/YQoaxxGRL2gJjIkfi98P32o/rotuK1H9F1xA6Jk
+	EY1Xt7vuNaz1KDpYW+rA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qhJDf-00BcTe-36;
-	Sat, 16 Sep 2023 00:31:31 +0000
-Received: from mail-yw1-x114a.google.com ([2607:f8b0:4864:20::114a])
+	id 1qhJDn-00Bcbj-30;
+	Sat, 16 Sep 2023 00:31:39 +0000
+Received: from mail-yb1-xb49.google.com ([2607:f8b0:4864:20::b49])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qhJDa-00BcMg-1R
+	id 1qhJDb-00BcOy-2z
 	for linux-riscv@lists.infradead.org;
-	Sat, 16 Sep 2023 00:31:29 +0000
-Received: by mail-yw1-x114a.google.com with SMTP id 00721157ae682-59bdae1ef38so59155677b3.1
-        for <linux-riscv@lists.infradead.org>; Fri, 15 Sep 2023 17:31:21 -0700 (PDT)
+	Sat, 16 Sep 2023 00:31:31 +0000
+Received: by mail-yb1-xb49.google.com with SMTP id 3f1490d57ef6-d81ff714678so834576276.2
+        for <linux-riscv@lists.infradead.org>; Fri, 15 Sep 2023 17:31:27 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1694824281; x=1695429081; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:reply-to:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=d+v3gsOh/890lJDyi2atnrT8KioShqwRzfV2UUthNgY=;
-        b=14MMPiFf9dA7UHL70qBbXsg6Cn6yKfgzElcsRuASr5qtnS6N27FMUefKPgQH/Ol7kq
-         om+3PJHX0/heKOJQSLXgRpaWULtcut1RWy6mJNne69Vigpm78GzjwPcbLVBDmfWJjYK6
-         NTdtAIoZfAjZRm5pkBHcgRx38rvnfkEnzQ+B5T443CBuww6AVi5LkDZnU9u/xiddeilL
-         fxDv5VXqZdDsaCAtunEN1eVy9Dycf1BSVUP7qs0VMjW07+7jYyWbNstBWhKh90W5ddlF
-         TBpJFp3M2F2o8iB4HLLg7lY3TGEo4TWqNA1U56zEwasgYKCKqaeMMRys/bwSlTfxrRS8
-         F5hw==
+        d=google.com; s=20230601; t=1694824286; x=1695429086; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
+        bh=nWWn+h7amRZMBDw3vQNPHGAGWvxVaFdsCPW0ONMozkY=;
+        b=Au/whQJEbAz+tOQ0jTzYnTHaUFqhk5Pgnrngt42R++heKHXOJ2U0YqnWh0A650p1pa
+         PgbaR8YETO7ZKMYj3h4ONGnm912OY1X6nLqjUcHYZw2SCfppPlE9QI2MsrQBEt75JnUC
+         id4P01cAv4bW2aLSS66YB0WfN9NrUSsO4HoyRU+POe5EIZ7yVc+3t4OXLj8PN8fDq6JE
+         c1c2P6OXojAgG+hgLNLnSW9HWM9GkahkdPQXAfN7FUfYqpv0WvPKm9erEu/ZABleqTqp
+         zYfI7WBh8dzi1TGBAWipfQzZdZFRePBIBZjwqD125053Cb0+8X4DsgJKIjfE45v20PE2
+         j8FQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1694824281; x=1695429081;
-        h=cc:to:from:subject:message-id:mime-version:date:reply-to
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=d+v3gsOh/890lJDyi2atnrT8KioShqwRzfV2UUthNgY=;
-        b=uwq6j3GBmxqJRr7t+RfErQOLVQcXPHn4oS3Sm25n9HiDgaulpUTPX2aOIybVXFN1mR
-         5P7juMK95eCO8lhpcmwQKKb5EFsE9FmftU7lVikhb8FQpRPikk/HV5hjOvXMLoowSDXL
-         jZZWjGPSDJgm0g+VQnmh9P06nHk+Til7r0mID4K5tmhNSg0O12uwCFH9S9LKK5sBqysk
-         xfmSSmAuOr132nAh45xdGeQ3YRc+m9L8gbbKnKWU40yMDHipzeywnLf2+GlL4s9HV6q0
-         4t1DwTq02to95PYb5ELJyB/z07+vnPB4WDi/GHshfnB6ehzdpERpccAjsHOzWDDjjZlB
-         X+Qg==
-X-Gm-Message-State: AOJu0Yxda6QtjjVur8S9eq4k9pnaABExsePQhOWtLkIbLpIblAblL//x
-	SGAcwJMIuDy6GrxHA71VMH1/Y7go38A=
-X-Google-Smtp-Source: AGHT+IHwIfgzmidHRVnFwyjq5xxKkTsUmzHH5rOWwrOCjAKfiyYkOEMh1VsVt19qwGFmjKKFISeZq6Tx90c=
+        d=1e100.net; s=20230601; t=1694824286; x=1695429086;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=nWWn+h7amRZMBDw3vQNPHGAGWvxVaFdsCPW0ONMozkY=;
+        b=tznPA9omB0kneW2aRClyk8DeXKmTqTC9vxeTgnOcsiHuMtsLEIo8iIHRC3c8ZZ4O42
+         O0VHaJGEJXGALTWEOsAQud+eYklQnLKytChZT60osqo8H32w1eC8CSi37D+fm+TMr2Sh
+         DpTjDDrryNjUVOr0IXnfiRfXgaaPW1JKXnLYFMwDdy+17CvX8s6jOohZBItRChgXSxvH
+         aO3qKivgkpmGwZo9wIG06OrRCbpynO/8jlUxr821n1SbHEjEX+lYBD6oEAnwxSXkrqA/
+         s4AmadXBkBpKeTvX3MdpcmKwW5V/mN2OEpQGqOHRIjg2OPA8VK+UofGPa+rYs9TGQasZ
+         Ynsg==
+X-Gm-Message-State: AOJu0YyTQDBJ7pPvPfDYUTxvXv+gsuL6pe/YFfLJgb3f+tpmVzIGksVu
+	XBLmMaZl8ti0znFiulY2dmoy9Lrkzvo=
+X-Google-Smtp-Source: AGHT+IEq7PdKxRZn76T8dxJekIJKystQKt2vwlGFVVGJbIP+fTzk72beaUliTqaKSj/nh0feFGYdLVI2swc=
 X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
- (user=seanjc job=sendgmr) by 2002:a25:554:0:b0:d47:3d35:1604 with SMTP id
- 81-20020a250554000000b00d473d351604mr95244ybf.2.1694824280932; Fri, 15 Sep
- 2023 17:31:20 -0700 (PDT)
-Date: Fri, 15 Sep 2023 17:30:52 -0700
+ (user=seanjc job=sendgmr) by 2002:a05:6902:98b:b0:d81:5948:970 with SMTP id
+ bv11-20020a056902098b00b00d8159480970mr72987ybb.13.1694824286666; Fri, 15 Sep
+ 2023 17:31:26 -0700 (PDT)
+Date: Fri, 15 Sep 2023 17:30:55 -0700
+In-Reply-To: <20230916003118.2540661-1-seanjc@google.com>
 Mime-Version: 1.0
+References: <20230916003118.2540661-1-seanjc@google.com>
 X-Mailer: git-send-email 2.42.0.459.ge4e396fd5e-goog
-Message-ID: <20230916003118.2540661-1-seanjc@google.com>
-Subject: [PATCH 00/26] KVM: vfio: Hide KVM internals from others
+Message-ID: <20230916003118.2540661-4-seanjc@google.com>
+Subject: [PATCH 03/26] virt: Declare and define vfio_file_set_kvm() iff
+ CONFIG_KVM is enabled
 From: Sean Christopherson <seanjc@google.com>
 To: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
 	Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
@@ -87,8 +91,8 @@ Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
 	Anish Ghulati <aghulati@google.com>, Venkatesh Srinivas <venkateshs@chromium.org>, 
 	Andrew Thornton <andrewth@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230915_173126_495289_426E57CF 
-X-CRM114-Status: GOOD (  21.81  )
+X-CRM114-CacheID: sfid-20230915_173127_983667_1272D81D 
+X-CRM114-Status: GOOD (  11.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,212 +110,50 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This is a borderline RFC series to hide KVM's internals from the rest of
-the kernel, where "internals" means data structures, enums, #defines,
-APIs, etc. that are intended to be KVM-only, but are exposed everywhere
-due to kvm_host.h (and other headers) living in the global include paths.
+Hide vfio_file_set_kvm() and its unique helpers if KVM is not enabled,
+nothing else in the kernel (or out of the kernel) should be using a
+KVM specific helper.
 
-The motiviation for hiding KVM's internals is to allow *safely* loading a
-"new" KVM module without having to reboot the host.  Where "new" doesn't
-have to be strictly newer, just a different incarnation of KVM.  Hiding
-KVM's internals means those assets can change across KVM instances without
-breaking things, e.g. would allow modifying the layout of struct kvm_vcpu
-to introduce new fields related to a new feature or mitigation for hardware
-bugs.
+Signed-off-by: Sean Christopherson <seanjc@google.com>
+---
+ drivers/vfio/vfio_main.c | 2 +-
+ include/linux/vfio.h     | 2 ++
+ 2 files changed, 3 insertions(+), 1 deletion(-)
 
-The end goal for all of this is to allow loading and running multiple
-instances of KVM (the module) simultaneously on a single host, e.g. to
-deploy fixes, mitigations, and/or new features without having to drain
-all VMs from the host.
-
-For now, the immediate goal is to get KVM to a state where KVM x86 doesn't
-expose anything to the broader world that isn't intended for external
-consumption, e.g. the page write-tracking APIs used by KVM-GT.
-
-I say this is borderline RFC because I don't think I've "formally" proposed
-the idea of hiding KVM internals before now.  I decided not to tag this RFC
-because the changes ended up being not _that_ invasive, and everything
-before the last six patches is worthwhile even if hiding internals is
-ultimately rejected (IMO).
-
-This would ideally be ~5 separate series, and I certainly have no objection
-if that's how we want to get this stuff merged.  E.g. (1) VFIO cleanups,
-(2) drop HAVE_KVM, (3) clean up makefiles, (4) x86 perf cleanup, and
-(5) final push for hiding state.  The HAVE_KVM and virt/kvm include stuff
-isn't strictly necessary, but I included them here because they're
-relatively minor (in the grand scheme).
-
-We've explore several alternatives to the #ifdef __KVM__ approach, and
-they all sucked, hard.  What I really wanted (and still want) to do, is to
-bury the bulk of kvm_host.h (and other KVM headers) in virt/kvm, but every
-attempt to do that ended in flames.  Even with the __KVM__ guards in place,
-each architecture's kvm_host.h is too intertwined with the common kvm_host.h,
-and trying to extract small-ish pieces just doesn't work (each patch
-inevitably snowballed into a gigantic beast).
-
-The other idea we considered (which I thought of, and feel dirty for even
-proposing it internally), is to move all headers under virt/kvm, add
-virt/kvm/include to the global header path, and then have KVM x86 omit
-virt/kvm/include when configured to hide KVM internals.  I hate this idea
-because it sets a bad precedent, and requires a lot of file movement
-without providing any benefit to other architectures.  E.g. I hope that
-guarding KVM internals with #ifdef __KVM__ will allow us to slowly clean
-things up so that some day KVM only exposes a handful of APIs to the rest
-of the kernel (probably a pipe dream).
-
-Anish Ghulati (1):
-  KVM: arm64: Move arm_{psci,hypercalls}.h to an internal KVM path
-
-Sean Christopherson (25):
-  vfio: Wrap KVM helpers with CONFIG_KVM instead of CONFIG_HAVE_KVM
-  vfio: Move KVM get/put helpers to colocate it with other KVM related
-    code
-  virt: Declare and define vfio_file_set_kvm() iff CONFIG_KVM is enabled
-  vfio: Add struct to hold KVM assets and dedup group vs. iommufd code
-  vfio: KVM: Pass get/put helpers from KVM to VFIO, don't do circular
-    lookup
-  KVM: Drop CONFIG_KVM_VFIO and just look at KVM+VFIO
-  x86/idt: Wrap KVM logic with CONFIG_KVM instead of CONFIG_HAVE_KVM
-  KVM: x86: Stop selecting and depending on HAVE_KVM
-  KVM: arm64: Stop selecting and depending on HAVE_KVM
-  KVM: s390: Stop selecting and depending on HAVE_KVM
-  KVM: MIPS: Make HAVE_KVM a MIPS-only Kconfig
-  KVM: arm64: Include KVM headers to get forward declarations
-  KVM: arm64: Move ARM specific headers in include/kvm to arch directory
-  KVM: Move include/kvm/iodev.h to include/linux as kvm_iodev.h
-  KVM: MIPS: Stop adding virt/kvm to the arch include path
-  KVM: PPC: Stop adding virt/kvm to the arch include path
-  KVM: s390: Stop adding virt/kvm to the arch include path
-  KVM: Standardize include paths across all architectures
-  perf/x86: KVM: Have perf define a dedicated struct for getting guest
-    PEBS data
-  entry/kvm: Drop @vcpu param from arch_xfer_to_guest_mode_handle_work()
-  entry/kvm: KVM: Move KVM details related to signal/-EINTR into KVM
-    proper
-  KVM: arm64: Move and consolidate "public" functions in asm/kvm_host.h
-  powerpc/xics: Move declaration of xics_wake_cpu() out of kvm_ppc.h
-  KVM: PPC: Rearrange code in kvm_ppc.h to isolate "public" information
-  KVM: Hide KVM internal data structures and values from kernel at-large
-
- MAINTAINERS                                   |   1 -
- arch/arm64/Kconfig                            |   1 -
- .../arm64/include/asm/kvm_arch_timer.h        |   2 +
- arch/arm64/include/asm/kvm_emulate.h          |   3 +
- arch/arm64/include/asm/kvm_host.h             |  57 ++--
- arch/arm64/include/asm/kvm_mmu.h              |   4 +
- .../arm64/include/asm/kvm_pmu.h               |   2 +
- .../arm64/include/asm/kvm_vgic.h              |   2 +-
- arch/arm64/kernel/asm-offsets.c               |   2 +
- arch/arm64/kvm/Kconfig                        |   2 -
- arch/arm64/kvm/Makefile                       |   2 -
- arch/arm64/kvm/arch_timer.c                   |   5 +-
- arch/arm64/kvm/arm.c                          |   9 +-
- {include => arch/arm64}/kvm/arm_hypercalls.h  |   0
- {include => arch/arm64}/kvm/arm_psci.h        |   0
- arch/arm64/kvm/guest.c                        |   2 +-
- arch/arm64/kvm/handle_exit.c                  |   2 +-
- arch/arm64/kvm/hyp/Makefile                   |   4 +-
- arch/arm64/kvm/hyp/include/hyp/switch.h       |   4 +-
- arch/arm64/kvm/hyp/nvhe/Makefile              |   3 +-
- arch/arm64/kvm/hyp/nvhe/switch.c              |   4 +-
- arch/arm64/kvm/hyp/vhe/Makefile               |   2 +-
- arch/arm64/kvm/hyp/vhe/switch.c               |   4 +-
- arch/arm64/kvm/hypercalls.c                   |   4 +-
- arch/arm64/kvm/pmu-emul.c                     |   6 +-
- arch/arm64/kvm/psci.c                         |   4 +-
- arch/arm64/kvm/pvtime.c                       |   2 +-
- arch/arm64/kvm/reset.c                        |   3 +-
- arch/arm64/kvm/trace_arm.h                    |   2 +-
- arch/arm64/kvm/trng.c                         |   2 +-
- arch/arm64/kvm/vgic/vgic-debug.c              |   2 +-
- arch/arm64/kvm/vgic/vgic-init.c               |   2 +-
- arch/arm64/kvm/vgic/vgic-irqfd.c              |   2 +-
- arch/arm64/kvm/vgic/vgic-kvm-device.c         |   2 +-
- arch/arm64/kvm/vgic/vgic-mmio-v2.c            |   4 +-
- arch/arm64/kvm/vgic/vgic-mmio-v3.c            |   4 +-
- arch/arm64/kvm/vgic/vgic-mmio.c               |   6 +-
- arch/arm64/kvm/vgic/vgic-v2.c                 |   2 +-
- arch/arm64/kvm/vgic/vgic-v3.c                 |   2 +-
- arch/mips/include/asm/kvm_host.h              |   5 +-
- arch/mips/kernel/asm-offsets.c                |   2 +
- arch/mips/kvm/Kconfig                         |   3 +
- arch/mips/kvm/Makefile                        |   2 -
- arch/powerpc/include/asm/kvm_book3s.h         |   3 +
- arch/powerpc/include/asm/kvm_book3s_64.h      |   2 +
- arch/powerpc/include/asm/kvm_booke.h          |   4 +
- arch/powerpc/include/asm/kvm_host.h           |   7 +-
- arch/powerpc/include/asm/kvm_ppc.h            | 306 +++++++++---------
- arch/powerpc/include/asm/xics.h               |   3 +
- arch/powerpc/kernel/asm-offsets.c             |   1 +
- arch/powerpc/kvm/Kconfig                      |   1 -
- arch/powerpc/kvm/Makefile                     |   2 -
- arch/powerpc/kvm/mpic.c                       |   2 +-
- arch/riscv/include/asm/kvm_host.h             |   3 +
- arch/riscv/kernel/asm-offsets.c               |   1 +
- arch/riscv/kvm/Makefile                       |   2 -
- arch/riscv/kvm/aia_aplic.c                    |   2 +-
- arch/riscv/kvm/aia_imsic.c                    |   2 +-
- arch/riscv/kvm/vcpu.c                         |   2 +-
- arch/s390/Kconfig                             |   1 -
- arch/s390/include/asm/kvm_host.h              |   7 +-
- arch/s390/kernel/asm-offsets.c                |   1 +
- arch/s390/kvm/Kconfig                         |   2 -
- arch/s390/kvm/Makefile                        |   2 -
- arch/x86/Kconfig                              |   1 -
- arch/x86/events/core.c                        |   5 +-
- arch/x86/events/intel/core.c                  |  18 +-
- arch/x86/events/perf_event.h                  |   3 +-
- arch/x86/include/asm/hardirq.h                |   2 +-
- arch/x86/include/asm/idtentry.h               |   2 +-
- arch/x86/include/asm/irq.h                    |   2 +-
- arch/x86/include/asm/irq_vectors.h            |   2 +-
- arch/x86/include/asm/kvm_host.h               |  12 +-
- arch/x86/include/asm/perf_event.h             |  12 +-
- arch/x86/kernel/idt.c                         |   2 +-
- arch/x86/kernel/irq.c                         |   4 +-
- arch/x86/kvm/Kconfig                          |   3 -
- arch/x86/kvm/Makefile                         |   1 -
- arch/x86/kvm/i8254.h                          |   2 +-
- arch/x86/kvm/ioapic.h                         |   2 +-
- arch/x86/kvm/irq.h                            |   2 +-
- arch/x86/kvm/lapic.h                          |   2 +-
- arch/x86/kvm/vmx/pmu_intel.c                  |  16 +-
- arch/x86/kvm/vmx/vmx.c                        |  11 +-
- arch/x86/kvm/vmx/vmx.h                        |   2 +-
- arch/x86/kvm/x86.c                            |   3 +-
- drivers/s390/crypto/vfio_ap_drv.c             |   1 +
- drivers/s390/crypto/vfio_ap_ops.c             |   2 +
- drivers/vfio/device_cdev.c                    |   9 +-
- drivers/vfio/group.c                          |  18 +-
- drivers/vfio/vfio.h                           |  26 +-
- drivers/vfio/vfio_main.c                      | 139 ++++----
- include/linux/entry-kvm.h                     |  10 +-
- include/linux/kvm_host.h                      |  17 +-
- include/{kvm/iodev.h => linux/kvm_iodev.h}    |   0
- include/linux/kvm_types.h                     |   3 +
- include/linux/vfio.h                          |   6 +-
- include/trace/events/kvm.h                    |   5 +
- kernel/entry/kvm.c                            |  13 +-
- scripts/gdb/linux/constants.py.in             |   2 +-
- scripts/gdb/linux/interrupts.py               |   2 +-
- tools/arch/x86/include/asm/irq_vectors.h      |   2 +-
- virt/kvm/Kconfig                              |   6 -
- virt/kvm/Makefile.kvm                         |   6 +-
- virt/kvm/coalesced_mmio.c                     |   3 +-
- virt/kvm/eventfd.c                            |   2 +-
- virt/kvm/kvm_main.c                           |   3 +-
- virt/kvm/vfio.c                               |   9 +-
- virt/kvm/vfio.h                               |   2 +-
- 109 files changed, 489 insertions(+), 440 deletions(-)
- rename include/kvm/arm_arch_timer.h => arch/arm64/include/asm/kvm_arch_timer.h (98%)
- rename include/kvm/arm_pmu.h => arch/arm64/include/asm/kvm_pmu.h (99%)
- rename include/kvm/arm_vgic.h => arch/arm64/include/asm/kvm_vgic.h (99%)
- rename {include => arch/arm64}/kvm/arm_hypercalls.h (100%)
- rename {include => arch/arm64}/kvm/arm_psci.h (100%)
- rename include/{kvm/iodev.h => linux/kvm_iodev.h} (100%)
-
-
-base-commit: 0bb80ecc33a8fb5a682236443c1e740d5c917d1d
+diff --git a/drivers/vfio/vfio_main.c b/drivers/vfio/vfio_main.c
+index 6368eed7b7b2..124cc88966a7 100644
+--- a/drivers/vfio/vfio_main.c
++++ b/drivers/vfio/vfio_main.c
+@@ -1352,7 +1352,6 @@ void vfio_device_put_kvm(struct vfio_device *device)
+ clear:
+ 	device->kvm = NULL;
+ }
+-#endif
+ 
+ static void vfio_device_file_set_kvm(struct file *file, struct kvm *kvm)
+ {
+@@ -1388,6 +1387,7 @@ void vfio_file_set_kvm(struct file *file, struct kvm *kvm)
+ 		vfio_device_file_set_kvm(file, kvm);
+ }
+ EXPORT_SYMBOL_GPL(vfio_file_set_kvm);
++#endif
+ 
+ /*
+  * Sub-module support
+diff --git a/include/linux/vfio.h b/include/linux/vfio.h
+index 454e9295970c..e80955de266c 100644
+--- a/include/linux/vfio.h
++++ b/include/linux/vfio.h
+@@ -311,7 +311,9 @@ static inline bool vfio_file_has_dev(struct file *file, struct vfio_device *devi
+ #endif
+ bool vfio_file_is_valid(struct file *file);
+ bool vfio_file_enforced_coherent(struct file *file);
++#if IS_ENABLED(CONFIG_KVM)
+ void vfio_file_set_kvm(struct file *file, struct kvm *kvm);
++#endif
+ 
+ #define VFIO_PIN_PAGES_MAX_ENTRIES	(PAGE_SIZE/sizeof(unsigned long))
+ 
 -- 
 2.42.0.459.ge4e396fd5e-goog
 
