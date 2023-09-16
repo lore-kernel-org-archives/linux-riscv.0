@@ -4,142 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49AE9CD37B0
-	for <linux-riscv@archiver.kernel.org>; Mon, 18 Sep 2023 13:39:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7BEECD37B0
+	for <linux-riscv@archiver.kernel.org>; Mon, 18 Sep 2023 15:01:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lWQkW1ls2/MS1XBuPPUb6/P2gb9HV6lQVX4rDVa8G6U=; b=bXcvJrZvbWxefg
-	mlshtTuDrZus0jF+H7SxLjYD4bTmPHaS21tTcB7jRqrUrlGFj2sPYWM2GcyUaWkcgfzM3M9p/mG6W
-	kXInZqWbEA2TNwEIXSv/5Avi6gIwKT28GviBeA9sT9qVH4sckWlAMz8J+QkAr56T55UGNsZyzac/b
-	v9vwHoMaUolmgPDdiEIiVkiXc1yQA5I4CUN5cSaIbZlnTzYqSvRf/9JTEFN7M4yTW9307OHtVuXID
-	Lw7v0qHvrGX90VRlxDUUPuPnqwUL4z/vvsThKOvswstHdMCBe9DkuAQAh4CZwBb1Giuozc8HXCySK
-	jli74R1Ha5M+WzH2OgQg==;
+	List-Owner; bh=77mLoAan/u/nd1YiDqjuvkkNGRHgPX+ojOmw7GBmPoI=; b=XGwVTn8iVyZWr1
+	vxra3yN8YddnfJNeLpzfgrqf7DaUwCI6lfzVpfWJXuY0N8JIhqjUbMJAXURMqMfQoc3KlqJep/EC7
+	tD6mEolqcPc5HUqNHEfdke8WeASlwSG9U7BQS0PZ4HOh7Wdt3k7pyZYRmQzpT8rR18mfy3FFV2/FM
+	566oMXkXBxWdERgLs5M/Oa122ymWR6Nq0p5rJiIqllKn/xPe/7Vr7n81KJJMl8G9u4SDwwjqtIwh+
+	W55s4XXrH5EZhe/S0Ct2nhdNHGWzLLphhz/ebamyTKj6OxEK8TRxKSteyHHqLrxWu7sP1/RXf9v+5
+	SKfajQhiMYlP+5gyZbdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qiETg-00FaMC-0s;
-	Mon, 18 Sep 2023 13:39:52 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	id 1qiFkK-00Fhfw-0N;
+	Mon, 18 Sep 2023 15:01:08 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qiETc-00FaKt-20;
-	Mon, 18 Sep 2023 13:39:50 +0000
-Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.17.1.19/8.17.1.19) with ESMTP id 38IDW6fj029216;
-	Mon, 18 Sep 2023 13:39:07 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=date : from : to : cc :
- subject : message-id : in-reply-to : references : mime-version :
- content-type : content-transfer-encoding; s=pp1;
- bh=MSStuaxrt3lPU0HToni05ntjf8mTFhyARXhcilaZ3Qc=;
- b=H+pxQ1+Ho7+UtVHW+L+9U4TuBLIXLcxbX+V8fMPXWPDnrPxLop3kj0Ug8XoR2+7cKQxH
- SkSawKO1zJz6g6f71w4b0EoO4uNyXLTmMybbt1oSFzLZL/Qo2VuDiZUVaRy8O0lKe4Ie
- CE4N/VgGVZ0sdqRvJ4nmUpzypFxx5VVNSV2ae3lFRT0BCZftapG4ledUVupfc4IyjW/o
- Mkw6CToee56m1uHFs9Ymm8uXoghcEP3ll/zGtQDUN6osRFCSgNxDiEfxlDJVUrw+EM6X
- qVY8aKeJ+eCYRb+5QaUpCGr2Ui6Q9h6hURBdTbM65CcsEn9BOGcShugNqh9g5Wj0ArRc Ug== 
-Received: from pps.reinject (localhost [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 3t6qcnreuh-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 18 Sep 2023 13:39:06 +0000
-Received: from m0356516.ppops.net (m0356516.ppops.net [127.0.0.1])
-	by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 38IDNBeL019026;
-	Mon, 18 Sep 2023 13:39:05 GMT
-Received: from ppma11.dal12v.mail.ibm.com (db.9e.1632.ip4.static.sl-reverse.com [50.22.158.219])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 3t6qcnretu-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 18 Sep 2023 13:39:05 +0000
-Received: from pps.filterd (ppma11.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma11.dal12v.mail.ibm.com (8.17.1.19/8.17.1.19) with ESMTP id 38IDXOwx016436;
-	Mon, 18 Sep 2023 13:39:04 GMT
-Received: from smtprelay02.fra02v.mail.ibm.com ([9.218.2.226])
-	by ppma11.dal12v.mail.ibm.com (PPS) with ESMTPS id 3t5sd1jkpv-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 18 Sep 2023 13:39:04 +0000
-Received: from smtpav05.fra02v.mail.ibm.com (smtpav05.fra02v.mail.ibm.com [10.20.54.104])
-	by smtprelay02.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 38IDd1K314025382
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 18 Sep 2023 13:39:01 GMT
-Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 9DC312004B;
-	Mon, 18 Sep 2023 13:39:01 +0000 (GMT)
-Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id CCB1C20040;
-	Mon, 18 Sep 2023 13:39:00 +0000 (GMT)
-Received: from p-imbrenda (unknown [9.152.224.66])
-	by smtpav05.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Mon, 18 Sep 2023 13:39:00 +0000 (GMT)
-Date: Mon, 18 Sep 2023 15:38:49 +0200
-From: Claudio Imbrenda <imbrenda@linux.ibm.com>
-To: Sean Christopherson <seanjc@google.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon
- <will@kernel.org>,
-        Marc Zyngier <maz@kernel.org>, Oliver Upton
- <oliver.upton@linux.dev>,
-        Huacai Chen <chenhuacai@kernel.org>,
-        Michael
- Ellerman <mpe@ellerman.id.au>,
-        Anup Patel <anup@brainfault.org>,
-        Paul
- Walmsley <paul.walmsley@sifive.com>,
-        Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
-        Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
-        Alexander Gordeev
- <agordeev@linux.ibm.com>,
-        Christian Borntraeger
- <borntraeger@linux.ibm.com>,
-        Janosch Frank <frankja@linux.ibm.com>,
-        Thomas
- Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
-        Borislav
- Petkov <bp@alien8.de>,
-        Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-        Peter Zijlstra <peterz@infradead.org>,
-        Arnaldo Carvalho de
- Melo <acme@kernel.org>,
-        Paolo Bonzini <pbonzini@redhat.com>,
-        Tony Krowiak
- <akrowiak@linux.ibm.com>,
-        Halil Pasic <pasic@linux.ibm.com>,
-        Jason Herne
- <jjherne@linux.ibm.com>,
-        Harald Freudenberger <freude@linux.ibm.com>,
-        Alex
- Williamson <alex.williamson@redhat.com>,
-        Andy Lutomirski <luto@kernel.org>,
-        linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-        linux-mips@vger.kernel.org, kvm@vger.kernel.org,
-        linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org,
-        linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
-        Anish
- Ghulati <aghulati@google.com>,
-        Venkatesh Srinivas
- <venkateshs@chromium.org>,
-        Andrew Thornton <andrewth@google.com>
-Subject: Re: [PATCH 18/26] KVM: s390: Stop adding virt/kvm to the arch
- include path
-Message-ID: <20230918153849.0363e8f9@p-imbrenda>
-In-Reply-To: <20230916003118.2540661-19-seanjc@google.com>
-References: <20230916003118.2540661-1-seanjc@google.com>
-	<20230916003118.2540661-19-seanjc@google.com>
-Organization: IBM
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; x86_64-redhat-linux-gnu)
+	id 1qhbBX-00Cm4z-0f;
+	Sat, 16 Sep 2023 19:42:32 +0000
+From: John Ogness <john.ogness@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1694893343;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=/zPwTVnbIqykq0xrJwLN9r6avPOKHnWBnlaBD7Ntd/o=;
+	b=CUQAEeiOCW0UB0mZHKKbATmxrT7v104AXTk8BgIS3LnhJdkwcK31VIKNUWTyr5NJ5FDSAZ
+	1rUmkomzu0i8ra8Pr7MuVj6uXx2bx2AvsuHAsgoTtNXk1SlphGsF2Tko1c6bGtCosz+5D3
+	3LvB5+XWrTyiZslCvN25C026vuzPMwe37ifQkKb5hvuaQ1IXWgjVHVi1QG1ERhp6yVLoCG
+	KEjXv3lRy4sKTNf9zIytvVhfEZiamkJbj8QmGaOgd3j5PMU/plPNL9TqQlN3PM7t/8qtdr
+	r8HTYvNQEPG5ZOF1NNpsGWfBpFE4WC9xOJQFYPlGWWvKaI1nzHahesMl0GR2sw==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1694893343;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=/zPwTVnbIqykq0xrJwLN9r6avPOKHnWBnlaBD7Ntd/o=;
+	b=/s+j74ZDjoLeO5pQcnU/VyXRmqc0m+3/h/bRCXztbsATbbfdFH/5imwYhMMMSk+geHP+hf
+	BWo+CyCuYQ4k1qBQ==
+To: Ilpo =?utf-8?Q?J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
+Subject: Re: [PATCH tty v1 00/74] serial: wrappers for uart port lock
+In-Reply-To: <1446dc6-5ab0-629-45c8-3b7d8c76367d@linux.intel.com>
+References: <20230914183831.587273-1-john.ogness@linutronix.de>
+ <1446dc6-5ab0-629-45c8-3b7d8c76367d@linux.intel.com>
+Date: Sat, 16 Sep 2023 21:48:14 +0206
+Message-ID: <878r95nbvt.fsf@jogness.linutronix.de>
 MIME-Version: 1.0
-X-TM-AS-GCONF: 00
-X-Proofpoint-ORIG-GUID: fPGL0P6aBZRPKpHoi9BsueIs0DR2UDLH
-X-Proofpoint-GUID: IufBZyFpbUqfPMs_X5VI6hKT9V7tJleH
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.267,Aquarius:18.0.980,Hydra:6.0.601,FMLib:17.11.176.26
- definitions=2023-09-18_06,2023-09-18_01,2023-05-22_02
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxlogscore=999
- suspectscore=0 clxscore=1011 lowpriorityscore=0 impostorscore=0
- phishscore=0 malwarescore=0 priorityscore=1501 spamscore=0 mlxscore=0
- bulkscore=0 adultscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.12.0-2308100000 definitions=main-2309180114
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230918_063948_800729_B47C1F87 
-X-CRM114-Status: GOOD (  24.54  )
+X-CRM114-CacheID: sfid-20230916_124231_535235_188833AA 
+X-CRM114-Status: GOOD (  12.50  )
+X-Mailman-Approved-At: Mon, 18 Sep 2023 08:01:06 -0700
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,46 +71,27 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: Geert Uytterhoeven <geert+renesas@glider.be>, Alim Akhtar <alim.akhtar@samsung.com>, Peter Korsgaard <jacmet@sunsite.dk>, linux-stm32@st-md-mailman.stormreply.com, Karol Gugala <kgugala@antmicro.com>, Jerome Brunet <jbrunet@baylibre.com>, linux-samsung-soc@vger.kernel.org, Kevin Hilman <khilman@baylibre.com>, Hugo Villeneuve <hvilleneuve@dimonoff.com>, Christophe Leroy <christophe.leroy@csgroup.eu>, Hammer Hsieh <hammerh0314@gmail.com>, Jiamei Xie <jiamei.xie@arm.com>, NXP Linux Team <linux-imx@nxp.com>, Vineet Gupta <vgupta@kernel.org>, Thierry Reding <treding@nvidia.com>, Petr Mladek <pmladek@suse.com>, Arend van Spriel <arend.vanspriel@broadcom.com>, Sascha Hauer <s.hauer@pengutronix.de>, Nicholas Piggin <npiggin@gmail.com>, linux-unisoc@lists.infradead.org, Thomas Gleixner <tglx@linutronix.de>, Andrew Jeffery <andrew@aj.id.au>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, LKML <linux-kernel@vger.kernel.org>, Richard Genoud <richard.genoud@gmail.com>, Pengutronix Kernel Team <kernel@pengutronix.de>, Andrew Morton <akpm@linux-foundation.org>, "Maciej W. Rozycki" <macro@orcam.me.uk>, Alexandre Belloni <alexandre.belloni@bootlin.com>, linux-aspeed@lists.ozlabs.org, Laxman Dewangan <ldewangan@nvidia.com>, Dmitry Rokosov <ddrokosov@sberdevices.ru>, Xiongfeng Wang <wangxiongfeng2@huawei.com>, Matthias Schiffer <matthias.schiffer@ew.tq-group.com>, delisun <delisun@pateo.com.cn>, Fabio Estevam <festevam@gmail.com>, Ruan Jinjie <ruanjinjie@huawei.com>, Matthew Howell <matthew.howell@sealevel.com>, Jonathan Hunter <jonathanh@nvidia.com>, Gabriel Somlo <gsomlo@gmail.com>, Hongyu Xie <xiehongyu1@kylinos.cn>, Tobias Klauser <tklauser@distanz.ch>, Yangtao Li <frank.li@vivo.com>, Martin Blumenstingl <martin.blumenstingl@googlemail.com>, linux-arm-msm@vger.kernel.org, linux-actions@lists.infradead.org, Biju Das <biju.das.jz@bp.renesas.com>, linux-amlogic@lists.infradead.org, Michal Simek <michal.simek@amd.com>, Sherry Sun <sherry.sun@nxp.com>, Neil Armstrong <neil.armstrong@linaro.org>, Chunyan Zhang <zhang.lyra@gmail.com>, "David
+ S. Miller" <davem@davemloft.net>, Kumaravel Thiagarajan <kumaravel.thiagarajan@microchip.com>, Lukas Wunner <lukas@wunner.de>, Sergey Organov <sorganov@gmail.com>, Mukesh Ojha <quic_mojha@quicinc.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, Michael Ellerman <mpe@ellerman.id.au>, Pali =?utf-8?Q?Roh=C3=A1r?= <pali@kernel.org>, Lino Sanfilippo <l.sanfilippo@kunbus.com>, Tom Rix <trix@redhat.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, Al Cooper <alcooperx@gmail.com>, Yuan Can <yuancan@huawei.com>, Isaac True <isaac.true@canonical.com>, linux-tegra@vger.kernel.org, Jiri Slaby <jirislaby@kernel.org>, Rob Herring <robh@kernel.org>, Florian Fainelli <f.fainelli@gmail.com>, Mateusz Holenko <mholenko@antmicro.com>, Kevin Cernekee <cernekee@gmail.com>, Andy Shevchenko <andy.shevchenko@gmail.com>, Shenwei Wang <shenwei.wang@nxp.com>, Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Joel Stanley <joel@jms.id.au>, Chen-Yu Tsai <wenst@chromium.org>, Ilpo =?utf-8?Q?J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, linux-snps-arc@lists.infradead.org, Patrice Chotard <patrice.chotard@foss.st.com>, Jacky Huang <ychuang3@nuvoton.com>, Arnd Bergmann <arnd@arndb.de>, Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>, Jonathan =?utf-8?Q?Neusch=C3=A4fer?= <j.neuschaefer@gmx.net>, Vladimir Zapolskiy <vz@mleia.com>, Baolin Wang <baolin.wang@linux.alibaba.com>, Orson Zhai <orsonzhai@gmail.com>, Tharun Kumar P <tharunkumar.pasumarthi@microchip.com>, Timur Tabi <timur@kernel.org>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Konrad Dybcio <konrad.dybcio@linaro.org>, Thierry Reding <thierry.reding@gmail.com>, Sudeep Holla <sudeep.holla@arm.com>, Shawn Guo <shawnguo@kernel.org>, Andreas =?utf-8?Q?F=C3=A4rber?= <afaerber@suse.de>, Baruch Siach <baruch@tkos.co.il>, Valentin Caron <valentin.caron@foss.st.com>, Tony Lindgren <tony@atomide.com>, Sebastian Andrzej Siewior <bigeasy@linutronix.de>, Liviu Dudau <liviu.dudau@arm.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, sparclinux@vger.kernel.org, Shan-Chun Hung <schung@nuvoton.com>, linux-riscv@lists.infradead.org, Marek Vasut <marex@denx.de>, Lech Perczak <lech.perczak@camlingroup.com>, Russell King <linux@armlinux.org.uk>, Nick Hu <nick.hu@sifive.com>, Andy Gross <agross@kernel.org>, linux-serial <linux-serial@vger.kernel.org>, Lukas Bulwahn <lukas.bulwahn@gmail.com>, Manivannan Sadhasivam <mani@kernel.org>, Johan Hovold <johan@kernel.org>, linux-mediatek@lists.infradead.org, Paul Walmsley <paul.walmsley@sifive.com>, Matthias Brugger <matthias.bgg@gmail.com>, Andy Shevchenko <andriy.shevchenko@linux.intel.com>, AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, linux-arm-kernel@lists.infradead.org, Taichi Sugaya <sugaya.taichi@socionext.com>, Bjorn Andersson <andersson@kernel.org>, Nicolas Ferre <nicolas.ferre@microchip.com>, Lucas Tanure <tanure@linux.com>, Andrew Davis <afd@ti.com>, Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, Palmer Dabbelt <palmer@dabbelt.com>, Takao Orito <orito.takao@socionext.com>, linuxppc-dev@lists.ozlabs.org
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 15 Sep 2023 17:31:10 -0700
-Sean Christopherson <seanjc@google.com> wrote:
-
-> Don't add virt/kvm to KVM s390's include path, the headers in virt/kvm are
-> intended to be used only by other code in virt/kvm, i.e. are "private" to
-> the core KVM code.  It's not clear that s390 *ever* included a header from
-> virt/kvm, i.e. odds are good the "-Ivirt/kvm" was copied from a x86's
-> Makefile when s390 support was first added.
-> 
-> The only headers in virt/kvm at the time were the x86 specific ioapic.h,
-> and iodev.h, neither of which shows up as an #include in the diff for the
-> commit range 37817f2982d0f..e976a2b997fc4.
-> 
-> Signed-off-by: Sean Christopherson <seanjc@google.com>
-> ---
->  arch/s390/kvm/Makefile | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/arch/s390/kvm/Makefile b/arch/s390/kvm/Makefile
-> index 02217fb4ae10..f17249ab2a72 100644
-> --- a/arch/s390/kvm/Makefile
-> +++ b/arch/s390/kvm/Makefile
-> @@ -5,7 +5,7 @@
->  
->  include $(srctree)/virt/kvm/Makefile.kvm
->  
-> -ccflags-y := -Ivirt/kvm -Iarch/s390/kvm
-> +ccflags-y := -Iarch/s390/kvm
->  
->  kvm-y += kvm-s390.o intercept.o interrupt.o priv.o sigp.o
->  kvm-y += diag.o gaccess.o guestdbg.o vsie.o pv.o
-
-Acked-by: Claudio Imbrenda <imbrenda@linux.ibm.com>
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gMjAyMy0wOS0xNSwgSWxwbyBKw6RydmluZW4gPGlscG8uamFydmluZW5AbGludXguaW50ZWwu
+Y29tPiB3cm90ZToKPiBXb3VsZCB0aGlzIGFsc28gYmUgdXNlZnVsIHRvIGVuYWJsZSBwcmludGlu
+ZyB0byBjb25zb2xlIHdoaWxlIHVuZGVyCj4gcG9ydCdzIGxvY2sgKGJ5IHBvc3Rwb25pbmcgdGhl
+IG91dHB1dCB1bnRpbCB0aGUgbG9jayBpcyByZWxlYXNlZCk/Cj4KPiBFLmcuLCA4MjUwX2R3LmMg
+aGFzIGhhZCB0aGlzIGNvbW1lbnRlZCBvdXQgc2luY2UgdGhlIGRhd24gb24gdGltZToKPiAgICAg
+ICAgIC8qCj4gICAgICAgICAgKiBGSVhNRTogdGhpcyBkZWFkbG9ja3MgaWYgcG9ydC0+bG9jayBp
+cyBhbHJlYWR5IGhlbGQKPiAgICAgICAgICAqIGRldl9lcnIocC0+ZGV2LCAiQ291bGRuJ3Qgc2V0
+IExDUiB0byAlZFxuIiwgdmFsdWUpOwo+ICAgICAgICAgICovCgpZZXMsIHRoaXMgd2lsbCBmaXgg
+c3VjaCBpc3N1ZXMuIEhvd2V2ZXIsIG9ubHkgZm9yIGNvbnNvbGVzIHRoYXQgYXJlCmNvbnZlcnRl
+ZCB0byB0aGUgbmV3IE5CQ09OIGNvbnNvbGUgdHlwZS4KCkdvb2QgbmV3cywgdGhlIDgyNTAgZHJp
+dmVyIHdpbGwgYmUgdGhlIGZsYWdzaGlwIGRyaXZlciB0aGF0IGlzIGNvbnZlcnRlZAphcyBwYXJ0
+IG9mIHRoZSByZXdvcmsuIFNvIHRoaXMgcGFydGljdWxhciBpc3N1ZSB3aWxsIGJlIHNvbHZlZCB0
+aGVuLiBJCndpbGwgdHJ5IHRvIHJlbWVtYmVyIHRoaXMgc28gdGhhdCBJIGNhbiByZW1vdmUgdGhl
+IEZJWE1FIGluIHRoZSBzZXJpZXMuCgpUaGFua3MgZm9yIG1lbnRpb25pbmcgaXQuCgpKb2huCgpf
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNj
+diBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlz
+dHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
