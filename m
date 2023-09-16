@@ -4,77 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49695CD37B2
-	for <linux-riscv@archiver.kernel.org>; Sat, 16 Sep 2023 06:27:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC870CD37B5
+	for <linux-riscv@archiver.kernel.org>; Sat, 16 Sep 2023 06:46:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9YWt8nIEn9Jg4772auRvBA4tlYuXR/Rj02elMPJDakA=; b=eszzqlZHtyb0gQ
-	P1h2nMvb9Wlk7SvVKz9J+sfZnBTvrBxBaHLVfDRkzheJ/biql0EZu3GNogvUKCqVdF0OCXuQyMGhK
-	LdE1/Axtt3MKmSmL8VJ6WmowBWmBuUMfubktrSXgcFadMkXPlwI5p1E+5lq+r9yOmXK/stGQZfWuN
-	dH4uCbE5BpN2SospRwph04olI9R7Kh6mYg6vsUBky5nY6iyO46SEBIldTeTnB1Tv9UhvwZ9Xao4aR
-	n4VntEYR3Xmry7c42NHV6u51IwXuCg9svpqfE6HosWidUzQFA6er2dE3pLtEAl3jE7Zi61S4P3Ei2
-	MuNtrrKeWFTFOtX5NIUA==;
+	List-Owner; bh=PIFUwXu2IDYx8TtbE68scumGlyvJigE2fAh1Fq5fsNc=; b=XMJMkjFhxVLob/
+	kLfcsrqUrQOgr2kAkAw+LIlbn75+1bzgafwmrk6emAaxGIuGNKFxD0ztmd+y6HMG7+lOhpT1RYj9g
+	+3B3JaMKatrPzU9o92b7HcCzOzmsgJEUGtzBYcTzkrQVfbRRRts5mA7J9k2u3ZiPG8nxhywvpMCR0
+	OoajA5+ZxRLw85ueB27/zUMCZAlZ6q49D2h7KSFRKlryMnJipauf/iAziG/Ycw97PEcl4xNlc8xYq
+	EbUBr959quUT6EYoQVrrXy2qoeTLgRiFxyWjcHTx9Jw4QGSFFnwy8MdDKdxlcJsGb+U5XzkLX2Iec
+	nNfDuR2c5QAmSF53z9wQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qhOmP-00C1yq-34;
-	Sat, 16 Sep 2023 06:27:45 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1qhP42-00C3OM-0K;
+	Sat, 16 Sep 2023 06:45:58 +0000
+Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qhOmN-00C1x4-00
+	id 1qhP3z-00C3NW-0h
 	for linux-riscv@lists.infradead.org;
-	Sat, 16 Sep 2023 06:27:44 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-403004a96eeso30485635e9.3
-        for <linux-riscv@lists.infradead.org>; Fri, 15 Sep 2023 23:27:31 -0700 (PDT)
+	Sat, 16 Sep 2023 06:45:56 +0000
+Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-31c4d5bd69cso2721144f8f.3
+        for <linux-riscv@lists.infradead.org>; Fri, 15 Sep 2023 23:45:53 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1694845650; x=1695450450; darn=lists.infradead.org;
+        d=ventanamicro.com; s=google; t=1694846752; x=1695451552; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=qA3m7Wd97NA+1WsAxBYaL/T9+9FFGYaq89NwpPExPUw=;
-        b=IcoJBhUKiwDSk/98s3zc+2FGvzdawdAenA9PVtHiX3jkW68a/4vHu1WYDujcJUQ/RE
-         ufvior7s59PAuJfuqnsWr9oVQdK+Tom7rwB9PsxKS3iQMoTTje6K4D72DuD/aqeLIxd4
-         SEYDNo5Ak/x/vBNntYgT81+TYb9w7o9Rwg7nbuPmjuMwNAuO9E/iVS0LMfM1WW2YX57w
-         jToS8+n2bd/4WkQLgvV0ytG2ZQabKZJ4N291I8rXQddw0C0Z88hTv/d+0LO5oRD2449Z
-         Gw1czJI3Dj1FLAOWQlsG0MkYdq6GzkTrXhwUg0v830DQQFB/pPq5JtfOS/P8nNNgx1JZ
-         +l5Q==
+        bh=MIDeAWdahUMHOh7TW9BYceBIpM4QDz+5Y/okXYT71D4=;
+        b=Bcm5WMZF0CHyIaGsYKOiHaaCHfBPjRgLwagoup1bYFLD++d43vfbhokzevxXYbI12O
+         hv047rrIN5sw8sAnOzBW7+Hr5fjD6+SafNQcFYEjvVwf8bcWxhaMyjN/tT2+8LGsmlzM
+         axv+qD/SxodNRPVlJRBzTVbS8P4FBrtOnVnBh0NhVZCM6XKszDlMkUYlM7Ef8hlFf2As
+         riU9nYhkU8Mbj9TA+3qPWbv90ixKZ2IZ1SxW6kXkaRonOyBIEOzHTOTmCC0jx6Ee10Ku
+         0sy6oFUgoGisu1Birvz9JgMPzDqLqFUf2mwegcmGV13Tdyi8cP1O4bRNGl4nltxhWuzQ
+         nrkQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1694845650; x=1695450450;
+        d=1e100.net; s=20230601; t=1694846752; x=1695451552;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=qA3m7Wd97NA+1WsAxBYaL/T9+9FFGYaq89NwpPExPUw=;
-        b=ZOS65MlSv0nZ/Vtwytw01gSNpVPuwj0l85f9C2BdN1AIXMAmrMzF0gH5BM7BYip35b
-         MIiAox+dFNtNfdfm1pqS8yarvRnG5JS9RJQa84oPNAavUrrOKD29GiB3QF4od/3x4s5R
-         5pjDYTZNNsZWOAtuMGZJn0MPYUrdnQtcvqGSZtP9XqFYeByOcdcVlbjHAXxkpA+NO3Id
-         DDwvGi6+7rUzdW42/7QSazNIxPdTxVwsjFuuSyzw1+QDPALg733kmHDlDvEakbPsmb2E
-         QbQRByub5kaLO40FhPzF25AUP/WI8cyCabB6rAlmRR/X5T48eK3pSLBoHNTJmuT9cl5C
-         DsnQ==
-X-Gm-Message-State: AOJu0YyBUIU0Ri4iN995wM11rN0LXu1F/vQ6v/0qVkg2qk08TFIToESd
-	fcIEOYg+At/U1ioy8CIGfzM5+g==
-X-Google-Smtp-Source: AGHT+IHVEHn33nx/6pAxr7bxRFYSjBiKm4pipPDJ4FNTUFpg0tRVOz6FVszXyFWu8k+IhzcaqXgF+A==
-X-Received: by 2002:a5d:62d2:0:b0:31a:d4e4:4f63 with SMTP id o18-20020a5d62d2000000b0031ad4e44f63mr2929892wrv.18.1694845650282;
-        Fri, 15 Sep 2023 23:27:30 -0700 (PDT)
+        bh=MIDeAWdahUMHOh7TW9BYceBIpM4QDz+5Y/okXYT71D4=;
+        b=i2VY5mA6ADcUTKw2/EqrnV36PDBTUroc0+3er38gBWn4KHjC0dZ0h1nvqhzrXP7xYF
+         Te209m/J9QdKSlqWn/tQtVsP+h5fpkXBKCahrl6MG4I8JrWSxDlK2Bh6flD5lzryj6OV
+         HuhTHxtklcZmyUlN87wVrvIyNGak0F/fjuxvyEtaZbeDGXndFceEHNHM0GGtOpbRdZlG
+         NPiND9f10MvLBAtoO26pdbZOVlpndFyghhmBHJc8IbLeDbaG3rj4s2ZLmBRFdTaNb00b
+         BTKhjoAKyCoLBALqEPV+JGkL5OPGzldLae6OElq8Hlsz48h17Pti7xhCd8DXZ9P2AUUd
+         UrEw==
+X-Gm-Message-State: AOJu0Yw6ICTmnK4dDgnYL/nJnxZDsYtYFFaDAenwBdcNj/tAZiZV9WW2
+	hIwLqHK/tFBLDCHsCX6ioEslXw==
+X-Google-Smtp-Source: AGHT+IF9Pu6RAzmT+sR/UCnGMu/RRFT0lIKVr5isE7jkDP2hkunpqOL7QDrFb6yjnQSOzvEIEuEdkg==
+X-Received: by 2002:a5d:5965:0:b0:313:f61c:42ab with SMTP id e37-20020a5d5965000000b00313f61c42abmr3019654wri.56.1694846752519;
+        Fri, 15 Sep 2023 23:45:52 -0700 (PDT)
 Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
-        by smtp.gmail.com with ESMTPSA id j6-20020adfff86000000b0031c56218984sm6156170wrr.104.2023.09.15.23.27.29
+        by smtp.gmail.com with ESMTPSA id h4-20020a056000000400b00317909f9985sm6277045wrx.113.2023.09.15.23.45.51
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 15 Sep 2023 23:27:29 -0700 (PDT)
-Date: Sat, 16 Sep 2023 08:27:29 +0200
+        Fri, 15 Sep 2023 23:45:51 -0700 (PDT)
+Date: Sat, 16 Sep 2023 08:45:51 +0200
 From: Andrew Jones <ajones@ventanamicro.com>
-To: Conor Dooley <conor@kernel.org>
-Cc: palmer@dabbelt.com, Conor Dooley <conor.dooley@microchip.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1] RISC-V: capitalise CMO op macros
-Message-ID: <20230916-b290c565eabad8c5935a85c2@orel>
-References: <20230915-aloe-dollar-994937477776@spud>
+To: Evan Green <evan@rivosinc.com>
+Subject: Re: [PATCH] RISC-V: Probe misaligned access speed in parallel
+Message-ID: <20230916-ab31c90dd56c99d36d5fce6c@orel>
+References: <20230915184904.1976183-1-evan@rivosinc.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20230915-aloe-dollar-994937477776@spud>
+In-Reply-To: <20230915184904.1976183-1-evan@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230915_232743_047485_085AC616 
-X-CRM114-Status: GOOD (  20.90  )
+X-CRM114-CacheID: sfid-20230915_234555_261680_034CD842 
+X-CRM114-Status: GOOD (  32.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,220 +84,175 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: Anup Patel <apatel@ventanamicro.com>, Albert Ou <aou@eecs.berkeley.edu>, Heiko Stuebner <heiko@sntech.de>, Ley Foon Tan <leyfoon.tan@starfivetech.com>, Marc Zyngier <maz@kernel.org>, linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@rivosinc.com>, Conor Dooley <conor.dooley@microchip.com>, David Laight <David.Laight@aculab.com>, Palmer Dabbelt <palmer@dabbelt.com>, Jisheng Zhang <jszhang@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, Greentime Hu <greentime.hu@sifive.com>, linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 15, 2023 at 04:40:44PM +0100, Conor Dooley wrote:
-> From: Conor Dooley <conor.dooley@microchip.com>
+On Fri, Sep 15, 2023 at 11:49:03AM -0700, Evan Green wrote:
+> Probing for misaligned access speed takes about 0.06 seconds. On a
+> system with 64 cores, doing this in smp_callin() means it's done
+> serially, extending boot time by 3.8 seconds. That's a lot of boot time.
 > 
-> The CMO op macros initially used lower case, as the original iteration
-> of the ALT_CMO_OP alternative stringified the first parameter to
-> finalise the assembly for the standard variant.
-> As a knock-on, the T-Head versions of these CMOs had to use mixed case
-> defines. Commit dd23e9535889 ("RISC-V: replace cbom instructions with
-> an insn-def") removed the asm construction with stringify, replacing it
-> an insn-def macro, rending the lower-case surplus to requirements.
-> As far as I can tell from a brief check, CBO_zero does not see similar
-> use and didn't require the mixed case define in the first place.
-> Replace the lower case characters now for consistency with other
-> insn-def macros in the standard and T-Head forms, and adjust the
-> callsites.
+> Instead of measuring each CPU serially, let's do the measurements on
+> all CPUs in parallel. If we disable preemption on all CPUs, the
+> jiffies stop ticking, so we can do this in stages of 1) everybody
+> except core 0, then 2) core 0.
 > 
-> Suggested-by: Andrew Jones <ajones@ventanamicro.com>
-> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+> The measurement call in smp_callin() stays around, but is now
+> conditionalized to only run if a new CPU shows up after the round of
+> in-parallel measurements has run. The goal is to have the measurement
+> call not run during boot or suspend/resume, but only on a hotplug
+> addition.
+
+Yay! I had just recently tested suspend/resume and wanted to report the
+probe as an issue, but I hadn't gotten around to it. This patch resolves
+the issue, so
+
+Test-by: Andrew Jones <ajones@ventanamicro.com>
+
+> 
+> Signed-off-by: Evan Green <evan@rivosinc.com>
+> 
 > ---
-> CC: Paul Walmsley <paul.walmsley@sifive.com>
-> CC: Palmer Dabbelt <palmer@dabbelt.com>
-> CC: linux-riscv@lists.infradead.org
-> CC: linux-kernel@vger.kernel.org
-> ---
->  arch/riscv/include/asm/errata_list.h |  6 +++---
->  arch/riscv/include/asm/insn-def.h    |  8 +++----
->  arch/riscv/lib/clear_page.S          | 32 ++++++++++++++--------------
->  arch/riscv/mm/dma-noncoherent.c      |  8 +++----
->  arch/riscv/mm/pmem.c                 |  4 ++--
->  5 files changed, 29 insertions(+), 29 deletions(-)
 > 
-> diff --git a/arch/riscv/include/asm/errata_list.h b/arch/riscv/include/asm/errata_list.h
-> index e2ecd01bfac7..5801af83d154 100644
-> --- a/arch/riscv/include/asm/errata_list.h
-> +++ b/arch/riscv/include/asm/errata_list.h
-> @@ -117,9 +117,9 @@ asm volatile(ALTERNATIVE(						\
->   * | 31 - 25 | 24 - 20 | 19 - 15 | 14 - 12 | 11 - 7 | 6 - 0 |
->   *   0000000    11001     00000      000      00000  0001011
->   */
-> -#define THEAD_inval_A0	".long 0x0265000b"
-> -#define THEAD_clean_A0	".long 0x0245000b"
-> -#define THEAD_flush_A0	".long 0x0275000b"
-> +#define THEAD_INVAL_A0	".long 0x0265000b"
-> +#define THEAD_CLEAN_A0	".long 0x0245000b"
-> +#define THEAD_FLUSH_A0	".long 0x0275000b"
->  #define THEAD_SYNC_S	".long 0x0190000b"
+> Jisheng, I didn't add your Tested-by tag since the patch evolved from
+> the one you tested. Hopefully this one brings you the same result.
+> 
+> ---
+>  arch/riscv/include/asm/cpufeature.h |  3 ++-
+>  arch/riscv/kernel/cpufeature.c      | 28 +++++++++++++++++++++++-----
+>  arch/riscv/kernel/smpboot.c         | 11 ++++++++++-
+>  3 files changed, 35 insertions(+), 7 deletions(-)
+> 
+> diff --git a/arch/riscv/include/asm/cpufeature.h b/arch/riscv/include/asm/cpufeature.h
+> index d0345bd659c9..19e7817eba10 100644
+> --- a/arch/riscv/include/asm/cpufeature.h
+> +++ b/arch/riscv/include/asm/cpufeature.h
+> @@ -30,6 +30,7 @@ DECLARE_PER_CPU(long, misaligned_access_speed);
+>  /* Per-cpu ISA extensions. */
+>  extern struct riscv_isainfo hart_isa[NR_CPUS];
 >  
->  #define ALT_CMO_OP(_op, _start, _size, _cachesize)			\
-> diff --git a/arch/riscv/include/asm/insn-def.h b/arch/riscv/include/asm/insn-def.h
-> index 6960beb75f32..e27179b26086 100644
-> --- a/arch/riscv/include/asm/insn-def.h
-> +++ b/arch/riscv/include/asm/insn-def.h
-> @@ -180,19 +180,19 @@
->  	INSN_R(OPCODE_SYSTEM, FUNC3(0), FUNC7(51),		\
->  	       __RD(0), RS1(gaddr), RS2(vmid))
+> -void check_unaligned_access(int cpu);
+> +extern bool misaligned_speed_measured;
+
+Do we need this new state or could we just always check the boot cpu's
+state to get the same information?
+
+ per_cpu(misaligned_access_speed, 0) != RISCV_HWPROBE_MISALIGNED_UNKNOWN
+
+> +int check_unaligned_access(void *unused);
 >  
-> -#define CBO_inval(base)						\
-> +#define CBO_INVAL(base)						\
->  	INSN_I(OPCODE_MISC_MEM, FUNC3(2), __RD(0),		\
->  	       RS1(base), SIMM12(0))
->  
-> -#define CBO_clean(base)						\
-> +#define CBO_CLEAN(base)						\
->  	INSN_I(OPCODE_MISC_MEM, FUNC3(2), __RD(0),		\
->  	       RS1(base), SIMM12(1))
->  
-> -#define CBO_flush(base)						\
-> +#define CBO_FLUSH(base)						\
->  	INSN_I(OPCODE_MISC_MEM, FUNC3(2), __RD(0),		\
->  	       RS1(base), SIMM12(2))
->  
-> -#define CBO_zero(base)						\
-> +#define CBO_ZERO(base)						\
->  	INSN_I(OPCODE_MISC_MEM, FUNC3(2), __RD(0),		\
->  	       RS1(base), SIMM12(4))
->  
-> diff --git a/arch/riscv/lib/clear_page.S b/arch/riscv/lib/clear_page.S
-> index d7a256eb53f4..b22de1231144 100644
-> --- a/arch/riscv/lib/clear_page.S
-> +++ b/arch/riscv/lib/clear_page.S
-> @@ -29,41 +29,41 @@ SYM_FUNC_START(clear_page)
->  	lw	a1, riscv_cboz_block_size
->  	add	a2, a0, a2
->  .Lzero_loop:
-> -	CBO_zero(a0)
-> +	CBO_ZERO(a0)
->  	add	a0, a0, a1
->  	CBOZ_ALT(11, "bltu a0, a2, .Lzero_loop; ret", "nop; nop")
-> -	CBO_zero(a0)
-> +	CBO_ZERO(a0)
->  	add	a0, a0, a1
->  	CBOZ_ALT(10, "bltu a0, a2, .Lzero_loop; ret", "nop; nop")
-> -	CBO_zero(a0)
-> +	CBO_ZERO(a0)
->  	add	a0, a0, a1
-> -	CBO_zero(a0)
-> +	CBO_ZERO(a0)
->  	add	a0, a0, a1
->  	CBOZ_ALT(9, "bltu a0, a2, .Lzero_loop; ret", "nop; nop")
-> -	CBO_zero(a0)
-> +	CBO_ZERO(a0)
->  	add	a0, a0, a1
-> -	CBO_zero(a0)
-> +	CBO_ZERO(a0)
->  	add	a0, a0, a1
-> -	CBO_zero(a0)
-> +	CBO_ZERO(a0)
->  	add	a0, a0, a1
-> -	CBO_zero(a0)
-> +	CBO_ZERO(a0)
->  	add	a0, a0, a1
->  	CBOZ_ALT(8, "bltu a0, a2, .Lzero_loop; ret", "nop; nop")
-> -	CBO_zero(a0)
-> +	CBO_ZERO(a0)
->  	add	a0, a0, a1
-> -	CBO_zero(a0)
-> +	CBO_ZERO(a0)
->  	add	a0, a0, a1
-> -	CBO_zero(a0)
-> +	CBO_ZERO(a0)
->  	add	a0, a0, a1
-> -	CBO_zero(a0)
-> +	CBO_ZERO(a0)
->  	add	a0, a0, a1
-> -	CBO_zero(a0)
-> +	CBO_ZERO(a0)
->  	add	a0, a0, a1
-> -	CBO_zero(a0)
-> +	CBO_ZERO(a0)
->  	add	a0, a0, a1
-> -	CBO_zero(a0)
-> +	CBO_ZERO(a0)
->  	add	a0, a0, a1
-> -	CBO_zero(a0)
-> +	CBO_ZERO(a0)
->  	add	a0, a0, a1
->  	bltu	a0, a2, .Lzero_loop
->  	ret
-> diff --git a/arch/riscv/mm/dma-noncoherent.c b/arch/riscv/mm/dma-noncoherent.c
-> index b76e7e192eb1..607d5f47d437 100644
-> --- a/arch/riscv/mm/dma-noncoherent.c
-> +++ b/arch/riscv/mm/dma-noncoherent.c
-> @@ -31,7 +31,7 @@ static inline void arch_dma_cache_wback(phys_addr_t paddr, size_t size)
->  		return;
->  	}
 >  #endif
-> -	ALT_CMO_OP(clean, vaddr, size, riscv_cbom_block_size);
-> +	ALT_CMO_OP(CLEAN, vaddr, size, riscv_cbom_block_size);
+> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+> index 1cfbba65d11a..8eb36e1dfb95 100644
+> --- a/arch/riscv/kernel/cpufeature.c
+> +++ b/arch/riscv/kernel/cpufeature.c
+> @@ -42,6 +42,9 @@ struct riscv_isainfo hart_isa[NR_CPUS];
+>  /* Performance information */
+>  DEFINE_PER_CPU(long, misaligned_access_speed);
+>  
+> +/* Boot-time in-parallel unaligned access measurement has occurred. */
+> +bool misaligned_speed_measured;
+> +
+>  /**
+>   * riscv_isa_extension_base() - Get base extension word
+>   *
+> @@ -556,8 +559,9 @@ unsigned long riscv_get_elf_hwcap(void)
+>  	return hwcap;
 >  }
 >  
->  static inline void arch_dma_cache_inv(phys_addr_t paddr, size_t size)
-> @@ -45,7 +45,7 @@ static inline void arch_dma_cache_inv(phys_addr_t paddr, size_t size)
+> -void check_unaligned_access(int cpu)
+> +int check_unaligned_access(void *unused)
+>  {
+> +	int cpu = smp_processor_id();
+>  	u64 start_cycles, end_cycles;
+>  	u64 word_cycles;
+>  	u64 byte_cycles;
+> @@ -571,7 +575,7 @@ void check_unaligned_access(int cpu)
+>  	page = alloc_pages(GFP_NOWAIT, get_order(MISALIGNED_BUFFER_SIZE));
+>  	if (!page) {
+>  		pr_warn("Can't alloc pages to measure memcpy performance");
+> -		return;
+> +		return 0;
 >  	}
->  #endif
 >  
-> -	ALT_CMO_OP(inval, vaddr, size, riscv_cbom_block_size);
-> +	ALT_CMO_OP(INVAL, vaddr, size, riscv_cbom_block_size);
+>  	/* Make an unaligned destination buffer. */
+> @@ -643,15 +647,29 @@ void check_unaligned_access(int cpu)
+>  
+>  out:
+>  	__free_pages(page, get_order(MISALIGNED_BUFFER_SIZE));
+> +	return 0;
+> +}
+> +
+> +static void check_unaligned_access_nonboot_cpu(void *param)
+> +{
+> +	if (smp_processor_id() != 0)
+> +		check_unaligned_access(param);
 >  }
 >  
->  static inline void arch_dma_cache_wback_inv(phys_addr_t paddr, size_t size)
-> @@ -59,7 +59,7 @@ static inline void arch_dma_cache_wback_inv(phys_addr_t paddr, size_t size)
->  	}
->  #endif
->  
-> -	ALT_CMO_OP(flush, vaddr, size, riscv_cbom_block_size);
-> +	ALT_CMO_OP(FLUSH, vaddr, size, riscv_cbom_block_size);
+> -static int check_unaligned_access_boot_cpu(void)
+> +static int check_unaligned_access_all_cpus(void)
+>  {
+> -	check_unaligned_access(0);
+> +	/* Check everybody except 0, who stays behind to tend jiffies. */
+> +	on_each_cpu(check_unaligned_access_nonboot_cpu, NULL, 1);
+> +
+> +	/* Check core 0. */
+> +	smp_call_on_cpu(0, check_unaligned_access, NULL, true);
+> +
+> +	/* Boot-time measurements are complete. */
+> +	misaligned_speed_measured = true;
+>  	return 0;
 >  }
 >  
->  static inline bool arch_sync_dma_clean_before_fromdevice(void)
-> @@ -131,7 +131,7 @@ void arch_dma_prep_coherent(struct page *page, size_t size)
->  	}
->  #endif
+> -arch_initcall(check_unaligned_access_boot_cpu);
+> +arch_initcall(check_unaligned_access_all_cpus);
 >  
-> -	ALT_CMO_OP(flush, flush_addr, size, riscv_cbom_block_size);
-> +	ALT_CMO_OP(FLUSH, flush_addr, size, riscv_cbom_block_size);
->  }
+>  #ifdef CONFIG_RISCV_ALTERNATIVE
+>  /*
+> diff --git a/arch/riscv/kernel/smpboot.c b/arch/riscv/kernel/smpboot.c
+> index 1b8da4e40a4d..39322ae20a75 100644
+> --- a/arch/riscv/kernel/smpboot.c
+> +++ b/arch/riscv/kernel/smpboot.c
+> @@ -27,6 +27,7 @@
+>  #include <linux/sched/mm.h>
+>  #include <asm/cpu_ops.h>
+>  #include <asm/cpufeature.h>
+> +#include <asm/hwprobe.h>
+>  #include <asm/irq.h>
+>  #include <asm/mmu_context.h>
+>  #include <asm/numa.h>
+> @@ -246,7 +247,15 @@ asmlinkage __visible void smp_callin(void)
 >  
->  void arch_setup_dma_ops(struct device *dev, u64 dma_base, u64 size,
-> diff --git a/arch/riscv/mm/pmem.c b/arch/riscv/mm/pmem.c
-> index c5fc5ec96f6d..370a422ede11 100644
-> --- a/arch/riscv/mm/pmem.c
-> +++ b/arch/riscv/mm/pmem.c
-> @@ -17,7 +17,7 @@ void arch_wb_cache_pmem(void *addr, size_t size)
->  		return;
->  	}
->  #endif
-> -	ALT_CMO_OP(clean, addr, size, riscv_cbom_block_size);
-> +	ALT_CMO_OP(CLEAN, addr, size, riscv_cbom_block_size);
->  }
->  EXPORT_SYMBOL_GPL(arch_wb_cache_pmem);
+>  	numa_add_cpu(curr_cpuid);
+>  	set_cpu_online(curr_cpuid, 1);
+> -	check_unaligned_access(curr_cpuid);
+> +
+> +	/*
+> +	 * Boot-time misaligned access speed measurements are done in parallel
+> +	 * in an initcall. Only measure here for hotplug.
+> +	 */
+> +	if (misaligned_speed_measured &&
+> +	    (per_cpu(misaligned_access_speed, curr_cpuid) == RISCV_HWPROBE_MISALIGNED_UNKNOWN)) {
+> +		check_unaligned_access(NULL);
+> +	}
 >  
-> @@ -29,6 +29,6 @@ void arch_invalidate_pmem(void *addr, size_t size)
->  		return;
->  	}
->  #endif
-> -	ALT_CMO_OP(inval, addr, size, riscv_cbom_block_size);
-> +	ALT_CMO_OP(INVAL, addr, size, riscv_cbom_block_size);
->  }
->  EXPORT_SYMBOL_GPL(arch_invalidate_pmem);
+>  	if (has_vector()) {
+>  		if (riscv_v_setup_vsize())
 > -- 
-> 2.39.2
+> 2.34.1
 >
 
-If it compiles, ship it :-)
+Besides my reluctance to add another global variable, this looks good to
+me.
 
 Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
 
 Thanks,
 drew
+
 
 _______________________________________________
 linux-riscv mailing list
