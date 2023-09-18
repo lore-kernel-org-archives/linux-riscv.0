@@ -4,81 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C55DFCD37B0
-	for <linux-riscv@archiver.kernel.org>; Mon, 18 Sep 2023 11:24:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D2ACCD37B0
+	for <linux-riscv@archiver.kernel.org>; Mon, 18 Sep 2023 12:42:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gsfTqN5qOaABCXP0j/CYk9PX5x2u6iBRMG1tO7u8ZEU=; b=LuZqrBWgwm77Li
-	90YG8cOWRR3z6tZz5gdxzHUAo7cqRU/O4RriMGdCcSQxghrzeKvFO1ZlJzqoQf0Ucl2rPej/+xPrz
-	4y6Vi+SrDR3CAPadRk897X63DCXpwfgMUkUT1TqTVb/2TMJTFzifGUEW0+QfVuBMRz/BaJj3Cf4sK
-	vSVXduHnu34i4gzyJkATeqZLbQ+PGrcwaEX6/Uh5HqabTjqaaiUl/hCHgnOiBXv89y3Ruw5T8L4/e
-	epu3whqsWgjbqHntJVLv8Ur7cltV72VeE3bubCjzh08ARbzI9EBujGzFc+rDHXToEClprXyllLdDX
-	b4gFlBNgJbSp/kO/SPOw==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
+	Message-ID:From:References:Cc:To:Subject:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=c/M0aBjyeTHne6NLE00lDBHvK54Lwno108b3w4VB75w=; b=Zwtl/tBpm0FblIA2EmGiFgANe5
+	9HV0WXTyCSKYKZQ4pOQj2UA0GWUkqbrdSnWEQ2hvLawBy+KWd+GRKSEXReeLZ/BknoS5QVhYeeqHu
+	v5cnYkA3KvoO93FtOhTILNeMzIrg1G1+s9MYezjFXUIAItcfW0SqNzQPuF8ahs7twTDvWRhqnmqTu
+	Q2uIc0QHqX2NT28PBFX5GXzS1Odw/jyuMbP6Zl213wo/VHypSQJEyCYgID3cMLsFf/PZ6Qg7sVqxe
+	25ulMe+oNIRegS5WPDsrBI8zbc5vTuegZXqNPkbjvgRgThpkTtK3xy1Uwa5y1p4aNDbh7oo5+gLQE
+	Sxcuouig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qiCMT-00FJuM-2K;
-	Mon, 18 Sep 2023 11:24:17 +0000
-Received: from mail-pg1-x534.google.com ([2607:f8b0:4864:20::534])
+	id 1qiDZa-00FRX2-18;
+	Mon, 18 Sep 2023 12:41:54 +0000
+Received: from [45.249.212.51] (helo=dggsgout11.his.huawei.com)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qiCMQ-00FJsq-0M
-	for linux-riscv@lists.infradead.org;
-	Mon, 18 Sep 2023 11:24:15 +0000
-Received: by mail-pg1-x534.google.com with SMTP id 41be03b00d2f7-51b4ef5378bso3568409a12.1
-        for <linux-riscv@lists.infradead.org>; Mon, 18 Sep 2023 04:24:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1695036252; x=1695641052; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=+JIoagGbUxbJdnZ/11AR40I+FsTVn6KCyqjzpGRwohg=;
-        b=CCXrtkn9EFOl+/qIHJt+uwDFT+iKFPQ61fljl14N5AiI+s2t+PludlUuyc+C/iJriJ
-         GNLfmirgAXz/e5ZU6j+DmKdQHWwT37p1PTJSRjW6zKizZQhPI1o/O3Mw9A0ykqRFJ6+u
-         c3Y5RH/CXtGDTpK3E11HyPUoNfWSxzHJfOc3oVVxz/kJ6adaPBMTXPvERTEyTqYLgfuC
-         IZ+OMzd5ake7M5uOAkx65zrBS0H8f0n0FsFVS3c2f4WQAd6yaR8X/IPLP19b8nH3H+SX
-         iUcrzc7TZ7yhcxccQY4yw/D66sscejk1KbBznbCvBK1Qj/8K98djniWVJ7q9xkP3ljiA
-         YC9Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1695036252; x=1695641052;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=+JIoagGbUxbJdnZ/11AR40I+FsTVn6KCyqjzpGRwohg=;
-        b=rcn+hDg5ZC7gdAL27C5BeTHn+/XB2mHKS8pD8w4UUtO0nskah+kJZdbcyqFyhf7zpL
-         oJJTGNHauC+BuQDKWyQVZqh/AExtLyxlaUFRGRumZwBfY+H8jWG90rfhw9acN3w97Ntr
-         MdhD0xFtz7ST2yrfyGT3za82Y07OeBUmSUxtL86rE5H8o/AmvZksWR6eV0CeCrBLzel5
-         2h+g3ImAxdvC32/QinVYq8Ec4Xt8Zt+KCSykAGYXAnlfiRwp/0pUKac9mSucm3nzoib/
-         gCbq/L4mzj4pX9ZSWNBAPOieCPv3ebdGYSMkLn5FHOs9yaCZtx0ggP2PHw7dnitkp8q2
-         q9Ug==
-X-Gm-Message-State: AOJu0YyyMA2BSjWLEodXLqII6XHXkNC/PhkhzDgAiNySNS1W92wGBxw8
-	487eserJyt6FNzMGTrdSF+zJqbdg+zXYqWiTOZ0KEA==
-X-Google-Smtp-Source: AGHT+IEYnp5mNbH0vm2kgMzPq48KRD0OiUzdkJ9b2tXtBZlshoSaZMZ7r/copZVbT9J2mDht277Rf/2gg2PDi+Zaj9E=
-X-Received: by 2002:a17:90a:8a15:b0:274:6d4e:e0d9 with SMTP id
- w21-20020a17090a8a1500b002746d4ee0d9mr7943000pjn.45.1695036251982; Mon, 18
- Sep 2023 04:24:11 -0700 (PDT)
+	id 1qiDZO-00FRMH-2S;
+	Mon, 18 Sep 2023 12:41:44 +0000
+Received: from mail02.huawei.com (unknown [172.30.67.143])
+	by dggsgout11.his.huawei.com (SkyGuard) with ESMTP id 4Rq4D03gRtz4f3lDf;
+	Mon, 18 Sep 2023 20:41:20 +0800 (CST)
+Received: from [10.174.178.55] (unknown [10.174.178.55])
+	by APP4 (Coremail) with SMTP id gCh0CgD3jd1wRQhlbw0hAw--.6340S3;
+	Mon, 18 Sep 2023 20:41:22 +0800 (CST)
+Subject: Re: [PATCH v3 3/9] crash_core: change parse_crashkernel() to support
+ crashkernel=,high|low parsing
+To: Baoquan He <bhe@redhat.com>, linux-kernel@vger.kernel.org
+Cc: akpm@linux-foundation.org, thunder.leizhen@huawei.com,
+ catalin.marinas@arm.com, chenjiahao16@huawei.com, kexec@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
+ x86@kernel.org
+References: <20230914033142.676708-1-bhe@redhat.com>
+ <20230914033142.676708-4-bhe@redhat.com>
+From: "Leizhen (ThunderTown)" <thunder.leizhen@huaweicloud.com>
+Message-ID: <69917722-0788-30f4-b28e-cb0a41881f35@huaweicloud.com>
+Date: Mon, 18 Sep 2023 20:41:20 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:60.0) Gecko/20100101
+ Thunderbird/60.7.0
 MIME-Version: 1.0
-References: <20230901130312.247719-1-vincent.guittot@linaro.org>
- <20230901130312.247719-3-vincent.guittot@linaro.org> <840cb103-8ffb-9798-05a3-a557f78f7f7a@arm.com>
-In-Reply-To: <840cb103-8ffb-9798-05a3-a557f78f7f7a@arm.com>
-From: Vincent Guittot <vincent.guittot@linaro.org>
-Date: Mon, 18 Sep 2023 13:23:59 +0200
-Message-ID: <CAKfTPtDahUNatFpy+cQgbadhON_kwEaBVuDpUfW2kQHJUvecHg@mail.gmail.com>
-Subject: Re: [PATCH 2/4] topology: add a new arch_scale_freq_reference
-To: Lukasz Luba <lukasz.luba@arm.com>
-Cc: conor.dooley@microchip.com, linux-arm-kernel@lists.infradead.org, 
-	suagrfillet@gmail.com, juri.lelli@redhat.com, sudeep.holla@arm.com, 
-	palmer@dabbelt.com, linux-riscv@lists.infradead.org, ajones@ventanamicro.com, 
-	lftan@kernel.org, linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, 
-	linux@armlinux.org.uk, bristot@redhat.com, catalin.marinas@arm.com, 
-	bsegall@google.com, will@kernel.org, vschneid@redhat.com, rostedt@goodmis.org, 
-	rafael@kernel.org, dietmar.eggemann@arm.com, aou@eecs.berkeley.edu, 
-	mingo@redhat.com, paul.walmsley@sifive.com, mgorman@suse.de, 
-	gregkh@linuxfoundation.org, peterz@infradead.org, viresh.kumar@linaro.org
+In-Reply-To: <20230914033142.676708-4-bhe@redhat.com>
+Content-Language: en-US
+X-CM-TRANSID: gCh0CgD3jd1wRQhlbw0hAw--.6340S3
+X-Coremail-Antispam: 1UD129KBjvJXoWxWF4UCF4UCr1UKFy3Xw15XFb_yoW5Aw1Dpr
+	yrCa15GrW7JFn7Kw1fAr9xurWrAw40ya429F9akryrAF9rtFnxKr1UWw1UWr1j9r98CFW2
+	yFWFvFZxKa4jv3DanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUv2b4IE77IF4wAFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k2
+	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
+	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xIIjxv20xvEc7Cj
+	xVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x
+	0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG
+	6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFV
+	Cjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7Mxk0xIA0c2IE
+	e2xFo4CEbIxvr21l42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxV
+	Aqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q
+	6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6x
+	kF7I0E14v26r1j6r4UMIIF0xvE42xK8VAvwI8IcIk0rVWrZr1j6s0DMIIF0xvEx4A2jsIE
+	14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Jr0_GrUvcSsGvfC2KfnxnUUI43ZEXa
+	7IU1zuWJUUUUU==
+X-CM-SenderInfo: hwkx0vthuozvpl2kv046kxt4xhlfz01xgou0bp/
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230918_042414_195167_23D7E9C7 
-X-CRM114-Status: GOOD (  30.31  )
+X-CRM114-CacheID: sfid-20230918_054143_274587_4C53B78A 
+X-CRM114-Status: GOOD (  21.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,142 +88,102 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 4 Sept 2023 at 14:34, Lukasz Luba <lukasz.luba@arm.com> wrote:
->
-> Hi Vincent,
->
->
-> On 9/1/23 14:03, Vincent Guittot wrote:
-> > Create a new method to get a unique and fixed max frequency. Currently
-> > cpuinfo.max_freq or last item of performance domain are used as the max
-> > frequency when computing the frequency for a level of utilization but:
-> > - cpuinfo_max_freq can change at runtime. boost is one example of
-> >    such change.
-> > - cpuinfo.max_freq and last item of the PD can be different leading to
-> >    different results betwen cpufreq and energy model.
-> >
-> > We need to save the max frequency that has been used when computing the
-> > CPUs capacity and use this fixed and coherent value to convert between
-> > frequency and CPU's capacity.
-> >
-> > In fact, we already save the frequency that has been used when computing
-> > the capacity of each CPU. We extend the precision to save khZ instead of
-> > Mhz currently and we modify the type to be aligned with other variables
-> > used when converting frequency to capacity and the other way.
->
-> I do like this 'kHz' change. We also use kHz in the EM, so better
-> aligned now.
->
-> >
-> > Signed-off-by: Vincent Guittot <vincent.guittot@linaro.org>
-> > ---
-> >   arch/arm/include/asm/topology.h   | 1 +
-> >   arch/arm64/include/asm/topology.h | 1 +
-> >   arch/riscv/include/asm/topology.h | 1 +
-> >   drivers/base/arch_topology.c      | 9 +++------
-> >   include/linux/arch_topology.h     | 7 +++++++
-> >   5 files changed, 13 insertions(+), 6 deletions(-)
-> >
-> > diff --git a/arch/arm/include/asm/topology.h b/arch/arm/include/asm/topology.h
-> > index c7d2510e5a78..853c4f81ba4a 100644
-> > --- a/arch/arm/include/asm/topology.h
-> > +++ b/arch/arm/include/asm/topology.h
-> > @@ -13,6 +13,7 @@
-> >   #define arch_set_freq_scale topology_set_freq_scale
-> >   #define arch_scale_freq_capacity topology_get_freq_scale
-> >   #define arch_scale_freq_invariant topology_scale_freq_invariant
-> > +#define arch_scale_freq_ref topology_get_freq_ref
-> >   #endif
-> >
-> >   /* Replace task scheduler's default cpu-invariant accounting */
-> > diff --git a/arch/arm64/include/asm/topology.h b/arch/arm64/include/asm/topology.h
-> > index 9fab663dd2de..a323b109b9c4 100644
-> > --- a/arch/arm64/include/asm/topology.h
-> > +++ b/arch/arm64/include/asm/topology.h
-> > @@ -23,6 +23,7 @@ void update_freq_counters_refs(void);
-> >   #define arch_set_freq_scale topology_set_freq_scale
-> >   #define arch_scale_freq_capacity topology_get_freq_scale
-> >   #define arch_scale_freq_invariant topology_scale_freq_invariant
-> > +#define arch_scale_freq_ref topology_get_freq_ref
-> >
-> >   #ifdef CONFIG_ACPI_CPPC_LIB
-> >   #define arch_init_invariance_cppc topology_init_cpu_capacity_cppc
-> > diff --git a/arch/riscv/include/asm/topology.h b/arch/riscv/include/asm/topology.h
-> > index e316ab3b77f3..61183688bdd5 100644
-> > --- a/arch/riscv/include/asm/topology.h
-> > +++ b/arch/riscv/include/asm/topology.h
-> > @@ -9,6 +9,7 @@
-> >   #define arch_set_freq_scale         topology_set_freq_scale
-> >   #define arch_scale_freq_capacity    topology_get_freq_scale
-> >   #define arch_scale_freq_invariant   topology_scale_freq_invariant
-> > +#define arch_scale_freq_ref          topology_get_freq_ref
-> >
-> >   /* Replace task scheduler's default cpu-invariant accounting */
-> >   #define arch_scale_cpu_capacity     topology_get_cpu_scale
-> > diff --git a/drivers/base/arch_topology.c b/drivers/base/arch_topology.c
-> > index b741b5ba82bd..75fa67477a9d 100644
-> > --- a/drivers/base/arch_topology.c
-> > +++ b/drivers/base/arch_topology.c
-> > @@ -26,7 +26,7 @@
-> >   static DEFINE_PER_CPU(struct scale_freq_data __rcu *, sft_data);
-> >   static struct cpumask scale_freq_counters_mask;
-> >   static bool scale_freq_invariant;
-> > -static DEFINE_PER_CPU(u32, freq_factor) = 1;
-> > +DEFINE_PER_CPU(unsigned long, freq_factor) = 1;
->
-> Why it's not static now?
 
-it can be accessed outside with inline function like cpu_scale and
-arch_freq_scale
 
->
-> >
-> >   static bool supports_scale_freq_counters(const struct cpumask *cpus)
-> >   {
-> > @@ -183,10 +183,7 @@ void topology_update_thermal_pressure(const struct cpumask *cpus,
-> >
-> >       cpu = cpumask_first(cpus);
-> >       max_capacity = arch_scale_cpu_capacity(cpu);
-> > -     max_freq = per_cpu(freq_factor, cpu);
-> > -
-> > -     /* Convert to MHz scale which is used in 'freq_factor' */
-> > -     capped_freq /= 1000;
-> > +     max_freq = arch_scale_freq_ref(cpu);
-> >
-> >       /*
-> >        * Handle properly the boost frequencies, which should simply clean
-> > @@ -411,7 +408,7 @@ init_cpu_capacity_callback(struct notifier_block *nb,
-> >       cpumask_andnot(cpus_to_visit, cpus_to_visit, policy->related_cpus);
-> >
-> >       for_each_cpu(cpu, policy->related_cpus)
-> > -             per_cpu(freq_factor, cpu) = policy->cpuinfo.max_freq / 1000;
-> > +             per_cpu(freq_factor, cpu) = policy->cpuinfo.max_freq;
-> >
-> >       if (cpumask_empty(cpus_to_visit)) {
-> >               topology_normalize_cpu_scale();
-> > diff --git a/include/linux/arch_topology.h b/include/linux/arch_topology.h
-> > index a07b510e7dc5..7a2dba9c3dc0 100644
-> > --- a/include/linux/arch_topology.h
-> > +++ b/include/linux/arch_topology.h
-> > @@ -27,6 +27,13 @@ static inline unsigned long topology_get_cpu_scale(int cpu)
-> >
-> >   void topology_set_cpu_scale(unsigned int cpu, unsigned long capacity);
-> >
-> > +DECLARE_PER_CPU(unsigned long, freq_factor);
-> > +
-> > +static inline unsigned long topology_get_freq_ref(int cpu)
-> > +{
-> > +     return per_cpu(freq_factor, cpu);
-> > +}
-> > +
-> >   DECLARE_PER_CPU(unsigned long, arch_freq_scale);
-> >
-> >   static inline unsigned long topology_get_freq_scale(int cpu)
->
-> Apart from that 'static' missing, that looks good.
->
-> Regards,
-> Lukasz
+On 2023/9/14 11:31, Baoquan He wrote:
+> Now parse_crashkernel() is a real entry point for all kinds of
+> crahskernel parsing on any architecture.
+> 
+> And wrap the crahskernel=,high|low handling inside
+> CONFIG_ARCH_HAS_GENERIC_CRASHKERNEL_RESERVATION ifdeffery scope.
+
+Reviewed-by: Zhen Lei <thunder.leizhen@huawei.com>
+
+> 
+> Signed-off-by: Baoquan He <bhe@redhat.com>
+> ---
+>  include/linux/crash_core.h |  6 ++++++
+>  kernel/crash_core.c        | 36 +++++++++++++++++++++++++++++++++---
+>  2 files changed, 39 insertions(+), 3 deletions(-)
+> 
+> diff --git a/include/linux/crash_core.h b/include/linux/crash_core.h
+> index 6156355ef831..d8050a7eab01 100644
+> --- a/include/linux/crash_core.h
+> +++ b/include/linux/crash_core.h
+> @@ -79,6 +79,12 @@ Elf_Word *append_elf_note(Elf_Word *buf, char *name, unsigned int type,
+>  			  void *data, size_t data_len);
+>  void final_note(Elf_Word *buf);
+>  
+> +#ifdef CONFIG_ARCH_HAS_GENERIC_CRASHKERNEL_RESERVATION
+> +#ifndef DEFAULT_CRASH_KERNEL_LOW_SIZE
+> +#define DEFAULT_CRASH_KERNEL_LOW_SIZE  (128UL << 20)
+> +#endif
+> +#endif
+> +
+>  int __init parse_crashkernel(char *cmdline, unsigned long long system_ram,
+>  		unsigned long long *crash_size, unsigned long long *crash_base,
+>  		unsigned long long *low_size, bool *high);
+> diff --git a/kernel/crash_core.c b/kernel/crash_core.c
+> index cca1d76e8255..dce2f5874fea 100644
+> --- a/kernel/crash_core.c
+> +++ b/kernel/crash_core.c
+> @@ -283,6 +283,9 @@ static int __init __parse_crashkernel(char *cmdline,
+>  /*
+>   * That function is the entry point for command line parsing and should be
+>   * called from the arch-specific code.
+> + *
+> + * If crashkernel=,high|low is supported on architecture, non-NULL values
+> + * should be passed to parameters 'low_size' and 'high'.
+>   */
+>  int __init parse_crashkernel(char *cmdline,
+>  			     unsigned long long system_ram,
+> @@ -296,10 +299,37 @@ int __init parse_crashkernel(char *cmdline,
+>  	/* crashkernel=X[@offset] */
+>  	ret = __parse_crashkernel(cmdline, system_ram, crash_size,
+>  				crash_base, NULL);
+> -	if (!high)
+> -		return ret;
+> +#ifdef CONFIG_ARCH_HAS_GENERIC_CRASHKERNEL_RESERVATION
+> +	/*
+> +	 * If non-NULL 'high' passed in and no normal crashkernel
+> +	 * setting detected, try parsing crashkernel=,high|low.
+> +	 */
+> +	if (high && ret == -ENOENT) {
+> +		ret = __parse_crashkernel(cmdline, 0, crash_size,
+> +				crash_base, suffix_tbl[SUFFIX_HIGH]);
+> +		if (ret || !*crash_size)
+> +			return -EINVAL;
+>  
+> -	return 0;
+> +		/*
+> +		 * crashkernel=Y,low can be specified or not, but invalid value
+> +		 * is not allowed.
+> +		 */
+> +		ret = __parse_crashkernel(cmdline, 0, low_size,
+> +				crash_base, suffix_tbl[SUFFIX_LOW]);
+> +		if (ret == -ENOENT) {
+> +			*low_size = DEFAULT_CRASH_KERNEL_LOW_SIZE;
+> +			ret = 0;
+> +		} else if (ret) {
+> +			return ret;
+> +		}
+> +
+> +		*high = true;
+> +	}
+> +#endif
+> +	if (!*crash_size)
+> +		ret = -EINVAL;
+> +
+> +	return ret;
+>  }
+>  
+>  int __init parse_crashkernel_high(char *cmdline,
+> 
+
+-- 
+Regards,
+  Zhen Lei
+
 
 _______________________________________________
 linux-riscv mailing list
