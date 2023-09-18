@@ -4,87 +4,126 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2B14C46CA1
-	for <linux-riscv@archiver.kernel.org>; Mon, 18 Sep 2023 18:07:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CC85C46CA1
+	for <linux-riscv@archiver.kernel.org>; Mon, 18 Sep 2023 18:10:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=W4xmetIPTdsCUMNTvAQPWluQNZp2y38V3oSRJ8bGug0=; b=uXH9Ofy4op8ET3
-	f6wkYohP5xHLJPjwIts8hcxQhUCJboQ4bo8KDkdMR3akN+K3FO6V91CUo9ZQRGUv6t95jK6Vkvi2i
-	9UyfQd7p2JGi6AQ/QX36lV7v1YC0dSgi2UFO6p2mecfWNjmF4lmdn2NVa5obtob1T/pQAuiXxzC6N
-	7+y4QrpLwedK3rV4VzQW56bWIYpBEwmDbP9GCqZt6iRmucP/vaB8qXRIFtexYzy/5RiaV3rIyIT/l
-	Smg87M4701cw7R9vvtB+okPMbDNKCI9L8eH+zCRc8f8CzeBtTRHPtte9S3aN9w1/k7O4WcL/APiG1
-	6K9R1+Ib2q0R8GZ5pWxA==;
+	List-Owner; bh=YdPNHsUWOQzXFbCtH8rgdE9Obgng6zUxHAMHpNiOhCY=; b=Mc1k84m9h7lwer
+	mmWT3XRsbcNngQkt/hzgxCT2vE0Y5VoksQQKBKOjrvXxJc8WOCIJ0Oql0NlyMRtlPoiu3pXbXWU2y
+	C80lWAhFBFuZkWCU7tdYK79qcFYaZrsy7vGPypDQCTmDbxK7BYHBHTokvAtuzAZAb83STCbJxfZcD
+	/TnPyqxSbjhfWvwk7uRW0aQgS+gfCdJ63lLZmqkln+lp8LkIwPr/OPS2cOopNmj3gMvq7Ox4V51D1
+	Anbw4w1L5ZuVqSsWZ7pJKGUe751xP5vZsBZOSEHcIYDoZdvfSyNQVX9CQeBPLTnwc3BCdmWqXAYxD
+	jLkoCqUZg6bykpMHYcqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qiIeV-00G2c3-1q;
-	Mon, 18 Sep 2023 18:07:19 +0000
-Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
+	id 1qiIhM-00G3Gn-1h;
+	Mon, 18 Sep 2023 18:10:16 +0000
+Received: from mail-mw2nam12on20624.outbound.protection.outlook.com ([2a01:111:f400:fe5a::624] helo=NAM12-MW2-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qiIeT-00G2Zg-1L
-	for linux-riscv@lists.infradead.org;
-	Mon, 18 Sep 2023 18:07:18 +0000
-Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-1c3cbfa40d6so43231955ad.1
-        for <linux-riscv@lists.infradead.org>; Mon, 18 Sep 2023 11:07:16 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1695060436; x=1695665236; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=bpLoyMijHBoqQ//iQuuQg2kQqMONVlRrgQK7tTPKQvg=;
-        b=kMerOnjWOb3WZuckgqXAsyKP7dmask4gC9jDh+tdfQo5Ic9DsvQudmKBcwQfMW6JrB
-         pTxB1kV+posnMmyHzIQCSCl2fDYIe3uvdEzB243ySbDTP1joI3GVmtvK7QCoOkCzVRck
-         pOwNKQwfPhos1RgWLq1+Omn2zvUukua6284r9uB8W2Ba49PtHESk8wQkNQ2oDfHragYL
-         0SsxqpZyZ/IaznXfq6XzLSRLeqP1nTUo8lX+DZYITIfjBEKchz1KJq22Aiu3uKN3h+UR
-         vjsMDYe9Nl1uFs6T5pSWX5FOgpBIRjXwHKRkTe5mP8CZW+6j+5IT6NGGXO0RrAE55Gxb
-         Xfnw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1695060436; x=1695665236;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=bpLoyMijHBoqQ//iQuuQg2kQqMONVlRrgQK7tTPKQvg=;
-        b=B9FXOF0naImdPnPOElI4+qgdxKZlKnhvs1nBCg9CMK2XJOEBQXxdJmDPNGNTI/r75Z
-         jFMzSLZ93Ts1snQLxMXZYtFLU2tXTiQJQ840NCVrw6tTqBJyZBGYEAnLAwevHEb0Mvpn
-         DYCZ8tNM+ifwNOzTFAuDDXCDUys5V7+UeO5td8BBiPiaU3M6cF6KYz3BQuC8K0s/0PBC
-         /QXJRd367ab2H6Y9HZy6VQzWISabUHyrQOzVz0DoxdXxY1Jz0DqeNJwatkORGXhxRh80
-         l2VL+CMGbLrJoU55e3V1TH1aiYjGg1TdsUPFQHYys5GAh4UtpJxMlQxT/XLEwDxDJB13
-         ndDA==
-X-Gm-Message-State: AOJu0Yz7zSOFD0J+KT8oRZvSsFzz8hCnyGJFwzRcPoYUhVNNl1ctLIZl
-	Zal9px7x2k+vJEPZr7o4+jj2sQ==
-X-Google-Smtp-Source: AGHT+IG7/yjGEY6FtMJ+Y1Dl4iuR/zuJXn3aFtsAD+Wt3c7P+oz0dDSdwrMz0aB8dDmosI1me7MJ+Q==
-X-Received: by 2002:a17:902:728a:b0:1bb:d048:3173 with SMTP id d10-20020a170902728a00b001bbd0483173mr10004616pll.61.1695060435836;
-        Mon, 18 Sep 2023 11:07:15 -0700 (PDT)
-Received: from anup-ubuntu-vm.localdomain ([103.97.165.210])
-        by smtp.gmail.com with ESMTPSA id h7-20020a170902704700b001aaf2e8b1eesm8556720plt.248.2023.09.18.11.07.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 18 Sep 2023 11:07:15 -0700 (PDT)
-From: Anup Patel <apatel@ventanamicro.com>
-To: Paolo Bonzini <pbonzini@redhat.com>,
-	Atish Patra <atishp@atishpatra.org>,
-	Shuah Khan <shuah@kernel.org>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	kvm@vger.kernel.org,
-	kvm-riscv@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	Anup Patel <apatel@ventanamicro.com>
-Subject: [PATCH 4/4] KVM: riscv: selftests: Selectively filter-out AIA registers
-Date: Mon, 18 Sep 2023 23:36:46 +0530
-Message-Id: <20230918180646.1398384-5-apatel@ventanamicro.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20230918180646.1398384-1-apatel@ventanamicro.com>
-References: <20230918180646.1398384-1-apatel@ventanamicro.com>
+	id 1qiIhI-00G3Dl-0W;
+	Mon, 18 Sep 2023 18:10:13 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=Zv2h3OKQFvoe6TTN/8PO3vD/Owbu7UNfs+iIgPii41GL9jy/SR8ycX4K72sf0ZBzJaOENT+6OpDD2txPMYQCMUT5cnQ9Ax3l7TlvrIkT66uvbJ0gcTuzykV0s6xyr4Pe0FdEutsaIEOUZsfwzqIrmvPoGbpG7lGziHaf8Jx/BehL7kv+kFtEBNd92LyT4taT2oesQjDlv/p8vVU5jQ5rYnmCXtqOSkQDBrnLFYZrEPlw1mk9MzUuQmMNphGDiG7qPA4A6lN5dijJhSijWHvmFKuPxz5onwHq3fQvtGAqmpIuQt1AruFqsnDIkXMzxN3RMMzEdhtLPEEVUbCqV4bKPQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Ui00fgoUGuvv4efb1zdLO+78IhADs4VjQNoD9jVITVE=;
+ b=WB1hkV3qU8mCLZv2srAiD9GNUmwPVjmAsqa4FPCFrWykgYzmVh/T/goLFUG2Ac+/2FRgtlOHTIdlcLycYMFk/uVLqjJy5FmbATrmUJaLAg6xLyk4I0MVOTzmrPvI/qUiFEQFehp2iJ0r1+kbQC6uSfFy7M50Yw6MX37ebfY284MC/uyfLGkZPPWQSyF0gZJcGb16LE5f+upoqOl0aFKVHC/ZaN8ToBV/mvAIgYJshjb4KdOQ7zzs49YoZ27Ke52/ki4RTpLA+DBXwhbmd2hwPuwYK/7J/1uzGGbU2Uwh5b7oRWrGJx+VfL2CTDmGWmFzgZR1VZgNW2+W1Qdja/Uqvw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=google.com smtp.mailfrom=amd.com; dmarc=pass
+ (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
+ dkim=none (message not signed); arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Ui00fgoUGuvv4efb1zdLO+78IhADs4VjQNoD9jVITVE=;
+ b=QrdMfrDTLfxAXeFz0An7O3CkZRQCeMQ2tsChY4Bmurmf9OViQP2lCVa5ldD3TWK+M9l28YMqqYCL+e/EeBRfo+VipZvv43W4T/T+sSh0yPJiwLYs8ARam4z0f0Nedwr5to+5PhRnd+GPpH52S6qecWB95aH7o45hnmza8NzAJ3U=
+Received: from MN2PR15CA0012.namprd15.prod.outlook.com (2603:10b6:208:1b4::25)
+ by BL3PR12MB6523.namprd12.prod.outlook.com (2603:10b6:208:3bf::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6792.27; Mon, 18 Sep
+ 2023 18:09:59 +0000
+Received: from MN1PEPF0000F0E5.namprd04.prod.outlook.com
+ (2603:10b6:208:1b4:cafe::95) by MN2PR15CA0012.outlook.office365.com
+ (2603:10b6:208:1b4::25) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6792.26 via Frontend
+ Transport; Mon, 18 Sep 2023 18:09:59 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
+ smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=SATLEXMB04.amd.com; pr=C
+Received: from SATLEXMB04.amd.com (165.204.84.17) by
+ MN1PEPF0000F0E5.mail.protection.outlook.com (10.167.242.43) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.20.6792.20 via Frontend Transport; Mon, 18 Sep 2023 18:09:57 +0000
+Received: from localhost (10.180.168.240) by SATLEXMB04.amd.com
+ (10.181.40.145) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.27; Mon, 18 Sep
+ 2023 13:09:56 -0500
+Date: Mon, 18 Sep 2023 13:07:54 -0500
+From: Michael Roth <michael.roth@amd.com>
+To: Sean Christopherson <seanjc@google.com>
+CC: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>,
+	"Oliver Upton" <oliver.upton@linux.dev>, Huacai Chen <chenhuacai@kernel.org>,
+	"Michael Ellerman" <mpe@ellerman.id.au>, Anup Patel <anup@brainfault.org>,
+	"Paul Walmsley" <paul.walmsley@sifive.com>, Palmer Dabbelt
+	<palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, "Matthew Wilcox
+ (Oracle)" <willy@infradead.org>, Andrew Morton <akpm@linux-foundation.org>,
+	Paul Moore <paul@paul-moore.com>, James Morris <jmorris@namei.org>, "Serge E.
+ Hallyn" <serge@hallyn.com>, <kvm@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <kvmarm@lists.linux.dev>,
+	<linux-mips@vger.kernel.org>, <linuxppc-dev@lists.ozlabs.org>,
+	<kvm-riscv@lists.infradead.org>, <linux-riscv@lists.infradead.org>,
+	<linux-fsdevel@vger.kernel.org>, <linux-mm@kvack.org>,
+	<linux-security-module@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	"Chao Peng" <chao.p.peng@linux.intel.com>, Fuad Tabba <tabba@google.com>,
+	"Jarkko Sakkinen" <jarkko@kernel.org>, Anish Moorthy <amoorthy@google.com>,
+	Yu Zhang <yu.c.zhang@linux.intel.com>, Isaku Yamahata
+	<isaku.yamahata@intel.com>, "Xu Yilun" <yilun.xu@intel.com>, Vlastimil Babka
+	<vbabka@suse.cz>, "Vishal Annapurve" <vannapurve@google.com>, Ackerley Tng
+	<ackerleytng@google.com>, Maciej Szmigiero <mail@maciej.szmigiero.name>,
+	David Hildenbrand <david@redhat.com>, Quentin Perret <qperret@google.com>,
+	Wang <wei.w.wang@intel.com>, Liam Merwick <liam.merwick@oracle.com>, "Isaku
+ Yamahata" <isaku.yamahata@gmail.com>, "Kirill A . Shutemov"
+	<kirill.shutemov@linux.intel.com>, "Kalra, Ashish" <Ashish.Kalra@amd.com>
+Subject: Re: [RFC PATCH v12 10/33] KVM: Set the stage for handling only
+ shared mappings in mmu_notifier events
+Message-ID: <20230918180754.iomoaqnw75j3rrxb@amd.com>
+References: <20230914015531.1419405-1-seanjc@google.com>
+ <20230914015531.1419405-11-seanjc@google.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20230914015531.1419405-11-seanjc@google.com>
+X-Originating-IP: [10.180.168.240]
+X-ClientProxiedBy: SATLEXMB03.amd.com (10.181.40.144) To SATLEXMB04.amd.com
+ (10.181.40.145)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MN1PEPF0000F0E5:EE_|BL3PR12MB6523:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1fbb331e-c212-48f7-9870-08dbb87278e2
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: nubEhsrBRvQJ6oma/H/fezu40fl8JjosgGr2UV3f6xuzgQMloCWUp72moVwjS3pI5/Oj96YFIfM/WIGvT0yzDGpEpYVWuuXxNqepQhKPL6LTYGoZ06fmZQW3Ma7BiSzzibtevEJzgUzQexmNCGcPx+q8oITBnfWr2MVgIe6/s9tfwS/fp6Cqusz4StPVX/wq5qt9GPAk/QCfEaQibhFQ9GLX07vIQPE0U52iCZeSPdqMKzSN462deDp5f06n18eQTOQpOPMpVtCC4PI7518DU2mXUUwPT6kmBpLO6fm/gRYy9Mm07S9mGjb7vj82D2dROY+sIYL3Qe7pxzCEVRUEHdTI0zZ22eu1rPNE91uiF4EBfZVYbPlbfuiH2gnBDezUqFj2tvuRRKoorWpnE5HoI1e66yH5W/vm/v4ZDdXsEElxce6zNYCAXaBzp8Qs67VhfxNXA4weRBwnKse6Xgwe0UQrKNS0NRavXG4wmhbvQ/n+otdwmQAIEf4uXMLL3+/2LIFOZFIA4zsWxUxAleZBJ/a6zs9yxkm9OSgdZUpORNt4uXySWk5waQEf8YgGS6WKToleU0JNSpaKmnbolWHBGHwQfNhyEIK/iBhWZv0tFTkbmqWh0gQLCflo0mLoRVgL0Frg407g6sqSLdoLjZuwhHSkjKM9w44Xkv9RSqEU/0mASkrA1lH0e3wdFNWRQjtiSR21ng8CWyImExG7ezjf8vnSR74f4E/0Fjg02Q02YC5RulcqfRx9AaVQyVOjBU4tUHaaFX+KujOT9O2XOEVBWw==
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:SATLEXMB04.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230031)(4636009)(396003)(39860400002)(136003)(346002)(376002)(451199024)(1800799009)(186009)(82310400011)(36840700001)(40470700004)(46966006)(4326008)(16526019)(26005)(40480700001)(426003)(336012)(2616005)(1076003)(40460700003)(8676002)(8936002)(83380400001)(356005)(82740400003)(2906002)(81166007)(36860700001)(36756003)(41300700001)(44832011)(86362001)(70586007)(70206006)(316002)(6916009)(54906003)(7416002)(7406005)(5660300002)(966005)(47076005)(478600001)(36900700001);DIR:OUT;SFP:1101;
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Sep 2023 18:09:57.2580
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1fbb331e-c212-48f7-9870-08dbb87278e2
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[SATLEXMB04.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: MN1PEPF0000F0E5.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL3PR12MB6523
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230918_110717_481812_CD0A7D9F 
-X-CRM114-Status: GOOD (  13.34  )
+X-CRM114-CacheID: sfid-20230918_111012_203514_88BE1590 
+X-CRM114-Status: GOOD (  24.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,77 +140,86 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Currently the AIA ONE_REG registers are reported by get-reg-list
-as new registers for various vcpu_reg_list configs whenever Ssaia
-is available on the host because Ssaia extension can only be
-disabled by Smstateen extension which is not always available.
+On Wed, Sep 13, 2023 at 06:55:08PM -0700, Sean Christopherson wrote:
+> Add flags to "struct kvm_gfn_range" to let notifier events target only
+> shared and only private mappings, and write up the existing mmu_notifier
+> events to be shared-only (private memory is never associated with a
+> userspace virtual address, i.e. can't be reached via mmu_notifiers).
+> 
+> Add two flags so that KVM can handle the three possibilities (shared,
+> private, and shared+private) without needing something like a tri-state
+> enum.
+> 
+> Link: https://lore.kernel.org/all/ZJX0hk+KpQP0KUyB@google.com
+> Signed-off-by: Sean Christopherson <seanjc@google.com>
+> ---
+>  include/linux/kvm_host.h | 2 ++
+>  virt/kvm/kvm_main.c      | 7 +++++++
+>  2 files changed, 9 insertions(+)
+> 
+> diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
+> index d8c6ce6c8211..b5373cee2b08 100644
+> --- a/include/linux/kvm_host.h
+> +++ b/include/linux/kvm_host.h
+> @@ -263,6 +263,8 @@ struct kvm_gfn_range {
+>  	gfn_t start;
+>  	gfn_t end;
+>  	union kvm_mmu_notifier_arg arg;
+> +	bool only_private;
+> +	bool only_shared;
+>  	bool may_block;
+>  };
+>  bool kvm_unmap_gfn_range(struct kvm *kvm, struct kvm_gfn_range *range);
+> diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
+> index 174de2789657..a41f8658dfe0 100644
+> --- a/virt/kvm/kvm_main.c
+> +++ b/virt/kvm/kvm_main.c
+> @@ -635,6 +635,13 @@ static __always_inline kvm_mn_ret_t __kvm_handle_hva_range(struct kvm *kvm,
+>  			 * the second or later invocation of the handler).
+>  			 */
+>  			gfn_range.arg = range->arg;
+> +
+> +			/*
+> +			 * HVA-based notifications aren't relevant to private
+> +			 * mappings as they don't have a userspace mapping.
+> +			 */
+> +			gfn_range.only_private = false;
+> +			gfn_range.only_shared = true;
+>  			gfn_range.may_block = range->may_block;
 
-To tackle this, we should filter-out AIA ONE_REG registers only
-when Ssaia can't be disabled for a VCPU.
+Who is supposed to read only_private/only_shared? Is it supposed to be
+plumbed onto arch code and handled specially there?
 
-Fixes: 477069398ed6 ("KVM: riscv: selftests: Add get-reg-list test")
-Signed-off-by: Anup Patel <apatel@ventanamicro.com>
----
- .../selftests/kvm/riscv/get-reg-list.c        | 23 +++++++++++++++++--
- 1 file changed, 21 insertions(+), 2 deletions(-)
+I ask because I see elsewhere you have:
 
-diff --git a/tools/testing/selftests/kvm/riscv/get-reg-list.c b/tools/testing/selftests/kvm/riscv/get-reg-list.c
-index 76c0ad11e423..85907c86b835 100644
---- a/tools/testing/selftests/kvm/riscv/get-reg-list.c
-+++ b/tools/testing/selftests/kvm/riscv/get-reg-list.c
-@@ -12,6 +12,8 @@
- 
- #define REG_MASK (KVM_REG_ARCH_MASK | KVM_REG_SIZE_MASK)
- 
-+static bool isa_ext_cant_disable[KVM_RISCV_ISA_EXT_MAX];
-+
- bool filter_reg(__u64 reg)
- {
- 	switch (reg & ~REG_MASK) {
-@@ -48,6 +50,15 @@ bool filter_reg(__u64 reg)
- 	case KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_ZIFENCEI:
- 	case KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_ZIHPM:
- 		return true;
-+	/* AIA registers are always available when Ssaia can't be disabled */
-+	case KVM_REG_RISCV_CSR | KVM_REG_RISCV_CSR_AIA | KVM_REG_RISCV_CSR_AIA_REG(siselect):
-+	case KVM_REG_RISCV_CSR | KVM_REG_RISCV_CSR_AIA | KVM_REG_RISCV_CSR_AIA_REG(iprio1):
-+	case KVM_REG_RISCV_CSR | KVM_REG_RISCV_CSR_AIA | KVM_REG_RISCV_CSR_AIA_REG(iprio2):
-+	case KVM_REG_RISCV_CSR | KVM_REG_RISCV_CSR_AIA | KVM_REG_RISCV_CSR_AIA_REG(sieh):
-+	case KVM_REG_RISCV_CSR | KVM_REG_RISCV_CSR_AIA | KVM_REG_RISCV_CSR_AIA_REG(siph):
-+	case KVM_REG_RISCV_CSR | KVM_REG_RISCV_CSR_AIA | KVM_REG_RISCV_CSR_AIA_REG(iprio1h):
-+	case KVM_REG_RISCV_CSR | KVM_REG_RISCV_CSR_AIA | KVM_REG_RISCV_CSR_AIA_REG(iprio2h):
-+		return isa_ext_cant_disable[KVM_RISCV_ISA_EXT_SSAIA] ? true : false;
- 	default:
- 		break;
- 	}
-@@ -71,14 +82,22 @@ static inline bool vcpu_has_ext(struct kvm_vcpu *vcpu, int ext)
- 
- void finalize_vcpu(struct kvm_vcpu *vcpu, struct vcpu_reg_list *c)
- {
-+	int rc;
- 	struct vcpu_reg_sublist *s;
-+	unsigned long isa_ext_state[KVM_RISCV_ISA_EXT_MAX] = { 0 };
-+
-+	for (int i = 0; i < KVM_RISCV_ISA_EXT_MAX; i++)
-+		__vcpu_get_reg(vcpu, RISCV_ISA_EXT_REG(i), &isa_ext_state[i]);
- 
- 	/*
- 	 * Disable all extensions which were enabled by default
- 	 * if they were available in the risc-v host.
- 	 */
--	for (int i = 0; i < KVM_RISCV_ISA_EXT_MAX; i++)
--		__vcpu_set_reg(vcpu, RISCV_ISA_EXT_REG(i), 0);
-+	for (int i = 0; i < KVM_RISCV_ISA_EXT_MAX; i++) {
-+		rc = __vcpu_set_reg(vcpu, RISCV_ISA_EXT_REG(i), 0);
-+		if (rc && isa_ext_state[i])
-+			isa_ext_cant_disable[i] = true;
-+	}
- 
- 	for_each_sublist(c, s) {
- 		if (!s->feature)
--- 
-2.34.1
+    /*
+     * If one or more memslots were found and thus zapped, notify arch code
+     * that guest memory has been reclaimed.  This needs to be done *after*
+     * dropping mmu_lock, as x86's reclaim path is slooooow.
+     */
+    if (__kvm_handle_hva_range(kvm, &hva_range).found_memslot)
+            kvm_arch_guest_memory_reclaimed(kvm);
 
+and if there are any MMU notifier events that touch HVAs, then
+kvm_arch_guest_memory_reclaimed()->wbinvd_on_all_cpus() will get called,
+which causes the performance issues for SEV and SNP that Ashish had brought
+up. Technically that would only need to happen if there are GPAs in that
+memslot that aren't currently backed by gmem pages (and then gmem could handle
+its own wbinvd_on_all_cpus() (or maybe clflush per-page)). 
+
+Actually, even if there are shared pages in the GPA range, the
+kvm_arch_guest_memory_reclaimed()->wbinvd_on_all_cpus() can be skipped for
+guests that only use gmem pages for private memory. Is that acceptable? Just
+trying to figure out where this only_private/only_shared handling ties into
+that (or if it's a separate thing entirely).
+
+-Mike
+
+>  
+>  			/*
+> -- 
+> 2.42.0.283.g2d96d420d3-goog
+> 
 
 _______________________________________________
 linux-riscv mailing list
