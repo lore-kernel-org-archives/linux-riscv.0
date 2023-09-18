@@ -4,48 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3FFAC46CA1
-	for <linux-riscv@archiver.kernel.org>; Mon, 18 Sep 2023 16:59:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 808B4CD13D8
+	for <linux-riscv@archiver.kernel.org>; Mon, 18 Sep 2023 17:00:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=knitTtI4vpEQJT72TC9aymkLaXn28iY6xP/Iu0hfiLQ=; b=NCdQRNsBTFw7QT
-	b4/EKKCu+Sl52iaOuemk6vurWWYWzNhsUsV7zqRWjWuVijX+83JohUCrMGvLFXC8OkT/yzbL5xyFs
-	JBcJU0ivvDUFiVzznVD+A75aMpT6u+BiChZMN5hhC2gXiPMNfEWALOL7blchjp0ofPsBCFsudoK4s
-	zZ/TEyzCv5hjNDQ55Ndebq5EJi8XY9cfMOMDrOh6YGmDAtgib+JDZZuVWOK3jI1pQnAqH/PNLWQEO
-	6DMmvrh7+TQmS3yRD0aqyhhcwT7NR0rR6rVUc7xcuTpNOlo+SQAhee6cVYsS0bHolZhDyWN30ltys
-	yTY3Fjixse5rNT4/R+Cg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
+	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=fyqTnSvLrEpRhuIb43o1a32Hfjgp5ItyGWpTPz2zLeE=; b=fLAiuC0R6DBgpunGuBLB3DqAc7
+	ro6WOqZ7dYnMfph3BIBADA2auYCAmRHB6H16PAxH6BtYAqk+04WzHlBG5nQPd5t3b4GGlCYU16h8U
+	UnHe5+QPve+RKalbC0s27sRk8CrfRvdlmwpcclzBHjWTC3aqwNdlYeUd6phIYhtYU85otKrvQsUrM
+	WqhovqGLb2fdLLu35522pHXql/R2EatXlFKubfnMneQoTF3YMtEpuunlC149B3l+b9fgNCfYDNIC/
+	nanawHjE3XWz6ZNcZzO2PYzjCdYyFumXbzI6z2Gjz/egxo6s+MiOcZGM143zjTuIM7CyBWBzWHxLU
+	uD73KYRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qiHbB-00FvNG-0U;
-	Mon, 18 Sep 2023 16:59:49 +0000
-Received: from relay7-d.mail.gandi.net ([217.70.183.200])
+	id 1qiHbd-00FvU1-0i;
+	Mon, 18 Sep 2023 17:00:17 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qiHb7-00FvMH-1E
-	for linux-riscv@lists.infradead.org;
-	Mon, 18 Sep 2023 16:59:48 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 94CF520004;
-	Mon, 18 Sep 2023 16:59:38 +0000 (UTC)
-Message-ID: <419c17bb-9d5e-dedf-01bf-8db9db405a39@ghiti.fr>
-Date: Mon, 18 Sep 2023 18:59:37 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.15.1
-Subject: Re: more RELOCATABLE + errata code model issues
-Content-Language: en-US
-To: Palmer Dabbelt <palmer@rivosinc.com>,
- Conor Dooley <conor.dooley@microchip.com>
-Cc: prabhakar.mahadev-lad.rj@bp.renesas.com, linux-riscv@lists.infradead.org
-References: <mhng-ffed6e42-d66a-47c8-b652-cd5d9fced9ab@palmer-ri-x1c9>
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <mhng-ffed6e42-d66a-47c8-b652-cd5d9fced9ab@palmer-ri-x1c9>
-X-GND-Sasl: alex@ghiti.fr
+	id 1qiGdJ-00Fo37-02
+	for linux-riscv@bombadil.infradead.org;
+	Mon, 18 Sep 2023 15:57:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=Content-Type:Cc:To:From:Subject:
+	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=s17YssV/eLMk3v6BQw21PztJLVQ1uDSUDnGyHA0nJic=; b=IqI8XhH3QP8EptBttPqrWkQRIp
+	TEuSCNVBqwtIwGnCTe86hc6W7v4lN4x+cVdy2m7dIvaWjOtwTZZ1wTacmRuPq0676D4u0B8QQNbu7
+	7WUz+9ATC5yBM76f3BXjWbYB+v+wVwGDs6w7ogXSdvUJaZvkC9mevXnluY3A8N0Iailgq7hgJAHG4
+	buRceTYJnPY/N/X8dsREh2VZTYuM6E/41dXPIj9fuFN5S9ICnl1hnHPb9UnNmZjtbORP08qEQSDC1
+	muYKNgQL+Zvrcy2O3gKKQLqDpU0/l+qSy3IbFcpObtmIU3Z/yN1HQYoSxtPce5iICC+fM1aVayLVZ
+	d+Mz8NxQ==;
+Received: from mail-yw1-x1149.google.com ([2607:f8b0:4864:20::1149])
+	by casper.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1qiGdF-00Bsvo-SH
+	for linux-riscv@lists.infradead.org; Mon, 18 Sep 2023 15:57:55 +0000
+Received: by mail-yw1-x1149.google.com with SMTP id 00721157ae682-59bfccec7f3so49161547b3.2
+        for <linux-riscv@lists.infradead.org>; Mon, 18 Sep 2023 08:57:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1695052667; x=1695657467; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=s17YssV/eLMk3v6BQw21PztJLVQ1uDSUDnGyHA0nJic=;
+        b=lIjUnxprdj0PGVr4cRoUj9UNuJZGVJJ76esFBbZaYffI6DRyv3+1tySFasMWeT0A22
+         UIltduy2T4z241MGUbXqM1oWEpfGIBGPNVCeatDFFqmQBQoaELah2902DZeWzhI4GagL
+         TPl7eMQMd4b57ynrwpWUzttU9CIoJMvMHGXzZBg+g9FusyZUqcny9u34m/yihIdnT55m
+         BQsnwqPsmEF4U8e3QdVqckNMlwa/oSKA8T9B4w6g+eHvWUVi7mydXvNvSnHogGPcO2fg
+         wEOLHINoQbkueflIu13fkQcloh4pI44z/WcvrW3R9xVDMknJ6plA3Sr8Ih4kpGlUpUJE
+         8agA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1695052667; x=1695657467;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=s17YssV/eLMk3v6BQw21PztJLVQ1uDSUDnGyHA0nJic=;
+        b=fruoCfaaQVI/mQMPshf7b39Z7FEUmhj9s2K+SGFsy624Myi3OVbXS2feHEWscoZMHf
+         t3+h+9OH7xWx8v8lWbrlGR54/gp+0pLfuMvB5L7ULzBDgQJZKlofaEXb1FuGiobSYM2N
+         Vx/XR6KCA2XpVMkh/4VdpMojyMVwhSRgtRTotK1+oa2yOa0APoZ8UHwQkLQDDCn9W3jq
+         fpxgVo7boG42ixZT0LjCl6nPcOOunU5A9y5/jbkX5snYYF1joCu6djyLBY6lFv7tp3eC
+         gx87cMdoonsdLO1hKfdiihUgFHFZ3SX5D6hRN6UKMJqgdWOzw6Pcxk7IZHAh2Z946m3p
+         0s8A==
+X-Gm-Message-State: AOJu0YwCY2L9lb/kGpDHSvbyM6PLyvM1bdUCV7NZmc8HcS/QaJLNSDBH
+	szLoJEZKqK8klTI84BGGt1zcZzGJPOI=
+X-Google-Smtp-Source: AGHT+IFqXVMaW5EWUR3sn7RRHAULv1S9Ax+JzluU+Y462jgw29bgpZAEkbL739S68Hx7QOlYkiFqSLcGAUw=
+X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
+ (user=seanjc job=sendgmr) by 2002:a05:6902:4cf:b0:d7f:f3e:74ab with SMTP id
+ v15-20020a05690204cf00b00d7f0f3e74abmr227961ybs.1.1695052667494; Mon, 18 Sep
+ 2023 08:57:47 -0700 (PDT)
+Date: Mon, 18 Sep 2023 08:57:45 -0700
+In-Reply-To: <9925e01b-7fa9-95e4-dc21-1d760ef9cde4@linux.intel.com>
+Mime-Version: 1.0
+References: <20230914015531.1419405-1-seanjc@google.com> <20230914015531.1419405-11-seanjc@google.com>
+ <9925e01b-7fa9-95e4-dc21-1d760ef9cde4@linux.intel.com>
+Message-ID: <ZQhzeQLbB5zz2yIc@google.com>
+Subject: Re: [RFC PATCH v12 10/33] KVM: Set the stage for handling only shared
+ mappings in mmu_notifier events
+From: Sean Christopherson <seanjc@google.com>
+To: Binbin Wu <binbin.wu@linux.intel.com>
+Cc: kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	kvmarm@lists.linux.dev, linux-mips@vger.kernel.org, 
+	linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-fsdevel@vger.kernel.org, 
+	linux-mm@kvack.org, linux-security-module@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, Paolo Bonzini <pbonzini@redhat.com>, 
+	Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
+	Huacai Chen <chenhuacai@kernel.org>, Michael Ellerman <mpe@ellerman.id.au>, 
+	Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	"Matthew Wilcox (Oracle)" <willy@infradead.org>, Andrew Morton <akpm@linux-foundation.org>, 
+	Paul Moore <paul@paul-moore.com>, James Morris <jmorris@namei.org>, 
+	"Serge E. Hallyn" <serge@hallyn.com>, Chao Peng <chao.p.peng@linux.intel.com>, 
+	Fuad Tabba <tabba@google.com>, Jarkko Sakkinen <jarkko@kernel.org>, 
+	Anish Moorthy <amoorthy@google.com>, Yu Zhang <yu.c.zhang@linux.intel.com>, 
+	Isaku Yamahata <isaku.yamahata@intel.com>, Xu Yilun <yilun.xu@intel.com>, 
+	Vlastimil Babka <vbabka@suse.cz>, Vishal Annapurve <vannapurve@google.com>, 
+	Ackerley Tng <ackerleytng@google.com>, Maciej Szmigiero <mail@maciej.szmigiero.name>, 
+	David Hildenbrand <david@redhat.com>, Quentin Perret <qperret@google.com>, 
+	Michael Roth <michael.roth@amd.com>, Wang <wei.w.wang@intel.com>, 
+	Liam Merwick <liam.merwick@oracle.com>, Isaku Yamahata <isaku.yamahata@gmail.com>, 
+	"Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230918_095945_574687_939C580B 
-X-CRM114-Status: GOOD (  23.48  )
+X-CRM114-CacheID: sfid-20230918_165753_919901_C17DCC5F 
+X-CRM114-Status: UNSURE (   9.38  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -57,53 +120,32 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Ck9uIDE4LzA5LzIwMjMgMTc6MTUsIFBhbG1lciBEYWJiZWx0IHdyb3RlOgo+IE9uIE1vbiwgMTgg
-U2VwIDIwMjMgMDM6MzY6MDMgUERUICgtMDcwMCksIENvbm9yIERvb2xleSB3cm90ZToKPj4KPj4g
-SGV5IEFsZXgsCj4+Cj4+IExLUCByZXBvcnRlZCBbMV0gc29tZSBpc3N1ZXMgd2l0aCByZWxvY2F0
-YWJsZSBrZXJuZWxzICYgY29kZSBtb2RlbHMuCj4+IFlvdSBkaWRuJ3QgdG91Y2ggdGhlIGNvbW1p
-dCB0aGF0IGNhdXNlZCB0aGUgaXNzdWVzLCBzbyB5b3UgZGlkbid0IHNlZQo+PiB0aGUgZmFpbHVy
-ZSByZXBvcnQgSSBndWVzcywgYnV0IFByYWJoYWthciBpcyBsb29raW5nIGZvciBzb21lIGd1aWRh
-bmNlCj4+IG9uIHdoYXQgaGUgc2hvdWxkIGRvIHRvIHJlc29sdmUgdGhlIHByb2JsZW1zLiBDb3B5
-LXBhc3RpbmcgZnJvbSBoaXMKPj4gbWFpbDoKPj4+ID4gQWxsIGVycm9ycyAobmV3IG9uZXMgcHJl
-Zml4ZWQgYnkgPj4pOgo+Pj4gPiA+ID4+IGxkLmxsZDogZXJyb3I6IHJlbG9jYXRpb24gUl9SSVND
-Vl9MTzEyX0kgY2Fubm90IGJlIHVzZWQgYWdhaW5zdAo+Pj4gPiA+PiBzeW1ib2wgJ3Jpc2N2X2Ni
-b21fYmxvY2tfc2l6ZSc7IHJlY29tcGlsZSB3aXRoIC1mUElDCj4+PiA+wqDCoMKgID4+PiBkZWZp
-bmVkIGluIHZtbGludXguYShhcmNoL3Jpc2N2L21tL2NhY2hlZmx1c2gubykKPj4+ID7CoMKgwqAg
-Pj4+IHJlZmVyZW5jZWQgYnkgZXJyYXRhLmMKPj4+ID7CoMKgwqAgPj4+IGFyY2gvcmlzY3YvZXJy
-YXRhL2FuZGVzL2VycmF0YS5vOihhbmRlc19lcnJhdGFfcGF0Y2hfZnVuYykgCj4+PiBpbiBhcmNo
-aXZlIHZtbGludXguYQo+Pj4gPiBJIGRpZCByZXByb2R1Y2UgdGhpcyBpc3N1ZSBsb2NhbGx5LiBU
-aGUgYW5kZXMgZXJyYXRhIGlzIG5vdCAKPj4+IGNvbXBpbGVkIGFzIG1lZGFueS4gVGhlIGNvbmZp
-ZyBpcyBSRUxPQ0FUQUJMRSArIE1FRExPVy4gSSBjYW4gc2VlIAo+Pj4gdGhlIGNhY2hlZmx1c2gu
-byBpcyBjb21waWxlZCB3aXRoIG1lZGFueSBmbGFnLgo+Pj4gSSBjYW4gZml4IHRoZSBidWlsZCBi
-eSBhZGRpbmcgYSBtZWRhbnkgZmxhZyBhcyBiZWxvdzoKPj4+ICsjaWZkZWYgQ09ORklHX1JJU0NW
-X0FMVEVSTkFUSVZFX0VBUkxZCj4+PiArQ0ZMQUdTX2VycmF0YS5vIDo9IC1tY21vZGVsPW1lZGFu
-eQo+Pj4gI2VuZGlmCj4+Pgo+Pj4gQnV0IEkgYW0gbm90IHN1cmUgaWYgdGhpcyBpcyBjb3JyZWN0
-IGFwcHJvYWNoLiBBbnkgcG9pbnRlcnMgb24gdGhpcz8KPj4KPj4gVGhlIFQtSGVhZCBlcnJhdGEg
-aGF2ZSBzb21ldGhpbmcgc2ltaWxhciwgc28gc2VlbXMgbGlrZSBmYWlyIGdhbWUgdG8gbWUuCj4+
-IEFueSB0aG91Z2h0cz8KPgo+IFdlJ3JlIHVzaW5nIG1lZGFueSBhcyBhIGNoZWFwIHdheSB0byBn
-ZXQgUElDLCBzbyBhbnl0aGluZyB0aGF0J3MgCj4gcHJlLXJlbG9jYXRpb24gd2lsbCBuZWVkIG1l
-ZGFueS7CoCBXZSBkb24ndCByZWFsbHkgaGF2ZSBhIGdvb2Qgd2F5IHRvIAo+IGNoZWNrIHRoYXQs
-IG1lZGFueSBpc24ndCBzdXBwb3NlZCB0byBiZSBBQkkgKHdlJ3JlIHJlYWxseSBqdXN0IGFidXNp
-bmcgCj4gaXQgaGVyZSBmb3IgUElDKS7CoCBUaHVzIG5vbmUgb2YgdGhpcyBnZXRzIGNoZWNrZWQg
-YXQgYnVpbGQgdGltZSwgYW5kIEkgCj4gd29uJ3QgY2F0Y2ggYW55IGVycmF0YSBwcmUtbWVyZ2Ug
-YmVjYXVzZSBJJ20gaW4gUUVNVS4gU28gdGhpcyBpcyBhbGwgCj4ga2luZCBvZiBmcmFnaWxlLgo+
-Cj4gU28gbWF5YmUgdGhlcmUncyBhIGJldHRlciB3YXkgdG8gZG8gYWxsIHRoYXQsIGJ1dCBmb3Ig
-bm93IGp1c3QgYWRkaW5nIAo+IG1lZGFueSBzZWVtcyBsaWtlIHRoZSB3YXkgdG8gZ28uCgoKVGhl
-cmUgaXMgdGhlIHByZS1tbXUgZG9jdW1lbnRhdGlvbiBub3cgdGhhdCBnaXZlcyBoaW50IGFib3V0
-IHdoYXQgdG8gZG8gCmZvciB0aGUgdmVyeSBlYXJseSBjb2RlOiAKaHR0cHM6Ly9lbGl4aXIuYm9v
-dGxpbi5jb20vbGludXgvdjYuNi1yYzIvc291cmNlL0RvY3VtZW50YXRpb24vcmlzY3YvYm9vdC5y
-c3QjTDE1MSAKYnV0IGFkbWl0dGVkbHksIGl0IGRvZXMgbm90IHN0YXRlIHRoYXQgaXQgd291bGQg
-cmVzdWx0IGluIGNvbXBpbGF0aW9uIAplcnJvcnMsIG1heWJlIHRoYXQgY2FuIGJlIGFkZGVkLgoK
-Cj4KPj4gVGhhbmtzLAo+PiBDb25vci4KPj4KPj4gWzFdIC0gaHR0cHM6Ly9sb3JlLmtlcm5lbC5v
-cmcvYWxsLzIwMjMwOTExMTMxMS44dGNxM0tWYy1sa3BAaW50ZWwuY29tLwo+Cj4gX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KPiBsaW51eC1yaXNjdiBtYWls
-aW5nIGxpc3QKPiBsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCj4gaHR0cDovL2xpc3Rz
-LmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgoKX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBs
-aXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVh
-ZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+On Mon, Sep 18, 2023, Binbin Wu wrote:
+> 
+> 
+> On 9/14/2023 9:55 AM, Sean Christopherson wrote:
+> > Add flags to "struct kvm_gfn_range" to let notifier events target only
+> > shared and only private mappings, and write up the existing mmu_notifier
+> > events to be shared-only (private memory is never associated with a
+> > userspace virtual address, i.e. can't be reached via mmu_notifiers).
+> > 
+> > Add two flags so that KVM can handle the three possibilities (shared,
+> > private, and shared+private) without needing something like a tri-state
+> > enum.
+> 
+> How to understand the word "stage" in short log?
+
+Sorry, it's an idiom[*] that essentially means "to prepare for".  I'll rephrase
+the shortlog to be more straightforward (I have a bad habit of using idioms).
+
+[*] https://dictionary.cambridge.org/us/dictionary/english/set-the-stage-for
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
