@@ -4,64 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86684C46CA1
-	for <linux-riscv@archiver.kernel.org>; Mon, 18 Sep 2023 21:34:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47DEACD3424
+	for <linux-riscv@archiver.kernel.org>; Mon, 18 Sep 2023 23:44:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4szcs546fVKP1pLRWXwcpepD99QUhjhLceKVZe0INYY=; b=U3hox/kjoxn96V
-	Fv3RY3bdpN2kJMb8spt2Mk1okttfUq9VKGJabhg0pu7aas4bHRPWwYhsbzUkV4plaU+dH3O23VtNv
-	/JZ6LBgzhqCcomCsVBZDb36V+bmg6Lu5bFG+DpJbUL9Nsbg5Mg8TroaqfkaKmYoLmcEMvInujvMVp
-	9bqECQUGXG/1XJLm3I9YZamQy9jG25lXcF9zHKmAxxCbK3T1tTTmAoDfpiTLQgad89r15+RI5LDDI
-	e86RlPO7u3JRGtN0unTiegWsTOhr6+pKf13RR2km2C0p7GQ07W1vnhQDr+mUj+9gh7Yhz/khEbKLz
-	MYp7UMF2RK5M/PDgNe0A==;
+	List-Owner; bh=+WNEr1Xz10D+RuFXvg8uwxBZL1VAjfRHkbNeCKNL49E=; b=0bWtvWxSiZGfkV
+	+OJVeOZ2fcz2ODexYy4sxgHURiPbjuKvx32FvW1CqyFZUzfrtMiITQirxgOapDtm5yrt+FG2QE488
+	WxYdeYhgzLk4Ex+IQzmPRZfdxqI6fUZed64Bj/eToR/TibYRG0/NPfhHhr2QkeVroZJ9aiapjUjER
+	8wMeEIwXWkCKi7hKRjUIx7/t7eNcP2fcdbj2+B00kCj1a3P8HTK9uPhu3Gi86++gF1T7HDoO3R8x7
+	66rom11b4hYZBikLkxR+nwQNuzeh3b1ERqx7q/WO9ZhF0weqGlD6BDeZ5TiyzAch7ApL8gbi2JTBe
+	ghYQCJ7wwP4CdVocjL4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qiLsQ-00GOZY-1Q;
-	Mon, 18 Sep 2023 21:33:54 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1qiNuN-00GXP6-1F;
+	Mon, 18 Sep 2023 23:44:03 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qiLsM-00GOYG-2G
+	id 1qiNuK-00GXOL-25
 	for linux-riscv@lists.infradead.org;
-	Mon, 18 Sep 2023 21:33:52 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by sin.source.kernel.org (Postfix) with ESMTPS id 8CEDACE0AD3;
-	Mon, 18 Sep 2023 21:33:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5B348C433C8;
-	Mon, 18 Sep 2023 21:33:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1695072826;
-	bh=HJnD3hDCAKtTDtsEuzBCabBIEMAOgegcnbNytmQ7rTk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=o/lXBeKiRldFnvNecwB87VK4iPzybzfdxFTpW7N7DEWOG0ePMwhWA1QBHQj7CZmOE
-	 rwJzCyjXxuHxmWV776xSnXJnCwS1Y0dtd49ta/JFo05fQvVVmUH9rfpcqiiHynzYD0
-	 flE5SBBnlLaWbqmFb7RF8ps2D0Ihih5XNYo3kHtAHgWRfOaX8wu1HaIhcdh0iLlGUY
-	 KabrMyZUZcxyjJ9ucBFNbR4CiTALYZUcRIrBfnguxGFT2r2Y8y5skAJRpyLr+U9nqZ
-	 Vqe8hmZXeZDTvMroRHiK3s4IbOQCqckidhK+CPVHdLxFVrKwD6eqW0HmNH4e3LiZ6Z
-	 RVzOdVIeBJsIQ==
-Received: (nullmailer pid 1791762 invoked by uid 1000);
-	Mon, 18 Sep 2023 21:33:28 -0000
-Date: Mon, 18 Sep 2023 16:33:28 -0500
-From: Rob Herring <robh@kernel.org>
-To: Kwanghoon Son <k.son@samsung.com>
-Cc: p.zabel@pengutronix.de, krzysztof.kozlowski+dt@linaro.org, conor+dt@kernel.org, jszhang@kernel.org, guoren@kernel.org, wefu@redhat.com, paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, inki.dae@samsung.com, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v3 1/3] dt-bindings: reset: Document th1520 reset control
-Message-ID: <20230918213328.GA1771303-robh@kernel.org>
-References: <20230918045125.4000083-1-k.son@samsung.com>
- <CGME20230918045134epcas1p1b80b338b66512a976c3783cd0e51da50@epcas1p1.samsung.com>
- <20230918045125.4000083-2-k.son@samsung.com>
+	Mon, 18 Sep 2023 23:44:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1695080638;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=zVlOSfQ+Cs92BylKR+M/JB7hqrVK10vOpKWpaqimizU=;
+	b=gti5wqkPNzoHb41DYIPLbqGF7s7ANHSvaG1kZ6jj7gGIDVbDZzXIHCRCpo8ScSz7n/WNTX
+	3Uh9CJ82Zw17p9iTh6mnhGm6CaKfO3OwXOU/Ug25DktkMSznqEkL3IYz29Y8oVoNxvejuq
+	lytGQR5Vjv2lQSeoikVQIKiEIe0R8AE=
+Received: from mail-pf1-f200.google.com (mail-pf1-f200.google.com
+ [209.85.210.200]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-93-nU5dFJ7CNzC4HVIAFOiDsw-1; Mon, 18 Sep 2023 19:43:57 -0400
+X-MC-Unique: nU5dFJ7CNzC4HVIAFOiDsw-1
+Received: by mail-pf1-f200.google.com with SMTP id d2e1a72fcca58-690bcc80694so592169b3a.3
+        for <linux-riscv@lists.infradead.org>; Mon, 18 Sep 2023 16:43:56 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1695080636; x=1695685436;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=zVlOSfQ+Cs92BylKR+M/JB7hqrVK10vOpKWpaqimizU=;
+        b=wKcFbKNp7x4h8FRFSsH3wLfSqSQuMhd+zTZom7kSNAhfbFbYjCg5zMkbdvwaaiVbdl
+         Z6kUGrAPj1Yi/BX9EaSIpFAPcrzUqzU9tLjZiQpvy9wP6THdvCe8DtO5yRgwKgHUThoO
+         OFQUC000UEONcbXP2ZIPOi+/LdtzI3oSOFzT3p9w4NLMnnvaFnT7Gu5P5hZBnmRU+Q4L
+         HWk+LjCg1e40maNYgRS3Y1sNrtHc9lXAw21C7cgwzRhOnf14wpMO00ukjAzNSsPI3mlU
+         +6qx83KZZaCtc/RiffxNJiIbQqDsFIzEV5M1iTia+l+l/J0jnaMquGVGdr6DJIMWp1PY
+         +iZQ==
+X-Gm-Message-State: AOJu0YwYsQebEgxowl89AsbTEivgtKQeZlDuw3Vzb5Ia2qGA3gz6fonU
+	53IqMVEy55PBMO79ZblCQ+2hxVQ60c4UqRzB0G5b90nSMxKrQTiR0SlaaaG75p/nQM6bF+tHg6W
+	TpMO8gMggjkEEl5W34RJbUicjFXdh
+X-Received: by 2002:a05:6a20:430d:b0:118:e70:6f7d with SMTP id h13-20020a056a20430d00b001180e706f7dmr10495455pzk.10.1695080635986;
+        Mon, 18 Sep 2023 16:43:55 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IHFKOy814XSQK8TdPjNzCWuHRcOodlWCLUpNrs1TYBainKT1BB0hWvhf0Gyqm0LB88Jzxx1dQ==
+X-Received: by 2002:a05:6a20:430d:b0:118:e70:6f7d with SMTP id h13-20020a056a20430d00b001180e706f7dmr10495432pzk.10.1695080635630;
+        Mon, 18 Sep 2023 16:43:55 -0700 (PDT)
+Received: from ?IPV6:2001:8003:e5b0:9f00:dbbc:1945:6e65:ec5? ([2001:8003:e5b0:9f00:dbbc:1945:6e65:ec5])
+        by smtp.gmail.com with ESMTPSA id jo13-20020a170903054d00b001bc68602e54sm8823472plb.142.2023.09.18.16.43.49
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 18 Sep 2023 16:43:54 -0700 (PDT)
+Message-ID: <ebfa8b5c-c09f-a1e6-e6ec-f4f3cda9de03@redhat.com>
+Date: Tue, 19 Sep 2023 09:43:46 +1000
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230918045125.4000083-2-k.son@samsung.com>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.12.0
+Subject: Re: [RFC PATCH v2 14/35] ACPI: Only enumerate enabled (or functional)
+ devices
+To: James Morse <james.morse@arm.com>, linux-pm@vger.kernel.org,
+ loongarch@lists.linux.dev, linux-acpi@vger.kernel.org,
+ linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
+ kvmarm@lists.linux.dev
+Cc: x86@kernel.org, Salil Mehta <salil.mehta@huawei.com>,
+ Russell King <linux@armlinux.org.uk>,
+ Jean-Philippe Brucker <jean-philippe@linaro.org>, jianyong.wu@arm.com,
+ justin.he@arm.com
+References: <20230913163823.7880-1-james.morse@arm.com>
+ <20230913163823.7880-15-james.morse@arm.com>
+From: Gavin Shan <gshan@redhat.com>
+In-Reply-To: <20230913163823.7880-15-james.morse@arm.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230918_143350_911793_C3E98022 
-X-CRM114-Status: GOOD (  15.33  )
+X-CRM114-CacheID: sfid-20230918_164400_755479_D68E676B 
+X-CRM114-Status: GOOD (  32.44  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,50 +105,173 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 18, 2023 at 04:51:23AM +0000, Kwanghoon Son wrote:
-> Add documentation to describe th1520 reset device
+On 9/14/23 02:38, James Morse wrote:
+> Today the ACPI enumeration code 'visits' all devices that are present.
 > 
-> Signed-off-by: Kwanghoon Son <k.son@samsung.com>
+> This is a problem for arm64, where CPUs are always present, but not
+> always enabled. When a device-check occurs because the firmware-policy
+> has changed and a CPU is now enabled, the following error occurs:
+> | acpi ACPI0007:48: Enumeration failure
+> 
+> This is ultimately because acpi_dev_ready_for_enumeration() returns
+> true for a device that is not enabled. The ACPI Processor driver
+> will not register such CPUs as they are not 'decoding their resources'.
+> 
+> Change acpi_dev_ready_for_enumeration() to also check the enabled bit.
+> ACPI allows a device to be functional instead of maintaining the
+> present and enabled bit. Make this behaviour an explicit check with
+> a reference to the spec, and then check the present and enabled bits.
+> This is needed to avoid enumerating present && functional devices that
+> are not enabled.
+> 
+> Signed-off-by: James Morse <james.morse@arm.com>
 > ---
->  .../bindings/reset/thead,th1520-reset.yaml    | 44 +++++++++++++++++++
->  .../dt-bindings/reset/thead,th1520-reset.h    |  9 ++++
->  2 files changed, 53 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/reset/thead,th1520-reset.yaml
->  create mode 100644 include/dt-bindings/reset/thead,th1520-reset.h
+> If this change causes problems on deployed hardware, I suggest an
+> arch opt-in: ACPI_IGNORE_STA_ENABLED, that causes
+> acpi_dev_ready_for_enumeration() to only check the present bit.
+> ---
+>   drivers/acpi/device_pm.c    |  2 +-
+>   drivers/acpi/device_sysfs.c |  2 +-
+>   drivers/acpi/internal.h     |  1 -
+>   drivers/acpi/property.c     |  2 +-
+>   drivers/acpi/scan.c         | 23 +++++++++++++----------
+>   5 files changed, 16 insertions(+), 14 deletions(-)
 > 
-> diff --git a/Documentation/devicetree/bindings/reset/thead,th1520-reset.yaml b/Documentation/devicetree/bindings/reset/thead,th1520-reset.yaml
-> new file mode 100644
-> index 000000000000..49ea8c6a331f
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/reset/thead,th1520-reset.yaml
-> @@ -0,0 +1,44 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/reset/thead,th1520-reset.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> diff --git a/drivers/acpi/device_pm.c b/drivers/acpi/device_pm.c
+> index f007116a8427..76c38478a502 100644
+> --- a/drivers/acpi/device_pm.c
+> +++ b/drivers/acpi/device_pm.c
+> @@ -313,7 +313,7 @@ int acpi_bus_init_power(struct acpi_device *device)
+>   		return -EINVAL;
+>   
+>   	device->power.state = ACPI_STATE_UNKNOWN;
+> -	if (!acpi_device_is_present(device)) {
+> +	if (!acpi_dev_ready_for_enumeration(device)) {
+>   		device->flags.initialized = false;
+>   		return -ENXIO;
+>   	}
+> diff --git a/drivers/acpi/device_sysfs.c b/drivers/acpi/device_sysfs.c
+> index b9bbf0746199..16e586d74aa2 100644
+> --- a/drivers/acpi/device_sysfs.c
+> +++ b/drivers/acpi/device_sysfs.c
+> @@ -141,7 +141,7 @@ static int create_pnp_modalias(const struct acpi_device *acpi_dev, char *modalia
+>   	struct acpi_hardware_id *id;
+>   
+>   	/* Avoid unnecessarily loading modules for non present devices. */
+> -	if (!acpi_device_is_present(acpi_dev))
+> +	if (!acpi_dev_ready_for_enumeration(acpi_dev))
+>   		return 0;
+>   
+>   	/*
+> diff --git a/drivers/acpi/internal.h b/drivers/acpi/internal.h
+> index 866c7c4ed233..a1b45e345bcc 100644
+> --- a/drivers/acpi/internal.h
+> +++ b/drivers/acpi/internal.h
+> @@ -107,7 +107,6 @@ int acpi_device_setup_files(struct acpi_device *dev);
+>   void acpi_device_remove_files(struct acpi_device *dev);
+>   void acpi_device_add_finalize(struct acpi_device *device);
+>   void acpi_free_pnp_ids(struct acpi_device_pnp *pnp);
+> -bool acpi_device_is_present(const struct acpi_device *adev);
+>   bool acpi_device_is_battery(struct acpi_device *adev);
+>   bool acpi_device_is_first_physical_node(struct acpi_device *adev,
+>   					const struct device *dev);
+> diff --git a/drivers/acpi/property.c b/drivers/acpi/property.c
+> index 413e4fcadcaf..e03f00b98701 100644
+> --- a/drivers/acpi/property.c
+> +++ b/drivers/acpi/property.c
+> @@ -1418,7 +1418,7 @@ static bool acpi_fwnode_device_is_available(const struct fwnode_handle *fwnode)
+>   	if (!is_acpi_device_node(fwnode))
+>   		return false;
+>   
+> -	return acpi_device_is_present(to_acpi_device_node(fwnode));
+> +	return acpi_dev_ready_for_enumeration(to_acpi_device_node(fwnode));
+>   }
+>   
+>   static const void *
+> diff --git a/drivers/acpi/scan.c b/drivers/acpi/scan.c
+> index 17ab875a7d4e..f898591ce05f 100644
+> --- a/drivers/acpi/scan.c
+> +++ b/drivers/acpi/scan.c
+> @@ -304,7 +304,7 @@ static int acpi_scan_device_check(struct acpi_device *adev)
+>   	int error;
+>   
+>   	acpi_bus_get_status(adev);
+> -	if (acpi_device_is_present(adev)) {
+> +	if (acpi_dev_ready_for_enumeration(adev)) {
+>   		/*
+>   		 * This function is only called for device objects for which
+>   		 * matching scan handlers exist.  The only situation in which
+> @@ -338,7 +338,7 @@ static int acpi_scan_bus_check(struct acpi_device *adev, void *not_used)
+>   	int error;
+>   
+>   	acpi_bus_get_status(adev);
+> -	if (!acpi_device_is_present(adev)) {
+> +	if (!acpi_dev_ready_for_enumeration(adev)) {
+>   		acpi_scan_device_not_enumerated(adev);
+>   		return 0;
+>   	}
+> @@ -1908,11 +1908,6 @@ static bool acpi_device_should_be_hidden(acpi_handle handle)
+>   	return true;
+>   }
+>   
+> -bool acpi_device_is_present(const struct acpi_device *adev)
+> -{
+> -	return adev->status.present || adev->status.functional;
+> -}
+> -
+>   static bool acpi_scan_handler_matching(struct acpi_scan_handler *handler,
+>   				       const char *idstr,
+>   				       const struct acpi_device_id **matchid)
+> @@ -2375,16 +2370,24 @@ EXPORT_SYMBOL_GPL(acpi_dev_clear_dependencies);
+>    * acpi_dev_ready_for_enumeration - Check if the ACPI device is ready for enumeration
+>    * @device: Pointer to the &struct acpi_device to check
+>    *
+> - * Check if the device is present and has no unmet dependencies.
+> + * Check if the device is functional or enabled and has no unmet dependencies.
+>    *
+> - * Return true if the device is ready for enumeratino. Otherwise, return false.
+> + * Return true if the device is ready for enumeration. Otherwise, return false.
+>    */
+>   bool acpi_dev_ready_for_enumeration(const struct acpi_device *device)
+>   {
+>   	if (device->flags.honor_deps && device->dep_unmet)
+>   		return false;
+>   
+> -	return acpi_device_is_present(device);
+> +	/*
+> +	 * ACPI 6.5's 6.3.7 "_STA (Device Status)" allows firmware to return
+> +	 * (!present && functional) for certain types of devices that should be
+> +	 * enumerated.
+> +	 */
+> +	if (!device->status.present && !device->status.enabled)
+> +		return device->status.functional;
 > +
-> +title: T-HEAD th1520 SoC Reset Controller
-> +
-> +maintainers:
-> +  - Kwanghoon Son <k.son@samsung.com>
-> +
-> +properties:
-> +  compatible:
-> +    items:
-> +      - const: thead,th1520-reset
-> +      - const: syscon
+> +	return device->status.present && device->status.enabled;
+>   }
+>   EXPORT_SYMBOL_GPL(acpi_dev_ready_for_enumeration);
+>   
 
-Why do you need "syscon"? Are there other functions? If so, please 
-describe them in top-level "description". If not, drop "syscon" and use 
-device_node_to_regmap() instead of syscon_node_to_regmap().
+Looking at Salil's latest branch (vcpu-hotplug-RFCv2-rc7), there are 3 possible statuses:
 
-Rob
+   0x0       when CPU isn't present
+   0xD       when CPU is present, but not enabled
+   0xF       when CPU is present and enabled
+
+Previously, the ACPI device is enumerated on 0xD and 0xF. We want to avoid the enumeration
+on 0xD since the processor isn't ready for enumeration in this specific case. The changed
+check (device->status.present && device->status.enabled) can ensure it. So the addition
+of checking @device->state.functional seems irrelevant to ARM64 vCPU hot-add? I guess we
+probably want a relaxation after the condition (device->status.present || device->status.enabled)
+becomes a more strict one (device->status.present && device->status.enabled)
+
+Thanks,
+Gavin
+
 
 _______________________________________________
 linux-riscv mailing list
