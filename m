@@ -4,77 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE919C46CA1
-	for <linux-riscv@archiver.kernel.org>; Mon, 18 Sep 2023 05:19:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BBB1C46CA1
+	for <linux-riscv@archiver.kernel.org>; Mon, 18 Sep 2023 05:22:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4p9GuoYCJdShHb+1hUcqPIDgfAodoTd7NYSpKy0aTfk=; b=VDlqZjTmcNuT00
-	NoQ6gMSrTblK/8QWAArFhArCHlsXBl42fkqd8NkG+LbsTnbZWAQUGmZpEjHs6t7w+wHxZQ4rryoJu
-	a+N/fC9Aj5h2QFkVFMOzQRzP/Y+TqXyKYVNWdycWsG0ayu/9BIv/EAivcXofy2C6ZzGZGJMXN+WG3
-	80s2VRIZTTvAME5DWGVXzaLuDw83nklME+gbjSCjQnI8bztWLDHvhafd4Af8H+NlYo8BMAgcOgRLY
-	78CCWMi6fDBXOMEsKUU2majrxP1bvZFVTGZ7c+Dri91Madn44i4TljD+/6ObrQqIcykWa6tybFbXF
-	KDhh82WnlsfLBlTVJXrQ==;
+	List-Owner; bh=9LFcV3o28FGLBsRq9kjI38/15qMm52OYED3RuYe1E3Q=; b=Q7NBmYs7e1Vhqr
+	tUR94w96W2KmyPEMei7gboV2iJM9LKTXxtb7gN+/UgF+Oporgu0dtHTAvoYnOc3CAEB3dNDYyTZeZ
+	ZMLz3kqNnBrGF038usvupkFhttJFyQBDtxwefC0rpJ3bDC81aCpeiQIXKd9EO06bvFID2fjYxAwDI
+	LLLmm+jcWg8nRbwXas5qvnmFhoFUMVEobrCK6esO33AsPa8Fg1DDpDsQJeDW3RhJU8bbcbLXezJZb
+	hSMdLPK3VwWzn1WTVXP0LALwT40Ps6Pj2+5TkmbAxPIoKWU8Iix8i1SXdY+Xnm+e7BH1xLEC6gLD3
+	v9yXt0Wtj0El/ZBUUxCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qi6fE-00ER8z-2K;
-	Mon, 18 Sep 2023 05:19:16 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1qi6iN-00ERUa-2R;
+	Mon, 18 Sep 2023 05:22:31 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qi6fC-00ER89-1P
+	id 1qi6iJ-00ERSn-24
 	for linux-riscv@lists.infradead.org;
-	Mon, 18 Sep 2023 05:19:15 +0000
+	Mon, 18 Sep 2023 05:22:30 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1695014352;
+	s=mimecast20190719; t=1695014546;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=+VmGOP6k6PklzaSQw+Wb8ACfwVkFKcepFidWWf6BMLc=;
-	b=BKS6YjD2aXwzMRiQc4ldVrLAmhX+l89Why7wG9jJquZ6Cu36z2Jz3C9Qo1g1WWwxTs6Uzx
-	EZcmUpUd21HUJIkkNVBmcZsbNkQve6pMXV4bLJLkEHYY8LidZu2YKTS/y3LRYflBC2xrTm
-	pfjE5N9wXdneBreOdXFMxsKa00ft2uo=
-Received: from mail-oa1-f71.google.com (mail-oa1-f71.google.com
- [209.85.160.71]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=EvMO1Lp1XkXRY9wGT8TKvKnSfeYSp+m+W1bfNmW+8XA=;
+	b=GzQLDPeQJ7xun1wv9Bw8+guAP3zXjMOoT0A49CyquJkKN4dLM5BcmoK30NRXVZ18T+qD82
+	6gp3Q6ngzVVR+TeaY0Cav7N52QhUQo3s8pxd9LrxG+tKsrZFG5kpe+pgO5mXiJmqNzRoh+
+	hDAW8Bs3NQNyEqKY/GWvuzUfBlJftDo=
+Received: from mail-pg1-f197.google.com (mail-pg1-f197.google.com
+ [209.85.215.197]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-647-E5Pl8e9sPwuG2pDyep96bg-1; Mon, 18 Sep 2023 01:19:11 -0400
-X-MC-Unique: E5Pl8e9sPwuG2pDyep96bg-1
-Received: by mail-oa1-f71.google.com with SMTP id 586e51a60fabf-1d6659a4207so4402044fac.0
-        for <linux-riscv@lists.infradead.org>; Sun, 17 Sep 2023 22:19:10 -0700 (PDT)
+ us-mta-100-JtQO52i-NSWBlb-4kze9ig-1; Mon, 18 Sep 2023 01:22:24 -0400
+X-MC-Unique: JtQO52i-NSWBlb-4kze9ig-1
+Received: by mail-pg1-f197.google.com with SMTP id 41be03b00d2f7-56c2d67da6aso2749858a12.2
+        for <linux-riscv@lists.infradead.org>; Sun, 17 Sep 2023 22:22:24 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1695014350; x=1695619150;
+        d=1e100.net; s=20230601; t=1695014543; x=1695619343;
         h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=+VmGOP6k6PklzaSQw+Wb8ACfwVkFKcepFidWWf6BMLc=;
-        b=AyRvl1qcxMG8FwmNT1QDPBn5vgjYf8qKrJxzWuM9iakdgXKWHvfmCC32hl4ETGp9LH
-         wcIE01lHRaBFA/Z4jqyl0kX92p25Gms64PKNX53kqoX8Iz6mrWxnuUmgrNYjRxuSjdL0
-         eRb112m7MimZlemnRagNKWUErZTztno3HLXP0JSQC8p2j6TfMBEhJdHb4ZwY6Jc5vfLL
-         tmQX5+nCZcNbXJ0UFkq+8lXmwTyUTCi2zNvyvY2DJfuvjSQGi5eMOh+jKhHesJNcMrc7
-         I/627vX00mtdlfOY0DJOWB9/QV6cbdHeuaI4bxjocgs2JmaTmsEnZKv8rBVZsCty/E6D
-         Ntlw==
-X-Gm-Message-State: AOJu0YynD4oRlTKVDqd6IgSFMLkFQBXvoxvn6O07JWkOUirp1o/cauO1
-	sXZaBN1dG6PExcJ9ILcsDpZAv3yiMPjaTS+RbbmqgCoGe0YwLwJe9BlQTEYCRHJGCalne7qZTso
-	xQ8Om2d1/f4kwDt0PSb84Npzt9/Hq
-X-Received: by 2002:a05:6870:9191:b0:1d6:925:840d with SMTP id b17-20020a056870919100b001d60925840dmr9769147oaf.55.1695014350409;
-        Sun, 17 Sep 2023 22:19:10 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHgNPgTZtS/hsL5sJUv2LZbTkXkuBlyKD4NiO3GPGQyDZIhzwEA3s34zGbwVBHMpylSMNZ4ZQ==
-X-Received: by 2002:a05:6870:9191:b0:1d6:925:840d with SMTP id b17-20020a056870919100b001d60925840dmr9769120oaf.55.1695014350060;
-        Sun, 17 Sep 2023 22:19:10 -0700 (PDT)
+        bh=EvMO1Lp1XkXRY9wGT8TKvKnSfeYSp+m+W1bfNmW+8XA=;
+        b=ovAJKRNTEwwzmdvhu3FKp6i6CfEYTCVyOD7hMY12A9iHx5/DAyh+TDqtOpzqX05OGR
+         ZIScHZSoW49W4NjUAhP8o5965oZVsCjGYqdPYQHAuy/1GI8cu/jNsVvDZU9Uwe0euvND
+         i9o9TKyS1YJaV5/phwj5ecfNpTD4gKgC3UjU99gSwMh8mu43hNWU84yWOdg7/eFKM3Pf
+         +X3wg2oV64X0onPm6fEAu76dBl/kpXJtGUVoqv8H4LCHapdKYHVEFXiK8wyPaySxLiU+
+         WVbxzKhNyjMlnYaoqSV46dyGFG0P8ATkJvqeM4D9vRbnDUISamT1DaX+wLe+QmIOrSan
+         cX2A==
+X-Gm-Message-State: AOJu0YxY4FVtRFIlhRSOWHQBBFIKg+coXTuMu3uq5l+ahbAAL/tjgzPu
+	WmZi0/5BO+XWuB3nv6QwbuCgO2cQlLTN/0fLRw5pL+wtRYsSvay29w367crLe9ui+TkQ2Hrwxna
+	8IA6WSMT9+OGvpJCdlpgGtcIRwDne
+X-Received: by 2002:a17:902:6943:b0:1b8:c6:ec8f with SMTP id k3-20020a170902694300b001b800c6ec8fmr6078235plt.46.1695014543151;
+        Sun, 17 Sep 2023 22:22:23 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IEjQVdMm7nBDU1mZANeOLwn1iptamUPcm7CKLo7LNUirDNak1L3qng2r1diOCjxNwuzyI3Qrw==
+X-Received: by 2002:a17:902:6943:b0:1b8:c6:ec8f with SMTP id k3-20020a170902694300b001b800c6ec8fmr6078226plt.46.1695014542790;
+        Sun, 17 Sep 2023 22:22:22 -0700 (PDT)
 Received: from ?IPV6:2001:8003:e5b0:9f00:dbbc:1945:6e65:ec5? ([2001:8003:e5b0:9f00:dbbc:1945:6e65:ec5])
-        by smtp.gmail.com with ESMTPSA id mu13-20020a17090b388d00b0026596b8f33asm8145403pjb.40.2023.09.17.22.19.04
+        by smtp.gmail.com with ESMTPSA id 17-20020a170902ee5100b001bb7a736b4csm1109626plo.77.2023.09.17.22.22.16
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 17 Sep 2023 22:19:09 -0700 (PDT)
-Message-ID: <2d0e2fd7-5a6e-04ef-578d-713d8e14c30c@redhat.com>
-Date: Mon, 18 Sep 2023 15:19:01 +1000
+        Sun, 17 Sep 2023 22:22:22 -0700 (PDT)
+Message-ID: <8cc0b616-a50d-c3aa-ebd5-2db1a8e1ed46@redhat.com>
+Date: Mon, 18 Sep 2023 15:22:13 +1000
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
  Thunderbird/102.12.0
-Subject: Re: [RFC PATCH v2 17/35] ACPI: processor: Register all CPUs from
- acpi_processor_get_info()
+Subject: Re: [RFC PATCH v2 18/35] ACPI: Rename ACPI_HOTPLUG_CPU to include
+ 'present'
 To: James Morse <james.morse@arm.com>, linux-pm@vger.kernel.org,
  loongarch@lists.linux.dev, linux-acpi@vger.kernel.org,
  linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
@@ -85,15 +85,15 @@ Cc: x86@kernel.org, Salil Mehta <salil.mehta@huawei.com>,
  Jean-Philippe Brucker <jean-philippe@linaro.org>, jianyong.wu@arm.com,
  justin.he@arm.com
 References: <20230913163823.7880-1-james.morse@arm.com>
- <20230913163823.7880-18-james.morse@arm.com>
+ <20230913163823.7880-19-james.morse@arm.com>
 From: Gavin Shan <gshan@redhat.com>
-In-Reply-To: <20230913163823.7880-18-james.morse@arm.com>
+In-Reply-To: <20230913163823.7880-19-james.morse@arm.com>
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230917_221914_592430_AC067157 
-X-CRM114-Status: GOOD (  25.45  )
+X-CRM114-CacheID: sfid-20230917_222227_823203_5CEB8634 
+X-CRM114-Status: GOOD (  29.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,76 +111,295 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
+
 On 9/14/23 02:38, James Morse wrote:
-> To allow ACPI to skip the call to arch_register_cpu() when the _STA
-> value indicates the CPU can't be brought online right now, move the
-> arch_register_cpu() call into acpi_processor_get_info().
+> The code behind ACPI_HOTPLUG_CPU allows a not-present CPU to become
+> present. This isn't the only use of HOTPLUG_CPU. On arm64 and riscv
+> CPUs can be taken offline as a power saving measure.
 > 
-> Systems can still be booted with 'acpi=off', or not include an
-> ACPI description at all. For these, the CPUs continue to be
-> registered by cpu_dev_register_generic().
+> On arm64 an offline CPU may be disabled by firmware, preventing it from
+> being brought back online, but it remains present throughout.
 > 
-> This moves the CPU register logic back to a subsys_initcall(),
-> while the memory nodes will have been registered earlier.
+> Adding code to prevent user-space trying to online these disabled CPUs
+> needs some additional terminology.
+> 
+> Rename the Kconfig symbol CONFIG_ACPI_HOTPLUG_PRESENT_CPU to reflect
+> that it makes possible CPUs present.
+> 
+> HOTPLUG_CPU is untouched as this is only about the ACPI mechanism.
 > 
 > Signed-off-by: James Morse <james.morse@arm.com>
 > ---
->   drivers/acpi/acpi_processor.c | 13 +++++++++++++
->   drivers/base/cpu.c            |  2 +-
->   2 files changed, 14 insertions(+), 1 deletion(-)
+>   arch/ia64/Kconfig                          |  2 +-
+>   arch/ia64/include/asm/acpi.h               |  2 +-
+>   arch/ia64/kernel/acpi.c                    |  6 +++---
+>   arch/ia64/kernel/setup.c                   |  2 +-
+>   arch/loongarch/configs/loongson3_defconfig |  2 +-
+>   arch/loongarch/kernel/acpi.c               |  4 ++--
+>   arch/x86/Kconfig                           |  2 +-
+>   arch/x86/kernel/acpi/boot.c                |  4 ++--
+>   drivers/acpi/Kconfig                       |  4 ++--
+>   drivers/acpi/acpi_processor.c              | 10 +++++-----
+>   include/acpi/processor.h                   |  2 +-
+>   include/linux/acpi.h                       |  6 +++---
+>   12 files changed, 23 insertions(+), 23 deletions(-)
 > 
 
-With the following nits addressed:
+The replacement is missed for arch/loongarch.
 
-Reviewed-by: Gavin Shan <gshan@redhat.com>
+[gshan@gshan l]$ git grep ACPI_HOTPLUG_CPU
+arch/loongarch/Kconfig: select ACPI_HOTPLUG_CPU if ACPI_PROCESSOR && HOTPLUG_CPU
 
+
+> diff --git a/arch/ia64/Kconfig b/arch/ia64/Kconfig
+> index a3bfd42467ab..54972f9fe804 100644
+> --- a/arch/ia64/Kconfig
+> +++ b/arch/ia64/Kconfig
+> @@ -16,7 +16,7 @@ config IA64
+>   	select ARCH_MIGHT_HAVE_PC_PARPORT
+>   	select ARCH_MIGHT_HAVE_PC_SERIO
+>   	select ACPI
+> -	select ACPI_HOTPLUG_CPU if ACPI_PROCESSOR && HOTPLUG_CPU
+> +	select ACPI_HOTPLUG_PRESENT_CPU if ACPI_PROCESSOR && HOTPLUG_CPU
+>   	select ACPI_NUMA if NUMA
+>   	select ARCH_ENABLE_MEMORY_HOTPLUG
+>   	select ARCH_ENABLE_MEMORY_HOTREMOVE
+> diff --git a/arch/ia64/include/asm/acpi.h b/arch/ia64/include/asm/acpi.h
+> index 58500a964238..482ea994d1e1 100644
+> --- a/arch/ia64/include/asm/acpi.h
+> +++ b/arch/ia64/include/asm/acpi.h
+> @@ -52,7 +52,7 @@ extern unsigned int is_cpu_cpei_target(unsigned int cpu);
+>   extern void set_cpei_target_cpu(unsigned int cpu);
+>   extern unsigned int get_cpei_target_cpu(void);
+>   extern void prefill_possible_map(void);
+> -#ifdef CONFIG_ACPI_HOTPLUG_CPU
+> +#ifdef CONFIG_ACPI_HOTPLUG_PRESENT_CPU
+>   extern int additional_cpus;
+>   #else
+>   #define additional_cpus 0
+> diff --git a/arch/ia64/kernel/acpi.c b/arch/ia64/kernel/acpi.c
+> index 15f6cfddcc08..35881bf4b016 100644
+> --- a/arch/ia64/kernel/acpi.c
+> +++ b/arch/ia64/kernel/acpi.c
+> @@ -194,7 +194,7 @@ acpi_parse_plat_int_src(union acpi_subtable_headers * header,
+>   	return 0;
+>   }
+>   
+> -#ifdef CONFIG_HOTPLUG_CPU
+> +#ifdef CONFIG_ACPI_HOTPLUG_PRESENT_CPU
+>   unsigned int can_cpei_retarget(void)
+>   {
+>   	extern int cpe_vector;
+> @@ -711,7 +711,7 @@ int acpi_isa_irq_to_gsi(unsigned isa_irq, u32 *gsi)
+>   /*
+>    *  ACPI based hotplug CPU support
+>    */
+> -#ifdef CONFIG_ACPI_HOTPLUG_CPU
+> +#ifdef CONFIG_ACPI_HOTPLUG_PRESENT_CPU
+>   int acpi_map_cpu2node(acpi_handle handle, int cpu, int physid)
+>   {
+>   #ifdef CONFIG_ACPI_NUMA
+> @@ -820,7 +820,7 @@ int acpi_unmap_cpu(int cpu)
+>   	return (0);
+>   }
+>   EXPORT_SYMBOL(acpi_unmap_cpu);
+> -#endif				/* CONFIG_ACPI_HOTPLUG_CPU */
+> +#endif				/* CONFIG_ACPI_HOTPLUG_PRESENT_CPU */
+>   
+>   #ifdef CONFIG_ACPI_NUMA
+>   static acpi_status acpi_map_iosapic(acpi_handle handle, u32 depth,
+> diff --git a/arch/ia64/kernel/setup.c b/arch/ia64/kernel/setup.c
+> index 5a55ac82c13a..44591716d07b 100644
+> --- a/arch/ia64/kernel/setup.c
+> +++ b/arch/ia64/kernel/setup.c
+> @@ -569,7 +569,7 @@ setup_arch (char **cmdline_p)
+>   #ifdef CONFIG_ACPI_NUMA
+>   	acpi_numa_init();
+>   	acpi_numa_fixup();
+> -#ifdef CONFIG_ACPI_HOTPLUG_CPU
+> +#ifdef CONFIG_ACPI_HOTPLUG_PRESENT_CPU
+>   	prefill_possible_map();
+>   #endif
+>   	per_cpu_scan_finalize((cpumask_empty(&early_cpu_possible_map) ?
+> diff --git a/arch/loongarch/configs/loongson3_defconfig b/arch/loongarch/configs/loongson3_defconfig
+> index a3b52aaa83b3..ef3bc76313e4 100644
+> --- a/arch/loongarch/configs/loongson3_defconfig
+> +++ b/arch/loongarch/configs/loongson3_defconfig
+> @@ -59,7 +59,7 @@ CONFIG_ACPI_SPCR_TABLE=y
+>   CONFIG_ACPI_TAD=y
+>   CONFIG_ACPI_DOCK=y
+>   CONFIG_ACPI_IPMI=m
+> -CONFIG_ACPI_HOTPLUG_CPU=y
+> +CONFIG_ACPI_HOTPLUG_PRESENT_CPU=y
+>   CONFIG_ACPI_PCI_SLOT=y
+>   CONFIG_ACPI_HOTPLUG_MEMORY=y
+>   CONFIG_EFI_ZBOOT=y
+> diff --git a/arch/loongarch/kernel/acpi.c b/arch/loongarch/kernel/acpi.c
+> index 9450e09073eb..b5153e395ad9 100644
+> --- a/arch/loongarch/kernel/acpi.c
+> +++ b/arch/loongarch/kernel/acpi.c
+> @@ -289,7 +289,7 @@ void __init arch_reserve_mem_area(acpi_physical_address addr, size_t size)
+>   	memblock_reserve(addr, size);
+>   }
+>   
+> -#ifdef CONFIG_ACPI_HOTPLUG_CPU
+> +#ifdef CONFIG_ACPI_HOTPLUG_PRESENT_CPU
+>   
+>   #include <acpi/processor.h>
+>   
+> @@ -341,4 +341,4 @@ int acpi_unmap_cpu(int cpu)
+>   }
+>   EXPORT_SYMBOL(acpi_unmap_cpu);
+>   
+> -#endif /* CONFIG_ACPI_HOTPLUG_CPU */
+> +#endif /* CONFIG_ACPI_HOTPLUG_PRESENT_CPU */
+> diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
+> index 133ea5f561b5..295a7a3debb6 100644
+> --- a/arch/x86/Kconfig
+> +++ b/arch/x86/Kconfig
+> @@ -60,7 +60,7 @@ config X86
+>   	#
+>   	select ACPI_LEGACY_TABLES_LOOKUP	if ACPI
+>   	select ACPI_SYSTEM_POWER_STATES_SUPPORT	if ACPI
+> -	select ACPI_HOTPLUG_CPU			if ACPI_PROCESSOR && HOTPLUG_CPU
+> +	select ACPI_HOTPLUG_PRESENT_CPU		if ACPI_PROCESSOR && HOTPLUG_CPU
+>   	select ARCH_32BIT_OFF_T			if X86_32
+>   	select ARCH_CLOCKSOURCE_INIT
+>   	select ARCH_CORRECT_STACKTRACE_ON_KRETPROBE
+> diff --git a/arch/x86/kernel/acpi/boot.c b/arch/x86/kernel/acpi/boot.c
+> index 2a0ea38955df..84dd4133754b 100644
+> --- a/arch/x86/kernel/acpi/boot.c
+> +++ b/arch/x86/kernel/acpi/boot.c
+> @@ -814,7 +814,7 @@ static void __init acpi_set_irq_model_ioapic(void)
+>   /*
+>    *  ACPI based hotplug support for CPU
+>    */
+> -#ifdef CONFIG_ACPI_HOTPLUG_CPU
+> +#ifdef CONFIG_ACPI_HOTPLUG_PRESENT_CPU
+>   #include <acpi/processor.h>
+>   
+>   static int acpi_map_cpu2node(acpi_handle handle, int cpu, int physid)
+> @@ -863,7 +863,7 @@ int acpi_unmap_cpu(int cpu)
+>   	return (0);
+>   }
+>   EXPORT_SYMBOL(acpi_unmap_cpu);
+> -#endif				/* CONFIG_ACPI_HOTPLUG_CPU */
+> +#endif				/* CONFIG_ACPI_HOTPLUG_PRESENT_CPU */
+>   
+>   int acpi_register_ioapic(acpi_handle handle, u64 phys_addr, u32 gsi_base)
+>   {
+> diff --git a/drivers/acpi/Kconfig b/drivers/acpi/Kconfig
+> index 8456d48ba702..417f9f3077d2 100644
+> --- a/drivers/acpi/Kconfig
+> +++ b/drivers/acpi/Kconfig
+> @@ -305,7 +305,7 @@ config ACPI_IPMI
+>   	  To compile this driver as a module, choose M here:
+>   	  the module will be called as acpi_ipmi.
+>   
+> -config ACPI_HOTPLUG_CPU
+> +config ACPI_HOTPLUG_PRESENT_CPU
+>   	bool
+>   	depends on ACPI_PROCESSOR && HOTPLUG_CPU
+>   	select ACPI_CONTAINER
+> @@ -399,7 +399,7 @@ config ACPI_PCI_SLOT
+>   
+>   config ACPI_CONTAINER
+>   	bool "Container and Module Devices"
+> -	default (ACPI_HOTPLUG_MEMORY || ACPI_HOTPLUG_CPU)
+> +	default (ACPI_HOTPLUG_MEMORY || ACPI_HOTPLUG_PRESENT_CPU)
+>   	help
+>   	  This driver supports ACPI Container and Module devices (IDs
+>   	  ACPI0004, PNP0A05, and PNP0A06).
 > diff --git a/drivers/acpi/acpi_processor.c b/drivers/acpi/acpi_processor.c
-> index a01e315aa16a..867782bc50b0 100644
+> index 867782bc50b0..75257fae10e7 100644
 > --- a/drivers/acpi/acpi_processor.c
 > +++ b/drivers/acpi/acpi_processor.c
-> @@ -313,6 +313,19 @@ static int acpi_processor_get_info(struct acpi_device *device)
->   			cpufreq_add_device("acpi-cpufreq");
->   	}
+> @@ -182,7 +182,7 @@ static void __init acpi_pcc_cpufreq_init(void) {}
+>   #endif /* CONFIG_X86 */
 >   
-> +	/*
-> +	 * Register CPUs that are present.
-> +	 * Use get_cpu_device() to skip duplicate CPU descriptions from
-> +	 * firmware.
-> +	 */
-> +	if (!invalid_logical_cpuid(pr->id) && cpu_present(pr->id) &&
-> +	    !get_cpu_device(pr->id)) {
-> +		int ret = arch_register_cpu(pr->id);
-> +
-> +		if (ret)
-> +			return ret;
-> +	}
-> +
-
-The multiple lines of comments could be combined a bit:
-
-	/*
-	 * Register CPUs that are present. get_cpu_device() is used to
-	 * skip duplicate CPU description from firmware.
-          */
-
->   	/*
->   	 *  Extra Processor objects may be enumerated on MP systems with
->   	 *  less than the max # of CPUs. They should be ignored _iff
-> diff --git a/drivers/base/cpu.c b/drivers/base/cpu.c
-> index d31c936f0955..677f963e02ce 100644
-> --- a/drivers/base/cpu.c
-> +++ b/drivers/base/cpu.c
-> @@ -537,7 +537,7 @@ static void __init cpu_dev_register_generic(void)
+>   /* Initialization */
+> -#ifdef CONFIG_ACPI_HOTPLUG_CPU
+> +#ifdef CONFIG_ACPI_HOTPLUG_PRESENT_CPU
+>   static int acpi_processor_hotadd_init(struct acpi_processor *pr)
 >   {
->   	int i, ret;
+>   	unsigned long long sta;
+> @@ -227,7 +227,7 @@ static inline int acpi_processor_hotadd_init(struct acpi_processor *pr)
+>   {
+>   	return -ENODEV;
+>   }
+> -#endif /* CONFIG_ACPI_HOTPLUG_CPU */
+> +#endif /* CONFIG_ACPI_HOTPLUG_PRESENT_CPU */
 >   
-> -	if (!IS_ENABLED(CONFIG_GENERIC_CPU_DEVICES))
-> +	if (!IS_ENABLED(CONFIG_GENERIC_CPU_DEVICES) || !acpi_disabled)
->   		return;
+>   static int acpi_processor_get_info(struct acpi_device *device)
+>   {
+> @@ -461,7 +461,7 @@ static int acpi_processor_add(struct acpi_device *device,
+>   	return result;
+>   }
 >   
->   	for_each_present_cpu(i) {
-
-Some comments may be worthy, to explain why we need "!acpi_disabled" here.
+> -#ifdef CONFIG_ACPI_HOTPLUG_CPU
+> +#ifdef CONFIG_ACPI_HOTPLUG_PRESENT_CPU
+>   /* Removal */
+>   static void acpi_processor_remove(struct acpi_device *device)
+>   {
+> @@ -505,7 +505,7 @@ static void acpi_processor_remove(struct acpi_device *device)
+>   	free_cpumask_var(pr->throttling.shared_cpu_map);
+>   	kfree(pr);
+>   }
+> -#endif /* CONFIG_ACPI_HOTPLUG_CPU */
+> +#endif /* CONFIG_ACPI_HOTPLUG_PRESENT_CPU */
+>   
+>   #ifdef CONFIG_ARCH_MIGHT_HAVE_ACPI_PDC
+>   bool __init processor_physically_present(acpi_handle handle)
+> @@ -630,7 +630,7 @@ static const struct acpi_device_id processor_device_ids[] = {
+>   static struct acpi_scan_handler processor_handler = {
+>   	.ids = processor_device_ids,
+>   	.attach = acpi_processor_add,
+> -#ifdef CONFIG_ACPI_HOTPLUG_CPU
+> +#ifdef CONFIG_ACPI_HOTPLUG_PRESENT_CPU
+>   	.detach = acpi_processor_remove,
+>   #endif
+>   	.hotplug = {
+> diff --git a/include/acpi/processor.h b/include/acpi/processor.h
+> index 94181fe9780a..fd6913370c72 100644
+> --- a/include/acpi/processor.h
+> +++ b/include/acpi/processor.h
+> @@ -465,7 +465,7 @@ extern int acpi_processor_ffh_lpi_probe(unsigned int cpu);
+>   extern int acpi_processor_ffh_lpi_enter(struct acpi_lpi_state *lpi);
+>   #endif
+>   
+> -#ifdef CONFIG_ACPI_HOTPLUG_CPU
+> +#ifdef CONFIG_ACPI_HOTPLUG_PRESENT_CPU
+>   extern int arch_register_cpu(int cpu);
+>   extern void arch_unregister_cpu(int cpu);
+>   #endif
+> diff --git a/include/linux/acpi.h b/include/linux/acpi.h
+> index a73246c3c35e..651dd43976a9 100644
+> --- a/include/linux/acpi.h
+> +++ b/include/linux/acpi.h
+> @@ -316,12 +316,12 @@ static inline int acpi_processor_evaluate_cst(acpi_handle handle, u32 cpu,
+>   }
+>   #endif
+>   
+> -#ifdef CONFIG_ACPI_HOTPLUG_CPU
+> +#ifdef CONFIG_ACPI_HOTPLUG_PRESENT_CPU
+>   /* Arch dependent functions for cpu hotplug support */
+>   int acpi_map_cpu(acpi_handle handle, phys_cpuid_t physid, u32 acpi_id,
+>   		 int *pcpu);
+>   int acpi_unmap_cpu(int cpu);
+> -#endif /* CONFIG_ACPI_HOTPLUG_CPU */
+> +#endif /* CONFIG_ACPI_HOTPLUG_PRESENT_CPU */
+>   
+>   #ifdef CONFIG_ACPI_HOTPLUG_IOAPIC
+>   int acpi_get_ioapic_id(acpi_handle handle, u32 gsi_base, u64 *phys_addr);
+> @@ -644,7 +644,7 @@ static inline u32 acpi_osc_ctx_get_cxl_control(struct acpi_osc_context *context)
+>   #define ACPI_GSB_ACCESS_ATTRIB_RAW_PROCESS	0x0000000F
+>   
+>   /* Enable _OST when all relevant hotplug operations are enabled */
+> -#if defined(CONFIG_ACPI_HOTPLUG_CPU) &&			\
+> +#if defined(CONFIG_ACPI_HOTPLUG_PRESENT_CPU) &&			\
+>   	defined(CONFIG_ACPI_HOTPLUG_MEMORY) &&		\
+>   	defined(CONFIG_ACPI_CONTAINER)
+>   #define ACPI_HOTPLUG_OST
 
 Thanks,
 Gavin
