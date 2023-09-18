@@ -4,125 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBF1DC46CA1
-	for <linux-riscv@archiver.kernel.org>; Mon, 18 Sep 2023 04:51:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A92D5CD37B0
+	for <linux-riscv@archiver.kernel.org>; Mon, 18 Sep 2023 05:03:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:References:MIME-Version:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=X/SpXe6UM1md0pUSGjlVZqhElZbyA/lmcoxftERFg8M=; b=H/pfTNoexSiO24
-	ktduIl54eyKUO7Z62xqyWU33BZZIrtrpwKPs+OUOg7SlRJ0hmaMxd62M9RZPS4yol0HOCXddEkudc
-	sL0+cOw7cQCGJBRsrZ+au0ZHi4ZZ2SGRhzR2qezo/cEJqXYp07isvIfC8XHstqhrJxAec3w0Qbn7R
-	TUb4QQDjXJKG+8UPNoSgrkE279MKvU03ME9lUbUVF5jhyFs1RB1CIvIo9KU5SYc2k2EevioqARkZU
-	cc8TMH0pkPuYb1ytfyFGIY9jhNie4+XZIlJEVu+x8u3gGPLhwBKiIwepxWNAPybVi0WQV311pQ/ZO
-	OXfE2LIiV6/OWKbh4HVQ==;
+	List-Owner; bh=x5kQW0zPtTFsSVsa2rXM1aW6QF+fqKP0vlXJTlDZ3O4=; b=OnkjdJfrL/KQJn
+	35T4tt3pYg4I2i5ODEdPQtf0K02ZG+ljDn/YCizQcP06Zx5cQY4dKIRy6k940/rpibZdSHA/7zPnC
+	5UPMyEtX/RJeMf8GZAdMF3RyNbE/B3RKHpyvay/35LGixoJYYcIAVcSM+YzhH3GQIQkhMxDmyc9MB
+	hojuK5p9qhtys6RY5ASAg8pHC6Cy5KDGfRA+V1sFr6g/Ol6caeioJB4JqqROvJbqO1DGziAkou1Cu
+	6dMEXHJmiSMLZIQGnEP6pHUAsNDkH/JC+IJwFvMs5WQRy8c9pV2tTkcjIuEp7ct0ccZfAUpyvSgF8
+	mqNE6B/krVDPR0/JMEcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qi6Ee-00EPBC-1b;
-	Mon, 18 Sep 2023 04:51:48 +0000
-Received: from mailout2.samsung.com ([203.254.224.25])
+	id 1qi6Pi-00EQ3d-1I;
+	Mon, 18 Sep 2023 05:03:14 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qi6EY-00EP9I-0K
+	id 1qi6Pf-00EQ2k-0C
 	for linux-riscv@lists.infradead.org;
-	Mon, 18 Sep 2023 04:51:45 +0000
-Received: from epcas1p4.samsung.com (unknown [182.195.41.48])
-	by mailout2.samsung.com (KnoxPortal) with ESMTP id 20230918045136epoutp02dd887e413628aeabb1b901aeed644826~F5REbJ_Zp2005220052epoutp02V
-	for <linux-riscv@lists.infradead.org>; Mon, 18 Sep 2023 04:51:36 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.samsung.com 20230918045136epoutp02dd887e413628aeabb1b901aeed644826~F5REbJ_Zp2005220052epoutp02V
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1695012696;
-	bh=g5oaDh0Uv1CkUcrELplZoNLFxDnPPigO99UnJx9kJDc=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Pyz4GGSsCkBMoWEU3pBhIGsclF4qse+mWIMXcxOYOf/69lNzHEmc7sso5bjZ7O+1V
-	 K+qDt1TKTsrBEfyUKk2O/CwQviPoqACkm/BnCMOIC+6uLNcFz3UkNq6GnLWt89ynbU
-	 dlAxRxXjzW3hnJuGmrl12d+ckzOt/tD6T5GS7xMg=
-Received: from epsnrtp3.localdomain (unknown [182.195.42.164]) by
-	epcas1p1.samsung.com (KnoxPortal) with ESMTP id
-	20230918045135epcas1p1659ed5fa554b51528dcd6557bab97e38~F5RD91N9H0405204052epcas1p11;
-	Mon, 18 Sep 2023 04:51:35 +0000 (GMT)
-Received: from epsmges1p5.samsung.com (unknown [182.195.38.235]) by
-	epsnrtp3.localdomain (Postfix) with ESMTP id 4Rpsny45h1z4x9Pp; Mon, 18 Sep
-	2023 04:51:34 +0000 (GMT)
-Received: from epcas1p1.samsung.com ( [182.195.41.45]) by
-	epsmges1p5.samsung.com (Symantec Messaging Gateway) with SMTP id
-	A3.84.09567.657D7056; Mon, 18 Sep 2023 13:51:34 +0900 (KST)
-Received: from epsmtrp1.samsung.com (unknown [182.195.40.13]) by
-	epcas1p1.samsung.com (KnoxPortal) with ESMTPA id
-	20230918045134epcas1p1b80b338b66512a976c3783cd0e51da50~F5RCU3sxW0410204102epcas1p1H;
-	Mon, 18 Sep 2023 04:51:34 +0000 (GMT)
-Received: from epsmgms1p2new.samsung.com (unknown [182.195.42.42]) by
-	epsmtrp1.samsung.com (KnoxPortal) with ESMTP id
-	20230918045134epsmtrp1cd3b3cde5ec76d00910563cc24961421~F5RCT_gz71969519695epsmtrp1h;
-	Mon, 18 Sep 2023 04:51:34 +0000 (GMT)
-X-AuditID: b6c32a39-6ffff7000000255f-af-6507d7561ea6
-Received: from epsmtip1.samsung.com ( [182.195.34.30]) by
-	epsmgms1p2new.samsung.com (Symantec Messaging Gateway) with SMTP id
-	C0.94.08788.557D7056; Mon, 18 Sep 2023 13:51:33 +0900 (KST)
-Received: from mediaserver.. (unknown [10.113.111.131]) by
-	epsmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20230918045133epsmtip1ce5b0b263b40cc2b6612f1be498e1f91~F5RB96QLb1742617426epsmtip1h;
-	Mon, 18 Sep 2023 04:51:33 +0000 (GMT)
-From: Kwanghoon Son <k.son@samsung.com>
-To: p.zabel@pengutronix.de, robh+dt@kernel.org,
-	krzysztof.kozlowski+dt@linaro.org, conor+dt@kernel.org, jszhang@kernel.org,
-	guoren@kernel.org, wefu@redhat.com, paul.walmsley@sifive.com,
-	palmer@dabbelt.com, aou@eecs.berkeley.edu, inki.dae@samsung.com
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH v3 1/3] dt-bindings: reset: Document th1520 reset control
-Date: Mon, 18 Sep 2023 04:51:23 +0000
-Message-Id: <20230918045125.4000083-2-k.son@samsung.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20230918045125.4000083-1-k.son@samsung.com>
+	Mon, 18 Sep 2023 05:03:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1695013388;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=hCDoXZnQJiBgGjXOi0ciKhKqeO4OfqPdXpxnEdvp7mI=;
+	b=HK7O0PsyH5oVXvcJAI/R3Mba7UUeTnc9hH4nIBeowIGJnCqUwZStD5+IZSpDVboxMOJ9NA
+	s+Hsx4chuSe2hg9Wv4ZXZvrz9G41hKOIIsA5E625JdtyDQkI+laORX98mSSr/nOuL4CbIo
+	GI0YbGlkI3mlxKPXP+THFm82PsX1taE=
+Received: from mail-pf1-f199.google.com (mail-pf1-f199.google.com
+ [209.85.210.199]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-341-FLhwjZRMOQ2sf1P2g2KLNQ-1; Mon, 18 Sep 2023 01:03:02 -0400
+X-MC-Unique: FLhwjZRMOQ2sf1P2g2KLNQ-1
+Received: by mail-pf1-f199.google.com with SMTP id d2e1a72fcca58-68faf55989cso4085207b3a.3
+        for <linux-riscv@lists.infradead.org>; Sun, 17 Sep 2023 22:03:02 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1695013381; x=1695618181;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=hCDoXZnQJiBgGjXOi0ciKhKqeO4OfqPdXpxnEdvp7mI=;
+        b=R7mYZxRnW16sGwVen9PjsCeCGIrFnPb9DDAf8LFhL5LGTkntb/RslsXzrV7zTv5OWq
+         vmLH1m3zYH47y7q9VBg7ovlMB5N28UY+qF7pa8/OtKWK6uSz77PuKZthWKK1mFsjVUVP
+         RdlrYjWfyLpBBmO6U3Zt3ujFmr174HrhcNUDm0JDrZQthoJx3x9ADYuWlz9X5VLFPhMj
+         aktkVU5v5c0LQV5YkoaPBfBr7duEAmAXYKdSvNyBfNgOg0DSAaA8LFQWZEKY1Mmt70Ev
+         jS21c/vliJ0p84GUEK556zTWozEHOciakQ3VBDr5CG9PrwW/QY8Wj51fTmzM8OsG4jhQ
+         QXbA==
+X-Gm-Message-State: AOJu0YyyR/8qdLZltVazngXHH2FmcO2ku/nkT5nsm50+Xrce1rVtbKhf
+	2flthVjMZIPXJ/+VpVOUQi9IFsHrllsZiJgKyr2MnK+eK+wMYHkZLjFPEGmY0R7wVSssrH5eG36
+	b6zRgQ/47yIgiGUOLH3wqLiFIE9Fi
+X-Received: by 2002:a05:6a00:2344:b0:68e:43ed:d30b with SMTP id j4-20020a056a00234400b0068e43edd30bmr6879607pfj.21.1695013381112;
+        Sun, 17 Sep 2023 22:03:01 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGqmnfE9QFPe9E5tdKFUUF/pg2T2yxaduIzlP4FnKDLuVWyov/hE0tCEtGqZQwTLT17gzDFFw==
+X-Received: by 2002:a05:6a00:2344:b0:68e:43ed:d30b with SMTP id j4-20020a056a00234400b0068e43edd30bmr6879587pfj.21.1695013380748;
+        Sun, 17 Sep 2023 22:03:00 -0700 (PDT)
+Received: from ?IPV6:2001:8003:e5b0:9f00:dbbc:1945:6e65:ec5? ([2001:8003:e5b0:9f00:dbbc:1945:6e65:ec5])
+        by smtp.gmail.com with ESMTPSA id j26-20020aa783da000000b00687a4b70d1esm6322062pfn.218.2023.09.17.22.02.55
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 17 Sep 2023 22:03:00 -0700 (PDT)
+Message-ID: <50571c2f-aa3c-baeb-3add-cd59e0eddc02@redhat.com>
+Date: Mon, 18 Sep 2023 15:02:53 +1000
 MIME-Version: 1.0
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFjrEJsWRmVeSWpSXmKPExsWy7bCmrm7YdfZUg3Uz5S22/p7FbrFm7zkm
-	i/lHzrFavNjbyGIx6f4EFovmY+vZLPpePGS2uLxrDpvFts8tbBZ3751gsXh5uYfZom0Wv0Xr
-	3iPsFi37p7A48Hm8efmSxeNwxxd2j02rOtk87lzbw+axeUm9R/9fA4/3+66yefRtWcXocan5
-	OrvH501yAVxR2TYZqYkpqUUKqXnJ+SmZeem2St7B8c7xpmYGhrqGlhbmSgp5ibmptkouPgG6
-	bpk5QPcrKZQl5pQChQISi4uV9O1sivJLS1IVMvKLS2yVUgtScgpMC/SKE3OLS/PS9fJSS6wM
-	DQyMTIEKE7Izdp/3KXgjUHF9nXUD4xPeLkYODgkBE4l5F1K7GLk4hAR2MEpcO/iDtYuRE8j5
-	xCjxeJ87ROIbo8ThZQ+YQRIgDR2fDrNAJPYyShxZuYwdwnnDKPH0+F0mkCo2AXWJJW1rwRIi
-	Av8ZJd78aQVLMAvES5y4dg5slLCAp8S/Z8fYQWwWAVWJhWdPgNXwClgA3fEHap28xP6DZ8Fs
-	TgFLifO3djJC1AhKnJz5hAViprxE89bZzCDLJAT2cEj8e3oeqtlFYub8DkYIW1ji1fEt7BC2
-	lMTL/jYoO1vi6Me9bBB2icT1WYtYIWxjif1LJzOBAolZQFNi/S59iLCixM7fcxkh9vJJvPva
-	wwoJR16JjjYhCFNe4lZnOUS1qMSZpx+hhntIzO+bAA24HkaJ/z8OMU1gVJiF5JtZSL6ZhbB4
-	ASPzKkax1ILi3PTUYsMCU3j0JufnbmIEJ2Ytyx2M099+0DvEyMTBeIhRgoNZSYR3piFbqhBv
-	SmJlVWpRfnxRaU5q8SFGU2BYT2SWEk3OB+aGvJJ4QxNLAxMzI2MTC0MzQyVx3nNve1OEBNIT
-	S1KzU1MLUotg+pg4OKUamHSZtDh4z+QH6VhMuxm7NVHgxMJzvh0b1ES8/XrYnu4Uvv5wbmf7
-	RsaTs53ixNc6B6yICObm8lHemjtj+mOmpvLzyzg1T1rHXmddJL1eVvac0p0QlV1f4tuWVVgU
-	+R1/4DJzrTVb0ObdQizlx5ZNObvmSV6jUWzX07dXQt5s0P/xMOzy3dyJhlwyR24xRwby3/85
-	ObAh7lqW1w8NnYeN53RY1U9+n3Z55RILK06m9sxdll/v9DRvsp4bscWmZvm+8wuKT78q3D91
-	2zzBPa7dKZFTt1Y29K96NTHMyyE3fNHft8wGcufnfZI6dWpj9Rzh1+sO8jzUtjwffuT2Xw+D
-	52b/emq4FpS0MBrvM8h6p6DEUpyRaKjFXFScCAAuO0bTVQQAAA==
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFvrLLMWRmVeSWpSXmKPExsWy7bCSnG7YdfZUg1fuFlt/z2K3WLP3HJPF
-	/CPnWC1e7G1ksZh0fwKLRfOx9WwWfS8eMltc3jWHzWLb5xY2i7v3TrBYvLzcw2zRNovfonXv
-	EXaLlv1TWBz4PN68fMnicbjjC7vHplWdbB53ru1h89i8pN6j/6+Bx/t9V9k8+rasYvS41Hyd
-	3ePzJrkArigum5TUnMyy1CJ9uwSujN3nfQreCFRcX2fdwPiEt4uRk0NCwESi49Nhli5GLg4h
-	gd2MEifuHWSCSIhKdFxuZOxi5ACyhSUOHy6GqHnFKHH27yxmkBo2AXWJJW1r2UESIgK9TBIf
-	Pi4Ba2YWSJTY8vU1WJGwgKfEv2fH2EFsFgFViYVnT4DV8ApYSFw7+IcZYpm8xP6DZ8FsTgFL
-	ifO3djKC2EJANb0fXjFC1AtKnJz5hAVivrxE89bZzBMYBWYhSc1CklrAyLSKUTK1oDg3PbfY
-	sMAoL7Vcrzgxt7g0L10vOT93EyM4hrS0djDuWfVB7xAjEwfjIUYJDmYlEd6ZhmypQrwpiZVV
-	qUX58UWlOanFhxilOViUxHm/ve5NERJITyxJzU5NLUgtgskycXBKNTBN8Z7PXxPxiPtUnHpF
-	wd7iHMXpoh17ApUW/qtwSDpgIfLnqn/e2dBzP8/3X5+9+Ob7U0dSDc13HtmW9f6Na4yyjvXS
-	3OS8/AUX7QRbNnTu4GI+9/qQT/LW5Jl77z56xqx8ZLfkgdVVS8KinUWqmP7ERauZBd2JrI2a
-	6qchO12hef15Db6ucrMwN84lzAH+636E9xrEXfMr4k//rOqhbKNX/Li6M8j/c6/Uw6zqF3UF
-	/xiNv7CdtOfodHTimH+d6dzGlZdWaX87WxyjN8es8Oa1myXPMpN0LgVdnCJYK6zRUdEy/0mD
-	0HXDvQUvp755pBwndLUtQ+VYTmLywUNOT4NuqS4wXnLvoMX7E2+vNyqxFGckGmoxFxUnAgBC
-	hs+NEAMAAA==
-X-CMS-MailID: 20230918045134epcas1p1b80b338b66512a976c3783cd0e51da50
-X-Msg-Generator: CA
-X-Sendblock-Type: SVC_REQ_APPROVE
-CMS-TYPE: 101P
-DLP-Filter: Pass
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20230918045134epcas1p1b80b338b66512a976c3783cd0e51da50
-References: <20230918045125.4000083-1-k.son@samsung.com>
-	<CGME20230918045134epcas1p1b80b338b66512a976c3783cd0e51da50@epcas1p1.samsung.com>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.12.0
+Subject: Re: [RFC PATCH v2 15/35] ACPI: processor: Add support for processors
+ described as container packages
+To: James Morse <james.morse@arm.com>, linux-pm@vger.kernel.org,
+ loongarch@lists.linux.dev, linux-acpi@vger.kernel.org,
+ linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
+ kvmarm@lists.linux.dev
+Cc: x86@kernel.org, Salil Mehta <salil.mehta@huawei.com>,
+ Russell King <linux@armlinux.org.uk>,
+ Jean-Philippe Brucker <jean-philippe@linaro.org>, jianyong.wu@arm.com,
+ justin.he@arm.com
+References: <20230913163823.7880-1-james.morse@arm.com>
+ <20230913163823.7880-16-james.morse@arm.com>
+From: Gavin Shan <gshan@redhat.com>
+In-Reply-To: <20230913163823.7880-16-james.morse@arm.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230917_215142_618231_D79E866B 
-X-CRM114-Status: GOOD (  16.78  )
+X-CRM114-CacheID: sfid-20230917_220311_177027_8E537A21 
+X-CRM114-Status: GOOD (  25.60  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,88 +105,92 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add documentation to describe th1520 reset device
 
-Signed-off-by: Kwanghoon Son <k.son@samsung.com>
----
- .../bindings/reset/thead,th1520-reset.yaml    | 44 +++++++++++++++++++
- .../dt-bindings/reset/thead,th1520-reset.h    |  9 ++++
- 2 files changed, 53 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/reset/thead,th1520-reset.yaml
- create mode 100644 include/dt-bindings/reset/thead,th1520-reset.h
+On 9/14/23 02:38, James Morse wrote:
+> ACPI has two ways of describing processors in the DSDT. Either as a device
+> object with HID ACPI0007, or as a type 'C' package inside a Processor
+> Container. The ACPI processor driver probes CPUs described as devices, but
+> not those described as packages.
+> 
+> Duplicate descriptions are not allowed, the ACPI processor driver already
+> parses the UID from both devices and containers. acpi_processor_get_info()
+> returns an error if the UID exists twice in the DSDT.
+> 
+> The missing probe for CPUs described as packages creates a problem for
+> moving the cpu_register() calls into the acpi_processor driver, as CPUs
+> described like this don't get registered, leading to errors from other
+> subsystems when they try to add new sysfs entries to the CPU node.
+> (e.g. topology_sysfs_init()'s use of topology_add_dev() via cpuhp)
+> 
+> To fix this, parse the processor container and call acpi_processor_add()
+> for each processor that is discovered like this. The processor container
+> handler is added with acpi_scan_add_handler(), so no detach call will
+> arrive.
+> 
+> Qemu TCG describes CPUs using packages in a processor container.
+> 
+> Signed-off-by: James Morse <james.morse@arm.com>
+> ---
+>   drivers/acpi/acpi_processor.c | 22 ++++++++++++++++++++++
+>   1 file changed, 22 insertions(+)
+> 
 
-diff --git a/Documentation/devicetree/bindings/reset/thead,th1520-reset.yaml b/Documentation/devicetree/bindings/reset/thead,th1520-reset.yaml
-new file mode 100644
-index 000000000000..49ea8c6a331f
---- /dev/null
-+++ b/Documentation/devicetree/bindings/reset/thead,th1520-reset.yaml
-@@ -0,0 +1,44 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/reset/thead,th1520-reset.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: T-HEAD th1520 SoC Reset Controller
-+
-+maintainers:
-+  - Kwanghoon Son <k.son@samsung.com>
-+
-+properties:
-+  compatible:
-+    items:
-+      - const: thead,th1520-reset
-+      - const: syscon
-+
-+  reg:
-+    maxItems: 1
-+
-+  '#reset-cells':
-+    const: 1
-+
-+required:
-+  - compatible
-+  - reg
-+  - '#reset-cells'
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/reset/thead,th1520-reset.h>
-+
-+    soc {
-+        #address-cells = <2>;
-+        #size-cells = <2>;
-+
-+        reset-controller@ffef014000 {
-+            compatible = "thead,th1520-reset", "syscon";
-+            reg = <0xff 0xef014000 0x0 0x1000>;
-+            #reset-cells = <1>;
-+        };
-+    };
-diff --git a/include/dt-bindings/reset/thead,th1520-reset.h b/include/dt-bindings/reset/thead,th1520-reset.h
-new file mode 100644
-index 000000000000..ec10751814e5
---- /dev/null
-+++ b/include/dt-bindings/reset/thead,th1520-reset.h
-@@ -0,0 +1,9 @@
-+/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
-+
-+#ifndef DT_BINDING_RESET_TH1520_H
-+#define DT_BINDING_RESET_TH1520_H
-+
-+#define TH1520_RESET_WDT0 0
-+#define TH1520_RESET_WDT1 1
-+
-+#endif
--- 
-2.34.1
+I don't understand the last sentence of the commit log. QEMU
+always have "ACPI0007" for the processor devices.
+
+#define ACPI_PROCESSOR_DEVICE_HID      "ACPI0007"
+#define ACPI_PROCESSOR_OBJECT_HID      "LNXCPU"
+
+[gshan@gshan q]$ git grep ACPI0007
+hw/acpi/cpu.c:                aml_append(dev, aml_name_decl("_HID", aml_string("ACPI0007")));
+hw/arm/virt-acpi-build.c:        aml_append(dev, aml_name_decl("_HID", aml_string("ACPI0007")));
+hw/riscv/virt-acpi-build.c:            aml_append(dev, aml_name_decl("_HID", aml_string("ACPI0007")));
+[gshan@gshan q]$ git grep LNXCPU
+
+> diff --git a/drivers/acpi/acpi_processor.c b/drivers/acpi/acpi_processor.c
+> index c0839bcf78c1..b4bde78121bb 100644
+> --- a/drivers/acpi/acpi_processor.c
+> +++ b/drivers/acpi/acpi_processor.c
+> @@ -625,9 +625,31 @@ static struct acpi_scan_handler processor_handler = {
+>   	},
+>   };
+>   
+> +static acpi_status acpi_processor_container_walk(acpi_handle handle,
+> +						 u32 lvl,
+> +						 void *context,
+> +						 void **rv)
+> +{
+> +	struct acpi_device *adev;
+> +	acpi_status status;
+> +
+> +	adev = acpi_get_acpi_dev(handle);
+> +	if (!adev)
+> +		return AE_ERROR;
+> +
+> +	status = acpi_processor_add(adev, &processor_device_ids[0]);
+> +	acpi_put_acpi_dev(adev);
+> +
+> +	return status;
+> +}
+> +
+>   static int acpi_processor_container_attach(struct acpi_device *dev,
+>   					   const struct acpi_device_id *id)
+>   {
+> +	acpi_walk_namespace(ACPI_TYPE_PROCESSOR, dev->handle,
+> +			    ACPI_UINT32_MAX, acpi_processor_container_walk,
+> +			    NULL, NULL, NULL);
+> +
+>   	return 1;
+>   }
+>   
+
+Thanks,
+Gavin
 
 
 _______________________________________________
