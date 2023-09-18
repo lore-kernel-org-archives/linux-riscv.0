@@ -4,76 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 235B9C46CA1
-	for <linux-riscv@archiver.kernel.org>; Mon, 18 Sep 2023 12:53:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5620DCD37B0
+	for <linux-riscv@archiver.kernel.org>; Mon, 18 Sep 2023 12:59:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8sg7ftrtcD1EB+rITHSM77uLhRZ/3KIxmoBmiUP5OTI=; b=Jj2piKitlb57BJNFziuSnbGU7v
-	HC1dswlW5+wy3MZypBDQsx6o0CO8GFd5i6c9L3EdKd9rP1Rrq7bXT4PBgB//DMSfbaloeOhyJEh9M
-	WEckYN7VHWKZaTDGFtJodjdYIzfl6gdNlqeHxoB1voFCTmCBUmXImH4qHUygd1igxaw9oThSDdhkz
-	1g0Emis6JThDIPTV9XgQ1jp7p1HjJh6Xe8i371JLcXeEm0ij14uftLpdrKqnHm1hibovMUOtUEXxc
-	DfXWIAbZjDWoE4/vqeumpFPN70pOu/eGimkwRV46jCDZ77wVqIZEj8AfNC0eckYl7BrOqkHSJVbEd
-	RESDVGKg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
+	Message-ID:From:References:Cc:To:Subject:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=hRceB5lPgUCj0Dx76pF+pLYcFuvWsVM9pXZe5ZKtRwc=; b=lpkisGtP9ef+wovOA/CdGclxko
+	H1URX2aGiNBMa8S5WkEoU6jud1GQLSiO8LyKcoPrpo+2lMs+T/YgV27bNfgsP3kKmd8Q731+geZpY
+	dmgUXXjSYHfKOIc7qm4d6X1ekOXGjoiDvWCbw2lP86aHH2ouoV/3IA8e7+ofluCv9ZoZa6+BttKym
+	JHPEoSHeP1pxjSddVRoUWHdtOnVhsU1iAi5IZ1EhQt+WZVVyrvhgYe6tCu00MEiyGSaktJTa6Kcxj
+	yfnq6uY3Fq58OEC/nC9IK5nXYQyJ14K3ACHk+LVk1JPi7cLlYFcCELH+/B6d0fTvE+7sZaMJfZ49n
+	t04oGYxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qiDl3-00FTHa-23;
-	Mon, 18 Sep 2023 12:53:45 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1qiDqI-00FU0z-2p;
+	Mon, 18 Sep 2023 12:59:10 +0000
+Received: from [45.249.212.51] (helo=dggsgout11.his.huawei.com)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qiDkz-00FTGz-0f
-	for linux-riscv@lists.infradead.org;
-	Mon, 18 Sep 2023 12:53:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1695041621; x=1726577621;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=AgeuhM5mFwcMMECK8wJlIRxhS3GYSuQUFHTrOyyDThM=;
-  b=mYYRlWQAt5ql/AX+XnNHSAfXENvyerkorCrWHFjiPzqnMwCiGnT50UqQ
-   hIRwPf8Zi6UYopi/Kwb3olqplsgQizohmiJWk/x8bEH3loPecuOtopsWd
-   ta77oR035OcyP3umVVtRuJy1e3gsBVyHz9zHsTuLLODlo4oxD7HjNCepB
-   bplm8tpf3E3r7KMyzSIdaNybwtCqJikve3qLNbECJ68KshGzS0UJB1RiP
-   iPYcK2bk3HyKZkkhyoDvWX6igac1iW6zVQ9hWwwIluAqAimQiK188M5ey
-   u88GVsPQW4jwTFoawLj3Sv2iKdbABaSd+eKJ0yeaR5Q6EcTsaqpLOed43
-   Q==;
-X-CSE-ConnectionGUID: jK+nVR2nQ4WzZmMpcAzzfw==
-X-CSE-MsgGUID: IsmlXUQvT1iYP6FIUritTQ==
-X-ThreatScanner-Verdict: Negative
-X-IronPort-AV: E=Sophos;i="6.02,156,1688454000"; 
-   d="asc'?scan'208";a="172211731"
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 18 Sep 2023 05:53:32 -0700
-Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Mon, 18 Sep 2023 05:53:32 -0700
-Received: from wendy (10.10.85.11) by chn-vm-ex03.mchp-main.com (10.10.85.151)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
- Transport; Mon, 18 Sep 2023 05:53:30 -0700
-Date: Mon, 18 Sep 2023 13:53:13 +0100
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Yu Chien Peter Lin <peterlin@andestech.com>
-CC: <paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
-	<david@redhat.com>, <akpm@linux-foundation.org>, <alexghiti@rivosinc.com>,
-	<bjorn@rivosinc.com>, <linux-riscv@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <ycliang@andestech.com>
-Subject: Re: [PATCH v2 1/3] riscv: Improve PTDUMP to show RSW with non-zero
- value
-Message-ID: <20230918-cassette-exclusion-b2ce53745a5c@wendy>
-References: <20230914014027.273002-1-peterlin@andestech.com>
+	id 1qiDqD-00FTxp-1J;
+	Mon, 18 Sep 2023 12:59:08 +0000
+Received: from mail02.huawei.com (unknown [172.30.67.143])
+	by dggsgout11.his.huawei.com (SkyGuard) with ESMTP id 4Rq4cL5Vhcz4f3kL1;
+	Mon, 18 Sep 2023 20:58:58 +0800 (CST)
+Received: from [10.174.178.55] (unknown [10.174.178.55])
+	by APP4 (Coremail) with SMTP id gCh0CgD3gtKRSQhloRYiAw--.63961S3;
+	Mon, 18 Sep 2023 20:58:59 +0800 (CST)
+Subject: Re: [PATCH v3 5/9] crash_core: move crashk_*res definition into
+ crash_core.c
+To: Baoquan He <bhe@redhat.com>, linux-kernel@vger.kernel.org
+Cc: akpm@linux-foundation.org, thunder.leizhen@huawei.com,
+ catalin.marinas@arm.com, chenjiahao16@huawei.com, kexec@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
+ x86@kernel.org
+References: <20230914033142.676708-1-bhe@redhat.com>
+ <20230914033142.676708-6-bhe@redhat.com>
+From: "Leizhen (ThunderTown)" <thunder.leizhen@huaweicloud.com>
+Message-ID: <69346bd7-1dc6-8202-f5d1-dbcf4ccac096@huaweicloud.com>
+Date: Mon, 18 Sep 2023 20:58:57 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:60.0) Gecko/20100101
+ Thunderbird/60.7.0
 MIME-Version: 1.0
-In-Reply-To: <20230914014027.273002-1-peterlin@andestech.com>
+In-Reply-To: <20230914033142.676708-6-bhe@redhat.com>
+Content-Language: en-US
+X-CM-TRANSID: gCh0CgD3gtKRSQhloRYiAw--.63961S3
+X-Coremail-Antispam: 1UD129KBjvJXoWxCryDAryxtr1xJryfuryfWFg_yoWrWFWUpF
+	n3Ca1UCayUGF1DWrsxCr92yayFqw4FkFyI9rZrJr1rAa43tr1vgw4DWr12vF1qkFW5KFya
+	qrWrur9Fk3yDXrJanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUvab4IE77IF4wAFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k2
+	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
+	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xIIjxv20xvEc7Cj
+	xVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x
+	0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG
+	6I80ewAv7VC0I7IYx2IY67AKxVWUGVWUXwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFV
+	Cjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7Mxk0xIA0c2IE
+	e2xFo4CEbIxvr21l42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxV
+	Aqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q
+	6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6x
+	kF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWrJr0_WFyUJwCI42IY6I8E87Iv
+	67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyT
+	uYvjxUOyCJDUUUU
+X-CM-SenderInfo: hwkx0vthuozvpl2kv046kxt4xhlfz01xgou0bp/
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230918_055341_509111_2105C2CF 
-X-CRM114-Status: UNSURE (   9.84  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230918_055905_897972_7DE8451A 
+X-CRM114-Status: GOOD (  19.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,58 +83,137 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6973988237484273067=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============6973988237484273067==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="KvF02Mytm4H6tWzO"
-Content-Disposition: inline
 
---KvF02Mytm4H6tWzO
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
 
-On Thu, Sep 14, 2023 at 09:40:25AM +0800, Yu Chien Peter Lin wrote:
+On 2023/9/14 11:31, Baoquan He wrote:
+> Both crashk_res and crashk_low_res are used to mark the reserved
+> crashkernel regions in iomem_resource tree. And later the generic
+> crashkernel resrvation will be added into crash_core.c. So move
+> crashk_res and crashk_low_res definition into crash_core.c to avoid
+> compiling error if CONFIG_CRASH_CORE=on while CONFIG_KEXEC_CORE is
+> unset.
+> 
+> Meanwhile include <asm/crash_core.h> in <linux/crash_core.h> if generic
+> reservation is needed. In that case, <asm/crash_core.h> need be added
+> by ARCH. In asm/crash_core.h, ARCH can provide its own macro definitions
+> to override macros in <linux/crash_core.h> if needed. Wrap the including
+> into CONFIG_ARCH_HAS_GENERIC_CRASHKERNEL_RESERVATION ifdeffery scope to
+> avoid compiling error in other ARCH-es which don't take the generic
+> reservation way yet.
 
-> +		val = st->current_prot & pte_bits[i].mask;
-> +		if (val) {
-> +			if (pte_bits[i].mask == _PAGE_SOFT)
-> +				sprintf(s, pte_bits[i].set, val >> 8);
-> +			else
-> +				sprintf(s, "%s", pte_bits[i].set);
-> +		} else
-> +			sprintf(s, "%s", pte_bits[i].clear);
+Reviewed-by: Zhen Lei <thunder.leizhen@huawei.com>
+
+> 
+> Signed-off-by: Baoquan He <bhe@redhat.com>
+> ---
+>  include/linux/crash_core.h |  8 ++++++++
+>  include/linux/kexec.h      |  4 ----
+>  kernel/crash_core.c        | 16 ++++++++++++++++
+>  kernel/kexec_core.c        | 17 -----------------
+>  4 files changed, 24 insertions(+), 21 deletions(-)
+> 
+> diff --git a/include/linux/crash_core.h b/include/linux/crash_core.h
+> index 4dbd6565e0ff..3c735a7e33fb 100644
+> --- a/include/linux/crash_core.h
+> +++ b/include/linux/crash_core.h
+> @@ -5,6 +5,14 @@
+>  #include <linux/linkage.h>
+>  #include <linux/elfcore.h>
+>  #include <linux/elf.h>
+> +#ifdef CONFIG_ARCH_HAS_GENERIC_CRASHKERNEL_RESERVATION
+> +#include <asm/crash_core.h>
+> +#endif
 > +
+> +/* Location of a reserved region to hold the crash kernel.
+> + */
+> +extern struct resource crashk_res;
+> +extern struct resource crashk_low_res;
+>  
+>  #define CRASH_CORE_NOTE_NAME	   "CORE"
+>  #define CRASH_CORE_NOTE_HEAD_BYTES ALIGN(sizeof(struct elf_note), 4)
+> diff --git a/include/linux/kexec.h b/include/linux/kexec.h
+> index 32c78078552c..8227455192b7 100644
+> --- a/include/linux/kexec.h
+> +++ b/include/linux/kexec.h
+> @@ -22,10 +22,6 @@
+>  #include <uapi/linux/kexec.h>
+>  #include <linux/verification.h>
+>  
+> -/* Location of a reserved region to hold the crash kernel.
+> - */
+> -extern struct resource crashk_res;
+> -extern struct resource crashk_low_res;
+>  extern note_buf_t __percpu *crash_notes;
+>  
+>  #ifdef CONFIG_KEXEC_CORE
+> diff --git a/kernel/crash_core.c b/kernel/crash_core.c
+> index ca66b5f41dc7..ad7dc03f3993 100644
+> --- a/kernel/crash_core.c
+> +++ b/kernel/crash_core.c
+> @@ -35,6 +35,22 @@ u32 *vmcoreinfo_note;
+>  /* trusted vmcoreinfo, e.g. we can make a copy in the crash memory */
+>  static unsigned char *vmcoreinfo_data_safecopy;
+>  
+> +/* Location of the reserved area for the crash kernel */
+> +struct resource crashk_res = {
+> +	.name  = "Crash kernel",
+> +	.start = 0,
+> +	.end   = 0,
+> +	.flags = IORESOURCE_BUSY | IORESOURCE_SYSTEM_RAM,
+> +	.desc  = IORES_DESC_CRASH_KERNEL
+> +};
+> +struct resource crashk_low_res = {
+> +	.name  = "Crash kernel",
+> +	.start = 0,
+> +	.end   = 0,
+> +	.flags = IORESOURCE_BUSY | IORESOURCE_SYSTEM_RAM,
+> +	.desc  = IORES_DESC_CRASH_KERNEL
+> +};
+> +
+>  /*
+>   * parsing the "crashkernel" commandline
+>   *
+> diff --git a/kernel/kexec_core.c b/kernel/kexec_core.c
+> index 9dc728982d79..be5642a4ec49 100644
+> --- a/kernel/kexec_core.c
+> +++ b/kernel/kexec_core.c
+> @@ -52,23 +52,6 @@ atomic_t __kexec_lock = ATOMIC_INIT(0);
+>  /* Flag to indicate we are going to kexec a new kernel */
+>  bool kexec_in_progress = false;
+>  
+> -
+> -/* Location of the reserved area for the crash kernel */
+> -struct resource crashk_res = {
+> -	.name  = "Crash kernel",
+> -	.start = 0,
+> -	.end   = 0,
+> -	.flags = IORESOURCE_BUSY | IORESOURCE_SYSTEM_RAM,
+> -	.desc  = IORES_DESC_CRASH_KERNEL
+> -};
+> -struct resource crashk_low_res = {
+> -	.name  = "Crash kernel",
+> -	.start = 0,
+> -	.end   = 0,
+> -	.flags = IORESOURCE_BUSY | IORESOURCE_SYSTEM_RAM,
+> -	.desc  = IORES_DESC_CRASH_KERNEL
+> -};
+> -
+>  int kexec_should_crash(struct task_struct *p)
+>  {
+>  	/*
+> 
 
-just a nit, but checkpatch in the automation is whinging that you have
-forgotten to add {} around both branches if this if statement.
+-- 
+Regards,
+  Zhen Lei
 
---KvF02Mytm4H6tWzO
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZQhIOQAKCRB4tDGHoIJi
-0tKoAP48Ts2kKoZnvEilgWMNNrGpn0bLVHjbJMaW8cCYEiYjUwEAo0VTnfi6Wo9O
-wMNL4/Pv5uXtN6D5qqiXcogp6SzxIg0=
-=xIw+
------END PGP SIGNATURE-----
-
---KvF02Mytm4H6tWzO--
-
-
---===============6973988237484273067==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============6973988237484273067==--
-
