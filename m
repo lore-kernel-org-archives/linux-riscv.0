@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88DF5C46CA1
-	for <linux-riscv@archiver.kernel.org>; Mon, 18 Sep 2023 07:31:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C73CC46CA1
+	for <linux-riscv@archiver.kernel.org>; Mon, 18 Sep 2023 07:31:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KGAPCkUSN4tdHfaW4tH/9mMzNzVGrrPNtnDx6wInS9A=; b=39pJHQvXMVsjn+
-	xWVm1OTBesCbr79uSULg2SsdzEDciabvwv9hoOfjQ6hFwnR57f9v6chvveAN1gjUVwQwl3eliqof3
-	5gH7waCEZUhloEp3lIXtzlQch8CzFxrOHJ+n/UtkiYuVOBQYxmKR+mzwNtcvZbxlpMB+Qt49drjk2
-	iE9ujtnhTe7gxaFX4nYYp0lFlbRI/eZVqDIQCKrHzjlPq2LAivVdrwhnp9+ELNqWit2KNPkhdioIH
-	Jo461kHPRBXIfcu6c1BbR4i5Wvgf8zt6Sdr89+a4UIdmKUn6u+j8ef4P/sDh8mcPUE6LGdv0MbdWt
-	NH9zYM1dFPdlDHNCMQew==;
+	List-Owner; bh=Xgj3lJ3qdIbLMtrMo0QTmJa6Np+IB/KByt9HzDe/J/g=; b=aG3BIF2juhHjyI
+	ASIkoIMC2XesxewEI+PLJZZ2opWTgq/DZ4b1rEA1lQuNp9D8lkTa+GCNsouYUbJFLxeL1eYSfyui0
+	1R5Wo0OJPdN788TI5MrzPjg9lFyyhgKmxy2wDvMIe6xzZJQojqUAxDBQ4sDOBAO0ZRAUoS1lLXkSQ
+	5XCMAdC5s1NPefsuDn5A5qgAEi8tTgH3jrNqTV5QKWWf4UQ+9EDkt0uGpEjkolSWMCJv4DYlVQBNr
+	sA7l7D4g0IK0AyRu4HvzChCsCLPdpY78i96LDYhobVX3mRZ5KmjCtZbX7imFtMlDphmoXrhjTuK+F
+	4tzBAWvO3cl4375hUDcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qi8iq-00EhUY-0a;
-	Mon, 18 Sep 2023 07:31:08 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1qi8j2-00Ehfv-2m;
+	Mon, 18 Sep 2023 07:31:20 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qi8im-00EhR0-2V;
-	Mon, 18 Sep 2023 07:31:06 +0000
+	id 1qi8iy-00Eha0-2v;
+	Mon, 18 Sep 2023 07:31:18 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 44E2A60E15;
-	Mon, 18 Sep 2023 07:31:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 68ED7C433C8;
-	Mon, 18 Sep 2023 07:30:54 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTPS id 03A47CE0C47;
+	Mon, 18 Sep 2023 07:31:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2285FC433AD;
+	Mon, 18 Sep 2023 07:31:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1695022263;
-	bh=mbiiTE+Ax/Si/BZxcJVEdVXi15nThNmQlUqiyILb0zo=;
+	s=k20201202; t=1695022273;
+	bh=GrzrJESS7vx7QyV0O3w+oX12p1W5MbqUcsXcqyR+rMA=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=ojfgNgsup07S+iaZErkHdPn6pFXvUxpfd0rqcJ0g/fFjdgDTdp5RCwZChtRwqs+hU
-	 358zdLhiRZXyw3aIFuKwPq3ciyzug59B+euqQg31hDJF2IYAsE+6D264chrRpy0JCv
-	 lIJDaEg0ezBhP+IOLDXi95uXUolbh37QjiMgyCp6vToq0/niAQX3TSUJ4+A3chXFuR
-	 Fz6pQnaNxbhFzVVMJL+/JI6h0Va38Wr9Y8Zzq0rWzkuGOl0+j0c7QpIR3g6g0WJ4vh
-	 Na6tomyrzTQLlYxetqXYeBzvBjSJ3J7TMO8PQeFVdg4iyOutejtYTgrDjMGzC7l/J1
-	 0uZomhqve3rWw==
+	b=L26X5Mym5jbDCDCi9pBttJiCUmGDJK7QCrrwON0wsqLsaMRtQtziMfk+8vmq102wK
+	 apB9eMngz4FDoZOnyfOnpxsYAYV+s6z6uy/A7GUFANPsDrtCidzVD8sw9PZ9EeZeSS
+	 BBZbnyT3UkLAeKFTSJ+WQXJ44CEr3Yz7/npPDOeCiIyuKPQdJ6wFULwDSI42C+21i2
+	 TtK4M26N760ml2Bd8ec+c+dtMjxHoi8aQYpVD0iQ48GL/MfHLj1xfBm+sXCRSzVgn2
+	 IlOo26svfqfJVEKxvnTHvne8XyU+XB4i1UAyBnP2cTSXuXl9ONzyCPVFbHoWx7LKOg
+	 fqTz/6KsDW2hQ==
 From: Mike Rapoport <rppt@kernel.org>
 To: linux-kernel@vger.kernel.org
 Cc: Andrew Morton <akpm@linux-foundation.org>,
@@ -85,16 +85,16 @@ Cc: Andrew Morton <akpm@linux-foundation.org>,
 	netdev@vger.kernel.org,
 	sparclinux@vger.kernel.org,
 	x86@kernel.org
-Subject: [PATCH v3 05/13] modules, execmem: drop module_alloc
-Date: Mon, 18 Sep 2023 10:29:47 +0300
-Message-Id: <20230918072955.2507221-6-rppt@kernel.org>
+Subject: [PATCH v3 06/13] mm/execmem: introduce execmem_data_alloc()
+Date: Mon, 18 Sep 2023 10:29:48 +0300
+Message-Id: <20230918072955.2507221-7-rppt@kernel.org>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20230918072955.2507221-1-rppt@kernel.org>
 References: <20230918072955.2507221-1-rppt@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230918_003104_933486_781FBF5A 
-X-CRM114-Status: GOOD (  18.32  )
+X-CRM114-CacheID: sfid-20230918_003117_326770_2C6F0FB1 
+X-CRM114-Status: GOOD (  21.86  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,119 +113,185 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: "Mike Rapoport (IBM)" <rppt@kernel.org>
 
-Define default parameters for address range for code allocations using
-the current values in module_alloc() and make execmem_text_alloc() use
-these defaults when an architecture does not supply its specific
-parameters.
+Data related to code allocations, such as module data section, need to
+comply with architecture constraints for its placement and its
+allocation right now was done using execmem_text_alloc().
 
-With this, execmem_text_alloc() implements memory allocation in a way
-compatible with module_alloc() and can be used as a replacement for
-module_alloc().
+Create a dedicated API for allocating data related to code allocations
+and allow architectures to define address ranges for data allocations.
+
+Since currently this is only relevant for powerpc variants that use the
+VMALLOC address space for module data allocations, automatically reuse
+address ranges defined for text unless address range for data is
+explicitly defined by an architecture.
+
+With separation of code and data allocations, data sections of the
+modules are now mapped as PAGE_KERNEL rather than PAGE_KERNEL_EXEC which
+was a default on many architectures.
 
 Signed-off-by: Mike Rapoport (IBM) <rppt@kernel.org>
 ---
- include/linux/execmem.h      |  8 ++++++++
- include/linux/moduleloader.h | 12 ------------
- kernel/module/main.c         |  7 -------
- mm/execmem.c                 | 12 ++++++++----
- 4 files changed, 16 insertions(+), 23 deletions(-)
+ arch/powerpc/kernel/module.c | 12 ++++++++++++
+ include/linux/execmem.h      | 19 +++++++++++++++++++
+ kernel/module/main.c         | 15 +++------------
+ mm/execmem.c                 | 17 ++++++++++++++++-
+ 4 files changed, 50 insertions(+), 13 deletions(-)
 
+diff --git a/arch/powerpc/kernel/module.c b/arch/powerpc/kernel/module.c
+index f4dd26f693a3..824d9541a310 100644
+--- a/arch/powerpc/kernel/module.c
++++ b/arch/powerpc/kernel/module.c
+@@ -95,6 +95,9 @@ static struct execmem_params execmem_params __ro_after_init = {
+ 		[EXECMEM_DEFAULT] = {
+ 			.alignment = 1,
+ 		},
++		[EXECMEM_MODULE_DATA] = {
++			.alignment = 1,
++		},
+ 	},
+ };
+ 
+@@ -103,7 +106,12 @@ struct execmem_params __init *execmem_arch_params(void)
+ 	pgprot_t prot = strict_module_rwx_enabled() ? PAGE_KERNEL : PAGE_KERNEL_EXEC;
+ 	struct execmem_range *range = &execmem_params.ranges[EXECMEM_DEFAULT];
+ 
++	/*
++	 * BOOK3S_32 and 8xx define MODULES_VADDR for text allocations and
++	 * allow allocating data in the entire vmalloc space
++	 */
+ #ifdef MODULES_VADDR
++	struct execmem_range *data = &execmem_params.ranges[EXECMEM_MODULE_DATA];
+ 	unsigned long limit = (unsigned long)_etext - SZ_32M;
+ 
+ 	/* First try within 32M limit from _etext to avoid branch trampolines */
+@@ -116,6 +124,10 @@ struct execmem_params __init *execmem_arch_params(void)
+ 		range->start = MODULES_VADDR;
+ 		range->end = MODULES_END;
+ 	}
++	data->start = VMALLOC_START;
++	data->end = VMALLOC_END;
++	data->pgprot = PAGE_KERNEL;
++	data->alignment = 1;
+ #else
+ 	range->start = VMALLOC_START;
+ 	range->end = VMALLOC_END;
 diff --git a/include/linux/execmem.h b/include/linux/execmem.h
-index 806ad1a0088d..519bdfdca595 100644
+index 519bdfdca595..09d45ac786e9 100644
 --- a/include/linux/execmem.h
 +++ b/include/linux/execmem.h
-@@ -4,6 +4,14 @@
+@@ -29,6 +29,7 @@
+  * @EXECMEM_KPROBES: parameters for kprobes
+  * @EXECMEM_FTRACE: parameters for ftrace
+  * @EXECMEM_BPF: parameters for BPF
++ * @EXECMEM_MODULE_DATA: parameters for module data sections
+  * @EXECMEM_TYPE_MAX:
+  */
+ enum execmem_type {
+@@ -37,6 +38,7 @@ enum execmem_type {
+ 	EXECMEM_KPROBES,
+ 	EXECMEM_FTRACE,
+ 	EXECMEM_BPF,
++	EXECMEM_MODULE_DATA,
+ 	EXECMEM_TYPE_MAX,
+ };
  
- #include <linux/types.h>
+@@ -107,6 +109,23 @@ struct execmem_params *execmem_arch_params(void);
+  */
+ void *execmem_text_alloc(enum execmem_type type, size_t size);
  
-+#if (defined(CONFIG_KASAN_GENERIC) || defined(CONFIG_KASAN_SW_TAGS)) && \
-+		!defined(CONFIG_KASAN_VMALLOC)
-+#include <linux/kasan.h>
-+#define MODULE_ALIGN (PAGE_SIZE << KASAN_SHADOW_SCALE_SHIFT)
-+#else
-+#define MODULE_ALIGN PAGE_SIZE
-+#endif
++/**
++ * execmem_data_alloc - allocate memory for data coupled to code
++ * @type: type of the allocation
++ * @size: how many bytes of memory are required
++ *
++ * Allocates memory that will contain data coupled with executable code,
++ * like data sections in kernel modules.
++ *
++ * The memory will have protections defined by architecture.
++ *
++ * The allocated memory will reside in an area that does not impose
++ * restrictions on the addressing modes.
++ *
++ * Return: a pointer to the allocated memory or %NULL
++ */
++void *execmem_data_alloc(enum execmem_type type, size_t size);
 +
  /**
-  * enum execmem_type - types of executable memory ranges
-  *
-diff --git a/include/linux/moduleloader.h b/include/linux/moduleloader.h
-index a23718aa2f4d..8c81f389117d 100644
---- a/include/linux/moduleloader.h
-+++ b/include/linux/moduleloader.h
-@@ -25,10 +25,6 @@ int module_frob_arch_sections(Elf_Ehdr *hdr,
- /* Additional bytes needed by arch in front of individual sections */
- unsigned int arch_mod_section_prepend(struct module *mod, unsigned int section);
- 
--/* Allocator used for allocating struct module, core sections and init
--   sections.  Returns NULL on failure. */
--void *module_alloc(unsigned long size);
--
- /* Determines if the section name is an init section (that is only used during
-  * module loading).
-  */
-@@ -118,12 +114,4 @@ void module_arch_cleanup(struct module *mod);
- /* Any cleanup before freeing mod->module_init */
- void module_arch_freeing_init(struct module *mod);
- 
--#if (defined(CONFIG_KASAN_GENERIC) || defined(CONFIG_KASAN_SW_TAGS)) && \
--		!defined(CONFIG_KASAN_VMALLOC)
--#include <linux/kasan.h>
--#define MODULE_ALIGN (PAGE_SIZE << KASAN_SHADOW_SCALE_SHIFT)
--#else
--#define MODULE_ALIGN PAGE_SIZE
--#endif
--
- #endif
+  * execmem_free - free executable memory
+  * @ptr: pointer to the memory that should be freed
 diff --git a/kernel/module/main.c b/kernel/module/main.c
-index 4ec982cc943c..c4146bfcd0a7 100644
+index c4146bfcd0a7..2ae83a6abf66 100644
 --- a/kernel/module/main.c
 +++ b/kernel/module/main.c
-@@ -1601,13 +1601,6 @@ static void free_modinfo(struct module *mod)
- 	}
+@@ -1188,25 +1188,16 @@ void __weak module_arch_freeing_init(struct module *mod)
+ {
  }
  
--void * __weak module_alloc(unsigned long size)
+-static bool mod_mem_use_vmalloc(enum mod_mem_type type)
 -{
--	return __vmalloc_node_range(size, 1, VMALLOC_START, VMALLOC_END,
--			GFP_KERNEL, PAGE_KERNEL_EXEC, VM_FLUSH_RESET_PERMS,
--			NUMA_NO_NODE, __builtin_return_address(0));
+-	return IS_ENABLED(CONFIG_ARCH_WANTS_MODULES_DATA_IN_VMALLOC) &&
+-		mod_mem_type_is_core_data(type);
 -}
 -
- bool __weak module_init_section(const char *name)
+ static void *module_memory_alloc(unsigned int size, enum mod_mem_type type)
  {
- 	return strstarts(name, ".init");
+-	if (mod_mem_use_vmalloc(type))
+-		return vzalloc(size);
++	if (mod_mem_type_is_data(type))
++		return execmem_data_alloc(EXECMEM_MODULE_DATA, size);
+ 	return execmem_text_alloc(EXECMEM_MODULE_TEXT, size);
+ }
+ 
+ static void module_memory_free(void *ptr, enum mod_mem_type type)
+ {
+-	if (mod_mem_use_vmalloc(type))
+-		vfree(ptr);
+-	else
+-		execmem_free(ptr);
++	execmem_free(ptr);
+ }
+ 
+ static void free_mod_mem(struct module *mod)
 diff --git a/mm/execmem.c b/mm/execmem.c
-index a8c2f44d0133..abcbd07e05ac 100644
+index abcbd07e05ac..aeff85261360 100644
 --- a/mm/execmem.c
 +++ b/mm/execmem.c
-@@ -55,9 +55,6 @@ static void *execmem_alloc(size_t size, struct execmem_range *range)
+@@ -53,11 +53,23 @@ static void *execmem_alloc(size_t size, struct execmem_range *range)
+ 	return kasan_reset_tag(p);
+ }
  
++static inline bool execmem_range_is_data(enum execmem_type type)
++{
++	return type == EXECMEM_MODULE_DATA;
++}
++
  void *execmem_text_alloc(enum execmem_type type, size_t size)
  {
--	if (!execmem_params.ranges[type].start)
--		return module_alloc(size);
--
  	return execmem_alloc(size, &execmem_params.ranges[type]);
  }
  
-@@ -111,8 +108,15 @@ void __init execmem_init(void)
- {
- 	struct execmem_params *p = execmem_arch_params();
- 
--	if (!p)
-+	if (!p) {
-+		p = &execmem_params;
-+		p->ranges[EXECMEM_DEFAULT].start = VMALLOC_START;
-+		p->ranges[EXECMEM_DEFAULT].end = VMALLOC_END;
-+		p->ranges[EXECMEM_DEFAULT].pgprot = PAGE_KERNEL_EXEC;
-+		p->ranges[EXECMEM_DEFAULT].alignment = 1;
++void *execmem_data_alloc(enum execmem_type type, size_t size)
++{
++	WARN_ON_ONCE(!execmem_range_is_data(type));
 +
- 		return;
-+	}
++	return execmem_alloc(size, &execmem_params.ranges[type]);
++}
++
+ void execmem_free(void *ptr)
+ {
+ 	/*
+@@ -93,7 +105,10 @@ static void execmem_init_missing(struct execmem_params *p)
+ 		struct execmem_range *r = &p->ranges[i];
  
- 	if (!execmem_validate_params(p))
- 		return;
+ 		if (!r->start) {
+-			r->pgprot = default_range->pgprot;
++			if (execmem_range_is_data(i))
++				r->pgprot = PAGE_KERNEL;
++			else
++				r->pgprot = default_range->pgprot;
+ 			r->alignment = default_range->alignment;
+ 			r->start = default_range->start;
+ 			r->end = default_range->end;
 -- 
 2.39.2
 
