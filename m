@@ -4,61 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57B00CD37B0
-	for <linux-riscv@archiver.kernel.org>; Mon, 18 Sep 2023 20:47:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5ED3ECD37B0
+	for <linux-riscv@archiver.kernel.org>; Mon, 18 Sep 2023 21:26:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mNmr1ZLc4I05ABy2MrpzEycvuSEa2znb2p2760RmDRA=; b=L8fNkYniZyrRkm
-	gqx6sy8yHs8/1XXJSw3KeLqdfTn2nBTRDE4lyQ13Ryo7cplGR2sCEeQhC6WOSmGDuJvUNjN7oFG5L
-	BVrYd2MAstQr2W6IZFfXQlgmmkv7PUYERLiAgtY3Up1wDV2OINRybsve4/IXjkw/v8Yj55DOOYNWn
-	c6jID6JTjwYADThn6Nwz/tNw/ZfDApIZDR9v0Fm5gIqglTWit9b4ECVwx5GpKbi1fkGai7zCB6txQ
-	yTJlZKyq/5fm1gtcMSmL6zBFlzcPcT7icXhh9nhI5+Bxo193JzhuyBMbqxK94cwmyC2YZyMyNyMu+
-	791hosb/jNdmmy3IwG9Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cxcy0rL5x9+OMDAHj6YhOq9Ej4DDoP033AiULysv3Rw=; b=TxB2GExZFVFBaUb0z2DJkVlGT/
+	jiau5T3ufmjOFOgUIYz9MWc1ZJwlVxeLBeDj65+h2DiKwpfs51M3KAoI3Je2h9Mb/OK5ASQA+rnHo
+	Gp6+GyJOP51cVEUewyN4XKCaj9H8pYqrCpmT+bSEhwNC+qkV1g17vhO0TEXPXYxILxLaU12Ize1G1
+	yx1aa/NpQVCItP6+S501qiKLQ951C91qsp8d374Pse7tZLy7z2w/08fmprn4fAg2k8gZ8i2pPnhpr
+	GvZaIDgYKk6TNb6582hclH4bUkIjfF/vA0idX131RyxYMaKDecSigDz1sAK3nKvdIEKn7JRtSh4EH
+	M2HIfKQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qiL9B-00GJWx-2r;
-	Mon, 18 Sep 2023 20:47:09 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qiL98-00GJV2-2k;
-	Mon, 18 Sep 2023 20:47:08 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C6D071FB;
-	Mon, 18 Sep 2023 13:47:30 -0700 (PDT)
-Received: from [192.168.178.6] (unknown [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BBEA53F59C;
-	Mon, 18 Sep 2023 13:46:49 -0700 (PDT)
-Message-ID: <198067f1-218c-e2f3-cf05-9042269a00bf@arm.com>
-Date: Mon, 18 Sep 2023 22:46:40 +0200
+	id 1qiLl8-00GNtC-2L;
+	Mon, 18 Sep 2023 21:26:22 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1qiLl5-00GNsR-1B
+	for linux-riscv@lists.infradead.org;
+	Mon, 18 Sep 2023 21:26:20 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 9DE1F61370;
+	Mon, 18 Sep 2023 21:26:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CDA42C433C8;
+	Mon, 18 Sep 2023 21:26:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1695072377;
+	bh=lEN1ls2dQkgYbioyJtFPuLMXALUsRxPq6Ic/riPZ0ho=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=NqgBdUlH+wSg9plu2Er1SzBhJU2wj9WSfxwhShNfKjOe9Cul0jpDI0hk/Cl1V6UQt
+	 2PV2q+GfZjLlBLJguSRIuqd+qC0nmbnJIgSO2DC4u2zmLq7R9u6sN8y1mullDfZTm1
+	 47tYhx3uPj0wmmaZV7ArWxgMhrgKh3jz/i3AucsqOGlQdsKIkt+LGVbDhA5eRzlrVX
+	 D2kQCfd54mO6pXJhqFiH3KqscVbnUj/oDJCrSBwTh4Oz+z6Ul6B6y81r88Vhu1A69P
+	 jeG0jQtFYwafrk/+TMtIyAEOttfVYJqQUEePKOdIlriH8KHrZ/0HxooyiY0OomwOAs
+	 tkd32TsQDs6GA==
+Date: Mon, 18 Sep 2023 22:26:11 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Kwanghoon Son <k.son@samsung.com>
+Cc: p.zabel@pengutronix.de, robh+dt@kernel.org,
+	krzysztof.kozlowski+dt@linaro.org, conor+dt@kernel.org,
+	jszhang@kernel.org, guoren@kernel.org, wefu@redhat.com,
+	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	inki.dae@samsung.com, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v3 1/3] dt-bindings: reset: Document th1520 reset control
+Message-ID: <20230918-4ef7f52da269f3a7e4023bb3@fedora>
+References: <20230918045125.4000083-1-k.son@samsung.com>
+ <CGME20230918045134epcas1p1b80b338b66512a976c3783cd0e51da50@epcas1p1.samsung.com>
+ <20230918045125.4000083-2-k.son@samsung.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.13.0
-Subject: Re: [PATCH 4/4] energy_model: use a fixed reference frequency
-Content-Language: en-US
-To: Vincent Guittot <vincent.guittot@linaro.org>
-Cc: linux@armlinux.org.uk, catalin.marinas@arm.com, will@kernel.org,
- paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
- sudeep.holla@arm.com, gregkh@linuxfoundation.org, rafael@kernel.org,
- mingo@redhat.com, peterz@infradead.org, juri.lelli@redhat.com,
- rostedt@goodmis.org, bsegall@google.com, mgorman@suse.de,
- bristot@redhat.com, vschneid@redhat.com, viresh.kumar@linaro.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-pm@vger.kernel.org,
- conor.dooley@microchip.com, suagrfillet@gmail.com, ajones@ventanamicro.com,
- lftan@kernel.org
-References: <20230901130312.247719-1-vincent.guittot@linaro.org>
- <20230901130312.247719-5-vincent.guittot@linaro.org>
- <8cfa9edb-67f9-80f9-0a5c-1920f95b338a@arm.com>
- <CAKfTPtDxJjj6wtpRnLjUi65j+5sQyYcHsQzbd+eSQCf4MVOiWA@mail.gmail.com>
-From: Dietmar Eggemann <dietmar.eggemann@arm.com>
-In-Reply-To: <CAKfTPtDxJjj6wtpRnLjUi65j+5sQyYcHsQzbd+eSQCf4MVOiWA@mail.gmail.com>
+In-Reply-To: <20230918045125.4000083-2-k.son@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230918_134706_956782_062BE917 
-X-CRM114-Status: GOOD (  16.15  )
+X-CRM114-CacheID: sfid-20230918_142619_484685_951C8DF7 
+X-CRM114-Status: GOOD (  18.86  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,73 +75,135 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============2397184880642329716=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 15/09/2023 15:35, Vincent Guittot wrote:
-> On Thu, 14 Sept 2023 at 23:07, Dietmar Eggemann
-> <dietmar.eggemann@arm.com> wrote:
->>
->> On 01/09/2023 15:03, Vincent Guittot wrote:
 
-[...]
+--===============2397184880642329716==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="WE881O0NIJLSEjS/"
+Content-Disposition: inline
 
->>> +#ifdef arch_scale_freq_ref
->>> +static __always_inline
->>> +unsigned long  arch_scale_freq_ref_em(int cpu, struct em_perf_domain *pd)
->>
->> Why is this function named with the arch prefix?
->>
->> So far we have 5 arch functions (arch_scale_freq_tick() <->
->> arch_scale_freq_ref()) and e.g. Arm/Arm64 defines them with there
->> topology_foo implementations.
->>
->> Isn't arch_scale_freq_ref_em() (as well as arch_scale_freq_ref_policy())
->> different in this sense and so a proper EM function which should
->> manifest in its name?
-> 
-> arch_scale_freq_ref_em() is there to handle cases where
-> arch_scale_freq_ref() is not defined by arch. I keep arch_ prefix
-> because this should be provided by architecture which wants to use EM.
 
-That's correct, x86_64 with CONFIG_ENERGY_MODEL=y needs
-arch_scale_freq_ref_em() returning highest perf_state of the perf_domain.
-But this function as opposed to arch_scale_freq_ref() does not have to
-be provided by the arch itself. It's provided by the EM instead.
-That's why my doubt whether it should be named arch_scale_freq_ref_em().
+--WE881O0NIJLSEjS/
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> In the case of EM, it's only there for allyes|randconfig on arch that
-> doesn't use arch_topology.c like x86_64
+On Mon, Sep 18, 2023 at 04:51:23AM +0000, Kwanghoon Son wrote:
+> Add documentation to describe th1520 reset device
 
-[...]
+I would appreciate if you could add some information here as to what is
+missing from this - the reset controller isn't just for two WDTs is it?
 
->>> @@ -241,11 +255,11 @@ static inline unsigned long em_cpu_energy(struct em_perf_domain *pd,
->>>        */
->>>       cpu = cpumask_first(to_cpumask(pd->cpus));
->>>       scale_cpu = arch_scale_cpu_capacity(cpu);
->>> -     ps = &pd->table[pd->nr_perf_states - 1];
->>> +     ref_freq = arch_scale_freq_ref_em(cpu, pd);
->>
->> Why not using existing `unsigned long freq` here like in schedutil's
->> get_next_freq()?
-> 
-> Find it easier to read and understand and will not make any difference
-> in the compiled code
+>=20
+> Signed-off-by: Kwanghoon Son <k.son@samsung.com>
+> ---
+>  .../bindings/reset/thead,th1520-reset.yaml    | 44 +++++++++++++++++++
+>  .../dt-bindings/reset/thead,th1520-reset.h    |  9 ++++
+>  2 files changed, 53 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/reset/thead,th1520-=
+reset.yaml
+>  create mode 100644 include/dt-bindings/reset/thead,th1520-reset.h
+>=20
+> diff --git a/Documentation/devicetree/bindings/reset/thead,th1520-reset.y=
+aml b/Documentation/devicetree/bindings/reset/thead,th1520-reset.yaml
+> new file mode 100644
+> index 000000000000..49ea8c6a331f
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/reset/thead,th1520-reset.yaml
+> @@ -0,0 +1,44 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/reset/thead,th1520-reset.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: T-HEAD th1520 SoC Reset Controller
+> +
+> +maintainers:
+> +  - Kwanghoon Son <k.son@samsung.com>
+> +
+> +properties:
+> +  compatible:
+> +    items:
+> +      - const: thead,th1520-reset
+> +      - const: syscon
 
-True but I thought it's easier to be able to detect the functional
-similarity between em_cpu_energy() (*) and get_next_freq().
+iDumb question perhaps, but why is this a syscon?
 
-freq = arch_scale_freq_ref_{policy,em}({policy,(cpu, pd)});
-... (in case of *)
-freq = map_util_freq(util, freq, max);
+Cheers,
+Conor.
 
-Just a nitpick ...
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  '#reset-cells':
+> +    const: 1
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - '#reset-cells'
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/reset/thead,th1520-reset.h>
+> +
+> +    soc {
+> +        #address-cells =3D <2>;
+> +        #size-cells =3D <2>;
+> +
+> +        reset-controller@ffef014000 {
+> +            compatible =3D "thead,th1520-reset", "syscon";
+> +            reg =3D <0xff 0xef014000 0x0 0x1000>;
+> +            #reset-cells =3D <1>;
+> +        };
+> +    };
+> diff --git a/include/dt-bindings/reset/thead,th1520-reset.h b/include/dt-=
+bindings/reset/thead,th1520-reset.h
+> new file mode 100644
+> index 000000000000..ec10751814e5
+> --- /dev/null
+> +++ b/include/dt-bindings/reset/thead,th1520-reset.h
+> @@ -0,0 +1,9 @@
+> +/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
+> +
+> +#ifndef DT_BINDING_RESET_TH1520_H
+> +#define DT_BINDING_RESET_TH1520_H
+> +
+> +#define TH1520_RESET_WDT0 0
+> +#define TH1520_RESET_WDT1 1
 
-[...]
+
+--WE881O0NIJLSEjS/
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEARYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZQjAcAAKCRB4tDGHoIJi
+0n1CAP4m0yajHLa/MSox0QSJHmD92CP5eFO1xINILg9LNE7KowD/edgItl4xdrao
+dBqNau3d679aFegrxyqICNRrYm8figQ=
+=9Hl8
+-----END PGP SIGNATURE-----
+
+--WE881O0NIJLSEjS/--
+
+
+--===============2397184880642329716==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============2397184880642329716==--
+
