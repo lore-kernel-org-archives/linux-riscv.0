@@ -4,70 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FBE1C46CA1
-	for <linux-riscv@archiver.kernel.org>; Mon, 18 Sep 2023 10:28:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC11CCD37B0
+	for <linux-riscv@archiver.kernel.org>; Mon, 18 Sep 2023 10:36:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pXOTTuJt8sspyxEO+nPDI5WJ51dJkj64BPjZP7Nzhl0=; b=z7nRjFmrzAA8de
-	AXIMKuc1rOpOdH3YAf10uaHhkU0//b7Hs5SYWNdD7aXcQIsEN+jpEaPUrkN+cezN4lCbJkknTQSvx
-	sEi1pWnM1KzQHgbNgcyI3SoUcXN90gc9ZkmBaxRKo4LxztD0r8IjtbbFTULKZrMc1I5IwT/j2SupO
-	Iw6tNd8Uar8Dj4r2kfIJtYn33v28Y7a41obiZut0vO7oDF4eJt8LfggeM2qyuNu63eKraKV71Nwcw
-	uY7Cig07LN0mWdyqUTcsro5/5W6QQsT6wFqA7rDKZFnsL9aTaFbpkwCpFyGte65ginhnfKRxthlRn
-	PijicoTy/GIALcOmhw+A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	MIME-Version:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=klJ4WpZhaC6EKGVr889+TdmMtPQ0FOOMYUekYUVU71w=; b=GNH
+	xBwI34d9Pj74OWG/sbpqipxHU9pRnAKrApwouTgpO6JwidigFxL47mPxYF0Rf2RS1T0zcPVKJMWpH
+	FzsOz26wM35xYfsy1y8m4gvR7hAnxYBZFlWCf9nbloxFsuh/YFZDsryGyhB2L+AtGJVTkQQOeUlbm
+	L7mQw06OV66v8325YLZhn2WFTvUZ/wx83oRZo3+RhgK7Kdet9YVmuZhQGeDVg1XRcEfeWHPmdu5o/
+	lSjIF1vzthcFEH1o6aXhpAwDg0o9putxtXfmz53INksnShrMZ2QAWaT7L57si07vXPIf9gs+v5WhI
+	MFUWkYXmjWfL9I96gIS0iL9jFDosBjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qiBTv-00F6UN-33;
-	Mon, 18 Sep 2023 10:27:55 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1qiBcY-00FCRf-2Z;
+	Mon, 18 Sep 2023 10:36:50 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qiBTs-00F6Pb-21;
-	Mon, 18 Sep 2023 10:27:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=JpmACuKzLEySkiefvR4XEzLq2l/GD0gp2bnZ8kEBIFI=; b=kVzQ7/vwTnpP+CIOcOrHaveVQL
-	sLK/dUbflp5AVZCi1NjTN4vGf0n8ODQ7+WX0qtIA+7Sj8W67e4mukT7UakvHTeQdXmkgGSHuD5qlA
-	hrSjKimLBut7aaQ14th62KlJ7yiOPuQc4rl7JsKxe0s/9reJwnUuY01QSW/vr6EANjJKVBe++3mpj
-	ePhEwkrYE2JyWBt0U0Utguc04Ew3fBOT2gmdqMGE/JseHq70NaEbGE7t+Yc6zjLSOXMHhyz8rkrp3
-	qCRkwR9dMkY8mB4getceyrmE3pKMTQIEtRvNZUG1hYZEd24ULHMIsy0/3v3OM9HvXiG2d2pib11lA
-	dMSc1aMg==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:34502)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1qiBTj-000059-36;
-	Mon, 18 Sep 2023 11:27:43 +0100
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.94.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1qiBTi-0000Oe-EM; Mon, 18 Sep 2023 11:27:42 +0100
-Date: Mon, 18 Sep 2023 11:27:42 +0100
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: James Morse <james.morse@arm.com>
-Cc: linux-pm@vger.kernel.org, loongarch@lists.linux.dev,
-	linux-acpi@vger.kernel.org, linux-arch@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org, kvmarm@lists.linux.dev,
-	x86@kernel.org, Salil Mehta <salil.mehta@huawei.com>,
-	Jean-Philippe Brucker <jean-philippe@linaro.org>,
-	jianyong.wu@arm.com, justin.he@arm.com
-Subject: Re: [RFC PATCH v2 00/35] ACPI/arm64: add support for virtual
- cpuhotplug
-Message-ID: <ZQgmHtG10n+XyZYR@shell.armlinux.org.uk>
-References: <20230913163823.7880-1-james.morse@arm.com>
+	id 1qiBcV-00FCNY-2K
+	for linux-riscv@lists.infradead.org;
+	Mon, 18 Sep 2023 10:36:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1695033407; x=1726569407;
+  h=date:from:to:cc:subject:message-id:mime-version;
+  bh=45EWWhl+W/dF46c9zVATx49jdMHzZ7N/Vpt42wM+9PU=;
+  b=dE+Zd8nQARaDSsP0HHBHTpTx43bnQIFTUnFBHnJZ3E5kR0wg4+GysX71
+   uKLOIwdUf8PpI16BrmFahlcoi+tWp8/TpiJ6CM3Ld0Vpa3YNMg/gr9oVa
+   N20qsuuNw2bLNr9chDCLIf3eKR8h55K5KKcGyuPadT7P8sHYNqE6CHG9W
+   CFqaeaLi/jxzjX8hxhxNBYW58LMxEl/JhLBoT21ve1vQ5vlKv8AnVW356
+   cmdEULU+3zkQt/F1QpYA3han3KJ6jetCzhIVgCSpkSjw5idouZKflZCEa
+   IbDNQTyDkrboCS9jyTyMiwLk3FWNF4SYNsQvVUKKkBOSZECKlm7vrPThY
+   Q==;
+X-CSE-ConnectionGUID: RV5cahfSSHCtRXg2ArBihA==
+X-CSE-MsgGUID: S80qPqi9SxyWaXpoW6HSgg==
+X-ThreatScanner-Verdict: Negative
+X-IronPort-AV: E=Sophos;i="6.02,156,1688454000"; 
+   d="asc'?scan'208";a="172196851"
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 18 Sep 2023 03:36:44 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.87.72) by
+ chn-vm-ex02.mchp-main.com (10.10.87.72) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.21; Mon, 18 Sep 2023 03:36:20 -0700
+Received: from wendy (10.10.85.11) by chn-vm-ex02.mchp-main.com (10.10.85.144)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
+ Transport; Mon, 18 Sep 2023 03:36:19 -0700
+Date: Mon, 18 Sep 2023 11:36:03 +0100
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Alexandre Ghiti <alex@ghiti.fr>
+CC: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, Palmer Dabbelt
+	<palmer@rivosinc.com>, <linux-riscv@lists.infradead.org>
+Subject: more RELOCATABLE + errata code model issues
+Message-ID: <20230918-retool-presoak-e47ed2f2b8d3@wendy>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230913163823.7880-1-james.morse@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230918_032752_689269_5DB8E046 
-X-CRM114-Status: UNSURE (   8.86  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230918_033647_951707_1D39038A 
+X-CRM114-Status: GOOD (  15.75  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,27 +78,79 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============8688643687520045617=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 13, 2023 at 04:37:48PM +0000, James Morse wrote:
-> This series is based on v6.6-rc1, and can be retrieved from:
-> https://git.kernel.org/pub/scm/linux/kernel/git/morse/linux.git/ virtual_cpu_hotplug/rfc/v2
+--===============8688643687520045617==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="sj/yOhfTldg67vR+"
+Content-Disposition: inline
 
-Hi James,
+--sj/yOhfTldg67vR+
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-FYI, this doesn't seem to be based upon v6.6-rc1, but v6.4-rc5.
-virtual_cpu_hotplug/rfc/v2 seems to have a hash of 505859b05e15.
 
-Thanks.
+Hey Alex,
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+LKP reported [1] some issues with relocatable kernels & code models.
+You didn't touch the commit that caused the issues, so you didn't see
+the failure report I guess, but Prabhakar is looking for some guidance
+on what he should do to resolve the problems. Copy-pasting from his
+mail:
+> > All errors (new ones prefixed by >>):
+> >=20
+> > >> ld.lld: error: relocation R_RISCV_LO12_I cannot be used against
+> > >> symbol 'riscv_cbom_block_size'; recompile with -fPIC
+> >    >>> defined in vmlinux.a(arch/riscv/mm/cacheflush.o)
+> >    >>> referenced by errata.c
+> >    >>>               arch/riscv/errata/andes/errata.o:(andes_errata_pat=
+ch_func) in archive vmlinux.a
+> >=20
+> I did reproduce this issue locally. The andes errata is not compiled as m=
+edany. The config is RELOCATABLE + MEDLOW. I can see the cacheflush.o is co=
+mpiled with medany flag.
+> I can fix the build by adding a medany flag as below:
+> +#ifdef CONFIG_RISCV_ALTERNATIVE_EARLY
+> +CFLAGS_errata.o :=3D -mcmodel=3Dmedany
+> #endif
+>=20
+> But I am not sure if this is correct approach. Any pointers on this?
+
+The T-Head errata have something similar, so seems like fair game to me.
+Any thoughts?
+
+Thanks,
+Conor.
+
+[1] - https://lore.kernel.org/all/202309111311.8tcq3KVc-lkp@intel.com/
+
+--sj/yOhfTldg67vR+
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZQgoEwAKCRB4tDGHoIJi
+0rsgAP40HFfe6SLVBiFexHJQnUV/f93ncBhuYNCqV2LOqK6b7wEAzdYvzF76hmLa
+oKxjjRvRgYGVp8Vk0rsP+mB6TK76lgQ=
+=tbVk
+-----END PGP SIGNATURE-----
+
+--sj/yOhfTldg67vR+--
+
+
+--===============8688643687520045617==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============8688643687520045617==--
+
