@@ -4,66 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C777CD37B4
-	for <linux-riscv@archiver.kernel.org>; Mon, 18 Sep 2023 00:33:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7EF3CD13CF
+	for <linux-riscv@archiver.kernel.org>; Mon, 18 Sep 2023 01:14:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xjbYlVf3a0+SBY8aKosKolA8kONk8skCEaoVZ3Is5g8=; b=hwqzSbhBU7bOhb
-	nmSLYV4R4IJ7+eYDprNkztPr4QWrMRgy2ZfcWtSUbjG1RabzLbWf/3+CHDK4Qcxg1ecFPYQKEZNQW
-	EWAua2UmKzrpKdfYiC5+dnVwixSz5enjheSCkdHlpBsEvrdBZuuZbPsM45bw5e7bg0G6vQZvA6USc
-	YrvSxWN/aA39juGpAuH9DgyG4qwj+kIvMqiLAGbbehyiqMuXANAp4TqmH9DI5PPFaVaKqEt4iDEN9
-	vkSZX5zv+0ClVNquTXKJQRWSUnYD7qLFC8thR7LcQ3pDfnTHy32tJl5kdzyufcbSA7rIp2tqoc/H1
-	GQGF9ivpXl5mcwidTQVg==;
+	List-Owner; bh=B07bk9T2aKybGQpiBWOSuKbrQbVSWA+3y/npvg18yrA=; b=WIysu5YPW2NpVO
+	u8zovzmdGW9BHl6jv68bPpq17wVLM9GrFo+ev2fZNtYAs3dJyRU1cklNhaeZRbVc9R9pY5mutnr7o
+	226144g44xS6d0Lsv8r6yX3bYvoxsVJero4rwWhSerJf4Mn7+vPYW0xO+L/5aEuLmRt/lF7hrzK6O
+	+5Wk+pOgzuXdRcdjbI66jNqu9OVUugdTFmTEG3bj7gVer7l3Hs0sD8n46uAQHG/StHwsGSWYPmlDh
+	2v6WDeZjfzD0rxFLRa8rq9WpGcT1O302lwViD6p3b27O6ANGmhWgAfI3k6d/Rc5DwumJFbZrvfciM
+	hKvGzBqlgDpw6dZWfrLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qi2CA-00EAMW-0d;
-	Mon, 18 Sep 2023 00:32:58 +0000
-Received: from szxga02-in.huawei.com ([45.249.212.188])
+	id 1qi2qM-00EBqO-0G;
+	Mon, 18 Sep 2023 01:14:30 +0000
+Received: from mgamail.intel.com ([134.134.136.65])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qi2C7-00EALl-2d
-	for linux-riscv@lists.infradead.org;
-	Mon, 18 Sep 2023 00:32:57 +0000
-Received: from kwepemi500020.china.huawei.com (unknown [172.30.72.55])
-	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4Rplzw07rpzVkHc;
-	Mon, 18 Sep 2023 08:29:47 +0800 (CST)
-Received: from [10.67.109.184] (10.67.109.184) by
- kwepemi500020.china.huawei.com (7.221.188.8) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.31; Mon, 18 Sep 2023 08:32:41 +0800
-Message-ID: <1708aa5b-78d1-486c-99b1-44d35b4c2f5e@huawei.com>
-Date: Mon, 18 Sep 2023 08:32:41 +0800
+	id 1qi2qJ-00EBph-0x;
+	Mon, 18 Sep 2023 01:14:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1694999667; x=1726535667;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=oa/nrZXu3pJ1XHmH6ZVv7iF/X9/VnJhZeXvizU+honc=;
+  b=e3cxZrNcu4DYlhqXrgV81+BW5gCfLgWWVAvdkqHhZlRdILmDYEUxkvxX
+   A3q7hIV+WDNLuBQbt30JiPP04U787ligXdfVNJzQYYhPXg4Wxa6pvMHeI
+   6VbGv2jndbo5PYJCLpEZCALpHWsbH55Emh3hIN6xRO9c+ZtPJmvMCCVpG
+   48bE5eh1u1du6si7nh1nBKEA7ShKqC91E/h+YHuGEj8js7gBy5lbvPADH
+   JDBzNw7N5huUZHcD0invniAfu1hFRuk2goL+pEMCIZ3XiFlAlHEAWFCQA
+   HrVjFgdVEGXPHzZz4JZ5JvcAXJFCJIorg3bR9gdfPvXJYFc+4nyQr5Cw3
+   w==;
+X-IronPort-AV: E=McAfee;i="6600,9927,10836"; a="383364133"
+X-IronPort-AV: E=Sophos;i="6.02,155,1688454000"; 
+   d="scan'208";a="383364133"
+Received: from fmsmga003.fm.intel.com ([10.253.24.29])
+  by orsmga103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Sep 2023 18:14:25 -0700
+X-ExtLoop1: 1
+X-IronPort-AV: E=McAfee;i="6600,9927,10836"; a="835840579"
+X-IronPort-AV: E=Sophos;i="6.02,155,1688454000"; 
+   d="scan'208";a="835840579"
+Received: from binbinwu-mobl.ccr.corp.intel.com (HELO [10.238.8.84]) ([10.238.8.84])
+  by fmsmga003-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Sep 2023 18:14:15 -0700
+Message-ID: <9925e01b-7fa9-95e4-dc21-1d760ef9cde4@linux.intel.com>
+Date: Mon, 18 Sep 2023 09:14:13 +0800
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH bpf-next 3/6] riscv, bpf: Simplify sext and zext logics in
- branch instructions
-To: Simon Horman <horms@kernel.org>, Pu Lehui <pulehui@huaweicloud.com>
-CC: <bpf@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
-	<netdev@vger.kernel.org>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?=
-	<bjorn@kernel.org>, Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann
-	<daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau
-	<martin.lau@linux.dev>, Song Liu <song@kernel.org>, Yonghong Song
-	<yhs@fb.com>, John Fastabend <john.fastabend@gmail.com>, KP Singh
-	<kpsingh@kernel.org>, Stanislav Fomichev <sdf@google.com>, Hao Luo
-	<haoluo@google.com>, Jiri Olsa <jolsa@kernel.org>, Palmer Dabbelt
-	<palmer@dabbelt.com>, Luke Nelson <luke.r.nels@gmail.com>
-References: <20230913153413.1446068-1-pulehui@huaweicloud.com>
- <20230913153413.1446068-4-pulehui@huaweicloud.com>
- <20230916144742.GB1125562@kernel.org>
-Content-Language: en-US
-From: Pu Lehui <pulehui@huawei.com>
-In-Reply-To: <20230916144742.GB1125562@kernel.org>
-X-Originating-IP: [10.67.109.184]
-X-ClientProxiedBy: dggems702-chm.china.huawei.com (10.3.19.179) To
- kwepemi500020.china.huawei.com (7.221.188.8)
-X-CFilter-Loop: Reflected
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.15.1
+Subject: Re: [RFC PATCH v12 10/33] KVM: Set the stage for handling only shared
+ mappings in mmu_notifier events
+To: Sean Christopherson <seanjc@google.com>
+Cc: kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ kvmarm@lists.linux.dev, linux-mips@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org,
+ linux-riscv@lists.infradead.org, linux-fsdevel@vger.kernel.org,
+ linux-mm@kvack.org, linux-security-module@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Paolo Bonzini <pbonzini@redhat.com>,
+ Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
+ Huacai Chen <chenhuacai@kernel.org>, Michael Ellerman <mpe@ellerman.id.au>,
+ Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ "Matthew Wilcox (Oracle)" <willy@infradead.org>,
+ Andrew Morton <akpm@linux-foundation.org>, Paul Moore <paul@paul-moore.com>,
+ James Morris <jmorris@namei.org>, "Serge E. Hallyn" <serge@hallyn.com>,
+ Chao Peng <chao.p.peng@linux.intel.com>, Fuad Tabba <tabba@google.com>,
+ Jarkko Sakkinen <jarkko@kernel.org>, Anish Moorthy <amoorthy@google.com>,
+ Yu Zhang <yu.c.zhang@linux.intel.com>,
+ Isaku Yamahata <isaku.yamahata@intel.com>, Xu Yilun <yilun.xu@intel.com>,
+ Vlastimil Babka <vbabka@suse.cz>, Vishal Annapurve <vannapurve@google.com>,
+ Ackerley Tng <ackerleytng@google.com>,
+ Maciej Szmigiero <mail@maciej.szmigiero.name>,
+ David Hildenbrand <david@redhat.com>, Quentin Perret <qperret@google.com>,
+ Michael Roth <michael.roth@amd.com>, Wang <wei.w.wang@intel.com>,
+ Liam Merwick <liam.merwick@oracle.com>,
+ Isaku Yamahata <isaku.yamahata@gmail.com>,
+ "Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
+References: <20230914015531.1419405-1-seanjc@google.com>
+ <20230914015531.1419405-11-seanjc@google.com>
+From: Binbin Wu <binbin.wu@linux.intel.com>
+In-Reply-To: <20230914015531.1419405-11-seanjc@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230917_173256_048303_09841A05 
-X-CRM114-Status: UNSURE (   9.00  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230917_181427_469552_DF699947 
+X-CRM114-Status: GOOD (  15.82  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,36 +108,59 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 
 
-On 2023/9/16 22:47, Simon Horman wrote:
-> On Wed, Sep 13, 2023 at 11:34:10PM +0800, Pu Lehui wrote:
->> From: Pu Lehui <pulehui@huawei.com>
->>
->> There are many extension helpers in the current branch instructions, and
->> the implementation is a bit complicated. We simplify this logic through
->> two simple extension helpers with alternate register.
->>
->> Signed-off-by: Pu Lehui <pulehui@huawei.com>
->> ---
->>   arch/riscv/net/bpf_jit_comp64.c | 82 +++++++++++++--------------------
->>   1 file changed, 31 insertions(+), 51 deletions(-)
->>
->> diff --git a/arch/riscv/net/bpf_jit_comp64.c b/arch/riscv/net/bpf_jit_comp64.c
->> index 4a649e195..1728ce16d 100644
->> --- a/arch/riscv/net/bpf_jit_comp64.c
->> +++ b/arch/riscv/net/bpf_jit_comp64.c
->> @@ -141,6 +141,19 @@ static bool in_auipc_jalr_range(s64 val)
->>   		val < ((1L << 31) - (1L << 11));
->>   }
->>   
->> +/* Modify rd pointer to alternate reg to avoid corrupting orignal reg */
-> 
-> Hi Pu Lehui,
-> 
-> nit: original >
-> I suggest running checkpatch --codespell over this series before submitting
-> v2.
+On 9/14/2023 9:55 AM, Sean Christopherson wrote:
+> Add flags to "struct kvm_gfn_range" to let notifier events target only
+> shared and only private mappings, and write up the existing mmu_notifier
+> events to be shared-only (private memory is never associated with a
+> userspace virtual address, i.e. can't be reached via mmu_notifiers).
+>
+> Add two flags so that KVM can handle the three possibilities (shared,
+> private, and shared+private) without needing something like a tri-state
+> enum.
 
-Thanks Simon, will check this in next.
+How to understand the word "stage" in short log?
+
+
+>
+> Link: https://lore.kernel.org/all/ZJX0hk+KpQP0KUyB@google.com
+> Signed-off-by: Sean Christopherson <seanjc@google.com>
+> ---
+>   include/linux/kvm_host.h | 2 ++
+>   virt/kvm/kvm_main.c      | 7 +++++++
+>   2 files changed, 9 insertions(+)
+>
+> diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
+> index d8c6ce6c8211..b5373cee2b08 100644
+> --- a/include/linux/kvm_host.h
+> +++ b/include/linux/kvm_host.h
+> @@ -263,6 +263,8 @@ struct kvm_gfn_range {
+>   	gfn_t start;
+>   	gfn_t end;
+>   	union kvm_mmu_notifier_arg arg;
+> +	bool only_private;
+> +	bool only_shared;
+>   	bool may_block;
+>   };
+>   bool kvm_unmap_gfn_range(struct kvm *kvm, struct kvm_gfn_range *range);
+> diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
+> index 174de2789657..a41f8658dfe0 100644
+> --- a/virt/kvm/kvm_main.c
+> +++ b/virt/kvm/kvm_main.c
+> @@ -635,6 +635,13 @@ static __always_inline kvm_mn_ret_t __kvm_handle_hva_range(struct kvm *kvm,
+>   			 * the second or later invocation of the handler).
+>   			 */
+>   			gfn_range.arg = range->arg;
+> +
+> +			/*
+> +			 * HVA-based notifications aren't relevant to private
+> +			 * mappings as they don't have a userspace mapping.
+> +			 */
+> +			gfn_range.only_private = false;
+> +			gfn_range.only_shared = true;
+>   			gfn_range.may_block = range->may_block;
+>   
+>   			/*
+
 
 _______________________________________________
 linux-riscv mailing list
