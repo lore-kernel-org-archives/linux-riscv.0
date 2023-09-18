@@ -4,177 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D968CD13D1
-	for <linux-riscv@archiver.kernel.org>; Mon, 18 Sep 2023 01:23:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F897CD13CF
+	for <linux-riscv@archiver.kernel.org>; Mon, 18 Sep 2023 03:34:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	References:Message-ID:Subject:CC:To:From:Date:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=s6U4Vb/Pr5PPd3iofWDuK39eJAR8Ubh6EjWlXNg5Gqo=; b=PA3lHzcpeFShsV
-	+QkwX8AS1fU1cjkLEZnVlwUJyPGTrXzbdBvJrer8AapXypJucybyJsbHDdvZ+72lQJoM1dYjIjFxr
-	hk9NB6wg1wZOM1lBhTqBlsTKV7KO8nmCJzAKpYXRMd8ARSMGvz66tq9Z0SAHwl80puQQdxI0H0bFZ
-	e0fn4XKMVv+ZMhpB8SV4oEJuBqEcgNuVpfxmdaVtWKng68tAdAUxDcJONM8uWRRioP5oH6nqnaleY
-	vGMb81rcyJHFK4tEW4WKB4Eu4cjWVcpd8nSL3DoHcXN3crhoOlc55wrscdCOk+ZTBfQvfezDwh9VO
-	0BkK5n09yqZi695z9piQ==;
+	List-Owner; bh=/MGOkWR1x5JKhzG0D5wRRU6kRnWAEVJAFQMXsU6IzD4=; b=uOsQBWGtY41XK0
+	FyQwmObCeISGoDHnRyqNCWLT+KJ7tDribcRIj1gNtyLqXm6STVqWk+MXSoBLHqo+jLiF6MLUwXFIB
+	j5klQh+be0DHGOg8G+Flz0/6DdYvU/I8/2d7b7y13oL1UHH1fni5i/VM0AH/uRKWetnBlWbKN4y5F
+	MCQiza96Y4pPTwO0N4dkJBI00Yz6nTETfsDt9lUD7Yya+LdqayJfNmm1FIewLLfTN53JFzMGIUxfK
+	NwI4hA1Zhpdbpo7PMHXgiPHLfgwaheqhCWm7h5vIgTNjiyKH3kkwA7cMPoAtWA2XvbjUEQlM0ZPT9
+	q2h7WA7zLgmVeti5R1rA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qi2yl-00ECES-2N;
-	Mon, 18 Sep 2023 01:23:11 +0000
-Received: from mgamail.intel.com ([192.55.52.120])
+	id 1qi51P-00EIe6-0y;
+	Mon, 18 Sep 2023 03:34:03 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qi2yi-00ECDZ-03;
-	Mon, 18 Sep 2023 01:23:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1695000187; x=1726536187;
-  h=date:from:to:cc:subject:message-id:reply-to:references:
-   in-reply-to:mime-version;
-  bh=6EbWrAqaFv/oHwPa3uHaSjB2vXOYqABxuhluMCXJBeU=;
-  b=VOEYMjEc+GF43u5sl6ky8S+gjFASjzsMp8R58sGjT/goZgWYcgEz7+il
-   IXohIMpjWUnHBOHjaJEPo+6xya4nn8S1VgPia2EDRsbtpTlMdf2YUI4kl
-   Ffajd5NVhLIgmuQCJ88PXLjpTmPrPy9GNeqpt58S9eqyxMKrHYOJ+KJid
-   N0ShU5wgMpOP1zIcVd+RFefxqlNusFjZLfg3Pf1CG3Vd01ubi/4MjJG+F
-   0ERAi3P+l8pgzMI8ZmOcCx+wGrUcdPJwKsn+hIwmGgHs5tn+qd/Eu9UMn
-   hoEPhbdMHQ/FJUp/JuN/Ze0KpjnAQPvsdkvmkkJaNBMQYD3+qZCc9etDG
-   g==;
-X-IronPort-AV: E=McAfee;i="6600,9927,10836"; a="378457079"
-X-IronPort-AV: E=Sophos;i="6.02,155,1688454000"; 
-   d="scan'208";a="378457079"
-Received: from orsmga001.jf.intel.com ([10.7.209.18])
-  by fmsmga104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Sep 2023 18:23:06 -0700
-X-ExtLoop1: 1
-X-IronPort-AV: E=McAfee;i="6600,9927,10836"; a="780722719"
-X-IronPort-AV: E=Sophos;i="6.02,155,1688454000"; 
-   d="scan'208";a="780722719"
-Received: from fmsmsx602.amr.corp.intel.com ([10.18.126.82])
-  by orsmga001.jf.intel.com with ESMTP/TLS/AES256-GCM-SHA384; 17 Sep 2023 18:23:05 -0700
-Received: from fmsmsx612.amr.corp.intel.com (10.18.126.92) by
- fmsmsx602.amr.corp.intel.com (10.18.126.82) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.32; Sun, 17 Sep 2023 18:23:04 -0700
-Received: from fmsmsx603.amr.corp.intel.com (10.18.126.83) by
- fmsmsx612.amr.corp.intel.com (10.18.126.92) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.32; Sun, 17 Sep 2023 18:23:04 -0700
-Received: from fmsedg601.ED.cps.intel.com (10.1.192.135) by
- fmsmsx603.amr.corp.intel.com (10.18.126.83) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.32 via Frontend Transport; Sun, 17 Sep 2023 18:23:04 -0700
-Received: from NAM10-DM6-obe.outbound.protection.outlook.com (104.47.58.105)
- by edgegateway.intel.com (192.55.55.70) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2507.32; Sun, 17 Sep 2023 18:23:03 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=J4lxWoZMRzAo59z1I2pLgOx3hN8lzTQUlvMzOM7K9OUhvudB00Qu/9HvqCF01lRRIFdsVZYY4bo2vYGAyqFY2JnT3Hp1bTWC37DE99k4emtDOJrGX8tczu6KpmKbc9BCONTtGewX269+ksZt40semzuXvnEC/lgn4eKQpVQ8aUidPgoMYo/p31pTas3eSXPWIpVJdbrQquQrQkbtV0GSwrcfbtDKDfNoYX+e5HUZZPKrBKA+supJxWF99rV/qLXh9yLR+MQAZEWKoDTRQDJtm1djuk2qzmdFSiGSOYcv4dqTXby1GbSKzv0XxdQHY9T4mwqIsYx89A4AcSChZB65Yg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ur7Su/Z1/S0UvJGlJ+MkSZAJR/Mdw50edtAS62R+TIo=;
- b=k6QX1ZS3kU/YiOJYmeT2AbpagbgPgVCgip9actldoQxQLS3Uhb9BVf8hLUs3I/2xOfp8Zd1rcj8PP//MlxYOAZJ8eX/DpeJf7P4SUhRkrbhbp2zuQnqrKPm8KovJ31tPVyfcc1ISYWq+DwrGFv2xPo4mEqIY6VUoslpzfXlG9jAE0nujlh1zJUVBM6M4oPxuAjGcgnzFGK5n92SSOgKZ+7b+TV014UQxoZ4tRx1rzqLtX6wwY/crBgkLcNuaXC6o2RLZySmU1npKh7CXTJta3R9cc88G0FB6Ntf3LeKosCl8sAnINhHKy52VWbsahhWCaTE3EzA+91kxrcgGHMpBKw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from DS7PR11MB5966.namprd11.prod.outlook.com (2603:10b6:8:71::6) by
- LV3PR11MB8529.namprd11.prod.outlook.com (2603:10b6:408:1b3::9) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.6792.26; Mon, 18 Sep 2023 01:23:01 +0000
-Received: from DS7PR11MB5966.namprd11.prod.outlook.com
- ([fe80::5e79:2d52:51e:f602]) by DS7PR11MB5966.namprd11.prod.outlook.com
- ([fe80::5e79:2d52:51e:f602%6]) with mapi id 15.20.6792.024; Mon, 18 Sep 2023
- 01:23:01 +0000
-Date: Mon, 18 Sep 2023 08:54:55 +0800
-From: Yan Zhao <yan.y.zhao@intel.com>
-To: Sean Christopherson <seanjc@google.com>
-CC: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, Oliver
- Upton <oliver.upton@linux.dev>, Huacai Chen <chenhuacai@kernel.org>, Michael
- Ellerman <mpe@ellerman.id.au>, Anup Patel <anup@brainfault.org>, Paul
- Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, "Matthew Wilcox (Oracle)"
-	<willy@infradead.org>, Andrew Morton <akpm@linux-foundation.org>, Paul Moore
-	<paul@paul-moore.com>, James Morris <jmorris@namei.org>, "Serge E. Hallyn"
-	<serge@hallyn.com>, <kvm@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <kvmarm@lists.linux.dev>,
-	<linux-mips@vger.kernel.org>, <linuxppc-dev@lists.ozlabs.org>,
-	<kvm-riscv@lists.infradead.org>, <linux-riscv@lists.infradead.org>,
-	<linux-fsdevel@vger.kernel.org>, <linux-mm@kvack.org>,
-	<linux-security-module@vger.kernel.org>, <linux-kernel@vger.kernel.org>, Chao
- Peng <chao.p.peng@linux.intel.com>, Fuad Tabba <tabba@google.com>, Jarkko
- Sakkinen <jarkko@kernel.org>, Anish Moorthy <amoorthy@google.com>, Yu Zhang
-	<yu.c.zhang@linux.intel.com>, Isaku Yamahata <isaku.yamahata@intel.com>, Xu
- Yilun <yilun.xu@intel.com>, Vlastimil Babka <vbabka@suse.cz>, Vishal
- Annapurve <vannapurve@google.com>, Ackerley Tng <ackerleytng@google.com>,
-	Maciej Szmigiero <mail@maciej.szmigiero.name>, David Hildenbrand
-	<david@redhat.com>, Quentin Perret <qperret@google.com>, Michael Roth
-	<michael.roth@amd.com>, Wang <wei.w.wang@intel.com>, "Liam Merwick"
-	<liam.merwick@oracle.com>, Isaku Yamahata <isaku.yamahata@gmail.com>, "Kirill
- A . Shutemov" <kirill.shutemov@linux.intel.com>
-Subject: Re: [RFC PATCH v12 18/33] KVM: x86/mmu: Handle page fault for
- private memory
-Message-ID: <ZQef3zAEYjZMkn9k@yzhao56-desk.sh.intel.com>
-References: <20230914015531.1419405-1-seanjc@google.com>
- <20230914015531.1419405-19-seanjc@google.com>
- <ZQPuMK6D/7UzDH+D@yzhao56-desk.sh.intel.com>
- <ZQRpiOd1DNDDJQ3r@google.com>
-Content-Disposition: inline
-In-Reply-To: <ZQRpiOd1DNDDJQ3r@google.com>
-X-ClientProxiedBy: SG3P274CA0022.SGPP274.PROD.OUTLOOK.COM (2603:1096:4:be::34)
- To DS7PR11MB5966.namprd11.prod.outlook.com (2603:10b6:8:71::6)
+	id 1qi51M-00EIcP-0p
+	for linux-riscv@lists.infradead.org;
+	Mon, 18 Sep 2023 03:34:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1695008032;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=gHzH+a1yYhJkfNUv/Dy9j8VaViRqaOEkd87Y+pYRKHg=;
+	b=de7SCyqEm0AjEBTEDKJDehgm0YwkxrQDfblTnYgFz82/p5ryAjMxTZ+1KPEHqQmlo/fl4r
+	mri8PlOY10mmj6/ZSckyVg9M34dSIUc/Z61n5zu4cTO5MdF6ylYwz6xtHNsG7W1xq3c9Yx
+	ljALUwG7mXM7I9Jk0cNREv1TirHUJJI=
+Received: from mail-pj1-f70.google.com (mail-pj1-f70.google.com
+ [209.85.216.70]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-496-RLs6nSXcN-CNTgLopODQ5Q-1; Sun, 17 Sep 2023 23:33:48 -0400
+X-MC-Unique: RLs6nSXcN-CNTgLopODQ5Q-1
+Received: by mail-pj1-f70.google.com with SMTP id 98e67ed59e1d1-274c8d0771aso1289523a91.3
+        for <linux-riscv@lists.infradead.org>; Sun, 17 Sep 2023 20:33:47 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1695008027; x=1695612827;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=gHzH+a1yYhJkfNUv/Dy9j8VaViRqaOEkd87Y+pYRKHg=;
+        b=Wp+3QLFBDbiXI0gmawsb/xK3jK6tFray1O1smom7WMJcjreyUe485pabI03+f3jhgb
+         AILB34SNnPUywzLDDZVv037qp87l4TnElPBTuD1weHE9SqKET/vN0LlW24VN6JtQgpUC
+         kG7tNa8p5CkCOHVB5/7/0lq8mvKedAq2xOQdwDRFx8KonqetaTJWcj4HPq2WAbRvbGSD
+         PMlSAMddf93NbCZ5MiVQEGdBNamFtJpXam/Fm/beUfCi+Iu4d+FBYIA5gDYNMbOXzdnJ
+         8iKP96CpdVreX2eRwUUFCLblZu6CQULQ9m8Nt0XYOLpsA4rQxdiHG2hQb7KxWVG5qq4F
+         +9zg==
+X-Gm-Message-State: AOJu0YwHA72Mk+DIM+vkobGEkSlZ/Pt0EdmdxOxTOFOdeoVUsNk+VyHA
+	DmDsQzkZrQC/fVBojdxPpyAfeDMnG2ZfU6kdhXvhc7vR9GMikf7Y3XUJgQW0DBR6JIw5V1l2cFz
+	kf9NYbyXir/rCBjasXkV0bN636xAX
+X-Received: by 2002:a17:90b:890:b0:274:7de7:d6fa with SMTP id bj16-20020a17090b089000b002747de7d6famr7131230pjb.9.1695008027065;
+        Sun, 17 Sep 2023 20:33:47 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGdFVHnxmGek3zqSMDKaRzCcHQAQEv2cIpV7L2yNs7LNSqm4GiEBUNxLVrj5jEdjCAv9J4IOA==
+X-Received: by 2002:a17:90b:890:b0:274:7de7:d6fa with SMTP id bj16-20020a17090b089000b002747de7d6famr7131213pjb.9.1695008026727;
+        Sun, 17 Sep 2023 20:33:46 -0700 (PDT)
+Received: from ?IPV6:2001:8003:e5b0:9f00:dbbc:1945:6e65:ec5? ([2001:8003:e5b0:9f00:dbbc:1945:6e65:ec5])
+        by smtp.gmail.com with ESMTPSA id 8-20020a17090a004800b0026b420ae167sm8825822pjb.17.2023.09.17.20.33.40
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 17 Sep 2023 20:33:45 -0700 (PDT)
+Message-ID: <2c23ab17-7516-e310-8b79-b8c5fc02984a@redhat.com>
+Date: Mon, 18 Sep 2023 13:33:37 +1000
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS7PR11MB5966:EE_|LV3PR11MB8529:EE_
-X-MS-Office365-Filtering-Correlation-Id: bef82a8b-4508-4e7d-100d-08dbb7e5cbca
-X-LD-Processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: GZxw9XyHnvNfIg4V0xpSa90vulloD9GcHC30G1Pw4rK3AUp1NRWTn5y1psz16m6Xh0yVXYUN7RDdbZ+hoV4XCEVwXJScoqGutuzZ5YzCFx48WmwGwGaLybzjZQ07kNE3TggRY4kw3uNShmRsjCB6WcZXOt3CaxU81WtdmMMKk6y4Mu5pNPVIe+1erm2urVM1ZyPXkTSAgKRHNBjvWJcr3wXpWuWIgfRgNqzB7bP17BgSY2ZVU53gbUwIzw2Q1hqVHXeqOttx+VoHQnVaoLLJZ18qqL1/MzG37wwjWs9bBtb92t2UYNSiO/ovuqWUQ0spY6/Y7dpRpOhKjSmhzaYKI6gjO/bnLUCZb0je/vKQYSzyiMHyzx13aI6nNCehFizXVw+aEy4ukTVv+bdmi3vvPHPjEQx2KBvj2yuM6d1g4HtjEJWg2p59LcUfPLU2tgvexeUoy98urVFXh0BQldeoZBaAlFAS3Np1fV2TJFJn3k8ZIFSCM8SvresZfG+iSLzgqlLUhiiCxa8PG51n43VjT66WWfZCK5TXa1Urt9e/S1Z7UzE+g8k9nf0d+prm0p/Q
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS7PR11MB5966.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230031)(376002)(39850400004)(396003)(136003)(346002)(366004)(186009)(1800799009)(451199024)(478600001)(66476007)(6916009)(54906003)(316002)(66946007)(66556008)(6506007)(26005)(6486002)(6512007)(6666004)(8936002)(8676002)(41300700001)(7416002)(7406005)(5660300002)(2906002)(4326008)(3450700001)(38100700002)(82960400001)(86362001)(83380400001);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?+QC4LkLcreg4ZiO8oKZsUBSIAB3DK50h5w8kyIS8oDZ5L6oRmkpsZ6uGBagA?=
- =?us-ascii?Q?Htgj33E49Bvr/fWfSYMLNIJVnzwWNRu6lt8KmuBxfHg1+OGAcpqUBOjSwMT9?=
- =?us-ascii?Q?J5RiEdOZHc+HD1vo3+N1STPQPVSqeXfiyvN9ePFhCmVtJN/mL7cd5TzxMnkd?=
- =?us-ascii?Q?BpE0AP7ZZqjlD3mRCE/JPBYbTIfkFsZnzCkihlUR3ohS4aFhrpL16/GB6N4/?=
- =?us-ascii?Q?JTs1x/MzR7WG9RmD+eA+2YbPK91cA1PJ/MpnODua/dBAYlkFmKgfcqo9udcN?=
- =?us-ascii?Q?S2YFarnz9ZRKzz2vVc+4wuOvjIiGpV3VHhwOgg6BBNAEzb7NaYiKwdBud/h4?=
- =?us-ascii?Q?NHnjDcbWl9ZYBlORS7KDRjtwraieDcGk+jTHeAaPrSTAwjI9pl2yxgkTExRp?=
- =?us-ascii?Q?J19vr6+qSFwMmmJcEfOBk+8b6ItzuF7gU3arbmmc0GUz/AwIKHZNbDaYgYRd?=
- =?us-ascii?Q?SwbjPV0NsOGHO0Oywr0W6nksTLg2wZeCrg/ic2Z+Up8S8s+oFSq2t/D0SE8J?=
- =?us-ascii?Q?XlUt2BpflFhLcO52+VfrYno66dvD9HvhwVobPSVH60xOpvdOrj0Z7Y+Rhqow?=
- =?us-ascii?Q?XZnOphonStxah3V7SXZEgDMSBT1V3dVgbOafMkvNgovXXZXSzRCWaonngOyl?=
- =?us-ascii?Q?mvy+zkmHC7No1lLPilhos7sTp2oC/31F3XNxUHS0KM5RfpyinTRqV0oarC4r?=
- =?us-ascii?Q?L+fzuIw8YRX6wkBFEbqzqnMqhypC34rbHUlC4XVBZFLGEgCQTVc2xPpBtHou?=
- =?us-ascii?Q?Wb/bTY0oqLzU/lUgsVkzIXZtv+z4KCBOrTpfQ7JEzbs9NBBP5Wz6qd5rH5uD?=
- =?us-ascii?Q?tpI7ESebV9jzaJBT8q8GCfykL9LoIDZawx+FGQij45abNHDZVYIxRdjMu8BX?=
- =?us-ascii?Q?vyVh8BFwVF1+F5QINLZU8jeSOnSdaA/ZRoz/2qyjlR0P419mqvewsNqSas8g?=
- =?us-ascii?Q?OEtEehOMirrIa46yE0JZmTznT/1UOoKAwWgP13gAiaHiX005TAR9zY+YYT6x?=
- =?us-ascii?Q?KUGnGU2Sp/Q1FrWJ26lIqHR71ieEPfVl+PdHnN3eRynxCYX5N22ieneMcFNS?=
- =?us-ascii?Q?sqq2Uba8I8TzECItrY9TKxKWA83oU1KlMihP8tjvI393y6ela0gzuolkO/zo?=
- =?us-ascii?Q?fJUe5dQfg5tCFwc33T9DZjNjzomBoFrMZw7pRI5iUFERScaGbvvqDpVBp8G3?=
- =?us-ascii?Q?LMbYSQPuE++1toe2Astb3QOAY4upFR5HVJxIermEr63HR3yjBlsLIe5XRsTq?=
- =?us-ascii?Q?ozqzFpdTvvcNkCewLJCg3QW4MRRzW73itY0RDaOtG6aQyke2r3Z1iie7HUYH?=
- =?us-ascii?Q?n8+kW5zTok+ClZm8Xk2Xx6bdlfxgDMVD+CDA2rtGzjXZVzjJzT0xiUN4PHWu?=
- =?us-ascii?Q?folYGbFtU8vB+oZ09iU/NHKy33Dc07am9LdgztlQMbZAgr1MixN6sJfin9PD?=
- =?us-ascii?Q?zSkEW/bCTtNLDQ4rWtvL1HIE2yVH6PN+PSCe2N2IiQiQz8/TGEQ04WY3ts3L?=
- =?us-ascii?Q?zxwGATpFJPp6fyd2szMQIcAeOeyojmMH4bQUYSCeYV4Ocu94qwOKprLdGqRj?=
- =?us-ascii?Q?Be9OHBH+r7cTaQwMZHWurNzQxfohkAnrJS6zucCj?=
-X-MS-Exchange-CrossTenant-Network-Message-Id: bef82a8b-4508-4e7d-100d-08dbb7e5cbca
-X-MS-Exchange-CrossTenant-AuthSource: DS7PR11MB5966.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Sep 2023 01:22:59.9211
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: RGUJS95eCjqGyaHpC1kPLEmwQl1il+Ri5x/Lf061Du/Wdw2FNu22cj+zYJ/uHmeOZDW0s7WR0Jxjl66m0PIz0Q==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV3PR11MB8529
-X-OriginatorOrg: intel.com
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.12.0
+Subject: Re: [RFC PATCH v2 05/35] drivers: base: Print a warning instead of
+ panic() when register_cpu() fails
+To: James Morse <james.morse@arm.com>, linux-pm@vger.kernel.org,
+ loongarch@lists.linux.dev, linux-acpi@vger.kernel.org,
+ linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
+ kvmarm@lists.linux.dev
+Cc: x86@kernel.org, Salil Mehta <salil.mehta@huawei.com>,
+ Russell King <linux@armlinux.org.uk>,
+ Jean-Philippe Brucker <jean-philippe@linaro.org>, jianyong.wu@arm.com,
+ justin.he@arm.com
+References: <20230913163823.7880-1-james.morse@arm.com>
+ <20230913163823.7880-6-james.morse@arm.com>
+From: Gavin Shan <gshan@redhat.com>
+In-Reply-To: <20230913163823.7880-6-james.morse@arm.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230917_182308_090744_1F1076B6 
-X-CRM114-Status: GOOD (  25.77  )
+X-CRM114-CacheID: sfid-20230917_203400_380525_8C7EF9B6 
+X-CRM114-Status: GOOD (  21.57  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -186,99 +105,61 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Reply-To: Yan Zhao <yan.y.zhao@intel.com>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 15, 2023 at 07:26:16AM -0700, Sean Christopherson wrote:
-> On Fri, Sep 15, 2023, Yan Zhao wrote:
-> > On Wed, Sep 13, 2023 at 06:55:16PM -0700, Sean Christopherson wrote:
-> > ....
-> > > +static void kvm_mmu_prepare_memory_fault_exit(struct kvm_vcpu *vcpu,
-> > > +					      struct kvm_page_fault *fault)
-> > > +{
-> > > +	kvm_prepare_memory_fault_exit(vcpu, fault->gfn << PAGE_SHIFT,
-> > > +				      PAGE_SIZE, fault->write, fault->exec,
-> > > +				      fault->is_private);
-> > > +}
-> > > +
-> > > +static int kvm_faultin_pfn_private(struct kvm_vcpu *vcpu,
-> > > +				   struct kvm_page_fault *fault)
-> > > +{
-> > > +	int max_order, r;
-> > > +
-> > > +	if (!kvm_slot_can_be_private(fault->slot)) {
-> > > +		kvm_mmu_prepare_memory_fault_exit(vcpu, fault);
-> > > +		return -EFAULT;
-> > > +	}
-> > > +
-> > > +	r = kvm_gmem_get_pfn(vcpu->kvm, fault->slot, fault->gfn, &fault->pfn,
-> > > +			     &max_order);
-> > > +	if (r) {
-> > > +		kvm_mmu_prepare_memory_fault_exit(vcpu, fault);
-> > > +		return r;
-> > > +	}
-> > > +
-> > > +	fault->max_level = min(kvm_max_level_for_order(max_order),
-> > > +			       fault->max_level);
-> > > +	fault->map_writable = !(fault->slot->flags & KVM_MEM_READONLY);
-> > > +
-> > > +	return RET_PF_CONTINUE;
-> > > +}
-> > > +
-> > >  static int __kvm_faultin_pfn(struct kvm_vcpu *vcpu, struct kvm_page_fault *fault)
-> > >  {
-> > >  	struct kvm_memory_slot *slot = fault->slot;
-> > > @@ -4293,6 +4356,14 @@ static int __kvm_faultin_pfn(struct kvm_vcpu *vcpu, struct kvm_page_fault *fault
-> > >  			return RET_PF_EMULATE;
-> > >  	}
-> > >  
-> > > +	if (fault->is_private != kvm_mem_is_private(vcpu->kvm, fault->gfn)) {
-> > In patch 21,
-> > fault->is_private is set as:
-> > 	".is_private = kvm_mem_is_private(vcpu->kvm, cr2_or_gpa >> PAGE_SHIFT)",
-> > then, the inequality here means memory attribute has been updated after
-> > last check.
-> > So, why an exit to user space for converting is required instead of a mere retry?
-> > 
-> > Or, is it because how .is_private is assigned in patch 21 is subjected to change
-> > in future? 
+
+
+On 9/14/23 02:37, James Morse wrote:
+> loongarch, mips, parisc, riscv and sh all print a warning if
+> register_cpu() returns an error. Architectures that use
+> GENERIC_CPU_DEVICES call panic() instead.
 > 
-> This.  Retrying on SNP or TDX would hang the guest.  I suppose we could special
-Is this because if the guest access a page in private way (e.g. via
-private key in TDX), the returned page must be a private page?
-
-> case VMs where .is_private is derived from the memory attributes, but the
-> SW_PROTECTED_VM type is primary a development vehicle at this point.  I'd like to
-> have it mimic SNP/TDX as much as possible; performance is a secondary concern.
-Ok. But this mimic is somewhat confusing as it may be problematic in below scenario,
-though sane guest should ensure no one is accessing a page before doing memory
-conversion.
-
-
-CPU 0                           CPU 1
-access GFN A in private way
-fault->is_private=true
-                                convert GFN A to shared
-			        set memory attribute of A to shared
-
-faultin, mismatch and exit
-set memory attribute of A
-to private
-
-                                vCPU access GFN A in shared way
-                                fault->is_private = true
-                                faultin, match and map a private PFN B
-
-                                vCPU accesses private PFN B in shared way
-
+> Errors in this path indicate something is wrong with the firmware
+> description of the platform, but the kernel is able to keep running.
 > 
-> E.g. userspace needs to be prepared for "spurious" exits due to races on SNP and
-> TDX, which this can theoretically exercise.  Though the window is quite small so
-> I doubt that'll actually happen in practice; which of course also makes it less
-> important to retry instead of exiting.
+> Downgrade this to a warning to make it easier to debug this issue.
+> 
+> This will allow architectures that switching over to GENERIC_CPU_DEVICES
+> to drop their warning, but keep the existing behaviour.
+> 
+> Signed-off-by: James Morse <james.morse@arm.com>
+> ---
+>   drivers/base/cpu.c | 7 ++++---
+>   1 file changed, 4 insertions(+), 3 deletions(-)
+> 
+> diff --git a/drivers/base/cpu.c b/drivers/base/cpu.c
+> index 579064fda97b..d31c936f0955 100644
+> --- a/drivers/base/cpu.c
+> +++ b/drivers/base/cpu.c
+> @@ -535,14 +535,15 @@ int __weak arch_register_cpu(int cpu)
+>   
+>   static void __init cpu_dev_register_generic(void)
+>   {
+> -	int i;
+> +	int i, ret;
+>   
+>   	if (!IS_ENABLED(CONFIG_GENERIC_CPU_DEVICES))
+>   		return;
+>   
+>   	for_each_present_cpu(i) {
+> -		if (arch_register_cpu(i))
+> -			panic("Failed to register CPU device");
+> +		ret = arch_register_cpu(i);
+> +		if (ret)
+> +			pr_warn("register_cpu %d failed (%d)\n", i, ret);
+>   	}
+>   }
+>   
+
+The same warning message has been printed by arch/loongarch/kernel/topology.c::arch_register_cpu().
+In order to avoid the duplication, I think the warning message in arch/loongarch needs to be dropped?
+
+Thanks,
+Gavin
+
 
 _______________________________________________
 linux-riscv mailing list
