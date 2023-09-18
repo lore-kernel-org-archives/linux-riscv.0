@@ -4,91 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 708C7CD37B0
-	for <linux-riscv@archiver.kernel.org>; Mon, 18 Sep 2023 07:52:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FBE1C46CA1
+	for <linux-riscv@archiver.kernel.org>; Mon, 18 Sep 2023 10:28:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lehxmfpqUCYS2QNdK3fP+HGmagEx1isr/un0wIWNlHg=; b=qtbueKRCcJG4Fy
-	5IGlNFmCnmPCw3jt5drazqi4LEYGNehsM5xZENSyAp8fH3ipFNhkXU8vwA6UGOKoF3k7g1Lx1jynU
-	9I00s2XjMFqruPehmOYdscyRiXplRZ5Ht0GpspvYUbIPd8u2wiDUGhg80wKifkUQ+WwDuDAaly8Ra
-	fiFkZbvvE1F5ZN5TPkRJGeH6WgYKxPveMG2vUqhIGwNlNRi4ETe/3mrgtmlKJxMsE8m7j1/oRi9Hm
-	CxSEc7QqkPhJOtvYFCcI4GzxwlJ/SuwwUJRzKMfWHNH3B7FziZ/0F3hJfmGaACMAwxyDhav3EUKQI
-	5TYKoggacD7Sv+52qtKw==;
+	List-Owner; bh=pXOTTuJt8sspyxEO+nPDI5WJ51dJkj64BPjZP7Nzhl0=; b=z7nRjFmrzAA8de
+	AXIMKuc1rOpOdH3YAf10uaHhkU0//b7Hs5SYWNdD7aXcQIsEN+jpEaPUrkN+cezN4lCbJkknTQSvx
+	sEi1pWnM1KzQHgbNgcyI3SoUcXN90gc9ZkmBaxRKo4LxztD0r8IjtbbFTULKZrMc1I5IwT/j2SupO
+	Iw6tNd8Uar8Dj4r2kfIJtYn33v28Y7a41obiZut0vO7oDF4eJt8LfggeM2qyuNu63eKraKV71Nwcw
+	uY7Cig07LN0mWdyqUTcsro5/5W6QQsT6wFqA7rDKZFnsL9aTaFbpkwCpFyGte65ginhnfKRxthlRn
+	PijicoTy/GIALcOmhw+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qi931-00EmZ8-02;
-	Mon, 18 Sep 2023 07:51:59 +0000
-Received: from mgamail.intel.com ([134.134.136.24])
+	id 1qiBTv-00F6UN-33;
+	Mon, 18 Sep 2023 10:27:55 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qi92y-00EmYI-0D;
-	Mon, 18 Sep 2023 07:51:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1695023516; x=1726559516;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=F92rNU2upp1sAb9O/m30BxSQQfs05gdxlTOIwaluPho=;
-  b=k7RMbAKzSTyJbggFavO0e+48tohPOL0tDOhCohW2+ZAvFwnYJjNld8lA
-   hPueXNmhYEjKYtCQAHETrcTjBz1OpUXzscBT0prvYPDCxwmh/gM32QOi3
-   Ckd19u109SSOegVmPsSoaj5t36CdvYAdlpFubygmUPvkqatjKkIpWTZkU
-   Hfsonn7hLti6G/TS5kak5bLcnUWcMoVtr9kG7VooHPXZU971SJm0L+0kB
-   wB6zyRynY7U0HNVyrTSDNwcg/50BybUo1lY9NZVGq49YTq8UrQSk+3eZs
-   Yd0wXqj1YSLRujyU5DmHX2HnS3iJHV2Fbmf6jrB4xgGEYAOzHJS+x+nid
-   Q==;
-X-IronPort-AV: E=McAfee;i="6600,9927,10836"; a="382335541"
-X-IronPort-AV: E=Sophos;i="6.02,156,1688454000"; 
-   d="scan'208";a="382335541"
-Received: from fmsmga008.fm.intel.com ([10.253.24.58])
-  by orsmga102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Sep 2023 00:51:54 -0700
-X-ExtLoop1: 1
-X-IronPort-AV: E=McAfee;i="6600,9927,10836"; a="811262156"
-X-IronPort-AV: E=Sophos;i="6.02,156,1688454000"; 
-   d="scan'208";a="811262156"
-Received: from binbinwu-mobl.ccr.corp.intel.com (HELO [10.238.8.84]) ([10.238.8.84])
-  by fmsmga008-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Sep 2023 00:51:45 -0700
-Message-ID: <d66795f8-e524-2912-4b71-92ca4ffe8807@linux.intel.com>
-Date: Mon, 18 Sep 2023 15:51:43 +0800
+	id 1qiBTs-00F6Pb-21;
+	Mon, 18 Sep 2023 10:27:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=JpmACuKzLEySkiefvR4XEzLq2l/GD0gp2bnZ8kEBIFI=; b=kVzQ7/vwTnpP+CIOcOrHaveVQL
+	sLK/dUbflp5AVZCi1NjTN4vGf0n8ODQ7+WX0qtIA+7Sj8W67e4mukT7UakvHTeQdXmkgGSHuD5qlA
+	hrSjKimLBut7aaQ14th62KlJ7yiOPuQc4rl7JsKxe0s/9reJwnUuY01QSW/vr6EANjJKVBe++3mpj
+	ePhEwkrYE2JyWBt0U0Utguc04Ew3fBOT2gmdqMGE/JseHq70NaEbGE7t+Yc6zjLSOXMHhyz8rkrp3
+	qCRkwR9dMkY8mB4getceyrmE3pKMTQIEtRvNZUG1hYZEd24ULHMIsy0/3v3OM9HvXiG2d2pib11lA
+	dMSc1aMg==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:34502)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1qiBTj-000059-36;
+	Mon, 18 Sep 2023 11:27:43 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.94.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1qiBTi-0000Oe-EM; Mon, 18 Sep 2023 11:27:42 +0100
+Date: Mon, 18 Sep 2023 11:27:42 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: James Morse <james.morse@arm.com>
+Cc: linux-pm@vger.kernel.org, loongarch@lists.linux.dev,
+	linux-acpi@vger.kernel.org, linux-arch@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org, kvmarm@lists.linux.dev,
+	x86@kernel.org, Salil Mehta <salil.mehta@huawei.com>,
+	Jean-Philippe Brucker <jean-philippe@linaro.org>,
+	jianyong.wu@arm.com, justin.he@arm.com
+Subject: Re: [RFC PATCH v2 00/35] ACPI/arm64: add support for virtual
+ cpuhotplug
+Message-ID: <ZQgmHtG10n+XyZYR@shell.armlinux.org.uk>
+References: <20230913163823.7880-1-james.morse@arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.15.1
-Subject: Re: [RFC PATCH v12 11/33] KVM: Introduce per-page memory attributes
-To: Sean Christopherson <seanjc@google.com>
-Cc: kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- kvmarm@lists.linux.dev, linux-mips@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org,
- linux-riscv@lists.infradead.org, linux-fsdevel@vger.kernel.org,
- linux-mm@kvack.org, linux-security-module@vger.kernel.org,
- linux-kernel@vger.kernel.org, Paolo Bonzini <pbonzini@redhat.com>,
- Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
- Huacai Chen <chenhuacai@kernel.org>, Michael Ellerman <mpe@ellerman.id.au>,
- Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- "Matthew Wilcox (Oracle)" <willy@infradead.org>,
- Andrew Morton <akpm@linux-foundation.org>, Paul Moore <paul@paul-moore.com>,
- James Morris <jmorris@namei.org>, "Serge E. Hallyn" <serge@hallyn.com>,
- Chao Peng <chao.p.peng@linux.intel.com>, Fuad Tabba <tabba@google.com>,
- Jarkko Sakkinen <jarkko@kernel.org>, Anish Moorthy <amoorthy@google.com>,
- Yu Zhang <yu.c.zhang@linux.intel.com>,
- Isaku Yamahata <isaku.yamahata@intel.com>, Xu Yilun <yilun.xu@intel.com>,
- Vlastimil Babka <vbabka@suse.cz>, Vishal Annapurve <vannapurve@google.com>,
- Ackerley Tng <ackerleytng@google.com>,
- Maciej Szmigiero <mail@maciej.szmigiero.name>,
- David Hildenbrand <david@redhat.com>, Quentin Perret <qperret@google.com>,
- Michael Roth <michael.roth@amd.com>, Wang <wei.w.wang@intel.com>,
- Liam Merwick <liam.merwick@oracle.com>,
- Isaku Yamahata <isaku.yamahata@gmail.com>,
- "Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
-References: <20230914015531.1419405-1-seanjc@google.com>
- <20230914015531.1419405-12-seanjc@google.com>
-From: Binbin Wu <binbin.wu@linux.intel.com>
-In-Reply-To: <20230914015531.1419405-12-seanjc@google.com>
+Content-Disposition: inline
+In-Reply-To: <20230913163823.7880-1-james.morse@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230918_005156_143234_2771DEFC 
-X-CRM114-Status: GOOD (  10.53  )
+X-CRM114-CacheID: sfid-20230918_032752_689269_5DB8E046 
+X-CRM114-Status: UNSURE (   8.86  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,59 +79,25 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Wed, Sep 13, 2023 at 04:37:48PM +0000, James Morse wrote:
+> This series is based on v6.6-rc1, and can be retrieved from:
+> https://git.kernel.org/pub/scm/linux/kernel/git/morse/linux.git/ virtual_cpu_hotplug/rfc/v2
 
+Hi James,
 
-On 9/14/2023 9:55 AM, Sean Christopherson wrote:
-> From: Chao Peng <chao.p.peng@linux.intel.com>
-[...]
->   
-> +#ifdef CONFIG_KVM_GENERIC_MEMORY_ATTRIBUTES
-> +/*
-> + * Returns true if _all_ gfns in the range [@start, @end) have attributes
-> + * matching @attrs.
-> + */
-> +bool kvm_range_has_memory_attributes(struct kvm *kvm, gfn_t start, gfn_t end,
-> +				     unsigned long attrs)
-> +{
-> +	XA_STATE(xas, &kvm->mem_attr_array, start);
-> +	unsigned long index;
-> +	bool has_attrs;
-> +	void *entry;
-> +
-> +	rcu_read_lock();
-> +
-> +	if (!attrs) {
-> +		has_attrs = !xas_find(&xas, end);
-IIUIC, xas_find() is inclusive for "end", so here should be "end - 1" ?
+FYI, this doesn't seem to be based upon v6.6-rc1, but v6.4-rc5.
+virtual_cpu_hotplug/rfc/v2 seems to have a hash of 505859b05e15.
 
+Thanks.
 
-> +		goto out;
-> +	}
-> +
-> +	has_attrs = true;
-> +	for (index = start; index < end; index++) {
-> +		do {
-> +			entry = xas_next(&xas);
-> +		} while (xas_retry(&xas, entry));
-> +
-> +		if (xas.xa_index != index || xa_to_value(entry) != attrs) {
-> +			has_attrs = false;
-> +			break;
-> +		}
-> +	}
-> +
-> +out:
-> +	rcu_read_unlock();
-> +	return has_attrs;
-> +}
-> +
->
-[...]
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
 _______________________________________________
 linux-riscv mailing list
