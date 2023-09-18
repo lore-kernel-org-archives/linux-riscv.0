@@ -4,69 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC11CCD37B0
-	for <linux-riscv@archiver.kernel.org>; Mon, 18 Sep 2023 10:36:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22588C46CA1
+	for <linux-riscv@archiver.kernel.org>; Mon, 18 Sep 2023 10:41:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	MIME-Version:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=klJ4WpZhaC6EKGVr889+TdmMtPQ0FOOMYUekYUVU71w=; b=GNH
-	xBwI34d9Pj74OWG/sbpqipxHU9pRnAKrApwouTgpO6JwidigFxL47mPxYF0Rf2RS1T0zcPVKJMWpH
-	FzsOz26wM35xYfsy1y8m4gvR7hAnxYBZFlWCf9nbloxFsuh/YFZDsryGyhB2L+AtGJVTkQQOeUlbm
-	L7mQw06OV66v8325YLZhn2WFTvUZ/wx83oRZo3+RhgK7Kdet9YVmuZhQGeDVg1XRcEfeWHPmdu5o/
-	lSjIF1vzthcFEH1o6aXhpAwDg0o9putxtXfmz53INksnShrMZ2QAWaT7L57si07vXPIf9gs+v5WhI
-	MFUWkYXmjWfL9I96gIS0iL9jFDosBjg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=w/BP2xfMt1tgIRYfXoEjRMxCSQDhXmRW/2JQ0Bq5w+E=; b=f768J9Xl78Jc8o
+	/msIro6loVTliDNdIpniWx+cOnjWpGJEJfqmJ9aLxyhvPRxDmmZvV4pSb64oxHPkewkjccWHw4egC
+	pGM8hGwQuIxmxgL/7aLGQCEL0Qx5tMG5jt2fORfvJ+qyDmJQeoJvkWIKCXtQozgsEGQaoh/EKa0Od
+	jixDqbWCP1yYNBx2Z4Vj3kZjwF1GAfJbfjzA8kyp9zeNAKvTKUvje0jBb1sJhMaddQK26PgWBbMBj
+	oCfC3tTfWAvDZzzDWjFfGjKTMrZF8u+kWyFCdqIKDD8ZmrsCh/Etu3/5oWb/Rf2xu81XH+l7KyxYt
+	9N7CFCfJVpKxsYHSDDWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qiBcY-00FCRf-2Z;
-	Mon, 18 Sep 2023 10:36:50 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1qiBgo-00FF5P-2c;
+	Mon, 18 Sep 2023 10:41:14 +0000
+Received: from mail-lj1-x229.google.com ([2a00:1450:4864:20::229])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qiBcV-00FCNY-2K
+	id 1qiBgm-00FF3n-1J
 	for linux-riscv@lists.infradead.org;
-	Mon, 18 Sep 2023 10:36:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1695033407; x=1726569407;
-  h=date:from:to:cc:subject:message-id:mime-version;
-  bh=45EWWhl+W/dF46c9zVATx49jdMHzZ7N/Vpt42wM+9PU=;
-  b=dE+Zd8nQARaDSsP0HHBHTpTx43bnQIFTUnFBHnJZ3E5kR0wg4+GysX71
-   uKLOIwdUf8PpI16BrmFahlcoi+tWp8/TpiJ6CM3Ld0Vpa3YNMg/gr9oVa
-   N20qsuuNw2bLNr9chDCLIf3eKR8h55K5KKcGyuPadT7P8sHYNqE6CHG9W
-   CFqaeaLi/jxzjX8hxhxNBYW58LMxEl/JhLBoT21ve1vQ5vlKv8AnVW356
-   cmdEULU+3zkQt/F1QpYA3han3KJ6jetCzhIVgCSpkSjw5idouZKflZCEa
-   IbDNQTyDkrboCS9jyTyMiwLk3FWNF4SYNsQvVUKKkBOSZECKlm7vrPThY
-   Q==;
-X-CSE-ConnectionGUID: RV5cahfSSHCtRXg2ArBihA==
-X-CSE-MsgGUID: S80qPqi9SxyWaXpoW6HSgg==
-X-ThreatScanner-Verdict: Negative
-X-IronPort-AV: E=Sophos;i="6.02,156,1688454000"; 
-   d="asc'?scan'208";a="172196851"
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 18 Sep 2023 03:36:44 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.87.72) by
- chn-vm-ex02.mchp-main.com (10.10.87.72) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Mon, 18 Sep 2023 03:36:20 -0700
-Received: from wendy (10.10.85.11) by chn-vm-ex02.mchp-main.com (10.10.85.144)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
- Transport; Mon, 18 Sep 2023 03:36:19 -0700
-Date: Mon, 18 Sep 2023 11:36:03 +0100
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Alexandre Ghiti <alex@ghiti.fr>
-CC: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, Palmer Dabbelt
-	<palmer@rivosinc.com>, <linux-riscv@lists.infradead.org>
-Subject: more RELOCATABLE + errata code model issues
-Message-ID: <20230918-retool-presoak-e47ed2f2b8d3@wendy>
+	Mon, 18 Sep 2023 10:41:13 +0000
+Received: by mail-lj1-x229.google.com with SMTP id 38308e7fff4ca-2c008d8fd07so15113171fa.1
+        for <linux-riscv@lists.infradead.org>; Mon, 18 Sep 2023 03:41:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1695033668; x=1695638468; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=e8vZ+nMZg/id9myDO0t3UgVJxmZAPYOVVlhlm9+laak=;
+        b=ZX0Okpa5xgpJQNJIWmSKLY4QWvGubjBWADQ3BF04T3Aa2j38799n1queX3AZeU7y/U
+         FdhbKcfZpsg8xCFLQX4VoOLXafRVSC2ffjy4RT6BvEfotSUiZyuOrtG+66/eMffEiVQs
+         7VOjBUE96MsmKoQ15O3QjHeOMLwygtuDzGi+4jMTLOXwmqAwH3VnpDBXgvpZ/EKvdaCk
+         iGdO8YX/cZt09uuQ+/NDQZ0ytKC6OUqxZk0ExUA1gLks1JFCXjXS8+62bdHV9Lu8SfmK
+         rlfbdgGWYFX1jUNdjI9vjhG5tKH1tiXXdTe1qpDcZiWHcCYR9nObt1XqcwpZ+x/+M7Dz
+         AJ5A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1695033668; x=1695638468;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=e8vZ+nMZg/id9myDO0t3UgVJxmZAPYOVVlhlm9+laak=;
+        b=nc5iLp1tzZjQ6AGjtVKRr9u7+NQstf24eawigdTpgo6KWtPX2F3JIH9FQQ7gJcIuhZ
+         cY+KPLjpiXTV1CdnEhlv0Qo8PXm+X68GDLeb1AKODdrb+MLUIKiw533zrb+1zeQjq/Vx
+         Jy0WuHieUd9nXT4uhADen70GLK13n+4TMHkasVHZnoyR5ezhfyf6MUdS8xVW4V1OfdJP
+         u1XD4Pc0EE1010dATPZmGioeQVIuwGQbejb4S8DeOJ6hh/XdT+2WVt9edRvHinpl6lFf
+         CDvu86SIbSEgYRVm/rLe+ShNfvjavbm4VH0Qcrp1LDJYKLKtJ1Nme4FRzbfIuRYAY6w4
+         7QDA==
+X-Gm-Message-State: AOJu0Ywey5exEzUVt/p8rMNKPMN7QdtJDvlZJ3WYRgYsImiRzNOIXaiZ
+	dxguYkj4zTbkglyj7Si11z3kkydKE+2k30SuJ/0=
+X-Google-Smtp-Source: AGHT+IHYQipn1lEfaVnoAR+B4BEowjtJ232usDZFUDz2i18WN/9JMJ6Z9VKi7x5PBPZ8b9/rjaOP0w==
+X-Received: by 2002:a2e:6f0a:0:b0:2bf:f133:62e9 with SMTP id k10-20020a2e6f0a000000b002bff13362e9mr4026846ljc.17.1695033667751;
+        Mon, 18 Sep 2023 03:41:07 -0700 (PDT)
+Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
+        by smtp.gmail.com with ESMTPSA id qt11-20020a170906eceb00b009a19fa8d2e9sm6116650ejb.206.2023.09.18.03.41.06
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 18 Sep 2023 03:41:07 -0700 (PDT)
+Date: Mon, 18 Sep 2023 12:41:06 +0200
+From: Andrew Jones <ajones@ventanamicro.com>
+To: linux-riscv@lists.infradead.org
+Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
+	evan@rivosinc.com, conor.dooley@microchip.com, apatel@ventanamicro.com
+Subject: Re: [PATCH v3 6/6] RISC-V: selftests: Add CBO tests
+Message-ID: <20230918-062f2e7be4d5dab914648c91@orel>
+References: <20230904170220.167816-8-ajones@ventanamicro.com>
+ <20230904170220.167816-14-ajones@ventanamicro.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20230904170220.167816-14-ajones@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230918_033647_951707_1D39038A 
-X-CRM114-Status: GOOD (  15.75  )
+X-CRM114-CacheID: sfid-20230918_034112_443739_D191B9C9 
+X-CRM114-Status: GOOD (  11.50  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,79 +87,39 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8688643687520045617=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============8688643687520045617==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="sj/yOhfTldg67vR+"
-Content-Disposition: inline
+On Mon, Sep 04, 2023 at 07:02:27PM +0200, Andrew Jones wrote:
+> Add hwprobe test for Zicboz and its block size. Also, when Zicboz is
+> present, test that cbo.zero may be issued and works. Additionally
+> test that the Zicbom instructions cause SIGILL and also that cbo.zero
+> causes SIGILL when Zicboz is not present. Pinning the test to a subset
+> of cpus with taskset will also restrict the hwprobe calls to that set.
 
---sj/yOhfTldg67vR+
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Palmer pointed out that there's no guarantee to get illegal-instruction
+exceptions when Zicbom/Zicboz are not present. Indeed, the unpriv spec
+states
 
+"""
+ The behavior upon decoding a reserved instruction is UNSPECIFIED.
 
-Hey Alex,
+   Some platforms may require that opcodes reserved for standard use raise
+   an illegal-instruction exception. Other platforms may permit reserved
+   opcode space be used for non-conforming extensions.
+"""
 
-LKP reported [1] some issues with relocatable kernels & code models.
-You didn't touch the commit that caused the issues, so you didn't see
-the failure report I guess, but Prabhakar is looking for some guidance
-on what he should do to resolve the problems. Copy-pasting from his
-mail:
-> > All errors (new ones prefixed by >>):
-> >=20
-> > >> ld.lld: error: relocation R_RISCV_LO12_I cannot be used against
-> > >> symbol 'riscv_cbom_block_size'; recompile with -fPIC
-> >    >>> defined in vmlinux.a(arch/riscv/mm/cacheflush.o)
-> >    >>> referenced by errata.c
-> >    >>>               arch/riscv/errata/andes/errata.o:(andes_errata_pat=
-ch_func) in archive vmlinux.a
-> >=20
-> I did reproduce this issue locally. The andes errata is not compiled as m=
-edany. The config is RELOCATABLE + MEDLOW. I can see the cacheflush.o is co=
-mpiled with medany flag.
-> I can fix the build by adding a medany flag as below:
-> +#ifdef CONFIG_RISCV_ALTERNATIVE_EARLY
-> +CFLAGS_errata.o :=3D -mcmodel=3Dmedany
-> #endif
->=20
-> But I am not sure if this is correct approach. Any pointers on this?
-
-The T-Head errata have something similar, so seems like fair game to me.
-Any thoughts?
+This implies that cannot do the illegal-instruction checks for when
+hwprobe reports the extension isn't present. That's a pity, but I
+guess I should rip it out. Or, maybe I'll keep it, but only run it
+under a command line switch.
 
 Thanks,
-Conor.
-
-[1] - https://lore.kernel.org/all/202309111311.8tcq3KVc-lkp@intel.com/
-
---sj/yOhfTldg67vR+
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZQgoEwAKCRB4tDGHoIJi
-0rsgAP40HFfe6SLVBiFexHJQnUV/f93ncBhuYNCqV2LOqK6b7wEAzdYvzF76hmLa
-oKxjjRvRgYGVp8Vk0rsP+mB6TK76lgQ=
-=tbVk
------END PGP SIGNATURE-----
-
---sj/yOhfTldg67vR+--
-
-
---===============8688643687520045617==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+drew
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============8688643687520045617==--
-
