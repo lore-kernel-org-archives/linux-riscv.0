@@ -4,76 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9817BCD342E
-	for <linux-riscv@archiver.kernel.org>; Tue, 19 Sep 2023 00:59:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47047CD342E
+	for <linux-riscv@archiver.kernel.org>; Tue, 19 Sep 2023 01:09:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BWqsWPR0FddIRTOD+eEE3vwgv3Z30rk8OBIiGll4FQE=; b=L3XCyAqMMZadNb
-	2Ynnfv49sCCQiJt8Ruq5k3+yCAx23MFWLNDA2SNpkgt4Hilstk8aKcSwlOLHTgq885F/xvA4xA8ZG
-	8aAwIil845kJghR1KCZhHDu/HkCoF8RlKANtLPnmb1IkgGQMKHw8PsrezEUSqFj7OysW4LD4MFTT+
-	bI8t3LBfSYlNLuMo1beGxX9YWmlG6t+GtMvE2E2sN4jhO+1P8MGLU3D1crDYHxaT1wimFcSbLbHHc
-	SKkZLESL9yMdfPb0mKoHvcKeQDfivW5lJ72zUHLhCDZsK3+B7kIWbHqgYhOovzgN3nNj/Ko8/OeOf
-	qjavCI2R2DP5vaNzoSsA==;
+	List-Owner; bh=/q/jO/slBehxvy7sXbRoEgCsX+u7n7UoIQBcXfVr4AQ=; b=Q1OJcKL0fjd+QU
+	ndEgGEkHvIui+gXXcUlrJ+6dE0NH3MeiRpRjfzSCFvs12Tv7V+RIclt3ckefPJToDCQvWxwmZR9HR
+	MwE9VRV4AGoC4cNRa/EYkVAWRkyFWeybYVLus3BxLKlCWccyWY1tMRH/XSkb8pcHWl/hNke13xhNy
+	eHVFp1ij9YpuJY6nAjiq2tO2k4RDVMJ7dfTvj36vUykFP+fU4zUKiX+n4GV/PG8nuvYQGhDhglHD5
+	85LnnyGZtUDniYVlkAj3TFKM0bnB0jjivr8h8saaKmOU0e1WjaNXavkwdvM6aJnZN4mm4b1r6uQVV
+	pNMphIm2n3Lo0kbPPWQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qiP5V-00GcQF-0U;
-	Tue, 19 Sep 2023 00:59:37 +0000
+	id 1qiPFK-00GdHW-0C;
+	Tue, 19 Sep 2023 01:09:46 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qiP5S-00GcPW-1W
+	id 1qiPFG-00GdGl-2j
 	for linux-riscv@lists.infradead.org;
-	Tue, 19 Sep 2023 00:59:36 +0000
+	Tue, 19 Sep 2023 01:09:44 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1695085173;
+	s=mimecast20190719; t=1695085780;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=bw0RCNykMdY7RZsWbJdeZUErCRZgRpcPnJGa7EHVzz4=;
-	b=Bue/mVDEQh5rS75zAHcFn62FGRisryxKB+eFsVOY5DHkB5Rn90Qrhg6T3qfHPQWrBJ+0/6
-	nwMHdLyucp5Gf99kgIG7tmXbWhYaEsNkYhtY/cUc2IBB17g8PXM2BTVi0wrgNJLiFH6Ne5
-	TFDnDSq4Dr/qnf6dvkvFyQUqePS9dYU=
-Received: from mail-pl1-f197.google.com (mail-pl1-f197.google.com
- [209.85.214.197]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=5xhYDTylANariynyECyDawRfZxSRk3P2GMXADURjfrY=;
+	b=g5gvk9Cbldzwgf1whkpv1bhkeCidpWMGTQkiHzikYV0NVbdBS1aIs/VRwtCX6tEFH/wuRz
+	iTN6ISnycsk01kDlCaUiLKxQFNmOzupCQcDAjbHQgG/yE0nQkLF2hUGNYJMh9rLl9Fp2Yq
+	XHRv1G6U4v1beJPrgRuM+xpXGkSDI/k=
+Received: from mail-pf1-f197.google.com (mail-pf1-f197.google.com
+ [209.85.210.197]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-507-qEVKnjEXNr2zVoISA3WHBw-1; Mon, 18 Sep 2023 20:59:31 -0400
-X-MC-Unique: qEVKnjEXNr2zVoISA3WHBw-1
-Received: by mail-pl1-f197.google.com with SMTP id d9443c01a7336-1c46ce0c39fso16209905ad.2
-        for <linux-riscv@lists.infradead.org>; Mon, 18 Sep 2023 17:59:31 -0700 (PDT)
+ us-mta-689-79IcA_rkNPaynSgeZ_ADxg-1; Mon, 18 Sep 2023 21:09:39 -0400
+X-MC-Unique: 79IcA_rkNPaynSgeZ_ADxg-1
+Received: by mail-pf1-f197.google.com with SMTP id d2e1a72fcca58-6903b59d3a8so4067265b3a.3
+        for <linux-riscv@lists.infradead.org>; Mon, 18 Sep 2023 18:09:39 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1695085171; x=1695689971;
+        d=1e100.net; s=20230601; t=1695085778; x=1695690578;
         h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=bw0RCNykMdY7RZsWbJdeZUErCRZgRpcPnJGa7EHVzz4=;
-        b=iM7qVKA7MgPG70gJreFB3YiXPjsGkVsEq+bM8ltgyz4Br33j1dW0J29rSY8pvNkxqn
-         4wZQEfZpiuhgHyTHmXxPHhEQ9jyF/UBF6xwlfdNkuZXKCgqg27ahLE0po+MB2HpevAVv
-         /lMBDDsccx8TRhjsWtEJeB3tjNRupzQUEg3k1t1ajKx4pwCi185eijeYAG/9eZhU+tLz
-         WRxgSY6sWBMyWqIVL2E1IHA6NcEB4OJ+xGyUe1QN68rtboaltNUGQq6dFyoWXXIdh1HB
-         hZ/Gz3Yc4lQOjCxoZ9+zshR1oiamJyrw9FPaCb0UeUgDuS8gxHzUW4w99c5vyDSBS3y3
-         CRMQ==
-X-Gm-Message-State: AOJu0YwPR8KXC4Ln8rcArQGpG1VryWaChPWInaWtZA1tGqrpmOQOquHk
-	YipExdL892i4F2FSleOyeYTQ958r5lYbhLQi6QtTFzzCEr5StbhHALIAb33laQ9MwVuEHaqSPiU
-	7XCbkZG7lS+2gje23CrK693L4lwO9
-X-Received: by 2002:a17:903:187:b0:1c1:eb8b:79a6 with SMTP id z7-20020a170903018700b001c1eb8b79a6mr9666420plg.24.1695085170969;
-        Mon, 18 Sep 2023 17:59:30 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IE7eI2cxEHhh6ECmh24LHvZfT00fTv4NRQgrtlQ6ac1SnBZhOS9meGvuMTt0rEbyYbfdT98tw==
-X-Received: by 2002:a17:903:187:b0:1c1:eb8b:79a6 with SMTP id z7-20020a170903018700b001c1eb8b79a6mr9666399plg.24.1695085170570;
-        Mon, 18 Sep 2023 17:59:30 -0700 (PDT)
+        bh=5xhYDTylANariynyECyDawRfZxSRk3P2GMXADURjfrY=;
+        b=SYJ18ruxQBuy68LWbFd7+IEZKRmeuvNZViM1dtRUp8ZlNthpF4cZiQLPVE0jsSspOP
+         sOuZdfcQleODGWkbKWIcc81u+/TOCgnaLuW36srusre38dnTpfypD6ZxTOQjY/Mx0pa6
+         iaD/sNI1XpZLfbDtX70NSUTumgd2prr0tLXOrd4f8OqMc0+dcqq+mgR0qmZihrWYXMRA
+         ziTGcxFKs+4WDsIGzth4zed4AWdUEEYT1V6S282ogu1u4jMichHaMS4bQU7tqMp8GJkv
+         vy/WfqREF2eD+5TOfiGBj24QPA1rRwuL9eK7lK+ZWS1aRFswVg6eW6nQTrQMTcxKdLhF
+         Etlw==
+X-Gm-Message-State: AOJu0Yzt0O7zk9/GS2LVIJ2PdLAqM4Ddo76VDzJn0b2awAerNHbCzf+5
+	sN7Of6RiXM3OMRwmq/cwUNkm1eLtW4dKxKwOxtaieJ7JF6oq0kOleMqcpgpr4RsVe0C00c9RsAV
+	nRMzk8HXaplCL8ckXtgLpz6RHpWlp
+X-Received: by 2002:a05:6a20:7faa:b0:140:324c:124c with SMTP id d42-20020a056a207faa00b00140324c124cmr10255881pzj.62.1695085778234;
+        Mon, 18 Sep 2023 18:09:38 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IFdG9bCpdvmZ3ZQXnGhuch/qDkbh0mPQBnni4kkBKZ4ohjirIgnh97Jnx/y/Pt40AJLReKTog==
+X-Received: by 2002:a05:6a20:7faa:b0:140:324c:124c with SMTP id d42-20020a056a207faa00b00140324c124cmr10255863pzj.62.1695085777865;
+        Mon, 18 Sep 2023 18:09:37 -0700 (PDT)
 Received: from ?IPV6:2001:8003:e5b0:9f00:dbbc:1945:6e65:ec5? ([2001:8003:e5b0:9f00:dbbc:1945:6e65:ec5])
-        by smtp.gmail.com with ESMTPSA id kg14-20020a170903060e00b001c41e1e9ca7sm8040575plb.215.2023.09.18.17.59.25
+        by smtp.gmail.com with ESMTPSA id bh3-20020a170902a98300b001c55d591f07sm3082096plb.260.2023.09.18.18.09.32
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 18 Sep 2023 17:59:30 -0700 (PDT)
-Message-ID: <8be3a9dc-8f59-9ef9-3662-95814e177125@redhat.com>
-Date: Tue, 19 Sep 2023 10:59:23 +1000
+        Mon, 18 Sep 2023 18:09:37 -0700 (PDT)
+Message-ID: <23ed10ee-b88f-8681-35a4-cefc2e3a7800@redhat.com>
+Date: Tue, 19 Sep 2023 11:09:30 +1000
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
  Thunderbird/102.12.0
-Subject: Re: [RFC PATCH v2 24/35] drivers: base: Implement weak
+Subject: Re: [RFC PATCH v2 25/35] LoongArch: Use the __weak version of
  arch_unregister_cpu()
 To: James Morse <james.morse@arm.com>, linux-pm@vger.kernel.org,
  loongarch@lists.linux.dev, linux-acpi@vger.kernel.org,
@@ -85,15 +85,15 @@ Cc: x86@kernel.org, Salil Mehta <salil.mehta@huawei.com>,
  Jean-Philippe Brucker <jean-philippe@linaro.org>, jianyong.wu@arm.com,
  justin.he@arm.com
 References: <20230913163823.7880-1-james.morse@arm.com>
- <20230913163823.7880-25-james.morse@arm.com>
+ <20230913163823.7880-26-james.morse@arm.com>
 From: Gavin Shan <gshan@redhat.com>
-In-Reply-To: <20230913163823.7880-25-james.morse@arm.com>
+In-Reply-To: <20230913163823.7880-26-james.morse@arm.com>
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230918_175934_608154_2EE928C4 
-X-CRM114-Status: GOOD (  20.65  )
+X-CRM114-CacheID: sfid-20230918_180942_978075_2D428D78 
+X-CRM114-Status: GOOD (  15.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,96 +110,44 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
 On 9/14/23 02:38, James Morse wrote:
-> Add arch_unregister_cpu() to allow the ACPI machinery to call
-> unregister_cpu(). This is enough for arm64, riscv and loongarch, but
-> needs to be overridden by x86 and ia64 who need to do more work.
+> LoongArch provides its own arch_unregister_cpu(). This clears the
+> hotpluggable flag, then unregisters the CPU.
 > 
-> CC: Jean-Philippe Brucker <jean-philippe@linaro.org>
+> It isn't necessary to clear the hotpluggable flag when unregistering
+> a cpu. unregister_cpu() writes NULL to the percpu cpu_sys_devices
+> pointer, meaning cpu_is_hotpluggable() will return false, as
+> get_cpu_device() has returned NULL.
+> 
+> Remove arch_unregister_cpu() and use the __weak version.
+> 
 > Signed-off-by: James Morse <james.morse@arm.com>
 > ---
-> Changes since v1:
->   * Added CONFIG_HOTPLUG_CPU ifdeffery around unregister_cpu
-> ---
->   arch/ia64/include/asm/cpu.h      | 4 ----
->   arch/loongarch/include/asm/cpu.h | 6 ------
->   arch/x86/include/asm/cpu.h       | 1 -
->   drivers/base/cpu.c               | 9 ++++++++-
->   4 files changed, 8 insertions(+), 12 deletions(-)
+>   arch/loongarch/kernel/topology.c | 9 ---------
+>   1 file changed, 9 deletions(-)
 > 
+I think arch/x86/kernel/topology.c::arch_unregister_cpu() can be dropped either.
 
-I agree with Jonathan this patch needs to come early. Maybe move this
-before the following one:
+Reviewed-by: Gavin Shan <gshan@redhat.com>
 
-[RFC PATCH v2 19/35] ACPI: Move acpi_bus_trim_one() before acpi_scan_hot_remove()
-
-> diff --git a/arch/ia64/include/asm/cpu.h b/arch/ia64/include/asm/cpu.h
-> index a3e690e685e5..642d71675ddb 100644
-> --- a/arch/ia64/include/asm/cpu.h
-> +++ b/arch/ia64/include/asm/cpu.h
-> @@ -15,8 +15,4 @@ DECLARE_PER_CPU(struct ia64_cpu, cpu_devices);
->   
->   DECLARE_PER_CPU(int, cpu_state);
->   
-> -#ifdef CONFIG_HOTPLUG_CPU
-> -extern void arch_unregister_cpu(int);
-> -#endif
-> -
->   #endif /* _ASM_IA64_CPU_H_ */
-> diff --git a/arch/loongarch/include/asm/cpu.h b/arch/loongarch/include/asm/cpu.h
-> index b8568e637420..48b9f7168bcc 100644
-> --- a/arch/loongarch/include/asm/cpu.h
-> +++ b/arch/loongarch/include/asm/cpu.h
-> @@ -128,10 +128,4 @@ enum cpu_type_enum {
->   #define LOONGARCH_CPU_HYPERVISOR	BIT_ULL(CPU_FEATURE_HYPERVISOR)
->   #define LOONGARCH_CPU_PTW		BIT_ULL(CPU_FEATURE_PTW)
->   
-> -#if !defined(__ASSEMBLY__)
-> -#ifdef CONFIG_HOTPLUG_CPU
-> -void arch_unregister_cpu(int cpu);
-> -#endif
-> -#endif /* ! __ASSEMBLY__ */
-> -
->   #endif /* _ASM_CPU_H */
-> diff --git a/arch/x86/include/asm/cpu.h b/arch/x86/include/asm/cpu.h
-> index f349c94510e8..91867a6a9f8e 100644
-> --- a/arch/x86/include/asm/cpu.h
-> +++ b/arch/x86/include/asm/cpu.h
-> @@ -24,7 +24,6 @@ static inline void prefill_possible_map(void) {}
->   #endif /* CONFIG_SMP */
->   
->   #ifdef CONFIG_HOTPLUG_CPU
-> -extern void arch_unregister_cpu(int);
->   extern void soft_restart_cpu(void);
->   #endif
->   
-> diff --git a/drivers/base/cpu.c b/drivers/base/cpu.c
-> index 677f963e02ce..c709747c4a18 100644
-> --- a/drivers/base/cpu.c
-> +++ b/drivers/base/cpu.c
-> @@ -531,7 +531,14 @@ int __weak arch_register_cpu(int cpu)
->   {
->   	return register_cpu(&per_cpu(cpu_devices, cpu), cpu);
+> diff --git a/arch/loongarch/kernel/topology.c b/arch/loongarch/kernel/topology.c
+> index 8e4441c1ff39..5a75e2cc0848 100644
+> --- a/arch/loongarch/kernel/topology.c
+> +++ b/arch/loongarch/kernel/topology.c
+> @@ -16,13 +16,4 @@ int arch_register_cpu(int cpu)
+>   	return register_cpu(c, cpu);
 >   }
-> -#endif
-> +
-> +#ifdef CONFIG_HOTPLUG_CPU
-> +void __weak arch_unregister_cpu(int num)
-> +{
-> +	unregister_cpu(&per_cpu(cpu_devices, num));
-> +}
-> +#endif /* CONFIG_HOTPLUG_CPU */
-> +#endif /* CONFIG_GENERIC_CPU_DEVICES */
->   
-
-It seems conflicting with its declaration in include/linux/cpu.h. Besides,
-the function is still needed by drivers/acpi/acpi_processor.c::acpi_processor_make_not_present()
-even both CONFIG_HOTPLUG_CPU and CONFIG_GENERIC_CPU_DEVICES are disabled?
-
->   static void __init cpu_dev_register_generic(void)
->   {
+>   EXPORT_SYMBOL(arch_register_cpu);
+> -
+> -void arch_unregister_cpu(int cpu)
+> -{
+> -	struct cpu *c = &per_cpu(cpu_devices, cpu);
+> -
+> -	c->hotpluggable = 0;
+> -	unregister_cpu(c);
+> -}
+> -EXPORT_SYMBOL(arch_unregister_cpu);
+>   #endif
 
 Thanks,
 Gavin
