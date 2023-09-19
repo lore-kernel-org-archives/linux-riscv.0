@@ -4,95 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84989CD3423
-	for <linux-riscv@archiver.kernel.org>; Tue, 19 Sep 2023 00:08:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FE2ECD342C
+	for <linux-riscv@archiver.kernel.org>; Tue, 19 Sep 2023 00:31:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
-	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=gtzIca1vFbO9eOfVblOXMXTHmcXYWgGUGXpJGf0Z4RA=; b=jgg0ivofSS4mRUThkkTFm0k6UQ
-	NMEA4XpDQxxXdRjbJ46uXlh/A/QcUITniRtEMQCNNlDFlujI14yfNx28nqv7FYnQH1fI5rRszK/U+
-	CfrN/3VKz882c/sDoUSVwvHDAkkYxP3yQ00op8n7ewqzz37XYq6ZRehtZkr78usIZ9bq0SQPve8N/
-	wmiaT9ZmOMLh/vO6njRe47TYT8Qyn2AhPrJrGV9T7B6ynyRO0Uu8UEo9cH1dVCnt/fuxeSIS4APjd
-	hzrwWU97IcHBd+AoJwtd4fP6zo5HJMF8OFQVRAfbrcNZMQyRWGbNEQb2z/jTLBSo+rEUCCp+IoJCh
-	lQ+Q9XSA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=oHTIE3qYP4pYMHXL1OCC0vrOSxJtvtBGEe019OMEIlY=; b=oxEIX5Yunxo6xZ
+	aPXrsM56PDHuPDACJ/f9zdNcBAgLweiAof7fNcpTj32doNzGOKXlvP1dgHg2xgENbkgPq+Na4kgXW
+	pMAjOLL+MuVeUN+eo/9syBdup5WZiBJ1q3GdbNY1+sLeJkwLyWp2wDKPmcDJlQm3WTYlseCxuBiiV
+	fTO8L9EfxWWgc/irkDW+O4T+hNtG+zwccQaJKotR2/X/pU6ui4uK4drWxgTYNQ0qP7bFW1/OnuKVn
+	5p93tTQY1w+1QMWkny/akS4b6OlbcQeETDFUxz1RYwigtsMqJIL6RWLEnRbNzdnPjW9YQjZxd6wky
+	n/oWZJyQwo70GBftH2iA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qiOIK-00GZFD-1j;
-	Tue, 19 Sep 2023 00:08:48 +0000
-Received: from mail-yw1-x1149.google.com ([2607:f8b0:4864:20::1149])
+	id 1qiOeM-00GaRA-29;
+	Tue, 19 Sep 2023 00:31:34 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qiOIH-00GZDs-1P
+	id 1qiOeI-00GaQA-1o
 	for linux-riscv@lists.infradead.org;
-	Tue, 19 Sep 2023 00:08:47 +0000
-Received: by mail-yw1-x1149.google.com with SMTP id 00721157ae682-59c27703cc6so32443927b3.2
-        for <linux-riscv@lists.infradead.org>; Mon, 18 Sep 2023 17:08:43 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1695082123; x=1695686923; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=dInZugQi4I3jT3AsjQuL7R2MGGG9K+dIBnr86/ph3q8=;
-        b=a65hwXrfQyHXgDYe6XnxKZNx6Vn70ATf8JIavZCEqAWzw7esLm3cM/ae6QK4xsb9Rn
-         BRTF9rCvXtCzMYOWedGjJlp4yeqO/JNCC/3dH5orgyF3ISY1GPdoGLd/2MCJFhDiAP4w
-         xn0Ow7H6TJ9/iY7piZrFZNl8PlL60kCiA+MR/6w2vIfrtWcdwzaRGsIizxoEd4kmVSCv
-         PzKKjI0TikoOVMEFxjElWQWuXub0hahVDzkzB2gpBdx+554CU//gbGcy4ECFAPeHdk/o
-         mirjiVu/ySiLajC9o8B0WThZuPRoIP28+J0p5ODhb3t6uAopW9hVsxBQalzWc3yExLhX
-         16MA==
+	Tue, 19 Sep 2023 00:31:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1695083489;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=yt0ViDpjZ+25N6JQm0qkxgqk3PInKbbOQPzyPguJLGE=;
+	b=XSeKs3Zbp5UBCx90WTU87kAfeNMO9bhfOkoLCFe3UCNq/PYUfctSkFN4kzg4RStOEPfHow
+	+6ytqrWesu42fsKAUmumt2Zw3C7otdtjxMpjqTF496kK1AKm/5m/LqJZrI8pfaegRLhIMe
+	yF0srjSFMSq2vU4tIOgcpA7/JDc1a/8=
+Received: from mail-pj1-f70.google.com (mail-pj1-f70.google.com
+ [209.85.216.70]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-451-LqiP0TSqP6GDLcoplri78A-1; Mon, 18 Sep 2023 20:31:27 -0400
+X-MC-Unique: LqiP0TSqP6GDLcoplri78A-1
+Received: by mail-pj1-f70.google.com with SMTP id 98e67ed59e1d1-274c4e3da1aso1405014a91.2
+        for <linux-riscv@lists.infradead.org>; Mon, 18 Sep 2023 17:31:27 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1695082123; x=1695686923;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=dInZugQi4I3jT3AsjQuL7R2MGGG9K+dIBnr86/ph3q8=;
-        b=v8GjgQ8zAMulHV1869Tfin+rf+n1PI68gc6+u9pqqDgM3kCRpsDpqgt7Ad/+2gSqb0
-         dLAOl1Tb0rtnbjoNTLLhfw1vrJiplGg9ZJjUKW13RYMAtHptEJNFUOV+sRrmOclzdQZp
-         I0y6j0djngwKdWxAu/BPPXxAjKquZNDrOD4myyz/JYtgNBEOCuCcCD4nunN5QABJb8Xe
-         //LKy1KAlNKKnq3zZAF/uyQpUEPpKf73s92VQ0Qp1Vv77EqeAov90gsPZReFPym3LZkL
-         B9Ootjtp7e/K1Blt6UbrjPKOyr5rYRJdKTqdQyR97HSkmT7xfWvkKeY5KxRq1+YqypDE
-         k+Gw==
-X-Gm-Message-State: AOJu0YzvAYDkaXBQDo6Eo7iABPaQloGZ9l7ojR5AlV2FzJht6/oC1/9P
-	WED978pOAxZfAfEyDYzZ6p93YZyoiLo=
-X-Google-Smtp-Source: AGHT+IHHNvt5OesaYTZ4SrOkO6G/E0GpOB67x3jgD/5Z7IEbZFEyHH5t/MUiil/50JGkevI3xvv2hT/ge04=
-X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
- (user=seanjc job=sendgmr) by 2002:a05:6902:11cf:b0:d80:23ff:ae7f with SMTP id
- n15-20020a05690211cf00b00d8023ffae7fmr237508ybu.4.1695082122578; Mon, 18 Sep
- 2023 17:08:42 -0700 (PDT)
-Date: Mon, 18 Sep 2023 17:08:40 -0700
-In-Reply-To: <20230918180754.iomoaqnw75j3rrxb@amd.com>
-Mime-Version: 1.0
-References: <20230914015531.1419405-1-seanjc@google.com> <20230914015531.1419405-11-seanjc@google.com>
- <20230918180754.iomoaqnw75j3rrxb@amd.com>
-Message-ID: <ZQjmiE7cQ/4UynNz@google.com>
-Subject: Re: [RFC PATCH v12 10/33] KVM: Set the stage for handling only shared
- mappings in mmu_notifier events
-From: Sean Christopherson <seanjc@google.com>
-To: Michael Roth <michael.roth@amd.com>
-Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
-	Oliver Upton <oliver.upton@linux.dev>, Huacai Chen <chenhuacai@kernel.org>, 
-	Michael Ellerman <mpe@ellerman.id.au>, Anup Patel <anup@brainfault.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, "Matthew Wilcox (Oracle)" <willy@infradead.org>, 
-	Andrew Morton <akpm@linux-foundation.org>, Paul Moore <paul@paul-moore.com>, 
-	James Morris <jmorris@namei.org>, "Serge E. Hallyn" <serge@hallyn.com>, kvm@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
-	linux-fsdevel@vger.kernel.org, linux-mm@kvack.org, 
-	linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Chao Peng <chao.p.peng@linux.intel.com>, Fuad Tabba <tabba@google.com>, 
-	Jarkko Sakkinen <jarkko@kernel.org>, Anish Moorthy <amoorthy@google.com>, 
-	Yu Zhang <yu.c.zhang@linux.intel.com>, Isaku Yamahata <isaku.yamahata@intel.com>, 
-	Xu Yilun <yilun.xu@intel.com>, Vlastimil Babka <vbabka@suse.cz>, 
-	Vishal Annapurve <vannapurve@google.com>, Ackerley Tng <ackerleytng@google.com>, 
-	Maciej Szmigiero <mail@maciej.szmigiero.name>, David Hildenbrand <david@redhat.com>, 
-	Quentin Perret <qperret@google.com>, Wang <wei.w.wang@intel.com>, 
-	Liam Merwick <liam.merwick@oracle.com>, Isaku Yamahata <isaku.yamahata@gmail.com>, 
-	"Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>, Ashish Kalra <Ashish.Kalra@amd.com>
+        d=1e100.net; s=20230601; t=1695083486; x=1695688286;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=yt0ViDpjZ+25N6JQm0qkxgqk3PInKbbOQPzyPguJLGE=;
+        b=XjqupQ+BonROD/ui199VWS1y0QwO1DWg9MAdG/TKtjW6U/s6T1RXhemvJGWFvRleA3
+         C3W/7H1snLJC/i8vu32fmXuCb5DwWqvrPw14cgY0y0N5EagM70MVu4JCVtLPkizccoXh
+         /GoosOoTsRqnmzDWVTZgv97IVrJhxm5L9EJwzrOlG+lwSkbcaSvJdJYl3dM9swmhuyPc
+         YK8QtG4onb015md3I7QvbnrOeUVeuHWoBJdiKbhQ2qDnxplwAD2XrejkqE/2FbD0h6H6
+         YQAvNZ45Urmjq+PG1W5Rl197l1CT0YXq4zMlvRaWshvUkFJ1sAKZuUd6HLn3EjbObe4h
+         HXrQ==
+X-Gm-Message-State: AOJu0YxxZOWJzgQuaHRO6ZUxCysRj0ShG5pKm8CPxd5may35809qVYLP
+	v2D3hWrOMj2qXirCzubtw4uEmwixVm1laABbZ/MlhVpAm23h5hAFSX6uyHifaUpCFYfxYxde/b/
+	qftwARNgVsAOonwHOm/ZDdnoki9IY
+X-Received: by 2002:a17:90a:f3d4:b0:274:6cd3:a533 with SMTP id ha20-20020a17090af3d400b002746cd3a533mr7710095pjb.20.1695083486654;
+        Mon, 18 Sep 2023 17:31:26 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IEuRHNEswx8Y3CK9vB5Y6rtmqv1Vi3ahJ5e3s63VHLKH86N5qFHbQvQv+6fmLjVPhUNR76WEw==
+X-Received: by 2002:a17:90a:f3d4:b0:274:6cd3:a533 with SMTP id ha20-20020a17090af3d400b002746cd3a533mr7710080pjb.20.1695083486322;
+        Mon, 18 Sep 2023 17:31:26 -0700 (PDT)
+Received: from ?IPV6:2001:8003:e5b0:9f00:dbbc:1945:6e65:ec5? ([2001:8003:e5b0:9f00:dbbc:1945:6e65:ec5])
+        by smtp.gmail.com with ESMTPSA id f93-20020a17090a706600b0026fa1931f66sm8310527pjk.9.2023.09.18.17.31.20
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 18 Sep 2023 17:31:25 -0700 (PDT)
+Message-ID: <c3ef8123-1fcc-7289-c475-c753de44d564@redhat.com>
+Date: Tue, 19 Sep 2023 10:31:17 +1000
+MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.12.0
+Subject: Re: [RFC PATCH v2 21/35] ACPI: Add post_eject to struct
+ acpi_scan_handler for cpu hotplug
+To: James Morse <james.morse@arm.com>, linux-pm@vger.kernel.org,
+ loongarch@lists.linux.dev, linux-acpi@vger.kernel.org,
+ linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
+ kvmarm@lists.linux.dev
+Cc: x86@kernel.org, Salil Mehta <salil.mehta@huawei.com>,
+ Russell King <linux@armlinux.org.uk>,
+ Jean-Philippe Brucker <jean-philippe@linaro.org>, jianyong.wu@arm.com,
+ justin.he@arm.com
+References: <20230913163823.7880-1-james.morse@arm.com>
+ <20230913163823.7880-22-james.morse@arm.com>
+From: Gavin Shan <gshan@redhat.com>
+In-Reply-To: <20230913163823.7880-22-james.morse@arm.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230918_170845_495515_D03EEB7B 
-X-CRM114-Status: GOOD (  37.88  )
+X-CRM114-CacheID: sfid-20230918_173130_695227_9F84C031 
+X-CRM114-Status: GOOD (  33.99  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,104 +105,190 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 18, 2023, Michael Roth wrote:
-> On Wed, Sep 13, 2023 at 06:55:08PM -0700, Sean Christopherson wrote:
-> > Add flags to "struct kvm_gfn_range" to let notifier events target only
-> > shared and only private mappings, and write up the existing mmu_notifier
-> > events to be shared-only (private memory is never associated with a
-> > userspace virtual address, i.e. can't be reached via mmu_notifiers).
-> > 
-> > Add two flags so that KVM can handle the three possibilities (shared,
-> > private, and shared+private) without needing something like a tri-state
-> > enum.
-> > 
-> > Link: https://lore.kernel.org/all/ZJX0hk+KpQP0KUyB@google.com
-> > Signed-off-by: Sean Christopherson <seanjc@google.com>
-> > ---
-> >  include/linux/kvm_host.h | 2 ++
-> >  virt/kvm/kvm_main.c      | 7 +++++++
-> >  2 files changed, 9 insertions(+)
-> > 
-> > diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
-> > index d8c6ce6c8211..b5373cee2b08 100644
-> > --- a/include/linux/kvm_host.h
-> > +++ b/include/linux/kvm_host.h
-> > @@ -263,6 +263,8 @@ struct kvm_gfn_range {
-> >  	gfn_t start;
-> >  	gfn_t end;
-> >  	union kvm_mmu_notifier_arg arg;
-> > +	bool only_private;
-> > +	bool only_shared;
-> >  	bool may_block;
-> >  };
-> >  bool kvm_unmap_gfn_range(struct kvm *kvm, struct kvm_gfn_range *range);
-> > diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
-> > index 174de2789657..a41f8658dfe0 100644
-> > --- a/virt/kvm/kvm_main.c
-> > +++ b/virt/kvm/kvm_main.c
-> > @@ -635,6 +635,13 @@ static __always_inline kvm_mn_ret_t __kvm_handle_hva_range(struct kvm *kvm,
-> >  			 * the second or later invocation of the handler).
-> >  			 */
-> >  			gfn_range.arg = range->arg;
-> > +
-> > +			/*
-> > +			 * HVA-based notifications aren't relevant to private
-> > +			 * mappings as they don't have a userspace mapping.
-> > +			 */
-> > +			gfn_range.only_private = false;
-> > +			gfn_range.only_shared = true;
-> >  			gfn_range.may_block = range->may_block;
+
+
+On 9/14/23 02:38, James Morse wrote:
+> struct acpi_scan_handler has a detach callback that is used to remove
+> a driver when a bus is changed. When interacting with an eject-request,
+> the detach callback is called before _EJ0.
 > 
-> Who is supposed to read only_private/only_shared? Is it supposed to be
-> plumbed onto arch code and handled specially there?
-
-Yeah, that's the idea.  Though I don't know that it's worth using for SNP, the
-cost of checking the RMP may be higher than just eating the extra faults.
-
-> I ask because I see elsewhere you have:
+> This means the ACPI processor driver can't use _STA to determine if a
+> CPU has been made not-present, or some of the other _STA bits have been
+> changed. acpi_processor_remove() needs to know the value of _STA after
+> _EJ0 has been called.
 > 
->     /*
->      * If one or more memslots were found and thus zapped, notify arch code
->      * that guest memory has been reclaimed.  This needs to be done *after*
->      * dropping mmu_lock, as x86's reclaim path is slooooow.
->      */
->     if (__kvm_handle_hva_range(kvm, &hva_range).found_memslot)
->             kvm_arch_guest_memory_reclaimed(kvm);
+
+It's helpful to mention which ACPI processor driver needs to use _STA
+to determine the status here. I guess the ACPI processor driver will
+behave differently depending on the status.
+
+> Add a post_eject callback to struct acpi_scan_handler. This is called
+> after acpi_scan_hot_remove() has successfully called _EJ0. Because
+> acpi_bus_trim_one() also clears the handler pointer, it needs to be
+> told if the caller will go on to call acpi_bus_post_eject(), so
+> that acpi_device_clear_enumerated() and clearing the handler pointer
+> can be deferred. The existing not-used pointer is used for this.
 > 
-> and if there are any MMU notifier events that touch HVAs, then
-> kvm_arch_guest_memory_reclaimed()->wbinvd_on_all_cpus() will get called,
-> which causes the performance issues for SEV and SNP that Ashish had brought
-> up. Technically that would only need to happen if there are GPAs in that
-> memslot that aren't currently backed by gmem pages (and then gmem could handle
-> its own wbinvd_on_all_cpus() (or maybe clflush per-page)). 
+> Signed-off-by: James Morse <james.morse@arm.com>
+> ---
+>   drivers/acpi/acpi_processor.c |  4 +--
+>   drivers/acpi/scan.c           | 52 ++++++++++++++++++++++++++++++-----
+>   include/acpi/acpi_bus.h       |  1 +
+>   3 files changed, 48 insertions(+), 9 deletions(-)
 > 
-> Actually, even if there are shared pages in the GPA range, the
-> kvm_arch_guest_memory_reclaimed()->wbinvd_on_all_cpus() can be skipped for
-> guests that only use gmem pages for private memory. Is that acceptable?
 
-Yes, that was my original plan.  I may have forgotten that exact plan at one point
-or another and not communicated it well.  But the idea is definitely that if a VM
-type, a.k.a. SNP guests, is required to use gmem for private memory, then there's
-no need to blast WBINVD because barring a KVM bug, the mmu_notifier event can't
-have freed private memory, even if it *did* zap SPTEs.
+Reviewed-by: Gavin Shan <gshan@redhat.com>
 
-For gmem, if KVM doesn't precisely zap only shared SPTEs for SNP (is that even
-possible to do race-free?), then KVM needs to blast WBINVD when freeing memory
-from gmem even if there are no SPTEs.  But that seems like a non-issue for a
-well-behaved setup because the odds of there being *zero* SPTEs should be nil.
+> diff --git a/drivers/acpi/acpi_processor.c b/drivers/acpi/acpi_processor.c
+> index 22a15a614f95..00dcc23d49a8 100644
+> --- a/drivers/acpi/acpi_processor.c
+> +++ b/drivers/acpi/acpi_processor.c
+> @@ -459,7 +459,7 @@ static int acpi_processor_add(struct acpi_device *device,
+>   
+>   #ifdef CONFIG_ACPI_HOTPLUG_PRESENT_CPU
+>   /* Removal */
+> -static void acpi_processor_remove(struct acpi_device *device)
+> +static void acpi_processor_post_eject(struct acpi_device *device)
+>   {
+>   	struct acpi_processor *pr;
+>   
+> @@ -627,7 +627,7 @@ static struct acpi_scan_handler processor_handler = {
+>   	.ids = processor_device_ids,
+>   	.attach = acpi_processor_add,
+>   #ifdef CONFIG_ACPI_HOTPLUG_PRESENT_CPU
+> -	.detach = acpi_processor_remove,
+> +	.post_eject = acpi_processor_post_eject,
+>   #endif
+>   	.hotplug = {
+>   		.enabled = true,
+> diff --git a/drivers/acpi/scan.c b/drivers/acpi/scan.c
+> index a675333618ae..b6d2f01640a9 100644
+> --- a/drivers/acpi/scan.c
+> +++ b/drivers/acpi/scan.c
+> @@ -244,18 +244,28 @@ static int acpi_scan_try_to_offline(struct acpi_device *device)
+>   	return 0;
+>   }
+>   
+> -static int acpi_bus_trim_one(struct acpi_device *adev, void *not_used)
+> +/**
+> + * acpi_bus_trim_one() - Detach scan handlers and drivers from ACPI device
+> + *                       objects.
+> + * @adev:       Root of the ACPI namespace scope to walk.
+> + * @eject:      Pointer to a bool that indicates if this was due to an
+> + *              eject-request.
+> + *
+> + * Must be called under acpi_scan_lock.
+> + * If @eject points to true, clearing the device enumeration is deferred until
+> + * acpi_bus_post_eject() is called.
+> + */
+> +static int acpi_bus_trim_one(struct acpi_device *adev, void *eject)
+>   {
+>   	struct acpi_scan_handler *handler = adev->handler;
+> +	bool is_eject = *(bool *)eject;
+>   
+> -	acpi_dev_for_each_child_reverse(adev, acpi_bus_trim_one, NULL);
+> +	acpi_dev_for_each_child_reverse(adev, acpi_bus_trim_one, eject);
+>   
+>   	adev->flags.match_driver = false;
+>   	if (handler) {
+>   		if (handler->detach)
+>   			handler->detach(adev);
+> -
+> -		adev->handler = NULL;
+>   	} else {
+>   		device_release_driver(&adev->dev);
+>   	}
+> @@ -265,7 +275,12 @@ static int acpi_bus_trim_one(struct acpi_device *adev, void *not_used)
+>   	 */
+>   	acpi_device_set_power(adev, ACPI_STATE_D3_COLD);
+>   	adev->flags.initialized = false;
+> -	acpi_device_clear_enumerated(adev);
+> +
+> +	/* For eject this is deferred to acpi_bus_post_eject() */
+> +	if (!is_eject) {
+> +		adev->handler = NULL;
+> +		acpi_device_clear_enumerated(adev);
+> +	}
+>   
+>   	return 0;
+>   }
+> @@ -278,15 +293,36 @@ static int acpi_bus_trim_one(struct acpi_device *adev, void *not_used)
+>    */
+>   void acpi_bus_trim(struct acpi_device *adev)
+>   {
+> -	acpi_bus_trim_one(adev, NULL);
+> +	bool eject = false;
+> +
+> +	acpi_bus_trim_one(adev, &eject);
+>   }
+>   EXPORT_SYMBOL_GPL(acpi_bus_trim);
+>   
+> +static int acpi_bus_post_eject(struct acpi_device *adev, void *not_used)
+> +{
+> +	struct acpi_scan_handler *handler = adev->handler;
+> +
+> +	acpi_dev_for_each_child_reverse(adev, acpi_bus_post_eject, NULL);
+> +
+> +	if (handler) {
+> +		if (handler->post_eject)
+> +			handler->post_eject(adev);
+> +
+> +		adev->handler = NULL;
+> +	}
+> +
+> +	acpi_device_clear_enumerated(adev);
+> +
+> +	return 0;
+> +}
+> +
+>   static int acpi_scan_hot_remove(struct acpi_device *device)
+>   {
+>   	acpi_handle handle = device->handle;
+>   	unsigned long long sta;
+>   	acpi_status status;
+> +	bool eject = true;
+>   
+>   	if (device->handler && device->handler->hotplug.demand_offline) {
+>   		if (!acpi_scan_is_offline(device, true))
+> @@ -299,7 +335,7 @@ static int acpi_scan_hot_remove(struct acpi_device *device)
+>   
+>   	acpi_handle_debug(handle, "Ejecting\n");
+>   
+> -	acpi_bus_trim(device);
+> +	acpi_bus_trim_one(device, &eject);
+>   
+>   	acpi_evaluate_lck(handle, 0);
+>   	/*
+> @@ -322,6 +358,8 @@ static int acpi_scan_hot_remove(struct acpi_device *device)
+>   	} else if (sta & ACPI_STA_DEVICE_ENABLED) {
+>   		acpi_handle_warn(handle,
+>   			"Eject incomplete - status 0x%llx\n", sta);
+> +	} else {
+> +		acpi_bus_post_eject(device, NULL);
+>   	}
+>   
+>   	return 0;
+> diff --git a/include/acpi/acpi_bus.h b/include/acpi/acpi_bus.h
+> index 254685085c82..1b7e1acf925b 100644
+> --- a/include/acpi/acpi_bus.h
+> +++ b/include/acpi/acpi_bus.h
+> @@ -127,6 +127,7 @@ struct acpi_scan_handler {
+>   	bool (*match)(const char *idstr, const struct acpi_device_id **matchid);
+>   	int (*attach)(struct acpi_device *dev, const struct acpi_device_id *id);
+>   	void (*detach)(struct acpi_device *dev);
+> +	void (*post_eject)(struct acpi_device *dev);
+>   	void (*bind)(struct device *phys_dev);
+>   	void (*unbind)(struct device *phys_dev);
+>   	struct acpi_hotplug_profile hotplug;
 
-> Just trying to figure out where this only_private/only_shared handling ties
-> into that (or if it's a separate thing entirely).
+Thanks,
+Gavin
 
-It's mostly a TDX thing.  I threw it in this series mostly to "formally" document
-that the mmu_notifier path only affects shared mappings.  If the code causes
-confusion without the TDX context, and won't be used by SNP, we can and should
-drop it from the initial merge and have it go along with the TDX series.
 
 _______________________________________________
 linux-riscv mailing list
