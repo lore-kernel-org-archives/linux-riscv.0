@@ -4,68 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45FADCD54A9
-	for <linux-riscv@archiver.kernel.org>; Tue, 19 Sep 2023 08:48:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59744CD54A9
+	for <linux-riscv@archiver.kernel.org>; Tue, 19 Sep 2023 09:01:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BLSDhR/0FAC+n1H3ZXyp3+mOfkkpMxL+MNzV8lP76Y0=; b=ByCjG1vU7CvxE9QbTpfDGrObG4
-	tyLQiLA1AKKISrs34zDc9oXsMalP58Z8gQyP6+ouSF7kLCPRz8TaDjoNNpie5zfJAoZW00X1cUrfM
-	qkWqF1u9IAwJeb358sV51k2NAY0/W/sriyEOV67G3Sx3uZvAx4gxfjsSNXbvz0eaqHPuMiqJQMdQV
-	qxYi7+e4/nFy1prTt9flonR69APWOziSiuNIo55rOXlD1ZWbMgENQAuCDfL92J3IonHfhtqsP4rjj
-	GGYGAQ6X5a5BnuZ9kPU8AFHpOcvGWaArfzB3gzcR3mvx632hd7kJCb/DfoqEwAJERONtZw2C4j3d4
-	MYCcRkpw==;
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=YcxtT8/20+7kN5+moWCGKl7KMF6F+z7kwA6wXjc0lxA=; b=cmkuNQOWKjmFRQ
+	bY/T/dMKfamWOjAlSOd39MxZK0kB1v5low0eGBX0BnywQgIV0dklwOzMZvgfmNFXzE1Z8a2r/M4TI
+	PkmK/jejl4RtWy/q51Y6akuVczzzO3IxDL+OfruRPXpBQtNX6fsUmS7MBFs6lYqB4Iu/mm9Dk3cBZ
+	py0bVwRPlX0u34ZycJzegFb9wv8Xo6jOmVxgfh8k2O4a3pAzPhXktoHx6zuW68y98HzrO813eBvfT
+	T6yzIzR3lszwj9xKSZDE0vu8nPr2OaoBXsl1wnthf+mqQ0ekc3fgi2VhqHb2VeMfdTwRGGEdDEFHq
+	8vK9RHFlm3O22vhvjQVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qiWOk-00HOJo-2Z;
-	Tue, 19 Sep 2023 08:47:58 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1qiWcB-00HPXC-36;
+	Tue, 19 Sep 2023 09:01:51 +0000
+Received: from mgamail.intel.com ([192.55.52.93])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qiWOh-00HOJ8-2X
-	for linux-riscv@lists.infradead.org;
-	Tue, 19 Sep 2023 08:47:56 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 3AC9161502;
-	Tue, 19 Sep 2023 08:47:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 880ACC433C8;
-	Tue, 19 Sep 2023 08:47:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1695113274;
-	bh=luFy040TJwhqSwX6q8NyoQWoiTXkeP9Qqccg14Kb0rA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=nAIFlH97A7V8Ycm5uK/xK6ieazUEpI6YXPLvhBAsVWWi/V3P5Cl/gf+bo2KM6XzpY
-	 FiD9pjJGvZgLyEPbAXtwZheJ1vghZLACfrHxcmSvosElzIq2o2lq5R9kKMbsS75SAn
-	 RYRQVm290QV8qTTKyOZlH4A3dSINv/5Ao7gSizbOLtSmJAzY/44cJRkOcUf0qbsDuH
-	 +Bu7I7wNfH2s7qGXk9e8jGslCoa0Lfge1lXBwzyrINlsDGeQvHZQEPShb6uScOGxGx
-	 m1GGzvEU1PkEktT16u02UirNKQUM6SKWCoS06MCHogJlny3+FRkAkhCpfcJ7T7j1hy
-	 fuRxCsIoi3WoA==
-Date: Tue, 19 Sep 2023 09:47:48 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Kwanghoon Son <k.son@samsung.com>
-Cc: p.zabel@pengutronix.de, robh+dt@kernel.org,
-	krzysztof.kozlowski+dt@linaro.org, conor+dt@kernel.org,
-	jszhang@kernel.org, guoren@kernel.org, wefu@redhat.com,
-	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	inki.dae@samsung.com, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v3 1/3] dt-bindings: reset: Document th1520 reset control
-Message-ID: <20230919-42333064be342f6ab125dd75@fedora>
-References: <20230918045125.4000083-1-k.son@samsung.com>
- <CGME20230918045134epcas1p1b80b338b66512a976c3783cd0e51da50@epcas1p1.samsung.com>
- <20230918045125.4000083-2-k.son@samsung.com>
- <20230918-4ef7f52da269f3a7e4023bb3@fedora>
- <005301d9eab7$5688c920$039a5b60$@samsung.com>
+	id 1qiWc9-00HPVy-03;
+	Tue, 19 Sep 2023 09:01:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1695114108; x=1726650108;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=3lbpMHnCnN4tgBMsnlxIOe9ua6EYGffh/u6hevJylxY=;
+  b=SEv6rbhcAG8Brikv8KxJ0iQqqHg8DpUiAaNs2NfGenCq9A8bNsfHsqOn
+   1ZdP+JZplJJalD33nSs/kZOqOBBD8MM7rSCvpNUB5aF+SoCpiSAEB1WWw
+   Po/wTwi0+8idSbCLrB6wiqfT5vA2PB11nF/c9fQfjLAlGnyGmOwGD/dmO
+   YSf81UZ7oFrzNhOeiSr0zH5pDk10Hn3XPvP5ZzyGyEnPVMNgkWvItHiGX
+   r+oihA0xvHZhdqaDCXXZnBu7uN741b++en1OTt1h3oZxNUDUJBqhGThHb
+   zLPyIHzCI1l/ckkx2RbKOxocPk6DBUYn9r51JpbsfpI0zzxnl/zJB5zVm
+   Q==;
+X-IronPort-AV: E=McAfee;i="6600,9927,10837"; a="377201135"
+X-IronPort-AV: E=Sophos;i="6.02,159,1688454000"; 
+   d="scan'208";a="377201135"
+Received: from orsmga003.jf.intel.com ([10.7.209.27])
+  by fmsmga102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Sep 2023 02:01:46 -0700
+X-ExtLoop1: 1
+X-IronPort-AV: E=McAfee;i="6600,9927,10837"; a="695833326"
+X-IronPort-AV: E=Sophos;i="6.02,159,1688454000"; 
+   d="scan'208";a="695833326"
+Received: from binbinwu-mobl.ccr.corp.intel.com (HELO [10.238.8.84]) ([10.238.8.84])
+  by orsmga003-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Sep 2023 02:01:36 -0700
+Message-ID: <e397d30c-c6af-e68f-d18e-b4e3739c5389@linux.intel.com>
+Date: Tue, 19 Sep 2023 17:01:31 +0800
 MIME-Version: 1.0
-In-Reply-To: <005301d9eab7$5688c920$039a5b60$@samsung.com>
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.15.1
+Subject: Re: [RFC PATCH v12 14/33] KVM: Add KVM_CREATE_GUEST_MEMFD ioctl() for
+ guest-specific backing memory
+To: Sean Christopherson <seanjc@google.com>
+Cc: kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ kvmarm@lists.linux.dev, linux-mips@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org,
+ linux-riscv@lists.infradead.org, linux-fsdevel@vger.kernel.org,
+ linux-mm@kvack.org, linux-security-module@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Paolo Bonzini <pbonzini@redhat.com>,
+ Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
+ Huacai Chen <chenhuacai@kernel.org>, Michael Ellerman <mpe@ellerman.id.au>,
+ Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ "Matthew Wilcox (Oracle)" <willy@infradead.org>,
+ Andrew Morton <akpm@linux-foundation.org>, Paul Moore <paul@paul-moore.com>,
+ James Morris <jmorris@namei.org>, "Serge E. Hallyn" <serge@hallyn.com>,
+ Chao Peng <chao.p.peng@linux.intel.com>, Fuad Tabba <tabba@google.com>,
+ Jarkko Sakkinen <jarkko@kernel.org>, Anish Moorthy <amoorthy@google.com>,
+ Yu Zhang <yu.c.zhang@linux.intel.com>,
+ Isaku Yamahata <isaku.yamahata@intel.com>, Xu Yilun <yilun.xu@intel.com>,
+ Vlastimil Babka <vbabka@suse.cz>, Vishal Annapurve <vannapurve@google.com>,
+ Ackerley Tng <ackerleytng@google.com>,
+ Maciej Szmigiero <mail@maciej.szmigiero.name>,
+ David Hildenbrand <david@redhat.com>, Quentin Perret <qperret@google.com>,
+ Michael Roth <michael.roth@amd.com>, Wang <wei.w.wang@intel.com>,
+ Liam Merwick <liam.merwick@oracle.com>,
+ Isaku Yamahata <isaku.yamahata@gmail.com>,
+ "Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
+References: <20230914015531.1419405-1-seanjc@google.com>
+ <20230914015531.1419405-15-seanjc@google.com>
+From: Binbin Wu <binbin.wu@linux.intel.com>
+In-Reply-To: <20230914015531.1419405-15-seanjc@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230919_014755_890192_3CDD6549 
-X-CRM114-Status: GOOD (  17.37  )
+X-CRM114-CacheID: sfid-20230919_020149_116948_61AADC9D 
+X-CRM114-Status: GOOD (  15.04  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,72 +101,99 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============0000256609695599859=="
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============0000256609695599859==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="1iibWnnp3IIIl0SS"
-Content-Disposition: inline
+
+On 9/14/2023 9:55 AM, Sean Christopherson wrote:
+[...]
+> +
+> +static void kvm_gmem_invalidate_begin(struct kvm_gmem *gmem, pgoff_t start,
+> +				      pgoff_t end)
+> +{
+> +	struct kvm_memory_slot *slot;
+> +	struct kvm *kvm = gmem->kvm;
+> +	unsigned long index;
+> +	bool flush = false;
+> +
+> +	KVM_MMU_LOCK(kvm);
+> +
+> +	kvm_mmu_invalidate_begin(kvm);
+> +
+> +	xa_for_each_range(&gmem->bindings, index, slot, start, end - 1) {
+> +		pgoff_t pgoff = slot->gmem.pgoff;
+> +
+> +		struct kvm_gfn_range gfn_range = {
+> +			.start = slot->base_gfn + max(pgoff, start) - pgoff,
+> +			.end = slot->base_gfn + min(pgoff + slot->npages, end) - pgoff,
+> +			.slot = slot,
+> +			.may_block = true,
+> +		};
+> +
+> +		flush |= kvm_mmu_unmap_gfn_range(kvm, &gfn_range);
+> +	}
+> +
+> +	if (flush)
+> +		kvm_flush_remote_tlbs(kvm);
+> +
+> +	KVM_MMU_UNLOCK(kvm);
+> +}
+> +
+> +static void kvm_gmem_invalidate_end(struct kvm_gmem *gmem, pgoff_t start,
+> +				    pgoff_t end)
+> +{
+> +	struct kvm *kvm = gmem->kvm;
+> +
+> +	KVM_MMU_LOCK(kvm);
+> +	if (xa_find(&gmem->bindings, &start, end - 1, XA_PRESENT))
+> +		kvm_mmu_invalidate_end(kvm);
+kvm_mmu_invalidate_begin() is called unconditionally in 
+kvm_gmem_invalidate_begin(),
+but kvm_mmu_invalidate_end() is not here.
+This makes the kvm_gmem_invalidate_{begin, end}() calls asymmetric.
 
 
---1iibWnnp3IIIl0SS
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+> +	KVM_MMU_UNLOCK(kvm);
+> +}
+> +
+> +static long kvm_gmem_punch_hole(struct inode *inode, loff_t offset, loff_t len)
+> +{
+> +	struct list_head *gmem_list = &inode->i_mapping->private_list;
+> +	pgoff_t start = offset >> PAGE_SHIFT;
+> +	pgoff_t end = (offset + len) >> PAGE_SHIFT;
+> +	struct kvm_gmem *gmem;
+> +
+> +	/*
+> +	 * Bindings must stable across invalidation to ensure the start+end
+> +	 * are balanced.
+> +	 */
+> +	filemap_invalidate_lock(inode->i_mapping);
+> +
+> +	list_for_each_entry(gmem, gmem_list, entry) {
+> +		kvm_gmem_invalidate_begin(gmem, start, end);
+> +		kvm_gmem_invalidate_end(gmem, start, end);
+> +	}
+Why to loop for each gmem in gmem_list here?
 
-Guo,
-
-On Tue, Sep 19, 2023 at 02:08:32PM +0900, Kwanghoon Son wrote:
-> > > > +      - const: thead,th1520-reset
-> > > > +      - const: syscon
-> > >
-> > > iDumb question perhaps, but why is this a syscon?
-> >=20
-> > This is good point.
-> > In fact, I took it from the vendor kernel, and I tried to keep it as sa=
-me as I could.
-> > Vendor also followed drivers/reset/reset-imx7.c
-> > As Rob said, if don't need it, I'll change it.
-
-> I have investigated vendor kernels, but it is still not sure reset inform=
-ation.
-> I thought this is about sys_reg, but without datasheet, can't tell.
-> Therefore, should be stopped patch for a while until knows better comes o=
-ut.
-
-Is there documentation in English you can provide to these people that
-are trying to add support for your product?
-
-Thanks,
-Conor.
-
---1iibWnnp3IIIl0SS
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEARYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZQlgMQAKCRB4tDGHoIJi
-0vyLAP9HZrpuOPBneDIXfpdgbTVat7I4LUqO20r1ekUdthdEhwD/brQ5aP+rZx8t
-p7nYOH/eyRcDKWMoDlVvvHjOP+5T/ww=
-=/q0V
------END PGP SIGNATURE-----
-
---1iibWnnp3IIIl0SS--
+IIUIC, offset is the offset according to the inode, it is only 
+meaningful to the
+inode passed in, i.e, it is only meaningful to the gmem binding with the 
+inode,
+not others.
 
 
---===============0000256609695599859==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+> +
+> +	filemap_invalidate_unlock(inode->i_mapping);
+> +
+> +	return 0;
+> +}
+> +
+[...]
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============0000256609695599859==--
-
