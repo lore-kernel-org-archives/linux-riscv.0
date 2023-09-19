@@ -4,97 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AD91CD37B4
-	for <linux-riscv@archiver.kernel.org>; Tue, 19 Sep 2023 03:54:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F29DCD3432
+	for <linux-riscv@archiver.kernel.org>; Tue, 19 Sep 2023 03:54:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=uCiT+FBYUT8dJUykqRwwVW96AK1cgc21K/nmtSSSZnA=; b=lK+KrCnpS3nvwd
-	kF5gTI1JEGOMPKlZdv8s9Zm4T3FtOH4QAAbSBQphDvhby4ZnoAC08ykEb5+TDPcOlfDrMLHzXWeyW
-	RHwsjJku4xm+gIGc3IbZ0YJyoYfT8r9efk1odAYknuxLcoApOl5FBjkQffj48MKtvE9UBAleiJKQX
-	Wgn8LrdhqsGM4UU9Mthhcbdne1zh4lXguYcGhUw3pava9ibl4dYAy/naoUeY3GNrBTK61qILHWhNK
-	+FwH4hv0Q1hQTlt5qkwbYjgrg4e2UvbqoReVtocb74vF6EQ3UPRqHmkE9Z5PZR+YjEsAemDGp0ske
-	az6UN/xrVz0sgNUwJoLQ==;
+	List-Owner; bh=dpaV/OvKYV3RkwyQ1L4UZX0SEhvPG2kij/2ke4Nssnc=; b=br1Qan5JGwUX+0
+	LNbbPW2MoIoP2IzyO2+wb4c0EMXR6Hw+etwDm9VVQImw2+ZEK+FB2ptraSgK9MHbi9xyOcLc3ckqt
+	FR6NhDbWQi7b3sSqA9cuM5IEkuS6Wh5rD+YnJVg+ICqIDwOTXUiWrljn7pSUjeHkFrBsuDetHY9Hp
+	c69tOb2a9K11BakIA/LX8I0ndvDtiab6EZkFJsln6ymX4zkDc/mRj33CW8zeIDtULz06EbEmwKj4B
+	k1DWmexpNpZFpSc8DQS/zKrE4lERdagiqeFEfPNrY0Ddx+43l5EeuLNE9/ZWt8TshQpyq6Iqen7M0
+	aiGrbEfd8BwMWk1cNHXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qiRoS-00Gqil-02;
-	Tue, 19 Sep 2023 03:54:12 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1qiRoP-00Gqga-0n;
+	Tue, 19 Sep 2023 03:54:09 +0000
+Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qiRoO-00Gqfh-1u
+	id 1qiRoL-00Gqd8-2h
 	for linux-riscv@lists.infradead.org;
-	Tue, 19 Sep 2023 03:54:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1695095647;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=opGMZb4zVfpw4j3bwF+zyk+VH4LC+VDK5rPEHS4VpxU=;
-	b=izEHEpmnn7a0TpROM4XLYPJ0B984kOdJq/2W15A+l1aQrPYrNDzvX+rJekFNuOn8m+nFnM
-	CvO/li9oaeGlUNKcsyUWO+YjZRrJ6PVqk5O00NThV8VUcpQNv2NSf5Louct+0b7jlxjhy+
-	qeazz8Zyr0DLnRm0yJQCs4QzKt9TxgI=
-Received: from mail-oi1-f200.google.com (mail-oi1-f200.google.com
- [209.85.167.200]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-353-sRVGaSMoNsm9MVkDRi0Zgw-1; Mon, 18 Sep 2023 23:54:04 -0400
-X-MC-Unique: sRVGaSMoNsm9MVkDRi0Zgw-1
-Received: by mail-oi1-f200.google.com with SMTP id 5614622812f47-3ab724f59deso8853843b6e.1
-        for <linux-riscv@lists.infradead.org>; Mon, 18 Sep 2023 20:54:04 -0700 (PDT)
+	Tue, 19 Sep 2023 03:54:07 +0000
+Received: by mail-pj1-x102f.google.com with SMTP id 98e67ed59e1d1-2746ab05409so3223682a91.0
+        for <linux-riscv@lists.infradead.org>; Mon, 18 Sep 2023 20:54:02 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1695095642; x=1695700442; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=c/pyUqu/Tkd0d14pnWQAKU8r5MyttJS43LfVvYmIT30=;
+        b=cuJmNbAVBtFc3XQA6H0kOmTweN//G72CIy3LKyL1q+Efk3b98Dp8T8aqH+fbZ44PSs
+         IwH70ZR8hl2Zofr41UD0GynYc8JvQVZyXhQ1ph9v7q/oBoAnPEf6uyf+DZv8kuIRSNpG
+         ypNj2od2wgt+5OzHZEATAUJ1Ql1lQF2WaTjELOo8mTOIeyxCzU/uyWjjMjg1DRUruikX
+         P8iFv6lgO1Lbof+7W5vN/OxpiiH77P2wkv4TRfvqOtmxvr98c5F86TNkiZlx/oCbQ3WM
+         CBYT3LzvUU1bQQHO1CesfzZ5KdH/trjJ60MzgV3fvPb3EunuUqQczjumgHo3Urk9NdPh
+         aCcA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1695095644; x=1695700444;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=opGMZb4zVfpw4j3bwF+zyk+VH4LC+VDK5rPEHS4VpxU=;
-        b=WR6KK7Pw+7aaxH83B63Hr4aAtuvvcbOGCy1nJgW/4gjQRbkvqxb1XvWHDGU6dzjpwl
-         oWByB0+daxLJ5kRV/mSnKTjMhkxmatOeHjTOhqBhnPSuq6qf5EHVem/nKyFKua8uCKx1
-         RlaIrMES6CVau1W3A0ufzSWdphEibstGXOe7QI+qst9fkN/dpta2kfOimYGPF4ttrg3/
-         lFRAdtuccQeevcSDNLFewWhfSAKelo9Bb/+LzmBTk/tQLXeSIfZx5EkV+GHtSKQ+6Oow
-         NBjvuPvWwInPSC4yFzHsqruqc4RxH4gFwZthljQRyVxaLbOw4sw8HLYzfgeqzrgIcw6G
-         rLIg==
-X-Gm-Message-State: AOJu0YypfckbrE6pyCp3DWefBanscZTW7CMj3v6omwTIfd7ntHjYDQWa
-	05Y6uzQViiXigKfJPJKl4tUjM0LzsKZrovVPy8ZfQsD2zBOL4086os/g+3HF6b9cuYvAjgAX+7a
-	40dPAqMbWGaRpwOVmhbcjdWlkPp8r
-X-Received: by 2002:a54:4504:0:b0:3a3:76c6:a46f with SMTP id l4-20020a544504000000b003a376c6a46fmr12922322oil.38.1695095644170;
-        Mon, 18 Sep 2023 20:54:04 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGGYlj7TJDnGHj/RWXEc2C+lTOzyiwCCuIn5mHVU8DsjC6vooAlJ9Xs3Gr3phqs2j6qI73HUw==
-X-Received: by 2002:a54:4504:0:b0:3a3:76c6:a46f with SMTP id l4-20020a544504000000b003a376c6a46fmr12922314oil.38.1695095643929;
-        Mon, 18 Sep 2023 20:54:03 -0700 (PDT)
-Received: from ?IPV6:2001:8003:e5b0:9f00:dbbc:1945:6e65:ec5? ([2001:8003:e5b0:9f00:dbbc:1945:6e65:ec5])
-        by smtp.gmail.com with ESMTPSA id s5-20020a17090a948500b0026b3f76a063sm7639370pjo.44.2023.09.18.20.53.58
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 18 Sep 2023 20:54:03 -0700 (PDT)
-Message-ID: <ea0a43be-4143-7efa-b1c6-550ece6965f6@redhat.com>
-Date: Tue, 19 Sep 2023 13:53:56 +1000
+        d=1e100.net; s=20230601; t=1695095642; x=1695700442;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=c/pyUqu/Tkd0d14pnWQAKU8r5MyttJS43LfVvYmIT30=;
+        b=I3cGw8z/1xKg+hCY4tjfn/1cSGc6/vbXn0vz4DuCIhMIDBcH5QNiRp19zEZ2RwJc1x
+         UvOsQHTWSv0DVWZKA3KX4lyXHgf5+j377pXluI+XmsXPeEbH0416WFvZJlp6c3uOa2gA
+         NyAvkSFQLhATwVS2Hch23r/V5Lsh8sKf/cK+d3PKAPn6IJKOoXxhDt/GsQgyT67ofpwF
+         IWZMCtHI6pBI1cUP6tX3CFspojoX1+cxRfffCJ3bWXX5O2a3RTQavg9Z9OOCKqNSdUBh
+         gCYeoSg76cjPmPgRAEiMkMu3FNolP0ds5yMAnXEk+bBDXq0EHkYiR7UKT10OpGqWnNQp
+         c2HA==
+X-Gm-Message-State: AOJu0Yyci617g7XoEdpHUYL5hGS+Upb6ZJ/2/9xD/XJoQWBBuoLqNJ1J
+	+kcscYmT6OK4cH6VQr3TrwM+IA==
+X-Google-Smtp-Source: AGHT+IEv2GtqSdnsDMi5LgNHnFDwtL1zsQsjYDdjeBpdLohkB2ds19n77ngsGEre26d9mHroBrq5UQ==
+X-Received: by 2002:a17:90b:190d:b0:276:7907:ecf with SMTP id mp13-20020a17090b190d00b0027679070ecfmr3278208pjb.36.1695095641908;
+        Mon, 18 Sep 2023 20:54:01 -0700 (PDT)
+Received: from anup-ubuntu-vm.localdomain ([103.97.165.210])
+        by smtp.gmail.com with ESMTPSA id 3-20020a17090a034300b00273fc850342sm4000802pjf.20.2023.09.18.20.53.55
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 18 Sep 2023 20:54:01 -0700 (PDT)
+From: Anup Patel <apatel@ventanamicro.com>
+To: Paolo Bonzini <pbonzini@redhat.com>,
+	Atish Patra <atishp@atishpatra.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Conor Dooley <conor@kernel.org>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Shuah Khan <shuah@kernel.org>
+Cc: Andrew Jones <ajones@ventanamicro.com>,
+	Mayuresh Chitale <mchitale@ventanamicro.com>,
+	devicetree@vger.kernel.org,
+	kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	Anup Patel <apatel@ventanamicro.com>
+Subject: [PATCH 1/7] RISC-V: Detect XVentanaCondOps from ISA string
+Date: Tue, 19 Sep 2023 09:23:37 +0530
+Message-Id: <20230919035343.1399389-2-apatel@ventanamicro.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20230919035343.1399389-1-apatel@ventanamicro.com>
+References: <20230919035343.1399389-1-apatel@ventanamicro.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.12.0
-Subject: Re: [RFC PATCH v2 30/35] irqchip/gic-v3: Add support for ACPI's
- disabled but 'online capable' CPUs
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>,
- James Morse <james.morse@arm.com>
-Cc: linux-pm@vger.kernel.org, loongarch@lists.linux.dev,
- linux-acpi@vger.kernel.org, linux-arch@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-riscv@lists.infradead.org, kvmarm@lists.linux.dev, x86@kernel.org,
- Salil Mehta <salil.mehta@huawei.com>,
- Jean-Philippe Brucker <jean-philippe@linaro.org>, jianyong.wu@arm.com,
- justin.he@arm.com
-References: <20230913163823.7880-1-james.morse@arm.com>
- <20230913163823.7880-31-james.morse@arm.com>
- <ZQLADHCbOr5J8TpX@shell.armlinux.org.uk>
-From: Gavin Shan <gshan@redhat.com>
-In-Reply-To: <ZQLADHCbOr5J8TpX@shell.armlinux.org.uk>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230918_205408_709447_905136A3 
-X-CRM114-Status: GOOD (  11.54  )
+X-CRM114-CacheID: sfid-20230918_205405_877568_058124F4 
+X-CRM114-Status: UNSURE (   9.75  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,37 +102,70 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+The Veyron-V1 CPU supports custom conditional arithmetic and
+conditional-select/move operations referred to as XVentanaCondOps
+extension. In fact, QEMU RISC-V also has support for emulating
+XVentanaCondOps extension.
 
+Let us detect XVentanaCondOps extension from ISA string available
+through DT or ACPI.
 
-On 9/14/23 18:10, Russell King (Oracle) wrote:
-> On Wed, Sep 13, 2023 at 04:38:18PM +0000, James Morse wrote:
->>   static inline bool acpi_gicc_is_usable(struct acpi_madt_generic_interrupt *gicc)
->>   {
->> -	return (gicc->flags & ACPI_MADT_ENABLED);
->> +	return ((gicc->flags & ACPI_MADT_ENABLED ||
->> +		 gicc->flags & ACPI_MADT_GICC_CPU_CAPABLE));
-> 
-> ... and this starts getting silly with the number of parens.
-> 
-> 	return gicc->flags & ACPI_MADT_ENABLED ||
-> 	       gicc->flags & ACPI_MADT_GICC_CPU_CAPABLE;
-> 
-> is entirely sufficient. Also:
-> 
-> 	return gicc->flags & (ACPI_MADT_ENABLED | ACPI_MADT_GICC_CPU_CAPABLE);
-> 
-> also works.
-> 
+Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+---
+ Documentation/devicetree/bindings/riscv/extensions.yaml | 7 +++++++
+ arch/riscv/include/asm/hwcap.h                          | 1 +
+ arch/riscv/kernel/cpufeature.c                          | 1 +
+ 3 files changed, 9 insertions(+)
 
-vote for the second one, which is: gicc->flags & (ACPI_MADT_ENABLED | ACPI_MADT_GICC_CPU_CAPABLE)
-
-Thanks,
-Gavin
+diff --git a/Documentation/devicetree/bindings/riscv/extensions.yaml b/Documentation/devicetree/bindings/riscv/extensions.yaml
+index 36ff6749fbba..cad8ef68eca7 100644
+--- a/Documentation/devicetree/bindings/riscv/extensions.yaml
++++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
+@@ -171,6 +171,13 @@ properties:
+             memory types as ratified in the 20191213 version of the privileged
+             ISA specification.
+ 
++        - const: xventanacondops
++          description: |
++            The Ventana specific XVentanaCondOps extension for conditional
++            arithmetic and conditional-select/move operations defined by the
++            Ventana custom extensions specification v1.0.1 (or higher) at
++            https://github.com/ventanamicro/ventana-custom-extensions/releases.
++
+         - const: zba
+           description: |
+             The standard Zba bit-manipulation extension for address generation
+diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
+index 0f520f7d058a..b7efe9e2fa89 100644
+--- a/arch/riscv/include/asm/hwcap.h
++++ b/arch/riscv/include/asm/hwcap.h
+@@ -59,6 +59,7 @@
+ #define RISCV_ISA_EXT_ZIFENCEI		41
+ #define RISCV_ISA_EXT_ZIHPM		42
+ #define RISCV_ISA_EXT_SMSTATEEN		43
++#define RISCV_ISA_EXT_XVENTANACONDOPS	44
+ 
+ #define RISCV_ISA_EXT_MAX		64
+ 
+diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+index 3755a8c2a9de..3a31d34fe709 100644
+--- a/arch/riscv/kernel/cpufeature.c
++++ b/arch/riscv/kernel/cpufeature.c
+@@ -182,6 +182,7 @@ const struct riscv_isa_ext_data riscv_isa_ext[] = {
+ 	__RISCV_ISA_EXT_DATA(svinval, RISCV_ISA_EXT_SVINVAL),
+ 	__RISCV_ISA_EXT_DATA(svnapot, RISCV_ISA_EXT_SVNAPOT),
+ 	__RISCV_ISA_EXT_DATA(svpbmt, RISCV_ISA_EXT_SVPBMT),
++	__RISCV_ISA_EXT_DATA(xventanacondops, RISCV_ISA_EXT_XVENTANACONDOPS),
+ };
+ 
+ const size_t riscv_isa_ext_count = ARRAY_SIZE(riscv_isa_ext);
+-- 
+2.34.1
 
 
 _______________________________________________
