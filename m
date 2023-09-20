@@ -4,63 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDF29CE79AC
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 Sep 2023 06:34:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A847CE79AC
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 Sep 2023 06:35:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=XOOnfuU3IuS8semRxLUEzTuk0TbIioHO2gSvKXJMeng=; b=k0lRRf9iDI6KYa
-	sE47LppvUM9NqiCEBgcDeg7wjlMpV6MS2r+5EQZxKhEZFnlGy+Kw5r0ocGrr37OafKB055YAzxUgA
-	w630oemfhtwZLixzkE/deRrzQLdSKumjVEUDr0qzgZOT9uCc574rewKuBXqbySDVd0l9+zW45kdmY
-	YFf48MFbBLGC2ab8DaE0+uOJKzSpyIqj9XAzy9ae+vy/+KUZpdALMLWdohBbCxOBz1QOzwdcwRG4G
-	BI7hMSm215/GNFrN8laI1o3qflvnHPhFQ1HbNtx/pu//jOx76hj07AkrN/MJ8BHY3XyceApxs7Xaa
-	pOuYbJT4m40fAsNcUnyg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=spYWpVkCdBIRmvOsmcETKgeLACdWjZS4TuwdILuFQkk=; b=J5PXXWr+Ibj9Us
+	nCKeKKffSskeGDJ9a1VLwLp6QywqMqeDzW4Gwb1diCtiy0Xer+jzXL6+dxJZCF14rH1epFq5cjg8D
+	eeOvts7atpzd8q6z9GDM6GfH+pqLJNYGbXwZnLH2MUv3j6ROOBMacYJx+Qp0yyFAyvCchHJCTPpdx
+	bxuubc28BR+lG0nvKm2bgiMyqoPHB67AvchyHMIvx3Z4HStEmysLFBkrKQTWipA7227dcPzCMlc2i
+	tV6pgqgwlAt0cfsDScRe6WVYNz/hjTQJZClPl4tczpBC2z5Twvlg/0O4d8wQvKEkWA1jL67KSa9qA
+	U/iWmKHKjRYuQM8Da9yQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qiqnB-0021su-0z;
-	Wed, 20 Sep 2023 06:34:33 +0000
-Received: from mail-oo1-xc29.google.com ([2607:f8b0:4864:20::c29])
+	id 1qiqnu-0021yq-04;
+	Wed, 20 Sep 2023 06:35:18 +0000
+Received: from mail-oi1-x22c.google.com ([2607:f8b0:4864:20::22c])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qiqn8-0021s8-0J
+	id 1qiqnr-0021xc-1m
 	for linux-riscv@lists.infradead.org;
-	Wed, 20 Sep 2023 06:34:31 +0000
-Received: by mail-oo1-xc29.google.com with SMTP id 006d021491bc7-57656330b80so4152199eaf.3
-        for <linux-riscv@lists.infradead.org>; Tue, 19 Sep 2023 23:34:28 -0700 (PDT)
+	Wed, 20 Sep 2023 06:35:16 +0000
+Received: by mail-oi1-x22c.google.com with SMTP id 5614622812f47-3ade101217bso1434445b6e.0
+        for <linux-riscv@lists.infradead.org>; Tue, 19 Sep 2023 23:35:14 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1695191665; x=1695796465; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=+O3AJdPC6+mmDlzoTLR1My0ueM7+QDiCckAE4a7Rtso=;
-        b=lnqsEYmfM/CDe+rkr0rOMrnUcB2WwxNYq75X3xlTK0yLoOlrsy1VJ8ZowmvUXOdnfP
-         dFxwn8OqLfpuDaXfcRSWyu3AR+JmtZ3agFzRvJDUNJnm4t/xJItkB77SCUAJg9V8U/cX
-         eSGBdSNvxFWmHATA97dpyX41atwFoIzgWjJDxDF03WNAaqVmCvmDqOWJQGPQ6qvb6IKO
-         bq75+5kTZm+8nE5nysMo7+1rTCMA5TNnhy+uApFXDY823LWDIOUgUwg19eqIsOOHehQe
-         27KjWuZL4cy5h+XttHzORvluXgK06cu5y+v/56Cjj3j1HxBGjXXgXqNefPBpx46dngOK
-         Lr3Q==
+        d=gmail.com; s=20230601; t=1695191713; x=1695796513; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=mJKym/P7NcQpPeyWI/De6RmfTQNyyp1oM7Xyf6Kr9tg=;
+        b=LfKbzja2d/arEuB1bJKHYIOdcm8pZkUDXhvF2D1JljN2DuVDPx0JREIVJmCMlqSiF/
+         XKDTI2POsu9O2gdcm5a+6+Dw9oc9YtzpUwTfNJ2Ir9ehmUN6w6xIPCJV7W5/lDxIDG8P
+         CP/tRMQ/bnHsgzu5qcUpzhHGJriSV8H8VlN3xyTWmxoh4l2QJp/v2S/4RxlS0TGjGxtp
+         eC1x87ZwEwrls6xmnGDwwzS4CIbI5Jr8yC6ioTGdkJ5Aybc0aj4uuiC/dzesMmumXtcG
+         J6iUeYJhK0KfL22k0939Jk4oYf3ca/H4y/4yvf4szVDeRvlq6EgnLaaHGjrsEuU4wpuN
+         IbSg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1695191665; x=1695796465;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=+O3AJdPC6+mmDlzoTLR1My0ueM7+QDiCckAE4a7Rtso=;
-        b=g3KgtNFtxeq8vYiuV0Fj4KCvGfly37Nl5aEu+WtTgVwTfwrojKJxidj9IZUdCDJCrD
-         Ci3BAHTm5mElkGV91c+jmDBqXOtoy1DbU+B/abO35GYcKXh9FQW+T2oEucMr2vE1whQN
-         4s1QQSDJX6Onj3hZWqbGyP9LzJZm1P7DUw//5VtxryMDJ0FA+9tUdLOMByHvQvdn/usz
-         UhYZRkCGe7xu46xrBlPLInn4QwNJv3BxWi1CZT0cOSAUUMlr/ilIDcsrsKNkZarZQOm7
-         V/7nxoaakU3tWWy6zViaY0hc3LX5Oa+uVREqZ0XVVHlYlQY7vUNDpEROdJYOMbD1iubY
-         sJ0w==
-X-Gm-Message-State: AOJu0YwCHVxuMnrjj755JC0+gKTtpdPsHchn5e4SeZZvD9DP84HYtKWc
-	1YubdQIfBg7Cn+uAyhYuwsE=
-X-Google-Smtp-Source: AGHT+IEHnNyf0jXITy3BDsnEYu+CXUH5KU3JnL7xXa/F0/zqdtvEtErvGFatqOAs3bzaIniIkKcHyA==
-X-Received: by 2002:a05:6870:d404:b0:1c8:d72a:d6b8 with SMTP id i4-20020a056870d40400b001c8d72ad6b8mr1885261oag.36.1695191664887;
-        Tue, 19 Sep 2023 23:34:24 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1695191713; x=1695796513;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=mJKym/P7NcQpPeyWI/De6RmfTQNyyp1oM7Xyf6Kr9tg=;
+        b=FI6GQObNt95QQD1t8bZpcfDJ8iyJHHQdeSotGzYkZVmh/txE+kiiV1oODqin/HApJS
+         brdNOKFzOFVjgtYQXyIURBJ0uTrJs5wqiD2DqvlBKji3ryASpOCWaAZ/JEcVsU0i8FYy
+         mSwD5o3Jk9Zvj/W22w1XNHssPTVzLdr8NiKwuhzkGOqwMFEcD6xCTkggAZiNTLZ9kDyK
+         0JceRjD+Mvoki/vV5g9sZb+XnCgSYikCITjnwA5gzufGS78pMHryc2pP/pyrmu/mr8h4
+         +v6dXxZ9SSq7Wof7VuYAMGhmxlg4/Dprd+68CaMa3oj74x0Ny2mo6uQ8YLkUZkKB4ckG
+         ufvg==
+X-Gm-Message-State: AOJu0YyGkcpADsEe+M1hBJb3W0mo8e9UclQLkWW5QFdlwMA3oTORGLL+
+	fd4HlqsvWm27rsKHBjiV5uE=
+X-Google-Smtp-Source: AGHT+IFcCvZ7DH/DLj4tiOetrouvt4X4bFb6UmU1YoBl42O/swqeXpXlzf7XZf26OrcDRxE4zkol4Q==
+X-Received: by 2002:a05:6870:fb8d:b0:1be:f46d:a26c with SMTP id kv13-20020a056870fb8d00b001bef46da26cmr1796917oab.27.1695191713449;
+        Tue, 19 Sep 2023 23:35:13 -0700 (PDT)
 Received: from localhost.localdomain ([122.8.183.87])
-        by smtp.gmail.com with ESMTPSA id r21-20020a056870625500b001d4f1ec39b3sm6842515oak.23.2023.09.19.23.34.23
+        by smtp.gmail.com with ESMTPSA id ci11-20020a056871c48b00b001d53c57b55asm6746735oac.57.2023.09.19.23.35.12
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 19 Sep 2023 23:34:24 -0700 (PDT)
+        Tue, 19 Sep 2023 23:35:13 -0700 (PDT)
 From: Chen Wang <unicornxw@gmail.com>
 X-Google-Original-From: Chen Wang <wangchen20@iscas.ac.cn>
 To: aou@eecs.berkeley.edu,
@@ -78,14 +79,17 @@ To: aou@eecs.berkeley.edu,
 	robh+dt@kernel.org,
 	xiaoguang.xing@sophgo.com
 Cc: Chen Wang <wangchen20@iscas.ac.cn>
-Subject: [PATCH v2 00/11] Add Milk-V Pioneer RISC-V board support
-Date: Wed, 20 Sep 2023 14:33:48 +0800
-Message-Id: <cover.1695189879.git.wangchen20@iscas.ac.cn>
+Subject: [PATCH v2 01/11] riscv: Add SOPHGO SOC family Kconfig support
+Date: Wed, 20 Sep 2023 14:34:44 +0800
+Message-Id: <2c6db3d2db0d27d4b2b8364e0c03be3da292101e.1695189879.git.wangchen20@iscas.ac.cn>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <cover.1695189879.git.wangchen20@iscas.ac.cn>
+References: <cover.1695189879.git.wangchen20@iscas.ac.cn>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230919_233430_142539_BC546C64 
-X-CRM114-Status: GOOD (  13.30  )
+X-CRM114-CacheID: sfid-20230919_233515_592636_EB818327 
+X-CRM114-Status: UNSURE (   9.60  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,91 +106,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Milk-V Pioneer [1] is a developer motherboard based on SOPHON SG2042 [2]
-in a standard mATX form factor. Add minimal device
-tree files for the SG2042 SOC and the Milk-V Pioneer board.
+The first SoC in the SOPHGO series is SG2042, which contains 64 RISC-V
+cores.
 
-Now only support basic uart drivers to boot up into a basic console.
-
-Thanks,
-Chen
-
+Acked-by: Xiaoguang Xing <xiaoguang.xing@sophgo.com>
+Signed-off-by: Chen Wang <wangchen20@iscas.ac.cn>
 ---
+ arch/riscv/Kconfig.socs | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-Changes in v2:
-  The patch series is based on v6.6-rc1. You can simply review or test 
-  the patches at the link [4].
-  - Improve format for comment of commitments as per input from last review.
-  - Improve format of DTS as per input from last review.
-  - Remove numa related stuff from DTS. This part is just for optimization, may
-    add it later if really needed. 
-
-Previous versions:
-v1: due to it is not sent in thread, I have listed permlinks of the patchset
-    [v1-0/12] ~ [v1-12/12] here for quick reference. You can simply review or
-    test the patches at the link [3].
-
-[1]: https://milkv.io/pioneer
-[2]: https://en.sophgo.com/product/introduce/sg2042.html
-[3]: https://github.com/unicornx/linux-riscv/commits/milkv-pioneer-minimal
-[4]: https://github.com/unicornx/linux-riscv/commits/milkv-pioneer-minimal-v2
-[v1-0/12]:https://lore.kernel.org/linux-riscv/20230915070856.117514-1-wangchen20@iscas.ac.cn/
-[v1-1/12]:https://lore.kernel.org/linux-riscv/20230915071005.117575-1-wangchen20@iscas.ac.cn/
-[v1-2/12]:https://lore.kernel.org/linux-riscv/20230915071409.117692-1-wangchen20@iscas.ac.cn/
-[v1-3/12]:https://lore.kernel.org/linux-riscv/20230915072242.117935-1-wangchen20@iscas.ac.cn/
-[v1-4/12]:https://lore.kernel.org/linux-riscv/20230915072333.117991-1-wangchen20@iscas.ac.cn/
-[v1-5/12]:https://lore.kernel.org/linux-riscv/20230915072358.118045-1-wangchen20@iscas.ac.cn/
-[v1-6/12]:https://lore.kernel.org/linux-riscv/20230915072415.118100-1-wangchen20@iscas.ac.cn/
-[v1-7/12]:https://lore.kernel.org/linux-riscv/20230915072431.118154-1-wangchen20@iscas.ac.cn/
-[v1-8/12]:https://lore.kernel.org/linux-riscv/20230915072451.118209-1-wangchen20@iscas.ac.cn/
-[v1-9/12]:https://lore.kernel.org/linux-riscv/20230915072517.118266-1-wangchen20@iscas.ac.cn/
-[v1-10/12]:https://lore.kernel.org/linux-riscv/20230915072558.118325-1-wangchen20@iscas.ac.cn/
-[v1-11/12]:https://lore.kernel.org/linux-riscv/20230915072624.118388-1-wangchen20@iscas.ac.cn/
-[v1-12/12]:https://lore.kernel.org/linux-riscv/20230915072653.118448-1-wangchen20@iscas.ac.cn/
-
----
-
-Chen Wang (8):
-  riscv: Add SOPHGO SOC family Kconfig support
-  dt-bindings: vendor-prefixes: add milkv/sophgo
-  dt-bindings: riscv: add sophgo sg2042 bindings
-  dt-bindings: riscv: Add T-HEAD C920 compatibles
-  dt-bindings: interrupt-controller: Add SOPHGO's SG2042 PLIC
-  riscv: dts: add initial SOPHGO SG2042 SoC device tree
-  riscv: dts: sophgo: add Milk-V Pioneer board device tree
-  riscv: defconfig: enable SOPHGO SoC
-
-Emil Renner Berthing (2):
-  dt-bindings: serial: snps-dw-apb-uart: Add Sophgo SG2042 uarts
-  serial: 8250_dw: Add Sophgo SG2042 support
-
-Inochi Amaoto (1):
-  dt-bindings: timer: Add Sophgo sg2042 clint
-
- .../sifive,plic-1.0.0.yaml                    |    1 +
- .../devicetree/bindings/riscv/cpus.yaml       |    1 +
- .../devicetree/bindings/riscv/sophgo.yaml     |   28 +
- .../bindings/serial/snps-dw-apb-uart.yaml     |    1 +
- .../bindings/timer/sifive,clint.yaml          |    8 +
- .../devicetree/bindings/vendor-prefixes.yaml  |    4 +
- MAINTAINERS                                   |    7 +
- arch/riscv/Kconfig.socs                       |    5 +
- arch/riscv/boot/dts/Makefile                  |    1 +
- arch/riscv/boot/dts/sophgo/Makefile           |    3 +
- arch/riscv/boot/dts/sophgo/sg2042-cpus.dtsi   | 1744 +++++++++++++++++
- .../boot/dts/sophgo/sg2042-milkv-pioneer.dts  |   19 +
- arch/riscv/boot/dts/sophgo/sg2042.dtsi        |  439 +++++
- arch/riscv/configs/defconfig                  |    1 +
- drivers/tty/serial/8250/8250_dw.c             |    5 +-
- 15 files changed, 2265 insertions(+), 2 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/riscv/sophgo.yaml
- create mode 100644 arch/riscv/boot/dts/sophgo/Makefile
- create mode 100644 arch/riscv/boot/dts/sophgo/sg2042-cpus.dtsi
- create mode 100644 arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts
- create mode 100644 arch/riscv/boot/dts/sophgo/sg2042.dtsi
-
-
-base-commit: 0bb80ecc33a8fb5a682236443c1e740d5c917d1d
+diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
+index 6833d01e2e70..d4df7b5d0f16 100644
+--- a/arch/riscv/Kconfig.socs
++++ b/arch/riscv/Kconfig.socs
+@@ -22,6 +22,11 @@ config SOC_SIFIVE
+ 	help
+ 	  This enables support for SiFive SoC platform hardware.
+ 
++config ARCH_SOPHGO
++	bool "Sophgo SoCs"
++	help
++	  This enables support for Sophgo SoC platform hardware.
++
+ config ARCH_STARFIVE
+ 	def_bool SOC_STARFIVE
+ 
 -- 
 2.25.1
 
