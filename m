@@ -4,78 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B334CE79AC
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 Sep 2023 08:30:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7B46CE79AB
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 Sep 2023 08:36:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6HlCc1oHFFBu73ZIOz/QHl/fWm3u6aTqeSCvGCaXWYg=; b=eJRVMWDkY+LNTH7lY/kIxkxAAD
-	ikCnz+n4nittRue0S6pxl55AEngc+hi9ys1FrTbMn6X2R5ZpGH0TkV2IcTUtVgrCcrpbo6YUaMAmW
-	ay5wcjcqDq1qGieqdoBfqmbNVx1Cerohtqrkm25HHS+Z8zna0CqQWo/1cDn1lv3NPpE6Qu0W0aU9I
-	nKQmwLEtMynutRXdntCx97qi5frZlvoH8Hqvr0R3O8kPxn8CvaxTlL7CGka8ejJ+YDJ2J8Qy8X87V
-	MhMm20uE6cJ7hxj0HsCB27fz2ZxfLtZgC/1rZ123OodCENaMvhD6RCC/WGTCMqf5JK7XzJzFClZx/
-	QhuYU2xA==;
+	bh=wc0M4yUodMBvwf5N75CUx3a01p3O8FcJ4TTXZDafsC0=; b=nn9EuK6hcMl+rrcwQnmrlnu14U
+	xC/nzUQA1sPBotRZYeDzAU/u6CeXreeafB45+/yv/95npAV5/OMx2wYj25ttbPlAXuN8qjLM269qQ
+	S0GfJtmVZR7S/huutYjCHGUqBvmWqtOba4oMRkW3fj9OAKCpqgJegmd14AJCM3BKBkvZpfo3ixGhz
+	Mcsm2pW9BY9SEtBG92vdCmI7q/D7tEDvsRR39L9vz61o3Kcvj3sFZiw3wgzfCN1pqz8bqVId5Uzf8
+	d6XUDzD+EzkXOLuXDEtpwav60D7houaadXX7Sst0Khgj+MrRlFqPnjhN7ENYiy5znboZiIRCznjiF
+	r3uwgvig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qisas-002I0D-2P;
-	Wed, 20 Sep 2023 08:29:58 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1qishS-002IeI-00;
+	Wed, 20 Sep 2023 08:36:46 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qisao-002HzK-2o
+	id 1qishO-002IdU-1c
 	for linux-riscv@lists.infradead.org;
-	Wed, 20 Sep 2023 08:29:56 +0000
+	Wed, 20 Sep 2023 08:36:43 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1695198595; x=1726734595;
+  t=1695199002; x=1726735002;
   h=date:from:to:cc:subject:message-id:references:
    mime-version:in-reply-to;
-  bh=nyMKVu9vod9tNMEmwyx3gSYtbDoMLOt3M1Rr2sZH2zY=;
-  b=Tp56sofqIAWLGP/s+1yaGd0wyoEE6n/tABOIHCLmkJW5RqDyr45gOFCo
-   ULP5IntOwDhPCGgzS7Vj5d7YCmlGqfcWGqOQUW4+g0iDgh8M2UvlXy/Ev
-   bjgmjqnFHynw4Y05OyFBt/C33peeGqgoSi8U7hr97HUrsvvkHo9rKhAj1
-   jnGKWf4000CXlAHJzfeGXTYHVDRGVaK3Z5GsPpDseEfgZUjhuCfK1AGGw
-   YPsxUeYMDkXv9Hp6ylfX1PTJqwCF/OrKue4o3TCqgxMTMrSXr4I/zfMVr
-   kmkE7iM9lvstFZXNB/C2fhen5xxAKXqiFGV4umVT3oDErxDpP8HGBxoEF
-   g==;
-X-CSE-ConnectionGUID: uwDtgCTUQZG+cAIvzWJn1g==
-X-CSE-MsgGUID: DsTy1ZruSpOnLkBUCMULjg==
+  bh=WoALuM+T0aLjrEyZpAlA/0pok6fMu8xvTQIzRRVoeN4=;
+  b=rQwavQqpZY3MzKOvEVqNaNar1bczHboj7tSYxpCOP/H3TOi+WgveakFi
+   WGSigUPVGaUqsUDXsOv4y3OtiKtO4tV+DdAkty/rq9Mz9Q491nEnjUxhf
+   etwerIE0jmnRHCuWVz5VH1CfzNqEXW1wCWaPP1+GSHOT+gS6QiIcs3xb6
+   8ZTdqSZzuLTrom3m8NsiBAvWvFOZ/EPZ8IQSR3JsxguKWtIts+tT0hEmB
+   9lfNuYsOd97zRLI1Qnb3HIyjVq7KdAUdp3lP3ixJ3rl5aNh3T/oE1sjwS
+   o2IsXHDjmN/33emIXJAfYcrgW5tdFosGOM0petdqF5LRyyq7gvX5uROp/
+   Q==;
+X-CSE-ConnectionGUID: egtUWndkSLy/5vEpLCYKng==
+X-CSE-MsgGUID: 7RoY1gSJTG67+SFdEzbIbw==
 X-ThreatScanner-Verdict: Negative
 X-IronPort-AV: E=Sophos;i="6.02,161,1688454000"; 
-   d="asc'?scan'208";a="5614623"
+   d="asc'?scan'208";a="172606441"
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa3.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 20 Sep 2023 01:29:54 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.87.72) by
- chn-vm-ex02.mchp-main.com (10.10.87.72) with Microsoft SMTP Server
+  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 20 Sep 2023 01:36:39 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Wed, 20 Sep 2023 01:29:11 -0700
-Received: from wendy (10.10.85.11) by chn-vm-ex02.mchp-main.com (10.10.85.144)
+ 15.1.2507.21; Wed, 20 Sep 2023 01:36:38 -0700
+Received: from wendy (10.10.85.11) by chn-vm-ex01.mchp-main.com (10.10.85.143)
  with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
- Transport; Wed, 20 Sep 2023 01:29:08 -0700
-Date: Wed, 20 Sep 2023 09:28:51 +0100
+ Transport; Wed, 20 Sep 2023 01:36:36 -0700
+Date: Wed, 20 Sep 2023 09:36:19 +0100
 From: Conor Dooley <conor.dooley@microchip.com>
-To: Chen Wang <unicornxw@gmail.com>
-CC: <aou@eecs.berkeley.edu>, <chao.wei@sophgo.com>, <conor@kernel.org>,
-	<devicetree@vger.kernel.org>, <emil.renner.berthing@canonical.com>,
-	<guoren@kernel.org>, <jszhang@kernel.org>,
-	<krzysztof.kozlowski+dt@linaro.org>, <linux-kernel@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, <palmer@dabbelt.com>,
-	<paul.walmsley@sifive.com>, <robh+dt@kernel.org>,
-	<xiaoguang.xing@sophgo.com>, Chen Wang <wangchen20@iscas.ac.cn>
-Subject: Re: [PATCH v2 03/11] dt-bindings: riscv: add sophgo sg2042 bindings
-Message-ID: <20230920-arrival-bonanza-e335686420f4@wendy>
-References: <cover.1695189879.git.wangchen20@iscas.ac.cn>
- <c6aea83bb1df563b1f2a66c5f230c3861aed1e15.1695189879.git.wangchen20@iscas.ac.cn>
+To: Conor Dooley <conor@kernel.org>
+CC: Jisheng Zhang <jszhang@kernel.org>, Guo Ren <guoren@kernel.org>, Fu Wei
+	<wefu@redhat.com>, Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, <linux-riscv@lists.infradead.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>, Drew Fustini
+	<dfustini@baylibre.com>
+Subject: Re: [PATCH v2] riscv: dts: thead: set dma-noncoherent to soc bus
+Message-ID: <20230920-pesky-stalemate-88f5036b8084@wendy>
+References: <20230912072232.2455-1-jszhang@kernel.org>
+ <20230912-trailing-pampered-52738ec6f009@spud>
+ <ZQHSLdPufI6CXApg@xhacker>
+ <20230913-faster-spotted-9df41a0d7787@spud>
 MIME-Version: 1.0
-In-Reply-To: <c6aea83bb1df563b1f2a66c5f230c3861aed1e15.1695189879.git.wangchen20@iscas.ac.cn>
+In-Reply-To: <20230913-faster-spotted-9df41a0d7787@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230920_012954_921171_0E28CEEB 
-X-CRM114-Status: GOOD (  22.92  )
+X-CRM114-CacheID: sfid-20230920_013642_618475_AA925BE5 
+X-CRM114-Status: GOOD (  20.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,130 +89,71 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1050065138201495794=="
+Content-Type: multipart/mixed; boundary="===============5097702588362900897=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============1050065138201495794==
+--===============5097702588362900897==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="BSKPLc4VDpVkP4tV"
+	protocol="application/pgp-signature"; boundary="FctfBnGm8Rn+9xje"
 Content-Disposition: inline
 
---BSKPLc4VDpVkP4tV
+--FctfBnGm8Rn+9xje
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-Yo,
+Hey Jisheng,
 
-On Wed, Sep 20, 2023 at 02:37:51PM +0800, Chen Wang wrote:
-> Add DT binding documentation for the Sophgo SG2042 Soc [1] and the
-> Milk-V Pioneer board [2].
+On Wed, Sep 13, 2023 at 04:44:18PM +0100, Conor Dooley wrote:
+> On Wed, Sep 13, 2023 at 11:15:57PM +0800, Jisheng Zhang wrote:
+> > On Tue, Sep 12, 2023 at 05:27:31PM +0100, Conor Dooley wrote:
+> > > On Tue, Sep 12, 2023 at 03:22:32PM +0800, Jisheng Zhang wrote:
+> > > > riscv select ARCH_DMA_DEFAULT_COHERENT by default, and th1520 isn't
+> > > > dma coherent, so set dma-noncoherent to reflect this fact.
+> > > >=20
+> > > > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+> > > > Tested-by: Drew Fustini <dfustini@baylibre.com>
+> > > > ---
+> > > >=20
+> > > > Since v1:
+> > > >  - rebase on v6.6-rc1
+> > > >  - collect Tested-by tag
+> > >=20
+> > > Does this mean you're expecting me to take this?
+> >=20
+> > Hi Conor,
+> >=20
+> > I think I will take this and send PR to soc people. The reason
+> > I send v2 is the rebasing on new rc1 and v1 wasn't in linux-riscv
+> > mailist due to typo;
 >=20
-> [1]: https://en.sophgo.com/product/introduce/sg2042.html
-> [2]: https://milkv.io/pioneer
+> Great, thanks. Please ask SFR to add your tree to linux-next.
 
-Again, link tags please.
+I lost my main x86 box over the weekend (looks like probably a dead
+motherboard), so I may have missed a response to this.
 
-> Acked-by: Chao Wei <chao.wei@sophgo.com>
-> Acked-by: Xiaoguang Xing <xiaoguang.xing@sophgo.com>
-> Signed-off-by: Chen Wang <wangchen20@iscas.ac.cn>
-> ---
->  .../devicetree/bindings/riscv/sophgo.yaml     | 28 +++++++++++++++++++
->  MAINTAINERS                                   |  7 +++++
->  2 files changed, 35 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/riscv/sophgo.yaml
->=20
-> diff --git a/Documentation/devicetree/bindings/riscv/sophgo.yaml b/Docume=
-ntation/devicetree/bindings/riscv/sophgo.yaml
-> new file mode 100644
-> index 000000000000..82468ae915db
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/riscv/sophgo.yaml
-> @@ -0,0 +1,28 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/riscv/sophgo.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Sophgo SoC-based boards
-> +
-> +maintainers:
-> +  - Chao Wei <chao.wei@sophgo.com>
-> +  - Xiaoguang Xing <xiaoguang.xing@sophgo.com>
-> +
-> +description:
-> +  Sophgo SoC-based boards
-> +
-> +properties:
-> +  $nodename:
-> +    const: '/'
-> +  compatible:
-> +    oneOf:
-> +      - items:
-> +          - enum:
-> +              - milkv,pioneer
-> +          - const: sophgo,sg2042
-> +
-> +additionalProperties: true
-> +
-> +...
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 90f13281d297..b74d505003e2 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -20063,6 +20063,13 @@ F:	drivers/char/sonypi.c
->  F:	drivers/platform/x86/sony-laptop.c
->  F:	include/linux/sony-laptop.h
-> =20
-> +SOPHGO DEVICETREES
-> +M:	Xiaoguang Xing <xiaoguang.xing@sophgo.com>
-> +M:	Chao Wei <chao.wei@sophgo.com>
-> +S:	Maintained
-> +F:	Documentation/devicetree/bindings/riscv/sophgo.yaml
-
-> +F:	arch/riscv/boot/dts/sophgo/
-
-Firstly, this directory does not exist at the time of this patch, so it
-should not be added here, but rather at the time that you create it.
-
-Secondly, are Xiaoguang Xing and Chao Wei going to monitor the lists &
-apply patches for these files? If so, you should add a git tree here
-that they will apply patches to & add to linux-next. Also, I'd really
-like to see some on-list signs of life from these people, otherwise
-I'd rather see your name here instead of theirs.
-
-If they don't intend reviewing/testing/applying patches, I can do it as
-a last resort but I would rather that someone who specifically cares for
-this hardware does it.
+Did you see this email? Additionally, can you add that git tree to the
+maintainers entry for the thead devicetrees?
 
 Thanks,
 Conor.
 
-> +
->  SOUND
->  M:	Jaroslav Kysela <perex@perex.cz>
->  M:	Takashi Iwai <tiwai@suse.com>
-> --=20
-> 2.25.1
->=20
-
---BSKPLc4VDpVkP4tV
+--FctfBnGm8Rn+9xje
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZQqtQwAKCRB4tDGHoIJi
-0kX5AQC4Zna3sLu7uodE0Rg/tTR8wp1R00Rc2DIyQwE7eP7W9AD/e7Tbt/dZgoiG
-JeTq2cnENLxGBlOD25GciTqNY1C4XQ8=
-=T5sB
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZQqvAgAKCRB4tDGHoIJi
+0pjEAQCCEy4ws0w7ssYsmKIE1EQRcxLvCTdUqWoOFxg1nbM3fQEA1Du/hWefkLhr
+EpqbC7FoifLUim+sBrFP7ataGcohSwI=
+=PI2j
 -----END PGP SIGNATURE-----
 
---BSKPLc4VDpVkP4tV--
+--FctfBnGm8Rn+9xje--
 
 
---===============1050065138201495794==
+--===============5097702588362900897==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -221,5 +164,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============1050065138201495794==--
+--===============5097702588362900897==--
 
