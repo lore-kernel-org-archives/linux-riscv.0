@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DED8ECE79AB
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 Sep 2023 07:46:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDF42CE79AB
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 Sep 2023 07:47:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CrpmoRMqOr3dYaH0TyuctgthWLy/CrwVou5g8YqhXDI=; b=TyI/5n4BJIjrjH
-	LN9z6M9Su7xmMSFYR8oaRFmG1+yxQ0M98lYYeTEA7HXNE7n9AwjxRf1PviK22y/4qHHrOv655txHD
-	MMuUf4gtA1xqGJ0e4KIDLkO59Y3tbWuIG6Kf/eX8Vz8bbci7ageE7/jYVKNIBJTfJ3V7Dkj3Ccmm8
-	BQ5CpO32XlSq4OfVIkbPopDEl2n3ElIeeTSHrd81/ersDvnQZskSzLjruHl4yvo7T5STUfsi0f/t9
-	CHYir6B91eYvPS6EcS1u9MkuRbiNBYGC6aSsVODPgrvP3mD6Hqzw6N9Tq/NAWuHz2rz4CMmtWKzID
-	+hPEggjdYLHHEU0+XB+Q==;
+	List-Owner; bh=+NDePkdiSwLTpi3nvPFsIBS27nakOenyDM9V5i1tdaE=; b=JDm00OT0ho40/U
+	ar96HuMFkjzwfTSxYt1QUM0NG929ygdZ7N3lC+H396SpgCw1gDvPmE048CrBIS2EHe04BPLGEbz0N
+	0d98mMPCdp8T4hzmDOT9xotm5HnRjsaw5hIONN42kkhseOGZNaqewXA4wNMU4748R43WrGzAHz1VZ
+	pLu6BqWurl7CmlPH1OgvuDBdP+KkS5KSmBMdnceFr6OSfiv2/T4198q+y5jUfrsXTjbtvAVRtZarG
+	ndsaI9gF3j7fKHyF8S1J95ntNhD1qj6dOYcGd6QaOOqe7XDpP3BG5WVJa/wQYNKDkrRlrVvu0YPKE
+	nnxW2qU1EzRIpufbyAhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qiruR-002AtL-1W;
-	Wed, 20 Sep 2023 07:46:07 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1qirvH-002B6n-1U;
+	Wed, 20 Sep 2023 07:46:59 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qiruP-002As3-1C
+	id 1qirvF-002B5b-1Y
 	for linux-riscv@lists.infradead.org;
-	Wed, 20 Sep 2023 07:46:06 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-4051fea48a8so6279915e9.2
-        for <linux-riscv@lists.infradead.org>; Wed, 20 Sep 2023 00:46:05 -0700 (PDT)
+	Wed, 20 Sep 2023 07:46:58 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-4051fea48a8so6288005e9.2
+        for <linux-riscv@lists.infradead.org>; Wed, 20 Sep 2023 00:46:56 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1695195964; x=1695800764; darn=lists.infradead.org;
+        d=ventanamicro.com; s=google; t=1695196015; x=1695800815; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=NCQ64axOzYWQoVJr89JJGEJBkzqcHIgukSDri2Lu2nY=;
-        b=Gq/HiO5dipxvDlGF1mJscnGDZ3G4pS0gGeisOmH5cwbfXW2smjuWqzolxiyFphGjOI
-         rWfMMFkY0A5PkupTXEDQkCEEQwqMS8EI91bFQFWT0aWeV3fi2D31CW8C+2Up52jPNFcY
-         aPybOExxL+mqVNhU9snXvruq+sX5TMSs4uX7Dj1e3U0CphQGGb4CeLteiaswlUnNysrD
-         GowKNT2wVKIh0E3xBvmh1/j/Wh2W7aaXowcs2uGsCG1WwJziBr5NvpCYWtwJUijqHGqF
-         TAIDBzXquZ2y6WcscDj92UbDzqR0uvnVpnkqWSOtIKESaSYp+Y6dj61wfYAK58fwF+dj
-         GCoA==
+        bh=JVunG7o3B5X9vaQEWyirI9ryk0oP6Di9CEjbsBLCF3g=;
+        b=MfqPNiIugkmQqVW/aS+5MVrTEy1vE+zl3gff8PxM1BE+u6n2IcTlnTLj+FTaZO5NYm
+         AxuICuXUJfDk5tt81yWYBlfsjBwqWxx6PqL3GdljVcDdTm19rcxfkVr5I3phdp8A+vBo
+         MhvVg5X4Ep5og/qKkAmmWBoPHX4BLBfYxx8Pk1HlW/96ZOgPXOtBA7vz/yskwhizsumw
+         pwQbkk5SaIWFigFQ/q3i1DEKt0pEgJLk97XEYFSQJSApxK8gNnPczsSWf8j4lKhXSeze
+         7Ed/z40u8dD5RTmPgt8MKMTtG9/JMYHHJsRH8lvLu4gLH1e+4bJi1ttaYd8OJ7bAmuBH
+         toUA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1695195964; x=1695800764;
+        d=1e100.net; s=20230601; t=1695196015; x=1695800815;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=NCQ64axOzYWQoVJr89JJGEJBkzqcHIgukSDri2Lu2nY=;
-        b=k00zWkt1cDe1B5xXyuPc4P3w6hDr5Ih5jANT60TRffVFrJ6Q1rXCmuquf+oNknVjXz
-         fD+m4dXIdDTDpf71VXAtLmPk+y22rkcU0Ga3gaSnkWRqCM3u7g59lIXvBM4ZEd6v+dew
-         NaxDCWWdkSFYsHTTsgQVOn3nWLM1LSXQx4ewSMk6e7p3zIUvSefkVRXHWey/b/y5gbLT
-         S9T5yvCU7KgcHPjago2mDRXrtU9OK5K9qQOpc/ZDVW567IfHj87k1dF8U9FQDFiESBj5
-         sBbCA/mmm7wFEBrrPmQSpF2J6I7ZBZjzBQbYjH/bQkXq83O4p458Bg8UgeDYzQkoGFt9
-         Lvjw==
-X-Gm-Message-State: AOJu0YzD6Wf3whNuaJAjevKMsx2xpWuWQkQqlyxvLwLgoXPC9sYLSNPk
-	pTcrdNa/X6lx2C7xxH837+iNnA==
-X-Google-Smtp-Source: AGHT+IGLhZyo0JLpS7qrAayTtRpx8WJ35UC8iBDR4G+V5sBDzN/EMK5surVVEn79abyRomu1HrsACQ==
-X-Received: by 2002:a7b:cd94:0:b0:401:b204:3b85 with SMTP id y20-20020a7bcd94000000b00401b2043b85mr1635240wmj.36.1695195963742;
-        Wed, 20 Sep 2023 00:46:03 -0700 (PDT)
+        bh=JVunG7o3B5X9vaQEWyirI9ryk0oP6Di9CEjbsBLCF3g=;
+        b=bhnLMY6U3GtbWOxnKCWUaQ8s5Xi8MnnC/HufLB7oqKco/5dL+4rYdDZXMEtmFlfzZf
+         8FKSbB2E++JMIBmCsHiQFXvtqUJ4JhghsmfC38778/MWuG3vS3DGI1sDFGKez1Owr7ml
+         W0nrEgVfBJzsYezceleHnohwY0KQugk02iqIm9nQd4KLEcScHbwkqkUA9bA2hEpygGTb
+         /0fnnkdVFOebD7zDpryqB303pK9ojfD8BrHij4F5MSFUMy0uK/5TDoTXrSYByRvFse+3
+         OGbT4qDqMgoKwZxd052Jyadtq7D47eFOrD5cSdhpR/E3jNeADWOt2r+ldghcJlUvmsUl
+         tIwg==
+X-Gm-Message-State: AOJu0Yy0S3K83vU33eDFGz03XkWhVeDZ7NgLhXmSR0BJ7CwXaY+1q/qL
+	ZioplGNbyqQDYjilUMRaFNPoLA==
+X-Google-Smtp-Source: AGHT+IGG/3UyVqZOOAbC3tloQ80fV1Kl6R8qcuyc4Oxl1dNBdENA4jwJSlr1R6ygp4yAftiTc+gUZw==
+X-Received: by 2002:a05:600c:280b:b0:401:38dc:8916 with SMTP id m11-20020a05600c280b00b0040138dc8916mr1690704wmb.10.1695196014842;
+        Wed, 20 Sep 2023 00:46:54 -0700 (PDT)
 Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
-        by smtp.gmail.com with ESMTPSA id j5-20020a5d6045000000b0032008f99216sm10914828wrt.96.2023.09.20.00.46.03
+        by smtp.gmail.com with ESMTPSA id a24-20020a05600c225800b00402d7105035sm1167853wmm.26.2023.09.20.00.46.54
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 20 Sep 2023 00:46:03 -0700 (PDT)
-Date: Wed, 20 Sep 2023 09:46:02 +0200
+        Wed, 20 Sep 2023 00:46:54 -0700 (PDT)
+Date: Wed, 20 Sep 2023 09:46:53 +0200
 From: Andrew Jones <ajones@ventanamicro.com>
 To: Anup Patel <apatel@ventanamicro.com>
 Cc: Paolo Bonzini <pbonzini@redhat.com>, 
@@ -71,17 +71,16 @@ Cc: Paolo Bonzini <pbonzini@redhat.com>,
 	Shuah Khan <shuah@kernel.org>, Mayuresh Chitale <mchitale@ventanamicro.com>, 
 	devicetree@vger.kernel.org, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
 	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH 3/7] RISC-V: KVM: Allow XVentanaCondOps extension for
- Guest/VM
-Message-ID: <20230920-64bd7206b92e056d76cd9715@orel>
+Subject: Re: [PATCH 4/7] RISC-V: KVM: Allow Zicond extension for Guest/VM
+Message-ID: <20230920-be44cc5bd0f749a1137d103c@orel>
 References: <20230919035343.1399389-1-apatel@ventanamicro.com>
- <20230919035343.1399389-4-apatel@ventanamicro.com>
+ <20230919035343.1399389-5-apatel@ventanamicro.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20230919035343.1399389-4-apatel@ventanamicro.com>
+In-Reply-To: <20230919035343.1399389-5-apatel@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230920_004605_411864_6E1F18BF 
-X-CRM114-Status: GOOD (  15.56  )
+X-CRM114-CacheID: sfid-20230920_004657_519129_A9D6A47D 
+X-CRM114-Status: GOOD (  15.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,10 +97,9 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 19, 2023 at 09:23:39AM +0530, Anup Patel wrote:
+On Tue, Sep 19, 2023 at 09:23:40AM +0530, Anup Patel wrote:
 > We extend the KVM ISA extension ONE_REG interface to allow KVM
-> user space to detect and enable XVentanaCondOps extension for
-> Guest/VM.
+> user space to detect and enable Zicond extension for Guest/VM.
 > 
 > Signed-off-by: Anup Patel <apatel@ventanamicro.com>
 > ---
@@ -110,37 +108,37 @@ On Tue, Sep 19, 2023 at 09:23:39AM +0530, Anup Patel wrote:
 >  2 files changed, 3 insertions(+)
 > 
 > diff --git a/arch/riscv/include/uapi/asm/kvm.h b/arch/riscv/include/uapi/asm/kvm.h
-> index b1baf6f096a3..e030c12c7dfc 100644
+> index e030c12c7dfc..35ceb38a4eff 100644
 > --- a/arch/riscv/include/uapi/asm/kvm.h
 > +++ b/arch/riscv/include/uapi/asm/kvm.h
-> @@ -138,6 +138,7 @@ enum KVM_RISCV_ISA_EXT_ID {
->  	KVM_RISCV_ISA_EXT_ZIFENCEI,
+> @@ -139,6 +139,7 @@ enum KVM_RISCV_ISA_EXT_ID {
 >  	KVM_RISCV_ISA_EXT_ZIHPM,
 >  	KVM_RISCV_ISA_EXT_SMSTATEEN,
-> +	KVM_RISCV_ISA_EXT_XVENTANACONDOPS,
+>  	KVM_RISCV_ISA_EXT_XVENTANACONDOPS,
+> +	KVM_RISCV_ISA_EXT_ZICOND,
 >  	KVM_RISCV_ISA_EXT_MAX,
 >  };
 >  
 > diff --git a/arch/riscv/kvm/vcpu_onereg.c b/arch/riscv/kvm/vcpu_onereg.c
-> index 388599fcf684..17a847a1114b 100644
+> index 17a847a1114b..d3ca4969c985 100644
 > --- a/arch/riscv/kvm/vcpu_onereg.c
 > +++ b/arch/riscv/kvm/vcpu_onereg.c
-> @@ -40,6 +40,7 @@ static const unsigned long kvm_isa_ext_arr[] = {
->  	KVM_ISA_EXT_ARR(SVINVAL),
->  	KVM_ISA_EXT_ARR(SVNAPOT),
->  	KVM_ISA_EXT_ARR(SVPBMT),
-> +	KVM_ISA_EXT_ARR(XVENTANACONDOPS),
->  	KVM_ISA_EXT_ARR(ZBA),
->  	KVM_ISA_EXT_ARR(ZBB),
->  	KVM_ISA_EXT_ARR(ZBS),
-> @@ -89,6 +90,7 @@ static bool kvm_riscv_vcpu_isa_disable_allowed(unsigned long ext)
->  	case KVM_RISCV_ISA_EXT_SSTC:
->  	case KVM_RISCV_ISA_EXT_SVINVAL:
->  	case KVM_RISCV_ISA_EXT_SVNAPOT:
-> +	case KVM_RISCV_ISA_EXT_XVENTANACONDOPS:
->  	case KVM_RISCV_ISA_EXT_ZBA:
+> @@ -47,6 +47,7 @@ static const unsigned long kvm_isa_ext_arr[] = {
+>  	KVM_ISA_EXT_ARR(ZICBOM),
+>  	KVM_ISA_EXT_ARR(ZICBOZ),
+>  	KVM_ISA_EXT_ARR(ZICNTR),
+> +	KVM_ISA_EXT_ARR(ZICOND),
+>  	KVM_ISA_EXT_ARR(ZICSR),
+>  	KVM_ISA_EXT_ARR(ZIFENCEI),
+>  	KVM_ISA_EXT_ARR(ZIHINTPAUSE),
+> @@ -95,6 +96,7 @@ static bool kvm_riscv_vcpu_isa_disable_allowed(unsigned long ext)
 >  	case KVM_RISCV_ISA_EXT_ZBB:
 >  	case KVM_RISCV_ISA_EXT_ZBS:
+>  	case KVM_RISCV_ISA_EXT_ZICNTR:
+> +	case KVM_RISCV_ISA_EXT_ZICOND:
+>  	case KVM_RISCV_ISA_EXT_ZICSR:
+>  	case KVM_RISCV_ISA_EXT_ZIFENCEI:
+>  	case KVM_RISCV_ISA_EXT_ZIHINTPAUSE:
 > -- 
 > 2.34.1
 >
