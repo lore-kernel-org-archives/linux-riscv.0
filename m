@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49D35CE79AD
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 Sep 2023 06:38:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BD5ECE79AC
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 Sep 2023 06:38:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kqKv8tAXNsVOsu43PRXUR1elQ6qjbVcbwiHJHVm/lek=; b=IEru0ZKKVUuanQ
-	KhBpqKSZI/AOD6sHmXJX2FmN+2lCebrVIMx14jSoxOQakiGAH8BT0qyKuz5k0OejPXM81gHhHv6uj
-	e4b24WP9Xu5r87WAnXR8hAOLh0rx79XdTsAFHjQ6HrceFy4Kh1sVAcGuKYLRjZGXFQWZQyHkQc7go
-	FYHxDxSiuj1xx+OWZxydXYegKcB+yjDNxHixwy/nST/zNI9f3f2Mr8LfNUc8bYybpra8KYql9vaZh
-	Yh5u0vZuW3Pohdl2xnBwqmxywz9u8U0GFdwc9dmQFnDxHuN8+MkhJX7hgYXl2gMH6NE6ctbYVsZIE
-	cnOQLUzDeZ39DNkZnswA==;
+	List-Owner; bh=uY0QGnvuhTKJZZhH3efwIP6Z7VtknKX7Txy7+q/JMrI=; b=aiqwZMjLbyZ1TP
+	DfEA3r/srbrXwRKFp5ChGmYV3PNCFOCgfqXg/ojoHlOBmknj92kGBkCpmHXcLDOa4NFSsREJiXMSn
+	skMJSX4rZ5EUuB65JKie7ERVT31+U1bZhB3OFoDv0HyRaTT0FIkg3LIwJOJQjdLwapueD4lPX2Jyh
+	F1G+JLQEHp7JO6RbM3wrr0+OaESpS/obLWZKk+1WoHPfyS4YFZRwZ3Wzigxf53FHg+MetKz/cAcX1
+	C0Bus36JbkZjuPfh0uJAiHEoxGX9zmlfgVmkJv4AhQGNMd7awrcTWwls2EAwXh6jG9FupgS9PRHxn
+	RURjd4knDa50IcNbXVFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qiqqZ-0022Jp-35;
-	Wed, 20 Sep 2023 06:38:03 +0000
+	id 1qiqqo-0022Om-2w;
+	Wed, 20 Sep 2023 06:38:18 +0000
 Received: from mail-oi1-x234.google.com ([2607:f8b0:4864:20::234])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qiqqX-0022JH-1I
+	id 1qiqqm-0022Nc-25
 	for linux-riscv@lists.infradead.org;
-	Wed, 20 Sep 2023 06:38:02 +0000
-Received: by mail-oi1-x234.google.com with SMTP id 5614622812f47-3adcec86a8cso2034064b6e.3
-        for <linux-riscv@lists.infradead.org>; Tue, 19 Sep 2023 23:37:58 -0700 (PDT)
+	Wed, 20 Sep 2023 06:38:17 +0000
+Received: by mail-oi1-x234.google.com with SMTP id 5614622812f47-3add255c88aso317145b6e.1
+        for <linux-riscv@lists.infradead.org>; Tue, 19 Sep 2023 23:38:16 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1695191878; x=1695796678; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1695191895; x=1695796695; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=BV+65pRBVYc+OiZ4eNCts7KcqWJoy+uloTJChETlmhw=;
-        b=SzuMbqFZ+zbRR0ymuUXor720mDCgJHACfoxt1o/q9M+cpl70gGpTEg2b214DHVKmeV
-         ULjIHWvvhisUoGYcOwPZvhaCAmkTiB01XP0j8MX6RuI6xCQUC+DfXOX/PAFRfcgv3dT4
-         tIQujfxbP0/VQNqOva9RjjLY6JTKGhhbj+DZ4gM3e6BxoIkhuQIFkvJcaOTlY1Cn2t5v
-         2DkFETezulqKVqo2x+uncpeixdhi/lkRu7hFZIoMs4iUn7VxVB30GJCR+FF3JnytykhL
-         RjD0BM49f0DHuR70vKUAe4Uwk4Ji7tRsIkm+g3J5I5UbF/zT/pQQbl84+hrBf31gfoeQ
-         7CNA==
+        bh=uqOL131eM6+9EM2kWhV9SIhEDvrKv/6vCDQf5HCxj68=;
+        b=e2p6mVY5f68zexC65w361Vfz6StxvX/6G8ZWPIuVM+KI+FB2BAKfzSBWqr3IWlYRjN
+         +OGGt1Pd6pAM+epFnsoY7e7EUfIdvYP3rAUPg5rMxQ/0hSLyngCsPZp9Q9YxPaeDwSGl
+         8BApwLGucj3U2vtfCEv/80wEt5/mh47ruuYwgiP8knABgcywx6P/GmxoSGbYlpn/7OSy
+         V+fm3bhCK9GO4llQwJSVF8wBz1qVFGq2xyCKzp1Q3VXWhht5QfLRY11j2vc8mssHWfvD
+         AjXgc+y8vvWGj0KY28vAEAIyajdqs5EbnnTLOQWxiNCDeeRcXz+3UgH8FLFxtGI1PIrk
+         Dj8g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1695191878; x=1695796678;
+        d=1e100.net; s=20230601; t=1695191895; x=1695796695;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=BV+65pRBVYc+OiZ4eNCts7KcqWJoy+uloTJChETlmhw=;
-        b=D3vBsz3by4k9XtvQ59uzd1K+0kOj7LqcxKtpPZraFU0C3xb6+76v2hvk2gmSpGcFjR
-         oMCUC+VHZDkrS9pzRF9CQ7nV38YP6aOrMQFd9hdofG7oKXdEL4ZYMrSxIZdRsDQHbKIv
-         B0r5dVh2LdFQMAusWrXMOwoMFQY0V2dnbiuYZD3dQQbiOGpIHR1qlGoN3LE3p8jphCvW
-         Gm0MrTXyKXfSe6CZ3NzPPQ53Ngq/3v+9XuoItKKn/2uxrfWnei5lNL8gcydTWKJLV03s
-         Fw3VduF7WhgGrEStZ1aw0Y4x7D8GmdepcOHjmIV1Lsv2gITli2rM6LYZ8/tSaCWw68fd
-         /U4w==
-X-Gm-Message-State: AOJu0YyrkQ4XZkF7BWrygo+g/yPBCZYsfnlNnRIPWRVp3V7774s6iD4W
-	UF2uUpQzFtfp8URS9SUDx0Q=
-X-Google-Smtp-Source: AGHT+IEWvN+C7f9ImWH0k3icxa3OXfImJNQPSPMfPOdPEqIsb7AlzEs3DRJNpMw5aUd0c4iMLMcPNA==
-X-Received: by 2002:a05:6808:1ab3:b0:3a4:225f:a15b with SMTP id bm51-20020a0568081ab300b003a4225fa15bmr1266910oib.31.1695191878115;
-        Tue, 19 Sep 2023 23:37:58 -0700 (PDT)
+        bh=uqOL131eM6+9EM2kWhV9SIhEDvrKv/6vCDQf5HCxj68=;
+        b=tQ9Q3l/olNJqRh5LAGWyhz2dEnPewWVn1qxeKXgpLt0tO64g43/y1p7FNwrfeO1CU/
+         IkZs+2mAfCSd3W0NSQmWhZ+b/WR47ysEdkrCx+H+s3TbnuiVWRsAPXlcb48Yw21Be84O
+         DjCxzm5iKnjzpd8Wg9m2f9XI7SpvbfWfuH2HdLFjIkLagKBye41Jaf4B+w376KvcL9Co
+         KfbORnQZqYli1uVvRHyrjvVgj35nsrxLeNiYPfvT6QPW9qK2fqu9CgYSQFrTq2YKlCcf
+         dp46/QSS/5qG04FJBvjiSqdndLbSrUwAQInH2rIZsYeRy0Dh9vZteBCqCP4tmm1a1AgB
+         rT7w==
+X-Gm-Message-State: AOJu0YzA9+S6lO+t1pWXivCxmoup5EtvHZBBOwOnJWtMeiQjr/enySGY
+	RPtnT0PWF5eAGomAGjahS88=
+X-Google-Smtp-Source: AGHT+IEcsKynrDvut/VM3OUOKYAEi4DE+22EYsG87JkRtkakAbHE0xLs89S1n6DB50p+QYwC2S5VLQ==
+X-Received: by 2002:a05:6808:d47:b0:3a7:33bb:e5e2 with SMTP id w7-20020a0568080d4700b003a733bbe5e2mr1286693oik.16.1695191895536;
+        Tue, 19 Sep 2023 23:38:15 -0700 (PDT)
 Received: from localhost.localdomain ([122.8.183.87])
-        by smtp.gmail.com with ESMTPSA id b19-20020aca2213000000b003a724566afdsm2775185oic.20.2023.09.19.23.37.57
+        by smtp.gmail.com with ESMTPSA id a23-20020a05680802d700b003ab6461c8fbsm5604896oid.31.2023.09.19.23.38.14
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 19 Sep 2023 23:37:57 -0700 (PDT)
+        Tue, 19 Sep 2023 23:38:15 -0700 (PDT)
 From: Chen Wang <unicornxw@gmail.com>
 X-Google-Original-From: Chen Wang <wangchen20@iscas.ac.cn>
 To: aou@eecs.berkeley.edu,
@@ -79,16 +79,17 @@ To: aou@eecs.berkeley.edu,
 	robh+dt@kernel.org,
 	xiaoguang.xing@sophgo.com
 Cc: Chen Wang <wangchen20@iscas.ac.cn>
-Subject: [PATCH v2 03/11] dt-bindings: riscv: add sophgo sg2042 bindings
-Date: Wed, 20 Sep 2023 14:37:51 +0800
-Message-Id: <c6aea83bb1df563b1f2a66c5f230c3861aed1e15.1695189879.git.wangchen20@iscas.ac.cn>
+Subject: [PATCH v2 04/11] dt-bindings: riscv: Add T-HEAD C920 compatibles
+Date: Wed, 20 Sep 2023 14:38:08 +0800
+Message-Id: <c5061fbe8ef9c4971cd45de7b5d8408dc1b848b4.1695189879.git.wangchen20@iscas.ac.cn>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <cover.1695189879.git.wangchen20@iscas.ac.cn>
 References: <cover.1695189879.git.wangchen20@iscas.ac.cn>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230919_233801_439706_6FB94F17 
-X-CRM114-Status: GOOD (  12.94  )
+X-CRM114-CacheID: sfid-20230919_233816_680881_56003750 
+X-CRM114-Status: UNSURE (   9.13  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,73 +106,27 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add DT binding documentation for the Sophgo SG2042 Soc [1] and the
-Milk-V Pioneer board [2].
+The C920 is RISC-V CPU cores from T-HEAD Semiconductor.
+Notably, the C920 core is used in the SOPHGO SG2042 SoC.
 
-[1]: https://en.sophgo.com/product/introduce/sg2042.html
-[2]: https://milkv.io/pioneer
-
-Acked-by: Chao Wei <chao.wei@sophgo.com>
 Acked-by: Xiaoguang Xing <xiaoguang.xing@sophgo.com>
 Signed-off-by: Chen Wang <wangchen20@iscas.ac.cn>
 ---
- .../devicetree/bindings/riscv/sophgo.yaml     | 28 +++++++++++++++++++
- MAINTAINERS                                   |  7 +++++
- 2 files changed, 35 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/riscv/sophgo.yaml
+ Documentation/devicetree/bindings/riscv/cpus.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/Documentation/devicetree/bindings/riscv/sophgo.yaml b/Documentation/devicetree/bindings/riscv/sophgo.yaml
-new file mode 100644
-index 000000000000..82468ae915db
---- /dev/null
-+++ b/Documentation/devicetree/bindings/riscv/sophgo.yaml
-@@ -0,0 +1,28 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/riscv/sophgo.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Sophgo SoC-based boards
-+
-+maintainers:
-+  - Chao Wei <chao.wei@sophgo.com>
-+  - Xiaoguang Xing <xiaoguang.xing@sophgo.com>
-+
-+description:
-+  Sophgo SoC-based boards
-+
-+properties:
-+  $nodename:
-+    const: '/'
-+  compatible:
-+    oneOf:
-+      - items:
-+          - enum:
-+              - milkv,pioneer
-+          - const: sophgo,sg2042
-+
-+additionalProperties: true
-+
-+...
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 90f13281d297..b74d505003e2 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -20063,6 +20063,13 @@ F:	drivers/char/sonypi.c
- F:	drivers/platform/x86/sony-laptop.c
- F:	include/linux/sony-laptop.h
- 
-+SOPHGO DEVICETREES
-+M:	Xiaoguang Xing <xiaoguang.xing@sophgo.com>
-+M:	Chao Wei <chao.wei@sophgo.com>
-+S:	Maintained
-+F:	Documentation/devicetree/bindings/riscv/sophgo.yaml
-+F:	arch/riscv/boot/dts/sophgo/
-+
- SOUND
- M:	Jaroslav Kysela <perex@perex.cz>
- M:	Takashi Iwai <tiwai@suse.com>
+diff --git a/Documentation/devicetree/bindings/riscv/cpus.yaml b/Documentation/devicetree/bindings/riscv/cpus.yaml
+index 38c0b5213736..185a0191bad6 100644
+--- a/Documentation/devicetree/bindings/riscv/cpus.yaml
++++ b/Documentation/devicetree/bindings/riscv/cpus.yaml
+@@ -47,6 +47,7 @@ properties:
+               - sifive,u74-mc
+               - thead,c906
+               - thead,c910
++              - thead,c920
+           - const: riscv
+       - items:
+           - enum:
 -- 
 2.25.1
 
