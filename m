@@ -4,74 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25CC7CE79AC
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 Sep 2023 08:13:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9A3ECE79AB
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 Sep 2023 08:13:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kudtX7vomeoEQRS7reuRhNHN/YoAnJ0VmvSddCmk1sM=; b=QyYkV9XB/7POGv
-	StbT7JHEG/jaVSY0wstP5g7bThysXfYmZek0hQSqgVb445y1fmfgqNi1bfU0e2U8bWhDeXykrO2MR
-	ygFXIivNLgTM3htkKvgJg6ICAkJcHIKI7rSIpk9kxhe9M3KNAtXPZe5qIp4MM74SkbWjuAH2lonN9
-	P2u/53cqsnhj1A4gmR2NT5oBX6eGcVfO6i6i8QVyu6OZkagS49MlVaCf6je8MrHW0ZCaial9DJdkH
-	+KGYndJtM/r2PCmwXq6ECaiocfLegcDvvQJF4z0Gm804CXXfc3OqGjC0Pg0PZnVJigOaJ3awJaw/4
-	K1zsZ90VZLBvZtUb3ugg==;
+	List-Owner; bh=3MMyHr+8ouUc15edxrXD07iPRkunfxavqS0wEGCvs1k=; b=T5y4etN2nf+nTX
+	KAMzzbsy/nmg4CYsWVm8y1f05NrYOhOOT9HIs5EnJhmMRHdDEsktT6zGzEGbJuHgkTS9l+fJniLVv
+	pSbCTlC+NXe+b1k5ApTH+wwwm/mdMpGwfdaUOQCyZqDzYj1U7uVpaFvg47GQBxUAtF8JnCgADNj+a
+	j959ZytoOOtxnAZNDLq92CL4mRx2IKl3mlG6SvH9lwvEgNXl6zWP1daXzbpgCTenhpF03VewowhIo
+	VmNKNlJ9WaTuOkascs1c7EjZ9LpR3WE3pqjABxySCvND/015m037p/VWBiXOyXUzH+KCt2Iq5hVtY
+	sws/K/DVs4C+Pp/pXJWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qisKg-002F8v-30;
-	Wed, 20 Sep 2023 08:13:14 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1qisL4-002FDZ-1L;
+	Wed, 20 Sep 2023 08:13:38 +0000
+Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qisKe-002F8D-0R
+	id 1qisL1-002FBZ-1I
 	for linux-riscv@lists.infradead.org;
-	Wed, 20 Sep 2023 08:13:13 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id A69D0B81C0C
-	for <linux-riscv@lists.infradead.org>; Wed, 20 Sep 2023 08:13:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 60882C433CA
-	for <linux-riscv@lists.infradead.org>; Wed, 20 Sep 2023 08:13:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1695197589;
-	bh=BHg2WeM95rpBPjSMtBK54EXDu7Fym4u87Mw9H+3v6no=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=FgbS2oaQQz5/ROzre/v3t66FIfY12n+sbyeiA0ewV0IslizhDBg3fMC/84+vZ/ep5
-	 VgjuhkUvz258KvDgzSAvbnNYfvvY6H7DvjomLj2uL145N+oHZNZHKcPMuHIVR93ea7
-	 HN5vAZ00KgCFHNZP8ARg/RKKSGvhH8/hwNhiSnEh8m8ayYHEFlBI3OZHjZkfFasl8R
-	 Gdh7sXZ60vi6bZuyC5Yf/5Nv1KiG4buobDe3lU81Y4ndCUoZN6AwvChFm2E02cKxSm
-	 NrLDDzSJm8NKzBoWHnyEk/YWFrK90BYv6oloSNEzcIWv0r5+kpPSjqyunJ9qrkuRfB
-	 qmKD5BsNUJ3zw==
-Received: by mail-lj1-f177.google.com with SMTP id 38308e7fff4ca-2bffa8578feso58712511fa.2
-        for <linux-riscv@lists.infradead.org>; Wed, 20 Sep 2023 01:13:09 -0700 (PDT)
-X-Gm-Message-State: AOJu0YzwkxXtjbI5VjmarvDEvpSNcI/oME/3lS0FtAu7b17gmx3D+hmk
-	nfJbqJUiI3gIuJZ4NyxiUajUYDBjQkj9q1T4IFw=
-X-Google-Smtp-Source: AGHT+IGwjome/AlKiUn8xGguHpMmW+YpKm8Pe6RU+TH5Vb8xW7yjkVi5Uq+QUgh8oIAyllj23ml6rFP95Ng60vN9ga0=
-X-Received: by 2002:a2e:9959:0:b0:2bd:180d:67b7 with SMTP id
- r25-20020a2e9959000000b002bd180d67b7mr1497733ljj.40.1695197587601; Wed, 20
- Sep 2023 01:13:07 -0700 (PDT)
+	Wed, 20 Sep 2023 08:13:37 +0000
+Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-307d58b3efbso6220565f8f.0
+        for <linux-riscv@lists.infradead.org>; Wed, 20 Sep 2023 01:13:32 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1695197611; x=1695802411; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=bFVwkQGYHLyQMWXHCf9YewQuFfTq2ysEb3BcSmI7FIU=;
+        b=ngQsv0vT6ShGf4fTBNLEBLQnbuQS0D9m4SymMShMtb7xPpXRgdVo3WxVu0Tu1oeswo
+         aqEtSecMze94K4hp/kDRnUS5d/a9NLJOICPnwubGOgXju3hjZymREbhBjc6+I10QcG0Q
+         pMVbT329xTOB4UkEbLcpKn5ArJhwPX4SozCREUgs0U1QrYPs/6hjd60hYAKSPZ8DuHi2
+         9VNH8VSwQt42ow+y30bxiuuj5fa1y8fE83tDY691wZVsN9qu6sTQpgS5NjXW8e15Lm0/
+         lJXlC2Yf4rI4ZeEDKPwRh85alK+vzNIqzQitirc29C3TMPdHXCViJRQyDdPxXxeBsm/U
+         +u4g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1695197611; x=1695802411;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=bFVwkQGYHLyQMWXHCf9YewQuFfTq2ysEb3BcSmI7FIU=;
+        b=Q0TR3VTP/OzxTeHrrneQVUrb+lHIg73XjqEIDetRjnaOJvhcV2smZN/WJ6c0BlxoJR
+         krPWtvHLhmzs9ICJgnEcdvmMJIt8ioJ8iFKW+mDxctoGNymIDHL2q9jMRIPiizxV6jqp
+         aOIl1vU8n1XN1H+NRz3xiyvVyKB498mcZGGuz8qAjcuWft8q8pCAx5qoEOWMkYzv9L9i
+         1COKbLVHar7n09brQIz0LAyRvDjUMSDDCQ/i04DDtRVK08NiXXt9YieqFZNpq6LEogqQ
+         8TVjC5SS/AMharR/TKQ2N8u55MVlS408NkZDxO/EBjqwkT3MXEOPgswoL2Iw+gW9HVJ0
+         sIAQ==
+X-Gm-Message-State: AOJu0YxPJAmLlD7IHufegeLm7XGU0CtEJdRWhyfV7eGx9cpOC4MicdJV
+	DOZn2/rglseGckJxOjkXon1JMQ==
+X-Google-Smtp-Source: AGHT+IGq8/xjn/oNq2PTpNaOrP+pjj6Y9zwWhdZGp94uECltWuxSC0BJqvKxel2SPT2PaHs+TjltqA==
+X-Received: by 2002:a5d:56ce:0:b0:31c:8c93:61e3 with SMTP id m14-20020a5d56ce000000b0031c8c9361e3mr1658749wrw.60.1695197610866;
+        Wed, 20 Sep 2023 01:13:30 -0700 (PDT)
+Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
+        by smtp.gmail.com with ESMTPSA id e1-20020a5d65c1000000b00315af025098sm17764141wrw.46.2023.09.20.01.13.30
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 20 Sep 2023 01:13:30 -0700 (PDT)
+Date: Wed, 20 Sep 2023 10:13:29 +0200
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Anup Patel <apatel@ventanamicro.com>
+Cc: Paolo Bonzini <pbonzini@redhat.com>, 
+	Atish Patra <atishp@atishpatra.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Conor Dooley <conor@kernel.org>, 
+	Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
+	Shuah Khan <shuah@kernel.org>, Mayuresh Chitale <mchitale@ventanamicro.com>, 
+	devicetree@vger.kernel.org, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH 6/7] KVM: riscv: selftests: Add smstateen registers to
+ get-reg-list test
+Message-ID: <20230920-af833495ead3e2f8c32d63cc@orel>
+References: <20230919035343.1399389-1-apatel@ventanamicro.com>
+ <20230919035343.1399389-7-apatel@ventanamicro.com>
 MIME-Version: 1.0
-References: <cover.1695189879.git.wangchen20@iscas.ac.cn> <55865e1ce40d2017f047d3a9e1a9ee30043b271f.1695189879.git.wangchen20@iscas.ac.cn>
-In-Reply-To: <55865e1ce40d2017f047d3a9e1a9ee30043b271f.1695189879.git.wangchen20@iscas.ac.cn>
-From: Guo Ren <guoren@kernel.org>
-Date: Wed, 20 Sep 2023 16:12:55 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTTTUYuMi4F8wPsEPMwCv7Fqi9OSBTGoaYmzo6cPwdZjjQ@mail.gmail.com>
-Message-ID: <CAJF2gTTTUYuMi4F8wPsEPMwCv7Fqi9OSBTGoaYmzo6cPwdZjjQ@mail.gmail.com>
-Subject: Re: [PATCH v2 06/11] dt-bindings: timer: Add Sophgo sg2042 clint
-To: Chen Wang <unicornxw@gmail.com>
-Cc: aou@eecs.berkeley.edu, chao.wei@sophgo.com, conor@kernel.org, 
-	devicetree@vger.kernel.org, emil.renner.berthing@canonical.com, 
-	jszhang@kernel.org, krzysztof.kozlowski+dt@linaro.org, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	palmer@dabbelt.com, paul.walmsley@sifive.com, robh+dt@kernel.org, 
-	xiaoguang.xing@sophgo.com, Inochi Amaoto <inochiama@outlook.com>, 
-	Chen Wang <wangchen20@iscas.ac.cn>
+Content-Disposition: inline
+In-Reply-To: <20230919035343.1399389-7-apatel@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230920_011312_465283_A534F869 
-X-CRM114-Status: GOOD (  16.23  )
+X-CRM114-CacheID: sfid-20230920_011335_439072_ACC134CC 
+X-CRM114-Status: GOOD (  21.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,39 +93,136 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCBTZXAgMjAsIDIwMjMgYXQgMjozOeKAr1BNIENoZW4gV2FuZyA8dW5pY29ybnh3QGdt
-YWlsLmNvbT4gd3JvdGU6Cj4KPiBGcm9tOiBJbm9jaGkgQW1hb3RvIDxpbm9jaGlhbWFAb3V0bG9v
-ay5jb20+Cj4KPiBBZGQgdHdvIG5ldyBjb21wYXRpYmxlIHN0cmluZyBmb3JtYXR0ZWQgbGlrZSBg
-Qzl4eC1jbGludC14eHhgIHRvIGlkZW50aWZ5Cj4gdGhlIHRpbWVyIGFuZCBpcGkgZGV2aWNlIHNl
-cGFyYXRlbHksIGFuZCBkbyBub3QgYWxsb3cgYzkwMC1jbGludCBhcyB0aGUKPiBmYWxsYmFjayB0
-byBhdm9pZCBjb25mbGljdC4KUGxlYXNlIGV4cGxhaW4gbW9yZSBhYm91dCB0aGUgYzkwMC1jbGlu
-dCBtdGltZXIgJiBtc3dpLCB3aHkgZG8gd2UgbmVlZAp0byBzZXBhcmF0ZSB0aGUgYzkwMC1jbGlu
-dCBpbnRvIHR3byBwaWVjZXM/IFdoZW4gY291bGQgd2UgdXNlCmM5MDAtY2xpbnQgd2hpY2ggZWFz
-ZXMgZHRzIGRlc2lnbj8KCj4KPiBTaWduZWQtb2ZmLWJ5OiBJbm9jaGkgQW1hb3RvIDxpbm9jaGlh
-bWFAb3V0bG9vay5jb20+Cj4gU2lnbmVkLW9mZi1ieTogQ2hlbiBXYW5nIDx3YW5nY2hlbjIwQGlz
-Y2FzLmFjLmNuPgo+IC0tLQo+ICBEb2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3MvdGlt
-ZXIvc2lmaXZlLGNsaW50LnlhbWwgfCA4ICsrKysrKysrCj4gIDEgZmlsZSBjaGFuZ2VkLCA4IGlu
-c2VydGlvbnMoKykKPgo+IGRpZmYgLS1naXQgYS9Eb2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmlu
-ZGluZ3MvdGltZXIvc2lmaXZlLGNsaW50LnlhbWwgYi9Eb2N1bWVudGF0aW9uL2RldmljZXRyZWUv
-YmluZGluZ3MvdGltZXIvc2lmaXZlLGNsaW50LnlhbWwKPiBpbmRleCBhMDE4NWUxNWE0MmYuLmFl
-Njk2OTZjNWM3NSAxMDA2NDQKPiAtLS0gYS9Eb2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGlu
-Z3MvdGltZXIvc2lmaXZlLGNsaW50LnlhbWwKPiArKysgYi9Eb2N1bWVudGF0aW9uL2RldmljZXRy
-ZWUvYmluZGluZ3MvdGltZXIvc2lmaXZlLGNsaW50LnlhbWwKPiBAQCAtMzksNiArMzksMTQgQEAg
-cHJvcGVydGllczoKPiAgICAgICAgICAgICAgICAtIGFsbHdpbm5lcixzdW4yMGktZDEtY2xpbnQK
-PiAgICAgICAgICAgICAgICAtIHRoZWFkLHRoMTUyMC1jbGludAo+ICAgICAgICAgICAgLSBjb25z
-dDogdGhlYWQsYzkwMC1jbGludAo+ICsgICAgICAtIGl0ZW1zOgo+ICsgICAgICAgICAgLSBlbnVt
-Ogo+ICsgICAgICAgICAgICAgIC0gc29waGdvLHNnMjA0Mi1jbGludC1tdGltZXIKPiArICAgICAg
-ICAgIC0gY29uc3Q6IHRoZWFkLGM5MDAtY2xpbnQtbXRpbWVyCj4gKyAgICAgIC0gaXRlbXM6Cj4g
-KyAgICAgICAgICAtIGVudW06Cj4gKyAgICAgICAgICAgICAgLSBzb3BoZ28sc2cyMDQyLWNsaW50
-LW1zd2kKPiArICAgICAgICAgIC0gY29uc3Q6IHRoZWFkLGM5MDAtY2xpbnQtbXN3aQo+ICAgICAg
-ICAtIGl0ZW1zOgo+ICAgICAgICAgICAgLSBjb25zdDogc2lmaXZlLGNsaW50MAo+ICAgICAgICAg
-ICAgLSBjb25zdDogcmlzY3YsY2xpbnQwCj4gLS0KPiAyLjI1LjEKPgoKCi0tIApCZXN0IFJlZ2Fy
-ZHMKIEd1byBSZW4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQu
-b3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlz
-Y3YK
+On Tue, Sep 19, 2023 at 09:23:42AM +0530, Anup Patel wrote:
+> We have a new smstateen registers as separate sub-type of CSR ONE_REG
+> interface so let us add these registers to get-reg-list test.
+> 
+> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+> ---
+>  .../selftests/kvm/riscv/get-reg-list.c        | 34 +++++++++++++++++++
+>  1 file changed, 34 insertions(+)
+> 
+> diff --git a/tools/testing/selftests/kvm/riscv/get-reg-list.c b/tools/testing/selftests/kvm/riscv/get-reg-list.c
+> index 0928c35470ae..9f464c7996c6 100644
+> --- a/tools/testing/selftests/kvm/riscv/get-reg-list.c
+> +++ b/tools/testing/selftests/kvm/riscv/get-reg-list.c
+> @@ -49,6 +49,7 @@ bool filter_reg(__u64 reg)
+>  	case KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_ZICSR:
+>  	case KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_ZIFENCEI:
+>  	case KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_ZIHPM:
+> +	case KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_SMSTATEEN:
+>  		return true;
+>  	/* AIA registers are always available when Ssaia can't be disabled */
+>  	case KVM_REG_RISCV_CSR | KVM_REG_RISCV_CSR_AIA | KVM_REG_RISCV_CSR_AIA_REG(siselect):
+> @@ -184,6 +185,8 @@ static const char *core_id_to_str(const char *prefix, __u64 id)
+>  	"KVM_REG_RISCV_CSR_GENERAL | KVM_REG_RISCV_CSR_REG(" #csr ")"
+>  #define RISCV_CSR_AIA(csr) \
+>  	"KVM_REG_RISCV_CSR_AIA | KVM_REG_RISCV_CSR_REG(" #csr ")"
+> +#define RISCV_CSR_SMSTATEEN(csr) \
+> +	"KVM_REG_RISCV_CSR_SMSTATEEN | KVM_REG_RISCV_CSR_REG(" #csr ")"
+>  
+>  static const char *general_csr_id_to_str(__u64 reg_off)
+>  {
+> @@ -241,6 +244,18 @@ static const char *aia_csr_id_to_str(__u64 reg_off)
+>  	return NULL;
+>  }
+>  
+> +static const char *smstateen_csr_id_to_str(__u64 reg_off)
+> +{
+> +	/* reg_off is the offset into struct kvm_riscv_smstateen_csr */
+> +	switch (reg_off) {
+> +	case KVM_REG_RISCV_CSR_SMSTATEEN_REG(sstateen0):
+> +		return RISCV_CSR_SMSTATEEN(sstateen0);
+> +	}
+> +
+> +	TEST_FAIL("Unknown smstateen csr reg: 0x%llx", reg_off);
+> +	return NULL;
+> +}
+> +
+>  static const char *csr_id_to_str(const char *prefix, __u64 id)
+>  {
+>  	__u64 reg_off = id & ~(REG_MASK | KVM_REG_RISCV_CSR);
+> @@ -253,6 +268,8 @@ static const char *csr_id_to_str(const char *prefix, __u64 id)
+>  		return general_csr_id_to_str(reg_off);
+>  	case KVM_REG_RISCV_CSR_AIA:
+>  		return aia_csr_id_to_str(reg_off);
+> +	case KVM_REG_RISCV_CSR_SMSTATEEN:
+> +		return smstateen_csr_id_to_str(reg_off);
+>  	}
+>  
+>  	TEST_FAIL("%s: Unknown csr subtype: 0x%llx", prefix, reg_subtype);
+> @@ -342,6 +359,7 @@ static const char *isa_ext_id_to_str(__u64 id)
+>  		"KVM_RISCV_ISA_EXT_ZICSR",
+>  		"KVM_RISCV_ISA_EXT_ZIFENCEI",
+>  		"KVM_RISCV_ISA_EXT_ZIHPM",
+> +		"KVM_RISCV_ISA_EXT_SMSTATEEN",
+
+If we merge [1] first, then this would be added in alphabetical order.
+
+[1] https://lore.kernel.org/all/20230817162344.17076-6-ajones@ventanamicro.com/
+
+>  	};
+>  
+>  	if (reg_off >= ARRAY_SIZE(kvm_isa_ext_reg_name)) {
+> @@ -629,6 +647,11 @@ static __u64 aia_regs[] = {
+>  	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_SSAIA,
+>  };
+>  
+> +static __u64 smstateen_regs[] = {
+> +	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_CSR | KVM_REG_RISCV_CSR_SMSTATEEN | KVM_REG_RISCV_CSR_SMSTATEEN_REG(sstateen0),
+> +	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_SMSTATEEN,
+> +};
+> +
+>  static __u64 fp_f_regs[] = {
+>  	KVM_REG_RISCV | KVM_REG_SIZE_U32 | KVM_REG_RISCV_FP_F | KVM_REG_RISCV_FP_F_REG(f[0]),
+>  	KVM_REG_RISCV | KVM_REG_SIZE_U32 | KVM_REG_RISCV_FP_F | KVM_REG_RISCV_FP_F_REG(f[1]),
+> @@ -736,6 +759,8 @@ static __u64 fp_d_regs[] = {
+>  	{"zihpm", .feature = KVM_RISCV_ISA_EXT_ZIHPM, .regs = zihpm_regs, .regs_n = ARRAY_SIZE(zihpm_regs),}
+>  #define AIA_REGS_SUBLIST \
+>  	{"aia", .feature = KVM_RISCV_ISA_EXT_SSAIA, .regs = aia_regs, .regs_n = ARRAY_SIZE(aia_regs),}
+> +#define SMSTATEEN_REGS_SUBLIST \
+> +	{"smstateen", .feature = KVM_RISCV_ISA_EXT_SMSTATEEN, .regs = smstateen_regs, .regs_n = ARRAY_SIZE(smstateen_regs),}
+>  #define FP_F_REGS_SUBLIST \
+>  	{"fp_f", .feature = KVM_RISCV_ISA_EXT_F, .regs = fp_f_regs, \
+>  		.regs_n = ARRAY_SIZE(fp_f_regs),}
+> @@ -863,6 +888,14 @@ static struct vcpu_reg_list aia_config = {
+>  	},
+>  };
+>  
+> +static struct vcpu_reg_list smstateen_config = {
+> +	.sublists = {
+> +	BASE_SUBLIST,
+> +	SMSTATEEN_REGS_SUBLIST,
+> +	{0},
+> +	},
+> +};
+> +
+>  static struct vcpu_reg_list fp_f_config = {
+>  	.sublists = {
+>  	BASE_SUBLIST,
+> @@ -895,6 +928,7 @@ struct vcpu_reg_list *vcpu_configs[] = {
+>  	&zifencei_config,
+>  	&zihpm_config,
+>  	&aia_config,
+> +	&smstateen_config,
+>  	&fp_f_config,
+>  	&fp_d_config,
+>  };
+> -- 
+> 2.34.1
+>
+
+Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+
+Thanks,
+drew
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
