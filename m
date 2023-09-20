@@ -4,84 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 661FCCE79AC
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 Sep 2023 08:19:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 879E5CE79AB
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 Sep 2023 08:21:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hQx8GegZ/Ygj55J0MMEFUeNuVjR3Pbinhd8NSfdNCcc=; b=MfQMew/luylkb8
-	G+MsaRu6kObAnYx16Be1LXpIsgJIU9Xqlsph8wr7Bdpx7W/EzG2KynthqnjnnTYzSfi6y8xAzq2mT
-	lGgE8agk6cA+7ckBUbTqVggBRq7hwqru3zEMo1gEgo3k0A88aco0PhKwM7gDCKVqNSKn6OwT+kKlx
-	F5TsSb9baLJ+Fc1ADJu4a0VKVgkmWqMv7BDmcpMYzM2oZP6jML9VpDc+v5cHTAV1A7t3ANzl2cDlU
-	RRyd+t7MaIsaY9UDK2IvAnbx0EY2liTb8VvNlZs64YIGxjg2Kx/+/c8u4ftg4u9Z/kI5GY99hf5/M
-	kvcQXZcj9rxHm0qTtZhw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EcP7T7K3ekb8ElbfbvCWdNBkiLyb6Tn1RvIMx46obgc=; b=Qjx68hNrUpOY/6S12tU4Ec0Rr4
+	DL43JWGIe1xuf1NSFaVOQUJvDlLw3IFLuOcfPJKz50oi103s2NXouXvOlJP66sTwRQ9REBXMPXlXB
+	GrjWjlCrQs9lWeGkAh/iub3nupPv93kn/hIGDx+dKp4drX5VDU/Szh9rL0zQOjPCpzxLS5ckFQxam
+	nNW8p4dRSbrokVMS+gUyQaq4Vg9BzO2JQi0JBcADim9mDH15ht8fi9R5GqVZXLZ71bNJfrh2hg8qM
+	aOzLrgTLJAXlldLiFeqvVvlopiZW862MmdQIZEy7SEwq9PHZH04DNypNiyY9WB13HcXyp/tXFaJmf
+	5Xt6Y3FA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qisQD-002Fzm-05;
-	Wed, 20 Sep 2023 08:18:57 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1qisSg-002GRu-0I;
+	Wed, 20 Sep 2023 08:21:30 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qisQ8-002FyC-2I
+	id 1qisSd-002GRH-0K
 	for linux-riscv@lists.infradead.org;
-	Wed, 20 Sep 2023 08:18:54 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-4050bd2e33aso31550845e9.2
-        for <linux-riscv@lists.infradead.org>; Wed, 20 Sep 2023 01:18:52 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1695197931; x=1695802731; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=LqBFN5FLB49lnK/5qmtGVnKUxCOh5CXzqPeEzI92Gus=;
-        b=mLvNHWHAy0CpfssWcgXIQ0yS3wBuJiJsLxt+g7dCErgIKFgckLNxc9VgnHY6cK4u0C
-         g+8PWGdbm4vcwIvu9Td9U94XhsJDVOwPwYo93X01ZZ3rAmhjY2tD9tEaOLb3m1zeCdUK
-         vXHtcWwPJY060s7SN5yByNFiQvXeX/sIWOJmb2Q5lPsnTIaoAYY6nQItXBrToRdSxVOY
-         ju4gU0DkCRs3q40qLTSt8F2qih1S8gzeQeajPEWzaLZnzDtBV2+R2R0I65Tvbdrhl5sl
-         iHN0utzGyIHQ6CKWwdKUGNIzY9auE8rsxkKx9G8yXQCQKJjOZ/hVNLCPGieQrJ4IVoQx
-         4s+A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1695197931; x=1695802731;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=LqBFN5FLB49lnK/5qmtGVnKUxCOh5CXzqPeEzI92Gus=;
-        b=TGfsJJexISjpTq+3twv+gYsjyp8ZHFvAK3H8yMprcS8C24RL6Wrsk9oWWhQhM56apL
-         +PbIHGNF6qJFbGfspkszKjuTVgorb39QNxe870H0Xr/NVS12eSbhKhxpxfK05Yszyast
-         UPygKQD4g9YqUTVLPyvs4NHilCPWjNJ6zwO+/0G3i12vBpjw6XDy1eTBO/P15w8wv6R6
-         +ErEcsPTMpdK+gQygTzn0Pi1/Gcl4KRDatoOr5QXOEBJw/30B+z936Vuy0OF9BDO1mYy
-         aanqOazffmAsxGHI2IFv/hZ5LbwSaXb6NBB9a5JWSCYrs9k+pv7yPkReQDU5WuNo77t6
-         3m9g==
-X-Gm-Message-State: AOJu0YyzTNVtv8KUDqjNajkFO6E2/mok2wq9DoerS4Ug2wXg+qU9w3o6
-	70OQZyopel/V+/phiumNhgGicg==
-X-Google-Smtp-Source: AGHT+IEL6XDWeA1RRkJT2O9NGVoH7Skvq4BGuzq8l9Y1wg1d+Qpftyi3lW7iMmOUd4m4gogg1F9R8g==
-X-Received: by 2002:a05:600c:ace:b0:401:b53e:6c40 with SMTP id c14-20020a05600c0ace00b00401b53e6c40mr1791966wmr.10.1695197930897;
-        Wed, 20 Sep 2023 01:18:50 -0700 (PDT)
-Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
-        by smtp.gmail.com with ESMTPSA id c26-20020a05600c0ada00b00400268671c6sm1250996wmr.13.2023.09.20.01.18.50
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 20 Sep 2023 01:18:50 -0700 (PDT)
-Date: Wed, 20 Sep 2023 10:18:49 +0200
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Anup Patel <apatel@ventanamicro.com>
-Cc: Paolo Bonzini <pbonzini@redhat.com>, 
-	Atish Patra <atishp@atishpatra.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Conor Dooley <conor@kernel.org>, 
-	Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
-	Shuah Khan <shuah@kernel.org>, Mayuresh Chitale <mchitale@ventanamicro.com>, 
-	devicetree@vger.kernel.org, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH 7/7] KVM: riscv: selftests: Add condops extensions to
- get-reg-list test
-Message-ID: <20230920-d30b398a99804418792264c3@orel>
-References: <20230919035343.1399389-1-apatel@ventanamicro.com>
- <20230919035343.1399389-8-apatel@ventanamicro.com>
+	Wed, 20 Sep 2023 08:21:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1695198087; x=1726734087;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=KE0nQg/amugrY0hU6X8yP1M4clGfXyQXmS4LTPcsBBU=;
+  b=L0cxBYUztq/3GlSMhhJ1+qkpnThfqD6BWVAbQyqyflBP7OoPJq9tYyYR
+   DeKpRH10HVCrPyCGjWX5kD9h0CI/lGbffcoGAqxqScXD/g7e5M1IZ4buQ
+   HB0kjrU6hy+yj25RIEf982Cih+ONCBx836r6ociXgfdaZ7U+0HIxTQWef
+   9Go1ROzAHXjOABtkIzHEED3UrzOoCVOaUVaOigoBLHkVHCX8egjYcztsW
+   5R2tGuDRHF3QRiMTrsf2UPMjB8a5Eo4Hh22mv4nGYHb4tA8YBjc7qWqHB
+   mONUZda1yv7xGIZGxJgm5pIqE2j2GtvJ3gvIkpkZl+NGEpgBqdk/WHWcb
+   A==;
+X-CSE-ConnectionGUID: WxPtBgV6QO2kh+eUWKaMkQ==
+X-CSE-MsgGUID: xay10pjUQbOVRdsaCZWxXA==
+X-ThreatScanner-Verdict: Negative
+X-IronPort-AV: E=Sophos;i="6.02,161,1688454000"; 
+   d="asc'?scan'208";a="5608330"
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 20 Sep 2023 01:21:26 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.21; Wed, 20 Sep 2023 01:21:26 -0700
+Received: from wendy (10.10.85.11) by chn-vm-ex01.mchp-main.com (10.10.85.143)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
+ Transport; Wed, 20 Sep 2023 01:21:23 -0700
+Date: Wed, 20 Sep 2023 09:21:06 +0100
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Chen Wang <unicornxw@gmail.com>
+CC: <aou@eecs.berkeley.edu>, <chao.wei@sophgo.com>, <conor@kernel.org>,
+	<devicetree@vger.kernel.org>, <emil.renner.berthing@canonical.com>,
+	<guoren@kernel.org>, <jszhang@kernel.org>,
+	<krzysztof.kozlowski+dt@linaro.org>, <linux-kernel@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, <palmer@dabbelt.com>,
+	<paul.walmsley@sifive.com>, <robh+dt@kernel.org>,
+	<xiaoguang.xing@sophgo.com>, Chen Wang <wangchen20@iscas.ac.cn>
+Subject: Re: [PATCH v2 01/11] riscv: Add SOPHGO SOC family Kconfig support
+Message-ID: <20230920-flashily-ibuprofen-bceba1e6e8a2@wendy>
+References: <cover.1695189879.git.wangchen20@iscas.ac.cn>
+ <2c6db3d2db0d27d4b2b8364e0c03be3da292101e.1695189879.git.wangchen20@iscas.ac.cn>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230919035343.1399389-8-apatel@ventanamicro.com>
+In-Reply-To: <2c6db3d2db0d27d4b2b8364e0c03be3da292101e.1695189879.git.wangchen20@iscas.ac.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230920_011852_753028_925517F5 
-X-CRM114-Status: GOOD (  17.16  )
+X-CRM114-CacheID: sfid-20230920_012127_200499_A740F02E 
+X-CRM114-Status: UNSURE (   5.54  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,52 +88,46 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============0200151303958039626=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 19, 2023 at 09:23:43AM +0530, Anup Patel wrote:
-> We have a new conditional operations related ISA extensions so let us add
-> these extensions to get-reg-list test.
-> 
-> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
-> ---
->  tools/testing/selftests/kvm/riscv/get-reg-list.c | 4 ++++
->  1 file changed, 4 insertions(+)
-> 
-> diff --git a/tools/testing/selftests/kvm/riscv/get-reg-list.c b/tools/testing/selftests/kvm/riscv/get-reg-list.c
-> index 9f464c7996c6..4ad4bf87fa78 100644
-> --- a/tools/testing/selftests/kvm/riscv/get-reg-list.c
-> +++ b/tools/testing/selftests/kvm/riscv/get-reg-list.c
-> @@ -50,6 +50,8 @@ bool filter_reg(__u64 reg)
->  	case KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_ZIFENCEI:
->  	case KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_ZIHPM:
->  	case KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_SMSTATEEN:
-> +	case KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_XVENTANACONDOPS:
-> +	case KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_ZICOND:
->  		return true;
->  	/* AIA registers are always available when Ssaia can't be disabled */
->  	case KVM_REG_RISCV_CSR | KVM_REG_RISCV_CSR_AIA | KVM_REG_RISCV_CSR_AIA_REG(siselect):
-> @@ -360,6 +362,8 @@ static const char *isa_ext_id_to_str(__u64 id)
->  		"KVM_RISCV_ISA_EXT_ZIFENCEI",
->  		"KVM_RISCV_ISA_EXT_ZIHPM",
->  		"KVM_RISCV_ISA_EXT_SMSTATEEN",
-> +		"KVM_RISCV_ISA_EXT_XVENTANACONDOPS",
-> +		"KVM_RISCV_ISA_EXT_ZICOND",
->  	};
->  
->  	if (reg_off >= ARRAY_SIZE(kvm_isa_ext_reg_name)) {
-> -- 
-> 2.34.1
->
+--===============0200151303958039626==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="xGlxnrW2N4qY4U7g"
+Content-Disposition: inline
 
-Don't we want to add test configs for these?
+--xGlxnrW2N4qY4U7g
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-Thanks,
-drew
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+
+
+--xGlxnrW2N4qY4U7g
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZQqrcQAKCRB4tDGHoIJi
+0jESAP9r4e9cXEo8FMKa8sqvXhsg+g1Gkbdl1d/rDCx9LELHLAEA3hby1qa9SSEB
+uVRcU35a6phce/xbF5nvjV1B9LxDxAk=
+=Bija
+-----END PGP SIGNATURE-----
+
+--xGlxnrW2N4qY4U7g--
+
+
+--===============0200151303958039626==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============0200151303958039626==--
+
