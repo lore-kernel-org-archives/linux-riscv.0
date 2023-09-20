@@ -4,75 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61E84CE79AC
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 Sep 2023 07:40:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7F2DCE79AB
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 Sep 2023 07:44:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3QqhLLkIrvv4jQeroy9SN4cf2w70AShByoC8bNquN94=; b=kns+aUTqTZfkYx
-	5W4akNVsaV1m0drCwvXcq5ZmFT0KUtM8fISIqkz5R52R+QcJl7X9TRMJ2njkCEnhthrKNtZisY96f
-	wpX5et5gLVAZto3j1DwQTl+OS6M/m3ekx00wr8vvrGXn2LuwUfxvFKPNLWyOvPDa8lgSxr64oQsbW
-	Dcq/l+BOzLendCeiB0fjd3k+Ej5SPj6beTWUDI3BwJJn6nR0d4Uf9CA1CFvWIqZ61op7V9I0Bk5DZ
-	+vVayXaxkjHaQeGFIsOH+KA7aCYJ9s6w8aT+mhLLbSDO+1FbU7pkIXyIxaF8uB0eXuYdz6YILWbAU
-	0VU9fR+6ok0wGWFRFiNw==;
+	List-Owner; bh=XWE6oQbGWWfBMjgYBRiyPuQ4Z/7aAcnl2qm9DI/rfQI=; b=RKqfcd277opknk
+	WJh/loLFmKKCa52MAS2JD7MJQdLrVUu8xdYdjt/slvKMzim5yalNoxurtMH2bUJ59cnKc/cVYr9D9
+	/HkEIgnc6rMyhurZaBGW/FNMeYggANUXOReGSon8dO9f22XwSKLR9e29epOYX1RmBGV52BqeGq9c7
+	z1OCaaI8Dx3Ja9XZwuzy1o6iSH82PtI20cXIFJF9F7HUMWrUSD9Nw/ppQdbED5dOZhAvQVkYa85Sb
+	uVuPEM/2svHKB/1FphsfH0qs6TubzciLmHR1I8OV2GPUNF9EY4MXgsvdSuYcV5JfMqFyhroTlqlWu
+	DTwbtsyVIPO8mR1aQ8oA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qiroR-0029nc-1b;
-	Wed, 20 Sep 2023 07:39:55 +0000
-Received: from mgamail.intel.com ([134.134.136.100])
+	id 1qirsN-002AKE-0v;
+	Wed, 20 Sep 2023 07:43:59 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qiroO-0029m5-0P
+	id 1qirsK-002AJ3-11
 	for linux-riscv@lists.infradead.org;
-	Wed, 20 Sep 2023 07:39:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1695195592; x=1726731592;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=D6J5R/1H9NYmwj1HBb/6nCFtRveDV5ws9Ss+Z61Hsv4=;
-  b=fhp0BFxid/4XCiwEPDP+PyK6jr6iUmAtZlYzy6B4LlnX7IakwrbWLJXs
-   Kpam+GJdGGy91RwkQbYf8P8IarAwFIgiX65ZaEPmUw1KcNTnEqRTIDNAv
-   N/nS/7HW8rUW+Rqj8D6AraxDoo4/RCfSS3Ve8LN7hbqnTHGVhopNmGvrc
-   Ce4ZC1xUoQkyUCEpecEWN9AUIDYSaGwBy3qKSna3ElhR5g3dyS1UUH7H+
-   5uirz3w7PKHf/xhPUI8Ws+2YGEJOEI71y1ZVV82ou0Af4FKK7Y1D3np+u
-   zKjos8kIcecBF0AsdwVj2+QuHhHQKCIpkDw4qvk+smjzjmcEA3qTC4suI
-   Q==;
-X-IronPort-AV: E=McAfee;i="6600,9927,10838"; a="446622641"
-X-IronPort-AV: E=Sophos;i="6.02,161,1688454000"; 
-   d="scan'208";a="446622641"
-Received: from fmsmga004.fm.intel.com ([10.253.24.48])
-  by orsmga105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Sep 2023 00:39:51 -0700
-X-ExtLoop1: 1
-X-IronPort-AV: E=McAfee;i="6600,9927,10838"; a="816791848"
-X-IronPort-AV: E=Sophos;i="6.02,161,1688454000"; 
-   d="scan'208";a="816791848"
-Received: from xiao-desktop.sh.intel.com ([10.239.46.158])
-  by fmsmga004.fm.intel.com with ESMTP; 20 Sep 2023 00:39:48 -0700
-From: Xiao Wang <xiao.w.wang@intel.com>
-To: paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	ardb@kernel.org
-Cc: anup@brainfault.org,
-	haicheng.li@intel.com,
-	ajones@ventanamicro.com,
-	linux-riscv@lists.infradead.org,
-	linux-efi@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Xiao Wang <xiao.w.wang@intel.com>
-Subject: [PATCH v2 2/2] riscv: Optimize bitops with Zbb extension
-Date: Wed, 20 Sep 2023 15:46:53 +0800
-Message-Id: <20230920074653.2509631-3-xiao.w.wang@intel.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20230920074653.2509631-1-xiao.w.wang@intel.com>
-References: <20230920074653.2509631-1-xiao.w.wang@intel.com>
+	Wed, 20 Sep 2023 07:43:58 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by sin.source.kernel.org (Postfix) with ESMTPS id A949FCE19A1
+	for <linux-riscv@lists.infradead.org>; Wed, 20 Sep 2023 07:43:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6AD71C433CD
+	for <linux-riscv@lists.infradead.org>; Wed, 20 Sep 2023 07:43:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1695195832;
+	bh=wHmXgn83h8NuefG1j3vWq4VR1WzTwO3eqaG3oocDVB0=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=gRgSZU6x3azX5ElS1nYcLxlZWZ7QSDkZsepTwRi+qF3TCSaQ+o1LcYUjQ5+k7gTJH
+	 Gk/qpf7/LHUv6AdRbxH3YCVm8tnLYp/iKZultE8y0z5Gi30vHrpwZATUUJQ/bPvjLY
+	 1ceHeMFLlmdCIw7lRAihr0RiTuQ64OFmYdMYOTlCBcifFlJuhzfVh0jvKghBzJWf7y
+	 gJUBdmtQictjoL615hAx5KNZQqQ35BZNIp/fR38JcM7LtqI+DxQG4OSk0I4tkXNOPr
+	 Kxo/7vmrd/IVfUQv/1cUFJHT5YHvEkOmHZT55ecFB1cM95LfycWRg7G7h9NaH4QIU/
+	 Kpy+G2fH57lVA==
+Received: by mail-lj1-f182.google.com with SMTP id 38308e7fff4ca-2bfb17435e4so105548881fa.0
+        for <linux-riscv@lists.infradead.org>; Wed, 20 Sep 2023 00:43:52 -0700 (PDT)
+X-Gm-Message-State: AOJu0Yy4warCykQfTUFQODdakD/c1KmHpOSJ8FAhur9txMqQpPnPC8Qh
+	4jmgA16WaJ4sV0KEx1OiqYKYa5ZexfF2D8my7xo=
+X-Google-Smtp-Source: AGHT+IFeyS4faWN5sjvWZz1M6kYCPecf5m3kGaQeSQ8YguuVePOuPu3fhfpHheT/C7M40FSL02w8GohuN7y0mMIsWuk=
+X-Received: by 2002:a2e:9f4f:0:b0:2b9:f27f:e491 with SMTP id
+ v15-20020a2e9f4f000000b002b9f27fe491mr1599633ljk.42.1695195830591; Wed, 20
+ Sep 2023 00:43:50 -0700 (PDT)
 MIME-Version: 1.0
+References: <cover.1695189879.git.wangchen20@iscas.ac.cn> <c6aea83bb1df563b1f2a66c5f230c3861aed1e15.1695189879.git.wangchen20@iscas.ac.cn>
+In-Reply-To: <c6aea83bb1df563b1f2a66c5f230c3861aed1e15.1695189879.git.wangchen20@iscas.ac.cn>
+From: Guo Ren <guoren@kernel.org>
+Date: Wed, 20 Sep 2023 15:43:39 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTQntuknORHf2QC5YHX1ZMSRz3b3e+fsE1uZ4AuchB94SA@mail.gmail.com>
+Message-ID: <CAJF2gTQntuknORHf2QC5YHX1ZMSRz3b3e+fsE1uZ4AuchB94SA@mail.gmail.com>
+Subject: Re: [PATCH v2 03/11] dt-bindings: riscv: add sophgo sg2042 bindings
+To: Chen Wang <unicornxw@gmail.com>
+Cc: aou@eecs.berkeley.edu, chao.wei@sophgo.com, conor@kernel.org, 
+	devicetree@vger.kernel.org, emil.renner.berthing@canonical.com, 
+	jszhang@kernel.org, krzysztof.kozlowski+dt@linaro.org, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	palmer@dabbelt.com, paul.walmsley@sifive.com, robh+dt@kernel.org, 
+	xiaoguang.xing@sophgo.com, Chen Wang <wangchen20@iscas.ac.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230920_003952_208194_1A853D9A 
-X-CRM114-Status: GOOD (  20.38  )
+X-CRM114-CacheID: sfid-20230920_004356_691720_84804808 
+X-CRM114-Status: GOOD (  16.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,332 +82,51 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patch leverages the alternative mechanism to dynamically optimize
-bitops (including __ffs, __fls, ffs, fls) with Zbb instructions. When
-Zbb ext is not supported by the runtime CPU, legacy implementation is
-used. If Zbb is supported, then the optimized variants will be selected
-via alternative patching.
-
-The legacy bitops support is taken from the generic C implementation as
-fallback.
-
-If the parameter is a build-time constant, we leverage compiler builtin to
-calculate the result directly, this approach is inspired by x86 bitops
-implementation.
-
-EFI stub runs before the kernel, so alternative mechanism should not be
-used there, this patch introduces a macro NO_ALTERNATIVE for this purpose.
-
-Signed-off-by: Xiao Wang <xiao.w.wang@intel.com>
----
- arch/riscv/include/asm/bitops.h       | 266 +++++++++++++++++++++++++-
- drivers/firmware/efi/libstub/Makefile |   2 +-
- 2 files changed, 264 insertions(+), 4 deletions(-)
-
-diff --git a/arch/riscv/include/asm/bitops.h b/arch/riscv/include/asm/bitops.h
-index 3540b690944b..c97e774cb647 100644
---- a/arch/riscv/include/asm/bitops.h
-+++ b/arch/riscv/include/asm/bitops.h
-@@ -15,13 +15,273 @@
- #include <asm/barrier.h>
- #include <asm/bitsperlong.h>
- 
-+#if !defined(CONFIG_RISCV_ISA_ZBB) || defined(NO_ALTERNATIVE)
- #include <asm-generic/bitops/__ffs.h>
--#include <asm-generic/bitops/ffz.h>
--#include <asm-generic/bitops/fls.h>
- #include <asm-generic/bitops/__fls.h>
-+#include <asm-generic/bitops/ffs.h>
-+#include <asm-generic/bitops/fls.h>
-+
-+#else
-+#include <asm/alternative-macros.h>
-+#include <asm/hwcap.h>
-+
-+#if (BITS_PER_LONG == 64)
-+#define CTZW	"ctzw "
-+#define CLZW	"clzw "
-+#elif (BITS_PER_LONG == 32)
-+#define CTZW	"ctz "
-+#define CLZW	"clz "
-+#else
-+#error "Unexpected BITS_PER_LONG"
-+#endif
-+
-+static __always_inline unsigned long variable__ffs(unsigned long word)
-+{
-+	int num;
-+
-+	asm_volatile_goto(
-+		ALTERNATIVE("j %l[legacy]", "nop", 0, RISCV_ISA_EXT_ZBB, 1)
-+		: : : : legacy);
-+
-+	asm volatile (
-+		".option push\n"
-+		".option arch,+zbb\n"
-+		"ctz %0, %1\n"
-+		".option pop\n"
-+		: "=r" (word) : "r" (word) :);
-+
-+	return word;
-+
-+legacy:
-+	num = 0;
-+#if BITS_PER_LONG == 64
-+	if ((word & 0xffffffff) == 0) {
-+		num += 32;
-+		word >>= 32;
-+	}
-+#endif
-+	if ((word & 0xffff) == 0) {
-+		num += 16;
-+		word >>= 16;
-+	}
-+	if ((word & 0xff) == 0) {
-+		num += 8;
-+		word >>= 8;
-+	}
-+	if ((word & 0xf) == 0) {
-+		num += 4;
-+		word >>= 4;
-+	}
-+	if ((word & 0x3) == 0) {
-+		num += 2;
-+		word >>= 2;
-+	}
-+	if ((word & 0x1) == 0)
-+		num += 1;
-+	return num;
-+}
-+
-+/**
-+ * __ffs - find first set bit in a long word
-+ * @word: The word to search
-+ *
-+ * Undefined if no set bit exists, so code should check against 0 first.
-+ */
-+#define __ffs(word)				\
-+	(__builtin_constant_p(word) ?		\
-+	 (unsigned long)__builtin_ctzl(word) :	\
-+	 variable__ffs(word))
-+
-+static __always_inline unsigned long variable__fls(unsigned long word)
-+{
-+	int num;
-+
-+	asm_volatile_goto(
-+		ALTERNATIVE("j %l[legacy]", "nop", 0, RISCV_ISA_EXT_ZBB, 1)
-+		: : : : legacy);
-+
-+	asm volatile (
-+		".option push\n"
-+		".option arch,+zbb\n"
-+		"clz %0, %1\n"
-+		".option pop\n"
-+		: "=r" (word) : "r" (word) :);
-+
-+	return BITS_PER_LONG - 1 - word;
-+
-+legacy:
-+	num = BITS_PER_LONG - 1;
-+#if BITS_PER_LONG == 64
-+	if (!(word & (~0ul << 32))) {
-+		num -= 32;
-+		word <<= 32;
-+	}
-+#endif
-+	if (!(word & (~0ul << (BITS_PER_LONG-16)))) {
-+		num -= 16;
-+		word <<= 16;
-+	}
-+	if (!(word & (~0ul << (BITS_PER_LONG-8)))) {
-+		num -= 8;
-+		word <<= 8;
-+	}
-+	if (!(word & (~0ul << (BITS_PER_LONG-4)))) {
-+		num -= 4;
-+		word <<= 4;
-+	}
-+	if (!(word & (~0ul << (BITS_PER_LONG-2)))) {
-+		num -= 2;
-+		word <<= 2;
-+	}
-+	if (!(word & (~0ul << (BITS_PER_LONG-1))))
-+		num -= 1;
-+	return num;
-+}
-+
-+/**
-+ * __fls - find last set bit in a long word
-+ * @word: the word to search
-+ *
-+ * Undefined if no set bit exists, so code should check against 0 first.
-+ */
-+#define __fls(word)							\
-+	(__builtin_constant_p(word) ?					\
-+	 (unsigned long)(BITS_PER_LONG - 1 - __builtin_clzl(word)) :	\
-+	 variable__fls(word))
-+
-+static __always_inline int variable_ffs(int x)
-+{
-+	int r;
-+
-+	asm_volatile_goto(
-+		ALTERNATIVE("j %l[legacy]", "nop", 0, RISCV_ISA_EXT_ZBB, 1)
-+		: : : : legacy);
-+
-+	asm volatile (
-+		".option push\n"
-+		".option arch,+zbb\n"
-+		"bnez %1, 1f\n"
-+		"li %0, 0\n"
-+		"j 2f\n"
-+		"1:\n"
-+		CTZW "%0, %1\n"
-+		"addi %0, %0, 1\n"
-+		"2:\n"
-+		".option pop\n"
-+		: "=r" (r) : "r" (x) :);
-+
-+	return r;
-+
-+legacy:
-+	r = 1;
-+	if (!x)
-+		return 0;
-+	if (!(x & 0xffff)) {
-+		x >>= 16;
-+		r += 16;
-+	}
-+	if (!(x & 0xff)) {
-+		x >>= 8;
-+		r += 8;
-+	}
-+	if (!(x & 0xf)) {
-+		x >>= 4;
-+		r += 4;
-+	}
-+	if (!(x & 3)) {
-+		x >>= 2;
-+		r += 2;
-+	}
-+	if (!(x & 1)) {
-+		x >>= 1;
-+		r += 1;
-+	}
-+	return r;
-+}
-+
-+/**
-+ * ffs - find first set bit in a word
-+ * @x: the word to search
-+ *
-+ * This is defined the same way as the libc and compiler builtin ffs routines.
-+ *
-+ * ffs(value) returns 0 if value is 0 or the position of the first set bit if
-+ * value is nonzero. The first (least significant) bit is at position 1.
-+ */
-+#define ffs(x) (__builtin_constant_p(x) ? __builtin_ffs(x) : variable_ffs(x))
-+
-+static __always_inline int variable_fls(unsigned int x)
-+{
-+	int r;
-+
-+	asm_volatile_goto(
-+		ALTERNATIVE("j %l[legacy]", "nop", 0, RISCV_ISA_EXT_ZBB, 1)
-+		: : : : legacy);
-+
-+	asm volatile (
-+		".option push\n"
-+		".option arch,+zbb\n"
-+		"bnez %1, 1f\n"
-+		"li %0, 0\n"
-+		"j 2f\n"
-+		"1:\n"
-+		CLZW "%0, %1\n"
-+		"neg %0, %0\n"
-+		"addi %0, %0, 32\n"
-+		"2:\n"
-+		".option pop\n"
-+		: "=r" (r) : "r" (x) :);
-+
-+	return r;
-+
-+legacy:
-+	r = 32;
-+	if (!x)
-+		return 0;
-+	if (!(x & 0xffff0000u)) {
-+		x <<= 16;
-+		r -= 16;
-+	}
-+	if (!(x & 0xff000000u)) {
-+		x <<= 8;
-+		r -= 8;
-+	}
-+	if (!(x & 0xf0000000u)) {
-+		x <<= 4;
-+		r -= 4;
-+	}
-+	if (!(x & 0xc0000000u)) {
-+		x <<= 2;
-+		r -= 2;
-+	}
-+	if (!(x & 0x80000000u)) {
-+		x <<= 1;
-+		r -= 1;
-+	}
-+	return r;
-+}
-+
-+/**
-+ * fls - find last set bit in a word
-+ * @x: the word to search
-+ *
-+ * This is defined in a similar way as ffs, but returns the position of the most
-+ * significant set bit.
-+ *
-+ * fls(value) returns 0 if value is 0 or the position of the last set bit if
-+ * value is nonzero. The last (most significant) bit is at position 32.
-+ */
-+#define fls(x)								\
-+	(__builtin_constant_p(x) ?					\
-+	 (int)(((x) != 0) ?						\
-+	  (sizeof(unsigned int) * 8 - __builtin_clz(x)) : 0) :		\
-+	 variable_fls(x))
-+
-+#endif
-+
-+#include <asm-generic/bitops/ffz.h>
- #include <asm-generic/bitops/fls64.h>
- #include <asm-generic/bitops/sched.h>
--#include <asm-generic/bitops/ffs.h>
- 
- #include <asm-generic/bitops/hweight.h>
- 
-diff --git a/drivers/firmware/efi/libstub/Makefile b/drivers/firmware/efi/libstub/Makefile
-index a1157c2a7170..d68cacd4e3af 100644
---- a/drivers/firmware/efi/libstub/Makefile
-+++ b/drivers/firmware/efi/libstub/Makefile
-@@ -28,7 +28,7 @@ cflags-$(CONFIG_ARM)		+= -DEFI_HAVE_STRLEN -DEFI_HAVE_STRNLEN \
- 				   -DEFI_HAVE_MEMCHR -DEFI_HAVE_STRRCHR \
- 				   -DEFI_HAVE_STRCMP -fno-builtin -fpic \
- 				   $(call cc-option,-mno-single-pic-base)
--cflags-$(CONFIG_RISCV)		+= -fpic
-+cflags-$(CONFIG_RISCV)		+= -fpic -DNO_ALTERNATIVE
- cflags-$(CONFIG_LOONGARCH)	+= -fpie
- 
- cflags-$(CONFIG_EFI_PARAMS_FROM_FDT)	+= -I$(srctree)/scripts/dtc/libfdt
--- 
-2.25.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gV2VkLCBTZXAgMjAsIDIwMjMgYXQgMjozOOKAr1BNIENoZW4gV2FuZyA8dW5pY29ybnh3QGdt
+YWlsLmNvbT4gd3JvdGU6Cj4KPiBBZGQgRFQgYmluZGluZyBkb2N1bWVudGF0aW9uIGZvciB0aGUg
+U29waGdvIFNHMjA0MiBTb2MgWzFdIGFuZCB0aGUKPiBNaWxrLVYgUGlvbmVlciBib2FyZCBbMl0u
+Cj4KPiBbMV06IGh0dHBzOi8vZW4uc29waGdvLmNvbS9wcm9kdWN0L2ludHJvZHVjZS9zZzIwNDIu
+aHRtbAo+IFsyXTogaHR0cHM6Ly9taWxrdi5pby9waW9uZWVyCj4KPiBBY2tlZC1ieTogQ2hhbyBX
+ZWkgPGNoYW8ud2VpQHNvcGhnby5jb20+Cj4gQWNrZWQtYnk6IFhpYW9ndWFuZyBYaW5nIDx4aWFv
+Z3VhbmcueGluZ0Bzb3BoZ28uY29tPgo+IFNpZ25lZC1vZmYtYnk6IENoZW4gV2FuZyA8d2FuZ2No
+ZW4yMEBpc2Nhcy5hYy5jbj4KPiAtLS0KPiAgLi4uL2RldmljZXRyZWUvYmluZGluZ3MvcmlzY3Yv
+c29waGdvLnlhbWwgICAgIHwgMjggKysrKysrKysrKysrKysrKysrKwo+ICBNQUlOVEFJTkVSUyAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCAgNyArKysrKwo+ICAyIGZpbGVzIGNo
+YW5nZWQsIDM1IGluc2VydGlvbnMoKykKPiAgY3JlYXRlIG1vZGUgMTAwNjQ0IERvY3VtZW50YXRp
+b24vZGV2aWNldHJlZS9iaW5kaW5ncy9yaXNjdi9zb3BoZ28ueWFtbAo+Cj4gZGlmZiAtLWdpdCBh
+L0RvY3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy9yaXNjdi9zb3BoZ28ueWFtbCBiL0Rv
+Y3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy9yaXNjdi9zb3BoZ28ueWFtbAo+IG5ldyBm
+aWxlIG1vZGUgMTAwNjQ0Cj4gaW5kZXggMDAwMDAwMDAwMDAwLi44MjQ2OGFlOTE1ZGIKPiAtLS0g
+L2Rldi9udWxsCj4gKysrIGIvRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL3Jpc2N2
+L3NvcGhnby55YW1sCj4gQEAgLTAsMCArMSwyOCBAQAo+ICsjIFNQRFgtTGljZW5zZS1JZGVudGlm
+aWVyOiAoR1BMLTIuMC1vbmx5IE9SIEJTRC0yLUNsYXVzZSkKPiArJVlBTUwgMS4yCj4gKy0tLQo+
+ICskaWQ6IGh0dHA6Ly9kZXZpY2V0cmVlLm9yZy9zY2hlbWFzL3Jpc2N2L3NvcGhnby55YW1sIwo+
+ICskc2NoZW1hOiBodHRwOi8vZGV2aWNldHJlZS5vcmcvbWV0YS1zY2hlbWFzL2NvcmUueWFtbCMK
+PiArCj4gK3RpdGxlOiBTb3BoZ28gU29DLWJhc2VkIGJvYXJkcwo+ICsKPiArbWFpbnRhaW5lcnM6
+Cj4gKyAgLSBDaGFvIFdlaSA8Y2hhby53ZWlAc29waGdvLmNvbT4KPiArICAtIFhpYW9ndWFuZyBY
+aW5nIDx4aWFvZ3VhbmcueGluZ0Bzb3BoZ28uY29tPgo+ICsKPiArZGVzY3JpcHRpb246Cj4gKyAg
+U29waGdvIFNvQy1iYXNlZCBib2FyZHMKPiArCj4gK3Byb3BlcnRpZXM6Cj4gKyAgJG5vZGVuYW1l
+Ogo+ICsgICAgY29uc3Q6ICcvJwo+ICsgIGNvbXBhdGlibGU6Cj4gKyAgICBvbmVPZjoKPiArICAg
+ICAgLSBpdGVtczoKPiArICAgICAgICAgIC0gZW51bToKPiArICAgICAgICAgICAgICAtIG1pbGt2
+LHBpb25lZXIKPiArICAgICAgICAgIC0gY29uc3Q6IHNvcGhnbyxzZzIwNDIKPiArCj4gK2FkZGl0
+aW9uYWxQcm9wZXJ0aWVzOiB0cnVlCj4gKwo+ICsuLi4KPiBkaWZmIC0tZ2l0IGEvTUFJTlRBSU5F
+UlMgYi9NQUlOVEFJTkVSUwo+IGluZGV4IDkwZjEzMjgxZDI5Ny4uYjc0ZDUwNTAwM2UyIDEwMDY0
+NAo+IC0tLSBhL01BSU5UQUlORVJTCj4gKysrIGIvTUFJTlRBSU5FUlMKPiBAQCAtMjAwNjMsNiAr
+MjAwNjMsMTMgQEAgRjogICAgIGRyaXZlcnMvY2hhci9zb255cGkuYwo+ICBGOiAgICAgZHJpdmVy
+cy9wbGF0Zm9ybS94ODYvc29ueS1sYXB0b3AuYwo+ICBGOiAgICAgaW5jbHVkZS9saW51eC9zb255
+LWxhcHRvcC5oCj4KPiArU09QSEdPIERFVklDRVRSRUVTCj4gK006ICAgICBYaWFvZ3VhbmcgWGlu
+ZyA8eGlhb2d1YW5nLnhpbmdAc29waGdvLmNvbT4KPiArTTogICAgIENoYW8gV2VpIDxjaGFvLndl
+aUBzb3BoZ28uY29tPgo+ICtTOiAgICAgTWFpbnRhaW5lZAo+ICtGOiAgICAgRG9jdW1lbnRhdGlv
+bi9kZXZpY2V0cmVlL2JpbmRpbmdzL3Jpc2N2L3NvcGhnby55YW1sCj4gK0Y6ICAgICBhcmNoL3Jp
+c2N2L2Jvb3QvZHRzL3NvcGhnby8KPiArCj4gIFNPVU5ECj4gIE06ICAgICBKYXJvc2xhdiBLeXNl
+bGEgPHBlcmV4QHBlcmV4LmN6Pgo+ICBNOiAgICAgVGFrYXNoaSBJd2FpIDx0aXdhaUBzdXNlLmNv
+bT4KPiAtLQo+IDIuMjUuMQo+CkxHVE0KClJldmlld2VkLWJ5OiBHdW8gUmVuIDxndW9yZW5Aa2Vy
+bmVsLm9yZz4KCi0tIApCZXN0IFJlZ2FyZHMKIEd1byBSZW4KCl9fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51
+eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21h
+aWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
