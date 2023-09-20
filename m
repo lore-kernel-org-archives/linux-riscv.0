@@ -4,84 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9A3ECE79AB
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 Sep 2023 08:13:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2755CE79AC
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 Sep 2023 08:18:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3MMyHr+8ouUc15edxrXD07iPRkunfxavqS0wEGCvs1k=; b=T5y4etN2nf+nTX
-	KAMzzbsy/nmg4CYsWVm8y1f05NrYOhOOT9HIs5EnJhmMRHdDEsktT6zGzEGbJuHgkTS9l+fJniLVv
-	pSbCTlC+NXe+b1k5ApTH+wwwm/mdMpGwfdaUOQCyZqDzYj1U7uVpaFvg47GQBxUAtF8JnCgADNj+a
-	j959ZytoOOtxnAZNDLq92CL4mRx2IKl3mlG6SvH9lwvEgNXl6zWP1daXzbpgCTenhpF03VewowhIo
-	VmNKNlJ9WaTuOkascs1c7EjZ9LpR3WE3pqjABxySCvND/015m037p/VWBiXOyXUzH+KCt2Iq5hVtY
-	sws/K/DVs4C+Pp/pXJWA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BZGgPRnf5bHWAHRrmHnuSggxNPbG682cvb2Qj/4apcY=; b=tHUJwBCMbptC2gkSgOEkw9GdQG
+	3wd/O2hJTwU9S7DZeU24kp0kpwHZkZjv4zZykZ72L+/vcJlAI5vGJCYhzQf7zfTL9Mj1nLzA3J4Sy
+	5QM7KtTpKTsBg8f0k1eDNNBuuYtA+dnVRzwa58SPwHbqdSDUtjEjBL0L6/nNu7M4xQ04J+Y1cS/2a
+	MEDKAMXqQM1HiCZvb4frc9obLN/j48ttrG/7wAsPRqX88ARjwv7RykpgnyzxigDW2G763dr+1QIAB
+	niekP89IPn6/I+KVTpRs4DDhN8vxi3LZtjDuiLTrICVHhLvoehK6Ky7/KoO4yb5H2FZ4tbX6HtnFX
+	Pb1zBfRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qisL4-002FDZ-1L;
-	Wed, 20 Sep 2023 08:13:38 +0000
-Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
+	id 1qisPI-002Fox-1E;
+	Wed, 20 Sep 2023 08:18:00 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qisL1-002FBZ-1I
+	id 1qisPE-002FnO-2c
 	for linux-riscv@lists.infradead.org;
-	Wed, 20 Sep 2023 08:13:37 +0000
-Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-307d58b3efbso6220565f8f.0
-        for <linux-riscv@lists.infradead.org>; Wed, 20 Sep 2023 01:13:32 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1695197611; x=1695802411; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=bFVwkQGYHLyQMWXHCf9YewQuFfTq2ysEb3BcSmI7FIU=;
-        b=ngQsv0vT6ShGf4fTBNLEBLQnbuQS0D9m4SymMShMtb7xPpXRgdVo3WxVu0Tu1oeswo
-         aqEtSecMze94K4hp/kDRnUS5d/a9NLJOICPnwubGOgXju3hjZymREbhBjc6+I10QcG0Q
-         pMVbT329xTOB4UkEbLcpKn5ArJhwPX4SozCREUgs0U1QrYPs/6hjd60hYAKSPZ8DuHi2
-         9VNH8VSwQt42ow+y30bxiuuj5fa1y8fE83tDY691wZVsN9qu6sTQpgS5NjXW8e15Lm0/
-         lJXlC2Yf4rI4ZeEDKPwRh85alK+vzNIqzQitirc29C3TMPdHXCViJRQyDdPxXxeBsm/U
-         +u4g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1695197611; x=1695802411;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=bFVwkQGYHLyQMWXHCf9YewQuFfTq2ysEb3BcSmI7FIU=;
-        b=Q0TR3VTP/OzxTeHrrneQVUrb+lHIg73XjqEIDetRjnaOJvhcV2smZN/WJ6c0BlxoJR
-         krPWtvHLhmzs9ICJgnEcdvmMJIt8ioJ8iFKW+mDxctoGNymIDHL2q9jMRIPiizxV6jqp
-         aOIl1vU8n1XN1H+NRz3xiyvVyKB498mcZGGuz8qAjcuWft8q8pCAx5qoEOWMkYzv9L9i
-         1COKbLVHar7n09brQIz0LAyRvDjUMSDDCQ/i04DDtRVK08NiXXt9YieqFZNpq6LEogqQ
-         8TVjC5SS/AMharR/TKQ2N8u55MVlS408NkZDxO/EBjqwkT3MXEOPgswoL2Iw+gW9HVJ0
-         sIAQ==
-X-Gm-Message-State: AOJu0YxPJAmLlD7IHufegeLm7XGU0CtEJdRWhyfV7eGx9cpOC4MicdJV
-	DOZn2/rglseGckJxOjkXon1JMQ==
-X-Google-Smtp-Source: AGHT+IGq8/xjn/oNq2PTpNaOrP+pjj6Y9zwWhdZGp94uECltWuxSC0BJqvKxel2SPT2PaHs+TjltqA==
-X-Received: by 2002:a5d:56ce:0:b0:31c:8c93:61e3 with SMTP id m14-20020a5d56ce000000b0031c8c9361e3mr1658749wrw.60.1695197610866;
-        Wed, 20 Sep 2023 01:13:30 -0700 (PDT)
-Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
-        by smtp.gmail.com with ESMTPSA id e1-20020a5d65c1000000b00315af025098sm17764141wrw.46.2023.09.20.01.13.30
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 20 Sep 2023 01:13:30 -0700 (PDT)
-Date: Wed, 20 Sep 2023 10:13:29 +0200
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Anup Patel <apatel@ventanamicro.com>
-Cc: Paolo Bonzini <pbonzini@redhat.com>, 
-	Atish Patra <atishp@atishpatra.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Conor Dooley <conor@kernel.org>, 
-	Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
-	Shuah Khan <shuah@kernel.org>, Mayuresh Chitale <mchitale@ventanamicro.com>, 
-	devicetree@vger.kernel.org, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH 6/7] KVM: riscv: selftests: Add smstateen registers to
- get-reg-list test
-Message-ID: <20230920-af833495ead3e2f8c32d63cc@orel>
-References: <20230919035343.1399389-1-apatel@ventanamicro.com>
- <20230919035343.1399389-7-apatel@ventanamicro.com>
+	Wed, 20 Sep 2023 08:17:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1695197876; x=1726733876;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=uscGBvmgvNEc+s+JZQTVBQ0oYKPyV4d4IvX6BfOqdrY=;
+  b=Vz7tsd1t2maN06k3klZ2h2vnPTaweja7LR68lKNDLu+sl1bev3iDnjj8
+   nB5AD4iNCpJ1FX9wijmiYOXkMMiN17SBTv/NA+Ye4pk5LZP1qK67vOJAS
+   63JydekcRDfnnMZRjzDCzZ7Xh2YUh5oCIlu4lXPnsjyYmg91m1KCiqbAo
+   Vkd24nVSseqZ7rLrCzHb94MqBLtpCfbzQLIN07eKkNYIUstd2tC4DlYmT
+   eSGkSQq0/aGGnwlBp8HF3ouNCAZzi+HRY+NVNJQOb1GsiFeHwMHgAPUn5
+   sO0ffn0hdegbisbkcHPtYjO6fNWNK6Hk2tP7l284R3TDJ+ucwzNqqlICx
+   w==;
+X-CSE-ConnectionGUID: G6ieCjkyQ2aMLIcShOg63A==
+X-CSE-MsgGUID: fFvmlZASSraejIWgrHECZg==
+X-ThreatScanner-Verdict: Negative
+X-IronPort-AV: E=Sophos;i="6.02,161,1688454000"; 
+   d="asc'?scan'208";a="5607864"
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 20 Sep 2023 01:17:39 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.21; Wed, 20 Sep 2023 01:17:13 -0700
+Received: from wendy (10.10.85.11) by chn-vm-ex02.mchp-main.com (10.10.85.144)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
+ Transport; Wed, 20 Sep 2023 01:17:10 -0700
+Date: Wed, 20 Sep 2023 09:16:53 +0100
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Chen Wang <unicornxw@gmail.com>
+CC: <aou@eecs.berkeley.edu>, <chao.wei@sophgo.com>, <conor@kernel.org>,
+	<devicetree@vger.kernel.org>, <emil.renner.berthing@canonical.com>,
+	<guoren@kernel.org>, <jszhang@kernel.org>,
+	<krzysztof.kozlowski+dt@linaro.org>, <linux-kernel@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, <palmer@dabbelt.com>,
+	<paul.walmsley@sifive.com>, <robh+dt@kernel.org>,
+	<xiaoguang.xing@sophgo.com>, Chen Wang <wangchen20@iscas.ac.cn>
+Subject: Re: [PATCH v2 10/11] riscv: dts: sophgo: add Milk-V Pioneer board
+ device tree
+Message-ID: <20230920-papyrus-corned-e121fb9dd7b1@wendy>
+References: <cover.1695189879.git.wangchen20@iscas.ac.cn>
+ <e9ff83e4fac9a9ebd217ef10e5f8d3260342102b.1695189879.git.wangchen20@iscas.ac.cn>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230919035343.1399389-7-apatel@ventanamicro.com>
+In-Reply-To: <e9ff83e4fac9a9ebd217ef10e5f8d3260342102b.1695189879.git.wangchen20@iscas.ac.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230920_011335_439072_ACC134CC 
-X-CRM114-Status: GOOD (  21.81  )
+X-CRM114-CacheID: sfid-20230920_011756_911218_FCF6A8CD 
+X-CRM114-Status: GOOD (  20.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,136 +88,131 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============4464577085876058974=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 19, 2023 at 09:23:42AM +0530, Anup Patel wrote:
-> We have a new smstateen registers as separate sub-type of CSR ONE_REG
-> interface so let us add these registers to get-reg-list test.
-> 
-> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+--===============4464577085876058974==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="DKUtOVTQQHokYjGs"
+Content-Disposition: inline
+
+--DKUtOVTQQHokYjGs
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+Hey,
+
+On Wed, Sep 20, 2023 at 02:40:53PM +0800, Chen Wang wrote:
+> Milk-V Pioneer [1] is a developer motherboard based on SOPHON
+> SG2042 in a standard mATX form factor.
+
+> It is a good
+> choice for RISC-V developers and hardware pioneers to
+> experience the cutting edge technology of RISC-V.
+
+I'd rather we didn't put advertising into commit messages.
+
+> Currently only support booting into console with only uart
+> enabled, other features will be added soon later.
+>=20
+> [1]: https://milkv.io/pioneer
+
+Make this a link tag please
+
+Link: https://milkv.io/pioneer [1]
+> Acked-by: Xiaoguang Xing <xiaoguang.xing@sophgo.com>
+> Signed-off-by: Chen Wang <wangchen20@iscas.ac.cn>
 > ---
->  .../selftests/kvm/riscv/get-reg-list.c        | 34 +++++++++++++++++++
->  1 file changed, 34 insertions(+)
-> 
-> diff --git a/tools/testing/selftests/kvm/riscv/get-reg-list.c b/tools/testing/selftests/kvm/riscv/get-reg-list.c
-> index 0928c35470ae..9f464c7996c6 100644
-> --- a/tools/testing/selftests/kvm/riscv/get-reg-list.c
-> +++ b/tools/testing/selftests/kvm/riscv/get-reg-list.c
-> @@ -49,6 +49,7 @@ bool filter_reg(__u64 reg)
->  	case KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_ZICSR:
->  	case KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_ZIFENCEI:
->  	case KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_ZIHPM:
-> +	case KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_SMSTATEEN:
->  		return true;
->  	/* AIA registers are always available when Ssaia can't be disabled */
->  	case KVM_REG_RISCV_CSR | KVM_REG_RISCV_CSR_AIA | KVM_REG_RISCV_CSR_AIA_REG(siselect):
-> @@ -184,6 +185,8 @@ static const char *core_id_to_str(const char *prefix, __u64 id)
->  	"KVM_REG_RISCV_CSR_GENERAL | KVM_REG_RISCV_CSR_REG(" #csr ")"
->  #define RISCV_CSR_AIA(csr) \
->  	"KVM_REG_RISCV_CSR_AIA | KVM_REG_RISCV_CSR_REG(" #csr ")"
-> +#define RISCV_CSR_SMSTATEEN(csr) \
-> +	"KVM_REG_RISCV_CSR_SMSTATEEN | KVM_REG_RISCV_CSR_REG(" #csr ")"
->  
->  static const char *general_csr_id_to_str(__u64 reg_off)
->  {
-> @@ -241,6 +244,18 @@ static const char *aia_csr_id_to_str(__u64 reg_off)
->  	return NULL;
->  }
->  
-> +static const char *smstateen_csr_id_to_str(__u64 reg_off)
-> +{
-> +	/* reg_off is the offset into struct kvm_riscv_smstateen_csr */
-> +	switch (reg_off) {
-> +	case KVM_REG_RISCV_CSR_SMSTATEEN_REG(sstateen0):
-> +		return RISCV_CSR_SMSTATEEN(sstateen0);
-> +	}
-> +
-> +	TEST_FAIL("Unknown smstateen csr reg: 0x%llx", reg_off);
-> +	return NULL;
-> +}
-> +
->  static const char *csr_id_to_str(const char *prefix, __u64 id)
->  {
->  	__u64 reg_off = id & ~(REG_MASK | KVM_REG_RISCV_CSR);
-> @@ -253,6 +268,8 @@ static const char *csr_id_to_str(const char *prefix, __u64 id)
->  		return general_csr_id_to_str(reg_off);
->  	case KVM_REG_RISCV_CSR_AIA:
->  		return aia_csr_id_to_str(reg_off);
-> +	case KVM_REG_RISCV_CSR_SMSTATEEN:
-> +		return smstateen_csr_id_to_str(reg_off);
->  	}
->  
->  	TEST_FAIL("%s: Unknown csr subtype: 0x%llx", prefix, reg_subtype);
-> @@ -342,6 +359,7 @@ static const char *isa_ext_id_to_str(__u64 id)
->  		"KVM_RISCV_ISA_EXT_ZICSR",
->  		"KVM_RISCV_ISA_EXT_ZIFENCEI",
->  		"KVM_RISCV_ISA_EXT_ZIHPM",
-> +		"KVM_RISCV_ISA_EXT_SMSTATEEN",
+>  arch/riscv/boot/dts/Makefile                  |  1 +
+>  arch/riscv/boot/dts/sophgo/Makefile           |  3 +++
+>  .../boot/dts/sophgo/sg2042-milkv-pioneer.dts  | 19 +++++++++++++++++++
+>  3 files changed, 23 insertions(+)
+>  create mode 100644 arch/riscv/boot/dts/sophgo/Makefile
+>  create mode 100644 arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts
+>=20
+> diff --git a/arch/riscv/boot/dts/Makefile b/arch/riscv/boot/dts/Makefile
+> index f60a280abb15..94788486f13e 100644
+> --- a/arch/riscv/boot/dts/Makefile
+> +++ b/arch/riscv/boot/dts/Makefile
+> @@ -6,5 +6,6 @@ subdir-y +=3D renesas
+>  subdir-y +=3D sifive
+>  subdir-y +=3D starfive
+>  subdir-y +=3D thead
+> +subdir-y +=3D sophgo
 
-If we merge [1] first, then this would be added in alphabetical order.
-
-[1] https://lore.kernel.org/all/20230817162344.17076-6-ajones@ventanamicro.com/
-
->  	};
->  
->  	if (reg_off >= ARRAY_SIZE(kvm_isa_ext_reg_name)) {
-> @@ -629,6 +647,11 @@ static __u64 aia_regs[] = {
->  	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_SSAIA,
->  };
->  
-> +static __u64 smstateen_regs[] = {
-> +	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_CSR | KVM_REG_RISCV_CSR_SMSTATEEN | KVM_REG_RISCV_CSR_SMSTATEEN_REG(sstateen0),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_SMSTATEEN,
-> +};
-> +
->  static __u64 fp_f_regs[] = {
->  	KVM_REG_RISCV | KVM_REG_SIZE_U32 | KVM_REG_RISCV_FP_F | KVM_REG_RISCV_FP_F_REG(f[0]),
->  	KVM_REG_RISCV | KVM_REG_SIZE_U32 | KVM_REG_RISCV_FP_F | KVM_REG_RISCV_FP_F_REG(f[1]),
-> @@ -736,6 +759,8 @@ static __u64 fp_d_regs[] = {
->  	{"zihpm", .feature = KVM_RISCV_ISA_EXT_ZIHPM, .regs = zihpm_regs, .regs_n = ARRAY_SIZE(zihpm_regs),}
->  #define AIA_REGS_SUBLIST \
->  	{"aia", .feature = KVM_RISCV_ISA_EXT_SSAIA, .regs = aia_regs, .regs_n = ARRAY_SIZE(aia_regs),}
-> +#define SMSTATEEN_REGS_SUBLIST \
-> +	{"smstateen", .feature = KVM_RISCV_ISA_EXT_SMSTATEEN, .regs = smstateen_regs, .regs_n = ARRAY_SIZE(smstateen_regs),}
->  #define FP_F_REGS_SUBLIST \
->  	{"fp_f", .feature = KVM_RISCV_ISA_EXT_F, .regs = fp_f_regs, \
->  		.regs_n = ARRAY_SIZE(fp_f_regs),}
-> @@ -863,6 +888,14 @@ static struct vcpu_reg_list aia_config = {
->  	},
->  };
->  
-> +static struct vcpu_reg_list smstateen_config = {
-> +	.sublists = {
-> +	BASE_SUBLIST,
-> +	SMSTATEEN_REGS_SUBLIST,
-> +	{0},
-> +	},
-> +};
-> +
->  static struct vcpu_reg_list fp_f_config = {
->  	.sublists = {
->  	BASE_SUBLIST,
-> @@ -895,6 +928,7 @@ struct vcpu_reg_list *vcpu_configs[] = {
->  	&zifencei_config,
->  	&zihpm_config,
->  	&aia_config,
-> +	&smstateen_config,
->  	&fp_f_config,
->  	&fp_d_config,
->  };
-> -- 
-> 2.34.1
->
-
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+Alphanumerical order please.
 
 Thanks,
-drew
+Conor.
+
+> =20
+>  obj-$(CONFIG_BUILTIN_DTB) :=3D $(addsuffix /, $(subdir-y))
+> diff --git a/arch/riscv/boot/dts/sophgo/Makefile b/arch/riscv/boot/dts/so=
+phgo/Makefile
+> new file mode 100644
+> index 000000000000..5a471b19df22
+> --- /dev/null
+> +++ b/arch/riscv/boot/dts/sophgo/Makefile
+> @@ -0,0 +1,3 @@
+> +# SPDX-License-Identifier: GPL-2.0
+> +dtb-$(CONFIG_ARCH_SOPHGO) +=3D sg2042-milkv-pioneer.dtb
+> +
+> diff --git a/arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts b/arch/r=
+iscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts
+> new file mode 100644
+> index 000000000000..d6e8c0285d1e
+> --- /dev/null
+> +++ b/arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts
+> @@ -0,0 +1,19 @@
+> +// SPDX-License-Identifier: GPL-2.0 OR MIT
+> +/*
+> + * Copyright (C) 2022 Sophgo Technology Inc. All rights reserved.
+> + */
+> +
+> +#include "sg2042.dtsi"
+> +
+> +/ {
+> +	model =3D "Milk-V Pioneer";
+> +	compatible =3D "milkv,pioneer", "sophgo,sg2042";
+> +
+> +	chosen: chosen {
+> +		stdout-path =3D "serial0";
+> +	};
+> +};
+> +
+> +&uart0 {
+> +	status =3D "okay";
+> +};
+> --=20
+> 2.25.1
+>=20
+
+--DKUtOVTQQHokYjGs
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZQqqagAKCRB4tDGHoIJi
+0kvOAP9pT8N0unm3d9107Xii5Hc5v6uDLVvVjIg3qUcN0aE6swD/ZyuhzMbHo9vI
+DVlBtRVexx2a45InVtBHxBpRyfyUrQ0=
+=pTAC
+-----END PGP SIGNATURE-----
+
+--DKUtOVTQQHokYjGs--
+
+
+--===============4464577085876058974==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============4464577085876058974==--
+
