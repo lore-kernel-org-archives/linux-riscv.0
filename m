@@ -4,124 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B325DCE79CF
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 Sep 2023 12:15:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E34BCE79CE
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 Sep 2023 12:30:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DDTjF3fQcILrqmT/JnthnDJiLwIxZ0UcopBxr6XFJZQ=; b=sX8OEa3tzWNPqJ
-	DrnshE01cgIeslJo69DW/OInRFfgLM9/7H19VRqKGQydw7rNUYjTj4mijzHYLApI3/pJVAqB5vUA4
-	ao8WFSEXPs36k/d5C7Un1caFwLZCBpjD3AEG0xiwVnY6z99nnWBygwY6HPt9UPMjkyN0PwMFrViSK
-	ei1CRBsUnnk5tZZBWMA0odmoHGng+bmShJlDvAFI0zzpRONk+ac2GaGR0E6COErcjcl5/OX6bfdDy
-	BvXlFaLq/O43fW2tXGXCueuroPfvNwyO4CZF18FRmIsMCHOrlTK0zpDUhTvlMzrK2WhlMFCcXHV39
-	giLs6X8Jd5cyz4c7cIdA==;
+	List-Owner; bh=NWEThlLKCLEXGYpuO5hBY5sJaK466dVBrD5AdFeBzPY=; b=F9WoZCQaxeg4Ap
+	pBPzWMSU7IBY2yayFb6nZO2gecllh2bAnILGMNvfVGsGRy4ZtABv/DdEi7yZYvK2V9vjTRtr70ocI
+	maHL27jnJg5GPmYKBnv5yAqQiC/gtslVuo5Lv0OjlOOW9BXuxUkWD1IBFnJTfQhiLjLs6X1RoQAUY
+	XV5mwxVFevaaF1iBaTLnsRU7wTyJ3kypTR+vvI6YEsgHMGx8J0IbR0i4s7jM0IF7i1SphUWipH0bi
+	YRyMTbZ6ZmCFzX7QND1JCPdDOQh23cgALjWabUKYMuBLqMRnFOs5qRRjQwmLZHpXrh1THkvFIy6+c
+	RX+Rcmf4M6CnDrkfVPbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qiw73-002zTY-0u;
-	Wed, 20 Sep 2023 12:15:25 +0000
-Received: from mail-mw2nam10olkn20817.outbound.protection.outlook.com ([2a01:111:f400:7e89::817] helo=NAM10-MW2-obe.outbound.protection.outlook.com)
+	id 1qiwLx-0031eh-0j;
+	Wed, 20 Sep 2023 12:30:49 +0000
+Received: from mail-ej1-x62c.google.com ([2a00:1450:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qiw70-002zSr-1O
+	id 1qiwLu-0031de-13
 	for linux-riscv@lists.infradead.org;
-	Wed, 20 Sep 2023 12:15:23 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=HiWAbT45QsUbT3Mlxs3SbZyStARQWnW8iu4VdVjH0l8u5jk0j3Ph+TfgFGKcIYMhJ9zMCuFH6TSbvhR/5zx39+BPSmixth+7shj5Eoa2OWK2bzEPqdjuhGNehDA2V01JNkTLxXF5MWgJQErhWutMXocvGu83Il5JfaLHvbgtQ0yQgpA4Z4SJhCjuJBUIhshWfx5+vgI6RWOuq/j4LCF+7uvwkZ7lVX/kIIN+cjtiH1YenBr33hFLPT3sWVR3RRhQYDdUh4qFhDWt6NXdASLSQOkchBL0xOfJPL+uPbYot21Omt56kRmkfLsM7+MX5EJxJLBopoMiRWzDi+GXWB+SQg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=d2bnxP2YZKFWQuXLpx91MI2m9acbgVyNcRQGFpyYzgY=;
- b=BPBiRqLyt//dkezIH3504SdRzXIc2IrfE4Mt6rH4Mkx/dOYVtHUNfKK6FwBlZNNapz3Y3y0odsFJZUuzgaB8PTPD0tDRwKqXSsxR0Kn9En7/60vx/x3xL5Sas7fUV+5Ju3rCTL50JxV+2c+OwTPq/6Emaf1gmJUu5U4KMxbYPh5HJUtDxm2lsn7rUk7NePZ/xxVfAuZ0vu2toTdP9RzwLeqVFv+eZwg1CIvG4otstEoSlPScTzPmi1i37jAVRQIW4cEdFHYhCH2fV0nIr6jK9mxFaRf0ZmOa5g8qnTVjNV2WC+WbbwmPdE1L6XSv/kbkKZU7dJxxJOzApMifufAqdg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=d2bnxP2YZKFWQuXLpx91MI2m9acbgVyNcRQGFpyYzgY=;
- b=uJ3Hp+GNEY0IM8lSy6zDR7vOpXsFWdOcEstifQR5xW529EWRRqDaJji8X6A03X59PEanRZKJ4a2qpNfhGZCnnzrQ0Ym2qd5doxy1OffwXWG9fm+7nsuRZ8T14NTyeZ2O0AJK+CTfBOMaDXv3RuxL9RBJ2PA5U1DHWa4FZphgWcGspGnO5wv0i5DvuhNvFbxAjBTurVSDQ/MvBWlg9IwpXbIAAn+YGedy+7hA0b/qXV61M44pa7C83k09RgKDSyzvlV0w28G9QZvpU9qfLgkuseFawMI5rS2qwTpwNLVqawvpAiFN5/0hI4pVenkzwjrQJH+NFyI8RThAqDRJ7u7Plg==
-Received: from IA1PR20MB4953.namprd20.prod.outlook.com (2603:10b6:208:3af::19)
- by CH3PR20MB6491.namprd20.prod.outlook.com (2603:10b6:610:15f::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6792.27; Wed, 20 Sep
- 2023 12:15:19 +0000
-Received: from IA1PR20MB4953.namprd20.prod.outlook.com
- ([fe80::d050:882f:a8a7:8263]) by IA1PR20MB4953.namprd20.prod.outlook.com
- ([fe80::d050:882f:a8a7:8263%4]) with mapi id 15.20.6792.026; Wed, 20 Sep 2023
- 12:15:18 +0000
-From: Inochi Amaoto <inochiama@outlook.com>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Cc: aou@eecs.berkeley.edu,
-	chao.wei@sophgo.com,
-	conor@kernel.org,
-	evicetree@vger.kernel.org,
-	emil.renner.berthing@canonical.com,
-	guoren@kernel.org,
-	jszhang@kernel.org,
-	krzysztof.kozlowski+dt@linaro.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	palmer@dabbelt.com,
-	paul.walmsley@sifive.com,
-	robh+dt@kernel.org,
-	xiaoguang.xing@sophgo.com,
-	Chen Wang <wangchen20@iscas.ac.cn>,
-	Inochi Amaoto <inochiama@outlook.com>
-Subject: Re: [PATCH v2 06/11] dt-bindings: timer: Add Sophgo sg2042 clint
-Date: Wed, 20 Sep 2023 20:15:12 +0800
-Message-ID: <IA1PR20MB4953117947BA7DAA60C1F435BBF9A@IA1PR20MB4953.namprd20.prod.outlook.com>
-X-Mailer: git-send-email 2.42.0
-In-Reply-To: <0b84ef92-f6b7-f3bc-fd51-8f61cbc91ff8@linaro.org>
-References: <0b84ef92-f6b7-f3bc-fd51-8f61cbc91ff8@linaro.org>
-X-TMN: [pF5Eq001uIcYQ2ktPRyMTUfgBuMSKsj9BWe67WDBrnI=]
-X-ClientProxiedBy: SJ0PR05CA0112.namprd05.prod.outlook.com
- (2603:10b6:a03:334::27) To IA1PR20MB4953.namprd20.prod.outlook.com
- (2603:10b6:208:3af::19)
-X-Microsoft-Original-Message-ID: <20230920121512.193296-1-inochiama@outlook.com>
+	Wed, 20 Sep 2023 12:30:47 +0000
+Received: by mail-ej1-x62c.google.com with SMTP id a640c23a62f3a-9adc75f6f09so751882966b.0
+        for <linux-riscv@lists.infradead.org>; Wed, 20 Sep 2023 05:30:45 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1695213044; x=1695817844; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=CJ3gWCgaztMYxFnAMNrtqdjgXM+bJh+ntMtoT8Y2h/4=;
+        b=n5qm2Mo4CBOymWaNsx5uqmt06db3fabDRLpy7z9b+5zEs/y/CzbrktzzkLjyESfL7f
+         A+XsuNtMNULNyLfQNE6d+WXNwdXMnnwDdxsjldHaf9bgfB9x2NidDk0VzCtGJtRuYY9u
+         TZ/L+fSp8Vam0eqgmH1Q4dd19jATZBGZE85UqX1zle+aKK34oVBXcMx0rgUppsGEVWiT
+         kgGMMLUpiNXNrr1ZHx3b/VXQrwFHiIiMHfnn/BNPGyTR2lDuLsvauWLYLVGW8DyIIjUw
+         H3BJFvAalG6lMw2DGzeXOZVg7d5WGB6EEEu1NTEHdepv2VfvNhGDgsIf9zc0IboAlm++
+         JgxQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1695213044; x=1695817844;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=CJ3gWCgaztMYxFnAMNrtqdjgXM+bJh+ntMtoT8Y2h/4=;
+        b=lGo6sVYEXJThQLlaofmDoC+PdNZWXFeULRamdqHdxwPGEwxoyOnLuFmjWMxz5sJIlH
+         q5N8lj+pbZ0aG/5RiELmq2HABk5RgAR9nU3uL4atvBqCEjR5uCmB1rUMNdQdAhjyEmby
+         l4x+H2ak/crVJpz+d8GRqBF3Jc1pW0EtjPetaXMvrjkm2Rk1xBA9/jphHMdPFlrv09rq
+         7Fq6ZilNlv3EeCVDWCzPJ+01XNc7Wr4iHM+gOl9KKsPGjSb6PrAOq/rnJOnPubU7IaB/
+         AQltFRAE/3J2fG7kfCG+rXi4bTaS4mZdEIk4OxnryWJHAaYBubhIy3fUsQStRq2yXDTp
+         ZxuQ==
+X-Gm-Message-State: AOJu0YwF9I0R7jTQy6gM2PtKJY/u+K7w69sApPwaqrcwRKpPw+qFy4iE
+	7GUfu1Gdm3ilwlOXXbtIVDreFQZFBw5v1PERWiySZg==
+X-Google-Smtp-Source: AGHT+IG8CKEIWP/OfpZQP7e91vQw36N6TjapDi739Gf8g3hmlpL4db+fqvvNocVe0zeyxjUzbpHznQ==
+X-Received: by 2002:a17:907:78ce:b0:9ae:4978:ed8e with SMTP id kv14-20020a17090778ce00b009ae4978ed8emr1452101ejc.13.1695213044454;
+        Wed, 20 Sep 2023 05:30:44 -0700 (PDT)
+Received: from [172.20.24.238] (static-212-193-78-212.thenetworkfactory.nl. [212.78.193.212])
+        by smtp.gmail.com with ESMTPSA id dv7-20020a170906b80700b0099b8234a9fesm9337948ejb.1.2023.09.20.05.30.42
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 20 Sep 2023 05:30:43 -0700 (PDT)
+Message-ID: <66b988f0-39fc-2ed3-8f38-151d6a3c9e52@linaro.org>
+Date: Wed, 20 Sep 2023 14:30:42 +0200
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: IA1PR20MB4953:EE_|CH3PR20MB6491:EE_
-X-MS-Office365-Filtering-Correlation-Id: 57bcb162-2b57-4e90-ed4e-08dbb9d34117
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: tbzSeT4IdxxtmrmWyunKnkcTX2uhXvwF/bszEXrFFQK0V+VpuSHbohAQiNJc4A9s1BsyJA9WPxq1mPtes/DI4mDUE78ZpbxGUk6sT0xSSo21+NYzldOGVQ0r3eJlLKpg+LiiO41MvqlzPQoWFlQo906D2SvAV6yOD6KODa7JIMRY16kCY2m//kohceCFTl0OUfUqHUdPJVlTxzy3hEyyT1goUkOwi9IMRjfY0ZiPPH1P1Tdi7UmdeitSJjeP2se1BfXI2LbSWtqQGwAIcKnIkiEnFGBGUvSJH1gRD9cYk7//t1txM6Y3u5HN3tS49mL+OMpKMhIcW43DDwbVgVOjyUKrPjdyFdxldQwYkes4r5pdx56m7RgjMbsCxo+QL0+Ml0ooOJPbEl4d+iUPdxWRxmmGhLUCI7LB2wlatdgRNr22SH9jeaNZzMpuikMVZivrJCpwAK+EYZCs7KbS4Bq1Gjo/Y9VzJ9wZ1ByKq+oo2Aw2+/TTgyFWxKyWxZMQRFEPeJfG0IVDTl55MWSoUm80zZFY5+h/x1oIqfBfDVBRzub+oDM9YCi6GvFcix8OXmPshwBerkD2XLjlEnkuw6cXmAeOTYww5DruIsqhyawGgQMUtmjB/NpRAOAzvL9o7JgzXQyOe8axKBivVbeva90Fyg==
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?w493NV8UQdYgAMo5e5Sqcc549pCyggTq0jYY0R74SynDkKm69cjmnjGpck9e?=
- =?us-ascii?Q?sc893pZlW3IM1PIuh2E5E7uQBL3p37OxCDqMhRF6ub+IZ6HmlubdzmqIhvxP?=
- =?us-ascii?Q?8IBF+xiEaBx5pxPSyh5ciUvbIBOZwlqG0IMdp3osy3nxfX/ngqQC/BEYX4XC?=
- =?us-ascii?Q?fM9/psuOmtNsUdedcl/ttQR5mg1/f0LWrtXZMcoAzEHLi4xT236iErbKgZMi?=
- =?us-ascii?Q?mIJq+SD+MLcFLXGA/6acFIPf5UkC+H2+l3+JiA5R/qlr1M+8g8HyerE2d+Qq?=
- =?us-ascii?Q?gGkAjEg/9Vn+K30wLVoFOTjcR+7CgGllW4F+kDQHoIC79U3YeaBBJ/WcR45y?=
- =?us-ascii?Q?PTXCMbY0D/QDwrcylyPSrUU5CTX4tVzS3mlptQxvjwTBqj9zB+4LFeO4rhvo?=
- =?us-ascii?Q?U/eRB7rDvXDDLQOnAFdXxFFZKbwyIpmV7DRJbQs1VhVKaq4qSq3PGRrmij+S?=
- =?us-ascii?Q?rBzey05zvHa8yVQwpzIG4ctsOmGWfORHkQeaJ1gXyv6rKfWhVVROLUk3XIYN?=
- =?us-ascii?Q?ystC7r9a2GWOb2Y+9KAg+QiT9oJE36q30SibncFqTJEFpN++silmaisSZtZt?=
- =?us-ascii?Q?e9TLpyx+mFY/7uPDi/2QdDQ2UGMDIYhhkypT5aaa59qd1VbGSFk1dHfEp+PL?=
- =?us-ascii?Q?7cM45gTlXldReQfU0m8ES60AvCTqTa31Js/awv2KcpdLUDg1XuvkAQ41+eEv?=
- =?us-ascii?Q?R9fbZgdHs1EctDqbe3PRJunaYK3x9M4ekKdS8zIiyRA+saR5be3uuOUUk4aR?=
- =?us-ascii?Q?yWk6y+aqzEnTx42+EKc+3raPasZnRo/l/eR+lX6022rs98w9GVqtC/Cr6S2u?=
- =?us-ascii?Q?48I1fhgcMfxfAT0maD3iJmLcMmv6rT6hHIf/zF4ZsiXj1ShJudxEBO14pCwf?=
- =?us-ascii?Q?KdiAf588fZsKX78XfpsWm0DxCqZL7Cifwd4NPk8tMQMmMHh3wtjOSj1b8ovC?=
- =?us-ascii?Q?GEiUp4PMIXHVgLYr7n8EFm3AjQzyQ6rDrCPpvOPe/Atcr9orc9MUP9mh75mf?=
- =?us-ascii?Q?ermxunLAHx3gXa3ABkE9k+R1H+reP7WtdsJXAr5CUaaZbjfU8GyZ7S2NgF88?=
- =?us-ascii?Q?v8wsn6F6se/V0oCD+uRcs3PruGtpS7lpCxicBGJlbHShFx4vGz5Bp8jA/SZY?=
- =?us-ascii?Q?W3VsMgbjSDK6KciyRy0Fy85tcH1khqHMSByu/WtWSDZwMSnxlR5ZZOMkVjMC?=
- =?us-ascii?Q?AWIZboayuzgNom7o+ZQXIaRgRu/jPPAdNHxANmv1AQsB5QD27H0t3P2f2nw?=
- =?us-ascii?Q?=3D?=
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 57bcb162-2b57-4e90-ed4e-08dbb9d34117
-X-MS-Exchange-CrossTenant-AuthSource: IA1PR20MB4953.namprd20.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Sep 2023 12:15:18.8774
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR20MB6491
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.15.1
+Subject: Re: [PATCH v2 06/11] dt-bindings: timer: Add Sophgo sg2042 clint
+Content-Language: en-US
+To: Inochi Amaoto <inochiama@outlook.com>
+Cc: aou@eecs.berkeley.edu, chao.wei@sophgo.com, conor@kernel.org,
+ evicetree@vger.kernel.org, emil.renner.berthing@canonical.com,
+ guoren@kernel.org, jszhang@kernel.org, krzysztof.kozlowski+dt@linaro.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ palmer@dabbelt.com, paul.walmsley@sifive.com, robh+dt@kernel.org,
+ xiaoguang.xing@sophgo.com, Chen Wang <wangchen20@iscas.ac.cn>
+References: <0b84ef92-f6b7-f3bc-fd51-8f61cbc91ff8@linaro.org>
+ <IA1PR20MB4953117947BA7DAA60C1F435BBF9A@IA1PR20MB4953.namprd20.prod.outlook.com>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+In-Reply-To: <IA1PR20MB4953117947BA7DAA60C1F435BBF9A@IA1PR20MB4953.namprd20.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230920_051522_483924_4B631D06 
-X-CRM114-Status: GOOD (  10.41  )
+X-CRM114-CacheID: sfid-20230920_053046_381158_FC4E8CDB 
+X-CRM114-Status: GOOD (  12.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,38 +99,26 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
->On 20/09/2023 08:39, Chen Wang wrote:
->> From: Inochi Amaoto <inochiama@outlook.com>
+On 20/09/2023 14:15, Inochi Amaoto wrote:
+>> On 20/09/2023 08:39, Chen Wang wrote:
+>>> From: Inochi Amaoto <inochiama@outlook.com>
+>>>
+>>> Add two new compatible string formatted like `C9xx-clint-xxx` to identify
+>>> the timer and ipi device separately, and do not allow c900-clint as the
 >>
->> Add two new compatible string formatted like `C9xx-clint-xxx` to identify
->> the timer and ipi device separately, and do not allow c900-clint as the
->
->Why?
->
+>> Why?
+>>
+> 
+> If use the same compatible, SBI will process this twice in both ipi and
+> timer, use different compatible will allow SBI to treat these as different.
+> AFAIK, the aclint in SBI use the same concepts, which make hard to use the
+> second register range. I have explained in another response.
 
-If use the same compatible, SBI will process this twice in both ipi and
-timer, use different compatible will allow SBI to treat these as different.
-AFAIK, the aclint in SBI use the same concepts, which make hard to use the
-second register range. I have explained in another response.
+What is a SBI? Linux driver? If so, why some intermediate Linux driver
+choice should affect bindings?
+Best regards,
+Krzysztof
 
-https://lore.kernel.org/all/IA1PR20MB495313B7E9B2FC529BE0BB2ABBF9A@IA1PR20MB4953.namprd20.prod.outlook.com/
-
->You received comment about it, so please provide proper explanation in
->the commit msg.
->
->Same device does not get two different compatibles.
->
->You also did not respond to my comments, so you basically ignored it and
->send the same.
->
->NAK
->
->Best regards,
->Krzysztof
->
-
-Sorry for this, as I mistake the idea of the last message. All of this
-will be fixed in the next patch.
 
 _______________________________________________
 linux-riscv mailing list
