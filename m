@@ -4,77 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25247CD4935
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 Sep 2023 23:02:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1C43CD4937
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 Sep 2023 23:45:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jCc9yUayYFPfd53hybSi0UjhZWMFTw5po//IkaFePEg=; b=QB63L79VvTqvCE
-	l+klw/tAZzmcBVrPHBkf+6xt6VCoi7GZaifHKjxp3KBhvlfvSu8tmObBl2W0+EN/ta539DiNgiygk
-	MKbvrQkl7q22QUlCNYPbvsakoM9ulcwlX5fyrzPNFN3cYiMitqZDITOz0KSZ/Ekbk+h1iCeKQKDCH
-	tzV7isorFHYLiW+wsTcEDk2oM8JIxCUpiPCPvRBHgIackXNj76BU8JsJsPEZ1dYn82Q6s9qHc+B0g
-	B/Rs60KUBD2RyGHGZuVO2g76ylbwPS8dg4HmDmS9MGvtvDgEBqnCMlvRFx67pcPdAxGAV/+sHwl0K
-	AsAOXd4FPbkLeMI244jA==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
+	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=MtK1PFGN0f5EXnn1LwvVuJdj7KVTLh4yaMqsfuYw6WM=; b=tx6F55oSadQchVfGRfqJmQQ2HC
+	u6a5Lz0bAJE0cUy9aOFLl1+7APab+Jup4pSXvf1W5hrBU9BFUFXP3troN0C4xgqgxg7dVlMt2Yd4w
+	X2S1iNaSZe0MZr/u+gVkDot5DDCGnEb8KYuu11qKh+zPClRLByMvPQnUpz2BTLpnKjagLl7gqwBq5
+	311GgOFmuWqW5bfYjwIlKPIgpad4spO2OL9uVXGtZDXn0Orus5uRja9t+/h/9ntl48EAmQTzD/zPn
+	lfTrk5+gHfL7gYCSW4WDb5cQZ/EK7KV0R0eoqvdpDBMJkwSXHgyx2mDk1qOix3YULcuDgWUIwqbwZ
+	XCIY58Ew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qj6Cz-004PsS-2z;
-	Wed, 20 Sep 2023 23:02:13 +0000
-Received: from mail-lf1-x12f.google.com ([2a00:1450:4864:20::12f])
+	id 1qj6sH-004TV9-2z;
+	Wed, 20 Sep 2023 23:44:53 +0000
+Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qj6Cv-004Pmu-1x
+	id 1qj6sF-004TTw-0P
 	for linux-riscv@lists.infradead.org;
-	Wed, 20 Sep 2023 23:02:12 +0000
-Received: by mail-lf1-x12f.google.com with SMTP id 2adb3069b0e04-502defbb0c3so654214e87.0
-        for <linux-riscv@lists.infradead.org>; Wed, 20 Sep 2023 16:01:58 -0700 (PDT)
+	Wed, 20 Sep 2023 23:44:52 +0000
+Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-1c448ba292dso2769735ad.3
+        for <linux-riscv@lists.infradead.org>; Wed, 20 Sep 2023 16:44:49 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=atishpatra.org; s=google; t=1695250917; x=1695855717; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=OVI1kQAYY1H6Rup9yJAb3ULOmSiNWwKwDibucQ/HouI=;
-        b=Q+ntEPm/ZgeWNaof09O/cR0xqW5hVp3+VJxTmVZQLVgkaHkCjuiKh5mAC+uG2HX8+Q
-         LU4gGsk6TvXRjVcUVGBVVo9W9+ZgAqT7eXEGn7SmT0x4Rp9tEDoUYM0qjrTC8f2NYO+3
-         ekqZFr2UyOOgta587JBPooejOYfQH6lQJTMGA=
+        d=google.com; s=20230601; t=1695253489; x=1695858289; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=YMbatuEIGrWsTlMlK7Tk6yapZGH8kwO0Z4+wG56Y3PQ=;
+        b=yRmpqetxlEqbKksSGNjOD6BQicpCpsD9+SM6FiLpPXR4AmFjf6mvdxJJBH4+/JlzMZ
+         +axy0VkARisMd0APkDD5uHR9gqfTeLBQzayeqfcdKR9O9ohgHBIEmOyPQbfD8+IMiful
+         EYew9I6STh5/XSrCi9tEwnVvloe9OTqtLed5CO08hk+atx/mCsZjLguTCi8gH88FOPIH
+         /+MsmrfIHYHDBmxdmclg+/xzTa8I2B78XE0WxtkZsGP6uF09RFQu3QC4UgWs/vFEOKXu
+         45g/Sn5byqZ8HaOLep1w6W2CBcC0SWxeeWsXL4Z/52XJ0uZ3Rnd8SeybfkkuxFNmKPQ1
+         fV9A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1695250917; x=1695855717;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=OVI1kQAYY1H6Rup9yJAb3ULOmSiNWwKwDibucQ/HouI=;
-        b=LRxRfYKGeESXzr8GOqqyDkMRjCp853l523/JW2TyYChtZp0DpT96+iHyk+cwRjZSDy
-         sxOahYpMttPc+pzC2qNGzpEQPqoUXzXD2zX9E8TBQy3Sgp1kDV6nnA3Wyadu9h+qz4Wd
-         6jeb9Nbpih0X4lkV/5eCIRdvcWY7Cj3UpNraog9+jDJlGTKeaANUIC3Dq5EZRwwAufGx
-         gD2fmTG3bRn8eoXBQobTUea3GUS6pZ4zc6P7ZNiIXq739Gxh6PwA233LSNx/PnzbOGnc
-         A6MK8L9qt+h7tvKTY2PJqxX766wrkSgEIk2tTO1JTsIA1eVlxZB+ShRZicPuYrBWF6Iw
-         eBIA==
-X-Gm-Message-State: AOJu0Yw018tAUcHD75iG+2ngt36+yWdvP2CcIs6Bp7cCRKlKYSXkGWk9
-	LUU1mE2oEXiykLIVBI12INKlZ1rSBZSVBJ3NPnpg
-X-Google-Smtp-Source: AGHT+IFXnWGXW8cB93bXiMz9Jl+KdpDWFEF+9MqDskY1cIxpbbthxUKanZZmg166RPl3Bw0vao3h2/sb983B2DCTplM=
-X-Received: by 2002:a05:6512:398a:b0:502:fff9:64da with SMTP id
- j10-20020a056512398a00b00502fff964damr4109727lfu.53.1695250916994; Wed, 20
- Sep 2023 16:01:56 -0700 (PDT)
-MIME-Version: 1.0
-References: <20230918180646.1398384-1-apatel@ventanamicro.com>
- <20230918180646.1398384-4-apatel@ventanamicro.com> <CAOnJCUJYDHtbYS4js7PSAeLqT4sL5zi7DT5xeSww+5Nvs2UhcA@mail.gmail.com>
- <CAK9=C2UbjOGyxo8oP36Tinjhv1jRpCb+hVbZCOJ70G4-WiHw1g@mail.gmail.com>
-In-Reply-To: <CAK9=C2UbjOGyxo8oP36Tinjhv1jRpCb+hVbZCOJ70G4-WiHw1g@mail.gmail.com>
-From: Atish Patra <atishp@atishpatra.org>
-Date: Wed, 20 Sep 2023 16:01:45 -0700
-Message-ID: <CAOnJCULajHa6H6Rt75rNepYaT-3+Bo=1hQVb_oozPZK13N6yKQ@mail.gmail.com>
-Subject: Re: [PATCH 3/4] KVM: riscv: selftests: Fix ISA_EXT register handling
- in get-reg-list
-To: Anup Patel <apatel@ventanamicro.com>
-Cc: Paolo Bonzini <pbonzini@redhat.com>, Shuah Khan <shuah@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Andrew Jones <ajones@ventanamicro.com>, kvm@vger.kernel.org, 
+        d=1e100.net; s=20230601; t=1695253489; x=1695858289;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=YMbatuEIGrWsTlMlK7Tk6yapZGH8kwO0Z4+wG56Y3PQ=;
+        b=EB0jlMuMFuCfrMWvQW/2YdmNnNSO3wW5lYSpPSfECLdhhauBqBYVP3JZ8v5zSc6Gui
+         UxyYj2wyt+fJGTXCKMJmrRuHwYD9/XCBfineriz5ZmgtYg7otJTssQkkMeQI303rsCem
+         FlglMxxGcLZ5ZtmZnIR5NlZnUsYgsxpx7U6rgcnevEbJ6Eh81B7bI8f08Ed98X4aFawf
+         qe5fPq4ScOEPN+s3uBXxtett9Cw3qIzwQ2FLFX1PlnrvNsCiwTaR8tshMG7qStj/eeXZ
+         l3g3rNBH8yHRKWPl8sNPIvQMeecinNz2NyXpTTyfLb5jgoI4N4STPq7P+UKsZjZaw5ei
+         DpLQ==
+X-Gm-Message-State: AOJu0YzNTxK2SJowwc6b4kes0gPeMg8YTh5nl/0D3Nu8OcPZrGpPQj4r
+	an8XjXiLfvfPffVg5X6evAAcrub9Y+Y=
+X-Google-Smtp-Source: AGHT+IHQbG7yFE9jJPEUI1XKEjcd5Hn7eouqEyZetIlWhAmmYx1Ip3XqohOdLN8YNlfaQrxQ5DSfhNksAYI=
+X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
+ (user=seanjc job=sendgmr) by 2002:a17:903:22d0:b0:1ae:6895:cb96 with SMTP id
+ y16-20020a17090322d000b001ae6895cb96mr56298plg.5.1695253488829; Wed, 20 Sep
+ 2023 16:44:48 -0700 (PDT)
+Date: Wed, 20 Sep 2023 16:44:47 -0700
+In-Reply-To: <20230918163647.m6bjgwusc7ww5tyu@amd.com>
+Mime-Version: 1.0
+References: <20230914015531.1419405-1-seanjc@google.com> <20230914015531.1419405-15-seanjc@google.com>
+ <20230918163647.m6bjgwusc7ww5tyu@amd.com>
+Message-ID: <ZQuD77vlBiSU/PE4@google.com>
+Subject: Re: [RFC PATCH v12 14/33] KVM: Add KVM_CREATE_GUEST_MEMFD ioctl() for
+ guest-specific backing memory
+From: Sean Christopherson <seanjc@google.com>
+To: Michael Roth <michael.roth@amd.com>
+Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
+	Oliver Upton <oliver.upton@linux.dev>, Huacai Chen <chenhuacai@kernel.org>, 
+	Michael Ellerman <mpe@ellerman.id.au>, Anup Patel <anup@brainfault.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, "Matthew Wilcox (Oracle)" <willy@infradead.org>, 
+	Andrew Morton <akpm@linux-foundation.org>, Paul Moore <paul@paul-moore.com>, 
+	James Morris <jmorris@namei.org>, "Serge E. Hallyn" <serge@hallyn.com>, kvm@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
 	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org
+	linux-fsdevel@vger.kernel.org, linux-mm@kvack.org, 
+	linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Chao Peng <chao.p.peng@linux.intel.com>, Fuad Tabba <tabba@google.com>, 
+	Jarkko Sakkinen <jarkko@kernel.org>, Anish Moorthy <amoorthy@google.com>, 
+	Yu Zhang <yu.c.zhang@linux.intel.com>, Isaku Yamahata <isaku.yamahata@intel.com>, 
+	Xu Yilun <yilun.xu@intel.com>, Vlastimil Babka <vbabka@suse.cz>, 
+	Vishal Annapurve <vannapurve@google.com>, Ackerley Tng <ackerleytng@google.com>, 
+	Maciej Szmigiero <mail@maciej.szmigiero.name>, David Hildenbrand <david@redhat.com>, 
+	Quentin Perret <qperret@google.com>, Wang <wei.w.wang@intel.com>, 
+	Liam Merwick <liam.merwick@oracle.com>, Isaku Yamahata <isaku.yamahata@gmail.com>, 
+	"Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230920_160209_656730_6406D653 
-X-CRM114-Status: GOOD (  26.71  )
+X-CRM114-CacheID: sfid-20230920_164451_183433_66B48D39 
+X-CRM114-Status: GOOD (  35.50  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,110 +104,208 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCBTZXAgMjAsIDIwMjMgYXQgNjo1NuKAr0FNIEFudXAgUGF0ZWwgPGFwYXRlbEB2ZW50
-YW5hbWljcm8uY29tPiB3cm90ZToKPgo+IE9uIFdlZCwgU2VwIDIwLCAyMDIzIGF0IDE6MjTigK9B
-TSBBdGlzaCBQYXRyYSA8YXRpc2hwQGF0aXNocGF0cmEub3JnPiB3cm90ZToKPiA+Cj4gPiBPbiBN
-b24sIFNlcCAxOCwgMjAyMyBhdCAxMTowN+KAr0FNIEFudXAgUGF0ZWwgPGFwYXRlbEB2ZW50YW5h
-bWljcm8uY29tPiB3cm90ZToKPiA+ID4KPiA+ID4gU2FtZSBzZXQgb2YgSVNBX0VYVCByZWdpc3Rl
-cnMgYXJlIG5vdCBwcmVzZW50IG9uIGFsbCBob3N0IGJlY2F1c2UKPiA+ID4gSVNBX0VYVCByZWdp
-c3RlcnMgYXJlIHZpc2libGUgdG8gdGhlIEtWTSB1c2VyIHNwYWNlIGJhc2VkIG9uIHRoZQo+ID4g
-PiBJU0EgZXh0ZW5zaW9ucyBhdmFpbGFibGUgb24gdGhlIGhvc3QuIEFsc28sIGRpc2FibGluZyBh
-biBJU0EKPiA+ID4gZXh0ZW5zaW9uIHVzaW5nIGNvcnJlc3BvbmRpbmcgSVNBX0VYVCByZWdpc3Rl
-ciBkb2VzIG5vdCBhZmZlY3QKPiA+ID4gdGhlIHZpc2liaWxpdHkgb2YgdGhlIElTQV9FWFQgcmVn
-aXN0ZXIgaXRzZWxmLgo+ID4gPgo+ID4gPiBCYXNlZCBvbiB0aGUgYWJvdmUsIHdlIHNob3VsZCBm
-aWx0ZXItb3V0IGFsbCBJU0FfRVhUIHJlZ2lzdGVycy4KPiA+ID4KPiA+Cj4gPiBJbiB0aGF0IGNh
-c2UsIHdlIGRvbid0IG5lZWQgdGhlIHN3aXRjaCBjYXNlIGFueSBtb3JlLiBKdXN0IGEKPiA+IGNv
-bmRpdGlvbmFsIGNoZWNrIHdpdGggS1ZNX1JJU0NWX0lTQV9FWFRfTUFYIHNob3VsZCBiZSBzdWZm
-aWNpZW50Lgo+Cj4gSWYgd2UgY29tcGFyZSBhZ2FpbnN0IEtWTV9SSVNDVl9JU0FfRVhUX01BWCB0
-aGVuIHdlIHdpbGwgZm9yZ2V0Cj4gYWRkaW5nIHRlc3QgY29uZmlncyBmb3IgbmV3ZXIgSVNBIGV4
-dGVuc2lvbnMuCj4KCkkgZmVlbCBpdCBqdXN0IGJsb2F0cyB0aGUgY29kZSBhcyB3ZSBtYXkgZW5k
-IHVwIGluIGh1bmRyZWRzIG9mCmV4dGVuc2lvbnMgaW4gdGhlIGZ1dHVyZQpnaXZlbiB0aGUgc3Rh
-dGUgb2YgdGhlIGV4dGVuc2lvbiBzY2hlbWUuCgo+ID4KPiA+ID4gRml4ZXM6IDQ3NzA2OTM5OGVk
-NiAoIktWTTogcmlzY3Y6IHNlbGZ0ZXN0czogQWRkIGdldC1yZWctbGlzdCB0ZXN0IikKPiA+ID4g
-U2lnbmVkLW9mZi1ieTogQW51cCBQYXRlbCA8YXBhdGVsQHZlbnRhbmFtaWNyby5jb20+Cj4gPiA+
-IC0tLQo+ID4gPiAgLi4uL3NlbGZ0ZXN0cy9rdm0vcmlzY3YvZ2V0LXJlZy1saXN0LmMgICAgICAg
-IHwgMzUgKysrKysrKysrKystLS0tLS0tLQo+ID4gPiAgMSBmaWxlIGNoYW5nZWQsIDIxIGluc2Vy
-dGlvbnMoKyksIDE0IGRlbGV0aW9ucygtKQo+ID4gPgo+ID4gPiBkaWZmIC0tZ2l0IGEvdG9vbHMv
-dGVzdGluZy9zZWxmdGVzdHMva3ZtL3Jpc2N2L2dldC1yZWctbGlzdC5jIGIvdG9vbHMvdGVzdGlu
-Zy9zZWxmdGVzdHMva3ZtL3Jpc2N2L2dldC1yZWctbGlzdC5jCj4gPiA+IGluZGV4IGQ4ZWNhY2Qw
-M2VjZi4uNzZjMGFkMTFlNDIzIDEwMDY0NAo+ID4gPiAtLS0gYS90b29scy90ZXN0aW5nL3NlbGZ0
-ZXN0cy9rdm0vcmlzY3YvZ2V0LXJlZy1saXN0LmMKPiA+ID4gKysrIGIvdG9vbHMvdGVzdGluZy9z
-ZWxmdGVzdHMva3ZtL3Jpc2N2L2dldC1yZWctbGlzdC5jCj4gPiA+IEBAIC0xNCwxNyArMTQsMzMg
-QEAKPiA+ID4KPiA+ID4gIGJvb2wgZmlsdGVyX3JlZyhfX3U2NCByZWcpCj4gPiA+ICB7Cj4gPiA+
-ICsgICAgICAgc3dpdGNoIChyZWcgJiB+UkVHX01BU0spIHsKPiA+ID4gICAgICAgICAvKgo+ID4g
-PiAtICAgICAgICAqIFNvbWUgSVNBIGV4dGVuc2lvbnMgYXJlIG9wdGlvbmFsIGFuZCBub3QgcHJl
-c2VudCBvbiBhbGwgaG9zdCwKPiA+ID4gLSAgICAgICAgKiBidXQgdGhleSBjYW4ndCBiZSBkaXNh
-YmxlZCB0aHJvdWdoIElTQV9FWFQgcmVnaXN0ZXJzIHdoZW4gcHJlc2VudC4KPiA+ID4gLSAgICAg
-ICAgKiBTbywgdG8gbWFrZSBsaWZlIGVhc3ksIGp1c3QgZmlsdGVyaW5nIG91dCB0aGVzZSBraW5k
-IG9mIHJlZ2lzdGVycy4KPiA+ID4gKyAgICAgICAgKiBTYW1lIHNldCBvZiBJU0FfRVhUIHJlZ2lz
-dGVycyBhcmUgbm90IHByZXNlbnQgb24gYWxsIGhvc3QgYmVjYXVzZQo+ID4gPiArICAgICAgICAq
-IElTQV9FWFQgcmVnaXN0ZXJzIGFyZSB2aXNpYmxlIHRvIHRoZSBLVk0gdXNlciBzcGFjZSBiYXNl
-ZCBvbiB0aGUKPiA+ID4gKyAgICAgICAgKiBJU0EgZXh0ZW5zaW9ucyBhdmFpbGFibGUgb24gdGhl
-IGhvc3QuIEFsc28sIGRpc2FibGluZyBhbiBJU0EKPiA+ID4gKyAgICAgICAgKiBleHRlbnNpb24g
-dXNpbmcgY29ycmVzcG9uZGluZyBJU0FfRVhUIHJlZ2lzdGVyIGRvZXMgbm90IGFmZmVjdAo+ID4g
-PiArICAgICAgICAqIHRoZSB2aXNpYmlsaXR5IG9mIHRoZSBJU0FfRVhUIHJlZ2lzdGVyIGl0c2Vs
-Zi4KPiA+ID4gKyAgICAgICAgKgo+ID4gPiArICAgICAgICAqIEJhc2VkIG9uIGFib3ZlLCB3ZSBz
-aG91bGQgZmlsdGVyLW91dCBhbGwgSVNBX0VYVCByZWdpc3RlcnMuCj4gPiA+ICAgICAgICAgICov
-Cj4gPiA+IC0gICAgICAgc3dpdGNoIChyZWcgJiB+UkVHX01BU0spIHsKPiA+ID4gKyAgICAgICBj
-YXNlIEtWTV9SRUdfUklTQ1ZfSVNBX0VYVCB8IEtWTV9SSVNDVl9JU0FfRVhUX0E6Cj4gPiA+ICsg
-ICAgICAgY2FzZSBLVk1fUkVHX1JJU0NWX0lTQV9FWFQgfCBLVk1fUklTQ1ZfSVNBX0VYVF9DOgo+
-ID4gPiArICAgICAgIGNhc2UgS1ZNX1JFR19SSVNDVl9JU0FfRVhUIHwgS1ZNX1JJU0NWX0lTQV9F
-WFRfRDoKPiA+ID4gKyAgICAgICBjYXNlIEtWTV9SRUdfUklTQ1ZfSVNBX0VYVCB8IEtWTV9SSVND
-Vl9JU0FfRVhUX0Y6Cj4gPiA+ICsgICAgICAgY2FzZSBLVk1fUkVHX1JJU0NWX0lTQV9FWFQgfCBL
-Vk1fUklTQ1ZfSVNBX0VYVF9IOgo+ID4gPiArICAgICAgIGNhc2UgS1ZNX1JFR19SSVNDVl9JU0Ff
-RVhUIHwgS1ZNX1JJU0NWX0lTQV9FWFRfSToKPiA+ID4gKyAgICAgICBjYXNlIEtWTV9SRUdfUklT
-Q1ZfSVNBX0VYVCB8IEtWTV9SSVNDVl9JU0FfRVhUX006Cj4gPiA+ICsgICAgICAgY2FzZSBLVk1f
-UkVHX1JJU0NWX0lTQV9FWFQgfCBLVk1fUklTQ1ZfSVNBX0VYVF9TVlBCTVQ6Cj4gPiA+ICAgICAg
-ICAgY2FzZSBLVk1fUkVHX1JJU0NWX0lTQV9FWFQgfCBLVk1fUklTQ1ZfSVNBX0VYVF9TU1RDOgo+
-ID4gPiAgICAgICAgIGNhc2UgS1ZNX1JFR19SSVNDVl9JU0FfRVhUIHwgS1ZNX1JJU0NWX0lTQV9F
-WFRfU1ZJTlZBTDoKPiA+ID4gICAgICAgICBjYXNlIEtWTV9SRUdfUklTQ1ZfSVNBX0VYVCB8IEtW
-TV9SSVNDVl9JU0FfRVhUX1pJSElOVFBBVVNFOgo+ID4gPiArICAgICAgIGNhc2UgS1ZNX1JFR19S
-SVNDVl9JU0FfRVhUIHwgS1ZNX1JJU0NWX0lTQV9FWFRfWklDQk9NOgo+ID4gPiArICAgICAgIGNh
-c2UgS1ZNX1JFR19SSVNDVl9JU0FfRVhUIHwgS1ZNX1JJU0NWX0lTQV9FWFRfWklDQk9aOgo+ID4g
-PiAgICAgICAgIGNhc2UgS1ZNX1JFR19SSVNDVl9JU0FfRVhUIHwgS1ZNX1JJU0NWX0lTQV9FWFRf
-WkJCOgo+ID4gPiAgICAgICAgIGNhc2UgS1ZNX1JFR19SSVNDVl9JU0FfRVhUIHwgS1ZNX1JJU0NW
-X0lTQV9FWFRfU1NBSUE6Cj4gPiA+ICsgICAgICAgY2FzZSBLVk1fUkVHX1JJU0NWX0lTQV9FWFQg
-fCBLVk1fUklTQ1ZfSVNBX0VYVF9WOgo+ID4gPiArICAgICAgIGNhc2UgS1ZNX1JFR19SSVNDVl9J
-U0FfRVhUIHwgS1ZNX1JJU0NWX0lTQV9FWFRfU1ZOQVBPVDoKPiA+ID4gICAgICAgICBjYXNlIEtW
-TV9SRUdfUklTQ1ZfSVNBX0VYVCB8IEtWTV9SSVNDVl9JU0FfRVhUX1pCQToKPiA+ID4gICAgICAg
-ICBjYXNlIEtWTV9SRUdfUklTQ1ZfSVNBX0VYVCB8IEtWTV9SSVNDVl9JU0FfRVhUX1pCUzoKPiA+
-ID4gICAgICAgICBjYXNlIEtWTV9SRUdfUklTQ1ZfSVNBX0VYVCB8IEtWTV9SSVNDVl9JU0FfRVhU
-X1pJQ05UUjoKPiA+ID4gQEAgLTUwLDEyICs2Niw3IEBAIHN0YXRpYyBpbmxpbmUgYm9vbCB2Y3B1
-X2hhc19leHQoc3RydWN0IGt2bV92Y3B1ICp2Y3B1LCBpbnQgZXh0KQo+ID4gPiAgICAgICAgIHVu
-c2lnbmVkIGxvbmcgdmFsdWU7Cj4gPiA+Cj4gPiA+ICAgICAgICAgcmV0ID0gX192Y3B1X2dldF9y
-ZWcodmNwdSwgUklTQ1ZfSVNBX0VYVF9SRUcoZXh0KSwgJnZhbHVlKTsKPiA+ID4gLSAgICAgICBp
-ZiAocmV0KSB7Cj4gPiA+IC0gICAgICAgICAgICAgICBwcmludGYoIkZhaWxlZCB0byBnZXQgZXh0
-ICVkIiwgZXh0KTsKPiA+ID4gLSAgICAgICAgICAgICAgIHJldHVybiBmYWxzZTsKPiA+ID4gLSAg
-ICAgICB9Cj4gPiA+IC0KPiA+ID4gLSAgICAgICByZXR1cm4gISF2YWx1ZTsKPiA+ID4gKyAgICAg
-ICByZXR1cm4gKHJldCkgPyBmYWxzZSA6ICEhdmFsdWU7Cj4gPiA+ICB9Cj4gPiA+Cj4gPiA+ICB2
-b2lkIGZpbmFsaXplX3ZjcHUoc3RydWN0IGt2bV92Y3B1ICp2Y3B1LCBzdHJ1Y3QgdmNwdV9yZWdf
-bGlzdCAqYykKPiA+ID4gQEAgLTUwNiwxMCArNTE3LDYgQEAgc3RhdGljIF9fdTY0IGJhc2VfcmVn
-c1tdID0gewo+ID4gPiAgICAgICAgIEtWTV9SRUdfUklTQ1YgfCBLVk1fUkVHX1NJWkVfVTY0IHwg
-S1ZNX1JFR19SSVNDVl9USU1FUiB8IEtWTV9SRUdfUklTQ1ZfVElNRVJfUkVHKHRpbWUpLAo+ID4g
-PiAgICAgICAgIEtWTV9SRUdfUklTQ1YgfCBLVk1fUkVHX1NJWkVfVTY0IHwgS1ZNX1JFR19SSVND
-Vl9USU1FUiB8IEtWTV9SRUdfUklTQ1ZfVElNRVJfUkVHKGNvbXBhcmUpLAo+ID4gPiAgICAgICAg
-IEtWTV9SRUdfUklTQ1YgfCBLVk1fUkVHX1NJWkVfVTY0IHwgS1ZNX1JFR19SSVNDVl9USU1FUiB8
-IEtWTV9SRUdfUklTQ1ZfVElNRVJfUkVHKHN0YXRlKSwKPiA+ID4gLSAgICAgICBLVk1fUkVHX1JJ
-U0NWIHwgS1ZNX1JFR19TSVpFX1VMT05HIHwgS1ZNX1JFR19SSVNDVl9JU0FfRVhUIHwgS1ZNX1JJ
-U0NWX0lTQV9FWFRfQSwKPiA+ID4gLSAgICAgICBLVk1fUkVHX1JJU0NWIHwgS1ZNX1JFR19TSVpF
-X1VMT05HIHwgS1ZNX1JFR19SSVNDVl9JU0FfRVhUIHwgS1ZNX1JJU0NWX0lTQV9FWFRfQywKPiA+
-ID4gLSAgICAgICBLVk1fUkVHX1JJU0NWIHwgS1ZNX1JFR19TSVpFX1VMT05HIHwgS1ZNX1JFR19S
-SVNDVl9JU0FfRVhUIHwgS1ZNX1JJU0NWX0lTQV9FWFRfSSwKPiA+ID4gLSAgICAgICBLVk1fUkVH
-X1JJU0NWIHwgS1ZNX1JFR19TSVpFX1VMT05HIHwgS1ZNX1JFR19SSVNDVl9JU0FfRVhUIHwgS1ZN
-X1JJU0NWX0lTQV9FWFRfTSwKPiA+ID4gICAgICAgICBLVk1fUkVHX1JJU0NWIHwgS1ZNX1JFR19T
-SVpFX1VMT05HIHwgS1ZNX1JFR19SSVNDVl9TQklfRVhUIHwgS1ZNX1JFR19SSVNDVl9TQklfU0lO
-R0xFIHwgS1ZNX1JJU0NWX1NCSV9FWFRfVjAxLAo+ID4gPiAgICAgICAgIEtWTV9SRUdfUklTQ1Yg
-fCBLVk1fUkVHX1NJWkVfVUxPTkcgfCBLVk1fUkVHX1JJU0NWX1NCSV9FWFQgfCBLVk1fUkVHX1JJ
-U0NWX1NCSV9TSU5HTEUgfCBLVk1fUklTQ1ZfU0JJX0VYVF9USU1FLAo+ID4gPiAgICAgICAgIEtW
-TV9SRUdfUklTQ1YgfCBLVk1fUkVHX1NJWkVfVUxPTkcgfCBLVk1fUkVHX1JJU0NWX1NCSV9FWFQg
-fCBLVk1fUkVHX1JJU0NWX1NCSV9TSU5HTEUgfCBLVk1fUklTQ1ZfU0JJX0VYVF9JUEksCj4gPiA+
-IC0tCj4gPiA+IDIuMzQuMQo+ID4gPgo+ID4KPiA+Cj4gPiAtLQo+ID4gUmVnYXJkcywKPiA+IEF0
-aXNoCj4KPiBSZWdhcmRzLAo+IEFudXAKCgoKLS0gClJlZ2FyZHMsCkF0aXNoCgpfX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5n
-IGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFk
-ZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Mon, Sep 18, 2023, Michael Roth wrote:
+> > +static long kvm_gmem_punch_hole(struct inode *inode, loff_t offset, loff_t len)
+> > +{
+> > +	struct list_head *gmem_list = &inode->i_mapping->private_list;
+> > +	pgoff_t start = offset >> PAGE_SHIFT;
+> > +	pgoff_t end = (offset + len) >> PAGE_SHIFT;
+> > +	struct kvm_gmem *gmem;
+> > +
+> > +	/*
+> > +	 * Bindings must stable across invalidation to ensure the start+end
+> > +	 * are balanced.
+> > +	 */
+> > +	filemap_invalidate_lock(inode->i_mapping);
+> > +
+> > +	list_for_each_entry(gmem, gmem_list, entry) {
+> > +		kvm_gmem_invalidate_begin(gmem, start, end);
+> 
+> In v11 we used to call truncate_inode_pages_range() here to drop filemap's
+> reference on the folio. AFAICT the folios are only getting free'd upon
+> guest shutdown without this. Was this on purpose?
+
+Nope, I just spotted this too.  And then after scratching my head for a few minutes,
+wondering if I was having an -ENOCOFFEE moment, I finally read your mail.  *sigh*
+
+Looking at my reflog history, I'm pretty sure I deleted the wrong line when
+removing the truncation from kvm_gmem_error_page().
+
+> > +		kvm_gmem_invalidate_end(gmem, start, end);
+> > +	}
+> > +
+> > +	filemap_invalidate_unlock(inode->i_mapping);
+> > +
+> > +	return 0;
+> > +}
+> > +
+> > +static long kvm_gmem_allocate(struct inode *inode, loff_t offset, loff_t len)
+> > +{
+> > +	struct address_space *mapping = inode->i_mapping;
+> > +	pgoff_t start, index, end;
+> > +	int r;
+> > +
+> > +	/* Dedicated guest is immutable by default. */
+> > +	if (offset + len > i_size_read(inode))
+> > +		return -EINVAL;
+> > +
+> > +	filemap_invalidate_lock_shared(mapping);
+> 
+> We take the filemap lock here, but not for
+> kvm_gmem_get_pfn()->kvm_gmem_get_folio(). Is it needed there as well?
+
+No, we specifically do not want to take a rwsem when faulting in guest memory.
+Callers of kvm_gmem_get_pfn() *must* guard against concurrent invalidations via
+mmu_invalidate_seq and friends.
+
+> > +	/*
+> > +	 * For simplicity, require the offset into the file and the size of the
+> > +	 * memslot to be aligned to the largest possible page size used to back
+> > +	 * the file (same as the size of the file itself).
+> > +	 */
+> > +	if (!kvm_gmem_is_valid_size(offset, flags) ||
+> > +	    !kvm_gmem_is_valid_size(size, flags))
+> > +		goto err;
+> 
+> I needed to relax this check for SNP. KVM_GUEST_MEMFD_ALLOW_HUGEPAGE
+> applies to entire gmem inode, so it makes sense for userspace to enable
+> hugepages if start/end are hugepage-aligned, but QEMU will do things
+> like map overlapping regions for ROMs and other things on top of the
+> GPA range that the gmem inode was originally allocated for. For
+> instance:
+> 
+>   692500@1689108688.696338:kvm_set_user_memory AddrSpace#0 Slot#0 flags=0x4 gpa=0x0 size=0x80000000 ua=0x7fbf5be00000 ret=0 restricted_fd=19 restricted_offset=0x0
+>   692500@1689108688.699802:kvm_set_user_memory AddrSpace#0 Slot#1 flags=0x4 gpa=0x100000000 size=0x380000000 ua=0x7fbfdbe00000 ret=0 restricted_fd=19 restricted_offset=0x80000000
+>   692500@1689108688.795412:kvm_set_user_memory AddrSpace#0 Slot#0 flags=0x0 gpa=0x0 size=0x0 ua=0x7fbf5be00000 ret=0 restricted_fd=19 restricted_offset=0x0
+>   692500@1689108688.795550:kvm_set_user_memory AddrSpace#0 Slot#0 flags=0x4 gpa=0x0 size=0xc0000 ua=0x7fbf5be00000 ret=0 restricted_fd=19 restricted_offset=0x0
+>   692500@1689108688.796227:kvm_set_user_memory AddrSpace#0 Slot#6 flags=0x4 gpa=0x100000 size=0x7ff00000 ua=0x7fbf5bf00000 ret=0 restricted_fd=19 restricted_offset=0x100000
+> 
+> Because of that the KVM_SET_USER_MEMORY_REGIONs for non-THP-aligned GPAs
+> will fail. Maybe instead it should be allowed, and kvm_gmem_get_folio()
+> should handle the alignment checks on a case-by-case and simply force 4k
+> for offsets corresponding to unaligned bindings?
+
+Yeah, I wanted to keep the code simple, but disallowing small bindings/memslots
+is probably going to be a deal-breaker.  Even though I'm skeptical that QEMU
+_needs_ to play these games for SNP guests, not playing nice will make it all
+but impossible to use guest_memfd for regular VMs.
+
+And the code isn't really any more complex, so long as we punt on allowing
+hugepages on interior sub-ranges.
+
+Compile-tested only, but this?
+
+---
+ virt/kvm/guest_mem.c | 54 ++++++++++++++++++++++----------------------
+ 1 file changed, 27 insertions(+), 27 deletions(-)
+
+diff --git a/virt/kvm/guest_mem.c b/virt/kvm/guest_mem.c
+index a819367434e9..dc12e38211df 100644
+--- a/virt/kvm/guest_mem.c
++++ b/virt/kvm/guest_mem.c
+@@ -426,20 +426,6 @@ static int __kvm_gmem_create(struct kvm *kvm, loff_t size, u64 flags,
+ 	return err;
+ }
+ 
+-static bool kvm_gmem_is_valid_size(loff_t size, u64 flags)
+-{
+-	if (size < 0 || !PAGE_ALIGNED(size))
+-		return false;
+-
+-#ifdef CONFIG_TRANSPARENT_HUGEPAGE
+-	if ((flags & KVM_GUEST_MEMFD_ALLOW_HUGEPAGE) &&
+-	    !IS_ALIGNED(size, HPAGE_PMD_SIZE))
+-		return false;
+-#endif
+-
+-	return true;
+-}
+-
+ int kvm_gmem_create(struct kvm *kvm, struct kvm_create_guest_memfd *args)
+ {
+ 	loff_t size = args->size;
+@@ -452,9 +438,15 @@ int kvm_gmem_create(struct kvm *kvm, struct kvm_create_guest_memfd *args)
+ 	if (flags & ~valid_flags)
+ 		return -EINVAL;
+ 
+-	if (!kvm_gmem_is_valid_size(size, flags))
++	if (size < 0 || !PAGE_ALIGNED(size))
+ 		return -EINVAL;
+ 
++#ifdef CONFIG_TRANSPARENT_HUGEPAGE
++	if ((flags & KVM_GUEST_MEMFD_ALLOW_HUGEPAGE) &&
++	    !IS_ALIGNED(size, HPAGE_PMD_SIZE))
++		return false;
++#endif
++
+ 	return __kvm_gmem_create(kvm, size, flags, kvm_gmem_mnt);
+ }
+ 
+@@ -462,7 +454,7 @@ int kvm_gmem_bind(struct kvm *kvm, struct kvm_memory_slot *slot,
+ 		  unsigned int fd, loff_t offset)
+ {
+ 	loff_t size = slot->npages << PAGE_SHIFT;
+-	unsigned long start, end, flags;
++	unsigned long start, end;
+ 	struct kvm_gmem *gmem;
+ 	struct inode *inode;
+ 	struct file *file;
+@@ -481,16 +473,9 @@ int kvm_gmem_bind(struct kvm *kvm, struct kvm_memory_slot *slot,
+ 		goto err;
+ 
+ 	inode = file_inode(file);
+-	flags = (unsigned long)inode->i_private;
+ 
+-	/*
+-	 * For simplicity, require the offset into the file and the size of the
+-	 * memslot to be aligned to the largest possible page size used to back
+-	 * the file (same as the size of the file itself).
+-	 */
+-	if (!kvm_gmem_is_valid_size(offset, flags) ||
+-	    !kvm_gmem_is_valid_size(size, flags))
+-		goto err;
++	if (offset < 0 || !PAGE_ALIGNED(offset))
++		return -EINVAL;
+ 
+ 	if (offset + size > i_size_read(inode))
+ 		goto err;
+@@ -591,8 +576,23 @@ int kvm_gmem_get_pfn(struct kvm *kvm, struct kvm_memory_slot *slot,
+ 	page = folio_file_page(folio, index);
+ 
+ 	*pfn = page_to_pfn(page);
+-	if (max_order)
+-		*max_order = compound_order(compound_head(page));
++	if (!max_order)
++		goto success;
++
++	*max_order = compound_order(compound_head(page));
++	if (!*max_order)
++		goto success;
++
++	/*
++	 * For simplicity, allow mapping a hugepage if and only if the entire
++	 * binding is compatible, i.e. don't bother supporting mapping interior
++	 * sub-ranges with hugepages (unless userspace comes up with a *really*
++	 * strong use case for needing hugepages within unaligned bindings).
++	 */
++	if (!IS_ALIGNED(slot->gmem.pgoff, 1ull << *max_order) ||
++	    !IS_ALIGNED(slot->npages, 1ull << *max_order))
++		*max_order = 0;
++success:
+ 	r = 0;
+ 
+ out_unlock:
+
+base-commit: bc1a54ee393e0574ea422525cf0b2f1e768e38c5
+-- 
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
