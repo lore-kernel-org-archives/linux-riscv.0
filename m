@@ -4,79 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E331CCE79CE
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 Sep 2023 13:56:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 554D6CE79D4
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 Sep 2023 14:24:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8Tqyo6DmdlxkK+rTEI6RIrrdlq8kWgz7A1Up9z3hlxs=; b=gdTUEeRSu0KgfI
-	laIhY22QoW4BVysBQpqcJnC+2yoNxraZsX8ZGW2lA3rJzoXsfLrKY1wb6jIXYa7zA/mjTZBgHXcp4
-	QjEBRIvf3MZdyOf+PSDXM4yXHNDX9RfsxBcy2K/Kw5B2JSsr/mrH6fRqYfcb4E+oUj9Km+XCYirhR
-	r5ng1C7n1uyIglzkGTvu0U+j9xvqP4iA5VgSjMM5xeATmhiiO6cnhQEaJVMYMGvtE8XhL0tgInEy8
-	XJfGeOcsVVrSkdMdqnsNDRrW2Gf9l8DwjepjonRT53DJ8yMIA0alJfCeM4T3Eb/yjY2PJZRGtEZVq
-	vqkmVwZOkfqSrxDorUlQ==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
+	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=lLQ4QmUyOwOR3ZMsM9vxuKO9a7B8ninT8qIcuLvr5wc=; b=eWvuasnfbPdH8se5DIYFzgPwEq
+	5aP5aY1IMFjEkLVdhPvRoymJeMyIiDDHnNtuw5dDQ7u4H5QBKHXVUuNHJALUyo1b6ELR5ymBm9yOR
+	WsYw8gpYETtnDm1NRmxsY5CQGUUY3FHe7PWAlv8JOYatZYdShkMca3IWVWT97LubFJjCz9F7Uuq0R
+	06T7M6/YUeHY7x9VYUwLnYS/n2IyuMgSP1vT+XXkfuqqMpZwCR80envAScvDgLcnuOE5NtZs0A4V7
+	EWT9W62m2js8jAtjA8fsM92lUKB9/NoYBBo9pHbezNeyUCtI55MtCWlZoQWKmWE1+oZV8I+Bxv0nX
+	TGmM58Ow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qixh1-003Fbq-0z;
-	Wed, 20 Sep 2023 13:56:39 +0000
-Received: from mail-pg1-x534.google.com ([2607:f8b0:4864:20::534])
+	id 1qiy7j-003JTF-0P;
+	Wed, 20 Sep 2023 14:24:15 +0000
+Received: from mail-pg1-x549.google.com ([2607:f8b0:4864:20::549])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qixgy-003FZN-0x
+	id 1qiy7f-003JRE-29
 	for linux-riscv@lists.infradead.org;
-	Wed, 20 Sep 2023 13:56:37 +0000
-Received: by mail-pg1-x534.google.com with SMTP id 41be03b00d2f7-573e67cc6eeso5270584a12.2
-        for <linux-riscv@lists.infradead.org>; Wed, 20 Sep 2023 06:56:33 -0700 (PDT)
+	Wed, 20 Sep 2023 14:24:13 +0000
+Received: by mail-pg1-x549.google.com with SMTP id 41be03b00d2f7-57774c725ebso5154090a12.0
+        for <linux-riscv@lists.infradead.org>; Wed, 20 Sep 2023 07:24:10 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1695218193; x=1695822993; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=gWvN1Bpbs1PF50qBbgm5YoDriWQXveHOdhR/Dx6i6jg=;
-        b=CblyG5oho2ZbUE+MmARkkvLf3YO8NJ5rOnPqoCeGlILnHl5RbsvVMPMEexdLocydeZ
-         yndk+wZz6qeGk+PDnTRWd9SxPr8ZxUVo1dG3cEPra3BtpMyrri+z8A0QuNyI9aw2/5Qu
-         YrmlnvFY6VfKILutWWrux3dig8SBnW9NIaKnW1As7oPQ7cUN/gC9OI4BH7vIf6Dn1bJ8
-         mFNq0TPbgRHdfpFuZ5jwWL7qmEgphE4SKopLflGlRU1ergmUJA4qCG0/zw8vQY5fZpFM
-         EPwR69S5DPRoOxuLcU3eVyNg4jYf81lfnvA257f9z/w16UyQ1RtWQQZ2aHREOXTnUBh3
-         htDw==
+        d=google.com; s=20230601; t=1695219850; x=1695824650; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=DOI6e5Fz0eSccYOGv0a2XgOrMIQyrqURVkPdu4XpUSk=;
+        b=fb/NMiFOQtxIM2CxRvwqKfL+qRQstBi0KYVF+yiZHEQ30XMZFxtZu+GAUDcK+FRsKF
+         Or6R0WoARa4kK9xU64SJ3u/bMCRHvNA380+lKy3lyJKdKZWfTU7ZH9VNANdZUkYpteBp
+         p5VW5uAyLZpO0kMWnoBeleKTWTYNRsTGagg5zCGRo1RaZAoBLAXttLjS4oPgvi1Af2ve
+         DEVo6Cphsztn4lqX2UEhr7RNgkzjSWSpB4F4utqfrCyLGYu7GWrtYb1uoB4dNOIrt/+4
+         n6cfSATLlDjLsb6jRnRPrp8kIoj7zlLXbQSncohP1hw3TFneNxlcC0bBkna9VO1/6a9x
+         605g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1695218193; x=1695822993;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=gWvN1Bpbs1PF50qBbgm5YoDriWQXveHOdhR/Dx6i6jg=;
-        b=tXbwq5BFVMUcxQKejNsgBgoieZfMPAhhiBnxNHoipmV60C6/5rpvEO///uxRaaekXE
-         w1lbURT2+Iv+6S9BHJA3hY4ImpeQvYVbQMFDs1l2+Vc8XcaXBF2099UFmEb3LtK/6Y3j
-         9GDlqVyli11ui0Yfoaon3K0LVg1bTBJOTA2LwBDmpyBF29hkGJRfIK0P4xZXkpGi97FC
-         Y/6uP1vQ+5H2oEyBVLy248XBAy3Mmc6qYXjmKZEOIEFBy1b3HtKggEy5GESb5UpK6VIJ
-         TYXgBkXnvcXqr/6UuD0/+lOtaGEoDECpR3/MkHNILJ9aDXF7VufoBZODEgsc+YftzVEp
-         kCzA==
-X-Gm-Message-State: AOJu0YxaFjkFYXXXCZFPUNkiPqKCf70by/dREDTdw8A17QvXeKRs9bge
-	OdI1ibMxCvwRNve7RHyDcZNMZSrl6y1H0+wP/YCerQ==
-X-Google-Smtp-Source: AGHT+IFb9PPNvdqtSUNwQS6mJlCIQK/y8XDdGfu9RdEx32Z3P7W7GzvDtIiLZCDP6pBGCTmuF0vbzKB6JetQRNt81ig=
-X-Received: by 2002:a05:6a20:6a27:b0:14c:383b:294a with SMTP id
- p39-20020a056a206a2700b0014c383b294amr2839055pzk.5.1695218193018; Wed, 20 Sep
- 2023 06:56:33 -0700 (PDT)
-MIME-Version: 1.0
-References: <20230918180646.1398384-1-apatel@ventanamicro.com>
- <20230918180646.1398384-4-apatel@ventanamicro.com> <CAOnJCUJYDHtbYS4js7PSAeLqT4sL5zi7DT5xeSww+5Nvs2UhcA@mail.gmail.com>
-In-Reply-To: <CAOnJCUJYDHtbYS4js7PSAeLqT4sL5zi7DT5xeSww+5Nvs2UhcA@mail.gmail.com>
-From: Anup Patel <apatel@ventanamicro.com>
-Date: Wed, 20 Sep 2023 19:26:21 +0530
-Message-ID: <CAK9=C2UbjOGyxo8oP36Tinjhv1jRpCb+hVbZCOJ70G4-WiHw1g@mail.gmail.com>
-Subject: Re: [PATCH 3/4] KVM: riscv: selftests: Fix ISA_EXT register handling
- in get-reg-list
-To: Atish Patra <atishp@atishpatra.org>
-Cc: Paolo Bonzini <pbonzini@redhat.com>, Shuah Khan <shuah@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Andrew Jones <ajones@ventanamicro.com>, kvm@vger.kernel.org, 
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org
+        d=1e100.net; s=20230601; t=1695219850; x=1695824650;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=DOI6e5Fz0eSccYOGv0a2XgOrMIQyrqURVkPdu4XpUSk=;
+        b=WKYzHBlnCU0cdNTDp3khUK40rjJSi9Uo0X5HlhA+QacS1QLTKRYZwbeETjFLufGzz7
+         nXJnq15SGnFyCfVV5i0tFEhrF6otZvhuLza0mQu3UU1K082+XzGyNMEglrxPbwzscRjH
+         qTj5Ii/qaRrvVACDaZDO9nu6PQWLbr/a89ZOpPPljOt6dICrVt1iiu4bpFhKiaNoOW7K
+         S4j6tY8X79XB/3+nd2Tg+/C7WOijas1gaCB44W9CNrntuC2x36W8fB+RwJOsNK4QI0o9
+         jq/zze4w73xw/GFEC6zi6GRzrOiUX+OOh0URpq5YNec+1MoYvMWg0EHRGOo+ierA62l8
+         jluQ==
+X-Gm-Message-State: AOJu0Yw79kGUUx5Lx+7h7SJG0e3FDbeCWoXDStH2nTAdp9kgXepmBxhS
+	xUywuM3V6Zbrt0Ne7LqDi/Y6i+k2MaE=
+X-Google-Smtp-Source: AGHT+IG+7+KaIB01fLVIPGeb7tjb/zu/hrsNFs+xXo/mmyM/aDSVQYbb0kWI4ACm+gkgu18FM/xCEI0V+P0=
+X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
+ (user=seanjc job=sendgmr) by 2002:a17:902:f203:b0:1c0:ac09:4032 with SMTP id
+ m3-20020a170902f20300b001c0ac094032mr25326plc.9.1695219850013; Wed, 20 Sep
+ 2023 07:24:10 -0700 (PDT)
+Date: Wed, 20 Sep 2023 07:24:08 -0700
+In-Reply-To: <e397d30c-c6af-e68f-d18e-b4e3739c5389@linux.intel.com>
+Mime-Version: 1.0
+References: <20230914015531.1419405-1-seanjc@google.com> <20230914015531.1419405-15-seanjc@google.com>
+ <e397d30c-c6af-e68f-d18e-b4e3739c5389@linux.intel.com>
+Message-ID: <ZQsAiGuw/38jIOV7@google.com>
+Subject: Re: [RFC PATCH v12 14/33] KVM: Add KVM_CREATE_GUEST_MEMFD ioctl() for
+ guest-specific backing memory
+From: Sean Christopherson <seanjc@google.com>
+To: Binbin Wu <binbin.wu@linux.intel.com>
+Cc: kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	kvmarm@lists.linux.dev, linux-mips@vger.kernel.org, 
+	linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-fsdevel@vger.kernel.org, 
+	linux-mm@kvack.org, linux-security-module@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, Paolo Bonzini <pbonzini@redhat.com>, 
+	Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
+	Huacai Chen <chenhuacai@kernel.org>, Michael Ellerman <mpe@ellerman.id.au>, 
+	Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	"Matthew Wilcox (Oracle)" <willy@infradead.org>, Andrew Morton <akpm@linux-foundation.org>, 
+	Paul Moore <paul@paul-moore.com>, James Morris <jmorris@namei.org>, 
+	"Serge E. Hallyn" <serge@hallyn.com>, Chao Peng <chao.p.peng@linux.intel.com>, 
+	Fuad Tabba <tabba@google.com>, Jarkko Sakkinen <jarkko@kernel.org>, 
+	Anish Moorthy <amoorthy@google.com>, Yu Zhang <yu.c.zhang@linux.intel.com>, 
+	Isaku Yamahata <isaku.yamahata@intel.com>, Xu Yilun <yilun.xu@intel.com>, 
+	Vlastimil Babka <vbabka@suse.cz>, Vishal Annapurve <vannapurve@google.com>, 
+	Ackerley Tng <ackerleytng@google.com>, Maciej Szmigiero <mail@maciej.szmigiero.name>, 
+	David Hildenbrand <david@redhat.com>, Quentin Perret <qperret@google.com>, 
+	Michael Roth <michael.roth@amd.com>, Wang <wei.w.wang@intel.com>, 
+	Liam Merwick <liam.merwick@oracle.com>, Isaku Yamahata <isaku.yamahata@gmail.com>, 
+	"Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230920_065636_348655_B1B9FBED 
-X-CRM114-Status: GOOD (  23.87  )
+X-CRM114-CacheID: sfid-20230920_072411_723156_37418485 
+X-CRM114-Status: GOOD (  23.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,102 +105,132 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCBTZXAgMjAsIDIwMjMgYXQgMToyNOKAr0FNIEF0aXNoIFBhdHJhIDxhdGlzaHBAYXRp
-c2hwYXRyYS5vcmc+IHdyb3RlOgo+Cj4gT24gTW9uLCBTZXAgMTgsIDIwMjMgYXQgMTE6MDfigK9B
-TSBBbnVwIFBhdGVsIDxhcGF0ZWxAdmVudGFuYW1pY3JvLmNvbT4gd3JvdGU6Cj4gPgo+ID4gU2Ft
-ZSBzZXQgb2YgSVNBX0VYVCByZWdpc3RlcnMgYXJlIG5vdCBwcmVzZW50IG9uIGFsbCBob3N0IGJl
-Y2F1c2UKPiA+IElTQV9FWFQgcmVnaXN0ZXJzIGFyZSB2aXNpYmxlIHRvIHRoZSBLVk0gdXNlciBz
-cGFjZSBiYXNlZCBvbiB0aGUKPiA+IElTQSBleHRlbnNpb25zIGF2YWlsYWJsZSBvbiB0aGUgaG9z
-dC4gQWxzbywgZGlzYWJsaW5nIGFuIElTQQo+ID4gZXh0ZW5zaW9uIHVzaW5nIGNvcnJlc3BvbmRp
-bmcgSVNBX0VYVCByZWdpc3RlciBkb2VzIG5vdCBhZmZlY3QKPiA+IHRoZSB2aXNpYmlsaXR5IG9m
-IHRoZSBJU0FfRVhUIHJlZ2lzdGVyIGl0c2VsZi4KPiA+Cj4gPiBCYXNlZCBvbiB0aGUgYWJvdmUs
-IHdlIHNob3VsZCBmaWx0ZXItb3V0IGFsbCBJU0FfRVhUIHJlZ2lzdGVycy4KPiA+Cj4KPiBJbiB0
-aGF0IGNhc2UsIHdlIGRvbid0IG5lZWQgdGhlIHN3aXRjaCBjYXNlIGFueSBtb3JlLiBKdXN0IGEK
-PiBjb25kaXRpb25hbCBjaGVjayB3aXRoIEtWTV9SSVNDVl9JU0FfRVhUX01BWCBzaG91bGQgYmUg
-c3VmZmljaWVudC4KCklmIHdlIGNvbXBhcmUgYWdhaW5zdCBLVk1fUklTQ1ZfSVNBX0VYVF9NQVgg
-dGhlbiB3ZSB3aWxsIGZvcmdldAphZGRpbmcgdGVzdCBjb25maWdzIGZvciBuZXdlciBJU0EgZXh0
-ZW5zaW9ucy4KCj4KPiA+IEZpeGVzOiA0NzcwNjkzOThlZDYgKCJLVk06IHJpc2N2OiBzZWxmdGVz
-dHM6IEFkZCBnZXQtcmVnLWxpc3QgdGVzdCIpCj4gPiBTaWduZWQtb2ZmLWJ5OiBBbnVwIFBhdGVs
-IDxhcGF0ZWxAdmVudGFuYW1pY3JvLmNvbT4KPiA+IC0tLQo+ID4gIC4uLi9zZWxmdGVzdHMva3Zt
-L3Jpc2N2L2dldC1yZWctbGlzdC5jICAgICAgICB8IDM1ICsrKysrKysrKysrLS0tLS0tLS0KPiA+
-ICAxIGZpbGUgY2hhbmdlZCwgMjEgaW5zZXJ0aW9ucygrKSwgMTQgZGVsZXRpb25zKC0pCj4gPgo+
-ID4gZGlmZiAtLWdpdCBhL3Rvb2xzL3Rlc3Rpbmcvc2VsZnRlc3RzL2t2bS9yaXNjdi9nZXQtcmVn
-LWxpc3QuYyBiL3Rvb2xzL3Rlc3Rpbmcvc2VsZnRlc3RzL2t2bS9yaXNjdi9nZXQtcmVnLWxpc3Qu
-Ywo+ID4gaW5kZXggZDhlY2FjZDAzZWNmLi43NmMwYWQxMWU0MjMgMTAwNjQ0Cj4gPiAtLS0gYS90
-b29scy90ZXN0aW5nL3NlbGZ0ZXN0cy9rdm0vcmlzY3YvZ2V0LXJlZy1saXN0LmMKPiA+ICsrKyBi
-L3Rvb2xzL3Rlc3Rpbmcvc2VsZnRlc3RzL2t2bS9yaXNjdi9nZXQtcmVnLWxpc3QuYwo+ID4gQEAg
-LTE0LDE3ICsxNCwzMyBAQAo+ID4KPiA+ICBib29sIGZpbHRlcl9yZWcoX191NjQgcmVnKQo+ID4g
-IHsKPiA+ICsgICAgICAgc3dpdGNoIChyZWcgJiB+UkVHX01BU0spIHsKPiA+ICAgICAgICAgLyoK
-PiA+IC0gICAgICAgICogU29tZSBJU0EgZXh0ZW5zaW9ucyBhcmUgb3B0aW9uYWwgYW5kIG5vdCBw
-cmVzZW50IG9uIGFsbCBob3N0LAo+ID4gLSAgICAgICAgKiBidXQgdGhleSBjYW4ndCBiZSBkaXNh
-YmxlZCB0aHJvdWdoIElTQV9FWFQgcmVnaXN0ZXJzIHdoZW4gcHJlc2VudC4KPiA+IC0gICAgICAg
-ICogU28sIHRvIG1ha2UgbGlmZSBlYXN5LCBqdXN0IGZpbHRlcmluZyBvdXQgdGhlc2Uga2luZCBv
-ZiByZWdpc3RlcnMuCj4gPiArICAgICAgICAqIFNhbWUgc2V0IG9mIElTQV9FWFQgcmVnaXN0ZXJz
-IGFyZSBub3QgcHJlc2VudCBvbiBhbGwgaG9zdCBiZWNhdXNlCj4gPiArICAgICAgICAqIElTQV9F
-WFQgcmVnaXN0ZXJzIGFyZSB2aXNpYmxlIHRvIHRoZSBLVk0gdXNlciBzcGFjZSBiYXNlZCBvbiB0
-aGUKPiA+ICsgICAgICAgICogSVNBIGV4dGVuc2lvbnMgYXZhaWxhYmxlIG9uIHRoZSBob3N0LiBB
-bHNvLCBkaXNhYmxpbmcgYW4gSVNBCj4gPiArICAgICAgICAqIGV4dGVuc2lvbiB1c2luZyBjb3Jy
-ZXNwb25kaW5nIElTQV9FWFQgcmVnaXN0ZXIgZG9lcyBub3QgYWZmZWN0Cj4gPiArICAgICAgICAq
-IHRoZSB2aXNpYmlsaXR5IG9mIHRoZSBJU0FfRVhUIHJlZ2lzdGVyIGl0c2VsZi4KPiA+ICsgICAg
-ICAgICoKPiA+ICsgICAgICAgICogQmFzZWQgb24gYWJvdmUsIHdlIHNob3VsZCBmaWx0ZXItb3V0
-IGFsbCBJU0FfRVhUIHJlZ2lzdGVycy4KPiA+ICAgICAgICAgICovCj4gPiAtICAgICAgIHN3aXRj
-aCAocmVnICYgflJFR19NQVNLKSB7Cj4gPiArICAgICAgIGNhc2UgS1ZNX1JFR19SSVNDVl9JU0Ff
-RVhUIHwgS1ZNX1JJU0NWX0lTQV9FWFRfQToKPiA+ICsgICAgICAgY2FzZSBLVk1fUkVHX1JJU0NW
-X0lTQV9FWFQgfCBLVk1fUklTQ1ZfSVNBX0VYVF9DOgo+ID4gKyAgICAgICBjYXNlIEtWTV9SRUdf
-UklTQ1ZfSVNBX0VYVCB8IEtWTV9SSVNDVl9JU0FfRVhUX0Q6Cj4gPiArICAgICAgIGNhc2UgS1ZN
-X1JFR19SSVNDVl9JU0FfRVhUIHwgS1ZNX1JJU0NWX0lTQV9FWFRfRjoKPiA+ICsgICAgICAgY2Fz
-ZSBLVk1fUkVHX1JJU0NWX0lTQV9FWFQgfCBLVk1fUklTQ1ZfSVNBX0VYVF9IOgo+ID4gKyAgICAg
-ICBjYXNlIEtWTV9SRUdfUklTQ1ZfSVNBX0VYVCB8IEtWTV9SSVNDVl9JU0FfRVhUX0k6Cj4gPiAr
-ICAgICAgIGNhc2UgS1ZNX1JFR19SSVNDVl9JU0FfRVhUIHwgS1ZNX1JJU0NWX0lTQV9FWFRfTToK
-PiA+ICsgICAgICAgY2FzZSBLVk1fUkVHX1JJU0NWX0lTQV9FWFQgfCBLVk1fUklTQ1ZfSVNBX0VY
-VF9TVlBCTVQ6Cj4gPiAgICAgICAgIGNhc2UgS1ZNX1JFR19SSVNDVl9JU0FfRVhUIHwgS1ZNX1JJ
-U0NWX0lTQV9FWFRfU1NUQzoKPiA+ICAgICAgICAgY2FzZSBLVk1fUkVHX1JJU0NWX0lTQV9FWFQg
-fCBLVk1fUklTQ1ZfSVNBX0VYVF9TVklOVkFMOgo+ID4gICAgICAgICBjYXNlIEtWTV9SRUdfUklT
-Q1ZfSVNBX0VYVCB8IEtWTV9SSVNDVl9JU0FfRVhUX1pJSElOVFBBVVNFOgo+ID4gKyAgICAgICBj
-YXNlIEtWTV9SRUdfUklTQ1ZfSVNBX0VYVCB8IEtWTV9SSVNDVl9JU0FfRVhUX1pJQ0JPTToKPiA+
-ICsgICAgICAgY2FzZSBLVk1fUkVHX1JJU0NWX0lTQV9FWFQgfCBLVk1fUklTQ1ZfSVNBX0VYVF9a
-SUNCT1o6Cj4gPiAgICAgICAgIGNhc2UgS1ZNX1JFR19SSVNDVl9JU0FfRVhUIHwgS1ZNX1JJU0NW
-X0lTQV9FWFRfWkJCOgo+ID4gICAgICAgICBjYXNlIEtWTV9SRUdfUklTQ1ZfSVNBX0VYVCB8IEtW
-TV9SSVNDVl9JU0FfRVhUX1NTQUlBOgo+ID4gKyAgICAgICBjYXNlIEtWTV9SRUdfUklTQ1ZfSVNB
-X0VYVCB8IEtWTV9SSVNDVl9JU0FfRVhUX1Y6Cj4gPiArICAgICAgIGNhc2UgS1ZNX1JFR19SSVND
-Vl9JU0FfRVhUIHwgS1ZNX1JJU0NWX0lTQV9FWFRfU1ZOQVBPVDoKPiA+ICAgICAgICAgY2FzZSBL
-Vk1fUkVHX1JJU0NWX0lTQV9FWFQgfCBLVk1fUklTQ1ZfSVNBX0VYVF9aQkE6Cj4gPiAgICAgICAg
-IGNhc2UgS1ZNX1JFR19SSVNDVl9JU0FfRVhUIHwgS1ZNX1JJU0NWX0lTQV9FWFRfWkJTOgo+ID4g
-ICAgICAgICBjYXNlIEtWTV9SRUdfUklTQ1ZfSVNBX0VYVCB8IEtWTV9SSVNDVl9JU0FfRVhUX1pJ
-Q05UUjoKPiA+IEBAIC01MCwxMiArNjYsNyBAQCBzdGF0aWMgaW5saW5lIGJvb2wgdmNwdV9oYXNf
-ZXh0KHN0cnVjdCBrdm1fdmNwdSAqdmNwdSwgaW50IGV4dCkKPiA+ICAgICAgICAgdW5zaWduZWQg
-bG9uZyB2YWx1ZTsKPiA+Cj4gPiAgICAgICAgIHJldCA9IF9fdmNwdV9nZXRfcmVnKHZjcHUsIFJJ
-U0NWX0lTQV9FWFRfUkVHKGV4dCksICZ2YWx1ZSk7Cj4gPiAtICAgICAgIGlmIChyZXQpIHsKPiA+
-IC0gICAgICAgICAgICAgICBwcmludGYoIkZhaWxlZCB0byBnZXQgZXh0ICVkIiwgZXh0KTsKPiA+
-IC0gICAgICAgICAgICAgICByZXR1cm4gZmFsc2U7Cj4gPiAtICAgICAgIH0KPiA+IC0KPiA+IC0g
-ICAgICAgcmV0dXJuICEhdmFsdWU7Cj4gPiArICAgICAgIHJldHVybiAocmV0KSA/IGZhbHNlIDog
-ISF2YWx1ZTsKPiA+ICB9Cj4gPgo+ID4gIHZvaWQgZmluYWxpemVfdmNwdShzdHJ1Y3Qga3ZtX3Zj
-cHUgKnZjcHUsIHN0cnVjdCB2Y3B1X3JlZ19saXN0ICpjKQo+ID4gQEAgLTUwNiwxMCArNTE3LDYg
-QEAgc3RhdGljIF9fdTY0IGJhc2VfcmVnc1tdID0gewo+ID4gICAgICAgICBLVk1fUkVHX1JJU0NW
-IHwgS1ZNX1JFR19TSVpFX1U2NCB8IEtWTV9SRUdfUklTQ1ZfVElNRVIgfCBLVk1fUkVHX1JJU0NW
-X1RJTUVSX1JFRyh0aW1lKSwKPiA+ICAgICAgICAgS1ZNX1JFR19SSVNDViB8IEtWTV9SRUdfU0la
-RV9VNjQgfCBLVk1fUkVHX1JJU0NWX1RJTUVSIHwgS1ZNX1JFR19SSVNDVl9USU1FUl9SRUcoY29t
-cGFyZSksCj4gPiAgICAgICAgIEtWTV9SRUdfUklTQ1YgfCBLVk1fUkVHX1NJWkVfVTY0IHwgS1ZN
-X1JFR19SSVNDVl9USU1FUiB8IEtWTV9SRUdfUklTQ1ZfVElNRVJfUkVHKHN0YXRlKSwKPiA+IC0g
-ICAgICAgS1ZNX1JFR19SSVNDViB8IEtWTV9SRUdfU0laRV9VTE9ORyB8IEtWTV9SRUdfUklTQ1Zf
-SVNBX0VYVCB8IEtWTV9SSVNDVl9JU0FfRVhUX0EsCj4gPiAtICAgICAgIEtWTV9SRUdfUklTQ1Yg
-fCBLVk1fUkVHX1NJWkVfVUxPTkcgfCBLVk1fUkVHX1JJU0NWX0lTQV9FWFQgfCBLVk1fUklTQ1Zf
-SVNBX0VYVF9DLAo+ID4gLSAgICAgICBLVk1fUkVHX1JJU0NWIHwgS1ZNX1JFR19TSVpFX1VMT05H
-IHwgS1ZNX1JFR19SSVNDVl9JU0FfRVhUIHwgS1ZNX1JJU0NWX0lTQV9FWFRfSSwKPiA+IC0gICAg
-ICAgS1ZNX1JFR19SSVNDViB8IEtWTV9SRUdfU0laRV9VTE9ORyB8IEtWTV9SRUdfUklTQ1ZfSVNB
-X0VYVCB8IEtWTV9SSVNDVl9JU0FfRVhUX00sCj4gPiAgICAgICAgIEtWTV9SRUdfUklTQ1YgfCBL
-Vk1fUkVHX1NJWkVfVUxPTkcgfCBLVk1fUkVHX1JJU0NWX1NCSV9FWFQgfCBLVk1fUkVHX1JJU0NW
-X1NCSV9TSU5HTEUgfCBLVk1fUklTQ1ZfU0JJX0VYVF9WMDEsCj4gPiAgICAgICAgIEtWTV9SRUdf
-UklTQ1YgfCBLVk1fUkVHX1NJWkVfVUxPTkcgfCBLVk1fUkVHX1JJU0NWX1NCSV9FWFQgfCBLVk1f
-UkVHX1JJU0NWX1NCSV9TSU5HTEUgfCBLVk1fUklTQ1ZfU0JJX0VYVF9USU1FLAo+ID4gICAgICAg
-ICBLVk1fUkVHX1JJU0NWIHwgS1ZNX1JFR19TSVpFX1VMT05HIHwgS1ZNX1JFR19SSVNDVl9TQklf
-RVhUIHwgS1ZNX1JFR19SSVNDVl9TQklfU0lOR0xFIHwgS1ZNX1JJU0NWX1NCSV9FWFRfSVBJLAo+
-ID4gLS0KPiA+IDIuMzQuMQo+ID4KPgo+Cj4gLS0KPiBSZWdhcmRzLAo+IEF0aXNoCgpSZWdhcmRz
-LApBbnVwCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwps
-aW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpo
-dHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Tue, Sep 19, 2023, Binbin Wu wrote:
+> 
+> 
+> On 9/14/2023 9:55 AM, Sean Christopherson wrote:
+> [...]
+> > +
+> > +static void kvm_gmem_invalidate_begin(struct kvm_gmem *gmem, pgoff_t start,
+> > +				      pgoff_t end)
+> > +{
+> > +	struct kvm_memory_slot *slot;
+> > +	struct kvm *kvm = gmem->kvm;
+> > +	unsigned long index;
+> > +	bool flush = false;
+> > +
+> > +	KVM_MMU_LOCK(kvm);
+> > +
+> > +	kvm_mmu_invalidate_begin(kvm);
+> > +
+> > +	xa_for_each_range(&gmem->bindings, index, slot, start, end - 1) {
+> > +		pgoff_t pgoff = slot->gmem.pgoff;
+> > +
+> > +		struct kvm_gfn_range gfn_range = {
+> > +			.start = slot->base_gfn + max(pgoff, start) - pgoff,
+> > +			.end = slot->base_gfn + min(pgoff + slot->npages, end) - pgoff,
+> > +			.slot = slot,
+> > +			.may_block = true,
+> > +		};
+> > +
+> > +		flush |= kvm_mmu_unmap_gfn_range(kvm, &gfn_range);
+> > +	}
+> > +
+> > +	if (flush)
+> > +		kvm_flush_remote_tlbs(kvm);
+> > +
+> > +	KVM_MMU_UNLOCK(kvm);
+> > +}
+> > +
+> > +static void kvm_gmem_invalidate_end(struct kvm_gmem *gmem, pgoff_t start,
+> > +				    pgoff_t end)
+> > +{
+> > +	struct kvm *kvm = gmem->kvm;
+> > +
+> > +	KVM_MMU_LOCK(kvm);
+> > +	if (xa_find(&gmem->bindings, &start, end - 1, XA_PRESENT))
+> > +		kvm_mmu_invalidate_end(kvm);
+> kvm_mmu_invalidate_begin() is called unconditionally in
+> kvm_gmem_invalidate_begin(),
+> but kvm_mmu_invalidate_end() is not here.
+> This makes the kvm_gmem_invalidate_{begin, end}() calls asymmetric.
+
+Another ouch :-(
+
+And there should be no need to acquire mmu_lock() unconditionally, the inode's
+mutex protects the bindings, not mmu_lock.
+
+I'll get a fix posted today.  I think KVM can also add a sanity check to detect
+unresolved invalidations, e.g.
+
+diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
+index 7ba1ab1832a9..2a2d18070856 100644
+--- a/virt/kvm/kvm_main.c
++++ b/virt/kvm/kvm_main.c
+@@ -1381,8 +1381,13 @@ static void kvm_destroy_vm(struct kvm *kvm)
+         * No threads can be waiting in kvm_swap_active_memslots() as the
+         * last reference on KVM has been dropped, but freeing
+         * memslots would deadlock without this manual intervention.
++        *
++        * If the count isn't unbalanced, i.e. KVM did NOT unregister between
++        * a start() and end(), then there shouldn't be any in-progress
++        * invalidations.
+         */
+        WARN_ON(rcuwait_active(&kvm->mn_memslots_update_rcuwait));
++       WARN_ON(!kvm->mn_active_invalidate_count && kvm->mmu_invalidate_in_progress);
+        kvm->mn_active_invalidate_count = 0;
+ #else
+        kvm_flush_shadow_all(kvm);
+
+
+or an alternative style
+
+	if (kvm->mn_active_invalidate_count)
+		kvm->mn_active_invalidate_count = 0;
+	else
+		WARN_ON(kvm->mmu_invalidate_in_progress)
+
+> > +	KVM_MMU_UNLOCK(kvm);
+> > +}
+> > +
+> > +static long kvm_gmem_punch_hole(struct inode *inode, loff_t offset, loff_t len)
+> > +{
+> > +	struct list_head *gmem_list = &inode->i_mapping->private_list;
+> > +	pgoff_t start = offset >> PAGE_SHIFT;
+> > +	pgoff_t end = (offset + len) >> PAGE_SHIFT;
+> > +	struct kvm_gmem *gmem;
+> > +
+> > +	/*
+> > +	 * Bindings must stable across invalidation to ensure the start+end
+> > +	 * are balanced.
+> > +	 */
+> > +	filemap_invalidate_lock(inode->i_mapping);
+> > +
+> > +	list_for_each_entry(gmem, gmem_list, entry) {
+> > +		kvm_gmem_invalidate_begin(gmem, start, end);
+> > +		kvm_gmem_invalidate_end(gmem, start, end);
+> > +	}
+> Why to loop for each gmem in gmem_list here?
+> 
+> IIUIC, offset is the offset according to the inode, it is only meaningful to
+> the inode passed in, i.e, it is only meaningful to the gmem binding with the
+> inode, not others.
+
+The code is structured to allow for multiple gmem instances per inode.  This isn't
+actually possible in the initial code base, but it's on the horizon[*].  I included
+the list-based infrastructure in this initial series to ensure that guest_memfd
+can actually support multiple files per inode, and to minimize the churn when the
+"link" support comes along.
+
+[*] https://lore.kernel.org/all/cover.1691446946.git.ackerleytng@google.com
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
