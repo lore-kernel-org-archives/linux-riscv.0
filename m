@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5C96CE79AC
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 Sep 2023 05:14:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B573DCE79AD
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 Sep 2023 05:24:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CzBE14NZkES1fdvtwJK6InCvCZKfpb2RU8p3HECIDUE=; b=CMzFZHLfH1Lu3O
-	6t3iqnarbcLqaPt2aQW2qbcBgiAsrcmTLvUTTzkcZWgLC298Hzzgz3rfzMcTUUND7UI1uPdaJ98nC
-	tJunsgC1WW7s4oBQDxAUjUda6H/by4LmHPTXAYyRxRO5jvzjy1BU3sUPwP90dluAtCLuAv885zk9z
-	WtekQ07jCqwyJqg+8cOxXOmaVpfRJPtGZWqZI17RGf9kBhqKuShbd8g5qewQutbMpCuugCn0tbwJQ
-	QegF1nw4UueISNfL4Jx6eQyMKBLNHOiDbG9Vi08vYOgzWah3COVnO0fyxwxmWPe71auR4pgOuKul1
-	Redv09wMOUsxa9yr4pAQ==;
+	List-Owner; bh=gScP8yOVAw5icuu28HhgcMRIp1v3HlvMaXNSVklPLto=; b=XuwLfc7AnMJ9ro
+	tZBbZ9DfBSFiHDigwBeajISEvHOQGVpMattBPtE/DTLYX2b8qtXHhaAKncJD/gPlVHEfH9Pt3TGxZ
+	GrxuUObbeusIyWgmz6+IW6rNgwxJIpTOGvrTXlntalS4i//VlnmVUctKByKQCRA+LeqhMZ1oyf3k4
+	HCYXZX01TduXCMx6YNUXrLPFIWskhJ2zzRx9OfBBoWa4aAaeBYW8gdS3SXoetzvQWYZtuST3wVjvF
+	YPWY14/MxzYlTYYFXlT+SQnukly7rXpMg8khkGoVdU57HI9Khv8+m/5x/wXGoe7D1q7tYO2nn36m1
+	E8R0ibS/F5ssd0o1d6JA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qipXH-001tTJ-2L;
-	Wed, 20 Sep 2023 05:14:03 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1qiphF-001uIL-1I;
+	Wed, 20 Sep 2023 05:24:21 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qipXE-001tRN-2v
+	id 1qiphC-001uHV-30
 	for linux-riscv@lists.infradead.org;
-	Wed, 20 Sep 2023 05:14:02 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-40413ccdd4cso2949755e9.0
-        for <linux-riscv@lists.infradead.org>; Tue, 19 Sep 2023 22:13:55 -0700 (PDT)
+	Wed, 20 Sep 2023 05:24:20 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-404314388ceso68540005e9.2
+        for <linux-riscv@lists.infradead.org>; Tue, 19 Sep 2023 22:24:18 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1695186833; x=1695791633; darn=lists.infradead.org;
+        d=ventanamicro.com; s=google; t=1695187457; x=1695792257; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=nA7XftN55Rzt443xAle+6ZlQo/LHZ8P1ArIv8UK8Is8=;
-        b=GTmk1O0Pkkk/LjexWvjr22RhdYfGKHzVwvX8/JwBiY43zKV0VtexNDSlVVjXKnbIYz
-         FC0bA+jR7eEBL9o+3cksyJ03fymnrhYf1EzSI5b+vFapszu8zo2/E7Dc4/cvMYQyEJpy
-         reAuLJ4EZcJVMK6orAorY0++k9vFDldUgc9YOCBF6XLVbH7bHiRXJlqa+l2aKffbgkmB
-         RA5D5zuW9PN8Wy89CgjEd6Lzo1rzC4GmL9RroWxbwmtFxPNfc1DBGoUIpI6Eg0+mNatq
-         UGFvQOdDBKK8nh97E7gvpGR+0OiEnAYvbwzeNCu3rctUDDM/nWyfxtGb13ywfcuxLkZH
-         jF6Q==
+        bh=FdkiLvHF9gidro/3KgiAkGZtbptKxwZzl5vmZkiG0XI=;
+        b=dtCtUKtW+EZJChIilpP99Z5yIUrbcX2+ZYADbSC1Rir1qlchGN2ND9fuju6tVYJhwC
+         PpE+A2ETrQ2GBrXSnZugofAr1MN4pEgyawvwCgV6SoB2n9B442OUNqYewRY84se3k9EG
+         O+8YX7QtvuvDli6SRNGKRywqAMWhnInR4Kmc/HZevDo71XTcsy6JFXRHojhDCMWIjDLO
+         ir2KcNPF6GWWrTAHoPVs4bHLF/oKXnj+REuISUL34Vq/953/d4VlE4b6+vRN/nfB9czC
+         nFjEYSwlBM9FeEqB8scexj73N3YlmOol+/8UeAOirWeiscxf0+eWLyGdqVM6rhN7AIoU
+         eadw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1695186833; x=1695791633;
+        d=1e100.net; s=20230601; t=1695187457; x=1695792257;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=nA7XftN55Rzt443xAle+6ZlQo/LHZ8P1ArIv8UK8Is8=;
-        b=FkLsL3iJSINps7sCUzc/0ab2CCtM85xcD8/gKA3wWuG6IbDKpRmYgWucqt40S+F+1U
-         MLkocvRiutxi6CHusRco9Evqyo+vPvJCFKgEekoTinI5vG5mRcpXvGJnmTe1El2Gsbn4
-         DYJ///VJWX0V5lPNjJQIWLaCQCF4FHs1GTajIvIMS1CC3dTDxUP2xsMaDjYQaGwDByPN
-         3pNQgoslWT5eNqtTZvF+i7PPiHZrrdJiQR7NKLCH3afLOKOrLr+SL55KfJFub1rS7kLW
-         XvrlRscFAQzrYvhruzaqJBURYRDdVmsnhop+Des24413hbyaEXiWM+AX68jCtVcPvv3d
-         fz1A==
-X-Gm-Message-State: AOJu0YzsX+n4Bsh9r2kJ7gR1OX0bXb3541obnL6UU9MQLgVZZLUJfz+2
-	IeVG9v8yTNNNd32g/UeVEK0z2A==
-X-Google-Smtp-Source: AGHT+IFZ2CL+IU2qwUWM9cnEzbB80cRIpZX4g3i3VlY2xsCXTMrHZNyExNRtNkpOkCGAttCle3BkPg==
-X-Received: by 2002:adf:f9c5:0:b0:31f:f9e8:3fce with SMTP id w5-20020adff9c5000000b0031ff9e83fcemr3545885wrr.16.1695186833161;
-        Tue, 19 Sep 2023 22:13:53 -0700 (PDT)
+        bh=FdkiLvHF9gidro/3KgiAkGZtbptKxwZzl5vmZkiG0XI=;
+        b=C8jlReOsPgFMQiieLgq8+Dfh5Ho6rGCEbla3wEeZODYqPzZdOeBayxFdPzGAxNqrqk
+         YkNP2yTRNklBxgrXcDAnfRgpcLBXEo3evwosor4+Zi4hjwfliUJqFj2+Nh7JuSTvpsmG
+         n1R4bnyPzNrHpRcXDHvFBL5WfwF2RE1rAppBHiqbj/F6ZZPcH6hdGBi/vQOEa31Ar2DN
+         eGP319Z5k6D+kqD8fxepvs3spqkxCdXlJybdltc6f9AyVWPe5aprI2C7+awmvVsLLiAR
+         ZtO9Jc8BIMU1/aCttsKmMJlYDuHlzlGJee1+vLJpDN7DsNsZ32f8ji8oEa/hcXIREgF/
+         WU5w==
+X-Gm-Message-State: AOJu0YxWl30+6SSWifzmzZZI79KbeuejR3p3WGltuc0z6MAKqe4wXax6
+	9dQsNlM1TlBPrV75ZU7KJ98oGA==
+X-Google-Smtp-Source: AGHT+IHQdxfJ+WR4PPpqSYssTciQLBDW93+4eJ8/sDeDDHyZEJdTgHQCz4eKTxKGB5HuEUnCpOx01Q==
+X-Received: by 2002:a1c:f702:0:b0:402:f5c4:2e5a with SMTP id v2-20020a1cf702000000b00402f5c42e5amr1429426wmh.37.1695187457228;
+        Tue, 19 Sep 2023 22:24:17 -0700 (PDT)
 Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
-        by smtp.gmail.com with ESMTPSA id l21-20020a7bc455000000b003fee8502999sm863420wmi.18.2023.09.19.22.13.52
+        by smtp.gmail.com with ESMTPSA id p5-20020a7bcc85000000b003fe407ca05bsm874397wma.37.2023.09.19.22.24.16
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 19 Sep 2023 22:13:52 -0700 (PDT)
-Date: Wed, 20 Sep 2023 07:13:52 +0200
+        Tue, 19 Sep 2023 22:24:16 -0700 (PDT)
+Date: Wed, 20 Sep 2023 07:24:16 +0200
 From: Andrew Jones <ajones@ventanamicro.com>
 To: Anup Patel <apatel@ventanamicro.com>
 Cc: Paolo Bonzini <pbonzini@redhat.com>, 
@@ -69,17 +69,17 @@ Cc: Paolo Bonzini <pbonzini@redhat.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, kvm@vger.kernel.org, 
 	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
 	linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH 3/4] KVM: riscv: selftests: Fix ISA_EXT register handling
- in get-reg-list
-Message-ID: <20230920-c166b288c4c1c17144dc3709@orel>
+Subject: Re: [PATCH 4/4] KVM: riscv: selftests: Selectively filter-out AIA
+ registers
+Message-ID: <20230920-d524c40b616536d0ad8213c3@orel>
 References: <20230918180646.1398384-1-apatel@ventanamicro.com>
- <20230918180646.1398384-4-apatel@ventanamicro.com>
+ <20230918180646.1398384-5-apatel@ventanamicro.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20230918180646.1398384-4-apatel@ventanamicro.com>
+In-Reply-To: <20230918180646.1398384-5-apatel@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230919_221400_949163_9FFC504A 
-X-CRM114-Status: GOOD (  21.62  )
+X-CRM114-CacheID: sfid-20230919_222418_971739_92CC2BFA 
+X-CRM114-Status: GOOD (  25.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,99 +96,90 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 18, 2023 at 11:36:45PM +0530, Anup Patel wrote:
-> Same set of ISA_EXT registers are not present on all host because
-> ISA_EXT registers are visible to the KVM user space based on the
-> ISA extensions available on the host. Also, disabling an ISA
-> extension using corresponding ISA_EXT register does not affect
-> the visibility of the ISA_EXT register itself.
+On Mon, Sep 18, 2023 at 11:36:46PM +0530, Anup Patel wrote:
+> Currently the AIA ONE_REG registers are reported by get-reg-list
+> as new registers for various vcpu_reg_list configs whenever Ssaia
+> is available on the host because Ssaia extension can only be
+> disabled by Smstateen extension which is not always available.
 > 
-> Based on the above, we should filter-out all ISA_EXT registers.
+> To tackle this, we should filter-out AIA ONE_REG registers only
+> when Ssaia can't be disabled for a VCPU.
 > 
 > Fixes: 477069398ed6 ("KVM: riscv: selftests: Add get-reg-list test")
 > Signed-off-by: Anup Patel <apatel@ventanamicro.com>
 > ---
->  .../selftests/kvm/riscv/get-reg-list.c        | 35 +++++++++++--------
->  1 file changed, 21 insertions(+), 14 deletions(-)
+>  .../selftests/kvm/riscv/get-reg-list.c        | 23 +++++++++++++++++--
+>  1 file changed, 21 insertions(+), 2 deletions(-)
 > 
 > diff --git a/tools/testing/selftests/kvm/riscv/get-reg-list.c b/tools/testing/selftests/kvm/riscv/get-reg-list.c
-> index d8ecacd03ecf..76c0ad11e423 100644
+> index 76c0ad11e423..85907c86b835 100644
 > --- a/tools/testing/selftests/kvm/riscv/get-reg-list.c
 > +++ b/tools/testing/selftests/kvm/riscv/get-reg-list.c
-> @@ -14,17 +14,33 @@
+> @@ -12,6 +12,8 @@
 >  
+>  #define REG_MASK (KVM_REG_ARCH_MASK | KVM_REG_SIZE_MASK)
+>  
+> +static bool isa_ext_cant_disable[KVM_RISCV_ISA_EXT_MAX];
+> +
 >  bool filter_reg(__u64 reg)
 >  {
-> +	switch (reg & ~REG_MASK) {
->  	/*
-> -	 * Some ISA extensions are optional and not present on all host,
-> -	 * but they can't be disabled through ISA_EXT registers when present.
-> -	 * So, to make life easy, just filtering out these kind of registers.
-> +	 * Same set of ISA_EXT registers are not present on all host because
-> +	 * ISA_EXT registers are visible to the KVM user space based on the
-> +	 * ISA extensions available on the host. Also, disabling an ISA
-> +	 * extension using corresponding ISA_EXT register does not affect
-> +	 * the visibility of the ISA_EXT register itself.
-> +	 *
-> +	 * Based on above, we should filter-out all ISA_EXT registers.
->  	 */
-> -	switch (reg & ~REG_MASK) {
-> +	case KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_A:
-> +	case KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_C:
-> +	case KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_D:
-> +	case KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_F:
-> +	case KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_H:
-> +	case KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_I:
-> +	case KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_M:
-> +	case KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_SVPBMT:
->  	case KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_SSTC:
->  	case KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_SVINVAL:
->  	case KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_ZIHINTPAUSE:
-> +	case KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_ZICBOM:
-> +	case KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_ZICBOZ:
->  	case KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_ZBB:
->  	case KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_SSAIA:
-> +	case KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_V:
-> +	case KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_SVNAPOT:
->  	case KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_ZBA:
->  	case KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_ZBS:
->  	case KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_ZICNTR:
-> @@ -50,12 +66,7 @@ static inline bool vcpu_has_ext(struct kvm_vcpu *vcpu, int ext)
->  	unsigned long value;
->  
->  	ret = __vcpu_get_reg(vcpu, RISCV_ISA_EXT_REG(ext), &value);
-> -	if (ret) {
-> -		printf("Failed to get ext %d", ext);
-> -		return false;
-> -	}
-> -
-> -	return !!value;
-> +	return (ret) ? false : !!value;
+>  	switch (reg & ~REG_MASK) {
+> @@ -48,6 +50,15 @@ bool filter_reg(__u64 reg)
+>  	case KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_ZIFENCEI:
+>  	case KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_ZIHPM:
+>  		return true;
+> +	/* AIA registers are always available when Ssaia can't be disabled */
+> +	case KVM_REG_RISCV_CSR | KVM_REG_RISCV_CSR_AIA | KVM_REG_RISCV_CSR_AIA_REG(siselect):
+> +	case KVM_REG_RISCV_CSR | KVM_REG_RISCV_CSR_AIA | KVM_REG_RISCV_CSR_AIA_REG(iprio1):
+> +	case KVM_REG_RISCV_CSR | KVM_REG_RISCV_CSR_AIA | KVM_REG_RISCV_CSR_AIA_REG(iprio2):
+> +	case KVM_REG_RISCV_CSR | KVM_REG_RISCV_CSR_AIA | KVM_REG_RISCV_CSR_AIA_REG(sieh):
+> +	case KVM_REG_RISCV_CSR | KVM_REG_RISCV_CSR_AIA | KVM_REG_RISCV_CSR_AIA_REG(siph):
+> +	case KVM_REG_RISCV_CSR | KVM_REG_RISCV_CSR_AIA | KVM_REG_RISCV_CSR_AIA_REG(iprio1h):
+> +	case KVM_REG_RISCV_CSR | KVM_REG_RISCV_CSR_AIA | KVM_REG_RISCV_CSR_AIA_REG(iprio2h):
+> +		return isa_ext_cant_disable[KVM_RISCV_ISA_EXT_SSAIA] ? true : false;
 
-This is an unrelated change, but OK. It's consistent with the plan[1] we
-have on the timer test series
+No need for the '? true : false'
 
-[1] https://lore.kernel.org/all/20230914-d6645bbc5ac80999674e9685@orel/
-
->  }
+>  	default:
+>  		break;
+>  	}
+> @@ -71,14 +82,22 @@ static inline bool vcpu_has_ext(struct kvm_vcpu *vcpu, int ext)
 >  
 >  void finalize_vcpu(struct kvm_vcpu *vcpu, struct vcpu_reg_list *c)
-> @@ -506,10 +517,6 @@ static __u64 base_regs[] = {
->  	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_TIMER | KVM_REG_RISCV_TIMER_REG(time),
->  	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_TIMER | KVM_REG_RISCV_TIMER_REG(compare),
->  	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_TIMER | KVM_REG_RISCV_TIMER_REG(state),
-> -	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_A,
-> -	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_C,
-> -	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_I,
-> -	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_M,
->  	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_SBI_EXT | KVM_REG_RISCV_SBI_SINGLE | KVM_RISCV_SBI_EXT_V01,
->  	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_SBI_EXT | KVM_REG_RISCV_SBI_SINGLE | KVM_RISCV_SBI_EXT_TIME,
->  	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_SBI_EXT | KVM_REG_RISCV_SBI_SINGLE | KVM_RISCV_SBI_EXT_IPI,
+>  {
+> +	int rc;
+>  	struct vcpu_reg_sublist *s;
+> +	unsigned long isa_ext_state[KVM_RISCV_ISA_EXT_MAX] = { 0 };
+
+nit: I think we prefer reverse xmas tree in kselftests, but whatever.
+
+> +
+> +	for (int i = 0; i < KVM_RISCV_ISA_EXT_MAX; i++)
+> +		__vcpu_get_reg(vcpu, RISCV_ISA_EXT_REG(i), &isa_ext_state[i]);
+>  
+>  	/*
+>  	 * Disable all extensions which were enabled by default
+>  	 * if they were available in the risc-v host.
+>  	 */
+> -	for (int i = 0; i < KVM_RISCV_ISA_EXT_MAX; i++)
+> -		__vcpu_set_reg(vcpu, RISCV_ISA_EXT_REG(i), 0);
+> +	for (int i = 0; i < KVM_RISCV_ISA_EXT_MAX; i++) {
+> +		rc = __vcpu_set_reg(vcpu, RISCV_ISA_EXT_REG(i), 0);
+> +		if (rc && isa_ext_state[i])
+
+How helpful is it to check that isa_ext_state[i] isn't zero? The value of
+the register could be zero, right? Shouldn't we instead capture the return
+values from __vcpu_get_reg and if the return value is zero for a get,
+but nonzero for a set, then we know we have it, but can't disable it.
+
+> +			isa_ext_cant_disable[i] = true;
+> +	}
+>  
+>  	for_each_sublist(c, s) {
+>  		if (!s->feature)
 > -- 
 > 2.34.1
 >
-
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
 
 Thanks,
 drew
