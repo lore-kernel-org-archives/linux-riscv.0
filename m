@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEB6BCE79AC
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 Sep 2023 06:37:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49D35CE79AD
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 Sep 2023 06:38:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0apQF62ATgbcErM25H15HSq6aoRRofSZ/cI3cRXyy7U=; b=zwODWYzyhICS+K
-	/R78lhmTbkcixKjc9VAENubHQJH3BRtJwRcHH60WByJorekd9fu44nwDHrPqu6fb8StaohVRy0U3r
-	6IWlXj6aQ4Qi2ybK1zrdIOkDSkl1fBCjRGLIqN2A/M4I+rg3cfLEv6Ym05zz0zmtDN6Wdl8ZTGYpA
-	hqlrY5h2/79Bji1VYxKDAKWtZzffzu7ARp5cooW8T39/ZePtAu7ihnpamYe8D+pY5+9BBzoF9TQ9h
-	w1fWoKTY6oYvYzs1DR7uwTGmKUwwg/Zi5GMgrYbR18dq7YiKtDDVGnIdGGOHDEzn5keIBWSrWy0H3
-	4wPMhmKOP0wznkMYmoNw==;
+	List-Owner; bh=kqKv8tAXNsVOsu43PRXUR1elQ6qjbVcbwiHJHVm/lek=; b=IEru0ZKKVUuanQ
+	KhBpqKSZI/AOD6sHmXJX2FmN+2lCebrVIMx14jSoxOQakiGAH8BT0qyKuz5k0OejPXM81gHhHv6uj
+	e4b24WP9Xu5r87WAnXR8hAOLh0rx79XdTsAFHjQ6HrceFy4Kh1sVAcGuKYLRjZGXFQWZQyHkQc7go
+	FYHxDxSiuj1xx+OWZxydXYegKcB+yjDNxHixwy/nST/zNI9f3f2Mr8LfNUc8bYybpra8KYql9vaZh
+	Yh5u0vZuW3Pohdl2xnBwqmxywz9u8U0GFdwc9dmQFnDxHuN8+MkhJX7hgYXl2gMH6NE6ctbYVsZIE
+	cnOQLUzDeZ39DNkZnswA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qiqqC-0022Fb-2P;
-	Wed, 20 Sep 2023 06:37:40 +0000
-Received: from mail-oi1-x231.google.com ([2607:f8b0:4864:20::231])
+	id 1qiqqZ-0022Jp-35;
+	Wed, 20 Sep 2023 06:38:03 +0000
+Received: from mail-oi1-x234.google.com ([2607:f8b0:4864:20::234])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qiqq9-0022Ez-1J
+	id 1qiqqX-0022JH-1I
 	for linux-riscv@lists.infradead.org;
-	Wed, 20 Sep 2023 06:37:38 +0000
-Received: by mail-oi1-x231.google.com with SMTP id 5614622812f47-3a9b41ffe12so4457822b6e.3
-        for <linux-riscv@lists.infradead.org>; Tue, 19 Sep 2023 23:37:36 -0700 (PDT)
+	Wed, 20 Sep 2023 06:38:02 +0000
+Received: by mail-oi1-x234.google.com with SMTP id 5614622812f47-3adcec86a8cso2034064b6e.3
+        for <linux-riscv@lists.infradead.org>; Tue, 19 Sep 2023 23:37:58 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1695191855; x=1695796655; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1695191878; x=1695796678; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=kQ6NBSLffyQDUyw9Nsh5Ze1xMH7VpdACEUTAmC664ss=;
-        b=lJSdkntanqbTQ9JrSqygLNdrDj9Uq3j+6+Uwczzrt/Fw7ZGW5yJXG8GouZoMWHH6d5
-         HDV5IxYK3aBz8YK86/dx3FC13sUTebNtfMZwu/PYisL5oqFIbJMRnGk6BQwKT/EQbg63
-         6zQytrgEciRhzS2SFZagX79JkR10ikT6xQKepjaU8dna3vVNNlWEMyz/xExlE9/C+a5t
-         O/diKlAua5gsc8+ZbhU31rB8XFpLjnC8FV2gb9LSF2hnvDWNN1OYStMT7U3snR3v9tZo
-         Mb9Ki8grPWaRoZALP86V49z5KwBw9V1StRB+dlDuUmRMQLTYRbYQ8owt0FhjWr2uVyAI
-         vU/A==
+        bh=BV+65pRBVYc+OiZ4eNCts7KcqWJoy+uloTJChETlmhw=;
+        b=SzuMbqFZ+zbRR0ymuUXor720mDCgJHACfoxt1o/q9M+cpl70gGpTEg2b214DHVKmeV
+         ULjIHWvvhisUoGYcOwPZvhaCAmkTiB01XP0j8MX6RuI6xCQUC+DfXOX/PAFRfcgv3dT4
+         tIQujfxbP0/VQNqOva9RjjLY6JTKGhhbj+DZ4gM3e6BxoIkhuQIFkvJcaOTlY1Cn2t5v
+         2DkFETezulqKVqo2x+uncpeixdhi/lkRu7hFZIoMs4iUn7VxVB30GJCR+FF3JnytykhL
+         RjD0BM49f0DHuR70vKUAe4Uwk4Ji7tRsIkm+g3J5I5UbF/zT/pQQbl84+hrBf31gfoeQ
+         7CNA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1695191855; x=1695796655;
+        d=1e100.net; s=20230601; t=1695191878; x=1695796678;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=kQ6NBSLffyQDUyw9Nsh5Ze1xMH7VpdACEUTAmC664ss=;
-        b=k6juDgwz5DmCrLUFOuTLr5S6dgRkfQUDynniT/QOp6jbKO/R1fxMqRhMLS3qESigMd
-         wLA76Nwh2HSbwlPCRjuFg/DmTBK30THNaJqcP5E65WxM1gRRnGnJr6Kb3kxIbKO2wtBk
-         2sOWUfLf3MnJhXoitXv8JryHHHEq398u7sNQZblqrrCxNaC1EqT8DQoK3G6Q2tiTE+Wp
-         1JlTJQerdl/7N0MNmDBDvf0jJ3QHU/Vp6pqUly59kUMOylMKn6ueeREHQlqDg7V1qLsD
-         8JrOYra+NbUfOpPnE72R6IaiSRHPEx0e8XvpUtruXyfKhtP1dPALH+fIAq81qCxJ2NE3
-         V5FQ==
-X-Gm-Message-State: AOJu0YxDz7vZgrcOVvQb0hrs4QGa4DhowWnuDgvoj9uj1Up3psNPyicD
-	7sy3KMkyM0vxlFIw9rPF/Tg=
-X-Google-Smtp-Source: AGHT+IE662iIMmE8Tx/TZuSvjCwuu2ZkKy5EsZzZZdv5EWqCqxMdo1lpSdW7efhxPf78AjvV5AejEA==
-X-Received: by 2002:a05:6808:23d6:b0:3ab:81e4:4da0 with SMTP id bq22-20020a05680823d600b003ab81e44da0mr1636330oib.42.1695191855227;
-        Tue, 19 Sep 2023 23:37:35 -0700 (PDT)
+        bh=BV+65pRBVYc+OiZ4eNCts7KcqWJoy+uloTJChETlmhw=;
+        b=D3vBsz3by4k9XtvQ59uzd1K+0kOj7LqcxKtpPZraFU0C3xb6+76v2hvk2gmSpGcFjR
+         oMCUC+VHZDkrS9pzRF9CQ7nV38YP6aOrMQFd9hdofG7oKXdEL4ZYMrSxIZdRsDQHbKIv
+         B0r5dVh2LdFQMAusWrXMOwoMFQY0V2dnbiuYZD3dQQbiOGpIHR1qlGoN3LE3p8jphCvW
+         Gm0MrTXyKXfSe6CZ3NzPPQ53Ngq/3v+9XuoItKKn/2uxrfWnei5lNL8gcydTWKJLV03s
+         Fw3VduF7WhgGrEStZ1aw0Y4x7D8GmdepcOHjmIV1Lsv2gITli2rM6LYZ8/tSaCWw68fd
+         /U4w==
+X-Gm-Message-State: AOJu0YyrkQ4XZkF7BWrygo+g/yPBCZYsfnlNnRIPWRVp3V7774s6iD4W
+	UF2uUpQzFtfp8URS9SUDx0Q=
+X-Google-Smtp-Source: AGHT+IEWvN+C7f9ImWH0k3icxa3OXfImJNQPSPMfPOdPEqIsb7AlzEs3DRJNpMw5aUd0c4iMLMcPNA==
+X-Received: by 2002:a05:6808:1ab3:b0:3a4:225f:a15b with SMTP id bm51-20020a0568081ab300b003a4225fa15bmr1266910oib.31.1695191878115;
+        Tue, 19 Sep 2023 23:37:58 -0700 (PDT)
 Received: from localhost.localdomain ([122.8.183.87])
-        by smtp.gmail.com with ESMTPSA id m2-20020a0568080f0200b003a75593746asm1717253oiw.57.2023.09.19.23.37.34
+        by smtp.gmail.com with ESMTPSA id b19-20020aca2213000000b003a724566afdsm2775185oic.20.2023.09.19.23.37.57
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 19 Sep 2023 23:37:35 -0700 (PDT)
+        Tue, 19 Sep 2023 23:37:57 -0700 (PDT)
 From: Chen Wang <unicornxw@gmail.com>
 X-Google-Original-From: Chen Wang <wangchen20@iscas.ac.cn>
 To: aou@eecs.berkeley.edu,
@@ -79,17 +79,16 @@ To: aou@eecs.berkeley.edu,
 	robh+dt@kernel.org,
 	xiaoguang.xing@sophgo.com
 Cc: Chen Wang <wangchen20@iscas.ac.cn>
-Subject: [PATCH v2 02/11] dt-bindings: vendor-prefixes: add milkv/sophgo
-Date: Wed, 20 Sep 2023 14:37:28 +0800
-Message-Id: <dbd7d823a73d8a9484efcd55f6616f5392daf608.1695189879.git.wangchen20@iscas.ac.cn>
+Subject: [PATCH v2 03/11] dt-bindings: riscv: add sophgo sg2042 bindings
+Date: Wed, 20 Sep 2023 14:37:51 +0800
+Message-Id: <c6aea83bb1df563b1f2a66c5f230c3861aed1e15.1695189879.git.wangchen20@iscas.ac.cn>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <cover.1695189879.git.wangchen20@iscas.ac.cn>
 References: <cover.1695189879.git.wangchen20@iscas.ac.cn>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230919_233737_442191_8D358C58 
-X-CRM114-Status: UNSURE (   8.98  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230919_233801_439706_6FB94F17 
+X-CRM114-Status: GOOD (  12.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,42 +105,73 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add new vendor strings to dt bindings.
-These new vendor strings are used by
-- Sophgo SG2042 SoC [1]
-- Milk-V Pioneer board [2], which uses SG2042 chip.
+Add DT binding documentation for the Sophgo SG2042 Soc [1] and the
+Milk-V Pioneer board [2].
 
 [1]: https://en.sophgo.com/product/introduce/sg2042.html
 [2]: https://milkv.io/pioneer
 
+Acked-by: Chao Wei <chao.wei@sophgo.com>
 Acked-by: Xiaoguang Xing <xiaoguang.xing@sophgo.com>
 Signed-off-by: Chen Wang <wangchen20@iscas.ac.cn>
 ---
- Documentation/devicetree/bindings/vendor-prefixes.yaml | 4 ++++
- 1 file changed, 4 insertions(+)
+ .../devicetree/bindings/riscv/sophgo.yaml     | 28 +++++++++++++++++++
+ MAINTAINERS                                   |  7 +++++
+ 2 files changed, 35 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/riscv/sophgo.yaml
 
-diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
-index 573578db9509..fcca9e070a9a 100644
---- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
-+++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
-@@ -863,6 +863,8 @@ patternProperties:
-     description: MikroElektronika d.o.o.
-   "^mikrotik,.*":
-     description: MikroTik
-+  "^milkv,.*":
-+    description: MilkV Technology Co., Ltd
-   "^miniand,.*":
-     description: Miniand Tech
-   "^minix,.*":
-@@ -1273,6 +1275,8 @@ patternProperties:
-     description: Solomon Systech Limited
-   "^sony,.*":
-     description: Sony Corporation
-+  "^sophgo,.*":
-+    description: Sophgo Technology Inc.
-   "^sourceparts,.*":
-     description: Source Parts Inc.
-   "^spansion,.*":
+diff --git a/Documentation/devicetree/bindings/riscv/sophgo.yaml b/Documentation/devicetree/bindings/riscv/sophgo.yaml
+new file mode 100644
+index 000000000000..82468ae915db
+--- /dev/null
++++ b/Documentation/devicetree/bindings/riscv/sophgo.yaml
+@@ -0,0 +1,28 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/riscv/sophgo.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Sophgo SoC-based boards
++
++maintainers:
++  - Chao Wei <chao.wei@sophgo.com>
++  - Xiaoguang Xing <xiaoguang.xing@sophgo.com>
++
++description:
++  Sophgo SoC-based boards
++
++properties:
++  $nodename:
++    const: '/'
++  compatible:
++    oneOf:
++      - items:
++          - enum:
++              - milkv,pioneer
++          - const: sophgo,sg2042
++
++additionalProperties: true
++
++...
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 90f13281d297..b74d505003e2 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -20063,6 +20063,13 @@ F:	drivers/char/sonypi.c
+ F:	drivers/platform/x86/sony-laptop.c
+ F:	include/linux/sony-laptop.h
+ 
++SOPHGO DEVICETREES
++M:	Xiaoguang Xing <xiaoguang.xing@sophgo.com>
++M:	Chao Wei <chao.wei@sophgo.com>
++S:	Maintained
++F:	Documentation/devicetree/bindings/riscv/sophgo.yaml
++F:	arch/riscv/boot/dts/sophgo/
++
+ SOUND
+ M:	Jaroslav Kysela <perex@perex.cz>
+ M:	Takashi Iwai <tiwai@suse.com>
 -- 
 2.25.1
 
