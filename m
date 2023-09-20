@@ -4,75 +4,126 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F8A5CE79B9
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 Sep 2023 10:18:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DBD1CE79CD
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 Sep 2023 11:24:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
-	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=mFnMiMCbRF3nnY9kbJRMd7B/ILUrsjSYstv12Lpeiq4=; b=pVo7Ye6FnbYW5YewHds6Sxnlz9
-	b/I63jif2DfxxSPvxpjemEu45l5/m4e57xQIxVwFLzxjwDxE7aE1JRJSM0hTT4yom54pFSNErlTJA
-	Pu9rvJnlLGaanbuLVmewEUnsT7OmNMmxpZAWbQz7SbRCygTiR7UW0XnIQnWiDWyMXEZi9PuIag8L2
-	E4jEm5ks1nRypsBlq35XIMjOa0oh/5PAEDINCsU60RuSSQw3KuNSeszYOwHOY33bk2BnoS6+gTHtA
-	uOMdFiXk7zehLr4Ml66mFS28rn2igtNbw3RMRG8mDYSyNyciKDlasWzlC/MOm+IoZw+DxU3EYYrEA
-	a8hio50w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Tj1ugM33Xd5Z02lwjHBLT6A0tdRZo8pX1aH3E3OwFmw=; b=K4X8bWSglptTRd
+	JBP+ekvx78csPK4g2QGvKrIi8x2ixEnBuBLFAdW4H9RokVhH2Lg/hTKEhR3RItN/IUYBBJmAevjt2
+	h6e1b8eGh20P7J9QqnOg07CIIVjgBK6M5MyOnvZDSLaqGSPwg4cIvKDtjJw4fhRkKAg1eY2ctBxVa
+	qAwBiYOKtMt5ZIaUIEVPMplrHK/rMl5kPLY89uvounHDQn2HDVN5CNcsJ2KB9NjkVJootmO75FGmR
+	0BDT0xoUbo0A0i3lpGVN69DFmqiBBMsC+e8HlRJ+sJRQEwX4G1CvYuKnhDkl6y6uLsDzkqK9oW0CD
+	eQ8j+bulFByhe38wEVDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qiuHf-002aKz-31;
-	Wed, 20 Sep 2023 10:18:15 +0000
-Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
+	id 1qivK1-002rgW-2e;
+	Wed, 20 Sep 2023 11:24:45 +0000
+Received: from mail-bn8nam11olkn20800.outbound.protection.outlook.com ([2a01:111:f400:7eae::800] helo=NAM11-BN8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qiuHc-002aJc-1Y
+	id 1qivJy-002rf1-1g
 	for linux-riscv@lists.infradead.org;
-	Wed, 20 Sep 2023 10:18:13 +0000
-Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-1bf7a6509deso49921525ad.3
-        for <linux-riscv@lists.infradead.org>; Wed, 20 Sep 2023 03:18:08 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20230601.gappssmtp.com; s=20230601; t=1695205088; x=1695809888; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=gaiz04gdR9OAn8hUhTxFnO5z/99PYRYgbxmLEMvi0GU=;
-        b=VCVqLL2EVTfPKrj5w2uGKZTCt1YX8cbXbaXpaFIPQw4d2l8wmkbM0zWcVvH5ZV6oah
-         q5DfONG/sgEioh0Jga/5FDuMJylObDVPL+9f4AKUtIbO8lLjLa4SCo2W7EhamwooZtQn
-         WrAvJaJIk34rwlhXBE5H0tdf8+abBVV1RV5wNWK+3LnrmmawDzQohFxdwOGgLR2lanac
-         7UB9B2NCWye7vJiNcD+kgPcsVZ5VZLcPlaYNKCOh0E/9DFcTTnYgxryjVECTwS5Z5HdY
-         pHC240U9W+DosT5V0UsZWiFWSv4s1pyTYzpkjBmAaYmfvPbSzxb+Sl7wgpTNLcNSm0EX
-         2xtg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1695205088; x=1695809888;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=gaiz04gdR9OAn8hUhTxFnO5z/99PYRYgbxmLEMvi0GU=;
-        b=VO9NzOiTS279ZTCGX0/AuRxH1Wutf1E3KZUdZBDYQpQUPeXFSWVMZfkiPRn85yhMJf
-         gOWqQkPgDo40LKXdYwQZ0ABIywXkuckGy9pJIx7+86nnkN9jpFxuofnbVh0OoSNfWMM4
-         V/PE6dK55FkFHnVPP/uSfb9NMduySbU9zCe8ixgf1jvcoDBjT66fUXL1tKq2fXygbILd
-         beobz2J+gDVn+WJB3cqGHfEx/IAEDgGIdpx9DxbpfdvRGoi+U1l8fFRCD4gicOJWoZtN
-         fIaIkttONjG8nN/ZVhFY5MA74eZM/dvYUeiOdWZj/Lo0/uGSrq2OGklJd6vF0rv9XSoo
-         hnqw==
-X-Gm-Message-State: AOJu0YwsPp3t+/PJvYN3V4RwwTNsl6ICAyCbrdxijBr5U3XJil8g1ajK
-	8HIVcBd25RcS6F9XH/cLPrSV3Q==
-X-Google-Smtp-Source: AGHT+IEQYtBpZ58/YQnBwJBLpvN8uGqez/p/gojg8PHBbN+rUIEdYg4vTrGGIU7fSfJ7RgF2tGOjzA==
-X-Received: by 2002:a17:902:748a:b0:1bb:f82f:fb93 with SMTP id h10-20020a170902748a00b001bbf82ffb93mr1759975pll.2.1695205087644;
-        Wed, 20 Sep 2023 03:18:07 -0700 (PDT)
-Received: from localhost ([51.52.155.79])
-        by smtp.gmail.com with ESMTPSA id y4-20020a170902ed4400b001c456b3c012sm7479840plb.298.2023.09.20.03.18.06
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 20 Sep 2023 03:18:07 -0700 (PDT)
-Date: Wed, 20 Sep 2023 03:18:07 -0700 (PDT)
-X-Google-Original-Date: Wed, 20 Sep 2023 03:18:02 PDT (-0700)
-Subject: Re: [PATCH] irqchip/sifive-plic: Avoid clearing the per-hart enable bits
-In-Reply-To: <86zg3ttvsi.wl-maz@kernel.org>
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: Marc Zyngier <maz@kernel.org>
-Message-ID: <mhng-3622fd7f-23c4-4709-9082-0a62d49762ce@palmer-ri-x1c9a>
-Mime-Version: 1.0 (MHng)
+	Wed, 20 Sep 2023 11:24:44 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=EefV4i/Acs1YuierCZy9U8ufiXGmT+TceokHOrVhGhsvNa+Iho5KPXc/TXvjaBOKRKozcqolrtZAjNfTE2SFQJWdWIIVFJ1Edf9Zp+fmR/Vbg5m3WzeBv2+wn173egVWgghmbheVaHFDlRqF7d7m7SniKDV+LypumV0hFzhmHF//Em0wkZeYrkoKxZjIVyej0h4nhBgrpGH1StM4waMZXGA04VoHeX9ySaMgNlNdGuagqCx/hhyKSuMsVcjYKZ0iOcdvres+yNx9dCGg8rd+RT0tPuwjA4CXuZt/BhEPlvOs3FP7WS0vpVyKwNx4mEwEBJ7zB2ntjT7kFAzY9LAk/w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=K6ZJdLxR1H7mp9DO6da84uSOMx4PBILUVb91fxC0wcs=;
+ b=MYR8oGD5iSxn7k5nVh/qqF0fxOyPMvt2eVx0qSKg55ERwl90UlNAZq4nsZWr17T8onGralllOb3tmLl2uKdO7zP6Hv8uGfkaeckGJulmkqbJMBWRKFJ8Fu69fFoi34SVNl1XcYa7dGqZURTJTWXZQDaV/qJbY77kEYKeuMzweG1gA4AFG+TKHTUcFuT7TVQkfbUTkkzV4QdM/jWn9V19IzSCdA8DfwpKcCwVEVJSnJeOzIWgbFBU3SsQUS50vgkOBiqUvU1kdMIZH8gwcdYYVj5z/ZfDOVIt9/E97lF7uaq66WZ+uTh5An37y4orPPFrWUUnY+qvszyHRFRjpaK64w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=K6ZJdLxR1H7mp9DO6da84uSOMx4PBILUVb91fxC0wcs=;
+ b=S8DPvWF4OhX+/LuadwYZ9btCuxuPox424a/DDNxFgwvxlsv1rg2VD/6KhTVjy25PTinoBKplXF8Inoe/9hySPQvSf8h0zgYu3IIZJmtwwqzFAtrEDTjQkvh8BTNAADGiZxfUQXAmZ4U2SyukSN7mYnA+ZNeg38JFu4U1It1JXb8HHH5i8ecmKqVwi1VCXZbYmaDu2h0+uzbjS9L90H4ajzOllBvUDk2I6nNIElDEL9kVdImRMD0jAg9yVzWlDqH+MUDzutL/TysDBWnkNRmbeKx07R2sHlgGhHW3WvVahxG+Ejz6FoR3Mze2ejeNKuyAOAF2DaIIT9R46mvsBsyCfA==
+Received: from IA1PR20MB4953.namprd20.prod.outlook.com (2603:10b6:208:3af::19)
+ by IA1PR20MB6247.namprd20.prod.outlook.com (2603:10b6:208:3f8::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6792.21; Wed, 20 Sep
+ 2023 11:24:32 +0000
+Received: from IA1PR20MB4953.namprd20.prod.outlook.com
+ ([fe80::d050:882f:a8a7:8263]) by IA1PR20MB4953.namprd20.prod.outlook.com
+ ([fe80::d050:882f:a8a7:8263%4]) with mapi id 15.20.6792.026; Wed, 20 Sep 2023
+ 11:24:32 +0000
+From: Inochi Amaoto <inochiama@outlook.com>
+To: Conor Dooley <conor.dooley@microchip.com>,
+	Anup Patel <apatel@ventanamicro.com>
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	aou@eecs.berkeley.edu,
+	chao.wei@sophgo.com,
+	conor@kernel.org,
+	evicetree@vger.kernel.org,
+	emil.renner.berthing@canonical.com,
+	guoren@kernel.org,
+	jszhang@kernel.org,
+	krzysztof.kozlowski+dt@linaro.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	palmer@dabbelt.com,
+	paul.walmsley@sifive.com,
+	robh+dt@kernel.org,
+	xiaoguang.xing@sophgo.com,
+	Chen Wang <wangchen20@iscas.ac.cn>,
+	Inochi Amaoto <inochiama@outlook.com>
+Subject: Re: [PATCH v2 06/11] dt-bindings: timer: Add Sophgo sg2042 clint
+Date: Wed, 20 Sep 2023 19:24:21 +0800
+Message-ID: <IA1PR20MB495313B7E9B2FC529BE0BB2ABBF9A@IA1PR20MB4953.namprd20.prod.outlook.com>
+X-Mailer: git-send-email 2.42.0
+In-Reply-To: <20230920-untimely-untagged-12b75e247afb@wendy>
+References: <20230920-untimely-untagged-12b75e247afb@wendy>
+X-TMN: [PGHK3GkX3E2lZkkVf4psTFId/0H1pkdTuOJvwZm9eKg=]
+X-ClientProxiedBy: SJ0PR03CA0101.namprd03.prod.outlook.com
+ (2603:10b6:a03:333::16) To IA1PR20MB4953.namprd20.prod.outlook.com
+ (2603:10b6:208:3af::19)
+X-Microsoft-Original-Message-ID: <20230920112421.170713-1-inochiama@outlook.com>
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: IA1PR20MB4953:EE_|IA1PR20MB6247:EE_
+X-MS-Office365-Filtering-Correlation-Id: febcae9d-2131-40a0-ade7-08dbb9cc2955
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: kfdP4ZKdjZa7Q1bmpByxvvX6KXiH7qc3ARLSrzswXDzeLBEe//o1Y5SIPmog3xsXv04zXAG6eqU9gZFWsPy+I+VtVXAlbyHRZFn8+ZzfEmq28ERJpl/tec1InCIZuliROAOC6Bw9ytICgQYuvUAkd4DnFYqNsYPlvIlTcAqcXVP4ZWEORA0JOx72Jll3aI8mWAUl8/uqAWPpg/jbc2WeX/kjoixAG7piNJv3IJG6isTjjca4IQw0IRVoKekelxQL4eS/mpTEoc3+fLKHBy7Iia3w9CysLkzYLkepjBrV73LnBT9kQ20ZWLkUmRdubh7IYK7AbAkXqsmR0eBv1AQP/XR0SDVjECV9udL/3Uri0rbzkMIJ6Uea2PRDr6Ju4rMQEAGbFhoqcOXHpUgGPApcF56Nb6wzyPtUBDvWSyc3jhvzTocYVhcSfXWhjC+wpFV9/ko4EiRtwGnPOoAYan6PD8e5eBGLHc2M0S3KUmLnGc57KE59XQbtxosCVkTTkbN/kI4B+rImMsxMXSEAOA7GX9OM92x1rk9Ett4pdfDc1fowpw9Sv1R/6rJLmN3ZU5gy4L1OmlY5ilH5AcU4ny40JKe9ng7aLGTa5KkTdD6VnkgQGkT5mABf9KsuYT4t4oKC
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?CUx3CNpZXmQPY2kwvPgyzfTA4VxNFHJJ8zJeGvwWQev/bclyo+R34mj8+wON?=
+ =?us-ascii?Q?CXl8BhfvznotN4Asz3KGnxjqYphSeBqzWpoFfQZNRH6/UrkjxrADVTlCEVys?=
+ =?us-ascii?Q?O5//jNnFjhu/njuLbMY15fcKyMqKKpJiOJm3OGgezaIJ672evpXpqauXbMzW?=
+ =?us-ascii?Q?afROG5P6L8DerEIDKg2gS9mwZ+dPynG/fXCkcTNDLnQ8JxMPG7kXbvkL9BCk?=
+ =?us-ascii?Q?IEBdQNjDyOLD4aGTyDIudAbTfA/hzsbsBPJu5qUNM6+HJ0wPNOg5xPkjEySJ?=
+ =?us-ascii?Q?IeRRf+Fi3Im33xZSh3lsdX9aH9BwJates31Jy0Bt+BRfIvQ57bFMf5rRwBGD?=
+ =?us-ascii?Q?s0XTcZWq9LTogbtxh64YEdlbCUpCvZK02W6QVaKNCFedEpA3i1veY8UNvfZ4?=
+ =?us-ascii?Q?3PAnlBKbWytgT3TNftXIDjSaC0BcI2TUY+uMg8n02MkIc4Nzl+7gzDQtyusC?=
+ =?us-ascii?Q?WkYp2U8XBcfRVKl6LVSnZF5XBtygjD+8B8ZbIOrHnyXENZxb0zvxJGMj41dC?=
+ =?us-ascii?Q?2ZXAN/EJ1VzPCuaAg6vHtxO0UmqaRmBZJpUBscv5v5ku/bNbK//dSOahVu1k?=
+ =?us-ascii?Q?y5Y/FJPFcOSwEi4iq+bCOwqiBz8dyN1koHA2Q/iBi/ywrBFJC8ekQrm/OAF2?=
+ =?us-ascii?Q?fVV4vHAkFovpz9gwUZwNdtFhZKufY9Pw5GhY/6S04+bp9Buse2cRTevm5SeD?=
+ =?us-ascii?Q?9R0JeOf98tAE0lGKNbgFl1Um6FqQQexJQ0Jdhk7kV3k43noMwPA3n7ydy/uo?=
+ =?us-ascii?Q?avAo3+Sr7/Y/as70nx1XJGmD5HdUXrfd6G1PSKpZv8O0P7rw8VkbQcL9fnZk?=
+ =?us-ascii?Q?VK0tU5IHPTP/915dGGpMo+2oNhVzzHTVk3Uw02cBrAumnYRHUUEF15DUM7M+?=
+ =?us-ascii?Q?zzIKV3BvhhOjkMNqt/36/iSAROe0krph/MqUCwJj/g6y9OlmRrwLX1UwToXR?=
+ =?us-ascii?Q?HlMmlxhD+Q55kYtEAio+71SpXq3nguUP5jsSyR8QrKnUM5vdv++tGzC9D9M3?=
+ =?us-ascii?Q?RDvXPxCNngBhoXODRcGDN7UJKOIVnPRevGGskzO0291LW2nVYTpX47Ac08N1?=
+ =?us-ascii?Q?bk1/aJOBbEuaOPRWOkuGhdsgqKQr/2DIWbOJmUY6hbNnLu5cixE4SL4p6x03?=
+ =?us-ascii?Q?AoONoW+5M1I6g8F3xBBruYWGavObMlszYg6fEt+jRsVUlIktI/+OET3tQi6F?=
+ =?us-ascii?Q?v65iwL6wafeWBEbvwHWr7BSlyns5r4gH3CvC5QsN5UyOMM55cKKRDr4NyLk?=
+ =?us-ascii?Q?=3D?=
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: febcae9d-2131-40a0-ade7-08dbb9cc2955
+X-MS-Exchange-CrossTenant-AuthSource: IA1PR20MB4953.namprd20.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Sep 2023 11:24:32.4835
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR20MB6247
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230920_031812_525242_8DDF693A 
-X-CRM114-Status: GOOD (  23.32  )
+X-CRM114-CacheID: sfid-20230920_042442_569731_FFE3B9CD 
+X-CRM114-Status: GOOD (  26.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,56 +135,103 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: samuel@sholland.org, linux-kernel@vger.kernel.org, Paul Walmsley <paul.walmsley@sifive.com>, tglx@linutronix.de, linux-riscv@lists.infradead.org
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 18 Jul 2023 02:26:37 PDT (-0700), Marc Zyngier wrote:
-> On Mon, 17 Jul 2023 19:58:40 +0100,
-> Samuel Holland <samuel.holland@sifive.com> wrote:
->>
->> Writes to the PLIC completion register are ignored if the enable bit for
->> that (interrupt, hart) combination is cleared. This leaves the interrupt
->> in a claimed state, preventing it from being triggered again.
->>
->> Originally, the enable bit was cleared in the .irq_mask operation, and
->> commit 69ea463021be ("irqchip/sifive-plic: Fixup EOI failed when masked")
->> added a workaround for this issue. Later, commit a1706a1c5062
->> ("irqchip/sifive-plic: Separate the enable and mask operations") moved
->> toggling the enable bit to the .irq_enable/.irq_disable operations and
->> removed the workaround.
->>
->> However, there are still places where .irq_disable can be called from
->> inside the hard IRQ handler, for example in irq_pm_check_wakeup(). As a
->> result, this issue causes an interrupt to get stuck in a claimed state
->> after being used to wake the system from s2idle.
->>
->> There is no real benefit to implementing the .irq_enable/.irq_disable
->> operations using the enable bits. In fact, the existing mask/unmask
->> implementation using the threshold register is already more efficient,
->> as it requires no read/modify/write cycles. So let's leave the enable
->> bits set for the lifetime of the IRQ, using them only to control its
->> affinity.
 >
-> Side question, which doesn't affect this patch: what happens with
-> interrupts that are firing while the interrupt is in a disabled state?
-> It's fine for levels, but what of edge interrupts?
+>Yo,
 >
-> My reading of the spec is that it is the role of the "gateway" to hold
-> the signal, and that this is upstream of the PLIC itself, so it
-> *should* be fine, but I'd like confirmation on that.
+>On Wed, Sep 20, 2023 at 05:08:41PM +0800, Inochi Amaoto wrote:
+>>> On Wed, Sep 20, 2023 at 02:39:39PM +0800, Chen Wang wrote:
+>>>> From: Inochi Amaoto <inochiama@outlook.com>
+>>>>
+>>>> Add two new compatible string formatted like `C9xx-clint-xxx` to identify
+>>>> the timer and ipi device separately, and do not allow c900-clint as the
+>>>> fallback to avoid conflict.
+>>>>
+>>>> Signed-off-by: Inochi Amaoto <inochiama@outlook.com>
+>>>> Signed-off-by: Chen Wang <wangchen20@iscas.ac.cn>
+>>>
+>>> Have you ignored Krzysztof's comments on this? I don't see a response or
+>>> a reaction to his comments about the compatibles on the last version.
+>>> Additionally, where is the user for these? I don't see any drivers that
+>>> actually make use of these.
+>>>
+>>
+>> Sorry for late reply and wrong message-id.
+>>
+>> The clint is parsed by sbi.
+>
+>That needs to go in the commit message.
 
-Which spec are you reading?  I'm not seeing anything in 
-<https://github.com/riscv/riscv-plic-spec>, but I've sort of only 
-skimmed it.  I don't remember us ever really figuring out edge triggered 
-interrupts, it was sort of just a "vendors should make sure they do 
-something reasonable" type plan.
+Yes, it will.
 
-> Thanks,
 >
-> 	M.
+>> As use the same compatible, the opensbi will
+>> parse the device twice. This will cause a fault.
+>
+>Then only have one compatible with 2 register ranges? Then your SBI
+>implementation can use those two register ranges to find out the base
+>address for the mtimer bits and for the mswi bits.
+>I don't understand why this cannot be done, could you please explain.
+
+That is a good idea, but now SBI use the second register ranges as
+mtimecmp address for aclint. And there is a aclint-mswi in the SBI.
+Maybe a change is needed?
+
+>I also don't see anything in the opensbi repo right now that is using
+>these (nor could I easily see any patches for opensbi adding this).
+>Is there another SBI implementation that you are using that I can take
+>a look at to try and understand this better?
+>
+
+This will be sumbit in a short time.
+Now we only use it is sophgo vendor SBI, which url is [1].
+
+[1] https://github.com/sophgo/opensbi
+
+>>> Why do you need to have 2 compatibles (and therefore 2 devices) for the
+>>> clint? I thought the clint was a single device, of which the mtimer and
+>>> mswi bits were just "features"? Having split register ranges isn't a
+>>> reason to have two compatibles, so I must be missing something here...
+>
+>> Sorry for late reply, The clint consists of mtimer and ipi devices, which
+>> is defined in [1].
+>
+>Yes, I have looked at the spec. I went to check it again before replying
+>here in case there was something immediately obvious that I was missing.
+>
+
+I think nothing missed.
+
+>> This standard shows clint(or the aclint) has two device,
+>
+>The wording used here doesn't really matter. It's one interrupt
+>controller that does mtimer and mswi.
+>
+>> but not one. In another word, there is no need to defined mtimer and ipi
+>> device on the same base address.
+>
+>There's also no need to have two compatibles for the same interrupt
+>controller, so I do not get this reasoning. What actually _requires_
+>them to be split?
+>
+
+Yes, it is one, but can be mapped into different address. So I think we
+need two.
+
+>> So we need two compatibles to allow sbi to identify them correctly.
+>
+>Why is it not sufficient to identify the individual memory regions?
+>
+
+FYI, Anup. As I have no idea for aclint implementation.
+
+>Thanks,
+>Conor.
+>
 
 _______________________________________________
 linux-riscv mailing list
