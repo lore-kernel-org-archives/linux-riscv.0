@@ -4,82 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC9CBCE79DD
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 Sep 2023 14:39:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60A9DCE79DE
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 Sep 2023 14:52:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=aaUo8NiK+twUo9JZYq3YG43xy5MrWY7pUKJh7RrtkPQ=; b=fZ4nwbCb5+sYX2
-	4GaAD4tfo61PLN7EtWBMmxVRl2A4Tpcv0omRr2SR4Ahta2BEkeb/CCyN1E5U4Gj73LMmQ9MqJ4NO/
-	DolA7JyPcQETZw3eTeLOmBTkaP+5Vry6nSvmzQSvd900e4eJg57yAMCB5eLTLn9DqqV4KoTTLriGb
-	gxktf8dzOp6fr1HnCaUI4bwEraDMkEsQ/P2aykFil4hIQR/Roe5WXFPDElEMis5d2065y+1DVXDDf
-	Hvqc/G2JYXiZV8xwjM+tT4Ure3T650fwZYmDx5yfgMjtNJCYeuRg1GZeqdInUoNnvaoKgyax0LCNm
-	UIM7Y65k3Q9YPybXTykw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ukiUGryDsO7ith3f3ulMuhv1bY7b8h50V5MY1WO0dXQ=; b=PgQPwytAKUGsNFB3A262H5Va0Z
+	R18fxHurL0xr0jc6W1m2o4mQoFZas6e3tt9R0uQlaOm61EbC7QnMs1L0i2XN8nuQMWI6h5+U40NFG
+	dqYil1/Tw6s8XC607JwPL2Nx11bWeAiPQb+ZLzw3oYqtqEK21msVVDs/y09aNqb//7bi64zIWCZtO
+	rBOEMphP+Qyb7tRW1Dwp0qUOY4vdyU1aHoIrmf3fFnJdaf+2o1bZjXY8kkSdgwDB6xkOTCMdfg6rE
+	vrAzxsUBr9w/GY/fuu4ilVmUsUs6pReMdje6QNLNRDnTLOYK7CoIZ16sw4iv6HeqfZSZPx9HzhDvq
+	v6AeYgDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qiyMX-003ONV-2u;
-	Wed, 20 Sep 2023 14:39:34 +0000
-Received: from mail-pg1-x52d.google.com ([2607:f8b0:4864:20::52d])
+	id 1qiyYj-003QLf-1O;
+	Wed, 20 Sep 2023 14:52:09 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qiyM3-003Nx0-0W
+	id 1qiyYf-003QKq-2C
 	for linux-riscv@lists.infradead.org;
-	Wed, 20 Sep 2023 14:39:10 +0000
-Received: by mail-pg1-x52d.google.com with SMTP id 41be03b00d2f7-578a3069f1eso2084627a12.1
-        for <linux-riscv@lists.infradead.org>; Wed, 20 Sep 2023 07:39:02 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1695220741; x=1695825541; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=tVjsOZJ8bggozwjwCYWOh6I0B4C7rlCVK2zz6fw/jxM=;
-        b=JSiW3KGnjmqIij6KEazfc4Fj/2vf540pcJvJUI1B7GjZ/uP1diuUXP0VxBhg3iYzLs
-         F/JJTG1z/CzKiMFAaNRSpdaUIsJR/Cc4S1v3rnyf5IbnJAxwOhRKa2c2Tl3hAi7z5gFw
-         Lg7pzcZWSrNcZQQhR0h6wTeFQRU7bj/bsHVjoMj0lK9fZZbycQD5whcUGOI1rKdV6cOx
-         jtR0803I6ZLTx2rZMBUuiwWlZqcdFb7B5IkRQ9w77OWeY+ViVIDNMEnT0NmASchdyg0F
-         Arxr/bTPPfDd7O81rk8RasLEiKM3xvhgWHO6l3tmU+eT/bdZaeGF5Py564VjVqN5Tvec
-         C5EQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1695220741; x=1695825541;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=tVjsOZJ8bggozwjwCYWOh6I0B4C7rlCVK2zz6fw/jxM=;
-        b=nlxnRdxCXB818Wty3u5TazgclZU2bKDe81rsX3i/V5lC/ldxdUxTfRSNG2BzOpkEaf
-         rcWHcd9Bxtrl+5rTaD42C+rqIyhjxBQLxEPg7MFG06eLjfQ0X4g7K5kEne0Wx1usIqhC
-         xe+JUfvp6PS6gvhKdFle8XxpeyPeMFvtBkI4CanKR1wboqAUGdBUYQZfsWAauKSvhDdX
-         AGz7dSC7cpYSF2H3o6dVRSTi8CHLnOtg60wFwmOX1aKVpuD2ofrZQEbTcRhLenLbFxDq
-         T/Odw99SkgG6o39OVDinjkW9j42FJM4oe5174/f06mnEC0lXmBxa88jgsVDzYXK0cLBx
-         O3Sw==
-X-Gm-Message-State: AOJu0YzQKeVH9BZ3wELFrr39InGhQRlhpg6nxZTiywp3gqrCxoMVgY8p
-	sZ3adx5yvv23Wd2a/EPlp37J4UnTUECA6N9tklY7YcOWwUSfIfdM5Zs=
-X-Google-Smtp-Source: AGHT+IEr2Lac4PW5MEs8w2glHD2rv5IneEoO2/iHMRaS9AnyeCZ7nvHVBgJDCdg7GwNcp3Cwv5ypWCr2gQmimN6JYbQ=
-X-Received: by 2002:a17:90b:38d2:b0:271:bc40:5097 with SMTP id
- nn18-20020a17090b38d200b00271bc405097mr2554985pjb.30.1695220741330; Wed, 20
- Sep 2023 07:39:01 -0700 (PDT)
-MIME-Version: 1.0
+	Wed, 20 Sep 2023 14:52:07 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by sin.source.kernel.org (Postfix) with ESMTPS id C5D32CE1B7F;
+	Wed, 20 Sep 2023 14:52:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A0126C433C8;
+	Wed, 20 Sep 2023 14:51:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1695221522;
+	bh=+2j3nces5C2Y6G0w4dr7sRGrgDbYjuDpUw6pC0lKXLQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=NygEtZrk84lRg6zKqBNWyp3ecx3eq9+OEYuaKVfg2N7CTM0PFuCY+ay2Nts8XzVf9
+	 q4P86pfVq6bOsFt9RzKQMFNwbNhIRkmKK/+yQxcmlNfb/bwcOf0le3K5HVsWDaus7x
+	 8rG61cADEugt8Xq3G2sh+KU2IF3kD/RDzsV3kbHi3tlwbwEUhyOAI3/FNNgC8WphQG
+	 IQTQtfOjcvDjO5g1asyVSoMh/huLKRvq68pCPMiIyIssh7pZgVN2npFfCq6+p2q2i6
+	 29gO3GTdmMadV259kKNdlXHvnW/wCxAYFhp+wR/X5lodXFNBFyRhiuY1kExAraLatu
+	 HWAE1QULyRqTA==
+Date: Wed, 20 Sep 2023 15:51:55 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Anup Patel <apatel@ventanamicro.com>
+Cc: Inochi Amaoto <inochiama@outlook.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	aou@eecs.berkeley.edu, chao.wei@sophgo.com,
+	evicetree@vger.kernel.org, emil.renner.berthing@canonical.com,
+	guoren@kernel.org, jszhang@kernel.org,
+	krzysztof.kozlowski+dt@linaro.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, palmer@dabbelt.com,
+	paul.walmsley@sifive.com, robh+dt@kernel.org,
+	xiaoguang.xing@sophgo.com, Chen Wang <wangchen20@iscas.ac.cn>,
+	Atish Patra <atishp@rivosinc.com>
+Subject: Re: [PATCH v2 06/11] dt-bindings: timer: Add Sophgo sg2042 clint
+Message-ID: <20230920-992a56b66366f3c0591a6a94@fedora>
 References: <66b988f0-39fc-2ed3-8f38-151d6a3c9e52@linaro.org>
  <IA1PR20MB49536BFE1254ADEE0E795A26BBF9A@IA1PR20MB4953.namprd20.prod.outlook.com>
  <20230920-8503c6365655d3ef3dadfd53@fedora>
-In-Reply-To: <20230920-8503c6365655d3ef3dadfd53@fedora>
-From: Anup Patel <apatel@ventanamicro.com>
-Date: Wed, 20 Sep 2023 20:08:49 +0530
-Message-ID: <CAK9=C2WWzc_M49-S+Gi509a6-gk3-89sAZn-ZCRhsQc4JwUpoQ@mail.gmail.com>
-Subject: Re: [PATCH v2 06/11] dt-bindings: timer: Add Sophgo sg2042 clint
-To: Conor Dooley <conor@kernel.org>
-Cc: Inochi Amaoto <inochiama@outlook.com>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, aou@eecs.berkeley.edu, chao.wei@sophgo.com, 
-	evicetree@vger.kernel.org, emil.renner.berthing@canonical.com, 
-	guoren@kernel.org, jszhang@kernel.org, krzysztof.kozlowski+dt@linaro.org, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	palmer@dabbelt.com, paul.walmsley@sifive.com, robh+dt@kernel.org, 
-	xiaoguang.xing@sophgo.com, Chen Wang <wangchen20@iscas.ac.cn>, 
-	Atish Patra <atishp@rivosinc.com>
+ <CAK9=C2WWzc_M49-S+Gi509a6-gk3-89sAZn-ZCRhsQc4JwUpoQ@mail.gmail.com>
+MIME-Version: 1.0
+In-Reply-To: <CAK9=C2WWzc_M49-S+Gi509a6-gk3-89sAZn-ZCRhsQc4JwUpoQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230920_073903_378616_B7F0C0AE 
-X-CRM114-Status: GOOD (  23.50  )
+X-CRM114-CacheID: sfid-20230920_075206_105530_01D0602E 
+X-CRM114-Status: GOOD (  33.49  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,61 +80,136 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============3724199621793680515=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCBTZXAgMjAsIDIwMjMgYXQgNjoyOOKAr1BNIENvbm9yIERvb2xleSA8Y29ub3JAa2Vy
-bmVsLm9yZz4gd3JvdGU6Cj4KPiBPbiBXZWQsIFNlcCAyMCwgMjAyMyBhdCAwODo0MDowN1BNICsw
-ODAwLCBJbm9jaGkgQW1hb3RvIHdyb3RlOgo+ID4gPk9uIDIwLzA5LzIwMjMgMTQ6MTUsIElub2No
-aSBBbWFvdG8gd3JvdGU6Cj4gPiA+Pj4gT24gMjAvMDkvMjAyMyAwODozOSwgQ2hlbiBXYW5nIHdy
-b3RlOgo+ID4gPj4+PiBGcm9tOiBJbm9jaGkgQW1hb3RvIDxpbm9jaGlhbWFAb3V0bG9vay5jb20+
-Cj4gPiA+Pj4+Cj4gPiA+Pj4+IEFkZCB0d28gbmV3IGNvbXBhdGlibGUgc3RyaW5nIGZvcm1hdHRl
-ZCBsaWtlIGBDOXh4LWNsaW50LXh4eGAgdG8gaWRlbnRpZnkKPiA+ID4+Pj4gdGhlIHRpbWVyIGFu
-ZCBpcGkgZGV2aWNlIHNlcGFyYXRlbHksIGFuZCBkbyBub3QgYWxsb3cgYzkwMC1jbGludCBhcyB0
-aGUKPiA+ID4+Pgo+ID4gPj4+IFdoeT8KPiA+ID4+Pgo+ID4gPj4KPiA+ID4+IElmIHVzZSB0aGUg
-c2FtZSBjb21wYXRpYmxlLCBTQkkgd2lsbCBwcm9jZXNzIHRoaXMgdHdpY2UgaW4gYm90aCBpcGkg
-YW5kCj4gPiA+PiB0aW1lciwgdXNlIGRpZmZlcmVudCBjb21wYXRpYmxlIHdpbGwgYWxsb3cgU0JJ
-IHRvIHRyZWF0IHRoZXNlIGFzIGRpZmZlcmVudC4KPiA+ID4+IEFGQUlLLCB0aGUgYWNsaW50IGlu
-IFNCSSB1c2UgdGhlIHNhbWUgY29uY2VwdHMsIHdoaWNoIG1ha2UgaGFyZCB0byB1c2UgdGhlCj4g
-PiA+PiBzZWNvbmQgcmVnaXN0ZXIgcmFuZ2UuIEkgaGF2ZSBleHBsYWluZWQgaW4gYW5vdGhlciBy
-ZXNwb25zZS4KPiA+ID4KPiA+ID5XaGF0IGlzIGEgU0JJPyBMaW51eCBkcml2ZXI/IElmIHNvLCB3
-aHkgc29tZSBpbnRlcm1lZGlhdGUgTGludXggZHJpdmVyCj4gPiA+Y2hvaWNlIHNob3VsZCBhZmZl
-Y3QgYmluZGluZ3M/Cj4gPiA+QmVzdCByZWdhcmRzLAo+ID4gPktyenlzenRvZgo+ID4gPgo+ID4K
-PiA+IFNCSSAoU3VwZXJ2aXNvciBCaW5hcnkgSW50ZXJmYWNlKSBpcyBkZWZpbmVkIGJ5IHJpc2N2
-LCB3aGljaCBpcyBhbiBpbnRlcmZhY2UKPiA+IGJldHdlZW4gdGhlIFN1cGVydmlzb3IgRXhlY3V0
-aW9uIEVudmlyb25tZW50IChTRUUpIGFuZCB0aGUgc3VwZXJ2aXNvci4gVGhlCj4gPiBkZXRhaWxl
-ZCBkb2N1bWVudGF0aW9uIGNhbiBiZSBmb3VuZCBpbiBbMV0uCj4gPgo+ID4gVGhlIGltcGxlbWVu
-dCBvZiBTQkkgbmVlZHMgZmR0IGluZm8gb2YgdGhlIHBsYXRmb3JtLCB3aGljaCBpcyBwcm92aWRl
-ZCBieQo+ID4ga2VybmVsLiBTbyB3ZSBuZWVkIGEgZHQtYmluZGluZ3MgZm9yIHRoZXNlIGRldmlj
-ZXMsIGFuZCB0aGVzZSB3aWxsIGJlCj4gPiBwcm9jZXNzZWQgYnkgU0JJLgo+ID4KPiA+IFsxXSBo
-dHRwczovL2dpdGh1Yi5jb20vcmlzY3Ytbm9uLWlzYS9yaXNjdi1zYmktZG9jCj4KPiBZZWFoLCB0
-aGlzIGlzIHRoZSB1bmZvcnR1bmF0ZSBwcm9ibGVtIG9mIGhhbGYtYmFrZWQgYmluZGluZ3MgKElN
-TykKPiBlbmRpbmcgdXAgaW4gT3BlblNCSSAod2hpY2ggbGlrZWx5IG1lYW5zIHRoZXkgYWxzbyBl
-bmRlZCB1cCBpbiBRRU1VKS4KPiBUaGlzIFQtSGVhZCBzdHVmZiBpcyBjb21pbmcgYWNyb3NzIG91
-ciAobWV0YXBob3JpY2FsKSBkZXNrcywgc28gd2UgYXJlCj4gb2J2aW91c2x5IGdvaW5nIHRvIHRy
-eSB0byBkbyB0aGluZ3MgY29ycmVjdGx5LiBJIG1heSBlbmQgdXAgc3BlYWtpbmcgdG8KPiBBbnVw
-IGxhdGVyIHRvZGF5LCBpZiBJIGRvIEkgd2lsbCBwb2ludCBoaW0gYXQgdGhpcyB0aHJlYWQgKGlm
-IGhlIGhhc24ndAo+IHNlZW4gaXQgYWxyZWFkeSkuCgpSSVNDLVYgQUNMSU5UIGlzIG9uZSBvZiB0
-aG9zZSB1bmZvcnR1bmF0ZSBub24tSVNBIHNwZWNzIChsaWtlClNpRml2ZSBQTElDKSB3aGljaCBp
-cyBpbXBsZW1lbnRlZCBieSB2YXJpb3VzIG9yZ2FuaXphdGlvbnMgYnV0Cm5vdCBvZmZpY2lhbGx5
-IHJhdGlmaWVkIGJ5IFJWSS4KClRoZSBTaUZpdmUgQ0xJTlQgaGFzIGZsZXhpYmlsaXR5IHJlbGF0
-ZWQgbGltaXRhdGlvbnMgd2hpY2ggbWFrZXMgaXQKbm90IHVzZWZ1bCBmb3IgbXVsdGktc29ja2V0
-IGFuZCBtdWx0LWRpZSBzeXN0ZW1zLiBUaGUgU2lGaXZlIENMSU5UCmlzIGFsc28gbm90IHVzZWZ1
-bCBmb3Igc3lzdGVtcyB3aXRoIEFJQSBiZWNhdXNlIHdpdGggQUlBIE0tbW9kZSBoYXMKYSBuZXcg
-d2F5IG9mIGRvaW5nIE0tbW9kZSBJUElzLiBEdWUgdG8gdGhpcyByZWFzb25zLCB0aGUgUklTQy1W
-CkFDTElOVCBzcGVjIGJyZWFrcyBkb3duIHRyYWRpdGlvbmFsIFNpRml2ZSBDTElOVCBpbnRvIHR3
-byBzZXBhcmF0ZQpkZXZpY2VzIG5hbWVseSBtdGltZXIgYW5kIG1zd2kuIFRoaXMgYWxsb3dzIHBs
-YXRmb3JtcyB0byBpbXBsZW1lbnQKb25seSB0aGUgcmVxdWlyZWQgc2V0IG9mIGRldmljZXMuIFRo
-ZSBtdGltZXIgYXMgZGVmaW5lZCBieSB0aGUgQUNMSU5UCnNwZWNpZmljYXRpb25zIGFsc28gYWxs
-b3dzIHBsYXRmb3JtcyB0byBwbGFjZSBtdGltZSBhbmQgbXRpbWVjbXAKcmVnaXN0ZXJzIGF0IGRp
-ZmZlcmVudCBsb2NhdGlvbnMuCgpSZWZlciwgaHR0cHM6Ly9naXRodWIuY29tL3Jpc2N2L3Jpc2N2
-LWFjbGludC9ibG9iL21haW4vcmlzY3YtYWNsaW50LmFkb2MKCldlIG5lZWQgYSBzZXBhcmF0ZSBE
-VCBiaW5kaW5ncyBkb2N1bWVudCBmb3IgQUNMSU5UIE1USU1FUgphbmQgQUNMSU5UIE1TV0kgYmVj
-YXVzZSB0aGVzZSBhcmUgc2VwYXJhdGUgZGV2aWNlcy4gVGhlClNvcGhnbyBzZzIwNDIgU29DIHNo
-b3VsZCBhZGQgdGhlaXIgaW1wbGVtZW50YXRpb24gc3BlY2lmaWMKY29tcGF0aWJsZSBzdHJpbmdz
-IGluIHRoaXMgZG9jdW1lbnQuCgpSZWdhcmRzLApBbnVwCgpfX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgt
-cmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWls
-bWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+
+--===============3724199621793680515==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="lO3IQKh1/e514qwn"
+Content-Disposition: inline
+
+
+--lO3IQKh1/e514qwn
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Wed, Sep 20, 2023 at 08:08:49PM +0530, Anup Patel wrote:
+> On Wed, Sep 20, 2023 at 6:28=E2=80=AFPM Conor Dooley <conor@kernel.org> w=
+rote:
+> >
+> > On Wed, Sep 20, 2023 at 08:40:07PM +0800, Inochi Amaoto wrote:
+> > > >On 20/09/2023 14:15, Inochi Amaoto wrote:
+> > > >>> On 20/09/2023 08:39, Chen Wang wrote:
+> > > >>>> From: Inochi Amaoto <inochiama@outlook.com>
+> > > >>>>
+> > > >>>> Add two new compatible string formatted like `C9xx-clint-xxx` to=
+ identify
+> > > >>>> the timer and ipi device separately, and do not allow c900-clint=
+ as the
+> > > >>>
+> > > >>> Why?
+> > > >>>
+> > > >>
+> > > >> If use the same compatible, SBI will process this twice in both ip=
+i and
+> > > >> timer, use different compatible will allow SBI to treat these as d=
+ifferent.
+> > > >> AFAIK, the aclint in SBI use the same concepts, which make hard to=
+ use the
+> > > >> second register range. I have explained in another response.
+> > > >
+> > > >What is a SBI? Linux driver? If so, why some intermediate Linux driv=
+er
+> > > >choice should affect bindings?
+> > > >Best regards,
+> > > >Krzysztof
+> > > >
+> > >
+> > > SBI (Supervisor Binary Interface) is defined by riscv, which is an in=
+terface
+> > > between the Supervisor Execution Environment (SEE) and the supervisor=
+=2E The
+> > > detailed documentation can be found in [1].
+> > >
+> > > The implement of SBI needs fdt info of the platform, which is provide=
+d by
+> > > kernel. So we need a dt-bindings for these devices, and these will be
+> > > processed by SBI.
+> > >
+> > > [1] https://github.com/riscv-non-isa/riscv-sbi-doc
+> >
+> > Yeah, this is the unfortunate problem of half-baked bindings (IMO)
+> > ending up in OpenSBI (which likely means they also ended up in QEMU).
+> > This T-Head stuff is coming across our (metaphorical) desks, so we are
+> > obviously going to try to do things correctly. I may end up speaking to
+> > Anup later today, if I do I will point him at this thread (if he hasn't
+> > seen it already).
+>=20
+> RISC-V ACLINT is one of those unfortunate non-ISA specs (like
+> SiFive PLIC) which is implemented by various organizations but
+> not officially ratified by RVI.
+
+Yeah, I brought this stuff up at the weekly pw sync call, and Paul
+pointed that out.
+
+> The SiFive CLINT has flexibility related limitations which makes it
+> not useful for multi-socket and mult-die systems. The SiFive CLINT
+> is also not useful for systems with AIA because with AIA M-mode has
+> a new way of doing M-mode IPIs. Due to this reasons, the RISC-V
+> ACLINT spec breaks down traditional SiFive CLINT into two separate
+> devices namely mtimer and mswi. This allows platforms to implement
+> only the required set of devices. The mtimer as defined by the ACLINT
+> specifications also allows platforms to place mtime and mtimecmp
+> registers at different locations.
+>=20
+> Refer, https://github.com/riscv/riscv-aclint/blob/main/riscv-aclint.adoc
+>=20
+> We need a separate DT bindings document for ACLINT MTIMER
+> and ACLINT MSWI because these are separate devices. The
+> Sophgo sg2042 SoC should add their implementation specific
+> compatible strings in this document.
+
+If the spec isn't frozen, I'm not accepting a binding for the "generic"
+version of it. Bindings for this specific implemtnation are okay.
+For sure though, squeezing this into the sifive,plic binding isn't
+appropriate.
+
+What was pointed out, I think by Samuel, that the reason that this may
+need to be split is the fact that there are many possible MTIMER
+register ranges & possibly sswi stuff too that would need to be
+differentiated.
+
+>=20
+> Regards,
+> Anup
+
+--lO3IQKh1/e514qwn
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEARYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZQsHCAAKCRB4tDGHoIJi
+0oIxAP4l9Y+OWxR43uIh16s9q+QkJcVDOsWIXdpnb0KYX5AOogD/eVTeoiQKQkzL
+Sdw+Zw7PIgPrS0SkTX280B840uhfswE=
+=7xPz
+-----END PGP SIGNATURE-----
+
+--lO3IQKh1/e514qwn--
+
+
+--===============3724199621793680515==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============3724199621793680515==--
+
