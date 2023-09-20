@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3780ACE79D0
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 Sep 2023 11:57:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED189CE79CF
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 Sep 2023 12:00:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=X3cC/GvgTmxQOdnyGyVyBXMzuShfBIzaK+pGy9D5Y1Y=; b=LGiA5SrUZRGwrP
-	YIsqNfV2T1DHqZTNobEuDTmA521CFaF5RQIDkALpCltBukpvJNtRvUUDJ3lbGf6eFukHpgWs2NFP5
-	SUF7sx+03TOT/BFI1eQlcew3eSKRi63oCTTtbYT2uudymmO3iaUzwvQNAq/bqTPRFxbyUG/fR8ijW
-	/xn24A/XM/o2LrAOtNQvOknP3BMju19Nn8ebRwIzlPbA5h1Sw0m8y326bqVakip1c2y68Iysbfc6O
-	EjrSCG+oMtOV1gXrwihvj0qhyPU40c84rl6jyPOBJuPTZGOCinEntdEVNnEvi1HFOLiAOTJlY74l9
-	j8k2hT6ZfvRjftd24mYQ==;
+	List-Owner; bh=rjtVjKzBG8BJKPU4t9USsfA0bumZAGbxmfNNoGWHkpg=; b=j1V8IpXvgAkBeE
+	JFDuGObf3OAWTQoTWCsJdr5F591l7+zPMqg698+w6yZYe1f+jldh328IMTklkQO5tA3FdBe1hRQ1y
+	P3+CR3SbVKPcrDoPxxq+4+hrevK9RkDuU865ZGRyXimjIh3kjyT158YLlkfmJ/g5BecHMrtQ7HfJk
+	gBcOLiUcNB60tGLiIy7XbzCBFQIvgKCuVbRQ+AyXtlfdwbyVjGsCnbKncbEUEsDaMWhECI8+EkVKB
+	05C9wLW3v865REryqNbDgGz6+K2RuTMFDbpFdw3JWMzX6tntm9DEwAIyOu3mhTl81ji6IEVSJJ/a6
+	mYfpUPCLHKQEa7fnhWzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qivpx-002wcP-2H;
-	Wed, 20 Sep 2023 11:57:45 +0000
-Received: from mail-lj1-x235.google.com ([2a00:1450:4864:20::235])
+	id 1qivs3-002wvh-0k;
+	Wed, 20 Sep 2023 11:59:55 +0000
+Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qivpu-002wZQ-1I
+	id 1qivs0-002wv2-36
 	for linux-riscv@lists.infradead.org;
-	Wed, 20 Sep 2023 11:57:43 +0000
-Received: by mail-lj1-x235.google.com with SMTP id 38308e7fff4ca-2bff776fe0bso64469541fa.0
-        for <linux-riscv@lists.infradead.org>; Wed, 20 Sep 2023 04:57:39 -0700 (PDT)
+	Wed, 20 Sep 2023 11:59:54 +0000
+Received: by mail-ej1-x62d.google.com with SMTP id a640c23a62f3a-9ae22bf33a0so186655266b.0
+        for <linux-riscv@lists.infradead.org>; Wed, 20 Sep 2023 04:59:52 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1695211057; x=1695815857; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1695211191; x=1695815991; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=w1DviYvLqEA/sZL5Xm7Eug1cL8OIq39bt8izdUeklRY=;
-        b=LxA4tAOAazxSmfnJEmvmq3eSMigiZ9shHJ+VbrWJhlmx0X4Xashd9DvMVWEHpbkRZN
-         xOYNRZ+TpaVbefah8M7fON/rRHoLwsq3na6vipWrv7BFfH95zq3vAGx9yxESR2yainUJ
-         06jvk0wBaws1udl7hvmoRRV39lTeudkopwG75k/v3tsZwzynu5uSLsuen1H/0iiXnyLg
-         PhC562VEU2rYyo7HcrR2ClJkcz+XgxOIzIvB0NTe2hkrai0TgnUUBEyQcr107wKxFH/O
-         XrNefam/dPboofghrkOf5PEsOEbLuOlPSJO1qsO5JQYOUWuJRuN84QHZSzGDMqqE6EC6
-         HJaQ==
+        bh=N46lU5p0BnRUo8JJjDH0v6qnXmdpf6A9RpC24puqDNo=;
+        b=Dov3tc7hCqFdZFZad10JckZn2nBN4aiZYttSjk825pGom2RBe6hqKfQDjpQUcOPL7Z
+         gly4VOEinfto7QMlr5xtw2bI2Ex97teC+iaM7RYCO6hoSjBxLJIRRZIw1ATtkX0p/rd8
+         LB6gbD2ELE/GaooWcbs5wXMzK1e/1qfS62lbDtJjwSM/lpLB4nOGcIx5MafBBQDdSVN3
+         SqLC7umj9ZFfbfcccKyP4+8lAI6VXmA9/+FHaoVZDBDy8oBf6T4aOxMrbh2e54D1nw5x
+         jb8SD5VcM5mEIyrm7iDwq/fHXTR00KjzBxtxWWZwqkDNQM3175plb+aRzNUz/dKp+YSS
+         ftjA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1695211057; x=1695815857;
+        d=1e100.net; s=20230601; t=1695211191; x=1695815991;
         h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=w1DviYvLqEA/sZL5Xm7Eug1cL8OIq39bt8izdUeklRY=;
-        b=TkDdfflPbhdPZ9Fe8JmYkU/cGlEXWS6Ugy3fV0qRQOQH6KLnNop4xKpmOFY4a2RkD/
-         y62blfCiyBgJTVhjb1SlhcgJ23zTmo/v1wG114KwUEalOATKg6GSuS2dVswIRXwlVeHb
-         YSOpVpQOfuhqvJqtclCw3KjEELTzX0TicwPsQU4MJ/BNVs6P1P2XTzMfW1sbJVEGVrqR
-         Hfimi8tbOT9V+aSpLBGtdCJC+N7AH7MalS5Xcpshj9r7uNGSh9cMmXUX3Tbq/0Lk6Fs1
-         g9ODgHCsKXkNGNh6Y+h8J6zm2FN2C1U+vkwc1Owd0Iu+K+P965XWuhsk3FjEvOEiIjzw
-         OqnA==
-X-Gm-Message-State: AOJu0Yyu6bB4EFD0yovN0JP4SO2fjhx01ESiv0y11jFNmQx5CLq4FKC0
-	f39zMeQdJF6nFjwwEC8m3fb8oA==
-X-Google-Smtp-Source: AGHT+IHi2kpY9k3ikgCwNoko87/nzsnTiOCoDw3bl/xpeTq0iM230cVrxJbvaiXRPxFgp6S5vX6VBw==
-X-Received: by 2002:a2e:2c12:0:b0:2bd:1f83:8d4 with SMTP id s18-20020a2e2c12000000b002bd1f8308d4mr2147021ljs.22.1695211057552;
-        Wed, 20 Sep 2023 04:57:37 -0700 (PDT)
+        bh=N46lU5p0BnRUo8JJjDH0v6qnXmdpf6A9RpC24puqDNo=;
+        b=Javs1IcA33QLYc4ATGbk5dxIIvBvgg6ZW2A6LYmAiXZZPr6bodctf5dBodiK9Hc7Sk
+         VEy3nzDnF9HbFz2r/1RCWPHHdK3M2dawf7pS5BLFFAjD1YFTaORoZ/tIVe5UBMkM0CJr
+         iw9WbQ8SASUk5+HaAEQmSvbgR1rEcKASjl4C5hxfXeB5Mp9+n8ygcKwJ0rt3AD1tW7os
+         ZIgoGNS3YwAil99UU4PXK94D24vGWvLoR5hWZYPpI36k3PBVYNkclfArgHMfzr3XtWDM
+         tWMpH11nkr24Kbq/xXMN6E6JtjZnh+DuAChql8MV+tDk7X8PVl2k9VWPiwI1dpro51yD
+         Ykew==
+X-Gm-Message-State: AOJu0YzABDXU8eCEGgFTPIfYnJ1v8t8RVHLq6FK+vFdEKn7ei5CsPVjL
+	LQLNz3joR1u4QEZ4C4RLOr77iPhjPeSdix3e/wbpLQ==
+X-Google-Smtp-Source: AGHT+IGnACKqgtYQF2pNy2P1QPZMSIK5/+BVvB5z1ir2z6NqSx7yASc1Y4QTK2+UcyiIoVPLWMKmVA==
+X-Received: by 2002:a17:907:c17:b0:9a5:ca06:6a25 with SMTP id ga23-20020a1709070c1700b009a5ca066a25mr8480612ejc.16.1695211191629;
+        Wed, 20 Sep 2023 04:59:51 -0700 (PDT)
 Received: from [172.20.24.238] (static-212-193-78-212.thenetworkfactory.nl. [212.78.193.212])
-        by smtp.gmail.com with ESMTPSA id u1-20020a1709064ac100b009934855d8f1sm9177212ejt.34.2023.09.20.04.57.36
+        by smtp.gmail.com with ESMTPSA id x11-20020a170906148b00b0098e78ff1a87sm9201237ejc.120.2023.09.20.04.59.50
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 20 Sep 2023 04:57:37 -0700 (PDT)
-Message-ID: <0b84ef92-f6b7-f3bc-fd51-8f61cbc91ff8@linaro.org>
-Date: Wed, 20 Sep 2023 13:57:35 +0200
+        Wed, 20 Sep 2023 04:59:51 -0700 (PDT)
+Message-ID: <e18fe9a1-99a9-5dc8-27fc-6a6b934d917e@linaro.org>
+Date: Wed, 20 Sep 2023 13:59:49 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
  Thunderbird/102.15.1
-Subject: Re: [PATCH v2 06/11] dt-bindings: timer: Add Sophgo sg2042 clint
+Subject: Re: [PATCH v2 10/11] riscv: dts: sophgo: add Milk-V Pioneer board
+ device tree
 Content-Language: en-US
 To: Chen Wang <unicornxw@gmail.com>, aou@eecs.berkeley.edu,
  chao.wei@sophgo.com, conor@kernel.org, devicetree@vger.kernel.org,
@@ -75,15 +76,14 @@ To: Chen Wang <unicornxw@gmail.com>, aou@eecs.berkeley.edu,
  krzysztof.kozlowski+dt@linaro.org, linux-kernel@vger.kernel.org,
  linux-riscv@lists.infradead.org, palmer@dabbelt.com,
  paul.walmsley@sifive.com, robh+dt@kernel.org, xiaoguang.xing@sophgo.com
-Cc: Inochi Amaoto <inochiama@outlook.com>, Chen Wang <wangchen20@iscas.ac.cn>
+Cc: Chen Wang <wangchen20@iscas.ac.cn>
 References: <cover.1695189879.git.wangchen20@iscas.ac.cn>
- <55865e1ce40d2017f047d3a9e1a9ee30043b271f.1695189879.git.wangchen20@iscas.ac.cn>
+ <e9ff83e4fac9a9ebd217ef10e5f8d3260342102b.1695189879.git.wangchen20@iscas.ac.cn>
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <55865e1ce40d2017f047d3a9e1a9ee30043b271f.1695189879.git.wangchen20@iscas.ac.cn>
+In-Reply-To: <e9ff83e4fac9a9ebd217ef10e5f8d3260342102b.1695189879.git.wangchen20@iscas.ac.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230920_045742_441709_D6CBAC30 
-X-CRM114-Status: UNSURE (   8.60  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230920_045952_998031_F37FF599 
+X-CRM114-Status: GOOD (  18.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,23 +100,68 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 20/09/2023 08:39, Chen Wang wrote:
-> From: Inochi Amaoto <inochiama@outlook.com>
+On 20/09/2023 08:40, Chen Wang wrote:
+> Milk-V Pioneer [1] is a developer motherboard based on SOPHON
+> SG2042 in a standard mATX form factor. It is a good
+> choice for RISC-V developers and hardware pioneers to
+> experience the cutting edge technology of RISC-V.
 > 
-> Add two new compatible string formatted like `C9xx-clint-xxx` to identify
-> the timer and ipi device separately, and do not allow c900-clint as the
+> Currently only support booting into console with only uart
+> enabled, other features will be added soon later.
+> 
+> [1]: https://milkv.io/pioneer
+> 
+> Acked-by: Xiaoguang Xing <xiaoguang.xing@sophgo.com>
+> Signed-off-by: Chen Wang <wangchen20@iscas.ac.cn>
+> ---
+>  arch/riscv/boot/dts/Makefile                  |  1 +
+>  arch/riscv/boot/dts/sophgo/Makefile           |  3 +++
+>  .../boot/dts/sophgo/sg2042-milkv-pioneer.dts  | 19 +++++++++++++++++++
+>  3 files changed, 23 insertions(+)
+>  create mode 100644 arch/riscv/boot/dts/sophgo/Makefile
+>  create mode 100644 arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts
+> 
+> diff --git a/arch/riscv/boot/dts/Makefile b/arch/riscv/boot/dts/Makefile
+> index f60a280abb15..94788486f13e 100644
+> --- a/arch/riscv/boot/dts/Makefile
+> +++ b/arch/riscv/boot/dts/Makefile
+> @@ -6,5 +6,6 @@ subdir-y += renesas
+>  subdir-y += sifive
+>  subdir-y += starfive
+>  subdir-y += thead
+> +subdir-y += sophgo
+>  
+>  obj-$(CONFIG_BUILTIN_DTB) := $(addsuffix /, $(subdir-y))
+> diff --git a/arch/riscv/boot/dts/sophgo/Makefile b/arch/riscv/boot/dts/sophgo/Makefile
+> new file mode 100644
+> index 000000000000..5a471b19df22
+> --- /dev/null
+> +++ b/arch/riscv/boot/dts/sophgo/Makefile
+> @@ -0,0 +1,3 @@
+> +# SPDX-License-Identifier: GPL-2.0
+> +dtb-$(CONFIG_ARCH_SOPHGO) += sg2042-milkv-pioneer.dtb
+> +
+> diff --git a/arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts b/arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts
+> new file mode 100644
+> index 000000000000..d6e8c0285d1e
+> --- /dev/null
+> +++ b/arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts
+> @@ -0,0 +1,19 @@
+> +// SPDX-License-Identifier: GPL-2.0 OR MIT
+> +/*
+> + * Copyright (C) 2022 Sophgo Technology Inc. All rights reserved.
+> + */
+> +
+> +#include "sg2042.dtsi"
+> +
+> +/ {
+> +	model = "Milk-V Pioneer";
+> +	compatible = "milkv,pioneer", "sophgo,sg2042";
+> +
+> +	chosen: chosen {
 
-Why?
+Drop label, not used.
 
-You received comment about it, so please provide proper explanation in
-the commit msg.
-
-Same device does not get two different compatibles.
-
-You also did not respond to my comments, so you basically ignored it and
-send the same.
-
-NAK
 
 Best regards,
 Krzysztof
