@@ -4,69 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36ABCCE79CF
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 Sep 2023 13:03:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5AC2CE79CE
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 Sep 2023 13:09:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K++0TjRgJtjeq6OtmSC6VL/mpW11W+ZPjksojPZOXjE=; b=gu75svai+QYu5r9ppUH6GfGo2w
-	UGiisVZLZ5JYNmrpHrB3N15R4Q61JnYsy+Q587mWKmXVo1rKLtVYiriyD4lm1AyJpdx+vNjO4jZsU
-	/2VVaV7ugUz00C5jZV9eDCCB2BOPCBxphHi1Q3hk22HiyqqVQWCt0IPHQEkl4e+TAXrcqfoGiJR8V
-	nmwuGDG2Bhr4fKq/rpKfiQmmiJGUIIoVeemZK36gWc9DRPsoMqgH8wVRU9BD4RF3eJaX6r7PTOxl2
-	7KfI7vQ9YjpvTD9WhOvsS8avcFkuvcJnic38j7CmYopJqRzusHGUjaLcLOmOBwI+oZglMr3dJ/Ucj
-	BV2A4LnA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=U45bV4rJSCfnT5B9eQ8Gov9FEMys/ukuud2PuFsVnW4=; b=AxsVHNW0EFhkBV
+	o2AO0sD6QwXwy2xO8qYb55Y9UkDiRP/RjYe0ny3kV85K+ddJULeDIAZw44RhUbkogAvqE+a9lbX8p
+	PdhkJrlitAani2BITxRu66iyUhfmFK/kKTX+CMy0CN/TYqfbmpVxlmrX6J5b5BlxM/TLNNMOTHnT6
+	SsB2h5GT25yPXtzu1MB2JJxg2Btm+8RADZSrbFRmqzmaguKv4jhitGKaKbkpqus/EKYK0qXrlYohO
+	9ACEc4t5tqJblIgeUMynCm8eu8rFAy6Ym7q4npvpd914nrvYnPr+2HcZgAtVvW/ORvn6XBX7QWhxU
+	FuPigo4TNpBdKjPsPb2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qiwrJ-0037Z9-2g;
-	Wed, 20 Sep 2023 13:03:13 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1qiwxH-0038m8-25;
+	Wed, 20 Sep 2023 13:09:23 +0000
+Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qiwrG-0037Y3-1r
+	id 1qiwxE-0038l4-2a
 	for linux-riscv@lists.infradead.org;
-	Wed, 20 Sep 2023 13:03:12 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 296FDB81D6B;
-	Wed, 20 Sep 2023 13:03:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2F6BCC433C8;
-	Wed, 20 Sep 2023 13:03:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1695214987;
-	bh=mOsDBDIOwfXwaQhf3USDdb3F9JCa//1vBpkpJd55YHw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=iuVcOtjf5E0QnKm5GwYp4/s+Fv8bh/OeBioyoSy25ZJcD2Ci1Uit4uS3skQKjNxk6
-	 WUNAeGuJVZc4XdcP0jIyMgQk7Z67VkS2Qn86YqPEOSossNMj7qF39W7SX0zE1itOAB
-	 2j099vpEKgsXcqJU8IrUGEIETl2yuPdYJ6yWFePy95Y0Wa1Yf9LZciCjhUha5Y+p2q
-	 3AfCPjtwbK5EjsClfF0zhPYKMCsbefBphdptSwAVDEEvyG6u1UqZvTOq+tdo6AlKiW
-	 EsZa3GnYXFKxjzTGZsPr/DaPQp8W3JKhvWCbwJZzPLfAv7PTPC0Jrvg4+EoGYAm951
-	 tzAdBmQsLF6iw==
-Date: Wed, 20 Sep 2023 14:03:01 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Inochi Amaoto <inochiama@outlook.com>
-Cc: Conor Dooley <conor.dooley@microchip.com>,
-	Anup Patel <apatel@ventanamicro.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	aou@eecs.berkeley.edu, chao.wei@sophgo.com,
-	evicetree@vger.kernel.org, emil.renner.berthing@canonical.com,
-	guoren@kernel.org, jszhang@kernel.org,
-	krzysztof.kozlowski+dt@linaro.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, palmer@dabbelt.com,
-	paul.walmsley@sifive.com, robh+dt@kernel.org,
-	xiaoguang.xing@sophgo.com, Chen Wang <wangchen20@iscas.ac.cn>
-Subject: Re: [PATCH v2 06/11] dt-bindings: timer: Add Sophgo sg2042 clint
-Message-ID: <20230920-53a04651c08acb0796dc63b4@fedora>
-References: <20230920-untimely-untagged-12b75e247afb@wendy>
- <IA1PR20MB495313B7E9B2FC529BE0BB2ABBF9A@IA1PR20MB4953.namprd20.prod.outlook.com>
+	Wed, 20 Sep 2023 13:09:22 +0000
+Received: by mail-ed1-x52c.google.com with SMTP id 4fb4d7f45d1cf-52e5900cf77so8538957a12.2
+        for <linux-riscv@lists.infradead.org>; Wed, 20 Sep 2023 06:09:19 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1695215358; x=1695820158; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=270Wv+j/EwaXulOu1WjjWayYksd1Jqq5ecQjbVvwBS8=;
+        b=jCzH2Og3kitT0fmgRnm5N6BW3kMCLy5DK7+xG2JxzldOp6RhCA+gy9EravuCzeyaYC
+         upsQ2EkPg2YT/s9JBPk3GnmGXhlxEzvre4/lsIlIMWI8NwtVWlCMC1UXWdLBFBQqDWQ3
+         XVL2wK0dgw6T8aTpNoEB84UY5KUj04GB1AUBv1mMRn6voBYUo9a3lEJzmBY83jpt2OfF
+         s6l7SsmEwniV2ZtcSyf+R3c6eGLFDYzkGV/Y7Syof7CTnKqz39SZSAjbpY2aiu6sn7mu
+         yEjvWk2VjUVl7i7tKXZWVLh7fhUXMbQa9mfwhmv9DZeB0Eugc6o+6zE1iVZhda0YxYkK
+         UpyA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1695215358; x=1695820158;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=270Wv+j/EwaXulOu1WjjWayYksd1Jqq5ecQjbVvwBS8=;
+        b=uexUUiRJe8T9bPiswyxOKYBPFV7y/1DXfMHkVOynWhvVEkkcNoyrIMmIVz9YRp067e
+         J3V7Jwhxc7ynVDr6Y7R3y4WggnNNlUCpPPLX1F+S1iT4Iaf+CmrjS2npnvhz2o7Q6Vln
+         kVDMz/Yv9Tbo73v0GWga3KU97QDb1eSpjjp1Qrko24t5Hle8cMqN9gAT0CBwECkCSZ8b
+         bjZXzkMDTFU8dctf5xThA6xVRBcO6WplWzBsWhBQOqdbXPgn/hjBx7gdP5KyjBTPWI0u
+         4NHHh78vT13IVPQ62HX3keayFlSOk1T83XDmj057irKvK1JIWBzRRQ8i7nSQHl/M/74H
+         qUIw==
+X-Gm-Message-State: AOJu0YwR2wvY5Ad6agNVOfNDQgC0iGZ6CN8mpRENHgmLUkgYRt4DXp/d
+	suNq6KAXjJCtNt8WxmUwFnXupA==
+X-Google-Smtp-Source: AGHT+IH297j9ktrdQwrQLmNMBcLuT4NjDCohRQHwALOPnweXJcwlZz2yapKIbPE04mbFmOYfOuw6FQ==
+X-Received: by 2002:a05:6402:b35:b0:52f:2a38:1f3 with SMTP id bo21-20020a0564020b3500b0052f2a3801f3mr2081318edb.2.1695215358664;
+        Wed, 20 Sep 2023 06:09:18 -0700 (PDT)
+Received: from [172.20.24.238] (static-212-193-78-212.thenetworkfactory.nl. [212.78.193.212])
+        by smtp.gmail.com with ESMTPSA id by6-20020a0564021b0600b0052a198d8a4dsm8786806edb.52.2023.09.20.06.09.16
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 20 Sep 2023 06:09:17 -0700 (PDT)
+Message-ID: <3172861a-4f13-363c-e3af-c7047899501b@linaro.org>
+Date: Wed, 20 Sep 2023 15:09:16 +0200
 MIME-Version: 1.0
-In-Reply-To: <IA1PR20MB495313B7E9B2FC529BE0BB2ABBF9A@IA1PR20MB4953.namprd20.prod.outlook.com>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.15.1
+Subject: Re: [PATCH v2 06/11] dt-bindings: timer: Add Sophgo sg2042 clint
+To: Conor Dooley <conor@kernel.org>, Inochi Amaoto <inochiama@outlook.com>
+Cc: aou@eecs.berkeley.edu, chao.wei@sophgo.com, evicetree@vger.kernel.org,
+ emil.renner.berthing@canonical.com, guoren@kernel.org, jszhang@kernel.org,
+ krzysztof.kozlowski+dt@linaro.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, palmer@dabbelt.com,
+ paul.walmsley@sifive.com, robh+dt@kernel.org, xiaoguang.xing@sophgo.com,
+ Chen Wang <wangchen20@iscas.ac.cn>
+References: <66b988f0-39fc-2ed3-8f38-151d6a3c9e52@linaro.org>
+ <IA1PR20MB49536BFE1254ADEE0E795A26BBF9A@IA1PR20MB4953.namprd20.prod.outlook.com>
+ <20230920-8503c6365655d3ef3dadfd53@fedora>
+Content-Language: en-US
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+In-Reply-To: <20230920-8503c6365655d3ef3dadfd53@fedora>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230920_060310_906218_3C27B8DE 
-X-CRM114-Status: GOOD (  45.87  )
+X-CRM114-CacheID: sfid-20230920_060920_839033_C1366BA6 
+X-CRM114-Status: GOOD (  19.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,163 +95,64 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============0031678747716771530=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On 20/09/2023 14:58, Conor Dooley wrote:
+> On Wed, Sep 20, 2023 at 08:40:07PM +0800, Inochi Amaoto wrote:
+>>> On 20/09/2023 14:15, Inochi Amaoto wrote:
+>>>>> On 20/09/2023 08:39, Chen Wang wrote:
+>>>>>> From: Inochi Amaoto <inochiama@outlook.com>
+>>>>>>
+>>>>>> Add two new compatible string formatted like `C9xx-clint-xxx` to identify
+>>>>>> the timer and ipi device separately, and do not allow c900-clint as the
+>>>>>
+>>>>> Why?
+>>>>>
+>>>>
+>>>> If use the same compatible, SBI will process this twice in both ipi and
+>>>> timer, use different compatible will allow SBI to treat these as different.
+>>>> AFAIK, the aclint in SBI use the same concepts, which make hard to use the
+>>>> second register range. I have explained in another response.
+>>>
+>>> What is a SBI? Linux driver? If so, why some intermediate Linux driver
+>>> choice should affect bindings?
+>>> Best regards,
+>>> Krzysztof
+>>>
+>>
+>> SBI (Supervisor Binary Interface) is defined by riscv, which is an interface
+>> between the Supervisor Execution Environment (SEE) and the supervisor. The
+>> detailed documentation can be found in [1].
+>>
+>> The implement of SBI needs fdt info of the platform, which is provided by
+>> kernel. So we need a dt-bindings for these devices, and these will be
+>> processed by SBI.
+>>
+>> [1] https://github.com/riscv-non-isa/riscv-sbi-doc
+> 
+> Yeah, this is the unfortunate problem of half-baked bindings (IMO)
+> ending up in OpenSBI (which likely means they also ended up in QEMU).
+> This T-Head stuff is coming across our (metaphorical) desks, so we are
+> obviously going to try to do things correctly. I may end up speaking to
+> Anup later today, if I do I will point him at this thread (if he hasn't
+> seen it already).
 
---===============0031678747716771530==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="fHzTHLymqgiKnOlw"
-Content-Disposition: inline
+If the OpenSBI started to work with some half-baked-bindings before
+proper review, it's their loss. If we do not push back on such stuff,
+how our review can ever matter?
 
+Anyway, firmware/SBI/whatever parsing compatible twice is not really a
+reason to model same thing with two different compatibles. Assuming of
+course this is the same thing.
 
---fHzTHLymqgiKnOlw
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Best regards,
+Krzysztof
 
-On Wed, Sep 20, 2023 at 07:24:21PM +0800, Inochi Amaoto wrote:
-> >
-> >Yo,
-> >
-> >On Wed, Sep 20, 2023 at 05:08:41PM +0800, Inochi Amaoto wrote:
-> >>> On Wed, Sep 20, 2023 at 02:39:39PM +0800, Chen Wang wrote:
-> >>>> From: Inochi Amaoto <inochiama@outlook.com>
-> >>>>
-> >>>> Add two new compatible string formatted like `C9xx-clint-xxx` to ide=
-ntify
-> >>>> the timer and ipi device separately, and do not allow c900-clint as =
-the
-> >>>> fallback to avoid conflict.
-> >>>>
-> >>>> Signed-off-by: Inochi Amaoto <inochiama@outlook.com>
-> >>>> Signed-off-by: Chen Wang <wangchen20@iscas.ac.cn>
-> >>>
-> >>> Have you ignored Krzysztof's comments on this? I don't see a response=
- or
-> >>> a reaction to his comments about the compatibles on the last version.
-> >>> Additionally, where is the user for these? I don't see any drivers th=
-at
-> >>> actually make use of these.
-> >>>
-> >>
-> >> Sorry for late reply and wrong message-id.
-> >>
-> >> The clint is parsed by sbi.
-> >
-> >That needs to go in the commit message.
->=20
-> Yes, it will.
-
-Thanks.
-
-> >> As use the same compatible, the opensbi will
-> >> parse the device twice. This will cause a fault.
-> >
-> >Then only have one compatible with 2 register ranges? Then your SBI
-> >implementation can use those two register ranges to find out the base
-> >address for the mtimer bits and for the mswi bits.
-> >I don't understand why this cannot be done, could you please explain.
->=20
-> That is a good idea, but now SBI use the second register ranges as
-> mtimecmp address for aclint. And there is a aclint-mswi in the SBI.
-> Maybe a change is needed?
-
-Yeah, I don't think the model for this in OpenSBI at the moment (and
-since I checked, in QEMU too) is correct. I think we should re-do things
-correctly and it'd be great if things didn't get merged to those
-projects that end up being objected to by dt-binding people.
-I've started keeping a closer eye on QEMU recently in that regard, but I
-am not super attentive. I'll try to be better at that going forward!
-
->=20
-> >I also don't see anything in the opensbi repo right now that is using
-> >these (nor could I easily see any patches for opensbi adding this).
-> >Is there another SBI implementation that you are using that I can take
-> >a look at to try and understand this better?
-> >
->=20
-> This will be sumbit in a short time.
-> Now we only use it is sophgo vendor SBI, which url is [1].
->=20
-> [1] https://github.com/sophgo/opensbi
-
-Thanks.
-
-> >>> Why do you need to have 2 compatibles (and therefore 2 devices) for t=
-he
-> >>> clint? I thought the clint was a single device, of which the mtimer a=
-nd
-> >>> mswi bits were just "features"? Having split register ranges isn't a
-> >>> reason to have two compatibles, so I must be missing something here...
-> >
-> >> Sorry for late reply, The clint consists of mtimer and ipi devices, wh=
-ich
-> >> is defined in [1].
-> >
-> >Yes, I have looked at the spec. I went to check it again before replying
-> >here in case there was something immediately obvious that I was missing.
-> >
->=20
-> I think nothing missed.
->=20
-> >> This standard shows clint(or the aclint) has two device,
-> >
-> >The wording used here doesn't really matter. It's one interrupt
-> >controller that does mtimer and mswi.
-> >
-> >> but not one. In another word, there is no need to defined mtimer and i=
-pi
-> >> device on the same base address.
-> >
-> >There's also no need to have two compatibles for the same interrupt
-> >controller, so I do not get this reasoning. What actually _requires_
-> >them to be split?
-> >
->=20
-> Yes, it is one, but can be mapped into different address. So I think we
-> need two.
-
-Not two compatibles though, just two memory addresses that you need to
-locate (or maybe even 3, for SSWI?)
-
->=20
-> >> So we need two compatibles to allow sbi to identify them correctly.
-> >
-> >Why is it not sufficient to identify the individual memory regions?
-> >
->=20
-> FYI, Anup. As I have no idea for aclint implementation.
->=20
-> >Thanks,
-> >Conor.
-> >
-
---fHzTHLymqgiKnOlw
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEARYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZQrtgQAKCRB4tDGHoIJi
-0sH4AP9aPXJ2MxGFLtqJMN8gdZXDTRRPiXRkMYqGcMxe9DXbQwD/YgQh6XCaTtVs
-o6MGOLBVFZ6PY7rSGjPa2yPRN3KiPAc=
-=c3Dp
------END PGP SIGNATURE-----
-
---fHzTHLymqgiKnOlw--
-
-
---===============0031678747716771530==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============0031678747716771530==--
-
