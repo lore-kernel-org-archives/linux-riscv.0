@@ -4,94 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67C8BCD4959
-	for <linux-riscv@archiver.kernel.org>; Thu, 21 Sep 2023 05:58:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F3D9E706E3
+	for <linux-riscv@archiver.kernel.org>; Thu, 21 Sep 2023 08:05:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PrMC6YSPrUeS/2QjarFx/i7BewYcOig6vN+7Rmi9DO8=; b=hXxZpoH2inxJID
-	+vL0QDKLOBOO7PhIoqBtJoS4sxdRpEJorvnoMx8Q07Z3Z/CRwm/ZQDMTn/eJuhLgJGmIIiGIg9KCj
-	F3OYC94cJFnGXGOqaSHgnoSQL1803uHj6fsC2ngOSAPsq3agYT3laFSwgtXVk2lOX9VqrR61BatK1
-	Cmy1i2QNALlg0WvtVgw0uwT4w/QsW4biB4JjhPqUDOM+hdge1gyGT4od5H4hHvdbFprbfU2D6GzpS
-	an6mxfrTq8w1TZdoJ+HXQiRrVXqGcrlu708BbOC59BDzcc8gJQNvSzkiUf6HAg3pVbfceVHkVIvND
-	wBgjIifuVuPrS6QbJoKQ==;
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=e8CL0oUVhK6RZ3GCpJedNQizy1Fq3NfttB5av1goigc=; b=0E5NNeuC/Aw+0TGPQPxwDmJi3d
+	ETX7682UeHn9ey2GgYViuwckBCJMXXFH7v7tBcld5FfWZ2aC6UVEi2wo7BrrYYSK8UiHGxFe97GB3
+	utve1AtnLYli888R7sRLtKPxeB0mfbW1S3y01juTuMZcFiFQLiI9x8tdk2x68PE2IhEeepY1MT6Rx
+	lJkO5WIlZu/BA0DP48o7bFK7JacamCEnPyWg/CwRAiHsI7sdST29blikJxd2tsZPIkr2f2LDWq6aQ
+	B+lA3udboH38/NJZI6ED0Lhylb3xdHq8+pSA4gnNv/q4CtXXqu/sFkkVTqYN4IpwwfdxReP5RtyJU
+	KkrORLoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qjChd-005E1B-2w;
-	Thu, 21 Sep 2023 05:58:17 +0000
-Received: from mgamail.intel.com ([192.55.52.115])
+	id 1qjEgz-005S9m-0S;
+	Thu, 21 Sep 2023 08:05:45 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qjCha-005Dx0-1P;
-	Thu, 21 Sep 2023 05:58:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1695275894; x=1726811894;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=D2Ofh4NhqIgE7X1sOt5XtBxAR4C9rpdFRo7VG5iLwuA=;
-  b=eR0Y66aNS+GHqPHnA7Jmrd7b4bv7Chen8qUhQJoLzZ/SNlz2Y4Pcw1iu
-   MELTP82XRUHqzaN7YohCUkpUcANs1/4CsXYxojqx9ZKh0k9lmPwaciRqT
-   sFx3siwtLA2wHf3rJZcdSgcHam9KkCnConT1Cv7SBtxjlEWsSOORacvtx
-   VCyU2Po+FNbsJuv1WdDzpjfElEXEcUZbgiJF12pdXNblNZm/xK35Pg7wA
-   1T0sDoAxuvRlHb7xV3uterS/fp/8DXSDxxE+uLMIvlFOx8MSX1Ou7I9Vs
-   rc6nNNA+9owfVU5mDOmvqBFGWMwvBqklvh3vKZfpfxtDxqj1iYg7KNxxI
-   w==;
-X-IronPort-AV: E=McAfee;i="6600,9927,10839"; a="380337403"
-X-IronPort-AV: E=Sophos;i="6.03,164,1694761200"; 
-   d="scan'208";a="380337403"
-Received: from orsmga007.jf.intel.com ([10.7.209.58])
-  by fmsmga103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Sep 2023 22:58:13 -0700
-X-ExtLoop1: 1
-X-IronPort-AV: E=McAfee;i="6600,9927,10839"; a="740494287"
-X-IronPort-AV: E=Sophos;i="6.03,164,1694761200"; 
-   d="scan'208";a="740494287"
-Received: from binbinwu-mobl.ccr.corp.intel.com (HELO [10.93.17.222]) ([10.93.17.222])
-  by orsmga007-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Sep 2023 22:58:02 -0700
-Message-ID: <f9ca9457-ca64-484c-7306-97a3236210da@linux.intel.com>
-Date: Thu, 21 Sep 2023 13:58:00 +0800
+	id 1qjEgw-005S7e-0V
+	for linux-riscv@lists.infradead.org;
+	Thu, 21 Sep 2023 08:05:43 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by sin.source.kernel.org (Postfix) with ESMTPS id 33C04CE1D34;
+	Thu, 21 Sep 2023 08:05:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0C58AC116AC;
+	Thu, 21 Sep 2023 08:05:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1695283538;
+	bh=cYb7Ub3bti/deKs/jdrs9q+vuzARawcOGZH6tlkcZ0g=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=rzndAuD5lDrILdYmfpKN3DCvqeXqeVrLQZankoX6JfzmLsKO16hXwIWP7+77ALI3g
+	 6SwpEcPdr0JvsbnP13j7BllSZgFElmxjR/0Yin7ZHXWsFKaSaD6Z3Hu9p4wqvnm4E0
+	 8RnqaD3d6DuKPAt8ILyxMFWgiWUT7f9ovQLmodULkRiyvryk4jdrFhE+1CS9PLkDfN
+	 9rZDGaF6EB68ZyWC1fNCNGYUGzvdcG0tDQgKhU2vjpK48e4mdp8OSxMY8dmrNhfu30
+	 HAVKv2GxAuuXwelQ3pt+z3LY2dQFxdRB+jETIdNiMmT+tl3x/0c0oiw72DzhmIbBrY
+	 tjYfVZjbu1VlA==
+Date: Thu, 21 Sep 2023 09:05:32 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Inochi Amaoto <inochiama@outlook.com>
+Cc: Anup Patel <apatel@ventanamicro.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	aou@eecs.berkeley.edu, chao.wei@sophgo.com,
+	evicetree@vger.kernel.org, emil.renner.berthing@canonical.com,
+	guoren@kernel.org, jszhang@kernel.org,
+	krzysztof.kozlowski+dt@linaro.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, palmer@dabbelt.com,
+	paul.walmsley@sifive.com, robh+dt@kernel.org,
+	xiaoguang.xing@sophgo.com, Chen Wang <wangchen20@iscas.ac.cn>
+Subject: Re: [PATCH v2 06/11] dt-bindings: timer: Add Sophgo sg2042 clint
+Message-ID: <20230921-d7bab3f036e498a23eb6b578@fedora>
+References: <20230920-53a04651c08acb0796dc63b4@fedora>
+ <IA1PR20MB495358928C0DCF5854C99584BBF8A@IA1PR20MB4953.namprd20.prod.outlook.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.15.1
-Subject: Re: [RFC PATCH v12 14/33] KVM: Add KVM_CREATE_GUEST_MEMFD ioctl() for
- guest-specific backing memory
-To: Sean Christopherson <seanjc@google.com>
-Cc: kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- kvmarm@lists.linux.dev, linux-mips@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org,
- linux-riscv@lists.infradead.org, linux-fsdevel@vger.kernel.org,
- linux-mm@kvack.org, linux-security-module@vger.kernel.org,
- linux-kernel@vger.kernel.org, Paolo Bonzini <pbonzini@redhat.com>,
- Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
- Huacai Chen <chenhuacai@kernel.org>, Michael Ellerman <mpe@ellerman.id.au>,
- Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- "Matthew Wilcox (Oracle)" <willy@infradead.org>,
- Andrew Morton <akpm@linux-foundation.org>, Paul Moore <paul@paul-moore.com>,
- James Morris <jmorris@namei.org>, "Serge E. Hallyn" <serge@hallyn.com>,
- Chao Peng <chao.p.peng@linux.intel.com>, Fuad Tabba <tabba@google.com>,
- Jarkko Sakkinen <jarkko@kernel.org>, Anish Moorthy <amoorthy@google.com>,
- Yu Zhang <yu.c.zhang@linux.intel.com>,
- Isaku Yamahata <isaku.yamahata@intel.com>, Xu Yilun <yilun.xu@intel.com>,
- Vlastimil Babka <vbabka@suse.cz>, Vishal Annapurve <vannapurve@google.com>,
- Ackerley Tng <ackerleytng@google.com>,
- Maciej Szmigiero <mail@maciej.szmigiero.name>,
- David Hildenbrand <david@redhat.com>, Quentin Perret <qperret@google.com>,
- Michael Roth <michael.roth@amd.com>, Wang <wei.w.wang@intel.com>,
- Liam Merwick <liam.merwick@oracle.com>,
- Isaku Yamahata <isaku.yamahata@gmail.com>,
- "Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
-References: <20230914015531.1419405-1-seanjc@google.com>
- <20230914015531.1419405-15-seanjc@google.com>
- <e397d30c-c6af-e68f-d18e-b4e3739c5389@linux.intel.com>
- <ZQsAiGuw/38jIOV7@google.com>
-From: Binbin Wu <binbin.wu@linux.intel.com>
-In-Reply-To: <ZQsAiGuw/38jIOV7@google.com>
+In-Reply-To: <IA1PR20MB495358928C0DCF5854C99584BBF8A@IA1PR20MB4953.namprd20.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230920_225814_495388_0A461F16 
-X-CRM114-Status: GOOD (  24.61  )
+X-CRM114-CacheID: sfid-20230921_010542_371149_3B7A6F20 
+X-CRM114-Status: GOOD (  19.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,135 +77,80 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: multipart/mixed; boundary="===============5610292991086784770=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
-
-On 9/20/2023 10:24 PM, Sean Christopherson wrote:
-> On Tue, Sep 19, 2023, Binbin Wu wrote:
->>
->> On 9/14/2023 9:55 AM, Sean Christopherson wrote:
->> [...]
->>> +
->>> +static void kvm_gmem_invalidate_begin(struct kvm_gmem *gmem, pgoff_t start,
->>> +				      pgoff_t end)
->>> +{
->>> +	struct kvm_memory_slot *slot;
->>> +	struct kvm *kvm = gmem->kvm;
->>> +	unsigned long index;
->>> +	bool flush = false;
->>> +
->>> +	KVM_MMU_LOCK(kvm);
->>> +
->>> +	kvm_mmu_invalidate_begin(kvm);
->>> +
->>> +	xa_for_each_range(&gmem->bindings, index, slot, start, end - 1) {
->>> +		pgoff_t pgoff = slot->gmem.pgoff;
->>> +
->>> +		struct kvm_gfn_range gfn_range = {
->>> +			.start = slot->base_gfn + max(pgoff, start) - pgoff,
->>> +			.end = slot->base_gfn + min(pgoff + slot->npages, end) - pgoff,
->>> +			.slot = slot,
->>> +			.may_block = true,
->>> +		};
->>> +
->>> +		flush |= kvm_mmu_unmap_gfn_range(kvm, &gfn_range);
->>> +	}
->>> +
->>> +	if (flush)
->>> +		kvm_flush_remote_tlbs(kvm);
->>> +
->>> +	KVM_MMU_UNLOCK(kvm);
->>> +}
->>> +
->>> +static void kvm_gmem_invalidate_end(struct kvm_gmem *gmem, pgoff_t start,
->>> +				    pgoff_t end)
->>> +{
->>> +	struct kvm *kvm = gmem->kvm;
->>> +
->>> +	KVM_MMU_LOCK(kvm);
->>> +	if (xa_find(&gmem->bindings, &start, end - 1, XA_PRESENT))
->>> +		kvm_mmu_invalidate_end(kvm);
->> kvm_mmu_invalidate_begin() is called unconditionally in
->> kvm_gmem_invalidate_begin(),
->> but kvm_mmu_invalidate_end() is not here.
->> This makes the kvm_gmem_invalidate_{begin, end}() calls asymmetric.
-> Another ouch :-(
->
-> And there should be no need to acquire mmu_lock() unconditionally, the inode's
-> mutex protects the bindings, not mmu_lock.
->
-> I'll get a fix posted today.  I think KVM can also add a sanity check to detect
-> unresolved invalidations, e.g.
->
-> diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
-> index 7ba1ab1832a9..2a2d18070856 100644
-> --- a/virt/kvm/kvm_main.c
-> +++ b/virt/kvm/kvm_main.c
-> @@ -1381,8 +1381,13 @@ static void kvm_destroy_vm(struct kvm *kvm)
->           * No threads can be waiting in kvm_swap_active_memslots() as the
->           * last reference on KVM has been dropped, but freeing
->           * memslots would deadlock without this manual intervention.
-> +        *
-> +        * If the count isn't unbalanced, i.e. KVM did NOT unregister between
-> +        * a start() and end(), then there shouldn't be any in-progress
-> +        * invalidations.
->           */
->          WARN_ON(rcuwait_active(&kvm->mn_memslots_update_rcuwait));
-> +       WARN_ON(!kvm->mn_active_invalidate_count && kvm->mmu_invalidate_in_progress);
->          kvm->mn_active_invalidate_count = 0;
->   #else
->          kvm_flush_shadow_all(kvm);
->
->
-> or an alternative style
->
-> 	if (kvm->mn_active_invalidate_count)
-> 		kvm->mn_active_invalidate_count = 0;
-> 	else
-> 		WARN_ON(kvm->mmu_invalidate_in_progress)
->
->>> +	KVM_MMU_UNLOCK(kvm);
->>> +}
->>> +
->>> +static long kvm_gmem_punch_hole(struct inode *inode, loff_t offset, loff_t len)
->>> +{
->>> +	struct list_head *gmem_list = &inode->i_mapping->private_list;
->>> +	pgoff_t start = offset >> PAGE_SHIFT;
->>> +	pgoff_t end = (offset + len) >> PAGE_SHIFT;
->>> +	struct kvm_gmem *gmem;
->>> +
->>> +	/*
->>> +	 * Bindings must stable across invalidation to ensure the start+end
->>> +	 * are balanced.
->>> +	 */
->>> +	filemap_invalidate_lock(inode->i_mapping);
->>> +
->>> +	list_for_each_entry(gmem, gmem_list, entry) {
->>> +		kvm_gmem_invalidate_begin(gmem, start, end);
->>> +		kvm_gmem_invalidate_end(gmem, start, end);
->>> +	}
->> Why to loop for each gmem in gmem_list here?
->>
->> IIUIC, offset is the offset according to the inode, it is only meaningful to
->> the inode passed in, i.e, it is only meaningful to the gmem binding with the
->> inode, not others.
-> The code is structured to allow for multiple gmem instances per inode.  This isn't
-> actually possible in the initial code base, but it's on the horizon[*].  I included
-> the list-based infrastructure in this initial series to ensure that guest_memfd
-> can actually support multiple files per inode, and to minimize the churn when the
-> "link" support comes along.
->
-> [*] https://lore.kernel.org/all/cover.1691446946.git.ackerleytng@google.com
-Got it, thanks for the explanation!
+--===============5610292991086784770==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="kdBFnvGRk9OScnKc"
+Content-Disposition: inline
 
 
+--kdBFnvGRk9OScnKc
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
+On Thu, Sep 21, 2023 at 08:43:47AM +0800, Inochi Amaoto wrote:
+
+> >>>> but not one. In another word, there is no need to defined mtimer and=
+ ipi
+> >>>> device on the same base address.
+> >>>
+> >>> There's also no need to have two compatibles for the same interrupt
+> >>> controller, so I do not get this reasoning. What actually _requires_
+> >>> them to be split?
+> >>>
+> >>
+> >> Yes, it is one, but can be mapped into different address. So I think we
+> >> need two.
+> >
+> >Not two compatibles though, just two memory addresses that you need to
+> >locate (or maybe even 3, for SSWI?)
+> >
+>=20
+> We may need four (mtime, mtimecmp, mswi, sswi) if use register range.
+
+Why would you need 4? The first two certainly could be individual
+reg entries, no?
+
+> Anyway, I will use a vendor spec implementation as a temporary solution.
+> I hope this will be corrected in a predictable future, and we can use a
+> standard way to resolve this at that time. :)
+
+If the spec doesn't get frozen, there'll not be a standard way merged.
+Hopefully not too many others go off an implement non-frozen specs, and
+we will not really need to worry all that much about it.
+
+Cheers,
+Conor.
+
+--kdBFnvGRk9OScnKc
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEARYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZQv5SAAKCRB4tDGHoIJi
+0kwBAQCMThCZ01ziaG8cYDl53BVrJCuqYiEaCp+5ivC/5BrsOAEAptaWzL8Sle9r
+wuC74Jhg0ariLbfG9Of8Zpra2j83dAM=
+=fXxo
+-----END PGP SIGNATURE-----
+
+--kdBFnvGRk9OScnKc--
+
+
+--===============5610292991086784770==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============5610292991086784770==--
+
