@@ -4,68 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8718EE706F2
-	for <linux-riscv@archiver.kernel.org>; Thu, 21 Sep 2023 08:52:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06375E706F6
+	for <linux-riscv@archiver.kernel.org>; Thu, 21 Sep 2023 09:00:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ciaVIm7dTCC3hilqd5N3+GCG6o/26wEqqSZ3OkKyGYY=; b=Xvdtumixg0ZzzFwHAKdvJTq5fV
-	nMm7uVH8IeZu/bXJD64dm0caxdHhgDmjPgzW88TdDXoO94YrYR4AvAc1FmE2dH6Uc+Y7ZDjq983WF
-	9NY7nloGpOhawnXcfi6kJcjbDj+pGtuGgk2b74bCGsycInNO4aUSylg2Z2QmE/fyQ9WRQvpElJR86
-	AinGthWlZCsz3AacjUnmiPx70XzRLrYmqvuyeKY1QYjXKTNW5dLWLrroCH47yhDuqTH79ffygbS2H
-	DvBFN2j0SfkRGFp13X5ZDHLwnVTGQ+WeKkchW5eTgdAlK4Bv3llR0YSsxKersuHfG/rDHpd8Wk0xQ
-	W/9ufb6g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=bXy6eAK8ImPuKNeZKcEP7JCFHv6dm4A7/nFu/5DYu/I=; b=HoHtraIQ34gDda
+	kKyKjHkvEOg/jk4FHU6gyEwuqYwiTm8TIqZ1qFsPDp8uP8yrNop3bcX5ilZVRpfXDnbNDbDwBF1oH
+	7riwY/rdDpKY2vne5DsAB8Qi8bIEpokuQ+Gcw7Jngycby4JLR0hxpodHU8mzzljwek8eXuRBZ+1AJ
+	PtGE61XhaZdnuC0EqaLZ4VvkgM7Qfl7/qSTEdcFRiIwWq1lGMW7Rf6hp5b1cUh3kPyv4elQhKTesO
+	vONCW1eJ39uTC44QpscD2DXap/13rxLOrMYMqVwniYkJyQf6Znvq0xK++sFyINNVvxkmSN2VQNsFf
+	pPXL/dQ2YfZCF0ZBmYYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qjFPx-005Wa7-2b;
-	Thu, 21 Sep 2023 08:52:13 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qjFPv-005WZY-1M
-	for linux-riscv@lists.infradead.org;
-	Thu, 21 Sep 2023 08:52:13 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by sin.source.kernel.org (Postfix) with ESMTPS id BAB1BCE1C1F;
-	Thu, 21 Sep 2023 08:52:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A636EC116D7;
-	Thu, 21 Sep 2023 08:52:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1695286328;
-	bh=SBD9ZzEicd22ZDdkZ70qDAja5Op34wmz8fwnbFCDoPw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=mjYj8FDDXuN2U5Mf1F2HHeaNdS4oKHVT6ICoyBQiXFpyhdXpn6eY2PcewMf1EnIXn
-	 3VFwNdTQa97TsGvLsMM9F98Bmhgfy7ySgyJwpQYGGrd/8vwFY5rnQ7kVj9bI1esag0
-	 BPnZgsSOX34n/33Uq/bk7QHf5LXLHBGhiGMirfPth7XNf6+VCnUfVyT6B0og9+b/XI
-	 PHAbVrkIk1IqIhRPx5v79iYkbOQN6PBkxOfY5ORVfwgD9i3bd/o18+VpAaEt1o5v+4
-	 AVP6806Ei5gD184AnQEkElKbONar700d2uIve8zeAn3AbrcZogBCxzvKDdVt4ovNiM
-	 rzJc7gy8/TMfg==
-Date: Thu, 21 Sep 2023 09:52:01 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Inochi Amaoto <inochiama@outlook.com>
-Cc: Anup Patel <apatel@ventanamicro.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	aou@eecs.berkeley.edu, chao.wei@sophgo.com,
-	evicetree@vger.kernel.org, emil.renner.berthing@canonical.com,
-	guoren@kernel.org, jszhang@kernel.org,
-	krzysztof.kozlowski+dt@linaro.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, palmer@dabbelt.com,
-	paul.walmsley@sifive.com, robh+dt@kernel.org,
-	xiaoguang.xing@sophgo.com, Chen Wang <wangchen20@iscas.ac.cn>
-Subject: Re: [PATCH v2 06/11] dt-bindings: timer: Add Sophgo sg2042 clint
-Message-ID: <20230921-dbfb0a62538cc54852ad45b4@fedora>
-References: <20230921-d7bab3f036e498a23eb6b578@fedora>
- <PH7PR20MB4962478C50534722C16B17DDBBF8A@PH7PR20MB4962.namprd20.prod.outlook.com>
+	id 1qjFYF-005XXA-2t;
+	Thu, 21 Sep 2023 09:00:47 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1qjFYB-005XVz-1u;
+	Thu, 21 Sep 2023 09:00:45 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7CA09150C;
+	Thu, 21 Sep 2023 02:01:16 -0700 (PDT)
+Received: from localhost (ionvoi01-desktop.cambridge.arm.com [10.2.78.69])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F048F3F59C;
+	Thu, 21 Sep 2023 02:00:38 -0700 (PDT)
+Date: Thu, 21 Sep 2023 10:00:37 +0100
+From: Ionela Voinescu <ionela.voinescu@arm.com>
+To: Vincent Guittot <vincent.guittot@linaro.org>
+Cc: linux@armlinux.org.uk, catalin.marinas@arm.com, will@kernel.org,
+	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	sudeep.holla@arm.com, gregkh@linuxfoundation.org, rafael@kernel.org,
+	mingo@redhat.com, peterz@infradead.org, juri.lelli@redhat.com,
+	dietmar.eggemann@arm.com, rostedt@goodmis.org, bsegall@google.com,
+	mgorman@suse.de, bristot@redhat.com, vschneid@redhat.com,
+	viresh.kumar@linaro.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-pm@vger.kernel.org, conor.dooley@microchip.com,
+	suagrfillet@gmail.com, ajones@ventanamicro.com, lftan@kernel.org
+Subject: Re: [PATCH 2/4] topology: add a new arch_scale_freq_reference
+Message-ID: <ZQwGHBGg9B8SjzeS@arm.com>
+References: <20230901130312.247719-1-vincent.guittot@linaro.org>
+ <20230901130312.247719-3-vincent.guittot@linaro.org>
 MIME-Version: 1.0
-In-Reply-To: <PH7PR20MB4962478C50534722C16B17DDBBF8A@PH7PR20MB4962.namprd20.prod.outlook.com>
+Content-Disposition: inline
+In-Reply-To: <20230901130312.247719-3-vincent.guittot@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230921_015211_808160_3AD1BAA7 
-X-CRM114-Status: GOOD (  25.60  )
+X-CRM114-CacheID: sfid-20230921_020043_743231_AD00BCCB 
+X-CRM114-Status: GOOD (  31.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,108 +66,161 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8743300496667865585=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hi Vincent,
 
---===============8743300496667865585==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="3QkateNXglw3SC16"
-Content-Disposition: inline
+On Friday 01 Sep 2023 at 15:03:10 (+0200), Vincent Guittot wrote:
+> Create a new method to get a unique and fixed max frequency. Currently
+> cpuinfo.max_freq or last item of performance domain are used as the max
+> frequency when computing the frequency for a level of utilization but:
+> - cpuinfo_max_freq can change at runtime. boost is one example of
+>   such change.
+> - cpuinfo.max_freq and last item of the PD can be different leading to
+>   different results betwen cpufreq and energy model.
+> 
+> We need to save the max frequency that has been used when computing the
+> CPUs capacity and use this fixed and coherent value to convert between
+> frequency and CPU's capacity.
+> 
+> In fact, we already save the frequency that has been used when computing
+> the capacity of each CPU. We extend the precision to save khZ instead of
+> Mhz currently and we modify the type to be aligned with other variables
+> used when converting frequency to capacity and the other way.
+> 
+> Signed-off-by: Vincent Guittot <vincent.guittot@linaro.org>
+> ---
+>  arch/arm/include/asm/topology.h   | 1 +
+>  arch/arm64/include/asm/topology.h | 1 +
+>  arch/riscv/include/asm/topology.h | 1 +
+>  drivers/base/arch_topology.c      | 9 +++------
+>  include/linux/arch_topology.h     | 7 +++++++
+>  5 files changed, 13 insertions(+), 6 deletions(-)
+> 
+> diff --git a/arch/arm/include/asm/topology.h b/arch/arm/include/asm/topology.h
+> index c7d2510e5a78..853c4f81ba4a 100644
+> --- a/arch/arm/include/asm/topology.h
+> +++ b/arch/arm/include/asm/topology.h
+> @@ -13,6 +13,7 @@
+>  #define arch_set_freq_scale topology_set_freq_scale
+>  #define arch_scale_freq_capacity topology_get_freq_scale
+>  #define arch_scale_freq_invariant topology_scale_freq_invariant
+> +#define arch_scale_freq_ref topology_get_freq_ref
 
+The "reference" frequency or performance of a CPU has a specific meaning
+in the ACPI specification as a fixed frequency of a constant clock and its
+associated performance level, usually used for performance to frequency
+conversions. This is not guaranteed to be the maximum
+performance/frequency and it's definitely not the case for arm systems
+where this is tied to the system timer - 1-50Mhz.
 
---3QkateNXglw3SC16
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+So I believe it might create some confusion to call this "reference"
+frequency.
 
-Yo,
+Any reason for not calling it arch_scale_freq_max? I know not all max
+frequencies are equal :) but it would still drive the point that this is
+intended to act as a chosen maximum for the scheduler's use, especially
+if there's a well place comment.
 
-On Thu, Sep 21, 2023 at 04:18:57PM +0800, Inochi Amaoto wrote:
-> >On Thu, Sep 21, 2023 at 08:43:47AM +0800, Inochi Amaoto wrote:
+>  #endif
+>  
+>  /* Replace task scheduler's default cpu-invariant accounting */
+> diff --git a/arch/arm64/include/asm/topology.h b/arch/arm64/include/asm/topology.h
+> index 9fab663dd2de..a323b109b9c4 100644
+> --- a/arch/arm64/include/asm/topology.h
+> +++ b/arch/arm64/include/asm/topology.h
+> @@ -23,6 +23,7 @@ void update_freq_counters_refs(void);
+>  #define arch_set_freq_scale topology_set_freq_scale
+>  #define arch_scale_freq_capacity topology_get_freq_scale
+>  #define arch_scale_freq_invariant topology_scale_freq_invariant
+> +#define arch_scale_freq_ref topology_get_freq_ref
+>  
+>  #ifdef CONFIG_ACPI_CPPC_LIB
+>  #define arch_init_invariance_cppc topology_init_cpu_capacity_cppc
+> diff --git a/arch/riscv/include/asm/topology.h b/arch/riscv/include/asm/topology.h
+> index e316ab3b77f3..61183688bdd5 100644
+> --- a/arch/riscv/include/asm/topology.h
+> +++ b/arch/riscv/include/asm/topology.h
+> @@ -9,6 +9,7 @@
+>  #define arch_set_freq_scale		topology_set_freq_scale
+>  #define arch_scale_freq_capacity	topology_get_freq_scale
+>  #define arch_scale_freq_invariant	topology_scale_freq_invariant
+> +#define arch_scale_freq_ref		topology_get_freq_ref
+>  
+>  /* Replace task scheduler's default cpu-invariant accounting */
+>  #define arch_scale_cpu_capacity	topology_get_cpu_scale
+> diff --git a/drivers/base/arch_topology.c b/drivers/base/arch_topology.c
+> index b741b5ba82bd..75fa67477a9d 100644
+> --- a/drivers/base/arch_topology.c
+> +++ b/drivers/base/arch_topology.c
+> @@ -26,7 +26,7 @@
+>  static DEFINE_PER_CPU(struct scale_freq_data __rcu *, sft_data);
+>  static struct cpumask scale_freq_counters_mask;
+>  static bool scale_freq_invariant;
+> -static DEFINE_PER_CPU(u32, freq_factor) = 1;
+> +DEFINE_PER_CPU(unsigned long, freq_factor) = 1;
 
-> >>>>>> but not one. In another word, there is no need to defined mtimer a=
-nd ipi
-> >>>>>> device on the same base address.
-> >>>>>
-> >>>>> There's also no need to have two compatibles for the same interrupt
-> >>>>> controller, so I do not get this reasoning. What actually _requires_
-> >>>>> them to be split?
-> >>>>>
-> >>>>
-> >>>> Yes, it is one, but can be mapped into different address. So I think=
- we
-> >>>> need two.
-> >>>
-> >>> Not two compatibles though, just two memory addresses that you need to
-> >>> locate (or maybe even 3, for SSWI?)
-> >>>
-> >>
-> >> We may need four (mtime, mtimecmp, mswi, sswi) if use register range.
-> >
-> >Why would you need 4? The first two certainly could be individual
-> >reg entries, no?
-> >
->=20
-> After reading the aclint doc again, I found the all of them can be mapped
-> on the different address. (See the section 2.1 in that doc).
+Given its new wider use, it might be good for this to get a more
+relevant name as well. Previously freq_factor made sense for its role
+in using the dmips/mhz values to obtain CPU capacities. But if this is
+now returned from arch_scale_freq_ref() it would be more difficult still
+to easily understand what this value is supposed to reflect, when
+reading the function name or the per-cpu variable name alone.
 
-Right, that's what I meant by individual reg entries. If there's some
-dynamic gap between them, then one reg entry would cover mtime and one
-would cover the base of the mtimecmp region.
+Thanks,
+Ionela.
 
-> But for now,
-> the mtime and mtimecmp have the same base address in any platform.
-
-How? The mtimecmp base address would have to be offset from the mtime
-base address. Is what you mean that, for example, mtime is at an offset
-of 0x0 from the base address & mtimecmp0 is at, for example, an offset
-of 0x8 so a single reg entry can cover both?
-
-Also, "any platform"? I figure you mean in this one specific platform?
-
-> Anyway,
-> the frozen spec in future will decided how many ranges we need.
-
-Isn't the spec abandoned? There may well be no frozen spec.
-
-> >> Anyway, I will use a vendor spec implementation as a temporary solutio=
-n.
-> >> I hope this will be corrected in a predictable future, and we can use a
-> >> standard way to resolve this at that time. :)
-> >
-> >If the spec doesn't get frozen, there'll not be a standard way merged.
-> >Hopefully not too many others go off an implement non-frozen specs, and
-> >we will not really need to worry all that much about it.
-
-Cheers,
-Conor.
-
---3QkateNXglw3SC16
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEARYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZQwELgAKCRB4tDGHoIJi
-0mFBAQDD7fMHX5wOXYvk1hooV2cLDyyw+SAUv7OJKgltZw/Y1AEAlXgGk+Kx3Gm4
-Kh/W9kwPQFTcI0GL2em5xAh5VCoPSw4=
-=tkZX
------END PGP SIGNATURE-----
-
---3QkateNXglw3SC16--
-
-
---===============8743300496667865585==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+>  
+>  static bool supports_scale_freq_counters(const struct cpumask *cpus)
+>  {
+> @@ -183,10 +183,7 @@ void topology_update_thermal_pressure(const struct cpumask *cpus,
+>  
+>  	cpu = cpumask_first(cpus);
+>  	max_capacity = arch_scale_cpu_capacity(cpu);
+> -	max_freq = per_cpu(freq_factor, cpu);
+> -
+> -	/* Convert to MHz scale which is used in 'freq_factor' */
+> -	capped_freq /= 1000;
+> +	max_freq = arch_scale_freq_ref(cpu);
+>  
+>  	/*
+>  	 * Handle properly the boost frequencies, which should simply clean
+> @@ -411,7 +408,7 @@ init_cpu_capacity_callback(struct notifier_block *nb,
+>  	cpumask_andnot(cpus_to_visit, cpus_to_visit, policy->related_cpus);
+>  
+>  	for_each_cpu(cpu, policy->related_cpus)
+> -		per_cpu(freq_factor, cpu) = policy->cpuinfo.max_freq / 1000;
+> +		per_cpu(freq_factor, cpu) = policy->cpuinfo.max_freq;
+>  
+>  	if (cpumask_empty(cpus_to_visit)) {
+>  		topology_normalize_cpu_scale();
+> diff --git a/include/linux/arch_topology.h b/include/linux/arch_topology.h
+> index a07b510e7dc5..7a2dba9c3dc0 100644
+> --- a/include/linux/arch_topology.h
+> +++ b/include/linux/arch_topology.h
+> @@ -27,6 +27,13 @@ static inline unsigned long topology_get_cpu_scale(int cpu)
+>  
+>  void topology_set_cpu_scale(unsigned int cpu, unsigned long capacity);
+>  
+> +DECLARE_PER_CPU(unsigned long, freq_factor);
+> +
+> +static inline unsigned long topology_get_freq_ref(int cpu)
+> +{
+> +	return per_cpu(freq_factor, cpu);
+> +}
+> +
+>  DECLARE_PER_CPU(unsigned long, arch_freq_scale);
+>  
+>  static inline unsigned long topology_get_freq_scale(int cpu)
+> -- 
+> 2.34.1
+> 
+> 
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============8743300496667865585==--
-
