@@ -4,57 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9600E706F8
-	for <linux-riscv@archiver.kernel.org>; Thu, 21 Sep 2023 09:19:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E029E706FA
+	for <linux-riscv@archiver.kernel.org>; Thu, 21 Sep 2023 09:37:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0CHIfB663FyX/Wuvk/PJijgnY2UcYzbq6z0yxsZ1UeI=; b=xH+Rr7lfzYh/s+
-	j69OpvWi3eVlRepGHHvdH7BFLZgin0Z0UCSYQQNlbgFNrleDeGpebpHRRR+s8RX5ocwuZCnG1bGUY
-	rf4Qi+kOoD4qnoN2f8S9wBJ7/6wCbbOP848AxC+AjYn7dRnfJE8fJ5UCRG2eNCM3INFasfgdWAl9w
-	5z9LJ7mPne/oNjAZ5mdedQQU5uW8AnKyly0wm3+I7UMzOHMBXOID2l93+9nKQAnB5fQlvgsyJhE4+
-	vBDuisFpOPyi+1kp1PyOCsUsPQbLfrlKK5o+Go09Q/eHF07kY4rWZfP3MvT9RUqtxLczoCX++rIji
-	Sy3Q4tLN+K77zFg/KQZA==;
+	List-Owner; bh=nLF5dvbhTXmvpUv7bO4XGmFjAqcmJuAwn1+JJgiDW30=; b=0dlWC5W+isW7pi
+	SwH71IbCvNswctntuNSrCDGgC1CF/0SHgvii1Tkn3H3dhMIJOLz7wtlia3SSXeRu7Up4XUyejYc0Z
+	eLN21xT0zfEFgdi5uBgpkHX2KvXLmTGSjRpbNpzHNTrWb0z8XhRsAE6gq+MHa7LRWmE9QzM4X/O7H
+	DNRsd1eh06AKFHZBzSa6ITZYjilAdVbQ+v00wDJw+M4iF8LhgWr+j/xyQQqSn2v0/4h/baXm152Cu
+	P/eftdkbg8j7KVRMWqH4GQGLSKQEdSD6oUfNYt/Ks7LvchhP2+1IMAKLD6bemeOcFJmg+2flw+z/p
+	ul34Os6oi6nMk3t9Xvtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qjFqf-005ZqH-2p;
-	Thu, 21 Sep 2023 09:19:49 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qjFqc-005Zou-1M;
-	Thu, 21 Sep 2023 09:19:47 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1AC3114BF;
-	Thu, 21 Sep 2023 02:20:19 -0700 (PDT)
-Received: from localhost (ionvoi01-desktop.cambridge.arm.com [10.2.78.69])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8E5C33F59C;
-	Thu, 21 Sep 2023 02:19:41 -0700 (PDT)
-Date: Thu, 21 Sep 2023 10:19:40 +0100
-From: Ionela Voinescu <ionela.voinescu@arm.com>
-To: Vincent Guittot <vincent.guittot@linaro.org>
-Cc: linux@armlinux.org.uk, catalin.marinas@arm.com, will@kernel.org,
-	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	sudeep.holla@arm.com, gregkh@linuxfoundation.org, rafael@kernel.org,
-	mingo@redhat.com, peterz@infradead.org, juri.lelli@redhat.com,
-	dietmar.eggemann@arm.com, rostedt@goodmis.org, bsegall@google.com,
-	mgorman@suse.de, bristot@redhat.com, vschneid@redhat.com,
-	viresh.kumar@linaro.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-pm@vger.kernel.org, conor.dooley@microchip.com,
-	suagrfillet@gmail.com, ajones@ventanamicro.com, lftan@kernel.org
-Subject: Re: [PATCH 3/4] cpufreq/schedutil: use a fixed reference frequency
-Message-ID: <ZQwKnnXbjLOYUSjO@arm.com>
-References: <20230901130312.247719-1-vincent.guittot@linaro.org>
- <20230901130312.247719-4-vincent.guittot@linaro.org>
+	id 1qjG7N-005btk-0J;
+	Thu, 21 Sep 2023 09:37:05 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1qjG7J-005bsi-3C
+	for linux-riscv@lists.infradead.org;
+	Thu, 21 Sep 2023 09:37:03 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by sin.source.kernel.org (Postfix) with ESMTPS id D5507CE1D51;
+	Thu, 21 Sep 2023 09:36:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7740CC4AF5D;
+	Thu, 21 Sep 2023 09:36:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1695289018;
+	bh=dNEOlBkvsTEIQ7sDlpgOxIjaV/wTx53tOqsrSxNccPY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=KKe1e3A/+t7cy8i5x0gVpHox3H+UBnELoyDJ0jLD+FCQUOwlHa4OTsHka26jzP8dE
+	 lW1Uhty8xFED/Zq+Lx5dciCiEGi9oJIhS3VzkFzFf0G2Lr1WXJgLO65TLaiyHneA8z
+	 AcE+UIL0cMD0GyCqP3KJfEnWyYSnZsQs5YAJeebCuOB5yOXRGbppJJw2NA/9y8J7GX
+	 9+NxOyrr1l8tyFmDc6joN21Luf7Jp7ej6WUVRHeImywBg3I3HE/5aPmu31Yyz1XwnE
+	 te/EBz5euucputziqvfNo+WCHYjkqEb3cm+g0dAjaMRTUYuUdXTVybjhnp9LoY4ge+
+	 h4OpuRZFCVFrw==
+Date: Thu, 21 Sep 2023 17:24:57 +0800
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Conor Dooley <conor.dooley@microchip.com>
+Cc: Conor Dooley <conor@kernel.org>, Guo Ren <guoren@kernel.org>,
+	Fu Wei <wefu@redhat.com>, Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Drew Fustini <dfustini@baylibre.com>
+Subject: Re: [PATCH v2] riscv: dts: thead: set dma-noncoherent to soc bus
+Message-ID: <ZQwL6fxi6IkUEIMc@xhacker>
+References: <20230912072232.2455-1-jszhang@kernel.org>
+ <20230912-trailing-pampered-52738ec6f009@spud>
+ <ZQHSLdPufI6CXApg@xhacker>
+ <20230913-faster-spotted-9df41a0d7787@spud>
+ <20230920-pesky-stalemate-88f5036b8084@wendy>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20230901130312.247719-4-vincent.guittot@linaro.org>
+In-Reply-To: <20230920-pesky-stalemate-88f5036b8084@wendy>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230921_021946_554501_DC800DDF 
-X-CRM114-Status: GOOD (  26.13  )
+X-CRM114-CacheID: sfid-20230921_023702_247860_C481CE8D 
+X-CRM114-Status: GOOD (  22.96  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,106 +85,53 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Friday 01 Sep 2023 at 15:03:11 (+0200), Vincent Guittot wrote:
-> cpuinfo_max_freq can change at runtime because of boost as example. This
-> implies that the value could not be the same than the one that has been
-> used when computing the capacity of a CPU.
+On Wed, Sep 20, 2023 at 09:36:19AM +0100, Conor Dooley wrote:
+> Hey Jisheng,
 > 
-> The new arch_scale_freq_ref() returns a fixed and coherent frequency
-> reference that can be used when computing a frequency based on utilization.
+> On Wed, Sep 13, 2023 at 04:44:18PM +0100, Conor Dooley wrote:
+> > On Wed, Sep 13, 2023 at 11:15:57PM +0800, Jisheng Zhang wrote:
+> > > On Tue, Sep 12, 2023 at 05:27:31PM +0100, Conor Dooley wrote:
+> > > > On Tue, Sep 12, 2023 at 03:22:32PM +0800, Jisheng Zhang wrote:
+> > > > > riscv select ARCH_DMA_DEFAULT_COHERENT by default, and th1520 isn't
+> > > > > dma coherent, so set dma-noncoherent to reflect this fact.
+> > > > > 
+> > > > > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+> > > > > Tested-by: Drew Fustini <dfustini@baylibre.com>
+> > > > > ---
+> > > > > 
+> > > > > Since v1:
+> > > > >  - rebase on v6.6-rc1
+> > > > >  - collect Tested-by tag
+> > > > 
+> > > > Does this mean you're expecting me to take this?
+> > > 
+> > > Hi Conor,
+> > > 
+> > > I think I will take this and send PR to soc people. The reason
+> > > I send v2 is the rebasing on new rc1 and v1 wasn't in linux-riscv
+> > > mailist due to typo;
+> > 
+> > Great, thanks. Please ask SFR to add your tree to linux-next.
+
+Hi Conor,
+
+I'm not sure how to do this. When MAINTAINERS patch is merged, send
+an email to Stephen Rothwell, are these steps correct?
+
 > 
-> Use this arch_scale_freq_ref() when available and fallback to
-> cpuinfo.max_freq otherwise.
+> I lost my main x86 box over the weekend (looks like probably a dead
+> motherboard), so I may have missed a response to this.
 > 
-> Signed-off-by: Vincent Guittot <vincent.guittot@linaro.org>
-> ---
->  kernel/sched/cpufreq_schedutil.c | 29 +++++++++++++++++++++++++++--
->  1 file changed, 27 insertions(+), 2 deletions(-)
-> 
-> diff --git a/kernel/sched/cpufreq_schedutil.c b/kernel/sched/cpufreq_schedutil.c
-> index 4492608b7d7f..9996ef429e2b 100644
-> --- a/kernel/sched/cpufreq_schedutil.c
-> +++ b/kernel/sched/cpufreq_schedutil.c
-> @@ -114,6 +114,31 @@ static void sugov_deferred_update(struct sugov_policy *sg_policy)
->  	}
->  }
->  
-> +#ifdef arch_scale_freq_ref
-> +/**
-> + * arch_scale_freq_ref_policy - get the reference frequency of a given CPU that
-> + * has been used to correlate frequency and compute capacity.
-> + * @cpu: the CPU in question.
-> + *
-> + * Return: the reference CPU frequency.
-> + */
-> +static __always_inline
-> +unsigned long  arch_scale_freq_ref_policy(struct cpufreq_policy *policy)
+> Did you see this email? Additionally, can you add that git tree to the
+> maintainers entry for the thead devicetrees?
 
-This should not be an arch_ function as it's only a wrapper over an
-arch_ function and not a function that different architectures might
-implement differently usually in architecture specific code.
+I just created a tree in
+git://git.kernel.org/pub/scm/linux/kernel/git/jszhang/linux.git
 
-> +{
-> +	return arch_scale_freq_ref(policy->cpu);
+But it needs time for cgit to take place. I will send a patch
+once it appears.
 
-It might make it easier to read if arch_scale_freq_ref() had a default
-implementation that returned 0.
-
-Then this code would simply become:
-
-freq = arch_scale_freq_ref(policy->cpu);
-if (freq)
-	return freq;
-else if (arch_scale_freq_invariant())
-	return ..
-..
-
-This approach is similar to the use of arch_freq_get_on_cpu() in
-cpufreq.c, and, as there, having a chosen maximum frequency of 0 would
-not be a valid value.
-
-> +}
-> +#else
-> +static __always_inline
-> +unsigned long  arch_scale_freq_ref_policy(struct cpufreq_policy *policy)
-> +{
-> +	if (arch_scale_freq_invariant())
-> +		return policy->cpuinfo.max_freq;
-> +
-> +
-> +	return policy->cur;
-> +}
-> +#endif
-> +
->  /**
->   * get_next_freq - Compute a new frequency for a given cpufreq policy.
->   * @sg_policy: schedutil policy object to compute the new frequency for.
-> @@ -139,11 +164,11 @@ static void sugov_deferred_update(struct sugov_policy *sg_policy)
->  static unsigned int get_next_freq(struct sugov_policy *sg_policy,
->  				  unsigned long util, unsigned long max)
->  {
-> +	unsigned int freq;
->  	struct cpufreq_policy *policy = sg_policy->policy;
-> -	unsigned int freq = arch_scale_freq_invariant() ?
-> -				policy->cpuinfo.max_freq : policy->cur;
->  
->  	util = map_util_perf(util);
-> +	freq = arch_scale_freq_ref_policy(policy);
-
-Given its single use here, it would likely be better to place the code
-above directly here, rather than create a wrapper over a few lines of
-code.
-
-Hope it helps,
-Ionela.
-
->  	freq = map_util_freq(util, freq, max);
->  
->  	if (freq == sg_policy->cached_raw_freq && !sg_policy->need_freq_update)
-> -- 
-> 2.34.1
-> 
-> 
+Thanks
 
 _______________________________________________
 linux-riscv mailing list
