@@ -4,93 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 209C0CD4958
-	for <linux-riscv@archiver.kernel.org>; Thu, 21 Sep 2023 05:52:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AE81CD4958
+	for <linux-riscv@archiver.kernel.org>; Thu, 21 Sep 2023 05:58:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vfiRJ3gBpWV2VH+NlUwWOIUOkn6Y5fkZ2p47fkOez+8=; b=28UdPsscRwdGcE
-	Tdj1bdOiHttQo7Y0689kjs69mXz7G7zSrP76M+OTAE/GpU4kN4v/BJ/kAveDLrlFnU+A5UNC2i60a
-	KjE5gKvgfMF06Qn4ObQonpVqZUSFOIxZK0pHEXvJI3ZHGoo17xlC1zMhECqL8Ix8OhRERM2nqmzs2
-	U5d4U6Fo3UGNpsku9GZj44v8ckGasWzyimrgysLT6M1KthfElHWt++1GX2NnmoSdd7GQFUb/l/ywo
-	xDtxB+a2EpHRVbddDcj8jDblSgg8KlfSMZ4uJfT9dVw3AfY2q2YDeITaKJlxZsiSQFDhhmCKxz5C5
-	eUFZ3FTNnpqimf+hssqw==;
+	List-Owner; bh=yrysdtIIPw7gI5ufGIB2EvhCxERa2Yf0wB3QJeINMk8=; b=XBBMaCLCdsnQUE
+	oYAcUToTvuW/wYKTIGEL89IvvmZ+igzc9SjJo/E7beP+XlD0f05urI7HXHFMx6gUZOzvp6d63o3Gw
+	LRP9ogTywL674XVv7pwn5mhjmzs/rLJA7YWu/pWj63AGb/WY2X9JSbqo/XxA5X6dd44N9p3STmbcl
+	U0dzcU05ytKwGOB4i5IyEs1Ll8KDxPjQ1H+m8HiYGR/ahWc3h8FZH5kr7/LXhA4su0dOgZQZtIjmL
+	G9ptmP1BOvDFcotUnnCzEOwVlFOzpvmOM0sQAq5dWlf7lfReB4juotfLYB2CKJYNPVl0scgLrqxNg
+	mv7IhOk0QLNfdVL4xpKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qjCbY-005CvO-2J;
-	Thu, 21 Sep 2023 05:52:00 +0000
-Received: from mgamail.intel.com ([192.55.52.43])
+	id 1qjChS-005Dpu-05;
+	Thu, 21 Sep 2023 05:58:06 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qjCbU-005Cu5-35;
-	Thu, 21 Sep 2023 05:51:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1695275516; x=1726811516;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=oZ26NaKC2zv5YONE8y6jW8KHDfibqQbE4Lcj557476A=;
-  b=eBv3B8nHTdPjPqzbO4ZZ1TiW3Utab3WGoLCWJNIvOgNtsIMi+N5qG93+
-   qwTCoWHTHPiTR9RDt2vosnNSaii582kt9l04vzF8al9b3/Nz+ZhsmjYnz
-   XBlMEPjIMEKYzO8SMrgX5Di8pY+8lYZgsf1BOcjCysDoTaK2MerYkydux
-   PWLx4MykFs/ly4VL/xodFhGDKHIlLNERrwSZYNAV8rjnRAiNCz7QSfaNy
-   RN0g98omxlSOCB5meXgx/iIPnLcEpRxQ58YWEExqJseFLwzagyGmYTdeu
-   oMRudh+3/0maVugmaudNcYERExcon9GAhA8e9VSw9bhAROBMvdklJ0dKW
-   Q==;
-X-IronPort-AV: E=McAfee;i="6600,9927,10839"; a="466734475"
-X-IronPort-AV: E=Sophos;i="6.03,164,1694761200"; 
-   d="scan'208";a="466734475"
-Received: from fmsmga003.fm.intel.com ([10.253.24.29])
-  by fmsmga105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Sep 2023 22:51:47 -0700
-X-ExtLoop1: 1
-X-IronPort-AV: E=McAfee;i="6600,9927,10839"; a="837187245"
-X-IronPort-AV: E=Sophos;i="6.03,164,1694761200"; 
-   d="scan'208";a="837187245"
-Received: from binbinwu-mobl.ccr.corp.intel.com (HELO [10.93.17.222]) ([10.93.17.222])
-  by fmsmga003-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Sep 2023 22:51:36 -0700
-Message-ID: <ef36db9d-bb9c-e042-2617-830cf44602de@linux.intel.com>
-Date: Thu, 21 Sep 2023 13:51:34 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.15.1
-Subject: Re: [RFC PATCH v12 18/33] KVM: x86/mmu: Handle page fault for private
- memory
-To: Sean Christopherson <seanjc@google.com>, Yan Zhao <yan.y.zhao@intel.com>
-Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>,
- Oliver Upton <oliver.upton@linux.dev>, Huacai Chen <chenhuacai@kernel.org>,
- Michael Ellerman <mpe@ellerman.id.au>, Anup Patel <anup@brainfault.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+	id 1qjChO-005Doi-1X
+	for linux-riscv@lists.infradead.org;
+	Thu, 21 Sep 2023 05:58:03 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id A9029B81E3C;
+	Thu, 21 Sep 2023 05:57:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DA92FC433CC;
+	Thu, 21 Sep 2023 05:57:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1695275878;
+	bh=MLsGcIRXfwZgXJfU4dYy4+L26UPkpm/1q79i2tEWiLM=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=EB5CjlF/ICc3opR6zVvYCocFCSZN3miKYZKyOf7tbgYF9ef8NMm2Ay3yTw5JcEGgZ
+	 Zwcp4wH4x7VgPjuTyiIi+Jk7o9DoTc4KEBav3LIku1p6lTb7JS2xKqNaXvyHZDGkjh
+	 Y+bidq13Xm6DjQvYj12G1p+32CWlfVyi4ouhLeRrdZo9qgB/T1rws5VsAHxwABFlCU
+	 T0DlbhZBfCjfNZxueqrPQ4NGHuIq6C0hYPrJP+Wio/8KEBMwmFIQSPsBgEdeG9pLyP
+	 aPhX530k1r1ZTESvuEM99k6K3TPHmUpqoYAS0pRqYZ/EYGwLT3B9rrHDokUdfDVO5U
+	 WweMzZztMfNvw==
+From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
+To: Charlie Jenkins <charlie@rivosinc.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
  <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- "Matthew Wilcox (Oracle)" <willy@infradead.org>,
- Andrew Morton <akpm@linux-foundation.org>, Paul Moore <paul@paul-moore.com>,
- James Morris <jmorris@namei.org>, "Serge E. Hallyn" <serge@hallyn.com>,
- kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- kvmarm@lists.linux.dev, linux-mips@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org,
- linux-riscv@lists.infradead.org, linux-fsdevel@vger.kernel.org,
- linux-mm@kvack.org, linux-security-module@vger.kernel.org,
- linux-kernel@vger.kernel.org, Chao Peng <chao.p.peng@linux.intel.com>,
- Fuad Tabba <tabba@google.com>, Jarkko Sakkinen <jarkko@kernel.org>,
- Anish Moorthy <amoorthy@google.com>, Yu Zhang <yu.c.zhang@linux.intel.com>,
- Isaku Yamahata <isaku.yamahata@intel.com>, Xu Yilun <yilun.xu@intel.com>,
- Vlastimil Babka <vbabka@suse.cz>, Vishal Annapurve <vannapurve@google.com>,
- Ackerley Tng <ackerleytng@google.com>,
- Maciej Szmigiero <mail@maciej.szmigiero.name>,
- David Hildenbrand <david@redhat.com>, Quentin Perret <qperret@google.com>,
- Michael Roth <michael.roth@amd.com>, Wang <wei.w.wang@intel.com>,
- Liam Merwick <liam.merwick@oracle.com>,
- Isaku Yamahata <isaku.yamahata@gmail.com>,
- "Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
-References: <20230914015531.1419405-1-seanjc@google.com>
- <20230914015531.1419405-19-seanjc@google.com>
- <ZQPuMK6D/7UzDH+D@yzhao56-desk.sh.intel.com> <ZQRpiOd1DNDDJQ3r@google.com>
-From: Binbin Wu <binbin.wu@linux.intel.com>
-In-Reply-To: <ZQRpiOd1DNDDJQ3r@google.com>
+ linux-riscv@lists.infradead.org, Andy Chiu <andy.chiu@sifive.com>,
+ Greentime Hu <greentime.hu@sifive.com>, "Jason A . Donenfeld"
+ <Jason@zx2c4.com>, Samuel Neves <sneves@dei.uc.pt>, =?utf-8?B?QmrDtnJu?=
+ =?utf-8?B?IFTDtnBlbA==?=
+ <bjorn@rivosinc.com>, Heiko Stuebner <heiko@sntech.de>, Herbert Xu
+ <herbert@gondor.apana.org.au>, "David S. Miller" <davem@davemloft.net>,
+ linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [RFC PATCH 6/6] riscv: Add BLAKE2s V implementation
+In-Reply-To: <ZQSieofQfDY5mTlI@ghost>
+References: <20230912115728.172982-1-bjorn@kernel.org>
+ <20230912115728.172982-7-bjorn@kernel.org> <ZQSieofQfDY5mTlI@ghost>
+Date: Thu, 21 Sep 2023 07:57:55 +0200
+Message-ID: <87v8c4gja4.fsf@all.your.base.are.belong.to.us>
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230920_225157_061369_8ABF4FC2 
-X-CRM114-Status: GOOD (  20.05  )
+X-CRM114-CacheID: sfid-20230920_225802_667260_E54F648F 
+X-CRM114-Status: UNSURE (   8.74  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,88 +78,23 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-On 9/15/2023 10:26 PM, Sean Christopherson wrote:
-> On Fri, Sep 15, 2023, Yan Zhao wrote:
->> On Wed, Sep 13, 2023 at 06:55:16PM -0700, Sean Christopherson wrote:
->> ....
->>> +static void kvm_mmu_prepare_memory_fault_exit(struct kvm_vcpu *vcpu,
->>> +					      struct kvm_page_fault *fault)
->>> +{
->>> +	kvm_prepare_memory_fault_exit(vcpu, fault->gfn << PAGE_SHIFT,
->>> +				      PAGE_SIZE, fault->write, fault->exec,
->>> +				      fault->is_private);
->>> +}
->>> +
->>> +static int kvm_faultin_pfn_private(struct kvm_vcpu *vcpu,
->>> +				   struct kvm_page_fault *fault)
->>> +{
->>> +	int max_order, r;
->>> +
->>> +	if (!kvm_slot_can_be_private(fault->slot)) {
->>> +		kvm_mmu_prepare_memory_fault_exit(vcpu, fault);
->>> +		return -EFAULT;
->>> +	}
->>> +
->>> +	r = kvm_gmem_get_pfn(vcpu->kvm, fault->slot, fault->gfn, &fault->pfn,
->>> +			     &max_order);
->>> +	if (r) {
->>> +		kvm_mmu_prepare_memory_fault_exit(vcpu, fault);
->>> +		return r;
->>> +	}
->>> +
->>> +	fault->max_level = min(kvm_max_level_for_order(max_order),
->>> +			       fault->max_level);
->>> +	fault->map_writable = !(fault->slot->flags & KVM_MEM_READONLY);
->>> +
->>> +	return RET_PF_CONTINUE;
->>> +}
->>> +
->>>   static int __kvm_faultin_pfn(struct kvm_vcpu *vcpu, struct kvm_page_fault *fault)
->>>   {
->>>   	struct kvm_memory_slot *slot = fault->slot;
->>> @@ -4293,6 +4356,14 @@ static int __kvm_faultin_pfn(struct kvm_vcpu *vcpu, struct kvm_page_fault *fault
->>>   			return RET_PF_EMULATE;
->>>   	}
->>>   
->>> +	if (fault->is_private != kvm_mem_is_private(vcpu->kvm, fault->gfn)) {
->> In patch 21,
->> fault->is_private is set as:
->> 	".is_private = kvm_mem_is_private(vcpu->kvm, cr2_or_gpa >> PAGE_SHIFT)",
->> then, the inequality here means memory attribute has been updated after
->> last check.
->> So, why an exit to user space for converting is required instead of a mere retry?
->>
->> Or, is it because how .is_private is assigned in patch 21 is subjected to change
->> in future?
-> This.  Retrying on SNP or TDX would hang the guest.  I suppose we could special
-> case VMs where .is_private is derived from the memory attributes, but the
-> SW_PROTECTED_VM type is primary a development vehicle at this point.  I'd like to
-> have it mimic SNP/TDX as much as possible; performance is a secondary concern.
-So when .is_private is derived from the memory attributes, and if I 
-didn't miss
-anything, there is no explicit conversion mechanism introduced yet so 
-far, does
-it mean for pure sw-protected VM (withouth SNP/TDX), the page fault will be
-handled according to the memory attributes setup by host/user vmm, no 
-implicit
-conversion will be triggered, right?
-
-
->
-> E.g. userspace needs to be prepared for "spurious" exits due to races on SNP and
-> TDX, which this can theoretically exercise.  Though the window is quite small so
-> I doubt that'll actually happen in practice; which of course also makes it less
-> important to retry instead of exiting.
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+Q2hhcmxpZSBKZW5raW5zIDxjaGFybGllQHJpdm9zaW5jLmNvbT4gd3JpdGVzOgoKPj4gKy5tYWNy
+byBWUk9SIFJFRyBCSVRTIFRNUFJFRwo+PiArCXZtdi52LnYJCVxUTVBSRUcsIFxSRUcKPj4gKwl2
+c3JsLnZpCQlcUkVHLCBcUkVHLCBcQklUUwo+PiArCXZzbGwudmkJCVxUTVBSRUcsIFxUTVBSRUcs
+IDMyLVxCSVRTCj4+ICsJdm9yLnZ2CQlcUkVHLCBcUkVHLCBcVE1QUkVHCj4+ICsuZW5kbQo+Cj4g
+VGhpcyBzZWVtcyBsaWtlIGl0IHdvdWxkIGJlIGEgZ29vZCBjYW5kaWRhdGUgdG8gdXNlIHRoZSBa
+dmtiIGV4dGVuc2lvbgo+IHRoYXQgaGFzIHZlY3RvciByb3RhdGUgWzFdLiBJdCB3b3VsZCBiZSBh
+IHBhaW4gdG8gdXNlIGJlY2F1c2UgeW91IG5lZWQKPiB0d28gdmVyc2lvbnMgb2YgdGhlIHJvdW5k
+bG9vcCwgYnV0IHlvdSBjb3VsZCBnZXQgYXdheSB3aXRoIDEgZXh0cmEKPiBicmFuY2gvbm9wIGFu
+ZCBzYXZlIDMgaW5zdHJ1Y3Rpb25zIHBlciBWUk9SIHdoaWNoIGxvb2tzIGxpa2UgaXQgaGFwcGVu
+cwo+IDgqMTAgdGltZXMsIHNvIDIzOSBmZXdlciBpbnN0cnVjdGlvbnMuCj4KPiBbMV0gaHR0cHM6
+Ly9naXRodWIuY29tL3Jpc2N2L3Jpc2N2LWNyeXB0by9yZWxlYXNlcwoKSW5kZWVkISBUaGFua3Mh
+CgoKQmrDtnJuCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+XwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9y
+ZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2
+Cg==
