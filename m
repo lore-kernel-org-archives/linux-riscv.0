@@ -4,47 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48BBDE70703
-	for <linux-riscv@archiver.kernel.org>; Thu, 21 Sep 2023 09:57:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A1B0E70704
+	for <linux-riscv@archiver.kernel.org>; Thu, 21 Sep 2023 09:57:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zoRoH4zpnEjaSIUo1Apc6BAf7T6KE8bhIOJuy7G8XhQ=; b=xtPegI2CVq/sQf
-	5FUhmx2HmdwcCia9k00FaYjTY/PXiHuuKW99iglJC0Hm/UDDX7DaKYPo2h+ppPgfvgvqvNDLSk35h
-	YHn/3GoEXvCIfmlYoiCyWiSFzBSQA6jmU0gZCT2eYmJRFcfIFn52+S8U4YsOjRPcKc4kEYiYTpzcS
-	QbHga8SD383jOvmtqEwWxbbYewjuSlvSAeaU+/fp8Vyj8EaBbYkQbEuFeoS3cLZPWUj2Rn0TEs6jb
-	fD1lgDKccIcKLc2Iba9XzxTBfMxGTorpUvuJQvX5nF7gBrUn84oWAVy1twD28MArBEWYBFEUZBs1T
-	zWMu09YdnsU8n8UCpqkg==;
+	List-Owner; bh=2FcqJdX4YUVHwg4yRhoWAOH1eENonL3sgAoDkQ6bi+o=; b=Svw/GXG4Vby75X
+	HrzuKMVwWQnSZeN7D7H5+o0A+bvoTvqEfW8Cvp+iwNi9EGeu4ZSWc6LIHJNdU5ptnHRMn6LwYSW0c
+	Ds8Uf0dg9tO3vHSvRA6qBmUsJQLfsGFPYQMfA9OEWT+Gtd7mZBgWhGLrJ08/fJLXVLH6wwkJRdGCZ
+	hz0cPKDrHyAfr/M0u2Q7qUEok9JLhKpj1NrnzuRqzvjbkqhhmELqEPk6llwj+XawGDLj/yBTGqIVC
+	hkb4aZBHtgNwoS3M/hsA0OjywJO4rFztQSnwngZ6ttbgelo+9D9FhAZttNAKn9RiqEKHLp9lVJuO6
+	Jn48zrttAhbcnT0OCJEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qjGRJ-005eDN-0A;
-	Thu, 21 Sep 2023 09:57:41 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1qjGRN-005eFn-2T;
+	Thu, 21 Sep 2023 09:57:45 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qjGRG-005eC0-24
+	id 1qjGRL-005eDw-0i
 	for linux-riscv@lists.infradead.org;
-	Thu, 21 Sep 2023 09:57:40 +0000
+	Thu, 21 Sep 2023 09:57:44 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by sin.source.kernel.org (Postfix) with ESMTPS id BDD86CE1D4E;
-	Thu, 21 Sep 2023 09:57:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EF1FEC32787;
-	Thu, 21 Sep 2023 09:57:30 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTPS id 7EE12CE21A3;
+	Thu, 21 Sep 2023 09:57:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 916D8C32788;
+	Thu, 21 Sep 2023 09:57:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1695290255;
-	bh=usFwkQQ5AzcrrD1Rc8yQkp1pUhtIgNBrTFWQdV/KS+E=;
+	s=k20201202; t=1695290259;
+	bh=lMMt1zmmA3htZJsT6gS1oR0F3cSls2IHWYuOXnBLGug=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=cSOgfOurrUWLe2W9kpWfIoY1FtM3Heka7/3gLzQda6IgN0KHm3FtVUF7T6FO4Gb9w
-	 gowW/bSmlgZDx4MyrptG0cefsCpW1pIfDzbGv2drcu8Q8aMJYD6KBxvx5AvhdmY+gm
-	 BcRLjvP8ch9dtmxIp0i+6Xd/4PABGre3PH7Hl5VhRMV6j0SjGsJPTILR9pM2fWHfm1
-	 QXkYKurz7Uy2eckN8jWYu+ZrAcKXrqwHt8rUVrZwmUNwAUOuFa/fegYekeHc/hRnpp
-	 oybLFV0vUvpmtd2outaw3Pr9+x0Ij32643fniNuxvTfjyG/mBnzwpr8h8Sk6hs3EAa
-	 N68ktYm9dEXsg==
+	b=ikA6d6dNjT+Iq1tz2TnKS3FAfVmVrwiv73dmdfm4olzziWJKC7iRk+TIewA/zSXjI
+	 AY8rugbz10ZUmbCqvZK6xQOT3OlL4L3X+D8UizRglrjTGjbtP2IZUCEcekFEM4Eyx3
+	 F6RWn6xDoTDJZ6fmiT2cSAUR041Bt8iP8XGo0oWwr8/DaXuv8dch4siBYux71d4lvt
+	 RA4gkQefwN4FchqhGKY02tpefOhd+ZFv7d1ZFphMNN0vxpuCttKe1/8j6H5SzrLuix
+	 0FVfTF3BZzNZMqK+EZkwC6epkeNMeDv587wfG+wT10zqZiOciU4vLGPCuumJ1d+/Vj
+	 h9pFJcqsR3tBQ==
 From: Conor Dooley <conor@kernel.org>
 To: linux-riscv@lists.infradead.org
 Cc: conor@kernel.org,
@@ -68,16 +68,16 @@ Cc: conor@kernel.org,
 	devicetree@vger.kernel.org,
 	linux-sunxi@lists.linux.dev,
 	linux-renesas-soc@vger.kernel.org
-Subject: [RFC v1 1/6] riscv: dts: microchip: convert isa detection to new properties
-Date: Thu, 21 Sep 2023 10:57:18 +0100
-Message-ID: <20230921095723.26456-2-conor@kernel.org>
+Subject: [RFC v1 2/6] riscv: dts: sifive: convert isa detection to new properties
+Date: Thu, 21 Sep 2023 10:57:19 +0100
+Message-ID: <20230921095723.26456-3-conor@kernel.org>
 X-Mailer: git-send-email 2.41.0
 In-Reply-To: <20230921095723.26456-1-conor@kernel.org>
 References: <20230921095723.26456-1-conor@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230921_025739_028348_5C687E8D 
-X-CRM114-Status: UNSURE (   9.19  )
+X-CRM114-CacheID: sfid-20230921_025743_620642_9BBFC1CB 
+X-CRM114-Status: UNSURE (   8.89  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -97,69 +97,124 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Conor Dooley <conor.dooley@microchip.com>
 
-Convert the PolarFire SoC devicetrees to use the new properties
+Convert the fu540 and fu740 devicetrees to use the new properties
 "riscv,isa-base" & "riscv,isa-extensions".
 For compatibility with other projects, "riscv,isa" remains.
 
 Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- arch/riscv/boot/dts/microchip/mpfs.dtsi | 15 +++++++++++++++
- 1 file changed, 15 insertions(+)
+ arch/riscv/boot/dts/sifive/fu540-c000.dtsi | 15 +++++++++++++++
+ arch/riscv/boot/dts/sifive/fu740-c000.dtsi | 15 +++++++++++++++
+ 2 files changed, 30 insertions(+)
 
-diff --git a/arch/riscv/boot/dts/microchip/mpfs.dtsi b/arch/riscv/boot/dts/microchip/mpfs.dtsi
-index 104504352e99..b1f873d9246c 100644
---- a/arch/riscv/boot/dts/microchip/mpfs.dtsi
-+++ b/arch/riscv/boot/dts/microchip/mpfs.dtsi
-@@ -22,6 +22,9 @@ cpu0: cpu@0 {
+diff --git a/arch/riscv/boot/dts/sifive/fu540-c000.dtsi b/arch/riscv/boot/dts/sifive/fu540-c000.dtsi
+index 24bba83bec77..a7bd703206b3 100644
+--- a/arch/riscv/boot/dts/sifive/fu540-c000.dtsi
++++ b/arch/riscv/boot/dts/sifive/fu540-c000.dtsi
+@@ -30,6 +30,9 @@ cpu0: cpu@0 {
  			i-cache-size = <16384>;
  			reg = <0>;
  			riscv,isa = "rv64imac";
 +			riscv,base-isa = "rv64i";
 +			riscv,isa-extensions = "i", "m", "a", "c", "zicntr", "zicsr", "zifencei",
 +					       "zihpm";
- 			clocks = <&clkcfg CLK_CPU>;
  			status = "disabled";
- 
-@@ -48,6 +51,9 @@ cpu1: cpu@1 {
+ 			cpu0_intc: interrupt-controller {
+ 				#interrupt-cells = <1>;
+@@ -53,6 +56,9 @@ cpu1: cpu@1 {
  			mmu-type = "riscv,sv39";
  			reg = <1>;
  			riscv,isa = "rv64imafdc";
 +			riscv,base-isa = "rv64i";
 +			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "zicntr", "zicsr",
 +					       "zifencei", "zihpm";
- 			clocks = <&clkcfg CLK_CPU>;
  			tlb-split;
- 			next-level-cache = <&cctrllr>;
-@@ -76,6 +82,9 @@ cpu2: cpu@2 {
+ 			next-level-cache = <&l2cache>;
+ 			cpu1_intc: interrupt-controller {
+@@ -77,6 +83,9 @@ cpu2: cpu@2 {
  			mmu-type = "riscv,sv39";
  			reg = <2>;
  			riscv,isa = "rv64imafdc";
 +			riscv,base-isa = "rv64i";
 +			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "zicntr", "zicsr",
 +					       "zifencei", "zihpm";
- 			clocks = <&clkcfg CLK_CPU>;
  			tlb-split;
- 			next-level-cache = <&cctrllr>;
-@@ -104,6 +113,9 @@ cpu3: cpu@3 {
+ 			next-level-cache = <&l2cache>;
+ 			cpu2_intc: interrupt-controller {
+@@ -101,6 +110,9 @@ cpu3: cpu@3 {
  			mmu-type = "riscv,sv39";
  			reg = <3>;
  			riscv,isa = "rv64imafdc";
 +			riscv,base-isa = "rv64i";
 +			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "zicntr", "zicsr",
 +					       "zifencei", "zihpm";
- 			clocks = <&clkcfg CLK_CPU>;
  			tlb-split;
- 			next-level-cache = <&cctrllr>;
-@@ -132,6 +144,9 @@ cpu4: cpu@4 {
+ 			next-level-cache = <&l2cache>;
+ 			cpu3_intc: interrupt-controller {
+@@ -125,6 +137,9 @@ cpu4: cpu@4 {
  			mmu-type = "riscv,sv39";
  			reg = <4>;
  			riscv,isa = "rv64imafdc";
 +			riscv,base-isa = "rv64i";
 +			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "zicntr", "zicsr",
 +					       "zifencei", "zihpm";
- 			clocks = <&clkcfg CLK_CPU>;
  			tlb-split;
- 			next-level-cache = <&cctrllr>;
+ 			next-level-cache = <&l2cache>;
+ 			cpu4_intc: interrupt-controller {
+diff --git a/arch/riscv/boot/dts/sifive/fu740-c000.dtsi b/arch/riscv/boot/dts/sifive/fu740-c000.dtsi
+index 5235fd1c9cb6..06f9c86a6664 100644
+--- a/arch/riscv/boot/dts/sifive/fu740-c000.dtsi
++++ b/arch/riscv/boot/dts/sifive/fu740-c000.dtsi
+@@ -31,6 +31,9 @@ cpu0: cpu@0 {
+ 			next-level-cache = <&ccache>;
+ 			reg = <0x0>;
+ 			riscv,isa = "rv64imac";
++			riscv,base-isa = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "c", "zicntr", "zicsr", "zifencei",
++					       "zihpm";
+ 			status = "disabled";
+ 			cpu0_intc: interrupt-controller {
+ 				#interrupt-cells = <1>;
+@@ -55,6 +58,9 @@ cpu1: cpu@1 {
+ 			next-level-cache = <&ccache>;
+ 			reg = <0x1>;
+ 			riscv,isa = "rv64imafdc";
++			riscv,base-isa = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "zicntr", "zicsr",
++					       "zifencei", "zihpm";
+ 			tlb-split;
+ 			cpu1_intc: interrupt-controller {
+ 				#interrupt-cells = <1>;
+@@ -79,6 +85,9 @@ cpu2: cpu@2 {
+ 			next-level-cache = <&ccache>;
+ 			reg = <0x2>;
+ 			riscv,isa = "rv64imafdc";
++			riscv,base-isa = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "zicntr", "zicsr",
++					       "zifencei", "zihpm";
+ 			tlb-split;
+ 			cpu2_intc: interrupt-controller {
+ 				#interrupt-cells = <1>;
+@@ -103,6 +112,9 @@ cpu3: cpu@3 {
+ 			next-level-cache = <&ccache>;
+ 			reg = <0x3>;
+ 			riscv,isa = "rv64imafdc";
++			riscv,base-isa = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "zicntr", "zicsr",
++					       "zifencei", "zihpm";
+ 			tlb-split;
+ 			cpu3_intc: interrupt-controller {
+ 				#interrupt-cells = <1>;
+@@ -127,6 +139,9 @@ cpu4: cpu@4 {
+ 			next-level-cache = <&ccache>;
+ 			reg = <0x4>;
+ 			riscv,isa = "rv64imafdc";
++			riscv,base-isa = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "zicntr", "zicsr",
++					       "zifencei", "zihpm";
+ 			tlb-split;
+ 			cpu4_intc: interrupt-controller {
+ 				#interrupt-cells = <1>;
 -- 
 2.41.0
 
