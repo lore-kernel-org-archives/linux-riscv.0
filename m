@@ -4,77 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC490E71087
-	for <linux-riscv@archiver.kernel.org>; Thu, 21 Sep 2023 15:08:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6E0FE71094
+	for <linux-riscv@archiver.kernel.org>; Thu, 21 Sep 2023 16:20:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=3h047tmvkVv3qqiAdIdrOV/PGa85fcAAfhZZ67qCRlc=; b=X5UcDS+bcDqQLo
-	zqi16n9KRGnpNbWMmNExifWeiQP835U0KV9aKgfRsCPq2l5Bx1mY8d+oj59eBIhynBknD/YJ/HVah
-	RKAWuZo/1bdek3jIhDXFN4vjG8iqR/Zcb93DK3HOPQ29iN7U/NNVoJs8ad8Y49dBytBEpXYoUbErz
-	Rag81uMLJvYe5NDrLHcfMVUVRDJswdgQvsJz4aWQTts6Bch0fauDb+ZGxYfnfvK6ZeIv4KKtJlBE4
-	k6X/UUA3FMvSQcdw8s712OWPfQUMxumzRIOa3wtGTD3WDjavwuAPi+fc9/lE6RTfoV0MHjIb3TyXM
-	FYZoGBEmziuyS3ctOWQw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Wf7jbfBQota/uXhelmR2eby+c4RY2DeUI4x4NEhzGxY=; b=p60VKRb/WFXkoL
+	+dRXmvbAqQbggoFDGpgJG5qeu6e3INo5Ab56IsBuz8T1MLc0piBZg/imHwPNlGFoUG6EGsZ5KkIRE
+	g4WiHMcGApbaFWfu2utdoRN8dNIomD0Fly7SW3h1IPC5EPlJ0BTl4Eg6AskwW/R3ocCz0+syE46/g
+	tMGtMofKDcz1GgFINcdTfLHbn6esbztGI4V9BMwDgaY7A19xqTIdZHFIUfyNzdQb3zfOmDJk63OT2
+	MGG01Lb2S3BaxOlWF5o+NPQsGgeOybmiuaMGAtWKtPbGlXCKxstXEGe3vocdSOVhtq0cSv+qvbu5y
+	ghDj/HmGmptZIVyHGreg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qjLI2-006Mmz-1Q;
-	Thu, 21 Sep 2023 15:08:26 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qjLHw-006Mko-2P
-	for linux-riscv@lists.infradead.org;
-	Thu, 21 Sep 2023 15:08:22 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by sin.source.kernel.org (Postfix) with ESMTPS id 83B7ACE2238;
-	Thu, 21 Sep 2023 15:08:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 75DA4C4E761;
-	Thu, 21 Sep 2023 15:08:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1695308896;
-	bh=L0Y9YCcXIfYgNBjuyvMWPQWu9ej2m027Mk4wviryPFc=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=gFqOvKwD82XZsHe76trqDACk/ukmKSHQJwz7bCZ7MJEH6nifbgBEjKRk6FWVzvDum
-	 ooqrhdbeY3pDtPMG4uXEcnIVGNJGRkxhdeX81V/m+WYU6IG4sOSGXuQOwEfFfHhY8/
-	 cQ3dnRizGPzyY24kv5ahl5Qxo2rqKrpqZqQNU6zkqXhBy36+wTFXYaYfAH9NH3701w
-	 3tk7aPFDVUmL5+XcB13lGwt7TITWrmlIM+um0rBia3JEQEPMyQWXUXGogl03F+zXUs
-	 I6fouyBEvFdignF5f+LWfr7ti9Gvs6tWnXCG+Y0wACYnSmQvrXmLQf/FjekRCApaKS
-	 lwKCQM68yqdAg==
-Date: Thu, 21 Sep 2023 10:08:14 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Conor Dooley <conor@kernel.org>
-Cc: Minda Chen <minda.chen@starfivetech.com>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-pci@vger.kernel.org,
-	Pali =?utf-8?B?Um9ow6Fy?= <pali@kernel.org>,
+	id 1qjMQ4-006Uhf-0W;
+	Thu, 21 Sep 2023 16:20:48 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1qjMPu-006Ucp-36;
+	Thu, 21 Sep 2023 16:20:41 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 72F9616F8;
+	Thu, 21 Sep 2023 09:21:01 -0700 (PDT)
+Received: from e125769.cambridge.arm.com (e125769.cambridge.arm.com [10.1.196.26])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 036003F59C;
+	Thu, 21 Sep 2023 09:20:19 -0700 (PDT)
+From: Ryan Roberts <ryan.roberts@arm.com>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	"James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+	Helge Deller <deller@gmx.de>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Mason Huo <mason.huo@starfivetech.com>,
-	Leyfoon Tan <leyfoon.tan@starfivetech.com>,
-	Kevin Xie <kevin.xie@starfivetech.com>
-Subject: Re: [PATCH v6 08/19] PCI: plda: Add event interrupt codes and IRQ
- domain ops
-Message-ID: <20230921150814.GA330660@bhelgaas>
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Mike Kravetz <mike.kravetz@oracle.com>,
+	Muchun Song <muchun.song@linux.dev>,
+	SeongJae Park <sj@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Uladzislau Rezki <urezki@gmail.com>,
+	Christoph Hellwig <hch@infradead.org>,
+	Lorenzo Stoakes <lstoakes@gmail.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Peter Xu <peterx@redhat.com>,
+	Axel Rasmussen <axelrasmussen@google.com>,
+	Qi Zheng <zhengqi.arch@bytedance.com>
+Cc: Ryan Roberts <ryan.roberts@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-parisc@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	sparclinux@vger.kernel.org,
+	linux-mm@kvack.org,
+	stable@vger.kernel.org
+Subject: [PATCH v1 0/8] Fix set_huge_pte_at() panic on arm64
+Date: Thu, 21 Sep 2023 17:19:59 +0100
+Message-Id: <20230921162007.1630149-1-ryan.roberts@arm.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230916-rescuer-enroll-dd4fb1320676@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230921_080820_987299_107AC5FD 
-X-CRM114-Status: GOOD (  13.37  )
+X-CRM114-CacheID: sfid-20230921_092039_098715_F4BB66D7 
+X-CRM114-Status: GOOD (  24.50  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,27 +95,132 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Sep 16, 2023 at 01:11:29AM +0100, Conor Dooley wrote:
-> On Fri, Sep 15, 2023 at 06:22:32PM +0800, Minda Chen wrote:
-> > For PolarFire implements non-PLDA local interrupt events, most of
-> > event interrupt process codes can not be re-used. PLDA implements
-> > new codes and IRQ domain ops like PolarFire.
-> > 
-> > plda_get_events() adds a new IRQ num to event num mapping codes for
-> > PLDA local event except DMA engine interrupt events. The DMA engine
-> > interrupt events are implemented by vendors.
-> > 
-> > Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
-> 
-> Perhaps not important as they will go away in the next patch, but for
-> this patch the riscv patchwork stuff noticed:
-> drivers/pci/controller/plda/pcie-plda-host.c:114:36: warning: unused variable 'plda_evt_dom_ops' [-Wunused-const-variable]
-> drivers/pci/controller/plda/pcie-plda-host.c:118:36: warning: unused variable 'plda_event_ops' [-Wunused-const-variable]
+Hi All,
 
-Details like this *are* important because fixing them makes the
-individual patches more readable, thanks for noticing!
+This series fixes a bug in arm64's implementation of set_huge_pte_at(), which
+can result in an unprivileged user causing a kernel panic. The problem was
+triggered when running the new uffd poison mm selftest for HUGETLB memory. This
+test (and the uffd poison feature) was merged for v6.6-rc1. However, upon
+inspection there are multiple other pre-existing paths that can trigger this
+bug.
 
-Bjorn
+Ideally, I'd like to get this fix in for v6.6 if possible? And I guess it should
+be backported too, given there are call sites where this can theoretically
+happen that pre-date v6.6-rc1 (I've cc'ed stable@vger.kernel.org).
+
+
+Description of Bug
+------------------
+
+arm64's huge pte implementation supports multiple huge page sizes, some of which
+are implemented in the page table with contiguous mappings. So set_huge_pte_at()
+needs to work out how big the logical pte is, so that it can also work out how
+many physical ptes (or pmds) need to be written. It does this by grabbing the
+folio out of the pte and querying its size.
+
+However, there are cases when the pte being set is actually a swap entry. But
+this also used to work fine, because for huge ptes, we only ever saw migration
+entries and hwpoison entries. And both of these types of swap entries have a PFN
+embedded, so the code would grab that and everything still worked out.
+
+But over time, more calls to set_huge_pte_at() have been added that set swap
+entry types that do not embed a PFN. And this causes the code to go bang. The
+triggering case is for the uffd poison test, commit 99aa77215ad0 ("selftests/mm:
+add uffd unit test for UFFDIO_POISON"), which sets a PTE_MARKER_POISONED swap
+entry. But review shows there are other places too (PTE_MARKER_UFFD_WP).
+
+If CONFIG_DEBUG_VM is enabled, we do at least get a BUG(), but otherwise, it
+will dereference a bad pointer in page_folio():
+
+    static inline struct folio *hugetlb_swap_entry_to_folio(swp_entry_t entry)
+    {
+        VM_BUG_ON(!is_migration_entry(entry) && !is_hwpoison_entry(entry));
+
+        return page_folio(pfn_to_page(swp_offset_pfn(entry)));
+    }
+
+So the root cause is due to commit 18f3962953e4 ("mm: hugetlb: kill
+set_huge_swap_pte_at()"), which aimed to simplify the interface to the core code
+by removing set_huge_swap_pte_at() (which took a page size parameter) and
+replacing it with calls to set_huge_swap_pte_at() where the size was inferred
+from the folio, as descibed above. While that commit didn't break anything at
+the time, it did break the interface because it couldn't handle swap entries
+without PFNs. And since then new callers have come along which rely on this
+working.
+
+
+Fix
+---
+
+The simplest fix would have been to revert the dodgy cleanup commit, but since
+things have moved on, this would have required an audit of all the new
+set_huge_pte_at() call sites to see if they should be converted to
+set_huge_swap_pte_at(). As per the original intent of the change, it would also
+leave us open to future bugs when people invariably get it wrong and call the
+wrong helper.
+
+So instead, I've converted the first parameter of set_huge_pte_at() to be a vma
+rather than an mm. This means that the arm64 code can easily recover the huge
+page size in all cases. It's a bigger change, due to needing to touch the arches
+that implement the function, but it is entirely mechanical, so in my view, low
+risk.
+
+I've compile-tested all touched arches; arm64, parisc, powerpc, riscv, s390 (and
+additionally x86_64). I've additionally booted and run mm selftests against
+arm64, where I observe the uffd poison test is fixed, and there are no other
+regressions.
+
+
+Patches
+-------
+
+patches 1-7: Convert core mm and arches to pass vma instead of mm
+patch: 8: Fixes the arm64 bug
+
+Patches based on v6.6-rc2.
+
+
+Thanks,
+Ryan
+
+
+Ryan Roberts (8):
+  parisc: hugetlb: Convert set_huge_pte_at() to take vma
+  powerpc: hugetlb: Convert set_huge_pte_at() to take vma
+  riscv: hugetlb: Convert set_huge_pte_at() to take vma
+  s390: hugetlb: Convert set_huge_pte_at() to take vma
+  sparc: hugetlb: Convert set_huge_pte_at() to take vma
+  mm: hugetlb: Convert set_huge_pte_at() to take vma
+  arm64: hugetlb: Convert set_huge_pte_at() to take vma
+  arm64: hugetlb: Fix set_huge_pte_at() to work with all swap entries
+
+ arch/arm64/include/asm/hugetlb.h              |  2 +-
+ arch/arm64/mm/hugetlbpage.c                   | 22 ++++----------
+ arch/parisc/include/asm/hugetlb.h             |  2 +-
+ arch/parisc/mm/hugetlbpage.c                  |  4 +--
+ .../include/asm/nohash/32/hugetlb-8xx.h       |  3 +-
+ arch/powerpc/mm/book3s64/hugetlbpage.c        |  2 +-
+ arch/powerpc/mm/book3s64/radix_hugetlbpage.c  |  2 +-
+ arch/powerpc/mm/nohash/8xx.c                  |  2 +-
+ arch/powerpc/mm/pgtable.c                     |  7 ++++-
+ arch/riscv/include/asm/hugetlb.h              |  2 +-
+ arch/riscv/mm/hugetlbpage.c                   |  3 +-
+ arch/s390/include/asm/hugetlb.h               |  8 +++--
+ arch/s390/mm/hugetlbpage.c                    |  8 ++++-
+ arch/sparc/include/asm/hugetlb.h              |  8 +++--
+ arch/sparc/mm/hugetlbpage.c                   |  8 ++++-
+ include/asm-generic/hugetlb.h                 |  6 ++--
+ include/linux/hugetlb.h                       |  6 ++--
+ mm/damon/vaddr.c                              |  2 +-
+ mm/hugetlb.c                                  | 30 +++++++++----------
+ mm/migrate.c                                  |  2 +-
+ mm/rmap.c                                     | 10 +++----
+ mm/vmalloc.c                                  |  5 +++-
+ 22 files changed, 80 insertions(+), 64 deletions(-)
+
+--
+2.25.1
+
 
 _______________________________________________
 linux-riscv mailing list
