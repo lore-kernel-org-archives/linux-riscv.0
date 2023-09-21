@@ -4,74 +4,125 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCAD5E706FC
-	for <linux-riscv@archiver.kernel.org>; Thu, 21 Sep 2023 09:44:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD5E7E706FD
+	for <linux-riscv@archiver.kernel.org>; Thu, 21 Sep 2023 09:44:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=fR6ecLuefQVPF/2/qfZMItQ6j5fsmdOLgZjmwT/3600=; b=aSDr+78AFx7+pB
-	eJTZhF7MjwUc4CVFxAs4W31vM/Rfi9Ac/KZTEmgly82nsH4+ReUkQC7D5uCJmDQZIE8bhP6jZOuA/
-	QIUcTCT1wcOsZN9aLPFRl8rz68DCQAp20mZjvS2EhJOqsfaaHXNzAFr7t+9blur0NnmhwZRsbtcTD
-	4P7s/CyOJP3LaPyJ0VCJJSb8ME/fZHWIaYIjZHt8WSUrjhVXDzkbnrFqtD/FZRTk0t+Wr68n2cwxL
-	ZOiPMlc4BXupo0TGTQqizCpiwoICwKSbKFekrBtdPnBjEdmjcf5WkOtL5dHOJV4296qh9rzvT0zLq
-	38RhS9yq/58IETcaimBA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=XYGO54Gvyz90G2NSd39Qnft3yDwp4PR8Z7LY/BHCqRM=; b=q0jEahUDvQtxcQ
+	4LweKLshtY6HmeW/rrqUaxIHxe6PMIbB17FJkTQYUgAuu1CIuhToA5+iFrB2P+ohx9E1Aj3Sx7bzt
+	GhLS1VwIQMK4on0qSm95zhCUz+5prFTJ/WM10bJs9yj/KHwG2kMeEev0jgz/1Ncc4q7obbvPddXvE
+	tGEXzuBBuADhZCwOyOVfvW7V99ZylM7dN/Xr8jbvEoBKsOt3ed5wLf1dUl+NK4wz7nsF6d6M4sJ6G
+	/Luynnc7r3Ye/m0si/c/wgj+2PQjmmIXmktixYxfW6Uo3oqs3S0IU4Vj63/uyzM509DHmNT5+wobq
+	b1gqUBJKbwgOU3dZNPkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qjGE9-005cd4-0u;
-	Thu, 21 Sep 2023 09:44:05 +0000
-Received: from mail-lj1-x235.google.com ([2a00:1450:4864:20::235])
+	id 1qjGEn-005ctU-1v;
+	Thu, 21 Sep 2023 09:44:45 +0000
+Received: from mail-bn8nam12olkn2081c.outbound.protection.outlook.com ([2a01:111:f400:fe5b::81c] helo=NAM12-BN8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qjGE7-005ccA-1N
+	id 1qjGEl-005crh-2G
 	for linux-riscv@lists.infradead.org;
-	Thu, 21 Sep 2023 09:44:04 +0000
-Received: by mail-lj1-x235.google.com with SMTP id 38308e7fff4ca-2c00c0f11b2so11484161fa.1
-        for <linux-riscv@lists.infradead.org>; Thu, 21 Sep 2023 02:44:00 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=brainfault-org.20230601.gappssmtp.com; s=20230601; t=1695289439; x=1695894239; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:mime-version:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=bnRaCddT87p/KTPHMcCblcFY4CEmmrLQIw4UVRv9/9k=;
-        b=JY72tUzA0AZ4O0+RGanbM4UIJraH2zToA7z9h7s31RkI3AKIbMEBY7ETporiVrjmJM
-         jxzYx223e8K2NOjVGL0XvZmB9t8N08V69MdkR3e3Z52+t+oPykz9miQM8dl7JM1K//Qm
-         LxWadhL3NtSN0LHAiZCDBOEWGIrSduHPWwpJzO7BB9GqEcrW785xuDI1CZFKL46GRN4L
-         5drhnRmxozQ0WeUjjMd2Ma/IXfkWFO3x71NXJaS6UENdt88iKMpCoPUJhIGww7+8Ntwr
-         jTZR7+y/m7gE7vxAtu13+eji3vqaItYt8Hh9W6m0Hdl2ASUrIfiM8cMc61q9n7OaoKDo
-         m7Xw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1695289439; x=1695894239;
-        h=cc:to:subject:message-id:date:from:mime-version:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=bnRaCddT87p/KTPHMcCblcFY4CEmmrLQIw4UVRv9/9k=;
-        b=tfNyT4d8RuH4UPSe5+7lVeez6Sn101EQP00JL/jX0zV4vyF4PTUwzlI4OfAD9vJw22
-         yYX271eHKTCV6lPK56/KEzhChZlF2EGuXMUI2YNOgaLriIUmvhcKXOdXayrhr+JMem58
-         1qmmEhY5SEccgVMr7u+qaL2rb1wqp9Hd04QVlXkwqEFOlvpAAdQrQwjGd/4sdGoq0P7l
-         BNigYYnn9Yjp8b5llR5L37mr4NeMirGKPXy4Lp1zgQuO0rlJHwtzKxdJHOpP5ZpCRm4L
-         nEL+AxosXP2Z+hnB9KtzIvNh6DdeHL2bcnEaL5WHhHOOqeP9DFw1IvMfkt2/QU5yhPJ0
-         po2A==
-X-Gm-Message-State: AOJu0YztPg7oIyhhxgxH4vcLnVINl3HUpZ1Bl7otST8UDuIGNCq+EpBu
-	haz2Ye9x0jmYfNss/TTck9WHrAOtXKCVGvSfSosWNQ==
-X-Google-Smtp-Source: AGHT+IHOwtovTmgwsWby+OJoyDY5AP80lEelm3HPPd28DmjZCPyC/5yiOXdj9uKZ7G/HXWgyBFm1cKA1bFemo5pLBa0=
-X-Received: by 2002:a2e:7a18:0:b0:2b9:20fe:4bc4 with SMTP id
- v24-20020a2e7a18000000b002b920fe4bc4mr4081500ljc.40.1695289438673; Thu, 21
- Sep 2023 02:43:58 -0700 (PDT)
+	Thu, 21 Sep 2023 09:44:45 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=ZPyTuReoe9xC2viRXM5uL7VaI2xzuuEx0zCHgberTckpfqu/Gc/gKRFG5Pgd4Nu8wyGNKgeu1zV6cvtO7ASwDrktUQHZ/HWdxNR67UH02SIpQepEqiI2tgpNjOVsOJZOjONM/Xgmeq6RAlnh8wGxb+uwd/DWfK33wOUFCnfjqbHT6UH+8yBepN3UDHOgZ9GAyEK3R++B5+uaWsNLHAt6CTrc20JFWRdAUkjUL3mNkKxEyGl7jTGFRmuL11m9lK9TpwG8gvr34c/QmOGXpJUmMQ4Mw753Zm3S9ypXYRU2aBK9c7WRBQMZejBo3zOmZP1dMtLUDJHth9cSXAQUzM805A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=XYutl9vK1DRDRt15L/te9PG5kD2S4eot4HyRakzupWg=;
+ b=Cl8ByfPyrqUBLc6MQMa+/x9lWwiak/4Me7XcNIJ7Q1eslJaBq5K6ff50kDkNCBNwhGjkDQ19H4LVi0cj/oEbpcqBR+ZO18E30Bp77IFNWk3oIsgP7Op5+BklX7VFS/3GI8Ifg9X8v80XkTTkt8SvM7NTaudMREIIEvIQPZmeM9kA+lVEEZ3GBYWFjfvM+2etk2C5J6zXebRoeZhWzHvVOt+qP+TzZxF5MvmP4lP5M7kSuaUrcmVW4Gbb4I0b4k1mRAa5PhtUBNX7AMf9U36ypIliYtda2RYiq4I9TlP6izcqEpPMHHZwhh8gZ4rjZrYzxT6chVU1SVldwKYsNPhuqw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=XYutl9vK1DRDRt15L/te9PG5kD2S4eot4HyRakzupWg=;
+ b=Bal9nqpA3iCW/BAzdwakjyyW0FYi0uzv713mIwbE+J7yJbPxQbeLsn54pw10YU9TzJKakEk1+1yPIp16FCBqs9FuXWj0V/U/65RhQKKuxOQhs3C5QinBXJ2OvlfOZefKEMpk02Yy6nTUurQ3ce0vgapIGXWWVpUsJY2Ok8GCPX8MvATONaq6IKVNLJ3/uQbawXq5zcGjC9L93db+ByzTRS7Nn/ezLXBhDbG4jmtFEeESnk2hYMsevPEwlbjZ+MX4qpOunOEM0F8NVdOSCTByiYvkGw4lu6ji9LCuDT+W2faEGLn1CMLtr8upvi9R4l5OMPt1H3bdsX8lXEbRsIZ1Zw==
+Received: from IA1PR20MB4953.namprd20.prod.outlook.com (2603:10b6:208:3af::19)
+ by MW6PR20MB6696.namprd20.prod.outlook.com (2603:10b6:303:23f::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6792.27; Thu, 21 Sep
+ 2023 09:44:38 +0000
+Received: from IA1PR20MB4953.namprd20.prod.outlook.com
+ ([fe80::d050:882f:a8a7:8263]) by IA1PR20MB4953.namprd20.prod.outlook.com
+ ([fe80::d050:882f:a8a7:8263%5]) with mapi id 15.20.6813.017; Thu, 21 Sep 2023
+ 09:44:38 +0000
+From: Inochi Amaoto <inochiama@outlook.com>
+To: Conor Dooley <conor@kernel.org>
+Cc: Anup Patel <apatel@ventanamicro.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	aou@eecs.berkeley.edu,
+	chao.wei@sophgo.com,
+	evicetree@vger.kernel.org,
+	emil.renner.berthing@canonical.com,
+	guoren@kernel.org,
+	jszhang@kernel.org,
+	krzysztof.kozlowski+dt@linaro.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	palmer@dabbelt.com,
+	paul.walmsley@sifive.com,
+	robh+dt@kernel.org,
+	xiaoguang.xing@sophgo.com,
+	Chen Wang <wangchen20@iscas.ac.cn>,
+	Inochi Amaoto <inochiama@outlook.com>
+Subject: Re: [PATCH v2 06/11] dt-bindings: timer: Add Sophgo sg2042 clint
+Date: Thu, 21 Sep 2023 17:44:36 +0800
+Message-ID: <IA1PR20MB495308CB0FB87B445B9C6AF3BBF8A@IA1PR20MB4953.namprd20.prod.outlook.com>
+X-Mailer: git-send-email 2.42.0
+In-Reply-To: <20230921-dbfb0a62538cc54852ad45b4@fedora>
+References: <20230921-dbfb0a62538cc54852ad45b4@fedora>
+X-TMN: [mF2wGrZS0ABxuChNgA+tFG65IKmj3DnCRmyWKbeTyug=]
+X-ClientProxiedBy: TYWPR01CA0039.jpnprd01.prod.outlook.com
+ (2603:1096:400:17f::14) To IA1PR20MB4953.namprd20.prod.outlook.com
+ (2603:10b6:208:3af::19)
+X-Microsoft-Original-Message-ID: <20230921094436.130290-1-inochiama@outlook.com>
 MIME-Version: 1.0
-From: Anup Patel <anup@brainfault.org>
-Date: Thu, 21 Sep 2023 15:13:47 +0530
-Message-ID: <CAAhSdy3dL1JBSsu3yrQtJKavAkqMva=YotoV_y_+-kt0S0oVNA@mail.gmail.com>
-Subject: [GIT PULL] KVM/riscv fixes for 6.6, take #1
-To: Paolo Bonzini <pbonzini@redhat.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, Atish Patra <atishp@atishpatra.org>, 
-	Atish Patra <atishp@rivosinc.com>, Palmer Dabbelt <palmer@rivosinc.com>, 
-	Andrew Jones <ajones@ventanamicro.com>, 
-	"open list:KERNEL VIRTUAL MACHINE FOR RISC-V (KVM/riscv)" <kvm-riscv@lists.infradead.org>, 
-	linux-riscv <linux-riscv@lists.infradead.org>, KVM General <kvm@vger.kernel.org>
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: IA1PR20MB4953:EE_|MW6PR20MB6696:EE_
+X-MS-Office365-Filtering-Correlation-Id: d78aa50f-8d6b-4cfe-4db9-08dbba875f12
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: XMczxQUuKJq496cFVWyS9fgcVx3y49G3jDYawJM1t4a9cb41iegI7Ch26KhVu5dRKDrgn0ZiZ7PySUUwHZhgaEKLQL5gw7zuwuLq+FxJL46NpLmIF3pjBylrVp9QzpP4G2ERCEMTUta0rfsxS9sWZ4o82dGRYvLDh7AMGRhLj2fnitAvTBdMv0r5BjwQUQtreTtiwZ7i3UwsPAHZwBALM+mTjv4HnGulYhxLbd5GqCZmxJewHVl3PwivkoJy1DMiQ25p3O2Sl/hHJfMndz6q4FppuH0hRPuOirpAhqSnPz6e2cMveXj/3m+ptOqGAYJ14mNmcBEkFyBh/YIP/Zs6VkPtfJUlhlrc383MVdOkyS42GkmTfPIaYSxwI4PVsUzEIrEVF5lYtQJHq/328bIl0Bcq+IBRQ0ZWBWZwX4GULViLamwtwIEXJdUJLAAtshCK2DWcp+iJmo4+DcykgQcQ0QQEGd5wUrLsK/M/xIxclCDKuXEmrG0gjATGpWXdQdQvpPL7k867o1qwSp30DUNlEsvs9bOgUBX5CjJw1OawhCUQvAT9Sjm3+XUCCj3oHN8XW265Ln+FDxw6odZlRpgabAF2CQndRtN84ETsiUdcYDv29UMhY4A6kDvmumL3mEII
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?QtvYGISuYwNAO8rGNHv89ezc1cil7ERpbN2ZPyPV7ptz7gpAfuje/kFSIsDF?=
+ =?us-ascii?Q?aRO7tf12WjgvUBKaJ/8n339rojiv1m1Yt5dQIeW03hPafsAvA6HAtPOu1V21?=
+ =?us-ascii?Q?VjhyUUrVo8Ru83EIEk/w3pr4kOt0rckehiK7LMAIp2LHrfAZTB7qiaamSYSE?=
+ =?us-ascii?Q?hYhQgwqIZSym8sJlufql8JgAIeGMPOK0lae0do+j+WwZeuI8XITKBXJ4su+a?=
+ =?us-ascii?Q?TKyHqGgT5R6UwbJPCdx/S7VF4ueW2z0GUcMPmlMGbKYbpHC1N2bnLZKpW1WI?=
+ =?us-ascii?Q?PHSwYQSCCAFfWUCFhbe11S7Hh3hLfSAfpCjpXY//Oj8Hq7UmCfXGJQlpheWo?=
+ =?us-ascii?Q?NqebO5+DSln8/hQRaB7FSE3V4h3T44StshF5ZM83hdpC9ycmbSoVfqZ6sE9H?=
+ =?us-ascii?Q?MpcFSC+xCpyeQV96WlaOnzRNRkL41mJZE5kI+bHRvccuQ5e2GsC76f2W4a3f?=
+ =?us-ascii?Q?fYOMwhBZq4wzA+SFXpRYg/Vndt9BnrZlXCd3QqPzcEJhe42BKvep/KdwAiyB?=
+ =?us-ascii?Q?2r2q90y57FEBwMZe/76oQadxQNP8FVK7HZmlPHga1oat9zX3z3+aq7NXoTv7?=
+ =?us-ascii?Q?VNVWY7J4gncHADilOVn8t2rNQ4cdg0ZJYx2LQ2oBLzxh4AIhv+mxz6BP8iRN?=
+ =?us-ascii?Q?YV59xMwxKaRkSUwaCTPttNUIVVp+p2+AL49FSdjKK4wwqNYW9JBIVnsEwbhO?=
+ =?us-ascii?Q?B6VgWKMYUawrQnnRm+6J49y8kIIQUNCqzgM26P3AqnIjm7RKcp6vfzChyHgo?=
+ =?us-ascii?Q?7vXBTrEUw65rQ3ObIgz6JJqSeZrGHwUNu2KO81qwZfPLB+9wpQJ2jPhUaH2s?=
+ =?us-ascii?Q?k/qI5Eoik5OL7hzrwzlYCdZCU6l85tNmgOXzryzd+USQzKhPAJ90aJDq0xXy?=
+ =?us-ascii?Q?pO6SX4KGJHSpTZkCJGLJwkiyq//cnWiv8TwppSjPWfjK2SduYnjZyPG94CgQ?=
+ =?us-ascii?Q?4ta0CHJVg/tNp4z6fu2mOTEaC3COvjnwv7zzMTQcJzJgCKSy3EVbPHEwpaOD?=
+ =?us-ascii?Q?RR7SCD8Yk9Z421CCkFNeKEz6c/ssBPPDilFSYA82Y31DzxiSl+dfVd+ypGdA?=
+ =?us-ascii?Q?MCh70oa6wWlHiQSv0cPL5tTj3CDV+40idr9e4lRcrrHtqQwynFHcaYQZKToC?=
+ =?us-ascii?Q?PYN3nVJuV0ULKWC9Xcj/QzqNTAggrl4ynCEfOYgYDturvvGwAk0ndVB/oYYR?=
+ =?us-ascii?Q?kemjHViMXpVb1OKS6iKLSi0x6E7lqXrGVv9O1JA2hX9Aan1ObnuGq96meGc?=
+ =?us-ascii?Q?=3D?=
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d78aa50f-8d6b-4cfe-4db9-08dbba875f12
+X-MS-Exchange-CrossTenant-AuthSource: IA1PR20MB4953.namprd20.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Sep 2023 09:44:38.5082
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW6PR20MB6696
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230921_024403_657305_4BF49BE7 
-X-CRM114-Status: UNSURE (   5.27  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230921_024443_780475_69B65BB0 
+X-CRM114-Status: GOOD (  20.05  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,48 +139,84 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Paolo,
+>Yo,
+>
+>On Thu, Sep 21, 2023 at 04:18:57PM +0800, Inochi Amaoto wrote:
+>>> On Thu, Sep 21, 2023 at 08:43:47AM +0800, Inochi Amaoto wrote:
+>
+>>>>>>>> but not one. In another word, there is no need to defined mtimer and ipi
+>>>>>>>> device on the same base address.
+>>>>>>>
+>>>>>>> There's also no need to have two compatibles for the same interrupt
+>>>>>>> controller, so I do not get this reasoning. What actually _requires_
+>>>>>>> them to be split?
+>>>>>>>
+>>>>>>
+>>>>>> Yes, it is one, but can be mapped into different address. So I think we
+>>>>>> need two.
+>>>>>
+>>>>> Not two compatibles though, just two memory addresses that you need to
+>>>>> locate (or maybe even 3, for SSWI?)
+>>>>>
+>>>>
+>>>> We may need four (mtime, mtimecmp, mswi, sswi) if use register range.
+>>>
+>>> Why would you need 4? The first two certainly could be individual
+>>> reg entries, no?
+>>>
+>>
+>> After reading the aclint doc again, I found the all of them can be mapped
+>> on the different address. (See the section 2.1 in that doc).
+>
+>Right, that's what I meant by individual reg entries. If there's some
+>dynamic gap between them, then one reg entry would cover mtime and one
+>would cover the base of the mtimecmp region.
+>
 
-We have four ONE_REG related fixes for 6.6. Out of these,
-two are for kernel KVM module and other two are for get-reg-list
-selftest.
+Thanks.
 
-Please pull.
+>> But for now,
+>> the mtime and mtimecmp have the same base address in any platform.
+>
+>How? The mtimecmp base address would have to be offset from the mtime
+>base address. Is what you mean that, for example, mtime is at an offset
+>of 0x0 from the base address & mtimecmp0 is at, for example, an offset
+>of 0x8 so a single reg entry can cover both?
+>
 
-Regards,
-Anup
+I mean "the same" is just what you said: use the offset to access mtime
+and mtimecmp, and left one register range in the DT.
+In your example, using a offset of 0x4 to mark the mtimecmp will allow us
+to use one register range like DTs already in the riscv arch. But this way
+does have problems when the timer is more complex.
+In fact, I think two register range could do better, and will give us
+more freedom to cover these regs.
 
-The following changes since commit ce9ecca0238b140b88f43859b211c9fdfd8e5b70:
+>Also, "any platform"? I figure you mean in this one specific platform?
+>
 
-  Linux 6.6-rc2 (2023-09-17 14:40:24 -0700)
+I mean the platforms already upstreamed in both of kernel and OpenSBI.
+Not for this one.
 
-are available in the Git repository at:
+>> Anyway,
+>> the frozen spec in future will decided how many ranges we need.
+>
+>Isn't the spec abandoned? There may well be no frozen spec.
+>
 
-  https://github.com/kvm-riscv/linux.git tags/kvm-riscv-fixes-6.6-1
+I guess it is. That is not a good thing.
 
-for you to fetch changes up to 071ef070ca77e6dfe33fd78afa293e83422f0411:
-
-  KVM: riscv: selftests: Selectively filter-out AIA registers
-(2023-09-21 15:04:05 +0530)
-
-----------------------------------------------------------------
-KVM/riscv fixes for 6.6, take #1
-
-- Fix KVM_GET_REG_LIST API for ISA_EXT registers
-- Fix reading ISA_EXT register of a missing extension
-- Fix ISA_EXT register handling in get-reg-list test
-- Fix filtering of AIA registers in get-reg-list test
-
-----------------------------------------------------------------
-Anup Patel (4):
-      RISC-V: KVM: Fix KVM_GET_REG_LIST API for ISA_EXT registers
-      RISC-V: KVM: Fix riscv_vcpu_get_isa_ext_single() for missing extensions
-      KVM: riscv: selftests: Fix ISA_EXT register handling in get-reg-list
-      KVM: riscv: selftests: Selectively filter-out AIA registers
-
- arch/riscv/kvm/vcpu_onereg.c                     |  7 ++-
- tools/testing/selftests/kvm/riscv/get-reg-list.c | 58 +++++++++++++++++-------
- 2 files changed, 47 insertions(+), 18 deletions(-)
+>>>> Anyway, I will use a vendor spec implementation as a temporary solution.
+>>>> I hope this will be corrected in a predictable future, and we can use a
+>>>> standard way to resolve this at that time. :)
+>>>
+>>> If the spec doesn't get frozen, there'll not be a standard way merged.
+>>> Hopefully not too many others go off an implement non-frozen specs, and
+>>> we will not really need to worry all that much about it.
+>
+>Cheers,
+>Conor.
+>
 
 _______________________________________________
 linux-riscv mailing list
