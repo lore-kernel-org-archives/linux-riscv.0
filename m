@@ -4,85 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29715E71094
-	for <linux-riscv@archiver.kernel.org>; Thu, 21 Sep 2023 16:49:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83F5DE7D0A3
+	for <linux-riscv@archiver.kernel.org>; Thu, 21 Sep 2023 17:31:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=sVwuCBw6DzkuR/TWafaGKPbjNZzAKnjZO+ZA0wykk+U=; b=nTaNK26WaI8iAt
-	rt88Xr4F1t7A7cJejl/2aGFDsLOWRtULIS+MA6aDfOgjU3o8WRKE23fCsF2bZXCfqE5I0ZhNSzvUP
-	qm9qzwa0G0rSCzjBM3b4GKQlTPNr3ebkqBwRlcN67lctc5PmDqM7Jhf6rfMBG0tzWOeyypd7+SaS1
-	Vn5io8oJ0DC7mrmYoq+ZAOvKh9sKvlOzNnWNnK9x2tcdo3G0QFJWUYQQik1dcDvg+NKnEUZcNy9C+
-	88d9BHLUjE8R4gvzIoYhxD/m9Qv08yLxVcnX0llfJ0MLA8wL/KRolajCB79sTwGM9iHHBRkTXlbmi
-	l6we0w6hJPVQhd7DOCPg==;
+	List-Owner; bh=faFx6n9DFiUHhtn1ezXHaWOzoMYUg5JcZi2xZKaesMU=; b=fCdu/pg2UxOHOw
+	4A5acTgZu5Jne5i4gqldx0o/Y/2LGU3YYVHDj6UOknT4gxHvgIxUBGVspgtInKo+1W+G4ukwDVIMN
+	llXAdrqNHuxPJmpPQf4i2lg8A7KHY/H6PyL1kLFiOta+6ZZkvP8cUhVzPYj5Vi24GE0USqNuD5xJd
+	ew/uk8GtA9U2+XYAClQXcsXnFQJBmT42yraNtQnoKjmE9YGOuYEEAuK1GcVB8caVuFEwFf/9mTALR
+	rRlJ7THIFBxtnPYRV5MecbBXwSeCAHpuKkTT7FcGiG4O1jWCUbYqzcHMwNhT+PpZJytnFNIBoQPh4
+	t88WjceCBBNkkYSkKuZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qjMs3-006YUX-1l;
-	Thu, 21 Sep 2023 16:49:43 +0000
-Received: from mail-lj1-x22f.google.com ([2a00:1450:4864:20::22f])
+	id 1qjNWB-006es8-0q;
+	Thu, 21 Sep 2023 17:31:11 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qjMs0-006YTC-2H
-	for linux-riscv@lists.infradead.org;
-	Thu, 21 Sep 2023 16:49:42 +0000
-Received: by mail-lj1-x22f.google.com with SMTP id 38308e7fff4ca-2c12ae20a5cso18846881fa.2
-        for <linux-riscv@lists.infradead.org>; Thu, 21 Sep 2023 09:49:39 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1695314978; x=1695919778; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=I4XnljMvhHSvDOl2lNXQmHCmuwyYv06P2O8ypwL5cCw=;
-        b=rOqxhEI/TDNQrSICOfyoHPPS0ouAkDY8faC8Ug+7a/p8Z7db3fYymrMJLsNlsD10zj
-         aNDLD0e6QTZR5KRjSyBpmF8TSN6Wt2bFNoyNQXFw5jK8vzUWfj++nTD1B0dNeX4L8zWk
-         NQbUbt1I1WgUiYqBWczup7Tump++26P9yQzA0ezG7MaPAGhlNr9BKaxWKv8lJTb7aXAk
-         6dMY+C64qwfgh5uCPCpV85vA7R7HTpfvRjzFwiY49GKfa/LPj+8rvurSaVvsJEDjBzQ8
-         HwWenKjaO/hxnXeFrQCo3Ii4InEdC73YcbIRzVFJ6DgU240yfMK23xA4cfCjy2xLlWHi
-         lqQw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1695314978; x=1695919778;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=I4XnljMvhHSvDOl2lNXQmHCmuwyYv06P2O8ypwL5cCw=;
-        b=Auskgh5PB5Bbzmhr01rnNOOSXX0FPDteJ7BSbhHkjeDNTJggl9bLDTL4ZzlN2B5ItG
-         DgkjluhClVy+S/gNctz3WV2kPEIce5u2AUyQzYYAteHdYuy24KEUt0wYNoAxkhKJ0iPy
-         n68wRFMjc5IyoYLvk3Gc/H2nFbmVS4lc62t6v0qnsH6RnOxpUckBfABIXdpPIiV6oQjZ
-         IaRCPGWJ6yEATR7F80Y+JUoHHY04b8PE6kL8WuZYAp5xkrJzSDIEmVNQU040wn1h8dgG
-         t2K2UdlJ++SEuI99q6VsL4ip6VUf/Kvy9xfN01dj+1Je5BqYcIxqpiHUXUwdYf2TYIL8
-         4+hg==
-X-Gm-Message-State: AOJu0YxDiaZXPDetq/2Fz/qSGbg+Ye3K9LPrzuJ7MMTrFGWRUpqnZ/RU
-	huV2IrDieK4vt950u+TBCWbO81WF0JHEG+AM8clgew==
-X-Google-Smtp-Source: AGHT+IESTkfakGFXWnCJ/VtMysL1yDXmOS36fBsROIV+3WuacHmCtVXaDl6X1Va+yd+Ft3/RcDg7ZIfby3Ha5Rd65D8=
-X-Received: by 2002:a05:651c:90:b0:2bc:e882:f717 with SMTP id
- 16-20020a05651c009000b002bce882f717mr5133603ljq.53.1695314978101; Thu, 21 Sep
- 2023 09:49:38 -0700 (PDT)
+	id 1qjMPu-006Ue0-1D;
+	Thu, 21 Sep 2023 16:20:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=5xwQSctMmYFo12y5XzlJUTq3tE56VCa/T5pbiR1D+lI=; b=NjijmveB9v+um7fjZHi+gD/L5b
+	AZp7k8gqe4P3WFtq/csNM9fAcMFDdw+rUg1L7xHjrICLNeyhfPy0AoRm8U3j/d8CvE+qy6WNnrTjW
+	iQh1CT2ndl07K4j6kYzSl2aDhCOOiLs+eTPsYZQKNnCxxTpuLQcutKOlsrMeXh9geEOee6huA9CmX
+	1OodACcoDYSiAAWHTduWgTL5Ufw7atHAHDBDTyhr5C3beAlfNrF2R/LIi5IdIArP5TAmfFk9WJqGI
+	v9Wlgwws6AOJKmrTuVbCrpgWw6FAGQuinzQYqfhHWUlMk42ELDqH/zBySDeGbnpdx+UOdAorXSeF8
+	wiw8RWpQ==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1qjMPp-00FUe7-2C;
+	Thu, 21 Sep 2023 16:20:37 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 735E21756;
+	Thu, 21 Sep 2023 09:21:10 -0700 (PDT)
+Received: from e125769.cambridge.arm.com (e125769.cambridge.arm.com [10.1.196.26])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 07CC83F59C;
+	Thu, 21 Sep 2023 09:20:28 -0700 (PDT)
+From: Ryan Roberts <ryan.roberts@arm.com>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	"James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+	Helge Deller <deller@gmx.de>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Mike Kravetz <mike.kravetz@oracle.com>,
+	Muchun Song <muchun.song@linux.dev>,
+	SeongJae Park <sj@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Uladzislau Rezki <urezki@gmail.com>,
+	Christoph Hellwig <hch@infradead.org>,
+	Lorenzo Stoakes <lstoakes@gmail.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Peter Xu <peterx@redhat.com>,
+	Axel Rasmussen <axelrasmussen@google.com>,
+	Qi Zheng <zhengqi.arch@bytedance.com>
+Cc: Ryan Roberts <ryan.roberts@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-parisc@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	sparclinux@vger.kernel.org,
+	linux-mm@kvack.org,
+	stable@vger.kernel.org
+Subject: [PATCH v1 2/8] powerpc: hugetlb: Convert set_huge_pte_at() to take vma
+Date: Thu, 21 Sep 2023 17:20:01 +0100
+Message-Id: <20230921162007.1630149-3-ryan.roberts@arm.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20230921162007.1630149-1-ryan.roberts@arm.com>
+References: <20230921162007.1630149-1-ryan.roberts@arm.com>
 MIME-Version: 1.0
-References: <20230920193801.3035093-1-evan@rivosinc.com> <20230920-98a392b40f88c69e852e2c88@fedora>
- <CAOnJCUK7KTO0n_8wDYDxh2ULtEvMWF-re2dEX6nng_tX1AGgPw@mail.gmail.com>
- <CALs-HsuurXBZ2p=jYKvPq6ZMScugm5rBchttD6Wv9Mtupfx3NQ@mail.gmail.com>
- <CAOnJCU+YNOzw39JMjWmJFHY5QjcRrKEwULo+d9WhPfv7TejpbQ@mail.gmail.com>
- <CALs-HsvvnMFErCtShB-30xO8LR4M03riYomZy3FnvEghRua_3g@mail.gmail.com>
- <a94490f6b1dd43d5985a8b14aa93bd27@AcuMS.aculab.com> <CALs-Hsuuhmtg54TRSBtGFR9QGH4LWuO4TxUsg3NVzoPj3g6HzQ@mail.gmail.com>
-In-Reply-To: <CALs-Hsuuhmtg54TRSBtGFR9QGH4LWuO4TxUsg3NVzoPj3g6HzQ@mail.gmail.com>
-From: Evan Green <evan@rivosinc.com>
-Date: Thu, 21 Sep 2023 09:49:02 -0700
-Message-ID: <CALs-HsuyJ41ohF3sodr5weASWLq2kCHf44Ks_bH=J0gcxKm-Ow@mail.gmail.com>
-Subject: Re: [PATCH v2] RISC-V: Probe misaligned access speed in parallel
-To: David Laight <David.Laight@aculab.com>
-Cc: Atish Patra <atishp@atishpatra.org>, Conor Dooley <conor@kernel.org>, 
-	Anup Patel <apatel@ventanamicro.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Heiko Stuebner <heiko@sntech.de>, Marc Zyngier <maz@kernel.org>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, Palmer Dabbelt <palmer@rivosinc.com>, 
-	Conor Dooley <conor.dooley@microchip.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Jisheng Zhang <jszhang@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Greentime Hu <greentime.hu@sifive.com>, 
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>, Andrew Jones <ajones@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230921_094940_750770_2046C38C 
-X-CRM114-Status: GOOD (  28.91  )
+X-CRM114-CacheID: sfid-20230921_172035_569528_3DFFB027 
+X-CRM114-Status: GOOD (  13.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,47 +106,112 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVGh1LCBTZXAgMjEsIDIwMjMgYXQgOTo0NOKAr0FNIEV2YW4gR3JlZW4gPGV2YW5Acml2b3Np
-bmMuY29tPiB3cm90ZToKPgo+IE9uIFRodSwgU2VwIDIxLCAyMDIzIGF0IDM6MjLigK9BTSBEYXZp
-ZCBMYWlnaHQgPERhdmlkLkxhaWdodEBhY3VsYWIuY29tPiB3cm90ZToKPiA+Cj4gPiAuLi4KPiA+
-ID4gPiBGb3IgcHJvYmluZyBhbGlnbm1lbnQgc3BlZWQsIHlvdSBqdXN0IGNhcmUgYWJvdXQgcnVu
-bmluZyBpdCBvbiB0aGF0Cj4gPiA+ID4gY3B1LiBDb3JyZWN0ID8KPiA+ID4KPiA+ID4gRm9yIHRo
-aXMgd2UgY2FyZSBib3RoIGFib3V0IG5vdCBtaWdyYXRpbmcgdG8gb3RoZXIgQ1BVcywgYW5kIGFs
-c28KPiA+ID4gc2Vjb25kYXJpbHkgbWluaW1pemluZyBkaXN0dXJiYW5jZXMgd2hpbGUgdGhlIHRl
-c3QgaXMgYmVpbmcgcnVuLgo+ID4gPiBVc3VhbGx5IEkgZXF1YXRlIHByZS1lbXB0aW9uIHdpdGgg
-bWlncmF0aW9uLCBidXQgaW4gdGhpcyBjYXNlIEkgdGhpbmsKPiA+ID4gdGhlIHdvcmtlciB0aHJl
-YWRzIGFyZSBib3VuZCB0byB0aGF0IENQVS4gU28gSSdsbCBrZWVwIHRoZQo+ID4gPiBwcmVlbXB0
-X2Rpc2FibGUvZW5hYmxlIHdoZXJlIGl0IGlzLCBzaW5jZSBpdCdzIGhhcm1sZXNzIGZvciBDUFVz
-IG90aGVyCj4gPiA+IHRoYW4gMCwgYnV0IHVzZWZ1bCBmb3IgMC4gSSBhbHNvIGxpa2UgaXQgZm9y
-IHJlYWRhYmlsaXR5IGFzIGl0Cj4gPiA+IGhpZ2hsaWdodHMgdGhlIGNyaXRpY2FsIHNlY3Rpb24g
-KGFzIGEgcmVhZGVyLCAiaXMgcHJlZW1wdGlvbiBkaXNhYmxlZCIKPiA+ID4gd291bGQgYmUgb25l
-IG9mIG15IGZpcnN0IHF1ZXN0aW9ucyB3aGVuIHN0dWR5aW5nIHRoaXMpLgo+ID4KPiA+IFlvdSBu
-ZWVkIHRvIGRpc2FibGUgcHJlLWVtcHRpb24gdG8gZ2V0IGFueSBraW5kIG9mIG1lYW5pbmdmdWwg
-YW5zd2VyLgo+ID4KPiA+IEJ1dCB3aHkgZG8geW91IG5lZWQgdG8gcnVuIHRoZSB0ZXN0IG9uIG1v
-cmUgdGhhbiB0aGUgYm9vdCBjcHU/Cj4gPiBJZiB5b3UndmUgYSBoZXRlcm9nZW5vdXMgbWl4IG9m
-IGNwdSBhbnkgY29kZSB0aGF0IGxvb2tzIGF0IHRoZSBhbnN3ZXIKPiA+IGlzIGdvaW5nIHRvIGJl
-aGF2ZSBpbmNvcnJlY3RseSB1bmxlc3MgaXQgaGFzIGFsc28gZGlzYWJsZWQgcHJlLWVtcHRpb24K
-PiA+IG9yIGlzIGJvdW5kIHRvIGEgY3B1Lgo+Cj4gSSBkb24ndCB0aGluayBpdCdzIHNhZmUgdG8g
-YXNzdW1lIG1pc2FsaWduZWQgYWNjZXNzIHNwZWVkIGlzIHRoZSBzYW1lCj4gYWNyb3NzIGFsbCBj
-b3Jlcy4gSW4gYSBiaWcubGl0dGxlIGNvbWJpbmF0aW9uIEkgY2FuIGVhc2lseSBpbWFnaW5lIHRo
-ZQo+IGJpZyBjb3JlcyBoYXZpbmcgZmFzdCBtaXNhbGlnbmVkIGFjY2VzcyBhbmQgdGhlIHNsb3cg
-Y29yZXMgbm90IGhhdmluZwo+IGl0ICh0aG91Z2ggaG9wZWZ1bGx5IHRoZSBzbG93IGNvcmVzIGRv
-bid0IGtpY2sgaXQgdG8gZmlybXdhcmUpLiBTaW5jZQo+IHRoaXMgaW5mbyBpcyBwcmVzZW50ZWQg
-dG8gdXNlcm1vZGUgcGVyLWNwdSwgSSdkIGxpa2UgaXQgdG8gYmUgY29ycmVjdC4KPgo+ID4KPiA+
-IE9uZSBvYnZpb3VzIHVzZSBvZiB0aGUgcmVzdWx0IGlzIHRvIHNldHVwIHNvbWUgc3RhdGljIGJy
-YW5jaGVzLgo+ID4gQnV0IHRoYXQgYXNzdW1lcyBhbGwgY3B1IGFyZSB0aGUgc2FtZS4KPgo+IFJp
-Z2h0LCB0aGlzIGNvdWxkIGJlIHVzZWQgdG8gc2V0IHVwIHN0YXRpYyBicmFuY2hlcywgb3IgaW4g
-YW4gaWZ1bmMKPiBzZWxlY3Rvci4gVGhpcyBpcyB3aHkgd2UgcHJvdmlkZSBwcmUtY29tcHV0ZWQg
-YW5zd2VycyBmb3IgImFsbCBDUFVzIgo+IGluIGh3cHJvYmUuIElmIHRoZSBzaXR1YXRpb24gSSBk
-ZXNjcmliZSBhYm92ZSBkaWQgaGFwcGVuLCBjb2RlIGFza2luZwoKQ29ycmVjdGlvbjogTm90IGV4
-YWN0bHkgcHJlY29tcHV0ZWQgYW5zd2VycywgYnV0IGNhY2hlZCB2RFNPIGRhdGEKY2FwYWJsZSBv
-ZiBxdWlja2x5IGFuc3dlcmluZyB1c2VybW9kZSBxdWVyaWVzIGZvciBzeXN0ZW1zIHdpdGgKaG9t
-b2dlbmVvdXMgQ1BVcy4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRl
-YWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgt
-cmlzY3YK
+In order to fix a bug, arm64 needs access to the vma inside it's
+implementation of set_huge_pte_at(). Provide for this by converting the
+mm parameter to be a vma. Any implementations that require the mm can
+access it via vma->vm_mm.
+
+This commit makes the required powerpc modifications. Separate commits
+update the other arches and core code, before the actual bug is fixed in
+arm64.
+
+No behavioral changes intended.
+
+Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
+---
+ arch/powerpc/include/asm/nohash/32/hugetlb-8xx.h | 3 ++-
+ arch/powerpc/mm/book3s64/hugetlbpage.c           | 2 +-
+ arch/powerpc/mm/book3s64/radix_hugetlbpage.c     | 2 +-
+ arch/powerpc/mm/nohash/8xx.c                     | 2 +-
+ arch/powerpc/mm/pgtable.c                        | 7 ++++++-
+ 5 files changed, 11 insertions(+), 5 deletions(-)
+
+diff --git a/arch/powerpc/include/asm/nohash/32/hugetlb-8xx.h b/arch/powerpc/include/asm/nohash/32/hugetlb-8xx.h
+index de092b04ee1a..fff8cd726bc7 100644
+--- a/arch/powerpc/include/asm/nohash/32/hugetlb-8xx.h
++++ b/arch/powerpc/include/asm/nohash/32/hugetlb-8xx.h
+@@ -46,7 +46,8 @@ static inline int check_and_get_huge_psize(int shift)
+ }
+ 
+ #define __HAVE_ARCH_HUGE_SET_HUGE_PTE_AT
+-void set_huge_pte_at(struct mm_struct *mm, unsigned long addr, pte_t *ptep, pte_t pte);
++void set_huge_pte_at(struct vm_area_struct *vma, unsigned long addr, pte_t *ptep, pte_t pte);
++void __set_huge_pte_at(struct mm_struct *mm, unsigned long addr, pte_t *ptep, pte_t pte);
+ 
+ #define __HAVE_ARCH_HUGE_PTE_CLEAR
+ static inline void huge_pte_clear(struct mm_struct *mm, unsigned long addr,
+diff --git a/arch/powerpc/mm/book3s64/hugetlbpage.c b/arch/powerpc/mm/book3s64/hugetlbpage.c
+index 3bc0eb21b2a0..ae7fd7c90eb8 100644
+--- a/arch/powerpc/mm/book3s64/hugetlbpage.c
++++ b/arch/powerpc/mm/book3s64/hugetlbpage.c
+@@ -147,7 +147,7 @@ void huge_ptep_modify_prot_commit(struct vm_area_struct *vma, unsigned long addr
+ 	if (radix_enabled())
+ 		return radix__huge_ptep_modify_prot_commit(vma, addr, ptep,
+ 							   old_pte, pte);
+-	set_huge_pte_at(vma->vm_mm, addr, ptep, pte);
++	set_huge_pte_at(vma, addr, ptep, pte);
+ }
+ 
+ void __init hugetlbpage_init_defaultsize(void)
+diff --git a/arch/powerpc/mm/book3s64/radix_hugetlbpage.c b/arch/powerpc/mm/book3s64/radix_hugetlbpage.c
+index 17075c78d4bc..7cd40a334c3a 100644
+--- a/arch/powerpc/mm/book3s64/radix_hugetlbpage.c
++++ b/arch/powerpc/mm/book3s64/radix_hugetlbpage.c
+@@ -58,5 +58,5 @@ void radix__huge_ptep_modify_prot_commit(struct vm_area_struct *vma,
+ 	    atomic_read(&mm->context.copros) > 0)
+ 		radix__flush_hugetlb_page(vma, addr);
+ 
+-	set_huge_pte_at(vma->vm_mm, addr, ptep, pte);
++	set_huge_pte_at(vma, addr, ptep, pte);
+ }
+diff --git a/arch/powerpc/mm/nohash/8xx.c b/arch/powerpc/mm/nohash/8xx.c
+index dbbfe897455d..650a7a8496b6 100644
+--- a/arch/powerpc/mm/nohash/8xx.c
++++ b/arch/powerpc/mm/nohash/8xx.c
+@@ -91,7 +91,7 @@ static int __ref __early_map_kernel_hugepage(unsigned long va, phys_addr_t pa,
+ 	if (new && WARN_ON(pte_present(*ptep) && pgprot_val(prot)))
+ 		return -EINVAL;
+ 
+-	set_huge_pte_at(&init_mm, va, ptep, pte_mkhuge(pfn_pte(pa >> PAGE_SHIFT, prot)));
++	__set_huge_pte_at(&init_mm, va, ptep, pte_mkhuge(pfn_pte(pa >> PAGE_SHIFT, prot)));
+ 
+ 	return 0;
+ }
+diff --git a/arch/powerpc/mm/pgtable.c b/arch/powerpc/mm/pgtable.c
+index 3f86fd217690..9cbcb561a4d8 100644
+--- a/arch/powerpc/mm/pgtable.c
++++ b/arch/powerpc/mm/pgtable.c
+@@ -288,7 +288,7 @@ int huge_ptep_set_access_flags(struct vm_area_struct *vma,
+ }
+ 
+ #if defined(CONFIG_PPC_8xx)
+-void set_huge_pte_at(struct mm_struct *mm, unsigned long addr, pte_t *ptep, pte_t pte)
++void __set_huge_pte_at(struct mm_struct *mm, unsigned long addr, pte_t *ptep, pte_t pte)
+ {
+ 	pmd_t *pmd = pmd_off(mm, addr);
+ 	pte_basic_t val;
+@@ -310,6 +310,11 @@ void set_huge_pte_at(struct mm_struct *mm, unsigned long addr, pte_t *ptep, pte_
+ 	for (i = 0; i < num; i++, entry++, val += SZ_4K)
+ 		*entry = val;
+ }
++
++void set_huge_pte_at(struct vm_area_struct *vma, unsigned long addr, pte_t *ptep, pte_t pte)
++{
++	__set_huge_pte_at(vma->vm_mm, addr, ptep, pte);
++}
+ #endif
+ #endif /* CONFIG_HUGETLB_PAGE */
+ 
+-- 
+2.25.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
