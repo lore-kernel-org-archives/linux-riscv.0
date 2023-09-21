@@ -4,59 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E589ECD493F
-	for <linux-riscv@archiver.kernel.org>; Thu, 21 Sep 2023 02:37:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3272CCD4938
+	for <linux-riscv@archiver.kernel.org>; Thu, 21 Sep 2023 02:40:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dIiTkEAQ3/n3guU99NyV6YpPFCYnqFqILRHTT6GdrNQ=; b=ibVF492pY/3mS/
-	pHAdso0xVM1Gen7kWb/UVh3AC5fiVOFBpiG5LgwwjUgp2gXR+pNB2aNbwwjBh7Q4BX0NTp+ZHGCjq
-	lgexYXv7RwopDgu2GOqUeVc8WSTmhvdzPEFlh6j48mTwG2VadzG2TbQs7enFj/a9kAR3Lb+u7qRqW
-	oN1ojWVqCU5zJiVs/A0TWAwZ+E1hL92oF21BQp36fQkac83z8uJt7DltjlROJOm5I2GmdlTCKUCL6
-	0WojN0hnI82lDw0Sl0w4UxwLpL8QI/V+LjQji2rZ+kV6g97E2sBmttpSkvYVb8I7TQFD3hwRpgz6v
-	pRigQreY5bxHQoZ6p9mg==;
+	List-Owner; bh=eECBNzVUaBgln2T0D3oqwbXTh0kCosdWYjRO/6vwbgA=; b=0wQSW0TX0/S0Ox
+	9W83pPoSBn5gdLwagXVh4p83qLxK26DMSo9ZGI/do4r9XrwX03LHVntcr8uh/B8BvJGsxa8S286zD
+	ZkXMYChl4L8ZFcm3Lnw1Fch554nvMUiUA1m9ivrlMjbDfRvMYgQu8oT9EllCH6Jz7260uJEKEENuG
+	gl5L68KWG9WHOzil6HFB4gbg6xuhuVpxqul/pAy9bFfpwSiuWmkURRp312fbRt2dIBZyjwWj6GHd4
+	tpVJI1FIZISUlxSHgBeyuFXvT8jqb2DlQ4PlawYfhmu+tTZPNLolgr35UmM9DD25iZ6a+TvvFBQvM
+	4DCt8S7SIAXYWrrfT/eg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qj9Yn-004n32-2c;
-	Thu, 21 Sep 2023 02:36:57 +0000
-Received: from szxga02-in.huawei.com ([45.249.212.188])
+	id 1qj9bl-004nda-0I;
+	Thu, 21 Sep 2023 02:40:01 +0000
+Received: from mgamail.intel.com ([192.55.52.151])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qj9Yi-004mzy-0w;
-	Thu, 21 Sep 2023 02:36:54 +0000
-Received: from dggpemm500016.china.huawei.com (unknown [172.30.72.54])
-	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4RrfbV3rPWzVl6S;
-	Thu, 21 Sep 2023 10:33:42 +0800 (CST)
-Received: from [10.67.108.26] (10.67.108.26) by dggpemm500016.china.huawei.com
- (7.185.36.25) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.31; Thu, 21 Sep
- 2023 10:36:41 +0800
-Message-ID: <3e97290f-9031-a2f7-3505-c4ef6274f7da@huawei.com>
-Date: Thu, 21 Sep 2023 10:36:41 +0800
+	id 1qj9bi-004naR-0K;
+	Thu, 21 Sep 2023 02:39:59 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1695263998; x=1726799998;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=iSkpE1N9Jcp84HPqnZ+sK/v5B9D3q8Q2ZGh6iASUxTU=;
+  b=OxBlLC2l9BN7+s7PsjufvjbSzeYopFfchaulVyaz52MiJ15s7yvWyztB
+   1YSqbce4R0fMi8g6PhOWtuafJ0AHNoNQqFbN6lXcPTXv1jJhoexpEK5re
+   846Gs8juSgzwhz1eKuZ3JbwDiUz8IRZpIs2utRXkoRs9pke5f2yDMoi69
+   m4/Jl2XWJbCSWZ0BK7BURjAWth6sGAiBpKMG7e+XmPuDgee94pWtq9IDy
+   /mC5JHej00zmHG+9Ez1TcjaVwkYEMGene8GYxXmeon7cFBNQWfO4Cekfw
+   4QdIILU4BPGDkLWVXrvPSg/0hGM4F528NMdkBulUWPZispE+2CnB0Kj3m
+   A==;
+X-IronPort-AV: E=McAfee;i="6600,9927,10839"; a="360653931"
+X-IronPort-AV: E=Sophos;i="6.03,164,1694761200"; 
+   d="scan'208";a="360653931"
+Received: from fmsmga005.fm.intel.com ([10.253.24.32])
+  by fmsmga107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Sep 2023 19:39:54 -0700
+X-ExtLoop1: 1
+X-IronPort-AV: E=McAfee;i="6600,9927,10839"; a="1077731075"
+X-IronPort-AV: E=Sophos;i="6.03,164,1694761200"; 
+   d="scan'208";a="1077731075"
+Received: from yilunxu-optiplex-7050.sh.intel.com (HELO localhost) ([10.239.159.165])
+  by fmsmga005.fm.intel.com with ESMTP; 20 Sep 2023 19:39:45 -0700
+Date: Thu, 21 Sep 2023 10:39:18 +0800
+From: Xu Yilun <yilun.xu@intel.com>
+To: Sean Christopherson <seanjc@google.com>
+Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Anup Patel <anup@brainfault.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	"Matthew Wilcox (Oracle)" <willy@infradead.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Paul Moore <paul@paul-moore.com>, James Morris <jmorris@namei.org>,
+	"Serge E. Hallyn" <serge@hallyn.com>, kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+	linux-fsdevel@vger.kernel.org, linux-mm@kvack.org,
+	linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Chao Peng <chao.p.peng@linux.intel.com>,
+	Fuad Tabba <tabba@google.com>, Jarkko Sakkinen <jarkko@kernel.org>,
+	Anish Moorthy <amoorthy@google.com>,
+	Yu Zhang <yu.c.zhang@linux.intel.com>,
+	Isaku Yamahata <isaku.yamahata@intel.com>,
+	Vlastimil Babka <vbabka@suse.cz>,
+	Vishal Annapurve <vannapurve@google.com>,
+	Ackerley Tng <ackerleytng@google.com>,
+	Maciej Szmigiero <mail@maciej.szmigiero.name>,
+	David Hildenbrand <david@redhat.com>,
+	Quentin Perret <qperret@google.com>,
+	Michael Roth <michael.roth@amd.com>, Wang <wei.w.wang@intel.com>,
+	Liam Merwick <liam.merwick@oracle.com>,
+	Isaku Yamahata <isaku.yamahata@gmail.com>,
+	"Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
+Subject: Re: [RFC PATCH v12 02/33] KVM: Use gfn instead of hva for
+ mmu_notifier_retry
+Message-ID: <ZQus1v3AvEZjuat9@yilunxu-OptiPlex-7050>
+References: <20230914015531.1419405-1-seanjc@google.com>
+ <20230914015531.1419405-3-seanjc@google.com>
+ <ZQqMBEL61p739dpF@yilunxu-OptiPlex-7050>
+ <ZQr5uXhV6Cnx4DYT@google.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.9.0
-Subject: Re: [PATCH v3 8/9] riscv: kdump: use generic interface to simplify
- crashkernel reservation
-Content-Language: en-US
-To: Baoquan He <bhe@redhat.com>, <linux-kernel@vger.kernel.org>
-CC: <akpm@linux-foundation.org>, <thunder.leizhen@huawei.com>,
-	<catalin.marinas@arm.com>, <kexec@lists.infradead.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-riscv@lists.infradead.org>,
-	<x86@kernel.org>
-References: <20230914033142.676708-1-bhe@redhat.com>
- <20230914033142.676708-9-bhe@redhat.com>
-From: "chenjiahao (C)" <chenjiahao16@huawei.com>
-In-Reply-To: <20230914033142.676708-9-bhe@redhat.com>
-X-Originating-IP: [10.67.108.26]
-X-ClientProxiedBy: dggems705-chm.china.huawei.com (10.3.19.182) To
- dggpemm500016.china.huawei.com (7.185.36.25)
-X-CFilter-Loop: Reflected
+Content-Disposition: inline
+In-Reply-To: <ZQr5uXhV6Cnx4DYT@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230920_193652_679627_E491C2A8 
-X-CRM114-Status: GOOD (  35.25  )
+X-CRM114-CacheID: sfid-20230920_193958_153252_6DAD7FA2 
+X-CRM114-Status: GOOD (  18.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,315 +109,62 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On 2023-09-20 at 06:55:05 -0700, Sean Christopherson wrote:
+> On Wed, Sep 20, 2023, Xu Yilun wrote:
+> > On 2023-09-13 at 18:55:00 -0700, Sean Christopherson wrote:
+> > > +void kvm_mmu_invalidate_range_add(struct kvm *kvm, gfn_t start, gfn_t end)
+> > > +{
+> > > +	lockdep_assert_held_write(&kvm->mmu_lock);
+> > > +
+> > > +	WARN_ON_ONCE(!kvm->mmu_invalidate_in_progress);
+> > > +
+> > >  	if (likely(kvm->mmu_invalidate_in_progress == 1)) {
+> > >  		kvm->mmu_invalidate_range_start = start;
+> > >  		kvm->mmu_invalidate_range_end = end;
+> > 
+> > IIUC, Now we only add or override a part of the invalidate range in
+> > these fields, IOW only the range in last slot is stored when we unlock.
+> 
+> Ouch.  Good catch!
+> 
+> > That may break mmu_invalidate_retry_gfn() cause it can never know the
+> > whole invalidate range.
+> > 
+> > How about we extend the mmu_invalidate_range_start/end everytime so that
+> > it records the whole invalidate range:
+> > 
+> > if (kvm->mmu_invalidate_range_start == INVALID_GPA) {
+> > 	kvm->mmu_invalidate_range_start = start;
+> > 	kvm->mmu_invalidate_range_end = end;
+> > } else {
+> > 	kvm->mmu_invalidate_range_start =
+> > 		min(kvm->mmu_invalidate_range_start, start);
+> > 	kvm->mmu_invalidate_range_end =
+> > 		max(kvm->mmu_invalidate_range_end, end);
+> > }
+> 
+> Yeah, that does seem to be the easiest solution.
+> 
+> I'll post a fixup patch, unless you want the honors.
 
-On 2023/9/14 11:31, Baoquan He wrote:
-> With the help of newly changed function parse_crashkernel() and
-> generic reserve_crashkernel_generic(), crashkernel reservation can be
-> simplified by steps:
->
-> 1) Add a new header file <asm/crash_core.h>, and define CRASH_ALIGN,
->     CRASH_ADDR_LOW_MAX, CRASH_ADDR_HIGH_MAX and
->     DEFAULT_CRASH_KERNEL_LOW_SIZE in <asm/crash_core.h>;
->
-> 2) Add arch_reserve_crashkernel() to call parse_crashkernel() and
->     reserve_crashkernel_generic();
->
-> 3) Add ARCH_HAS_GENERIC_CRASHKERNEL_RESERVATION Kconfig in
->     arch/riscv/Kconfig.
->
-> The old reserve_crashkernel_low() and reserve_crashkernel() can be
-> removed.
+Please go ahead, cause at a second thought I'm wondering if this simple
+range extension is reasonable.
 
-Hi Baoquan,
+When the invalidation acrosses multiple slots, I'm not sure if the
+contiguous HVA range must correspond to contiguous GFN range. If not,
+are we producing a larger range than required?
 
-Sorry for the late response. The refactor code has unified multiple
-arch via generic interface, which looks great!
+And when the invalidation acrosses multiple address space, I'm almost
+sure it is wrong to merge GFN ranges from different address spaces. But
+I have no clear solution yet.
 
-However when I tested on my risc-v QEMU environment, a little problem
-occurred with following messages:
-
-[    0.000000] crashkernel low memory reserved: 0xf8000000 - 0x100000000 (128 MB)
-[    0.000000] crashkernel reserved: 0x0000000177e00000 - 0x0000000277e00000 (4096 MB)
-[    0.000000] ------------[ cut here ]------------
-[    0.000000] WARNING: CPU: 0 PID: 0 at kernel/resource.c:779 __insert_resource+0x8e/0xd0
-[    0.000000] Modules linked in:
-[    0.000000] CPU: 0 PID: 0 Comm: swapper Not tainted 6.6.0-rc2-next-20230920 #1
-[    0.000000] Hardware name: riscv-virtio,qemu (DT)
-[    0.000000] epc : __insert_resource+0x8e/0xd0
-[    0.000000]  ra : insert_resource+0x28/0x4e
-[    0.000000] epc : ffffffff80017344 ra : ffffffff8001742e sp : ffffffff81203db0
-[    0.000000]  gp : ffffffff812ece98 tp : ffffffff8120dac0 t0 : ff600001f7ff2b00
-[    0.000000]  t1 : 0000000000000000 t2 : 3428203030303030 s0 : ffffffff81203dc0
-[    0.000000]  s1 : ffffffff81211e18 a0 : ffffffff81211e18 a1 : ffffffff81289380
-[    0.000000]  a2 : 0000000277dfffff a3 : 0000000177e00000 a4 : 0000000177e00000
-[    0.000000]  a5 : ffffffff81289380 a6 : 0000000277dfffff a7 : 0000000000000078
-[    0.000000]  s2 : ffffffff81289380 s3 : ffffffff80a0bac8 s4 : ff600001f7ff2880
-[    0.000000]  s5 : 0000000000000280 s6 : 8000000a00006800 s7 : 000000000000007f
-[    0.000000]  s8 : 0000000080017038 s9 : 0000000080038ea0 s10: 0000000000000000
-[    0.000000]  s11: 0000000000000000 t3 : ffffffff80a0bc00 t4 : ffffffff80a0bc00
-[    0.000000]  t5 : ffffffff80a0bbd0 t6 : ffffffff80a0bc00
-[    0.000000] status: 0000000200000100 badaddr: 0000000000000000 cause: 0000000000000003
-[    0.000000] [<ffffffff80017344>] __insert_resource+0x8e/0xd0
-[    0.000000] ---[ end trace 0000000000000000 ]---
-[    0.000000] Failed to add a Crash kernel resource at 177e00000
-
-The crashkernel memory has been allocated successfully, whereas
-it seems failed to insert into iomem_resource. This should due to
-the unique reserving logic in risc-v arch specific code, i.e.
-crashk_res/crashk_low_res will be added into iomem_resource
-later in init_resources(), which is not aligned with the
-unified reserving logic.
-
-My simple solution here is removing the arch specific code within
-#ifdef CONFIG_KEXEC_CORE in init_resources(), which has been tested
-OK with all your testcases. Or do you have any other idea?
-
-Best regards,
-Jiahao
-
-
->
-> Signed-off-by: Baoquan He <bhe@redhat.com>
-> ---
->   arch/riscv/Kconfig                  |   3 +
->   arch/riscv/include/asm/crash_core.h |  11 +++
->   arch/riscv/include/asm/processor.h  |   2 +
->   arch/riscv/mm/init.c                | 141 +++-------------------------
->   4 files changed, 27 insertions(+), 130 deletions(-)
->   create mode 100644 arch/riscv/include/asm/crash_core.h
->
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index d607ab0f7c6d..25474f8c12b7 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -694,6 +694,9 @@ config ARCH_SUPPORTS_KEXEC_PURGATORY
->   config ARCH_SUPPORTS_CRASH_DUMP
->   	def_bool y
->   
-> +config ARCH_HAS_GENERIC_CRASHKERNEL_RESERVATION
-> +	def_bool CRASH_CORE
-> +
->   config COMPAT
->   	bool "Kernel support for 32-bit U-mode"
->   	default 64BIT
-> diff --git a/arch/riscv/include/asm/crash_core.h b/arch/riscv/include/asm/crash_core.h
-> new file mode 100644
-> index 000000000000..e1874b23feaf
-> --- /dev/null
-> +++ b/arch/riscv/include/asm/crash_core.h
-> @@ -0,0 +1,11 @@
-> +/* SPDX-License-Identifier: GPL-2.0-only */
-> +#ifndef _RISCV_CRASH_CORE_H
-> +#define _RISCV_CRASH_CORE_H
-> +
-> +#define CRASH_ALIGN			PMD_SIZE
-> +
-> +#define CRASH_ADDR_LOW_MAX		dma32_phys_limit
-> +#define CRASH_ADDR_HIGH_MAX		memblock_end_of_DRAM()
-> +
-> +extern phys_addr_t memblock_end_of_DRAM(void);
-> +#endif
-> diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/processor.h
-> index 3e23e1786d05..441da1839c94 100644
-> --- a/arch/riscv/include/asm/processor.h
-> +++ b/arch/riscv/include/asm/processor.h
-> @@ -116,6 +116,8 @@ static inline void wait_for_interrupt(void)
->   	__asm__ __volatile__ ("wfi");
->   }
->   
-> +extern phys_addr_t dma32_phys_limit;
-> +
->   struct device_node;
->   int riscv_of_processor_hartid(struct device_node *node, unsigned long *hartid);
->   int riscv_early_of_processor_hartid(struct device_node *node, unsigned long *hartid);
-> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-> index 9fe448900059..d9a4e8702864 100644
-> --- a/arch/riscv/mm/init.c
-> +++ b/arch/riscv/mm/init.c
-> @@ -65,7 +65,7 @@ extern char _start[];
->   void *_dtb_early_va __initdata;
->   uintptr_t _dtb_early_pa __initdata;
->   
-> -static phys_addr_t dma32_phys_limit __initdata;
-> +phys_addr_t dma32_phys_limit __initdata;
->   
->   static void __init zone_sizes_init(void)
->   {
-> @@ -1333,28 +1333,6 @@ static inline void setup_vm_final(void)
->   }
->   #endif /* CONFIG_MMU */
->   
-> -/* Reserve 128M low memory by default for swiotlb buffer */
-> -#define DEFAULT_CRASH_KERNEL_LOW_SIZE	(128UL << 20)
-> -
-> -static int __init reserve_crashkernel_low(unsigned long long low_size)
-> -{
-> -	unsigned long long low_base;
-> -
-> -	low_base = memblock_phys_alloc_range(low_size, PMD_SIZE, 0, dma32_phys_limit);
-> -	if (!low_base) {
-> -		pr_err("cannot allocate crashkernel low memory (size:0x%llx).\n", low_size);
-> -		return -ENOMEM;
-> -	}
-> -
-> -	pr_info("crashkernel low memory reserved: 0x%016llx - 0x%016llx (%lld MB)\n",
-> -		low_base, low_base + low_size, low_size >> 20);
-> -
-> -	crashk_low_res.start = low_base;
-> -	crashk_low_res.end = low_base + low_size - 1;
-> -
-> -	return 0;
-> -}
-> -
->   /*
->    * reserve_crashkernel() - reserves memory for crash kernel
->    *
-> @@ -1362,122 +1340,25 @@ static int __init reserve_crashkernel_low(unsigned long long low_size)
->    * line parameter. The memory reserved is used by dump capture kernel when
->    * primary kernel is crashing.
->    */
-> -static void __init reserve_crashkernel(void)
-> +static void __init arch_reserve_crashkernel(void)
->   {
-> -	unsigned long long crash_base = 0;
-> -	unsigned long long crash_size = 0;
-> -	unsigned long long crash_low_size = 0;
-> -	unsigned long search_start = memblock_start_of_DRAM();
-> -	unsigned long search_end = (unsigned long)dma32_phys_limit;
-> +	unsigned long long low_size = 0;
-> +	unsigned long long crash_base, crash_size;
->   	char *cmdline = boot_command_line;
-> -	bool fixed_base = false;
->   	bool high = false;
-> -
-> -	int ret = 0;
-> +	int ret;
->   
->   	if (!IS_ENABLED(CONFIG_KEXEC_CORE))
->   		return;
-> -	/*
-> -	 * Don't reserve a region for a crash kernel on a crash kernel
-> -	 * since it doesn't make much sense and we have limited memory
-> -	 * resources.
-> -	 */
-> -	if (is_kdump_kernel()) {
-> -		pr_info("crashkernel: ignoring reservation request\n");
-> -		return;
-> -	}
->   
->   	ret = parse_crashkernel(cmdline, memblock_phys_mem_size(),
-> -				&crash_size, &crash_base, NULL, NULL);
-> -	if (ret == -ENOENT) {
-> -		/* Fallback to crashkernel=X,[high,low] */
-> -		ret = parse_crashkernel_high(cmdline, 0, &crash_size, &crash_base);
-> -		if (ret || !crash_size)
-> -			return;
-> -
-> -		/*
-> -		 * crashkernel=Y,low is valid only when crashkernel=X,high
-> -		 * is passed.
-> -		 */
-> -		ret = parse_crashkernel_low(cmdline, 0, &crash_low_size, &crash_base);
-> -		if (ret == -ENOENT)
-> -			crash_low_size = DEFAULT_CRASH_KERNEL_LOW_SIZE;
-> -		else if (ret)
-> -			return;
-> -
-> -		search_start = (unsigned long)dma32_phys_limit;
-> -		search_end = memblock_end_of_DRAM();
-> -		high = true;
-> -	} else if (ret || !crash_size) {
-> -		/* Invalid argument value specified */
-> +				&crash_size, &crash_base,
-> +				&low_size, &high);
-> +	if (ret)
->   		return;
-> -	}
-> -
-> -	crash_size = PAGE_ALIGN(crash_size);
-> -
-> -	if (crash_base) {
-> -		fixed_base = true;
-> -		search_start = crash_base;
-> -		search_end = crash_base + crash_size;
-> -	}
-> -
-> -	/*
-> -	 * Current riscv boot protocol requires 2MB alignment for
-> -	 * RV64 and 4MB alignment for RV32 (hugepage size)
-> -	 *
-> -	 * Try to alloc from 32bit addressible physical memory so that
-> -	 * swiotlb can work on the crash kernel.
-> -	 */
-> -	crash_base = memblock_phys_alloc_range(crash_size, PMD_SIZE,
-> -					       search_start, search_end);
-> -	if (crash_base == 0) {
-> -		/*
-> -		 * For crashkernel=size[KMG]@offset[KMG], print out failure
-> -		 * message if can't reserve the specified region.
-> -		 */
-> -		if (fixed_base) {
-> -			pr_warn("crashkernel: allocating failed with given size@offset\n");
-> -			return;
-> -		}
-> -
-> -		if (high) {
-> -			/*
-> -			 * For crashkernel=size[KMG],high, if the first attempt was
-> -			 * for high memory, fall back to low memory.
-> -			 */
-> -			search_start = memblock_start_of_DRAM();
-> -			search_end = (unsigned long)dma32_phys_limit;
-> -		} else {
-> -			/*
-> -			 * For crashkernel=size[KMG], if the first attempt was for
-> -			 * low memory, fall back to high memory, the minimum required
-> -			 * low memory will be reserved later.
-> -			 */
-> -			search_start = (unsigned long)dma32_phys_limit;
-> -			search_end = memblock_end_of_DRAM();
-> -			crash_low_size = DEFAULT_CRASH_KERNEL_LOW_SIZE;
-> -		}
-> -
-> -		crash_base = memblock_phys_alloc_range(crash_size, PMD_SIZE,
-> -						       search_start, search_end);
-> -		if (crash_base == 0) {
-> -			pr_warn("crashkernel: couldn't allocate %lldKB\n",
-> -				crash_size >> 10);
-> -			return;
-> -		}
-> -	}
-> -
-> -	if ((crash_base >= dma32_phys_limit) && crash_low_size &&
-> -	     reserve_crashkernel_low(crash_low_size)) {
-> -		memblock_phys_free(crash_base, crash_size);
-> -		return;
-> -	}
-> -
-> -	pr_info("crashkernel: reserved 0x%016llx - 0x%016llx (%lld MB)\n",
-> -		crash_base, crash_base + crash_size, crash_size >> 20);
->   
-> -	crashk_res.start = crash_base;
-> -	crashk_res.end = crash_base + crash_size - 1;
-> +	reserve_crashkernel_generic(cmdline, crash_size, crash_base,
-> +				    low_size, high);
->   }
->   
->   void __init paging_init(void)
-> @@ -1495,7 +1376,7 @@ void __init misc_mem_init(void)
->   	arch_numa_init();
->   	sparse_init();
->   	zone_sizes_init();
-> -	reserve_crashkernel();
-> +	arch_reserve_crashkernel();
->   	memblock_dump_all();
->   }
->   
+Thanks,
+Yilun
 
 _______________________________________________
 linux-riscv mailing list
