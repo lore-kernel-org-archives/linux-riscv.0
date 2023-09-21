@@ -4,178 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7C4CCD493A
-	for <linux-riscv@archiver.kernel.org>; Thu, 21 Sep 2023 01:49:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E589ECD493F
+	for <linux-riscv@archiver.kernel.org>; Thu, 21 Sep 2023 02:37:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	References:Message-ID:Subject:CC:To:From:Date:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XdxiWBOSX2/NZUprrsZt9RCyVM2fbDnZ2vQpvglCJ4I=; b=of+1mxbp3r39iU
-	evN9lLMBuGM2+vKNjpnfZkQadl7AOgiUNSTX1Yj+c0DdmLwqWY+pQOavLT6SNWDaQ4G0swtltSezi
-	YBSozLpmGcbDVl2gadBFdzcCh7OlCz92s1J6KiOOtH/XTnJ9VXu0NLSi+kM51YH5MbNK47LdZXiOB
-	g5osUT96rCnomOX0WcII2hkFP/OtePombxu3v2ftSKB1JRXLK0+6KJaq/g8VJl0nQGRJOUda0jApt
-	LaE0dKmWs+okr+7ktkXPIR+xoYh7JKq3XIHHI4Qwtk3uok8kyCvNUFohVp5cuPgyDCYrvSHc7CkBN
-	2qUg8JvWeVgQVAlWjGLA==;
+	List-Owner; bh=dIiTkEAQ3/n3guU99NyV6YpPFCYnqFqILRHTT6GdrNQ=; b=ibVF492pY/3mS/
+	pHAdso0xVM1Gen7kWb/UVh3AC5fiVOFBpiG5LgwwjUgp2gXR+pNB2aNbwwjBh7Q4BX0NTp+ZHGCjq
+	lgexYXv7RwopDgu2GOqUeVc8WSTmhvdzPEFlh6j48mTwG2VadzG2TbQs7enFj/a9kAR3Lb+u7qRqW
+	oN1ojWVqCU5zJiVs/A0TWAwZ+E1hL92oF21BQp36fQkac83z8uJt7DltjlROJOm5I2GmdlTCKUCL6
+	0WojN0hnI82lDw0Sl0w4UxwLpL8QI/V+LjQji2rZ+kV6g97E2sBmttpSkvYVb8I7TQFD3hwRpgz6v
+	pRigQreY5bxHQoZ6p9mg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qj8os-004gpk-3B;
-	Thu, 21 Sep 2023 01:49:30 +0000
-Received: from mgamail.intel.com ([192.55.52.93])
+	id 1qj9Yn-004n32-2c;
+	Thu, 21 Sep 2023 02:36:57 +0000
+Received: from szxga02-in.huawei.com ([45.249.212.188])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qj8oo-004goH-17;
-	Thu, 21 Sep 2023 01:49:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1695260966; x=1726796966;
-  h=date:from:to:cc:subject:message-id:reply-to:references:
-   in-reply-to:mime-version;
-  bh=ybsMtUIUFSJoctpzBY42mYJCdPhjUqrVHUheuTnnJAM=;
-  b=lKcNWt/GCTShFb2YsNfNjaV+LQIXfQR3/ClLiqaWCOfPBLThyhldZej8
-   k1ZHRR7oqf3YV/3b9Adzgo6cZN2TBqmntnLIQ2punR6cOfITp4qe0xbsa
-   ujjLah8WnYxsWL5WPtCY9AVxNlP14G038CRXOaIpt/PWqQiwg1OUtNR0j
-   l8dOmZ1Mu25KU78mVNtf2ATnj49yZoAe0CXXkCPb5c8q/HhxosfWABivr
-   a3DehJ2jnH1QD5LG+ncIs128VopecslkNygPu/zb125fqA/ewR/y//xox
-   m7e/ZJNpbFIvYWzuVzQPyksIZhtRgUFnSKXNCX++xIumQWz9ygsXKCNr1
-   w==;
-X-IronPort-AV: E=McAfee;i="6600,9927,10839"; a="377688680"
-X-IronPort-AV: E=Sophos;i="6.03,164,1694761200"; 
-   d="scan'208";a="377688680"
-Received: from fmsmga004.fm.intel.com ([10.253.24.48])
-  by fmsmga102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Sep 2023 18:49:23 -0700
-X-ExtLoop1: 1
-X-IronPort-AV: E=McAfee;i="6600,9927,10839"; a="817156551"
-X-IronPort-AV: E=Sophos;i="6.03,164,1694761200"; 
-   d="scan'208";a="817156551"
-Received: from orsmsx602.amr.corp.intel.com ([10.22.229.15])
-  by fmsmga004.fm.intel.com with ESMTP/TLS/AES256-GCM-SHA384; 20 Sep 2023 18:49:21 -0700
-Received: from orsmsx612.amr.corp.intel.com (10.22.229.25) by
- ORSMSX602.amr.corp.intel.com (10.22.229.15) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.32; Wed, 20 Sep 2023 18:49:21 -0700
-Received: from orsmsx612.amr.corp.intel.com (10.22.229.25) by
- ORSMSX612.amr.corp.intel.com (10.22.229.25) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.32; Wed, 20 Sep 2023 18:49:20 -0700
-Received: from ORSEDG601.ED.cps.intel.com (10.7.248.6) by
- orsmsx612.amr.corp.intel.com (10.22.229.25) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.32 via Frontend Transport; Wed, 20 Sep 2023 18:49:20 -0700
-Received: from NAM12-MW2-obe.outbound.protection.outlook.com (104.47.66.48) by
- edgegateway.intel.com (134.134.137.102) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2507.32; Wed, 20 Sep 2023 18:49:20 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=j2lMf+RO2hmnHO+BX1hxkmC0zEJY+HEZMp1ZDkHQMd1fySEq7fj2KPa2WBo37jb+JeEnTaRvDXVkBsHwbRHg3A8rL7MrFOpyd9h8ILOC49pMfZYFkh/swdikMrJAvsdpKoyMTpmPrcIfpGEWuZh+QiaP0CLwl3zfp7Nd8ekPy0/lBoTGj17KwQHghyyODi9Fx5ygXMzH0fYvjhjR1FWJ/h6rXMwiBGdzWOp0H/L5/MgCw/hbFBCVTJWOq5LHoznsz2GId7gII4Wo/4d+glkYUxkmKCL5oZogSAhP0d7zEjIVVvJIQ/we8Gq08kiyp2dwBcJGpUZOaJQkSunTVsRH8A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=+3aC1OVXl10q8xdpDYGn6D2IOakpCQbxwk421apnZV0=;
- b=NXbrtwktsjRY3IZ56Pi4e9LF9RQQAgLBK3Bh6lPFdgBE5Az/YFAxAa9x8neSdq6HmeYhbqVn8+mRzxn4IeDAwYopzqiTfVZB3l7REkkLQce0rKWVuQv0LgCK0CYqfOZg8jYPP+++L/Qn3hRIb7BxRPV2lm1LYQpt58JkSRz7GSEZmFQByQ8lIQ9mAO9qGmEE8IMC9NkCvAi0SqBKowzhrRcL+gfSBAJx2d8Q/KVi+TaGYWrou2zUddamPmfLH0/zoN2EUP27mrRgqwHnNsBAiV5j6uCW7iOA8YdrIucmdCjurtYReMBJqHiY91pY58qFjaQajtHgGVtEzUDtk1ACnQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from DS7PR11MB5966.namprd11.prod.outlook.com (2603:10b6:8:71::6) by
- IA0PR11MB7840.namprd11.prod.outlook.com (2603:10b6:208:403::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6792.28; Thu, 21 Sep
- 2023 01:49:15 +0000
-Received: from DS7PR11MB5966.namprd11.prod.outlook.com
- ([fe80::5e79:2d52:51e:f602]) by DS7PR11MB5966.namprd11.prod.outlook.com
- ([fe80::5e79:2d52:51e:f602%6]) with mapi id 15.20.6813.017; Thu, 21 Sep 2023
- 01:49:15 +0000
-Date: Thu, 21 Sep 2023 09:21:09 +0800
-From: Yan Zhao <yan.y.zhao@intel.com>
-To: Sean Christopherson <seanjc@google.com>
-CC: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, Oliver
- Upton <oliver.upton@linux.dev>, Huacai Chen <chenhuacai@kernel.org>, Michael
- Ellerman <mpe@ellerman.id.au>, Anup Patel <anup@brainfault.org>, Paul
- Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, "Matthew Wilcox (Oracle)"
-	<willy@infradead.org>, Andrew Morton <akpm@linux-foundation.org>, Paul Moore
-	<paul@paul-moore.com>, James Morris <jmorris@namei.org>, "Serge E. Hallyn"
-	<serge@hallyn.com>, <kvm@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <kvmarm@lists.linux.dev>,
-	<linux-mips@vger.kernel.org>, <linuxppc-dev@lists.ozlabs.org>,
-	<kvm-riscv@lists.infradead.org>, <linux-riscv@lists.infradead.org>,
-	<linux-fsdevel@vger.kernel.org>, <linux-mm@kvack.org>,
-	<linux-security-module@vger.kernel.org>, <linux-kernel@vger.kernel.org>, Chao
- Peng <chao.p.peng@linux.intel.com>, Fuad Tabba <tabba@google.com>, Jarkko
- Sakkinen <jarkko@kernel.org>, Anish Moorthy <amoorthy@google.com>, Yu Zhang
-	<yu.c.zhang@linux.intel.com>, Isaku Yamahata <isaku.yamahata@intel.com>, Xu
- Yilun <yilun.xu@intel.com>, Vlastimil Babka <vbabka@suse.cz>, Vishal
- Annapurve <vannapurve@google.com>, Ackerley Tng <ackerleytng@google.com>,
-	Maciej Szmigiero <mail@maciej.szmigiero.name>, David Hildenbrand
-	<david@redhat.com>, Quentin Perret <qperret@google.com>, Michael Roth
-	<michael.roth@amd.com>, Wang <wei.w.wang@intel.com>, "Liam Merwick"
-	<liam.merwick@oracle.com>, Isaku Yamahata <isaku.yamahata@gmail.com>, "Kirill
- A . Shutemov" <kirill.shutemov@linux.intel.com>
-Subject: Re: [RFC PATCH v12 11/33] KVM: Introduce per-page memory attributes
-Message-ID: <ZQuahXpq2fy8rMDV@yzhao56-desk.sh.intel.com>
-References: <20230914015531.1419405-1-seanjc@google.com>
- <20230914015531.1419405-12-seanjc@google.com>
- <ZQP6ZqXH81V24Lj/@yzhao56-desk.sh.intel.com>
- <ZQtdZmJ3SekURjiQ@google.com>
-Content-Disposition: inline
-In-Reply-To: <ZQtdZmJ3SekURjiQ@google.com>
-X-ClientProxiedBy: SG2PR03CA0129.apcprd03.prod.outlook.com
- (2603:1096:4:91::33) To DS7PR11MB5966.namprd11.prod.outlook.com
- (2603:10b6:8:71::6)
+	id 1qj9Yi-004mzy-0w;
+	Thu, 21 Sep 2023 02:36:54 +0000
+Received: from dggpemm500016.china.huawei.com (unknown [172.30.72.54])
+	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4RrfbV3rPWzVl6S;
+	Thu, 21 Sep 2023 10:33:42 +0800 (CST)
+Received: from [10.67.108.26] (10.67.108.26) by dggpemm500016.china.huawei.com
+ (7.185.36.25) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.31; Thu, 21 Sep
+ 2023 10:36:41 +0800
+Message-ID: <3e97290f-9031-a2f7-3505-c4ef6274f7da@huawei.com>
+Date: Thu, 21 Sep 2023 10:36:41 +0800
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS7PR11MB5966:EE_|IA0PR11MB7840:EE_
-X-MS-Office365-Filtering-Correlation-Id: 886be40f-a1ae-429f-606b-08dbba44f64e
-X-LD-Processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: i7SuU8NLMHtxTaWwwABNnJLctnc6KJQ/PVavIBIMfF9/0Q2/Q2EZnpI4/3H4OCL+bSRc32RjLVUcCRhiDgOHgy8z0Aon8wAqM0Ev6/Hf5wtzdfoo+C38hn7wnru7HRyTk36Isd802beP+fycpVp3EojdmDek5VH0/UZSPczCrdo7BWUUKtK8t+WWkPxl+DSynOduFJ8d1lKXBeG7VuyHzXsAscTmC5FwMyVGX0Tiyh5WDCyItMdQ994vyBHXUrwMmfkek1byMOee8NMBRNyckQW1I/wAI3o6pvGFmh6EktyYYBkWRn8LNvLcTKxKo2rWZAnsr4Ily6XZT3vHOQlxfsjxT2ck3SXNgEY/K1wUGnvzKi9XQYGbyQPTC8SIsJlaoab3GzdFXU1jaPJIsc8+HFnU5Llvc5QxfQcGWbMaxSX/a0ATwrJ4JPQl4wkdrNQhsyV6FOpVbM2sy3H3cUKbxVWMajrmDZM72SmuHhN/CxM67GafQGvC8+Mp9N4jbMlWNsSAampXHV30gXfw8PD0b7rKc1RKpV9ND5YOhVdgCg4zq+mq7AkUBAH8EFLHJoCz
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS7PR11MB5966.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230031)(346002)(366004)(396003)(136003)(39860400002)(376002)(451199024)(1800799009)(186009)(83380400001)(41300700001)(6666004)(3450700001)(8676002)(4326008)(8936002)(6506007)(6486002)(5660300002)(26005)(86362001)(6512007)(82960400001)(7406005)(38100700002)(478600001)(7416002)(2906002)(66946007)(316002)(6916009)(66476007)(66556008)(54906003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?A1TxF1ewPD0395Uonf+hysQwW8vvr6rM+BME/jcPfIxl2NVZOrIUu21OFpbh?=
- =?us-ascii?Q?wsDI85nrxHlqDZHS+7VE9ITm9EbgCurIo8OS1qEnRUJ9YDxvzVnkdJz5VHyv?=
- =?us-ascii?Q?JkJzllwTofUgbSabqMHjjI4XvIPYYi3+vjgIluSM9LIS0pWg6IV9UuTXfxZC?=
- =?us-ascii?Q?OKf4pGYAw4fUljbUxhDaShwIUP1RPfq87l35e73YE89lO97vom6xlamX1H5y?=
- =?us-ascii?Q?nHf8F/nkB7kZrwytAtN2l/ju7/pNgw9yhFA8VCF0Hez92GNmJCfjRH2C9rLS?=
- =?us-ascii?Q?lVUcY6LFdQ74u+Z+42Y7QORcxv6aSALlwTmhJudJgrFq6xO84UmorrhrJONr?=
- =?us-ascii?Q?lPsnF8yQhT9XgFh1KIsvNKYLCJzBHCNOl4gNFGwnh0Hrmew4476ZHdMDAnuI?=
- =?us-ascii?Q?Yc51LX7wdtptO/hmH9cG9ZrGDuE5cl+DL5dVWNb/sI/2w3XKgO5O+UT0gaPt?=
- =?us-ascii?Q?BBdyaKJxDSpd9UdxTSnBVB8fUaVEoj00rtj1ynUlEw/i4cht8nPLBG0BheE3?=
- =?us-ascii?Q?FAlEvZp6VjaWluDVgza7glPEw9xDalD27Njd1TRcy8OAxTrnaZpby6sJOPOS?=
- =?us-ascii?Q?KoQyBZW+zggz+1sH7EOLUv7lsME/YoPAYnEXyUKczfpf2/1FSWBZSTfvRdoV?=
- =?us-ascii?Q?GaGxmmkY/ehqmLjhzebFHhls3H0nQgy7+/9Vh7rmdPq1O4VtWw2dHW0BelQ1?=
- =?us-ascii?Q?UazMQmR7gxVayimkdNWDvUS8vDK2gLZbvisq5pnXqsn2SSjHmlOy5mT+O5gO?=
- =?us-ascii?Q?RzCXP5OwcG5k7WN0fEg9ZW77OzJvbwnYvmRhv4+xLAnmyyNdAZXUDeGHj675?=
- =?us-ascii?Q?yM8tJkDRDL3Y6obxdTYUzr8FJ1j4vQoorVExqjPcccMGepG39Ron/uRILtni?=
- =?us-ascii?Q?xHUv9iILaNtMYB+OPgeEdkyduuTqofQV4Iv2LEKsTVbUQ5CUHnL3P7u5oE1k?=
- =?us-ascii?Q?Q+G473hKNGK3DuiaHi9Ipaj44S6wT7jKL766T7HAtxXhhvjuTKeLxmnjtbCQ?=
- =?us-ascii?Q?AeXzxAuZZL2s96t3Bhmj0e/695Zcb5mQyTjqhKFXDFYN8t9LqhudqGVdlOVj?=
- =?us-ascii?Q?ijLLlpnBF+X9/LHN4tMrREewDJuc9y/1AOO4UqOmp7YSTtcvcAgoeCn1365I?=
- =?us-ascii?Q?jyX9bkQHa4UVQy06VUI8NcXCKT/yQyQQnpw+0teD/+16+NwHbWSgO1IzVxrE?=
- =?us-ascii?Q?Sw2qrBnX8yKSne7TKt9Jt2RrE6BsLxgS6tGH6KBcMj82AW+7vibSaVkLN4F3?=
- =?us-ascii?Q?dmdt+x5iruTwIPE4OkOfyYH8tfY329xZ7pA6AeEggE6mtyw0rWMSEgWg0z0Y?=
- =?us-ascii?Q?FUzBbcXDPdUAkgXRxY26olK2Wf5e0Mg+0XM+L1vC94pYzP/nhevkR0V/2dRD?=
- =?us-ascii?Q?lx7o8s+umk25xuOmD0eAOhXn5bL1N7Z83lkAYZM4ofm4Zmp1LBMGj33eqN7j?=
- =?us-ascii?Q?LaDxIHlnRHWwdbyJbC5r7tQj3BideY/VAgzinFHQWDyy4I7D3TQ22Wc5E4Gq?=
- =?us-ascii?Q?xPWmPGC7cmqGTdp18y+lOzgSDPTSpbnYBB5IpYAQcsEEw3tpKxnLwctaa3lU?=
- =?us-ascii?Q?+msaURG+keUbpCdFDTwzOq4Q4z7blAK3gFQ15d1F?=
-X-MS-Exchange-CrossTenant-Network-Message-Id: 886be40f-a1ae-429f-606b-08dbba44f64e
-X-MS-Exchange-CrossTenant-AuthSource: DS7PR11MB5966.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Sep 2023 01:49:15.7430
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: JaDD69pDRW021RZZEY4PJ8iJCzQstnBmgg+iOI1fouHssJkHBeheMrtvgVCOrPg7sykZoq8JmuHYJIMhLVJODg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PR11MB7840
-X-OriginatorOrg: intel.com
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.9.0
+Subject: Re: [PATCH v3 8/9] riscv: kdump: use generic interface to simplify
+ crashkernel reservation
+Content-Language: en-US
+To: Baoquan He <bhe@redhat.com>, <linux-kernel@vger.kernel.org>
+CC: <akpm@linux-foundation.org>, <thunder.leizhen@huawei.com>,
+	<catalin.marinas@arm.com>, <kexec@lists.infradead.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-riscv@lists.infradead.org>,
+	<x86@kernel.org>
+References: <20230914033142.676708-1-bhe@redhat.com>
+ <20230914033142.676708-9-bhe@redhat.com>
+From: "chenjiahao (C)" <chenjiahao16@huawei.com>
+In-Reply-To: <20230914033142.676708-9-bhe@redhat.com>
+X-Originating-IP: [10.67.108.26]
+X-ClientProxiedBy: dggems705-chm.china.huawei.com (10.3.19.182) To
+ dggpemm500016.china.huawei.com (7.185.36.25)
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230920_184926_400031_9B71B368 
-X-CRM114-Status: GOOD (  28.64  )
+X-CRM114-CacheID: sfid-20230920_193652_679627_E491C2A8 
+X-CRM114-Status: GOOD (  35.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -187,103 +68,315 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Reply-To: Yan Zhao <yan.y.zhao@intel.com>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 20, 2023 at 02:00:22PM -0700, Sean Christopherson wrote:
-> On Fri, Sep 15, 2023, Yan Zhao wrote:
-> > On Wed, Sep 13, 2023 at 06:55:09PM -0700, Sean Christopherson wrote:
-> > > From: Chao Peng <chao.p.peng@linux.intel.com>
-> > > 
-> > > In confidential computing usages, whether a page is private or shared is
-> > > necessary information for KVM to perform operations like page fault
-> > > handling, page zapping etc. There are other potential use cases for
-> > > per-page memory attributes, e.g. to make memory read-only (or no-exec,
-> > > or exec-only, etc.) without having to modify memslots.
-> > > 
-> > ...
-> > >> +bool kvm_range_has_memory_attributes(struct kvm *kvm, gfn_t start, gfn_t end,
-> > > +				     unsigned long attrs)
-> > > +{
-> > > +	XA_STATE(xas, &kvm->mem_attr_array, start);
-> > > +	unsigned long index;
-> > > +	bool has_attrs;
-> > > +	void *entry;
-> > > +
-> > > +	rcu_read_lock();
-> > > +
-> > > +	if (!attrs) {
-> > > +		has_attrs = !xas_find(&xas, end);
-> > > +		goto out;
-> > > +	}
-> > > +
-> > > +	has_attrs = true;
-> > > +	for (index = start; index < end; index++) {
-> > > +		do {
-> > > +			entry = xas_next(&xas);
-> > > +		} while (xas_retry(&xas, entry));
-> > > +
-> > > +		if (xas.xa_index != index || xa_to_value(entry) != attrs) {
-> > Should "xa_to_value(entry) != attrs" be "!(xa_to_value(entry) & attrs)" ?
-> 
-> No, the exact comparsion is deliberate.  The intent of the API is to determine
-> if the entire range already has the desired attributes, not if there is overlap
-> between the two.
-> 
-> E.g. if/when RWX attributes are supported, the exact comparison is needed to
-> handle a RW => R conversion.
-> 
-> > > +			has_attrs = false;
-> > > +			break;
-> > > +		}
-> > > +	}
-> > > +
-> > > +out:
-> > > +	rcu_read_unlock();
-> > > +	return has_attrs;
-> > > +}
-> > > +
-> > ...
-> > > +/* Set @attributes for the gfn range [@start, @end). */
-> > > +static int kvm_vm_set_mem_attributes(struct kvm *kvm, gfn_t start, gfn_t end,
-> > > +				     unsigned long attributes)
-> > > +{
-> > > +	struct kvm_mmu_notifier_range pre_set_range = {
-> > > +		.start = start,
-> > > +		.end = end,
-> > > +		.handler = kvm_arch_pre_set_memory_attributes,
-> > > +		.on_lock = kvm_mmu_invalidate_begin,
-> > > +		.flush_on_ret = true,
-> > > +		.may_block = true,
-> > > +	};
-> > > +	struct kvm_mmu_notifier_range post_set_range = {
-> > > +		.start = start,
-> > > +		.end = end,
-> > > +		.arg.attributes = attributes,
-> > > +		.handler = kvm_arch_post_set_memory_attributes,
-> > > +		.on_lock = kvm_mmu_invalidate_end,
-> > > +		.may_block = true,
-> > > +	};
-> > > +	unsigned long i;
-> > > +	void *entry;
-> > > +	int r = 0;
-> > > +
-> > > +	entry = attributes ? xa_mk_value(attributes) : NULL;
-> > Also here, do we need to get existing attributes of a GFN first ?
-> 
-> No?  @entry is the new value that will be set for all entries.  This line doesn't
-> touch the xarray in any way.  Maybe I'm just not understanding your question.
-Hmm, I thought this interface was to allow users to add/remove an attribute to a GFN
-rather than overwrite all attributes of a GFN. Now I think I misunderstood the intention.
 
-But I wonder if there is a way for users to just add one attribute, as I don't find
-ioctl like KVM_GET_MEMORY_ATTRIBUTES for users to get current attributes and then to
-add/remove one based on that. e.g. maybe in future, KVM wants to add one attribute in
-kernel without being told by userspace ?
+On 2023/9/14 11:31, Baoquan He wrote:
+> With the help of newly changed function parse_crashkernel() and
+> generic reserve_crashkernel_generic(), crashkernel reservation can be
+> simplified by steps:
+>
+> 1) Add a new header file <asm/crash_core.h>, and define CRASH_ALIGN,
+>     CRASH_ADDR_LOW_MAX, CRASH_ADDR_HIGH_MAX and
+>     DEFAULT_CRASH_KERNEL_LOW_SIZE in <asm/crash_core.h>;
+>
+> 2) Add arch_reserve_crashkernel() to call parse_crashkernel() and
+>     reserve_crashkernel_generic();
+>
+> 3) Add ARCH_HAS_GENERIC_CRASHKERNEL_RESERVATION Kconfig in
+>     arch/riscv/Kconfig.
+>
+> The old reserve_crashkernel_low() and reserve_crashkernel() can be
+> removed.
 
+Hi Baoquan,
+
+Sorry for the late response. The refactor code has unified multiple
+arch via generic interface, which looks great!
+
+However when I tested on my risc-v QEMU environment, a little problem
+occurred with following messages:
+
+[    0.000000] crashkernel low memory reserved: 0xf8000000 - 0x100000000 (128 MB)
+[    0.000000] crashkernel reserved: 0x0000000177e00000 - 0x0000000277e00000 (4096 MB)
+[    0.000000] ------------[ cut here ]------------
+[    0.000000] WARNING: CPU: 0 PID: 0 at kernel/resource.c:779 __insert_resource+0x8e/0xd0
+[    0.000000] Modules linked in:
+[    0.000000] CPU: 0 PID: 0 Comm: swapper Not tainted 6.6.0-rc2-next-20230920 #1
+[    0.000000] Hardware name: riscv-virtio,qemu (DT)
+[    0.000000] epc : __insert_resource+0x8e/0xd0
+[    0.000000]  ra : insert_resource+0x28/0x4e
+[    0.000000] epc : ffffffff80017344 ra : ffffffff8001742e sp : ffffffff81203db0
+[    0.000000]  gp : ffffffff812ece98 tp : ffffffff8120dac0 t0 : ff600001f7ff2b00
+[    0.000000]  t1 : 0000000000000000 t2 : 3428203030303030 s0 : ffffffff81203dc0
+[    0.000000]  s1 : ffffffff81211e18 a0 : ffffffff81211e18 a1 : ffffffff81289380
+[    0.000000]  a2 : 0000000277dfffff a3 : 0000000177e00000 a4 : 0000000177e00000
+[    0.000000]  a5 : ffffffff81289380 a6 : 0000000277dfffff a7 : 0000000000000078
+[    0.000000]  s2 : ffffffff81289380 s3 : ffffffff80a0bac8 s4 : ff600001f7ff2880
+[    0.000000]  s5 : 0000000000000280 s6 : 8000000a00006800 s7 : 000000000000007f
+[    0.000000]  s8 : 0000000080017038 s9 : 0000000080038ea0 s10: 0000000000000000
+[    0.000000]  s11: 0000000000000000 t3 : ffffffff80a0bc00 t4 : ffffffff80a0bc00
+[    0.000000]  t5 : ffffffff80a0bbd0 t6 : ffffffff80a0bc00
+[    0.000000] status: 0000000200000100 badaddr: 0000000000000000 cause: 0000000000000003
+[    0.000000] [<ffffffff80017344>] __insert_resource+0x8e/0xd0
+[    0.000000] ---[ end trace 0000000000000000 ]---
+[    0.000000] Failed to add a Crash kernel resource at 177e00000
+
+The crashkernel memory has been allocated successfully, whereas
+it seems failed to insert into iomem_resource. This should due to
+the unique reserving logic in risc-v arch specific code, i.e.
+crashk_res/crashk_low_res will be added into iomem_resource
+later in init_resources(), which is not aligned with the
+unified reserving logic.
+
+My simple solution here is removing the arch specific code within
+#ifdef CONFIG_KEXEC_CORE in init_resources(), which has been tested
+OK with all your testcases. Or do you have any other idea?
+
+Best regards,
+Jiahao
+
+
+>
+> Signed-off-by: Baoquan He <bhe@redhat.com>
+> ---
+>   arch/riscv/Kconfig                  |   3 +
+>   arch/riscv/include/asm/crash_core.h |  11 +++
+>   arch/riscv/include/asm/processor.h  |   2 +
+>   arch/riscv/mm/init.c                | 141 +++-------------------------
+>   4 files changed, 27 insertions(+), 130 deletions(-)
+>   create mode 100644 arch/riscv/include/asm/crash_core.h
+>
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index d607ab0f7c6d..25474f8c12b7 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -694,6 +694,9 @@ config ARCH_SUPPORTS_KEXEC_PURGATORY
+>   config ARCH_SUPPORTS_CRASH_DUMP
+>   	def_bool y
+>   
+> +config ARCH_HAS_GENERIC_CRASHKERNEL_RESERVATION
+> +	def_bool CRASH_CORE
+> +
+>   config COMPAT
+>   	bool "Kernel support for 32-bit U-mode"
+>   	default 64BIT
+> diff --git a/arch/riscv/include/asm/crash_core.h b/arch/riscv/include/asm/crash_core.h
+> new file mode 100644
+> index 000000000000..e1874b23feaf
+> --- /dev/null
+> +++ b/arch/riscv/include/asm/crash_core.h
+> @@ -0,0 +1,11 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only */
+> +#ifndef _RISCV_CRASH_CORE_H
+> +#define _RISCV_CRASH_CORE_H
+> +
+> +#define CRASH_ALIGN			PMD_SIZE
+> +
+> +#define CRASH_ADDR_LOW_MAX		dma32_phys_limit
+> +#define CRASH_ADDR_HIGH_MAX		memblock_end_of_DRAM()
+> +
+> +extern phys_addr_t memblock_end_of_DRAM(void);
+> +#endif
+> diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/processor.h
+> index 3e23e1786d05..441da1839c94 100644
+> --- a/arch/riscv/include/asm/processor.h
+> +++ b/arch/riscv/include/asm/processor.h
+> @@ -116,6 +116,8 @@ static inline void wait_for_interrupt(void)
+>   	__asm__ __volatile__ ("wfi");
+>   }
+>   
+> +extern phys_addr_t dma32_phys_limit;
+> +
+>   struct device_node;
+>   int riscv_of_processor_hartid(struct device_node *node, unsigned long *hartid);
+>   int riscv_early_of_processor_hartid(struct device_node *node, unsigned long *hartid);
+> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+> index 9fe448900059..d9a4e8702864 100644
+> --- a/arch/riscv/mm/init.c
+> +++ b/arch/riscv/mm/init.c
+> @@ -65,7 +65,7 @@ extern char _start[];
+>   void *_dtb_early_va __initdata;
+>   uintptr_t _dtb_early_pa __initdata;
+>   
+> -static phys_addr_t dma32_phys_limit __initdata;
+> +phys_addr_t dma32_phys_limit __initdata;
+>   
+>   static void __init zone_sizes_init(void)
+>   {
+> @@ -1333,28 +1333,6 @@ static inline void setup_vm_final(void)
+>   }
+>   #endif /* CONFIG_MMU */
+>   
+> -/* Reserve 128M low memory by default for swiotlb buffer */
+> -#define DEFAULT_CRASH_KERNEL_LOW_SIZE	(128UL << 20)
+> -
+> -static int __init reserve_crashkernel_low(unsigned long long low_size)
+> -{
+> -	unsigned long long low_base;
+> -
+> -	low_base = memblock_phys_alloc_range(low_size, PMD_SIZE, 0, dma32_phys_limit);
+> -	if (!low_base) {
+> -		pr_err("cannot allocate crashkernel low memory (size:0x%llx).\n", low_size);
+> -		return -ENOMEM;
+> -	}
+> -
+> -	pr_info("crashkernel low memory reserved: 0x%016llx - 0x%016llx (%lld MB)\n",
+> -		low_base, low_base + low_size, low_size >> 20);
+> -
+> -	crashk_low_res.start = low_base;
+> -	crashk_low_res.end = low_base + low_size - 1;
+> -
+> -	return 0;
+> -}
+> -
+>   /*
+>    * reserve_crashkernel() - reserves memory for crash kernel
+>    *
+> @@ -1362,122 +1340,25 @@ static int __init reserve_crashkernel_low(unsigned long long low_size)
+>    * line parameter. The memory reserved is used by dump capture kernel when
+>    * primary kernel is crashing.
+>    */
+> -static void __init reserve_crashkernel(void)
+> +static void __init arch_reserve_crashkernel(void)
+>   {
+> -	unsigned long long crash_base = 0;
+> -	unsigned long long crash_size = 0;
+> -	unsigned long long crash_low_size = 0;
+> -	unsigned long search_start = memblock_start_of_DRAM();
+> -	unsigned long search_end = (unsigned long)dma32_phys_limit;
+> +	unsigned long long low_size = 0;
+> +	unsigned long long crash_base, crash_size;
+>   	char *cmdline = boot_command_line;
+> -	bool fixed_base = false;
+>   	bool high = false;
+> -
+> -	int ret = 0;
+> +	int ret;
+>   
+>   	if (!IS_ENABLED(CONFIG_KEXEC_CORE))
+>   		return;
+> -	/*
+> -	 * Don't reserve a region for a crash kernel on a crash kernel
+> -	 * since it doesn't make much sense and we have limited memory
+> -	 * resources.
+> -	 */
+> -	if (is_kdump_kernel()) {
+> -		pr_info("crashkernel: ignoring reservation request\n");
+> -		return;
+> -	}
+>   
+>   	ret = parse_crashkernel(cmdline, memblock_phys_mem_size(),
+> -				&crash_size, &crash_base, NULL, NULL);
+> -	if (ret == -ENOENT) {
+> -		/* Fallback to crashkernel=X,[high,low] */
+> -		ret = parse_crashkernel_high(cmdline, 0, &crash_size, &crash_base);
+> -		if (ret || !crash_size)
+> -			return;
+> -
+> -		/*
+> -		 * crashkernel=Y,low is valid only when crashkernel=X,high
+> -		 * is passed.
+> -		 */
+> -		ret = parse_crashkernel_low(cmdline, 0, &crash_low_size, &crash_base);
+> -		if (ret == -ENOENT)
+> -			crash_low_size = DEFAULT_CRASH_KERNEL_LOW_SIZE;
+> -		else if (ret)
+> -			return;
+> -
+> -		search_start = (unsigned long)dma32_phys_limit;
+> -		search_end = memblock_end_of_DRAM();
+> -		high = true;
+> -	} else if (ret || !crash_size) {
+> -		/* Invalid argument value specified */
+> +				&crash_size, &crash_base,
+> +				&low_size, &high);
+> +	if (ret)
+>   		return;
+> -	}
+> -
+> -	crash_size = PAGE_ALIGN(crash_size);
+> -
+> -	if (crash_base) {
+> -		fixed_base = true;
+> -		search_start = crash_base;
+> -		search_end = crash_base + crash_size;
+> -	}
+> -
+> -	/*
+> -	 * Current riscv boot protocol requires 2MB alignment for
+> -	 * RV64 and 4MB alignment for RV32 (hugepage size)
+> -	 *
+> -	 * Try to alloc from 32bit addressible physical memory so that
+> -	 * swiotlb can work on the crash kernel.
+> -	 */
+> -	crash_base = memblock_phys_alloc_range(crash_size, PMD_SIZE,
+> -					       search_start, search_end);
+> -	if (crash_base == 0) {
+> -		/*
+> -		 * For crashkernel=size[KMG]@offset[KMG], print out failure
+> -		 * message if can't reserve the specified region.
+> -		 */
+> -		if (fixed_base) {
+> -			pr_warn("crashkernel: allocating failed with given size@offset\n");
+> -			return;
+> -		}
+> -
+> -		if (high) {
+> -			/*
+> -			 * For crashkernel=size[KMG],high, if the first attempt was
+> -			 * for high memory, fall back to low memory.
+> -			 */
+> -			search_start = memblock_start_of_DRAM();
+> -			search_end = (unsigned long)dma32_phys_limit;
+> -		} else {
+> -			/*
+> -			 * For crashkernel=size[KMG], if the first attempt was for
+> -			 * low memory, fall back to high memory, the minimum required
+> -			 * low memory will be reserved later.
+> -			 */
+> -			search_start = (unsigned long)dma32_phys_limit;
+> -			search_end = memblock_end_of_DRAM();
+> -			crash_low_size = DEFAULT_CRASH_KERNEL_LOW_SIZE;
+> -		}
+> -
+> -		crash_base = memblock_phys_alloc_range(crash_size, PMD_SIZE,
+> -						       search_start, search_end);
+> -		if (crash_base == 0) {
+> -			pr_warn("crashkernel: couldn't allocate %lldKB\n",
+> -				crash_size >> 10);
+> -			return;
+> -		}
+> -	}
+> -
+> -	if ((crash_base >= dma32_phys_limit) && crash_low_size &&
+> -	     reserve_crashkernel_low(crash_low_size)) {
+> -		memblock_phys_free(crash_base, crash_size);
+> -		return;
+> -	}
+> -
+> -	pr_info("crashkernel: reserved 0x%016llx - 0x%016llx (%lld MB)\n",
+> -		crash_base, crash_base + crash_size, crash_size >> 20);
+>   
+> -	crashk_res.start = crash_base;
+> -	crashk_res.end = crash_base + crash_size - 1;
+> +	reserve_crashkernel_generic(cmdline, crash_size, crash_base,
+> +				    low_size, high);
+>   }
+>   
+>   void __init paging_init(void)
+> @@ -1495,7 +1376,7 @@ void __init misc_mem_init(void)
+>   	arch_numa_init();
+>   	sparse_init();
+>   	zone_sizes_init();
+> -	reserve_crashkernel();
+> +	arch_reserve_crashkernel();
+>   	memblock_dump_all();
+>   }
+>   
 
 _______________________________________________
 linux-riscv mailing list
