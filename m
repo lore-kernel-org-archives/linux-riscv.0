@@ -4,82 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92218E71069
-	for <linux-riscv@archiver.kernel.org>; Thu, 21 Sep 2023 12:55:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C14F9E7106C
+	for <linux-riscv@archiver.kernel.org>; Thu, 21 Sep 2023 13:30:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jksugwp2isSHvB0CZysNjD4l89dzZsW26HZn21UJxMQ=; b=zvaRVjphb3MYoV
-	MCHBB1J9Osy+A4GWjltZhvVVnmwxILaa/6RPngSEDzTWsmmwOYNI+3Fm95zZp6Z2/xMlFk6Goiigq
-	dCXCf/al6XDpyLg9zlUpAdvZti0iFZ7mdm+qLViv3ElyNC15Kn/sDJNPZaCCEirnBey9fq6yJND5v
-	2mTzi6ZN4jHtYdpGdS+7OYBnYqSgzSoY34LqTPO7p0t70r0gd5xCxNTibI+uaTNcbA2WdJh7Zvv3k
-	CxJEgM4cpWeDBMSCIjD6dvGl51DSYjcS/a0uaMu89VKo8TwunTgyv/wGz2EKrE1KBmgIoTu1bLTXI
-	iWphMisEyzPPuU1qzWcg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=dSPUCnmklPA4NE5VTAWkEpiF/I24r0kNARFRD2khv+U=; b=geU+TpaZFCU86OyGCweoB1dm1b
+	b8vT4DEO9vy35pZCdeiySzoV1F5b7sU1EvgR0ZH2vFqW5P9597ZGlmD9pSIbrjjeNREqgiQcHQ6ru
+	4XC0lYW0hg+SoSvONVOn6yeoKi+jfj0WdkQpHgswQxP8ApBNGEzt68XcwGCYna3grlp82R/0FC+vI
+	AURWHP64aq/hVGyHOGWMDP9PL/M396lASQsRQwxbmi66RQWV9In0FPzLs9JmiCCHv75vi8+kZKovX
+	BH3Mq2cRRWhetR+Ov/2PJqeRY6If31w0tsCQPR9pbEoUCFGPY8MT2DXeoLW7AE3E6JwEZ8XkEGj1d
+	1LyUxFTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qjJDL-00649O-02;
-	Thu, 21 Sep 2023 12:55:27 +0000
-Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
+	id 1qjJlS-0068UT-0u;
+	Thu, 21 Sep 2023 13:30:42 +0000
+Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qjJDI-00648S-03
+	id 1qjJlO-0068Si-39
 	for linux-riscv@lists.infradead.org;
-	Thu, 21 Sep 2023 12:55:25 +0000
-Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-31c8321c48fso1396882f8f.1
-        for <linux-riscv@lists.infradead.org>; Thu, 21 Sep 2023 05:55:22 -0700 (PDT)
+	Thu, 21 Sep 2023 13:30:41 +0000
+Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-1c39f2b4f5aso7301265ad.0
+        for <linux-riscv@lists.infradead.org>; Thu, 21 Sep 2023 06:30:30 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1695300921; x=1695905721; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=B6xUq0g2FRK1IMKIFQ3ZjlxU8Jh3LaQroOXxzc5Wf4g=;
-        b=Ids0nq9WeUDGdAXuMOBt9JPgYWvu306vOKquz2rzGwnI18boU9IyCorPE2f30DAVkP
-         2iGU+9jMsUuKHSLQJ7/Wj7pkx1Z/QEfYL1kcHrDypC/Ld11OZpQ3QX/MEVe6M+nTDNYV
-         TEO1RJASS0ZOoTY3YSMcZ79KRpn9/yC2kLING0gWUIza+BoGBKGwDE+Ee+OqXdRRSddX
-         ZVXcvviQRSbkhXvEXoSkirNUrRWjueVTPjwg+Zc5GcLMMB/rnC/ZJ3/Cgyuh/xSbcPnz
-         Q9urQ5KzBstUpCXlPjI6qlsCBhxzAUS/mtnJqYbwcvS55cS6J8FMM2tf67X0qgacqf21
-         6Wag==
+        d=dabbelt-com.20230601.gappssmtp.com; s=20230601; t=1695303029; x=1695907829; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=P2WuKbsvAN9sA/j0wB2axPFPvBlW360v24lCRqdlRSo=;
+        b=RpvxfawNTKhNSsIirPcgQ8t3KcxJoGxiWb1Mj5aG0xBZdmrPiEDC3SY+ph8/5CDSdt
+         giJYckiF9Vi/ZU9cv9zMZKiN+kLbhl+97ZQRcq9yitP/68sWZrDfVNa2W3W96gA3pYbT
+         tNf71hv3sfIhfCekbJcKDeKLnDSoW5XNdpoYZcc7GXJg2noGa/wmJDL7Nlum0c6CyOi6
+         nb5dcz155OEEbuBHy/fZo43wuqzKva3DDv8Bz4AJeC+WYjpeE57aHX5MqTZVplwiBITQ
+         zzHY8IHoCH1z3Q3xK/ZjIpyF2V8jHvNm9i9YOALi3kA+rKlDXiNG0w0AAg2avWvU2e2m
+         7AJw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1695300921; x=1695905721;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=B6xUq0g2FRK1IMKIFQ3ZjlxU8Jh3LaQroOXxzc5Wf4g=;
-        b=GD1jC9y52yFWUkbTcH7WwT+4QhGYuyxCrfiBarNMJfWj/v/OCzzvQk9p70QOw6vNk4
-         z/S6NYHXJ7HAMQI3iBFX9ZfxGeaDDSxUW7/dB45TAJJ6ConZJOpQ1dHyNq6I6qvsyIzO
-         A+i2d/2ZeNNTHRhac0D7mo8+ELuGys2GA4FwWArm+443mOYZHwjUqv5gef+INjkrUzwe
-         XZA+ZefihBummmG/XOIOOD1A9W9+WaJtYyLE2uXcrSUKnihI02MTr1CYGO+G2wfKiiey
-         q/CFZgiVXNS6Rds2stjMjYVcg8dD/JTxJdHhDgSgf7BLNloEVG7dKefZzbXRHVncnrC3
-         M5GQ==
-X-Gm-Message-State: AOJu0YxuHBtxeTwnGWcGvG/hQjhbnEvVt37rU6Usv31jou7dwb+KR1xW
-	J6YXL9T4Lqhz07tHoFT2YYgtWlQLJFVuHodtlaQ=
-X-Google-Smtp-Source: AGHT+IFInjgNxpZfJJz9IttNlEeaUIcbpNrPgXImQSmp2Vtw1OLTeJgB9wHy/3nZEhCvKZliVEHxwg==
-X-Received: by 2002:a5d:53d1:0:b0:31a:cca0:2f3a with SMTP id a17-20020a5d53d1000000b0031acca02f3amr6685296wrw.0.1695300921321;
-        Thu, 21 Sep 2023 05:55:21 -0700 (PDT)
-Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
-        by smtp.gmail.com with ESMTPSA id b1-20020a5d4d81000000b003140f47224csm1705185wru.15.2023.09.21.05.55.20
+        d=1e100.net; s=20230601; t=1695303029; x=1695907829;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=P2WuKbsvAN9sA/j0wB2axPFPvBlW360v24lCRqdlRSo=;
+        b=cSvu13zuf08banLuylfOr472nLvx8iaBLLKKPM3JFYjlPgdzGWFca6aA0gumI/BTNn
+         WtRrkbpkDG9C5+ENzc7sKJkJ69127kzi1yeJ4752C80cwDJOsb2Tz3a1iT1HP2UzKby2
+         GzIqmqEcGfuxUy6wjFjKkt3PFlLdxzzI0nPe1eqsCkbYtYkcnPvwCul6nCWwedSaOenQ
+         UGLBGMWR925z3LYwd5GBxep6H5Fvqonn7/DFds9oPfM9/Lz4RXnEI2silPrZE3Pvdbq7
+         /APsSdRTfFdoWLbZgXgJ3loZQTt6Qb4SRDXJgI2MxDlmzHwklRm9YbyUOCXtdWdeDhHB
+         l+Tw==
+X-Gm-Message-State: AOJu0YwLf6gRIqWiyTigwL2Tg9ZkwSJdJGGJmLCWgZ0mfAoRAWnADcyX
+	n8VkxrUVz0PR0qlU31KQZiGCdjJGO8WK5jERiOtPTw==
+X-Google-Smtp-Source: AGHT+IGBl/CZXRwk8PuRM6Eqv096ZP/F/aCDLQXFYBFCyUJTt8x7rD+rJNnv+SOGv4bKXXytZWTiQg==
+X-Received: by 2002:a17:902:ab54:b0:1c0:bcbc:d64 with SMTP id ij20-20020a170902ab5400b001c0bcbc0d64mr4538535plb.51.1695303029156;
+        Thu, 21 Sep 2023 06:30:29 -0700 (PDT)
+Received: from localhost ([51.52.155.79])
+        by smtp.gmail.com with ESMTPSA id c3-20020a170902d90300b001bbfa86ca3bsm1462091plz.78.2023.09.21.06.30.28
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 21 Sep 2023 05:55:20 -0700 (PDT)
-From: Andrew Jones <ajones@ventanamicro.com>
-To: linux-riscv@lists.infradead.org
-Cc: paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	evan@rivosinc.com,
-	conor.dooley@microchip.com,
-	apatel@ventanamicro.com
-Subject: [RFC PATCH 1/5] RISC-V: hwprobe: Clarify cpus size parameter
-Date: Thu, 21 Sep 2023 14:55:20 +0200
-Message-ID: <20230921125518.175428-8-ajones@ventanamicro.com>
-X-Mailer: git-send-email 2.41.0
-In-Reply-To: <20230921125518.175428-7-ajones@ventanamicro.com>
-References: <20230921125518.175428-7-ajones@ventanamicro.com>
-MIME-Version: 1.0
+        Thu, 21 Sep 2023 06:30:28 -0700 (PDT)
+Date: Thu, 21 Sep 2023 06:30:28 -0700 (PDT)
+X-Google-Original-Date: Thu, 21 Sep 2023 06:30:23 PDT (-0700)
+Subject: Re: [PATCH v4 2/6] RISC-V: Enable cbo.zero in usermode
+In-Reply-To: <20230918131518.56803-10-ajones@ventanamicro.com>
+CC: linux-riscv@lists.infradead.org, Paul Walmsley <paul.walmsley@sifive.com>,
+  aou@eecs.berkeley.edu, Evan Green <evan@rivosinc.com>, Conor Dooley <conor.dooley@microchip.com>,
+  apatel@ventanamicro.com, xiao.w.wang@intel.com
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: ajones@ventanamicro.com
+Message-ID: <mhng-5a430e90-492e-4401-b7da-af0198a7d90c@palmer-ri-x1c9a>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230921_055524_076679_4C81322E 
-X-CRM114-Status: GOOD (  16.97  )
+X-CRM114-CacheID: sfid-20230921_063039_242217_D16DEC99 
+X-CRM114-Status: GOOD (  31.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,148 +87,180 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The "count" parameter associated with the 'cpus' parameter of the
-hwprobe syscall is the size in bytes of 'cpus'. Naming it 'cpu_count'
-may mislead users (it did me) to think it's the number of CPUs that
-are or can be represented by 'cpus' instead. This is particularly
-easy (IMO) to get wrong since 'cpus' is documented to be defined by
-CPU_SET(3) and CPU_SET(3) also documents a CPU_COUNT() (the number
-of CPUs in set) macro. CPU_SET(3) refers to the size of cpu sets
-with 'setsize'. Adopt 'cpusetsize' for the hwprobe parameter and
-specifically state it is in bytes in Documentation/riscv/hwprobe.rst
-to clarify.
+On Mon, 18 Sep 2023 06:15:21 PDT (-0700), ajones@ventanamicro.com wrote:
+> When Zicboz is present, enable its instruction (cbo.zero) in
+> usermode by setting its respective senvcfg bit. We don't bother
+> trying to set this bit per-task, which would also require an
+> interface for tasks to request enabling and/or disabling. Instead,
+> permanently set the bit for each hart which has the extension when
+> bringing it online.
+>
+> This patch also introduces riscv_cpu_has_extension_[un]likely()
+> functions to check a specific hart's ISA bitmap for extensions.
+> Prior to checking the specific hart's bitmap in these functions
+> we try the bitmap which represents the LCD of extensions, but only
+> when we know it will use its optimized, alternatives path by gating
+> its call on CONFIG_RISCV_ALTERNATIVE. When alternatives are used, the
+> compiler ensures that the invocation of the LCD search becomes a
+> constant true or false. When it's true, even the new functions will
+> completely vanish from their callsites. OTOH, when the LCD check is
+> false, we need to do a search of the hart's ISA bitmap. Had we also
+> checked the LCD bitmap without the use of alternatives, then we would
+> have ended up with two bitmap searches instead of one.
+>
+> Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
+> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+> ---
+>  arch/riscv/include/asm/cpufeature.h |  1 +
+>  arch/riscv/include/asm/csr.h        |  1 +
+>  arch/riscv/include/asm/hwcap.h      | 16 ++++++++++++++++
+>  arch/riscv/kernel/cpufeature.c      |  6 ++++++
+>  arch/riscv/kernel/setup.c           |  4 ++++
+>  arch/riscv/kernel/smpboot.c         |  4 ++++
+>  6 files changed, 32 insertions(+)
+>
+> diff --git a/arch/riscv/include/asm/cpufeature.h b/arch/riscv/include/asm/cpufeature.h
+> index d0345bd659c9..13b7d35648a9 100644
+> --- a/arch/riscv/include/asm/cpufeature.h
+> +++ b/arch/riscv/include/asm/cpufeature.h
+> @@ -31,5 +31,6 @@ DECLARE_PER_CPU(long, misaligned_access_speed);
+>  extern struct riscv_isainfo hart_isa[NR_CPUS];
+>
+>  void check_unaligned_access(int cpu);
+> +void riscv_user_isa_enable(void);
+>
+>  #endif
+> diff --git a/arch/riscv/include/asm/csr.h b/arch/riscv/include/asm/csr.h
+> index 777cb8299551..5fba25db82d2 100644
+> --- a/arch/riscv/include/asm/csr.h
+> +++ b/arch/riscv/include/asm/csr.h
+> @@ -275,6 +275,7 @@
+>  #define CSR_SIE			0x104
+>  #define CSR_STVEC		0x105
+>  #define CSR_SCOUNTEREN		0x106
+> +#define CSR_SENVCFG		0x10a
+>  #define CSR_SSCRATCH		0x140
+>  #define CSR_SEPC		0x141
+>  #define CSR_SCAUSE		0x142
+> diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
+> index b7b58258f6c7..31774bcdf1c6 100644
+> --- a/arch/riscv/include/asm/hwcap.h
+> +++ b/arch/riscv/include/asm/hwcap.h
+> @@ -70,6 +70,7 @@
+>  #ifndef __ASSEMBLY__
+>
+>  #include <linux/jump_label.h>
+> +#include <asm/cpufeature.h>
+>
+>  unsigned long riscv_get_elf_hwcap(void);
+>
+> @@ -137,6 +138,21 @@ riscv_has_extension_unlikely(const unsigned long ext)
+>  	return true;
+>  }
+>
+> +static __always_inline bool riscv_cpu_has_extension_likely(int cpu, const unsigned long ext)
+> +{
+> +	if (IS_ENABLED(CONFIG_RISCV_ALTERNATIVE) && riscv_has_extension_likely(ext))
+> +		return true;
+> +
+> +	return __riscv_isa_extension_available(hart_isa[cpu].isa, ext);
+> +}
+> +
+> +static __always_inline bool riscv_cpu_has_extension_unlikely(int cpu, const unsigned long ext)
+> +{
+> +	if (IS_ENABLED(CONFIG_RISCV_ALTERNATIVE) && riscv_has_extension_unlikely(ext))
+> +		return true;
+> +
+> +	return __riscv_isa_extension_available(hart_isa[cpu].isa, ext);
+> +}
+>  #endif
+>
+>  #endif /* _ASM_RISCV_HWCAP_H */
+> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+> index f9ac2717bc7d..8ad6da03ee34 100644
+> --- a/arch/riscv/kernel/cpufeature.c
+> +++ b/arch/riscv/kernel/cpufeature.c
+> @@ -653,6 +653,12 @@ static int check_unaligned_access_boot_cpu(void)
+>
+>  arch_initcall(check_unaligned_access_boot_cpu);
+>
+> +void riscv_user_isa_enable(void)
+> +{
+> +	if (riscv_cpu_has_extension_unlikely(smp_processor_id(), RISCV_ISA_EXT_ZICBOZ))
+> +		csr_set(CSR_SENVCFG, ENVCFG_CBZE);
 
-Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
----
- Documentation/riscv/hwprobe.rst  | 15 ++++++++-------
- arch/riscv/kernel/sys_riscv.c    | 14 +++++++-------
- arch/riscv/kernel/vdso/hwprobe.c | 10 +++++-----
- 3 files changed, 20 insertions(+), 19 deletions(-)
+It looks like CBZE didn't actually get ratified?  The CMO extension says
 
-diff --git a/Documentation/riscv/hwprobe.rst b/Documentation/riscv/hwprobe.rst
-index 7b2384de471f..132e9acaa8f4 100644
---- a/Documentation/riscv/hwprobe.rst
-+++ b/Documentation/riscv/hwprobe.rst
-@@ -12,7 +12,7 @@ is defined in <asm/hwprobe.h>::
-     };
- 
-     long sys_riscv_hwprobe(struct riscv_hwprobe *pairs, size_t pair_count,
--                           size_t cpu_count, cpu_set_t *cpus,
-+                           size_t cpusetsize, cpu_set_t *cpus,
-                            unsigned int flags);
- 
- The arguments are split into three groups: an array of key-value pairs, a CPU
-@@ -20,12 +20,13 @@ set, and some flags. The key-value pairs are supplied with a count. Userspace
- must prepopulate the key field for each element, and the kernel will fill in the
- value if the key is recognized. If a key is unknown to the kernel, its key field
- will be cleared to -1, and its value set to 0. The CPU set is defined by
--CPU_SET(3). For value-like keys (eg. vendor/arch/impl), the returned value will
--be only be valid if all CPUs in the given set have the same value. Otherwise -1
--will be returned. For boolean-like keys, the value returned will be a logical
--AND of the values for the specified CPUs. Usermode can supply NULL for cpus and
--0 for cpu_count as a shortcut for all online CPUs. There are currently no flags,
--this value must be zero for future compatibility.
-+CPU_SET(3) with size ``cpusetsize`` bytes. For value-like keys (eg. vendor,
-+arch, impl), the returned value will only be valid if all CPUs in the given set
-+have the same value. Otherwise -1 will be returned. For boolean-like keys, the
-+value returned will be a logical AND of the values for the specified CPUs.
-+Usermode can supply NULL for ``cpus`` and 0 for ``cpusetsize`` as a shortcut for
-+all online CPUs. There are currently no flags, this value must be zero for
-+future compatibility.
- 
- On success 0 is returned, on failure a negative error code is returned.
- 
-diff --git a/arch/riscv/kernel/sys_riscv.c b/arch/riscv/kernel/sys_riscv.c
-index d7266a9abc66..14b6dfaa5d9f 100644
---- a/arch/riscv/kernel/sys_riscv.c
-+++ b/arch/riscv/kernel/sys_riscv.c
-@@ -246,7 +246,7 @@ static void hwprobe_one_pair(struct riscv_hwprobe *pair,
- }
- 
- static int do_riscv_hwprobe(struct riscv_hwprobe __user *pairs,
--			    size_t pair_count, size_t cpu_count,
-+			    size_t pair_count, size_t cpusetsize,
- 			    unsigned long __user *cpus_user,
- 			    unsigned int flags)
- {
-@@ -264,13 +264,13 @@ static int do_riscv_hwprobe(struct riscv_hwprobe __user *pairs,
- 	 * 0 as a shortcut to all online CPUs.
- 	 */
- 	cpumask_clear(&cpus);
--	if (!cpu_count && !cpus_user) {
-+	if (!cpusetsize && !cpus_user) {
- 		cpumask_copy(&cpus, cpu_online_mask);
- 	} else {
--		if (cpu_count > cpumask_size())
--			cpu_count = cpumask_size();
-+		if (cpusetsize > cpumask_size())
-+			cpusetsize = cpumask_size();
- 
--		ret = copy_from_user(&cpus, cpus_user, cpu_count);
-+		ret = copy_from_user(&cpus, cpus_user, cpusetsize);
- 		if (ret)
- 			return -EFAULT;
- 
-@@ -347,10 +347,10 @@ arch_initcall_sync(init_hwprobe_vdso_data);
- #endif /* CONFIG_MMU */
- 
- SYSCALL_DEFINE5(riscv_hwprobe, struct riscv_hwprobe __user *, pairs,
--		size_t, pair_count, size_t, cpu_count, unsigned long __user *,
-+		size_t, pair_count, size_t, cpusetsize, unsigned long __user *,
- 		cpus, unsigned int, flags)
- {
--	return do_riscv_hwprobe(pairs, pair_count, cpu_count,
-+	return do_riscv_hwprobe(pairs, pair_count, cpusetsize,
- 				cpus, flags);
- }
- 
-diff --git a/arch/riscv/kernel/vdso/hwprobe.c b/arch/riscv/kernel/vdso/hwprobe.c
-index d40bec6ac078..3000e9fc0569 100644
---- a/arch/riscv/kernel/vdso/hwprobe.c
-+++ b/arch/riscv/kernel/vdso/hwprobe.c
-@@ -8,21 +8,21 @@
- #include <vdso/helpers.h>
- 
- extern int riscv_hwprobe(struct riscv_hwprobe *pairs, size_t pair_count,
--			 size_t cpu_count, unsigned long *cpus,
-+			 size_t cpusetsize, unsigned long *cpus,
- 			 unsigned int flags);
- 
- /* Add a prototype to avoid -Wmissing-prototypes warning. */
- int __vdso_riscv_hwprobe(struct riscv_hwprobe *pairs, size_t pair_count,
--			 size_t cpu_count, unsigned long *cpus,
-+			 size_t cpusetsize, unsigned long *cpus,
- 			 unsigned int flags);
- 
- int __vdso_riscv_hwprobe(struct riscv_hwprobe *pairs, size_t pair_count,
--			 size_t cpu_count, unsigned long *cpus,
-+			 size_t cpusetsize, unsigned long *cpus,
- 			 unsigned int flags)
- {
- 	const struct vdso_data *vd = __arch_get_vdso_data();
- 	const struct arch_vdso_data *avd = &vd->arch_data;
--	bool all_cpus = !cpu_count && !cpus;
-+	bool all_cpus = !cpusetsize && !cpus;
- 	struct riscv_hwprobe *p = pairs;
- 	struct riscv_hwprobe *end = pairs + pair_count;
- 
-@@ -33,7 +33,7 @@ int __vdso_riscv_hwprobe(struct riscv_hwprobe *pairs, size_t pair_count,
- 	 * masks.
- 	 */
- 	if ((flags != 0) || (!all_cpus && !avd->homogeneous_cpus))
--		return riscv_hwprobe(pairs, pair_count, cpu_count, cpus, flags);
-+		return riscv_hwprobe(pairs, pair_count, cpusetsize, cpus, flags);
- 
- 	/* This is something we can handle, fill out the pairs. */
- 	while (p < end) {
--- 
-2.41.0
+    _The CMO extensions rely on state in {csrname} CSRs that will be defined in a
+    future update to the privileged architecture. If this CSR update is not
+    ratified, the CMO extension will define its own CSRs._
 
+but the privileged spec says
+
+    The definition of the CBZE field will be furnished by the forthcoming
+    Zicboz extension. Its allocation within `senvcfg` may change prior to
+    the ratification of that extension.
+
+Is there some ratified spec that actually defines this?
+
+> +}
+> +
+>  #ifdef CONFIG_RISCV_ALTERNATIVE
+>  /*
+>   * Alternative patch sites consider 48 bits when determining when to patch
+> diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+> index e600aab116a4..8fd6c02353d4 100644
+> --- a/arch/riscv/kernel/setup.c
+> +++ b/arch/riscv/kernel/setup.c
+> @@ -26,6 +26,7 @@
+>  #include <asm/acpi.h>
+>  #include <asm/alternative.h>
+>  #include <asm/cacheflush.h>
+> +#include <asm/cpufeature.h>
+>  #include <asm/cpu_ops.h>
+>  #include <asm/early_ioremap.h>
+>  #include <asm/pgtable.h>
+> @@ -314,10 +315,13 @@ void __init setup_arch(char **cmdline_p)
+>  	riscv_fill_hwcap();
+>  	init_rt_signal_env();
+>  	apply_boot_alternatives();
+> +
+>  	if (IS_ENABLED(CONFIG_RISCV_ISA_ZICBOM) &&
+>  	    riscv_isa_extension_available(NULL, ZICBOM))
+>  		riscv_noncoherent_supported();
+>  	riscv_set_dma_cache_alignment();
+> +
+> +	riscv_user_isa_enable();
+>  }
+>
+>  static int __init topology_init(void)
+> diff --git a/arch/riscv/kernel/smpboot.c b/arch/riscv/kernel/smpboot.c
+> index 1b8da4e40a4d..d1b0a6fc3adf 100644
+> --- a/arch/riscv/kernel/smpboot.c
+> +++ b/arch/riscv/kernel/smpboot.c
+> @@ -25,6 +25,8 @@
+>  #include <linux/of.h>
+>  #include <linux/sched/task_stack.h>
+>  #include <linux/sched/mm.h>
+> +
+> +#include <asm/cpufeature.h>
+>  #include <asm/cpu_ops.h>
+>  #include <asm/cpufeature.h>
+>  #include <asm/irq.h>
+> @@ -253,6 +255,8 @@ asmlinkage __visible void smp_callin(void)
+>  			elf_hwcap &= ~COMPAT_HWCAP_ISA_V;
+>  	}
+>
+> +	riscv_user_isa_enable();
+> +
+>  	/*
+>  	 * Remote TLB flushes are ignored while the CPU is offline, so emit
+>  	 * a local TLB flush right now just in case.
 
 _______________________________________________
 linux-riscv mailing list
