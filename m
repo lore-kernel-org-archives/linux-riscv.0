@@ -4,100 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3272CCD4938
-	for <linux-riscv@archiver.kernel.org>; Thu, 21 Sep 2023 02:40:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3629CD493F
+	for <linux-riscv@archiver.kernel.org>; Thu, 21 Sep 2023 02:51:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=eECBNzVUaBgln2T0D3oqwbXTh0kCosdWYjRO/6vwbgA=; b=0wQSW0TX0/S0Ox
-	9W83pPoSBn5gdLwagXVh4p83qLxK26DMSo9ZGI/do4r9XrwX03LHVntcr8uh/B8BvJGsxa8S286zD
-	ZkXMYChl4L8ZFcm3Lnw1Fch554nvMUiUA1m9ivrlMjbDfRvMYgQu8oT9EllCH6Jz7260uJEKEENuG
-	gl5L68KWG9WHOzil6HFB4gbg6xuhuVpxqul/pAy9bFfpwSiuWmkURRp312fbRt2dIBZyjwWj6GHd4
-	tpVJI1FIZISUlxSHgBeyuFXvT8jqb2DlQ4PlawYfhmu+tTZPNLolgr35UmM9DD25iZ6a+TvvFBQvM
-	4DCt8S7SIAXYWrrfT/eg==;
+	List-Owner; bh=YYvj4gOqLHpELtBi/25Gl2z+k5ZfgDQs73gpY3FAF40=; b=DAn0M1tYgCgg0v
+	RaS7yvdVAO6J8H/qrbWklF/PVuInO/x08KHJtPkdrljsZm1X8AonaFs/VzFeoGIs2DAOTc2J0XljP
+	vw34xUc9oqR2mUf4t/H+ZHggYZ3zfN3EJxIWZ6QD9T+7ZxsbU0wnZVGDrWTdeSSvXgtCUcssfY69F
+	JT8cxlwC/wR9hudtDbpN9W7djTOgviDcTbme900gLI5a4k95xpphfKTkrHCHodmduwG9GqMeZ3iD4
+	S2e1pzdgDJi3fGMHXL+RtWEAvVffNEPjkOWE2Bg9TfIGfq2Asy/9mWUmUfe5e4ybzNUBVB0p/bEI0
+	TfnlRvU6B8kstWO+p8Tw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qj9bl-004nda-0I;
-	Thu, 21 Sep 2023 02:40:01 +0000
-Received: from mgamail.intel.com ([192.55.52.151])
+	id 1qj9mK-004pCw-08;
+	Thu, 21 Sep 2023 02:50:56 +0000
+Received: from 60-248-80-70.hinet-ip.hinet.net ([60.248.80.70] helo=Atcsqr.andestech.com)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qj9bi-004naR-0K;
-	Thu, 21 Sep 2023 02:39:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1695263998; x=1726799998;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=iSkpE1N9Jcp84HPqnZ+sK/v5B9D3q8Q2ZGh6iASUxTU=;
-  b=OxBlLC2l9BN7+s7PsjufvjbSzeYopFfchaulVyaz52MiJ15s7yvWyztB
-   1YSqbce4R0fMi8g6PhOWtuafJ0AHNoNQqFbN6lXcPTXv1jJhoexpEK5re
-   846Gs8juSgzwhz1eKuZ3JbwDiUz8IRZpIs2utRXkoRs9pke5f2yDMoi69
-   m4/Jl2XWJbCSWZ0BK7BURjAWth6sGAiBpKMG7e+XmPuDgee94pWtq9IDy
-   /mC5JHej00zmHG+9Ez1TcjaVwkYEMGene8GYxXmeon7cFBNQWfO4Cekfw
-   4QdIILU4BPGDkLWVXrvPSg/0hGM4F528NMdkBulUWPZispE+2CnB0Kj3m
-   A==;
-X-IronPort-AV: E=McAfee;i="6600,9927,10839"; a="360653931"
-X-IronPort-AV: E=Sophos;i="6.03,164,1694761200"; 
-   d="scan'208";a="360653931"
-Received: from fmsmga005.fm.intel.com ([10.253.24.32])
-  by fmsmga107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Sep 2023 19:39:54 -0700
-X-ExtLoop1: 1
-X-IronPort-AV: E=McAfee;i="6600,9927,10839"; a="1077731075"
-X-IronPort-AV: E=Sophos;i="6.03,164,1694761200"; 
-   d="scan'208";a="1077731075"
-Received: from yilunxu-optiplex-7050.sh.intel.com (HELO localhost) ([10.239.159.165])
-  by fmsmga005.fm.intel.com with ESMTP; 20 Sep 2023 19:39:45 -0700
-Date: Thu, 21 Sep 2023 10:39:18 +0800
-From: Xu Yilun <yilun.xu@intel.com>
-To: Sean Christopherson <seanjc@google.com>
-Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Anup Patel <anup@brainfault.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	"Matthew Wilcox (Oracle)" <willy@infradead.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Paul Moore <paul@paul-moore.com>, James Morris <jmorris@namei.org>,
-	"Serge E. Hallyn" <serge@hallyn.com>, kvm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
-	linux-fsdevel@vger.kernel.org, linux-mm@kvack.org,
-	linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Chao Peng <chao.p.peng@linux.intel.com>,
-	Fuad Tabba <tabba@google.com>, Jarkko Sakkinen <jarkko@kernel.org>,
-	Anish Moorthy <amoorthy@google.com>,
-	Yu Zhang <yu.c.zhang@linux.intel.com>,
-	Isaku Yamahata <isaku.yamahata@intel.com>,
-	Vlastimil Babka <vbabka@suse.cz>,
-	Vishal Annapurve <vannapurve@google.com>,
-	Ackerley Tng <ackerleytng@google.com>,
-	Maciej Szmigiero <mail@maciej.szmigiero.name>,
-	David Hildenbrand <david@redhat.com>,
-	Quentin Perret <qperret@google.com>,
-	Michael Roth <michael.roth@amd.com>, Wang <wei.w.wang@intel.com>,
-	Liam Merwick <liam.merwick@oracle.com>,
-	Isaku Yamahata <isaku.yamahata@gmail.com>,
-	"Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
-Subject: Re: [RFC PATCH v12 02/33] KVM: Use gfn instead of hva for
- mmu_notifier_retry
-Message-ID: <ZQus1v3AvEZjuat9@yilunxu-OptiPlex-7050>
-References: <20230914015531.1419405-1-seanjc@google.com>
- <20230914015531.1419405-3-seanjc@google.com>
- <ZQqMBEL61p739dpF@yilunxu-OptiPlex-7050>
- <ZQr5uXhV6Cnx4DYT@google.com>
+	id 1qj9mH-004pBK-0a
+	for linux-riscv@lists.infradead.org;
+	Thu, 21 Sep 2023 02:50:54 +0000
+Received: from mail.andestech.com (ATCPCS16.andestech.com [10.0.1.222])
+	by Atcsqr.andestech.com with ESMTP id 38L2od68059282;
+	Thu, 21 Sep 2023 10:50:39 +0800 (+08)
+	(envelope-from peterlin@andestech.com)
+Received: from atctrx.andestech.com (10.0.15.173) by ATCPCS16.andestech.com
+ (10.0.1.222) with Microsoft SMTP Server id 14.3.498.0; Thu, 21 Sep 2023
+ 10:50:34 +0800
+From: Yu Chien Peter Lin <peterlin@andestech.com>
+To: <paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
+        <david@redhat.com>, <akpm@linux-foundation.org>,
+        <alexghiti@rivosinc.com>, <bjorn@rivosinc.com>,
+        <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+CC: <conor.dooley@microchip.com>, Yu Chien Peter Lin <peterlin@andestech.com>
+Subject: [PATCH v4 2/3] riscv: Introduce PBMT field to PTDUMP
+Date: Thu, 21 Sep 2023 10:50:21 +0800
+Message-ID: <20230921025022.3989723-3-peterlin@andestech.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20230921025022.3989723-1-peterlin@andestech.com>
+References: <20230921025022.3989723-1-peterlin@andestech.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <ZQr5uXhV6Cnx4DYT@google.com>
+X-Originating-IP: [10.0.15.173]
+X-DNSRBL: 
+X-MAIL: Atcsqr.andestech.com 38L2od68059282
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230920_193958_153252_6DAD7FA2 
-X-CRM114-Status: GOOD (  18.19  )
+X-CRM114-CacheID: sfid-20230920_195053_658639_A2B786EF 
+X-CRM114-Status: GOOD (  10.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,57 +69,60 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2023-09-20 at 06:55:05 -0700, Sean Christopherson wrote:
-> On Wed, Sep 20, 2023, Xu Yilun wrote:
-> > On 2023-09-13 at 18:55:00 -0700, Sean Christopherson wrote:
-> > > +void kvm_mmu_invalidate_range_add(struct kvm *kvm, gfn_t start, gfn_t end)
-> > > +{
-> > > +	lockdep_assert_held_write(&kvm->mmu_lock);
-> > > +
-> > > +	WARN_ON_ONCE(!kvm->mmu_invalidate_in_progress);
-> > > +
-> > >  	if (likely(kvm->mmu_invalidate_in_progress == 1)) {
-> > >  		kvm->mmu_invalidate_range_start = start;
-> > >  		kvm->mmu_invalidate_range_end = end;
-> > 
-> > IIUC, Now we only add or override a part of the invalidate range in
-> > these fields, IOW only the range in last slot is stored when we unlock.
-> 
-> Ouch.  Good catch!
-> 
-> > That may break mmu_invalidate_retry_gfn() cause it can never know the
-> > whole invalidate range.
-> > 
-> > How about we extend the mmu_invalidate_range_start/end everytime so that
-> > it records the whole invalidate range:
-> > 
-> > if (kvm->mmu_invalidate_range_start == INVALID_GPA) {
-> > 	kvm->mmu_invalidate_range_start = start;
-> > 	kvm->mmu_invalidate_range_end = end;
-> > } else {
-> > 	kvm->mmu_invalidate_range_start =
-> > 		min(kvm->mmu_invalidate_range_start, start);
-> > 	kvm->mmu_invalidate_range_end =
-> > 		max(kvm->mmu_invalidate_range_end, end);
-> > }
-> 
-> Yeah, that does seem to be the easiest solution.
-> 
-> I'll post a fixup patch, unless you want the honors.
+This patch introduces the PBMT field to the PTDUMP, so it can
+display the memory attributes for NC or IO.
 
-Please go ahead, cause at a second thought I'm wondering if this simple
-range extension is reasonable.
+Signed-off-by: Yu Chien Peter Lin <peterlin@andestech.com>
+Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+Tested-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+---
+Changes v1 -> v2
+- no change
+Changes v2 -> v3
+- Add ".." when PBMT field is clear
+Changes v3 -> v4
+- Include Alexandre's RB/TB-tags
+---
+ arch/riscv/mm/ptdump.c | 16 ++++++++++++++++
+ 1 file changed, 16 insertions(+)
 
-When the invalidation acrosses multiple slots, I'm not sure if the
-contiguous HVA range must correspond to contiguous GFN range. If not,
-are we producing a larger range than required?
+diff --git a/arch/riscv/mm/ptdump.c b/arch/riscv/mm/ptdump.c
+index 57a0926c6627..13997cf3fe36 100644
+--- a/arch/riscv/mm/ptdump.c
++++ b/arch/riscv/mm/ptdump.c
+@@ -135,6 +135,12 @@ struct prot_bits {
+ 
+ static const struct prot_bits pte_bits[] = {
+ 	{
++#ifdef CONFIG_64BIT
++		.mask = _PAGE_MTMASK_SVPBMT,
++		.set = "MT(%s)",
++		.clear = "  ..  ",
++	}, {
++#endif
+ 		.mask = _PAGE_SOFT,
+ 		.set = "RSW(%d)",
+ 		.clear = "  ..  ",
+@@ -205,6 +211,16 @@ static void dump_prot(struct pg_state *st)
+ 		if (val) {
+ 			if (pte_bits[i].mask == _PAGE_SOFT)
+ 				sprintf(s, pte_bits[i].set, val >> 8);
++#ifdef CONFIG_64BIT
++			else if (pte_bits[i].mask == _PAGE_MTMASK_SVPBMT) {
++				if (val == _PAGE_NOCACHE_SVPBMT)
++					sprintf(s, pte_bits[i].set, "NC");
++				else if (val == _PAGE_IO_SVPBMT)
++					sprintf(s, pte_bits[i].set, "IO");
++				else
++					sprintf(s, pte_bits[i].set, "??");
++			}
++#endif
+ 			else
+ 				sprintf(s, "%s", pte_bits[i].set);
+ 		} else {
+-- 
+2.34.1
 
-And when the invalidation acrosses multiple address space, I'm almost
-sure it is wrong to merge GFN ranges from different address spaces. But
-I have no clear solution yet.
-
-Thanks,
-Yilun
 
 _______________________________________________
 linux-riscv mailing list
