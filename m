@@ -4,63 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52BC0E71068
-	for <linux-riscv@archiver.kernel.org>; Thu, 21 Sep 2023 12:55:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 516ECE71068
+	for <linux-riscv@archiver.kernel.org>; Thu, 21 Sep 2023 12:55:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=T8dwXdSXjEoiYkMTKdgVF8NSCi4S/Lqa6pWJm5ygvLY=; b=MLissdVOX+23xo
-	0OFhq6Eg/DJjbEbTyBYiB2kqow3LBpxkJ7bZLZ5d+unMred4EesMa2ffGAr9QK2m6Ho64UbhRlFhB
-	E7tRhBLeQ7DK4TGGVQucC6dCcWM0WRbmVC+m+qsxEdmxn8BrEeEfWH8ZZEH/IueHu9uUcmBIzVpz1
-	9JY5QNoLyCgvNCBSKWQvJcK9op87OTKdkuXKDumQJRVH7Bp1fwCZmYOZPa7uNb3N3pe6CeGw07PDO
-	g6FhVctu/9EPbSN1bSHY2HXEaeNnjciyLPTPjLKYLWlk13A7BMfZuiymA95ywIQVWCq4NWrtT1Fas
-	taFRCQGjBJI842j0Q/QA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=f5Ppkv48U+yE2gtFreozAlmaqi7OxyU0lM8X4C+xZJ0=; b=hELpkZhy+b3ny2
+	bpWokt/tgll5CyAmOtzLxY9zZc5CzQyqx2py9wYNykr+p2BtD49kgDeU3rZsxRM2z4cB96xzIx5Pb
+	4WOCjrkNX7bY77SxRpMEHF2jFX/Fm7C58GHeV+mCoPJJRrlWNh0C6t5zKzpr0EAjtA5QHIdbgeq+G
+	lzuMnIQvm52KfkCYLJZkVRMWnGcJVVfyZm/TbK8I3MRIHGeB4Qbp+xd+9sGhn4aShmJ75VHomyFzO
+	6XxC8K9HakOGzaQme6bGaYA0mCVyNmtQxO/fmaycfVxaYWh+wTb0zfMu2Sf7k7wwX9qpdktjHVNqq
+	hLDj63jZhen9fUt13Eqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qjJDK-00649J-1Z;
-	Thu, 21 Sep 2023 12:55:26 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1qjJDQ-0064Aq-2G;
+	Thu, 21 Sep 2023 12:55:32 +0000
+Received: from mail-wr1-f42.google.com ([209.85.221.42])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qjJDH-00648M-2B
+	id 1qjJDN-00649T-2I
 	for linux-riscv@lists.infradead.org;
-	Thu, 21 Sep 2023 12:55:24 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-4050bd2e33aso10043355e9.2
-        for <linux-riscv@lists.infradead.org>; Thu, 21 Sep 2023 05:55:21 -0700 (PDT)
+	Thu, 21 Sep 2023 12:55:31 +0000
+Received: by mail-wr1-f42.google.com with SMTP id ffacd0b85a97d-3214d4ecd39so849116f8f.1
+        for <linux-riscv@lists.infradead.org>; Thu, 21 Sep 2023 05:55:28 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1695300920; x=1695905720; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=F+9S/3XqI29ycjBSyOtroUTvlyReak1CC86dTZJCqDA=;
-        b=PsYOylHuU60DjbTuFWl86ymYc2BjW8vUhLqEKlJQ9H2arunzbjAbz070Q7Fm1rgavK
-         kr2na7hUA8EVcPn1DezxJZHZmBRB0HZOJcBWCC/eMSBD984DeiMEQ0v8TM54Nd3Y61P8
-         jOnTcaAnmGn+xSO+Gu+/E73poADzvpFmIdyjDjkHBORBVpLOGyzL0IVqGpxAdvpsF63J
-         4nMQsES2DT93Fg09yX0LqUmXwU3PRGv9yXO2c77DdLvbhAeAcsSanKl6xzcSfF/gKyAO
-         2VgJxT7F+1D9V+fTJHYp+nJaxJqng1pbu2lcdu3c3D3OyIUD9gJVvPPUciLD97bICG9C
-         iIog==
+        d=ventanamicro.com; s=google; t=1695300926; x=1695905726; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=idwTTp5Lya7wqztrKsyNzkY8PmsRdpyE5x+O/k4qLnA=;
+        b=oEUY7h86yJLRGNDhkraceqF8QjMxriDPR+DPusjtr6891DuEA8IAwpfWNvCNNxOxou
+         ch8W5RRSVft343O/3wr6PCMBDf/mbQFTRJ293AoPxL7VOBZU051RAm4QeOync1orEAyu
+         BPNy1Pw3DnTldifkFcgsXI2SnJPUO3/ZkCjhwZDNg2HStxjqaSCvu9MDG0pi/J5dTGYZ
+         AXNcfaPUEcAbK6q5/u/jCYzAjIscOQWP4XSCxCo1Q5iX2puSyaCC/nasdVk7Qn+w0iql
+         LPUhy0rrexozmNnzXTfeQkl9tmaJyUdulI3zkM0nDCITegto52kaFtlJS61HmtVFQU5I
+         XCdQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1695300920; x=1695905720;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=F+9S/3XqI29ycjBSyOtroUTvlyReak1CC86dTZJCqDA=;
-        b=EJC2Kt+cIX+bPjIc3bomtTi3+VCJHb1dW7ojlRydbNqgU50vYZ2n3wjYG56PvrVYYd
-         qiLawQ7SEcMLwu/6de0QtfK7mwr5EXEajBAuUAxOqGV7Fx15qSKU96QONq8I3eZIPicb
-         kpsDdMc9rr9kOEPqlgRsXspvYaVmmFrl2OKhibjJZpcIlVyutVYhDDNOB57DCiJDnxk3
-         1iRffphWV6RdeABOeL9uYHw/NpW0xK/9DK55Nq8QKeiysd8+fVdRM7AGTfRvVh4nQfwS
-         +XDPzzpBotX84anQrl6ExjPiA5lymR3bpP2WmFbnnClmBrU277jvlEQrOPho/tHu1dbw
-         1jUg==
-X-Gm-Message-State: AOJu0YyQKH0XatCBbkDizChvbxskqZLerF2o5SkvQvMR/CbGlnedSJji
-	2lv+hj5xVlZGmlFCAY/1oN16WYXTLX3XwBUtTO0=
-X-Google-Smtp-Source: AGHT+IGgQwK2JS82TQ2lD7oSFNghifrKucXOw+rYSICG0dP08S/n69DETIThJSkCM7K3GUXCUUNWLw==
-X-Received: by 2002:a05:600c:2193:b0:402:e6a2:c8c7 with SMTP id e19-20020a05600c219300b00402e6a2c8c7mr4690363wme.7.1695300920015;
-        Thu, 21 Sep 2023 05:55:20 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1695300926; x=1695905726;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=idwTTp5Lya7wqztrKsyNzkY8PmsRdpyE5x+O/k4qLnA=;
+        b=Vu6TMmC2EWO9F1YcyuHftZl3rWMOUfSEGc12R5rRyQrMXYPeuDgSTgdW6RIpOF3sAQ
+         RVwy5j1enXWTB5+P4pkI6goV4L8xEug8lWNhxWc98yEFtq5XpwYiEEnxlVEMBa2NF3zT
+         ZX13LSUFkWPYtLkHhJ5/HUkpsrrczyyDNZINhGyt9UCT7whPjarKiKqTKNPVjGK89Bre
+         kleFhh2CoN7WYLHveaZpmuTMr8k5rkHt4CDp2bQaZAWK/EQje7W0kv8pOjO/4X7cR3kM
+         boLng8qw8qzn+vFgnj8cVyTAUd0Z4ICjfRxrISJXmTgcbrgVYeAlvKE4oeSitseTL33S
+         rHxQ==
+X-Gm-Message-State: AOJu0YxLxGh2vVwzoSundT4TVhHHa0VU7o9x2gN/TtX2pGokj8epjrWh
+	0dOOXk59nuucKPvdHfZLOBbZQRHdqdos5dVy5LE=
+X-Google-Smtp-Source: AGHT+IHX022KpB0rCfWfH5vQwK3pl7eJADYGr3mkNitHW07LlTFRJF/gsb2uDbg8XrGWUKCAcToz+w==
+X-Received: by 2002:adf:f741:0:b0:320:77f:a982 with SMTP id z1-20020adff741000000b00320077fa982mr5102265wrp.45.1695300926795;
+        Thu, 21 Sep 2023 05:55:26 -0700 (PDT)
 Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
-        by smtp.gmail.com with ESMTPSA id hn40-20020a05600ca3a800b003fee0741b8csm4749547wmb.23.2023.09.21.05.55.18
+        by smtp.gmail.com with ESMTPSA id w10-20020adfd4ca000000b0031762e89f94sm1697606wrk.117.2023.09.21.05.55.26
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 21 Sep 2023 05:55:19 -0700 (PDT)
+        Thu, 21 Sep 2023 05:55:26 -0700 (PDT)
 From: Andrew Jones <ajones@ventanamicro.com>
 To: linux-riscv@lists.infradead.org
 Cc: paul.walmsley@sifive.com,
@@ -69,14 +70,16 @@ Cc: paul.walmsley@sifive.com,
 	evan@rivosinc.com,
 	conor.dooley@microchip.com,
 	apatel@ventanamicro.com
-Subject: [RFC PATCH 0/5] RISC-V: hwprobe related stuff
-Date: Thu, 21 Sep 2023 14:55:19 +0200
-Message-ID: <20230921125518.175428-7-ajones@ventanamicro.com>
+Subject: [RFC PATCH 5/5] RISC-V: selftests: Apply which-cpus flag to CBO hwprobe test
+Date: Thu, 21 Sep 2023 14:55:24 +0200
+Message-ID: <20230921125518.175428-12-ajones@ventanamicro.com>
 X-Mailer: git-send-email 2.41.0
+In-Reply-To: <20230921125518.175428-7-ajones@ventanamicro.com>
+References: <20230921125518.175428-7-ajones@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230921_055523_752351_5CC97CCF 
-X-CRM114-Status: GOOD (  12.33  )
+X-CRM114-CacheID: sfid-20230921_055529_747683_790B9B29 
+X-CRM114-Status: GOOD (  11.57  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,45 +96,56 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This series clarifies the hwprobe interface and introduces the first
-hwprobe flag. The flag basically reverses hwprobe to go from getting
-values for cpus to getting cpus for values. I've made the series an
-RFC because for the first part, the clarification, I'm not sure if
-the only person that needs clarification is me or not. If it's just
-me, then consider me clarified and we can drop it. The second part,
-the new flag, is an RFC, because so far the only use case is the CBO
-hwprobe selftest, which this series is based on and the last patch of
-the series applies the new hwprobe variant to it. If we don't believe
-other use cases, or use cases that care about having to do the probing
-inefficiently like the CBO test does before this series, will crop up,
-then the second part of this series can be dropped.
+Now that we can efficiently clear cpus from a cpu set that do
+not meet a key-value criteria, apply it to the cpus used in
+the CBO hwprobe selftest, instead of looping over hwprobe.
 
-Based-on: 20230918131518.56803-8-ajones@ventanamicro.com
+Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
+---
+ tools/testing/selftests/riscv/hwprobe/cbo.c | 26 +++++++--------------
+ 1 file changed, 9 insertions(+), 17 deletions(-)
 
-Thanks,
-drew
-
-
-Andrew Jones (5):
-  RISC-V: hwprobe: Clarify cpus size parameter
-  RISC-V: selftests: Replace cpu_count with cpusetsize
-  RISC-V: hwprobe: Introduce which-cpus flag
-  RISC-V: selftests: Add which-cpus hwprobe test
-  RISC-V: selftests: Apply which-cpus flag to CBO hwprobe test
-
- Documentation/riscv/hwprobe.rst               |  27 ++-
- arch/riscv/include/uapi/asm/hwprobe.h         |   3 +
- arch/riscv/kernel/sys_riscv.c                 | 162 +++++++++++++++++-
- arch/riscv/kernel/vdso/hwprobe.c              |  10 +-
- .../testing/selftests/riscv/hwprobe/Makefile  |   5 +-
- tools/testing/selftests/riscv/hwprobe/cbo.c   |  26 +--
- .../testing/selftests/riscv/hwprobe/hwprobe.c |   2 +-
- .../testing/selftests/riscv/hwprobe/hwprobe.h |   2 +-
- .../selftests/riscv/hwprobe/which-cpus.c      | 156 +++++++++++++++++
- .../selftests/riscv/vector/vstate_prctl.c     |   2 +-
- 10 files changed, 353 insertions(+), 42 deletions(-)
- create mode 100644 tools/testing/selftests/riscv/hwprobe/which-cpus.c
-
+diff --git a/tools/testing/selftests/riscv/hwprobe/cbo.c b/tools/testing/selftests/riscv/hwprobe/cbo.c
+index 50a2cc8aef38..375a343bc2c6 100644
+--- a/tools/testing/selftests/riscv/hwprobe/cbo.c
++++ b/tools/testing/selftests/riscv/hwprobe/cbo.c
+@@ -135,27 +135,19 @@ static void check_no_zicboz_cpus(cpu_set_t *cpus)
+ {
+ 	struct riscv_hwprobe pair = {
+ 		.key = RISCV_HWPROBE_KEY_IMA_EXT_0,
++		.value = RISCV_HWPROBE_EXT_ZICBOZ,
+ 	};
+-	cpu_set_t one_cpu;
+-	int i = 0, c = 0;
++	cpu_set_t tmp;
+ 	long rc;
+ 
+-	while (i++ < CPU_COUNT(cpus)) {
+-		while (!CPU_ISSET(c, cpus))
+-			++c;
+-
+-		CPU_ZERO(&one_cpu);
+-		CPU_SET(c, &one_cpu);
+-
+-		rc = riscv_hwprobe(&pair, 1, sizeof(cpu_set_t), (unsigned long *)&one_cpu, 0);
+-		assert(rc == 0 && pair.key == RISCV_HWPROBE_KEY_IMA_EXT_0);
++	memcpy(&tmp, cpus, sizeof(cpu_set_t));
++	rc = riscv_hwprobe(&pair, 1, sizeof(cpu_set_t), (unsigned long *)&tmp, RISCV_HWPROBE_WHICH_CPUS);
++	assert(rc == 0 && pair.key == RISCV_HWPROBE_KEY_IMA_EXT_0);
+ 
+-		if (pair.value & RISCV_HWPROBE_EXT_ZICBOZ)
+-			ksft_exit_fail_msg("Zicboz is only present on a subset of harts.\n"
+-					   "Use taskset to select a set of harts where Zicboz\n"
+-					   "presence (present or not) is consistent for each hart\n");
+-		++c;
+-	}
++	if (CPU_COUNT(&tmp))
++		ksft_exit_fail_msg("Zicboz is only present on a subset of harts.\n"
++				   "Use taskset to select a set of harts where Zicboz\n"
++				   "presence (present or not) is consistent for each hart\n");
+ }
+ 
+ enum {
 -- 
 2.41.0
 
