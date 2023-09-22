@@ -4,78 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AB68E6FE54
-	for <linux-riscv@archiver.kernel.org>; Fri, 22 Sep 2023 15:18:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9912BCD4841
+	for <linux-riscv@archiver.kernel.org>; Fri, 22 Sep 2023 16:14:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=R/8UCeBIhnbNh0rDcANMxmLVkTGW8OgWUdZXBzBqf6s=; b=1Avw4ZVqLdEBTq
-	SfwN/WtAbqRfu7EZlaJwUqxMkHp2atZRM+UWQ9EtAf99vfRpwH9NAAKH9C4R5IkSVjHemOveH1zNA
-	zx9VX0oa91DvsWNIU3yVhcjrmqYxhhW7hnbkL1zZEGsv/6/vJf72GTTxhHqWuPyZNIoXYcCpyz4ir
-	123pNT6YnmyGmlaL+AVzSYRPBI2gGEdTnBKoWPe2y4ayEv84XZOistOXW0QPmSrzGCpbzbjxL14j4
-	AdVcJGfnSqDih5G44mhgxe5bP8UmXrTwA20lu+tr2UXr/t3wYccvTItSkOmwcyUnN9fqI6XkriOqH
-	M07/dyJyfAr3OuePJbpA==;
+	List-Owner; bh=GnEN5Mm9k07axbWK43hpaL0R+oqDx9Omt7O5TAqG9XM=; b=pzfe7J9QCmsFRB
+	5lKUo45NbNdRlS2kFhiEKRUh9Zxr87omlITyW6vb+NkygvbkyNH9Yi9yYJct8JGFSp4mAh9CDPvH0
+	8mrDP0T2x9rH6daTxHC9pXfC+IDusGDAu5jE4Xc3gAZnxkf9nyYwi8QgY2ZHUnvHx34WZbSdGyW5f
+	VZ1XajJzmTuZq8RFSg5kncZ/oDPPipoJpR9fru/UoFxpv+6Pp0i4bVer5aEkqLDKuyO+/GwYS0p2a
+	9Cbsq5QAYCkzHhjJ3PnUFv6Dz/fEq96M2sHgmTTdy4HKczQqOhNnNrqlawnftqS6Gstz8pFQl0aam
+	IfKsYMrAT1pghKr/NZxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qjhvK-009Id4-1k;
-	Fri, 22 Sep 2023 15:18:30 +0000
-Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
+	id 1qjinR-009O2J-32;
+	Fri, 22 Sep 2023 16:14:25 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qjhvH-009Ibk-1u
-	for linux-riscv@lists.infradead.org;
-	Fri, 22 Sep 2023 15:18:29 +0000
-Received: by mail-pf1-x42a.google.com with SMTP id d2e1a72fcca58-692a9bc32bcso698972b3a.2
-        for <linux-riscv@lists.infradead.org>; Fri, 22 Sep 2023 08:18:14 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1695395894; x=1696000694; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=28ycCMVqr+jLHcID+cLGjL2F35QcRv/+OsF8PSg4e9w=;
-        b=pNunVg2yyZlraGuV+McvwSAnKmU+InQ+yPt4DYhwM/qwl3mXoYzLycV7zE9uXf2VxS
-         82qjcTzKtfSUHGBrHNSBO1Y8zMmqIKEL8MHy1d35w0ZIn1lG0KhLPj1JNQ6Gjxiuzgfc
-         afIedmzAyXb8TXXuQsdMtOXZUJ7PFh3gaFslVh7Gnr71rU9BNFwrh3N2Kzb+qsJKBjB2
-         30PJ3m0YvCBTPhgN4aNEjeaRx2/bSjxdgmGg7LkTurbWVrNs4s5RaTsWaxKzTbDh3VTY
-         EVonFVLkQatvP2xM+dlZ/6s0/6jQ3cBWnclysquO1uqqdvGAOEaEFWW5xpNtCdxK4veR
-         2D+w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1695395894; x=1696000694;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=28ycCMVqr+jLHcID+cLGjL2F35QcRv/+OsF8PSg4e9w=;
-        b=whOTZ+lCbnXlTN43fYW8X1LHQi9nAee2mofuRY5CqA7pDwxWEn8dvKwJlHt/0/IoaP
-         LLYtrKhUtj9JWajVTOaMzEJIPiBwVg3h2bqqaMuKeDelzZ8VbgYAwY5rxYMWHdL5oeom
-         PXbcIo3OumRPKY3JZ1aZ1qnmuGw9TDK1l+vlM06EhGTdKKrlczpjqTKerErPS+ROnzYC
-         phdk2LwQ6JNBPNXn3o2NS7NqB0iiiwErmViaLpCQysr4ej7ShAYE59+vCTDFH0xkDtf3
-         augDwlVu8ha2dvE4gmHgBNngdrqTvgMVXvDA2TDFy688EoixxhYT035Tp0F+7L5XfRCH
-         8E/A==
-X-Gm-Message-State: AOJu0YxPOW96IElcQd0c6gOO1kvAg9G9tm2VVGICsN1efIrOFU4IoM1A
-	s9W3ijoifpjOV32ErH/gfcpVaQ==
-X-Google-Smtp-Source: AGHT+IEYqxKV/Zdv/b6QlfOjx23Mb/9uFyIcZZjiFtr8f5V9ahoe0eQHX3dZEw5wH7KcGntm/EnFFg==
-X-Received: by 2002:a05:6a21:4881:b0:14c:9a61:a310 with SMTP id av1-20020a056a21488100b0014c9a61a310mr7787505pzc.24.1695395893958;
-        Fri, 22 Sep 2023 08:18:13 -0700 (PDT)
-Received: from x1 ([2601:1c2:1800:f680:c44:77f:ca7d:adec])
-        by smtp.gmail.com with ESMTPSA id 6-20020a170902e9c600b001c1f4edfb87sm3614450plk.92.2023.09.22.08.18.12
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 22 Sep 2023 08:18:13 -0700 (PDT)
-Date: Fri, 22 Sep 2023 08:18:11 -0700
-From: Drew Fustini <dfustini@baylibre.com>
-To: Conor Dooley <conor@kernel.org>
-Subject: Re: [PATCH 1/6] dt-bindings: mmc: sdhci-of-dwcmhsc: Add T-Head
- TH1520 support
-Message-ID: <ZQ2tP48Z19C5xRug@x1>
-References: <20230921-th1520-mmc-v1-0-49f76c274fb3@baylibre.com>
- <20230921-th1520-mmc-v1-1-49f76c274fb3@baylibre.com>
- <20230922-parish-ice-a22e93dc3027@spud>
+	id 1qjinL-009O0M-0L;
+	Fri, 22 Sep 2023 16:14:23 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id D5ACBCE2342;
+	Fri, 22 Sep 2023 16:14:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 52A71C433C7;
+	Fri, 22 Sep 2023 16:14:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1695399254;
+	bh=ghtojmtAqFRtX4PcgZLlC2VPw2Ttv8ZnkZD0uHf6G3Y=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=r2KQI46MuFtdt7QHNa6AqgiJz/M5ENzMW7kPwq5MHDWzFycJ2+pY4u3MqsA9xu0nC
+	 W/HNBy22Xw7JneqjviL2IaJu3dGzWLn16NZ5LDkp581LGZMdDZg4052edSPlLkbLHO
+	 EwdDs5kw6QxWcMB8DPa5TapO2QHn2N4oQOpAikE02mi4L04UnKYumRRdcwACdUxhgT
+	 xMQKjaY0zqYX4QHMGOi217/faMzXeE4+N/6foqQ34cnGlWvVCbUdZdJPU2NbwsyjUC
+	 p3AMpsc8yh3FbtfuQO9iVhIkFE9bRCE4VRqafiuyTvaj8qLItH92nbbD52ZVQBMP1Q
+	 LphK+HBo/3yDg==
+Date: Fri, 22 Sep 2023 17:14:04 +0100
+From: Will Deacon <will@kernel.org>
+To: Ryan Roberts <ryan.roberts@arm.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	"James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+	Helge Deller <deller@gmx.de>, Nicholas Piggin <npiggin@gmail.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Mike Kravetz <mike.kravetz@oracle.com>,
+	Muchun Song <muchun.song@linux.dev>, SeongJae Park <sj@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Uladzislau Rezki <urezki@gmail.com>,
+	Christoph Hellwig <hch@infradead.org>,
+	Lorenzo Stoakes <lstoakes@gmail.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Peter Xu <peterx@redhat.com>,
+	Axel Rasmussen <axelrasmussen@google.com>,
+	Qi Zheng <zhengqi.arch@bytedance.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	sparclinux@vger.kernel.org, linux-mm@kvack.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH v2 2/2] arm64: hugetlb: Fix set_huge_pte_at() to work
+ with all swap entries
+Message-ID: <20230922161404.GA23332@willie-the-truck>
+References: <20230922115804.2043771-1-ryan.roberts@arm.com>
+ <20230922115804.2043771-3-ryan.roberts@arm.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20230922-parish-ice-a22e93dc3027@spud>
+In-Reply-To: <20230922115804.2043771-3-ryan.roberts@arm.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230922_081827_627119_A86BBEF6 
-X-CRM114-Status: GOOD (  22.32  )
+X-CRM114-CacheID: sfid-20230922_091419_534649_EF103794 
+X-CRM114-Status: GOOD (  38.91  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,63 +97,106 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, Ulf Hansson <ulf.hansson@linaro.org>, Albert Ou <aou@eecs.berkeley.edu>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Jason Kridner <jkridner@beagleboard.org>, linux-kernel@vger.kernel.org, Han Gao <gaohan@iscas.ac.cn>, linux-mmc@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Adrian Hunter <adrian.hunter@intel.com>, Rob Herring <robh+dt@kernel.org>, Guo Ren <guoren@kernel.org>, Xi Ruoyao <xry111@xry111.site>, Jisheng Zhang <jszhang@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org, Robert Nelson <robertcnelson@beagleboard.org>, Fu Wei <wefu@redhat.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 22, 2023 at 10:57:36AM +0100, Conor Dooley wrote:
-> Hey Drew,
+On Fri, Sep 22, 2023 at 12:58:04PM +0100, Ryan Roberts wrote:
+> When called with a swap entry that does not embed a PFN (e.g.
+> PTE_MARKER_POISONED or PTE_MARKER_UFFD_WP), the previous implementation
+> of set_huge_pte_at() would either cause a BUG() to fire (if
+> CONFIG_DEBUG_VM is enabled) or cause a dereference of an invalid address
+> and subsequent panic.
 > 
-> On Thu, Sep 21, 2023 at 06:49:48PM -0700, Drew Fustini wrote:
-> > Add compatible value for the T-Head TH1520 dwcmshc controller and add
-> > thead,phy-pull-up property.
-> > 
-> > Signed-off-by: Drew Fustini <dfustini@baylibre.com>
-> > ---
-> >  Documentation/devicetree/bindings/mmc/snps,dwcmshc-sdhci.yaml | 4 ++++
-> >  1 file changed, 4 insertions(+)
-> > 
-> > diff --git a/Documentation/devicetree/bindings/mmc/snps,dwcmshc-sdhci.yaml b/Documentation/devicetree/bindings/mmc/snps,dwcmshc-sdhci.yaml
-> > index a43eb837f8da..46b768d46712 100644
-> > --- a/Documentation/devicetree/bindings/mmc/snps,dwcmshc-sdhci.yaml
-> > +++ b/Documentation/devicetree/bindings/mmc/snps,dwcmshc-sdhci.yaml
-> > @@ -19,6 +19,7 @@ properties:
-> >        - rockchip,rk3568-dwcmshc
-> >        - rockchip,rk3588-dwcmshc
-> >        - snps,dwcmshc-sdhci
-> > +      - thead,th1520-dwcmshc
-> >  
-> >    reg:
-> >      maxItems: 1
-> > @@ -60,6 +61,9 @@ properties:
-> >      description: Specify the number of delay for tx sampling.
-> >      $ref: /schemas/types.yaml#/definitions/uint8
-> >  
-> > +  thead,phy-pull-up:
-> > +    description: Enable weak pull-up on PHY pads
-> > +    type: boolean
+> arm64's huge pte implementation supports multiple huge page sizes, some
+> of which are implemented in the page table with multiple contiguous
+> entries. So set_huge_pte_at() needs to work out how big the logical pte
+> is, so that it can also work out how many physical ptes (or pmds) need
+> to be written. It previously did this by grabbing the folio out of the
+> pte and querying its size.
 > 
-> Why is the weak pull-up required? How would the dts author know if they
-> need to use this property?
+> However, there are cases when the pte being set is actually a swap
+> entry. But this also used to work fine, because for huge ptes, we only
+> ever saw migration entries and hwpoison entries. And both of these types
+> of swap entries have a PFN embedded, so the code would grab that and
+> everything still worked out.
+> 
+> But over time, more calls to set_huge_pte_at() have been added that set
+> swap entry types that do not embed a PFN. And this causes the code to go
+> bang. The triggering case is for the uffd poison test, commit
+> 99aa77215ad0 ("selftests/mm: add uffd unit test for UFFDIO_POISON"),
+> which causes a PTE_MARKER_POISONED swap entry to be set, coutesey of
+> commit 8a13897fb0da ("mm: userfaultfd: support UFFDIO_POISON for
+> hugetlbfs") - added in v6.5-rc7. Although review shows that there are
+> other call sites that set PTE_MARKER_UFFD_WP (which also has no PFN),
+> these don't trigger on arm64 because arm64 doesn't support UFFD WP.
+> 
+> Arguably, the root cause is really due to commit 18f3962953e4 ("mm:
+> hugetlb: kill set_huge_swap_pte_at()"), which aimed to simplify the
+> interface to the core code by removing set_huge_swap_pte_at() (which
+> took a page size parameter) and replacing it with calls to
+> set_huge_pte_at() where the size was inferred from the folio, as
+> descibed above. While that commit didn't break anything at the time, it
+> did break the interface because it couldn't handle swap entries without
+> PFNs. And since then new callers have come along which rely on this
+> working. But given the brokeness is only observable after commit
+> 8a13897fb0da ("mm: userfaultfd: support UFFDIO_POISON for hugetlbfs"),
+> that one gets the Fixes tag.
+> 
+> Now that we have modified the set_huge_pte_at() interface to pass the
+> huge page size in the previous patch, we can trivially fix this issue.
+> 
+> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
+> Fixes: 8a13897fb0da ("mm: userfaultfd: support UFFDIO_POISON for hugetlbfs")
+> Cc: <stable@vger.kernel.org> # 6.5+
+> ---
+>  arch/arm64/mm/hugetlbpage.c | 17 +++--------------
+>  1 file changed, 3 insertions(+), 14 deletions(-)
+> 
+> diff --git a/arch/arm64/mm/hugetlbpage.c b/arch/arm64/mm/hugetlbpage.c
+> index a7f8c8db3425..13fd592228b1 100644
+> --- a/arch/arm64/mm/hugetlbpage.c
+> +++ b/arch/arm64/mm/hugetlbpage.c
+> @@ -241,13 +241,6 @@ static void clear_flush(struct mm_struct *mm,
+>  	flush_tlb_range(&vma, saddr, addr);
+>  }
+>  
+> -static inline struct folio *hugetlb_swap_entry_to_folio(swp_entry_t entry)
+> -{
+> -	VM_BUG_ON(!is_migration_entry(entry) && !is_hwpoison_entry(entry));
+> -
+> -	return page_folio(pfn_to_page(swp_offset_pfn(entry)));
+> -}
+> -
+>  void set_huge_pte_at(struct mm_struct *mm, unsigned long addr,
+>  			    pte_t *ptep, pte_t pte, unsigned long sz)
+>  {
+> @@ -257,13 +250,10 @@ void set_huge_pte_at(struct mm_struct *mm, unsigned long addr,
+>  	unsigned long pfn, dpfn;
+>  	pgprot_t hugeprot;
+>  
+> -	if (!pte_present(pte)) {
+> -		struct folio *folio;
+> -
+> -		folio = hugetlb_swap_entry_to_folio(pte_to_swp_entry(pte));
+> -		ncontig = num_contig_ptes(folio_size(folio), &pgsize);
+> +	ncontig = num_contig_ptes(sz, &pgsize);
+>  
+> -		for (i = 0; i < ncontig; i++, ptep++)
+> +	if (!pte_present(pte)) {
+> +		for (i = 0; i < ncontig; i++, ptep++, addr += pgsize)
+>  			set_pte_at(mm, addr, ptep, pte);
 
-This is a good question, and I don't have a good reason beyond it is
-what the vendor SDK was doing.
+Our set_pte_at() doesn't use 'addr' for anything and the old code didn't
+even bother to increment it here! I'm fine adding that, but it feels
+unrelated to the issue which this patch is actually fixing.
 
-There are only two boards right now using the TH1520 that I know of.
-Both the LPi4a [1] and the Ahead [2] have the pull-up property set on
-all the mmc controller nodes their downstream device trees.
+Either way:
 
-Rob suggested on #devicetree that it would be simpler to just enable it
-in the driver and disable support when needed. I like this idea as it
-will simplify this binding patch and the code in the driver patch.
+Acked-by: Will Deacon <will@kernel.org>
 
-Thanks,
-Drew
-
-[1] https://git.beagleboard.org/beaglev-ahead/BeagleBoard-DeviceTrees/-/blob/v5.10.x-ti-unified/src/riscv/light-beagle-ref.dts
-[2] https://github.com/revyos/thead-kernel/blob/lpi4a/arch/riscv/boot/dts/thead/light-lpi4a-ref.dts
+Will
 
 _______________________________________________
 linux-riscv mailing list
