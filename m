@@ -4,69 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F218AE7D0BF
-	for <linux-riscv@archiver.kernel.org>; Fri, 22 Sep 2023 01:51:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 366A3E7D0BB
+	for <linux-riscv@archiver.kernel.org>; Fri, 22 Sep 2023 01:51:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:To:In-Reply-To:References:Message-Id:
 	MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=E09lckMtOcZFDL+rp5IAtOXlLBjIaGKY5LkZbKKFBcI=; b=xZE/b5a1oR7/Fr
-	ZlPqvCRj7yXMpwCw5Q7BeEW0FcJfFYEhyXCpRY8NEwiAG5WUfCizzJX5a9G75O6rAwr20/kL9H2CL
-	2J7sm2B9vxxd12Ki+Rd2bFIag8lXF01Jjzhkm9vbLeRvX7Wwp7E0kCrorTe/DLifhMkuWdcyvHlTI
-	JhjLk3haxSNMsiNymNFMcwypbpf6UeiALYM5rosNENzXLF++K9xlREMVrDWrtz9VgZ6AKX2Fd7zFo
-	WZ1fzGyQLDDI9MXRv0CMwUQCsOR1WTPiGekHbQkl0z1OQ+NUUta5ioDBLX2S26NZJv/2mhjfPxH6M
-	i/+96eFhnx+csZTZAphQ==;
+	List-Owner; bh=XgIj0u+H+gJcImBli6LH5tw7QgKKaAXuv56fCaxRMog=; b=n9uxPez2rK/Lhb
+	92lv6gk6BMtjFX9cKirbZfnbWykOBk14kvioCaH6+clnRlskunLPfgf0QJNYuzr71YkbgV1OPVNXV
+	4Y9qz6uMOh1dbWYKBKmcc+VCQ0kFxBib5fY1VB7AemXkWWsCH/f2SW7k2AN83sGOU3JPsNXmfUCTr
+	RKkEDe78Tdk+0gsfik4d3af1TJwnHuKndkBqcfJjKh3xzpxhIVgb34PVReuGp+qms0nX6DXU/ldkl
+	79vADXS/p7AQi0mNqz6wwsTlz6ZBtMWN8x8gnbqlAopgyh+ckpckqItetJLWBpvdqQ8d0jOkXkOGT
+	eHg/fZUAV4vRe9rEU2Iw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qjVK8-007aay-05;
-	Fri, 22 Sep 2023 01:51:16 +0000
-Received: from mail-vs1-f50.google.com ([209.85.217.50])
+	id 1qjVKB-007ad5-1m;
+	Fri, 22 Sep 2023 01:51:19 +0000
+Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qjVK3-007aXw-35
+	id 1qjVK6-007aZG-27
 	for linux-riscv@lists.infradead.org;
-	Fri, 22 Sep 2023 01:51:13 +0000
-Received: by mail-vs1-f50.google.com with SMTP id ada2fe7eead31-4527d7f7305so818585137.1
-        for <linux-riscv@lists.infradead.org>; Thu, 21 Sep 2023 18:51:11 -0700 (PDT)
+	Fri, 22 Sep 2023 01:51:15 +0000
+Received: by mail-pf1-x42e.google.com with SMTP id d2e1a72fcca58-690d25b1dbdso1449926b3a.2
+        for <linux-riscv@lists.infradead.org>; Thu, 21 Sep 2023 18:51:13 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1695347470; x=1695952270; darn=lists.infradead.org;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1695347473; x=1695952273; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=ixTqiGVx8ZXpjpR7y6lRGGFsz7OZ+ET+MZdQ4NUAsFY=;
-        b=yYvZaoxx1/cwio9uoWvbJDNVkdnjH8YuPJm+4k6NpWswn5bx1ccnbbxhwmQRGkGHDC
-         5c9fCckplG52ep8b5ng6mPMiGhndZXQ74mh0CAi29ZDElaiHj0YvMpeHUgY1i7syul2q
-         MT+Ke8fin7Em6uGNYwD8NsfJgfEj2t5DgFW9TWXqnUNYLGTIu81eYXG6GnVzeMEDk/rU
-         n9zGHaUQVzudhCIBRHh96l6HMfu4vvPrjOjsj5m5wqjhdr+ZIrXhNm5ugQb+Cclw+6iL
-         TLNVK9cTelck0F8HwpfKWuvnNS/2alZiSZy5g3eqXibUZScklJyHOkyyUvm3rlKBhadG
-         pRKg==
+        bh=iPEbvkuSlI+waNlJffRe2ktpor2JpDqdyWj2rz7p8Wk=;
+        b=d2rl4tXBALoyf4x+5l9FSf1dSq9Oc/dKiOVPnKzj/HYaA7QkthHxd5biSsEF6cfxd1
+         3JnE0yyzreSDyZVJSnCFfEsedXJOECfDFaOrLQ3WP0qtP4/Q8YSjMkid3nFiRKjLyNIB
+         PwSvm5zZygtpYMUPUB4hsTcGhZuOBh05fqo+Y7PiVgl7T0Gr8bWGPym16xMu44zwted6
+         KogwYkCmgrFvmJky4S0nbvg8JQ3uTs6LMIV3cB28FNS+0A5ZMr3B5R3Keww7i11H31t7
+         +o9XCWeS1fvJuwEOo51RPwWnj/0GkMH8RUaNZpZiPHhTsGrQl1xsgFW+rVF87B8PbOfg
+         1Y4Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1695347470; x=1695952270;
+        d=1e100.net; s=20230601; t=1695347473; x=1695952273;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=ixTqiGVx8ZXpjpR7y6lRGGFsz7OZ+ET+MZdQ4NUAsFY=;
-        b=e1gfc1qVsuei2QJa9u2R6RPA5GOzvMffmNkxufcKWF98angoqGw7JgVVWqR97Tek+Z
-         DjIQ09h2QZvpUMSUuJgrAcer63Y8XgKrjLYJnQf62iIUJCQtXfy/TR7nzSgNTSnnUHQR
-         1c2AL1Cw9W0LP5L2birLrUlbQmzOI2YUkcYV4FPra04x4Qp54uA6XrOdAEw9wwUWfQU7
-         O9rloiD9N+DSt6qibeWp9E4XSRkj+/knl9xbmERU/eAT6R+0ImmwCNGQNbLM7bD2G7AK
-         fW/NifiD6WAZtkhRQ1/UYrAeEnanf/NvSs+iUUyjPX+f6LZjfUeKsS1w35PKYQYiMnDQ
-         AHVQ==
-X-Gm-Message-State: AOJu0YzTEARVUdViSIxV5lAFl58Xoe7oySIsNvfFD6bfdtRY6IDeIHkh
-	aVtzxV7cS5Eca46tNvc92lAWpA==
-X-Google-Smtp-Source: AGHT+IHj0Lr/Be8FAt3qA85CiKz6e+2ivU8VOj029IZto83YwRL3xxqYZvq42aLws+pyGjAy7HTN1A==
-X-Received: by 2002:a05:6102:302c:b0:44d:4d5f:79a4 with SMTP id v12-20020a056102302c00b0044d4d5f79a4mr6139892vsa.20.1695347470206;
-        Thu, 21 Sep 2023 18:51:10 -0700 (PDT)
+        bh=iPEbvkuSlI+waNlJffRe2ktpor2JpDqdyWj2rz7p8Wk=;
+        b=K/cZR2ehOiUevfyFPpooQ/CoAQdaDc7GcL73TCzYpR6b0CuoPANxc7NHar0KKl/7P3
+         9UcXOVQ/g7UqvzwJSo1z6DhOztOgS8ZOYvX1RPb5WLMg+sEWnfkRclBBb+BKg478u6mc
+         uHrGyuM229YOTM2as0ISxkU5uL/LwKiWOqFs1G1ETQ1HxLmdXzpYgqlmQMrRD2TT1Jjx
+         u9MdLC1eZWtuy9lEQK1no8dlnfREoxkPD3epDEGvEaQPHlPqCQOl4ClOo0fds8DvyfpX
+         lIzA3i7IbH5Qnc5zzAYfu6akdsAq2FJ0udkwCtBuKNZOlx9MxdNAnhLn3RCBAXD/hwr6
+         1cvg==
+X-Gm-Message-State: AOJu0YytQQoFflM8/NXsvIceaPlOQeoYqOkGZ591SsNzzNn5oqgRmNUr
+	0vJjg0CAqH1UlZH7t6LSBahlBw==
+X-Google-Smtp-Source: AGHT+IE4X42yF1HXpuaoHL3ejmIEJ9fFuH2zgYBey6U1orqlaNK7fEzRXNdULELkEbDzi1O+u9EzjA==
+X-Received: by 2002:a05:6a00:997:b0:68a:49bc:e0af with SMTP id u23-20020a056a00099700b0068a49bce0afmr8809508pfg.1.1695347473242;
+        Thu, 21 Sep 2023 18:51:13 -0700 (PDT)
 Received: from [127.0.1.1] ([2601:1c2:1800:f680:fa26:6227:be1c:67f0])
-        by smtp.gmail.com with ESMTPSA id y10-20020a63b50a000000b0057412d84d25sm1973856pge.4.2023.09.21.18.51.09
+        by smtp.gmail.com with ESMTPSA id y10-20020a63b50a000000b0057412d84d25sm1973856pge.4.2023.09.21.18.51.12
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 21 Sep 2023 18:51:09 -0700 (PDT)
+        Thu, 21 Sep 2023 18:51:12 -0700 (PDT)
 From: Drew Fustini <dfustini@baylibre.com>
-Date: Thu, 21 Sep 2023 18:49:49 -0700
-Subject: [PATCH 2/6] mmc: sdhci: add __sdhci_execute_tuning() to header
+Date: Thu, 21 Sep 2023 18:49:52 -0700
+Subject: [PATCH 5/6] riscv: dts: thead: Enable BeagleV Ahead eMMC
+ controller
 MIME-Version: 1.0
-Message-Id: <20230921-th1520-mmc-v1-2-49f76c274fb3@baylibre.com>
+Message-Id: <20230921-th1520-mmc-v1-5-49f76c274fb3@baylibre.com>
 References: <20230921-th1520-mmc-v1-0-49f76c274fb3@baylibre.com>
 In-Reply-To: <20230921-th1520-mmc-v1-0-49f76c274fb3@baylibre.com>
 To: Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh+dt@kernel.org>, 
@@ -77,16 +78,17 @@ To: Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh+dt@kernel.org>,
  Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
  Conor Dooley <conor@kernel.org>
 X-Mailer: b4 0.12.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1695347467; l=1797;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1695347467; l=956;
  i=dfustini@baylibre.com; s=20230430; h=from:subject:message-id;
- bh=jbhsItAspw9Y505sHjMPZkocmfoBMXCEAbwf8HhAE8A=;
- b=Y7zI2YH3NQD0FaxiSQ4VnQS2RFqoHRb3cydOhAc2I8kHbSV81T3H1sj3MdzwctHhwtJlv39EH
- CGD7yjz/YJWDePGxpJZ2guSYNA4iKk5mDzTqvA3yDNkTUQHmVRbKFIQ
+ bh=e7hYW7QNhal0RaNuGY3AGvE/4Ei4UdLG9Fj7V3U8VKw=;
+ b=IYvBWMTKLnO4eGhXZDaLu7J6cKyV/rnBRhIPRir14soBubLYnpWwdB1YUX5SiQQsnHUuOHFn8
+ opoUzD3CmAzChvQqTcQdMtI/oVbApUhunFrq/jQQ+eMCvA40mghGlE8
 X-Developer-Key: i=dfustini@baylibre.com; a=ed25519;
  pk=p3GKE9XFmjhwAayAHG4U108yag7V8xQVd4zJLdW0g7g=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230921_185112_002745_C954FBA9 
-X-CRM114-Status: GOOD (  11.83  )
+X-CRM114-CacheID: sfid-20230921_185114_695553_419B1835 
+X-CRM114-Status: UNSURE (   8.80  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,47 +106,44 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Expose __sdhci_execute_tuning() so that it can be called from the
-mmc host controller drivers.
-
-In the sdhci-of-dwcmshc driver, sdhci_dwcmshc_th1520_ops sets
-platform_execute_tuning to th1520_execute_tuning(). That function has
-to manipulate phy registers before tuning can be performed. To avoid
-copying the code verbatim from __sdhci_execute_tuning() into
-th1520_execute_tuning(), make it possible for __sdhci_execute_tuning()
-to be called from sdhci-of-dwcmshc.
+Add properties to the emmc node and enable it and set the frequency for
+the sdhci clock.
 
 Signed-off-by: Drew Fustini <dfustini@baylibre.com>
 ---
- drivers/mmc/host/sdhci.c | 2 +-
- drivers/mmc/host/sdhci.h | 1 +
- 2 files changed, 2 insertions(+), 1 deletion(-)
+ arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts | 15 +++++++++++++++
+ 1 file changed, 15 insertions(+)
 
-diff --git a/drivers/mmc/host/sdhci.c b/drivers/mmc/host/sdhci.c
-index ff41aa56564e..fd607058d176 100644
---- a/drivers/mmc/host/sdhci.c
-+++ b/drivers/mmc/host/sdhci.c
-@@ -2841,7 +2841,7 @@ void sdhci_send_tuning(struct sdhci_host *host, u32 opcode)
- }
- EXPORT_SYMBOL_GPL(sdhci_send_tuning);
+diff --git a/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts b/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
+index 70e8042c8304..dde645789b7e 100644
+--- a/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
++++ b/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
+@@ -52,6 +52,10 @@ &uart_sclk {
+ 	clock-frequency = <100000000>;
+ };
  
--static int __sdhci_execute_tuning(struct sdhci_host *host, u32 opcode)
-+int __sdhci_execute_tuning(struct sdhci_host *host, u32 opcode)
- {
- 	int i;
- 
-diff --git a/drivers/mmc/host/sdhci.h b/drivers/mmc/host/sdhci.h
-index f219bdea8f28..a20864fc0641 100644
---- a/drivers/mmc/host/sdhci.h
-+++ b/drivers/mmc/host/sdhci.h
-@@ -793,6 +793,7 @@ void sdhci_set_bus_width(struct sdhci_host *host, int width);
- void sdhci_reset(struct sdhci_host *host, u8 mask);
- void sdhci_set_uhs_signaling(struct sdhci_host *host, unsigned timing);
- int sdhci_execute_tuning(struct mmc_host *mmc, u32 opcode);
-+int __sdhci_execute_tuning(struct sdhci_host *host, u32 opcode);
- void sdhci_set_ios(struct mmc_host *mmc, struct mmc_ios *ios);
- int sdhci_start_signal_voltage_switch(struct mmc_host *mmc,
- 				      struct mmc_ios *ios);
++&sdhci_clk {
++	clock-frequency = <198000000>;
++};
++
+ &dmac0 {
+ 	status = "okay";
+ };
+@@ -59,3 +63,14 @@ &dmac0 {
+ &uart0 {
+ 	status = "okay";
+ };
++
++&mmc0 {
++	bus-width = <8>;
++	max-frequency = <198000000>;
++	mmc-hs400-1_8v;
++	non-removable;
++	no-sdio;
++	no-sd;
++	thead,phy-pull-up;
++	status = "okay";
++};
 
 -- 
 2.34.1
