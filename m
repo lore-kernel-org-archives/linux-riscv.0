@@ -4,72 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49F66CD4852
-	for <linux-riscv@archiver.kernel.org>; Fri, 22 Sep 2023 19:08:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E5B9CE7A86
+	for <linux-riscv@archiver.kernel.org>; Fri, 22 Sep 2023 20:34:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DBH6RTuKqzEMvbsdeFNpME1Vu7RosXu1eEbngsyRrMk=; b=KdEmj0Ic4Fc5Yw
-	MFDNSooIfeEUFDYuDj/eURI2a6/hjVGNuicT7k60WIE8vW89c+SE+ukqAKpuBAzEPD+xEFxYWFJm0
-	hptMf1fY8DGFreollKVuP7JlmPV3YnlcmzQ6qg0W5vgDAhNXzRj5GQSBOEPzCr4pH24ZhUi+hqvtL
-	N/5StVl7uq2ThtPvfUPHjfR1YyBOl9yGoJIVwyzNK2euzmjQn9MFKydvgbnLrGvqSzFpk1iBAy/OQ
-	UB7/6fCj6N36rjU2YNmIfs98OBMldT7HvMtA0ieOyKn6/cYSRQCKw3KWtn3p7JUbTvipFuR2FR1kk
-	ML4G1jQp3hDmKAgkUGJQ==;
+	List-Owner; bh=giOZdIMwbK1fzDJ3LC9EYSn+0yqnNhbig3YD1hg2B8o=; b=SDj/e2GuoQXtE3
+	7v9HRbcmDsUR+5uYwNRwRqs7pcTZpz4nAol+YXfLSm17eYh3gEpnj00zSF5X5FafQDq6pp+P9kx4b
+	fF8nE7jDs6ifiuJWHX3vrV/fToxoCbjiEo1uRLGXcd30nVAx2A5b50pzVfu5u8rQnVMGoWICmvxpD
+	EZAWTih1auEBAJy6AVWsQDdwTertC2FhMtVeS5PynxF/LzDCOyTBFGkbgqikRw8cMbtN5MqtViNHT
+	KdhF0a0Le0XcyPsWqJ6BRssdWAqyEf9ijYGAPieojmPiO670KjrpnjYSMc+jzu1PkzmSIQPTsoFGp
+	/AkdFiLDgM9AP/5Kb0QQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qjlWC-009gwC-2H;
-	Fri, 22 Sep 2023 19:08:48 +0000
-Received: from mail-ua1-x935.google.com ([2607:f8b0:4864:20::935])
+	id 1qjmqq-009nIG-1w;
+	Fri, 22 Sep 2023 20:34:12 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qjlW8-009gvT-1a
+	id 1qjmqn-009nGt-1c
 	for linux-riscv@lists.infradead.org;
-	Fri, 22 Sep 2023 19:08:47 +0000
-Received: by mail-ua1-x935.google.com with SMTP id a1e0cc1a2514c-7ab9488f2f0so154972241.3
-        for <linux-riscv@lists.infradead.org>; Fri, 22 Sep 2023 12:08:43 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1695409722; x=1696014522; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=7L9HvqDP5WJky24lmHONuk63n7kfCDpjCwpcpj0vxMA=;
-        b=md4C+95rGIXUrCNJs1aT9FiFP8L0ij79KtdKAP8vOpJwuAqjaCqm+pVOdvhvx906Mw
-         /F2CdgjLGWHaTjW3lFVc5WIaH9ACjjO+bV6H6tupzffwOQjJtN0O8i1A+B7wE8b4zIx6
-         lPCmgmasadZbSsCrdXUS6ImsNwqv3WHA1WLXE1Y1sCUs8HJbJBfsVnua69/JihvOCVyG
-         WYSydnXf6B9PwaTeUJdaKU0p/4HbeOMagQA2fMCSqiygTCNwe1lBhS3LMcb3DUcyV2sd
-         IvL+iMi+c5Ay/2XUk+ACMWtHTf3I6ZOrwP5OCNuZNjK/0JkzZ5sliMSkhxIcoDiTdfSX
-         WjKw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1695409722; x=1696014522;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=7L9HvqDP5WJky24lmHONuk63n7kfCDpjCwpcpj0vxMA=;
-        b=UpVnG9tgFC56vI6LBhmDIfkPWk1qAlZ6QJZvMS3qpY/5G9/p/eiJ2fOjYw1u8oOfmC
-         Bycxroo+6Lp4NQ1uHSm9Z65D2NmadpcigoxXwsZJPL2OZ8tUE56bP6XUT9c9knbRz2od
-         rkXElvSbJGPGgA9U43eIhbjcyc8nIoL0nccgjwJRI17N3Q2RI4q78PX/IgFQ7R4U9WGC
-         c3Ma0Imm0Mz3r92w0W+C49TklPqc67Rt7GZyaNHCMNxVTMevBPrJVl7Dnoo9aTkrC1Ws
-         sYh/cLvUgqUw+CHMwm+qcGZCSSXS+JjxTAG1dRh6Kb98nhGnOIUVo2z5JV69GGNoUSlu
-         h6Uw==
-X-Gm-Message-State: AOJu0Yx8B00dhvraRSsulE89gmPQjiXZlyaLe6DadjRol/hRfSN6YG8t
-	7ZLRRNZDu3ASy285QyMSqeFFVQDbnoxOztu0sdw=
-X-Google-Smtp-Source: AGHT+IEIuHwatFh1RJWylUlf8xGj74/AAV7K6EqAqxS9YaAsvTvQZCNSlpedgXwBetK5NHqFPcDAKpBDiR2hEQSg3vk=
-X-Received: by 2002:a1f:ed45:0:b0:490:29bb:670b with SMTP id
- l66-20020a1fed45000000b0049029bb670bmr114533vkh.12.1695409722407; Fri, 22 Sep
- 2023 12:08:42 -0700 (PDT)
+	Fri, 22 Sep 2023 20:34:10 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by ams.source.kernel.org (Postfix) with ESMTP id 029D2B82412;
+	Fri, 22 Sep 2023 20:34:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 72898C433C7;
+	Fri, 22 Sep 2023 20:34:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1695414844;
+	bh=fh2nzdkaUADt+b/Vyqr/huEqEK6lXWqUFIL1/jW11c0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=DH5lhYXNzlO+ew3BUXFcOyJVuqVlPYo3WqNuWFm/OHXzIDzy18hNBGYFi53/vn15p
+	 EQEdNv/92IRzaq6rcTmmpMlX9lnfyDQQbvla9PXqrOcISvvOwYuNjH6E7VFj3uAqNM
+	 s4ncS6i0SB3vS2RIAia7aFy9kfiLkpmlKpfmRFlVQjB2mG0/nvFHlcVGd1kkInVrS0
+	 DmlRMqsXq17SIS3ZsR1CAtfO7wk5+9XbLmbwxkK7tCKnetrEqjzJ0Zqzp4tcUOsL2v
+	 23DRjr7NCyLi1z8NlHNnD96ulbiEZgRB5hC1vsOA2EHwMdzkER3j1XUYdEc76pNAZC
+	 IWehZMuivn4Uw==
+Received: (nullmailer pid 3535433 invoked by uid 1000);
+	Fri, 22 Sep 2023 20:34:02 -0000
+Date: Fri, 22 Sep 2023 15:34:02 -0500
+From: Rob Herring <robh@kernel.org>
+To: Rob Herring <robh@kernel.org>
+Cc: Albert Ou <aou@eecs.berkeley.edu>, devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@sifive.com>, Paul Walmsley <paul.walmsley@sifive.com>, Conor Dooley <conor@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>
+Subject: Re: [PATCH] dt-bindings: riscv: cpus: Add missing
+ additionalProperties on interrupt-controller node
+Message-ID: <169541483923.3535328.3111610827495188975.robh@kernel.org>
+References: <20230915201946.4184468-1-robh@kernel.org>
 MIME-Version: 1.0
-References: <20230921-th1520-mmc-v1-0-49f76c274fb3@baylibre.com>
-In-Reply-To: <20230921-th1520-mmc-v1-0-49f76c274fb3@baylibre.com>
-From: Robert Nelson <robertcnelson@gmail.com>
-Date: Fri, 22 Sep 2023 14:08:16 -0500
-Message-ID: <CAOCHtYhnx1EpBM+o3xhdsicx5uqLidojK3f0HQ+VfyVv1ZXnVQ@mail.gmail.com>
-Subject: Re: [PATCH 0/6] RISC-V: Add eMMC support for TH1520 boards
-To: Drew Fustini <dfustini@baylibre.com>
+Content-Disposition: inline
+In-Reply-To: <20230915201946.4184468-1-robh@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230922_120844_572198_8525E54C 
-X-CRM114-Status: GOOD (  20.11  )
+X-CRM114-CacheID: sfid-20230922_133409_681265_F4C71B3D 
+X-CRM114-Status: UNSURE (   8.61  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,46 +70,26 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, Ulf Hansson <ulf.hansson@linaro.org>, Albert Ou <aou@eecs.berkeley.edu>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Jason Kridner <jkridner@beagleboard.org>, linux-kernel@vger.kernel.org, Han Gao <gaohan@iscas.ac.cn>, linux-mmc@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Conor Dooley <conor@kernel.org>, Adrian Hunter <adrian.hunter@intel.com>, Rob Herring <robh+dt@kernel.org>, Guo Ren <guoren@kernel.org>, Xi Ruoyao <xry111@xry111.site>, Jisheng Zhang <jszhang@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org, Fu Wei <wefu@redhat.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVGh1LCBTZXAgMjEsIDIwMjMgYXQgODo1MeKAr1BNIERyZXcgRnVzdGluaSA8ZGZ1c3RpbmlA
-YmF5bGlicmUuY29tPiB3cm90ZToKPgo+IFRoaXMgc2VyaWVzIGFkZHMgc3VwcG9ydCBmb3IgdGhl
-IGVNTUMgb24gdGhlIEJlYWdsZVYgQWhlYWQgYW5kIHRoZQo+IFNpcGVlZCBMaWNoZWVQaSA0QS4g
-VGhpcyBhbGxvd3MgdGhlIGtlcm5lbCB0byBib290IHdpdGggdGhlIHJvb3RmcyBvbgo+IGVNTUMu
-Cj4KPiBJIHRlc3RlZCBvbiB0b3Agb2YgdjYuNi1yYzIgd2l0aCB0aGlzIGNvbmZpZyBbMV0uIEkg
-d2FzIGFibGUgdG8gYm9vdAo+IGJvdGggdGhlIEFoZWFkIFsyXSBhbmQgTFBpNGEgWzNdIGZyb20g
-ZU1NQy4gVGhlIGZvbGxvd2luZyBwcmVyZXF1aXNpdGVzCj4gYXJlIHJlcXVpcmVkOgo+Cj4gICBb
-UEFUQ0ggdjJdIHJpc2N2OiBkdHM6IHRoZWFkOiBzZXQgZG1hLW5vbmNvaGVyZW50IHRvIHNvYyBi
-dXMgWzRdCj4KPiBJIHB1c2hlZCBhIGJyYW5jaCBbNV0gd2l0aCB0aGlzIHBhdGNoIHNlcmllcyBh
-bmQgdGhlIGFib3ZlIHBhdGNoIGZvcgo+IHRob3NlIHRoYXQgZmluZCBhIGdpdCBicmFuY2ggZWFz
-aWVyIHRvIHRlc3QuCj4KPiBQbGVhc2Ugbm90ZSB0aGF0IG9ubHkgdGhlIE1NQyBjb250cm9sbGVy
-IGNvbm5lY3RlZCB0byB0aGUgZU1NQyBkZXZpY2UKPiBpcyBlbmFibGVkIGluIHRoZSBkZXZpY2Ug
-dHJlZXMgZm9yIHRoZXNlIHR3byBib2FyZHMuIEkgZGlkIG5vdCB5ZXQKPiBhdHRlbXB0IHRvIGNv
-bmZpZ3VyZSBhbmQgdXNlIHRoZSBtaWNyb1NEIGNhcmQgc2xvdC4gTXkgcHJlZmVyZW5jZSBpcyB0
-bwo+IGFkZHJlc3MgdGhhdCBpbiBhIGZ1dHVyZSBwYXRjaCBzZXJpZXMuCj4KPiBSZWZlcmVuY2Vz
-Ogo+IFsxXSBodHRwczovL2dpc3QuZ2l0aHViLmNvbS9wZHA3LzVmYmRjZjJhNjVlYjFhYmRkM2Ey
-OWQ1MTljMTljZGQyCj4gWzJdIGh0dHBzOi8vZ2lzdC5naXRodWIuY29tL3BkcDcvOTFhODAxYTVm
-OGQxMDcwYzUzNTA5ZWRhOTgwMGFkNzgKPiBbM10gaHR0cHM6Ly9naXN0LmdpdGh1Yi5jb20vcGRw
-Ny8xNDQ1YzNjOTkxZTg4ZmQ2OWM2MDE2NWNlZjY1NzI2YQo+IFs0XSBodHRwczovL2xvcmUua2Vy
-bmVsLm9yZy9saW51eC1yaXNjdi8yMDIzMDkxMjA3MjIzMi4yNDU1LTEtanN6aGFuZ0BrZXJuZWwu
-b3JnLwo+IFs1XSBodHRwczovL2dpdGh1Yi5jb20vcGRwNy9saW51eC90cmVlL2I0L3RoMTUyMC1t
-bWMKClRoaXMgcGF0Y2hzZXQgY2FtZSBvdXQgdmVyeSBuaWNlIQoKdjYuNi1yYzIgd2l0aCBMYXN0
-IFJGQyB2MjoKClsgICAgNC4wNjY2MzBdIG1tYzA6IFNESENJIGNvbnRyb2xsZXIgb24gZmZlNzA4
-MDAwMC5tbWMKW2ZmZTcwODAwMDAubW1jXSB1c2luZyBQSU8KCmRlYmlhbkBCZWFnbGVWOn4kIHN1
-ZG8gaGRwYXJtIC10VCAvZGV2L21tY2JsazAKCi9kZXYvbW1jYmxrMDoKIFRpbWluZyBjYWNoZWQg
-cmVhZHM6ICAgMTUxNiBNQiBpbiAgMi4wMCBzZWNvbmRzID0gNzU4LjA5IE1CL3NlYwogVGltaW5n
-IGJ1ZmZlcmVkIGRpc2sgcmVhZHM6ICA4NCBNQiBpbiAgMy4wMSBzZWNvbmRzID0gIDI3Ljk0IE1C
-L3NlYwoKdnMgdjYuNi1yYzIgd2l0aCB0aGlzIHBhdGNoc2V0OgoKIFsgICAgNC4wOTY4MzddIG1t
-YzA6IFNESENJIGNvbnRyb2xsZXIgb24gZmZlNzA4MDAwMC5tbWMKW2ZmZTcwODAwMDAubW1jXSB1
-c2luZyBETUEKCmRlYmlhbkBCZWFnbGVWOn4kIHN1ZG8gaGRwYXJtIC10VCAvZGV2L21tY2JsazAK
-Ci9kZXYvbW1jYmxrMDoKIFRpbWluZyBjYWNoZWQgcmVhZHM6ICAgMTU4MCBNQiBpbiAgMi4wMCBz
-ZWNvbmRzID0gNzkwLjk3IE1CL3NlYwogVGltaW5nIGJ1ZmZlcmVkIGRpc2sgcmVhZHM6IDQxOCBN
-QiBpbiAgMy4wMCBzZWNvbmRzID0gMTM5LjExIE1CL3NlYwoKUmVnYXJkcywKCi0tIApSb2JlcnQg
-TmVsc29uCmh0dHBzOi8vcmNuLWVlLmNvbS8KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBs
-aXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlz
-dGluZm8vbGludXgtcmlzY3YK
+
+On Fri, 15 Sep 2023 15:19:36 -0500, Rob Herring wrote:
+> The "interrupt-controller" CPU child node is missing constraints on
+> extra properties. Add "additionalProperties: false" to fix this.
+> 
+> Signed-off-by: Rob Herring <robh@kernel.org>
+> ---
+>  Documentation/devicetree/bindings/riscv/cpus.yaml | 1 +
+>  1 file changed, 1 insertion(+)
+> 
+
+Applied, thanks!
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
