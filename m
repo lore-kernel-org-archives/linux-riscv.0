@@ -4,77 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33CE5CD4843
-	for <linux-riscv@archiver.kernel.org>; Fri, 22 Sep 2023 16:23:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EE37CD4847
+	for <linux-riscv@archiver.kernel.org>; Fri, 22 Sep 2023 16:36:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=X1bX4zzJdVqARs5IPEulz5k3nvElU0BBuZK7pBOVUro=; b=WxYi7f21ibHJOo
-	rZb14KlAMeMcYsLvLepSKCb9Ej188vJ2Yw83fM8pIun5oMaIIryM4KAr72jeRNfueml5zB2NcCChE
-	RlDMXL3aO0DI6fV0XM6LPp6i6zf9kbgVsE+QuDpST9yzZbp37P8sX4yEvLz4thj5lBrUPnQnTOKRt
-	Z4iOiMX/Axzpo5NCW9gePlj6VOWlgL4JV+go19MpV7qUL4zDTxPHkrUjYVbNyfLy423BoeBXiYwzv
-	RgxdALswfkQzwEL6mHGWPjg1vTRB+0dxpebpk1vR/nb9MX91tLT5KeIrATp9r5kYSfU8Hh1GA+mxT
-	AGojYWDLTOc3IixKEnBA==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:
+	Mime-Version:References:In-Reply-To:From:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=XjN62pDzS8dfAV5FVuXrOUCLuVigrsQFOiKbuqTZSc0=; b=DD0JpUvToOzPGWBmHzPbjR4mZ2
+	2ZKEPX9QvtWzP70Ju6qN4vgu6mmaYnDxTJcfDBNgFX8ktx7NvnEJijBGwJ1a6DNMvkLJSNOkbgc+0
+	SaoDUEQde5irOyB6xAhLVeh/WtbOBJUxnFUrPgqY+LdsqU2A3XCuIw4IqmSEf/WLGCcnuFU53FbLD
+	XjedYRnSSSyH51XFmI3r9yptx3Xd2YN51+FGiYX9zQu+P3MSwqtjR/3aipbfc+RunF1ZUGEVn6XHZ
+	G5M/KxRxV4l8tv1csz86Gh/ENBsOPHy8iqzabndvKkHG6Ty5Tw6RRq9Ytm16jW8dodLqeqUGOGvc8
+	bhZDjydA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qjiwF-009P6i-2z;
-	Fri, 22 Sep 2023 16:23:31 +0000
-Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
+	id 1qjj8c-009QCt-1l;
+	Fri, 22 Sep 2023 16:36:18 +0000
+Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qjiwA-009P4w-2Z
+	id 1qjj8X-009QAw-2a
 	for linux-riscv@lists.infradead.org;
-	Fri, 22 Sep 2023 16:23:30 +0000
-Received: by mail-pf1-x42d.google.com with SMTP id d2e1a72fcca58-690b7cb71aeso1982483b3a.0
-        for <linux-riscv@lists.infradead.org>; Fri, 22 Sep 2023 09:23:24 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1695399804; x=1696004604; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=AHg6WGFiYjr1HXimk+u+8jzAweDZw4kGMIG8TL93+tY=;
-        b=HuIv6tmUJ+j7/x8VHrRk9/Dyls/Ez7Dw0Yevpf/ZtAgTs4zpX6rjCbPoAiqLw51lCb
-         lDrNWA4XCtfzgfuHiP2wfjG80Ng5d8hBIAcu6H2XmjJDj/wKGdC5BoSQVjmHQDEVZD9P
-         oXFQX1OMMsTpWqGJcsyhFJEtPaI65CJCnp5do3Q/2YXpFVBeS58h+ygpNzb6BxYazc/a
-         NGuFomwxZFLvSxg88Bn0Z71R3YFXMdmOa9vmuaUcvkl9y1VBX6Ig5eaEPFdpahy0oHUx
-         JWOyteP4uMLCoHiF83+Zw77TY8ZMLVwK2/A57YlhDGC0CjpDdlKmoJ19YfSRjU0IbJ2R
-         4hwQ==
+	Fri, 22 Sep 2023 16:36:17 +0000
+Received: from mail-qt1-f198.google.com (mail-qt1-f198.google.com [209.85.160.198])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 5F5AE421CD
+	for <linux-riscv@lists.infradead.org>; Fri, 22 Sep 2023 16:36:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+	s=20210705; t=1695400569;
+	bh=RKbV4MhZk6b87JTksm1ZK/ObuKYUjj6Uoe+MaWe9BjM=;
+	h=From:In-Reply-To:References:Mime-Version:Date:Message-ID:Subject:
+	 To:Cc:Content-Type;
+	b=axOpRfO6PfpGE2I6/iuXN+52W8z6r6OeH/Putaats6zPZaj53Dvhp17aXUAxdRWu5
+	 ARyhyDJlAy011T75vqdIstcXohjwNuE9NJ9/BpiHYEW6ha3abGBvVcGCHJrWuavJEa
+	 jVYe0AFjuoVvx7rU67/b4DN27aK83U1cNEBEeDRWRyuYHn+7gH2sRxc2z1I80LH+w4
+	 viJhXqHe8vZHK1y2X6YfIaMHNjgvb5z4BKvbwJEUxts/BsRziTfGT+cOzHhaN6vJ6f
+	 woJCMZ/C4mmJlSBFEpZYV+aM8kPzQg2knJFvvu+u4XUy5/WwCXGt8G6f369VYTh8dD
+	 ri+78Vh6Q3YJQ==
+Received: by mail-qt1-f198.google.com with SMTP id d75a77b69052e-41425c708ebso24863621cf.2
+        for <linux-riscv@lists.infradead.org>; Fri, 22 Sep 2023 09:36:09 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1695399804; x=1696004604;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=AHg6WGFiYjr1HXimk+u+8jzAweDZw4kGMIG8TL93+tY=;
-        b=xIUGwcFtuRbknOWlaxG3rDlNIAwKcKlmXpv3s86cimRcEKyW5KY5zvVxRXcgFphlAi
-         pLJK1K/yRXvll/J2vw/K6DfMgCLCtAHZjXFqvtFwoJmHRmoMkMsjf9II/+R+TUNy8/N9
-         VihwXAtGN79rpJ1b7N9opAUlpiMEGxTndmTQi42Mx/mDXETKraXHtNZWB4IFy2aIKiKy
-         +ohmS1TIOlsGxEvgfLnmsfFXVhCCaEJTT09tqFCsbZZW0gY7u9zpeChIMgCIggsYOKhX
-         BDDxuSWshYahjE+HiFFBAHWtAU6tuGertPXW+EJ86UUkGGcN4fg+3+KaEW8SK7lYEJ6p
-         rEPg==
-X-Gm-Message-State: AOJu0Yw8O3BeHBFkkYHLF9KFy3RyAUlBDhcoyNOuO8MywYjQb8B7LePt
-	caTmTzuNonRFGEFVwkp+tEZ0og==
-X-Google-Smtp-Source: AGHT+IFmxJwCFBncjjkZSaX6oosj8CqRhfXIommcUiSmAdtJAZgRc2IHT8A5lJUeO5ShWEdV/QZBwg==
-X-Received: by 2002:a05:6a20:7283:b0:134:73f6:5832 with SMTP id o3-20020a056a20728300b0013473f65832mr281394pzk.16.1695399803769;
-        Fri, 22 Sep 2023 09:23:23 -0700 (PDT)
-Received: from x1 ([2601:1c2:1800:f680:c44:77f:ca7d:adec])
-        by smtp.gmail.com with ESMTPSA id u25-20020a63a919000000b0057ab7d42a4dsm3249805pge.86.2023.09.22.09.23.22
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 22 Sep 2023 09:23:23 -0700 (PDT)
-Date: Fri, 22 Sep 2023 09:23:21 -0700
-From: Drew Fustini <dfustini@baylibre.com>
-To: Xi Ruoyao <xry111@xry111.site>
-Subject: Re: [PATCH 0/6] RISC-V: Add eMMC support for TH1520 boards
-Message-ID: <ZQ2/eUKbW3wK7kHp@x1>
-References: <20230921-th1520-mmc-v1-0-49f76c274fb3@baylibre.com>
- <c1a4a7ab5c68c00dd8b3bb249c0371dbb8bcb929.camel@xry111.site>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <c1a4a7ab5c68c00dd8b3bb249c0371dbb8bcb929.camel@xry111.site>
+        d=1e100.net; s=20230601; t=1695400568; x=1696005368;
+        h=cc:to:subject:message-id:date:mime-version:references:in-reply-to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=RKbV4MhZk6b87JTksm1ZK/ObuKYUjj6Uoe+MaWe9BjM=;
+        b=oSsUt1HZwJbOky6HONaC4MmN09/ph71Lj4QnaB/RDvMyrmiZTV0QfYu368YBVLjxah
+         EZ+rc5pWvKocmtZ9scwxQXQF86s37O+2bu8AaCD3ojuF5DLLU1obgHc/ZRelF5zbVrTd
+         jVA9c/OBXremus3e2VPLcFwfN8nZNP5HSB5TOBet+F48SqT8mpvhzksLFPkEpFweSprf
+         bGOYZEM15BvPBAP+1ltV4k6TVI44hYnKQqnt83mPk7yV19hx6i717GPeEdYFJSIXYJxI
+         wvdiLTtY1ldFwOVbg04q0kxZHt8C4J5xqA/6/nFrPe7nBG0eZcWMeXFmP+6rQ4VtLdDg
+         +0Xg==
+X-Gm-Message-State: AOJu0Yx0qpEOX2F3N2i4olGXI1ZhagxBW72DeoTUU0lsRjtVkKR9KRUB
+	xRemngJ4BR3WhrQOu6j9CQiM3aENbbiQNSynDVoMg0716V5lADw8z5cOe/whUsOxuRJXRByCSaZ
+	qEUPnXjlWNlqq9m2hS9p/S2iNEw5OCzMst7rEMNxgQkGGRzlZvJ87237bpL1Zs0ocJiexFw==
+X-Received: by 2002:a05:622a:1a9b:b0:400:9c4e:2abe with SMTP id s27-20020a05622a1a9b00b004009c4e2abemr9153629qtc.13.1695400568108;
+        Fri, 22 Sep 2023 09:36:08 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IHtMOJCOBegPGfmaYPe4P541XIPb9WGKoNNQRopHdNvUyr6IlUhMeHDT069xvrKjurwJHkDV/lgU//1vjPUCGw=
+X-Received: by 2002:a05:622a:1a9b:b0:400:9c4e:2abe with SMTP id
+ s27-20020a05622a1a9b00b004009c4e2abemr9153614qtc.13.1695400567857; Fri, 22
+ Sep 2023 09:36:07 -0700 (PDT)
+Received: from 348282803490 named unknown by gmailapi.google.com with
+ HTTPREST; Fri, 22 Sep 2023 11:36:07 -0500
+From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+In-Reply-To: <20230922062834.39212-4-william.qiu@starfivetech.com>
+References: <20230922062834.39212-1-william.qiu@starfivetech.com> <20230922062834.39212-4-william.qiu@starfivetech.com>
+Mime-Version: 1.0
+Date: Fri, 22 Sep 2023 11:36:07 -0500
+Message-ID: <CAJM55Z-huG6KSLywzA0Zih=MtzqvL0w+CxrqN7CKUrzor_A65g@mail.gmail.com>
+Subject: Re: [PATCH v3 3/3] riscv: dts: starfive: add assigned-clock* to limit frquency
+To: William Qiu <william.qiu@starfivetech.com>, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	linux-mmc@vger.kernel.org
+Cc: Emil Renner Berthing <kernel@esmil.dk>, Rob Herring <robh+dt@kernel.org>, 
+	Jaehoon Chung <jh80.chung@samsung.com>, Ulf Hansson <ulf.hansson@linaro.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230922_092327_155028_5C3D19BD 
-X-CRM114-Status: GOOD (  29.48  )
+X-CRM114-CacheID: sfid-20230922_093614_230000_0139B23D 
+X-CRM114-Status: GOOD (  11.56  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,71 +98,50 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, Ulf Hansson <ulf.hansson@linaro.org>, Albert Ou <aou@eecs.berkeley.edu>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Jason Kridner <jkridner@beagleboard.org>, linux-kernel@vger.kernel.org, Han Gao <gaohan@iscas.ac.cn>, linux-mmc@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Conor Dooley <conor@kernel.org>, Adrian Hunter <adrian.hunter@intel.com>, Rob Herring <robh+dt@kernel.org>, Guo Ren <guoren@kernel.org>, Jisheng Zhang <jszhang@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org, Robert Nelson <robertcnelson@beagleboard.org>, Fu Wei <wefu@redhat.com>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 22, 2023 at 07:41:37PM +0800, Xi Ruoyao wrote:
-> On Thu, 2023-09-21 at 18:49 -0700, Drew Fustini wrote:
-> > This series adds support for the eMMC on the BeagleV Ahead and the
-> > Sipeed LicheePi 4A. This allows the kernel to boot with the rootfs on
-> > eMMC.
-> > =
+William Qiu wrote:
+> In JH7110 SoC, we need to go by-pass mode, so we need add the
+> assigned-clock* properties to limit clock frquency.
+>
+> Signed-off-by: William Qiu <william.qiu@starfivetech.com>
 
-> > I tested on top of v6.6-rc2 with this config [1]. I was able to boot
-> > both the Ahead [2] and LPi4a [3] from eMMC. The following prerequisites
-> > are required:
-> > =
+Thanks!
 
-> > =A0 [PATCH v2] riscv: dts: thead: set dma-noncoherent to soc bus [4]
-> > =
+Reviewed-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
 
-> > I pushed a branch [5] with this patch series and the above patch for
-> > those that find a git branch easier to test.
-> > =
-
-> > Please note that only the MMC controller connected to the eMMC device
-> > is enabled in the device trees for these two boards. I did not yet
-> > attempt to configure and use the microSD card slot. My preference is to
-> > address that in a future patch series.
-> > =
-
-> > References:
-> > [1] https://gist.github.com/pdp7/5fbdcf2a65eb1abdd3a29d519c19cdd2
-> > [2] https://gist.github.com/pdp7/91a801a5f8d1070c53509eda9800ad78
-> > [3] https://gist.github.com/pdp7/1445c3c991e88fd69c60165cef65726a
-> > [4] https://lore.kernel.org/linux-riscv/20230912072232.2455-1-jszhang@k=
-ernel.org/
-> > [5] https://github.com/pdp7/linux/tree/b4/th1520-mmc
-> =
-
-> I've tested this branch and successfully booted a rootfs on Lichee Pi 4A
-> eMMC with rootdelay=3D10.
-> =
-
-> Curiously is there some way to make it work without rootdelay?
-
-Thank you for testing.
-
-This is the kernel command line that I am using on both the lpi4 and
-the ahead:
-
-root=3D/dev/mmcblk0p3 ro rootfstype=3Dext4 rootwait console=3DttyS0,115200
-
-I seem to recall that before I used rootwait that there would be a VFS
-oops because mmcblk0p3 didn't exist yet.
-
-Have you tried rootwait instead of the 10 second delay?
-
-I imagine an enforced delay would be very annoying. With "rootwait", I
-don't notice any delay, it boots to the login prompt faster than I can
-read the text scrolling by during boot. (my rootfs is a simple
-buildroot).
-
-thanks,
-drew
+> ---
+>  .../riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi | 4 ++++
+>  1 file changed, 4 insertions(+)
+>
+> diff --git a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
+> index d79f94432b27..d1f2ec308bca 100644
+> --- a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
+> +++ b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
+> @@ -205,6 +205,8 @@ &i2c6 {
+>
+>  &mmc0 {
+>  	max-frequency = <100000000>;
+> +	assigned-clocks = <&syscrg JH7110_SYSCLK_SDIO0_SDCARD>;
+> +	assigned-clock-rates = <50000000>;
+>  	bus-width = <8>;
+>  	cap-mmc-highspeed;
+>  	mmc-ddr-1_8v;
+> @@ -221,6 +223,8 @@ &mmc0 {
+>
+>  &mmc1 {
+>  	max-frequency = <100000000>;
+> +	assigned-clocks = <&syscrg JH7110_SYSCLK_SDIO1_SDCARD>;
+> +	assigned-clock-rates = <50000000>;
+>  	bus-width = <4>;
+>  	no-sdio;
+>  	no-mmc;
+> --
+> 2.34.1
+>
 
 _______________________________________________
 linux-riscv mailing list
