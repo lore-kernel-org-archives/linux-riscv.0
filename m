@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95072CD4F33
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8B90CD4F2B
 	for <linux-riscv@archiver.kernel.org>; Fri, 22 Sep 2023 08:16:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,39 +12,39 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1g+Bx4XntTa+iareKfcCxVzA6Ug84bJhI36tBOgAnOQ=; b=n5sFKBnieaXI2E
-	a+QPoLhTzufJVPhaIjA8U+LUdr7trsjLrPDfxGHZSrg3M4C79+keHH+0QCK3Xh8OcTIP3PKFnjTVq
-	uPzi3fBUqcFKSoHrJCHJHk3hqa51xmDNj6MKTexKUzFBGqGBsx9ErxI+bTqGGK9+RWs0fcBNdb77C
-	bNMgZTvI0lhjssOLMF7nW8a5/LNEJ+n/AdJMXVR37ZX/6hQBkr9gHNnRYNQ6bj8vyo0yyYo086Fqj
-	vOPMf6jXWSIjuMKR9AutiK7emADobGDnUUwPYqZ4IlqbUEw7di3m/Zmq7Hr8HY0z3bVu4yL6tB1Pl
-	p9HYe/f2c2GQebsm4TVg==;
+	List-Owner; bh=1zZISSQOElX5vejUFerMupTh4mE8rIcUEF7w4hGosEI=; b=dywUi8baoLMvzY
+	0jhoHBAZ9cxdtUbbciAMZwimldKZCyH/TfwpwToqloExnmvhskHIP7HgvxIdS72cSB928lVAZSS5R
+	mRC9JywLN8sacnFlLM16x09ep5OsIFue6i2j/nvc8PHpqra1SHH/cMCHqEvkctvGCR31OArgPIC8s
+	cHBTTmTQHSUMgYgYe5pZoVx3dJCGTXuTzQ7g1Qg3el+zIflTbZiW/6ZC6JBL1a6tETHJ/gNVRjhAj
+	vOClCrfGG6xTlHdju1Nqsrmlj0F8WKqZM7rppdj7Mv+tQ+XdtgWJ+cYQ836SURvGP9UIs/U2IBh6z
+	wFSRaA7zosUqS5E8ngxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qjbKV-008O0U-1N;
-	Fri, 22 Sep 2023 08:16:03 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1qjbKU-008O07-2o;
+	Fri, 22 Sep 2023 08:16:02 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qjbKQ-008NxE-1v
+	id 1qjbKO-008Nu9-07
 	for linux-riscv@lists.infradead.org;
-	Fri, 22 Sep 2023 08:16:00 +0000
+	Fri, 22 Sep 2023 08:15:57 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 0FAA362219;
-	Fri, 22 Sep 2023 08:15:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 84F5DC433CD;
-	Fri, 22 Sep 2023 08:15:53 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 679C0B82274;
+	Fri, 22 Sep 2023 08:15:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B513BC433D9;
+	Fri, 22 Sep 2023 08:15:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1695370557;
-	bh=nPbrg4k7TDBSAiDREwya4kBzfJcwU51YnoJ26drHudk=;
+	s=k20201202; t=1695370553;
+	bh=d1ImFYYXezT00el4hcT8tQJFJvjFQvrVeE4jFbcVxns=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=vIfhMJp98T6FV2x2YUGLVQPEgw8B2oskkCAVypHXg9s0Aqc5W0/bfz1xFoOR8Dpvv
-	 RYZbhqo0IhFr/nUImQzQ5pOrVqr2cOsqSgaXmwlv2hXh92JrDaJegfbtU/+NEDox87
-	 V4mnSLhPmOxEW7ylDdth1bTnn+26LSYVPwgHOFKA6XPO1yPj1B8cS+XvXi9J9J9u1g
-	 5w9/86S2ldBNMm7WmBBfQmM8B4fMG1R86gSyv0Z/ohCAA+0ohCCMdn4k3fHHOUkIMP
-	 4jMsEHNkIHpsx28upwv8SbO8RHW6ZAxq0hLi7loxSgq9Ic0VE7YdRdOWDmUFcFINK5
-	 p+ak9LnzvwPbw==
+	b=IpqfxJIp55U+wZVD1K+/7YHC5FvK9waxEY2zJ58eqzu0l7k+gXxzNcvQNqC2jjHSy
+	 bdTzn8FTRfyFu/8xQdhjBBxhUzrXmtciBxN+sQtYmtdUjIW4yggOpjMs9ikRcfYX2s
+	 gVnuD2uLqHwg8UVHh4VbLGVVnODYx4x7tLUukPW8urSWOdKbz+WgqLne3Uv7fanK/E
+	 1LUx5+A+++jQotzyshbfoaLhlxLomh/IcDHQScIGlXibMK2mtzs4M64RE3qe8p/QQD
+	 lDiBXGB5Q+w9MnpV52rH0xACE5lXUGDqObgPa3quzsitTBFIKBv4qI+ITsUdylFpWT
+	 /s8NNqOi0QWCg==
 From: Conor Dooley <conor@kernel.org>
 To: linux-riscv@lists.infradead.org
 Cc: conor@kernel.org,
@@ -69,16 +69,16 @@ Cc: conor@kernel.org,
 	devicetree@vger.kernel.org,
 	linux-sunxi@lists.linux.dev,
 	linux-renesas-soc@vger.kernel.org
-Subject: [RFC v2 5/6] riscv: dts: allwinner: convert isa detection to new properties
-Date: Fri, 22 Sep 2023 09:13:50 +0100
-Message-ID: <20230922081351.30239-7-conor@kernel.org>
+Subject: [RFC v2 4/6] riscv: dts: renesas: convert isa detection to new properties
+Date: Fri, 22 Sep 2023 09:13:49 +0100
+Message-ID: <20230922081351.30239-6-conor@kernel.org>
 X-Mailer: git-send-email 2.41.0
 In-Reply-To: <20230922081351.30239-2-conor@kernel.org>
 References: <20230922081351.30239-2-conor@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230922_011558_676282_0A3222BB 
-X-CRM114-Status: UNSURE (   9.48  )
+X-CRM114-CacheID: sfid-20230922_011556_230236_35B7680C 
+X-CRM114-Status: UNSURE (   9.66  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -98,29 +98,29 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Conor Dooley <conor.dooley@microchip.com>
 
-Convert the D1 devicetrees to use the new properties
+Convert the RZ/Five devicetrees to use the new properties
 "riscv,isa-base" & "riscv,isa-extensions".
 For compatibility with other projects, "riscv,isa" remains.
 
 Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- arch/riscv/boot/dts/allwinner/sun20i-d1s.dtsi | 3 +++
+ arch/riscv/boot/dts/renesas/r9a07g043f.dtsi | 3 +++
  1 file changed, 3 insertions(+)
 
-diff --git a/arch/riscv/boot/dts/allwinner/sun20i-d1s.dtsi b/arch/riscv/boot/dts/allwinner/sun20i-d1s.dtsi
-index 8275630af977..947e975d2476 100644
---- a/arch/riscv/boot/dts/allwinner/sun20i-d1s.dtsi
-+++ b/arch/riscv/boot/dts/allwinner/sun20i-d1s.dtsi
-@@ -25,6 +25,9 @@ cpu0: cpu@0 {
- 			mmu-type = "riscv,sv39";
- 			operating-points-v2 = <&opp_table_cpu>;
+diff --git a/arch/riscv/boot/dts/renesas/r9a07g043f.dtsi b/arch/riscv/boot/dts/renesas/r9a07g043f.dtsi
+index 6ec1c6f9a403..8a726407fb76 100644
+--- a/arch/riscv/boot/dts/renesas/r9a07g043f.dtsi
++++ b/arch/riscv/boot/dts/renesas/r9a07g043f.dtsi
+@@ -24,6 +24,9 @@ cpu0: cpu@0 {
+ 			reg = <0x0>;
+ 			status = "okay";
  			riscv,isa = "rv64imafdc";
 +			riscv,isa-base = "rv64i";
 +			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "zicntr", "zicsr",
 +					       "zifencei", "zihpm";
- 			#cooling-cells = <2>;
- 
- 			cpu0_intc: interrupt-controller {
+ 			mmu-type = "riscv,sv39";
+ 			i-cache-size = <0x8000>;
+ 			i-cache-line-size = <0x40>;
 -- 
 2.41.0
 
