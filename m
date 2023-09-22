@@ -4,71 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9083CD4F2E
-	for <linux-riscv@archiver.kernel.org>; Fri, 22 Sep 2023 07:43:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B4F4CD4F27
+	for <linux-riscv@archiver.kernel.org>; Fri, 22 Sep 2023 07:43:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BdZ0UzVBeAqA8ciADZi5gXy+pIBAVMOFhYweKlP7YcY=; b=oqahdXzphi9rNr
-	I/gAToTMTKVn/iZolUTyoW8A1M/KcE4gAXuvBLTLeqOFbxj8I7wdeCruO1mHhD2vgw2cKd/StiSJu
-	HQtb9gskpsEGCcWH7CvJtV7qCjEEhsB9C0ILdIaTXxrJVxdn6eQkhBU/PgAI2JVFYOehIDSqrXZww
-	h+/hBdv4+JXGvSW+18beAMByEtBhm5NB1bT2Ev/I+hGpaBeQ6ZXJsHxDhcP4o5Ckyv9gWrE8TSDMg
-	DgRZyP3CVVHQZVd2aYEovDHIjp4+cfuPiiu/D+CYO8M3GoFN/lWho7jDsdPLGHdyOkdhO/2vPKknt
-	kjMyHpKkMBRBDnFBzc3w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=skLcxlTUJZWabgqh+VWbOaEkvaZkEN05Ys6MMzN2RqY=; b=utMoCYqdX2imJuSXsSGr9Mhdf8
+	BBhh6Ce9TXF+6REY3BE44D2sr6DotouqFCV0gF+ryXsppmnIG5s0ryW78ez84sJIyidSmHQ+yGu5X
+	dA1vG3UNjUCAcpNQK6H8H3ma0k8ql1thrtQ0hXguXtYSAOQOQO8Hepy3yfo56okDXu75pIjaLjJ41
+	2j4dc2c8/W24BrqIIja0IX3L4kyBh8nfkTpbNZxok0gymzgQamxbN+2QA4ASDa93fVGpEfgXA29xt
+	topkFinvDlm4gn99RGaiRLYIeiQbQG3cQSPpUGjaVD2PX7JZSkN5ONg7DLfVM+Vpp+ZPYh4pw5r6E
+	JdSlGQ6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qjaom-008Ez7-0b;
-	Fri, 22 Sep 2023 07:43:16 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qjanf-008EGJ-34;
-	Fri, 22 Sep 2023 07:42:13 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1CC2DDA7;
-	Fri, 22 Sep 2023 00:42:43 -0700 (PDT)
-Received: from [10.57.65.11] (unknown [10.57.65.11])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F3AA23F5A1;
-	Fri, 22 Sep 2023 00:41:54 -0700 (PDT)
-Message-ID: <af6a0bb0-4645-4667-aa0e-e78fac3aad28@arm.com>
-Date: Fri, 22 Sep 2023 08:41:54 +0100
+	id 1qjapA-008FEz-16;
+	Fri, 22 Sep 2023 07:43:40 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1qjap6-008FCc-1f
+	for linux-riscv@lists.infradead.org;
+	Fri, 22 Sep 2023 07:43:38 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id E48DD62150;
+	Fri, 22 Sep 2023 07:43:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EE3F9C433C9;
+	Fri, 22 Sep 2023 07:43:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1695368615;
+	bh=6tDdJhC5FZTkZ44FitxejpeH8ROnFdmLxtwON7CZxos=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=gHCcR7uevrEt/tblgFyS8s6RWTN+evtBWD9f41ZMQtTiZRu+rMDyhF69JZWibazdb
+	 JVJg2Pju6Hn948H42DNwQO14rVloH63//0+P2JkiaRRSgS/hiZ1ncTjS+mtqm5IvQl
+	 cdTRq9/bW6t+skQeZZBWqL38+eppuIKtbmaL5DK+nQBBt6NPc60y4NPh5nyyV/3CGw
+	 o4jKhBXlLPzhYw+O1geUbIltuM+Z/06YBO9nIS90CBKbpFBOEGSgNRyKHsAf+rzc09
+	 HsuclSjEKPPaIk2mtSaPJTCkOOUahz3IsQMFjD/1jNhSHnAkXd1bFEFYG8UfoRaM9x
+	 BryNMs7nbBblw==
+Date: Fri, 22 Sep 2023 08:43:29 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Inochi Amaoto <inochiama@outlook.com>
+Cc: Anup Patel <apatel@ventanamicro.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	aou@eecs.berkeley.edu, chao.wei@sophgo.com,
+	evicetree@vger.kernel.org, emil.renner.berthing@canonical.com,
+	guoren@kernel.org, jszhang@kernel.org,
+	krzysztof.kozlowski+dt@linaro.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, palmer@dabbelt.com,
+	paul.walmsley@sifive.com, robh+dt@kernel.org,
+	xiaoguang.xing@sophgo.com, Chen Wang <wangchen20@iscas.ac.cn>
+Subject: Re: [PATCH v2 06/11] dt-bindings: timer: Add Sophgo sg2042 clint
+Message-ID: <20230922-thumb-galvanize-bef393a1bda4@spud>
+References: <20230920-992a56b66366f3c0591a6a94@fedora>
+ <IA1PR20MB4953D983915AD8E35FD3E51FBBFFA@IA1PR20MB4953.namprd20.prod.outlook.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 0/8] Fix set_huge_pte_at() panic on arm64
-Content-Language: en-GB
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>, Will Deacon <will@kernel.org>,
- "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
- Helge Deller <deller@gmx.de>, Nicholas Piggin <npiggin@gmail.com>,
- Christophe Leroy <christophe.leroy@csgroup.eu>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
- Alexander Gordeev <agordeev@linux.ibm.com>,
- Christian Borntraeger <borntraeger@linux.ibm.com>,
- Sven Schnelle <svens@linux.ibm.com>,
- Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
- "David S. Miller" <davem@davemloft.net>, Arnd Bergmann <arnd@arndb.de>,
- Mike Kravetz <mike.kravetz@oracle.com>, Muchun Song <muchun.song@linux.dev>,
- SeongJae Park <sj@kernel.org>, Uladzislau Rezki <urezki@gmail.com>,
- Christoph Hellwig <hch@infradead.org>, Lorenzo Stoakes <lstoakes@gmail.com>,
- Anshuman Khandual <anshuman.khandual@arm.com>, Peter Xu <peterx@redhat.com>,
- Axel Rasmussen <axelrasmussen@google.com>,
- Qi Zheng <zhengqi.arch@bytedance.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-parisc@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
- linux-s390@vger.kernel.org, sparclinux@vger.kernel.org, linux-mm@kvack.org,
- stable@vger.kernel.org, Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-References: <20230921162007.1630149-1-ryan.roberts@arm.com>
- <20230921093026.230b2991be551093e397f462@linux-foundation.org>
- <7c5c2c00-d657-44fd-b478-743b43c57e8a@arm.com> <ZQx/f35o0zT2lug4@arm.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <ZQx/f35o0zT2lug4@arm.com>
+In-Reply-To: <IA1PR20MB4953D983915AD8E35FD3E51FBBFFA@IA1PR20MB4953.namprd20.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230922_004208_301415_C2F630FA 
-X-CRM114-Status: GOOD (  15.15  )
+X-CRM114-CacheID: sfid-20230922_004336_644610_9C0247D3 
+X-CRM114-Status: GOOD (  21.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,66 +77,89 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============8001540055739967456=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 21/09/2023 18:38, Catalin Marinas wrote:
-> On Thu, Sep 21, 2023 at 05:35:54PM +0100, Ryan Roberts wrote:
->> On 21/09/2023 17:30, Andrew Morton wrote:
->>> On Thu, 21 Sep 2023 17:19:59 +0100 Ryan Roberts <ryan.roberts@arm.com> wrote:
->>>> Ryan Roberts (8):
->>>>   parisc: hugetlb: Convert set_huge_pte_at() to take vma
->>>>   powerpc: hugetlb: Convert set_huge_pte_at() to take vma
->>>>   riscv: hugetlb: Convert set_huge_pte_at() to take vma
->>>>   s390: hugetlb: Convert set_huge_pte_at() to take vma
->>>>   sparc: hugetlb: Convert set_huge_pte_at() to take vma
->>>>   mm: hugetlb: Convert set_huge_pte_at() to take vma
->>>>   arm64: hugetlb: Convert set_huge_pte_at() to take vma
->>>>   arm64: hugetlb: Fix set_huge_pte_at() to work with all swap entries
->>>>
->>>>  arch/arm64/include/asm/hugetlb.h              |  2 +-
->>>>  arch/arm64/mm/hugetlbpage.c                   | 22 ++++----------
->>>>  arch/parisc/include/asm/hugetlb.h             |  2 +-
->>>>  arch/parisc/mm/hugetlbpage.c                  |  4 +--
->>>>  .../include/asm/nohash/32/hugetlb-8xx.h       |  3 +-
->>>>  arch/powerpc/mm/book3s64/hugetlbpage.c        |  2 +-
->>>>  arch/powerpc/mm/book3s64/radix_hugetlbpage.c  |  2 +-
->>>>  arch/powerpc/mm/nohash/8xx.c                  |  2 +-
->>>>  arch/powerpc/mm/pgtable.c                     |  7 ++++-
->>>>  arch/riscv/include/asm/hugetlb.h              |  2 +-
->>>>  arch/riscv/mm/hugetlbpage.c                   |  3 +-
->>>>  arch/s390/include/asm/hugetlb.h               |  8 +++--
->>>>  arch/s390/mm/hugetlbpage.c                    |  8 ++++-
->>>>  arch/sparc/include/asm/hugetlb.h              |  8 +++--
->>>>  arch/sparc/mm/hugetlbpage.c                   |  8 ++++-
->>>>  include/asm-generic/hugetlb.h                 |  6 ++--
->>>>  include/linux/hugetlb.h                       |  6 ++--
->>>>  mm/damon/vaddr.c                              |  2 +-
->>>>  mm/hugetlb.c                                  | 30 +++++++++----------
->>>>  mm/migrate.c                                  |  2 +-
->>>>  mm/rmap.c                                     | 10 +++----
->>>>  mm/vmalloc.c                                  |  5 +++-
->>>>  22 files changed, 80 insertions(+), 64 deletions(-)
->>>
->>> Looks scary but it's actually a fairly modest patchset.  It could
->>> easily be all rolled into a single patch for ease of backporting. 
->>> Maybe Greg has an opinion?
->>
->> Yes, I thought about doing that; or perhaps 2 patches - one for the interface
->> change across all arches and core code, and one for the actual bug fix?
-> 
-> I think this would make more sense, especially if we want to backport
-> it. The first patch would have no functional change, only an interface
-> change, followed by the arm64 fix.
 
-OK I'll do it like this for v2.
+--===============8001540055739967456==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="WhczGDiSuZFNERlK"
+Content-Disposition: inline
 
-> 
 
+--WhczGDiSuZFNERlK
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Fri, Sep 22, 2023 at 01:16:35PM +0800, Inochi Amaoto wrote:
+
+> >> The SiFive CLINT has flexibility related limitations which makes it
+> >> not useful for multi-socket and mult-die systems. The SiFive CLINT
+> >> is also not useful for systems with AIA because with AIA M-mode has
+> >> a new way of doing M-mode IPIs. Due to this reasons, the RISC-V
+> >> ACLINT spec breaks down traditional SiFive CLINT into two separate
+> >> devices namely mtimer and mswi. This allows platforms to implement
+> >> only the required set of devices. The mtimer as defined by the ACLINT
+> >> specifications also allows platforms to place mtime and mtimecmp
+> >> registers at different locations.
+> >>
+> >> Refer, https://github.com/riscv/riscv-aclint/blob/main/riscv-aclint.ad=
+oc
+> >>
+> >> We need a separate DT bindings document for ACLINT MTIMER
+> >> and ACLINT MSWI because these are separate devices. The
+> >> Sophgo sg2042 SoC should add their implementation specific
+> >> compatible strings in this document.
+> >
+> >If the spec isn't frozen, I'm not accepting a binding for the "generic"
+> >version of it. Bindings for this specific implemtnation are okay.
+> >For sure though, squeezing this into the sifive,plic binding isn't
+> >appropriate.
+> >
+>=20
+> It seems I have missed a point. I wonder whether it is better to add a
+> "aclint" binding firstly and then add sg2042 to it, or just use sg2042
+> specific binding?
+
+sg2042 specific, being frozen is a requirement for merging patches
+related to RVI specifications.
+
+> If use "aclint" binding, I wonder it is OK to add
+> thead quirks as compatible specific properties, or left this to the SBI to
+> handle? e.g. T-HEAD timer is not 64bit timer, and we should identify this.
+
+The compatible string alone should be sufficient to identify the width
+of the timer etc.
+
+Thanks,
+Conor.
+
+--WhczGDiSuZFNERlK
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZQ1FoQAKCRB4tDGHoIJi
+0iryAP9MnKwWi0NmDf7v8Kg2LJZpGsuhw2tAXlM69r9GgbrWZAD/aO3LLbNs7KmQ
+32cKVwtSC7/7GIBcbTW9a81enmp4VQ8=
+=mBQ0
+-----END PGP SIGNATURE-----
+
+--WhczGDiSuZFNERlK--
+
+
+--===============8001540055739967456==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============8001540055739967456==--
+
