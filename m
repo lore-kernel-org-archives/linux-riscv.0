@@ -4,82 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E6D1CD4F42
-	for <linux-riscv@archiver.kernel.org>; Fri, 22 Sep 2023 09:38:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E689BCD4F44
+	for <linux-riscv@archiver.kernel.org>; Fri, 22 Sep 2023 09:39:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SxzVDGQ+FzW6c4GSxztsPrG3f8EhVt1Q+jBY6TU07Zo=; b=HNgkYk+2/ClThq
-	23R1svFpXakY+F2I6xlG4u3jprpHoW4Oz37106dzlg/hYOrOpT70RrtEFS4zzUBQ5JE3ToPPc5Bj6
-	d0bme8d3wJe/17ialxZPkgeBr+TC+t+6KRF5A/AgnBSiOmUqH3fdHOBwzv7yxT3ulvY60bRMBVPKu
-	jSf3utwBMVCKbt5YCizE5iBWNN0PYYz0HS3oCi40QMKVN8A6PSntjETv2RVncletRv6N01X0doKYH
-	In2DIx1efEQ4pAjcoCmpMs3TJrDAf3BbVz0D9y6aSb4wi1evEJEGodApULK/yhXYtKCqXhID2/zhi
-	0fp4HalkHWWxC0bhXN2Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:Cc:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fKU7J6efThF4E7jA3UPLTogwFkEfNq9k6J9GsS5iMVI=; b=bD9qR8EUZcsfAbg2uf7U5JuOtM
+	DnKxuD5Rq3dPLFwUJOW+v6uYFF/3JrWQr56esHhHFvJY5uQkisXku7yPd1pzBMH5FdDH9cl6GMUuL
+	E0lkv08zeFpJ/4jbFRZg8D2MgandDtLOB4D+XPErZ2DaVkhE/axkouj41wJpZDI1IL0tMitQdRtiC
+	5YzQeV8J69IAb3RBgRN1leJTRJ10MyXH1ssjaGHGVIMZr6mERxsyuR8i/eHrdzJnGD2agIvLJoi9A
+	0kjz304ZZqo1F4jZN3IzFibr4LxeJtbJFzmJVRJxhkebuJZTb2wOjHbf2dCSBPRwJdARiWAYsCu78
+	S4tCk+sw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qjcbu-008bLO-2w;
-	Fri, 22 Sep 2023 09:38:06 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qjcbr-008bJS-0K;
-	Fri, 22 Sep 2023 09:38:04 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E8769DA7;
-	Fri, 22 Sep 2023 02:38:34 -0700 (PDT)
-Received: from [10.57.65.11] (unknown [10.57.65.11])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4A97B3F5A1;
-	Fri, 22 Sep 2023 02:37:53 -0700 (PDT)
-Message-ID: <806eceac-8f97-403d-bee7-4fbc9e75e872@arm.com>
-Date: Fri, 22 Sep 2023 10:37:52 +0100
+	id 1qjccn-008bXt-1H;
+	Fri, 22 Sep 2023 09:39:01 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1qjccj-008bVx-2h;
+	Fri, 22 Sep 2023 09:38:59 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by sin.source.kernel.org (Postfix) with ESMTPS id 6F078CE22BD;
+	Fri, 22 Sep 2023 09:38:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 19D5BC433C7;
+	Fri, 22 Sep 2023 09:38:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1695375533;
+	bh=6x7OVLHHQ75Pnr2xNF7AcbI629MqB8424pBLt1b4zJY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=AE2G41lCD8oy6p9WUm4ci2i1unJemR9tqF7c5SAXFqBtaQ25hWiz7CEG+VQ7BxK6a
+	 FxC26RZC9Hvhz02QHpQDjipk2/5ZuU94M17DYRxnjPan7auMzmiyT0Sk0DAlB4Wyb5
+	 vMjvxrH8T9vvNDyuq8ommbMoxVfdI4R55Z9tlWLhARthdUxT0Y/tn2lvqOU5ARWq9k
+	 91lN9S39OLfMsoMOFwMuB0fw7Fe+NRQrTLpFTK4yKpJKNJzu+eZTvbGSP5xnMZ3L6T
+	 EJ4WNdInIf5L15hPsonKHqR6nTPGtGeBOTN7SA0Za6NAblIfH72MCcTxy30Ce5BIyL
+	 C6iD0ME3hoAYA==
+Date: Fri, 22 Sep 2023 10:38:45 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Yong-Xuan Wang <yongxuan.wang@sifive.com>
+Subject: Re: [PATCH v2 1/3] RISC-V: Detect and Enable Svadu Extension Support
+Message-ID: <20230922-italics-pursuit-424b1ad71ef1@spud>
+References: <20230922085701.3164-1-yongxuan.wang@sifive.com>
+ <20230922085701.3164-2-yongxuan.wang@sifive.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 2/8] powerpc: hugetlb: Convert set_huge_pte_at() to
- take vma
-Content-Language: en-GB
-To: Christophe Leroy <christophe.leroy@csgroup.eu>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
- Helge Deller <deller@gmx.de>, Nicholas Piggin <npiggin@gmail.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
- Alexander Gordeev <agordeev@linux.ibm.com>,
- Christian Borntraeger <borntraeger@linux.ibm.com>,
- Sven Schnelle <svens@linux.ibm.com>,
- Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
- "David S. Miller" <davem@davemloft.net>, Arnd Bergmann <arnd@arndb.de>,
- Mike Kravetz <mike.kravetz@oracle.com>, Muchun Song <muchun.song@linux.dev>,
- SeongJae Park <sj@kernel.org>, Andrew Morton <akpm@linux-foundation.org>,
- Uladzislau Rezki <urezki@gmail.com>, Christoph Hellwig <hch@infradead.org>,
- Lorenzo Stoakes <lstoakes@gmail.com>,
- Anshuman Khandual <anshuman.khandual@arm.com>, Peter Xu <peterx@redhat.com>,
- Axel Rasmussen <axelrasmussen@google.com>,
- Qi Zheng <zhengqi.arch@bytedance.com>
-Cc: "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-parisc@vger.kernel.org" <linux-parisc@vger.kernel.org>,
- "linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- "linux-s390@vger.kernel.org" <linux-s390@vger.kernel.org>,
- "sparclinux@vger.kernel.org" <sparclinux@vger.kernel.org>,
- "linux-mm@kvack.org" <linux-mm@kvack.org>,
- "stable@vger.kernel.org" <stable@vger.kernel.org>
-References: <20230921162007.1630149-1-ryan.roberts@arm.com>
- <20230921162007.1630149-3-ryan.roberts@arm.com>
- <0f2dd31a-a361-24ba-154d-4e614c0eff73@csgroup.eu>
- <597e7496-ef99-4505-88ee-91701af02835@arm.com>
- <5ee382da-0ed0-9fb1-7640-35ef77c195fc@csgroup.eu>
- <871d277e-6c4e-418a-9574-2e9117646ca2@arm.com>
- <1cc4d995-efeb-9d15-446f-475e63154a2d@csgroup.eu>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <1cc4d995-efeb-9d15-446f-475e63154a2d@csgroup.eu>
+In-Reply-To: <20230922085701.3164-2-yongxuan.wang@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230922_023803_231658_D5361ECB 
-X-CRM114-Status: GOOD (  14.95  )
+X-CRM114-CacheID: sfid-20230922_023858_085781_6636FD2B 
+X-CRM114-Status: GOOD (  10.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,42 +67,61 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: Heiko Stuebner <heiko@sntech.de>, Kemeng Shi <shikemeng@huaweicloud.com>, Daniel Henrique Barboza <dbarboza@ventanamicro.com>, Conor Dooley <conor.dooley@microchip.com>, Guo Ren <guoren@kernel.org>, Jisheng Zhang <jszhang@kernel.org>, Qinglin Pan <panqinglin2020@iscas.ac.cn>, linux-riscv@lists.infradead.org, alex@ghiti.fr, David Hildenbrand <david@redhat.com>, "Matthew Wilcox \(Oracle\)" <willy@infradead.org>, tjytimi@163.com, greentime.hu@sifive.com, wchen <waylingii@gmail.com>, Sergey Matyukevich <sergey.matyukevich@syntacore.com>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alexghiti@rivosinc.com>, Charlie Jenkins <charlie@rivosinc.com>, Paul Walmsley <paul.walmsley@sifive.com>, Anup Patel <apatel@ventanamicro.com>, Rick Edgecombe <rick.p.edgecombe@intel.com>, linux-kernel@vger.kernel.org, vincent.chen@sifive.com, Evan Green <evan@rivosinc.com>, Palmer Dabbelt <palmer@dabbelt.com>, kvm-riscv@lists.infradead.org, Andrew Morton <akpm@linux-foundation.org>, Andrew Jones <ajones@ventanamicro.com>
+Content-Type: multipart/mixed; boundary="===============5328517262634367810=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMjIvMDkvMjAyMyAxMDoxNCwgQ2hyaXN0b3BoZSBMZXJveSB3cm90ZToKPiAKPiAKPiBMZSAy
-Mi8wOS8yMDIzIMOgIDEwOjQxLCBSeWFuIFJvYmVydHMgYSDDqWNyaXTCoDoKPj4gT24gMjIvMDkv
-MjAyMyAwOToxMCwgQ2hyaXN0b3BoZSBMZXJveSB3cm90ZToKPj4+Cj4+Pgo+Pj4+IEknbSBoYXBw
-eSB0byB0YWtlIHlvdXIgcHJvcG9zZWQgYXBwcm9hY2ggaWYgdGhhdCdzIHlvdXIgcHJlZmVyZW5j
-ZS4gQW5vdGhlcgo+Pj4+IG9wdGlvbiBpcyB0byB1c2UgYSBkdW1teSBWTUEsIGFzIEkgaGF2ZSBk
-b25lIGluIHRoZSBjb3JlIGNvZGUsIGZvciB0aGUgb25lIGNhbGwKPj4+PiBzaXRlIHRoYXQgY2Fs
-bHMgc2V0X2h1Z2VfcHRlX2F0KCkgd2l0aCBpbml0X21tOgo+Pj4+Cj4+Pj4gc3RydWN0IHZtX2Fy
-ZWFfc3RydWN0IHZtYSA9IFRMQl9GTFVTSF9WTUEoJmluaXRfbW0sIDApOwo+Pj4+Cj4+Pj4gVGhp
-cyBpcyBhbiBleGlzdGluZyBtYWNybyB0aGF0IGNyZWF0ZXMgYSBkdW1teSB2bWEgd2l0aCB2bWEt
-PnZtX21tIGZpbGxlZCBpbi4KPj4+PiBUaGVuIEkgcGFzcyAmdm1hIHRvIHRoZSBmdW5jdGlvbi4K
-Pj4+Cj4+PiBJIGRvbid0IGxpa2UgdGhhdCwgSSBwcmVmZXIgdGhlIHNvbHV0aW9uIEkgcHJvcG9z
-ZWQuIFdlIGFscmVhZHkgaGF2ZSBhCj4+PiBjb3VwbGUgcGxhY2VzIHdoZXJlIHBvd2VycGMgZG8g
-dGhpbmdzIGJhc2VkIG9uIHdoZXRoZXIgdm1hIGlzIE5VTEwgb3Igbm90Lgo+Pj4KPj4+Pgo+Pj4+
-IE9yIHlldCBhbm90aGVyIG9wdGlvbiB3b3VsZCBiZSB0byBrZWVwIHRoZSBtbSBwYXJhbSBhcyBp
-cyBpbiBzZXRfaHVnZV9wdGVfYXQoKSwKPj4+PiBhbmQgYWRkIGEgc2l6ZSBwYXJhbSB0byB0aGUg
-ZnVuY3Rpb24uIEJ1dCB0aGVuIGFsbCBjYWxsIHNpdGVzIGhhdmUgdGhlIGJ1cmRlbiBvZgo+Pj4+
-IGZpZ3VyaW5nIG91dCB0aGUgc2l6ZSBvZiB0aGUgaHVnZSBwdGUgKGFsdGhvdWdoIEkgdGhpbmsg
-bW9zdCBrbm93IGFscmVhZHkpLgo+Pj4KPj4+IEluZGVlZC4KPj4+Cj4+PiBhcmNoX21ha2VfaHVn
-ZV9wdGUoKSB1c2VkIHRvIHRha2UgYSB2bWEgdW50aWwgY29tbWl0IDc5YzFjNTk0ZjQ5YQo+Pj4g
-KCJtbS9odWdldGxiOiBjaGFuZ2UgcGFyYW1ldGVycyBvZiBhcmNoX21ha2VfaHVnZV9wdGUoKSIp
-Lgo+Pj4KPj4+IFNob3VsZCB3ZSB0cnkgYW5kIGhhdmUgdGhlIHNhbWUgYXBwcm9hY2ggPyBPciBp
-cyBpdCBpcnJlbGV2YW50ID8KPj4KPj4gU2VlIFsxXTsgSSdtIGdvaW5nIHRvIHJld29yayB0byBw
-YXNzIG1tICsgc2l6ZSBwYXJhbWV0ZXIgc2luY2UgdGhlIGN1cnJlbnQKPj4gYXBwcm9hY2ggd2ls
-bCBicmVhayByaXNjdi4KPiAKPiBDYW4geW91IHBhc3MgYSBzaGlmdCBwYXJhbWV0ZXIgaW5zdGVh
-ZCBvZiBhIHNpemUsIGxpa2UgCj4gYXJjaF9tYWtlX2h1Z2VfcHRlKCkgPyBBcyBmYXIgYXMgSSBy
-ZW1lbWJlciBpdCBpcyBlYXNpZXIgdG8gaGFuZGxlIGEgCj4gc2hpZnQgdGhhbiBhIHNpemUuCgpN
-b3N0IG9mIHRoZSBjYWxsIHNpdGVzIGFscmVhZHkgaGF2ZSB0aGUgc2l6ZSwgbm90IHRoZSBzaGlm
-dC4gQW5kIGFybTY0IG5lZWRzIHRoZQpzaXplLCBzbyBpdCB3b3VsZCBoYXZlIGRvICgxVUwgPDwg
-c2hpZnQpLiBTbyBvbiB0aGF0IGJhc2lzLCBJIHByZWZlciB0byBwYXNzCnNpemUuIGh1Z2VfcHRl
-X2NsZWFyKCkgYWxyZWFkeSBwYXNzZXMgbG9uZyB1bnNpZ25lZCBzeiwgc28gSSdkIHJhdGhlciBm
-b2xsb3cKdGhhdCBwYXR0ZXJuLgoKPiAKPiBDaHJpc3RvcGhlCgoKX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0Cmxp
-bnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcv
-bWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+
+--===============5328517262634367810==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="utwYTRBgGxs2RSTx"
+Content-Disposition: inline
+
+
+--utwYTRBgGxs2RSTx
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Fri, Sep 22, 2023 at 08:56:47AM +0000, Yong-Xuan Wang wrote:
+> We detect Svadu extension support from DTB and add arch_has_hw_pte_young()
+> to enable optimization in MGLRU and __wp_page_copy_user() if Svadu
+> extension is available.
+>=20
+> Co-developed-by: Jinyu Tang <tjytimi@163.com>
+> Signed-off-by: Jinyu Tang <tjytimi@163.com>
+> Signed-off-by: Yong-Xuan Wang <yongxuan.wang@sifive.com>
+
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+
+Thanks,
+Conor.
+
+--utwYTRBgGxs2RSTx
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZQ1gpQAKCRB4tDGHoIJi
+0m5MAQCRz8PBnOE4Bp1PoLmi9u02FVUOL0CJOkyE2NVDSwChwAD9HVYje5mmlwS7
+mUCfIPG0oUVn8wjDaQ1qsoHh6UPyHgA=
+=9y+/
+-----END PGP SIGNATURE-----
+
+--utwYTRBgGxs2RSTx--
+
+
+--===============5328517262634367810==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============5328517262634367810==--
+
