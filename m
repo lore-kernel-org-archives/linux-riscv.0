@@ -4,89 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EE37CD4847
-	for <linux-riscv@archiver.kernel.org>; Fri, 22 Sep 2023 16:36:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AFD3CD4846
+	for <linux-riscv@archiver.kernel.org>; Fri, 22 Sep 2023 16:41:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:
-	Mime-Version:References:In-Reply-To:From:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=XjN62pDzS8dfAV5FVuXrOUCLuVigrsQFOiKbuqTZSc0=; b=DD0JpUvToOzPGWBmHzPbjR4mZ2
-	2ZKEPX9QvtWzP70Ju6qN4vgu6mmaYnDxTJcfDBNgFX8ktx7NvnEJijBGwJ1a6DNMvkLJSNOkbgc+0
-	SaoDUEQde5irOyB6xAhLVeh/WtbOBJUxnFUrPgqY+LdsqU2A3XCuIw4IqmSEf/WLGCcnuFU53FbLD
-	XjedYRnSSSyH51XFmI3r9yptx3Xd2YN51+FGiYX9zQu+P3MSwqtjR/3aipbfc+RunF1ZUGEVn6XHZ
-	G5M/KxRxV4l8tv1csz86Gh/ENBsOPHy8iqzabndvKkHG6Ty5Tw6RRq9Ytm16jW8dodLqeqUGOGvc8
-	bhZDjydA==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=C7uQgoQuLKFcUWjaGHRU+maMGj+AhP13rzagr9kr6TU=; b=oFw8b3rm2BBeLg
+	lTaKf3tpmmLrkDJxDjVjrTbxp8fkxOzuwAFKv98RCAC/7aWdLkK7GFcBp2VWqhHyMsv6CJioCmb2W
+	GIgGRgFBMbhtcpXOUCU4ztGfXKIoQ4lnK2yWhG0bxw+Kq1rycsd/FM/0rOSG7GlddUylTjZrMd6bZ
+	dTPGzlflUlEZTzNGhQGLmKJlHes89W8xVtJR9cOout/BRGkJCYJ+7Oyd8m+5nzYycBty48hr/gFpS
+	+bUGHU+g4b9JFfU0d7newsBQqHV1wQkEdqrIP7zlbkav/mqy3y0lZ0rWbOTzGy9VjsHUtfHViqjUZ
+	1WIEHadjG0+oBFyECjEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qjj8c-009QCt-1l;
-	Fri, 22 Sep 2023 16:36:18 +0000
-Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qjj8X-009QAw-2a
-	for linux-riscv@lists.infradead.org;
-	Fri, 22 Sep 2023 16:36:17 +0000
-Received: from mail-qt1-f198.google.com (mail-qt1-f198.google.com [209.85.160.198])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 5F5AE421CD
-	for <linux-riscv@lists.infradead.org>; Fri, 22 Sep 2023 16:36:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20210705; t=1695400569;
-	bh=RKbV4MhZk6b87JTksm1ZK/ObuKYUjj6Uoe+MaWe9BjM=;
-	h=From:In-Reply-To:References:Mime-Version:Date:Message-ID:Subject:
-	 To:Cc:Content-Type;
-	b=axOpRfO6PfpGE2I6/iuXN+52W8z6r6OeH/Putaats6zPZaj53Dvhp17aXUAxdRWu5
-	 ARyhyDJlAy011T75vqdIstcXohjwNuE9NJ9/BpiHYEW6ha3abGBvVcGCHJrWuavJEa
-	 jVYe0AFjuoVvx7rU67/b4DN27aK83U1cNEBEeDRWRyuYHn+7gH2sRxc2z1I80LH+w4
-	 viJhXqHe8vZHK1y2X6YfIaMHNjgvb5z4BKvbwJEUxts/BsRziTfGT+cOzHhaN6vJ6f
-	 woJCMZ/C4mmJlSBFEpZYV+aM8kPzQg2knJFvvu+u4XUy5/WwCXGt8G6f369VYTh8dD
-	 ri+78Vh6Q3YJQ==
-Received: by mail-qt1-f198.google.com with SMTP id d75a77b69052e-41425c708ebso24863621cf.2
-        for <linux-riscv@lists.infradead.org>; Fri, 22 Sep 2023 09:36:09 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1695400568; x=1696005368;
-        h=cc:to:subject:message-id:date:mime-version:references:in-reply-to
-         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=RKbV4MhZk6b87JTksm1ZK/ObuKYUjj6Uoe+MaWe9BjM=;
-        b=oSsUt1HZwJbOky6HONaC4MmN09/ph71Lj4QnaB/RDvMyrmiZTV0QfYu368YBVLjxah
-         EZ+rc5pWvKocmtZ9scwxQXQF86s37O+2bu8AaCD3ojuF5DLLU1obgHc/ZRelF5zbVrTd
-         jVA9c/OBXremus3e2VPLcFwfN8nZNP5HSB5TOBet+F48SqT8mpvhzksLFPkEpFweSprf
-         bGOYZEM15BvPBAP+1ltV4k6TVI44hYnKQqnt83mPk7yV19hx6i717GPeEdYFJSIXYJxI
-         wvdiLTtY1ldFwOVbg04q0kxZHt8C4J5xqA/6/nFrPe7nBG0eZcWMeXFmP+6rQ4VtLdDg
-         +0Xg==
-X-Gm-Message-State: AOJu0Yx0qpEOX2F3N2i4olGXI1ZhagxBW72DeoTUU0lsRjtVkKR9KRUB
-	xRemngJ4BR3WhrQOu6j9CQiM3aENbbiQNSynDVoMg0716V5lADw8z5cOe/whUsOxuRJXRByCSaZ
-	qEUPnXjlWNlqq9m2hS9p/S2iNEw5OCzMst7rEMNxgQkGGRzlZvJ87237bpL1Zs0ocJiexFw==
-X-Received: by 2002:a05:622a:1a9b:b0:400:9c4e:2abe with SMTP id s27-20020a05622a1a9b00b004009c4e2abemr9153629qtc.13.1695400568108;
-        Fri, 22 Sep 2023 09:36:08 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHtMOJCOBegPGfmaYPe4P541XIPb9WGKoNNQRopHdNvUyr6IlUhMeHDT069xvrKjurwJHkDV/lgU//1vjPUCGw=
-X-Received: by 2002:a05:622a:1a9b:b0:400:9c4e:2abe with SMTP id
- s27-20020a05622a1a9b00b004009c4e2abemr9153614qtc.13.1695400567857; Fri, 22
- Sep 2023 09:36:07 -0700 (PDT)
-Received: from 348282803490 named unknown by gmailapi.google.com with
- HTTPREST; Fri, 22 Sep 2023 11:36:07 -0500
-From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-In-Reply-To: <20230922062834.39212-4-william.qiu@starfivetech.com>
-References: <20230922062834.39212-1-william.qiu@starfivetech.com> <20230922062834.39212-4-william.qiu@starfivetech.com>
-Mime-Version: 1.0
-Date: Fri, 22 Sep 2023 11:36:07 -0500
-Message-ID: <CAJM55Z-huG6KSLywzA0Zih=MtzqvL0w+CxrqN7CKUrzor_A65g@mail.gmail.com>
-Subject: Re: [PATCH v3 3/3] riscv: dts: starfive: add assigned-clock* to limit frquency
-To: William Qiu <william.qiu@starfivetech.com>, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	linux-mmc@vger.kernel.org
-Cc: Emil Renner Berthing <kernel@esmil.dk>, Rob Herring <robh+dt@kernel.org>, 
-	Jaehoon Chung <jh80.chung@samsung.com>, Ulf Hansson <ulf.hansson@linaro.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>
+	id 1qjjDN-009Qor-0h;
+	Fri, 22 Sep 2023 16:41:13 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1qjjDI-009QnA-2H;
+	Fri, 22 Sep 2023 16:41:11 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0B4B2DA7;
+	Fri, 22 Sep 2023 09:41:40 -0700 (PDT)
+Received: from [10.57.65.11] (unknown [10.57.65.11])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 43E173F67D;
+	Fri, 22 Sep 2023 09:40:58 -0700 (PDT)
+Message-ID: <32052cb7-91f1-461d-a226-2cd2fcf34ad2@arm.com>
+Date: Fri, 22 Sep 2023 17:40:56 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/2] arm64: hugetlb: Fix set_huge_pte_at() to work with
+ all swap entries
+Content-Language: en-GB
+To: Will Deacon <will@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+ "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+ Helge Deller <deller@gmx.de>, Nicholas Piggin <npiggin@gmail.com>,
+ Christophe Leroy <christophe.leroy@csgroup.eu>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+ Alexander Gordeev <agordeev@linux.ibm.com>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>,
+ Sven Schnelle <svens@linux.ibm.com>,
+ Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+ "David S. Miller" <davem@davemloft.net>, Arnd Bergmann <arnd@arndb.de>,
+ Mike Kravetz <mike.kravetz@oracle.com>, Muchun Song <muchun.song@linux.dev>,
+ SeongJae Park <sj@kernel.org>, Andrew Morton <akpm@linux-foundation.org>,
+ Uladzislau Rezki <urezki@gmail.com>, Christoph Hellwig <hch@infradead.org>,
+ Lorenzo Stoakes <lstoakes@gmail.com>,
+ Anshuman Khandual <anshuman.khandual@arm.com>, Peter Xu <peterx@redhat.com>,
+ Axel Rasmussen <axelrasmussen@google.com>,
+ Qi Zheng <zhengqi.arch@bytedance.com>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-parisc@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ linux-s390@vger.kernel.org, sparclinux@vger.kernel.org, linux-mm@kvack.org,
+ stable@vger.kernel.org
+References: <20230922115804.2043771-1-ryan.roberts@arm.com>
+ <20230922115804.2043771-3-ryan.roberts@arm.com>
+ <20230922161404.GA23332@willie-the-truck>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <20230922161404.GA23332@willie-the-truck>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230922_093614_230000_0139B23D 
-X-CRM114-Status: GOOD (  11.56  )
+X-CRM114-CacheID: sfid-20230922_094108_837296_81031F9E 
+X-CRM114-Status: GOOD (  31.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,45 +87,112 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-William Qiu wrote:
-> In JH7110 SoC, we need to go by-pass mode, so we need add the
-> assigned-clock* properties to limit clock frquency.
->
-> Signed-off-by: William Qiu <william.qiu@starfivetech.com>
+On 22/09/2023 17:14, Will Deacon wrote:
+> On Fri, Sep 22, 2023 at 12:58:04PM +0100, Ryan Roberts wrote:
+>> When called with a swap entry that does not embed a PFN (e.g.
+>> PTE_MARKER_POISONED or PTE_MARKER_UFFD_WP), the previous implementation
+>> of set_huge_pte_at() would either cause a BUG() to fire (if
+>> CONFIG_DEBUG_VM is enabled) or cause a dereference of an invalid address
+>> and subsequent panic.
+>>
+>> arm64's huge pte implementation supports multiple huge page sizes, some
+>> of which are implemented in the page table with multiple contiguous
+>> entries. So set_huge_pte_at() needs to work out how big the logical pte
+>> is, so that it can also work out how many physical ptes (or pmds) need
+>> to be written. It previously did this by grabbing the folio out of the
+>> pte and querying its size.
+>>
+>> However, there are cases when the pte being set is actually a swap
+>> entry. But this also used to work fine, because for huge ptes, we only
+>> ever saw migration entries and hwpoison entries. And both of these types
+>> of swap entries have a PFN embedded, so the code would grab that and
+>> everything still worked out.
+>>
+>> But over time, more calls to set_huge_pte_at() have been added that set
+>> swap entry types that do not embed a PFN. And this causes the code to go
+>> bang. The triggering case is for the uffd poison test, commit
+>> 99aa77215ad0 ("selftests/mm: add uffd unit test for UFFDIO_POISON"),
+>> which causes a PTE_MARKER_POISONED swap entry to be set, coutesey of
+>> commit 8a13897fb0da ("mm: userfaultfd: support UFFDIO_POISON for
+>> hugetlbfs") - added in v6.5-rc7. Although review shows that there are
+>> other call sites that set PTE_MARKER_UFFD_WP (which also has no PFN),
+>> these don't trigger on arm64 because arm64 doesn't support UFFD WP.
+>>
+>> Arguably, the root cause is really due to commit 18f3962953e4 ("mm:
+>> hugetlb: kill set_huge_swap_pte_at()"), which aimed to simplify the
+>> interface to the core code by removing set_huge_swap_pte_at() (which
+>> took a page size parameter) and replacing it with calls to
+>> set_huge_pte_at() where the size was inferred from the folio, as
+>> descibed above. While that commit didn't break anything at the time, it
+>> did break the interface because it couldn't handle swap entries without
+>> PFNs. And since then new callers have come along which rely on this
+>> working. But given the brokeness is only observable after commit
+>> 8a13897fb0da ("mm: userfaultfd: support UFFDIO_POISON for hugetlbfs"),
+>> that one gets the Fixes tag.
+>>
+>> Now that we have modified the set_huge_pte_at() interface to pass the
+>> huge page size in the previous patch, we can trivially fix this issue.
+>>
+>> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
+>> Fixes: 8a13897fb0da ("mm: userfaultfd: support UFFDIO_POISON for hugetlbfs")
+>> Cc: <stable@vger.kernel.org> # 6.5+
+>> ---
+>>  arch/arm64/mm/hugetlbpage.c | 17 +++--------------
+>>  1 file changed, 3 insertions(+), 14 deletions(-)
+>>
+>> diff --git a/arch/arm64/mm/hugetlbpage.c b/arch/arm64/mm/hugetlbpage.c
+>> index a7f8c8db3425..13fd592228b1 100644
+>> --- a/arch/arm64/mm/hugetlbpage.c
+>> +++ b/arch/arm64/mm/hugetlbpage.c
+>> @@ -241,13 +241,6 @@ static void clear_flush(struct mm_struct *mm,
+>>  	flush_tlb_range(&vma, saddr, addr);
+>>  }
+>>  
+>> -static inline struct folio *hugetlb_swap_entry_to_folio(swp_entry_t entry)
+>> -{
+>> -	VM_BUG_ON(!is_migration_entry(entry) && !is_hwpoison_entry(entry));
+>> -
+>> -	return page_folio(pfn_to_page(swp_offset_pfn(entry)));
+>> -}
+>> -
+>>  void set_huge_pte_at(struct mm_struct *mm, unsigned long addr,
+>>  			    pte_t *ptep, pte_t pte, unsigned long sz)
+>>  {
+>> @@ -257,13 +250,10 @@ void set_huge_pte_at(struct mm_struct *mm, unsigned long addr,
+>>  	unsigned long pfn, dpfn;
+>>  	pgprot_t hugeprot;
+>>  
+>> -	if (!pte_present(pte)) {
+>> -		struct folio *folio;
+>> -
+>> -		folio = hugetlb_swap_entry_to_folio(pte_to_swp_entry(pte));
+>> -		ncontig = num_contig_ptes(folio_size(folio), &pgsize);
+>> +	ncontig = num_contig_ptes(sz, &pgsize);
+>>  
+>> -		for (i = 0; i < ncontig; i++, ptep++)
+>> +	if (!pte_present(pte)) {
+>> +		for (i = 0; i < ncontig; i++, ptep++, addr += pgsize)
+>>  			set_pte_at(mm, addr, ptep, pte);
+> 
+> Our set_pte_at() doesn't use 'addr' for anything and the old code didn't
+> even bother to increment it here! I'm fine adding that, but it feels
+> unrelated to the issue which this patch is actually fixing.
+
+True. I agree its not strictly necessary and will presumably be optimized out.
+But I'm not sure that having knowledge that the implementation doesn't use it is
+a good reason not to call the interface correctly. I'll leave it as I've done it
+if that's ok.
+
+> 
+> Either way:
+> 
+> Acked-by: Will Deacon <will@kernel.org>
 
 Thanks!
 
-Reviewed-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+> 
+> Will
 
-> ---
->  .../riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi | 4 ++++
->  1 file changed, 4 insertions(+)
->
-> diff --git a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
-> index d79f94432b27..d1f2ec308bca 100644
-> --- a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
-> +++ b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
-> @@ -205,6 +205,8 @@ &i2c6 {
->
->  &mmc0 {
->  	max-frequency = <100000000>;
-> +	assigned-clocks = <&syscrg JH7110_SYSCLK_SDIO0_SDCARD>;
-> +	assigned-clock-rates = <50000000>;
->  	bus-width = <8>;
->  	cap-mmc-highspeed;
->  	mmc-ddr-1_8v;
-> @@ -221,6 +223,8 @@ &mmc0 {
->
->  &mmc1 {
->  	max-frequency = <100000000>;
-> +	assigned-clocks = <&syscrg JH7110_SYSCLK_SDIO1_SDCARD>;
-> +	assigned-clock-rates = <50000000>;
->  	bus-width = <4>;
->  	no-sdio;
->  	no-mmc;
-> --
-> 2.34.1
->
 
 _______________________________________________
 linux-riscv mailing list
