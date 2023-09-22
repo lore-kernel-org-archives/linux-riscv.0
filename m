@@ -4,70 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E045BE7D0BD
-	for <linux-riscv@archiver.kernel.org>; Fri, 22 Sep 2023 01:51:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57562E7D0BE
+	for <linux-riscv@archiver.kernel.org>; Fri, 22 Sep 2023 01:51:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:To:In-Reply-To:References:Message-Id:
 	MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pDwNSiK9VuIIa9uYOpoNK2FC5BnlqV4AI7q6v516qow=; b=ASHShK+SHVPwUY
-	FejDbdy3ezWFYAcFQ6ZgmalGDikUe/u1B03a2FoyRUWmm0GabJdn3zcN59Z12ylCMGw6aPsduQaxP
-	GSAADxqi6jmBNWOREf7OwbjiZX7P2piebdcckTfY3Wv1SSweuPekUF7w1tTAwi2lqRLeQDGcWsfpv
-	mH0f7B1EJsPyheG7+H0NAPrJsDAisxKuk1VESdoTahmjg9619T/igdJZsP41b3ja6yNieK8F8QLJH
-	F5jmMVXVdh5kv+3m87c91xAKwwknyjz8qsKD+LjkoEJg6d2DEUGGmnYL0ezT+456Lh5dfhSgEF8v6
-	bQrT3emXa/LUcNtlZBOg==;
+	List-Owner; bh=23++ysZuPHR3lyK1+kWAhXngoLg7/pOyePXfYQBAjP4=; b=ySP9oC6T6ZkJhS
+	XzhTZlSf7RN5rwLZniVzRyIEtmYQKSvbvk7tEBgLXwnaAAOD0gAzMdujPekM0mn9DoCVbnOlwNz1P
+	+9IA4Ma6YNxN/bujKz0K33lf1uJpkJ/FhGYZ4DLAa7vghqVSDbIUGdKtmB4N4KgVko4NKYRUqtfmL
+	ifTJykQbsEVfgXNdW2EL+pY2dIozv6NPW7JXJZh1b95LBGYvt3Nuq5FacMWX54UvzsoKdRe7sppkD
+	Rzm0Vh8gOezHzHM+xrE/bX6gKykmp5G5G7XxMJJb7NFt1bPVug24yd+ZVPXg35mGIUiOjlbF2rrMb
+	+38n9rxH8Sk0hYRRDPtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qjVK5-007aYw-16;
-	Fri, 22 Sep 2023 01:51:13 +0000
-Received: from mail-oi1-x22e.google.com ([2607:f8b0:4864:20::22e])
+	id 1qjVKC-007adr-0W;
+	Fri, 22 Sep 2023 01:51:20 +0000
+Received: from mail-vs1-xe30.google.com ([2607:f8b0:4864:20::e30])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qjVK2-007aWi-1L
+	id 1qjVK7-007aZv-23
 	for linux-riscv@lists.infradead.org;
-	Fri, 22 Sep 2023 01:51:12 +0000
-Received: by mail-oi1-x22e.google.com with SMTP id 5614622812f47-3a88ef953adso1006277b6e.0
-        for <linux-riscv@lists.infradead.org>; Thu, 21 Sep 2023 18:51:09 -0700 (PDT)
+	Fri, 22 Sep 2023 01:51:16 +0000
+Received: by mail-vs1-xe30.google.com with SMTP id ada2fe7eead31-45281e0b1cbso847690137.0
+        for <linux-riscv@lists.infradead.org>; Thu, 21 Sep 2023 18:51:15 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1695347469; x=1695952269; darn=lists.infradead.org;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1695347474; x=1695952274; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=AdU57Jx9PEmIXARyS6MsKYI5yf8mmNXKxZvGJyz9CZ0=;
-        b=s74GbAhWhEoo2Hj+a+7/J8fHEWrdCNwiRUTqkRbZqiF/A3J4IvfI6g3diw+VDkQITw
-         1/73Gzu51v36g4iNcM25Giw4bkBmjCvZ8LmjPKQtVkq6SbWu+MN6BEOWKOf9QKOy6T1q
-         rBaL9rCTuPYPZlaOvUzxUMut5bo9uVSAdinosHSLU9bJXjgDaHjgYw/Rat6qWugM3rXe
-         NsIoE1N5mBmX+T2YBT4pMyA0WVChsvCXimomDCE97ZYDan7tcih7wFg6ycDZHE2G9TNR
-         iwKppTije+GklH6gWrJ2ildDx5u1qLhYjHFwJSaCQ6I41wWtzMHVjm1aBmX7Lx2OJfAv
-         zbIQ==
+        bh=cDyDoj9zqW3tb6f+dTciYYHXjkgtjjsfpMWk3ptqz4Y=;
+        b=exupgGxvRz9CdCHbC/lt6mqVafuInZ8tG1uLLeRaBbhg9tYltiTN6XPsO7k9FDT3Iu
+         MPQV1CYYJ+Bc575+29HAqeCzb0OH/TDX/u8CJsn7H58Lk5xwIcCEAZCqmVlWm0GkrG8m
+         kG244BYSuwFG2RtrfYNLsCg4lxlPMhwMBAFqgVDdGnwagRDhqL7iinK6uE3pnc35mXxR
+         j2XfRpM2Qkm7fYJPho0S2qwAYTFzR17u5FyMQ2IY3DVZk8TFeGGGayCAxcJF7j8G/ege
+         uHbArsAnQAwWwQH/0gJ8JAkDSX2+2WPq6LWr37kuLDLbsXlF93iQDq1MBg/ugNo4Sfsj
+         Saaw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1695347469; x=1695952269;
+        d=1e100.net; s=20230601; t=1695347474; x=1695952274;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=AdU57Jx9PEmIXARyS6MsKYI5yf8mmNXKxZvGJyz9CZ0=;
-        b=oVd5kZMB1fAw1tF7TymJgeSbDqMlRDPJv/4SfQEXTtN05loSKBu9ysmjPAFDpBfSg0
-         f5szFtQsERW7To85x80m6UP/kcuHk7/eBn+FjgMPBx77AtbODAFNHUuEPKry89MEEyTM
-         Zo/PzQQBnh3l1dN98byGtt3xU/us4CtQHSAtjQH5QE2qDKWjN41kZ3jEg+HkEJPzR+8h
-         uOBAiAcBAi6xyAh+qydMxPCWyily8t6aMQc5XbnKgPU9/r5IAVkpODMPdjdDvl1226gw
-         y+1TK/fZUHqnQJQ/CphHMK6bMNMDzBykL7Q6Nn6whaPB56e4kk8tWZEKVovQAQxiyr7t
-         I0mw==
-X-Gm-Message-State: AOJu0YxyTDf5lmT1G7yeZptQFyRMJOlAa2y/E8jGujNcfB8TbfjMuKdo
-	bcJPWyzFpvRLIflAmvzI45juKw==
-X-Google-Smtp-Source: AGHT+IHBIOCNTfL32DX8sqcPvGCoAvfb0oRHov683BI2vSEw1XFpc+I3dbfeffGIcS9K8qEUO9NE9Q==
-X-Received: by 2002:a05:6870:3293:b0:1be:ccce:7991 with SMTP id q19-20020a056870329300b001beccce7991mr7369865oac.13.1695347469207;
-        Thu, 21 Sep 2023 18:51:09 -0700 (PDT)
+        bh=cDyDoj9zqW3tb6f+dTciYYHXjkgtjjsfpMWk3ptqz4Y=;
+        b=TfHmYAW82THv6hep+7f2C2aiiQEB0U4M1vQL+LDZCPV/i0k8faUDKDQQK2aTfXLkpM
+         AHkPhtpp/R+IsYolQuw/d8sz1wVLXli6U34U0JGlEZ5DfIT6qXI8IClXM46V0s3cJn9S
+         086BtKiAilKQ+BCj+3Gu5lVSZaH8CPeEC1EeqUlW04nJ9Kd/2++wHW6aBXckDQg+nYNd
+         5VztdROA0SmMrWT3/FhquAPhSGwseHKv2rUkRLOfOVVLVc+hGPWikhPZIOdz1s6Z0ABU
+         rVnBT71ATJDC/bHEwTQg7MgAU4neAObDrd4YDeCGKltbALc1TJvzZyWa1IQZ4jdKtf6L
+         ew5g==
+X-Gm-Message-State: AOJu0YyMYobNhXMG1NkXbUIGx1p8t6V/n9mx+KYfFg7rco6icfwyMaPw
+	a4msaEh+ViVSQD0RJa980WnZ6g==
+X-Google-Smtp-Source: AGHT+IFXdS2JE5SAgxFGpk2JBdV0QiDMGOB+zNKqvG/7UuF33hvfFUA7v/UeS7e5AxcMQ4nkJcmsTQ==
+X-Received: by 2002:a67:b911:0:b0:452:5798:64b6 with SMTP id q17-20020a67b911000000b00452579864b6mr7136727vsn.29.1695347474300;
+        Thu, 21 Sep 2023 18:51:14 -0700 (PDT)
 Received: from [127.0.1.1] ([2601:1c2:1800:f680:fa26:6227:be1c:67f0])
-        by smtp.gmail.com with ESMTPSA id y10-20020a63b50a000000b0057412d84d25sm1973856pge.4.2023.09.21.18.51.08
+        by smtp.gmail.com with ESMTPSA id y10-20020a63b50a000000b0057412d84d25sm1973856pge.4.2023.09.21.18.51.13
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 21 Sep 2023 18:51:08 -0700 (PDT)
+        Thu, 21 Sep 2023 18:51:14 -0700 (PDT)
 From: Drew Fustini <dfustini@baylibre.com>
-Date: Thu, 21 Sep 2023 18:49:48 -0700
-Subject: [PATCH 1/6] dt-bindings: mmc: sdhci-of-dwcmhsc: Add T-Head TH1520
- support
+Date: Thu, 21 Sep 2023 18:49:53 -0700
+Subject: [PATCH 6/6] riscv: dts: thead: Enable LicheePi 4A eMMC controller
 MIME-Version: 1.0
-Message-Id: <20230921-th1520-mmc-v1-1-49f76c274fb3@baylibre.com>
+Message-Id: <20230921-th1520-mmc-v1-6-49f76c274fb3@baylibre.com>
 References: <20230921-th1520-mmc-v1-0-49f76c274fb3@baylibre.com>
 In-Reply-To: <20230921-th1520-mmc-v1-0-49f76c274fb3@baylibre.com>
 To: Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh+dt@kernel.org>, 
@@ -78,16 +77,16 @@ To: Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh+dt@kernel.org>,
  Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
  Conor Dooley <conor@kernel.org>
 X-Mailer: b4 0.12.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1695347467; l=1067;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1695347467; l=995;
  i=dfustini@baylibre.com; s=20230430; h=from:subject:message-id;
- bh=lVStiUHxeHbyNt2+zib4d2cdPudtKK6oNMBUQREoPOc=;
- b=Q8id6rVsSYwP6E+iXtE8EEJBdpfTwGmm0EDwKwz276FYyD9CgqZLnz0ACffcwGavDc/d0fScS
- a4r/IUtRvh1A4kShsI9oBwJNbY9Otbdr+VEmtnmc12pL4kS6vyLRKBn
+ bh=NVR/jz5zFITHdlX9LFGuP143Lx0/07lnI+f1VmxUhWc=;
+ b=raxv8sdLi3NXEnuRTMoKuMBfYJblfB31JVKLCA7ZyLEQDTMFK0QMg4FBDAS1/RE2PwM8GeM9g
+ 37Bq/mEBjXzC14O3M2KIDYrOlsISgPYO/PybYfDJ47mNjxkGGIw5rgl
 X-Developer-Key: i=dfustini@baylibre.com; a=ed25519;
  pk=p3GKE9XFmjhwAayAHG4U108yag7V8xQVd4zJLdW0g7g=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230921_185110_678804_F20ECF52 
-X-CRM114-Status: UNSURE (   9.05  )
+X-CRM114-CacheID: sfid-20230921_185115_674431_C0855C0A 
+X-CRM114-Status: UNSURE (   8.89  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -106,36 +105,44 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add compatible value for the T-Head TH1520 dwcmshc controller and add
-thead,phy-pull-up property.
+Add properties to the emmc node and enable it and set the frequency for
+the sdhci clock.
 
 Signed-off-by: Drew Fustini <dfustini@baylibre.com>
 ---
- Documentation/devicetree/bindings/mmc/snps,dwcmshc-sdhci.yaml | 4 ++++
- 1 file changed, 4 insertions(+)
+ arch/riscv/boot/dts/thead/th1520-lichee-module-4a.dtsi | 15 +++++++++++++++
+ 1 file changed, 15 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/mmc/snps,dwcmshc-sdhci.yaml b/Documentation/devicetree/bindings/mmc/snps,dwcmshc-sdhci.yaml
-index a43eb837f8da..46b768d46712 100644
---- a/Documentation/devicetree/bindings/mmc/snps,dwcmshc-sdhci.yaml
-+++ b/Documentation/devicetree/bindings/mmc/snps,dwcmshc-sdhci.yaml
-@@ -19,6 +19,7 @@ properties:
-       - rockchip,rk3568-dwcmshc
-       - rockchip,rk3588-dwcmshc
-       - snps,dwcmshc-sdhci
-+      - thead,th1520-dwcmshc
+diff --git a/arch/riscv/boot/dts/thead/th1520-lichee-module-4a.dtsi b/arch/riscv/boot/dts/thead/th1520-lichee-module-4a.dtsi
+index a802ab110429..3de8ae0a4384 100644
+--- a/arch/riscv/boot/dts/thead/th1520-lichee-module-4a.dtsi
++++ b/arch/riscv/boot/dts/thead/th1520-lichee-module-4a.dtsi
+@@ -29,6 +29,10 @@ &apb_clk {
+ 	clock-frequency = <62500000>;
+ };
  
-   reg:
-     maxItems: 1
-@@ -60,6 +61,9 @@ properties:
-     description: Specify the number of delay for tx sampling.
-     $ref: /schemas/types.yaml#/definitions/uint8
- 
-+  thead,phy-pull-up:
-+    description: Enable weak pull-up on PHY pads
-+    type: boolean
- 
- required:
-   - compatible
++&sdhci_clk {
++	clock-frequency = <198000000>;
++};
++
+ &uart_sclk {
+ 	clock-frequency = <100000000>;
+ };
+@@ -36,3 +40,14 @@ &uart_sclk {
+ &dmac0 {
+ 	status = "okay";
+ };
++
++&mmc0 {
++	bus-width = <8>;
++	max-frequency = <198000000>;
++	mmc-hs400-1_8v;
++	non-removable;
++	no-sdio;
++	no-sd;
++	thead,phy-pull-up;
++	status = "okay";
++};
 
 -- 
 2.34.1
