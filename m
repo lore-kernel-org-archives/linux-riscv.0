@@ -4,65 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5E2ECD4F41
-	for <linux-riscv@archiver.kernel.org>; Fri, 22 Sep 2023 09:29:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53C25CD4F41
+	for <linux-riscv@archiver.kernel.org>; Fri, 22 Sep 2023 09:33:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pNbi5OLZqKLOs0IiJiAHNesIYtISpaALpLdtYmnLzv0=; b=Vb4uV29TyON/UI
-	ZjEmGthVc4tOqPiAbyWM8zdxY98PIXH8NAUlvPVhUWub+jUmnNkjf1ESuMe01clHdqmRuBTVprYWW
-	pUchcKISHWf9RyHoqbWyij3G+wmMmhZjd0XV1H+MLFP5o33/76Txb2qV+/sd6svKnVI1rS6s09XYe
-	kwK7fhWtWobZCttZqFQnSo1M9n1m5krpcmt51SIIFyRYyl3/E4rDBwj5teYA8FthfqXxH2RBFjGqh
-	ZKIR2kNIeDJe+kkB86JXuOAyXj+Vy+vGbDOTE6AbJvgOw3ux+uy2uKesj8BGXMuf2cLn0uRz1OSpV
-	028XCyh8N23lWa5xtXUg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:MIME-Version:
+	Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kxJfJ8MaMCdqfiIC1JztwYDTYkOCf88w//e+pz0cr4w=; b=IPiD7mpmdycmrXjhUxMc+SPBrH
+	RRqw7u18u/WAjt1xlytUKxC/eYdQ6KhEe7dnLs+/pdeh9pJRraR3zAzW2Q3xfwJPqmOXnfyYbmXWx
+	KgiZ9FsKOASBcRVFd3yMNqCEn1C1McOzVxAecLhCLLphA55zjrU21vOWFTUuw0Oh6yWsW1I6thUzS
+	XxtTAQMC6G89BpSulKlmmdiZpeMIDCEsuoFhtuM6I+xMl3YIwANP3hryjOAHcCzUqPk/zeXXL546y
+	+V5rProVEL1Xjr4rhOFgC7NSaePCTwySjUBaTFFYeag1KToB+SbKqah86AG53yWQvlRb5MQhOnQEE
+	psz2IS8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qjcTX-008ZmR-1Q;
-	Fri, 22 Sep 2023 09:29:27 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qjcTN-008Zg8-3C
+	id 1qjcXU-008agO-1g;
+	Fri, 22 Sep 2023 09:33:32 +0000
+Received: from szxga08-in.huawei.com ([45.249.212.255])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1qjcXQ-008afL-1A
 	for linux-riscv@lists.infradead.org;
-	Fri, 22 Sep 2023 09:29:23 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id E518624E2A1;
-	Fri, 22 Sep 2023 17:28:51 +0800 (CST)
-Received: from EXMBX168.cuchost.com (172.16.6.78) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 22 Sep
- 2023 17:28:52 +0800
-Received: from williamqiu-virtual-machine.starfivetech.com (171.223.208.138)
- by EXMBX168.cuchost.com (172.16.6.78) with Microsoft SMTP Server (TLS) id
- 15.0.1497.42; Fri, 22 Sep 2023 17:28:50 +0800
-From: William Qiu <william.qiu@starfivetech.com>
-To: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, <linux-pwm@vger.kernel.org>
-CC: Emil Renner Berthing <kernel@esmil.dk>, Rob Herring <robh+dt@kernel.org>,
-	Thierry Reding <thierry.reding@gmail.com>, Philipp Zabel
-	<p.zabel@pengutronix.de>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor+dt@kernel.org>,
-	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>, "Hal
- Feng" <hal.feng@starfivetech.com>, Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
-	William Qiu <william.qiu@starfivetech.com>
-Subject: [PATCH v5 2/4] pwm: starfive: Add PWM driver support
-Date: Fri, 22 Sep 2023 17:28:46 +0800
-Message-ID: <20230922092848.72664-3-william.qiu@starfivetech.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20230922092848.72664-1-william.qiu@starfivetech.com>
-References: <20230922092848.72664-1-william.qiu@starfivetech.com>
+	Fri, 22 Sep 2023 09:33:30 +0000
+Received: from dggpemm500016.china.huawei.com (unknown [172.30.72.54])
+	by szxga08-in.huawei.com (SkyGuard) with ESMTP id 4RsRpr3l9bz15NR5;
+	Fri, 22 Sep 2023 17:31:16 +0800 (CST)
+Received: from [10.67.108.26] (10.67.108.26) by dggpemm500016.china.huawei.com
+ (7.185.36.25) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.31; Fri, 22 Sep
+ 2023 17:33:24 +0800
+Message-ID: <c590ac5d-91b9-ec3b-6899-a18c16c9f980@huawei.com>
+Date: Fri, 22 Sep 2023 17:33:24 +0800
 MIME-Version: 1.0
-X-Originating-IP: [171.223.208.138]
-X-ClientProxiedBy: EXCAS061.cuchost.com (172.16.6.21) To EXMBX168.cuchost.com
- (172.16.6.78)
-X-YovoleRuleAgent: yovoleflag
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.9.0
+Subject: Re: [PATCH -next] riscv: kdump: fix crashkernel reserving problem on
+ RISC-V
+Content-Language: en-US
+To: Baoquan He <bhe@redhat.com>
+References: <20230922030722.708267-1-chenjiahao16@huawei.com>
+ <ZQ0/aK6cg8oNloA4@MiWiFi-R3L-srv>
+From: "chenjiahao (C)" <chenjiahao16@huawei.com>
+In-Reply-To: <ZQ0/aK6cg8oNloA4@MiWiFi-R3L-srv>
+X-Originating-IP: [10.67.108.26]
+X-ClientProxiedBy: dggems701-chm.china.huawei.com (10.3.19.178) To
+ dggpemm500016.china.huawei.com (7.185.36.25)
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230922_022918_327789_9B64FC55 
-X-CRM114-Status: GOOD (  23.38  )
+X-CRM114-CacheID: sfid-20230922_023328_710553_7A86610E 
+X-CRM114-Status: GOOD (  18.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,274 +65,119 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
+Cc: robh@kernel.org, aou@eecs.berkeley.edu, zephray@outlook.com, alexghiti@rivosinc.com, thunder.leizhen@huawei.com, bjorn@rivosinc.com, linux-kernel@vger.kernel.org, conor.dooley@microchip.com, palmer@dabbelt.com, jszhang@kernel.org, paul.walmsley@sifive.com, akpm@linux-foundation.org, linux-riscv@lists.infradead.org, ajones@ventanamicro.com
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add Pulse Width Modulation driver support for StarFive
-JH7100 and JH7110 SoC.
 
-Co-developed-by: Hal Feng <hal.feng@starfivetech.com>
-Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
-Signed-off-by: William Qiu <william.qiu@starfivetech.com>
----
- MAINTAINERS                |   7 ++
- drivers/pwm/Kconfig        |   9 ++
- drivers/pwm/Makefile       |   1 +
- drivers/pwm/pwm-starfive.c | 190 +++++++++++++++++++++++++++++++++++++
- 4 files changed, 207 insertions(+)
- create mode 100644 drivers/pwm/pwm-starfive.c
+On 2023/9/22 15:16, Baoquan He wrote:
+> Hi Jiahao,
+>
+> On 09/22/23 at 11:07am, Chen Jiahao wrote:
+>> When testing on risc-v QEMU environment with "crashkernel="
+>> parameter enabled, a problem occurred with the following
+>> message:
+>>
+>> [    0.000000] crashkernel low memory reserved: 0xf8000000 - 0x100000000 (128 MB)
+>> [    0.000000] crashkernel reserved: 0x0000000177e00000 - 0x0000000277e00000 (4096 MB)
+>> [    0.000000] ------------[ cut here ]------------
+>> [    0.000000] WARNING: CPU: 0 PID: 0 at kernel/resource.c:779 __insert_resource+0x8e/0xd0
+>> [    0.000000] Modules linked in:
+>> [    0.000000] CPU: 0 PID: 0 Comm: swapper Not tainted 6.6.0-rc2-next-20230920 #1
+>> [    0.000000] Hardware name: riscv-virtio,qemu (DT)
+>> [    0.000000] epc : __insert_resource+0x8e/0xd0
+>> [    0.000000]  ra : insert_resource+0x28/0x4e
+>> [    0.000000] epc : ffffffff80017344 ra : ffffffff8001742e sp : ffffffff81203db0
+>> [    0.000000]  gp : ffffffff812ece98 tp : ffffffff8120dac0 t0 : ff600001f7ff2b00
+>> [    0.000000]  t1 : 0000000000000000 t2 : 3428203030303030 s0 : ffffffff81203dc0
+>> [    0.000000]  s1 : ffffffff81211e18 a0 : ffffffff81211e18 a1 : ffffffff81289380
+>> [    0.000000]  a2 : 0000000277dfffff a3 : 0000000177e00000 a4 : 0000000177e00000
+>> [    0.000000]  a5 : ffffffff81289380 a6 : 0000000277dfffff a7 : 0000000000000078
+>> [    0.000000]  s2 : ffffffff81289380 s3 : ffffffff80a0bac8 s4 : ff600001f7ff2880
+>> [    0.000000]  s5 : 0000000000000280 s6 : 8000000a00006800 s7 : 000000000000007f
+>> [    0.000000]  s8 : 0000000080017038 s9 : 0000000080038ea0 s10: 0000000000000000
+>> [    0.000000]  s11: 0000000000000000 t3 : ffffffff80a0bc00 t4 : ffffffff80a0bc00
+>> [    0.000000]  t5 : ffffffff80a0bbd0 t6 : ffffffff80a0bc00
+>> [    0.000000] status: 0000000200000100 badaddr: 0000000000000000 cause: 0000000000000003
+>> [    0.000000] [<ffffffff80017344>] __insert_resource+0x8e/0xd0
+>> [    0.000000] ---[ end trace 0000000000000000 ]---
+>> [    0.000000] Failed to add a Crash kernel resource at 177e00000
+>>
+>> The crashkernel memory has been allocated successfully, whereas
+>> it failed to insert into iomem_resource. This is due to the
+> This is a warning, not a failure, right? Inserting crashk_*res into
+> iomem_resource has been successful, just the repeated inserting cause
+> the warning. Maybe, we should tell this in log clearly? Other than minor
+> concern, this looks good to me, thanks for the testing and this fix:
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index bf0f54c24f81..bc2155bd2712 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -20495,6 +20495,13 @@ F:	drivers/pinctrl/starfive/pinctrl-starfive-jh71*
- F:	include/dt-bindings/pinctrl/pinctrl-starfive-jh7100.h
- F:	include/dt-bindings/pinctrl/starfive,jh7110-pinctrl.h
- 
-+STARFIVE JH71X0 PWM DRIVERS
-+M:	William Qiu <william.qiu@starfivetech.com>
-+M:	Hal Feng <hal.feng@starfivetech.com>
-+S:	Supported
-+F:	Documentation/devicetree/bindings/pwm/starfive,jh7100-pwm.yaml
-+F:	drivers/pwm/pwm-starfive-ptc.c
-+
- STARFIVE JH71X0 RESET CONTROLLER DRIVERS
- M:	Emil Renner Berthing <kernel@esmil.dk>
- M:	Hal Feng <hal.feng@starfivetech.com>
-diff --git a/drivers/pwm/Kconfig b/drivers/pwm/Kconfig
-index 8ebcddf91f7b..e2ee0169f6e4 100644
---- a/drivers/pwm/Kconfig
-+++ b/drivers/pwm/Kconfig
-@@ -569,6 +569,15 @@ config PWM_SPRD
- 	  To compile this driver as a module, choose M here: the module
- 	  will be called pwm-sprd.
- 
-+config PWM_STARFIVE
-+	tristate "StarFive PWM support"
-+	depends on ARCH_STARFIVE || COMPILE_TEST
-+	help
-+	  Generic PWM framework driver for StarFive SoCs.
-+
-+	  To compile this driver as a module, choose M here: the module
-+	  will be called pwm-starfive.
-+
- config PWM_STI
- 	tristate "STiH4xx PWM support"
- 	depends on ARCH_STI || COMPILE_TEST
-diff --git a/drivers/pwm/Makefile b/drivers/pwm/Makefile
-index c822389c2a24..93b954376873 100644
---- a/drivers/pwm/Makefile
-+++ b/drivers/pwm/Makefile
-@@ -52,6 +52,7 @@ obj-$(CONFIG_PWM_SIFIVE)	+= pwm-sifive.o
- obj-$(CONFIG_PWM_SL28CPLD)	+= pwm-sl28cpld.o
- obj-$(CONFIG_PWM_SPEAR)		+= pwm-spear.o
- obj-$(CONFIG_PWM_SPRD)		+= pwm-sprd.o
-+obj-$(CONFIG_PWM_STARFIVE)	+= pwm-starfive.o
- obj-$(CONFIG_PWM_STI)		+= pwm-sti.o
- obj-$(CONFIG_PWM_STM32)		+= pwm-stm32.o
- obj-$(CONFIG_PWM_STM32_LP)	+= pwm-stm32-lp.o
-diff --git a/drivers/pwm/pwm-starfive.c b/drivers/pwm/pwm-starfive.c
-new file mode 100644
-index 000000000000..d390349fc95d
---- /dev/null
-+++ b/drivers/pwm/pwm-starfive.c
-@@ -0,0 +1,190 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * PWM driver for the StarFive JH71x0 SoC
-+ *
-+ * Copyright (C) 2018-2023 StarFive Technology Co., Ltd.
-+ */
-+
-+#include <linux/clk.h>
-+#include <linux/io.h>
-+#include <linux/module.h>
-+#include <linux/platform_device.h>
-+#include <linux/pwm.h>
-+#include <linux/reset.h>
-+#include <linux/slab.h>
-+
-+/* Access PTC register (CNTR, HRC, LRC and CTRL) */
-+#define REG_PTC_BASE_ADDR_SUB(base, N)	((base) + (((N) > 3) ? \
-+					(((N) % 4) * 0x10 + (1 << 15)) : ((N) * 0x10)))
-+#define REG_PTC_RPTC_CNTR(base, N)	(REG_PTC_BASE_ADDR_SUB(base, N))
-+#define REG_PTC_RPTC_HRC(base, N)	(REG_PTC_BASE_ADDR_SUB(base, N) + 0x4)
-+#define REG_PTC_RPTC_LRC(base, N)	(REG_PTC_BASE_ADDR_SUB(base, N) + 0x8)
-+#define REG_PTC_RPTC_CTRL(base, N)	(REG_PTC_BASE_ADDR_SUB(base, N) + 0xC)
-+
-+/* PTC_RPTC_CTRL register bits*/
-+#define PTC_EN      BIT(0)
-+#define PTC_ECLK    BIT(1)
-+#define PTC_NEC     BIT(2)
-+#define PTC_OE      BIT(3)
-+#define PTC_SIGNLE  BIT(4)
-+#define PTC_INTE    BIT(5)
-+#define PTC_INT     BIT(6)
-+#define PTC_CNTRRST BIT(7)
-+#define PTC_CAPTE   BIT(8)
-+
-+struct starfive_pwm_ptc_device {
-+	struct pwm_chip chip;
-+	struct clk *clk;
-+	struct reset_control *rst;
-+	void __iomem *regs;
-+	u32 clk_rate; /* PWM APB clock frequency */
-+};
-+
-+static inline struct starfive_pwm_ptc_device *
-+chip_to_starfive_ptc(struct pwm_chip *chip)
-+
-+{
-+	return container_of(chip, struct starfive_pwm_ptc_device, chip);
-+}
-+
-+static int starfive_pwm_ptc_get_state(struct pwm_chip *chip,
-+				      struct pwm_device *dev,
-+				      struct pwm_state *state)
-+{
-+	struct starfive_pwm_ptc_device *pwm = chip_to_starfive_ptc(chip);
-+	u32 period_data, duty_data, ctrl_data;
-+
-+	period_data = readl(REG_PTC_RPTC_LRC(pwm->regs, dev->hwpwm));
-+	duty_data = readl(REG_PTC_RPTC_HRC(pwm->regs, dev->hwpwm));
-+	ctrl_data = readl(REG_PTC_RPTC_CTRL(pwm->regs, dev->hwpwm));
-+
-+	state->period = DIV_ROUND_CLOSEST_ULL((u64)period_data * NSEC_PER_SEC, pwm->clk_rate);
-+	state->duty_cycle = DIV_ROUND_CLOSEST_ULL((u64)duty_data * NSEC_PER_SEC, pwm->clk_rate);
-+	state->polarity = PWM_POLARITY_INVERSED;
-+	state->enabled = (ctrl_data & PTC_EN) ? true : false;
-+
-+	return 0;
-+}
-+
-+static int starfive_pwm_ptc_apply(struct pwm_chip *chip,
-+				  struct pwm_device *dev,
-+				  const struct pwm_state *state)
-+{
-+	struct starfive_pwm_ptc_device *pwm = chip_to_starfive_ptc(chip);
-+	u32 period_data, duty_data, ctrl_data = 0;
-+
-+	if (state->polarity != PWM_POLARITY_INVERSED)
-+		return -EINVAL;
-+
-+	period_data = DIV_ROUND_CLOSEST_ULL(state->period * pwm->clk_rate,
-+					    NSEC_PER_SEC);
-+	duty_data = DIV_ROUND_CLOSEST_ULL(state->duty_cycle * pwm->clk_rate,
-+					  NSEC_PER_SEC);
-+
-+	writel(period_data, REG_PTC_RPTC_LRC(pwm->regs, dev->hwpwm));
-+	writel(duty_data, REG_PTC_RPTC_HRC(pwm->regs, dev->hwpwm));
-+	writel(0,  REG_PTC_RPTC_CNTR(pwm->regs, dev->hwpwm));
-+
-+	ctrl_data = readl(REG_PTC_RPTC_CTRL(pwm->regs, dev->hwpwm));
-+	if (state->enabled)
-+		writel(ctrl_data | PTC_EN | PTC_OE, REG_PTC_RPTC_CTRL(pwm->regs, dev->hwpwm));
-+	else
-+		writel(ctrl_data & ~(PTC_EN | PTC_OE), REG_PTC_RPTC_CTRL(pwm->regs, dev->hwpwm));
-+
-+	return 0;
-+}
-+
-+static const struct pwm_ops starfive_pwm_ptc_ops = {
-+	.get_state	= starfive_pwm_ptc_get_state,
-+	.apply		= starfive_pwm_ptc_apply,
-+	.owner		= THIS_MODULE,
-+};
-+
-+static int starfive_pwm_ptc_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct starfive_pwm_ptc_device *pwm;
-+	struct pwm_chip *chip;
-+	int ret;
-+
-+	pwm = devm_kzalloc(dev, sizeof(*pwm), GFP_KERNEL);
-+	if (!pwm)
-+		return -ENOMEM;
-+
-+	chip = &pwm->chip;
-+	chip->dev = dev;
-+	chip->ops = &starfive_pwm_ptc_ops;
-+	chip->npwm = 8;
-+	chip->of_pwm_n_cells = 3;
-+
-+	pwm->regs = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(pwm->regs))
-+		return dev_err_probe(dev, PTR_ERR(pwm->regs),
-+				     "Unable to map IO resources\n");
-+
-+	pwm->clk = devm_clk_get_enabled(dev, NULL);
-+	if (IS_ERR(pwm->clk))
-+		return dev_err_probe(dev, PTR_ERR(pwm->clk),
-+				     "Unable to get pwm's clock\n");
-+
-+	pwm->rst = devm_reset_control_get_exclusive(dev, NULL);
-+	if (IS_ERR(pwm->rst))
-+		return dev_err_probe(dev, PTR_ERR(pwm->rst),
-+				     "Unable to get pwm's reset\n");
-+
-+	ret = reset_control_deassert(pwm->rst);
-+	if (ret) {
-+		dev_err(dev, "Failed to enable clock for pwm: %d\n", ret);
-+		return ret;
-+	}
-+
-+	pwm->clk_rate = clk_get_rate(pwm->clk);
-+	if (pwm->clk_rate <= 0) {
-+		dev_warn(dev, "Failed to get APB clock rate\n");
-+		return -EINVAL;
-+	}
-+
-+	ret = devm_pwmchip_add(dev, chip);
-+	if (ret < 0) {
-+		dev_err(dev, "Cannot register PTC: %d\n", ret);
-+		clk_disable_unprepare(pwm->clk);
-+		reset_control_assert(pwm->rst);
-+		return ret;
-+	}
-+
-+	platform_set_drvdata(pdev, pwm);
-+
-+	return 0;
-+}
-+
-+static int starfive_pwm_ptc_remove(struct platform_device *dev)
-+{
-+	struct starfive_pwm_ptc_device *pwm = platform_get_drvdata(dev);
-+
-+	reset_control_assert(pwm->rst);
-+	clk_disable_unprepare(pwm->clk);
-+
-+	return 0;
-+}
-+
-+static const struct of_device_id starfive_pwm_ptc_of_match[] = {
-+	{ .compatible = "starfive,jh7100-pwm" },
-+	{ .compatible = "starfive,jh7110-pwm" },
-+	{ /* sentinel */ }
-+};
-+MODULE_DEVICE_TABLE(of, starfive_pwm_ptc_of_match);
-+
-+static struct platform_driver starfive_pwm_ptc_driver = {
-+	.probe = starfive_pwm_ptc_probe,
-+	.remove = starfive_pwm_ptc_remove,
-+	.driver = {
-+		.name = "pwm-starfive-ptc",
-+		.of_match_table = starfive_pwm_ptc_of_match,
-+	},
-+};
-+module_platform_driver(starfive_pwm_ptc_driver);
-+
-+MODULE_AUTHOR("Jieqin Chen");
-+MODULE_AUTHOR("Hal Feng <hal.feng@starfivetech.com>");
-+MODULE_DESCRIPTION("StarFive PWM PTC driver");
-+MODULE_LICENSE("GPL");
--- 
-2.34.1
+Thanks for reviewing. Actually this is not only a warning message.
+Since when failure occurs in riscv's init_resources(),
 
+error:
+	release_child_resources(&iomem_resource);
+
+will get called, already added crashkernel memory will hence
+get removed. To verify this, I have checked but cannot find
+crashkernel memory in /proc/iomem when this problem occurs.
+
+But you are right, it is necessary to make it clear what will
+eventually happen in commit message. I will update a v2 patch later
+to add these info.
+
+Thanks,
+Jiahao
+
+
+>
+> Acked-by: Baoquan He <bhe@redhat.com>
+>
+> Thanks
+> Baoquan
+>
+>> unique reserving logic in risc-v arch specific code, i.e.
+>> crashk_res/crashk_low_res will be added into iomem_resource
+>> later in init_resources(), which is not aligned with current
+>> unified reserving logic in reserve_crashkernel_generic()/
+>> reserve_crashkernel_low().
+>>
+>> Removing the arch specific code within #ifdef CONFIG_KEXEC_CORE
+>> in init_resources() to fix above problem.
+>>
+>> Fixes: 31549153088e ("riscv: kdump: use generic interface to simplify crashkernel reservation")
+>> Signed-off-by: Chen Jiahao <chenjiahao16@huawei.com>
+>> ---
+>>   arch/riscv/kernel/setup.c | 13 -------------
+>>   1 file changed, 13 deletions(-)
+>>
+>> diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+>> index e600aab116a4..aac853ae4eb7 100644
+>> --- a/arch/riscv/kernel/setup.c
+>> +++ b/arch/riscv/kernel/setup.c
+>> @@ -173,19 +173,6 @@ static void __init init_resources(void)
+>>   	if (ret < 0)
+>>   		goto error;
+>>   
+>> -#ifdef CONFIG_KEXEC_CORE
+>> -	if (crashk_res.start != crashk_res.end) {
+>> -		ret = add_resource(&iomem_resource, &crashk_res);
+>> -		if (ret < 0)
+>> -			goto error;
+>> -	}
+>> -	if (crashk_low_res.start != crashk_low_res.end) {
+>> -		ret = add_resource(&iomem_resource, &crashk_low_res);
+>> -		if (ret < 0)
+>> -			goto error;
+>> -	}
+>> -#endif
+>> -
+>>   #ifdef CONFIG_CRASH_DUMP
+>>   	if (elfcorehdr_size > 0) {
+>>   		elfcorehdr_res.start = elfcorehdr_addr;
+>> -- 
+>> 2.34.1
+>>
 
 _______________________________________________
 linux-riscv mailing list
