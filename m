@@ -4,87 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0203CCD4F57
-	for <linux-riscv@archiver.kernel.org>; Fri, 22 Sep 2023 10:46:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC501CD4F57
+	for <linux-riscv@archiver.kernel.org>; Fri, 22 Sep 2023 10:50:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:
-	Mime-Version:References:In-Reply-To:From:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=8kZYf+4ugqzTs3csftDIRbfMHGFlsJnKrNL46wShZDc=; b=zm5lDPMQn8CUxlSiFJk3yw+DDy
-	PlRAlin114kVGCsf9pGdatZEj8ON8d59RbuX+ufWMMzHXNVl3DVc8AmPI3wlofdSR02Ux6wPo2exz
-	KGhtk9NeSSo3tfZGDDmCCdTCnZUc4trjerjuPndHDTF5jiPzjU2ovR57cqf5oefLNtaWMdbazlt1P
-	y4U+p/9fc2fq5MTbhPGrP/8rulxgX2r7aaO6OrwluwYFfN05kuBt9gfZnr4C6SU2rzIDwZYGy7SHi
-	nOf6WVLUk1eSjEx2yDVegqvEXWkQ3PO0MTi5yvldXv85Ot85NNEZulLzo6w7M/oYKkU7PBcJM8p27
-	X8NMKZaw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0jDPUHe508tZWIL4pUBBvplIM+k5yw5H0tDL0hXqxlU=; b=gmxwzC+kOuEO7DWzXLe0mPF6y6
+	Hp3iyxAp5XBfRThm+u6AK/YaBGDy0niW+aH14TzBdyGK8LRgHgYhmgnKiI9GPm2Na2MrOg4n+UDPl
+	dYyWVJucg0tNYIQ91/wYZgU04ZM7cCLm4bG4wMMBmC2pS62YvVUOE6ydjyNQ0lBv4KAF5VSv81jzi
+	sOT1fd3jeTTxx2eZPvERikHkWz4cJixa9LEjsbHfs+m8PeczxgU+gZbWquOWIyxSSuXgHN774uP0x
+	Znwz07E6uF+jIV4S73d8EC7A5bt7J3GTV5k/3mGvtWn2X0+LS1lfvczLexjiY49VkyEOvbwNYdtbc
+	sSlF2WBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qjdfm-008tBa-0n;
-	Fri, 22 Sep 2023 10:46:10 +0000
-Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
+	id 1qjdkC-008tYK-0f;
+	Fri, 22 Sep 2023 10:50:44 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qjdfi-008tAl-22
+	id 1qjdk8-008tXP-0G
 	for linux-riscv@lists.infradead.org;
-	Fri, 22 Sep 2023 10:46:08 +0000
-Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
+	Fri, 22 Sep 2023 10:50:42 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id 03C0341DC7
-	for <linux-riscv@lists.infradead.org>; Fri, 22 Sep 2023 10:46:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20210705; t=1695379564;
-	bh=t+yfri1GJX2TAqcf+QwODASIE2sxjrbU+UlJZ8d2HDM=;
-	h=From:In-Reply-To:References:Mime-Version:Date:Message-ID:Subject:
-	 To:Cc:Content-Type;
-	b=W9atVzRnraNce/rhT4QaiY3HpJqg5wCOf5wA2XDqgTYjcSKNX+Zx+ol08sgAb4VwO
-	 2BmyJWmxxgjMWMFhfFjApkw7gEm5ITqYjfIiTCzGY4tQddE+oEeQBrKGbxFq0triJX
-	 4cLTqkQotMjgZL3uWmgnFFNaShznWSRSFI6otNR+Pes7RQXHW/k0nxlXEV2KLG3Mkz
-	 qL6Ako6jQoGqbDf1mCVUqb0he15N06+x+J77du/ln7X6MXIZkspF+dBpgSw7k2Xi7b
-	 im+gOAnoR5kRjy8l0ilMQOAC/nWtOHJrOGBaNSj0rAdLTwmPgdn0Hy1UKICR9DiVOj
-	 Gg0+G7JKsAV+Q==
-Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-773c9836d91so221359285a.2
-        for <linux-riscv@lists.infradead.org>; Fri, 22 Sep 2023 03:46:03 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1695379562; x=1695984362;
-        h=cc:to:subject:message-id:date:mime-version:references:in-reply-to
-         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=t+yfri1GJX2TAqcf+QwODASIE2sxjrbU+UlJZ8d2HDM=;
-        b=vH2DqXR1K4Zz0nYgkrqZFpHT+3cANiDTLNBjI6xiH32eK88ITgZVVARPTF6U/3v4Zy
-         RSTbu8Zkvw3Lb7naMl7kgpMDvyM23cEdFfXgORcqbeyznjwwfYQlDFq3RMslLZW+xfQf
-         lpI8WEzo927Zr4mJWC6FakXmFCTlWGxuT3mHgiiE2GCI/sKmEzf+qJaNAZlCXtp6mQg+
-         5N1zOZ2x0haInGHj1pncuDQHKcPkfxJdoCi99ww+K/I3EWyLccQjNC28ihwzQaG7lEHl
-         E8UzaRo5pzCgjCBuJLhTckz+4st4jiZsNl5cRB0WcNJIpD1Rqp/eTyt9iEAYKSMRlgq3
-         NsWg==
-X-Gm-Message-State: AOJu0YwHAuMvcmC0wtM+YhFCyLQCGYUcP6XkDoV1mPlM+ZtjnVsYU3zu
-	B7at4cD0MHhd9ls3vmowQoAdsDYu77yKtCums2C+axkSufApnbtnZapYRTAXTZxUF5EeOVgnIo2
-	6XfSS+CCRu02ZWAe5lQA+dPPc8tba6kuqTrGF0CnfMOZ0E+Ttr3osuAmuB8ScLQ==
-X-Received: by 2002:a05:620a:2ac7:b0:76c:ad46:2683 with SMTP id bn7-20020a05620a2ac700b0076cad462683mr6971762qkb.16.1695379562236;
-        Fri, 22 Sep 2023 03:46:02 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFsox++PPWys6ngzHVyCF3Eihkl1gwpI0tFPIgNbTUyaezen3cYl9nj+cZZ23a8Pw9GmdY7EyJwq7TGifvy6yc=
-X-Received: by 2002:a05:620a:2ac7:b0:76c:ad46:2683 with SMTP id
- bn7-20020a05620a2ac700b0076cad462683mr6971744qkb.16.1695379561942; Fri, 22
- Sep 2023 03:46:01 -0700 (PDT)
-Received: from 348282803490 named unknown by gmailapi.google.com with
- HTTPREST; Fri, 22 Sep 2023 03:46:01 -0700
-From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-In-Reply-To: <20230922095039.74878-2-shravan.chippa@microchip.com>
-References: <20230922095039.74878-1-shravan.chippa@microchip.com> <20230922095039.74878-2-shravan.chippa@microchip.com>
-Mime-Version: 1.0
-Date: Fri, 22 Sep 2023 03:46:01 -0700
-Message-ID: <CAJM55Z-NUwzo9SKtmV_5OegznDjSQEG9DVK7=5x4qnxUkk399A@mail.gmail.com>
-Subject: Re: [PATCH v1 1/3] dmaengine: sf-pdma: Support of_dma_controller_register()
-To: shravan chippa <shravan.chippa@microchip.com>, green.wan@sifive.com, vkoul@kernel.org, 
-	robh+dt@kernel.org, krzysztof.kozlowski+dt@linaro.org, palmer@dabbelt.com, 
-	paul.walmsley@sifive.com, conor+dt@kernel.org, palmer@sifive.com
-Cc: dmaengine@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	nagasuresh.relli@microchip.com, praveen.kumar@microchip.com
+	by sin.source.kernel.org (Postfix) with ESMTPS id 6D2EFCE240A;
+	Fri, 22 Sep 2023 10:50:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3C63DC433C7;
+	Fri, 22 Sep 2023 10:50:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1695379835;
+	bh=II1IpALtM+CSWP4ja3PIzra3ILdt436ZbfinoMTMIBg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=FLhUR8HytmqIL6L7V2IptxGBAHMpWlG/SdlcnIe5/tu0T2mNLPDil4HaXIjw6I1Mh
+	 7+bGG0GYtCLTIvbCrbX1vdVztobulbCE9jWjMOXJRLAwVEpmvWWDefiRlLFkeh82Q0
+	 JcXQIVQQk5orRD6ffbhKTlju5V9bhSfxN0+VA28OT5fiodI6Si/VoGNWsR8s7873Lt
+	 v1vJZjwF3eueuk1YVMrJNHgIYD4CTYSL9lkG6v0odcVyblQySaIi5RpkMir4dQ8PoD
+	 fCDhmbVI+J8znUxYa4dmomcPr6MUOL7UNLulbqja026MzcA/Q83KZfqx/570ZpIari
+	 DsNwp+FOEh0Vg==
+Date: Fri, 22 Sep 2023 11:50:29 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Chen Wang <unicornxw@gmail.com>
+Cc: Conor Dooley <conor.dooley@microchip.com>, aou@eecs.berkeley.edu,
+	chao.wei@sophgo.com, devicetree@vger.kernel.org,
+	emil.renner.berthing@canonical.com, guoren@kernel.org,
+	jszhang@kernel.org, krzysztof.kozlowski+dt@linaro.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	palmer@dabbelt.com, paul.walmsley@sifive.com, robh+dt@kernel.org,
+	xiaoguang.xing@sophgo.com, Chen Wang <wangchen20@iscas.ac.cn>
+Subject: Re: [PATCH v2 00/11] Add Milk-V Pioneer RISC-V board support
+Message-ID: <20230922-salvation-splendor-61533091f87b@spud>
+References: <cover.1695189879.git.wangchen20@iscas.ac.cn>
+ <20230920-muppet-wad-ee76f3112651@wendy>
+ <CAHAQgRA+uN2xG=imVe4fuSyGxjDQk-AOo4r5b4bvAcTuEewwiQ@mail.gmail.com>
+MIME-Version: 1.0
+In-Reply-To: <CAHAQgRA+uN2xG=imVe4fuSyGxjDQk-AOo4r5b4bvAcTuEewwiQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230922_034606_823700_6631352B 
-X-CRM114-Status: GOOD (  20.57  )
+X-CRM114-CacheID: sfid-20230922_035040_479584_44B25848 
+X-CRM114-Status: GOOD (  24.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,110 +76,191 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============8546013330388107425=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-shravan chippa wrote:
-> From: Shravan Chippa <shravan.chippa@microchip.com>
->
-> Update sf-pdma driver to adopt generic DMA device tree bindings.
-> It calls of_dma_controller_register() with sf-pdma specific
-> of_dma_xlate to get the generic DMA device tree helper support
-> and the DMA clients can look up the sf-pdma controller using
-> standard APIs.
->
-> Signed-off-by: Shravan Chippa <shravan.chippa@microchip.com>
-> ---
->  drivers/dma/sf-pdma/sf-pdma.c | 41 +++++++++++++++++++++++++++++++++++
->  1 file changed, 41 insertions(+)
->
-> diff --git a/drivers/dma/sf-pdma/sf-pdma.c b/drivers/dma/sf-pdma/sf-pdma.c
-> index d1c6956af452..c7558c9f9ac3 100644
-> --- a/drivers/dma/sf-pdma/sf-pdma.c
-> +++ b/drivers/dma/sf-pdma/sf-pdma.c
-> @@ -20,6 +20,7 @@
->  #include <linux/mod_devicetable.h>
->  #include <linux/dma-mapping.h>
->  #include <linux/of.h>
-> +#include <linux/of_dma.h>
->  #include <linux/slab.h>
->
->  #include "sf-pdma.h"
-> @@ -490,6 +491,33 @@ static void sf_pdma_setup_chans(struct sf_pdma *pdma)
->  	}
->  }
->
-> +static struct dma_chan *sf_pdma_of_xlate(struct of_phandle_args *dma_spec,
-> +					 struct of_dma *ofdma)
-> +{
-> +	struct sf_pdma *pdma = ofdma->of_dma_data;
-> +	struct device *dev = pdma->dma_dev.dev;
-> +	struct sf_pdma_chan  *chan;
-> +	struct dma_chan *c;
-> +	u32 channel_id;
-> +
-> +	if (dma_spec->args_count != 1) {
-> +		dev_err(dev, "Bad number of cells\n");
-> +		return NULL;
-> +	}
-> +
-> +	channel_id = dma_spec->args[0];
-> +
-> +	chan = &pdma->chans[channel_id];
-> +
-> +	c = dma_get_slave_channel(&chan->vchan.chan);
-> +	if (!c) {
-> +		dev_err(dev, "No more channels available\n");
-> +		return NULL;
-> +	}
-> +
-> +	return c;
-> +}
-> +
->  static int sf_pdma_probe(struct platform_device *pdev)
->  {
->  	struct sf_pdma *pdma;
-> @@ -563,7 +591,20 @@ static int sf_pdma_probe(struct platform_device *pdev)
->  		return ret;
->  	}
->
-> +	ret = of_dma_controller_register(pdev->dev.of_node,
-> +					 sf_pdma_of_xlate, pdma);
-> +	if (ret < 0) {
-> +		dev_err(&pdev->dev,
-> +			"Can't register SiFive Platform OF_DMA. (%d)\n", ret);
-> +		goto err_unregister;
-> +	}
-> +
 
-Hi Shrivan,
+--===============8546013330388107425==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="DtwC+yOilvVlaIfy"
+Content-Disposition: inline
 
-Doesn't this need a matching unregister/free call in the
-sf_pdma_remove function?
 
-/Emil
+--DtwC+yOilvVlaIfy
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
->  	return 0;
-> +
-> +err_unregister:
-> +	dma_async_device_unregister(&pdma->dma_dev);
-> +
-> +	return ret;
->  }
->
->  static int sf_pdma_remove(struct platform_device *pdev)
-> --
-> 2.34.1
->
->
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+On Fri, Sep 22, 2023 at 06:24:25PM +0800, Chen Wang wrote:
+> Regards,
+>=20
+> unicornx
+>=20
+> Conor Dooley <conor.dooley@microchip.com> =E4=BA=8E2023=E5=B9=B49=E6=9C=
+=8820=E6=97=A5=E5=91=A8=E4=B8=89 18:01=E5=86=99=E9=81=93=EF=BC=9A
+> >
+> > On Wed, Sep 20, 2023 at 02:33:48PM +0800, Chen Wang wrote:
+> > > Milk-V Pioneer [1] is a developer motherboard based on SOPHON SG2042 =
+[2]
+> > > in a standard mATX form factor. Add minimal device
+> > > tree files for the SG2042 SOC and the Milk-V Pioneer board.
+> >
+> > Please run dtbs_check with W=3D1 set & fix the below issues:
+> >
+> > sg2042-cpus.dtsi:1600.25-1607.5: Warning (unit_address_vs_reg): /cpus/l=
+2-cache@0: node has a unit name, but no reg or ranges property
+> > sg2042-cpus.dtsi:1609.25-1616.5: Warning (unit_address_vs_reg): /cpus/l=
+2-cache@1: node has a unit name, but no reg or ranges property
+> > sg2042-cpus.dtsi:1618.25-1625.5: Warning (unit_address_vs_reg): /cpus/l=
+2-cache@2: node has a unit name, but no reg or ranges property
+> > sg2042-cpus.dtsi:1627.25-1634.5: Warning (unit_address_vs_reg): /cpus/l=
+2-cache@3: node has a unit name, but no reg or ranges property
+> > sg2042-cpus.dtsi:1636.25-1643.5: Warning (unit_address_vs_reg): /cpus/l=
+2-cache@4: node has a unit name, but no reg or ranges property
+> > sg2042-cpus.dtsi:1645.25-1652.5: Warning (unit_address_vs_reg): /cpus/l=
+2-cache@5: node has a unit name, but no reg or ranges property
+> > sg2042-cpus.dtsi:1654.25-1661.5: Warning (unit_address_vs_reg): /cpus/l=
+2-cache@6: node has a unit name, but no reg or ranges property
+> > sg2042-cpus.dtsi:1663.25-1670.5: Warning (unit_address_vs_reg): /cpus/l=
+2-cache@7: node has a unit name, but no reg or ranges property
+> > sg2042-cpus.dtsi:1672.25-1679.5: Warning (unit_address_vs_reg): /cpus/l=
+2-cache@8: node has a unit name, but no reg or ranges property
+> > sg2042-cpus.dtsi:1681.25-1688.5: Warning (unit_address_vs_reg): /cpus/l=
+2-cache@9: node has a unit name, but no reg or ranges property
+> > sg2042-cpus.dtsi:1690.27-1697.5: Warning (unit_address_vs_reg): /cpus/l=
+2-cache@10: node has a unit name, but no reg or ranges property
+> > sg2042-cpus.dtsi:1699.27-1706.5: Warning (unit_address_vs_reg): /cpus/l=
+2-cache@11: node has a unit name, but no reg or ranges property
+> > sg2042-cpus.dtsi:1708.27-1715.5: Warning (unit_address_vs_reg): /cpus/l=
+2-cache@12: node has a unit name, but no reg or ranges property
+> > sg2042-cpus.dtsi:1717.27-1724.5: Warning (unit_address_vs_reg): /cpus/l=
+2-cache@13: node has a unit name, but no reg or ranges property
+> > sg2042-cpus.dtsi:1726.27-1733.5: Warning (unit_address_vs_reg): /cpus/l=
+2-cache@14: node has a unit name, but no reg or ranges property
+> > sg2042-cpus.dtsi:1735.27-1742.5: Warning (unit_address_vs_reg): /cpus/l=
+2-cache@15: node has a unit name, but no reg or ranges property
+> > sg2042-cpus.dtsi:256.15-275.5: Warning (unique_unit_address_if_enabled)=
+: /cpus/cpu@0: duplicate unit-address (also used in node /cpus/l2-cache@0)
+> > sg2042-cpus.dtsi:277.15-296.5: Warning (unique_unit_address_if_enabled)=
+: /cpus/cpu@1: duplicate unit-address (also used in node /cpus/l2-cache@1)
+> > sg2042-cpus.dtsi:298.15-317.5: Warning (unique_unit_address_if_enabled)=
+: /cpus/cpu@2: duplicate unit-address (also used in node /cpus/l2-cache@2)
+> > sg2042-cpus.dtsi:319.15-338.5: Warning (unique_unit_address_if_enabled)=
+: /cpus/cpu@3: duplicate unit-address (also used in node /cpus/l2-cache@3)
+> > sg2042-cpus.dtsi:340.15-359.5: Warning (unique_unit_address_if_enabled)=
+: /cpus/cpu@4: duplicate unit-address (also used in node /cpus/l2-cache@4)
+> > sg2042-cpus.dtsi:361.15-380.5: Warning (unique_unit_address_if_enabled)=
+: /cpus/cpu@5: duplicate unit-address (also used in node /cpus/l2-cache@5)
+> > sg2042-cpus.dtsi:382.15-401.5: Warning (unique_unit_address_if_enabled)=
+: /cpus/cpu@6: duplicate unit-address (also used in node /cpus/l2-cache@6)
+> > sg2042-cpus.dtsi:403.15-422.5: Warning (unique_unit_address_if_enabled)=
+: /cpus/cpu@7: duplicate unit-address (also used in node /cpus/l2-cache@7)
+> > sg2042-cpus.dtsi:424.15-443.5: Warning (unique_unit_address_if_enabled)=
+: /cpus/cpu@8: duplicate unit-address (also used in node /cpus/l2-cache@8)
+> > sg2042-cpus.dtsi:445.15-464.5: Warning (unique_unit_address_if_enabled)=
+: /cpus/cpu@9: duplicate unit-address (also used in node /cpus/l2-cache@9)
+> > sg2042-cpus.dtsi:466.17-485.5: Warning (unique_unit_address_if_enabled)=
+: /cpus/cpu@10: duplicate unit-address (also used in node /cpus/l2-cache@10)
+> > sg2042-cpus.dtsi:487.17-506.5: Warning (unique_unit_address_if_enabled)=
+: /cpus/cpu@11: duplicate unit-address (also used in node /cpus/l2-cache@11)
+> > sg2042-cpus.dtsi:508.17-527.5: Warning (unique_unit_address_if_enabled)=
+: /cpus/cpu@12: duplicate unit-address (also used in node /cpus/l2-cache@12)
+> > sg2042-cpus.dtsi:529.17-548.5: Warning (unique_unit_address_if_enabled)=
+: /cpus/cpu@13: duplicate unit-address (also used in node /cpus/l2-cache@13)
+> > sg2042-cpus.dtsi:550.17-569.5: Warning (unique_unit_address_if_enabled)=
+: /cpus/cpu@14: duplicate unit-address (also used in node /cpus/l2-cache@14)
+> > sg2042-cpus.dtsi:571.17-590.5: Warning (unique_unit_address_if_enabled)=
+: /cpus/cpu@15: duplicate unit-address (also used in node /cpus/l2-cache@15)
+> >
+> > Thanks,
+> > Conor.
+>=20
+> I find the rootcause is due to following code in DTS:
+> ```
+>                 l2_cache0: l2-cache@0 {
+>                         compatible =3D "cache";
+>                         cache-block-size =3D <64>;
+>                         cache-level =3D <2>;
+>                         cache-size =3D <1048576>;
+>                         cache-sets =3D <1024>;
+>                         cache-unified;
+>                 };
+> ```
+> To differ 16 l2-cache controller, we add <unit-address>, but due to
+> the l2-cache controller on sg2042 has no address, no reg property is
+> added here. That's why dtbs_check warns "node has a unit name, but no
+> reg or ranges property". I just double-confirmed with sophgo
+> engineers, they  told me there is really no address for the cache
+> controller for sg2042.
+>=20
+> One solution I use here is to provide unique name for the l2-cache
+> node. I learn this from  "arch/arm64/boot/dts/hisilicon/hi3660.dtsi"
+> and seems this work and pass dtbs_check with W=3D1. For example:
+> ```
+>                 l2_cache0: l2-cache0 {
+>                         compatible =3D "cache";
+>                         cache-block-size =3D <64>;
+>                         cache-level =3D <2>;
+>                         cache-size =3D <1048576>;
+>                         cache-sets =3D <1024>;
+>                         cache-unified;
+>                 };
+>=20
+>                 l2_cache1: l2-cache1 {
+>                         compatible =3D "cache";
+>                         cache-block-size =3D <64>;
+>                         cache-level =3D <2>;
+>                         cache-size =3D <1048576>;
+>                         cache-sets =3D <1024>;
+>                         cache-unified;
+>                 };
+>                 ......
+> ```
+> But I remember as mentioned in
+> https://devicetree-specification.readthedocs.io/en/latest/chapter2-device=
+tree-basics.html#generic-names-recommendation,
+> node names should be generic. So I have two questions here:
+> - Should I use "cache-controller" instead of "l2-cache", though I see
+> "l2-cache" is used in many places but not listed in
+> devicetree-specification.
+> - Even if I replace "l2-cache" with "cache-controller", I think
+> "cache-controller0", "cache-controller1" ... are not generic name, but
+> due to sg2042 does not have address for cache controller, how to
+> handle this problem?
+
+I would go for "cache-controller-0" "cache-controller-1". Close as
+possible to the generic node name while having the required differences
+between nodes. There's already some examples in-tree (eg renesas) that
+do this.
+
+Thanks,
+Conor.
+
+--DtwC+yOilvVlaIfy
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZQ1xdQAKCRB4tDGHoIJi
+0rSqAQC2q8Eac9WHZ0kwmpDStSPneHIuoD6unVUY6au6JrndOQD/f9i5UVKVZog+
+HOK//YsxjVXAktCB3VITwmlLJ1eOPg4=
+=NU7b
+-----END PGP SIGNATURE-----
+
+--DtwC+yOilvVlaIfy--
+
+
+--===============8546013330388107425==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============8546013330388107425==--
+
