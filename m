@@ -4,78 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26B5AE7D0BB
-	for <linux-riscv@archiver.kernel.org>; Fri, 22 Sep 2023 01:49:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F218AE7D0BF
+	for <linux-riscv@archiver.kernel.org>; Fri, 22 Sep 2023 01:51:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:In-Reply-To:References:Message-Id:
+	MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gSZF8V/AIqSP+Wo5fOKL0TlWN2R8REdbEyNSmVn01us=; b=QJG69QLLly1kAI
-	EIMAUezTpHHU4yZ/Ja1Gvk794LvDCOGXDUjtCh9+ncn+JVXqZf4bakpGkhjhO8fI53m/6QcOFQnSY
-	JKJl0zm5fDqai/HvBkBC7G/8DPcN/i3fHi5mK8WJeylIa6lVumQFs/RA2AC/EZPNxPSkwuBeUFJ95
-	JFZ0RP5eQZmETEWlYTralI7UrY6MdEXhVNh3ZR3udV9L4VGiHMiSRueLvMC2no9EKhRxG473PS/Uc
-	ZJH4Rj84XoDJXeehjJa8wTWlkwzrkTw4R9538VlrYTbwhYXjmGF2jVet4wIacSIwDf8ZNm86Lyg+9
-	jnorH1R9d4sRk6mveWUQ==;
+	List-Owner; bh=E09lckMtOcZFDL+rp5IAtOXlLBjIaGKY5LkZbKKFBcI=; b=xZE/b5a1oR7/Fr
+	ZlPqvCRj7yXMpwCw5Q7BeEW0FcJfFYEhyXCpRY8NEwiAG5WUfCizzJX5a9G75O6rAwr20/kL9H2CL
+	2J7sm2B9vxxd12Ki+Rd2bFIag8lXF01Jjzhkm9vbLeRvX7Wwp7E0kCrorTe/DLifhMkuWdcyvHlTI
+	JhjLk3haxSNMsiNymNFMcwypbpf6UeiALYM5rosNENzXLF++K9xlREMVrDWrtz9VgZ6AKX2Fd7zFo
+	WZ1fzGyQLDDI9MXRv0CMwUQCsOR1WTPiGekHbQkl0z1OQ+NUUta5ioDBLX2S26NZJv/2mhjfPxH6M
+	i/+96eFhnx+csZTZAphQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qjVHr-007aJL-0i;
-	Fri, 22 Sep 2023 01:48:55 +0000
-Received: from mail-qk1-x736.google.com ([2607:f8b0:4864:20::736])
+	id 1qjVK8-007aay-05;
+	Fri, 22 Sep 2023 01:51:16 +0000
+Received: from mail-vs1-f50.google.com ([209.85.217.50])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qjVHo-007aIq-18
+	id 1qjVK3-007aXw-35
 	for linux-riscv@lists.infradead.org;
-	Fri, 22 Sep 2023 01:48:53 +0000
-Received: by mail-qk1-x736.google.com with SMTP id af79cd13be357-7741109bdeeso58443585a.2
-        for <linux-riscv@lists.infradead.org>; Thu, 21 Sep 2023 18:48:51 -0700 (PDT)
+	Fri, 22 Sep 2023 01:51:13 +0000
+Received: by mail-vs1-f50.google.com with SMTP id ada2fe7eead31-4527d7f7305so818585137.1
+        for <linux-riscv@lists.infradead.org>; Thu, 21 Sep 2023 18:51:11 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1695347330; x=1695952130; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=UiIUp0HnbqjxrLPRZup0L6ii6WvuXlyjebdFnom5owg=;
-        b=kuPyjg0YWCR/UbqWtkuZhxmOa7whL+wZ0v4COJIyWwcEW04u5f0MWb1SFmSt4pMvXI
-         KOrrqyRzBtbOmQPXapuPREis3RUBTSJgxPE7O7NGz7vjHa1G+lBdl47wsHiAI5M8J3Bc
-         mJizwVdGwjqyzERHiTbnKqzXNVxMD+0A3Hv6XCFuCtjOjlxQHlI/k8Xxs8kbbPeNdn8P
-         kt3VZK7ZF5lWlwOcq4Z0+Mf7VV25knnnrTFUhl0zN/krh/7PSu8mQLyvprlgvFmHvre3
-         krv4K5f/2QGfcwdEpnHDkfX7tNhvCJF4kNtNhvvCRrqqMtZFx4nD2Nqwq6ltODiUo+lO
-         +S5Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1695347330; x=1695952130;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1695347470; x=1695952270; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=UiIUp0HnbqjxrLPRZup0L6ii6WvuXlyjebdFnom5owg=;
-        b=X8CDy+LYcXJYgA6Up6dXxGKs5/JPtZe79pIIXpeAow9NP+45uLMNVig8+2EaYJI4sG
-         6R83a70+7Z8AvLsUu4Lj9yElrxuLKj2qpf/m76T+PS8XEimQE2dr+2kYO0xziiKk/xI8
-         I3ubSBVMkHpCMxsoDsp38DVTFV03wcutshdQVSWF7THRrwhHt/049Xg2oQqeIeEG9Ycx
-         hPYmvDowRVkJ9hzZ+XLiGqN+VFHT00DCRfNRqBtv47OwrTV8umEF8zL7YjafOrmvNno+
-         qG5D8q2wmzJwatkU/Zd2bgGgfesAkPAAaNsCTYrEc9O0R5EVSI+h6QIYS35jGfvi+6rL
-         Camw==
-X-Gm-Message-State: AOJu0Yy5lOX8UXJ/C5e1jxvZn0fNv09vNFUYhQrGwDd6VBA7S4BgIBgr
-	2OeLWdtEZ9tzXAABqNFlJzaporqz4o2xhbF0rSQ=
-X-Google-Smtp-Source: AGHT+IG9+0LFH2o1wrTGPMeXClaqq89OO92QkLkFDzzSIfk8yDNld3wIXiH7/913d38LhvdxYw/3M/3o3o9M9xCMem4=
-X-Received: by 2002:a05:620a:795:b0:76d:9b15:de71 with SMTP id
- 21-20020a05620a079500b0076d9b15de71mr6693484qka.31.1695347330529; Thu, 21 Sep
- 2023 18:48:50 -0700 (PDT)
+        bh=ixTqiGVx8ZXpjpR7y6lRGGFsz7OZ+ET+MZdQ4NUAsFY=;
+        b=yYvZaoxx1/cwio9uoWvbJDNVkdnjH8YuPJm+4k6NpWswn5bx1ccnbbxhwmQRGkGHDC
+         5c9fCckplG52ep8b5ng6mPMiGhndZXQ74mh0CAi29ZDElaiHj0YvMpeHUgY1i7syul2q
+         MT+Ke8fin7Em6uGNYwD8NsfJgfEj2t5DgFW9TWXqnUNYLGTIu81eYXG6GnVzeMEDk/rU
+         n9zGHaUQVzudhCIBRHh96l6HMfu4vvPrjOjsj5m5wqjhdr+ZIrXhNm5ugQb+Cclw+6iL
+         TLNVK9cTelck0F8HwpfKWuvnNS/2alZiSZy5g3eqXibUZScklJyHOkyyUvm3rlKBhadG
+         pRKg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1695347470; x=1695952270;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=ixTqiGVx8ZXpjpR7y6lRGGFsz7OZ+ET+MZdQ4NUAsFY=;
+        b=e1gfc1qVsuei2QJa9u2R6RPA5GOzvMffmNkxufcKWF98angoqGw7JgVVWqR97Tek+Z
+         DjIQ09h2QZvpUMSUuJgrAcer63Y8XgKrjLYJnQf62iIUJCQtXfy/TR7nzSgNTSnnUHQR
+         1c2AL1Cw9W0LP5L2birLrUlbQmzOI2YUkcYV4FPra04x4Qp54uA6XrOdAEw9wwUWfQU7
+         O9rloiD9N+DSt6qibeWp9E4XSRkj+/knl9xbmERU/eAT6R+0ImmwCNGQNbLM7bD2G7AK
+         fW/NifiD6WAZtkhRQ1/UYrAeEnanf/NvSs+iUUyjPX+f6LZjfUeKsS1w35PKYQYiMnDQ
+         AHVQ==
+X-Gm-Message-State: AOJu0YzTEARVUdViSIxV5lAFl58Xoe7oySIsNvfFD6bfdtRY6IDeIHkh
+	aVtzxV7cS5Eca46tNvc92lAWpA==
+X-Google-Smtp-Source: AGHT+IHj0Lr/Be8FAt3qA85CiKz6e+2ivU8VOj029IZto83YwRL3xxqYZvq42aLws+pyGjAy7HTN1A==
+X-Received: by 2002:a05:6102:302c:b0:44d:4d5f:79a4 with SMTP id v12-20020a056102302c00b0044d4d5f79a4mr6139892vsa.20.1695347470206;
+        Thu, 21 Sep 2023 18:51:10 -0700 (PDT)
+Received: from [127.0.1.1] ([2601:1c2:1800:f680:fa26:6227:be1c:67f0])
+        by smtp.gmail.com with ESMTPSA id y10-20020a63b50a000000b0057412d84d25sm1973856pge.4.2023.09.21.18.51.09
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 21 Sep 2023 18:51:09 -0700 (PDT)
+From: Drew Fustini <dfustini@baylibre.com>
+Date: Thu, 21 Sep 2023 18:49:49 -0700
+Subject: [PATCH 2/6] mmc: sdhci: add __sdhci_execute_tuning() to header
 MIME-Version: 1.0
-References: <cover.1695189879.git.wangchen20@iscas.ac.cn> <c6aea83bb1df563b1f2a66c5f230c3861aed1e15.1695189879.git.wangchen20@iscas.ac.cn>
- <20230920-arrival-bonanza-e335686420f4@wendy>
-In-Reply-To: <20230920-arrival-bonanza-e335686420f4@wendy>
-From: Chen Wang <unicornxw@gmail.com>
-Date: Fri, 22 Sep 2023 09:48:39 +0800
-Message-ID: <CAHAQgRASRhpDBj3jNBkj+faJGjc5Ms_jX+hcurnrUKFO9Tn3Xg@mail.gmail.com>
-Subject: Re: [PATCH v2 03/11] dt-bindings: riscv: add sophgo sg2042 bindings
-To: Conor Dooley <conor.dooley@microchip.com>
-Cc: aou@eecs.berkeley.edu, chao.wei@sophgo.com, conor@kernel.org, 
-	devicetree@vger.kernel.org, emil.renner.berthing@canonical.com, 
-	guoren@kernel.org, jszhang@kernel.org, krzysztof.kozlowski+dt@linaro.org, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	palmer@dabbelt.com, paul.walmsley@sifive.com, robh+dt@kernel.org, 
-	xiaoguang.xing@sophgo.com, Chen Wang <wangchen20@iscas.ac.cn>
+Message-Id: <20230921-th1520-mmc-v1-2-49f76c274fb3@baylibre.com>
+References: <20230921-th1520-mmc-v1-0-49f76c274fb3@baylibre.com>
+In-Reply-To: <20230921-th1520-mmc-v1-0-49f76c274fb3@baylibre.com>
+To: Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh+dt@kernel.org>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Jisheng Zhang <jszhang@kernel.org>, 
+ Adrian Hunter <adrian.hunter@intel.com>, Guo Ren <guoren@kernel.org>, 
+ Fu Wei <wefu@redhat.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Conor Dooley <conor@kernel.org>
+X-Mailer: b4 0.12.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1695347467; l=1797;
+ i=dfustini@baylibre.com; s=20230430; h=from:subject:message-id;
+ bh=jbhsItAspw9Y505sHjMPZkocmfoBMXCEAbwf8HhAE8A=;
+ b=Y7zI2YH3NQD0FaxiSQ4VnQS2RFqoHRb3cydOhAc2I8kHbSV81T3H1sj3MdzwctHhwtJlv39EH
+ CGD7yjz/YJWDePGxpJZ2guSYNA4iKk5mDzTqvA3yDNkTUQHmVRbKFIQ
+X-Developer-Key: i=dfustini@baylibre.com; a=ed25519;
+ pk=p3GKE9XFmjhwAayAHG4U108yag7V8xQVd4zJLdW0g7g=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230921_184852_414053_81A0FA45 
-X-CRM114-Status: GOOD (  20.67  )
+X-CRM114-CacheID: sfid-20230921_185112_002745_C954FBA9 
+X-CRM114-Status: GOOD (  11.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,61 +98,57 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: devicetree@vger.kernel.org, Drew Fustini <dfustini@baylibre.com>, Han Gao <gaohan@iscas.ac.cn>, linux-mmc@vger.kernel.org, linux-kernel@vger.kernel.org, Robert Nelson <robertcnelson@beagleboard.org>, Jason Kridner <jkridner@beagleboard.org>, Xi Ruoyao <xry111@xry111.site>, linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Regards,
+Expose __sdhci_execute_tuning() so that it can be called from the
+mmc host controller drivers.
 
-unicornx
+In the sdhci-of-dwcmshc driver, sdhci_dwcmshc_th1520_ops sets
+platform_execute_tuning to th1520_execute_tuning(). That function has
+to manipulate phy registers before tuning can be performed. To avoid
+copying the code verbatim from __sdhci_execute_tuning() into
+th1520_execute_tuning(), make it possible for __sdhci_execute_tuning()
+to be called from sdhci-of-dwcmshc.
 
+Signed-off-by: Drew Fustini <dfustini@baylibre.com>
+---
+ drivers/mmc/host/sdhci.c | 2 +-
+ drivers/mmc/host/sdhci.h | 1 +
+ 2 files changed, 2 insertions(+), 1 deletion(-)
 
-> > diff --git a/MAINTAINERS b/MAINTAINERS
-> > index 90f13281d297..b74d505003e2 100644
-> > --- a/MAINTAINERS
-> > +++ b/MAINTAINERS
-> > @@ -20063,6 +20063,13 @@ F:   drivers/char/sonypi.c
-> >  F:   drivers/platform/x86/sony-laptop.c
-> >  F:   include/linux/sony-laptop.h
-> >
-> > +SOPHGO DEVICETREES
-> > +M:   Xiaoguang Xing <xiaoguang.xing@sophgo.com>
-> > +M:   Chao Wei <chao.wei@sophgo.com>
-> > +S:   Maintained
-> > +F:   Documentation/devicetree/bindings/riscv/sophgo.yaml
->
-> > +F:   arch/riscv/boot/dts/sophgo/
->
-> Firstly, this directory does not exist at the time of this patch, so it
-> should not be added here, but rather at the time that you create it.
->
-> Secondly, are Xiaoguang Xing and Chao Wei going to monitor the lists &
-> apply patches for these files? If so, you should add a git tree here
-> that they will apply patches to & add to linux-next. Also, I'd really
+diff --git a/drivers/mmc/host/sdhci.c b/drivers/mmc/host/sdhci.c
+index ff41aa56564e..fd607058d176 100644
+--- a/drivers/mmc/host/sdhci.c
++++ b/drivers/mmc/host/sdhci.c
+@@ -2841,7 +2841,7 @@ void sdhci_send_tuning(struct sdhci_host *host, u32 opcode)
+ }
+ EXPORT_SYMBOL_GPL(sdhci_send_tuning);
+ 
+-static int __sdhci_execute_tuning(struct sdhci_host *host, u32 opcode)
++int __sdhci_execute_tuning(struct sdhci_host *host, u32 opcode)
+ {
+ 	int i;
+ 
+diff --git a/drivers/mmc/host/sdhci.h b/drivers/mmc/host/sdhci.h
+index f219bdea8f28..a20864fc0641 100644
+--- a/drivers/mmc/host/sdhci.h
++++ b/drivers/mmc/host/sdhci.h
+@@ -793,6 +793,7 @@ void sdhci_set_bus_width(struct sdhci_host *host, int width);
+ void sdhci_reset(struct sdhci_host *host, u8 mask);
+ void sdhci_set_uhs_signaling(struct sdhci_host *host, unsigned timing);
+ int sdhci_execute_tuning(struct mmc_host *mmc, u32 opcode);
++int __sdhci_execute_tuning(struct sdhci_host *host, u32 opcode);
+ void sdhci_set_ios(struct mmc_host *mmc, struct mmc_ios *ios);
+ int sdhci_start_signal_voltage_switch(struct mmc_host *mmc,
+ 				      struct mmc_ios *ios);
 
-Conor, FYI, regarding "add a git tree here that they will apply
-patches to & add to linux-next.", I will not add in this patchset. I
-plan to add this when we start to take the maintainece work. Let me
-know if any questions.
+-- 
+2.34.1
 
-> like to see some on-list signs of life from these people, otherwise
-> I'd rather see your name here instead of theirs.
->
-> If they don't intend reviewing/testing/applying patches, I can do it as
-> a last resort but I would rather that someone who specifically cares for
-> this hardware does it.
->
-> Thanks,
-> Conor.
->
-> > +
-> >  SOUND
-> >  M:   Jaroslav Kysela <perex@perex.cz>
-> >  M:   Takashi Iwai <tiwai@suse.com>
-> > --
-> > 2.25.1
-> >
 
 _______________________________________________
 linux-riscv mailing list
