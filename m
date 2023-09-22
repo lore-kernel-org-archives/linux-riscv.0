@@ -4,103 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84E4EE7D0C1
-	for <linux-riscv@archiver.kernel.org>; Fri, 22 Sep 2023 02:55:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46E81E7D0C2
+	for <linux-riscv@archiver.kernel.org>; Fri, 22 Sep 2023 03:08:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZzIdAhRLmFGCKZnMEHAO2ue68z4MXUyVZ4XXKU6zQrA=; b=ERpnFeCcEIKMsE
-	rRFtaJynMKi8GOP8Dohg25QwB2/mgvVLCv920f2OuCM4q3iqajAgpQ3rwsKQeXsQ+ORizZLV8JxuI
-	ppr7AAPLe0nrgS/Q6dsrOSesZPARS4dEzXr43DbGTLAqeAuEjIZbm1BWTBY4mihlkHH/h4gWboTxZ
-	UkW71OXHlS8c7HVxeedQcKJqAe9rRF18wk7trUEe55UPXbwHQmfI1aI/o/doVLc09ag2/NAU2cfUs
-	MaHSBMiDz5SBmwiD1RfJQuFyWozeZ9U1r+N1M1s1IlRng/Ys+TWDCEIemuDTVKn7VBvAhkMNWirfM
-	ZXXvwegZvDx6O6ZQSVGw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=2gGHNriVFqSiPlah6cfWvrV6CI/Mz0JKo3oByEYPN8M=; b=KS1V5WhAAKxlrV
+	uep37OE+6tlyNLCCKygSKRdeFvK+Vv0uLvIH/xtciVR5/CwoopUI2VRv+O8y55TsQeTv0dol2XURC
+	/tdbVatUYydbQyrPyM30Wy8g1aO4kcN5WrDW+/q2Z4LgcEX91cHjNC1Zsc3Y9rr5mKcDZlGT69hTo
+	xVvs3JovY8kGJK8lo+6Melwkplr7eIv5FvUU1IjfTH/M3coecTd5YgZ10K00HDdIErxPcQkqZepmS
+	9DXkqcWxbmGNO6kwYK7tfROtWfAXiBAGD0nYkFllLKEJB0mkiaEF6fdLvrCBilgDvnMyOxCmMuInJ
+	e7XR4zQvEdPdYtlwOXHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qjWJi-007g0k-2r;
-	Fri, 22 Sep 2023 02:54:54 +0000
-Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
+	id 1qjWWI-007hIU-1A;
+	Fri, 22 Sep 2023 03:07:54 +0000
+Received: from szxga01-in.huawei.com ([45.249.212.187])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qjWJf-007fyt-0k
+	id 1qjWWE-007hGv-1D
 	for linux-riscv@lists.infradead.org;
-	Fri, 22 Sep 2023 02:54:53 +0000
-Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-6926d5ad926so236351b3a.1
-        for <linux-riscv@lists.infradead.org>; Thu, 21 Sep 2023 19:54:46 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1695351286; x=1695956086; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=br+/C/v821nNYRFlkBHOr44NAy7oCmXwb/N/stsA46I=;
-        b=ETw2CngW/LQXV3GiIgzAbYMo+TNkWb51fZvu4jKUiMe4k7NrDMXt8b83ecnl54TFHo
-         IEw4P3tyI0H0Vupm4zZiaYQ5CubBnv/UAFOz3Jbx1y68dQ8ui450lftwta9/3Ckxf/gk
-         xxrl2FtVU3rJ3/rwIqAw4ZaXOfSNkehGdXolADP8GoAxd+/qQyF5Zqx0HGMNxArEHuh4
-         XcYn2bkxw/WGnc4AnKXvx8kAKDi+60dWPrnQL/Snk3LDK6H9UX1xU6eKwC0+HnUefZo5
-         4AkP7G1VGKPKwkknA3wPu5jQ5+BOHisp3+oUDlpewtbdpR3jLKjBa2nGykSLkttFvxUV
-         NrOA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1695351286; x=1695956086;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=br+/C/v821nNYRFlkBHOr44NAy7oCmXwb/N/stsA46I=;
-        b=EU0lQYZr1P/qU7vFvlsXg0VqrS2vSwdyNCAx5gAWVsOZcsYmF0bnJCgOpPGTKuFlAp
-         BQkAuJl7nS7EUjRfseNzAle9jTjGrazIGWZ1eWxoTRX2mrffJ6AP44SRzUOOThr4A/cR
-         FOgYkaIXRwJ6iSF0lkH26xE1M9Cr1g6fWimVSU41tGItdVXOU/NLRDE+wjywzQ3gIeGV
-         01yCaKJa23cV7V51pqpRK5v1zN6nh7kVD80KFEvOWKHjN3Hh5QM4erSEjVFg7PK+POuo
-         K49ybU2xBEVJg4h2UuP+hsOngnRujKRWLL9RVVErlFHciYoIe0uIEaUPCrakIbbaEFsR
-         xlYQ==
-X-Gm-Message-State: AOJu0YyZXRSY0z0cELrBltyFMSAU4H36UnX/awcEdheFrs1khe/lBLWr
-	DD209R1sohLaX4QZ/bJmy+nFFg==
-X-Google-Smtp-Source: AGHT+IE6azF5uKJJ3m1Yb0ly5UPZHOK7EZhY5CJWIi1/96fWzCl6d26UEkh5dqVknV//4FTGeJthoQ==
-X-Received: by 2002:a05:6a20:c1aa:b0:15c:b7ba:e9ba with SMTP id bg42-20020a056a20c1aa00b0015cb7bae9bamr6999312pzb.0.1695351285575;
-        Thu, 21 Sep 2023 19:54:45 -0700 (PDT)
-Received: from [10.84.155.178] ([203.208.167.146])
-        by smtp.gmail.com with ESMTPSA id gp24-20020a17090adf1800b00268032f6a64sm3855746pjb.25.2023.09.21.19.54.33
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 21 Sep 2023 19:54:45 -0700 (PDT)
-Message-ID: <217bb956-b9f6-1057-914b-436d4c775a8b@bytedance.com>
-Date: Fri, 22 Sep 2023 10:54:32 +0800
+	Fri, 22 Sep 2023 03:07:52 +0000
+Received: from dggpemm500016.china.huawei.com (unknown [172.30.72.53])
+	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4RsHFc2lDXzrT16;
+	Fri, 22 Sep 2023 11:05:24 +0800 (CST)
+Received: from huawei.com (10.67.174.58) by dggpemm500016.china.huawei.com
+ (7.185.36.25) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.31; Fri, 22 Sep
+ 2023 11:07:32 +0800
+From: Chen Jiahao <chenjiahao16@huawei.com>
+To: <bhe@redhat.com>, <thunder.leizhen@huawei.com>,
+	<paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
+	<conor.dooley@microchip.com>, <alexghiti@rivosinc.com>,
+	<ajones@ventanamicro.com>, <jszhang@kernel.org>, <sunilvl@ventanamicro.com>,
+	<robh@kernel.org>, <bjorn@rivosinc.com>, <zephray@outlook.com>,
+	<akpm@linux-foundation.org>, <linux-riscv@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>
+CC: <chenjiahao16@huawei.com>
+Subject: [PATCH -next] riscv: kdump: fix crashkernel reserving problem on RISC-V
+Date: Fri, 22 Sep 2023 11:07:22 +0800
+Message-ID: <20230922030722.708267-1-chenjiahao16@huawei.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:102.0)
- Gecko/20100101 Thunderbird/102.15.1
-Subject: Re: [PATCH v1 8/8] arm64: hugetlb: Fix set_huge_pte_at() to work with
- all swap entries
-Content-Language: en-US
-To: Ryan Roberts <ryan.roberts@arm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
- Helge Deller <deller@gmx.de>, Nicholas Piggin <npiggin@gmail.com>,
- Christophe Leroy <christophe.leroy@csgroup.eu>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
- Alexander Gordeev <agordeev@linux.ibm.com>,
- Christian Borntraeger <borntraeger@linux.ibm.com>,
- Sven Schnelle <svens@linux.ibm.com>,
- Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
- "David S. Miller" <davem@davemloft.net>, Arnd Bergmann <arnd@arndb.de>,
- Mike Kravetz <mike.kravetz@oracle.com>, Muchun Song <muchun.song@linux.dev>,
- SeongJae Park <sj@kernel.org>, Andrew Morton <akpm@linux-foundation.org>,
- Uladzislau Rezki <urezki@gmail.com>, Christoph Hellwig <hch@infradead.org>,
- Lorenzo Stoakes <lstoakes@gmail.com>,
- Anshuman Khandual <anshuman.khandual@arm.com>, Peter Xu <peterx@redhat.com>,
- Axel Rasmussen <axelrasmussen@google.com>,
- Qi Zheng <zhengqi.arch@bytedance.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-parisc@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
- linux-s390@vger.kernel.org, sparclinux@vger.kernel.org, linux-mm@kvack.org,
- stable@vger.kernel.org
-References: <20230921162007.1630149-1-ryan.roberts@arm.com>
- <20230921162007.1630149-9-ryan.roberts@arm.com>
-From: Qi Zheng <zhengqi.arch@bytedance.com>
-In-Reply-To: <20230921162007.1630149-9-ryan.roberts@arm.com>
+X-Originating-IP: [10.67.174.58]
+X-ClientProxiedBy: dggems706-chm.china.huawei.com (10.3.19.183) To
+ dggpemm500016.china.huawei.com (7.185.36.25)
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230921_195451_503244_F4B70A5C 
-X-CRM114-Status: GOOD (  38.66  )
+X-CRM114-CacheID: sfid-20230921_200750_756205_F709AA26 
+X-CRM114-Status: GOOD (  12.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,120 +66,84 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Ryan,
+When testing on risc-v QEMU environment with "crashkernel="
+parameter enabled, a problem occurred with the following
+message:
 
-On 2023/9/22 00:20, Ryan Roberts wrote:
-> When called with a swap entry that does not embed a PFN (e.g.
-> PTE_MARKER_POISONED or PTE_MARKER_UFFD_WP), the previous implementation
-> of set_huge_pte_at() would either cause a BUG() to fire (if
-> CONFIG_DEBUG_VM is enabled) or cause a dereference of an invalid address
-> and subsequent panic.
-> 
-> arm64's huge pte implementation supports multiple huge page sizes, some
-> of which are implemented in the page table with contiguous mappings. So
-> set_huge_pte_at() needs to work out how big the logical pte is, so that
-> it can also work out how many physical ptes (or pmds) need to be
-> written. It does this by grabbing the folio out of the pte and querying
-> its size.
-> 
-> However, there are cases when the pte being set is actually a swap
-> entry. But this also used to work fine, because for huge ptes, we only
-> ever saw migration entries and hwpoison entries. And both of these types
-> of swap entries have a PFN embedded, so the code would grab that and
-> everything still worked out.
-> 
-> But over time, more calls to set_huge_pte_at() have been added that set
-> swap entry types that do not embed a PFN. And this causes the code to go
-> bang. The triggering case is for the uffd poison test, commit
-> 99aa77215ad0 ("selftests/mm: add uffd unit test for UFFDIO_POISON"),
-> which sets a PTE_MARKER_POISONED swap entry. But review shows there are
-> other places too (PTE_MARKER_UFFD_WP).
-> 
-> So the root cause is due to commit 18f3962953e4 ("mm: hugetlb: kill
-> set_huge_swap_pte_at()"), which aimed to simplify the interface to the
-> core code by removing set_huge_swap_pte_at() (which took a page size
-> parameter) and replacing it with calls to set_huge_swap_pte_at() where
-> the size was inferred from the folio, as descibed above. While that
-> commit didn't break anything at the time, 
+[    0.000000] crashkernel low memory reserved: 0xf8000000 - 0x100000000 (128 MB)
+[    0.000000] crashkernel reserved: 0x0000000177e00000 - 0x0000000277e00000 (4096 MB)
+[    0.000000] ------------[ cut here ]------------
+[    0.000000] WARNING: CPU: 0 PID: 0 at kernel/resource.c:779 __insert_resource+0x8e/0xd0
+[    0.000000] Modules linked in:
+[    0.000000] CPU: 0 PID: 0 Comm: swapper Not tainted 6.6.0-rc2-next-20230920 #1
+[    0.000000] Hardware name: riscv-virtio,qemu (DT)
+[    0.000000] epc : __insert_resource+0x8e/0xd0
+[    0.000000]  ra : insert_resource+0x28/0x4e
+[    0.000000] epc : ffffffff80017344 ra : ffffffff8001742e sp : ffffffff81203db0
+[    0.000000]  gp : ffffffff812ece98 tp : ffffffff8120dac0 t0 : ff600001f7ff2b00
+[    0.000000]  t1 : 0000000000000000 t2 : 3428203030303030 s0 : ffffffff81203dc0
+[    0.000000]  s1 : ffffffff81211e18 a0 : ffffffff81211e18 a1 : ffffffff81289380
+[    0.000000]  a2 : 0000000277dfffff a3 : 0000000177e00000 a4 : 0000000177e00000
+[    0.000000]  a5 : ffffffff81289380 a6 : 0000000277dfffff a7 : 0000000000000078
+[    0.000000]  s2 : ffffffff81289380 s3 : ffffffff80a0bac8 s4 : ff600001f7ff2880
+[    0.000000]  s5 : 0000000000000280 s6 : 8000000a00006800 s7 : 000000000000007f
+[    0.000000]  s8 : 0000000080017038 s9 : 0000000080038ea0 s10: 0000000000000000
+[    0.000000]  s11: 0000000000000000 t3 : ffffffff80a0bc00 t4 : ffffffff80a0bc00
+[    0.000000]  t5 : ffffffff80a0bbd0 t6 : ffffffff80a0bc00
+[    0.000000] status: 0000000200000100 badaddr: 0000000000000000 cause: 0000000000000003
+[    0.000000] [<ffffffff80017344>] __insert_resource+0x8e/0xd0
+[    0.000000] ---[ end trace 0000000000000000 ]---
+[    0.000000] Failed to add a Crash kernel resource at 177e00000
 
-If it didn't break anything at that time, then shouldn't the Fixes tag
-be added to this commit?
+The crashkernel memory has been allocated successfully, whereas
+it failed to insert into iomem_resource. This is due to the
+unique reserving logic in risc-v arch specific code, i.e.
+crashk_res/crashk_low_res will be added into iomem_resource
+later in init_resources(), which is not aligned with current
+unified reserving logic in reserve_crashkernel_generic()/
+reserve_crashkernel_low().
 
-> it did break the interface
-> because it couldn't handle swap entries without PFNs. And since then new
-> callers have come along which rely on this working.
+Removing the arch specific code within #ifdef CONFIG_KEXEC_CORE
+in init_resources() to fix above problem.
 
-So the Fixes tag should be added only to the commit that introduces the
-first new callers?
+Fixes: 31549153088e ("riscv: kdump: use generic interface to simplify crashkernel reservation")
+Signed-off-by: Chen Jiahao <chenjiahao16@huawei.com>
+---
+ arch/riscv/kernel/setup.c | 13 -------------
+ 1 file changed, 13 deletions(-)
 
-Other than that, LGTM.
+diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+index e600aab116a4..aac853ae4eb7 100644
+--- a/arch/riscv/kernel/setup.c
++++ b/arch/riscv/kernel/setup.c
+@@ -173,19 +173,6 @@ static void __init init_resources(void)
+ 	if (ret < 0)
+ 		goto error;
+ 
+-#ifdef CONFIG_KEXEC_CORE
+-	if (crashk_res.start != crashk_res.end) {
+-		ret = add_resource(&iomem_resource, &crashk_res);
+-		if (ret < 0)
+-			goto error;
+-	}
+-	if (crashk_low_res.start != crashk_low_res.end) {
+-		ret = add_resource(&iomem_resource, &crashk_low_res);
+-		if (ret < 0)
+-			goto error;
+-	}
+-#endif
+-
+ #ifdef CONFIG_CRASH_DUMP
+ 	if (elfcorehdr_size > 0) {
+ 		elfcorehdr_res.start = elfcorehdr_addr;
+-- 
+2.34.1
 
-Thanks,
-Qi
-
-> 
-> Now that we have modified the set_huge_pte_at() interface to pass the
-> vma, we can extract the huge page size from it and fix this issue.
-> 
-> I'm tagging the commit that added the uffd poison feature, since that is
-> what exposed the problem, as well as the original change that broke the
-> interface. Hopefully this is valuable for people doing bisect.
-> 
-> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
-> Fixes: 18f3962953e4 ("mm: hugetlb: kill set_huge_swap_pte_at()")
-> Fixes: 8a13897fb0da ("mm: userfaultfd: support UFFDIO_POISON for hugetlbfs")
-> ---
->   arch/arm64/mm/hugetlbpage.c | 17 +++--------------
->   1 file changed, 3 insertions(+), 14 deletions(-)
-> 
-> diff --git a/arch/arm64/mm/hugetlbpage.c b/arch/arm64/mm/hugetlbpage.c
-> index 844832511c1e..a08601a14689 100644
-> --- a/arch/arm64/mm/hugetlbpage.c
-> +++ b/arch/arm64/mm/hugetlbpage.c
-> @@ -241,13 +241,6 @@ static void clear_flush(struct mm_struct *mm,
->   	flush_tlb_range(&vma, saddr, addr);
->   }
->   
-> -static inline struct folio *hugetlb_swap_entry_to_folio(swp_entry_t entry)
-> -{
-> -	VM_BUG_ON(!is_migration_entry(entry) && !is_hwpoison_entry(entry));
-> -
-> -	return page_folio(pfn_to_page(swp_offset_pfn(entry)));
-> -}
-> -
->   void set_huge_pte_at(struct vm_area_struct *vma, unsigned long addr,
->   			    pte_t *ptep, pte_t pte)
->   {
-> @@ -258,13 +251,10 @@ void set_huge_pte_at(struct vm_area_struct *vma, unsigned long addr,
->   	unsigned long pfn, dpfn;
->   	pgprot_t hugeprot;
->   
-> -	if (!pte_present(pte)) {
-> -		struct folio *folio;
-> -
-> -		folio = hugetlb_swap_entry_to_folio(pte_to_swp_entry(pte));
-> -		ncontig = num_contig_ptes(folio_size(folio), &pgsize);
-> +	ncontig = num_contig_ptes(huge_page_size(hstate_vma(vma)), &pgsize);
->   
-> -		for (i = 0; i < ncontig; i++, ptep++)
-> +	if (!pte_present(pte)) {
-> +		for (i = 0; i < ncontig; i++, ptep++, addr += pgsize)
->   			set_pte_at(mm, addr, ptep, pte);
->   		return;
->   	}
-> @@ -274,7 +264,6 @@ void set_huge_pte_at(struct vm_area_struct *vma, unsigned long addr,
->   		return;
->   	}
->   
-> -	ncontig = find_num_contig(mm, addr, ptep, &pgsize);
->   	pfn = pte_pfn(pte);
->   	dpfn = pgsize >> PAGE_SHIFT;
->   	hugeprot = pte_pgprot(pte);
 
 _______________________________________________
 linux-riscv mailing list
