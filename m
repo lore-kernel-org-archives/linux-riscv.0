@@ -4,75 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 219D6CD4F46
-	for <linux-riscv@archiver.kernel.org>; Fri, 22 Sep 2023 09:50:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69445CD4F46
+	for <linux-riscv@archiver.kernel.org>; Fri, 22 Sep 2023 09:53:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fYCMwNm+hRRucXl0oGihe0WNAv/rugx64bd/7/FOEVU=; b=E0Qhu6SY0XYK12
-	+SofOMdtgjvzlUHv7b6i71H8pFPV67bh4G3vH8J/XeqSM7KDZ7lTGB7RumT//peO0cRkPQDPvqaon
-	L7lBVpkw728BoJ37i5mn3XKcMr2YgrLp6WiJSNKD9qASiQG/w1Z9bV05NDvkSU3KI7v1OAZbPt8on
-	pR9dOy5N4ltmg6E4587DX5pxtaMhtBlEfdcEsF9higlQLZ2A/Xv138y2hgu/nbOJiAUwr38F13iKJ
-	ikVjVKARs2fDoEB3N/PoJvMoCzIHPLxK7zcR0SRQOGnSGs2f39ekD/16HagJ3jDo7g3jFIDR48RWH
-	KwNBM64dNghiIZHCaopg==;
+	List-Owner; bh=u9wnxz1PU0k7+hiAcJy0XI2nXtH46SmTIuK2poyjDFw=; b=dmCS06ghKj+CGj
+	g9sthrMzhZ0ykUIHiOuJhej8jP6YUL7pQsTw83cdTbBqDkKGPgTqtamGXzrjLbjIrTuKJqQ7s9RN7
+	6dkQzw5stf9q2n4HDLZB40UVt7EWqIIeY269AlMiUrysWvdV5rNwh11v1sAmtJbHDQc+Wn5WyH/bk
+	pB8N8H3dgt+VW+tX1RJszs9mNJsFGDX4GAAGWhV9VUNUo2J0FT4Sd8HdXQAM40tnNnM7JmkpKoSx6
+	1RDMPT00cPabbQcrkYBf1PEfeK2HydnKT2Dipl5Zi+rWWubhVGgtfEtlEnzPL4J0IhFoC9p/0RU2D
+	IOCfoysRDtGXQnqcRjrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qjcnx-008dZW-2T;
-	Fri, 22 Sep 2023 09:50:33 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1qjcqW-008e8u-34;
+	Fri, 22 Sep 2023 09:53:12 +0000
+Received: from imap4.hz.codethink.co.uk ([188.40.203.114])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qjcnu-008dX4-2p
+	id 1qjcqT-008e8K-2P
 	for linux-riscv@lists.infradead.org;
-	Fri, 22 Sep 2023 09:50:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1695376231; x=1726912231;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=bOTU9FvgSRoMLKxQGcC6y5VPLYv6tO9qTJIAc+cPB6o=;
-  b=yNMM6J4wEaTDNE3otsBHVPR8YYKXjQ7oDRzA8UQzqW1WaTfPAM3+vJjc
-   rn6D7B6J5bEjNHtFpf0E+qxbm6+A1eQ/cL29CxNoBp6F8pobUtUfd0NFS
-   FqArU+dOceX/YQaz0O7DolIJ1ya5kgWcaHC65ltU9Idt/Jvf+Iwsf7kP3
-   L0LTl0Rg0fRrMDeW4hIRhBcLPNV0QTmFyAlBEJS8Or8Zrw4g1zQO6xu1b
-   tGDe7k4X5WIxEElD960jJyEUyNemcpXhAlOaEtHJcOoRarFJBPCahuI7K
-   3iIhdQGu5Ba6zNnh6sTAnt/fHcvuT2uW14rylJEfx8W/HsgRQLFzb1NLY
-   Q==;
-X-CSE-ConnectionGUID: JugbC+jaSBKADb3c9fFrtw==
-X-CSE-MsgGUID: tbJvmtlOR4KAvlrLk/GUPw==
-X-ThreatScanner-Verdict: Negative
-X-IronPort-AV: E=Sophos;i="6.03,167,1694761200"; 
-   d="scan'208";a="6047509"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 22 Sep 2023 02:50:25 -0700
-Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Fri, 22 Sep 2023 02:50:04 -0700
-Received: from microchip1-OptiPlex-9020.microchip.com (10.10.85.11) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server id
- 15.1.2507.21 via Frontend Transport; Fri, 22 Sep 2023 02:49:59 -0700
-From: shravan chippa <shravan.chippa@microchip.com>
-To: <green.wan@sifive.com>, <vkoul@kernel.org>, <robh+dt@kernel.org>,
-	<krzysztof.kozlowski+dt@linaro.org>, <palmer@dabbelt.com>,
-	<paul.walmsley@sifive.com>, <conor+dt@kernel.org>, <palmer@sifive.com>
-CC: <dmaengine@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<nagasuresh.relli@microchip.com>, <praveen.kumar@microchip.com>,
-	<shravan.chippa@microchip.com>
-Subject: [PATCH v1 1/3] dmaengine: sf-pdma: Support of_dma_controller_register()
-Date: Fri, 22 Sep 2023 15:20:37 +0530
-Message-ID: <20230922095039.74878-2-shravan.chippa@microchip.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20230922095039.74878-1-shravan.chippa@microchip.com>
-References: <20230922095039.74878-1-shravan.chippa@microchip.com>
+	Fri, 22 Sep 2023 09:53:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=codethink.co.uk; s=imap4-20230908; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
+	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=PfpXL8SqEtEFQf0dEBQ/e+lrPG0zgFX2nDS/MPjPwEY=; b=UjINRbUSHXIn4r7OlxYG4uiN0m
+	7U8XsaU8T4IaLIdP3i7lNl4cmqTPaXoIUH0dPZ1V9SHCfoB30b3bIpZM66FLSBFBrdTO1zHFahwRt
+	EUO30V1px1Bcle0XIsZBbSx075lhWrGA9+bc/6ZLquCDcMtAQIhiLzgWrGWjq57yOzGt/cxFqqAXB
+	I0nwsi+px8dpkbfmsZXo+s2YLTzuJwZNGBWuU1T44bnqIKUVrEkZleJ4+AWjIeCoCAPBEOD54PsYK
+	+fAiRJLIjYzYXIYcM+WEIz0Vg/IbTIud6rUlWeA33ylbeWOTA85NuB52/oE8dKsBcArrEMaz95Ib9
+	w743t+UQ==;
+Received: from [134.238.52.102] (helo=[10.8.4.124])
+	by imap4.hz.codethink.co.uk with esmtpsa  (Exim 4.94.2 #2 (Debian))
+	id 1qjcqN-00CZPi-Fr; Fri, 22 Sep 2023 10:53:03 +0100
+Message-ID: <0bd1742c-fa39-4f63-a594-6d325dc6b062@codethink.co.uk>
+Date: Fri, 22 Sep 2023 10:53:00 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 10/12] serial: 8250_dw: Add Sophgo SG2042 support
+Content-Language: en-GB
+To: Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+ Wang Chen <unicornxw@gmail.com>, linux-riscv@lists.infradead.org,
+ conor@kernel.org, aou@eecs.berkeley.edu, krzysztof.kozlowski+dt@linaro.org,
+ palmer@dabbelt.com, paul.walmsley@sifive.com, robh+dt@kernel.org
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ jszhang@kernel.org, guoren@kernel.org, chao.wei@sophgo.com,
+ xiaoguang.xing@sophgo.com
+References: <20230915072558.118325-1-wangchen20@iscas.ac.cn>
+ <803daa8f-f4bd-34b7-f826-89e1db5f24f6@linaro.org>
+ <CAJM55Z-GMm5Hmk7-QWt8Prvp7qyFzOrQVjOjB7jfoX-oiT_C1A@mail.gmail.com>
+ <862905cc-48c3-2dc9-6032-6ee189a629e6@linaro.org>
+ <CAJM55Z8WDcjRER3ffnj+6V=QWEmudZyaO9z2iPUvreU1okq27A@mail.gmail.com>
+From: Ben Dooks <ben.dooks@codethink.co.uk>
+Organization: Codethink Limited.
+In-Reply-To: <CAJM55Z8WDcjRER3ffnj+6V=QWEmudZyaO9z2iPUvreU1okq27A@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230922_025030_975288_9DF9C6DA 
-X-CRM114-Status: GOOD (  14.62  )
+X-CRM114-CacheID: sfid-20230922_025309_862018_8CF02593 
+X-CRM114-Status: GOOD (  19.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,93 +78,88 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Shravan Chippa <shravan.chippa@microchip.com>
+On 15/09/2023 11:23, Emil Renner Berthing wrote:
+> Krzysztof Kozlowski wrote:
+>> On 15/09/2023 12:02, Emil Renner Berthing wrote:
+>>> Krzysztof Kozlowski wrote:
+>>>> On 15/09/2023 09:25, Wang Chen wrote:
+>>>>> From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+>>>>>
+>>>>> Add quirk to skip setting the input clock rate for the uarts on the
+>>>>> Sophgo SG2042 SoC similar to the StarFive JH7100.
+>>>>>
+>>>>> Signed-off-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+>>>>
+>>>> Missing SoB.
+>>>>
+>>>>> ---
+>>>>>   drivers/tty/serial/8250/8250_dw.c | 5 +++--
+>>>>>   1 file changed, 3 insertions(+), 2 deletions(-)
+>>>>>
+>>>>> diff --git a/drivers/tty/serial/8250/8250_dw.c b/drivers/tty/serial/8250/8250_dw.c
+>>>>> index f4cafca1a7da..6c344877a07f 100644
+>>>>> --- a/drivers/tty/serial/8250/8250_dw.c
+>>>>> +++ b/drivers/tty/serial/8250/8250_dw.c
+>>>>> @@ -770,7 +770,7 @@ static const struct dw8250_platform_data dw8250_renesas_rzn1_data = {
+>>>>>   	.quirks = DW_UART_QUIRK_IS_DMA_FC,
+>>>>>   };
+>>>>>
+>>>>> -static const struct dw8250_platform_data dw8250_starfive_jh7100_data = {
+>>>>> +static const struct dw8250_platform_data dw8250_skip_set_rate_data = {
+>>>>
+>>>> Why? What is wrong with old name?
+>>>>
+>>>>>   	.usr_reg = DW_UART_USR,
+>>>>>   	.quirks = DW_UART_QUIRK_SKIP_SET_RATE,
+>>>>>   };
+>>>>> @@ -780,7 +780,8 @@ static const struct of_device_id dw8250_of_match[] = {
+>>>>>   	{ .compatible = "cavium,octeon-3860-uart", .data = &dw8250_octeon_3860_data },
+>>>>>   	{ .compatible = "marvell,armada-38x-uart", .data = &dw8250_armada_38x_data },
+>>>>>   	{ .compatible = "renesas,rzn1-uart", .data = &dw8250_renesas_rzn1_data },
+>>>>> -	{ .compatible = "starfive,jh7100-uart", .data = &dw8250_starfive_jh7100_data },
+>>>>> +	{ .compatible = "sophgo,sg2042-uart", .data = &dw8250_skip_set_rate_data },
+>>>>> +	{ .compatible = "starfive,jh7100-uart", .data = &dw8250_skip_set_rate_data },
+>>>>
+>>>> So devices are fully compatible? Then use compatibility and drop this
+>>>> patch entirely.
+>>>
+>>> I'm fine with this, but these are two different companies and SoCs that just
+>>> happens to have both implemented the Designware UART with an inflexible input
+>>> clock. So if fx. a real quirk is found on the JH7110 then we'd need to either
+>>> change the compatible on an unrelated SoC or change compatible on the JH7110 to
+>>
+>> Wait, why? The compatible is still there, so you just add here proper
+>> entry, if ever needed.
+> 
+> Sorry, I messed up my example by writing JH7110 where I meant JH7100
+> 
+>>> something like "starfive,jh7100-uart-with-quirk" and "starfive,jh7100-uart" will
+>>> forever be a quirky way to spell "dw8250 with inflexible input clock".
+>>> Is that how device trees are supposed to work?
+>>
+>> I don't get this part. But anyway if the blocks are really designed or
+>> done independently and there is no shared part, except the DWC block,
+>> then indeed the compatibility might be just a coincidence...
+>>
+> 
+> It is. Sophgo and StarFive are not the same company. Sophgo are using RISC-V
+> cores from T-Head and StarFive are using cores from SiFive. They just happen to
+> both use the Designware UART in the same way.
 
-Update sf-pdma driver to adopt generic DMA device tree bindings.
-It calls of_dma_controller_register() with sf-pdma specific
-of_dma_xlate to get the generic DMA device tree helper support
-and the DMA clients can look up the sf-pdma controller using
-standard APIs.
+Out of interest, what's the issue with just providing an fixed clock in
+the device tree for these machines?
 
-Signed-off-by: Shravan Chippa <shravan.chippa@microchip.com>
----
- drivers/dma/sf-pdma/sf-pdma.c | 41 +++++++++++++++++++++++++++++++++++
- 1 file changed, 41 insertions(+)
 
-diff --git a/drivers/dma/sf-pdma/sf-pdma.c b/drivers/dma/sf-pdma/sf-pdma.c
-index d1c6956af452..c7558c9f9ac3 100644
---- a/drivers/dma/sf-pdma/sf-pdma.c
-+++ b/drivers/dma/sf-pdma/sf-pdma.c
-@@ -20,6 +20,7 @@
- #include <linux/mod_devicetable.h>
- #include <linux/dma-mapping.h>
- #include <linux/of.h>
-+#include <linux/of_dma.h>
- #include <linux/slab.h>
- 
- #include "sf-pdma.h"
-@@ -490,6 +491,33 @@ static void sf_pdma_setup_chans(struct sf_pdma *pdma)
- 	}
- }
- 
-+static struct dma_chan *sf_pdma_of_xlate(struct of_phandle_args *dma_spec,
-+					 struct of_dma *ofdma)
-+{
-+	struct sf_pdma *pdma = ofdma->of_dma_data;
-+	struct device *dev = pdma->dma_dev.dev;
-+	struct sf_pdma_chan  *chan;
-+	struct dma_chan *c;
-+	u32 channel_id;
-+
-+	if (dma_spec->args_count != 1) {
-+		dev_err(dev, "Bad number of cells\n");
-+		return NULL;
-+	}
-+
-+	channel_id = dma_spec->args[0];
-+
-+	chan = &pdma->chans[channel_id];
-+
-+	c = dma_get_slave_channel(&chan->vchan.chan);
-+	if (!c) {
-+		dev_err(dev, "No more channels available\n");
-+		return NULL;
-+	}
-+
-+	return c;
-+}
-+
- static int sf_pdma_probe(struct platform_device *pdev)
- {
- 	struct sf_pdma *pdma;
-@@ -563,7 +591,20 @@ static int sf_pdma_probe(struct platform_device *pdev)
- 		return ret;
- 	}
- 
-+	ret = of_dma_controller_register(pdev->dev.of_node,
-+					 sf_pdma_of_xlate, pdma);
-+	if (ret < 0) {
-+		dev_err(&pdev->dev,
-+			"Can't register SiFive Platform OF_DMA. (%d)\n", ret);
-+		goto err_unregister;
-+	}
-+
- 	return 0;
-+
-+err_unregister:
-+	dma_async_device_unregister(&pdma->dma_dev);
-+
-+	return ret;
- }
- 
- static int sf_pdma_remove(struct platform_device *pdev)
 -- 
-2.34.1
+Ben Dooks				http://www.codethink.co.uk/
+Senior Engineer				Codethink - Providing Genius
+
+https://www.codethink.co.uk/privacy.html
 
 
 _______________________________________________
