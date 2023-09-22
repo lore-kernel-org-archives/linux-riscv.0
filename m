@@ -4,67 +4,168 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC501CD4F57
-	for <linux-riscv@archiver.kernel.org>; Fri, 22 Sep 2023 10:50:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F03D0CD4F5B
+	for <linux-riscv@archiver.kernel.org>; Fri, 22 Sep 2023 10:59:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0jDPUHe508tZWIL4pUBBvplIM+k5yw5H0tDL0hXqxlU=; b=gmxwzC+kOuEO7DWzXLe0mPF6y6
-	Hp3iyxAp5XBfRThm+u6AK/YaBGDy0niW+aH14TzBdyGK8LRgHgYhmgnKiI9GPm2Na2MrOg4n+UDPl
-	dYyWVJucg0tNYIQ91/wYZgU04ZM7cCLm4bG4wMMBmC2pS62YvVUOE6ydjyNQ0lBv4KAF5VSv81jzi
-	sOT1fd3jeTTxx2eZPvERikHkWz4cJixa9LEjsbHfs+m8PeczxgU+gZbWquOWIyxSSuXgHN774uP0x
-	Znwz07E6uF+jIV4S73d8EC7A5bt7J3GTV5k/3mGvtWn2X0+LS1lfvczLexjiY49VkyEOvbwNYdtbc
-	sSlF2WBg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=0Xm5mr2Kcr/usNk5MaMHMypWP6Z8Rqkpv9UAijifXQM=; b=pVKlBudXYOd24G
+	NH62fcacmli9wy8E0oDoD9saAQcjaaK2wWqvvN+kFU+C4W9ZwcDOAJRfajdjHJcPTHDKHYT3pzKRL
+	+ZLOROO/zhtFX279op7B67GtjN2mkTjzDl2i4Wl6O4mRpZiC5rFwgJ211Ko3a5RitgiVjkjhZ2dWZ
+	WJKedoMoKaXeGJ76GuwhNg4C9ew6PAi/yoK6Ag8+tmI+OyCHNqPLCaHr8N5uBrBlhBbBA80SyDDM6
+	2nCbaECcYthZCjQeXm08YKg7Jow7Zq6j+Epq4iLI07SvsGhRgrbzJFIvAmukNHuUbHCOHwW6Dvnq5
+	lKWDxQOVCaevIRtnnEQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qjdkC-008tYK-0f;
-	Fri, 22 Sep 2023 10:50:44 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1qjdse-008uL4-30;
+	Fri, 22 Sep 2023 10:59:28 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qjdk8-008tXP-0G
+	id 1qjdsa-008uJs-2A
 	for linux-riscv@lists.infradead.org;
-	Fri, 22 Sep 2023 10:50:42 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by sin.source.kernel.org (Postfix) with ESMTPS id 6D2EFCE240A;
-	Fri, 22 Sep 2023 10:50:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3C63DC433C7;
-	Fri, 22 Sep 2023 10:50:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1695379835;
-	bh=II1IpALtM+CSWP4ja3PIzra3ILdt436ZbfinoMTMIBg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=FLhUR8HytmqIL6L7V2IptxGBAHMpWlG/SdlcnIe5/tu0T2mNLPDil4HaXIjw6I1Mh
-	 7+bGG0GYtCLTIvbCrbX1vdVztobulbCE9jWjMOXJRLAwVEpmvWWDefiRlLFkeh82Q0
-	 JcXQIVQQk5orRD6ffbhKTlju5V9bhSfxN0+VA28OT5fiodI6Si/VoGNWsR8s7873Lt
-	 v1vJZjwF3eueuk1YVMrJNHgIYD4CTYSL9lkG6v0odcVyblQySaIi5RpkMir4dQ8PoD
-	 fCDhmbVI+J8znUxYa4dmomcPr6MUOL7UNLulbqja026MzcA/Q83KZfqx/570ZpIari
-	 DsNwp+FOEh0Vg==
-Date: Fri, 22 Sep 2023 11:50:29 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Chen Wang <unicornxw@gmail.com>
-Cc: Conor Dooley <conor.dooley@microchip.com>, aou@eecs.berkeley.edu,
-	chao.wei@sophgo.com, devicetree@vger.kernel.org,
-	emil.renner.berthing@canonical.com, guoren@kernel.org,
-	jszhang@kernel.org, krzysztof.kozlowski+dt@linaro.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	palmer@dabbelt.com, paul.walmsley@sifive.com, robh+dt@kernel.org,
-	xiaoguang.xing@sophgo.com, Chen Wang <wangchen20@iscas.ac.cn>
-Subject: Re: [PATCH v2 00/11] Add Milk-V Pioneer RISC-V board support
-Message-ID: <20230922-salvation-splendor-61533091f87b@spud>
-References: <cover.1695189879.git.wangchen20@iscas.ac.cn>
- <20230920-muppet-wad-ee76f3112651@wendy>
- <CAHAQgRA+uN2xG=imVe4fuSyGxjDQk-AOo4r5b4bvAcTuEewwiQ@mail.gmail.com>
+	Fri, 22 Sep 2023 10:59:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1695380365; x=1726916365;
+  h=from:to:cc:subject:date:message-id:references:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=LFTTb2csT2/oxPQIWJiI+BzhxkY5mdQfT2FKiyOMZmQ=;
+  b=v0HN+nGCilC86HQTd9tAM+Qv4eddNLduGbCIObnZLTZch40oz3JCQDVi
+   kgHF/o34k4HtHlpM17I82+HwDGe7QZrUGQtCst03zonhTFxM1xj27goJE
+   STzsMVCtNi2+Vv3opH7KQwJXnWNt8ag+bPB20l6WQmRLBY0Q60JEq9D2/
+   ylJp5LMoPQlKuKiuFKQTI8B8vFe/5Dt1P4s5FSCTNoxiHyveaE/u/ISnD
+   2XW/aMCUbLDxug936ckhD2sCyFxxzUuir2ybNqBdF44/poE9g5CDHqPdz
+   0iqT3fA0n4IiN/KDgoPZtp77cb3PE48pyj/ysjtDRpR+c8K02AmQDFvYT
+   Q==;
+X-CSE-ConnectionGUID: bd7qvu6HQ76RalQG4Zn3uA==
+X-CSE-MsgGUID: 4YfelX45SM2Ll/wH0kSjVA==
+X-ThreatScanner-Verdict: Negative
+X-IronPort-AV: E=Sophos;i="6.03,167,1694761200"; 
+   d="scan'208";a="6060332"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa3.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 22 Sep 2023 03:59:20 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.21; Fri, 22 Sep 2023 03:59:06 -0700
+Received: from NAM11-DM6-obe.outbound.protection.outlook.com (10.10.215.89) by
+ email.microchip.com (10.10.87.72) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
+ Transport; Fri, 22 Sep 2023 03:59:06 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=mWZV4708WkmPb/1oCiAf3x7afUCUPc6FhpHvnE/EBOFsa8/+b4jCEPw2iIcbaX5poI/Y64rUOfO4Kd03bBVB9vDNPQE6rpb8B0Xaz2kRfSaTKTDe3UD/Fk7jvdAe/TwWbMTamxa28GqllGNR4EAwTnNHsmDyh6vSNFVYNjP+hsGE3GFgXrei/P/qsGZN1sMnDFT8dTxAdv49LVTaZa58FFJj/KEizIxDc2B1rGIoeuuJhE0il3zDghUsN+SZ+ZJ9yL5woadeTv7to7+EVAGjOMEoYw50c+5DQoKuQfDKrdTuK0wgXRZRVdbmcI7pUblg1r0wuBeDpwIaiuGAVe5lOw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=LFTTb2csT2/oxPQIWJiI+BzhxkY5mdQfT2FKiyOMZmQ=;
+ b=UtMnuoo8S4HhqnnKLzNi+j6Z7z69c6/UZpepy0HhCov6oZaWZX7z4UmNiCqdZ4iHnl7D0+7r0xFakqV9XxchR9jeMY0SZ19N3uNRm0Dfqca6hG09WDsUrC9DZrAJ6b8ZuaVrmMmUx2FdZTUtDQRRhnyttiq7zy9lX/uYkg2X0yFtOftGuJ5imQUy/wp1/+4gBhnlTlyVq5JYPsO7rzL2ru+KKCBGI5OfHn9QpOpIXb/UdlfGNY76aAMJ/EkhNHRFjwdHhnNJbogLrMaMCZ8wqntna8P8WjagSaz2G8DgxAipK2Qg+qXP0fCTetLRw92TtWMCL39lXbynl8hON9695A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=microchip.com; dmarc=pass action=none
+ header.from=microchip.com; dkim=pass header.d=microchip.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=microchiptechnology.onmicrosoft.com;
+ s=selector2-microchiptechnology-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=LFTTb2csT2/oxPQIWJiI+BzhxkY5mdQfT2FKiyOMZmQ=;
+ b=pRWMGn8O2vrZtovdScfGTqJVoFfpR/UHL6dBjhY3mZv3UrPnS4Mz+h4KhR7TDNLij2y4Pg4oXBUy2lxp4HA4mxl/DPEDQ43XdC5e6+LrxKAcTZUhCFdzWjVT7TiQdsCIyqR0TWRSLiCWvNr94zX9ZUvp/alPFO7qr4dXe3GHwpo=
+Received: from PH0PR11MB5611.namprd11.prod.outlook.com (2603:10b6:510:ed::9)
+ by DS0PR11MB7804.namprd11.prod.outlook.com (2603:10b6:8:f3::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6813.20; Fri, 22 Sep
+ 2023 10:59:04 +0000
+Received: from PH0PR11MB5611.namprd11.prod.outlook.com
+ ([fe80::1133:b6c0:3f07:84bc]) by PH0PR11MB5611.namprd11.prod.outlook.com
+ ([fe80::1133:b6c0:3f07:84bc%7]) with mapi id 15.20.6813.017; Fri, 22 Sep 2023
+ 10:59:04 +0000
+From: <Shravan.Chippa@microchip.com>
+To: <emil.renner.berthing@canonical.com>, <green.wan@sifive.com>,
+	<vkoul@kernel.org>, <robh+dt@kernel.org>,
+	<krzysztof.kozlowski+dt@linaro.org>, <palmer@dabbelt.com>,
+	<paul.walmsley@sifive.com>, <conor+dt@kernel.org>, <palmer@sifive.com>
+CC: <dmaengine@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<Nagasuresh.Relli@microchip.com>, <Praveen.Kumar@microchip.com>
+Subject: RE: [PATCH v1 1/3] dmaengine: sf-pdma: Support
+ of_dma_controller_register()
+Thread-Topic: [PATCH v1 1/3] dmaengine: sf-pdma: Support
+ of_dma_controller_register()
+Thread-Index: AQHZ7To1s/07Ob6QNEaD2mS2IRA+F7AmqX+AgAADPTA=
+Date: Fri, 22 Sep 2023 10:59:04 +0000
+Message-ID: <PH0PR11MB561162E58DA1E7F11E60DBB381FFA@PH0PR11MB5611.namprd11.prod.outlook.com>
+References: <20230922095039.74878-1-shravan.chippa@microchip.com>
+ <20230922095039.74878-2-shravan.chippa@microchip.com>
+ <CAJM55Z-NUwzo9SKtmV_5OegznDjSQEG9DVK7=5x4qnxUkk399A@mail.gmail.com>
+In-Reply-To: <CAJM55Z-NUwzo9SKtmV_5OegznDjSQEG9DVK7=5x4qnxUkk399A@mail.gmail.com>
+Accept-Language: en-GB, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=microchip.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: PH0PR11MB5611:EE_|DS0PR11MB7804:EE_
+x-ms-office365-filtering-correlation-id: b03de551-cd5e-42cb-963a-08dbbb5aef68
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: XadyD9VR31HyA2FLIc9t+AZUspFdhNlhNeOk9dzRxJRETYPh+WRTkMByjJkSCWsSptRptDNN+K4+XGBuje3gkKUWulrtQA8OAM5ROC4bHMJFYKK2BonLDfVc1N2H0UpF4HA2nfSoIeOmI+J84iIYe2MfNflsTUSeeMUZmlb6wCi6gT4hD4m/W/ru3L1bUWoaDHshDjkYXKOo28Im9hdxOu6rn3hM12wV+lQx7mRh49CW+uyL+vhzW9WTzF/V0+s0ngsSh1UhrcLj7/uW+SsVRRbZYuPWLSxKw+qOh99pnOhbNFx3p80oRfWcZ28AGk2QOQWbqcvlgaTdXhqPBOLwto3/Mspw6zyA1twZNrOt4NecnH9xuZFYD/1Un2jm9q7uSOeEqwRU7PloU4uU2pjZBMknLCRETbgLg1tkNClTQA1QU1wAjV94Gb2qTijJ92o9PG4UmXJs/2tFWkI0+VzrEY7KMwfApC7bp/pjDx4tW0pqwxT8Q/e/h9Q+VA4IBM4EvWWfaDIvR0G6vrNKV15EGr/aI0TsI1YJ700loPNRZ3xDBNTpxg8LGMJaGxiG6W3suDSXRqrx3WP+sLo84/VAWjHt/PyjDT7xVr59auejwRE=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH0PR11MB5611.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230031)(346002)(376002)(39860400002)(366004)(136003)(396003)(451199024)(1800799009)(186009)(41300700001)(38100700002)(5660300002)(107886003)(2906002)(55016003)(26005)(122000001)(33656002)(38070700005)(7416002)(4326008)(86362001)(8676002)(83380400001)(478600001)(53546011)(9686003)(8936002)(6506007)(966005)(7696005)(52536014)(316002)(76116006)(110136005)(71200400001)(66446008)(64756008)(54906003)(66946007)(66556008)(66476007);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?bTUvcUcxNEFpYUtQbFp4eWszYk9yNVdObWJZL3VSNDRCOXlURmR3V3ZpVGhj?=
+ =?utf-8?B?VmFwMnl2ZllEMklvUWhDejMreGpuT2Judlh4TnpYRlZYZVNFSWFvNHJIbk5z?=
+ =?utf-8?B?VFBQMndhNWtNazR3SXBBSDNLYlZWWTEwbHRnejdCQnA2eWJvQTF6SGxtSDd1?=
+ =?utf-8?B?MUpOVksvQzJiVlFJSXRyM05yZ0J2cFdwaWgyN3MxOUNRK1RQcEwvbTR5UjRj?=
+ =?utf-8?B?T0NFalp0a1hieG1OamVuR2hYRFBuVW9KU3I4L1dwcjdIRFQ5TWpWM0dMVG9n?=
+ =?utf-8?B?Mk5jZWdLRDQ5ZThFNDZjekFocnJLMkVXK3Zucmt0cUhQa2lTSnRjcU0zUVl4?=
+ =?utf-8?B?dURsNWQ3cnFMd054VEFRVS9RTFdiaG5QY3NMMVQ1TXpoZUN4dVI1ZHZ3Kzkw?=
+ =?utf-8?B?bTd2SmJpRkExODdwaWlUTytITzhBRG83OFhJbzZvSHhYY1N6Y1NMdzJ0WVZ1?=
+ =?utf-8?B?NUR2dWxNVzFidjhEV1FzNjFhZ2d2VjlQQzNIaml1eXhOcjRrT3RueVNLVDBW?=
+ =?utf-8?B?SGtMcTRSUzl2Mm40bjJ5M0xpYTREQVhzUVhiWW51YnVSemwvRmluTVJiSlo0?=
+ =?utf-8?B?RU9EdW9pRExVOU8wZGFnMStmODRzYm5hTWMzNUZmVDY5V0xMQmRSVjYxbXo3?=
+ =?utf-8?B?c0RjeXVXbEEwTW5sM2EyQ1RxeGxUWjYxN2hMTFl0YndIZ0RmaElOV3VtMEZv?=
+ =?utf-8?B?aWY5SktBRnp6UUh0N29Rc3hTUkhmZzhkSkI2aEdTYWc0Wmc4MVIzU2Zmb203?=
+ =?utf-8?B?WitYSUIvbUE1T0tMSTYyakVkcENtSktBQThHUUJDQzh3ODdjUm1UYXNMN2p1?=
+ =?utf-8?B?bDhQT01Tc2JxbnpBbDFrZ0QrcEw1dDREY2FFbFRSNzNBSzhmanAzR3VCWlky?=
+ =?utf-8?B?blJZSDBNckxka0kxWlRFcWRYUUN5SlA1TUg5MDljWm13V2pnUkN5WmdOVzlm?=
+ =?utf-8?B?U2hRYTJvYjVSRko5T0VlNVF4VHY4YUJJRVNDOW5wTURMakFJTTEveVl5aUVY?=
+ =?utf-8?B?ZjVZanlPMjE4bTkvcnVJTnd2bHJtS1JhamJEOXB3ZnB6ZlFQV0hDSkdVMkx4?=
+ =?utf-8?B?MzdnS01xSGdIaEpjSDZjQTNKWU5HUzd4ODRLNkwxQ25aTnR6U1IyaERMc2JR?=
+ =?utf-8?B?U0M2SzhQMlZGSStCWTEydy9CaTIyOFl5QUNhWk5KNUF0M3N0R1F5VDZSd25S?=
+ =?utf-8?B?OXBUWlo2TzZKUnBIWmx0UU1QbU5INEwxZEdSL0YxTzd3QXBMT2xjM1JUQ2VO?=
+ =?utf-8?B?dEhPc1M1bnlCWXBzeWVSamhrWHZDOFk3N3hXRUhpV0pvUko5U3hkQUo5VGVC?=
+ =?utf-8?B?SUFoNTFwSlloc2M2THdycStxUDdmMUdwN3YraUdtOWhlM3RtMGlNNW4rYmtJ?=
+ =?utf-8?B?c0JFdnJSUHM4dmFYUnc0bG5hMUZJWkh4N3FVMjJ6YTJSQXNuT1pTN0pkckNk?=
+ =?utf-8?B?eHJYS3NDak9ib3VMb2NOZjA1MEZkNkRGd0JFSFhuTHo1U04ySHVqdnVqMXQw?=
+ =?utf-8?B?NUVKaVVXMW9hcEtnc2R4bUhkWDhrcVN3SlpDRWF0M1VFU0tCT3VRMlVlQXIw?=
+ =?utf-8?B?a0JTSXBpY1JQelZRb1dOR1FOdlEvVXVwMHhnaG9UZE91Rm56T2lQbEFsaGVa?=
+ =?utf-8?B?UkxEVTFPWHJXUGx1bk9NSFVac3dycU9YRTVHSnRyWDdqRU5IbWVocGtncGxS?=
+ =?utf-8?B?dHpXUGN1eWpQenlBb2JRRGZoUC9GcjFESFFTcjVnWlQ4Y0JtT2FHdjd1M0JI?=
+ =?utf-8?B?TDhMV2g4c1ZwbmpZamtnTFF1bHk3ZUk3dzQ5ZDNpOU5meXl5T3krVEtSQlZk?=
+ =?utf-8?B?aVI3TTgvMFFDaTNNcnlKTU5nS3NaRUFEMXhEUUdiVTF0VnBCbEZYaVZtcTRU?=
+ =?utf-8?B?cHZOVXllOHRKb05FbmtuRGxjYmdnTFhWYWJDWXZ5SmhvQ0xRY3dGYTlncW16?=
+ =?utf-8?B?dmdmUTZKd2FCZVZ1T1IwSWZpUHk2M1FpZVlBZm5teEJFUmZXaHdTL1RrZk9H?=
+ =?utf-8?B?dzh6aEVEQnkrWjNHbmlmNG5EVE4ySXVMeDRRU0llZEs3VWdjTHN4UTFuSWN6?=
+ =?utf-8?B?QlJJd3F1YnhIN2ZSMEpKUGtaalI2QmhpLzdmQ3VYWVVWMnpyMlJwejFrditT?=
+ =?utf-8?B?cVpSd2xsejlPS1M3YXZYRGh3ZW1YK2k0RktXMEVhYjYrZlFxSzJ3WnBwYmlG?=
+ =?utf-8?B?MEE9PQ==?=
 MIME-Version: 1.0
-In-Reply-To: <CAHAQgRA+uN2xG=imVe4fuSyGxjDQk-AOo4r5b4bvAcTuEewwiQ@mail.gmail.com>
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: PH0PR11MB5611.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b03de551-cd5e-42cb-963a-08dbbb5aef68
+X-MS-Exchange-CrossTenant-originalarrivaltime: 22 Sep 2023 10:59:04.0824
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 3f4057f3-b418-4d4e-ba84-d55b4e897d88
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: 6VkCnUIYMxrr54HiaQpqt5axLVJ5L9GPAe94aXetpI6MForXEoMcBPO6JTagQ8k5laEr9/rqB1lLW+9RZV/ujBkUs88ZgCsWq2Ue38oD/Kg=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR11MB7804
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230922_035040_479584_44B25848 
-X-CRM114-Status: GOOD (  24.95  )
+X-CRM114-CacheID: sfid-20230922_035924_735208_91A7048D 
+X-CRM114-Status: GOOD (  28.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,191 +177,136 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8546013330388107425=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============8546013330388107425==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="DtwC+yOilvVlaIfy"
-Content-Disposition: inline
 
-
---DtwC+yOilvVlaIfy
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Fri, Sep 22, 2023 at 06:24:25PM +0800, Chen Wang wrote:
-> Regards,
->=20
-> unicornx
->=20
-> Conor Dooley <conor.dooley@microchip.com> =E4=BA=8E2023=E5=B9=B49=E6=9C=
-=8820=E6=97=A5=E5=91=A8=E4=B8=89 18:01=E5=86=99=E9=81=93=EF=BC=9A
+> -----Original Message-----
+> From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+> Sent: Friday, September 22, 2023 4:16 PM
+> To: shravan Chippa - I35088 <Shravan.Chippa@microchip.com>;
+> green.wan@sifive.com; vkoul@kernel.org; robh+dt@kernel.org;
+> krzysztof.kozlowski+dt@linaro.org; palmer@dabbelt.com;
+> paul.walmsley@sifive.com; conor+dt@kernel.org; palmer@sifive.com
+> Cc: dmaengine@vger.kernel.org; devicetree@vger.kernel.org; linux-
+> riscv@lists.infradead.org; linux-kernel@vger.kernel.org; Nagasuresh Relli -
+> I67208 <Nagasuresh.Relli@microchip.com>; Praveen Kumar - I30718
+> <Praveen.Kumar@microchip.com>
+> Subject: Re: [PATCH v1 1/3] dmaengine: sf-pdma: Support
+> of_dma_controller_register()
+> 
+> [You don't often get email from emil.renner.berthing@canonical.com. Learn
+> why this is important at https://aka.ms/LearnAboutSenderIdentification ]
+> 
+> EXTERNAL EMAIL: Do not click links or open attachments unless you know the
+> content is safe
+> 
+> shravan chippa wrote:
+> > From: Shravan Chippa <shravan.chippa@microchip.com>
 > >
-> > On Wed, Sep 20, 2023 at 02:33:48PM +0800, Chen Wang wrote:
-> > > Milk-V Pioneer [1] is a developer motherboard based on SOPHON SG2042 =
-[2]
-> > > in a standard mATX form factor. Add minimal device
-> > > tree files for the SG2042 SOC and the Milk-V Pioneer board.
+> > Update sf-pdma driver to adopt generic DMA device tree bindings.
+> > It calls of_dma_controller_register() with sf-pdma specific
+> > of_dma_xlate to get the generic DMA device tree helper support and the
+> > DMA clients can look up the sf-pdma controller using standard APIs.
 > >
-> > Please run dtbs_check with W=3D1 set & fix the below issues:
+> > Signed-off-by: Shravan Chippa <shravan.chippa@microchip.com>
+> > ---
+> >  drivers/dma/sf-pdma/sf-pdma.c | 41
+> > +++++++++++++++++++++++++++++++++++
+> >  1 file changed, 41 insertions(+)
 > >
-> > sg2042-cpus.dtsi:1600.25-1607.5: Warning (unit_address_vs_reg): /cpus/l=
-2-cache@0: node has a unit name, but no reg or ranges property
-> > sg2042-cpus.dtsi:1609.25-1616.5: Warning (unit_address_vs_reg): /cpus/l=
-2-cache@1: node has a unit name, but no reg or ranges property
-> > sg2042-cpus.dtsi:1618.25-1625.5: Warning (unit_address_vs_reg): /cpus/l=
-2-cache@2: node has a unit name, but no reg or ranges property
-> > sg2042-cpus.dtsi:1627.25-1634.5: Warning (unit_address_vs_reg): /cpus/l=
-2-cache@3: node has a unit name, but no reg or ranges property
-> > sg2042-cpus.dtsi:1636.25-1643.5: Warning (unit_address_vs_reg): /cpus/l=
-2-cache@4: node has a unit name, but no reg or ranges property
-> > sg2042-cpus.dtsi:1645.25-1652.5: Warning (unit_address_vs_reg): /cpus/l=
-2-cache@5: node has a unit name, but no reg or ranges property
-> > sg2042-cpus.dtsi:1654.25-1661.5: Warning (unit_address_vs_reg): /cpus/l=
-2-cache@6: node has a unit name, but no reg or ranges property
-> > sg2042-cpus.dtsi:1663.25-1670.5: Warning (unit_address_vs_reg): /cpus/l=
-2-cache@7: node has a unit name, but no reg or ranges property
-> > sg2042-cpus.dtsi:1672.25-1679.5: Warning (unit_address_vs_reg): /cpus/l=
-2-cache@8: node has a unit name, but no reg or ranges property
-> > sg2042-cpus.dtsi:1681.25-1688.5: Warning (unit_address_vs_reg): /cpus/l=
-2-cache@9: node has a unit name, but no reg or ranges property
-> > sg2042-cpus.dtsi:1690.27-1697.5: Warning (unit_address_vs_reg): /cpus/l=
-2-cache@10: node has a unit name, but no reg or ranges property
-> > sg2042-cpus.dtsi:1699.27-1706.5: Warning (unit_address_vs_reg): /cpus/l=
-2-cache@11: node has a unit name, but no reg or ranges property
-> > sg2042-cpus.dtsi:1708.27-1715.5: Warning (unit_address_vs_reg): /cpus/l=
-2-cache@12: node has a unit name, but no reg or ranges property
-> > sg2042-cpus.dtsi:1717.27-1724.5: Warning (unit_address_vs_reg): /cpus/l=
-2-cache@13: node has a unit name, but no reg or ranges property
-> > sg2042-cpus.dtsi:1726.27-1733.5: Warning (unit_address_vs_reg): /cpus/l=
-2-cache@14: node has a unit name, but no reg or ranges property
-> > sg2042-cpus.dtsi:1735.27-1742.5: Warning (unit_address_vs_reg): /cpus/l=
-2-cache@15: node has a unit name, but no reg or ranges property
-> > sg2042-cpus.dtsi:256.15-275.5: Warning (unique_unit_address_if_enabled)=
-: /cpus/cpu@0: duplicate unit-address (also used in node /cpus/l2-cache@0)
-> > sg2042-cpus.dtsi:277.15-296.5: Warning (unique_unit_address_if_enabled)=
-: /cpus/cpu@1: duplicate unit-address (also used in node /cpus/l2-cache@1)
-> > sg2042-cpus.dtsi:298.15-317.5: Warning (unique_unit_address_if_enabled)=
-: /cpus/cpu@2: duplicate unit-address (also used in node /cpus/l2-cache@2)
-> > sg2042-cpus.dtsi:319.15-338.5: Warning (unique_unit_address_if_enabled)=
-: /cpus/cpu@3: duplicate unit-address (also used in node /cpus/l2-cache@3)
-> > sg2042-cpus.dtsi:340.15-359.5: Warning (unique_unit_address_if_enabled)=
-: /cpus/cpu@4: duplicate unit-address (also used in node /cpus/l2-cache@4)
-> > sg2042-cpus.dtsi:361.15-380.5: Warning (unique_unit_address_if_enabled)=
-: /cpus/cpu@5: duplicate unit-address (also used in node /cpus/l2-cache@5)
-> > sg2042-cpus.dtsi:382.15-401.5: Warning (unique_unit_address_if_enabled)=
-: /cpus/cpu@6: duplicate unit-address (also used in node /cpus/l2-cache@6)
-> > sg2042-cpus.dtsi:403.15-422.5: Warning (unique_unit_address_if_enabled)=
-: /cpus/cpu@7: duplicate unit-address (also used in node /cpus/l2-cache@7)
-> > sg2042-cpus.dtsi:424.15-443.5: Warning (unique_unit_address_if_enabled)=
-: /cpus/cpu@8: duplicate unit-address (also used in node /cpus/l2-cache@8)
-> > sg2042-cpus.dtsi:445.15-464.5: Warning (unique_unit_address_if_enabled)=
-: /cpus/cpu@9: duplicate unit-address (also used in node /cpus/l2-cache@9)
-> > sg2042-cpus.dtsi:466.17-485.5: Warning (unique_unit_address_if_enabled)=
-: /cpus/cpu@10: duplicate unit-address (also used in node /cpus/l2-cache@10)
-> > sg2042-cpus.dtsi:487.17-506.5: Warning (unique_unit_address_if_enabled)=
-: /cpus/cpu@11: duplicate unit-address (also used in node /cpus/l2-cache@11)
-> > sg2042-cpus.dtsi:508.17-527.5: Warning (unique_unit_address_if_enabled)=
-: /cpus/cpu@12: duplicate unit-address (also used in node /cpus/l2-cache@12)
-> > sg2042-cpus.dtsi:529.17-548.5: Warning (unique_unit_address_if_enabled)=
-: /cpus/cpu@13: duplicate unit-address (also used in node /cpus/l2-cache@13)
-> > sg2042-cpus.dtsi:550.17-569.5: Warning (unique_unit_address_if_enabled)=
-: /cpus/cpu@14: duplicate unit-address (also used in node /cpus/l2-cache@14)
-> > sg2042-cpus.dtsi:571.17-590.5: Warning (unique_unit_address_if_enabled)=
-: /cpus/cpu@15: duplicate unit-address (also used in node /cpus/l2-cache@15)
+> > diff --git a/drivers/dma/sf-pdma/sf-pdma.c
+> > b/drivers/dma/sf-pdma/sf-pdma.c index d1c6956af452..c7558c9f9ac3
+> > 100644
+> > --- a/drivers/dma/sf-pdma/sf-pdma.c
+> > +++ b/drivers/dma/sf-pdma/sf-pdma.c
+> > @@ -20,6 +20,7 @@
+> >  #include <linux/mod_devicetable.h>
+> >  #include <linux/dma-mapping.h>
+> >  #include <linux/of.h>
+> > +#include <linux/of_dma.h>
+> >  #include <linux/slab.h>
 > >
-> > Thanks,
-> > Conor.
->=20
-> I find the rootcause is due to following code in DTS:
-> ```
->                 l2_cache0: l2-cache@0 {
->                         compatible =3D "cache";
->                         cache-block-size =3D <64>;
->                         cache-level =3D <2>;
->                         cache-size =3D <1048576>;
->                         cache-sets =3D <1024>;
->                         cache-unified;
->                 };
-> ```
-> To differ 16 l2-cache controller, we add <unit-address>, but due to
-> the l2-cache controller on sg2042 has no address, no reg property is
-> added here. That's why dtbs_check warns "node has a unit name, but no
-> reg or ranges property". I just double-confirmed with sophgo
-> engineers, they  told me there is really no address for the cache
-> controller for sg2042.
->=20
-> One solution I use here is to provide unique name for the l2-cache
-> node. I learn this from  "arch/arm64/boot/dts/hisilicon/hi3660.dtsi"
-> and seems this work and pass dtbs_check with W=3D1. For example:
-> ```
->                 l2_cache0: l2-cache0 {
->                         compatible =3D "cache";
->                         cache-block-size =3D <64>;
->                         cache-level =3D <2>;
->                         cache-size =3D <1048576>;
->                         cache-sets =3D <1024>;
->                         cache-unified;
->                 };
->=20
->                 l2_cache1: l2-cache1 {
->                         compatible =3D "cache";
->                         cache-block-size =3D <64>;
->                         cache-level =3D <2>;
->                         cache-size =3D <1048576>;
->                         cache-sets =3D <1024>;
->                         cache-unified;
->                 };
->                 ......
-> ```
-> But I remember as mentioned in
-> https://devicetree-specification.readthedocs.io/en/latest/chapter2-device=
-tree-basics.html#generic-names-recommendation,
-> node names should be generic. So I have two questions here:
-> - Should I use "cache-controller" instead of "l2-cache", though I see
-> "l2-cache" is used in many places but not listed in
-> devicetree-specification.
-> - Even if I replace "l2-cache" with "cache-controller", I think
-> "cache-controller0", "cache-controller1" ... are not generic name, but
-> due to sg2042 does not have address for cache controller, how to
-> handle this problem?
+> >  #include "sf-pdma.h"
+> > @@ -490,6 +491,33 @@ static void sf_pdma_setup_chans(struct sf_pdma
+> *pdma)
+> >       }
+> >  }
+> >
+> > +static struct dma_chan *sf_pdma_of_xlate(struct of_phandle_args
+> *dma_spec,
+> > +                                      struct of_dma *ofdma) {
+> > +     struct sf_pdma *pdma = ofdma->of_dma_data;
+> > +     struct device *dev = pdma->dma_dev.dev;
+> > +     struct sf_pdma_chan  *chan;
+> > +     struct dma_chan *c;
+> > +     u32 channel_id;
+> > +
+> > +     if (dma_spec->args_count != 1) {
+> > +             dev_err(dev, "Bad number of cells\n");
+> > +             return NULL;
+> > +     }
+> > +
+> > +     channel_id = dma_spec->args[0];
+> > +
+> > +     chan = &pdma->chans[channel_id];
+> > +
+> > +     c = dma_get_slave_channel(&chan->vchan.chan);
+> > +     if (!c) {
+> > +             dev_err(dev, "No more channels available\n");
+> > +             return NULL;
+> > +     }
+> > +
+> > +     return c;
+> > +}
+> > +
+> >  static int sf_pdma_probe(struct platform_device *pdev)  {
+> >       struct sf_pdma *pdma;
+> > @@ -563,7 +591,20 @@ static int sf_pdma_probe(struct platform_device
+> *pdev)
+> >               return ret;
+> >       }
+> >
+> > +     ret = of_dma_controller_register(pdev->dev.of_node,
+> > +                                      sf_pdma_of_xlate, pdma);
+> > +     if (ret < 0) {
+> > +             dev_err(&pdev->dev,
+> > +                     "Can't register SiFive Platform OF_DMA. (%d)\n", ret);
+> > +             goto err_unregister;
+> > +     }
+> > +
+> 
+> Hi Shrivan,
+> 
+> Doesn't this need a matching unregister/free call in the sf_pdma_remove
+> function?
+> 
+> /Emil
+> 
 
-I would go for "cache-controller-0" "cache-controller-1". Close as
-possible to the generic node name while having the required differences
-between nodes. There's already some examples in-tree (eg renesas) that
-do this.
+Will add of_dma_controller_free(np) call in the sf_pdma_remove().
 
-Thanks,
-Conor.
-
---DtwC+yOilvVlaIfy
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZQ1xdQAKCRB4tDGHoIJi
-0rSqAQC2q8Eac9WHZ0kwmpDStSPneHIuoD6unVUY6au6JrndOQD/f9i5UVKVZog+
-HOK//YsxjVXAktCB3VITwmlLJ1eOPg4=
-=NU7b
------END PGP SIGNATURE-----
-
---DtwC+yOilvVlaIfy--
-
-
---===============8546013330388107425==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
+> >       return 0;
+> > +
+> > +err_unregister:
+> > +     dma_async_device_unregister(&pdma->dma_dev);
+> > +
+> > +     return ret;
+> >  }
+> >
+> >  static int sf_pdma_remove(struct platform_device *pdev)
+> > --
+> > 2.34.1
+> >
+> >
+> > _______________________________________________
+> > linux-riscv mailing list
+> > linux-riscv@lists.infradead.org
+> > http://lists.infradead.org/mailman/listinfo/linux-riscv
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============8546013330388107425==--
-
