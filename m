@@ -4,73 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AFD1CD4F57
-	for <linux-riscv@archiver.kernel.org>; Fri, 22 Sep 2023 10:43:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0203CCD4F57
+	for <linux-riscv@archiver.kernel.org>; Fri, 22 Sep 2023 10:46:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WoNgzlOYEvRcJYhLULKqioLBhj8I0i568tFMWxo+70I=; b=MA+Ogi/SOH/bhA
-	kbgIJ6FEVI7AffMWFOD83zUyDH5JkzlBYVJ7WDieUvLURt6xa0tiGeTx8MwsTUOanoAiNl8GzSiFr
-	ODIJVdOIriA53LkCX32ZPkfoi3eMH3lT7qWnJNVQ+YxXvtNvUePMVEwrqy1Rp7rHH0Ip5+UhIkUtA
-	CM1XBXBVX8+lCwEiMibFK2hOFgV2jnvbvsf4GyZYuxgcGqeuGnkbUSFHJaJQUZ5Jk5mURICubHt8b
-	jzpimQpstjFxHrQIqvTV7JpwR44ul75WNsFuRL5tP90kZc/stniy7HLyerxRgShXW9fZ+YLqgyP2V
-	oWu5AHRPol6g0FEoMYtA==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:
+	Mime-Version:References:In-Reply-To:From:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=8kZYf+4ugqzTs3csftDIRbfMHGFlsJnKrNL46wShZDc=; b=zm5lDPMQn8CUxlSiFJk3yw+DDy
+	PlRAlin114kVGCsf9pGdatZEj8ON8d59RbuX+ufWMMzHXNVl3DVc8AmPI3wlofdSR02Ux6wPo2exz
+	KGhtk9NeSSo3tfZGDDmCCdTCnZUc4trjerjuPndHDTF5jiPzjU2ovR57cqf5oefLNtaWMdbazlt1P
+	y4U+p/9fc2fq5MTbhPGrP/8rulxgX2r7aaO6OrwluwYFfN05kuBt9gfZnr4C6SU2rzIDwZYGy7SHi
+	nOf6WVLUk1eSjEx2yDVegqvEXWkQ3PO0MTi5yvldXv85Ot85NNEZulLzo6w7M/oYKkU7PBcJM8p27
+	X8NMKZaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qjdcw-008sqI-34;
-	Fri, 22 Sep 2023 10:43:14 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qjdct-008slp-0L
+	id 1qjdfm-008tBa-0n;
+	Fri, 22 Sep 2023 10:46:10 +0000
+Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1qjdfi-008tAl-22
 	for linux-riscv@lists.infradead.org;
-	Fri, 22 Sep 2023 10:43:13 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id 86A4624E26F;
-	Fri, 22 Sep 2023 18:42:28 +0800 (CST)
-Received: from EXMBX171.cuchost.com (172.16.6.91) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 22 Sep
- 2023 18:42:28 +0800
-Received: from [192.168.125.57] (113.72.146.252) by EXMBX171.cuchost.com
- (172.16.6.91) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 22 Sep
- 2023 18:42:27 +0800
-Message-ID: <57267a7d-c03a-6abe-c64a-08766a0ce01b@starfivetech.com>
-Date: Fri, 22 Sep 2023 18:42:26 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.15.1
-Subject: Re: [PATCH v6 07/19] PCI: plda: Move the setup functions to
- pcie-plda-host.c
-Content-Language: en-US
-To: Emil Renner Berthing <emil.renner.berthing@canonical.com>, Daire McNamara
-	<daire.mcnamara@microchip.com>, Conor Dooley <conor@kernel.org>, Rob Herring
-	<robh+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	=?UTF-8?Q?Krzysztof_Wilczy=c5=84ski?= <kw@linux.com>
-CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, <linux-pci@vger.kernel.org>,
-	=?UTF-8?Q?Pali_Roh=c3=a1r?= <pali@kernel.org>, Paul Walmsley
-	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, Philipp Zabel <p.zabel@pengutronix.de>, Mason Huo
-	<mason.huo@starfivetech.com>, Leyfoon Tan <leyfoon.tan@starfivetech.com>,
-	Kevin Xie <kevin.xie@starfivetech.com>
-References: <20230915102243.59775-1-minda.chen@starfivetech.com>
- <20230915102243.59775-8-minda.chen@starfivetech.com>
- <CAJM55Z-wD4+TUJCsXsbgR49Zux5fuMZQmJ5bXEVW96QVNJbBFQ@mail.gmail.com>
-From: Minda Chen <minda.chen@starfivetech.com>
-In-Reply-To: <CAJM55Z-wD4+TUJCsXsbgR49Zux5fuMZQmJ5bXEVW96QVNJbBFQ@mail.gmail.com>
-X-Originating-IP: [113.72.146.252]
-X-ClientProxiedBy: EXCAS063.cuchost.com (172.16.6.23) To EXMBX171.cuchost.com
- (172.16.6.91)
-X-YovoleRuleAgent: yovoleflag
+	Fri, 22 Sep 2023 10:46:08 +0000
+Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id 03C0341DC7
+	for <linux-riscv@lists.infradead.org>; Fri, 22 Sep 2023 10:46:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+	s=20210705; t=1695379564;
+	bh=t+yfri1GJX2TAqcf+QwODASIE2sxjrbU+UlJZ8d2HDM=;
+	h=From:In-Reply-To:References:Mime-Version:Date:Message-ID:Subject:
+	 To:Cc:Content-Type;
+	b=W9atVzRnraNce/rhT4QaiY3HpJqg5wCOf5wA2XDqgTYjcSKNX+Zx+ol08sgAb4VwO
+	 2BmyJWmxxgjMWMFhfFjApkw7gEm5ITqYjfIiTCzGY4tQddE+oEeQBrKGbxFq0triJX
+	 4cLTqkQotMjgZL3uWmgnFFNaShznWSRSFI6otNR+Pes7RQXHW/k0nxlXEV2KLG3Mkz
+	 qL6Ako6jQoGqbDf1mCVUqb0he15N06+x+J77du/ln7X6MXIZkspF+dBpgSw7k2Xi7b
+	 im+gOAnoR5kRjy8l0ilMQOAC/nWtOHJrOGBaNSj0rAdLTwmPgdn0Hy1UKICR9DiVOj
+	 Gg0+G7JKsAV+Q==
+Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-773c9836d91so221359285a.2
+        for <linux-riscv@lists.infradead.org>; Fri, 22 Sep 2023 03:46:03 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1695379562; x=1695984362;
+        h=cc:to:subject:message-id:date:mime-version:references:in-reply-to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=t+yfri1GJX2TAqcf+QwODASIE2sxjrbU+UlJZ8d2HDM=;
+        b=vH2DqXR1K4Zz0nYgkrqZFpHT+3cANiDTLNBjI6xiH32eK88ITgZVVARPTF6U/3v4Zy
+         RSTbu8Zkvw3Lb7naMl7kgpMDvyM23cEdFfXgORcqbeyznjwwfYQlDFq3RMslLZW+xfQf
+         lpI8WEzo927Zr4mJWC6FakXmFCTlWGxuT3mHgiiE2GCI/sKmEzf+qJaNAZlCXtp6mQg+
+         5N1zOZ2x0haInGHj1pncuDQHKcPkfxJdoCi99ww+K/I3EWyLccQjNC28ihwzQaG7lEHl
+         E8UzaRo5pzCgjCBuJLhTckz+4st4jiZsNl5cRB0WcNJIpD1Rqp/eTyt9iEAYKSMRlgq3
+         NsWg==
+X-Gm-Message-State: AOJu0YwHAuMvcmC0wtM+YhFCyLQCGYUcP6XkDoV1mPlM+ZtjnVsYU3zu
+	B7at4cD0MHhd9ls3vmowQoAdsDYu77yKtCums2C+axkSufApnbtnZapYRTAXTZxUF5EeOVgnIo2
+	6XfSS+CCRu02ZWAe5lQA+dPPc8tba6kuqTrGF0CnfMOZ0E+Ttr3osuAmuB8ScLQ==
+X-Received: by 2002:a05:620a:2ac7:b0:76c:ad46:2683 with SMTP id bn7-20020a05620a2ac700b0076cad462683mr6971762qkb.16.1695379562236;
+        Fri, 22 Sep 2023 03:46:02 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IFsox++PPWys6ngzHVyCF3Eihkl1gwpI0tFPIgNbTUyaezen3cYl9nj+cZZ23a8Pw9GmdY7EyJwq7TGifvy6yc=
+X-Received: by 2002:a05:620a:2ac7:b0:76c:ad46:2683 with SMTP id
+ bn7-20020a05620a2ac700b0076cad462683mr6971744qkb.16.1695379561942; Fri, 22
+ Sep 2023 03:46:01 -0700 (PDT)
+Received: from 348282803490 named unknown by gmailapi.google.com with
+ HTTPREST; Fri, 22 Sep 2023 03:46:01 -0700
+From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+In-Reply-To: <20230922095039.74878-2-shravan.chippa@microchip.com>
+References: <20230922095039.74878-1-shravan.chippa@microchip.com> <20230922095039.74878-2-shravan.chippa@microchip.com>
+Mime-Version: 1.0
+Date: Fri, 22 Sep 2023 03:46:01 -0700
+Message-ID: <CAJM55Z-NUwzo9SKtmV_5OegznDjSQEG9DVK7=5x4qnxUkk399A@mail.gmail.com>
+Subject: Re: [PATCH v1 1/3] dmaengine: sf-pdma: Support of_dma_controller_register()
+To: shravan chippa <shravan.chippa@microchip.com>, green.wan@sifive.com, vkoul@kernel.org, 
+	robh+dt@kernel.org, krzysztof.kozlowski+dt@linaro.org, palmer@dabbelt.com, 
+	paul.walmsley@sifive.com, conor+dt@kernel.org, palmer@sifive.com
+Cc: dmaengine@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	nagasuresh.relli@microchip.com, praveen.kumar@microchip.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230922_034311_601392_128B590D 
-X-CRM114-Status: GOOD (  21.52  )
+X-CRM114-CacheID: sfid-20230922_034606_823700_6631352B 
+X-CRM114-Status: GOOD (  20.57  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,234 +101,103 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+shravan chippa wrote:
+> From: Shravan Chippa <shravan.chippa@microchip.com>
+>
+> Update sf-pdma driver to adopt generic DMA device tree bindings.
+> It calls of_dma_controller_register() with sf-pdma specific
+> of_dma_xlate to get the generic DMA device tree helper support
+> and the DMA clients can look up the sf-pdma controller using
+> standard APIs.
+>
+> Signed-off-by: Shravan Chippa <shravan.chippa@microchip.com>
+> ---
+>  drivers/dma/sf-pdma/sf-pdma.c | 41 +++++++++++++++++++++++++++++++++++
+>  1 file changed, 41 insertions(+)
+>
+> diff --git a/drivers/dma/sf-pdma/sf-pdma.c b/drivers/dma/sf-pdma/sf-pdma.c
+> index d1c6956af452..c7558c9f9ac3 100644
+> --- a/drivers/dma/sf-pdma/sf-pdma.c
+> +++ b/drivers/dma/sf-pdma/sf-pdma.c
+> @@ -20,6 +20,7 @@
+>  #include <linux/mod_devicetable.h>
+>  #include <linux/dma-mapping.h>
+>  #include <linux/of.h>
+> +#include <linux/of_dma.h>
+>  #include <linux/slab.h>
+>
+>  #include "sf-pdma.h"
+> @@ -490,6 +491,33 @@ static void sf_pdma_setup_chans(struct sf_pdma *pdma)
+>  	}
+>  }
+>
+> +static struct dma_chan *sf_pdma_of_xlate(struct of_phandle_args *dma_spec,
+> +					 struct of_dma *ofdma)
+> +{
+> +	struct sf_pdma *pdma = ofdma->of_dma_data;
+> +	struct device *dev = pdma->dma_dev.dev;
+> +	struct sf_pdma_chan  *chan;
+> +	struct dma_chan *c;
+> +	u32 channel_id;
+> +
+> +	if (dma_spec->args_count != 1) {
+> +		dev_err(dev, "Bad number of cells\n");
+> +		return NULL;
+> +	}
+> +
+> +	channel_id = dma_spec->args[0];
+> +
+> +	chan = &pdma->chans[channel_id];
+> +
+> +	c = dma_get_slave_channel(&chan->vchan.chan);
+> +	if (!c) {
+> +		dev_err(dev, "No more channels available\n");
+> +		return NULL;
+> +	}
+> +
+> +	return c;
+> +}
+> +
+>  static int sf_pdma_probe(struct platform_device *pdev)
+>  {
+>  	struct sf_pdma *pdma;
+> @@ -563,7 +591,20 @@ static int sf_pdma_probe(struct platform_device *pdev)
+>  		return ret;
+>  	}
+>
+> +	ret = of_dma_controller_register(pdev->dev.of_node,
+> +					 sf_pdma_of_xlate, pdma);
+> +	if (ret < 0) {
+> +		dev_err(&pdev->dev,
+> +			"Can't register SiFive Platform OF_DMA. (%d)\n", ret);
+> +		goto err_unregister;
+> +	}
+> +
 
+Hi Shrivan,
 
-On 2023/9/18 6:45, Emil Renner Berthing wrote:
-> Minda Chen wrote:
->> Move setup functions to common pcie-plda-host.c.
->>
->> Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
->> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
->> ---
->>  drivers/pci/controller/plda/Kconfig           |  4 +
->>  drivers/pci/controller/plda/Makefile          |  1 +
->>  .../pci/controller/plda/pcie-microchip-host.c | 59 -------------
->>  drivers/pci/controller/plda/pcie-plda-host.c  | 82 +++++++++++++++++++
->>  drivers/pci/controller/plda/pcie-plda.h       |  6 ++
->>  5 files changed, 93 insertions(+), 59 deletions(-)
->>  create mode 100644 drivers/pci/controller/plda/pcie-plda-host.c
->>
->> diff --git a/drivers/pci/controller/plda/Kconfig b/drivers/pci/controller/plda/Kconfig
->> index 5cb3be4fc98c..e54a82ee94f5 100644
->> --- a/drivers/pci/controller/plda/Kconfig
->> +++ b/drivers/pci/controller/plda/Kconfig
->> @@ -3,10 +3,14 @@
->>  menu "PLDA-based PCIe controllers"
->>  	depends on PCI
->>
->> +config PCIE_PLDA_HOST
->> +	bool
->> +
->>  config PCIE_MICROCHIP_HOST
->>  	tristate "Microchip AXI PCIe controller"
->>  	depends on PCI_MSI && OF
->>  	select PCI_HOST_COMMON
->> +	select PCIE_PLDA_HOST
->>  	help
->>  	  Say Y here if you want kernel to support the Microchip AXI PCIe
->>  	  Host Bridge driver.
->> diff --git a/drivers/pci/controller/plda/Makefile b/drivers/pci/controller/plda/Makefile
->> index e1a265cbf91c..4340ab007f44 100644
->> --- a/drivers/pci/controller/plda/Makefile
->> +++ b/drivers/pci/controller/plda/Makefile
->> @@ -1,2 +1,3 @@
->>  # SPDX-License-Identifier: GPL-2.0
->> +obj-$(CONFIG_PCIE_PLDA_HOST) += pcie-plda-host.o
->>  obj-$(CONFIG_PCIE_MICROCHIP_HOST) += pcie-microchip-host.o
->> diff --git a/drivers/pci/controller/plda/pcie-microchip-host.c b/drivers/pci/controller/plda/pcie-microchip-host.c
->> index 1d253acd6bc2..ac7126b0bacf 100644
->> --- a/drivers/pci/controller/plda/pcie-microchip-host.c
->> +++ b/drivers/pci/controller/plda/pcie-microchip-host.c
->> @@ -837,65 +837,6 @@ static int mc_pcie_init_irq_domains(struct plda_pcie_rp *port)
->>  	return mc_allocate_msi_domains(port);
->>  }
->>
->> -static void plda_pcie_setup_window(void __iomem *bridge_base_addr, u32 index,
->> -				   phys_addr_t axi_addr, phys_addr_t pci_addr,
->> -				   size_t size)
->> -{
->> -	u32 atr_sz = ilog2(size) - 1;
->> -	u32 val;
->> -
->> -	if (index == 0)
->> -		val = PCIE_CONFIG_INTERFACE;
->> -	else
->> -		val = PCIE_TX_RX_INTERFACE;
->> -
->> -	writel(val, bridge_base_addr + (index * ATR_ENTRY_SIZE) +
->> -	       ATR0_AXI4_SLV0_TRSL_PARAM);
->> -
->> -	val = lower_32_bits(axi_addr) | (atr_sz << ATR_SIZE_SHIFT) |
->> -			    ATR_IMPL_ENABLE;
->> -	writel(val, bridge_base_addr + (index * ATR_ENTRY_SIZE) +
->> -	       ATR0_AXI4_SLV0_SRCADDR_PARAM);
->> -
->> -	val = upper_32_bits(axi_addr);
->> -	writel(val, bridge_base_addr + (index * ATR_ENTRY_SIZE) +
->> -	       ATR0_AXI4_SLV0_SRC_ADDR);
->> -
->> -	val = lower_32_bits(pci_addr);
->> -	writel(val, bridge_base_addr + (index * ATR_ENTRY_SIZE) +
->> -	       ATR0_AXI4_SLV0_TRSL_ADDR_LSB);
->> -
->> -	val = upper_32_bits(pci_addr);
->> -	writel(val, bridge_base_addr + (index * ATR_ENTRY_SIZE) +
->> -	       ATR0_AXI4_SLV0_TRSL_ADDR_UDW);
->> -
->> -	val = readl(bridge_base_addr + ATR0_PCIE_WIN0_SRCADDR_PARAM);
->> -	val |= (ATR0_PCIE_ATR_SIZE << ATR0_PCIE_ATR_SIZE_SHIFT);
->> -	writel(val, bridge_base_addr + ATR0_PCIE_WIN0_SRCADDR_PARAM);
->> -	writel(0, bridge_base_addr + ATR0_PCIE_WIN0_SRC_ADDR);
->> -}
->> -
->> -static int plda_pcie_setup_iomems(struct pci_host_bridge *bridge,
->> -				  struct plda_pcie_rp *port)
->> -{
->> -	void __iomem *bridge_base_addr = port->bridge_addr;
->> -	struct resource_entry *entry;
->> -	u64 pci_addr;
->> -	u32 index = 1;
->> -
->> -	resource_list_for_each_entry(entry, &bridge->windows) {
->> -		if (resource_type(entry->res) == IORESOURCE_MEM) {
->> -			pci_addr = entry->res->start - entry->offset;
->> -			plda_pcie_setup_window(bridge_base_addr, index,
->> -					       entry->res->start, pci_addr,
->> -					       resource_size(entry->res));
->> -			index++;
->> -		}
->> -	}
->> -
->> -	return 0;
->> -}
->> -
->>  static inline void mc_clear_secs(struct mc_pcie *port)
->>  {
->>  	void __iomem *ctrl_base_addr = port->axi_base_addr + MC_PCIE_CTRL_ADDR;
->> diff --git a/drivers/pci/controller/plda/pcie-plda-host.c b/drivers/pci/controller/plda/pcie-plda-host.c
->> new file mode 100644
->> index 000000000000..f0c7636f1f64
->> --- /dev/null
->> +++ b/drivers/pci/controller/plda/pcie-plda-host.c
->> @@ -0,0 +1,82 @@
->> +// SPDX-License-Identifier: GPL-2.0
->> +/*
->> + * PLDA PCIe XpressRich host controller driver
->> + *
->> + * Copyright (C) 2023 Microchip Co. Ltd
->> + *		      StarFive Co. Ltd.
->> + *
->> + * Author: Daire McNamara <daire.mcnamara@microchip.com>
->> + * Author: Minda Chen <minda.chen@starfivetech.com>
->> + */
->> +
->> +#include <linux/irqchip/chained_irq.h>
->> +#include <linux/irqdomain.h>
->> +#include <linux/msi.h>
->> +#include <linux/of_address.h>
->> +#include <linux/of_pci.h>
->> +#include <linux/pci_regs.h>
->> +#include <linux/pci-ecam.h>
->> +#include <linux/platform_device.h>
->> +
->> +#include "pcie-plda.h"
->> +
->> +void plda_pcie_setup_window(void __iomem *bridge_base_addr, u32 index,
->> +			    phys_addr_t axi_addr, phys_addr_t pci_addr,
->> +			    size_t size)
->> +{
->> +	u32 atr_sz = ilog2(size) - 1;
->> +	u32 val;
->> +
->> +	if (index == 0)
->> +		val = PCIE_CONFIG_INTERFACE;
->> +	else
->> +		val = PCIE_TX_RX_INTERFACE;
->> +
->> +	writel(val, bridge_base_addr + (index * ATR_ENTRY_SIZE) +
->> +	       ATR0_AXI4_SLV0_TRSL_PARAM);
->> +
->> +	val = lower_32_bits(axi_addr) | (atr_sz << ATR_SIZE_SHIFT) |
->> +			    ATR_IMPL_ENABLE;
->> +	writel(val, bridge_base_addr + (index * ATR_ENTRY_SIZE) +
->> +	       ATR0_AXI4_SLV0_SRCADDR_PARAM);
->> +
->> +	val = upper_32_bits(axi_addr);
->> +	writel(val, bridge_base_addr + (index * ATR_ENTRY_SIZE) +
->> +	       ATR0_AXI4_SLV0_SRC_ADDR);
->> +
->> +	val = lower_32_bits(pci_addr);
->> +	writel(val, bridge_base_addr + (index * ATR_ENTRY_SIZE) +
->> +	       ATR0_AXI4_SLV0_TRSL_ADDR_LSB);
->> +
->> +	val = upper_32_bits(pci_addr);
->> +	writel(val, bridge_base_addr + (index * ATR_ENTRY_SIZE) +
->> +	       ATR0_AXI4_SLV0_TRSL_ADDR_UDW);
->> +
->> +	val = readl(bridge_base_addr + ATR0_PCIE_WIN0_SRCADDR_PARAM);
->> +	val |= (ATR0_PCIE_ATR_SIZE << ATR0_PCIE_ATR_SIZE_SHIFT);
-> 
-> I know this code is just a straight copy, but for future cleanups are we
-> guaranteed that this field is always zero?
-> 
-> Otherwise it looks a little suspicious to do read-modify-write, but just
-> set the (0x25 << 1) bits without clearing the field first.
-> 
-The reset value is zero. And this is called once.
-Maybe I can add a patch to fix this.
->> +	writel(val, bridge_base_addr + ATR0_PCIE_WIN0_SRCADDR_PARAM);
->> +	writel(0, bridge_base_addr + ATR0_PCIE_WIN0_SRC_ADDR);
->> +}
->> +EXPORT_SYMBOL_GPL(plda_pcie_setup_window);
->> +
->> +int plda_pcie_setup_iomems(struct pci_host_bridge *bridge,
->> +			   struct plda_pcie_rp *port)
->> +{
->> +	void __iomem *bridge_base_addr = port->bridge_addr;
->> +	struct resource_entry *entry;
->> +	u64 pci_addr;
->> +	u32 index = 1;
->> +
->> +	resource_list_for_each_entry(entry, &bridge->windows) {
->> +		if (resource_type(entry->res) == IORESOURCE_MEM) {
->> +			pci_addr = entry->res->start - entry->offset;
->> +			plda_pcie_setup_window(bridge_base_addr, index,
->> +					       entry->res->start, pci_addr,
->> +					       resource_size(entry->res));
->> +			index++;
->> +		}
->> +	}
->> +
->> +	return 0;
->> +}
->> +EXPORT_SYMBOL_GPL(plda_pcie_setup_iomems);
->> diff --git a/drivers/pci/controller/plda/pcie-plda.h b/drivers/pci/controller/plda/pcie-plda.h
->> index d04a571404b9..3deefd35fa5a 100644
->> --- a/drivers/pci/controller/plda/pcie-plda.h
->> +++ b/drivers/pci/controller/plda/pcie-plda.h
->> @@ -119,4 +119,10 @@ struct plda_pcie_rp {
->>  	struct plda_msi msi;
->>  	void __iomem *bridge_addr;
->>  };
->> +
->> +void plda_pcie_setup_window(void __iomem *bridge_base_addr, u32 index,
->> +			    phys_addr_t axi_addr, phys_addr_t pci_addr,
->> +			    size_t size);
->> +int plda_pcie_setup_iomems(struct pci_host_bridge *bridge,
->> +			   struct plda_pcie_rp *port);
->>  #endif
->> --
->> 2.17.1
+Doesn't this need a matching unregister/free call in the
+sf_pdma_remove function?
+
+/Emil
+
+>  	return 0;
+> +
+> +err_unregister:
+> +	dma_async_device_unregister(&pdma->dma_dev);
+> +
+> +	return ret;
+>  }
+>
+>  static int sf_pdma_remove(struct platform_device *pdev)
+> --
+> 2.34.1
+>
+>
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
