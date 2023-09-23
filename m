@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBD1DCE7A88
-	for <linux-riscv@archiver.kernel.org>; Sat, 23 Sep 2023 16:24:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6473CCE7A89
+	for <linux-riscv@archiver.kernel.org>; Sat, 23 Sep 2023 16:26:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KPeeZ0vFl2KGKjQZqunG66iHy8XKI3WyqmItDgUsF2U=; b=rDHKbDMqaR7gs1
-	mOwtJrmAf7vLzr4BSTpPi7Z4bLr3Xv0W8tBt94lQ9lo0GMT0pfH4N+hZO2utC9+zhIdgTPD0oFuIc
-	5TObvxNoTnMKZ6WT/y9LEFOPXMYiq/YYIBJw4oItgJxv6shxlV+ArlRyaB7CEb4aLw6vITCBiU9oA
-	c78EpbkwuRPwJpeW0MotaPf8fYP3DzhYhpdA0stnm+QeYJFvTE5x6PLYn6xDa1otXIygJ+J4eLCBH
-	WsS/7V4uiFPXbhRiu+xCVlrRdTMUeJdxz7XtNtkYFCOrQ8ONcGhrH0voa4A3wHK3TozzytyV4j1Y+
-	4cjYQukKMk4vlu5VeWAA==;
+	List-Owner; bh=/oWKgdYZQqU/gJus7Zr2fMk6vAMNl1+V3mb/irhtUrE=; b=tbuglctkSZpOxa
+	a20hgf2qbjOZdK7/vSHXhplTWGTO40gfavfZhdcFbbloPC3z6oyiTkJjr4RWl4s9B0AXEDzhPBB6Y
+	pYjsUxUs0lh/57W9tuBJJru8qLiEdn5Fj8jQa/lmpBY5Rt1wAHTOZycOsYdw9SemIkoIJT5Kr53PZ
+	x+5H4kjVLhsazDSA/N9VSG/vbGDJ5LqGdL0wzGcFpD7ufPjji0jarxNfdLv5JK0W9alkcy/8x93wI
+	f6exnHMtfAgsICODj/wLO7xpOEcvUxMZ9zWIX097nzeo96E7Q1ZB0jH+eqlpEDdOd4ZCrDgY9/WpP
+	M6Py7+2YYhPSBHRLddHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qk5R1-00BCF8-1W;
-	Sat, 23 Sep 2023 16:24:47 +0000
+	id 1qk5Sz-00BCUy-1H;
+	Sat, 23 Sep 2023 16:26:49 +0000
 Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qk5Qx-00BCCS-1H;
-	Sat, 23 Sep 2023 16:24:45 +0000
+	id 1qk5Sw-00BCTC-2Z;
+	Sat, 23 Sep 2023 16:26:48 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by ams.source.kernel.org (Postfix) with ESMTP id 53F84B80092;
-	Sat, 23 Sep 2023 16:24:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1C213C433C8;
-	Sat, 23 Sep 2023 16:24:25 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTP id 345E5B8047E;
+	Sat, 23 Sep 2023 16:26:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EE71FC433C7;
+	Sat, 23 Sep 2023 16:26:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1695486280;
-	bh=LPa0vOpCN9uFCJLwT0Mv83PIALUPvGiZjoSaYDcpsJE=;
+	s=k20201202; t=1695486404;
+	bh=2piJOAc4UtCWCg8jsg4cD2ZIAtKbobPaZdza3lM1trU=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=XbZg7GgD8+BmM0EbIou3DUcf1HdG1quOywXNpDmhicICfIw73rq/zzU/h/vI/qZDp
-	 XFUEPcYb9UPuknO3UuH9df8jDX6Y2cSrJ80wg4ZDDFpWgi05sPMcC4MzWe2C0cyCeu
-	 nP6/UDcZM95kD65En58LM92KcpcWG3KRH0guTPfrV4zfxxO4soUJ8uiNt0flLBa+d0
-	 BLkPfitclvMDS0vd51IsKv7CF8IIIdzK9/P0gBrSPMYS98N2ZZq1Bne2bq5a34spi2
-	 CfuytAh2slWgJP4aWqKBet8FSXiJNiOrIpHAN1uhuJKdaS5HEKlew5LP5bm2Q0OAmM
-	 QvG1TNKlGHcFw==
-Date: Sat, 23 Sep 2023 19:23:40 +0300
+	b=q1TXhCaOUKwD4i9ywBsaA7fqhllTiUUEop2bqUBzfEeLiBK0GMJal6TZCH02gcByL
+	 753jvJ06wYTsHa9bNjwSyI/D53kLiYdlB1AiITQEZl13j1+ufZspu8eHeVKiSfnDPa
+	 Xnzc94p2Es7bJABHatU5GnvCNtXzBwLW/ClIG+R90OCKZCTnz4sBwhPKehiv0ITJJM
+	 +UjHKGlf0w5d8TT9nGbQtF1BeBR/tDz6eSth+IHkKyRVTlF1gKubvNuOjqYZN8sC6v
+	 yInZcSWBoyftCQIH5y4EX0l+ogMUchapNByEIoCoBWaItl9SpqS6bxW8Fm8jrgT5Hv
+	 hjgDbZyqE8rAA==
+Date: Sat, 23 Sep 2023 19:25:47 +0300
 From: Mike Rapoport <rppt@kernel.org>
-To: Alexandre Ghiti <alex@ghiti.fr>
+To: Song Liu <song@kernel.org>
 Cc: linux-kernel@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>,
 	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@kernel.org>,
 	Catalin Marinas <catalin.marinas@arm.com>,
@@ -61,7 +61,7 @@ Cc: linux-kernel@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Puranjay Mohan <puranjay12@gmail.com>,
 	Rick Edgecombe <rick.p.edgecombe@intel.com>,
-	Russell King <linux@armlinux.org.uk>, Song Liu <song@kernel.org>,
+	Russell King <linux@armlinux.org.uk>,
 	Steven Rostedt <rostedt@goodmis.org>,
 	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
 	Thomas Gleixner <tglx@linutronix.de>, Will Deacon <will@kernel.org>,
@@ -72,18 +72,18 @@ Cc: linux-kernel@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>,
 	linux-trace-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
 	loongarch@lists.linux.dev, netdev@vger.kernel.org,
 	sparclinux@vger.kernel.org, x86@kernel.org
-Subject: Re: [PATCH v3 08/13] riscv: extend execmem_params for generated code
+Subject: Re: [PATCH v3 09/13] powerpc: extend execmem_params for kprobes
  allocations
-Message-ID: <20230923162340.GM3303@kernel.org>
+Message-ID: <20230923162547.GN3303@kernel.org>
 References: <20230918072955.2507221-1-rppt@kernel.org>
- <20230918072955.2507221-9-rppt@kernel.org>
- <6d686c54-078d-8d71-d4e2-c754cf92c557@ghiti.fr>
+ <20230918072955.2507221-10-rppt@kernel.org>
+ <CAPhsuW5Vg7yDn8zb5ez4JY4efoQ6aW+vYm9OL+Xr0NJnLfMYHg@mail.gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <6d686c54-078d-8d71-d4e2-c754cf92c557@ghiti.fr>
+In-Reply-To: <CAPhsuW5Vg7yDn8zb5ez4JY4efoQ6aW+vYm9OL+Xr0NJnLfMYHg@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230923_092443_731264_C7B02D33 
-X-CRM114-Status: GOOD (  27.02  )
+X-CRM114-CacheID: sfid-20230923_092646_990511_D897FF8E 
+X-CRM114-Status: GOOD (  13.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,146 +95,29 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 22, 2023 at 12:37:07PM +0200, Alexandre Ghiti wrote:
-> Hi Mike,
-> 
-> On 18/09/2023 09:29, Mike Rapoport wrote:
-> > From: "Mike Rapoport (IBM)" <rppt@kernel.org>
-> > 
-> > The memory allocations for kprobes and BPF on RISC-V are not placed in
-> > the modules area and these custom allocations are implemented with
-> > overrides of alloc_insn_page() and  bpf_jit_alloc_exec().
-> > 
-> > Slightly reorder execmem_params initialization to support both 32 and 64
-> > bit variants, define EXECMEM_KPROBES and EXECMEM_BPF ranges in
-> > riscv::execmem_params and drop overrides of alloc_insn_page() and
-> > bpf_jit_alloc_exec().
-> > 
-> > Signed-off-by: Mike Rapoport (IBM) <rppt@kernel.org>
-> > ---
-> >   arch/riscv/kernel/module.c         | 21 ++++++++++++++++++++-
-> >   arch/riscv/kernel/probes/kprobes.c | 10 ----------
-> >   arch/riscv/net/bpf_jit_core.c      | 13 -------------
-> >   3 files changed, 20 insertions(+), 24 deletions(-)
-> > 
-> > diff --git a/arch/riscv/kernel/module.c b/arch/riscv/kernel/module.c
-> > index 343a0edfb6dd..31505ecb5c72 100644
-> > --- a/arch/riscv/kernel/module.c
-> > +++ b/arch/riscv/kernel/module.c
-> > @@ -436,20 +436,39 @@ int apply_relocate_add(Elf_Shdr *sechdrs, const char *strtab,
-> >   	return 0;
-> >   }
-> > -#if defined(CONFIG_MMU) && defined(CONFIG_64BIT)
-> > +#ifdef CONFIG_MMU
-> >   static struct execmem_params execmem_params __ro_after_init = {
-> >   	.ranges = {
-> >   		[EXECMEM_DEFAULT] = {
-> >   			.pgprot = PAGE_KERNEL,
-> >   			.alignment = 1,
-> >   		},
-> > +		[EXECMEM_KPROBES] = {
-> > +			.pgprot = PAGE_KERNEL_READ_EXEC,
-> > +			.alignment = 1,
-> > +		},
-> > +		[EXECMEM_BPF] = {
-> > +			.pgprot = PAGE_KERNEL,
-> > +			.alignment = 1,
-> 
-> 
-> Not entirely sure it is the same alignment (sorry did not go through the
-> entire series), but if it is, the alignment above ^ is not the same that is
-> requested by our current bpf_jit_alloc_exec() implementation which is
-> PAGE_SIZE.
- 
-This literally translates vmalloc() in alloc_insn_page() to a set of
-parameters, so "1" comes from there. And using alignment of 1 with
-vmalloc() implicitly sets it to PAGE_SIZE.
-
-> > +		},
-> >   	},
-> >   };
-> >   struct execmem_params __init *execmem_arch_params(void)
-> >   {
-> > +#ifdef CONFIG_64BIT
-> >   	execmem_params.ranges[EXECMEM_DEFAULT].start = MODULES_VADDR;
-> >   	execmem_params.ranges[EXECMEM_DEFAULT].end = MODULES_END;
-> > +#else
-> > +	execmem_params.ranges[EXECMEM_DEFAULT].start = VMALLOC_START;
-> > +	execmem_params.ranges[EXECMEM_DEFAULT].end = VMALLOC_END;
-> > +#endif
-> > +
-> > +	execmem_params.ranges[EXECMEM_KPROBES].start = VMALLOC_START;
-> > +	execmem_params.ranges[EXECMEM_KPROBES].end = VMALLOC_END;
-> > +
-> > +	execmem_params.ranges[EXECMEM_BPF].start = BPF_JIT_REGION_START;
-> > +	execmem_params.ranges[EXECMEM_BPF].end = BPF_JIT_REGION_END;
-> >   	return &execmem_params;
-> >   }
-> > diff --git a/arch/riscv/kernel/probes/kprobes.c b/arch/riscv/kernel/probes/kprobes.c
-> > index 2f08c14a933d..e64f2f3064eb 100644
-> > --- a/arch/riscv/kernel/probes/kprobes.c
-> > +++ b/arch/riscv/kernel/probes/kprobes.c
-> > @@ -104,16 +104,6 @@ int __kprobes arch_prepare_kprobe(struct kprobe *p)
-> >   	return 0;
-> >   }
-> > -#ifdef CONFIG_MMU
-> > -void *alloc_insn_page(void)
-> > -{
-> > -	return  __vmalloc_node_range(PAGE_SIZE, 1, VMALLOC_START, VMALLOC_END,
-> > -				     GFP_KERNEL, PAGE_KERNEL_READ_EXEC,
-> > -				     VM_FLUSH_RESET_PERMS, NUMA_NO_NODE,
-> > -				     __builtin_return_address(0));
-> > -}
-> > -#endif
-> > -
-> >   /* install breakpoint in text */
-> >   void __kprobes arch_arm_kprobe(struct kprobe *p)
-> >   {
-> > diff --git a/arch/riscv/net/bpf_jit_core.c b/arch/riscv/net/bpf_jit_core.c
-> > index 7b70ccb7fec3..c8a758f0882b 100644
-> > --- a/arch/riscv/net/bpf_jit_core.c
-> > +++ b/arch/riscv/net/bpf_jit_core.c
-> > @@ -218,19 +218,6 @@ u64 bpf_jit_alloc_exec_limit(void)
-> >   	return BPF_JIT_REGION_SIZE;
-> >   }
-> > -void *bpf_jit_alloc_exec(unsigned long size)
-> > -{
-> > -	return __vmalloc_node_range(size, PAGE_SIZE, BPF_JIT_REGION_START,
-> > -				    BPF_JIT_REGION_END, GFP_KERNEL,
-> > -				    PAGE_KERNEL, 0, NUMA_NO_NODE,
-> > -				    __builtin_return_address(0));
-> > -}
-> > -
-> > -void bpf_jit_free_exec(void *addr)
-> > -{
-> > -	return vfree(addr);
-> > -}
-> > -
-> >   void *bpf_arch_text_copy(void *dst, void *src, size_t len)
-> >   {
-> >   	int ret;
-> 
-> 
-> Otherwise, you can add:
-> 
-> Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-> 
-> Thanks,
-> 
-> Alex
-> 
-> 
-
--- 
-Sincerely yours,
-Mike.
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVGh1LCBTZXAgMjEsIDIwMjMgYXQgMDM6MzA6NDZQTSAtMDcwMCwgU29uZyBMaXUgd3JvdGU6
+Cj4gT24gTW9uLCBTZXAgMTgsIDIwMjMgYXQgMTI6MzHigK9BTSBNaWtlIFJhcG9wb3J0IDxycHB0
+QGtlcm5lbC5vcmc+IHdyb3RlOgo+ID4KPiBbLi4uXQo+ID4gQEAgLTEzNSw1ICsxMzgsMTMgQEAg
+c3RydWN0IGV4ZWNtZW1fcGFyYW1zIF9faW5pdCAqZXhlY21lbV9hcmNoX3BhcmFtcyh2b2lkKQo+
+ID4KPiA+ICAgICAgICAgcmFuZ2UtPnBncHJvdCA9IHByb3Q7Cj4gPgo+ID4gKyAgICAgICBleGVj
+bWVtX3BhcmFtcy5yYW5nZXNbRVhFQ01FTV9LUFJPQkVTXS5zdGFydCA9IFZNQUxMT0NfU1RBUlQ7
+Cj4gPiArICAgICAgIGV4ZWNtZW1fcGFyYW1zLnJhbmdlc1tFWEVDTUVNX0tQUk9CRVNdLnN0YXJ0
+ID0gVk1BTExPQ19FTkQ7Cj4gCj4gLmVuZCA9IFZNQUxMT0NfRU5ELgoKVGhhbmtzLCB0aGlzIHNo
+b3VsZCBoYXZlIGJlZW4KCglleGVjbWVtX3BhcmFtcy5yYW5nZXNbRVhFQ01FTV9LUFJPQkVTXS5z
+dGFydCA9IHJhbmdlLT5zdGFydDsKCWV4ZWNtZW1fcGFyYW1zLnJhbmdlc1tFWEVDTUVNX0tQUk9C
+RVNdLmVuZCA9IHJhbmdlLT5lbmQ7Cgp3aGVyZSByYW5nZSBwb2ludHMgdG8gdGhlIHNhbWUgcmFu
+Z2UgYXMgRVhFQ01FTV9NT0RVTEVfVEVYVC4KCiAKPiBUaGFua3MsCj4gU29uZwo+IAo+ID4gKwo+
+ID4gKyAgICAgICBpZiAoc3RyaWN0X21vZHVsZV9yd3hfZW5hYmxlZCgpKQo+ID4gKyAgICAgICAg
+ICAgICAgIGV4ZWNtZW1fcGFyYW1zLnJhbmdlc1tFWEVDTUVNX0tQUk9CRVNdLnBncHJvdCA9IFBB
+R0VfS0VSTkVMX1JPWDsKPiA+ICsgICAgICAgZWxzZQo+ID4gKyAgICAgICAgICAgICAgIGV4ZWNt
+ZW1fcGFyYW1zLnJhbmdlc1tFWEVDTUVNX0tQUk9CRVNdLnBncHJvdCA9IFBBR0VfS0VSTkVMX0VY
+RUM7Cj4gPiArCj4gPiAgICAgICAgIHJldHVybiAmZXhlY21lbV9wYXJhbXM7Cj4gPiAgfQo+ID4g
+LS0KPiA+IDIuMzkuMgo+ID4KPiA+CgotLSAKU2luY2VyZWx5IHlvdXJzLApNaWtlLgoKX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFp
+bGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmlu
+ZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
