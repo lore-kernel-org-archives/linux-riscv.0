@@ -4,59 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44233CE7A8B
-	for <linux-riscv@archiver.kernel.org>; Sun, 24 Sep 2023 13:17:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BB52CE7A88
+	for <linux-riscv@archiver.kernel.org>; Sun, 24 Sep 2023 13:18:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bq9aXFuuHt2CIJexJd+yMeclZrgLMLa6q+oObG4jtz0=; b=RzByi8MuW3Flbr
-	Jzp7K0vzfgQDSG57pf6ekSx06VypyfQV57hC3XbPNqmU5D/vXLgyo0nnQL4j1204vpdb4k1uGfIhh
-	jQaXqEpMbPc/jlaTxp5Q3zOrlklLBcxh1jV+hlYafJMij64mQvVVFuDc9t63NkQK46Hz1NvIrPvFd
-	BHI/ixK9Mt1WhC0LepFQtEc9J+Pu5A/79gNAfMyauK5dKUYU3f2qSPrJTFjaekbT1sfPtnjK/MYBN
-	mhYsKUWXBUN3uVtUCD03g0rqkKJVz+JOg0wliDtsAcTnRFrYbKobvQQAc0Z73I7AqzIbQm6+r56F3
-	dNrdV/gkEelc7KngvxPw==;
+	List-Owner; bh=0g1sW/ltLwwY93uwzvEq8oyM8kEKta/2MWO6pQJf/Ik=; b=r/rUx7v98uX7tx
+	Poh7kxUJ5iEV3HXbDA98HLM2HVm5AaH3GKVcWpx6lPJlUidZGTa9flRbMslhG/Q/45r8JcWCZGyl9
+	opGFKO+3acvRbQQ3g/WMpxxEmNdDvES7R7ZPPchBudX9jfeb5sBwEa1J13B5O05JuHxTyJP8cK27M
+	QuEDy/m4FclCkpr8NdAlBjDRLClca8HnB7udc35OD70XTJ5ixS0ta52i+WUcr3xBpDcuxvLj2+8Gw
+	okxY7/ljMjvZoibLWSnLonlhx+ZeoDCZZmVwoW7j8goUIMMtIPAe9jU+lcARZe9khQNx5UcneWmvc
+	fYjVkrszF8A+WPCV6AvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qkOzT-00CI7F-0t;
-	Sun, 24 Sep 2023 13:17:39 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1qkP0g-00CIRZ-2i;
+	Sun, 24 Sep 2023 13:18:54 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qkOzQ-00CI68-2S
+	id 1qkP0d-00CIQ9-2D
 	for linux-riscv@lists.infradead.org;
-	Sun, 24 Sep 2023 13:17:38 +0000
+	Sun, 24 Sep 2023 13:18:53 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 4E29D60C2B;
-	Sun, 24 Sep 2023 13:17:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1274EC433C9;
-	Sun, 24 Sep 2023 13:17:33 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id 0C3BECE01CE;
+	Sun, 24 Sep 2023 13:18:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7774BC433CC;
+	Sun, 24 Sep 2023 13:18:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1695561456;
-	bh=DtqIs9kcf0Pi3SLAFZJF8tPo8Gqz8EzRzBMqGQhytyM=;
+	s=k20201202; t=1695561529;
+	bh=2HOUejfb/rlXadP7F07f20zKEiFCnWDEqIcFesFF1iA=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=fP6tKk/03TdSdSfThpVR1xrFGX9NWRzrCJvTvPZThz8QoATh6QC5xMUvWbGaEGbdn
-	 VyL96aL13rz6gKS77qTTkLnzHzkUICsLRJ65H5ki75QONRdtW2xo0vpeZW4Kz6F90Q
-	 ubP1bBGFaGDXcB2S+WZGJVgBptxHfb7UdmU+ufaFHLrZvMZJgJAEoIYmFSj8fmpvv3
-	 XKOwswRehveP/OkZV9YfDhCmaGfLQpTQGkg4RHi8+HHtUYwu3tVtLJirnexgKSdEOu
-	 0IjBpKpOCcKnlw/OSLi8DTy3qbY0YGJZkWju2kONerDFV3xVDhO7ToC8wGyW6TbJeP
-	 3rHXOxrVLqloA==
+	b=vGaVm6Y2y84DUkDOHjpfHcdquZxRHT37aec+v0mcZ5ajsti6GpNvFczuEzWBuU6qk
+	 iCzmNowZfUT3r4KrNBYnq1/g833kLe4poOelYHHO9oPZmrO7CaaCAgxboeHQp5fd9h
+	 3BOQlG71ndQZNI2jOTY986w4Vz6Ob4i8nzvCEP9amj5cGlHAjv7Naj7adSodLAvuum
+	 2/CQQafmaWW4Ojt//vVtxaj86QP2gYVjNemBwMHRr9ZiJ3uucoclEwhpcY5Oa758Jf
+	 3pKC0zMIhZxVw8AMaV5lx//9v4ZwKer84j4cj1TG5+afwDY/a1TcYimJRkZwisxji3
+	 VDN151y5UkAZQ==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Subject: [PATCH AUTOSEL 6.5 36/41] riscv: errata: fix T-Head dcache.cva encoding
-Date: Sun, 24 Sep 2023 09:15:24 -0400
-Message-Id: <20230924131529.1275335-36-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 6.1 24/28] riscv: errata: fix T-Head dcache.cva encoding
+Date: Sun, 24 Sep 2023 09:17:41 -0400
+Message-Id: <20230924131745.1275960-24-sashal@kernel.org>
 X-Mailer: git-send-email 2.40.1
-In-Reply-To: <20230924131529.1275335-1-sashal@kernel.org>
-References: <20230924131529.1275335-1-sashal@kernel.org>
+In-Reply-To: <20230924131745.1275960-1-sashal@kernel.org>
+References: <20230924131745.1275960-1-sashal@kernel.org>
 MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
-X-stable-base: Linux 6.5.5
+X-stable-base: Linux 6.1.55
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230924_061736_838633_600A2DF2 
+X-CRM114-CacheID: sfid-20230924_061851_891052_7978CC79 
 X-CRM114-Status: GOOD (  10.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -97,7 +97,7 @@ Signed-off-by: Sasha Levin <sashal@kernel.org>
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/arch/riscv/include/asm/errata_list.h b/arch/riscv/include/asm/errata_list.h
-index fb1a810f3d8ce..feab334dd8329 100644
+index 19a771085781a..7d2675bb71611 100644
 --- a/arch/riscv/include/asm/errata_list.h
 +++ b/arch/riscv/include/asm/errata_list.h
 @@ -100,7 +100,7 @@ asm volatile(ALTERNATIVE(						\
