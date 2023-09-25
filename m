@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67616CE7A94
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88333CE7A95
 	for <linux-riscv@archiver.kernel.org>; Mon, 25 Sep 2023 11:23:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
@@ -12,58 +12,58 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
 	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=2/N2SHrq7Z7dyBR5xoyYYykgRHv+8CLtGK7W8rwAKAQ=; b=sELjhJXuxPGu/70m59KASLYUoT
-	nxZEjMIiPSfaQads/W8egHYTatJXw+/8K42+tkTwGHlE9iLwC2etfnsrhq/42aBZe9omfI0j6Jgcn
-	o45ZgBu0Z16D9q36nbFVcQLzTNkizEMSFIYo1Virspqwape75cFJShYhV+tAeDso97cYo+vslYj1Q
-	R5FH++QOIvq2APMCULfhb7LCb9GqV7f4TC8ZDYc/5uOKI2ayvk/Oy3h8ClSYXNG1KuTv4+EOMdiaR
-	wGGj3t+kx6lSwtY1PoiSfBxpDWvt5CpUI5IdZcVLGKKpPgRc5hJoCAliDhhxJwat64odIS62mss49
-	Dj4hLxvA==;
+	bh=09l/uzznW7t1PMfc7n59Jpjy6FGjoAp6e8f33twHmHs=; b=awdU9BL1ad+9Z5K42ZQgrJiUwf
+	dYWKlWvIkJWYEt+3Mgg2Ce/YTBeUJ/r+wdSk0VRligwYfQy2IZw+EL9xdNxA1rv2WfGUht7MKH5A5
+	/VbuUM+OmyKuvkxGcNfE7nEthmtkNof9ZSyfqc5ynwldzphBj9MPS88swzUGG97qvDwxvK0hYB/yn
+	kXqMehaHeI6zfwW4ideJhzbn/WawWQcRK23NSnuYJBFT441jor9E5NJ4HwyYi8xUEpFUN10taWgu9
+	SbcUIAmhPl+TJpTwkdQy77vHUh7bOCYfwjW+tyEcA294Vp+ktgTAe7Cs0SxJyZuP8lET77LmVKNuW
+	1WnUpptA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qkjgf-00E9tO-2g;
-	Mon, 25 Sep 2023 11:23:37 +0000
-Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
+	id 1qkjgi-00E9u7-1U;
+	Mon, 25 Sep 2023 11:23:40 +0000
+Received: from mail-ot1-x330.google.com ([2607:f8b0:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qkjgb-00E9s1-0Z
+	id 1qkjgd-00E9sS-0d
 	for linux-riscv@lists.infradead.org;
-	Mon, 25 Sep 2023 11:23:34 +0000
-Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-1c5cd27b1acso54314265ad.2
-        for <linux-riscv@lists.infradead.org>; Mon, 25 Sep 2023 04:23:30 -0700 (PDT)
+	Mon, 25 Sep 2023 11:23:36 +0000
+Received: by mail-ot1-x330.google.com with SMTP id 46e09a7af769-6c4a25f6390so3423119a34.2
+        for <linux-riscv@lists.infradead.org>; Mon, 25 Sep 2023 04:23:33 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20230601.gappssmtp.com; s=20230601; t=1695641010; x=1696245810; darn=lists.infradead.org;
+        d=dabbelt-com.20230601.gappssmtp.com; s=20230601; t=1695641013; x=1696245813; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:message-id:to:from:cc
          :in-reply-to:subject:date:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=4VCKSWuHRGGMefd3y5VmXT3UYjLkmvjBhpNYW23/5mk=;
-        b=Pla/swEPH2D1A/UuEOjXS2JzQE7SFaEzWdAX/0WwxkZNsXbws3VGLyCAzuc7ldJMVW
-         MulpKRjVA9b3WsNzdjatxVKppKKDz7U8k8ddeERnVXCpGDlucEH97jo0uFxhwWlgP/vH
-         FT6IIrWlIUqUvgGCiBBAJg3LyrAmPk3AF6FVCKUCOFsG1bMY8rS9qnY2m5mZoWCkzr2D
-         1UMmjKSR82qwgmda1hSrbJSJ0/dbSRQOJsbm1Esfd70eg2Qrj9lJBD2X2pbkwHMQ6UDS
-         oz8LHpoSCwxbLzkmWSLI57GTSUMCETTf7uf12GW11HtRjK480zxiWVDsUy2dWraTiR9m
-         0upw==
+        bh=Tb+hcbCLtvf8jMvLZVCXxF5zkqNPzbVSI9obXSlRtTU=;
+        b=QuTrUSkxTCFwTcPWOZPe4xVMaUYBRfmbDhFSmRzIO5r8Gh224i5WI4djZySuWNTf32
+         pzzyov1IDJBi++egL13xTyrD2CNuJC8ZvSYn/JeopIqoYcS8okuIYP1jTiGzbxhswilh
+         Ro3WcYgn8s0vOHI2Oh6rqcHoSI+gF7QJ4huG/v1tD29zrOwE1hL2E6bo3bJ97EGvtNjh
+         QXEqHcY2OwLz1f3Oxfno/dDo7TLSHBJvTH2FqUe4ytxCdQ3iXk2nleZycO9JrTTXBwcz
+         iejjLjPBMAqOmu9vdWg5U3OEmXT8XeAEFEAYm2C+y+jYrDXViY13eNTc4znhlO7/38x0
+         xF3A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1695641010; x=1696245810;
+        d=1e100.net; s=20230601; t=1695641013; x=1696245813;
         h=content-transfer-encoding:mime-version:message-id:to:from:cc
          :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=4VCKSWuHRGGMefd3y5VmXT3UYjLkmvjBhpNYW23/5mk=;
-        b=aCT87UTolJtLrfte34ESVbDbZOa8xaQQmHQ0nkf1ZZwMwti6Tyu/i3GCJ4qd80KMj0
-         sNaEYoYCErN65/rVvKA/QR6PkCaPJ5Khad97/+mNBYKiznnkObo5WlI1HIVZ4fpXHqma
-         rjZogtyNOg9mZAf0t6fCJbG2RO9FMGowPe22r+Udhu69ynVIVMib32QY0jLak+ERPjcu
-         8WaDsHQYVreaoQfWOicaEk+mlS1oqX7BOfnXUDP5WMfQHxsOmQTspzfMOFDGiFiFJLd9
-         vKiMDQZ56nRclaCQvJz6+l1cbebGcNqYIc4BUZsnjf0O3vePyWkic0DfqUgvp4iyu9zG
-         N97Q==
-X-Gm-Message-State: AOJu0YwGtULjx1iBfXZlv6PI2GN1mVNx6roWiaUycfcXr3kH6IzNfXbD
-	h0jUYeFwb6YdO9/nJePJ9mtdEv8y1B4GvgK5rqtB6g==
-X-Google-Smtp-Source: AGHT+IGGZKLjaALSE0r4eHjK4fvsun1bPj8M6E8sXI9aL2SN/mHIV5zfttu7xDWRjyv0ME9uDzolqw==
-X-Received: by 2002:a17:902:c409:b0:1b8:954c:1f6 with SMTP id k9-20020a170902c40900b001b8954c01f6mr8838184plk.36.1695641009695;
-        Mon, 25 Sep 2023 04:23:29 -0700 (PDT)
+        bh=Tb+hcbCLtvf8jMvLZVCXxF5zkqNPzbVSI9obXSlRtTU=;
+        b=ckO5n28PSFn/T3dugZUX0WO8hCkZIPsBRSg3/n8H4vKe7nLvFfm+ozEi+xKIcpWEzM
+         ItmuWRmzQ0VoGOjoamtIFPS7lBGtFyUaeZIhcuMSvSDdd3oMNhrmMCbZU0KuxcUzX5yO
+         3Ouesx6PgLVVZKqJJZrtY7A7C8jp2hc2eZLfs2j4fLWZFF1DDeDwy/R6T9GN1eGl4G1J
+         myARY4ngjqjU8z+4kZ0Tla5eZ4aH6KeDW6rJljwllqpvnmbh1k7NNc+jsCvjhpqf+zON
+         9iKUeqznMXnlWRRbU6QXeniFM03e+c7+O8MlCpnB5DhMKdVf9pwMRvBZx9idQ7431ldf
+         rGFQ==
+X-Gm-Message-State: AOJu0YyPTyW74Q2XoopGV77t7kzv3YD/uescrRivHJSx61Yd+d4xkStK
+	Lbmi17piENGGnhRyQTLrB0Akf1Xpx7Q74++rKUARcA==
+X-Google-Smtp-Source: AGHT+IEMR6o7ucbei+9kdJTII2fRwrbVBYE3Sncyy/d2niXX+TWLLiuIhBcF9867XAjbTYoh/CsG/w==
+X-Received: by 2002:a05:6808:1b11:b0:3a8:5ff0:6b52 with SMTP id bx17-20020a0568081b1100b003a85ff06b52mr8322243oib.15.1695641012937;
+        Mon, 25 Sep 2023 04:23:32 -0700 (PDT)
 Received: from localhost ([51.52.155.79])
-        by smtp.gmail.com with ESMTPSA id jh5-20020a170903328500b001bba7aab822sm8656479plb.5.2023.09.25.04.23.28
+        by smtp.gmail.com with ESMTPSA id fb12-20020a056a002d8c00b00690c7552098sm6010284pfb.44.2023.09.25.04.23.31
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 25 Sep 2023 04:23:29 -0700 (PDT)
-Date: Mon, 25 Sep 2023 04:23:29 -0700 (PDT)
-X-Google-Original-Date: Mon, 25 Sep 2023 04:18:05 PDT (-0700)
+        Mon, 25 Sep 2023 04:23:32 -0700 (PDT)
+Date: Mon, 25 Sep 2023 04:23:32 -0700 (PDT)
+X-Google-Original-Date: Mon, 25 Sep 2023 04:22:23 PDT (-0700)
 Subject: Re: [RFC PATCH 3/5] RISC-V: hwprobe: Introduce which-cpus flag
 In-Reply-To: <20230921125518.175428-10-ajones@ventanamicro.com>
 CC: linux-riscv@lists.infradead.org, Paul Walmsley <paul.walmsley@sifive.com>,
@@ -71,11 +71,11 @@ CC: linux-riscv@lists.infradead.org, Paul Walmsley <paul.walmsley@sifive.com>,
   apatel@ventanamicro.com
 From: Palmer Dabbelt <palmer@dabbelt.com>
 To: ajones@ventanamicro.com
-Message-ID: <mhng-7c3d5229-a87c-47f3-8a7c-4db3de333ff1@palmer-ri-x1c9a>
+Message-ID: <mhng-6cbe4501-1a87-4ec4-9f80-bcfe256ac1ba@palmer-ri-x1c9a>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230925_042333_218763_C572CB4B 
-X-CRM114-Status: GOOD (  40.91  )
+X-CRM114-CacheID: sfid-20230925_042335_233807_2FD00587 
+X-CRM114-Status: GOOD (  43.53  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,6 +107,12 @@ On Thu, 21 Sep 2023 05:55:22 PDT (-0700), ajones@ventanamicro.com wrote:
 >   3. If the platform is homogeneous, then check all the pairs
 >      against the "all cpu" values and return early
 >   4. Otherwise, check all the pairs against each cpu individually
+
+IIRC we talked about this in the patchwork call at some point, but IMO 
+this feature makes sense and you weren't the first person to bring up 
+having something like this.  So I think at a high level it's completely 
+reasonable, some implementation comments follow.
+
 >
 > Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
 > ---
@@ -132,6 +138,11 @@ On Thu, 21 Sep 2023 05:55:22 PDT (-0700), ajones@ventanamicro.com wrote:
 > +  set of CPUs, the set of CPUs is initially all unset and the values of each key
 > +  are given.  Upon return, the CPUs which all match each of the given key-value
 > +  pairs are set in ``cpus``.  How matching is done depends on the key type.  For
+
+Kind of a meta-comment here, but we should add the key type to each key 
+number in the docs.  I suppose maybe it should be obvious which is which 
+from the meaning of the keys, but can't hurt to be explicit about it.
+
 > +  value-like keys, matching means to be the exact same as the value.  For
 > +  boolean-like keys, matching means the result of a logical AND of the pair's
 > +  value with the CPU's value is exactly the same as the pair's value.  ``cpus``
@@ -321,15 +332,6 @@ On Thu, 21 Sep 2023 05:55:22 PDT (-0700), ajones@ventanamicro.com wrote:
 > +			if (ret)
 > +				return -EFAULT;
 > +			return 0;
-
-So this is now essentailly two syscalls.  IMO it'd be cleaner to split 
-out the implementations into two functions (ie, 
-hwprobe_{which_cpus,which_featurs}() or whatever) rather than have an 
-early out and the rest inline.
-
-Also: maybe we want a whole hwprobe file?  It's sort of its own thing 
-now, and it's only going to get bigger...
-
 > +		}
 > +
 >  		/*
