@@ -4,66 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0C89CE7A94
-	for <linux-riscv@archiver.kernel.org>; Mon, 25 Sep 2023 10:23:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 667DCCE7A81
+	for <linux-riscv@archiver.kernel.org>; Mon, 25 Sep 2023 10:28:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Date:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Xew9mvUR8myT/nts+uqa5CJDoVD4lgkaLlQfbb7iWOw=; b=o/FpvabzLivfYb
-	qNdiPOELXyTW5avMFrMZmieR/AsmSnn/1y7vgiHHBujBavBzjjFUn+IWA9yF9acDw1KNemisTNRTA
-	qZy8qe8a/wKWm/w8LCBP4erZoi4ndVxpC6GBSZlpONg9ZfE07O6LIWXgKYO9XsAagfwS9RwByxZON
-	6iWiTIL7eh0KlL4be2USJUfjza/rlDSOlx9dq53/alHyNZWz+J2/8hZeRp+DScSqgfZY0dHcTsHhP
-	g/fpzOUgeCApYlFlFZUrNe3kv0LZ9/wNL3sLWHLrKUVi2wnZ4WmKz6wJY4gMCa/tUY6k65FvLDpmP
-	7PtiYDwkD+3J2abZkGjg==;
+	List-Owner; bh=2ephJnL8dPBusn9BWGv3qUoQ6maaoJIFKVHUonzGCvI=; b=shGXAidN+k3qdk
+	BB1L/iM9W96KMxPLoCwAdTEBWuPNjDoWYEeJEsQFc1rwXpLR8GzeIZxgNt6i3eDRri5Y/lYOTHXMP
+	qPbcpyKxsBFMz7XV1hZfibPR44j8biHeosSeMJod6xs/do4k1i/LjtGSg13M0bZOoCQuYG1vQm4sl
+	RrO2sJ7YgeZCaRZlUCB92wnKQV4xGK411xnfL74cV59R04tC723fObPWUR+miU0FSkktD2kMymM5k
+	XWbPRmf+r0Lbc4tO7ENuyClRBkL8u0rdTagK3ti9NT9AMG+JQA4GSY6103S/ol+eocjeoF6LVTf49
+	zr3UaAozC6gs7LiPd5XA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qkikN-00Dxje-1h;
-	Mon, 25 Sep 2023 10:23:23 +0000
-Received: from xry111.site ([89.208.246.23])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qkikL-00Dxij-0E
+	id 1qkip8-00DyJD-2h;
+	Mon, 25 Sep 2023 10:28:18 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1qkip3-00DyF5-35
 	for linux-riscv@lists.infradead.org;
-	Mon, 25 Sep 2023 10:23:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=xry111.site;
-	s=default; t=1695637396;
-	bh=zNEHMjTGryYRc6k3/UydU+1ksmTv+08v4jyV1rUpTZw=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=Cq7O5cQ1W5BjxBPgVTIeSExTIcnTkss2LgFbDKyL1+OfokdjiQUKwYj/rCeVBYYe6
-	 OWy/PSeRL8JvoqDTBGlrACxgx8BU3W/8yqcQ3T7L7dU01Y6WaBXoLxw6eyp4Tj9ERH
-	 vOhPBooPo2/mzjHgHwcQgh8nVjnlSSor0GLts8KQ=
-Received: from [127.0.0.1] (xry111.site [IPv6:2001:470:683e::1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-256) server-signature ECDSA (P-384) server-digest SHA384)
-	(Client did not present a certificate)
-	(Authenticated sender: xry111@xry111.site)
-	by xry111.site (Postfix) with ESMTPSA id 16B32659AC;
-	Mon, 25 Sep 2023 06:23:11 -0400 (EDT)
-Message-ID: <aeb2cc43ea4e5281195c8bccd1f033ed73e6a7ef.camel@xry111.site>
-Subject: Re: [PATCH 2/6] mmc: sdhci: add __sdhci_execute_tuning() to header
-From: Xi Ruoyao <xry111@xry111.site>
-To: Adrian Hunter <adrian.hunter@intel.com>, Drew Fustini
- <dfustini@baylibre.com>, Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring
- <robh+dt@kernel.org>, Krzysztof Kozlowski
- <krzysztof.kozlowski+dt@linaro.org>,  Conor Dooley <conor+dt@kernel.org>,
- Jisheng Zhang <jszhang@kernel.org>, Guo Ren <guoren@kernel.org>, Fu Wei
- <wefu@redhat.com>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Conor Dooley
- <conor@kernel.org>
-Date: Mon, 25 Sep 2023 18:23:10 +0800
-In-Reply-To: <4ef60ffd-3661-4bca-91a3-b49d6189c71b@intel.com>
-References: <20230921-th1520-mmc-v1-0-49f76c274fb3@baylibre.com>
-	 <20230921-th1520-mmc-v1-2-49f76c274fb3@baylibre.com>
-	 <4ef60ffd-3661-4bca-91a3-b49d6189c71b@intel.com>
-Autocrypt: addr=xry111@xry111.site; prefer-encrypt=mutual;
- keydata=mDMEYnkdPhYJKwYBBAHaRw8BAQdAsY+HvJs3EVKpwIu2gN89cQT/pnrbQtlvd6Yfq7egugi0HlhpIFJ1b3lhbyA8eHJ5MTExQHhyeTExMS5zaXRlPoiTBBMWCgA7FiEEkdD1djAfkk197dzorKrSDhnnEOMFAmJ5HT4CGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4AACgkQrKrSDhnnEOPHFgD8D9vUToTd1MF5bng9uPJq5y3DfpcxDp+LD3joA3U2TmwA/jZtN9xLH7CGDHeClKZK/ZYELotWfJsqRcthOIGjsdAPuDgEYnkdPhIKKwYBBAGXVQEFAQEHQG+HnNiPZseiBkzYBHwq/nN638o0NPwgYwH70wlKMZhRAwEIB4h4BBgWCgAgFiEEkdD1djAfkk197dzorKrSDhnnEOMFAmJ5HT4CGwwACgkQrKrSDhnnEOPjXgD/euD64cxwqDIqckUaisT3VCst11RcnO5iRHm6meNIwj0BALLmWplyi7beKrOlqKfuZtCLbiAPywGfCNg8LOTt4iMD
-User-Agent: Evolution 3.50.0 
+	Mon, 25 Sep 2023 10:28:17 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id 44E0424E3C6;
+	Mon, 25 Sep 2023 18:27:19 +0800 (CST)
+Received: from EXMBX168.cuchost.com (172.16.6.78) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 25 Sep
+ 2023 18:27:19 +0800
+Received: from [192.168.120.47] (171.223.208.138) by EXMBX168.cuchost.com
+ (172.16.6.78) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 25 Sep
+ 2023 18:27:18 +0800
+Message-ID: <ade1c061-63d8-8b48-b8e2-69416cd8aa48@starfivetech.com>
+Date: Mon, 25 Sep 2023 18:27:16 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.15.1
+Subject: Re: [PATCH v5 2/4] pwm: starfive: Add PWM driver support
+To: Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, <linux-pwm@vger.kernel.org>
+CC: Emil Renner Berthing <kernel@esmil.dk>, Rob Herring <robh+dt@kernel.org>,
+	Thierry Reding <thierry.reding@gmail.com>, Philipp Zabel
+	<p.zabel@pengutronix.de>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor+dt@kernel.org>,
+	=?UTF-8?Q?Uwe_Kleine-K=c3=b6nig?= <u.kleine-koenig@pengutronix.de>, Hal Feng
+	<hal.feng@starfivetech.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+	"Palmer Dabbelt" <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
+References: <20230922092848.72664-1-william.qiu@starfivetech.com>
+ <20230922092848.72664-3-william.qiu@starfivetech.com>
+ <CAJM55Z8d368MAQPpnRO8giKmasN5XETP40i3JVdW_0gTF3Ktqg@mail.gmail.com>
+Content-Language: en-US
+From: William Qiu <william.qiu@starfivetech.com>
+In-Reply-To: <CAJM55Z8d368MAQPpnRO8giKmasN5XETP40i3JVdW_0gTF3Ktqg@mail.gmail.com>
+X-Originating-IP: [171.223.208.138]
+X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX168.cuchost.com
+ (172.16.6.78)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230925_032321_131443_7C1F5630 
-X-CRM114-Status: GOOD (  16.83  )
+X-CRM114-CacheID: sfid-20230925_032814_422573_453C3600 
+X-CRM114-Status: GOOD (  26.79  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,40 +78,308 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, Han Gao <gaohan@iscas.ac.cn>, linux-mmc@vger.kernel.org, linux-kernel@vger.kernel.org, Robert Nelson <robertcnelson@beagleboard.org>, Jason Kridner <jkridner@beagleboard.org>, linux-riscv@lists.infradead.org
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCAyMDIzLTA5LTI1IGF0IDEzOjIxICswMzAwLCBBZHJpYW4gSHVudGVyIHdyb3RlOgo+
-IE9uIDIyLzA5LzIzIDA0OjQ5LCBEcmV3IEZ1c3Rpbmkgd3JvdGU6Cj4gPiBFeHBvc2UgX19zZGhj
-aV9leGVjdXRlX3R1bmluZygpIHNvIHRoYXQgaXQgY2FuIGJlIGNhbGxlZCBmcm9tIHRoZQo+ID4g
-bW1jIGhvc3QgY29udHJvbGxlciBkcml2ZXJzLgo+ID4gCj4gPiBJbiB0aGUgc2RoY2ktb2YtZHdj
-bXNoYyBkcml2ZXIsIHNkaGNpX2R3Y21zaGNfdGgxNTIwX29wcyBzZXRzCj4gPiBwbGF0Zm9ybV9l
-eGVjdXRlX3R1bmluZyB0byB0aDE1MjBfZXhlY3V0ZV90dW5pbmcoKS4gVGhhdCBmdW5jdGlvbiBo
-YXMKPiA+IHRvIG1hbmlwdWxhdGUgcGh5IHJlZ2lzdGVycyBiZWZvcmUgdHVuaW5nIGNhbiBiZSBw
-ZXJmb3JtZWQuIFRvIGF2b2lkCj4gPiBjb3B5aW5nIHRoZSBjb2RlIHZlcmJhdGltIGZyb20gX19z
-ZGhjaV9leGVjdXRlX3R1bmluZygpIGludG8KPiA+IHRoMTUyMF9leGVjdXRlX3R1bmluZygpLCBt
-YWtlIGl0IHBvc3NpYmxlIGZvciBfX3NkaGNpX2V4ZWN1dGVfdHVuaW5nKCkKPiA+IHRvIGJlIGNh
-bGxlZCBmcm9tIHNkaGNpLW9mLWR3Y21zaGMuCj4gPiAKPiA+IFNpZ25lZC1vZmYtYnk6IERyZXcg
-RnVzdGluaSA8ZGZ1c3RpbmlAYmF5bGlicmUuY29tPgo+ID4gLS0tCj4gPiDCoGRyaXZlcnMvbW1j
-L2hvc3Qvc2RoY2kuYyB8IDIgKy0KPiA+IMKgZHJpdmVycy9tbWMvaG9zdC9zZGhjaS5oIHwgMSAr
-Cj4gPiDCoDIgZmlsZXMgY2hhbmdlZCwgMiBpbnNlcnRpb25zKCspLCAxIGRlbGV0aW9uKC0pCj4g
-PiAKPiA+IGRpZmYgLS1naXQgYS9kcml2ZXJzL21tYy9ob3N0L3NkaGNpLmMgYi9kcml2ZXJzL21t
-Yy9ob3N0L3NkaGNpLmMKPiA+IGluZGV4IGZmNDFhYTU2NTY0ZS4uZmQ2MDcwNThkMTc2IDEwMDY0
-NAo+ID4gLS0tIGEvZHJpdmVycy9tbWMvaG9zdC9zZGhjaS5jCj4gPiArKysgYi9kcml2ZXJzL21t
-Yy9ob3N0L3NkaGNpLmMKPiA+IEBAIC0yODQxLDcgKzI4NDEsNyBAQCB2b2lkIHNkaGNpX3NlbmRf
-dHVuaW5nKHN0cnVjdCBzZGhjaV9ob3N0ICpob3N0LCB1MzIgb3Bjb2RlKQo+ID4gwqB9Cj4gPiDC
-oEVYUE9SVF9TWU1CT0xfR1BMKHNkaGNpX3NlbmRfdHVuaW5nKTsKPiA+IMKgCj4gPiAtc3RhdGlj
-IGludCBfX3NkaGNpX2V4ZWN1dGVfdHVuaW5nKHN0cnVjdCBzZGhjaV9ob3N0ICpob3N0LCB1MzIg
-b3Bjb2RlKQo+ID4gK2ludCBfX3NkaGNpX2V4ZWN1dGVfdHVuaW5nKHN0cnVjdCBzZGhjaV9ob3N0
-ICpob3N0LCB1MzIgb3Bjb2RlKQo+IAo+IEFsc28gbmVlZAo+IAlFWFBPUlRfU1lNQk9MX0dQTChf
-X3NkaGNpX2V4ZWN1dGVfdHVuaW5nKTsKPiAKPiA+IMKgewo+ID4gwqAJaW50IGk7CgpCeSB0aGUg
-d2F5IHNob3VsZCB3ZSByZW5hbWUgdGhpcyBmdW5jdGlvbj8gIEkgdGhpbmsKIl9fc2RoY2lfZXhl
-Y3V0ZV90dW5pbmciIHZzICJzZGhjaV9leGVjdXRlX3R1bmluZyIgbWlnaHQgYmUgY29uZnVzaW5n
-CndoZW4gd2UgZXhwb3J0IGJvdGguCgotLSAKWGkgUnVveWFvIDx4cnkxMTFAeHJ5MTExLnNpdGU+
-ClNjaG9vbCBvZiBBZXJvc3BhY2UgU2NpZW5jZSBhbmQgVGVjaG5vbG9neSwgWGlkaWFuIFVuaXZl
-cnNpdHkKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxp
-bnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0
-dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+
+
+On 2023/9/23 20:08, Emil Renner Berthing wrote:
+> William Qiu wrote:
+>> Add Pulse Width Modulation driver support for StarFive
+>> JH7100 and JH7110 SoC.
+>>
+>> Co-developed-by: Hal Feng <hal.feng@starfivetech.com>
+>> Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
+>> Signed-off-by: William Qiu <william.qiu@starfivetech.com>
+>> ---
+>>  MAINTAINERS                |   7 ++
+>>  drivers/pwm/Kconfig        |   9 ++
+>>  drivers/pwm/Makefile       |   1 +
+>>  drivers/pwm/pwm-starfive.c | 190 +++++++++++++++++++++++++++++++++++++
+>>  4 files changed, 207 insertions(+)
+>>  create mode 100644 drivers/pwm/pwm-starfive.c
+>>
+>> diff --git a/MAINTAINERS b/MAINTAINERS
+>> index bf0f54c24f81..bc2155bd2712 100644
+>> --- a/MAINTAINERS
+>> +++ b/MAINTAINERS
+>> @@ -20495,6 +20495,13 @@ F:	drivers/pinctrl/starfive/pinctrl-starfive-jh71*
+>>  F:	include/dt-bindings/pinctrl/pinctrl-starfive-jh7100.h
+>>  F:	include/dt-bindings/pinctrl/starfive,jh7110-pinctrl.h
+>>
+>> +STARFIVE JH71X0 PWM DRIVERS
+>> +M:	William Qiu <william.qiu@starfivetech.com>
+>> +M:	Hal Feng <hal.feng@starfivetech.com>
+>> +S:	Supported
+>> +F:	Documentation/devicetree/bindings/pwm/starfive,jh7100-pwm.yaml
+>> +F:	drivers/pwm/pwm-starfive-ptc.c
+>> +
+>>  STARFIVE JH71X0 RESET CONTROLLER DRIVERS
+>>  M:	Emil Renner Berthing <kernel@esmil.dk>
+>>  M:	Hal Feng <hal.feng@starfivetech.com>
+>> diff --git a/drivers/pwm/Kconfig b/drivers/pwm/Kconfig
+>> index 8ebcddf91f7b..e2ee0169f6e4 100644
+>> --- a/drivers/pwm/Kconfig
+>> +++ b/drivers/pwm/Kconfig
+>> @@ -569,6 +569,15 @@ config PWM_SPRD
+>>  	  To compile this driver as a module, choose M here: the module
+>>  	  will be called pwm-sprd.
+>>
+>> +config PWM_STARFIVE
+>> +	tristate "StarFive PWM support"
+>> +	depends on ARCH_STARFIVE || COMPILE_TEST
+>> +	help
+>> +	  Generic PWM framework driver for StarFive SoCs.
+>> +
+>> +	  To compile this driver as a module, choose M here: the module
+>> +	  will be called pwm-starfive.
+>> +
+>>  config PWM_STI
+>>  	tristate "STiH4xx PWM support"
+>>  	depends on ARCH_STI || COMPILE_TEST
+>> diff --git a/drivers/pwm/Makefile b/drivers/pwm/Makefile
+>> index c822389c2a24..93b954376873 100644
+>> --- a/drivers/pwm/Makefile
+>> +++ b/drivers/pwm/Makefile
+>> @@ -52,6 +52,7 @@ obj-$(CONFIG_PWM_SIFIVE)	+= pwm-sifive.o
+>>  obj-$(CONFIG_PWM_SL28CPLD)	+= pwm-sl28cpld.o
+>>  obj-$(CONFIG_PWM_SPEAR)		+= pwm-spear.o
+>>  obj-$(CONFIG_PWM_SPRD)		+= pwm-sprd.o
+>> +obj-$(CONFIG_PWM_STARFIVE)	+= pwm-starfive.o
+>>  obj-$(CONFIG_PWM_STI)		+= pwm-sti.o
+>>  obj-$(CONFIG_PWM_STM32)		+= pwm-stm32.o
+>>  obj-$(CONFIG_PWM_STM32_LP)	+= pwm-stm32-lp.o
+>> diff --git a/drivers/pwm/pwm-starfive.c b/drivers/pwm/pwm-starfive.c
+> 
+> Hi William,
+> 
+> You never answered my questions about what PTC is short for and if there are
+> other PWMs on the JH7110. You just removed -ptc from the name of this file..
+> 
+Hi Emil,
+
+The PTC, short for PWM/TIMER/CONUTER, comes from OpenCore's ip, but only PWM
+mode is used in the JH7110. So the register still has the word "PTC".
+s the best way to change all the prefix to STARFIVE?
+
+Best regards,
+William
+>> new file mode 100644
+>> index 000000000000..d390349fc95d
+>> --- /dev/null
+>> +++ b/drivers/pwm/pwm-starfive.c
+>> @@ -0,0 +1,190 @@
+>> +// SPDX-License-Identifier: GPL-2.0
+>> +/*
+>> + * PWM driver for the StarFive JH71x0 SoC
+>> + *
+>> + * Copyright (C) 2018-2023 StarFive Technology Co., Ltd.
+>> + */
+>> +
+>> +#include <linux/clk.h>
+>> +#include <linux/io.h>
+>> +#include <linux/module.h>
+>> +#include <linux/platform_device.h>
+>> +#include <linux/pwm.h>
+>> +#include <linux/reset.h>
+>> +#include <linux/slab.h>
+>> +
+>> +/* Access PTC register (CNTR, HRC, LRC and CTRL) */
+>> +#define REG_PTC_BASE_ADDR_SUB(base, N)	((base) + (((N) > 3) ? \
+>> +					(((N) % 4) * 0x10 + (1 << 15)) : ((N) * 0x10)))
+>> +#define REG_PTC_RPTC_CNTR(base, N)	(REG_PTC_BASE_ADDR_SUB(base, N))
+>> +#define REG_PTC_RPTC_HRC(base, N)	(REG_PTC_BASE_ADDR_SUB(base, N) + 0x4)
+>> +#define REG_PTC_RPTC_LRC(base, N)	(REG_PTC_BASE_ADDR_SUB(base, N) + 0x8)
+>> +#define REG_PTC_RPTC_CTRL(base, N)	(REG_PTC_BASE_ADDR_SUB(base, N) + 0xC)
+> 
+> ..but these defines
+> 
+>> +
+>> +/* PTC_RPTC_CTRL register bits*/
+>> +#define PTC_EN      BIT(0)
+>> +#define PTC_ECLK    BIT(1)
+>> +#define PTC_NEC     BIT(2)
+>> +#define PTC_OE      BIT(3)
+>> +#define PTC_SIGNLE  BIT(4)
+>> +#define PTC_INTE    BIT(5)
+>> +#define PTC_INT     BIT(6)
+>> +#define PTC_CNTRRST BIT(7)
+>> +#define PTC_CAPTE   BIT(8)
+> 
+> ..and these defines are still prefixed with *PTC where I'd expect something like
+> STARFIVE_PWM_, and below structs and function names are also still
+> using starfive_pwm_ptc_
+> where I'd expect starfive_pwm_. Please be consistant in your naming.
+> 
+>> +struct starfive_pwm_ptc_device {
+>> +	struct pwm_chip chip;
+>> +	struct clk *clk;
+>> +	struct reset_control *rst;
+>> +	void __iomem *regs;
+>> +	u32 clk_rate; /* PWM APB clock frequency */
+>> +};
+>> +
+>> +static inline struct starfive_pwm_ptc_device *
+>> +chip_to_starfive_ptc(struct pwm_chip *chip)
+>> +
+>> +{
+>> +	return container_of(chip, struct starfive_pwm_ptc_device, chip);
+>> +}
+>> +
+>> +static int starfive_pwm_ptc_get_state(struct pwm_chip *chip,
+>> +				      struct pwm_device *dev,
+>> +				      struct pwm_state *state)
+>> +{
+>> +	struct starfive_pwm_ptc_device *pwm = chip_to_starfive_ptc(chip);
+>> +	u32 period_data, duty_data, ctrl_data;
+>> +
+>> +	period_data = readl(REG_PTC_RPTC_LRC(pwm->regs, dev->hwpwm));
+>> +	duty_data = readl(REG_PTC_RPTC_HRC(pwm->regs, dev->hwpwm));
+>> +	ctrl_data = readl(REG_PTC_RPTC_CTRL(pwm->regs, dev->hwpwm));
+>> +
+>> +	state->period = DIV_ROUND_CLOSEST_ULL((u64)period_data * NSEC_PER_SEC, pwm->clk_rate);
+>> +	state->duty_cycle = DIV_ROUND_CLOSEST_ULL((u64)duty_data * NSEC_PER_SEC, pwm->clk_rate);
+>> +	state->polarity = PWM_POLARITY_INVERSED;
+>> +	state->enabled = (ctrl_data & PTC_EN) ? true : false;
+>> +
+>> +	return 0;
+>> +}
+>> +
+>> +static int starfive_pwm_ptc_apply(struct pwm_chip *chip,
+>> +				  struct pwm_device *dev,
+>> +				  const struct pwm_state *state)
+>> +{
+>> +	struct starfive_pwm_ptc_device *pwm = chip_to_starfive_ptc(chip);
+>> +	u32 period_data, duty_data, ctrl_data = 0;
+>> +
+>> +	if (state->polarity != PWM_POLARITY_INVERSED)
+>> +		return -EINVAL;
+>> +
+>> +	period_data = DIV_ROUND_CLOSEST_ULL(state->period * pwm->clk_rate,
+>> +					    NSEC_PER_SEC);
+>> +	duty_data = DIV_ROUND_CLOSEST_ULL(state->duty_cycle * pwm->clk_rate,
+>> +					  NSEC_PER_SEC);
+>> +
+>> +	writel(period_data, REG_PTC_RPTC_LRC(pwm->regs, dev->hwpwm));
+>> +	writel(duty_data, REG_PTC_RPTC_HRC(pwm->regs, dev->hwpwm));
+>> +	writel(0,  REG_PTC_RPTC_CNTR(pwm->regs, dev->hwpwm));
+>> +
+>> +	ctrl_data = readl(REG_PTC_RPTC_CTRL(pwm->regs, dev->hwpwm));
+>> +	if (state->enabled)
+>> +		writel(ctrl_data | PTC_EN | PTC_OE, REG_PTC_RPTC_CTRL(pwm->regs, dev->hwpwm));
+>> +	else
+>> +		writel(ctrl_data & ~(PTC_EN | PTC_OE), REG_PTC_RPTC_CTRL(pwm->regs, dev->hwpwm));
+>> +
+>> +	return 0;
+>> +}
+>> +
+>> +static const struct pwm_ops starfive_pwm_ptc_ops = {
+>> +	.get_state	= starfive_pwm_ptc_get_state,
+>> +	.apply		= starfive_pwm_ptc_apply,
+>> +	.owner		= THIS_MODULE,
+>> +};
+>> +
+>> +static int starfive_pwm_ptc_probe(struct platform_device *pdev)
+>> +{
+>> +	struct device *dev = &pdev->dev;
+>> +	struct starfive_pwm_ptc_device *pwm;
+>> +	struct pwm_chip *chip;
+>> +	int ret;
+>> +
+>> +	pwm = devm_kzalloc(dev, sizeof(*pwm), GFP_KERNEL);
+>> +	if (!pwm)
+>> +		return -ENOMEM;
+>> +
+>> +	chip = &pwm->chip;
+>> +	chip->dev = dev;
+>> +	chip->ops = &starfive_pwm_ptc_ops;
+>> +	chip->npwm = 8;
+>> +	chip->of_pwm_n_cells = 3;
+>> +
+>> +	pwm->regs = devm_platform_ioremap_resource(pdev, 0);
+>> +	if (IS_ERR(pwm->regs))
+>> +		return dev_err_probe(dev, PTR_ERR(pwm->regs),
+>> +				     "Unable to map IO resources\n");
+>> +
+>> +	pwm->clk = devm_clk_get_enabled(dev, NULL);
+>> +	if (IS_ERR(pwm->clk))
+>> +		return dev_err_probe(dev, PTR_ERR(pwm->clk),
+>> +				     "Unable to get pwm's clock\n");
+>> +
+>> +	pwm->rst = devm_reset_control_get_exclusive(dev, NULL);
+>> +	if (IS_ERR(pwm->rst))
+>> +		return dev_err_probe(dev, PTR_ERR(pwm->rst),
+>> +				     "Unable to get pwm's reset\n");
+>> +
+>> +	ret = reset_control_deassert(pwm->rst);
+>> +	if (ret) {
+>> +		dev_err(dev, "Failed to enable clock for pwm: %d\n", ret);
+>> +		return ret;
+>> +	}
+>> +
+>> +	pwm->clk_rate = clk_get_rate(pwm->clk);
+>> +	if (pwm->clk_rate <= 0) {
+>> +		dev_warn(dev, "Failed to get APB clock rate\n");
+>> +		return -EINVAL;
+>> +	}
+>> +
+>> +	ret = devm_pwmchip_add(dev, chip);
+>> +	if (ret < 0) {
+>> +		dev_err(dev, "Cannot register PTC: %d\n", ret);
+>> +		clk_disable_unprepare(pwm->clk);
+>> +		reset_control_assert(pwm->rst);
+>> +		return ret;
+>> +	}
+>> +
+>> +	platform_set_drvdata(pdev, pwm);
+>> +
+>> +	return 0;
+>> +}
+>> +
+>> +static int starfive_pwm_ptc_remove(struct platform_device *dev)
+>> +{
+>> +	struct starfive_pwm_ptc_device *pwm = platform_get_drvdata(dev);
+>> +
+>> +	reset_control_assert(pwm->rst);
+>> +	clk_disable_unprepare(pwm->clk);
+>> +
+>> +	return 0;
+>> +}
+>> +
+>> +static const struct of_device_id starfive_pwm_ptc_of_match[] = {
+>> +	{ .compatible = "starfive,jh7100-pwm" },
+>> +	{ .compatible = "starfive,jh7110-pwm" },
+>> +	{ /* sentinel */ }
+>> +};
+>> +MODULE_DEVICE_TABLE(of, starfive_pwm_ptc_of_match);
+>> +
+>> +static struct platform_driver starfive_pwm_ptc_driver = {
+>> +	.probe = starfive_pwm_ptc_probe,
+>> +	.remove = starfive_pwm_ptc_remove,
+>> +	.driver = {
+>> +		.name = "pwm-starfive-ptc",
+> 
+> Here
+> 
+>> +		.of_match_table = starfive_pwm_ptc_of_match,
+>> +	},
+>> +};
+>> +module_platform_driver(starfive_pwm_ptc_driver);
+>> +
+>> +MODULE_AUTHOR("Jieqin Chen");
+>> +MODULE_AUTHOR("Hal Feng <hal.feng@starfivetech.com>");
+>> +MODULE_DESCRIPTION("StarFive PWM PTC driver");
+> 
+> ..and here you're also still calling the driver PTC without explaining why.
+> 
+>> +MODULE_LICENSE("GPL");
+>> --
+>> 2.34.1
+>>
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
