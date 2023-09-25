@@ -4,55 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41226CE7A91
-	for <linux-riscv@archiver.kernel.org>; Mon, 25 Sep 2023 01:00:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C1D9CE7A8B
+	for <linux-riscv@archiver.kernel.org>; Mon, 25 Sep 2023 02:44:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8WndDIeaTPhrAyusQo680ZEzsPoxW88V9NWFI8vXOfk=; b=ngxZ7yqwEuXaOd
-	/0Usx9K4KLPsasXypQABGgqjwN+3hjqLAqfpTts9gKJwK6TLm7q4g6QcIh2Pg0pJBx0qZCBtNn9SI
-	Pts3YH95n0KrMLyFCDuxBZ/JqTXstGoWgblm1QnP0eZr2edAk/6OFaIqK71F9r0mDLz6J2jO2gLKz
-	tkpe7DOUEqVfJx9Zew1PBRZTnUlBmfc7KsmVs9pPiGv/ey6JD+aVCIDd9uxu5CYdG9zwuX8hsBeQJ
-	GMrAAHCnIMZsI+fmcg/I+RyZAB7Soj3eUc+5MXOubhwFrAl/6tARZwGymGOZq0V4vGt0SzaIH64Qh
-	xRUDA1NnI003JIMrWRTQ==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=7UT+lCIlX9y7XYVfTlI7bdIFyDyje8p5WM58CqIMIbI=; b=f8HoXiz/r0ZDow
+	Gh4QafTD5ETg9cMvJYnX/uJ0vqGHfUqiirdXIBn3f3qp4tjmfSZU57ttZ4l4qW6/WlImR7TPlb9eG
+	ehQZsA12tB4JipewfCLuTd0GiIuWK0gMpb1JYjxiKxBWH4uR+EE4erAuL5sYz2vOMx5cs2TZTVZSe
+	v6CHDlYNjS4UeU86Pj1htjtM6fnDqgKxp7YaH2RBuO3Zf4jOPiqHu5dFnOAZuZHejTZImGCG+lh26
+	ZNpUBCBsfTTG9xidjDHcKFBFvszyzE/YiH0b4NjV5TwRPB56BucCa5LKtSqB2hyBtzJga930MQtZT
+	ZUBnCOgqeXf8fJkLPrwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qkZxm-00D3m2-2l;
-	Mon, 25 Sep 2023 01:00:38 +0000
-Received: from out-193.mta1.migadu.com ([95.215.58.193])
+	id 1qkbZm-00DBVd-06;
+	Mon, 25 Sep 2023 02:43:58 +0000
+Received: from szxga03-in.huawei.com ([45.249.212.189])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qkZxk-00D3j4-2e
+	id 1qkbZi-00DBUH-2Z
 	for linux-riscv@lists.infradead.org;
-	Mon, 25 Sep 2023 01:00:38 +0000
-Date: Mon, 25 Sep 2023 10:59:30 +1000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jookia.org; s=key1;
-	t=1695603618;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=WNjNopcEjQfN12kbCSrhwvqbW3WLiiX1nbplJr5QSuY=;
-	b=Uy2NbfVfgMCJhxEwf5RUAEi72sP541r0gEtly66WLMFGw+E+GK13+B4eOJO9WBf1kr97pf
-	fA8b4PrtfrpEoBBWAM5N4ieLMHYDZgv8sZqx1lJUxBdgEd+puHEvNUOciFuDObBKqqhmHE
-	rJwW8j7SfLM+ge56WO2ivx1UcJvlTtf5pE4O0b8mDQiRsGJ/RoPqr5sS8Oui3OZ8YIk7Tt
-	+mss1ofxS1mCjnXK7WASDHFdA9bOWMzQB7XCRKqFi6zfjV+o97cFHmrbTqP+yR+zOOXINR
-	BLFWywt2VK9Vzz22A3JW5wwVdSL2dmNukowvgN6vflBw2DBKC5f99fVVRMO8Lg==
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: John Watts <contact@jookia.org>
-To: Aleksandr Shubin <privatesub2@gmail.com>
-Subject: Re: [PATCH v6 0/3] Add support for Allwinner PWM on D1/T113s/R329
- SoCs
-Message-ID: <ZRDbcvhO3Z2G4Elf@titan>
-References: <20230824114038.891493-1-privatesub2@gmail.com>
+	Mon, 25 Sep 2023 02:43:57 +0000
+Received: from dggpemm500016.china.huawei.com (unknown [172.30.72.55])
+	by szxga03-in.huawei.com (SkyGuard) with ESMTP id 4Rv6Y00FB5zMlpJ;
+	Mon, 25 Sep 2023 10:40:04 +0800 (CST)
+Received: from huawei.com (10.67.174.58) by dggpemm500016.china.huawei.com
+ (7.185.36.25) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.31; Mon, 25 Sep
+ 2023 10:43:44 +0800
+From: Chen Jiahao <chenjiahao16@huawei.com>
+To: <bhe@redhat.com>, <thunder.leizhen@huawei.com>,
+	<paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
+	<conor.dooley@microchip.com>, <alexghiti@rivosinc.com>,
+	<ajones@ventanamicro.com>, <jszhang@kernel.org>, <sunilvl@ventanamicro.com>,
+	<robh@kernel.org>, <bjorn@rivosinc.com>, <zephray@outlook.com>,
+	<akpm@linux-foundation.org>, <linux-riscv@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>
+CC: <chenjiahao16@huawei.com>
+Subject: [PATCH -next v2] riscv: kdump: fix crashkernel reserving problem on RISC-V
+Date: Mon, 25 Sep 2023 10:43:33 +0800
+Message-ID: <20230925024333.730964-1-chenjiahao16@huawei.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230824114038.891493-1-privatesub2@gmail.com>
-X-Migadu-Flow: FLOW_OUT
+X-Originating-IP: [10.67.174.58]
+X-ClientProxiedBy: dggems702-chm.china.huawei.com (10.3.19.179) To
+ dggpemm500016.china.huawei.com (7.185.36.25)
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230924_180037_009601_735D4490 
-X-CRM114-Status: GOOD (  10.86  )
+X-CRM114-CacheID: sfid-20230924_194355_198047_6769D219 
+X-CRM114-Status: GOOD (  11.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,25 +66,84 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-arm-kernel@lists.infradead.org, linux-pwm@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, Philipp Zabel <p.zabel@pengutronix.de>, Samuel Holland <samuel@sholland.org>, Paul Walmsley <paul.walmsley@sifive.com>, linux-kernel@vger.kernel.org, Rob Herring <robh+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, Thierry Reding <thierry.reding@gmail.com>, Palmer Dabbelt <palmer@dabbelt.com>, Jernej Skrabec <jernej.skrabec@gmail.com>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@pengutronix.de>, linux-riscv@lists.infradead.org, linux-sunxi@lists.linux.dev, devicetree@vger.kernel.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 24, 2023 at 02:40:24PM +0300, Aleksandr Shubin wrote:
-> Hi,
-> 
-> This series adds support for PWM controller on new
-> Allwinner's SoCs, such as D1, T113s and R329. The implemented driver
-> provides basic functionality for control PWM channels.
+When testing on risc-v QEMU environment with "crashkernel="
+parameter enabled, a problem occurred with the following
+message:
 
-I did some more testing of this and it seems to work on my T113, outputting
-correct periods and duty cycles.
+[    0.000000] crashkernel low memory reserved: 0xf8000000 - 0x100000000 (128 MB)
+[    0.000000] crashkernel reserved: 0x0000000177e00000 - 0x0000000277e00000 (4096 MB)
+[    0.000000] ------------[ cut here ]------------
+[    0.000000] WARNING: CPU: 0 PID: 0 at kernel/resource.c:779 __insert_resource+0x8e/0xd0
+[    0.000000] Modules linked in:
+[    0.000000] CPU: 0 PID: 0 Comm: swapper Not tainted 6.6.0-rc2-next-20230920 #1
+[    0.000000] Hardware name: riscv-virtio,qemu (DT)
+[    0.000000] epc : __insert_resource+0x8e/0xd0
+[    0.000000]  ra : insert_resource+0x28/0x4e
+[    0.000000] epc : ffffffff80017344 ra : ffffffff8001742e sp : ffffffff81203db0
+[    0.000000]  gp : ffffffff812ece98 tp : ffffffff8120dac0 t0 : ff600001f7ff2b00
+[    0.000000]  t1 : 0000000000000000 t2 : 3428203030303030 s0 : ffffffff81203dc0
+[    0.000000]  s1 : ffffffff81211e18 a0 : ffffffff81211e18 a1 : ffffffff81289380
+[    0.000000]  a2 : 0000000277dfffff a3 : 0000000177e00000 a4 : 0000000177e00000
+[    0.000000]  a5 : ffffffff81289380 a6 : 0000000277dfffff a7 : 0000000000000078
+[    0.000000]  s2 : ffffffff81289380 s3 : ffffffff80a0bac8 s4 : ff600001f7ff2880
+[    0.000000]  s5 : 0000000000000280 s6 : 8000000a00006800 s7 : 000000000000007f
+[    0.000000]  s8 : 0000000080017038 s9 : 0000000080038ea0 s10: 0000000000000000
+[    0.000000]  s11: 0000000000000000 t3 : ffffffff80a0bc00 t4 : ffffffff80a0bc00
+[    0.000000]  t5 : ffffffff80a0bbd0 t6 : ffffffff80a0bc00
+[    0.000000] status: 0000000200000100 badaddr: 0000000000000000 cause: 0000000000000003
+[    0.000000] [<ffffffff80017344>] __insert_resource+0x8e/0xd0
+[    0.000000] ---[ end trace 0000000000000000 ]---
+[    0.000000] Failed to add a Crash kernel resource at 177e00000
 
-Tested-by: John Watts <contact@jookia.org>
+The crashkernel memory has been allocated successfully, whereas
+it failed to insert into iomem_resource. This is due to the
+unique reserving logic in risc-v arch specific code, i.e.
+crashk_res/crashk_low_res will be added into iomem_resource
+later in init_resources(), which is not aligned with current
+unified reserving logic in reserve_crashkernel_{generic,low}()
+and therefore leads to the failure of crashkernel reservation.
 
-John.
+Removing the arch specific code within #ifdef CONFIG_KEXEC_CORE
+in init_resources() to fix above problem.
+
+Fixes: 31549153088e ("riscv: kdump: use generic interface to simplify crashkernel reservation")
+Signed-off-by: Chen Jiahao <chenjiahao16@huawei.com>
+---
+ arch/riscv/kernel/setup.c | 13 -------------
+ 1 file changed, 13 deletions(-)
+
+diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+index e600aab116a4..aac853ae4eb7 100644
+--- a/arch/riscv/kernel/setup.c
++++ b/arch/riscv/kernel/setup.c
+@@ -173,19 +173,6 @@ static void __init init_resources(void)
+ 	if (ret < 0)
+ 		goto error;
+ 
+-#ifdef CONFIG_KEXEC_CORE
+-	if (crashk_res.start != crashk_res.end) {
+-		ret = add_resource(&iomem_resource, &crashk_res);
+-		if (ret < 0)
+-			goto error;
+-	}
+-	if (crashk_low_res.start != crashk_low_res.end) {
+-		ret = add_resource(&iomem_resource, &crashk_low_res);
+-		if (ret < 0)
+-			goto error;
+-	}
+-#endif
+-
+ #ifdef CONFIG_CRASH_DUMP
+ 	if (elfcorehdr_size > 0) {
+ 		elfcorehdr_res.start = elfcorehdr_addr;
+-- 
+2.34.1
+
 
 _______________________________________________
 linux-riscv mailing list
