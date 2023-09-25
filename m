@@ -4,58 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36133CE7A81
-	for <linux-riscv@archiver.kernel.org>; Mon, 25 Sep 2023 10:08:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53D21CE7A81
+	for <linux-riscv@archiver.kernel.org>; Mon, 25 Sep 2023 10:21:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:
-	Cc:To:Subject:MIME-Version:Date:Message-ID:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HCSNxMSDhfXlFcVk26jCemwvWz99FSE6j0YZIKLyccg=; b=XavuY/0ieHvH8P
-	YjGKRG7efIrbmSgAOxTPOa4VRrI74b0xtWnpAa9rz444qBfBvdW+FqT5Af5oF4ZOFyThL4z4FXYEl
-	i8pwqjy6pBcyH2Jon/gYlYrKuiy5IGJ4rDAGDcZf1nt9lRUNyvEOZ4BcgGS1DxEASMdQGAJWnK2Mi
-	WdqtlUcTcMdU8iWn2Wf1UCgI/+B3iD9PMKBcTAwTaC47bzcX7Cjy3leQqwmCDRS9BiH/++XYuZ7dc
-	yjaSvFyCR7MNSJJgrbLlQ0RyvXr/WbATJ6BewA3YThXG39RJAOeibM194wNvddRZM3y0p7BZlb+yE
-	J0SMxfI4sjYP+Azwav4A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Nq1QLgqQDQQazaA92rV3I8w+s08Dh/NBh3ve/jTWNAY=; b=iq2uKTnUJvaxNaztf5YWcUFcsk
+	7NM9I3sxW+8mH5zpJ2Aa336kAPLAzZleAjQhiSqdYlIE8T5tKsNEkkJbDi+Gl3qcSPhGeHAVzTIZf
+	+5/q10NyC13TTnNEqwaLuWtKYpJXHdyUnffwAnqT4VDCy6OKkK6ZGMOCWcZWd7wzHLQCZKfLLROZj
+	QLtUdXQ6rPfSnKJvfVsjkUUZwSh82ig8/SU/dqLf2+OsO67ukV4hEPpCY8Vpis6D5NaJ9jy6QThS0
+	b+/1kGTDZV+DdOcjL0OPAvKj9wYOssgI0DBBxmOMQsi2DHXmVzJO9oIOS+0DU+XA+PV1ya36srMeU
+	Vgx15uhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qkiVU-00DwFQ-2F;
-	Mon, 25 Sep 2023 10:08:00 +0000
-Received: from wp530.webpack.hosteurope.de ([80.237.130.52])
+	id 1qkiiD-00DxUI-2f;
+	Mon, 25 Sep 2023 10:21:09 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qkiVR-00DwDS-2S
+	id 1qkii9-00DxTZ-0w
 	for linux-riscv@lists.infradead.org;
-	Mon, 25 Sep 2023 10:07:59 +0000
-Received: from [2a02:8108:8980:2478:8cde:aa2c:f324:937e]; authenticated
-	by wp530.webpack.hosteurope.de running ExIM with esmtpsa (TLS1.3:ECDHE_RSA_AES_128_GCM_SHA256:128)
-	id 1qkiVI-0000OE-If; Mon, 25 Sep 2023 12:07:48 +0200
-Message-ID: <f30a4d64-c265-4f6a-94bb-632b1c07f15f@leemhuis.info>
-Date: Mon, 25 Sep 2023 12:07:47 +0200
+	Mon, 25 Sep 2023 10:21:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1695637266; x=1727173266;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=OYdjOlD1VTnveMwZiWaqVgJ+r23UlkzqDe6dKTfCN4s=;
+  b=2Y8oI1SZBAgy4qtfOYdW+1lDx6khfsQkyO4rjXrotv7zYTwtIAgMOVnm
+   BoTcmo5+K4Wr8707R516/AH1LxwCvO0Z5mG9bKL3dPKVaC5f+ajl3r2Ow
+   8IrXqQ3xbg31EtCIDYYpDgzgHNqsm7o8j4gnidzEeLIMH0hutTMKvj8KC
+   qG4ZJwmdf30bsLdBMGueOYuOkhQrgm/O0DsQAkPNNmlHSa3EACG0xnydw
+   YPkH6NkSa5MIYX7b/5idaCHI7R2y7Nhm7WHVmiF0sm9FftDUGeVycOSLd
+   9HJqNG1FqqO9en4p2gpUlncvti9DWK9CkUh3lxI/7mMO57HyAF3m08ZCo
+   Q==;
+X-CSE-ConnectionGUID: Qh4ak2qkR92n/PqzHNXvzQ==
+X-CSE-MsgGUID: rjHIZEEwQjGvRo9ERwmgEw==
+X-ThreatScanner-Verdict: Negative
+X-IronPort-AV: E=Sophos;i="6.03,174,1694761200"; 
+   d="asc'?scan'208";a="6420900"
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa3.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 25 Sep 2023 03:21:03 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.21; Mon, 25 Sep 2023 03:20:58 -0700
+Received: from wendy (10.10.85.11) by chn-vm-ex02.mchp-main.com (10.10.85.144)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
+ Transport; Mon, 25 Sep 2023 03:20:57 -0700
+Date: Mon, 25 Sep 2023 11:20:39 +0100
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@pengutronix.de>
+CC: Daire McNamara <daire.mcnamara@microchip.com>,
+	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<kernel@pengutronix.de>
+Subject: Re: [PATCH 16/40] soc/microchip: mpfs-sys-controller: Convert to
+ platform remove callback returning void
+Message-ID: <20230925-confined-tibia-9982d3267806@wendy>
+References: <20230925095532.1984344-1-u.kleine-koenig@pengutronix.de>
+ <20230925095532.1984344-17-u.kleine-koenig@pengutronix.de>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] riscv: signal: fix sigaltstack frame size checking
-To: Palmer Dabbelt <palmer@rivosinc.com>, linux-riscv@lists.infradead.org,
- Palmer Dabbelt <palmer@dabbelt.com>, Andy Chiu <andy.chiu@sifive.com>
-Cc: greentime.hu@sifive.com, bjorn@kernel.org, prashanthsw@google.com,
- Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Heiko Stuebner <heiko@sntech.de>, Conor Dooley <conor.dooley@microchip.com>,
- Vincent Chen <vincent.chen@sifive.com>,
- Mathis Salmen <mathis.salmen@matsal.de>, Guo Ren <guoren@kernel.org>,
- Andrew Bresticker <abrestic@rivosinc.com>,
- Vineet Gupta <vineetg@rivosinc.com>,
- Linux kernel regressions list <regressions@lists.linux.dev>
-References: <20230822164904.21660-1-andy.chiu@sifive.com>
- <169351910642.23657.16115457219052816039.b4-ty@rivosinc.com>
-Content-Language: en-US, de-DE
-From: "Linux regression tracking (Thorsten Leemhuis)"
- <regressions@leemhuis.info>
-In-Reply-To: <169351910642.23657.16115457219052816039.b4-ty@rivosinc.com>
-X-bounce-key: webpack.hosteurope.de;regressions@leemhuis.info;1695636477;3802d63f;
-X-HE-SMSGID: 1qkiVI-0000OE-If
+In-Reply-To: <20230925095532.1984344-17-u.kleine-koenig@pengutronix.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230925_030757_973802_9DD59D9C 
-X-CRM114-Status: GOOD (  10.51  )
+X-CRM114-CacheID: sfid-20230925_032105_404275_3DAE4261 
+X-CRM114-Status: GOOD (  14.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,42 +84,61 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Reply-To: Linux regressions mailing list <regressions@lists.linux.dev>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============7743946501069863510=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 31.08.23 23:58, Palmer Dabbelt wrote:
-> 
-> On Tue, 22 Aug 2023 16:49:03 +0000, Andy Chiu wrote:
->> The alternative stack checking in get_sigframe introduced by the Vector
->> support is not needed and has a problem. It is not needed as we have
->> already validate it at the beginning of the function if we are already
->> on an altstack. If not, the size of an altstack is always validated at
->> its allocation stage with sigaltstack_size_valid().
->>
->> Besides, we must only regard the size of an altstack if the handler of a
->> signal is registered with SA_ONSTACK. So, blindly checking overflow of
->> an altstack if sas_ss_size not equals to zero will check against wrong
->> signal handlers if only a subset of signals are registered with
->> SA_ONSTACK.
->>
->> [...]
-> 
-> Applied, thanks!
-> 
-> [1/1] riscv: signal: fix sigaltstack frame size checking
->       https://git.kernel.org/palmer/c/d77303a57c95
+--===============7743946501069863510==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="fhIKodJZR77/42JG"
+Content-Disposition: inline
 
-Just wondering: what happened to this patch, which afaics is currently
-in neither mainline nor next? Because according to
-https://bugzilla.kernel.org/show_bug.cgi?id=217923 it fixes rustc
-userspace crashes with 6.5. Was a different approach found?
+--fhIKodJZR77/42JG
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Ciao, Thorsten
+On Mon, Sep 25, 2023 at 11:55:07AM +0200, Uwe Kleine-K=F6nig wrote:
+> The .remove() callback for a platform driver returns an int which makes
+> many driver authors wrongly assume it's possible to do error handling by
+> returning an error code. However the value returned is ignored (apart
+> from emitting a warning) and this typically results in resource leaks.
+> To improve here there is a quest to make the remove callback return
+> void. In the first step of this quest all drivers are converted to
+> .remove_new() which already returns void. Eventually after all drivers
+> are converted, .remove_new() will be renamed to .remove().
+>=20
+> Trivially convert this driver from always returning zero in the remove
+> callback to the void returning variant.
+>=20
+> Signed-off-by: Uwe Kleine-K=F6nig <u.kleine-koenig@pengutronix.de>
+
+Applied with some cosmetic changes to the commit message, thanks!
+
+--fhIKodJZR77/42JG
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHQEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZRFe9wAKCRB4tDGHoIJi
+0sRnAPd/gyGabk4lGCe4J7YKWSTYZfskMdTlLKF9+WtCvbAGAP0QkTt5FibnWb20
+vR0++rV3JV25XYlsoixT5xWl+2wOAQ==
+=IruO
+-----END PGP SIGNATURE-----
+
+--fhIKodJZR77/42JG--
+
+
+--===============7743946501069863510==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============7743946501069863510==--
+
