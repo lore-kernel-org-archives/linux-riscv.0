@@ -4,84 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4491CE7A81
-	for <linux-riscv@archiver.kernel.org>; Mon, 25 Sep 2023 14:16:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B92F4CE7A81
+	for <linux-riscv@archiver.kernel.org>; Mon, 25 Sep 2023 14:41:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qKMHaxh9wVZ2D0sDgy2VXT7WvVo4wx9VDFYrpGoJfWY=; b=A5ep+jUFJtz717
-	oVLFeQ9d1Ix88QVrMaUs+P63GJ6p12fEekA6ihoepvx6l9WTTao4086LWuVG701BSPTQzlL8DTeBZ
-	9AHORJyyy7MVKPZd1nSEWd4lSKCQ+fHIwrmUWEdzt8nsEo49wK0QyiAp9i4FNCNKrlqjxyt82p6uk
-	rvdHf0M4ZeZJfKxDM/JrnlSo8Ze61tqKPq6BSc7JDretor8IcfeC8WmMQOJMeLTPvLTFrq41VfZ52
-	Ci8cO/oTXQqZo6Kp9E+Wi/hl1I8UTPqIglBUudeKONXxbVqvcQdR6OG32r63VVl9VnRBFYmgeUpi1
-	hSmnfAp3HZsuxLTWR8Fw==;
+	List-Owner; bh=wnePjEWV2/tNEdgWKk876cKmwOknu6mPo51SQD1fUhI=; b=JyOj00fu9RnDub
+	YELNfgG+HjMa/SAxw1h5FsGjEpHpxC6E+z7ECPfcNy68O+VCRjqvShXkCfzkvSxeUpDuOXTVPJbSU
+	7vTI7PIiaQz74cdkm1Ze0T//k83SWbwfk8npiYem9nCz96jTP7sXu95k+qyhKR4oQ9Pb8KuUgh/Y0
+	HYo0kFhk+568fuUSziMp3rTFJEbh4cLcdZy5Z6UhaCM4OPygVDA6rgKpz05yaS7yEzxc5jsghzej5
+	nKsCSonmBCJ5FbMiPun8erzqPBsGtCc9aLF7njl0kHs7oYEDy415RhuqdboY4bDQV9QKGx1k4Xvhk
+	QZwFeT+FhdCPmTIKemwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qkmNp-00EQLy-2y;
-	Mon, 25 Sep 2023 14:16:21 +0000
-Received: from mail-ed1-x52b.google.com ([2a00:1450:4864:20::52b])
+	id 1qkmmP-00ESEg-2K;
+	Mon, 25 Sep 2023 14:41:45 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qkmNm-00EQIn-2n
+	id 1qkmmM-00ESEC-1A
 	for linux-riscv@lists.infradead.org;
-	Mon, 25 Sep 2023 14:16:20 +0000
-Received: by mail-ed1-x52b.google.com with SMTP id 4fb4d7f45d1cf-53447d0241eso450054a12.3
-        for <linux-riscv@lists.infradead.org>; Mon, 25 Sep 2023 07:16:13 -0700 (PDT)
+	Mon, 25 Sep 2023 14:41:44 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-405417465aaso53873275e9.1
+        for <linux-riscv@lists.infradead.org>; Mon, 25 Sep 2023 07:41:40 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1695651372; x=1696256172; darn=lists.infradead.org;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1695652899; x=1696257699; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=NtHT6aiMIDBr0VhsvuAUelOWNt+yCga/yEkC3vej9HA=;
-        b=XVfaTrpIUiv4g2HVgfyeqUHrGReoC8UawtHTav6o/qWSmRjWigIOXA9idzktXo9AjE
-         JHOSmbw5elwgHWlg9MBEXUFbrWi7HK2KY9ukyu1nThLrtadFSjeGg6/HkdA0UdORfX6G
-         JDcqJ2dQDjsGMcDXEJVLRVZAdqvQKwUE+N1DgghdslC+PDxIa4ftAUANZDAuoUVvsKKs
-         sSGKr8uzqR4Gk9qsS3je0klBrKYJ+MVaPajPe7IfFgsWp4jv1HDvYCTEYqg2tfD8ax58
-         JLJ3oD89SXhfTT+opn2IyBab6frb3UgxLhS3MqdgYh8WxCMMob5HwHoOQiWFpmmPiOsQ
-         Hbhw==
+        bh=ZnQkb6b5eXRZq2LrytU5CtIWVTHEXBAeVcMvdSE/Rjs=;
+        b=1ZI00MC0b05YDZ6WmryWLPNBRJxtwyvIPXE1u3hgdAuaRJuuGR9NFCYmkCfuoDdenq
+         MeatOn+1a+vSIvdbHR8hRN5jd70ZmmtLXLnwoLf/WswSEjNrVvIAhfP/luzWqn2F1SPS
+         E8OzILZHTA+KfACepqoTcUfIMn2Qx0fSfDP4ogFj/a8ZAI3izJmK2goEqjD8HykjiYWi
+         zRvNUDQKaaiWvO32hcRjNqpbAtHqrKWLSjjLKUnRHeo6CCyTFyEy5WsCNL4HedPTtojW
+         Da+lZmrsjrfetGgs25Fj4jZwDfDRhOXkRNS3wmedjuX5xwWvsvupDlh8f4Q9Q2TuOVoP
+         ExIQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1695651372; x=1696256172;
+        d=1e100.net; s=20230601; t=1695652899; x=1696257699;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=NtHT6aiMIDBr0VhsvuAUelOWNt+yCga/yEkC3vej9HA=;
-        b=cBMEd8bpgjlSqNc9xr1fSOQVvDGuBZDxdiuuLEvNDTptEKo5ezBwZIDDn1jc7NpxQ9
-         hRSO6z0g8snujKzKUEWZt2C3JbGHcCJe/Duc5PLQAu+H0VC8vM5HQrU163sR0flTeTXN
-         kSTyhvoTcp4QlqEBytr2F2N6cd2Cfr4gDiZ1mY7faslOl3404xDpODY9k8S7fJRO6+Sd
-         tUtaTw9cY9wo3Uxss5nFCfLHSpO7sWjNAkrDs2qjsCB8uapLz4rnWOKxFm+ftTOjGh57
-         sI4JEWopJlQnnGbv/Ne5gwKX9O0qKhKBQH3moO0HlQDOZkaXaqY1xQ9YN3iVPtKwS/uT
-         cN9g==
-X-Gm-Message-State: AOJu0YzL1rAZmtOlDKyoi2itCddT5f95/eKgeWnELDZ4FEJol6iHT+Ew
-	K7AuK+hMPjbdHDpS31OzBrz4hw==
-X-Google-Smtp-Source: AGHT+IFD3EpGZBsAbJ+J5vxX8ZTKeYXM/hyB7APD30MTz1CFpgRcVl20BIQ92V7DyV6X8ncqPzNWDQ==
-X-Received: by 2002:aa7:d1d0:0:b0:530:a0a9:ee36 with SMTP id g16-20020aa7d1d0000000b00530a0a9ee36mr5827166edp.38.1695651371793;
-        Mon, 25 Sep 2023 07:16:11 -0700 (PDT)
-Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id q6-20020aa7da86000000b005307e75d24dsm5531414eds.17.2023.09.25.07.16.10
+        bh=ZnQkb6b5eXRZq2LrytU5CtIWVTHEXBAeVcMvdSE/Rjs=;
+        b=Ddq3CkVHlgnzgGgT5+YV5knRIzWsZcIleJELHzLg2MFi91ew9SsYmE8gld9wMBlPC9
+         tHKtISnjFqZreuODoNrs7hfV9/1Sp1VeoHN5Lu+xzxzxHy8VDbGOS3hd/rkL9Tg0EKTE
+         msN615c/HZtrnk7xLxG71X/ysj9MlAkucMp5g7oX0O891MWHUwuJm69U2I1riomFy8vs
+         BNJ73/R73CHdDj6njqIi+kQGNhujXejymjamfrPuYRgKH5WdpSsok3labY6OKgs5KMns
+         J7KUH+Ww38RxXjUzgUXeAr2VQGOF82vSuk62sCgCswt3EorXZUApppYd6r8Ly1xLgQon
+         0Urg==
+X-Gm-Message-State: AOJu0YzeSORDLBSvdfjotBpg/8GFF0TEmDP+w5Sjqr7X3ajGb+HjE5sY
+	xPN4Fqxz5+0ClIJsJ37rBrU6xQ==
+X-Google-Smtp-Source: AGHT+IHPb8vKchvFnY0s05TsviFcSJxnsXgmrDWlqO7Le6/fH+Zwot+4Ces80LRgrG4M+d5CjIT0Lw==
+X-Received: by 2002:adf:f205:0:b0:31f:8a6d:e527 with SMTP id p5-20020adff205000000b0031f8a6de527mr6030302wro.45.1695652898924;
+        Mon, 25 Sep 2023 07:41:38 -0700 (PDT)
+Received: from x1 ([193.52.24.5])
+        by smtp.gmail.com with ESMTPSA id bt14-20020a056000080e00b003200c918c81sm5683354wrb.112.2023.09.25.07.41.38
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 25 Sep 2023 07:16:10 -0700 (PDT)
-Date: Mon, 25 Sep 2023 16:16:09 +0200
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Anup Patel <apatel@ventanamicro.com>
-Cc: Paolo Bonzini <pbonzini@redhat.com>, 
-	Atish Patra <atishp@atishpatra.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Conor Dooley <conor@kernel.org>, 
-	Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
-	Shuah Khan <shuah@kernel.org>, Mayuresh Chitale <mchitale@ventanamicro.com>, 
-	devicetree@vger.kernel.org, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH v2 9/9] KVM: riscv: selftests: Add condops extensions to
- get-reg-list test
-Message-ID: <20230925-3ceb6ef98455349935bcd504@orel>
-References: <20230925133859.1735879-1-apatel@ventanamicro.com>
- <20230925133859.1735879-10-apatel@ventanamicro.com>
+        Mon, 25 Sep 2023 07:41:38 -0700 (PDT)
+Date: Mon, 25 Sep 2023 16:41:30 +0200
+From: Drew Fustini <dfustini@baylibre.com>
+To: Adrian Hunter <adrian.hunter@intel.com>
+Subject: Re: [PATCH 2/6] mmc: sdhci: add __sdhci_execute_tuning() to header
+Message-ID: <ZRGcGnl8N80yblkw@x1>
+References: <20230921-th1520-mmc-v1-0-49f76c274fb3@baylibre.com>
+ <20230921-th1520-mmc-v1-2-49f76c274fb3@baylibre.com>
+ <4ef60ffd-3661-4bca-91a3-b49d6189c71b@intel.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20230925133859.1735879-10-apatel@ventanamicro.com>
+In-Reply-To: <4ef60ffd-3661-4bca-91a3-b49d6189c71b@intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230925_071618_901960_8B451958 
-X-CRM114-Status: GOOD (  10.96  )
+X-CRM114-CacheID: sfid-20230925_074142_424381_6F1A6600 
+X-CRM114-Status: GOOD (  19.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,22 +86,53 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: devicetree@vger.kernel.org, Ulf Hansson <ulf.hansson@linaro.org>, Albert Ou <aou@eecs.berkeley.edu>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Jason Kridner <jkridner@beagleboard.org>, linux-kernel@vger.kernel.org, Han Gao <gaohan@iscas.ac.cn>, linux-mmc@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Conor Dooley <conor@kernel.org>, Robert Nelson <robertcnelson@beagleboard.org>, Rob Herring <robh+dt@kernel.org>, Guo Ren <guoren@kernel.org>, Xi Ruoyao <xry111@xry111.site>, Jisheng Zhang <jszhang@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org, Fu Wei <wefu@redhat.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 25, 2023 at 07:08:59PM +0530, Anup Patel wrote:
-> We have a new conditional operations related ISA extensions so let us
-> add these extensions to get-reg-list test.
+On Mon, Sep 25, 2023 at 01:21:05PM +0300, Adrian Hunter wrote:
+> On 22/09/23 04:49, Drew Fustini wrote:
+> > Expose __sdhci_execute_tuning() so that it can be called from the
+> > mmc host controller drivers.
+> > 
+> > In the sdhci-of-dwcmshc driver, sdhci_dwcmshc_th1520_ops sets
+> > platform_execute_tuning to th1520_execute_tuning(). That function has
+> > to manipulate phy registers before tuning can be performed. To avoid
+> > copying the code verbatim from __sdhci_execute_tuning() into
+> > th1520_execute_tuning(), make it possible for __sdhci_execute_tuning()
+> > to be called from sdhci-of-dwcmshc.
+> > 
+> > Signed-off-by: Drew Fustini <dfustini@baylibre.com>
+> > ---
+> >  drivers/mmc/host/sdhci.c | 2 +-
+> >  drivers/mmc/host/sdhci.h | 1 +
+> >  2 files changed, 2 insertions(+), 1 deletion(-)
+> > 
+> > diff --git a/drivers/mmc/host/sdhci.c b/drivers/mmc/host/sdhci.c
+> > index ff41aa56564e..fd607058d176 100644
+> > --- a/drivers/mmc/host/sdhci.c
+> > +++ b/drivers/mmc/host/sdhci.c
+> > @@ -2841,7 +2841,7 @@ void sdhci_send_tuning(struct sdhci_host *host, u32 opcode)
+> >  }
+> >  EXPORT_SYMBOL_GPL(sdhci_send_tuning);
+> >  
+> > -static int __sdhci_execute_tuning(struct sdhci_host *host, u32 opcode)
+> > +int __sdhci_execute_tuning(struct sdhci_host *host, u32 opcode)
 > 
-> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
-> ---
->  .../selftests/kvm/riscv/get-reg-list.c        | 34 +++++++++++++++++++
->  1 file changed, 34 insertions(+)
->
+> Also need
+> 	EXPORT_SYMBOL_GPL(__sdhci_execute_tuning);
 
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+Thank, I will add that.
+
+I wasn't sure if making __sdhci_execute_tuning() available outside of
+sdhci.c was going to be seen as an acceptable solution.
+
+Do you think my apporach is acceptable (once I add EXPORT_SYMBOL_GPL)?
+
+Thanks,
+Drew
 
 _______________________________________________
 linux-riscv mailing list
