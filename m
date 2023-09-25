@@ -4,77 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8848DCE7A96
-	for <linux-riscv@archiver.kernel.org>; Mon, 25 Sep 2023 15:24:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57191CE7A9A
+	for <linux-riscv@archiver.kernel.org>; Mon, 25 Sep 2023 15:24:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:To:From:Cc:MIME-Version:References:
 	In-Reply-To:Message-ID:Date:Subject:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PFYfZpiCTwTvQ7F12WKadsw9acySkJnPBe6i+lxk+RI=; b=FUAW03k712jjAv
-	Vao6vZ8tHTqgSsY0KE9Xadl/xK5BJSC9w534O+1KZfgSDcU9jr/taoYdeK7V4i+UJKLR9hXyMQ7Fv
-	md40nL0poY0QydirkzXJCLZ3ExdOVSdFcMYyxW3dqxlyTHR+h74nx/wxmBWyC/fzUXfbuDhHvwRWL
-	xNoWcxv8l7mL2wMC441v4cLj8wM8muB0nuxtMZW1Hn6UFg0Ps75TAyZ9E0WKEA3LRJqmNPbnut5Vx
-	IA/H4AFjaG9WdDB5EJ8viFCmx8A7+sZICRovZ61Ab5/AGBMLNl9AbUwFs3x5cBxL1s0mvqfriFa1H
-	H9Ta8jIJp4PMwK70YshQ==;
+	List-Owner; bh=iI/5Ab1DjLlYPWZQ/S1RO3prM06YBvTUbHUjepB5Xiw=; b=ily8eEEL5KHm+p
+	yARLUEzZsh648LMvFRK+9Vo2I719HZDaWVfKB0PbxRpTXxg5GEGbVyVFVf2hnjEfYc1AnIxZQWBra
+	e9bCzZxqiqv3Nd4v5RQmp9S542Dpwcz5Jl/1qWizBNIqpF+jDZhMPejjf4rf5AQUOBhti5xTOIwiX
+	Wf8EamubSkfA64TKPg5HdEjFEsllYgPrfN8s3WgdrqjUnVLHJjusqhWV+t6hNyzNWo8pyOjIWhIUA
+	GdGjRwlbpB466cEH9g8GoN+f3Kzzow3CIFEM4m/ldbQFrAQUc4swFjAvOfJ4E84L5nd2oUTdP+fi5
+	8fhPbA3V4yt+KRxonCZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qknRw-00EXm2-0X;
-	Mon, 25 Sep 2023 15:24:40 +0000
-Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
+	id 1qknRy-00EXmz-2k;
+	Mon, 25 Sep 2023 15:24:42 +0000
+Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qknRs-00EXkp-2B
+	id 1qknRw-00EXli-1Z
 	for linux-riscv@lists.infradead.org;
-	Mon, 25 Sep 2023 15:24:38 +0000
-Received: by mail-pf1-x42f.google.com with SMTP id d2e1a72fcca58-692c02adeefso2446294b3a.3
-        for <linux-riscv@lists.infradead.org>; Mon, 25 Sep 2023 08:24:34 -0700 (PDT)
+	Mon, 25 Sep 2023 15:24:41 +0000
+Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-1c44a25bd0bso56519335ad.0
+        for <linux-riscv@lists.infradead.org>; Mon, 25 Sep 2023 08:24:38 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1695655474; x=1696260274; darn=lists.infradead.org;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1695655477; x=1696260277; darn=lists.infradead.org;
         h=to:from:cc:content-transfer-encoding:mime-version:references
          :in-reply-to:message-id:date:subject:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=quGOepQjvav5a/0LnIG9AkN+Jo2yuE/KP+O7gV9U3Pk=;
-        b=XqCGkHxua60c3i3spWVJj9JDE1QpBsxj6I+u5fTXfyminUOTzLVMDtmaYlD3r3hQXB
-         5o7HEZynfEPI9l3n5sZSe3s66B6wWrUokyyNWLVJHweY0nMFstQ6EPkkdkQNqi0LYX2o
-         dGZmbLGmotQNn9rZIddIQovzJOuOHqspLII2Wq2sPfH9l+f4LkjRBAHDy//++my53bhb
-         bUZhAnKI0grYhR3/HiXTWAs7jawYAMUdYvbxRuT+/+yGIpfRuxzM28uh1bcaTXbRMi5g
-         +P7RO4+xBtxjGWJjno/bsAgrEgKyUbv+SYubtmOVeRgeK1StP04RTmrbIS21mVEYwFkV
-         9+Kw==
+        bh=5Ie0I8vPiPu7fWmL9QMaLa54dXoB+86VLEOUcIFiG3I=;
+        b=gFlUJpRSZ4KG9udEIZkxQz7ZD0XJZf6DNYJrS0NaNbxj0ny5CQZFrFg8e2dwH6iupT
+         dwGcgCqx3iWnGIaAo5I4fEl1aCKAxGDAVxY0h7Om3PzUJq3bhXrSFE46kWAQb7wqV/pV
+         2B0c+kWnS0Hk70LbmSe0b4jPk0XzisD6eUutE68sFpugdkJY59G1t8/rczNZvoD/c3wh
+         6VZIhxSIAUtXHXXUtbZ4uKGwaic0gCaM4ZM5v9/3Gd56oatylZvZcfvqlJucKRB/8sla
+         H+wLmCzenUHXU1v2m7YAaZ4Js9SHVdhwnURIbSLbzb11lL1COmxrdKwgMBW4GHQ+GEv/
+         9z8g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1695655474; x=1696260274;
+        d=1e100.net; s=20230601; t=1695655477; x=1696260277;
         h=to:from:cc:content-transfer-encoding:mime-version:references
          :in-reply-to:message-id:date:subject:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=quGOepQjvav5a/0LnIG9AkN+Jo2yuE/KP+O7gV9U3Pk=;
-        b=rlOyzV1BbY5Nj+ceBOYpK4J63Wj/4Zc2WIb14qppz6LjE35Om5aGTx1PjbkhthS7ag
-         5WkEFlXqJWkItvlWmCNuVO7oI32A+5AIblUIBHRke88/VG+0pTSiybkLOe8Hb4CSoZJk
-         EuSAkztfONHMKdgQDzefIeLqi9TkY7fIeTZWHJDvdhf7FOc1jBvJgZiHtNCCAC/hCo7g
-         VVoo+s6hJXPdnoHprgjALXaGJWk37Gk29aYMy3FG8va4aPvM58F/f2Py4O5A9oJxXZhM
-         h8NZyQM+vvQEp8r0V95ZQtif47yiP2yq2qQGe272omCqRv3KJxvspaOTRV75h4IRSJUz
-         tsPw==
-X-Gm-Message-State: AOJu0YwhtEHFuXbBfukwjxpyncvfrXF3KlUs9C1h8meHHWtrCy0LqDpL
-	A3ScSsuABqJFywN0sThOqlO799c52YaPtlfitIX20g==
-X-Google-Smtp-Source: AGHT+IG5rRO3DnYcceECjuUB+Kb+dF42gZTzi5MsMqmbpXy61qdXxpP3dej/WbvzcVSjCrwfq8n9Bw==
-X-Received: by 2002:a05:6a20:1593:b0:14c:a53c:498e with SMTP id h19-20020a056a20159300b0014ca53c498emr6362162pzj.42.1695655473739;
-        Mon, 25 Sep 2023 08:24:33 -0700 (PDT)
+        bh=5Ie0I8vPiPu7fWmL9QMaLa54dXoB+86VLEOUcIFiG3I=;
+        b=CMdHWhkcawdC2ExegHVuX+poajiscXtIgrGPPOvW7xP8hKxbXKs5TRCPmeHB3pXq4O
+         FjMd8mdjUALreQ4Sm1nRPEvXRKPR6bZbhrSK4JGXALlqOleEhfmy6Xx77OnxqEU4meyd
+         7mRApEcdS80g+nrShfaxDIu80UEYFd5rDAuYCmIc6gNp3SXg7T7pBGNww2VZQO4DA7G0
+         zHJ3h1mLIFdv8z+Y3mJpMamHT0aYlgu3sBd5DGGYH9y8OaCRwCGc+0T6ilyrxPTNrycn
+         GfHhFniHIEMLFwnYOawonc8rCD3BLt2YBGd3UIPNjMrtIynN++i48ISQzYso49LMDrmX
+         0F+g==
+X-Gm-Message-State: AOJu0YxBBuAYZbt1FaVzsM9PVGw7ffT1uc6gjsQvgNG8D3EvKiRii0Lc
+	zl7mHbKmqScoGJ9WyAdqhIUFDQ==
+X-Google-Smtp-Source: AGHT+IGz114UixM1Ve8x2nN4BzbRTk8luqnv0RrFRU+P4huuqBhX2kxEzLfCN/zc/Jbs/bAy4mFJQQ==
+X-Received: by 2002:a17:902:ab1a:b0:1c6:d0a:cf01 with SMTP id ik26-20020a170902ab1a00b001c60d0acf01mr5791024plb.11.1695655477424;
+        Mon, 25 Sep 2023 08:24:37 -0700 (PDT)
 Received: from localhost ([51.52.155.79])
-        by smtp.gmail.com with ESMTPSA id v4-20020a63bf04000000b00563826c66eesm6934004pgf.61.2023.09.25.08.24.32
+        by smtp.gmail.com with ESMTPSA id c24-20020a170902b69800b001bb1f0605b2sm8940905pls.214.2023.09.25.08.24.35
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 25 Sep 2023 08:24:32 -0700 (PDT)
-Subject: [PATCH v3 1/2] RISC-V: Provide pgtable_l5_enabled on rv32
-Date: Mon, 25 Sep 2023 08:22:19 -0700
-Message-ID: <20230925152409.29057-2-palmer@rivosinc.com>
+        Mon, 25 Sep 2023 08:24:36 -0700 (PDT)
+Subject: [PATCH v3 2/2] riscv: correct pt_level name via pgtable_l5/4_enabled
+Date: Mon, 25 Sep 2023 08:22:20 -0700
+Message-ID: <20230925152409.29057-3-palmer@rivosinc.com>
 X-Mailer: git-send-email 2.42.0
 In-Reply-To: <20230925152409.29057-1-palmer@rivosinc.com>
 References: <20230925152409.29057-1-palmer@rivosinc.com>
 MIME-Version: 1.0
-Cc: Palmer Dabbelt <palmer@rivosinc.com>
+Cc: Song Shuai <suagrfillet@gmail.com>, Alexandre Ghiti <alexghiti@rivosinc.com>,
+  stable@vger.kernel.org, Palmer Dabbelt <palmer@rivosinc.com>
 From: Palmer Dabbelt <palmer@rivosinc.com>
 To: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230925_082436_715011_190607C4 
-X-CRM114-Status: GOOD (  11.16  )
+X-CRM114-CacheID: sfid-20230925_082440_531649_D2CF50D9 
+X-CRM114-Status: GOOD (  11.00  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,59 +92,44 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-A few of the other page table level helpers are defined on rv32, but not
-pgtable_l5_enabled.  This adds the definition as a constant and converts
-pgtable_l4_enabled to a constant as well.
+From: Song Shuai <suagrfillet@gmail.com>
 
-Link: https://lore.kernel.org/r/20230830044129.11481-2-palmer@rivosinc.com
+The pt_level uses CONFIG_PGTABLE_LEVELS to display page table names.
+But if page mode is downgraded from kernel cmdline or restricted by
+the hardware in 64BIT, it will give a wrong name.
+
+Like, using no4lvl for sv39, ptdump named the 1G-mapping as "PUD"
+that should be "PGD":
+
+0xffffffd840000000-0xffffffd900000000    0x00000000c0000000         3G PUD     D A G . . W R V
+
+So select "P4D/PUD" or "PGD" via pgtable_l5/4_enabled to correct it.
+
+Fixes: e8a62cc26ddf ("riscv: Implement sv48 support")
+Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+Signed-off-by: Song Shuai <suagrfillet@gmail.com>
+Link: https://lore.kernel.org/r/20230712115740.943324-1-suagrfillet@gmail.com
+Cc: stable@vger.kernel.org
+Link: https://lore.kernel.org/r/20230830044129.11481-3-palmer@rivosinc.com
 Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
 ---
- arch/riscv/include/asm/pgtable-32.h | 3 +++
- arch/riscv/include/asm/pgtable.h    | 1 -
- arch/riscv/mm/init.c                | 2 ++
- 3 files changed, 5 insertions(+), 1 deletion(-)
+ arch/riscv/mm/ptdump.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
-diff --git a/arch/riscv/include/asm/pgtable-32.h b/arch/riscv/include/asm/pgtable-32.h
-index 59ba1fbaf784..00f3369570a8 100644
---- a/arch/riscv/include/asm/pgtable-32.h
-+++ b/arch/riscv/include/asm/pgtable-32.h
-@@ -33,4 +33,7 @@
- 					  _PAGE_WRITE | _PAGE_EXEC |	\
- 					  _PAGE_USER | _PAGE_GLOBAL))
+diff --git a/arch/riscv/mm/ptdump.c b/arch/riscv/mm/ptdump.c
+index 20a9f991a6d7..e9090b38f811 100644
+--- a/arch/riscv/mm/ptdump.c
++++ b/arch/riscv/mm/ptdump.c
+@@ -384,6 +384,9 @@ static int __init ptdump_init(void)
  
-+static const __maybe_unused int pgtable_l4_enabled;
-+static const __maybe_unused int pgtable_l5_enabled;
+ 	kernel_ptd_info.base_addr = KERN_VIRT_START;
+ 
++	pg_level[1].name = pgtable_l5_enabled ? "P4D" : "PGD";
++	pg_level[2].name = pgtable_l4_enabled ? "PUD" : "PGD";
 +
- #endif /* _ASM_RISCV_PGTABLE_32_H */
-diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-index b2ba3f79cfe9..e05e5c8f6526 100644
---- a/arch/riscv/include/asm/pgtable.h
-+++ b/arch/riscv/include/asm/pgtable.h
-@@ -914,7 +914,6 @@ extern uintptr_t _dtb_early_pa;
- #define dtb_early_pa	_dtb_early_pa
- #endif /* CONFIG_XIP_KERNEL */
- extern u64 satp_mode;
--extern bool pgtable_l4_enabled;
- 
- void paging_init(void);
- void misc_mem_init(void);
-diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index 0798bd861dcb..eed1758720c9 100644
---- a/arch/riscv/mm/init.c
-+++ b/arch/riscv/mm/init.c
-@@ -49,10 +49,12 @@ u64 satp_mode __ro_after_init = SATP_MODE_32;
- #endif
- EXPORT_SYMBOL(satp_mode);
- 
-+#ifdef CONFIG_64BIT
- bool pgtable_l4_enabled = IS_ENABLED(CONFIG_64BIT) && !IS_ENABLED(CONFIG_XIP_KERNEL);
- bool pgtable_l5_enabled = IS_ENABLED(CONFIG_64BIT) && !IS_ENABLED(CONFIG_XIP_KERNEL);
- EXPORT_SYMBOL(pgtable_l4_enabled);
- EXPORT_SYMBOL(pgtable_l5_enabled);
-+#endif
- 
- phys_addr_t phys_ram_base __ro_after_init;
- EXPORT_SYMBOL(phys_ram_base);
+ 	for (i = 0; i < ARRAY_SIZE(pg_level); i++)
+ 		for (j = 0; j < ARRAY_SIZE(pte_bits); j++)
+ 			pg_level[i].mask |= pte_bits[j].mask;
 -- 
 2.42.0
 
