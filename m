@@ -4,77 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1255EE7F124
-	for <linux-riscv@archiver.kernel.org>; Tue, 26 Sep 2023 20:44:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87246E7F124
+	for <linux-riscv@archiver.kernel.org>; Tue, 26 Sep 2023 20:50:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
+	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6gudzdz68Y67UPJJ6SfmcdzupeUYp2/UaI/yqnS58zo=; b=UCNKpK55DupC7s
-	IgOtKJgNwTFWTuA0uZNM3niGX6TkwGyD/iSyvxIs4bRhoFGSJbNULt3yYKWKG+2l0pwphno8zmYOj
-	96RZGNQ9BijmsvfZdCPZqxJIETzKuWqWaf+D72/8MmEul8QrwQkCn9u+XEXNDi4kU2e3WR6L+URtH
-	/y46ZE9uYyW6Xqw29SdmLiE/MzpqaDyl0twX88YQpuEA7GyXcHO5OAdpzrbMkrSC4tbcHUpez7OWJ
-	TV4rmCX7vYv1XF97YhwfSlbxy7rbxMR5E56P/LVjMIDzy0IsStaj+gLliUuWCnKK7G9j0RvNsK9q3
-	63JJG2qwnc3gaLrkG9sg==;
+	List-Owner; bh=rh/n9cA//kBEIfezqR4fy6v43B1/QfvAEClOk5m9n28=; b=ULqtlfOTMoN2qK
+	/2qFh7AYeqGfTPrsbiNwzYzXGjoq7C0dMCdLasHAh0lCwCmBrTQE7l6dbnkBBIfLGy8gLSHL0534u
+	dcxzSBmkBBOJKHlycR0N3RdQ1l2aTXPNB/k8NiItICDvnURB2EOhb41Kr8L17HdrD2FgY04YHCE58
+	6njuLxU+RUxDXYrrvT7Ntc0Nybps2r1o45iOe96uOm86fzOwddvqsOJYfdeNfwLla1jhvNRYUHPKA
+	3qfYF5EzzFcpQoBDTW0C5PnMRU2XplPFzwFR9MxCQrhxKGcN/0C2GesFNQeLxHyez0jVlg50NvoRR
+	eyTs5pf+TQESL/xJOo9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qlEvA-00H0xZ-35;
-	Tue, 26 Sep 2023 20:44:40 +0000
-Received: from mgamail.intel.com ([134.134.136.20])
+	id 1qlF0D-00H1Ja-2N;
+	Tue, 26 Sep 2023 20:49:53 +0000
+Received: from pb-smtp20.pobox.com ([173.228.157.52])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qlEv7-00H0x1-0H
+	id 1qlF0A-00H1IG-0y
 	for linux-riscv@lists.infradead.org;
-	Tue, 26 Sep 2023 20:44:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1695761077; x=1727297077;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=gK5hWn8nLs18VMiTM7kXxPjeLkMzRB4MUjym/ABZruA=;
-  b=iFO3v7oH3RazpHXUeB20Xxvwd8+TkYZg1j/MjB/QrMlWuwHg67Wrbb6b
-   mkPvCxDOeCKz7aHEkLOc5mmJcLShq2DA/iQHmUorjAtSmjfvGTIODCfKh
-   dAwTX7Ct+9SbTohKMoS3TGbFzxkN+gDHtevaAWRA3dut40ShwcFF+WyWZ
-   /RBjecEAowqjCN3mBacXudr+ZbPQQBf6yr8IicWKGWOpWySIAF4NShTMM
-   HJuQprnZZvb7W1PThyuWML9/WE9b4GYSWLOy69R6N2dTExEShkAkuWxIq
-   Ua4Qw+DZyawBVTIdfiu9+M+62vSv05q0Co+ZeE/FfgE1XQ1pRrVpz2r/k
-   Q==;
-X-IronPort-AV: E=McAfee;i="6600,9927,10845"; a="371999462"
-X-IronPort-AV: E=Sophos;i="6.03,178,1694761200"; 
-   d="scan'208";a="371999462"
-Received: from orsmga004.jf.intel.com ([10.7.209.38])
-  by orsmga101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Sep 2023 13:44:36 -0700
-X-ExtLoop1: 1
-X-IronPort-AV: E=McAfee;i="6600,9927,10845"; a="872631689"
-X-IronPort-AV: E=Sophos;i="6.03,178,1694761200"; 
-   d="scan'208";a="872631689"
-Received: from lkp-server02.sh.intel.com (HELO 32c80313467c) ([10.239.97.151])
-  by orsmga004.jf.intel.com with ESMTP; 26 Sep 2023 13:44:33 -0700
-Received: from kbuild by 32c80313467c with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1qlEv1-0003Ld-0Y;
-	Tue, 26 Sep 2023 20:44:31 +0000
-Date: Wed, 27 Sep 2023 04:44:26 +0800
-From: kernel test robot <lkp@intel.com>
-To: Dmitry Dunaev <dunaev@tecon.ru>
-Cc: oe-kbuild-all@lists.linux.dev, dunaich@mail.ru,
-	Dmitry Dunaev <dunaev@tecon.ru>,
-	Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH] irqchip/riscv-intc: Mark INTC nodes for secondary CPUs
- as initialized.
-Message-ID: <202309270417.HR9Q4rJN-lkp@intel.com>
-References: <20230926102801.1591126-1-dunaev@tecon.ru>
+	Tue, 26 Sep 2023 20:49:52 +0000
+Received: from pb-smtp20.pobox.com (unknown [127.0.0.1])
+	by pb-smtp20.pobox.com (Postfix) with ESMTP id DEFC6180E3;
+	Tue, 26 Sep 2023 16:49:32 -0400 (EDT)
+	(envelope-from nico@fluxnic.net)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed; d=pobox.com; h=date:from
+	:to:cc:subject:in-reply-to:message-id:references:mime-version
+	:content-type; s=sasl; bh=vnqORXqaBxujrZIwo1zw9KvIE221dEcvbIpGK6
+	4Mu0s=; b=vaFd9L+aUbp5kYsflkkBuBk0cPY9S/Fs34MF26wTXU/E6ubR8UR7CB
+	cja+kCZim2PSDYi06Aaj6lmFuXOAEtN+APYQjGyynNWXFS48os/xaRZeGXtsNqZY
+	BOQGQjDxLTYu6dqEKpQTDrgF4SCIbhFBDNQ6pNxjVfGMPUz4kEhvM=
+Received: from pb-smtp20.sea.icgroup.com (unknown [127.0.0.1])
+	by pb-smtp20.pobox.com (Postfix) with ESMTP id D556B180E2;
+	Tue, 26 Sep 2023 16:49:32 -0400 (EDT)
+	(envelope-from nico@fluxnic.net)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed; d=fluxnic.net;
+ h=date:from:to:cc:subject:in-reply-to:message-id:references:mime-version:content-type; s=2016-12.pbsmtp; bh=vnqORXqaBxujrZIwo1zw9KvIE221dEcvbIpGK64Mu0s=; b=c2g49f/Co2qpG8GQZCZBFdVMaFoFpRzOvTK55BZZtx7t/WROFvbYnzEe/C83x9gt8lr07HbLcISFV83C3MDHOnUE+5TibodhLL4de/jNvbsAQG5TuSX+qCmP1aDziPPCsU4oKob9NklAlUR9sIBKsHrQXkL3g5XyUi4jj6aa77Q=
+Received: from yoda.fluxnic.net (unknown [184.162.17.228])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by pb-smtp20.pobox.com (Postfix) with ESMTPSA id DE15C180E1;
+	Tue, 26 Sep 2023 16:49:28 -0400 (EDT)
+	(envelope-from nico@fluxnic.net)
+Received: from xanadu (xanadu [10.0.0.101])
+	by yoda.fluxnic.net (Postfix) with ESMTPSA id 90996956C15;
+	Tue, 26 Sep 2023 16:49:26 -0400 (EDT)
+Date: Tue, 26 Sep 2023 22:49:26 +0200 (CEST)
+From: Nicolas Pitre <nico@fluxnic.net>
+To: Arnd Bergmann <arnd@arndb.de>
+cc: Zhangjin Wu <falcon@tinylab.org>, linux-kernel@vger.kernel.org, 
+    linux-mips@vger.kernel.org, linux-riscv@lists.infradead.org, 
+    Palmer Dabbelt <palmer@rivosinc.com>, 
+    Paul Walmsley <paul.walmsley@sifive.com>, paulburton@kernel.org, 
+    "Paul E. McKenney" <paulmck@kernel.org>, 
+    Thomas Bogendoerfer <tsbogend@alpha.franken.de>, Willy Tarreau <w@1wt.eu>, 
+    =?ISO-8859-15?Q?Thomas_Wei=DFschuh?= <linux@weissschuh.net>, 
+    Tim Bird <tim.bird@sony.com>, Geert Uytterhoeven <geert@linux-m68k.org>
+Subject: Re: [PATCH v1 0/7] DCE/DSE: Add Dead Syscalls Elimination support,
+ part1
+In-Reply-To: <a08e1cee-05e0-447a-b25b-6c2ebb116e8d@app.fastmail.com>
+Message-ID: <6n7o7p99-9pr2-9orq-6nq1-093n7n7n43o9@syhkavp.arg>
+References: <cover.1695679700.git.falcon@tinylab.org> <fbb6f526-0db9-4bbe-9635-8cb55b4335ee@app.fastmail.com> <a08e1cee-05e0-447a-b25b-6c2ebb116e8d@app.fastmail.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230926102801.1591126-1-dunaev@tecon.ru>
+X-Pobox-Relay-ID: 2FB1520E-5CAE-11EE-B67F-F515D2CDFF5E-78420484!pb-smtp20.pobox.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230926_134437_173739_CA3188CF 
-X-CRM114-Status: GOOD (  17.69  )
+X-CRM114-CacheID: sfid-20230926_134950_493259_3423C951 
+X-CRM114-Status: GOOD (  20.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,73 +89,47 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Dmitry,
+On Tue, 26 Sep 2023, Arnd Bergmann wrote:
 
-kernel test robot noticed the following build errors:
+> On Tue, Sep 26, 2023, at 09:14, Arnd Bergmann wrote:
+> > On Tue, Sep 26, 2023, at 00:33, Zhangjin Wu wrote:
+> >
+> > It would be nice to include some size numbers here for at least
+> > one practical use case. If you have a defconfig for a shipping
+> > product with a small kernel, what is the 'size -B' output you
+> > see comparing with and without DCE and, and with DCE+DSE?
+> 
+> To follow up on this myself, for a very rough baseline,
+> I tried a riscv tinyconfig build with and without 
+> CONFIG_LD_DEAD_CODE_DATA_ELIMINATION (this is currently
+> not supported on arm, so I did not try it there), and
+> then another build with simply *all* system calls stubbed
+> out by hacking asm/syscall-wrapper.h:
+> 
+> $ size build/tmp/vmlinux-*
+>    text	   data	    bss	     dec    hex	filename
+>   754772  220016  71841	 1046629  ff865	vmlinux-tinyconfig
+>   717500  223368  71841	 1012709  f73e5	vmlinux-tiny+nosyscalls
+>   567310  176200  71473	  814983  c6f87	vmlinux-tiny+gc-sections
+>   493278  170752  71433	  735463  b38e7	vmlinux-tiny+gc-sections+nosyscalls
+> 10120058 3572756 493701	14186515 d87813	vmlinux-defconfig
+>  9953934 3529004 491525	13974463 d53bbf	vmlinux-defconfig+gc
+>  9709856 3500600 489221	13699677 d10a5d	vmlinux-defconfig+gc+nosyscalls
+> 
+> This would put us at an upper bound of 10% size savings (80kb) for
+> tinyconfig, which is clearly significant. For defconfig, it's
+> still 2.0% or 275kb size reduction when all syscalls are dropped.
 
-[auto build test ERROR on tip/irq/core]
-[also build test ERROR on linus/master v6.6-rc3 next-20230926]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+I did something similar a while ago. Results included here:
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Dmitry-Dunaev/irqchip-riscv-intc-Mark-INTC-nodes-for-secondary-CPUs-as-initialized/20230926-183500
-base:   tip/irq/core
-patch link:    https://lore.kernel.org/r/20230926102801.1591126-1-dunaev%40tecon.ru
-patch subject: [PATCH] irqchip/riscv-intc: Mark INTC nodes for secondary CPUs as initialized.
-config: riscv-randconfig-001-20230926 (https://download.01.org/0day-ci/archive/20230927/202309270417.HR9Q4rJN-lkp@intel.com/config)
-compiler: riscv64-linux-gcc (GCC) 13.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20230927/202309270417.HR9Q4rJN-lkp@intel.com/reproduce)
+https://lwn.net/Articles/746780/
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202309270417.HR9Q4rJN-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
-   drivers/irqchip/irq-riscv-intc.c: In function 'riscv_intc_acpi_init':
->> drivers/irqchip/irq-riscv-intc.c:185:58: error: 'node' undeclared (first use in this function)
-     185 |                 fwnode_dev_initialized(of_node_to_fwnode(node), true);
-         |                                                          ^~~~
-   drivers/irqchip/irq-riscv-intc.c:185:58: note: each undeclared identifier is reported only once for each function it appears in
+In my case, stubbing out all syscalls produced a 7.8% reduction which 
+was somewhat disappointing compared to other techniques. Of course it 
+all depends on what is your actual goal.
 
 
-vim +/node +185 drivers/irqchip/irq-riscv-intc.c
-
-   169	
-   170	static int __init riscv_intc_acpi_init(union acpi_subtable_headers *header,
-   171					       const unsigned long end)
-   172	{
-   173		struct fwnode_handle *fn;
-   174		struct acpi_madt_rintc *rintc;
-   175	
-   176		rintc = (struct acpi_madt_rintc *)header;
-   177	
-   178		/*
-   179		 * The ACPI MADT will have one INTC for each CPU (or HART)
-   180		 * so riscv_intc_acpi_init() function will be called once
-   181		 * for each INTC. We only do INTC initialization
-   182		 * for the INTC belonging to the boot CPU (or boot HART).
-   183		 */
-   184		if (riscv_hartid_to_cpuid(rintc->hart_id) != smp_processor_id()) {
- > 185			fwnode_dev_initialized(of_node_to_fwnode(node), true);
-   186			return 0;
-   187		}
-   188	
-   189		fn = irq_domain_alloc_named_fwnode("RISCV-INTC");
-   190		if (!fn) {
-   191			pr_err("unable to allocate INTC FW node\n");
-   192			return -ENOMEM;
-   193		}
-   194	
-   195		return riscv_intc_init_common(fn);
-   196	}
-   197	
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Nicolas
 
 _______________________________________________
 linux-riscv mailing list
