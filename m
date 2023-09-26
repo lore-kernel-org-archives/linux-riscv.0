@@ -4,158 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3B8CE7D240
-	for <linux-riscv@archiver.kernel.org>; Tue, 26 Sep 2023 07:04:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 505BDE7D242
+	for <linux-riscv@archiver.kernel.org>; Tue, 26 Sep 2023 07:14:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Date:References:
+	In-Reply-To:Message-Id:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HDLB+GJONIXd1ze0ifVXeVgZ/EkqBpnfxEUqFulmtCo=; b=MF87VLDMyhKQT0
-	1G9azreIjwzEF8eoUdrGFj52lqV+td001xrlKaMwCVF25LOrAxRO2lU+ZflC/qHmWMZHlFJQVbxjG
-	pay35ZlAoC+QMibg/gN1GTBBtnAdUjcmiuCCdEMArDSHYOjQlsQ41OGXOHnGY5xysyNpql6bj6n+y
-	YN+cKyScd4oS6u5c4TpkNuF7zqDw1er+REswiPPBqvMlMuD6BIyBwdIobEvhAkuFyWPjQgZs5GRiG
-	njtAlNY7rsQCcpwzcN1oxHj54kgWOwOGfuvU7IzEZ0NACR56+DQCJAEMGW8IyYICLUGq3cACESQHo
-	mQGmaJOcjD8szpgKdz8w==;
+	List-Owner; bh=/Pas1C/S1q5sWPrqOGVnS/Gbz5+Ja02H58TwM9TE6v0=; b=OnlzT2Dya6ghB4
+	xtAPXEdrigD/uVlT82HX3qmC8NJZGjrvxmU8rpZDFtKXUiHnsnhPAT0yo9wD/ZH2RWA2H6H1hB4Zy
+	eGUXdnOFO06YD9Exub6uLqZX8HojLPE8rJf6Sp6ORBEIXrteN/6AB/Df14rSKDOiSrmY+X9WOYkLn
+	t29+DgtVmPBp2mmT3TNQgAPac0WEp91utLzOC5ch96FtJVFmV8SthWFq2wmXBOrmbFpBYxTzsXpSv
+	gnQZolejtoDVt/95CGgssp51+XuyoTWHtwC7NT52Lxkmd4QsLElZKyUxRwmenn+EWrHrLJ5K2Iw2H
+	vXkoLNzf2W5kjUTQNH2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1ql27U-00FldI-1x;
-	Tue, 26 Sep 2023 07:04:32 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1ql2HM-00FmES-0I;
+	Tue, 26 Sep 2023 07:14:44 +0000
+Received: from wout1-smtp.messagingengine.com ([64.147.123.24])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1ql27Q-00Flcg-2j
+	id 1ql2HJ-00FmDD-0v
 	for linux-riscv@lists.infradead.org;
-	Tue, 26 Sep 2023 07:04:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1695711868; x=1727247868;
-  h=from:to:cc:subject:date:message-id:references:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=rtEW6AO5hwCWhiHnzUHbbFna6HUhXa2yvivhpQDMlOM=;
-  b=12TLGQIdFlI+/3r4OrXY6F6Ow+eWVhQssoRaCgufCBorRVLLqTPbguTt
-   r+dKftsY//YqE9NLd5zLgnf91faSvsy1ui3ymlQx6i0aJ9C8AwLBfafpe
-   PtgUwP0m5PbWLpuf2lavZiNfy7gs8ezC8gFuwkJ2aSLmPmlz4/vh3WgCy
-   RVhxJ84oVwCMmkLShGMB2tQXqloR2ftidqNtkCNO0mJdnH1dxLVaLEeUZ
-   vx+uNF7Khmw1B9cvqqHiyYdqTbvVzxtBaP8YGfXv22F7rHGbxUL65x3Ai
-   OeskAX+UcpLYqGNrg3GhPT5qJUyhvTJi4hIFKWLqG6zJFxOw9f3juUch5
-   w==;
-X-CSE-ConnectionGUID: Cr+eQmHrRSep5KdykVKK0g==
-X-CSE-MsgGUID: srHzkV6KTde0B/j5aSyqNg==
-X-ThreatScanner-Verdict: Negative
-X-IronPort-AV: E=Sophos;i="6.03,177,1694761200"; 
-   d="scan'208";a="6842733"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa1.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 26 Sep 2023 00:04:24 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.87.72) by
- chn-vm-ex02.mchp-main.com (10.10.87.72) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Tue, 26 Sep 2023 00:04:24 -0700
-Received: from NAM11-DM6-obe.outbound.protection.outlook.com (10.10.215.89) by
- email.microchip.com (10.10.87.72) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
- Transport; Tue, 26 Sep 2023 00:04:24 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=dODSR2/VX7ccwgrPlBuri3IGd0mlycTxNgpEFUsdV5L5RQb4oqkaLbVF4ueyYFvurrUIgbK6ICrI8XQqMCHl9QLemQBAVDb8KmdF246jP3uY9sjnksv4GLETueS4trjNpNK3itD6I1Zz/OeVp7HWnd+843OD7DqDsVurHDAa65e/40LhzWXum+QEnikAXFGGyJt/PV8Cv/Us4JhXCEstkN69PW8VXqEXxjknGiwXNU8k2m2m58NxfreklX5LRsmulSQjH7/PTm8njeUJ1bRJGjVBjpnvWfDiG93X2FhX8MhVhnNytTM9v4iARBJY6exycDlTOoBTkxaeShxYW9x7Fg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Xwyk6FS6hdZ/u3PfsLvXPYQBP8H7lwuU5CSPj2Mz6Js=;
- b=WrNpwLZaOz/aqACFx7vAgXX19+WidgZ9YAWlyBRyUTH6CGkXyXbOGE/xKigSS8Hx5z6AtWdK8EleMbrgRq2g85Nad+KHV6zQlfMS5uN0UKCIYTyRDyj2gr2MYt3fAdsl/+QtJUuDToeFKm8nVHPf/ERDFhqlsA7KHYJ8bHLdqsck9l/FPpTeSZKmlJskeLBrtFKT3e/wkN4CuMjntsH/46xvVVzHPBCRMaIU889567ZUfW+3GRznBX7E2SNV7i32OJyR9AGAvi1ijkbexd9Q7TWrs6TnocSlHvRm7GnFnVOY6AIZb3qi3VKYeDGRPsF6bEnkz8iKXqYsVgs7d9xoAQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=microchip.com; dmarc=pass action=none
- header.from=microchip.com; dkim=pass header.d=microchip.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=microchiptechnology.onmicrosoft.com;
- s=selector2-microchiptechnology-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Xwyk6FS6hdZ/u3PfsLvXPYQBP8H7lwuU5CSPj2Mz6Js=;
- b=kXWgm1rkW6fzWPtPghA2d9/jlPGpKa8fUuY4oLuL92yoedAvvzoNKTXx4R0vBAS1TRbLcxmOzimnHn2OGfL2JpjJUn9LiBeug0PL7ohTdR5wP2MmQrL45MnWq4obvJe+GuCzK8Gcn01h5JtWOfVdDIEXqeXt/aY62MpVmQiHerw=
-Received: from PH0PR11MB5611.namprd11.prod.outlook.com (2603:10b6:510:ed::9)
- by LV2PR11MB6000.namprd11.prod.outlook.com (2603:10b6:408:17c::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6792.27; Tue, 26 Sep
- 2023 07:04:22 +0000
-Received: from PH0PR11MB5611.namprd11.prod.outlook.com
- ([fe80::1133:b6c0:3f07:84bc]) by PH0PR11MB5611.namprd11.prod.outlook.com
- ([fe80::1133:b6c0:3f07:84bc%7]) with mapi id 15.20.6813.027; Tue, 26 Sep 2023
- 07:04:22 +0000
-From: <Shravan.Chippa@microchip.com>
-To: <conor@kernel.org>
-CC: <green.wan@sifive.com>, <vkoul@kernel.org>, <robh+dt@kernel.org>,
-	<krzysztof.kozlowski+dt@linaro.org>, <palmer@dabbelt.com>,
-	<paul.walmsley@sifive.com>, <conor+dt@kernel.org>, <palmer@sifive.com>,
-	<dmaengine@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<Nagasuresh.Relli@microchip.com>, <Praveen.Kumar@microchip.com>,
-	<Conor.Dooley@microchip.com>
-Subject: RE: [PATCH v1 3/3] dmaengine: sf-pdma: add mpfs-pdma compatible name
-Thread-Topic: [PATCH v1 3/3] dmaengine: sf-pdma: add mpfs-pdma compatible name
-Thread-Index: AQHZ7TpYtoHe5V6jCkaV0cVSgcPUurAmncAAgAYXIuA=
-Date: Tue, 26 Sep 2023 07:04:22 +0000
-Message-ID: <PH0PR11MB561107915309A4108EF0DC9B81C3A@PH0PR11MB5611.namprd11.prod.outlook.com>
-References: <20230922095039.74878-1-shravan.chippa@microchip.com>
- <20230922095039.74878-4-shravan.chippa@microchip.com>
- <20230922-sappy-huddle-1484d64b27f3@spud>
-In-Reply-To: <20230922-sappy-huddle-1484d64b27f3@spud>
-Accept-Language: en-GB, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=microchip.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: PH0PR11MB5611:EE_|LV2PR11MB6000:EE_
-x-ms-office365-filtering-correlation-id: ef541a20-f3b8-4ca3-67df-08dbbe5ecfa7
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: Fjo8JrICqfHNpvLlpq8JCG+yJfqFwKkKfkv6uk7eQG+Y77gWRQaFcMhonJqlwrgu+xtRgEWtChAuvcnLeZ5OWhLJeg3iur1x4xg6pdWurpr+qUm3nfGiUDK31ex5NvZnaNtNu3nZLrwohL85R3N/sxUS2SiTqG6g2uhP2JuhstGz8HFEo27PTyJy8olN9I0xoNoX67wBM7PGPPvvCK01YOm4djo+wWmztg4uFPxJ796HFw0RTKHXCzKwvijV1tS5cUFJ12p5tRVGnGy0cnqbT15yLLbGOb02M4EdPDe+0jgNAUjXL3zn45751bIPkZCljAvCuH8CpG0DYIVc7lKFt/79DSjH1akPLJSHBKROfP0xNvlUx9CO8X6YeX9N1mEa1YqPjIoip9Tz4xNCzLCSVQlrZ2y2LgpYgmctm1Fa3uFs1r9gsyGw2Av8H7bxbJ3Ghinl44RJLfUIUtNGlvfYgSv9Xhwp9NwiTHYhJui6R1DCRyohCoy+KUPW4LweURA3hATimnwD80RoPFTiISCXXl3V3rcXyNJXGZBqSmQfTsZmTSeS0gVQlRj4biLt831Qr7CyfHdR16aHocCISexBJOWj1F8VXXYftDjheInG7+YX8+/R4HwCZjzqr1kceESw
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH0PR11MB5611.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230031)(376002)(366004)(136003)(39860400002)(346002)(396003)(230922051799003)(451199024)(186009)(1800799009)(2906002)(7416002)(33656002)(86362001)(55016003)(5660300002)(38070700005)(38100700002)(122000001)(52536014)(8936002)(8676002)(4326008)(83380400001)(41300700001)(6916009)(316002)(107886003)(66476007)(26005)(66446008)(54906003)(53546011)(66946007)(66556008)(9686003)(64756008)(71200400001)(6506007)(478600001)(76116006)(7696005);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?MnKEU6BK0D5jSKMDSmqMwuJfIfP8Cvqrzqisb8y59MPDbJAvP+Dyy+ch66tg?=
- =?us-ascii?Q?3nxvZbjF/NTi+jeKTJL2e9Dv5omAdL64GOMhLcknFwqRBwQw2tOufxuIFKfK?=
- =?us-ascii?Q?VA00d3D9epgCQ0+9m3922++hhqT1bxAlB3xYyIgQ1xS4NnZj1CCSSloEE+0r?=
- =?us-ascii?Q?JiJgEpB0pMXfodWn45/Haj8kv9qmUc1Fj0o7YPj9ZyYPOVnfWgvRhnLErU0q?=
- =?us-ascii?Q?YZ0TZe6XCkDb090R8TCdPVRn+L7Y8JluRmJRiX3kGtx/htBa0c040LxtR9Zc?=
- =?us-ascii?Q?9397wiVrawiunGt4YmeaEmbynC2WYqvKZQt0l4Oo1bqwUciyzusZAE6z/qym?=
- =?us-ascii?Q?1OfGiF5Vshr9Hzt0Ab+3IZT5jy1QOzPRUCkad/+qrC8+o0su0wDdE/mgOi46?=
- =?us-ascii?Q?YbYI1IXgMG3ImkqRgd0WNRZHpLP2f2+m2seIuBRr7pjbryJNt7mf2CBK46uh?=
- =?us-ascii?Q?OIyPkum+uSvYo3T9ERlvce/tySxTFvuEQsiJ8royBSbCCD4siMF8C7+mhpqU?=
- =?us-ascii?Q?D3LmIjaZTF9E/wp/3lEiS0ho9DS7hLW7uRpRVd7rZWRl+gBszZ9m8N6P08Fs?=
- =?us-ascii?Q?hF2DWiyOEQKNbvp23v+aG/Wqd2eIaqjGWas223+6KWFerKhnZZps+i0u63Ci?=
- =?us-ascii?Q?jkMnNMFwBofbsJD0GULbnkt+ZSco6gE+H/81OYA4/jPvAgO0u3wDZ/Db6qsc?=
- =?us-ascii?Q?RIwivKnP6ce06Og5E3hFke2Rh2W0itpgYWXughuSoALoGNjJcs5qsvzIFk/W?=
- =?us-ascii?Q?Yjq6KfwFjFXVvynaJomA/ZYLJg8q3qJ3dBj2/HBGBaMlV1FleIl9nQIUiEBf?=
- =?us-ascii?Q?S+eRXuWjH9b99HUJn12/69dBKJCexdZyOtjzlC2+HClIZN4Eddns3LxqmJ8D?=
- =?us-ascii?Q?EZTY2ig5E77/n6nXCU/7qKXw6l1DC+oGI6rYVLTIUKkgk7Y0waJIWof9AwB+?=
- =?us-ascii?Q?SitLMcW76nwMJIugvaJelNFEmMy1EFj1s2YwptJvtiCuDciyCEMa8wicEU0q?=
- =?us-ascii?Q?4NhK3SYW0S4YSAnAJgQ95zNhM3geDoE5HGy9J+HYByjFb3ns1DVWieSPGbBs?=
- =?us-ascii?Q?znXSew76DsGymMHV5m9XMLeNSwvvvKWdgDDKVdEjZAlA1XSqYP1E/Wc+TlWT?=
- =?us-ascii?Q?aLdQ1YRSKbZ3FPdI0NMOvfDnr3EoshoZsQBYeGaB6oor1O2S7RzB9LQW277J?=
- =?us-ascii?Q?XI2XpJqobdTY2jfBUecVyK0uVS2Zh2WTDfT7ms5451vkyPdG+lOmtBTVI+pi?=
- =?us-ascii?Q?SZaKxzsccqHy1wueWVsWuK101Iu8+ncAVhoxegIliyoSU9PCS1AnqcdFGl9A?=
- =?us-ascii?Q?4iZ28PzNC4HRl8nL1iJzZ6WKUlJe1dnvNHhqqW5aBdRSGiG9V02CK9Hnv0J/?=
- =?us-ascii?Q?kuGY1xT5DNz/g8bxeuwA63cnQAZ9Smb5eiUuat+uLUjeVYt/FHq4WQNEUyls?=
- =?us-ascii?Q?LpKsPmQDxfnGxbcAyU1BVqPcjOux+pTjzWS8uxaTznUfh3ppxOvurt2g106d?=
- =?us-ascii?Q?5lL3m/OOEqD5U5sUXemChveS3T8oMwgu2s2an+QKfGCrhhxYRIoLtdoCzCtN?=
- =?us-ascii?Q?xjQJDsTJ/j2z3K8LvsRwLR0TuNWRimJ+sGms5wa01zY3DkuuHcMPxYj5cb6K?=
- =?us-ascii?Q?eA=3D=3D?=
+	Tue, 26 Sep 2023 07:14:42 +0000
+Received: from compute6.internal (compute6.nyi.internal [10.202.2.47])
+	by mailout.west.internal (Postfix) with ESMTP id 309D8320094D;
+	Tue, 26 Sep 2023 03:14:34 -0400 (EDT)
+Received: from imap51 ([10.202.2.101])
+  by compute6.internal (MEProxy); Tue, 26 Sep 2023 03:14:35 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-type:content-type:date:date:from:from:in-reply-to
+	:in-reply-to:message-id:mime-version:references:reply-to:sender
+	:subject:subject:to:to; s=fm1; t=1695712473; x=1695798873; bh=VF
+	VeVZmTfs9bsTzTBLiILy5KA2+NCbWVhaZijAd/VUg=; b=RD/znBmfPhrGsAnVAY
+	+irDC1f47jwc/OcjLoXLDdVUlj1zpwTv0GWS7Dpasxt0ve/H43ktE5AlC/mqEMKR
+	ep1xWhoEEkI7ZY/OjixKQdAP+3ziGChjqiRAlm4Y+PfzFTLDsLcBVJ7i/fRn6Jb3
+	HMmFKjpCbGGxb18L0YIasG8OAIVmisiROiqoPRzDAQBpTbuzDbTGrhYdOqTqnkmR
+	N6RZGRkOQdmMabpuuUZ3eYqMW78/NM6NWplH74ZkFcrhvmMcsLf6mGsLOok/aVo4
+	Aj3f+SVK1GyM/VBdy7NtsjSm8LNIcS61Hlam+uhlqr+ObXhHuTP9CDlKYVO/PN1r
+	byKw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:content-type:date:date
+	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:sender:subject
+	:subject:to:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender
+	:x-sasl-enc; s=fm2; t=1695712473; x=1695798873; bh=VFVeVZmTfs9bs
+	TzTBLiILy5KA2+NCbWVhaZijAd/VUg=; b=Ahh6tOszfUEWLcNcTiHI95DQ4R64V
+	qFSrCmckpTae9k4He4XOTDs3KBomVkkso3mw+ynZIFoMiSqGV/G4ckBtZA1MJ4mm
+	7gdY8wtbyMMrjIQafA+JBk15LR/NeELV4B3EspPY8plBzzY08TeD3bt9gJ8PYm92
+	v8iw6vN92eHlDqC/lyVIiSGsbfaNzwLBQXpcfSCRnfaeuXkxXsmTBRN1Seua6n3O
+	0yAm+1GcweN6o8OLGuFTXtymeLacVGJ4O/u0WVRlUMBK4s/bxPXrT7gQ9+HzEvCj
+	ITlpEN2QCGDN9Ghljw4CeoFvJE3c1Z5sTDe+zHYWSAeHaW3hXvL/lx1Gg==
+X-ME-Sender: <xms:2IQSZXmjoEFmrLb9EKWoCoxtD3u0aXEjXfXQPS8hKWP4jPEsadNRng>
+    <xme:2IQSZa1sxi3qnBIBUVbJzRYdK5_4bVisgfksSY-XsMGzbXPgzuPcKW0Frf4i1eVqV
+    HumL6H5D9chBkVzdD0>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedviedrudelhedgudduiecutefuodetggdotefrod
+    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfgh
+    necuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmd
+    enucfjughrpefofgggkfgjfhffhffvvefutgesthdtredtreertdenucfhrhhomhepfdet
+    rhhnugcuuegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrg
+    htthgvrhhnpeffheeugeetiefhgeethfejgfdtuefggeejleehjeeutefhfeeggefhkedt
+    keetffenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpe
+    grrhhnugesrghrnhgusgdruggv
+X-ME-Proxy: <xmx:2IQSZdoL_O_-_O2PAecArnTaJAHWSsMp4R_MWwza4KO0Xi81nAbr7A>
+    <xmx:2IQSZflT0t41018Agk-iGSM8ZfiHxwX1uMwMXO8QobVy0Ap8Cy1ozA>
+    <xmx:2IQSZV07z2qJ_dVH0TNRbPa7ApSCu8mgd6rUxWEvxFIYwzGJCD83wg>
+    <xmx:2YQSZWuURAkURuQdAchXzcSNdwcy3aiXInl96Rj4GrGMelswsO6NFQ>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.nyi.internal (Postfix, from userid 501)
+	id 7A2D7B60089; Tue, 26 Sep 2023 03:14:32 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
+User-Agent: Cyrus-JMAP/3.9.0-alpha0-957-ga1ccdb4cff-fm-20230919.001-ga1ccdb4c
 MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: PH0PR11MB5611.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ef541a20-f3b8-4ca3-67df-08dbbe5ecfa7
-X-MS-Exchange-CrossTenant-originalarrivaltime: 26 Sep 2023 07:04:22.3006
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 3f4057f3-b418-4d4e-ba84-d55b4e897d88
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: uMcv1NxQbsQWH+oSUp9XmX0kTLrk6ZaExXMgx+2gOHv1sel5moBJmQFqdcmS9/K0s9902Nt4vhvx+0QcoJw9rCQga2cs1GG8hcbQO2gl/UI=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV2PR11MB6000
+Message-Id: <fbb6f526-0db9-4bbe-9635-8cb55b4335ee@app.fastmail.com>
+In-Reply-To: <cover.1695679700.git.falcon@tinylab.org>
+References: <cover.1695679700.git.falcon@tinylab.org>
+Date: Tue, 26 Sep 2023 09:14:11 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Zhangjin Wu" <falcon@tinylab.org>, linux-kernel@vger.kernel.org,
+ linux-mips@vger.kernel.org, linux-riscv@lists.infradead.org
+Cc: "Palmer Dabbelt" <palmer@rivosinc.com>,
+ "Paul Walmsley" <paul.walmsley@sifive.com>, paulburton@kernel.org,
+ "Paul E. McKenney" <paulmck@kernel.org>,
+ "Thomas Bogendoerfer" <tsbogend@alpha.franken.de>,
+ "Willy Tarreau" <w@1wt.eu>,
+ =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <linux@weissschuh.net>,
+ "Tim Bird" <tim.bird@sony.com>, "Geert Uytterhoeven" <geert@linux-m68k.org>,
+ "Nicolas Pitre" <nico@fluxnic.net>
+Subject: Re: [PATCH v1 0/7] DCE/DSE: Add Dead Syscalls Elimination support, part1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230926_000429_031913_6B8DE18D 
-X-CRM114-Status: GOOD (  30.67  )
+X-CRM114-CacheID: sfid-20230926_001441_504541_A2F5570B 
+X-CRM114-Status: GOOD (  18.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -172,161 +111,45 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Tue, Sep 26, 2023, at 00:33, Zhangjin Wu wrote:
+>
+> This series aims to add DCE based DSE support, here is the first
+> revision of the RFC patchset [1], the whole series includes three parts,
+> here is the Part1.
+>
+> This Part1 adds basic DCE based DSE support.
+>
+> Part2 will further eliminate the unused syscalls forcely kept by the
+> exception tables.
+>
+> Part3 will add DSE test support with nolibc-test.c.
 
-> -----Original Message-----
-> From: Conor Dooley <conor@kernel.org>
-> Sent: Friday, September 22, 2023 3:34 PM
-> To: shravan Chippa - I35088 <Shravan.Chippa@microchip.com>
-> Cc: green.wan@sifive.com; vkoul@kernel.org; robh+dt@kernel.org;
-> krzysztof.kozlowski+dt@linaro.org; palmer@dabbelt.com;
-> paul.walmsley@sifive.com; conor+dt@kernel.org; palmer@sifive.com;
-> dmaengine@vger.kernel.org; devicetree@vger.kernel.org; linux-
-> riscv@lists.infradead.org; linux-kernel@vger.kernel.org; Nagasuresh Relli -
-> I67208 <Nagasuresh.Relli@microchip.com>; Praveen Kumar - I30718
-> <Praveen.Kumar@microchip.com>; Conor Dooley - M52691
-> <Conor.Dooley@microchip.com>
-> Subject: Re: [PATCH v1 3/3] dmaengine: sf-pdma: add mpfs-pdma compatible
-> name
-> 
-> Hey Shravan,
-> 
-> On Fri, Sep 22, 2023 at 03:20:39PM +0530, shravan chippa wrote:
-> > From: Shravan Chippa <shravan.chippa@microchip.com>
-> >
-> > Sifive platform dma does not allow out-of-order transfers,
-> 
-> Can you remind me why we determined that this was the case?
-> IOW, why could we not enable the out-of-order transfers and get a
-> performance benefit for everyone? It's been a year or so (I think) and I have
-> forgotten.
+I missed the RFC version, but I think this is a useful thing to
+have overall, though it will probably need to go through a couple
+of revisions and rewrites, mostly to ensure we are not adding
+complexity that gets in the way of other improvements I would
+like to see to the syscall entry handling.
 
-sf-dma is used for all Sifive RISC-V chipsets, but we will not be able to test on all of them
-in the microchip polar-fire FPGA SOC (RISC-V) platform we got good throughput with out-off-order transfers.
-so we thought of having a separate compatible name for sf-dma driver to use out-of-order transfers. 
+It would be nice to include some size numbers here for at least
+one practical use case. If you have a defconfig for a shipping
+product with a small kernel, what is the 'size -B' output you
+see comparing with and without DCE and, and with DCE+DSE?
 
-Thanks,
-Shravan
+There is generally not much work going into micro-optimizing
+the size of the kernel image any more, for a number of reasons,
+but if you are able to show that this is a noticeable improvement,
+we should be able to find a way to do it. Geert is doing statistics
+about size bloat over time, and anything that undoes a couple
+of years worth of bloat would clearly be significant here.
 
-> 
-> Cheers,
-> Conor.
-> 
-> > buf out-of-order dma has a significant performance advantage.
-> > Add a PolarFire SoC specific compatible and code to support for
-> > out-of-order dma transfers
-> >
-> > Signed-off-by: Shravan Chippa <shravan.chippa@microchip.com>
-> > Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-> > Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-> > ---
-> >  drivers/dma/sf-pdma/sf-pdma.c | 27 ++++++++++++++++++++++++---
-> > drivers/dma/sf-pdma/sf-pdma.h |  6 ++++++
-> >  2 files changed, 30 insertions(+), 3 deletions(-)
-> >
-> > diff --git a/drivers/dma/sf-pdma/sf-pdma.c
-> > b/drivers/dma/sf-pdma/sf-pdma.c index c7558c9f9ac3..992a804166d5
-> > 100644
-> > --- a/drivers/dma/sf-pdma/sf-pdma.c
-> > +++ b/drivers/dma/sf-pdma/sf-pdma.c
-> > @@ -21,6 +21,7 @@
-> >  #include <linux/dma-mapping.h>
-> >  #include <linux/of.h>
-> >  #include <linux/of_dma.h>
-> > +#include <linux/of_device.h>
-> >  #include <linux/slab.h>
-> >
-> >  #include "sf-pdma.h"
-> > @@ -66,7 +67,7 @@ static struct sf_pdma_desc
-> > *sf_pdma_alloc_desc(struct sf_pdma_chan *chan)  static void
-> sf_pdma_fill_desc(struct sf_pdma_desc *desc,
-> >  			      u64 dst, u64 src, u64 size)
-> >  {
-> > -	desc->xfer_type = PDMA_FULL_SPEED;
-> > +	desc->xfer_type =  desc->chan->pdma->transfer_type;
-> >  	desc->xfer_size = size;
-> >  	desc->dst_addr = dst;
-> >  	desc->src_addr = src;
-> > @@ -520,6 +521,7 @@ static struct dma_chan *sf_pdma_of_xlate(struct
-> > of_phandle_args *dma_spec,
-> >
-> >  static int sf_pdma_probe(struct platform_device *pdev)  {
-> > +	const struct sf_pdma_driver_platdata *ddata;
-> >  	struct sf_pdma *pdma;
-> >  	int ret, n_chans;
-> >  	const enum dma_slave_buswidth widths = @@ -545,6 +547,14 @@
-> static
-> > int sf_pdma_probe(struct platform_device *pdev)
-> >
-> >  	pdma->n_chans = n_chans;
-> >
-> > +	pdma->transfer_type = PDMA_FULL_SPEED;
-> > +
-> > +	ddata  = of_device_get_match_data(&pdev->dev);
-> > +	if (ddata) {
-> > +		if (ddata->quirks & NO_STRICT_ORDERING)
-> > +			pdma->transfer_type &= ~(NO_STRICT_ORDERING);
-> > +	}
-> > +
-> >  	pdma->membase = devm_platform_ioremap_resource(pdev, 0);
-> >  	if (IS_ERR(pdma->membase))
-> >  		return PTR_ERR(pdma->membase);
-> > @@ -629,11 +639,22 @@ static int sf_pdma_remove(struct
-> platform_device *pdev)
-> >  	return 0;
-> >  }
-> >
-> > +static const struct sf_pdma_driver_platdata mpfs_pdma = {
-> > +	.quirks = NO_STRICT_ORDERING,
-> > +};
-> > +
-> >  static const struct of_device_id sf_pdma_dt_ids[] = {
-> > -	{ .compatible = "sifive,fu540-c000-pdma" },
-> > -	{ .compatible = "sifive,pdma0" },
-> > +	{
-> > +		.compatible = "sifive,fu540-c000-pdma",
-> > +	}, {
-> > +		.compatible = "sifive,pdma0",
-> > +	}, {
-> > +		.compatible = "microchip,mpfs-pdma",
-> > +		.data	    = &mpfs_pdma,
-> > +	},
-> >  	{},
-> >  };
-> > +
-> >  MODULE_DEVICE_TABLE(of, sf_pdma_dt_ids);
-> >
-> >  static struct platform_driver sf_pdma_driver = { diff --git
-> > a/drivers/dma/sf-pdma/sf-pdma.h b/drivers/dma/sf-pdma/sf-pdma.h
-> index
-> > 5c398a83b491..3b16db4daa0b 100644
-> > --- a/drivers/dma/sf-pdma/sf-pdma.h
-> > +++ b/drivers/dma/sf-pdma/sf-pdma.h
-> > @@ -49,6 +49,7 @@
-> >
-> >  /* Transfer Type */
-> >  #define PDMA_FULL_SPEED					0xFF000008
-> > +#define NO_STRICT_ORDERING				BIT(3)
-> >
-> >  /* Error Recovery */
-> >  #define MAX_RETRY					1
-> > @@ -112,8 +113,13 @@ struct sf_pdma {
-> >  	struct dma_device       dma_dev;
-> >  	void __iomem            *membase;
-> >  	void __iomem            *mappedbase;
-> > +	u32			transfer_type;
-> >  	u32			n_chans;
-> >  	struct sf_pdma_chan	chans[];
-> >  };
-> >
-> > +struct sf_pdma_driver_platdata {
-> > +	u32 quirks;
-> > +};
-> > +
-> >  #endif /* _SF_PDMA_H */
-> > --
-> > 2.34.1
-> >
+Another alternative would be to resume the work done by Nicolas
+Pitre, who added Kconfig symbols for controlling groups of
+system calls. Since we already have a number of those compile
+time options, adding more of them should generally be
+less controversial and more consistent, while bringing most
+of the same benefits.
+
+     Arnd
 
 _______________________________________________
 linux-riscv mailing list
