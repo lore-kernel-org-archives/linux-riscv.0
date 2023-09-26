@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B99CE7D24B
-	for <linux-riscv@archiver.kernel.org>; Tue, 26 Sep 2023 08:05:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0902E7D261
+	for <linux-riscv@archiver.kernel.org>; Tue, 26 Sep 2023 08:33:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Loq/h9Qd8RyqwEFD76iJhhwLAMAvo3A+9KxgOk4J50s=; b=P35vUWiihybOAL
-	/+BOyqE/6OQUJtIoEPZScPdzwWDzmMJkr1AxhZdO5mBO/03ZljvF3lmu9XmaiV6BNtpBzfWVawCHm
-	bHfLJDrSwS7DdW824CCrFrg4yXmdnbelmLBQBJox6ZWwnwZnfa4Oo8HSZbsWp6Acgi0cvTSZn8DWz
-	3KWE/XSGLbtsSHbQYKml4H72SoHz8soWUSb/wEyFO1WrDj3AWjoBNN1MPELoz5jn1+gRZcYyTgbbA
-	cOaHrQoaxSVxPIClbXTbZEegTR1fHcUJM69RkyTTtVhN6Ths8YmmnzyTZ5nEKRzyS6+qgy3esVLym
-	rLGrKEgbeTEiPH0oBUFA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Y2c5V5rM9dIeJfAjtPyAz/ADHW1tN4gKHzQE2blvD00=; b=0SABLefFhab4XUJM0euFM10cQu
+	m37dmiIUadT+qmFYDrPPQtSxuOnlLILgA8hYGmAMJYEAMXgwVDdmY9xnNjnjCNTftON1OwNJnEECs
+	KWjNpK70wRH7lJkL634krPUNjt9o4FwfKNL0JuUZrYP4Gi3f5uf0evSQOPsoDeGvd/+vdByJzBpoh
+	cEhHzx9uFvMH0egMOfHmNwENl9QjeKFcgy3FhzgvYKSGaHjodqtzK4uLgGxfQ66Igvrh1hlEYFj0r
+	B18/Fs7F1sOwdumSBRfiVwlCPBvw/ZtX6y2FEJQfU4gOn6gMe1+vO58Lj2S/kNzfTYgA1y1gP3RCQ
+	mN7XElLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1ql34X-00FqLy-0F;
-	Tue, 26 Sep 2023 08:05:33 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1ql3VM-00Fszx-2g;
+	Tue, 26 Sep 2023 08:33:16 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1ql34R-00FqHw-2w;
-	Tue, 26 Sep 2023 08:05:30 +0000
+	id 1ql3VG-00Fsxd-1W;
+	Tue, 26 Sep 2023 08:33:14 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 2B0B9CE12BF;
-	Tue, 26 Sep 2023 08:05:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DEB07C433C7;
-	Tue, 26 Sep 2023 08:05:12 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTP id 29F2BB80EBA;
+	Tue, 26 Sep 2023 08:33:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D72B2C433C8;
+	Tue, 26 Sep 2023 08:32:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1695715524;
-	bh=+Amk36a0CBOiKu5+FtjGQvFX395/lzfG991XVrUkCKk=;
+	s=k20201202; t=1695717187;
+	bh=epp5uy/o2Epyb8FnKYB+ZJmzWkcmAaY3zKts501/ib8=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=RLx2TLWKtN7VAMAOy6Z+yt+5L2H3WvCxgk6fo3xEAFTVDZv0mPqQm9oryMdet+1qZ
-	 obrB5TY2nE/qbUSfaI1uId3y2yRK2qnxEYYQpqf8IMXRqLpaWcyp6r1h8W5YGqDDxg
-	 /Ipk9rb4CjRrT7bowSHMduOUAEuaFMTD7nXxu83iUI+O1xmmOj2PJsMoiGARKNDMsM
-	 m8lXDTJPRNGVXjXTr34wm+BzlG4p+UzrUM7cd5TVxTprWIBaR+mK3IXevwTFE0yWC2
-	 SIHL7mRKLFjL2iR5rLVY4OdrYFjdV9kMecllhx3OCPX+UXN+tAGab3AHw/soEZdxZb
-	 tvxNd43ZGN+BA==
-Date: Tue, 26 Sep 2023 11:04:22 +0300
+	b=Wk/PRvbEkjcgZmg4E5fMvt+sdLaPC5JWRlql7ajcnlK1hPxwuxeAwpCUmI/Nssur+
+	 n+80Z/QYGQvbRlfVPtftev9DaJG9r8HQE0GiTa+qclSi2joS+8nMs+qsPGDYfLUJ0t
+	 xj8zry2Cw9s3EpZCHIgc1sg+PYXaVDhdcJnPoM835wAJPhxdqyvh04BI7i8If7FIQt
+	 oPP8v/l5QW5sVgS9pjTMD2vvvPq1ZNNkx994OYjl0vg2U6atPXoX7TpAGxHDVxBjAe
+	 b3vHxqmwP6VoOFwmoATKfzNHKsPaq2J+1ghlIU1+S2ulejcFOKAR+p9Ry8gluqt2fk
+	 YJ9uZcyVkYh+w==
+Date: Tue, 26 Sep 2023 11:32:05 +0300
 From: Mike Rapoport <rppt@kernel.org>
-To: Song Liu <song@kernel.org>
+To: Arnd Bergmann <arnd@arndb.de>
 Cc: linux-kernel@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>,
 	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@kernel.org>,
 	Catalin Marinas <catalin.marinas@arm.com>,
 	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	"David S. Miller" <davem@davemloft.net>,
+	"David S . Miller" <davem@davemloft.net>,
 	Dinh Nguyen <dinguyen@kernel.org>,
 	Heiko Carstens <hca@linux.ibm.com>, Helge Deller <deller@gmx.de>,
 	Huacai Chen <chenhuacai@kernel.org>,
@@ -61,7 +61,7 @@ Cc: linux-kernel@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Puranjay Mohan <puranjay12@gmail.com>,
 	Rick Edgecombe <rick.p.edgecombe@intel.com>,
-	Russell King <linux@armlinux.org.uk>,
+	Russell King <linux@armlinux.org.uk>, Song Liu <song@kernel.org>,
 	Steven Rostedt <rostedt@goodmis.org>,
 	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
 	Thomas Gleixner <tglx@linutronix.de>, Will Deacon <will@kernel.org>,
@@ -70,22 +70,21 @@ Cc: linux-kernel@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>,
 	linux-modules@vger.kernel.org, linux-parisc@vger.kernel.org,
 	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
 	linux-trace-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	loongarch@lists.linux.dev, netdev@vger.kernel.org,
+	loongarch@lists.linux.dev, Netdev <netdev@vger.kernel.org>,
 	sparclinux@vger.kernel.org, x86@kernel.org
-Subject: Re: [PATCH v3 02/13] mm: introduce execmem_text_alloc() and
- execmem_free()
-Message-ID: <20230926080422.GP3303@kernel.org>
+Subject: Re: [PATCH v3 10/13] arch: make execmem setup available regardless
+ of CONFIG_MODULES
+Message-ID: <20230926083205.GQ3303@kernel.org>
 References: <20230918072955.2507221-1-rppt@kernel.org>
- <20230918072955.2507221-3-rppt@kernel.org>
- <CAPhsuW5-=H1V=VXUYxyGnUdJuNUpRt44QmpwjkDUD=9i0itjuw@mail.gmail.com>
- <20230923153808.GI3303@kernel.org>
- <CAPhsuW6TxG87ZBwQ_027iiE+_UmXweZEPh8wKHkHo7wA+qXZUg@mail.gmail.com>
+ <20230918072955.2507221-11-rppt@kernel.org>
+ <44867c60-db1a-4a0c-8973-c8a03e8da0f3@app.fastmail.com>
 MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="p4qYPpj5QlsIQJ0K"
 Content-Disposition: inline
-In-Reply-To: <CAPhsuW6TxG87ZBwQ_027iiE+_UmXweZEPh8wKHkHo7wA+qXZUg@mail.gmail.com>
+In-Reply-To: <44867c60-db1a-4a0c-8973-c8a03e8da0f3@app.fastmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230926_010528_391180_8C75E231 
-X-CRM114-Status: GOOD (  26.21  )
+X-CRM114-CacheID: sfid-20230926_013310_796510_272F561A 
+X-CRM114-Status: GOOD (  46.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,60 +96,1285 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gU2F0LCBTZXAgMjMsIDIwMjMgYXQgMDM6MzY6MDFQTSAtMDcwMCwgU29uZyBMaXUgd3JvdGU6
-Cj4gT24gU2F0LCBTZXAgMjMsIDIwMjMgYXQgODozOeKAr0FNIE1pa2UgUmFwb3BvcnQgPHJwcHRA
-a2VybmVsLm9yZz4gd3JvdGU6Cj4gPgo+ID4gT24gVGh1LCBTZXAgMjEsIDIwMjMgYXQgMDM6MzQ6
-MThQTSAtMDcwMCwgU29uZyBMaXUgd3JvdGU6Cj4gPiA+IE9uIE1vbiwgU2VwIDE4LCAyMDIzIGF0
-IDEyOjMw4oCvQU0gTWlrZSBSYXBvcG9ydCA8cnBwdEBrZXJuZWwub3JnPiB3cm90ZToKPiA+ID4g
-Pgo+ID4gPgo+ID4gPiBbLi4uXQo+ID4gPgo+ID4gPiA+IGRpZmYgLS1naXQgYS9hcmNoL3MzOTAv
-a2VybmVsL21vZHVsZS5jIGIvYXJjaC9zMzkwL2tlcm5lbC9tb2R1bGUuYwo+ID4gPiA+IGluZGV4
-IDQyMjE1Zjk0MDRhZi4uZGI1NTYxZDBjMjMzIDEwMDY0NAo+ID4gPiA+IC0tLSBhL2FyY2gvczM5
-MC9rZXJuZWwvbW9kdWxlLmMKPiA+ID4gPiArKysgYi9hcmNoL3MzOTAva2VybmVsL21vZHVsZS5j
-Cj4gPiA+ID4gQEAgLTIxLDYgKzIxLDcgQEAKPiA+ID4gPiAgI2luY2x1ZGUgPGxpbnV4L21vZHVs
-ZWxvYWRlci5oPgo+ID4gPiA+ICAjaW5jbHVkZSA8bGludXgvYnVnLmg+Cj4gPiA+ID4gICNpbmNs
-dWRlIDxsaW51eC9tZW1vcnkuaD4KPiA+ID4gPiArI2luY2x1ZGUgPGxpbnV4L2V4ZWNtZW0uaD4K
-PiA+ID4gPiAgI2luY2x1ZGUgPGFzbS9hbHRlcm5hdGl2ZS5oPgo+ID4gPiA+ICAjaW5jbHVkZSA8
-YXNtL25vc3BlYy1icmFuY2guaD4KPiA+ID4gPiAgI2luY2x1ZGUgPGFzbS9mYWNpbGl0eS5oPgo+
-ID4gPiA+IEBAIC03Niw3ICs3Nyw3IEBAIHZvaWQgKm1vZHVsZV9hbGxvYyh1bnNpZ25lZCBsb25n
-IHNpemUpCj4gPiA+ID4gICNpZmRlZiBDT05GSUdfRlVOQ1RJT05fVFJBQ0VSCj4gPiA+ID4gIHZv
-aWQgbW9kdWxlX2FyY2hfY2xlYW51cChzdHJ1Y3QgbW9kdWxlICptb2QpCj4gPiA+ID4gIHsKPiA+
-ID4gPiAtICAgICAgIG1vZHVsZV9tZW1mcmVlKG1vZC0+YXJjaC50cmFtcG9saW5lc19zdGFydCk7
-Cj4gPiA+ID4gKyAgICAgICBleGVjbWVtX2ZyZWUobW9kLT5hcmNoLnRyYW1wb2xpbmVzX3N0YXJ0
-KTsKPiA+ID4gPiAgfQo+ID4gPiA+ICAjZW5kaWYKPiA+ID4gPgo+ID4gPiA+IEBAIC01MTAsNyAr
-NTExLDcgQEAgc3RhdGljIGludCBtb2R1bGVfYWxsb2NfZnRyYWNlX2hvdHBhdGNoX3RyYW1wb2xp
-bmVzKHN0cnVjdCBtb2R1bGUgKm1lLAo+ID4gPiA+Cj4gPiA+ID4gICAgICAgICBzaXplID0gRlRS
-QUNFX0hPVFBBVENIX1RSQU1QT0xJTkVTX1NJWkUocy0+c2hfc2l6ZSk7Cj4gPiA+ID4gICAgICAg
-ICBudW1wYWdlcyA9IERJVl9ST1VORF9VUChzaXplLCBQQUdFX1NJWkUpOwo+ID4gPiA+IC0gICAg
-ICAgc3RhcnQgPSBtb2R1bGVfYWxsb2MobnVtcGFnZXMgKiBQQUdFX1NJWkUpOwo+ID4gPiA+ICsg
-ICAgICAgc3RhcnQgPSBleGVjbWVtX3RleHRfYWxsb2MoRVhFQ01FTV9GVFJBQ0UsIG51bXBhZ2Vz
-ICogUEFHRV9TSVpFKTsKPiA+ID4KPiA+ID4gVGhpcyBzaG91bGQgYmUgRVhFQ01FTV9NT0RVTEVf
-VEVYVD8KPiA+Cj4gPiBUaGlzIGlzIGFuIGZ0cmFjZSB0cmFtcG9saW5lLCBzbyBJIHRoaW5rIGl0
-IHNob3VsZCBiZSBGVFJBQ0UgdHlwZSBvZgo+ID4gYWxsb2NhdGlvbi4KPiAKPiBZZWFoLCBJIHdh
-cyBhd2FyZSBvZiB0aGUgZnRyYWNlIHRyYW1wb2xpbmUuIE15IHBvaW50IHdhcywgZnRyYWNlIHRy
-YW1wb2xpbmUKPiBkb2Vzbid0IHNlZW0gdG8gaGF2ZSBhbnkgc3BlY2lhbCByZXF1aXJlbWVudHMu
-IFRoZXJlZm9yZSwgaXQgaXMgcHJvYmFibHkgbm90Cj4gbmVjZXNzYXJ5IHRvIGhhdmUgYSBzZXBh
-cmF0ZSB0eXBlIGp1c3QgZm9yIGl0LgoKU2luY2UgZnRyYWNlIHRyYW1wb2xpbmVzIGFyZSBjdXJy
-ZW50bHkgdXNlZCBvbmx5IG9uIHMzOTAgYW5kIHg4NiB3aGljaAplbmZvcmNlIHRoZSBzYW1lIHJh
-bmdlIGZvciBhbGwgZXhlY3V0YWJsZSBhbGxvY2F0aW9ucyB0aGVyZSBhcmUgbm8gc3BlY2lhbApy
-ZXF1aXJlbWVudHMgaW5kZWVkLiBCdXQgSSB0aGluayB0aGF0IGV4cGxpY2l0bHkgbWFya2luZyB0
-aGVzZSBhbGxvY2F0aW9ucwphcyBGVFJBQ0UgbWFrZXMgaXQgY2xlYXJlciB3aGF0IGFyZSB0aGV5
-IHVzZWQgZm9yIGFuZCBJIGRvbid0IHNlZSBkb3duc2lkZXMKdG8gaGF2aW5nIGEgdHlwZSBmb3Ig
-RlRSQUNFLgogCj4gQUZBSUNULCBrcHJvYmUsIGZ0cmFjZSwgYW5kIEJQRiAoSklUIGFuZCB0cmFt
-cG9saW5lKSBjYW4gc2hhcmUgdGhlIHNhbWUKPiBleGVjbWVtX3R5cGUuIFdlIG1heSBuZWVkIHNv
-bWUgd29yayBmb3Igc29tZSBhcmNocywgYnV0IG5vdGhpbmcgaXMKPiBmdW5kYW1lbnRhbGx5IGRp
-ZmZlcmVudCBhbW9uZyB0aGVzZS4KClVzaW5nIHRoZSBzYW1lIHR5cGUgZm9yIGFsbCBnZW5lcmF0
-ZWQgY29kZSBpbXBsaWVzIHRoYXQgYWxsIHR5cGVzIG9mIHRoZQpnZW5lcmF0ZWQgY29kZSBtdXN0
-IGxpdmUgaW4gdGhlIHNhbWUgcmFuZ2UgYW5kIEkgZG9uJ3QgdGhpbmsgd2Ugd2FudCB0bwppbXBv
-c2UgdGhpcyBsaW1pdGF0aW9uIG9uIGFyY2hpdGVjdHVyZXMuCgpGb3IgZXhhbXBsZSwgUklTQy1W
-IGRlbGliZXJhdGVseSBhZGRlZCBhIHJhbmdlIGZvciBCUEYgY29kZSB0byBhbGxvdwpyZWxhdGl2
-ZSBhZGRyZXNzaW5nLCBzZWUgY29tbWl0IDdmMzYzMWU4OGVlNiAoInJpc2N2LCBicGY6IFByb3Zp
-ZGUgUklTQy1WCnNwZWNpZmljIEpJVCBpbWFnZSBhbGxvYy9mcmVlIikuCiAKPiBUaGFua3MsCj4g
-U29uZwoKLS0gClNpbmNlcmVseSB5b3VycywKTWlrZS4KCl9fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1y
-aXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxt
-YW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+
+--p4qYPpj5QlsIQJ0K
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+
+Hi Arnd,
+
+On Tue, Sep 26, 2023 at 09:33:48AM +0200, Arnd Bergmann wrote:
+> On Mon, Sep 18, 2023, at 09:29, Mike Rapoport wrote:
+> > index a42e4cd11db2..c0b536e398b4 100644
+> > --- a/arch/arm/mm/init.c
+> > +++ b/arch/arm/mm/init.c
+> > +#ifdef CONFIG_XIP_KERNEL
+> > +/*
+> > + * The XIP kernel text is mapped in the module area for modules and
+> > + * some other stuff to work without any indirect relocations.
+> > + * MODULES_VADDR is redefined here and not in asm/memory.h to avoid
+> > + * recompiling the whole kernel when CONFIG_XIP_KERNEL is turned 
+> > on/off.
+> > + */
+> > +#undef MODULES_VADDR
+> > +#define MODULES_VADDR	(((unsigned long)_exiprom + ~PMD_MASK) & 
+> > PMD_MASK)
+> > +#endif
+> > +
+> > +#if defined(CONFIG_MMU) && defined(CONFIG_EXECMEM)
+> > +static struct execmem_params execmem_params __ro_after_init = {
+> > +	.ranges = {
+> > +		[EXECMEM_DEFAULT] = {
+> > +			.start = MODULES_VADDR,
+> > +			.end = MODULES_END,
+> > +			.alignment = 1,
+> > +		},
+> 
+> This causes a randconfig build failure for me on linux-next now:
+> 
+> arch/arm/mm/init.c:499:25: error: initializer element is not constant
+>   499 | #define MODULES_VADDR   (((unsigned long)_exiprom + ~PMD_MASK) & PMD_MASK)
+>       |                         ^
+> arch/arm/mm/init.c:506:34: note: in expansion of macro 'MODULES_VADDR'
+>   506 |                         .start = MODULES_VADDR,
+>       |                                  ^~~~~~~~~~~~~
+> arch/arm/mm/init.c:499:25: note: (near initialization for 'execmem_params.ranges[0].start')
+>   499 | #define MODULES_VADDR   (((unsigned long)_exiprom + ~PMD_MASK) & PMD_MASK)
+>       |                         ^
+> arch/arm/mm/init.c:506:34: note: in expansion of macro 'MODULES_VADDR'
+>   506 |                         .start = MODULES_VADDR,
+>       |                                  ^~~~~~~~~~~~~
+>
+> I have not done any analysis on the issue so far, I hope
+> you can see the problem directly. See
+> https://pastebin.com/raw/xVqAyakH for a .config that runs into
+> this problem with gcc-13.2.0.
+
+The first patch that breaks XIP build is rather patch 04/13, currently
+commit 52a34d45419f ("mm/execmem, arch: convert remaining overrides of
+module_alloc to execmem") in mm.git/mm-unstable.
+
+The hunk below is a fix for that and the attached patch is the updated
+version of 835bc9685f45 ("arch: make execmem setup available regardless of
+CONFIG_MODULES")
+
+Andrew, please let me know if you'd like to me to resend these differently.
+
+diff --git a/arch/arm/kernel/module.c b/arch/arm/kernel/module.c
+index 2c7651a2d84c..096cc1ead635 100644
+--- a/arch/arm/kernel/module.c
++++ b/arch/arm/kernel/module.c
+@@ -38,8 +38,6 @@
+ static struct execmem_params execmem_params __ro_after_init = {
+ 	.ranges = {
+ 		[EXECMEM_DEFAULT] = {
+-			.start = MODULES_VADDR,
+-			.end = MODULES_END,
+ 			.alignment = 1,
+ 		},
+ 	},
+@@ -49,6 +47,8 @@ struct execmem_params __init *execmem_arch_params(void)
+ {
+ 	struct execmem_range *r = &execmem_params.ranges[EXECMEM_DEFAULT];
+ 
++	r->start = MODULES_VADDR;
++	r->end = MODULES_END;
+ 	r->pgprot = PAGE_KERNEL_EXEC;
+ 
+ 	if (IS_ENABLED(CONFIG_ARM_MODULE_PLTS)) {
+
+ 
+> 
+>       Arnd
+
+-- 
+Sincerely yours,
+Mike.
+
+--p4qYPpj5QlsIQJ0K
+Content-Type: text/x-diff; charset=us-ascii
+Content-Disposition: attachment;
+	filename="0001-arch-make-execmem-setup-available-regardless-of-CONF.patch"
+
+From a2dae5a88d172d54e7f074799a286faedd2cdb6a Mon Sep 17 00:00:00 2001
+From: "Mike Rapoport (IBM)" <rppt@kernel.org>
+Date: Wed, 31 May 2023 14:58:24 +0300
+Subject: [PATCH] arch: make execmem setup available regardless of
+ CONFIG_MODULES
+
+execmem does not depend on modules, on the contrary modules use
+execmem.
+
+To make execmem available when CONFIG_MODULES=n, for instance for
+kprobes, split execmem_params initialization out from
+arch/kernel/module.c and compile it when CONFIG_EXECMEM=y
+
+Signed-off-by: Mike Rapoport (IBM) <rppt@kernel.org>
+---
+ arch/arm/kernel/module.c       |  38 ----------
+ arch/arm/mm/init.c             |  38 ++++++++++
+ arch/arm64/kernel/module.c     | 130 --------------------------------
+ arch/arm64/mm/init.c           | 132 +++++++++++++++++++++++++++++++++
+ arch/loongarch/kernel/module.c |  18 -----
+ arch/loongarch/mm/init.c       |  20 +++++
+ arch/mips/kernel/module.c      |  19 -----
+ arch/mips/mm/init.c            |  20 +++++
+ arch/parisc/kernel/module.c    |  17 -----
+ arch/parisc/mm/init.c          |  22 +++++-
+ arch/powerpc/kernel/module.c   |  60 ---------------
+ arch/powerpc/mm/mem.c          |  62 ++++++++++++++++
+ arch/riscv/kernel/module.c     |  39 ----------
+ arch/riscv/mm/init.c           |  39 ++++++++++
+ arch/s390/kernel/module.c      |  25 -------
+ arch/s390/mm/init.c            |  28 +++++++
+ arch/sparc/kernel/module.c     |  23 ------
+ arch/sparc/mm/Makefile         |   2 +
+ arch/sparc/mm/execmem.c        |  25 +++++++
+ arch/x86/kernel/module.c       |  27 -------
+ arch/x86/mm/init.c             |  29 ++++++++
+ 21 files changed, 416 insertions(+), 397 deletions(-)
+ create mode 100644 arch/sparc/mm/execmem.c
+
+diff --git a/arch/arm/kernel/module.c b/arch/arm/kernel/module.c
+index 096cc1ead635..3282f304f6b1 100644
+--- a/arch/arm/kernel/module.c
++++ b/arch/arm/kernel/module.c
+@@ -16,50 +16,12 @@
+ #include <linux/fs.h>
+ #include <linux/string.h>
+ #include <linux/gfp.h>
+-#include <linux/execmem.h>
+ 
+ #include <asm/sections.h>
+ #include <asm/smp_plat.h>
+ #include <asm/unwind.h>
+ #include <asm/opcodes.h>
+ 
+-#ifdef CONFIG_XIP_KERNEL
+-/*
+- * The XIP kernel text is mapped in the module area for modules and
+- * some other stuff to work without any indirect relocations.
+- * MODULES_VADDR is redefined here and not in asm/memory.h to avoid
+- * recompiling the whole kernel when CONFIG_XIP_KERNEL is turned on/off.
+- */
+-#undef MODULES_VADDR
+-#define MODULES_VADDR	(((unsigned long)_exiprom + ~PMD_MASK) & PMD_MASK)
+-#endif
+-
+-#ifdef CONFIG_MMU
+-static struct execmem_params execmem_params __ro_after_init = {
+-	.ranges = {
+-		[EXECMEM_DEFAULT] = {
+-			.alignment = 1,
+-		},
+-	},
+-};
+-
+-struct execmem_params __init *execmem_arch_params(void)
+-{
+-	struct execmem_range *r = &execmem_params.ranges[EXECMEM_DEFAULT];
+-
+-	r->start = MODULES_VADDR;
+-	r->end = MODULES_END;
+-	r->pgprot = PAGE_KERNEL_EXEC;
+-
+-	if (IS_ENABLED(CONFIG_ARM_MODULE_PLTS)) {
+-		r->fallback_start = VMALLOC_START;
+-		r->fallback_end = VMALLOC_END;
+-	}
+-
+-	return &execmem_params;
+-}
+-#endif
+-
+ bool module_init_section(const char *name)
+ {
+ 	return strstarts(name, ".init") ||
+diff --git a/arch/arm/mm/init.c b/arch/arm/mm/init.c
+index a42e4cd11db2..2df78b9345e8 100644
+--- a/arch/arm/mm/init.c
++++ b/arch/arm/mm/init.c
+@@ -22,6 +22,7 @@
+ #include <linux/sizes.h>
+ #include <linux/stop_machine.h>
+ #include <linux/swiotlb.h>
++#include <linux/execmem.h>
+ 
+ #include <asm/cp15.h>
+ #include <asm/mach-types.h>
+@@ -486,3 +487,40 @@ void free_initrd_mem(unsigned long start, unsigned long end)
+ 	free_reserved_area((void *)start, (void *)end, -1, "initrd");
+ }
+ #endif
++
++#ifdef CONFIG_XIP_KERNEL
++/*
++ * The XIP kernel text is mapped in the module area for modules and
++ * some other stuff to work without any indirect relocations.
++ * MODULES_VADDR is redefined here and not in asm/memory.h to avoid
++ * recompiling the whole kernel when CONFIG_XIP_KERNEL is turned on/off.
++ */
++#undef MODULES_VADDR
++#define MODULES_VADDR	(((unsigned long)_exiprom + ~PMD_MASK) & PMD_MASK)
++#endif
++
++#if defined(CONFIG_MMU) && defined(CONFIG_EXECMEM)
++static struct execmem_params execmem_params __ro_after_init = {
++	.ranges = {
++		[EXECMEM_DEFAULT] = {
++			.alignment = 1,
++		},
++	},
++};
++
++struct execmem_params __init *execmem_arch_params(void)
++{
++	struct execmem_range *r = &execmem_params.ranges[EXECMEM_DEFAULT];
++
++	r->start = MODULES_VADDR;
++	r->end = MODULES_END;
++	r->pgprot = PAGE_KERNEL_EXEC;
++
++	if (IS_ENABLED(CONFIG_ARM_MODULE_PLTS)) {
++		r->fallback_start = VMALLOC_START;
++		r->fallback_end = VMALLOC_END;
++	}
++
++	return &execmem_params;
++}
++#endif
+diff --git a/arch/arm64/kernel/module.c b/arch/arm64/kernel/module.c
+index d27db168d2a2..eb1505128b75 100644
+--- a/arch/arm64/kernel/module.c
++++ b/arch/arm64/kernel/module.c
+@@ -20,142 +20,12 @@
+ #include <linux/random.h>
+ #include <linux/scs.h>
+ #include <linux/vmalloc.h>
+-#include <linux/execmem.h>
+ 
+ #include <asm/alternative.h>
+ #include <asm/insn.h>
+ #include <asm/scs.h>
+ #include <asm/sections.h>
+ 
+-static u64 module_direct_base __ro_after_init = 0;
+-static u64 module_plt_base __ro_after_init = 0;
+-
+-/*
+- * Choose a random page-aligned base address for a window of 'size' bytes which
+- * entirely contains the interval [start, end - 1].
+- */
+-static u64 __init random_bounding_box(u64 size, u64 start, u64 end)
+-{
+-	u64 max_pgoff, pgoff;
+-
+-	if ((end - start) >= size)
+-		return 0;
+-
+-	max_pgoff = (size - (end - start)) / PAGE_SIZE;
+-	pgoff = get_random_u32_inclusive(0, max_pgoff);
+-
+-	return start - pgoff * PAGE_SIZE;
+-}
+-
+-/*
+- * Modules may directly reference data and text anywhere within the kernel
+- * image and other modules. References using PREL32 relocations have a +/-2G
+- * range, and so we need to ensure that the entire kernel image and all modules
+- * fall within a 2G window such that these are always within range.
+- *
+- * Modules may directly branch to functions and code within the kernel text,
+- * and to functions and code within other modules. These branches will use
+- * CALL26/JUMP26 relocations with a +/-128M range. Without PLTs, we must ensure
+- * that the entire kernel text and all module text falls within a 128M window
+- * such that these are always within range. With PLTs, we can expand this to a
+- * 2G window.
+- *
+- * We chose the 128M region to surround the entire kernel image (rather than
+- * just the text) as using the same bounds for the 128M and 2G regions ensures
+- * by construction that we never select a 128M region that is not a subset of
+- * the 2G region. For very large and unusual kernel configurations this means
+- * we may fall back to PLTs where they could have been avoided, but this keeps
+- * the logic significantly simpler.
+- */
+-static int __init module_init_limits(void)
+-{
+-	u64 kernel_end = (u64)_end;
+-	u64 kernel_start = (u64)_text;
+-	u64 kernel_size = kernel_end - kernel_start;
+-
+-	/*
+-	 * The default modules region is placed immediately below the kernel
+-	 * image, and is large enough to use the full 2G relocation range.
+-	 */
+-	BUILD_BUG_ON(KIMAGE_VADDR != MODULES_END);
+-	BUILD_BUG_ON(MODULES_VSIZE < SZ_2G);
+-
+-	if (!kaslr_enabled()) {
+-		if (kernel_size < SZ_128M)
+-			module_direct_base = kernel_end - SZ_128M;
+-		if (kernel_size < SZ_2G)
+-			module_plt_base = kernel_end - SZ_2G;
+-	} else {
+-		u64 min = kernel_start;
+-		u64 max = kernel_end;
+-
+-		if (IS_ENABLED(CONFIG_RANDOMIZE_MODULE_REGION_FULL)) {
+-			pr_info("2G module region forced by RANDOMIZE_MODULE_REGION_FULL\n");
+-		} else {
+-			module_direct_base = random_bounding_box(SZ_128M, min, max);
+-			if (module_direct_base) {
+-				min = module_direct_base;
+-				max = module_direct_base + SZ_128M;
+-			}
+-		}
+-
+-		module_plt_base = random_bounding_box(SZ_2G, min, max);
+-	}
+-
+-	pr_info("%llu pages in range for non-PLT usage",
+-		module_direct_base ? (SZ_128M - kernel_size) / PAGE_SIZE : 0);
+-	pr_info("%llu pages in range for PLT usage",
+-		module_plt_base ? (SZ_2G - kernel_size) / PAGE_SIZE : 0);
+-
+-	return 0;
+-}
+-
+-static struct execmem_params execmem_params __ro_after_init = {
+-	.ranges = {
+-		[EXECMEM_DEFAULT] = {
+-			.flags = EXECMEM_KASAN_SHADOW,
+-			.alignment = MODULE_ALIGN,
+-		},
+-		[EXECMEM_KPROBES] = {
+-			.start = VMALLOC_START,
+-			.end = VMALLOC_END,
+-			.alignment = 1,
+-		},
+-		[EXECMEM_BPF] = {
+-			.start = VMALLOC_START,
+-			.end = VMALLOC_END,
+-			.alignment = 1,
+-		},
+-	},
+-};
+-
+-struct execmem_params __init *execmem_arch_params(void)
+-{
+-	struct execmem_range *r = &execmem_params.ranges[EXECMEM_DEFAULT];
+-
+-	module_init_limits();
+-
+-	r->pgprot = PAGE_KERNEL;
+-
+-	if (module_direct_base) {
+-		r->start = module_direct_base;
+-		r->end = module_direct_base + SZ_128M;
+-
+-		if (module_plt_base) {
+-			r->fallback_start = module_plt_base;
+-			r->fallback_end = module_plt_base + SZ_2G;
+-		}
+-	} else if (module_plt_base) {
+-		r->start = module_plt_base;
+-		r->end = module_plt_base + SZ_2G;
+-	}
+-
+-	execmem_params.ranges[EXECMEM_KPROBES].pgprot = PAGE_KERNEL_ROX;
+-	execmem_params.ranges[EXECMEM_BPF].pgprot = PAGE_KERNEL;
+-
+-	return &execmem_params;
+-}
+-
+ enum aarch64_reloc_op {
+ 	RELOC_OP_NONE,
+ 	RELOC_OP_ABS,
+diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
+index 8a0f8604348b..9b7716b4d84c 100644
+--- a/arch/arm64/mm/init.c
++++ b/arch/arm64/mm/init.c
+@@ -31,6 +31,7 @@
+ #include <linux/hugetlb.h>
+ #include <linux/acpi_iort.h>
+ #include <linux/kmemleak.h>
++#include <linux/execmem.h>
+ 
+ #include <asm/boot.h>
+ #include <asm/fixmap.h>
+@@ -547,3 +548,134 @@ void dump_mem_limit(void)
+ 		pr_emerg("Memory Limit: none\n");
+ 	}
+ }
++
++#ifdef CONFIG_EXECMEM
++static u64 module_direct_base __ro_after_init = 0;
++static u64 module_plt_base __ro_after_init = 0;
++
++/*
++ * Choose a random page-aligned base address for a window of 'size' bytes which
++ * entirely contains the interval [start, end - 1].
++ */
++static u64 __init random_bounding_box(u64 size, u64 start, u64 end)
++{
++	u64 max_pgoff, pgoff;
++
++	if ((end - start) >= size)
++		return 0;
++
++	max_pgoff = (size - (end - start)) / PAGE_SIZE;
++	pgoff = get_random_u32_inclusive(0, max_pgoff);
++
++	return start - pgoff * PAGE_SIZE;
++}
++
++/*
++ * Modules may directly reference data and text anywhere within the kernel
++ * image and other modules. References using PREL32 relocations have a +/-2G
++ * range, and so we need to ensure that the entire kernel image and all modules
++ * fall within a 2G window such that these are always within range.
++ *
++ * Modules may directly branch to functions and code within the kernel text,
++ * and to functions and code within other modules. These branches will use
++ * CALL26/JUMP26 relocations with a +/-128M range. Without PLTs, we must ensure
++ * that the entire kernel text and all module text falls within a 128M window
++ * such that these are always within range. With PLTs, we can expand this to a
++ * 2G window.
++ *
++ * We chose the 128M region to surround the entire kernel image (rather than
++ * just the text) as using the same bounds for the 128M and 2G regions ensures
++ * by construction that we never select a 128M region that is not a subset of
++ * the 2G region. For very large and unusual kernel configurations this means
++ * we may fall back to PLTs where they could have been avoided, but this keeps
++ * the logic significantly simpler.
++ */
++static int __init module_init_limits(void)
++{
++	u64 kernel_end = (u64)_end;
++	u64 kernel_start = (u64)_text;
++	u64 kernel_size = kernel_end - kernel_start;
++
++	/*
++	 * The default modules region is placed immediately below the kernel
++	 * image, and is large enough to use the full 2G relocation range.
++	 */
++	BUILD_BUG_ON(KIMAGE_VADDR != MODULES_END);
++	BUILD_BUG_ON(MODULES_VSIZE < SZ_2G);
++
++	if (!kaslr_enabled()) {
++		if (kernel_size < SZ_128M)
++			module_direct_base = kernel_end - SZ_128M;
++		if (kernel_size < SZ_2G)
++			module_plt_base = kernel_end - SZ_2G;
++	} else {
++		u64 min = kernel_start;
++		u64 max = kernel_end;
++
++		if (IS_ENABLED(CONFIG_RANDOMIZE_MODULE_REGION_FULL)) {
++			pr_info("2G module region forced by RANDOMIZE_MODULE_REGION_FULL\n");
++		} else {
++			module_direct_base = random_bounding_box(SZ_128M, min, max);
++			if (module_direct_base) {
++				min = module_direct_base;
++				max = module_direct_base + SZ_128M;
++			}
++		}
++
++		module_plt_base = random_bounding_box(SZ_2G, min, max);
++	}
++
++	pr_info("%llu pages in range for non-PLT usage",
++		module_direct_base ? (SZ_128M - kernel_size) / PAGE_SIZE : 0);
++	pr_info("%llu pages in range for PLT usage",
++		module_plt_base ? (SZ_2G - kernel_size) / PAGE_SIZE : 0);
++
++	return 0;
++}
++
++static struct execmem_params execmem_params __ro_after_init = {
++	.ranges = {
++		[EXECMEM_DEFAULT] = {
++			.flags = EXECMEM_KASAN_SHADOW,
++			.alignment = MODULE_ALIGN,
++		},
++		[EXECMEM_KPROBES] = {
++			.start = VMALLOC_START,
++			.end = VMALLOC_END,
++			.alignment = 1,
++		},
++		[EXECMEM_BPF] = {
++			.start = VMALLOC_START,
++			.end = VMALLOC_END,
++			.alignment = 1,
++		},
++	},
++};
++
++struct execmem_params __init *execmem_arch_params(void)
++{
++	struct execmem_range *r = &execmem_params.ranges[EXECMEM_DEFAULT];
++
++	module_init_limits();
++
++	r->pgprot = PAGE_KERNEL;
++
++	if (module_direct_base) {
++		r->start = module_direct_base;
++		r->end = module_direct_base + SZ_128M;
++
++		if (module_plt_base) {
++			r->fallback_start = module_plt_base;
++			r->fallback_end = module_plt_base + SZ_2G;
++		}
++	} else if (module_plt_base) {
++		r->start = module_plt_base;
++		r->end = module_plt_base + SZ_2G;
++	}
++
++	execmem_params.ranges[EXECMEM_KPROBES].pgprot = PAGE_KERNEL_ROX;
++	execmem_params.ranges[EXECMEM_BPF].pgprot = PAGE_KERNEL;
++
++	return &execmem_params;
++}
++#endif
+diff --git a/arch/loongarch/kernel/module.c b/arch/loongarch/kernel/module.c
+index a1d8fe9796fa..181b5f8b09f1 100644
+--- a/arch/loongarch/kernel/module.c
++++ b/arch/loongarch/kernel/module.c
+@@ -18,7 +18,6 @@
+ #include <linux/ftrace.h>
+ #include <linux/string.h>
+ #include <linux/kernel.h>
+-#include <linux/execmem.h>
+ #include <asm/alternative.h>
+ #include <asm/inst.h>
+ 
+@@ -470,23 +469,6 @@ int apply_relocate_add(Elf_Shdr *sechdrs, const char *strtab,
+ 	return 0;
+ }
+ 
+-static struct execmem_params execmem_params __ro_after_init = {
+-	.ranges = {
+-		[EXECMEM_DEFAULT] = {
+-			.pgprot = PAGE_KERNEL,
+-			.alignment = 1,
+-		},
+-	},
+-};
+-
+-struct execmem_params __init *execmem_arch_params(void)
+-{
+-	execmem_params.ranges[EXECMEM_DEFAULT].start = MODULES_VADDR;
+-	execmem_params.ranges[EXECMEM_DEFAULT].end = MODULES_END;
+-
+-	return &execmem_params;
+-}
+-
+ static void module_init_ftrace_plt(const Elf_Ehdr *hdr,
+ 				   const Elf_Shdr *sechdrs, struct module *mod)
+ {
+diff --git a/arch/loongarch/mm/init.c b/arch/loongarch/mm/init.c
+index f3fe8c06ba4d..26b10a51309c 100644
+--- a/arch/loongarch/mm/init.c
++++ b/arch/loongarch/mm/init.c
+@@ -24,6 +24,7 @@
+ #include <linux/gfp.h>
+ #include <linux/hugetlb.h>
+ #include <linux/mmzone.h>
++#include <linux/execmem.h>
+ 
+ #include <asm/asm-offsets.h>
+ #include <asm/bootinfo.h>
+@@ -247,3 +248,22 @@ EXPORT_SYMBOL(invalid_pmd_table);
+ #endif
+ pte_t invalid_pte_table[PTRS_PER_PTE] __page_aligned_bss;
+ EXPORT_SYMBOL(invalid_pte_table);
++
++#ifdef CONFIG_EXECMEM
++static struct execmem_params execmem_params __ro_after_init = {
++	.ranges = {
++		[EXECMEM_DEFAULT] = {
++			.pgprot = PAGE_KERNEL,
++			.alignment = 1,
++		},
++	},
++};
++
++struct execmem_params __init *execmem_arch_params(void)
++{
++	execmem_params.ranges[EXECMEM_DEFAULT].start = MODULES_VADDR;
++	execmem_params.ranges[EXECMEM_DEFAULT].end = MODULES_END;
++
++	return &execmem_params;
++}
++#endif
+diff --git a/arch/mips/kernel/module.c b/arch/mips/kernel/module.c
+index 1c959074b35f..ebf9496f5db0 100644
+--- a/arch/mips/kernel/module.c
++++ b/arch/mips/kernel/module.c
+@@ -33,25 +33,6 @@ struct mips_hi16 {
+ static LIST_HEAD(dbe_list);
+ static DEFINE_SPINLOCK(dbe_lock);
+ 
+-#ifdef MODULE_START
+-static struct execmem_params execmem_params __ro_after_init = {
+-	.ranges = {
+-		[EXECMEM_DEFAULT] = {
+-			.start = MODULE_START,
+-			.end = MODULE_END,
+-			.alignment = 1,
+-		},
+-	},
+-};
+-
+-struct execmem_params __init *execmem_arch_params(void)
+-{
+-	execmem_params.ranges[EXECMEM_DEFAULT].pgprot = PAGE_KERNEL;
+-
+-	return &execmem_params;
+-}
+-#endif
+-
+ static void apply_r_mips_32(u32 *location, u32 base, Elf_Addr v)
+ {
+ 	*location = base + v;
+diff --git a/arch/mips/mm/init.c b/arch/mips/mm/init.c
+index 5dcb525a8995..55e7869d03f2 100644
+--- a/arch/mips/mm/init.c
++++ b/arch/mips/mm/init.c
+@@ -31,6 +31,7 @@
+ #include <linux/gfp.h>
+ #include <linux/kcore.h>
+ #include <linux/initrd.h>
++#include <linux/execmem.h>
+ 
+ #include <asm/bootinfo.h>
+ #include <asm/cachectl.h>
+@@ -573,3 +574,22 @@ EXPORT_SYMBOL_GPL(invalid_pmd_table);
+ #endif
+ pte_t invalid_pte_table[PTRS_PER_PTE] __page_aligned_bss;
+ EXPORT_SYMBOL(invalid_pte_table);
++
++#if defined(CONFIG_EXECMEM) && defined(MODULE_START)
++static struct execmem_params execmem_params __ro_after_init = {
++	.ranges = {
++		[EXECMEM_DEFAULT] = {
++			.start = MODULE_START,
++			.end = MODULE_END,
++			.alignment = 1,
++		},
++	},
++};
++
++struct execmem_params __init *execmem_arch_params(void)
++{
++	execmem_params.ranges[EXECMEM_DEFAULT].pgprot = PAGE_KERNEL;
++
++	return &execmem_params;
++}
++#endif
+diff --git a/arch/parisc/kernel/module.c b/arch/parisc/kernel/module.c
+index 0c6dfd1daef3..fecd2760b7a6 100644
+--- a/arch/parisc/kernel/module.c
++++ b/arch/parisc/kernel/module.c
+@@ -174,23 +174,6 @@ static inline int reassemble_22(int as22)
+ 		((as22 & 0x0003ff) << 3));
+ }
+ 
+-static struct execmem_params execmem_params __ro_after_init = {
+-	.ranges = {
+-		[EXECMEM_DEFAULT] = {
+-			.pgprot = PAGE_KERNEL_RWX,
+-			.alignment = 1,
+-		},
+-	},
+-};
+-
+-struct execmem_params __init *execmem_arch_params(void)
+-{
+-	execmem_params.ranges[EXECMEM_DEFAULT].start = VMALLOC_START;
+-	execmem_params.ranges[EXECMEM_DEFAULT].end = VMALLOC_END;
+-
+-	return &execmem_params;
+-}
+-
+ #ifndef CONFIG_64BIT
+ static inline unsigned long count_gots(const Elf_Rela *rela, unsigned long n)
+ {
+diff --git a/arch/parisc/mm/init.c b/arch/parisc/mm/init.c
+index a088c243edea..c87fed38e38e 100644
+--- a/arch/parisc/mm/init.c
++++ b/arch/parisc/mm/init.c
+@@ -24,6 +24,7 @@
+ #include <linux/nodemask.h>	/* for node_online_map */
+ #include <linux/pagemap.h>	/* for release_pages */
+ #include <linux/compat.h>
++#include <linux/execmem.h>
+ 
+ #include <asm/pgalloc.h>
+ #include <asm/tlb.h>
+@@ -479,7 +480,7 @@ void free_initmem(void)
+ 	/* finally dump all the instructions which were cached, since the
+ 	 * pages are no-longer executable */
+ 	flush_icache_range(init_begin, init_end);
+-	
++
+ 	free_initmem_default(POISON_FREE_INITMEM);
+ 
+ 	/* set up a new led state on systems shipped LED State panel */
+@@ -919,3 +920,22 @@ static const pgprot_t protection_map[16] = {
+ 	[VM_SHARED | VM_EXEC | VM_WRITE | VM_READ]	= PAGE_RWX
+ };
+ DECLARE_VM_GET_PAGE_PROT
++
++#ifdef CONFIG_EXECMEM
++static struct execmem_params execmem_params __ro_after_init = {
++	.ranges = {
++		[EXECMEM_DEFAULT] = {
++			.pgprot = PAGE_KERNEL_RWX,
++			.alignment = 1,
++		},
++	},
++};
++
++struct execmem_params __init *execmem_arch_params(void)
++{
++	execmem_params.ranges[EXECMEM_DEFAULT].start = VMALLOC_START;
++	execmem_params.ranges[EXECMEM_DEFAULT].end = VMALLOC_END;
++
++	return &execmem_params;
++}
++#endif
+diff --git a/arch/powerpc/kernel/module.c b/arch/powerpc/kernel/module.c
+index e4ecee1c87ef..b30e00964a60 100644
+--- a/arch/powerpc/kernel/module.c
++++ b/arch/powerpc/kernel/module.c
+@@ -10,7 +10,6 @@
+ #include <linux/vmalloc.h>
+ #include <linux/mm.h>
+ #include <linux/bug.h>
+-#include <linux/execmem.h>
+ #include <asm/module.h>
+ #include <linux/uaccess.h>
+ #include <asm/firmware.h>
+@@ -89,62 +88,3 @@ int module_finalize(const Elf_Ehdr *hdr,
+ 
+ 	return 0;
+ }
+-
+-static struct execmem_params execmem_params __ro_after_init = {
+-	.ranges = {
+-		[EXECMEM_DEFAULT] = {
+-			.alignment = 1,
+-		},
+-		[EXECMEM_KPROBES] = {
+-			.alignment = 1,
+-		},
+-		[EXECMEM_MODULE_DATA] = {
+-			.alignment = 1,
+-		},
+-	},
+-};
+-
+-struct execmem_params __init *execmem_arch_params(void)
+-{
+-	pgprot_t prot = strict_module_rwx_enabled() ? PAGE_KERNEL : PAGE_KERNEL_EXEC;
+-	struct execmem_range *range = &execmem_params.ranges[EXECMEM_DEFAULT];
+-
+-	/*
+-	 * BOOK3S_32 and 8xx define MODULES_VADDR for text allocations and
+-	 * allow allocating data in the entire vmalloc space
+-	 */
+-#ifdef MODULES_VADDR
+-	struct execmem_range *data = &execmem_params.ranges[EXECMEM_MODULE_DATA];
+-	unsigned long limit = (unsigned long)_etext - SZ_32M;
+-
+-	/* First try within 32M limit from _etext to avoid branch trampolines */
+-	if (MODULES_VADDR < PAGE_OFFSET && MODULES_END > limit) {
+-		range->start = limit;
+-		range->end = MODULES_END;
+-		range->fallback_start = MODULES_VADDR;
+-		range->fallback_end = MODULES_END;
+-	} else {
+-		range->start = MODULES_VADDR;
+-		range->end = MODULES_END;
+-	}
+-	data->start = VMALLOC_START;
+-	data->end = VMALLOC_END;
+-	data->pgprot = PAGE_KERNEL;
+-	data->alignment = 1;
+-#else
+-	range->start = VMALLOC_START;
+-	range->end = VMALLOC_END;
+-#endif
+-
+-	range->pgprot = prot;
+-
+-	execmem_params.ranges[EXECMEM_KPROBES].start = range->start;
+-	execmem_params.ranges[EXECMEM_KPROBES].end = range->end;
+-
+-	if (strict_module_rwx_enabled())
+-		execmem_params.ranges[EXECMEM_KPROBES].pgprot = PAGE_KERNEL_ROX;
+-	else
+-		execmem_params.ranges[EXECMEM_KPROBES].pgprot = PAGE_KERNEL_EXEC;
+-
+-	return &execmem_params;
+-}
+diff --git a/arch/powerpc/mm/mem.c b/arch/powerpc/mm/mem.c
+index 8b121df7b08f..466e912181af 100644
+--- a/arch/powerpc/mm/mem.c
++++ b/arch/powerpc/mm/mem.c
+@@ -16,6 +16,7 @@
+ #include <linux/highmem.h>
+ #include <linux/suspend.h>
+ #include <linux/dma-direct.h>
++#include <linux/execmem.h>
+ 
+ #include <asm/swiotlb.h>
+ #include <asm/machdep.h>
+@@ -406,3 +407,64 @@ int devmem_is_allowed(unsigned long pfn)
+  * the EHEA driver. Drop this when drivers/net/ethernet/ibm/ehea is removed.
+  */
+ EXPORT_SYMBOL_GPL(walk_system_ram_range);
++
++#ifdef CONFIG_EXECMEM
++static struct execmem_params execmem_params __ro_after_init = {
++	.ranges = {
++		[EXECMEM_DEFAULT] = {
++			.alignment = 1,
++		},
++		[EXECMEM_KPROBES] = {
++			.alignment = 1,
++		},
++		[EXECMEM_MODULE_DATA] = {
++			.alignment = 1,
++		},
++	},
++};
++
++struct execmem_params __init *execmem_arch_params(void)
++{
++	pgprot_t prot = strict_module_rwx_enabled() ? PAGE_KERNEL : PAGE_KERNEL_EXEC;
++	struct execmem_range *range = &execmem_params.ranges[EXECMEM_DEFAULT];
++
++	/*
++	 * BOOK3S_32 and 8xx define MODULES_VADDR for text allocations and
++	 * allow allocating data in the entire vmalloc space
++	 */
++#ifdef MODULES_VADDR
++	struct execmem_range *data = &execmem_params.ranges[EXECMEM_MODULE_DATA];
++	unsigned long limit = (unsigned long)_etext - SZ_32M;
++
++	/* First try within 32M limit from _etext to avoid branch trampolines */
++	if (MODULES_VADDR < PAGE_OFFSET && MODULES_END > limit) {
++		range->start = limit;
++		range->end = MODULES_END;
++		range->fallback_start = MODULES_VADDR;
++		range->fallback_end = MODULES_END;
++	} else {
++		range->start = MODULES_VADDR;
++		range->end = MODULES_END;
++	}
++	data->start = VMALLOC_START;
++	data->end = VMALLOC_END;
++	data->pgprot = PAGE_KERNEL;
++	data->alignment = 1;
++#else
++	range->start = VMALLOC_START;
++	range->end = VMALLOC_END;
++#endif
++
++	range->pgprot = prot;
++
++	execmem_params.ranges[EXECMEM_KPROBES].start = range->start;
++	execmem_params.ranges[EXECMEM_KPROBES].end = range->end;
++
++	if (strict_module_rwx_enabled())
++		execmem_params.ranges[EXECMEM_KPROBES].pgprot = PAGE_KERNEL_ROX;
++	else
++		execmem_params.ranges[EXECMEM_KPROBES].pgprot = PAGE_KERNEL_EXEC;
++
++	return &execmem_params;
++}
++#endif
+diff --git a/arch/riscv/kernel/module.c b/arch/riscv/kernel/module.c
+index 31505ecb5c72..8af08d5449bf 100644
+--- a/arch/riscv/kernel/module.c
++++ b/arch/riscv/kernel/module.c
+@@ -11,7 +11,6 @@
+ #include <linux/vmalloc.h>
+ #include <linux/sizes.h>
+ #include <linux/pgtable.h>
+-#include <linux/execmem.h>
+ #include <asm/alternative.h>
+ #include <asm/sections.h>
+ 
+@@ -436,44 +435,6 @@ int apply_relocate_add(Elf_Shdr *sechdrs, const char *strtab,
+ 	return 0;
+ }
+ 
+-#ifdef CONFIG_MMU
+-static struct execmem_params execmem_params __ro_after_init = {
+-	.ranges = {
+-		[EXECMEM_DEFAULT] = {
+-			.pgprot = PAGE_KERNEL,
+-			.alignment = 1,
+-		},
+-		[EXECMEM_KPROBES] = {
+-			.pgprot = PAGE_KERNEL_READ_EXEC,
+-			.alignment = 1,
+-		},
+-		[EXECMEM_BPF] = {
+-			.pgprot = PAGE_KERNEL,
+-			.alignment = 1,
+-		},
+-	},
+-};
+-
+-struct execmem_params __init *execmem_arch_params(void)
+-{
+-#ifdef CONFIG_64BIT
+-	execmem_params.ranges[EXECMEM_DEFAULT].start = MODULES_VADDR;
+-	execmem_params.ranges[EXECMEM_DEFAULT].end = MODULES_END;
+-#else
+-	execmem_params.ranges[EXECMEM_DEFAULT].start = VMALLOC_START;
+-	execmem_params.ranges[EXECMEM_DEFAULT].end = VMALLOC_END;
+-#endif
+-
+-	execmem_params.ranges[EXECMEM_KPROBES].start = VMALLOC_START;
+-	execmem_params.ranges[EXECMEM_KPROBES].end = VMALLOC_END;
+-
+-	execmem_params.ranges[EXECMEM_BPF].start = BPF_JIT_REGION_START;
+-	execmem_params.ranges[EXECMEM_BPF].end = BPF_JIT_REGION_END;
+-
+-	return &execmem_params;
+-}
+-#endif
+-
+ int module_finalize(const Elf_Ehdr *hdr,
+ 		    const Elf_Shdr *sechdrs,
+ 		    struct module *me)
+diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+index 0798bd861dcb..b0f7848f39e3 100644
+--- a/arch/riscv/mm/init.c
++++ b/arch/riscv/mm/init.c
+@@ -24,6 +24,7 @@
+ #include <linux/elf.h>
+ #endif
+ #include <linux/kfence.h>
++#include <linux/execmem.h>
+ 
+ #include <asm/fixmap.h>
+ #include <asm/io.h>
+@@ -1564,3 +1565,41 @@ void __init pgtable_cache_init(void)
+ 		preallocate_pgd_pages_range(MODULES_VADDR, MODULES_END, "bpf/modules");
+ }
+ #endif
++
++#if defined(CONFIG_MMU) && defined(CONFIG_EXECMEM)
++static struct execmem_params execmem_params __ro_after_init = {
++	.ranges = {
++		[EXECMEM_DEFAULT] = {
++			.pgprot = PAGE_KERNEL,
++			.alignment = 1,
++		},
++		[EXECMEM_KPROBES] = {
++			.pgprot = PAGE_KERNEL_READ_EXEC,
++			.alignment = 1,
++		},
++		[EXECMEM_BPF] = {
++			.pgprot = PAGE_KERNEL,
++			.alignment = 1,
++		},
++	},
++};
++
++struct execmem_params __init *execmem_arch_params(void)
++{
++#ifdef CONFIG_64BIT
++	execmem_params.ranges[EXECMEM_DEFAULT].start = MODULES_VADDR;
++	execmem_params.ranges[EXECMEM_DEFAULT].end = MODULES_END;
++#else
++	execmem_params.ranges[EXECMEM_DEFAULT].start = VMALLOC_START;
++	execmem_params.ranges[EXECMEM_DEFAULT].end = VMALLOC_END;
++#endif
++
++	execmem_params.ranges[EXECMEM_KPROBES].start = VMALLOC_START;
++	execmem_params.ranges[EXECMEM_KPROBES].end = VMALLOC_END;
++
++	execmem_params.ranges[EXECMEM_BPF].start = BPF_JIT_REGION_START;
++	execmem_params.ranges[EXECMEM_BPF].end = BPF_JIT_REGION_END;
++
++	return &execmem_params;
++}
++#endif
+diff --git a/arch/s390/kernel/module.c b/arch/s390/kernel/module.c
+index 538d5f24af66..81a8d92ca092 100644
+--- a/arch/s390/kernel/module.c
++++ b/arch/s390/kernel/module.c
+@@ -37,31 +37,6 @@
+ 
+ #define PLT_ENTRY_SIZE 22
+ 
+-static struct execmem_params execmem_params __ro_after_init = {
+-	.ranges = {
+-		[EXECMEM_DEFAULT] = {
+-			.flags = EXECMEM_KASAN_SHADOW,
+-			.alignment = MODULE_ALIGN,
+-			.pgprot = PAGE_KERNEL,
+-		},
+-	},
+-};
+-
+-struct execmem_params __init *execmem_arch_params(void)
+-{
+-	unsigned long module_load_offset = 0;
+-	unsigned long start;
+-
+-	if (kaslr_enabled())
+-		module_load_offset = get_random_u32_inclusive(1, 1024) * PAGE_SIZE;
+-
+-	start = MODULES_VADDR + module_load_offset;
+-	execmem_params.ranges[EXECMEM_DEFAULT].start = start;
+-	execmem_params.ranges[EXECMEM_DEFAULT].end = MODULES_END;
+-
+-	return &execmem_params;
+-}
+-
+ #ifdef CONFIG_FUNCTION_TRACER
+ void module_arch_cleanup(struct module *mod)
+ {
+diff --git a/arch/s390/mm/init.c b/arch/s390/mm/init.c
+index 8b94d2212d33..2e6d6512fc5f 100644
+--- a/arch/s390/mm/init.c
++++ b/arch/s390/mm/init.c
+@@ -34,6 +34,7 @@
+ #include <linux/percpu.h>
+ #include <asm/processor.h>
+ #include <linux/uaccess.h>
++#include <linux/execmem.h>
+ #include <asm/pgalloc.h>
+ #include <asm/kfence.h>
+ #include <asm/ptdump.h>
+@@ -311,3 +312,30 @@ void arch_remove_memory(u64 start, u64 size, struct vmem_altmap *altmap)
+ 	vmem_remove_mapping(start, size);
+ }
+ #endif /* CONFIG_MEMORY_HOTPLUG */
++
++#ifdef CONFIG_EXECMEM
++static struct execmem_params execmem_params __ro_after_init = {
++	.ranges = {
++		[EXECMEM_DEFAULT] = {
++			.flags = EXECMEM_KASAN_SHADOW,
++			.alignment = MODULE_ALIGN,
++			.pgprot = PAGE_KERNEL,
++		},
++	},
++};
++
++struct execmem_params __init *execmem_arch_params(void)
++{
++	unsigned long module_load_offset = 0;
++	unsigned long start;
++
++	if (kaslr_enabled())
++		module_load_offset = get_random_u32_inclusive(1, 1024) * PAGE_SIZE;
++
++	start = MODULES_VADDR + module_load_offset;
++	execmem_params.ranges[EXECMEM_DEFAULT].start = start;
++	execmem_params.ranges[EXECMEM_DEFAULT].end = MODULES_END;
++
++	return &execmem_params;
++}
++#endif
+diff --git a/arch/sparc/kernel/module.c b/arch/sparc/kernel/module.c
+index 1d8d1fba95b9..dff1d85ba202 100644
+--- a/arch/sparc/kernel/module.c
++++ b/arch/sparc/kernel/module.c
+@@ -14,7 +14,6 @@
+ #include <linux/string.h>
+ #include <linux/ctype.h>
+ #include <linux/mm.h>
+-#include <linux/execmem.h>
+ #ifdef CONFIG_SPARC64
+ #include <linux/jump_label.h>
+ #endif
+@@ -25,28 +24,6 @@
+ 
+ #include "entry.h"
+ 
+-static struct execmem_params execmem_params __ro_after_init = {
+-	.ranges = {
+-		[EXECMEM_DEFAULT] = {
+-#ifdef CONFIG_SPARC64
+-			.start = MODULES_VADDR,
+-			.end = MODULES_END,
+-#else
+-			.start = VMALLOC_START,
+-			.end = VMALLOC_END,
+-#endif
+-			.alignment = 1,
+-		},
+-	},
+-};
+-
+-struct execmem_params __init *execmem_arch_params(void)
+-{
+-	execmem_params.ranges[EXECMEM_DEFAULT].pgprot = PAGE_KERNEL;
+-
+-	return &execmem_params;
+-}
+-
+ /* Make generic code ignore STT_REGISTER dummy undefined symbols.  */
+ int module_frob_arch_sections(Elf_Ehdr *hdr,
+ 			      Elf_Shdr *sechdrs,
+diff --git a/arch/sparc/mm/Makefile b/arch/sparc/mm/Makefile
+index 871354aa3c00..87e2cf7efb5b 100644
+--- a/arch/sparc/mm/Makefile
++++ b/arch/sparc/mm/Makefile
+@@ -15,3 +15,5 @@ obj-$(CONFIG_SPARC32)   += leon_mm.o
+ 
+ # Only used by sparc64
+ obj-$(CONFIG_HUGETLB_PAGE) += hugetlbpage.o
++
++obj-$(CONFIG_EXECMEM) += execmem.o
+diff --git a/arch/sparc/mm/execmem.c b/arch/sparc/mm/execmem.c
+new file mode 100644
+index 000000000000..fb53a859869a
+--- /dev/null
++++ b/arch/sparc/mm/execmem.c
+@@ -0,0 +1,25 @@
++// SPDX-License-Identifier: GPL-2.0
++#include <linux/mm.h>
++#include <linux/execmem.h>
++
++static struct execmem_params execmem_params __ro_after_init = {
++	.ranges = {
++		[EXECMEM_DEFAULT] = {
++#ifdef CONFIG_SPARC64
++			.start = MODULES_VADDR,
++			.end = MODULES_END,
++#else
++			.start = VMALLOC_START,
++			.end = VMALLOC_END,
++#endif
++			.alignment = 1,
++		},
++	},
++};
++
++struct execmem_params __init *execmem_arch_params(void)
++{
++	execmem_params.ranges[EXECMEM_DEFAULT].pgprot = PAGE_KERNEL;
++
++	return &execmem_params;
++}
+diff --git a/arch/x86/kernel/module.c b/arch/x86/kernel/module.c
+index 9d37375e2f05..c52d591c0f3f 100644
+--- a/arch/x86/kernel/module.c
++++ b/arch/x86/kernel/module.c
+@@ -19,7 +19,6 @@
+ #include <linux/jump_label.h>
+ #include <linux/random.h>
+ #include <linux/memory.h>
+-#include <linux/execmem.h>
+ 
+ #include <asm/text-patching.h>
+ #include <asm/page.h>
+@@ -37,32 +36,6 @@ do {							\
+ } while (0)
+ #endif
+ 
+-static struct execmem_params execmem_params __ro_after_init = {
+-	.ranges = {
+-		[EXECMEM_DEFAULT] = {
+-			.flags = EXECMEM_KASAN_SHADOW,
+-			.alignment = MODULE_ALIGN,
+-		},
+-	},
+-};
+-
+-struct execmem_params __init *execmem_arch_params(void)
+-{
+-	unsigned long module_load_offset = 0;
+-	unsigned long start;
+-
+-	if (IS_ENABLED(CONFIG_RANDOMIZE_BASE) && kaslr_enabled())
+-		module_load_offset =
+-			get_random_u32_inclusive(1, 1024) * PAGE_SIZE;
+-
+-	start = MODULES_VADDR + module_load_offset;
+-	execmem_params.ranges[EXECMEM_DEFAULT].start = start;
+-	execmem_params.ranges[EXECMEM_DEFAULT].end = MODULES_END;
+-	execmem_params.ranges[EXECMEM_DEFAULT].pgprot = PAGE_KERNEL;
+-
+-	return &execmem_params;
+-}
+-
+ #ifdef CONFIG_X86_32
+ int apply_relocate(Elf32_Shdr *sechdrs,
+ 		   const char *strtab,
+diff --git a/arch/x86/mm/init.c b/arch/x86/mm/init.c
+index 679893ea5e68..022af7ab50f9 100644
+--- a/arch/x86/mm/init.c
++++ b/arch/x86/mm/init.c
+@@ -7,6 +7,7 @@
+ #include <linux/swapops.h>
+ #include <linux/kmemleak.h>
+ #include <linux/sched/task.h>
++#include <linux/execmem.h>
+ 
+ #include <asm/set_memory.h>
+ #include <asm/cpu_device_id.h>
+@@ -1099,3 +1100,31 @@ unsigned long arch_max_swapfile_size(void)
+ 	return pages;
+ }
+ #endif
++
++#ifdef CONFIG_EXECMEM
++static struct execmem_params execmem_params __ro_after_init = {
++	.ranges = {
++		[EXECMEM_DEFAULT] = {
++			.flags = EXECMEM_KASAN_SHADOW,
++			.alignment = MODULE_ALIGN,
++		},
++	},
++};
++
++struct execmem_params __init *execmem_arch_params(void)
++{
++	unsigned long module_load_offset = 0;
++	unsigned long start;
++
++	if (IS_ENABLED(CONFIG_RANDOMIZE_BASE) && kaslr_enabled())
++		module_load_offset =
++			get_random_u32_inclusive(1, 1024) * PAGE_SIZE;
++
++	start = MODULES_VADDR + module_load_offset;
++	execmem_params.ranges[EXECMEM_DEFAULT].start = start;
++	execmem_params.ranges[EXECMEM_DEFAULT].end = MODULES_END;
++	execmem_params.ranges[EXECMEM_DEFAULT].pgprot = PAGE_KERNEL;
++
++	return &execmem_params;
++}
++#endif /* CONFIG_EXECMEM */
+-- 
+2.39.2
+
+
+--p4qYPpj5QlsIQJ0K
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--p4qYPpj5QlsIQJ0K--
+
