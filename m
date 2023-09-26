@@ -4,83 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6550BE8181D
-	for <linux-riscv@archiver.kernel.org>; Tue, 26 Sep 2023 06:08:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FE8DE7D0C5
+	for <linux-riscv@archiver.kernel.org>; Tue, 26 Sep 2023 06:10:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Date:References:
 	In-Reply-To:Message-Id:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bKZxtRHHg8xcdA8757/V1vLpfGdruC5pelmGT0QPv8g=; b=15TAaIvxUJ+9zL
-	0WqV3dSiD83OoLdvc1pPthHXaruY/UWHGcsDOfviMux7/26+haoBItL6F3sUZIC4Y8IPRh9JFsQcT
-	QBLMWicAMMZJNOIyZaOGd2iWlc+LT2KURME75UR2PEBtVDTXV79QBKcbG026PdGNRBVlILbg2ihQs
-	GUAtUshlmep/SSRSimp8Jd/+9IvvLHlJRePy9MFE4wIr8K6dyCG5yVamtupVhp9ukAe8GBM1X7Wkt
-	yPpcPnqYgzpeZAfFqdAYN7mjV2dF/jgCggVjNLaImHH6Vl4gEv9xAjCTrAqX/lV6sF7EuLWYiTilz
-	sGUHf5j3UAjqhvGTQvgA==;
+	List-Owner; bh=D+l8EiYD4IGkf6mRilzkYf8tQ4c/9XsN1HGJu5pTcYM=; b=31j/0PaMxwuJNP
+	jKvQ8m7JZouJjCMtqhN8TwF8xL0o+dV3xB1QG8v0eoGrpV4+fVK1UfwdQfNkK+oTdsRvaGfkiYyE9
+	4dOFMM32Ced+qS7zm/iayVT5t6MoK4+VOR4w/vAFQd/xytp1AdfzNlODve8RuhkZvTnNBxUFXO17X
+	govyJOgNM+q937ZGrALMKiT/1l02BM7+/S34Q9yP4sFtLwYHGOet6N6sTApSTQ+4020zWOUMXTvhV
+	uVlHlU86RvJJkKrJRPE8ieTZutR/ZmEq7UE7B6Fbwt+DIsU2J0YyGPc95HvvbjuGlyXdWB6vF2ap+
+	2OD2Jyh1APGVNuAAyclQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1ql1Es-00FgMD-0m;
-	Tue, 26 Sep 2023 06:08:06 +0000
+	id 1ql1HP-00Fgh5-2o;
+	Tue, 26 Sep 2023 06:10:43 +0000
 Received: from wout1-smtp.messagingengine.com ([64.147.123.24])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1ql1Ep-00FgLr-2H
+	id 1ql1HN-00FggG-1T
 	for linux-riscv@lists.infradead.org;
-	Tue, 26 Sep 2023 06:08:04 +0000
+	Tue, 26 Sep 2023 06:10:42 +0000
 Received: from compute6.internal (compute6.nyi.internal [10.202.2.47])
-	by mailout.west.internal (Postfix) with ESMTP id 85E0D32009F4;
-	Tue, 26 Sep 2023 02:08:01 -0400 (EDT)
+	by mailout.west.internal (Postfix) with ESMTP id E07D432009F0;
+	Tue, 26 Sep 2023 02:10:39 -0400 (EDT)
 Received: from imap51 ([10.202.2.101])
-  by compute6.internal (MEProxy); Tue, 26 Sep 2023 02:08:02 -0400
+  by compute6.internal (MEProxy); Tue, 26 Sep 2023 02:10:40 -0400
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
 	:cc:content-type:content-type:date:date:from:from:in-reply-to
 	:in-reply-to:message-id:mime-version:references:reply-to:sender
-	:subject:subject:to:to; s=fm1; t=1695708481; x=1695794881; bh=xZ
-	//d5rAxIyL4DIO25l3Kqx9snAaHxvzdTIm60dV7fo=; b=k8GgK8b8bdbMrxec14
-	vQF7AIOuOLxboNppmnLK9zaKi+d+Tp+yVgazv7sqFmNtdeP0aZyrlf2hB+9CyTyN
-	Bxd1N65CUpF5BifXyNljwPU/YIJAYl8cEmqO9eW1ozNxx0StAkRpBJsp5R7EDOy3
-	FVDekivSaQOYc5qjMWOJe79cnfv+KEySWlJ094MwFD1fYe9AtFT419Le66TH3vJS
-	E2y7cYRgaD/RvN205GxckZuiYZ2JTGRiYZnv6SDpII80yMXXkEajwtcKgKWWqzNK
-	vVHTE/5+Hwj8R9Qe888Dc/etYdGyczVAvk9/uNGBSGFRgL7TlnhQMY6CCmKac5/q
-	jxuQ==
+	:subject:subject:to:to; s=fm1; t=1695708639; x=1695795039; bh=oC
+	YIjuW89ugmbyi2Z2bcvS41djt8ybKt3d7f3d7YUtg=; b=ouBK1gk5nfLdyJrDUI
+	wdVsO41CB6GBBarwCeJyFPMDWdoV68AgcEYOMCB167pKfQw5T3b/0yNArFnUaAi1
+	9XPWYRWWdK4GRlTP/vVy9dznUHP+KWfCtdNwRh/UFPzXOqYUEvqQsKEHzjS1Unb7
+	Ur3ehzaONMVwXFqRa0X9d/eu9Va05CnXhf/h9ahqd1V78WjLlMBhS6Osps22QLIm
+	+Wmtf2gBFte97YLyyg0ReXeZM4DCCt5qO0Qlcmt6zGWPsuEsTShJvODFNKVW33TF
+	K8Ps/ik5XfZTK/U1fqviD0qH4xfWosZoUs31UWkITtpDyT1iVofsRxdiM+km24P4
+	lPvg==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
 	messagingengine.com; h=cc:cc:content-type:content-type:date:date
 	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
 	:message-id:mime-version:references:reply-to:sender:subject
 	:subject:to:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender
-	:x-sasl-enc; s=fm2; t=1695708481; x=1695794881; bh=xZ//d5rAxIyL4
-	DIO25l3Kqx9snAaHxvzdTIm60dV7fo=; b=VGOMi6HnfP/cfR1kzW9zh1OSswSZv
-	bKIiaa3E3Ar5x6E4b4QKSoqZ3FYSSs10iBjwp9sl7Wev0ChCekF3gGbCKH39kePz
-	upTMKHZpcyO7pROwYUqN2j5eXZ7VWaj0rXuyvYr1v05qq/t0lTemD0UHnRkuxJh9
-	uVe35RrBngFSnrTeZABHHKjP186/bfOc+BkMg259YYIeS0tXnIUQYq3vrnNuvOjU
-	xWGOM82HD7sKxUoq/sjU2AmF57UgMjwe0/Thfr3oYK/oY2jMU2QMJEl/MkDxG7bK
-	RbNtqegmLQoDj5AN0MYPtS74aYSHrMUXTg2BrqK+w9eSGeRC/akkkuqUQ==
-X-ME-Sender: <xms:QHUSZajDXIX5_yCRxxvH7o-mrbsKQTdX0bAjIs3_kRQ9FyUIW5cH6A>
-    <xme:QHUSZbBaHncRGc0IZDGhQ8qrMWwBalhH1sBWhKd9f9sClogo_5K9bcJarPYD7anHI
-    a3D-seLtmR8uywxBGo>
+	:x-sasl-enc; s=fm2; t=1695708639; x=1695795039; bh=oCYIjuW89ugmb
+	yi2Z2bcvS41djt8ybKt3d7f3d7YUtg=; b=MpaLGSaJtda/meO2nTAhN9DT3q6Uy
+	AkxW0eyOBXlGqw066njGrSEW1Eu6QPBQz8gVp2yN3kQsJjB/qqocqMAHNhF+DO+P
+	ioO/+KCDWcsM5mkd/uqf1vFuL2IDgMw19wFtr8H68rFD6A74oxtqAXIpR62xxkoF
+	BgBTndlxVKGpdn6g9KLQgVeGlGNkftsz5Pk3InWj8odoUtqCtdw0VeMsueuSAXZV
+	Z+meKr+nn/7VkQxXTJonIeIIzqJabeEDCf7e0GLcFI+L6PGKdy8dlZ6FLsEkK9MM
+	+NiHuk3zGFd/yY9M35Sz22fY/yy8rKeaLPQ63oLBpX116mbX7eL+JSdHQ==
+X-ME-Sender: <xms:33USZfZAcbkSN8QCtuvncxGpsKPXgIYsjJsSIReBOXVReTblJGowbA>
+    <xme:33USZebIUzSjZvt6N_6FeN8K5sBdt89_cS4EiFQnocuUiIrhaexA4ul1v1dKboMIM
+    QI2eT5r2fgrHVa8EDY>
 X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedviedrudelhedguddtfecutefuodetggdotefrod
     ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfgh
     necuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmd
     enucfjughrpefofgggkfgjfhffhffvvefutgesthdtredtreertdenucfhrhhomhepfdet
     rhhnugcuuegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrg
     htthgvrhhnpeffheeugeetiefhgeethfejgfdtuefggeejleehjeeutefhfeeggefhkedt
-    keetffenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpe
+    keetffenucevlhhushhtvghrufhiiigvpedunecurfgrrhgrmhepmhgrihhlfhhrohhmpe
     grrhhnugesrghrnhgusgdruggv
-X-ME-Proxy: <xmx:QHUSZSEVBy-pvO9Y3AXNe4lXaTCLCq_hUJWd92qLhYb_FVX1DN9JXw>
-    <xmx:QHUSZTQRT8BIkEhcXeJlYjH-WpkB1XpfGY-DiRGJbms_dx66_HEGvQ>
-    <xmx:QHUSZXzPUhtAkHMiX8NWg9APAPN0R3Yp1_t8Srl28f1J7bDpSaBa8g>
-    <xmx:QXUSZffm2tqYl_AVYJWmXUiqNNcVNPAYcaep-TztM4cGFhvs4vNBKQ>
+X-ME-Proxy: <xmx:33USZR-Gky2tN1vqb_XJk8lV_2y5pK0Upu7mfQAdSOYmDAjYzjzP4Q>
+    <xmx:33USZVphx70509OBzc38Mvd8x6PaY5aM90xynxsfDgpUfldWeO4RQA>
+    <xmx:33USZaoTl_b7HbfCBmNplViPJl8yTHsm0-PxiDHMby1GiB4ivUGb3A>
+    <xmx:33USZZ2MP7jWG3cYDDrsd9VqvYUClaPgWkZ-5VFGFAdk9ABmjohJpg>
 Feedback-ID: i56a14606:Fastmail
 Received: by mailuser.nyi.internal (Postfix, from userid 501)
-	id B0DEBB60089; Tue, 26 Sep 2023 02:08:00 -0400 (EDT)
+	id 24B8AB60089; Tue, 26 Sep 2023 02:10:39 -0400 (EDT)
 X-Mailer: MessagingEngine.com Webmail Interface
 User-Agent: Cyrus-JMAP/3.9.0-alpha0-957-ga1ccdb4cff-fm-20230919.001-ga1ccdb4c
 MIME-Version: 1.0
-Message-Id: <862f42d7-b582-4d88-a9d2-f72ea5bfe903@app.fastmail.com>
-In-Reply-To: <3042b32a13aecbf8f3c8bedee34a4ca8c7d7cb2e.1695679700.git.falcon@tinylab.org>
+Message-Id: <3a8f0d0a-25ad-49c3-9cd2-66db44a4a1e6@app.fastmail.com>
+In-Reply-To: <ce00dad5acdd4aff099b289843e30c83f7e31764.1695679700.git.falcon@tinylab.org>
 References: <cover.1695679700.git.falcon@tinylab.org>
- <3042b32a13aecbf8f3c8bedee34a4ca8c7d7cb2e.1695679700.git.falcon@tinylab.org>
-Date: Tue, 26 Sep 2023 08:07:40 +0200
+ <ce00dad5acdd4aff099b289843e30c83f7e31764.1695679700.git.falcon@tinylab.org>
+Date: Tue, 26 Sep 2023 08:10:17 +0200
 From: "Arnd Bergmann" <arnd@arndb.de>
 To: "Zhangjin Wu" <falcon@tinylab.org>, linux-kernel@vger.kernel.org,
  linux-mips@vger.kernel.org, linux-riscv@lists.infradead.org
@@ -91,10 +91,10 @@ Cc: "Palmer Dabbelt" <palmer@rivosinc.com>,
  "Willy Tarreau" <w@1wt.eu>,
  =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <linux@weissschuh.net>,
  "Tim Bird" <tim.bird@sony.com>
-Subject: Re: [PATCH v1 4/7] DCE/DSE: mips: add HAVE_TRIM_UNUSED_SYSCALLS support
+Subject: Re: [PATCH v1 6/7] DCE/DSE: riscv: add HAVE_TRIM_UNUSED_SYSCALLS support
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230925_230803_779734_9F9F1350 
-X-CRM114-Status: GOOD (  12.82  )
+X-CRM114-CacheID: sfid-20230925_231041_525135_2009F61E 
+X-CRM114-Status: GOOD (  10.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,40 +111,26 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 26, 2023, at 00:40, Zhangjin Wu wrote:
+On Tue, Sep 26, 2023, at 00:42, Zhangjin Wu wrote:
 > For HAVE_TRIM_UNUSED_SYSCALLS, the syscall tables are hacked with the
-> input used syscalls.
+> inputing unused_syscalls.
 >
-> Based on the used syscalls information, a new version of tbl file is
-> generated from the original tbl file and named with a 'used' suffix.
+> Firstly, the intermediate preprocessed .i files are generated from the
+> original C version of syscall tables respectively, and named with a
+> 'used' suffix: syscall_table_used.i, compat_syscall_table_used.i.
 >
-> With this new tbl file, both unistd_nr_*.h and syscall_table_*.h files
-> are updated to only include the used syscalls.
+> Secondly, all of the unused syscalls are commented.
 >
->     $ grep _Linux_syscalls -ur arch/mips/include/generated/asm/
->     arch/mips/include/generated/asm/unistd_nr_n64.h:#define 
-> __NR_64_Linux_syscalls	165
->     arch/mips/include/generated/asm/unistd_nr_n32.h:#define 
-> __NR_N32_Linux_syscalls	165
->     arch/mips/include/generated/asm/unistd_nr_o32.h:#define 
-> __NR_O32_Linux_syscalls	89
+> At last, two new objective files sufixed with 'used' are generated from
+> the hacked .i files and they are linked into the eventual kernel image.
 >
->     $ grep -vr sys_ni_syscall 
-> arch/mips/include/generated/asm/syscall_table_*.h
->     arch/mips/include/generated/asm/syscall_table_n32.h:__SYSCALL(58, 
-> sys_exit)
->     arch/mips/include/generated/asm/syscall_table_n32.h:__SYSCALL(164, 
-> sys_reboot)
->     arch/mips/include/generated/asm/syscall_table_n64.h:__SYSCALL(58, 
-> sys_exit)
+> Signed-off-by: Zhangjin Wu <falcon@tinylab.org>
 
-My feeling is that instead of postprocessing the generated files,
-it would be much better to make the elimination part of the
-existing infrastructure that generates the files from syscall.tbl,
-and finally change the include/asm-generic/unistd.h to the
-same format, as we had planned for a long time.
-
-I should be able to help out with that part.
+As mentioned in my comment on the mips patch, hacking the preprocessed
+file here is too much strain on the old infrastructure, the
+asm-generic/unistd.h file is already too hard to understand for
+anyone and in need of an overhaul, so let's work together on fixing
+it up first.
 
       Arnd
 
