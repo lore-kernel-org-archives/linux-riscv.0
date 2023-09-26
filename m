@@ -4,78 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB35BE7E648
-	for <linux-riscv@archiver.kernel.org>; Tue, 26 Sep 2023 15:04:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D37EE7E654
+	for <linux-riscv@archiver.kernel.org>; Tue, 26 Sep 2023 18:04:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=R6mGN6LdnJC4bAKxaTOpt1/ON1FdBlHVbN1N2mbgkUI=; b=4nsGGcv5YAv7bI
-	2h9wN9v46hqxyZiUPMD+LZmgb2PQ1yPDCP+Mrzl6eTyvtBBGc22Gr6g634HPP1cvrVuKkKQlu4PDD
-	tYtaCbYU5X9oZWwduyqcps5ntqBs66dcPCex+f/WfNpd3zRbfBnSmSGPytGbWlnYvApDSYrM306pU
-	uqDY/AEfeT7K9Xa/tD9ojUTjVpyn/jli7Kzo5rQdr8+PWHCKjVxQEryBqpS1G61ZDKE2wHvYmtEqo
-	NTFtWI0DdqteMA5hrpvUsU0fDVFuF0rh//BfsAzl9741myZXcRa13P5mCsbb95kmW4St3+k9rAb+y
-	nPkWJ1Dsb0wABubEBRBA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=aDIJVrM+lOnhtFP15xzJy3qEp4nInaFEfmpTKtjTmmk=; b=13JGsejRz1J5N/
+	4g3UXv5EjxmUflexu9du4MjQipQz4r4/EkSLBoH35WfiMc1QhywMhay1RzRloI/KWTmWdBkGjG3em
+	T/DsX+9madj7nkdRmIZ3MrxXjMWmEeL1iwERRRwEU2cg2oxuszZ3I/4NULgUvsQzFGNH7TRP7KYMH
+	ukrWNRz7YvZ052fo0u7DkrhGU5ypt9FfHrjZ4e8+eB7YmP3NV9hjZ5a3DemaeOJACULqh246BP+tN
+	sFG8Th+gVMwSSidP+YLNslmKRMXB+rRJvAWwU+/bCFGuQ41gfLJrssVmzxSc595V8npHyZ5+B8gl+
+	GMPGMq7x14rgP6e9lF9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1ql9bl-00GbVY-0Y;
-	Tue, 26 Sep 2023 15:04:17 +0000
-Received: from mail-yb1-xb29.google.com ([2607:f8b0:4864:20::b29])
+	id 1qlCQG-00Goop-1Z;
+	Tue, 26 Sep 2023 18:04:36 +0000
+Received: from mail-am0eur02olkn20821.outbound.protection.outlook.com ([2a01:111:f400:fe13::821] helo=EUR02-AM0-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1ql9bi-00GbSt-2P
+	id 1qlCQD-00Gona-1U
 	for linux-riscv@lists.infradead.org;
-	Tue, 26 Sep 2023 15:04:16 +0000
-Received: by mail-yb1-xb29.google.com with SMTP id 3f1490d57ef6-d865854ef96so7428612276.2
-        for <linux-riscv@lists.infradead.org>; Tue, 26 Sep 2023 08:04:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1695740652; x=1696345452; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=gACCqU464nbmifans7JAXRQVvVlNjsznE9UNt5TqO8E=;
-        b=HrxTsokbvxG2sCCYu0ECLE7Su1yDjHevjGELNfxO9RpGHWCdF6MEFnchUrWveSMfat
-         nntOX9+5tE3Xj5HCHQFKvrsN1AWVArQ+aHm04Rvduj2JcuDpjDNrDjGjofAUsSeSGjm1
-         ywhdN4fhBt5iQ+u5SRVWUc3tqDR45QcFRZdnmLTd3QU+Xk0nv1LPkRyBIgqUiTZbu9/R
-         c/kGEQe2NhblURq+ond4JfgBbQ/WCKcpf1JwQ4JsqnY/fGZyYbv+kEeikpHXW29oohkL
-         0YC8h2F9StBqbF6jdXkrGSZBV2JUC20x23+hjndSDmfLzfrVguhaLGZZQNyQIS/3ThRP
-         exVQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1695740652; x=1696345452;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=gACCqU464nbmifans7JAXRQVvVlNjsznE9UNt5TqO8E=;
-        b=dTSnzNJ9VIm6DMdOaYJt0F9s80DciPQ8c9lc43nl/mpUBk4x3bQ/POonItzB/HRFzl
-         KRYAVD4jwE17v+ooD1YOo7HsGyMQ+5V5NIy9DRnpxQM6mxkWiviTlkYEWcz2QkcZXmWl
-         06a/1021LOQALGrpma8UFfRmVeTmdXFGeNUolWYrdNhwJvpaH5v11/hk7tr4edyVK+Fc
-         hJiVGE/XGkgX3HrhyOImR1kxevLYw/PUfJB1+j28dkSE5BiJ2/vGCSV3Wd+N+/c5SjiS
-         tqiKimCk7cAXZFnu9weHskDYxDqsVCYbGczBDY6suF75h1Dsp8EgFTSJTnNkSD8oHQ3b
-         NijA==
-X-Gm-Message-State: AOJu0YxuuifciNfH+Nm5F5L3Akhalkf83e4hWNT44msXnmivY31rbRp8
-	QEXs/uBcOoj5Dnc+BACNXenSgbIWn9dBE3pXXS+5Kg==
-X-Google-Smtp-Source: AGHT+IHebOY62vQuQ8mi7GVykbe+TPx5MZJx0BhkK6giVggi+4w9oRLPJPUde9+BtK9dj0EgQ9y6d+OUJIa5A5+74kA=
-X-Received: by 2002:a25:320e:0:b0:d7f:13da:f773 with SMTP id
- y14-20020a25320e000000b00d7f13daf773mr9543151yby.6.1695740651642; Tue, 26 Sep
- 2023 08:04:11 -0700 (PDT)
+	Tue, 26 Sep 2023 18:04:34 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=Zfkkaaqyh6M4MPbEhgl+X+KWv1jSUBI87qzFo5q1f74llCH1ci5A8xfnfEx4LYTvB+mi8xCegvQc4yWCmpfog9gTaUHCeEwDOnO9xyxQ1HEqUTWaMo16S8/oBKwC+DMNwr7wSKeHIb2Oxh1G8CKr1Uq/IEfLWJNNkMETNOJKj70qnwCx4ufeo4abWOqWKNQxBXHmSEJyH/r2x+14IfFBljzqjcXnRFlzNXY9hJqBhBLhpV80HiMUd3JEK/pg1LodkOM6TM06gWwvGMwMF9gaqWr2Lk2v61HoSB+a9i8dz8Cr54eoHSIaniRqzNrIWHKV7R2zmxFoOBiP2GOOyX5NjQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=RwVWlXQeoym0mywKOq9pNSsKico5ab6LLcX/fLgmsKc=;
+ b=jMsaO2cq+EWIbNhYYKNAjQfALFNkFys5/3gMFROa+DqwzkahztB1qkvsg7KjBendDzPjBsCVAAtjIjGmNQSwHWHHssFzr92l2PWDL8Hy2WaMNzdmvtnvGx9vMnMAWXyAysbVf7W98QIHXB4WnFXnbpQipkMTEoTWKK0bs47u5r8OdmoESAaLXk3IzpmAyB13QMjS+5OQ0xHd5SZP7gpKsi9GJAghKl5PNosRAhpRvH9dmBJ0+IxK2zjH8Hy2e1elaJkX39NbX+X8u9u3W2hh7a8xmmnl8KcySKCAPhSmLWbGavN5RxWP+FGcjrW7j49hsRQxDHlA7T4aRr6rTgOhUA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=RwVWlXQeoym0mywKOq9pNSsKico5ab6LLcX/fLgmsKc=;
+ b=o8XM9qAFgMLeT6wtS5rc9bEjU2b/zTnAv4TGY/ypdoPUH94ClDw5w0BgvFJB/mCaa8f0rp6Nmg8CKYOFT9I1EQiz1JdHNF1SsP+aUWr2oLt2duCg6dyluOKuvTiK/xT9v6h8r0n0kWVWHUerf7hfDsECS9+zdOrdJwZ+ZE6C8ZuPFG3Yzwn4Ce8L2Tq1MHvyCvdWtCr4JsPcvSTCGvQCgVUZ0mjlr7bIlAA8DEZFgpaksh1JSkUhOWZl6GYNWVza3ZAwTRRF3JLPKd2l8lLxLY1w7Rq2mby4JEeb2gC2GlWp1yzQlo6JNUHJa1MpVhZdkcyot3LacZPktmbbBu/S7A==
+Received: from VI1P193MB0752.EURP193.PROD.OUTLOOK.COM (2603:10a6:800:32::19)
+ by PAXP193MB1629.EURP193.PROD.OUTLOOK.COM (2603:10a6:102:13f::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6813.28; Tue, 26 Sep
+ 2023 18:04:15 +0000
+Received: from VI1P193MB0752.EURP193.PROD.OUTLOOK.COM
+ ([fe80::3164:ae5c:78f7:23ad]) by VI1P193MB0752.EURP193.PROD.OUTLOOK.COM
+ ([fe80::3164:ae5c:78f7:23ad%4]) with mapi id 15.20.6813.024; Tue, 26 Sep 2023
+ 18:04:15 +0000
+From: Juntong Deng <juntong.deng@outlook.com>
+To: shuah@kernel.org,
+	mic@digikod.net,
+	brauner@kernel.org,
+	keescook@chromium.org,
+	tony.luck@intel.com,
+	gpiccoli@igalia.com,
+	paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu
+Cc: linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-security-module@vger.kernel.org,
+	linux-hardening@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	bpf@vger.kernel.org,
+	linux-kernel-mentees@lists.linuxfoundation.org
+Subject: [PATCH] selftests: Fix wrong TARGET in kselftest top level Makefile
+Date: Wed, 27 Sep 2023 02:03:23 +0800
+Message-ID: <VI1P193MB0752596147F224B9F921C85199C3A@VI1P193MB0752.EURP193.PROD.OUTLOOK.COM>
+X-Mailer: git-send-email 2.39.2
+X-TMN: [Ier0yVm8oTt2wRApjFme38b5i3hVTU7C]
+X-ClientProxiedBy: AM9P193CA0005.EURP193.PROD.OUTLOOK.COM
+ (2603:10a6:20b:21e::10) To VI1P193MB0752.EURP193.PROD.OUTLOOK.COM
+ (2603:10a6:800:32::19)
+X-Microsoft-Original-Message-ID: <20230926180323.21921-1-juntong.deng@outlook.com>
 MIME-Version: 1.0
-References: <20230922062834.39212-1-william.qiu@starfivetech.com>
-In-Reply-To: <20230922062834.39212-1-william.qiu@starfivetech.com>
-From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Tue, 26 Sep 2023 17:03:35 +0200
-Message-ID: <CAPDyKFrrW+c9zm5pb6B7T_ULfij6=47E7OM-sgpCKTyWZ_BV0w@mail.gmail.com>
-Subject: Re: [PATCH v3 0/3] Change tuning implementation
-To: William Qiu <william.qiu@starfivetech.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, linux-mmc@vger.kernel.org, 
-	Emil Renner Berthing <kernel@esmil.dk>, Rob Herring <robh+dt@kernel.org>, 
-	Jaehoon Chung <jh80.chung@samsung.com>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: VI1P193MB0752:EE_|PAXP193MB1629:EE_
+X-MS-Office365-Filtering-Correlation-Id: 61d13663-69a7-4085-66c5-08dbbebafe85
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: lihTRgR9Sr4MI15Ka9DYgAztiI6JS8M9R8kNeHHgSiWGOD6CLwjqnPzla3oMZZKHt4gOLIGPynowX7M9Y3BCpscgPGFzp0tK4zMir7UEMkF49/mKgCWANTUDYtIb0HD2dZskXaLlFkusJZYCl3F7NqSt3Tewga9YsJa8BlI/DSoyAIMb3+0YKYZynaWcDvg2hUWvxM0kc0/w+jhHSKRE/el7duglX4+KW2zGEiGEyO1sC0kWTBiohkBtzyO0d3ygY3A5sBw1xheRKp88vvNDKorCbHO5yNVUKSL9izUt+j4OLlhy/aIIiE9BssakyyVL/ArenVV4EJo9zhO7yVjq/5uwiSrnxK40h+H+bNwlErLI5w4TRYZwF0CRAvEOiRihcJA/MQLVqV/t8DPF9l67cdFrMfChgnAwNlr7ZG4iZtU/dO4uDEfy7HaPXIK1zsQj3bvj/pYaJyGVmm+5/jq4DZ1akI1c+LhyJk7beOr2sopS8dsP3GF3pAiXBs5r86HZD6OpVpgsRheQBCZ+BM0Vx9JzF9a76sgJAAn4eZ3Sj7kgxq8VRZjVhndh/mDU2gAR
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?pIZEGfMgfEHrNru7pYofKvThXDbVcUzHcsAxbS1Tl+BMhjkpJbjNoyFjaWUu?=
+ =?us-ascii?Q?urNluKWZmTzz1yzkstF6pV+6GIL02oU0cCq0xhttsMKpMYzWs0r+LxRDGmBV?=
+ =?us-ascii?Q?MRM0Pg0kwbpj8nX3IU6zMhHSFU+puFtmwwkLvg1dukkXtI2P3zUCnpI2WTPT?=
+ =?us-ascii?Q?VAtv0t2sg1yd6QZ1o+0OE6QOIL3KkeN3HaBGIfcaZJf6bbbM/xrenp/hOZVz?=
+ =?us-ascii?Q?kbnO/bW5Xdce+DjgY0hK7+VNE7Eai9FGOOIP6YQHUHepqEnKL8CA2TafP8E2?=
+ =?us-ascii?Q?MNdPRyPSZzf3OoMRB8J9QDGMpwbUy81K0REivp1alXnIYm2ISRZhjJaRSn7l?=
+ =?us-ascii?Q?0LW/Q6e2oQkuvGDpZdukTlLhcFYjtZjfs5qsjgx9nN8AUxhnthCacLuXItm/?=
+ =?us-ascii?Q?WqWmcgvQMeq6UDL0w8wXzFXZZCQ72DgKHk/D+db2U9KUjzsxeCZh61XMxB73?=
+ =?us-ascii?Q?6ZQ/v9CqdiTLvJpnrcU4x5ctXajI++SgNdGI8cfUQEsRdatoU0HcpCktt4z7?=
+ =?us-ascii?Q?eOrmE5nPY7EPu9H7Jq3qlnxGpHzCOQNLEvmtcggRGQXyz3AtVLeP5HCsSFtw?=
+ =?us-ascii?Q?4Qw0pzYnkG1wZeZFuxeJol/obp6IoO25lCC9KNWOZ9NQ2T8M6SRGvVE/1dqT?=
+ =?us-ascii?Q?2u4jYoy0NeXZnj2vdiO9QGMDaRbXtqYhlmxftHcr9GGuF/x/lX1voZB2cYgp?=
+ =?us-ascii?Q?01rkuNUKaBFcZCV7VGBe+hl2M8vHeaKNbbCHG2Hs/N2URQzdGY6VlOTWeKAz?=
+ =?us-ascii?Q?UsrlsVOKMYs9TfKOCeqmoxcFUZhmiCORbM+XD9Ym2Aii8e0KRs3R/gubU/ia?=
+ =?us-ascii?Q?QuE3Zc6upD25PVrJUmUBtNm7f86FaiOXiU9RJt8pvi4boltfTk+wEiqiSNSQ?=
+ =?us-ascii?Q?iZrniHoCnq8HwWO/6Jk7SbB5oGDRW54GDJmWganLz9d/VW1ZUeW660xT3jv1?=
+ =?us-ascii?Q?rSIFXwpGU7L9UUKYr8/4r5+96zckZlcAgqIMGfOUz9Lqbu5E9SIs7ILUrkVw?=
+ =?us-ascii?Q?HuMKyZG0LKAvoBrhKA0/v/thgHZg5rjS/FJ5ivlb8N7cys+UcRygJ1osDQwh?=
+ =?us-ascii?Q?oUbBluuObTvkrVqMpWnJdqQzFOlI61pEYAVIg+AUnK82MytVhKIkiA51OcOC?=
+ =?us-ascii?Q?TS/0LQk2GobL//W/UMH43YwvMeN8CGA0JZhcwHSt2uK2fBHcPLPfe1+pawkd?=
+ =?us-ascii?Q?6stuy16gPMPlT2mOsyaetg0DIz0Ni4esliPHc6a/wDZ8spYTuHizTx1eZkA?=
+ =?us-ascii?Q?=3D?=
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 61d13663-69a7-4085-66c5-08dbbebafe85
+X-MS-Exchange-CrossTenant-AuthSource: VI1P193MB0752.EURP193.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Sep 2023 18:04:15.0017
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXP193MB1629
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230926_080414_784426_3ED2C6F1 
-X-CRM114-Status: GOOD (  14.92  )
+X-CRM114-CacheID: sfid-20230926_110433_521935_D630E1EE 
+X-CRM114-Status: UNSURE (   8.81  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,43 +136,37 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 22 Sept 2023 at 08:28, William Qiu <william.qiu@starfivetech.com> wrote:
->
-> Hi,
->
-> This series of patches changes the tuning implementation, from the
-> previous way of reading and writing system controller registers to
-> reading and writing UHS_REG_EXT register, thus optimizing the tuning
-> of obtaining delay-chain.
->
-> Changes v2->v3:
-> - Rebased to v6.6rc2.
-> - Dropped redundant criteria.
-> - Keeped "starfive,sysreg" in dts file.
->
-> Changes v1->v2:
-> - Rebased to v6.6rc1.
-> - Keeped "starfive,sysreg" in dt-bindings but removed from required.
-> - Changed the function interface name.
-> - Maked the code implementation more concise.
->
-> The patch series is based on v6.6rc2.
->
-> William Qiu (3):
->   dt-bindings: mmc: Remove properties from required
->   mmc: starfive: Change tuning implementation
->   riscv: dts: starfive: add assigned-clock* to limit frquency
->
->  .../bindings/mmc/starfive,jh7110-mmc.yaml     |   2 -
->  .../jh7110-starfive-visionfive-2.dtsi         |   4 +
->  drivers/mmc/host/dw_mmc-starfive.c            | 137 +++++-------------
->  3 files changed, 44 insertions(+), 99 deletions(-)
->
+The 'uevents' subdirectory does not exist in tools/testing/selftests/
+and adding 'uevents' to the TARGETS list results in the following error:
 
-Patch 1 -> 2 applied for next, thanks!
+make[1]: Entering directory 'xx/tools/testing/selftests/uevents'
+make[1]: *** No targets specified and no makefile found. Stop.
+make[1]: Leaving directory 'xx/tools/testing/selftests/uevents'
 
-Kind regards
-Uffe
+What actually exists in tools/testing/selftests/ is the 'uevent'
+subdirectory.
+
+Signed-off-by: Juntong Deng <juntong.deng@outlook.com>
+---
+ tools/testing/selftests/Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/tools/testing/selftests/Makefile b/tools/testing/selftests/Makefile
+index 42806add0114..1a21d6beebc6 100644
+--- a/tools/testing/selftests/Makefile
++++ b/tools/testing/selftests/Makefile
+@@ -92,7 +92,7 @@ endif
+ TARGETS += tmpfs
+ TARGETS += tpm2
+ TARGETS += tty
+-TARGETS += uevents
++TARGETS += uevent
+ TARGETS += user
+ TARGETS += user_events
+ TARGETS += vDSO
+-- 
+2.39.2
+
 
 _______________________________________________
 linux-riscv mailing list
