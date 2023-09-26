@@ -4,68 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C380DCE79A7
-	for <linux-riscv@archiver.kernel.org>; Mon, 25 Sep 2023 22:43:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06203E81810
+	for <linux-riscv@archiver.kernel.org>; Tue, 26 Sep 2023 03:16:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hldLgqSIJYcziFC1ofBHzJdk0lkETL/YwhWuqBhJAow=; b=hn9jOfN26vUANX
-	ydDK8HPRChAvX1nRtsJrEnWXIqKgw1xu5s3SAEAfwKgC4g5BIADlJwZb52ITYXpzMcoEuI2TsASto
-	bTn6Uk01KGKN8L12SzOzrT04/snvBvOlSZatapK4jiIxUtX28JxVAPE0T5rFojfHlR/GUCxcvHNim
-	91iqtC5Fqg37KaLbYU9RkSsOPSiA1lLzLd6XLb/GBu6cK4Aha14r+zoLHRlfaWxMOI50HMGKn6gXi
-	Sys+z6bi4gPsIVS7bB8lQ4jxdgPW+G1jNNy21Uzj4Im7CzTpjtndHUHpydNcuM0bjoahpaCt9bO9N
-	CJ8fS0gyZhBobnrAXLcQ==;
+	List-Owner; bh=5/FS2EvrzhOkFduIHdEqKNceBmyV0tYXAK7BIBGBy4k=; b=HZS3SMuTnl2edo
+	nXF78safRxFIPnow+6DGi72L9Hv/5nKLLFxrmZBe7XTYZNVsD5ICkThgbWi2pAWOKItuEe88CIcdr
+	y0AxebypF56dE213eoQKHDij7bv6w0vl85kzsD8IcITeLzWcjl9ULlQL8X+HVeudGwBihgg2VaAj5
+	QFnTjToVzwBIvrKyAcsW8ia1FY/h0ccSAng454FqD5zgFtYQsGc6XbuIkQgIfYgWIPzye+9bNnEDG
+	KxXnq5jtBoY0MTAjerATgP1zDLqCFYbxgmzEHLIXCsoQdEPGQp6l8IgkpsZWYnkGC46KRUlV/31In
+	BiPfoCKEXcE0l5BmsECA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qkuIw-00FA54-28;
-	Mon, 25 Sep 2023 22:43:50 +0000
-Received: from bg4.exmail.qq.com ([43.155.67.158])
+	id 1qkyYJ-00FSWN-2J;
+	Tue, 26 Sep 2023 03:15:59 +0000
+Received: from sender4-op-o10.zoho.com ([136.143.188.10])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qkuIt-00FA48-2w
+	id 1qkyYH-00FSVD-0O
 	for linux-riscv@lists.infradead.org;
-	Mon, 25 Sep 2023 22:43:49 +0000
-X-QQ-mid: bizesmtp81t1695681815tls4ddg5
-Received: from linux-lab-host.localdomain ( [116.30.124.152])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Tue, 26 Sep 2023 06:43:33 +0800 (CST)
-X-QQ-SSF: 01200000002000E0Y000B00A0000000
-X-QQ-FEAT: aBJFcW+uBGYffXzygR0k5C/WLWWZcLSCd2TbMPG0O7Tlzn1m+5D3uZe31rmrB
-	aujFQULia5dBlILNDRUyEjx57EpMsxaL6Hz0UfpOimP01EPYwODfLNDt/08+rViZ0kDvJPS
-	c/l6PK5eg6fwnuRPIEYFxcxK83ddGI9AWtGlJq/Ee72+sNa4MrAQ3EN8Qe34Np4jqLArABG
-	JS2WsLg0nT+US7V5b/8yFqpM/D3X+G29I8CLiztdDhT1Y7JbtyMwz8ftGBL0fuh92PguYE4
-	IKeAjeoyg3J6mOYoYZE003kMKygyo6u/CV03ypKigE7GsLxTYVFe5MpxCrKElLULeYxae/d
-	HtHN7uvHgeUIKpoUbjQ3Dfq7OGBezfWvX3+if5KLWzLVYk17ZVHC2GUJSVYzHQJ1NQ/1p5y
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 4775298546958751858
-From: Zhangjin Wu <falcon@tinylab.org>
-To: linux-kernel@vger.kernel.org,
-	linux-mips@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Arnd Bergmann <arnd@arndb.de>
-Cc: falcon@tinylab.org,
-	palmer@rivosinc.com,
-	paul.walmsley@sifive.com,
-	paulburton@kernel.org,
-	paulmck@kernel.org,
-	tsbogend@alpha.franken.de,
-	w@1wt.eu,
-	=?UTF-8?q?Thomas=20Wei=C3=9Fschuh?= <linux@weissschuh.net>,
-	Tim Bird <tim.bird@sony.com>
-Subject: [PATCH v1 7/7] DCE/DSE: riscv: trim syscall tables
-Date: Tue, 26 Sep 2023 06:43:32 +0800
-Message-Id: <aad452c57bce2ab7983e723d78bd2cc7b6f533c1.1695679700.git.falcon@tinylab.org>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <cover.1695679700.git.falcon@tinylab.org>
-References: <cover.1695679700.git.falcon@tinylab.org>
+	Tue, 26 Sep 2023 03:15:58 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1695698137; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=WVaSj846s5kVfCid4BzazZN5qETBeE3+qGpCglntM2DwKDW4CLO7xWlYTM5IqGfJqvkcpMPaFEzukPqcn7viuZOwVyyHF/lYTq1HwR0LneC9XbURT36l8aAsBYYV6p0vI1bqlzhGiBsVd7eGClQQB2XB2jEYlu6ydCguD3zIhxw=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1695698137; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=KhI5QeS9PArzWK5Z9vvz4HtEovenQXgCmMyUThSuYlA=; 
+	b=XHLK1ngh/pQjFZcJ0YKoIP3Qsnayx8RSLWJVQR5ztW4fNw6ZfyT8XBUkO6pgWC89ZPFaGtkSHWw5hF3BtR1R3TRN2CLtDeABKRbxkiaLRo3EJajw+xbkvS3Ws9RgBbaqElUCahdnSOhlpDjxhPbMeoVuG0Rws/kzAQLUzUltaqk=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=icenowy.me;
+	spf=pass  smtp.mailfrom=uwu@icenowy.me;
+	dmarc=pass header.from=<uwu@icenowy.me>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1695698137;
+	s=zmail2; d=icenowy.me; i=uwu@icenowy.me;
+	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:References:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
+	bh=KhI5QeS9PArzWK5Z9vvz4HtEovenQXgCmMyUThSuYlA=;
+	b=mP6rhCrJERuxPbH/UEN7gSJpjV/ppXL2KJw38qlvpwvVr8tiKdgPC3agkrYrXX94
+	CuvQzZaPq5z3r+aC/t4Vktqwq1sWyTwex7fQ0kjLvFIVtSCPaVM7o2yaxNnJH+HcJVO
+	k93z/SaMRrHpoIGo27Mtd8Ws5KnlIX4tmCsA2AxtS09lDRoMjhMBs/u5GnFTIgDUdr+
+	yHJNsZta6W/Mhq4DWyJnGvoZ6n7C7+fg7J4WozghCA6vJOlFMfWE4r7OxnzRZYXtY20
+	/a4347tNO4DiIUsMDTh+YLMbVuw7fJuM2GOTuAnbIykrcUnUdcyGGCFM/0yZhfJKWtg
+	F3UMLiLRvg==
+Received: from edelgard.fodlan.icenowy.me (120.85.96.110 [120.85.96.110]) by mx.zohomail.com
+	with SMTPS id 169569813492220.156609859645982; Mon, 25 Sep 2023 20:15:34 -0700 (PDT)
+Message-ID: <c80bf6710d8cc7a1c0d49d52ad6410d04c6a0858.camel@icenowy.me>
+Subject: Re: [RFC v2 6/6] riscv: dts: thead: convert isa detection to new
+ properties
+From: Icenowy Zheng <uwu@icenowy.me>
+To: Conor Dooley <conor@kernel.org>
+Cc: linux-riscv@lists.infradead.org, Conor Dooley
+ <conor.dooley@microchip.com>,  Rob Herring <robh+dt@kernel.org>, Krzysztof
+ Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley
+ <conor+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer
+ Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Chen-Yu
+ Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel
+ Holland <samuel@sholland.org>, Daire McNamara
+ <daire.mcnamara@microchip.com>, Geert Uytterhoeven
+ <geert+renesas@glider.be>, Magnus Damm <magnus.damm@gmail.com>, Emil Renner
+ Berthing <kernel@esmil.dk>, Jisheng Zhang <jszhang@kernel.org>, Guo Ren
+ <guoren@kernel.org>,  Fu Wei <wefu@redhat.com>, Chen Wang
+ <unicorn_wang@outlook.com>, devicetree@vger.kernel.org, 
+ linux-sunxi@lists.linux.dev, linux-renesas-soc@vger.kernel.org
+Date: Tue, 26 Sep 2023 11:15:27 +0800
+In-Reply-To: <20230925-semantic-euphemism-f0c7e85ac317@spud>
+References: <20230922081351.30239-2-conor@kernel.org>
+	 <20230922081351.30239-8-conor@kernel.org>
+	 <f3b8d0823150797bde975a09b1faf6d3826d1ea8.camel@icenowy.me>
+	 <20230925-semantic-euphemism-f0c7e85ac317@spud>
+Organization: Anthon Open-Source Community
+User-Agent: Evolution 3.44.4 
 MIME-Version: 1.0
-X-QQ-SENDSIZE: 520
-Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrgz:qybglogicsvrgz5a-1
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230925_154348_279332_3F5A81F2 
-X-CRM114-Status: GOOD (  11.75  )
+X-CRM114-CacheID: sfid-20230925_201557_237939_770A50D1 
+X-CRM114-Status: GOOD (  20.91  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,158 +92,58 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-When the maximum nr of the used syscalls is smaller than __NR_syscalls
-(original syscalls total). It is able to update __NR_syscalls to
-(maximum nr + 1) and further trim the '>= (maximum nr + 1)' part of the
-syscall tables:
-
-For example:
-
-    sys_call_table [143] = {
-	[0 ... 143 - 1] = sys_ni_syscall,
-        [64] = sys_write,
-        [93] = sys_exit,
-        [142] = sys_reboot,
-    }
-
-The >= 143 part of the syscall tables can be trimmed.
-
-At the same time, the syscall >= 143 from user space must be ignored
-from do_trap_ecall_u() of traps.c.
-
-Signed-off-by: Zhangjin Wu <falcon@tinylab.org>
----
- arch/riscv/include/asm/unistd.h               |  2 ++
- arch/riscv/kernel/Makefile                    |  2 ++
- arch/riscv/kernel/syscalls/Makefile           | 22 +++++++++++++++++++
- .../kernel/syscalls/compat_syscall_table.c    |  4 ++--
- arch/riscv/kernel/syscalls/syscall_table.c    |  4 ++--
- 5 files changed, 30 insertions(+), 4 deletions(-)
-
-diff --git a/arch/riscv/include/asm/unistd.h b/arch/riscv/include/asm/unistd.h
-index 221630bdbd07..4d8e41f446ff 100644
---- a/arch/riscv/include/asm/unistd.h
-+++ b/arch/riscv/include/asm/unistd.h
-@@ -23,4 +23,6 @@
- 
- #include <uapi/asm/unistd.h>
- 
-+#ifndef NR_syscalls
- #define NR_syscalls (__NR_syscalls)
-+#endif
-diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
-index 40aebbf06880..e75424c10729 100644
---- a/arch/riscv/kernel/Makefile
-+++ b/arch/riscv/kernel/Makefile
-@@ -49,7 +49,9 @@ obj-y	+= signal.o
- obj-y	+= syscalls/
- obj-y	+= sys_riscv.o
- obj-y	+= time.o
-+ifneq ($(CONFIG_TRIM_UNUSED_SYSCALLS),y)
- obj-y	+= traps.o
-+endif
- obj-y	+= riscv_ksyms.o
- obj-y	+= stacktrace.o
- obj-y	+= cacheinfo.o
-diff --git a/arch/riscv/kernel/syscalls/Makefile b/arch/riscv/kernel/syscalls/Makefile
-index 3b5969aaa9e8..f1a0597c8b24 100644
---- a/arch/riscv/kernel/syscalls/Makefile
-+++ b/arch/riscv/kernel/syscalls/Makefile
-@@ -14,9 +14,18 @@ else # CONFIG_TRIM_UNUSED_SYSCALLS
- 
- include $(srctree)/scripts/Makefile.syscalls
- 
-+# calculate syscalls total from $(obj)/syscall_table_used.i
-+ifneq ($(used_syscalls),)
-+  NR_syscalls := $$(($$(sed -E -n -e '/^\[([0-9]+|\([0-9]+ \+ [0-9]+\))\] = /{s/^\[(.*)\].*/\1/gp}' $(obj)/syscall_table_used.i | bc | sort -g | tail -1 | grep '[0-9]' || echo -1) + 1))
-+else
-+  NR_syscalls := 0
-+endif
-+
-+CFLAGS_traps_used.o                += -DNR_syscalls=$(NR_syscalls)
- CFLAGS_syscall_table_used.o        += $(call cc-option,-Wno-override-init,)
- CFLAGS_compat_syscall_table_used.o += $(call cc-option,-Wno-override-init,)
- 
-+obj-y                += traps_used.o
- obj-y                += syscall_table_used.o
- obj-$(CONFIG_COMPAT) += compat_syscall_table_used.o
- 
-@@ -24,15 +33,26 @@ obj-$(CONFIG_COMPAT) += compat_syscall_table_used.o
- quiet_cmd_used = USED    $@
-       cmd_used = sed -E -e '/^\[([0-9]+|\([0-9]+ \+ [0-9]+\))\] = /{/= *__riscv_(__sys_|sys_|compat_)*($(used_syscalls)),/!{s%^%/* %g;s%$$% */%g}}' -i $@;
- 
-+# update the syscalls total
-+quiet_cmd_snr = SNR     $@
-+      cmd_snr = snr=$(NR_syscalls); if [ $$snr -ne 0 ]; then \
-+		sed -i -e "s/sys_call_table\[.*\] =/sys_call_table[($$snr)] =/g;s/\[0 ... (.*) - 1\] = __riscv_sys_ni_syscall/[0 ... ($$snr) - 1] = __riscv_sys_ni_syscall/g" $@; \
-+		fi;
-+
-+$(obj)/traps_used.c: $(src)/../traps.c $(obj)/syscall_table_used.i FORCE
-+	$(Q)cp $< $@
-+
- $(obj)/syscall_table_used.c: $(src)/syscall_table.c
- 	$(Q)cp $< $@
- 
- $(obj)/syscall_table_used.i: $(src)/syscall_table_used.c $(used_syscalls_deps) FORCE
- 	$(call if_changed_dep,cpp_i_c)
- 	$(call cmd,used)
-+	$(call cmd,snr)
- 
- $(obj)/syscall_table_used.o: $(obj)/syscall_table_used.i FORCE
- 	$(call if_changed,cc_o_c)
-+	$(call cmd,force_checksrc)
- 
- $(obj)/compat_syscall_table_used.c: $(src)/compat_syscall_table.c
- 	$(Q)cp $< $@
-@@ -40,8 +60,10 @@ $(obj)/compat_syscall_table_used.c: $(src)/compat_syscall_table.c
- $(obj)/compat_syscall_table_used.i: $(src)/compat_syscall_table_used.c $(used_syscalls_deps) FORCE
- 	$(call if_changed_dep,cpp_i_c)
- 	$(call cmd,used)
-+	$(call cmd,snr)
- 
- $(obj)/compat_syscall_table_used.o: $(obj)/compat_syscall_table_used.i FORCE
- 	$(call if_changed,cc_o_c)
-+	$(call cmd,force_checksrc)
- 
- endif # CONFIG_TRIM_UNUSED_SYSCALLS
-diff --git a/arch/riscv/kernel/syscalls/compat_syscall_table.c b/arch/riscv/kernel/syscalls/compat_syscall_table.c
-index ad7f2d712f5f..4756b6858eac 100644
---- a/arch/riscv/kernel/syscalls/compat_syscall_table.c
-+++ b/arch/riscv/kernel/syscalls/compat_syscall_table.c
-@@ -17,7 +17,7 @@
- 
- asmlinkage long compat_sys_rt_sigreturn(void);
- 
--void * const compat_sys_call_table[__NR_syscalls] = {
--	[0 ... __NR_syscalls - 1] = __riscv_sys_ni_syscall,
-+void * const compat_sys_call_table[NR_syscalls] = {
-+	[0 ... NR_syscalls - 1] = __riscv_sys_ni_syscall,
- #include <asm/unistd.h>
- };
-diff --git a/arch/riscv/kernel/syscalls/syscall_table.c b/arch/riscv/kernel/syscalls/syscall_table.c
-index dda913764903..d2b3233ae5d4 100644
---- a/arch/riscv/kernel/syscalls/syscall_table.c
-+++ b/arch/riscv/kernel/syscalls/syscall_table.c
-@@ -16,7 +16,7 @@
- #undef __SYSCALL
- #define __SYSCALL(nr, call)	[nr] = __riscv_##call,
- 
--void * const sys_call_table[__NR_syscalls] = {
--	[0 ... __NR_syscalls - 1] = __riscv_sys_ni_syscall,
-+void * const sys_call_table[NR_syscalls] = {
-+	[0 ... NR_syscalls - 1] = __riscv_sys_ni_syscall,
- #include <asm/unistd.h>
- };
--- 
-2.25.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+5ZyoIDIwMjMtMDktMjXmmJ/mnJ/kuIDnmoQgMTY6NTkgKzAxMDDvvIxDb25vciBEb29sZXnlhpnp
+gZPvvJoKPiBPbiBTdW4sIFNlcCAyNCwgMjAyMyBhdCAwNzoyMjozMEFNICswODAwLCBJY2Vub3d5
+IFpoZW5nIHdyb3RlOgo+ID4g5ZyoIDIwMjMtMDktMjLmmJ/mnJ/kupTnmoQgMDk6MTMgKzAxMDDv
+vIxDb25vciBEb29sZXnlhpnpgZPvvJoKPiA+ID4gRnJvbTogQ29ub3IgRG9vbGV5IDxjb25vci5k
+b29sZXlAbWljcm9jaGlwLmNvbT4KPiA+ID4gCj4gPiA+IENvbnZlcnQgdGhlIHRoMTUyMCBkZXZp
+Y2V0cmVlcyB0byB1c2UgdGhlIG5ldyBwcm9wZXJ0aWVzCj4gPiA+ICJyaXNjdixpc2EtYmFzZSIg
+JiAicmlzY3YsaXNhLWV4dGVuc2lvbnMiLgo+ID4gPiBGb3IgY29tcGF0aWJpbGl0eSB3aXRoIG90
+aGVyIHByb2plY3RzLCAicmlzY3YsaXNhIiByZW1haW5zLgo+ID4gPiAKPiA+ID4gU2lnbmVkLW9m
+Zi1ieTogQ29ub3IgRG9vbGV5IDxjb25vci5kb29sZXlAbWljcm9jaGlwLmNvbT4KPiA+ID4gLS0t
+Cj4gPiA+IMKgYXJjaC9yaXNjdi9ib290L2R0cy90aGVhZC90aDE1MjAuZHRzaSB8IDEyICsrKysr
+KysrKysrKwo+ID4gPiDCoDEgZmlsZSBjaGFuZ2VkLCAxMiBpbnNlcnRpb25zKCspCj4gPiA+IAo+
+ID4gPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9ib290L2R0cy90aGVhZC90aDE1MjAuZHRzaQo+
+ID4gPiBiL2FyY2gvcmlzY3YvYm9vdC9kdHMvdGhlYWQvdGgxNTIwLmR0c2kKPiA+ID4gaW5kZXgg
+Y2U3MDgxODNiNmY2Li43MjNmNjU0ODcyNDYgMTAwNjQ0Cj4gPiA+IC0tLSBhL2FyY2gvcmlzY3Yv
+Ym9vdC9kdHMvdGhlYWQvdGgxNTIwLmR0c2kKPiA+ID4gKysrIGIvYXJjaC9yaXNjdi9ib290L2R0
+cy90aGVhZC90aDE1MjAuZHRzaQo+ID4gPiBAQCAtMjAsNiArMjAsOSBAQCBjOTEwXzA6IGNwdUAw
+IHsKPiA+ID4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+Y29tcGF0aWJsZSA9ICJ0aGVhZCxjOTEwIiwgInJpc2N2IjsKPiA+ID4gwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgZGV2aWNlX3R5cGUgPSAiY3B1IjsKPiA+
+ID4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgcmlzY3Ys
+aXNhID0gInJ2NjRpbWFmZGMiOwo+ID4gPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoHJpc2N2LGlzYS1iYXNlID0gInJ2NjRpIjsKPiA+ID4gK8KgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqByaXNjdixpc2EtZXh0ZW5zaW9u
+cyA9ICJpIiwgIm0iLCAiYSIsCj4gPiA+ICJmIiwKPiA+ID4gImQiLCAiYyIsICJ6aWNudHIiLCAi
+emljc3IiLAo+ID4gPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgICJ6aWZlbmNl
+aSIsCj4gPiA+ICJ6aWhwbSI7Cj4gPiAKPiA+IFpmaCBpcyBzdXBwb3J0ZWQgYnkgVC1IZWFkIEM5
+eHggd2l0aCBmbG9hdCB0b28uCj4gCj4gWW91IHNheSB4eCwgc28ganVzdCB0byBiZSBzdXJlOiBJ
+cyBpdCBhbHdheXMgc3VwcG9ydGVkLCBvciBvbmx5IHdpdGgKPiBzb21lIGNvbmZpZyBmb3IgdGhl
+IElQIChJIHdhbm5hIGtub3cgaWYgSSBuZWVkIHRvIGxvb2sgb3V0IGZvciBpdAo+IHdoaWxlCj4g
+cmV2aWV3aW5nIG90aGVyIFNvQ3MgZXRjKT8KCkkgdGhpbmsgaXQncyBncm91cGVkIHdpdGggRkQu
+Cgo+IEFsc28sIGRvIHlvdSBoYXZlIGEgbGluayB0byB0aGUgZG9jdW1lbnRhdGlvbiBmb3IgaXQ/
+IEVuZ2xpc2ggaXMgdGhlCj4gb25seSByZWxldmFudCBsYW5ndWFnZSBJIHNwZWFrLCBzbyBpZiB0
+aGUgZG9jIGlzIGluIENoaW5lc2UsIEknbGwKPiBuZWVkCj4gc29tZSBoZWxwIQoKU29ycnksIGJ1
+dCBULUhlYWQncyBvZmZpY2lhbCBkb2N1bWVudCBbMV0gaXMgb25seSBpbiBDaGluZXNlLiBJbgph
+ZGRpdGlvbiwgaW4gdGhpcyBkb2N1bWVudCBoYWxmLWZsb2F0IGlzIGxpc3RlZCBhcyBhICJULUhl
+YWQKZXh0ZW5zaW9uIiwgYnV0IHRoZSBlbmNvZGluZyBtYXRjaGVzIFpmaC4gU2VlIDE1LjYgQXBw
+ZW5kaXggQi02IEhhbGYKRmxvYXQgKDE1LjYg6ZmE5b2VIEItNiDmta7ngrnljYrnsr7luqbmjIfk
+u6TmnK/or60pIC4KClsxXQpodHRwczovL2dpdGh1Yi5jb20vVC1oZWFkLVNlbWkvb3BlbmM5MTAv
+YmxvYi9tYWluL2RvYy8lRTclOEUlODQlRTklOTMlODFDOTEwJUU3JTk0JUE4JUU2JTg4JUI3JUU2
+JTg5JThCJUU1JTg2JThDLnBkZgoKPiAKPiA+IEluIGFkZGl0aW9uLCBzaG91bGQgWCBleHRlbnNp
+b25zIGdldCBsaXN0ZWQgaGVyZT8KPiAKPiBZZXMsIGJ1dCBzb21lb25lIHdobyBjYXJlcyBhYm91
+dCBkb2N1bWVudGluZyB0aGVzZSBleHRlbnNpb25zIHNob3VsZAo+IGRvCj4gaXQgOykKCldlbGwg
+YXQgbGVhc3QgYSBidW5jaCBvZiBYdGhlYWQncyBhcmUgbm93IGRvY3VtZW50ZWQuCgpNYXliZSB0
+aGV5IHdpbGwgZ2V0IGFwcGVuZGVkIGFmdGVyIHRoaXMgcGF0Y2hzZXQgZ2V0IGludHJvZHVjZWQu
+CgpCeSB0aGUgd2F5LCBob3cgdG8gZGVhbCB3aXRoIHRoZSBkcmFmdCBWIG9mIEM5eHg/Cgo+IAo+
+IFRoYW5rcywKPiBDb25vci4KCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5m
+cmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xp
+bnV4LXJpc2N2Cg==
