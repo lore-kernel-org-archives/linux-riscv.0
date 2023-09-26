@@ -4,63 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E7B0E7E621
-	for <linux-riscv@archiver.kernel.org>; Tue, 26 Sep 2023 11:20:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96E2DE7E622
+	for <linux-riscv@archiver.kernel.org>; Tue, 26 Sep 2023 11:25:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fZZWnycxTCjzkTw70iubPbeSGSsXRQ2NH1uxAj2n1rM=; b=u2Zujvwcam0iDKr8GvcImpbz2l
-	re1kBVXLMGtO6ddu2PTdNzSXnJmauCKxqN5EhfsCJXr34+ZyIMq4v2SzF0Jep9oabF1kXc+KefRa5
-	R4NWsxnVv9cZdcS5wFsYSuX4njps/XFtLO8lTR7LwUmyVUvv5xMHYYJ6kA6ACTQznVSTIjLCtTzCU
-	KnWA+XrsK8vB6D1yD/PrktOd0HMnhcQ+d2Wb12zeE3DAMJp/Av6BxlUKvK0KJKlf1LQyQNQlcRkUY
-	E8jZQ7UN9g331Z35769IekdJKHHSx6f53W+uM3o6NNytgYoTY0xgtGAG6GkhMPl/6G7b8iqsE2wGh
-	XwU0z+og==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Date:References:
+	In-Reply-To:Message-Id:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=ECRo6ebEDGu7s0BmzNx9LFLMYKezIc6Wg0CH2wL9UT0=; b=GBuohliFJgdfL3
+	e60NoNMRp3qxiOK5x74jjm3ke3wulMtUDiZjbTGVaBG7ZePobHJUBzgZ+uJ2iNzF2ip2hgv0c9wz1
+	hpmB7N0EsQdS0uFuFeTcDJJ73Qq+Z2CQrKSLz1jw3ZL3/ksKANwt5Bdmr1nngpDDHs7MpiDtrDgPa
+	K4chtNaT07IMvWx1p2EVtWbMo+q457+2idCB8RMm+H++i9ZMBHm9KZEp/eLYfdTL2Ce8YJg95iRL7
+	id/1dFpfR/mprzhdU+2d7xEpplcCJ2HB6FuLxMZkh9ZLmSbId4gKLlxtr28uULj+Oie6czQLQq26b
+	xj8I60LssFPfQpk8v17Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1ql675-00GFLp-1R;
-	Tue, 26 Sep 2023 11:20:23 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1ql6BP-00GFty-2E;
+	Tue, 26 Sep 2023 11:24:51 +0000
+Received: from wout2-smtp.messagingengine.com ([64.147.123.25])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1ql671-00GFLK-1p
+	id 1ql6BM-00GFtA-2M
 	for linux-riscv@lists.infradead.org;
-	Tue, 26 Sep 2023 11:20:21 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 25896CE1288;
-	Tue, 26 Sep 2023 11:20:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5948BC433C7;
-	Tue, 26 Sep 2023 11:20:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1695727214;
-	bh=KLnmaGQ/nGnn5HVd4+w/PzRxL9sDX4hl2a5HTd5I3eM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=GLKRjFFdc4gD7lH8b9vTMi19G1IqU3n9tcox/lHYwpcliiCjFjwN2dXbNeWNSJ6b3
-	 UoMQIV60ngQFyV6+g9fsWDb8xvxu/tmCGgwHPKocmc46P3QY2iyBEA/omHnWS6oiZE
-	 GjTXHeOYh2KbwjevtCyR30Kkkuv0MLtbGi1jZMpCA1ZPKlUydTnI0h761iZilXYNlN
-	 hSsJRLkyJNyMp9UHwaoc1xVD6MVteeXUuYZrdfqaZ6bAa+ZRl/DjT0yrhOvo12Y5M5
-	 Lh5IxP1VblszExht7dU/U9mxfPsxuy8Mkq8xRmtryLYhgVj4oFdWjFlS6Lkz6sK2l4
-	 12gUKcCpFSkYw==
-Date: Tue, 26 Sep 2023 12:20:10 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: changhuang.liang@starfivetech.com, ulf.hansson@linaro.org,
-	Conor Dooley <conor.dooley@microchip.com>, arnd@arndb.de,
-	jiajie.ho@starfivetech.com, linux-pm@vger.kernel.org,
-	linux-riscv@lists.infradead.org, robh@kernel.org,
-	walker.chen@starfivetech.com
-Subject: Re: [GIT PULL 2/5] dt-bindings: power: Add power-domain header for
- JH7110
-Message-ID: <20230926-trio-sweat-9b878df53209@spud>
-References: <20230913-bloomers-scorebook-fb45e0a2aa19@spud>
- <20230913-grumbly-rewrite-34c85539f2ed@spud>
- <CAMuHMdXmNCXvFj8gF0COQrvhbRuugrJN0sM_DL1vDE=4EU0bEA@mail.gmail.com>
+	Tue, 26 Sep 2023 11:24:50 +0000
+Received: from compute6.internal (compute6.nyi.internal [10.202.2.47])
+	by mailout.west.internal (Postfix) with ESMTP id 27AAC320091E;
+	Tue, 26 Sep 2023 07:24:43 -0400 (EDT)
+Received: from imap51 ([10.202.2.101])
+  by compute6.internal (MEProxy); Tue, 26 Sep 2023 07:24:44 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-type:content-type:date:date:from:from:in-reply-to
+	:in-reply-to:message-id:mime-version:references:reply-to:sender
+	:subject:subject:to:to; s=fm1; t=1695727482; x=1695813882; bh=8e
+	yX8AE9ekmLAMHsyT0GeS5BenFeWtINVJaFHwwMKHA=; b=cx8XGgkMMAcNeF+sP0
+	Xg3n1R6IWF1+SXDGfWQApF4gZU9gK98wjZ0TUjZLFzYcgq8P2RRJCuEdBdODa4hG
+	LwKYI47Zd+dAN2sC7uN5feNdegP+GZb7mb4cJX3pFg4zNHKKCNFUQVkLrJt7eOGy
+	av9AhHq7+EzE3QAK4jK325rz1w3OUvVLfAw7DSQa/RpNs7kW2gOSTtEgEjLwdWtt
+	7feAoyTVZ6ZTf8BytvH5XSxMWdPKa/nb5dXvC6xyPHZVayjpYoBqiW4jAorTVJja
+	tKWHNOJnDGBH7Oyl+MKk4DD1HRisrJ2FlsDSQ2niXV/P7ghs31CB4+l+dtJ2ytA4
+	zyTA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:content-type:date:date
+	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:sender:subject
+	:subject:to:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender
+	:x-sasl-enc; s=fm2; t=1695727482; x=1695813882; bh=8eyX8AE9ekmLA
+	MHsyT0GeS5BenFeWtINVJaFHwwMKHA=; b=pKJsOAmfVoi/4sfxkVCOWL4nh8SdI
+	vTNfaOPB2+Cy4Ja/lQ3Dgdcqqf/JHimuqu1zmUPu1MzuyGpR4BlyFO2fOSqdBrJD
+	dG/SXyM6XoU2sGTJ/NWIMZUJyoecgPZl0b6nkj8lpNQjaLInMfKBHXpPk9o0zZ8N
+	f2+asD/QlnYjipjgbC2xO89dl7+ZJh/tBYo16z1ZVbUowwfDtPnG8XSWj18p/jjv
+	meBDvYSJBIu94daupGg0yGr0/hZUoiL/siu6JSFMX15KLH3A7lYiXNIDrCUb5iLE
+	h/XNs2TVtz2eqKBcgk+145ybDYVcHPe7ZyW0WxZitiwz6DTkzvjhbteiw==
+X-ME-Sender: <xms:eb8SZZEcaTZMFMpYAflPbP6DpBY0f9Jbgp7wKzhigFCtCYXkqvNtBg>
+    <xme:eb8SZeWLDfYUwqlJ229zBamM2dVDiNCtnh-GLyX9v_isYz0AZO3tkJodHRo2fUQWA
+    X280YTNERWABvT2jh8>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvjedrtddtgdduudcutefuodetggdotefrodftvf
+    curfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfghnecu
+    uegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenuc
+    fjughrpefofgggkfgjfhffhffvvefutgesthdtredtreertdenucfhrhhomhepfdetrhhn
+    ugcuuegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrghtth
+    gvrhhnpeffheeugeetiefhgeethfejgfdtuefggeejleehjeeutefhfeeggefhkedtkeet
+    ffenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegrrh
+    hnugesrghrnhgusgdruggv
+X-ME-Proxy: <xmx:eb8SZbKm8HNdpZENOy-r1jGJ0F1fTPCpY5PTtvi6CyNDh_zlLriqNg>
+    <xmx:eb8SZfFRNuDq8yK_KKFGXpTKP27IkbOjDlPtYdTHBP_Y0-oiCUp86w>
+    <xmx:eb8SZfUtLwmWAwAlUgE5KB6vkv-NwyElt2tvY67MHACBpgfWmUA18Q>
+    <xmx:er8SZSON_9QoBQ-aD3tFSwDaNYnpnNe3yTR1YBLYE5qoeHqhQ02ViQ>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.nyi.internal (Postfix, from userid 501)
+	id 716E8B60089; Tue, 26 Sep 2023 07:24:41 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
+User-Agent: Cyrus-JMAP/3.9.0-alpha0-957-ga1ccdb4cff-fm-20230919.001-ga1ccdb4c
 MIME-Version: 1.0
-In-Reply-To: <CAMuHMdXmNCXvFj8gF0COQrvhbRuugrJN0sM_DL1vDE=4EU0bEA@mail.gmail.com>
+Message-Id: <a08e1cee-05e0-447a-b25b-6c2ebb116e8d@app.fastmail.com>
+In-Reply-To: <fbb6f526-0db9-4bbe-9635-8cb55b4335ee@app.fastmail.com>
+References: <cover.1695679700.git.falcon@tinylab.org>
+ <fbb6f526-0db9-4bbe-9635-8cb55b4335ee@app.fastmail.com>
+Date: Tue, 26 Sep 2023 13:24:21 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Zhangjin Wu" <falcon@tinylab.org>, linux-kernel@vger.kernel.org,
+ linux-mips@vger.kernel.org, linux-riscv@lists.infradead.org
+Cc: "Palmer Dabbelt" <palmer@rivosinc.com>,
+ "Paul Walmsley" <paul.walmsley@sifive.com>, paulburton@kernel.org,
+ "Paul E. McKenney" <paulmck@kernel.org>,
+ "Thomas Bogendoerfer" <tsbogend@alpha.franken.de>,
+ "Willy Tarreau" <w@1wt.eu>,
+ =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <linux@weissschuh.net>,
+ "Tim Bird" <tim.bird@sony.com>, "Geert Uytterhoeven" <geert@linux-m68k.org>,
+ "Nicolas Pitre" <nico@fluxnic.net>
+Subject: Re: [PATCH v1 0/7] DCE/DSE: Add Dead Syscalls Elimination support, part1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230926_042020_042332_22CE2907 
-X-CRM114-Status: GOOD (  26.27  )
+X-CRM114-CacheID: sfid-20230926_042448_946491_78DA5C09 
+X-CRM114-Status: GOOD (  11.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,118 +107,43 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1027522858282741696=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Tue, Sep 26, 2023, at 09:14, Arnd Bergmann wrote:
+> On Tue, Sep 26, 2023, at 00:33, Zhangjin Wu wrote:
+>
+> It would be nice to include some size numbers here for at least
+> one practical use case. If you have a defconfig for a shipping
+> product with a small kernel, what is the 'size -B' output you
+> see comparing with and without DCE and, and with DCE+DSE?
 
---===============1027522858282741696==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="v+vIMjR+OVM3y5cd"
-Content-Disposition: inline
+To follow up on this myself, for a very rough baseline,
+I tried a riscv tinyconfig build with and without 
+CONFIG_LD_DEAD_CODE_DATA_ELIMINATION (this is currently
+not supported on arm, so I did not try it there), and
+then another build with simply *all* system calls stubbed
+out by hacking asm/syscall-wrapper.h:
 
+$ size build/tmp/vmlinux-*
+   text	   data	    bss	     dec    hex	filename
+  754772  220016  71841	 1046629  ff865	vmlinux-tinyconfig
+  717500  223368  71841	 1012709  f73e5	vmlinux-tiny+nosyscalls
+  567310  176200  71473	  814983  c6f87	vmlinux-tiny+gc-sections
+  493278  170752  71433	  735463  b38e7	vmlinux-tiny+gc-sections+nosyscalls
+10120058 3572756 493701	14186515 d87813	vmlinux-defconfig
+ 9953934 3529004 491525	13974463 d53bbf	vmlinux-defconfig+gc
+ 9709856 3500600 489221	13699677 d10a5d	vmlinux-defconfig+gc+nosyscalls
 
---v+vIMjR+OVM3y5cd
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+This would put us at an upper bound of 10% size savings (80kb) for
+tinyconfig, which is clearly significant. For defconfig, it's
+still 2.0% or 275kb size reduction when all syscalls are dropped.
 
-On Tue, Sep 26, 2023 at 12:55:01PM +0200, Geert Uytterhoeven wrote:
-> Hi Conor, Changhuang,
->=20
-> On Wed, Sep 13, 2023 at 3:58=E2=80=AFPM Conor Dooley <conor@kernel.org> w=
-rote:
-> > From: Changhuang Liang <changhuang.liang@starfivetech.com>
-> >
-> > Add power-domain header for JH7110 SoC, it can use to operate dphy
-> > power.
-> >
-> > Signed-off-by: Changhuang Liang <changhuang.liang@starfivetech.com>
-> > Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
->=20
-> Thanks for your patch, which is now commit 41b66b54a72bd796
-> ("dt-bindings: power: Add power-domain header for JH7110")
-> in pmdomain/next.
->=20
-> Conor: looks like you forgot to update the patch description, as promised=
- in
-> https://lore.kernel.org/all/20230519-irk-dwelled-6a499c482e62@spud?
-
-*sigh*, that's what happens when you apply the patches several months
-after they were sent I guess. I'll try to make sure that that doesn't
-happen again.
-
-> > --- a/include/dt-bindings/power/starfive,jh7110-pmu.h
-> > +++ b/include/dt-bindings/power/starfive,jh7110-pmu.h
-> > @@ -1,6 +1,6 @@
-> >  /* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
-> >  /*
-> > - * Copyright (C) 2022 StarFive Technology Co., Ltd.
-> > + * Copyright (C) 2022-2023 StarFive Technology Co., Ltd.
-> >   * Author: Walker Chen <walker.chen@starfivetech.com>
-> >   */
-> >  #ifndef __DT_BINDINGS_POWER_JH7110_POWER_H__
-> > @@ -14,4 +14,7 @@
-> >  #define JH7110_PD_ISP          5
-> >  #define JH7110_PD_VENC         6
-> >
-> > +#define JH7110_PD_DPHY_TX      0
-> > +#define JH7110_PD_DPHY_RX      1
->=20
-> These values are conflicting with similarly-named values above:
->=20
->     #define JH7110_PD_SYSTOP        0
->     #define JH7110_PD_CPU           1
->=20
-> Upon closer look, and diving into the driver, this header file contains
-> definitions for two separate number spaces: the first set is meant
-> to be used in PM Domain specifiers referring to a node compatible
-> with "starfive,jh7110-pmu", while the second set is meant to be
-> used in PM Domain specifiers referring to a node compatible with
-> "starfive,jh7110-aon-syscon".
-
-Yeah, apologies for the confusion there. I maybe should have
-requested an additional file, since the relevant compatibles
-are different.
-
-> I think it would be nice to have this reflected in the names of
-> the defines (e.g. JH7110_PD_AON_DPHY_TX), and/or to add comments
-> clearly delimiting the two separate number spaces, and explaining
-> where they apply to.
-
-Since this is 6.7 material, there's still plenty of time remaining to
-make either of these changes. Changhuang Liang, do you think you would
-be able to send a patch implementing either of the suggestions made by
-Geert?
-
-Thanks,
-Conor.
-
-
---v+vIMjR+OVM3y5cd
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZRK+aQAKCRB4tDGHoIJi
-0qdRAQCgkg2gvIyCQlhu9Kgi4WoUf3foxwC7G5VBz36iX0smcAEA+weWLhamLKuF
-n2hwivXCDX0fFopjfXLuKFF81bzVpwg=
-=5+xG
------END PGP SIGNATURE-----
-
---v+vIMjR+OVM3y5cd--
-
-
---===============1027522858282741696==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+     Arnd
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============1027522858282741696==--
-
