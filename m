@@ -4,122 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D37EE7E654
-	for <linux-riscv@archiver.kernel.org>; Tue, 26 Sep 2023 18:04:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1255EE7F124
+	for <linux-riscv@archiver.kernel.org>; Tue, 26 Sep 2023 20:44:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=aDIJVrM+lOnhtFP15xzJy3qEp4nInaFEfmpTKtjTmmk=; b=13JGsejRz1J5N/
-	4g3UXv5EjxmUflexu9du4MjQipQz4r4/EkSLBoH35WfiMc1QhywMhay1RzRloI/KWTmWdBkGjG3em
-	T/DsX+9madj7nkdRmIZ3MrxXjMWmEeL1iwERRRwEU2cg2oxuszZ3I/4NULgUvsQzFGNH7TRP7KYMH
-	ukrWNRz7YvZ052fo0u7DkrhGU5ypt9FfHrjZ4e8+eB7YmP3NV9hjZ5a3DemaeOJACULqh246BP+tN
-	sFG8Th+gVMwSSidP+YLNslmKRMXB+rRJvAWwU+/bCFGuQ41gfLJrssVmzxSc595V8npHyZ5+B8gl+
-	GMPGMq7x14rgP6e9lF9Q==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=6gudzdz68Y67UPJJ6SfmcdzupeUYp2/UaI/yqnS58zo=; b=UCNKpK55DupC7s
+	IgOtKJgNwTFWTuA0uZNM3niGX6TkwGyD/iSyvxIs4bRhoFGSJbNULt3yYKWKG+2l0pwphno8zmYOj
+	96RZGNQ9BijmsvfZdCPZqxJIETzKuWqWaf+D72/8MmEul8QrwQkCn9u+XEXNDi4kU2e3WR6L+URtH
+	/y46ZE9uYyW6Xqw29SdmLiE/MzpqaDyl0twX88YQpuEA7GyXcHO5OAdpzrbMkrSC4tbcHUpez7OWJ
+	TV4rmCX7vYv1XF97YhwfSlbxy7rbxMR5E56P/LVjMIDzy0IsStaj+gLliUuWCnKK7G9j0RvNsK9q3
+	63JJG2qwnc3gaLrkG9sg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qlCQG-00Goop-1Z;
-	Tue, 26 Sep 2023 18:04:36 +0000
-Received: from mail-am0eur02olkn20821.outbound.protection.outlook.com ([2a01:111:f400:fe13::821] helo=EUR02-AM0-obe.outbound.protection.outlook.com)
+	id 1qlEvA-00H0xZ-35;
+	Tue, 26 Sep 2023 20:44:40 +0000
+Received: from mgamail.intel.com ([134.134.136.20])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qlCQD-00Gona-1U
+	id 1qlEv7-00H0x1-0H
 	for linux-riscv@lists.infradead.org;
-	Tue, 26 Sep 2023 18:04:34 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=Zfkkaaqyh6M4MPbEhgl+X+KWv1jSUBI87qzFo5q1f74llCH1ci5A8xfnfEx4LYTvB+mi8xCegvQc4yWCmpfog9gTaUHCeEwDOnO9xyxQ1HEqUTWaMo16S8/oBKwC+DMNwr7wSKeHIb2Oxh1G8CKr1Uq/IEfLWJNNkMETNOJKj70qnwCx4ufeo4abWOqWKNQxBXHmSEJyH/r2x+14IfFBljzqjcXnRFlzNXY9hJqBhBLhpV80HiMUd3JEK/pg1LodkOM6TM06gWwvGMwMF9gaqWr2Lk2v61HoSB+a9i8dz8Cr54eoHSIaniRqzNrIWHKV7R2zmxFoOBiP2GOOyX5NjQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=RwVWlXQeoym0mywKOq9pNSsKico5ab6LLcX/fLgmsKc=;
- b=jMsaO2cq+EWIbNhYYKNAjQfALFNkFys5/3gMFROa+DqwzkahztB1qkvsg7KjBendDzPjBsCVAAtjIjGmNQSwHWHHssFzr92l2PWDL8Hy2WaMNzdmvtnvGx9vMnMAWXyAysbVf7W98QIHXB4WnFXnbpQipkMTEoTWKK0bs47u5r8OdmoESAaLXk3IzpmAyB13QMjS+5OQ0xHd5SZP7gpKsi9GJAghKl5PNosRAhpRvH9dmBJ0+IxK2zjH8Hy2e1elaJkX39NbX+X8u9u3W2hh7a8xmmnl8KcySKCAPhSmLWbGavN5RxWP+FGcjrW7j49hsRQxDHlA7T4aRr6rTgOhUA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=RwVWlXQeoym0mywKOq9pNSsKico5ab6LLcX/fLgmsKc=;
- b=o8XM9qAFgMLeT6wtS5rc9bEjU2b/zTnAv4TGY/ypdoPUH94ClDw5w0BgvFJB/mCaa8f0rp6Nmg8CKYOFT9I1EQiz1JdHNF1SsP+aUWr2oLt2duCg6dyluOKuvTiK/xT9v6h8r0n0kWVWHUerf7hfDsECS9+zdOrdJwZ+ZE6C8ZuPFG3Yzwn4Ce8L2Tq1MHvyCvdWtCr4JsPcvSTCGvQCgVUZ0mjlr7bIlAA8DEZFgpaksh1JSkUhOWZl6GYNWVza3ZAwTRRF3JLPKd2l8lLxLY1w7Rq2mby4JEeb2gC2GlWp1yzQlo6JNUHJa1MpVhZdkcyot3LacZPktmbbBu/S7A==
-Received: from VI1P193MB0752.EURP193.PROD.OUTLOOK.COM (2603:10a6:800:32::19)
- by PAXP193MB1629.EURP193.PROD.OUTLOOK.COM (2603:10a6:102:13f::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6813.28; Tue, 26 Sep
- 2023 18:04:15 +0000
-Received: from VI1P193MB0752.EURP193.PROD.OUTLOOK.COM
- ([fe80::3164:ae5c:78f7:23ad]) by VI1P193MB0752.EURP193.PROD.OUTLOOK.COM
- ([fe80::3164:ae5c:78f7:23ad%4]) with mapi id 15.20.6813.024; Tue, 26 Sep 2023
- 18:04:15 +0000
-From: Juntong Deng <juntong.deng@outlook.com>
-To: shuah@kernel.org,
-	mic@digikod.net,
-	brauner@kernel.org,
-	keescook@chromium.org,
-	tony.luck@intel.com,
-	gpiccoli@igalia.com,
-	paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu
-Cc: linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-security-module@vger.kernel.org,
-	linux-hardening@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	bpf@vger.kernel.org,
-	linux-kernel-mentees@lists.linuxfoundation.org
-Subject: [PATCH] selftests: Fix wrong TARGET in kselftest top level Makefile
-Date: Wed, 27 Sep 2023 02:03:23 +0800
-Message-ID: <VI1P193MB0752596147F224B9F921C85199C3A@VI1P193MB0752.EURP193.PROD.OUTLOOK.COM>
-X-Mailer: git-send-email 2.39.2
-X-TMN: [Ier0yVm8oTt2wRApjFme38b5i3hVTU7C]
-X-ClientProxiedBy: AM9P193CA0005.EURP193.PROD.OUTLOOK.COM
- (2603:10a6:20b:21e::10) To VI1P193MB0752.EURP193.PROD.OUTLOOK.COM
- (2603:10a6:800:32::19)
-X-Microsoft-Original-Message-ID: <20230926180323.21921-1-juntong.deng@outlook.com>
+	Tue, 26 Sep 2023 20:44:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1695761077; x=1727297077;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=gK5hWn8nLs18VMiTM7kXxPjeLkMzRB4MUjym/ABZruA=;
+  b=iFO3v7oH3RazpHXUeB20Xxvwd8+TkYZg1j/MjB/QrMlWuwHg67Wrbb6b
+   mkPvCxDOeCKz7aHEkLOc5mmJcLShq2DA/iQHmUorjAtSmjfvGTIODCfKh
+   dAwTX7Ct+9SbTohKMoS3TGbFzxkN+gDHtevaAWRA3dut40ShwcFF+WyWZ
+   /RBjecEAowqjCN3mBacXudr+ZbPQQBf6yr8IicWKGWOpWySIAF4NShTMM
+   HJuQprnZZvb7W1PThyuWML9/WE9b4GYSWLOy69R6N2dTExEShkAkuWxIq
+   Ua4Qw+DZyawBVTIdfiu9+M+62vSv05q0Co+ZeE/FfgE1XQ1pRrVpz2r/k
+   Q==;
+X-IronPort-AV: E=McAfee;i="6600,9927,10845"; a="371999462"
+X-IronPort-AV: E=Sophos;i="6.03,178,1694761200"; 
+   d="scan'208";a="371999462"
+Received: from orsmga004.jf.intel.com ([10.7.209.38])
+  by orsmga101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Sep 2023 13:44:36 -0700
+X-ExtLoop1: 1
+X-IronPort-AV: E=McAfee;i="6600,9927,10845"; a="872631689"
+X-IronPort-AV: E=Sophos;i="6.03,178,1694761200"; 
+   d="scan'208";a="872631689"
+Received: from lkp-server02.sh.intel.com (HELO 32c80313467c) ([10.239.97.151])
+  by orsmga004.jf.intel.com with ESMTP; 26 Sep 2023 13:44:33 -0700
+Received: from kbuild by 32c80313467c with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1qlEv1-0003Ld-0Y;
+	Tue, 26 Sep 2023 20:44:31 +0000
+Date: Wed, 27 Sep 2023 04:44:26 +0800
+From: kernel test robot <lkp@intel.com>
+To: Dmitry Dunaev <dunaev@tecon.ru>
+Cc: oe-kbuild-all@lists.linux.dev, dunaich@mail.ru,
+	Dmitry Dunaev <dunaev@tecon.ru>,
+	Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH] irqchip/riscv-intc: Mark INTC nodes for secondary CPUs
+ as initialized.
+Message-ID: <202309270417.HR9Q4rJN-lkp@intel.com>
+References: <20230926102801.1591126-1-dunaev@tecon.ru>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: VI1P193MB0752:EE_|PAXP193MB1629:EE_
-X-MS-Office365-Filtering-Correlation-Id: 61d13663-69a7-4085-66c5-08dbbebafe85
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: lihTRgR9Sr4MI15Ka9DYgAztiI6JS8M9R8kNeHHgSiWGOD6CLwjqnPzla3oMZZKHt4gOLIGPynowX7M9Y3BCpscgPGFzp0tK4zMir7UEMkF49/mKgCWANTUDYtIb0HD2dZskXaLlFkusJZYCl3F7NqSt3Tewga9YsJa8BlI/DSoyAIMb3+0YKYZynaWcDvg2hUWvxM0kc0/w+jhHSKRE/el7duglX4+KW2zGEiGEyO1sC0kWTBiohkBtzyO0d3ygY3A5sBw1xheRKp88vvNDKorCbHO5yNVUKSL9izUt+j4OLlhy/aIIiE9BssakyyVL/ArenVV4EJo9zhO7yVjq/5uwiSrnxK40h+H+bNwlErLI5w4TRYZwF0CRAvEOiRihcJA/MQLVqV/t8DPF9l67cdFrMfChgnAwNlr7ZG4iZtU/dO4uDEfy7HaPXIK1zsQj3bvj/pYaJyGVmm+5/jq4DZ1akI1c+LhyJk7beOr2sopS8dsP3GF3pAiXBs5r86HZD6OpVpgsRheQBCZ+BM0Vx9JzF9a76sgJAAn4eZ3Sj7kgxq8VRZjVhndh/mDU2gAR
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?pIZEGfMgfEHrNru7pYofKvThXDbVcUzHcsAxbS1Tl+BMhjkpJbjNoyFjaWUu?=
- =?us-ascii?Q?urNluKWZmTzz1yzkstF6pV+6GIL02oU0cCq0xhttsMKpMYzWs0r+LxRDGmBV?=
- =?us-ascii?Q?MRM0Pg0kwbpj8nX3IU6zMhHSFU+puFtmwwkLvg1dukkXtI2P3zUCnpI2WTPT?=
- =?us-ascii?Q?VAtv0t2sg1yd6QZ1o+0OE6QOIL3KkeN3HaBGIfcaZJf6bbbM/xrenp/hOZVz?=
- =?us-ascii?Q?kbnO/bW5Xdce+DjgY0hK7+VNE7Eai9FGOOIP6YQHUHepqEnKL8CA2TafP8E2?=
- =?us-ascii?Q?MNdPRyPSZzf3OoMRB8J9QDGMpwbUy81K0REivp1alXnIYm2ISRZhjJaRSn7l?=
- =?us-ascii?Q?0LW/Q6e2oQkuvGDpZdukTlLhcFYjtZjfs5qsjgx9nN8AUxhnthCacLuXItm/?=
- =?us-ascii?Q?WqWmcgvQMeq6UDL0w8wXzFXZZCQ72DgKHk/D+db2U9KUjzsxeCZh61XMxB73?=
- =?us-ascii?Q?6ZQ/v9CqdiTLvJpnrcU4x5ctXajI++SgNdGI8cfUQEsRdatoU0HcpCktt4z7?=
- =?us-ascii?Q?eOrmE5nPY7EPu9H7Jq3qlnxGpHzCOQNLEvmtcggRGQXyz3AtVLeP5HCsSFtw?=
- =?us-ascii?Q?4Qw0pzYnkG1wZeZFuxeJol/obp6IoO25lCC9KNWOZ9NQ2T8M6SRGvVE/1dqT?=
- =?us-ascii?Q?2u4jYoy0NeXZnj2vdiO9QGMDaRbXtqYhlmxftHcr9GGuF/x/lX1voZB2cYgp?=
- =?us-ascii?Q?01rkuNUKaBFcZCV7VGBe+hl2M8vHeaKNbbCHG2Hs/N2URQzdGY6VlOTWeKAz?=
- =?us-ascii?Q?UsrlsVOKMYs9TfKOCeqmoxcFUZhmiCORbM+XD9Ym2Aii8e0KRs3R/gubU/ia?=
- =?us-ascii?Q?QuE3Zc6upD25PVrJUmUBtNm7f86FaiOXiU9RJt8pvi4boltfTk+wEiqiSNSQ?=
- =?us-ascii?Q?iZrniHoCnq8HwWO/6Jk7SbB5oGDRW54GDJmWganLz9d/VW1ZUeW660xT3jv1?=
- =?us-ascii?Q?rSIFXwpGU7L9UUKYr8/4r5+96zckZlcAgqIMGfOUz9Lqbu5E9SIs7ILUrkVw?=
- =?us-ascii?Q?HuMKyZG0LKAvoBrhKA0/v/thgHZg5rjS/FJ5ivlb8N7cys+UcRygJ1osDQwh?=
- =?us-ascii?Q?oUbBluuObTvkrVqMpWnJdqQzFOlI61pEYAVIg+AUnK82MytVhKIkiA51OcOC?=
- =?us-ascii?Q?TS/0LQk2GobL//W/UMH43YwvMeN8CGA0JZhcwHSt2uK2fBHcPLPfe1+pawkd?=
- =?us-ascii?Q?6stuy16gPMPlT2mOsyaetg0DIz0Ni4esliPHc6a/wDZ8spYTuHizTx1eZkA?=
- =?us-ascii?Q?=3D?=
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 61d13663-69a7-4085-66c5-08dbbebafe85
-X-MS-Exchange-CrossTenant-AuthSource: VI1P193MB0752.EURP193.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Sep 2023 18:04:15.0017
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXP193MB1629
+Content-Disposition: inline
+In-Reply-To: <20230926102801.1591126-1-dunaev@tecon.ru>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230926_110433_521935_D630E1EE 
-X-CRM114-Status: UNSURE (   8.81  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230926_134437_173739_CA3188CF 
+X-CRM114-Status: GOOD (  17.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,37 +91,73 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The 'uevents' subdirectory does not exist in tools/testing/selftests/
-and adding 'uevents' to the TARGETS list results in the following error:
+Hi Dmitry,
 
-make[1]: Entering directory 'xx/tools/testing/selftests/uevents'
-make[1]: *** No targets specified and no makefile found. Stop.
-make[1]: Leaving directory 'xx/tools/testing/selftests/uevents'
+kernel test robot noticed the following build errors:
 
-What actually exists in tools/testing/selftests/ is the 'uevent'
-subdirectory.
+[auto build test ERROR on tip/irq/core]
+[also build test ERROR on linus/master v6.6-rc3 next-20230926]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-Signed-off-by: Juntong Deng <juntong.deng@outlook.com>
----
- tools/testing/selftests/Makefile | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+url:    https://github.com/intel-lab-lkp/linux/commits/Dmitry-Dunaev/irqchip-riscv-intc-Mark-INTC-nodes-for-secondary-CPUs-as-initialized/20230926-183500
+base:   tip/irq/core
+patch link:    https://lore.kernel.org/r/20230926102801.1591126-1-dunaev%40tecon.ru
+patch subject: [PATCH] irqchip/riscv-intc: Mark INTC nodes for secondary CPUs as initialized.
+config: riscv-randconfig-001-20230926 (https://download.01.org/0day-ci/archive/20230927/202309270417.HR9Q4rJN-lkp@intel.com/config)
+compiler: riscv64-linux-gcc (GCC) 13.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20230927/202309270417.HR9Q4rJN-lkp@intel.com/reproduce)
 
-diff --git a/tools/testing/selftests/Makefile b/tools/testing/selftests/Makefile
-index 42806add0114..1a21d6beebc6 100644
---- a/tools/testing/selftests/Makefile
-+++ b/tools/testing/selftests/Makefile
-@@ -92,7 +92,7 @@ endif
- TARGETS += tmpfs
- TARGETS += tpm2
- TARGETS += tty
--TARGETS += uevents
-+TARGETS += uevent
- TARGETS += user
- TARGETS += user_events
- TARGETS += vDSO
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202309270417.HR9Q4rJN-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+   drivers/irqchip/irq-riscv-intc.c: In function 'riscv_intc_acpi_init':
+>> drivers/irqchip/irq-riscv-intc.c:185:58: error: 'node' undeclared (first use in this function)
+     185 |                 fwnode_dev_initialized(of_node_to_fwnode(node), true);
+         |                                                          ^~~~
+   drivers/irqchip/irq-riscv-intc.c:185:58: note: each undeclared identifier is reported only once for each function it appears in
+
+
+vim +/node +185 drivers/irqchip/irq-riscv-intc.c
+
+   169	
+   170	static int __init riscv_intc_acpi_init(union acpi_subtable_headers *header,
+   171					       const unsigned long end)
+   172	{
+   173		struct fwnode_handle *fn;
+   174		struct acpi_madt_rintc *rintc;
+   175	
+   176		rintc = (struct acpi_madt_rintc *)header;
+   177	
+   178		/*
+   179		 * The ACPI MADT will have one INTC for each CPU (or HART)
+   180		 * so riscv_intc_acpi_init() function will be called once
+   181		 * for each INTC. We only do INTC initialization
+   182		 * for the INTC belonging to the boot CPU (or boot HART).
+   183		 */
+   184		if (riscv_hartid_to_cpuid(rintc->hart_id) != smp_processor_id()) {
+ > 185			fwnode_dev_initialized(of_node_to_fwnode(node), true);
+   186			return 0;
+   187		}
+   188	
+   189		fn = irq_domain_alloc_named_fwnode("RISCV-INTC");
+   190		if (!fn) {
+   191			pr_err("unable to allocate INTC FW node\n");
+   192			return -ENOMEM;
+   193		}
+   194	
+   195		return riscv_intc_init_common(fn);
+   196	}
+   197	
+
 -- 
-2.39.2
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
 _______________________________________________
 linux-riscv mailing list
