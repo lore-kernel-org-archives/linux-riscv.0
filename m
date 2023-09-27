@@ -4,66 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71555E82CB1
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Sep 2023 16:54:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13635E82CAE
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Sep 2023 17:00:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9rjKPAciBvatWY20v3hDSC2UH3jEmqkgf7NU6JNwZiw=; b=dyUIhdUVDazsra
-	hmmKZnXCFmicWkrH1cQU1C2kHv5CWNn/BxZZy02sXrAbE3ZiVcvjT5eGAyJdjPeRF6gs6YFewgWvD
-	D4zT+XANPc+8BDx4A1B5TFUZhBKYh2Z1kTa5mrzhi8rkTyhzOYS/GL7kZopIPn5azXHRjT4LvzvW3
-	JmWw9ouOuWtqEDjjnK2HhgrzzKNJVmRi5pHYghfil1YtIiuW+fSH8IcQ2XQWNwaEAlWJoUHQrf3pi
-	eqXyEXiD20TEzEnHblLcmHC13FdMby91QAm3eRPitXStyoP2dSnRagUPKtdDQaprv6cb5/bvs9NbA
-	z9pcOU0pwItNAboIsO6Q==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=1MDdKRvZRAztBDebLt8n4/Qe+YTK5CYeH5vpMm6l5ag=; b=AS+xYeL+cgTJV7
+	zLP2DBTyEDraLaUnBSIUcNT43Z0u4yRkRQTOuwIx23shYVw/8FL6sJJdX/PH0gmsXsJYk/of+wyFq
+	QScSZm34OWUd4ADRZSWRIIXbXnL4mZHZiRRBDzb80JWbC31yRhw7ws+6h0x+ucCix1eV79TMvoZJZ
+	NfmhLA1dazUz+26IK/XmNofSWFpgEfyq/VslP9/cVUdyz7/USpcWq9f61NPfwSrFCrHhb8dMDOXTN
+	vmO3zZWxChjqeWxXSbN48okariAVuNODpEkMLpjQXV4w+e5JPv8kffH9nBVZGnScxA/FfrLTB+2Gv
+	3l7LFR2kxxDr69InNVFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qlXo8-001Sjg-0f;
-	Wed, 27 Sep 2023 16:54:40 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1qlXtm-001TBo-33;
+	Wed, 27 Sep 2023 17:00:30 +0000
+Received: from mail-vs1-xe2c.google.com ([2607:f8b0:4864:20::e2c])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qlXo0-001SgQ-39
+	id 1qlXtj-001TB3-0Y
 	for linux-riscv@lists.infradead.org;
-	Wed, 27 Sep 2023 16:54:38 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by ams.source.kernel.org (Postfix) with ESMTP id 8567BB81875;
-	Wed, 27 Sep 2023 16:54:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 27B43C433CC;
-	Wed, 27 Sep 2023 16:54:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1695833670;
-	bh=pfq+SQ5jW2o9nXakRgvSgmaqn3orOhnaopBx/4PGPjM=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=dI0YrIfy3jXCRX8+l+D2FjpPKNs3YV7+hSTiGlNtpGtV7CQS6bd586Pt3ZyMoUV7i
-	 jICgsB1K+tZwYyfcHX3fcqS+EjQyqfKN56lB5rxmhPJY1u5C5yqAJzH2Y+Sh7GcCnA
-	 Wsjh/mt9gs90sacL9QsJdnhEDORTDgAeSQlZkhrVAQHBgxfLa5jj1XVu8ZHqzgIdZB
-	 zk0Ns+qhq+xNHB0bKRIrrb335lwvV5BvXwFSnl0oaVCz5cqX0mwtAQkzs+FzxjX+2m
-	 gh/D3N+yoUM4HM2so+vq6e9HXDseLImFHeWW1gISm9LFOO+4RJWBhgwJur/o7zClzJ
-	 ononDWm9zlqqw==
-From: Jisheng Zhang <jszhang@kernel.org>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Thinh Nguyen <Thinh.Nguyen@synopsys.com>
-Cc: linux-usb@vger.kernel.org,
-	devicetree@vger.kernel.org,
+	Wed, 27 Sep 2023 17:00:28 +0000
+Received: by mail-vs1-xe2c.google.com with SMTP id ada2fe7eead31-4526f0bdf72so4875188137.1
+        for <linux-riscv@lists.infradead.org>; Wed, 27 Sep 2023 10:00:24 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1695834023; x=1696438823; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=lR0BPLKkgj2fJ5IyWi7flO/+WIQlLqax41QD5MIUKy0=;
+        b=DZgiiYTq7QdTDWUOnQbCdIYFG4DgG2QacKkw5y6k7AfrP5kr7q3IWSMYg8iujUapCr
+         CCLlDFvrTnvChTM8GIi5v2WBTyEBD7G95ABPxZHnCf2eKS7HcWOMvP62QZ3TbieW5SKM
+         3La370Pt1SOMejfdFpn7HJRg7LbUnhciKPOX8j6BuoqZOWGeafTZu7f/kfwd8lgHmhyQ
+         F+UTHl6MpGM3f1W1wh6WsFbr+ZkKbR3VybF/3icpYoyCLLk7qx1NwBvc/NE6a9CDG3vw
+         IdeN8Wz4e3gown7VXFR62dN/aWgbsimugBHW1kHqKXpNCHpu7k7M/GuJVqc/UHBszylu
+         vMTQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1695834023; x=1696438823;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=lR0BPLKkgj2fJ5IyWi7flO/+WIQlLqax41QD5MIUKy0=;
+        b=UpmLwx/+e0UICYaXSo0KUvTWTC3NV0ZRvXJrd6fezF6AmKh7ovKgrM+TS7FviJzjHo
+         yfV/PwIjqtWIi6SPBepTNYUqR427ZlW/tvbjXO/e/WIjGO6xJqgI0+or/SGA/8dfnAdm
+         YYIrTWmNP6s51UaX/dqWfUP8q2lQ5hZTVO0aOIzxKcJhCBoAmhxutFhcH+60ZmfXzVWu
+         hdn+BshPLmGH7w+4ZJV5pPNPBci0qrjmpIIvHLa+f5B3LNJanntAzMmpxZRn/8a6TaSj
+         25+IHOQZ9tWtLt/oWG5wuHvuqRijya9zbJwnJZiwlSw4cWhSMCfqdEE0m3eYAFnW+k5v
+         wuSw==
+X-Gm-Message-State: AOJu0YxFkS1MwfbSah+MDfCIUoPmhBLmdpGzfw7fC5ceNQmLXKmWlvEs
+	vOqgFiixUJKTu+Vkdt9oGRaamb+kzQthrtioOsQ=
+X-Google-Smtp-Source: AGHT+IGbkNYcjY6OkDmHWUN+FpDde/aR1o0xZg9sHepbkCx/UdwSY0ITedw583PH98yPOZ8dUv5Kog==
+X-Received: by 2002:a05:6102:f81:b0:452:de00:7ab4 with SMTP id e1-20020a0561020f8100b00452de007ab4mr1063401vsv.5.1695834023233;
+        Wed, 27 Sep 2023 10:00:23 -0700 (PDT)
+Received: from sunil-pc.Dlink ([106.51.190.42])
+        by smtp.gmail.com with ESMTPSA id u7-20020a637907000000b00584b293d157sm3279396pgc.80.2023.09.27.10.00.18
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 27 Sep 2023 10:00:22 -0700 (PDT)
+From: Sunil V L <sunilvl@ventanamicro.com>
+To: linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	Guo Ren <guoren@kernel.org>,
-	Fu Wei <wefu@redhat.com>,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH 2/2] usb: dwc3: add T-HEAD TH1520 usb driver
-Date: Thu, 28 Sep 2023 00:42:22 +0800
-Message-Id: <20230927164222.3505-3-jszhang@kernel.org>
-X-Mailer: git-send-email 2.40.0
-In-Reply-To: <20230927164222.3505-1-jszhang@kernel.org>
-References: <20230927164222.3505-1-jszhang@kernel.org>
+	linux-acpi@vger.kernel.org
+Subject: [PATCH v2 -next 0/4] RISC-V: ACPI improvements
+Date: Wed, 27 Sep 2023 22:30:11 +0530
+Message-Id: <20230927170015.295232-1-sunilvl@ventanamicro.com>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230927_095433_321736_A1B30E5A 
-X-CRM114-Status: GOOD (  20.55  )
+X-CRM114-CacheID: sfid-20230927_100027_358640_2507CF62 
+X-CRM114-Status: GOOD (  11.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,190 +84,50 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: Anup Patel <apatel@ventanamicro.com>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alexghiti@rivosinc.com>, "Rafael J . Wysocki" <rafael@kernel.org>, Daniel Lezcano <daniel.lezcano@linaro.org>, Atish Kumar Patra <atishp@rivosinc.com>, Andy Shevchenko <andriy.shevchenko@linux.intel.com>, Conor Dooley <conor.dooley@microchip.com>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, Thomas Gleixner <tglx@linutronix.de>, Andrew Jones <ajones@ventanamicro.com>, Ard Biesheuvel <ardb@kernel.org>, Len Brown <lenb@kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Adds TH1520 Glue layer to support USB controller on T-HEAD TH1520 SoC.
-There is a DesignWare USB3 DRD core in TH1520 SoCs, the dwc3 core is
-the child of this USB wrapper module device.
+This series is a set of patches which were originally part of RFC v1 series
+[1] to add ACPI support in RISC-V interrupt controllers. Since these
+patches are independent of the interrupt controllers, creating this new
+series which helps to merge instead of waiting for big series.
 
-Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
----
- MAINTAINERS                   |   1 +
- drivers/usb/dwc3/Kconfig      |   9 +++
- drivers/usb/dwc3/Makefile     |   1 +
- drivers/usb/dwc3/dwc3-thead.c | 119 ++++++++++++++++++++++++++++++++++
- 4 files changed, 130 insertions(+)
- create mode 100644 drivers/usb/dwc3/dwc3-thead.c
+This set of patches primarily adds support below ECR [2] which is approved
+by the ASWG and adds below features.
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 90f13281d297..d55e40060c46 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -18481,6 +18481,7 @@ M:	Fu Wei <wefu@redhat.com>
- L:	linux-riscv@lists.infradead.org
- S:	Maintained
- F:	arch/riscv/boot/dts/thead/
-+F:	drivers/usb/dwc3/dwc3-thead.c
- 
- RNBD BLOCK DRIVERS
- M:	Md. Haris Iqbal <haris.iqbal@ionos.com>
-diff --git a/drivers/usb/dwc3/Kconfig b/drivers/usb/dwc3/Kconfig
-index 98efcbb76c88..1b02f4f55b47 100644
---- a/drivers/usb/dwc3/Kconfig
-+++ b/drivers/usb/dwc3/Kconfig
-@@ -178,4 +178,13 @@ config USB_DWC3_OCTEON
- 	  Only the host mode is currently supported.
- 	  Say 'Y' or 'M' here if you have one such device.
- 
-+config USB_DWC3_THEAD
-+	tristate "T-HEAD Platform"
-+	depends on ARCH_THEAD || COMPILE_TEST
-+	default USB_DWC3
-+	help
-+	  Support T-HEAD platform with DesignWare Core USB3 IP.
-+	  Only the host mode is currently supported.
-+	  Say 'Y' or 'M' here if you have one such device.
-+
- endif
-diff --git a/drivers/usb/dwc3/Makefile b/drivers/usb/dwc3/Makefile
-index fe1493d4bbe5..9523a51dd279 100644
---- a/drivers/usb/dwc3/Makefile
-+++ b/drivers/usb/dwc3/Makefile
-@@ -55,3 +55,4 @@ obj-$(CONFIG_USB_DWC3_QCOM)		+= dwc3-qcom.o
- obj-$(CONFIG_USB_DWC3_IMX8MP)		+= dwc3-imx8mp.o
- obj-$(CONFIG_USB_DWC3_XILINX)		+= dwc3-xilinx.o
- obj-$(CONFIG_USB_DWC3_OCTEON)		+= dwc3-octeon.o
-+obj-$(CONFIG_USB_DWC3_THEAD)		+= dwc3-thead.o
-diff --git a/drivers/usb/dwc3/dwc3-thead.c b/drivers/usb/dwc3/dwc3-thead.c
-new file mode 100644
-index 000000000000..999b1e319c72
---- /dev/null
-+++ b/drivers/usb/dwc3/dwc3-thead.c
-@@ -0,0 +1,119 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * dwc3-thead.c - T-HEAD platform specific glue layer
-+ *
-+ * Inspired by dwc3-of-simple.c
-+ *
-+ * Copyright (C) 2021 Alibaba Group Holding Limited.
-+ * Copyright (C) 2023 Jisheng Zhang <jszhang@kernel.org>
-+ * Copyright (c) 2018, The Linux Foundation. All rights reserved.
-+ */
-+
-+#include <linux/io.h>
-+#include <linux/kernel.h>
-+#include <linux/mfd/syscon.h>
-+#include <linux/module.h>
-+#include <linux/of.h>
-+#include <linux/of_platform.h>
-+#include <linux/platform_device.h>
-+#include <linux/regmap.h>
-+
-+#include "core.h"
-+
-+#define USB_SSP_EN		0x34
-+#define  REF_SSP_EN		BIT(0)
-+#define USB_SYS			0x3c
-+#define  COMMONONN		BIT(0)
-+
-+#define USB3_DRD_SWRST		0x14
-+#define  USB3_DRD_PRST		BIT(0)
-+#define  USB3_DRD_PHYRST	BIT(1)
-+#define  USB3_DRD_VCCRST	BIT(2)
-+#define  USB3_DRD_RSTMASK	(USB3_DRD_PRST | USB3_DRD_PHYRST | USB3_DRD_VCCRST)
-+
-+struct dwc3_thead {
-+	void __iomem		*base;
-+	struct regmap		*misc_sysreg;
-+	struct regulator	*vbus;
-+};
-+
-+static void dwc3_thead_optimize_power(struct dwc3_thead *thead)
-+{
-+	u32 val;
-+
-+	/* config usb top within USB ctrl & PHY reset */
-+	regmap_update_bits(thead->misc_sysreg, USB3_DRD_SWRST,
-+			   USB3_DRD_RSTMASK, USB3_DRD_PRST);
-+
-+	/*
-+	 * dwc reg also need to be configed to save power
-+	 * 1. set USB_SYS[COMMONONN]
-+	 * 2. set DWC3_GCTL[SOFITPSYNC](done by core.c)
-+	 * 3. set GUSB3PIPECTL[SUSPENDEN] (done by core.c)
-+	 */
-+	val = readl(thead->base + USB_SYS);
-+	val |= COMMONONN;
-+	writel(val, thead->base + USB_SYS);
-+	val = readl(thead->base + USB_SSP_EN);
-+	val |= REF_SSP_EN;
-+	writel(val, thead->base + USB_SSP_EN);
-+
-+	regmap_update_bits(thead->misc_sysreg, USB3_DRD_SWRST,
-+			   USB3_DRD_RSTMASK, USB3_DRD_RSTMASK);
-+}
-+
-+static int dwc3_thead_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct device_node *np = dev->of_node;
-+	struct dwc3_thead *thead;
-+	int ret;
-+
-+	thead = devm_kzalloc(&pdev->dev, sizeof(*thead), GFP_KERNEL);
-+	if (!thead)
-+		return -ENOMEM;
-+
-+	platform_set_drvdata(pdev, thead);
-+
-+	ret = devm_regulator_get_enable_optional(dev, "vbus");
-+	if (ret < 0 && ret != -ENODEV)
-+		return ret;
-+
-+	thead->misc_sysreg = syscon_regmap_lookup_by_phandle(np, "thead,misc-sysreg");
-+	if (IS_ERR(thead->misc_sysreg))
-+		return PTR_ERR(thead->misc_sysreg);
-+
-+	thead->base = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(thead->base))
-+		return PTR_ERR(thead->base);
-+
-+	dwc3_thead_optimize_power(thead);
-+
-+	return of_platform_populate(np, NULL, NULL, dev);
-+}
-+
-+static void dwc3_thead_remove(struct platform_device *pdev)
-+{
-+	of_platform_depopulate(&pdev->dev);
-+}
-+
-+static const struct of_device_id dwc3_thead_of_match[] = {
-+	{ .compatible = "thead,th1520-usb" },
-+	{ },
-+};
-+MODULE_DEVICE_TABLE(of, dwc3_thead_of_match);
-+
-+static struct platform_driver dwc3_thead_driver = {
-+	.probe		= dwc3_thead_probe,
-+	.remove_new	= dwc3_thead_remove,
-+	.driver		= {
-+		.name	= "dwc3-thead",
-+		.of_match_table	= dwc3_thead_of_match,
-+	},
-+};
-+module_platform_driver(dwc3_thead_driver);
-+
-+MODULE_ALIAS("platform:dwc3-thead");
-+MODULE_LICENSE("GPL v2");
-+MODULE_DESCRIPTION("DesignWare DWC3 T-HEAD Glue Driver");
-+MODULE_AUTHOR("Jisheng Zhang <jszhang@kernel.org>");
+- Get CBO block sizes from RHCT on ACPI based systems.
+- Set timer_can_not_wakeup in timer driver based on the flag in RHCT.
+
+Additionally, the series contains a patch to improve acpi_os_ioremap().
+
+[1] - https://lore.kernel.org/lkml/20230803175202.3173957-1-sunilvl@ventanamicro.com/
+[2] - https://drive.google.com/file/d/1sKbOa8m1UZw1JkquZYe3F1zQBN1xXsaf/view?usp=sharing
+
+Changes since RFC v1:
+	1) Separated the patches from interrupt controller support series.
+	2) Addressed feedback from Andy and Drew.
+	3) Rebased to Palmer's for-next tree.
+	4) Added RB tags received on RFC v1.
+
+Sunil V L (4):
+  RISC-V: ACPI: Enhance acpi_os_ioremap with MMIO remapping
+  RISC-V: ACPI: RHCT: Add function to get CBO block sizes
+  RISC-V: cacheflush: Initialize CBO variables on ACPI systems
+  clocksource/timer-riscv: ACPI: Add timer_cannot_wakeup_cpu
+
+ arch/riscv/Kconfig                |  1 +
+ arch/riscv/include/asm/acpi.h     |  9 ++++
+ arch/riscv/kernel/acpi.c          | 87 ++++++++++++++++++++++++++++++-
+ arch/riscv/mm/cacheflush.c        | 37 ++++++++++---
+ drivers/acpi/riscv/rhct.c         | 72 ++++++++++++++++++++++++-
+ drivers/clocksource/timer-riscv.c |  4 ++
+ 6 files changed, 201 insertions(+), 9 deletions(-)
+
 -- 
-2.40.1
+2.39.2
 
 
 _______________________________________________
