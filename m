@@ -4,92 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3097E810A2
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Sep 2023 08:28:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C0C2E810A4
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Sep 2023 08:31:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SMOihFn8QIsbZPzG5kRZRpKf9RopBxH9MJHHS9N/IDM=; b=pj7rHRI0ahpmri
-	Fqv+mftNcfPuX5jpaSdkBnaay3AfFf/Ul7ZoRRU0B4HDLaGpyqfQDRPKGPD2levf8xGPGAV4PN+Gg
-	QmmHfQPgJ+yS9FprWkDBb6BrtaJHvuj705EKF3NZv+Zgmy9WhVe49rfH1ulHpUlmkDipU+5mU0jMe
-	nLaSs9oLjlJhvFuZLLZKHlGpxPIZ0e4aVRbaolo4oFN/i3rkcjxfjHWjPcliNjYxM1/Wq44JO8W6w
-	RjdHQjjpz3vt8gjbxOGoq+sRfpV7v0of4nLFXYhtV7Ip1zy6xpSV0BdbJrvwjd6u9QxFlBosFmasZ
-	wPzYYxRexgjJqW08uJHQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Subject:To:From:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=QzWP+WyVU221e1RFGXYB174agHPzX/1wkGypA7mNJXU=; b=xQmeA888nY2/Dp
+	HohQKiGBkmXs9+kAl89oaiZ31diFjJ4LUurvUcB7uwGC6Xf4blPGiZIZJJntVC1sGdIhxuj+qFVDN
+	yGJTOEI57efWYJUp67P/EiBuclpqwUTSD2i01o5sOZPIwey2LWgqbu7MqqplNo5P2NYiTLPoCz120
+	2RBC7f7dJSS9TaMWWyypi8d6l8mslAkVyq5irkDJpfbjRYxm3WoCJUQF9vSj2K1yfYtN49+HRRipF
+	7WFo/28vFvg5NZIP5BcTfyIRy9zSws49IBjFgdQIXxAG1fcqSNjQnBK4UA1ZnPz7G6EKKkrIP/58c
+	HD72CKi1tGqEP3btdO4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qlPuK-000L3i-2q;
-	Wed, 27 Sep 2023 08:28:32 +0000
-Received: from mail-oi1-x236.google.com ([2607:f8b0:4864:20::236])
+	id 1qlPwx-000LOM-0M;
+	Wed, 27 Sep 2023 08:31:15 +0000
+Received: from mail.socialglobal.pl ([51.195.90.253])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qlPuI-000L2U-1Z
+	id 1qlPwt-000LNH-2g
 	for linux-riscv@lists.infradead.org;
-	Wed, 27 Sep 2023 08:28:31 +0000
-Received: by mail-oi1-x236.google.com with SMTP id 5614622812f47-3af5b5d7e9eso249799b6e.3
-        for <linux-riscv@lists.infradead.org>; Wed, 27 Sep 2023 01:28:28 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1695803308; x=1696408108; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=YZTi49m1tRqik4s4OIHpvu+DZ0pGT5ycjrh8hjwTA/U=;
-        b=U30sbZRcM8Zwc82rF/wDt+7uX6sSwk4YM6/EA1QjUUyWUeBu1IJ2TGLTsEDNvJ1Ui6
-         2cAU8FN75U6Ctol9X10BnOxmQQkf3iekZ1OYa52owA5HdlZuXSjC68r4pPVmp+3QCPde
-         uxUd5dftN9yYKKqu2YHsI6WtX0o4q6VS3iaS+BwiiISiFE3/wOo7ZErFcoJW06Ptv7eB
-         bCHM6lHOGLLSkYDGpMJALe4ZD7AgmYhbda4jzGKeKtZ/M5Wp+cqxaU3aHrepzwskO16h
-         RwheK6PtjVRfWYaDDJE+Hi/rz3vqkhcMg9YeKwXxv7ZTvovfJAJNbiB3Bkhu93xAwHAm
-         dwFQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1695803308; x=1696408108;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=YZTi49m1tRqik4s4OIHpvu+DZ0pGT5ycjrh8hjwTA/U=;
-        b=kTfjlPVM/CbjyeyRP/nlnFMWfjOZOO0IIg13lpu3Hk2jtwzK/kW0pZyW5VT6sXTm3n
-         9Cf8rfSNUlrgcdaMMYBqkj80pVdQqSkp/JW5TKkMrdxYZjMbQ7v07ooHKTvnIckn9QS2
-         qiJF28HD0fP2bmttGkrkMsBt1dIhfssbfBGgTu0cdqXmQlwSzdbpjr8A3XumPp8aupJk
-         arX6kcyHFPnr3qbEx9bDYDa3bSyzwg8RLDHe2RyaicZ2Vw6YqouBmlOYnPb3rHmdXQy8
-         U86tBErXYah0spASQNhEKabzeLL7JtDW6NxYLpJbgvnTVm1Fl6CZ7a4rK1ZWCe4QpRjZ
-         LuMA==
-X-Gm-Message-State: AOJu0Yzy4F83QfP3EJ9V29XjKvG3YPbYr4PaLoxpjLzuYo7fca2+6eGj
-	V/4NlkDbWyt9Ee9/30T7GVQ=
-X-Google-Smtp-Source: AGHT+IFWJGplOWqOpM2IFjOdrFg6ThLvBAE2KJ+l0wbkxriQgN9+p9DSzrcWzlgqMBpiqFYn+mQEag==
-X-Received: by 2002:a05:6871:549:b0:1d6:6083:63a3 with SMTP id t9-20020a056871054900b001d6608363a3mr1630424oal.37.1695803308124;
-        Wed, 27 Sep 2023 01:28:28 -0700 (PDT)
-Received: from localhost.localdomain ([122.8.183.87])
-        by smtp.gmail.com with ESMTPSA id eg46-20020a05687098ae00b001dd17c5356dsm1359148oab.11.2023.09.27.01.28.26
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 27 Sep 2023 01:28:27 -0700 (PDT)
-From: Chen Wang <unicornxw@gmail.com>
-To: aou@eecs.berkeley.edu,
-	chao.wei@sophgo.com,
-	conor@kernel.org,
-	devicetree@vger.kernel.org,
-	guoren@kernel.org,
-	jszhang@kernel.org,
-	krzysztof.kozlowski+dt@linaro.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	palmer@dabbelt.com,
-	paul.walmsley@sifive.com,
-	robh+dt@kernel.org,
-	xiaoguang.xing@sophgo.com,
-	apatel@ventanamicro.com,
-	unicorn_wang@outlook.com
-Cc: Conor Dooley <conor.dooley@microchip.com>,
-	Chen Wang <wangchen20@iscas.ac.cn>
-Subject: [PATCH v3 01/11] riscv: Add SOPHGO SOC family Kconfig support
-Date: Wed, 27 Sep 2023 16:28:22 +0800
-Message-Id: <bfa07dce9eb268b312bd64059773acf055727f17.1695800389.git.unicornxw@gmail.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <cover.1695800389.git.unicornxw@gmail.com>
-References: <cover.1695800389.git.unicornxw@gmail.com>
+	Wed, 27 Sep 2023 08:31:13 +0000
+Received: by mail.socialglobal.pl (Postfix, from userid 1002)
+	id A203922124; Wed, 27 Sep 2023 08:30:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=socialglobal.pl;
+	s=mail; t=1695803457;
+	bh=XwhyqI/moZPDJ7KCfcA6Gip8fA7ZKcg5SWsKuF/26zk=;
+	h=Date:From:To:Subject:From;
+	b=lK+6sMv+Ezv6AjVxiFeoFvx9fJZJesIJ+NfR4ZVLh+rhYfb3WSTCkQlbewYz+ImO3
+	 6E6xYh30pfryb/NAPnS+NWDMNjSazYLkIMYGUUlWDUJ0WwMQz7izz2xvKZDV/5UiIw
+	 +36EUldI+LmdjBs9J0Jv2k8QaPQIoyIN2HU5ZNwLNJdjk/Zw7Ki98J45a3bzN5WiKc
+	 ID5LlaqvdhNaGrPZ9gWsbBbJsAt+67i0jSepi0oeNeIgEBt/dLSHbSldm6xJkUu5L4
+	 9jrkJUzQO8VxM0R62+3uZ4Ebhr39w0by2Dy4cyHoKB6BSYwHEKf35XcpyDF+8mESCA
+	 7IcSZDsJTokOQ==
+Received: by mail.socialglobal.pl for <linux-riscv@lists.infradead.org>; Wed, 27 Sep 2023 08:30:56 GMT
+Message-ID: <20230927075535-0.1.8p.2yrdz.0.e47esl00kd@socialglobal.pl>
+Date: Wed, 27 Sep 2023 08:30:56 GMT
+From: "Dominik Perkowski" <dominik.perkowski@socialglobal.pl>
+To: <linux-riscv@lists.infradead.org>
+Subject: Pozycjonowanie- informacja
+X-Mailer: mail.socialglobal.pl
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230927_012830_527656_0D8D07D4 
-X-CRM114-Status: UNSURE (   9.45  )
+X-CRM114-CacheID: sfid-20230927_013112_048832_AE3146ED 
+X-CRM114-Status: UNSURE (   1.00  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -102,44 +62,22 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The first SoC in the SOPHGO series is SG2042, which contains 64 RISC-V
-cores.
-
-Reviewed-by: Guo Ren <guoren@kernel.org>
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-Acked-by: Chao Wei <chao.wei@sophgo.com>
-Signed-off-by: Chen Wang <wangchen20@iscas.ac.cn>
-Signed-off-by: Chen Wang <unicornxw@gmail.com>
----
- arch/riscv/Kconfig.socs | 5 +++++
- 1 file changed, 5 insertions(+)
-
-diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
-index 6833d01e2e70..d4df7b5d0f16 100644
---- a/arch/riscv/Kconfig.socs
-+++ b/arch/riscv/Kconfig.socs
-@@ -22,6 +22,11 @@ config SOC_SIFIVE
- 	help
- 	  This enables support for SiFive SoC platform hardware.
- 
-+config ARCH_SOPHGO
-+	bool "Sophgo SoCs"
-+	help
-+	  This enables support for Sophgo SoC platform hardware.
-+
- config ARCH_STARFIVE
- 	def_bool SOC_STARFIVE
- 
--- 
-2.25.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+RHppZcWEIGRvYnJ5LCAKCmpha2nFmyBjemFzIHRlbXUgemfFgm9zacWCYSBzacSZIGRvIG5hcyBm
+aXJtYSwga3TDs3JlaiBzdHJvbmEgaW50ZXJuZXRvd2EgbmllIHBvenljam9ub3dhxYJhIHNpxJkg
+d3lzb2tvIHcgd3lzenVraXdhcmNlIEdvb2dsZS4gCgpOYSBwb2RzdGF3aWUgd3lrb25hbmVnbyBw
+cnpleiBuYXMgYXVkeXR1IFNFTyB6b3B0eW1hbGl6b3dhbGnFm215IHRyZcWbY2kgbmEgc3Ryb25p
+ZSBwb2Qga8SFdGVtIHdjemXFm25pZWogb3ByYWNvd2FueWNoIHPFgsOzdyBrbHVjem93eWNoLiBO
+YXN6IHdld27EmXRyem55IHN5c3RlbSBjb2R6aWVubmllIGFuYWxpenVqZSBwcmF3aWTFgm93ZSBk
+emlhxYJhbmllIHdpdHJ5bnkuICBEemnEmWtpIGluZHl3aWR1YWxuZWogc3RyYXRlZ2lpLCBmaXJt
+YSB6ZG9ieXdhIGNvcmF6IHdpxJljZWogS2xpZW50w7N3LiAgCgpDenkgY2hjaWVsaWJ5IFBhxYRz
+dHdvIHp3acSZa3N6ecSHIGxpY3pixJkgb3PDs2Igb2R3aWVkemFqxIVjeWNoIHN0cm9uxJkgaW50
+ZXJuZXRvd8SFIGZpcm15PyBNw7NnxYJieW0gcHJ6ZWRzdGF3acSHIG9mZXJ0xJk/IAoKClBvemRy
+YXdpYW0gc2VyZGVjem5pZSwKRG9taW5payBQZXJrb3dza2kKCl9fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51
+eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21h
+aWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
