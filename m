@@ -4,93 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA60FE810B1
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Sep 2023 09:03:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BDDFE810AD
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Sep 2023 10:08:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=eR8lAdq8MuO+kUrStj7xt+1oaUQCAJhfsWfQHWx7wKo=; b=2hfsOFkHkjybx5
-	ZAhRqbwyBFFUmsLCE6LTItgG5BgQ01ImY2RTzoiK+GbotiA1UcEiKGSOCbli0xHvPp070JNIN58tE
-	2pGHR+3ac/KZQbCjjLb++z/wjDCY/Hv8s0HQN/lnUTHlqjfvznJsl4HxkR9Zyor9oLEspSOAXxoj1
-	2yL4gDy4QKqsPyqYnzbbgyOunPBxny0TGQpvfWXZlcpAbTpnh970WHtZb2DxIH16HvFoZAJpOXVAx
-	OZF8SMgv12SzPyZZkxSDsZbpf/JhFtir9p4OQJLZ/tpk2qsS1wxFBtGwRWEaomgErWeBkEexAWmrR
-	jD8WgBl5mhCBkJiBJR6Q==;
+	List-Owner; bh=yceBHLCKwG0D0Jcqw6oOOfJV+t0IHiNAWwf6YlU3h6U=; b=lQIjv0DAI1jn6W
+	rUr4372wjI0gIW31LLfZ6CLJ56D9tCF+nyrcVU3Xqb6LZABRdQiX8F7WoSERQ5afC0Ltc20ugmi9i
+	HQcaaWAnygr0nztJKTTlHj5fuZrwcMf30wuitjlkXgxXPsw09/6VvYUFSgOi9RjFRu8Jh79N4eowD
+	Pm3GPMgcsjYp+Hz+IsbD2RLVQoXNiWcjwzwoV+BdypS5x07rO48eusneEp/X0MSRW32LbJe67S41e
+	gPNaogLDVwwrqheITXdvtWvZxX2kMJR6j4Am0+jHW0tgAET67EI8DuUcV0lEUVSkmC/VwF+WUmgFX
+	dU78X+Zv303CK4tNHe6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qlQRo-000Q7X-0c;
-	Wed, 27 Sep 2023 09:03:08 +0000
-Received: from mail-oi1-x236.google.com ([2607:f8b0:4864:20::236])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qlQRl-000Q5m-2y
+	id 1qlRTH-000Yyh-2C;
+	Wed, 27 Sep 2023 10:08:43 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1qlRTD-000Ync-2H
 	for linux-riscv@lists.infradead.org;
-	Wed, 27 Sep 2023 09:03:07 +0000
-Received: by mail-oi1-x236.google.com with SMTP id 5614622812f47-3ae5ce5beffso1129325b6e.0
-        for <linux-riscv@lists.infradead.org>; Wed, 27 Sep 2023 02:03:05 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1695805385; x=1696410185; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=C7RhJG0eb4h1rNL5PLmu2Fo83S0B+583tqhBhK3d4JI=;
-        b=MgZYYLeVWMhJli4fsm0QXMf8pX30CJMFIKEfKC5fJnjSxtw7dxVMcteezczAKsM4c+
-         bfl8yQfnZB37aGDPUukVn5rQVW5CSP0enCfG7oW5/dUYRERAcduhWVPpDr/ckfWAKKyL
-         qscyxKDINnDsnQNDdy6NCr22UJomjdfGHeNkFdvTrBlHd6N5llIWYfXpXGxXZBqnGa1h
-         +ADMVwIk0EI/QrTvm3L1NinXyOrmMaP8jTaJ+gKdp5jxa24eDYQ/CUz+a4bJeYj9YFCq
-         N+A//kklLp0wi3TwpHDKOOUL4Js0F2ikl2QawVJjDv1G2eBKtK5flus2lSVgCYrhgDZC
-         RTsQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1695805385; x=1696410185;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=C7RhJG0eb4h1rNL5PLmu2Fo83S0B+583tqhBhK3d4JI=;
-        b=OOA+joHeYtJxvYhENg4QCqQPFWFoWm8lX9Bsdqd13G6kNm7Ed2v/RX1LFlzJdcsbBj
-         iVZ2AHusa173ISaFYpgCA/3Rk5ptxNrBRk/UFh/dUlq4tZxMxfH3yO8dWClMru5PaSGU
-         DQr2YlbMjgnciQ0BEquyexbLuh57ODV4wPwJ9u2egqN+R0e9oLQDPuBcZX6Ls6kc5dK2
-         I3asuZjzNtPI/z0l0Wmv1NtZBYW74wFpLpMHLO5AQfOcFfHASJQ1Whw0AOT8ip26Cwyg
-         Ef5WKtuG0NfSm1vK8Aow1TKgOE/nptT729wsIM7oENGKhmP/PzJv7W/N8yKCnmPwjvv/
-         wDkg==
-X-Gm-Message-State: AOJu0YzFf71JjlktuuD97E07Ot/81pozogcUHsGBMyqGvk/l3DcUJG7P
-	EJnCMmO/YFEuhUl0PMxyuoc=
-X-Google-Smtp-Source: AGHT+IHVTwpCDD+CcCbU7lnn521yLbJzkneYegHXpDLGMd37HYDLDoN+QRnWByfeQG0DJMir+qdcVA==
-X-Received: by 2002:a05:6808:315:b0:3ab:83fe:e182 with SMTP id i21-20020a056808031500b003ab83fee182mr1543690oie.1.1695805385207;
-        Wed, 27 Sep 2023 02:03:05 -0700 (PDT)
-Received: from localhost.localdomain ([122.8.183.87])
-        by smtp.gmail.com with ESMTPSA id i14-20020a54408e000000b003ae24b38f99sm1809096oii.2.2023.09.27.02.03.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 27 Sep 2023 02:03:05 -0700 (PDT)
-From: Chen Wang <unicornxw@gmail.com>
-To: aou@eecs.berkeley.edu,
-	chao.wei@sophgo.com,
-	conor@kernel.org,
-	devicetree@vger.kernel.org,
-	guoren@kernel.org,
-	jszhang@kernel.org,
-	krzysztof.kozlowski+dt@linaro.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	palmer@dabbelt.com,
-	paul.walmsley@sifive.com,
-	robh+dt@kernel.org,
-	xiaoguang.xing@sophgo.com,
-	apatel@ventanamicro.com
-Cc: Chen Wang <unicornxw@gmail.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Chen Wang <wangchen20@iscas.ac.cn>
-Subject: [PATCH v3 11/11] riscv: defconfig: enable SOPHGO SoC
-Date: Wed, 27 Sep 2023 17:02:58 +0800
-Message-Id: <f4789b3f9c963f0d8f2653d787abb73d58b91360.1695804418.git.unicornxw@gmail.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <cover.1695804418.git.unicornxw@gmail.com>
-References: <cover.1695804418.git.unicornxw@gmail.com>
+	Wed, 27 Sep 2023 10:08:42 +0000
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 60E887F98;
+	Wed, 27 Sep 2023 18:08:08 +0800 (CST)
+Received: from EXMBX171.cuchost.com (172.16.6.91) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 27 Sep
+ 2023 18:08:08 +0800
+Received: from ubuntu.localdomain (113.72.144.128) by EXMBX171.cuchost.com
+ (172.16.6.91) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 27 Sep
+ 2023 18:08:07 +0800
+From: Minda Chen <minda.chen@starfivetech.com>
+To: Daire McNamara <daire.mcnamara@microchip.com>, Conor Dooley
+	<conor@kernel.org>, Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kw@linux.com>, Emil Renner Berthing
+	<emil.renner.berthing@canonical.com>
+CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, <linux-pci@vger.kernel.org>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Philipp Zabel <p.zabel@pengutronix.de>, Mason Huo
+	<mason.huo@starfivetech.com>, Leyfoon Tan <leyfoon.tan@starfivetech.com>,
+	Kevin Xie <kevin.xie@starfivetech.com>, Minda Chen
+	<minda.chen@starfivetech.com>
+Subject: [PATCH v7 02/19] PCI: microchip: Move pcie-microchip-host.c to plda directory
+Date: Wed, 27 Sep 2023 18:07:45 +0800
+Message-ID: <20230927100802.46620-3-minda.chen@starfivetech.com>
+X-Mailer: git-send-email 2.17.1
+In-Reply-To: <20230927100802.46620-1-minda.chen@starfivetech.com>
+References: <20230927100802.46620-1-minda.chen@starfivetech.com>
 MIME-Version: 1.0
+X-Originating-IP: [113.72.144.128]
+X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX171.cuchost.com
+ (172.16.6.91)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230927_020305_960513_D66F771E 
-X-CRM114-Status: UNSURE (   9.16  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230927_030840_041981_43D17BF8 
+X-CRM114-Status: GOOD (  17.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,32 +82,136 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Enable SOPHGO SoC config in defconfig to allow the default
-upstream kernel to boot on Milk-V Pioneer board.
+For Microchip Polarfire PCIe host is PLDA XpressRich IP,
+move to plda directory. Prepare for refactor the codes.
 
-Acked-by: Chao Wei <chao.wei@sophgo.com>
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-Reviewed-by: Guo Ren <guoren@kernel.org>
-Signed-off-by: Chen Wang <wangchen20@iscas.ac.cn>
-Signed-off-by: Chen Wang <unicornxw@gmail.com>
+Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- arch/riscv/configs/defconfig | 1 +
- 1 file changed, 1 insertion(+)
+ MAINTAINERS                                        |  4 ++--
+ drivers/pci/controller/Kconfig                     |  9 +--------
+ drivers/pci/controller/Makefile                    |  2 +-
+ drivers/pci/controller/plda/Kconfig                | 14 ++++++++++++++
+ drivers/pci/controller/plda/Makefile               |  2 ++
+ .../controller/{ => plda}/pcie-microchip-host.c    |  2 +-
+ 6 files changed, 21 insertions(+), 12 deletions(-)
+ create mode 100644 drivers/pci/controller/plda/Kconfig
+ create mode 100644 drivers/pci/controller/plda/Makefile
+ rename drivers/pci/controller/{ => plda}/pcie-microchip-host.c (99%)
 
-diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
-index ab86ec3b9eab..bf737cfa1d2c 100644
---- a/arch/riscv/configs/defconfig
-+++ b/arch/riscv/configs/defconfig
-@@ -32,6 +32,7 @@ CONFIG_SOC_SIFIVE=y
- CONFIG_SOC_STARFIVE=y
- CONFIG_ARCH_SUNXI=y
- CONFIG_SOC_VIRT=y
-+CONFIG_ARCH_SOPHGO=y
- CONFIG_SMP=y
- CONFIG_HOTPLUG_CPU=y
- CONFIG_PM=y
+diff --git a/MAINTAINERS b/MAINTAINERS
+index b19995690904..30bdfceaf974 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -16647,7 +16647,7 @@ M:	Daire McNamara <daire.mcnamara@microchip.com>
+ L:	linux-pci@vger.kernel.org
+ S:	Supported
+ F:	Documentation/devicetree/bindings/pci/microchip*
+-F:	drivers/pci/controller/*microchip*
++F:	drivers/pci/controller/plda/*microchip*
+ 
+ PCIE DRIVER FOR QUALCOMM MSM
+ M:	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+@@ -18444,7 +18444,7 @@ F:	drivers/char/hw_random/mpfs-rng.c
+ F:	drivers/clk/microchip/clk-mpfs*.c
+ F:	drivers/i2c/busses/i2c-microchip-corei2c.c
+ F:	drivers/mailbox/mailbox-mpfs.c
+-F:	drivers/pci/controller/pcie-microchip-host.c
++F:	drivers/pci/controller/plda/pcie-microchip-host.c
+ F:	drivers/pwm/pwm-microchip-core.c
+ F:	drivers/reset/reset-mpfs.c
+ F:	drivers/rtc/rtc-mpfs.c
+diff --git a/drivers/pci/controller/Kconfig b/drivers/pci/controller/Kconfig
+index c0c3f2824990..80e23013c229 100644
+--- a/drivers/pci/controller/Kconfig
++++ b/drivers/pci/controller/Kconfig
+@@ -215,14 +215,6 @@ config PCIE_MT7621
+ 	help
+ 	  This selects a driver for the MediaTek MT7621 PCIe Controller.
+ 
+-config PCIE_MICROCHIP_HOST
+-	tristate "Microchip AXI PCIe controller"
+-	depends on PCI_MSI && OF
+-	select PCI_HOST_COMMON
+-	help
+-	  Say Y here if you want kernel to support the Microchip AXI PCIe
+-	  Host Bridge driver.
+-
+ config PCI_HYPERV_INTERFACE
+ 	tristate "Microsoft Hyper-V PCI Interface"
+ 	depends on ((X86 && X86_64) || ARM64) && HYPERV && PCI_MSI
+@@ -345,4 +337,5 @@ config PCIE_XILINX_CPM
+ source "drivers/pci/controller/cadence/Kconfig"
+ source "drivers/pci/controller/dwc/Kconfig"
+ source "drivers/pci/controller/mobiveil/Kconfig"
++source "drivers/pci/controller/plda/Kconfig"
+ endmenu
+diff --git a/drivers/pci/controller/Makefile b/drivers/pci/controller/Makefile
+index 37c8663de7fe..93236dc97b21 100644
+--- a/drivers/pci/controller/Makefile
++++ b/drivers/pci/controller/Makefile
+@@ -32,7 +32,6 @@ obj-$(CONFIG_PCIE_ROCKCHIP_EP) += pcie-rockchip-ep.o
+ obj-$(CONFIG_PCIE_ROCKCHIP_HOST) += pcie-rockchip-host.o
+ obj-$(CONFIG_PCIE_MEDIATEK) += pcie-mediatek.o
+ obj-$(CONFIG_PCIE_MEDIATEK_GEN3) += pcie-mediatek-gen3.o
+-obj-$(CONFIG_PCIE_MICROCHIP_HOST) += pcie-microchip-host.o
+ obj-$(CONFIG_VMD) += vmd.o
+ obj-$(CONFIG_PCIE_BRCMSTB) += pcie-brcmstb.o
+ obj-$(CONFIG_PCI_LOONGSON) += pci-loongson.o
+@@ -43,6 +42,7 @@ obj-$(CONFIG_PCIE_MT7621) += pcie-mt7621.o
+ # pcie-hisi.o quirks are needed even without CONFIG_PCIE_DW
+ obj-y				+= dwc/
+ obj-y				+= mobiveil/
++obj-y				+= plda/
+ 
+ 
+ # The following drivers are for devices that use the generic ACPI
+diff --git a/drivers/pci/controller/plda/Kconfig b/drivers/pci/controller/plda/Kconfig
+new file mode 100644
+index 000000000000..5cb3be4fc98c
+--- /dev/null
++++ b/drivers/pci/controller/plda/Kconfig
+@@ -0,0 +1,14 @@
++# SPDX-License-Identifier: GPL-2.0
++
++menu "PLDA-based PCIe controllers"
++	depends on PCI
++
++config PCIE_MICROCHIP_HOST
++	tristate "Microchip AXI PCIe controller"
++	depends on PCI_MSI && OF
++	select PCI_HOST_COMMON
++	help
++	  Say Y here if you want kernel to support the Microchip AXI PCIe
++	  Host Bridge driver.
++
++endmenu
+diff --git a/drivers/pci/controller/plda/Makefile b/drivers/pci/controller/plda/Makefile
+new file mode 100644
+index 000000000000..e1a265cbf91c
+--- /dev/null
++++ b/drivers/pci/controller/plda/Makefile
+@@ -0,0 +1,2 @@
++# SPDX-License-Identifier: GPL-2.0
++obj-$(CONFIG_PCIE_MICROCHIP_HOST) += pcie-microchip-host.o
+diff --git a/drivers/pci/controller/pcie-microchip-host.c b/drivers/pci/controller/plda/pcie-microchip-host.c
+similarity index 99%
+rename from drivers/pci/controller/pcie-microchip-host.c
+rename to drivers/pci/controller/plda/pcie-microchip-host.c
+index 137fb8570ba2..cb09a8137e25 100644
+--- a/drivers/pci/controller/pcie-microchip-host.c
++++ b/drivers/pci/controller/plda/pcie-microchip-host.c
+@@ -18,7 +18,7 @@
+ #include <linux/pci-ecam.h>
+ #include <linux/platform_device.h>
+ 
+-#include "../pci.h"
++#include "../../pci.h"
+ 
+ /* Number of MSI IRQs */
+ #define MC_MAX_NUM_MSI_IRQS			32
 -- 
-2.25.1
+2.17.1
 
 
 _______________________________________________
