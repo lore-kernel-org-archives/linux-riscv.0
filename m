@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BDDFE810AD
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Sep 2023 10:08:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC21FE810B9
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Sep 2023 10:08:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yceBHLCKwG0D0Jcqw6oOOfJV+t0IHiNAWwf6YlU3h6U=; b=lQIjv0DAI1jn6W
-	rUr4372wjI0gIW31LLfZ6CLJ56D9tCF+nyrcVU3Xqb6LZABRdQiX8F7WoSERQ5afC0Ltc20ugmi9i
-	HQcaaWAnygr0nztJKTTlHj5fuZrwcMf30wuitjlkXgxXPsw09/6VvYUFSgOi9RjFRu8Jh79N4eowD
-	Pm3GPMgcsjYp+Hz+IsbD2RLVQoXNiWcjwzwoV+BdypS5x07rO48eusneEp/X0MSRW32LbJe67S41e
-	gPNaogLDVwwrqheITXdvtWvZxX2kMJR6j4Am0+jHW0tgAET67EI8DuUcV0lEUVSkmC/VwF+WUmgFX
-	dU78X+Zv303CK4tNHe6Q==;
+	List-Owner; bh=LC9sJLR8ghaipji+iYxSWg4Yz6PvOfS5HLBqYfHkSTQ=; b=RdbWH29WH8Ofxo
+	tY8Su10WLnCVw6bBdD283zCtmW5AYpHVnTVRpEVUphC2n5ebgZpvFZhPECnQxo5iZnzbhrxYUkE76
+	AWcXzDTOxdBq6w0WmjgTUsjZbFWbiSi+gTuTeRJgb0amAqgQknp1rb7/98EU2zOOjrWhqwfvyO2Aa
+	JJgqrYdxoR0tbjV6HL+XytWm76oKyGF44iHFLIw22SzoNbaDLF9j7Do5H+TQSvINtX6VLGiUDpmM4
+	0h4K+4fon6iorxZqcYUl2Cv4AfKeZd39X2GpAQAhwPz1R+Qx3qDN4mqn6MgDbhXWvGKtfK/sJzqoi
+	WUpGOneZfjvb/PswXEDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qlRTH-000Yyh-2C;
+	id 1qlRTH-000YyY-0M;
 	Wed, 27 Sep 2023 10:08:43 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+Received: from ex01.ufhost.com ([61.152.239.75])
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qlRTD-000Ync-2H
+	id 1qlRTD-000Yni-2D
 	for linux-riscv@lists.infradead.org;
-	Wed, 27 Sep 2023 10:08:42 +0000
+	Wed, 27 Sep 2023 10:08:41 +0000
 Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
 	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 60E887F98;
-	Wed, 27 Sep 2023 18:08:08 +0800 (CST)
+	by ex01.ufhost.com (Postfix) with ESMTP id BFACF24E2FB;
+	Wed, 27 Sep 2023 18:08:13 +0800 (CST)
 Received: from EXMBX171.cuchost.com (172.16.6.91) by EXMBX165.cuchost.com
  (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 27 Sep
- 2023 18:08:08 +0800
+ 2023 18:08:14 +0800
 Received: from ubuntu.localdomain (113.72.144.128) by EXMBX171.cuchost.com
  (172.16.6.91) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 27 Sep
- 2023 18:08:07 +0800
+ 2023 18:08:12 +0800
 From: Minda Chen <minda.chen@starfivetech.com>
 To: Daire McNamara <daire.mcnamara@microchip.com>, Conor Dooley
 	<conor@kernel.org>, Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
@@ -52,9 +52,9 @@ CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
 	<mason.huo@starfivetech.com>, Leyfoon Tan <leyfoon.tan@starfivetech.com>,
 	Kevin Xie <kevin.xie@starfivetech.com>, Minda Chen
 	<minda.chen@starfivetech.com>
-Subject: [PATCH v7 02/19] PCI: microchip: Move pcie-microchip-host.c to plda directory
-Date: Wed, 27 Sep 2023 18:07:45 +0800
-Message-ID: <20230927100802.46620-3-minda.chen@starfivetech.com>
+Subject: [PATCH v7 08/19] PCI: plda: Add event interrupt codes and IRQ domain ops
+Date: Wed, 27 Sep 2023 18:07:51 +0800
+Message-ID: <20230927100802.46620-9-minda.chen@starfivetech.com>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20230927100802.46620-1-minda.chen@starfivetech.com>
 References: <20230927100802.46620-1-minda.chen@starfivetech.com>
@@ -64,8 +64,8 @@ X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX171.cuchost.com
  (172.16.6.91)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230927_030840_041981_43D17BF8 
-X-CRM114-Status: GOOD (  17.02  )
+X-CRM114-CacheID: sfid-20230927_030840_040024_1111D109 
+X-CRM114-Status: GOOD (  15.99  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,134 +82,181 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-For Microchip Polarfire PCIe host is PLDA XpressRich IP,
-move to plda directory. Prepare for refactor the codes.
+For PolarFire implements non-PLDA local interrupt events, most of
+event interrupt process codes can not be re-used. PLDA implements
+new codes and IRQ domain ops like PolarFire.
+
+plda_get_events() adds a new IRQ num to event num mapping codes for
+PLDA local event except DMA engine interrupt events. The DMA engine
+interrupt events are implemented by vendors.
 
 Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- MAINTAINERS                                        |  4 ++--
- drivers/pci/controller/Kconfig                     |  9 +--------
- drivers/pci/controller/Makefile                    |  2 +-
- drivers/pci/controller/plda/Kconfig                | 14 ++++++++++++++
- drivers/pci/controller/plda/Makefile               |  2 ++
- .../controller/{ => plda}/pcie-microchip-host.c    |  2 +-
- 6 files changed, 21 insertions(+), 12 deletions(-)
- create mode 100644 drivers/pci/controller/plda/Kconfig
- create mode 100644 drivers/pci/controller/plda/Makefile
- rename drivers/pci/controller/{ => plda}/pcie-microchip-host.c (99%)
+ drivers/pci/controller/plda/pcie-plda-host.c | 99 ++++++++++++++++++++
+ drivers/pci/controller/plda/pcie-plda.h      | 33 +++++++
+ 2 files changed, 132 insertions(+)
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index b19995690904..30bdfceaf974 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -16647,7 +16647,7 @@ M:	Daire McNamara <daire.mcnamara@microchip.com>
- L:	linux-pci@vger.kernel.org
- S:	Supported
- F:	Documentation/devicetree/bindings/pci/microchip*
--F:	drivers/pci/controller/*microchip*
-+F:	drivers/pci/controller/plda/*microchip*
+diff --git a/drivers/pci/controller/plda/pcie-plda-host.c b/drivers/pci/controller/plda/pcie-plda-host.c
+index f0c7636f1f64..197eda731c71 100644
+--- a/drivers/pci/controller/plda/pcie-plda-host.c
++++ b/drivers/pci/controller/plda/pcie-plda-host.c
+@@ -20,6 +20,105 @@
  
- PCIE DRIVER FOR QUALCOMM MSM
- M:	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-@@ -18444,7 +18444,7 @@ F:	drivers/char/hw_random/mpfs-rng.c
- F:	drivers/clk/microchip/clk-mpfs*.c
- F:	drivers/i2c/busses/i2c-microchip-corei2c.c
- F:	drivers/mailbox/mailbox-mpfs.c
--F:	drivers/pci/controller/pcie-microchip-host.c
-+F:	drivers/pci/controller/plda/pcie-microchip-host.c
- F:	drivers/pwm/pwm-microchip-core.c
- F:	drivers/reset/reset-mpfs.c
- F:	drivers/rtc/rtc-mpfs.c
-diff --git a/drivers/pci/controller/Kconfig b/drivers/pci/controller/Kconfig
-index c0c3f2824990..80e23013c229 100644
---- a/drivers/pci/controller/Kconfig
-+++ b/drivers/pci/controller/Kconfig
-@@ -215,14 +215,6 @@ config PCIE_MT7621
- 	help
- 	  This selects a driver for the MediaTek MT7621 PCIe Controller.
+ #include "pcie-plda.h"
  
--config PCIE_MICROCHIP_HOST
--	tristate "Microchip AXI PCIe controller"
--	depends on PCI_MSI && OF
--	select PCI_HOST_COMMON
--	help
--	  Say Y here if you want kernel to support the Microchip AXI PCIe
--	  Host Bridge driver.
--
- config PCI_HYPERV_INTERFACE
- 	tristate "Microsoft Hyper-V PCI Interface"
- 	depends on ((X86 && X86_64) || ARM64) && HYPERV && PCI_MSI
-@@ -345,4 +337,5 @@ config PCIE_XILINX_CPM
- source "drivers/pci/controller/cadence/Kconfig"
- source "drivers/pci/controller/dwc/Kconfig"
- source "drivers/pci/controller/mobiveil/Kconfig"
-+source "drivers/pci/controller/plda/Kconfig"
- endmenu
-diff --git a/drivers/pci/controller/Makefile b/drivers/pci/controller/Makefile
-index 37c8663de7fe..93236dc97b21 100644
---- a/drivers/pci/controller/Makefile
-+++ b/drivers/pci/controller/Makefile
-@@ -32,7 +32,6 @@ obj-$(CONFIG_PCIE_ROCKCHIP_EP) += pcie-rockchip-ep.o
- obj-$(CONFIG_PCIE_ROCKCHIP_HOST) += pcie-rockchip-host.o
- obj-$(CONFIG_PCIE_MEDIATEK) += pcie-mediatek.o
- obj-$(CONFIG_PCIE_MEDIATEK_GEN3) += pcie-mediatek-gen3.o
--obj-$(CONFIG_PCIE_MICROCHIP_HOST) += pcie-microchip-host.o
- obj-$(CONFIG_VMD) += vmd.o
- obj-$(CONFIG_PCIE_BRCMSTB) += pcie-brcmstb.o
- obj-$(CONFIG_PCI_LOONGSON) += pci-loongson.o
-@@ -43,6 +42,7 @@ obj-$(CONFIG_PCIE_MT7621) += pcie-mt7621.o
- # pcie-hisi.o quirks are needed even without CONFIG_PCIE_DW
- obj-y				+= dwc/
- obj-y				+= mobiveil/
-+obj-y				+= plda/
- 
- 
- # The following drivers are for devices that use the generic ACPI
-diff --git a/drivers/pci/controller/plda/Kconfig b/drivers/pci/controller/plda/Kconfig
-new file mode 100644
-index 000000000000..5cb3be4fc98c
---- /dev/null
-+++ b/drivers/pci/controller/plda/Kconfig
-@@ -0,0 +1,14 @@
-+# SPDX-License-Identifier: GPL-2.0
++irqreturn_t plda_event_handler(int irq, void *dev_id)
++{
++	return IRQ_HANDLED;
++}
 +
-+menu "PLDA-based PCIe controllers"
-+	depends on PCI
++static u32 plda_get_events(struct plda_pcie_rp *port)
++{
++	u32 events, val, origin;
 +
-+config PCIE_MICROCHIP_HOST
-+	tristate "Microchip AXI PCIe controller"
-+	depends on PCI_MSI && OF
-+	select PCI_HOST_COMMON
-+	help
-+	  Say Y here if you want kernel to support the Microchip AXI PCIe
-+	  Host Bridge driver.
++	origin = readl_relaxed(port->bridge_addr + ISTATUS_LOCAL);
 +
-+endmenu
-diff --git a/drivers/pci/controller/plda/Makefile b/drivers/pci/controller/plda/Makefile
-new file mode 100644
-index 000000000000..e1a265cbf91c
---- /dev/null
-+++ b/drivers/pci/controller/plda/Makefile
-@@ -0,0 +1,2 @@
-+# SPDX-License-Identifier: GPL-2.0
-+obj-$(CONFIG_PCIE_MICROCHIP_HOST) += pcie-microchip-host.o
-diff --git a/drivers/pci/controller/pcie-microchip-host.c b/drivers/pci/controller/plda/pcie-microchip-host.c
-similarity index 99%
-rename from drivers/pci/controller/pcie-microchip-host.c
-rename to drivers/pci/controller/plda/pcie-microchip-host.c
-index 137fb8570ba2..cb09a8137e25 100644
---- a/drivers/pci/controller/pcie-microchip-host.c
-+++ b/drivers/pci/controller/plda/pcie-microchip-host.c
-@@ -18,7 +18,7 @@
- #include <linux/pci-ecam.h>
- #include <linux/platform_device.h>
++	/* Error events and doorbell events */
++	events = (origin >> A_ATR_EVT_POST_ERR_SHIFT) & 0xff;
++
++	/* INTx events */
++	if (origin & PM_MSI_INT_INTX_MASK)
++		events |= BIT(EVENT_PM_MSI_INT_INTX);
++
++	/* MSI event and sys events */
++	val = (origin >> PM_MSI_INT_MSI_SHIFT) & 0xf;
++	events |= val << EVENT_PM_MSI_INT_MSI;
++
++	return events;
++}
++
++static u32 plda_hwirq_to_mask(int hwirq)
++{
++	u32 mask;
++
++	if (hwirq < EVENT_PM_MSI_INT_INTX)
++		mask = BIT(hwirq + A_ATR_EVT_POST_ERR_SHIFT);
++	else if (hwirq == EVENT_PM_MSI_INT_INTX)
++		mask = PM_MSI_INT_INTX_MASK;
++	else
++		mask = BIT(hwirq + PM_MSI_TO_MASK_OFFSET);
++
++	return mask;
++}
++
++static void plda_ack_event_irq(struct irq_data *data)
++{
++	struct plda_pcie_rp *port = irq_data_get_irq_chip_data(data);
++
++	writel_relaxed(plda_hwirq_to_mask(data->hwirq),
++		       port->bridge_addr + ISTATUS_LOCAL);
++}
++
++static void plda_mask_event_irq(struct irq_data *data)
++{
++	struct plda_pcie_rp *port = irq_data_get_irq_chip_data(data);
++	u32 mask, val;
++
++	mask = plda_hwirq_to_mask(data->hwirq);
++
++	raw_spin_lock(&port->lock);
++	val = readl_relaxed(port->bridge_addr + IMASK_LOCAL);
++	val &= ~mask;
++	writel_relaxed(val, port->bridge_addr + IMASK_LOCAL);
++	raw_spin_unlock(&port->lock);
++}
++
++static void plda_unmask_event_irq(struct irq_data *data)
++{
++	struct plda_pcie_rp *port = irq_data_get_irq_chip_data(data);
++	u32 mask, val;
++
++	mask = plda_hwirq_to_mask(data->hwirq);
++
++	raw_spin_lock(&port->lock);
++	val = readl_relaxed(port->bridge_addr + IMASK_LOCAL);
++	val |= mask;
++	writel_relaxed(val, port->bridge_addr + IMASK_LOCAL);
++	raw_spin_unlock(&port->lock);
++}
++
++static struct irq_chip plda_event_irq_chip = {
++	.name = "PLDA PCIe EVENT",
++	.irq_ack = plda_ack_event_irq,
++	.irq_mask = plda_mask_event_irq,
++	.irq_unmask = plda_unmask_event_irq,
++};
++
++static int plda_pcie_event_map(struct irq_domain *domain, unsigned int irq,
++			       irq_hw_number_t hwirq)
++{
++	irq_set_chip_and_handler(irq, &plda_event_irq_chip, handle_level_irq);
++	irq_set_chip_data(irq, domain->host_data);
++
++	return 0;
++}
++
++struct irq_domain_ops plda_evt_dom_ops = {
++	.map = plda_pcie_event_map,
++};
++
++struct plda_event_ops plda_event_ops = {
++	.get_events = plda_get_events,
++};
++
+ void plda_pcie_setup_window(void __iomem *bridge_base_addr, u32 index,
+ 			    phys_addr_t axi_addr, phys_addr_t pci_addr,
+ 			    size_t size)
+diff --git a/drivers/pci/controller/plda/pcie-plda.h b/drivers/pci/controller/plda/pcie-plda.h
+index 3deefd35fa5a..32a913d4101f 100644
+--- a/drivers/pci/controller/plda/pcie-plda.h
++++ b/drivers/pci/controller/plda/pcie-plda.h
+@@ -102,6 +102,38 @@
+ #define EVENT_PM_MSI_INT_SYS_ERR		12
+ #define NUM_PLDA_EVENTS				13
  
--#include "../pci.h"
-+#include "../../pci.h"
++/*
++ * PLDA local interrupt register
++ *
++ * 31         27     23              15           7          0
++ * +--+--+--+-+------+-+-+-+-+-+-+-+-+-----------+-----------+
++ * |12|11|10|9| intx |7|6|5|4|3|2|1|0| DMA error | DMA end   |
++ * +--+--+--+-+------+-+-+-+-+-+-+-+-+-----------+-----------+
++ * 0:  AXI post error
++ * 1:  AXI fetch error
++ * 2:  AXI discard error
++ * 3:  AXI doorbell
++ * 4:  PCIe post error
++ * 5:  PCIe fetch error
++ * 6:  PCIe discard error
++ * 7:  PCIe doorbell
++ * 8:  4 INTx interruts
++ * 9:  MSI interrupt
++ * 10: AER event
++ * 11: PM/LTR/Hotplug
++ * 12: System error
++ * DMA error : reserved for vendor implement
++ * DMA end : reserved for vendor implement
++ */
++
++#define PM_MSI_TO_MASK_OFFSET			19
++
++struct plda_pcie_rp;
++
++struct plda_event_ops {
++	u32 (*get_events)(struct plda_pcie_rp *pcie);
++};
++
+ struct plda_msi {
+ 	struct mutex lock;		/* Protect used bitmap */
+ 	struct irq_domain *msi_domain;
+@@ -120,6 +152,7 @@ struct plda_pcie_rp {
+ 	void __iomem *bridge_addr;
+ };
  
- /* Number of MSI IRQs */
- #define MC_MAX_NUM_MSI_IRQS			32
++irqreturn_t plda_event_handler(int irq, void *dev_id);
+ void plda_pcie_setup_window(void __iomem *bridge_base_addr, u32 index,
+ 			    phys_addr_t axi_addr, phys_addr_t pci_addr,
+ 			    size_t size);
 -- 
 2.17.1
 
