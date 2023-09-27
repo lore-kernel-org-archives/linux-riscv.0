@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6ED8E810AD
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Sep 2023 10:09:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DEB9E810B9
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Sep 2023 10:09:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=blLvcxS16gFlbB9TSKk20wBdNGAbrAmNv0W1ey+fDh0=; b=zHQg6x6JcRQp6X
-	A/xBPgGsbtUaulu3mlRZqdTy2XM0uFGPywodS+e0/CoB9eilqJEB9It7VoZvA+Hy2bRbzkBT7Aavo
-	SsWz8R60DQe3ryskjVVeEBeXsCoAeaqaxEqNzcwvjweoF+HBsWq9bBiaVcmCqdPm45YxsCkTgwxox
-	F0+I97ISmPVgO/o61Xbwh37FipaTYk87hMo/6KcYo70n4FuIFqiWVE3Wnna2ZKOaH50/UmrKZTyGP
-	8xAR+mbzDNhX570j0NQPKHApazqFur5HAfmRh5Mv7tzvPkL3Q3HQaRLOWcn0J738H1eiY2LytQmjx
-	8p5E54hp32YiUevP4lcA==;
+	List-Owner; bh=3jA7E5wedWKPNOCnaeHmG9JyEqDW2+8CTBR70nE/RSg=; b=QPd+k9836JvaBX
+	nzL737kgOjacutUyqAc1ZkSsek08hqxuGnLzWgy4yDAfm3vSvhOMCcMhKo7Fw9aKq1RsUg1OPB3f1
+	l+Xz3y+ZlL9Ucyhey4rpcXOVBUjpvz2EXAbm1ayEtmaUwb92THtoZBniBwqachGlB1Z7ZmmBF/cGS
+	Lom5rlSQ0Y5beex1mPJCGu8qKdyc1uUDCsPlUQ63G2wem1a+eAYQXyFS96bVmWYt/YlbzWHV1d2A9
+	tOm6OMjfeHDgH+a3t23mgHNxGk4vBWpynKtKxTPgr95a2Mp26C6Q3PkUQD/gs5Y0lHA4KifrHI078
+	lO3OzlK6uTzENas9TH+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qlRTy-000Zdp-2L;
-	Wed, 27 Sep 2023 10:09:26 +0000
+	id 1qlRTz-000Zea-1m;
+	Wed, 27 Sep 2023 10:09:27 +0000
 Received: from fd01.gateway.ufhost.com ([61.152.239.71])
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qlRTd-000Z4a-1M
+	id 1qlRTd-000Z4c-1M
 	for linux-riscv@lists.infradead.org;
 	Wed, 27 Sep 2023 10:09:12 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 93E7C80DE;
-	Wed, 27 Sep 2023 18:08:19 +0800 (CST)
-Received: from EXMBX171.cuchost.com (172.16.6.91) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 27 Sep
- 2023 18:08:19 +0800
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 847AF24E17F;
+	Wed, 27 Sep 2023 18:08:22 +0800 (CST)
+Received: from EXMBX171.cuchost.com (172.16.6.91) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 27 Sep
+ 2023 18:08:22 +0800
 Received: from ubuntu.localdomain (113.72.144.128) by EXMBX171.cuchost.com
  (172.16.6.91) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 27 Sep
- 2023 18:08:18 +0800
+ 2023 18:08:20 +0800
 From: Minda Chen <minda.chen@starfivetech.com>
 To: Daire McNamara <daire.mcnamara@microchip.com>, Conor Dooley
 	<conor@kernel.org>, Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
@@ -52,9 +52,9 @@ CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
 	<mason.huo@starfivetech.com>, Leyfoon Tan <leyfoon.tan@starfivetech.com>,
 	Kevin Xie <kevin.xie@starfivetech.com>, Minda Chen
 	<minda.chen@starfivetech.com>
-Subject: [PATCH v7 15/19] PCI: microchip: Move IRQ functions to pcie-plda-host.c
-Date: Wed, 27 Sep 2023 18:07:58 +0800
-Message-ID: <20230927100802.46620-16-minda.chen@starfivetech.com>
+Subject: [PATCH v7 18/19] PCI: starfive: Add JH7110 PCIe controller
+Date: Wed, 27 Sep 2023 18:08:01 +0800
+Message-ID: <20230927100802.46620-19-minda.chen@starfivetech.com>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20230927100802.46620-1-minda.chen@starfivetech.com>
 References: <20230927100802.46620-1-minda.chen@starfivetech.com>
@@ -64,8 +64,8 @@ X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX171.cuchost.com
  (172.16.6.91)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230927_030905_932213_D08F812E 
-X-CRM114-Status: GOOD (  20.44  )
+X-CRM114-CacheID: sfid-20230927_030906_012309_95D52F36 
+X-CRM114-Status: GOOD (  29.76  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,817 +82,878 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Move IRQ functions to pcie-plda-host.c.
-Including MSI, INTx, event interrupts and IRQ
-init functions.
+Add StarFive JH7110 SoC PCIe controller platform
+driver codes, and add host init/deinit to pcie-plda-host.c
 
 Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
+Co-developed-by: Kevin Xie <kevin.xie@starfivetech.com>
+Reviewed-by: Mason Huo <mason.huo@starfivetech.com>
 ---
- .../pci/controller/plda/pcie-microchip-host.c | 364 -----------------
- drivers/pci/controller/plda/pcie-plda-host.c  | 365 ++++++++++++++++++
- drivers/pci/controller/plda/pcie-plda.h       |   3 +
- 3 files changed, 368 insertions(+), 364 deletions(-)
+ MAINTAINERS                                  |   7 +
+ drivers/pci/controller/plda/Kconfig          |  12 +
+ drivers/pci/controller/plda/Makefile         |   1 +
+ drivers/pci/controller/plda/pcie-plda-host.c | 137 +++++-
+ drivers/pci/controller/plda/pcie-plda.h      |  94 +++-
+ drivers/pci/controller/plda/pcie-starfive.c  | 448 +++++++++++++++++++
+ 6 files changed, 686 insertions(+), 13 deletions(-)
+ create mode 100644 drivers/pci/controller/plda/pcie-starfive.c
 
-diff --git a/drivers/pci/controller/plda/pcie-microchip-host.c b/drivers/pci/controller/plda/pcie-microchip-host.c
-index 49e09d24eb8f..016915d42f73 100644
---- a/drivers/pci/controller/plda/pcie-microchip-host.c
-+++ b/drivers/pci/controller/plda/pcie-microchip-host.c
-@@ -317,240 +317,6 @@ static void mc_pcie_enable_msi(struct mc_pcie *port, void __iomem *ecam)
- 		       ecam + MC_MSI_CAP_CTRL_OFFSET + PCI_MSI_ADDRESS_HI);
- }
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 474b9c642c49..ef388ac826b8 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -16679,6 +16679,13 @@ S:	Maintained
+ F:	Documentation/devicetree/bindings/pci/socionext,uniphier-pcie*
+ F:	drivers/pci/controller/dwc/pcie-uniphier*
  
--static void plda_handle_msi(struct irq_desc *desc)
--{
--	struct plda_pcie_rp *port = irq_desc_get_handler_data(desc);
--	struct irq_chip *chip = irq_desc_get_chip(desc);
--	struct device *dev = port->dev;
--	struct plda_msi *msi = &port->msi;
--	void __iomem *bridge_base_addr = port->bridge_addr;
--	unsigned long status;
--	u32 bit;
--	int ret;
--
--	chained_irq_enter(chip, desc);
--
--	status = readl_relaxed(bridge_base_addr + ISTATUS_LOCAL);
--	if (status & PM_MSI_INT_MSI_MASK) {
--		writel_relaxed(status & PM_MSI_INT_MSI_MASK, bridge_base_addr + ISTATUS_LOCAL);
--		status = readl_relaxed(bridge_base_addr + ISTATUS_MSI);
--		for_each_set_bit(bit, &status, msi->num_vectors) {
--			ret = generic_handle_domain_irq(msi->dev_domain, bit);
--			if (ret)
--				dev_err_ratelimited(dev, "bad MSI IRQ %d\n",
--						    bit);
--		}
--	}
--
--	chained_irq_exit(chip, desc);
--}
--
--static void plda_msi_bottom_irq_ack(struct irq_data *data)
--{
--	struct plda_pcie_rp *port = irq_data_get_irq_chip_data(data);
--	void __iomem *bridge_base_addr = port->bridge_addr;
--	u32 bitpos = data->hwirq;
--
--	writel_relaxed(BIT(bitpos), bridge_base_addr + ISTATUS_MSI);
--}
--
--static void plda_compose_msi_msg(struct irq_data *data, struct msi_msg *msg)
--{
--	struct plda_pcie_rp *port = irq_data_get_irq_chip_data(data);
--	phys_addr_t addr = port->msi.vector_phy;
--
--	msg->address_lo = lower_32_bits(addr);
--	msg->address_hi = upper_32_bits(addr);
--	msg->data = data->hwirq;
--
--	dev_dbg(port->dev, "msi#%x address_hi %#x address_lo %#x\n",
--		(int)data->hwirq, msg->address_hi, msg->address_lo);
--}
--
--static int plda_msi_set_affinity(struct irq_data *irq_data,
--				 const struct cpumask *mask, bool force)
--{
--	return -EINVAL;
--}
--
--static struct irq_chip plda_msi_bottom_irq_chip = {
--	.name = "PLDA MSI",
--	.irq_ack = plda_msi_bottom_irq_ack,
--	.irq_compose_msi_msg = plda_compose_msi_msg,
--	.irq_set_affinity = plda_msi_set_affinity,
--};
--
--static int plda_irq_msi_domain_alloc(struct irq_domain *domain, unsigned int virq,
--				     unsigned int nr_irqs, void *args)
--{
--	struct plda_pcie_rp *port = domain->host_data;
--	struct plda_msi *msi = &port->msi;
--	unsigned long bit;
--
--	mutex_lock(&msi->lock);
--	bit = find_first_zero_bit(msi->used, msi->num_vectors);
--	if (bit >= msi->num_vectors) {
--		mutex_unlock(&msi->lock);
--		return -ENOSPC;
--	}
--
--	set_bit(bit, msi->used);
--
--	irq_domain_set_info(domain, virq, bit, &plda_msi_bottom_irq_chip,
--			    domain->host_data, handle_edge_irq, NULL, NULL);
--
--	mutex_unlock(&msi->lock);
--
--	return 0;
--}
--
--static void plda_irq_msi_domain_free(struct irq_domain *domain, unsigned int virq,
--				     unsigned int nr_irqs)
--{
--	struct irq_data *d = irq_domain_get_irq_data(domain, virq);
--	struct plda_pcie_rp *port = irq_data_get_irq_chip_data(d);
--	struct plda_msi *msi = &port->msi;
--
--	mutex_lock(&msi->lock);
--
--	if (test_bit(d->hwirq, msi->used))
--		__clear_bit(d->hwirq, msi->used);
--	else
--		dev_err(port->dev, "trying to free unused MSI%lu\n", d->hwirq);
--
--	mutex_unlock(&msi->lock);
--}
--
--static const struct irq_domain_ops msi_domain_ops = {
--	.alloc	= plda_irq_msi_domain_alloc,
--	.free	= plda_irq_msi_domain_free,
--};
--
--static struct irq_chip plda_msi_irq_chip = {
--	.name = "PLDA PCIe MSI",
--	.irq_ack = irq_chip_ack_parent,
--	.irq_mask = pci_msi_mask_irq,
--	.irq_unmask = pci_msi_unmask_irq,
--};
--
--static struct msi_domain_info plda_msi_domain_info = {
--	.flags = (MSI_FLAG_USE_DEF_DOM_OPS | MSI_FLAG_USE_DEF_CHIP_OPS |
--		  MSI_FLAG_PCI_MSIX),
--	.chip = &plda_msi_irq_chip,
--};
--
--static int plda_allocate_msi_domains(struct plda_pcie_rp *port)
--{
--	struct device *dev = port->dev;
--	struct fwnode_handle *fwnode = of_node_to_fwnode(dev->of_node);
--	struct plda_msi *msi = &port->msi;
--
--	mutex_init(&port->msi.lock);
--
--	msi->dev_domain = irq_domain_add_linear(NULL, msi->num_vectors,
--						&msi_domain_ops, port);
--	if (!msi->dev_domain) {
--		dev_err(dev, "failed to create IRQ domain\n");
--		return -ENOMEM;
--	}
--
--	msi->msi_domain = pci_msi_create_irq_domain(fwnode, &plda_msi_domain_info,
--						    msi->dev_domain);
--	if (!msi->msi_domain) {
--		dev_err(dev, "failed to create MSI domain\n");
--		irq_domain_remove(msi->dev_domain);
--		return -ENOMEM;
--	}
--
--	return 0;
--}
--
--static void plda_handle_intx(struct irq_desc *desc)
--{
--	struct plda_pcie_rp *port = irq_desc_get_handler_data(desc);
--	struct irq_chip *chip = irq_desc_get_chip(desc);
--	struct device *dev = port->dev;
--	void __iomem *bridge_base_addr = port->bridge_addr;
--	unsigned long status;
--	u32 bit;
--	int ret;
--
--	chained_irq_enter(chip, desc);
--
--	status = readl_relaxed(bridge_base_addr + ISTATUS_LOCAL);
--	if (status & PM_MSI_INT_INTX_MASK) {
--		status &= PM_MSI_INT_INTX_MASK;
--		status >>= PM_MSI_INT_INTX_SHIFT;
--		for_each_set_bit(bit, &status, PCI_NUM_INTX) {
--			ret = generic_handle_domain_irq(port->intx_domain, bit);
--			if (ret)
--				dev_err_ratelimited(dev, "bad INTx IRQ %d\n",
--						    bit);
--		}
--	}
--
--	chained_irq_exit(chip, desc);
--}
--
--static void plda_ack_intx_irq(struct irq_data *data)
--{
--	struct plda_pcie_rp *port = irq_data_get_irq_chip_data(data);
--	void __iomem *bridge_base_addr = port->bridge_addr;
--	u32 mask = BIT(data->hwirq + PM_MSI_INT_INTX_SHIFT);
--
--	writel_relaxed(mask, bridge_base_addr + ISTATUS_LOCAL);
--}
--
--static void plda_mask_intx_irq(struct irq_data *data)
--{
--	struct plda_pcie_rp *port = irq_data_get_irq_chip_data(data);
--	void __iomem *bridge_base_addr = port->bridge_addr;
--	unsigned long flags;
--	u32 mask = BIT(data->hwirq + PM_MSI_INT_INTX_SHIFT);
--	u32 val;
--
--	raw_spin_lock_irqsave(&port->lock, flags);
--	val = readl_relaxed(bridge_base_addr + IMASK_LOCAL);
--	val &= ~mask;
--	writel_relaxed(val, bridge_base_addr + IMASK_LOCAL);
--	raw_spin_unlock_irqrestore(&port->lock, flags);
--}
--
--static void plda_unmask_intx_irq(struct irq_data *data)
--{
--	struct plda_pcie_rp *port = irq_data_get_irq_chip_data(data);
--	void __iomem *bridge_base_addr = port->bridge_addr;
--	unsigned long flags;
--	u32 mask = BIT(data->hwirq + PM_MSI_INT_INTX_SHIFT);
--	u32 val;
--
--	raw_spin_lock_irqsave(&port->lock, flags);
--	val = readl_relaxed(bridge_base_addr + IMASK_LOCAL);
--	val |= mask;
--	writel_relaxed(val, bridge_base_addr + IMASK_LOCAL);
--	raw_spin_unlock_irqrestore(&port->lock, flags);
--}
--
--static struct irq_chip plda_intx_irq_chip = {
--	.name = "PLDA PCIe INTx",
--	.irq_ack = plda_ack_intx_irq,
--	.irq_mask = plda_mask_intx_irq,
--	.irq_unmask = plda_unmask_intx_irq,
--};
--
--static int plda_pcie_intx_map(struct irq_domain *domain, unsigned int irq,
--			      irq_hw_number_t hwirq)
--{
--	irq_set_chip_and_handler(irq, &plda_intx_irq_chip, handle_level_irq);
--	irq_set_chip_data(irq, domain->host_data);
--
--	return 0;
--}
--
--static const struct irq_domain_ops intx_domain_ops = {
--	.map = plda_pcie_intx_map,
--};
--
- static inline u32 reg_to_event(u32 reg, struct event_map field)
- {
- 	return (reg & field.reg_mask) ? BIT(field.event_bit) : 0;
-@@ -637,23 +403,6 @@ static irqreturn_t mc_event_handler(int irq, void *dev_id)
- 	return IRQ_HANDLED;
- }
++PCIE DRIVER FOR STARFIVE JH71x0
++M:	Kevin Xie <kevin.xie@starfivetech.com>
++L:	linux-pci@vger.kernel.org
++S:	Maintained
++F:	Documentation/devicetree/bindings/pci/starfive*
++F:	drivers/pci/controller/plda/pcie-starfive.c
++
+ PCIE DRIVER FOR ST SPEAR13XX
+ M:	Pratyush Anand <pratyush.anand@gmail.com>
+ L:	linux-pci@vger.kernel.org
+diff --git a/drivers/pci/controller/plda/Kconfig b/drivers/pci/controller/plda/Kconfig
+index e54a82ee94f5..8de661730aa5 100644
+--- a/drivers/pci/controller/plda/Kconfig
++++ b/drivers/pci/controller/plda/Kconfig
+@@ -15,4 +15,16 @@ config PCIE_MICROCHIP_HOST
+ 	  Say Y here if you want kernel to support the Microchip AXI PCIe
+ 	  Host Bridge driver.
  
--static void plda_handle_event(struct irq_desc *desc)
--{
--	struct plda_pcie_rp *port = irq_desc_get_handler_data(desc);
--	unsigned long events;
--	u32 bit;
--	struct irq_chip *chip = irq_desc_get_chip(desc);
--
--	chained_irq_enter(chip, desc);
--
--	events = port->event_ops->get_events(port);
--
--	for_each_set_bit(bit, &events, port->num_events)
--		generic_handle_domain_irq(port->event_domain, bit);
--
--	chained_irq_exit(chip, desc);
--}
--
- static void mc_ack_event_irq(struct irq_data *data)
- {
- 	struct plda_pcie_rp *port = irq_data_get_irq_chip_data(data);
-@@ -817,47 +566,6 @@ static const struct plda_event mc_event = {
- 	.msi_event              = EVENT_LOCAL_PM_MSI_INT_MSI,
- };
- 
--static int plda_pcie_init_irq_domains(struct plda_pcie_rp *port,
--				      const struct irq_domain_ops *ops)
--{
--	struct device *dev = port->dev;
--	struct device_node *node = dev->of_node;
--	struct device_node *pcie_intc_node;
--
--	/* Setup INTx */
--	pcie_intc_node = of_get_next_child(node, NULL);
--	if (!pcie_intc_node) {
--		dev_err(dev, "failed to find PCIe Intc node\n");
--		return -EINVAL;
--	}
--
--	port->event_domain = irq_domain_add_linear(pcie_intc_node, port->num_events,
--						   ops, port);
--
--	if (!port->event_domain) {
--		dev_err(dev, "failed to get event domain\n");
--		of_node_put(pcie_intc_node);
--		return -ENOMEM;
--	}
--
--	irq_domain_update_bus_token(port->event_domain, DOMAIN_BUS_NEXUS);
--
--	port->intx_domain = irq_domain_add_linear(pcie_intc_node, PCI_NUM_INTX,
--						  &intx_domain_ops, port);
--	if (!port->intx_domain) {
--		dev_err(dev, "failed to get an INTx IRQ domain\n");
--		of_node_put(pcie_intc_node);
--		return -ENOMEM;
--	}
--
--	irq_domain_update_bus_token(port->intx_domain, DOMAIN_BUS_WIRED);
--
--	of_node_put(pcie_intc_node);
--	raw_spin_lock_init(&port->lock);
--
--	return plda_allocate_msi_domains(port);
--}
--
- static inline void mc_clear_secs(struct mc_pcie *port)
- {
- 	void __iomem *ctrl_base_addr = port->axi_base_addr + MC_PCIE_CTRL_ADDR;
-@@ -918,78 +626,6 @@ static void mc_disable_interrupts(struct mc_pcie *port)
- 	writel_relaxed(GENMASK(31, 0), bridge_base_addr + ISTATUS_HOST);
- }
- 
--static int plda_init_interrupts(struct platform_device *pdev,
--				struct plda_pcie_rp *port,
--				const struct plda_event *event)
--{
--	struct device *dev = &pdev->dev;
--	int irq;
--	int i, intx_irq, msi_irq, event_irq;
--	int ret;
--	const struct irq_domain_ops *irq_dom_ops;
--
--	if (!event->event_ops || !event->event_ops->get_events) {
--		dev_err(dev, "no get events ops\n");
--		return -EINVAL;
--	}
--
--	irq_dom_ops = event->domain_ops ? event->domain_ops : &mc_event_domain_ops;
--
--	ret = plda_pcie_init_irq_domains(port, irq_dom_ops);
--	if (ret) {
--		dev_err(dev, "failed creating IRQ domains\n");
--		return ret;
--	}
--
--	irq = platform_get_irq(pdev, 0);
--	if (irq < 0)
--		return -ENODEV;
--
--	port->event_ops = event->event_ops;
--
--	for (i = 0; i < port->num_events; i++) {
--		event_irq = irq_create_mapping(port->event_domain, i);
--		if (!event_irq) {
--			dev_err(dev, "failed to map hwirq %d\n", i);
--			return -ENXIO;
--		}
--
--		if (event->request_event_irq)
--			ret = event->request_event_irq(port, event_irq, i);
--		else
--			ret = devm_request_irq(dev, event_irq, plda_event_handler,
--					       0, NULL, port);
--
--		if (ret) {
--			dev_err(dev, "failed to request IRQ %d\n", event_irq);
--			return ret;
--		}
--	}
--
--	intx_irq = irq_create_mapping(port->event_domain,
--				      event->intx_event);
--	if (!intx_irq) {
--		dev_err(dev, "failed to map INTx interrupt\n");
--		return -ENXIO;
--	}
--
--	/* Plug the INTx chained handler */
--	irq_set_chained_handler_and_data(intx_irq, plda_handle_intx, port);
--
--	msi_irq = irq_create_mapping(port->event_domain,
--				     event->msi_event);
--	if (!msi_irq)
--		return -ENXIO;
--
--	/* Plug the MSI chained handler */
--	irq_set_chained_handler_and_data(msi_irq, plda_handle_msi, port);
--
--	/* Plug the main event chained handler */
--	irq_set_chained_handler_and_data(irq, plda_handle_event, port);
--
--	return 0;
--}
--
- static int mc_platform_init(struct pci_config_window *cfg)
- {
- 	struct device *dev = cfg->parent;
++config PCIE_STARFIVE_HOST
++	tristate "StarFive PCIe host controller"
++	depends on OF && PCI_MSI
++	select PCIE_PLDA_HOST
++	help
++	  Say Y here if you want to support the StarFive PCIe controller
++	  in host mode. StarFive PCIe controller uses PLDA PCIe
++	  core.
++	  If you choose to build this driver as module it will
++	  be dynamically linked and module will be called
++	  pcie-starfive.ko
++
+ endmenu
+diff --git a/drivers/pci/controller/plda/Makefile b/drivers/pci/controller/plda/Makefile
+index 4340ab007f44..0ac6851bed48 100644
+--- a/drivers/pci/controller/plda/Makefile
++++ b/drivers/pci/controller/plda/Makefile
+@@ -1,3 +1,4 @@
+ # SPDX-License-Identifier: GPL-2.0
+ obj-$(CONFIG_PCIE_PLDA_HOST) += pcie-plda-host.o
+ obj-$(CONFIG_PCIE_MICROCHIP_HOST) += pcie-microchip-host.o
++obj-$(CONFIG_PCIE_STARFIVE_HOST) += pcie-starfive.o
 diff --git a/drivers/pci/controller/plda/pcie-plda-host.c b/drivers/pci/controller/plda/pcie-plda-host.c
-index 197eda731c71..c73953bcd1f8 100644
+index 11cdda2f6e5f..037276b88d40 100644
 --- a/drivers/pci/controller/plda/pcie-plda-host.c
 +++ b/drivers/pci/controller/plda/pcie-plda-host.c
-@@ -20,6 +20,240 @@
+@@ -20,6 +20,15 @@
  
  #include "pcie-plda.h"
  
-+static void plda_handle_msi(struct irq_desc *desc)
++void __iomem *plda_pcie_map_bus(struct pci_bus *bus, unsigned int devfn,
++				int where)
 +{
-+	struct plda_pcie_rp *port = irq_desc_get_handler_data(desc);
-+	struct irq_chip *chip = irq_desc_get_chip(desc);
-+	struct device *dev = port->dev;
-+	struct plda_msi *msi = &port->msi;
-+	void __iomem *bridge_base_addr = port->bridge_addr;
-+	unsigned long status;
-+	u32 bit;
-+	int ret;
++	struct plda_pcie_rp *pcie = bus->sysdata;
 +
-+	chained_irq_enter(chip, desc);
-+
-+	status = readl_relaxed(bridge_base_addr + ISTATUS_LOCAL);
-+	if (status & PM_MSI_INT_MSI_MASK) {
-+		writel_relaxed(status & PM_MSI_INT_MSI_MASK, bridge_base_addr + ISTATUS_LOCAL);
-+		status = readl_relaxed(bridge_base_addr + ISTATUS_MSI);
-+		for_each_set_bit(bit, &status, msi->num_vectors) {
-+			ret = generic_handle_domain_irq(msi->dev_domain, bit);
-+			if (ret)
-+				dev_err_ratelimited(dev, "bad MSI IRQ %d\n",
-+						    bit);
-+		}
-+	}
-+
-+	chained_irq_exit(chip, desc);
++	return pcie->config_base + PCIE_ECAM_OFFSET(bus->number, devfn, where);
 +}
++EXPORT_SYMBOL_GPL(plda_pcie_map_bus);
 +
-+static void plda_msi_bottom_irq_ack(struct irq_data *data)
-+{
-+	struct plda_pcie_rp *port = irq_data_get_irq_chip_data(data);
-+	void __iomem *bridge_base_addr = port->bridge_addr;
-+	u32 bitpos = data->hwirq;
-+
-+	writel_relaxed(BIT(bitpos), bridge_base_addr + ISTATUS_MSI);
-+}
-+
-+static void plda_compose_msi_msg(struct irq_data *data, struct msi_msg *msg)
-+{
-+	struct plda_pcie_rp *port = irq_data_get_irq_chip_data(data);
-+	phys_addr_t addr = port->msi.vector_phy;
-+
-+	msg->address_lo = lower_32_bits(addr);
-+	msg->address_hi = upper_32_bits(addr);
-+	msg->data = data->hwirq;
-+
-+	dev_dbg(port->dev, "msi#%x address_hi %#x address_lo %#x\n",
-+		(int)data->hwirq, msg->address_hi, msg->address_lo);
-+}
-+
-+static int plda_msi_set_affinity(struct irq_data *irq_data,
-+				 const struct cpumask *mask, bool force)
-+{
-+	return -EINVAL;
-+}
-+
-+static struct irq_chip plda_msi_bottom_irq_chip = {
-+	.name = "PLDA MSI",
-+	.irq_ack = plda_msi_bottom_irq_ack,
-+	.irq_compose_msi_msg = plda_compose_msi_msg,
-+	.irq_set_affinity = plda_msi_set_affinity,
-+};
-+
-+static int plda_irq_msi_domain_alloc(struct irq_domain *domain, unsigned int virq,
-+				     unsigned int nr_irqs, void *args)
-+{
-+	struct plda_pcie_rp *port = domain->host_data;
-+	struct plda_msi *msi = &port->msi;
-+	unsigned long bit;
-+
-+	mutex_lock(&msi->lock);
-+	bit = find_first_zero_bit(msi->used, msi->num_vectors);
-+	if (bit >= msi->num_vectors) {
-+		mutex_unlock(&msi->lock);
-+		return -ENOSPC;
-+	}
-+
-+	set_bit(bit, msi->used);
-+
-+	irq_domain_set_info(domain, virq, bit, &plda_msi_bottom_irq_chip,
-+			    domain->host_data, handle_edge_irq, NULL, NULL);
-+
-+	mutex_unlock(&msi->lock);
-+
-+	return 0;
-+}
-+
-+static void plda_irq_msi_domain_free(struct irq_domain *domain, unsigned int virq,
-+				     unsigned int nr_irqs)
-+{
-+	struct irq_data *d = irq_domain_get_irq_data(domain, virq);
-+	struct plda_pcie_rp *port = irq_data_get_irq_chip_data(d);
-+	struct plda_msi *msi = &port->msi;
-+
-+	mutex_lock(&msi->lock);
-+
-+	if (test_bit(d->hwirq, msi->used))
-+		__clear_bit(d->hwirq, msi->used);
-+	else
-+		dev_err(port->dev, "trying to free unused MSI%lu\n", d->hwirq);
-+
-+	mutex_unlock(&msi->lock);
-+}
-+
-+static const struct irq_domain_ops msi_domain_ops = {
-+	.alloc	= plda_irq_msi_domain_alloc,
-+	.free	= plda_irq_msi_domain_free,
-+};
-+
-+static struct irq_chip plda_msi_irq_chip = {
-+	.name = "PLDA PCIe MSI",
-+	.irq_ack = irq_chip_ack_parent,
-+	.irq_mask = pci_msi_mask_irq,
-+	.irq_unmask = pci_msi_unmask_irq,
-+};
-+
-+static struct msi_domain_info plda_msi_domain_info = {
-+	.flags = (MSI_FLAG_USE_DEF_DOM_OPS | MSI_FLAG_USE_DEF_CHIP_OPS |
-+		  MSI_FLAG_PCI_MSIX),
-+	.chip = &plda_msi_irq_chip,
-+};
-+
-+static int plda_allocate_msi_domains(struct plda_pcie_rp *port)
-+{
-+	struct device *dev = port->dev;
-+	struct fwnode_handle *fwnode = of_node_to_fwnode(dev->of_node);
-+	struct plda_msi *msi = &port->msi;
-+
-+	mutex_init(&port->msi.lock);
-+
-+	msi->dev_domain = irq_domain_add_linear(NULL, msi->num_vectors,
-+						&msi_domain_ops, port);
-+	if (!msi->dev_domain) {
-+		dev_err(dev, "failed to create IRQ domain\n");
-+		return -ENOMEM;
-+	}
-+
-+	msi->msi_domain = pci_msi_create_irq_domain(fwnode, &plda_msi_domain_info,
-+						    msi->dev_domain);
-+	if (!msi->msi_domain) {
-+		dev_err(dev, "failed to create MSI domain\n");
-+		irq_domain_remove(msi->dev_domain);
-+		return -ENOMEM;
-+	}
-+
-+	return 0;
-+}
-+
-+static void plda_handle_intx(struct irq_desc *desc)
-+{
-+	struct plda_pcie_rp *port = irq_desc_get_handler_data(desc);
-+	struct irq_chip *chip = irq_desc_get_chip(desc);
-+	struct device *dev = port->dev;
-+	void __iomem *bridge_base_addr = port->bridge_addr;
-+	unsigned long status;
-+	u32 bit;
-+	int ret;
-+
-+	chained_irq_enter(chip, desc);
-+
-+	status = readl_relaxed(bridge_base_addr + ISTATUS_LOCAL);
-+	if (status & PM_MSI_INT_INTX_MASK) {
-+		status &= PM_MSI_INT_INTX_MASK;
-+		status >>= PM_MSI_INT_INTX_SHIFT;
-+		for_each_set_bit(bit, &status, PCI_NUM_INTX) {
-+			ret = generic_handle_domain_irq(port->intx_domain, bit);
-+			if (ret)
-+				dev_err_ratelimited(dev, "bad INTx IRQ %d\n",
-+						    bit);
-+		}
-+	}
-+
-+	chained_irq_exit(chip, desc);
-+}
-+
-+static void plda_ack_intx_irq(struct irq_data *data)
-+{
-+	struct plda_pcie_rp *port = irq_data_get_irq_chip_data(data);
-+	void __iomem *bridge_base_addr = port->bridge_addr;
-+	u32 mask = BIT(data->hwirq + PM_MSI_INT_INTX_SHIFT);
-+
-+	writel_relaxed(mask, bridge_base_addr + ISTATUS_LOCAL);
-+}
-+
-+static void plda_mask_intx_irq(struct irq_data *data)
-+{
-+	struct plda_pcie_rp *port = irq_data_get_irq_chip_data(data);
-+	void __iomem *bridge_base_addr = port->bridge_addr;
-+	unsigned long flags;
-+	u32 mask = BIT(data->hwirq + PM_MSI_INT_INTX_SHIFT);
-+	u32 val;
-+
-+	raw_spin_lock_irqsave(&port->lock, flags);
-+	val = readl_relaxed(bridge_base_addr + IMASK_LOCAL);
-+	val &= ~mask;
-+	writel_relaxed(val, bridge_base_addr + IMASK_LOCAL);
-+	raw_spin_unlock_irqrestore(&port->lock, flags);
-+}
-+
-+static void plda_unmask_intx_irq(struct irq_data *data)
-+{
-+	struct plda_pcie_rp *port = irq_data_get_irq_chip_data(data);
-+	void __iomem *bridge_base_addr = port->bridge_addr;
-+	unsigned long flags;
-+	u32 mask = BIT(data->hwirq + PM_MSI_INT_INTX_SHIFT);
-+	u32 val;
-+
-+	raw_spin_lock_irqsave(&port->lock, flags);
-+	val = readl_relaxed(bridge_base_addr + IMASK_LOCAL);
-+	val |= mask;
-+	writel_relaxed(val, bridge_base_addr + IMASK_LOCAL);
-+	raw_spin_unlock_irqrestore(&port->lock, flags);
-+}
-+
-+static struct irq_chip plda_intx_irq_chip = {
-+	.name = "PLDA PCIe INTx",
-+	.irq_ack = plda_ack_intx_irq,
-+	.irq_mask = plda_mask_intx_irq,
-+	.irq_unmask = plda_unmask_intx_irq,
-+};
-+
-+static int plda_pcie_intx_map(struct irq_domain *domain, unsigned int irq,
-+			      irq_hw_number_t hwirq)
-+{
-+	irq_set_chip_and_handler(irq, &plda_intx_irq_chip, handle_level_irq);
-+	irq_set_chip_data(irq, domain->host_data);
-+
-+	return 0;
-+}
-+
-+static const struct irq_domain_ops intx_domain_ops = {
-+	.map = plda_pcie_intx_map,
-+};
-+
- irqreturn_t plda_event_handler(int irq, void *dev_id)
+ static void plda_handle_msi(struct irq_desc *desc)
  {
- 	return IRQ_HANDLED;
-@@ -45,6 +279,23 @@ static u32 plda_get_events(struct plda_pcie_rp *port)
- 	return events;
- }
+ 	struct plda_pcie_rp *port = irq_desc_get_handler_data(desc);
+@@ -366,10 +375,16 @@ static const struct irq_domain_ops plda_evt_dom_ops = {
+ 	.map = plda_pcie_event_map,
+ };
  
-+static void plda_handle_event(struct irq_desc *desc)
-+{
-+	struct plda_pcie_rp *port = irq_desc_get_handler_data(desc);
-+	struct irq_chip *chip = irq_desc_get_chip(desc);
-+	u32 bit;
-+	unsigned long events;
-+
-+	chained_irq_enter(chip, desc);
-+
-+	events = port->event_ops->get_events(port);
-+
-+	for_each_set_bit(bit, &events, port->num_events)
-+		generic_handle_domain_irq(port->event_domain, bit);
-+
-+	chained_irq_exit(chip, desc);
-+}
-+
- static u32 plda_hwirq_to_mask(int hwirq)
- {
- 	u32 mask;
-@@ -119,6 +370,120 @@ struct plda_event_ops plda_event_ops = {
+-struct plda_event_ops plda_event_ops = {
++static const struct plda_event_ops plda_event_ops = {
  	.get_events = plda_get_events,
  };
  
-+static int plda_pcie_init_irq_domains(struct plda_pcie_rp *port,
-+				      const struct irq_domain_ops *ops)
++static const struct plda_event plda_default_event = {
++	.event_ops		= &plda_event_ops,
++	.intx_event		= EVENT_PM_MSI_INT_INTX,
++	.msi_event		= EVENT_PM_MSI_INT_MSI
++};
++
+ static int plda_pcie_init_irq_domains(struct plda_pcie_rp *port,
+ 				      const struct irq_domain_ops *ops)
+ {
+@@ -416,8 +431,7 @@ int plda_init_interrupts(struct platform_device *pdev,
+ 			 const struct plda_event *event)
+ {
+ 	struct device *dev = &pdev->dev;
+-	int irq;
+-	int i, intx_irq, msi_irq, event_irq;
++	int i, event_irq;
+ 	int ret;
+ 	const struct irq_domain_ops *irq_dom_ops;
+ 
+@@ -434,8 +448,8 @@ int plda_init_interrupts(struct platform_device *pdev,
+ 		return ret;
+ 	}
+ 
+-	irq = platform_get_irq(pdev, 0);
+-	if (irq < 0)
++	port->irq = platform_get_irq(pdev, 0);
++	if (port->irq < 0)
+ 		return -ENODEV;
+ 
+ 	port->event_ops = event->event_ops;
+@@ -459,26 +473,26 @@ int plda_init_interrupts(struct platform_device *pdev,
+ 		}
+ 	}
+ 
+-	intx_irq = irq_create_mapping(port->event_domain,
++	port->intx_irq = irq_create_mapping(port->event_domain,
+ 				      event->intx_event);
+-	if (!intx_irq) {
++	if (!port->intx_irq) {
+ 		dev_err(dev, "failed to map INTx interrupt\n");
+ 		return -ENXIO;
+ 	}
+ 
+ 	/* Plug the INTx chained handler */
+-	irq_set_chained_handler_and_data(intx_irq, plda_handle_intx, port);
++	irq_set_chained_handler_and_data(port->intx_irq, plda_handle_intx, port);
+ 
+-	msi_irq = irq_create_mapping(port->event_domain,
++	port->msi_irq = irq_create_mapping(port->event_domain,
+ 				     event->msi_event);
+-	if (!msi_irq)
++	if (!port->msi_irq)
+ 		return -ENXIO;
+ 
+ 	/* Plug the MSI chained handler */
+-	irq_set_chained_handler_and_data(msi_irq, plda_handle_msi, port);
++	irq_set_chained_handler_and_data(port->msi_irq, plda_handle_msi, port);
+ 
+ 	/* Plug the main event chained handler */
+-	irq_set_chained_handler_and_data(irq, plda_handle_event, port);
++	irq_set_chained_handler_and_data(port->irq, plda_handle_event, port);
+ 
+ 	return 0;
+ }
+@@ -544,3 +558,102 @@ int plda_pcie_setup_iomems(struct pci_host_bridge *bridge,
+ 	return 0;
+ }
+ EXPORT_SYMBOL_GPL(plda_pcie_setup_iomems);
++
++static void plda_pcie_irq_domain_deinit(struct plda_pcie_rp *pcie)
 +{
-+	struct device *dev = port->dev;
-+	struct device_node *node = dev->of_node;
-+	struct device_node *pcie_intc_node;
++	irq_set_chained_handler_and_data(pcie->irq, NULL, NULL);
++	irq_set_chained_handler_and_data(pcie->msi_irq, NULL, NULL);
++	irq_set_chained_handler_and_data(pcie->intx_irq, NULL, NULL);
 +
-+	/* Setup INTx */
-+	pcie_intc_node = of_get_next_child(node, NULL);
-+	if (!pcie_intc_node) {
-+		dev_err(dev, "failed to find PCIe Intc node\n");
-+		return -EINVAL;
-+	}
++	irq_domain_remove(pcie->msi.msi_domain);
++	irq_domain_remove(pcie->msi.dev_domain);
 +
-+	port->event_domain = irq_domain_add_linear(pcie_intc_node, port->num_events,
-+						   ops, port);
-+
-+	if (!port->event_domain) {
-+		dev_err(dev, "failed to get event domain\n");
-+		of_node_put(pcie_intc_node);
-+		return -ENOMEM;
-+	}
-+
-+	irq_domain_update_bus_token(port->event_domain, DOMAIN_BUS_NEXUS);
-+
-+	port->intx_domain = irq_domain_add_linear(pcie_intc_node, PCI_NUM_INTX,
-+						  &intx_domain_ops, port);
-+	if (!port->intx_domain) {
-+		dev_err(dev, "failed to get an INTx IRQ domain\n");
-+		of_node_put(pcie_intc_node);
-+		return -ENOMEM;
-+	}
-+
-+	irq_domain_update_bus_token(port->intx_domain, DOMAIN_BUS_WIRED);
-+
-+	of_node_put(pcie_intc_node);
-+	raw_spin_lock_init(&port->lock);
-+
-+	return plda_allocate_msi_domains(port);
++	irq_domain_remove(pcie->intx_domain);
++	irq_domain_remove(pcie->event_domain);
 +}
 +
-+int plda_init_interrupts(struct platform_device *pdev,
-+			 struct plda_pcie_rp *port,
-+			 const struct plda_event *event)
++int plda_pcie_host_init(struct plda_pcie_rp *port, struct pci_ops *ops)
 +{
-+	struct device *dev = &pdev->dev;
-+	int irq;
-+	int i, intx_irq, msi_irq, event_irq;
++	struct device *dev = port->dev;
++	struct pci_host_bridge *bridge;
++	struct platform_device *pdev = to_platform_device(dev);
++	struct resource *cfg_res;
 +	int ret;
-+	const struct irq_domain_ops *irq_dom_ops;
 +
-+	if (!event->event_ops || !event->event_ops->get_events) {
-+		dev_err(dev, "no get events ops\n");
-+		return -EINVAL;
-+	}
++	pdev = to_platform_device(dev);
 +
-+	irq_dom_ops = event->domain_ops ? event->domain_ops : &plda_evt_dom_ops;
++	port->bridge_addr =
++		devm_platform_ioremap_resource_byname(pdev, "apb");
 +
-+	ret = plda_pcie_init_irq_domains(port, irq_dom_ops);
-+	if (ret) {
-+		dev_err(dev, "failed creating IRQ domains\n");
-+		return ret;
-+	}
++	if (IS_ERR(port->bridge_addr))
++		return dev_err_probe(dev, PTR_ERR(port->bridge_addr),
++				     "failed to map reg memory\n");
 +
-+	irq = platform_get_irq(pdev, 0);
-+	if (irq < 0)
-+		return -ENODEV;
++	cfg_res = platform_get_resource_byname(pdev, IORESOURCE_MEM, "cfg");
++	if (!cfg_res)
++		return dev_err_probe(dev, -ENODEV,
++				     "failed to get config memory\n");
 +
-+	port->event_ops = event->event_ops;
++	port->config_base = devm_ioremap_resource(dev, cfg_res);
++	if (IS_ERR(port->config_base))
++		return dev_err_probe(dev, PTR_ERR(port->config_base),
++				     "failed to map config memory\n");
 +
-+	for (i = 0; i < port->num_events; i++) {
-+		event_irq = irq_create_mapping(port->event_domain, i);
-+		if (!event_irq) {
-+			dev_err(dev, "failed to map hwirq %d\n", i);
-+			return -ENXIO;
-+		}
++	port->phy = devm_phy_optional_get(dev, NULL);
++	if (IS_ERR(port->phy))
++		return dev_err_probe(dev, PTR_ERR(port->phy),
++				     "failed to get pcie phy\n");
 +
-+		if (event->request_event_irq)
-+			ret = event->request_event_irq(port, event_irq, i);
-+		else
-+			ret = devm_request_irq(dev, event_irq, plda_event_handler,
-+					       0, NULL, port);
++	bridge = devm_pci_alloc_host_bridge(dev, 0);
++	if (!bridge)
++		return dev_err_probe(dev, -ENOMEM,
++				     "failed to alloc bridge\n");
 +
-+		if (ret) {
-+			dev_err(dev, "failed to request IRQ %d\n", event_irq);
++	if (port->host_ops && port->host_ops->host_init) {
++		ret = port->host_ops->host_init(port);
++		if (ret)
 +			return ret;
-+		}
 +	}
 +
-+	intx_irq = irq_create_mapping(port->event_domain,
-+				      event->intx_event);
-+	if (!intx_irq) {
-+		dev_err(dev, "failed to map INTx interrupt\n");
-+		return -ENXIO;
++	port->bridge = bridge;
++	plda_pcie_setup_window(port->bridge_addr, 0, cfg_res->start, 0,
++			       resource_size(cfg_res));
++	plda_pcie_setup_iomems(bridge, port);
++	plda_set_default_msi(&port->msi);
++	ret = plda_init_interrupts(pdev, port, &plda_default_event);
++	if (ret)
++		goto err_host;
++
++	/* Set default bus ops */
++	bridge->ops = ops;
++	bridge->sysdata = port;
++
++	ret = pci_host_probe(bridge);
++	if (ret < 0) {
++		dev_err_probe(dev, ret, "failed to probe pci host\n");
++		goto err_probe;
 +	}
 +
-+	/* Plug the INTx chained handler */
-+	irq_set_chained_handler_and_data(intx_irq, plda_handle_intx, port);
++	return ret;
 +
-+	msi_irq = irq_create_mapping(port->event_domain,
-+				     event->msi_event);
-+	if (!msi_irq)
-+		return -ENXIO;
++err_probe:
++	plda_pcie_irq_domain_deinit(port);
++err_host:
++	if (port->host_ops && port->host_ops->host_deinit)
++		port->host_ops->host_deinit(port);
 +
-+	/* Plug the MSI chained handler */
-+	irq_set_chained_handler_and_data(msi_irq, plda_handle_msi, port);
++	return ret;
++}
++EXPORT_SYMBOL_GPL(plda_pcie_host_init);
 +
-+	/* Plug the main event chained handler */
-+	irq_set_chained_handler_and_data(irq, plda_handle_event, port);
++void plda_pcie_host_deinit(struct plda_pcie_rp *port)
++{
++	pci_stop_root_bus(port->bridge->bus);
++	pci_remove_root_bus(port->bridge->bus);
++
++	plda_pcie_irq_domain_deinit(port);
++
++	if (port->host_ops && port->host_ops->host_deinit)
++		port->host_ops->host_deinit(port);
++}
++EXPORT_SYMBOL_GPL(plda_pcie_host_deinit);
+diff --git a/drivers/pci/controller/plda/pcie-plda.h b/drivers/pci/controller/plda/pcie-plda.h
+index b7420598a326..374adb28c12b 100644
+--- a/drivers/pci/controller/plda/pcie-plda.h
++++ b/drivers/pci/controller/plda/pcie-plda.h
+@@ -6,14 +6,26 @@
+ #ifndef _PCIE_PLDA_H
+ #define _PCIE_PLDA_H
+ 
++#include <linux/phy/phy.h>
++
+ /* Number of MSI IRQs */
+ #define PLDA_MAX_NUM_MSI_IRQS			32
+ 
+ /* PCIe Bridge Phy Regs */
++#define GEN_SETTINGS				0x80
++#define  RP_ENABLE				1
++#define PCIE_PCI_IDS_DW1			0x9c
++#define  IDS_CLASS_CODE_SHIFT			16
++#define  REVISION_ID_MASK			GENMASK(7, 0)
++#define  CLASS_CODE_ID_MASK			GENMASK(31, 8)
+ #define PCIE_PCI_IRQ_DW0			0xa8
+ #define  MSIX_CAP_MASK				BIT(31)
+ #define  NUM_MSI_MSGS_MASK			GENMASK(6, 4)
+ #define  NUM_MSI_MSGS_SHIFT			4
++#define PCI_MISC				0xb4
++#define  PHY_FUNCTION_DIS			BIT(15)
++#define PCIE_WINROM				0xfc
++#define  PREF_MEM_WIN_64_SUPPORT		BIT(3)
+ 
+ #define IMASK_LOCAL				0x180
+ #define  DMA_END_ENGINE_0_MASK			0x00000000u
+@@ -64,6 +76,8 @@
+ #define ISTATUS_HOST				0x18c
+ #define IMSI_ADDR				0x190
+ #define ISTATUS_MSI				0x194
++#define PMSG_SUPPORT_RX				0x3f0
++#define  PMSG_LTR_SUPPORT			BIT(2)
+ 
+ /* PCIe Master table init defines */
+ #define ATR0_PCIE_WIN0_SRCADDR_PARAM		0x600u
+@@ -85,6 +99,8 @@
+ #define  PCIE_TX_RX_INTERFACE			0x00000000u
+ #define  PCIE_CONFIG_INTERFACE			0x00000001u
+ 
++#define CONFIG_SPACE_ADDR			0x1000u
++
+ #define ATR_ENTRY_SIZE				32
+ 
+ #define EVENT_A_ATR_EVT_POST_ERR		0
+@@ -134,6 +150,11 @@ struct plda_event_ops {
+ 	u32 (*get_events)(struct plda_pcie_rp *pcie);
+ };
+ 
++struct plda_pcie_host_ops {
++	int (*host_init)(struct plda_pcie_rp *pcie);
++	void (*host_deinit)(struct plda_pcie_rp *pcie);
++};
++
+ struct plda_msi {
+ 	struct mutex lock;		/* Protect used bitmap */
+ 	struct irq_domain *msi_domain;
+@@ -145,12 +166,19 @@ struct plda_msi {
+ 
+ struct plda_pcie_rp {
+ 	struct device *dev;
++	struct pci_host_bridge *bridge;
+ 	struct irq_domain *intx_domain;
+ 	struct irq_domain *event_domain;
+ 	raw_spinlock_t lock;
+ 	struct plda_msi msi;
+ 	const struct plda_event_ops *event_ops;
++	const struct plda_pcie_host_ops *host_ops;
++	struct phy *phy;
+ 	void __iomem *bridge_addr;
++	void __iomem *config_base;
++	int irq;
++	int msi_irq;
++	int intx_irq;
+ 	int num_events;
+ };
+ 
+@@ -163,6 +191,7 @@ struct plda_event {
+ 	int msi_event;
+ };
+ 
++void __iomem *plda_pcie_map_bus(struct pci_bus *bus, unsigned int devfn, int where);
+ int plda_init_interrupts(struct platform_device *pdev,
+ 			 struct plda_pcie_rp *port,
+ 			 const struct plda_event *event);
+@@ -171,4 +200,67 @@ void plda_pcie_setup_window(void __iomem *bridge_base_addr, u32 index,
+ 			    size_t size);
+ int plda_pcie_setup_iomems(struct pci_host_bridge *bridge,
+ 			   struct plda_pcie_rp *port);
+-#endif
++int plda_pcie_host_init(struct plda_pcie_rp *pcie, struct pci_ops *ops);
++void plda_pcie_host_deinit(struct plda_pcie_rp *pcie);
++
++static inline void plda_set_default_msi(struct plda_msi *msi)
++{
++	msi->vector_phy = IMSI_ADDR;
++	msi->num_vectors = PLDA_MAX_NUM_MSI_IRQS;
++}
++
++static inline void plda_pcie_enable_root_port(struct plda_pcie_rp *plda)
++{
++	u32 value;
++
++	value = readl_relaxed(plda->bridge_addr + GEN_SETTINGS);
++	value |= RP_ENABLE;
++	writel_relaxed(value, plda->bridge_addr + GEN_SETTINGS);
++}
++
++static inline void plda_pcie_set_standard_class(struct plda_pcie_rp *plda)
++{
++	u32 value;
++
++	/* set class code and reserve revision id */
++	value = readl_relaxed(plda->bridge_addr + PCIE_PCI_IDS_DW1);
++	value &= REVISION_ID_MASK;
++	value |= (PCI_CLASS_BRIDGE_PCI << IDS_CLASS_CODE_SHIFT);
++	writel_relaxed(value, plda->bridge_addr + PCIE_PCI_IDS_DW1);
++}
++
++static inline void plda_pcie_set_pref_win_64bit(struct plda_pcie_rp *plda)
++{
++	u32 value;
++
++	value = readl_relaxed(plda->bridge_addr + PCIE_WINROM);
++	value |= PREF_MEM_WIN_64_SUPPORT;
++	writel_relaxed(value, plda->bridge_addr + PCIE_WINROM);
++}
++
++static inline void plda_pcie_disable_ltr(struct plda_pcie_rp *plda)
++{
++	u32 value;
++
++	value = readl_relaxed(plda->bridge_addr + PMSG_SUPPORT_RX);
++	value &= ~PMSG_LTR_SUPPORT;
++	writel_relaxed(value, plda->bridge_addr + PMSG_SUPPORT_RX);
++}
++
++static inline void plda_pcie_disable_func(struct plda_pcie_rp *plda)
++{
++	u32 value;
++
++	value = readl_relaxed(plda->bridge_addr + PCI_MISC);
++	value |= PHY_FUNCTION_DIS;
++	writel_relaxed(value, plda->bridge_addr + PCI_MISC);
++}
++
++static inline void plda_pcie_write_rc_bar(struct plda_pcie_rp *plda, u64 val)
++{
++	void __iomem *addr = plda->bridge_addr + CONFIG_SPACE_ADDR;
++
++	writel_relaxed(lower_32_bits(val), addr + PCI_BASE_ADDRESS_0);
++	writel_relaxed(upper_32_bits(val), addr + PCI_BASE_ADDRESS_1);
++}
++#endif /* _PCIE_PLDA_H */
+diff --git a/drivers/pci/controller/plda/pcie-starfive.c b/drivers/pci/controller/plda/pcie-starfive.c
+new file mode 100644
+index 000000000000..4dee3154964e
+--- /dev/null
++++ b/drivers/pci/controller/plda/pcie-starfive.c
+@@ -0,0 +1,448 @@
++// SPDX-License-Identifier: GPL-2.0+
++/*
++ * PCIe host controller driver for StarFive JH7110 Soc.
++ *
++ * Copyright (C) 2023 StarFive Technology Co., Ltd.
++ */
++
++#include <linux/bitfield.h>
++#include <linux/clk.h>
++#include <linux/delay.h>
++#include <linux/gpio/consumer.h>
++#include <linux/interrupt.h>
++#include <linux/kernel.h>
++#include <linux/mfd/syscon.h>
++#include <linux/module.h>
++#include <linux/of_address.h>
++#include <linux/of_irq.h>
++#include <linux/of_pci.h>
++#include <linux/pci.h>
++#include <linux/platform_device.h>
++#include <linux/pm_runtime.h>
++#include <linux/regmap.h>
++#include <linux/reset.h>
++#include "../../pci.h"
++
++#include "pcie-plda.h"
++
++#define PCIE_FUNC_NUM			4
++
++/* system control */
++#define STG_SYSCON_PCIE0_BASE			0x48
++#define STG_SYSCON_PCIE1_BASE			0x1f8
++
++#define STG_SYSCON_ARFUNC_OFFSET		0x78
++#define STG_SYSCON_AXI4_SLVL_ARFUNC_MASK	 GENMASK(22, 8)
++#define STG_SYSCON_AXI4_SLVL_PHY_ARFUNC(x)	 FIELD_PREP(GENMASK(20, 17), x)
++#define STG_SYSCON_AWFUNC_OFFSET		0x7c
++#define STG_SYSCON_AXI4_SLVL_AWFUNC_MASK	 GENMASK(14, 0)
++#define STG_SYSCON_AXI4_SLVL_PHY_AWFUNC(x)	 FIELD_PREP(GENMASK(12, 9), x)
++#define STG_SYSCON_CLKREQ			 BIT(22)
++#define STG_SYSCON_CKREF_SRC_MASK		 GENMASK(19, 18)
++#define STG_SYSCON_RP_NEP_OFFSET		0xe8
++#define STG_SYSCON_K_RP_NEP			 BIT(8)
++#define STG_SYSCON_LNKSTA_OFFSET		0x170
++#define DATA_LINK_ACTIVE			 BIT(5)
++
++/* Parameters for the waiting for link up routine */
++#define LINK_WAIT_MAX_RETRIES	10
++#define LINK_WAIT_USLEEP_MIN	90000
++#define LINK_WAIT_USLEEP_MAX	100000
++
++struct starfive_jh7110_pcie {
++	struct plda_pcie_rp plda;
++	struct reset_control *resets;
++	struct clk_bulk_data *clks;
++	struct regmap *reg_syscon;
++	struct gpio_desc *power_gpio;
++	struct gpio_desc *reset_gpio;
++
++	unsigned int stg_pcie_base;
++	int num_clks;
++};
++
++/*
++ * The BAR0/1 of bridge should be hidden during enumeration to
++ * avoid the sizing and resource allocation by PCIe core.
++ */
++static bool starfive_pcie_hide_rc_bar(struct pci_bus *bus, unsigned int  devfn,
++				      int offset)
++{
++	if (pci_is_root_bus(bus) && !devfn &&
++	    (offset == PCI_BASE_ADDRESS_0 || offset == PCI_BASE_ADDRESS_1))
++		return true;
++
++	return false;
++}
++
++static int starfive_pcie_config_write(struct pci_bus *bus, unsigned int devfn,
++				      int where, int size, u32 value)
++{
++	if (starfive_pcie_hide_rc_bar(bus, devfn, where))
++		return PCIBIOS_BAD_REGISTER_NUMBER;
++
++	return pci_generic_config_write(bus, devfn, where, size, value);
++}
++
++static int starfive_pcie_config_read(struct pci_bus *bus, unsigned int devfn,
++				     int where, int size, u32 *value)
++{
++	if (starfive_pcie_hide_rc_bar(bus, devfn, where))
++		return PCIBIOS_BAD_REGISTER_NUMBER;
++
++	return pci_generic_config_read(bus, devfn, where, size, value);
++}
++
++static int starfive_pcie_parse_dt(struct starfive_jh7110_pcie *pcie, struct device *dev)
++{
++	int domain_nr;
++
++	pcie->num_clks = devm_clk_bulk_get_all(dev, &pcie->clks);
++	if (pcie->num_clks < 0)
++		return dev_err_probe(dev, -ENODEV,
++				     "failed to get pcie clocks\n");
++
++	pcie->resets = devm_reset_control_array_get_exclusive(dev);
++	if (IS_ERR(pcie->resets))
++		return dev_err_probe(dev, PTR_ERR(pcie->resets),
++				     "failed to get pcie resets");
++
++	pcie->reg_syscon =
++		syscon_regmap_lookup_by_phandle(dev->of_node,
++						"starfive,stg-syscon");
++
++	if (IS_ERR(pcie->reg_syscon))
++		return dev_err_probe(dev, PTR_ERR(pcie->reg_syscon),
++				     "failed to parse starfive,stg-syscon\n");
++
++	domain_nr = of_get_pci_domain_nr(dev->of_node);
++
++	if (domain_nr < 0 || domain_nr > 1)
++		return dev_err_probe(dev, -ENODEV,
++				     "failed to get valid pcie id\n");
++
++	if (domain_nr == 0)
++		pcie->stg_pcie_base = STG_SYSCON_PCIE0_BASE;
++	else
++		pcie->stg_pcie_base = STG_SYSCON_PCIE1_BASE;
++
++	pcie->reset_gpio = devm_gpiod_get_optional(dev, "perst", GPIOD_OUT_HIGH);
++	if (IS_ERR(pcie->reset_gpio))
++		return dev_err_probe(dev, PTR_ERR(pcie->reset_gpio),
++				     "failed to get perst-gpio\n");
++
++	pcie->power_gpio = devm_gpiod_get_optional(dev, "enable", GPIOD_OUT_LOW);
++	if (IS_ERR(pcie->power_gpio))
++		return dev_err_probe(dev, PTR_ERR(pcie->power_gpio),
++				     "failed to get power-gpio\n");
 +
 +	return 0;
 +}
-+EXPORT_SYMBOL_GPL(plda_init_interrupts);
 +
- void plda_pcie_setup_window(void __iomem *bridge_base_addr, u32 index,
- 			    phys_addr_t axi_addr, phys_addr_t pci_addr,
- 			    size_t size)
-diff --git a/drivers/pci/controller/plda/pcie-plda.h b/drivers/pci/controller/plda/pcie-plda.h
-index 122084a3318a..e59369f23329 100644
---- a/drivers/pci/controller/plda/pcie-plda.h
-+++ b/drivers/pci/controller/plda/pcie-plda.h
-@@ -164,6 +164,9 @@ struct plda_event {
- };
- 
- irqreturn_t plda_event_handler(int irq, void *dev_id);
-+int plda_init_interrupts(struct platform_device *pdev,
-+			 struct plda_pcie_rp *port,
-+			 const struct plda_event *event);
- void plda_pcie_setup_window(void __iomem *bridge_base_addr, u32 index,
- 			    phys_addr_t axi_addr, phys_addr_t pci_addr,
- 			    size_t size);
++static struct pci_ops starfive_pcie_ops = {
++	.map_bus	= plda_pcie_map_bus,
++	.read           = starfive_pcie_config_read,
++	.write          = starfive_pcie_config_write,
++};
++
++static int starfive_pcie_clk_rst_init(struct starfive_jh7110_pcie *pcie)
++{
++	struct device *dev = pcie->plda.dev;
++	int ret;
++
++	ret = clk_bulk_prepare_enable(pcie->num_clks, pcie->clks);
++	if (ret)
++		return dev_err_probe(dev, ret, "failed to enable clocks\n");
++
++	ret = reset_control_deassert(pcie->resets);
++	if (ret) {
++		clk_bulk_disable_unprepare(pcie->num_clks, pcie->clks);
++		dev_err_probe(dev, ret, "failed to resets\n");
++	}
++
++	return ret;
++}
++
++static void starfive_pcie_clk_rst_deinit(struct starfive_jh7110_pcie *pcie)
++{
++	reset_control_assert(pcie->resets);
++	clk_bulk_disable_unprepare(pcie->num_clks, pcie->clks);
++}
++
++static bool starfive_pcie_link_up(struct plda_pcie_rp *plda)
++{
++	struct starfive_jh7110_pcie *pcie =
++		container_of(plda, struct starfive_jh7110_pcie, plda);
++	int ret;
++	u32 stg_reg_val;
++
++	ret = regmap_read(pcie->reg_syscon,
++			  pcie->stg_pcie_base + STG_SYSCON_LNKSTA_OFFSET,
++			  &stg_reg_val);
++	if (ret) {
++		dev_err(pcie->plda.dev, "failed to read link status\n");
++		return false;
++	}
++
++	return (stg_reg_val & DATA_LINK_ACTIVE);
++}
++
++static int starfive_pcie_host_wait_for_link(struct starfive_jh7110_pcie *pcie)
++{
++	int retries;
++
++	/* Check if the link is up or not */
++	for (retries = 0; retries < LINK_WAIT_MAX_RETRIES; retries++) {
++		if (starfive_pcie_link_up(&pcie->plda)) {
++			dev_info(pcie->plda.dev, "port link up\n");
++			return 0;
++		}
++		usleep_range(LINK_WAIT_USLEEP_MIN, LINK_WAIT_USLEEP_MAX);
++	}
++
++	return -ETIMEDOUT;
++}
++
++static int starfive_pcie_enable_phy(struct device *dev, struct plda_pcie_rp *pcie)
++{
++	int ret;
++
++	if (!pcie->phy)
++		return 0;
++
++	ret = phy_init(pcie->phy);
++	if (ret)
++		return dev_err_probe(dev, ret,
++				     "failed to initialize pcie phy\n");
++
++	ret = phy_set_mode(pcie->phy, PHY_MODE_PCIE);
++	if (ret) {
++		dev_err_probe(dev, ret, "failed to set pcie mode\n");
++		goto err_phy_on;
++	}
++
++	ret = phy_power_on(pcie->phy);
++	if (ret) {
++		dev_err_probe(dev, ret, "failed to power on pcie phy\n");
++		goto err_phy_on;
++	}
++
++	return 0;
++
++err_phy_on:
++	phy_exit(pcie->phy);
++	return ret;
++}
++
++static void starfive_pcie_disable_phy(struct plda_pcie_rp *pcie)
++{
++	phy_power_off(pcie->phy);
++	phy_exit(pcie->phy);
++}
++
++static void starfive_pcie_host_deinit(struct plda_pcie_rp *plda)
++{
++	struct starfive_jh7110_pcie *pcie =
++		container_of(plda, struct starfive_jh7110_pcie, plda);
++
++	starfive_pcie_clk_rst_deinit(pcie);
++	if (pcie->power_gpio)
++		gpiod_set_value_cansleep(pcie->power_gpio, 0);
++	starfive_pcie_disable_phy(plda);
++}
++
++static int starfive_pcie_host_init(struct plda_pcie_rp *plda)
++{
++	struct starfive_jh7110_pcie *pcie =
++		container_of(plda, struct starfive_jh7110_pcie, plda);
++	struct device *dev = plda->dev;
++	int ret;
++	int i;
++
++	ret = starfive_pcie_enable_phy(dev, plda);
++	if (ret)
++		return ret;
++
++	regmap_update_bits(pcie->reg_syscon,
++			   pcie->stg_pcie_base + STG_SYSCON_RP_NEP_OFFSET,
++			   STG_SYSCON_K_RP_NEP, STG_SYSCON_K_RP_NEP);
++
++	regmap_update_bits(pcie->reg_syscon,
++			   pcie->stg_pcie_base + STG_SYSCON_AWFUNC_OFFSET,
++			   STG_SYSCON_CKREF_SRC_MASK,
++			   FIELD_PREP(STG_SYSCON_CKREF_SRC_MASK, 2));
++
++	regmap_update_bits(pcie->reg_syscon,
++			   pcie->stg_pcie_base + STG_SYSCON_AWFUNC_OFFSET,
++			   STG_SYSCON_CLKREQ, STG_SYSCON_CLKREQ);
++
++	ret = starfive_pcie_clk_rst_init(pcie);
++	if (ret)
++		return ret;
++
++	if (pcie->power_gpio)
++		gpiod_set_value_cansleep(pcie->power_gpio, 1);
++
++	if (pcie->reset_gpio)
++		gpiod_set_value_cansleep(pcie->reset_gpio, 1);
++
++	/* Disable physical functions except #0 */
++	for (i = 1; i < PCIE_FUNC_NUM; i++) {
++		regmap_update_bits(pcie->reg_syscon,
++				   pcie->stg_pcie_base + STG_SYSCON_ARFUNC_OFFSET,
++				   STG_SYSCON_AXI4_SLVL_ARFUNC_MASK,
++				   STG_SYSCON_AXI4_SLVL_PHY_ARFUNC(i));
++
++		regmap_update_bits(pcie->reg_syscon,
++				   pcie->stg_pcie_base + STG_SYSCON_AWFUNC_OFFSET,
++				   STG_SYSCON_AXI4_SLVL_AWFUNC_MASK,
++				   STG_SYSCON_AXI4_SLVL_PHY_AWFUNC(i));
++
++		plda_pcie_disable_func(plda);
++	}
++
++	regmap_update_bits(pcie->reg_syscon,
++			   pcie->stg_pcie_base + STG_SYSCON_ARFUNC_OFFSET,
++			   STG_SYSCON_AXI4_SLVL_ARFUNC_MASK, 0);
++	regmap_update_bits(pcie->reg_syscon,
++			   pcie->stg_pcie_base + STG_SYSCON_AWFUNC_OFFSET,
++			   STG_SYSCON_AXI4_SLVL_AWFUNC_MASK, 0);
++
++	plda_pcie_enable_root_port(plda);
++	plda_pcie_write_rc_bar(plda, 0);
++
++	/* PCIe PCI Standard Configuration Identification Settings. */
++	plda_pcie_set_standard_class(plda);
++
++	/*
++	 * The LTR message forwarding of PCIe Message Reception was set by core
++	 * as default, but the forward id & addr are also need to be reset.
++	 * If we do not disable LTR message forwarding here, or set a legal
++	 * forwarding address, the kernel will get stuck after this driver probe.
++	 * To workaround, disable the LTR message forwarding support on
++	 * PCIe Message Reception.
++	 */
++	plda_pcie_disable_ltr(plda);
++
++	/* Prefetchable memory window 64-bit addressing support */
++	plda_pcie_set_pref_win_64bit(plda);
++
++	/* Ensure that PERST has been asserted for at least 100 ms,
++	 * the sleep value is T_PVPERL from PCIe CEM spec r2.0 (Table 2-4)
++	 */
++	msleep(100);
++	if (pcie->reset_gpio)
++		gpiod_set_value_cansleep(pcie->reset_gpio, 0);
++
++	/* As the requirement in PCIe base spec r6.0, system (<=5GT/s) must
++	 * wait a minimum of 100 ms following exit from a conventional reset
++	 * before sending a configuration request to the device.
++	 */
++	msleep(100);
++
++	if (starfive_pcie_host_wait_for_link(pcie))
++		dev_info(dev, "port link down\n");
++
++	return ret;
++}
++
++static const struct plda_pcie_host_ops sf_host_ops = {
++	.host_init = starfive_pcie_host_init,
++	.host_deinit = starfive_pcie_host_deinit,
++};
++
++static int starfive_pcie_probe(struct platform_device *pdev)
++{
++	struct starfive_jh7110_pcie *pcie;
++	struct device *dev = &pdev->dev;
++	struct plda_pcie_rp *plda;
++	int ret;
++
++	pcie = devm_kzalloc(dev, sizeof(*pcie), GFP_KERNEL);
++	if (!pcie)
++		return -ENOMEM;
++
++	plda = &pcie->plda;
++	plda->dev = dev;
++
++	ret = starfive_pcie_parse_dt(pcie, dev);
++	if (ret)
++		return ret;
++
++	plda->host_ops = &sf_host_ops;
++	plda->num_events = NUM_PLDA_EVENTS;
++	ret = plda_pcie_host_init(&pcie->plda, &starfive_pcie_ops);
++	if (ret)
++		return ret;
++
++	pm_runtime_enable(&pdev->dev);
++	pm_runtime_get_sync(&pdev->dev);
++	platform_set_drvdata(pdev, pcie);
++
++	return 0;
++}
++
++static void starfive_pcie_remove(struct platform_device *pdev)
++{
++	struct starfive_jh7110_pcie *pcie = platform_get_drvdata(pdev);
++
++	plda_pcie_host_deinit(&pcie->plda);
++	platform_set_drvdata(pdev, NULL);
++}
++
++static int starfive_pcie_suspend_noirq(struct device *dev)
++{
++	struct starfive_jh7110_pcie *pcie = dev_get_drvdata(dev);
++
++	if (!pcie)
++		return 0;
++
++	clk_bulk_disable_unprepare(pcie->num_clks, pcie->clks);
++	starfive_pcie_disable_phy(&pcie->plda);
++
++	return 0;
++}
++
++static int starfive_pcie_resume_noirq(struct device *dev)
++{
++	struct starfive_jh7110_pcie *pcie = dev_get_drvdata(dev);
++	int ret;
++
++	ret = starfive_pcie_enable_phy(dev, &pcie->plda);
++	if (ret)
++		return ret;
++
++	ret = clk_bulk_prepare_enable(pcie->num_clks, pcie->clks);
++	if (ret) {
++		dev_err(dev, "failed to enable clocks\n");
++		starfive_pcie_disable_phy(&pcie->plda);
++		return ret;
++	}
++
++	return ret;
++}
++
++static const struct dev_pm_ops starfive_pcie_pm_ops = {
++	NOIRQ_SYSTEM_SLEEP_PM_OPS(starfive_pcie_suspend_noirq,
++				  starfive_pcie_resume_noirq)
++};
++
++static const struct of_device_id starfive_pcie_of_match[] = {
++	{ .compatible = "starfive,jh7110-pcie", },
++	{ /* sentinel */ }
++};
++MODULE_DEVICE_TABLE(of, starfive_pcie_of_match);
++
++static struct platform_driver starfive_pcie_driver = {
++	.driver = {
++		.name = "pcie-starfive",
++		.of_match_table = of_match_ptr(starfive_pcie_of_match),
++		.pm = pm_sleep_ptr(&starfive_pcie_pm_ops),
++	},
++	.probe = starfive_pcie_probe,
++	.remove_new = starfive_pcie_remove,
++};
++module_platform_driver(starfive_pcie_driver);
++
++MODULE_DESCRIPTION("StarFive JH7110 PCIe host driver");
++MODULE_LICENSE("GPL v2");
 -- 
 2.17.1
 
