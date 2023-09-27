@@ -4,94 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A72A6E80A86
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Sep 2023 05:19:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8ACECE80A9A
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Sep 2023 07:03:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rFXsehdp5BVsKS2b1gJNtIREDA9umSqtJiMgb7lf1Jg=; b=p8EdI/Isc8sPed
-	K23XbaQNw+ECeMCBH5fn7XiEwF5wPQQUM3YyZZESuCCdvt3zdYsCjQQ9G/M42TCV/8VGmioLvu2KI
-	szfs9HH6XNuJuiGjmxzbvH5c71GFy8PBSMOvAKb6kHOCX51Z4/wkeN0cTlEA6HPDl3oYmz3qQZ1E5
-	kdz9zNiPzh5rP4qxMT11ucZNonbK0YTVr/UHL+nFNyPMo7Cjr50KiCsRaTMyavec9wGbn5S9gKR52
-	S+EUcS4gpwakYrq3FJ0ov+rseYytW/1aSxO97na5BZQjxvZcdx6d7p0Cn36OuaDhntQZWIAF9IiTA
-	DaOUOjMRE9u9HD0I0Dig==;
+	List-Owner; bh=cFXqdZ8ar+lKuTymWT+yXtVC/BpMhS+l3gmwYRi/ZFM=; b=WbKjLdw2l893uf
+	P02HX50zetje0C+yqtw7FTN6Jq0jxFSoEJe9TVU65gQEi2JsWri/rzpgCYYNRBJWseFACHQRV4+iX
+	4sKu5zG+0DXnI0MPTd6NjV0QXyfHfv1dMYFAz2HvlUbD4lAgzASBt7YLnVKNuvjH/3wcmZcRl8ifA
+	q4GFNBAaL8+jdXtLyhCGAGDLNFW7i4DTpP4wHNFt8aAIsuh+KC2ixpEEqfWzsipMH7X/EQcLv1YPS
+	d4Bbsvk59QDUtrzQQZUL6cHaOyo3zfqd8O8e0cCBPBZicietN4ysH/taXPmXMlJ8A52piZRV1JJ5a
+	HEC4HWTqOe75o0V0tlHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qlMxf-00HaZd-02;
-	Wed, 27 Sep 2023 05:19:47 +0000
-Received: from mgamail.intel.com ([192.55.52.115])
+	id 1qlOaH-0008xj-2h;
+	Wed, 27 Sep 2023 07:03:45 +0000
+Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qlMxb-00HaYM-0q;
-	Wed, 27 Sep 2023 05:19:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1695791983; x=1727327983;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=XWRHK3XHMCPUS7DjwBYEn6sN3WEf4Pd1a63R09LlTdM=;
-  b=IkVua2/1L3QXZK2DUAvNCtEr9cS7mcR2wJvcJB55XEJ6zOh2zIH5jd8D
-   dNXoxoKyq//fJytp+mrp9AbkRE2Lz3gJd8KorArJhP6U82KPw+AC70+qf
-   hucRbDJzFgMDZsTzv2JcUQLYzxIBZU/4+i5rDXL5caZNzwM2ZIDcryzas
-   L90JRTqsIElugeydmuZhoxPSivXBxFFhEllKl/Kshx+KE/PwpIs46BpWY
-   BTreaDVfpnq/WqeIo9UQd1odVwg4DgOEOL6QdLOa2GJNqAwjELoG5j/bs
-   9kfIk9SF55qfnfvqc/LJXqCybz+7RS07bhgYbHza8pLHKKeFFgFnuJR1y
-   g==;
-X-IronPort-AV: E=McAfee;i="6600,9927,10845"; a="381633595"
-X-IronPort-AV: E=Sophos;i="6.03,179,1694761200"; 
-   d="scan'208";a="381633595"
-Received: from orsmga006.jf.intel.com ([10.7.209.51])
-  by fmsmga103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Sep 2023 22:19:42 -0700
-X-ExtLoop1: 1
-X-IronPort-AV: E=McAfee;i="6600,9927,10845"; a="725676254"
-X-IronPort-AV: E=Sophos;i="6.03,179,1694761200"; 
-   d="scan'208";a="725676254"
-Received: from binbinwu-mobl.ccr.corp.intel.com (HELO [10.238.8.84]) ([10.238.8.84])
-  by orsmga006-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Sep 2023 22:19:32 -0700
-Message-ID: <483f9e1e-7d01-5f06-3bfa-3788d2554724@linux.intel.com>
-Date: Wed, 27 Sep 2023 13:19:29 +0800
+	id 1qlOaF-0008wR-0B
+	for linux-riscv@lists.infradead.org;
+	Wed, 27 Sep 2023 07:03:44 +0000
+Received: by mail-ed1-x52e.google.com with SMTP id 4fb4d7f45d1cf-5346b64f17aso3353245a12.2
+        for <linux-riscv@lists.infradead.org>; Wed, 27 Sep 2023 00:03:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1695798220; x=1696403020; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=abujtVG6p0xZNC8A7dBvKw/44lCK9FG1V8Q7D6GoWec=;
+        b=egQIIZI1thScotxV4Rp0d+yE8H9zL2LtX2bMjGpWQSESMZzkCqewmGRkxZFEtQQgGS
+         FifaAQETY5hTisUb109xpAorpoZYgvRo+eGXx2uob+jziEi9P1wx9kR0q0aVnVgF6USm
+         3JDv3JtTCN7HsHtTIUkfxaiCejofj+nf6psG9EvD3527eqkVsnCIWzAbZtC6wPexBK+u
+         W7AyzHRSU/ktSPXK5PfI4PnnrVyS18qngKSE+v0UAItHrrtGQM8PbU5zmQ9RXeZLDwq0
+         PC7gF39lam0/+BppvxkJGL1CImNrzf1ra/LtTw1fhc2vc9kcFYLsBgLRJSZUH6MipdVM
+         joDg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1695798220; x=1696403020;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=abujtVG6p0xZNC8A7dBvKw/44lCK9FG1V8Q7D6GoWec=;
+        b=T5ISRINfSaR3AmThZg4IY/zkmDo1xFla4Cqms33ZQJDQNqRGamuRLAmVI/MscOfO9T
+         estE8dqo/USUthSKb7sjr3PR8RyrRWHKjlwZtVZyT/2rTJ4Wy4OsMQHG3jDpCs965lzZ
+         Uq9GqtM7zkIfjbE5jr0iG+CKQDXg7+hu8jKwAuJjs5sxDiw7WSYluhwar/fXv5pfcbd4
+         YOc9tT58vxBup9kBDiQgZvsm4VHtwXd6amZTc7SMXlN6mQ+XAznOEi/c6nmRXDtbphaj
+         EmLsHGP1R6XCUCbgNqsYOixp1nizm2xkBYDSfxutFQYQqzpvg9S1eMWof0HdB43nga1l
+         Tt+g==
+X-Gm-Message-State: AOJu0YzrdLYwdMBbian22B1NiVoBVG/KJxuC/wD2BvnHn4qtvVsXZwoR
+	OC8ic+myDPAlJcTztqxPeh4AZg==
+X-Google-Smtp-Source: AGHT+IH8VW5TdXtmFHV3864zObtC+fVmQP9NlxTvcQk4+iFSRrMMkuD0mYj2kUeikFz+QLPU2Yu/1g==
+X-Received: by 2002:a05:6402:1b1b:b0:530:f74d:f4ab with SMTP id by27-20020a0564021b1b00b00530f74df4abmr1093293edb.11.1695798220413;
+        Wed, 27 Sep 2023 00:03:40 -0700 (PDT)
+Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
+        by smtp.gmail.com with ESMTPSA id a25-20020aa7d759000000b0051dd19d6d6esm7749118eds.73.2023.09.27.00.03.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 27 Sep 2023 00:03:39 -0700 (PDT)
+Date: Wed, 27 Sep 2023 09:03:38 +0200
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Yong-Xuan Wang <yongxuan.wang@sifive.com>
+Subject: Re: [PATCH v2 1/3] RISC-V: Detect and Enable Svadu Extension Support
+Message-ID: <20230927-62fbd3d63f4c6ffada90b7ee@orel>
+References: <20230922085701.3164-1-yongxuan.wang@sifive.com>
+ <20230922085701.3164-2-yongxuan.wang@sifive.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.15.1
-Subject: Re: [RFC PATCH v12 11/33] KVM: Introduce per-page memory attributes
-To: Sean Christopherson <seanjc@google.com>
-Cc: kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- kvmarm@lists.linux.dev, linux-mips@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org,
- linux-riscv@lists.infradead.org, linux-fsdevel@vger.kernel.org,
- linux-mm@kvack.org, linux-security-module@vger.kernel.org,
- linux-kernel@vger.kernel.org, Paolo Bonzini <pbonzini@redhat.com>,
- Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
- Huacai Chen <chenhuacai@kernel.org>, Michael Ellerman <mpe@ellerman.id.au>,
- Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- "Matthew Wilcox (Oracle)" <willy@infradead.org>,
- Andrew Morton <akpm@linux-foundation.org>, Paul Moore <paul@paul-moore.com>,
- James Morris <jmorris@namei.org>, "Serge E. Hallyn" <serge@hallyn.com>,
- Chao Peng <chao.p.peng@linux.intel.com>, Fuad Tabba <tabba@google.com>,
- Jarkko Sakkinen <jarkko@kernel.org>, Anish Moorthy <amoorthy@google.com>,
- Yu Zhang <yu.c.zhang@linux.intel.com>,
- Isaku Yamahata <isaku.yamahata@intel.com>, Xu Yilun <yilun.xu@intel.com>,
- Vlastimil Babka <vbabka@suse.cz>, Vishal Annapurve <vannapurve@google.com>,
- Ackerley Tng <ackerleytng@google.com>,
- Maciej Szmigiero <mail@maciej.szmigiero.name>,
- David Hildenbrand <david@redhat.com>, Quentin Perret <qperret@google.com>,
- Michael Roth <michael.roth@amd.com>, Wang <wei.w.wang@intel.com>,
- Liam Merwick <liam.merwick@oracle.com>,
- Isaku Yamahata <isaku.yamahata@gmail.com>,
- "Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
-References: <20230914015531.1419405-1-seanjc@google.com>
- <20230914015531.1419405-12-seanjc@google.com>
- <d66795f8-e524-2912-4b71-92ca4ffe8807@linux.intel.com>
- <ZQteNbPfx6P3r6B8@google.com>
-From: Binbin Wu <binbin.wu@linux.intel.com>
-In-Reply-To: <ZQteNbPfx6P3r6B8@google.com>
+Content-Disposition: inline
+In-Reply-To: <20230922085701.3164-2-yongxuan.wang@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230926_221943_339049_4358BF60 
-X-CRM114-Status: UNSURE (   9.28  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230927_000343_092101_2C50FF40 
+X-CRM114-Status: GOOD (  18.67  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,45 +85,89 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: Heiko Stuebner <heiko@sntech.de>, Kemeng Shi <shikemeng@huaweicloud.com>, Daniel Henrique Barboza <dbarboza@ventanamicro.com>, Conor Dooley <conor.dooley@microchip.com>, Guo Ren <guoren@kernel.org>, Jisheng Zhang <jszhang@kernel.org>, Qinglin Pan <panqinglin2020@iscas.ac.cn>, linux-riscv@lists.infradead.org, alex@ghiti.fr, David Hildenbrand <david@redhat.com>, "Matthew Wilcox \(Oracle\)" <willy@infradead.org>, tjytimi@163.com, greentime.hu@sifive.com, wchen <waylingii@gmail.com>, Sergey Matyukevich <sergey.matyukevich@syntacore.com>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alexghiti@rivosinc.com>, Charlie Jenkins <charlie@rivosinc.com>, Paul Walmsley <paul.walmsley@sifive.com>, Anup Patel <apatel@ventanamicro.com>, linux-kernel@vger.kernel.org, vincent.chen@sifive.com, Evan Green <evan@rivosinc.com>, Palmer Dabbelt <palmer@dabbelt.com>, kvm-riscv@lists.infradead.org, Andrew Morton <akpm@linux-foundation.org>, Rick Edgecombe <rick.p.edgecombe@intel.com>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Fri, Sep 22, 2023 at 08:56:47AM +0000, Yong-Xuan Wang wrote:
+> We detect Svadu extension support from DTB and add arch_has_hw_pte_young()
+> to enable optimization in MGLRU and __wp_page_copy_user() if Svadu
+> extension is available.
+> 
+> Co-developed-by: Jinyu Tang <tjytimi@163.com>
+> Signed-off-by: Jinyu Tang <tjytimi@163.com>
+> Signed-off-by: Yong-Xuan Wang <yongxuan.wang@sifive.com>
+> ---
+>  arch/riscv/include/asm/csr.h     | 1 +
+>  arch/riscv/include/asm/hwcap.h   | 1 +
+>  arch/riscv/include/asm/pgtable.h | 6 ++++++
+>  arch/riscv/kernel/cpufeature.c   | 1 +
+>  4 files changed, 9 insertions(+)
+> 
+> diff --git a/arch/riscv/include/asm/csr.h b/arch/riscv/include/asm/csr.h
+> index 777cb8299551..10648b372a2a 100644
+> --- a/arch/riscv/include/asm/csr.h
+> +++ b/arch/riscv/include/asm/csr.h
+> @@ -194,6 +194,7 @@
+>  /* xENVCFG flags */
+>  #define ENVCFG_STCE			(_AC(1, ULL) << 63)
+>  #define ENVCFG_PBMTE			(_AC(1, ULL) << 62)
+> +#define ENVCFG_HADE			(_AC(1, ULL) << 61)
 
+This bit is named 'ADUE' in the spec. Why are we calling it HADE?
 
-On 9/21/2023 5:03 AM, Sean Christopherson wrote:
-> On Mon, Sep 18, 2023, Binbin Wu wrote:
->>
->> On 9/14/2023 9:55 AM, Sean Christopherson wrote:
->>> From: Chao Peng <chao.p.peng@linux.intel.com>
->> [...]
->>> +#ifdef CONFIG_KVM_GENERIC_MEMORY_ATTRIBUTES
->>> +/*
->>> + * Returns true if _all_ gfns in the range [@start, @end) have attributes
->>> + * matching @attrs.
->>> + */
->>> +bool kvm_range_has_memory_attributes(struct kvm *kvm, gfn_t start, gfn_t end,
->>> +				     unsigned long attrs)
->>> +{
->>> +	XA_STATE(xas, &kvm->mem_attr_array, start);
->>> +	unsigned long index;
->>> +	bool has_attrs;
->>> +	void *entry;
->>> +
->>> +	rcu_read_lock();
->>> +
->>> +	if (!attrs) {
->>> +		has_attrs = !xas_find(&xas, end);
->> IIUIC, xas_find() is inclusive for "end", so here should be "end - 1" ?
-> Yes, that does appear to be the case.  Inclusive vs. exclusive on gfn ranges has
-> is the bane of my existence.
+>  #define ENVCFG_CBZE			(_AC(1, UL) << 7)
+>  #define ENVCFG_CBCFE			(_AC(1, UL) << 6)
+>  #define ENVCFG_CBIE_SHIFT		4
+> diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
+> index b7b58258f6c7..1013661d6516 100644
+> --- a/arch/riscv/include/asm/hwcap.h
+> +++ b/arch/riscv/include/asm/hwcap.h
+> @@ -58,6 +58,7 @@
+>  #define RISCV_ISA_EXT_ZICSR		40
+>  #define RISCV_ISA_EXT_ZIFENCEI		41
+>  #define RISCV_ISA_EXT_ZIHPM		42
+> +#define RISCV_ISA_EXT_SVADU		43
+>  
+>  #define RISCV_ISA_EXT_MAX		64
+>  
+> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+> index b2ba3f79cfe9..028b700cd27b 100644
+> --- a/arch/riscv/include/asm/pgtable.h
+> +++ b/arch/riscv/include/asm/pgtable.h
+> @@ -629,6 +629,12 @@ static inline pgprot_t pgprot_writecombine(pgprot_t _prot)
+>  	return __pgprot(prot);
+>  }
+>  
+> +#define arch_has_hw_pte_young arch_has_hw_pte_young
+> +static inline bool arch_has_hw_pte_young(void)
+> +{
+> +	return riscv_has_extension_unlikely(RISCV_ISA_EXT_SVADU);
+> +}
+> +
+>  /*
+>   * THP functions
+>   */
+> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+> index 1cfbba65d11a..ead378c04991 100644
+> --- a/arch/riscv/kernel/cpufeature.c
+> +++ b/arch/riscv/kernel/cpufeature.c
+> @@ -178,6 +178,7 @@ const struct riscv_isa_ext_data riscv_isa_ext[] = {
+>  	__RISCV_ISA_EXT_DATA(ssaia, RISCV_ISA_EXT_SSAIA),
+>  	__RISCV_ISA_EXT_DATA(sscofpmf, RISCV_ISA_EXT_SSCOFPMF),
+>  	__RISCV_ISA_EXT_DATA(sstc, RISCV_ISA_EXT_SSTC),
+> +	__RISCV_ISA_EXT_DATA(svadu, RISCV_ISA_EXT_SVADU),
+>  	__RISCV_ISA_EXT_DATA(svinval, RISCV_ISA_EXT_SVINVAL),
+>  	__RISCV_ISA_EXT_DATA(svnapot, RISCV_ISA_EXT_SVNAPOT),
+>  	__RISCV_ISA_EXT_DATA(svpbmt, RISCV_ISA_EXT_SVPBMT),
+> -- 
+> 2.17.1
+>
 
-Seems this one is not included in the "KVM: guest_memfd fixes" patch series?
-https://lore.kernel.org/kvm/20230921203331.3746712-1-seanjc@google.com/
-
-
-
+Thanks,
+drew
 
 _______________________________________________
 linux-riscv mailing list
