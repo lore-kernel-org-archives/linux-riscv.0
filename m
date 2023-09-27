@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADAC9E82CB1
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Sep 2023 16:54:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B723E82CAE
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Sep 2023 16:54:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=EXghiXWYyNlXUelKFOJ/ZYWf3Bzz1MUkYtvK4fq9Bio=; b=Y6yzGPzAcxFpsw
-	jxYH4W5HmH/Q/zBTq0ETlqwZglyYiPQoOru9bK1RvadrdwN9pFelc1NYx+rrgjaqWmRyfdHjfbeWw
-	4P6TJTr7R8t78HtvuFqIUHqvT9S+Dlf/3VdBdNyvS53xKFLwwWk+XzXtHFFZV6TzAwSbWS6c7wDJq
-	F70E1Hv4fqXZVSwOh1nIIDIdZSAfwxyA74pzG5HyQMHPr2cKc49t+xb4/12ZM2VXc2+eF2CTSMr1n
-	4nPBBLxH2UBIQefflcLku9Eks9AXcgqWk6sIRxVN33J5GIuAfchGpJEGzwTNrWICXHfa2ou27wq+7
-	+px6HtCSRVy/Lqfk8Pkw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Yh5O8dUxOBdNdDdeYfPDf6HKbWeOPNmSuDwSSZtogSQ=; b=cY12tlf+695GcH
+	Y43fvYXcKX6OFdj3RqFiHzMaiH08d/G6yc+tyvJPhk1zdoabC2IHGpkEeibiWbZ1+JdRAZ/4Cnjg9
+	6SIhG+FXQRzclP9h0pf4TN3oB/XMzdEop6A8Rskwid2/bqcHlt8qHUyoby5/AdQxV6QLoxnZkoZDE
+	6PjxnMAaFvySrPkWKiaOnXc0msV/vy9E+6EWnrDW71p854ge4nPZ9qu5GhfAlWflwvGNPo+VDXhKp
+	D3BbMh2wzRgKoj/IUM9gKtn90JeLJdebLKMfMNv1x8uaSB6DTwprln/awb2dXEivOVc6bOTYA72qT
+	ydiPWTDZh2Xe4DdHTuMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qlXnz-001SgI-2f;
-	Wed, 27 Sep 2023 16:54:31 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1qlXo3-001Sin-1e;
+	Wed, 27 Sep 2023 16:54:35 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qlXnv-001Seo-25
+	id 1qlXny-001SfJ-1E
 	for linux-riscv@lists.infradead.org;
-	Wed, 27 Sep 2023 16:54:30 +0000
+	Wed, 27 Sep 2023 16:54:34 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 85E37CE1877;
+	by sin.source.kernel.org (Postfix) with ESMTP id 787FCCE1AA6;
+	Wed, 27 Sep 2023 16:54:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3815BC433C8;
 	Wed, 27 Sep 2023 16:54:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9649EC433C7;
-	Wed, 27 Sep 2023 16:54:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1695833664;
-	bh=PbWliIL+YkhZx/7SImI4k4hkB5SastFowOtRO9Imz4k=;
-	h=From:To:Cc:Subject:Date:From;
-	b=T563OrhTCvY+vjXfbCikSv8n5+yLYxvGgPRibY122ZnVcMDfS0NfEwpkXZIuN2nJl
-	 i1xO/bzNLvdXZAFzvRLj8VJCxNYxg596/v8jBCmPK49XwEPTqT8axX9q4sOoI7+5E5
-	 kmjov4C/ihxcWw1ZUrTYjGUy2zbhnXBTwAroo00pXxzoen/Rn6QNHA5an/aCNCEyS0
-	 DBvSAxEIuXjqwzF54vFm+nrhwod7Z9sp/1n5lLgFRRHnV0fJ76dhMuv2O4UJpk+eUp
-	 eWR7+NsfInLgS3L8Z5zgLZ/MIzkZejSaXv7poJ8so6lad4vL5eFHjgkl5RCjkqytxl
-	 mySyjpQeih4wQ==
+	s=k20201202; t=1695833667;
+	bh=OWCmuPebvFogsaXQ+UWO53mmD8IYPbNXCEUOxHi0SX4=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=OS6UKmOIJ/EdftafGfIt8QW4UBwispRhzODgAANJ7P8uch/3it1bBEZWsLLigHDWD
+	 zyjsBBapu3BDfr6Iszc4lUfcX1l5hwuHHagsjSiY25YT71V0mX53itbjZjYG/UDCCH
+	 /h/y7TOD7R6dV+WE6mPfpwEMhgEOeGshLQ9CY6fIV+I9P5o+MCjXD4SE6rWu5cAMXk
+	 rhJFkRpJbU8XJrjlVEKIfKjuUzYluje1/CETC0vP6ILLDEPXvolfdsHdGPGOI2H1AD
+	 JWNOai2dCtkM+pSx3elaxzamyUpsoNNdG36u7/As+zMrOt9a/ECzE9PQgOwCesCXrg
+	 YJH3WiMIm7j9A==
 From: Jisheng Zhang <jszhang@kernel.org>
 To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	Rob Herring <robh+dt@kernel.org>,
@@ -54,15 +54,16 @@ Cc: linux-usb@vger.kernel.org,
 	Guo Ren <guoren@kernel.org>,
 	Fu Wei <wefu@redhat.com>,
 	linux-riscv@lists.infradead.org
-Subject: [PATCH 0/2] usb: dwc3: add driver for T-HEAD TH1520 SoC
-Date: Thu, 28 Sep 2023 00:42:20 +0800
-Message-Id: <20230927164222.3505-1-jszhang@kernel.org>
+Subject: [PATCH 1/2] dt-bindings: usb: Add T-HEAD TH1520 USB controller
+Date: Thu, 28 Sep 2023 00:42:21 +0800
+Message-Id: <20230927164222.3505-2-jszhang@kernel.org>
 X-Mailer: git-send-email 2.40.0
+In-Reply-To: <20230927164222.3505-1-jszhang@kernel.org>
+References: <20230927164222.3505-1-jszhang@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230927_095427_881546_D9C3167A 
-X-CRM114-Status: UNSURE (   9.01  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230927_095430_595596_59518174 
+X-CRM114-Status: GOOD (  11.82  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,24 +80,95 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add the usb driver support for T-HEAD TH1520 SoC.
+T-HEAD TH1520 platform's USB has a wrapper module around
+the DesignWare USB3 DRD controller. Add binding information doc for
+it.
 
-Since the clk part isn't mainlined, so SoC dts(i) changes are not
-included in this series. However, it can be tested by using fixed-clock.
-
-Jisheng Zhang (2):
-  dt-bindings: usb: Add T-HEAD TH1520 USB controller
-  usb: dwc3: add T-HEAD TH1520 usb driver
-
- .../bindings/usb/thead,th1520-usb.yaml        |  73 +++++++++++
- MAINTAINERS                                   |   1 +
- drivers/usb/dwc3/Kconfig                      |   9 ++
- drivers/usb/dwc3/Makefile                     |   1 +
- drivers/usb/dwc3/dwc3-thead.c                 | 119 ++++++++++++++++++
- 5 files changed, 203 insertions(+)
+Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+---
+ .../bindings/usb/thead,th1520-usb.yaml        | 73 +++++++++++++++++++
+ 1 file changed, 73 insertions(+)
  create mode 100644 Documentation/devicetree/bindings/usb/thead,th1520-usb.yaml
- create mode 100644 drivers/usb/dwc3/dwc3-thead.c
 
+diff --git a/Documentation/devicetree/bindings/usb/thead,th1520-usb.yaml b/Documentation/devicetree/bindings/usb/thead,th1520-usb.yaml
+new file mode 100644
+index 000000000000..afb618eb5013
+--- /dev/null
++++ b/Documentation/devicetree/bindings/usb/thead,th1520-usb.yaml
+@@ -0,0 +1,73 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/usb/thead,th1520-usb.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: T-HEAD TH1520 DWC3 USB Controller Glue
++
++maintainers:
++  - Jisheng Zhang <jszhang@kernel.org>
++
++properties:
++  compatible:
++    const: thead,th1520-usb
++
++  reg:
++    maxItems: 1
++
++  clocks:
++    maxItems: 4
++
++  clock-names:
++    items:
++      - const: ref
++      - const: bus_early
++      - const: phy
++      - const: suspend
++
++  ranges: true
++
++  '#address-cells':
++    enum: [ 1, 2 ]
++
++  '#size-cells':
++    enum: [ 1, 2 ]
++
++# Required child node:
++
++patternProperties:
++  "^usb@[0-9a-f]+$":
++    $ref: snps,dwc3.yaml#
++
++required:
++  - compatible
++  - reg
++  - clocks
++  - clock-names
++  - ranges
++
++additionalProperties: false
++
++examples:
++  - |
++
++    usb {
++          compatible = "thead,th1520-usb";
++          reg = <0xec03f000 0x1000>;
++          clocks = <&clk 1>,
++                   <&clk 2>,
++                   <&clk 3>,
++                   <&clk 4>;
++          clock-names = "ref", "bus_early", "phy", "suspend";
++          ranges;
++          #address-cells = <1>;
++          #size-cells = <1>;
++
++          usb@e7040000 {
++                compatible = "snps,dwc3";
++                reg = <0xe7040000 0x10000>;
++                interrupts = <68>;
++                dr_mode = "host";
++          };
++    };
 -- 
 2.40.1
 
