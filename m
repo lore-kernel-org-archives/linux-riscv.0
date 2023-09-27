@@ -4,79 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C641E82CB3
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Sep 2023 17:00:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1051DE82CAE
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Sep 2023 17:00:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6HopQxd8Exj0hvIU3qX3KLIsE/pYyEFSwEHtJLD/ASs=; b=hda152efirsBl+
-	bEc8/BCpsTyk9w1tCI6QaI8I1iAKAkimojvducjfifH6xTSsIqkNVHW2DbWvGXO7DnlJcBvqLlpja
-	AJ1OUOuB/zid2Lk20SrvtKu410mrBPy1Q5Q/+qMWFRvuWKcHYsFW9ldUx0Y9gFqz3I4wdfqTutxV2
-	Rj89ijW62t5tmmCDoxFNFO6onS4hltqh+vt/D4TE5WzeMz/hpyqoQHNs0ua7/FMo8k/xtNm2ESRnB
-	EtY6PXmI4l0qtZpJ8J9dNRCuWXQp6qza5tfK1Lp+EYpzrjK0G9zJhRyOwGr2SD+p7Ikh7O9mPWPPF
-	G40ZlWls4iEFMa7cEQaA==;
+	List-Owner; bh=lNWiolktSATaNgv2VA2QgkR1vE5fgsQsNPGRyvqeElo=; b=o6nn5FgWmypI/o
+	rGwpBB6ZCRCfzQ+4TtIse3enObzFFno+3cy3QjALRa/oR5smM9paOtSacO894hj9hg86lnZ+ZWayO
+	VUiRRKrOdveFH2/m+LebRZcoPznIHQYpwMjQ6lLHlf8a6UyjORQrGF+fp6tvijy1I3Ktf64y8FE6B
+	HbvUgRALlJ15qICYZZLGF6RIRralhonba8ocnw5aCB6nVCI8Tmo6PLjgSyyRZbrLVWxeLnDH6P2hR
+	ruBa9gkZnA/ivI8/YnSu4fiS6PuY9IbtEOqIhUUOP5xmilZqYjhqlvpU71lTouywmhoQm4BisyjKC
+	cjhoGbu6r0z+gt7nHMew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qlXu4-001TGY-0O;
+	id 1qlXu4-001TGw-2A;
 	Wed, 27 Sep 2023 17:00:48 +0000
-Received: from mail-oo1-xc29.google.com ([2607:f8b0:4864:20::c29])
+Received: from mail-yb1-xb29.google.com ([2607:f8b0:4864:20::b29])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qlXu1-001TFJ-2c
+	id 1qlXtz-001TDg-0Z
 	for linux-riscv@lists.infradead.org;
 	Wed, 27 Sep 2023 17:00:47 +0000
-Received: by mail-oo1-xc29.google.com with SMTP id 006d021491bc7-57bca5b9b0aso3147624eaf.3
-        for <linux-riscv@lists.infradead.org>; Wed, 27 Sep 2023 10:00:44 -0700 (PDT)
+Received: by mail-yb1-xb29.google.com with SMTP id 3f1490d57ef6-d89ba259964so3510784276.2
+        for <linux-riscv@lists.infradead.org>; Wed, 27 Sep 2023 10:00:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1695834043; x=1696438843; darn=lists.infradead.org;
+        d=ventanamicro.com; s=google; t=1695834038; x=1696438838; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=pG1tzQTVssTuSgiTai6pnkMjirZbD31EyyHGMhy1at0=;
-        b=AnbJCBadxEZlIK0o9YI3lIEruEGM9IMJboKBE6jVTfUCnx9J9rTXWI1vvAEoJPt7KO
-         Yd/2cq9OY34MvdtEHwqf33CnXxy7WsSIjjkiuDt8IVYK6BaL3aI2W8j3CjHBHsquUMgt
-         W3rmW71s52P/exoN2MLmFqpfioe5con7Lr1IsCgJE7DkKT1tcF7QLZNja3jggPyAZt/v
-         1OquSd4mQlzUewlz98vC6nZFFP9RT706khPfnk7CtYG5dYEI9dGk0+8f5RxhWliw+uDD
-         7ftjszzdMlA1l2QhpGp8ZbMwWW63c8u1t64fehGQMGVPezttAX17vmpzB4Dj/1tRbjRH
-         aUFw==
+        bh=EMRAaYbpAL9AMr/u9386eJc3P6IZIKKW5n+xTVSQNsU=;
+        b=AdJGnMZLW3mtC9qLaqh6vfcIuXhHcoWS0l8480yZSuCZBxp4RhXA5/ClgDLdqS7Ex/
+         EftcwD/6Auz+TGzNdCKqR6OE5fIoalBBdRbwWKOZxiA1QNAfNXdTGeUItk92igZfVoup
+         aSgl/Dz+lOlZuKCoJa74S5XLSHGV6xz4Ne1MTZpebf9ziWXkrsCmbRUtBV0jodMUMxMY
+         KtKpxq4fcSXwZx4/fnzFX/6YWZdKyeOi5Nme+f7FNpXsQMD4LUdqixtCsOl21SqhI659
+         2L9qxW4eac4EdIjgtyJqAQdXMPtGAKO11P5v6ULSGU2MJD3xJZuEXXXajJgOWHgiBndU
+         je7Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1695834043; x=1696438843;
+        d=1e100.net; s=20230601; t=1695834038; x=1696438838;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=pG1tzQTVssTuSgiTai6pnkMjirZbD31EyyHGMhy1at0=;
-        b=bFguGxsPx3r6CPQ5oKpePR3cnmwiqFlOZGaRGMoKVvExHKBLkw2n9mUliDxIbokgqI
-         r1JHvmxd9TkGm7+OT4zYa6OxHJ2N4Qsn8r8hWiDOXxvXOGz74xe+Ksl0cpjN++cnlFDV
-         tmW6uENscmfLMZFAvGnt8ToQyhhXnAYJR5R7l+Cvubv8QC8D1/2PEYDToz4S89yHrHW6
-         1aRHHcOE8XxfzG1IBWX6b6k0EjgK4komvMSd9B0H96DHAzTtgkqqwT/5+fs99LVSf4U/
-         TzSboA/YliKQSYqGLQlF1IbxZzaKTf37FjxaAtLtwrfqASV499t17fnXO7dUKGXd42Qa
-         Vulg==
-X-Gm-Message-State: AOJu0YzCDc2r2HDLLE8nWU1KERamTCmcbF2CI8DW35i2VHRL2v1FNPq8
-	00bx+ecPBxl/xKYh9uBpYUig76r+OU0SK4hbXy4=
-X-Google-Smtp-Source: AGHT+IH2up4xMxljyN4RO8Rex07vnVaVsd5wurJeyXI53/ysue+JrRu8yCN5i5l+jkbhAsdY+6qfwg==
-X-Received: by 2002:a05:6358:7e84:b0:135:47e8:76e2 with SMTP id o4-20020a0563587e8400b0013547e876e2mr2445601rwn.4.1695834043334;
-        Wed, 27 Sep 2023 10:00:43 -0700 (PDT)
+        bh=EMRAaYbpAL9AMr/u9386eJc3P6IZIKKW5n+xTVSQNsU=;
+        b=ZZ7z+0nvNPUFYngFE/MP/nUuvOovxrrlkeWTlNegmg0Ctf8HouAVLuzRHK6467yYsD
+         DKEhpHN0ZCOFgd32AVaBpliEejPyvlQR/ExBH9ksrO/7A2vvEuNVY7rK3epvH1iiUcSK
+         E4uqls1lIwfovZnvm99fm3ckJW4SWU56/WfziNZoSszac1dVNuybJq14P0FJT8TdpPFh
+         4Hv686REF/omgSohUjh6UohMvNYaMnV/qxrA35OPmDyguJJZmeNpj+DR5bc39BLMxo/S
+         RDabXtzkaBVEuIkAjKw6Gw3Lf7gxSzJu/X7yWS3j8IHOPTmpwgREAeGPeWU22hVctLa6
+         KfUw==
+X-Gm-Message-State: AOJu0YwnoMyUKMit5quYK/GVcyZFEJCCb2qMvKYQnzDj+fgBhqtvuhZo
+	asTbhkXqXnOpxKTM40etOJz7531V2lYY3UHDH/c=
+X-Google-Smtp-Source: AGHT+IGIJjabTi91p7r9FbrKe/nbsuosloqVsE93l/TK2lD4q6KXezQH+Jjl+BXIXV4t5YLkLYlm6A==
+X-Received: by 2002:a25:6b4e:0:b0:d86:a964:a47e with SMTP id o14-20020a256b4e000000b00d86a964a47emr2382069ybm.63.1695834038194;
+        Wed, 27 Sep 2023 10:00:38 -0700 (PDT)
 Received: from sunil-pc.Dlink ([106.51.190.42])
-        by smtp.gmail.com with ESMTPSA id u7-20020a637907000000b00584b293d157sm3279396pgc.80.2023.09.27.10.00.38
+        by smtp.gmail.com with ESMTPSA id u7-20020a637907000000b00584b293d157sm3279396pgc.80.2023.09.27.10.00.33
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 27 Sep 2023 10:00:42 -0700 (PDT)
+        Wed, 27 Sep 2023 10:00:37 -0700 (PDT)
 From: Sunil V L <sunilvl@ventanamicro.com>
 To: linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	linux-acpi@vger.kernel.org
-Subject: [PATCH v2 -next 4/4] clocksource/timer-riscv: ACPI: Add timer_cannot_wakeup_cpu
-Date: Wed, 27 Sep 2023 22:30:15 +0530
-Message-Id: <20230927170015.295232-5-sunilvl@ventanamicro.com>
+Subject: [PATCH v2 -next 3/4] RISC-V: cacheflush: Initialize CBO variables on ACPI systems
+Date: Wed, 27 Sep 2023 22:30:14 +0530
+Message-Id: <20230927170015.295232-4-sunilvl@ventanamicro.com>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20230927170015.295232-1-sunilvl@ventanamicro.com>
 References: <20230927170015.295232-1-sunilvl@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230927_100045_846081_035208DB 
-X-CRM114-Status: UNSURE (   9.73  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230927_100043_215730_1AA35798 
+X-CRM114-Status: GOOD (  13.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,28 +93,72 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The timer capability to wakeup the cpu irrespective of its idle state is
-provided by the flag in RHCT. Update the timer code to set this flag.
+Using new interface to get the CBO block size information in RHCT,
+initialize the variables on ACPI platforms.
 
 Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
 ---
- drivers/clocksource/timer-riscv.c | 4 ++++
- 1 file changed, 4 insertions(+)
+ arch/riscv/mm/cacheflush.c | 37 +++++++++++++++++++++++++++++++------
+ 1 file changed, 31 insertions(+), 6 deletions(-)
 
-diff --git a/drivers/clocksource/timer-riscv.c b/drivers/clocksource/timer-riscv.c
-index 9c8f3e2decc2..06f5bad3c3e0 100644
---- a/drivers/clocksource/timer-riscv.c
-+++ b/drivers/clocksource/timer-riscv.c
-@@ -225,6 +225,10 @@ TIMER_OF_DECLARE(riscv_timer, "riscv", riscv_timer_init_dt);
- #ifdef CONFIG_ACPI
- static int __init riscv_timer_acpi_init(struct acpi_table_header *table)
- {
-+	struct acpi_table_rhct *rhct = (struct acpi_table_rhct *)table;
+diff --git a/arch/riscv/mm/cacheflush.c b/arch/riscv/mm/cacheflush.c
+index f1387272a551..8e59644e473c 100644
+--- a/arch/riscv/mm/cacheflush.c
++++ b/arch/riscv/mm/cacheflush.c
+@@ -3,7 +3,9 @@
+  * Copyright (C) 2017 SiFive
+  */
+ 
++#include <linux/acpi.h>
+ #include <linux/of.h>
++#include <asm/acpi.h>
+ #include <asm/cacheflush.h>
+ 
+ #ifdef CONFIG_SMP
+@@ -124,15 +126,38 @@ void __init riscv_init_cbo_blocksizes(void)
+ 	unsigned long cbom_hartid, cboz_hartid;
+ 	u32 cbom_block_size = 0, cboz_block_size = 0;
+ 	struct device_node *node;
++	struct acpi_table_header *rhct;
++	acpi_status status;
++	unsigned int cpu;
 +
-+	riscv_timer_cannot_wake_cpu = rhct->flags & ACPI_RHCT_TIMER_CANNOT_WAKEUP_CPU;
++	if (!acpi_disabled) {
++		status = acpi_get_table(ACPI_SIG_RHCT, 0, &rhct);
++		if (ACPI_FAILURE(status))
++			return;
++	}
+ 
+-	for_each_of_cpu_node(node) {
+-		/* set block-size for cbom and/or cboz extension if available */
+-		cbo_get_block_size(node, "riscv,cbom-block-size",
+-				   &cbom_block_size, &cbom_hartid);
+-		cbo_get_block_size(node, "riscv,cboz-block-size",
+-				   &cboz_block_size, &cboz_hartid);
++	for_each_possible_cpu(cpu) {
++		if (acpi_disabled) {
++			node = of_cpu_device_node_get(cpu);
++			if (!node) {
++				pr_warn("Unable to find cpu node\n");
++				continue;
++			}
 +
- 	return riscv_timer_init_common();
- }
++			/* set block-size for cbom and/or cboz extension if available */
++			cbo_get_block_size(node, "riscv,cbom-block-size",
++					   &cbom_block_size, &cbom_hartid);
++			cbo_get_block_size(node, "riscv,cboz-block-size",
++					   &cboz_block_size, &cboz_hartid);
++		} else {
++			acpi_get_cbo_block_size(rhct, cpu, &cbom_block_size,
++						&cboz_block_size, NULL);
++		}
+ 	}
+ 
++	if (!acpi_disabled && rhct)
++		acpi_put_table((struct acpi_table_header *)rhct);
++
+ 	if (cbom_block_size)
+ 		riscv_cbom_block_size = cbom_block_size;
  
 -- 
 2.39.2
