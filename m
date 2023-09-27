@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36635E82CCC
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Sep 2023 20:01:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BAD4E82CCC
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Sep 2023 20:06:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4DXqTsinFfIJtE+tIgIUACeDqfY/s+D4m8F7VNwNsXs=; b=VaveF2zW3NFkiT
-	f146P+sUeYkylhK41KMPQSVOzigvDfYCs5eygsfMopi/VlWOAoyuaW3RdwFE1twSBS4R7xomuozF4
-	ui9VHakX+BSFpJ+G7UEbp4aGkzG9GImZtuPQFI6LHiGtfMYuRBnXi05qfUbxITh5uFe3A1JUGdt8P
-	8BIiikUDMjN9lmyf3lDrf2h/QYrmNjFxuTlbkKdGtbIBZ5EluxZU79BDcxyi+OIViCb6+iScCadzc
-	B7YrqaRBasL6NNKJwynRYKCjAccE2OxmMBNUXohiiXAdLUzJjyTa2HNNGoXJ1N955QMlabQn1NxWX
-	f3to+x2/65uk3C11OoPA==;
+	List-Owner; bh=nD/Vl/jbGfrtlJC+ha8SAu2t+YTh/rwO64tVomLYTi0=; b=B0IV1VADtAhNo7
+	VvWMMeW919qJx26Vd5IcLKVeDU00vBFOXs/VHHvPSOySQYI5W4O27pq7fkeKbXK4qAC+s6gGKrET0
+	4x08QBXM/e8Tq87evJpE5afSX6iDyY6FtjHyw/BXBXQ/LJaLFHEVVBYdAgw7cw5uHJBN40oZ3B/KA
+	WwhLdjCid732ywwlxEo4S+kOdUwfWicDaBnHDLRGSzSCGlSBnd5ogDlbC1/SEN5jNsCIQPNzPoxk3
+	N6yTqmfzr09ceDY+l0AQFkBIHVdmHWn6jCJwPhXziCnv1BRrcOLOks4iQEW0Ny8OpYyHkxDqWnj42
+	/XkdSG5SpfAfWh7AXWBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qlaib-001hM3-1N;
-	Wed, 27 Sep 2023 20:01:09 +0000
-Received: from mail-qt1-x832.google.com ([2607:f8b0:4864:20::832])
+	id 1qlanQ-001hjg-2F;
+	Wed, 27 Sep 2023 20:06:08 +0000
+Received: from mail-qv1-xf32.google.com ([2607:f8b0:4864:20::f32])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qlaiV-001hLF-2j
+	id 1qlanN-001hjK-32
 	for linux-riscv@lists.infradead.org;
-	Wed, 27 Sep 2023 20:01:08 +0000
-Received: by mail-qt1-x832.google.com with SMTP id d75a77b69052e-418148607c2so39569741cf.3
-        for <linux-riscv@lists.infradead.org>; Wed, 27 Sep 2023 13:01:01 -0700 (PDT)
+	Wed, 27 Sep 2023 20:06:07 +0000
+Received: by mail-qv1-xf32.google.com with SMTP id 6a1803df08f44-65af7d102b3so55075976d6.1
+        for <linux-riscv@lists.infradead.org>; Wed, 27 Sep 2023 13:06:03 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1695844861; x=1696449661; darn=lists.infradead.org;
+        d=sifive.com; s=google; t=1695845162; x=1696449962; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=jDVLMXBa2XfaEHREeVH6PICOgKFD+LcSP9ho+5+MSRo=;
-        b=FANNJpnAF1Fubfde1DYep+tcDx4NkcKqNN56o+hJP3acm2YKN4zuTdJnfHuQu1XhvI
-         Ct7dVpZcdORgQhDyT+/oavH6amUWFtdGfYKZejYL8xK5pkEAhgbTA11sc+8/3KCaaGVJ
-         NCztcTOvVOxfCoUDHu5307oXVJ/FK2j32kRenDlKglLCBERIg28duRpjmNJ6O0ZxAobu
-         hi8GD7ASUmm0s2bSLoNJnX1fpvUaFdY2w4njNJrAcIL5+Vhlfh5TKskcIDTHKuiTZwqS
-         Bx3dCQJidrdVpCoB+bhJmj9kCv4qum2YKlbVcDrf1/c1ffdqObnJBNca7iicxGHysyKU
-         FDww==
+        bh=40eq+oYmKp+ilulUb5AKkmUrv9jJ6ytF+Xz3YyFv3Ww=;
+        b=iLIBacNuiDH3vMlHXDaUAKbKMQPq05vyUK65F1uaVcB+RLOL9vwSYvP366wTC+nabC
+         L7qc59SuRPv7GSwCF36JX8kS1rd10Q2gV3QttYPZcXQzQFqsqLi9zloexIfzvLLUPTQN
+         3Ti3YsFi9HBZd36wsvcJws6lAe0rFPaG0s9ooCuwtoYKTsVBvg+k9tDFvgtb4JMvCBVA
+         +jP6nI9AbdWbIcNIGd4H+gqnD0vaRZue0PNWEk1HpiB9PRy3SLBr5PG43S7QMHQPRinO
+         Dib02FhJk1jgxnE/Im7NvLr0X3TI2AeGIBu1kNSuSHyDUizu8+VtNGJNfqaaU0BgOqb1
+         l79w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1695844861; x=1696449661;
+        d=1e100.net; s=20230601; t=1695845162; x=1696449962;
         h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=jDVLMXBa2XfaEHREeVH6PICOgKFD+LcSP9ho+5+MSRo=;
-        b=iUUYo5TL5jOkox+t1mJivuKKNt1aO9RjrH8zxAShGsr4V4wsQYEjfPHY33cM3gc3A+
-         xO7J7BHCfa+vy0nBLF1G5qrLYa6t84uxC46P3TGGSSpjzdxAjIBjtEFCNzwD9jSU9oPv
-         0sSudhL4+HP0IsUQBI0HMOZvzMBnHek1C3disA7qqQ153iASHF7BffmRyLCog1b7ns6X
-         vKPztLYORiWaROSpDBhOguohSGUKBkW/Bolw5xS1q/8dz3wqxlU2HEFedxeg2KeMnQdU
-         sbFB8keIv9/mUrHbgjdZzKsIMqp1gYaO2hm3xKeGAp1qIHmtR/kvLvrQ8FeO8RMw9FX+
-         C2mQ==
-X-Gm-Message-State: AOJu0YxsVRsMv70WRJ53MnkLcQl68Kj4KO6nKH+p6VchWj6j1fgyoNtg
-	QvWFRldTPlM5FY+fxrgq1AQdTw==
-X-Google-Smtp-Source: AGHT+IESw2wqCLleqmOMMct8rcQaxMts2l4nFzmNamRccfP/nZV4TTrMJ3qu+Nurw6mbsWjhkSVjbQ==
-X-Received: by 2002:ac8:5f12:0:b0:417:a74f:69b6 with SMTP id x18-20020ac85f12000000b00417a74f69b6mr2365851qta.65.1695844861069;
-        Wed, 27 Sep 2023 13:01:01 -0700 (PDT)
+        bh=40eq+oYmKp+ilulUb5AKkmUrv9jJ6ytF+Xz3YyFv3Ww=;
+        b=H+gpSlU8LSdcxWegMba2HSN07FI/YZJw1hs/BS8jEWcqyrCdifpV9MH5n2+kCegowS
+         FHOOptUIsM989yiFjoKYpgxg6Y9D3e4y0OJ66Lljrui7It8sPmLBVjlKiZNCgPOcg2gA
+         slPvyzX95h4ZuAJv/1U+vogNm7Kpfikh/Tp9z30Ia/9y7v5zT0KS/VIVjaQ6ZI+sR+qZ
+         1wqNnA1viuFJKBM/QaX1Bw9X9Mzo9frkQ9Y46R1Gxpqz5w7E4VpB7s9a6wO5Fkufbaev
+         avhfiZw1a1D2gx0gMDC93yJHrs/WGYnHB3HO6pqR1ONuETcbNDPspm2KQM273KtpfkDP
+         vu+g==
+X-Gm-Message-State: AOJu0YyKkhifNNX8GsMachzT3M8Hwnlv2CReXRyphkhq9YVoYDcoe9ZW
+	kfqOGCE4MaAK1g16b+GYzCgf9A==
+X-Google-Smtp-Source: AGHT+IFMPOm8j34YhAJhK1SHuhjb4UEAdjponWhdyf6i2zFU73RSkmiApsy5guU+H6KCC9P8kOSl2A==
+X-Received: by 2002:a0c:e54f:0:b0:655:dd4b:d077 with SMTP id n15-20020a0ce54f000000b00655dd4bd077mr2926340qvm.51.1695845162374;
+        Wed, 27 Sep 2023 13:06:02 -0700 (PDT)
 Received: from ?IPV6:2600:1700:2000:b002:40d8:421c:60ef:36d5? ([2600:1700:2000:b002:40d8:421c:60ef:36d5])
-        by smtp.gmail.com with ESMTPSA id d8-20020ac81188000000b00411fcc18cc1sm5560876qtj.64.2023.09.27.13.00.59
+        by smtp.gmail.com with ESMTPSA id l19-20020a0ce513000000b00655e2005350sm2650867qvm.9.2023.09.27.13.06.01
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 27 Sep 2023 13:01:00 -0700 (PDT)
-Message-ID: <cf68f6f1-e405-4c20-b4e1-da04189d0e2f@sifive.com>
-Date: Wed, 27 Sep 2023 15:00:59 -0500
+        Wed, 27 Sep 2023 13:06:01 -0700 (PDT)
+Message-ID: <71833cb5-1dfc-42d3-a2a2-6abe8520aee2@sifive.com>
+Date: Wed, 27 Sep 2023 15:06:01 -0500
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] dt-bindings: usb: Add T-HEAD TH1520 USB controller
+Subject: Re: [PATCH 2/2] usb: dwc3: add T-HEAD TH1520 usb driver
 Content-Language: en-US
 To: Jisheng Zhang <jszhang@kernel.org>
 Cc: linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
@@ -77,12 +77,12 @@ Cc: linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
  Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
  Conor Dooley <conor+dt@kernel.org>, Thinh Nguyen <Thinh.Nguyen@synopsys.com>
 References: <20230927164222.3505-1-jszhang@kernel.org>
- <20230927164222.3505-2-jszhang@kernel.org>
+ <20230927164222.3505-3-jszhang@kernel.org>
 From: Samuel Holland <samuel.holland@sifive.com>
-In-Reply-To: <20230927164222.3505-2-jszhang@kernel.org>
+In-Reply-To: <20230927164222.3505-3-jszhang@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230927_130103_925916_DFD55B82 
-X-CRM114-Status: GOOD (  17.80  )
+X-CRM114-CacheID: sfid-20230927_130605_983385_8F7CAF42 
+X-CRM114-Status: GOOD (  26.91  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,108 +100,195 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 2023-09-27 11:42 AM, Jisheng Zhang wrote:
-> T-HEAD TH1520 platform's USB has a wrapper module around
-> the DesignWare USB3 DRD controller. Add binding information doc for
-> it.
+> Adds TH1520 Glue layer to support USB controller on T-HEAD TH1520 SoC.
+> There is a DesignWare USB3 DRD core in TH1520 SoCs, the dwc3 core is
+> the child of this USB wrapper module device.
 > 
 > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
 > ---
->  .../bindings/usb/thead,th1520-usb.yaml        | 73 +++++++++++++++++++
->  1 file changed, 73 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/usb/thead,th1520-usb.yaml
+>  MAINTAINERS                   |   1 +
+>  drivers/usb/dwc3/Kconfig      |   9 +++
+>  drivers/usb/dwc3/Makefile     |   1 +
+>  drivers/usb/dwc3/dwc3-thead.c | 119 ++++++++++++++++++++++++++++++++++
+>  4 files changed, 130 insertions(+)
+>  create mode 100644 drivers/usb/dwc3/dwc3-thead.c
 > 
-> diff --git a/Documentation/devicetree/bindings/usb/thead,th1520-usb.yaml b/Documentation/devicetree/bindings/usb/thead,th1520-usb.yaml
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 90f13281d297..d55e40060c46 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -18481,6 +18481,7 @@ M:	Fu Wei <wefu@redhat.com>
+>  L:	linux-riscv@lists.infradead.org
+>  S:	Maintained
+>  F:	arch/riscv/boot/dts/thead/
+> +F:	drivers/usb/dwc3/dwc3-thead.c
+>  
+>  RNBD BLOCK DRIVERS
+>  M:	Md. Haris Iqbal <haris.iqbal@ionos.com>
+> diff --git a/drivers/usb/dwc3/Kconfig b/drivers/usb/dwc3/Kconfig
+> index 98efcbb76c88..1b02f4f55b47 100644
+> --- a/drivers/usb/dwc3/Kconfig
+> +++ b/drivers/usb/dwc3/Kconfig
+> @@ -178,4 +178,13 @@ config USB_DWC3_OCTEON
+>  	  Only the host mode is currently supported.
+>  	  Say 'Y' or 'M' here if you have one such device.
+>  
+> +config USB_DWC3_THEAD
+> +	tristate "T-HEAD Platform"
+> +	depends on ARCH_THEAD || COMPILE_TEST
+> +	default USB_DWC3
+> +	help
+> +	  Support T-HEAD platform with DesignWare Core USB3 IP.
+> +	  Only the host mode is currently supported.
+> +	  Say 'Y' or 'M' here if you have one such device.
+> +
+>  endif
+> diff --git a/drivers/usb/dwc3/Makefile b/drivers/usb/dwc3/Makefile
+> index fe1493d4bbe5..9523a51dd279 100644
+> --- a/drivers/usb/dwc3/Makefile
+> +++ b/drivers/usb/dwc3/Makefile
+> @@ -55,3 +55,4 @@ obj-$(CONFIG_USB_DWC3_QCOM)		+= dwc3-qcom.o
+>  obj-$(CONFIG_USB_DWC3_IMX8MP)		+= dwc3-imx8mp.o
+>  obj-$(CONFIG_USB_DWC3_XILINX)		+= dwc3-xilinx.o
+>  obj-$(CONFIG_USB_DWC3_OCTEON)		+= dwc3-octeon.o
+> +obj-$(CONFIG_USB_DWC3_THEAD)		+= dwc3-thead.o
+> diff --git a/drivers/usb/dwc3/dwc3-thead.c b/drivers/usb/dwc3/dwc3-thead.c
 > new file mode 100644
-> index 000000000000..afb618eb5013
+> index 000000000000..999b1e319c72
 > --- /dev/null
-> +++ b/Documentation/devicetree/bindings/usb/thead,th1520-usb.yaml
-> @@ -0,0 +1,73 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/usb/thead,th1520-usb.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +++ b/drivers/usb/dwc3/dwc3-thead.c
+> @@ -0,0 +1,119 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * dwc3-thead.c - T-HEAD platform specific glue layer
+> + *
+> + * Inspired by dwc3-of-simple.c
+> + *
+> + * Copyright (C) 2021 Alibaba Group Holding Limited.
+> + * Copyright (C) 2023 Jisheng Zhang <jszhang@kernel.org>
+> + * Copyright (c) 2018, The Linux Foundation. All rights reserved.
+> + */
 > +
-> +title: T-HEAD TH1520 DWC3 USB Controller Glue
+> +#include <linux/io.h>
+> +#include <linux/kernel.h>
+> +#include <linux/mfd/syscon.h>
+> +#include <linux/module.h>
+> +#include <linux/of.h>
+> +#include <linux/of_platform.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/regmap.h>
 > +
-> +maintainers:
-> +  - Jisheng Zhang <jszhang@kernel.org>
+> +#include "core.h"
 > +
-> +properties:
-> +  compatible:
-> +    const: thead,th1520-usb
+> +#define USB_SSP_EN		0x34
+> +#define  REF_SSP_EN		BIT(0)
+> +#define USB_SYS			0x3c
+> +#define  COMMONONN		BIT(0)
 > +
-> +  reg:
-> +    maxItems: 1
+> +#define USB3_DRD_SWRST		0x14
+> +#define  USB3_DRD_PRST		BIT(0)
+> +#define  USB3_DRD_PHYRST	BIT(1)
+> +#define  USB3_DRD_VCCRST	BIT(2)
+> +#define  USB3_DRD_RSTMASK	(USB3_DRD_PRST | USB3_DRD_PHYRST | USB3_DRD_VCCRST)
 > +
-> +  clocks:
-> +    maxItems: 4
+> +struct dwc3_thead {
+> +	void __iomem		*base;
+> +	struct regmap		*misc_sysreg;
+> +	struct regulator	*vbus;
+> +};
 > +
-> +  clock-names:
-> +    items:
-> +      - const: ref
-> +      - const: bus_early
-> +      - const: phy
-> +      - const: suspend
+> +static void dwc3_thead_optimize_power(struct dwc3_thead *thead)
+> +{
+> +	u32 val;
+> +
+> +	/* config usb top within USB ctrl & PHY reset */
+> +	regmap_update_bits(thead->misc_sysreg, USB3_DRD_SWRST,
+> +			   USB3_DRD_RSTMASK, USB3_DRD_PRST);
+> +
+> +	/*
+> +	 * dwc reg also need to be configed to save power
+> +	 * 1. set USB_SYS[COMMONONN]
+> +	 * 2. set DWC3_GCTL[SOFITPSYNC](done by core.c)
+> +	 * 3. set GUSB3PIPECTL[SUSPENDEN] (done by core.c)
+> +	 */
+> +	val = readl(thead->base + USB_SYS);
+> +	val |= COMMONONN;
+> +	writel(val, thead->base + USB_SYS);
+> +	val = readl(thead->base + USB_SSP_EN);
+> +	val |= REF_SSP_EN;
+> +	writel(val, thead->base + USB_SSP_EN);
+> +
+> +	regmap_update_bits(thead->misc_sysreg, USB3_DRD_SWRST,
+> +			   USB3_DRD_RSTMASK, USB3_DRD_RSTMASK);
+> +}
+> +
+> +static int dwc3_thead_probe(struct platform_device *pdev)
+> +{
+> +	struct device *dev = &pdev->dev;
+> +	struct device_node *np = dev->of_node;
+> +	struct dwc3_thead *thead;
+> +	int ret;
+> +
+> +	thead = devm_kzalloc(&pdev->dev, sizeof(*thead), GFP_KERNEL);
+> +	if (!thead)
+> +		return -ENOMEM;
+> +
+> +	platform_set_drvdata(pdev, thead);
 
-Except for "phy", these clocks are already documented in snps,dwc3.yaml. Are
-they necessary for the glue/PHY, or do they belong only in the controller node?
-They are not used by the driver in patch 2. Also, the PHY clock probably belongs
-with the PHY node.
+No need to set driver data, since you never access it.
 
 > +
-> +  ranges: true
-> +
-> +  '#address-cells':
-> +    enum: [ 1, 2 ]
-> +
-> +  '#size-cells':
-> +    enum: [ 1, 2 ]
-> +
-> +# Required child node:
-> +
-> +patternProperties:
-> +  "^usb@[0-9a-f]+$":
-> +    $ref: snps,dwc3.yaml#
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - clocks
-> +  - clock-names
-> +  - ranges
-> +
-> +additionalProperties: false
+> +	ret = devm_regulator_get_enable_optional(dev, "vbus");
+> +	if (ret < 0 && ret != -ENODEV)
+> +		return ret;
 
-The driver in patch 2 uses the thead,misc-sysreg and vbus-supply properties,
-neither of which is documented here. Also, depending on the other bindings, the
-VBUS supply should be referenced from the USB PHY or connector node, not here.
+If you want to ignore -ENODEV, use the non-_optional variant.
+
+> +
+> +	thead->misc_sysreg = syscon_regmap_lookup_by_phandle(np, "thead,misc-sysreg");
+> +	if (IS_ERR(thead->misc_sysreg))
+> +		return PTR_ERR(thead->misc_sysreg);
+> +
+> +	thead->base = devm_platform_ioremap_resource(pdev, 0);
+> +	if (IS_ERR(thead->base))
+> +		return PTR_ERR(thead->base);
+> +
+> +	dwc3_thead_optimize_power(thead);
+> +
+> +	return of_platform_populate(np, NULL, NULL, dev);
+
+Using devm_of_platform_populate() will avoid the .remove_new hook.
 
 Regards,
 Samuel
 
-> +examples:
-> +  - |
+> +}
 > +
-> +    usb {
-> +          compatible = "thead,th1520-usb";
-> +          reg = <0xec03f000 0x1000>;
-> +          clocks = <&clk 1>,
-> +                   <&clk 2>,
-> +                   <&clk 3>,
-> +                   <&clk 4>;
-> +          clock-names = "ref", "bus_early", "phy", "suspend";
-> +          ranges;
-> +          #address-cells = <1>;
-> +          #size-cells = <1>;
+> +static void dwc3_thead_remove(struct platform_device *pdev)
+> +{
+> +	of_platform_depopulate(&pdev->dev);
+> +}
 > +
-> +          usb@e7040000 {
-> +                compatible = "snps,dwc3";
-> +                reg = <0xe7040000 0x10000>;
-> +                interrupts = <68>;
-> +                dr_mode = "host";
-> +          };
-> +    };
+> +static const struct of_device_id dwc3_thead_of_match[] = {
+> +	{ .compatible = "thead,th1520-usb" },
+> +	{ },
+> +};
+> +MODULE_DEVICE_TABLE(of, dwc3_thead_of_match);
+> +
+> +static struct platform_driver dwc3_thead_driver = {
+> +	.probe		= dwc3_thead_probe,
+> +	.remove_new	= dwc3_thead_remove,
+> +	.driver		= {
+> +		.name	= "dwc3-thead",
+> +		.of_match_table	= dwc3_thead_of_match,
+> +	},
+> +};
+> +module_platform_driver(dwc3_thead_driver);
+> +
+> +MODULE_ALIAS("platform:dwc3-thead");
+> +MODULE_LICENSE("GPL v2");
+> +MODULE_DESCRIPTION("DesignWare DWC3 T-HEAD Glue Driver");
+> +MODULE_AUTHOR("Jisheng Zhang <jszhang@kernel.org>");
 
 
 _______________________________________________
