@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B981E810AD
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Sep 2023 10:09:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E200E810B9
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Sep 2023 10:09:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=c+OpD03/JEs32NL7oBEVhF0VUA3XTIdRqb5K1T9va8c=; b=0JnxYvZTQyH8Nv
-	T20JEy0A93dx9BvWl6vNQWp5WlIyUw/hoQ9UG+fGAjyy++aBDQAK3vUdc+A+/biKkr9QYy8c+RiXO
-	8pPKY2nCcDsEdgTgRGoIXcoZJOjWUHD/yTojd6OHtW3Lu7FQtmsQhQTardnLBz3iiCo0QH00ua+N8
-	dnD/vaFIkD/uLmQOyXPzVLzSgtmYvUCRFP+5spBmljESlZbxnXvlu8P7T4+Lzk1sftq8xIQ3Q69Vq
-	gPqDyZYfiRaiZ6xmefAe0u/19KFeOVsLIUdz+guwEYTU5kcQYlR6c67j5CUZbPGIGVx1FaPDTOPA9
-	FxTfsIYVH83pD7uOsh2A==;
+	List-Owner; bh=4kzSAbD0DIPGQWYprX1EUqXQkJINgyGAomOhcsXtyug=; b=yUZa2LF/TcSzCL
+	dbxv1FxHiyYL8Xs3QabVcObRf6kD6l+AD9neUpK8HUZCWfhn00P1WcJYIGK09/IJGi3xfPqBJtblJ
+	f9P5Ptwdv/3x6E+wuJ1VoUibPf5igYxk8BLbMklh8FDndQex4O78U4cmfY1N8ov8lD/b0xqKigfIi
+	QKZ3nXMsl/sfGah1j7SFjYjqUOF1M6oO97pr7BvRzb3jk5J2Oi2Ywby/1RXs2+sRq61yhoryKXjoM
+	ITlVMHvHUDUNT7oC6mhpbqR6HH2b8DpyBteM4+yhm1gyw98Oc3Ge1qcI4xi3Q16QVYNl7CC5fXLNk
+	bIM4fBqy9inBJFRMlHYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qlRTl-000ZLs-2P;
-	Wed, 27 Sep 2023 10:09:13 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
+	id 1qlRTn-000ZNq-1i;
+	Wed, 27 Sep 2023 10:09:15 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qlRTe-000ZEV-1O
+	id 1qlRTd-000Z4Z-1M
 	for linux-riscv@lists.infradead.org;
-	Wed, 27 Sep 2023 10:09:09 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	Wed, 27 Sep 2023 10:09:10 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id 5C7BF24E2FF;
-	Wed, 27 Sep 2023 18:08:20 +0800 (CST)
-Received: from EXMBX171.cuchost.com (172.16.6.91) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 27 Sep
- 2023 18:08:20 +0800
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 12D1124E1BB;
+	Wed, 27 Sep 2023 18:08:23 +0800 (CST)
+Received: from EXMBX171.cuchost.com (172.16.6.91) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 27 Sep
+ 2023 18:08:22 +0800
 Received: from ubuntu.localdomain (113.72.144.128) by EXMBX171.cuchost.com
  (172.16.6.91) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 27 Sep
- 2023 18:08:19 +0800
+ 2023 18:08:21 +0800
 From: Minda Chen <minda.chen@starfivetech.com>
 To: Daire McNamara <daire.mcnamara@microchip.com>, Conor Dooley
 	<conor@kernel.org>, Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
@@ -52,9 +52,9 @@ CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
 	<mason.huo@starfivetech.com>, Leyfoon Tan <leyfoon.tan@starfivetech.com>,
 	Kevin Xie <kevin.xie@starfivetech.com>, Minda Chen
 	<minda.chen@starfivetech.com>
-Subject: [PATCH v7 16/19] PCI: plda: Set plda_event_handler() and event ops to static
-Date: Wed, 27 Sep 2023 18:07:59 +0800
-Message-ID: <20230927100802.46620-17-minda.chen@starfivetech.com>
+Subject: [PATCH v7 19/19] riscv: dts: starfive: add PCIe dts configuration for JH7110
+Date: Wed, 27 Sep 2023 18:08:02 +0800
+Message-ID: <20230927100802.46620-20-minda.chen@starfivetech.com>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20230927100802.46620-1-minda.chen@starfivetech.com>
 References: <20230927100802.46620-1-minda.chen@starfivetech.com>
@@ -64,8 +64,9 @@ X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX171.cuchost.com
  (172.16.6.91)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230927_030906_649466_39E19BDB 
-X-CRM114-Status: GOOD (  13.73  )
+X-CRM114-CacheID: sfid-20230927_030905_826614_6B81E7BD 
+X-CRM114-Status: UNSURE (   9.48  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,49 +83,193 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Set plda_event_handler() function and event ops
-structure to static.
+Add PCIe dts configuraion for JH7110 SoC platform.
 
 Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
+Reviewed-by: Hal Feng <hal.feng@starfivetech.com>
 ---
- drivers/pci/controller/plda/pcie-plda-host.c | 4 ++--
- drivers/pci/controller/plda/pcie-plda.h      | 1 -
- 2 files changed, 2 insertions(+), 3 deletions(-)
+ .../jh7110-starfive-visionfive-2.dtsi         | 64 ++++++++++++++
+ arch/riscv/boot/dts/starfive/jh7110.dtsi      | 86 +++++++++++++++++++
+ 2 files changed, 150 insertions(+)
 
-diff --git a/drivers/pci/controller/plda/pcie-plda-host.c b/drivers/pci/controller/plda/pcie-plda-host.c
-index c73953bcd1f8..11cdda2f6e5f 100644
---- a/drivers/pci/controller/plda/pcie-plda-host.c
-+++ b/drivers/pci/controller/plda/pcie-plda-host.c
-@@ -254,7 +254,7 @@ static const struct irq_domain_ops intx_domain_ops = {
- 	.map = plda_pcie_intx_map,
+diff --git a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
+index d79f94432b27..7c168246cf2e 100644
+--- a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
++++ b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
+@@ -232,6 +232,22 @@
+ 	status = "okay";
  };
  
--irqreturn_t plda_event_handler(int irq, void *dev_id)
-+static irqreturn_t plda_event_handler(int irq, void *dev_id)
- {
- 	return IRQ_HANDLED;
- }
-@@ -362,7 +362,7 @@ static int plda_pcie_event_map(struct irq_domain *domain, unsigned int irq,
- 	return 0;
- }
++&pcie0 {
++	perst-gpios = <&sysgpio 26 GPIO_ACTIVE_LOW>;
++	phys = <&pciephy0>;
++	pinctrl-names = "default";
++	pinctrl-0 = <&pcie0_pins>;
++	status = "okay";
++};
++
++&pcie1 {
++	perst-gpios = <&sysgpio 28 GPIO_ACTIVE_LOW>;
++	phys = <&pciephy1>;
++	pinctrl-names = "default";
++	pinctrl-0 = <&pcie1_pins>;
++	status = "okay";
++};
++
+ &qspi {
+ 	#address-cells = <1>;
+ 	#size-cells = <0>;
+@@ -402,6 +418,54 @@
+ 		};
+ 	};
  
--struct irq_domain_ops plda_evt_dom_ops = {
-+static const struct irq_domain_ops plda_evt_dom_ops = {
- 	.map = plda_pcie_event_map,
++	pcie0_pins: pcie0-0 {
++		clkreq-pins {
++			pinmux = <GPIOMUX(27, GPOUT_LOW,
++					      GPOEN_DISABLE,
++					      GPI_NONE)>;
++			bias-pull-down;
++			drive-strength = <2>;
++			input-enable;
++			input-schmitt-disable;
++			slew-rate = <0>;
++		};
++
++		wake-pins {
++			pinmux = <GPIOMUX(32, GPOUT_LOW,
++					      GPOEN_DISABLE,
++					      GPI_NONE)>;
++			bias-pull-up;
++			drive-strength = <2>;
++			input-enable;
++			input-schmitt-disable;
++			slew-rate = <0>;
++		};
++	};
++
++	pcie1_pins: pcie1-0 {
++		clkreq-pins {
++			pinmux = <GPIOMUX(29, GPOUT_LOW,
++					      GPOEN_DISABLE,
++					      GPI_NONE)>;
++			bias-pull-down;
++			drive-strength = <2>;
++			input-enable;
++			input-schmitt-disable;
++			slew-rate = <0>;
++		};
++
++		wake-pins {
++			pinmux = <GPIOMUX(21, GPOUT_LOW,
++					      GPOEN_DISABLE,
++					      GPI_NONE)>;
++			bias-pull-up;
++			drive-strength = <2>;
++			input-enable;
++			input-schmitt-disable;
++			slew-rate = <0>;
++		};
++	};
++
+ 	spi0_pins: spi0-0 {
+ 		mosi-pins {
+ 			pinmux = <GPIOMUX(52, GPOUT_SYS_SPI0_TXD,
+diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+index e85464c328d0..1a1e97287c5e 100644
+--- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
++++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+@@ -1045,5 +1045,91 @@
+ 			#reset-cells = <1>;
+ 			power-domains = <&pwrc JH7110_PD_VOUT>;
+ 		};
++
++		pcie0: pcie@940000000 {
++			compatible = "starfive,jh7110-pcie";
++			reg = <0x9 0x40000000 0x0 0x1000000>,
++			      <0x0 0x2b000000 0x0 0x100000>;
++			reg-names = "cfg", "apb";
++			linux,pci-domain = <0>;
++			#address-cells = <3>;
++			#size-cells = <2>;
++			#interrupt-cells = <1>;
++			ranges = <0x82000000  0x0 0x30000000  0x0 0x30000000 0x0 0x08000000>,
++				 <0xc3000000  0x9 0x00000000  0x9 0x00000000 0x0 0x40000000>;
++			interrupts = <56>;
++			interrupt-map-mask = <0x0 0x0 0x0 0x7>;
++			interrupt-map = <0x0 0x0 0x0 0x1 &pcie_intc0 0x1>,
++					<0x0 0x0 0x0 0x2 &pcie_intc0 0x2>,
++					<0x0 0x0 0x0 0x3 &pcie_intc0 0x3>,
++					<0x0 0x0 0x0 0x4 &pcie_intc0 0x4>;
++			msi-controller;
++			device_type = "pci";
++			starfive,stg-syscon = <&stg_syscon>;
++			bus-range = <0x0 0xff>;
++			clocks = <&syscrg JH7110_SYSCLK_NOC_BUS_STG_AXI>,
++				 <&stgcrg JH7110_STGCLK_PCIE0_TL>,
++				 <&stgcrg JH7110_STGCLK_PCIE0_AXI_MST0>,
++				 <&stgcrg JH7110_STGCLK_PCIE0_APB>;
++			clock-names = "noc", "tl", "axi_mst0", "apb";
++			resets = <&stgcrg JH7110_STGRST_PCIE0_AXI_MST0>,
++				 <&stgcrg JH7110_STGRST_PCIE0_AXI_SLV0>,
++				 <&stgcrg JH7110_STGRST_PCIE0_AXI_SLV>,
++				 <&stgcrg JH7110_STGRST_PCIE0_BRG>,
++				 <&stgcrg JH7110_STGRST_PCIE0_CORE>,
++				 <&stgcrg JH7110_STGRST_PCIE0_APB>;
++			reset-names = "mst0", "slv0", "slv", "brg",
++				      "core", "apb";
++			status = "disabled";
++
++			pcie_intc0: interrupt-controller {
++				#address-cells = <0>;
++				#interrupt-cells = <1>;
++				interrupt-controller;
++			};
++		};
++
++		pcie1: pcie@9c0000000 {
++			compatible = "starfive,jh7110-pcie";
++			reg = <0x9 0xc0000000 0x0 0x1000000>,
++			      <0x0 0x2c000000 0x0 0x100000>;
++			reg-names = "cfg", "apb";
++			linux,pci-domain = <1>;
++			#address-cells = <3>;
++			#size-cells = <2>;
++			#interrupt-cells = <1>;
++			ranges = <0x82000000  0x0 0x38000000  0x0 0x38000000 0x0 0x08000000>,
++				 <0xc3000000  0x9 0x80000000  0x9 0x80000000 0x0 0x40000000>;
++			interrupts = <57>;
++			interrupt-map-mask = <0x0 0x0 0x0 0x7>;
++			interrupt-map = <0x0 0x0 0x0 0x1 &pcie_intc1 0x1>,
++					<0x0 0x0 0x0 0x2 &pcie_intc1 0x2>,
++					<0x0 0x0 0x0 0x3 &pcie_intc1 0x3>,
++					<0x0 0x0 0x0 0x4 &pcie_intc1 0x4>;
++			msi-controller;
++			device_type = "pci";
++			starfive,stg-syscon = <&stg_syscon>;
++			bus-range = <0x0 0xff>;
++			clocks = <&syscrg JH7110_SYSCLK_NOC_BUS_STG_AXI>,
++				 <&stgcrg JH7110_STGCLK_PCIE1_TL>,
++				 <&stgcrg JH7110_STGCLK_PCIE1_AXI_MST0>,
++				 <&stgcrg JH7110_STGCLK_PCIE1_APB>;
++			clock-names = "noc", "tl", "axi_mst0", "apb";
++			resets = <&stgcrg JH7110_STGRST_PCIE1_AXI_MST0>,
++				 <&stgcrg JH7110_STGRST_PCIE1_AXI_SLV0>,
++				 <&stgcrg JH7110_STGRST_PCIE1_AXI_SLV>,
++				 <&stgcrg JH7110_STGRST_PCIE1_BRG>,
++				 <&stgcrg JH7110_STGRST_PCIE1_CORE>,
++				 <&stgcrg JH7110_STGRST_PCIE1_APB>;
++			reset-names = "mst0", "slv0", "slv", "brg",
++				      "core", "apb";
++			status = "disabled";
++
++			pcie_intc1: interrupt-controller {
++				#address-cells = <0>;
++				#interrupt-cells = <1>;
++				interrupt-controller;
++			};
++		};
+ 	};
  };
- 
-diff --git a/drivers/pci/controller/plda/pcie-plda.h b/drivers/pci/controller/plda/pcie-plda.h
-index e59369f23329..b7420598a326 100644
---- a/drivers/pci/controller/plda/pcie-plda.h
-+++ b/drivers/pci/controller/plda/pcie-plda.h
-@@ -163,7 +163,6 @@ struct plda_event {
- 	int msi_event;
- };
- 
--irqreturn_t plda_event_handler(int irq, void *dev_id);
- int plda_init_interrupts(struct platform_device *pdev,
- 			 struct plda_pcie_rp *port,
- 			 const struct plda_event *event);
 -- 
 2.17.1
 
