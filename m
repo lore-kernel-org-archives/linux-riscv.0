@@ -4,80 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE362CE7B17
-	for <linux-riscv@archiver.kernel.org>; Thu, 28 Sep 2023 09:56:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9470CE7B17
+	for <linux-riscv@archiver.kernel.org>; Thu, 28 Sep 2023 09:59:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kOoOmHXZAK3kEel6V3G+3u3clWlKWnIpiu1HUBiv4tA=; b=BhS8l9Sb5ihESn5zDDOVvb81Yu
-	bVpTlZD16kKmOMyF/AwfhsalMkzk/zyqgS64HVzKkwC+NF2pLfOVbqNX45tcY7WRH+ocNSP4z6gsH
-	4fPf124U5JPJBdlArnkG09Ixnc/MhVQVgNGTDG+uIP51euRnHT13jFzihN8yIYHBmUsbDKq1yZImK
-	Bw2w1Z6Q2VGfNxHbEQtPoJMgdUR5ZJFRpCsAyU4gz7WNiIkN3D1qOOa60DOc3NVqLYs6PyQ0NPXRw
-	qNmiZ+Nq3n8RVfUH434hvtaAWkf03FS8SBR/qs3Ju4066XjG/5AXgbBduPSj7qiHzRU2Xv1tbcw/5
-	qVovUrhQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=1GORYzdRzVhWi8w1FJhzHdW+X945Z7yqe6JoY1jKeRM=; b=RRxlCO0wxe2Gd3
+	tRZbDYbdiBODTnUtdlsGCDx+eZ+QgK6cVvK0+5hZ3xZPERyTRAPQomNsfnIxOgukrqv70i1BdNUfz
+	L6en69luQS7opIDoqhmi7CEpyjCniyYLmwsC2KZp0eO+6oCJl8r0RJN9vld5Sq9tlQU3f/br2FzsE
+	fl1dex9E0XNr0BWDomq3Y/rHPieaBYEpAEAh5BbTCwqhyLJ/GmO7gqkRr+9Ky8GFBTUAEGAiKgKhh
+	p1X6tvdbn2i2XlQeWJtIM31hh7jnlAxSMvQ5aRUMS6EpW8T2FeoaYPcS4RaD/J+uw8W/eXO+JBd7b
+	GqLjKREUF19LLGE01QIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qlnkz-002mfY-2q;
-	Thu, 28 Sep 2023 09:56:29 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1qlnny-002muM-2g;
+	Thu, 28 Sep 2023 09:59:34 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qlnkw-002meh-2J
+	id 1qlnnu-002mt2-2O
 	for linux-riscv@lists.infradead.org;
-	Thu, 28 Sep 2023 09:56:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1695894986; x=1727430986;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=gu41GdqWZpyGZbFQhinh3hZ49LqQBY/54l12OPAul68=;
-  b=HWew2e7prNQoH5YkU8Jdg4u+ixMy/TNLsRhmbYGVneQ9mG/hKGKrekRV
-   6Q/MP/SHbrzZ7YqCHUM1aoyc2eKpVaLPA9bzCI39XSpmtWoounN+i660H
-   x8mgRE5igixHKaYf3Eh+PCpNBXGMnVNEH0+W+ZY2owjBWV8YqiBVcKIct
-   mYyOdHqC6LrXzWsrDEkpgDe6QT52Kf8ov9tX+E2ljPUoIqCV5uUdQxqLK
-   d27bzquloQz5chZ1dT8YFquAOmdFdDyRWlIV9ElyyXJbabPyyo0c0eING
-   mWbZ/qyqGjormaUwiMmI3vRwuTcMp5/qYZZVly8wtmYrZ5fPp28Ev8acg
-   Q==;
-X-CSE-ConnectionGUID: e6oGy2ElS9ywph8O/5SXfg==
-X-CSE-MsgGUID: Kkjy0IllSBuMt+urRxxNyQ==
-X-ThreatScanner-Verdict: Negative
-X-IronPort-AV: E=Sophos;i="6.03,183,1694761200"; 
-   d="asc'?scan'208";a="6909572"
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 28 Sep 2023 02:56:22 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Thu, 28 Sep 2023 02:56:21 -0700
-Received: from wendy (10.10.85.11) by chn-vm-ex02.mchp-main.com (10.10.85.144)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
- Transport; Thu, 28 Sep 2023 02:56:18 -0700
-Date: Thu, 28 Sep 2023 10:55:59 +0100
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Inochi Amaoto <inochiama@outlook.com>
-CC: Conor Dooley <conor@kernel.org>, <aou@eecs.berkeley.edu>,
-	<chao.wei@sophgo.com>, <devicetree@vger.kernel.org>,
-	<emil.renner.berthing@canonical.com>, <guoren@kernel.org>,
-	<jszhang@kernel.org>, <krzysztof.kozlowski+dt@linaro.org>,
-	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
-	<palmer@dabbelt.com>, <paul.walmsley@sifive.com>, <robh+dt@kernel.org>,
-	<xiaoguang.xing@sophgo.com>, Anup Patel <apatel@ventanamicro.com>, Chen Wang
-	<wangchen20@iscas.ac.cn>
-Subject: Re: [PATCH v3 06/11] dt-bindings: timer: Add Sophgo sg2042 CLINT
- timer
-Message-ID: <20230928-scorer-study-0de8672fca01@wendy>
-References: <20230928-winter-uranium-cc07496a49e3@wendy>
- <IA1PR20MB495373BAA77A74C5EEB7BE49BBC1A@IA1PR20MB4953.namprd20.prod.outlook.com>
+	Thu, 28 Sep 2023 09:59:32 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by ams.source.kernel.org (Postfix) with ESMTP id 9BA8FB81B21;
+	Thu, 28 Sep 2023 09:59:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6806DC433C7;
+	Thu, 28 Sep 2023 09:59:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1695895168;
+	bh=9srMMotEqbhbBuL+dYXb0BtYM8i9fxU6uHTLigNDg/E=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=Mu8PV3nmlz33FGq3etKSxi+cMml8leJ/Li1y7N5wrOdfIOj2FZyuUlbyHAa5ZeV4r
+	 XTIhuq+zf4wUpLusnjDuPBc6IWKHEoZbWl5WSAUGep+xKmDMaHjFqNWcGDHAPqTt5I
+	 e7s6grZP5ija4rCqRIpRPQVLMxv9MGdEI+FmiGBiZBS6vCm6ttVdBo5esxqIiPM84H
+	 UAD6mfR9lHciesi4gxZbfAt1m6ICIjDv56CUolSFnUrMbLt2ObZjWKGMNDrn/JSEZx
+	 EFRY1h9sSgOtEfbRMfYGH3vcrcl5xJSuhAGspGiK+ZZf//0LkU1WWWOpoydA10FxRE
+	 VCWzYgOJBr2kw==
+From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
+To: Pu Lehui <pulehui@huaweicloud.com>, bpf@vger.kernel.org,
+ linux-riscv@lists.infradead.org, netdev@vger.kernel.org
+Cc: Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann
+ <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, Martin KaFai
+ Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>, Yonghong Song
+ <yhs@fb.com>, John Fastabend <john.fastabend@gmail.com>, KP Singh
+ <kpsingh@kernel.org>, Stanislav Fomichev <sdf@google.com>, Hao Luo
+ <haoluo@google.com>, Jiri Olsa <jolsa@kernel.org>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Conor Dooley <conor@kernel.org>, Luke Nelson
+ <luke.r.nels@gmail.com>, Pu Lehui <pulehui@huawei.com>, Pu Lehui
+ <pulehui@huaweicloud.com>
+Subject: Re: [PATCH bpf-next 4/4] riscv, bpf: Mixing bpf2bpf and tailcalls
+In-Reply-To: <20230919035711.3297256-5-pulehui@huaweicloud.com>
+References: <20230919035711.3297256-1-pulehui@huaweicloud.com>
+ <20230919035711.3297256-5-pulehui@huaweicloud.com>
+Date: Thu, 28 Sep 2023 11:59:24 +0200
+Message-ID: <87lecqobyb.fsf@all.your.base.are.belong.to.us>
 MIME-Version: 1.0
-In-Reply-To: <IA1PR20MB495373BAA77A74C5EEB7BE49BBC1A@IA1PR20MB4953.namprd20.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230928_025626_914425_F178C28B 
-X-CRM114-Status: GOOD (  15.77  )
+X-CRM114-CacheID: sfid-20230928_025930_933113_EDE61E3C 
+X-CRM114-Status: GOOD (  14.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,72 +75,44 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6595809620318988334=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============6595809620318988334==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="SpJlgRxPBtmlA4kN"
-Content-Disposition: inline
-
---SpJlgRxPBtmlA4kN
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Thu, Sep 28, 2023 at 05:39:17PM +0800, Inochi Amaoto wrote:
-> >>>> If so, whether we should replace the "thead,c900-clint" with these s=
-eparate
-> >>>> DT to describe the thead clint?
-> >>>
-> >>> No, since that's a different device, right?
-> >>>
-> >>
-> >> Yes. It seems sophgo defined these by themselves, but the T-HEAD. Sorry
-> >> for my mistake.
-> >
-> >I'm sorry, I don't quite understand this. Do you mean that the IP is not
-> >T-Head, but rather designed by Sophgo? If the IP is made by T-Head, then
-> >I would expect to see something like
-> >
-> >compatible =3D "sophgo,sg2042-aclint-mtimer", "thead,c900-aclint-mtimer";
-> >
-> >in the dts.
-> >
->=20
-> AFAIK, the clint IP is designed by T-HEAD, not Sophgo. Sophgo change this
-> IP layout to fit its weird cpu design. But in my test, the timer and mswi
-> of clint is compatible with the T-HEAD one.
-
-> So we should treat this as T-HEAD IP, not Sophgo?
-
-Yes, in the way I demonstrated above probably.
-
---SpJlgRxPBtmlA4kN
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZRVNrwAKCRB4tDGHoIJi
-0iMwAQC+tShSe2jUxLEY0+NJy2ORpiI7U6yahbJtQgYC6InsgAEAwWsdMan7OX7r
-7Cm33/K20+L8n6UV2uJ9Qgolx3/peA4=
-=CNXQ
------END PGP SIGNATURE-----
-
---SpJlgRxPBtmlA4kN--
-
-
---===============6595809620318988334==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============6595809620318988334==--
-
+UHUgTGVodWkgPHB1bGVodWlAaHVhd2VpY2xvdWQuY29tPiB3cml0ZXM6Cgo+IEZyb206IFB1IExl
+aHVpIDxwdWxlaHVpQGh1YXdlaS5jb20+Cj4KPiBJbiB0aGUgY3VycmVudCBSVjY0IEpJVCwgaWYg
+d2UganVzdCBkb24ndCBpbml0aWFsaXplIHRoZSBUQ0MgaW4gc3VicHJvZywKPiB0aGUgVENDIGNh
+biBiZSBwcm9wYWdhdGVkIGZyb20gdGhlIHBhcmVudCBwcm9jZXNzIHRvIHRoZSBzdWJwcm9jZXNz
+LCBidXQKPiB0aGUgVENDIG9mIHRoZSBwYXJlbnQgcHJvY2VzcyBjYW5ub3QgYmUgcmVzdG9yZWQg
+d2hlbiB0aGUgc3VicHJvY2Vzcwo+IGV4aXRzLiBTaW5jZSB0aGUgUlY2NCBUQ0MgaXMgaW5pdGlh
+bGl6ZWQgYmVmb3JlIHNhdmluZyB0aGUgY2FsbGVlIHNhdmVkCj4gcmVnaXN0ZXJzIGludG8gdGhl
+IHN0YWNrLCB3ZSBjYW5ub3QgdXNlIHRoZSBjYWxsZWUgc2F2ZWQgcmVnaXN0ZXIgdG8KPiBwYXNz
+IHRoZSBUQ0MsIG90aGVyd2lzZSB0aGUgb3JpZ2luYWwgdmFsdWUgb2YgdGhlIGNhbGxlZSBzYXZl
+ZCByZWdpc3Rlcgo+IHdpbGwgYmUgZGVzdHJveWVkLiBTbyB3ZSBpbXBsZW1lbnRlZCBtaXhpbmcg
+YnBmMmJwZiBhbmQgdGFpbGNhbGxzCj4gc2ltaWxhciB0byB4ODZfNjQsIGkuZS4gdXNpbmcgYSBu
+b24tY2FsbGVlIHNhdmVkIHJlZ2lzdGVyIHRvIHRyYW5zZmVyCj4gdGhlIFRDQyBiZXR3ZWVuIGZ1
+bmN0aW9ucywgYW5kIHNhdmluZyB0aGF0IHJlZ2lzdGVyIHRvIHRoZSBzdGFjayB0bwo+IHByb3Rl
+Y3QgdGhlIFRDQyB2YWx1ZS4gQXQgdGhlIHNhbWUgdGltZSwgd2UgYWxzbyBjb25zaWRlciB0aGUg
+c2NlbmFyaW8KPiBvZiBtaXhpbmcgdHJhbXBvbGluZS4KCkhpIQoKVGhlIFJJU0MtViBKSVQgdHJp
+ZXMgdG8gbWluaW1pemUgdGhlIHN0YWNrIHVzYWdlLCBlLmcuIGl0IGRvZXNuJ3QgaGF2ZSBhCmZp
+eGVkIHByby9lcGlsb2d1ZSBsaWtlIHNvbWUgb2YgdGhlIG90aGVyIEpJVHMuIEkgdGhpbmsgd2Ug
+Y2FuIGRvIGJldHRlcgpoZXJlLCBzbyB0aGF0IHRoZSBwYXNzLVRDQy12aWEtcmVnaXN0ZXIgY2Fu
+IGJlIHVzZWQsIGFuZCB0aGUgYWRkaXRpb25hbApzdGFjayBhY2Nlc3MgY2FuIGJlIGF2b2lkZWQu
+CgpUb2RheSwgdGhlIFRDQyBpcyBwYXNzZWQgdmlhIGEgcmVnaXN0ZXIgKGE2KSBhbmQgY2FuIGJl
+IHZpZXdlZCBhcyBhCiJzdGF0ZSIgdmFyaWFibGUvdHJhbnNwYXJlbnQgYXJndW1lbnQvcmV0dXJu
+IHZhbHVlLiBBcyB5b3UgcG9pbnQgb3V0LCB3ZQpsb29zZSB0aGlzIHdoZW4gd2UgZG8gYSBjYWxs
+LiBPbiAoYW55KSBjYWxscyB3ZSBtb3ZlIHRoZSBUQ0MgdG8gYQpjYWxsZWUtc2F2ZWQgcmVnaXN0
+ZXIuCgpXRFlUIGFib3V0IHRoZSBmb2xsb3dpbmcgc2NoZW1lOgoKMSBQaWNrdXAgdGhlIGFybTY0
+IGJwZjJicGYvdGFpbG1peCBtZWNoYW5pc20gb2YganVzdCBjbGVhcmluZyB0aGUgVENDCiAgZm9y
+IHRoZSBtYWluIHByb2dyYW0uCjIgRm9yIEJQRiBoZWxwZXIgY2FsbHMsIG1vdmUgVENDIHRvIHM2
+LCBwZXJmb3JtIHRoZSBjYWxsLCBhbmQgcmVzdG9yZQogIGE2LiBEaXRvIGZvciBrZnVuYyBjYWxs
+cyAoQlBGX1BTRVVET19LRlVOQ19DQUxMKS4KMyBGb3IgYWxsIG90aGVyIGNhbGxzLCBhNiBpcyBw
+YXNzZWQgdHJhbnNwYXJlbnRseS4KCkZvciAyIGJwZl9qaXRfZ2V0X2Z1bmNfYWRkcigpIGNhbiBi
+ZSB1c2VkIHRvIGRldGVybWluZSBpZiB0aGUgY2FsbGVlIGlzCmEgQlBGIGhlbHBlciBvciBub3Qu
+CgpJbiBzdW1tYXJ5OyBEZXRlcm1pbmUgaW4gdGhlIEpJVCBpZiB3ZSdyZSBsZWF2aW5nIEJQRi1s
+YW5kLCBhbmQgbmVlZCB0bwptb3ZlIHRoZSBUQ0MgdG8gYSBjYWxsZWUtc2F2ZWQgcmVnLCBvciBu
+b3QsIGFuZCBzYXZlIHVzIGEgYnVuY2ggb2Ygc3RhY2sKc3RvcmUvbG9hZHMuCgoKQmrDtnJuCgpf
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNj
+diBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlz
+dHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
