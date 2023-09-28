@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D454BE743C8
-	for <linux-riscv@archiver.kernel.org>; Thu, 28 Sep 2023 22:22:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FA20E743C8
+	for <linux-riscv@archiver.kernel.org>; Thu, 28 Sep 2023 22:22:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=txB4aaH8JBaj/xYRI6yUApUrzvQas55gqfeXJb+R57w=; b=gvBpdVpoVfIWid
-	zPzAni1rLkz2/gaKOw5urjSTVuWSZvMVfja1/cUQmYAvYtwEXKsMTOVbcTJVTZ7Q+XSOEAeIVHCke
-	ZM+zvibyu5Oevc4CgB5yI98xzrkfgchNwDZtoG4lEnPYO/WrGdwrXnHCJTr5mAo6edeU4BovfwfYN
-	7pOKUuGTc7K2MLLqD/OBHpwurCy74G2iua13RJHMgJhc/1RGNJgZ8iQ6liR+KmFnW6Kz8inS3uus+
-	AWUqAMQ52EkTbY5XOTUn05wJMcVGfcqSJkww47kifQerpRK8rdq1UjR4AvcLI6j/ZuISNDTZ9Ltja
-	lnVh5IIPaanlFVyhSFuA==;
+	List-Owner; bh=wsq8WnEBDPMzkTfKA8GYS+F+vIjwPtCphTm7FuGApjU=; b=OwAJQv7ZWUKqin
+	KpkNA3adjiKCYdNujcau1wmDbdHbmAN7YSbpbjoDx72jTa+9PjOkdPS+vIV0KyuEa2ELQadBHj/XS
+	4NPvBNdsOqVKMX7jKRcSa0f7YxnbxJqjBvDFfT3QcZUnGF9BixwA14SXztp/Kpb5jVOEzOQD7R717
+	uor1Z2//RH2YwYGCI38Bqm/bX/tNUdqSyUkegJOae5s/eu3h3Gfip7J+miPQM6o5ne3j+QL1C+JaO
+	fIaDOAIoIS2KIbUg9CIZwSHK3Sq9VO7XtVgDjbyl8dTGZHjMqCEQ3p8YEVeoYwLRLyrlGoG5YV0lg
+	qnl2AIIfqacYnZ4yjXSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qlzOw-006mU8-1U;
-	Thu, 28 Sep 2023 22:22:30 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1qlzPB-006mbY-2U;
+	Thu, 28 Sep 2023 22:22:45 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qlzOB-006m8O-30
+	id 1qlzOF-006mAS-0V
 	for linux-riscv@lists.infradead.org;
-	Thu, 28 Sep 2023 22:21:49 +0000
+	Thu, 28 Sep 2023 22:21:50 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1695939703;
+	s=mimecast20190719; t=1695939706;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=mFHyzwss0VIynmY6kq9IQqsmynTMCUyfW9NTpB4UhBc=;
-	b=f+m1TfsdGmzdcATD1igpfaixeNlJMr8Z4zzvHvDqJPwuD+uEW+6dfPZrdfRCMs05CbmGXH
-	kKVwQnjfGG7/tkRhmx6Y0z3N7dfcUNCPH+sYOxoB4K84iDAeNKGmJxj48uOM4l0zGoAlk/
-	Gqkfb0uvDqAVY1JNjo9SBpopEnSmI7Y=
-Received: from mail-io1-f71.google.com (mail-io1-f71.google.com
- [209.85.166.71]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=yJlZv5KfytnzZmRqZMI7mLTWvvegYQeNtr0CrdJHxrc=;
+	b=Ez/Uh1kmKg7MrjRNPCLulA36pOVjQ5gy+yOz1Jj2F1p7YDVNjgYUbnohzK5m8M6UMihyZI
+	5Nir5HLf1gp7t9/HQZBBB6HClzl4nxU3aSfeXGRqbjnDrAU/ebPMJyYLmqfB83zPhdfkUg
+	YN8894ftLye1JsVY6MxPTN61qhGbvyI=
+Received: from mail-io1-f69.google.com (mail-io1-f69.google.com
+ [209.85.166.69]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-46-8tP16mNFPmimx6cqVYHpjA-1; Thu, 28 Sep 2023 18:21:41 -0400
-X-MC-Unique: 8tP16mNFPmimx6cqVYHpjA-1
-Received: by mail-io1-f71.google.com with SMTP id ca18e2360f4ac-7834a155749so1686238439f.0
-        for <linux-riscv@lists.infradead.org>; Thu, 28 Sep 2023 15:21:41 -0700 (PDT)
+ us-mta-605-V1-3-q6DPsihTxaIA_NjRA-1; Thu, 28 Sep 2023 18:21:45 -0400
+X-MC-Unique: V1-3-q6DPsihTxaIA_NjRA-1
+Received: by mail-io1-f69.google.com with SMTP id ca18e2360f4ac-7919f80dfdcso1700863139f.3
+        for <linux-riscv@lists.infradead.org>; Thu, 28 Sep 2023 15:21:44 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1695939701; x=1696544501;
+        d=1e100.net; s=20230601; t=1695939704; x=1696544504;
         h=content-transfer-encoding:mime-version:organization:references
          :in-reply-to:message-id:subject:cc:to:from:date:x-gm-message-state
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=mFHyzwss0VIynmY6kq9IQqsmynTMCUyfW9NTpB4UhBc=;
-        b=d7/5UZMnsX9dTix6fcioUqyudtDF7FvQjfMpJAhRW1V9S3AD6I14OPuqjgmM2OnHS3
-         YQWLeAUaCIrEWjw314GEgL4aLjXZzzSwxG24R3QZKfFb2TXj+WkYPxqTWwUXLFJdXA0f
-         UtV596id/A0U5Z95trxBaqvWX/QxaTXUDX2sKBtQcL8vc7QqGr0jeAhQHFb6Li9GGPSq
-         W0Zi/o8XB+AKw2+O0tS6hO3Jg3ZLFy10hC/MR0w5OXoIb7XV58Q9WEB1Y527k5l2VzuW
-         wp5xWDdSn0zNzZy8oy3gf0tAMl0xi4PgZsHa0I4EJVwipV2O3mmHYJSZXDgfds7KVP3h
-         q+Lg==
-X-Gm-Message-State: AOJu0Yy8VYAgsvSqmlVswWxm0Dj5kOJoc21zcletEr7fcIkW1rDIeibq
-	ujAOoAs+E7pdPO61Nbv3fZg0ZBrAOQ3FoVuurbhIWXZL1JqTlDo97dGHLt7FaOQDPvU3zo1DlPv
-	AzjAjiDsCm4yJeC4kVOaD7Bdk+TTh
-X-Received: by 2002:a5e:dc47:0:b0:79f:d671:c732 with SMTP id s7-20020a5edc47000000b0079fd671c732mr2854276iop.10.1695939700859;
-        Thu, 28 Sep 2023 15:21:40 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFiCbLuQ0Q0F99MyiikSRjNnpDxGqSEfKTVOj2RSJeVdREsU50q+AO2JmnXeHZUyrPp7Fb80Q==
-X-Received: by 2002:a5e:dc47:0:b0:79f:d671:c732 with SMTP id s7-20020a5edc47000000b0079fd671c732mr2854217iop.10.1695939700529;
-        Thu, 28 Sep 2023 15:21:40 -0700 (PDT)
+        bh=yJlZv5KfytnzZmRqZMI7mLTWvvegYQeNtr0CrdJHxrc=;
+        b=PCgfVbj24C+/ONEtWR0cpxeC/9cxjdI+6zhJTia22M1LfaGf19oLPcXf6Qs2L2w2Ws
+         LNklHVWkJo+td05AyILPwhBL8R00iwuSAnrYSimbH1lNLHSlHEFf373Dr+GxDcSih4A+
+         8jwzHWNLvz5KY+z+ovZ4qH2VnTZU/3Db9XpN519NQDbYogLGr8KVbmosYTFxbAvwKzwZ
+         K/ZhLTtZmg1ymfLcJdso+h/VDuAZ+qxwEajix96FegT5+NR725k558xhZCPkDaHf+a7D
+         V+5YeJFczPcJlSn+mjJbu6Ua4LSLZz1BsIzYzgTjfQevOlWk0EXRVR6qf3PP+1m9iBiR
+         nYFA==
+X-Gm-Message-State: AOJu0YwdisKJLIArUpjLi7Rdw+guI9TW26MbZgy08a0GFxCJj+wG0aEa
+	Vp0/q1M1fMom6DtyFmsaS7YpNA8MPb2/yF1Nou2OF5ahfpz8Px2t0plqYYP8vPwAyl/30wFcu+S
+	E2flvKiBT2CdmllwR1KMwrsoCay44
+X-Received: by 2002:a5e:9e09:0:b0:795:8805:1378 with SMTP id i9-20020a5e9e09000000b0079588051378mr2451930ioq.9.1695939704273;
+        Thu, 28 Sep 2023 15:21:44 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGAEb9IDAtgYjj6uLy0BK3ZEot+uDPg45XlWdcKZXMCg89/F3JSTuwB2CMQYAcH0oVDsnNUFw==
+X-Received: by 2002:a5e:9e09:0:b0:795:8805:1378 with SMTP id i9-20020a5e9e09000000b0079588051378mr2451906ioq.9.1695939703976;
+        Thu, 28 Sep 2023 15:21:43 -0700 (PDT)
 Received: from redhat.com ([38.15.60.12])
-        by smtp.gmail.com with ESMTPSA id t23-20020a02c497000000b0042b10d42c90sm4610172jam.113.2023.09.28.15.21.38
+        by smtp.gmail.com with ESMTPSA id t23-20020a02c497000000b0042b10d42c90sm4610172jam.113.2023.09.28.15.21.41
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 28 Sep 2023 15:21:39 -0700 (PDT)
-Date: Thu, 28 Sep 2023 16:21:09 -0600
+        Thu, 28 Sep 2023 15:21:42 -0700 (PDT)
+Date: Thu, 28 Sep 2023 16:21:05 -0600
 From: Alex Williamson <alex.williamson@redhat.com>
 To: Sean Christopherson <seanjc@google.com>
 Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon
@@ -94,19 +94,19 @@ Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon
  linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org, Anish
  Ghulati <aghulati@google.com>, Venkatesh Srinivas
  <venkateshs@chromium.org>, Andrew Thornton <andrewth@google.com>
-Subject: Re: [PATCH 05/26] vfio: KVM: Pass get/put helpers from KVM to VFIO,
- don't do circular lookup
-Message-ID: <20230928162109.42391b48.alex.williamson@redhat.com>
-In-Reply-To: <20230916003118.2540661-6-seanjc@google.com>
+Subject: Re: [PATCH 02/26] vfio: Move KVM get/put helpers to colocate it
+ with other KVM related code
+Message-ID: <20230928162105.2e347cd5.alex.williamson@redhat.com>
+In-Reply-To: <20230916003118.2540661-3-seanjc@google.com>
 References: <20230916003118.2540661-1-seanjc@google.com>
-	<20230916003118.2540661-6-seanjc@google.com>
+	<20230916003118.2540661-3-seanjc@google.com>
 Organization: Red Hat
 MIME-Version: 1.0
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230928_152144_100100_D292B757 
-X-CRM114-Status: GOOD (  27.51  )
+X-CRM114-CacheID: sfid-20230928_152147_266165_6979C46E 
+X-CRM114-Status: GOOD (  19.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,222 +123,144 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 15 Sep 2023 17:30:57 -0700
+On Fri, 15 Sep 2023 17:30:54 -0700
 Sean Christopherson <seanjc@google.com> wrote:
 
-> Explicitly pass KVM's get/put helpers to VFIO when attaching a VM to
-> VFIO instead of having VFIO do a symbol lookup back into KVM.  Having both
-> KVM and VFIO do symbol lookups increases the overall complexity and places
-> an unnecessary dependency on KVM (from VFIO) without adding any value.
+> Move the definitions of vfio_device_get_kvm_safe() and vfio_device_put_kvm()
+> down in vfio_main.c to colocate them with other KVM-specific functions,
+> e.g. to allow wrapping them all with a single CONFIG_KVM check.
 > 
 > Signed-off-by: Sean Christopherson <seanjc@google.com>
 > ---
->  drivers/vfio/vfio.h      |  2 ++
->  drivers/vfio/vfio_main.c | 74 +++++++++++++++++++---------------------
->  include/linux/vfio.h     |  4 ++-
->  virt/kvm/vfio.c          |  9 +++--
->  4 files changed, 47 insertions(+), 42 deletions(-)
+>  drivers/vfio/vfio_main.c | 104 +++++++++++++++++++--------------------
+>  1 file changed, 52 insertions(+), 52 deletions(-)
 
 
 Reviewed-by: Alex Williamson <alex.williamson@redhat.com>
 
  
-> diff --git a/drivers/vfio/vfio.h b/drivers/vfio/vfio.h
-> index a1f741365075..eec51c7ee822 100644
-> --- a/drivers/vfio/vfio.h
-> +++ b/drivers/vfio/vfio.h
-> @@ -19,6 +19,8 @@ struct vfio_container;
->  
->  struct vfio_kvm_reference {
->  	struct kvm			*kvm;
-> +	bool				(*get_kvm)(struct kvm *kvm);
-> +	void				(*put_kvm)(struct kvm *kvm);
->  	spinlock_t			lock;
->  };
->  
 > diff --git a/drivers/vfio/vfio_main.c b/drivers/vfio/vfio_main.c
-> index e77e8c6aae2f..1f58ab6dbcd2 100644
+> index 80e39f7a6d8f..6368eed7b7b2 100644
 > --- a/drivers/vfio/vfio_main.c
 > +++ b/drivers/vfio/vfio_main.c
-> @@ -16,7 +16,6 @@
->  #include <linux/fs.h>
->  #include <linux/idr.h>
->  #include <linux/iommu.h>
-> -#include <linux/kvm_host.h>
->  #include <linux/list.h>
->  #include <linux/miscdevice.h>
->  #include <linux/module.h>
-> @@ -1306,38 +1305,22 @@ EXPORT_SYMBOL_GPL(vfio_file_enforced_coherent);
->  void vfio_device_get_kvm_safe(struct vfio_device *device,
->  			      struct vfio_kvm_reference *ref)
->  {
+> @@ -381,58 +381,6 @@ void vfio_unregister_group_dev(struct vfio_device *device)
+>  }
+>  EXPORT_SYMBOL_GPL(vfio_unregister_group_dev);
+>  
+> -#if IS_ENABLED(CONFIG_KVM)
+> -void vfio_device_get_kvm_safe(struct vfio_device *device, struct kvm *kvm)
+> -{
 > -	void (*pfn)(struct kvm *kvm);
 > -	bool (*fn)(struct kvm *kvm);
 > -	bool ret;
 > -
->  	lockdep_assert_held(&device->dev_set->lock);
->  
-> +	/*
-> +	 * Note!  The "kvm" and "put_kvm" pointers *must* be transferred to the
-> +	 * device so that the device can put its reference to KVM.  KVM can
-> +	 * invoke vfio_device_set_kvm() to detach from VFIO, i.e. nullify all
-> +	 * pointers in @ref, even if a device holds a reference to KVM!  That
-> +	 * also means that detaching KVM from VFIO only prevents "new" devices
-> +	 * from using KVM, it doesn't invalidate KVM references in existing
-> +	 * devices.
-> +	 */
->  	spin_lock(&ref->lock);
+> -	lockdep_assert_held(&device->dev_set->lock);
 > -
-> -	if (!ref->kvm)
-> -		goto out;
+> -	if (!kvm)
+> -		return;
 > -
 > -	pfn = symbol_get(kvm_put_kvm);
 > -	if (WARN_ON(!pfn))
-> -		goto out;
+> -		return;
 > -
 > -	fn = symbol_get(kvm_get_kvm_safe);
 > -	if (WARN_ON(!fn)) {
 > -		symbol_put(kvm_put_kvm);
-> -		goto out;
-> +	if (ref->kvm && ref->get_kvm(ref->kvm)) {
-> +		device->kvm = ref->kvm;
-> +		device->put_kvm = ref->put_kvm;
->  	}
+> -		return;
+> -	}
 > -
-> -	ret = fn(ref->kvm);
+> -	ret = fn(kvm);
 > -	symbol_put(kvm_get_kvm_safe);
 > -	if (!ret) {
 > -		symbol_put(kvm_put_kvm);
-> -		goto out;
+> -		return;
 > -	}
 > -
 > -	device->put_kvm = pfn;
-> -	device->kvm = ref->kvm;
+> -	device->kvm = kvm;
+> -}
 > -
-> -out:
->  	spin_unlock(&ref->lock);
->  }
->  
-> @@ -1353,28 +1336,37 @@ void vfio_device_put_kvm(struct vfio_device *device)
->  
->  	device->put_kvm(device->kvm);
->  	device->put_kvm = NULL;
+> -void vfio_device_put_kvm(struct vfio_device *device)
+> -{
+> -	lockdep_assert_held(&device->dev_set->lock);
+> -
+> -	if (!device->kvm)
+> -		return;
+> -
+> -	if (WARN_ON(!device->put_kvm))
+> -		goto clear;
+> -
+> -	device->put_kvm(device->kvm);
+> -	device->put_kvm = NULL;
 > -	symbol_put(kvm_put_kvm);
 > -
->  clear:
->  	device->kvm = NULL;
->  }
->  
->  static void vfio_device_set_kvm(struct vfio_kvm_reference *ref,
-> -				struct kvm *kvm)
-> +				struct kvm *kvm,
-> +				bool (*get_kvm)(struct kvm *kvm),
-> +				void (*put_kvm)(struct kvm *kvm))
+> -clear:
+> -	device->kvm = NULL;
+> -}
+> -#endif
+> -
+>  /* true if the vfio_device has open_device() called but not close_device() */
+>  static bool vfio_assert_device_open(struct vfio_device *device)
 >  {
-> +	if (WARN_ON_ONCE(kvm && (!get_kvm || !put_kvm)))
+> @@ -1354,6 +1302,58 @@ bool vfio_file_enforced_coherent(struct file *file)
+>  }
+>  EXPORT_SYMBOL_GPL(vfio_file_enforced_coherent);
+>  
+> +#if IS_ENABLED(CONFIG_KVM)
+> +void vfio_device_get_kvm_safe(struct vfio_device *device, struct kvm *kvm)
+> +{
+> +	void (*pfn)(struct kvm *kvm);
+> +	bool (*fn)(struct kvm *kvm);
+> +	bool ret;
+> +
+> +	lockdep_assert_held(&device->dev_set->lock);
+> +
+> +	if (!kvm)
 > +		return;
 > +
->  	spin_lock(&ref->lock);
->  	ref->kvm = kvm;
-> +	ref->get_kvm = get_kvm;
-> +	ref->put_kvm = put_kvm;
->  	spin_unlock(&ref->lock);
->  }
->  
-> -static void vfio_group_set_kvm(struct vfio_group *group, struct kvm *kvm)
-> +static void vfio_group_set_kvm(struct vfio_group *group, struct kvm *kvm,
-> +			       bool (*get_kvm)(struct kvm *kvm),
-> +			       void (*put_kvm)(struct kvm *kvm))
->  {
->  #if IS_ENABLED(CONFIG_VFIO_GROUP)
-> -	vfio_device_set_kvm(&group->kvm_ref, kvm);
-> +	vfio_device_set_kvm(&group->kvm_ref, kvm, get_kvm, put_kvm);
->  #endif
->  }
->  
-> -static void vfio_device_file_set_kvm(struct file *file, struct kvm *kvm)
-> +static void vfio_device_file_set_kvm(struct file *file, struct kvm *kvm,
-> +				     bool (*get_kvm)(struct kvm *kvm),
-> +				     void (*put_kvm)(struct kvm *kvm))
+> +	pfn = symbol_get(kvm_put_kvm);
+> +	if (WARN_ON(!pfn))
+> +		return;
+> +
+> +	fn = symbol_get(kvm_get_kvm_safe);
+> +	if (WARN_ON(!fn)) {
+> +		symbol_put(kvm_put_kvm);
+> +		return;
+> +	}
+> +
+> +	ret = fn(kvm);
+> +	symbol_put(kvm_get_kvm_safe);
+> +	if (!ret) {
+> +		symbol_put(kvm_put_kvm);
+> +		return;
+> +	}
+> +
+> +	device->put_kvm = pfn;
+> +	device->kvm = kvm;
+> +}
+> +
+> +void vfio_device_put_kvm(struct vfio_device *device)
+> +{
+> +	lockdep_assert_held(&device->dev_set->lock);
+> +
+> +	if (!device->kvm)
+> +		return;
+> +
+> +	if (WARN_ON(!device->put_kvm))
+> +		goto clear;
+> +
+> +	device->put_kvm(device->kvm);
+> +	device->put_kvm = NULL;
+> +	symbol_put(kvm_put_kvm);
+> +
+> +clear:
+> +	device->kvm = NULL;
+> +}
+> +#endif
+> +
+>  static void vfio_device_file_set_kvm(struct file *file, struct kvm *kvm)
 >  {
 >  	struct vfio_device_file *df = file->private_data;
->  
-> @@ -1383,27 +1375,31 @@ static void vfio_device_file_set_kvm(struct file *file, struct kvm *kvm)
->  	 * be propagated to vfio_device::kvm when the file is bound to
->  	 * iommufd successfully in the vfio device cdev path.
->  	 */
-> -	vfio_device_set_kvm(&df->kvm_ref, kvm);
-> +	vfio_device_set_kvm(&df->kvm_ref, kvm, get_kvm, put_kvm);
->  }
->  
->  /**
->   * vfio_file_set_kvm - Link a kvm with VFIO drivers
->   * @file: VFIO group file or VFIO device file
->   * @kvm: KVM to link
-> + * @get_kvm: Callback to get a reference to @kvm
-> + * @put_kvm: Callback to put a reference to @kvm
->   *
->   * When a VFIO device is first opened the KVM will be available in
->   * device->kvm if one was associated with the file.
->   */
-> -void vfio_file_set_kvm(struct file *file, struct kvm *kvm)
-> +void vfio_file_set_kvm(struct file *file, struct kvm *kvm,
-> +		       bool (*get_kvm)(struct kvm *kvm),
-> +		       void (*put_kvm)(struct kvm *kvm))
->  {
->  	struct vfio_group *group;
->  
->  	group = vfio_group_from_file(file);
->  	if (group)
-> -		vfio_group_set_kvm(group, kvm);
-> +		vfio_group_set_kvm(group, kvm, get_kvm, put_kvm);
->  
->  	if (vfio_device_from_file(file))
-> -		vfio_device_file_set_kvm(file, kvm);
-> +		vfio_device_file_set_kvm(file, kvm, get_kvm, put_kvm);
->  }
->  EXPORT_SYMBOL_GPL(vfio_file_set_kvm);
->  #endif
-> diff --git a/include/linux/vfio.h b/include/linux/vfio.h
-> index e80955de266c..35e970e3d3fb 100644
-> --- a/include/linux/vfio.h
-> +++ b/include/linux/vfio.h
-> @@ -312,7 +312,9 @@ static inline bool vfio_file_has_dev(struct file *file, struct vfio_device *devi
->  bool vfio_file_is_valid(struct file *file);
->  bool vfio_file_enforced_coherent(struct file *file);
->  #if IS_ENABLED(CONFIG_KVM)
-> -void vfio_file_set_kvm(struct file *file, struct kvm *kvm);
-> +void vfio_file_set_kvm(struct file *file, struct kvm *kvm,
-> +		       bool (*get_kvm)(struct kvm *kvm),
-> +		       void (*put_kvm)(struct kvm *kvm));
->  #endif
->  
->  #define VFIO_PIN_PAGES_MAX_ENTRIES	(PAGE_SIZE/sizeof(unsigned long))
-> diff --git a/virt/kvm/vfio.c b/virt/kvm/vfio.c
-> index ca24ce120906..f14fcbb34bc6 100644
-> --- a/virt/kvm/vfio.c
-> +++ b/virt/kvm/vfio.c
-> @@ -37,13 +37,18 @@ struct kvm_vfio {
->  
->  static void kvm_vfio_file_set_kvm(struct file *file, struct kvm *kvm)
->  {
-> -	void (*fn)(struct file *file, struct kvm *kvm);
-> +	void (*fn)(struct file *file, struct kvm *kvm,
-> +		   bool (*get_kvm)(struct kvm *kvm),
-> +		   void (*put_kvm)(struct kvm *kvm));
->  
->  	fn = symbol_get(vfio_file_set_kvm);
->  	if (!fn)
->  		return;
->  
-> -	fn(file, kvm);
-> +	if (kvm)
-> +		fn(file, kvm, kvm_get_kvm_safe, kvm_put_kvm);
-> +	else
-> +		fn(file, kvm, NULL, NULL);
->  
->  	symbol_put(vfio_file_set_kvm);
->  }
 
 
 _______________________________________________
