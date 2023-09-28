@@ -4,109 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FA20E743C8
-	for <linux-riscv@archiver.kernel.org>; Thu, 28 Sep 2023 22:22:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B33DE743CD
+	for <linux-riscv@archiver.kernel.org>; Thu, 28 Sep 2023 23:13:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wsq8WnEBDPMzkTfKA8GYS+F+vIjwPtCphTm7FuGApjU=; b=OwAJQv7ZWUKqin
-	KpkNA3adjiKCYdNujcau1wmDbdHbmAN7YSbpbjoDx72jTa+9PjOkdPS+vIV0KyuEa2ELQadBHj/XS
-	4NPvBNdsOqVKMX7jKRcSa0f7YxnbxJqjBvDFfT3QcZUnGF9BixwA14SXztp/Kpb5jVOEzOQD7R717
-	uor1Z2//RH2YwYGCI38Bqm/bX/tNUdqSyUkegJOae5s/eu3h3Gfip7J+miPQM6o5ne3j+QL1C+JaO
-	fIaDOAIoIS2KIbUg9CIZwSHK3Sq9VO7XtVgDjbyl8dTGZHjMqCEQ3p8YEVeoYwLRLyrlGoG5YV0lg
-	qnl2AIIfqacYnZ4yjXSQ==;
+	List-Owner; bh=pklifZmYOF14HT9XEhhsspuXaMuFXOSC/DR3JomrRMo=; b=ctjf6JPHQ518QA
+	MQphI0qPHvQQCD18pwYGoyxcWzSoj6Ms6YgSt+74dnZ9r2GlZEiJ4pzcPgfieT7EZVkG1XdQPwkZP
+	X/dEzjHeZnQDIflzrXXG6riCXqk9coUGHPdh3tYL6nd8h+MC7G9uhBH1AataxYPqtyPwvdV7B52EG
+	J8KJbL2UkXMjmLAshVCT8QPvsyr16Bhl6JsZBEzJlrcLhfUStTmODcTKlLUSujJGw3cu9jbBAUVOG
+	up0K28wmBVGiwiWjXZoxtHmq65SDlE078kBQ23rQfyDKcbqjWSt6mX2s77iZ5HYhwR8CiQh9WNHyk
+	RCmCN4vyFbYZkHGO1gmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qlzPB-006mbY-2U;
-	Thu, 28 Sep 2023 22:22:45 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1qm0Bm-006qpk-3C;
+	Thu, 28 Sep 2023 23:12:59 +0000
+Received: from mail-pg1-x535.google.com ([2607:f8b0:4864:20::535])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qlzOF-006mAS-0V
+	id 1qm0Bk-006qpP-0A
 	for linux-riscv@lists.infradead.org;
-	Thu, 28 Sep 2023 22:21:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1695939706;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=yJlZv5KfytnzZmRqZMI7mLTWvvegYQeNtr0CrdJHxrc=;
-	b=Ez/Uh1kmKg7MrjRNPCLulA36pOVjQ5gy+yOz1Jj2F1p7YDVNjgYUbnohzK5m8M6UMihyZI
-	5Nir5HLf1gp7t9/HQZBBB6HClzl4nxU3aSfeXGRqbjnDrAU/ebPMJyYLmqfB83zPhdfkUg
-	YN8894ftLye1JsVY6MxPTN61qhGbvyI=
-Received: from mail-io1-f69.google.com (mail-io1-f69.google.com
- [209.85.166.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-605-V1-3-q6DPsihTxaIA_NjRA-1; Thu, 28 Sep 2023 18:21:45 -0400
-X-MC-Unique: V1-3-q6DPsihTxaIA_NjRA-1
-Received: by mail-io1-f69.google.com with SMTP id ca18e2360f4ac-7919f80dfdcso1700863139f.3
-        for <linux-riscv@lists.infradead.org>; Thu, 28 Sep 2023 15:21:44 -0700 (PDT)
+	Thu, 28 Sep 2023 23:12:57 +0000
+Received: by mail-pg1-x535.google.com with SMTP id 41be03b00d2f7-5859b2eaa55so254009a12.1
+        for <linux-riscv@lists.infradead.org>; Thu, 28 Sep 2023 16:12:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1695942772; x=1696547572; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=abvznY10/Fe6b09wbHg5BDrZRwmwtAQnZLYNnlZNZAM=;
+        b=adtuXmEUKamNSNaP/YS3JUYbreAMZ5M+c2ItdlLQdpLUyPcS82OWwkAaY3c8Ty3tLq
+         PzARuwX/JZimJXKZFf+xgPZOUndHnY+5QzwumBqib2FD87U6siuMS9zOnbCO4c3JAc54
+         Rlk/xjbY/yuz9jhWSzXiUgMtPjZ84FEPYiZgh9YaX9eyJUJAa3xrCB+QfxVm6hzIQa8H
+         Ok7Jeo93JzxvR4tBYz2lYZrP+CHiwVFW16KO5MTnPNdjLAMxeflgLWPZcJlugUf3UdUv
+         Tlf3Ooc+z+b2oMskxAT+TnaKTr425xE5zNM5ud323e5pRd3dU40KzxlmnRNglrgvBsfM
+         03ag==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1695939704; x=1696544504;
-        h=content-transfer-encoding:mime-version:organization:references
-         :in-reply-to:message-id:subject:cc:to:from:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=yJlZv5KfytnzZmRqZMI7mLTWvvegYQeNtr0CrdJHxrc=;
-        b=PCgfVbj24C+/ONEtWR0cpxeC/9cxjdI+6zhJTia22M1LfaGf19oLPcXf6Qs2L2w2Ws
-         LNklHVWkJo+td05AyILPwhBL8R00iwuSAnrYSimbH1lNLHSlHEFf373Dr+GxDcSih4A+
-         8jwzHWNLvz5KY+z+ovZ4qH2VnTZU/3Db9XpN519NQDbYogLGr8KVbmosYTFxbAvwKzwZ
-         K/ZhLTtZmg1ymfLcJdso+h/VDuAZ+qxwEajix96FegT5+NR725k558xhZCPkDaHf+a7D
-         V+5YeJFczPcJlSn+mjJbu6Ua4LSLZz1BsIzYzgTjfQevOlWk0EXRVR6qf3PP+1m9iBiR
-         nYFA==
-X-Gm-Message-State: AOJu0YwdisKJLIArUpjLi7Rdw+guI9TW26MbZgy08a0GFxCJj+wG0aEa
-	Vp0/q1M1fMom6DtyFmsaS7YpNA8MPb2/yF1Nou2OF5ahfpz8Px2t0plqYYP8vPwAyl/30wFcu+S
-	E2flvKiBT2CdmllwR1KMwrsoCay44
-X-Received: by 2002:a5e:9e09:0:b0:795:8805:1378 with SMTP id i9-20020a5e9e09000000b0079588051378mr2451930ioq.9.1695939704273;
-        Thu, 28 Sep 2023 15:21:44 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGAEb9IDAtgYjj6uLy0BK3ZEot+uDPg45XlWdcKZXMCg89/F3JSTuwB2CMQYAcH0oVDsnNUFw==
-X-Received: by 2002:a5e:9e09:0:b0:795:8805:1378 with SMTP id i9-20020a5e9e09000000b0079588051378mr2451906ioq.9.1695939703976;
-        Thu, 28 Sep 2023 15:21:43 -0700 (PDT)
-Received: from redhat.com ([38.15.60.12])
-        by smtp.gmail.com with ESMTPSA id t23-20020a02c497000000b0042b10d42c90sm4610172jam.113.2023.09.28.15.21.41
+        d=1e100.net; s=20230601; t=1695942772; x=1696547572;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=abvznY10/Fe6b09wbHg5BDrZRwmwtAQnZLYNnlZNZAM=;
+        b=e5kr13W7bkRewx3COcXzjluVSqZcP4zNF6xtNzOzM/GApzusnLOM5JDo7qWPAWhcmQ
+         QWhOcOoNiSLaPaT40F5ZfICGXRwxCGjuVYe/6pDQGMs/XGkw7re4mSmesenntzd/bYLM
+         6STgRXnin3Tru+ckiFNfTSxajJoLv/CVrkLTMqJZrH8RTHo3gklBlo8ngki0JRKHDXtc
+         tIZF49AjSZUNwZV4cMaSORqbJY7UfuJ0GGqO1la0zxCYhttv7QKAj4wO8ZeNJfYcE3kS
+         otRpIq+lea/Hycq+e7RrTTs232ACflGyPwYn5LzKHC7pZnGuldQt3q6z55d2wbWo3VjN
+         Rmnw==
+X-Gm-Message-State: AOJu0Yz59DY8V1VmgtQjLCSool/NeYKJCYyO2BSCk6vx7BQHEy+UiqZL
+	7ovCV8e1Xbo8FGltetiZgG0=
+X-Google-Smtp-Source: AGHT+IFO5cRPZ8csZWghvSTk6pM7bsKvFnuuxXZVJkz4vWw+8JhNSdOtsLsuaND0x6X21eFtrGTaGg==
+X-Received: by 2002:a05:6a21:1f1c:b0:14c:ca25:3b53 with SMTP id ry28-20020a056a211f1c00b0014cca253b53mr2198937pzb.27.1695942772515;
+        Thu, 28 Sep 2023 16:12:52 -0700 (PDT)
+Received: from pek-lxu-l1.wrs.com ([111.198.228.56])
+        by smtp.gmail.com with ESMTPSA id cp14-20020a17090afb8e00b0026f39c90111sm83811pjb.20.2023.09.28.16.12.45
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 28 Sep 2023 15:21:42 -0700 (PDT)
-Date: Thu, 28 Sep 2023 16:21:05 -0600
-From: Alex Williamson <alex.williamson@redhat.com>
-To: Sean Christopherson <seanjc@google.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon
- <will@kernel.org>, Marc Zyngier <maz@kernel.org>, Oliver Upton
- <oliver.upton@linux.dev>, Huacai Chen <chenhuacai@kernel.org>, Michael
- Ellerman <mpe@ellerman.id.au>, Anup Patel <anup@brainfault.org>, Paul
- Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Heiko Carstens <hca@linux.ibm.com>,
- Vasily Gorbik <gor@linux.ibm.com>, Alexander Gordeev
- <agordeev@linux.ibm.com>, Christian Borntraeger
- <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, Claudio
- Imbrenda <imbrenda@linux.ibm.com>, Thomas Gleixner <tglx@linutronix.de>,
- Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen
- <dave.hansen@linux.intel.com>, x86@kernel.org, Peter Zijlstra
- <peterz@infradead.org>, Arnaldo Carvalho de Melo <acme@kernel.org>, Paolo
- Bonzini <pbonzini@redhat.com>, Tony Krowiak <akrowiak@linux.ibm.com>, Halil
- Pasic <pasic@linux.ibm.com>, Jason Herne <jjherne@linux.ibm.com>, Harald
- Freudenberger <freude@linux.ibm.com>, Andy Lutomirski <luto@kernel.org>,
- linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
- linux-mips@vger.kernel.org, kvm@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org, Anish
- Ghulati <aghulati@google.com>, Venkatesh Srinivas
- <venkateshs@chromium.org>, Andrew Thornton <andrewth@google.com>
-Subject: Re: [PATCH 02/26] vfio: Move KVM get/put helpers to colocate it
- with other KVM related code
-Message-ID: <20230928162105.2e347cd5.alex.williamson@redhat.com>
-In-Reply-To: <20230916003118.2540661-3-seanjc@google.com>
-References: <20230916003118.2540661-1-seanjc@google.com>
-	<20230916003118.2540661-3-seanjc@google.com>
-Organization: Red Hat
+        Thu, 28 Sep 2023 16:12:52 -0700 (PDT)
+From: Edward AD <twuufnxlz@gmail.com>
+To: alex@ghiti.fr
+Cc: alexghiti@rivosinc.com,
+	aou@eecs.berkeley.edu,
+	conor@kernel.org,
+	gregkh@linuxfoundation.org,
+	guoren@kernel.org,
+	jirislaby@kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-serial@vger.kernel.org,
+	liushixin2@huawei.com,
+	palmer@dabbelt.com,
+	paul.walmsley@sifive.com,
+	syzbot+8d2757d62d403b2d9275@syzkaller.appspotmail.com,
+	syzkaller-bugs@googlegroups.com,
+	twuufnxlz@gmail.com
+Subject: [PATCH] riscv: fix out of bounds in walk_stackframe
+Date: Fri, 29 Sep 2023 07:12:40 +0800
+Message-ID: <20230928231239.2144579-2-twuufnxlz@gmail.com>
+X-Mailer: git-send-email 2.42.0
+In-Reply-To: <f74665d1-4d28-01a2-5694-b06fde202d39@ghiti.fr>
+References: <f74665d1-4d28-01a2-5694-b06fde202d39@ghiti.fr>
 MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230928_152147_266165_6979C46E 
-X-CRM114-Status: GOOD (  19.22  )
+X-CRM114-CacheID: sfid-20230928_161256_092702_28910753 
+X-CRM114-Status: UNSURE (   8.94  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,144 +106,33 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 15 Sep 2023 17:30:54 -0700
-Sean Christopherson <seanjc@google.com> wrote:
+Add vmalloc and kernel addresses check to prevent invalid access.
 
-> Move the definitions of vfio_device_get_kvm_safe() and vfio_device_put_kvm()
-> down in vfio_main.c to colocate them with other KVM-specific functions,
-> e.g. to allow wrapping them all with a single CONFIG_KVM check.
-> 
-> Signed-off-by: Sean Christopherson <seanjc@google.com>
-> ---
->  drivers/vfio/vfio_main.c | 104 +++++++++++++++++++--------------------
->  1 file changed, 52 insertions(+), 52 deletions(-)
+Closes: https://lore.kernel.org/all/20230926105949.1025995-2-twuufnxlz@gmail.com/
+Fixes: 5d8544e2d007 ("RISC-V: Generic library routines and assembly")
+Reported-and-test-by: syzbot+8d2757d62d403b2d9275@syzkaller.appspotmail.com
+Link: https://lore.kernel.org/all/0000000000000170df0605ccf91a@google.com/T/
+Signed-off-by: Edward AD <twuufnxlz@gmail.com>
+---
+ arch/riscv/kernel/stacktrace.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
-
-Reviewed-by: Alex Williamson <alex.williamson@redhat.com>
-
- 
-> diff --git a/drivers/vfio/vfio_main.c b/drivers/vfio/vfio_main.c
-> index 80e39f7a6d8f..6368eed7b7b2 100644
-> --- a/drivers/vfio/vfio_main.c
-> +++ b/drivers/vfio/vfio_main.c
-> @@ -381,58 +381,6 @@ void vfio_unregister_group_dev(struct vfio_device *device)
->  }
->  EXPORT_SYMBOL_GPL(vfio_unregister_group_dev);
->  
-> -#if IS_ENABLED(CONFIG_KVM)
-> -void vfio_device_get_kvm_safe(struct vfio_device *device, struct kvm *kvm)
-> -{
-> -	void (*pfn)(struct kvm *kvm);
-> -	bool (*fn)(struct kvm *kvm);
-> -	bool ret;
-> -
-> -	lockdep_assert_held(&device->dev_set->lock);
-> -
-> -	if (!kvm)
-> -		return;
-> -
-> -	pfn = symbol_get(kvm_put_kvm);
-> -	if (WARN_ON(!pfn))
-> -		return;
-> -
-> -	fn = symbol_get(kvm_get_kvm_safe);
-> -	if (WARN_ON(!fn)) {
-> -		symbol_put(kvm_put_kvm);
-> -		return;
-> -	}
-> -
-> -	ret = fn(kvm);
-> -	symbol_put(kvm_get_kvm_safe);
-> -	if (!ret) {
-> -		symbol_put(kvm_put_kvm);
-> -		return;
-> -	}
-> -
-> -	device->put_kvm = pfn;
-> -	device->kvm = kvm;
-> -}
-> -
-> -void vfio_device_put_kvm(struct vfio_device *device)
-> -{
-> -	lockdep_assert_held(&device->dev_set->lock);
-> -
-> -	if (!device->kvm)
-> -		return;
-> -
-> -	if (WARN_ON(!device->put_kvm))
-> -		goto clear;
-> -
-> -	device->put_kvm(device->kvm);
-> -	device->put_kvm = NULL;
-> -	symbol_put(kvm_put_kvm);
-> -
-> -clear:
-> -	device->kvm = NULL;
-> -}
-> -#endif
-> -
->  /* true if the vfio_device has open_device() called but not close_device() */
->  static bool vfio_assert_device_open(struct vfio_device *device)
->  {
-> @@ -1354,6 +1302,58 @@ bool vfio_file_enforced_coherent(struct file *file)
->  }
->  EXPORT_SYMBOL_GPL(vfio_file_enforced_coherent);
->  
-> +#if IS_ENABLED(CONFIG_KVM)
-> +void vfio_device_get_kvm_safe(struct vfio_device *device, struct kvm *kvm)
-> +{
-> +	void (*pfn)(struct kvm *kvm);
-> +	bool (*fn)(struct kvm *kvm);
-> +	bool ret;
-> +
-> +	lockdep_assert_held(&device->dev_set->lock);
-> +
-> +	if (!kvm)
-> +		return;
-> +
-> +	pfn = symbol_get(kvm_put_kvm);
-> +	if (WARN_ON(!pfn))
-> +		return;
-> +
-> +	fn = symbol_get(kvm_get_kvm_safe);
-> +	if (WARN_ON(!fn)) {
-> +		symbol_put(kvm_put_kvm);
-> +		return;
-> +	}
-> +
-> +	ret = fn(kvm);
-> +	symbol_put(kvm_get_kvm_safe);
-> +	if (!ret) {
-> +		symbol_put(kvm_put_kvm);
-> +		return;
-> +	}
-> +
-> +	device->put_kvm = pfn;
-> +	device->kvm = kvm;
-> +}
-> +
-> +void vfio_device_put_kvm(struct vfio_device *device)
-> +{
-> +	lockdep_assert_held(&device->dev_set->lock);
-> +
-> +	if (!device->kvm)
-> +		return;
-> +
-> +	if (WARN_ON(!device->put_kvm))
-> +		goto clear;
-> +
-> +	device->put_kvm(device->kvm);
-> +	device->put_kvm = NULL;
-> +	symbol_put(kvm_put_kvm);
-> +
-> +clear:
-> +	device->kvm = NULL;
-> +}
-> +#endif
-> +
->  static void vfio_device_file_set_kvm(struct file *file, struct kvm *kvm)
->  {
->  	struct vfio_device_file *df = file->private_data;
+diff --git a/arch/riscv/kernel/stacktrace.c b/arch/riscv/kernel/stacktrace.c
+index 64a9c093aef9..031a4a35c1d0 100644
+--- a/arch/riscv/kernel/stacktrace.c
++++ b/arch/riscv/kernel/stacktrace.c
+@@ -54,6 +54,9 @@ void notrace walk_stackframe(struct task_struct *task, struct pt_regs *regs,
+ 			break;
+ 		/* Unwind stack frame */
+ 		frame = (struct stackframe *)fp - 1;
++		if ((is_vmalloc_addr(frame) && !pfn_valid(page_to_pfn(vmalloc_to_page(frame)))) || 
++		     !virt_addr_valid(frame))
++			break;
+ 		sp = fp;
+ 		if (regs && (regs->epc == pc) && (frame->fp & 0x7)) {
+ 			fp = frame->ra;
+-- 
+2.25.1
 
 
 _______________________________________________
