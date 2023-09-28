@@ -4,66 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11274E732FE
-	for <linux-riscv@archiver.kernel.org>; Thu, 28 Sep 2023 17:15:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5604EE743C8
+	for <linux-riscv@archiver.kernel.org>; Thu, 28 Sep 2023 22:21:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=C8BPD2NF0tP2haUov/QSgd0U65ctKxg5+AxFt8+c7Mk=; b=Vykxwtd54pK2dM
-	C2atdLTSdolPP7ep0Vj0CwoqW3GsEJT1ua5SkVmvM+a/sgQ2SHkYwngTjks4tJGNq2r9UdyPmHORE
-	OzsT7vO4XC3T+XvlvgeNTxk5pgO+Fp4wnEKwjZpF4uqSb9/tNUZCqx62+8W8DNwtL93r2kp4k+6VI
-	OOfe2P3tA8KqzVh4m8w/3BDQeh5vS/xDGbALNwtaTphQkw5Y5brOf0uFaOsH0I5cRkomlAr+UlwNm
-	kD6eOVU9eqAYd+6XrK/UW2oQwBFK4q6exNCOx1iLgt4vEVSClw1s2+3klLzNTVTxMlvojmsAJay/g
-	a+uoGjY6goQQ/qGSP6fQ==;
+	List-Owner; bh=F0DeH6W6BVaresseiZuINWE46TWzDkvm17iViN5zIEM=; b=q8jxJHJMf7M5+0
+	2zlNf8upLgHVsJdXPgi2vIKHKScIXxPaLNM/Vze05N2KZgKeoA8F1gZ9UdUQr3gQCLmIoF+BBbywu
+	ZFWWU1Q8Urq/qh35uoQ5oiBx0W2Me2y7V2IkWteET/uoHQOXNKQVksBPgxVVux6wXClJVG97k+zwC
+	3sdJJOpJQ0t+VS4bECLjWKNAZCa0akvC4S9DGwm5VMkxeJEf7FGgG+Hms+WUhIO4U/wd2momcDdru
+	9kMKu7OVHTrbH0TGtUfayEi1Xeu+MDc0HvjiMHmiNVW/qv1brpGMccVYd68soQnCiPbV7vD/AR8Jd
+	lavNKVxoT73Iv2GbHsnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qlubY-006PG8-1d;
-	Thu, 28 Sep 2023 17:15:12 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1qlzO6-006m3e-1l;
+	Thu, 28 Sep 2023 22:21:38 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qlubS-006PE0-2Y
+	id 1qlzO3-006m1I-10
 	for linux-riscv@lists.infradead.org;
-	Thu, 28 Sep 2023 17:15:09 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id D61F2CE2255;
-	Thu, 28 Sep 2023 17:15:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 48512C433CA;
-	Thu, 28 Sep 2023 17:15:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1695921303;
-	bh=olyEWQmGzq8JgN9soWmhAh/5NHdyqsbn7eAO552rmdM=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=GFLXSiYjK/AkNqiTZiJ31Rvfe6bRfXZkatvctuO5RUB5kORZp4wqP3UFGSFbVG3UP
-	 FIcXyrwzBB/GVYfhOAKRJs2X3hrmoCCeYqkiOJOirXqh8Qb1IIynGk37PEmwVtAVNH
-	 oz/sl76hWAnTmVBNjmYeeZv3WpBycdPPcX4aMQVpn7j65UeG1IPVbzllRidPbGR+Y8
-	 QnT5610SBdn6EnyUDTBHQ1KGrbTmlidNtJs0hn8FI1zlVd6s+cDGlnEYrkLHdkRm9t
-	 ix4L+B5v6bKvwRakNKaDeqJ5zehu7nKQekQa5KckLnn8VhEjZfOXsAxdCwAtmVKU0j
-	 Yjwx+fev4cwgw==
-From: Jisheng Zhang <jszhang@kernel.org>
-To: Thierry Reding <thierry.reding@gmail.com>,
-	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: linux-pwm@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Guo Ren <guoren@kernel.org>,
-	Fu Wei <wefu@redhat.com>,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH 2/2] pwm: add T-HEAD PWM driver
-Date: Fri, 29 Sep 2023 01:02:54 +0800
-Message-Id: <20230928170254.413-3-jszhang@kernel.org>
-X-Mailer: git-send-email 2.40.0
-In-Reply-To: <20230928170254.413-1-jszhang@kernel.org>
-References: <20230928170254.413-1-jszhang@kernel.org>
+	Thu, 28 Sep 2023 22:21:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1695939692;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=/l7DOL4i9eWpBdCSwTRJyugH/jLo/b6g4jXHDN7U+14=;
+	b=OCs1a95MPVDOSm0O5CL13JBtQ0GOMPpe7wYzVfjVCvZk1z6rBYZJdZym3UrL+UGZ4Z/6so
+	kyy+RYP3pi75BrxPaaptpZs069CK7fsL5GFlT661q9cSNOHy1ZpIYd2Y4tuLZEr01b4anb
+	OrHLlXaYfKTHqC7uLKgZBFhpTDwm8zs=
+Received: from mail-il1-f198.google.com (mail-il1-f198.google.com
+ [209.85.166.198]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-124-rOw3NspGNiWb9kachAJTxw-1; Thu, 28 Sep 2023 18:21:31 -0400
+X-MC-Unique: rOw3NspGNiWb9kachAJTxw-1
+Received: by mail-il1-f198.google.com with SMTP id e9e14a558f8ab-3516579e7f7so29990975ab.3
+        for <linux-riscv@lists.infradead.org>; Thu, 28 Sep 2023 15:21:31 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1695939690; x=1696544490;
+        h=content-transfer-encoding:mime-version:organization:references
+         :in-reply-to:message-id:subject:cc:to:from:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=/l7DOL4i9eWpBdCSwTRJyugH/jLo/b6g4jXHDN7U+14=;
+        b=UeMw1RJEl2Z3a6dT4bAocyQsJzrfwGAx+KZhEibUnYr4VpDUyJo8AKnRPbhlgOylim
+         fXyPwHmrvL/o8VseK8yxPj9n9d7F2DMS0BB0dw6jeqNLH4esQM/AVoBOydtyln1BhYie
+         4Tgcf955itVX08Cd2xmMVPku6RyFZvSWQXY4iAb5DiSlyISkiM3gKPWogV5kVF2AX/aY
+         3fXUMajUxkevkCq2tjtf/WkcoAoSXKTNJoXg7kB8j3va6JkOp3emSrmgPl9mmdgbjdmH
+         yeC35QrXVQs6xkK7TSuKNmV9kLgnIoMfoZHQn4Q+Uj1TUhoXQplwvsDeffUjYUT+rkq1
+         1bFQ==
+X-Gm-Message-State: AOJu0YyTQFGciQAKwi4ODYb+DOr7wOz3o9WF5Ox/Cy/Jg0RIzeeZJGFV
+	uHawhjGM2JsKdy5SesmcgpiwIoTwqoQ5M/ezfVQjScFoF660hLZ3juYCvdVGY3hAH2pY+D8/q2T
+	AYm5LH6q80Duqm1MHErqQDoG3ubHS
+X-Received: by 2002:a05:6e02:1809:b0:34f:ed76:7db8 with SMTP id a9-20020a056e02180900b0034fed767db8mr3391336ilv.26.1695939690611;
+        Thu, 28 Sep 2023 15:21:30 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IFOH5tZZiZuKh+d30ZefE58SY4OZ2k4eRgPtsp2uogyFxnPRFAQcoCds5f0KJfUDnAzkmiCTw==
+X-Received: by 2002:a05:6e02:1809:b0:34f:ed76:7db8 with SMTP id a9-20020a056e02180900b0034fed767db8mr3391301ilv.26.1695939690276;
+        Thu, 28 Sep 2023 15:21:30 -0700 (PDT)
+Received: from redhat.com ([38.15.60.12])
+        by smtp.gmail.com with ESMTPSA id t23-20020a02c497000000b0042b10d42c90sm4610172jam.113.2023.09.28.15.21.27
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 28 Sep 2023 15:21:28 -0700 (PDT)
+Date: Thu, 28 Sep 2023 16:21:08 -0600
+From: Alex Williamson <alex.williamson@redhat.com>
+To: Sean Christopherson <seanjc@google.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon
+ <will@kernel.org>, Marc Zyngier <maz@kernel.org>, Oliver Upton
+ <oliver.upton@linux.dev>, Huacai Chen <chenhuacai@kernel.org>, Michael
+ Ellerman <mpe@ellerman.id.au>, Anup Patel <anup@brainfault.org>, Paul
+ Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Heiko Carstens <hca@linux.ibm.com>,
+ Vasily Gorbik <gor@linux.ibm.com>, Alexander Gordeev
+ <agordeev@linux.ibm.com>, Christian Borntraeger
+ <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, Claudio
+ Imbrenda <imbrenda@linux.ibm.com>, Thomas Gleixner <tglx@linutronix.de>,
+ Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen
+ <dave.hansen@linux.intel.com>, x86@kernel.org, Peter Zijlstra
+ <peterz@infradead.org>, Arnaldo Carvalho de Melo <acme@kernel.org>, Paolo
+ Bonzini <pbonzini@redhat.com>, Tony Krowiak <akrowiak@linux.ibm.com>, Halil
+ Pasic <pasic@linux.ibm.com>, Jason Herne <jjherne@linux.ibm.com>, Harald
+ Freudenberger <freude@linux.ibm.com>, Andy Lutomirski <luto@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+ linux-mips@vger.kernel.org, kvm@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org, Anish
+ Ghulati <aghulati@google.com>, Venkatesh Srinivas
+ <venkateshs@chromium.org>, Andrew Thornton <andrewth@google.com>
+Subject: Re: [PATCH 04/26] vfio: Add struct to hold KVM assets and dedup
+ group vs. iommufd code
+Message-ID: <20230928162108.3fdd73bf.alex.williamson@redhat.com>
+In-Reply-To: <20230916003118.2540661-5-seanjc@google.com>
+References: <20230916003118.2540661-1-seanjc@google.com>
+	<20230916003118.2540661-5-seanjc@google.com>
+Organization: Red Hat
 MIME-Version: 1.0
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230928_101507_235791_23DFBB9E 
-X-CRM114-Status: GOOD (  24.60  )
+X-CRM114-CacheID: sfid-20230928_152135_448375_66500721 
+X-CRM114-Status: GOOD (  30.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,362 +123,278 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T-HEAD SoCs such as the TH1520 contain a PWM controller used
-among other things to control the LCD backlight, fan and so on.
-Add driver for it.
+On Fri, 15 Sep 2023 17:30:56 -0700
+Sean Christopherson <seanjc@google.com> wrote:
 
-Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
----
- MAINTAINERS             |   1 +
- drivers/pwm/Kconfig     |  11 ++
- drivers/pwm/Makefile    |   1 +
- drivers/pwm/pwm-thead.c | 289 ++++++++++++++++++++++++++++++++++++++++
- 4 files changed, 302 insertions(+)
- create mode 100644 drivers/pwm/pwm-thead.c
+> Add a struct to hold the KVM assets need to manage and pass along KVM
+> references to VFIO devices.  Providing a common struct deduplicates the
+> group vs. iommufd code, and will make it easier to rework the attachment
+> logic so that VFIO doesn't have to do a symbol lookup to retrieve the
+> get/put helpers from KVM.
+> 
+> Signed-off-by: Sean Christopherson <seanjc@google.com>
+> ---
+>  drivers/vfio/device_cdev.c |  9 +-------
+>  drivers/vfio/group.c       | 18 ++--------------
+>  drivers/vfio/vfio.h        | 22 +++++++++----------
+>  drivers/vfio/vfio_main.c   | 43 +++++++++++++++++++++++++++-----------
+>  4 files changed, 45 insertions(+), 47 deletions(-)
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index d55e40060c46..86cf0926dbfc 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -18482,6 +18482,7 @@ L:	linux-riscv@lists.infradead.org
- S:	Maintained
- F:	arch/riscv/boot/dts/thead/
- F:	drivers/usb/dwc3/dwc3-thead.c
-+F:	drivers/pwm/pwm-thead.c
+
+Reviewed-by: Alex Williamson <alex.williamson@redhat.com>
+
  
- RNBD BLOCK DRIVERS
- M:	Md. Haris Iqbal <haris.iqbal@ionos.com>
-diff --git a/drivers/pwm/Kconfig b/drivers/pwm/Kconfig
-index 8ebcddf91f7b..428fa365a19a 100644
---- a/drivers/pwm/Kconfig
-+++ b/drivers/pwm/Kconfig
-@@ -637,6 +637,17 @@ config PWM_TEGRA
- 	  To compile this driver as a module, choose M here: the module
- 	  will be called pwm-tegra.
- 
-+config PWM_THEAD
-+	tristate "T-HEAD PWM support"
-+	depends on ARCH_THEAD || COMPILE_TEST
-+	depends on HAS_IOMEM
-+	help
-+	  Generic PWM framework driver for the PWFM controller found on THEAD
-+	  SoCs.
-+
-+	  To compile this driver as a module, choose M here: the module
-+	  will be called pwm-thead.
-+
- config PWM_TIECAP
- 	tristate "ECAP PWM support"
- 	depends on ARCH_OMAP2PLUS || ARCH_DAVINCI_DA8XX || ARCH_KEYSTONE || ARCH_K3 || COMPILE_TEST
-diff --git a/drivers/pwm/Makefile b/drivers/pwm/Makefile
-index c822389c2a24..4c317e6316e8 100644
---- a/drivers/pwm/Makefile
-+++ b/drivers/pwm/Makefile
-@@ -59,6 +59,7 @@ obj-$(CONFIG_PWM_STMPE)		+= pwm-stmpe.o
- obj-$(CONFIG_PWM_SUN4I)		+= pwm-sun4i.o
- obj-$(CONFIG_PWM_SUNPLUS)	+= pwm-sunplus.o
- obj-$(CONFIG_PWM_TEGRA)		+= pwm-tegra.o
-+obj-$(CONFIG_PWM_THEAD)		+= pwm-thead.o
- obj-$(CONFIG_PWM_TIECAP)	+= pwm-tiecap.o
- obj-$(CONFIG_PWM_TIEHRPWM)	+= pwm-tiehrpwm.o
- obj-$(CONFIG_PWM_TWL)		+= pwm-twl.o
-diff --git a/drivers/pwm/pwm-thead.c b/drivers/pwm/pwm-thead.c
-new file mode 100644
-index 000000000000..8339f5617b6f
---- /dev/null
-+++ b/drivers/pwm/pwm-thead.c
-@@ -0,0 +1,289 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * T-HEAD PWM driver
-+ *
-+ * Copyright (C) 2021 Alibaba Group Holding Limited.
-+ */
-+
-+#include <linux/bitfield.h>
-+#include <linux/bitops.h>
-+#include <linux/clk.h>
-+#include <linux/delay.h>
-+#include <linux/err.h>
-+#include <linux/io.h>
-+#include <linux/kernel.h>
-+#include <linux/module.h>
-+#include <linux/of.h>
-+#include <linux/of_device.h>
-+#include <linux/platform_device.h>
-+#include <linux/pm_runtime.h>
-+#include <linux/pwm.h>
-+#include <linux/slab.h>
-+
-+#define MAX_PWM_NUM	6
-+
-+#define LIGHT_PWM_CHN_BASE(n)		((n) * 0x20)
-+#define LIGHT_PWM_CTRL(n)		(LIGHT_PWM_CHN_BASE(n) + 0x00)
-+#define LIGHT_PWM_RPT(n)		(LIGHT_PWM_CHN_BASE(n) + 0x04)
-+#define LIGHT_PWM_PER(n)		(LIGHT_PWM_CHN_BASE(n) + 0x08)
-+#define LIGHT_PWM_FP(n)			(LIGHT_PWM_CHN_BASE(n) + 0x0c)
-+#define LIGHT_PWM_STATUS(n)		(LIGHT_PWM_CHN_BASE(n) + 0x10)
-+
-+/* bit definition PWM_CTRL */
-+#define PWM_START				BIT(0)
-+#define PWM_SOFT_RST				BIT(1)
-+#define PWM_CFG_UPDATE				BIT(2)
-+#define PWM_INT_EN				BIT(3)
-+#define PWM_ONE_SHOT_MODE			BIT(4)
-+#define PWM_CONTINUOUS_MODE			BIT(5)
-+#define PWM_EVT_RISING_TRIG_UNDER_ONE_SHOT	BIT(6)
-+#define PWM_EVT_FALLING_TRIG_UNDER_ONE_SHOT	BIT(7)
-+#define PWM_FPOUT				BIT(8)
-+#define PWM_INFACTOUT				BIT(9)
-+
-+struct thead_pwm_chip {
-+	struct clk *clk;
-+	void __iomem *mmio_base;
-+	struct pwm_chip chip;
-+};
-+
-+#define to_thead_pwm_chip(chip)		container_of(chip, struct thead_pwm_chip, chip)
-+
-+static int thead_pwm_clk_prepare_enable(struct thead_pwm_chip *pc)
-+{
-+	return clk_prepare_enable(pc->clk);
-+}
-+
-+static void thead_pwm_clk_disable_unprepare(struct thead_pwm_chip *pc)
-+{
-+	clk_disable_unprepare(pc->clk);
-+}
-+
-+static int thead_pwm_enable(struct pwm_chip *chip, struct pwm_device *pwm)
-+{
-+	struct thead_pwm_chip *pc = to_thead_pwm_chip(chip);
-+	u32 value;
-+	int ret;
-+
-+	ret = pm_runtime_get_sync(chip->dev);
-+	if (ret < 0) {
-+		dev_err(chip->dev, "failed to clock on the pwm device(%d)\n", ret);
-+		return ret;
-+	}
-+
-+	value = readl(pc->mmio_base + LIGHT_PWM_CTRL(pwm->hwpwm));
-+	value |= PWM_START;
-+	writel(value, pc->mmio_base + LIGHT_PWM_CTRL(pwm->hwpwm));
-+
-+	return 0;
-+}
-+
-+static void thead_pwm_disable(struct pwm_chip *chip, struct pwm_device *pwm)
-+{
-+	struct thead_pwm_chip *pc = to_thead_pwm_chip(chip);
-+	u32 value;
-+
-+	value = readl(pc->mmio_base + LIGHT_PWM_CTRL(pwm->hwpwm));
-+	value &= ~PWM_START;
-+	writel(value, pc->mmio_base + LIGHT_PWM_CTRL(pwm->hwpwm));
-+
-+	pm_runtime_put_sync(chip->dev);
-+}
-+
-+static int thead_pwm_config(struct pwm_chip *chip, struct pwm_device *pwm,
-+			    int duty_ns, int period_ns)
-+{
-+	struct thead_pwm_chip *pc = to_thead_pwm_chip(chip);
-+	unsigned long rate = clk_get_rate(pc->clk);
-+	unsigned long duty_cycle, period_cycle;
-+	u32 pwm_cfg = PWM_INFACTOUT | PWM_FPOUT | PWM_CONTINUOUS_MODE | PWM_INT_EN;
-+	int ret;
-+
-+	if (duty_ns > period_ns) {
-+		dev_err(chip->dev, "invalid pwm configure\n");
-+		return -EINVAL;
-+	}
-+
-+	ret = pm_runtime_get_sync(chip->dev);
-+	if (ret < 0) {
-+		dev_err(chip->dev, "failed to clock on the pwm device(%d)\n", ret);
-+		return ret;
-+	}
-+
-+	writel(pwm_cfg, pc->mmio_base + LIGHT_PWM_CTRL(pwm->hwpwm));
-+
-+	period_cycle = period_ns * rate;
-+	do_div(period_cycle, NSEC_PER_SEC);
-+	writel(period_cycle, pc->mmio_base + LIGHT_PWM_PER(pwm->hwpwm));
-+
-+	duty_cycle = duty_ns * rate;
-+	do_div(duty_cycle, NSEC_PER_SEC);
-+	writel(duty_cycle, pc->mmio_base + LIGHT_PWM_FP(pwm->hwpwm));
-+
-+	pwm_cfg = readl(pc->mmio_base + LIGHT_PWM_CTRL(pwm->hwpwm));
-+	pwm_cfg |= PWM_CFG_UPDATE;
-+	writel(pwm_cfg, pc->mmio_base + LIGHT_PWM_CTRL(pwm->hwpwm));
-+
-+	pm_runtime_put_sync(chip->dev);
-+
-+	return 0;
-+}
-+
-+static int thead_pwm_set_polarity(struct pwm_chip *chip,
-+				  struct pwm_device *pwm,
-+				  enum pwm_polarity polarity)
-+{
-+	struct thead_pwm_chip *pc = to_thead_pwm_chip(chip);
-+	u32 value = readl(pc->mmio_base + LIGHT_PWM_CTRL(pwm->hwpwm));
-+	int ret;
-+
-+	ret = pm_runtime_get_sync(chip->dev);
-+	if (ret < 0) {
-+		dev_err(chip->dev, "failed to clock on the pwm device(%d)\n", ret);
-+		return ret;
-+	}
-+
-+	if (polarity == PWM_POLARITY_NORMAL)
-+		value |= PWM_FPOUT;
-+	else
-+		value &= ~PWM_FPOUT;
-+
-+	writel(value, pc->mmio_base + LIGHT_PWM_CTRL(pwm->hwpwm));
-+
-+	pm_runtime_put_sync(chip->dev);
-+
-+	return 0;
-+}
-+
-+static int thead_pwm_apply(struct pwm_chip *chip, struct pwm_device *pwm,
-+			   const struct pwm_state *state)
-+{
-+	int err;
-+	bool enabled = pwm->state.enabled;
-+
-+	if (state->polarity != pwm->state.polarity)
-+		thead_pwm_set_polarity(chip, pwm, state->polarity);
-+
-+	if (!state->enabled) {
-+		if (enabled)
-+			thead_pwm_disable(chip, pwm);
-+		return 0;
-+	}
-+
-+	err = thead_pwm_config(chip, pwm, state->duty_cycle, state->period);
-+	if (err)
-+		return err;
-+
-+	if (!enabled)
-+		return thead_pwm_enable(chip, pwm);
-+
-+	return 0;
-+}
-+
-+static const struct pwm_ops thead_pwm_ops = {
-+	.apply = thead_pwm_apply,
-+	.owner = THIS_MODULE,
-+};
-+
-+static int __maybe_unused thead_pwm_runtime_suspend(struct device *dev)
-+{
-+	struct thead_pwm_chip *pc = dev_get_drvdata(dev);
-+
-+	thead_pwm_clk_disable_unprepare(pc);
-+
-+	return 0;
-+}
-+
-+static int __maybe_unused thead_pwm_runtime_resume(struct device *dev)
-+{
-+	struct thead_pwm_chip *pc = dev_get_drvdata(dev);
-+	int ret;
-+
-+	ret = thead_pwm_clk_prepare_enable(pc);
-+	if (ret) {
-+		dev_err(dev, "failed to enable pwm clock(%d)\n", ret);
-+		return ret;
-+	}
-+
-+	return 0;
-+}
-+
-+static int thead_pwm_probe(struct platform_device *pdev)
-+{
-+	struct thead_pwm_chip *pc;
-+	int ret;
-+
-+	pc = devm_kzalloc(&pdev->dev, sizeof(*pc), GFP_KERNEL);
-+	if (!pc)
-+		return -ENOMEM;
-+
-+	platform_set_drvdata(pdev, pc);
-+
-+	pc->mmio_base = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(pc->mmio_base))
-+		return PTR_ERR(pc->mmio_base);
-+
-+	pc->clk = devm_clk_get(&pdev->dev, NULL);
-+	if (IS_ERR(pc->clk))
-+		return PTR_ERR(pc->clk);
-+
-+	pm_runtime_enable(&pdev->dev);
-+	pm_runtime_get_noresume(&pdev->dev);
-+	ret = thead_pwm_clk_prepare_enable(pc);
-+	if (ret) {
-+		dev_err(&pdev->dev, "failed to enable pwm clock(%d)\n", ret);
-+		goto err_pm_disable;
-+	}
-+
-+	pc->chip.ops = &thead_pwm_ops;
-+	pc->chip.dev = &pdev->dev;
-+	pc->chip.npwm = MAX_PWM_NUM;
-+
-+	ret = pwmchip_add(&pc->chip);
-+	if (ret)
-+		goto err_clk_disable;
-+
-+	pm_runtime_put(&pdev->dev);
-+
-+	return 0;
-+
-+err_clk_disable:
-+	thead_pwm_clk_disable_unprepare(pc);
-+err_pm_disable:
-+	pm_runtime_disable(&pdev->dev);
-+	return ret;
-+}
-+
-+static void thead_pwm_remove(struct platform_device *pdev)
-+{
-+	struct thead_pwm_chip *pc = platform_get_drvdata(pdev);
-+
-+	pm_runtime_disable(&pdev->dev);
-+	thead_pwm_clk_disable_unprepare(pc);
-+	pwmchip_remove(&pc->chip);
-+}
-+
-+static const struct of_device_id thead_pwm_dt_ids[] = {
-+	{.compatible = "thead,th1520-pwm",},
-+	{/* sentinel */}
-+};
-+
-+static const struct dev_pm_ops thead_pwm_pm_ops = {
-+	SET_RUNTIME_PM_OPS(thead_pwm_runtime_suspend, thead_pwm_runtime_resume, NULL)
-+};
-+
-+static struct platform_driver thead_pwm_driver = {
-+	.driver = {
-+		.name = "thead-pwm",
-+		.of_match_table = thead_pwm_dt_ids,
-+		.pm = &thead_pwm_pm_ops,
-+	},
-+	.probe = thead_pwm_probe,
-+	.remove_new = thead_pwm_remove,
-+};
-+module_platform_driver(thead_pwm_driver);
-+
-+MODULE_AUTHOR("wei.liu <lw312886@linux.alibaba.com>");
-+MODULE_AUTHOR("Jisheng Zhang <jszhang@kernel.org>");
-+MODULE_DESCRIPTION("T-HEAD pwm driver");
-+MODULE_LICENSE("GPL v2");
--- 
-2.40.1
+> diff --git a/drivers/vfio/device_cdev.c b/drivers/vfio/device_cdev.c
+> index e75da0a70d1f..e484d6d6400a 100644
+> --- a/drivers/vfio/device_cdev.c
+> +++ b/drivers/vfio/device_cdev.c
+> @@ -46,13 +46,6 @@ int vfio_device_fops_cdev_open(struct inode *inode, struct file *filep)
+>  	return ret;
+>  }
+>  
+> -static void vfio_df_get_kvm_safe(struct vfio_device_file *df)
+> -{
+> -	spin_lock(&df->kvm_ref_lock);
+> -	vfio_device_get_kvm_safe(df->device, df->kvm);
+> -	spin_unlock(&df->kvm_ref_lock);
+> -}
+> -
+>  long vfio_df_ioctl_bind_iommufd(struct vfio_device_file *df,
+>  				struct vfio_device_bind_iommufd __user *arg)
+>  {
+> @@ -99,7 +92,7 @@ long vfio_df_ioctl_bind_iommufd(struct vfio_device_file *df,
+>  	 * a reference.  This reference is held until device closed.
+>  	 * Save the pointer in the device for use by drivers.
+>  	 */
+> -	vfio_df_get_kvm_safe(df);
+> +	vfio_device_get_kvm_safe(df->device, &df->kvm_ref);
+>  
+>  	ret = vfio_df_open(df);
+>  	if (ret)
+> diff --git a/drivers/vfio/group.c b/drivers/vfio/group.c
+> index 610a429c6191..756e47ff4cf0 100644
+> --- a/drivers/vfio/group.c
+> +++ b/drivers/vfio/group.c
+> @@ -157,13 +157,6 @@ static int vfio_group_ioctl_set_container(struct vfio_group *group,
+>  	return ret;
+>  }
+>  
+> -static void vfio_device_group_get_kvm_safe(struct vfio_device *device)
+> -{
+> -	spin_lock(&device->group->kvm_ref_lock);
+> -	vfio_device_get_kvm_safe(device, device->group->kvm);
+> -	spin_unlock(&device->group->kvm_ref_lock);
+> -}
+> -
+>  static int vfio_df_group_open(struct vfio_device_file *df)
+>  {
+>  	struct vfio_device *device = df->device;
+> @@ -184,7 +177,7 @@ static int vfio_df_group_open(struct vfio_device_file *df)
+>  	 * the pointer in the device for use by drivers.
+>  	 */
+>  	if (device->open_count == 0)
+> -		vfio_device_group_get_kvm_safe(device);
+> +		vfio_device_get_kvm_safe(device, &device->group->kvm_ref);
+>  
+>  	df->iommufd = device->group->iommufd;
+>  	if (df->iommufd && vfio_device_is_noiommu(device) && device->open_count == 0) {
+> @@ -560,7 +553,7 @@ static struct vfio_group *vfio_group_alloc(struct iommu_group *iommu_group,
+>  
+>  	refcount_set(&group->drivers, 1);
+>  	mutex_init(&group->group_lock);
+> -	spin_lock_init(&group->kvm_ref_lock);
+> +	spin_lock_init(&group->kvm_ref.lock);
+>  	INIT_LIST_HEAD(&group->device_list);
+>  	mutex_init(&group->device_lock);
+>  	group->iommu_group = iommu_group;
+> @@ -884,13 +877,6 @@ bool vfio_group_enforced_coherent(struct vfio_group *group)
+>  	return ret;
+>  }
+>  
+> -void vfio_group_set_kvm(struct vfio_group *group, struct kvm *kvm)
+> -{
+> -	spin_lock(&group->kvm_ref_lock);
+> -	group->kvm = kvm;
+> -	spin_unlock(&group->kvm_ref_lock);
+> -}
+> -
+>  /**
+>   * vfio_file_has_dev - True if the VFIO file is a handle for device
+>   * @file: VFIO file to check
+> diff --git a/drivers/vfio/vfio.h b/drivers/vfio/vfio.h
+> index c26d1ad68105..a1f741365075 100644
+> --- a/drivers/vfio/vfio.h
+> +++ b/drivers/vfio/vfio.h
+> @@ -12,18 +12,23 @@
+>  #include <linux/module.h>
+>  #include <linux/vfio.h>
+>  
+> +struct kvm;
+>  struct iommufd_ctx;
+>  struct iommu_group;
+>  struct vfio_container;
+>  
+> +struct vfio_kvm_reference {
+> +	struct kvm			*kvm;
+> +	spinlock_t			lock;
+> +};
+> +
+>  struct vfio_device_file {
+>  	struct vfio_device *device;
+>  	struct vfio_group *group;
+>  
+>  	u8 access_granted;
+>  	u32 devid; /* only valid when iommufd is valid */
+> -	spinlock_t kvm_ref_lock; /* protect kvm field */
+> -	struct kvm *kvm;
+> +	struct vfio_kvm_reference kvm_ref;
+>  	struct iommufd_ctx *iommufd; /* protected by struct vfio_device_set::lock */
+>  };
+>  
+> @@ -88,11 +93,10 @@ struct vfio_group {
+>  #endif
+>  	enum vfio_group_type		type;
+>  	struct mutex			group_lock;
+> -	struct kvm			*kvm;
+> +	struct vfio_kvm_reference	kvm_ref;
+>  	struct file			*opened_file;
+>  	struct blocking_notifier_head	notifier;
+>  	struct iommufd_ctx		*iommufd;
+> -	spinlock_t			kvm_ref_lock;
+>  	unsigned int			cdev_device_open_cnt;
+>  };
+>  
+> @@ -108,7 +112,6 @@ void vfio_device_group_unuse_iommu(struct vfio_device *device);
+>  void vfio_df_group_close(struct vfio_device_file *df);
+>  struct vfio_group *vfio_group_from_file(struct file *file);
+>  bool vfio_group_enforced_coherent(struct vfio_group *group);
+> -void vfio_group_set_kvm(struct vfio_group *group, struct kvm *kvm);
+>  bool vfio_device_has_container(struct vfio_device *device);
+>  int __init vfio_group_init(void);
+>  void vfio_group_cleanup(void);
+> @@ -171,10 +174,6 @@ static inline bool vfio_group_enforced_coherent(struct vfio_group *group)
+>  	return true;
+>  }
+>  
+> -static inline void vfio_group_set_kvm(struct vfio_group *group, struct kvm *kvm)
+> -{
+> -}
+> -
+>  static inline bool vfio_device_has_container(struct vfio_device *device)
+>  {
+>  	return false;
+> @@ -435,11 +434,12 @@ static inline void vfio_virqfd_exit(void)
+>  #endif
+>  
+>  #if IS_ENABLED(CONFIG_KVM)
+> -void vfio_device_get_kvm_safe(struct vfio_device *device, struct kvm *kvm);
+> +void vfio_device_get_kvm_safe(struct vfio_device *device,
+> +			      struct vfio_kvm_reference *ref);
+>  void vfio_device_put_kvm(struct vfio_device *device);
+>  #else
+>  static inline void vfio_device_get_kvm_safe(struct vfio_device *device,
+> -					    struct kvm *kvm)
+> +					    struct vfio_kvm_reference *ref)
+>  {
+>  }
+>  
+> diff --git a/drivers/vfio/vfio_main.c b/drivers/vfio/vfio_main.c
+> index 124cc88966a7..e77e8c6aae2f 100644
+> --- a/drivers/vfio/vfio_main.c
+> +++ b/drivers/vfio/vfio_main.c
+> @@ -397,7 +397,7 @@ vfio_allocate_device_file(struct vfio_device *device)
+>  		return ERR_PTR(-ENOMEM);
+>  
+>  	df->device = device;
+> -	spin_lock_init(&df->kvm_ref_lock);
+> +	spin_lock_init(&df->kvm_ref.lock);
+>  
+>  	return df;
+>  }
+> @@ -1303,7 +1303,8 @@ bool vfio_file_enforced_coherent(struct file *file)
+>  EXPORT_SYMBOL_GPL(vfio_file_enforced_coherent);
+>  
+>  #if IS_ENABLED(CONFIG_KVM)
+> -void vfio_device_get_kvm_safe(struct vfio_device *device, struct kvm *kvm)
+> +void vfio_device_get_kvm_safe(struct vfio_device *device,
+> +			      struct vfio_kvm_reference *ref)
+>  {
+>  	void (*pfn)(struct kvm *kvm);
+>  	bool (*fn)(struct kvm *kvm);
+> @@ -1311,28 +1312,33 @@ void vfio_device_get_kvm_safe(struct vfio_device *device, struct kvm *kvm)
+>  
+>  	lockdep_assert_held(&device->dev_set->lock);
+>  
+> -	if (!kvm)
+> -		return;
+> +	spin_lock(&ref->lock);
+> +
+> +	if (!ref->kvm)
+> +		goto out;
+>  
+>  	pfn = symbol_get(kvm_put_kvm);
+>  	if (WARN_ON(!pfn))
+> -		return;
+> +		goto out;
+>  
+>  	fn = symbol_get(kvm_get_kvm_safe);
+>  	if (WARN_ON(!fn)) {
+>  		symbol_put(kvm_put_kvm);
+> -		return;
+> +		goto out;
+>  	}
+>  
+> -	ret = fn(kvm);
+> +	ret = fn(ref->kvm);
+>  	symbol_put(kvm_get_kvm_safe);
+>  	if (!ret) {
+>  		symbol_put(kvm_put_kvm);
+> -		return;
+> +		goto out;
+>  	}
+>  
+>  	device->put_kvm = pfn;
+> -	device->kvm = kvm;
+> +	device->kvm = ref->kvm;
+> +
+> +out:
+> +	spin_unlock(&ref->lock);
+>  }
+>  
+>  void vfio_device_put_kvm(struct vfio_device *device)
+> @@ -1353,6 +1359,21 @@ void vfio_device_put_kvm(struct vfio_device *device)
+>  	device->kvm = NULL;
+>  }
+>  
+> +static void vfio_device_set_kvm(struct vfio_kvm_reference *ref,
+> +				struct kvm *kvm)
+> +{
+> +	spin_lock(&ref->lock);
+> +	ref->kvm = kvm;
+> +	spin_unlock(&ref->lock);
+> +}
+> +
+> +static void vfio_group_set_kvm(struct vfio_group *group, struct kvm *kvm)
+> +{
+> +#if IS_ENABLED(CONFIG_VFIO_GROUP)
+> +	vfio_device_set_kvm(&group->kvm_ref, kvm);
+> +#endif
+> +}
+> +
+>  static void vfio_device_file_set_kvm(struct file *file, struct kvm *kvm)
+>  {
+>  	struct vfio_device_file *df = file->private_data;
+> @@ -1362,9 +1383,7 @@ static void vfio_device_file_set_kvm(struct file *file, struct kvm *kvm)
+>  	 * be propagated to vfio_device::kvm when the file is bound to
+>  	 * iommufd successfully in the vfio device cdev path.
+>  	 */
+> -	spin_lock(&df->kvm_ref_lock);
+> -	df->kvm = kvm;
+> -	spin_unlock(&df->kvm_ref_lock);
+> +	vfio_device_set_kvm(&df->kvm_ref, kvm);
+>  }
+>  
+>  /**
 
 
 _______________________________________________
