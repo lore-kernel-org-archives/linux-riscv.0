@@ -4,63 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 480E1E732C7
-	for <linux-riscv@archiver.kernel.org>; Thu, 28 Sep 2023 12:33:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76D49E732DE
+	for <linux-riscv@archiver.kernel.org>; Thu, 28 Sep 2023 14:40:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NB31HF3NbTaHtp2by0JbPFVNsNaS1EJsKHPqfXpA1Ts=; b=DxFTX59z4fggTo
-	N4Jthuo0nSLx8IMyzSFn/lNj725sXl8Seh0pCEDohgVc2AwvSieTo1/EWKKmkz2pB5OuFbUEbjLlb
-	9a72qXGsVAFD2JNS+AmIJkvD9Upn5DrkiYVOCUQ/lndM6iuH/W3tNNqr1MQyjBoxU/HW/KSzwsc01
-	gfnhbR+PSmx1eXwDf2SjgUHsIyYpSTz8yHuhHw7ERKZgarC0xDLT0q3RESz2JkzjX44C5QowLLAjK
-	0n33IjCGqX0SECnne8vwC/zDiKQKknYNAAcWl5hzeOMBite2IJqTwNAoX00QdsYiqYsIm/Kd7vKxg
-	hLdxgZ4Gb+rxxl6Pp7Wg==;
+	List-Owner; bh=+jE9mCW6topsMPoOzfFqJKeyLFNB7uFNCRiVTNkJMAw=; b=hmlg10Q+klbdm2
+	otBjpzab+xf7ROkKNXtzWVKTYRh3k1o94iliGi2cQCw9UvAnGITROBaSXsUNxuQ2aGMW2x3CBZl/U
+	R40Zz3tIU7gqek/ZLXpmvUKB1SbD7VCrk1b5/76g2H+pLAXEGKKUIR64IiZXpdb0w8kNH1y0BZNFv
+	MhHuA+lUs7IyjZ1O/log/+qgx2q5zvaCspdyUVuebyZv0rTNk8aZD3U8Un5n1TSSOZEEdzKZV3GJI
+	FqPJE0Da0GIq5t5YUpnpM+4p5v+u5V9VYFDwuiifzLTbjCOWuXXVmBOnY4Llw+NxTFJAWmcNNU94T
+	oeDBDWzBb8KvgSSlCfKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qlqDC-003oLt-27;
-	Thu, 28 Sep 2023 12:33:46 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qlqD8-003oBO-0e
+	id 1qlsBd-004yXR-1l;
+	Thu, 28 Sep 2023 14:40:17 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1qlsBZ-004yTH-0O
 	for linux-riscv@lists.infradead.org;
-	Thu, 28 Sep 2023 12:33:45 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id E73527FFD;
-	Thu, 28 Sep 2023 20:33:06 +0800 (CST)
-Received: from EXMBX172.cuchost.com (172.16.6.92) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 28 Sep
- 2023 20:33:06 +0800
-Received: from [192.168.125.95] (113.72.144.128) by EXMBX172.cuchost.com
- (172.16.6.92) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 28 Sep
- 2023 20:33:05 +0800
-Message-ID: <2c7913e1-79a0-87cc-4a2d-b8a5b6e94c09@starfivetech.com>
-Date: Thu, 28 Sep 2023 20:33:05 +0800
+	Thu, 28 Sep 2023 14:40:15 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 28B7D61CAD
+	for <linux-riscv@lists.infradead.org>; Thu, 28 Sep 2023 14:40:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CBEC4C433C8
+	for <linux-riscv@lists.infradead.org>; Thu, 28 Sep 2023 14:40:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1695912010;
+	bh=h8H/O+3tGg84I9dup0h1f947gtwyQA+AfL2cSRNnujU=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=Wa0mTny93UweF9pZUlIFlDUFDzcjYo3FsAsBkIOCjJEoDU9FhRvkugHar5nswMYyb
+	 4JDy07td7zUbJmTHWyEpN4ScjjiF5G6wbBSYNC+Tqrufj1ZF8Z7h1zSg1qwCjLEgKH
+	 nZB0xMPlsgGQxey23F+xsgK58Us8nTC/6l7hs87KuabLd8Douy2ynB1AJCg807VpG3
+	 Zy2veVf1fABy23uBTtbSIcpPPsSLyZUr07NVkMDCJEvoCUg24+AEoJPQL0wSPejYsB
+	 Bst6eCetr8R+env9V2MHLQuTkfhkVSbWdiCmkEhLSmgXnT4JFSoW0+mFKQJf7nqCOB
+	 UfT60zd1x/pcg==
+Received: by mail-lf1-f54.google.com with SMTP id 2adb3069b0e04-50308217223so20621735e87.3
+        for <linux-riscv@lists.infradead.org>; Thu, 28 Sep 2023 07:40:10 -0700 (PDT)
+X-Gm-Message-State: AOJu0YyHGE7bf86tRY0Kf/stBbsmJyqM/25W4Mph0iHhz7dFT3XogTpi
+	Rrd/gsS+EN1P2opZ2azRXCDX2UbAnqSZl3C4kA==
+X-Google-Smtp-Source: AGHT+IHlFRYNH1yT+cBQYKts0sQSWJ7V+SRU+AQ/TMhseplKK1kk/v3dI6NbdzsUpFxr/xM9/FfvMcO6JNQuqwhidDE=
+X-Received: by 2002:a05:6512:2807:b0:4fd:fc36:68a2 with SMTP id
+ cf7-20020a056512280700b004fdfc3668a2mr1554384lfb.1.1695912009035; Thu, 28 Sep
+ 2023 07:40:09 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.3.2
-Subject: Re: [PATCH v2] MAINTAINERS: Add Hal as one of the maintainers of
- SFCTEMP HWMON DRIVER
-To: Guenter Roeck <linux@roeck-us.net>
-CC: Conor Dooley <conor@kernel.org>, Emil Renner Berthing
-	<emil.renner.berthing@canonical.com>, <linux-hwmon@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-References: <20230928075249.109459-1-hal.feng@starfivetech.com>
- <dc5e9253-5d82-4def-b6ff-038b29bf99ab@roeck-us.net>
-Content-Language: en-US
-From: Hal Feng <hal.feng@starfivetech.com>
-In-Reply-To: <dc5e9253-5d82-4def-b6ff-038b29bf99ab@roeck-us.net>
-X-Originating-IP: [113.72.144.128]
-X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX172.cuchost.com
- (172.16.6.92)
-X-YovoleRuleAgent: yovoleflag
+References: <20230928061207.1841513-1-apatel@ventanamicro.com> <20230928061207.1841513-3-apatel@ventanamicro.com>
+In-Reply-To: <20230928061207.1841513-3-apatel@ventanamicro.com>
+From: Rob Herring <robh+dt@kernel.org>
+Date: Thu, 28 Sep 2023 09:39:56 -0500
+X-Gmail-Original-Message-ID: <CAL_JsqL6LvfQQi4AqJpDPKwC76Xap4Re4o+bzviyb--dUOG7vQ@mail.gmail.com>
+Message-ID: <CAL_JsqL6LvfQQi4AqJpDPKwC76Xap4Re4o+bzviyb--dUOG7vQ@mail.gmail.com>
+Subject: Re: [PATCH v9 02/15] of: property: Add fw_devlink support for msi-parent
+To: Anup Patel <apatel@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230928_053342_431513_4FF2B6A9 
-X-CRM114-Status: GOOD (  11.99  )
+X-CRM114-CacheID: sfid-20230928_074013_227522_8A17E0F1 
+X-CRM114-Status: GOOD (  10.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,61 +73,19 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Saravana Kannan <saravanak@google.com>, Marc Zyngier <maz@kernel.org>, Anup Patel <anup@brainfault.org>, Atish Patra <atishp@atishpatra.org>, linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley <paul.walmsley@sifive.com>, Thomas Gleixner <tglx@linutronix.de>, Frank Rowand <frowand.list@gmail.com>, linux-riscv@lists.infradead.org, Andrew Jones <ajones@ventanamicro.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 28 Sep 2023 04:43:33 -0700, Guenter Roeck wrote:
-> On Thu, Sep 28, 2023 at 03:52:49PM +0800, Hal Feng wrote:
->> As he is the submitter of this driver, add his mail so he can
->> maintain the driver and easily reply in the mailing list.
->> 
->> Acked-by: Emil Renner Berthing <kernel@esmil.dk>
->> Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
->> ---
->> 
->> History:
->> v1: https://lore.kernel.org/all/20230718034937.92999-4-hal.feng@starfivetech.com/
-> 
-> The change log should describe your changes, not just point to earlier
-> versions of your patch. Please do not expect maintainers to fetch old
-> versions of your patches and compare them manually.
-> 
-> Did anything change besides the Acked-by: ?
-
-The commit title was reworded in v2.
-There are no other changes besides this. Thanks.
-
-Best regards,
-Hal
-
-> 
->> 
->> ---
->>  MAINTAINERS | 1 +
->>  1 file changed, 1 insertion(+)
->> 
->> diff --git a/MAINTAINERS b/MAINTAINERS
->> index b19995690904..2376272bbe20 100644
->> --- a/MAINTAINERS
->> +++ b/MAINTAINERS
->> @@ -19402,6 +19402,7 @@ F:	drivers/net/ethernet/sfc/
->>  
->>  SFCTEMP HWMON DRIVER
->>  M:	Emil Renner Berthing <kernel@esmil.dk>
->> +M:	Hal Feng <hal.feng@starfivetech.com>
->>  L:	linux-hwmon@vger.kernel.org
->>  S:	Maintained
->>  F:	Documentation/devicetree/bindings/hwmon/starfive,jh71x0-temp.yaml
->> 
->> base-commit: 6465e260f48790807eef06b583b38ca9789b6072
->> -- 
->> 2.38.1
->> 
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVGh1LCBTZXAgMjgsIDIwMjMgYXQgMToxMuKAr0FNIEFudXAgUGF0ZWwgPGFwYXRlbEB2ZW50
+YW5hbWljcm8uY29tPiB3cm90ZToKPgo+IFRoaXMgYWxsb3dzIGZ3X2RldmxpbmsgdG8gY3JlYXRl
+IGRldmljZSBsaW5rcyBiZXR3ZWVuIGNvbnN1bWVycyBvZgo+IGEgTVNJIGFuZCB0aGUgc3VwcGxp
+ZXIgb2YgdGhlIE1TSS4KPgo+IFNpZ25lZC1vZmYtYnk6IEFudXAgUGF0ZWwgPGFwYXRlbEB2ZW50
+YW5hbWljcm8uY29tPgo+IC0tLQo+ICBkcml2ZXJzL29mL3Byb3BlcnR5LmMgfCAyICsrCj4gIDEg
+ZmlsZSBjaGFuZ2VkLCAyIGluc2VydGlvbnMoKykKCkFja2VkLWJ5OiBSb2IgSGVycmluZyA8cm9i
+aEBrZXJuZWwub3JnPgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVh
+ZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1y
+aXNjdgo=
