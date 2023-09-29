@@ -4,66 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C223E728C1
-	for <linux-riscv@archiver.kernel.org>; Fri, 29 Sep 2023 15:41:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F409E728D6
+	for <linux-riscv@archiver.kernel.org>; Fri, 29 Sep 2023 18:51:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u6cEjGIRoViFRm1gAtl9m0vl/LrDqgbjQcjTG0pQmhk=; b=1wjPUNQJBpUJcG6lqifnUH5L9B
-	37kcdEaXCiBmLFkWuKfpjwAlnfAUOHelDQFIwgdkeA8aj6/hVOfJK940dCEGfuAmJ0qkpiHry0TGV
-	k1WJv4A1PTzDo95GuapP05ZtCK0Lp77jokEhZ3sGmUrkycfLT6x55cd7o82dT2GnZjm9rFkK8Anlk
-	6LvvC44Dbmd3iZ2IaCuvDRI3nW1ZU7/mFyqLumy+Sg/zn8casH2PIQJOJFwBJfdD6eMUe/eKnbsfo
-	HC4l4FWtLLMoPMjQZ5FN0t29AAPafht4HU6iBbB5xIKT8A69VZbUAIJQPK5+MZjjBHzW6AhWYgZ1Z
-	KbrlkIYg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:
+	Mime-Version:References:In-Reply-To:From:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=u3OOuB93P7JXFxCstlxWCMcnLhgSV1U84SnOu7bKOA8=; b=jIahlVet4aqCroOtOYwV+HYxkG
+	VpqSl+h6PaSQ32FUVIImtq7+ShAtpk8QJuVK+SdluJlxqOM3dRQsvPrSfjjlDYA2v0sz+rDs3bF8L
+	lMC6LA5ZDaqZp2syKHYKrK51B+lDEVGIjBU1qlAS9ipSSjq8S+mX3NwdMLoTZtGT5YZu/wRGDqPwU
+	2rTTxkKGi0zIZKbL148YqwXvZsmfege+RuqTjzzVjIzSstvOpYUE92SXpCJPSpQf8Mx6R0swFkLeG
+	zfv3daQ50arb72/c2HxknWaI0g2DvNpeIYrG9zOOucI247kbfQBAARjCDU7JLvUFxewmsAxCtldB0
+	IfSZhIVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qmFbr-008DJM-1I;
-	Fri, 29 Sep 2023 15:40:55 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1qmIaA-008S9K-1J;
+	Fri, 29 Sep 2023 18:51:22 +0000
+Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qmFbm-008DHt-2p
+	id 1qmIa7-008S8t-1y
 	for linux-riscv@lists.infradead.org;
-	Fri, 29 Sep 2023 15:40:53 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <ukl@pengutronix.de>)
-	id 1qmFbS-0000kz-B6; Fri, 29 Sep 2023 17:40:30 +0200
-Received: from [2a0a:edc0:0:900:1d::77] (helo=ptz.office.stw.pengutronix.de)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <ukl@pengutronix.de>)
-	id 1qmFbP-009qYi-Gq; Fri, 29 Sep 2023 17:40:27 +0200
-Received: from ukl by ptz.office.stw.pengutronix.de with local (Exim 4.94.2)
-	(envelope-from <ukl@pengutronix.de>)
-	id 1qmFbP-0060Vc-6f; Fri, 29 Sep 2023 17:40:27 +0200
-Date: Fri, 29 Sep 2023 17:40:27 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
-To: Jisheng Zhang <jszhang@kernel.org>
-Cc: Thierry Reding <thierry.reding@gmail.com>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>, linux-pwm@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>,
-	linux-riscv@lists.infradead.org,
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>
-Subject: Re: [PATCH 2/2] pwm: add T-HEAD PWM driver
-Message-ID: <20230929154027.lq77saenadxgry5x@pengutronix.de>
-References: <20230928170254.413-1-jszhang@kernel.org>
- <20230928170254.413-3-jszhang@kernel.org>
-MIME-Version: 1.0
-In-Reply-To: <20230928170254.413-3-jszhang@kernel.org>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: ukl@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
+	Fri, 29 Sep 2023 18:51:21 +0000
+Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id E06453F680
+	for <linux-riscv@lists.infradead.org>; Fri, 29 Sep 2023 18:51:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+	s=20210705; t=1696013476;
+	bh=i6pIYXxuKoLZ+wKC1n3MFhboCA1+8vK/nAjASg++5Yw=;
+	h=From:In-Reply-To:References:Mime-Version:Date:Message-ID:Subject:
+	 To:Cc:Content-Type;
+	b=XpvAKl9bU9kHinTteRePKWLbtgNg/EzGqi4FYpjFIzrFXbWVpHmXwDaGSzb73NqNW
+	 SlL9qC0L52z6WyOJARBokOJl/j5FW5hW9Ud4oDHBf5VUtl7eUqXbx1MmILjzO3KVw0
+	 6w0fserG2eJLgXw+bWBRJRz+tN23LHHr88rJ7hUGOK+h2N1MgRVxGZu/jik9+xpYLg
+	 2VnsQ4aFTg8+XWnTFOjpulASIZ9+wDPVFlYLTLMqojuqycEPRL+6iIBHo2MeTa8sd7
+	 XTCntxgBLN4us5uhcH00bDcnSFzaXpJelnZ9Jw4EjikRp4MURP9lhem67in7J/Ae2t
+	 dZgcZP5o0ZyKg==
+Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-41961124b15so58534951cf.0
+        for <linux-riscv@lists.infradead.org>; Fri, 29 Sep 2023 11:51:16 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1696013474; x=1696618274;
+        h=cc:to:subject:message-id:date:mime-version:references:in-reply-to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=i6pIYXxuKoLZ+wKC1n3MFhboCA1+8vK/nAjASg++5Yw=;
+        b=R7kHiw4gp3VT4c3B8jwTJdVXFioCuDSqmnCu9Pc/hG5+3Y0ilqE0AYxDjjEDQlZ70F
+         UK59N9fZ1L+2xI+MmSVBk6JMe/3eRqqX2HLSohHWPzqPPCQFt80Wxvz65hMPa5n+SnOm
+         HL66Yand+YVycjFxKgdOUu3kFZpkvvxq5vhyjsi4iE/Bpi93QCYkUAKOTu6KpXuenacJ
+         P+Ej6HW76zh3AHLfAFZM4wh1S/Zz9OjYWE2fNXfa91+g8h2VrfMx2/xVG2j3EQ88mkad
+         e0uGfJl0QHyXaZ37jN8PT6QwypZMvl8nO1uj7clOBCUfwnvjc8e19PXj33LfzeIQMrfC
+         Sv1A==
+X-Gm-Message-State: AOJu0YyCgBhx9STRwCc+PwgxgveJPdhLKtqyRiLu2jJDHtHT0qoMhcYm
+	vqdgnKCfyK0pRreqvrD+FzgtlEl9FTGV3CV/eY4q9Q4dwS+INhKQIMQ1Qg70g2UDrSEpQoMZUvs
+	WvM9ObArFOA5/SDlXhgL5ClWFoj0rW0olJ+S23EYXx+TzbBZBIkuAC6CS1a5LqQ==
+X-Received: by 2002:a05:622a:193:b0:417:971e:ab08 with SMTP id s19-20020a05622a019300b00417971eab08mr5281339qtw.57.1696013473885;
+        Fri, 29 Sep 2023 11:51:13 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IFvKVEyJ5PLAcavdqqhKap9vmb55dkolv53ptgINfcTEGaJceTTjqdkxUQ13eAhgBISBQy+/B6F3dtn9PqEEPk=
+X-Received: by 2002:a05:622a:193:b0:417:971e:ab08 with SMTP id
+ s19-20020a05622a019300b00417971eab08mr5281325qtw.57.1696013473650; Fri, 29
+ Sep 2023 11:51:13 -0700 (PDT)
+Received: from 348282803490 named unknown by gmailapi.google.com with
+ HTTPREST; Fri, 29 Sep 2023 11:51:13 -0700
+From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+In-Reply-To: <97b0615e-a541-4856-ba70-be39bdcd8a8f@roeck-us.net>
+References: <20230908133923.2675053-1-houtao@huaweicloud.com>
+ <20230908133923.2675053-4-houtao@huaweicloud.com> <97b0615e-a541-4856-ba70-be39bdcd8a8f@roeck-us.net>
+Mime-Version: 1.0
+Date: Fri, 29 Sep 2023 11:51:13 -0700
+Message-ID: <CAJM55Z_76dsTxVEfaxif5H7Rdg_AQmjuscNuB2tLbZoVsWdgEQ@mail.gmail.com>
+Subject: Re: [PATCH bpf 3/4] bpf: Ensure unit_size is matched with slab cache
+ object size
+To: Guenter Roeck <linux@roeck-us.net>, Hou Tao <houtao@huaweicloud.com>
+Cc: bpf@vger.kernel.org, Martin KaFai Lau <martin.lau@linux.dev>, 
+	Alexei Starovoitov <alexei.starovoitov@gmail.com>, Andrii Nakryiko <andrii@kernel.org>, 
+	Song Liu <song@kernel.org>, Hao Luo <haoluo@google.com>, 
+	Yonghong Song <yonghong.song@linux.dev>, Daniel Borkmann <daniel@iogearbox.net>, 
+	KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@google.com>, Jiri Olsa <jolsa@kernel.org>, 
+	John Fastabend <john.fastabend@gmail.com>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>, 
+	houtao1@huawei.com, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230929_084051_217794_8DF12991 
-X-CRM114-Status: GOOD (  43.54  )
+X-CRM114-CacheID: sfid-20230929_115119_980055_2BFBB6D4 
+X-CRM114-Status: GOOD (  13.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,461 +102,62 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============0332974904924316191=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Guenter Roeck wrote:
+> Hi,
+>
+> On Fri, Sep 08, 2023 at 09:39:22PM +0800, Hou Tao wrote:
+> > From: Hou Tao <houtao1@huawei.com>
+> >
+> > Add extra check in bpf_mem_alloc_init() to ensure the unit_size of
+> > bpf_mem_cache is matched with the object_size of underlying slab cache.
+> > If these two sizes are unmatched, print a warning once and return
+> > -EINVAL in bpf_mem_alloc_init(), so the mismatch can be found early and
+> > the potential issue can be prevented.
+> >
+> > Suggested-by: Alexei Starovoitov <ast@kernel.org>
+> > Signed-off-by: Hou Tao <houtao1@huawei.com>
+>
+> With this patch in place, I see the following backtrace on riscv systems.
+>
+> [    2.953088] bpf_mem_cache[0]: unexpected object size 128, expect 96
+> [    2.953481] WARNING: CPU: 0 PID: 1 at kernel/bpf/memalloc.c:507 bpf_mem_alloc_init+0x326/0x32e
+> [    2.953645] Modules linked in:
+> [    2.953736] CPU: 0 PID: 1 Comm: swapper/0 Not tainted 6.6.0-rc2-00244-g27bbf45eae9c #1
+> [    2.953790] Hardware name: riscv-virtio,qemu (DT)
+> [    2.953855] epc : bpf_mem_alloc_init+0x326/0x32e
+> [    2.953891]  ra : bpf_mem_alloc_init+0x326/0x32e
+> [    2.953909] epc : ffffffff8016cbd2 ra : ffffffff8016cbd2 sp : ff2000000000bd20
+> [    2.953920]  gp : ffffffff81c39298 tp : ff60000002e80040 t0 : 0000000000000000
+> [    2.953930]  t1 : ffffffffbbbabbc3 t2 : 635f6d656d5f6670 s0 : ff2000000000bdc0
+> [    2.953940]  s1 : ffffffff8121c7da a0 : 0000000000000037 a1 : ffffffff81a93048
+> [    2.953949]  a2 : 0000000000000010 a3 : 0000000000000001 a4 : 0000000000000000
+> [    2.953959]  a5 : 0000000000000000 a6 : ffffffff81c4fe08 a7 : 0000000000000000
+> [    2.953968]  s2 : 000000000000000b s3 : 0000000000000000 s4 : 0000000000000000
+> [    2.953977]  s5 : 0000000000000000 s6 : 0000000000000100 s7 : ff5ffffffffd3128
+> [    2.953986]  s8 : ffffffff81c3d1f8 s9 : 0000000000000060 s10: 0000000000000000
+> [    2.953996]  s11: 0000000000000060 t3 : 0000000065a61b33 t4 : 0000000000000009
+> [    2.954005]  t5 : ffffffffde180000 t6 : ff2000000000bb08
+> [    2.954014] status: 0000000200000120 badaddr: 0000000000000000 cause: 0000000000000003
+> [    2.954047] [<ffffffff8016cbd2>] bpf_mem_alloc_init+0x326/0x32e
+> [    2.954087] [<ffffffff80e11426>] bpf_global_ma_init+0x1c/0x30
+> [    2.954097] [<ffffffff8000285e>] do_one_initcall+0x5c/0x238
+> [    2.954105] [<ffffffff80e011ae>] kernel_init_freeable+0x29a/0x30e
+> [    2.954115] [<ffffffff80c0312c>] kernel_init+0x1e/0x112
+> [    2.954124] [<ffffffff80003d82>] ret_from_fork+0xa/0x1c
+>
+> Copying riscv maintainers and mailing list for feedback / comments.
 
---===============0332974904924316191==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="7i7o422tklvgxyiz"
-Content-Disposition: inline
+If it makes a difference I also see this with 6.6-rc3 on my Nezha board
+(Allwinner D1), but not on my VisionFive 2 (JH7110) running the same kernel.
 
-
---7i7o422tklvgxyiz
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-Hello,
-
-On Fri, Sep 29, 2023 at 01:02:54AM +0800, Jisheng Zhang wrote:
-> T-HEAD SoCs such as the TH1520 contain a PWM controller used
-> among other things to control the LCD backlight, fan and so on.
-> Add driver for it.
->=20
-> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> ---
->  MAINTAINERS             |   1 +
->  drivers/pwm/Kconfig     |  11 ++
->  drivers/pwm/Makefile    |   1 +
->  drivers/pwm/pwm-thead.c | 289 ++++++++++++++++++++++++++++++++++++++++
->  4 files changed, 302 insertions(+)
->  create mode 100644 drivers/pwm/pwm-thead.c
->=20
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index d55e40060c46..86cf0926dbfc 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -18482,6 +18482,7 @@ L:	linux-riscv@lists.infradead.org
->  S:	Maintained
->  F:	arch/riscv/boot/dts/thead/
->  F:	drivers/usb/dwc3/dwc3-thead.c
-> +F:	drivers/pwm/pwm-thead.c
-> =20
->  RNBD BLOCK DRIVERS
->  M:	Md. Haris Iqbal <haris.iqbal@ionos.com>
-> diff --git a/drivers/pwm/Kconfig b/drivers/pwm/Kconfig
-> index 8ebcddf91f7b..428fa365a19a 100644
-> --- a/drivers/pwm/Kconfig
-> +++ b/drivers/pwm/Kconfig
-> @@ -637,6 +637,17 @@ config PWM_TEGRA
->  	  To compile this driver as a module, choose M here: the module
->  	  will be called pwm-tegra.
-> =20
-> +config PWM_THEAD
-> +	tristate "T-HEAD PWM support"
-> +	depends on ARCH_THEAD || COMPILE_TEST
-> +	depends on HAS_IOMEM
-> +	help
-> +	  Generic PWM framework driver for the PWFM controller found on THEAD
-> +	  SoCs.
-> +
-> +	  To compile this driver as a module, choose M here: the module
-> +	  will be called pwm-thead.
-> +
->  config PWM_TIECAP
->  	tristate "ECAP PWM support"
->  	depends on ARCH_OMAP2PLUS || ARCH_DAVINCI_DA8XX || ARCH_KEYSTONE || ARC=
-H_K3 || COMPILE_TEST
-> diff --git a/drivers/pwm/Makefile b/drivers/pwm/Makefile
-> index c822389c2a24..4c317e6316e8 100644
-> --- a/drivers/pwm/Makefile
-> +++ b/drivers/pwm/Makefile
-> @@ -59,6 +59,7 @@ obj-$(CONFIG_PWM_STMPE)		+=3D pwm-stmpe.o
->  obj-$(CONFIG_PWM_SUN4I)		+=3D pwm-sun4i.o
->  obj-$(CONFIG_PWM_SUNPLUS)	+=3D pwm-sunplus.o
->  obj-$(CONFIG_PWM_TEGRA)		+=3D pwm-tegra.o
-> +obj-$(CONFIG_PWM_THEAD)		+=3D pwm-thead.o
->  obj-$(CONFIG_PWM_TIECAP)	+=3D pwm-tiecap.o
->  obj-$(CONFIG_PWM_TIEHRPWM)	+=3D pwm-tiehrpwm.o
->  obj-$(CONFIG_PWM_TWL)		+=3D pwm-twl.o
-> diff --git a/drivers/pwm/pwm-thead.c b/drivers/pwm/pwm-thead.c
-> new file mode 100644
-> index 000000000000..8339f5617b6f
-> --- /dev/null
-> +++ b/drivers/pwm/pwm-thead.c
-> @@ -0,0 +1,289 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * T-HEAD PWM driver
-> + *
-> + * Copyright (C) 2021 Alibaba Group Holding Limited.
-
-If you have a public link to a reference manual, please mention this
-here. Also please add a section that describes hardware (and software)
-limitations sticking to the format in other drivers. The idea is that
-
-	sed -rn '/Limitations:/,/\*\/?$/p'
-
-tells you about (at least) about the following properties:
-
- - Can the PWM be updated atomically?
- - Does it complete the current running period before switching to the
-   new configuration?
- - How does the output behave when disabled?
-
-> + */
-> +
-> +#include <linux/bitfield.h>
-> +#include <linux/bitops.h>
-> +#include <linux/clk.h>
-> +#include <linux/delay.h>
-> +#include <linux/err.h>
-> +#include <linux/io.h>
-> +#include <linux/kernel.h>
-> +#include <linux/module.h>
-> +#include <linux/of.h>
-> +#include <linux/of_device.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/pm_runtime.h>
-> +#include <linux/pwm.h>
-> +#include <linux/slab.h>
-> +
-> +#define MAX_PWM_NUM	6
-> +
-> +#define LIGHT_PWM_CHN_BASE(n)		((n) * 0x20)
-> +#define LIGHT_PWM_CTRL(n)		(LIGHT_PWM_CHN_BASE(n) + 0x00)
-> +#define LIGHT_PWM_RPT(n)		(LIGHT_PWM_CHN_BASE(n) + 0x04)
-> +#define LIGHT_PWM_PER(n)		(LIGHT_PWM_CHN_BASE(n) + 0x08)
-> +#define LIGHT_PWM_FP(n)			(LIGHT_PWM_CHN_BASE(n) + 0x0c)
-> +#define LIGHT_PWM_STATUS(n)		(LIGHT_PWM_CHN_BASE(n) + 0x10)
-> +
-> +/* bit definition PWM_CTRL */
-> +#define PWM_START				BIT(0)
-> +#define PWM_SOFT_RST				BIT(1)
-> +#define PWM_CFG_UPDATE				BIT(2)
-> +#define PWM_INT_EN				BIT(3)
-> +#define PWM_ONE_SHOT_MODE			BIT(4)
-> +#define PWM_CONTINUOUS_MODE			BIT(5)
-> +#define PWM_EVT_RISING_TRIG_UNDER_ONE_SHOT	BIT(6)
-> +#define PWM_EVT_FALLING_TRIG_UNDER_ONE_SHOT	BIT(7)
-> +#define PWM_FPOUT				BIT(8)
-> +#define PWM_INFACTOUT				BIT(9)
-
-Emil already criticised the naming here (Thanks btw for the review!). I
-also want you to use a consistent prefix, but I wonder about "LIGHT_", I
-would have expected "THEAD_" matching the driver name?!
-
-> +struct thead_pwm_chip {
-> +	struct clk *clk;
-> +	void __iomem *mmio_base;
-> +	struct pwm_chip chip;
-> +};
-> +
-> +#define to_thead_pwm_chip(chip)		container_of(chip, struct thead_pwm_chi=
-p, chip)
-
-This is wrong. Try:
-
-	struct pwm_chip *mychip;
-	struct thead_pwm_chip *pc =3D to_thead_pwm_chip(mychip);
-
-=2E (Of course you shouldn't name a pwm_chip "mychip", "chip" is fine.
-Still this is too ugly.) I suggest a static inline here, ideally one
-that has a name starting with "thead_pwm_". thead_pwm_from_chip() comes
-to mind.
-=09
-> +static int thead_pwm_clk_prepare_enable(struct thead_pwm_chip *pc)
-> +{
-> +	return clk_prepare_enable(pc->clk);
-> +}
-> +
-> +static void thead_pwm_clk_disable_unprepare(struct thead_pwm_chip *pc)
-> +{
-> +	clk_disable_unprepare(pc->clk);
-> +}
-
-I agree to Emil here that these wrappers are too thin. (Also you might
-get rid of them completely, see below.)
-
-> +static int thead_pwm_enable(struct pwm_chip *chip, struct pwm_device *pw=
-m)
-> +{
-> +	struct thead_pwm_chip *pc =3D to_thead_pwm_chip(chip);
-> +	u32 value;
-> +	int ret;
-> +
-> +	ret =3D pm_runtime_get_sync(chip->dev);
-
-This function is typically called directly after thead_pwm_config()
-which ended with calling pm_runtime_put_sync(). If you put the logic of
-=2Eapply() in a single function (or move runtime pm handling in there) you
-can prevent some put/get ping-pong.
-
-> +	if (ret < 0) {
-> +		dev_err(chip->dev, "failed to clock on the pwm device(%d)\n", ret);
-
-Please use %pe for better readable error messages.
-
-> +		return ret;
-> +	}
-> +
-> +	value =3D readl(pc->mmio_base + LIGHT_PWM_CTRL(pwm->hwpwm));
-> +	value |=3D PWM_START;
-> +	writel(value, pc->mmio_base + LIGHT_PWM_CTRL(pwm->hwpwm));
-> +
-> +	return 0;
-> +}
-> +
-> +static void thead_pwm_disable(struct pwm_chip *chip, struct pwm_device *=
-pwm)
-> +{
-> +	struct thead_pwm_chip *pc =3D to_thead_pwm_chip(chip);
-> +	u32 value;
-> +
-> +	value =3D readl(pc->mmio_base + LIGHT_PWM_CTRL(pwm->hwpwm));
-> +	value &=3D ~PWM_START;
-> +	writel(value, pc->mmio_base + LIGHT_PWM_CTRL(pwm->hwpwm));
-> +
-> +	pm_runtime_put_sync(chip->dev);
-> +}
-> +
-> +static int thead_pwm_config(struct pwm_chip *chip, struct pwm_device *pw=
-m,
-> +			    int duty_ns, int period_ns)
-> +{
-> +	struct thead_pwm_chip *pc =3D to_thead_pwm_chip(chip);
-> +	unsigned long rate =3D clk_get_rate(pc->clk);
-> +	unsigned long duty_cycle, period_cycle;
-> +	u32 pwm_cfg =3D PWM_INFACTOUT | PWM_FPOUT | PWM_CONTINUOUS_MODE | PWM_I=
-NT_EN;
-> +	int ret;
-> +
-> +	if (duty_ns > period_ns) {
-> +		dev_err(chip->dev, "invalid pwm configure\n");
-> +		return -EINVAL;
-
-You can assume that won't happen (once you fixed the implicit type cast
-in the call to thead_pwm_config pointed out below).
-
-> +	}
-> +
-> +	ret =3D pm_runtime_get_sync(chip->dev);
-> +	if (ret < 0) {
-> +		dev_err(chip->dev, "failed to clock on the pwm device(%d)\n", ret);
-> +		return ret;
-> +	}
-> +
-> +	writel(pwm_cfg, pc->mmio_base + LIGHT_PWM_CTRL(pwm->hwpwm));
-> +
-> +	period_cycle =3D period_ns * rate;
-
-This might overflow. Please use mul_u64_u64_div_u64 here together with
-making sure that rate <=3D NSEC_PER_SEC.
-
-> +	do_div(period_cycle, NSEC_PER_SEC);
-> +	writel(period_cycle, pc->mmio_base + LIGHT_PWM_PER(pwm->hwpwm));
-> +	duty_cycle =3D duty_ns * rate;
-> +	do_div(duty_cycle, NSEC_PER_SEC);
-> +	writel(duty_cycle, pc->mmio_base + LIGHT_PWM_FP(pwm->hwpwm));
-> +
-> +	pwm_cfg =3D readl(pc->mmio_base + LIGHT_PWM_CTRL(pwm->hwpwm));
-> +	pwm_cfg |=3D PWM_CFG_UPDATE;
-> +	writel(pwm_cfg, pc->mmio_base + LIGHT_PWM_CTRL(pwm->hwpwm));
-
-I assume this means period and duty_cycle are updated atomically (i.e.
-at no time the hardware is configured to emit a wave that has the new
-period but the old duty_cycle)?
-
-Is this needed even if the PWM is currently off and you write PWM_START
-a moment later? Can writing PWM_CFG_UPDATE and PWM_START be done in a
-single step?
-
-> +	pm_runtime_put_sync(chip->dev);
-> +
-> +	return 0;
-> +}
-> +
-> +static int thead_pwm_set_polarity(struct pwm_chip *chip,
-> +				  struct pwm_device *pwm,
-> +				  enum pwm_polarity polarity)
-> +{
-> +	struct thead_pwm_chip *pc =3D to_thead_pwm_chip(chip);
-> +	u32 value =3D readl(pc->mmio_base + LIGHT_PWM_CTRL(pwm->hwpwm));
-> +	int ret;
-> +
-> +	ret =3D pm_runtime_get_sync(chip->dev);
-> +	if (ret < 0) {
-> +		dev_err(chip->dev, "failed to clock on the pwm device(%d)\n", ret);
-
-Please don't make .apply() emit an error message.
-
-> +		return ret;
-> +	}
-> +
-> +	if (polarity =3D=3D PWM_POLARITY_NORMAL)
-> +		value |=3D PWM_FPOUT;
-> +	else
-> +		value &=3D ~PWM_FPOUT;
-> +
-> +	writel(value, pc->mmio_base + LIGHT_PWM_CTRL(pwm->hwpwm));
-
-Oh, no PWM_CFG_UPDATE here? So writing the polarity takes effect
-immediately? If so, please note this is the Limitations section I
-asked for above.
-
-> +	pm_runtime_put_sync(chip->dev);
-> +
-> +	return 0;
-> +}
-> +
-> +static int thead_pwm_apply(struct pwm_chip *chip, struct pwm_device *pwm,
-> +			   const struct pwm_state *state)
-> +{
-> +	int err;
-> +	bool enabled =3D pwm->state.enabled;
-> +
-> +	if (state->polarity !=3D pwm->state.polarity)
-> +		thead_pwm_set_polarity(chip, pwm, state->polarity);
-> +
-> +	if (!state->enabled) {
-> +		if (enabled)
-> +			thead_pwm_disable(chip, pwm);
-> +		return 0;
-> +	}
-> +
-> +	err =3D thead_pwm_config(chip, pwm, state->duty_cycle, state->period);
-
-state->duty_cycle is an u64, but thead_pwm_config takes an int ...
-
-> +	if (err)
-> +		return err;
-> +
-> +	if (!enabled)
-> +		return thead_pwm_enable(chip, pwm);
-> +
-> +	return 0;
-> +}
-> +
-> +static const struct pwm_ops thead_pwm_ops =3D {
-> +	.apply =3D thead_pwm_apply,
-
-Please implement .get_state() and test with PWM_DEBUG enabled.
-
-> +	.owner =3D THIS_MODULE,
-> +};
-> +
-> +static int __maybe_unused thead_pwm_runtime_suspend(struct device *dev)
-> +{
-> +	struct thead_pwm_chip *pc =3D dev_get_drvdata(dev);
-> +
-> +	thead_pwm_clk_disable_unprepare(pc);
-> +
-> +	return 0;
-> +}
-> +
-> +static int __maybe_unused thead_pwm_runtime_resume(struct device *dev)
-> +{
-> +	struct thead_pwm_chip *pc =3D dev_get_drvdata(dev);
-> +	int ret;
-> +
-> +	ret =3D thead_pwm_clk_prepare_enable(pc);
-> +	if (ret) {
-> +		dev_err(dev, "failed to enable pwm clock(%d)\n", ret);
-> +		return ret;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static int thead_pwm_probe(struct platform_device *pdev)
-> +{
-> +	struct thead_pwm_chip *pc;
-> +	int ret;
-> +
-> +	pc =3D devm_kzalloc(&pdev->dev, sizeof(*pc), GFP_KERNEL);
-> +	if (!pc)
-> +		return -ENOMEM;
-> +
-> +	platform_set_drvdata(pdev, pc);
-> +
-> +	pc->mmio_base =3D devm_platform_ioremap_resource(pdev, 0);
-> +	if (IS_ERR(pc->mmio_base))
-> +		return PTR_ERR(pc->mmio_base);
-> +
-> +	pc->clk =3D devm_clk_get(&pdev->dev, NULL);
-
-devm_clk_get_enabled()
-
-> +	if (IS_ERR(pc->clk))
-> +		return PTR_ERR(pc->clk);
-> +
-> +	pm_runtime_enable(&pdev->dev);
-> +	pm_runtime_get_noresume(&pdev->dev);
-> +	ret =3D thead_pwm_clk_prepare_enable(pc);
-> +	if (ret) {
-> +		dev_err(&pdev->dev, "failed to enable pwm clock(%d)\n", ret);
-> +		goto err_pm_disable;
-> +	}
-> +
-> +	pc->chip.ops =3D &thead_pwm_ops;
-> +	pc->chip.dev =3D &pdev->dev;
-> +	pc->chip.npwm =3D MAX_PWM_NUM;
-> +
-> +	ret =3D pwmchip_add(&pc->chip);
-
-devm_pwmchip_add()
-
-> +	if (ret)
-> +		goto err_clk_disable;
-> +
-> +	pm_runtime_put(&pdev->dev);
-> +
-> +	return 0;
-> +
-> +err_clk_disable:
-> +	thead_pwm_clk_disable_unprepare(pc);
-> +err_pm_disable:
-> +	pm_runtime_disable(&pdev->dev);
-> +	return ret;
-> +}
-
-Best regards
-Uwe
-
---=20
-Pengutronix e.K.                           | Uwe Kleine-K=F6nig            |
-Industrial Linux Solutions                 | https://www.pengutronix.de/ |
-
---7i7o422tklvgxyiz
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmUW7+oACgkQj4D7WH0S
-/k7ALggAhmJTiDR1A8R13CZqNrc/bNOhs+UFYYTpafxG/rk2m3s3WZYP3l4XxHLu
-6kmuQ+3A0FvDTalPkd4DWm9fX2ZfUyf4Kq5+YwipiWkXGf3PATSjhx7e/fYkQmgR
-GK/OC6w41uoUvNYiEqZGzartdCcXpjriSqVpSLdAoxPN308rgH6qBB9EoqweBZGE
-9LGW6yZ/2a8BcJmG2AlBxHSZgK+VdjpkW/mv8AWLcyfvhEWruvQufDzBePSBy/NB
-9U4dkMxSSVxDFXvpLeAj49Q8Fv6+ZkV03vv5yg6NEe/YJdb4M+bY5Q/e4WYnQdLo
-vMZI4WeRrhqZm+PVAm/wZjPcmi8rUw==
-=j5Sk
------END PGP SIGNATURE-----
-
---7i7o422tklvgxyiz--
-
-
---===============0332974904924316191==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+/Emil
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============0332974904924316191==--
-
