@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9C3DE743D5
-	for <linux-riscv@archiver.kernel.org>; Fri, 29 Sep 2023 00:07:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B8FFE743D6
+	for <linux-riscv@archiver.kernel.org>; Fri, 29 Sep 2023 00:07:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nrlEzvAJCd51Dgl/G1uZg4XBJZyY+kC4Wqe4UKM/RcM=; b=wVA+TA7p18ocVy
-	x6s1OF1UnaobOftGtJPPzdDqwzqowwvKhLm++ijrdsjzI/nAzOwOxU32IxdKlwCTHsavWWRL7z/mp
-	oEHd2Jbun2YgKMWMkoY2R718LuY1PVD+flzdEDN3RR/7Fm9ZmFqZXH1YGyKhymAVctzz8gjlfnDOZ
-	EwgW89fOYWqzdGjBO/35ZxuLqB2Pn/VNUyvjQv/hacewYxpgejAEqm1d1qQYF6yN9qAvusRX1zdFC
-	QlVf0epzOSA2pdg8ymg+ckPYc2MRUweoDdRWCBOhiLnIGpFsIXkuENVRZVi1zeOWDH8lIfeG/tZdk
-	mCqukl45xBq61/C0Fqeg==;
+	List-Owner; bh=50gaK5Ypsty6JlZe2jsf9OiMZXUcZdz7dRJL1m6rjTE=; b=w1pMfyfE/B0cy8
+	v+t19EUIFZpb2nkNto8z2VT7p2a9j4ucxyybNa8NJzg/maT/zPveAagdSEnDXaRJAF/cZAexk8bWJ
+	PgkwgglxtpQmiHY7ly5oPTdHxHtYfhHTrmjRN6EfVfsOw3ZZrB4dSTD6OoXLzuQys+D+iVudBig3s
+	lb2IEzPfWiC+LC1e5VVcEbCzGfwiHBQbopMr9jlbTUWzZrN6K8UMs1N1YHR8MvI0jMrc9nY4CB7wk
+	/zw+6X352EqZCyfzaBuDzsyrUJyaeR02VmmaATTXL4irigYoiJcDR4eUc46QnXDqcOp1eXdxN5/Ij
+	TgRInLq2ObyqMlAf29tw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qm12n-006tmu-03;
-	Fri, 29 Sep 2023 00:07:45 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1qm12r-006tpW-2b;
+	Fri, 29 Sep 2023 00:07:49 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qm12j-006tl0-2y
+	id 1qm12m-006tlP-0p
 	for linux-riscv@lists.infradead.org;
-	Fri, 29 Sep 2023 00:07:43 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-40651a72807so13284595e9.1
-        for <linux-riscv@lists.infradead.org>; Thu, 28 Sep 2023 17:07:40 -0700 (PDT)
+	Fri, 29 Sep 2023 00:07:46 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-4053c6f0db8so130372375e9.3
+        for <linux-riscv@lists.infradead.org>; Thu, 28 Sep 2023 17:07:43 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1695946059; x=1696550859; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1695946062; x=1696550862; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=jg6m2EjjbiYtqCsw8AOrTuHGKcD7Fqnb3Sq4Z2r1iXQ=;
-        b=iPLuXFURtxQVfZFD+51KoLRiNjKyoJNsQ4QjcaVj3y78i3Z04UkCWiTMwnlvAzercH
-         u1G1GUmfsoYDGryVsUZn5LPue5r/Bm+OpTkzzlM6e3UV3mS+zKMwo2BznNUCZiEijo89
-         QGdjrbeAjHRQj9NCDosq3mXHTGA6NxARu8tCDWrWnB6JtrhrrFCjnF0Ein61MW6rvv1/
-         cO4dyUql8HusnUWAeNa4uQPJcRdVfjQ+rHa5gQ9fZVtqW8o6dZkSjhHD5emRlmeFAQM8
-         gROUui3NtELNLonU1pfHo/jwkF+tFDHcYfN9YYAkKXDyRGnokHJgeN4ujtVP8t5knlEU
-         Eq7w==
+        bh=F8HxEWXITaOb/JDj2iD2RcKd3MGklKT/rakg7oiqV24=;
+        b=dEjK9hV/Q8vwjoToTTGlbbEFyord7d7TYGdGnMqek27ft/jZwJYH/rjGf90CNK08wW
+         9s4Ay7S3mIK7Kp4MdiGnhrG1pmFUwJCF6cTIl0zddG3ywQgtXJ746n/XeLYs1qno8ReR
+         DwNoPRcI3At3XhjbyZwBMYlUpWkPWVohD+JACYrGhO2A16sHBbOfK8pVYzIqSeVfqLvL
+         PaQ5PX59wqeTalQ4XAqsM63oB0PMeEjWZo1LvTh2s4UIGYtefUlbcIilwEpj8OHPEZd5
+         GMeey6l0KbteX/cEupkx22uDv+sknPDpFhJfsJKHuNBxKNs8e6uD/7jnRUCXcu6tZ/dD
+         gCAw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1695946059; x=1696550859;
+        d=1e100.net; s=20230601; t=1695946062; x=1696550862;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=jg6m2EjjbiYtqCsw8AOrTuHGKcD7Fqnb3Sq4Z2r1iXQ=;
-        b=r7b4to5gkaI8JdHj41FHFcVeYkV4ujMAHi1AdV0hb+aZ0E+YMAjLuZjj4nUPvpaT3F
-         H/Iry0RLX9VESBgNQtfIT+2Vgmb7uMoOj9GCK6VqL+ofcijwgGXdQDLbqCoq5XGIG2By
-         Y6he223tBM1NU0d7NLTd7K8zIzAAk0NiFFv0ATisZ+bnhzGkH6XCCb4oqxdHPuJJILdN
-         TA/ax2+0xb++PyNAmTwUYv5t0fZ2un3Rocm4kNY6TpLm4sXjPldg5Y4zkW6AzOvFXmbb
-         3wfjEYwqrCkv5FU+ZQ8cFFRc/9bd6ldKDPqDXBYSP6oKNIAEIBxhUCg+geDB41Ljs8CB
-         ZWCw==
-X-Gm-Message-State: AOJu0YxL5aERQaRxVFWZle4F1KEbtWM+WyRGDVbsJij/xI5ZdOxsUiqv
-	yOp4r2vupEtyo/O0RoKARv0=
-X-Google-Smtp-Source: AGHT+IEGAB6L//kDZLyguasSEjhI9XkPX5IsinA20g0k8iBjOCXCgphovzf/UhPDNxE5yXRjG9y0JQ==
-X-Received: by 2002:a05:600c:2242:b0:401:bf87:9898 with SMTP id a2-20020a05600c224200b00401bf879898mr2654028wmm.25.1695946058991;
-        Thu, 28 Sep 2023 17:07:38 -0700 (PDT)
+        bh=F8HxEWXITaOb/JDj2iD2RcKd3MGklKT/rakg7oiqV24=;
+        b=HNI4lAt5OGtBh5Ai6jzNGPOfqGes6okQcXSyN2/VAy9uB8ii8ExICFOu++X7sFrJ0W
+         XqhsrrFgEWj1/VabRFmxGXSF09bxIS8BaVJ3Rw4Q9M3s5WwVjkrWuNi3iwfcYRK0QUEs
+         5XlRbzlRzleb0/CsNWAVLGZWYEl4+umHESdxCbpGnfOXXeKs3bYysdtCJw/H2Cah44n6
+         nPKfv1f6BWx/zC06KBxnCPkTdRo2tHCjlIhGe2PojSJrgPypCzsW0ZL31boLIkkIy8QN
+         SCfKC/iRb9xvA5Y4EJJyUWj8gYbYH/jbM4oNMCwu4MBLdo4IduirU03hRkqgomRLR9e6
+         NWPQ==
+X-Gm-Message-State: AOJu0Yye1BGX+t0AxqUVhCrgbrs8Tn372cd6b4XxCu2KSd+XenhuhIBL
+	psA0ogfGXeRG9UkdAB7in3Q=
+X-Google-Smtp-Source: AGHT+IGnYvQpsT1nJIqqtVw96jze0gmURdXGdBK7wCDw7rx9bHLFZ6vcVVEiI0KcBP2Rarl0Ln9O8Q==
+X-Received: by 2002:a5d:538f:0:b0:322:4892:17f with SMTP id d15-20020a5d538f000000b003224892017fmr2568104wrv.7.1695946061536;
+        Thu, 28 Sep 2023 17:07:41 -0700 (PDT)
 Received: from prasmi.home ([2a00:23c8:2501:c701:fe98:5e2c:1821:4cb6])
-        by smtp.gmail.com with ESMTPSA id y20-20020a7bcd94000000b004030e8ff964sm245667wmj.34.2023.09.28.17.07.37
+        by smtp.gmail.com with ESMTPSA id y20-20020a7bcd94000000b004030e8ff964sm245667wmj.34.2023.09.28.17.07.40
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 28 Sep 2023 17:07:38 -0700 (PDT)
+        Thu, 28 Sep 2023 17:07:41 -0700 (PDT)
 From: Prabhakar <prabhakar.csengg@gmail.com>
 X-Google-Original-From: Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 To: Geert Uytterhoeven <geert+renesas@glider.be>,
@@ -79,17 +79,16 @@ Cc: Rob Herring <robh+dt@kernel.org>,
 	Biju Das <biju.das.jz@bp.renesas.com>,
 	Prabhakar <prabhakar.csengg@gmail.com>,
 	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Subject: [PATCH 1/5] riscv: dts: renesas: r9a07g043f: Add L2 cache node
-Date: Fri, 29 Sep 2023 01:07:00 +0100
-Message-Id: <20230929000704.53217-2-prabhakar.mahadev-lad.rj@bp.renesas.com>
+Subject: [PATCH 3/5] riscv: dts: renesas: rzfive-smarc: Enable the blocks which were explicitly disabled
+Date: Fri, 29 Sep 2023 01:07:02 +0100
+Message-Id: <20230929000704.53217-4-prabhakar.mahadev-lad.rj@bp.renesas.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20230929000704.53217-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
 References: <20230929000704.53217-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230928_170741_960735_F534C049 
-X-CRM114-Status: UNSURE (   9.09  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230928_170744_295634_BC0D2A34 
+X-CRM114-Status: GOOD (  11.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,41 +107,130 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 
-Add L2 cache node for RZ/Five SoC.
+Now that noncoherent dma support is added for RZ/Five SoC enable
+the IP blocks which were disabled on RZ/Five SMARC. Now with this
+patch we get support for the below peripherals:
+* DMAC
+* SDHI
+* USB
+* RSPI
+* SSI
 
 Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 ---
- arch/riscv/boot/dts/renesas/r9a07g043f.dtsi | 12 ++++++++++++
- 1 file changed, 12 insertions(+)
+ .../boot/dts/renesas/rzfive-smarc-som.dtsi    | 23 --------
+ arch/riscv/boot/dts/renesas/rzfive-smarc.dtsi | 56 -------------------
+ 2 files changed, 79 deletions(-)
 
-diff --git a/arch/riscv/boot/dts/renesas/r9a07g043f.dtsi b/arch/riscv/boot/dts/renesas/r9a07g043f.dtsi
-index 6ec1c6f9a403..c8d63a8f7d86 100644
---- a/arch/riscv/boot/dts/renesas/r9a07g043f.dtsi
-+++ b/arch/riscv/boot/dts/renesas/r9a07g043f.dtsi
-@@ -29,6 +29,7 @@ cpu0: cpu@0 {
- 			i-cache-line-size = <0x40>;
- 			d-cache-size = <0x8000>;
- 			d-cache-line-size = <0x40>;
-+			next-level-cache = <&l2cache>;
- 			clocks = <&cpg CPG_CORE R9A07G043_CLK_I>;
- 			operating-points-v2 = <&cluster0_opp>;
+diff --git a/arch/riscv/boot/dts/renesas/rzfive-smarc-som.dtsi b/arch/riscv/boot/dts/renesas/rzfive-smarc-som.dtsi
+index c62debc7ca7e..433ab5c6a626 100644
+--- a/arch/riscv/boot/dts/renesas/rzfive-smarc-som.dtsi
++++ b/arch/riscv/boot/dts/renesas/rzfive-smarc-som.dtsi
+@@ -7,25 +7,8 @@
  
-@@ -56,4 +57,15 @@ plic: interrupt-controller@12c00000 {
- 		resets = <&cpg R9A07G043_NCEPLIC_ARESETN>;
- 		interrupts-extended = <&cpu0_intc 11 &cpu0_intc 9>;
+ #include <arm64/renesas/rzg2ul-smarc-som.dtsi>
+ 
+-/ {
+-	aliases {
+-		/delete-property/ ethernet0;
+-		/delete-property/ ethernet1;
+-	};
+-
+-	chosen {
+-		bootargs = "ignore_loglevel";
+-	};
+-};
+-
+-&dmac {
+-	status = "disabled";
+-};
+-
+ #if (!SW_ET0_EN_N)
+ &eth0 {
+-	status = "disabled";
+-
+ 	phy0: ethernet-phy@7 {
+ 		/delete-property/ interrupt-parent;
+ 		/delete-property/ interrupts;
+@@ -34,14 +17,8 @@ phy0: ethernet-phy@7 {
+ #endif
+ 
+ &eth1 {
+-	status = "disabled";
+-
+ 	phy1: ethernet-phy@7 {
+ 		/delete-property/ interrupt-parent;
+ 		/delete-property/ interrupts;
  	};
-+
-+	l2cache: cache-controller@13400000 {
-+		compatible = "andestech,ax45mp-cache", "cache";
-+		reg = <0x0 0x13400000 0x0 0x100000>;
-+		interrupts = <SOC_PERIPHERAL_IRQ(476) IRQ_TYPE_LEVEL_HIGH>;
-+		cache-size = <0x40000>;
-+		cache-line-size = <64>;
-+		cache-sets = <1024>;
-+		cache-unified;
-+		cache-level = <2>;
-+	};
  };
+-
+-&sdhi0 {
+-	status = "disabled";
+-};
+diff --git a/arch/riscv/boot/dts/renesas/rzfive-smarc.dtsi b/arch/riscv/boot/dts/renesas/rzfive-smarc.dtsi
+index c07a487c4e5a..a8573fdfd8b1 100644
+--- a/arch/riscv/boot/dts/renesas/rzfive-smarc.dtsi
++++ b/arch/riscv/boot/dts/renesas/rzfive-smarc.dtsi
+@@ -6,59 +6,3 @@
+  */
+ 
+ #include <arm64/renesas/rzg2ul-smarc.dtsi>
+-
+-&ehci0 {
+-	status = "disabled";
+-};
+-
+-&ehci1 {
+-	status = "disabled";
+-};
+-
+-&hsusb {
+-	status = "disabled";
+-};
+-
+-&ohci0 {
+-	status = "disabled";
+-};
+-
+-&ohci1 {
+-	status = "disabled";
+-};
+-
+-&phyrst {
+-	status = "disabled";
+-};
+-
+-&sdhi1 {
+-	status = "disabled";
+-};
+-
+-&snd_rzg2l {
+-	status = "disabled";
+-};
+-
+-&spi1 {
+-	status = "disabled";
+-};
+-
+-&ssi1 {
+-	status = "disabled";
+-};
+-
+-&usb0_vbus_otg {
+-	status = "disabled";
+-};
+-
+-&usb2_phy0 {
+-	status = "disabled";
+-};
+-
+-&usb2_phy1 {
+-	status = "disabled";
+-};
+-
+-&vccq_sdhi1 {
+-	status = "disabled";
+-};
 -- 
 2.34.1
 
