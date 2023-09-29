@@ -4,79 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A94DAE71D5C
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6382E71D58
 	for <linux-riscv@archiver.kernel.org>; Fri, 29 Sep 2023 21:12:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
-	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=UazUX5vsJ737qSsU3mqMapAsB8xFm6oDOx72zz6frU4=; b=rJkQ3609fkA5Z6MRFusC53CZKr
-	6xwNYhheZBJznSLTWjVkdQSAjnEe5PjM2L2z4C+JEi4/eJ62GHe9GXFO0M1p2RniBrN0+NAH/WBk3
-	Xue1FP4fIwumJCwVh8qo6O/5r1+Wj+uWthqIDqZjLj9SMyBoZC4XVNzIynEpLWXIUIGSuvj2nSHAB
-	YRvwxCpzR6FSn2okNnLprJY+pkezuwoHmSbECXDnd9pJIGnTTaX39OwFBTh7JvGIripuKgz1qbVmO
-	UXUt8wbn2lkWh8zXYaPaacAXZzOAqrxNsg0qBp7GgyvpQ/HwQSJrQkuDMPj/zTdm5HGETIKzoQavS
-	m+jKQZUA==;
+	Mime-Version:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=gyJ7SRBh6KxlrdU85KwF9MKJP3LXP6o57RVn6YtCrsA=; b=UIQ
+	KkDHUsb40n0TsIOJv3JTPunN+/b1oca4EgtZhUDJd/YY6g4n8AFxccLa3jzuXc46+loekMGfUwlPl
+	UAby9xTQ8VPtB/ZGDElpGoHXNxpPxEdE9jpYTZK26G2cdTAHqwry6N06IDUHDaC2i1oyRQ2JNKrVx
+	Q8poiVbxwMwmDDNrKl7pOfIuoprFOmZ3MBMdohygDyHc9EWVsQhgiWvyl6ZrDwuC0OVwqrZL9B2io
+	Fqkyygx8vaBZHDDHIHFCvWre7pRNXTzqAJp5aPqqhSyJ7MTqIEUZJc/Yjp7BPhLNK0/5JxzRsEfOY
+	WXiaMi8W2PM4QSKjIVtoRpMP0paSh8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qmKmP-008aUH-2c;
+	id 1qmKmP-008aTp-0q;
 	Fri, 29 Sep 2023 21:12:09 +0000
-Received: from mail-pl1-x64a.google.com ([2607:f8b0:4864:20::64a])
+Received: from mail-yb1-xb49.google.com ([2607:f8b0:4864:20::b49])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qmKmM-008aQz-0F
+	id 1qmKmL-008aQs-3B
 	for linux-riscv@lists.infradead.org;
 	Fri, 29 Sep 2023 21:12:07 +0000
-Received: by mail-pl1-x64a.google.com with SMTP id d9443c01a7336-1c60cf79e3eso116693635ad.3
-        for <linux-riscv@lists.infradead.org>; Fri, 29 Sep 2023 14:12:02 -0700 (PDT)
+Received: by mail-yb1-xb49.google.com with SMTP id 3f1490d57ef6-d865a8a7819so19593350276.2
+        for <linux-riscv@lists.infradead.org>; Fri, 29 Sep 2023 14:11:59 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1696021922; x=1696626722; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=19scQT+vZguMbMPGvwbswmmwWeMyYkP13y1R8IKgsdo=;
-        b=CuRz8kPuvrycuiLFcbGWlyXKkuDZ/IbOe6ZS89vJnpun3yDfvjGe2i0jOxFrqm2TGr
-         +zhZVuVwIZD17IC6AYqNShTPcExYS1uhWOUhJ7LlhUMKduar80nAq97XsUJS4I8SN3dq
-         A7gSj9GphWi+H5R5rfTdnZVqEnPk1qaEBfyPg6k7UcawUUrDmJ5jRXVyuuK4VTUe+nMp
-         vvFAxC6aU94x5JDRGP3DkP82C55vIIr+d7JKDjKTJ1rzzM8rOUYS2YqWunuD8uAYYUzq
-         Wwfi1rW9MgEbogi5EKjb65cR9zC71k0zr0htvyOFDldwvm5FReFtnKF10slLWri/3hcV
-         QbbA==
+        d=google.com; s=20230601; t=1696021918; x=1696626718; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=qI6+evphp8TRNLDsXrgWEBj/E5cavHWN+P8xd8/8MDM=;
+        b=apMk1YoIbEaj9f8+nnnqW1GFntruDzJChN7aX/xNHAWfoSZ3A1N8Nj2MWneM1L056U
+         Qju/ngCsTKkcrmAcVuQJGcw5OXok74YSgBvJTR+wI2VVrjUi8SqKgZLGO6glzv1+B4mo
+         ZwpDKLPukzhFSiTnsv7W9c1DZpb+YeO7EhmtwShh1KLEBNzhw/12V6hYD+OXZSH5GMWB
+         xCb1JGYYFb85Yt9byO5D99MP7forTXVsW7uHLbGXmcQ8X3acx6apddAVndRJlQIVWfJK
+         LtEjgoEk6uwmBRmlFYV2e75xMbvs/1jWAAaKejA4vqope1NEIF6dn08+JNa0mCHuJuW5
+         Os+A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1696021922; x=1696626722;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=19scQT+vZguMbMPGvwbswmmwWeMyYkP13y1R8IKgsdo=;
-        b=vhBmTY5wWc8gg4CSRS/kKBb8UzQ1Xm67rHors+G6hzbIeNHVjTREURIn7Ni7zu9y/u
-         rM4YcBrwjBCDEh7xCgY89E4+rmfLFbdfp+e85ANgtZez6Hv9+rIUQYPSL2jhJlNB2D2l
-         4gHvdq8cRlfiNefxYqd3MMZYaBdUG/vto0vRen2OWU0jE7CpZTPNZddHuFJvwVLrcKSp
-         eYl+hT3qE4fYIqAaIk4cZCopf3kaysjG45GX/tvr/xXt+5B2T2Hutgvdqst6YOQKTGBk
-         g3EmQ3oBPcyQT/K3Jow79o7mnSaUjQM5PkRCOEaNZ2cAvHl+ooLu3soFxiQ6nOcjuOY/
-         iFaw==
-X-Gm-Message-State: AOJu0YwiAW6KGv+rl6+YZg5mXxrxMqJ+9rTheU+WHY2RuBjgPU3/uC13
-	APUQBXm3/eMJSdxxvkcI3jTqCtBJrmKUHclrsf8=
-X-Google-Smtp-Source: AGHT+IEu8pWqkhn949EN2w2MEEmF4sIQU2CD0ztiPLeuQl+OuKcbvmbHD9LpYfISQSvkmvSO3SxPVHDUipdN2Hi1oC8=
+        d=1e100.net; s=20230601; t=1696021918; x=1696626718;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=qI6+evphp8TRNLDsXrgWEBj/E5cavHWN+P8xd8/8MDM=;
+        b=SxCRZEzTi+0KD6BrLApFufnDxzqhLUC+4/fhu2cNXb0gqgxLeG2hHWa6Q/9IIDz2rk
+         0KHlo8fpltNTi1pCgFJ1oCdhs9eGvIqIpYY/TlT/Pc3+Zh4Kv0nQ45NOJUX+glOz8NkK
+         opAbeZv+0iI12yNJ2u0xEgc3v9CN3gXauR1HV3J+dT8XMShXYt0UaZKYKbcf0/G1EnA5
+         OybDtxNwauoNiM/VB1ESzrHviIxeeuKJlEUH6YAOZz8HlvxLYXexWfUBckyHl2gCw/7U
+         O+MR+bKUBe0PE6sgQZFpX8qw0f3lL2KqH2/rRiD1guMtW1wZImHCXbZFj6WdzyE12ad/
+         Oflg==
+X-Gm-Message-State: AOJu0YxpeeKFAF+Pwpf0G18t4sjab8Q9YxjX7M+52EhTSbOK0I8TDO/u
+	cnwJTI7nzrVt1kfNw1irk7Ugh2Jwfzjieq0vgtY=
+X-Google-Smtp-Source: AGHT+IGjD5ILJnbbyCB0lpaKNSDkrgUS5mwaokgtSD8CjgjpWZhKS+xQi/ZyvDLcSGZs4gGR5Nixr3sWaAppp9HPVPc=
 X-Received: from samitolvanen.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:4f92])
- (user=samitolvanen job=sendgmr) by 2002:a17:903:1c8:b0:1c6:d25:8730 with SMTP
- id e8-20020a17090301c800b001c60d258730mr75155plh.0.1696021921796; Fri, 29 Sep
- 2023 14:12:01 -0700 (PDT)
-Date: Fri, 29 Sep 2023 21:11:58 +0000
-In-Reply-To: <20230929211155.3910949-4-samitolvanen@google.com>
+ (user=samitolvanen job=sendgmr) by 2002:a25:ad0a:0:b0:d7b:8d0c:43f0 with SMTP
+ id y10-20020a25ad0a000000b00d7b8d0c43f0mr85777ybi.11.1696021918263; Fri, 29
+ Sep 2023 14:11:58 -0700 (PDT)
+Date: Fri, 29 Sep 2023 21:11:56 +0000
 Mime-Version: 1.0
-References: <20230929211155.3910949-4-samitolvanen@google.com>
 X-Developer-Key: i=samitolvanen@google.com; a=openpgp; fpr=35CCFB63B283D6D3AEB783944CB5F6848BBC56EE
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1191; i=samitolvanen@google.com;
- h=from:subject; bh=MSLQAq+u1Gq1vqQPv1L24OvfGxs9lQjVrKINsuZaDko=;
- b=owEB7QES/pANAwAKAUy19oSLvFbuAcsmYgBlFz2bXFheIUWsMCgpXroYNEMEHJSzh7lHXZPhb
- Ah07CUmBI2JAbMEAAEKAB0WIQQ1zPtjsoPW0663g5RMtfaEi7xW7gUCZRc9mwAKCRBMtfaEi7xW
- 7oPqC/9r2/xEbO/XFpLcUfW8kI4zwGyW+1Bc7PLy9I1XUD02QER16SuVa1TjN8rJQPDmOMsvTB5
- T5jEE8zHkuv5iPAUTq/yfdsqgq7Z9o7WUqulun2nOY9Z455ZDOwLvbCIfEXhOthriqRBjm08Kd8
- 068lN/FADXcZatUB50UlQahfJo08fLC7oUQ5xDGv0aXR6pnqONVNs/F1FhlysA15ZmM0HVhJePX
- 6NcJ3HNNPyvbDbeafLIysEsEirdqqDLbxHXo6W0v7OFcevxKffQom+ZUD8w0SlBJsnrgLSQYfrL
- 4SDgYPIT3RgVrVY58SpSU/IrpswNMkcW1oGV+VpuE8vh5HfISvX0Y/jFIK76jIL1xM9gdG/5oKD
- xSBdaJPOnpK9Gcze/0uC08IM5oubP3raIy1qzWvrbWFce1KlRfKgkHLVVNp7KcJmqHe0lhZqoI4 gKx2VGQd8AOM+C9TUeca+0u6bNkxxIvvO6e8Zupt2MkaleKzO1xxv6N14XGwr2/VkIpsg=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=727; i=samitolvanen@google.com;
+ h=from:subject; bh=Ko6nN36PGlYW1laUEIPPBze9YPFWfBooBOFzOjRaBRQ=;
+ b=owEB7QES/pANAwAKAUy19oSLvFbuAcsmYgBlFz2b825e14pVS6UiwTyLbmjRM7MleUeCEvyhI
+ HQ9Yi7cABWJAbMEAAEKAB0WIQQ1zPtjsoPW0663g5RMtfaEi7xW7gUCZRc9mwAKCRBMtfaEi7xW
+ 7p9uC/9v8/6JNqB5Fbep/hRFQKiCO/kScjQBMmlHvInQfP3gwUfbFCkkKYSVRSOR4Pxeo+/um1b
+ AFvQRu8TawGoy7GtfAlC2T/3RZQcj6xNwU/+K5WHsVdfqZNa6xsNhtBstdrsW91ELm7X4wBhnPs
+ 9dYkZsrMXL8JtJvTDL1VQ3EjQ/tTab3SiJiqIF2J694+4vXbP83KGUAsC8z11QRsfCkb9V0cHNb
+ qMaWfvoF2E3/MtrWUF/VlddoLs+4VfwsIz2eTQZm1X5Ll3CAeOMw8TmTQqQ3OT2OM1kJ1GKFGjs
+ kpo/58zC+ziTSyL0rCbs4jrdHHMyEYwJ50108kvKlUuWGKE1joh0omULdtzfezNnIwzMPwuVnD+
+ 4eCKnZSAXhZxbKFAC20jcgErpJusDmn0lx2CNHUYsVuPL58GkYaK49lTYq09WuoCRWjrP+iv4BO 5JlmAMEmM6FrNg93Mj3ALgwQi7uUk7LHPkg8Rs7a3cO1p1MoInq21V6B5zk6DfXYcBSdA=
 X-Mailer: git-send-email 2.42.0.582.g8ccd20d70d-goog
-Message-ID: <20230929211155.3910949-6-samitolvanen@google.com>
-Subject: [PATCH 2/2] riscv: mm: Update mmap_rnd_bits_max
+Message-ID: <20230929211155.3910949-4-samitolvanen@google.com>
+Subject: [PATCH 0/2] riscv: Increase mmap_rnd_bits_max on Sv48/57
 From: Sami Tolvanen <samitolvanen@google.com>
 To: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
 	Albert Ou <aou@eecs.berkeley.edu>, Andrew Morton <akpm@linux-foundation.org>, 
@@ -84,8 +81,9 @@ To: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com
 Cc: linux-mm@kvack.org, linux-riscv@lists.infradead.org, llvm@lists.linux.dev, 
 	linux-kernel@vger.kernel.org, Sami Tolvanen <samitolvanen@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230929_141206_120359_41B36847 
-X-CRM114-Status: GOOD (  11.43  )
+X-CRM114-CacheID: sfid-20230929_141206_025551_69EBC9CF 
+X-CRM114-Status: UNSURE (   9.60  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,41 +100,30 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-ARCH_MMAP_RND_BITS_MAX is based on Sv39, which leaves a few
-potential bits of mmap randomness on the table if we end up enabling
-4/5-level paging. Update mmap_rnd_bits_max to take the final address
-space size into account. This increases mmap_rnd_bits_max from 24 to
-33 with Sv48/57.
+Hi all,
 
-Signed-off-by: Sami Tolvanen <samitolvanen@google.com>
----
+We noticed that 64-bit RISC-V kernels limit mmap_rnd_bits to 24
+even if the hardware supports a larger virtual address space size
+[1]. These two patches allow mmap_rnd_bits_max to be changed during
+init, and bumps up the maximum randomness if we end up setting up
+4/5-level paging at boot.
+
+Sami
+
+ [1] https://github.com/google/android-riscv64/issues/1
+
+
+Sami Tolvanen (2):
+  mm: Change mmap_rnd_bits_max to __ro_after_init
+  riscv: mm: Update mmap_rnd_bits_max
+
  arch/riscv/mm/init.c | 6 ++++++
- 1 file changed, 6 insertions(+)
+ include/linux/mm.h   | 2 +-
+ mm/mmap.c            | 2 +-
+ 3 files changed, 8 insertions(+), 2 deletions(-)
 
-diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index 0798bd861dcb..ff8d21a6cb2d 100644
---- a/arch/riscv/mm/init.c
-+++ b/arch/riscv/mm/init.c
-@@ -762,6 +762,11 @@ static int __init print_no5lvl(char *p)
- }
- early_param("no5lvl", print_no5lvl);
- 
-+static void __init set_mmap_rnd_bits_max(void)
-+{
-+	mmap_rnd_bits_max = MMAP_VA_BITS - PAGE_SHIFT - 3;
-+}
-+
- /*
-  * There is a simple way to determine if 4-level is supported by the
-  * underlying hardware: establish 1:1 mapping in 4-level page table mode
-@@ -1071,6 +1076,7 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
- 
- #if defined(CONFIG_64BIT) && !defined(CONFIG_XIP_KERNEL)
- 	set_satp_mode(dtb_pa);
-+	set_mmap_rnd_bits_max();
- #endif
- 
- 	/*
+
+base-commit: 6465e260f48790807eef06b583b38ca9789b6072
 -- 
 2.42.0.582.g8ccd20d70d-goog
 
