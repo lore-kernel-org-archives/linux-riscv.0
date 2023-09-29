@@ -4,88 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6557E80ABC
-	for <linux-riscv@archiver.kernel.org>; Fri, 29 Sep 2023 11:26:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B4E1E80ABE
+	for <linux-riscv@archiver.kernel.org>; Fri, 29 Sep 2023 11:41:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:
-	Mime-Version:References:In-Reply-To:From:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=Qe/BCDG8akWbHLHyJj99PGlwgjYDtHfBkZU5EYADkpY=; b=b0ojqcDim4vYMgSJcFFBzfx9sL
-	7plysE6TEvk259N5TffR1RfXH8kJlSOoyaT68Wija6qBFwTWbC1EKckD3SKS9QtsNk8MsCfOr5jfD
-	cPY4tXobQ+jTXCrvQ38avZVwksf7STCGYhRz+ca0g/PK9sZU9J4V5f7cTJ1LLChpemhX+NmNygeIu
-	bOF2fdeMbfpCTqp5Tpy7tMx1iyGekQbALRErCJ/DDmXQt0ItHPjr4SeiVBQaROx+V8eHuOVnOINcO
-	k5fdCty4KxqDCgJMjs0DbyIjRakVc+BZGrCMPm8ohIKnqgWVTHpQwavIhogsN5Wu8Y+ntuKYIieKS
-	qqHp4Y/A==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=IWkc9nqTpcdRwIZMHs3hn6DU9bz+3JLXvkLatH9D69Q=; b=4ri1CCPjA5Bvxr
+	6cPzsOfR9FCd4Ay+vk1UB/9DPFZKGe4vuzs0jjr4dOq5uiZdevuOzbRHirqzb7H1QuvWDK8B8uUjd
+	OgfQ5o+tFLvEl63GQ8kvvkUZlJpV8rhE0dxKtwL+L0HXzdib2Xw8SqXLKH2AhIIzqsuUpz2DrQIwU
+	DpPoUT6gqqDLBlFS8PRYTfBmHtXiqO/mDiMoeCRyv64G1RYGIw5KFoJzHaLHuS/oBVQz18Xt8c2FC
+	63VaUMovxfGFv1dTyU8/hVWwmkYtt8fncEbq0buWul8glLGVstc5n6JMSbqv9fzIDf/11I5BK0yAz
+	u/6W40EE/S0PVV3rwi9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qmBdu-007mtZ-0E;
-	Fri, 29 Sep 2023 11:26:46 +0000
-Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
+	id 1qmBrg-007onP-04;
+	Fri, 29 Sep 2023 11:41:00 +0000
+Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qmBdp-007msb-32
+	id 1qmBrd-007omj-1y
 	for linux-riscv@lists.infradead.org;
-	Fri, 29 Sep 2023 11:26:44 +0000
-Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id 0E85F3F626
-	for <linux-riscv@lists.infradead.org>; Fri, 29 Sep 2023 11:26:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20210705; t=1695986798;
-	bh=Fxf1lvJPvb3Kv1uSBbUjPweQB0kuuklhii+t73FLamY=;
-	h=From:In-Reply-To:References:Mime-Version:Date:Message-ID:Subject:
-	 To:Cc:Content-Type;
-	b=Dll7TOJfqj/iDYNMNYnSTApCdK4tkMAsaaHvW8Fzxyfak5UsGaigvMlxiURNFGJAV
-	 e/ZDH1ORLFDuwH+xxjpcKu1Nbvusf1ptg2Q0E5Pd1cyNLU+UFoo1+jRHtTpeePEsDz
-	 cKGvwhcpazLEEqlBpBP8LqlSsiVT98Zqp2/7zMF0me3UzrNGOTyePoS7/tntAXh++u
-	 9Ye0oIXPCw9DaK2+2eDiunarQ1UVJkn96UR1BkC1LuLGHT0ekpyBd2XXXPCbIa5/9E
-	 5okiCvtOY+ClwJ3sulkwU3pMzFnkTmPq0TRv8PEvUOxieldytN25xmXR2l08ZivjBs
-	 TRGNDBU1Ky98w==
-Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-4180b3a5119so182993241cf.1
-        for <linux-riscv@lists.infradead.org>; Fri, 29 Sep 2023 04:26:38 -0700 (PDT)
+	Fri, 29 Sep 2023 11:40:59 +0000
+Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-1c6052422acso123095ad.1
+        for <linux-riscv@lists.infradead.org>; Fri, 29 Sep 2023 04:40:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1695987653; x=1696592453; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=eZOPZ+xP375DoQjjQBBJV+szQfuC4HZOIDj9VYeNHuY=;
+        b=KNDel4ci5Mp6O2dQCl3aqhpoEA7I6XjIpZHFiaRqoBC2kfeVX0zjsPZg5sD1/UbVog
+         TT/9N2xYs5s6TciJmLONBxEkjRjNyhcLfitM0kyS/JiPJQgzvJl44L00pfkTk3diDCyt
+         HF3FoCrWXTXmvB6bk/bFrYVwEwjAckgRt5hltYsjfHggpO67GTXi9reRvAXE1Rm+gWKE
+         5KtJ5xhV8n1T3zH3dUoWgELRkThuv1YLOXqfl8tNkT1tYnTqGoMQP0NSr5pNnNmeAVNX
+         ZJ6Za78eoi+wyM2u/4UBcJcq5kYTfrgGEBisM5NhmwSmfyZLGQwwmMLGy0XpdVbTWeWq
+         eRqg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1695986797; x=1696591597;
-        h=cc:to:subject:message-id:date:mime-version:references:in-reply-to
-         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Fxf1lvJPvb3Kv1uSBbUjPweQB0kuuklhii+t73FLamY=;
-        b=Rpe90/YOUhdXPyPmhaoLP6fSUEd5Oi2WfKVdw+MCdULu+cDQB5k2XjNtq9AQcEG0eR
-         Gy/JOsHo1bwVdj9ZpxmdJ2nGk7HvOjHDNBgloHiebiSEFOwro6nl1fDOmQZtcg1SlJLh
-         RKEXT3vqbaL/ztK/kas9oAYGD90BSUCxcniQLk8KfW7tm4clRxp08kfiTEQb0a+ZbPYD
-         AAxzoSZB8loNQyCgJXQSJhcdKltfm8KbjIPXroPcZXKMVcs2wOeHFWASJBot4QyjF3ku
-         /54cMI6FZ6Qhb1230mBbeR1gaw34vYS9VJGHiw48uR6aMpBpZYQ+VXwk9zCjLZGbQ+K4
-         Pygw==
-X-Gm-Message-State: AOJu0Yxq/3+E8JtJIleqERXaawGFlvuZmQQaRerNjoW9Gb08sroQDbdj
-	ZvcVTbXUaPYQQ65runCwG8c2iUnO64eJS+pw9aQH59X8pBjO15X1mLOkBK1bPHKqG5douq61nwo
-	9Is3K0tKqrbtzhO+ACbc23bul+SQFTNpJoti23fQWloZStheAl0qOp6stKXDkdA==
-X-Received: by 2002:ac8:5b11:0:b0:418:16d6:5a8d with SMTP id m17-20020ac85b11000000b0041816d65a8dmr5210074qtw.19.1695986796957;
-        Fri, 29 Sep 2023 04:26:36 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IEg2YS80s8kcYdHWuFJ9syzZApUgYuDHgdtax9I8vSgakg9zGY+D15JXE+dI0icZyE/+yximve2DOD8H5mq6Wc=
-X-Received: by 2002:ac8:5b11:0:b0:418:16d6:5a8d with SMTP id
- m17-20020ac85b11000000b0041816d65a8dmr5210054qtw.19.1695986796548; Fri, 29
- Sep 2023 04:26:36 -0700 (PDT)
-Received: from 348282803490 named unknown by gmailapi.google.com with
- HTTPREST; Fri, 29 Sep 2023 04:26:35 -0700
-From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-In-Reply-To: <20230928170254.413-3-jszhang@kernel.org>
-References: <20230928170254.413-1-jszhang@kernel.org> <20230928170254.413-3-jszhang@kernel.org>
-Mime-Version: 1.0
-Date: Fri, 29 Sep 2023 04:26:35 -0700
-Message-ID: <CAJM55Z9sbi5zMPSagDH2Za0mqsBr3004Tn_Zn2Gy90MiKizYcQ@mail.gmail.com>
-Subject: Re: [PATCH 2/2] pwm: add T-HEAD PWM driver
-To: Jisheng Zhang <jszhang@kernel.org>, Thierry Reding <thierry.reding@gmail.com>, 
-	=?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <u.kleine-koenig@pengutronix.de>, 
-	Rob Herring <robh+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor+dt@kernel.org>
-Cc: linux-pwm@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>, 
-	linux-riscv@lists.infradead.org
+        d=1e100.net; s=20230601; t=1695987653; x=1696592453;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=eZOPZ+xP375DoQjjQBBJV+szQfuC4HZOIDj9VYeNHuY=;
+        b=KwwWoyPAgYz5NWDHv6rzQN99lotu2o6K5qLxoO8GJYULx1GRfRzjIBzuaUQ4+RUB8U
+         Kjs792Iq20v9dr8L5EpN9MhEZBTpW7/kDruNxjJQqjIDpsMa7LMW8OQmSPinYDArM0pk
+         eEm7MfCFoJ/q7rjQLWE/17PH7IvoCjbVtuBLFl4HGcIYdFg71lVz9P5LHuB9sYwmoUVr
+         2RIbToXi/eDytTlDz90k+1GkzpNBRdXKUhHVoj7XXIlHdDmRYKIJFSXfwI5/mSwnckAQ
+         xxucp9qap1skJ58C3jmlDcU3xZj2KuYuCYVgVzhSgqC8AkIicMAIQtjIhKe427lpSWQO
+         CLng==
+X-Gm-Message-State: AOJu0YwOVL48lN1TGah2lb9AvBAwG90PSAFqSdq8J4wSw8cNAJNbRDjW
+	Auy3JXpey0VsekNIKctio3B9nDZ+19HNyUn2DSIHDA==
+X-Google-Smtp-Source: AGHT+IF7Rhuo4hSmvyBubR6o6fBOm+n3EBxZ2Rz7vj6cnrETmCgaWx69H+tOyl1OZ6rOLVnj9DFbd7K5QsJrJwx7NlQ=
+X-Received: by 2002:a17:903:32d0:b0:1bc:29c3:5895 with SMTP id
+ i16-20020a17090332d000b001bc29c35895mr964124plr.0.1695987653000; Fri, 29 Sep
+ 2023 04:40:53 -0700 (PDT)
+MIME-Version: 1.0
+References: <000000000000a8df0406061b76e6@google.com> <f8891c2f-38f9-f741-66ad-8c5fbe1e365f@ghiti.fr>
+In-Reply-To: <f8891c2f-38f9-f741-66ad-8c5fbe1e365f@ghiti.fr>
+From: Aleksandr Nogikh <nogikh@google.com>
+Date: Fri, 29 Sep 2023 13:40:41 +0200
+Message-ID: <CANp29Y7wO0OrrDCauTK_O2Rf=vrqVwrUGmHy-hanSKvWexJpyQ@mail.gmail.com>
+Subject: Re: [syzbot] riscv/fixes test error: BUG: got no coverage: (3)
+To: Alexandre Ghiti <alex@ghiti.fr>
+Cc: syzbot <syzbot+2ecff9714d050e3c3a88@syzkaller.appspotmail.com>, 
+	aou@eecs.berkeley.edu, linux-kernel@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, palmer@dabbelt.com, paul.walmsley@sifive.com, 
+	syzkaller-bugs@googlegroups.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230929_042642_422362_E6538698 
-X-CRM114-Status: GOOD (  35.69  )
+X-CRM114-CacheID: sfid-20230929_044057_691356_5CB70342 
+X-CRM114-Status: GOOD (  12.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,409 +85,43 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Jisheng Zhang wrote:
-> T-HEAD SoCs such as the TH1520 contain a PWM controller used
-> among other things to control the LCD backlight, fan and so on.
-> Add driver for it.
->
-> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> ---
->  MAINTAINERS             |   1 +
->  drivers/pwm/Kconfig     |  11 ++
->  drivers/pwm/Makefile    |   1 +
->  drivers/pwm/pwm-thead.c | 289 ++++++++++++++++++++++++++++++++++++++++
->  4 files changed, 302 insertions(+)
->  create mode 100644 drivers/pwm/pwm-thead.c
->
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index d55e40060c46..86cf0926dbfc 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -18482,6 +18482,7 @@ L:	linux-riscv@lists.infradead.org
->  S:	Maintained
->  F:	arch/riscv/boot/dts/thead/
->  F:	drivers/usb/dwc3/dwc3-thead.c
-> +F:	drivers/pwm/pwm-thead.c
->
->  RNBD BLOCK DRIVERS
->  M:	Md. Haris Iqbal <haris.iqbal@ionos.com>
-> diff --git a/drivers/pwm/Kconfig b/drivers/pwm/Kconfig
-> index 8ebcddf91f7b..428fa365a19a 100644
-> --- a/drivers/pwm/Kconfig
-> +++ b/drivers/pwm/Kconfig
-> @@ -637,6 +637,17 @@ config PWM_TEGRA
->  	  To compile this driver as a module, choose M here: the module
->  	  will be called pwm-tegra.
->
-> +config PWM_THEAD
-> +	tristate "T-HEAD PWM support"
-> +	depends on ARCH_THEAD || COMPILE_TEST
-> +	depends on HAS_IOMEM
-> +	help
-> +	  Generic PWM framework driver for the PWFM controller found on THEAD
-> +	  SoCs.
-> +
-> +	  To compile this driver as a module, choose M here: the module
-> +	  will be called pwm-thead.
-> +
->  config PWM_TIECAP
->  	tristate "ECAP PWM support"
->  	depends on ARCH_OMAP2PLUS || ARCH_DAVINCI_DA8XX || ARCH_KEYSTONE || ARCH_K3 || COMPILE_TEST
-> diff --git a/drivers/pwm/Makefile b/drivers/pwm/Makefile
-> index c822389c2a24..4c317e6316e8 100644
-> --- a/drivers/pwm/Makefile
-> +++ b/drivers/pwm/Makefile
-> @@ -59,6 +59,7 @@ obj-$(CONFIG_PWM_STMPE)		+= pwm-stmpe.o
->  obj-$(CONFIG_PWM_SUN4I)		+= pwm-sun4i.o
->  obj-$(CONFIG_PWM_SUNPLUS)	+= pwm-sunplus.o
->  obj-$(CONFIG_PWM_TEGRA)		+= pwm-tegra.o
-> +obj-$(CONFIG_PWM_THEAD)		+= pwm-thead.o
->  obj-$(CONFIG_PWM_TIECAP)	+= pwm-tiecap.o
->  obj-$(CONFIG_PWM_TIEHRPWM)	+= pwm-tiehrpwm.o
->  obj-$(CONFIG_PWM_TWL)		+= pwm-twl.o
-> diff --git a/drivers/pwm/pwm-thead.c b/drivers/pwm/pwm-thead.c
-> new file mode 100644
-> index 000000000000..8339f5617b6f
-> --- /dev/null
-> +++ b/drivers/pwm/pwm-thead.c
-> @@ -0,0 +1,289 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * T-HEAD PWM driver
-> + *
-> + * Copyright (C) 2021 Alibaba Group Holding Limited.
-> + */
-> +
-> +#include <linux/bitfield.h>
-> +#include <linux/bitops.h>
-> +#include <linux/clk.h>
-> +#include <linux/delay.h>
-> +#include <linux/err.h>
-> +#include <linux/io.h>
-> +#include <linux/kernel.h>
-> +#include <linux/module.h>
-> +#include <linux/of.h>
-> +#include <linux/of_device.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/pm_runtime.h>
-> +#include <linux/pwm.h>
-> +#include <linux/slab.h>
-> +
-> +#define MAX_PWM_NUM	6
-> +
-> +#define LIGHT_PWM_CHN_BASE(n)		((n) * 0x20)
-> +#define LIGHT_PWM_CTRL(n)		(LIGHT_PWM_CHN_BASE(n) + 0x00)
-> +#define LIGHT_PWM_RPT(n)		(LIGHT_PWM_CHN_BASE(n) + 0x04)
-> +#define LIGHT_PWM_PER(n)		(LIGHT_PWM_CHN_BASE(n) + 0x08)
-> +#define LIGHT_PWM_FP(n)			(LIGHT_PWM_CHN_BASE(n) + 0x0c)
-> +#define LIGHT_PWM_STATUS(n)		(LIGHT_PWM_CHN_BASE(n) + 0x10)
-> +
-> +/* bit definition PWM_CTRL */
-> +#define PWM_START				BIT(0)
-> +#define PWM_SOFT_RST				BIT(1)
-> +#define PWM_CFG_UPDATE				BIT(2)
-> +#define PWM_INT_EN				BIT(3)
-> +#define PWM_ONE_SHOT_MODE			BIT(4)
-> +#define PWM_CONTINUOUS_MODE			BIT(5)
-> +#define PWM_EVT_RISING_TRIG_UNDER_ONE_SHOT	BIT(6)
-> +#define PWM_EVT_FALLING_TRIG_UNDER_ONE_SHOT	BIT(7)
-> +#define PWM_FPOUT				BIT(8)
-> +#define PWM_INFACTOUT				BIT(9)
-
-Hi Jisheng,
-
-I'd be worried that these defines one day clash with the PWM framework. Maybe
-just keep the LIGHT_PWM_ prefix?
-
-> +
-> +struct thead_pwm_chip {
-> +	struct clk *clk;
-> +	void __iomem *mmio_base;
-> +	struct pwm_chip chip;
-> +};
-> +
-> +#define to_thead_pwm_chip(chip)		container_of(chip, struct thead_pwm_chip, chip)
-> +
-> +static int thead_pwm_clk_prepare_enable(struct thead_pwm_chip *pc)
-> +{
-> +	return clk_prepare_enable(pc->clk);
-> +}
-> +
-> +static void thead_pwm_clk_disable_unprepare(struct thead_pwm_chip *pc)
-> +{
-> +	clk_disable_unprepare(pc->clk);
-> +}
-
-These two wrappers don't seem to add a lot of value compared to just writing
-clk_*(pc->clk) directly and they're not used as callbacks.
-
-> +
-> +static int thead_pwm_enable(struct pwm_chip *chip, struct pwm_device *pwm)
-> +{
-> +	struct thead_pwm_chip *pc = to_thead_pwm_chip(chip);
-> +	u32 value;
-> +	int ret;
-> +
-> +	ret = pm_runtime_get_sync(chip->dev);
-> +	if (ret < 0) {
-> +		dev_err(chip->dev, "failed to clock on the pwm device(%d)\n", ret);
-> +		return ret;
-> +	}
-> +
-> +	value = readl(pc->mmio_base + LIGHT_PWM_CTRL(pwm->hwpwm));
-> +	value |= PWM_START;
-> +	writel(value, pc->mmio_base + LIGHT_PWM_CTRL(pwm->hwpwm));
-> +
-> +	return 0;
-> +}
-> +
-> +static void thead_pwm_disable(struct pwm_chip *chip, struct pwm_device *pwm)
-> +{
-> +	struct thead_pwm_chip *pc = to_thead_pwm_chip(chip);
-> +	u32 value;
-> +
-> +	value = readl(pc->mmio_base + LIGHT_PWM_CTRL(pwm->hwpwm));
-> +	value &= ~PWM_START;
-> +	writel(value, pc->mmio_base + LIGHT_PWM_CTRL(pwm->hwpwm));
-> +
-> +	pm_runtime_put_sync(chip->dev);
-> +}
-> +
-> +static int thead_pwm_config(struct pwm_chip *chip, struct pwm_device *pwm,
-> +			    int duty_ns, int period_ns)
-> +{
-> +	struct thead_pwm_chip *pc = to_thead_pwm_chip(chip);
-> +	unsigned long rate = clk_get_rate(pc->clk);
-> +	unsigned long duty_cycle, period_cycle;
-> +	u32 pwm_cfg = PWM_INFACTOUT | PWM_FPOUT | PWM_CONTINUOUS_MODE | PWM_INT_EN;
-> +	int ret;
-> +
-> +	if (duty_ns > period_ns) {
-> +		dev_err(chip->dev, "invalid pwm configure\n");
-> +		return -EINVAL;
-> +	}
-> +
-> +	ret = pm_runtime_get_sync(chip->dev);
-> +	if (ret < 0) {
-> +		dev_err(chip->dev, "failed to clock on the pwm device(%d)\n", ret);
-> +		return ret;
-> +	}
-> +
-> +	writel(pwm_cfg, pc->mmio_base + LIGHT_PWM_CTRL(pwm->hwpwm));
-> +
-> +	period_cycle = period_ns * rate;
-> +	do_div(period_cycle, NSEC_PER_SEC);
-
-I thought do_div() was only needed to do 64bit by 32bit divisions on
-32bit hardware, but here
-period_cycle is an unsigned long, so only 32bit on 32bit hardware.
-
-> +	writel(period_cycle, pc->mmio_base + LIGHT_PWM_PER(pwm->hwpwm));
-> +
-> +	duty_cycle = duty_ns * rate;
-> +	do_div(duty_cycle, NSEC_PER_SEC);
-
-Same as above.
-
-> +	writel(duty_cycle, pc->mmio_base + LIGHT_PWM_FP(pwm->hwpwm));
-> +
-> +	pwm_cfg = readl(pc->mmio_base + LIGHT_PWM_CTRL(pwm->hwpwm));
-> +	pwm_cfg |= PWM_CFG_UPDATE;
-> +	writel(pwm_cfg, pc->mmio_base + LIGHT_PWM_CTRL(pwm->hwpwm));
-> +
-> +	pm_runtime_put_sync(chip->dev);
-> +
-> +	return 0;
-> +}
-> +
-> +static int thead_pwm_set_polarity(struct pwm_chip *chip,
-> +				  struct pwm_device *pwm,
-> +				  enum pwm_polarity polarity)
-> +{
-> +	struct thead_pwm_chip *pc = to_thead_pwm_chip(chip);
-> +	u32 value = readl(pc->mmio_base + LIGHT_PWM_CTRL(pwm->hwpwm));
-> +	int ret;
-> +
-> +	ret = pm_runtime_get_sync(chip->dev);
-> +	if (ret < 0) {
-> +		dev_err(chip->dev, "failed to clock on the pwm device(%d)\n", ret);
-> +		return ret;
-> +	}
-> +
-> +	if (polarity == PWM_POLARITY_NORMAL)
-> +		value |= PWM_FPOUT;
-> +	else
-> +		value &= ~PWM_FPOUT;
-> +
-> +	writel(value, pc->mmio_base + LIGHT_PWM_CTRL(pwm->hwpwm));
-> +
-> +	pm_runtime_put_sync(chip->dev);
-> +
-> +	return 0;
-> +}
-> +
-> +static int thead_pwm_apply(struct pwm_chip *chip, struct pwm_device *pwm,
-> +			   const struct pwm_state *state)
-> +{
-> +	int err;
-> +	bool enabled = pwm->state.enabled;
-> +
-> +	if (state->polarity != pwm->state.polarity)
-> +		thead_pwm_set_polarity(chip, pwm, state->polarity);
-> +
-> +	if (!state->enabled) {
-> +		if (enabled)
-> +			thead_pwm_disable(chip, pwm);
-> +		return 0;
-> +	}
-> +
-> +	err = thead_pwm_config(chip, pwm, state->duty_cycle, state->period);
-> +	if (err)
-> +		return err;
-> +
-> +	if (!enabled)
-> +		return thead_pwm_enable(chip, pwm);
-> +
-> +	return 0;
-> +}
-> +
-> +static const struct pwm_ops thead_pwm_ops = {
-> +	.apply = thead_pwm_apply,
-> +	.owner = THIS_MODULE,
-> +};
-> +
-> +static int __maybe_unused thead_pwm_runtime_suspend(struct device *dev)
-> +{
-> +	struct thead_pwm_chip *pc = dev_get_drvdata(dev);
-> +
-> +	thead_pwm_clk_disable_unprepare(pc);
-> +
-> +	return 0;
-> +}
-> +
-> +static int __maybe_unused thead_pwm_runtime_resume(struct device *dev)
-> +{
-> +	struct thead_pwm_chip *pc = dev_get_drvdata(dev);
-> +	int ret;
-> +
-> +	ret = thead_pwm_clk_prepare_enable(pc);
-> +	if (ret) {
-> +		dev_err(dev, "failed to enable pwm clock(%d)\n", ret);
-> +		return ret;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static int thead_pwm_probe(struct platform_device *pdev)
-> +{
-> +	struct thead_pwm_chip *pc;
-> +	int ret;
-> +
-> +	pc = devm_kzalloc(&pdev->dev, sizeof(*pc), GFP_KERNEL);
-> +	if (!pc)
-> +		return -ENOMEM;
-> +
-> +	platform_set_drvdata(pdev, pc);
-> +
-> +	pc->mmio_base = devm_platform_ioremap_resource(pdev, 0);
-> +	if (IS_ERR(pc->mmio_base))
-> +		return PTR_ERR(pc->mmio_base);
-> +
-> +	pc->clk = devm_clk_get(&pdev->dev, NULL);
-> +	if (IS_ERR(pc->clk))
-> +		return PTR_ERR(pc->clk);
-
-A lot of other drivers have something like
-return dev_err_probe(&pdev->dev, PTR_ERR(pc->clk), "failed to get clock\n");
-when failing to get clocks.
-
-> +
-> +	pm_runtime_enable(&pdev->dev);
-> +	pm_runtime_get_noresume(&pdev->dev);
-> +	ret = thead_pwm_clk_prepare_enable(pc);
-> +	if (ret) {
-> +		dev_err(&pdev->dev, "failed to enable pwm clock(%d)\n", ret);
-> +		goto err_pm_disable;
-> +	}
-> +
-> +	pc->chip.ops = &thead_pwm_ops;
-> +	pc->chip.dev = &pdev->dev;
-> +	pc->chip.npwm = MAX_PWM_NUM;
-> +
-> +	ret = pwmchip_add(&pc->chip);
-> +	if (ret)
-> +		goto err_clk_disable;
-> +
-> +	pm_runtime_put(&pdev->dev);
-> +
-> +	return 0;
-> +
-> +err_clk_disable:
-> +	thead_pwm_clk_disable_unprepare(pc);
-> +err_pm_disable:
-> +	pm_runtime_disable(&pdev->dev);
-
-Here you disable the clock and then pm_runtime_disable()..
-
-> +	return ret;
-> +}
-> +
-> +static void thead_pwm_remove(struct platform_device *pdev)
-> +{
-> +	struct thead_pwm_chip *pc = platform_get_drvdata(pdev);
-> +
-> +	pm_runtime_disable(&pdev->dev);
-> +	thead_pwm_clk_disable_unprepare(pc);
-
-..but here it's the other way around. It may not make a difference, but let's
-be consistent anyway.
-
-> +	pwmchip_remove(&pc->chip);
-> +}
-> +
-> +static const struct of_device_id thead_pwm_dt_ids[] = {
-> +	{.compatible = "thead,th1520-pwm",},
-> +	{/* sentinel */}
-> +};
-> +
-> +static const struct dev_pm_ops thead_pwm_pm_ops = {
-> +	SET_RUNTIME_PM_OPS(thead_pwm_runtime_suspend, thead_pwm_runtime_resume, NULL)
-> +};
-> +
-> +static struct platform_driver thead_pwm_driver = {
-> +	.driver = {
-> +		.name = "thead-pwm",
-> +		.of_match_table = thead_pwm_dt_ids,
-> +		.pm = &thead_pwm_pm_ops,
-> +	},
-> +	.probe = thead_pwm_probe,
-> +	.remove_new = thead_pwm_remove,
-> +};
-> +module_platform_driver(thead_pwm_driver);
-> +
-> +MODULE_AUTHOR("wei.liu <lw312886@linux.alibaba.com>");
-
-wei.liu is a very uncommon name, do you mean Wei Liu?
-
-> +MODULE_AUTHOR("Jisheng Zhang <jszhang@kernel.org>");
-> +MODULE_DESCRIPTION("T-HEAD pwm driver");
-> +MODULE_LICENSE("GPL v2");
-> --
-> 2.40.1
->
->
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gRnJpLCBTZXAgMjksIDIwMjMgYXQgMTI6NTbigK9QTSBBbGV4YW5kcmUgR2hpdGkgPGFsZXhA
+Z2hpdGkuZnI+IHdyb3RlOgo+Cj4gT24gMjQvMDkvMjAyMyAxNjoxNCwgc3l6Ym90IHdyb3RlOgo+
+ID4gSGVsbG8sCj4gPgo+ID4gc3l6Ym90IGZvdW5kIHRoZSBmb2xsb3dpbmcgaXNzdWUgb246Cj4g
+Pgo+ID4gSEVBRCBjb21taXQ6ICAgIGIwNmZhYjAwM2FlMSByaXNjdjoga3NlbGZ0ZXN0czogRml4
+IG1tIGJ1aWxkIGJ5IHJlbW92aW5nIHQuLgo+ID4gZ2l0IHRyZWU6ICAgICAgIGdpdDovL2dpdC5r
+ZXJuZWwub3JnL3B1Yi9zY20vbGludXgva2VybmVsL2dpdC9yaXNjdi9saW51eC5naXQgZml4ZXMK
+PiA+IGNvbnNvbGUgb3V0cHV0OiBodHRwczovL3N5emthbGxlci5hcHBzcG90LmNvbS94L2xvZy50
+eHQ/eD0xNjM4ODkxODY4MDAwMAo+ID4ga2VybmVsIGNvbmZpZzogIGh0dHBzOi8vc3l6a2FsbGVy
+LmFwcHNwb3QuY29tL3gvLmNvbmZpZz94PTg5ZjBhODhkNGJjN2YwZjQKPiA+IGRhc2hib2FyZCBs
+aW5rOiBodHRwczovL3N5emthbGxlci5hcHBzcG90LmNvbS9idWc/ZXh0aWQ9MmVjZmY5NzE0ZDA1
+MGUzYzNhODgKPiA+IGNvbXBpbGVyOiAgICAgICByaXNjdjY0LWxpbnV4LWdudS1nY2MgKERlYmlh
+biAxMi4yLjAtMTMpIDEyLjIuMCwgR05VIGxkIChHTlUgQmludXRpbHMgZm9yIERlYmlhbikgMi40
+MAo+ID4gdXNlcnNwYWNlIGFyY2g6IHJpc2N2NjQKPiA+Cj4gPiBEb3dubG9hZGFibGUgYXNzZXRz
+Ogo+ID4gZGlzayBpbWFnZSAobm9uLWJvb3RhYmxlKTogaHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFw
+aXMuY29tL3N5emJvdC1hc3NldHMvYTc0MWIzNDg3NTljL25vbl9ib290YWJsZV9kaXNrLWIwNmZh
+YjAwLnJhdy54ego+ID4gdm1saW51eDogaHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL3N5
+emJvdC1hc3NldHMvZDc1MWQzZWFkNjNmL3ZtbGludXgtYjA2ZmFiMDAueHoKPiA+IGtlcm5lbCBp
+bWFnZTogaHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL3N5emJvdC1hc3NldHMvZDcyMzgw
+YmQ5OWNjL0ltYWdlLWIwNmZhYjAwLnh6Cj4gPgo+ID4gSU1QT1JUQU5UOiBpZiB5b3UgZml4IHRo
+ZSBpc3N1ZSwgcGxlYXNlIGFkZCB0aGUgZm9sbG93aW5nIHRhZyB0byB0aGUgY29tbWl0Ogo+ID4g
+UmVwb3J0ZWQtYnk6IHN5emJvdCsyZWNmZjk3MTRkMDUwZTNjM2E4OEBzeXprYWxsZXIuYXBwc3Bv
+dG1haWwuY29tCj4gPgo+ID4gZXhlY3V0aW5nIHByb2dyYW0KPiA+IGV4ZWN1dGluZyBwcm9ncmFt
+Cj4gPiBleGVjdXRpbmcgcHJvZ3JhbQo+ID4gZXhlY3V0aW5nIHByb2dyYW0KPiA+IDE5NzAvMDEv
+MDEgMDA6MDU6NTMgU1laRkFUQUw6IEJVRzogZ290IG5vIGNvdmVyYWdlOgo+Cj4KPiBOb3Qgc3Vy
+ZSBob3cgdG8gZGVidWcgdGhhdCwgYW55IGlkZWEgd2hhdCdzIHdyb25nIGhlcmU/CgpUaGUgZXJy
+b3IgbWVzc2FnZSBtZWFucyB0aGF0IEtDT1YgZGlkIG5vdCByZXR1cm4gYW55IGtlcm5lbCBjb3Zl
+cmFnZQp0byBzeXprYWxsZXIgd2hlbiBpdCBzaG91bGQgaGF2ZSByZXR1cm5lZCBhdCBsZWFzdCBz
+b21ldGhpbmcuCgpJdCB3YXMgcmVjb3JkZWQgb24gc3l6Ym90IG9ubHkgb25jZSB+IGEgd2VlayBh
+Z28gYW5kLCBzaW5jZSB0aGVuLApzeXpib3QgaGFzIGJlZW4gYWJsZSB0byBidWlsZCBhbmQgYm9v
+dCBuZXdlciBrZXJuZWwgcmV2aXNpb25zLiBTbyB0aGUKcmVwb3J0IGlzIG5vIGxvbmdlciByZWFs
+bHkgd29ydGggaW52ZXN0aWdhdGluZy4gTGV0J3MgaW52YWxpZGF0ZSBpdC4KCiNzeXogaW52YWxp
+ZAoKPgo+Cj4gPiBsb29wIGV4aXRlZCB3aXRoIHN0YXR1cyAxMQo+ID4KPiA+CgpfX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5n
+IGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFk
+ZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
