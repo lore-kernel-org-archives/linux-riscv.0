@@ -4,74 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41534E7735F
-	for <linux-riscv@archiver.kernel.org>; Sat, 30 Sep 2023 09:00:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FD45E7735F
+	for <linux-riscv@archiver.kernel.org>; Sat, 30 Sep 2023 09:02:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KAXlmf7XRNKqTFbftT5QMty4mrzdpbER8yXZoYUe4DI=; b=g7NK+COoXk+TQu
-	5r2AgX5pPI3Yzaw0f9L2+JGkB2H1z1XNsjQmMAuiFqRvdrec+j+fIq5B4gA8C/MqRcE2Z13gQCbLZ
-	PPb5c1eOTmaEshVWu4eNZxqQkC7yLBKXBe2H5PZeh263eUf6C4+IsMRNyXoKIH0KideJHbQaNx79z
-	1XHrtLsarbE0m5Ho+2RTKW6/k3epS9sIcUzcXQwtvEU29GyQQpmCNjwJc2QnlRfvdYNmJPfbvEL7w
-	UwOKWZtGYnyIzCvITDQ5GlpU4JItAzgM29fKRgw3EqHkHC6EBnwuyU9R7rL4nH/4+oAEKI4tIN/fW
-	SDszkrxx2w29ve0mI42A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5gaUImFpks4fWHihUp0jdEBPsO1Y6Geez6wS+VNdIjc=; b=XxQjSi/nAz9WfGlAxHwtKHQrMC
+	VAULhYz9ETYnni8URLS0AV19KphfLnZMY6UvWHKUoNJWGy8koKrIEEGlIX/WPKMIg+rRp5+huZL1P
+	liXWVfoNYe1ijaRDBrHfToRoJphyk3LK235EI2mn+ecHszcMm6mKEOpd7q7S8y5h9SptAYxCtMWFv
+	4sTSNCKyw8WOyhJWsoc/iQAWwBZjnlAwAyPZ3Gkv0zKP3F8ToTkYtKcjNuPAUd1/sdDX51dIJrLQ5
+	w+CZZjy3MOmiwBd9bwAZ7Rtu9HzgCPMQzHGxu761lDim4xq1n1mBMlT39HfaMx1ttLydioH7ktNN4
+	xt+Qc/gQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qmVpQ-009Cjm-05;
-	Sat, 30 Sep 2023 09:00:00 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1qmVsA-009DCC-0A;
+	Sat, 30 Sep 2023 09:02:50 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qmVpM-009CjH-3C
+	id 1qmVs4-009DAi-2d
 	for linux-riscv@lists.infradead.org;
-	Sat, 30 Sep 2023 08:59:58 +0000
+	Sat, 30 Sep 2023 09:02:48 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by ams.source.kernel.org (Postfix) with ESMTP id 391DBB807ED;
-	Sat, 30 Sep 2023 08:59:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6CE8BC433C8;
-	Sat, 30 Sep 2023 08:59:51 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id 95576CE26C5;
+	Sat, 30 Sep 2023 09:02:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C5B1EC433C8;
+	Sat, 30 Sep 2023 09:02:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1696064394;
-	bh=1NZBpNaePwgZyqTYVZzHQMy6LAwMcDHJLc2HBjoXiRE=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=aYJJKganbX3CrwsaFP6Ya8fNmRlm6VYhCesgYNknoAOLq8CD4oGZUiwDQ6ZjAwIN6
-	 hvdS6pG4aY0zkjIvgcHpAbH/sQ+HGzTatB8CWL7TyJpQOj05lqp5ZJsAA99t9njbed
-	 WLwdRMkHIanVfLmwzkGpWvoM6wZqeMY+vBmrNSe2JhD1Prcwsc5VHC0U/8O7yJ3JHU
-	 +HSqmMJXWATQdAguQ/8pl9BQuTUsy6+1EbowQYbsr0AFjl3ZgnBuQ+CJDd+79mGRgw
-	 rDxrTbnMqQMx2FHPrapN7Euy0nHFRHRxj3sVVcJ6IMgSWuu0jmK+bD7KGPXxxI1FEu
-	 BplZmUREXbPag==
+	s=k20201202; t=1696064559;
+	bh=qq5LGrB9piI/ALapVoHarnO97Km28K9Nxg5/t/eX3io=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=LKxqJIH2gitAORyRjRTVUOwJedMlXeBfjfYhSaPvC9muinRajK8LMTESWiHvpKguv
+	 2himUzCHPxi9e2BUWe6lTa1DAV/gPbrHcHGPHIv0BxugJyQ9h+XavqGxZ0EB5n9CLD
+	 bEFrYwuDLu8c7wt+are2vfq1QwixbaLk8k6ZqYz9+5TJArSwW3T/0ACshg+pZOUdx1
+	 ZHZx0U5AXWGiOIEI1zJJ3gHp1GOTymhXXuwaBYcu2AiUXf6LQvtKG5kGOltn+XG7+f
+	 iJvzhQxhYf+2WAbH/lA6aicPsVoJB27UPTb53VWd2w9FqchqEJNqj4wu49rX1QcvUs
+	 WZNjI10qgI5Fw==
+Date: Sat, 30 Sep 2023 10:02:35 +0100
 From: Conor Dooley <conor@kernel.org>
-To: devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-mmc@vger.kernel.org,
-	William Qiu <william.qiu@starfivetech.com>
-Cc: conor@kernel.org,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Emil Renner Berthing <kernel@esmil.dk>,
-	Rob Herring <robh+dt@kernel.org>,
-	Jaehoon Chung <jh80.chung@samsung.com>,
-	Ulf Hansson <ulf.hansson@linaro.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>,
+To: Sami Tolvanen <samitolvanen@google.com>
+Cc: Kees Cook <keescook@chromium.org>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>
-Subject: Re: (subset) [PATCH v3 0/3] Change tuning implementation
-Date: Sat, 30 Sep 2023 09:59:36 +0100
-Message-Id: <20230930-unmoral-mutiny-e3f91c0dfee9@spud>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20230922062834.39212-1-william.qiu@starfivetech.com>
-References: <20230922062834.39212-1-william.qiu@starfivetech.com>
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Andrew Morton <akpm@linux-foundation.org>, linux-mm@kvack.org,
+	linux-riscv@lists.infradead.org, llvm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/2] riscv: mm: Update mmap_rnd_bits_max
+Message-ID: <20230930-emporium-share-2bbdf7074e54@spud>
+References: <20230929211155.3910949-4-samitolvanen@google.com>
+ <20230929211155.3910949-6-samitolvanen@google.com>
+ <202309291452.66ED9B4D83@keescook>
+ <CABCJKufxUVoO+yJ+513W5FOFu6u45N=6wZe6a69u+8LU6A_N2Q@mail.gmail.com>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=614; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=oc9r++Iw46ON8c3zQoZkFVZiJ95/zJVfIOBlU0YyBzE=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDKnij8s6zJ/s40s25vz64se9FoHD5w+FbtqR3RRnwFZmU Rplp8/UUcrCIMbBICumyJJ4u69Fav0flx3OPW9h5rAygQxh4OIUgIlcfMnwzzp9Qkx6jBCfwY71 YdME/p75tHjKXvv0H88OhCrP0GIWPcjwV5Tb9V6c3p77qyteaCa0qE+7HtmbanpwB1+q2Ot/0o8 aWQA=
-X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
+In-Reply-To: <CABCJKufxUVoO+yJ+513W5FOFu6u45N=6wZe6a69u+8LU6A_N2Q@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230930_015957_202104_CC97B2F3 
-X-CRM114-Status: UNSURE (   8.43  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230930_020245_028240_3A9596E7 
+X-CRM114-Status: GOOD (  18.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,35 +74,75 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============2398077382177042112=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Conor Dooley <conor.dooley@microchip.com>
 
-On Fri, 22 Sep 2023 14:28:31 +0800, William Qiu wrote:
-> This series of patches changes the tuning implementation, from the
-> previous way of reading and writing system controller registers to
-> reading and writing UHS_REG_EXT register, thus optimizing the tuning
-> of obtaining delay-chain.
-> 
-> Changes v2->v3:
-> - Rebased to v6.6rc2.
-> - Dropped redundant criteria.
-> - Keeped "starfive,sysreg" in dts file.
-> 
-> [...]
+--===============2398077382177042112==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="ZyDAWSEjMDJNp7Wh"
+Content-Disposition: inline
 
-Applied to riscv-dt-for-next, thanks!
 
-[3/3] riscv: dts: starfive: add assigned-clock* to limit frquency
-      https://git.kernel.org/conor/c/af571133f7ae
+--ZyDAWSEjMDJNp7Wh
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Thanks,
-Conor.
+On Fri, Sep 29, 2023 at 03:52:22PM -0700, Sami Tolvanen wrote:
+> On Fri, Sep 29, 2023 at 2:54=E2=80=AFPM Kees Cook <keescook@chromium.org>=
+ wrote:
+> >
+> > On Fri, Sep 29, 2023 at 09:11:58PM +0000, Sami Tolvanen wrote:
+> > > ARCH_MMAP_RND_BITS_MAX is based on Sv39, which leaves a few
+> > > potential bits of mmap randomness on the table if we end up enabling
+> > > 4/5-level paging. Update mmap_rnd_bits_max to take the final address
+> > > space size into account. This increases mmap_rnd_bits_max from 24 to
+> > > 33 with Sv48/57.
+> > >
+> > > Signed-off-by: Sami Tolvanen <samitolvanen@google.com>
+> >
+> > I like this. Is RISCV the only arch where the paging level can be chosen
+> > at boot time?
+>=20
+> I haven't seen this elsewhere, but I also haven't looked at all the
+> other architectures that closely. arm64 does something interesting
+> with ARM64_VA_BITS_52, but I think we can still handle that in
+> Kconfig.
+
+AFAIU, x86-64 can do this also:
+
+	no4lvl		[RISCV] Disable 4-level and 5-level paging modes. Forces
+			kernel to use 3-level paging instead.
+
+	no5lvl		[X86-64,RISCV] Disable 5-level paging mode. Forces
+			kernel to use 4-level paging instead.
+
+--ZyDAWSEjMDJNp7Wh
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZRfkKwAKCRB4tDGHoIJi
+0sckAP96xMeKJdlGIablTffmHoXBsU3nIZz+lu2Vm/HAnLMEKAD+Nxq+WTdOPyHE
+Tx+O88xAJtz6dMJb3se92VlCB2vHCQA=
+=/vk6
+-----END PGP SIGNATURE-----
+
+--ZyDAWSEjMDJNp7Wh--
+
+
+--===============2398077382177042112==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============2398077382177042112==--
+
