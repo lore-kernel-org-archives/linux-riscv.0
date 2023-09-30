@@ -4,132 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F2B2E77377
-	for <linux-riscv@archiver.kernel.org>; Sat, 30 Sep 2023 15:52:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 677BEE732D6
+	for <linux-riscv@archiver.kernel.org>; Sat, 30 Sep 2023 18:58:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:From:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VGAfKLth8Kgv2bCcgn4MvLtXw/WqQC4sa9UnPJrCnwE=; b=PiM1HRHrJXg/4P
-	zxSlHV2pN6VsZ99+vRCIi9RP5qFKetgC36jhDnA0O9HfYIUSJfVT9Mbd3lbF3qzQKD7sI89LkMOIi
-	H3jXVRsImoHOAzdnbRxTrdRH/HIm5bDze0Hc5DRD1mUiQZ5lkvKMHUScsg/7jHa0bRE74zLnG3ERU
-	RykRBlypcNlnfhaO0qbTzOswcO2hldVRSXZDw53dxm7eB4j7QNjoW6YX2XZ3FRhNiNlpYAtIF+O0F
-	kW1H50YYyx3C9MBlAfezxGDszL3Zggm/qPvEo4LEZKw52j1dG6tixDSXj/yjiiqcAgTcHh8NynLoL
-	ZO6g2oHJUNQBuc0Jdb3w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
+	Cc:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+IdiTARnXNAhGj3y+BqtTG540VQsX8vr64P/M2oxJmQ=; b=cNDWnN+WOKPkPv44RQWHCz7Ams
+	yuJaYu8Bzt/KgP5SPDYSXfJIhN4YhNJ8JHwy1soHKCtllg5SemtzVJGL+UPnRXq3PxFXZNLkEXzJ+
+	GJqIA7tPpzY9L/BA+fKiI5jAI3IK0rYQ26jPdZRwu9ReFo9nJgGxklZuCVQUjQ3AVqeYoO6x9qD5W
+	Tcf73sBkT3j5N6z5bvgrHXvKZ2P8FXWywpcKXLxy42/KkpRyafWAYQHMr4g26m4Oo/lKTia+nz1/w
+	KPuc6sx+jvt2Gj0A7LBD7F/BluFR5NoU0q7X9kuznvp74Ph59WH0I+1zBToQ9dKECN50xqk7bzeJH
+	vGPwjDSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qmcGh-009miK-0q;
-	Sat, 30 Sep 2023 15:52:35 +0000
-Received: from mail-ej1-x632.google.com ([2a00:1450:4864:20::632])
+	id 1qmfAD-00A2P8-1Q;
+	Sat, 30 Sep 2023 18:58:05 +0000
+Received: from mail-wr1-f54.google.com ([209.85.221.54])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qmcGc-009mhk-1N
+	id 1qmfAA-00A2Oo-1Z
 	for linux-riscv@lists.infradead.org;
-	Sat, 30 Sep 2023 15:52:31 +0000
-Received: by mail-ej1-x632.google.com with SMTP id a640c23a62f3a-9936b3d0286so2075740866b.0
-        for <linux-riscv@lists.infradead.org>; Sat, 30 Sep 2023 08:52:28 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1696089147; x=1696693947; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:references:cc:to
-         :from:content-language:subject:user-agent:mime-version:date
-         :message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=M0XspksAE2e3KjyehDjBT4XLAJOfx8ADuKgTmVoQcrE=;
-        b=t3KSn4C2TqdODIRdrjuM9gj91bnjkwhZj7mapIybur0KA8Q5z42LvTBPiwPcQsNSBy
-         43LUuUDKNZlcGQbzqxLjLH41UARxf48COSfcfqrSgqfInBr6MSu1pNjKlLEUjGkiVqmO
-         0acxP2+cMG8UqYCXGOQUGmzG+vMOpKDWfVU8F0sIF2oCJF8l/O0hxAZAU3cNnq0KyNGJ
-         Ph0jycrSvrxCNIdpMhrqOmYw5uhkCEdZ4JmSRDEVSnJSs2FbPJaodyMXM6WbutmEDzET
-         C+0AKpBAjjV8VQJEX7DhkBcvWSWo36jBGg8o2Td4T3M1Dm9pdwO83SA9QdDnUZ3+U8r+
-         CczQ==
+	Sat, 30 Sep 2023 18:58:04 +0000
+Received: by mail-wr1-f54.google.com with SMTP id ffacd0b85a97d-3231df054c4so10997238f8f.0
+        for <linux-riscv@lists.infradead.org>; Sat, 30 Sep 2023 11:58:01 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1696089147; x=1696693947;
-        h=content-transfer-encoding:in-reply-to:autocrypt:references:cc:to
-         :from:content-language:subject:user-agent:mime-version:date
-         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=M0XspksAE2e3KjyehDjBT4XLAJOfx8ADuKgTmVoQcrE=;
-        b=Kv8UuR3sZkFuq05Us4J4yONl6LqwuaF/ojnyLvUfsg+aO5IjlwZUMIpY85quBQ2bMR
-         kGo33ymBfVygNbcyZ1vnJpdKB9QocBmrElHrfdmJFq1Zn352TS8/7qCSAEB8HDEE/gEf
-         adqZzqFnx1XWb1KWzGBh62IrFBTUgTH3bwESAs+nmNN+IkVhEthe7C6s2SPxkZD3hN+x
-         yRB6sJQnP9QIUkpazwZ7+ujRwUMSGCxDNK+mLPw1CrTbiM8mUScEQX0ZpbmmW52QjiGe
-         8V5vM+LGAtuuirC5wgxxYmVDhvLofUPvd0vJf16byJz+IWwwDTIwK5VTqCbbvTTcvkQt
-         hJXg==
-X-Gm-Message-State: AOJu0YxsTuUvd5rDsD2caFOE7tUekWsKJvAd09fk8zYG2Yidcl9nigkE
-	pVohwdB9qrJAnpqEuVJETib8rg==
-X-Google-Smtp-Source: AGHT+IGmTrC3eVad18TjYVPEym5FoXviWal1NrrN2JI6HE5A3LhZDhYqnbrD4Y6JoJvjv56g/OUUaA==
-X-Received: by 2002:a17:906:74cc:b0:9a1:edfd:73b2 with SMTP id z12-20020a17090674cc00b009a1edfd73b2mr6817091ejl.2.1696089147331;
-        Sat, 30 Sep 2023 08:52:27 -0700 (PDT)
-Received: from [192.168.8.76] ([88.155.12.231])
-        by smtp.gmail.com with ESMTPSA id lf11-20020a170907174b00b009ad81554c1bsm14108157ejc.55.2023.09.30.08.52.21
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 30 Sep 2023 08:52:26 -0700 (PDT)
-Message-ID: <924f8334-f4d3-4c41-b8c2-08f1a15c7fa0@linaro.org>
-Date: Sat, 30 Sep 2023 17:52:18 +0200
+        d=1e100.net; s=20230601; t=1696100280; x=1696705080;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=lhTz5Kpm3WzUZhtst99y+Ay7cOJLNI0uW48gvdmxh4U=;
+        b=Recgo0/mHgXjFj4hd/I+LoCJwnMnVceoo2yiB31+z4/tC2SGOxL1Tl4+feRoSlVBFH
+         SAAfhRJWbuuApevyhlVJAel4URlYcSKT28Mr6tDzW64xlM5FoJzmZe3uJk+nsE2yRc4J
+         ie6u7dTamG/BIotiA2CoVrOsRxKYL1Lpy7YHeGwA1x8VKuyv8NFBptAPXUAurYdI5RRI
+         mlHburImnGoOqIaRIryJig9BBNLzDxHmYBVNLGB/sQM2jRpgdWCvNaWMq+//1e8I82XM
+         L17e1SsTjjTohl7bX2cOOM4lcgMCtPqDHJyqR/MM3givSiSamElvDN6abK84SdEs5Z9q
+         q84w==
+X-Gm-Message-State: AOJu0YwAt10lWeniQIhHcFfeVGdFutgpgBTZyIE6hX1TrSDB9vpqLG4S
+	UoF8Or1f3nhQ+AAu2cqBCLg=
+X-Google-Smtp-Source: AGHT+IF7BpG9J4OXbpBFCwkdUZhvjQ1Wco+oK0vurL7YMusG3G9BgGXvHoFsLH1pgJOkDFfy+MihpQ==
+X-Received: by 2002:a5d:4650:0:b0:317:618a:c72 with SMTP id j16-20020a5d4650000000b00317618a0c72mr6805329wrs.64.1696100279710;
+        Sat, 30 Sep 2023 11:57:59 -0700 (PDT)
+Received: from costa-tp.bos2.lab ([2a00:a040:1a3:cb84:45fc:12dc:6d10:9889])
+        by smtp.gmail.com with ESMTPSA id bw10-20020a0560001f8a00b0032326908972sm15655085wrb.17.2023.09.30.11.57.56
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 30 Sep 2023 11:57:59 -0700 (PDT)
+From: Costa Shulyupin <costa.shul@redhat.com>
+To: Jonathan Corbet <corbet@lwn.net>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Federico Vaga <federico.vaga@vaga.pv.it>,
+	Alex Shi <alexs@kernel.org>,
+	Yanteng Si <siyanteng@loongson.cn>,
+	Costa Shulyupin <costa.shul@redhat.com>,
+	=?UTF-8?q?Philippe=20Mathieu-Daud=C3=A9?= <philmd@linaro.org>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Atish Patra <atishp@rivosinc.com>,
+	Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Sunil V L <sunilvl@ventanamicro.com>,
+	Evan Green <evan@rivosinc.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Andy Chiu <andy.chiu@sifive.com>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Song Shuai <songshuaishuai@tinylab.org>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@rivosinc.com>,
+	Anup Patel <anup@brainfault.org>,
+	Bagas Sanjaya <bagasdotme@gmail.com>,
+	Charlie Jenkins <charlie@rivosinc.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Wu XiangCheng <bobwxc@email.cn>,
+	Sami Tolvanen <samitolvanen@google.com>,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	workflows@vger.kernel.org
+Subject: [PATCH v1] docs: move riscv under arch
+Date: Sat, 30 Sep 2023 21:52:00 +0300
+Message-ID: <20230930185354.3034118-1-costa.shul@redhat.com>
+X-Mailer: git-send-email 2.41.0
+In-Reply-To: <87h6nbka8x.fsf@meer.lwn.net>
+References: <87h6nbka8x.fsf@meer.lwn.net>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] dt-bindings: usb: Add T-HEAD TH1520 USB controller
-Content-Language: en-US
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Jisheng Zhang <jszhang@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Conor Dooley <conor+dt@kernel.org>, Thinh Nguyen <Thinh.Nguyen@synopsys.com>
-Cc: linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, Guo Ren <guoren@kernel.org>,
- Fu Wei <wefu@redhat.com>, linux-riscv@lists.infradead.org
-References: <20230927164222.3505-1-jszhang@kernel.org>
- <20230927164222.3505-2-jszhang@kernel.org>
- <08760c32-fee0-4681-92f2-56003cadad0a@linaro.org>
-Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
- 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
- D2GYIS41Kv4Isx2dEFh+/Q==
-In-Reply-To: <08760c32-fee0-4681-92f2-56003cadad0a@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230930_085230_468087_79C34127 
-X-CRM114-Status: UNSURE (   8.38  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230930_115802_526854_8DC63418 
+X-CRM114-Status: GOOD (  13.67  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,39 +104,302 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============3863305382416089485=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 28/09/2023 07:21, Krzysztof Kozlowski wrote:
-> Drop stray blank line
-> 
->> +    usb {
->> +          compatible = "thead,th1520-usb";
-> 
-> Use 4 spaces for example indentation.
-> 
->> +          reg = <0xec03f000 0x1000>;
->> +          clocks = <&clk 1>,
->> +                   <&clk 2>,
->> +                   <&clk 3>,
->> +                   <&clk 4>;
->> +          clock-names = "ref", "bus_early", "phy", "suspend";
->> +          ranges;
-> 
-> Are you sure you do not have W=1 warnings in DTS?
+--===============3863305382416089485==
+Content-Type: text/plain; charset=true
+Content-Transfer-Encoding: 8bit
 
-Ah, as we can see from bot's report, you have warnings. Please test your
-DTS with dtbs_check W=1 and fix all (*ALL*) warnings.
+and fix all in-tree references.
 
-This looks like missing proper addresses in the ranges.
+Architecture-specific documentation is being moved into Documentation/arch/
+as a way of cleaning up the top-level documentation directory and making
+the docs hierarchy more closely match the source hierarchy.
 
-Best regards,
-Krzysztof
+Signed-off-by: Costa Shulyupin <costa.shul@redhat.com>
 
+---
+Changes in v1: rebased on linux-next
+
+Signed-off-by: Costa Shulyupin <costa.shul@redhat.com>
+---
+ Documentation/arch/index.rst                                  | 2 +-
+ Documentation/{ => arch}/riscv/acpi.rst                       | 0
+ Documentation/{ => arch}/riscv/boot-image-header.rst          | 0
+ Documentation/{ => arch}/riscv/boot.rst                       | 0
+ Documentation/{ => arch}/riscv/features.rst                   | 0
+ Documentation/{ => arch}/riscv/hwprobe.rst                    | 0
+ Documentation/{ => arch}/riscv/index.rst                      | 0
+ Documentation/{ => arch}/riscv/patch-acceptance.rst           | 0
+ Documentation/{ => arch}/riscv/uabi.rst                       | 0
+ Documentation/{ => arch}/riscv/vector.rst                     | 0
+ Documentation/{ => arch}/riscv/vm-layout.rst                  | 0
+ Documentation/maintainer/maintainer-entry-profile.rst         | 2 +-
+ Documentation/process/index.rst                               | 2 +-
+ Documentation/translations/it_IT/riscv/patch-acceptance.rst   | 2 +-
+ Documentation/translations/zh_CN/arch/index.rst               | 2 +-
+ .../translations/zh_CN/{ => arch}/riscv/boot-image-header.rst | 4 ++--
+ Documentation/translations/zh_CN/{ => arch}/riscv/index.rst   | 4 ++--
+ .../translations/zh_CN/{ => arch}/riscv/patch-acceptance.rst  | 4 ++--
+ .../translations/zh_CN/{ => arch}/riscv/vm-layout.rst         | 4 ++--
+ .../zh_CN/maintainer/maintainer-entry-profile.rst             | 2 +-
+ MAINTAINERS                                                   | 2 +-
+ arch/riscv/include/uapi/asm/hwprobe.h                         | 2 +-
+ arch/riscv/kernel/sys_riscv.c                                 | 2 +-
+ 23 files changed, 17 insertions(+), 17 deletions(-)
+ rename Documentation/{ => arch}/riscv/acpi.rst (100%)
+ rename Documentation/{ => arch}/riscv/boot-image-header.rst (100%)
+ rename Documentation/{ => arch}/riscv/boot.rst (100%)
+ rename Documentation/{ => arch}/riscv/features.rst (100%)
+ rename Documentation/{ => arch}/riscv/hwprobe.rst (100%)
+ rename Documentation/{ => arch}/riscv/index.rst (100%)
+ rename Documentation/{ => arch}/riscv/patch-acceptance.rst (100%)
+ rename Documentation/{ => arch}/riscv/uabi.rst (100%)
+ rename Documentation/{ => arch}/riscv/vector.rst (100%)
+ rename Documentation/{ => arch}/riscv/vm-layout.rst (100%)
+ rename Documentation/translations/zh_CN/{ => arch}/riscv/boot-image-header.rst (96%)
+ rename Documentation/translations/zh_CN/{ => arch}/riscv/index.rst (79%)
+ rename Documentation/translations/zh_CN/{ => arch}/riscv/patch-acceptance.rst (93%)
+ rename Documentation/translations/zh_CN/{ => arch}/riscv/vm-layout.rst (98%)
+
+diff --git a/Documentation/arch/index.rst b/Documentation/arch/index.rst
+index 194e7e797877..d27c360e0312 100644
+--- a/Documentation/arch/index.rst
++++ b/Documentation/arch/index.rst
+@@ -19,7 +19,7 @@ implementation.
+    openrisc/index
+    parisc/index
+    ../powerpc/index
+-   ../riscv/index
++   riscv/index
+    s390/index
+    sh/index
+    sparc/index
+diff --git a/Documentation/riscv/acpi.rst b/Documentation/arch/riscv/acpi.rst
+similarity index 100%
+rename from Documentation/riscv/acpi.rst
+rename to Documentation/arch/riscv/acpi.rst
+diff --git a/Documentation/riscv/boot-image-header.rst b/Documentation/arch/riscv/boot-image-header.rst
+similarity index 100%
+rename from Documentation/riscv/boot-image-header.rst
+rename to Documentation/arch/riscv/boot-image-header.rst
+diff --git a/Documentation/riscv/boot.rst b/Documentation/arch/riscv/boot.rst
+similarity index 100%
+rename from Documentation/riscv/boot.rst
+rename to Documentation/arch/riscv/boot.rst
+diff --git a/Documentation/riscv/features.rst b/Documentation/arch/riscv/features.rst
+similarity index 100%
+rename from Documentation/riscv/features.rst
+rename to Documentation/arch/riscv/features.rst
+diff --git a/Documentation/riscv/hwprobe.rst b/Documentation/arch/riscv/hwprobe.rst
+similarity index 100%
+rename from Documentation/riscv/hwprobe.rst
+rename to Documentation/arch/riscv/hwprobe.rst
+diff --git a/Documentation/riscv/index.rst b/Documentation/arch/riscv/index.rst
+similarity index 100%
+rename from Documentation/riscv/index.rst
+rename to Documentation/arch/riscv/index.rst
+diff --git a/Documentation/riscv/patch-acceptance.rst b/Documentation/arch/riscv/patch-acceptance.rst
+similarity index 100%
+rename from Documentation/riscv/patch-acceptance.rst
+rename to Documentation/arch/riscv/patch-acceptance.rst
+diff --git a/Documentation/riscv/uabi.rst b/Documentation/arch/riscv/uabi.rst
+similarity index 100%
+rename from Documentation/riscv/uabi.rst
+rename to Documentation/arch/riscv/uabi.rst
+diff --git a/Documentation/riscv/vector.rst b/Documentation/arch/riscv/vector.rst
+similarity index 100%
+rename from Documentation/riscv/vector.rst
+rename to Documentation/arch/riscv/vector.rst
+diff --git a/Documentation/riscv/vm-layout.rst b/Documentation/arch/riscv/vm-layout.rst
+similarity index 100%
+rename from Documentation/riscv/vm-layout.rst
+rename to Documentation/arch/riscv/vm-layout.rst
+diff --git a/Documentation/maintainer/maintainer-entry-profile.rst b/Documentation/maintainer/maintainer-entry-profile.rst
+index 6b64072d4bf2..7ad4bfc2cc03 100644
+--- a/Documentation/maintainer/maintainer-entry-profile.rst
++++ b/Documentation/maintainer/maintainer-entry-profile.rst
+@@ -101,7 +101,7 @@ to do something different in the near future.
+ 
+    ../doc-guide/maintainer-profile
+    ../nvdimm/maintainer-entry-profile
+-   ../riscv/patch-acceptance
++   ../arch/riscv/patch-acceptance
+    ../driver-api/media/maintainer-entry-profile
+    ../driver-api/vfio-pci-device-specific-driver-acceptance
+    ../nvme/feature-and-quirk-policy
+diff --git a/Documentation/process/index.rst b/Documentation/process/index.rst
+index b501cd977053..db09a81d474b 100644
+--- a/Documentation/process/index.rst
++++ b/Documentation/process/index.rst
+@@ -71,7 +71,7 @@ lack of a better place.
+    volatile-considered-harmful
+    botching-up-ioctls
+    clang-format
+-   ../riscv/patch-acceptance
++   ../arch/riscv/patch-acceptance
+    ../core-api/unaligned-memory-access
+ 
+ .. only::  subproject and html
+diff --git a/Documentation/translations/it_IT/riscv/patch-acceptance.rst b/Documentation/translations/it_IT/riscv/patch-acceptance.rst
+index edf67252b3fb..2d7afb1f6959 100644
+--- a/Documentation/translations/it_IT/riscv/patch-acceptance.rst
++++ b/Documentation/translations/it_IT/riscv/patch-acceptance.rst
+@@ -1,6 +1,6 @@
+ .. include:: ../disclaimer-ita.rst
+ 
+-:Original: :doc:`../../../riscv/patch-acceptance`
++:Original: :doc:`../../../arch/riscv/patch-acceptance`
+ :Translator: Federico Vaga <federico.vaga@vaga.pv.it>
+ 
+ arch/riscv linee guida alla manutenzione per gli sviluppatori
+diff --git a/Documentation/translations/zh_CN/arch/index.rst b/Documentation/translations/zh_CN/arch/index.rst
+index 945b078168b0..71186d9df7c9 100644
+--- a/Documentation/translations/zh_CN/arch/index.rst
++++ b/Documentation/translations/zh_CN/arch/index.rst
+@@ -10,7 +10,7 @@
+ 
+    mips/index
+    arm64/index
+-   ../riscv/index
++   ../arch/riscv/index
+    openrisc/index
+    parisc/index
+    loongarch/index
+diff --git a/Documentation/translations/zh_CN/riscv/boot-image-header.rst b/Documentation/translations/zh_CN/arch/riscv/boot-image-header.rst
+similarity index 96%
+rename from Documentation/translations/zh_CN/riscv/boot-image-header.rst
+rename to Documentation/translations/zh_CN/arch/riscv/boot-image-header.rst
+index 0234c28a7114..779b5172fe24 100644
+--- a/Documentation/translations/zh_CN/riscv/boot-image-header.rst
++++ b/Documentation/translations/zh_CN/arch/riscv/boot-image-header.rst
+@@ -1,6 +1,6 @@
+-.. include:: ../disclaimer-zh_CN.rst
++.. include:: ../../disclaimer-zh_CN.rst
+ 
+-:Original: Documentation/riscv/boot-image-header.rst
++:Original: Documentation/arch/riscv/boot-image-header.rst
+ 
+ :翻译:
+ 
+diff --git a/Documentation/translations/zh_CN/riscv/index.rst b/Documentation/translations/zh_CN/arch/riscv/index.rst
+similarity index 79%
+rename from Documentation/translations/zh_CN/riscv/index.rst
+rename to Documentation/translations/zh_CN/arch/riscv/index.rst
+index 131e405aa857..3b041c116169 100644
+--- a/Documentation/translations/zh_CN/riscv/index.rst
++++ b/Documentation/translations/zh_CN/arch/riscv/index.rst
+@@ -1,8 +1,8 @@
+ .. SPDX-License-Identifier: GPL-2.0
+ 
+-.. include:: ../disclaimer-zh_CN.rst
++.. include:: ../../disclaimer-zh_CN.rst
+ 
+-:Original: Documentation/riscv/index.rst
++:Original: Documentation/arch/riscv/index.rst
+ 
+ :翻译:
+ 
+diff --git a/Documentation/translations/zh_CN/riscv/patch-acceptance.rst b/Documentation/translations/zh_CN/arch/riscv/patch-acceptance.rst
+similarity index 93%
+rename from Documentation/translations/zh_CN/riscv/patch-acceptance.rst
+rename to Documentation/translations/zh_CN/arch/riscv/patch-acceptance.rst
+index d180d24717bf..c8eb230ca8ee 100644
+--- a/Documentation/translations/zh_CN/riscv/patch-acceptance.rst
++++ b/Documentation/translations/zh_CN/arch/riscv/patch-acceptance.rst
+@@ -1,8 +1,8 @@
+ .. SPDX-License-Identifier: GPL-2.0
+ 
+-.. include:: ../disclaimer-zh_CN.rst
++.. include:: ../../disclaimer-zh_CN.rst
+ 
+-:Original: Documentation/riscv/patch-acceptance.rst
++:Original: Documentation/arch/riscv/patch-acceptance.rst
+ 
+ :翻译:
+ 
+diff --git a/Documentation/translations/zh_CN/riscv/vm-layout.rst b/Documentation/translations/zh_CN/arch/riscv/vm-layout.rst
+similarity index 98%
+rename from Documentation/translations/zh_CN/riscv/vm-layout.rst
+rename to Documentation/translations/zh_CN/arch/riscv/vm-layout.rst
+index 91884e2dfff8..4b9f4dcf6c19 100644
+--- a/Documentation/translations/zh_CN/riscv/vm-layout.rst
++++ b/Documentation/translations/zh_CN/arch/riscv/vm-layout.rst
+@@ -1,7 +1,7 @@
+ .. SPDX-License-Identifier: GPL-2.0
+-.. include:: ../disclaimer-zh_CN.rst
++.. include:: ../../disclaimer-zh_CN.rst
+ 
+-:Original: Documentation/riscv/vm-layout.rst
++:Original: Documentation/arch/riscv/vm-layout.rst
+ 
+ :翻译:
+ 
+diff --git a/Documentation/translations/zh_CN/maintainer/maintainer-entry-profile.rst b/Documentation/translations/zh_CN/maintainer/maintainer-entry-profile.rst
+index a1ee99c4786e..0f5acfb1012e 100644
+--- a/Documentation/translations/zh_CN/maintainer/maintainer-entry-profile.rst
++++ b/Documentation/translations/zh_CN/maintainer/maintainer-entry-profile.rst
+@@ -89,4 +89,4 @@
+ 
+    ../doc-guide/maintainer-profile
+    ../../../nvdimm/maintainer-entry-profile
+-   ../../../riscv/patch-acceptance
++   ../../../arch/riscv/patch-acceptance
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 208cfcc1aee3..863ba7e0123c 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -18533,7 +18533,7 @@ L:	linux-riscv@lists.infradead.org
+ S:	Supported
+ Q:	https://patchwork.kernel.org/project/linux-riscv/list/
+ C:	irc://irc.libera.chat/riscv
+-P:	Documentation/riscv/patch-acceptance.rst
++P:	Documentation/arch/riscv/patch-acceptance.rst
+ T:	git git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git
+ F:	arch/riscv/
+ N:	riscv
+diff --git a/arch/riscv/include/uapi/asm/hwprobe.h b/arch/riscv/include/uapi/asm/hwprobe.h
+index 006bfb48343d..d43e306ce2f9 100644
+--- a/arch/riscv/include/uapi/asm/hwprobe.h
++++ b/arch/riscv/include/uapi/asm/hwprobe.h
+@@ -10,7 +10,7 @@
+ 
+ /*
+  * Interface for probing hardware capabilities from userspace, see
+- * Documentation/riscv/hwprobe.rst for more information.
++ * Documentation/arch/riscv/hwprobe.rst for more information.
+  */
+ struct riscv_hwprobe {
+ 	__s64 key;
+diff --git a/arch/riscv/kernel/sys_riscv.c b/arch/riscv/kernel/sys_riscv.c
+index 473159b5f303..b651ec698a91 100644
+--- a/arch/riscv/kernel/sys_riscv.c
++++ b/arch/riscv/kernel/sys_riscv.c
+@@ -79,7 +79,7 @@ SYSCALL_DEFINE3(riscv_flush_icache, uintptr_t, start, uintptr_t, end,
+ 
+ /*
+  * The hwprobe interface, for allowing userspace to probe to see which features
+- * are supported by the hardware.  See Documentation/riscv/hwprobe.rst for more
++ * are supported by the hardware.  See Documentation/arch/riscv/hwprobe.rst for more
+  * details.
+  */
+ static void hwprobe_arch_id(struct riscv_hwprobe *pair,
+-- 
+2.41.0
+
+
+
+--===============3863305382416089485==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============3863305382416089485==--
