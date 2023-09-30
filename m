@@ -4,64 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A716E7735F
-	for <linux-riscv@archiver.kernel.org>; Sat, 30 Sep 2023 09:14:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28222E7735F
+	for <linux-riscv@archiver.kernel.org>; Sat, 30 Sep 2023 09:17:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ncyM+0BEc906ObOd6+TWEIxmZRFmOiTamQ5jWJaizrQ=; b=hOaslsPipr90P2otTJdoutybjX
-	5CuXVvF1F4W24KPvKROEWMHWQ3xEbI6RhlpdHZABf1r2OTc4bKc5cX9KIPJvohcgwVEyC8zM5zika
-	j5QaZx5zkyiTWnTTXnAC++MZodt5dFtTJTzfz6BuVZ2vsEvHfSkvqHFAPxBvmmYwBatSGtb+Ii1NB
-	ucarENPYYHPy4kmXnq0XfNXxhCZc9/Hor/IzKNajIqnkt62A3rBcdSudLvLKkUa8iJdOXkHw3kJ0I
-	PF/cRqTuV8tFaMdwkpSijcrq1QJVYAFI0uW2yuLCMX314GiO3Oe8p0Q9a3Fa030AhAngvg758RoPY
-	c5GuQRkg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:Subject:References:Cc:
+	To:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=YflQzpaZF42p83lj2a2Eyaa4f7tu4b2b8OPR91TMWAc=; b=COQfdVkrueuIV1
+	/lx6Fv/YXS4x4TzNEkYixFrODtZHm8w/Pm1YNLxhP/e8hYeNvAQXRl+y7Fe/zSkf33NnmHCVSDONY
+	dHPCkchOZoW9N4cDLaSKwboCNs+vJO+uSFar6HR4rIw6LiM71wvibGySiXbLXKFHhswi+2Cs8X0du
+	Pz/RhGVWAbh3NjG8DBPDpKvPPuOPqM4NhDgVsIK/FvgdrTlaxM2Urp3QV8DGS7BL4i5BpB+KmOkvP
+	LVMlIfxqfZa3TUsRQ2UR4wy9fdfH3KTXg2/G1heOd35zkfokkipl/ZrM6CuRK1icwfhemz6jY9NAt
+	tF2FRTWIcALjDJx5eexA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qmW3h-009E5c-2M;
-	Sat, 30 Sep 2023 09:14:45 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1qmW5u-009EK2-2v;
+	Sat, 30 Sep 2023 09:17:02 +0000
+Received: from bg4.exmail.qq.com ([43.154.221.58])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qmW3d-009E4z-3C
+	id 1qmW5r-009EJD-0D
 	for linux-riscv@lists.infradead.org;
-	Sat, 30 Sep 2023 09:14:43 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by ams.source.kernel.org (Postfix) with ESMTP id 5C9B2B803F7;
-	Sat, 30 Sep 2023 09:14:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1ABD2C433C8;
-	Sat, 30 Sep 2023 09:14:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1696065279;
-	bh=26DZrEFmmX7RPrQtrMeeSVZD6kM5LM3HQlhgRqueXPE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=aMA4lonEOQcec+Y8U5X5uNPY9wy9SAqm8cvrp3N/D9OQuPojEY5CMrfbFvlHeVuIC
-	 kDJXYuyKlcCJ09Q6e+/O4OtuyfcTo3Sdchh8MdtED0rM3RfnGVy1IgVcio5HfJ8pRQ
-	 EEbw7emfAhc93brMUsc/bz40LDdaLvuafpZpjP7FHA6d7lAzfGBCLvpgUUjgwTsk+u
-	 Ju35FdtKswl6b5xzXTQmORx5HMH2sR3mIPpCxm4NCR+LFC2jLXEFVkXC6tKoVe1LPE
-	 A2MGxiwjheZxsMF6x/TIR9bzxlK+Jx6iRe/Fctnsi4P+OrFZuAm5lzLHxG/o9vZijG
-	 0OIkeo9dbixxw==
-Date: Sat, 30 Sep 2023 10:14:34 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Alexandre Ghiti <alexghiti@rivosinc.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Qinglin Pan <panqinglin2020@iscas.ac.cn>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH -fixes 2/2] riscv: Fix set_huge_pte_at() for NAPOT
- mappings when a swap entry is set
-Message-ID: <20230930-unnoticed-slacked-0bf5696cc265@spud>
-References: <20230928151846.8229-1-alexghiti@rivosinc.com>
- <20230928151846.8229-3-alexghiti@rivosinc.com>
+	Sat, 30 Sep 2023 09:17:01 +0000
+X-QQ-mid: bizesmtp63t1696065391t50lhqi7
+Received: from [172.23.146.214] ( [202.201.12.64])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Sat, 30 Sep 2023 17:16:29 +0800 (CST)
+X-QQ-SSF: 01200000000000907000000A0000000
+X-QQ-FEAT: I8hG9CuxGDLQuXHf8VtanQ2ZKm/Lok9FMJ2TGfARaNJMLrUjTGywh20/NmSwG
+	k9B3qP7xVX/XDL06cEqN5/T6/SlOcD4tPyRI/KVWQ2eCnI6BkC0ATKt+axs/D4EPawFNEI3
+	YaGcCsD8+HPskciaD+yBpR5OuwYD7WBzbHQovVbVg8kQQWpAKZZnAlgndmPK7kJN1YG9U8N
+	SFfVUGyMvbQAHhUHmGRHv7A87YJ5YzWpvdZqd6sYD9av2+O8nRHxBIc17gXHoWYKWCleklM
+	6vlcrr94AMxb+A9fpXH77coirsb89nAPxpQFneyWGktY2v8wFATEKFC5+CA0a3XVSMP7RM9
+	/bY+92t8qHABlXjh4KknZoCVfi1Lw==
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 14407844278423888286
+Message-ID: <547F71D46EA4696E+a7d57e8e-aa8f-4779-8108-9c326e1bde86@tinylab.org>
+Date: Sat, 30 Sep 2023 17:16:27 +0800
 MIME-Version: 1.0
-In-Reply-To: <20230928151846.8229-3-alexghiti@rivosinc.com>
+User-Agent: Mozilla Thunderbird
+To: falcon@tinylab.org
+Cc: arnd@arndb.de, linux-kernel@vger.kernel.org, linux-mips@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux@weissschuh.net, palmer@rivosinc.com,
+ paul.walmsley@sifive.com, paulburton@kernel.org, paulmck@kernel.org,
+ tim.bird@sony.com, tsbogend@alpha.franken.de, w@1wt.eu
+References: <cover.1695679700.git.falcon@tinylab.org>
+Subject: Re: [PATCH v1 0/7] DCE/DSE: Add Dead Syscalls Elimination support,
+ part1
+Content-Language: en-GB
+From: Yuan Tan <tanyuan@tinylab.org>
+In-Reply-To: <cover.1695679700.git.falcon@tinylab.org>
+X-QQ-SENDSIZE: 520
+Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrgz:qybglogicsvrgz5a-1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230930_021442_317757_AA40CBC4 
-X-CRM114-Status: GOOD (  25.93  )
+X-CRM114-CacheID: sfid-20230930_021659_461946_845F1D0A 
+X-CRM114-Status: UNSURE (   3.88  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,117 +72,32 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3414792672520412096=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============3414792672520412096==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="5QYzZhHNu7GI5bSx"
-Content-Disposition: inline
-
-
---5QYzZhHNu7GI5bSx
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Thu, Sep 28, 2023 at 05:18:46PM +0200, Alexandre Ghiti wrote:
-> We used to determine the number of page table entries to set for a NAPOT
-> hugepage by using the pte value which actually fails when the pte to set =
-is
-> a swap entry.
->=20
-> So take advantage of a recent fix for arm64 reported in [1] which
-> introduces the size of the mapping as an argument of set_huge_pte_at(): we
-> can then use this size to compute the number of page table entries to set
-> for a NAPOT region.
->=20
-> Fixes: 82a1a1f3bfb6 ("riscv: mm: support Svnapot in hugetlb page")
-> Reported-by: Ryan Roberts <ryan.roberts@arm.com>
-> Closes: https://lore.kernel.org/linux-arm-kernel/20230922115804.2043771-1=
--ryan.roberts@arm.com/ [1]
-> Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-
-Breaks the build. Your $subject marks this for -fixes, but this will not
-build there, as it relies on content that's not yet in that branch.
-AFAICT, you're going to have to resend this with akpm on CC, as the
-dependency is in his tree...
-
-Thanks,
-Conor.
-
-> ---
->  arch/riscv/mm/hugetlbpage.c | 19 +++++++++++++------
->  1 file changed, 13 insertions(+), 6 deletions(-)
->=20
-> diff --git a/arch/riscv/mm/hugetlbpage.c b/arch/riscv/mm/hugetlbpage.c
-> index e4a2ace92dbe..b52f0210481f 100644
-> --- a/arch/riscv/mm/hugetlbpage.c
-> +++ b/arch/riscv/mm/hugetlbpage.c
-> @@ -183,15 +183,22 @@ void set_huge_pte_at(struct mm_struct *mm,
->  		     pte_t pte,
->  		     unsigned long sz)
->  {
-> +	unsigned long hugepage_shift;
->  	int i, pte_num;
-> =20
-> -	if (!pte_napot(pte)) {
-> -		set_pte_at(mm, addr, ptep, pte);
-> -		return;
-> -	}
-> +	if (sz >=3D PGDIR_SIZE)
-> +		hugepage_shift =3D PGDIR_SHIFT;
-> +	else if (sz >=3D P4D_SIZE)
-> +		hugepage_shift =3D P4D_SHIFT;
-> +	else if (sz >=3D PUD_SIZE)
-> +		hugepage_shift =3D PUD_SHIFT;
-> +	else if (sz >=3D PMD_SIZE)
-> +		hugepage_shift =3D PMD_SHIFT;
-> +	else
-> +		hugepage_shift =3D PAGE_SHIFT;
-> =20
-> -	pte_num =3D napot_pte_num(napot_cont_order(pte));
-> -	for (i =3D 0; i < pte_num; i++, ptep++, addr +=3D PAGE_SIZE)
-> +	pte_num =3D sz >> hugepage_shift;
-> +	for (i =3D 0; i < pte_num; i++, ptep++, addr +=3D (1 << hugepage_shift))
->  		set_pte_at(mm, addr, ptep, pte);
->  }
-> =20
-> --=20
-> 2.39.2
->=20
->=20
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---5QYzZhHNu7GI5bSx
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZRfm+gAKCRB4tDGHoIJi
-0m0zAP91gvh8xVeSCkLcZbXEq+3qnMduthZnz3KibSQU6EOWGQD/ZuPEswXNV4uy
-bVcB6Egf+5E3mB3MeG1hbuQ6lvtluQ0=
-=1QHA
------END PGP SIGNATURE-----
-
---5QYzZhHNu7GI5bSx--
-
-
---===============3414792672520412096==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============3414792672520412096==--
-
+SGVyZSBpcyBhIHRlc3QgcmVzdWx0IGFib3V0IERFQURfQ09ERV9EQVRBX0VMSU1JTkFUSU9OIChE
+Q0UpIGFuZCBkZWFkIHN5c2NhbGxzCmVsaW1pbmF0aW9uIChEU0UpLiBJdCdzIGJhc2VkIG9uIGNv
+bmZpZ1sxXSBhbmQgYSBzaW1wbGUgaGVsbG8uYyBpbml0cmFtZnMuCgpJbiB0aGUgRFNFIHRlc3Qs
+IHdlIHNldCBDT05GSUdfU1lTQ0FMTFNfVVNFRD0ic3lzX3dyaXRlIHN5c19leGl0IHN5c19yZWJv
+b3QsIgp3aGljaCBpcyB1c2VkIGJ5IGhlbGxvLmMgdG8gc2ltcGx5IHByaW50ICJIZWxsbyIgdGhl
+biBleGl0IGFuZCBzaHV0IGRvd24gcWVtdS4KCnzCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHwgc3lzY2FsbCByZW1h
+aW4gfCB2bWxpbnV4IHNpemXCoMKgwqDCoCB8IHZtbGludXggYWZ0ZXIgdHJpcCB8CnwgLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSB8IC0tLS0tLS0tLS0tLS0tIHwgLS0tLS0tLS0t
+LS0tLS0tLSB8IC0tLS0tLS0tLS0tLS0tLS0tLSB8CnwgZGlzYWJsZSBEQ0XCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHwgMjM2wqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoCB8IDI1NTk2MzLCoMKgwqDCoMKgwqDCoMKgwqAgfCAxOTYzNDAwwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoCB8CnwgZW5hYmxlIERDRcKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoCB8IDIwOMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgfCAyMDM3Mzg0ICgtMjAu
+NCUpIHwgMTQ4NTc3NiAoLTI0LjMlKcKgwqAgfAp8IGVuYWJsZSBEQ0UgYW5kIERTRShTSEVfR1JP
+VVApwqDCoMKgwqDCoCB8IDPCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCB8IDE4NTY2NDAgKC0y
+Ny42JSkgfCAxMzU0NDI0ICgtMzEuMCUpwqDCoCB8CnwgZW5hYmxlIERDRSBhbmQgRFNFKFNIRV9M
+SU5LX09SREVSKSB8IDPCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCB8IDE4NTY2NjQgKC0yNy42
+JSkgfCAxMzU0NDI0ICgtMzEuMCUpwqDCoCB8CgpJdCBzaG93cyB0aGF0IGRlYWQgc3lzY2FsbHMg
+ZWxpbWluYXRpb24gY2FuIHNhdmUgNyUgb2Ygc3BhY2UgYmFzZWQgb24gRENFLgoKWzFdOiBodHRw
+czovL3Bhc3RlYmluLmNvbS9LRzRmZDdhVAoKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZA
+bGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xp
+c3RpbmZvL2xpbnV4LXJpc2N2Cg==
