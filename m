@@ -4,63 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28222E7735F
-	for <linux-riscv@archiver.kernel.org>; Sat, 30 Sep 2023 09:17:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07750E77362
+	for <linux-riscv@archiver.kernel.org>; Sat, 30 Sep 2023 09:24:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:Subject:References:Cc:
-	To:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YflQzpaZF42p83lj2a2Eyaa4f7tu4b2b8OPR91TMWAc=; b=COQfdVkrueuIV1
-	/lx6Fv/YXS4x4TzNEkYixFrODtZHm8w/Pm1YNLxhP/e8hYeNvAQXRl+y7Fe/zSkf33NnmHCVSDONY
-	dHPCkchOZoW9N4cDLaSKwboCNs+vJO+uSFar6HR4rIw6LiM71wvibGySiXbLXKFHhswi+2Cs8X0du
-	Pz/RhGVWAbh3NjG8DBPDpKvPPuOPqM4NhDgVsIK/FvgdrTlaxM2Urp3QV8DGS7BL4i5BpB+KmOkvP
-	LVMlIfxqfZa3TUsRQ2UR4wy9fdfH3KTXg2/G1heOd35zkfokkipl/ZrM6CuRK1icwfhemz6jY9NAt
-	tF2FRTWIcALjDJx5eexA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lOTVwV3P4S3gC6H+7HJBuLlKMT1AxLDtNT7rVX98T7c=; b=HXD8ubTV+IGPF212ti4K+H6/DF
+	YzFq47ebn8dH0LXb0g9Gb+UMbjvtjGe4iWYxVD5TgWac3R2SZmLluGtShF7qvK5rlGam0MhVQ+46H
+	g1AGeqeK0biw9FO9Drf6JAdPlCcAWOyyH3PZGRDWXg/k6fzPZYbO1fCdRylNtvQQ7gqeGHt0zSZ7z
+	ghWtKA2DrNO9PCz6xCmSr1xBnTrXGrEPIlnJzl23/5Cb9NkzYcS0zVFn6vEUZXMF+wpChz1uRrrQz
+	h1SnywgWQ0G5nt6WZTgQ6VaeS+S8avddZPaOa7JhA4y45dnqWMv6g1Adu/xETQB2UCApc3VQU+PXd
+	rdO4YwiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qmW5u-009EK2-2v;
-	Sat, 30 Sep 2023 09:17:02 +0000
-Received: from bg4.exmail.qq.com ([43.154.221.58])
+	id 1qmWCs-009Ef0-32;
+	Sat, 30 Sep 2023 09:24:14 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qmW5r-009EJD-0D
+	id 1qmWCq-009EeY-0P
 	for linux-riscv@lists.infradead.org;
-	Sat, 30 Sep 2023 09:17:01 +0000
-X-QQ-mid: bizesmtp63t1696065391t50lhqi7
-Received: from [172.23.146.214] ( [202.201.12.64])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Sat, 30 Sep 2023 17:16:29 +0800 (CST)
-X-QQ-SSF: 01200000000000907000000A0000000
-X-QQ-FEAT: I8hG9CuxGDLQuXHf8VtanQ2ZKm/Lok9FMJ2TGfARaNJMLrUjTGywh20/NmSwG
-	k9B3qP7xVX/XDL06cEqN5/T6/SlOcD4tPyRI/KVWQ2eCnI6BkC0ATKt+axs/D4EPawFNEI3
-	YaGcCsD8+HPskciaD+yBpR5OuwYD7WBzbHQovVbVg8kQQWpAKZZnAlgndmPK7kJN1YG9U8N
-	SFfVUGyMvbQAHhUHmGRHv7A87YJ5YzWpvdZqd6sYD9av2+O8nRHxBIc17gXHoWYKWCleklM
-	6vlcrr94AMxb+A9fpXH77coirsb89nAPxpQFneyWGktY2v8wFATEKFC5+CA0a3XVSMP7RM9
-	/bY+92t8qHABlXjh4KknZoCVfi1Lw==
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 14407844278423888286
-Message-ID: <547F71D46EA4696E+a7d57e8e-aa8f-4779-8108-9c326e1bde86@tinylab.org>
-Date: Sat, 30 Sep 2023 17:16:27 +0800
+	Sat, 30 Sep 2023 09:24:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id DF699CE24D3;
+	Sat, 30 Sep 2023 09:24:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CDFBBC433C7;
+	Sat, 30 Sep 2023 09:24:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1696065843;
+	bh=kDNia0WmJ1Icu03VHc1VXn0QbQl9HCIniijZGfUBKUI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=P58ubrG8nh4/GOZLvc6HMcH8CTfrM2pxRvOY+nOhDCYrFmFFi5eU9rGaBrX6pC8IN
+	 tiky509onDqrpoR1kbEWD4hJvHlH5fH1BSC5YYngCwEh9KNO22RHDEkw41q0GR4DxO
+	 LiS7DshG2o6PcDxGYd6U8SssEIUfHD9JvJuodwxYnOgshHxk3DZ0B4nL/mXCgojyZo
+	 nWH/+ZNpbwRBiGZXG2+LXyOTYOapZMe0tV0jF5M/49wG8Hw8inBr08O4fBrCGo0Mvd
+	 e741caPlxL6CWf3Oh/q7WFLk3cYKLxQCbkYpCA/QuBtNdR6ISuGChqbkE7GvHNm4ih
+	 fRKSJhV0YVhoA==
+Date: Sat, 30 Sep 2023 10:23:58 +0100
+From: Conor Dooley <conor@kernel.org>
+To: =?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Atish Patra <atishp@rivosinc.com>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Evan Green <evan@rivosinc.com>,
+	=?iso-8859-1?Q?Bj=F6rn?= Topel <bjorn@rivosinc.com>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Ron Minnich <rminnich@gmail.com>,
+	Daniel Maslowski <cyrevolt@googlemail.com>
+Subject: Re: [PATCH 0/7] Add support to handle misaligned accesses in S-mode
+Message-ID: <20230930-patchy-curdle-ef5ee6e1a17c@spud>
+References: <20230926150316.1129648-1-cleger@rivosinc.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-To: falcon@tinylab.org
-Cc: arnd@arndb.de, linux-kernel@vger.kernel.org, linux-mips@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux@weissschuh.net, palmer@rivosinc.com,
- paul.walmsley@sifive.com, paulburton@kernel.org, paulmck@kernel.org,
- tim.bird@sony.com, tsbogend@alpha.franken.de, w@1wt.eu
-References: <cover.1695679700.git.falcon@tinylab.org>
-Subject: Re: [PATCH v1 0/7] DCE/DSE: Add Dead Syscalls Elimination support,
- part1
-Content-Language: en-GB
-From: Yuan Tan <tanyuan@tinylab.org>
-In-Reply-To: <cover.1695679700.git.falcon@tinylab.org>
-X-QQ-SENDSIZE: 520
-Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrgz:qybglogicsvrgz5a-1
+In-Reply-To: <20230926150316.1129648-1-cleger@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230930_021659_461946_845F1D0A 
-X-CRM114-Status: UNSURE (   3.88  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230930_022412_552327_A4CF8E3F 
+X-CRM114-Status: GOOD (  18.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,32 +74,81 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============0820825789487506799=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGVyZSBpcyBhIHRlc3QgcmVzdWx0IGFib3V0IERFQURfQ09ERV9EQVRBX0VMSU1JTkFUSU9OIChE
-Q0UpIGFuZCBkZWFkIHN5c2NhbGxzCmVsaW1pbmF0aW9uIChEU0UpLiBJdCdzIGJhc2VkIG9uIGNv
-bmZpZ1sxXSBhbmQgYSBzaW1wbGUgaGVsbG8uYyBpbml0cmFtZnMuCgpJbiB0aGUgRFNFIHRlc3Qs
-IHdlIHNldCBDT05GSUdfU1lTQ0FMTFNfVVNFRD0ic3lzX3dyaXRlIHN5c19leGl0IHN5c19yZWJv
-b3QsIgp3aGljaCBpcyB1c2VkIGJ5IGhlbGxvLmMgdG8gc2ltcGx5IHByaW50ICJIZWxsbyIgdGhl
-biBleGl0IGFuZCBzaHV0IGRvd24gcWVtdS4KCnzCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHwgc3lzY2FsbCByZW1h
-aW4gfCB2bWxpbnV4IHNpemXCoMKgwqDCoCB8IHZtbGludXggYWZ0ZXIgdHJpcCB8CnwgLS0tLS0t
-LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSB8IC0tLS0tLS0tLS0tLS0tIHwgLS0tLS0tLS0t
-LS0tLS0tLSB8IC0tLS0tLS0tLS0tLS0tLS0tLSB8CnwgZGlzYWJsZSBEQ0XCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHwgMjM2wqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoCB8IDI1NTk2MzLCoMKgwqDCoMKgwqDCoMKgwqAgfCAxOTYzNDAwwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoCB8CnwgZW5hYmxlIERDRcKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoCB8IDIwOMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgfCAyMDM3Mzg0ICgtMjAu
-NCUpIHwgMTQ4NTc3NiAoLTI0LjMlKcKgwqAgfAp8IGVuYWJsZSBEQ0UgYW5kIERTRShTSEVfR1JP
-VVApwqDCoMKgwqDCoCB8IDPCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCB8IDE4NTY2NDAgKC0y
-Ny42JSkgfCAxMzU0NDI0ICgtMzEuMCUpwqDCoCB8CnwgZW5hYmxlIERDRSBhbmQgRFNFKFNIRV9M
-SU5LX09SREVSKSB8IDPCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCB8IDE4NTY2NjQgKC0yNy42
-JSkgfCAxMzU0NDI0ICgtMzEuMCUpwqDCoCB8CgpJdCBzaG93cyB0aGF0IGRlYWQgc3lzY2FsbHMg
-ZWxpbWluYXRpb24gY2FuIHNhdmUgNyUgb2Ygc3BhY2UgYmFzZWQgb24gRENFLgoKWzFdOiBodHRw
-czovL3Bhc3RlYmluLmNvbS9LRzRmZDdhVAoKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZA
-bGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xp
-c3RpbmZvL2xpbnV4LXJpc2N2Cg==
+
+--===============0820825789487506799==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="PInAC6LI+1uRW4CY"
+Content-Disposition: inline
+
+
+--PInAC6LI+1uRW4CY
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Tue, Sep 26, 2023 at 05:03:09PM +0200, Cl=E9ment L=E9ger wrote:
+> Since commit 61cadb9 ("Provide new description of misaligned load/store
+> behavior compatible with privileged architecture.") in the RISC-V ISA
+> manual, it is stated that misaligned load/store might not be supported.
+> However, the RISC-V kernel uABI describes that misaligned accesses are
+> supported. In order to support that, this series adds support for S-mode
+> handling of misaligned accesses as well support for prctl(PR_UNALIGN).
+>=20
+> Handling misaligned access in kernel allows for a finer grain control
+> of the misaligned accesses behavior, and thanks to the prctl call, can
+> allow disabling misaligned access emulation to generate SIGBUS. User
+> space can then optimize its software by removing such access based on
+> SIGBUS generation.
+>=20
+> Currently, this series is useful for people that uses a SBI that does
+> not handled misaligned traps. In a near future, this series will make
+> use a SBI extension [1] allowing to request delegation of the
+> misaligned load/store traps to the S-mode software. This extension has
+> been submitted for review to the riscv tech-prs group. An OpenSBI
+> implementation for this spec is available at [2].
+>=20
+> This series can be tested using the spike simulator [3] and an openSBI
+> version [4] which allows to always delegate misaligned load/store to
+> S-mode.
+
+Some patches in this series do not build for any configs, some are
+broken for clang builds and others are broken for nommu. Please try to
+build test this more thoroughly before you submit the next version.
+
+Also, AIUI, this series should be marked RFC since the SBI extension
+this relies on has not been frozen.
+
+Cheers,
+Conor.
+
+--PInAC6LI+1uRW4CY
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZRfpLgAKCRB4tDGHoIJi
+0gjVAQC9Fx8Nsb4L0O1OJEH1rh93DACoHcszIy+Nk51MwLmJzwD/efGr2z7a6NM/
+JvCBcINOdxE3OTtc4dn2+/DGMu5DUA0=
+=wwCm
+-----END PGP SIGNATURE-----
+
+--PInAC6LI+1uRW4CY--
+
+
+--===============0820825789487506799==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============0820825789487506799==--
+
