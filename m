@@ -4,64 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95D33E7735F
-	for <linux-riscv@archiver.kernel.org>; Sat, 30 Sep 2023 08:25:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41534E7735F
+	for <linux-riscv@archiver.kernel.org>; Sat, 30 Sep 2023 09:00:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PP2MQugpPlw7yuATwCyH4IErMccypa+TFavuGEs+FTs=; b=TLNTzk05nBi8aycimbosKyiaQd
-	BCSk7meDvlOMq/ZEAi7aFDB6NUHpOcHKPx9yJySVmkucBvgQav7C94c9euuFCs/erO4DOAeHxU72x
-	o5IU55VwVVMUrWIBHgIV5lKKSrtVepfyPsoRYjhUbT/gEy6ZBghXMA3dmqKZcVaus/yohsy+NBlfB
-	ux5KU9DcrQvqKQA8lhI60fACo7ylwNLr6b7hslQSRafXbqW2YGCzYC6urhUbVfVouNx2YjeNh8Yw4
-	PJu1NS1tDQoyu48MWm1CSxIRX1NQNkptp4xnOMnSRAUNwCs/KqnAUfVSBt08YH292IDOZS4P0QhXN
-	A/TJusXg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=KAXlmf7XRNKqTFbftT5QMty4mrzdpbER8yXZoYUe4DI=; b=g7NK+COoXk+TQu
+	5r2AgX5pPI3Yzaw0f9L2+JGkB2H1z1XNsjQmMAuiFqRvdrec+j+fIq5B4gA8C/MqRcE2Z13gQCbLZ
+	PPb5c1eOTmaEshVWu4eNZxqQkC7yLBKXBe2H5PZeh263eUf6C4+IsMRNyXoKIH0KideJHbQaNx79z
+	1XHrtLsarbE0m5Ho+2RTKW6/k3epS9sIcUzcXQwtvEU29GyQQpmCNjwJc2QnlRfvdYNmJPfbvEL7w
+	UwOKWZtGYnyIzCvITDQ5GlpU4JItAzgM29fKRgw3EqHkHC6EBnwuyU9R7rL4nH/4+oAEKI4tIN/fW
+	SDszkrxx2w29ve0mI42A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qmVHX-009AQx-1L;
-	Sat, 30 Sep 2023 08:24:59 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1qmVpQ-009Cjm-05;
+	Sat, 30 Sep 2023 09:00:00 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qmVHT-009AQ0-0v
+	id 1qmVpM-009CjH-3C
 	for linux-riscv@lists.infradead.org;
-	Sat, 30 Sep 2023 08:24:57 +0000
+	Sat, 30 Sep 2023 08:59:58 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 96B80CE18A7;
-	Sat, 30 Sep 2023 08:24:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EFFDBC433C8;
-	Sat, 30 Sep 2023 08:24:45 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTP id 391DBB807ED;
+	Sat, 30 Sep 2023 08:59:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6CE8BC433C8;
+	Sat, 30 Sep 2023 08:59:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1696062288;
-	bh=tVyUW2/Llb+W/qFET2JU3P/a6fBrTrB+I3rZznDnELI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=YGXjldCK4f9fuf1rWsYQkkR0H8cpVMnXfH1lbGPgproW4DD+VfSJ6Lwd30DpF720P
-	 9Vp852znHxR4v95u1oSFSqD/VitZFL4KOKQJtdQZUxUyZsy6ZIW3pVgcbKWRIt/u3y
-	 K6nKK9HlXgdLU5HhhN4RqeddUqJrNr6mNY/qsCj7HsoxiBE3PK1eNbuRwFFtN3RBGw
-	 a41UeB01LT7VnNoYz2FbXiCRTy6nZ0iMB79aWpEhL4RNsjaxmjLxTeFaCV74T6hzYw
-	 ypEY/YlvmZK81YatUZ7oEYYOPYlNxuFAWhaJkBUCVycj8fWsJZ5Cwk39SWs77smuuo
-	 NJVLG6D9Yx96Q==
-Date: Sat, 30 Sep 2023 09:24:43 +0100
+	s=k20201202; t=1696064394;
+	bh=1NZBpNaePwgZyqTYVZzHQMy6LAwMcDHJLc2HBjoXiRE=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=aYJJKganbX3CrwsaFP6Ya8fNmRlm6VYhCesgYNknoAOLq8CD4oGZUiwDQ6ZjAwIN6
+	 hvdS6pG4aY0zkjIvgcHpAbH/sQ+HGzTatB8CWL7TyJpQOj05lqp5ZJsAA99t9njbed
+	 WLwdRMkHIanVfLmwzkGpWvoM6wZqeMY+vBmrNSe2JhD1Prcwsc5VHC0U/8O7yJ3JHU
+	 +HSqmMJXWATQdAguQ/8pl9BQuTUsy6+1EbowQYbsr0AFjl3ZgnBuQ+CJDd+79mGRgw
+	 rDxrTbnMqQMx2FHPrapN7Euy0nHFRHRxj3sVVcJ6IMgSWuu0jmK+bD7KGPXxxI1FEu
+	 BplZmUREXbPag==
 From: Conor Dooley <conor@kernel.org>
-To: Greg KH <gregkh@linuxfoundation.org>
-Cc: Edward AD <twuufnxlz@gmail.com>, alex@ghiti.fr, alexghiti@rivosinc.com,
-	aou@eecs.berkeley.edu, guoren@kernel.org, jirislaby@kernel.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-serial@vger.kernel.org, liushixin2@huawei.com,
-	palmer@dabbelt.com, paul.walmsley@sifive.com,
-	syzbot+8d2757d62d403b2d9275@syzkaller.appspotmail.com,
-	syzkaller-bugs@googlegroups.com
-Subject: Re: [PATCH] Test for riscv fixes
-Message-ID: <20230930-quotable-feeble-2bd6513ca643@spud>
-References: <2023092939-lagoon-punctual-e312@gregkh>
- <20230929230534.45142-2-twuufnxlz@gmail.com>
- <2023093049-next-confusion-b812@gregkh>
+To: devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-mmc@vger.kernel.org,
+	William Qiu <william.qiu@starfivetech.com>
+Cc: conor@kernel.org,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	Rob Herring <robh+dt@kernel.org>,
+	Jaehoon Chung <jh80.chung@samsung.com>,
+	Ulf Hansson <ulf.hansson@linaro.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>
+Subject: Re: (subset) [PATCH v3 0/3] Change tuning implementation
+Date: Sat, 30 Sep 2023 09:59:36 +0100
+Message-Id: <20230930-unmoral-mutiny-e3f91c0dfee9@spud>
+X-Mailer: git-send-email 2.39.2
+In-Reply-To: <20230922062834.39212-1-william.qiu@starfivetech.com>
+References: <20230922062834.39212-1-william.qiu@starfivetech.com>
 MIME-Version: 1.0
-In-Reply-To: <2023093049-next-confusion-b812@gregkh>
+X-Developer-Signature: v=1; a=openpgp-sha256; l=614; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=oc9r++Iw46ON8c3zQoZkFVZiJ95/zJVfIOBlU0YyBzE=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDKnij8s6zJ/s40s25vz64se9FoHD5w+FbtqR3RRnwFZmU Rplp8/UUcrCIMbBICumyJJ4u69Fav0flx3OPW9h5rAygQxh4OIUgIlcfMnwzzp9Qkx6jBCfwY71 YdME/p75tHjKXvv0H88OhCrP0GIWPcjwV5Tb9V6c3p77qyteaCa0qE+7HtmbanpwB1+q2Ot/0o8 aWQA=
+X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230930_012455_564305_EB1C35DA 
-X-CRM114-Status: GOOD (  11.79  )
+X-CRM114-CacheID: sfid-20230930_015957_202104_CC97B2F3 
+X-CRM114-Status: UNSURE (   8.43  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,58 +83,35 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4460279946941318751=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+From: Conor Dooley <conor.dooley@microchip.com>
 
---===============4460279946941318751==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="cfF1eFtx8bOxDQy6"
-Content-Disposition: inline
+On Fri, 22 Sep 2023 14:28:31 +0800, William Qiu wrote:
+> This series of patches changes the tuning implementation, from the
+> previous way of reading and writing system controller registers to
+> reading and writing UHS_REG_EXT register, thus optimizing the tuning
+> of obtaining delay-chain.
+> 
+> Changes v2->v3:
+> - Rebased to v6.6rc2.
+> - Dropped redundant criteria.
+> - Keeped "starfive,sysreg" in dts file.
+> 
+> [...]
 
+Applied to riscv-dt-for-next, thanks!
 
---cfF1eFtx8bOxDQy6
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+[3/3] riscv: dts: starfive: add assigned-clock* to limit frquency
+      https://git.kernel.org/conor/c/af571133f7ae
 
-On Sat, Sep 30, 2023 at 08:13:56AM +0200, Greg KH wrote:
-> On Sat, Sep 30, 2023 at 07:05:35AM +0800, Edward AD wrote:
-> > On Fri, 29 Sep 2023 08:04:57 +0200 Greg KH wrote:
-> > > Where are you getting your odd cc: list from?  This has nothing to do
-> > > with serial drivers...
-> > https://lore.kernel.org/all/0000000000000170df0605ccf91a@google.com/raw
->=20
-> I do not understand this answer.
-
-AIUI, the original report from syzbot "blamed" the serial maintainers.
-Not too sure how it determined that though, given the contents.
-
---cfF1eFtx8bOxDQy6
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZRfbIQAKCRB4tDGHoIJi
-0ilzAQDi2+NPYGC/Is2pX+75UwVFobtEeyrz+G3SXBYYCT86vwEA6P59KUJ3EaIQ
-Bm68KQVpPYmZ5JA9t15s6C2YUYa9Jwg=
-=+zdT
------END PGP SIGNATURE-----
-
---cfF1eFtx8bOxDQy6--
-
-
---===============4460279946941318751==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Thanks,
+Conor.
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============4460279946941318751==--
-
