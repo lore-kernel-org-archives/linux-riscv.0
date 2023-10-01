@@ -4,69 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CFA4E748E9
-	for <linux-riscv@archiver.kernel.org>; Sun,  1 Oct 2023 11:34:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A51BE748ED
+	for <linux-riscv@archiver.kernel.org>; Sun,  1 Oct 2023 12:30:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nM9SkpweIDDJ1V/1JBBaX4BXQZWouh7BqnelPgF+QdY=; b=QOajIuDS/ORcz9ZkwMR5RZ76nh
-	XowV6IvoG7FVCI1jVc9aipihpB4RUL16EWWuwn8pWQT8Ob5Sho+iOmJXtb7UQWUk17ne5IH76n7Gw
-	uw/RYwp6NNBcVV+XyElglDKE1dTeCQqNp4QEVG9XlcBrbL3/ELNdrGFDmhFqfZU/E/a8f6uC5FPzc
-	BMxgK3v8BMTE6ZQ7t2meLoUfCT0IRTUhu8K+lzEucBs7+IQIVb2X4uvhwfyqexzD1bBju0o5rZ7LQ
-	Y19lAED9vmtzuzOXPZEdEA4ZCSoCQv2hh1wZinpoA/LKEsDcAg5eOkCsd1zwOdgBArR0XQzVaRFBc
-	fcgAt0jw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=s8Q20penWCZCBPlq8Jx8ZAJkc6rL6CAJzboyXC/wRuo=; b=L4znHxCJpPClTw
+	tZN4mwWtJa9KXUtfqOOIAWkdaHmy5SOT2nle/pPZzQhGqbSiMOpDYwdm0bB9VvYEAn+ReTuhYdO1O
+	4Zddc05KON67Tc1OTvIo4PLQhgsTtZ7qqIbQ/Jx+f8aILQuLl92xKfLG4/2BgnR3jEeG3/bHN6qSu
+	DiP4WIFkAcGEwwy1oDCrnbDUisA3isx8jIjVZWfuw7bGc9ZzrI5JFQzgyPyF70nWnFfjjCVMdnLGJ
+	L4Oz8DUNVbjV7N6yHB/vTu5y7XfIY7JNw77MSWKFte50FNEpQuFUpYJC48JFSlQWn1kDb7E6WTX1e
+	SLaYeprDs8VkEfTHSlpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qmuif-00AzdL-2Y;
-	Sun, 01 Oct 2023 11:34:41 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1qmvb0-00BBMm-31;
+	Sun, 01 Oct 2023 12:30:50 +0000
+Received: from mail-bn8nam04olkn20824.outbound.protection.outlook.com ([2a01:111:f400:7e8d::824] helo=NAM04-BN8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qmuic-00Azcm-32
+	id 1qmvPf-00B795-2x
 	for linux-riscv@lists.infradead.org;
-	Sun, 01 Oct 2023 11:34:40 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by ams.source.kernel.org (Postfix) with ESMTP id 0F61AB808C0;
-	Sun,  1 Oct 2023 11:34:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4C714C433C8;
-	Sun,  1 Oct 2023 11:34:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1696160075;
-	bh=UySuT3n82pxzN3JyaNB1at/D/Zfq00NZatp/XXJYivs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=HIBtrAyUNlO04O3iMoO6nXArUaVGW8iUS/0pJyr6cF5jE36xDa4hVUesgfQto0I0h
-	 KqRGzHAwpST0mbJteXLGw5vhR54dV8/WQMI2GZOvc6n8Xlep3GYQoIxZi1GqSb06Qo
-	 rCP45jwqQch4/KnESiSQtcfhV59rdA0uZ4LERT0zbmgMuv6lNRFp8LkYFdIz9rqPcy
-	 uc8PZK/FACG1XyOK/LPEMeYx76kUfPhp1PP+SK/H6U1YnOhvsM7AALnwTx+MuKTwvg
-	 Djky0FCP3mWt4u4aJaBXNQzI73bBVq7PRtiMBOnXo/Zb8bhtrVp9pm7DIn7JxCfZUI
-	 XiwdkZrHSBVfg==
-Date: Sun, 1 Oct 2023 12:34:29 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Inochi Amaoto <inochiama@outlook.com>
+	Sun, 01 Oct 2023 12:19:09 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=KmvDyNB856a/AhZNSh5VAu6niP3Js/w6jo04QGK0yVPxrVbqFNYpX68GtFccPOD2h+nBMpZdSPqiJqaTDTzR74JJAazYo/h4xn72UnJl5uUbrh1oTrMJpmdld5aKsaUrrV5lBTB4c9LmtLtXgATa/bdqpDLRHFJwZi4j0FXCuC5TNuzTYwLKi7wdADbFT4y0I7B0GsYuwRxP+Z50Olh0pSj+P/U86l0Q38ed2mNgD1PIlwqZCRiC29F/8PZmR/AG8NcghMxGK2lgtTKGX7NFIe4+sl62kfmgGkIcgLCctkeIfSaAJMd0QTUk4MI1NrsT8UHsyQOPtq9awQQCwDBEdg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=HKUfDPPhnjWV6avCasOAemWYue0/9CxdMlR7n0seVMY=;
+ b=GD8YdWOaZHtO5DuyHeNSgKGcCQ/u1fphi73fSWfJVWB4RT5Wl3Wn8NeOG5ynwUtk4D37j/ShSe+ak8gcHGNwgovncNNheghjEKYLuWaNfhw+bMgMwnWNkan8KBIEK09d/ofsw/EIeh0WO9yyLbW+YYv6RN9qc9a50ZSVCM+MsoMInsI2J7werKfZa5UKzMjbwiLjyr1/xs1+oEr2l1Mxjnw+AtuBtalbT5ITdmqAyUOJpxctKp4ymjOwdrJV5H0qqc6FAifaSn7ZX4CcZkbbfILE+JKOJUuH+HGuMYNr3AoNd9sVBFIGFgHfcMn81uQjL/3qX2TU3zAZhv+YD8ZgFg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=HKUfDPPhnjWV6avCasOAemWYue0/9CxdMlR7n0seVMY=;
+ b=rPBvdV2Mb84PV3xJCrZT+vrkKlWri/5aKkTwUOp9TpFnAQ485o8jYAhF7Rkzrpu1ugbs747lC2fL9ouwKBTRG8cpLo+eIByx+qhe9YTxLm+sOnIwb1EhsLL2N+d5ekMANy5tjFEXkeMxIioaYAuXE1u2661NIBX5yHC/wkf/vcpr54V257G2mqMzx7PN7FAqmWmp2qWw7XHNf9em2y51E2wzp7iLz0dJz7NbDdcqFNXpvOFGgoONKyexwnttA153V920rt6ymrAF7aL1ozSLOQSjglSL+41yD5+MipreDqqmC1VE1OfR58APPpi7wSHAd/VVzjRzVaatZO9bBVLNkg==
+Received: from IA1PR20MB4953.namprd20.prod.outlook.com (2603:10b6:208:3af::19)
+ by PH0PR20MB6018.namprd20.prod.outlook.com (2603:10b6:510:293::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6838.28; Sun, 1 Oct
+ 2023 12:19:02 +0000
+Received: from IA1PR20MB4953.namprd20.prod.outlook.com
+ ([fe80::d050:882f:a8a7:8263]) by IA1PR20MB4953.namprd20.prod.outlook.com
+ ([fe80::d050:882f:a8a7:8263%5]) with mapi id 15.20.6838.024; Sun, 1 Oct 2023
+ 12:19:02 +0000
+From: Inochi Amaoto <inochiama@outlook.com>
+To: Conor Dooley <conor+dt@kernel.org>
 Cc: Jisheng Zhang <jszhang@kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Marc Zyngier <maz@kernel.org>,
 	Rob Herring <robh+dt@kernel.org>,
 	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
 	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Anup Patel <anup@brainfault.org>, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
-	chao.wei@sophgo.com, xiaoguang.xing@sophgo.com
-Subject: Re: [PATCH 4/5] riscv: dts: sophgo: add initial CV1800B SoC device
- tree
-Message-ID: <20231001-abruptly-giddily-ef340b924774@spud>
-References: <20230930123937.1551-5-jszhang@kernel.org>
- <IA1PR20MB4953CFE2FB68704D03082B4EBBC7A@IA1PR20MB4953.namprd20.prod.outlook.com>
+	Anup Patel <anup@brainfault.org>,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	chao.wei@sophgo.com,
+	xiaoguang.xing@sophgo.com,
+	Inochi Amaoto <inochiama@outlook.com>
+Subject: Re: [PATCH 4/5] riscv: dts: sophgo: add initial CV1800B SoC device tree
+Date: Sun,  1 Oct 2023 20:19:02 +0800
+Message-ID: <IA1PR20MB4953D58BA3ECFD487918E3A4BBC6A@IA1PR20MB4953.namprd20.prod.outlook.com>
+X-Mailer: git-send-email 2.42.0
+In-Reply-To: <20231001-abruptly-giddily-ef340b924774@spud>
+References: <20231001-abruptly-giddily-ef340b924774@spud>
+X-TMN: [1ybW5I2qJkAKsYqv9NdCLEe+8HagrBCW/c8AOT9gRwQ=]
+X-ClientProxiedBy: BY5PR16CA0033.namprd16.prod.outlook.com
+ (2603:10b6:a03:1a0::46) To IA1PR20MB4953.namprd20.prod.outlook.com
+ (2603:10b6:208:3af::19)
+X-Microsoft-Original-Message-ID: <20231001121902.659221-1-inochiama@outlook.com>
 MIME-Version: 1.0
-In-Reply-To: <IA1PR20MB4953CFE2FB68704D03082B4EBBC7A@IA1PR20MB4953.namprd20.prod.outlook.com>
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: IA1PR20MB4953:EE_|PH0PR20MB6018:EE_
+X-MS-Office365-Filtering-Correlation-Id: 7de4266e-2439-4021-56d3-08dbc27898ad
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: GZ4ZVZ0l64JYPrUfCNm/dEl7BWFRBG2/ms+BdFLoQ1vG+T8TEpN7IZwE8e12eqLFkW6a7yhTP6ev17olXcQg5C1kZpBErleoSrc95WgCKb3A8M+Fpe/QvYfxDcTHsX5o2fOOKYX7GW+nI0Ma8ZrjO1wf8QkZQRkGDfE3urquQ3FfYhIFYqs0/zk2+djdIBjEcZ0oyDpY8MrlNMhSs0AmsAVQTIC+3xOZAVyBwrls51kKBK3ShZ8QFy/jSgOW9W965/Lgk65HxlTNvcAJvfiVpPVmqzguKNvUrJgTc6GFkYZpOtwSU6ypUqGxD3eftW2mLFFyWfb7LVtJFoguCaqlanI2maLSp12XppVJv26G8xM8gY9h8mkmKwoC1pXWHbIf7PLTeM5uD+dCB2Om389thf47KDiipJ0q4cceNHSkUc4cyWopu+MQZuNxL9Az0Gii5+sy/c/l05rshqnu6HVjIpbJ9tnS+8WA+SIYRnjNrq+SwDvTBEKot9Yh1WNFzE3sSuai0EX5XCymnhIakxacw2RlVTul3QlBlRrIdmj4NmRMz/8QhEBl9oo3ngXs5MDJtrdQwB6yhhkn2zbkZ82YpiDBYHP78UjyrGEIu+I5tWrRxZhwX6xP8gMlmRr9PoGM
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?sCYHH2gQky47lTnWPCPZaLVqi2gdka1hLnOxz5sg9kkUb5kyoAHGQttSFvc+?=
+ =?us-ascii?Q?uvcRAANsWjei3VY3MT30sSRgJ95UANopMBZgk4bvDUwufypkoEJCYYPusw+e?=
+ =?us-ascii?Q?wzNNg8BVuwjg6fJxytQuEwZriGvNdkUqdKawAXs1vuGf8qbbJfTVnH+17oXj?=
+ =?us-ascii?Q?g1KyPwPaeXSYkq68Z7d7+H37YA6VvZkitj/NRUovTzvmH1RfdHvcbhybdTS4?=
+ =?us-ascii?Q?HSLKSe8kpThG/TDQM9iGa3INPOSRZQSTrX+6iaLKV1O8Fau3b8C/Szep6lf3?=
+ =?us-ascii?Q?zpemH8aA3/mXzlzXrIkg+DrO863cnSsLExSBGDuPJn4MroTkylPnU9JR02TM?=
+ =?us-ascii?Q?0FZfL7hjWP4AIiArxfMypdgjaXp8PJAzTMvb83l+GzwM9z63aLEdkhqb6roI?=
+ =?us-ascii?Q?TWaCwAUQsa01h/Qk7HayiLXvq5KDHf7B9eymbb4r2re7unSfpqXziGvTQQSe?=
+ =?us-ascii?Q?TajV4cFKpYcCay1bnS27bgKaBLe09J8CE9DrpYDbFGUdU1bXuoP+WSVtM3Bp?=
+ =?us-ascii?Q?Caa9fRuHdqCBab0/K0hC1FPzYINacwGXQRequy7DlwDHpzxKNjJYSAb6k0Os?=
+ =?us-ascii?Q?W/dB0Gpd6CvShfKv1n18lZZQl03jGxHD4UYMkiuaOrLrhl67a9BIZc+t/+mB?=
+ =?us-ascii?Q?duuVS0FFDbVhafRQD4BOu1LSiO3IZKQXsJU1fmNXJqSwAGXy6kA4bzBJmtFx?=
+ =?us-ascii?Q?32gSJ8v1q+7M05PeFhoSmc04Use4Tza9GpG1Diun6gHzLLSA+f8cPHKkI3j0?=
+ =?us-ascii?Q?tP4831voGxScHi2qN0iFceuf/xUoB5xiROA15QIJYvYfx0dZX/kxpQdcgrqV?=
+ =?us-ascii?Q?6PTFt2+EclFURVvlpcBEWkJnB1aU7w/PsYnPbQFCzV8EPxZ75MEcmniHz5d+?=
+ =?us-ascii?Q?stFS+tXkgvr6efbPhqGRcmlH8DB+UX6Xv5kilUSLyTulPNcfHuUaaaYyxYc6?=
+ =?us-ascii?Q?RTUFC8+8vwUK/fFeT1yVqT7Z5rp+GrRpNkxOStWmtLsfw05tOQ3VdL/6PpVa?=
+ =?us-ascii?Q?NO20CZ14L2J8MXA9/KIdlHgBPBmQNdt6hC9+ZZnS7yYCRT9CCPb2wh+VCpjM?=
+ =?us-ascii?Q?Y/qeMjrE2VxXzpKegDMc7RCRlzN5acSPweVlVxQfecx5J3t48gTDwQEj5Le7?=
+ =?us-ascii?Q?sfPr4STLVJyglAGkJHLCWsaWzVRTUmuM3z+o9gBGm6t56FUhBFFlETsl21Ty?=
+ =?us-ascii?Q?oDa+OQRB/4K8ibCqPDY0REUKIVz4dCH6vanwgwOaz6SroA93k6huDbsyymU?=
+ =?us-ascii?Q?=3D?=
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7de4266e-2439-4021-56d3-08dbc27898ad
+X-MS-Exchange-CrossTenant-AuthSource: IA1PR20MB4953.namprd20.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Oct 2023 12:19:01.9721
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR20MB6018
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231001_043439_273286_D9CA8C64 
-X-CRM114-Status: GOOD (  20.69  )
+X-CRM114-CacheID: sfid-20231001_051907_962506_57EA7E54 
+X-CRM114-Status: GOOD (  17.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,209 +133,52 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5835370150131663464=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+>On Sun, Oct 01, 2023 at 06:34:21AM +0800, Inochi Amaoto wrote:
+>> Hi, Jisheng
+>
+>>> Add initial device tree for the CV1800B RISC-V SoC by SOPHGO.
+>
+>>
+>> You add the clint dt-bindings of CV1800B clint, but I don't see the clint
+>> node in this dt. The SBI needs this clint node to provide timer for linux.
+>> AFAIK, the dt of SBI comes from the linux or the bootloader, and bootloader
+>> may load the linux dt and pass it to the SBI. I think it is better to add
+>> the clint node.
+>
+>> In addition, please separate the peripheral node to a different file, which
+>> can be reused by both the CV1800 series and CV1810 series.
+>
+>How do these SoCs differ?
 
---===============5835370150131663464==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="M0NKzAzLKVvyaFiH"
-Content-Disposition: inline
+AFAIK, the most peripheral of CV1800 and CV1810 are the same. there are
+only a few difference between CV1800 and CV1810:
+1. CV1810 have mmc interrupt, but CV1800 have none
+2. CV1810 have more RAM and a more powerful TPU.
+3. Some models of CV1810 support I2S.
 
+Also is some you have already mentioned, the video capabilities (including
+encoding, output steam number, input steam number) are different.
 
---M0NKzAzLKVvyaFiH
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+The only board with a CV1800 soc is Huashan Pi (CV1812H).
 
-On Sun, Oct 01, 2023 at 06:34:21AM +0800, Inochi Amaoto wrote:
-> Hi, Jisheng
+>Documentation seems rather lacking, but I was able to find something on
+>github that suggests there is also a cv180zb. The difference between the
+>three seems to, from a quick look, be their video encoding capabilities.
+>Is that correct?
+>
 
-> >Add initial device tree for the CV1800B RISC-V SoC by SOPHGO.
+Yes. it is correct.
+It seems like you have forgot a chip called CV1801B, which has 128MB
+RAM. But I see no board with this soc, so at now it is not necessary to
+care it.
 
->=20
-> You add the clint dt-bindings of CV1800B clint, but I don't see the clint
-> node in this dt. The SBI needs this clint node to provide timer for linux.
-> AFAIK, the dt of SBI comes from the linux or the bootloader, and bootload=
-er
-> may load the linux dt and pass it to the SBI. I think it is better to add
-> the clint node.
-
-> In addition, please separate the peripheral node to a different file, whi=
-ch
-> can be reused by both the CV1800 series and CV1810 series.
-
-How do these SoCs differ?
-Documentation seems rather lacking, but I was able to find something on
-github that suggests there is also a cv180zb. The difference between the
-three seems to, from a quick look, be their video encoding capabilities.
-Is that correct?
-
-Cheers,
-Conor.
-
-> >
-> >Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> >---
-> > arch/riscv/boot/dts/sophgo/cv1800b.dtsi | 117 ++++++++++++++++++++++++
-> > 1 file changed, 117 insertions(+)
-> > create mode 100644 arch/riscv/boot/dts/sophgo/cv1800b.dtsi
-> >
-> >diff --git a/arch/riscv/boot/dts/sophgo/cv1800b.dtsi b/arch/riscv/boot/d=
-ts/sophgo/cv1800b.dtsi
-> >new file mode 100644
-> >index 000000000000..8829bebaa017
-> >--- /dev/null
-> >+++ b/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
-> >@@ -0,0 +1,117 @@
-> >+// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-> >+/*
-> >+ * Copyright (C) 2023 Jisheng Zhang <jszhang@kernel.org>
-> >+ */
-> >+
-> >+#include <dt-bindings/interrupt-controller/irq.h>
-> >+
-> >+/ {
-> >+	compatible =3D "sophgo,cv1800b";
-> >+	#address-cells =3D <1>;
-> >+	#size-cells =3D <1>;
-> >+
-> >+	cpus: cpus {
-> >+		#address-cells =3D <1>;
-> >+		#size-cells =3D <0>;
-> >+		timebase-frequency =3D <25000000>;
-> >+
-> >+		cpu0: cpu@0 {
-> >+			compatible =3D "thead,c906", "riscv";
-> >+			device_type =3D "cpu";
-> >+			reg =3D <0>;
-> >+			d-cache-block-size =3D <64>;
-> >+			d-cache-sets =3D <512>;
-> >+			d-cache-size =3D <65536>;
-> >+			i-cache-block-size =3D <64>;
-> >+			i-cache-sets =3D <128>;
-> >+			i-cache-size =3D <32768>;
-> >+			mmu-type =3D "riscv,sv39";
-> >+			riscv,isa =3D "rv64imafdc";
-> >+			riscv,isa-base =3D "rv64i";
-> >+			riscv,isa-extensions =3D "i", "m", "a", "f", "d", "c", "zicntr", "zi=
-csr",
-> >+					       "zifencei", "zihpm";
-> >+
-> >+			cpu0_intc: interrupt-controller {
-> >+				compatible =3D "riscv,cpu-intc";
-> >+				interrupt-controller;
-> >+				#address-cells =3D <0>;
-> >+				#interrupt-cells =3D <1>;
-> >+			};
-> >+		};
-> >+	};
-> >+
-> >+	osc: oscillator {
-> >+		compatible =3D "fixed-clock";
-> >+		clock-output-names =3D "osc_25m";
-> >+		#clock-cells =3D <0>;
-> >+	};
-> >+
-> >+	soc {
-> >+		compatible =3D "simple-bus";
-> >+		interrupt-parent =3D <&plic>;
-> >+		#address-cells =3D <1>;
-> >+		#size-cells =3D <1>;
-> >+		dma-noncoherent;
-> >+		ranges;
-> >+
-> >+		uart0: serial@04140000 {
-> >+			compatible =3D "snps,dw-apb-uart";
-> >+			reg =3D <0x04140000 0x100>;
-> >+			interrupts =3D <44 IRQ_TYPE_LEVEL_HIGH>;
-> >+			clocks =3D <&osc>;
-> >+			reg-shift =3D <2>;
-> >+			reg-io-width =3D <4>;
-> >+			status =3D "disabled";
-> >+		};
-> >+
-> >+		uart1: serial@04150000 {
-> >+			compatible =3D "snps,dw-apb-uart";
-> >+			reg =3D <0x04150000 0x100>;
-> >+			interrupts =3D <45 IRQ_TYPE_LEVEL_HIGH>;
-> >+			clocks =3D <&osc>;
-> >+			reg-shift =3D <2>;
-> >+			reg-io-width =3D <4>;
-> >+			status =3D "disabled";
-> >+		};
-> >+
-> >+		uart2: serial@04160000 {
-> >+			compatible =3D "snps,dw-apb-uart";
-> >+			reg =3D <0x04160000 0x100>;
-> >+			interrupts =3D <46 IRQ_TYPE_LEVEL_HIGH>;
-> >+			clocks =3D <&osc>;
-> >+			reg-shift =3D <2>;
-> >+			reg-io-width =3D <4>;
-> >+			status =3D "disabled";
-> >+		};
-> >+
-> >+		uart3: serial@04170000 {
-> >+			compatible =3D "snps,dw-apb-uart";
-> >+			reg =3D <0x04170000 0x100>;
-> >+			interrupts =3D <47 IRQ_TYPE_LEVEL_HIGH>;
-> >+			clocks =3D <&osc>;
-> >+			reg-shift =3D <2>;
-> >+			reg-io-width =3D <4>;
-> >+			status =3D "disabled";
-> >+		};
-> >+
-> >+		uart4: serial@041c0000 {
-> >+			compatible =3D "snps,dw-apb-uart";
-> >+			reg =3D <0x041c0000 0x100>;
-> >+			interrupts =3D <48 IRQ_TYPE_LEVEL_HIGH>;
-> >+			clocks =3D <&osc>;
-> >+			reg-shift =3D <2>;
-> >+			reg-io-width =3D <4>;
-> >+			status =3D "disabled";
-> >+		};
-> >+
-> >+		plic: interrupt-controller@70000000 {
-> >+			compatible =3D "sophgo,cv1800b-plic", "thead,c900-plic";
-> >+			reg =3D <0x70000000 0x4000000>;
-> >+			interrupts-extended =3D <&cpu0_intc 11>, <&cpu0_intc 9>;
-> >+			interrupt-controller;
-> >+			#address-cells =3D <0>;
-> >+			#interrupt-cells =3D <2>;
-> >+			riscv,ndev =3D <101>;
-> >+		};
-> >+	};
-> >+};
-> >--
-> >2.40.1
-> >
-> >
-
---M0NKzAzLKVvyaFiH
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZRlZRQAKCRB4tDGHoIJi
-0h+QAP9r9LBt9mM2PwBl5eQ396Rbj1v3NBATAR8OIqjGo8QsCwEAoOHxU7rSHYaa
-wFnI234UlRRhS7SK0fCwCKEOCOW8+As=
-=sfLJ
------END PGP SIGNATURE-----
-
---M0NKzAzLKVvyaFiH--
-
-
---===============5835370150131663464==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============5835370150131663464==--
-
