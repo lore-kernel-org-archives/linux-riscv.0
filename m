@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A51BE748ED
-	for <linux-riscv@archiver.kernel.org>; Sun,  1 Oct 2023 12:30:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02E0DE748E9
+	for <linux-riscv@archiver.kernel.org>; Sun,  1 Oct 2023 12:31:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=s8Q20penWCZCBPlq8Jx8ZAJkc6rL6CAJzboyXC/wRuo=; b=L4znHxCJpPClTw
-	tZN4mwWtJa9KXUtfqOOIAWkdaHmy5SOT2nle/pPZzQhGqbSiMOpDYwdm0bB9VvYEAn+ReTuhYdO1O
-	4Zddc05KON67Tc1OTvIo4PLQhgsTtZ7qqIbQ/Jx+f8aILQuLl92xKfLG4/2BgnR3jEeG3/bHN6qSu
-	DiP4WIFkAcGEwwy1oDCrnbDUisA3isx8jIjVZWfuw7bGc9ZzrI5JFQzgyPyF70nWnFfjjCVMdnLGJ
-	L4Oz8DUNVbjV7N6yHB/vTu5y7XfIY7JNw77MSWKFte50FNEpQuFUpYJC48JFSlQWn1kDb7E6WTX1e
-	SLaYeprDs8VkEfTHSlpQ==;
+	List-Owner; bh=tzo2nF+XjIE6OaNThK4HdzvZvqy4AGnfRt5mooDOW0k=; b=tkxB6f4hAXwzaz
+	+XQLhDtNjZgposD+2dGzrQH8f+PPQUITlMO8iMVeGCjlmetyiH748puQqrgU51fQ5DOMWpgqbVklY
+	pcxxYGTHx3x42J/0GX4tCW9eOZY8mLGSwvm7QM89PQpsxZ/bE0d3MwcHj+OrUIsRKwfAFJzHJ9Aoq
+	BrQ5evJZsFL2Ivlznk4ayRPh5ZvB/IMKEaPatO2/BHCbPJiQBOvlAuTEBBH/9r40iLSSXRYda2XJW
+	0EhedzRDJ5Tv/leGzDgyyZ6LitfKcuK10vigCVuqgwLPSgwdAo/LiOHt9YsqEtdeoX8Oi+GWXIV1u
+	ziiGXmDqxOOpdaRgK0Uw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qmvb0-00BBMm-31;
-	Sun, 01 Oct 2023 12:30:50 +0000
-Received: from mail-bn8nam04olkn20824.outbound.protection.outlook.com ([2a01:111:f400:7e8d::824] helo=NAM04-BN8-obe.outbound.protection.outlook.com)
+	id 1qmvbN-00BBSt-1p;
+	Sun, 01 Oct 2023 12:31:13 +0000
+Received: from mail-bn8nam04olkn20819.outbound.protection.outlook.com ([2a01:111:f400:7e8d::819] helo=NAM04-BN8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qmvPf-00B795-2x
+	id 1qmvSc-00B8Jg-2P
 	for linux-riscv@lists.infradead.org;
-	Sun, 01 Oct 2023 12:19:09 +0000
+	Sun, 01 Oct 2023 12:22:12 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=KmvDyNB856a/AhZNSh5VAu6niP3Js/w6jo04QGK0yVPxrVbqFNYpX68GtFccPOD2h+nBMpZdSPqiJqaTDTzR74JJAazYo/h4xn72UnJl5uUbrh1oTrMJpmdld5aKsaUrrV5lBTB4c9LmtLtXgATa/bdqpDLRHFJwZi4j0FXCuC5TNuzTYwLKi7wdADbFT4y0I7B0GsYuwRxP+Z50Olh0pSj+P/U86l0Q38ed2mNgD1PIlwqZCRiC29F/8PZmR/AG8NcghMxGK2lgtTKGX7NFIe4+sl62kfmgGkIcgLCctkeIfSaAJMd0QTUk4MI1NrsT8UHsyQOPtq9awQQCwDBEdg==
+ b=TiZCvnll+lOQbdx2I52YzHM01xrNiRBMvoU4o6HWQ/5U4ACXesRJPCPFjyjtER/0vV+W2hOeeek3bZxTYRCDo3iQHsDkkTfAALMGD+pKZ5nA+EXSzbu71n2k6kbs1/dzHrWV8AkP7sv6iquZkQnUWhjYIf/IFXO0+t4q0ZndeORKWRd2Q/utCGIARFTWBjFjSs1xatqayX5Ih/I90H7VORujR/vwlGBpLrSHceLcGNR3xXAEsLZycehWE/459C7lJr+bINUHTJ06gJBIp5tLMJjadHBm9B8ov+ot1NK3I1zVvHq2wvCLngzIsAkaB0dSHnNBZ5g63/ieOH/tBYJerw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=HKUfDPPhnjWV6avCasOAemWYue0/9CxdMlR7n0seVMY=;
- b=GD8YdWOaZHtO5DuyHeNSgKGcCQ/u1fphi73fSWfJVWB4RT5Wl3Wn8NeOG5ynwUtk4D37j/ShSe+ak8gcHGNwgovncNNheghjEKYLuWaNfhw+bMgMwnWNkan8KBIEK09d/ofsw/EIeh0WO9yyLbW+YYv6RN9qc9a50ZSVCM+MsoMInsI2J7werKfZa5UKzMjbwiLjyr1/xs1+oEr2l1Mxjnw+AtuBtalbT5ITdmqAyUOJpxctKp4ymjOwdrJV5H0qqc6FAifaSn7ZX4CcZkbbfILE+JKOJUuH+HGuMYNr3AoNd9sVBFIGFgHfcMn81uQjL/3qX2TU3zAZhv+YD8ZgFg==
+ bh=WVBUo3p24GgQUtBibRkqhWjwdDb/T/sOhy7YsPHkl2U=;
+ b=mABEY+9CHu2OIZ7WPu/hDvNtdHD7axxtLiYel6dtvhuSm4PC0YyZDqwDphfwxPykRYg3+mmyNY4KnVhJJsWOmjw7fTlijDQc7sqRgx58BaegctSVEF7ij5aHIKzMnZVkiIlKZgita4/kIreSv0R16M79OJtLUr+nyeNNsqaGt5xg6fM029+oYC5nIIhKlSuS3Cyyu5fTqUPRCNtHHyn/IwhjZucxbOmTt8edyOzWO8dBMgDKre0tUUufoA83zYeOgjbtV0X9Y2KIjpF8YM0X25xeoPyD65C0en6vXIuMRXu0xuQ27cQzOPYV/tqBXM6QIxu70P1/xeSh3so5FHV/0w==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
  dkim=none; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
  s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=HKUfDPPhnjWV6avCasOAemWYue0/9CxdMlR7n0seVMY=;
- b=rPBvdV2Mb84PV3xJCrZT+vrkKlWri/5aKkTwUOp9TpFnAQ485o8jYAhF7Rkzrpu1ugbs747lC2fL9ouwKBTRG8cpLo+eIByx+qhe9YTxLm+sOnIwb1EhsLL2N+d5ekMANy5tjFEXkeMxIioaYAuXE1u2661NIBX5yHC/wkf/vcpr54V257G2mqMzx7PN7FAqmWmp2qWw7XHNf9em2y51E2wzp7iLz0dJz7NbDdcqFNXpvOFGgoONKyexwnttA153V920rt6ymrAF7aL1ozSLOQSjglSL+41yD5+MipreDqqmC1VE1OfR58APPpi7wSHAd/VVzjRzVaatZO9bBVLNkg==
+ bh=WVBUo3p24GgQUtBibRkqhWjwdDb/T/sOhy7YsPHkl2U=;
+ b=JDcJdlMl2TKwg7QzTvbZNZVJeaAQVlM39FihCYw5MEPggVrBjkRJVrTi3SMWp2S24BP45npWre8nMOvY49F0bYkK4JxLg4sxy8ARKin/Qdw/sTEABd/Ab2j4zYMBZBmfVlRwqwM6qhACMj1wSDuis4j1cxjmm3vMAyC2g9qK+ociLZjIXqhsFaTJ924eBoo8ZvxJAKjFbhyFU8XTCqbBYFOXyzRkoAJZrN8LjpCa+C59FXdx8UnCMFpqsHMCATv5+DUlTZ6yvMG0e/05JrN8H9l+2tYYhbURUe6xl52SEm2IBAkIJojYJNZcZwdtq7oYjJtUEqf/3EksU5H8JksQxA==
 Received: from IA1PR20MB4953.namprd20.prod.outlook.com (2603:10b6:208:3af::19)
  by PH0PR20MB6018.namprd20.prod.outlook.com (2603:10b6:510:293::19) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6838.28; Sun, 1 Oct
- 2023 12:19:02 +0000
+ 2023 12:22:04 +0000
 Received: from IA1PR20MB4953.namprd20.prod.outlook.com
  ([fe80::d050:882f:a8a7:8263]) by IA1PR20MB4953.namprd20.prod.outlook.com
  ([fe80::d050:882f:a8a7:8263%5]) with mapi id 15.20.6838.024; Sun, 1 Oct 2023
- 12:19:02 +0000
+ 12:22:04 +0000
 From: Inochi Amaoto <inochiama@outlook.com>
 To: Conor Dooley <conor+dt@kernel.org>
 Cc: Jisheng Zhang <jszhang@kernel.org>,
@@ -69,59 +69,59 @@ Cc: Jisheng Zhang <jszhang@kernel.org>,
 	xiaoguang.xing@sophgo.com,
 	Inochi Amaoto <inochiama@outlook.com>
 Subject: Re: [PATCH 4/5] riscv: dts: sophgo: add initial CV1800B SoC device tree
-Date: Sun,  1 Oct 2023 20:19:02 +0800
-Message-ID: <IA1PR20MB4953D58BA3ECFD487918E3A4BBC6A@IA1PR20MB4953.namprd20.prod.outlook.com>
+Date: Sun,  1 Oct 2023 20:22:04 +0800
+Message-ID: <IA1PR20MB4953967F34C7C48C74313B74BBC6A@IA1PR20MB4953.namprd20.prod.outlook.com>
 X-Mailer: git-send-email 2.42.0
-In-Reply-To: <20231001-abruptly-giddily-ef340b924774@spud>
-References: <20231001-abruptly-giddily-ef340b924774@spud>
-X-TMN: [1ybW5I2qJkAKsYqv9NdCLEe+8HagrBCW/c8AOT9gRwQ=]
-X-ClientProxiedBy: BY5PR16CA0033.namprd16.prod.outlook.com
- (2603:10b6:a03:1a0::46) To IA1PR20MB4953.namprd20.prod.outlook.com
+In-Reply-To: <IA1PR20MB4953D58BA3ECFD487918E3A4BBC6A@IA1PR20MB4953.namprd20.prod.outlook.com>
+References: <IA1PR20MB4953D58BA3ECFD487918E3A4BBC6A@IA1PR20MB4953.namprd20.prod.outlook.com>
+X-TMN: [iYGVfm2TugDtMqnoXpUuB6MSQ/wtXzkTgONF4rj6jH8=]
+X-ClientProxiedBy: BYAPR05CA0037.namprd05.prod.outlook.com
+ (2603:10b6:a03:74::14) To IA1PR20MB4953.namprd20.prod.outlook.com
  (2603:10b6:208:3af::19)
-X-Microsoft-Original-Message-ID: <20231001121902.659221-1-inochiama@outlook.com>
+X-Microsoft-Original-Message-ID: <20231001122204.667415-1-inochiama@outlook.com>
 MIME-Version: 1.0
 X-MS-Exchange-MessageSentRepresentingType: 1
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: IA1PR20MB4953:EE_|PH0PR20MB6018:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7de4266e-2439-4021-56d3-08dbc27898ad
+X-MS-Office365-Filtering-Correlation-Id: 994a52a4-3f7f-40bf-2a2b-08dbc2790566
 X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: GZ4ZVZ0l64JYPrUfCNm/dEl7BWFRBG2/ms+BdFLoQ1vG+T8TEpN7IZwE8e12eqLFkW6a7yhTP6ev17olXcQg5C1kZpBErleoSrc95WgCKb3A8M+Fpe/QvYfxDcTHsX5o2fOOKYX7GW+nI0Ma8ZrjO1wf8QkZQRkGDfE3urquQ3FfYhIFYqs0/zk2+djdIBjEcZ0oyDpY8MrlNMhSs0AmsAVQTIC+3xOZAVyBwrls51kKBK3ShZ8QFy/jSgOW9W965/Lgk65HxlTNvcAJvfiVpPVmqzguKNvUrJgTc6GFkYZpOtwSU6ypUqGxD3eftW2mLFFyWfb7LVtJFoguCaqlanI2maLSp12XppVJv26G8xM8gY9h8mkmKwoC1pXWHbIf7PLTeM5uD+dCB2Om389thf47KDiipJ0q4cceNHSkUc4cyWopu+MQZuNxL9Az0Gii5+sy/c/l05rshqnu6HVjIpbJ9tnS+8WA+SIYRnjNrq+SwDvTBEKot9Yh1WNFzE3sSuai0EX5XCymnhIakxacw2RlVTul3QlBlRrIdmj4NmRMz/8QhEBl9oo3ngXs5MDJtrdQwB6yhhkn2zbkZ82YpiDBYHP78UjyrGEIu+I5tWrRxZhwX6xP8gMlmRr9PoGM
+X-Microsoft-Antispam-Message-Info: W7Rnvk7fGGujICnDVBsxz1VYCXvKvgUbciQEdXKx0IiCgDeR6UXwFN/PBDA29a68sPORVkdzV0ftPxmp4mLSl6iKX+iy0+mAt5d5or9zIo7COor7ltBLlJHXSj43IsiHSqbyc06GfdsCNDo7HYMSsv0Nbdh8tyh4GgJ/uQDJbqYkf3TGqutpfF0tfJQSAFBmpDhAoCLbA811gaaV7nA2dSiiONeVCfV9iH5CiO8B4kB/wTkFpCub/kfcLZ1qgM1GZQWtigPDo3inKI4vw1PPTZ8rC6FqnnvdKYw3DwPiVBwIOwsBS5l9RD+RvMMX04ODqLZuZlthpwLPUa+P+/aZBi273Q4RFB87NVwmsESjdd1N5dIQcFid5pyN3m+r7kH2RdBAL3evPDF+EB/fhABeGRaPMp/2svA+irEn4eaV2CfVUwYJZoNI0TNxS94kITkLt6HtqgYs/rxuw7K9dQeedkJbBB3D2q/leh2srv9agKLrkbOW0ttkp4udeRI1s+Bf54/83Ot9uZB4ZrJgbjX2p44r20rJIb5uINbTAw7+kYgLRJvNIOYjfgs6T3b9DzTBZaQZh5EyBfmjLQaH/ys+QaBQd6iqDPNcjqLsNWNqxLpDfvSARaLtJnDXc+afE9a/
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?sCYHH2gQky47lTnWPCPZaLVqi2gdka1hLnOxz5sg9kkUb5kyoAHGQttSFvc+?=
- =?us-ascii?Q?uvcRAANsWjei3VY3MT30sSRgJ95UANopMBZgk4bvDUwufypkoEJCYYPusw+e?=
- =?us-ascii?Q?wzNNg8BVuwjg6fJxytQuEwZriGvNdkUqdKawAXs1vuGf8qbbJfTVnH+17oXj?=
- =?us-ascii?Q?g1KyPwPaeXSYkq68Z7d7+H37YA6VvZkitj/NRUovTzvmH1RfdHvcbhybdTS4?=
- =?us-ascii?Q?HSLKSe8kpThG/TDQM9iGa3INPOSRZQSTrX+6iaLKV1O8Fau3b8C/Szep6lf3?=
- =?us-ascii?Q?zpemH8aA3/mXzlzXrIkg+DrO863cnSsLExSBGDuPJn4MroTkylPnU9JR02TM?=
- =?us-ascii?Q?0FZfL7hjWP4AIiArxfMypdgjaXp8PJAzTMvb83l+GzwM9z63aLEdkhqb6roI?=
- =?us-ascii?Q?TWaCwAUQsa01h/Qk7HayiLXvq5KDHf7B9eymbb4r2re7unSfpqXziGvTQQSe?=
- =?us-ascii?Q?TajV4cFKpYcCay1bnS27bgKaBLe09J8CE9DrpYDbFGUdU1bXuoP+WSVtM3Bp?=
- =?us-ascii?Q?Caa9fRuHdqCBab0/K0hC1FPzYINacwGXQRequy7DlwDHpzxKNjJYSAb6k0Os?=
- =?us-ascii?Q?W/dB0Gpd6CvShfKv1n18lZZQl03jGxHD4UYMkiuaOrLrhl67a9BIZc+t/+mB?=
- =?us-ascii?Q?duuVS0FFDbVhafRQD4BOu1LSiO3IZKQXsJU1fmNXJqSwAGXy6kA4bzBJmtFx?=
- =?us-ascii?Q?32gSJ8v1q+7M05PeFhoSmc04Use4Tza9GpG1Diun6gHzLLSA+f8cPHKkI3j0?=
- =?us-ascii?Q?tP4831voGxScHi2qN0iFceuf/xUoB5xiROA15QIJYvYfx0dZX/kxpQdcgrqV?=
- =?us-ascii?Q?6PTFt2+EclFURVvlpcBEWkJnB1aU7w/PsYnPbQFCzV8EPxZ75MEcmniHz5d+?=
- =?us-ascii?Q?stFS+tXkgvr6efbPhqGRcmlH8DB+UX6Xv5kilUSLyTulPNcfHuUaaaYyxYc6?=
- =?us-ascii?Q?RTUFC8+8vwUK/fFeT1yVqT7Z5rp+GrRpNkxOStWmtLsfw05tOQ3VdL/6PpVa?=
- =?us-ascii?Q?NO20CZ14L2J8MXA9/KIdlHgBPBmQNdt6hC9+ZZnS7yYCRT9CCPb2wh+VCpjM?=
- =?us-ascii?Q?Y/qeMjrE2VxXzpKegDMc7RCRlzN5acSPweVlVxQfecx5J3t48gTDwQEj5Le7?=
- =?us-ascii?Q?sfPr4STLVJyglAGkJHLCWsaWzVRTUmuM3z+o9gBGm6t56FUhBFFlETsl21Ty?=
- =?us-ascii?Q?oDa+OQRB/4K8ibCqPDY0REUKIVz4dCH6vanwgwOaz6SroA93k6huDbsyymU?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?2UKJZiEhxTyH+OF/3mH0dhR1DmuNFG9prfA539wxnKpXsooGPc6KYSwy3tj2?=
+ =?us-ascii?Q?NQnFAEJ5AzqWtzE3TLG8nwITkpuCP3i+/UYuM9F7UvBYivT6Vh4waKI3jKbf?=
+ =?us-ascii?Q?5uqlzqsw5+Osw6iIwjsRXU+uOSbckZLDSMtyMljlpOWYJqh3BJopxzPkQKU8?=
+ =?us-ascii?Q?8O0ryPmBuG2p/HvxkSYFOLw3nymiYoaMRFXVHlGDDaNjyeH93JjS63RfPZmw?=
+ =?us-ascii?Q?hTfQZkuj6d882QLXFfHkwbXt37hYCs8BCMOQCXrArs804jcPSWJQN7LeSvOr?=
+ =?us-ascii?Q?dHWlS7C6VlSkxsQZIIBFNOiczxKwMgQeKplceGpdTsa2bbmiWqyD3vh3qJyf?=
+ =?us-ascii?Q?CynQGoDzwVsFpsdzPMXYDmMF7xOOF57AvKTmrkZyVW9duDIYpsz6HFOHWl6C?=
+ =?us-ascii?Q?8DH+XpBncq8OwOt6SocRghTk6/V22wkBm1PUUjFRX/2M03iskazbR+GeNVFb?=
+ =?us-ascii?Q?fRDWuWexFpBEWeznpEowrW1RGWrJSHcQ7n+g1/XOEDANWnK9SSTPhCW0ZC3B?=
+ =?us-ascii?Q?zkVp0gwfK1PmhZdMrlTKwhCJk9tgmPYnI8nuujpFrkJqT3UHy2/iByHrUtqk?=
+ =?us-ascii?Q?VgluCnEZZ+1DsW+iLzABrNGiBwp2wlfo2TTirdzA/uriElafTiYBqAhdG45s?=
+ =?us-ascii?Q?Olxuwd+RsFk80+9Yay4Fn1gDvtUYLVifi3TxUsYpfY0B+FuLTMx6hGSkruhE?=
+ =?us-ascii?Q?hZpfOxKcW9tejFpIMWEJpc4SEqZg0PJggoFtiv/RRhTU3yLnd9KgWS4fcl15?=
+ =?us-ascii?Q?yXfQBOts6CisUKbQwgnIgsp8fkx7A9rBJBeXXoiJo83729N5wt+nQz7rqjNS?=
+ =?us-ascii?Q?/hDAMjAdHzcCVgCxDCTwB3ZXQ4fB0WDYV8YqlxuynQxo3JUjACM/tyJ7WG0C?=
+ =?us-ascii?Q?eeGQioymEG8L+x4YN14+bTbYK2vj/ZKPpYXtiL2TwNUAEU5DpeFbVNF+sMqK?=
+ =?us-ascii?Q?7r46pA+j9SxP1FgTHpP3OlGgPAYpBjo3iGx3+whhy9zgpMGuksDrZwXtnkQG?=
+ =?us-ascii?Q?7jRs2Hglc6liOh9TxQEYwqz3ZFjs8pY3VyhSRNu4XQQP6jgtJPIGc25IGELv?=
+ =?us-ascii?Q?nVku0Clg5JbJLSpic9MNRcNvvGsWRoD3TdbXpPEoxLL5hEjTntdcOnBTfTd+?=
+ =?us-ascii?Q?inSfCnEu61ydBlIWvp6h8DjsjHdQg1BThxjp7wmq+5Ax5+HA+YWNQo8cvCDA?=
+ =?us-ascii?Q?QgqZFaovM8aGzL0PmURTdIX2Fm75XE8r9AKudW0FxypTDop/ZEy0Asi4+fs?=
  =?us-ascii?Q?=3D?=
 X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7de4266e-2439-4021-56d3-08dbc27898ad
+X-MS-Exchange-CrossTenant-Network-Message-Id: 994a52a4-3f7f-40bf-2a2b-08dbc2790566
 X-MS-Exchange-CrossTenant-AuthSource: IA1PR20MB4953.namprd20.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Oct 2023 12:19:01.9721
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Oct 2023 12:22:04.2697
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
 X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR20MB6018
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231001_051907_962506_57EA7E54 
-X-CRM114-Status: GOOD (  17.09  )
+X-CRM114-CacheID: sfid-20231001_052210_788111_87ED1D4A 
+X-CRM114-Status: GOOD (  16.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,45 +138,50 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
->On Sun, Oct 01, 2023 at 06:34:21AM +0800, Inochi Amaoto wrote:
->> Hi, Jisheng
 >
->>> Add initial device tree for the CV1800B RISC-V SoC by SOPHGO.
->
+>>On Sun, Oct 01, 2023 at 06:34:21AM +0800, Inochi Amaoto wrote:
+>>> Hi, Jisheng
 >>
->> You add the clint dt-bindings of CV1800B clint, but I don't see the clint
->> node in this dt. The SBI needs this clint node to provide timer for linux.
->> AFAIK, the dt of SBI comes from the linux or the bootloader, and bootloader
->> may load the linux dt and pass it to the SBI. I think it is better to add
->> the clint node.
+>>>> Add initial device tree for the CV1800B RISC-V SoC by SOPHGO.
+>>
+>>>
+>>> You add the clint dt-bindings of CV1800B clint, but I don't see the clint
+>>> node in this dt. The SBI needs this clint node to provide timer for linux.
+>>> AFAIK, the dt of SBI comes from the linux or the bootloader, and bootloader
+>>> may load the linux dt and pass it to the SBI. I think it is better to add
+>>> the clint node.
+>>
+>>> In addition, please separate the peripheral node to a different file, which
+>>> can be reused by both the CV1800 series and CV1810 series.
+>>
+>>How do these SoCs differ?
 >
->> In addition, please separate the peripheral node to a different file, which
->> can be reused by both the CV1800 series and CV1810 series.
+>AFAIK, the most peripheral of CV1800 and CV1810 are the same. there are
+>only a few difference between CV1800 and CV1810:
+>1. CV1810 have mmc interrupt, but CV1800 have none
+>2. CV1810 have more RAM and a more powerful TPU.
+>3. Some models of CV1810 support I2S.
 >
->How do these SoCs differ?
-
-AFAIK, the most peripheral of CV1800 and CV1810 are the same. there are
-only a few difference between CV1800 and CV1810:
-1. CV1810 have mmc interrupt, but CV1800 have none
-2. CV1810 have more RAM and a more powerful TPU.
-3. Some models of CV1810 support I2S.
-
-Also is some you have already mentioned, the video capabilities (including
-encoding, output steam number, input steam number) are different.
-
-The only board with a CV1800 soc is Huashan Pi (CV1812H).
-
->Documentation seems rather lacking, but I was able to find something on
->github that suggests there is also a cv180zb. The difference between the
->three seems to, from a quick look, be their video encoding capabilities.
->Is that correct?
+>Also is some you have already mentioned, the video capabilities (including
+>encoding, output steam number, input steam number) are different.
+>
+>The only board with a CV1800 soc is Huashan Pi (CV1812H).
 >
 
-Yes. it is correct.
-It seems like you have forgot a chip called CV1801B, which has 128MB
-RAM. But I see no board with this soc, so at now it is not necessary to
-care it.
+A mistake, I mean CV1810 soc, not the CV1800 one.
 
+>>Documentation seems rather lacking, but I was able to find something on
+>>github that suggests there is also a cv180zb. The difference between the
+>>three seems to, from a quick look, be their video encoding capabilities.
+>>Is that correct?
+>>
+>
+>Yes. it is correct.
+>It seems like you have forgot a chip called CV1801B, which has 128MB
+>RAM. But I see no board with this soc, so at now it is not necessary to
+>care it.
+>
+>
 
 _______________________________________________
 linux-riscv mailing list
