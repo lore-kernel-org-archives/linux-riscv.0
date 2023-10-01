@@ -4,80 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5FC2E748E9
-	for <linux-riscv@archiver.kernel.org>; Sun,  1 Oct 2023 15:20:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86BDCE748E9
+	for <linux-riscv@archiver.kernel.org>; Sun,  1 Oct 2023 16:08:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mkZhGCgqYcv/tit3eVxro28aq1QUYviX9Bpd5tL5LAw=; b=lxedFP6NmS5qVu
-	7PoKMhdzCS4vvILcosWnw0VwNLRGDIl9hLKMdO6cM9ij1jdyFc7JNSyHCPwLRTSNyBXchanqZyrKV
-	sCE7jhyOjGEjTxPYnGUwdyN81ImrHaf6WLQXtCgQ4ptvB0+tLbxDKvzZImyspCp18LIi+QaNFzX5W
-	9FzyGNEqkCnFsSNCtdd9pP4J/diOYAdv67Z/cvXexEQkx3nsNmjJuUVyqCSU3saDXuHyjjMA6QtQJ
-	bq8fZySgE5MEKdjjziVqKDyb5e3kQK5FME4h7C6c097kEinttybGHd+1cAfXEJyZyrVICYg0vCeQY
-	i2pK0aPpZIujhbzre32A==;
+	List-Owner; bh=POEiH72BgBv8E/zmFQJOwVvDqsakumKqCr6vOE+Kkic=; b=cjSO9Y/8rATVHE
+	0nNn3fVIgdXdjHlebQVlI5gw3loBZDR8A/TjI0hIaAbUbbE8fngmywmDIxiKITGcy/eYbhIC1l8YS
+	iP8laJJfUAv7u9kkUlNHIC6NCc0QZtH7pL2+iUz7MiCQq8VmwTN9I2QIW1VkFKjJjzfphbPAZfO+6
+	tS9w+0jKm/LlqGiGDXKrFG0efOdm7qrxLpqeSCRylfxh/ukYt6u6EIzi/oirAuHzZAy/RCRKiJaI7
+	qpTVwxxLmFdk79dIWrFNZTVyOWcwyYMcmVtmrUD8ne5BDIkNnOpk54NvJ9NxCsfp2sW4KS936Leg+
+	PE4O1/MLzt+7TOwkPRLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qmyEm-00BItG-0f;
-	Sun, 01 Oct 2023 15:20:04 +0000
-Received: from mail-vk1-xa35.google.com ([2607:f8b0:4864:20::a35])
+	id 1qmyzh-00BNaH-32;
+	Sun, 01 Oct 2023 16:08:33 +0000
+Received: from mgamail.intel.com ([192.55.52.115])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qmyEj-00BIrH-19
-	for linux-riscv@lists.infradead.org;
-	Sun, 01 Oct 2023 15:20:02 +0000
-Received: by mail-vk1-xa35.google.com with SMTP id 71dfb90a1353d-4935f87ca26so6251787e0c.3
-        for <linux-riscv@lists.infradead.org>; Sun, 01 Oct 2023 08:19:59 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1696173599; x=1696778399; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=AlqqAdUK9+XiZ3vr9zfHOEKY61BQKj01sr184YRw5U0=;
-        b=WP8FV39fdDj54SqzEd5hYh4nA0xWcWPhVfhMunGMNcaTo4Z/utzfMs29ZL7aDUdwBN
-         bC8ImGDIsjpObYSgb711trL3ejuAgxWgOd4atGQky9KL14fKkR/lxmQ245syjp+eXg+4
-         9AchLX0urXsG3A5eAG1etnutrSKu4Ua/oZIoU86l4+4BbUqpibPERojxBxKEaHTuBlRs
-         hkOMTJ0V2eXkM2GxJV+m1dRnjqpcxCKruPrCPFGbzLFQPMagarxx3jm0ZcpYcpHdmSor
-         BNFSidodMuUmXKVF+wJrO7XU8F6S71c3L4Yb9rpR80CwG0xZ9SN4IOB+vy6+QIcqmc22
-         OxEQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1696173599; x=1696778399;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=AlqqAdUK9+XiZ3vr9zfHOEKY61BQKj01sr184YRw5U0=;
-        b=nL1BYPKVJiGjqsWuW4dwglD4ESEqnFcNisxxFk8DCh90kYijXbIJGflf0Ve0zx5/u8
-         LbPq3dARvunIV/ksUVxkP0o5j4tBiKwcZtPpB9N5U11yLl8U7Z7C+vdevYpW45YD+npk
-         rbNuzxBCAZ/iIpYd2Bmw8Qp5stjJun0MP8NPTuWOCqLI6CFnzwvI4yBb06w5JPdI7TiH
-         4Z7TgRs3foawB5TR3AWfew34u1Xf5Eir5e28Ow5sSf3jRrGqwbVqHDQzHrA4f6Xo9V9u
-         w01HvBOLo50eu30d6ENbli/nSoLQBdPXmSEtt9akNCspdhDFjx2sl7vvgvipAqLU1vxN
-         iGyQ==
-X-Gm-Message-State: AOJu0YyGOskVSlG61+0LbSiyaV5Js7GMzPLzEkXIlV4bmL9LnVcRwdwF
-	+ZJ8oJ88EDf7jAIfdjvMvF9xr0SJFUU9RPB0pZ4=
-X-Google-Smtp-Source: AGHT+IE4j3gWxMSOq6OvgLxoyzhdOUwDwvHxGddLU/JkAl6FbHrfp+/DN0/951hZIUWzbtcBLYlLKbL/bWmW7iCfKG8=
-X-Received: by 2002:a1f:c5c7:0:b0:49a:6dc0:5a89 with SMTP id
- v190-20020a1fc5c7000000b0049a6dc05a89mr6121125vkf.5.1696173598711; Sun, 01
- Oct 2023 08:19:58 -0700 (PDT)
+	id 1qmyze-00BNWf-0G;
+	Sun, 01 Oct 2023 16:08:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1696176510; x=1727712510;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=ttbpa5CPZtUl/EL5mFBC+uzL/iLNKmwUeDvQROsDv6k=;
+  b=UlV4eEsOv5ABiS2Jj7vNeaq3MNTTr0sTS3s9Djny3s1iM42zUgOXdcIE
+   YWy/UtNr3g0DrvC5n5suTYVr/5Eqr/vHfNpgIIdniXWikfNQ/srYBVU8l
+   opRec+vVf7Bm/3A0+g0QLFQ2XA/VVyF2kuLCJsCgInwB3NIlMwnrxO+jG
+   unn2c+wfJ70nE/RAD/BL9/FzQ19fjF/tEbgv7UmIar0FrxTIU8pdDzQh1
+   jbfBduNAdBPckVz6LAyulV5endcGsEWthekN4cOAzmfuu9GRutPZK7vbs
+   aj5wJmeBBNGtuR/XmNR5xXqEftRu1XYGRXBdMgtqnTes0FpLoYIFIuyqu
+   g==;
+X-IronPort-AV: E=McAfee;i="6600,9927,10850"; a="382445440"
+X-IronPort-AV: E=Sophos;i="6.03,191,1694761200"; 
+   d="scan'208";a="382445440"
+Received: from orsmga001.jf.intel.com ([10.7.209.18])
+  by fmsmga103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 01 Oct 2023 09:08:24 -0700
+X-ExtLoop1: 1
+X-IronPort-AV: E=McAfee;i="6600,9927,10850"; a="785576469"
+X-IronPort-AV: E=Sophos;i="6.03,191,1694761200"; 
+   d="scan'208";a="785576469"
+Received: from lkp-server02.sh.intel.com (HELO c3b01524d57c) ([10.239.97.151])
+  by orsmga001.jf.intel.com with ESMTP; 01 Oct 2023 09:08:17 -0700
+Received: from kbuild by c3b01524d57c with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1qmyzP-0005Cf-2Z;
+	Sun, 01 Oct 2023 16:08:15 +0000
+Date: Mon, 2 Oct 2023 00:07:58 +0800
+From: kernel test robot <lkp@intel.com>
+To: Sean Young <sean@mess.org>, Thierry Reding <thierry.reding@gmail.com>,
+	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	NXP Linux Team <linux-imx@nxp.com>,
+	Vladimir Zapolskiy <vz@mleia.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Fabrice Gasnier <fabrice.gasnier@foss.st.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>
+Cc: oe-kbuild-all@lists.linux.dev, Sean Young <sean@mess.org>,
+	Ivaylo Dimitrov <ivo.g.dimitrov.75@gmail.com>,
+	linux-pwm@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com
+Subject: Re: [PATCH 1/2] pwm: make it possible to apply pwm changes in atomic
+ context
+Message-ID: <202310012348.puyNjoMk-lkp@intel.com>
+References: <1bd5241d584ceb4d6b731c4dc3203fb9686ee1d1.1696156485.git.sean@mess.org>
 MIME-Version: 1.0
-References: <20230929211155.3910949-4-samitolvanen@google.com>
- <20230929211155.3910949-6-samitolvanen@google.com> <202309291452.66ED9B4D83@keescook>
- <CABCJKufxUVoO+yJ+513W5FOFu6u45N=6wZe6a69u+8LU6A_N2Q@mail.gmail.com>
- <20230930-emporium-share-2bbdf7074e54@spud> <202309301400.4E1AD87@keescook>
-In-Reply-To: <202309301400.4E1AD87@keescook>
-From: Pedro Falcato <pedro.falcato@gmail.com>
-Date: Sun, 1 Oct 2023 16:19:47 +0100
-Message-ID: <CAKbZUD08W9_HB9F7tQqwreYvVapgVMOkS3QokzwHPcBnFnVMig@mail.gmail.com>
-Subject: Re: [PATCH 2/2] riscv: mm: Update mmap_rnd_bits_max
-To: Kees Cook <keescook@chromium.org>
-Cc: Conor Dooley <conor@kernel.org>, Sami Tolvanen <samitolvanen@google.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Andrew Morton <akpm@linux-foundation.org>, linux-mm@kvack.org, 
-	linux-riscv@lists.infradead.org, llvm@lists.linux.dev, 
-	linux-kernel@vger.kernel.org
+Content-Disposition: inline
+In-Reply-To: <1bd5241d584ceb4d6b731c4dc3203fb9686ee1d1.1696156485.git.sean@mess.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231001_082001_445014_A43684AA 
-X-CRM114-Status: GOOD (  22.58  )
+X-CRM114-CacheID: sfid-20231001_090830_163390_DD395A54 
+X-CRM114-Status: GOOD (  14.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,48 +98,129 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gU3VuLCBPY3QgMSwgMjAyMyBhdCAyOjUx4oCvQU0gS2VlcyBDb29rIDxrZWVzY29va0BjaHJv
-bWl1bS5vcmc+IHdyb3RlOgo+Cj4gT24gU2F0LCBTZXAgMzAsIDIwMjMgYXQgMTA6MDI6MzVBTSAr
-MDEwMCwgQ29ub3IgRG9vbGV5IHdyb3RlOgo+ID4gT24gRnJpLCBTZXAgMjksIDIwMjMgYXQgMDM6
-NTI6MjJQTSAtMDcwMCwgU2FtaSBUb2x2YW5lbiB3cm90ZToKPiA+ID4gT24gRnJpLCBTZXAgMjks
-IDIwMjMgYXQgMjo1NOKAr1BNIEtlZXMgQ29vayA8a2Vlc2Nvb2tAY2hyb21pdW0ub3JnPiB3cm90
-ZToKPiA+ID4gPgo+ID4gPiA+IE9uIEZyaSwgU2VwIDI5LCAyMDIzIGF0IDA5OjExOjU4UE0gKzAw
-MDAsIFNhbWkgVG9sdmFuZW4gd3JvdGU6Cj4gPiA+ID4gPiBBUkNIX01NQVBfUk5EX0JJVFNfTUFY
-IGlzIGJhc2VkIG9uIFN2MzksIHdoaWNoIGxlYXZlcyBhIGZldwo+ID4gPiA+ID4gcG90ZW50aWFs
-IGJpdHMgb2YgbW1hcCByYW5kb21uZXNzIG9uIHRoZSB0YWJsZSBpZiB3ZSBlbmQgdXAgZW5hYmxp
-bmcKPiA+ID4gPiA+IDQvNS1sZXZlbCBwYWdpbmcuIFVwZGF0ZSBtbWFwX3JuZF9iaXRzX21heCB0
-byB0YWtlIHRoZSBmaW5hbCBhZGRyZXNzCj4gPiA+ID4gPiBzcGFjZSBzaXplIGludG8gYWNjb3Vu
-dC4gVGhpcyBpbmNyZWFzZXMgbW1hcF9ybmRfYml0c19tYXggZnJvbSAyNCB0bwo+ID4gPiA+ID4g
-MzMgd2l0aCBTdjQ4LzU3Lgo+ID4gPiA+ID4KPiA+ID4gPiA+IFNpZ25lZC1vZmYtYnk6IFNhbWkg
-VG9sdmFuZW4gPHNhbWl0b2x2YW5lbkBnb29nbGUuY29tPgo+ID4gPiA+Cj4gPiA+ID4gSSBsaWtl
-IHRoaXMuIElzIFJJU0NWIHRoZSBvbmx5IGFyY2ggd2hlcmUgdGhlIHBhZ2luZyBsZXZlbCBjYW4g
-YmUgY2hvc2VuCj4gPiA+ID4gYXQgYm9vdCB0aW1lPwo+ID4gPgo+ID4gPiBJIGhhdmVuJ3Qgc2Vl
-biB0aGlzIGVsc2V3aGVyZSwgYnV0IEkgYWxzbyBoYXZlbid0IGxvb2tlZCBhdCBhbGwgdGhlCj4g
-PiA+IG90aGVyIGFyY2hpdGVjdHVyZXMgdGhhdCBjbG9zZWx5LiBhcm02NCBkb2VzIHNvbWV0aGlu
-ZyBpbnRlcmVzdGluZwo+ID4gPiB3aXRoIEFSTTY0X1ZBX0JJVFNfNTIsIGJ1dCBJIHRoaW5rIHdl
-IGNhbiBzdGlsbCBoYW5kbGUgdGhhdCBpbgo+ID4gPiBLY29uZmlnLgo+ID4KPiA+IEFGQUlVLCB4
-ODYtNjQgY2FuIGRvIHRoaXMgYWxzbzoKPiA+Cj4gPiAgICAgICBubzRsdmwgICAgICAgICAgW1JJ
-U0NWXSBEaXNhYmxlIDQtbGV2ZWwgYW5kIDUtbGV2ZWwgcGFnaW5nIG1vZGVzLiBGb3JjZXMKPiA+
-ICAgICAgICAgICAgICAgICAgICAgICBrZXJuZWwgdG8gdXNlIDMtbGV2ZWwgcGFnaW5nIGluc3Rl
-YWQuCj4gPgo+ID4gICAgICAgbm81bHZsICAgICAgICAgIFtYODYtNjQsUklTQ1ZdIERpc2FibGUg
-NS1sZXZlbCBwYWdpbmcgbW9kZS4gRm9yY2VzCj4gPiAgICAgICAgICAgICAgICAgICAgICAga2Vy
-bmVsIHRvIHVzZSA0LWxldmVsIHBhZ2luZyBpbnN0ZWFkLgo+Cj4gQWgtaGEhIE9rYXksIHdlbGws
-IHRoZW4gbGV0J3MgdHJhY2sgdGhpcyBpZGVhOgo+IGh0dHBzOi8vZ2l0aHViLmNvbS9LU1BQL2xp
-bnV4L2lzc3Vlcy8zNDYKCihSZXBseWluZyBoZXJlIGZvciB2aXNpYmlsaXR5LCB0ZWxsIG1lIGlm
-IHlvdSB3YW50IHRvIG1vdmUgdGhpcwpkaXNjdXNzaW9uIHRvIGdpdGh1YikKCkFJVUksIHg4NiBj
-YW5ub3QgZG8gdGhpcyBmb3IgY29tcGF0IHJlYXNvbnMuIEV2ZW4gaWYgeW91IGVuYWJsZSBMQTU3
-LAptbWFwIG9ubHkgZ2l2ZXMgeW91IDwgNDgtYml0IGFkZHJlc3NlcywgZm9yIGNvbXBhdGliaWxp
-dHkgd2l0aCB0aGluZ3MKbGlrZSBKSVRzLCBldGMgdGhhdCBzdGFzaCBpbmZvcm1hdGlvbiBpbiB0
-aGUgdXBwZXIgMTYgYml0cy4gWW91IG5lZWQKdG8gcGFzcyBhID4gNDgtYml0IG1tYXAgaGludCB0
-byBnZXQgNTctYml0IGFkZHJlc3Nlcy4KCkkgaW1hZ2luZSByaXNjdiBkb2VzIG5vdCBoYXZlIHRo
-aXMgaXNzdWUgeWV0LCBkdWUgdG8gbGl0dGxlCmFjY3VtdWxhdGVkIGNydWZ0LCBidXQgaXQgbWF5
-IGJlIHdpc2UgdG8gY2hlY2sgYWdhaW5zdCBwb3B1bGFyIEpJVHRlcnMKZm9yIHRoZXNlIHByb2Js
-ZW1zIG9uIHJpc2N2IGNvZGUuCgotLSAKUGVkcm8KCl9fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNj
-dkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4v
-bGlzdGluZm8vbGludXgtcmlzY3YK
+Hi Sean,
+
+kernel test robot noticed the following build errors:
+
+[auto build test ERROR on thierry-reding-pwm/for-next]
+[also build test ERROR on shawnguo/for-next atorgue-stm32/stm32-next media-tree/master linus/master v6.6-rc3 next-20230929]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Sean-Young/media-pwm-ir-tx-trigger-edges-from-hrtimer-interrupt-context/20231001-194056
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/thierry.reding/linux-pwm.git for-next
+patch link:    https://lore.kernel.org/r/1bd5241d584ceb4d6b731c4dc3203fb9686ee1d1.1696156485.git.sean%40mess.org
+patch subject: [PATCH 1/2] pwm: make it possible to apply pwm changes in atomic context
+config: i386-buildonly-randconfig-004-20231001 (https://download.01.org/0day-ci/archive/20231001/202310012348.puyNjoMk-lkp@intel.com/config)
+compiler: gcc-7 (Ubuntu 7.5.0-6ubuntu2) 7.5.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20231001/202310012348.puyNjoMk-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202310012348.puyNjoMk-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+   In file included from arch/x86/include/asm/percpu.h:27:0,
+                    from arch/x86/include/asm/current.h:10,
+                    from include/linux/sched.h:12,
+                    from include/linux/ratelimit.h:6,
+                    from include/linux/dev_printk.h:16,
+                    from include/linux/device.h:15,
+                    from include/linux/backlight.h:12,
+                    from drivers/video/fbdev/ssd1307fb.c:8:
+   include/linux/pwm.h: In function 'pwm_apply_state':
+   include/linux/pwm.h:428:17: error: implicit declaration of function 'pwm_can_sleep'; did you mean 'gpiod_cansleep'? [-Werror=implicit-function-declaration]
+     might_sleep_if(pwm_can_sleep(pwm));
+                    ^
+   include/linux/kernel.h:194:39: note: in definition of macro 'might_sleep_if'
+    #define might_sleep_if(cond) do { if (cond) might_sleep(); } while (0)
+                                          ^~~~
+   In file included from drivers/video/fbdev/ssd1307fb.c:16:0:
+   include/linux/pwm.h: At top level:
+>> include/linux/pwm.h:455:20: error: conflicting types for 'pwm_can_sleep'
+    static inline bool pwm_can_sleep(struct pwm_device *pwm)
+                       ^~~~~~~~~~~~~
+   In file included from arch/x86/include/asm/percpu.h:27:0,
+                    from arch/x86/include/asm/current.h:10,
+                    from include/linux/sched.h:12,
+                    from include/linux/ratelimit.h:6,
+                    from include/linux/dev_printk.h:16,
+                    from include/linux/device.h:15,
+                    from include/linux/backlight.h:12,
+                    from drivers/video/fbdev/ssd1307fb.c:8:
+   include/linux/pwm.h:428:17: note: previous implicit declaration of 'pwm_can_sleep' was here
+     might_sleep_if(pwm_can_sleep(pwm));
+                    ^
+   include/linux/kernel.h:194:39: note: in definition of macro 'might_sleep_if'
+    #define might_sleep_if(cond) do { if (cond) might_sleep(); } while (0)
+                                          ^~~~
+   cc1: some warnings being treated as errors
+--
+   In file included from arch/x86/include/asm/percpu.h:27:0,
+                    from arch/x86/include/asm/preempt.h:6,
+                    from include/linux/preempt.h:79,
+                    from include/linux/spinlock.h:56,
+                    from include/linux/mmzone.h:8,
+                    from include/linux/gfp.h:7,
+                    from include/linux/slab.h:16,
+                    from include/linux/resource_ext.h:11,
+                    from include/linux/acpi.h:13,
+                    from include/linux/i2c.h:13,
+                    from drivers/mfd/intel_soc_pmic_crc.c:11:
+   include/linux/pwm.h: In function 'pwm_apply_state':
+   include/linux/pwm.h:428:17: error: implicit declaration of function 'pwm_can_sleep'; did you mean 'cant_sleep'? [-Werror=implicit-function-declaration]
+     might_sleep_if(pwm_can_sleep(pwm));
+                    ^
+   include/linux/kernel.h:194:39: note: in definition of macro 'might_sleep_if'
+    #define might_sleep_if(cond) do { if (cond) might_sleep(); } while (0)
+                                          ^~~~
+   In file included from drivers/mfd/intel_soc_pmic_crc.c:18:0:
+   include/linux/pwm.h: At top level:
+>> include/linux/pwm.h:455:20: error: conflicting types for 'pwm_can_sleep'
+    static inline bool pwm_can_sleep(struct pwm_device *pwm)
+                       ^~~~~~~~~~~~~
+   In file included from arch/x86/include/asm/percpu.h:27:0,
+                    from arch/x86/include/asm/preempt.h:6,
+                    from include/linux/preempt.h:79,
+                    from include/linux/spinlock.h:56,
+                    from include/linux/mmzone.h:8,
+                    from include/linux/gfp.h:7,
+                    from include/linux/slab.h:16,
+                    from include/linux/resource_ext.h:11,
+                    from include/linux/acpi.h:13,
+                    from include/linux/i2c.h:13,
+                    from drivers/mfd/intel_soc_pmic_crc.c:11:
+   include/linux/pwm.h:428:17: note: previous implicit declaration of 'pwm_can_sleep' was here
+     might_sleep_if(pwm_can_sleep(pwm));
+                    ^
+   include/linux/kernel.h:194:39: note: in definition of macro 'might_sleep_if'
+    #define might_sleep_if(cond) do { if (cond) might_sleep(); } while (0)
+                                          ^~~~
+   cc1: some warnings being treated as errors
+
+
+vim +/pwm_can_sleep +455 include/linux/pwm.h
+
+   454	
+ > 455	static inline bool pwm_can_sleep(struct pwm_device *pwm)
+   456	{
+   457		return true;
+   458	}
+   459	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
