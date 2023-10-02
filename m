@@ -4,87 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8867E784AC
-	for <linux-riscv@archiver.kernel.org>; Mon,  2 Oct 2023 11:19:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BE98E784B3
+	for <linux-riscv@archiver.kernel.org>; Mon,  2 Oct 2023 11:29:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:
+	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yC3Xhmf1MOnw7wL5UiJTwJQVRsFdn03qurqr/q247fI=; b=qvVI+shbpJzuj9
-	0/pW9rIWWeJTLlwaNc+1J0Xc4porJadHhKWtS0Q8JVeEp5eF7xQ9dGchh471B4ur/Td+gUIntcwBO
-	Y0Zz+D1ldtUUbcY7FjGOHZb1z1o+UTrUYG6I3g00/eFhqm/kJi5rcsESxKIJ3nQILs1SDRwA2JNfI
-	OjH8yV2b0/Jv77Sn0FnJxgowpLSziHFSsfR1ILzdJ1A2ni5Ov3gqRC2I+7Xbi1cJZ+TgFPdcmYHxn
-	dtG2Cx01CAkqtK0PxUtT6DPh1LpwnWLFt/b8lxA80pHgV77RGWSN8stogV9vpQZJsw7t+ieHQUQ/8
-	W8DqPrmZYobXBnVSXJNw==;
+	List-Owner; bh=+d7PphNf/8+9nV5VQEJXQrVRpJO3Xx8U+7w4YePtVpU=; b=isB2Y3LZziLyhj
+	oQmDTOwI8/pjS3+kAcT1rkaxBla8car5V+REdP1WNvC8qvHYPhuLUV9iGKcOFaprB3AwPEFohtVpM
+	EucxmmX83/LKZld6Lkozyrr3HVmVEEehS4JwV0JUbpGHz9K5pOXKWQMZ9VOYbd/XgmovhhjV9bklO
+	HXwLfxXSSVoHPOcTzZwrtwOnxTo1l4RBgLqTbYWdt+OxJklNY03XE4oEQNlBJIZw0LVCK4gwoJ8ye
+	usgXsscvXkf1p6YTMs5+gyyF2gpjAgzeaXnLMkGuM9+1n401e3fHx6pIr/DYlcdbfU9FnJBj5rn3W
+	WksdMCU6D7nG095d7SYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qnGxD-00CWoG-1v;
-	Mon, 02 Oct 2023 11:19:11 +0000
-Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
+	id 1qnH78-00CXPQ-2T;
+	Mon, 02 Oct 2023 11:29:26 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qnGx8-00CWnO-2t
-	for linux-riscv@lists.infradead.org;
-	Mon, 02 Oct 2023 11:19:10 +0000
-Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-3233799e7b8so1725151f8f.0
-        for <linux-riscv@lists.infradead.org>; Mon, 02 Oct 2023 04:19:02 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1696245541; x=1696850341; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=+IBk2yQCgJNwrSQBrXRJII+6gdKdvDeECA4pHuU8zrw=;
-        b=KTow8xH82ibs3EJnqYo52IjpfUjN47MKeYtyMTIFE7mRbr2b0fgzoCFXOfULkHB0Ju
-         RnN+TZ1FzAFMCe6EqTvb9eWa4yq1VI0c5BnShG2N7AXYtR/hguI5/iY7Wd1HLUJDrY2b
-         ecZGxP0jaEC0owws4iYX8u66KUeuu3GRX77/dg3aIwKncl6n8tSTJR2gsLPrbjGvk4LH
-         //SL7dQn8foEp1fLx5nOHfGju5CTEAqPTLJECMSZ3k890f5GYjnRqtW4nPN5ZsRGJpNo
-         Ytnc07wD5NQdCFD6xDh2E4gz3QRhThdHaQUtcCdWRlP3N72b80Hb66Y8sJyN5epDKCF2
-         7WLQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1696245541; x=1696850341;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=+IBk2yQCgJNwrSQBrXRJII+6gdKdvDeECA4pHuU8zrw=;
-        b=Bpyjnt9QxwDt3vN9gU90HuFJDReP7WF43qhGHUBlU1OVsMqm9xHKNB5Hmp9YpFKdqz
-         uxHXJ7+82jbMP8ocSAi4c12KbAk4lyrode81bSsoGGNb5IUstXVaoTyUs8DTt28KK+S0
-         Jz7Ftah7wtcsWA2G1ABgNwmky0geDk/OzANqRbKWqjryLlfc//vjlbw4vCekUtrQ8t2d
-         oX/469QjiKeEg52s2jsopbxK3IL9Dvh6mwVVjTEHCQWs82LXpaJPp5xz3MQ2e7USagGT
-         ohzLXgIwq5699qE+MGx3Ev+kLX6nmM4/34/lP+XdqfWZong2pMu2+Lf0IAgSx9pAXCzf
-         gVtw==
-X-Gm-Message-State: AOJu0Yy6N8GR7NMIsFxK/u1J7GvfzsEmFJZQocE9RIvmX0kI5GzbYLPn
-	ivKJUpXKI0/66JxwnqaSu6Ww4A==
-X-Google-Smtp-Source: AGHT+IGIH+t0eT2hy6BdihJbHdiZvxDZ0vJ8nw1AF1rd0+u1rWe03U4mwOM2KFr/MtA2vRH1iydH5g==
-X-Received: by 2002:adf:e950:0:b0:317:7238:336a with SMTP id m16-20020adfe950000000b003177238336amr8806165wrn.5.1696245541298;
-        Mon, 02 Oct 2023 04:19:01 -0700 (PDT)
-Received: from ?IPV6:2a01:e0a:999:a3a0:2dc5:b516:f0fb:7491? ([2a01:e0a:999:a3a0:2dc5:b516:f0fb:7491])
-        by smtp.gmail.com with ESMTPSA id e9-20020adfe7c9000000b003197efd1e7bsm13880009wrn.114.2023.10.02.04.19.00
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 02 Oct 2023 04:19:00 -0700 (PDT)
-Message-ID: <693e6584-1e66-48c0-aa7c-61d9f88abd4c@rivosinc.com>
-Date: Mon, 2 Oct 2023 13:18:59 +0200
+	id 1qnH72-00CXGD-0x;
+	Mon, 02 Oct 2023 11:29:23 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id 7FCC1CE0E27;
+	Mon,  2 Oct 2023 11:29:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id C2B8EC433C7;
+	Mon,  2 Oct 2023 11:29:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1696246156;
+	bh=ZJT/h6KujIsYVdJAaw35ma6el/sMgxTmZwB8rPTK3Jw=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=H8AkdvIeEYjRYVGHhgh4jofXC6pRgfgRUn977wPUoBVixl7Ihv27IlVCkDkbzYgUw
+	 JX3YmfESSQAA3wHuzCFfySd74tVQvryVpGAhB/4RNJZwz5kjyf0O9g4ZblOx1CSlFW
+	 5cDEgwcBowAUng6+x/lrk5488XQ0u6ERILRg4fdsypnepBeNOyevQwqGkGrlZqZMRZ
+	 0pUoDjC6Wh4lx8N2RvREMCpw/5KzB14bmOYvmc8urrphBg2fzpeHtc7lKSf2YNfjZT
+	 UhyE56Yp5+vYnCRmjFygSZ8vRdyBxx3AYRkRt311hmSkSGw+ThguHUuzIsv0g7AmXS
+	 cdDnGnTbBKgcg==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id A2F57E7849A;
+	Mon,  2 Oct 2023 11:29:16 +0000 (UTC)
+From: Joel Granados via B4 Relay <devnull+j.granados.samsung.com@kernel.org>
+Date: Mon, 02 Oct 2023 13:30:36 +0200
+Subject: [PATCH v3 1/7] S390: Remove now superfluous sentinel elem from
+ ctl_table arrays
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/7] Add support to handle misaligned accesses in S-mode
-Content-Language: en-US
-To: Conor Dooley <conor@kernel.org>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Atish Patra <atishp@rivosinc.com>, Andrew Jones <ajones@ventanamicro.com>,
- Evan Green <evan@rivosinc.com>, =?UTF-8?Q?Bj=C3=B6rn_Topel?=
- <bjorn@rivosinc.com>, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, Ron Minnich <rminnich@gmail.com>,
- Daniel Maslowski <cyrevolt@googlemail.com>
-References: <20230926150316.1129648-1-cleger@rivosinc.com>
- <20230930-patchy-curdle-ef5ee6e1a17c@spud>
- <8ce6cd97-6d63-4174-a290-40690c81e205@rivosinc.com>
- <20231002-spearman-doze-70cc026ac13e@spud>
-From: =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>
-In-Reply-To: <20231002-spearman-doze-70cc026ac13e@spud>
+Message-Id: <20231002-jag-sysctl_remove_empty_elem_arch-v3-1-606da2840a7a@samsung.com>
+References: <20231002-jag-sysctl_remove_empty_elem_arch-v3-0-606da2840a7a@samsung.com>
+In-Reply-To: <20231002-jag-sysctl_remove_empty_elem_arch-v3-0-606da2840a7a@samsung.com>
+To: Luis Chamberlain <mcgrof@kernel.org>, willy@infradead.org, 
+ josh@joshtriplett.org, Kees Cook <keescook@chromium.org>, 
+ Iurii Zaikin <yzaikin@google.com>, Heiko Carstens <hca@linux.ibm.com>, 
+ Vasily Gorbik <gor@linux.ibm.com>, 
+ Alexander Gordeev <agordeev@linux.ibm.com>, 
+ Christian Borntraeger <borntraeger@linux.ibm.com>, 
+ Sven Schnelle <svens@linux.ibm.com>, 
+ Gerald Schaefer <gerald.schaefer@linux.ibm.com>, 
+ Russell King <linux@armlinux.org.uk>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+ Mark Rutland <mark.rutland@arm.com>, Thomas Gleixner <tglx@linutronix.de>, 
+ Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+ Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
+ "H. Peter Anvin" <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, 
+ Christophe Leroy <christophe.leroy@csgroup.eu>, Guo Ren <guoren@kernel.org>, 
+ Alexey Gladkov <legion@kernel.org>
+Cc: linux-fsdevel@vger.kernel.org, linux-s390@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-riscv@lists.infradead.org, linuxppc-dev@lists.ozlabs.org, 
+ linux-ia64@vger.kernel.org, linux-csky@vger.kernel.org, 
+ Joel Granados <j.granados@samsung.com>
+X-Mailer: b4 0.13-dev-86aa5
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3352;
+ i=j.granados@samsung.com; h=from:subject:message-id;
+ bh=pn7bMLkI/eiDwqHrK4wsGA8iyiwVG5+tCRzjqhQHPj8=;
+ b=owEB7QES/pANAwAKAbqXzVK3lkFPAcsmYgBlGqoTD6OVG9z33/NcsqSkaUWni+BE/Ybac1ZbK
+ D1bCulrq+eJAbMEAAEKAB0WIQSuRwlXJeYxJc7LJ5C6l81St5ZBTwUCZRqqEwAKCRC6l81St5ZB
+ TwDYC/9wIAwjRpEE+yBz0V2sOLY6kH75yeL1P4jA+iE8PZylyyQ4a7Q8dvoM7DaRdzBzwm+UOho
+ QCKoGbsX1Zj06C25/5fCa/5HFwqZBRfRrQ97ynnEe0fsGmXQ6MhzDErFBe1s/lW6EmrJnn0df7g
+ uWO2RFOeND4Hdd55odOt7pkrsTqxtAMkTGhjQJVWrnrsy69EXJ/DmrjJxTn7x+UmSSN5pWrEed3
+ vUCje8uKasMyEUm20V8M6nAVZ6SlaefUBhwJDsnUIccjpR96uAVXpByYrbXZqvVOlPJovahzjX5
+ hmbdAm4hk9bkVLZkkGNfIlnkM/ynS1r7+X7z2huAe1ifp14shL8PpCcNO7t6kiw8K+4l1IjdQ5/
+ yKWU1MuOLlcsMLx15ZgcFep8d0UAE0W0EFfztbWJ9QDXLY5cpgNGfTzHANoZsiX25PesgriFHLP
+ jXdz1Yz0b/RR1QL7CbA0JRsDMWTsNyZeeD1zcG/iOPiIZTh313h1l4kk1TDYsdKznk1YU=
+X-Developer-Key: i=j.granados@samsung.com; a=openpgp;
+ fpr=F1F8E46D30F0F6C4A45FF4465895FAAC338C6E77
+X-Endpoint-Received: by B4 Relay for j.granados@samsung.com/default with auth_id=70
+X-Original-From: Joel Granados <j.granados@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231002_041907_022505_67F4F889 
-X-CRM114-Status: GOOD (  18.63  )
+X-CRM114-CacheID: sfid-20231002_042920_692779_23DE3A08 
+X-CRM114-Status: GOOD (  15.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,57 +107,115 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Reply-To: j.granados@samsung.com
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-CgpPbiAwMi8xMC8yMDIzIDEyOjQ5LCBDb25vciBEb29sZXkgd3JvdGU6Cj4gT24gTW9uLCBPY3Qg
-MDIsIDIwMjMgYXQgMDk6NDA6MDRBTSArMDIwMCwgQ2zDqW1lbnQgTMOpZ2VyIHdyb3RlOgo+Pgo+
-Pgo+PiBPbiAzMC8wOS8yMDIzIDExOjIzLCBDb25vciBEb29sZXkgd3JvdGU6Cj4+PiBPbiBUdWUs
-IFNlcCAyNiwgMjAyMyBhdCAwNTowMzowOVBNICswMjAwLCBDbMOpbWVudCBMw6lnZXIgd3JvdGU6
-Cj4+Pj4gU2luY2UgY29tbWl0IDYxY2FkYjkgKCJQcm92aWRlIG5ldyBkZXNjcmlwdGlvbiBvZiBt
-aXNhbGlnbmVkIGxvYWQvc3RvcmUKPj4+PiBiZWhhdmlvciBjb21wYXRpYmxlIHdpdGggcHJpdmls
-ZWdlZCBhcmNoaXRlY3R1cmUuIikgaW4gdGhlIFJJU0MtViBJU0EKPj4+PiBtYW51YWwsIGl0IGlz
-IHN0YXRlZCB0aGF0IG1pc2FsaWduZWQgbG9hZC9zdG9yZSBtaWdodCBub3QgYmUgc3VwcG9ydGVk
-Lgo+Pj4+IEhvd2V2ZXIsIHRoZSBSSVNDLVYga2VybmVsIHVBQkkgZGVzY3JpYmVzIHRoYXQgbWlz
-YWxpZ25lZCBhY2Nlc3NlcyBhcmUKPj4+PiBzdXBwb3J0ZWQuIEluIG9yZGVyIHRvIHN1cHBvcnQg
-dGhhdCwgdGhpcyBzZXJpZXMgYWRkcyBzdXBwb3J0IGZvciBTLW1vZGUKPj4+PiBoYW5kbGluZyBv
-ZiBtaXNhbGlnbmVkIGFjY2Vzc2VzIGFzIHdlbGwgc3VwcG9ydCBmb3IgcHJjdGwoUFJfVU5BTElH
-TikuCj4+Pj4KPj4+PiBIYW5kbGluZyBtaXNhbGlnbmVkIGFjY2VzcyBpbiBrZXJuZWwgYWxsb3dz
-IGZvciBhIGZpbmVyIGdyYWluIGNvbnRyb2wKPj4+PiBvZiB0aGUgbWlzYWxpZ25lZCBhY2Nlc3Nl
-cyBiZWhhdmlvciwgYW5kIHRoYW5rcyB0byB0aGUgcHJjdGwgY2FsbCwgY2FuCj4+Pj4gYWxsb3cg
-ZGlzYWJsaW5nIG1pc2FsaWduZWQgYWNjZXNzIGVtdWxhdGlvbiB0byBnZW5lcmF0ZSBTSUdCVVMu
-IFVzZXIKPj4+PiBzcGFjZSBjYW4gdGhlbiBvcHRpbWl6ZSBpdHMgc29mdHdhcmUgYnkgcmVtb3Zp
-bmcgc3VjaCBhY2Nlc3MgYmFzZWQgb24KPj4+PiBTSUdCVVMgZ2VuZXJhdGlvbi4KPj4+Pgo+Pj4+
-IEN1cnJlbnRseSwgdGhpcyBzZXJpZXMgaXMgdXNlZnVsIGZvciBwZW9wbGUgdGhhdCB1c2VzIGEg
-U0JJIHRoYXQgZG9lcwo+Pj4+IG5vdCBoYW5kbGVkIG1pc2FsaWduZWQgdHJhcHMuIEluIGEgbmVh
-ciBmdXR1cmUsIHRoaXMgc2VyaWVzIHdpbGwgbWFrZQo+Pj4+IHVzZSBhIFNCSSBleHRlbnNpb24g
-WzFdIGFsbG93aW5nIHRvIHJlcXVlc3QgZGVsZWdhdGlvbiBvZiB0aGUKPj4+PiBtaXNhbGlnbmVk
-IGxvYWQvc3RvcmUgdHJhcHMgdG8gdGhlIFMtbW9kZSBzb2Z0d2FyZS4gVGhpcyBleHRlbnNpb24g
-aGFzCj4+Pj4gYmVlbiBzdWJtaXR0ZWQgZm9yIHJldmlldyB0byB0aGUgcmlzY3YgdGVjaC1wcnMg
-Z3JvdXAuIEFuIE9wZW5TQkkKPj4+PiBpbXBsZW1lbnRhdGlvbiBmb3IgdGhpcyBzcGVjIGlzIGF2
-YWlsYWJsZSBhdCBbMl0uCj4+Pj4KPj4+PiBUaGlzIHNlcmllcyBjYW4gYmUgdGVzdGVkIHVzaW5n
-IHRoZSBzcGlrZSBzaW11bGF0b3IgWzNdIGFuZCBhbiBvcGVuU0JJCj4+Pj4gdmVyc2lvbiBbNF0g
-d2hpY2ggYWxsb3dzIHRvIGFsd2F5cyBkZWxlZ2F0ZSBtaXNhbGlnbmVkIGxvYWQvc3RvcmUgdG8K
-Pj4+PiBTLW1vZGUuCj4+Pgo+Pj4gU29tZSBwYXRjaGVzIGluIHRoaXMgc2VyaWVzIGRvIG5vdCBi
-dWlsZCBmb3IgYW55IGNvbmZpZ3MsIHNvbWUgYXJlCj4+PiBicm9rZW4gZm9yIGNsYW5nIGJ1aWxk
-cyBhbmQgb3RoZXJzIGFyZSBicm9rZW4gZm9yIG5vbW11LiBQbGVhc2UgdHJ5IHRvPiBidWlsZCB0
-ZXN0IHRoaXMgbW9yZSB0aG9yb3VnaGx5IGJlZm9yZSB5b3Ugc3VibWl0IHRoZSBuZXh0IHZlcnNp
-b24uCj4+Cj4+IEhpIENvbm9yLAo+Pgo+PiBUaGFua3MgZm9yIHRoZSBmZWVkYmFjaywgSSdsbCBj
-aGVjayB0aGF0Lgo+Pgo+Pj4KPj4+IEFsc28sIEFJVUksIHRoaXMgc2VyaWVzIHNob3VsZCBiZSBt
-YXJrZWQgUkZDIHNpbmNlIHRoZSBTQkkgZXh0ZW5zaW9uCj4+PiB0aGlzIHJlbGllcyBvbiBoYXMg
-bm90IGJlZW4gZnJvemVuLgo+Pgo+PiBUaGlzIHNlcmllcyBkb2VzIG5vdCBhY3R1YWxseSB1c2Vz
-IHRoZSBTQkkgZXh0ZW5zaW9uIGJ1dCBwcm92aWRlcyBhIHdheQo+PiB0byBkZXRlY3QgaWYgbWlz
-YWxpZ25lZCBhY2Nlc3NlcyBhcmUgbm90IGhhbmRsZWQgYnkgaGFyZHdhcmUgbm9yIGJ5IHRoZQo+
-PiBTQkkuIEl0IGhhcyBiZWVuIHJlcG9ydGVkIGJ5IFJvbiAmIERhbmllbCB0aGV5IHRoZXkgaGF2
-ZSBhIG1pbmltYWwgU0JJCj4+IGltcGxlbWVudGF0aW9uIHRoYXQgZG9lcyBub3QgaGFuZGxlIG1p
-c2FsaWduZWQgYWNjZXNzZXMgYW5kIHRoYXQgdGhleQo+PiB3b3VsZCBsaWtlIHRvIG1ha2UgdXNl
-IG9mIHRoZSBQUl9TRVRfVU5BTElHTiBmZWF0dXJlLiBUaGlzIGlzIHdoYXQgdGhpcwo+PiBzZXJp
-ZXMgYWRkcmVzc2VzIChhbmQgdGh1cyBkb2VzIG5vdCBkZXBlbmQgb24gdGhlIG1lbnRpb25lZCBT
-QkkgZXh0ZW5zaW9uKS4KPiAKPiBBaCwgSSBtdXN0IGhhdmUgbWlzcmVhZCB0aGVuLiBBcG9sb2dp
-ZXMuCgpObyB3b3JyaWVzLCBtYXliZSBJIHNob3VsZCBhY3R1YWxseSByZW1vdmUgdGhpcyBmcm9t
-IHRoZSBjb3ZlciBsZXR0ZXIgdG8KYXZvaWQgYW55IGNvbmZ1c2lvbiAhCgpDbMOpbWVudAoKX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3Yg
-bWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3Rz
-LmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+From: Joel Granados <j.granados@samsung.com>
+
+This commit comes at the tail end of a greater effort to remove the
+empty elements at the end of the ctl_table arrays (sentinels) which will
+reduce the overall build time size of the kernel and run time memory
+bloat by ~64 bytes per sentinel (further information Link :
+https://lore.kernel.org/all/ZO5Yx5JFogGi%2FcBo@bombadil.infradead.org/)
+
+Remove the sentinel element from appldata_table, s390dbf_table,
+topology_ctl_table, cmm_table and page_table_sysctl. Reduced the memory
+allocation in appldata_register_ops by 1 effectively removing the
+sentinel from ops->ctl_table.
+
+This removal is safe because register_sysctl_sz and register_sysctl use
+the array size in addition to checking for the sentinel.
+
+Tested-by: Alexander Gordeev <agordeev@linux.ibm.com>
+Acked-by: Heiko Carstens <hca@linux.ibm.com>
+Signed-off-by: Joel Granados <j.granados@samsung.com>
+---
+ arch/s390/appldata/appldata_base.c | 4 +---
+ arch/s390/kernel/debug.c           | 1 -
+ arch/s390/kernel/topology.c        | 1 -
+ arch/s390/mm/cmm.c                 | 1 -
+ arch/s390/mm/pgalloc.c             | 1 -
+ 5 files changed, 1 insertion(+), 7 deletions(-)
+
+diff --git a/arch/s390/appldata/appldata_base.c b/arch/s390/appldata/appldata_base.c
+index 3b0994625652..c2978cb03b36 100644
+--- a/arch/s390/appldata/appldata_base.c
++++ b/arch/s390/appldata/appldata_base.c
+@@ -63,7 +63,6 @@ static struct ctl_table appldata_table[] = {
+ 		.mode		= S_IRUGO | S_IWUSR,
+ 		.proc_handler	= appldata_interval_handler,
+ 	},
+-	{ },
+ };
+ 
+ /*
+@@ -351,8 +350,7 @@ int appldata_register_ops(struct appldata_ops *ops)
+ 	if (ops->size > APPLDATA_MAX_REC_SIZE)
+ 		return -EINVAL;
+ 
+-	/* The last entry must be an empty one */
+-	ops->ctl_table = kcalloc(2, sizeof(struct ctl_table), GFP_KERNEL);
++	ops->ctl_table = kcalloc(1, sizeof(struct ctl_table), GFP_KERNEL);
+ 	if (!ops->ctl_table)
+ 		return -ENOMEM;
+ 
+diff --git a/arch/s390/kernel/debug.c b/arch/s390/kernel/debug.c
+index a85e0c3e7027..85328a0ef3b6 100644
+--- a/arch/s390/kernel/debug.c
++++ b/arch/s390/kernel/debug.c
+@@ -978,7 +978,6 @@ static struct ctl_table s390dbf_table[] = {
+ 		.mode		= S_IRUGO | S_IWUSR,
+ 		.proc_handler	= s390dbf_procactive,
+ 	},
+-	{ }
+ };
+ 
+ static struct ctl_table_header *s390dbf_sysctl_header;
+diff --git a/arch/s390/kernel/topology.c b/arch/s390/kernel/topology.c
+index 68adf1de8888..be8467b25953 100644
+--- a/arch/s390/kernel/topology.c
++++ b/arch/s390/kernel/topology.c
+@@ -636,7 +636,6 @@ static struct ctl_table topology_ctl_table[] = {
+ 		.mode		= 0644,
+ 		.proc_handler	= topology_ctl_handler,
+ 	},
+-	{ },
+ };
+ 
+ static int __init topology_init(void)
+diff --git a/arch/s390/mm/cmm.c b/arch/s390/mm/cmm.c
+index f47515313226..f8b13f247646 100644
+--- a/arch/s390/mm/cmm.c
++++ b/arch/s390/mm/cmm.c
+@@ -332,7 +332,6 @@ static struct ctl_table cmm_table[] = {
+ 		.mode		= 0644,
+ 		.proc_handler	= cmm_timeout_handler,
+ 	},
+-	{ }
+ };
+ 
+ #ifdef CONFIG_CMM_IUCV
+diff --git a/arch/s390/mm/pgalloc.c b/arch/s390/mm/pgalloc.c
+index 07fc660a24aa..75e1039f2ec5 100644
+--- a/arch/s390/mm/pgalloc.c
++++ b/arch/s390/mm/pgalloc.c
+@@ -30,7 +30,6 @@ static struct ctl_table page_table_sysctl[] = {
+ 		.extra1		= SYSCTL_ZERO,
+ 		.extra2		= SYSCTL_ONE,
+ 	},
+-	{ }
+ };
+ 
+ static int __init page_table_register_sysctl(void)
+
+-- 
+2.30.2
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
