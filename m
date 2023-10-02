@@ -4,74 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D0CDE748F3
-	for <linux-riscv@archiver.kernel.org>; Sun,  1 Oct 2023 17:22:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B44C2E7849A
+	for <linux-riscv@archiver.kernel.org>; Mon,  2 Oct 2023 06:27:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=58/diyoAX2boUs9iqoGjb1N1B5cHykmD5HBlT+24qec=; b=pYQSWcwcfs8y9Y
-	6ExMJFYgEtmAq+nO4hF1PYQg6jlDo7O69hN57AiDTNTjLm9YcKt/4Npw/rNF/MZivk2T5eEiTYNAU
-	h1UvGX29nmfwOsw0QFLq0nU/9PM/iy36BGfhVDCYo1ytf6CN4o1hUmlwyfJa4ma/k90pFAecw/n68
-	l9T1oHpzNMKHYj28imypM6Utf27R0+p5FfvOFYduW5UQn0W1VKH8u/DYAQ958X+s2e/clUEVaxpEP
-	L1vlgiRigwC4oqVuIbaGfSopQtUzki6BrcDIv1Cql71j7T9BWjLgQ7XHQXrIph/5mFb6C44Fs5YO0
-	ruin51OJAEdCh5t9tg/w==;
+	List-Owner; bh=2MchxZSkXyCXGrdH4cp46KWMH6DeIjTVSEWTaXDyJWk=; b=voa84fl7sEtpw0
+	qeq4vSA7P6jp3LovbXyufmaYeaSHQkFHfr2y8u+1Heh8Jk5BOQEmX1jkUrqP+DYarRpzNzljaCfxt
+	VWC1UsgwRfzHsJnpsf+OcUyydEaWPNxV4qJFn/U0ZfUIeVZNpFWwRqiHk1sOMQNjOzQBVO0IIBvjo
+	gFEx9wZDkM9qaFOac3audx1C5HA+T62vbHqSt5eLkWLrmXGQgBikGNKlE1DU7PY9UpgVqHgtNYih+
+	UbYhpDLZppuOvfCCYpMdjm5COkkollXP+/yrN3gDUsCSu2zwN8eEfniGJE0j+OPJ0p48c2sGoZuYj
+	0VmYVOUylAiMTSvjr8yQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qn08o-00BS2Q-2G;
-	Sun, 01 Oct 2023 17:22:02 +0000
-Received: from gofer.mess.org ([88.97.38.141])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qn08k-00BS0v-2i;
-	Sun, 01 Oct 2023 17:22:00 +0000
-Received: by gofer.mess.org (Postfix, from userid 1000)
-	id 6AC07100092; Sun,  1 Oct 2023 18:21:54 +0100 (BST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=mess.org; s=2020;
-	t=1696180914; bh=fmmbBcKFOGuzoHOa2DXFF4bJYUXHzDbTMg4QwhNR9/g=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=lf5hY5+iOE0ePrLTAj1raG3VeaKenQpZ4y1toKOxf4a+wxUW/K6lyp1W5qX4czCeg
-	 2WUiacdaqdef9XjlBlvLraa6gYtvycdPM7oCM8j111y1mNHTmEapQsWz0cvEvfK+0f
-	 RCJk5Xhnd0ONZvBalMt7zuVja88EHL92lHsPCJcJM0C0xX9zXrPcGxZ2lU0Kyq37RB
-	 04rMcZCwhODjLsW7F1gBuIoeXzysulxOBxoEDbMNWcure0ghIvjMvKy3sJDvgFethQ
-	 2K63Mwb4NZVmLkj4oip8jxh5L5Yp1+9mDS9L9EjuAlJMX+5Onp7H8s4KyzKanFhjc5
-	 Ehed2s+3JgOlA==
-Date: Sun, 1 Oct 2023 18:21:54 +0100
-From: Sean Young <sean@mess.org>
-To: kernel test robot <lkp@intel.com>
-Cc: Thierry Reding <thierry.reding@gmail.com>,
-	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	NXP Linux Team <linux-imx@nxp.com>,
-	Vladimir Zapolskiy <vz@mleia.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
+	id 1qnCOU-00C1bc-1o;
+	Mon, 02 Oct 2023 06:27:02 +0000
+Received: from hch by bombadil.infradead.org with local (Exim 4.96 #2 (Red Hat Linux))
+	id 1qnCOS-00C1bK-1Q;
+	Mon, 02 Oct 2023 06:27:00 +0000
+Date: Sun, 1 Oct 2023 23:27:00 -0700
+From: Christoph Hellwig <hch@infradead.org>
+To: Anup Patel <apatel@ventanamicro.com>
+Cc: Paolo Bonzini <pbonzini@redhat.com>,
+	Atish Patra <atishp@atishpatra.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
-	Fabrice Gasnier <fabrice.gasnier@foss.st.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	oe-kbuild-all@lists.linux.dev,
-	Ivaylo Dimitrov <ivo.g.dimitrov.75@gmail.com>,
-	linux-pwm@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com
-Subject: Re: [PATCH 1/2] pwm: make it possible to apply pwm changes in atomic
- context
-Message-ID: <ZRmqsl+ZyVEtlPbF@gofer.mess.org>
-References: <1bd5241d584ceb4d6b731c4dc3203fb9686ee1d1.1696156485.git.sean@mess.org>
- <202310012348.puyNjoMk-lkp@intel.com>
+	Conor Dooley <conor@kernel.org>, Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Shuah Khan <shuah@kernel.org>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Mayuresh Chitale <mchitale@ventanamicro.com>,
+	devicetree@vger.kernel.org, kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH 1/7] RISC-V: Detect XVentanaCondOps from ISA string
+Message-ID: <ZRpitP5y1yhzKwbE@infradead.org>
+References: <20230919035343.1399389-1-apatel@ventanamicro.com>
+ <20230919035343.1399389-2-apatel@ventanamicro.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <202310012348.puyNjoMk-lkp@intel.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231001_102159_041123_2103B97B 
-X-CRM114-Status: GOOD (  24.24  )
+In-Reply-To: <20230919035343.1399389-2-apatel@ventanamicro.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,133 +63,18 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 02, 2023 at 12:07:58AM +0800, kernel test robot wrote:
-> Hi Sean,
+On Tue, Sep 19, 2023 at 09:23:37AM +0530, Anup Patel wrote:
+> The Veyron-V1 CPU supports custom conditional arithmetic and
+> conditional-select/move operations referred to as XVentanaCondOps
+> extension. In fact, QEMU RISC-V also has support for emulating
+> XVentanaCondOps extension.
 > 
-> kernel test robot noticed the following build errors:
-> 
-> [auto build test ERROR on thierry-reding-pwm/for-next]
-> [also build test ERROR on shawnguo/for-next atorgue-stm32/stm32-next media-tree/master linus/master v6.6-rc3 next-20230929]
-> [If your patch is applied to the wrong git tree, kindly drop us a note.
-> And when submitting patch, we suggest to use '--base' as documented in
-> https://git-scm.com/docs/git-format-patch#_base_tree_information]
+> Let us detect XVentanaCondOps extension from ISA string available
+> through DT or ACPI.
 
-There are indeed some configs in which there are build errors if
-CONFIG_PWM is disabled, I'll fix it in the next version.
+Umm, I though Linux/riscv would never support vendor specific
+extensions?
 
-In the mean time it would be great to have some feedback on this patch,
-and see if there is any other rework needed.
-
-Thanks
-Sean
-
-> 
-> url:    https://github.com/intel-lab-lkp/linux/commits/Sean-Young/media-pwm-ir-tx-trigger-edges-from-hrtimer-interrupt-context/20231001-194056
-> base:   https://git.kernel.org/pub/scm/linux/kernel/git/thierry.reding/linux-pwm.git for-next
-> patch link:    https://lore.kernel.org/r/1bd5241d584ceb4d6b731c4dc3203fb9686ee1d1.1696156485.git.sean%40mess.org
-> patch subject: [PATCH 1/2] pwm: make it possible to apply pwm changes in atomic context
-> config: i386-buildonly-randconfig-004-20231001 (https://download.01.org/0day-ci/archive/20231001/202310012348.puyNjoMk-lkp@intel.com/config)
-> compiler: gcc-7 (Ubuntu 7.5.0-6ubuntu2) 7.5.0
-> reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20231001/202310012348.puyNjoMk-lkp@intel.com/reproduce)
-> 
-> If you fix the issue in a separate patch/commit (i.e. not just a new version of
-> the same patch/commit), kindly add following tags
-> | Reported-by: kernel test robot <lkp@intel.com>
-> | Closes: https://lore.kernel.org/oe-kbuild-all/202310012348.puyNjoMk-lkp@intel.com/
-> 
-> All errors (new ones prefixed by >>):
-> 
->    In file included from arch/x86/include/asm/percpu.h:27:0,
->                     from arch/x86/include/asm/current.h:10,
->                     from include/linux/sched.h:12,
->                     from include/linux/ratelimit.h:6,
->                     from include/linux/dev_printk.h:16,
->                     from include/linux/device.h:15,
->                     from include/linux/backlight.h:12,
->                     from drivers/video/fbdev/ssd1307fb.c:8:
->    include/linux/pwm.h: In function 'pwm_apply_state':
->    include/linux/pwm.h:428:17: error: implicit declaration of function 'pwm_can_sleep'; did you mean 'gpiod_cansleep'? [-Werror=implicit-function-declaration]
->      might_sleep_if(pwm_can_sleep(pwm));
->                     ^
->    include/linux/kernel.h:194:39: note: in definition of macro 'might_sleep_if'
->     #define might_sleep_if(cond) do { if (cond) might_sleep(); } while (0)
->                                           ^~~~
->    In file included from drivers/video/fbdev/ssd1307fb.c:16:0:
->    include/linux/pwm.h: At top level:
-> >> include/linux/pwm.h:455:20: error: conflicting types for 'pwm_can_sleep'
->     static inline bool pwm_can_sleep(struct pwm_device *pwm)
->                        ^~~~~~~~~~~~~
->    In file included from arch/x86/include/asm/percpu.h:27:0,
->                     from arch/x86/include/asm/current.h:10,
->                     from include/linux/sched.h:12,
->                     from include/linux/ratelimit.h:6,
->                     from include/linux/dev_printk.h:16,
->                     from include/linux/device.h:15,
->                     from include/linux/backlight.h:12,
->                     from drivers/video/fbdev/ssd1307fb.c:8:
->    include/linux/pwm.h:428:17: note: previous implicit declaration of 'pwm_can_sleep' was here
->      might_sleep_if(pwm_can_sleep(pwm));
->                     ^
->    include/linux/kernel.h:194:39: note: in definition of macro 'might_sleep_if'
->     #define might_sleep_if(cond) do { if (cond) might_sleep(); } while (0)
->                                           ^~~~
->    cc1: some warnings being treated as errors
-> --
->    In file included from arch/x86/include/asm/percpu.h:27:0,
->                     from arch/x86/include/asm/preempt.h:6,
->                     from include/linux/preempt.h:79,
->                     from include/linux/spinlock.h:56,
->                     from include/linux/mmzone.h:8,
->                     from include/linux/gfp.h:7,
->                     from include/linux/slab.h:16,
->                     from include/linux/resource_ext.h:11,
->                     from include/linux/acpi.h:13,
->                     from include/linux/i2c.h:13,
->                     from drivers/mfd/intel_soc_pmic_crc.c:11:
->    include/linux/pwm.h: In function 'pwm_apply_state':
->    include/linux/pwm.h:428:17: error: implicit declaration of function 'pwm_can_sleep'; did you mean 'cant_sleep'? [-Werror=implicit-function-declaration]
->      might_sleep_if(pwm_can_sleep(pwm));
->                     ^
->    include/linux/kernel.h:194:39: note: in definition of macro 'might_sleep_if'
->     #define might_sleep_if(cond) do { if (cond) might_sleep(); } while (0)
->                                           ^~~~
->    In file included from drivers/mfd/intel_soc_pmic_crc.c:18:0:
->    include/linux/pwm.h: At top level:
-> >> include/linux/pwm.h:455:20: error: conflicting types for 'pwm_can_sleep'
->     static inline bool pwm_can_sleep(struct pwm_device *pwm)
->                        ^~~~~~~~~~~~~
->    In file included from arch/x86/include/asm/percpu.h:27:0,
->                     from arch/x86/include/asm/preempt.h:6,
->                     from include/linux/preempt.h:79,
->                     from include/linux/spinlock.h:56,
->                     from include/linux/mmzone.h:8,
->                     from include/linux/gfp.h:7,
->                     from include/linux/slab.h:16,
->                     from include/linux/resource_ext.h:11,
->                     from include/linux/acpi.h:13,
->                     from include/linux/i2c.h:13,
->                     from drivers/mfd/intel_soc_pmic_crc.c:11:
->    include/linux/pwm.h:428:17: note: previous implicit declaration of 'pwm_can_sleep' was here
->      might_sleep_if(pwm_can_sleep(pwm));
->                     ^
->    include/linux/kernel.h:194:39: note: in definition of macro 'might_sleep_if'
->     #define might_sleep_if(cond) do { if (cond) might_sleep(); } while (0)
->                                           ^~~~
->    cc1: some warnings being treated as errors
-> 
-> 
-> vim +/pwm_can_sleep +455 include/linux/pwm.h
-> 
->    454	
->  > 455	static inline bool pwm_can_sleep(struct pwm_device *pwm)
->    456	{
->    457		return true;
->    458	}
->    459	
-> 
-> -- 
-> 0-DAY CI Kernel Test Service
-> https://github.com/intel/lkp-tests/wiki
 
 _______________________________________________
 linux-riscv mailing list
