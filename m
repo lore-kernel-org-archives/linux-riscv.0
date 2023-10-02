@@ -4,112 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 227BEE784B6
-	for <linux-riscv@archiver.kernel.org>; Mon,  2 Oct 2023 11:29:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3827E7849A
+	for <linux-riscv@archiver.kernel.org>; Mon,  2 Oct 2023 12:10:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:
-	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TlUF4lwOJmRpuXjyKq7eVLw2cgaQ3DCEu5lhxxkQYzM=; b=MajtvTmTqlBtsx
-	+Rm3ERBb46Z+o5R8KkYOVNUxhhgDuxU3PCqdI6htHolbn2jIBQlQ5AgV7+bkvsb3tm2oHPJMXuM/a
-	eaocOrLWhWKcjozXaAThYKiylSTf1bGK3EgdlGJukNUC62G0BGezAaHON8DdrWlrLG62XjqzTv0KX
-	TfssuoJXFrqUNAlcKkyxMYHvh26HVYOMNM5JP6DJWs2dz0mIkLMkUZqPKWb7926uum2XTokcgum4h
-	8uV4AMYngNuUtMQBCpF6yq2YOybLXqSN5HsGP0KhtTgWDuiEEOB98Z+6UsRiTKLavZgYbHCjCUglr
-	WUFvw4tEYNaJbucUHSWA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JI1RYujcHt/oCRBgcKu3Of6Dc16v2wRV+Hrz5LO/11g=; b=snsKy6e+prmjCRSU5gfbhynKZC
+	vD2ZLG7RrP7uVb1Y5mhO3QduBh1dPeozY1oZW12XpexSUvpe/TQq5TRsexLoSsUYcC2RcQ4imFKQc
+	0fSMHS4VC9VF4bugXYUsjziHaD/KnDhv8j12oENYPKz/9RCzPygRnrpfH23d3ISShkKs3Spm43cVm
+	VnpKf//pv4IfbhYMfMrLfjxkSn6knG3we4q5scGG/cl52Pq/pZUt2DS8o7q8mJ6YyudBdxibfEcGt
+	as4TJ0O370RQZcCmxULmVPRfgejd9qF0+AtdY/nPbKCAfZi3kEQFDug7SmD8yCdn05yQkA8cFdlu0
+	ofx5UwTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qnH7H-00CXVf-0R;
-	Mon, 02 Oct 2023 11:29:35 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1qnHkm-00CfyL-1B;
+	Mon, 02 Oct 2023 12:10:24 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qnH79-00CXOy-0o;
-	Mon, 02 Oct 2023 11:29:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Reply-To:Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Content-ID:Content-Description;
-	bh=kneULtz3kiuA8XCekng18Qxz8kkdwfrqenUGqGaFORQ=; b=DQnVsQGcx60Dq2QroeeXugKwtr
-	4P2oOqVszEbkyy+0HuRcAJ2Dsq0klVX/jq0Y4Tj4ioD+pz2D6u4sMsCCTm2yNdQAXi6JTADkEkhnL
-	UA9GTiLRiAvKHxW4b3bfQiSZMMetC8354kL0z4r0m2NzuWqYXRVydJOvx6jJohiR+DkYyqoeeNASX
-	SuKWWXlKEZhmmw89VGM0POwRuliHyR4x6bBBIq1dLegre5YvWAuPFx/7nbYOWcHSNLg5W1o7jsT7Z
-	bup70WgtHBSLBwsuueMnz/rIkPAvKoYwwN0XGVDwskGIi/Wen/+J5EzF/9O8MdFumJFbytRjbme2h
-	JteH1fJw==;
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
-	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qnH72-008zrR-3A;
-	Mon, 02 Oct 2023 11:29:25 +0000
+	id 1qnHk9-00CexP-18
+	for linux-riscv@lists.infradead.org;
+	Mon, 02 Oct 2023 12:09:46 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by ams.source.kernel.org (Postfix) with ESMTP id 65A1AB80E8D;
-	Mon,  2 Oct 2023 11:29:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 210A2C116A3;
-	Mon,  2 Oct 2023 11:29:17 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 0D68260DFC;
+	Mon,  2 Oct 2023 12:09:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5D81DC433C9;
+	Mon,  2 Oct 2023 12:09:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1696246157;
-	bh=skQ+Ai7tcp9dXiq/DgDl+TKyDD3IP+bV8HjmFGpXK08=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=dJr+P0r3DDusuNwIUfIkHRqMKisVY8ugCo6g3pv77MEfqD0cJwsI7U4vH9wxII2xP
-	 sPU5IPA7BLJU1IzYZ0bh4Z30rMklUAD/c4XTwMC+GS2L9l4LaaJ0puNtt5Hbl+jRL3
-	 O8Wad/cfXGMZH54UKpMkxoKIrJhd0T/S5mr3NFjT1CMN1Uk9LgrVxB6k0ot37FB0lv
-	 hrKu1MgTvNwrHMVWQnshAwLW+nKLCtn5tCis4EzI6V6Bsl1i9qfR225Bdl3JHiHjpN
-	 CU1vEWyZCNms0kB+Z+H2agy/+OHE2mIDBSFzj6OyiIHoNl/Tx1kE8KQRcoXbIOpcg7
-	 Gmvl/46j9yLSg==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 01DA3E784B5;
-	Mon,  2 Oct 2023 11:29:17 +0000 (UTC)
-From: Joel Granados via B4 Relay <devnull+j.granados.samsung.com@kernel.org>
-Date: Mon, 02 Oct 2023 13:30:40 +0200
-Subject: [PATCH v3 5/7] riscv: Remove now superfluous sentinel element from
- ctl_table array
+	s=k20201202; t=1696248583;
+	bh=XF2JWUI7upFEWvpMLleiS+AFi4n6n/o2bBoXGwL6lk4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=BecpC1VYEdSlAGMnwJk1z8khG//CgJLN0SwRus9GT82CKiB7g/tbumWSmDLt0FJke
+	 oLiLsb8Vb4QWoTjlHWfOrKu7z5MGtTb086eMcu1FWrGG+Sio6gs18EwlMaHt0aG0Hj
+	 bwXKNTQuOsAjQ6aBI4WQYiuZiUGZeKKSYu4mfMVEXgPMxXazT5mm77UwSV4L40cEbh
+	 Htp754cmmiGJoyjKjbiwPisxe6JPTbpXHD1KNI1fBF0goFDGAs2tLAExKbsstW99U1
+	 nu6BrQyyDn/M7NR7BM2SqqRcUNWhqGtLONpWzVVbODbuslYRijBSqz/s2JUNbMPq7r
+	 6CaR5wQk84OOA==
+Date: Mon, 2 Oct 2023 13:09:38 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Jisheng Zhang <jszhang@kernel.org>
+Cc: Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Anup Patel <anup@brainfault.org>, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+	Inochi Amaoto <inochiama@outlook.com>, chao.wei@sophgo.com,
+	xiaoguang.xing@sophgo.com
+Subject: Re: [PATCH 4/5] riscv: dts: sophgo: add initial CV1800B SoC device
+ tree
+Message-ID: <20231002-pessimism-sycamore-a854a098cf43@spud>
+References: <20230930123937.1551-1-jszhang@kernel.org>
+ <20230930123937.1551-5-jszhang@kernel.org>
 MIME-Version: 1.0
-Message-Id: <20231002-jag-sysctl_remove_empty_elem_arch-v3-5-606da2840a7a@samsung.com>
-References: <20231002-jag-sysctl_remove_empty_elem_arch-v3-0-606da2840a7a@samsung.com>
-In-Reply-To: <20231002-jag-sysctl_remove_empty_elem_arch-v3-0-606da2840a7a@samsung.com>
-To: Luis Chamberlain <mcgrof@kernel.org>, willy@infradead.org, 
- josh@joshtriplett.org, Kees Cook <keescook@chromium.org>, 
- Iurii Zaikin <yzaikin@google.com>, Heiko Carstens <hca@linux.ibm.com>, 
- Vasily Gorbik <gor@linux.ibm.com>, 
- Alexander Gordeev <agordeev@linux.ibm.com>, 
- Christian Borntraeger <borntraeger@linux.ibm.com>, 
- Sven Schnelle <svens@linux.ibm.com>, 
- Gerald Schaefer <gerald.schaefer@linux.ibm.com>, 
- Russell King <linux@armlinux.org.uk>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
- Mark Rutland <mark.rutland@arm.com>, Thomas Gleixner <tglx@linutronix.de>, 
- Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
- Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
- "H. Peter Anvin" <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>, 
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, 
- Christophe Leroy <christophe.leroy@csgroup.eu>, Guo Ren <guoren@kernel.org>, 
- Alexey Gladkov <legion@kernel.org>
-Cc: linux-fsdevel@vger.kernel.org, linux-s390@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-riscv@lists.infradead.org, linuxppc-dev@lists.ozlabs.org, 
- linux-ia64@vger.kernel.org, linux-csky@vger.kernel.org, 
- Joel Granados <j.granados@samsung.com>
-X-Mailer: b4 0.13-dev-86aa5
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1051;
- i=j.granados@samsung.com; h=from:subject:message-id;
- bh=9kAdzbJ0epk3/P6EpAV9vd4QjpNqWvr+n+FA2hz33XU=;
- b=owEB7QES/pANAwAKAbqXzVK3lkFPAcsmYgBlGqoUqzQP1ga/GoiJ0FClHtC0lD+GYjQLmhMIw
- G1+chIK9j6JAbMEAAEKAB0WIQSuRwlXJeYxJc7LJ5C6l81St5ZBTwUCZRqqFAAKCRC6l81St5ZB
- T8IJC/0aXv1UnFZ3T3wgTUKiHct/kuXoaLC4d8ZDBMbdNxt3Hju+Z0GvUVGvESI4+5BmjbKiCjI
- OEnLHgskb4UAwTZ//wbb0U3ij6vQ1u5zajvF7ViOx0F8h0Rc5ZF3eO5NQIGCVF7dm/01TLUPx9B
- SJTxpAQc7AAVf+Iepo1c8YPT+MZ2MS3an+30CfS7/N4vBeg0o0qAx1VOf5Ihzudw42VS0IYU9o7
- /1LEq92xg3EofmSBqdel0txihdsPFHX1w2sOoVOO90ES+0IL6EkLOfH1rgA8+/t/bd9Al1xxSQr
- sXufmyGj2nU9EV1Cprju+/HsFlFgXlVYvVq1fjdThtd2hq/jd08w2M0MSGTtpQwrzkQsrMd4uu7
- /HdpUWgSX8GyzVAgvtCLpJFHstU4EVN93y7tNGQezi1GAhg+CJHwTO3GcXzwUW7L0sUBNnSY4uY
- +khUbsBnsUzqYzHI/lYlxcFqilu/yYPcDPoEJsULfpVWj9i7DIxDXO3xAUaTzcw7JVThE=
-X-Developer-Key: i=j.granados@samsung.com; a=openpgp;
- fpr=F1F8E46D30F0F6C4A45FF4465895FAAC338C6E77
-X-Endpoint-Received: by B4 Relay for j.granados@samsung.com/default with auth_id=70
-X-Original-From: Joel Granados <j.granados@samsung.com>
+In-Reply-To: <20230930123937.1551-5-jszhang@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231002_122922_927156_91E40533 
-X-CRM114-Status: GOOD (  13.40  )
+X-CRM114-CacheID: sfid-20231002_050945_579559_4AF9FD66 
+X-CRM114-Status: GOOD (  19.01  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,47 +78,118 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Reply-To: j.granados@samsung.com
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============3482898664578516044=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Joel Granados <j.granados@samsung.com>
 
-This commit comes at the tail end of a greater effort to remove the
-empty elements at the end of the ctl_table arrays (sentinels) which
-will reduce the overall build time size of the kernel and run time
-memory bloat by ~64 bytes per sentinel (further information Link :
-https://lore.kernel.org/all/ZO5Yx5JFogGi%2FcBo@bombadil.infradead.org/)
+--===============3482898664578516044==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="7ADpDYkm6P9PW77/"
+Content-Disposition: inline
 
-Remove sentinel element from riscv_v_default_vstate_table. This removal
-is safe because register_sysctl implicitly uses ARRAY_SIZE() in addition
-to checking for the sentinel.
 
-Signed-off-by: Joel Granados <j.granados@samsung.com>
----
- arch/riscv/kernel/vector.c | 1 -
- 1 file changed, 1 deletion(-)
+--7ADpDYkm6P9PW77/
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-diff --git a/arch/riscv/kernel/vector.c b/arch/riscv/kernel/vector.c
-index 8d92fb6c522c..578b6292487e 100644
---- a/arch/riscv/kernel/vector.c
-+++ b/arch/riscv/kernel/vector.c
-@@ -255,7 +255,6 @@ static struct ctl_table riscv_v_default_vstate_table[] = {
- 		.mode		= 0644,
- 		.proc_handler	= proc_dobool,
- 	},
--	{ }
- };
- 
- static int __init riscv_v_sysctl_init(void)
+On Sat, Sep 30, 2023 at 08:39:36PM +0800, Jisheng Zhang wrote:
+> Add initial device tree for the CV1800B RISC-V SoC by SOPHGO.
+>=20
+> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+> ---
+>  arch/riscv/boot/dts/sophgo/cv1800b.dtsi | 117 ++++++++++++++++++++++++
+>  1 file changed, 117 insertions(+)
+>  create mode 100644 arch/riscv/boot/dts/sophgo/cv1800b.dtsi
+>=20
+> diff --git a/arch/riscv/boot/dts/sophgo/cv1800b.dtsi b/arch/riscv/boot/dt=
+s/sophgo/cv1800b.dtsi
+> new file mode 100644
+> index 000000000000..8829bebaa017
+> --- /dev/null
+> +++ b/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
+> @@ -0,0 +1,117 @@
+> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
+> +/*
+> + * Copyright (C) 2023 Jisheng Zhang <jszhang@kernel.org>
+> + */
+> +
+> +#include <dt-bindings/interrupt-controller/irq.h>
+> +
+> +/ {
+> +	compatible =3D "sophgo,cv1800b";
+> +	#address-cells =3D <1>;
+> +	#size-cells =3D <1>;
+> +
+> +	cpus: cpus {
+> +		#address-cells =3D <1>;
+> +		#size-cells =3D <0>;
+> +		timebase-frequency =3D <25000000>;
+> +
+> +		cpu0: cpu@0 {
+> +			compatible =3D "thead,c906", "riscv";
+> +			device_type =3D "cpu";
+> +			reg =3D <0>;
+> +			d-cache-block-size =3D <64>;
+> +			d-cache-sets =3D <512>;
+> +			d-cache-size =3D <65536>;
+> +			i-cache-block-size =3D <64>;
+> +			i-cache-sets =3D <128>;
+> +			i-cache-size =3D <32768>;
+> +			mmu-type =3D "riscv,sv39";
+> +			riscv,isa =3D "rv64imafdc";
+> +			riscv,isa-base =3D "rv64i";
+> +			riscv,isa-extensions =3D "i", "m", "a", "f", "d", "c", "zicntr", "zic=
+sr",
+> +					       "zifencei", "zihpm";
+> +
+> +			cpu0_intc: interrupt-controller {
+> +				compatible =3D "riscv,cpu-intc";
+> +				interrupt-controller;
+> +				#address-cells =3D <0>;
+> +				#interrupt-cells =3D <1>;
+> +			};
+> +		};
+> +	};
+> +
+> +	osc: oscillator {
+> +		compatible =3D "fixed-clock";
+> +		clock-output-names =3D "osc_25m";
+> +		#clock-cells =3D <0>;
+> +	};
 
--- 
-2.30.2
+Is this a stub that will later be replaced by a real clock controller
+node, or is this actually a fixed oscillator? If it is the former, could
+you add it to the commit message if there is a respin?
 
+Thanks,
+Conor.
+
+--7ADpDYkm6P9PW77/
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZRqzAQAKCRB4tDGHoIJi
+0pUpAQCeg85iTvHhxt7N5JpBUouXbz8728VXeHIyIz55IAQEtQEAgvB4/xg9EGuu
+tvn8dqb7SzCgq/xW6fGN6uoZFBmJUQI=
+=Jjvq
+-----END PGP SIGNATURE-----
+
+--7ADpDYkm6P9PW77/--
+
+
+--===============3482898664578516044==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============3482898664578516044==--
+
