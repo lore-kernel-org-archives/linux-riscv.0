@@ -4,50 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D58B9E784AC
-	for <linux-riscv@archiver.kernel.org>; Mon,  2 Oct 2023 13:59:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C869DE784AD
+	for <linux-riscv@archiver.kernel.org>; Mon,  2 Oct 2023 14:14:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3A5QqmmgGYEgAOip9zDC5FwW6u2jzm8COjjDIueAv3M=; b=rVnmDvsZf8YNqu
-	/XAXZumAAV4TFt/KbpLsbtUA7HmJl9S1rI7Sl7FEJl/xii2UM4n/1nR7uDdAr0EunmkWtAkeiAVx8
-	qDpXjqkw4Oe1XGgbmUrBQW+87gv0R6WlRJMK7s2PPCTsfTKF/VOBgCy+9LL6JVSRfdd7ajyyQrECC
-	Zpe0h4s5GN4zs1nw/MZdE1Fuh/liaiDVAadpnK5nJ2KsvwEUA/ZVgvqSbeS6Ejp4sSBsPOtA1Vo1z
-	2NS4JARvQcfJlXqHROnNLQ8AZTOJyPbzu39azAhRZMR/efMnR2eASuo225PguObrd7gadAd8TCsEc
-	jnDsyxEbA1USzFA8Q32g==;
+	List-Owner; bh=K9tPHpWeXVrlcMXCFm9vzKnagy9w/6SpA3AXdnUS04E=; b=Nzq9novPWCtpFq
+	3X6tz7d7tsT3z1lBUJABv4wu2H1xEOkj02iBoQFTzZnEZ1ttfTP7v9KTpq4W9dguiwemytem8sCYp
+	lyUUhQB2TXAdO69XzshYofDbf1WYmJPFaslC5gbA1vD1BYt3v9e+4WOUB/qL3YBWeALQTJm6zu+iH
+	6HoZJQKQId1rwSepp77J2woS7FooRJd1kbp08mOMflak2H/f/Rs6xwF8FIk26Xhe0QjwhmZ1wJD3H
+	9BMTHQcVF/84nZhPqTX2bfZ2bNRArXMaRgZReZj3wgVanwf1+64cD+MNsorRQ1NeJnFDYJcF3L9TR
+	g3fD97BXLuYqEGvLzPRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qnJSO-00CpU7-1C;
-	Mon, 02 Oct 2023 13:59:32 +0000
-Received: from relay2-d.mail.gandi.net ([217.70.183.194])
+	id 1qnJh5-00CrLn-2K;
+	Mon, 02 Oct 2023 14:14:43 +0000
+Received: from fllv0015.ext.ti.com ([198.47.19.141])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qnJSK-00CpTj-1x
-	for linux-riscv@lists.infradead.org;
-	Mon, 02 Oct 2023 13:59:30 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 96C974000A;
-	Mon,  2 Oct 2023 13:59:20 +0000 (UTC)
-Message-ID: <d49bb8d2-fbb5-ede3-662d-865f8929b7e8@ghiti.fr>
-Date: Mon, 2 Oct 2023 15:59:19 +0200
+	id 1qnJh2-00CrJv-09;
+	Mon, 02 Oct 2023 14:14:41 +0000
+Received: from fllv0035.itg.ti.com ([10.64.41.0])
+	by fllv0015.ext.ti.com (8.15.2/8.15.2) with ESMTP id 392EDi1r029079;
+	Mon, 2 Oct 2023 09:13:44 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1696256024;
+	bh=9xwbB9UUJNHYGsvOL2OWasF1jedaAyNp2p7Cekqs654=;
+	h=From:To:CC:Subject:Date:In-Reply-To:References;
+	b=By/tIsGE+iOxh5Xc+vk8G7bJIcgKrRMlPYXZHcFUKin/3+STUwGcSbwHAlEJAygAg
+	 cYX4zyPPw/iOWY5DN75uQdDwGYBXfP8SBN+kqJyxUMDBGrYpXulQ+jDabJRfTmMu9G
+	 DJaTDmzj2DXwuD/TrpxGcgigx7G0iwH+ZRX59CSI=
+Received: from DLEE111.ent.ti.com (dlee111.ent.ti.com [157.170.170.22])
+	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 392EDiPN020538
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Mon, 2 Oct 2023 09:13:44 -0500
+Received: from DLEE111.ent.ti.com (157.170.170.22) by DLEE111.ent.ti.com
+ (157.170.170.22) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 2
+ Oct 2023 09:13:44 -0500
+Received: from lelv0326.itg.ti.com (10.180.67.84) by DLEE111.ent.ti.com
+ (157.170.170.22) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Mon, 2 Oct 2023 09:13:44 -0500
+Received: from localhost (ileaxei01-snat2.itg.ti.com [10.180.69.6])
+	by lelv0326.itg.ti.com (8.15.2/8.15.2) with ESMTP id 392EDhKD007764;
+	Mon, 2 Oct 2023 09:13:44 -0500
+From: Nishanth Menon <nm@ti.com>
+To: Joel Stanley <joel@jms.id.au>, Li Yang <leoyang.li@nxp.com>,
+        Herve Codina
+	<herve.codina@bootlin.com>,
+        Qiang Zhao <qiang.zhao@nxp.com>,
+        Hitomi Hasegawa
+	<hasegawa-hitomi@fujitsu.com>,
+        Huisong Li <lihuisong@huawei.com>, Krzysztof
+ Halasa <khalasa@piap.pl>,
+        Karol Gugala <kgugala@antmicro.com>,
+        Mateusz
+ Holenko <mholenko@antmicro.com>,
+        Gabriel Somlo <gsomlo@gmail.com>, Yinbo Zhu
+	<zhuyinbo@loongson.cn>,
+        Matthias Brugger <matthias.bgg@gmail.com>,
+        Conor
+ Dooley <conor.dooley@microchip.com>,
+        Daire McNamara
+	<daire.mcnamara@microchip.com>,
+        Krzysztof Kozlowski
+	<krzysztof.kozlowski@linaro.org>,
+        Andy Gross <agross@kernel.org>,
+        Bjorn
+ Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konrad.dybcio@linaro.org>,
+        Heiko Stuebner <heiko@sntech.de>,
+        Thierry Reding <thierry.reding@gmail.com>,
+        Jonathan Hunter <jonathanh@nvidia.com>,
+        Sumit Gupta <sumitg@nvidia.com>,
+        Shang XiaoJing <shangxiaojing@huawei.com>,
+        Muhammad Usama Anjum
+	<usama.anjum@collabora.com>,
+        Rob Herring <robh@kernel.org>,
+        Santosh Shilimkar
+	<ssantosh@kernel.org>,
+        Michal Simek <michal.simek@amd.com>,
+        =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
+CC: Nishanth Menon <nm@ti.com>, Andrew Jeffery <andrew@aj.id.au>,
+        <linux-arm-kernel@lists.infradead.org>,
+        <linux-aspeed@lists.ozlabs.org>, <linux-kernel@vger.kernel.org>,
+        Arnd Bergmann <arnd@arndb.de>, Zev Weiss
+	<zev@bewilderbeest.net>,
+        <linuxppc-dev@lists.ozlabs.org>, <loongarch@lists.linux.dev>,
+        AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>,
+        <linux-mediatek@lists.infradead.org>,
+        <linux-riscv@lists.infradead.org>,
+        zhang songyi <zhang.songyi@zte.com.cn>,
+        Lubomir Rintel <lkundrak@v3.sk>, <linux-arm-msm@vger.kernel.org>,
+        <linux-rockchip@lists.infradead.org>,
+        Alim
+ Akhtar <alim.akhtar@samsung.com>,
+        <linux-samsung-soc@vger.kernel.org>,
+        Nick
+ Alcock <nick.alcock@oracle.com>,
+        Yang Yingliang <yangyingliang@huawei.com>,
+        <linux-tegra@vger.kernel.org>, <linux-pm@vger.kernel.org>,
+        Ruan Jinjie
+	<ruanjinjie@huawei.com>, <kernel@pengutronix.de>
+Subject: Re: (subset) [PATCH 00/40] soc: Convert to platform remove callback returning void
+Date: Mon, 2 Oct 2023 09:13:43 -0500
+Message-ID: <169625598637.2878306.1181893226380989815.b4-ty@ti.com>
+X-Mailer: git-send-email 2.40.0
+In-Reply-To: <20230925095532.1984344-1-u.kleine-koenig@pengutronix.de>
+References: <20230925095532.1984344-1-u.kleine-koenig@pengutronix.de>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.15.1
-Subject: Re: [PATCH] riscv: mm: Synchronize memory attributes for all mm in
- free_initmem() on RV32 platform.
-Content-Language: en-US
-To: CL Wang <cl634@andestech.com>, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, mason.huo@starfivetech.com,
- alexghiti@rivosinc.com, ajones@ventanamicro.com
-Cc: linux-riscv@lists.infradead.org
-References: <20230912093356.2717293-1-cl634@andestech.com>
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <20230912093356.2717293-1-cl634@andestech.com>
-X-GND-Sasl: alex@ghiti.fr
+X-EXCLAIMER-MD-CONFIG: e1e8a2fd-e40a-4ac6-ac9b-f7e9cc9ee180
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231002_065928_943465_CC5BF1FB 
-X-CRM114-Status: GOOD (  40.93  )
+X-CRM114-CacheID: sfid-20231002_071440_172992_A7DB0118 
+X-CRM114-Status: GOOD (  15.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -59,271 +132,54 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi CL Wang,
-
-For reference, I found a similar patch here 
-https://lore.kernel.org/all/20220902101312.220350-1-vladimir.isaev@syntacore.com/ 
-which was never merged.
-
-On 12/09/2023 11:33, CL Wang wrote:
-> 1. Symptom:
-> 	[	44.486537] Unable to handle kernel paging request at virtual address c0800000
-> 	[	44.509980] Oops [#1]
-> 	[	44.516975] Modules linked in:
-> 	[	44.526260] CPU: 0 PID: 1 Comm: swapper Not tainted 6.1.27-05153-g45f6a9286550-dirty #19
-> 	[	44.550422] Hardware name: andestech,a45 (DT)
-> 	[	44.563473] epc : __memset+0x58/0xf4
-> 	[	44.574353]	ra : free_reserved_area+0xb0/0x1a4
-> 	[	44.588144] epc : c05d4ca0 ra : c011f32c sp : c2c61f00
-> 	[	44.603536]	gp : c28a57c8 tp : c2c98000 t0 : c0800000
-> 	[	44.618916]	t1 : 07901b48 t2 : 0000000f s0 : c2c61f50
-> 	[	44.634308]	s1 : 00000001 a0 : c0800000 a1 : cccccccc
-> 	[	44.649696]	a2 : 00001000 a3 : c0801000 a4 : 00000000
-> 	[	44.665085]	a5 : 02000000 a6 : c0800fff a7 : 00000c08
-> 	[	44.680467]	s2 : 000000cc s3 : ffffffff s4 : 00000000
-> 	[	44.695846]	s5 : c28a66cc s6 : c1eba000 s7 : c2125820
-> 	[	44.711225]	s8 : c0800000 s9 : c212583c s10: c28a6648
-> 	[	44.726623]	s11: fe03c7c0 t3 : acf917bf t4 : e0000000
-> 	[	44.742009]	t5 : c2ca0011 t6 : c2ca0016
-> 	[	44.753789] status: 00000120 badaddr: c0800000 cause: 0000000f
-> 	[	44.771234] [<c05d4ca0>] __memset+0x58/0xf4
-> 	[	44.783895] [<c0003e54>] free_initmem+0x80/0x88
-> 	[	44.797599] [<c05dcd5c>] kernel_init+0x3c/0x124
-> 	[	44.811391] [<c0003428>] ret_from_exception+0x0/0x16
->
-> 2. To reproduce the problem:
-> 	a. Use the RV32 toolchain to build the system.
-> 	b. Build in the SPI module and mtdpart module in the kernel
-> 		Example: Enable the following configuration
-> 		- CONFIG_SPI
-> 		- CONFIG_MTD and CONFIG_MTD_SPI_NOR
-> 	c. Enable the "Make kernel text and rodata read-only" option by using the
-> 	   following kernel config.
-> 		- CONFIG_STRICT_KERNEL_RWX
->
-> 3. Root cause:
-> 	This problem occurs when the virtual address of the kernel paging request
-> 	is mapped to a megapage on the RV32 platform.
-> 	During system startup, free_initmem() calls set_kernel_memory() to
-> 	change the memory attributes of the init section from RO to RW. It
-> 	then calls free_initmem_default() to set the memory to
-> 	POISON_FREE_INITMEM. If the system runs modprobe at boot time, it
-> 	will trigger a fork/exec to create a new mm for the new process. If
-> 	the modprobe was called before free_initmem(), it will cause a kernel
-> 	oops because the memory attributes of the current mm were not changed
-> 	by set_kernel_memory(). This is because the set_kernel_memory() changes
-> 	the memory attributes of init_mm, but the pgd(satp) currently in use
-> 	is another process's mm and it's memory attribute doesn't change.
-> 	Thus, it causes a kernel oops because the memory region has an
-> 	un-writable attribute.
->
-> 4. The solution.
-> 	A similar problem occurred on ARM platforms and was fixed in
-> 	08925c2f12 (ARM: 8464/1: Update all mm structures with section
-> 	adjustments). This patch uses a similar approach to fix the
-> 	problem on RV32 by synchronizing the memory attributes
-> 	of the init section for all mm
->
-> Signed-off-by: CL Wang <cl634@andestech.com>
-> ---
->   arch/riscv/include/asm/set_memory.h | 12 +++++++++
->   arch/riscv/kernel/setup.c           | 40 +++++++++++++++++++++++++----
->   arch/riscv/mm/pageattr.c            | 30 ++++++++++++++--------
->   3 files changed, 66 insertions(+), 16 deletions(-)
->
-> diff --git a/arch/riscv/include/asm/set_memory.h b/arch/riscv/include/asm/set_memory.h
-> index a2c14d4b3993..041551bf568e 100644
-> --- a/arch/riscv/include/asm/set_memory.h
-> +++ b/arch/riscv/include/asm/set_memory.h
-> @@ -16,6 +16,10 @@ int set_memory_rw(unsigned long addr, int numpages);
->   int set_memory_x(unsigned long addr, int numpages);
->   int set_memory_nx(unsigned long addr, int numpages);
->   int set_memory_rw_nx(unsigned long addr, int numpages);
-> +
-> +#if defined(CONFIG_32BIT) && defined(CONFIG_STRICT_KERNEL_RWX)
-> +int set_memory_rw_nx_by_mm(unsigned long addr, int numpages, struct mm_struct *mm);
-> +#endif
->   static __always_inline int set_kernel_memory(char *startp, char *endp,
->   					     int (*set_memory)(unsigned long start,
->   							       int num_pages))
-> @@ -32,6 +36,14 @@ static inline int set_memory_rw(unsigned long addr, int numpages) { return 0; }
->   static inline int set_memory_x(unsigned long addr, int numpages) { return 0; }
->   static inline int set_memory_nx(unsigned long addr, int numpages) { return 0; }
->   static inline int set_memory_rw_nx(unsigned long addr, int numpages) { return 0; }
-> +
-> +#if defined(CONFIG_32BIT) && defined(CONFIG_STRICT_KERNEL_RWX)
-> +static inline int set_memory_rw_nx_by_mm(unsigned long addr,
-> +				int numpages, struct mm_struct *mm)
-> +{
-> +	return 0;
-> +}
-> +#endif
->   static inline int set_kernel_memory(char *startp, char *endp,
->   				    int (*set_memory)(unsigned long start,
->   						      int num_pages))
-> diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-> index 5424d7631502..73c221b3c399 100644
-> --- a/arch/riscv/kernel/setup.c
-> +++ b/arch/riscv/kernel/setup.c
-> @@ -319,13 +319,43 @@ static int __init topology_init(void)
->   }
->   subsys_initcall(topology_init);
->   
-> -void free_initmem(void)
-> +#if defined(CONFIG_32BIT) && defined(CONFIG_STRICT_KERNEL_RWX)
-> +static void set_kernel_mm_early(char *startp, char *endp,
-> +				int (*set_memory)(unsigned long start,
-> +				int num_pages, struct mm_struct *mm))
->   {
-> -	if (IS_ENABLED(CONFIG_STRICT_KERNEL_RWX)) {
-> -		set_kernel_memory(lm_alias(__init_begin), lm_alias(__init_end), set_memory_rw_nx);
-> -		if (IS_ENABLED(CONFIG_64BIT))
-> -			set_kernel_memory(__init_begin, __init_end, set_memory_nx);
-> +	struct task_struct *t, *s;
-> +	unsigned long start = (unsigned long)startp;
-> +	unsigned long end = (unsigned long)endp;
-> +	int num_pages = PAGE_ALIGN(end - start) >> PAGE_SHIFT;
-> +
-> +	set_memory(start, num_pages, current->active_mm);
-> +	if (current->active_mm != &init_mm)
-> +		set_memory(start, num_pages, &init_mm);
-> +
-> +	for_each_process(t) {
-> +		if (t->flags & PF_KTHREAD)
-> +			continue;
-> +		for_each_thread(t, s) {
-> +			if (s->mm)
-> +				set_memory(start, num_pages, s->mm);
-> +		}
->   	}
-
-
-There is one big difference between your patch here and commit 
-08925c2f12 (ARM: 8464/1: Update all mm structures with section 
-adjustments): the parsing of the tasks is done within a stop_machine() 
-call which stops all other cpus (IIUC). At least the tasklist_lock 
-should be held but it seems to be wrong according to the last answer 
-from Palmer in the patch I mention ^.
-
-To me something needs to be done to prevent the creation of new 
-processes, and if it's only used once in the kernel lifetime and it 
-works, I would use stop_machine() like arm does.
-
-Thanks,
-
-Alex
-
-
-> +}
-> +#endif
-> +
-> +void free_initmem(void)
-> +{
-> +#ifdef CONFIG_STRICT_KERNEL_RWX
-> +#ifdef CONFIG_32BIT
-> +	set_kernel_mm_early(lm_alias(__init_begin), lm_alias(__init_end),
-> +			    set_memory_rw_nx_by_mm);
-> +#else
-> +	set_kernel_memory(lm_alias(__init_begin), lm_alias(__init_end), set_memory_rw_nx);
-> +#endif
-> +	if (IS_ENABLED(CONFIG_64BIT))
-> +		set_kernel_memory(__init_begin, __init_end, set_memory_nx);
-> +#endif
->   
->   	free_initmem_default(POISON_FREE_INITMEM);
->   }
-> diff --git a/arch/riscv/mm/pageattr.c b/arch/riscv/mm/pageattr.c
-> index ea3d61de065b..16ed5cc8f683 100644
-> --- a/arch/riscv/mm/pageattr.c
-> +++ b/arch/riscv/mm/pageattr.c
-> @@ -105,7 +105,7 @@ static const struct mm_walk_ops pageattr_ops = {
->   };
->   
->   static int __set_memory(unsigned long addr, int numpages, pgprot_t set_mask,
-> -			pgprot_t clear_mask)
-> +			pgprot_t clear_mask, struct mm_struct *mm)
->   {
->   	int ret;
->   	unsigned long start = addr;
-> @@ -118,42 +118,50 @@ static int __set_memory(unsigned long addr, int numpages, pgprot_t set_mask,
->   	if (!numpages)
->   		return 0;
->   
-> -	mmap_write_lock(&init_mm);
-> -	ret =  walk_page_range_novma(&init_mm, start, end, &pageattr_ops, NULL,
-> +	mmap_write_lock(mm);
-> +	ret =  walk_page_range_novma(mm, start, end, &pageattr_ops, NULL,
->   				     &masks);
-> -	mmap_write_unlock(&init_mm);
-> +	mmap_write_unlock(mm);
->   
->   	flush_tlb_kernel_range(start, end);
->   
->   	return ret;
->   }
->   
-> +#if defined(CONFIG_32BIT) && defined(CONFIG_STRICT_KERNEL_RWX)
-> +int set_memory_rw_nx_by_mm(unsigned long addr, int numpages, struct mm_struct *mm)
-> +{
-> +	return __set_memory(addr, numpages, __pgprot(_PAGE_READ | _PAGE_WRITE),
-> +			    __pgprot(_PAGE_EXEC), mm);
-> +}
-> +#endif
-> +
->   int set_memory_rw_nx(unsigned long addr, int numpages)
->   {
->   	return __set_memory(addr, numpages, __pgprot(_PAGE_READ | _PAGE_WRITE),
-> -			    __pgprot(_PAGE_EXEC));
-> +			    __pgprot(_PAGE_EXEC), &init_mm);
->   }
->   
->   int set_memory_ro(unsigned long addr, int numpages)
->   {
->   	return __set_memory(addr, numpages, __pgprot(_PAGE_READ),
-> -			    __pgprot(_PAGE_WRITE));
-> +			    __pgprot(_PAGE_WRITE), &init_mm);
->   }
->   
->   int set_memory_rw(unsigned long addr, int numpages)
->   {
->   	return __set_memory(addr, numpages, __pgprot(_PAGE_READ | _PAGE_WRITE),
-> -			    __pgprot(0));
-> +			    __pgprot(0), &init_mm);
->   }
->   
->   int set_memory_x(unsigned long addr, int numpages)
->   {
-> -	return __set_memory(addr, numpages, __pgprot(_PAGE_EXEC), __pgprot(0));
-> +	return __set_memory(addr, numpages, __pgprot(_PAGE_EXEC), __pgprot(0), &init_mm);
->   }
->   
->   int set_memory_nx(unsigned long addr, int numpages)
->   {
-> -	return __set_memory(addr, numpages, __pgprot(0), __pgprot(_PAGE_EXEC));
-> +	return __set_memory(addr, numpages, __pgprot(0), __pgprot(_PAGE_EXEC), &init_mm);
->   }
->   
->   int set_direct_map_invalid_noflush(struct page *page)
-> @@ -198,10 +206,10 @@ void __kernel_map_pages(struct page *page, int numpages, int enable)
->   
->   	if (enable)
->   		__set_memory((unsigned long)page_address(page), numpages,
-> -			     __pgprot(_PAGE_PRESENT), __pgprot(0));
-> +			     __pgprot(_PAGE_PRESENT), __pgprot(0), &init_mm);
->   	else
->   		__set_memory((unsigned long)page_address(page), numpages,
-> -			     __pgprot(0), __pgprot(_PAGE_PRESENT));
-> +			     __pgprot(0), __pgprot(_PAGE_PRESENT), &init_mm);
->   }
->   #endif
->   
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgVXdlIEtsZWluZS1Lw7ZuaWcsCgpPbiBNb24sIDI1IFNlcCAyMDIzIDExOjU0OjUxICswMjAw
+LCBVd2UgS2xlaW5lLUvDtm5pZyB3cm90ZToKPiB0aGlzIHNlcmllcyBjb252ZXJ0cyBhbGwgcGxh
+dGZvcm0gZHJpdmVycyBiZWxvdyBkcml2ZXJzL3NvYyB0byB1c2UKPiAucmVtb3ZlX25ldygpLiBU
+aGUgbW90aXZhdGlvbiBpcyB0byBnZXQgcmlkIG9mIGFuIGludGVnZXIgcmV0dXJuIGNvZGUKPiB0
+aGF0IGlzIChtb3N0bHkpIGlnbm9yZWQgYnkgdGhlIHBsYXRmb3JtIGRyaXZlciBjb3JlIGFuZCBl
+cnJvciBwcm9uZSBvbgo+IHRoZSBkcml2ZXIgc2lkZS4KPiAKPiBTZWUgY29tbWl0IDVjNWE3Njgw
+ZTY3YiAoInBsYXRmb3JtOiBQcm92aWRlIGEgcmVtb3ZlIGNhbGxiYWNrIHRoYXQKPiByZXR1cm5z
+IG5vIHZhbHVlIikgZm9yIGFuIGV4dGVuZGVkIGV4cGxhbmF0aW9uIGFuZCB0aGUgZXZlbnR1YWwg
+Z29hbC4KPiAKPiBbLi4uXQoKSSBoYXZlIGFwcGxpZWQgdGhlIGZvbGxvd2luZyB0byBicmFuY2gg
+dGktZHJpdmVycy1zb2MtbmV4dCBvbiBbMV0uClRoYW5rIHlvdSEKClszMy80MF0gc29jL3RpOiBr
+My1yaW5nYWNjOiBDb252ZXJ0IHRvIHBsYXRmb3JtIHJlbW92ZSBjYWxsYmFjayByZXR1cm5pbmcg
+dm9pZAogICAgICAgIGNvbW1pdDogZjM0YjkwMmM1YmE2Nzg0MTkwMmNkN2YwZTI0ZTY0YmI4MmY2
+OWNiNApbMzQvNDBdIHNvYy90aToga25hdl9kbWE6IENvbnZlcnQgdG8gcGxhdGZvcm0gcmVtb3Zl
+IGNhbGxiYWNrIHJldHVybmluZyB2b2lkCiAgICAgICAgY29tbWl0OiAzYWY0ZWM3YzdkZDM5YTJj
+NDYxOGY2NTM2YjJlN2I3M2ExOWJlMTY5ClszNS80MF0gc29jL3RpOiBrbmF2X3Ftc3NfcXVldWU6
+IENvbnZlcnQgdG8gcGxhdGZvcm0gcmVtb3ZlIGNhbGxiYWNrIHJldHVybmluZyB2b2lkCiAgICAg
+ICAgY29tbWl0OiBhZjk3MTYwYTBjNWYxOTA4YzZmMjgzMDAyM2ZiOTNiYWFjNDQ1MWQzClszNi80
+MF0gc29jL3RpOiBwbTMzeHg6IENvbnZlcnQgdG8gcGxhdGZvcm0gcmVtb3ZlIGNhbGxiYWNrIHJl
+dHVybmluZyB2b2lkCiAgICAgICAgY29tbWl0OiA5ZWI5NTBlOWZmZmM1MzM3YmZlMTc5OGNmODlj
+ZTRkOTdhNGYxMjIxClszNy80MF0gc29jL3RpOiBwcnVzczogQ29udmVydCB0byBwbGF0Zm9ybSBy
+ZW1vdmUgY2FsbGJhY2sgcmV0dXJuaW5nIHZvaWQKICAgICAgICBjb21taXQ6IGQxODNiMjBkMzQw
+YjdjMDk4ZjQ0Y2I1YzAyZjRjZWQwMWNmZDBiMTYKWzM4LzQwXSBzb2MvdGk6IHNtYXJ0cmVmbGV4
+OiBDb252ZXJ0IHRvIHBsYXRmb3JtIHJlbW92ZSBjYWxsYmFjayByZXR1cm5pbmcgdm9pZAogICAg
+ICAgIGNvbW1pdDogYmEwM2FhYjliZmI0YzlkNDU2NDE5ZGEzODkxMzc1ZDQ1YzZiZmUxNQpbMzkv
+NDBdIHNvYy90aTogd2t1cF9tM19pcGM6IENvbnZlcnQgdG8gcGxhdGZvcm0gcmVtb3ZlIGNhbGxi
+YWNrIHJldHVybmluZyB2b2lkCiAgICAgICAgY29tbWl0OiA4MmU4M2NiNTFjODdiNWJmM2FiODNm
+N2M3YjE1MGMxOTQwMDA1NmMyCgpBbGwgYmVpbmcgd2VsbCB0aGlzIG1lYW5zIHRoYXQgaXQgd2ls
+bCBiZSBpbnRlZ3JhdGVkIGludG8gdGhlIGxpbnV4LW5leHQKdHJlZSAodXN1YWxseSBzb21ldGlt
+ZSBpbiB0aGUgbmV4dCAyNCBob3VycykgYW5kIHNlbnQgdXAgdGhlIGNoYWluIGR1cmluZwp0aGUg
+bmV4dCBtZXJnZSB3aW5kb3cgKG9yIHNvb25lciBpZiBpdCBpcyBhIHJlbGV2YW50IGJ1ZyBmaXgp
+LCBob3dldmVyIGlmCnByb2JsZW1zIGFyZSBkaXNjb3ZlcmVkIHRoZW4gdGhlIHBhdGNoIG1heSBi
+ZSBkcm9wcGVkIG9yIHJldmVydGVkLgoKWW91IG1heSBnZXQgZnVydGhlciBlLW1haWxzIHJlc3Vs
+dGluZyBmcm9tIGF1dG9tYXRlZCBvciBtYW51YWwgdGVzdGluZwphbmQgcmV2aWV3IG9mIHRoZSB0
+cmVlLCBwbGVhc2UgZW5nYWdlIHdpdGggcGVvcGxlIHJlcG9ydGluZyBwcm9ibGVtcyBhbmQKc2Vu
+ZCBmb2xsb3d1cCBwYXRjaGVzIGFkZHJlc3NpbmcgYW55IGlzc3VlcyB0aGF0IGFyZSByZXBvcnRl
+ZCBpZiBuZWVkZWQuCgpJZiBhbnkgdXBkYXRlcyBhcmUgcmVxdWlyZWQgb3IgeW91IGFyZSBzdWJt
+aXR0aW5nIGZ1cnRoZXIgY2hhbmdlcyB0aGV5CnNob3VsZCBiZSBzZW50IGFzIGluY3JlbWVudGFs
+IHVwZGF0ZXMgYWdhaW5zdCBjdXJyZW50IGdpdCwgZXhpc3RpbmcKcGF0Y2hlcyB3aWxsIG5vdCBi
+ZSByZXBsYWNlZC4KClBsZWFzZSBhZGQgYW55IHJlbGV2YW50IGxpc3RzIGFuZCBtYWludGFpbmVy
+cyB0byB0aGUgQ0NzIHdoZW4gcmVwbHlpbmcKdG8gdGhpcyBtYWlsLgoKWzFdIGh0dHBzOi8vZ2l0
+Lmtlcm5lbC5vcmcvcHViL3NjbS9saW51eC9rZXJuZWwvZ2l0L3RpL2xpbnV4LmdpdAotLSAKUmVn
+YXJkcywKTmlzaGFudGggTWVub24KS2V5ICgweEREQjU4NDlEMTczNjI0OUQpIC8gRmluZ2VycHJp
+bnQ6IEY4QTIgODY5MyA1NEVCIDgyMzIgMTdBMyAgMUEzNCBEREI1IDg0OUQgMTczNiAyNDlECgoK
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlz
+Y3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xp
+c3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
