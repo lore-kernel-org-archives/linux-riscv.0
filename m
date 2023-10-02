@@ -4,81 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EECEDE784BE
-	for <linux-riscv@archiver.kernel.org>; Mon,  2 Oct 2023 15:36:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 610BEE784BF
+	for <linux-riscv@archiver.kernel.org>; Mon,  2 Oct 2023 15:47:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HKxRwqu1oLhju9tjVjXa3TZgfT3w5XTWUBex1D0GqBI=; b=EjR+tq78L1EbEr
-	aVWZAoyAfr7smeiiGshdWwolB17L8+xFrSQ6X3ceUU+7uFZcj1DtjsnqfPC3i1RCVCEbk6z3YMRhU
-	cM9nqsWhsfLmuyOuB4evH+U/+KLY41PV/jsib8xadQHl4eoPtiIKEXOphQiHlqjKqeSMWg9WIhtZ6
-	dqk2btMu9VNWzKs96vbKqd+XSmhIm0NwVdqtxpYuES4NksouSdxSyTe+FOhPdNtef5nEnAIudS5rJ
-	E6cdXX0EooOVQzBuGwNtHT6BC7Gu/0sbrylKigmidiSMdpHsDNkJuIFBF/4PkXVDdAi5uzXmi4+k9
-	z1Rvtqbc+zPPqLa6DQ4Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VSpckB0EYLhkOA+XcwE9xpRspLPLvHJp9PiMwxSz3VE=; b=Y0HTq2iYJOB2qatbFAFw196Iyh
+	HYNyr/ncyx3DrUW+BHIqzgJs18+uM6xpgLU2C3ZUbN0aqgQNGEwSi1jVYqMMUGJ4/xPPmg0Ho8DZa
+	vS5Teo01s0EAzhHQFxZ+3OGcY/Yra3A3y+r+e2nKzvYxJXj9hlL0FnQFLxPtZGGdzNc0tC+JClNCA
+	EaW6MBWzxKtzPFUWFReXj8J5gHiSJUA0qIlyT2jxI79KPNjidLqa84xHSdOyeAxZcAw2WSSf8mUHf
+	3VCQTEG/JixTY79AkE7V+BQDnwIY+8dGzZm5WsPeuYSpjDVqUJG+1+hBaIX+xfmCuBkUagNQVjzgZ
+	n2cVCbIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qnKyA-00Czq9-1A;
-	Mon, 02 Oct 2023 15:36:26 +0000
-Received: from mail-pg1-x52d.google.com ([2607:f8b0:4864:20::52d])
+	id 1qnL8J-00D0jo-07;
+	Mon, 02 Oct 2023 15:46:55 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qnKy7-00CzpC-0n
+	id 1qnL8F-00D0jN-2K
 	for linux-riscv@lists.infradead.org;
-	Mon, 02 Oct 2023 15:36:24 +0000
-Received: by mail-pg1-x52d.google.com with SMTP id 41be03b00d2f7-5892832f8daso358215a12.0
-        for <linux-riscv@lists.infradead.org>; Mon, 02 Oct 2023 08:36:21 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1696260981; x=1696865781; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=+RgMLD9dSESZx52XLswNxjXiae7bjz6p9TOP3CQJHyA=;
-        b=Fy9SowX52cZKo71HwfRp4T42jG2RElAyJLVzx4TqGO7lq7hW1g4er8zIZTNSIMsxjT
-         qNxv6/ipljE6Xe3nHzS9my1jv2tpTq05ET7NuH3X/N3PYuZD5Q+oR3oZC40k6IU1ypUo
-         qLizXNRSHQZsdcozChQtZG2YjJAMYSCsw9P0wM3Tx7QGWZZTW2hHierNedkjIwSBYoUg
-         i3QpamP+CZD25SsQ2xCJ6XsGWs6ImY3pPqp93OS1kS+0gIrf784EH5JmN0ueZDAAjxMO
-         xWZhBJ9yMTBlvvpydVpaZ2JWGaWIH17T1vyUNJLdnIFG11r2Bou8U5kgYDx6uPD+Iq5W
-         mBzQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1696260981; x=1696865781;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=+RgMLD9dSESZx52XLswNxjXiae7bjz6p9TOP3CQJHyA=;
-        b=QDSZJdHOf821jSLNaUwc87431DwkXvtvVfPgFExgXgFNwbHLUtYGkQBX6InFfMyrTs
-         Yg7N3+yauvQjl0n30EdlouoLo0Xrc2Wql66yKFj28sWFEKRoyTiiMrkTFGuXiGiSdPWr
-         4tA3zCWGaIkdekAsFOxOi/1LhCzX3O0g5bQT+jrW90RIQKWANgIuLJL4t7KpdV+9olSO
-         QE5+0RUUeUuOMcw1OpctRMyUP92HPO2xJ/L+RvfEOnwqixDaDMExb5kU9mjTL78iXNv+
-         N6iwMGyBVMBCI/0xwPIFg20lQGPcbP09uIKdH6vXA4vHdLuuo+xsaPE/MZCsCOpQSeDe
-         M1yg==
-X-Gm-Message-State: AOJu0YzS9jiVTTPkUspFRwHHO3EFniZgaTlCcrYuVmuM1kL8obejH+GJ
-	H8lJ0CRB7FosS0vtAxi22RsjpbXNDF16UT99h7UUEg==
-X-Google-Smtp-Source: AGHT+IHdUbkKZ2bTW3F9Qg4PjCMCpRtqgGBYo+9VzsIQ8Arz7Ddo4OzAJxCLa36qrqP4KqitPbbTePoaUqx96PBwxCI=
-X-Received: by 2002:a17:90a:b396:b0:277:422d:3a0f with SMTP id
- e22-20020a17090ab39600b00277422d3a0fmr18387610pjr.17.1696260981095; Mon, 02
- Oct 2023 08:36:21 -0700 (PDT)
+	Mon, 02 Oct 2023 15:46:53 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 2C1AF60F2A;
+	Mon,  2 Oct 2023 15:46:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E6E29C433CA;
+	Mon,  2 Oct 2023 15:46:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1696261610;
+	bh=CmmG84b/1OBnh9RduBYlaC31PLcl9rWTf7tM7hAt0i4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=k/PAwkBadBvbGrpkDaXWNVVBDnVeHkW1OSHNMHBGISuRWXaQT9+M0PS00iAThcFaU
+	 mIpBADPxntPzj9BWoSebDW8KKXItg8G+Xf0IH4smglI1BecONgtU+tws0KE7dmweRr
+	 hi3pi2gHuCjar8xeO4b1UDHk+mz8TQ6b9KAFV7wOukcAk/h66Sk6CGKhp90/qhN2Jz
+	 T8SNYwPq+Euel24AtDA23nefvRHTVuTBXgCTKhPfGpRltqgDX11sM3TwzyOlDK8/TG
+	 YwVnw0ilipHuN/tuLIa6MXzz2UgaWGg5yjLSxQlrI9zEIu2wfDZTjUrft6vgk1EscK
+	 5kFcJYt0aFXBA==
+Date: Mon, 2 Oct 2023 16:46:44 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Sunil V L <sunilvl@ventanamicro.com>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-acpi@vger.kernel.org, Anup Patel <apatel@ventanamicro.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alexghiti@rivosinc.com>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Atish Kumar Patra <atishp@rivosinc.com>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Ard Biesheuvel <ardb@kernel.org>, Len Brown <lenb@kernel.org>
+Subject: Re: [PATCH v2 -next 4/4] clocksource/timer-riscv: ACPI: Add
+ timer_cannot_wakeup_cpu
+Message-ID: <20231002-doorman-catchy-ff5b9ba14c3a@spud>
+References: <20230927170015.295232-1-sunilvl@ventanamicro.com>
+ <20230927170015.295232-5-sunilvl@ventanamicro.com>
 MIME-Version: 1.0
-References: <20230919035343.1399389-1-apatel@ventanamicro.com>
- <20230919035343.1399389-2-apatel@ventanamicro.com> <ZRpitP5y1yhzKwbE@infradead.org>
-In-Reply-To: <ZRpitP5y1yhzKwbE@infradead.org>
-From: Anup Patel <apatel@ventanamicro.com>
-Date: Mon, 2 Oct 2023 21:06:08 +0530
-Message-ID: <CAK9=C2XyQtHy3__i+fahbi49=j5Z3Z_Bv5s3Ptqjmuaa5q18LA@mail.gmail.com>
-Subject: Re: [PATCH 1/7] RISC-V: Detect XVentanaCondOps from ISA string
-To: Christoph Hellwig <hch@infradead.org>
-Cc: Paolo Bonzini <pbonzini@redhat.com>, Atish Patra <atishp@atishpatra.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Conor Dooley <conor@kernel.org>, Rob Herring <robh+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Shuah Khan <shuah@kernel.org>, 
-	Andrew Jones <ajones@ventanamicro.com>, Mayuresh Chitale <mchitale@ventanamicro.com>, 
-	devicetree@vger.kernel.org, kvm@vger.kernel.org, 
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org
+In-Reply-To: <20230927170015.295232-5-sunilvl@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231002_083623_305960_E1303729 
-X-CRM114-Status: GOOD (  10.33  )
+X-CRM114-CacheID: sfid-20231002_084651_799978_9CFE135A 
+X-CRM114-Status: GOOD (  16.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,23 +80,88 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============3452887391609245135=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCBPY3QgMiwgMjAyMyBhdCAxMTo1N+KAr0FNIENocmlzdG9waCBIZWxsd2lnIDxoY2hA
-aW5mcmFkZWFkLm9yZz4gd3JvdGU6Cj4KPiBPbiBUdWUsIFNlcCAxOSwgMjAyMyBhdCAwOToyMzoz
-N0FNICswNTMwLCBBbnVwIFBhdGVsIHdyb3RlOgo+ID4gVGhlIFZleXJvbi1WMSBDUFUgc3VwcG9y
-dHMgY3VzdG9tIGNvbmRpdGlvbmFsIGFyaXRobWV0aWMgYW5kCj4gPiBjb25kaXRpb25hbC1zZWxl
-Y3QvbW92ZSBvcGVyYXRpb25zIHJlZmVycmVkIHRvIGFzIFhWZW50YW5hQ29uZE9wcwo+ID4gZXh0
-ZW5zaW9uLiBJbiBmYWN0LCBRRU1VIFJJU0MtViBhbHNvIGhhcyBzdXBwb3J0IGZvciBlbXVsYXRp
-bmcKPiA+IFhWZW50YW5hQ29uZE9wcyBleHRlbnNpb24uCj4gPgo+ID4gTGV0IHVzIGRldGVjdCBY
-VmVudGFuYUNvbmRPcHMgZXh0ZW5zaW9uIGZyb20gSVNBIHN0cmluZyBhdmFpbGFibGUKPiA+IHRo
-cm91Z2ggRFQgb3IgQUNQSS4KPgo+IFVtbSwgSSB0aG91Z2ggTGludXgvcmlzY3Ygd291bGQgbmV2
-ZXIgc3VwcG9ydCB2ZW5kb3Igc3BlY2lmaWMKPiBleHRlbnNpb25zPwo+CgpXZSBhbHJlYWR5IGhh
-dmUgZmV3IFQtSGVhZCBzcGVjaWZpYyBleHRlbnNpb25zIHNvIExpbnV4IFJJU0MtVgpkb2VzIGFs
-bG93IHZlbmRvciBleHRlbnNpb25zLgoKUmVnYXJkcywKQW51cAoKX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0Cmxp
-bnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcv
-bWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+
+--===============3452887391609245135==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="aL1TA5F1n3lbU8nP"
+Content-Disposition: inline
+
+
+--aL1TA5F1n3lbU8nP
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Wed, Sep 27, 2023 at 10:30:15PM +0530, Sunil V L wrote:
+> The timer capability to wakeup the cpu irrespective of its idle state is
+> provided by the flag in RHCT. Update the timer code to set this flag.
+>=20
+> Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
+
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+
+Thanks,
+Conor.
+
+> ---
+>  drivers/clocksource/timer-riscv.c | 4 ++++
+>  1 file changed, 4 insertions(+)
+>=20
+> diff --git a/drivers/clocksource/timer-riscv.c b/drivers/clocksource/time=
+r-riscv.c
+> index 9c8f3e2decc2..06f5bad3c3e0 100644
+> --- a/drivers/clocksource/timer-riscv.c
+> +++ b/drivers/clocksource/timer-riscv.c
+> @@ -225,6 +225,10 @@ TIMER_OF_DECLARE(riscv_timer, "riscv", riscv_timer_i=
+nit_dt);
+>  #ifdef CONFIG_ACPI
+>  static int __init riscv_timer_acpi_init(struct acpi_table_header *table)
+>  {
+> +	struct acpi_table_rhct *rhct =3D (struct acpi_table_rhct *)table;
+> +
+> +	riscv_timer_cannot_wake_cpu =3D rhct->flags & ACPI_RHCT_TIMER_CANNOT_WA=
+KEUP_CPU;
+> +
+>  	return riscv_timer_init_common();
+>  }
+> =20
+> --=20
+> 2.39.2
+>=20
+>=20
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--aL1TA5F1n3lbU8nP
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZRrl5AAKCRB4tDGHoIJi
+0hIpAP4l78wWWSJgv9GiRYKP3viLL22FMxgc4K5BcjViUuXTFgEA1phiOLRhZJXQ
+5THh1DtDO53ISPllC0QaOhA0ZPUYoAs=
+=6uzF
+-----END PGP SIGNATURE-----
+
+--aL1TA5F1n3lbU8nP--
+
+
+--===============3452887391609245135==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============3452887391609245135==--
+
