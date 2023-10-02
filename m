@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BE98E784B3
-	for <linux-riscv@archiver.kernel.org>; Mon,  2 Oct 2023 11:29:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00EE7E784AC
+	for <linux-riscv@archiver.kernel.org>; Mon,  2 Oct 2023 11:29:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:
 	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+d7PphNf/8+9nV5VQEJXQrVRpJO3Xx8U+7w4YePtVpU=; b=isB2Y3LZziLyhj
-	oQmDTOwI8/pjS3+kAcT1rkaxBla8car5V+REdP1WNvC8qvHYPhuLUV9iGKcOFaprB3AwPEFohtVpM
-	EucxmmX83/LKZld6Lkozyrr3HVmVEEehS4JwV0JUbpGHz9K5pOXKWQMZ9VOYbd/XgmovhhjV9bklO
-	HXwLfxXSSVoHPOcTzZwrtwOnxTo1l4RBgLqTbYWdt+OxJklNY03XE4oEQNlBJIZw0LVCK4gwoJ8ye
-	usgXsscvXkf1p6YTMs5+gyyF2gpjAgzeaXnLMkGuM9+1n401e3fHx6pIr/DYlcdbfU9FnJBj5rn3W
-	WksdMCU6D7nG095d7SYw==;
+	List-Owner; bh=iKpz5g2C1v8wo39Rc5aqvCf55RMcAuoaMeM+dvhNhq4=; b=VTr3UKATB5NE97
+	nzFoVhEekt5i7CkP25Gr2I2NZ6twP1OLY3EGktijWT7Ex8Y7729cUt+86qIFcBEBF5mx8pY/niJty
+	fPtgVplTCppJ2t9YfFlSXHYv4WqZtaYG196hSWmUaKZRSQuOpGMP1PRQ0/zJ9dZN/cHT3qTkSqbXH
+	fQ9LQRuzGko8a7Ry/PDUv5ZXn0kXLHOfGRgPEAfrq99ZvGsG8UOQg04N2plhW9oxNJliyS2KqgkxG
+	/JzN8BTbBiQAIhFBrhau0+QeRZnn4P64dskw5J7/KADgi3cC3y+AsyAf7kuzjiXEye3EhXVltRLJu
+	TD0SrnxlqKQmXC+7Hbvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qnH78-00CXPQ-2T;
-	Mon, 02 Oct 2023 11:29:26 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1qnH7C-00CXSM-36;
+	Mon, 02 Oct 2023 11:29:30 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qnH72-00CXGD-0x;
-	Mon, 02 Oct 2023 11:29:23 +0000
+	id 1qnH72-00CXGk-2B;
+	Mon, 02 Oct 2023 11:29:25 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 7FCC1CE0E27;
-	Mon,  2 Oct 2023 11:29:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id C2B8EC433C7;
-	Mon,  2 Oct 2023 11:29:16 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 2A05B60E8C;
+	Mon,  2 Oct 2023 11:29:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 5371DC116D2;
+	Mon,  2 Oct 2023 11:29:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1696246156;
-	bh=ZJT/h6KujIsYVdJAaw35ma6el/sMgxTmZwB8rPTK3Jw=;
+	s=k20201202; t=1696246157;
+	bh=8Y0OZ+ek4AhIcf8Sjp8fQ2M9HKsNYRF/q4Q31JpOT5o=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=H8AkdvIeEYjRYVGHhgh4jofXC6pRgfgRUn977wPUoBVixl7Ihv27IlVCkDkbzYgUw
-	 JX3YmfESSQAA3wHuzCFfySd74tVQvryVpGAhB/4RNJZwz5kjyf0O9g4ZblOx1CSlFW
-	 5cDEgwcBowAUng6+x/lrk5488XQ0u6ERILRg4fdsypnepBeNOyevQwqGkGrlZqZMRZ
-	 0pUoDjC6Wh4lx8N2RvREMCpw/5KzB14bmOYvmc8urrphBg2fzpeHtc7lKSf2YNfjZT
-	 UhyE56Yp5+vYnCRmjFygSZ8vRdyBxx3AYRkRt311hmSkSGw+ThguHUuzIsv0g7AmXS
-	 cdDnGnTbBKgcg==
+	b=HoYlpryWcQZV4xEoh38551sI60gfNK4cNGdEKgXPz9x08VsBC5G/69LBFbXuToEgn
+	 BfBDfABhYQMaA/7y4/yMOLRE2yxXFJEEmhWmuOXt9SqvBUrhF02pxsFB+Oy95KS3Uo
+	 lMq4M9cbbqTcQLk8Mt0GHY0NkCOn4Jd8OvFimK3fza9rF9VZ+2Ar+cUV7TeEgsIf0n
+	 AfN3Z6+zr6tOgqL9qirOQi2pRK98RKq8bt6HNDMvcyBkOvRb/QX5w6hRjj7JYKtuUg
+	 tRfO2u8Hi/A7XL6lw6dB721W2W3IWPxGFfSchln4SLcXKRGbevSUs6wqi75teA8l65
+	 WpR4VjGman2fA==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A2F57E7849A;
-	Mon,  2 Oct 2023 11:29:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 3A93FE7849A;
+	Mon,  2 Oct 2023 11:29:17 +0000 (UTC)
 From: Joel Granados via B4 Relay <devnull+j.granados.samsung.com@kernel.org>
-Date: Mon, 02 Oct 2023 13:30:36 +0200
-Subject: [PATCH v3 1/7] S390: Remove now superfluous sentinel elem from
- ctl_table arrays
+Date: Mon, 02 Oct 2023 13:30:42 +0200
+Subject: [PATCH v3 7/7] c-sky: Remove now superfluous sentinel element from
+ ctl_talbe array
 MIME-Version: 1.0
-Message-Id: <20231002-jag-sysctl_remove_empty_elem_arch-v3-1-606da2840a7a@samsung.com>
+Message-Id: <20231002-jag-sysctl_remove_empty_elem_arch-v3-7-606da2840a7a@samsung.com>
 References: <20231002-jag-sysctl_remove_empty_elem_arch-v3-0-606da2840a7a@samsung.com>
 In-Reply-To: <20231002-jag-sysctl_remove_empty_elem_arch-v3-0-606da2840a7a@samsung.com>
 To: Luis Chamberlain <mcgrof@kernel.org>, willy@infradead.org, 
@@ -77,25 +77,25 @@ Cc: linux-fsdevel@vger.kernel.org, linux-s390@vger.kernel.org,
  linux-ia64@vger.kernel.org, linux-csky@vger.kernel.org, 
  Joel Granados <j.granados@samsung.com>
 X-Mailer: b4 0.13-dev-86aa5
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3352;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1079;
  i=j.granados@samsung.com; h=from:subject:message-id;
- bh=pn7bMLkI/eiDwqHrK4wsGA8iyiwVG5+tCRzjqhQHPj8=;
- b=owEB7QES/pANAwAKAbqXzVK3lkFPAcsmYgBlGqoTD6OVG9z33/NcsqSkaUWni+BE/Ybac1ZbK
- D1bCulrq+eJAbMEAAEKAB0WIQSuRwlXJeYxJc7LJ5C6l81St5ZBTwUCZRqqEwAKCRC6l81St5ZB
- TwDYC/9wIAwjRpEE+yBz0V2sOLY6kH75yeL1P4jA+iE8PZylyyQ4a7Q8dvoM7DaRdzBzwm+UOho
- QCKoGbsX1Zj06C25/5fCa/5HFwqZBRfRrQ97ynnEe0fsGmXQ6MhzDErFBe1s/lW6EmrJnn0df7g
- uWO2RFOeND4Hdd55odOt7pkrsTqxtAMkTGhjQJVWrnrsy69EXJ/DmrjJxTn7x+UmSSN5pWrEed3
- vUCje8uKasMyEUm20V8M6nAVZ6SlaefUBhwJDsnUIccjpR96uAVXpByYrbXZqvVOlPJovahzjX5
- hmbdAm4hk9bkVLZkkGNfIlnkM/ynS1r7+X7z2huAe1ifp14shL8PpCcNO7t6kiw8K+4l1IjdQ5/
- yKWU1MuOLlcsMLx15ZgcFep8d0UAE0W0EFfztbWJ9QDXLY5cpgNGfTzHANoZsiX25PesgriFHLP
- jXdz1Yz0b/RR1QL7CbA0JRsDMWTsNyZeeD1zcG/iOPiIZTh313h1l4kk1TDYsdKznk1YU=
+ bh=aVH730u6MpA8SyXSwY+KroDm6RkQOYcUB41QGWJqNpM=;
+ b=owEB7QES/pANAwAKAbqXzVK3lkFPAcsmYgBlGqoU5tuFWjnPIMvFbKyN6zHH0cwg/pUFRD/vM
+ SfkGU2MIlyJAbMEAAEKAB0WIQSuRwlXJeYxJc7LJ5C6l81St5ZBTwUCZRqqFAAKCRC6l81St5ZB
+ TyUKC/0c39WVZtnSe4HAi+KjUVd8v38cq95t+0bYTAm0t4UjG8Lsp3T5G80IFPYLmapvMnK4uVe
+ Lyeg6+WlLJagatcnmBtfVxhCU0ewAPcEqiwiP6qZx3c8PLEexEriY2mthOka69yhwr3nKHEnyV8
+ Bqp7zzu/E1zwrNE1+/cSzV96Y/lZ/qWZCRPRHR7SuOeWwWTDbyhgveJ+cmUr4q6nwLVv9D8Vj6M
+ B7kOycGh+RMxgVTKEAlnSPVgKcwgHE24nlo5RUyuu77WXCMlCIrZdyyNDZrrQykuiXWNxLKiMrj
+ XLAE5oYgpIZ9uRGWS1dzT2edeQ+COFGaR51Q/tvQualP2kfj7A2dQzLIAF8fmcWYwWVMj1RN44o
+ jz1VmKwvgpAAwhyJL1nlRqp0Dx+iccYp2zBAhv5X8ptE4axnZuJSjdUGQVapPNd/0eA4u87Ubaa
+ zmvv90vSv16KKgBYe+ABuMSkfh7iM8iC7eDe4BQqUi7MyRotUfD+EMFwsoiIIw56IZ6Jg=
 X-Developer-Key: i=j.granados@samsung.com; a=openpgp;
  fpr=F1F8E46D30F0F6C4A45FF4465895FAAC338C6E77
 X-Endpoint-Received: by B4 Relay for j.granados@samsung.com/default with auth_id=70
 X-Original-From: Joel Granados <j.granados@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231002_042920_692779_23DE3A08 
-X-CRM114-Status: GOOD (  15.64  )
+X-CRM114-CacheID: sfid-20231002_042920_812855_8631A865 
+X-CRM114-Status: GOOD (  12.88  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,100 +116,33 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 From: Joel Granados <j.granados@samsung.com>
 
 This commit comes at the tail end of a greater effort to remove the
-empty elements at the end of the ctl_table arrays (sentinels) which will
-reduce the overall build time size of the kernel and run time memory
-bloat by ~64 bytes per sentinel (further information Link :
+empty elements at the end of the ctl_table arrays (sentinels) which
+will reduce the overall build time size of the kernel and run time
+memory bloat by ~64 bytes per sentinel (further information Link :
 https://lore.kernel.org/all/ZO5Yx5JFogGi%2FcBo@bombadil.infradead.org/)
 
-Remove the sentinel element from appldata_table, s390dbf_table,
-topology_ctl_table, cmm_table and page_table_sysctl. Reduced the memory
-allocation in appldata_register_ops by 1 effectively removing the
-sentinel from ops->ctl_table.
+Remove sentinel from alignment_tbl ctl_table array. This removal is safe
+because register_sysctl_init implicitly uses ARRAY_SIZE() in addition to
+checking for the sentinel.
 
-This removal is safe because register_sysctl_sz and register_sysctl use
-the array size in addition to checking for the sentinel.
-
-Tested-by: Alexander Gordeev <agordeev@linux.ibm.com>
-Acked-by: Heiko Carstens <hca@linux.ibm.com>
+Acked-by: Guo Ren <guoren@kernel.org>
 Signed-off-by: Joel Granados <j.granados@samsung.com>
 ---
- arch/s390/appldata/appldata_base.c | 4 +---
- arch/s390/kernel/debug.c           | 1 -
- arch/s390/kernel/topology.c        | 1 -
- arch/s390/mm/cmm.c                 | 1 -
- arch/s390/mm/pgalloc.c             | 1 -
- 5 files changed, 1 insertion(+), 7 deletions(-)
+ arch/csky/abiv1/alignment.c | 1 -
+ 1 file changed, 1 deletion(-)
 
-diff --git a/arch/s390/appldata/appldata_base.c b/arch/s390/appldata/appldata_base.c
-index 3b0994625652..c2978cb03b36 100644
---- a/arch/s390/appldata/appldata_base.c
-+++ b/arch/s390/appldata/appldata_base.c
-@@ -63,7 +63,6 @@ static struct ctl_table appldata_table[] = {
- 		.mode		= S_IRUGO | S_IWUSR,
- 		.proc_handler	= appldata_interval_handler,
+diff --git a/arch/csky/abiv1/alignment.c b/arch/csky/abiv1/alignment.c
+index b60259daed1b..e5b8b4b2109a 100644
+--- a/arch/csky/abiv1/alignment.c
++++ b/arch/csky/abiv1/alignment.c
+@@ -329,7 +329,6 @@ static struct ctl_table alignment_tbl[5] = {
+ 		.mode = 0666,
+ 		.proc_handler = &proc_dointvec
  	},
--	{ },
+-	{}
  };
  
- /*
-@@ -351,8 +350,7 @@ int appldata_register_ops(struct appldata_ops *ops)
- 	if (ops->size > APPLDATA_MAX_REC_SIZE)
- 		return -EINVAL;
- 
--	/* The last entry must be an empty one */
--	ops->ctl_table = kcalloc(2, sizeof(struct ctl_table), GFP_KERNEL);
-+	ops->ctl_table = kcalloc(1, sizeof(struct ctl_table), GFP_KERNEL);
- 	if (!ops->ctl_table)
- 		return -ENOMEM;
- 
-diff --git a/arch/s390/kernel/debug.c b/arch/s390/kernel/debug.c
-index a85e0c3e7027..85328a0ef3b6 100644
---- a/arch/s390/kernel/debug.c
-+++ b/arch/s390/kernel/debug.c
-@@ -978,7 +978,6 @@ static struct ctl_table s390dbf_table[] = {
- 		.mode		= S_IRUGO | S_IWUSR,
- 		.proc_handler	= s390dbf_procactive,
- 	},
--	{ }
- };
- 
- static struct ctl_table_header *s390dbf_sysctl_header;
-diff --git a/arch/s390/kernel/topology.c b/arch/s390/kernel/topology.c
-index 68adf1de8888..be8467b25953 100644
---- a/arch/s390/kernel/topology.c
-+++ b/arch/s390/kernel/topology.c
-@@ -636,7 +636,6 @@ static struct ctl_table topology_ctl_table[] = {
- 		.mode		= 0644,
- 		.proc_handler	= topology_ctl_handler,
- 	},
--	{ },
- };
- 
- static int __init topology_init(void)
-diff --git a/arch/s390/mm/cmm.c b/arch/s390/mm/cmm.c
-index f47515313226..f8b13f247646 100644
---- a/arch/s390/mm/cmm.c
-+++ b/arch/s390/mm/cmm.c
-@@ -332,7 +332,6 @@ static struct ctl_table cmm_table[] = {
- 		.mode		= 0644,
- 		.proc_handler	= cmm_timeout_handler,
- 	},
--	{ }
- };
- 
- #ifdef CONFIG_CMM_IUCV
-diff --git a/arch/s390/mm/pgalloc.c b/arch/s390/mm/pgalloc.c
-index 07fc660a24aa..75e1039f2ec5 100644
---- a/arch/s390/mm/pgalloc.c
-+++ b/arch/s390/mm/pgalloc.c
-@@ -30,7 +30,6 @@ static struct ctl_table page_table_sysctl[] = {
- 		.extra1		= SYSCTL_ZERO,
- 		.extra2		= SYSCTL_ONE,
- 	},
--	{ }
- };
- 
- static int __init page_table_register_sysctl(void)
+ static int __init csky_alignment_init(void)
 
 -- 
 2.30.2
