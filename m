@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBF97E784B7
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB652E784B3
 	for <linux-riscv@archiver.kernel.org>; Mon,  2 Oct 2023 11:29:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,44 +12,44 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:
 	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JPLKUym9bFmOiWgoVscNVvKklYmYbB3hvvUlw+4khdA=; b=nYJQdtrQM4covu
-	K0toV5G6MDlOxJq6ClSyzldqXpv410v6NXfmRQAku64OUeS9jRgrT+RwWfJwgf6Odezc+HTA8yhBg
-	XNZvQD76lx6bUh4xhMArw1vV+Hjg63wqHQhdcAajRzauatvD2HPQ2F8GO246HLiYEMApsmq+3A423
-	CojuhE0ckh1cEax9PM4P1YZUpfoD3+ymwd3ls/4pl4EGmd3Gq1V/5QH3cAsbwAhGA8HAYioL2ipAh
-	oKVMPcklcGbDCvyoEFe+Hj0RKRpPLuft9Hjjjmhd56xEA8yZSvpthgGCKyQbp87eNbna7FxsZ+AX0
-	wD9hgTrIJyyVpsMyGZAg==;
+	List-Owner; bh=8Zg4z/5CyHaOrHXutSSfRSDQGxyj3mFTXhTPzvEShP8=; b=VoKW7X6+HpUP9W
+	rUm4NB9mvqqX1VkcOy5riVx+JwtQtUtF6yYH94HdLJUXCEiKKImV2qL7xMNj2RlvCMoybUdFNI6Tg
+	9U2uh69qaPQbngXr2F9389HVzQz0sl1XgornUajomchmRz9nnaXcDpP0sbAJXFQ9bQbDKvDmsPYxL
+	q55HpX4aNw0zq7yTZqaoARJibG4+GUNKuThcjL/ZeForA5xtAosKD4g3np1liaXFXmCK8zPuohAWD
+	qKmLFmHr4YquaCMsytwkJXxXrOhqxuvrdC/G5qB1Np8yL2E0xADykhZN0+r4RxAFKzvIpCMssr6Ck
+	VZ6oEn7mKoWTXrqG24Ng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qnH7F-00CXUd-3C;
-	Mon, 02 Oct 2023 11:29:33 +0000
+	id 1qnH7G-00CXVD-1m;
+	Mon, 02 Oct 2023 11:29:34 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qnH72-00CXGH-2A;
-	Mon, 02 Oct 2023 11:29:26 +0000
+	id 1qnH72-00CXGg-2A;
+	Mon, 02 Oct 2023 11:29:27 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 030DD60E88;
+	by dfw.source.kernel.org (Postfix) with ESMTP id 350D560E92;
 	Mon,  2 Oct 2023 11:29:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 0AEE9C433B8;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 3B2E0C116A4;
 	Mon,  2 Oct 2023 11:29:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1696246157;
-	bh=YTd+W/HJJzt1g+AotSrQmZSQ/u4v4LR76hzUk9+8KRY=;
+	bh=YhBddSwaCSPLAaFDo+/JwRMeEqAWhYOpGz8YevBnfPM=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=t8eQLWHy0x9yNcAeYoiq3u/17r0Fsj0jLO/922mjKowsWcFf+75qeFzU1gn5X+IgO
-	 jYBuJ9EePK9gcf6rm91bxqi5oJA5mfSJGaF+JCh/8ByuZw/vdZdI4zBna/kfihS8AI
-	 9HMGhp650xt+NNRAkAC+m0v3NkT/Uxb4qlVk6HEf4NkiuSptjmrV3IBk+bGBHN7GBS
-	 m68QMmle0GFzWbXH1NGW9NBBfKniS2uzYqAZzGxZm/9189ik/1htRX4OT6pDYV14+s
-	 +8XPmujmnz19k9UO5LOfKAqEpxhvskIzF90mJh+LlPfyp8HOw6ha+lMNAjKMiexaAW
-	 3Q6sC2KCJX6Bw==
+	b=hf74GqEVFqfLw3F5qGhBq5bov1q9UAhguToYQBzzAfqBqUchaXwMR1gpYQdfrW3dE
+	 5yobqKdV3/QEpN+MYXpTviIQtYKJ0d3uszOmWShXB+fFDqsJUp9gzN3vFcFkgXvr8m
+	 Ttkn4TR8BEtdkCUyXqhUDOkT6VLJ90zF+a9+NCe2UCX+5KIfulK9VgRNl0kfo99jr0
+	 IaaP0NOKoE4Uu962+cebD9tfbWwM25JFWQwpT92VVxUTqAGQgGOgB80UNisFMiXT/s
+	 k92HVlQ10FGDag+YRRISFExlBwrHOFjX8viGcG8L28c34wj8b6EMek2lXl26k6Fs5t
+	 9uXWPCz+3Yxuw==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id E5C24E784A4;
-	Mon,  2 Oct 2023 11:29:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 1B624E784AC;
+	Mon,  2 Oct 2023 11:29:17 +0000 (UTC)
 From: Joel Granados via B4 Relay <devnull+j.granados.samsung.com@kernel.org>
-Date: Mon, 02 Oct 2023 13:30:39 +0200
-Subject: [PATCH v3 4/7] x86/vdso: Remove now superfluous sentinel element
- from ctl_table array
+Date: Mon, 02 Oct 2023 13:30:41 +0200
+Subject: [PATCH v3 6/7] powerpc: Remove now superfluous sentinel element
+ from ctl_table arrays
 MIME-Version: 1.0
-Message-Id: <20231002-jag-sysctl_remove_empty_elem_arch-v3-4-606da2840a7a@samsung.com>
+Message-Id: <20231002-jag-sysctl_remove_empty_elem_arch-v3-6-606da2840a7a@samsung.com>
 References: <20231002-jag-sysctl_remove_empty_elem_arch-v3-0-606da2840a7a@samsung.com>
 In-Reply-To: <20231002-jag-sysctl_remove_empty_elem_arch-v3-0-606da2840a7a@samsung.com>
 To: Luis Chamberlain <mcgrof@kernel.org>, willy@infradead.org, 
@@ -77,25 +77,25 @@ Cc: linux-fsdevel@vger.kernel.org, linux-s390@vger.kernel.org,
  linux-ia64@vger.kernel.org, linux-csky@vger.kernel.org, 
  Joel Granados <j.granados@samsung.com>
 X-Mailer: b4 0.13-dev-86aa5
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1052;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1565;
  i=j.granados@samsung.com; h=from:subject:message-id;
- bh=cvzMuUejqMQP+BGPAXWnJqy+jCdRUm5VfxRP0+Qgc7g=;
- b=owEB7QES/pANAwAKAbqXzVK3lkFPAcsmYgBlGqoT7g4+JWiQV8k/61XdOPQ2RonRomvKi5kxu
- mRiOWMGwOuJAbMEAAEKAB0WIQSuRwlXJeYxJc7LJ5C6l81St5ZBTwUCZRqqEwAKCRC6l81St5ZB
- TzjdC/9fKc+Cn6prbqpjfusVIp8cAMfZKAPr4G3moB2aTF1BnakvXHfY7Wf9qwA/bzZeofKl7SL
- M1RA2NsVoOzzKzIwtzVeR1Kgk1eRKiCCLRhMJRzoIhlnBR3/jLV5ygVGxnehDO9QwyxuPBS7bH/
- n6q/KD3vIeim+dgRREVJhCB0KtJ0kkl7dDm9c+iXNgXuxzcE79yiM1ljMw3v887zH5IUulV62vj
- 7u/dB2tzjJS5b8Nv8RHdLNWr41UUEXu34VNBYbeAZQ0IKyBb4NGS2n96ZuxpwbLIri3BIYaC8Tw
- SU3xeiJ2N98pVOgDSYA1ZcpyFFPmKSCPDBeaJ48w3mkpLW6BwYvYb2F6lqwTUzDKfNhkti7+nOK
- UnZy656UxYdqQ+D5YLCSK8yHkWSvy87yo/DFL3YDErBvdoUZftuyxuV1jvPf50fO8rFalb9YQ1N
- E9YxTE4f+PYvGFKRxMLF+jQGebqh+zmc2AcJX/3ETJb6Hcl/7hAJXaAHf8nsOaWQ0Wxcw=
+ bh=KuV8vOJx81rEwsc5jJ+bbCdW5iZFLCnNJ5xlBjey6xs=;
+ b=owEB7QES/pANAwAKAbqXzVK3lkFPAcsmYgBlGqoUNBAj237epiMRWZjBh+ubamCISZESZIKcM
+ v4wF3DSn2OJAbMEAAEKAB0WIQSuRwlXJeYxJc7LJ5C6l81St5ZBTwUCZRqqFAAKCRC6l81St5ZB
+ T/E4C/sH83tQjgttVLdKVarCnL42oaqUSOJFHysd1DsiW9k53qQQnsAXlsVqmHce59si1viwYD1
+ sH8kJoCQVu5ZL6u9tnTirs/zK4lZGplOB1GmJ9G2GrDQ7BixLBRmvacBDYUehYBA7tw3zGUd7FE
+ 0us2Q0Ofke+qX+Aq9JR+UVjqxUoqi03EaBLXuFErDsGsAmhooB6D4ZI0rVHGdk22B9ACXaGfasi
+ NvOx99FDQTiP3JolHAsOZjSYq4Oy/YDI5UDS0ERDATzQqvFlImM4MgIualdQl5wQHhfPnBjJJhR
+ dnwS5MzD0E++5583ev51gUpQKRjAalnsN6549TOd2IdupjmILcpEaqD/tyIjjqcawm8ZLXpCGbX
+ 6Y9Qv8eSDL/Odbt+5yhXaeyHFpDsMB4SR9yDDiFgefg0A4DkcGiVGGn2Qm7iKkEY3A1fcz9QUZN
+ YU/lcI5cnxARaCSGzjd+XwLHFHFyTjzB9ZJErDjBhYnwzz/H7M0JxdT3nEQwaAGkTTnZI=
 X-Developer-Key: i=j.granados@samsung.com; a=openpgp;
  fpr=F1F8E46D30F0F6C4A45FF4465895FAAC338C6E77
 X-Endpoint-Received: by B4 Relay for j.granados@samsung.com/default with auth_id=70
 X-Original-From: Joel Granados <j.granados@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231002_042920_811647_5E3757C9 
-X-CRM114-Status: GOOD (  12.93  )
+X-CRM114-CacheID: sfid-20231002_042920_807684_58A8A25F 
+X-CRM114-Status: GOOD (  13.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,27 +121,40 @@ will reduce the overall build time size of the kernel and run time
 memory bloat by ~64 bytes per sentinel (further information Link :
 https://lore.kernel.org/all/ZO5Yx5JFogGi%2FcBo@bombadil.infradead.org/)
 
-Remove sentinel element from abi_table2. This removal is safe because
-register_sysctl implicitly uses ARRAY_SIZE() in addition to checking for
-the sentinel.
+Remove sentinel from powersave_nap_ctl_table and nmi_wd_lpm_factor_ctl_table.
+This removal is safe because register_sysctl implicitly uses ARRAY_SIZE()
+in addition to checking for the sentinel.
 
 Signed-off-by: Joel Granados <j.granados@samsung.com>
 ---
- arch/x86/entry/vdso/vdso32-setup.c | 1 -
- 1 file changed, 1 deletion(-)
+ arch/powerpc/kernel/idle.c                | 1 -
+ arch/powerpc/platforms/pseries/mobility.c | 1 -
+ 2 files changed, 2 deletions(-)
 
-diff --git a/arch/x86/entry/vdso/vdso32-setup.c b/arch/x86/entry/vdso/vdso32-setup.c
-index f3b3cacbcbb0..76e4e74f35b5 100644
---- a/arch/x86/entry/vdso/vdso32-setup.c
-+++ b/arch/x86/entry/vdso/vdso32-setup.c
-@@ -67,7 +67,6 @@ static struct ctl_table abi_table2[] = {
- 		.extra1		= SYSCTL_ZERO,
- 		.extra2		= SYSCTL_ONE,
+diff --git a/arch/powerpc/kernel/idle.c b/arch/powerpc/kernel/idle.c
+index b1c0418b25c8..30b56c67fa61 100644
+--- a/arch/powerpc/kernel/idle.c
++++ b/arch/powerpc/kernel/idle.c
+@@ -105,7 +105,6 @@ static struct ctl_table powersave_nap_ctl_table[] = {
+ 		.mode		= 0644,
+ 		.proc_handler	= proc_dointvec,
  	},
 -	{}
  };
  
- static __init int ia32_binfmt_init(void)
+ static int __init
+diff --git a/arch/powerpc/platforms/pseries/mobility.c b/arch/powerpc/platforms/pseries/mobility.c
+index 0161226d8fec..1798f0f14d58 100644
+--- a/arch/powerpc/platforms/pseries/mobility.c
++++ b/arch/powerpc/platforms/pseries/mobility.c
+@@ -61,7 +61,6 @@ static struct ctl_table nmi_wd_lpm_factor_ctl_table[] = {
+ 		.mode		= 0644,
+ 		.proc_handler	= proc_douintvec_minmax,
+ 	},
+-	{}
+ };
+ 
+ static int __init register_nmi_wd_lpm_factor_sysctl(void)
 
 -- 
 2.30.2
