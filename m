@@ -4,48 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3827E7849A
-	for <linux-riscv@archiver.kernel.org>; Mon,  2 Oct 2023 12:10:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93423E784AC
+	for <linux-riscv@archiver.kernel.org>; Mon,  2 Oct 2023 12:10:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JI1RYujcHt/oCRBgcKu3Of6Dc16v2wRV+Hrz5LO/11g=; b=snsKy6e+prmjCRSU5gfbhynKZC
-	vD2ZLG7RrP7uVb1Y5mhO3QduBh1dPeozY1oZW12XpexSUvpe/TQq5TRsexLoSsUYcC2RcQ4imFKQc
-	0fSMHS4VC9VF4bugXYUsjziHaD/KnDhv8j12oENYPKz/9RCzPygRnrpfH23d3ISShkKs3Spm43cVm
-	VnpKf//pv4IfbhYMfMrLfjxkSn6knG3we4q5scGG/cl52Pq/pZUt2DS8o7q8mJ6YyudBdxibfEcGt
-	as4TJ0O370RQZcCmxULmVPRfgejd9qF0+AtdY/nPbKCAfZi3kEQFDug7SmD8yCdn05yQkA8cFdlu0
-	ofx5UwTw==;
+	bh=nVBCJgbJ744m4q70+98PlBr86bwMDzDCaeLiLaGdQQY=; b=GadNA1Xeih/pAnqnVVxxvMo1gH
+	a5wYsMrIhOPpG+hK8AO+oehOVJOhBLC1hR8xyeQV2HcMvgeK2EDK/SFMT6jxH4D2Vuk6EhzySxxec
+	nNOsbSQgVnJtGMejlEHU2d5ymaA/kNsijgE5r3z9byUU8iGjJptdegerFeO3B/Jaa6+9sOMp0c1R+
+	fd7toumPvch1outmrWOdmxQ4ORRJkLuDHLN3ZoMj2hz+oMLRHj/3N8r8Ib+2M07Y5pu6Yyp1e7peW
+	tWlGR85bp+ULHDVYGeb2IMr73d2XXn6pa/i7LXZ6ujAW9CLpRhMk+5DcdgJB68RO/O8xAyBH0uLGH
+	mSTAqk6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qnHkm-00CfyL-1B;
-	Mon, 02 Oct 2023 12:10:24 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1qnHkz-00Cg9e-2N;
+	Mon, 02 Oct 2023 12:10:37 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qnHk9-00CexP-18
+	id 1qnHkw-00Cg7A-33
 	for linux-riscv@lists.infradead.org;
-	Mon, 02 Oct 2023 12:09:46 +0000
+	Mon, 02 Oct 2023 12:10:37 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 0D68260DFC;
-	Mon,  2 Oct 2023 12:09:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5D81DC433C9;
-	Mon,  2 Oct 2023 12:09:40 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTP id 9A375B80E9B;
+	Mon,  2 Oct 2023 12:10:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 89C4CC433C8;
+	Mon,  2 Oct 2023 12:10:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1696248583;
-	bh=XF2JWUI7upFEWvpMLleiS+AFi4n6n/o2bBoXGwL6lk4=;
+	s=k20201202; t=1696248633;
+	bh=/LiX+txB3BRVZ32LePlO17W8hckAYNHaz2iEFDZjuJM=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=BecpC1VYEdSlAGMnwJk1z8khG//CgJLN0SwRus9GT82CKiB7g/tbumWSmDLt0FJke
-	 oLiLsb8Vb4QWoTjlHWfOrKu7z5MGtTb086eMcu1FWrGG+Sio6gs18EwlMaHt0aG0Hj
-	 bwXKNTQuOsAjQ6aBI4WQYiuZiUGZeKKSYu4mfMVEXgPMxXazT5mm77UwSV4L40cEbh
-	 Htp754cmmiGJoyjKjbiwPisxe6JPTbpXHD1KNI1fBF0goFDGAs2tLAExKbsstW99U1
-	 nu6BrQyyDn/M7NR7BM2SqqRcUNWhqGtLONpWzVVbODbuslYRijBSqz/s2JUNbMPq7r
-	 6CaR5wQk84OOA==
-Date: Mon, 2 Oct 2023 13:09:38 +0100
+	b=WAweR1RS3PeKDXyktGjd2NkmON/1Kn3Nrb5nYRpUPGrQSb9IwMWKAqQmwzzpAJB/U
+	 hD8OOJ2YodtGDarNe5b3Qld83DSkJExcN95cczDJYwKXoo09zJ6lUyCVUfptsd3wOe
+	 4eYVtPEHcTOvjMzzKoSWb1f5/+ERRpbMl+7atb3+qQZNsjGtKGV0AVtkIuXJkFHkKx
+	 in5wo28KrQq5ERGacqK+eTnX8cDiqv2bqi7aPrROE725I5uQPVaH9ZFbS+LC1XZMgB
+	 G3v2Rf2RycbO0Fjg1XtI1/+ZWk3z8b/C2imDTmHXb71kep0PI/yHM+SmnENUlkEagK
+	 rDNZal4d4rnyg==
+Date: Mon, 2 Oct 2023 13:10:27 +0100
 From: Conor Dooley <conor@kernel.org>
-To: Jisheng Zhang <jszhang@kernel.org>
-Cc: Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
+To: Chen Wang <unicorn_wang@outlook.com>
+Cc: Jisheng Zhang <jszhang@kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
 	Rob Herring <robh+dt@kernel.org>,
 	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
 	Conor Dooley <conor+dt@kernel.org>,
@@ -57,16 +58,15 @@ Cc: Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
 	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
 	Inochi Amaoto <inochiama@outlook.com>, chao.wei@sophgo.com,
 	xiaoguang.xing@sophgo.com
-Subject: Re: [PATCH 4/5] riscv: dts: sophgo: add initial CV1800B SoC device
- tree
-Message-ID: <20231002-pessimism-sycamore-a854a098cf43@spud>
+Subject: Re: [PATCH 0/5] Add Milk-V Duo board support
+Message-ID: <20231002-traps-prize-d5b5c0f2152d@spud>
 References: <20230930123937.1551-1-jszhang@kernel.org>
- <20230930123937.1551-5-jszhang@kernel.org>
+ <MA0P287MB0332292A882CC400750788A8FEC7A@MA0P287MB0332.INDP287.PROD.OUTLOOK.COM>
 MIME-Version: 1.0
-In-Reply-To: <20230930123937.1551-5-jszhang@kernel.org>
+In-Reply-To: <MA0P287MB0332292A882CC400750788A8FEC7A@MA0P287MB0332.INDP287.PROD.OUTLOOK.COM>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231002_050945_579559_4AF9FD66 
-X-CRM114-Status: GOOD (  19.01  )
+X-CRM114-CacheID: sfid-20231002_051035_254647_C81A7AB2 
+X-CRM114-Status: GOOD (  15.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,109 +78,75 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3482898664578516044=="
+Content-Type: multipart/mixed; boundary="===============2679092239366289168=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============3482898664578516044==
+--===============2679092239366289168==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="7ADpDYkm6P9PW77/"
+	protocol="application/pgp-signature"; boundary="KFvRWj/kJia4o6i6"
 Content-Disposition: inline
 
 
---7ADpDYkm6P9PW77/
-Content-Type: text/plain; charset=us-ascii
+--KFvRWj/kJia4o6i6
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Sat, Sep 30, 2023 at 08:39:36PM +0800, Jisheng Zhang wrote:
-> Add initial device tree for the CV1800B RISC-V SoC by SOPHGO.
+On Sat, Sep 30, 2023 at 10:18:23PM +0800, Chen Wang wrote:
 >=20
-> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> ---
->  arch/riscv/boot/dts/sophgo/cv1800b.dtsi | 117 ++++++++++++++++++++++++
->  1 file changed, 117 insertions(+)
->  create mode 100644 arch/riscv/boot/dts/sophgo/cv1800b.dtsi
->=20
-> diff --git a/arch/riscv/boot/dts/sophgo/cv1800b.dtsi b/arch/riscv/boot/dt=
-s/sophgo/cv1800b.dtsi
-> new file mode 100644
-> index 000000000000..8829bebaa017
-> --- /dev/null
-> +++ b/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
-> @@ -0,0 +1,117 @@
-> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-> +/*
-> + * Copyright (C) 2023 Jisheng Zhang <jszhang@kernel.org>
-> + */
-> +
-> +#include <dt-bindings/interrupt-controller/irq.h>
-> +
-> +/ {
-> +	compatible =3D "sophgo,cv1800b";
-> +	#address-cells =3D <1>;
-> +	#size-cells =3D <1>;
-> +
-> +	cpus: cpus {
-> +		#address-cells =3D <1>;
-> +		#size-cells =3D <0>;
-> +		timebase-frequency =3D <25000000>;
-> +
-> +		cpu0: cpu@0 {
-> +			compatible =3D "thead,c906", "riscv";
-> +			device_type =3D "cpu";
-> +			reg =3D <0>;
-> +			d-cache-block-size =3D <64>;
-> +			d-cache-sets =3D <512>;
-> +			d-cache-size =3D <65536>;
-> +			i-cache-block-size =3D <64>;
-> +			i-cache-sets =3D <128>;
-> +			i-cache-size =3D <32768>;
-> +			mmu-type =3D "riscv,sv39";
-> +			riscv,isa =3D "rv64imafdc";
-> +			riscv,isa-base =3D "rv64i";
-> +			riscv,isa-extensions =3D "i", "m", "a", "f", "d", "c", "zicntr", "zic=
-sr",
-> +					       "zifencei", "zihpm";
-> +
-> +			cpu0_intc: interrupt-controller {
-> +				compatible =3D "riscv,cpu-intc";
-> +				interrupt-controller;
-> +				#address-cells =3D <0>;
-> +				#interrupt-cells =3D <1>;
-> +			};
-> +		};
-> +	};
-> +
-> +	osc: oscillator {
-> +		compatible =3D "fixed-clock";
-> +		clock-output-names =3D "osc_25m";
-> +		#clock-cells =3D <0>;
-> +	};
+> =E5=9C=A8 2023/9/30 20:39, Jisheng Zhang =E5=86=99=E9=81=93:
+> > Milk-V Duo[1] board is an embedded development platform based on the
+> > CV1800B[2] chip. Add minimal device tree files for the development boar=
+d.
+> > Currently, now it's supported to boot to a basic shell.
+> >=20
+> > NOTE: this series is based on the SG2042 upstream series for the vendor
+> > prefix and ARCH_SOPHGO option.
+> Missing reference to [3].
 
-Is this a stub that will later be replaced by a real clock controller
-node, or is this actually a fixed oscillator? If it is the former, could
-you add it to the commit message if there is a respin?
+Should be fine without it :)
 
-Thanks,
-Conor.
+> >=20
+> > Link: https://milkv.io/duo [1]
+> > Link: https://en.sophgo.com/product/introduce/cv180xB.html [2]
+> > Link: https://lore.kernel.org/linux-riscv/cover.1695804418.git.unicornx=
+w@gmail.com/ [3]
+> >=20
+> > Jisheng Zhang (5):
+> >    dt-bindings: interrupt-controller: Add SOPHGO CV1800B plic
+> >    dt-bindings: timer: Add SOPHGO CV1800B clint
+> >    dt-bindings: riscv: Add Milk-V Duo board compatibles
+> >    riscv: dts: sophgo: add initial CV1800B SoC device tree
+> >    riscv: dts: sophgo: add Milk-V Duo board device tree
+> >=20
+> >   .../sifive,plic-1.0.0.yaml                    |   1 +
+> >   .../devicetree/bindings/riscv/sophgo.yaml     |   4 +
+> >   .../bindings/timer/sifive,clint.yaml          |   1 +
+> >   arch/riscv/boot/dts/sophgo/Makefile           |   2 +-
+> >   .../boot/dts/sophgo/cv1800b-milkv-duo.dts     |  38 ++++++
+> >   arch/riscv/boot/dts/sophgo/cv1800b.dtsi       | 117 ++++++++++++++++++
+> >   6 files changed, 162 insertions(+), 1 deletion(-)
+> >   create mode 100644 arch/riscv/boot/dts/sophgo/cv1800b-milkv-duo.dts
+> >   create mode 100644 arch/riscv/boot/dts/sophgo/cv1800b.dtsi
+> >=20
 
---7ADpDYkm6P9PW77/
+--KFvRWj/kJia4o6i6
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZRqzAQAKCRB4tDGHoIJi
-0pUpAQCeg85iTvHhxt7N5JpBUouXbz8728VXeHIyIz55IAQEtQEAgvB4/xg9EGuu
-tvn8dqb7SzCgq/xW6fGN6uoZFBmJUQI=
-=Jjvq
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZRqzMwAKCRB4tDGHoIJi
+0hc/AQCrKLVIiXVABYoKX34nKht5Ha7F+ubUYXyuiEDISviTYAEAlU1seAj6AN3c
+L36nj/svH9vlWR5tzkoocIkUeQ3BgAo=
+=7CjF
 -----END PGP SIGNATURE-----
 
---7ADpDYkm6P9PW77/--
+--KFvRWj/kJia4o6i6--
 
 
---===============3482898664578516044==
+--===============2679092239366289168==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -191,5 +157,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============3482898664578516044==--
+--===============2679092239366289168==--
 
