@@ -4,92 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADC4BE75457
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Oct 2023 12:48:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0AE1E7AD46
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Oct 2023 13:38:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1pS7NtUHjacsJSaFY6+6aJ+3WHR7Eratj8XLvHZabC0=; b=RgPD1/pcM965Xa
-	AK3xwmPxNB9z0w9fKTq49RBoVN4wwK3B04uGHLCzRp4QKTX8S3RkKDdRAeqPJq8u3jIl6zJz2BBgJ
-	tpL5gzrpYiShQQ7RgHmDSuoT5TdEiD8MhHU04uXgUO9hVt9Rm2ISZkt/46qu+e7wqFo8FZhAxll1z
-	WGW15WF1rrmKoWE0dGFvrsjk7EXSneiAFqgPRqCGzvwBt/JYSGs8pPUbdeoRZSk9EkpJ1DohMIwne
-	a/igzUgetyJhtovj5E0vybjXJ7+atWg8n8Id3u6Se/Jf04YRSEWX6tdTxvWdP/hAQvUqqerp9oNkw
-	uFn45yh/b6h3c7CfuyTA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=e4QtTI7E6NkY00TPN4qOxq6MWnuQcq0SzkoVuLH56lk=; b=FNZyOM4Q8XB6BqVTotrv08RpNQ
+	d3MNWUhBuQlNjHhkTZ62r5gb38IEgpWvjRkzCITeY2H30czgEdIMa7jpEJDyeb7a+NFWO/Onkz8IR
+	UELgcLRmgcY6LqV0sh2YqpI8AYbYi5Xi/fi3zrFWcwIh/mwl5XAPQMM21Gcmi4vvrGZVtA1i0O4TT
+	xGxzfnBaAp7jl1GSdOpkNf0BrbIcYfOXdbBUyUsQLa0h3ellLTQ2NtWMPyBcXQ/5j2kRenAQ7JGNI
+	fFlVw24irp8Pw6p8W0+fY29qjqP6z6oTlti5x6OFK7C59HLmntreWMSQtiXqXKPbnQX7u3PC/C9du
+	oKk3cIfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qneow-00Ee8S-27;
-	Tue, 03 Oct 2023 12:48:14 +0000
-Received: from mail-qv1-xf34.google.com ([2607:f8b0:4864:20::f34])
+	id 1qnfbN-00EjLJ-1a;
+	Tue, 03 Oct 2023 13:38:17 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qneou-00Ee4o-09
-	for linux-riscv@lists.infradead.org;
-	Tue, 03 Oct 2023 12:48:13 +0000
-Received: by mail-qv1-xf34.google.com with SMTP id 6a1803df08f44-65afd8af8bbso5788026d6.3
-        for <linux-riscv@lists.infradead.org>; Tue, 03 Oct 2023 05:48:04 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1696337281; x=1696942081; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=YZe9z/CDJkweGhxZy3F+7e7AP42NZQg1sBDsRc6xWLw=;
-        b=pEU7SalpNzlvqyxSKCIXmxGHMwOI4/ThyAG9CHM05WMZBNPBBrluSJqaFylMIdTnHS
-         8E/Utwdh9ojN7trFdmePbfiYxNMxhGb/g3BWbnekA+/vDPDft7fKN23dUSEUr6ZkNerG
-         4qAF1FLHJoeCB+bbeYZMHhwM8m3iOlWndyubBZwhcLoOX9j+Gao2x3GX7Pqqr2Ojnuwj
-         IUUk4WEG4rWUxC9BVZXS1NOBLPg7rMiAmLZQ9c7tbl76slLZbxDlpgHyxkCwjK8hkK++
-         /2GHePaXYXh+sp16X4yj9zNy+Bdo7Mg5EmiP7LVp01PAeYe0jjKjQVJhcXtMawepbPvl
-         RweA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1696337281; x=1696942081;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=YZe9z/CDJkweGhxZy3F+7e7AP42NZQg1sBDsRc6xWLw=;
-        b=NgwhiK5QBc4tht62Tlzt+uVpi3+HEkdPr6PfsnE+LgOAFCLGiLsk5lN3Y4Di8zYQJG
-         RU3g+Dls5oYNF36oF3ge4VbFSNkh4JRNPqxOdbuEdbSSJqF4+V2erSI+EA8pFXXnpj2b
-         8EYDvzrQBvo0gW227C6u6xIR1fHGaD8KiqMOsnTbSAegSmL/PatFTbBEzKIDKOR47b4i
-         832TVPXYMb5MOtkRhWUzqApeMG+k2a/3gTIS2jEhkfQ9j7UVB8qB4eCS+taOh+EylBuD
-         B+yILg7DkXmzGQvPVdujO4/q3Vcf8pi2GATtawJhNBLGRM8QD5nV5sS6o0DKMWbtcIEh
-         3Gcw==
-X-Gm-Message-State: AOJu0YxQ8idzOoLpBLBIyHgLbq9MRKORiKBiZAmXR0zCTCmQXbKVyUvJ
-	5lgYFLr6rkJQi26d/BU4ZyCkfpftYGazXau72PZeMA==
-X-Google-Smtp-Source: AGHT+IGdg5KfMiaxwpI9vdrZwCI62gGbA1qcJqHvAfDGqDxEQ2JSHryTMBO/72MMo9L0zK8WyPrlSIxRkNMNwCJdjzY=
-X-Received: by 2002:a0c:e493:0:b0:656:347b:ea75 with SMTP id
- n19-20020a0ce493000000b00656347bea75mr13564335qvl.24.1696337280208; Tue, 03
- Oct 2023 05:48:00 -0700 (PDT)
+	id 1qnfbK-00EjKB-1z;
+	Tue, 03 Oct 2023 13:38:15 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 612E66122D;
+	Tue,  3 Oct 2023 13:38:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B35ABC433C7;
+	Tue,  3 Oct 2023 13:38:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1696340293;
+	bh=uwtqnUxTMKbAVfD+gZWXN+2nSoPSgsCGQxxJs5nbdeo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=hmdjXMqXyZeGSvyuQRufMD+IbooZlHt4Fl+2QKKDFRxTKFWqLtibJL9fD2WNsXRqn
+	 PpPdqOp7OhH7MsubfkpS6TMDyTKN/AeMfpIWAAhKiHBW6JEQ3eVUvzKQho+r0c73bq
+	 uSoe4cVF/Qi/iaTEhllRcf5K1O5CZiHLBq7R6bewNsL3AMIX0hrDkyw4IamVbeEUVY
+	 H7fYoWgMgUl9JjkhObUuvSdL4RBWAerpg148lOtgda7gOTMm7ojp6Djmbc+MxP93EK
+	 lDx842uWlD4YM9qLneth2OoHkxGe3TPPF+PSAUpxItWZWQKpSHLSND54oimTw+6Bas
+	 PVQHDSsJ52lWQ==
+Date: Tue, 3 Oct 2023 14:38:02 +0100
+From: Mark Brown <broonie@kernel.org>
+To: "Edgecombe, Rick P" <rick.p.edgecombe@intel.com>
+Cc: "Szabolcs.Nagy@arm.com" <Szabolcs.Nagy@arm.com>,
+	"corbet@lwn.net" <corbet@lwn.net>,
+	"ardb@kernel.org" <ardb@kernel.org>,
+	"maz@kernel.org" <maz@kernel.org>,
+	"shuah@kernel.org" <shuah@kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"keescook@chromium.org" <keescook@chromium.org>,
+	"james.morse@arm.com" <james.morse@arm.com>,
+	"debug@rivosinc.com" <debug@rivosinc.com>,
+	"akpm@linux-foundation.org" <akpm@linux-foundation.org>,
+	"palmer@dabbelt.com" <palmer@dabbelt.com>,
+	"catalin.marinas@arm.com" <catalin.marinas@arm.com>,
+	"hjl.tools@gmail.com" <hjl.tools@gmail.com>,
+	"paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
+	"linux-mm@kvack.org" <linux-mm@kvack.org>,
+	"aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
+	"oleg@redhat.com" <oleg@redhat.com>,
+	"arnd@arndb.de" <arnd@arndb.de>,
+	"ebiederm@xmission.com" <ebiederm@xmission.com>,
+	"will@kernel.org" <will@kernel.org>,
+	"suzuki.poulose@arm.com" <suzuki.poulose@arm.com>,
+	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
+	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-fsdevel@vger.kernel.org" <linux-fsdevel@vger.kernel.org>,
+	"linux-kselftest@vger.kernel.org" <linux-kselftest@vger.kernel.org>,
+	"linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>,
+	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
+Subject: Re: [PATCH v4 03/36] arm64/gcs: Document the ABI for Guarded Control
+ Stacks
+Message-ID: <3985b0d8-e35e-4cd5-a2bd-6a16d7c7e559@sirena.org.uk>
+References: <f4cec4b3-c386-4873-aa1d-90528e062f2a@sirena.org.uk>
+ <ZN+qki9EaZ6f9XNi@arm.com>
+ <aaea542c-929c-4c9b-8caa-ca67e0eb9c1e@sirena.org.uk>
+ <ZOTnL1SDJWZjHPUW@arm.com>
+ <43ec219d-bf20-47b8-a5f8-32bc3b64d487@sirena.org.uk>
+ <ZOXa98SqwYPwxzNP@arm.com>
+ <ZOYFazB1gYjzDRdA@arm.com>
+ <ZRWw7aa3C0LlMPTH@arm.com>
+ <38edb5c3-367e-4ab7-8cb7-aa1a5c0e330c@sirena.org.uk>
+ <add914d6ad943139cd4a8f23fea7167b083a53db.camel@intel.com>
 MIME-Version: 1.0
-References: <20230914015531.1419405-1-seanjc@google.com> <20230914015531.1419405-12-seanjc@google.com>
-In-Reply-To: <20230914015531.1419405-12-seanjc@google.com>
-From: Fuad Tabba <tabba@google.com>
-Date: Tue, 3 Oct 2023 13:47:23 +0100
-Message-ID: <CA+EHjTzSUXx8P9gWmUERg4owxH6r6yNPm1_RL-BzS_2CNPtRKw@mail.gmail.com>
-Subject: Re: [RFC PATCH v12 11/33] KVM: Introduce per-page memory attributes
-To: Sean Christopherson <seanjc@google.com>
-Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
-	Oliver Upton <oliver.upton@linux.dev>, Huacai Chen <chenhuacai@kernel.org>, 
-	Michael Ellerman <mpe@ellerman.id.au>, Anup Patel <anup@brainfault.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, "Matthew Wilcox (Oracle)" <willy@infradead.org>, 
-	Andrew Morton <akpm@linux-foundation.org>, Paul Moore <paul@paul-moore.com>, 
-	James Morris <jmorris@namei.org>, "Serge E. Hallyn" <serge@hallyn.com>, kvm@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
-	linux-fsdevel@vger.kernel.org, linux-mm@kvack.org, 
-	linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Chao Peng <chao.p.peng@linux.intel.com>, Jarkko Sakkinen <jarkko@kernel.org>, 
-	Anish Moorthy <amoorthy@google.com>, Yu Zhang <yu.c.zhang@linux.intel.com>, 
-	Isaku Yamahata <isaku.yamahata@intel.com>, Xu Yilun <yilun.xu@intel.com>, 
-	Vlastimil Babka <vbabka@suse.cz>, Vishal Annapurve <vannapurve@google.com>, 
-	Ackerley Tng <ackerleytng@google.com>, Maciej Szmigiero <mail@maciej.szmigiero.name>, 
-	David Hildenbrand <david@redhat.com>, Quentin Perret <qperret@google.com>, 
-	Michael Roth <michael.roth@amd.com>, Wang <wei.w.wang@intel.com>, 
-	Liam Merwick <liam.merwick@oracle.com>, Isaku Yamahata <isaku.yamahata@gmail.com>, 
-	"Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
+In-Reply-To: <add914d6ad943139cd4a8f23fea7167b083a53db.camel@intel.com>
+X-Cookie: Oh Dad!  We're ALL Devo!
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231003_054812_087658_343A67A6 
-X-CRM114-Status: GOOD (  17.77  )
+X-CRM114-CacheID: sfid-20231003_063814_738895_EC3E292D 
+X-CRM114-Status: GOOD (  16.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,77 +103,73 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============0171704194935827073=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
 
-> diff --git a/include/uapi/linux/kvm.h b/include/uapi/linux/kvm.h
-> index d2d913acf0df..f8642ff2eb9d 100644
-> --- a/include/uapi/linux/kvm.h
-> +++ b/include/uapi/linux/kvm.h
-> @@ -1227,6 +1227,7 @@ struct kvm_ppc_resize_hpt {
->  #define KVM_CAP_ARM_EAGER_SPLIT_CHUNK_SIZE 228
->  #define KVM_CAP_ARM_SUPPORTED_BLOCK_SIZES 229
->  #define KVM_CAP_USER_MEMORY2 230
-> +#define KVM_CAP_MEMORY_ATTRIBUTES 231
->
->  #ifdef KVM_CAP_IRQ_ROUTING
->
-> @@ -2293,4 +2294,17 @@ struct kvm_s390_zpci_op {
->  /* flags for kvm_s390_zpci_op->u.reg_aen.flags */
->  #define KVM_S390_ZPCIOP_REGAEN_HOST    (1 << 0)
->
-> +/* Available with KVM_CAP_MEMORY_ATTRIBUTES */
-> +#define KVM_GET_SUPPORTED_MEMORY_ATTRIBUTES    _IOR(KVMIO,  0xd2, __u64)
-> +#define KVM_SET_MEMORY_ATTRIBUTES              _IOW(KVMIO,  0xd3, struct kvm_memory_attributes)
-> +
-> +struct kvm_memory_attributes {
-> +       __u64 address;
-> +       __u64 size;
-> +       __u64 attributes;
-> +       __u64 flags;
-> +};
-> +
-> +#define KVM_MEMORY_ATTRIBUTE_PRIVATE           (1ULL << 3)
-> +
+--===============0171704194935827073==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="VOYoYIe/0D3GI3W0"
+Content-Disposition: inline
 
-In pKVM, we don't want to allow setting (or clearing) of
-PRIVATE/SHARED attributes from userspace. However, we'd like to use
-the attributes xarray to track the sharing state of guest pages at the
-host kernel.
 
-Moreover, we'd rather the default guest page state be PRIVATE, and
-only specify which pages are shared. All pKVM guest pages start off as
-private, and the majority will remain so.
+--VOYoYIe/0D3GI3W0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-I'm not sure if this is the best way to do this: One idea would be to
-move the definition of KVM_MEMORY_ATTRIBUTE_PRIVATE to
-arch/*/include/asm/kvm_host.h, which is where
-kvm_arch_supported_attributes() lives as well. This would allow
-different architectures to specify their own attributes (i.e., instead
-we'd have a KVM_MEMORY_ATTRIBUTE_SHARED for pKVM). This wouldn't help
-in terms of preventing userspace from clearing attributes (i.e.,
-setting a 0 attribute) though.
+On Mon, Oct 02, 2023 at 09:43:25PM +0000, Edgecombe, Rick P wrote:
 
-The other thing, which we need for pKVM anyway, is to make
-kvm_vm_set_mem_attributes() global, so that it can be called from
-outside of kvm_main.c (already have a local patch for this that
-declares it in kvm_host.h), and not gate this function by
-KVM_GENERIC_MEMORY_ATTRIBUTES. This would let pKVM select only
-KVM_PRIVATE_MEM (as opposed to KVM_GENERIC_PRIVATE_MEM, which selects
-KVM_GENERIC_MEMORY_ATTRIBUTES), preventing userspace from setting
-these attributes, while allowing pKVM to call
-kvm_vm_set_mem_attributes().
+> If ARM is thinking of doing things differently than x86, you might
+> think about how you weight those tradeoffs. Like, it might be silly to
+> worry about clone() support if something else ends up breaking
+> compatibility majorly. But, it might be worthwhile it you end up going
+> to the proposed extremes around signal alt stacks, to maximize
+> compatibility
 
-What do you think?
+Yeah, I think Catalin's thinking here was that we're quite a way out
+=66rom actual hardware so it's much more tractable to fix up callers than
+it is for x86 where the hardware is widely available.
 
-Thanks,
-/fuad
+> Also then maybe x86 could copy the ARM ABI some day, if it ends up
+> chasing the tradeoff people prefer. It probably goes without saying
+> that the closer these features behave from the app developer
+> perspective, the better. So a different ABI than x86 that also targets
+> a mix would be a bit unfortunate. (not the end of the world though)
+
+If nothing else even if we end up being stricter about things it would
+be extremely disappointing if we ended up with something where code for
+arm64 won't run when built for x86.
+
+--VOYoYIe/0D3GI3W0
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmUcGToACgkQJNaLcl1U
+h9DGrwf/e1Q1mca/c+Y8gjB9uTmkbz6UTxEP5Ie+SQ8OHE0DeQjg4wUgWFKyhONR
+Gja5KPwSLlu7n1otNu8P3ztqCLwd3+sa1yM4Tzhq965l/wqp1cmwh3OcRJwWNO/w
+TzGqD8fnAAZY6EyfMg6oP8IcWvD1ru5jttF18YdJdekWjBGQyWI+aZaN8ERdT1hG
+8G2Jz0DOJCCRuMo4JWQQ7wyKmgXsaCsO0UeTLsniZYatysygBlZPnxwG+kSlwwrP
+jJwDtljE9WONcZZttwNT0Rn/dFpXj4cO5L0RjHX/HPvHmSwOgdnO4fBD2HSL53xL
+WSStamx5uiW/Ch8ilcxeRdcT+rL/Jw==
+=Wyj+
+-----END PGP SIGNATURE-----
+
+--VOYoYIe/0D3GI3W0--
+
+
+--===============0171704194935827073==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============0171704194935827073==--
+
