@@ -4,84 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26896E7542B
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Oct 2023 06:27:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BC69E7542B
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Oct 2023 06:42:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yl5WtN368msTgZuTeFpxChj7PV2Ahs/zOTiogTviBOo=; b=0D6Nf73F/tNlY6
-	qn1Wqsje9a3cevAtKr5WW83XTL4PpD4SxeeWs6ribY6O+xN78z2eXKlaiKJxpFFLhFUQUN9oSo47w
-	dFOlkhQIclAGTlgqZZXrzY4WaAasopJZMHZqxkbjEmQ2X5PmL2MPiEQI/bIEZz3LyX4A41UmNp7DP
-	YEIXOP55wOZZZJ8lHIQlr+6aikfwFemwYxJmuuyS6w2fCpzmVZivZx3N65qw94fPF1/WzAFMQc1xH
-	z2FdFBNtPQZ9J0drYrCExlkdumvQG0pyB4pqKy7pFsdKUzldA1cnuRmNhpRhOaXwCYVCXH4t7xWsG
-	c/BJ8noiG4UmOK+mGFWQ==;
+	List-Owner; bh=7I7uzyMaqFeiTJYP0JoF95LnOzFrq28RV7ARpavaR7M=; b=uV5hYViuM6TH8R
+	etAUtrOK2Mihg2OCmjfQQel372ei5lb3LrnVdWk8RSkKgIxys36frp8HI/BR42V7eg9N7a8pg6fiC
+	FUhnmZ94DzUvAVv0AESVPmwnRT8wsINABup1c1ezqQMtfOFtVF5bM2ALQdLpVhjq8y2P76UH2Av7o
+	kaS+zz1fivpfdirB5lpU/wtVhUIOf5dO/6Hr5V9edS0i3sCc1hOydpROga0iuWhxCPr4f84COcjer
+	KTmT+gEMP3cwAlM6iJ/gNXtwIJ5dHA/+tdSxYkSNKRPf/uqGxuDr2S5Imw7BePE/hUSX6Vg2SnKy0
+	6Yymy7WG0/ljFY6dr0OA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qnYrv-00Duib-1F;
-	Tue, 03 Oct 2023 06:26:55 +0000
-Received: from mgamail.intel.com ([134.134.136.20])
+	id 1qnZ6k-00Dw3w-1W;
+	Tue, 03 Oct 2023 06:42:14 +0000
+Received: from bg4.exmail.qq.com ([43.154.221.58])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qnYrs-00DuhI-2Y;
-	Tue, 03 Oct 2023 06:26:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1696314411; x=1727850411;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=vEQY+v+Ij8ADUmJrIg7SKb1xUBWafpNeo9oPU2Mazic=;
-  b=DfNsPITeRIMWBe8KRcKhf3YG6xTvT8q58DxQPQWF59R6rnj0B9bGKD+b
-   qfL/C4+4mBp6qdbXQcXSaVssConji8FfA6lBh5RK5hyLLi3OP7jqbFANi
-   /k5DPiARcgzIFfVgEFJb2dLjqMPlJL24GMlFMe8klYPjUYFHj+wQnyQ9J
-   PIM8a9Tj1zEbxsVa3jfRRwtr9JektyF+rErH+QYLWFoTgGozoZ4Ai292P
-   sHdwCxUz+DTkDVjF7/qe5+MX9WAtrIuCHsrMg89njLRWzpOtdWTEEF/MR
-   v29mW5wq3eWmFk6h4QpiLWapyB2J2LD41t1hIo8GzYTwkhInDjcxQaKl7
-   w==;
-X-IronPort-AV: E=McAfee;i="6600,9927,10851"; a="373145758"
-X-IronPort-AV: E=Sophos;i="6.03,196,1694761200"; 
-   d="scan'208";a="373145758"
-Received: from orsmga005.jf.intel.com ([10.7.209.41])
-  by orsmga101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Oct 2023 23:26:47 -0700
-X-ExtLoop1: 1
-X-IronPort-AV: E=McAfee;i="6600,9927,10851"; a="924530368"
-X-IronPort-AV: E=Sophos;i="6.03,196,1694761200"; 
-   d="scan'208";a="924530368"
-Received: from lkp-server02.sh.intel.com (HELO c3b01524d57c) ([10.239.97.151])
-  by orsmga005.jf.intel.com with ESMTP; 02 Oct 2023 23:26:43 -0700
-Received: from kbuild by c3b01524d57c with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1qnYrh-0006qP-2N;
-	Tue, 03 Oct 2023 06:26:41 +0000
-Date: Tue, 3 Oct 2023 14:25:42 +0800
-From: kernel test robot <lkp@intel.com>
-To: Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Alexander Potapenko <glider@google.com>,
-	Marco Elver <elver@google.com>, Dmitry Vyukov <dvyukov@google.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup@brainfault.org>,
-	Atish Patra <atishp@atishpatra.org>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Andrey Ryabinin <ryabinin.a.a@gmail.com>,
-	Andrey Konovalov <andreyknvl@gmail.com>,
-	Vincenzo Frascino <vincenzo.frascino@arm.com>,
-	kasan-dev@googlegroups.com, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, kvm@vger.kernel.org,
-	kvm-riscv@lists.infradead.org, linux-efi@vger.kernel.org,
-	linux-mm@kvack.org
-Cc: oe-kbuild-all@lists.linux.dev, Alexandre Ghiti <alexghiti@rivosinc.com>
-Subject: Re: [PATCH 2/5] mm: Introduce pudp/p4dp/pgdp_get() functions
-Message-ID: <202310031431.NkMgiRBL-lkp@intel.com>
-References: <20231002151031.110551-3-alexghiti@rivosinc.com>
+	id 1qnZ6g-00Dw3F-0U
+	for linux-riscv@lists.infradead.org;
+	Tue, 03 Oct 2023 06:42:12 +0000
+X-QQ-mid: bizesmtp86t1696315173tuzddk6q
+Received: from linux-lab-host.localdomain ( [119.123.130.135])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Tue, 03 Oct 2023 14:39:31 +0800 (CST)
+X-QQ-SSF: 01200000000000E0Y000000A0000000
+X-QQ-FEAT: znfcQSa1hKYnB06FCUnyZ7Rpm5CmZWJqRfGTuJHxtl4meQaVBWI1H1PDt02dS
+	pT2O0sXLVF6qVDbFKjPG9YyYphS+fIXm4VBKdAqG0PvktEfB58/biOUXz5SZz+KGERt1VaT
+	619J4+whN/qouLxMO+CPBVRj3RufS4PmiNDowjcL5GiAqAZEsbd0JDAOIYmyoR7KpvizSkS
+	TszFtsx8VZPjxSkJW246JxoaEP+vLyLq2KqFNfI5G+HbMbSQm2uka2LlDUWA97v1AOV3r+U
+	cy8axGyvJAX6OYRKjFAP56NzuEkCzTsAO/E1L/4eMGi6qKfjdklQillvWazCsZvz0FGOo84
+	qnu5ckVoLE40dEvY0pp1gyGdlj7HA==
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 3474633451399552696
+From: Zhangjin Wu <falcon@tinylab.org>
+To: palmer@rivosinc.com,
+	arnd@arndb.de
+Cc: aou@eecs.berkeley.edu,
+	conor.dooley@microchip.com,
+	ebiederm@xmission.com,
+	falcon@tinylab.org,
+	guoren@kernel.org,
+	keescook@chromium.org,
+	linux-riscv@lists.infradead.org,
+	paul.walmsley@sifive.com
+Subject: Re: [RFC PATCH 1/1] riscv: add Kconfig.vdso
+Date: Tue,  3 Oct 2023 14:39:31 +0800
+Message-Id: <20231003063931.5394-1-falcon@tinylab.org>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <95c2e86acbcaf8966251a471997b3f0cd3c64fbd.1684430522.git.falcon@tinylab.org>
+References: <mhng-a1871255-29e2-4adc-b344-a753526cd392@palmer-ri-x1c9a>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20231002151031.110551-3-alexghiti@rivosinc.com>
+X-QQ-SENDSIZE: 520
+Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrgz:qybglogicsvrgz5a-1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231002_232652_890292_4FE93C77 
-X-CRM114-Status: GOOD (  12.35  )
+X-CRM114-CacheID: sfid-20231002_234210_533762_1D0C5273 
+X-CRM114-Status: GOOD (  13.57  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,77 +79,50 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Alexandre,
+Hi, Palmer
 
-kernel test robot noticed the following build errors:
+Thanks very much for your review.
 
-[auto build test ERROR on linus/master]
-[also build test ERROR on v6.6-rc4 next-20231003]
-[cannot apply to efi/next]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+> On Thu, 18 May 2023 10:48:52 PDT (-0700), falcon@tinylab.org wrote:
+> > Allow users to disable the vdso and compat vdso in Kconfig.
+> >
+> > Copied and adapted some code from arm and arm64.
+> >
+> > Size measured with a small rv64 config of v6.4-rc2:
+> >
+> >             Config | Size      | Shrink
+> >     ---------------|-----------|--------
+> >            default | 1588 KB   |
+> >     no compat vdso | 1584 KB   | -4 KB
+> >      (and) no vdso | 1576 KB   | -12 KB
+> 
+> Do the resulting kernels actually work?  As far as I can tell this 
+> disables some syscalls that would break userspace (that time-related 
+> stuff that would be turned off) and the lack of rt_sigreturn would need 
+> an executable stack (which probably cancels out any benefits from the 
+> smaller text size).
+>
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Alexandre-Ghiti/riscv-Use-WRITE_ONCE-when-setting-page-table-entries/20231002-231725
-base:   linus/master
-patch link:    https://lore.kernel.org/r/20231002151031.110551-3-alexghiti%40rivosinc.com
-patch subject: [PATCH 2/5] mm: Introduce pudp/p4dp/pgdp_get() functions
-config: arm-allyesconfig (https://download.01.org/0day-ci/archive/20231003/202310031431.NkMgiRBL-lkp@intel.com/config)
-compiler: arm-linux-gnueabi-gcc (GCC) 13.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20231003/202310031431.NkMgiRBL-lkp@intel.com/reproduce)
+Yes, its working is limited in extremely small embedded systems (who
+don't require such syscalls or their vdso speedup variants), the libc we
+currently tested is NoLibc.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202310031431.NkMgiRBL-lkp@intel.com/
+This is part of our work on kernel tinification for RISC-V, exactly, it
+is derived from the in-progress DCE/DSE work [1].
 
-All error/warnings (new ones prefixed by >>):
+The simple background logic here is if the target system don't require a target
+syscall, no need to provide both the syscall and/or its vdso variants from
+kernel side.  seems this logic is not specific to RISC-V, perhaps we should
+rethink it under the whole DSE work (Arnd has given some suggestions), for
+example, let the DSE 'framework' (based on user-space profiling) tell us which
+vdso variants should be reserved and which one is not required, manual
+selection is really not that friendly although ARM also currently provide the
+same config option.
 
-   In file included from include/linux/mm.h:29,
-                    from arch/arm/kernel/asm-offsets.c:12:
->> include/linux/pgtable.h:310:21: error: 'pgdp_get' declared as function returning an array
-     310 | static inline pgd_t pgdp_get(pgd_t *pgdp)
-         |                     ^~~~~~~~
-   In file included from ./arch/arm/include/generated/asm/rwonce.h:1,
-                    from include/linux/compiler.h:246,
-                    from arch/arm/kernel/asm-offsets.c:10:
-   include/linux/pgtable.h: In function 'pgdp_get':
->> include/asm-generic/rwonce.h:48:2: warning: returning 'const volatile pmdval_t *' {aka 'const volatile unsigned int *'} from a function with return type 'int' makes integer from pointer without a cast [-Wint-conversion]
-      48 | ({                                                                      \
-         | ~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      49 |         compiletime_assert_rwonce_type(x);                              \
-         |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      50 |         __READ_ONCE(x);                                                 \
-         |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      51 | })
-         | ~~
-   include/linux/pgtable.h:312:16: note: in expansion of macro 'READ_ONCE'
-     312 |         return READ_ONCE(*pgdp);
-         |                ^~~~~~~~~
-   make[3]: *** [scripts/Makefile.build:116: arch/arm/kernel/asm-offsets.s] Error 1
-   make[3]: Target 'prepare' not remade because of errors.
-   make[2]: *** [Makefile:1202: prepare0] Error 2
-   make[2]: Target 'prepare' not remade because of errors.
-   make[1]: *** [Makefile:234: __sub-make] Error 2
-   make[1]: Target 'prepare' not remade because of errors.
-   make: *** [Makefile:234: __sub-make] Error 2
-   make: Target 'prepare' not remade because of errors.
-
-
-vim +/pgdp_get +310 include/linux/pgtable.h
-
-   308	
-   309	#ifndef pgdp_get
- > 310	static inline pgd_t pgdp_get(pgd_t *pgdp)
-   311	{
-   312		return READ_ONCE(*pgdp);
-   313	}
-   314	#endif
-   315	
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Thanks,
+Zhangjin Wu
+---
+[1]: https://lore.kernel.org/lkml/cover.1695679700.git.falcon@tinylab.org/
 
 _______________________________________________
 linux-riscv mailing list
