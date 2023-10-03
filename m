@@ -4,84 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 931EBE7545C
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Oct 2023 18:24:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B940DE75459
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Oct 2023 18:27:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=6fC5p+8eeT3G1TqqA3nH89SiifWHhj9NKlv5VIsuqek=; b=gx/ZHgTIh/ukiG
-	kHPAngKHyKIZBayfDycBLDaPev6lbZgY9f80Dz94wfF3NrUifW1g0qPQJCQx1sVjcnxFctjEPjOnr
-	WLmQ5VZa+VG7xz7H/Bn74OnI7gYvgZhcTw37qjybAY2wKSgNdrg8slNhWLC7w2ITvMbbID0gPddLh
-	x3kfyy4/qNSmhsgluIepJ9wJZQ7HnQSO3m2N9J4joGL/hoYDUhH7CplxkEPAIArbm+6ayXREkIgsF
-	vez4VhYoqF7F8bnScYLn9Y6fl+SfO9c3e7MT30eFb7CpFh3T4XdgQjnkHiQ4UiATvml86+cGaHIi0
-	EiRcw5QeLwDbb3uXDB6g==;
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Cc:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=GCBG9qiibDxAL6JdYUnreANNM+oWdMq6RM9XpQ/i+zA=; b=jSoqobA3asfPp5WQnTE6WBuvta
+	TQbh3BFYIZ16ujaToomMSIesQziUJLFgJMcLNUhWLo+N5M2bKlKAyaTjODNHmzf/QvmXkpR5O/k9z
+	2ZfG3vfEJ9kwTicbipgBLOIa/5k0tmsvq+CzO0tPLMO9QdJVOUQ5rM+oodPGzqmkECCHvQE8x7nUq
+	+vRhDztxtR43ejLkhcbSE7bJr6ITT26mZWtxEoziwaCZYg+SnFBvJ0Bw/HUnzOMkLekWwrq5mH9ul
+	m5UH3YaxQdnnKwJZzF1ZLtGFmCT7MqZ4anrOo2U02MvOPSQee1mu/RoxqtHYHZ8oUdaRt/BJIASsx
+	opajExfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qnk49-00F6sl-2g;
-	Tue, 03 Oct 2023 18:24:17 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1qnk7G-00F778-1g;
+	Tue, 03 Oct 2023 18:27:30 +0000
+Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qnk46-00F6rj-1Q
+	id 1qnk7D-00F76H-0w
 	for linux-riscv@lists.infradead.org;
-	Tue, 03 Oct 2023 18:24:16 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-406619b53caso11789535e9.1
-        for <linux-riscv@lists.infradead.org>; Tue, 03 Oct 2023 11:24:11 -0700 (PDT)
+	Tue, 03 Oct 2023 18:27:28 +0000
+Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-327be5fe4beso1172174f8f.3
+        for <linux-riscv@lists.infradead.org>; Tue, 03 Oct 2023 11:27:24 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1696357450; x=1696962250; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=9fq2RfR39uaAULbR2hK0DPNGxa1+1fryXBa+jVce0es=;
-        b=Y1pRfXuplChDvmSQErVvalvkS4jb16hcRW+qYuTPwMr+uyXnAqZCqQP54Uuwyfxgtf
-         40AYnh5L75WNyhXrIcMeFf3X+tHwHhr0YSIGbrrvy7xIRMPdfVnMuX9jMrZRrD/FrOY2
-         fUHRbLgdkyt7kHFs0VGXbMigsP4Zu5ECfFm0xJqDVQzztPWe3oifbyL/9NjiG/JIdUAJ
-         1j5y7mzqlOrIa0ZeNjI2nBzLvziZ4N9jpB9IOlSTkd6oWJ7LgWxqhG2asUzhP/3pJDne
-         q+3Shd3+46l4LuU4Lr4UyUiqsSubd8tkOf9yq5/cfjpe1vh3UmafIBZ8sCtIaTwOBV66
-         47hQ==
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1696357643; x=1696962443; darn=lists.infradead.org;
+        h=content-transfer-encoding:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=XKEsyAv6XjAH8lDfghIcM7e9BN4zDNSRbHBKEya8cd8=;
+        b=ZPyBjNMhw5wvuEWfcT3mVG8orJPlut0/l2Tir7o6rvqyva1kVaZ+2p+XzZK3dD1Lmg
+         C1gNWvBegc3qyvo6EyRbJlTw1geeEIK4RCJUu1IYCpYW2s7QPSQab0eoeO38DM1sKbqB
+         ADlvEr541Tmk9R9IoQIgA7cGlwX9dmepN8jtJ5yRBJu23XYtfK0KPvBxlXaLgQHKnQ+F
+         HeFDFnW96H5YoeG8ivyMMzsTCZRgIS9D07s/jWaqxhccHlufKB7ABlzkcju6HuEbTd3p
+         XpZAfbzeiJzWDXwOSKz5n8b3uQfJe1HCdd1cAiDgZRKeBZuzxtYe7mVSAfjr4P7qBMw4
+         BBUw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1696357450; x=1696962250;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=9fq2RfR39uaAULbR2hK0DPNGxa1+1fryXBa+jVce0es=;
-        b=gCOVoYmunZl9dlm4jnLKBrr5FZWDJ+d8JMg+jrt2aSDRFtSm9pmHEYoJCCOjY5Gdk7
-         /owRdM4k4g4zFQOigk28Z9ebIIgnfYNdC0tKUsrQs0katr75Tv0eiU445ULHtATZerEd
-         yjCRh6JCwKufVZCo08rVdPqBKJ4yYkknriVx/dr596rdo6x68U+L547/CZmNk9O/XL1f
-         PKpExK2A5vFajaTUE9efjYZvViX08KDQ7wfEe0OSSW4fYQkG9Uf2AP/qsD69HVVtjF0N
-         u8OwfijQa7+Bgwg8SQrD4+Hs3QyqtPEK97FntlzfaIw2BpDvwUO6wUBrGnPHu3qZXqoP
-         jOkA==
-X-Gm-Message-State: AOJu0YwJ8ChApln3WI4Lw9M3Uzcu7LEjCRbv7OryShhAM6khvbwrEjyn
-	3Wc7vk7ir7i8xs16yN0Yav/QjQ==
-X-Google-Smtp-Source: AGHT+IFST40dAkMljajKV3st91h8lo8KqjiqMch0O4WAUPvcsQAwJnwqFiLD2Dq6fOcnD3TpdoY4xQ==
-X-Received: by 2002:a05:600c:22cf:b0:401:4542:5edd with SMTP id 15-20020a05600c22cf00b0040145425eddmr187257wmg.34.1696357449779;
-        Tue, 03 Oct 2023 11:24:09 -0700 (PDT)
-Received: from alex-rivos.ba.rivosinc.com (amontpellier-656-1-456-62.w92-145.abo.wanadoo.fr. [92.145.124.62])
-        by smtp.gmail.com with ESMTPSA id m24-20020a7bca58000000b004063977eccesm10001349wml.42.2023.10.03.11.24.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 03 Oct 2023 11:24:09 -0700 (PDT)
-From: Alexandre Ghiti <alexghiti@rivosinc.com>
-To: Steven Rostedt <rostedt@goodmis.org>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Sami Tolvanen <samitolvanen@google.com>,
-	Kees Cook <keescook@chromium.org>,
-	linux-kernel@vger.kernel.org,
-	linux-trace-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
-Subject: [PATCH -fixes] riscv: Fix ftrace syscall handling which are now prefixed with __riscv_
-Date: Tue,  3 Oct 2023 20:24:07 +0200
-Message-Id: <20231003182407.32198-1-alexghiti@rivosinc.com>
-X-Mailer: git-send-email 2.39.2
+        d=1e100.net; s=20230601; t=1696357643; x=1696962443;
+        h=content-transfer-encoding:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=XKEsyAv6XjAH8lDfghIcM7e9BN4zDNSRbHBKEya8cd8=;
+        b=nXYgHutHUuH0YCtJ+WE4QufQ3O+S/T9r/TPqh85GepND6WVvA1R+wnArHs7MlWIMhP
+         EongdrN3f+TfkzHFTd7OkZlCE/rv+SgZ1nVgHy+p/S7dCG+RKP/921nlNU3C4UfQETBg
+         7Kix+2DgKLF8rIaghwD5fI2vN24FJIzMDq9seSJk496tSDWTJwz+BIIi5IuhhzPcvqMX
+         FakMn25Vj+EBfLJjymm/Xg5Yi+MReN035yexgbbFxSuM81QkkUQjx3w+6Xec7EzkLOfh
+         YUkiclLmGEuvc8JUI3UCxVFDkxZ850T3mdCINaz4aVmfkO+rFYvSYmiNPYzIWqLfw2K8
+         Seqw==
+X-Gm-Message-State: AOJu0YzEOkpnQquKWfM9fzsHYmfCxg0gbTwUvIrb7aiQDW+p0udWvATc
+	f4mn9mJBoW53LzwmhPxnr2kArt5/SKYnBtiBUYlmDg==
+X-Google-Smtp-Source: AGHT+IFFlWyGOt0b75dfwwM1K65K2zojxoftJASga5Hu+zgw0aqN5/Z8ze3Y/z9ubr5U1wQ1TY3F3woRwx2wqOVdm9U=
+X-Received: by 2002:a5d:6909:0:b0:317:e542:80a8 with SMTP id
+ t9-20020a5d6909000000b00317e54280a8mr39860wru.15.1696357643542; Tue, 03 Oct
+ 2023 11:27:23 -0700 (PDT)
 MIME-Version: 1.0
+References: <20231003182407.32198-1-alexghiti@rivosinc.com>
+In-Reply-To: <20231003182407.32198-1-alexghiti@rivosinc.com>
+From: Alexandre Ghiti <alexghiti@rivosinc.com>
+Date: Tue, 3 Oct 2023 20:27:12 +0200
+Message-ID: <CAHVXubgTkoWYEybsbXVbCMO4JaMAChaSq4BgqZZO9ih7OxwUyA@mail.gmail.com>
+Subject: Re: [PATCH -fixes] riscv: Fix ftrace syscall handling which are now
+ prefixed with __riscv_
+To: Steven Rostedt <rostedt@goodmis.org>, Masami Hiramatsu <mhiramat@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Sami Tolvanen <samitolvanen@google.com>, Kees Cook <keescook@chromium.org>, 
+	linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, Conor Dooley <conor@kernel.org>, 
+	Conor Dooley <conor.dooley@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231003_112414_664545_CE40C57A 
-X-CRM114-Status: GOOD (  10.53  )
+X-CRM114-CacheID: sfid-20231003_112727_331097_636935C5 
+X-CRM114-Status: GOOD (  20.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,64 +89,46 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-ftrace creates entries for each syscall in the tracefs but has failed
-since commit 08d0ce30e0e4 ("riscv: Implement syscall wrappers") which
-prefixes all riscv syscalls with __riscv_.
-
-So fix this by implementing arch_syscall_match_sym_name() which allows us
-to ignore this prefix.
-
-And also ignore compat syscalls like x86/arm64 by implementing
-arch_trace_is_compat_syscall().
-
-Fixes: 08d0ce30e0e4 ("riscv: Implement syscall wrappers")
-Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
----
- arch/riscv/include/asm/ftrace.h | 21 +++++++++++++++++++++
- 1 file changed, 21 insertions(+)
-
-diff --git a/arch/riscv/include/asm/ftrace.h b/arch/riscv/include/asm/ftrace.h
-index 740a979171e5..2b2f5df7ef2c 100644
---- a/arch/riscv/include/asm/ftrace.h
-+++ b/arch/riscv/include/asm/ftrace.h
-@@ -31,6 +31,27 @@ static inline unsigned long ftrace_call_adjust(unsigned long addr)
- 	return addr;
- }
- 
-+/*
-+ * Let's do like x86/arm64 and ignore the compat syscalls.
-+ */
-+#define ARCH_TRACE_IGNORE_COMPAT_SYSCALLS
-+static inline bool arch_trace_is_compat_syscall(struct pt_regs *regs)
-+{
-+	return is_compat_task();
-+}
-+
-+#define ARCH_HAS_SYSCALL_MATCH_SYM_NAME
-+static inline bool arch_syscall_match_sym_name(const char *sym,
-+					       const char *name)
-+{
-+	/*
-+	 * Since all syscall functions have __riscv_ prefix, we must skip it.
-+	 * However, as we described above, we decided to ignore compat
-+	 * syscalls, so we don't care about __riscv_compat_ prefix here.
-+	 */
-+	return !strcmp(sym + 8, name);
-+}
-+
- struct dyn_arch_ftrace {
- };
- #endif
--- 
-2.39.2
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+QENvbm9yIERvb2xleSBUaGlzIGZhaWxzIGNoZWNrcGF0Y2ggYnV0IHRoZSBkb2N1bWVudGF0aW9u
+IGhlcmUgc3RhdGVzCnRoYXQgdGhpcyBpcyBob3cgdG8gZG86Cmh0dHBzOi8vZWxpeGlyLmJvb3Rs
+aW4uY29tL2xpbnV4L2xhdGVzdC9zb3VyY2UvRG9jdW1lbnRhdGlvbi90cmFjZS9mdHJhY2UtZGVz
+aWduLnJzdCNMMjQ2CgpPbiBUdWUsIE9jdCAzLCAyMDIzIGF0IDg6MjTigK9QTSBBbGV4YW5kcmUg
+R2hpdGkgPGFsZXhnaGl0aUByaXZvc2luYy5jb20+IHdyb3RlOgo+Cj4gZnRyYWNlIGNyZWF0ZXMg
+ZW50cmllcyBmb3IgZWFjaCBzeXNjYWxsIGluIHRoZSB0cmFjZWZzIGJ1dCBoYXMgZmFpbGVkCj4g
+c2luY2UgY29tbWl0IDA4ZDBjZTMwZTBlNCAoInJpc2N2OiBJbXBsZW1lbnQgc3lzY2FsbCB3cmFw
+cGVycyIpIHdoaWNoCj4gcHJlZml4ZXMgYWxsIHJpc2N2IHN5c2NhbGxzIHdpdGggX19yaXNjdl8u
+Cj4KPiBTbyBmaXggdGhpcyBieSBpbXBsZW1lbnRpbmcgYXJjaF9zeXNjYWxsX21hdGNoX3N5bV9u
+YW1lKCkgd2hpY2ggYWxsb3dzIHVzCj4gdG8gaWdub3JlIHRoaXMgcHJlZml4Lgo+Cj4gQW5kIGFs
+c28gaWdub3JlIGNvbXBhdCBzeXNjYWxscyBsaWtlIHg4Ni9hcm02NCBieSBpbXBsZW1lbnRpbmcK
+PiBhcmNoX3RyYWNlX2lzX2NvbXBhdF9zeXNjYWxsKCkuCj4KPiBGaXhlczogMDhkMGNlMzBlMGU0
+ICgicmlzY3Y6IEltcGxlbWVudCBzeXNjYWxsIHdyYXBwZXJzIikKPiBTaWduZWQtb2ZmLWJ5OiBB
+bGV4YW5kcmUgR2hpdGkgPGFsZXhnaGl0aUByaXZvc2luYy5jb20+Cj4gLS0tCj4gIGFyY2gvcmlz
+Y3YvaW5jbHVkZS9hc20vZnRyYWNlLmggfCAyMSArKysrKysrKysrKysrKysrKysrKysKPiAgMSBm
+aWxlIGNoYW5nZWQsIDIxIGluc2VydGlvbnMoKykKPgo+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2
+L2luY2x1ZGUvYXNtL2Z0cmFjZS5oIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9mdHJhY2UuaAo+
+IGluZGV4IDc0MGE5NzkxNzFlNS4uMmIyZjVkZjdlZjJjIDEwMDY0NAo+IC0tLSBhL2FyY2gvcmlz
+Y3YvaW5jbHVkZS9hc20vZnRyYWNlLmgKPiArKysgYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2Z0
+cmFjZS5oCj4gQEAgLTMxLDYgKzMxLDI3IEBAIHN0YXRpYyBpbmxpbmUgdW5zaWduZWQgbG9uZyBm
+dHJhY2VfY2FsbF9hZGp1c3QodW5zaWduZWQgbG9uZyBhZGRyKQo+ICAgICAgICAgcmV0dXJuIGFk
+ZHI7Cj4gIH0KPgo+ICsvKgo+ICsgKiBMZXQncyBkbyBsaWtlIHg4Ni9hcm02NCBhbmQgaWdub3Jl
+IHRoZSBjb21wYXQgc3lzY2FsbHMuCj4gKyAqLwo+ICsjZGVmaW5lIEFSQ0hfVFJBQ0VfSUdOT1JF
+X0NPTVBBVF9TWVNDQUxMUwo+ICtzdGF0aWMgaW5saW5lIGJvb2wgYXJjaF90cmFjZV9pc19jb21w
+YXRfc3lzY2FsbChzdHJ1Y3QgcHRfcmVncyAqcmVncykKPiArewo+ICsgICAgICAgcmV0dXJuIGlz
+X2NvbXBhdF90YXNrKCk7Cj4gK30KPiArCj4gKyNkZWZpbmUgQVJDSF9IQVNfU1lTQ0FMTF9NQVRD
+SF9TWU1fTkFNRQo+ICtzdGF0aWMgaW5saW5lIGJvb2wgYXJjaF9zeXNjYWxsX21hdGNoX3N5bV9u
+YW1lKGNvbnN0IGNoYXIgKnN5bSwKPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgIGNvbnN0IGNoYXIgKm5hbWUpCj4gK3sKPiArICAgICAgIC8qCj4gKyAgICAg
+ICAgKiBTaW5jZSBhbGwgc3lzY2FsbCBmdW5jdGlvbnMgaGF2ZSBfX3Jpc2N2XyBwcmVmaXgsIHdl
+IG11c3Qgc2tpcCBpdC4KPiArICAgICAgICAqIEhvd2V2ZXIsIGFzIHdlIGRlc2NyaWJlZCBhYm92
+ZSwgd2UgZGVjaWRlZCB0byBpZ25vcmUgY29tcGF0Cj4gKyAgICAgICAgKiBzeXNjYWxscywgc28g
+d2UgZG9uJ3QgY2FyZSBhYm91dCBfX3Jpc2N2X2NvbXBhdF8gcHJlZml4IGhlcmUuCj4gKyAgICAg
+ICAgKi8KPiArICAgICAgIHJldHVybiAhc3RyY21wKHN5bSArIDgsIG5hbWUpOwo+ICt9Cj4gKwo+
+ICBzdHJ1Y3QgZHluX2FyY2hfZnRyYWNlIHsKPiAgfTsKPiAgI2VuZGlmCj4gLS0KPiAyLjM5LjIK
+PgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgt
+cmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDov
+L2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
