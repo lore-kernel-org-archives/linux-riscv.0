@@ -4,65 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BC69E7542B
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Oct 2023 06:42:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9658E75432
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Oct 2023 07:35:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7I7uzyMaqFeiTJYP0JoF95LnOzFrq28RV7ARpavaR7M=; b=uV5hYViuM6TH8R
-	etAUtrOK2Mihg2OCmjfQQel372ei5lb3LrnVdWk8RSkKgIxys36frp8HI/BR42V7eg9N7a8pg6fiC
-	FUhnmZ94DzUvAVv0AESVPmwnRT8wsINABup1c1ezqQMtfOFtVF5bM2ALQdLpVhjq8y2P76UH2Av7o
-	kaS+zz1fivpfdirB5lpU/wtVhUIOf5dO/6Hr5V9edS0i3sCc1hOydpROga0iuWhxCPr4f84COcjer
-	KTmT+gEMP3cwAlM6iJ/gNXtwIJ5dHA/+tdSxYkSNKRPf/uqGxuDr2S5Imw7BePE/hUSX6Vg2SnKy0
-	6Yymy7WG0/ljFY6dr0OA==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:
+	Mime-Version:References:In-Reply-To:From:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=BF/D8n6kPL86cLC0TLU3qs9/aDv7CJ3B0LZ/+wZyCPw=; b=KLAzaY2SCWZcQvIKm4RWQrpchX
+	MccoPsFuI80+FHuxfu+CHb4eUQT2YJpoNIoZB+NQjmNQIO6dB20PWTz7j2pmel5vd8pn2Co53YONQ
+	kbfWNt1MuX23Gn+XvR92TgBMjkeuxSc8WWufCNNhnSkZWve9f+/Bk3iXbns9o7I3hk6q1sOhHB6VP
+	ZXsjRWp4hBTl6Orirg6owKki88L8w11vWqdY3Qeiy4yi2LHwo7jLJIW72gYREcFxH1AfQzkXW6DL9
+	WzCzYH/oDd64SNuudV9UKuMc79v1c58I1WDHAsWb9kZqj34vdFkGw3WXaTqZwEcYX+exDEmMO/1o9
+	p9ojFAPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qnZ6k-00Dw3w-1W;
-	Tue, 03 Oct 2023 06:42:14 +0000
-Received: from bg4.exmail.qq.com ([43.154.221.58])
+	id 1qnZwD-00E02Y-1H;
+	Tue, 03 Oct 2023 07:35:25 +0000
+Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qnZ6g-00Dw3F-0U
+	id 1qnZw8-00E01B-1s
 	for linux-riscv@lists.infradead.org;
-	Tue, 03 Oct 2023 06:42:12 +0000
-X-QQ-mid: bizesmtp86t1696315173tuzddk6q
-Received: from linux-lab-host.localdomain ( [119.123.130.135])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Tue, 03 Oct 2023 14:39:31 +0800 (CST)
-X-QQ-SSF: 01200000000000E0Y000000A0000000
-X-QQ-FEAT: znfcQSa1hKYnB06FCUnyZ7Rpm5CmZWJqRfGTuJHxtl4meQaVBWI1H1PDt02dS
-	pT2O0sXLVF6qVDbFKjPG9YyYphS+fIXm4VBKdAqG0PvktEfB58/biOUXz5SZz+KGERt1VaT
-	619J4+whN/qouLxMO+CPBVRj3RufS4PmiNDowjcL5GiAqAZEsbd0JDAOIYmyoR7KpvizSkS
-	TszFtsx8VZPjxSkJW246JxoaEP+vLyLq2KqFNfI5G+HbMbSQm2uka2LlDUWA97v1AOV3r+U
-	cy8axGyvJAX6OYRKjFAP56NzuEkCzTsAO/E1L/4eMGi6qKfjdklQillvWazCsZvz0FGOo84
-	qnu5ckVoLE40dEvY0pp1gyGdlj7HA==
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 3474633451399552696
-From: Zhangjin Wu <falcon@tinylab.org>
-To: palmer@rivosinc.com,
-	arnd@arndb.de
-Cc: aou@eecs.berkeley.edu,
-	conor.dooley@microchip.com,
-	ebiederm@xmission.com,
-	falcon@tinylab.org,
-	guoren@kernel.org,
-	keescook@chromium.org,
-	linux-riscv@lists.infradead.org,
-	paul.walmsley@sifive.com
-Subject: Re: [RFC PATCH 1/1] riscv: add Kconfig.vdso
-Date: Tue,  3 Oct 2023 14:39:31 +0800
-Message-Id: <20231003063931.5394-1-falcon@tinylab.org>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <95c2e86acbcaf8966251a471997b3f0cd3c64fbd.1684430522.git.falcon@tinylab.org>
-References: <mhng-a1871255-29e2-4adc-b344-a753526cd392@palmer-ri-x1c9a>
-MIME-Version: 1.0
-X-QQ-SENDSIZE: 520
-Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrgz:qybglogicsvrgz5a-1
+	Tue, 03 Oct 2023 07:35:23 +0000
+Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id 19CA73F664
+	for <linux-riscv@lists.infradead.org>; Tue,  3 Oct 2023 07:35:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+	s=20210705; t=1696318515;
+	bh=C2LI02pllk3xNmgu5C2lERlc5CopHtR66RkR1No21/8=;
+	h=From:In-Reply-To:References:Mime-Version:Date:Message-ID:Subject:
+	 To:Cc:Content-Type;
+	b=cuvT6CbxgIfVSNMS07AG2APYygufuJkIGEVfekvmX7qiGJ5j/+vHCb9avgR/7MxEW
+	 o0DQVdtKo4hr/FEcz9NRJcg4smfzYY8WmCulMRdh77wapOumnlbsbwnKrsUToEckg9
+	 IJFZmi0ta/M25o+5TO+/AQqS/aADt//6iLqeJ+m99RJMUgmNVLjpHYHeFRpUHluZGa
+	 BVgVlsshsWwQzjUgza/fhCcr09JF6F3wzNb+3H0b+woiuHenFfXwfTW5ZEMj6WfgaD
+	 4zVuW4D+cd/HLgBHIUJLLbjSzba0bZ2E9M7XWLvP1LoIkrR68UqQXXeVrWuLjUdUE9
+	 0o8zQZ0dLGaIw==
+Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-419624b11c1so6844851cf.0
+        for <linux-riscv@lists.infradead.org>; Tue, 03 Oct 2023 00:35:14 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1696318513; x=1696923313;
+        h=cc:to:subject:message-id:date:mime-version:references:in-reply-to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=C2LI02pllk3xNmgu5C2lERlc5CopHtR66RkR1No21/8=;
+        b=Vve/2bD7rpn6Hfn7D9CdJvjN2r/E8P8ywcqAuoB4Y6clZc48hO4Z6o1/dC1ScznTY9
+         xQ45qHc4KhFkDnAwPUDuxQ0Ws/R+fT4G4OafebBmxpaRlPrOUD3lVNkxc4xHpAorJ0B2
+         P40auOc8eV5DFBuTKJ6g1DhrijK6UiWhbKzfYyMb7VQMeU3uQ2vYBVY9lS70vCbdUFF3
+         6FwSqOZZPd3J5Qj8DRtHYBdp56J7GYoQsxJZWm1wN3LKWr3VbXxWlVJHPVSZCZvYL1CB
+         Mtqdw57AkhPsuPxHI8vfLtbsoEIQxuTmmWjEU3dTtSke7e0gRqRP3mDBQhI4sk3ZwXoH
+         Rogg==
+X-Gm-Message-State: AOJu0YxWszvq9hHOmT8NzQ5HNh/dakYzCnbC/xPDNlDVTNefGinYK45S
+	1dSP7VbJRaDx34LvAo/Kp8xq05lf/Gn/mC/3qE3dGV6wHsfgKC2beIOQ4+4B0gNBgK0yVXEpEcO
+	aUl+Efv9iI4tamFg3vTEhvqWoRcHabpteELfCwBsfGYEUC5QiwcUbaqi4It4JIQ==
+X-Received: by 2002:ac8:5a10:0:b0:417:b269:4689 with SMTP id n16-20020ac85a10000000b00417b2694689mr16769942qta.53.1696318512747;
+        Tue, 03 Oct 2023 00:35:12 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IECydVO6IXDIfn2oX2lhW4fKbeswzVXSFt7PoPPot50XJyzkTu2tv2vXbEDYVXHWTsdZBKJZZQAwniqa+LzXBc=
+X-Received: by 2002:ac8:5a10:0:b0:417:b269:4689 with SMTP id
+ n16-20020ac85a10000000b00417b2694689mr16769899qta.53.1696318511438; Tue, 03
+ Oct 2023 00:35:11 -0700 (PDT)
+Received: from 348282803490 named unknown by gmailapi.google.com with
+ HTTPREST; Tue, 3 Oct 2023 00:35:10 -0700
+From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+In-Reply-To: <20231003042215.142678-4-shravan.chippa@microchip.com>
+References: <20231003042215.142678-1-shravan.chippa@microchip.com> <20231003042215.142678-4-shravan.chippa@microchip.com>
+Mime-Version: 1.0
+Date: Tue, 3 Oct 2023 00:35:10 -0700
+Message-ID: <CAJM55Z8+UtVwFRxOKPcNKmitzkZQ9tyecG46dhTZqiYZgw903Q@mail.gmail.com>
+Subject: Re: [PATCH v2 3/4] dmaengine: sf-pdma: add mpfs-pdma compatible name
+To: shravan chippa <shravan.chippa@microchip.com>, green.wan@sifive.com, vkoul@kernel.org, 
+	robh+dt@kernel.org, krzysztof.kozlowski+dt@linaro.org, palmer@dabbelt.com, 
+	paul.walmsley@sifive.com, conor+dt@kernel.org
+Cc: dmaengine@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	nagasuresh.relli@microchip.com, praveen.kumar@microchip.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231002_234210_533762_1D0C5273 
-X-CRM114-Status: GOOD (  13.57  )
+X-CRM114-CacheID: sfid-20231003_003520_781174_DA2207AC 
+X-CRM114-Status: GOOD (  23.04  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,50 +101,144 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi, Palmer
-
-Thanks very much for your review.
-
-> On Thu, 18 May 2023 10:48:52 PDT (-0700), falcon@tinylab.org wrote:
-> > Allow users to disable the vdso and compat vdso in Kconfig.
-> >
-> > Copied and adapted some code from arm and arm64.
-> >
-> > Size measured with a small rv64 config of v6.4-rc2:
-> >
-> >             Config | Size      | Shrink
-> >     ---------------|-----------|--------
-> >            default | 1588 KB   |
-> >     no compat vdso | 1584 KB   | -4 KB
-> >      (and) no vdso | 1576 KB   | -12 KB
-> 
-> Do the resulting kernels actually work?  As far as I can tell this 
-> disables some syscalls that would break userspace (that time-related 
-> stuff that would be turned off) and the lack of rt_sigreturn would need 
-> an executable stack (which probably cancels out any benefits from the 
-> smaller text size).
+shravan chippa wrote:
+> From: Shravan Chippa <shravan.chippa@microchip.com>
 >
+> Sifive platform dma does not allow out-of-order transfers,
+> Add a PolarFire SoC specific compatible and code to support
+> for out-of-order dma transfers
+>
+> Signed-off-by: Shravan Chippa <shravan.chippa@microchip.com>
+> ---
+>  drivers/dma/sf-pdma/sf-pdma.c | 27 ++++++++++++++++++++++++---
+>  drivers/dma/sf-pdma/sf-pdma.h |  6 ++++++
+>  2 files changed, 30 insertions(+), 3 deletions(-)
+>
+> diff --git a/drivers/dma/sf-pdma/sf-pdma.c b/drivers/dma/sf-pdma/sf-pdma.c
+> index 06a0912a12a1..a9ff319d4ca3 100644
+> --- a/drivers/dma/sf-pdma/sf-pdma.c
+> +++ b/drivers/dma/sf-pdma/sf-pdma.c
+> @@ -21,6 +21,7 @@
+>  #include <linux/dma-mapping.h>
+>  #include <linux/of.h>
+>  #include <linux/of_dma.h>
+> +#include <linux/of_device.h>
+>  #include <linux/slab.h>
+>
+>  #include "sf-pdma.h"
+> @@ -66,7 +67,7 @@ static struct sf_pdma_desc *sf_pdma_alloc_desc(struct sf_pdma_chan *chan)
+>  static void sf_pdma_fill_desc(struct sf_pdma_desc *desc,
+>  			      u64 dst, u64 src, u64 size)
+>  {
+> -	desc->xfer_type = PDMA_FULL_SPEED;
+> +	desc->xfer_type =  desc->chan->pdma->transfer_type;
 
-Yes, its working is limited in extremely small embedded systems (who
-don't require such syscalls or their vdso speedup variants), the libc we
-currently tested is NoLibc.
+Two spaces.
 
-This is part of our work on kernel tinification for RISC-V, exactly, it
-is derived from the in-progress DCE/DSE work [1].
+>  	desc->xfer_size = size;
+>  	desc->dst_addr = dst;
+>  	desc->src_addr = src;
+> @@ -520,6 +521,7 @@ static struct dma_chan *sf_pdma_of_xlate(struct of_phandle_args *dma_spec,
+>
+>  static int sf_pdma_probe(struct platform_device *pdev)
+>  {
+> +	const struct sf_pdma_driver_platdata *ddata;
+>  	struct sf_pdma *pdma;
+>  	int ret, n_chans;
+>  	const enum dma_slave_buswidth widths =
+> @@ -545,6 +547,14 @@ static int sf_pdma_probe(struct platform_device *pdev)
+>
+>  	pdma->n_chans = n_chans;
+>
+> +	pdma->transfer_type = PDMA_FULL_SPEED;
+> +
+> +	ddata  = of_device_get_match_data(&pdev->dev);
+> +	if (ddata) {
+> +		if (ddata->quirks & NO_STRICT_ORDERING)
+> +			pdma->transfer_type &= ~(NO_STRICT_ORDERING);
+> +	}
+> +
 
-The simple background logic here is if the target system don't require a target
-syscall, no need to provide both the syscall and/or its vdso variants from
-kernel side.  seems this logic is not specific to RISC-V, perhaps we should
-rethink it under the whole DSE work (Arnd has given some suggestions), for
-example, let the DSE 'framework' (based on user-space profiling) tell us which
-vdso variants should be reserved and which one is not required, manual
-selection is really not that friendly although ARM also currently provide the
-same config option.
+The commit message says "Sifive platform dma does not allow out-of-order
+transfers" so you want strict ordering by default and then allow
+out-of-order transfers if the match data allows it, right?
 
-Thanks,
-Zhangjin Wu
----
-[1]: https://lore.kernel.org/lkml/cover.1695679700.git.falcon@tinylab.org/
+But here bit 3 is set by default and cleared if the quirk is set, so it looks
+like bit 3 actually means "strict ordering" and not "no strict ordering" as
+you've named it.
+
+The confusion here probably stems using the same define for the quirk and the
+xfer_type. Unless I'm mistaken above I'd find something like this a lot easier
+to read:
+
+sf_pdma.h:
+#define PDMA_FULL_SPEED		0xFF000000
+#define PDMA_STRICT_ORDERING	BIT(3)
+
+sf_pdma.c:
+#define PDMA_QUIRK_NO_STRICT_ORDERING	BIT(0)
+
+dma->transfer_type = PDMA_FULL_SPEED | PDMA_STRICT_ORDERING;
+...
+if (ddata->quirks & PDMA_QUIRK_NO_STRICT_ORDERING)
+	pdma->transfer_type &= ~PDMA_STRICT_ORDERING;
+
+>  	pdma->membase = devm_platform_ioremap_resource(pdev, 0);
+>  	if (IS_ERR(pdma->membase))
+>  		return PTR_ERR(pdma->membase);
+> @@ -632,11 +642,22 @@ static int sf_pdma_remove(struct platform_device *pdev)
+>  	return 0;
+>  }
+>
+> +static const struct sf_pdma_driver_platdata mpfs_pdma = {
+> +	.quirks = NO_STRICT_ORDERING,
+> +};
+> +
+>  static const struct of_device_id sf_pdma_dt_ids[] = {
+> -	{ .compatible = "sifive,fu540-c000-pdma" },
+> -	{ .compatible = "sifive,pdma0" },
+> +	{
+> +		.compatible = "sifive,fu540-c000-pdma",
+> +	}, {
+> +		.compatible = "sifive,pdma0",
+> +	}, {
+> +		.compatible = "microchip,mpfs-pdma",
+> +		.data	    = &mpfs_pdma,
+> +	},
+>  	{},
+>  };
+> +
+>  MODULE_DEVICE_TABLE(of, sf_pdma_dt_ids);
+>
+>  static struct platform_driver sf_pdma_driver = {
+> diff --git a/drivers/dma/sf-pdma/sf-pdma.h b/drivers/dma/sf-pdma/sf-pdma.h
+> index 5c398a83b491..3b16db4daa0b 100644
+> --- a/drivers/dma/sf-pdma/sf-pdma.h
+> +++ b/drivers/dma/sf-pdma/sf-pdma.h
+> @@ -49,6 +49,7 @@
+>
+>  /* Transfer Type */
+>  #define PDMA_FULL_SPEED					0xFF000008
+> +#define NO_STRICT_ORDERING				BIT(3)
+>
+>  /* Error Recovery */
+>  #define MAX_RETRY					1
+> @@ -112,8 +113,13 @@ struct sf_pdma {
+>  	struct dma_device       dma_dev;
+>  	void __iomem            *membase;
+>  	void __iomem            *mappedbase;
+> +	u32			transfer_type;
+>  	u32			n_chans;
+>  	struct sf_pdma_chan	chans[];
+>  };
+>
+> +struct sf_pdma_driver_platdata {
+> +	u32 quirks;
+> +};
+> +
+>  #endif /* _SF_PDMA_H */
+> --
+> 2.34.1
 
 _______________________________________________
 linux-riscv mailing list
