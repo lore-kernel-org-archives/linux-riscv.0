@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86CFDE7C4C4
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Oct 2023 14:18:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48FF1E7C4C0
+	for <linux-riscv@archiver.kernel.org>; Wed,  4 Oct 2023 14:22:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Fh0XdlX0t7pRHbrduLp41Sz+okcg8TAKBEeZ8X8XbMU=; b=uDk1BGhZKTw/Y6
-	emGArAs4rcjLJ5H6lUGO/2z3TO/6RX5TvJOZFls1kAlzDd6zrt7i+dtfIEUc7+OQKOWjnhaSVcJiH
-	2OAsK9+t+FLlRh/hqFW2pcuO3rsRxK0bqbgvhroS5EJGwZrwx64wkFh4fiWXQouGMlXU5CrZtHQAV
-	xsoufR2DPDiSrc+FvXJq10FT23LdaJqD4VYuDvlt5dUOQppM/h/e/KiBlN/gwsFLd0ycLOuWTbmpe
-	lOrjJ58u/xc+4HivRdW0R0qnOq8S06xI/08MeTf805+OCZI0RHhtWy2l/Z+s70mWmbEq0+4DMefgV
-	cDj3SsSl/D5BhNu6aYYg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=gJk3aXB/B9yrXTEyufVdt0QHdyhIVsSTeVtc2b0MjuA=; b=3/HCBR9jXeJISj
+	kDflDJeYO9FL70eEnymHmVI7K0Qy524iF3oDM0fLTTlf5ffydR17fVf5pQgCwS0SmxrYFdqrCkmRF
+	5mLIEsHhsgRe62DFncdm8FDdTE1t0P7Q/IO2cA69UCOwKnU2XlRTqk6LJZuhyviplePqLNS55okep
+	/qy9Bd1U/HIVWv1WQ1KcsJ58NbGg52Ood3Yw6R+L2sCXZbUJX7eHXnRi4a+wDFfAxxvQEgyq4KHUc
+	B17U55xbi0+OskSV8YNgC/DQcD+YuCwVVpDOP+X9UVmwsGq41yhGF0cUwoeFB5Dj3EC4ZfE84XzQn
+	pCFGLQmFnDjoDn3wU3Kg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qo2ht-000ClK-2H;
-	Wed, 04 Oct 2023 14:18:33 +0000
-Received: from mail-maxind01olkn20826.outbound.protection.outlook.com ([2a01:111:f403:700f::826] helo=IND01-MAX-obe.outbound.protection.outlook.com)
+	id 1qo2lQ-000DFB-1L;
+	Wed, 04 Oct 2023 14:22:12 +0000
+Received: from mail-maxind01olkn2080e.outbound.protection.outlook.com ([2a01:111:f403:700f::80e] helo=IND01-MAX-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qo2hq-000Chm-24
+	id 1qo2lO-000DDW-0Q
 	for linux-riscv@lists.infradead.org;
-	Wed, 04 Oct 2023 14:18:32 +0000
+	Wed, 04 Oct 2023 14:22:11 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=fOEcB0+jT+ClB4LZmcHmUJ5N1t+zdORTQeGMWBOCSYUcPJx/wUNcCv7ZZ5H0tHl2izlhyyfpLiDECS8zV2bRUA1Brj9Xzlrikncvp3aXMBxZXbapXCCy9qhJQO7K8Hn1E/IScP776rpGTV/7FDa18/0rgxVTE3QZZ14wrURUoDtd25Vlmno53+oEDdctXRAJNoaFn0QiucroP6QiKF30xz2AZGk+Hyrn7gUJNAd1kQ7SCB7fLMBx61NQSQuoHPY0qYMNF35mAtu3v1V0e8kNGQell932cJCUns6JZVlSkuQajpWM2LJBLbyY5GqMsYvFlKJ94Q3DEPCNcR/A5SeUVg==
+ b=hejjvzSmc+gOkYdFjZ4S+nMWZFZe6KQp2q+uWcpQxHt23JtZimEERRy9VEn709NDn+aYJl3O1+y4giRjdcX+popL8QNlNCZcg84WF+lkaH7WEsn4ZHxBlrqh7wGTyjTQT4NuFW1t3amsMz9QhEcPaLpdG4dYCCYbDyMasBr1qCjr4ygh5D4amtLFKcLdVX95ObqEkJoGSrcbfWjSJusXduzJNuPMUPRFhJw2YKMET9FEQuWUGhjqNKzlvm4J+UXVoXG+LQ+clw1RL+qI+U9r66eOjqcVfPFAQeFEeRTRZJrb4CSwWShE3nNupbCMZLjyvrtUn+jmgLKJYMEHSjEODQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=RUpC3nnMsQ2YxyJ2Gs1n8J0MK43DiwcS5EkDVnyQ05A=;
- b=hPbckH1De+0FnYI3YajfKUn658wePML/jVd7PLzrvm/AgjuwHu7VVCh4zSdakAmWnKKYDj2CHISUl0jGo71EAu7sD3f2gWwNELtbIH17xAgEXGZK0bZYiAjURSWeeI9sm5v0v1goKTSpOFMlp/i481w7BD7D1iXpCY/997RueMi28VbLrBosgTsPGDoybOIYZy2W6kRdIwPlmU7uFlakPr/xuG85HrhOyePK0k0NKFAHDLim4b6nv+9u9WvXDRWh4FSKbgNeFhMIH1um4VIAz7xN6LYtI3ac3I0jDW5zR+YtaPQG6vqjVZ29AKOdHi3dmAOiJOS/U3KRIpzmL7YVwQ==
+ bh=51lZ8+wdAdamj1Gs9vfOVkwU/Gl9NJnPOnLBug9Fr+k=;
+ b=MRfiiTtbXD6hqRC6/60MjGw0xs7F0qxHnfgyL+jUT0jd1N0u++xEHdvPFHsjBdNNFyUmpArXUZNErrLPjvyO+EeuIkZ4x66T+BsK31RJDbxroitAzzkP+4o6ARzuxXs1iq/gcsyKopWZoHSJ9G9u7pcLTkuvZV7WaI/8o4sHPTtLJwDBCRILOvNP+tmLZMGJf/kQ/N4AgtK4DgecJQIlDJZNi2EEImGE0uEC6ZPgRbRqL1ZVhjdkTzA38946eqM8Ya62mwC8MjPj5BwzAy597VHb7xMhz5PB8fVVAeIQ746kSw6Bmnajm0lNMBnSxsIONG4LbUf/Vg9X252dVLIQfA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
  dkim=none; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
  s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=RUpC3nnMsQ2YxyJ2Gs1n8J0MK43DiwcS5EkDVnyQ05A=;
- b=P06i5YpgdfErxLzp2wldo3NF9ZbybTspL5tHdu2z1WTYxmSAAag/EStoeZo3BJGZ9NUscfnnnU6dGmEqCMyL6b096ZikxIYxMuYbyUf5knRm71Jm3ZPZ9Wj+qvfnlGlZsGFm1zb4ozculJeXmMAxA+/o94fMG1fCOYz2pWtiShHlogj9hEoadff3BrlyDi2Bfc9dG1MwFOcRGIZMhEBiiDZ8WGcXgNXNt/wV6GY+PICmkngRKb4/fTm766P0fAT1sCzuhb9Ny6qelIzikchIifsKjyRH5/HsSu887mqpSIfApU6Qkr121tWbtUk7a4YvbPq9Al++J4BqzWpDlLZ0tQ==
+ bh=51lZ8+wdAdamj1Gs9vfOVkwU/Gl9NJnPOnLBug9Fr+k=;
+ b=eEfxGaDaquL/E2PCfZtAigAJPA00VmAGthMpDnVqWrNfpZFTDO1PY/l45YTQgUPloT2NZ3E6isXxj+qGXYn1gwLtxGmbVQ9AGIejFzsBcbbREq7gQO6p6PYo98uhAUutkHuv/8SPgiTyeQvwTuG0hTF2IN+X/cDYoeYLcZiNeaLYLsj+4Lmu/OXoQv0hY3fZk3Qug0ggajKWjZsMrzv7Vr624zz/i26isSpyi8xTS8mcLlJ9Dl9faZRx1lwQoXRRswFgpTqFODpUJ2X4yZ53zbuYX5FtrFT/iWYP0jjNoH7I3dexUrILn+t2MbNJeT4rU/5NyJpezCvMT2Wtlq2VnQ==
 Received: from MA0P287MB0332.INDP287.PROD.OUTLOOK.COM (2603:1096:a01:ab::5) by
- PN0P287MB0995.INDP287.PROD.OUTLOOK.COM (2603:1096:c01:146::13) with Microsoft
+ PN2P287MB0855.INDP287.PROD.OUTLOOK.COM (2603:1096:c01:133::12) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.6838.35; Wed, 4 Oct 2023 14:18:17 +0000
+ 15.20.6838.35; Wed, 4 Oct 2023 14:21:52 +0000
 Received: from MA0P287MB0332.INDP287.PROD.OUTLOOK.COM
  ([fe80::efe9:8d54:281b:23f7]) by MA0P287MB0332.INDP287.PROD.OUTLOOK.COM
  ([fe80::efe9:8d54:281b:23f7%3]) with mapi id 15.20.6838.028; Wed, 4 Oct 2023
- 14:18:17 +0000
+ 14:21:52 +0000
 From: Chen Wang <unicorn_wang@outlook.com>
 To: aou@eecs.berkeley.edu,
 	chao.wei@sophgo.com,
@@ -64,59 +64,62 @@ To: aou@eecs.berkeley.edu,
 	robh+dt@kernel.org,
 	xiaoguang.xing@sophgo.com,
 	apatel@ventanamicro.com
-Cc: Chen Wang <unicorn_wang@outlook.com>
-Subject: [PATCH v4 00/10] Add Milk-V Pioneer RISC-V board support
-Date: Wed,  4 Oct 2023 22:17:36 +0800
-Message-ID: <MA0P287MB03325FBDFBDF9243635FB9FCFECBA@MA0P287MB0332.INDP287.PROD.OUTLOOK.COM>
+Cc: Chen Wang <unicorn_wang@outlook.com>,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: [PATCH v4 01/10] riscv: Add SOPHGO SOC family Kconfig support
+Date: Wed,  4 Oct 2023 22:20:56 +0800
+Message-ID: <MA0P287MB0332F61F4FF161D1BCC2E659FECBA@MA0P287MB0332.INDP287.PROD.OUTLOOK.COM>
 X-Mailer: git-send-email 2.25.1
-X-TMN: [Ykg+6MSJXQmA0Jc5L5BqRL1fYcUjEiZ7]
-X-ClientProxiedBy: SL2P216CA0164.KORP216.PROD.OUTLOOK.COM
- (2603:1096:101:1b::8) To MA0P287MB0332.INDP287.PROD.OUTLOOK.COM
- (2603:1096:a01:ab::5)
-X-Microsoft-Original-Message-ID: <cover.1696426805.git.unicorn_wang@outlook.com>
+In-Reply-To: <cover.1696426805.git.unicorn_wang@outlook.com>
+References: <cover.1696426805.git.unicorn_wang@outlook.com>
+X-TMN: [EUs64PPvm5aEjA8WpgU2H2Xs+65f4R7R]
+X-ClientProxiedBy: SGXP274CA0011.SGPP274.PROD.OUTLOOK.COM (2603:1096:4:b8::23)
+ To MA0P287MB0332.INDP287.PROD.OUTLOOK.COM (2603:1096:a01:ab::5)
+X-Microsoft-Original-Message-ID: <46e7460668bcd88f35fbcc3cc55a96d1fd2a1fea.1696426805.git.unicorn_wang@outlook.com>
 MIME-Version: 1.0
 X-MS-Exchange-MessageSentRepresentingType: 1
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MA0P287MB0332:EE_|PN0P287MB0995:EE_
-X-MS-Office365-Filtering-Correlation-Id: 98fd06c1-3ef0-49a0-2ed4-08dbc4e4c0e4
+X-MS-TrafficTypeDiagnostic: MA0P287MB0332:EE_|PN2P287MB0855:EE_
+X-MS-Office365-Filtering-Correlation-Id: e10a4a16-a6a1-47e9-3a84-08dbc4e540c1
 X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: YNt4JVYNI3eKRQjNjl0/bh/oaaSaXx8MxZIMfIY4ADK2jcJ94xLz7c1rq4Rpt3i55n/BG7EIk49XcX+C18GJAFx//ZgxDAB4JjFmePv3gcAZsLSXguUVKRC29J1qZ2uHG/YMFRlrQ76Uyzbyz1PIK6JGIXaFgRuhdq5KhN4g3//uh8tjkadn+zPRaHc5Iary+7T7yKY3T7Oz7P0K+NWnx302HjuwlxAyLFZ1lzZknDerMS5IhhIB0QOB4gJV2IcGZCsBrbgyRWID8phXxtYHY+M9I0DFAe2DhyEEA+dIpN/i6q/M3ZPeGz0XIhuM8wTQbtXYi0IPZQTS25i3Xr6QuCsB7NIftvyz4c5KnXoyJJ5pLeVbJaf+eGV3C4xwSLEPywwjMLT6tu5/CMgNmMVteW1GNiUHiY4wg8JAAB9GOcklhuZgyloP5oOr+apw3tx4HZFjsH0S4pGQC+7w7A7uPElbe9l37PCY+IHOuIRcoTKDTGkn8jBON1h4usnUWiMvOQnZTogjOhfnHbHvUmYtSnqiEuCTN+rOZYVS+SwT3vGEq6YIns4TbBoDWNPBPXvve0wNOX2lhvXnK0toS+YFw2P/D5o9vGOZDiVr3n04bJTQKoxem26r+P3b1UBIUgZzml+j/iOyWdoUR2yn+9KoxoEABzwBzwPjk8rleCEmYy4=
+X-Microsoft-Antispam-Message-Info: QFmhnDj8nF//e7fRACYsMciLh64zPdhO2MhsU6ugBOGGSTK5Sj/MjycrSLu+Hcz8QSfgJM7L95olwUxznC6QbmA9Vf/CRSiL+NemN+hdAoHahHb91h9OzLF+2l6QH1hzK4dVXeNpdmqCVkk/e9ehlHCfaWIkKJbLn4jO/v3JKcoEAnWSJJGm0vx2V8ok1+L4o3mw4Cb9YhQON8/hYS2rNrfny0lL832PHMa+ALXPeNroXTTmDs0jx8OXRDpOQa1cf+bu3toRr1X1r2uHEIb0+lTMp5QKKjEQsYQvgh70yKT0B4y7Isg6HGnY2hRoYz/CLNVF10IBjAp9+WoM1mCU07sdUQghtTmkQ+3FSZUYLVdnGnPlUF5CbQsp9h5VQx3ivjZ13eraxcCDuXSRl3PNevlwmtARwG3F5rhQDxuH7joNidlR90nDPmlUiqrUkD29fz48It9HMv17qGluQ7klqCGXMsrjC14dl2tGhaxle6M+3NffFHEsqBMpMBj6Xg9oUohczhHn7KGxFJCyJFqSH3xrggifShJ0M2SCqhR1ebMznKUw/0B1xQIqhhwXM8sqjDQnWddrhsBGQY+Uqli5cDL15LvhgzBbWxhWFY5BaPTQM3k9sRaaMNP6lKWmOC98
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?LZ9NLdIVw6sjjjvsGWk8eLe770F93uHdaJPhe3UW+dVMu+6HD01xBYN1pEGX?=
- =?us-ascii?Q?BV8neSPKeNLsbZIVrCLkFymBcRT9KghMLy8BQl8/apKSLe3MDF8qPAqchlZr?=
- =?us-ascii?Q?3RqpSAtU/MZdHNToErgLjTnQsqjZfZ0bbseajnzTBhX8OMHugDwIbeUABpVX?=
- =?us-ascii?Q?NqT2HWc2z67zNNN5YvBBwSjWoFazvDWMfJTDiKFd50nqMFDl1Iv4EVPbUvd7?=
- =?us-ascii?Q?+Hq9TkYt4d1gvCu++SpZLwM6Z8T+LZ/RsPgxEyQGG8gPq1DEuBIMZlr4DyeG?=
- =?us-ascii?Q?zvHu28Wa2enAEJlKdL9T/F0db4uHSeuRiJRAY9ZpvxlyJT2vH1T3jIDCBlK+?=
- =?us-ascii?Q?dQBxYD1EEE6XFjAcQuykBxb4em5yMXFq8YtOywmnzfPFYnGzP0q8osxoJo7T?=
- =?us-ascii?Q?W30C7YVr1iA7grcvLSSbHaj5qkcTygXThF7jdv1waxIFl/zE3cbn2E3T+PUx?=
- =?us-ascii?Q?FgAe3ClpcAPTL16PcC+w0XMpjF7G2NIN1FTlwbNVjxBvK8bOzvLrON3SzfPe?=
- =?us-ascii?Q?0jnwDDaA05GtNErnX+m1tTNlwfj9Uyrz3YnEoSRdTwpq2PxAw7F6YrOgYNaD?=
- =?us-ascii?Q?OrxA7TqP6vwRzSjFs2PwzWVgSLwQuiWz5ELp/M3qDrEu3i2shfXkr8h5lpHw?=
- =?us-ascii?Q?O3AMJRGe8IGybcgWxzuQ4AGJuejbFP1ChJRnzA2agehH6PmbqJXa4SmChSl8?=
- =?us-ascii?Q?GVQ3LzT9Ydx6vMiRZf14sjNHqfLuTAYjlZpibCXFRK48LhZAeccG9Zzpz73i?=
- =?us-ascii?Q?e9Lr9Fdtit/zVAVRy7wR3kcf3/Te9cBxt2Xw/4sWc+81ZT4EPI6EYaOmJINs?=
- =?us-ascii?Q?yVQyWeYTxkehXENnh4cotO1lf9SkMbEHS92i5EWSSpVr61nChDKGCeu2ilWb?=
- =?us-ascii?Q?UJJ5g/JGExmZB/muVpNxESaGMy7YFWcbbY8SXVj86i+8l1YYxDqUNeNgZEa2?=
- =?us-ascii?Q?HwtfaB5aYrEmwNAEqdZJWpaqSBw9hV9OKv4M7uaU/08p+ygQc70j/xT0qC0P?=
- =?us-ascii?Q?w5fkrECL/INy/ZV/kj7eJLktp7ThxOublTswgxALgs7SqTob4ADk8iHUI29d?=
- =?us-ascii?Q?QgX6W2n8IX+Tr8i25aHxViSMXJejbTlcBCerorpyC8wgAxpReWxXDVDXgxGR?=
- =?us-ascii?Q?5xqfSTeTITJK3M8q7P6EsiHvTXTxL1Gg6ps2AQv8xIi9V9Q0DlK5Ias0cQtK?=
- =?us-ascii?Q?Bo9/6xVBC2tjAJpjaTAuq3nda6y56Vuor1WmM6ARk/a9/IB0HGuv4liDnH4?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?t262BJV3JDNVu1jBMXz1FJlQzhr4YT9xTbpcySqorEz1vr7ZhZmpN3sS0B7X?=
+ =?us-ascii?Q?KgBFMbkZQhhjLKtHDiWQjSMt3eRutyPeTnDM76C44AvFFq03qcIGXXzhePwV?=
+ =?us-ascii?Q?EjXr/DVht0vGxh86TFhnzwNGJ1RpyMqCr/UeB5x4snB9rPKnpxcVS72ZbLbt?=
+ =?us-ascii?Q?11DiPet8pVmPCkItJ3zjZd7QprHGTM22x89QW7GDwHfLXmiNBJYaABPAwnLS?=
+ =?us-ascii?Q?2AjvtJj2gVgp8beyONAh5ue30xAjU/UaNOq7eq3P4+EGtFjlM1PqF/d82/Zb?=
+ =?us-ascii?Q?SSjgotTh2md4YTjGb2i9l/Es8MCp6RKYu4mWicRUOubLtvndh4q5q5eVnG9j?=
+ =?us-ascii?Q?iB0R6evLiyMktxyNJYnDSkuSOcjTXd7hRlp3lO6r3qRG8Pi9FKKIcUJk1sxm?=
+ =?us-ascii?Q?deHWwF3s5EMw3yjeISokfizW6zxelHj3FRUPzpPXRz+RGPvEUYgV2lu9lRKL?=
+ =?us-ascii?Q?wlRfyBKH3nlNNHHllO0PlFtpFErIGSwrrKi0qTTi+ri6sYNpMbOKhEjtdfnc?=
+ =?us-ascii?Q?DnlzRjO06lfdubXfIqPE9NOB3G6pzminz/d1LF5w62rxXEoFp+vjmai9YwRf?=
+ =?us-ascii?Q?3usqqZ+NlwAXltPJkLbch3IXKDgj4XLypZ84z5DBXMPd80mG17mIRqqd3clL?=
+ =?us-ascii?Q?RZALsbpqCmZo2X9q0yEL2DaWREBSF7xv5oI1pPA0UQ/nS65BpB/Ely5BbQrM?=
+ =?us-ascii?Q?nzYX3gOZDhptuT21doh59D0jQBJObXGp5SdXSTgO57xLMfIz/w8demSFg0Ag?=
+ =?us-ascii?Q?GMuG/Vtb9u4lmShCqqgkGayWIUBsGCdtzUhF5we3IRNLxhxOU5vpmN3CZSLH?=
+ =?us-ascii?Q?nrznVA41+fgW80+kupNLb0mTFix2eUaBUNgiwcCI8K9ZCpkmCM56pM3M7toj?=
+ =?us-ascii?Q?9VRZYVKqPvs5gn3mz+0cMd0G6FZhEyYHHz1xK/zJk7IL1P/u7tp8ugdm4jrf?=
+ =?us-ascii?Q?0DNamLMLchkxkBXTXevFa12qeIHtNEBb6QI8INhLQpqO6bXowihoXN9VAuTM?=
+ =?us-ascii?Q?Rdx75bOzuc4eBxHKGf0kUrhMJl+gglWzPBdEf2hxnpdRxFOlkZhoBPlVfbBo?=
+ =?us-ascii?Q?8vdJtLKb91MYMXOwOVXxotxYVZ+dS/uNbIHh/16rEW88NdeocaxRHbva9m3C?=
+ =?us-ascii?Q?l+rBe+TDL25OGjCWKtBadEN+m/rI3BfrtzZOJ4RcJSPjw/2q7X0JkD7Ce8Rg?=
+ =?us-ascii?Q?uLJSJLlSpbKOANZhW97BkrgOgGJ131p29Y+Xw1hWISBgm8JN08VRNcE2vLI?=
  =?us-ascii?Q?=3D?=
 X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 98fd06c1-3ef0-49a0-2ed4-08dbc4e4c0e4
+X-MS-Exchange-CrossTenant-Network-Message-Id: e10a4a16-a6a1-47e9-3a84-08dbc4e540c1
 X-MS-Exchange-CrossTenant-AuthSource: MA0P287MB0332.INDP287.PROD.OUTLOOK.COM
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Oct 2023 14:18:17.5269
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Oct 2023 14:21:52.0811
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
 X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PN0P287MB0995
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PN2P287MB0855
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231004_071830_687686_B870028A 
-X-CRM114-Status: GOOD (  13.36  )
+X-CRM114-CacheID: sfid-20231004_072210_169546_611FC264 
+X-CRM114-Status: UNSURE (   7.51  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,116 +136,33 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Milk-V Pioneer [1] is a developer motherboard based on SOPHON SG2042 [2]
-in a standard mATX form factor. Add minimal device
-tree files for the SG2042 SOC and the Milk-V Pioneer board.
+The first SoC in the SOPHGO series is SG2042, which contains 64 RISC-V
+cores.
 
-Now only support basic uart drivers to boot up into a basic console.
-
-Thanks,
-Chen
-
+Reviewed-by: Guo Ren <guoren@kernel.org>
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+Acked-by: Chao Wei <chao.wei@sophgo.com>
+Signed-off-by: Chen Wang <unicorn_wang@outlook.com>
 ---
+ arch/riscv/Kconfig.socs | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-Changes in v4:
-  The patch series is based on v6.6-rc1. You can simply review or test 
-  the patches at the link [6].
-  - Update bindings files for sg2042 clint as per intput from reviewers:
-    - rename filename from sophgo,sg2042-clint-mswi/sg2042-clint-mtimer
-      to thead,c900-aclint-mswi/thead,c900-aclint-mtimer.
-    - rename compatible strings accordingly.
-  - Update dts as per input from reviewers: don't use macro for cpus's isa
-    properties; use new compatible strings for mtimer/mswi of clint.
-  - Use only one email-address for SoB.
-
-Changes in v3 [v3]:
-  The patch series is based on v6.6-rc1. You can simply review or test 
-  the patches at the link [5].
-  - add new vendor specific compatible strings to identify timer/mswi for sg2042 clint
-  - updated maintainers info. for sophgo devicetree
-  - remove the quirk changes for uart
-  - updated dts, such as:
-    - add "riscv,isa-base"/"riscv,isa-extensions" for cpus
-    - update l2 cache node's name
-    - remove memory and pmu nodes
-  - fixed other issues as per input from reviewers.
-
-Changes in v2 [v2]:
-  The patch series is based on v6.6-rc1. You can simply review or test 
-  the patches at the link [4].
-  - Improve format for comment of commitments as per input from last review.
-  - Improve format of DTS as per input from last review.
-  - Remove numa related stuff from DTS. This part is just for optimization, may
-    add it later if really needed. 
-
-Changes in v1:
-   The patch series is based on v6.6-rc1. Due to it is not sent in thread,
-   I have listed permlinks of the patchset [v1-0/12] ~ [v1-12/12] here for 
-   quick reference. You can simply review or test the patches at the link [3].
-
-[1]: https://milkv.io/pioneer
-[2]: https://en.sophgo.com/product/introduce/sg2042.html
-[3]: https://github.com/unicornx/linux-riscv/commits/milkv-pioneer-minimal
-[4]: https://github.com/unicornx/linux-riscv/commits/milkv-pioneer-minimal-v2
-[5]: https://github.com/unicornx/linux-riscv/commits/milkv-pioneer-minimal-v3
-[6]: https://github.com/unicornx/linux-riscv/commits/milkv-pioneer-minimal-v4
-[v1-0/12]:https://lore.kernel.org/linux-riscv/20230915070856.117514-1-wangchen20@iscas.ac.cn/
-[v1-1/12]:https://lore.kernel.org/linux-riscv/20230915071005.117575-1-wangchen20@iscas.ac.cn/
-[v1-2/12]:https://lore.kernel.org/linux-riscv/20230915071409.117692-1-wangchen20@iscas.ac.cn/
-[v1-3/12]:https://lore.kernel.org/linux-riscv/20230915072242.117935-1-wangchen20@iscas.ac.cn/
-[v1-4/12]:https://lore.kernel.org/linux-riscv/20230915072333.117991-1-wangchen20@iscas.ac.cn/
-[v1-5/12]:https://lore.kernel.org/linux-riscv/20230915072358.118045-1-wangchen20@iscas.ac.cn/
-[v1-6/12]:https://lore.kernel.org/linux-riscv/20230915072415.118100-1-wangchen20@iscas.ac.cn/
-[v1-7/12]:https://lore.kernel.org/linux-riscv/20230915072431.118154-1-wangchen20@iscas.ac.cn/
-[v1-8/12]:https://lore.kernel.org/linux-riscv/20230915072451.118209-1-wangchen20@iscas.ac.cn/
-[v1-9/12]:https://lore.kernel.org/linux-riscv/20230915072517.118266-1-wangchen20@iscas.ac.cn/
-[v1-10/12]:https://lore.kernel.org/linux-riscv/20230915072558.118325-1-wangchen20@iscas.ac.cn/
-[v1-11/12]:https://lore.kernel.org/linux-riscv/20230915072624.118388-1-wangchen20@iscas.ac.cn/
-[v1-12/12]:https://lore.kernel.org/linux-riscv/20230915072653.118448-1-wangchen20@iscas.ac.cn/
-[v2]:https://lore.kernel.org/linux-riscv/cover.1695189879.git.wangchen20@iscas.ac.cn/
-[v3]:https://lore.kernel.org/linux-riscv/cover.1695804418.git.unicornxw@gmail.com/
-
----
-
-Chen Wang (8):
-  riscv: Add SOPHGO SOC family Kconfig support
-  dt-bindings: vendor-prefixes: add milkv/sophgo
-  dt-bindings: riscv: add sophgo sg2042 bindings
-  dt-bindings: riscv: Add T-HEAD C920 compatibles
-  dt-bindings: interrupt-controller: Add Sophgo SG2042 PLIC
-  riscv: dts: add initial Sophgo SG2042 SoC device tree
-  riscv: dts: sophgo: add Milk-V Pioneer board device tree
-  riscv: defconfig: enable SOPHGO SoC
-
-Inochi Amaoto (2):
-  dt-bindings: timer: Add Sophgo sg2042 CLINT timer
-  dt-bindings: interrupt-controller: Add Sophgo sg2042 CLINT mswi
-
- .../sifive,plic-1.0.0.yaml                    |    1 +
- .../thead,c900-aclint-mswi.yaml               |   43 +
- .../devicetree/bindings/riscv/cpus.yaml       |    1 +
- .../devicetree/bindings/riscv/sophgo.yaml     |   28 +
- .../timer/thead,c900-aclint-mtimer.yaml       |   43 +
- .../devicetree/bindings/vendor-prefixes.yaml  |    4 +
- MAINTAINERS                                   |    7 +
- arch/riscv/Kconfig.socs                       |    5 +
- arch/riscv/boot/dts/Makefile                  |    1 +
- arch/riscv/boot/dts/sophgo/Makefile           |    3 +
- arch/riscv/boot/dts/sophgo/sg2042-cpus.dtsi   | 2000 +++++++++++++++++
- .../boot/dts/sophgo/sg2042-milkv-pioneer.dts  |   19 +
- arch/riscv/boot/dts/sophgo/sg2042.dtsi        |  325 +++
- arch/riscv/configs/defconfig                  |    1 +
- 14 files changed, 2481 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/interrupt-controller/thead,c900-aclint-mswi.yaml
- create mode 100644 Documentation/devicetree/bindings/riscv/sophgo.yaml
- create mode 100644 Documentation/devicetree/bindings/timer/thead,c900-aclint-mtimer.yaml
- create mode 100644 arch/riscv/boot/dts/sophgo/Makefile
- create mode 100644 arch/riscv/boot/dts/sophgo/sg2042-cpus.dtsi
- create mode 100644 arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts
- create mode 100644 arch/riscv/boot/dts/sophgo/sg2042.dtsi
-
-
-base-commit: 0bb80ecc33a8fb5a682236443c1e740d5c917d1d
+diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
+index 6833d01e2e70..d4df7b5d0f16 100644
+--- a/arch/riscv/Kconfig.socs
++++ b/arch/riscv/Kconfig.socs
+@@ -22,6 +22,11 @@ config SOC_SIFIVE
+ 	help
+ 	  This enables support for SiFive SoC platform hardware.
+ 
++config ARCH_SOPHGO
++	bool "Sophgo SoCs"
++	help
++	  This enables support for Sophgo SoC platform hardware.
++
+ config ARCH_STARFIVE
+ 	def_bool SOC_STARFIVE
+ 
 -- 
 2.25.1
 
