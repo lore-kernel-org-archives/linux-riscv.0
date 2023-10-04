@@ -4,80 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 855B4E7B5E5
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Oct 2023 10:13:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 855F6E7B5E5
+	for <linux-riscv@archiver.kernel.org>; Wed,  4 Oct 2023 10:15:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BcALuVimgszNgGNUcYsnXZawX5SoRUJko68g7n9UgHk=; b=OAamAP99Jx8LXk
-	ruW//OZy/8QCRAfRzPPF8G2FNYKgXaHCa6+aLFg33hvpeHhRU4tCNLO5VOmP764PHSpclfitkHG4u
-	7zhkwFGD/Q7QNF9SIJ8wobjnrAs6nOjv7LkEDL4MZjTIAvCx/DdTGFXGM2dA+l/E/gZ1SRxnRRdcy
-	AuUA0Nv/L1NcVKpxDMnl1/xF2cps3f19poY5cxnqQEQ2uwlXCoTUNp59Byp8MoIYCScnAZwAmAO71
-	hjsRvwAhehpM3/D3VWz3l2X+JuumoMXCgorl7KB2NrfxuQ5uy690PAlWe+CAcT5Vf+f03ok0hZ+T6
-	vQPfBw+Q0puUxPIvhgEQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hB88HOojYhJq6fRB1wmD1X+tht69kwqSfzszZo20BSQ=; b=ptmLtW+6/3fsbBUeb9mnHx8l9w
+	all49ccR/xc/srvYEBrSsShNa1UNhK0UWfbzWgg4sgF06MBcBpAM1oK3ewR3RcTYNgJDpSECR8/WL
+	iLrE2URR67Wrbrl+0DTyxR2SBvX3ovSKPY3wpynHMtIxYdZdCZrrBfYvK3nxXwKZMiMQ9zA3dV+Nv
+	0kS7/BxujIgx3EZyxdqpvjBG6vyAfEfh76emIT0/SJIHzkRMPaE3QDeuzaO+nzloAcTQ3yK+bnuce
+	Q7BxeWVYnaQ/i3fdaoHkiO7HxS86Q0Yn+iXAmKyOb3PWFMKaY36ak7D2GW9fRTWiWZ/TTMejBG9vU
+	HbSuHB9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qnysh-00HCBg-0y;
-	Wed, 04 Oct 2023 10:13:27 +0000
-Received: from mail-io1-xd2a.google.com ([2607:f8b0:4864:20::d2a])
+	id 1qnyuk-00HD2k-2u;
+	Wed, 04 Oct 2023 10:15:34 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qnysd-00HC95-1C
+	id 1qnxxE-00H0fs-2T
 	for linux-riscv@lists.infradead.org;
-	Wed, 04 Oct 2023 10:13:26 +0000
-Received: by mail-io1-xd2a.google.com with SMTP id ca18e2360f4ac-79fa5d9f3a2so71042539f.3
-        for <linux-riscv@lists.infradead.org>; Wed, 04 Oct 2023 03:13:21 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1696414401; x=1697019201; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=naQ12yZY9bgpmnWgAWPGFuKak0Xrn0cHsB8SeG3i588=;
-        b=ADFLkjIJwYMuJ91hNNYH0+Sj+JvgD0rWaiFAavlg87GhUXj0Pal/pGco3Ht/785kNA
-         GgfNBUA7pXDX4UjoG+elRnVCyNa4s6r3R65fMcnND8LImpicJa4IeJ2/57K8TdwTyoVn
-         ZaJ6tUWu7NHcUhny8viYcT8K4T1QFWTFtGUlQk6+PQcUSgz1kGSp/0Of+xi5fyFuTYg5
-         UgpfMmYkO+C5osHXBzl8BnRyCNTE11tYVlhWlyx4uxR2kTWtF0l7alJWXh9uSoTMTaZY
-         1t1clbwhhCG+88y1WAUMkP4qmO+28CVBhZFpOWgut8QWnm4t/o4zq/+EbGcwWwezGwXy
-         1Oyw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1696414401; x=1697019201;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=naQ12yZY9bgpmnWgAWPGFuKak0Xrn0cHsB8SeG3i588=;
-        b=HSkzOUtAsMtiXuROPojqGC9ZuBLPcJ/aSLhV75wpm+BWnW27wKk7vEr40y5wY30E5c
-         6sY3He7BbOZyXDr44z9uzmAu2O5Mqr4jH9+7S8CaYaOcBdYwB15lxvHxB30/lbl/3Nlm
-         YzSm51M0yyZqNco1WyIKnCjL9EO55xyG2/aBUQjzNqUeIoduNPefkestA6ukY0hmiosp
-         AeKoqFP2e4W3wj5FTVjBPLH3jXK3jmILcIXoVfbTifVqOTOLHC6EwUQLaMQY8swkk/vd
-         j4L0eyF4ihpqtin3KQBoU8JAD532OsF5vCcRBdN3JZjXvYtBxqfqWmxZKKm8g5FFGmIb
-         UoUA==
-X-Gm-Message-State: AOJu0Yxm/xrbfFYI0/hz2Uf1qPJg131tV6VPMBnxnqNxhk8Rv+Vsixvi
-	IuyJHOLe5iKIaPJkSiNK/sOZbA==
-X-Google-Smtp-Source: AGHT+IEbM48u0GUrbP675tX7PYXIUL94dARAyy9rnprgPNaHW3R5wUSTDSKo4NbADnyrnWBlyy8OOg==
-X-Received: by 2002:a6b:7b05:0:b0:791:280:839e with SMTP id l5-20020a6b7b05000000b007910280839emr1987378iop.16.1696414401162;
-        Wed, 04 Oct 2023 03:13:21 -0700 (PDT)
-Received: from sunil-laptop ([106.51.188.78])
-        by smtp.gmail.com with ESMTPSA id ep10-20020a0566384e0a00b0042b09bde126sm861366jab.165.2023.10.04.03.13.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 04 Oct 2023 03:13:20 -0700 (PDT)
-Date: Wed, 4 Oct 2023 15:43:07 +0530
-From: Sunil V L <sunilvl@ventanamicro.com>
-To: Andrew Jones <ajones@ventanamicro.com>
-Subject: Re: [PATCH v2 -next 3/4] RISC-V: cacheflush: Initialize CBO
- variables on ACPI systems
-Message-ID: <ZR06s5ZvK1S5XtIJ@sunil-laptop>
-References: <20230927170015.295232-1-sunilvl@ventanamicro.com>
- <20230927170015.295232-4-sunilvl@ventanamicro.com>
- <f4ab7464-3dfb-4d10-8bed-76e7084abd3e@sifive.com>
- <ZRzof1sH/GJNQp4V@sunil-laptop>
- <20231004-58af76b11b3db2e64a93fd55@orel>
+	Wed, 04 Oct 2023 09:14:06 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by ams.source.kernel.org (Postfix) with ESMTP id B87DEB81D72;
+	Wed,  4 Oct 2023 09:14:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 72259C433C8;
+	Wed,  4 Oct 2023 09:13:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1696410842;
+	bh=I3rYMvIf1yUhwIUhj4haJHoCCJeIHZ/4+nUAtJSqCwY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=qblW5PF6iKaPu4EmaMW7svIY6XFDdJYCqwKfbHgKUn6UeeVOJT9SzYlGpnuTA/7+Q
+	 GEAPVTYd/Cg/tzlT47L8wzc4rRN2VnKBRyiLDzjxHjd96FSwPfxUf+AnJAwSaRmQ5h
+	 g6sQ4+9maMPGxan8QG278OiX8OaIz6jOU4tw5iauwZGa6PUa9cpR6PJX5Th83l9BKU
+	 QQ7sr1a8pnq/8KrO/fv5dHHcFgu/3K+zyUb5Bfju5brp2z6fF85FCsBLRTTIZuVV9A
+	 2OWthjUMhBK2TXOg1H0eSupPxtJe7NR1TbetpxpHCkUdRoiMuxKrxQro9N/i5MPJT5
+	 blEaBOfgQBtVA==
+Date: Wed, 4 Oct 2023 10:13:56 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: Chen Wang <unicorn_wang@outlook.com>,
+	Jisheng Zhang <jszhang@kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Anup Patel <anup@brainfault.org>, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+	Inochi Amaoto <inochiama@outlook.com>, chao.wei@sophgo.com,
+	xiaoguang.xing@sophgo.com
+Subject: Re: [PATCH 4/5] riscv: dts: sophgo: add initial CV1800B SoC device
+ tree
+Message-ID: <20231004-caregiver-deserve-71849c94dcfb@spud>
+References: <20230930123937.1551-1-jszhang@kernel.org>
+ <20230930123937.1551-5-jszhang@kernel.org>
+ <MA0P287MB033277186E21A09127407452FECBA@MA0P287MB0332.INDP287.PROD.OUTLOOK.COM>
+ <37021ef8-55e2-4116-8201-2ab7df9e0fc1@linaro.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20231004-58af76b11b3db2e64a93fd55@orel>
+In-Reply-To: <37021ef8-55e2-4116-8201-2ab7df9e0fc1@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231004_031323_426283_B3218B7F 
-X-CRM114-Status: GOOD (  32.63  )
+X-CRM114-CacheID: sfid-20231004_021405_118971_A8723B79 
+X-CRM114-Status: GOOD (  22.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,106 +82,106 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Anup Patel <apatel@ventanamicro.com>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alexghiti@rivosinc.com>, "Rafael J . Wysocki" <rafael@kernel.org>, Ard Biesheuvel <ardb@kernel.org>, Daniel Lezcano <daniel.lezcano@linaro.org>, Atish Kumar Patra <atishp@rivosinc.com>, linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org, Andy Shevchenko <andriy.shevchenko@linux.intel.com>, Thomas Gleixner <tglx@linutronix.de>, Len Brown <lenb@kernel.org>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============3691156575183884912=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 04, 2023 at 10:33:31AM +0200, Andrew Jones wrote:
-> On Wed, Oct 04, 2023 at 09:52:23AM +0530, Sunil V L wrote:
-> > On Tue, Oct 03, 2023 at 02:50:02PM -0500, Samuel Holland wrote:
-> > > On 2023-09-27 12:00 PM, Sunil V L wrote:
-> > > > Using new interface to get the CBO block size information in RHCT,
-> > > > initialize the variables on ACPI platforms.
-> > > > 
-> > > > Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
-> > > > ---
-> > > >  arch/riscv/mm/cacheflush.c | 37 +++++++++++++++++++++++++++++++------
-> > > >  1 file changed, 31 insertions(+), 6 deletions(-)
-> > > > 
-> > > > diff --git a/arch/riscv/mm/cacheflush.c b/arch/riscv/mm/cacheflush.c
-> > > > index f1387272a551..8e59644e473c 100644
-> > > > --- a/arch/riscv/mm/cacheflush.c
-> > > > +++ b/arch/riscv/mm/cacheflush.c
-> > > > @@ -3,7 +3,9 @@
-> > > >   * Copyright (C) 2017 SiFive
-> > > >   */
-> > > >  
-> > > > +#include <linux/acpi.h>
-> > > >  #include <linux/of.h>
-> > > > +#include <asm/acpi.h>
-> > > >  #include <asm/cacheflush.h>
-> > > >  
-> > > >  #ifdef CONFIG_SMP
-> > > > @@ -124,15 +126,38 @@ void __init riscv_init_cbo_blocksizes(void)
-> > > >  	unsigned long cbom_hartid, cboz_hartid;
-> > > >  	u32 cbom_block_size = 0, cboz_block_size = 0;
-> > > >  	struct device_node *node;
-> > > > +	struct acpi_table_header *rhct;
-> > > > +	acpi_status status;
-> > > > +	unsigned int cpu;
-> > > > +
-> > > > +	if (!acpi_disabled) {
-> > > > +		status = acpi_get_table(ACPI_SIG_RHCT, 0, &rhct);
-> > > > +		if (ACPI_FAILURE(status))
-> > > > +			return;
-> > > > +	}
-> > > >  
-> > > > -	for_each_of_cpu_node(node) {
-> > > > -		/* set block-size for cbom and/or cboz extension if available */
-> > > > -		cbo_get_block_size(node, "riscv,cbom-block-size",
-> > > > -				   &cbom_block_size, &cbom_hartid);
-> > > > -		cbo_get_block_size(node, "riscv,cboz-block-size",
-> > > > -				   &cboz_block_size, &cboz_hartid);
-> > > > +	for_each_possible_cpu(cpu) {
-> > > > +		if (acpi_disabled) {
-> > > > +			node = of_cpu_device_node_get(cpu);
-> > > > +			if (!node) {
-> > > > +				pr_warn("Unable to find cpu node\n");
-> > > > +				continue;
-> > > > +			}
-> > > > +
-> > > > +			/* set block-size for cbom and/or cboz extension if available */
-> > > > +			cbo_get_block_size(node, "riscv,cbom-block-size",
-> > > > +					   &cbom_block_size, &cbom_hartid);
-> > > > +			cbo_get_block_size(node, "riscv,cboz-block-size",
-> > > > +					   &cboz_block_size, &cboz_hartid);
-> > > 
-> > > This leaks a reference to the device node.
-> > > 
-> > Yep!. I missed of_node_put(). Let me add in next revision. Thanks!
-> > 
-> > > > +		} else {
-> > > > +			acpi_get_cbo_block_size(rhct, cpu, &cbom_block_size,
-> > > > +						&cboz_block_size, NULL);
-> > > 
-> > > This function loops through the whole RHCT already. Why do we need to call it
-> > > for each CPU? Can't we just call it once, and have it do the same consistency
-> > > checks as cbo_get_block_size()?
-> > > 
-> > > In that case, the DT path could keep the for_each_of_cpu_node() loop.
-> > > 
-> > I kept the same logic as DT. Basically, by passing the cpu node, we
-> > will fetch the exact CPU's CBO property from RHCT. It is not clear to me
-> > why we overwrite the same variable with value from another cpu and
-> > whether we can return as soon as we get the CBO size for one CPU.
-> > 
-> > Drew, can we exit the loop if we get the CBO size for one CPU?
-> 
-> We want to compare the values for each CPU with the first one we find in
-> order to ensure they are consistent. I think Samuel is suggesting that
-> we leave the DT path here the same, i.e. keep the for_each_of_cpu_node()
-> loop, and then change acpi_get_cbo_block_size() to *not* take a cpu as
-> input, but rather follow the same pattern as DT, which is to loop over
-> all cpus doing a consistency check against the first cpu's CBO info.
-> 
-Ahh OK. Thanks Drew and Samuel. Let me update as you suggested.
 
-Thanks!
-Sunil
+--===============3691156575183884912==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="66OQDBUK+rriTk/K"
+Content-Disposition: inline
+
+
+--66OQDBUK+rriTk/K
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Wed, Oct 04, 2023 at 09:57:33AM +0200, Krzysztof Kozlowski wrote:
+> On 04/10/2023 09:23, Chen Wang wrote:
+> >=20
+> > =E5=9C=A8 2023/9/30 20:39, Jisheng Zhang =E5=86=99=E9=81=93:
+> >> Add initial device tree for the CV1800B RISC-V SoC by SOPHGO.
+> >>
+> >> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+> >> ---
+> >>   arch/riscv/boot/dts/sophgo/cv1800b.dtsi | 117 ++++++++++++++++++++++=
+++
+> >>   1 file changed, 117 insertions(+)
+> >>   create mode 100644 arch/riscv/boot/dts/sophgo/cv1800b.dtsi
+> >=20
+> > Hi, Jisheng, as far as I know, sg2042 and cv180x are now tracked by=20
+> > different people and even in sophgo, they are two independent=20
+> > projects(sg2042 is target for HPC and cv180x is target for embeded=20
+> > device). To facilitate future management and review, I recommend=20
+> > registering the maintainer information in two entries in MAINTAINERS.=
+=20
+> > The example is as follows:
+> >=20
+> > ```
+> >=20
+> > SOPHGO CV180X DEVICETREES
+> > M:=C2=A0 Jisheng Zhang <jszhang@kernel.org>
+> > F:=C2=A0 arch/riscv/boot/dts/sophgo/cv1800b-milkv-duo.dts
+> > F:=C2=A0 arch/riscv/boot/dts/sophgo/cv1800b.dtsi
+> >=20
+> > SOPHGO SG2042 DEVICETREES
+> > M:=C2=A0 Chao Wei <chao.wei@sophgo.com>
+> > M:=C2=A0 Chen Wang <unicornxw@gmail.com>
+> > S:=C2=A0 Maintained
+> > F:=C2=A0 arch/riscv/boot/dts/sophgo/Makefile
+> > F:=C2=A0 arch/riscv/boot/dts/sophgo/sg2042-cpus.dtsi
+> > F:=C2=A0 arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts
+> > F:=C2=A0 arch/riscv/boot/dts/sophgo/sg2042.dtsi
+> > F:=C2=A0 Documentation/devicetree/bindings/riscv/sophgo.yaml
+> > ```
+> >=20
+> > For Makefile and sophgo.yaml such common files, just keep in sg2042=20
+> > entry should be fine.
+> >=20
+> > @Conor, what do you think?
+>=20
+> We do no have usually per-board maintainer entries (with few
+> exceptions). I strongly prefer this one instead:
+>=20
+> https://lore.kernel.org/all/829b122da52482707b783dc3d93d3ff0179cb0ca.came=
+l@perches.com/
+
+I don't like the suggestion here for a different reason! While I'm fine
+with having some per-board SoC maintainers, esp. since the cv1800 stuff
+is very different to the sg2042, I want to see someone step up to apply
+the patches for the whole arch/riscv/boot/dts/sophgo/ directory once more
+comfortable with the process, not reduce the entry to cover just the 64
+core SoC.
+
+Thanks,
+Conor.
+
+--66OQDBUK+rriTk/K
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZR0s1AAKCRB4tDGHoIJi
+0pFWAQC2S8NStFU1aqWXOgFsaLD+fuUqSrLo19BriwGjhzQBLwEA4yklbNzUEuka
+cPQh/dVGLRADBdz0AYcCDK/AuYgTWgc=
+=Xy+m
+-----END PGP SIGNATURE-----
+
+--66OQDBUK+rriTk/K--
+
+
+--===============3691156575183884912==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============3691156575183884912==--
+
