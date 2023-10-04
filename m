@@ -4,73 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 855F6E7B5E5
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Oct 2023 10:15:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 754F3E7B5E5
+	for <linux-riscv@archiver.kernel.org>; Wed,  4 Oct 2023 10:18:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hB88HOojYhJq6fRB1wmD1X+tht69kwqSfzszZo20BSQ=; b=ptmLtW+6/3fsbBUeb9mnHx8l9w
-	all49ccR/xc/srvYEBrSsShNa1UNhK0UWfbzWgg4sgF06MBcBpAM1oK3ewR3RcTYNgJDpSECR8/WL
-	iLrE2URR67Wrbrl+0DTyxR2SBvX3ovSKPY3wpynHMtIxYdZdCZrrBfYvK3nxXwKZMiMQ9zA3dV+Nv
-	0kS7/BxujIgx3EZyxdqpvjBG6vyAfEfh76emIT0/SJIHzkRMPaE3QDeuzaO+nzloAcTQ3yK+bnuce
-	Q7BxeWVYnaQ/i3fdaoHkiO7HxS86Q0Yn+iXAmKyOb3PWFMKaY36ak7D2GW9fRTWiWZ/TTMejBG9vU
-	HbSuHB9Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=89NiKDqzKQArB4mto89YqZYWGW9ri1F4jaYUJfw+cwU=; b=kinENBVpRGi4xD
+	J2GZJcYp/9irwHkuSIfaG5PHYEvOU3l63ZLiCm2tBuVpOE/YqaW4NcHYrWq9BQAqzha3bzwUGPWxO
+	pPEy4BMc/huQnrueGP8U+u/zlif9KuCcYEWvSRbh9DjHo9EQ99lyH2tOQTur5z1vT7wOmkK4/PXTm
+	alI8/Dg+91Low1EBgBYjK9BCPcR4D/0hFc0dw6lZcaq7drwjWDGP5faHTtfNYi/qsDJ//pUuw5IXz
+	9WCigA3H9f9/3uYRE1nH7WDrWoaLoRb5Mr/pVnS2xGk12KIiEc3QAmhBy49LmOUnYZZocBEf4ASjs
+	FofrZ6O9o8ECpohRuBsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qnyuk-00HD2k-2u;
-	Wed, 04 Oct 2023 10:15:34 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1qnyxN-00HEqd-2G;
+	Wed, 04 Oct 2023 10:18:17 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qnxxE-00H0fs-2T
+	id 1qnyxJ-00HEnL-37
 	for linux-riscv@lists.infradead.org;
-	Wed, 04 Oct 2023 09:14:06 +0000
+	Wed, 04 Oct 2023 10:18:16 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by ams.source.kernel.org (Postfix) with ESMTP id B87DEB81D72;
-	Wed,  4 Oct 2023 09:14:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 72259C433C8;
-	Wed,  4 Oct 2023 09:13:58 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTP id 64BB2B81D09;
+	Wed,  4 Oct 2023 10:18:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BCD9FC433C7;
+	Wed,  4 Oct 2023 10:18:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1696410842;
-	bh=I3rYMvIf1yUhwIUhj4haJHoCCJeIHZ/4+nUAtJSqCwY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=qblW5PF6iKaPu4EmaMW7svIY6XFDdJYCqwKfbHgKUn6UeeVOJT9SzYlGpnuTA/7+Q
-	 GEAPVTYd/Cg/tzlT47L8wzc4rRN2VnKBRyiLDzjxHjd96FSwPfxUf+AnJAwSaRmQ5h
-	 g6sQ4+9maMPGxan8QG278OiX8OaIz6jOU4tw5iauwZGa6PUa9cpR6PJX5Th83l9BKU
-	 QQ7sr1a8pnq/8KrO/fv5dHHcFgu/3K+zyUb5Bfju5brp2z6fF85FCsBLRTTIZuVV9A
-	 2OWthjUMhBK2TXOg1H0eSupPxtJe7NR1TbetpxpHCkUdRoiMuxKrxQro9N/i5MPJT5
-	 blEaBOfgQBtVA==
-Date: Wed, 4 Oct 2023 10:13:56 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Cc: Chen Wang <unicorn_wang@outlook.com>,
-	Jisheng Zhang <jszhang@kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
+	s=k20201202; t=1696414691;
+	bh=zgBcifi1XWcmTTAkPgJMMB7DWNo/I8zGzCMzHMTkoRc=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=PbWcIAYMkiDYXvKTy/GcFQJLRpFGZMJceaBYbf/lbOCou/Y3UCR7QtAllmB1kZvZi
+	 C8GNw9wwYGSWToJoj81qf/hOBDRTY7y/wf4AjTl28h7U2s0pO174/tIHN9GJKvf17o
+	 F36MFMgdayGluDL8bfUw0L146+t3sUlmRLRlydpcrPY2JdTlftM0gP+lPgAD/nY/R9
+	 reU5aalmfkgv/P/TUX/H9XtDbWd9aTPTiq9aB9JIEc+0539u9fEm2o+zPvfyuz70Ms
+	 cKMA3LMO8TYwu/iZdhoQhmU+YTgfuxW+KV/KYNUD20UCRmwo32M/2xQ/vV8aVXM3Cq
+	 pWfSvBAZK5lNQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1qnyxF-00112H-BP;
+	Wed, 04 Oct 2023 11:18:09 +0100
+Date: Wed, 04 Oct 2023 11:18:09 +0100
+Message-ID: <86il7mofmm.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Anup Patel <apatel@ventanamicro.com>
+Cc: Dmitry Dunaev <dunaev@tecon.ru>,
+	dunaich@mail.ru,
+	Thomas Gleixner <tglx@linutronix.de>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Anup Patel <anup@brainfault.org>, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
-	Inochi Amaoto <inochiama@outlook.com>, chao.wei@sophgo.com,
-	xiaoguang.xing@sophgo.com
-Subject: Re: [PATCH 4/5] riscv: dts: sophgo: add initial CV1800B SoC device
- tree
-Message-ID: <20231004-caregiver-deserve-71849c94dcfb@spud>
-References: <20230930123937.1551-1-jszhang@kernel.org>
- <20230930123937.1551-5-jszhang@kernel.org>
- <MA0P287MB033277186E21A09127407452FECBA@MA0P287MB0332.INDP287.PROD.OUTLOOK.COM>
- <37021ef8-55e2-4116-8201-2ab7df9e0fc1@linaro.org>
-MIME-Version: 1.0
-In-Reply-To: <37021ef8-55e2-4116-8201-2ab7df9e0fc1@linaro.org>
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH] irqchip/riscv-intc: Mark INTC nodes for secondary CPUs as initialized.
+In-Reply-To: <CAK9=C2UiBNQtv0Q2yJMKqc5pMX_jam+ZmfRz3Rme0ZYuqN68HA@mail.gmail.com>
+References: <20230926102801.1591126-1-dunaev@tecon.ru>
+	<CAK9=C2UiBNQtv0Q2yJMKqc5pMX_jam+ZmfRz3Rme0ZYuqN68HA@mail.gmail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: apatel@ventanamicro.com, dunaev@tecon.ru, dunaich@mail.ru, tglx@linutronix.de, paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231004_021405_118971_A8723B79 
-X-CRM114-Status: GOOD (  22.69  )
+X-CRM114-CacheID: sfid-20231004_031814_270410_DA06A86F 
+X-CRM114-Status: GOOD (  29.92  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,106 +86,57 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3691156575183884912=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============3691156575183884912==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="66OQDBUK+rriTk/K"
-Content-Disposition: inline
-
-
---66OQDBUK+rriTk/K
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Wed, Oct 04, 2023 at 09:57:33AM +0200, Krzysztof Kozlowski wrote:
-> On 04/10/2023 09:23, Chen Wang wrote:
-> >=20
-> > =E5=9C=A8 2023/9/30 20:39, Jisheng Zhang =E5=86=99=E9=81=93:
-> >> Add initial device tree for the CV1800B RISC-V SoC by SOPHGO.
-> >>
-> >> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> >> ---
-> >>   arch/riscv/boot/dts/sophgo/cv1800b.dtsi | 117 ++++++++++++++++++++++=
-++
-> >>   1 file changed, 117 insertions(+)
-> >>   create mode 100644 arch/riscv/boot/dts/sophgo/cv1800b.dtsi
-> >=20
-> > Hi, Jisheng, as far as I know, sg2042 and cv180x are now tracked by=20
-> > different people and even in sophgo, they are two independent=20
-> > projects(sg2042 is target for HPC and cv180x is target for embeded=20
-> > device). To facilitate future management and review, I recommend=20
-> > registering the maintainer information in two entries in MAINTAINERS.=
-=20
-> > The example is as follows:
-> >=20
-> > ```
-> >=20
-> > SOPHGO CV180X DEVICETREES
-> > M:=C2=A0 Jisheng Zhang <jszhang@kernel.org>
-> > F:=C2=A0 arch/riscv/boot/dts/sophgo/cv1800b-milkv-duo.dts
-> > F:=C2=A0 arch/riscv/boot/dts/sophgo/cv1800b.dtsi
-> >=20
-> > SOPHGO SG2042 DEVICETREES
-> > M:=C2=A0 Chao Wei <chao.wei@sophgo.com>
-> > M:=C2=A0 Chen Wang <unicornxw@gmail.com>
-> > S:=C2=A0 Maintained
-> > F:=C2=A0 arch/riscv/boot/dts/sophgo/Makefile
-> > F:=C2=A0 arch/riscv/boot/dts/sophgo/sg2042-cpus.dtsi
-> > F:=C2=A0 arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts
-> > F:=C2=A0 arch/riscv/boot/dts/sophgo/sg2042.dtsi
-> > F:=C2=A0 Documentation/devicetree/bindings/riscv/sophgo.yaml
-> > ```
-> >=20
-> > For Makefile and sophgo.yaml such common files, just keep in sg2042=20
-> > entry should be fine.
-> >=20
-> > @Conor, what do you think?
->=20
-> We do no have usually per-board maintainer entries (with few
-> exceptions). I strongly prefer this one instead:
->=20
-> https://lore.kernel.org/all/829b122da52482707b783dc3d93d3ff0179cb0ca.came=
-l@perches.com/
-
-I don't like the suggestion here for a different reason! While I'm fine
-with having some per-board SoC maintainers, esp. since the cv1800 stuff
-is very different to the sg2042, I want to see someone step up to apply
-the patches for the whole arch/riscv/boot/dts/sophgo/ directory once more
-comfortable with the process, not reduce the entry to cover just the 64
-core SoC.
-
-Thanks,
-Conor.
-
---66OQDBUK+rriTk/K
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZR0s1AAKCRB4tDGHoIJi
-0pFWAQC2S8NStFU1aqWXOgFsaLD+fuUqSrLo19BriwGjhzQBLwEA4yklbNzUEuka
-cPQh/dVGLRADBdz0AYcCDK/AuYgTWgc=
-=Xy+m
------END PGP SIGNATURE-----
-
---66OQDBUK+rriTk/K--
-
-
---===============3691156575183884912==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============3691156575183884912==--
-
+T24gVHVlLCAyNiBTZXAgMjAyMyAxMTozNjozMSArMDEwMCwKQW51cCBQYXRlbCA8YXBhdGVsQHZl
+bnRhbmFtaWNyby5jb20+IHdyb3RlOgo+IAo+IE9uIFR1ZSwgU2VwIDI2LCAyMDIzIGF0IDM6NTni
+gK9QTSBEbWl0cnkgRHVuYWV2IDxkdW5hZXZAdGVjb24ucnU+IHdyb3RlOgo+ID4KPiA+IFRoZSBj
+dXJyZW50IExpbnV4IGRyaXZlciBpcnEtcmlzY3YtaW50YyBpbml0aWFsaXplIElSUSBkb21haW4g
+b25seSBvbmNlLAo+ID4gd2hlbiBpbml0IGZ1bmN0aW9uIGNhbGxlZCBvbiBwcmltYXJ5IGhhcnQu
+IEluIG90aGVyIGNhc2VzIG5vIElSUSBkb21haW4gaXMKPiA+IGNyZWF0ZWQgYW5kIG5vIG9wZXJh
+dGlvbiBvbiBpbnRlcnJ1cHQtY29udHJvbGxlciBub2RlIGlzIHBlcmZvcm1lZC4KPiA+IFRoaXMg
+aXMgY2F1c2Ugb2YgdGhhdCBubyBjb21tb24gTGludXggZHJpdmVyIGNhbiB1c2UgcGVyLWNwdSBp
+bnRlcnJ1cHRzCj4gPiBtYXBwZWQgdG8gc2V2ZXJhbCBDUFVzIGJlY2F1c2UgZndub2RlIG9mIHNl
+Y29uZGFyeSBjb3JlcyBJTlRDIGlzIG5vdAo+ID4gbWFya2VkIGFzIGluaXRpYWxpemVkLiBUaGlz
+IGRldmljZSBpcyBhbHdheXMgd2lsbCBiZSBtYXJrZWQgYXMgZGVmZXJyZWQuCj4gPiBGb3IgZXhh
+bXBsZSB0aGUgc3lzdGVtIHdpdGggZGV2aWNldHJlZQo+ID4KPiA+ICAgICBjcHUwOiBjcHVAMCB7
+Cj4gPiAgICAgICAgIGNwdTBfaW50YzogaW50ZXJydXB0LWNvbnRyb2xsZXIgewo+ID4gICAgICAg
+ICAgICAgaW50ZXJydXB0LWNvbnRyb2xsZXI7Cj4gPiAgICAgICAgICAgICBjb21wYXRpYmxlID0g
+cmlzY3YsY3B1LWludGM7Cj4gPiAgICAgICAgIH07Cj4gPiAgICAgfTsKPiA+Cj4gPiAgICAgY3B1
+MTogY3B1QDEgewo+ID4gICAgICAgICBjcHUxX2ludGM6IGludGVycnVwdC1jb250cm9sbGVyIHsK
+PiA+ICAgICAgICAgICAgIGludGVycnVwdC1jb250cm9sbGVyOwo+ID4gICAgICAgICAgICAgY29t
+cGF0aWJsZSA9IHJpc2N2LGNwdS1pbnRjOwo+ID4gICAgICAgICB9Owo+ID4gICAgIH07Cj4gPgo+
+ID4gICAgIGJ1c2VyciB7Cj4gPiAgICAgICAgIGNvbXBhdGlibGUgPSByaXNjdixidXNlcnI7Cj4g
+PiAgICAgICAgIGludGVycnVwdHMtZXh0ZW5kZWQgPSA8JmNwdTBfaW50YyAxNiAmY3B1MV9pbnRj
+IDE2PjsKPiA+ICAgICB9Owo+ID4KPiA+IHdpbGwgYWx3YXlzIHJlcG9ydCAnYnVzZXJyJyBub2Rl
+IGFzIGRlZmVycmVkIHdpdGhvdXQgY2FsbGluZyBhbnkKPiA+IGJ1cyBwcm9iZSBmdW5jdGlvbi4K
+PiA+Cj4gPiBUaGlzIHBhdGNoIHdpbGwgbWFyayBhbGwgc2Vjb25kYXJ5IG5vZGVzIHBhc3NlZCB0
+byBpcnEtcmlzY3YtaW50Ywo+ID4gZHJpdmVyIGluaXQgZnVuY3Rpb24gYXMgaW5pdGlhbGl6ZWQg
+dG8gYmUgYWJsZSB0byBhY3QgYXMgY29ycmVjdAo+ID4gSVJRIHBoYW5kbGUgbm9kZS4KPiA+Cj4g
+PiBTaWduZWQtb2ZmLWJ5OiBEbWl0cnkgRHVuYWV2IDxkdW5hZXZAdGVjb24ucnU+Cj4gPiAtLS0K
+PiA+ICBkcml2ZXJzL2lycWNoaXAvaXJxLXJpc2N2LWludGMuYyB8IDggKysrKysrLS0KPiA+ICAx
+IGZpbGUgY2hhbmdlZCwgNiBpbnNlcnRpb25zKCspLCAyIGRlbGV0aW9ucygtKQo+ID4KPiA+IGRp
+ZmYgLS1naXQgYS9kcml2ZXJzL2lycWNoaXAvaXJxLXJpc2N2LWludGMuYyBiL2RyaXZlcnMvaXJx
+Y2hpcC9pcnEtcmlzY3YtaW50Yy5jCj4gPiBpbmRleCA0YWRlZWUxYmMzOTEuLmMwMWE0ZThkNDk4
+MyAxMDA2NDQKPiA+IC0tLSBhL2RyaXZlcnMvaXJxY2hpcC9pcnEtcmlzY3YtaW50Yy5jCj4gPiAr
+KysgYi9kcml2ZXJzL2lycWNoaXAvaXJxLXJpc2N2LWludGMuYwo+ID4gQEAgLTE1NSw4ICsxNTUs
+MTAgQEAgc3RhdGljIGludCBfX2luaXQgcmlzY3ZfaW50Y19pbml0KHN0cnVjdCBkZXZpY2Vfbm9k
+ZSAqbm9kZSwKPiA+ICAgICAgICAgICogZm9yIGVhY2ggSU5UQyBEVCBub2RlLiBXZSBvbmx5IG5l
+ZWQgdG8gZG8gSU5UQyBpbml0aWFsaXphdGlvbgo+ID4gICAgICAgICAgKiBmb3IgdGhlIElOVEMg
+RFQgbm9kZSBiZWxvbmdpbmcgdG8gYm9vdCBDUFUgKG9yIGJvb3QgSEFSVCkuCj4gPiAgICAgICAg
+ICAqLwo+ID4gLSAgICAgICBpZiAocmlzY3ZfaGFydGlkX3RvX2NwdWlkKGhhcnRpZCkgIT0gc21w
+X3Byb2Nlc3Nvcl9pZCgpKQo+ID4gKyAgICAgICBpZiAocmlzY3ZfaGFydGlkX3RvX2NwdWlkKGhh
+cnRpZCkgIT0gc21wX3Byb2Nlc3Nvcl9pZCgpKSB7Cj4gPiArICAgICAgICAgICAgICAgZndub2Rl
+X2Rldl9pbml0aWFsaXplZChvZl9ub2RlX3RvX2Z3bm9kZShub2RlKSwgdHJ1ZSk7Cj4gCj4gVGhl
+cmUgaXMgYWxyZWFkeSBhIHBhdGNoIG9uIExLTUwgdG8gYWRkcmVzcyB0aGlzLgo+IGh0dHBzOi8v
+d3d3LnNwaW5pY3MubmV0L2xpc3RzL2tlcm5lbC9tc2c0OTI5ODg2Lmh0bWwKCklmIHRoaXMgaXMg
+YSBmaXgsIHdoeSBpcyBpdCBidXJpZWQgaW4gYSBodWdlIHNlcmllcyBhbmQgbm90IGJyb3VnaHQK
+Zm9yd2FyZCBhcyBhbiBpbmRlcGVuZGVudCBmaXggdGhhdCBuZWVkcyB0byBiZSBwaWNrZWQgZWFy
+bHk/CgoJTS4KCi0tIApXaXRob3V0IGRldmlhdGlvbiBmcm9tIHRoZSBub3JtLCBwcm9ncmVzcyBp
+cyBub3QgcG9zc2libGUuCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFk
+ZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4
+LXJpc2N2Cg==
