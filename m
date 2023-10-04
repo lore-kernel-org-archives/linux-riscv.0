@@ -4,81 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 057F5E7B61B
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Oct 2023 14:07:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACA02E7B61B
+	for <linux-riscv@archiver.kernel.org>; Wed,  4 Oct 2023 14:10:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=1fb2PMr5FGNaWfuUao34q8UqM8nOR/9bU7z1879FmW0=; b=geBqC2fUCYMWbKD321DhKFNwHK
-	yeDz5dMeyMNI2e85HZ0SlHoSAZKFiaZUvUaF/3fqCZQtzU0MwEbML04w6pT0/R5hfheriQfClidHN
-	beNIJ8BGcWJKSHzyVUdlvuge5pwf4l0Hq5+CYeJxEGnHj3hyhSHlVr/1dMHdnjW+H5DZxKfF+eoUq
-	ClFzmBN/6GKwK0pp8qu1Z4tRT+JaICQFzW/IzGnqH/GsRGPidh2X9fBKGmD7+Qa7EyLuVwvhlOmCd
-	CRHumFL4wuWtFVCPJF7pKHWuFEyZVuMDUDM8K53aQqWTlnSEBL5J3W8+sYHWyyVtpTZyCIEpXCY+2
-	4G/bgrVQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=tzEBWVp35Nrk0B+UxuRaoqWy1aBJoPGfwsF+85pBvbk=; b=udzHYfzw7f60nt
+	OBZWR6m+WqPtAPrlvRfqpTzbvO3ytV7x9EgIa4OvifeCrh1mYW/K5GiZa5Tro2sQFUWIBqWL5cWrb
+	Tnv+LMPa0go3ZLpw9kmBfk24gJFeBZeeItHqyKLHuq/RzJW7hPXl7EJZG5TKANYZyu9RlCGpOt2on
+	u4WxIrTTCYd/7I4WHtCf7zc1periBBvPto3c9sglOOkTyhkKQH7rpN3IpTzWN+Ahz8R4dsBn0vdO7
+	D41CkNn8ijBqCOSfvzobxoqKRAgWr6OrnPOxkej7V+EAgfboIP999y0C3OtGTkesZYfPADxx3lcP1
+	Ju8we3mHHskCbWtsLNRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qo2X1-000BXR-2u;
-	Wed, 04 Oct 2023 14:07:19 +0000
-Received: from mail-pf1-x432.google.com ([2607:f8b0:4864:20::432])
+	id 1qo2aR-000BzB-1R;
+	Wed, 04 Oct 2023 14:10:51 +0000
+Received: from eu-smtp-delivery-151.mimecast.com ([185.58.85.151])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qo2Wy-000BWd-35
+	id 1qo2aO-000By7-1a
 	for linux-riscv@lists.infradead.org;
-	Wed, 04 Oct 2023 14:07:18 +0000
-Received: by mail-pf1-x432.google.com with SMTP id d2e1a72fcca58-693375d2028so1685972b3a.2
-        for <linux-riscv@lists.infradead.org>; Wed, 04 Oct 2023 07:07:14 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20230601.gappssmtp.com; s=20230601; t=1696428434; x=1697033234; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=0z/r1d+J5gtLqP5W7ywKcBZnz9e1tR93kK5cuzURK+U=;
-        b=PxorylJP9Y9rikEjSPFUOC9B5CCw1ehFf/MEl7olua3092i6H6FvaZjv9wnCZ6mNme
-         zO5kJ2G5YTsMC9G7NrNFskTc+afcPHQXji+43rFVEmftDM4dqikrrvBCL+hY0yl2zwHa
-         s8yppREEphUkX5MHkiKUTAaYO2DVFz4D+qlgXAePj5Vz+swhdlX67471SGmXwQi/G1qt
-         kMoL1iAyqK4DcM1bF94yPQoxOdBVz6Q9pA2R4LRVEkSwX2ZXD0sV+2QfJxQFumvUVzoC
-         MLMfNv5RrexkItkCWzw1EmVmkKqCFOq7gbzuw6y1lw2sm8Dexkwl5LFuFbSJzb3gKhtu
-         MOOA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1696428434; x=1697033234;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=0z/r1d+J5gtLqP5W7ywKcBZnz9e1tR93kK5cuzURK+U=;
-        b=rIKHrcZ5nScaj/7JBMzIVdoyj8BXXxmkpX/XmGAk2UB7V7VdquRguBJuI+m1F3dsfY
-         huj5vAEFMK39kpY4/5clLrLOAy1sNDgugwbpuX8+tfBMXo/Rc6SEoWdv77KjnJqP1eOJ
-         +s6iu0o6a8NqB13vBzlMPtxk0eHE8ThA04I6p1Ga1gOvtEVQYkCdoz3//XvKLShC68h7
-         5oX6ZvRhwAkYc3AavVwGcd/HnxpiCUhL4Z4qUQ6zCMqHnFqTkEdUdzGzlsHLGsAz4GeR
-         ZNXrmbdhMgAVGxDhitE7i3NYP6MWnFtLNI0v9UGAbgcFvVGpW/9Bxqkuv5Dwk4ACanaW
-         TbdQ==
-X-Gm-Message-State: AOJu0YzMGHhh6scJfA9oCtu/Qj+Rbv9JwHTC7DmpALx0NYSpC4RZhIU5
-	Jh+RD5CMQRCtZL9kyOeU+j8HFw==
-X-Google-Smtp-Source: AGHT+IF0Ml8pf6AjMo5zAtun1w9ROsE0vABhFnVNgCEYK5oMomt4HYMJTvQ3YEhZmBv+2hEuxsmApA==
-X-Received: by 2002:a05:6a00:b8b:b0:68f:d1a7:1a3a with SMTP id g11-20020a056a000b8b00b0068fd1a71a3amr2957250pfj.8.1696428432808;
-        Wed, 04 Oct 2023 07:07:12 -0700 (PDT)
-Received: from localhost ([192.184.165.199])
-        by smtp.gmail.com with ESMTPSA id bm2-20020a056a00320200b0068a13b0b300sm3384998pfb.11.2023.10.04.07.07.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 04 Oct 2023 07:07:11 -0700 (PDT)
-Date: Wed, 04 Oct 2023 07:07:11 -0700 (PDT)
-X-Google-Original-Date: Wed, 04 Oct 2023 07:07:09 PDT (-0700)
-Subject: Re: [PATCH v3 2/6] RISC-V: Detect Zicond from ISA string
-In-Reply-To: <20231003035226.1945725-3-apatel@ventanamicro.com>
-CC: pbonzini@redhat.com, atishp@atishpatra.org,
-  Paul Walmsley <paul.walmsley@sifive.com>, Conor Dooley <conor@kernel.org>, robh+dt@kernel.org,
-  krzysztof.kozlowski+dt@linaro.org, shuah@kernel.org, ajones@ventanamicro.com, mchitale@ventanamicro.com,
-  devicetree@vger.kernel.org, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
-  linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
-  apatel@ventanamicro.com, Conor Dooley <conor.dooley@microchip.com>
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: apatel@ventanamicro.com
-Message-ID: <mhng-4ec1093a-4542-429e-a9f0-8a976cff9ac4@palmer-ri-x1c9>
-Mime-Version: 1.0 (MHng)
+	Wed, 04 Oct 2023 14:10:50 +0000
+Received: from AcuMS.aculab.com (156.67.243.121 [156.67.243.121]) by
+ relay.mimecast.com with ESMTP with both STARTTLS and AUTH (version=TLSv1.2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384) id
+ uk-mta-28-RLpeZCXkMPmTliQac3Fpww-1; Wed, 04 Oct 2023 15:10:42 +0100
+X-MC-Unique: RLpeZCXkMPmTliQac3Fpww-1
+Received: from AcuMS.Aculab.com (10.202.163.4) by AcuMS.aculab.com
+ (10.202.163.4) with Microsoft SMTP Server (TLS) id 15.0.1497.48; Wed, 4 Oct
+ 2023 15:10:41 +0100
+Received: from AcuMS.Aculab.com ([::1]) by AcuMS.aculab.com ([::1]) with mapi
+ id 15.00.1497.048; Wed, 4 Oct 2023 15:10:40 +0100
+From: David Laight <David.Laight@ACULAB.COM>
+To: =?utf-8?B?J0Nsw6ltZW50IEzDqWdlcic=?= <cleger@rivosinc.com>, Conor Dooley
+	<conor@kernel.org>
+CC: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+	<palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Atish Patra
+	<atishp@rivosinc.com>, Andrew Jones <ajones@ventanamicro.com>, Evan Green
+	<evan@rivosinc.com>, =?utf-8?B?QmrDtnJuIFRvcGVs?= <bjorn@rivosinc.com>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, Ron Minnich
+	<rminnich@gmail.com>, Daniel Maslowski <cyrevolt@googlemail.com>
+Subject: RE: [PATCH 0/7] Add support to handle misaligned accesses in S-mode
+Thread-Topic: [PATCH 0/7] Add support to handle misaligned accesses in S-mode
+Thread-Index: AQHZ9QOtGOYrq2j5KUyBiWVh/MP2XrA5TUKAgAAMDACAAFTfgA==
+Date: Wed, 4 Oct 2023 14:10:40 +0000
+Message-ID: <caa22904d2d7469595dcc5cb1f11be89@AcuMS.aculab.com>
+References: <20230926150316.1129648-1-cleger@rivosinc.com>
+ <20230930-patchy-curdle-ef5ee6e1a17c@spud>
+ <8ce6cd97-6d63-4174-a290-40690c81e205@rivosinc.com>
+ <eb9dcaaf313642b096d68df4b92e7466@AcuMS.aculab.com>
+ <6ac16274-3816-4b46-9068-e97af66c815a@rivosinc.com>
+In-Reply-To: <6ac16274-3816-4b46-9068-e97af66c815a@rivosinc.com>
+Accept-Language: en-GB, en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-exchange-transport-fromentityheader: Hosted
+x-originating-ip: [10.202.205.107]
+MIME-Version: 1.0
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: aculab.com
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231004_070717_201459_09000987 
-X-CRM114-Status: GOOD (  16.68  )
+X-CRM114-CacheID: sfid-20231004_071048_794834_C7C2DFEC 
+X-CRM114-Status: GOOD (  10.99  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,57 +81,36 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 02 Oct 2023 20:52:22 PDT (-0700), apatel@ventanamicro.com wrote:
-> The RISC-V integer conditional (Zicond) operation extension defines
-> standard conditional arithmetic and conditional-select/move operations
-> which are inspired from the XVentanaCondOps extension. In fact, QEMU
-> RISC-V also has support for emulating Zicond extension.
->
-> Let us detect Zicond extension from ISA string available through
-> DT or ACPI.
->
-> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
-> Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
-> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-> ---
->  arch/riscv/include/asm/hwcap.h | 1 +
->  arch/riscv/kernel/cpufeature.c | 1 +
->  2 files changed, 2 insertions(+)
->
-> diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
-> index 0f520f7d058a..6fc51c1b34cf 100644
-> --- a/arch/riscv/include/asm/hwcap.h
-> +++ b/arch/riscv/include/asm/hwcap.h
-> @@ -59,6 +59,7 @@
->  #define RISCV_ISA_EXT_ZIFENCEI		41
->  #define RISCV_ISA_EXT_ZIHPM		42
->  #define RISCV_ISA_EXT_SMSTATEEN		43
-> +#define RISCV_ISA_EXT_ZICOND		44
->
->  #define RISCV_ISA_EXT_MAX		64
->
-> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-> index 3755a8c2a9de..e3803822ab5a 100644
-> --- a/arch/riscv/kernel/cpufeature.c
-> +++ b/arch/riscv/kernel/cpufeature.c
-> @@ -167,6 +167,7 @@ const struct riscv_isa_ext_data riscv_isa_ext[] = {
->  	__RISCV_ISA_EXT_DATA(zicbom, RISCV_ISA_EXT_ZICBOM),
->  	__RISCV_ISA_EXT_DATA(zicboz, RISCV_ISA_EXT_ZICBOZ),
->  	__RISCV_ISA_EXT_DATA(zicntr, RISCV_ISA_EXT_ZICNTR),
-> +	__RISCV_ISA_EXT_DATA(zicond, RISCV_ISA_EXT_ZICOND),
->  	__RISCV_ISA_EXT_DATA(zicsr, RISCV_ISA_EXT_ZICSR),
->  	__RISCV_ISA_EXT_DATA(zifencei, RISCV_ISA_EXT_ZIFENCEI),
->  	__RISCV_ISA_EXT_DATA(zihintpause, RISCV_ISA_EXT_ZIHINTPAUSE),
+...
+> Saying that you support misaligned access does not mean that they are
+> going to be efficient, just that they are supported (in fact, the uABI
+> state that they may perform poorly). The compiler is actually not so
+> stupid and will try to do as much aligned access as possible in what it
+> generates (unless forced by some assembly, cast or whatever that can
+> screw up alignment accesses). This is already the case and it will most
+> probably not change.
 
-Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
+I did a quick check.
 
-Can we do a shared tag, though?  These will conflict.
+https://godbolt.org/z/j3e9drv4e
 
+The code generated by both clang and gcc for misaligned reads is horrid.
+Gcc does a better job if the alignment is known but generates much
+the same as the clang code when it isn't.
+
+The C code is much shorter.
+Even though both gcc and clang add a (different) instruction to it
+
+	David
+
+-
+Registered Address Lakeside, Bramley Road, Mount Farm, Milton Keynes, MK1 1PT, UK
+Registration No: 1397386 (Wales)
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
