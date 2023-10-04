@@ -4,72 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30F36E7C4C2
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Oct 2023 14:18:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86CFDE7C4C4
+	for <linux-riscv@archiver.kernel.org>; Wed,  4 Oct 2023 14:18:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WSl1tl0BKRBEU0n8tWU5Qzxe03/rq6jTprD8E1jgYKw=; b=axle3XJGtdzsRe
-	QCk1tv8Av+RKXTO9XX59hs18z3aYZNt2SwAUK4RjiPzzB9s9uypRb+aXJZ9+tVY4g5pCv+PS1hik3
-	CV/Sp9hvKqa/LpTktnPsSqNy1uy0OzGqMxcDHiRunXeV6G1X8QKpkKIN0CzplVcJR/3R2HveJFCK2
-	+23e+BtNBI4Jd9VxPdRhcG+VWGBe19U8n3T35Lh7aWCmXnZBP8yGZcwmwYnag/F+5ct4vgdkgGhbW
-	W5q/rOBFWS0e5KUhsHH9CxjOq87YdX2MULL4I0Y1wxvK6wOGvTafDTiyX8W3rcfplrWnIESndYHJR
-	Ff/Av+CzRkIDPHWAdncA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Fh0XdlX0t7pRHbrduLp41Sz+okcg8TAKBEeZ8X8XbMU=; b=uDk1BGhZKTw/Y6
+	emGArAs4rcjLJ5H6lUGO/2z3TO/6RX5TvJOZFls1kAlzDd6zrt7i+dtfIEUc7+OQKOWjnhaSVcJiH
+	2OAsK9+t+FLlRh/hqFW2pcuO3rsRxK0bqbgvhroS5EJGwZrwx64wkFh4fiWXQouGMlXU5CrZtHQAV
+	xsoufR2DPDiSrc+FvXJq10FT23LdaJqD4VYuDvlt5dUOQppM/h/e/KiBlN/gwsFLd0ycLOuWTbmpe
+	lOrjJ58u/xc+4HivRdW0R0qnOq8S06xI/08MeTf805+OCZI0RHhtWy2l/Z+s70mWmbEq0+4DMefgV
+	cDj3SsSl/D5BhNu6aYYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qo2hs-000Cjc-01;
-	Wed, 04 Oct 2023 14:18:32 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qo2hp-000Chv-0O
+	id 1qo2ht-000ClK-2H;
+	Wed, 04 Oct 2023 14:18:33 +0000
+Received: from mail-maxind01olkn20826.outbound.protection.outlook.com ([2a01:111:f403:700f::826] helo=IND01-MAX-obe.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1qo2hq-000Chm-24
 	for linux-riscv@lists.infradead.org;
-	Wed, 04 Oct 2023 14:18:31 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6C5C7DA7;
-	Wed,  4 Oct 2023 07:19:06 -0700 (PDT)
-Received: from [10.1.196.40] (e121345-lin.cambridge.arm.com [10.1.196.40])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8454B3F59C;
-	Wed,  4 Oct 2023 07:18:24 -0700 (PDT)
-Message-ID: <a568a9dd-bab2-1e23-c4d5-9f6475bdcc3b@arm.com>
-Date: Wed, 4 Oct 2023 15:18:23 +0100
+	Wed, 04 Oct 2023 14:18:32 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=fOEcB0+jT+ClB4LZmcHmUJ5N1t+zdORTQeGMWBOCSYUcPJx/wUNcCv7ZZ5H0tHl2izlhyyfpLiDECS8zV2bRUA1Brj9Xzlrikncvp3aXMBxZXbapXCCy9qhJQO7K8Hn1E/IScP776rpGTV/7FDa18/0rgxVTE3QZZ14wrURUoDtd25Vlmno53+oEDdctXRAJNoaFn0QiucroP6QiKF30xz2AZGk+Hyrn7gUJNAd1kQ7SCB7fLMBx61NQSQuoHPY0qYMNF35mAtu3v1V0e8kNGQell932cJCUns6JZVlSkuQajpWM2LJBLbyY5GqMsYvFlKJ94Q3DEPCNcR/A5SeUVg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=RUpC3nnMsQ2YxyJ2Gs1n8J0MK43DiwcS5EkDVnyQ05A=;
+ b=hPbckH1De+0FnYI3YajfKUn658wePML/jVd7PLzrvm/AgjuwHu7VVCh4zSdakAmWnKKYDj2CHISUl0jGo71EAu7sD3f2gWwNELtbIH17xAgEXGZK0bZYiAjURSWeeI9sm5v0v1goKTSpOFMlp/i481w7BD7D1iXpCY/997RueMi28VbLrBosgTsPGDoybOIYZy2W6kRdIwPlmU7uFlakPr/xuG85HrhOyePK0k0NKFAHDLim4b6nv+9u9WvXDRWh4FSKbgNeFhMIH1um4VIAz7xN6LYtI3ac3I0jDW5zR+YtaPQG6vqjVZ29AKOdHi3dmAOiJOS/U3KRIpzmL7YVwQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=RUpC3nnMsQ2YxyJ2Gs1n8J0MK43DiwcS5EkDVnyQ05A=;
+ b=P06i5YpgdfErxLzp2wldo3NF9ZbybTspL5tHdu2z1WTYxmSAAag/EStoeZo3BJGZ9NUscfnnnU6dGmEqCMyL6b096ZikxIYxMuYbyUf5knRm71Jm3ZPZ9Wj+qvfnlGlZsGFm1zb4ozculJeXmMAxA+/o94fMG1fCOYz2pWtiShHlogj9hEoadff3BrlyDi2Bfc9dG1MwFOcRGIZMhEBiiDZ8WGcXgNXNt/wV6GY+PICmkngRKb4/fTm766P0fAT1sCzuhb9Ny6qelIzikchIifsKjyRH5/HsSu887mqpSIfApU6Qkr121tWbtUk7a4YvbPq9Al++J4BqzWpDlLZ0tQ==
+Received: from MA0P287MB0332.INDP287.PROD.OUTLOOK.COM (2603:1096:a01:ab::5) by
+ PN0P287MB0995.INDP287.PROD.OUTLOOK.COM (2603:1096:c01:146::13) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.6838.35; Wed, 4 Oct 2023 14:18:17 +0000
+Received: from MA0P287MB0332.INDP287.PROD.OUTLOOK.COM
+ ([fe80::efe9:8d54:281b:23f7]) by MA0P287MB0332.INDP287.PROD.OUTLOOK.COM
+ ([fe80::efe9:8d54:281b:23f7%3]) with mapi id 15.20.6838.028; Wed, 4 Oct 2023
+ 14:18:17 +0000
+From: Chen Wang <unicorn_wang@outlook.com>
+To: aou@eecs.berkeley.edu,
+	chao.wei@sophgo.com,
+	conor@kernel.org,
+	devicetree@vger.kernel.org,
+	guoren@kernel.org,
+	jszhang@kernel.org,
+	krzysztof.kozlowski+dt@linaro.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	palmer@dabbelt.com,
+	paul.walmsley@sifive.com,
+	robh+dt@kernel.org,
+	xiaoguang.xing@sophgo.com,
+	apatel@ventanamicro.com
+Cc: Chen Wang <unicorn_wang@outlook.com>
+Subject: [PATCH v4 00/10] Add Milk-V Pioneer RISC-V board support
+Date: Wed,  4 Oct 2023 22:17:36 +0800
+Message-ID: <MA0P287MB03325FBDFBDF9243635FB9FCFECBA@MA0P287MB0332.INDP287.PROD.OUTLOOK.COM>
+X-Mailer: git-send-email 2.25.1
+X-TMN: [Ykg+6MSJXQmA0Jc5L5BqRL1fYcUjEiZ7]
+X-ClientProxiedBy: SL2P216CA0164.KORP216.PROD.OUTLOOK.COM
+ (2603:1096:101:1b::8) To MA0P287MB0332.INDP287.PROD.OUTLOOK.COM
+ (2603:1096:a01:ab::5)
+X-Microsoft-Original-Message-ID: <cover.1696426805.git.unicorn_wang@outlook.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux aarch64; rv:102.0) Gecko/20100101
- Thunderbird/102.15.1
-Subject: Re: [PATCH 0/6] RISC-V: Add eMMC support for TH1520 boards
-Content-Language: en-GB
-To: Icenowy Zheng <uwu@icenowy.me>,
- "Lad, Prabhakar" <prabhakar.csengg@gmail.com>,
- Jisheng Zhang <jszhang@kernel.org>
-Cc: Drew Fustini <dfustini@baylibre.com>, Christoph Hellwig <hch@lst.de>,
- Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
- Robert Nelson <robertcnelson@gmail.com>, Ulf Hansson
- <ulf.hansson@linaro.org>, Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Conor Dooley <conor+dt@kernel.org>, Adrian Hunter <adrian.hunter@intel.com>,
- Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Conor Dooley <conor@kernel.org>, Jason Kridner <jkridner@beagleboard.org>,
- Xi Ruoyao <xry111@xry111.site>, Han Gao <gaohan@iscas.ac.cn>,
- linux-mmc@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>,
- Alexandre Ghiti <alexghiti@rivosinc.com>, Linux-MM <linux-mm@kvack.org>
-References: <20230921-th1520-mmc-v1-0-49f76c274fb3@baylibre.com>
- <CAOCHtYhnx1EpBM+o3xhdsicx5uqLidojK3f0HQ+VfyVv1ZXnVQ@mail.gmail.com>
- <CAOCHtYi5Ab5ppCmaQV3QuKQcpmJX+sHdAmtuEXhfq8xf5fFCYQ@mail.gmail.com>
- <ZRuamJuShOnvP1pr@x1> <ZR1M3FcdXrDmIGu2@xhacker>
- <CA+V-a8ugwqkQxnX-wwWCHVtBBtG=aVv=MZTc53LbpxtFA=N1_A@mail.gmail.com>
- <bc2b0b30-ab37-f336-c90e-eab570d393a2@arm.com>
- <c2ea3f34bb919293b850fab6ed42b61e3517ba35.camel@icenowy.me>
-From: Robin Murphy <robin.murphy@arm.com>
-In-Reply-To: <c2ea3f34bb919293b850fab6ed42b61e3517ba35.camel@icenowy.me>
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MA0P287MB0332:EE_|PN0P287MB0995:EE_
+X-MS-Office365-Filtering-Correlation-Id: 98fd06c1-3ef0-49a0-2ed4-08dbc4e4c0e4
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: YNt4JVYNI3eKRQjNjl0/bh/oaaSaXx8MxZIMfIY4ADK2jcJ94xLz7c1rq4Rpt3i55n/BG7EIk49XcX+C18GJAFx//ZgxDAB4JjFmePv3gcAZsLSXguUVKRC29J1qZ2uHG/YMFRlrQ76Uyzbyz1PIK6JGIXaFgRuhdq5KhN4g3//uh8tjkadn+zPRaHc5Iary+7T7yKY3T7Oz7P0K+NWnx302HjuwlxAyLFZ1lzZknDerMS5IhhIB0QOB4gJV2IcGZCsBrbgyRWID8phXxtYHY+M9I0DFAe2DhyEEA+dIpN/i6q/M3ZPeGz0XIhuM8wTQbtXYi0IPZQTS25i3Xr6QuCsB7NIftvyz4c5KnXoyJJ5pLeVbJaf+eGV3C4xwSLEPywwjMLT6tu5/CMgNmMVteW1GNiUHiY4wg8JAAB9GOcklhuZgyloP5oOr+apw3tx4HZFjsH0S4pGQC+7w7A7uPElbe9l37PCY+IHOuIRcoTKDTGkn8jBON1h4usnUWiMvOQnZTogjOhfnHbHvUmYtSnqiEuCTN+rOZYVS+SwT3vGEq6YIns4TbBoDWNPBPXvve0wNOX2lhvXnK0toS+YFw2P/D5o9vGOZDiVr3n04bJTQKoxem26r+P3b1UBIUgZzml+j/iOyWdoUR2yn+9KoxoEABzwBzwPjk8rleCEmYy4=
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?LZ9NLdIVw6sjjjvsGWk8eLe770F93uHdaJPhe3UW+dVMu+6HD01xBYN1pEGX?=
+ =?us-ascii?Q?BV8neSPKeNLsbZIVrCLkFymBcRT9KghMLy8BQl8/apKSLe3MDF8qPAqchlZr?=
+ =?us-ascii?Q?3RqpSAtU/MZdHNToErgLjTnQsqjZfZ0bbseajnzTBhX8OMHugDwIbeUABpVX?=
+ =?us-ascii?Q?NqT2HWc2z67zNNN5YvBBwSjWoFazvDWMfJTDiKFd50nqMFDl1Iv4EVPbUvd7?=
+ =?us-ascii?Q?+Hq9TkYt4d1gvCu++SpZLwM6Z8T+LZ/RsPgxEyQGG8gPq1DEuBIMZlr4DyeG?=
+ =?us-ascii?Q?zvHu28Wa2enAEJlKdL9T/F0db4uHSeuRiJRAY9ZpvxlyJT2vH1T3jIDCBlK+?=
+ =?us-ascii?Q?dQBxYD1EEE6XFjAcQuykBxb4em5yMXFq8YtOywmnzfPFYnGzP0q8osxoJo7T?=
+ =?us-ascii?Q?W30C7YVr1iA7grcvLSSbHaj5qkcTygXThF7jdv1waxIFl/zE3cbn2E3T+PUx?=
+ =?us-ascii?Q?FgAe3ClpcAPTL16PcC+w0XMpjF7G2NIN1FTlwbNVjxBvK8bOzvLrON3SzfPe?=
+ =?us-ascii?Q?0jnwDDaA05GtNErnX+m1tTNlwfj9Uyrz3YnEoSRdTwpq2PxAw7F6YrOgYNaD?=
+ =?us-ascii?Q?OrxA7TqP6vwRzSjFs2PwzWVgSLwQuiWz5ELp/M3qDrEu3i2shfXkr8h5lpHw?=
+ =?us-ascii?Q?O3AMJRGe8IGybcgWxzuQ4AGJuejbFP1ChJRnzA2agehH6PmbqJXa4SmChSl8?=
+ =?us-ascii?Q?GVQ3LzT9Ydx6vMiRZf14sjNHqfLuTAYjlZpibCXFRK48LhZAeccG9Zzpz73i?=
+ =?us-ascii?Q?e9Lr9Fdtit/zVAVRy7wR3kcf3/Te9cBxt2Xw/4sWc+81ZT4EPI6EYaOmJINs?=
+ =?us-ascii?Q?yVQyWeYTxkehXENnh4cotO1lf9SkMbEHS92i5EWSSpVr61nChDKGCeu2ilWb?=
+ =?us-ascii?Q?UJJ5g/JGExmZB/muVpNxESaGMy7YFWcbbY8SXVj86i+8l1YYxDqUNeNgZEa2?=
+ =?us-ascii?Q?HwtfaB5aYrEmwNAEqdZJWpaqSBw9hV9OKv4M7uaU/08p+ygQc70j/xT0qC0P?=
+ =?us-ascii?Q?w5fkrECL/INy/ZV/kj7eJLktp7ThxOublTswgxALgs7SqTob4ADk8iHUI29d?=
+ =?us-ascii?Q?QgX6W2n8IX+Tr8i25aHxViSMXJejbTlcBCerorpyC8wgAxpReWxXDVDXgxGR?=
+ =?us-ascii?Q?5xqfSTeTITJK3M8q7P6EsiHvTXTxL1Gg6ps2AQv8xIi9V9Q0DlK5Ias0cQtK?=
+ =?us-ascii?Q?Bo9/6xVBC2tjAJpjaTAuq3nda6y56Vuor1WmM6ARk/a9/IB0HGuv4liDnH4?=
+ =?us-ascii?Q?=3D?=
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 98fd06c1-3ef0-49a0-2ed4-08dbc4e4c0e4
+X-MS-Exchange-CrossTenant-AuthSource: MA0P287MB0332.INDP287.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Oct 2023 14:18:17.5269
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PN0P287MB0995
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231004_071829_251037_F5B0B4FA 
-X-CRM114-Status: GOOD (  15.99  )
+X-CRM114-CacheID: sfid-20231004_071830_687686_B870028A 
+X-CRM114-Status: GOOD (  13.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,51 +128,124 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 04/10/2023 3:02 pm, Icenowy Zheng wrote:
-[...]
->>>> I believe commit 484861e09f3e ("soc: renesas: Kconfig: Select the
->>>> required configs for RZ/Five SoC") can cause regression on all
->>>> non-dma-coherent riscv platforms with generic defconfig. This is
->>>> a common issue. The logic here is: generic riscv defconfig
->>>> selects
->>>> ARCH_R9A07G043 which selects DMA_GLOBAL_POOL, which assumes all
->>>> non-dma-coherent riscv platforms have a dma global pool, this
->>>> assumption
->>>> seems not correct. And I believe DMA_GLOBAL_POOL should not be
->>>> selected by ARCH_SOCFAMILIY, instead, only ARCH under some
->>>> specific
->>>> conditions can select it globaly, for example NOMMU ARM and so
->>>> on.
->>>>
->>>> Since this is a regression, what's proper fix? any suggestion is
->>>> appreciated.
->>
->> I think the answer is to not select DMA_GLOBAL_POOL, since that is
->> only
-> 
-> Well I think for RISC-V, it's not NOMMU only but applicable for every
-> core that does not support Svpbmt or vendor-specific alternatives,
-> because the original RISC-V priv spec does not define memory attributes
-> in page table entries.
-> 
-> For the Renesas/Andes case I think a pool is set by OpenSBI with
-> vendor-specific M-mode facility and then passed in DT, and the S-mode
-> (which MMU is enabled in) just sees fixed memory attributes, in this
-> case I think DMA_GLOBAL_POOL is needed.
+Milk-V Pioneer [1] is a developer motherboard based on SOPHON SG2042 [2]
+in a standard mATX form factor. Add minimal device
+tree files for the SG2042 SOC and the Milk-V Pioneer board.
 
-Oh wow, is that really a thing? In that case, either you just can't 
-support this platform in a multi-platform kernel, or someone needs to do 
-some fiddly work in dma-direct to a) introduce the notion of an optional 
-global pool, and b) make it somehow cope with DMA_DIRECT_REMAP being 
-enabled but non-functional.
+Now only support basic uart drivers to boot up into a basic console.
 
 Thanks,
-Robin.
+Chen
+
+---
+
+Changes in v4:
+  The patch series is based on v6.6-rc1. You can simply review or test 
+  the patches at the link [6].
+  - Update bindings files for sg2042 clint as per intput from reviewers:
+    - rename filename from sophgo,sg2042-clint-mswi/sg2042-clint-mtimer
+      to thead,c900-aclint-mswi/thead,c900-aclint-mtimer.
+    - rename compatible strings accordingly.
+  - Update dts as per input from reviewers: don't use macro for cpus's isa
+    properties; use new compatible strings for mtimer/mswi of clint.
+  - Use only one email-address for SoB.
+
+Changes in v3 [v3]:
+  The patch series is based on v6.6-rc1. You can simply review or test 
+  the patches at the link [5].
+  - add new vendor specific compatible strings to identify timer/mswi for sg2042 clint
+  - updated maintainers info. for sophgo devicetree
+  - remove the quirk changes for uart
+  - updated dts, such as:
+    - add "riscv,isa-base"/"riscv,isa-extensions" for cpus
+    - update l2 cache node's name
+    - remove memory and pmu nodes
+  - fixed other issues as per input from reviewers.
+
+Changes in v2 [v2]:
+  The patch series is based on v6.6-rc1. You can simply review or test 
+  the patches at the link [4].
+  - Improve format for comment of commitments as per input from last review.
+  - Improve format of DTS as per input from last review.
+  - Remove numa related stuff from DTS. This part is just for optimization, may
+    add it later if really needed. 
+
+Changes in v1:
+   The patch series is based on v6.6-rc1. Due to it is not sent in thread,
+   I have listed permlinks of the patchset [v1-0/12] ~ [v1-12/12] here for 
+   quick reference. You can simply review or test the patches at the link [3].
+
+[1]: https://milkv.io/pioneer
+[2]: https://en.sophgo.com/product/introduce/sg2042.html
+[3]: https://github.com/unicornx/linux-riscv/commits/milkv-pioneer-minimal
+[4]: https://github.com/unicornx/linux-riscv/commits/milkv-pioneer-minimal-v2
+[5]: https://github.com/unicornx/linux-riscv/commits/milkv-pioneer-minimal-v3
+[6]: https://github.com/unicornx/linux-riscv/commits/milkv-pioneer-minimal-v4
+[v1-0/12]:https://lore.kernel.org/linux-riscv/20230915070856.117514-1-wangchen20@iscas.ac.cn/
+[v1-1/12]:https://lore.kernel.org/linux-riscv/20230915071005.117575-1-wangchen20@iscas.ac.cn/
+[v1-2/12]:https://lore.kernel.org/linux-riscv/20230915071409.117692-1-wangchen20@iscas.ac.cn/
+[v1-3/12]:https://lore.kernel.org/linux-riscv/20230915072242.117935-1-wangchen20@iscas.ac.cn/
+[v1-4/12]:https://lore.kernel.org/linux-riscv/20230915072333.117991-1-wangchen20@iscas.ac.cn/
+[v1-5/12]:https://lore.kernel.org/linux-riscv/20230915072358.118045-1-wangchen20@iscas.ac.cn/
+[v1-6/12]:https://lore.kernel.org/linux-riscv/20230915072415.118100-1-wangchen20@iscas.ac.cn/
+[v1-7/12]:https://lore.kernel.org/linux-riscv/20230915072431.118154-1-wangchen20@iscas.ac.cn/
+[v1-8/12]:https://lore.kernel.org/linux-riscv/20230915072451.118209-1-wangchen20@iscas.ac.cn/
+[v1-9/12]:https://lore.kernel.org/linux-riscv/20230915072517.118266-1-wangchen20@iscas.ac.cn/
+[v1-10/12]:https://lore.kernel.org/linux-riscv/20230915072558.118325-1-wangchen20@iscas.ac.cn/
+[v1-11/12]:https://lore.kernel.org/linux-riscv/20230915072624.118388-1-wangchen20@iscas.ac.cn/
+[v1-12/12]:https://lore.kernel.org/linux-riscv/20230915072653.118448-1-wangchen20@iscas.ac.cn/
+[v2]:https://lore.kernel.org/linux-riscv/cover.1695189879.git.wangchen20@iscas.ac.cn/
+[v3]:https://lore.kernel.org/linux-riscv/cover.1695804418.git.unicornxw@gmail.com/
+
+---
+
+Chen Wang (8):
+  riscv: Add SOPHGO SOC family Kconfig support
+  dt-bindings: vendor-prefixes: add milkv/sophgo
+  dt-bindings: riscv: add sophgo sg2042 bindings
+  dt-bindings: riscv: Add T-HEAD C920 compatibles
+  dt-bindings: interrupt-controller: Add Sophgo SG2042 PLIC
+  riscv: dts: add initial Sophgo SG2042 SoC device tree
+  riscv: dts: sophgo: add Milk-V Pioneer board device tree
+  riscv: defconfig: enable SOPHGO SoC
+
+Inochi Amaoto (2):
+  dt-bindings: timer: Add Sophgo sg2042 CLINT timer
+  dt-bindings: interrupt-controller: Add Sophgo sg2042 CLINT mswi
+
+ .../sifive,plic-1.0.0.yaml                    |    1 +
+ .../thead,c900-aclint-mswi.yaml               |   43 +
+ .../devicetree/bindings/riscv/cpus.yaml       |    1 +
+ .../devicetree/bindings/riscv/sophgo.yaml     |   28 +
+ .../timer/thead,c900-aclint-mtimer.yaml       |   43 +
+ .../devicetree/bindings/vendor-prefixes.yaml  |    4 +
+ MAINTAINERS                                   |    7 +
+ arch/riscv/Kconfig.socs                       |    5 +
+ arch/riscv/boot/dts/Makefile                  |    1 +
+ arch/riscv/boot/dts/sophgo/Makefile           |    3 +
+ arch/riscv/boot/dts/sophgo/sg2042-cpus.dtsi   | 2000 +++++++++++++++++
+ .../boot/dts/sophgo/sg2042-milkv-pioneer.dts  |   19 +
+ arch/riscv/boot/dts/sophgo/sg2042.dtsi        |  325 +++
+ arch/riscv/configs/defconfig                  |    1 +
+ 14 files changed, 2481 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/interrupt-controller/thead,c900-aclint-mswi.yaml
+ create mode 100644 Documentation/devicetree/bindings/riscv/sophgo.yaml
+ create mode 100644 Documentation/devicetree/bindings/timer/thead,c900-aclint-mtimer.yaml
+ create mode 100644 arch/riscv/boot/dts/sophgo/Makefile
+ create mode 100644 arch/riscv/boot/dts/sophgo/sg2042-cpus.dtsi
+ create mode 100644 arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts
+ create mode 100644 arch/riscv/boot/dts/sophgo/sg2042.dtsi
+
+
+base-commit: 0bb80ecc33a8fb5a682236443c1e740d5c917d1d
+-- 
+2.25.1
+
 
 _______________________________________________
 linux-riscv mailing list
