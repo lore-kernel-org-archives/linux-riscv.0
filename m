@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40DF6E7C4CE
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Oct 2023 15:40:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDD1EE7C4D4
+	for <linux-riscv@archiver.kernel.org>; Wed,  4 Oct 2023 15:42:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Q/vJ9ih6AFR0LV8HnNNRGmn161FU9eTmJc9X1C1RQno=; b=tkGS2RYLKND+Dm
-	R/NxIrSORV9jxUQLtKYq/0nf0t02kp7XvERRpBXTajupwbBdgr70wIVGCQ1xlyVbtTc1nqNzP5Neo
-	45I0eynXxi1QPYn9CN3VIobIbXBakehm6x/z+lOOVkdRMEuy7acBxzO/Rxv1XfhxZrN+GG1RrylMK
-	7x1dEFJdWiyxKSeV7KOk0INEft58b2D2CUDDmv0KNNnOl6J7jS/5N5AlkKEwQKhSQ+Pf24VguGctH
-	f2lwCo9KjgZcxggcdzo5cS9DeWHqgOFlmutBY0w1PN/ZieLomPmE7Z5s0FwvD32ZTd9vfqYVq5Zni
-	vwy+3pq1/NxXplLKqA2Q==;
+	List-Owner; bh=4Y/HVI3KHUFyM2Q2ziqc/TbUnXNFaGx3TfUVAqb1nyc=; b=5Fds2P9kXITE5B
+	YaMssFAkFzIvzNmkvgC7wRRzdPBK8INeWpW8DqWlTKQyqOnWpdfFSzx/jd4gwvgfVX4NSMj79fhRM
+	dfIgFIrOuoxedR77OXCoE9rmHkQg5PJBdJ6ACp1ByArQ5QnZrsqapIp8K/xi35nyAT6XGLHECiv0P
+	VxcD/vSPQ3J47slceiAnjFcGBNVN8VcnL4vtPDHhCiQWdpHx+sH8Wa8CqHMZHtJUzakroQtuXr9Te
+	5/XbZ2ZvpCAJqxLpndxPZmfgUtuG6CVIf6KUm6FfEvgAGIUyxa7ST6Oxp0naaFvRYRPYg14d+ewKE
+	Shx1Hjo1MPWNbVuQYYpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qo3zR-000NlE-1e;
-	Wed, 04 Oct 2023 15:40:45 +0000
-Received: from mail-ot1-x336.google.com ([2607:f8b0:4864:20::336])
+	id 1qo40v-000Nzk-1h;
+	Wed, 04 Oct 2023 15:42:17 +0000
+Received: from mail-oo1-xc2f.google.com ([2607:f8b0:4864:20::c2f])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qo3zO-000Nkb-2y
+	id 1qo40s-000Nyx-2j
 	for linux-riscv@lists.infradead.org;
-	Wed, 04 Oct 2023 15:40:44 +0000
-Received: by mail-ot1-x336.google.com with SMTP id 46e09a7af769-6c6368a1a97so531781a34.1
-        for <linux-riscv@lists.infradead.org>; Wed, 04 Oct 2023 08:40:41 -0700 (PDT)
+	Wed, 04 Oct 2023 15:42:16 +0000
+Received: by mail-oo1-xc2f.google.com with SMTP id 006d021491bc7-57e40f0189aso1301495eaf.1
+        for <linux-riscv@lists.infradead.org>; Wed, 04 Oct 2023 08:42:13 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1696434041; x=1697038841; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1696434132; x=1697038932; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=JGAJAL4u2VX3FIWEkVnsPhkCa6a31tzGgZXni0+jw5s=;
-        b=P5rVdb+9rPn8s29kdyU65GO03KrsAS8HjjJaZTyHJyk/Mru8dLzmlXo3l/VCISgvGw
-         8/l4ke7P5nnb3u/SqfGIBHkffbaqtG1BH19PHxiJb5903/r4S9tmyU20X3i3/i/ASxuX
-         y9OwuwB19DKgBn92YsrAMT1hsyG54l5XXNDlEbAPEqukeEnWmLZZStMOtNr+lLHD1eN0
-         IAVk0iNkUGrsu4n0XhlprsjTHMfwppzhE7GYMB9+1vYKQBotwfheIOjEE2PfNyZM89d/
-         Drw31Vc/ra/FlJGxbvKZ0sU4ewvT4CwwHAH48JdE7JVPe0hjZAs6u7fCoC8RmRj2ANsT
-         xxrQ==
+        bh=WnxaBYdRGKVgJldzBvlLszd95TgiOglWQuyS4MNphf0=;
+        b=RYp4NgbVEYtWPOPOXE8XHqI2aWNLxxtbZIlYzXBFS96qDqMkGUasFwGloFdGZPW9Ug
+         Qm/C8eHo5GWdn4mr6IWjYi6ynBY/Kxgiuaz8/twRKKFRSGRso5DjmjJin5FL60Wiz2zo
+         FwwLXVCBaCgWcSpSaXAjTgNYoWTvHVllRlwVJOj+R7hhSCEN4zOnkK3UWV6OiKgKojV/
+         Zs4o04yaykH4ByPx8jQny+t4/UeQJwzC6Gk7LvqenO+eKNFXHRaxwHG4V63vUrj6uChI
+         Gznnzh+hBFLvOCVmXJkgX2d0EgM2yA0XMpX5bXtut+cgt/V9VjYicXmJHibDgpSfCtCa
+         p20g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1696434041; x=1697038841;
+        d=1e100.net; s=20230601; t=1696434132; x=1697038932;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=JGAJAL4u2VX3FIWEkVnsPhkCa6a31tzGgZXni0+jw5s=;
-        b=K5U+yFasNz5IxfhgXNcMByOY4ZGCDM45Jv965BTQXotVlhoAyXNh0ksfSlIYB+bhFS
-         UI28pmva7xoQ3CLYeIpSFokX8XYnqLVK1QDrT7HrYenia3/6DNWOYqB4Ly1RHU/Vi9q4
-         fLpltU6vuEYG1gNJxSy6kUzP/GsEbN27vJb9IhWaLF6SpzcoIlz6Yb9jl75h3xFyFz3/
-         WZN9+QzvPeeTqtc6VTZgfFf2eVTmLQZNGPTtlNU04Zb4aJJAPaSCTVZYOE+64zBzNMS4
-         XYQr0Q0wRuAfBlk7ZeaqNgt5BvEy+3jqy57aEJMZ3C0L6NODpRshlg5qqDooRooxZkyo
-         Xjzw==
-X-Gm-Message-State: AOJu0YzMpjdGNGV5m+6ZCU3/G9yiZGtQay7LH63F6l1htpxKjvfRTRIM
-	w3+ytBxm79S7cCk9v+kYAfc=
-X-Google-Smtp-Source: AGHT+IFTIU1nASd/e+dc6F3k6Dv/9g628/YQ1wR0t0xkHX0r9SBPbwv40GV37Gq9oXgdJhnenlUoOg==
-X-Received: by 2002:a4a:255c:0:b0:571:1c44:c9c0 with SMTP id v28-20020a4a255c000000b005711c44c9c0mr8013ooe.1.1696434040692;
-        Wed, 04 Oct 2023 08:40:40 -0700 (PDT)
+        bh=WnxaBYdRGKVgJldzBvlLszd95TgiOglWQuyS4MNphf0=;
+        b=NV3PHca70UYy9INMbf4C+mDhESymiCoj0haMwz8E8A+NSVnNesjj9Jm0VDRj8U8/eS
+         qLa3xuaSbZO0MH+pUPAfWEnopY0JlR1tGT1hQP2QjCoi30L1l2wD9WC5gUJRXV8XYI0R
+         LBlfOk8wMoblm0wO97FY7+knP0oVk4KzXYLq/+g+SYsSPteKzq/QKdeP1lrmwnKSmOOM
+         GvXzLZZtT/JYN3Tog1i4r5us3JyR05jZCaMe7pYUQAgp+ZUQnr44hLTs3vL1Zpm/hMZv
+         iPvK+CuVHCxhnZ2aLG+ruqNSgM7XWveshvu/BdRLnRMmJjuChNHb8EBKM7YD5hpcUuQP
+         tu6g==
+X-Gm-Message-State: AOJu0YxR1R0NSPG9NdlsEHA7oNmzDoCaaobXPEKeugZECD8lwKNtjQOS
+	FIrUc8ZzOdJjyY5l7s+LJHE=
+X-Google-Smtp-Source: AGHT+IEQbM2bZQBMikxUSN8+tNBqkEpBzn/Q1qrIXW/53+hljMBT5wP0e0XQ6KwfcYnOIkCY6UfnuA==
+X-Received: by 2002:a05:6820:220e:b0:56c:cd0c:1d67 with SMTP id cj14-20020a056820220e00b0056ccd0c1d67mr2315269oob.7.1696434131744;
+        Wed, 04 Oct 2023 08:42:11 -0700 (PDT)
 Received: from localhost.localdomain ([122.8.183.87])
-        by smtp.gmail.com with ESMTPSA id 128-20020a4a1d86000000b0057b43a25deasm677359oog.3.2023.10.04.08.40.39
+        by smtp.gmail.com with ESMTPSA id f65-20020a4a5844000000b0057dd74ad3casm672580oob.41.2023.10.04.08.42.10
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 04 Oct 2023 08:40:40 -0700 (PDT)
+        Wed, 04 Oct 2023 08:42:11 -0700 (PDT)
 From: Chen Wang <unicornxw@gmail.com>
 To: aou@eecs.berkeley.edu,
 	chao.wei@sophgo.com,
@@ -78,18 +78,17 @@ To: aou@eecs.berkeley.edu,
 	xiaoguang.xing@sophgo.com,
 	apatel@ventanamicro.com
 Cc: Chen Wang <unicorn_wang@outlook.com>,
-	Conor Dooley <conor.dooley@microchip.com>
-Subject: [PATCH v4 02/10] dt-bindings: vendor-prefixes: add milkv/sophgo
-Date: Wed,  4 Oct 2023 23:40:32 +0800
-Message-Id: <aab0368a9558571c698fdb78585a47ae3297743f.1696433229.git.unicorn_wang@outlook.com>
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: [PATCH v4 03/10] dt-bindings: riscv: add sophgo sg2042 bindings
+Date: Wed,  4 Oct 2023 23:42:03 +0800
+Message-Id: <c8107a1ef18071ee6555a2368567f3554a673f97.1696433229.git.unicorn_wang@outlook.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <cover.1696433229.git.unicorn_wang@outlook.com>
 References: <cover.1696433229.git.unicorn_wang@outlook.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231004_084042_963490_32C703CC 
-X-CRM114-Status: UNSURE (   8.47  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20231004_084214_884409_91A85799 
+X-CRM114-Status: GOOD (  12.13  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,44 +107,73 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Chen Wang <unicorn_wang@outlook.com>
 
-Add new vendor strings to dt bindings.
-These new vendor strings are used by
-- SOPHGO's SG2042 SoC [1]
-- Milk-V Pioneer board [2], which uses SG2042 chip.
+Add DT binding documentation for the SOPHGO's SG2042 Soc [1] and the
+Milk-V Pioneer board [2].
 
 Link: https://en.sophgo.com/product/introduce/sg2042.html [1]
 Link: https://milkv.io/pioneer [2]
 
-Reviewed-by: Guo Ren <guoren@kernel.org>
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 Acked-by: Chao Wei <chao.wei@sophgo.com>
+Reviewed-by: Guo Ren <guoren@kernel.org>
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 Signed-off-by: Chen Wang <unicorn_wang@outlook.com>
 ---
- Documentation/devicetree/bindings/vendor-prefixes.yaml | 4 ++++
- 1 file changed, 4 insertions(+)
+ .../devicetree/bindings/riscv/sophgo.yaml     | 28 +++++++++++++++++++
+ MAINTAINERS                                   |  6 ++++
+ 2 files changed, 34 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/riscv/sophgo.yaml
 
-diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
-index 573578db9509..fcca9e070a9a 100644
---- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
-+++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
-@@ -863,6 +863,8 @@ patternProperties:
-     description: MikroElektronika d.o.o.
-   "^mikrotik,.*":
-     description: MikroTik
-+  "^milkv,.*":
-+    description: MilkV Technology Co., Ltd
-   "^miniand,.*":
-     description: Miniand Tech
-   "^minix,.*":
-@@ -1273,6 +1275,8 @@ patternProperties:
-     description: Solomon Systech Limited
-   "^sony,.*":
-     description: Sony Corporation
-+  "^sophgo,.*":
-+    description: Sophgo Technology Inc.
-   "^sourceparts,.*":
-     description: Source Parts Inc.
-   "^spansion,.*":
+diff --git a/Documentation/devicetree/bindings/riscv/sophgo.yaml b/Documentation/devicetree/bindings/riscv/sophgo.yaml
+new file mode 100644
+index 000000000000..8adb5f39ca53
+--- /dev/null
++++ b/Documentation/devicetree/bindings/riscv/sophgo.yaml
+@@ -0,0 +1,28 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/riscv/sophgo.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Sophgo SoC-based boards
++
++maintainers:
++  - Chao Wei <chao.wei@sophgo.com>
++  - Chen Wang <unicorn_wang@outlook.com>
++
++description:
++  Sophgo SoC-based boards
++
++properties:
++  $nodename:
++    const: '/'
++  compatible:
++    oneOf:
++      - items:
++          - enum:
++              - milkv,pioneer
++          - const: sophgo,sg2042
++
++additionalProperties: true
++
++...
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 90f13281d297..97cb8abcfeee 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -20063,6 +20063,12 @@ F:	drivers/char/sonypi.c
+ F:	drivers/platform/x86/sony-laptop.c
+ F:	include/linux/sony-laptop.h
+ 
++SOPHGO DEVICETREES
++M:	Chao Wei <chao.wei@sophgo.com>
++M:	Chen Wang <unicorn_wang@outlook.com>
++S:	Maintained
++F:	Documentation/devicetree/bindings/riscv/sophgo.yaml
++
+ SOUND
+ M:	Jaroslav Kysela <perex@perex.cz>
+ M:	Takashi Iwai <tiwai@suse.com>
 -- 
 2.25.1
 
