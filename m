@@ -4,50 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF153E7B5E2
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Oct 2023 09:51:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DE18E7B5E1
+	for <linux-riscv@archiver.kernel.org>; Wed,  4 Oct 2023 09:59:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=isQCqeRV2n9oTxupQyn7RKfUSXXeXRuxD8/gAzoCiXQ=; b=M1jC+mFcfWihjX
-	OJSpJeJpQ2bPrwMLVnU5RNKC9cYQnEFor4Y+hImdJO3Q9PguHTQCw/tzbUUh69AGugHJF/yy0y2tE
-	sSlmSZ7UGdoIKbMPeqlWJ8+BzI+F1prd38J1VPOlofsK6zGfYTROtsszbnBNtssO4qUYIHRlWujIe
-	7q0GgSNUL/b5TJqtghl4Dcf42JORUmpyn2BH78LZDi4CSV4at+y9nakYIMnAJnk5UwYPoslQqydzh
-	fheA76qkfcYSlHYM5GENDVwbnvgW0EGkQ6zTaAn+ApX2PkgcLTlXAi+OjnR4wElDnkii8WD4YzV/7
-	Rb6fPHyRCy4BvnReeBfA==;
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jqIjfq+6vjVZnhrPGjIHCy8/4ZtNNIdYNvDr6y5O33o=; b=Ldawefsb1QWWEJmKdeIHcCSdFM
+	+JtEI2hqQ5uyNPCqaoY9Z3cXHZfUivSfWtpUlH6BgS/OgW/eOTFCTuadHFCr6LaxXQLksOF/SGQOG
+	bBzTC0lOPacFMCh/8TcpAlJn9V3iOJKopUsd9ZbC1lxw4Vv6zeh8REkvLE4OT2XfQ/smkMzGnHcbm
+	DZ1a97jIZhrmSfBvCwJUrTh7Fuvj/ZSse/qTuI7wpf7Dc8Q+/K9bZLdZMkSnpLNJmQjEYylrQUJ9h
+	vlo3uAKAPvf6m2Tg2UsytEOQ2cBZOIz9kqmSWV+2C2N4+/uOzuSj4EZIhRofM5F107ZM0oo+L6wx4
+	sUzGDfEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qnyXf-00H8hc-0a;
-	Wed, 04 Oct 2023 09:51:43 +0000
-Received: from relay3-d.mail.gandi.net ([2001:4b98:dc4:8::223])
+	id 1qnyfT-00H9yk-2D;
+	Wed, 04 Oct 2023 09:59:47 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qnyXb-00H8fN-0T
+	id 1qnyfP-00H9wT-11
 	for linux-riscv@lists.infradead.org;
-	Wed, 04 Oct 2023 09:51:41 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id EF6906000B;
-	Wed,  4 Oct 2023 09:51:26 +0000 (UTC)
-Message-ID: <f3e904ff-3ae1-b8ad-c400-7961f97b2b40@ghiti.fr>
-Date: Wed, 4 Oct 2023 11:51:26 +0200
+	Wed, 04 Oct 2023 09:59:46 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <ukl@pengutronix.de>)
+	id 1qnyf5-0002vN-0q; Wed, 04 Oct 2023 11:59:23 +0200
+Received: from [2a0a:edc0:0:900:1d::77] (helo=ptz.office.stw.pengutronix.de)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <ukl@pengutronix.de>)
+	id 1qnyf3-00Azxr-7z; Wed, 04 Oct 2023 11:59:21 +0200
+Received: from ukl by ptz.office.stw.pengutronix.de with local (Exim 4.94.2)
+	(envelope-from <ukl@pengutronix.de>)
+	id 1qnyf2-008uPw-UB; Wed, 04 Oct 2023 11:59:20 +0200
+Date: Wed, 4 Oct 2023 11:59:20 +0200
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
+To: Sean Young <sean@mess.org>
+Cc: Thierry Reding <thierry.reding@gmail.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	NXP Linux Team <linux-imx@nxp.com>,
+	Vladimir Zapolskiy <vz@mleia.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Fabrice Gasnier <fabrice.gasnier@foss.st.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	linux-pwm@vger.kernel.org,
+	Ivaylo Dimitrov <ivo.g.dimitrov.75@gmail.com>,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 1/2] pwm: make it possible to apply pwm changes in atomic
+ context
+Message-ID: <20231004095920.ne7yrrthow6tnuvg@pengutronix.de>
+References: <cover.1696156485.git.sean@mess.org>
+ <1bd5241d584ceb4d6b731c4dc3203fb9686ee1d1.1696156485.git.sean@mess.org>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.15.1
-Subject: Re: [PATCH v3] RISC-V: build: Allow LTO to be selected
-Content-Language: en-US
-To: Nathan Chancellor <nathan@kernel.org>, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, conor@kernel.org
-Cc: ndesaulniers@google.com, trix@redhat.com, samitolvanen@google.com,
- twd2.me@gmail.com, linux-riscv@lists.infradead.org, llvm@lists.linux.dev,
- patches@lists.linux.dev
-References: <20231003-riscv-lto-v3-1-8aca61a4ecb4@kernel.org>
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <20231003-riscv-lto-v3-1-8aca61a4ecb4@kernel.org>
-X-GND-Sasl: alex@ghiti.fr
+In-Reply-To: <1bd5241d584ceb4d6b731c4dc3203fb9686ee1d1.1696156485.git.sean@mess.org>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: ukl@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231004_025139_475320_DD6A3C68 
-X-CRM114-Status: GOOD (  30.01  )
+X-CRM114-CacheID: sfid-20231004_025943_377172_6BEEE029 
+X-CRM114-Status: GOOD (  22.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -59,126 +87,109 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: multipart/mixed; boundary="===============4521956592910431537=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Nathan,
 
-On 03/10/2023 21:16, Nathan Chancellor wrote:
-> From: Wende Tan <twd2.me@gmail.com>
->
-> Allow LTO to be selected for RISC-V, only when LLD >= 14, since there is an
-> issue [1] in prior LLD versions that prevents LLD to generate proper
-> machine code for RISC-V when writing `nop`s.
->
-> I have tested enabling LTO for `defconfig`. The LLD took ~2m21s and ~3GiB
-> on our Intel Xeon Gold 6140 server and produced an 18MiB Image. The image
-> can boot to shell using an archriscv rootfs on QEMU.
->
-> I have also tested it for `allyesconfig` without COMPILE_TEST, FTRACE,
-> KASAN, and GCOV. The LLD took ~7h03m and ~335GiB on the server,
-> successfully producing a 1.7GiB Image. Unfortunately, we cannot boot this
-> image because the `create_kernel_page_table()` -> `alloc_pmd_early()` ->
-> `BUG_ON()` logic limits the image to be < 1GiB. Maybe we can fix it in a
-> separate patch further.
+--===============4521956592910431537==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="hz3c3li5tw4muaqt"
+Content-Disposition: inline
 
 
-Yes, I see 2 solutions:
+--hz3c3li5tw4muaqt
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-- either use PUD mappings, which is not that easy because we'd need the 
-physical and virtual addresses to both be aligned on 1GB, which is very 
-unlikely (the kernel is generally loaded at 0x8020_0000). We could use a 
-relocatable kernel to offset the virtual kernel address though.
+Hello Sean,
 
-- or use a second early_pmd, which would make sense as we reserve 2GB 
-for the kernel mapping anyway, but I'm not sure it would work without a 
-bunch of modifications.
+On Sun, Oct 01, 2023 at 11:40:29AM +0100, Sean Young wrote:
+> diff --git a/drivers/pwm/core.c b/drivers/pwm/core.c
+> index dc66e3405bf5..d9679ae5b2be 100644
+> --- a/drivers/pwm/core.c
+> +++ b/drivers/pwm/core.c
+> @@ -505,7 +505,7 @@ int pwm_apply_state(struct pwm_device *pwm, const str=
+uct pwm_state *state)
+>  	 * is a bad idea. So make it explicit that calling this function might
+>  	 * sleep.
+>  	 */
+> -	might_sleep();
+> +	might_sleep_if(pwm_can_sleep(pwm));
+> =20
+>  	if (!pwm || !state || !state->period ||
+>  	    state->duty_cycle > state->period)
 
-Let me know if that would help and I'll give it a try (unless you want 
-to take care of that of course!).
+I'd like to have a mechanism to catch drivers that missed to set
+=2Ecan_sleep. The best idea I currently have for that is to disable
+preemption if IS_ENABLED(CONFIG_PWM_DEBUG) && !pwm_can_sleep(pwm) while
+=2Eapply() is running.
 
-Alex
+> diff --git a/drivers/pwm/pwm-fsl-ftm.c b/drivers/pwm/pwm-fsl-ftm.c
+> index b7c6045c5d08..b8b9392844e9 100644
+> --- a/drivers/pwm/pwm-fsl-ftm.c
+> +++ b/drivers/pwm/pwm-fsl-ftm.c
+> @@ -405,6 +405,7 @@ static int fsl_pwm_probe(struct platform_device *pdev)
+> =20
+>  	fpc->soc =3D of_device_get_match_data(&pdev->dev);
+>  	fpc->chip.dev =3D &pdev->dev;
+> +	fpc->chip.can_sleep =3D true;
+
+As .apply() being callable in non-sleepable context only depends on
+=2Eapply() I think a better place for this property is in struct pwm_ops.
+
+Also I wonder if the distinction between atomic and sleeping
+pwm_state_apply() should be more explicit. For GPIOs you have a sleeping
+variant gpiod_set_value_cansleep() that allows to immediately determine
+the intended context in the caller. This would allow that programming
+a PWM stays a preemption point (if possible/desired) even if the
+underlying hardware/driver is atomic. To not have to touch all consumer
+drivers, maybe the pair for pwm should better be
+
+	pwm_apply_state()
+	pwm_apply_state_atomic()
+
+instead of a "cansleep" suffix for the sleeping variant? Or maybe it's
+better to accept touching all consumer drivers to get semantics similar
+to gpio? I couldn't decide quickly what I really like better here, so
+that's your chance to comment and influence the outcome :-)
+
+Best regards
+Uwe
+
+--=20
+Pengutronix e.K.                           | Uwe Kleine-K=F6nig            |
+Industrial Linux Solutions                 | https://www.pengutronix.de/ |
+
+--hz3c3li5tw4muaqt
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmUdN3gACgkQj4D7WH0S
+/k7Vgwf+OSTM/5a3jTbEn+zj18WbWk6jQQdj6kqyM47GR36RweXbkLMfbl++5ogJ
+z6xjVfn/ov9rQsnn2Em53Zkv7yV/AQb+Hu1tLnuVAsdyxVC/CrCRjWAcrkpoZf6o
+Ru7Nf7hs/mJ57jeLgBfPp+k2kwntn470QPIpzLiruZge1YeEwuYKzeHuO7WI4KCb
+777XYS5j+tntQRSrlm2dzE8H+5lEqc7mEzG22MAd+yIt4dAsuSAdno2hKLMJx960
+4k6Y+UmLJB3cC+BPcAjEllupp1c4turpZ+3P/7D0Fo8P5BgH937nm/wktXJJlPBs
+aJ8B/mMpia+WhQcYdq+TjejxlzAf3Q==
+=THVI
+-----END PGP SIGNATURE-----
+
+--hz3c3li5tw4muaqt--
 
 
->
-> Disable LTO for arch/riscv/kernel/pi, as llvm-objcopy expects an ELF
-> object file when manipulating the files in that subfolder, rather than
-> LLVM bitcode.
->
-> [1] https://github.com/llvm/llvm-project/issues/50505, resolved by LLVM
->      commit e63455d5e0e5 ("[MC] Use local MCSubtargetInfo in writeNops")
->
-> Tested-by: Wende Tan <twd2.me@gmail.com>
-> Signed-off-by: Wende Tan <twd2.me@gmail.com>
-> Co-developed-by: Nathan Chancellor <nathan@kernel.org>
-> Signed-off-by: Nathan Chancellor <nathan@kernel.org>
-> ---
-> NOTE: I tested LLVM 14 through 18 with defconfig + full/thin LTO and
-> allmodconfig + thin LTO. allmodconfig + thin LTO with LLVM 15 and 16
-> shows
->
->    ld.lld: error: section size decrease is too large
->
-> when linking vmlinux. This appears to be resolved in LLVM 17 with
-> https://github.com/llvm/llvm-project/commit/9d37ea95df1b84cca9b5e954d8964c976a5e303e
-> (I did not bisect but the commit message lines up with the issue). I
-> kept the existing version check because defconfig worked fine but we may
-> want to bump it to 17.0.0 if randconfigs trip over this.
->
-> Changes in v3:
-> - Disable LTO in arch/riscv/kernel/pi/Makefile, which was added to the
->    kernel after the submission of v2. This change matches arm64.
-> - Link to v2: https://lore.kernel.org/r/20220512205545.992288-1-twd2.me@gmail.com/
->
-> Changes in v2:
-> - Some textual changes suggested by Nick.
-> - Drop the changes to `arch/riscv/Makefile`, since the LLVM issue is
->    filed and resolved.
-> - Drop the unnecessary changes to `arch/riscv/kernel/vdso/Makefile`.
-> - Link to v1: https://lore.kernel.org/r/20210719205208.1023221-1-twd2.me@gmail.com/
-> ---
->   arch/riscv/Kconfig            | 3 +++
->   arch/riscv/kernel/pi/Makefile | 3 +++
->   2 files changed, 6 insertions(+)
->
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index d607ab0f7c6d..523640f7441e 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -46,6 +46,9 @@ config RISCV
->   	select ARCH_SUPPORTS_CFI_CLANG
->   	select ARCH_SUPPORTS_DEBUG_PAGEALLOC if MMU
->   	select ARCH_SUPPORTS_HUGETLBFS if MMU
-> +	# LLD >= 14: https://github.com/llvm/llvm-project/issues/50505
-> +	select ARCH_SUPPORTS_LTO_CLANG if LLD_VERSION >= 140000
-> +	select ARCH_SUPPORTS_LTO_CLANG_THIN if LLD_VERSION >= 140000
->   	select ARCH_SUPPORTS_PAGE_TABLE_CHECK if MMU
->   	select ARCH_SUPPORTS_PER_VMA_LOCK if MMU
->   	select ARCH_USE_MEMTEST
-> diff --git a/arch/riscv/kernel/pi/Makefile b/arch/riscv/kernel/pi/Makefile
-> index 07915dc9279e..b75f150b923d 100644
-> --- a/arch/riscv/kernel/pi/Makefile
-> +++ b/arch/riscv/kernel/pi/Makefile
-> @@ -9,6 +9,9 @@ KBUILD_CFLAGS	:= $(subst $(CC_FLAGS_FTRACE),,$(KBUILD_CFLAGS)) -fpie \
->   		   -fno-asynchronous-unwind-tables -fno-unwind-tables \
->   		   $(call cc-option,-fno-addrsig)
->   
-> +# Disable LTO
-> +KBUILD_CFLAGS	:= $(filter-out $(CC_FLAGS_LTO), $(KBUILD_CFLAGS))
-> +
->   KBUILD_CFLAGS	+= -mcmodel=medany
->   
->   CFLAGS_cmdline_early.o += -D__NO_FORTIFY
->
-> ---
-> base-commit: 8a749fd1a8720d4619c91c8b6e7528c0a355c0aa
-> change-id: 20231003-riscv-lto-f013beed8587
->
-> Best regards,
+--===============4521956592910431537==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============4521956592910431537==--
+
