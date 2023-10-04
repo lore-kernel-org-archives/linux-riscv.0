@@ -4,79 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE7B3E7C4CE
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Oct 2023 15:33:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BD00E7C4CE
+	for <linux-riscv@archiver.kernel.org>; Wed,  4 Oct 2023 15:38:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ItB9w7BcHd2lilyqf/3aQB0khfCbH9AyLmHDkHheBMs=; b=Hp9SWmSo2pz3hz
-	VZ96HtHODPXGDrP5WM7CkltJgnnCPpTccjjSdA/r9XtEL1Jw4f5ZAn+JYICqASSBf2iLkLLY3jrVw
-	bH/rNJVhnFKxwkiBddMEpjLFlFO0wuhEoZWWnhyB6bmHVZUqaXX9UkDUnTfI8vo676ROQqK8EU2PO
-	2ednauCHTKDX94bW9M6GkA7MzJMQZbdaBQIrn3X4t5sDKfj/nDedeuDnIYkF5IR2Y1yADzesfa+zL
-	hcOHF8j0stmETsMtAqA9iFDVCoPTnodtmffwNJIaSvU7UJ2NZfe80Y7HfuTMrlxGdz/yk8UfPRvO4
-	kSAzluzI2ua5tq4TZPVQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=bnNJnETgB6WzjTkiLZhfCoggxb3CDXU8vjVh7flWifU=; b=SsNPDrl2dTqQrZ
+	LdW0373pt4X7BhN/tY6jDGhWdR5C3A3UW7Cfm8enihNZPt5FIxkLHkzBkJOEqvX+dZmkQMqhmF+4G
+	Bc3MtIzN2I9e+e9TfjLAUAqEp3hCFWKyUpU+zKV3wEmIwNKidJ1IL5q6J12MnBUJaH9q01HclLyfH
+	PsPJ8dnIGW6FRRC6hZyqa41W1BjQL1XkQphpvX0BKzxdR274qovOgt3WpzYtGZ47gska0hz2Id0tg
+	wFZ2pqQHGgD0z4aqp50wGfimhgpPhGuQF+VvE9U7c2FzGPepJ5JBZZqx1AKdiTCVPPlWjKN/sWi/r
+	sOgp35Aa/pI0YjwNpjpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qo3rt-000MbH-1q;
-	Wed, 04 Oct 2023 15:32:57 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1qo3wl-000NCc-29;
+	Wed, 04 Oct 2023 15:37:59 +0000
+Received: from mail-ot1-x329.google.com ([2607:f8b0:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qo3ro-000Ma4-3C
+	id 1qo3wi-000NC4-13
 	for linux-riscv@lists.infradead.org;
-	Wed, 04 Oct 2023 15:32:56 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by ams.source.kernel.org (Postfix) with ESMTP id 8989AB81CF1;
-	Wed,  4 Oct 2023 15:32:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DEFEBC433C7;
-	Wed,  4 Oct 2023 15:32:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1696433570;
-	bh=Na16UD/s1oSoqnUU7cLXvGvYgsS3in1QKmZWnqaLLM8=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=UlRUnRxR4Knt/zA1ssgoCg17S7pcXjBahn655ReiBJ/eLOS5x/vT0cNWB+zftQ7/2
-	 yWHdSS4rhR4Y0oYGHmClcdBh+rL5reJPF0yPyFNod0LOv7pAnVYN4KuKVm7jIfjyeQ
-	 pDpDvD5yer+ZQ4AejEO6htlgMPAmFHk/BTrXNKrjScnABeZAjuh+SwuMxa/eQ/YDnh
-	 gT476gABsmUxf1Wf8BNSuBOjsDQ77L2uJuzR8Xc1TeJjZyJxiR2K0gndCzA8ioimm5
-	 DI9yGP7EjGgXIdZaqDV2kfk/tk5FuRuzef7jQVHgaXiIW6U60lPqTU96T6EOEikSvm
-	 mLjqOI8PHOVaA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1qo3rk-0016Ui-GG;
-	Wed, 04 Oct 2023 16:32:48 +0100
-Date: Wed, 04 Oct 2023 16:32:47 +0100
-Message-ID: <86cyxuo128.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Anup Patel <apatel@ventanamicro.com>
-Cc: Dmitry Dunaev <dunaev@tecon.ru>,
-	dunaich@mail.ru,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
+	Wed, 04 Oct 2023 15:37:58 +0000
+Received: by mail-ot1-x329.google.com with SMTP id 46e09a7af769-6c62cb79b02so1467625a34.2
+        for <linux-riscv@lists.infradead.org>; Wed, 04 Oct 2023 08:37:55 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1696433874; x=1697038674; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=nJqHnUlx2VOSGtYh5XeNz8W9/poCSBylKJ6mcsi9iaI=;
+        b=K3fSnCQAR+4rvUz/JjziOgBcQKuMv8/PlVRbaIRxWX+fEarhskV8l7GDN5O6ARoayd
+         YaP9bQAqUy+pvaa2DcRAbi9kutlLPOdMkpHDlp9nD6X1YX6ZvP2hOh1uNkH2xomQIcSb
+         9pjtXE7T++12MUyJdb/+I1w8upzZtxXK16v8egVWbFDNibR/AcnTBGXnjhemfCjQ9emX
+         FRO99ocfdyc/n4EjpXRme6KzeHuDo1LpVMfQhK3an43b7AeBWgsNvvQFh4t5aJ/87LCY
+         kOqTKUpJpF/9uQaXg427fJc1nbyryAwsmtz0Au7ONAZBAT1HHDw7pTvhhpu8hioHoxBt
+         CMiA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1696433874; x=1697038674;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=nJqHnUlx2VOSGtYh5XeNz8W9/poCSBylKJ6mcsi9iaI=;
+        b=lCY3UhN3hIVrLe9aODzySsIR7qfg2BxtyIyADg/gf7W72TsJNpnorqwcTjmOYL+E3h
+         nx5Iw4+gsU9qYmeSQhNZxxR4RDm2NLRqyWuotNXO/4OehqCDgpUldrslQ7wUNC86luDv
+         iAOyXZVb7Se/k/cTTm+YQz5XNKD0RDvsgmCdCEx1WY9ICRx+OO/azjWoyZL2IvFbXtm0
+         6ldN5k4fwxvZUdjlp27qlh17dNl+x2EKbWgOTgPC0IOYsouZ9Dl9nLmDPjsyot3viZwK
+         ciXx4kg4WNKDLoxYx4wsVJCxjERYcr0Htsf2KxhVz+WSRgdTxrvhKY7Kc49sLthS/Cec
+         Y07Q==
+X-Gm-Message-State: AOJu0Yz2t3F3yMnNKhuWy3ifNfT0Rz/UnIcRj2CvsV8TORw2uxjYTyBe
+	ewznG0THnYbWls40oliDqGg=
+X-Google-Smtp-Source: AGHT+IFqIokQOJawfzAmpFJ1J5+t3vPIhi0qW7YrgGdp+voI8NaYAgta1W1P75bskOFAlUujxOtc8w==
+X-Received: by 2002:a9d:6b14:0:b0:6bd:11b:39bf with SMTP id g20-20020a9d6b14000000b006bd011b39bfmr2730083otp.4.1696433874320;
+        Wed, 04 Oct 2023 08:37:54 -0700 (PDT)
+Received: from localhost.localdomain ([122.8.183.87])
+        by smtp.gmail.com with ESMTPSA id m2-20020a9d6ac2000000b006b96a4287d4sm490199otq.5.2023.10.04.08.37.53
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 04 Oct 2023 08:37:54 -0700 (PDT)
+From: Chen Wang <unicornxw@gmail.com>
+To: aou@eecs.berkeley.edu,
+	chao.wei@sophgo.com,
+	conor@kernel.org,
+	devicetree@vger.kernel.org,
+	guoren@kernel.org,
+	jszhang@kernel.org,
+	krzysztof.kozlowski+dt@linaro.org,
 	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH] irqchip/riscv-intc: Mark INTC nodes for secondary CPUs as initialized.
-In-Reply-To: <CAK9=C2UUQ+ChueJVs+AnY0oCTb1zSv7qOCTijSchwxiMspX74w@mail.gmail.com>
-References: <20230926102801.1591126-1-dunaev@tecon.ru>
-	<CAK9=C2UiBNQtv0Q2yJMKqc5pMX_jam+ZmfRz3Rme0ZYuqN68HA@mail.gmail.com>
-	<86il7mofmm.wl-maz@kernel.org>
-	<CAK9=C2UUQ+ChueJVs+AnY0oCTb1zSv7qOCTijSchwxiMspX74w@mail.gmail.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: apatel@ventanamicro.com, dunaev@tecon.ru, dunaich@mail.ru, tglx@linutronix.de, paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	linux-riscv@lists.infradead.org,
+	palmer@dabbelt.com,
+	paul.walmsley@sifive.com,
+	robh+dt@kernel.org,
+	xiaoguang.xing@sophgo.com,
+	apatel@ventanamicro.com
+Cc: Chen Wang <unicorn_wang@outlook.com>
+Subject: [PATCH v4 00/10] Add Milk-V Pioneer RISC-V board support
+Date: Wed,  4 Oct 2023 23:37:20 +0800
+Message-Id: <cover.1696433229.git.unicorn_wang@outlook.com>
+X-Mailer: git-send-email 2.34.1
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231004_083253_334866_97D26B03 
-X-CRM114-Status: GOOD (  38.95  )
+X-CRM114-CacheID: sfid-20231004_083756_364638_CC575149 
+X-CRM114-Status: GOOD (  14.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,82 +96,128 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCAwNCBPY3QgMjAyMyAxNTo1OTozMyArMDEwMCwKQW51cCBQYXRlbCA8YXBhdGVsQHZl
-bnRhbmFtaWNyby5jb20+IHdyb3RlOgo+IAo+IE9uIFdlZCwgT2N0IDQsIDIwMjMgYXQgMzo0OOKA
-r1BNIE1hcmMgWnluZ2llciA8bWF6QGtlcm5lbC5vcmc+IHdyb3RlOgo+ID4KPiA+IE9uIFR1ZSwg
-MjYgU2VwIDIwMjMgMTE6MzY6MzEgKzAxMDAsCj4gPiBBbnVwIFBhdGVsIDxhcGF0ZWxAdmVudGFu
-YW1pY3JvLmNvbT4gd3JvdGU6Cj4gPiA+Cj4gPiA+IE9uIFR1ZSwgU2VwIDI2LCAyMDIzIGF0IDM6
-NTnigK9QTSBEbWl0cnkgRHVuYWV2IDxkdW5hZXZAdGVjb24ucnU+IHdyb3RlOgo+ID4gPiA+Cj4g
-PiA+ID4gVGhlIGN1cnJlbnQgTGludXggZHJpdmVyIGlycS1yaXNjdi1pbnRjIGluaXRpYWxpemUg
-SVJRIGRvbWFpbiBvbmx5IG9uY2UsCj4gPiA+ID4gd2hlbiBpbml0IGZ1bmN0aW9uIGNhbGxlZCBv
-biBwcmltYXJ5IGhhcnQuIEluIG90aGVyIGNhc2VzIG5vIElSUSBkb21haW4gaXMKPiA+ID4gPiBj
-cmVhdGVkIGFuZCBubyBvcGVyYXRpb24gb24gaW50ZXJydXB0LWNvbnRyb2xsZXIgbm9kZSBpcyBw
-ZXJmb3JtZWQuCj4gPiA+ID4gVGhpcyBpcyBjYXVzZSBvZiB0aGF0IG5vIGNvbW1vbiBMaW51eCBk
-cml2ZXIgY2FuIHVzZSBwZXItY3B1IGludGVycnVwdHMKPiA+ID4gPiBtYXBwZWQgdG8gc2V2ZXJh
-bCBDUFVzIGJlY2F1c2UgZndub2RlIG9mIHNlY29uZGFyeSBjb3JlcyBJTlRDIGlzIG5vdAo+ID4g
-PiA+IG1hcmtlZCBhcyBpbml0aWFsaXplZC4gVGhpcyBkZXZpY2UgaXMgYWx3YXlzIHdpbGwgYmUg
-bWFya2VkIGFzIGRlZmVycmVkLgo+ID4gPiA+IEZvciBleGFtcGxlIHRoZSBzeXN0ZW0gd2l0aCBk
-ZXZpY2V0cmVlCj4gPiA+ID4KPiA+ID4gPiAgICAgY3B1MDogY3B1QDAgewo+ID4gPiA+ICAgICAg
-ICAgY3B1MF9pbnRjOiBpbnRlcnJ1cHQtY29udHJvbGxlciB7Cj4gPiA+ID4gICAgICAgICAgICAg
-aW50ZXJydXB0LWNvbnRyb2xsZXI7Cj4gPiA+ID4gICAgICAgICAgICAgY29tcGF0aWJsZSA9IHJp
-c2N2LGNwdS1pbnRjOwo+ID4gPiA+ICAgICAgICAgfTsKPiA+ID4gPiAgICAgfTsKPiA+ID4gPgo+
-ID4gPiA+ICAgICBjcHUxOiBjcHVAMSB7Cj4gPiA+ID4gICAgICAgICBjcHUxX2ludGM6IGludGVy
-cnVwdC1jb250cm9sbGVyIHsKPiA+ID4gPiAgICAgICAgICAgICBpbnRlcnJ1cHQtY29udHJvbGxl
-cjsKPiA+ID4gPiAgICAgICAgICAgICBjb21wYXRpYmxlID0gcmlzY3YsY3B1LWludGM7Cj4gPiA+
-ID4gICAgICAgICB9Owo+ID4gPiA+ICAgICB9Owo+ID4gPiA+Cj4gPiA+ID4gICAgIGJ1c2VyciB7
-Cj4gPiA+ID4gICAgICAgICBjb21wYXRpYmxlID0gcmlzY3YsYnVzZXJyOwo+ID4gPiA+ICAgICAg
-ICAgaW50ZXJydXB0cy1leHRlbmRlZCA9IDwmY3B1MF9pbnRjIDE2ICZjcHUxX2ludGMgMTY+Owo+
-ID4gPiA+ICAgICB9Owo+ID4gPiA+Cj4gPiA+ID4gd2lsbCBhbHdheXMgcmVwb3J0ICdidXNlcnIn
-IG5vZGUgYXMgZGVmZXJyZWQgd2l0aG91dCBjYWxsaW5nIGFueQo+ID4gPiA+IGJ1cyBwcm9iZSBm
-dW5jdGlvbi4KPiA+ID4gPgo+ID4gPiA+IFRoaXMgcGF0Y2ggd2lsbCBtYXJrIGFsbCBzZWNvbmRh
-cnkgbm9kZXMgcGFzc2VkIHRvIGlycS1yaXNjdi1pbnRjCj4gPiA+ID4gZHJpdmVyIGluaXQgZnVu
-Y3Rpb24gYXMgaW5pdGlhbGl6ZWQgdG8gYmUgYWJsZSB0byBhY3QgYXMgY29ycmVjdAo+ID4gPiA+
-IElSUSBwaGFuZGxlIG5vZGUuCj4gPiA+ID4KPiA+ID4gPiBTaWduZWQtb2ZmLWJ5OiBEbWl0cnkg
-RHVuYWV2IDxkdW5hZXZAdGVjb24ucnU+Cj4gPiA+ID4gLS0tCj4gPiA+ID4gIGRyaXZlcnMvaXJx
-Y2hpcC9pcnEtcmlzY3YtaW50Yy5jIHwgOCArKysrKystLQo+ID4gPiA+ICAxIGZpbGUgY2hhbmdl
-ZCwgNiBpbnNlcnRpb25zKCspLCAyIGRlbGV0aW9ucygtKQo+ID4gPiA+Cj4gPiA+ID4gZGlmZiAt
-LWdpdCBhL2RyaXZlcnMvaXJxY2hpcC9pcnEtcmlzY3YtaW50Yy5jIGIvZHJpdmVycy9pcnFjaGlw
-L2lycS1yaXNjdi1pbnRjLmMKPiA+ID4gPiBpbmRleCA0YWRlZWUxYmMzOTEuLmMwMWE0ZThkNDk4
-MyAxMDA2NDQKPiA+ID4gPiAtLS0gYS9kcml2ZXJzL2lycWNoaXAvaXJxLXJpc2N2LWludGMuYwo+
-ID4gPiA+ICsrKyBiL2RyaXZlcnMvaXJxY2hpcC9pcnEtcmlzY3YtaW50Yy5jCj4gPiA+ID4gQEAg
-LTE1NSw4ICsxNTUsMTAgQEAgc3RhdGljIGludCBfX2luaXQgcmlzY3ZfaW50Y19pbml0KHN0cnVj
-dCBkZXZpY2Vfbm9kZSAqbm9kZSwKPiA+ID4gPiAgICAgICAgICAqIGZvciBlYWNoIElOVEMgRFQg
-bm9kZS4gV2Ugb25seSBuZWVkIHRvIGRvIElOVEMgaW5pdGlhbGl6YXRpb24KPiA+ID4gPiAgICAg
-ICAgICAqIGZvciB0aGUgSU5UQyBEVCBub2RlIGJlbG9uZ2luZyB0byBib290IENQVSAob3IgYm9v
-dCBIQVJUKS4KPiA+ID4gPiAgICAgICAgICAqLwo+ID4gPiA+IC0gICAgICAgaWYgKHJpc2N2X2hh
-cnRpZF90b19jcHVpZChoYXJ0aWQpICE9IHNtcF9wcm9jZXNzb3JfaWQoKSkKPiA+ID4gPiArICAg
-ICAgIGlmIChyaXNjdl9oYXJ0aWRfdG9fY3B1aWQoaGFydGlkKSAhPSBzbXBfcHJvY2Vzc29yX2lk
-KCkpIHsKPiA+ID4gPiArICAgICAgICAgICAgICAgZndub2RlX2Rldl9pbml0aWFsaXplZChvZl9u
-b2RlX3RvX2Z3bm9kZShub2RlKSwgdHJ1ZSk7Cj4gPiA+Cj4gPiA+IFRoZXJlIGlzIGFscmVhZHkg
-YSBwYXRjaCBvbiBMS01MIHRvIGFkZHJlc3MgdGhpcy4KPiA+ID4gaHR0cHM6Ly93d3cuc3Bpbmlj
-cy5uZXQvbGlzdHMva2VybmVsL21zZzQ5Mjk4ODYuaHRtbAo+ID4KPiA+IElmIHRoaXMgaXMgYSBm
-aXgsIHdoeSBpcyBpdCBidXJpZWQgaW4gYSBodWdlIHNlcmllcyBhbmQgbm90IGJyb3VnaHQKPiA+
-IGZvcndhcmQgYXMgYW4gaW5kZXBlbmRlbnQgZml4IHRoYXQgbmVlZHMgdG8gYmUgcGlja2VkIGVh
-cmx5Pwo+IAo+IERtaXRyeSBzYXcgdGhpcyBpc3N1ZSBpbiBhIHRvdGFsbHkgZGlmZmVyZW50IGNv
-bnRleHQgd2hpY2ggaXMgbm90Cj4gcmVwcm9kdWNpYmxlIHdpdGggZXhpc3RpbmcgRFRTIGZpbGVz
-IGluIGtlcm5lbCBzb3VyY2VzLgoKSSBob3BlIHlvdSdyZSBub3Qgc3VnZ2VzdGluZyB0aGF0IG9u
-bHkgdGhlIERUcyB0aGF0IGFyZSBwcmVzZW50IGluIHRoZQprZXJuZWwgdHJlZSBhcmUgdmFsaWQu
-IEJlY2F1c2UgYXMgZmFyIGFzIEknbSBjb25jZXJuLCB0aGUgRFRzIGluIHRoZQprZXJuZWwgdHJl
-ZSBhcmUgb25seSBzb21lICpleGFtcGxlcyosIGFuZCBub3QgYSByZWZlcmVuY2UuCgpJIGZ1bGx5
-IGV4cGVjdCB0aGUgdmFzdCBtYWpvcml0eSBvZiBEVHMgdG8gbGl2ZSAqb3V0c2lkZSogb2YgdGhl
-Cmtlcm5lbCB0cmVlLCBwcm92aWRlZCBieSB0aGUgZmlybXdhcmUsIGFuZCBuZXZlciB1cHN0cmVh
-bWVkLiBXb3VsZCB5b3UKZXhwZWN0IGV2ZXJ5IFBDIHZlbmRvciB0byB1cHN0cmVhbSB0aGVpciBB
-Q1BJIHRhYmxlcz8KCj4gVGhpcyBpc3N1ZSBvbmx5IG1hbmlmZXN0cyB3aGVuIHNvbWUgcGxhdGZv
-cm0gZHJpdmVyIERUIG5vZGUKPiBwb2ludHMgdG8gdGhlIHBlci1IQVJUIElOVEMgbm9kZXMuIEZv
-ciBleGFtcGxlLCBSSVNDLVYKPiBpcnFjaGlwIGRldmljZSBEVCBub2RlcyBwb2ludCB0byBwZXIt
-SEFSVCBJTlRDIG5vZGVzLgoKSXMgdGhpcyBjb25maWd1cmF0aW9uIGxlZ2FsIG9yIG5vdCBhcyBw
-ZXIgdGhlIERUIGJpbmRpbmc/IEkgZG9uJ3Qgc2VlCmFueXRoaW5nIHRoYXQgc3VnZ2VzdHMgaXQg
-aXNuJ3QgbGVnYWwsIGFuZCBoYXZpbmcgcGVyLUNQVSBpbnRlcnJ1cHRzCmlzbid0IGV4YWN0bHkg
-YSBuZXcgdGhpbmcuCgo+IEN1cnJlbnRseSwgYWxsIFJJU0MtViBpcnFjaGlwIGRyaXZlcnMgKElO
-VEMgYW5kIFBMSUMpIGFyZSBwcm9iZWQKPiBlYXJseSAobm90IGFzIHBsYXRmb3JtIGRyaXZlcnMp
-IHNvIHdlIGRvbid0IHNlZSB0aGlzIGlzc3VlIHdpdGgKPiBleGlzdGluZyBpcnFjaGlwIGRyaXZl
-cnMuCgpZb3UgZG9uJ3QsIGJ1dCBEaW1pdHJ5IGRvZXMuIFdobyB3aW5zPwoKCU0uCgotLSAKV2l0
-aG91dCBkZXZpYXRpb24gZnJvbSB0aGUgbm9ybSwgcHJvZ3Jlc3MgaXMgbm90IHBvc3NpYmxlLgoK
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlz
-Y3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xp
-c3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+From: Chen Wang <unicorn_wang@outlook.com>
+
+Milk-V Pioneer [1] is a developer motherboard based on SOPHON SG2042 [2]
+in a standard mATX form factor. Add minimal device
+tree files for the SG2042 SOC and the Milk-V Pioneer board.
+
+Now only support basic uart drivers to boot up into a basic console.
+
+Thanks,
+Chen
+
+---
+
+Changes in v4:
+  The patch series is based on v6.6-rc1. You can simply review or test
+  the patches at the link [6].
+  - Update bindings files for sg2042 clint as per intput from reviewers:
+    - rename filename from sophgo,sg2042-clint-mswi/sg2042-clint-mtimer
+      to thead,c900-aclint-mswi/thead,c900-aclint-mtimer.
+    - rename compatible strings accordingly.
+  - Update dts as per input from reviewers: don't use macro for cpus's isa
+    properties; use new compatible strings for mtimer/mswi of clint.
+  - Use only one email-address for SoB.
+
+Changes in v3 [v3]:
+  The patch series is based on v6.6-rc1. You can simply review or test
+  the patches at the link [5].
+  - add new vendor specific compatible strings to identify timer/mswi for sg2042 clint
+  - updated maintainers info. for sophgo devicetree
+  - remove the quirk changes for uart
+  - updated dts, such as:
+    - add "riscv,isa-base"/"riscv,isa-extensions" for cpus
+    - update l2 cache node's name
+    - remove memory and pmu nodes
+  - fixed other issues as per input from reviewers.
+
+Changes in v2 [v2]:
+  The patch series is based on v6.6-rc1. You can simply review or test
+  the patches at the link [4].
+  - Improve format for comment of commitments as per input from last review.
+  - Improve format of DTS as per input from last review.
+  - Remove numa related stuff from DTS. This part is just for optimization, may
+    add it later if really needed.
+
+Changes in v1:
+   The patch series is based on v6.6-rc1. Due to it is not sent in thread,
+   I have listed permlinks of the patchset [v1-0/12] ~ [v1-12/12] here for
+   quick reference. You can simply review or test the patches at the link [3].
+
+[1]: https://milkv.io/pioneer
+[2]: https://en.sophgo.com/product/introduce/sg2042.html
+[3]: https://github.com/unicornx/linux-riscv/commits/milkv-pioneer-minimal
+[4]: https://github.com/unicornx/linux-riscv/commits/milkv-pioneer-minimal-v2
+[5]: https://github.com/unicornx/linux-riscv/commits/milkv-pioneer-minimal-v3
+[6]: https://github.com/unicornx/linux-riscv/commits/milkv-pioneer-minimal-v4
+[v1-0/12]:https://lore.kernel.org/linux-riscv/20230915070856.117514-1-wangchen20@iscas.ac.cn/
+[v1-1/12]:https://lore.kernel.org/linux-riscv/20230915071005.117575-1-wangchen20@iscas.ac.cn/
+[v1-2/12]:https://lore.kernel.org/linux-riscv/20230915071409.117692-1-wangchen20@iscas.ac.cn/
+[v1-3/12]:https://lore.kernel.org/linux-riscv/20230915072242.117935-1-wangchen20@iscas.ac.cn/
+[v1-4/12]:https://lore.kernel.org/linux-riscv/20230915072333.117991-1-wangchen20@iscas.ac.cn/
+[v1-5/12]:https://lore.kernel.org/linux-riscv/20230915072358.118045-1-wangchen20@iscas.ac.cn/
+[v1-6/12]:https://lore.kernel.org/linux-riscv/20230915072415.118100-1-wangchen20@iscas.ac.cn/
+[v1-7/12]:https://lore.kernel.org/linux-riscv/20230915072431.118154-1-wangchen20@iscas.ac.cn/
+[v1-8/12]:https://lore.kernel.org/linux-riscv/20230915072451.118209-1-wangchen20@iscas.ac.cn/
+[v1-9/12]:https://lore.kernel.org/linux-riscv/20230915072517.118266-1-wangchen20@iscas.ac.cn/
+[v1-10/12]:https://lore.kernel.org/linux-riscv/20230915072558.118325-1-wangchen20@iscas.ac.cn/
+[v1-11/12]:https://lore.kernel.org/linux-riscv/20230915072624.118388-1-wangchen20@iscas.ac.cn/
+[v1-12/12]:https://lore.kernel.org/linux-riscv/20230915072653.118448-1-wangchen20@iscas.ac.cn/
+[v2]:https://lore.kernel.org/linux-riscv/cover.1695189879.git.wangchen20@iscas.ac.cn/
+[v3]:https://lore.kernel.org/linux-riscv/cover.1695804418.git.unicornxw@gmail.com/
+
+---
+
+Chen Wang (8):
+  riscv: Add SOPHGO SOC family Kconfig support
+  dt-bindings: vendor-prefixes: add milkv/sophgo
+  dt-bindings: riscv: add sophgo sg2042 bindings
+  dt-bindings: riscv: Add T-HEAD C920 compatibles
+  dt-bindings: interrupt-controller: Add Sophgo SG2042 PLIC
+  riscv: dts: add initial Sophgo SG2042 SoC device tree
+  riscv: dts: sophgo: add Milk-V Pioneer board device tree
+  riscv: defconfig: enable SOPHGO SoC
+
+Inochi Amaoto (2):
+  dt-bindings: timer: Add Sophgo sg2042 CLINT timer
+  dt-bindings: interrupt-controller: Add Sophgo sg2042 CLINT mswi
+
+ .../sifive,plic-1.0.0.yaml                    |    1 +
+ .../thead,c900-aclint-mswi.yaml               |   43 +
+ .../devicetree/bindings/riscv/cpus.yaml       |    1 +
+ .../devicetree/bindings/riscv/sophgo.yaml     |   28 +
+ .../timer/thead,c900-aclint-mtimer.yaml       |   43 +
+ .../devicetree/bindings/vendor-prefixes.yaml  |    4 +
+ MAINTAINERS                                   |    7 +
+ arch/riscv/Kconfig.socs                       |    5 +
+ arch/riscv/boot/dts/Makefile                  |    1 +
+ arch/riscv/boot/dts/sophgo/Makefile           |    3 +
+ arch/riscv/boot/dts/sophgo/sg2042-cpus.dtsi   | 2000 +++++++++++++++++
+ .../boot/dts/sophgo/sg2042-milkv-pioneer.dts  |   19 +
+ arch/riscv/boot/dts/sophgo/sg2042.dtsi        |  325 +++
+ arch/riscv/configs/defconfig                  |    1 +
+ 14 files changed, 2481 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/interrupt-controller/thead,c900-aclint-mswi.yaml
+ create mode 100644 Documentation/devicetree/bindings/riscv/sophgo.yaml
+ create mode 100644 Documentation/devicetree/bindings/timer/thead,c900-aclint-mtimer.yaml
+ create mode 100644 arch/riscv/boot/dts/sophgo/Makefile
+ create mode 100644 arch/riscv/boot/dts/sophgo/sg2042-cpus.dtsi
+ create mode 100644 arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts
+ create mode 100644 arch/riscv/boot/dts/sophgo/sg2042.dtsi
+
+
+base-commit: 0bb80ecc33a8fb5a682236443c1e740d5c917d1d
+-- 
+2.25.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
