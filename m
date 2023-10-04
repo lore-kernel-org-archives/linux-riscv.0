@@ -4,60 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5ED3EE7B5F9
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Oct 2023 12:19:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AC27E7B601
+	for <linux-riscv@archiver.kernel.org>; Wed,  4 Oct 2023 12:25:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tKEwrL91mtdw/GC2UZcWzzNi07EqWx5QJGL+CUbLnYY=; b=G3WTQc8tVYa+/1
-	65ALWpj+v+IQtx8Z7gWgf0kMdHqGdlHGsXflEXAJuCaugyUMuoy05EgfJ8mu0OXSNi3+3xPOCscY6
-	9rhY+NRgvCucBntvpe6yplH7wQKaAJDFWkx2UZ6bgINby1+IFSwACcACdENorPB8TKpM+UVlwAKgO
-	PcO0KE8wo68eDqPYDDftHO7aFG2mEYUo15c+tcO9p4S3kM80qbXPPYUP3F/KAGs64g+0znBAXMbFX
-	mvzL4D51omKOKdbU6XVmopboy5J2cX9rp0I4tBQQ+3HVkLowrk0NJeCU3na7N6gv8+Jx/tGw0IHUg
-	maRZoShf26XNlJtPaBhw==;
+	List-Owner; bh=0gLu0BEOFWCswDjKcvyWMVVRDsjdoZTlhO8vypqPdjA=; b=DlYGWzTWBG+gPc
+	g7a4DcgGPqi379p1YoaUMExnIav50zJtKtwAxAUwfGfrsUaNtnoahmR9mwmzNHZJ+vwCXEy+P5bb0
+	JRBtevuRbo3yrCAaLLFlx6IB8fTAUDETPKxA4tLKF+P++ylM3VjUA2iLOwI5aMd5j2bkbzysTOrRZ
+	Lsj35YTqediywkk+Wsisl8I5+1htvX5Q29Og8MQcH7J+Y2bI3yiZVE9sDNmwwWrb2powjeI0rU2hX
+	0jzojLZjhClOXf78/Erbk2QdwwELPjZ3IzBNSW5e3PHWqsWgw1qEOOoE2XCunu40NM8i/TYmvSvmZ
+	shopqOMGv/SKE8rZ1bWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qo0qv-00HaVK-39;
-	Wed, 04 Oct 2023 12:19:45 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1qo0wh-00HavD-2F;
+	Wed, 04 Oct 2023 12:25:43 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qo0qt-00HaUf-1G
+	id 1qo0we-00HauN-39
 	for linux-riscv@lists.infradead.org;
-	Wed, 04 Oct 2023 12:19:45 +0000
+	Wed, 04 Oct 2023 12:25:42 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by ams.source.kernel.org (Postfix) with ESMTP id 7F40BB81D0C;
-	Wed,  4 Oct 2023 12:19:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 27A09C433C7;
-	Wed,  4 Oct 2023 12:19:38 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTP id 40FD6B81884;
+	Wed,  4 Oct 2023 12:25:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D73F4C433C7;
+	Wed,  4 Oct 2023 12:25:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1696421980;
-	bh=Jjv+CIZgDjDEX/17AWRFDrfvrea0mMzt1tHHLzjMDhQ=;
+	s=k20201202; t=1696422338;
+	bh=rz8nsBRJGgdImTfTRQ7iHKEAJLSF4eOEhtWc3FE31aQ=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=SAcdhEBL+OvdiOlN1gqsikDxDKbJgV7ZN6NkjJqaOhajhIAe64VzacCg03JZ5U4W3
-	 Q1N2ZuhuCkSBttSxuWRpl9w+Ta24ATd7f3ZKhFYoDawizaQxrTaJAmdEESSGU8odye
-	 NKgDKgTXqUuwEggQ7rLy9qoDoLGy4vKhjJWz+5raTcbFLRbcLiamifjkGDcF+mg6Jc
-	 6CcN5J7HuMPDYk03BG92kNN7n+keXt7cU5ALkR7Qksz+30dBDK8gl0BwVVCouml5xD
-	 8qTId8y4ImeJZi0q+T6qYyAZxKbkPx/XhjHcukdEGat6AGXw0xWYWMBHZsHgjMuBGV
-	 HLTyVimzl0Bqw==
-Date: Wed, 4 Oct 2023 20:07:35 +0800
+	b=qFisLVHo4xPOWe0fhwbNCUkMQeehaqaQXzmq2gwElyLHbB+hlPM+w9q/A0UhGISeJ
+	 XLwrKX8yClJIjpyp/MgG2+FzVp4HbGidJDj27Qhk6bHe9ekNtsmcOdr694CD8OVgQB
+	 h9QT4RlLtaSjpNEEEpGynpT+4dB2V0FBd6wa1j06w0CzJdCNXlxt828HbuYFsaiAf9
+	 EnSNtXjnPRJzG1NhD28ZBLk4yaP6fqQ8O90x0kok38bopHI6fclkb2kLzmFXGrug71
+	 dDoSSsGPefEsebjfIQQMnU4FvUWAeBm37gqRnq+BYBGmk+Y82OopJUFOFfsOQheNJD
+	 /GW2ghyf2ITqQ==
+Date: Wed, 4 Oct 2023 20:13:30 +0800
 From: Jisheng Zhang <jszhang@kernel.org>
-To: Paul Walmsley <paul.walmsley@sifive.com>,
+To: Conor Dooley <conor@kernel.org>
+Cc: linux-riscv@lists.infradead.org,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Guo Ren <guoren@kernel.org>, Drew Fustini <dfustini@baylibre.com>
-Subject: Re: [PATCH v2] riscv: mm: update T-Head memory type definitions
-Message-ID: <ZR1Vh6kXay3uNvs0@xhacker>
-References: <20230912072510.2510-1-jszhang@kernel.org>
+	Albert Ou <aou@eecs.berkeley.edu>, Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Emil Renner Berthing <kernel@esmil.dk>, Guo Ren <guoren@kernel.org>,
+	Fu Wei <wefu@redhat.com>, Chen Wang <unicorn_wang@outlook.com>,
+	devicetree@vger.kernel.org, linux-sunxi@lists.linux.dev,
+	linux-renesas-soc@vger.kernel.org
+Subject: Re: [RFC v2 6/6] riscv: dts: thead: convert isa detection to new
+ properties
+Message-ID: <ZR1W6lI3O6Pkjxm3@xhacker>
+References: <20230922081351.30239-2-conor@kernel.org>
+ <20230922081351.30239-8-conor@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20230912072510.2510-1-jszhang@kernel.org>
+In-Reply-To: <20230922081351.30239-8-conor@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231004_051943_571530_80EE6F58 
-X-CRM114-Status: GOOD (  16.81  )
+X-CRM114-CacheID: sfid-20231004_052541_317267_A52EC822 
+X-CRM114-Status: GOOD (  12.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,71 +89,67 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 12, 2023 at 03:25:10PM +0800, Jisheng Zhang wrote:
-> Update T-Head memory type definitions according to C910 doc [1]
-> For NC and IO, SH property isn't configurable, hardcoded as SH,
-> so set SH for NOCACHE and IO.
+On Fri, Sep 22, 2023 at 09:13:51AM +0100, Conor Dooley wrote:
+> From: Conor Dooley <conor.dooley@microchip.com>
 > 
-> And also set bit[61](Bufferable) for NOCACHE according to the
-> table 6.1 in the doc [1].
+> Convert the th1520 devicetrees to use the new properties
+> "riscv,isa-base" & "riscv,isa-extensions".
+> For compatibility with other projects, "riscv,isa" remains.
 > 
-> Link: https://github.com/T-head-Semi/openc910 [1]
-> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> Reviewed-by: Guo Ren <guoren@kernel.org>
-> Tested-by: Drew Fustini <dfustini@baylibre.com>
+> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 
-Hi Palmer,
-
-I believe this is a fix, could you please review and take it for 6.6
-fix?
-
-Thanks
-
+Reviewed-by: Jisheng Zhang <jszhang@kernel.org>
 > ---
+>  arch/riscv/boot/dts/thead/th1520.dtsi | 12 ++++++++++++
+>  1 file changed, 12 insertions(+)
 > 
-> Since v1:
->  - collect Reviewed-by and Tested-by tag
->  - rebase on linux 6.6-rc1
-> 
->  arch/riscv/include/asm/pgtable-64.h | 14 +++++++++-----
->  1 file changed, 9 insertions(+), 5 deletions(-)
-> 
-> diff --git a/arch/riscv/include/asm/pgtable-64.h b/arch/riscv/include/asm/pgtable-64.h
-> index 7a5097202e15..9a2c780a11e9 100644
-> --- a/arch/riscv/include/asm/pgtable-64.h
-> +++ b/arch/riscv/include/asm/pgtable-64.h
-> @@ -126,14 +126,18 @@ enum napot_cont_order {
->  
->  /*
->   * [63:59] T-Head Memory Type definitions:
-> - *
-> - * 00000 - NC   Weakly-ordered, Non-cacheable, Non-bufferable, Non-shareable, Non-trustable
-> + * bit[63] SO - Strong Order
-> + * bit[62] C - Cacheable
-> + * bit[61] B - Bufferable
-> + * bit[60] SH - Shareable
-> + * bit[59] Sec - Trustable
-> + * 00110 - NC   Weakly-ordered, Non-cacheable, Bufferable, Shareable, Non-trustable
->   * 01110 - PMA  Weakly-ordered, Cacheable, Bufferable, Shareable, Non-trustable
-> - * 10000 - IO   Strongly-ordered, Non-cacheable, Non-bufferable, Non-shareable, Non-trustable
-> + * 10010 - IO   Strongly-ordered, Non-cacheable, Non-bufferable, Shareable, Non-trustable
->   */
->  #define _PAGE_PMA_THEAD		((1UL << 62) | (1UL << 61) | (1UL << 60))
-> -#define _PAGE_NOCACHE_THEAD	0UL
-> -#define _PAGE_IO_THEAD		(1UL << 63)
-> +#define _PAGE_NOCACHE_THEAD	((1UL < 61) | (1UL << 60))
-> +#define _PAGE_IO_THEAD		((1UL << 63) | (1UL << 60))
->  #define _PAGE_MTMASK_THEAD	(_PAGE_PMA_THEAD | _PAGE_IO_THEAD | (1UL << 59))
->  
->  static inline u64 riscv_page_mtmask(void)
+> diff --git a/arch/riscv/boot/dts/thead/th1520.dtsi b/arch/riscv/boot/dts/thead/th1520.dtsi
+> index ce708183b6f6..723f65487246 100644
+> --- a/arch/riscv/boot/dts/thead/th1520.dtsi
+> +++ b/arch/riscv/boot/dts/thead/th1520.dtsi
+> @@ -20,6 +20,9 @@ c910_0: cpu@0 {
+>  			compatible = "thead,c910", "riscv";
+>  			device_type = "cpu";
+>  			riscv,isa = "rv64imafdc";
+> +			riscv,isa-base = "rv64i";
+> +			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "zicntr", "zicsr",
+> +					       "zifencei", "zihpm";
+>  			reg = <0>;
+>  			i-cache-block-size = <64>;
+>  			i-cache-size = <65536>;
+> @@ -41,6 +44,9 @@ c910_1: cpu@1 {
+>  			compatible = "thead,c910", "riscv";
+>  			device_type = "cpu";
+>  			riscv,isa = "rv64imafdc";
+> +			riscv,isa-base = "rv64i";
+> +			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "zicntr", "zicsr",
+> +					       "zifencei", "zihpm";
+>  			reg = <1>;
+>  			i-cache-block-size = <64>;
+>  			i-cache-size = <65536>;
+> @@ -62,6 +68,9 @@ c910_2: cpu@2 {
+>  			compatible = "thead,c910", "riscv";
+>  			device_type = "cpu";
+>  			riscv,isa = "rv64imafdc";
+> +			riscv,isa-base = "rv64i";
+> +			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "zicntr", "zicsr",
+> +					       "zifencei", "zihpm";
+>  			reg = <2>;
+>  			i-cache-block-size = <64>;
+>  			i-cache-size = <65536>;
+> @@ -83,6 +92,9 @@ c910_3: cpu@3 {
+>  			compatible = "thead,c910", "riscv";
+>  			device_type = "cpu";
+>  			riscv,isa = "rv64imafdc";
+> +			riscv,isa-base = "rv64i";
+> +			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "zicntr", "zicsr",
+> +					       "zifencei", "zihpm";
+>  			reg = <3>;
+>  			i-cache-block-size = <64>;
+>  			i-cache-size = <65536>;
 > -- 
-> 2.40.1
+> 2.41.0
 > 
-> 
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
