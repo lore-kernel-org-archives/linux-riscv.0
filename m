@@ -4,122 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB87EE8FDD1
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Oct 2023 07:06:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C017E8FDD7
+	for <linux-riscv@archiver.kernel.org>; Wed,  4 Oct 2023 07:33:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bKXM1Na6DdCTwx6SvVUOw/85Hw+C2w3Q/a+C/h9QbrQ=; b=4OkOUxsOLA1ZLWdIL9Sn2GWp+J
-	Ylwy6lPediDrK9K2Klvvh+wV/qe5OZuK3aNyMx3ljbDkAV2ggzOe6+BzxujCTQ85YD5LDKIFIhDZa
-	Xl7Dn5JC8pD/w6188lgY8ng5lmux8ACixQY9J5PzKY6ekmbxkPn4UqXThkEkwJff+KtfmXGal4/Ai
-	4+RRP6+wUGpDNYGbFN76V8clzX8IXiZjr5WiQ5T5dt7OgSB7uj73wAEPXX0/eBqWJN9V/uaCJo7nX
-	tTpGISOaUP+SCak3oAoGNBhJQBEi9r+Ub4I661YNrpRN99rlvFe9XcQogCwAnLT6ZNItf/+BpFYvk
-	3KDjizog==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=AzJVJG4yENQuwDeZJNObgJFeeXsT18wb670+inwgj/Y=; b=zwZ7XT0aKmR4++
+	w7AnonuQ6v1l17Sh55idwgJIjVwQakXn12FNFLDaB5zspoMj3ri5CVcdr4jXvo7N7GMVl4HJcVV80
+	cTQ8cdgYhhCF1OENrMpTLicAXHBMtmkMPlMbs7HZ4Nu+lDZQCwrYn5sJUyWoKYc1WO7DpoDU8CHxs
+	tSqD+KJVOOBzsjIJavp6Hifx7DA4Eo7kbv49tp4Ql3XRu5A0HWHmxSdLwYJlzzyKmv77bkpCwDagD
+	UUYJuVkmWSLnVsbcDbTUs4VbzIU9/k8vFFu10l59oNYEtjxNiglzL2/HBnZp22rRPABaOoJk7Kj4s
+	WJPDKgTWqF5HKO9oZcBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qnvxW-00GX6X-1l;
-	Wed, 04 Oct 2023 07:06:14 +0000
-Received: from mail-maxind01acsn20808.outbound.protection.outlook.com ([2a01:111:f403:700f::808] helo=IND01-MAX-obe.outbound.protection.outlook.com)
+	id 1qnwNs-00GcI5-10;
+	Wed, 04 Oct 2023 07:33:28 +0000
+Received: from mail-pf1-x435.google.com ([2607:f8b0:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qnvxR-00GX57-2y
+	id 1qnwNp-00GcGO-0n
 	for linux-riscv@lists.infradead.org;
-	Wed, 04 Oct 2023 07:06:12 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=HhkodXDwy87hFD5VZ4Xc6Jnb0pXTrsCaCW5PXw8Ls3FVOgiVs3bWXKeFcRTEyd/+o9wA9j0vwl5tbAUlGvdrvYgswH/RKWmSiqRmQIQMjdKXx/m/xj0ONFnIooQpv6VBQpkMxgRBfKmm0SEWPC/xI2vl+l2pFrcqC6QyDH1KGJxsGWnkbg5OYjtMnb2xo6Gj659wAtszGHXlUhlE0+oQHdPh6nWPSTfwxaU5sKT2G5LbT0gYIRmoOGnQfMZ16eZsMjDezCP9LP9ezXi2lUWgNPlyXGgpcnzkmbCWBE9LniTi9Bmaogdl7QLukemMwAcrWvGF/Mt4phSPpM4tX5mjkw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=xEAmoCkEb3uv9hE7547pV45Hn0IwRQxY2PmeftrPutE=;
- b=FKHPL7OPPBJOu5oI17ZV6nlGH7je6PdJ8EYnlG+u9EdX1fD9zEa3J5rHJChTmjq1Frr5ZfQjLzhqia/EQ3xmnwqdHIzPkDycD7vpl8OSKPwdBQ69Qp0E7ey8277wGp+So9rQ+caDA26F6s4zpjF5FH0iU+HlbPZriVeDihsGybwNd+dLPuvXuoiq8sosPcqqCsmMF4SClpshja3ibutlEB8lKVNNboLyjUoTTIzyhQwQE/cGSAU402jXdRShjsk+nP8k6eJluP9RNyw4Ysy4TaxEmxnfclgZWSY1JN0WExjH1GpN0eRA698kHMvLRo/D2h7whRvbAh9auB+UNunfrw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=xEAmoCkEb3uv9hE7547pV45Hn0IwRQxY2PmeftrPutE=;
- b=WvpuEVxtRLPZY/INlMavWN+7DNW0+9eVa7MvnBeq92IBG7xd0FBtOfzCeR14WPEiQAZnr1l5xGMgntG/sM5QVQ90drPLGiNlzaQMfDGbVG4RvY9NNV/lAgSrlV4eRtBSnFna2DUfrZ9UvWRwkXZqqjEDrsK3P4uhqqCAYh49dXl5mPm3DSJzEzfB+5cqXTN/hPmIX86YpE7MMnLjwYO6kckaFgycuFdJrdxwFEQjSQeg0TamLNoU+ziURo+e8gT4I3nX3sYXZ8uk+xGfTrNRWibZ1Xlxwxi3ORGVSOjVE6ktEsBfq28DsnZp0Mw093QgyPlvQpQfWu8gt3IJBDC+xg==
-Received: from MA0P287MB0332.INDP287.PROD.OUTLOOK.COM (2603:1096:a01:ab::5) by
- PN2P287MB1529.INDP287.PROD.OUTLOOK.COM (2603:1096:c01:1b6::6) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.6838.35; Wed, 4 Oct 2023 06:50:16 +0000
-Received: from MA0P287MB0332.INDP287.PROD.OUTLOOK.COM
- ([fe80::efe9:8d54:281b:23f7]) by MA0P287MB0332.INDP287.PROD.OUTLOOK.COM
- ([fe80::efe9:8d54:281b:23f7%3]) with mapi id 15.20.6838.028; Wed, 4 Oct 2023
- 06:50:16 +0000
-Message-ID: <MA0P287MB0332AF093C75B7712FA8AEA8FECBA@MA0P287MB0332.INDP287.PROD.OUTLOOK.COM>
-Date: Wed, 4 Oct 2023 14:50:12 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 5/5] riscv: dts: sophgo: add Milk-V Duo board device tree
-To: Jisheng Zhang <jszhang@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
- Marc Zyngier <maz@kernel.org>, Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Conor Dooley <conor+dt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Daniel Lezcano <daniel.lezcano@linaro.org>, Anup Patel <anup@brainfault.org>
-Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- linux-riscv@lists.infradead.org, Inochi Amaoto <inochiama@outlook.com>,
- chao.wei@sophgo.com, xiaoguang.xing@sophgo.com
-References: <20230930123937.1551-1-jszhang@kernel.org>
- <20230930123937.1551-6-jszhang@kernel.org>
-From: Chen Wang <unicorn_wang@outlook.com>
-In-Reply-To: <20230930123937.1551-6-jszhang@kernel.org>
-X-TMN: [dx3Ypcn0iAHjKS7PQFzamStSi/E20KCb]
-X-ClientProxiedBy: SI2PR01CA0018.apcprd01.prod.exchangelabs.com
- (2603:1096:4:191::7) To MA0P287MB0332.INDP287.PROD.OUTLOOK.COM
- (2603:1096:a01:ab::5)
-X-Microsoft-Original-Message-ID: <87effa78-7d9a-48e3-982d-e30b057f6ead@outlook.com>
+	Wed, 04 Oct 2023 07:33:26 +0000
+Received: by mail-pf1-x435.google.com with SMTP id d2e1a72fcca58-694ed847889so1483757b3a.2
+        for <linux-riscv@lists.infradead.org>; Wed, 04 Oct 2023 00:33:23 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1696404803; x=1697009603; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to:subject
+         :user-agent:mime-version:date:message-id:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=VkowXdKDAV9ozSJhzTKuFpAPuWb2aX6v74W5qb0n/iQ=;
+        b=CflwX1f3tRL6jlhzsbk3UManJ6Dvg3W+yC+j2uGiy+OVIqAFOVj2AUKP/zK9c2dNuy
+         BfevflNsHSC3GrloEYbgArxplNb90Lf389PLpR2pIKet8f/O99NGEvI9rzVvhoUWeaAt
+         82fAw5mV2pddmp9m93D72yVIL4m6J828bntb+109j4IWXYOKzWbjdm6etCPblzyGfEtS
+         hh2ZTVcYVIUXo8Ykiqyu/2pmQxRLIHQJMR5aFwzmiT5D/DnqD7P/VWg++G4M5DGVJ/gz
+         XbySCN1duNVKEP/ugzLCdl+8Qh89D6BZT7VEEmC3Bsy/UWWtjot95oj403t34aXoicuK
+         s0Ww==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1696404803; x=1697009603;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to:subject
+         :user-agent:mime-version:date:message-id:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=VkowXdKDAV9ozSJhzTKuFpAPuWb2aX6v74W5qb0n/iQ=;
+        b=Foke+8zRyncuptv8s3kSysbXLb3PFP6mqIhjm6x1j1EFAGnhQN1b6QKi73695CpHDK
+         kuFhkwAMsLWMpORc6bMTo8aNFYX5zq5xW1yesJFkW274BQWuTUxjFwmVaiHM48WlgBMh
+         08E+tAJ7Od1SYyZiuHZ/G+djlFCqV2M00sNx+FhWKJ1SAxjgi3AwtGloIDDdkabIlml0
+         zb3JiNG/4O7X5eP27vRslJcTmcWEqnm/sjAN+mUK8u07c/vJglEFtZBkmObHn+IktVdB
+         tPhFx2vNxTKpZCHVYLTj6SABsRMScaYqm5xjOKVgfy4zIjltyH0uf8iLAkNPyqffC5ps
+         j6YQ==
+X-Gm-Message-State: AOJu0YxZ/Ad0HgVYrDPqGQ7F1i2faT2ZvExVNzOq2tMgtcBaWK+ie6Ff
+	jXUIV2i3OzKuhKi7379WM7o=
+X-Google-Smtp-Source: AGHT+IGFzGzCltUfrIGUGcXUyq5vEJqw+HItJlIOKOpSPzrlh/tt33vv6HuiosGbPT75UF1nyaQUkQ==
+X-Received: by 2002:a05:6a00:1911:b0:68f:f650:3035 with SMTP id y17-20020a056a00191100b0068ff6503035mr1823127pfi.12.1696404802783;
+        Wed, 04 Oct 2023 00:33:22 -0700 (PDT)
+Received: from [0.0.0.0] (jp.bgp.twd2.net. [2a0c:b641:571::1])
+        by smtp.gmail.com with ESMTPSA id z17-20020aa785d1000000b00690c7552098sm2546024pfn.44.2023.10.04.00.33.18
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 04 Oct 2023 00:33:22 -0700 (PDT)
+Message-ID: <a337bd2b-34f1-4316-a0d5-18ba295badb3@gmail.com>
+Date: Wed, 4 Oct 2023 15:33:15 +0800
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MA0P287MB0332:EE_|PN2P287MB1529:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5c27e667-4e23-42e7-ac83-08dbc4a62a66
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: 40t5Deb3GZQZt4K2tIqM4zzMeN3Hmbx3b9ZiZMl1+41KK/eg6mXVVN09QyK81kazVs+/X9IqklrJ9PvtxEAE4uQGL1XDE7BpnbSUgKt/QyuXH4FNEOS/H2JBSfFGOKNs1gsiEwuMQwBHX10P9hEpYxpo3khcICFRR3UvBE6r388wP8ITpKuH0KwYoA0IL4mVeSexveMyxkk+8Ad2Cz88zqEik1my0ssBKItkc8V+N/RRcPRHnWEw3CAtmlnbH1CH3sfG6uVHBTujZhjJ/toNT5+EoWpC66kCMWq8jcek8oh1xqobPHhqTrGuj0skZKEtCKfTBTxZxC53Wft77d8ys1lDPK5oOOabtxqD84cS732EBA63xF0fHBGvhM91vwYEqg7FgEThkTtC123XbZCzmr1MQTGO/uVZiekhl+PDb2AuPLyOzNhovujRnayrlmIeu1Vol4rWqnj6k8lHpWpkPxlmj1+RWGyKYtlhtkjD3V/AHWOoc1eGrEeFaqh+rA/bM5VVxJBd+NyLOHXpkp+pokppE1jC88k+F1i/rwLr/ip1mHbTuSPa96D5HAI16CXOuQx0lGduP+0PlXZfSfmqsEcDGh7JzwNIj2sQ4iHYRPU=
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?VGFLakpITmttM2grYytvd0IvTS9BQThuSFp4SHFFUVVGbTV5L3VhMnFVekNH?=
- =?utf-8?B?UkdLcjBiTnZ4UjEzU3VJVEl1UVl6bjQzQ1ZKU1RaTzZvYkZ3WVJsL3g0cFo0?=
- =?utf-8?B?c0ZWTVg0c3gzUzZQVU9Ja285SHh4SitRWElSV2lVR2xOajkzUjV6YjBIVi84?=
- =?utf-8?B?MUhiVVlzT3JpVnV6czdkSzFjUUhWa3plUmIvdDBkMHMxNk9MWHQ5dVQ5enRO?=
- =?utf-8?B?VGdGN2R4bGJHb2RXMWYxeXdiYVBUMVF4c0F0MXU3NjUxZ1ZiZnV4M0VaR0xZ?=
- =?utf-8?B?LzhuOEJZVWc2WW9TQW1FSkUvdjF0OFFGeVNZUU5CSVA3Z0owME96V3liNEdk?=
- =?utf-8?B?S3hobTFYeUJaN2pmZzdpV3hiZW85NUN0MzdwQW5Xem42cDVucnEzUjZxeFRl?=
- =?utf-8?B?ZkZ5djZyQ2pHbVJWKzZ5Ny9zUllyd2pBSnRxOWFQTkMyK3l6dmN1VzhyOTVK?=
- =?utf-8?B?eC9zWjRhZjRaR3B6ZkI4TGhkeTZPS1JlVGtLOWNTVzExalZ3ZlNra3lxOWZY?=
- =?utf-8?B?WEdUSDFTRm54cXptZ3ZWR2pZRk44QWdWQ08zMTZNV09tQW4xYVR4RFZXMTBC?=
- =?utf-8?B?RmtVN1V5MTFnaWZ1aVFkUS90cS9mam90WGlBa015bDhIYkk3WnlVNkp1bHV6?=
- =?utf-8?B?Y1ZHcXJtS1QzaGt6azFKOG90aFJldjJpaElIbVBVWWxQajZ5Vko5bmlCMWZ4?=
- =?utf-8?B?MWlsR0swWWNqSk5QOUwzK09GTk1SdUhGeFdWenQra2l6TS9weEZadWpNTlJB?=
- =?utf-8?B?bXZYRnlLVEZWM0xBUHBRbHpkM0Rvckc4TDFWbFBIM3lFVUEvbDhEaUZIVDZj?=
- =?utf-8?B?ZWYyUmtEdnZ2KzV1SmM4ajdOblBzYmZSdlV0cDlhV0JHU2daODZmT0VyVEtu?=
- =?utf-8?B?TjVPaDhPVG9HMm80SHREYmVtNWV6M2VrZHJuK2I4YVNFcDFQMi83RVdyRlpT?=
- =?utf-8?B?M2ZzTFVTRDJrTjJIbjlWU0ZjMzJaMlR4Q2w0VDllK3l3VzhHb0R3dmtkMkZi?=
- =?utf-8?B?QXlXcGplTWYycHZWOTRaWXdUVlpCL05pTDFGV0JHV1cxanJDb3d5Ukw0dmYv?=
- =?utf-8?B?dXRLeEJJemxGVFZLN3JnWklaVzNEM1hhVE16bkV4TG5iMkpLTlhiSDdjOXdF?=
- =?utf-8?B?Sk81S2NHWU1COUFaWU1CYzNSSnlCT0pxdXJzZlRNUHZuaDRtSUtKdGtOQ3dG?=
- =?utf-8?B?eFRLaHl3TWl4eW1QdlhaZGVtdnQxUCtSenlmYjZOOEVUSk05UENqKzFiNmZ1?=
- =?utf-8?B?Um1oSXFna3d3b00zY2l0MGhFQ2NzcXJ0b3h6RFNJdHNhUDgyM2MvVWlhMHFk?=
- =?utf-8?B?SnhIWEp1d1RQSjFKU1FQb01mTHpJbVpQY0VqUDdEVzMrclBFS1pLclQzS0RG?=
- =?utf-8?B?WDZ6VGw2ZGxmYWp4ckJiZFlDMjE5NDdSdG1vSElBeHRFdzZhTlo2UkREYkxP?=
- =?utf-8?B?MnFUVG5acTBScFZITnZXMmRhY0tsd01hMlEwMEVvQTJNT3pDd3J1a0UvcE90?=
- =?utf-8?B?Mkt6RWVtUXlLQ0d5ZSsvcmlDZ3VZT3Y2TUdpeGlacnVuTFZnd2puZjFZZ3Nh?=
- =?utf-8?B?OFh2V0dyeDVvbEJrU1kvWGJjV0U2amo4NjFhcnFld3gzdzVISUpWSzRsTjVy?=
- =?utf-8?Q?05jwrgq+JISHlYdOT47up0DVajlFwR4nESDjdt/urkug=3D?=
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5c27e667-4e23-42e7-ac83-08dbc4a62a66
-X-MS-Exchange-CrossTenant-AuthSource: MA0P287MB0332.INDP287.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Oct 2023 06:50:16.2247
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PN2P287MB1529
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3] RISC-V: build: Allow LTO to be selected
+To: Nathan Chancellor <nathan@kernel.org>, paul.walmsley@sifive.com,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, conor@kernel.org
+Cc: ndesaulniers@google.com, trix@redhat.com, samitolvanen@google.com,
+ linux-riscv@lists.infradead.org, llvm@lists.linux.dev,
+ patches@lists.linux.dev, =?UTF-8?B?RsSBbmctcnXDrCBTw7JuZw==?=
+ <maskray@google.com>
+References: <20231003-riscv-lto-v3-1-8aca61a4ecb4@kernel.org>
+From: twd2 <twd2.me@gmail.com>
+In-Reply-To: <20231003-riscv-lto-v3-1-8aca61a4ecb4@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231004_000609_976377_BB377D86 
-X-CRM114-Status: GOOD (  15.37  )
+X-CRM114-CacheID: sfid-20231004_003325_289358_534CD82A 
+X-CRM114-Status: GOOD (  25.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,46 +90,117 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-CuWcqCAyMDIzLzkvMzAgMjA6MzksIEppc2hlbmcgWmhhbmcg5YaZ6YGTOgo+IE1pbGstViBEdW9b
-MV0gYm9hcmQgaXMgYW4gZW1iZWRkZWQgZGV2ZWxvcG1lbnQgcGxhdGZvcm0gYmFzZWQgb24gdGhl
-Cj4gQ1YxODAwQiBjaGlwLiBBZGQgbWluaW1hbCBkZXZpY2UgdHJlZSBmaWxlcyBmb3IgdGhlIGRl
-dmVsb3BtZW50IGJvYXJkLgo+Cj4gU3VwcG9ydCBiYXNpYyB1YXJ0IGRyaXZlcnMsIHNvIHN1cHBv
-cnRzIGJvb3RpbmcgdG8gYSBiYXNpYyBzaGVsbC4KPgo+IExpbms6IGh0dHBzOi8vbWlsa3YuaW8v
-ZHVvIFsxXQo+IFNpZ25lZC1vZmYtYnk6IEppc2hlbmcgWmhhbmcgPGpzemhhbmdAa2VybmVsLm9y
-Zz4KPiAtLS0KPiAgIGFyY2gvcmlzY3YvYm9vdC9kdHMvc29waGdvL01ha2VmaWxlICAgICAgICAg
-ICB8ICAyICstCj4gICAuLi4vYm9vdC9kdHMvc29waGdvL2N2MTgwMGItbWlsa3YtZHVvLmR0cyAg
-ICAgfCAzOCArKysrKysrKysrKysrKysrKysrCj4gICAyIGZpbGVzIGNoYW5nZWQsIDM5IGluc2Vy
-dGlvbnMoKyksIDEgZGVsZXRpb24oLSkKPiAgIGNyZWF0ZSBtb2RlIDEwMDY0NCBhcmNoL3Jpc2N2
-L2Jvb3QvZHRzL3NvcGhnby9jdjE4MDBiLW1pbGt2LWR1by5kdHMKPgo+IGRpZmYgLS1naXQgYS9h
-cmNoL3Jpc2N2L2Jvb3QvZHRzL3NvcGhnby9NYWtlZmlsZSBiL2FyY2gvcmlzY3YvYm9vdC9kdHMv
-c29waGdvL01ha2VmaWxlCj4gaW5kZXggNWE0NzFiMTlkZjIyLi41ZWE5Y2UzOThmZjYgMTAwNjQ0
-Cj4gLS0tIGEvYXJjaC9yaXNjdi9ib290L2R0cy9zb3BoZ28vTWFrZWZpbGUKPiArKysgYi9hcmNo
-L3Jpc2N2L2Jvb3QvZHRzL3NvcGhnby9NYWtlZmlsZQo+IEBAIC0xLDMgKzEsMyBAQAo+ICAgIyBT
-UERYLUxpY2Vuc2UtSWRlbnRpZmllcjogR1BMLTIuMAo+ICAgZHRiLSQoQ09ORklHX0FSQ0hfU09Q
-SEdPKSArPSBzZzIwNDItbWlsa3YtcGlvbmVlci5kdGIKPiAtCj4gK2R0Yi0kKENPTkZJR19BUkNI
-X1NPUEhHTykgKz0gY3YxODAwYi1taWxrdi1kdW8uZHRiClBsZWFzZSBhZGp1c3QgaXQgaW4gYWxw
-aGFiZXRpY2FsIG9yZGVyLgo+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2Jvb3QvZHRzL3NvcGhn
-by9jdjE4MDBiLW1pbGt2LWR1by5kdHMgYi9hcmNoL3Jpc2N2L2Jvb3QvZHRzL3NvcGhnby9jdjE4
-MDBiLW1pbGt2LWR1by5kdHMKPiBuZXcgZmlsZSBtb2RlIDEwMDY0NAo+IGluZGV4IDAwMDAwMDAw
-MDAwMC4uM2FmOWUzNGIzYmM3Cj4gLS0tIC9kZXYvbnVsbAo+ICsrKyBiL2FyY2gvcmlzY3YvYm9v
-dC9kdHMvc29waGdvL2N2MTgwMGItbWlsa3YtZHVvLmR0cwo+IEBAIC0wLDAgKzEsMzggQEAKPiAr
-Ly8gU1BEWC1MaWNlbnNlLUlkZW50aWZpZXI6IChHUEwtMi4wIE9SIE1JVCkKPiArLyoKPiArICog
-Q29weXJpZ2h0IChDKSAyMDIzIEppc2hlbmcgWmhhbmcgPGpzemhhbmdAa2VybmVsLm9yZz4KPiAr
-ICovCj4gKwo+ICsvZHRzLXYxLzsKPiArCj4gKyNpbmNsdWRlICJjdjE4MDBiLmR0c2kiCj4gKwo+
-ICsvIHsKPiArCW1vZGVsID0gIk1pbGstViBEdW8iOwo+ICsJY29tcGF0aWJsZSA9ICJtaWxrdixk
-dW8iLCAic29waGdvLGN2MTgwMGIiOwo+ICsKPiArCWFsaWFzZXMgewo+ICsJCXNlcmlhbDAgPSAm
-dWFydDA7Cj4gKwkJc2VyaWFsMSA9ICZ1YXJ0MTsKPiArCQlzZXJpYWwyID0gJnVhcnQyOwo+ICsJ
-CXNlcmlhbDMgPSAmdWFydDM7Cj4gKwkJc2VyaWFsNCA9ICZ1YXJ0NDsKPiArCX07Cj4gKwo+ICsJ
-Y2hvc2VuIHsKPiArCQlzdGRvdXQtcGF0aCA9ICJzZXJpYWwwOjExNTIwMG44IjsKPiArCX07Cj4g
-Kwo+ICsJbWVtb3J5QDgwMDAwMDAwIHsKPiArCQlkZXZpY2VfdHlwZSA9ICJtZW1vcnkiOwo+ICsJ
-CXJlZyA9IDwweDgwMDAwMDAwIDB4M2Y0MDAwMD47Cj4gKwl9Owo+ICt9Owo+ICsKPiArJm9zYyB7
-Cj4gKwljbG9jay1mcmVxdWVuY3kgPSA8MjUwMDAwMDA+Owo+ICt9Owo+ICsKPiArJnVhcnQwIHsK
-PiArCXN0YXR1cyA9ICJva2F5IjsKPiArfTsKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBs
-aXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlz
-dGluZm8vbGludXgtcmlzY3YK
++CC MaskRay
+
+Thanks!
+Wende
+
+On 2023/10/4 3:16, Nathan Chancellor wrote:
+> From: Wende Tan <twd2.me@gmail.com>
+>
+> Allow LTO to be selected for RISC-V, only when LLD >= 14, since there is an
+> issue [1] in prior LLD versions that prevents LLD to generate proper
+> machine code for RISC-V when writing `nop`s.
+>
+> I have tested enabling LTO for `defconfig`. The LLD took ~2m21s and ~3GiB
+> on our Intel Xeon Gold 6140 server and produced an 18MiB Image. The image
+> can boot to shell using an archriscv rootfs on QEMU.
+>
+> I have also tested it for `allyesconfig` without COMPILE_TEST, FTRACE,
+> KASAN, and GCOV. The LLD took ~7h03m and ~335GiB on the server,
+> successfully producing a 1.7GiB Image. Unfortunately, we cannot boot this
+> image because the `create_kernel_page_table()` -> `alloc_pmd_early()` ->
+> `BUG_ON()` logic limits the image to be < 1GiB. Maybe we can fix it in a
+> separate patch further.
+>
+> Disable LTO for arch/riscv/kernel/pi, as llvm-objcopy expects an ELF
+> object file when manipulating the files in that subfolder, rather than
+> LLVM bitcode.
+>
+> [1] https://github.com/llvm/llvm-project/issues/50505, resolved by LLVM
+>     commit e63455d5e0e5 ("[MC] Use local MCSubtargetInfo in writeNops")
+>
+> Tested-by: Wende Tan <twd2.me@gmail.com>
+> Signed-off-by: Wende Tan <twd2.me@gmail.com>
+> Co-developed-by: Nathan Chancellor <nathan@kernel.org>
+> Signed-off-by: Nathan Chancellor <nathan@kernel.org>
+> ---
+> NOTE: I tested LLVM 14 through 18 with defconfig + full/thin LTO and
+> allmodconfig + thin LTO. allmodconfig + thin LTO with LLVM 15 and 16
+> shows
+>
+>   ld.lld: error: section size decrease is too large
+>
+> when linking vmlinux. This appears to be resolved in LLVM 17 with
+> https://github.com/llvm/llvm-project/commit/9d37ea95df1b84cca9b5e954d8964c976a5e303e
+> (I did not bisect but the commit message lines up with the issue). I
+> kept the existing version check because defconfig worked fine but we may
+> want to bump it to 17.0.0 if randconfigs trip over this.
+>
+> Changes in v3:
+> - Disable LTO in arch/riscv/kernel/pi/Makefile, which was added to the
+>   kernel after the submission of v2. This change matches arm64.
+> - Link to v2: https://lore.kernel.org/r/20220512205545.992288-1-twd2.me@gmail.com/
+>
+> Changes in v2:
+> - Some textual changes suggested by Nick.
+> - Drop the changes to `arch/riscv/Makefile`, since the LLVM issue is
+>   filed and resolved.
+> - Drop the unnecessary changes to `arch/riscv/kernel/vdso/Makefile`.
+> - Link to v1: https://lore.kernel.org/r/20210719205208.1023221-1-twd2.me@gmail.com/
+> ---
+>  arch/riscv/Kconfig            | 3 +++
+>  arch/riscv/kernel/pi/Makefile | 3 +++
+>  2 files changed, 6 insertions(+)
+>
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index d607ab0f7c6d..523640f7441e 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -46,6 +46,9 @@ config RISCV
+>  	select ARCH_SUPPORTS_CFI_CLANG
+>  	select ARCH_SUPPORTS_DEBUG_PAGEALLOC if MMU
+>  	select ARCH_SUPPORTS_HUGETLBFS if MMU
+> +	# LLD >= 14: https://github.com/llvm/llvm-project/issues/50505
+> +	select ARCH_SUPPORTS_LTO_CLANG if LLD_VERSION >= 140000
+> +	select ARCH_SUPPORTS_LTO_CLANG_THIN if LLD_VERSION >= 140000
+>  	select ARCH_SUPPORTS_PAGE_TABLE_CHECK if MMU
+>  	select ARCH_SUPPORTS_PER_VMA_LOCK if MMU
+>  	select ARCH_USE_MEMTEST
+> diff --git a/arch/riscv/kernel/pi/Makefile b/arch/riscv/kernel/pi/Makefile
+> index 07915dc9279e..b75f150b923d 100644
+> --- a/arch/riscv/kernel/pi/Makefile
+> +++ b/arch/riscv/kernel/pi/Makefile
+> @@ -9,6 +9,9 @@ KBUILD_CFLAGS	:= $(subst $(CC_FLAGS_FTRACE),,$(KBUILD_CFLAGS)) -fpie \
+>  		   -fno-asynchronous-unwind-tables -fno-unwind-tables \
+>  		   $(call cc-option,-fno-addrsig)
+>  
+> +# Disable LTO
+> +KBUILD_CFLAGS	:= $(filter-out $(CC_FLAGS_LTO), $(KBUILD_CFLAGS))
+> +
+>  KBUILD_CFLAGS	+= -mcmodel=medany
+>  
+>  CFLAGS_cmdline_early.o += -D__NO_FORTIFY
+>
+> ---
+> base-commit: 8a749fd1a8720d4619c91c8b6e7528c0a355c0aa
+> change-id: 20231003-riscv-lto-f013beed8587
+>
+> Best regards,
+
+-- 
+Best wishes!
+Sincerely,
+twd2
+https://twd2.me
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
