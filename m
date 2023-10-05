@@ -4,62 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1CB5E936E6
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Oct 2023 21:19:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 783E8E936FF
+	for <linux-riscv@archiver.kernel.org>; Thu,  5 Oct 2023 05:28:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=sCw/4VJhsbAQAqu0osINhJCDTJ8g7c6etjxaAptzOZ8=; b=GgVxPp8Etd9NG9
-	mMgGoEStCdRQZEjhO72nVM+9M83SlvgfImbx4zrQzguYQo9RdaKi7OSVLWwg5KynmhLx1e1jOZCOS
-	S/R+HqbB55JT3jz3zKPZ1S0E2AA3VHfUIC3bjOD4xuSp43kTGUAT+/xjbS4TrNgeMtpWz4i0bYRqn
-	noB3KbZeXj33F3FdbCrLP840PV4dIJUAXbSa3ZWthkO7S0UatKAe8YntkU2bPrlMbefcWu+DAUnVf
-	OnOiFHe19syI3eTRYCl5Zu1HSO/t1+eg/o7OaiExEWXKVFn8TScCfjbiRnLh5LqcEs+E/XPHP5HZ8
-	1rzzJme8HImk6BJ0HAjw==;
+	List-Owner; bh=L97q89qUe9O3AMCRKZ8wPnwd8zlfgCKKZoRq0kYeSr4=; b=nZufqCEVk/h+M9
+	DwgmzoSDjjaUMAhLOxnDugCKGucQC/VQk/eqQH6IPu39Dc8+DrHI82SOGv5TXcOgHXIy9DhfCbPqG
+	HCISrjvyAqLWp8hmg3tQz9cRmurP7E/y3QMaUPgeKeYa2tYig6ff10SFqHH/3q2bY6Z2662KM3TDr
+	ND2JCoFwNlm1hTXXSPgIAsFIjCRi9cFVxLBIhXm8iva3M6/wIXQiWD6+90vsYgob7AIm89q5uo6q9
+	6V5fI64RgVyYGAYRNSg2o/1blxsjdG70JASh8y4DIyz+5gfsygBUApxkM4jQ8ZQMl9gISoyJu0jKg
+	9EcgVNtGYLvnxPVFm6Ug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qo9HR-000vC6-0O;
-	Wed, 04 Oct 2023 21:19:41 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1qoGth-001Rv7-2k;
+	Thu, 05 Oct 2023 05:27:41 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qo9HN-000vBK-1d;
-	Wed, 04 Oct 2023 21:19:38 +0000
-Received: from i53875a3c.versanet.de ([83.135.90.60] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1qo9GZ-0005NJ-Hp; Wed, 04 Oct 2023 23:18:47 +0200
-From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
-To: broonie@kernel.org, chin-ting_kuo@aspeedtech.com, clg@kaod.org,
- joel@jms.id.au, andrew@aj.id.au, florian.fainelli@broadcom.com,
- rjui@broadcom.com, sbranden@broadcom.com,
- bcm-kernel-feedback-list@broadcom.com, fancer.lancer@gmail.com,
- olteanv@gmail.com, neil.armstrong@linaro.org, khilman@baylibre.com,
- jbrunet@baylibre.com, martin.blumenstingl@googlemail.com,
- conor.dooley@microchip.com, daire.mcnamara@microchip.com,
- matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
- avifishman70@gmail.com, tmaimon77@gmail.com, tali.perry1@gmail.com,
- venture@google.com, yuenn@google.com, benjaminfair@google.com,
- linus.walleij@linaro.org, Li Zetao <lizetao1@huawei.com>
-Cc: lizetao1@huawei.com, linux-spi@vger.kernel.org,
- linux-aspeed@lists.ozlabs.org, openbmc@lists.ozlabs.org,
- linux-arm-kernel@lists.infradead.org, linux-rpi-kernel@lists.infradead.org,
- linux-amlogic@lists.infradead.org, linux-riscv@lists.infradead.org,
- linux-mediatek@lists.infradead.org, linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH -next 25/25] spi: rockchip: Use helper function
- devm_clk_get_enabled()
-Date: Wed, 04 Oct 2023 23:18:45 +0200
-Message-ID: <16634210.geO5KgaWL5@diego>
-In-Reply-To: <20230822131237.1022815-26-lizetao1@huawei.com>
-References: <20230822131237.1022815-1-lizetao1@huawei.com>
- <20230822131237.1022815-26-lizetao1@huawei.com>
+	id 1qoGtd-001Rsj-1y;
+	Thu, 05 Oct 2023 05:27:39 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id DF087617EE;
+	Thu,  5 Oct 2023 05:27:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E2146C43391;
+	Thu,  5 Oct 2023 05:27:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1696483656;
+	bh=hXymtCmkQgS1mz4WN4LARQgIXsgfg8oCoZqTgfgSt/M=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=BbpCpY2Q0zEwY41GucwBsBZTdMge6AGCY7bXU/clMyyCXKJTV0EDLKXZQhP6Gmvyb
+	 i7tzzZViGYUX1/BLXHrp9MgUNcssHkKZ+E07sMIo2XQd9Xhgj8wBFQLGyOjD2kEs17
+	 PxOhx0u+oKdQ8lrzOhlumXDQrrVIpZHitXF+j0a79GixClpVIz2eZl61qc1UDcG73I
+	 FDMmfOiG2H8IzEuKKw/M7PogaSgM8X2WZc5kjl+Dp1+hjjwCugO78vBqHSBJRgrtI8
+	 iiiR0aNTydrnms7VNPMV5M6X+tEx0k+2XJsejW9H5dww52kR9ESsW7JTvRKWQR81qv
+	 y9fkPnEwbon1w==
+Date: Thu, 5 Oct 2023 08:26:22 +0300
+From: Mike Rapoport <rppt@kernel.org>
+To: "Edgecombe, Rick P" <rick.p.edgecombe@intel.com>
+Cc: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"tglx@linutronix.de" <tglx@linutronix.de>,
+	"deller@gmx.de" <deller@gmx.de>,
+	"mcgrof@kernel.org" <mcgrof@kernel.org>,
+	"bjorn@kernel.org" <bjorn@kernel.org>,
+	"davem@davemloft.net" <davem@davemloft.net>,
+	"nadav.amit@gmail.com" <nadav.amit@gmail.com>,
+	"linux@armlinux.org.uk" <linux@armlinux.org.uk>,
+	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+	"linux-mips@vger.kernel.org" <linux-mips@vger.kernel.org>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+	"hca@linux.ibm.com" <hca@linux.ibm.com>,
+	"catalin.marinas@arm.com" <catalin.marinas@arm.com>,
+	"kent.overstreet@linux.dev" <kent.overstreet@linux.dev>,
+	"puranjay12@gmail.com" <puranjay12@gmail.com>,
+	"palmer@dabbelt.com" <palmer@dabbelt.com>,
+	"linux-s390@vger.kernel.org" <linux-s390@vger.kernel.org>,
+	"chenhuacai@kernel.org" <chenhuacai@kernel.org>,
+	"tsbogend@alpha.franken.de" <tsbogend@alpha.franken.de>,
+	"linux-trace-kernel@vger.kernel.org" <linux-trace-kernel@vger.kernel.org>,
+	"mpe@ellerman.id.au" <mpe@ellerman.id.au>,
+	"linux-parisc@vger.kernel.org" <linux-parisc@vger.kernel.org>,
+	"x86@kernel.org" <x86@kernel.org>,
+	"mark.rutland@arm.com" <mark.rutland@arm.com>,
+	"christophe.leroy@csgroup.eu" <christophe.leroy@csgroup.eu>,
+	"linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
+	"rostedt@goodmis.org" <rostedt@goodmis.org>,
+	"will@kernel.org" <will@kernel.org>,
+	"dinguyen@kernel.org" <dinguyen@kernel.org>,
+	"naveen.n.rao@linux.ibm.com" <naveen.n.rao@linux.ibm.com>,
+	"sparclinux@vger.kernel.org" <sparclinux@vger.kernel.org>,
+	"linux-modules@vger.kernel.org" <linux-modules@vger.kernel.org>,
+	"bpf@vger.kernel.org" <bpf@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"song@kernel.org" <song@kernel.org>,
+	"linux-mm@kvack.org" <linux-mm@kvack.org>,
+	"loongarch@lists.linux.dev" <loongarch@lists.linux.dev>,
+	"akpm@linux-foundation.org" <akpm@linux-foundation.org>
+Subject: Re: [PATCH v3 03/13] mm/execmem, arch: convert simple overrides of
+ module_alloc to execmem
+Message-ID: <20231005052622.GD3303@kernel.org>
+References: <20230918072955.2507221-1-rppt@kernel.org>
+ <20230918072955.2507221-4-rppt@kernel.org>
+ <607927885bb8ca12d4cd5787f01207c256cc8798.camel@intel.com>
+ <00277a3acb36d2309156264c7e8484071bc91614.camel@intel.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <00277a3acb36d2309156264c7e8484071bc91614.camel@intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231004_141937_548318_AF9EE659 
-X-CRM114-Status: UNSURE (   9.05  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20231004_222737_784691_0D537A69 
+X-CRM114-Status: GOOD (  17.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,18 +111,33 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Am Dienstag, 22. August 2023, 15:12:37 CEST schrieb Li Zetao:
-> Since commit 7ef9651e9792 ("clk: Provide new devm_clk helpers for prepared
-> and enabled clocks"), devm_clk_get() and clk_prepare_enable() can now be
-> replaced by devm_clk_get_enabled() when driver enables (and possibly
-> prepares) the clocks for the whole lifetime of the device. Moreover, it is
-> no longer necessary to unprepare and disable the clocks explicitly.
+On Wed, Oct 04, 2023 at 03:39:26PM +0000, Edgecombe, Rick P wrote:
+> On Tue, 2023-10-03 at 17:29 -0700, Rick Edgecombe wrote:
+> > It seems a bit weird to copy all of this. Is it trying to be faster
+> > or
+> > something?
+> > 
+> > Couldn't it just check r->start in execmem_text/data_alloc() path and
+> > switch to EXECMEM_DEFAULT if needed then? The execmem_range_is_data()
+> > part that comes later could be added to the logic there too. So this
+> > seems like unnecessary complexity to me or I don't see the reason.
 > 
-> Signed-off-by: Li Zetao <lizetao1@huawei.com>
+> I guess this is a bad idea because if you have the full size array
+> sitting around anyway you might as well use it and reduce the
+> exec_mem_alloc() logic.
 
-Reviewed-by: Heiko Stuebner <heiko@sntech.de>
+That's was the idea, indeed. :)
 
+> Just looking at it from the x86 side (and
+> similar) though, where there is actually only one execmem_range and it
+> building this whole array with identical data and it seems weird.
 
+Right, most architectures have only one range, but to support all variants
+that we have, execmem has to maintain the whole array.
+
+-- 
+Sincerely yours,
+Mike.
 
 _______________________________________________
 linux-riscv mailing list
