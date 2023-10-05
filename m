@@ -4,66 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB0ADE9370D
-	for <linux-riscv@archiver.kernel.org>; Thu,  5 Oct 2023 13:17:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7DE9E9370D
+	for <linux-riscv@archiver.kernel.org>; Thu,  5 Oct 2023 13:23:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DjUGbuENUSSQuVY2esCFOlW74y5t+c3P8X/b4sAxBAc=; b=gdYjUyvzZd1EPw
-	cRmqVp785k8AR+99pS1AIJNKbpBfnKpMXy2tTrKEo5+opqxeTxMBizmhWHq41U836uDF2Z/4pSXGK
-	aIzrTjBeg2/939NYd3Eb2yr02KlI+ssZoojWtbK5Ac2+vKBDn6HVytLND8/xCYHrCuxSd7vR06C3F
-	V0ACLbpDgPtrjj2MkPqsxnMF29ZQHVXgJ5Eq6iFs+PLip91NOUklzXbfRG35txeG6n9aBy6UG3VM9
-	grYzIPEsR0h8riBbKejTsw2Z3Pq8TlVlx7yhb7juxcccG0UuBa8n9j5zQJp+3qSxAaDm7woI3Uf64
-	dJ1UPlJiFKI2D+TPwEhg==;
+	List-Owner; bh=LJRXSnKOykDrXqd5lDXOvqkmPSqqrAl7tVW6DOWgKTY=; b=Nz2DSwwz1LG8zF
+	mDV92ARDFJIkum/Gj94cP3hic2Gw29MZTO6GldMERFs6fzKK9e/DOFmwxLY0jP1lN5HcqMfgBO+ln
+	NfeZKVUz2FjbA2pMXnW8XUyqAekiHI40GC1gKNgKtbZFUMLY09TY6jQvEH4RS6DBhNjCgaEi5vDY+
+	qwtEw+4l76vcCihkRUH/rxkDwnMB72K9B+SMbNuCW+UtEukgkrtkuwcVHnxsqigrOw0Ok1s3lnKtD
+	xBoDU4ti7xlUNp1GUsAu0+rkQpIJY+/2f4IhVLURpWkZy+pbjtQDZ9ArNhZV8KPVCH3twq++0XhMB
+	XXUhWEk24+HbM6YkAZJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qoOEh-003HmN-1F;
-	Thu, 05 Oct 2023 13:17:51 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1qoOKO-003Ldi-0A;
+	Thu, 05 Oct 2023 13:23:44 +0000
+Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qoOEc-003Hge-1t
+	id 1qoOKJ-003LYL-1z
 	for linux-riscv@lists.infradead.org;
-	Thu, 05 Oct 2023 13:17:49 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by ams.source.kernel.org (Postfix) with ESMTP id 1FFCDB8244F;
-	Thu,  5 Oct 2023 13:17:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2C6F4C4AF5D;
-	Thu,  5 Oct 2023 13:17:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1696511864;
-	bh=zJHDnHWdgIbRM4Y1eO5Uc5GD/FiVY6eNJTs31x3OKu0=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=SN3M68fTBcN/+fgiT5mi5gxto21HPEE/ZmqljY2sx00hRsPp/RTlUDy69/4QX5fDt
-	 +wOSSrz65JQAibM9qUqbAvU5wra5ySEb27H4fLT9KAQzDtUaYwTMR4AyDslFwpmme1
-	 KyQNyevOhkIhYQjcpObKVUgTLuhEAfasbCCphb3/MTSPnKSBg9r/m39HHo5aAp4vae
-	 tHDiPOG1l/mN4buIb9pQbf6brCwVvIYyobLG33I2Xc/M65qwe89S198eSeyqaDvCov
-	 Z7tvwvY1rOrT82cYX3bcRnzxT6VE4KCtkCswe2tKIU/DaW0u76xFZk2RBmtFUxnBEs
-	 iRWNqPNGQZHXA==
-From: Jisheng Zhang <jszhang@kernel.org>
-To: Thierry Reding <thierry.reding@gmail.com>,
-	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Guo Ren <guoren@kernel.org>,
-	Fu Wei <wefu@redhat.com>
-Cc: linux-pwm@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH v3 2/2] pwm: add T-HEAD PWM driver
-Date: Thu,  5 Oct 2023 21:05:19 +0800
-Message-Id: <20231005130519.3864-3-jszhang@kernel.org>
-X-Mailer: git-send-email 2.40.0
-In-Reply-To: <20231005130519.3864-1-jszhang@kernel.org>
-References: <20231005130519.3864-1-jszhang@kernel.org>
+	Thu, 05 Oct 2023 13:23:41 +0000
+Received: by mail-ej1-x631.google.com with SMTP id a640c23a62f3a-9b27bc8b65eso169166566b.0
+        for <linux-riscv@lists.infradead.org>; Thu, 05 Oct 2023 06:23:35 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1696512214; x=1697117014; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=PPsxAMw/tWZ49qkePrgGBFuU3VD1H4Jo1OGGgKfQVng=;
+        b=klikIKty+/WI3NAP3bOpK31jHUesyLRFng2bGRf6FW3nPtOiQEsL7Szmz8IgJNEPHl
+         se4QfTVYbV9Xb9z+I2Ei7w1hWZgwgz+/Y0ycQ8fpmKXMLnTZuVIcePCMAeO9M5hD2wJ/
+         SBfwwL8uRmxrpOyNZBGF847LpTuzStKnKmMpgicQZsEoVjtjIFTNBzFC8VDJH3m7Huyw
+         DNGUcC+TpI2AXw4Mgsyr6j6LvuevpEJmeKH8uIIRm5J94VKdEKJWE7XHT1DfP0f2begV
+         mjZjeXQh+z8ZoK2apfsbZhk6bHI40ej8v78K/Uq9GX6m7G8KDTTH0DYTuYvYfVO7stkV
+         wuYg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1696512214; x=1697117014;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=PPsxAMw/tWZ49qkePrgGBFuU3VD1H4Jo1OGGgKfQVng=;
+        b=Hw54LFjSFvbHO+1jGM16VZRob6rcSVtQnNLUlHo6qEyHL7o0oUawQJGKf4J6Zvf+tN
+         WbJKj18IIJ3hdqXuinXLg5NfL+syrVC0hf8FJcwXvtqzEpjSpwqJz1cQTBFIVG4JCo+K
+         2ZjhKAKhNp4NP7mAVknZVZVAyhOGUvk/0fk6BKfF8dn35k3cz+XdN0qpn4toDVAkcrSj
+         xQjc2ICaNukYG3v8+8l0kIKB9kuVYR8pW4Z2xEnOwmDeoair3oompDHnto4F0kkDpUNF
+         20VMznsWfmdhxGuSKC4SjWMgoBAcDgTGGQItoOIo0RS3ndiTpP/2VaM4hkR4iRIwwmcR
+         NVxg==
+X-Gm-Message-State: AOJu0YwwHJUVs4G3Mr7zfnGUblG7OTgQjpOp0+JHRvm2nUqGuy9Tb3mc
+	dNP0XJqyeDj4xWyOLtxZQ/7L1g==
+X-Google-Smtp-Source: AGHT+IGvYggRBDOJtIEYaT6t/35KnJcjSmCzIqYkhZ2NgNIN7cs2O9QTqqC9wafFZkGgrULZsvBkcA==
+X-Received: by 2002:a17:907:9492:b0:9ae:793f:2010 with SMTP id dm18-20020a170907949200b009ae793f2010mr5886125ejc.42.1696512214204;
+        Thu, 05 Oct 2023 06:23:34 -0700 (PDT)
+Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
+        by smtp.gmail.com with ESMTPSA id v2-20020a1709064e8200b009b2c9476726sm1211770eju.21.2023.10.05.06.23.33
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 05 Oct 2023 06:23:33 -0700 (PDT)
+Date: Thu, 5 Oct 2023 15:23:32 +0200
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Evan Green <evan@rivosinc.com>
+Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com, 
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, conor.dooley@microchip.com, 
+	apatel@ventanamicro.com
+Subject: Re: [RFC PATCH 3/5] RISC-V: hwprobe: Introduce which-cpus flag
+Message-ID: <20231005-f530ebe8df5c0880e53fcfa3@orel>
+References: <20230921125518.175428-7-ajones@ventanamicro.com>
+ <20230921125518.175428-10-ajones@ventanamicro.com>
+ <CALs-HstCDZK3BPpubW8FqWQ8w4qH-_Zfgv3YhUYOgguv-OWufw@mail.gmail.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <CALs-HstCDZK3BPpubW8FqWQ8w4qH-_Zfgv3YhUYOgguv-OWufw@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231005_061746_945845_89F678EE 
-X-CRM114-Status: GOOD (  28.30  )
+X-CRM114-CacheID: sfid-20231005_062339_690203_6CCE2C8C 
+X-CRM114-Status: GOOD (  56.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,337 +90,194 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T-HEAD SoCs such as the TH1520 contain a PWM controller used
-to control the LCD backlight, fan and so on. Add driver for it.
-
-Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
----
- drivers/pwm/Kconfig     |  11 ++
- drivers/pwm/Makefile    |   1 +
- drivers/pwm/pwm-thead.c | 270 ++++++++++++++++++++++++++++++++++++++++
- 3 files changed, 282 insertions(+)
- create mode 100644 drivers/pwm/pwm-thead.c
-
-diff --git a/drivers/pwm/Kconfig b/drivers/pwm/Kconfig
-index 8ebcddf91f7b..428fa365a19a 100644
---- a/drivers/pwm/Kconfig
-+++ b/drivers/pwm/Kconfig
-@@ -637,6 +637,17 @@ config PWM_TEGRA
- 	  To compile this driver as a module, choose M here: the module
- 	  will be called pwm-tegra.
- 
-+config PWM_THEAD
-+	tristate "T-HEAD PWM support"
-+	depends on ARCH_THEAD || COMPILE_TEST
-+	depends on HAS_IOMEM
-+	help
-+	  Generic PWM framework driver for the PWFM controller found on THEAD
-+	  SoCs.
-+
-+	  To compile this driver as a module, choose M here: the module
-+	  will be called pwm-thead.
-+
- config PWM_TIECAP
- 	tristate "ECAP PWM support"
- 	depends on ARCH_OMAP2PLUS || ARCH_DAVINCI_DA8XX || ARCH_KEYSTONE || ARCH_K3 || COMPILE_TEST
-diff --git a/drivers/pwm/Makefile b/drivers/pwm/Makefile
-index c822389c2a24..4c317e6316e8 100644
---- a/drivers/pwm/Makefile
-+++ b/drivers/pwm/Makefile
-@@ -59,6 +59,7 @@ obj-$(CONFIG_PWM_STMPE)		+= pwm-stmpe.o
- obj-$(CONFIG_PWM_SUN4I)		+= pwm-sun4i.o
- obj-$(CONFIG_PWM_SUNPLUS)	+= pwm-sunplus.o
- obj-$(CONFIG_PWM_TEGRA)		+= pwm-tegra.o
-+obj-$(CONFIG_PWM_THEAD)		+= pwm-thead.o
- obj-$(CONFIG_PWM_TIECAP)	+= pwm-tiecap.o
- obj-$(CONFIG_PWM_TIEHRPWM)	+= pwm-tiehrpwm.o
- obj-$(CONFIG_PWM_TWL)		+= pwm-twl.o
-diff --git a/drivers/pwm/pwm-thead.c b/drivers/pwm/pwm-thead.c
-new file mode 100644
-index 000000000000..3b9ffddfe33d
---- /dev/null
-+++ b/drivers/pwm/pwm-thead.c
-@@ -0,0 +1,270 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * T-HEAD PWM driver
-+ *
-+ * Copyright (C) 2021 Alibaba Group Holding Limited.
-+ * Copyright (C) 2023 Jisheng Zhang <jszhang@kernel.org>
-+ *
-+ * Limitations:
-+ * - The THEAD_PWM_CTRL_START bit is only effective when 0 -> 1, which is used
-+ *   to start the channel, 1 -> 0 doesn't change anything. so 0 % duty cycle
-+ *   is used to "disable" the channel.
-+ * - The THEAD_PWM_CTRL_START bit is automatically cleared once PWM channel is
-+ *   started.
-+ * - The THEAD_PWM_CFG_UPDATE atomically updates and only updates period and duty.
-+ * - To update period and duty, THEAD_PWM_CFG_UPDATE needs to go through 0 -> 1
-+ *   step, I.E if THEAD_PWM_CFG_UPDATE is already 1, it's necessary to clear it
-+ *   to 0 beforehand.
-+ * - Polarity can only be changed if never started before.
-+ */
-+
-+#include <linux/bitfield.h>
-+#include <linux/clk.h>
-+#include <linux/err.h>
-+#include <linux/io.h>
-+#include <linux/kernel.h>
-+#include <linux/mod_devicetable.h>
-+#include <linux/module.h>
-+#include <linux/platform_device.h>
-+#include <linux/pm_runtime.h>
-+#include <linux/pwm.h>
-+#include <linux/slab.h>
-+
-+#define THEAD_PWM_MAX_NUM		6
-+#define THEAD_PWM_MAX_PERIOD		GENMASK(31, 0)
-+#define THEAD_PWM_MAX_DUTY		GENMASK(31, 0)
-+
-+#define THEAD_PWM_CHN_BASE(n)		((n) * 0x20)
-+#define THEAD_PWM_CTRL(n)		(THEAD_PWM_CHN_BASE(n) + 0x00)
-+#define  THEAD_PWM_CTRL_START		BIT(0)
-+#define  THEAD_PWM_CTRL_SOFT_RST		BIT(1)
-+#define  THEAD_PWM_CTRL_CFG_UPDATE	BIT(2)
-+#define  THEAD_PWM_CTRL_INTEN		BIT(3)
-+#define  THEAD_PWM_CTRL_MODE		GENMASK(5, 4)
-+#define  THEAD_PWM_CTRL_MODE_CONTINUOUS	FIELD_PREP(THEAD_PWM_CTRL_MODE, 2)
-+#define  THEAD_PWM_CTRL_EVTRIG		GENMASK(7, 6)
-+#define  THEAD_PWM_CTRL_FPOUT		BIT(8)
-+#define  THEAD_PWM_CTRL_INFACTOUT	BIT(9)
-+#define THEAD_PWM_RPT(n)		(THEAD_PWM_CHN_BASE(n) + 0x04)
-+#define THEAD_PWM_PER(n)		(THEAD_PWM_CHN_BASE(n) + 0x08)
-+#define THEAD_PWM_FP(n)			(THEAD_PWM_CHN_BASE(n) + 0x0c)
-+#define THEAD_PWM_STATUS(n)		(THEAD_PWM_CHN_BASE(n) + 0x10)
-+#define  THEAD_PWM_STATUS_CYCLE		GENMASK(7, 0)
-+
-+struct thead_pwm_chip {
-+	struct pwm_chip chip;
-+	void __iomem *mmio_base;
-+	struct clk *clk;
-+	u8 channel_ever_started;
-+};
-+
-+static inline struct thead_pwm_chip *thead_pwm_from_chip(struct pwm_chip *chip)
-+{
-+	return container_of(chip, struct thead_pwm_chip, chip);
-+}
-+
-+static int thead_pwm_apply(struct pwm_chip *chip, struct pwm_device *pwm,
-+			   const struct pwm_state *state)
-+{
-+	struct thead_pwm_chip *priv = thead_pwm_from_chip(chip);
-+	u32 val = THEAD_PWM_CTRL_INFACTOUT | THEAD_PWM_CTRL_FPOUT | THEAD_PWM_CTRL_MODE_CONTINUOUS;
-+	u64 period_cycle, duty_cycle, rate;
-+	int ret;
-+
-+	/* if ever started, can't change the polarity */
-+	if ((priv->channel_ever_started & (1 << pwm->hwpwm)) &&
-+	    state->polarity != pwm->state.polarity)
-+		return -EINVAL;
-+
-+	if (!state->enabled) {
-+		if (pwm->state.enabled) {
-+			val = readl(priv->mmio_base + THEAD_PWM_CTRL(pwm->hwpwm));
-+			val &= ~THEAD_PWM_CTRL_CFG_UPDATE;
-+			writel(val, priv->mmio_base + THEAD_PWM_CTRL(pwm->hwpwm));
-+
-+			writel(0, priv->mmio_base + THEAD_PWM_FP(pwm->hwpwm));
-+
-+			val |= THEAD_PWM_CTRL_CFG_UPDATE;
-+			writel(val, priv->mmio_base + THEAD_PWM_CTRL(pwm->hwpwm));
-+			pm_runtime_put_sync(chip->dev);
-+		}
-+		return 0;
-+	}
-+
-+	if (!pwm->state.enabled) {
-+		ret = pm_runtime_resume_and_get(chip->dev);
-+		if (ret < 0)
-+			return ret;
-+	}
-+
-+	if (state->polarity == PWM_POLARITY_INVERSED)
-+		val &= ~THEAD_PWM_CTRL_FPOUT;
-+
-+	writel(val, priv->mmio_base + THEAD_PWM_CTRL(pwm->hwpwm));
-+
-+	rate = clk_get_rate(priv->clk);
-+	/*
-+	 * The following calculations might overflow if clk is bigger
-+	 * than 1 GHz. In practise it's 24MHz, so this limitation
-+	 * is only theoretic.
-+	 */
-+	if (rate > NSEC_PER_SEC)
-+		return -EINVAL;
-+
-+	period_cycle = mul_u64_u64_div_u64(rate, state->period, NSEC_PER_SEC);
-+	if (period_cycle > THEAD_PWM_MAX_PERIOD)
-+		period_cycle = THEAD_PWM_MAX_PERIOD;
-+	/*
-+	 * With limitation above we have period_cycle <= THEAD_PWM_MAX_PERIOD,
-+	 * so this cannot overflow.
-+	 */
-+	writel(period_cycle, priv->mmio_base + THEAD_PWM_PER(pwm->hwpwm));
-+
-+	duty_cycle = mul_u64_u64_div_u64(rate, state->duty_cycle, NSEC_PER_SEC);
-+	if (duty_cycle > THEAD_PWM_MAX_DUTY)
-+		duty_cycle = THEAD_PWM_MAX_DUTY;
-+	/*
-+	 * With limitation above we have duty_cycle <= THEAD_PWM_MAX_DUTY,
-+	 * so this cannot overflow.
-+	 */
-+	writel(duty_cycle, priv->mmio_base + THEAD_PWM_FP(pwm->hwpwm));
-+
-+	val |= THEAD_PWM_CTRL_CFG_UPDATE;
-+	writel(val, priv->mmio_base + THEAD_PWM_CTRL(pwm->hwpwm));
-+
-+	if (!pwm->state.enabled) {
-+		val |= THEAD_PWM_CTRL_START;
-+		writel(val, priv->mmio_base + THEAD_PWM_CTRL(pwm->hwpwm));
-+		priv->channel_ever_started |= 1 << pwm->hwpwm;
-+	}
-+
-+	return 0;
-+}
-+
-+static int thead_pwm_get_state(struct pwm_chip *chip, struct pwm_device *pwm,
-+			       struct pwm_state *state)
-+{
-+	struct thead_pwm_chip *priv = thead_pwm_from_chip(chip);
-+	u64 rate = clk_get_rate(priv->clk);
-+	u32 val;
-+	int ret;
-+
-+	ret = pm_runtime_resume_and_get(chip->dev);
-+	if (ret < 0)
-+		return ret;
-+
-+	val = readl(priv->mmio_base + THEAD_PWM_CTRL(pwm->hwpwm));
-+	if (val & THEAD_PWM_CTRL_FPOUT)
-+		state->polarity = PWM_POLARITY_NORMAL;
-+	else
-+		state->polarity = PWM_POLARITY_INVERSED;
-+
-+	val = readl(priv->mmio_base + THEAD_PWM_PER(pwm->hwpwm));
-+	/*
-+	 * val 32 bits, multiply NSEC_PER_SEC, won't overflow.
-+	 */
-+	state->period = DIV64_U64_ROUND_UP((u64)val * NSEC_PER_SEC, rate);
-+
-+	val = readl(priv->mmio_base + THEAD_PWM_FP(pwm->hwpwm));
-+	state->enabled = !!val;
-+	/*
-+	 * val 32 bits, multiply NSEC_PER_SEC, won't overflow.
-+	 */
-+	state->duty_cycle = DIV64_U64_ROUND_UP((u64)val * NSEC_PER_SEC, rate);
-+
-+	pm_runtime_put_sync(chip->dev);
-+
-+	return 0;
-+}
-+
-+static const struct pwm_ops thead_pwm_ops = {
-+	.apply = thead_pwm_apply,
-+	.get_state = thead_pwm_get_state,
-+	.owner = THIS_MODULE,
-+};
-+
-+static int __maybe_unused thead_pwm_runtime_suspend(struct device *dev)
-+{
-+	struct thead_pwm_chip *priv = dev_get_drvdata(dev);
-+
-+	clk_disable_unprepare(priv->clk);
-+
-+	return 0;
-+}
-+
-+static int __maybe_unused thead_pwm_runtime_resume(struct device *dev)
-+{
-+	struct thead_pwm_chip *priv = dev_get_drvdata(dev);
-+	int ret;
-+
-+	ret = clk_prepare_enable(priv->clk);
-+	if (ret)
-+		dev_err(dev, "failed to enable pwm clock(%pe)\n", ERR_PTR(ret));
-+
-+	return ret;
-+}
-+
-+static int thead_pwm_probe(struct platform_device *pdev)
-+{
-+	struct thead_pwm_chip *priv;
-+	int ret, i;
-+	u32 val;
-+
-+	priv = devm_kzalloc(&pdev->dev, sizeof(*priv), GFP_KERNEL);
-+	if (!priv)
-+		return -ENOMEM;
-+
-+	platform_set_drvdata(pdev, priv);
-+
-+	priv->mmio_base = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(priv->mmio_base))
-+		return PTR_ERR(priv->mmio_base);
-+
-+	priv->clk = devm_clk_get_enabled(&pdev->dev, NULL);
-+	if (IS_ERR(priv->clk))
-+		return PTR_ERR(priv->clk);
-+
-+	priv->chip.ops = &thead_pwm_ops;
-+	priv->chip.dev = &pdev->dev;
-+	priv->chip.npwm = THEAD_PWM_MAX_NUM;
-+
-+	/* check whether PWM is ever started or not */
-+	for (i = 0; i < priv->chip.npwm; i++) {
-+		val = readl(priv->mmio_base + THEAD_PWM_FP(i));
-+		if (val)
-+			priv->channel_ever_started |= 1 << i;
-+	}
-+
-+	ret = devm_pwmchip_add(&pdev->dev, &priv->chip);
-+	if (ret)
-+		return ret;
-+
-+	devm_pm_runtime_enable(&pdev->dev);
-+
-+	return 0;
-+}
-+
-+static const struct of_device_id thead_pwm_dt_ids[] = {
-+	{.compatible = "thead,th1520-pwm",},
-+	{/* sentinel */}
-+};
-+MODULE_DEVICE_TABLE(of, thead_pwm_dt_ids);
-+
-+static const struct dev_pm_ops thead_pwm_pm_ops = {
-+	SET_RUNTIME_PM_OPS(thead_pwm_runtime_suspend, thead_pwm_runtime_resume, NULL)
-+};
-+
-+static struct platform_driver thead_pwm_driver = {
-+	.driver = {
-+		.name = "thead-pwm",
-+		.of_match_table = thead_pwm_dt_ids,
-+		.pm = &thead_pwm_pm_ops,
-+	},
-+	.probe = thead_pwm_probe,
-+};
-+module_platform_driver(thead_pwm_driver);
-+
-+MODULE_AUTHOR("Wei Liu <lw312886@linux.alibaba.com>");
-+MODULE_AUTHOR("Jisheng Zhang <jszhang@kernel.org>");
-+MODULE_DESCRIPTION("T-HEAD pwm driver");
-+MODULE_LICENSE("GPL v2");
--- 
-2.40.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gTW9uLCBTZXAgMjUsIDIwMjMgYXQgMDk6MTY6MDFBTSAtMDcwMCwgRXZhbiBHcmVlbiB3cm90
+ZToKPiBPbiBUaHUsIFNlcCAyMSwgMjAyMyBhdCA1OjU14oCvQU0gQW5kcmV3IEpvbmVzIDxham9u
+ZXNAdmVudGFuYW1pY3JvLmNvbT4gd3JvdGU6Cj4gPgo+ID4gSW50cm9kdWNlIHRoZSBmaXJzdCBm
+bGFnIGZvciB0aGUgaHdwcm9iZSBzeXNjYWxsLiBUaGUgZmxhZyBiYXNpY2FsbHkKPiA+IHJldmVy
+c2VzIGl0cyBiZWhhdmlvciwgaS5lLiBpbnN0ZWFkIG9mIHBvcHVsYXRpbmcgdGhlIHZhbHVlcyBv
+ZiBrZXlzCj4gPiBmb3IgYSBnaXZlbiBzZXQgb2YgY3B1cywgdGhlIHNldCBvZiBjcHVzIGFmdGVy
+IHRoZSBjYWxsIGlzIHRoZSByZXN1bHQKPiA+IG9mIGZpbmRpbmcgYSBzZXQgd2hpY2ggc3VwcG9y
+dHMgdGhlIHZhbHVlcyBvZiB0aGUga2V5cy4gSW4gb3JkZXIgdG8KPiA+IGRvIHRoaXMsIHdlIGlt
+cGxlbWVudCBwYWlyIG1lcmdlIGFuZCBwYWlyIGNvbXBhcmUgZnVuY3Rpb25zIHdoaWNoCj4gPiB0
+YWtlIHRoZSB0eXBlIG9mIHZhbHVlIChhIHNpbmdsZSB2YWx1ZSB2cy4gYSBiaXRtYXAgb2YgYm9v
+bGVhbnMpIGludG8KPiA+IGNvbnNpZGVyYXRpb24uIFRoZSBmbG93IGZvciB0aGUgd2hpY2gtY3B1
+cyBzeXNjYWxsIHZhcmlhbnQgaXMgYXMKPiA+IGZvbGxvd3M6Cj4gPgo+ID4gICAxLiBNZXJnZSBw
+YWlycyBpbnRvIGEgc2V0IG9mIHBhaXJzIHdpdGggdW5pcXVlIGtleXMKPiA+ICAgMi4gSWYgYW55
+IHVua25vd24ga2V5cyBhcmUgc2VlbiwgcmV0dXJuIGFuIGVtcHR5IHNldCBvZiBjcHVzCj4gPiAg
+IDMuIElmIHRoZSBwbGF0Zm9ybSBpcyBob21vZ2VuZW91cywgdGhlbiBjaGVjayBhbGwgdGhlIHBh
+aXJzCj4gPiAgICAgIGFnYWluc3QgdGhlICJhbGwgY3B1IiB2YWx1ZXMgYW5kIHJldHVybiBlYXJs
+eQo+ID4gICA0LiBPdGhlcndpc2UsIGNoZWNrIGFsbCB0aGUgcGFpcnMgYWdhaW5zdCBlYWNoIGNw
+dSBpbmRpdmlkdWFsbHkKPiA+Cj4gPiBTaWduZWQtb2ZmLWJ5OiBBbmRyZXcgSm9uZXMgPGFqb25l
+c0B2ZW50YW5hbWljcm8uY29tPgo+IAo+IE92ZXJhbGwgdGhlIGNvbmNlcHQgc2VlbXMgcmVhc29u
+YWJsZSB0byBtZS4gSSBjb3VsZCBzZWUgYW4gYXBwbGljYXRpb24KPiBsaWtlIENocm9tZSB1c2lu
+ZyB0aGlzIHRvIHNjaGVkdWxlIGludGVuc2l2ZSBvciBsYXRlbmN5LXNlbnNpdGl2ZQo+IGFjdGl2
+aXRpZXMgKHZpZGVvIHBsYXliYWNrIGNvbWVzIHRvIG1pbmQpIG9uIG9ubHkgY29yZXMgdGhhdCBt
+ZWV0IGEKPiBjZXJ0YWluIHBlcmZvcm1hbmNlIGJhciwgaWYgYW55IGRvLgoKVGhhbmtzIGZvciB0
+aGUgcmV2aWV3LCBFdmFuIGFuZCBzb3JyeSBmb3IgbXkgc2xvdyByZXR1cm4gdG8gdGhpcy4KCj4g
+Cj4gPiAtLS0KPiA+ICBEb2N1bWVudGF0aW9uL3Jpc2N2L2h3cHJvYmUucnN0ICAgICAgIHwgIDE2
+ICsrLQo+ID4gIGFyY2gvcmlzY3YvaW5jbHVkZS91YXBpL2FzbS9od3Byb2JlLmggfCAgIDMgKwo+
+ID4gIGFyY2gvcmlzY3Yva2VybmVsL3N5c19yaXNjdi5jICAgICAgICAgfCAxNDggKysrKysrKysr
+KysrKysrKysrKysrKysrKy0KPiA+ICAzIGZpbGVzIGNoYW5nZWQsIDE2MyBpbnNlcnRpb25zKCsp
+LCA0IGRlbGV0aW9ucygtKQo+ID4KPiA+IGRpZmYgLS1naXQgYS9Eb2N1bWVudGF0aW9uL3Jpc2N2
+L2h3cHJvYmUucnN0IGIvRG9jdW1lbnRhdGlvbi9yaXNjdi9od3Byb2JlLnJzdAo+ID4gaW5kZXgg
+MTMyZTlhY2FhOGY0Li45N2IxZTk3ZTdkZDIgMTAwNjQ0Cj4gPiAtLS0gYS9Eb2N1bWVudGF0aW9u
+L3Jpc2N2L2h3cHJvYmUucnN0Cj4gPiArKysgYi9Eb2N1bWVudGF0aW9uL3Jpc2N2L2h3cHJvYmUu
+cnN0Cj4gPiBAQCAtMjUsOCArMjUsMjAgQEAgYXJjaCwgaW1wbCksIHRoZSByZXR1cm5lZCB2YWx1
+ZSB3aWxsIG9ubHkgYmUgdmFsaWQgaWYgYWxsIENQVXMgaW4gdGhlIGdpdmVuIHNldAo+ID4gIGhh
+dmUgdGhlIHNhbWUgdmFsdWUuIE90aGVyd2lzZSAtMSB3aWxsIGJlIHJldHVybmVkLiBGb3IgYm9v
+bGVhbi1saWtlIGtleXMsIHRoZQo+ID4gIHZhbHVlIHJldHVybmVkIHdpbGwgYmUgYSBsb2dpY2Fs
+IEFORCBvZiB0aGUgdmFsdWVzIGZvciB0aGUgc3BlY2lmaWVkIENQVXMuCj4gPiAgVXNlcm1vZGUg
+Y2FuIHN1cHBseSBOVUxMIGZvciBgYGNwdXNgYCBhbmQgMCBmb3IgYGBjcHVzZXRzaXplYGAgYXMg
+YSBzaG9ydGN1dCBmb3IKPiA+IC1hbGwgb25saW5lIENQVXMuIFRoZXJlIGFyZSBjdXJyZW50bHkg
+bm8gZmxhZ3MsIHRoaXMgdmFsdWUgbXVzdCBiZSB6ZXJvIGZvcgo+ID4gLWZ1dHVyZSBjb21wYXRp
+YmlsaXR5Lgo+ID4gK2FsbCBvbmxpbmUgQ1BVcy4gVGhlIGN1cnJlbnRseSBzdXBwb3J0ZWQgZmxh
+Z3MgYXJlOgo+ID4gKwo+ID4gKyogOmM6bWFjcm86YFJJU0NWX0hXUFJPQkVfV0hJQ0hfQ1BVU2A6
+IFRoaXMgZmxhZyBiYXNpY2FsbHkgcmV2ZXJzZXMgdGhlIGJlaGF2aW9yCj4gPiArICBvZiBzeXNf
+cmlzY3ZfaHdwcm9iZSgpLiAgSW5zdGVhZCBvZiBwb3B1bGF0aW5nIHRoZSB2YWx1ZXMgb2Yga2V5
+cyBmb3IgYSBnaXZlbgo+ID4gKyAgc2V0IG9mIENQVXMsIHRoZSBzZXQgb2YgQ1BVcyBpcyBpbml0
+aWFsbHkgYWxsIHVuc2V0IGFuZCB0aGUgdmFsdWVzIG9mIGVhY2gga2V5Cj4gPiArICBhcmUgZ2l2
+ZW4uICBVcG9uIHJldHVybiwgdGhlIENQVXMgd2hpY2ggYWxsIG1hdGNoIGVhY2ggb2YgdGhlIGdp
+dmVuIGtleS12YWx1ZQo+ID4gKyAgcGFpcnMgYXJlIHNldCBpbiBgYGNwdXNgYC4gIEhvdyBtYXRj
+aGluZyBpcyBkb25lIGRlcGVuZHMgb24gdGhlIGtleSB0eXBlLiAgRm9yCj4gPiArICB2YWx1ZS1s
+aWtlIGtleXMsIG1hdGNoaW5nIG1lYW5zIHRvIGJlIHRoZSBleGFjdCBzYW1lIGFzIHRoZSB2YWx1
+ZS4gIEZvcgo+ID4gKyAgYm9vbGVhbi1saWtlIGtleXMsIG1hdGNoaW5nIG1lYW5zIHRoZSByZXN1
+bHQgb2YgYSBsb2dpY2FsIEFORCBvZiB0aGUgcGFpcidzCj4gPiArICB2YWx1ZSB3aXRoIHRoZSBD
+UFUncyB2YWx1ZSBpcyBleGFjdGx5IHRoZSBzYW1lIGFzIHRoZSBwYWlyJ3MgdmFsdWUuICBgYGNw
+dXNgYAo+ID4gKyAgbWF5IGFsc28gaW5pdGlhbGx5IGhhdmUgc2V0IGJpdHMsIGluIHdoaWNoIGNh
+c2UgdGhlIGJpdHMgb2YgYW55IENQVXMgd2hpY2ggZG8KPiA+ICsgIG5vdCBtYXRjaCB0aGUgcGFp
+cnMgd2lsbCBiZSBjbGVhcmVkLCBidXQgbm8gb3RoZXIgYml0cyB3aWxsIGJlIHNldC4KPiA+ICsK
+PiA+ICtBbGwgb3RoZXIgZmxhZ3MgYXJlIHJlc2VydmVkIGZvciBmdXR1cmUgY29tcGF0aWJpbGl0
+eSBhbmQgbXVzdCBiZSB6ZXJvLgo+ID4KPiA+ICBPbiBzdWNjZXNzIDAgaXMgcmV0dXJuZWQsIG9u
+IGZhaWx1cmUgYSBuZWdhdGl2ZSBlcnJvciBjb2RlIGlzIHJldHVybmVkLgo+ID4KPiA+IGRpZmYg
+LS1naXQgYS9hcmNoL3Jpc2N2L2luY2x1ZGUvdWFwaS9hc20vaHdwcm9iZS5oIGIvYXJjaC9yaXNj
+di9pbmNsdWRlL3VhcGkvYXNtL2h3cHJvYmUuaAo+ID4gaW5kZXggODZkMDhhMGU2MTdiLi4zNjY4
+MzMwN2MzZTQgMTAwNjQ0Cj4gPiAtLS0gYS9hcmNoL3Jpc2N2L2luY2x1ZGUvdWFwaS9hc20vaHdw
+cm9iZS5oCj4gPiArKysgYi9hcmNoL3Jpc2N2L2luY2x1ZGUvdWFwaS9hc20vaHdwcm9iZS5oCj4g
+PiBAQCAtNDAsNCArNDAsNyBAQCBzdHJ1Y3QgcmlzY3ZfaHdwcm9iZSB7Cj4gPiAgI2RlZmluZSBS
+SVNDVl9IV1BST0JFX0tFWV9aSUNCT1pfQkxPQ0tfU0laRSAgICA2Cj4gPiAgLyogSW5jcmVhc2Ug
+UklTQ1ZfSFdQUk9CRV9NQVhfS0VZIHdoZW4gYWRkaW5nIGl0ZW1zLiAqLwo+ID4KPiA+ICsvKiBG
+bGFncyAqLwo+ID4gKyNkZWZpbmUgUklTQ1ZfSFdQUk9CRV9XSElDSF9DUFVTICAgICAgICgxIDw8
+IDApCj4gPiArCj4gPiAgI2VuZGlmCj4gPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9rZXJuZWwv
+c3lzX3Jpc2N2LmMgYi9hcmNoL3Jpc2N2L2tlcm5lbC9zeXNfcmlzY3YuYwo+ID4gaW5kZXggMTRi
+NmRmYWE1ZDlmLi5jNzBhNzJmZTZhZWUgMTAwNjQ0Cj4gPiAtLS0gYS9hcmNoL3Jpc2N2L2tlcm5l
+bC9zeXNfcmlzY3YuYwo+ID4gKysrIGIvYXJjaC9yaXNjdi9rZXJuZWwvc3lzX3Jpc2N2LmMKPiA+
+IEBAIC0yNDUsMTQgKzI0NSwxNDUgQEAgc3RhdGljIHZvaWQgaHdwcm9iZV9vbmVfcGFpcihzdHJ1
+Y3QgcmlzY3ZfaHdwcm9iZSAqcGFpciwKPiA+ICAgICAgICAgfQo+ID4gIH0KPiA+Cj4gPiArc3Rh
+dGljIGJvb2wgaHdwcm9iZV9rZXlfaXNfbWFwKF9fczY0IGtleSkKPiAKPiBUaGUgd29yZCAibWFw
+IiBjb25mdXNlcyBtZSBzb21lLCBhcyB0aGUgY2xvc2VzdCBteSBicmFpbiBjYW4gZ2V0IGlzIGEK
+PiBzeW5vbnltIGZvciBkaWN0aW9uYXJ5LCB3aGljaCBtYWtlcyBtZSB0aGluayAidW5pcXVlIHZh
+bHVlIi4gQmFzZWQgb24KPiB0aGUga2V5cyByZXR1cm5pbmcgdHJ1ZSwgeW91IHJlYWxseSBtZWFu
+IGJpdGZpZWxkLgoKSSB3YXMgdGhpbmtpbmcgYml0bWFwLCB3aGljaCBJIHByZWZlciB1c2luZyBv
+dmVyIGJpdGZpZWxkLCBzaW5jZSBDCmJpdGZpZWxkJ3MgY29tZSB0byBtaW5kIGZpcnN0IHdoZW4g
+SSBzZWUgdGhhdCB3b3JkLiBJJ2xsIHNwZWxsIG91dApiaXRtYXAgZm9yIHYxLgoKPiAKPiA+ICt7
+Cj4gPiArICAgICAgIHN3aXRjaCAoa2V5KSB7Cj4gPiArICAgICAgIGNhc2UgUklTQ1ZfSFdQUk9C
+RV9LRVlfQkFTRV9CRUhBVklPUjoKPiA+ICsgICAgICAgY2FzZSBSSVNDVl9IV1BST0JFX0tFWV9J
+TUFfRVhUXzA6Cj4gPiArICAgICAgIGNhc2UgUklTQ1ZfSFdQUk9CRV9LRVlfQ1BVUEVSRl8wOgo+
+ID4gKyAgICAgICAgICAgICAgIHJldHVybiB0cnVlOwo+ID4gKyAgICAgICB9Cj4gPiArCj4gPiAr
+ICAgICAgIHJldHVybiBmYWxzZTsKPiA+ICt9Cj4gPiArCj4gPiArc3RhdGljIGludCBod3Byb2Jl
+X3BhaXJfbWVyZ2Uoc3RydWN0IHJpc2N2X2h3cHJvYmUgKnRvLAo+ID4gKyAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgc3RydWN0IHJpc2N2X2h3cHJvYmUgKmZyb20pCj4gCj4gV2h5IGlzIHRo
+ZSBtZXJnZSBzdGVwIG5lY2Vzc2FyeT8gTWF5YmUgSSdsbCBzZWUgZnVydGhlciBiZWxvdy4gT2gg
+eWVzLAo+IEkgZG8sIGJ1dCBzZWUgbXkgY29tbWVudCBiZWxvdyBvbiBob3cgd2UgbWlnaHQgZ2V0
+IHJpZCBvZiB0aGlzLgo+IAo+ID4gK3sKPiA+ICsgICAgICAgaWYgKHRvLT5rZXkgIT0gZnJvbS0+
+a2V5KQo+ID4gKyAgICAgICAgICAgICAgIHJldHVybiAtRUlOVkFMOwo+ID4gKwo+ID4gKyAgICAg
+ICBpZiAoaHdwcm9iZV9rZXlfaXNfbWFwKHRvLT5rZXkpKSB7Cj4gPiArICAgICAgICAgICAgICAg
+dG8tPnZhbHVlIHw9IGZyb20tPnZhbHVlOwo+ID4gKyAgICAgICAgICAgICAgIHJldHVybiAwOwo+
+ID4gKyAgICAgICB9Cj4gPiArCj4gPiArICAgICAgIHJldHVybiB0by0+dmFsdWUgPT0gZnJvbS0+
+dmFsdWUgPyAwIDogLUVJTlZBTDsKPiA+ICt9Cj4gPiArCj4gPiArc3RhdGljIGJvb2wgaHdwcm9i
+ZV9wYWlyX2NtcChzdHJ1Y3QgcmlzY3ZfaHdwcm9iZSAqcGFpciwKPiA+ICsgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgc3RydWN0IHJpc2N2X2h3cHJvYmUgKm90aGVyX3BhaXIpCj4gPiArewo+
+ID4gKyAgICAgICBpZiAocGFpci0+a2V5ICE9IG90aGVyX3BhaXItPmtleSkKPiA+ICsgICAgICAg
+ICAgICAgICByZXR1cm4gZmFsc2U7Cj4gPiArCj4gPiArICAgICAgIGlmIChod3Byb2JlX2tleV9p
+c19tYXAocGFpci0+a2V5KSkKPiA+ICsgICAgICAgICAgICAgICByZXR1cm4gKHBhaXItPnZhbHVl
+ICYgb3RoZXJfcGFpci0+dmFsdWUpID09IG90aGVyX3BhaXItPnZhbHVlOwo+ID4gKwo+ID4gKyAg
+ICAgICByZXR1cm4gcGFpci0+dmFsdWUgPT0gb3RoZXJfcGFpci0+dmFsdWU7Cj4gPiArfQo+ID4g
+Kwo+ID4gK3N0YXRpYyBpbnQgaHdwcm9iZV93aGljaF9jcHVzKHN0cnVjdCByaXNjdl9od3Byb2Jl
+IF9fdXNlciAqcGFpcnNfdXNlciwKPiA+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHNp
+emVfdCBwYWlyX2NvdW50LCBzaXplX3QgY3B1c2V0c2l6ZSwKPiA+ICsgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgIGNwdW1hc2tfdCAqY3B1cykKPiA+ICt7Cj4gPiArICAgICAgIHN0cnVjdCBy
+aXNjdl9od3Byb2JlIHBhaXJzW1JJU0NWX0hXUFJPQkVfTUFYX0tFWSArIDFdID0gewo+ID4gKyAg
+ICAgICAgICAgICAgIFswIC4uLiBSSVNDVl9IV1BST0JFX01BWF9LRVldID0gKHN0cnVjdCByaXNj
+dl9od3Byb2JlKXsgLmtleSA9IC0xIH0KPiAKPiBNaW5vciBub3RlOiBJJ2QgcHJlZmVyIHdlIGF2
+b2lkIGJha2luZyBpbiB0aGluZ3MgdGhhdCBibG93IHVwIGlmIHRoZQo+IGtleSBzcGFjZSBiZWNv
+bWVzIG5vbi1jb250aWd1b3VzIG9yIGxhcmdlLiBJIHN1c3BlY3QgdmVuZG9yLXNwZWNpZmljCj4g
+aHdwcm9iZSBrZXlzIGFyZSBjb21pbmcsIGFuZCBpZiB3ZSBhc3NpZ24gdGhlbSBhIHNlcGFyYXRl
+IGhpZ2ggcmFuZ2UKPiBvZiBrZXlzcGFjZSwgd2UnbGwgaGF2ZSB0byB1bndpbmQgYW55dGhpbmcg
+aW4gdGhlIGltcGxlbWVudGF0aW9uIHRoYXQKPiBhc3N1bWVzIGEgY29udGlndW91cyBzbWFsbCBr
+ZXkgc3BhY2UuCgpHb29kIHBvaW50LiBJJ2xsIHRyeSB0byBmaW5kIGEgYmV0dGVyIHdheSB0byBt
+YW5hZ2Uga2V5IHNwYWNlIGZvciB2MS4KCj4gCj4gPiArICAgICAgIH07Cj4gPiArICAgICAgIHN0
+cnVjdCByaXNjdl9od3Byb2JlIHBhaXI7Cj4gPiArICAgICAgIHN0cnVjdCB2ZHNvX2RhdGEgKnZk
+ID0gX19hcmNoX2dldF9rX3Zkc29fZGF0YSgpOwo+ID4gKyAgICAgICBzdHJ1Y3QgYXJjaF92ZHNv
+X2RhdGEgKmF2ZCA9ICZ2ZC0+YXJjaF9kYXRhOwo+ID4gKyAgICAgICBib29sIGNsZWFyX2FsbCA9
+IGZhbHNlOwo+ID4gKyAgICAgICBjcHVtYXNrX3Qgb25lX2NwdTsKPiA+ICsgICAgICAgaW50IGNw
+dSwgcmV0Owo+ID4gKyAgICAgICBzaXplX3QgaTsKPiA+ICsKPiA+ICsgICAgICAgZm9yIChpID0g
+MDsgaSA8IHBhaXJfY291bnQ7IGkrKykgewo+ID4gKyAgICAgICAgICAgICAgIHJldCA9IGNvcHlf
+ZnJvbV91c2VyKCZwYWlyLCAmcGFpcnNfdXNlcltpXSwgc2l6ZW9mKHBhaXIpKTsKPiA+ICsgICAg
+ICAgICAgICAgICBpZiAocmV0KQo+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgcmV0dXJuIC1F
+RkFVTFQ7Cj4gPiArCj4gPiArICAgICAgICAgICAgICAgaWYgKHBhaXIua2V5ID49IDAgJiYgcGFp
+ci5rZXkgPD0gUklTQ1ZfSFdQUk9CRV9NQVhfS0VZKSB7Cj4gPiArICAgICAgICAgICAgICAgICAg
+ICAgICBpZiAocGFpcnNbcGFpci5rZXldLmtleSA9PSAtMSkgewo+ID4gKyAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICBwYWlyc1twYWlyLmtleV0gPSBwYWlyOwo+ID4gKyAgICAgICAgICAg
+ICAgICAgICAgICAgfSBlbHNlIHsKPiA+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+cmV0ID0gaHdwcm9iZV9wYWlyX21lcmdlKCZwYWlyc1twYWlyLmtleV0sICZwYWlyKTsKPiA+ICsg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgaWYgKHJldCkKPiA+ICsgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICByZXR1cm4gcmV0Owo+ID4gKyAgICAgICAgICAgICAg
+ICAgICAgICAgfQo+ID4gKyAgICAgICAgICAgICAgIH0gZWxzZSB7Cj4gPiArICAgICAgICAgICAg
+ICAgICAgICAgICBwYWlyLmtleSA9IC0xOwo+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgcGFp
+ci52YWx1ZSA9IDA7Cj4gPiArICAgICAgICAgICAgICAgICAgICAgICByZXQgPSBjb3B5X3RvX3Vz
+ZXIoJnBhaXJzX3VzZXJbaV0sICZwYWlyLCBzaXplb2YocGFpcikpOwo+ID4gKyAgICAgICAgICAg
+ICAgICAgICAgICAgaWYgKHJldCkKPiA+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+cmV0dXJuIC1FRkFVTFQ7Cj4gPiArICAgICAgICAgICAgICAgICAgICAgICBjbGVhcl9hbGwgPSB0
+cnVlOwo+ID4gKyAgICAgICAgICAgICAgIH0KPiA+ICsgICAgICAgfQo+IAo+IFNvIGlmIEkgd3Jp
+dGUgb3V0IHRoaXMgYWxnb3JpdGhtLCBJIGdldCBzb21ldGhpbmcgbGlrZToKPiAgKiBDcmVhdGUg
+YW4gYXJyYXkgb2YgZXZlcnkgcG9zc2libGUga2V5LCBhbmQgZGVkdXBlIHRoZSBjYWxsZXIncyBs
+aXN0Cj4gb2YgcGFpcnMgaW50byB0aGlzIGFycmF5Lgo+ICAqIEZvciBlYWNoIHJlbWFpbmluZyBj
+cHUsIGdvIHRocm91Z2ggdGhpcyBhcnJheSBhbmQgZWl0aGVyIGNvbmZpcm0KPiB0aGUgYmlnIGFy
+cmF5J3MgZWxlbWVudCBtYXRjaGVzIHRoaXMgY3B1J3MgdmFsdWUsIG9yIGNsZWFyIHRoZSBjcHUK
+PiBmcm9tIHRoZSByZXN1bHQgc2V0Lgo+IAo+IEJ1dCB3aHkgZG8gd2UgZ28gdG8gYWxsIHRoZSBl
+ZmZvcnQgb2YgZGUtZHVwaW5nIHRoZSBjYWxsZXIncyBhcnJheSBvZgo+IHBhaXJzPyBDYW4ndCB0
+aGV5IGRvIHRoYXQgdGhlbXNlbHZlcyAob3IgcGF5IGEgc21hbGwgcGVyZm9ybWFuY2UKPiBwZW5h
+bHR5IGZvciAieWVzIiByZXN1bHRzKT8gSW5zdGVhZCwgY291bGRuJ3QgaXQgYmUgc29tZXRoaW5n
+IGxpa2U6Cj4gRm9yIGVhY2ggcGFpciBpbiB0aGUgdXNlcidzIHNldCwgZm9yIGVhY2ggcmVtYWlu
+aW5nIGNwdSBpbiB0aGUgc2V0LAo+IGNvbXBhcmUgdGhlIHZhbHVlcywgb3IgY2xlYXIgdGhlIGNw
+dSBpbiB0aGUgcmVtYWluaW5nIHNldC4KPiAKPiBEb2luZyB0aGF0IHdvdWxkIGFsc28gdGFrZSB0
+aGUgcnVudGltZSBmcm9tIE8oa2V5c3BhY2UgKiBuY3B1cykgdG8KPiBPKHF1ZXJ5X2xlbmdoICog
+bmNwdXMpLgoKSSB3YW50IHRvIGRlLWR1cGUgZm9yIHR3byByZWFzb25zOgogKiBxdWVyeV9sZW5n
+dGggaXMgdW5ib3VuZGVkLCBidXQga2V5c3BhY2UgaXMgYm91bmRlZCAoYW5kIGlzIGN1cnJlbnRs
+eQogICBzbWFsbCkKICogVGhlIG1lcmdlIGZ1bmN0aW9uIGFsc28gcHJvdmlkZXMgYW4gb3Bwb3J0
+dW5pdHkgZm9yIHNhbml0eSBjaGVja3Mgb2YKICAgdmFsdWUtdHlwZSBkdXBsaWNhdGVzLiBJZiB0
+aGUgdmFsdWVzIGRvbid0IG1hdGNoIHRoZW4gdGhlIHN5c2NhbGwKICAgcmV0dXJucyAtRUlOVkFM
+LgoKPiAKPiA+ICsKPiA+ICsgICAgICAgaWYgKGNsZWFyX2FsbCkgewo+ID4gKyAgICAgICAgICAg
+ICAgIGNwdW1hc2tfY2xlYXIoY3B1cyk7Cj4gPiArICAgICAgICAgICAgICAgcmV0dXJuIDA7Cj4g
+PiArICAgICAgIH0KPiA+ICsKPiA+ICsgICAgICAgaWYgKGF2ZC0+aG9tb2dlbmVvdXNfY3B1cykg
+ewo+ID4gKyAgICAgICAgICAgICAgIGZvciAoaSA9IDA7IGkgPD0gUklTQ1ZfSFdQUk9CRV9NQVhf
+S0VZOyBpKyspIHsKPiA+ICsgICAgICAgICAgICAgICAgICAgICAgIGlmIChwYWlyc1tpXS5rZXkg
+PT0gLTEpCj4gPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGNvbnRpbnVlOwo+ID4g
+Kwo+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgcGFpci5rZXkgPSBwYWlyc1tpXS5rZXk7Cj4g
+PiArICAgICAgICAgICAgICAgICAgICAgICBwYWlyLnZhbHVlID0gYXZkLT5hbGxfY3B1X2h3cHJv
+YmVfdmFsdWVzW3BhaXJzW2ldLmtleV07Cj4gPiArCj4gPiArICAgICAgICAgICAgICAgICAgICAg
+ICBpZiAoIWh3cHJvYmVfcGFpcl9jbXAoJnBhaXIsICZwYWlyc1tpXSkpIHsKPiA+ICsgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgY3B1bWFza19jbGVhcihjcHVzKTsKPiA+ICsgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgcmV0dXJuIDA7Cj4gPiArICAgICAgICAgICAgICAgICAg
+ICAgICB9Cj4gPiArICAgICAgICAgICAgICAgfQo+ID4gKwo+ID4gKyAgICAgICAgICAgICAgIHJl
+dHVybiAwOwo+ID4gKyAgICAgICB9Cj4gCj4gV2UgY291bGQgbW92ZSB0aGUgd2hvbGUgYWJvdmUg
+aG9tb2dlbm91c19jcHVzIHBhcnQgaW50byB0aGUgdkRTTwo+IGZ1bmN0aW9uLCBhdm9pZGluZyBh
+IHN5c2NhbGwgb24gaG9tb2dlbm91cyBzeXN0ZW1zLiBJdCB3b3VsZCBtZWFuCj4geW91J2QgaGF2
+ZSB0byBlaXRoZXIgZHVwbGljYXRlIHRoZSBsb2dpYyBoZXJlIGFzIHdlbGwsIG9yIGhhdmUgaXQg
+b25seQo+IGluIHRoZSB2RFNPIGFuZCBrZXJuZWwgY2FsbGVycyBkb24ndCBnZXQgdGhlIG9wdGlt
+aXphdGlvbi4gUHJvYmFibHkKPiB0aGVyZSBhcmUgdmVyeSBmZXcgY3VzdG9tZXJzIG9mIHRoaXMg
+QVBJIGluIHRoZSBrZXJuZWwsIHNvIG1heWJlIGp1c3QKPiBoYXZpbmcgaXQgaW4gdGhlIHZEU08g
+aXMgYSBnb29kIHBsYWNlIHRvIHN0YXJ0LgoKQ29uc2lkZXJpbmcgSSdsbCBiZSBzcGxpdHRpbmcg
+d2hpY2gtY3B1cyBpbnRvIGl0cyBvd24gZnVuY3Rpb24sIHdoZXJlCm90aGVyIHZEU08gY29kZSBu
+ZWVkcyB0byBiZSBkdXBsaWNhdGVkLCB0aGVuIEknbGwgYWxzbyBsb29rIGludG8gbW92aW5nCnRo
+ZSBhYm92ZSBsb2dpYyBpbnRvIHRoYXQgdkRTTyBjb2RlLCBhbmQgdGhlbiBqdXN0IGRyb3AgaXQg
+ZnJvbSBoZXJlLApzaW5jZSwgYXMgeW91IHN1Z2dlc3QsIHRoZSB2RFNPIGxvY2F0aW9uIHNob3Vs
+ZCBiZSBzdWZmaWNpZW50LgoKVGhhbmtzLApkcmV3CgpfX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlz
+Y3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFu
+L2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
