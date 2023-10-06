@@ -4,55 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3E6EE92FF9
-	for <linux-riscv@archiver.kernel.org>; Fri,  6 Oct 2023 09:13:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C6EFE92FF9
+	for <linux-riscv@archiver.kernel.org>; Fri,  6 Oct 2023 09:29:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mlq1Us8tGWfgNBhElM0ztGtBNZ/dgoJK/KDt7fPQWtM=; b=0prhNAPs99EAqs
-	oV0g4jtNGWJX/onW16uKMWh8EBbaYfUOn+OBnmOIz8XKYsl9nMpkawZmJdPXHnSrGQj7EnNMYQZck
-	Ssxya+cANtaqdyvE0uGqcrK86WcFrITb5S3i+YvVQUSAMAiJAOCkGIYhdM2MDh0fbq664qwjOIIQ4
-	Wh3P31PiYwqG4p6gDtb9kDI4b0P3xrg/QjC5IDvDGoS0FfbHziHFsnAHi5XPQzir4i1w0ld2uXury
-	anNGIGuOwtpP5v9p4omRaQQxsGokgt1H5FIxTXAIBs8kZ7tgKWH2QTcBhwSILW/x5rLVMk+WFy52Z
-	HHvMY03fgIlpfQm+AWvA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=e8hHPr0uCu342+9gPJstoKI4Fs3l6yqA6ED+98BMUP8=; b=Iery6GTHo/yesM
+	m9m9GeDJ652LN4dRhCKNnmZ2rTUcAqpHzuFzguSyNwHZlWdJnMF47+x8MiE0gcfpJ8K8UsXdHIYn/
+	YETNea+MLKyhf8w4zIScdRkEryyCQK7wlqhnQmchMu7Aq12I61gGWrDx4vpGTla9O3rKb0le6QqKh
+	LimEEoUBrrQfKUZGk8C2Wnb7SLcEPmSMMUQaWvEE7uk3DemJh1ko76gerM2vRWlIPcHr22XzSKVDU
+	FUbwZ2rEPd5yb+OBkNd/ouSGcUdj76KJsS+nYuBLo3qtFfQzoABIL/bg1TmIFeBfrxaywP868c3Yu
+	QCSXP+HS+cWxHPKKFK8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qogtX-005Mzx-06;
-	Fri, 06 Oct 2023 09:13:15 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1qoh9P-005OLp-0W;
+	Fri, 06 Oct 2023 09:29:39 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qogtT-005MzV-0R
+	id 1qoh9L-005OL4-0W
 	for linux-riscv@lists.infradead.org;
-	Fri, 06 Oct 2023 09:13:13 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 0A33961CC6
-	for <linux-riscv@lists.infradead.org>; Fri,  6 Oct 2023 09:13:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1C8A5C433C7;
-	Fri,  6 Oct 2023 09:13:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1696583586;
-	bh=363s0zYJ7r6yfwKNwCLGF82Yk/rQQANW7haGdMTTEcg=;
-	h=From:To:Subject:In-Reply-To:References:Date:From;
-	b=UsW9x7TpEBFlqp+9Xoy5q+80sKYj+3N+o/LtAxR9EkEDK1aco4l5WTeqcdTNpBETc
-	 BoIk0cQOrjlMvWLcyj/dZRG4eI8cF5lyKQd+5ybZZ5FbNAJeksAynXzuxYgPa85fU1
-	 W7I9QIOAmNEQmcPUu+aSu3Zmdl0Wq5S3mmoVvqL3ZOYJlHl19IN0G5picxhwW68YHU
-	 j714GuMmXquNFiWNQdi7VckCVoD59unK6X67tvqirge5U9uuTSAO1wkVEPwq1PZ9C4
-	 hJBymR9vffCa71pxoAdwsbJsPbSJwRhLpd0wTKyzHAZFxoTFlvnLry8W/kbdErIXYA
-	 jGlOTRsTMyNQg==
-From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-To: Conor Dooley <conor@kernel.org>, linux-riscv@lists.infradead.org
-Subject: Re: patchwork automation changes
-In-Reply-To: <20230929-harddisk-marbles-274a8e35f9f5@spud>
-References: <20230929-harddisk-marbles-274a8e35f9f5@spud>
-Date: Fri, 06 Oct 2023 11:13:03 +0200
-Message-ID: <87il7k2jxc.fsf@all.your.base.are.belong.to.us>
+	Fri, 06 Oct 2023 09:29:36 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-4065dea9a33so18121905e9.3
+        for <linux-riscv@lists.infradead.org>; Fri, 06 Oct 2023 02:29:33 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1696584572; x=1697189372; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=Aq5rrYNyOOK7uZVK+/VCm6y827G0ymcilBxUQWM6O8Q=;
+        b=HHc5l6zgFDF7op2wsods9r0ZyUbjayynBSPNt9mssoZBs0pPtgUc6vGv3q4L5xAb2j
+         jKx/4nCnGnwLsK9PblS1RkzMjD/EnxqcVFrT4NJkHzqiUmaHQ+TlRA9cZTD6XrFf7br0
+         8rplh35rOhkJvCSMxbETLnz4brlylFOP6EsUB5vbHHUdzLRVqlWJgCHvdIxeVNKtR0Wq
+         Az8eADIIuuwD0FjRCa0twOc6R/zzsPhuuvAee8PA5TPmco8U/lYCfsFsYDa1XwEPiYwx
+         UjxqYbw3b4hPBwlgZGcfl0l8ZIj3T5FpJjm3H+HDZ5/0V8N3lX2z9yVQS6d0iXz/d28/
+         YWUw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1696584572; x=1697189372;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Aq5rrYNyOOK7uZVK+/VCm6y827G0ymcilBxUQWM6O8Q=;
+        b=ohnNcfocuHH+/q1nPzV32WEuPHhjbvvT2BsFupBTy9Hk0CgCwB2zDphJGxIjB+z6YN
+         yb6MlLGLl/YIHo1nwYPUj/DZRwsCLhbq3NmQpu0cEWr0QUUAI6dwUYBEgwKmkMocpl4L
+         85snpeX2s8zY51L4nwb8NCXABaWIG7w4sHdpfDenrPKwjEy05eloSgZl/nozHPqt6SRz
+         +H+17aJma8f5V4ERh99+tN7w5g5cxZYqZRILV2AKXKwjxj0BcYWc4M3hCBqIVr0wZ8SJ
+         Ac6C/ScQVcRKCxSHfPoW6fhLUGkDdCIBwdleuMzIw8cd+UZcb1bAJPCHQrPc73EcUodN
+         JvCQ==
+X-Gm-Message-State: AOJu0YyxorvvXKCosMvgfI1BqxxhELRjkpoK/jOpIhnvcy62fgz/omKj
+	GocZG3WVIiJr5njVqMFaYIxLeVSnlZUtqKZQ7Xs=
+X-Google-Smtp-Source: AGHT+IGE5tqREDCmTaBollAfgLgxk91o9Pd50IbexKTPwcz2wvpiNku9RufkQ6YSoI+0goa1WscOyA==
+X-Received: by 2002:a05:600c:2189:b0:401:bf87:9898 with SMTP id e9-20020a05600c218900b00401bf879898mr6919651wme.25.1696584572008;
+        Fri, 06 Oct 2023 02:29:32 -0700 (PDT)
+Received: from alex-rivos.ba.rivosinc.com (amontpellier-656-1-456-62.w92-145.abo.wanadoo.fr. [92.145.124.62])
+        by smtp.gmail.com with ESMTPSA id t14-20020a1c770e000000b004054dcbf92asm3308911wmi.20.2023.10.06.02.29.31
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 06 Oct 2023 02:29:31 -0700 (PDT)
+From: Alexandre Ghiti <alexghiti@rivosinc.com>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Mike Rapoport <rppt@kernel.org>,
+	linux-mm@kvack.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
+Subject: [PATCH 0/2] riscv: Fix Fix set_memory_XX() and set_direct_map_XX()
+Date: Fri,  6 Oct 2023 11:29:28 +0200
+Message-Id: <20231006092930.15850-1-alexghiti@rivosinc.com>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231006_021311_267078_27BB9791 
-X-CRM114-Status: GOOD (  13.82  )
+X-CRM114-CacheID: sfid-20231006_022935_416410_1CAE18D6 
+X-CRM114-Status: GOOD (  10.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,79 +89,43 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Q29ub3IgRG9vbGV5IDxjb25vckBrZXJuZWwub3JnPiB3cml0ZXM6Cgo+IEhleSwKPgo+IFdlIChh
-bmQgYnkgdGhhdCBJIG1lYW4gQmrDs3JuKSBoYXZlIG1vdmVkIHRoZSBwYXRjaHdvcmsgYXV0b21h
-dGlvbgo+IG91dHNpZGUgb2YgTWljcm9jaGlwJ3MgQ0kgYW5kIGludG8gc29tZSAiZ2VuZXJpYyIg
-R2l0SHViIHN0dWZmLgo+IFdoaWxlIHRoaW5ncyBhcmUgc3dpdGNoZWQgb3ZlciwgdGhlcmUgbWF5
-IGJlIHNvbWUgb2RkaXRpZXMgaW4gdGVybXMgb2YKPiBlcnJvcnMgZXRjIG9uIHBhdGNod29yaywg
-d2l0aCBzb21lIHNlcmllcyBiZWluZyB0ZXN0ZWQgYnkgYm90aCB0aGUgbmV3Cj4gYW5kIG9sZCBz
-eXN0ZW0uCj4KPiBKdXN0IGFuIEZZSSBpbiBjYXNlIGFueW9uZSBzZWVzIHdlaXJkbmVzcyBvdmVy
-IHRoZSBuZXh0IHdlZSB3aGlsZS4KCkkganVzdCBkaWQgYW4gdXBkYXRlLCBzbyBub3cgY2hlY2tw
-YXRjaCB3YXJuaW5ncywgd2lsbCBiZSBkaXNwbGF5ZWQgYXMKd2FybmluZ3MgaW4gcGF0Y2h3b3Jr
-IGFzIHdlbGwuIEhvcGVmdWxseSB0aGUgUFcgc3RvcGxpZ2h0IHdpbGwgYmUgYQpsaXR0bGUgbGVz
-cyBpbnRpbWlkYXRpbmcgZnJvbSBub3cgb24uCgpIZXJlJ3MgYSBxdWljayBvdmVydmlldyBvZiB0
-aGUgbW92aW5nIHBhcnRzLgoKQWxsIHNlcmllcyB0aGF0IGVuZCB1cCBvbiBwYXRjaHdvcmsgYXJl
-IGdldHRpbmcgYnVpbHQgYXQgR2l0aHViOgpodHRwczovL2dpdGh1Yi5jb20vbGludXgtcmlzY3Yv
-bGludXgtcmlzY3YvCgpMZXQncyB0YWtlIHRoaXMgc2VyaWVzIGFzIGFuIGV4YW1wbGU6Cmh0dHBz
-Oi8vcGF0Y2h3b3JrLmtlcm5lbC5vcmcvcHJvamVjdC9saW51eC1yaXNjdi9saXN0Lz9zZXJpZXM9
-Nzg5OTcxCgpQYXRjaCAgICBTZXJpZXMgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFMvVy9GClt2Miw4LzhdIHJpc2N2OiBhZGQg
-c3VwcG9ydCBmb3IgUFJfU0VUX1VOQUxJR04gYW5kIFBSX0dFVF9VTkFMSUdOICAgICAgICAgICAg
-ICAgMTIvMS8xClt2Miw3LzhdIHJpc2N2OiByZXBvcnQgbWlzYWxpZ25lZCBhY2Nlc3NlcyBlbXVs
-YXRpb24gdG8gaHdwcm9iZSAgICAgICAgICAgICAgICAgMTIvMS8xClt2Miw2LzhdIHJpc2N2OiBh
-bm5vdGF0ZSBjaGVja191bmFsaWduZWRfYWNjZXNzX2Jvb3RfY3B1KCkgd2l0aCBfX2luaXQgICAg
-ICAgICAgMTMvLS8xClt2Miw1LzhdIHJpc2N2OiBhZGQgc3VwcG9ydCBmb3Igc3lzY3RsIHVuYWxp
-Z25lZF9lbmFibGVkIGNvbnRyb2wgICAgICAgICAgICAgICAgMTMvLS8xClt2Miw0LzhdIHJpc2N2
-OiBhZGQgZmxvYXRpbmcgcG9pbnQgaW5zbiBzdXBwb3J0IHRvIG1pc2FsaWduZWQgYWNjZXNzIGVt
-dWxhdGlvbiAgMTIvLS8yClt2MiwzLzhdIHJpc2N2OiByZXBvcnQgcGVyZiBldmVudCBmb3IgbWlz
-YWxpZ25lZCBmYXVsdCAgICAgICAgICAgICAgICAgICAgICAgICAgMTMvLS8xClt2MiwyLzhdIHJp
-c2N2OiBhZGQgc3VwcG9ydCBmb3IgbWlzYWxpZ25lZCB0cmFwIGhhbmRsaW5nIGluIFMtbW9kZSAg
-ICAgICAgICAgICAgMTIvMS8xClt2MiwxLzhdIHJpc2N2OiByZW1vdmUgdW51c2VkIGZ1bmN0aW9u
-cyBpbiB0cmFwc19taXNhbGlnbmVkLmMgICAgICAgICAgICAgICAgICAgMTMvLS8xCgpFYWNoIHBh
-dGNoIGluIHRoZSBzZXJpZXMgaXMgdGVzdGVkIHNlcGFyYXRlbHkuIExldCdzIGRyaWxsIGRvd24g
-b24gcGF0Y2gKNjoKCkNvbnRleHQgICAgICAgICAgICAgICAgICAgICAgICAgQ2hlY2sgICAgICAg
-ICAgICBEZXNjcmlwdGlvbgpjb25jaHVvZC92bXRlc3QtZm9yLW5leHQtUFIgICAgIGZhaWwgICAg
-ICAgICAgICAgUFIgc3VtbWFyeQpjb25jaHVvZC9wYXRjaC02LXRlc3QtMSAgICAgICAgIHN1Y2Nl
-c3MgICAgICAgICAuZ2l0aHViL3NjcmlwdHMvcGF0Y2hlcy9idWlsZF9ydjMyX2RlZmNvbmZpZy5z
-aApjb25jaHVvZC9wYXRjaC02LXRlc3QtMiAgICAgICAgIHN1Y2Nlc3MgICAgICAgICAuZ2l0aHVi
-L3NjcmlwdHMvcGF0Y2hlcy9idWlsZF9ydjY0X2NsYW5nX2FsbG1vZGNvbmZpZy5zaApjb25jaHVv
-ZC9wYXRjaC02LXRlc3QtMyAgICAgICAgIHN1Y2Nlc3MgICAgICAgICAuZ2l0aHViL3NjcmlwdHMv
-cGF0Y2hlcy9idWlsZF9ydjY0X2djY19hbGxtb2Rjb25maWcuc2gKY29uY2h1b2QvcGF0Y2gtNi10
-ZXN0LTQgICAgICAgICBzdWNjZXNzICAgICAgICAgLmdpdGh1Yi9zY3JpcHRzL3BhdGNoZXMvYnVp
-bGRfcnY2NF9ub21tdV9rMjEwX2RlZmNvbmZpZy5zaApjb25jaHVvZC9wYXRjaC02LXRlc3QtNSAg
-ICAgICAgIHN1Y2Nlc3MgICAgICAgICAuZ2l0aHViL3NjcmlwdHMvcGF0Y2hlcy9idWlsZF9ydjY0
-X25vbW11X3ZpcnRfZGVmY29uZmlnLnNoCmNvbmNodW9kL3BhdGNoLTYtdGVzdC02ICAgICAgICAg
-c3VjY2VzcyAgICAgICAgIC5naXRodWIvc2NyaXB0cy9wYXRjaGVzL2NoZWNrcGF0Y2guc2gKY29u
-Y2h1b2QvcGF0Y2gtNi10ZXN0LTcgICAgICAgICBzdWNjZXNzICAgICAgICAgLmdpdGh1Yi9zY3Jp
-cHRzL3BhdGNoZXMvZHRiX3dhcm5fcnY2NC5zaApjb25jaHVvZC9wYXRjaC02LXRlc3QtOCAgICAg
-ICAgIHN1Y2Nlc3MgICAgICAgICAuZ2l0aHViL3NjcmlwdHMvcGF0Y2hlcy9oZWFkZXJfaW5saW5l
-LnNoCmNvbmNodW9kL3BhdGNoLTYtdGVzdC05ICAgICAgICAgc3VjY2VzcyAgICAgICAgIC5naXRo
-dWIvc2NyaXB0cy9wYXRjaGVzL2tkb2Muc2gKY29uY2h1b2QvcGF0Y2gtNi10ZXN0LTEwICAgICAg
-ICBzdWNjZXNzICAgICAgICAgLmdpdGh1Yi9zY3JpcHRzL3BhdGNoZXMvbWFpbnRhaW5lcnNfcGF0
-dGVybnMuc2gKY29uY2h1b2QvcGF0Y2gtNi10ZXN0LTExICAgICAgICBzdWNjZXNzICAgICAgICAg
-LmdpdGh1Yi9zY3JpcHRzL3BhdGNoZXMvbW9kdWxlX3BhcmFtLnNoCmNvbmNodW9kL3BhdGNoLTYt
-dGVzdC0xMiAgICAgICAgc3VjY2VzcyAgICAgICAgIC5naXRodWIvc2NyaXB0cy9wYXRjaGVzL3Zl
-cmlmeV9maXhlcy5zaApjb25jaHVvZC9wYXRjaC02LXRlc3QtMTMgICAgICAgIHN1Y2Nlc3MgICAg
-ICAgICAuZ2l0aHViL3NjcmlwdHMvcGF0Y2hlcy92ZXJpZnlfc2lnbmVkb2ZmLnNoIAoKQWxsIHRl
-c3RzIGZvciB0aGlzIHBhcnRpY3VsYXIgcGF0Y2ggc3VjY2VlZHMsIGJ1dCB0aGUgUFIgc3VtbWFy
-eSBzYXlzCnRoYXQgdGhlcmUgaXMgYSBwYXRjaCBpbiB0aGUgc2VyaWVzIHRoYXQgaGFzIGEgZmFp
-bGluZyB0ZXN0LiBJZiB0aGUgUFIKc3VtbWFyeSB3b3VsZCBoYXZlIGJlZW4gIndhcm5pbmciLCB0
-aGlzIGluZGljYXRlZCB0aGF0IHRoZXJlJ3MgYSBwYXRjaAp3aXRoIGEgd2FybmluZyBhbnl3aGVy
-ZSBpbiB0aGUgc2VyaWVzLgoKIlBSIHN1bW1hcnkiIGlzIGZvciB0aGUgc2VyaWVzIGFzIGEgd2hv
-bGUsIGFuZCB0aGUgb3RoZXIgYXJlIGZvciB0aGlzCnBhcnRpY3VsYXIgcGF0Y2guCgpDbGlja2lu
-ZyB0aGUgIlBSIHN1bW1hcnkiIHdpbGwgdGFrZSB5b3UgdG8gdGhlIEdpdGh1YiBwdWxsLXJlcXVl
-c3QgZm9yCnRoZSBzZXJpZXMuIENsaWNraW5nIGFueSBvZiB0ZXN0IHRlc3RzLCB3aWxsIHRha2Ug
-eW91IHRvIHRoZSB0ZXN0IHJ1biBsb2cuCgpUaGUgc291cmNlIGNvZGUgZm9yIHRoZSBHaXRodWIg
-Q0k6Cmh0dHBzOi8vZ2l0aHViLmNvbS9saW51eC1yaXNjdi9naXRodWItY2kKClRoZSBzb3VyY2Ug
-Y29kZSBmb3IgdGhlIHBhdGNod29yayBzeW5jaGluZyBkYWVtb246Cmh0dHBzOi8vZ2l0aHViLmNv
-bS9saW51eC1yaXNjdi9rZXJuZWwtcGF0Y2hlcy1kYWVtb24KClRoZSBEb2NrZXJmaWxlIGZvciB0
-aGUgaW1hZ2UgdGhhdCBwZXJmb3JtcyB0aGUgYnVpbGQ6Cmh0dHBzOi8vZ2l0aHViLmNvbS9saW51
-eC1yaXNjdi9kb2NrZXIKCihPaCwgcGF0Y2hlcyBhcmUgd2VsY29tZSEgOy0pKQoKCkJqw7ZybgoK
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlz
-Y3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xp
-c3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+Those 2 patches fix the set_memory_XX() and set_direct_map_XX() APIs, which
+in turn fix STRICT_KERNEL_RWX and memfd_secret(). Those were broken since the
+permission changes were not applied to the linear mapping because the linear
+mapping is mapped using hugepages and walk_page_range_novma() does not split
+such mappings.
+
+To fix that, patch 1 disables PGD mappings in the linear mapping as it is
+hard to propagate changes at this level in *all* the page tables, this has the
+downside of disabling PMD mapping for sv32 and PUD (1GB) mapping for sv39 in
+the linear mapping (for specific kernels, we could add a Kconfig to enable
+ARCH_HAS_SET_DIRECT_MAP and STRICT_KERNEL_RWX if needed, I'm pretty sure we'll
+discuss that).
+
+patch 2 implements the split of the huge linear mappings so that
+walk_page_range_novma() can properly apply the permissions. The whole split is
+protected with mmap_sem in write mode, but I'm wondering if that's enough,
+any opinion on that is appreciated.
+
+Alexandre Ghiti (2):
+  riscv: Don't use PGD entries for the linear mapping
+  riscv: Fix set_memory_XX() and set_direct_map_XX() by splitting huge
+    linear mappings
+
+ arch/riscv/mm/init.c     |  12 +-
+ arch/riscv/mm/pageattr.c | 263 ++++++++++++++++++++++++++++++++-------
+ 2 files changed, 227 insertions(+), 48 deletions(-)
+
+-- 
+2.39.2
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
