@@ -4,95 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0A92E92FDD
-	for <linux-riscv@archiver.kernel.org>; Fri,  6 Oct 2023 03:21:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98E5BE92FF8
+	for <linux-riscv@archiver.kernel.org>; Fri,  6 Oct 2023 08:20:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
-	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=18UzxoC3oImJWSR2sgOO4Eszi6mlAUXhoKGJ78DbYt0=; b=ABnYyDVx8MU54+AXujQssjMAoa
-	Spz7SdXV1sbpSWZWjoluRyq+yAwm29N2dipHsukhBBeJ8NBnDkoybFHuD2eymZ6KSHZM2tsMELqaP
-	d1vjVkmrZsRWfJLUU1OZSTGWxtb1XKWM71WuoWM30Lo1aUB9dEIBQ2dtscHX8yJnnAXbHt2R1mwPt
-	Nvlxq9U5KOlstwADSSjVYm6oxokzWHKNL5gnrHFiafqIJmXKtbTyg98b4sJzG9APwBI+bBUhvdpKu
-	r38S9G5V9W+7VZjtWESKGvpfqvZfwAvntSuvtSaRzq800eHEqmnENF3Bb2A0LfHtwzd1dFAtja5z9
-	7M0mrlkw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
+	:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=XCBpdhF/WAd4ZM5u9MSMim9BOte1d9SX+HDuv2iRQx4=; b=E5BLeCvWSdaB5k
+	wdWTZw/LVWpTgyTemvAq9KSm+wVCE12WJt9+zMZhjgX7kcF3hEJOk6gUNes4d8N0JFrx5pu2ieZZo
+	nsZ78wSX+xgPFB40NhqF3NSla1c1kuiXXHRjrnqK4yxpAJdqmFvq/yGl0ZxLyWa3iQ0rHigoNbRxR
+	a9OPnER6OYOXNMKsMbvCj0QU07SB+jjIQdoGMMH2fYWQwWDQrscFiVGjWV5USVfvEV1eVSyIrynvW
+	LzJk6LcyBrRVzSxZ84seaKXBowR1dktr/BTo3wrr2AiPEeCQrnEa2DF8RG0uZoAmqz7825T3kxD6S
+	tcOWnRZKtQBca9p6Az9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qobP2-004qfN-2N;
-	Fri, 06 Oct 2023 03:21:24 +0000
-Received: from mail-yw1-x114a.google.com ([2607:f8b0:4864:20::114a])
+	id 1qog4P-005Gga-01;
+	Fri, 06 Oct 2023 08:20:25 +0000
+Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qobOy-004qcR-1I
+	id 1qog4I-005Gb7-2O
 	for linux-riscv@lists.infradead.org;
-	Fri, 06 Oct 2023 03:21:23 +0000
-Received: by mail-yw1-x114a.google.com with SMTP id 00721157ae682-59b59e1ac70so25289957b3.1
-        for <linux-riscv@lists.infradead.org>; Thu, 05 Oct 2023 20:21:18 -0700 (PDT)
+	Fri, 06 Oct 2023 08:20:20 +0000
+Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-323168869daso1785820f8f.2
+        for <linux-riscv@lists.infradead.org>; Fri, 06 Oct 2023 01:20:15 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1696562477; x=1697167277; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:from:subject:message-id:references
-         :mime-version:in-reply-to:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=+GCfD3J/utVXt7fNFcXS7tndSxc76Lg25lhLquZNVGo=;
-        b=j6dJ8gWiLBN0fbJWWKgxrbiJQQrcqNRfU9Kf7QJrDBF2P4juuFkTyecxJ3J3O3Y/NQ
-         jUxCZ1YmB1+EG4XeC3NnB7EMJ9Ig/kXZ004yJPAdhMSOOzoGMw0moOF/srrAzo4gn0K9
-         p0nK74Qe7HHq/+THNlgRROvlkiET72a9tckmrGzSgvrSDfFu3MhZSrmJ3l5elP35WQ2g
-         MYZ27Uox8kjcM+4r2PikdvLqcuN2u1/bTDP0bguUD6eDs5tSp7Svyo8daIIJzGkT6p4d
-         yvL2uYjT0FZH+8IXK4X1+lm6X3waGsP8swA/AL/kFHq1gzXfFC2YH3v7TZpMlKUx/mrt
-         HxSQ==
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1696580414; x=1697185214; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:from:to:cc:subject:date:message-id:reply-to;
+        bh=Ivd7j2peOIOg94hicEYRZDVodglnkivL/ESOnnASd3k=;
+        b=ezXNWtpugNWBC1kezN0hObUg+MvWfLjlGaEXW+izdh+xuwWsrToiNfaHRVtZyYrTc5
+         S+8EELs40B7sKC4dxwlN35qNbg8g09M7xiSmHEEh5mp9iBuvX6Og2GFtXm6JJczAewDo
+         UGZ+yT6Hxn9I3QTMGxmNuUC1EENPt6J4QBKoDBH/aaEmIOhPx0Ijgw76q+Pnp3fRXe7/
+         dVhiBgN4cHStZgVb8lr5K9nxHB4eG8nfn6B6J29Sy4awDPzIONFBjVQNSU84w9ePdD7V
+         BQ0TPBI0a8zBYkhS6+G1aQFAVvHwtpqND+qGwaIizH9Iqf1bPz55KXsc8JeewBcmlr9A
+         YqPw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1696562477; x=1697167277;
-        h=content-transfer-encoding:cc:to:from:subject:message-id:references
-         :mime-version:in-reply-to:date:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=+GCfD3J/utVXt7fNFcXS7tndSxc76Lg25lhLquZNVGo=;
-        b=HKJrW7YNl4p2s8nPIoMmy3b7Y+MUv1UzXg9JayjTcUEF+w+YIGM0cCXLqwTzBbCSeX
-         8gzKboXTJFe98BoNBc60G0mvQ30tGei6A7KA8umXvvSvClyi+k40TzSWBVeCGtJ/Uj1Q
-         sE6YwYO5/XRa7bPF8K6OLTfAIAGLzv7ueQCPnyMqGiYLMM/0sfB8x0TaBQwACx0pO1hF
-         cQrO/sIhk7w9dN2YvpuV3a1O2YnUaj8IM9k0O7ATgVtronnnSqrErtlZd7z0hgxEnMb8
-         P0vVa8p75LBY4b8J09WagffwOlMwwz8iK36j1RidIWzyUv95LEsplNAlHar0pfVFQ/i8
-         zrJw==
-X-Gm-Message-State: AOJu0YzHhEN2MCAgnQ+NVYoYUGqUKHvt8mZbDTDiZmeVeah6ekRKJDqV
-	nzCUm8BrpTNJ6RsiNZGX5lPwU6X3BIY=
-X-Google-Smtp-Source: AGHT+IHbgJX1dul2brLKqtxy3zNH4Wq8osuz6z+RCm0MrNAV7Qoo4mqOPY/NVTlIcosnwAkmq4EHKfjNEDc=
-X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
- (user=seanjc job=sendgmr) by 2002:a25:ae41:0:b0:d78:a78:6fc7 with SMTP id
- g1-20020a25ae41000000b00d780a786fc7mr101904ybe.6.1696562477545; Thu, 05 Oct
- 2023 20:21:17 -0700 (PDT)
-Date: Thu, 5 Oct 2023 20:21:15 -0700
-In-Reply-To: <CA+EHjTwTgEVtea7wgef5G6EEgFa0so_GbNXTMZNKyFE=ucyV0g@mail.gmail.com>
-Mime-Version: 1.0
-References: <CA+EHjTwTgEVtea7wgef5G6EEgFa0so_GbNXTMZNKyFE=ucyV0g@mail.gmail.com>
-Message-ID: <ZR99K_ZuWXEtfDuR@google.com>
-Subject: Re: [RFC PATCH v12 11/33] KVM: Introduce per-page memory attributes
-From: Sean Christopherson <seanjc@google.com>
-To: Fuad Tabba <tabba@google.com>
-Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
-	Oliver Upton <oliver.upton@linux.dev>, Huacai Chen <chenhuacai@kernel.org>, 
-	Michael Ellerman <mpe@ellerman.id.au>, Anup Patel <anup@brainfault.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, "Matthew Wilcox (Oracle)" <willy@infradead.org>, 
-	Andrew Morton <akpm@linux-foundation.org>, Paul Moore <paul@paul-moore.com>, 
-	James Morris <jmorris@namei.org>, "Serge E. Hallyn" <serge@hallyn.com>, KVM <kvm@vger.kernel.org>, 
-	"moderated list:ARM64 PORT (AARCH64 ARCHITECTURE)" <linux-arm-kernel@lists.infradead.org>, KVMARM <kvmarm@lists.linux.dev>, 
-	LinuxMIPS <linux-mips@vger.kernel.org>, linuxppc-dev@lists.ozlabs.org, 
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
-	linux-fsdevel@vger.kernel.org, linux-mm@kvack.org, 
-	linux-security-module@vger.kernel.org, 
-	open list <linux-kernel@vger.kernel.org>, Chao Peng <chao.p.peng@linux.intel.com>, 
-	Jarkko Sakkinen <jarkko@kernel.org>, Anish Moorthy <amoorthy@google.com>, 
-	Yu Zhang <yu.c.zhang@linux.intel.com>, Isaku Yamahata <isaku.yamahata@intel.com>, 
-	Xu Yilun <yilun.xu@intel.com>, Vlastimil Babka <vbabka@suse.cz>, 
-	Vishal Annapurve <vannapurve@google.com>, Ackerley Tng <ackerleytng@google.com>, 
-	Maciej Szmigiero <mail@maciej.szmigiero.name>, David Hildenbrand <david@redhat.com>, 
-	Quentin Perret <qperret@google.com>, Michael Roth <michael.roth@amd.com>, Wang <wei.w.wang@intel.com>, 
-	Liam Merwick <liam.merwick@oracle.com>, Isaku Yamahata <isaku.yamahata@gmail.com>, 
-	"Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
+        d=1e100.net; s=20230601; t=1696580414; x=1697185214;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=Ivd7j2peOIOg94hicEYRZDVodglnkivL/ESOnnASd3k=;
+        b=IAR781DzWKp4tJQplduHDiY+tXMTL3d1aRs3EkIQvdLUkCAMJ14YGalgxWu6yS2DPD
+         4eVM3TTQC3rlmJpdWTkgY6AijKFsZbGpLZ320FwslX3jF8R+FQ74tjqvwvNMjgwGZqso
+         Qwspc9WTXc2dG/EFoYkLTqRp6okIVK9WwYlTnvnCXv4rF/drg/R474nrVmL468gWFV4/
+         JWvandv2OBKrzlNR0V7Mt90NwFGEXaV5tHsUapqJsSu9ZAuLjTEKJSO25VWJOX5Kk51Y
+         wvuuiDF/qwP9WFpUfISJVztFas4ocapmexAWg8E98uuOdQfTB/gvzkY1/Njnh7tMRJo7
+         6yrA==
+X-Gm-Message-State: AOJu0YyDVRQIyAw6V4nkneMzvOf1E6Jo7ctX8Iu3LbnDl6zCuBI4sBPl
+	T9xJDxXOz2rFcvyWcf/MKurx5g==
+X-Google-Smtp-Source: AGHT+IE1AMKEMxH95GmDTdEVyZcJ7fiTghuZ3x9XqNTeH47qdaIvZlGAwBqLQVwpunerkI4rs14Rjg==
+X-Received: by 2002:a05:6000:10c7:b0:31f:f893:e07f with SMTP id b7-20020a05600010c700b0031ff893e07fmr6654961wrx.12.1696580414155;
+        Fri, 06 Oct 2023 01:20:14 -0700 (PDT)
+Received: from localhost.localdomain (amontpellier-656-1-456-62.w92-145.abo.wanadoo.fr. [92.145.124.62])
+        by smtp.gmail.com with ESMTPSA id z3-20020adfec83000000b0032327b70ef6sm1066573wrn.70.2023.10.06.01.20.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 06 Oct 2023 01:20:12 -0700 (PDT)
+From: Alexandre Ghiti <alexghiti@rivosinc.com>
+To: Atish Patra <atishp@atishpatra.org>,
+	Anup Patel <anup@brainfault.org>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	linux-riscv@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH -fixes] drivers: perf: Fix panic in riscv SBI mmap support
+Date: Fri,  6 Oct 2023 10:20:10 +0200
+Message-Id: <20231006082010.11963-1-alexghiti@rivosinc.com>
+X-Mailer: git-send-email 2.39.2
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231005_202120_441322_9C2CDAC2 
-X-CRM114-Status: GOOD (  27.58  )
+X-CRM114-CacheID: sfid-20231006_012018_781969_DAEE4500 
+X-CRM114-Status: GOOD (  13.44  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,60 +92,112 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVGh1LCBPY3QgMDUsIDIwMjMsIEZ1YWQgVGFiYmEgd3JvdGU6Cj4gSGkgU2VhbiwKPiAKPiBP
-biBUdWUsIE9jdCAzLCAyMDIzIGF0IDk6NTHigK9QTSBTZWFuIENocmlzdG9waGVyc29uIDxzZWFu
-amNAZ29vZ2xlLmNvbT4gd3JvdGU6Cj4gPiA+IExpa2UgSSBzYWlkLCBwS1ZNIGRvZXNuJ3QgbmVl
-ZCBhIHVzZXJzcGFjZSBBQkkgZm9yIG1hbmFnaW5nIFBSSVZBVEUvU0hBUkVELAo+ID4gPiBqdXN0
-IGEgd2F5IG9mIHRyYWNraW5nIGluIHRoZSBob3N0IGtlcm5lbCBvZiB3aGF0IGlzIHNoYXJlZCAo
-YXMgb3Bwb3NlZCB0bwo+ID4gPiB0aGUgaHlwZXJ2aXNvciwgd2hpY2ggYWxyZWFkeSBoYXMgdGhl
-IGtub3dsZWRnZSkuIFRoZSBzb2x1dGlvbiBjb3VsZCBzaW1wbHkKPiA+ID4gYmUgdGhhdCBwS1ZN
-IGRvZXMgbm90IGVuYWJsZSBLVk1fR0VORVJJQ19NRU1PUllfQVRUUklCVVRFUywgaGFzIGl0cyBv
-d24KPiA+ID4gdHJhY2tpbmcgb2YgdGhlIHN0YXR1cyBvZiB0aGUgZ3Vlc3QgcGFnZXMsIGFuZCBv
-bmx5IHNlbGVjdHMgS1ZNX1BSSVZBVEVfTUVNLgo+ID4KPiA+IEF0IHRoZSByaXNrIG9mIG92ZXJz
-dGVwcGluZyBteSBib3VuZHMsIEkgdGhpbmsgdGhhdCBlZmZlY3RpdmVseSBnaXZpbmcgdGhlIGd1
-ZXN0Cj4gPiBmdWxsIGNvbnRyb2wgb3ZlciB3aGF0IGlzIHNoYXJlZCB2cy4gcHJpdmF0ZSBpcyBh
-IG1pc3Rha2UuICBJdCBtb3JlIG9yIGxlc3MgbG9ja3MKPiA+IHBLVk0gaW50byBhIHNpbmdsZSBt
-b2RlbCwgYW5kIGV2ZW4gd2l0aGluIHRoYXQgbW9kZWwsIGRlYWxpbmcgd2l0aCBlcnJvcnMgYW5k
-L29yCj4gPiBtaXNiZWhhdmluZyBndWVzdHMgYmVjb21lcyB1bm5lY2Vzc2FyaWx5IHByb2JsZW1h
-dGljLgo+ID4KPiA+IFVzaW5nIEtWTV9TRVRfTUVNT1JZX0FUVFJJQlVURVMgbWF5IG5vdCBwcm92
-aWRlIHZhbHVlICp0b2RheSosIGUuZy4gdGhlIHVzZXJzcGFjZQo+ID4gc2lkZSBvZiBwS1ZNIGNv
-dWxkIHNpbXBseSAicmVmbGVjdCIgYWxsIGNvbnZlcnNpb24gaHlwZXJjYWxscywgYW5kIHRlcm1p
-bmF0ZSB0aGUKPiA+IFZNIG9uIGVycm9ycy4gIEJ1dCB0aGUgY29zdCBpcyB2ZXJ5IG1pbmltYWws
-IGUuZy4gYSBzaW5nbGUgZXh0cmEgaW9jdGwoKSBwZXIKPiA+IGNvbnZlcmlvbiwgYW5kIHRoZSB1
-cHNpZGUgaXMgdGhhdCBwS1ZNIHdvbid0IGJlIHN0dWNrIGlmIGEgdXNlIGNhc2UgY29tZXMgYWxv
-bmcKPiA+IHRoYXQgd2FudHMgdG8gZ28gYmV5b25kICJhbGwgY29udmVyc2lvbiByZXF1ZXN0cyBl
-aXRoZXIgaW1tZWRpYXRlbHkgc3VjY2VlZCBvcgo+ID4gdGVybWluYXRlIHRoZSBndWVzdCIuCj4g
-Cj4gTm93IHRoYXQgSSB1bmRlcnN0YW5kIHRoZSBwdXJwb3NlIG9mIEtWTV9TRVRfTUVNT1JZX0FU
-VFJJQlVURVMsIEkKPiBhZ3JlZS4gSG93ZXZlciwgcEtWTSBuZWVkcyB0byB0cmFjayBhdCB0aGUg
-aG9zdCBrZXJuZWwgKGkuZS4sIEVMMSkKPiB3aGV0aGVyIGd1ZXN0IG1lbW9yeSBpcyBzaGFyZWQg
-b3IgcHJpdmF0ZS4KCldoeSBkb2VzIEVMMSBuZWVkIGl0J3Mgb3duIHZpZXcvb3Bpbmlvbj8gIEUu
-Zy4gaXMgaXQgdG8gYXZvaWQgYSBhY2Nlc3NpbmcgZGF0YQp0aGF0IGlzIHN0aWxsIHByaXZhdGUg
-YWNjb3JkaW5nIHRvIEVMMiAob24gYmVoYWxmIG9mIHRoZSBndWVzdCk/CgpBc3N1bWluZyB0aGF0
-J3MgdGhlIGNhc2UsIHdoeSBjYW4ndCBFTDEgd2FpdCB1bnRpbCBpdCBnZXRzIGNvbmZpcm1hdGlv
-biBmcm9tIEVMMgp0aGF0IHRoZSBkYXRhIGlzIGZ1bGx5IHNoYXJlZCBiZWZvcmUgZG9pbmcgd2hh
-dGV2ZXIgaXQgaXMgdGhhdCBuZWVkcyB0byBiZSBkb25lPwoKQWgsIGlzIHRoZSBwcm9ibGVtIHRo
-YXQgd2hldGhlciBvciBub3QgLm1tYXAoKSBpcyBhbGxvd2VkIGtleXMgb2ZmIG9mIHRoZSBzdGF0
-ZQpvZiB0aGUgbWVtb3J5IGF0dHJpYnV0ZXM/ICBJZiB0aGF0J3Mgc28sIHRoZW4geWVhaCwgYW4g
-aW50ZXJuYWwgZmxhZyBpbiBhdHRyaWJ1dGVzCmlzIHByb2JhYmx5IHRoZSB3YXkgdG8gZ28uICBJ
-dCBkb2Vzbid0IG5lZWQgdG8gYmUgYSAiaG9zdCBrZXJuZWwgcHJpdmF0ZSIgZmxhZwp0aG91Z2gs
-IGUuZy4gYW4gSU5fRkxVWCBmbGFnIHRvIGNhcHR1cmUgdGhhdCB0aGUgYXR0cmlidXRlcyBhcmVu
-J3QgZnVsbHkgcmVhbGl6ZWQKbWlnaHQgYmUgbW9yZSBpbnR1aXRpdmUgZm9yIHJlYWRlcnMsIGFu
-ZCBtaWdodCBoYXZlIHV0aWxpdHkgZm9yIG90aGVyIGF0dHJpYnV0ZXMKaW4gdGhlIGZ1dHVyZSB0
-b28uCgo+IE9uZSBhcHByb2FjaCB3b3VsZCBiZSB0byBhZGQgYW5vdGhlciBmbGFnIHRvIHRoZSBh
-dHRyaWJ1dGVzIHRoYXQKPiB0cmFja3MgdGhlIGhvc3Qga2VybmVsIHZpZXcuIFRoZSB3YXkgS1ZN
-X1NFVF9NRU1PUllfQVRUUklCVVRFUyBpcwo+IGltcGxlbWVudGVkIG5vdywgdXNlcnNwYWNlIGNh
-biB6ZXJvIGl0LCBzbyBpbiB0aGF0IGNhc2UsIHRoYXQKPiBvcGVyYXRpb24gd291bGQgbmVlZCB0
-byBiZSBtYXNrZWQgdG8gYXZvaWQgdGhhdC4KPiAKPiBBbm90aGVyIGFwcHJvYWNoIHdvdWxkIGJl
-IHRvIGhhdmUgYSBwS1ZNLXNwZWNpZmljIHhhcnJheSAob3Igc2ltaWxhcikKPiB0byBkbyB0aGUg
-dHJhY2tpbmcsIGJ1dCBzaW5jZSB0aGVyZSBpcyBhIHN0cnVjdHVyZSB0aGF0J3MgYWxyZWFkeQo+
-IGRvaW5nIHNvbWV0aGluZyBzaW1pbGFyIChpLmUuLHRoZSBhdHRyaWJ1dGVzIGFycmF5KSwgaXQg
-c2VlbXMgbGlrZSBpdAo+IHdvdWxkIGJlIHVubmVjZXNzYXJ5IG92ZXJoZWFkLgo+IAo+IERvIHlv
-dSBoYXZlIGFueSBpZGVhcyBvciBwcmVmZXJlbmNlcz8KPiAKPiBDaGVlcnMsCj4gL2Z1YWQKCl9f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2
-IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0
-cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+The following panic can happen when mmap is called before the pmu add
+callback which sets the hardware counter index: this happens for example
+with the following command `perf record --no-bpf-event -n kill`.
+
+[   99.461486] CPU: 1 PID: 1259 Comm: perf Tainted: G            E      6.6.0-rc4ubuntu-defconfig #2
+[   99.461669] Hardware name: riscv-virtio,qemu (DT)
+[   99.461748] epc : pmu_sbi_set_scounteren+0x42/0x44
+[   99.462337]  ra : smp_call_function_many_cond+0x126/0x5b0
+[   99.462369] epc : ffffffff809f9d24 ra : ffffffff800f93e0 sp : ff60000082153aa0
+[   99.462407]  gp : ffffffff82395c98 tp : ff6000009a218040 t0 : ff6000009ab3a4f0
+[   99.462425]  t1 : 0000000000000004 t2 : 0000000000000100 s0 : ff60000082153ab0
+[   99.462459]  s1 : 0000000000000000 a0 : ff60000098869528 a1 : 0000000000000000
+[   99.462473]  a2 : 000000000000001f a3 : 0000000000f00000 a4 : fffffffffffffff8
+[   99.462488]  a5 : 00000000000000cc a6 : 0000000000000000 a7 : 0000000000735049
+[   99.462502]  s2 : 0000000000000001 s3 : ffffffff809f9ce2 s4 : ff60000098869528
+[   99.462516]  s5 : 0000000000000002 s6 : 0000000000000004 s7 : 0000000000000001
+[   99.462530]  s8 : ff600003fec98bc0 s9 : ffffffff826c5890 s10: ff600003fecfcde0
+[   99.462544]  s11: ff600003fec98bc0 t3 : ffffffff819e2558 t4 : ff1c000004623840
+[   99.462557]  t5 : 0000000000000901 t6 : ff6000008feeb890
+[   99.462570] status: 0000000200000100 badaddr: 0000000000000000 cause: 0000000000000003
+[   99.462658] [<ffffffff809f9d24>] pmu_sbi_set_scounteren+0x42/0x44
+[   99.462979] Code: 1060 4785 97bb 00d7 8fd9 9073 1067 6422 0141 8082 (9002) 0013
+[   99.463335] Kernel BUG [#2]
+
+To circumvent this, try to enable userspace access to the hardware counter
+when it is selected in addition to when the event is mapped. And vice-versa
+when the event is stopped/unmapped.
+
+Fixes: cc4c07c89aad ("drivers: perf: Implement perf event mmap support in the SBI backend")
+Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+---
+ drivers/perf/riscv_pmu.c     |  3 ++-
+ drivers/perf/riscv_pmu_sbi.c | 16 ++++++++++------
+ 2 files changed, 12 insertions(+), 7 deletions(-)
+
+diff --git a/drivers/perf/riscv_pmu.c b/drivers/perf/riscv_pmu.c
+index 1f9a35f724f5..0dda70e1ef90 100644
+--- a/drivers/perf/riscv_pmu.c
++++ b/drivers/perf/riscv_pmu.c
+@@ -23,7 +23,8 @@ static bool riscv_perf_user_access(struct perf_event *event)
+ 	return ((event->attr.type == PERF_TYPE_HARDWARE) ||
+ 		(event->attr.type == PERF_TYPE_HW_CACHE) ||
+ 		(event->attr.type == PERF_TYPE_RAW)) &&
+-		!!(event->hw.flags & PERF_EVENT_FLAG_USER_READ_CNT);
++		!!(event->hw.flags & PERF_EVENT_FLAG_USER_READ_CNT) &&
++		(event->hw.idx != -1);
+ }
+ 
+ void arch_perf_update_userpage(struct perf_event *event,
+diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
+index 9a51053b1f99..96c7f670c8f0 100644
+--- a/drivers/perf/riscv_pmu_sbi.c
++++ b/drivers/perf/riscv_pmu_sbi.c
+@@ -510,16 +510,18 @@ static void pmu_sbi_set_scounteren(void *arg)
+ {
+ 	struct perf_event *event = (struct perf_event *)arg;
+ 
+-	csr_write(CSR_SCOUNTEREN,
+-		  csr_read(CSR_SCOUNTEREN) | (1 << pmu_sbi_csr_index(event)));
++	if (event->hw.idx != -1)
++		csr_write(CSR_SCOUNTEREN,
++			  csr_read(CSR_SCOUNTEREN) | (1 << pmu_sbi_csr_index(event)));
+ }
+ 
+ static void pmu_sbi_reset_scounteren(void *arg)
+ {
+ 	struct perf_event *event = (struct perf_event *)arg;
+ 
+-	csr_write(CSR_SCOUNTEREN,
+-		  csr_read(CSR_SCOUNTEREN) & ~(1 << pmu_sbi_csr_index(event)));
++	if (event->hw.idx != -1)
++		csr_write(CSR_SCOUNTEREN,
++			  csr_read(CSR_SCOUNTEREN) & ~(1 << pmu_sbi_csr_index(event)));
+ }
+ 
+ static void pmu_sbi_ctr_start(struct perf_event *event, u64 ival)
+@@ -541,7 +543,8 @@ static void pmu_sbi_ctr_start(struct perf_event *event, u64 ival)
+ 
+ 	if ((hwc->flags & PERF_EVENT_FLAG_USER_ACCESS) &&
+ 	    (hwc->flags & PERF_EVENT_FLAG_USER_READ_CNT))
+-		pmu_sbi_set_scounteren((void *)event);
++		on_each_cpu_mask(mm_cpumask(event->owner->mm),
++				 pmu_sbi_set_scounteren, (void *)event, 1);
+ }
+ 
+ static void pmu_sbi_ctr_stop(struct perf_event *event, unsigned long flag)
+@@ -551,7 +554,8 @@ static void pmu_sbi_ctr_stop(struct perf_event *event, unsigned long flag)
+ 
+ 	if ((hwc->flags & PERF_EVENT_FLAG_USER_ACCESS) &&
+ 	    (hwc->flags & PERF_EVENT_FLAG_USER_READ_CNT))
+-		pmu_sbi_reset_scounteren((void *)event);
++		on_each_cpu_mask(mm_cpumask(event->owner->mm),
++				 pmu_sbi_reset_scounteren, (void *)event, 1);
+ 
+ 	ret = sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_STOP, hwc->idx, 1, flag, 0, 0, 0);
+ 	if (ret.error && (ret.error != SBI_ERR_ALREADY_STOPPED) &&
+-- 
+2.39.2
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
