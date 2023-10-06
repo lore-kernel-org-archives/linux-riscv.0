@@ -4,73 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E953DE94139
-	for <linux-riscv@archiver.kernel.org>; Fri,  6 Oct 2023 23:34:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4ED59E94139
+	for <linux-riscv@archiver.kernel.org>; Fri,  6 Oct 2023 23:42:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=z962VnYMV5ezleX7fmnJyJPqX+UHnfgLuRl8qAQWZV4=; b=Fg8ljCGuzi3u+S
-	B/rd+FrrqS6sBDCXVCk4P/kMtFCZmhHGjR4dfFz2WvsE/lpFX/Y7jVAAq4iKBp0Sasj6neEUAQbzk
-	JeFcQkBWERh+gmS+VvAhVgwVWml05omFRX8VnhOjQaLq1PtcbZwTPTgnDqQWeZfWJnLFhqpqmHDdM
-	OoRmBPSRVRVYdFpgn86OnDkRou5KyffKwu56d+R8pAxvLWW+z7UcKE8OZ8rGkP8eYzTQYLLJFptqf
-	hq3DLqg+MVcLui+CKZUsxUOl1EL6mhOf1XO05m+CntYyP8nk6vd37F+Q7gqnFtkLxOkXESCngKY65
-	j8195ENzyb3i+22lfYOA==;
+	List-Owner; bh=HopUPpe8Wey4unoljKJ8IUZBD/FUmx0unotfifnY5nA=; b=zTEMd/GNOyqArp
+	9fsyk0PK9DqjPEgEMoGtjhQJ/sxPa3yZoxAeHg3UjR0RYI7fBoELEiNWuGThh8qGYaJFJNXAmfMm6
+	ZgTCqjk/+hC00HQ2/WK3s+w8/Mnd5h+/7iIKzKUQ4KxSmFloyadZzFosbRXXI6lWDkyBDOdV7SeMy
+	UawYDE/9cUMa5IhN0IhjB2MVsqJV+9vlo6uWbu3l/sHa+J++TdeZ3CpsYNeXl9SP1HLAktbZVZg3Q
+	CuaN4haS6Pf3hqqWk35dEXxbECGRhY0WUzkNsBCxqdwVBBPDgjaUzvnc4toeOLkbFr5go9ECG5ngL
+	ofwxPFDeE1cow6dn5NTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qouKg-006ecC-2I;
-	Fri, 06 Oct 2023 23:34:10 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1qouSI-006f3E-1A;
+	Fri, 06 Oct 2023 23:42:02 +0000
+Received: from mgamail.intel.com ([134.134.136.20])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qouKc-006eaJ-2c
+	id 1qouSF-006f2o-1L
 	for linux-riscv@lists.infradead.org;
-	Fri, 06 Oct 2023 23:34:08 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 3D2C06145D
-	for <linux-riscv@lists.infradead.org>; Fri,  6 Oct 2023 23:34:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 04B24C4339A
-	for <linux-riscv@lists.infradead.org>; Fri,  6 Oct 2023 23:34:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1696635242;
-	bh=hWtzHeFz+j3k+UkSoG0IJSUL0xQ6MFBnVQ7QnbQPsEM=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=HwMCPRSLrHSIAaBim6cJwINm9lg47m4dryONQkfGFCwrwFRPOqQan3Q0NrBbZdbCI
-	 wficI85drwC6wAumRwpdY1UY6XafmC/o8MACp6bIY+FL/wTIZv482w+Ke463x7zkbO
-	 czewPFzJmMhwvUeal6nqzIYk7oSyuZ8V6Ou/mHMQcvBL7LXNj337lil7pF3holDp0x
-	 s1ijBmlnq/xJLUfS8duBtIkCARuB5cmrfr5aP3YRATgGl5DBoU5+89JE6UcvzyQ4t+
-	 kd+MjKBMfEu6c+JXDwpOZcY1pm6O53GLc5eyedlCMkw9Fko8jCow7Q3SM2kQAtw9vy
-	 lAuhvfaKBc/yA==
-Received: by mail-lf1-f54.google.com with SMTP id 2adb3069b0e04-503397ee920so3313553e87.1
-        for <linux-riscv@lists.infradead.org>; Fri, 06 Oct 2023 16:34:01 -0700 (PDT)
-X-Gm-Message-State: AOJu0YxqFVf5JnLwcEhWeenhYH/bQC9O0r2phHFWLdOFV3qTDZOX2Ug9
-	e9Zz9zMfpe1d1sbn+v/FV+3Q1D+ffbRhaaXT1h4=
-X-Google-Smtp-Source: AGHT+IEzG0i5owuGW6XiwVBZg9sVceEwAvrO7irUhWwHObiL01Y/q8wm4gtly2tshgVUOUQo6SHq7KPJl3lg9GZ0vTs=
-X-Received: by 2002:a19:f610:0:b0:500:ac76:4a61 with SMTP id
- x16-20020a19f610000000b00500ac764a61mr7207431lfe.65.1696635239905; Fri, 06
- Oct 2023 16:33:59 -0700 (PDT)
+	Fri, 06 Oct 2023 23:42:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1696635719; x=1728171719;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=nElLuMBGoWtnmj1DMPKjn0OV1ZCOk5EPpvoFTql0yfI=;
+  b=dG73Agd75iAGZH3U3fArq5F9gJF7QZPBKI9o+XJ5mOfJ716HSO7Q3sKX
+   OO7mdoYmewnOXR3soXggF6W/rQdagxZA6075BGSpMnIKFK0sgv+Drx/a7
+   YoeAleNcrjzRcniI/DUJ6tt5ktI4/IU2nQKyVD/MQntJlEJhNVP+tlPvj
+   0e13Ir2/qwCPJr9zsGyAxKWAGtykjH4R42OTai8lhV0Ny5QJh+vETHm2t
+   9QZxks2GaLWgr4s9RKhs4+Gvp4uie3u6tEOhOfuL8vMnm9chxGrz98SpQ
+   5sW2JVZ+N8dAMcEVq8LQ+NaBCttEu6Y5UaPKVkjqdyz7B7Ihp29SsNvqk
+   A==;
+X-IronPort-AV: E=McAfee;i="6600,9927,10855"; a="374191562"
+X-IronPort-AV: E=Sophos;i="6.03,204,1694761200"; 
+   d="scan'208";a="374191562"
+Received: from fmsmga008.fm.intel.com ([10.253.24.58])
+  by orsmga101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Oct 2023 16:41:38 -0700
+X-ExtLoop1: 1
+X-IronPort-AV: E=McAfee;i="6600,9927,10855"; a="818170702"
+X-IronPort-AV: E=Sophos;i="6.03,204,1694761200"; 
+   d="scan'208";a="818170702"
+Received: from lkp-server01.sh.intel.com (HELO 8a3a91ad4240) ([10.239.97.150])
+  by fmsmga008.fm.intel.com with ESMTP; 06 Oct 2023 16:41:36 -0700
+Received: from kbuild by 8a3a91ad4240 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1qouRq-0003kD-0G;
+	Fri, 06 Oct 2023 23:41:34 +0000
+Date: Sat, 7 Oct 2023 07:40:50 +0800
+From: kernel test robot <lkp@intel.com>
+To: Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Mike Rapoport <rppt@kernel.org>,
+	linux-mm@kvack.org, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: oe-kbuild-all@lists.linux.dev, Alexandre Ghiti <alexghiti@rivosinc.com>
+Subject: Re: [PATCH 2/2] riscv: Fix set_memory_XX() and set_direct_map_XX()
+ by splitting huge linear mappings
+Message-ID: <202310070700.4hSXftFh-lkp@intel.com>
+References: <20231006092930.15850-3-alexghiti@rivosinc.com>
 MIME-Version: 1.0
-References: <20230711153743.1970625-1-heiko@sntech.de> <20230914001144.GA924@sol.localdomain>
- <ZQJdnCwf99Glggin@ghost> <3A0F6A71-C521-44A5-A56C-076AF3E13897@gmail.com>
- <DD3113B1-AB9F-4D6D-BD6E-8F75A83DA45D@sifive.com> <20231006194741.GA68531@google.com>
- <7BC51820-61BC-422C-A2F7-B68CE679972C@gmail.com>
-In-Reply-To: <7BC51820-61BC-422C-A2F7-B68CE679972C@gmail.com>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Sat, 7 Oct 2023 01:33:48 +0200
-X-Gmail-Original-Message-ID: <CAMj1kXF-m3pYs6u=Xhf5F-Kgmuu8Az1Q6WP86vWqFnVphVSmkg@mail.gmail.com>
-Message-ID: <CAMj1kXF-m3pYs6u=Xhf5F-Kgmuu8Az1Q6WP86vWqFnVphVSmkg@mail.gmail.com>
-Subject: Re: [PATCH v4 00/12] RISC-V: support some cryptography accelerations
-To: 20231006194741.GA68531@google.com
-Cc: Eric Biggers <ebiggers@kernel.org>, Charlie Jenkins <charlie@rivosinc.com>, 
-	Heiko Stuebner <heiko@sntech.de>, palmer@dabbelt.com, paul.walmsley@sifive.com, 
-	aou@eecs.berkeley.edu, herbert@gondor.apana.org.au, davem@davemloft.net, 
-	conor.dooley@microchip.com, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-crypto@vger.kernel.org, 
-	christoph.muellner@vrull.eu, Heiko Stuebner <heiko.stuebner@vrull.eu>
+Content-Disposition: inline
+In-Reply-To: <20231006092930.15850-3-alexghiti@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231006_163406_934173_3AB70127 
-X-CRM114-Status: GOOD (  41.40  )
+X-CRM114-CacheID: sfid-20231006_164159_530430_7391613F 
+X-CRM114-Status: GOOD (  16.60  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,108 +90,133 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 6 Oct 2023 at 23:01, He-Jie Shih <bignose1007@gmail.com> wrote:
->
-> On Oct 7, 2023, at 03:47, Eric Biggers <ebiggers@kernel.org> wrote:
-> > On Fri, Sep 15, 2023 at 11:21:28AM +0800, Jerry Shih wrote:
-> >> On Sep 15, 2023, at 09:48, He-Jie Shih <bignose1007@gmail.com> wrote:
-> >> The OpenSSL PR is at [1].
-> >> And we are from SiFive.
-> >>
-> >> -Jerry
-> >>
-> >> [1]
-> >> https://github.com/openssl/openssl/pull/21923
-> >
-> > Hi Jerry, I'm wondering if you have an update on this?  Do you need any help?
->
-> We have specialized aes-cbc/ecb/ctr patch locally and pass the `testmgr` test
-> cases. But the test patterns in `testmgr` are quite simple, I think it doesn't test the
-> corner case(e.g. aes-xts with tail element).
->
+Hi Alexandre,
 
-There should be test cases for that.
+kernel test robot noticed the following build warnings:
 
-> For aes-xts, I'm trying to update the implementation from OpenSSL. The design
-> philosophy is different between OpenSSL and linux. In linux crypto, the data will
-> be split into `scatterlist`. I need to preserve the aes-xts's iv for each scatterlist
-> entry call.
+[auto build test WARNING on linus/master]
+[also build test WARNING on v6.6-rc4 next-20231006]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-Yes, this applies to all block ciphers that take an IV.
+url:    https://github.com/intel-lab-lkp/linux/commits/Alexandre-Ghiti/riscv-Don-t-use-PGD-entries-for-the-linear-mapping/20231006-173223
+base:   linus/master
+patch link:    https://lore.kernel.org/r/20231006092930.15850-3-alexghiti%40rivosinc.com
+patch subject: [PATCH 2/2] riscv: Fix set_memory_XX() and set_direct_map_XX() by splitting huge linear mappings
+config: riscv-rv32_defconfig (https://download.01.org/0day-ci/archive/20231007/202310070700.4hSXftFh-lkp@intel.com/config)
+compiler: riscv32-linux-gcc (GCC) 13.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20231007/202310070700.4hSXftFh-lkp@intel.com/reproduce)
 
-> And I'm thinking about how to handle the tail data in a simple way.
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202310070700.4hSXftFh-lkp@intel.com/
 
-The RISC-V vector ISA is quite advanced, so there may be a better
-trick using predicates etc but otherwise, I suppose you could reuse
-the same trick that other asm implementations use, which is to use
-unaligned loads and stores for the final blocks, and to use a vector
-permute with a permute table to shift the bytes in the registers. But
-this is not performance critical, given that existing in-kernel users
-use sector or page size inputs only.
+All warnings (new ones prefixed by >>):
 
-> By the way, the `xts(aes)` implementation for arm and x86 are using
-> `cra_blocksize= AES_BLOCK_SIZE`. I don't know why we need to handle the tail
-> element. I think we will hit `EINVAL` error in `skcipher_walk_next()` if the data size
-> it not be a multiple of block size.
->
+   arch/riscv/mm/pageattr.c: In function '__split_linear_mapping_pmd':
+   arch/riscv/mm/pageattr.c:112:45: error: implicit declaration of function '_pmd_pfn'; did you mean 'pmd_pfn'? [-Werror=implicit-function-declaration]
+     112 |                         unsigned long pfn = _pmd_pfn(*pmdp);
+         |                                             ^~~~~~~~
+         |                                             pmd_pfn
+   arch/riscv/mm/pageattr.c:127:39: error: implicit declaration of function 'pfn_pmd'; did you mean 'pfn_pgd'? [-Werror=implicit-function-declaration]
+     127 |                         set_pmd(pmdp, pfn_pmd(page_to_pfn(pte_page), PAGE_TABLE));
+         |                                       ^~~~~~~
+         |                                       pfn_pgd
+   arch/riscv/mm/pageattr.c:127:39: error: incompatible type for argument 2 of 'set_pmd'
+     127 |                         set_pmd(pmdp, pfn_pmd(page_to_pfn(pte_page), PAGE_TABLE));
+         |                                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+         |                                       |
+         |                                       int
+   In file included from include/linux/pgtable.h:6,
+                    from include/linux/mm.h:29,
+                    from include/linux/pagewalk.h:5,
+                    from arch/riscv/mm/pageattr.c:6:
+   arch/riscv/include/asm/pgtable.h:249:47: note: expected 'pmd_t' but argument is of type 'int'
+     249 | static inline void set_pmd(pmd_t *pmdp, pmd_t pmd)
+         |                                         ~~~~~~^~~
+   arch/riscv/mm/pageattr.c: In function '__split_linear_mapping_pud':
+   arch/riscv/mm/pageattr.c:152:45: error: implicit declaration of function '_pud_pfn'; did you mean 'pud_pfn'? [-Werror=implicit-function-declaration]
+     152 |                         unsigned long pfn = _pud_pfn(*pudp);
+         |                                             ^~~~~~~~
+         |                                             pud_pfn
+   arch/riscv/mm/pageattr.c:164:41: error: incompatible type for argument 2 of 'set_pmd'
+     164 |                                         pfn_pmd(pfn + ((i * PMD_SIZE) >> PAGE_SHIFT), prot));
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+         |                                         |
+         |                                         int
+   arch/riscv/include/asm/pgtable.h:249:47: note: expected 'pmd_t' but argument is of type 'int'
+     249 | static inline void set_pmd(pmd_t *pmdp, pmd_t pmd)
+         |                                         ~~~~~~^~~
+   In file included from arch/riscv/include/asm/pgtable-32.h:9,
+                    from arch/riscv/include/asm/pgtable.h:141:
+   arch/riscv/mm/pageattr.c:168:39: error: implicit declaration of function 'pfn_pud'; did you mean 'pfn_pgd'? [-Werror=implicit-function-declaration]
+     168 |                         set_pud(pudp, pfn_pud(page_to_pfn(pmd_page), PAGE_TABLE));
+         |                                       ^~~~~~~
+   include/asm-generic/pgtable-nopmd.h:44:86: note: in definition of macro 'set_pud'
+      44 | #define set_pud(pudptr, pudval)                 set_pmd((pmd_t *)(pudptr), (pmd_t) { pudval })
+         |                                                                                      ^~~~~~
+>> include/asm-generic/pgtable-nopmd.h:44:76: warning: missing braces around initializer [-Wmissing-braces]
+      44 | #define set_pud(pudptr, pudval)                 set_pmd((pmd_t *)(pudptr), (pmd_t) { pudval })
+         |                                                                            ^
+   arch/riscv/mm/pageattr.c:168:25: note: in expansion of macro 'set_pud'
+     168 |                         set_pud(pudp, pfn_pud(page_to_pfn(pmd_page), PAGE_TABLE));
+         |                         ^~~~~~~
+   arch/riscv/mm/pageattr.c: In function '__split_linear_mapping_p4d':
+   arch/riscv/mm/pageattr.c:201:45: error: implicit declaration of function '_p4d_pfn'; did you mean '_pgd_pfn'? [-Werror=implicit-function-declaration]
+     201 |                         unsigned long pfn = _p4d_pfn(*p4dp);
+         |                                             ^~~~~~~~
+         |                                             _pgd_pfn
+>> include/asm-generic/pgtable-nopmd.h:44:76: warning: missing braces around initializer [-Wmissing-braces]
+      44 | #define set_pud(pudptr, pudval)                 set_pmd((pmd_t *)(pudptr), (pmd_t) { pudval })
+         |                                                                            ^
+   arch/riscv/mm/pageattr.c:216:33: note: in expansion of macro 'set_pud'
+     216 |                                 set_pud(pudp_new,
+         |                                 ^~~~~~~
+   arch/riscv/mm/pageattr.c:226:39: error: implicit declaration of function 'pfn_p4d'; did you mean 'pfn_pgd'? [-Werror=implicit-function-declaration]
+     226 |                         set_p4d(p4dp, pfn_p4d(page_to_pfn(pud_page), PAGE_TABLE));
+         |                                       ^~~~~~~
+   include/asm-generic/pgtable-nopmd.h:44:86: note: in definition of macro 'set_pud'
+      44 | #define set_pud(pudptr, pudval)                 set_pmd((pmd_t *)(pudptr), (pmd_t) { pudval })
+         |                                                                                      ^~~~~~
+   arch/riscv/mm/pageattr.c:226:25: note: in expansion of macro 'set_p4d'
+     226 |                         set_p4d(p4dp, pfn_p4d(page_to_pfn(pud_page), PAGE_TABLE));
+         |                         ^~~~~~~
+>> include/asm-generic/pgtable-nopud.h:40:60: warning: missing braces around initializer [-Wmissing-braces]
+      40 | #define set_p4d(p4dptr, p4dval) set_pud((pud_t *)(p4dptr), (pud_t) { p4dval })
+         |                                                            ^
+   include/asm-generic/pgtable-nopmd.h:44:86: note: in definition of macro 'set_pud'
+      44 | #define set_pud(pudptr, pudval)                 set_pmd((pmd_t *)(pudptr), (pmd_t) { pudval })
+         |                                                                                      ^~~~~~
+   arch/riscv/mm/pageattr.c:226:25: note: in expansion of macro 'set_p4d'
+     226 |                         set_p4d(p4dp, pfn_p4d(page_to_pfn(pud_page), PAGE_TABLE));
+         |                         ^~~~~~~
+>> include/asm-generic/pgtable-nopmd.h:44:76: warning: missing braces around initializer [-Wmissing-braces]
+      44 | #define set_pud(pudptr, pudval)                 set_pmd((pmd_t *)(pudptr), (pmd_t) { pudval })
+         |                                                                            ^
+   include/asm-generic/pgtable-nopud.h:40:33: note: in expansion of macro 'set_pud'
+      40 | #define set_p4d(p4dptr, p4dval) set_pud((pud_t *)(p4dptr), (pud_t) { p4dval })
+         |                                 ^~~~~~~
+   arch/riscv/mm/pageattr.c:226:25: note: in expansion of macro 'set_p4d'
+     226 |                         set_p4d(p4dp, pfn_p4d(page_to_pfn(pud_page), PAGE_TABLE));
+         |                         ^~~~~~~
+   cc1: some warnings being treated as errors
 
-No, both XTS and CBC-CTS permit inputs that are not a multiple of the
-block size, and will use some form of ciphertext stealing for the
-final tail. There is a generic CTS template that wraps CBC but
-combining them in the same way (e.g., using vector permute) will speed
-up things substantially. *However*, I'm not sure how relevant CBC-CTS
-is in the kernel, given that only fscrypt uses it IIRC but actually
-prefers something else so for new systems perhaps you shouldn't
-bother.
 
-> Overall, we will have
-> 1) aes cipher
-> 2) aes with cbc/ecb/ctr/xts mode
-> 3) sha256/512 for `vlen>=128` platform
-> 4) sm3 for `vlen>=128` platform
-> 5) sm4
-> 6) ghash
-> 7) `chacha20` stream cipher
->
-> The vector crypto pr in OpenSSL is under reviewing, we are still updating the
-> perl file into linux.
->
-> The most complicated `gcm(aes)` mode will be in our next plan.
->
-> > I'm also wondering about riscv.pm and the choice of generating the crypto
-> > instructions from .words instead of using the assembler.  It makes it
-> > significantly harder to review the code, IMO.  Can we depend on assembler
-> > support for these instructions, or is that just not ready yet?
->
-> I have asked the same question before[1]. The reason is that Openssl could use
-> very old compiler for compiling. Thus, the assembler might not know the standard
-> rvv 1.0[2] and other vector crypto[3] instructions. That's why we use opcode for all
-> vector instructions. IMO, I would prefer to use opcode for `vector crypto` only. The
-> gcc-12 and clang-14 are already supporting rvv 1.0. Actually, I just read the `perl`
-> file instead of the actually generated opcode for OpenSSL pr reviewing. And it's
-> not hard to read the perl code.
->
+vim +44 include/asm-generic/pgtable-nopmd.h
 
-I understand the desire to reuse code, and OpenSSL already relies on
-so-called perlasm for this, but I think this is not a great choice,
-and I actually think this was a mistake for RISC-V. OpenSSL relies on
-perlasm for things like emittting different function pro-/epilogues
-depending on the calling convention (SysV versus MS on x86_64, for
-instance), but RISC-V does not have that much variety, and already
-supports the insn_r / insn_i pseudo instructions to emit arbitrary
-opcodes while still supporting named registers as usual. [Maybe my
-experience does not quite extrapolate to the vector ISA, but I managed
-to implement scalar AES [0] using the insn_r and insn_i pseudo
-instructions (which are generally provided by the assembler but Linux
-has fallback CPP macros for them as well), and this results on much
-more maintainable code IMO.[
+^1da177e4c3f41 Linus Torvalds 2005-04-16  39  
+^1da177e4c3f41 Linus Torvalds 2005-04-16  40  /*
+^1da177e4c3f41 Linus Torvalds 2005-04-16  41   * (pmds are folded into puds so this doesn't get actually called,
+^1da177e4c3f41 Linus Torvalds 2005-04-16  42   * but the define is needed for a generic inline function.)
+^1da177e4c3f41 Linus Torvalds 2005-04-16  43   */
+^1da177e4c3f41 Linus Torvalds 2005-04-16 @44  #define set_pud(pudptr, pudval)			set_pmd((pmd_t *)(pudptr), (pmd_t) { pudval })
+^1da177e4c3f41 Linus Torvalds 2005-04-16  45  
 
-We are using some of the OpenSSL perlasm in the kernel already (and
-some of it was introduced by me) but I don't think we should blindly
-reuse all of the RISC-V code if  some of it can straight-forwardly be
-written as normal .S files.
-
-[0] https://git.kernel.org/pub/scm/linux/kernel/git/ardb/linux.git/log/?h=riscv-scalar-aes
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
 _______________________________________________
 linux-riscv mailing list
