@@ -4,94 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E731EE81DE9
-	for <linux-riscv@archiver.kernel.org>; Fri,  6 Oct 2023 12:48:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62D71E81DF9
+	for <linux-riscv@archiver.kernel.org>; Fri,  6 Oct 2023 13:23:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kWho5zFcHZfofg752S1KDdH82R77S6hUFRkNXWS4S8A=; b=SiAhOB4ut1K1Ba
-	Y1CxWD5t4HizsebxVXcvcMUpXAuTV7RpZ52lwPBQAaYXCG90NFMaiFyV5+9I0G97itq7+eD7cuEG1
-	DWLTweqwGYlE0MMtdctpVkb0W+DqO9jaaFEdfTn9yYbC4QJm3sK28uLF4aIdR+TwHho8nCplY+8XA
-	DWTUDOgTAQ7o54/hCKdQqUiqEgmBxCHlcBuNX4iXY4nsroaJ9sAtVP9RMOz7c+M8NOaHWCZSys6Az
-	XJXx4pGJc+86AsBkpeMWMUnkW4AmvEQLoMMaQDlYyJAXqiV8jFP3WOddA3hyE2YZr6T+7/sC62BmP
-	RdOvBJRAkICKTmQ++gEA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Fb7IfmtUoYI5Ocxy3Z2FFKqh1g3DhX5pr1M679JjPvk=; b=ZuBlPA7g3gaqg0otM9WRfgwjIR
+	dv36/FcqlwZ2bTYDrDaeaU10nJ+JyvzrR1Zb1dvcV/mgcVv6rZI/qViZ9aWN6A/mCxaL8YLuPxpOb
+	qsA3Cz6mKpIG10VWS+RALPA96f1AuaoEIKzazvgcdLfAmLSKzunhvGsRQGNSxIJHaEnWumKDOBuld
+	61oQci9BxPLlI9777Sdk0wcffljW0lHL5ER2FpyzL35WD67vfFy+zGLo1wYC+P4KtiuTzNdkcbu5V
+	QFClU3j91hfNjsKF31dXITAA5Jftcu6RnNaeHhH5rfBwxQCAPLmXlsghdLsfFLELKTRC4ch5OLcb2
+	Pve0rxKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qokFA-005oSi-0F;
-	Fri, 06 Oct 2023 12:47:48 +0000
-Received: from mail-yb1-xb2e.google.com ([2607:f8b0:4864:20::b2e])
+	id 1qoknm-005sKW-0j;
+	Fri, 06 Oct 2023 13:23:34 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qokF4-005oPp-39
-	for linux-riscv@lists.infradead.org;
-	Fri, 06 Oct 2023 12:47:46 +0000
-Received: by mail-yb1-xb2e.google.com with SMTP id 3f1490d57ef6-d868d8363e6so2389666276.2
-        for <linux-riscv@lists.infradead.org>; Fri, 06 Oct 2023 05:47:39 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1696596459; x=1697201259; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=kE5lcMpcuRWxeOB9S6L9Si7YaWv5hLYl1VeNlBZzT/8=;
-        b=rZhc0y6yReBUGEFPd7eMPdfK6CYMZvwu+4SjaXCIXfV0nRUHNwkJ7YYwiQOt9Bx+2N
-         2PTFR4EpSyNg8VElMHuzFbpPF1yWUpGhZ4JHLvziyuSrCaLAs/fvI6hClR4vrogp8nSm
-         Uxa90xicOw5eiNydGb/UsQ6wbQAqIXVWOzdR8HtoKDGocyC/+GjvSMwrVwrY1h05mxhc
-         gIK4fmLnQ03J2gnYMNy76ee9OB3jgG3c8hfD1V3V3QVfBLnmmT0TWq7nn9iAmgB8qX5y
-         Er7isCxuo6ys9fjohf2rXxKEB88saXEjGoK2zc3LpflbE22CUacRIW9AvPUDgrr0ooY4
-         K+0Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1696596459; x=1697201259;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=kE5lcMpcuRWxeOB9S6L9Si7YaWv5hLYl1VeNlBZzT/8=;
-        b=kBuU4y9holOMvvOPW3wPydb9ADseYu55BOL8iPQA3njA024qoSt8ZHwxpkSn0TR68H
-         ymCEGQ5NV+to2fztu072UA6sgP8cFRgqR0Dr0fmvfGJBM3iXiflkaeyfeGX9M98iC/uc
-         uoOHCm9olMi3q2m4hSr7HJl0tpSidD2SPHnzcFTHWRqjuflmVCyFd0g/xvpGWSMlGCpz
-         r681HSJPAm3KrzxFddozjrGIK+IArOhzTxPGTE5iasY1z1kW1/gr7gHkfmvwWupKM/iV
-         h9Yi3A/GOValYu5uBXkQC/tDGVyFKuy6ujeOQ/8v+ACh43K6ttojFTIG9Dcb10mzRwPA
-         1zzg==
-X-Gm-Message-State: AOJu0YwQFsgv3gBVd5BzNuPWGPhT0a5Q+oZS9F98JmHkpOZfAKS79ge1
-	D1Db35YHiFHFTbyDNx0fQdKh4H1TdI/hQ+guiyoKbA==
-X-Google-Smtp-Source: AGHT+IGILgsJf+f8eayHVHqX0rISrGr9tP06v0nLvKR1oTcr5riaw9zUWCGoAJpDUWeKMDK50UY6pLVZ+E+8O7Aw+dY=
-X-Received: by 2002:a5b:807:0:b0:d47:8db3:8bcf with SMTP id
- x7-20020a5b0807000000b00d478db38bcfmr7283393ybp.49.1696596458614; Fri, 06 Oct
- 2023 05:47:38 -0700 (PDT)
+	id 1qokni-005sIz-2R;
+	Fri, 06 Oct 2023 13:23:32 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id AF9FACE2603;
+	Fri,  6 Oct 2023 13:23:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9B6A1C433C8;
+	Fri,  6 Oct 2023 13:23:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1696598608;
+	bh=EaTnbJI4I15tCsE5PAEOFEMV2gEpZ5O8xv29SdDb+qM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=r7kN1bhYCxtxsrayiH2/Qvakhgo3xCg+wGyDWqoba/ZC5pHVgpQDCCyLUBMq5h54g
+	 ECPy9lW5VnfDNKExrrh7fEdQi/U/bsZ892xqQHM3S72mb56W82U4MfmqpjVIrrIJyB
+	 qr4LzQDOov95/YlKhpIXNX+7KimqRGoyORxBH1I2m/XYsnYxcLtqw4e1YjQNFIDBA5
+	 tnW4b6DBxOSfdtiaDHBr9QAGaSCEQWZ729s1flrAd+bmsOCjhqUZ+msIzUEQjcpObI
+	 fcYAdK0dvdOg+7/O/AD46RjkpZyTdrX3BsQGRWK8UKSyIfp93PxVJs9Zo8bm/vRFfv
+	 hsYBCwh6ppprg==
+Date: Fri, 6 Oct 2023 14:23:18 +0100
+From: Mark Brown <broonie@kernel.org>
+To: "Eric W. Biederman" <ebiederm@xmission.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Szabolcs Nagy <Szabolcs.Nagy@arm.com>,
+	Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	James Morse <james.morse@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Arnd Bergmann <arnd@arndb.de>, Oleg Nesterov <oleg@redhat.com>,
+	Kees Cook <keescook@chromium.org>, Shuah Khan <shuah@kernel.org>,
+	"Rick P. Edgecombe" <rick.p.edgecombe@intel.com>,
+	Deepak Gupta <debug@rivosinc.com>, Ard Biesheuvel <ardb@kernel.org>,
+	"H.J. Lu" <hjl.tools@gmail.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+	kvmarm@lists.linux.dev, linux-fsdevel@vger.kernel.org,
+	linux-arch@vger.kernel.org, linux-mm@kvack.org,
+	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Florian Weimer <fweimer@redhat.com>,
+	Christian Brauner <brauner@kernel.org>
+Subject: Re: [PATCH v4 03/36] arm64/gcs: Document the ABI for Guarded Control
+ Stacks
+Message-ID: <b100a80c-4460-4258-92b8-d232f553cab6@sirena.org.uk>
+References: <43ec219d-bf20-47b8-a5f8-32bc3b64d487@sirena.org.uk>
+ <ZOXa98SqwYPwxzNP@arm.com>
+ <ZOYFazB1gYjzDRdA@arm.com>
+ <ZRWw7aa3C0LlMPTH@arm.com>
+ <38edb5c3-367e-4ab7-8cb7-aa1a5c0e330c@sirena.org.uk>
+ <ZRvUxLgMse8QYlGS@arm.com>
+ <a7d2fd66-c06b-4033-bca2-4b14afc4904f@sirena.org.uk>
+ <ZR7w/mr0xZbpIPc5@arm.com>
+ <638a7be5-6662-471d-a3ce-0de0ac768e99@sirena.org.uk>
+ <87y1ggylvq.fsf@email.froward.int.ebiederm.org>
 MIME-Version: 1.0
-References: <CA+EHjTwTgEVtea7wgef5G6EEgFa0so_GbNXTMZNKyFE=ucyV0g@mail.gmail.com>
- <ZR99K_ZuWXEtfDuR@google.com>
-In-Reply-To: <ZR99K_ZuWXEtfDuR@google.com>
-From: Fuad Tabba <tabba@google.com>
-Date: Fri, 6 Oct 2023 13:47:01 +0100
-Message-ID: <CA+EHjTyDPEY7B_a8GC7RS8gzfoT2q9kJqJPuHB58ZXQ_61NGkQ@mail.gmail.com>
-Subject: Re: [RFC PATCH v12 11/33] KVM: Introduce per-page memory attributes
-To: Sean Christopherson <seanjc@google.com>
-Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
-	Oliver Upton <oliver.upton@linux.dev>, Huacai Chen <chenhuacai@kernel.org>, 
-	Michael Ellerman <mpe@ellerman.id.au>, Anup Patel <anup@brainfault.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, "Matthew Wilcox (Oracle)" <willy@infradead.org>, 
-	Andrew Morton <akpm@linux-foundation.org>, Paul Moore <paul@paul-moore.com>, 
-	James Morris <jmorris@namei.org>, "Serge E. Hallyn" <serge@hallyn.com>, KVM <kvm@vger.kernel.org>, 
-	"moderated list:ARM64 PORT (AARCH64 ARCHITECTURE)" <linux-arm-kernel@lists.infradead.org>, KVMARM <kvmarm@lists.linux.dev>, 
-	LinuxMIPS <linux-mips@vger.kernel.org>, linuxppc-dev@lists.ozlabs.org, 
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
-	linux-fsdevel@vger.kernel.org, linux-mm@kvack.org, 
-	linux-security-module@vger.kernel.org, 
-	open list <linux-kernel@vger.kernel.org>, Chao Peng <chao.p.peng@linux.intel.com>, 
-	Jarkko Sakkinen <jarkko@kernel.org>, Anish Moorthy <amoorthy@google.com>, 
-	Yu Zhang <yu.c.zhang@linux.intel.com>, Isaku Yamahata <isaku.yamahata@intel.com>, 
-	Xu Yilun <yilun.xu@intel.com>, Vlastimil Babka <vbabka@suse.cz>, 
-	Vishal Annapurve <vannapurve@google.com>, Ackerley Tng <ackerleytng@google.com>, 
-	Maciej Szmigiero <mail@maciej.szmigiero.name>, David Hildenbrand <david@redhat.com>, 
-	Quentin Perret <qperret@google.com>, Michael Roth <michael.roth@amd.com>, Wang <wei.w.wang@intel.com>, 
-	Liam Merwick <liam.merwick@oracle.com>, Isaku Yamahata <isaku.yamahata@gmail.com>, 
-	"Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
+In-Reply-To: <87y1ggylvq.fsf@email.froward.int.ebiederm.org>
+X-Cookie: Rome wasn't burnt in a day.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231006_054743_021266_7AE83453 
-X-CRM114-Status: GOOD (  33.14  )
+X-CRM114-CacheID: sfid-20231006_062331_139639_1F418B21 
+X-CRM114-Status: GOOD (  36.14  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,66 +97,107 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============5807544653982956770=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgU2VhbiwKCk9uIEZyaSwgT2N0IDYsIDIwMjMgYXQgNDoyMeKAr0FNIFNlYW4gQ2hyaXN0b3Bo
-ZXJzb24gPHNlYW5qY0Bnb29nbGUuY29tPiB3cm90ZToKPgo+IE9uIFRodSwgT2N0IDA1LCAyMDIz
-LCBGdWFkIFRhYmJhIHdyb3RlOgo+ID4gSGkgU2VhbiwKPiA+Cj4gPiBPbiBUdWUsIE9jdCAzLCAy
-MDIzIGF0IDk6NTHigK9QTSBTZWFuIENocmlzdG9waGVyc29uIDxzZWFuamNAZ29vZ2xlLmNvbT4g
-d3JvdGU6Cj4gPiA+ID4gTGlrZSBJIHNhaWQsIHBLVk0gZG9lc24ndCBuZWVkIGEgdXNlcnNwYWNl
-IEFCSSBmb3IgbWFuYWdpbmcgUFJJVkFURS9TSEFSRUQsCj4gPiA+ID4ganVzdCBhIHdheSBvZiB0
-cmFja2luZyBpbiB0aGUgaG9zdCBrZXJuZWwgb2Ygd2hhdCBpcyBzaGFyZWQgKGFzIG9wcG9zZWQg
-dG8KPiA+ID4gPiB0aGUgaHlwZXJ2aXNvciwgd2hpY2ggYWxyZWFkeSBoYXMgdGhlIGtub3dsZWRn
-ZSkuIFRoZSBzb2x1dGlvbiBjb3VsZCBzaW1wbHkKPiA+ID4gPiBiZSB0aGF0IHBLVk0gZG9lcyBu
-b3QgZW5hYmxlIEtWTV9HRU5FUklDX01FTU9SWV9BVFRSSUJVVEVTLCBoYXMgaXRzIG93bgo+ID4g
-PiA+IHRyYWNraW5nIG9mIHRoZSBzdGF0dXMgb2YgdGhlIGd1ZXN0IHBhZ2VzLCBhbmQgb25seSBz
-ZWxlY3RzIEtWTV9QUklWQVRFX01FTS4KPiA+ID4KPiA+ID4gQXQgdGhlIHJpc2sgb2Ygb3ZlcnN0
-ZXBwaW5nIG15IGJvdW5kcywgSSB0aGluayB0aGF0IGVmZmVjdGl2ZWx5IGdpdmluZyB0aGUgZ3Vl
-c3QKPiA+ID4gZnVsbCBjb250cm9sIG92ZXIgd2hhdCBpcyBzaGFyZWQgdnMuIHByaXZhdGUgaXMg
-YSBtaXN0YWtlLiAgSXQgbW9yZSBvciBsZXNzIGxvY2tzCj4gPiA+IHBLVk0gaW50byBhIHNpbmds
-ZSBtb2RlbCwgYW5kIGV2ZW4gd2l0aGluIHRoYXQgbW9kZWwsIGRlYWxpbmcgd2l0aCBlcnJvcnMg
-YW5kL29yCj4gPiA+IG1pc2JlaGF2aW5nIGd1ZXN0cyBiZWNvbWVzIHVubmVjZXNzYXJpbHkgcHJv
-YmxlbWF0aWMuCj4gPiA+Cj4gPiA+IFVzaW5nIEtWTV9TRVRfTUVNT1JZX0FUVFJJQlVURVMgbWF5
-IG5vdCBwcm92aWRlIHZhbHVlICp0b2RheSosIGUuZy4gdGhlIHVzZXJzcGFjZQo+ID4gPiBzaWRl
-IG9mIHBLVk0gY291bGQgc2ltcGx5ICJyZWZsZWN0IiBhbGwgY29udmVyc2lvbiBoeXBlcmNhbGxz
-LCBhbmQgdGVybWluYXRlIHRoZQo+ID4gPiBWTSBvbiBlcnJvcnMuICBCdXQgdGhlIGNvc3QgaXMg
-dmVyeSBtaW5pbWFsLCBlLmcuIGEgc2luZ2xlIGV4dHJhIGlvY3RsKCkgcGVyCj4gPiA+IGNvbnZl
-cmlvbiwgYW5kIHRoZSB1cHNpZGUgaXMgdGhhdCBwS1ZNIHdvbid0IGJlIHN0dWNrIGlmIGEgdXNl
-IGNhc2UgY29tZXMgYWxvbmcKPiA+ID4gdGhhdCB3YW50cyB0byBnbyBiZXlvbmQgImFsbCBjb252
-ZXJzaW9uIHJlcXVlc3RzIGVpdGhlciBpbW1lZGlhdGVseSBzdWNjZWVkIG9yCj4gPiA+IHRlcm1p
-bmF0ZSB0aGUgZ3Vlc3QiLgo+ID4KPiA+IE5vdyB0aGF0IEkgdW5kZXJzdGFuZCB0aGUgcHVycG9z
-ZSBvZiBLVk1fU0VUX01FTU9SWV9BVFRSSUJVVEVTLCBJCj4gPiBhZ3JlZS4gSG93ZXZlciwgcEtW
-TSBuZWVkcyB0byB0cmFjayBhdCB0aGUgaG9zdCBrZXJuZWwgKGkuZS4sIEVMMSkKPiA+IHdoZXRo
-ZXIgZ3Vlc3QgbWVtb3J5IGlzIHNoYXJlZCBvciBwcml2YXRlLgo+Cj4gV2h5IGRvZXMgRUwxIG5l
-ZWQgaXQncyBvd24gdmlldy9vcGluaW9uPyAgRS5nLiBpcyBpdCB0byBhdm9pZCBhIGFjY2Vzc2lu
-ZyBkYXRhCj4gdGhhdCBpcyBzdGlsbCBwcml2YXRlIGFjY29yZGluZyB0byBFTDIgKG9uIGJlaGFs
-ZiBvZiB0aGUgZ3Vlc3QpPwo+Cj4gQXNzdW1pbmcgdGhhdCdzIHRoZSBjYXNlLCB3aHkgY2FuJ3Qg
-RUwxIHdhaXQgdW50aWwgaXQgZ2V0cyBjb25maXJtYXRpb24gZnJvbSBFTDIKPiB0aGF0IHRoZSBk
-YXRhIGlzIGZ1bGx5IHNoYXJlZCBiZWZvcmUgZG9pbmcgd2hhdGV2ZXIgaXQgaXMgdGhhdCBuZWVk
-cyB0byBiZSBkb25lPwo+Cj4gQWgsIGlzIHRoZSBwcm9ibGVtIHRoYXQgd2hldGhlciBvciBub3Qg
-Lm1tYXAoKSBpcyBhbGxvd2VkIGtleXMgb2ZmIG9mIHRoZSBzdGF0ZQo+IG9mIHRoZSBtZW1vcnkg
-YXR0cmlidXRlcz8gIElmIHRoYXQncyBzbywgdGhlbiB5ZWFoLCBhbiBpbnRlcm5hbCBmbGFnIGlu
-IGF0dHJpYnV0ZXMKPiBpcyBwcm9iYWJseSB0aGUgd2F5IHRvIGdvLiAgSXQgZG9lc24ndCBuZWVk
-IHRvIGJlIGEgImhvc3Qga2VybmVsIHByaXZhdGUiIGZsYWcKPiB0aG91Z2gsIGUuZy4gYW4gSU5f
-RkxVWCBmbGFnIHRvIGNhcHR1cmUgdGhhdCB0aGUgYXR0cmlidXRlcyBhcmVuJ3QgZnVsbHkgcmVh
-bGl6ZWQKPiBtaWdodCBiZSBtb3JlIGludHVpdGl2ZSBmb3IgcmVhZGVycywgYW5kIG1pZ2h0IGhh
-dmUgdXRpbGl0eSBmb3Igb3RoZXIgYXR0cmlidXRlcwo+IGluIHRoZSBmdXR1cmUgdG9vLgoKWWVz
-LCBpdCdzIGJlY2F1c2Ugb2YgbW1hcC4gSSB0aGluayB0aGF0IGFuIElOX0ZMVVggZmxhZyBtaWdo
-dCB3b3JrCmhlcmUuIEknbGwgaGF2ZSBhIGdvIGF0IGl0IGFuZCBzZWUgaG93IGl0IHR1cm5zIG91
-dC4KClRoYW5rcywKL2Z1YWQKCj4KPiA+IE9uZSBhcHByb2FjaCB3b3VsZCBiZSB0byBhZGQgYW5v
-dGhlciBmbGFnIHRvIHRoZSBhdHRyaWJ1dGVzIHRoYXQKPiA+IHRyYWNrcyB0aGUgaG9zdCBrZXJu
-ZWwgdmlldy4gVGhlIHdheSBLVk1fU0VUX01FTU9SWV9BVFRSSUJVVEVTIGlzCj4gPiBpbXBsZW1l
-bnRlZCBub3csIHVzZXJzcGFjZSBjYW4gemVybyBpdCwgc28gaW4gdGhhdCBjYXNlLCB0aGF0Cj4g
-PiBvcGVyYXRpb24gd291bGQgbmVlZCB0byBiZSBtYXNrZWQgdG8gYXZvaWQgdGhhdC4KPiA+Cj4g
-PiBBbm90aGVyIGFwcHJvYWNoIHdvdWxkIGJlIHRvIGhhdmUgYSBwS1ZNLXNwZWNpZmljIHhhcnJh
-eSAob3Igc2ltaWxhcikKPiA+IHRvIGRvIHRoZSB0cmFja2luZywgYnV0IHNpbmNlIHRoZXJlIGlz
-IGEgc3RydWN0dXJlIHRoYXQncyBhbHJlYWR5Cj4gPiBkb2luZyBzb21ldGhpbmcgc2ltaWxhciAo
-aS5lLix0aGUgYXR0cmlidXRlcyBhcnJheSksIGl0IHNlZW1zIGxpa2UgaXQKPiA+IHdvdWxkIGJl
-IHVubmVjZXNzYXJ5IG92ZXJoZWFkLgo+ID4KPiA+IERvIHlvdSBoYXZlIGFueSBpZGVhcyBvciBw
-cmVmZXJlbmNlcz8KPiA+Cj4gPiBDaGVlcnMsCj4gPiAvZnVhZAoKX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0Cmxp
-bnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcv
-bWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+
+--===============5807544653982956770==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="Ji8GpeD8VVTZwCCT"
+Content-Disposition: inline
+
+
+--Ji8GpeD8VVTZwCCT
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+
+On Fri, Oct 06, 2023 at 07:29:45AM -0500, Eric W. Biederman wrote:
+> Mark Brown <broonie@kernel.org> writes:
+
+> >> It's not just the default size that I dislike (I think the x86
+> >> RLIMIT_STACK or clone3() stack_size is probably good enough) but the
+> >> kernel allocating the shadow stack and inserting it into the user
+> >> address space. The actual thread stack is managed by the user but the
+> >> shadow stack is not (and we don't do this very often). Anyway, I don't
+> >> have a better solution for direct uses of clone() or clone3(), other
+> >> than running those threads with the shadow stack disabled. Not sure
+> >> that's desirable.
+
+> > Running threads with the shadow stack disabled if they don't explicitly
+> > request it feels like it's asking for trouble - as well as the escape
+> > route from the protection it'd provide I'd expect there to be trouble
+> > for things that do stack pivots, potentially random issues if there's a
+> > mix of ways threads are started.  It's going to be a tradeoff whatever
+> > we do.
+
+> Something I haven't seen in the discussion is that one of the ways I
+> have seen a non-libc clone used is to implement a fork with flags.
+> That is a new mm is created, and effectively a new process.  Which
+> makes the characterization different.
+
+> In general creating a thread with clone and bypassing libc is
+> incompatible with pthreads, and the caller gets to keep both pieces.
+
+> As long as there is enough information code can detect that
+> shadow stacks are in use, and the code is able to create their own
+> I don't see why it shouldn't be the callers responsibility.
+
+> On the other hand I don't see the maintainer of clone Christian Brauner
+> or the libc folks especially Florian cc'd on this thread.  So I really
+> don't think you have the right folks in on this conversation.
+
+Well, copying them in now.  The discussion here is about allocation of
+shadow stacks for the arm64 implementation of the feature (the arm64
+feature is called Guarded Control Stack in the architecture).  These
+maintain a second copy of the stack with only the return targets in
+memory allocated with special protections so userspace can't write to it
+directly and use this when doing returns to ensure that the returns
+haven't been redirected.  These shadow stacks can be allocated directly
+by userspace using a new system call map_shadow_stack(), doing this via
+mmap() was extensively discussed but it was concluded that this was very
+likely to lead to security problems so we've got this new syscall that
+ensures that shadow stack memory is never accessible to userspace via
+other means.
+
+The x86 implementation that has already been merged into mainline will
+allocate a new shadow stack for newly created threads when the creating
+thread has one.  There was a suggestion to have arm64 diverge and
+require that threads be created with clone3() and manualy provide a
+shadow stack but then concerns were raised that as well as the issues
+with divergence this would be too disruptive for adoption due to
+non-libc thread creation.  It's not controversial that it'd be good to
+have clone3() by able to explicitly specify a shadow stack, just if it
+should be required.
+
+--Ji8GpeD8VVTZwCCT
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmUgCkUACgkQJNaLcl1U
+h9DirQf/ftVM53t8n7Iz/c70/XaZOa6o2/1qaxs00hlLIEkmuVk5LjL0TViJlfRw
+qIRUvbR8y9MkOCjJOTAErDvidq4rFwmPiuk9mFZViDpRkDxpG13xvHCHIqZ4NPUe
+Eve09ZqsJK5dCaW8G4/FCkSIZF2yD1lGttWRhYwckUPBSHMVZevuylvin7vdrWAr
+sPCe3qp4gWYgplUtfxKadGeowpldz9LRCbARrBYB1jqSXcJbskcDd0L3KUH9ElFv
+kYT+Iyoh0j36gEZFuwWXioYTEbQcD5qsqcftvc5LW0vRiUlKo/MUND/c07YdRoBy
+DfP12K7+lLpdbS17lq6f6DfTuLAwcg==
+=J8v2
+-----END PGP SIGNATURE-----
+
+--Ji8GpeD8VVTZwCCT--
+
+
+--===============5807544653982956770==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============5807544653982956770==--
+
