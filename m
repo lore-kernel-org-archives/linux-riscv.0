@@ -4,96 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96770E92FFB
-	for <linux-riscv@archiver.kernel.org>; Fri,  6 Oct 2023 10:29:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9554E81DE8
+	for <linux-riscv@archiver.kernel.org>; Fri,  6 Oct 2023 11:38:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7g3/1nAcp+houIsbyQ4GscwloZ0UsYM6cGTrfpC1H0c=; b=bGmmXrq0AN84xCtieU9892+vY1
-	Wiye4zm9dKq7EMr5VDl+N8J8V7O6TCReKSPove8ZXhewVH18u/zyLKZcPVeBNAd/svoCDssVd0N1/
-	AoXCuaAPB1NfX7QIfN8YPkmCFXmY1fTzyku2X0mTWPX2ZIKZ3AZ0aTOyF737MUgQXOuKFSUNyWp/m
-	acUeFvuny75TF8oibgEYBGgPDWP4kTLid20qb5Dnj67jX1ZXcpf6DkyjKMrGz8lIcujLmj7u4zvAN
-	NryTJ1Vzymp739i0hWjM5FFo9fsXVoWj6NDqhSF/rVekIW4oLeV1f4o6o8mNjYroSmeT2flR2T+lZ
-	2X8kBVlg==;
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:Subject:From:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=rdwoj79wsQKd4Obh15OKTcw81h23EZJ/NmyJOJX0uWw=; b=zvQREf+sofbhAl
+	3qWTCjNwqNxSqkVMeSk71MONrp3eMn7UerpQhmU9jwiECZRNXnTmwakeTHODPZBPKpNp+aGtD+1lv
+	0lejp4RXv/YJ0UxGnYnc1Buy/38QTlCRcew1V4GMXdNN2Q/KhDytWJYJrqn37sXyZyUAMTgfKljnf
+	bsiY3coUpBnykEIFFuMGIPq/J7+firTg5yTvMeZbyARJWdDm+D7PfiRPuLXfoRJpwSeJLfWXyIgw5
+	BcvwoKBLa+/G5WrxvZNCE0w2jLVGhULEsX1c66ps9RNivwY0wrVo3+EzifkkzomYPeQHmX7OmW9Vw
+	UDsvqBopfWzWccpmj4wA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qoi5V-005cDn-2i;
-	Fri, 06 Oct 2023 10:29:41 +0000
-Received: from mail-ej1-x632.google.com ([2a00:1450:4864:20::632])
+	id 1qojA0-005hEv-0K;
+	Fri, 06 Oct 2023 11:38:24 +0000
+Received: from relay4-d.mail.gandi.net ([2001:4b98:dc4:8::224])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qoi5S-005cCz-23;
-	Fri, 06 Oct 2023 10:29:39 +0000
-Received: by mail-ej1-x632.google.com with SMTP id a640c23a62f3a-9b95622c620so367900866b.0;
-        Fri, 06 Oct 2023 03:29:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1696588177; x=1697192977; darn=lists.infradead.org;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=9FTsAYhfYTssJFz7CdhaD+H1tNbJvHmttIr6I4ZAM+s=;
-        b=au+XgxxMBLBe+bJFN5tx2beMaGGRRsUpCHOlyEYAbYCEOop8w9lOwuKZ156vLDH9Ve
-         R8pFsmZNUr+47R9kYnDojGmjXIXZGssQHdLLcVhyPKSvs+ejtJ5W+s1mBkPBJoQHRpqy
-         4GC2PeH8VAV3cKGGUAi4a4OJw1R4v9UhkQUd1POTTSdbkh+bsRXPPtFQDumOp5uDuOPh
-         b+B2Ec/tXQOS0Vrh6GyeXFDaXNBLogL/TX3Rp98CIzJ5qcJ8FRn3yMTxefhM7H5FB1a2
-         RFc8eggMTxaOY47eHPHRLXqQCpqul6ZsvBe2jTJZRgCJT6ZBb/jjGzn54OP/dMEj497k
-         AzSw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1696588177; x=1697192977;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=9FTsAYhfYTssJFz7CdhaD+H1tNbJvHmttIr6I4ZAM+s=;
-        b=DfM/MEYH7w8SCHPiU/4KTZ5l05dLEubYoNnry51B6+9YlGXU4J0Vq2Os/2etwPKXC0
-         q+872L6iWIYt+2XTU9jezZZTvFSVlAw13T7VwKOgdOACVa96yJBsG6pCSMz/HHaWArRj
-         0HJ33cHROU4B3UCAVfy8MPBR4DukpYr/6F6v4Q4fxm24OliIqUjIJ0T1YD/I7OnZaui0
-         sXq+kZ18Oqp7k1LQYkT3lB2eZvo8tdRDoMkjKYHz6juV5+YzDIrvAwGWrTmoGRNLONQV
-         uzjOOszAjHYMiMlf6kghHwCzMg/GfFz/UCoKRayJREXbOdKFy35XmTrwU/ivSZTexBZA
-         nHOw==
-X-Gm-Message-State: AOJu0YydYtYpBIdnj8KvdnewZoPjDmntF7KUafMRREBwAendDESoINHt
-	t+6IFbTJvBQUxZQVkIUW8R8=
-X-Google-Smtp-Source: AGHT+IF29lLhqYu1W7nFQy9/ogamXAd4uztCA0mlziEcK+D8YlweNIqxDxKUo5cSzTjeFjEwc2s/Ew==
-X-Received: by 2002:a17:907:7857:b0:9b2:b153:925 with SMTP id lb23-20020a170907785700b009b2b1530925mr6657004ejc.21.1696588177046;
-        Fri, 06 Oct 2023 03:29:37 -0700 (PDT)
-Received: from orome.fritz.box (p200300e41f3f4900f22f74fffe1f3a53.dip0.t-ipconnect.de. [2003:e4:1f3f:4900:f22f:74ff:fe1f:3a53])
-        by smtp.gmail.com with ESMTPSA id a11-20020a17090640cb00b00977eec7b7e8sm2657390ejk.68.2023.10.06.03.29.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 06 Oct 2023 03:29:36 -0700 (PDT)
-Date: Fri, 6 Oct 2023 12:29:34 +0200
-From: Thierry Reding <thierry.reding@gmail.com>
-To: Sean Young <sean@mess.org>
-Cc: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	NXP Linux Team <linux-imx@nxp.com>,
-	Vladimir Zapolskiy <vz@mleia.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Fabrice Gasnier <fabrice.gasnier@foss.st.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Ivaylo Dimitrov <ivo.g.dimitrov.75@gmail.com>,
-	linux-pwm@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com
-Subject: Re: [PATCH 1/2] pwm: make it possible to apply pwm changes in atomic
- context
-Message-ID: <ZR_hjjS1VMAPLYVI@orome.fritz.box>
-References: <cover.1696156485.git.sean@mess.org>
- <1bd5241d584ceb4d6b731c4dc3203fb9686ee1d1.1696156485.git.sean@mess.org>
+	id 1qoj9w-005hDI-2e
+	for linux-riscv@lists.infradead.org;
+	Fri, 06 Oct 2023 11:38:22 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 1E7A3E0010;
+	Fri,  6 Oct 2023 11:38:05 +0000 (UTC)
+Message-ID: <e08d9ab1-a61f-442c-9eb2-81aaac291815@ghiti.fr>
+Date: Fri, 6 Oct 2023 13:38:05 +0200
 MIME-Version: 1.0
-In-Reply-To: <1bd5241d584ceb4d6b731c4dc3203fb9686ee1d1.1696156485.git.sean@mess.org>
-User-Agent: Mutt/2.2.12 (2023-09-09)
+User-Agent: Mozilla Thunderbird
+From: Alexandre Ghiti <alex@ghiti.fr>
+Subject: Re: [PATCH] Test for riscv fixes
+To: Mark Rutland <mark.rutland@arm.com>,
+ Alexandre Ghiti <alexghiti@rivosinc.com>
+Cc: Edward AD <twuufnxlz@gmail.com>, aou@eecs.berkeley.edu, conor@kernel.org,
+ gregkh@linuxfoundation.org, guoren@kernel.org, jirislaby@kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-serial@vger.kernel.org, liushixin2@huawei.com, palmer@dabbelt.com,
+ paul.walmsley@sifive.com,
+ syzbot+8d2757d62d403b2d9275@syzkaller.appspotmail.com,
+ syzkaller-bugs@googlegroups.com
+References: <CAHVXubhG2c=ShFHF4hMMFm8=BYDTyDUduOizujbUWQBW+55wTw@mail.gmail.com>
+ <20230929230549.45206-2-twuufnxlz@gmail.com>
+ <CAHVXubiBVKJ89fBtV1fvEpoOyLvdvjkWfeDmw2yZsod5ao9hPw@mail.gmail.com>
+ <ZRrIcaa-2Co2cSJm@FVFF77S0Q05N.cambridge.arm.com>
+Content-Language: en-US
+In-Reply-To: <ZRrIcaa-2Co2cSJm@FVFF77S0Q05N.cambridge.arm.com>
+X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231006_032938_685714_88966C41 
-X-CRM114-Status: GOOD (  18.93  )
+X-CRM114-CacheID: sfid-20231006_043821_165307_765937D5 
+X-CRM114-Status: GOOD (  25.49  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,100 +65,69 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1246856344588881300=="
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============1246856344588881300==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="mL8QfLbOLLpS8F7R"
-Content-Disposition: inline
-
-
---mL8QfLbOLLpS8F7R
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Sun, Oct 01, 2023 at 11:40:29AM +0100, Sean Young wrote:
-[...]
-> diff --git a/include/linux/pwm.h b/include/linux/pwm.h
-> index d2f9f690a9c1..c94894ffa4c4 100644
-> --- a/include/linux/pwm.h
-> +++ b/include/linux/pwm.h
-> @@ -287,6 +287,7 @@ struct pwm_ops {
->   * @ops: callbacks for this PWM controller
->   * @base: number of first PWM controlled by this chip
->   * @npwm: number of PWMs controlled by this chip
-> + * @can_sleep: can the driver sleep in pwm_apply_state
->   * @of_xlate: request a PWM device given a device tree PWM specifier
->   * @of_pwm_n_cells: number of cells expected in the device tree PWM spec=
-ifier
->   * @list: list node for internal use
-> @@ -297,6 +298,7 @@ struct pwm_chip {
->  	const struct pwm_ops *ops;
->  	int base;
->  	unsigned int npwm;
-> +	bool can_sleep;
-
-Can we please call this "might_sleep"?
-
-> =20
->  	struct pwm_device * (*of_xlate)(struct pwm_chip *chip,
->  					const struct of_phandle_args *args);
-> @@ -380,6 +382,18 @@ static inline void pwm_disable(struct pwm_device *pw=
-m)
->  	pwm_apply_state(pwm, &state);
->  }
-> =20
-> +/**
-> + * pwm_can_sleep() - can a pwm driver sleep in pwm_apply_state()
-> + * @pwm: PWM device
-> + *
-> + * Returns: true if the driver may sleep, false if pwm_apply_state()
-> + * can be called from atomic context.
-> + */
-> +static inline bool pwm_can_sleep(struct pwm_device *pwm)
-
-And this one pwm_might_sleep()? I don't see why we need to deviate from
-the nomenclature that the core introduced.
-
-Thierry
-
---mL8QfLbOLLpS8F7R
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCAAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAmUf4Y4ACgkQ3SOs138+
-s6E4FBAAg0tEpfYfp9Yw8ogU74h4roxmvYnytJpFXp2sixtyVANVEMQepzR2LQIE
-CqWassqeXgYIpkDitSttcCUwtGZ31Klbd+7irCzb1X75W6u6xbsbhAgiQ+edclP2
-5+C0wAerMMAavdgn7hYf1JYpupZM9H5/RvZLcSkywvpfHEfzrOFU20ackUlLiXsG
-Lc6RTVMwki88bxnA5WerSZuTIOYSVl0Pkg+4djuN6xtdv4zF53Cfkz3o7d7dc5US
-lSxjcikOpDealmS75qLW61PWWiDC8AZXxZysVjwuiwP0xnIk52KhHMsQeignaZ2b
-G5NdTZZHyLpfF/HV23LdQKCOP3/J/50lkO1pslq8VcccJYqeOFhreG7MaCax2i7b
-DZi0KEX/MGGRmA7hZj9014u5Q1KfvClbrWuctt9SLbbcWLeV2YW+MOcb/PSoj82D
-DE9u62SJ4/xck9btpwuFXQ47Smxlub8qeOEh941qJsImqskMUJV42BI1mSITOexx
-Mnfi9SD5H5+KxEkr39VbAA55ypAS1DNS/BubpmI/kPFXz01tjUxFtqLnQxl1ANVB
-QnIUADVzpB0kmmJoUyiLU0FWLaExWqfrJDSzbt/WDeKaS4O5P1VfrCOsPcPelIYs
-xP5n3y/MN01SRytptbW9Z7+tJBSJSrP2M8gt2JnmPFQxCe+ISto=
-=LVfE
------END PGP SIGNATURE-----
-
---mL8QfLbOLLpS8F7R--
-
-
---===============1246856344588881300==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============1246856344588881300==--
-
+SGkgTWFyaywKCk9uIDAyLzEwLzIwMjMgMTU6NDEsIE1hcmsgUnV0bGFuZCB3cm90ZToKPiBPbiBN
+b24sIE9jdCAwMiwgMjAyMyBhdCAwOToxMzo1MkFNICswMjAwLCBBbGV4YW5kcmUgR2hpdGkgd3Jv
+dGU6Cj4+IEhpIEVkd2FyZCwKPj4KPj4gT24gU2F0LCBTZXAgMzAsIDIwMjMgYXQgMTowNuKAr0FN
+IEVkd2FyZCBBRDx0d3V1Zm54bHpAZ21haWwuY29tPiAgd3JvdGU6Cj4+PiBIaSBBbGV4YW5kcmUs
+Cj4+Pgo+Pj4gT24gRnJpLCAyOSBTZXAgMjAyMyAxMDoyNTo1OSArMDIwMCBBbGV4YW5kcmUgR2hp
+dGk8YWxleGdoaXRpQHJpdm9zaW5jLmNvbT4gIHdyb3RlOgo+Pj4+IEknbSBzdGlsbCBub3QgY29u
+dmluY2VkIHRoaXMgd2lsbCBmaXggdGhlIGthc2FuIG91dC1vZi1ib3VuZHMKPj4+PiBhY2Nlc3Nl
+cywgdGhlIHBhZ2UgY2FuIGJlIHZhbGlkIGJ1dCB0aGUgcmVhZCBjYW4gaGFwcGVuIGF0IGFuIG9m
+ZnNldAo+Pj4+IG5vdCBpbml0aWFsaXplZCBhbmQgdHJpZ2dlciBzdWNoIGVycm9ycyByaWdodD8g
+SSBzdGlsbCB0aGluayB0aGVyZSBpcwo+Pj4+IHNvbWV0aGluZyB3ZWlyZCBhYm91dCB0aGUgc3Rh
+Y2sgZnJhbWUsIGFzIHRvIG1lIHRoaXMgc2hvdWxkIG5vdCBoYXBwZW4KPj4+PiAoYnV0IGFkbWl0
+dGVkbHkgSSBkb24ndCBrbm93IG11Y2ggYWJvdXQgdGhhdCkuCj4+PiBUaGUgYWRkZWQgY2hlY2sg
+Y2FuIGNvbmZpcm0gdGhhdCB0aGUgcGh5c2ljYWwgcGFnZSBpcyBpbnZhbGlkICh3aGV0aGVyIGl0
+IGlzIGEKPj4+IHZtYWxsb2MgYWxsb2NhdGVkIHBhZ2Ugb3IgYSBzbGFiIGFsbG9jYXRlZCBwYWdl
+KSwgYW5kIGV4aXQgdGhlIGZvciBsb29wIHdoZW4gaXQgaXMgaW52YWxpZC4KPj4gWWVzLCBidXQg
+dG8gbWUgdGhpcyBpcyBub3Qgd2hhdCBoYXBwZW5zIGluIHRoZSBidWcgcmVwb3J0IHlvdSBsaW5r
+Ogo+Pgo+PiB8IEJVRzogS0FTQU46IG91dC1vZi1ib3VuZHMgaW4gd2Fsa19zdGFja2ZyYW1lKzB4
+MTMwLzB4MmYyCj4+IGFyY2gvcmlzY3Yva2VybmVsL3N0YWNrdHJhY2UuYzo1OQo+PiB8IFJlYWQg
+b2Ygc2l6ZSA4IGF0IGFkZHIgZmYyMDAwMDAwNmQzN2MzOCBieSB0YXNrIHN3YXBwZXIvMS8wCj4+
+Cj4+IFNvIHRoZSByZWFkIGF0IGFkZHJlc3MgZmYyMDAwMDAwNmQzN2MzOCBpcyBub3QgIm5vcm1h
+bCIgYWNjb3JkaW5nIHRvCj4+IEtBU0FOICh5b3UgY2FuIHNlZSB0aGVyZSBpcyBubyB0cmFwLCBt
+ZWFuaW5nIHRoZSBwaHlzaWNhbCBtYXBwaW5nCj4+IGV4aXN0cykuCj4+Cj4+IHwgVGhlIGJ1Z2d5
+IGFkZHJlc3MgYmVsb25ncyB0byB0aGUgdmlydHVhbCBtYXBwaW5nIGF0Cj4+IHwgIFtmZjIwMDAw
+MDA2ZDMwMDAwLCBmZjIwMDAwMDA2ZDM5MDAwKSBjcmVhdGVkIGJ5Ogo+PiB8IGtlcm5lbF9jbG9u
+ZSsweDExOC8weDg5NiBrZXJuZWwvZm9yay5jOjI5MDkKPj4KPj4gVGhlIHZpcnR1YWwgYWRkcmVz
+cyBpcyBsZWdpdGltYXRlIHNpbmNlIHRoZSB2bWEgZXhpc3RzIF4KPj4KPj4gfCBUaGUgYnVnZ3kg
+YWRkcmVzcyBiZWxvbmdzIHRvIHRoZSBwaHlzaWNhbCBwYWdlOgo+PiB8IHBhZ2U6ZmYxYzAwMDAw
+MjUwZGJjMCByZWZjb3VudDoxIG1hcGNvdW50OjAgbWFwcGluZzowMDAwMDAwMDAwMDAwMDAwCj4+
+IGluZGV4OjB4MCBwZm46MHg5NDM2Zgo+Pgo+PiBBbmQgdGhlIHBoeXNpY2FsIHBhZ2UgYWxzbyBl
+eGlzdHMgXgo+Pgo+PiBTbyBJIGluc2lzdCwgY2hlY2tpbmcgdGhhdCBhIHBoeXNpY2FsIG1hcHBp
+bmcgZXhpc3RzIHRvIGV4aXQgdGhlIGxvb3AKPj4gaXMgbm90IGVub3VnaCwgdG8gbWUsIHRoZSBl
+cnJvciBoZXJlIGlzIHRoYXQgdGhlIGJhY2t0cmFjZSBnb2VzICJ0b28KPj4gZmFyIiBhdCBhbiBh
+ZGRyZXNzIHdoZXJlIG5vdGhpbmcgd2FzIHdyaXR0ZW4gYmVmb3JlIGFuZCB0aGVuIEtBU0FOCj4+
+IGNvbXBsYWlucyBhYm91dCB0aGF0LCBhZ2Fpbiwgd2UgZG9uJ3QgdGFrZSBhbnkgcGFnZSBmYXVs
+dCBoZXJlIHNvIGl0J3MKPj4gbm90IGEgcHJvYmxlbSBvZiBleGlzdGluZyBwaHlzaWNhbCBtYXBw
+aW5nLgo+IFllcCEKPgo+IEkgYmVsaWV2ZSB3aGF0J3MgaGFwcGVuaW5nIGhlcmUgaXMgb25lIHRh
+c2sgdW53aW5kaW5nIGFub3RoZXIgKHN0YXJ0aW5nIGZyb20KPiB3aGF0ZXZlciBnZXRzIHNhdmVk
+IGluIHN3aXRjaF90bygpKSwgYW5kIHRoZXJlJ3Mgbm90aGluZyB0aGF0IHByZXZlbnRzIHRoYXQK
+PiBvdGhlciB0YXNrIGZyb20gcnVubmluZyBjb25jdXJyZW50bHkgYW5kIG1vZGlmeWluZy9wb2lz
+b25pbmcgaXRzIHN0YWNrLiBJbgo+IGdlbmVyYWwgdHJ5aW5nIHRvIHVud2luZCBhIHJlbW90ZSBz
+dGFjayBpcyByYWN5IGFuZCBicm9rZW4sIGJ1dCB3ZSdyZSBzdHVjawo+IHdpdGggYSBmZXcgYml0
+cyBvZiB0aGUga2VybmVsIHRyeWluZ3RvIGRvIHRoYXQgb2NjYXNpb25hbGx5IGFuZCBzbyB0aGUg
+YXJjaAo+IGNvZGUgbmVlZHMgdG8gaGFuZGxlIHRoYXQgd2l0aG91dCBibG93aW5nIHVwLgoKClRo
+YW5rcyBmb3IgdGhhdCwgSSBoYWQgYWxyZWFkeSBmaXhlZCB0aGUgImltcHJlY2lzZSIgdW53aW5k
+ZXIgKHdoZW4gd2UgCmRvbid0IGhhdmUgYSBmcmFtZSBwb2ludGVyKSB1c2luZyBSRUFEX09OQ0Vf
+Tk9DSEVDSygpIGJ1dCBJIGhhZCBub3QgdGhpcyAKdXNlIGNhc2UgaW4gbWluZCwgc28gSSdsbCBm
+aXggdGhhdCB0b28uCgoKPiBGb3IgS0FTQU4gc3BlY2lmaWNhbGx5IHlvdSdsbCBuZWVkIHRvIGFj
+Y2VzcyB0aGUgc3RhY2sgd2l0aCB1bmNoZWNrZWQgYWNjZXNzZXMKPiAoZS5nLiB1c2luZyBSRUFE
+X09OQ0VfTk9DSEVDSygpIHRvIHJlYWQgdGhlIHN0cnVjdCBzdGFja2ZyYW1lKSwgYW5kIHlvdSds
+bAo+IHByb2JhYmx5IHdhbnQgdG8gYWRkIHNvbWUgZXhwbGljaXQgY2hlY2tzIHRoYXQgcG9pbnRl
+cnMgYXJlIHdpdGhpbiBzdGFjayBib3VuZHMKPiBzaW5jZSBjb25jdXJyZW50IG1vZGlmaWNhdGlv
+biAob3IgY29ycnVwdGlvbikgY291bGQgcmVzdWx0IGluIGVudGlyZWx5IGJvZ3VzCj4gcG9pbnRl
+cnMuCj4KPiBJICp0aGluayogdGhhdCB3ZSBkbyB0aGUgcmlnaHQgdGhpbmcgb24gYXJtNjQsIHNv
+IHlvdSBtaWdodCB3YW50IHRvIHRha2UgYSBsb29rCj4gYXQgYXJtNjQncyB1bndpbmRlciBpbiBh
+cmNoL2FybTY0L2tlcm5lbC9zdGFja3RyYWNlLmMsCj4gYXJjaC9hcm02NC9pbmNsdWRlL2FzbS9z
+dGFja3RyYWNlLmgsIGFuZAo+IGFyY2gvYXJtNjQvaW5jbHVkZS9hc20vc3RhY2t0cmFjZS9jb21t
+b24uaC4KCgpBbmQgSSdsbCBjaGVjayB0aGF0IGZvciB0aGUgc3RhY2sgYm91bmRzIGNoZWNrLgoK
+VGhhbmtzIGFnYWluLAoKQWxleAoKCj4KPiBNYXJrLgoKX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJp
+c2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1h
+bi9saXN0aW5mby9saW51eC1yaXNjdgo=
