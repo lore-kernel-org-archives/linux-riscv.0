@@ -4,74 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEF72E81E01
-	for <linux-riscv@archiver.kernel.org>; Fri,  6 Oct 2023 14:31:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A16FBE81E02
+	for <linux-riscv@archiver.kernel.org>; Fri,  6 Oct 2023 14:45:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KgvDfBaTu4QF5Q5Qd0J23Wefg7xG4tjVOWr3KEBkn7k=; b=fqLSf+1TZcIrOr
-	RhOCg1tFr+KbAuVrC4u1DdkovyZW4tnhfhl8k2YOEUJHcX7vYCzWsBwfkTGmfGfeGX668P99yiiis
-	t0l88SI1cSXaL2rCnnPzqyYpkBEhgzxOLYIxghP77z7/6tE4RfyRm2zA1BYYozUk6RJXnBlPvMoQ1
-	iNcmKpVNb2VoPVyhsKoRQSGICEJb3PS9Lx//7kV4KebGr6HFJyDjNMB/MTGxhhDt6zqYwyTmS/q7r
-	PAAJKas0E4X9GbEPL0lHRR0Hf62YH3tXNbB81Bkw4RnZkAr2gWvLqTTSQTKIYI4t5AqiG/E7rezH9
-	qbU44myh6zGAuuCLW4PA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=//dHbKM129K9oWnBnM+VkK/agMXDD0YgJe0iSJNl1BQ=; b=v+UpGUnZzX9MAqLrvhlSCDHe9A
+	wcvlWctBLahmf3abNRZgsIs6eA6ejal4g8QxBRcJessErvNdypPoQS0j+ZXChe8cwB7yqQ2lOqiKv
+	G8Yqnx2Q42F879PpM6gn1XSap6/RdwiW3ry8T3Wzh/EqYDlBPqMbAtin09WEs5RskZoqCxvH2VVl/
+	q9pQHuj64bGrLs50xd1rcwxnrx18+I2i5jb3L1w1433KZeRib6qRoARqZv75Z2j+ccJaxPWUeIEi1
+	NHNGJko91bHIKjLNIdVMTojfg/hrW7bnqbWZSIIqzeWZmq6zZgjUxejZuW/xP0mkXgSgub39ReEpO
+	BIYZKZcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qolrT-005yzY-1K;
-	Fri, 06 Oct 2023 14:31:27 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1qom50-0060UK-1G;
+	Fri, 06 Oct 2023 14:45:26 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qolrQ-005yyE-31
+	id 1qom4x-0060TJ-1m
 	for linux-riscv@lists.infradead.org;
-	Fri, 06 Oct 2023 14:31:26 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 9668A60E92;
-	Fri,  6 Oct 2023 14:31:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A64AAC433C7;
-	Fri,  6 Oct 2023 14:31:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1696602680;
-	bh=nCFnzaxTyQnf0s8PRBk5ThFbbfcNzhWzaiOiujcLzAI=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Ds4Y+CGMr4nxb9xtPlBxsVbuq7NNSKY+oBuk/emMQytDMzfUnkEvZKVAdkHThcOpk
-	 RDuBnsx7kq4MjpQrTRNtY1F54lG6MJ6BIzEDWVryB5aed4qPCW+EL6MikeXIhyvZ2U
-	 X/jM7hd4++XacEf9F4RRVCKeseYEqDkaXp9wI9T1TYsaW/wc4oya3H7TgbLMxakrQq
-	 o9e5ud0T5kQTKf0A8/VebSuyX6B70CRZSVaFUZVxZXPTwtj0BN59QbInAYpfosejme
-	 ECbpuj4rdnKEpxMgT08/UeV/2MfNN74W6CAyZELu3E4D26o+g41ePFauOCZMEQuTjF
-	 qLNa6Fdg2JwRQ==
-From: Conor Dooley <conor@kernel.org>
-To: aou@eecs.berkeley.edu,
-	chao.wei@sophgo.com,
-	conor@kernel.org,
-	devicetree@vger.kernel.org,
-	guoren@kernel.org,
-	jszhang@kernel.org,
-	krzysztof.kozlowski+dt@linaro.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	palmer@dabbelt.com,
-	paul.walmsley@sifive.com,
-	robh+dt@kernel.org,
-	xiaoguang.xing@sophgo.com,
-	apatel@ventanamicro.com,
-	Chen Wang <unicornxw@gmail.com>
-Cc: Conor Dooley <conor.dooley@microchip.com>,
-	Chen Wang <unicorn_wang@outlook.com>
-Subject: Re: (subset) [PATCH v4 00/10] Add Milk-V Pioneer RISC-V board support
-Date: Fri,  6 Oct 2023 15:31:10 +0100
-Message-Id: <20231006-empathy-unrefined-ff1168095093@spud>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <cover.1696433229.git.unicorn_wang@outlook.com>
-References: <cover.1696433229.git.unicorn_wang@outlook.com>
+	Fri, 06 Oct 2023 14:45:25 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <ukl@pengutronix.de>)
+	id 1qom4Y-0002UN-Rq; Fri, 06 Oct 2023 16:44:58 +0200
+Received: from [2a0a:edc0:0:900:1d::77] (helo=ptz.office.stw.pengutronix.de)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <ukl@pengutronix.de>)
+	id 1qom4W-00BXaY-Dx; Fri, 06 Oct 2023 16:44:56 +0200
+Received: from ukl by ptz.office.stw.pengutronix.de with local (Exim 4.94.2)
+	(envelope-from <ukl@pengutronix.de>)
+	id 1qom4W-00AJrq-4D; Fri, 06 Oct 2023 16:44:56 +0200
+Date: Fri, 6 Oct 2023 16:44:56 +0200
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
+To: Thierry Reding <thierry.reding@gmail.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-pwm@vger.kernel.org,
+	Ivaylo Dimitrov <ivo.g.dimitrov.75@gmail.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Sean Young <sean@mess.org>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Vladimir Zapolskiy <vz@mleia.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Fabrice Gasnier <fabrice.gasnier@foss.st.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	NXP Linux Team <linux-imx@nxp.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	linux-riscv@lists.infradead.org, Fabio Estevam <festevam@gmail.com>,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/2] pwm: make it possible to apply pwm changes in atomic
+ context
+Message-ID: <20231006144456.zybxv2pn4c37fpr3@pengutronix.de>
+References: <cover.1696156485.git.sean@mess.org>
+ <1bd5241d584ceb4d6b731c4dc3203fb9686ee1d1.1696156485.git.sean@mess.org>
+ <20231004095920.ne7yrrthow6tnuvg@pengutronix.de>
+ <ZR_hJ05h5O6SpM_D@orome.fritz.box>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1163; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=QKsUC5/THVZjdfivIf8dEs0fchdgMXpltrn24bZhqm4=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDKkKUjpHtr5We+mjv2lqPPuDbhmRSrmtTRIcL9fKsE/yn pj8cPLdjlIWBjEOBlkxRZbE230tUuv/uOxw7nkLM4eVCWQIAxenAEzkwGWGfybLtDI1V6vPnyOz xqp3ZcQmwaNr6/q/SD/73c35tGlW2UeG/5WxHUpRLiqtue+mbeczX/9xput67a0zd7D82SX0lYV jAhcA
-X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
+In-Reply-To: <ZR_hJ05h5O6SpM_D@orome.fritz.box>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: ukl@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231006_073125_017086_E40817FA 
-X-CRM114-Status: GOOD (  12.85  )
+X-CRM114-CacheID: sfid-20231006_074523_584650_7B829991 
+X-CRM114-Status: GOOD (  23.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,42 +88,87 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============3275132997774601398=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Conor Dooley <conor.dooley@microchip.com>
 
-On Wed, 04 Oct 2023 23:37:20 +0800, Chen Wang wrote:
-> From: Chen Wang <unicorn_wang@outlook.com>
-> 
-> Milk-V Pioneer [1] is a developer motherboard based on SOPHON SG2042 [2]
-> in a standard mATX form factor. Add minimal device
-> tree files for the SG2042 SOC and the Milk-V Pioneer board.
-> 
-> Now only support basic uart drivers to boot up into a basic console.
-> 
-> [...]
+--===============3275132997774601398==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="57x2r3oojyooxlif"
+Content-Disposition: inline
 
-[10/10] riscv: defconfig: enable SOPHGO SoC
-        https://git.kernel.org/conor/c/a4bbe6e3d9f6
 
-b4 is confused, but I applied the whole series, temporarily, to a
-"sophgo" branch. IIRC I asked for the defconfig patch to have
-savedefconfig run it it, so I did that and amended the patch.
-More notably, I changed the commit message for the aclint patch, to
-drop the discussion about incorrect use of the sifive,clint compatible.
-That meant that 90% of the commit message vanished, so I'd like you guys
-to take a look and see if the new text works for you.
-If it is acceptable, I'll merge in both this series and the milkv duo
-stuff. Acks on that series from one of the folks added as a maintainer
-here are still appreciated and will be applied.
+--57x2r3oojyooxlif
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Thanks,
-Conor.
+Hello Thierry,
+
+On Fri, Oct 06, 2023 at 12:27:51PM +0200, Thierry Reding wrote:
+> On Wed, Oct 04, 2023 at 11:59:20AM +0200, Uwe Kleine-K=F6nig wrote:
+> > On Sun, Oct 01, 2023 at 11:40:29AM +0100, Sean Young wrote:
+> > > diff --git a/drivers/pwm/pwm-fsl-ftm.c b/drivers/pwm/pwm-fsl-ftm.c
+> > > index b7c6045c5d08..b8b9392844e9 100644
+> > > --- a/drivers/pwm/pwm-fsl-ftm.c
+> > > +++ b/drivers/pwm/pwm-fsl-ftm.c
+> > > @@ -405,6 +405,7 @@ static int fsl_pwm_probe(struct platform_device *=
+pdev)
+> > > =20
+> > >  	fpc->soc =3D of_device_get_match_data(&pdev->dev);
+> > >  	fpc->chip.dev =3D &pdev->dev;
+> > > +	fpc->chip.can_sleep =3D true;
+> >=20
+> > As .apply() being callable in non-sleepable context only depends on
+> > .apply() I think a better place for this property is in struct pwm_ops.
+>=20
+> What about drivers for devices that can be either sleeping or not? There
+> are things like regmap which can abstract those differences away, so you
+> could have a driver that works on both types of devices, so setting this
+> in ops wouldn't be correct all the time. I think can_sleep needs to be
+> per-chip rather than per-driver.
+
+I would consider that a theoretic possibility. If there is a hardware
+that has a (say) i2c and a memory-mapped register variant, I never
+encountered such a thing. Hmm, the dwc driver seems to have a pci and a
+memory-mapped variant, both would be "fast" though. (Wouldn't they?)
+
+Best regards
+Uwe
+
+--=20
+Pengutronix e.K.                           | Uwe Kleine-K=F6nig            |
+Industrial Linux Solutions                 | https://www.pengutronix.de/ |
+
+--57x2r3oojyooxlif
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmUgHWcACgkQj4D7WH0S
+/k7AkAgAuDF4yIt2iIMt7tFGHsc89qpaKIjDUSKxqgB4lz5w3E1CYWmOWOSFjuiU
+bZpxAL0kQ59hMs24OJONQb7ZJrN2l1LuYC0rUBEgPh46tZXF9fQhEI8OtmsICxsn
+tpEKsJB0Y3gRod2QvYDSu4vcVRFfXqZflcpDXeIA7bsTVV1KN/v6dqFX3zOKRKvu
+7Y356VPxQOp6clwewkrvh5Jou1KF4IhKb4LOdPIRnTQlrOF8hx7efoOQmiwYUI9A
+WrloVww0jolKUVUs/RnT+bOzfieEFHtSok2o9vMheSxETVtJcw/mfAucMQURNxF+
+ykxzRqKEfm+5k6pp5by9MOO8KkmX/A==
+=MC1V
+-----END PGP SIGNATURE-----
+
+--57x2r3oojyooxlif--
+
+
+--===============3275132997774601398==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============3275132997774601398==--
+
