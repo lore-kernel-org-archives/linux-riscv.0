@@ -4,196 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C6F7E92723
-	for <linux-riscv@archiver.kernel.org>; Thu,  5 Oct 2023 18:12:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A552E92FD0
+	for <linux-riscv@archiver.kernel.org>; Fri,  6 Oct 2023 01:05:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
-	References:Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=P1aTkdqJGpxsHK08Xz2znOX/mOrWiI7im/iibnJtFDg=; b=iF9Wk7JkOw1oN+
-	Ta24Y9MAstcYotqVp3gv8F2csuqe3kIljYVHg95c6QHA/PNUmEClSYUTOe4R9KTeTnPWBf07SD/zg
-	PsRw+/5FkThymLguBu7uLqUz3l+oMY85koeVzU2lu8BEREz/DvvDuEcyLVVk1as5ImIR42kEclheP
-	VE120I/+/wqjVAsyuwQOMaQ7Nv36XkbrKFvNDoge6BFZqqdZj6vvybwAB82YzLVfds46h1hTZQfFB
-	ahEDDzqOmdYwJqxVa3lqZUd3bHNxH/IfVtuJjuBRZ6iU4FQqSjGEKWuJ1GrEq2N7PwOVBj3+s8c22
-	r+ySV2QtFCTH9XsS0gtw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:References:To:Subject:
+	Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/U5nQbWWqfb7L1K28EO+AwzreqMZZhcAWiSTnFitJGQ=; b=KN/za5+qJ5BCeGzfD5IYOCzl34
+	NaLx1+YCCAdsyBFMPMQHHnBgXxS8oK2YSoWkKhPuv77N0Xyk9BFum1z0bywj4JjiMJ5iDM5hhqAMQ
+	STEVQVF/00XpBZx3jk+z88QywiBSjCnW3hu6VVr5GMRE8hK9S2Ly7WcQPWRkdejc0+2xkXXEsg3At
+	YM48M5adHWZsVfOIom1Q3yVv2kXVrBFQwrADrDkPlcTIjri7Ib6piQ4Z58FshQex41VBuLf8ycVW9
+	1VnpjQyTAh9SC8p8QL31Xdh+PUkQPzZsxqBlYqA4EGVdO1ITrMFjoUsRB3S/pJYDr/yuJWO4fgqPT
+	JTuG8ixg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qoSpP-004GOV-0y;
-	Thu, 05 Oct 2023 18:12:03 +0000
-Received: from mgamail.intel.com ([192.55.52.136])
+	id 1qoZHi-004ivb-0F;
+	Fri, 06 Oct 2023 01:05:42 +0000
+Received: from mail-bmxind01olkn20822.outbound.protection.outlook.com ([2a01:111:f403:7011::822] helo=IND01-BMX-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qoSpN-004GNr-0S;
-	Thu, 05 Oct 2023 18:12:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1696529521; x=1728065521;
-  h=from:to:cc:subject:date:message-id:references:
-   in-reply-to:content-id:content-transfer-encoding:
-   mime-version;
-  bh=yjuvDEzc0yJ7VGlB+qUTiqz14AdRBI2Hdffjv6nHtno=;
-  b=gRn4N4IPkIVG2sQccMdbmOtQ8gCZupqZF0aNPzU2oV7HzzzUAVpWE36R
-   H52b5QYBLo4NNPQ1x2lfR1Whdxl7CQbAAhjIN66LE/+RLVFYD5Q6X4BMa
-   NkZ2iAr9sW43JW7pw1R4ziLI5qg9cJqfb2J775ABIdISDIo0fvHkQhxP1
-   9pv8bSfqdELB63n97eBpxd048puCdKAdYT5LIxrt43xmJ6whg5hBcAvL4
-   VUv/phXTauszA152zDPA7NnWUN0JJjbgRarO3uiQ5sxO0PWe2kE4+pM0p
-   HRvVIl2pCTLqE5EIaci7UcLc6d+nu2c5W/EX0kNoUWsBvAR1giBDf5Vl5
-   w==;
-X-IronPort-AV: E=McAfee;i="6600,9927,10854"; a="362934081"
-X-IronPort-AV: E=Sophos;i="6.03,203,1694761200"; 
-   d="scan'208";a="362934081"
-Received: from orsmga004.jf.intel.com ([10.7.209.38])
-  by fmsmga106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Oct 2023 11:11:57 -0700
-X-ExtLoop1: 1
-X-IronPort-AV: E=McAfee;i="6600,9927,10854"; a="875645492"
-X-IronPort-AV: E=Sophos;i="6.03,203,1694761200"; 
-   d="scan'208";a="875645492"
-Received: from orsmsx603.amr.corp.intel.com ([10.22.229.16])
-  by orsmga004.jf.intel.com with ESMTP/TLS/AES256-GCM-SHA384; 05 Oct 2023 11:11:57 -0700
-Received: from orsmsx603.amr.corp.intel.com (10.22.229.16) by
- ORSMSX603.amr.corp.intel.com (10.22.229.16) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.32; Thu, 5 Oct 2023 11:11:56 -0700
-Received: from ORSEDG601.ED.cps.intel.com (10.7.248.6) by
- orsmsx603.amr.corp.intel.com (10.22.229.16) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.32 via Frontend Transport; Thu, 5 Oct 2023 11:11:56 -0700
-Received: from NAM04-DM6-obe.outbound.protection.outlook.com (104.47.73.41) by
- edgegateway.intel.com (134.134.137.102) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2507.32; Thu, 5 Oct 2023 11:11:56 -0700
+	id 1qoZHc-004iux-1p
+	for linux-riscv@lists.infradead.org;
+	Fri, 06 Oct 2023 01:05:40 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=eM3q/wesPJbtc3+VtWLhsOEjSYqHQHR+1kPaL9AZgILRKmZZnqWg7DT8ndpk5ZrVmQEOSDZix75Dgb2+B4cKkTkRgzw2KjJmGmkwPJhdcxrB6sduidhkgYmQTAfcsfLZwXv4SuR6kptFE4W44XiVpOq+qVWqAmYkNGDu4b+F9ZUk/S++wacf0llzrboSz0XyKa8TX9sbwkDNNkTkRiCI2B86soVzeDHxZt1PaDxr3Js2YbFocNQGhyvX7d/QdZOuyaw7LGQSmuE3l9H3TscL16HRMR/k3ygkdPUDSDthqfKcUagUyfvmKH/7WcfJyU/da3AvfgINTb7sYz8NYhDI0A==
+ b=DiX+fuWwAX4HNHGbPl74csGkhFnIt/++nw+99B6yaaaF7ktNyJ/Cr5o+jZYXL5nJzp4MAuk2IRxhU00TUK9XLqHI7NbzFyxAlVAg1vVtWbNnuEECI6+HklR27M1FGM4UG4oco50WXJQFmQ9WOtSScosJFW9zar3VaXAXu6yEN3gq17PvogfBs93M818sa6R9Zca7vqPkBDnafb9M4+JL0htz5SOcbSmf3aEstmKIWrxTQE8zlYJ8XuDcvM7ImPQEqj8ZaWtedlFyL6cMvkaUd9Ww6kbaRL/FACj2DIi4LUtH2JQzd0W37AZa/zQUxn69xnSccpaDAH0r9xhIVPxGLA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=yjuvDEzc0yJ7VGlB+qUTiqz14AdRBI2Hdffjv6nHtno=;
- b=csV+pf1VWrTZk5cphFOr3EjjqY+AkBcgW3LvJdsfTtaTmCGeWryBp5JUZL/pmGqYJ4j1t+HQfsicyso+YQOaK/83sIRRTv8j3KVI/czzTT9Apguno2+9N/ODl+hU5foKfMVJftIPpzH3xQ5qMAOuOwK0BxenyXHYBowqshVOwsrtIlePMBtL3v3OEeFgoYrBNzAcyiyGTLPN7x6/Y0rajgVX4h0MxHoH6HHoABlB15e9fwTalNNBxs+f+WcwB1JDAtWvAYv06U7Jnl+QVk2QthW7Lw4Hg6Sbyq6hllLSBN/2FSSyhYYQI0TBMfCGNAc4FpXJlnXKswjvet3O0mkTEA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Received: from MN0PR11MB5963.namprd11.prod.outlook.com (2603:10b6:208:372::10)
- by MN0PR11MB6111.namprd11.prod.outlook.com (2603:10b6:208:3cd::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6838.28; Thu, 5 Oct
- 2023 18:11:49 +0000
-Received: from MN0PR11MB5963.namprd11.prod.outlook.com
- ([fe80::56f1:507b:133e:57cf]) by MN0PR11MB5963.namprd11.prod.outlook.com
- ([fe80::56f1:507b:133e:57cf%5]) with mapi id 15.20.6838.033; Thu, 5 Oct 2023
- 18:11:49 +0000
-From: "Edgecombe, Rick P" <rick.p.edgecombe@intel.com>
-To: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"rppt@kernel.org" <rppt@kernel.org>
-CC: "tglx@linutronix.de" <tglx@linutronix.de>, "deller@gmx.de"
-	<deller@gmx.de>, "mcgrof@kernel.org" <mcgrof@kernel.org>, "bjorn@kernel.org"
-	<bjorn@kernel.org>, "davem@davemloft.net" <davem@davemloft.net>,
-	"nadav.amit@gmail.com" <nadav.amit@gmail.com>, "linux@armlinux.org.uk"
-	<linux@armlinux.org.uk>, "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
-	"linux-mips@vger.kernel.org" <linux-mips@vger.kernel.org>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
-	"hca@linux.ibm.com" <hca@linux.ibm.com>, "catalin.marinas@arm.com"
-	<catalin.marinas@arm.com>, "kent.overstreet@linux.dev"
-	<kent.overstreet@linux.dev>, "puranjay12@gmail.com" <puranjay12@gmail.com>,
-	"palmer@dabbelt.com" <palmer@dabbelt.com>, "linux-s390@vger.kernel.org"
-	<linux-s390@vger.kernel.org>, "chenhuacai@kernel.org"
-	<chenhuacai@kernel.org>, "tsbogend@alpha.franken.de"
-	<tsbogend@alpha.franken.de>, "linux-trace-kernel@vger.kernel.org"
-	<linux-trace-kernel@vger.kernel.org>, "mpe@ellerman.id.au"
-	<mpe@ellerman.id.au>, "linux-parisc@vger.kernel.org"
-	<linux-parisc@vger.kernel.org>, "x86@kernel.org" <x86@kernel.org>,
-	"mark.rutland@arm.com" <mark.rutland@arm.com>, "christophe.leroy@csgroup.eu"
-	<christophe.leroy@csgroup.eu>, "linuxppc-dev@lists.ozlabs.org"
-	<linuxppc-dev@lists.ozlabs.org>, "rostedt@goodmis.org" <rostedt@goodmis.org>,
-	"will@kernel.org" <will@kernel.org>, "dinguyen@kernel.org"
-	<dinguyen@kernel.org>, "naveen.n.rao@linux.ibm.com"
-	<naveen.n.rao@linux.ibm.com>, "sparclinux@vger.kernel.org"
-	<sparclinux@vger.kernel.org>, "linux-modules@vger.kernel.org"
-	<linux-modules@vger.kernel.org>, "bpf@vger.kernel.org" <bpf@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "song@kernel.org" <song@kernel.org>,
-	"linux-mm@kvack.org" <linux-mm@kvack.org>, "loongarch@lists.linux.dev"
-	<loongarch@lists.linux.dev>, "akpm@linux-foundation.org"
-	<akpm@linux-foundation.org>
-Subject: Re: [PATCH v3 03/13] mm/execmem, arch: convert simple overrides of
- module_alloc to execmem
-Thread-Topic: [PATCH v3 03/13] mm/execmem, arch: convert simple overrides of
- module_alloc to execmem
-Thread-Index: AQHZ6gIbIXJGUlk14kaIslF+Xg+n8bA7mssA
-Date: Thu, 5 Oct 2023 18:11:49 +0000
-Message-ID: <ce82a562db208250526f21a21e54bfc5b85f167a.camel@intel.com>
-References: <20230918072955.2507221-1-rppt@kernel.org>
-	 <20230918072955.2507221-4-rppt@kernel.org>
-In-Reply-To: <20230918072955.2507221-4-rppt@kernel.org>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-user-agent: Evolution 3.44.4-0ubuntu2 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: MN0PR11MB5963:EE_|MN0PR11MB6111:EE_
-x-ms-office365-filtering-correlation-id: 79a4e409-e6d2-4847-3c80-08dbc5ce8b7c
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: DqSA+P3onQRNBSrX5mWGe8TcGlixjr5AwyJ/eMcHfWkzid6SkXSsXfDmQatZ+fiEGOpqzNpfB7pDcxOmJqdmJZim5fesbB8pGKcLbNkGBOjUUozWx4WcR8RkC+36p5ptNR9N/4ei3YkQzeEQOzwnnU9gIFkyfip9Ies5QaHuuWJ3q0nR0AWkubcX4vO6/dOmoTGyz2XL13+KyGVqpEkA64nnanI9Bw83cYYnIw5qMjg5kc1K+vCnHCjV/s6zrCXGj/8GUhmEQJns06i4wof0nSJzLhzZHivplDTdrzIERYd50845CEqkuSaNQPhzH0p6rj+jkjEVN4ulYquD3uDAChaEAOfbfnb9WCmPYA8fndcJUv51QUwatGoyPZDVLOJp9TSf5KNYESsXq/pUPHoUsdn06i81zpkpqphxrsoZas0JO3Kb+jweGAEs55vqAgjEhlj2JiupRzOHfgIwMpzrgzyGVuFBhgZrdw3fe+Jd5CsAyilmn4b/TsDzwRYgO3CVebhoiicUcD0zbqW3SHOhSFsuTsqwbVlVK58ds2eRKGX9AekjhPVo5Ao/aXXOYzIA8xSiJ0dGu8QKlhrhRJwAgC7fDRih2LWWJdZ6fSFOYvyufC+bLRfVEyNjKT2ndu+f
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MN0PR11MB5963.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230031)(346002)(136003)(376002)(39860400002)(396003)(366004)(230922051799003)(186009)(1800799009)(451199024)(64100799003)(7406005)(41300700001)(66556008)(8676002)(38070700005)(4326008)(8936002)(91956017)(54906003)(66446008)(38100700002)(316002)(66946007)(110136005)(66476007)(478600001)(5660300002)(64756008)(76116006)(71200400001)(82960400001)(6506007)(7416002)(4744005)(2616005)(26005)(122000001)(6512007)(2906002)(6486002)(36756003)(86362001);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?VStPR1BQWTRxREpaamFYQVMxQ0tNZUZnVWs0b0Z4NGw0WlhRQ1lHWlFtUlhy?=
- =?utf-8?B?QjN3V1I0amw5SzVpTG9MM2RyUG1GYlh6dGxPc29qTDNibnJBK0hBb2lwZWl5?=
- =?utf-8?B?Q2V2NGVkcWJERWc3SVBRaVFMNWtIVXdCVko5Y2xDU21lV1lUS1R2ZTY0cnp6?=
- =?utf-8?B?THl2T2FrTjRmNmlJdEJVTFRGbE5tOTFiYzJSZnFEME9nTko3OFFRWWVpS2hj?=
- =?utf-8?B?a0t1UDV1T3B1Q1JGeFR5Q0lJV2FGMzJXWC9lZ09aT1JaUVFoVDlwQUo4QjJY?=
- =?utf-8?B?TlEvL2dTbTNNdmNYOGdkL2hsZWZPdXdZeTVVdmhidzRMZjM1Zm51aGNkY0ZP?=
- =?utf-8?B?SVJkZ0RPclNiWWlRMjFRY2ZWVUY5cWliUEc5VStHV1cxZzhTKzAzRnhLaSth?=
- =?utf-8?B?cG91OUFTSWorbHBJTjhQOFZUcktXbXlmL2FmcDlHeVlURUhmSmJTaFZtZWJy?=
- =?utf-8?B?NWtsd1ZwOVFrMFV1RzlIY3pVdnJVL2tYekJXSEpuUldMV1BLWUNZNnBjVHFQ?=
- =?utf-8?B?SE52MG5Sd0grMVdKaUlDOVgxa25aeTdCR3hVUytSa0c5SXk1N0NjYTFDNEw3?=
- =?utf-8?B?ZHJqUDdvZ3F4cDRFMHU3ZFFpWmlTcnFCYlQ5SjJKdzBxdW42dmsxeVRrWmZY?=
- =?utf-8?B?T2J6M1RDMzYwYmdzMjRQMFdxTmdVcEY0cUkyT1dFR3FPbzlJTHBLVXhBY2Z2?=
- =?utf-8?B?MFVGL3JFdmloV2ZSTDZkS0ZWVnFvMG5TOWE2azE0Z0wwcXhJYlhCcnA2TmxQ?=
- =?utf-8?B?bGJIeHZFcHFCV3luZUVRb2U4ZW9aU0tsWmh4ZGV6bmdIMEsvbDA4SXFXVU8y?=
- =?utf-8?B?M3I0RWNmWEhHbHBmZGNuYlJjMGtJQ2JqZExYTE1yR2ZpZkZ5K0RPeGptWW9y?=
- =?utf-8?B?WWRvUkMreGhmSVYxQnVuOVo4UWhBek9MME1hVEI2RGhrWWI0TXgyUExUL2ZU?=
- =?utf-8?B?ZVJDbUhsTGYrL1R0Z1lseXkxUHRqOFV0R3FJblJMNFU5bGxqSmlUMEU1UGNx?=
- =?utf-8?B?UGJhUFZuM2xXNmgvRWJ0OVdKVHd2aU96cnRJUGh3cUJ3OHhUUnZaNlFLRGNG?=
- =?utf-8?B?Zjd6eXZDZWFOSXM0OEYzYXkrKzAzZjNpYnAveTBUVHJCYnczckxMVXk5UFMy?=
- =?utf-8?B?RytNWVdCUnBIV1dMMy8rQkpKandzc0lJWWNNbWRQUTJMZFQrU0RvVzN3T0tE?=
- =?utf-8?B?ai9ZOHVlWE1leXN3Ukt3ZWFGaGhpbnIweUE4VkFzMm1xbDZmdVJ4Z3lqMVhY?=
- =?utf-8?B?WTlqdlNnTHZWT01TMHhSYlF2d0pWS252a1NPV3FHbWw5Z0MwcFY0Y21GbzRL?=
- =?utf-8?B?U3JXd25Bd1FLY3YvTUZQcWpaMExJTnFkZHcvQW1ZVnpwdENONmM2VnU5R0pQ?=
- =?utf-8?B?Wmw4T2F0dUVBYnFocWFEdVEwWWF4MFUwTHdrU09kTjhya0ZXeVNqYnl3b0Y2?=
- =?utf-8?B?dmFvbWZrMXVzeVR3WVBBOWIxakI1Q3ZEUVZJZ3NwZ2pQUWJoRFdTQzZUSnUz?=
- =?utf-8?B?eGJZRGxuMVY0dVRORGd2bit1Z1RWVUtBNWt4VlpNY3Z4bWtqQ1BKZ1lCZkpR?=
- =?utf-8?B?U0k1L0NhcWs2MXk0V0Z6cUU2bHJ3YlRlKzhhWDJHcEtQZ3R2OFBpc0FNeEtV?=
- =?utf-8?B?NUFZQSs3YkdzYWVwd2JQVS9zUVlDdVJHc0wvb2lqKzNsSlZmK3pHb0NYM09t?=
- =?utf-8?B?cDE4UEpKcjRYRlcrZnU3Z1pMaWNBNUpuYUh6U1l6UHpWTElKUGFsTzRVS2x5?=
- =?utf-8?B?emNMYXYyMHNDRm8yakJiQ3Vrb1VjRGd6Zm5SYXFLQ05IYkhCL0RUZC85TnZq?=
- =?utf-8?B?bHFnemxvZ2E5SUcreWs3NVlJMVZtT2hCM09KQThGK2MrcUZURlJJQWZlUURx?=
- =?utf-8?B?MFg5NDh6S2ZhVk5lZUVKSVpFLy9PVXdCR3AwWUtEbnpNaUNpTVNPSjBjcnB6?=
- =?utf-8?B?dXhzWnErVDRCOXdIVGZYd09BMi9TRnRTMVk5OTgzUEZEaVdGVnVBNitPaU80?=
- =?utf-8?B?NVd0QjRRV2EycG9ybm8wV2x5a3E0eGxQWUVOdzhJVS9BWXA3RTNSdjBsMjlF?=
- =?utf-8?B?MzVud05HQ0VmRDl1UkZHR1RxQlBmUGxrRE9sWGJnTUpvRWxPYmNMYjFGWnBU?=
- =?utf-8?B?ekkxdjNmOVJ3eXd4Mi9aM3F2dDlzTDVUN29pZ2l4Vkt1TXpTejBLa21RZWFF?=
- =?utf-8?B?bVE9PQ==?=
-Content-ID: <02A3B455511F6F4589834950B9AC6B01@namprd11.prod.outlook.com>
+ bh=EFDh/j/zyc1ZX+vuGj4lJxM3cw5jL1gVUUPFdf3a3EQ=;
+ b=nuuIdwf8fWUxvnc0gX15IP6eL+H+oo7DcWhVP68FLmR6CjX6t9MpovAXBV5P+0kOQK9iAbmPUr4K2GR9CMBdWbZXh5yNK+9itq+RssXd6BTHH1/UUN+siJ27ujFGT5lDx09lC2iWsiNFLR9UzvU/MK8rtFjvqpo3HGRdK/UGV5lP127SZRtI+XwbmJPPcCSGzLF/QwJCOJL2s5J2EqdQXnYhJ05y/O4Kczj7eGXQbvaKLfd7SoRUdt2zL6Jt2MNzNyIGa+hG3z/Bn08ItnnN9BY4Bcr6BepHXmaoWASnGFFYwB9OBlfVhMc03dgTCgrWOrzfCm6GeDx5NCaEXxVtog==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=EFDh/j/zyc1ZX+vuGj4lJxM3cw5jL1gVUUPFdf3a3EQ=;
+ b=P9K38ie9wuuTwoeg58ubQI3WyXam5R4gbzclu28RG+M2APdVUEXmJGv5ZvCjBb4xplSw+N8mUxDOaAh8A4OE4+AII6Umu6lknINU1z3F4AKOj6T3C1bLqgL0K8Y/kCUZV6E/fY5Pk3EcxUDTbOrsnHe/cj3RXyNT85KBjxcHpWCdrdZ0+73lACGI1wjCtZtLwfvYF+5bWHYh9KM/k7bQY2GJnvwmViKF3S8bnh5hFkgnnBSUnV0YGGJ4NYKZMw10kM661fFr6O7KVf/NZVbgET0OQiMl++gjKzYGxLs8uS+8nMugHK77hSH/fRRBMxGab19fHGNgT80ohqJhE/rG8g==
+Received: from MA0P287MB0332.INDP287.PROD.OUTLOOK.COM (2603:1096:a01:ab::5) by
+ PN0P287MB2049.INDP287.PROD.OUTLOOK.COM (2603:1096:c01:1bb::13) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.6838.38; Fri, 6 Oct 2023 01:05:13 +0000
+Received: from MA0P287MB0332.INDP287.PROD.OUTLOOK.COM
+ ([fe80::efe9:8d54:281b:23f7]) by MA0P287MB0332.INDP287.PROD.OUTLOOK.COM
+ ([fe80::efe9:8d54:281b:23f7%3]) with mapi id 15.20.6838.033; Fri, 6 Oct 2023
+ 01:05:13 +0000
+Message-ID: <MA0P287MB0332C274FB7B5EE329857286FEC9A@MA0P287MB0332.INDP287.PROD.OUTLOOK.COM>
+Date: Fri, 6 Oct 2023 09:05:06 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 00/10] Add Milk-V Pioneer RISC-V board support
+To: Chen Wang <unicornxw@gmail.com>, aou@eecs.berkeley.edu,
+ chao.wei@sophgo.com, conor@kernel.org, devicetree@vger.kernel.org,
+ guoren@kernel.org, jszhang@kernel.org, krzysztof.kozlowski+dt@linaro.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ palmer@dabbelt.com, paul.walmsley@sifive.com, robh+dt@kernel.org,
+ xiaoguang.xing@sophgo.com, apatel@ventanamicro.com
+References: <cover.1696433229.git.unicorn_wang@outlook.com>
+From: Chen Wang <unicorn_wang@outlook.com>
+In-Reply-To: <cover.1696433229.git.unicorn_wang@outlook.com>
+X-TMN: [4uhQZ5ujL7e2PPYLbpE1u2tA+Kv/JcWF]
+X-ClientProxiedBy: TYCP286CA0086.JPNP286.PROD.OUTLOOK.COM
+ (2603:1096:400:2b3::12) To MA0P287MB0332.INDP287.PROD.OUTLOOK.COM
+ (2603:1096:a01:ab::5)
+X-Microsoft-Original-Message-ID: <5a196100-18a9-4c54-9e4c-08829e39d783@outlook.com>
 MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MA0P287MB0332:EE_|PN0P287MB2049:EE_
+X-MS-Office365-Filtering-Correlation-Id: f6e54a07-0e2b-4ad7-aa22-08dbc6084b04
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: o0MFuYXRKLov2AoYTOE+A/E/Dh9uSIEafTqzg7jhLbgkvxn2Iwn5GvvRR3wcCAETYLfzltU8Oq9hTk3dgLh5fgFDYlRZMO/k6Ti6t039IutWog7GgJ0tc1NanTmSHKnSJdUzbZrcUHXrjE0pJKhLMrEDgkQMX2HE3GxUA1aEovRLZxVOuWQ5LBXpgV89+m/Jsg2m//H+cHnYhHvHFSBU+FFRfy+58t6BiOFHbAlLy5HjaJKPuqcJOwPWhs9Euy74M49Gx/dR+/RGLEgjkya15NGvR6soum8zgK9h4bAesI0UVFTcyep+Qcaq5VX5gHqH3iYB2LWuoMpghgXMl0Xw7eEiVu21FB/Z29Kc1YQjGsP1caUhd37vXDebs0eFTKzcBcOASaPHOS/mCnmLHwNeACoZoQxq0TYy8PzyspHn1Prk9qbjsgVkENvJK/4s7w12e1B5H+yNII68KdFUBhN7dPSbV9p72lw2sGFbTtUXVWYeh1J+TwNFTbXygtUtuw5Z/1HieeqflFRsjUMOpGmK8DEgaTXXjG914iVjoPa2V5w0Sa1U3gSdbk0Kxlp75eHCmjFPT76BB4vDYqf2wBDTe+yeV2gfOeE/t8Yvmwad+UsBv9gt6gMN9Im/6BZLdT68uZQH8jsIjKfCS24sClzRLg==
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?a0JYL1gxYUxWZW1YZXo4YVBjdWVXY1JlNm1wZXNyV29mZ0xWUWlTaW40d0ts?=
+ =?utf-8?B?Y0pYYUxaYkxJeTdtaTIxWWNwc1I3Zmx3OWlFUi9KQkZKRHlqZ3E2TzNGeUNC?=
+ =?utf-8?B?VG9jdFdGbHpzcEpZU3BxYTZsVk53b01pRW4vZ21IZWF6em5GQW9HZ0ozcGlI?=
+ =?utf-8?B?eHp6RWw3RjJCYnkwNmZmSlJIemUrbUdjcUp1N05kcHE4d2JXdkVzWDZ1ajRk?=
+ =?utf-8?B?MmRwT2tjbUt0QWE3THJHSjh2SXZ5ck1tRzZOUThSS0lzdWlzN253R0o2V1pV?=
+ =?utf-8?B?NFVWRFVyTWFTVDBQdGJZenA5bUV0THJIY2lncnE2eFdBZUhlblJTaHlDa3VJ?=
+ =?utf-8?B?VlJ5TWVVblhPQUx3TWlrWWFEZmhDM0pzdVhxUGFycWRkSllmL1BqbmdCS3h2?=
+ =?utf-8?B?b3pUQldlY1B1RnNSR3EwNkVObEJNdzljTFA0NjVlbWtDYW5rYzQvQmg5K0VQ?=
+ =?utf-8?B?VmhjN1pjZHk3MFQ2Smp6eDBHL1k1T08rMHVwbjkzenlQSXlXSmhtWExsb2Ju?=
+ =?utf-8?B?ZkIxOHZJeEEyckVUUTRlck9SN0E0M1J4VFBSUTJsOVRIWGNWaEZuNEZJQk9l?=
+ =?utf-8?B?Y0wzS09EbEZFS21SWFExNlZhN2pIQnVXWlI3Z08yck5iU1VaTksxL1dXckdS?=
+ =?utf-8?B?QkJ5bk9jS2JXbUk4VHB1ekFkQ2o5WDV1UlNwZGplYUJwcjZmVXA4TnFKeWRC?=
+ =?utf-8?B?ZjVKNVVNYjk3Wm1GeFExUWt4TTU4OU9wTHVCTW9PUkc4cE9LSmFEeXV6bEgr?=
+ =?utf-8?B?bnRlVFF4TVFXVTlwR2l1RW5YSmF3eXpZdGtSYVFsdzFpUy9naUZUTCtTS0VP?=
+ =?utf-8?B?QzQ1TXVBbXVqSXpUYXVzNHFvbkFWMHpLbTQ0ZWUxVnc2anNadnI4bEgwWWVp?=
+ =?utf-8?B?a1AyZVM5RlFMK1ZEeVphSHNvbkY5d1NHOFpYTFd6ZUVoTElyYkh4ODVlMVJu?=
+ =?utf-8?B?SVN1RlREeWp2VS9WSTZ3MjdMMWFiVHpySko1d3l3dEFnVkQvMkZMSzVpTllI?=
+ =?utf-8?B?ZXpVQ05CVWtmUDVPUUdRS1crZkVpbFlqeDk0TkpJN2dKYVRUQm96NFNtNzUw?=
+ =?utf-8?B?Qks5N2dwNkY0U21tSnYvWFBUZWlUY3lDOXF2bkxiSUFZWnVDV0s2OXdjSGVQ?=
+ =?utf-8?B?OStubU0xcklEbzJYL0RRVjNVRU1GVGorNUV0cXZ1QVVWOThwbmhlSjVnQmFM?=
+ =?utf-8?B?MFBYMmhKWmFPUWxjaVJkeGpmcHdpZnJDcmZpbzEvbFVWbXJpRWlLcDN1SDEr?=
+ =?utf-8?B?WGNMaXM1dHZtNmZPSnJ6WXBwdUg4YjJVQW53UE5iRDFUcEVGTDRKSit6Y0Iz?=
+ =?utf-8?B?ZFhZa2FodVpzMGMvQXFrRUo0TzE2MXlvOXQrdEZoNXl4QXk5MVA5NytETzFu?=
+ =?utf-8?B?THFCRng1UEo3b0hvR0NZaUJWcFdqYXVTYXpWcFFPVDFBMFJTVFVQdkJVcmpn?=
+ =?utf-8?B?NE8rOGVMSXlOZTZpYTZyZEZ4MEx1YUk3RjVTYjBrZVNjWHR3NmlRamdCMUYy?=
+ =?utf-8?B?dGhWU2gzUEw3UmIveDN2MTFXTVNaa0gyYUwvUVpudGxPMmRZNEhDMENRa1Ny?=
+ =?utf-8?B?bkM3Q2MyK3RwU0ovVnVoTFF6MXBFVFRHL3pOc0dxY0NJL1NkNVlyeWloVy9M?=
+ =?utf-8?Q?PVYaTC4MpjB8sEL7QtSyoD2IDNaz/B/6pbxknEaD22XI=3D?=
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f6e54a07-0e2b-4ad7-aa22-08dbc6084b04
+X-MS-Exchange-CrossTenant-AuthSource: MA0P287MB0332.INDP287.PROD.OUTLOOK.COM
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: MN0PR11MB5963.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 79a4e409-e6d2-4847-3c80-08dbc5ce8b7c
-X-MS-Exchange-CrossTenant-originalarrivaltime: 05 Oct 2023 18:11:49.6587
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Oct 2023 01:05:13.5459
  (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: we+gHrJimaodpXrpsZfiNtWxQpFghB5bMBIprl72XUHWXPjKQbZsvelp0NtUcQdoRQq7sKZDIDOaKk8wJ3RvwKgo+ZPWW9EW4iIuKkKCmSo=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN0PR11MB6111
-X-OriginatorOrg: intel.com
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PN0P287MB2049
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231005_111201_199308_9B872ACB 
-X-CRM114-Status: GOOD (  10.97  )
+X-CRM114-CacheID: sfid-20231005_180536_631125_CAE7638F 
+X-CRM114-Status: GOOD (  20.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -205,27 +127,138 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCAyMDIzLTA5LTE4IGF0IDEwOjI5ICswMzAwLCBNaWtlIFJhcG9wb3J0IHdyb3RlOgo+
-ICsvKioKPiArICogc3RydWN0IGV4ZWNtZW1fcmFuZ2UgLSBkZWZpbml0aW9uIG9mIGEgbWVtb3J5
-IHJhbmdlIHN1aXRhYmxlIGZvcgo+IGNvZGUgYW5kCj4gKyAqwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgcmVsYXRlZCBkYXRhIGFsbG9jYXRpb25zCj4gKyAqIEBz
-dGFydDrCoMKgwqDCoMKgYWRkcmVzcyBzcGFjZSBzdGFydAo+ICsgKiBAZW5kOsKgwqDCoMKgwqDC
-oMKgYWRkcmVzcyBzcGFjZSBlbmQgKGluY2x1c2l2ZSkKPiArICogQHBncHJvdDrCoMKgwqDCoHBl
-cm1pc3Npb25zIGZvciBtZW1vcnkgaW4gdGhpcyBhZGRyZXNzIHNwYWNlCj4gKyAqIEBhbGlnbm1l
-bnQ6wqBhbGlnbm1lbnQgcmVxdWlyZWQgZm9yIHRleHQgYWxsb2NhdGlvbnMKPiArICovCj4gK3N0
-cnVjdCBleGVjbWVtX3JhbmdlIHsKPiArwqDCoMKgwqDCoMKgwqB1bnNpZ25lZCBsb25nwqDCoCBz
-dGFydDsKPiArwqDCoMKgwqDCoMKgwqB1bnNpZ25lZCBsb25nwqDCoCBlbmQ7Cj4gK8KgwqDCoMKg
-wqDCoMKgcGdwcm90X3TCoMKgwqDCoMKgwqDCoCBwZ3Byb3Q7Cj4gK8KgwqDCoMKgwqDCoMKgdW5z
-aWduZWQgaW50wqDCoMKgwqBhbGlnbm1lbnQ7Cj4gK307CgpOb3QgYSBzdHJvbmcgb3Bpbmlvbiwg
-YnV0IHJhbmdlIGRvZXNuJ3Qgc2VlbSBhbiBhcHByb3ByaWF0ZSBuYW1lLiBJdAoqaGFzKiBhIHJh
-bmdlLCBidXQgYWxzbyBvdGhlciBhbGxvY2F0aW9uIGNvbmZpZ3VyYXRpb24uIEl0IGdldHMKZXNw
-ZWNpYWxseSBjb25mdXNpbmcgd2hlbiBtdWx0aXBsZSAicmFuZ2VzIiBoYXZlIHRoZSBzYW1lIHJh
-bmdlLiBNYXliZQpleGVjbWVtX2FsbG9jX3BhcmFtcz8KX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJp
-c2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1h
-bi9saXN0aW5mby9saW51eC1yaXNjdgo=
+
+On 2023/10/4 23:37, Chen Wang wrote:
+> From: Chen Wang <unicorn_wang@outlook.com>
+>
+> Milk-V Pioneer [1] is a developer motherboard based on SOPHON SG2042 [2]
+> in a standard mATX form factor. Add minimal device
+> tree files for the SG2042 SOC and the Milk-V Pioneer board.
+>
+> Now only support basic uart drivers to boot up into a basic console.
+>
+> Thanks,
+> Chen
+>
+> ---
+>
+> Changes in v4:
+>    The patch series is based on v6.6-rc1. You can simply review or test
+>    the patches at the link [6].
+>    - Update bindings files for sg2042 clint as per intput from reviewers:
+>      - rename filename from sophgo,sg2042-clint-mswi/sg2042-clint-mtimer
+>        to thead,c900-aclint-mswi/thead,c900-aclint-mtimer.
+>      - rename compatible strings accordingly.
+>    - Update dts as per input from reviewers: don't use macro for cpus's isa
+>      properties; use new compatible strings for mtimer/mswi of clint.
+>    - Use only one email-address for SoB.
+>
+> Changes in v3 [v3]:
+>    The patch series is based on v6.6-rc1. You can simply review or test
+>    the patches at the link [5].
+>    - add new vendor specific compatible strings to identify timer/mswi for sg2042 clint
+>    - updated maintainers info. for sophgo devicetree
+>    - remove the quirk changes for uart
+>    - updated dts, such as:
+>      - add "riscv,isa-base"/"riscv,isa-extensions" for cpus
+>      - update l2 cache node's name
+>      - remove memory and pmu nodes
+>    - fixed other issues as per input from reviewers.
+>
+> Changes in v2 [v2]:
+>    The patch series is based on v6.6-rc1. You can simply review or test
+>    the patches at the link [4].
+>    - Improve format for comment of commitments as per input from last review.
+>    - Improve format of DTS as per input from last review.
+>    - Remove numa related stuff from DTS. This part is just for optimization, may
+>      add it later if really needed.
+>
+> Changes in v1:
+>     The patch series is based on v6.6-rc1. Due to it is not sent in thread,
+>     I have listed permlinks of the patchset [v1-0/12] ~ [v1-12/12] here for
+>     quick reference. You can simply review or test the patches at the link [3].
+>
+> [1]: https://milkv.io/pioneer
+> [2]: https://en.sophgo.com/product/introduce/sg2042.html
+> [3]: https://github.com/unicornx/linux-riscv/commits/milkv-pioneer-minimal
+> [4]: https://github.com/unicornx/linux-riscv/commits/milkv-pioneer-minimal-v2
+> [5]: https://github.com/unicornx/linux-riscv/commits/milkv-pioneer-minimal-v3
+> [6]: https://github.com/unicornx/linux-riscv/commits/milkv-pioneer-minimal-v4
+> [v1-0/12]:https://lore.kernel.org/linux-riscv/20230915070856.117514-1-wangchen20@iscas.ac.cn/
+> [v1-1/12]:https://lore.kernel.org/linux-riscv/20230915071005.117575-1-wangchen20@iscas.ac.cn/
+> [v1-2/12]:https://lore.kernel.org/linux-riscv/20230915071409.117692-1-wangchen20@iscas.ac.cn/
+> [v1-3/12]:https://lore.kernel.org/linux-riscv/20230915072242.117935-1-wangchen20@iscas.ac.cn/
+> [v1-4/12]:https://lore.kernel.org/linux-riscv/20230915072333.117991-1-wangchen20@iscas.ac.cn/
+> [v1-5/12]:https://lore.kernel.org/linux-riscv/20230915072358.118045-1-wangchen20@iscas.ac.cn/
+> [v1-6/12]:https://lore.kernel.org/linux-riscv/20230915072415.118100-1-wangchen20@iscas.ac.cn/
+> [v1-7/12]:https://lore.kernel.org/linux-riscv/20230915072431.118154-1-wangchen20@iscas.ac.cn/
+> [v1-8/12]:https://lore.kernel.org/linux-riscv/20230915072451.118209-1-wangchen20@iscas.ac.cn/
+> [v1-9/12]:https://lore.kernel.org/linux-riscv/20230915072517.118266-1-wangchen20@iscas.ac.cn/
+> [v1-10/12]:https://lore.kernel.org/linux-riscv/20230915072558.118325-1-wangchen20@iscas.ac.cn/
+> [v1-11/12]:https://lore.kernel.org/linux-riscv/20230915072624.118388-1-wangchen20@iscas.ac.cn/
+> [v1-12/12]:https://lore.kernel.org/linux-riscv/20230915072653.118448-1-wangchen20@iscas.ac.cn/
+> [v2]:https://lore.kernel.org/linux-riscv/cover.1695189879.git.wangchen20@iscas.ac.cn/
+> [v3]:https://lore.kernel.org/linux-riscv/cover.1695804418.git.unicornxw@gmail.com/
+>
+> ---
+>
+> Chen Wang (8):
+>    riscv: Add SOPHGO SOC family Kconfig support
+>    dt-bindings: vendor-prefixes: add milkv/sophgo
+>    dt-bindings: riscv: add sophgo sg2042 bindings
+>    dt-bindings: riscv: Add T-HEAD C920 compatibles
+>    dt-bindings: interrupt-controller: Add Sophgo SG2042 PLIC
+>    riscv: dts: add initial Sophgo SG2042 SoC device tree
+>    riscv: dts: sophgo: add Milk-V Pioneer board device tree
+>    riscv: defconfig: enable SOPHGO SoC
+>
+> Inochi Amaoto (2):
+>    dt-bindings: timer: Add Sophgo sg2042 CLINT timer
+>    dt-bindings: interrupt-controller: Add Sophgo sg2042 CLINT mswi
+>
+>   .../sifive,plic-1.0.0.yaml                    |    1 +
+>   .../thead,c900-aclint-mswi.yaml               |   43 +
+>   .../devicetree/bindings/riscv/cpus.yaml       |    1 +
+>   .../devicetree/bindings/riscv/sophgo.yaml     |   28 +
+>   .../timer/thead,c900-aclint-mtimer.yaml       |   43 +
+>   .../devicetree/bindings/vendor-prefixes.yaml  |    4 +
+>   MAINTAINERS                                   |    7 +
+>   arch/riscv/Kconfig.socs                       |    5 +
+>   arch/riscv/boot/dts/Makefile                  |    1 +
+>   arch/riscv/boot/dts/sophgo/Makefile           |    3 +
+>   arch/riscv/boot/dts/sophgo/sg2042-cpus.dtsi   | 2000 +++++++++++++++++
+>   .../boot/dts/sophgo/sg2042-milkv-pioneer.dts  |   19 +
+>   arch/riscv/boot/dts/sophgo/sg2042.dtsi        |  325 +++
+>   arch/riscv/configs/defconfig                  |    1 +
+>   14 files changed, 2481 insertions(+)
+>   create mode 100644 Documentation/devicetree/bindings/interrupt-controller/thead,c900-aclint-mswi.yaml
+>   create mode 100644 Documentation/devicetree/bindings/riscv/sophgo.yaml
+>   create mode 100644 Documentation/devicetree/bindings/timer/thead,c900-aclint-mtimer.yaml
+>   create mode 100644 arch/riscv/boot/dts/sophgo/Makefile
+>   create mode 100644 arch/riscv/boot/dts/sophgo/sg2042-cpus.dtsi
+>   create mode 100644 arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts
+>   create mode 100644 arch/riscv/boot/dts/sophgo/sg2042.dtsi
+>
+>
+> base-commit: 0bb80ecc33a8fb5a682236443c1e740d5c917d1d
+
+
+This is the correct patchset, please review this one. Because my 
+incorrect operation resulted in two patchsets with the same name being 
+sent earlier, but they were incomplete. Sorry for the confusion.
+
+Thanks,
+
+Chen
+
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
