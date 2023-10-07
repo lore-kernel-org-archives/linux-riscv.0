@@ -4,76 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C04BEE9413E
-	for <linux-riscv@archiver.kernel.org>; Sat,  7 Oct 2023 02:39:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59A72E81E1F
+	for <linux-riscv@archiver.kernel.org>; Sat,  7 Oct 2023 05:47:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=70X2IW92zNjh+iL6ef78oC32gcfALRH8zoJ9vU00eHE=; b=Z3gkXMptMVYCMq
-	I0yGdq+bWwCQGpvFM9pGzesyaTS1HZ5dFiaZM+/r5yddEwMWMet/ZSq4ASoqyJrhtz45s2EGU5wOI
-	rbB9tslR5MtUGGwIYgy5xjLs7d7bemHaEay/smvqWAVhj4HaPL2OlUrTOvb2SeH0PT0K0NEL/RiAv
-	BfvRYWcYlHCfO+P1PGaC4QvbOwJSr6vpgViVQCInaJBBu0BQ6FsWWovvuFzYthKR26n6rfkRnefDg
-	E4xGJzHOiz7SgrAcIjquHyRuEbRVBbwNl8s1WZMB1siwvDAa0QU5ZN41V7ud+gptGHDsEi+eBAF2X
-	0FjUrEov2IAk+ORp4T+Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lR+D5Mj9nYbwLw6slvYlJxV6k4pPuKW1b/KgD5NMbrc=; b=YI1zINZhUNsEmqIfU6j8x6qlru
+	Fi4Dq0rWfFM4LjsfJfAw+jqSOQpil1AA26hpLOGf2XVvdL8Y8GUCbSgOElDVYSkfCXLs6bvQPr7Uf
+	xCwUrjBXrFODHoKa/qwIQV+zkXmAb0uP2GOTID2fVRnfRGabzyV4YBYPNnyNpLWrBMoQIyCn1ULLm
+	eXSer+tZ0NoNpXS8H7dpLpoxklHJt+FWahSooXB/m2BlWgwZHWDoZfkk5nZBEDwIWALbxDzPh927N
+	iDwMs8BiGx0iQuHM3N4T7r5sjH4lSinelcDfTMT++6/91aBd4PmwurocNgptqMGKd+iCPO9rkcw4x
+	FJhAP05Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qoxDY-006pro-0c;
-	Sat, 07 Oct 2023 02:39:00 +0000
-Received: from mgamail.intel.com ([192.55.52.115])
+	id 1qp09B-0070vc-0F;
+	Sat, 07 Oct 2023 05:46:41 +0000
+Received: from mail-maxind01olkn20818.outbound.protection.outlook.com ([2a01:111:f403:700f::818] helo=IND01-MAX-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qoxDU-006pqv-24
+	id 1qp097-0070vA-1U
 	for linux-riscv@lists.infradead.org;
-	Sat, 07 Oct 2023 02:38:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1696646336; x=1728182336;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=Hi0wF9L9duZEk+kOz9r7poz5SLEFRN+eLDO3BdWF35I=;
-  b=k+5/XcMkuavs+9PYaZ9lgrqG/O3ujGtFgqF79XsSteedEwDmlJ1A7YFA
-   91w31yrU31TeDnYEzmUw7VSj4sxkUIf3WWcG1SpVssjZNVg3SaqCuLawh
-   hz3obZQdbFxE9zZ79OSq4JlCU5Z3kha3LQlJhmrii6ohDRx4I/ui80kkT
-   Ji2ZvcTiYItJk8lv5dntdBydUKMpFIZabtmMQh357HLxg1SHd3VT9ZbdE
-   +1UM+NeaPYVkAsgGfUxRdTG37tokxLjW+hbX9PSEHQZVgh88H+9lSTArJ
-   j+m7YpX7cXSX8S8WfcGq2LATWGspA5QJk9cSnez0TVxPo1Ga3bKOl+0of
-   Q==;
-X-IronPort-AV: E=McAfee;i="6600,9927,10855"; a="383762486"
-X-IronPort-AV: E=Sophos;i="6.03,204,1694761200"; 
-   d="scan'208";a="383762486"
-Received: from orsmga008.jf.intel.com ([10.7.209.65])
-  by fmsmga103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Oct 2023 19:38:44 -0700
-X-ExtLoop1: 1
-X-IronPort-AV: E=McAfee;i="6600,9927,10855"; a="781861860"
-X-IronPort-AV: E=Sophos;i="6.03,204,1694761200"; 
-   d="scan'208";a="781861860"
-Received: from lkp-server01.sh.intel.com (HELO 8a3a91ad4240) ([10.239.97.150])
-  by orsmga008.jf.intel.com with ESMTP; 06 Oct 2023 19:38:41 -0700
-Received: from kbuild by 8a3a91ad4240 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1qoxDD-0003s7-0Y;
-	Sat, 07 Oct 2023 02:38:39 +0000
-Date: Sat, 7 Oct 2023 10:38:12 +0800
-From: kernel test robot <lkp@intel.com>
-To: Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Mike Rapoport <rppt@kernel.org>,
-	linux-mm@kvack.org, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: oe-kbuild-all@lists.linux.dev, Alexandre Ghiti <alexghiti@rivosinc.com>
-Subject: Re: [PATCH 2/2] riscv: Fix set_memory_XX() and set_direct_map_XX()
- by splitting huge linear mappings
-Message-ID: <202310071015.gtxGG3ml-lkp@intel.com>
-References: <20231006092930.15850-3-alexghiti@rivosinc.com>
+	Sat, 07 Oct 2023 05:46:39 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=IKV/igwutnUHy2HHnBpCUEMFSwUokpxFmpVIRN8CX/IgiH0xgWb0BwBMiysJTw99AjI+9MRjdm9zeRhb3SWHSdUpHDpyHwCSR5auVR7eJvlkCe+SAFTLwaTG44ixmRxE42k/DzEgtP7OFwVOXTFo3h/hSPmYKAbrQPhn5zSJogECm7EfP/u4yPc8SF8oyMgnRJVOAE6R+I3ZN9sSmehgxj+6wAQIS3fFhOesf+gRlzYZEdd6rdxWXy2+Cnwf6zUuOUoEZamhTZNltXkoO+tVx5qFUbF+YLdy0PA8sS4azeil6jGbrnPlMjYj4FfCMsb0r8TLa81n9mQTPh5AmoIHgw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=l8jHeA7IFqUter7dmuTKeWPJztxwn6Dwa29qzyfXKjs=;
+ b=VDXpXzATh+vNlYQmoH7ZCWL+1qg3VOslj3QzaKVcxyZm9tZhfvQouu+Rap7mjB0adaQ++1IugoJNVMh11zgFFJvSdwjaelSjAQDjivkBBH3YYD7shO1P+1PCajORj7IYgBpyCstGg//IowZ9SpRDqr4XbFRo1dL4HrJP/H8/PGQlezXiNod4O49ksbMFdIA3kA0/ua4O+WGnqj0ah8l8M6Dk05tYOiu/k3ut7fQ89FTpHeepkbNWQNch74HzxHLA/HyyGFBk3kWfTGCe+a8qvIimYal/mn9HbMmc+2sngHuX8XwitONWcSpH6dOIBeraQfLrpy2XdX8qs7tOIWhVQA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=l8jHeA7IFqUter7dmuTKeWPJztxwn6Dwa29qzyfXKjs=;
+ b=m+4b2WBvOxJe7Oa+XKeHhJRKADq31KIo4CtA/9mhNrpTqfcAUXZzWnifD1tpc3ecbFgbwUMbTK073O3hAByHtMsmYm/8f5BEGvJtucSu0v0nZKnPVK4ppYjl7d5G6+BS8/+pfS8xui8w6zmNvRsuQsl1ExhWOtiOX1/jkyFdHkvl1CMXOoimb2y+IaEv3AiAmnXM7MyQmSHJdaay7dIFzpVwuYsAede+6g/CGzZaohjeoRmW0Z5kq+8g0xELG3Cx11XnID/EYQclhtEpF1jdbAy8c4QRMgqL5F0snvwokUzO4AkP8M8BTBjZK1aGIDtnFu19PBCruKx03MEUf3MAIA==
+Received: from MA0P287MB0332.INDP287.PROD.OUTLOOK.COM (2603:1096:a01:ab::5) by
+ MA0P287MB2421.INDP287.PROD.OUTLOOK.COM (2603:1096:a01:122::8) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.6838.41; Sat, 7 Oct 2023 05:30:06 +0000
+Received: from MA0P287MB0332.INDP287.PROD.OUTLOOK.COM
+ ([fe80::efe9:8d54:281b:23f7]) by MA0P287MB0332.INDP287.PROD.OUTLOOK.COM
+ ([fe80::efe9:8d54:281b:23f7%3]) with mapi id 15.20.6838.040; Sat, 7 Oct 2023
+ 05:30:06 +0000
+Message-ID: <MA0P287MB0332E0A6BC14C883D795C018FEC8A@MA0P287MB0332.INDP287.PROD.OUTLOOK.COM>
+Date: Sat, 7 Oct 2023 13:29:59 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 08/10] riscv: dts: add initial Sophgo SG2042 SoC device
+ tree
+To: Jisheng Zhang <jszhang@kernel.org>, Chen Wang <unicornxw@gmail.com>
+Cc: aou@eecs.berkeley.edu, chao.wei@sophgo.com, conor@kernel.org,
+ devicetree@vger.kernel.org, guoren@kernel.org,
+ krzysztof.kozlowski+dt@linaro.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, palmer@dabbelt.com,
+ paul.walmsley@sifive.com, robh+dt@kernel.org, xiaoguang.xing@sophgo.com,
+ apatel@ventanamicro.com, Inochi Amaoto <inochiama@outlook.com>
+References: <cover.1696433229.git.unicorn_wang@outlook.com>
+ <ce56aba64ccd237e5d9248b9b9ed937ffb8894c8.1696433229.git.unicorn_wang@outlook.com>
+ <ZSAbgxZItMsEHfio@xhacker>
+From: Chen Wang <unicorn_wang@outlook.com>
+In-Reply-To: <ZSAbgxZItMsEHfio@xhacker>
+X-TMN: [mDDTRdEUcHVy5ggqf0mV1QK7Ls8X+smv]
+X-ClientProxiedBy: SI1PR02CA0008.apcprd02.prod.outlook.com
+ (2603:1096:4:1f7::14) To MA0P287MB0332.INDP287.PROD.OUTLOOK.COM
+ (2603:1096:a01:ab::5)
+X-Microsoft-Original-Message-ID: <8a2d2602-47b9-48f4-939f-ac4898aa78c1@outlook.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20231006092930.15850-3-alexghiti@rivosinc.com>
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MA0P287MB0332:EE_|MA0P287MB2421:EE_
+X-MS-Office365-Filtering-Correlation-Id: 95454e07-34a0-49ab-5f6b-08dbc6f6765c
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: QtHtCN/kJJk8pnhYokPbSLmhJ63HfRv35sEDOHh4WKmjxZ+cTpA+Vv7Eb98IV1KUZrLacpTNDyTWEOB8/5gXVjnwNNeBWJPqMO+pICopQ/QORl43MhAUDJ9/K1Zzkn7p7F85AERu909u8M/iJF2CD+7jaCdY0y4pTZNbZ4CwX3UxrRWYeH6U+phl/vBlFRHkDZT6P/UTQe1TMw9aH4jpfYto7l4XCacB6IIjLZ9+24kwvhsUUvTw7TFCSc0zIrJgxMRXVHnvhtGS40Ks5xmqYg6Nikmd8+m+mvK3t+9SUa/fLT4jx+3N1Kn3NT9cBU+XctyNG3z5dgvp+HzfSbRjnfWMEpD/ARITQ6cMHcZ+fPlk+pIvf8Zy0gGsuCdAk2zGJEcg6Q7QDS+PMqUZRgVWBUi5BObYPAeMlTvVvsYl07hbESPeT75zb5Wm1zPLmDWnW1N+KO7Ym4MpKelZ5hE4FrZDxWrvtCmfMXeMZoDjIiJQ+3+/LYW9UHebFlJudcEOj2iYQuv5xbTp1oOaereAxAaWEEJ0wkYvW4hxDdMq4TBAmw+QW1/2oeAD+i5t9O+vutjZAvLKDwsBFNA/OFhDzWA3B15gQ/50krE6BNfuOL8=
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?blBJYmd5Mkg5eWdrbXZSN05YeGt1czcyT09GNkFXdVdDeFMrNjVQT281WmpL?=
+ =?utf-8?B?MG02TEMvaFYyQWZQZTZPaEpoMGcyNXZYckVrWXVYN0M4d1VmU1d1OEREVEUv?=
+ =?utf-8?B?bURIVUdHMzBFTzBreStkS2FKSXl3bnNCUmdnMHJiSWFVd2MwaHY2TExvWS9S?=
+ =?utf-8?B?ZUJtUWNLdUs3SEI5K01vL2loQStOdW1VbVRoczRtWktLQ24xRXhjcUdsazdY?=
+ =?utf-8?B?V2ZCQkw4TVNma0Vmd0dPVlBXRGxUS3VISC9pUWkxRE5ETlVFdlB6ZWs2dlZW?=
+ =?utf-8?B?N1RnTmowWUlaYXJGcUp4M3VrSjZvdUs5b3NHWmVxNnVjeUxPdlBNS1BLaHpj?=
+ =?utf-8?B?U1J6S3JyMUJCOXNrR1ZIU3FrMVZZM1FrNnU3VkV6YWJaNHFOOWNqTmhXelVO?=
+ =?utf-8?B?SzVGQWVGS242SjVzODgrL3hyblJlMC9DcjNIYjNKK0hjWEJmTTFCS2llazYv?=
+ =?utf-8?B?aElJajZGYUZNazJqN1BuZUNBRmJha1NuODZ4V2R2SEpFOTVYbTJjeVlLZGNO?=
+ =?utf-8?B?N3Q3RjA3Sk9VRzhHWGhVY3ArUHZZMUNldjdscXFyUlZVSXNYK2tFU3h2ZmU1?=
+ =?utf-8?B?bmMzQ1pabnB1d0I3Y3NyZTBIMzExUE51aS9Tc0VDMWFUVE5hVVFMalFvMk96?=
+ =?utf-8?B?ZWs3TFVFZ0VFdkZwdmx6VTk3bnZHaE43OGpMYXdJdTU0YUNQWWtQN0RBaE83?=
+ =?utf-8?B?QWhOeWhEVXZQU1JSNzBKLzBPdnhhZEFRZDB5cXVnUDBYR2lWQWoxM2V0M0th?=
+ =?utf-8?B?cmdOcFBob2xHNTJhM3JrVVRpR2NiMUtpRzBTbm95TTZ3ZnlXTWp1bmx1RXJW?=
+ =?utf-8?B?NlMxNVBRZXZ1ckJsTHR4alN3Sjl1aEkwc1YyMGkvU2VlY3RQcjl5VTgvalJy?=
+ =?utf-8?B?ZXAwWmljbVBBSGJGbVh0NWZEd1FqYjhsUEhxMHhVaTcvakZXYncyd0tZaUdI?=
+ =?utf-8?B?Tm92bFBQd3dkTzhtaWxkb1paQTVaSmp6RXF2T3AwNjVFL2QwRU4vdC9MQ3di?=
+ =?utf-8?B?N2VENkw3dWVNNkJNTnh0OXlrbG5qcGhiRmZ5S2EwRERac25OSUFqNGsyanNI?=
+ =?utf-8?B?N29mOG5HamVMcXR4YjVHVDAxVkFoNU9lRnpjV0YvREFFQlZDVkhYUU1KK3hE?=
+ =?utf-8?B?KzZmNHFqYnkvbW5NMHRmWEw3UGFQUE53MmIwcXV1eGZKWWNvUGdzaDRuZkMz?=
+ =?utf-8?B?K3dzRmwzRStERVBEQUdqakNoZkN0TmRqeHpuVnAzTHZKUW1kNE82RXIvR2I4?=
+ =?utf-8?B?eE1vWC8ydmN5MjZTVG8wekZqRkxDRnprUzU1WUhiQlRnYnA5TzYxVUV1YTZt?=
+ =?utf-8?B?ZEpod09LWFYzQy9wMURxUjBwMkM3THVCZ0xXbTFZWFl5Wnh2SE14WWdFYU1t?=
+ =?utf-8?B?WlpVSGxieDlqZThuMlZLNUQxbWM0OHN5bFU3bDJmVEVuMFk4L1VRWkxVbTVa?=
+ =?utf-8?B?dGoyWGMzZ01pZC94b1Q5a1Fvc3JmU2J3ZjNEZG1mR1dSMlduQmFhdWpEYld1?=
+ =?utf-8?B?cy9BZkd3SW1uTW82bGdSR0tjWGFPVUgraCtUU1hmckhYem5vYXU0OEVWY0lY?=
+ =?utf-8?B?bXZPaWtKbUZnb08xL1B2VldMbG5PUWlDRld1MTFRanVNK3kzUm9lL2t1b1lw?=
+ =?utf-8?Q?Z0IRfp9xGj/rlDp+DBIDcrjvGGxNbo933jynZ2kR7I2s=3D?=
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 95454e07-34a0-49ab-5f6b-08dbc6f6765c
+X-MS-Exchange-CrossTenant-AuthSource: MA0P287MB0332.INDP287.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Oct 2023 05:30:06.3722
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MA0P287MB2421
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231006_193856_696703_9BB667F1 
-X-CRM114-Status: GOOD (  16.91  )
+X-CRM114-CacheID: sfid-20231006_224637_506196_29CE4F10 
+X-CRM114-Status: GOOD (  14.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,274 +131,87 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Alexandre,
 
-kernel test robot noticed the following build errors:
+On 2023/10/6 22:36, Jisheng Zhang wrote:
+> On Wed, Oct 04, 2023 at 11:44:06PM +0800, Chen Wang wrote:
+>> From: Chen Wang <unicorn_wang@outlook.com>
+>>
+>> Milk-V Pioneer motherboard is powered by SG2042.
+>>
+>> SG2042 is server grade chip with high performance, low power
+>> consumption and high data throughput.
+>> Key features:
+>> - 64 RISC-V cpu cores
+>> - 4 cores per cluster, 16 clusters on chip
+>> - More info is available at [1].
+>>
+>> Currently only support booting into console with only uart,
+>> other features will be added soon later.
+>>
+>> Reviewed-by: Guo Ren <guoren@kernel.org>
+>> Acked-by: Chao Wei <chao.wei@sophgo.com>
+>> Co-developed-by: Xiaoguang Xing <xiaoguang.xing@sophgo.com>
+>> Signed-off-by: Xiaoguang Xing <xiaoguang.xing@sophgo.com>
+>> Co-developed-by: Inochi Amaoto <inochiama@outlook.com>
+>> Signed-off-by: Inochi Amaoto <inochiama@outlook.com>
+>> Signed-off-by: Chen Wang <unicorn_wang@outlook.com>
+>>
+>> Link: https://en.sophgo.com/product/introduce/sg2042.html [1]
+>> ---
+>>   MAINTAINERS                                 |    1 +
+>>   arch/riscv/boot/dts/sophgo/sg2042-cpus.dtsi | 2000 +++++++++++++++++++
+>>   arch/riscv/boot/dts/sophgo/sg2042.dtsi      |  325 +++
+>>   3 files changed, 2326 insertions(+)
+>>   create mode 100644 arch/riscv/boot/dts/sophgo/sg2042-cpus.dtsi
+>>   create mode 100644 arch/riscv/boot/dts/sophgo/sg2042.dtsi
+>>
+>> diff --git a/MAINTAINERS b/MAINTAINERS
+>> index 97cb8abcfeee..fedf042e5fb4 100644
+>> --- a/MAINTAINERS
+>> +++ b/MAINTAINERS
+>> @@ -20067,6 +20067,7 @@ SOPHGO DEVICETREES
+>>   M:	Chao Wei <chao.wei@sophgo.com>
+>>   M:	Chen Wang <unicorn_wang@outlook.com>
+>>   S:	Maintained
+>> +F:	arch/riscv/boot/dts/sophgo/
+>>   F:	Documentation/devicetree/bindings/riscv/sophgo.yaml
+>>   
+>>   SOUND
+>> diff --git a/arch/riscv/boot/dts/sophgo/sg2042-cpus.dtsi b/arch/riscv/boot/dts/sophgo/sg2042-cpus.dtsi
+>> new file mode 100644
+>> index 000000000000..b136b6c4128c
+>> --- /dev/null
+>> +++ b/arch/riscv/boot/dts/sophgo/sg2042-cpus.dtsi
+>> @@ -0,0 +1,2000 @@
+>> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
+>> +/*
+>> + * Copyright (C) 2022 Sophgo Technology Inc. All rights reserved.
+>> + */
+> ...
+>
+>> +		intc: interrupt-controller@7090000000 {
+>> +			compatible = "sophgo,sg2042-plic", "thead,c900-plic";
+>> +			#address-cells = <0>;
+>> +			#interrupt-cells = <2>;
+>> +			reg = <0x00000070 0x90000000 0x00000000 0x04000000>;
+>> +			interrupt-controller;
+>> +			interrupts-extended =
+>> +				<&cpu0_intc 0xffffffff>,  <&cpu0_intc 9>,
+> -1 may not be correct, is machine external interrupt(id: 11) supported?
 
-[auto build test ERROR on linus/master]
-[also build test ERROR on v6.6-rc4 next-20231006]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+Just double-checked with sophgo IC engineers, sg2042 plic supports 
+external interrupt, so 11 should be better, I will try to fix this in v5.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Alexandre-Ghiti/riscv-Don-t-use-PGD-entries-for-the-linear-mapping/20231006-173223
-base:   linus/master
-patch link:    https://lore.kernel.org/r/20231006092930.15850-3-alexghiti%40rivosinc.com
-patch subject: [PATCH 2/2] riscv: Fix set_memory_XX() and set_direct_map_XX() by splitting huge linear mappings
-config: riscv-rv32_defconfig (https://download.01.org/0day-ci/archive/20231007/202310071015.gtxGG3ml-lkp@intel.com/config)
-compiler: riscv32-linux-gcc (GCC) 13.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20231007/202310071015.gtxGG3ml-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202310071015.gtxGG3ml-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
-   arch/riscv/mm/pageattr.c: In function '__split_linear_mapping_pmd':
->> arch/riscv/mm/pageattr.c:112:45: error: implicit declaration of function '_pmd_pfn'; did you mean 'pmd_pfn'? [-Werror=implicit-function-declaration]
-     112 |                         unsigned long pfn = _pmd_pfn(*pmdp);
-         |                                             ^~~~~~~~
-         |                                             pmd_pfn
->> arch/riscv/mm/pageattr.c:127:39: error: implicit declaration of function 'pfn_pmd'; did you mean 'pfn_pgd'? [-Werror=implicit-function-declaration]
-     127 |                         set_pmd(pmdp, pfn_pmd(page_to_pfn(pte_page), PAGE_TABLE));
-         |                                       ^~~~~~~
-         |                                       pfn_pgd
->> arch/riscv/mm/pageattr.c:127:39: error: incompatible type for argument 2 of 'set_pmd'
-     127 |                         set_pmd(pmdp, pfn_pmd(page_to_pfn(pte_page), PAGE_TABLE));
-         |                                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-         |                                       |
-         |                                       int
-   In file included from include/linux/pgtable.h:6,
-                    from include/linux/mm.h:29,
-                    from include/linux/pagewalk.h:5,
-                    from arch/riscv/mm/pageattr.c:6:
-   arch/riscv/include/asm/pgtable.h:249:47: note: expected 'pmd_t' but argument is of type 'int'
-     249 | static inline void set_pmd(pmd_t *pmdp, pmd_t pmd)
-         |                                         ~~~~~~^~~
-   arch/riscv/mm/pageattr.c: In function '__split_linear_mapping_pud':
->> arch/riscv/mm/pageattr.c:152:45: error: implicit declaration of function '_pud_pfn'; did you mean 'pud_pfn'? [-Werror=implicit-function-declaration]
-     152 |                         unsigned long pfn = _pud_pfn(*pudp);
-         |                                             ^~~~~~~~
-         |                                             pud_pfn
-   arch/riscv/mm/pageattr.c:164:41: error: incompatible type for argument 2 of 'set_pmd'
-     164 |                                         pfn_pmd(pfn + ((i * PMD_SIZE) >> PAGE_SHIFT), prot));
-         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-         |                                         |
-         |                                         int
-   arch/riscv/include/asm/pgtable.h:249:47: note: expected 'pmd_t' but argument is of type 'int'
-     249 | static inline void set_pmd(pmd_t *pmdp, pmd_t pmd)
-         |                                         ~~~~~~^~~
-   In file included from arch/riscv/include/asm/pgtable-32.h:9,
-                    from arch/riscv/include/asm/pgtable.h:141:
->> arch/riscv/mm/pageattr.c:168:39: error: implicit declaration of function 'pfn_pud'; did you mean 'pfn_pgd'? [-Werror=implicit-function-declaration]
-     168 |                         set_pud(pudp, pfn_pud(page_to_pfn(pmd_page), PAGE_TABLE));
-         |                                       ^~~~~~~
-   include/asm-generic/pgtable-nopmd.h:44:86: note: in definition of macro 'set_pud'
-      44 | #define set_pud(pudptr, pudval)                 set_pmd((pmd_t *)(pudptr), (pmd_t) { pudval })
-         |                                                                                      ^~~~~~
-   include/asm-generic/pgtable-nopmd.h:44:76: warning: missing braces around initializer [-Wmissing-braces]
-      44 | #define set_pud(pudptr, pudval)                 set_pmd((pmd_t *)(pudptr), (pmd_t) { pudval })
-         |                                                                            ^
-   arch/riscv/mm/pageattr.c:168:25: note: in expansion of macro 'set_pud'
-     168 |                         set_pud(pudp, pfn_pud(page_to_pfn(pmd_page), PAGE_TABLE));
-         |                         ^~~~~~~
-   arch/riscv/mm/pageattr.c: In function '__split_linear_mapping_p4d':
->> arch/riscv/mm/pageattr.c:201:45: error: implicit declaration of function '_p4d_pfn'; did you mean '_pgd_pfn'? [-Werror=implicit-function-declaration]
-     201 |                         unsigned long pfn = _p4d_pfn(*p4dp);
-         |                                             ^~~~~~~~
-         |                                             _pgd_pfn
-   include/asm-generic/pgtable-nopmd.h:44:76: warning: missing braces around initializer [-Wmissing-braces]
-      44 | #define set_pud(pudptr, pudval)                 set_pmd((pmd_t *)(pudptr), (pmd_t) { pudval })
-         |                                                                            ^
-   arch/riscv/mm/pageattr.c:216:33: note: in expansion of macro 'set_pud'
-     216 |                                 set_pud(pudp_new,
-         |                                 ^~~~~~~
->> arch/riscv/mm/pageattr.c:226:39: error: implicit declaration of function 'pfn_p4d'; did you mean 'pfn_pgd'? [-Werror=implicit-function-declaration]
-     226 |                         set_p4d(p4dp, pfn_p4d(page_to_pfn(pud_page), PAGE_TABLE));
-         |                                       ^~~~~~~
-   include/asm-generic/pgtable-nopmd.h:44:86: note: in definition of macro 'set_pud'
-      44 | #define set_pud(pudptr, pudval)                 set_pmd((pmd_t *)(pudptr), (pmd_t) { pudval })
-         |                                                                                      ^~~~~~
-   arch/riscv/mm/pageattr.c:226:25: note: in expansion of macro 'set_p4d'
-     226 |                         set_p4d(p4dp, pfn_p4d(page_to_pfn(pud_page), PAGE_TABLE));
-         |                         ^~~~~~~
-   include/asm-generic/pgtable-nopud.h:40:60: warning: missing braces around initializer [-Wmissing-braces]
-      40 | #define set_p4d(p4dptr, p4dval) set_pud((pud_t *)(p4dptr), (pud_t) { p4dval })
-         |                                                            ^
-   include/asm-generic/pgtable-nopmd.h:44:86: note: in definition of macro 'set_pud'
-      44 | #define set_pud(pudptr, pudval)                 set_pmd((pmd_t *)(pudptr), (pmd_t) { pudval })
-         |                                                                                      ^~~~~~
-   arch/riscv/mm/pageattr.c:226:25: note: in expansion of macro 'set_p4d'
-     226 |                         set_p4d(p4dp, pfn_p4d(page_to_pfn(pud_page), PAGE_TABLE));
-         |                         ^~~~~~~
-   include/asm-generic/pgtable-nopmd.h:44:76: warning: missing braces around initializer [-Wmissing-braces]
-      44 | #define set_pud(pudptr, pudval)                 set_pmd((pmd_t *)(pudptr), (pmd_t) { pudval })
-         |                                                                            ^
-   include/asm-generic/pgtable-nopud.h:40:33: note: in expansion of macro 'set_pud'
-      40 | #define set_p4d(p4dptr, p4dval) set_pud((pud_t *)(p4dptr), (pud_t) { p4dval })
-         |                                 ^~~~~~~
-   arch/riscv/mm/pageattr.c:226:25: note: in expansion of macro 'set_p4d'
-     226 |                         set_p4d(p4dp, pfn_p4d(page_to_pfn(pud_page), PAGE_TABLE));
-         |                         ^~~~~~~
-   cc1: some warnings being treated as errors
+Thanks for your kindly reminder, Jisheng.
 
 
-vim +112 arch/riscv/mm/pageattr.c
-
-    94	
-    95	static int __split_linear_mapping_pmd(pud_t *pudp,
-    96					      unsigned long vaddr, unsigned long end)
-    97	{
-    98		pmd_t *pmdp;
-    99		unsigned long next;
-   100	
-   101		pmdp = pmd_offset(pudp, vaddr);
-   102	
-   103		do {
-   104			next = pmd_addr_end(vaddr, end);
-   105	
-   106			if (next - vaddr >= PMD_SIZE &&
-   107			    vaddr <= (vaddr & PMD_MASK) && end >= next)
-   108				continue;
-   109	
-   110			if (pmd_leaf(*pmdp)) {
-   111				struct page *pte_page;
- > 112				unsigned long pfn = _pmd_pfn(*pmdp);
-   113				pgprot_t prot = __pgprot(pmd_val(*pmdp) & ~_PAGE_PFN_MASK);
-   114				pte_t *ptep_new;
-   115				int i;
-   116	
-   117				pte_page = alloc_page(GFP_KERNEL);
-   118				if (!pte_page)
-   119					return -ENOMEM;
-   120	
-   121				ptep_new = (pte_t *)page_address(pte_page);
-   122				for (i = 0; i < PTRS_PER_PTE; ++i, ++ptep_new)
-   123					set_pte(ptep_new, pfn_pte(pfn + i, prot));
-   124	
-   125				smp_wmb();
-   126	
- > 127				set_pmd(pmdp, pfn_pmd(page_to_pfn(pte_page), PAGE_TABLE));
-   128			}
-   129		} while (pmdp++, vaddr = next, vaddr != end);
-   130	
-   131		return 0;
-   132	}
-   133	
-   134	static int __split_linear_mapping_pud(p4d_t *p4dp,
-   135					      unsigned long vaddr, unsigned long end)
-   136	{
-   137		pud_t *pudp;
-   138		unsigned long next;
-   139		int ret;
-   140	
-   141		pudp = pud_offset(p4dp, vaddr);
-   142	
-   143		do {
-   144			next = pud_addr_end(vaddr, end);
-   145	
-   146			if (next - vaddr >= PUD_SIZE &&
-   147			    vaddr <= (vaddr & PUD_MASK) && end >= next)
-   148				continue;
-   149	
-   150			if (pud_leaf(*pudp)) {
-   151				struct page *pmd_page;
- > 152				unsigned long pfn = _pud_pfn(*pudp);
-   153				pgprot_t prot = __pgprot(pud_val(*pudp) & ~_PAGE_PFN_MASK);
-   154				pmd_t *pmdp_new;
-   155				int i;
-   156	
-   157				pmd_page = alloc_page(GFP_KERNEL);
-   158				if (!pmd_page)
-   159					return -ENOMEM;
-   160	
-   161				pmdp_new = (pmd_t *)page_address(pmd_page);
-   162				for (i = 0; i < PTRS_PER_PMD; ++i, ++pmdp_new)
-   163					set_pmd(pmdp_new,
-   164						pfn_pmd(pfn + ((i * PMD_SIZE) >> PAGE_SHIFT), prot));
-   165	
-   166				smp_wmb();
-   167	
- > 168				set_pud(pudp, pfn_pud(page_to_pfn(pmd_page), PAGE_TABLE));
-   169			}
-   170	
-   171			ret = __split_linear_mapping_pmd(pudp, vaddr, next);
-   172			if (ret)
-   173				return ret;
-   174		} while (pudp++, vaddr = next, vaddr != end);
-   175	
-   176		return 0;
-   177	}
-   178	
-   179	static int __split_linear_mapping_p4d(pgd_t *pgdp,
-   180					      unsigned long vaddr, unsigned long end)
-   181	{
-   182		p4d_t *p4dp;
-   183		unsigned long next;
-   184		int ret;
-   185	
-   186		p4dp = p4d_offset(pgdp, vaddr);
-   187	
-   188		do {
-   189			next = p4d_addr_end(vaddr, end);
-   190	
-   191			/*
-   192			 * If [vaddr; end] contains [vaddr & P4D_MASK; next], we don't
-   193			 * need to split, we'll change the protections on the whole P4D.
-   194			 */
-   195			if (next - vaddr >= P4D_SIZE &&
-   196			    vaddr <= (vaddr & P4D_MASK) && end >= next)
-   197				continue;
-   198	
-   199			if (p4d_leaf(*p4dp)) {
-   200				struct page *pud_page;
- > 201				unsigned long pfn = _p4d_pfn(*p4dp);
-   202				pgprot_t prot = __pgprot(p4d_val(*p4dp) & ~_PAGE_PFN_MASK);
-   203				pud_t *pudp_new;
-   204				int i;
-   205	
-   206				pud_page = alloc_page(GFP_KERNEL);
-   207				if (!pud_page)
-   208					return -ENOMEM;
-   209	
-   210				/*
-   211				 * Fill the pud level with leaf puds that have the same
-   212				 * protections as the leaf p4d.
-   213				 */
-   214				pudp_new = (pud_t *)page_address(pud_page);
-   215				for (i = 0; i < PTRS_PER_PUD; ++i, ++pudp_new)
-   216					set_pud(pudp_new,
-   217						pfn_pud(pfn + ((i * PUD_SIZE) >> PAGE_SHIFT), prot));
-   218	
-   219				/*
-   220				 * Make sure the pud filling is not reordered with the
-   221				 * p4d store which could result in seeing a partially
-   222				 * filled pud level.
-   223				 */
-   224				smp_wmb();
-   225	
- > 226				set_p4d(p4dp, pfn_p4d(page_to_pfn(pud_page), PAGE_TABLE));
-   227			}
-   228	
-   229			ret = __split_linear_mapping_pud(p4dp, vaddr, next);
-   230			if (ret)
-   231				return ret;
-   232		} while (p4dp++, vaddr = next, vaddr != end);
-   233	
-   234		return 0;
-   235	}
-   236	
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+>
+> Thanks
 
 _______________________________________________
 linux-riscv mailing list
