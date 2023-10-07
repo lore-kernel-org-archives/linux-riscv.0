@@ -4,61 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A646E95A61
-	for <linux-riscv@archiver.kernel.org>; Sat,  7 Oct 2023 13:30:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EF18E95A61
+	for <linux-riscv@archiver.kernel.org>; Sat,  7 Oct 2023 13:36:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KEFd2DkgV9Rs5ipg0L0Fc9Bjg5tbsVNJWMF4k/+Pd5g=; b=roknFACfzR8HOt
-	6v27BZPc94QmzcBFZ0UuUN/DgZ55lZbaeZET8UcTppWnc0yg3TIUuNNj468BAAjCnZg1Wzhd4e+Iy
-	HZXaZJN7NhVtE+d9gWue2/+xHSltkoMOPsEIT3VKnd6bZ3L5zXul7Rb91Oc0YWu0X3o9jqgkg1kHP
-	ldiJGmIXUxuDDFpmZOneC4zOToA5M1S73//meudieh3gAFow0gZMHLY60rPMLn6GUnh3jdAhmyg6h
-	plNng8C42v3bcECJJnR0wNDZ0Y73StMIjVAR6wqn02SGu/RH9bJg6B1UEQ/WyRm4+47D4o+rEhuqX
-	05KuRWUNNsJCaGL3ryFg==;
+	List-Owner; bh=Km23xSga/6cPtIRg3BctPR/LiCJF4hXsnPRdBXqOuYo=; b=v+6EuK5GjQuJpr
+	W96sEF1vl6VNLa1bTrREI4Ws8fDDlRk2KhMoVEgrNMmpGTWl/fZfXhp8zuaUeYLHPKLyTw0D3cCtb
+	Pbx4D+xgbxVYIpodpG0qDL8X6Gqs0Yp3UWYn6xc4UrQJnwEVum3Sg5ilSZ5jnN8YX2v8IDxwV086/
+	+HxZIpje39u0IGzMTTSZ2gL4yaN6qxYpfCqjZEpV5HUq0JTG2nAyXPEwbvSkH+r4c+Y8SzmgCCG7d
+	NMBuq40gJd1Fn2KjKXMS5Fko24g+YUZCfJrPslkWU7ar07RlsFaX42BfV369OTJo2RTwUctvLgDbe
+	D+bkJu+Xuf5zKXHneTMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qp7Nb-007bCG-2L;
-	Sat, 07 Oct 2023 13:30:03 +0000
-Received: from bg4.exmail.qq.com ([43.155.67.158])
+	id 1qp7TW-007bSa-2Y;
+	Sat, 07 Oct 2023 13:36:10 +0000
+Received: from bg4.exmail.qq.com ([43.154.221.58])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qp7NX-007bBD-0g
+	id 1qp7TU-007bRw-0d
 	for linux-riscv@lists.infradead.org;
-	Sat, 07 Oct 2023 13:30:01 +0000
-X-QQ-mid: bizesmtp88t1696685377tixjkyac
+	Sat, 07 Oct 2023 13:36:09 +0000
+X-QQ-mid: bizesmtp86t1696685746tumf87vq
 Received: from linux-lab-host.localdomain ( [116.30.131.235])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Sat, 07 Oct 2023 21:29:36 +0800 (CST)
+	id ; Sat, 07 Oct 2023 21:35:45 +0800 (CST)
 X-QQ-SSF: 01200000000000E0Y000000A0000000
-X-QQ-FEAT: uGhnJwy6xZJV/e0VH8OkfFMOH//RSXNosQBDUF7ZgNu4tnUxukivDhU5cuyB7
-	XloNsxalsLoVEKJoacjMo8tIjByfc9yws6qcaf5yIW9vl4Sv8vreGJSeYU7AnrWpgiDjEGA
-	/jVVbA5i3USp5MjqqBTn7YOLTz3XIIk0qn5ClJkR2xmjHJe1kDXBygKbAmPMgDx5LOtLS6Y
-	9eGAxj+0xWVb5DMJ2JSUQzJYwkL0JeVKE3cTS2GilDQ4XBJ2f3/XgtY2brOAxG5IBiIEp74
-	u6q4EA4mlAyAUABRZ/h/CfeFTtBNqUYqJFiYk/TTGJP+USiKteN/iTi3Ckn6dFgQ/1ZCpgf
-	WHHE9ur/U9x9YStAXTpSGRtqgQrNZ5IHLT5LFabhyeGDssoI6sMKWeHh1cdKI6fImGtbTAq
+X-QQ-FEAT: 3M0okmaRx3jgGcczq7ckLHewl2tbA5gqgi51LqUGP7as6L5o4OHQBGbMr+O0K
+	Ev5u1YtIpPxQGtJlVHeYgCFGWuSyU4pupUt3i9h5i6zVcsE9kmXpl7AbGbnnLBOxIZeJQPL
+	+Uf+RAHoyB1WFXVIuEQ+hM+OUqylNxlzXA9MGEgfMEhjuEEyP835Kv4abK53J0LUbGOnySj
+	JxxpaCy54pY0AHvDEJ/5ycR62jiLW/n5w+rhGGqYxuoJG8GNAJr8OBXEIj6XKza1Sw4w5Nj
+	27F3twjB0oVAqiVQJOYZP6DupfkRZWP2HbTzQPMtM/u15Tu153r5elnFLt4UgaJcgJmVG0Z
+	mQlI8VDelUKWCRAEg97X1DbevJXNLRuEWG8ACCAxcpwN6vtCWNF6jsT4uDBoQ==
 X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 8522446484513126745
+X-BIZMAIL-ID: 6264558970741984576
 From: Zhangjin Wu <falcon@tinylab.org>
 To: arnd@arndb.de
 Cc: falcon@tinylab.org,
 	linux-kernel@vger.kernel.org,
 	linux-mips@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
-	tim.bird@sony.com
-Subject: Re: [PATCH v1 6/7] DCE/DSE: riscv: add HAVE_TRIM_UNUSED_SYSCALLS support
-Date: Sat,  7 Oct 2023 21:29:35 +0800
-Message-Id: <20231007132935.6276-1-falcon@tinylab.org>
+	tim.bird@sony.com,
+	tanyuan@tinylab.org
+Subject: Re: [PATCH v1 7/7] DCE/DSE: riscv: trim syscall tables
+Date: Sat,  7 Oct 2023 21:35:44 +0800
+Message-Id: <20231007133544.6580-1-falcon@tinylab.org>
 X-Mailer: git-send-email 2.25.1
-In-Reply-To: <3a8f0d0a-25ad-49c3-9cd2-66db44a4a1e6@app.fastmail.com>
-References: <3a8f0d0a-25ad-49c3-9cd2-66db44a4a1e6@app.fastmail.com>
+In-Reply-To: <e160b4df-92ce-4b9c-96ba-200f259c8216@app.fastmail.com>
+References: <e160b4df-92ce-4b9c-96ba-200f259c8216@app.fastmail.com>
 MIME-Version: 1.0
 X-QQ-SENDSIZE: 520
 Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrgz:qybglogicsvrgz5a-1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231007_062959_574805_842586B2 
-X-CRM114-Status: GOOD (  14.95  )
+X-CRM114-CacheID: sfid-20231007_063608_566601_9D0D0AE9 
+X-CRM114-Status: GOOD (  19.04  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,51 +78,53 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Hi, Arnd
 
-> On Tue, Sep 26, 2023, at 00:42, Zhangjin Wu wrote:
-> > For HAVE_TRIM_UNUSED_SYSCALLS, the syscall tables are hacked with the
-> > inputing unused_syscalls.
+> On Tue, Sep 26, 2023, at 00:43, Zhangjin Wu wrote:
+> > When the maximum nr of the used syscalls is smaller than __NR_syscalls
+> > (original syscalls total). It is able to update __NR_syscalls to
+> > (maximum nr + 1) and further trim the '>= (maximum nr + 1)' part of the
+> > syscall tables:
 > >
-> > Firstly, the intermediate preprocessed .i files are generated from the
-> > original C version of syscall tables respectively, and named with a
-> > 'used' suffix: syscall_table_used.i, compat_syscall_table_used.i.
+> > For example:
 > >
-> > Secondly, all of the unused syscalls are commented.
+> >     sys_call_table [143] = {
+> > 	[0 ... 143 - 1] = sys_ni_syscall,
+> >         [64] = sys_write,
+> >         [93] = sys_exit,
+> >         [142] = sys_reboot,
+> >     }
 > >
-> > At last, two new objective files sufixed with 'used' are generated from
-> > the hacked .i files and they are linked into the eventual kernel image.
+> > The >= 143 part of the syscall tables can be trimmed.
+> >
+> > At the same time, the syscall >= 143 from user space must be ignored
+> > from do_trap_ecall_u() of traps.c.
 > >
 > > Signed-off-by: Zhangjin Wu <falcon@tinylab.org>
+> > ---
+> >  arch/riscv/include/asm/unistd.h               |  2 ++
+> >  arch/riscv/kernel/Makefile                    |  2 ++
+> >  arch/riscv/kernel/syscalls/Makefile           | 22 +++++++++++++++++++
+> >  .../kernel/syscalls/compat_syscall_table.c    |  4 ++--
+> >  arch/riscv/kernel/syscalls/syscall_table.c    |  4 ++--
+> >  5 files changed, 30 insertions(+), 4 deletions(-)
 > 
-> As mentioned in my comment on the mips patch, hacking the preprocessed
-> file here is too much strain on the old infrastructure, the
-> asm-generic/unistd.h file is already too hard to understand for
-> anyone and in need of an overhaul, so let's work together on fixing
-> it up first.
+> This bit feels like you are overoptimizing for a corner case:
+> there is not much to be gained in terms of memory savings, but
+> you add complexity in an area that I feel should be made common
+> between architectures.
+> 
+> I hope to get back to working on consolidating both the
+> syscall.tbl input files and the build infrastructure for them
+> across architectures, and you make that harder here, so I'd
+> prefer you to drop this part, at least until the code is
+> shared across all architectures.
 >
 
-Ok, I was thinking about using asm/syscall_table.h instead of asm/unistd.h like mips.
-
-    void * const sys_call_table[NR_syscalls] = {
-    	[0 ... NR_syscalls - 1] = __riscv_sys_ni_syscall,
-    #include <asm/syscall_table.h>
-    };
-
-Therefore, we can generate syscall_table.h from asm/unist.h with a tool like scripts/syscallused.sh
-
-Another solution may be firstly generate a list of `#define __USED_NR_##call 1`
-for the used syscalls from Kconfig symbol, and then change __SYSCALL() macro
-to:
-
-   #define __SYSCALL(nr, call)     [nr] = __is_defined(__USED_NR_##call) ? __riscv_##call : __riscv_sys_ni_syscall,
-
-`include/linux/kconfig.h` defined the '__is_defined'.
-
-This method may work for the archs with .tbl files too.
+Agree, let's drop it.
 
 Thanks,
 Zhangjin
 
->       Arnd
+>     Arnd
 
 _______________________________________________
 linux-riscv mailing list
