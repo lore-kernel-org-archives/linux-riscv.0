@@ -4,72 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79E43E95A6B
-	for <linux-riscv@archiver.kernel.org>; Sat,  7 Oct 2023 22:16:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D3D1E95A84
+	for <linux-riscv@archiver.kernel.org>; Sun,  8 Oct 2023 02:59:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=GKs36zi8b0kgUE+VQ0rTWn+Nd0BeIIzT2w5jzOqawms=; b=iWxD6cAYxEiOQT
-	tQEH8brqyrYcGUCjhKPnUYNRuhUEyidLX7neXjXGaeIu68EU37NU3FjJQY4Jdc3v+p9ZBzbfyo7vl
-	C0W3PrbH7wPqGGi6DN4sAvQ1/5RCOr89c3RO1w8xz8IUE0NX8G1NpR1oqUUGuoVqqS917h7gSmqWp
-	hd2wLPEMrPzdVfw+XXNBWllFE2aXvdfcTrgSh5PKL4SixFE8XlDR4qLy2aMzfucI1zEpMI9uD9PUP
-	b70DYgJA04YNxEcRnLKsHYKsoof50O39o+1npWkiq6OR0/JVvpX3gSLg+kV0y/ALG8NBOEZCvMJZv
-	Tbg2S79bPT0xZXu4eXdw==;
+	List-Owner; bh=l4ecAmTnOY85YcPKs72aJDY1AiTnKfMvU6TBrFHv2LU=; b=efylB2STyXntW+
+	E/hDKZl22JQ1gawyi74SwT6I8DYdhoOF8ebLqXmb0QDbJZkgaFBQTDUVzGNIEJwAViteDStZ3CJFB
+	EeqFEa792AHMF55ILtFhk+T/GUA7WTnJbr8YfHVlDKnAY34oPd0hBgP17elluxsfySY1NDerYT2R9
+	pzeVsk8wiS5gq0dAZqRLegtOCqfIll53fLhyz138pqObR9/7i/aopzildrAGKIQhKEZJvip6VJvYm
+	5+3QfQ9jJ1t9cIoyI3BgrIbG1ZVQurILMPEv1VOeEwfUQXZujcw0SGdYJAvfeCNmdjG0/p4yPoW1V
+	EQbIT8aIvlY1q5aExyXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qpFat-007yu3-0r;
-	Sat, 07 Oct 2023 22:16:19 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1qpK0i-008CYf-2U;
+	Sun, 08 Oct 2023 02:59:16 +0000
+Received: from mail-lf1-x12f.google.com ([2a00:1450:4864:20::12f])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qpFap-007ytb-2H
-	for linux-riscv@lists.infradead.org;
-	Sat, 07 Oct 2023 22:16:17 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 15098CE010F;
-	Sat,  7 Oct 2023 22:16:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DBFD9C433C7;
-	Sat,  7 Oct 2023 22:16:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1696716969;
-	bh=jxeYH0Vp6GKZ73eOXD963bZzBieH2C5SDVp050HzZ60=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=j/xlcuRxhAtsMxnJF5JD8IFMDXb548B+dLuG4Gu43b+0o6HqV/Efv4JhtbjBUkZD+
-	 T5slG3ZwFc+vnbZj7lZfWgl26mIfVnFXDN2iNnFokUZAXLJGp0BtMfq8MMfInqEbur
-	 3ZeNjNILTAuPfDX4VlLdPw4JEyIyvuiy2kXM4uDa6e5Ls0P3snLsDZvNWjm4X8LOmP
-	 EF0KsAyFJnUMc/dEWlB0ZFakwzfAjscVsVPq6gBhc79gsnUebWWbA1es9OZkHfVJL+
-	 a4vhq1AbUQ38bFD/91YRyqZJAlqtaJwI2vsFTN8xDP6xERbY+Z0k2gd5t64Ny10w28
-	 4hoOehSjGIjGA==
-Date: Sat, 7 Oct 2023 15:16:07 -0700
-From: Eric Biggers <ebiggers@kernel.org>
-To: Ard Biesheuvel <ardb@kernel.org>
-Cc: He-Jie Shih <bignose1007@gmail.com>,
-	Charlie Jenkins <charlie@rivosinc.com>,
-	Heiko Stuebner <heiko@sntech.de>, palmer@dabbelt.com,
-	paul.walmsley@sifive.com, aou@eecs.berkeley.edu,
-	herbert@gondor.apana.org.au, davem@davemloft.net,
-	conor.dooley@microchip.com, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-crypto@vger.kernel.org,
-	christoph.muellner@vrull.eu,
-	Heiko Stuebner <heiko.stuebner@vrull.eu>
-Subject: Re: [PATCH v4 00/12] RISC-V: support some cryptography accelerations
-Message-ID: <20231007221607.GC174883@sol.localdomain>
-References: <20230711153743.1970625-1-heiko@sntech.de>
- <20230914001144.GA924@sol.localdomain>
- <ZQJdnCwf99Glggin@ghost>
- <3A0F6A71-C521-44A5-A56C-076AF3E13897@gmail.com>
- <DD3113B1-AB9F-4D6D-BD6E-8F75A83DA45D@sifive.com>
- <20231006194741.GA68531@google.com>
- <7BC51820-61BC-422C-A2F7-B68CE679972C@gmail.com>
- <CAMj1kXF-m3pYs6u=Xhf5F-Kgmuu8Az1Q6WP86vWqFnVphVSmkg@mail.gmail.com>
+	id 1qpK0e-008CXa-1S;
+	Sun, 08 Oct 2023 02:59:14 +0000
+Received: by mail-lf1-x12f.google.com with SMTP id 2adb3069b0e04-5045cb9c091so4539075e87.3;
+        Sat, 07 Oct 2023 19:59:10 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1696733949; x=1697338749; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ScEsw5kRuBSyCrQaTmCBYUka5dQTvwb6RwilZml22rc=;
+        b=SpdsY5aYPvwaa8lqG3rKjGSddkkCHtwzjo9HqjPg4OGnrl0e8Ws9eMn80FyvV3TpRM
+         aCPFJedbFKoBzymU7bXyt0kSCDFlzCEI5Cd3nZ2o5tV28ILs5GQNYOqNQAQH+/cKlu1J
+         /Hxs+6/JK2mCAFzfCLvm5LnsKLQ3wWmuMz4NEGT+N/4QNSN2Jjno+uGxc4UJ05IjpdBO
+         gR5clavdkELHKigQgoWAe3irc+1TtaS+6XLGCrnRYWs0UJhlAb2ew1habSLovpISZZox
+         LxD5CeS+3myqB3yJm56aCm7wVsmZCJSTqvU4+beWXNQnOxGplFhLXG0vtkDlVSX/zaIL
+         zzwg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1696733949; x=1697338749;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=ScEsw5kRuBSyCrQaTmCBYUka5dQTvwb6RwilZml22rc=;
+        b=JGQdIJ3592Q9svH6aaTd6t2W2nhpeZUhpceIuI09AUwKF4HwgVFpVmI8ZrZKdwqz6I
+         PsDkUX8Z8pYQbzMUAiizBiIwzAws7m698RTPqTZfR1y41GP9cUzyoto6bmC3ds1TX4Zg
+         Vzl6C5/rTBDB/jO+s6yysy9T6nWbdfDxPLvQqZoiQmy8/Bt2czbZ7THmfLGpJuOasQz8
+         NSz6wBMfWkuHShP795Kogv43koko1vXL2rmuVUiJvRZRJb0jbSs7flff2bKErvkeuOBg
+         VwbImI2Jhc+Ac3Pg9DD6whyLGjrNVpqtOu/bwd5QHisUXaUnNgyy/hrDSzVn811N2hVc
+         Mrkg==
+X-Gm-Message-State: AOJu0YxoiEdookW9cLBNcw5YAaLIiH1YbGYPGklM34JGCkPzLkPkEAtm
+	OhuOVLljaun/9cyDEAYg+Zv366rHM8tfZW7ZRAA=
+X-Google-Smtp-Source: AGHT+IEpb2yeFTzMhQ8mODQ9bJzzgKP4xcGT3Fdr1mnHynSEwgLk6lyxwCFHJcwsd6qGQGzx5r8I8XmeCKBxhv85QXI=
+X-Received: by 2002:a05:6512:1154:b0:501:bd43:3b9c with SMTP id
+ m20-20020a056512115400b00501bd433b9cmr11192604lfg.23.1696733948681; Sat, 07
+ Oct 2023 19:59:08 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAMj1kXF-m3pYs6u=Xhf5F-Kgmuu8Az1Q6WP86vWqFnVphVSmkg@mail.gmail.com>
+References: <cover.1694421911.git.haibo1.xu@intel.com> <cda6cc71c9bdde87fe87f6c2dec4f03ca249dd62.1694421911.git.haibo1.xu@intel.com>
+ <20231003-d44206f71d0b22e539833697@orel>
+In-Reply-To: <20231003-d44206f71d0b22e539833697@orel>
+From: Haibo Xu <xiaobo55x@gmail.com>
+Date: Sun, 8 Oct 2023 10:58:57 +0800
+Message-ID: <CAJve8o=Q74U0Z3PayrzY7heNc0qeTw5VYS+tdkpm=aJdefQEbQ@mail.gmail.com>
+Subject: Re: [PATCH v3 2/9] KVM: selftests: Unify the makefile rule for split targets
+To: Andrew Jones <ajones@ventanamicro.com>
+Cc: Haibo Xu <haibo1.xu@intel.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Paolo Bonzini <pbonzini@redhat.com>, Shuah Khan <shuah@kernel.org>, Marc Zyngier <maz@kernel.org>, 
+	Oliver Upton <oliver.upton@linux.dev>, James Morse <james.morse@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
+	Anup Patel <anup@brainfault.org>, Atish Patra <atishp@atishpatra.org>, 
+	Sean Christopherson <seanjc@google.com>, Ricardo Koller <ricarkol@google.com>, 
+	Vishal Annapurve <vannapurve@google.com>, Vipin Sharma <vipinsh@google.com>, 
+	David Matlack <dmatlack@google.com>, Aaron Lewis <aaronlewis@google.com>, 
+	Colton Lewis <coltonlewis@google.com>, Thomas Huth <thuth@redhat.com>, linux-kernel@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, kvm@vger.kernel.org, 
+	linux-kselftest@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	kvmarm@lists.linux.dev, kvm-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231007_151616_111415_6D0317C9 
-X-CRM114-Status: GOOD (  59.09  )
+X-CRM114-CacheID: sfid-20231007_195912_510538_48CB9E36 
+X-CRM114-Status: GOOD (  18.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,145 +94,51 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Oct 07, 2023 at 01:33:48AM +0200, Ard Biesheuvel wrote:
-> On Fri, 6 Oct 2023 at 23:01, He-Jie Shih <bignose1007@gmail.com> wrote:
-> >
-> > On Oct 7, 2023, at 03:47, Eric Biggers <ebiggers@kernel.org> wrote:
-> > > On Fri, Sep 15, 2023 at 11:21:28AM +0800, Jerry Shih wrote:
-> > >> On Sep 15, 2023, at 09:48, He-Jie Shih <bignose1007@gmail.com> wrote:
-> > >> The OpenSSL PR is at [1].
-> > >> And we are from SiFive.
-> > >>
-> > >> -Jerry
-> > >>
-> > >> [1]
-> > >> https://github.com/openssl/openssl/pull/21923
-> > >
-> > > Hi Jerry, I'm wondering if you have an update on this?  Do you need any help?
-> >
-> > We have specialized aes-cbc/ecb/ctr patch locally and pass the `testmgr` test
-> > cases. But the test patterns in `testmgr` are quite simple, I think it doesn't test the
-> > corner case(e.g. aes-xts with tail element).
-> >
-> 
-> There should be test cases for that.
-
-Yes, non-block-aligned AES-XTS test vectors should be added to crypto/testmgr.h.
-Though, that case should be already covered by the randomized tests enabled by
-CONFIG_CRYPTO_MANAGER_EXTRA_TESTS=y, which I very strongly recommend enabling
-during development.
-
-> 
-> > For aes-xts, I'm trying to update the implementation from OpenSSL. The design
-> > philosophy is different between OpenSSL and linux. In linux crypto, the data will
-> > be split into `scatterlist`. I need to preserve the aes-xts's iv for each scatterlist
-> > entry call.
-> 
-> Yes, this applies to all block ciphers that take an IV.
-> 
-> > And I'm thinking about how to handle the tail data in a simple way.
-> 
-> The RISC-V vector ISA is quite advanced, so there may be a better
-> trick using predicates etc but otherwise, I suppose you could reuse
-> the same trick that other asm implementations use, which is to use
-> unaligned loads and stores for the final blocks, and to use a vector
-> permute with a permute table to shift the bytes in the registers. But
-> this is not performance critical, given that existing in-kernel users
-> use sector or page size inputs only.
-> 
-> > By the way, the `xts(aes)` implementation for arm and x86 are using
-> > `cra_blocksize= AES_BLOCK_SIZE`. I don't know why we need to handle the tail
-> > element. I think we will hit `EINVAL` error in `skcipher_walk_next()` if the data size
-> > it not be a multiple of block size.
-> >
-> 
-> No, both XTS and CBC-CTS permit inputs that are not a multiple of the
-> block size, and will use some form of ciphertext stealing for the
-> final tail. There is a generic CTS template that wraps CBC but
-> combining them in the same way (e.g., using vector permute) will speed
-> up things substantially. *However*, I'm not sure how relevant CBC-CTS
-> is in the kernel, given that only fscrypt uses it IIRC but actually
-> prefers something else so for new systems perhaps you shouldn't
-> bother.
-> 
-> > Overall, we will have
-> > 1) aes cipher
-> > 2) aes with cbc/ecb/ctr/xts mode
-> > 3) sha256/512 for `vlen>=128` platform
-> > 4) sm3 for `vlen>=128` platform
-> > 5) sm4
-> > 6) ghash
-> > 7) `chacha20` stream cipher
-> >
-> > The vector crypto pr in OpenSSL is under reviewing, we are still updating the
-> > perl file into linux.
-> >
-> > The most complicated `gcm(aes)` mode will be in our next plan.
-> >
-> > > I'm also wondering about riscv.pm and the choice of generating the crypto
-> > > instructions from .words instead of using the assembler.  It makes it
-> > > significantly harder to review the code, IMO.  Can we depend on assembler
-> > > support for these instructions, or is that just not ready yet?
-> >
-> > I have asked the same question before[1]. The reason is that Openssl could use
-> > very old compiler for compiling. Thus, the assembler might not know the standard
-> > rvv 1.0[2] and other vector crypto[3] instructions. That's why we use opcode for all
-> > vector instructions. IMO, I would prefer to use opcode for `vector crypto` only. The
-> > gcc-12 and clang-14 are already supporting rvv 1.0. Actually, I just read the `perl`
-> > file instead of the actually generated opcode for OpenSSL pr reviewing. And it's
-> > not hard to read the perl code.
-> >
-> 
-> I understand the desire to reuse code, and OpenSSL already relies on
-> so-called perlasm for this, but I think this is not a great choice,
-> and I actually think this was a mistake for RISC-V. OpenSSL relies on
-> perlasm for things like emittting different function pro-/epilogues
-> depending on the calling convention (SysV versus MS on x86_64, for
-> instance), but RISC-V does not have that much variety, and already
-> supports the insn_r / insn_i pseudo instructions to emit arbitrary
-> opcodes while still supporting named registers as usual. [Maybe my
-> experience does not quite extrapolate to the vector ISA, but I managed
-> to implement scalar AES [0] using the insn_r and insn_i pseudo
-> instructions (which are generally provided by the assembler but Linux
-> has fallback CPP macros for them as well), and this results on much
-> more maintainable code IMO.[
-> 
-> We are using some of the OpenSSL perlasm in the kernel already (and
-> some of it was introduced by me) but I don't think we should blindly
-> reuse all of the RISC-V code if  some of it can straight-forwardly be
-> written as normal .S files.
-> 
-> [0] https://git.kernel.org/pub/scm/linux/kernel/git/ardb/linux.git/log/?h=riscv-scalar-aes
-
-I'm not a huge fan of perlasm either.  Normal .S files can be much easier to
-understand, and they do still support basic features like macros.  (Of course,
-this only works if the .S file is the real source code.  If the real source code
-is the perlasm, dumping it to a .S file doesn't make it more readable.)
-
-Ultimately, it needs to decided on an algorithm-by-algorithm basis whether it
-makes sense to use the .pl file directly from OpenSSL or write a normal .S file.
-Sharing code can save time, but it can also waste time if/when things don't
-match up and need to be changed for the kernel anyway.  If you look at the other
-architectures, sharing the OpenSSL .pl file is most common for Poly1305 and
-SHA-2.  It's rarer for AES modes.
-
-In any case, regardless of .pl or .S, it would be nice to rely on the assembler
-for the mapping from readable instruction to 32-bit words.  Yes, I understand
-that the algorithm code reads mostly the some either way, but it introduces
-nonstandard notation (e.g. due to having to avoid the period character) and a
-possibility for error.  It's not the 1940s anymore; we should be able to have an
-assembler.  Why not make OpenSSL and Linux only enable this code when the
-assembler supports it?  Note that Linux already does this for many of the x86
-extensions, so there is precedent for this; see arch/x86/Kconfig.assembler.
-
-- Eric 
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVHVlLCBPY3QgMywgMjAyMyBhdCA2OjI44oCvUE0gQW5kcmV3IEpvbmVzIDxham9uZXNAdmVu
+dGFuYW1pY3JvLmNvbT4gd3JvdGU6Cj4KPiBPbiBUaHUsIFNlcCAxNCwgMjAyMyBhdCAwOTozNjo1
+NkFNICswODAwLCBIYWlibyBYdSB3cm90ZToKPiA+IEEgc2VwYXJhdGUgbWFrZWZpbGUgcnVsZSB3
+YXMgdXNlZCBmb3Igc3BsaXQgdGFyZ2V0cyB3aGljaCB3YXMgYWRkZWQKPiA+IGluIHBhdGNoKEtW
+TTogYXJtNjQ6IHNlbGZ0ZXN0czogU3BsaXQgZ2V0LXJlZy1saXN0IHRlc3QgY29kZSkuIFRoaXMK
+PiA+IGNvdWxkIGJlIGF2b2lkZWQgYnkgbWlub3IgY2hhbmdlcyB0byB0aGUgcmVjaXBlcyBvZiBj
+dXJyZW50IHJ1bGUuCj4gPgo+ID4gU2lnbmVkLW9mZi1ieTogSGFpYm8gWHUgPGhhaWJvMS54dUBp
+bnRlbC5jb20+Cj4gPiAtLS0KPiA+ICB0b29scy90ZXN0aW5nL3NlbGZ0ZXN0cy9rdm0vTWFrZWZp
+bGUgfCA2ICsrLS0tLQo+ID4gIDEgZmlsZSBjaGFuZ2VkLCAyIGluc2VydGlvbnMoKyksIDQgZGVs
+ZXRpb25zKC0pCj4gPgo+ID4gZGlmZiAtLWdpdCBhL3Rvb2xzL3Rlc3Rpbmcvc2VsZnRlc3RzL2t2
+bS9NYWtlZmlsZSBiL3Rvb2xzL3Rlc3Rpbmcvc2VsZnRlc3RzL2t2bS9NYWtlZmlsZQo+ID4gaW5k
+ZXggYTNiYjM2ZmIzY2ZjLi43OTcyMjY5ZThjNWYgMTAwNjQ0Cj4gPiAtLS0gYS90b29scy90ZXN0
+aW5nL3NlbGZ0ZXN0cy9rdm0vTWFrZWZpbGUKPiA+ICsrKyBiL3Rvb2xzL3Rlc3Rpbmcvc2VsZnRl
+c3RzL2t2bS9NYWtlZmlsZQo+ID4gQEAgLTI0OSwxMyArMjQ5LDEwIEBAIFRFU1RfREVQX0ZJTEVT
+ICs9ICQocGF0c3Vic3QgJS5vLCAlLmQsICQoU1BMSVRfVEVTVFNfT0JKUykpCj4gPiAgLWluY2x1
+ZGUgJChURVNUX0RFUF9GSUxFUykKPiA+Cj4gPiAgJChURVNUX0dFTl9QUk9HUykgJChURVNUX0dF
+Tl9QUk9HU19FWFRFTkRFRCk6ICU6ICUubwo+ID4gLSAgICAgJChDQykgJChDRkxBR1MpICQoQ1BQ
+RkxBR1MpICQoTERGTEFHUykgJChUQVJHRVRfQVJDSCkgJDwgJChMSUJLVk1fT0JKUykgJChMRExJ
+QlMpIC1vICRACj4gPiArICAgICAkKENDKSAkKENGTEFHUykgJChDUFBGTEFHUykgJChMREZMQUdT
+KSAkKFRBUkdFVF9BUkNIKSAkXiAkKExETElCUykgLW8gJEAKPiA+ICAkKFRFU1RfR0VOX09CSik6
+ICQoT1VUUFVUKS8lLm86ICUuYwo+ID4gICAgICAgJChDQykgJChDRkxBR1MpICQoQ1BQRkxBR1Mp
+ICQoVEFSR0VUX0FSQ0gpIC1jICQ8IC1vICRACj4gPgo+ID4gLSQoU1BMSVRfVEVTVFNfVEFSR0VU
+Uyk6ICU6ICUubyAkKFNQTElUX1RFU1RTX09CSlMpCj4gPiAtICAgICAkKENDKSAkKENGTEFHUykg
+JChDUFBGTEFHUykgJChMREZMQUdTKSAkKFRBUkdFVF9BUkNIKSAkXiAkKExETElCUykgLW8gJEAK
+PiA+IC0KPiA+ICBFWFRSQV9DTEVBTiArPSAkKExJQktWTV9PQkpTKSAkKFRFU1RfREVQX0ZJTEVT
+KSAkKFRFU1RfR0VOX09CSikgJChTUExJVF9URVNUU19PQkpTKSBjc2NvcGUuKgo+ID4KPiA+ICB4
+IDo9ICQoc2hlbGwgbWtkaXIgLXAgJChzb3J0ICQoZGlyICQoTElCS1ZNX0NfT0JKKSAkKExJQktW
+TV9TX09CSikpKSkKPiA+IEBAIC0yNzQsNiArMjcxLDcgQEAgJChMSUJLVk1fU1RSSU5HX09CSik6
+ICQoT1VUUFVUKS8lLm86ICUuYwo+ID4gIHggOj0gJChzaGVsbCBta2RpciAtcCAkKHNvcnQgJChk
+aXIgJChURVNUX0dFTl9QUk9HUykpKSkKPiA+ICAkKFRFU1RfR0VOX1BST0dTKTogJChMSUJLVk1f
+T0JKUykKPiA+ICAkKFRFU1RfR0VOX1BST0dTX0VYVEVOREVEKTogJChMSUJLVk1fT0JKUykKPiA+
+ICskKFNQTElUX1RFU1RTX1RBUkdFVFMpOiAkKE9VVFBVVCkvJTogJChBUkNIX0RJUikvJS5vCj4g
+Pgo+ID4gIGNzY29wZTogaW5jbHVkZV9wYXRocyA9ICQoTElOVVhfVE9PTF9JTkNMVURFKSAkKExJ
+TlVYX0hEUl9QQVRIKSBpbmNsdWRlIGxpYiAuLgo+ID4gIGNzY29wZToKPiA+IC0tCj4gPiAyLjM0
+LjEKPiA+Cj4KPiBJIGp1c3Qgbm90aWNlZCB0aGF0IHdpdGggYW5kIHdpdGhvdXQgdGhpcyBwYXRj
+aCB3ZSdyZSBidWlsZGluZyB0aGUKPiBhcmNoLXNwZWNpZmljIHBhcnQgaW4gdG9vbHMvdGVzdGlu
+Zy9zZWxmdGVzdHMva3ZtL3Jpc2N2IGV2ZW4gd2hlbiB3ZSBoYXZlCj4gYW4gJChPVVRQVVQpIGRp
+cmVjdG9yeSAoZS5nLiBPPWJ1aWxkKS4gVGhvc2UgYnVpbGQgYXJ0aWZhY3RzIHNob3VsZCBiZSBp
+bgo+IGJ1aWxkL2tzZWxmdGVzdC9rdm0vcmlzY3YgaW5zdGVhZC4KPgoKVGhhbmtzIGZvciBwb2lu
+dGluZyBpdCBvdXQuIEkgd2lsbCBoYXZlIGEgbG9vayBpbiBuZXh0IHdlZWshCgo+IFRoYW5rcywK
+PiBkcmV3CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwps
+aW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpo
+dHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
