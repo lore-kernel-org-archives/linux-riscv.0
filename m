@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EBB2CD613A
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CBABCD6139
 	for <linux-riscv@archiver.kernel.org>; Mon,  9 Oct 2023 21:19:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MiWKCaCH0QOlaMym9ncWgKzBGu9ATzX6yTM7HsRVgl8=; b=XUUzggzM2tHMeJ
-	F/Qd85a13V25kjSERlJNczBuW3G2Zc4uKE33z0RpE1RMjW/VGC+03Er3cZdRG881TynC8Ew/BfXzd
-	NVY5OZDJW+dhuZoDn86s9J8inw+SwOveJ6XsDflpuanXUQz/VlDz39plBK46V3/b0NDNC5tK3s82F
-	No7/Xf5JmI/87/96OqtO2tS9dztDYloLCui4eczthHUKu1sNsrcSWdT0P7LCquQ1hRTipbAm7AGt7
-	qRlg5naBYTeZWwqxdF+6mlC9Fdn8OKDBMsHDHZmCwlGTm8g5adk00ecMCs2nOayRgZYDtwfkfk7LL
-	/iQ9jMsOSCRGZ9N/GK+A==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=rsY8JXKTprbLn9V5yLVeQNE76+YJBl/bzY3ZAR3vv1w=; b=VCTe81w6o4eTKw
+	eQnmMuce3lMmYtEmU3fDCKuX7K5jfieUl6kPShWSHiVzdvyoha0sjXmrhb3yXSJp8TCO8uv9GebiD
+	aj1y9H8vP/CaZPVMlYplr54mNFUEhfrVYCqGKIrIlmdlF6Tz+gF6bypLiKLEabB47Wak6fE1G1Wrc
+	A1iCxVzePnLdPZUrgxais7IR/Qt+07lbOaPrjKJf0Cn/cuT7gdm9c8hmrtLkN5oJfpDseNH78AuKo
+	X+qCCtTRscpoz5c/3tHyKMj/5o3wy1YfVgki/q2WRjR5k5+o/1f4OaFC56e+oXU/2kEGiuevW6809
+	hcwooLvXcptFZXEetBIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qpxeu-00Bddy-0i;
-	Mon, 09 Oct 2023 21:19:24 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1qpxel-00Bdb2-2J;
+	Mon, 09 Oct 2023 21:19:15 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qpxeq-00Bdbt-14;
-	Mon, 09 Oct 2023 21:19:21 +0000
+	id 1qpxeh-00BdaM-0q;
+	Mon, 09 Oct 2023 21:19:13 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 8F143613F9;
-	Mon,  9 Oct 2023 21:19:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DA836C43395;
-	Mon,  9 Oct 2023 21:19:08 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTP id 10131B81719;
+	Mon,  9 Oct 2023 21:19:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F1D85C433C8;
+	Mon,  9 Oct 2023 21:18:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1696886359;
-	bh=0oKwSWjQM05Ao/uQ0wsIA8Wzs9vAdnSky5PBtFIwvT4=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Cc6mgFQ7201CW0jtgb8bIADXktMt8MRMT5x+zQw138I5XhtRj2Z1lwGZhhPijjyLd
-	 kTwWA2c0xvwB5JiFtFlNwyF/2A1exupq+bHGHDWWtDRa+RvKY9VqTvDSMn5AeL+XSl
-	 yGEkvMDkhhWs5RmkDmAujwJhUssc5rFx4IJ6CqRFoUa/PIJIHBcZiNfYy4TdgmWMRg
-	 g/HUVfC3sFvxoDEj4LccmDA703CvrYglGO7CgRuySaLENAMMyCvJ/4Sw/IDMD0JjgG
-	 lXVfBLeNZaf41n+P4kVSO/kwBuSJQEbPztE0iTf6JqGSv44j1av9O3KWNhgiyM7vfm
-	 xaQYicgV0L0lg==
+	s=k20201202; t=1696886348;
+	bh=TSGItzmReuXxWm++8av4ew2EUzZA35IjrSGdiAa7ie8=;
+	h=From:To:Cc:Subject:Date:From;
+	b=AR02btZ4mgp9dab3ACYI6igrBGiVFEQdmNWNcxHdD8UJq1EhYHaLIGjb3Cwv4s+g+
+	 mmathlc5Veu0bcn46YVnxKQY9ABGfLimELcNw0klUlNtKHXpOmX5SgqRxTUCkLFS3o
+	 ZS0Ueu7JemOZJOGzANL0FRGqVPg0BpVr9dfyhsQ5nDwbUv63LLomoFEIvX/7i3O4Bj
+	 U55wVSdhQ8c2iMBNqigs0yUvbVUtg7hwnPp/Vnt3CUqJhGNKIVOsAVmLVPmdhMkwyJ
+	 uLzJxnSI5zcAdgJpatcdE4e1r1jp90wyIblBOJG7uZmhXO5MwaO5T8h/WirbhImG9y
+	 IaGxkq1DM1dMw==
 From: Arnd Bergmann <arnd@kernel.org>
 To: Thomas Zimmermann <tzimmermann@suse.de>,
 	linux-fbdev@vger.kernel.org,
@@ -95,16 +95,14 @@ Cc: Arnd Bergmann <arnd@arndb.de>,
 	linux-sh@vger.kernel.org,
 	sparclinux@vger.kernel.org,
 	linux-hyperv@vger.kernel.org
-Subject: [PATCH v3 1/9] vgacon: rework Kconfig dependencies
-Date: Mon,  9 Oct 2023 23:18:37 +0200
-Message-Id: <20231009211845.3136536-2-arnd@kernel.org>
+Subject: [PATCH v3 0/9] video: screen_info cleanups
+Date: Mon,  9 Oct 2023 23:18:36 +0200
+Message-Id: <20231009211845.3136536-1-arnd@kernel.org>
 X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20231009211845.3136536-1-arnd@kernel.org>
-References: <20231009211845.3136536-1-arnd@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231009_141920_455836_3AC939E6 
-X-CRM114-Status: GOOD (  16.92  )
+X-CRM114-CacheID: sfid-20231009_141911_613334_8C345F3E 
+X-CRM114-Status: GOOD (  19.71  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,57 +121,148 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Arnd Bergmann <arnd@arndb.de>
 
-The list of dependencies here is phrased as an opt-out, but this is missing
-a lot of architectures that don't actually support VGA consoles, and some
-of the entries are stale:
+v3 changelog
 
- - powerpc used to support VGA consoles in the old arch/ppc codebase, but
-   the merged arch/powerpc never did
+No real changes, just rebased for context changes, and picked up the Acks.
 
- - arm lists footbridge, integrator and netwinder, but netwinder is actually
-   part of footbridge, and integrator does not appear to have an actual
-   VGA hardware, or list it in its ATAG or DT.
+This now conflicts with the ia64 removal and introduces one new dependency
+on IA64, but that is harmless and trivial to deal with later.
 
- - mips has a few platforms (malta, sibyte, and sni) that initialize
-   screen_info, on everything else the console is selected but cannot
-   actually work.
-
- - csky, hexgagon, loongarch, nios2, riscv and xtensa are not listed
-   in the opt-out table and declare a screen_info to allow building
-   vga_con, but this cannot work because the console is never selected.
-
-Replace this with an opt-in table that lists only the platforms that
-remain. This is effectively x86, plus a couple of historic workstation
-and server machines that reused parts of the x86 system architecture.
-
-Reviewed-by: Javier Martinez Canillas <javierm@redhat.com>
-Reviewed-by: Thomas Zimmermann <tzimmermann@suse.de>
-Reviewed-by: Khalid Aziz <khalid@gonehiking.org>
-Acked-by: Helge Deller <deller@gmx.de>
-Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+Link: https://lore.kernel.org/lkml/20230719123944.3438363-1-arnd@kernel.org/
 ---
- drivers/video/console/Kconfig | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+v2 changelog
 
-diff --git a/drivers/video/console/Kconfig b/drivers/video/console/Kconfig
-index 30577b1d3de59..cbf303d76d39b 100644
---- a/drivers/video/console/Kconfig
-+++ b/drivers/video/console/Kconfig
-@@ -7,9 +7,9 @@ menu "Console display driver support"
- 
- config VGA_CONSOLE
- 	bool "VGA text console" if EXPERT || !X86
--	depends on !4xx && !PPC_8xx && !SPARC && !M68K && !PARISC &&  !SUPERH && \
--		(!ARM || ARCH_FOOTBRIDGE || ARCH_INTEGRATOR || ARCH_NETWINDER) && \
--		!ARM64 && !ARC && !MICROBLAZE && !OPENRISC && !S390 && !UML
-+	depends on ALPHA || IA64 || X86 || \
-+		(ARM && ARCH_FOOTBRIDGE) || \
-+		(MIPS && (MIPS_MALTA || SIBYTE_BCM112X || SIBYTE_SB1250 || SIBYTE_BCM1x80 || SNI_RM))
- 	select APERTURE_HELPERS if (DRM || FB || VFIO_PCI_CORE)
- 	default y
- 	help
+I refreshed the first four patches that I sent before with very minor
+updates, and then added some more to further disaggregate the use
+of screen_info:
+
+ - I found that powerpc wasn't using vga16fb any more
+
+ - vgacon can be almost entirely separated from the global
+   screen_info, except on x86
+
+ - similarly, the EFI framebuffer initialization can be
+   kept separate, except on x86.
+
+I did extensive build testing on arm/arm64/x86 and the normal built bot
+testing for the other architectures.
+
+Which tree should this get merged through?
+
+Link: https://lore.kernel.org/lkml/20230707095415.1449376-1-arnd@kernel.org/
+
+
+Arnd Bergmann (9):
+  vgacon: rework Kconfig dependencies
+  vgacon: rework screen_info #ifdef checks
+  dummycon: limit Arm console size hack to footbridge
+  vgacon, arch/*: remove unused screen_info definitions
+  vgacon: remove screen_info dependency
+  vgacon: clean up global screen_info instances
+  vga16fb: drop powerpc support
+  hyperv: avoid dependency on screen_info
+  efi: move screen_info into efi init code
+
+ arch/alpha/kernel/proto.h                     |  2 +
+ arch/alpha/kernel/setup.c                     |  8 +--
+ arch/alpha/kernel/sys_sio.c                   |  8 ++-
+ arch/arm/include/asm/setup.h                  |  5 ++
+ arch/arm/kernel/atags_parse.c                 | 20 +++---
+ arch/arm/kernel/efi.c                         |  6 --
+ arch/arm/kernel/setup.c                       | 11 +--
+ arch/arm64/kernel/efi.c                       |  4 --
+ arch/arm64/kernel/image-vars.h                |  2 +
+ arch/csky/kernel/setup.c                      | 12 ----
+ arch/hexagon/kernel/Makefile                  |  2 -
+ arch/hexagon/kernel/screen_info.c             |  3 -
+ arch/ia64/kernel/setup.c                      | 53 ++++++++-------
+ arch/loongarch/kernel/efi.c                   |  3 +-
+ arch/loongarch/kernel/image-vars.h            |  2 +
+ arch/loongarch/kernel/setup.c                 |  3 -
+ arch/mips/jazz/setup.c                        |  9 ---
+ arch/mips/kernel/setup.c                      | 11 ---
+ arch/mips/mti-malta/malta-setup.c             |  4 +-
+ arch/mips/sibyte/swarm/setup.c                | 26 ++++---
+ arch/mips/sni/setup.c                         | 18 ++---
+ arch/nios2/kernel/setup.c                     |  5 --
+ arch/powerpc/kernel/setup-common.c            | 16 -----
+ arch/riscv/kernel/image-vars.h                |  2 +
+ arch/riscv/kernel/setup.c                     | 12 ----
+ arch/sh/kernel/setup.c                        |  5 --
+ arch/sparc/kernel/setup_32.c                  | 13 ----
+ arch/sparc/kernel/setup_64.c                  | 13 ----
+ arch/x86/kernel/setup.c                       |  2 +-
+ arch/xtensa/kernel/setup.c                    | 12 ----
+ drivers/firmware/efi/efi-init.c               | 14 +++-
+ drivers/firmware/efi/libstub/efi-stub-entry.c |  8 ++-
+ drivers/firmware/pcdp.c                       |  1 -
+ drivers/gpu/drm/hyperv/hyperv_drm_drv.c       |  7 +-
+ drivers/hv/vmbus_drv.c                        |  6 +-
+ drivers/video/console/Kconfig                 | 11 +--
+ drivers/video/console/dummycon.c              |  2 +-
+ drivers/video/console/vgacon.c                | 68 +++++++++++--------
+ drivers/video/fbdev/Kconfig                   |  2 +-
+ drivers/video/fbdev/hyperv_fb.c               |  8 +--
+ drivers/video/fbdev/vga16fb.c                 |  9 +--
+ include/linux/console.h                       |  7 ++
+ 42 files changed, 183 insertions(+), 252 deletions(-)
+ delete mode 100644 arch/hexagon/kernel/screen_info.c
+
 -- 
 2.39.2
+
+Cc: "David S. Miller" <davem@davemloft.net>
+Cc: "K. Y. Srinivasan" <kys@microsoft.com>
+Cc: Ard Biesheuvel <ardb@kernel.org>
+Cc: Borislav Petkov <bp@alien8.de>
+Cc: Brian Cain <bcain@quicinc.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Christophe Leroy <christophe.leroy@csgroup.eu>
+Cc: Daniel Vetter <daniel@ffwll.ch>
+Cc: Dave Hansen <dave.hansen@linux.intel.com>
+Cc: David Airlie <airlied@gmail.com>
+Cc: Deepak Rawat <drawat.floss@gmail.com>
+Cc: Dexuan Cui <decui@microsoft.com>
+Cc: Dinh Nguyen <dinguyen@kernel.org>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Guo Ren <guoren@kernel.org>
+Cc: Haiyang Zhang <haiyangz@microsoft.com>
+Cc: Helge Deller <deller@gmx.de>
+Cc: Huacai Chen <chenhuacai@kernel.org>
+Cc: Ingo Molnar <mingo@redhat.com>
+Cc: Javier Martinez Canillas <javierm@redhat.com>
+Cc: John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>
+Cc: Khalid Aziz <khalid@gonehiking.org>
+Cc: Linus Walleij <linus.walleij@linaro.org>
+Cc: Matt Turner <mattst88@gmail.com>
+Cc: Max Filippov <jcmvbkbc@gmail.com>
+Cc: Michael Ellerman <mpe@ellerman.id.au>
+Cc: Nicholas Piggin <npiggin@gmail.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Russell King <linux@armlinux.org.uk>
+Cc: Thomas Bogendoerfer <tsbogend@alpha.franken.de>
+Cc: Thomas Gleixner <tglx@linutronix.de>
+Cc: Thomas Zimmermann <tzimmermann@suse.de>
+Cc: WANG Xuerui <kernel@xen0n.name>
+Cc: Wei Liu <wei.liu@kernel.org>
+Cc: Will Deacon <will@kernel.org>
+Cc: x86@kernel.org
+Cc: linux-alpha@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-efi@vger.kernel.org
+Cc: linux-csky@vger.kernel.org
+Cc: linux-hexagon@vger.kernel.org
+Cc: linux-ia64@vger.kernel.org
+Cc: loongarch@lists.linux.dev
+Cc: linux-mips@vger.kernel.org
+Cc: linuxppc-dev@lists.ozlabs.org
+Cc: linux-riscv@lists.infradead.org
+Cc: linux-sh@vger.kernel.org
+Cc: sparclinux@vger.kernel.org
+Cc: linux-hyperv@vger.kernel.org
+Cc: dri-devel@lists.freedesktop.org
+Cc: linux-fbdev@vger.kernel.org
 
 
 _______________________________________________
