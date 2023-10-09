@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FC67C2BA1B
-	for <linux-riscv@archiver.kernel.org>; Mon,  9 Oct 2023 21:20:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52590CD6139
+	for <linux-riscv@archiver.kernel.org>; Mon,  9 Oct 2023 21:20:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jGXZPf1MyRS9NmeIgj7pIbycLTyusotPKaCEJBuz6w4=; b=tF8H35n2Ve26HS
-	BWofvFGEllE+C2nWUk1msc6UwENIB+Dt1U0FX/MQl2g9AohgGqTJyYeRdgIef4E/Tv7gZAr+NMzWT
-	bdP9OV895vwrZHxWBJAdCUy/k+tzE5lVcq83NWhrWjH7IcM1Ao6DC3i3KSEz/I2VoNwOeoDhLYIDk
-	IccH1iaScBPztGzSFvcJT0zC3Gso81MFFnAvjWcyjhDkw9liELI59yMcoRPW2Om0MTUxXIjmAme/C
-	tJWd2Je8Nu/+RUBXCYzaRAEI/doRXqVeg+CQah7KfDmjB1WQ+3WRPZHCJCQPfbIn50B34BOyYbQow
-	3bZXUntf3TYEoSblt/Tw==;
+	List-Owner; bh=gSzeG3dvrdlQlVc616IvwRReYiM5W07EktAw7gGwXOY=; b=areACTEH6qSGr2
+	tqTiJ2L2JC/I8k0wkdm2SQ4JJYbQZaNESlmkchmi31f3d6V6548FnmPDi1af0X5cUiQ3lkCY/UhmF
+	IFmxJAE5i+a/ZQe3iuetFw3hrdlaEMoVqzQVE6h61+2sXe0AGGRfDbtuaJeXZoVJehokZLACBF3YC
+	YDSkDKPyVYrq7uewzb0er7Q+vOodP7vz1GweUB1zKraNP0fmvzfhy3JBbRf18sCokP/nIkc/t/veT
+	7ZJTpFz2DQqJgyUrFwdz8WChUELfXHOFjiioQvQfx+TSe8ROC+tRYT/oMQfOAtE+EpmNnawKkZl6N
+	rELkKeV7vREb+u0VWyuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qpxfy-00Be3z-1f;
-	Mon, 09 Oct 2023 21:20:30 +0000
+	id 1qpxgA-00BeAQ-1C;
+	Mon, 09 Oct 2023 21:20:42 +0000
 Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qpxfu-00Be1Z-02;
-	Mon, 09 Oct 2023 21:20:27 +0000
+	id 1qpxg4-00Be7N-2d;
+	Mon, 09 Oct 2023 21:20:39 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by ams.source.kernel.org (Postfix) with ESMTP id 81EE0B81736;
+	by ams.source.kernel.org (Postfix) with ESMTP id 57ABEB81737;
+	Mon,  9 Oct 2023 21:20:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 57782C433A9;
 	Mon,  9 Oct 2023 21:20:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9A8BCC43397;
-	Mon,  9 Oct 2023 21:20:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1696886423;
-	bh=qv+Y57MlZMLwkqB8O60+0DiPLEkUZWkKZe9KzhoJldc=;
+	s=k20201202; t=1696886434;
+	bh=IUe9zQKsuCSW8PZPXBcaUGQEXOnvJDkNFrZmACx/Wc8=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=UT3LTAkFViz27WO2a1m/giMM3usPYkfzypcwZepfADL9BLFOYD1xV49Y8R83EHv9d
-	 U/lhj0L7pR89Dap4i9W1pFwEUKsiLm3GOAhPqXi7aE3QEvFJ/734gTflNsEJfWm2w4
-	 njavechlp0UoJJlTm0q667uw+TWTV3RycMm7i0H/841ADy7IHGfbpupktL2PF75gmU
-	 WBJRDVA3CL33jAJjHhRa0RIwPDR3kChFa+bgx1aw1KfIZCXO3Fh2dtrJ8tMoguvVEE
-	 zL+j0gjEBRl8jzm90qcbA4AlVl+vMFffaF0tIghzZUgaXxpLivnkGDQtZFzudGBMhl
-	 FHkZ1NMn75L+g==
+	b=NmSWIJiIMcyJjUfY5qC1+UVpedpmfmM66fmZu9OPQGX55nM5F1ijugpZATvGMMYLN
+	 4OtJ68KWwnxC5sKEJHnXB0aPfh+L7jtRdvG3Ur9gFXkeieGSWAIA5v1RDLallZ7LaF
+	 ECZ4HTzfRXUiKmQKck0yRmHpvNA52NglqFMVnZjDkiAdX+Jc8CuUNLPfTEUBovYWNI
+	 KCj8GVKYtCzYKzH0wh/izBEtRrF1Kby4mGFn1lYaWezV/u9j863swaEgD7FOiPVxvg
+	 rv5hmStNIP5G+DhKDG1qddwfAUsgPb2O3uS107yfh00B9t616gUllJtrSz0BpX17wX
+	 Z9rWHJNyiE9Iw==
 From: Arnd Bergmann <arnd@kernel.org>
 To: Thomas Zimmermann <tzimmermann@suse.de>,
 	linux-fbdev@vger.kernel.org,
@@ -95,16 +95,16 @@ Cc: Arnd Bergmann <arnd@arndb.de>,
 	linux-sh@vger.kernel.org,
 	sparclinux@vger.kernel.org,
 	linux-hyperv@vger.kernel.org
-Subject: [PATCH v3 7/9] vga16fb: drop powerpc support
-Date: Mon,  9 Oct 2023 23:18:43 +0200
-Message-Id: <20231009211845.3136536-8-arnd@kernel.org>
+Subject: [PATCH v3 8/9] hyperv: avoid dependency on screen_info
+Date: Mon,  9 Oct 2023 23:18:44 +0200
+Message-Id: <20231009211845.3136536-9-arnd@kernel.org>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20231009211845.3136536-1-arnd@kernel.org>
 References: <20231009211845.3136536-1-arnd@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231009_142026_315000_EB41AF53 
-X-CRM114-Status: GOOD (  22.05  )
+X-CRM114-CacheID: sfid-20231009_142037_126723_6DD3E758 
+X-CRM114-Status: GOOD (  18.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,112 +123,91 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Arnd Bergmann <arnd@arndb.de>
 
-I noticed that commit 0db5b61e0dc07 ("fbdev/vga16fb: Create
-EGA/VGA devices in sysfb code") broke vga16fb on non-x86 platforms,
-because the sysfb code never creates a vga-framebuffer device when
-screen_info.orig_video_isVGA is set to '1' instead of VIDEO_TYPE_VGAC.
+The two hyperv framebuffer drivers (hyperv_fb or hyperv_drm_drv) access the
+global screen_info in order to take over from the sysfb framebuffer, which
+in turn could be handled by simplefb, simpledrm or efifb. Similarly, the
+vmbus_drv code marks the original EFI framebuffer as reserved, but this
+is not required if there is no sysfb.
 
-However, it turns out that the only architecture that has allowed
-building vga16fb in the past 20 years is powerpc, and this only worked
-on two 32-bit platforms and never on 64-bit powerpc. The last machine
-that actually used this was removed in linux-3.10, so this is all dead
-code and can be removed.
+As a preparation for making screen_info itself more local to the sysfb
+helper code, add a compile-time conditional in all three files that relate
+to hyperv fb and just skip this code if there is no sysfb that needs to
+be unregistered.
 
-The big-endian support in vga16fb.c could also be removed, but I'd just
-leave this in place.
-
-Fixes: 933ee7119fb14 ("powerpc: remove PReP platform")
 Reviewed-by: Javier Martinez Canillas <javierm@redhat.com>
 Acked-by: Helge Deller <deller@gmx.de>
 Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 ---
- arch/powerpc/kernel/setup-common.c | 16 ----------------
- drivers/video/fbdev/Kconfig        |  2 +-
- drivers/video/fbdev/vga16fb.c      |  9 +--------
- 3 files changed, 2 insertions(+), 25 deletions(-)
+ drivers/gpu/drm/hyperv/hyperv_drm_drv.c | 7 ++++---
+ drivers/hv/vmbus_drv.c                  | 6 ++++--
+ drivers/video/fbdev/hyperv_fb.c         | 8 ++++----
+ 3 files changed, 12 insertions(+), 9 deletions(-)
 
-diff --git a/arch/powerpc/kernel/setup-common.c b/arch/powerpc/kernel/setup-common.c
-index 2f1026fba00d5..22d48a5430611 100644
---- a/arch/powerpc/kernel/setup-common.c
-+++ b/arch/powerpc/kernel/setup-common.c
-@@ -22,7 +22,6 @@
- #include <linux/seq_file.h>
- #include <linux/ioport.h>
- #include <linux/console.h>
--#include <linux/screen_info.h>
- #include <linux/root_dev.h>
- #include <linux/cpu.h>
- #include <linux/unistd.h>
-@@ -98,21 +97,6 @@ int boot_cpu_hwid = -1;
- int dcache_bsize;
- int icache_bsize;
+diff --git a/drivers/gpu/drm/hyperv/hyperv_drm_drv.c b/drivers/gpu/drm/hyperv/hyperv_drm_drv.c
+index 58b0b46a21e68..d511d17c5bdfc 100644
+--- a/drivers/gpu/drm/hyperv/hyperv_drm_drv.c
++++ b/drivers/gpu/drm/hyperv/hyperv_drm_drv.c
+@@ -73,9 +73,10 @@ static int hyperv_setup_vram(struct hyperv_drm_device *hv,
+ 	struct drm_device *dev = &hv->dev;
+ 	int ret;
  
--/*
-- * This still seems to be needed... -- paulus
-- */ 
--struct screen_info screen_info = {
--	.orig_x = 0,
--	.orig_y = 25,
--	.orig_video_cols = 80,
--	.orig_video_lines = 25,
--	.orig_video_isVGA = 1,
--	.orig_video_points = 16
--};
--#if defined(CONFIG_FB_VGA16_MODULE)
--EXPORT_SYMBOL(screen_info);
--#endif
--
- /* Variables required to store legacy IO irq routing */
- int of_i8042_kbd_irq;
- EXPORT_SYMBOL_GPL(of_i8042_kbd_irq);
-diff --git a/drivers/video/fbdev/Kconfig b/drivers/video/fbdev/Kconfig
-index 5bea59f29d2fe..ab40ff33a8495 100644
---- a/drivers/video/fbdev/Kconfig
-+++ b/drivers/video/fbdev/Kconfig
-@@ -364,7 +364,7 @@ config FB_IMSTT
+-	drm_aperture_remove_conflicting_framebuffers(screen_info.lfb_base,
+-						     screen_info.lfb_size,
+-						     &hyperv_driver);
++	if (IS_ENABLED(CONFIG_SYSFB))
++		drm_aperture_remove_conflicting_framebuffers(screen_info.lfb_base,
++							     screen_info.lfb_size,
++							     &hyperv_driver);
  
- config FB_VGA16
- 	tristate "VGA 16-color graphics support"
--	depends on FB && (X86 || PPC)
-+	depends on FB && X86
- 	select APERTURE_HELPERS
- 	select FB_CFB_FILLRECT
- 	select FB_CFB_COPYAREA
-diff --git a/drivers/video/fbdev/vga16fb.c b/drivers/video/fbdev/vga16fb.c
-index b43c874c199f6..6094080852a53 100644
---- a/drivers/video/fbdev/vga16fb.c
-+++ b/drivers/video/fbdev/vga16fb.c
-@@ -185,8 +185,6 @@ static inline void setindex(int index)
- /* Check if the video mode is supported by the driver */
- static inline int check_mode_supported(const struct screen_info *si)
- {
--	/* non-x86 architectures treat orig_video_isVGA as a boolean flag */
--#if defined(CONFIG_X86)
- 	/* only EGA and VGA in 16 color graphic mode are supported */
- 	if (si->orig_video_isVGA != VIDEO_TYPE_EGAC &&
- 	    si->orig_video_isVGA != VIDEO_TYPE_VGAC)
-@@ -197,7 +195,7 @@ static inline int check_mode_supported(const struct screen_info *si)
- 	    si->orig_video_mode != 0x10 &&	/* 640x350/4 (EGA) */
- 	    si->orig_video_mode != 0x12)	/* 640x480/4 (VGA) */
- 		return -ENODEV;
--#endif
-+
+ 	hv->fb_size = (unsigned long)hv->mmio_megabytes * 1024 * 1024;
+ 
+diff --git a/drivers/hv/vmbus_drv.c b/drivers/hv/vmbus_drv.c
+index edbb38f6956b9..b33d5abd9beb2 100644
+--- a/drivers/hv/vmbus_drv.c
++++ b/drivers/hv/vmbus_drv.c
+@@ -2100,8 +2100,10 @@ static void __maybe_unused vmbus_reserve_fb(void)
+ 
+ 	if (efi_enabled(EFI_BOOT)) {
+ 		/* Gen2 VM: get FB base from EFI framebuffer */
+-		start = screen_info.lfb_base;
+-		size = max_t(__u32, screen_info.lfb_size, 0x800000);
++		if (IS_ENABLED(CONFIG_SYSFB)) {
++			start = screen_info.lfb_base;
++			size = max_t(__u32, screen_info.lfb_size, 0x800000);
++		}
+ 	} else {
+ 		/* Gen1 VM: get FB base from PCI */
+ 		pdev = pci_get_device(PCI_VENDOR_ID_MICROSOFT,
+diff --git a/drivers/video/fbdev/hyperv_fb.c b/drivers/video/fbdev/hyperv_fb.c
+index 2e27c6bd80442..bf59daf862fc7 100644
+--- a/drivers/video/fbdev/hyperv_fb.c
++++ b/drivers/video/fbdev/hyperv_fb.c
+@@ -1010,7 +1010,7 @@ static int hvfb_getmem(struct hv_device *hdev, struct fb_info *info)
+ 			goto getmem_done;
+ 		}
+ 		pr_info("Unable to allocate enough contiguous physical memory on Gen 1 VM. Using MMIO instead.\n");
+-	} else {
++	} else if (IS_ENABLED(CONFIG_SYSFB)) {
+ 		base = screen_info.lfb_base;
+ 		size = screen_info.lfb_size;
+ 	}
+@@ -1056,13 +1056,13 @@ static int hvfb_getmem(struct hv_device *hdev, struct fb_info *info)
+ getmem_done:
+ 	aperture_remove_conflicting_devices(base, size, KBUILD_MODNAME);
+ 
+-	if (gen2vm) {
++	if (!gen2vm) {
++		pci_dev_put(pdev);
++	} else if (IS_ENABLED(CONFIG_SYSFB)) {
+ 		/* framebuffer is reallocated, clear screen_info to avoid misuse from kexec */
+ 		screen_info.lfb_size = 0;
+ 		screen_info.lfb_base = 0;
+ 		screen_info.orig_video_isVGA = 0;
+-	} else {
+-		pci_dev_put(pdev);
+ 	}
+ 
  	return 0;
- }
- 
-@@ -1338,12 +1336,7 @@ static int vga16fb_probe(struct platform_device *dev)
- 	printk(KERN_INFO "vga16fb: mapped to 0x%p\n", info->screen_base);
- 	par = info->par;
- 
--#if defined(CONFIG_X86)
- 	par->isVGA = si->orig_video_isVGA == VIDEO_TYPE_VGAC;
--#else
--	/* non-x86 architectures treat orig_video_isVGA as a boolean flag */
--	par->isVGA = si->orig_video_isVGA;
--#endif
- 	par->palette_blanked = 0;
- 	par->vesa_blanked = 0;
- 
 -- 
 2.39.2
 
