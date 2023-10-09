@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CBABCD6139
-	for <linux-riscv@archiver.kernel.org>; Mon,  9 Oct 2023 21:19:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 067D7CD613A
+	for <linux-riscv@archiver.kernel.org>; Mon,  9 Oct 2023 21:19:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=rsY8JXKTprbLn9V5yLVeQNE76+YJBl/bzY3ZAR3vv1w=; b=VCTe81w6o4eTKw
-	eQnmMuce3lMmYtEmU3fDCKuX7K5jfieUl6kPShWSHiVzdvyoha0sjXmrhb3yXSJp8TCO8uv9GebiD
-	aj1y9H8vP/CaZPVMlYplr54mNFUEhfrVYCqGKIrIlmdlF6Tz+gF6bypLiKLEabB47Wak6fE1G1Wrc
-	A1iCxVzePnLdPZUrgxais7IR/Qt+07lbOaPrjKJf0Cn/cuT7gdm9c8hmrtLkN5oJfpDseNH78AuKo
-	X+qCCtTRscpoz5c/3tHyKMj/5o3wy1YfVgki/q2WRjR5k5+o/1f4OaFC56e+oXU/2kEGiuevW6809
-	hcwooLvXcptFZXEetBIg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=7MUOu7Ta9euISlnmyQzFhV3HFwoeHqD2psH0E9sds7s=; b=m3Uv0jJ1/QqLff
+	DrykV1OkwbOxSblLXVHa3ORos9b7hzqGZ+SN5uqndbJMrt08bzOpOETdtajDwifwbumr+52+nb1hq
+	UgX9UD35qAhX81Gv3ddJPPxZyxbRGDqSI8M1Zj8iDx5B088VATtgjdTio36RoAIOxDvkbNd1xE/Fk
+	IRh0c59lkNCcJaSWplfXDpPWCY79nrbNS7bFRdUIJUIKLXuWtPAX1XCoJLxbj+VV5DKqEWgOa1N18
+	8VYrBFegqTIja6G+rB3i5e0sQe3o38aUGpz6QD/nD/dUFFcKcNR6G3Vve7aRQ49ifyIaoGdtDg7w4
+	lSMl0AFlseGOZs0Xx9NA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qpxel-00Bdb2-2J;
-	Mon, 09 Oct 2023 21:19:15 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1qpxf5-00Bdgb-2d;
+	Mon, 09 Oct 2023 21:19:35 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qpxeh-00BdaM-0q;
-	Mon, 09 Oct 2023 21:19:13 +0000
+	id 1qpxf2-00BdfV-04;
+	Mon, 09 Oct 2023 21:19:33 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by ams.source.kernel.org (Postfix) with ESMTP id 10131B81719;
-	Mon,  9 Oct 2023 21:19:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F1D85C433C8;
-	Mon,  9 Oct 2023 21:18:57 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTP id 88825B8172E;
+	Mon,  9 Oct 2023 21:19:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A3062C433CC;
+	Mon,  9 Oct 2023 21:19:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1696886348;
-	bh=TSGItzmReuXxWm++8av4ew2EUzZA35IjrSGdiAa7ie8=;
-	h=From:To:Cc:Subject:Date:From;
-	b=AR02btZ4mgp9dab3ACYI6igrBGiVFEQdmNWNcxHdD8UJq1EhYHaLIGjb3Cwv4s+g+
-	 mmathlc5Veu0bcn46YVnxKQY9ABGfLimELcNw0klUlNtKHXpOmX5SgqRxTUCkLFS3o
-	 ZS0Ueu7JemOZJOGzANL0FRGqVPg0BpVr9dfyhsQ5nDwbUv63LLomoFEIvX/7i3O4Bj
-	 U55wVSdhQ8c2iMBNqigs0yUvbVUtg7hwnPp/Vnt3CUqJhGNKIVOsAVmLVPmdhMkwyJ
-	 uLzJxnSI5zcAdgJpatcdE4e1r1jp90wyIblBOJG7uZmhXO5MwaO5T8h/WirbhImG9y
-	 IaGxkq1DM1dMw==
+	s=k20201202; t=1696886369;
+	bh=modCYQgfOeQrtC/CGiIQrw25js553E9ws0Ux0pP33G8=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=RZvQLN1reBvPh6h6BBBbEqpwAXfA0+Ht6q7XLEYB3XyAA2tGInFxPzWJd+sbGPfg4
+	 5REzAoOE8STAUNlkeoLbOkI22lnpyNLIN2P0xu/Fryyu8DKJJ3DLH04r/nseePtenr
+	 gQgyRzUBn4KPcC6qArmpZOxIAw5k1kicgQtlL/ysZpL+QD5Y1+dw1qUudF7nhgiozX
+	 LU9DHp0xOY0aLmA0PtPbV5m2+TsA0oRWWT5wuFBHuCCCs07tZxjI0SkEsxrvHNAYeD
+	 uoWG/y7mrCCB6h7NSNAtEEcneVezn+DBgMYRBxVXQ9U5305LSAFo0UpsJM/HGI2urg
+	 U81ZdSkLsOh2g==
 From: Arnd Bergmann <arnd@kernel.org>
 To: Thomas Zimmermann <tzimmermann@suse.de>,
 	linux-fbdev@vger.kernel.org,
@@ -95,14 +95,16 @@ Cc: Arnd Bergmann <arnd@arndb.de>,
 	linux-sh@vger.kernel.org,
 	sparclinux@vger.kernel.org,
 	linux-hyperv@vger.kernel.org
-Subject: [PATCH v3 0/9] video: screen_info cleanups
-Date: Mon,  9 Oct 2023 23:18:36 +0200
-Message-Id: <20231009211845.3136536-1-arnd@kernel.org>
+Subject: [PATCH v3 2/9] vgacon: rework screen_info #ifdef checks
+Date: Mon,  9 Oct 2023 23:18:38 +0200
+Message-Id: <20231009211845.3136536-3-arnd@kernel.org>
 X-Mailer: git-send-email 2.39.2
+In-Reply-To: <20231009211845.3136536-1-arnd@kernel.org>
+References: <20231009211845.3136536-1-arnd@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231009_141911_613334_8C345F3E 
-X-CRM114-Status: GOOD (  19.71  )
+X-CRM114-CacheID: sfid-20231009_141932_324748_1B57D99D 
+X-CRM114-Status: GOOD (  21.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,148 +123,189 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Arnd Bergmann <arnd@arndb.de>
 
-v3 changelog
+On non-x86 architectures, the screen_info variable is generally only
+used for the VGA console where supported, and in some cases the EFI
+framebuffer or vga16fb.
 
-No real changes, just rebased for context changes, and picked up the Acks.
+Now that we have a definite list of which architectures actually use it
+for what, use consistent #ifdef checks so the global variable is only
+defined when it is actually used on those architectures.
 
-This now conflicts with the ia64 removal and introduces one new dependency
-on IA64, but that is harmless and trivial to deal with later.
+Loongarch and riscv have no support for vgacon or vga16fb, but
+they support EFI firmware, so only that needs to be checked, and the
+initialization can be removed because that is handled by EFI.
+IA64 has both vgacon and EFI, though EFI apparently never uses
+a framebuffer here.
 
-Link: https://lore.kernel.org/lkml/20230719123944.3438363-1-arnd@kernel.org/
+Reviewed-by: Javier Martinez Canillas <javierm@redhat.com>
+Reviewed-by: Thomas Zimmermann <tzimmermann@suse.de>
+Reviewed-by: Khalid Aziz <khalid@gonehiking.org>
+Acked-by: Helge Deller <deller@gmx.de>
+Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 ---
-v2 changelog
+v2 changes:
+ - split out mips/jazz change
+ - improve ia64 #ifdef changes
+---
+ arch/alpha/kernel/setup.c      |  2 ++
+ arch/alpha/kernel/sys_sio.c    |  2 ++
+ arch/ia64/kernel/setup.c       |  6 ++++++
+ arch/loongarch/kernel/setup.c  |  2 ++
+ arch/mips/kernel/setup.c       |  2 +-
+ arch/mips/sibyte/swarm/setup.c |  2 +-
+ arch/mips/sni/setup.c          |  2 +-
+ arch/riscv/kernel/setup.c      | 11 ++---------
+ 8 files changed, 17 insertions(+), 12 deletions(-)
 
-I refreshed the first four patches that I sent before with very minor
-updates, and then added some more to further disaggregate the use
-of screen_info:
-
- - I found that powerpc wasn't using vga16fb any more
-
- - vgacon can be almost entirely separated from the global
-   screen_info, except on x86
-
- - similarly, the EFI framebuffer initialization can be
-   kept separate, except on x86.
-
-I did extensive build testing on arm/arm64/x86 and the normal built bot
-testing for the other architectures.
-
-Which tree should this get merged through?
-
-Link: https://lore.kernel.org/lkml/20230707095415.1449376-1-arnd@kernel.org/
-
-
-Arnd Bergmann (9):
-  vgacon: rework Kconfig dependencies
-  vgacon: rework screen_info #ifdef checks
-  dummycon: limit Arm console size hack to footbridge
-  vgacon, arch/*: remove unused screen_info definitions
-  vgacon: remove screen_info dependency
-  vgacon: clean up global screen_info instances
-  vga16fb: drop powerpc support
-  hyperv: avoid dependency on screen_info
-  efi: move screen_info into efi init code
-
- arch/alpha/kernel/proto.h                     |  2 +
- arch/alpha/kernel/setup.c                     |  8 +--
- arch/alpha/kernel/sys_sio.c                   |  8 ++-
- arch/arm/include/asm/setup.h                  |  5 ++
- arch/arm/kernel/atags_parse.c                 | 20 +++---
- arch/arm/kernel/efi.c                         |  6 --
- arch/arm/kernel/setup.c                       | 11 +--
- arch/arm64/kernel/efi.c                       |  4 --
- arch/arm64/kernel/image-vars.h                |  2 +
- arch/csky/kernel/setup.c                      | 12 ----
- arch/hexagon/kernel/Makefile                  |  2 -
- arch/hexagon/kernel/screen_info.c             |  3 -
- arch/ia64/kernel/setup.c                      | 53 ++++++++-------
- arch/loongarch/kernel/efi.c                   |  3 +-
- arch/loongarch/kernel/image-vars.h            |  2 +
- arch/loongarch/kernel/setup.c                 |  3 -
- arch/mips/jazz/setup.c                        |  9 ---
- arch/mips/kernel/setup.c                      | 11 ---
- arch/mips/mti-malta/malta-setup.c             |  4 +-
- arch/mips/sibyte/swarm/setup.c                | 26 ++++---
- arch/mips/sni/setup.c                         | 18 ++---
- arch/nios2/kernel/setup.c                     |  5 --
- arch/powerpc/kernel/setup-common.c            | 16 -----
- arch/riscv/kernel/image-vars.h                |  2 +
- arch/riscv/kernel/setup.c                     | 12 ----
- arch/sh/kernel/setup.c                        |  5 --
- arch/sparc/kernel/setup_32.c                  | 13 ----
- arch/sparc/kernel/setup_64.c                  | 13 ----
- arch/x86/kernel/setup.c                       |  2 +-
- arch/xtensa/kernel/setup.c                    | 12 ----
- drivers/firmware/efi/efi-init.c               | 14 +++-
- drivers/firmware/efi/libstub/efi-stub-entry.c |  8 ++-
- drivers/firmware/pcdp.c                       |  1 -
- drivers/gpu/drm/hyperv/hyperv_drm_drv.c       |  7 +-
- drivers/hv/vmbus_drv.c                        |  6 +-
- drivers/video/console/Kconfig                 | 11 +--
- drivers/video/console/dummycon.c              |  2 +-
- drivers/video/console/vgacon.c                | 68 +++++++++++--------
- drivers/video/fbdev/Kconfig                   |  2 +-
- drivers/video/fbdev/hyperv_fb.c               |  8 +--
- drivers/video/fbdev/vga16fb.c                 |  9 +--
- include/linux/console.h                       |  7 ++
- 42 files changed, 183 insertions(+), 252 deletions(-)
- delete mode 100644 arch/hexagon/kernel/screen_info.c
-
+diff --git a/arch/alpha/kernel/setup.c b/arch/alpha/kernel/setup.c
+index c80258ec332ff..85a679ce061c2 100644
+--- a/arch/alpha/kernel/setup.c
++++ b/arch/alpha/kernel/setup.c
+@@ -131,6 +131,7 @@ static void determine_cpu_caches (unsigned int);
+ 
+ static char __initdata command_line[COMMAND_LINE_SIZE];
+ 
++#ifdef CONFIG_VGA_CONSOLE
+ /*
+  * The format of "screen_info" is strange, and due to early
+  * i386-setup code. This is just enough to make the console
+@@ -147,6 +148,7 @@ struct screen_info screen_info = {
+ };
+ 
+ EXPORT_SYMBOL(screen_info);
++#endif
+ 
+ /*
+  * The direct map I/O window, if any.  This should be the same
+diff --git a/arch/alpha/kernel/sys_sio.c b/arch/alpha/kernel/sys_sio.c
+index 7c420d8dac53d..7de8a5d2d2066 100644
+--- a/arch/alpha/kernel/sys_sio.c
++++ b/arch/alpha/kernel/sys_sio.c
+@@ -57,11 +57,13 @@ sio_init_irq(void)
+ static inline void __init
+ alphabook1_init_arch(void)
+ {
++#ifdef CONFIG_VGA_CONSOLE
+ 	/* The AlphaBook1 has LCD video fixed at 800x600,
+ 	   37 rows and 100 cols. */
+ 	screen_info.orig_y = 37;
+ 	screen_info.orig_video_cols = 100;
+ 	screen_info.orig_video_lines = 37;
++#endif
+ 
+ 	lca_init_arch();
+ }
+diff --git a/arch/ia64/kernel/setup.c b/arch/ia64/kernel/setup.c
+index 5a55ac82c13a4..d2c66efdde560 100644
+--- a/arch/ia64/kernel/setup.c
++++ b/arch/ia64/kernel/setup.c
+@@ -86,9 +86,13 @@ EXPORT_SYMBOL(local_per_cpu_offset);
+ #endif
+ unsigned long ia64_cycles_per_usec;
+ struct ia64_boot_param *ia64_boot_param;
++#if defined(CONFIG_VGA_CONSOLE) || defined(CONFIG_EFI)
+ struct screen_info screen_info;
++#endif
++#ifdef CONFIG_VGA_CONSOLE
+ unsigned long vga_console_iobase;
+ unsigned long vga_console_membase;
++#endif
+ 
+ static struct resource data_resource = {
+ 	.name	= "Kernel data",
+@@ -497,6 +501,7 @@ early_console_setup (char *cmdline)
+ static void __init
+ screen_info_setup(void)
+ {
++#ifdef CONFIG_VGA_CONSOLE
+ 	unsigned int orig_x, orig_y, num_cols, num_rows, font_height;
+ 
+ 	memset(&screen_info, 0, sizeof(screen_info));
+@@ -525,6 +530,7 @@ screen_info_setup(void)
+ 	screen_info.orig_video_mode = 3;	/* XXX fake */
+ 	screen_info.orig_video_isVGA = 1;	/* XXX fake */
+ 	screen_info.orig_video_ega_bx = 3;	/* XXX fake */
++#endif
+ }
+ 
+ static inline void
+diff --git a/arch/loongarch/kernel/setup.c b/arch/loongarch/kernel/setup.c
+index 4de32b07c0dcd..0d5edf1f7e4a1 100644
+--- a/arch/loongarch/kernel/setup.c
++++ b/arch/loongarch/kernel/setup.c
+@@ -57,7 +57,9 @@
+ #define SMBIOS_CORE_PACKAGE_OFFSET	0x23
+ #define LOONGSON_EFI_ENABLE		(1 << 3)
+ 
++#ifdef CONFIG_EFI
+ struct screen_info screen_info __section(".data");
++#endif
+ 
+ unsigned long fw_arg0, fw_arg1, fw_arg2;
+ DEFINE_PER_CPU(unsigned long, kernelsp);
+diff --git a/arch/mips/kernel/setup.c b/arch/mips/kernel/setup.c
+index 08321c945ac41..7c81366f26068 100644
+--- a/arch/mips/kernel/setup.c
++++ b/arch/mips/kernel/setup.c
+@@ -54,7 +54,7 @@ struct cpuinfo_mips cpu_data[NR_CPUS] __read_mostly;
+ 
+ EXPORT_SYMBOL(cpu_data);
+ 
+-#ifdef CONFIG_VT
++#ifdef CONFIG_VGA_CONSOLE
+ struct screen_info screen_info;
+ #endif
+ 
+diff --git a/arch/mips/sibyte/swarm/setup.c b/arch/mips/sibyte/swarm/setup.c
+index 76683993cdd3a..37df504d3ecbb 100644
+--- a/arch/mips/sibyte/swarm/setup.c
++++ b/arch/mips/sibyte/swarm/setup.c
+@@ -129,7 +129,7 @@ void __init plat_mem_setup(void)
+ 	if (m41t81_probe())
+ 		swarm_rtc_type = RTC_M41T81;
+ 
+-#ifdef CONFIG_VT
++#ifdef CONFIG_VGA_CONSOLE
+ 	screen_info = (struct screen_info) {
+ 		.orig_video_page	= 52,
+ 		.orig_video_mode	= 3,
+diff --git a/arch/mips/sni/setup.c b/arch/mips/sni/setup.c
+index efad85c8c823b..9984cf91be7d0 100644
+--- a/arch/mips/sni/setup.c
++++ b/arch/mips/sni/setup.c
+@@ -38,7 +38,7 @@ extern void sni_machine_power_off(void);
+ 
+ static void __init sni_display_setup(void)
+ {
+-#if defined(CONFIG_VT) && defined(CONFIG_VGA_CONSOLE) && defined(CONFIG_FW_ARC)
++#if defined(CONFIG_VGA_CONSOLE) && defined(CONFIG_FW_ARC)
+ 	struct screen_info *si = &screen_info;
+ 	DISPLAY_STATUS *di;
+ 
+diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+index aac853ae4eb74..0c466a50f1744 100644
+--- a/arch/riscv/kernel/setup.c
++++ b/arch/riscv/kernel/setup.c
+@@ -40,15 +40,8 @@
+ 
+ #include "head.h"
+ 
+-#if defined(CONFIG_DUMMY_CONSOLE) || defined(CONFIG_EFI)
+-struct screen_info screen_info __section(".data") = {
+-	.orig_video_lines	= 30,
+-	.orig_video_cols	= 80,
+-	.orig_video_mode	= 0,
+-	.orig_video_ega_bx	= 0,
+-	.orig_video_isVGA	= 1,
+-	.orig_video_points	= 8
+-};
++#if defined(CONFIG_EFI)
++struct screen_info screen_info __section(".data");
+ #endif
+ 
+ /*
 -- 
 2.39.2
-
-Cc: "David S. Miller" <davem@davemloft.net>
-Cc: "K. Y. Srinivasan" <kys@microsoft.com>
-Cc: Ard Biesheuvel <ardb@kernel.org>
-Cc: Borislav Petkov <bp@alien8.de>
-Cc: Brian Cain <bcain@quicinc.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Christophe Leroy <christophe.leroy@csgroup.eu>
-Cc: Daniel Vetter <daniel@ffwll.ch>
-Cc: Dave Hansen <dave.hansen@linux.intel.com>
-Cc: David Airlie <airlied@gmail.com>
-Cc: Deepak Rawat <drawat.floss@gmail.com>
-Cc: Dexuan Cui <decui@microsoft.com>
-Cc: Dinh Nguyen <dinguyen@kernel.org>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Guo Ren <guoren@kernel.org>
-Cc: Haiyang Zhang <haiyangz@microsoft.com>
-Cc: Helge Deller <deller@gmx.de>
-Cc: Huacai Chen <chenhuacai@kernel.org>
-Cc: Ingo Molnar <mingo@redhat.com>
-Cc: Javier Martinez Canillas <javierm@redhat.com>
-Cc: John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>
-Cc: Khalid Aziz <khalid@gonehiking.org>
-Cc: Linus Walleij <linus.walleij@linaro.org>
-Cc: Matt Turner <mattst88@gmail.com>
-Cc: Max Filippov <jcmvbkbc@gmail.com>
-Cc: Michael Ellerman <mpe@ellerman.id.au>
-Cc: Nicholas Piggin <npiggin@gmail.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: Russell King <linux@armlinux.org.uk>
-Cc: Thomas Bogendoerfer <tsbogend@alpha.franken.de>
-Cc: Thomas Gleixner <tglx@linutronix.de>
-Cc: Thomas Zimmermann <tzimmermann@suse.de>
-Cc: WANG Xuerui <kernel@xen0n.name>
-Cc: Wei Liu <wei.liu@kernel.org>
-Cc: Will Deacon <will@kernel.org>
-Cc: x86@kernel.org
-Cc: linux-alpha@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-efi@vger.kernel.org
-Cc: linux-csky@vger.kernel.org
-Cc: linux-hexagon@vger.kernel.org
-Cc: linux-ia64@vger.kernel.org
-Cc: loongarch@lists.linux.dev
-Cc: linux-mips@vger.kernel.org
-Cc: linuxppc-dev@lists.ozlabs.org
-Cc: linux-riscv@lists.infradead.org
-Cc: linux-sh@vger.kernel.org
-Cc: sparclinux@vger.kernel.org
-Cc: linux-hyperv@vger.kernel.org
-Cc: dri-devel@lists.freedesktop.org
-Cc: linux-fbdev@vger.kernel.org
 
 
 _______________________________________________
