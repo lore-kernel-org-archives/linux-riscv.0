@@ -4,67 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D69ECD6125
-	for <linux-riscv@archiver.kernel.org>; Mon,  9 Oct 2023 18:51:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EBB2CD613A
+	for <linux-riscv@archiver.kernel.org>; Mon,  9 Oct 2023 21:19:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mykJq1/4CeKB8pADKpiwrIwJ9PM8CqCMsnJfG0+jIAg=; b=anzdCB+2dd0mS/f7QL7Sd7+gjN
-	RuCBGNLXJfVH4DIf9yRoWik5BdGv7Xh/TWqy6kdGAEp4apruF20uph9t7ne6ZUL9IMuzmOr8zs7BR
-	Lr9NgG7/t6eo1YZAlX5vIWeBVifjqlkyCo97N76e373ExLEVxliBKTb17sO4VRNXJFDcujenQbRJC
-	vKsPoH7kYTOEA4eaag+3eAyay1KcBb2TbjuwpSMYGZtFtmsfdvnDcFiRu4Li21ucU+TDK2I2Nq6Oh
-	+UjuOLDIe2lQnRfOSJJVyxRnhtuaMfq6K2de1Kt9y7go6xXBUs6aM6YtuOOo1DexKGVwDWhH5KDh9
-	Gia2HuiQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=MiWKCaCH0QOlaMym9ncWgKzBGu9ATzX6yTM7HsRVgl8=; b=XUUzggzM2tHMeJ
+	F/Qd85a13V25kjSERlJNczBuW3G2Zc4uKE33z0RpE1RMjW/VGC+03Er3cZdRG881TynC8Ew/BfXzd
+	NVY5OZDJW+dhuZoDn86s9J8inw+SwOveJ6XsDflpuanXUQz/VlDz39plBK46V3/b0NDNC5tK3s82F
+	No7/Xf5JmI/87/96OqtO2tS9dztDYloLCui4eczthHUKu1sNsrcSWdT0P7LCquQ1hRTipbAm7AGt7
+	qRlg5naBYTeZWwqxdF+6mlC9Fdn8OKDBMsHDHZmCwlGTm8g5adk00ecMCs2nOayRgZYDtwfkfk7LL
+	/iQ9jMsOSCRGZ9N/GK+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qpvLU-00BRMY-0D;
-	Mon, 09 Oct 2023 18:51:12 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1qpxeu-00Bddy-0i;
+	Mon, 09 Oct 2023 21:19:24 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qpvLR-00BRHo-1M
-	for linux-riscv@lists.infradead.org;
-	Mon, 09 Oct 2023 18:51:11 +0000
+	id 1qpxeq-00Bdbt-14;
+	Mon, 09 Oct 2023 21:19:21 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id E3E6ECE17F6;
-	Mon,  9 Oct 2023 18:51:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 32660C433CA;
-	Mon,  9 Oct 2023 18:51:02 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 8F143613F9;
+	Mon,  9 Oct 2023 21:19:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DA836C43395;
+	Mon,  9 Oct 2023 21:19:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1696877465;
-	bh=EWYoHUxU9PfwIcw6RRafcY/b9jcGCDKgwtSwZ93vXkk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=TRF0Ttm8MJ0ovlRSLQWoooPhqsT+UAvgs1OOYowfWsb+HQKayDzkMSozkTrJldIA+
-	 6bDX75HHnX6Tv7XDvSJxmv/d2Csx6YSHWU7b9AQV4JjRuNa+zNsIXEV2g+BhxAitg7
-	 QCtH7GXLcozgItxfOnEUwUdUCjV8yFsv6L9qjvd187YXfEixVcGKGBHx4TV0Yv/Fh2
-	 J8BdOK0pbJIfxECi9BLj9KueY8NlSYhJ6b4kecg8GzPjfA0wSGxNPlKUJ9nvFb/Xsm
-	 VSAHOAj/da4x8EvrhWD6gcWglOBtkIpel9cd2+8omHCgi/lpYLQ37JiUO104Xh6Auy
-	 Xb8DuPZBDAMKQ==
-Date: Mon, 9 Oct 2023 19:50:59 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Chen Wang <unicorn_wang@outlook.com>
-Cc: Chen Wang <unicornxw@gmail.com>, aou@eecs.berkeley.edu,
-	chao.wei@sophgo.com, devicetree@vger.kernel.org, guoren@kernel.org,
-	jszhang@kernel.org, krzysztof.kozlowski+dt@linaro.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	palmer@dabbelt.com, paul.walmsley@sifive.com, robh+dt@kernel.org,
-	xiaoguang.xing@sophgo.com, apatel@ventanamicro.com
-Subject: Re: [PATCH v5 00/10] Add Milk-V Pioneer RISC-V board support
-Message-ID: <20231009-pretext-snowy-1cfb49990ddb@spud>
-References: <cover.1696663037.git.unicorn_wang@outlook.com>
- <20231007-grasp-retake-0463858c13df@spud>
- <MA0P287MB0332F80102F534CBD7412ED3FEC8A@MA0P287MB0332.INDP287.PROD.OUTLOOK.COM>
- <20231007-kennel-lustily-59b0a9867aaa@spud>
- <MA0P287MB03329460B9F3B79B1148A6FDFEC8A@MA0P287MB0332.INDP287.PROD.OUTLOOK.COM>
- <20231007-green-correct-11d08f650ddd@spud>
- <MA0P287MB0332B11A8481F491E4F0536DFEC8A@MA0P287MB0332.INDP287.PROD.OUTLOOK.COM>
+	s=k20201202; t=1696886359;
+	bh=0oKwSWjQM05Ao/uQ0wsIA8Wzs9vAdnSky5PBtFIwvT4=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=Cc6mgFQ7201CW0jtgb8bIADXktMt8MRMT5x+zQw138I5XhtRj2Z1lwGZhhPijjyLd
+	 kTwWA2c0xvwB5JiFtFlNwyF/2A1exupq+bHGHDWWtDRa+RvKY9VqTvDSMn5AeL+XSl
+	 yGEkvMDkhhWs5RmkDmAujwJhUssc5rFx4IJ6CqRFoUa/PIJIHBcZiNfYy4TdgmWMRg
+	 g/HUVfC3sFvxoDEj4LccmDA703CvrYglGO7CgRuySaLENAMMyCvJ/4Sw/IDMD0JjgG
+	 lXVfBLeNZaf41n+P4kVSO/kwBuSJQEbPztE0iTf6JqGSv44j1av9O3KWNhgiyM7vfm
+	 xaQYicgV0L0lg==
+From: Arnd Bergmann <arnd@kernel.org>
+To: Thomas Zimmermann <tzimmermann@suse.de>,
+	linux-fbdev@vger.kernel.org,
+	dri-devel@lists.freedesktop.org
+Cc: Arnd Bergmann <arnd@arndb.de>,
+	"David S. Miller" <davem@davemloft.net>,
+	"K. Y. Srinivasan" <kys@microsoft.com>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Borislav Petkov <bp@alien8.de>,
+	Brian Cain <bcain@quicinc.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Daniel Vetter <daniel@ffwll.ch>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	David Airlie <airlied@gmail.com>,
+	Deepak Rawat <drawat.floss@gmail.com>,
+	Dexuan Cui <decui@microsoft.com>,
+	Dinh Nguyen <dinguyen@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Guo Ren <guoren@kernel.org>,
+	Haiyang Zhang <haiyangz@microsoft.com>,
+	Helge Deller <deller@gmx.de>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Javier Martinez Canillas <javierm@redhat.com>,
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+	Khalid Aziz <khalid@gonehiking.org>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Matt Turner <mattst88@gmail.com>,
+	Max Filippov <jcmvbkbc@gmail.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	WANG Xuerui <kernel@xen0n.name>,
+	Wei Liu <wei.liu@kernel.org>,
+	Will Deacon <will@kernel.org>,
+	x86@kernel.org,
+	linux-alpha@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-efi@vger.kernel.org,
+	linux-csky@vger.kernel.org,
+	linux-hexagon@vger.kernel.org,
+	linux-ia64@vger.kernel.org,
+	loongarch@lists.linux.dev,
+	linux-mips@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org,
+	linux-sh@vger.kernel.org,
+	sparclinux@vger.kernel.org,
+	linux-hyperv@vger.kernel.org
+Subject: [PATCH v3 1/9] vgacon: rework Kconfig dependencies
+Date: Mon,  9 Oct 2023 23:18:37 +0200
+Message-Id: <20231009211845.3136536-2-arnd@kernel.org>
+X-Mailer: git-send-email 2.39.2
+In-Reply-To: <20231009211845.3136536-1-arnd@kernel.org>
+References: <20231009211845.3136536-1-arnd@kernel.org>
 MIME-Version: 1.0
-In-Reply-To: <MA0P287MB0332B11A8481F491E4F0536DFEC8A@MA0P287MB0332.INDP287.PROD.OUTLOOK.COM>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231009_115109_822134_21C5E09F 
-X-CRM114-Status: GOOD (  26.11  )
+X-CRM114-CacheID: sfid-20231009_141920_455836_3AC939E6 
+X-CRM114-Status: GOOD (  16.92  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,93 +116,67 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============7740353703828891328=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+From: Arnd Bergmann <arnd@arndb.de>
 
---===============7740353703828891328==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="LPpjd4457YnzLrjL"
-Content-Disposition: inline
+The list of dependencies here is phrased as an opt-out, but this is missing
+a lot of architectures that don't actually support VGA consoles, and some
+of the entries are stale:
 
+ - powerpc used to support VGA consoles in the old arch/ppc codebase, but
+   the merged arch/powerpc never did
 
---LPpjd4457YnzLrjL
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+ - arm lists footbridge, integrator and netwinder, but netwinder is actually
+   part of footbridge, and integrator does not appear to have an actual
+   VGA hardware, or list it in its ATAG or DT.
 
-On Sat, Oct 07, 2023 at 08:48:34PM +0800, Chen Wang wrote:
->=20
-> On 2023/10/7 20:36, Conor Dooley wrote:
-> > On Sat, Oct 07, 2023 at 08:25:55PM +0800, Chen Wang wrote:
-> > > On 2023/10/7 19:04, Conor Dooley wrote:
-> > > > On Sat, Oct 07, 2023 at 06:58:51PM +0800, Chen Wang wrote:
-> > > > > On 2023/10/7 18:17, Conor Dooley wrote:
-> > > > > > On Sat, Oct 07, 2023 at 03:52:04PM +0800, Chen Wang wrote:
-> > > > > > > From: Chen Wang <unicorn_wang@outlook.com>
-> > > > > > > Changes in v5:
-> > > > > > >      The patch series is based on v6.6-rc1. You can simply re=
-view or test
-> > > > > > >      the patches at the link [7].
-> > > > > > >      - dts: changed plic to support external interrupt
-> > > > > > >      - pickup improvements from Conor, details refer to [8].
-> > > > > > Did you? I only see them partially picked up. I'll just replace=
- patch 8
-> > > > > > with the patch 8 from this series I think.
-> > > > > Yes, only the patch 8 of this series(v5) is updated for plic node=
-=2E For other
-> > > > > patches, I just cherry-picked them from previous "sophon" branch.
-> > > > But added my signoff? I ended up seeing my signoff on the patch whe=
-re I
-> > > > disagreed with the commit message, which was confusing to me.
-> > > Oh, I used to think I can keep the exising signoff and I didn't mean =
-to add
-> > > it.
-> > I added mine when I applied the patches. It no longer makes sense when
-> > you resent another version.
-> >=20
-> > > Anyway, I agree your suggestion to create a new patch with only one
-> > > change should be better, I will follow this in later work.
-> > :)
-> >=20
-> > > Regarding your changes on sg2042 series, I have acked in another emai=
-l : https://lore.kernel.org/linux-riscv/MA0P287MB0332BA73D0135CC73CAEA16DFE=
-C8A@MA0P287MB0332.INDP287.PROD.OUTLOOK.COM/.
-> > > If anything else required, please feel free let me know.
-> > An ack on Jisheng's series for the cv1800b would be nice.
->=20
-> Done, I have reviewed and acked all the files related to sophgo.
+ - mips has a few platforms (malta, sibyte, and sni) that initialize
+   screen_info, on everything else the console is selected but cannot
+   actually work.
 
-Cool. Both your and Jisheng's series should end up in linux-next
-tomorrow, I've pushed both to the riscv-dt-for-next branch.
+ - csky, hexgagon, loongarch, nios2, riscv and xtensa are not listed
+   in the opt-out table and declare a screen_info to allow building
+   vga_con, but this cannot work because the console is never selected.
 
-Thanks!
+Replace this with an opt-in table that lists only the platforms that
+remain. This is effectively x86, plus a couple of historic workstation
+and server machines that reused parts of the x86 system architecture.
 
---LPpjd4457YnzLrjL
-Content-Type: application/pgp-signature; name="signature.asc"
+Reviewed-by: Javier Martinez Canillas <javierm@redhat.com>
+Reviewed-by: Thomas Zimmermann <tzimmermann@suse.de>
+Reviewed-by: Khalid Aziz <khalid@gonehiking.org>
+Acked-by: Helge Deller <deller@gmx.de>
+Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+---
+ drivers/video/console/Kconfig | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
------BEGIN PGP SIGNATURE-----
+diff --git a/drivers/video/console/Kconfig b/drivers/video/console/Kconfig
+index 30577b1d3de59..cbf303d76d39b 100644
+--- a/drivers/video/console/Kconfig
++++ b/drivers/video/console/Kconfig
+@@ -7,9 +7,9 @@ menu "Console display driver support"
+ 
+ config VGA_CONSOLE
+ 	bool "VGA text console" if EXPERT || !X86
+-	depends on !4xx && !PPC_8xx && !SPARC && !M68K && !PARISC &&  !SUPERH && \
+-		(!ARM || ARCH_FOOTBRIDGE || ARCH_INTEGRATOR || ARCH_NETWINDER) && \
+-		!ARM64 && !ARC && !MICROBLAZE && !OPENRISC && !S390 && !UML
++	depends on ALPHA || IA64 || X86 || \
++		(ARM && ARCH_FOOTBRIDGE) || \
++		(MIPS && (MIPS_MALTA || SIBYTE_BCM112X || SIBYTE_SB1250 || SIBYTE_BCM1x80 || SNI_RM))
+ 	select APERTURE_HELPERS if (DRM || FB || VFIO_PCI_CORE)
+ 	default y
+ 	help
+-- 
+2.39.2
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZSRLkwAKCRB4tDGHoIJi
-0rW9AQCgH7wH465HHkJZUgXkFxDSIGwT+zdKUMYezzCSJmzTiQD/RSTBvwNO9iLX
-1JL/GhqiRgflLbNTazQ/f2/5CdoDRgA=
-=mpd6
------END PGP SIGNATURE-----
-
---LPpjd4457YnzLrjL--
-
-
---===============7740353703828891328==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============7740353703828891328==--
-
