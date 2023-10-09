@@ -4,80 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F4213CD6115
-	for <linux-riscv@archiver.kernel.org>; Mon,  9 Oct 2023 17:43:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AFDACD6114
+	for <linux-riscv@archiver.kernel.org>; Mon,  9 Oct 2023 17:53:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UdUfMPmb3opkGYCFri4IcE9pwnBDZ9fpaOxy4y7+/2s=; b=uzzihimYkImOjf
-	SKKnQVZvT6S2v6KXCTzmyqqYVioT5S1T+1KC0E6d4bbwMBuafxAjhMK9tcE4kz7gwfDeNWETlUIm0
-	4cRRmfOdCm8rLoqg0hsjwWFPpdyRDXyqeen9PaFv/R5ZRk1xk0MHhC8tlF1vsad3Ak3KBu2r0iRhx
-	fRWQhZazKqVZp++BCDJNbViweoBtnhpxPLqf5OGqchiLr+mvFaGTLQatwdJjna/bBpdAbhezAX43l
-	5QMo3FXFF8TBV1x2UqRslMEoKA8aq9H8M1et3sycE61SWA53cqShoSQ7ajktocwFyqL+UMCgrkffR
-	vY5tPDCnyAVcJfzPbqWw==;
+	List-Owner; bh=2ZbNHF3AFbNdlGd5dPx9BTrSdOnawgBIOkQdV9Z2ZR4=; b=oHW09VmzAePhfZ
+	57d7ua8SWL1VkJoBN2SxYXzAzi7WyOq+aQlcxBYTtg1mcaYKbeL7PjwV4Yk0zBfqSSkcwaMl7Muoz
+	znTqQHbHv2TYda+Ud9fnvehs30XC4/M3rbN4sqEXcHdHSEuzGFYP4HWUpTm6ppMgeOaqTYwuo3vKk
+	K8uHbCXiDt9Ar549Deh9T2Iln2sx58/F1PF7udZS5a8+6y81dxlZrkItrv+r6fp1LEjFhAzph8tDt
+	VL9z2AlLxWXMIvwEFs2trUogl/sTsCGCODwGHe7BEe/f7US4K6BMQB1T9dLw8QS8+0Aj7Bz3gZ9kA
+	n8afpsbWt3Z8iSX0Q/0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qpuHo-00BKtc-2I;
-	Mon, 09 Oct 2023 17:43:20 +0000
-Received: from mail-oi1-x231.google.com ([2607:f8b0:4864:20::231])
+	id 1qpuRj-00BLqg-0I;
+	Mon, 09 Oct 2023 17:53:35 +0000
+Received: from mail-qk1-x730.google.com ([2607:f8b0:4864:20::730])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qpuHl-00BKsi-0h
+	id 1qpuRg-00BLq0-02
 	for linux-riscv@lists.infradead.org;
-	Mon, 09 Oct 2023 17:43:19 +0000
-Received: by mail-oi1-x231.google.com with SMTP id 5614622812f47-3af5b5d7f16so3212604b6e.0
-        for <linux-riscv@lists.infradead.org>; Mon, 09 Oct 2023 10:43:15 -0700 (PDT)
+	Mon, 09 Oct 2023 17:53:33 +0000
+Received: by mail-qk1-x730.google.com with SMTP id af79cd13be357-7742be66bd3so329744485a.3
+        for <linux-riscv@lists.infradead.org>; Mon, 09 Oct 2023 10:53:31 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1696873394; x=1697478194; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=NnMTttrcelYaYIrt+NLGLTTRb9JsbmWtmliQHucd1xA=;
-        b=yrDNuUeuVhihKMW7Q7zKhA4aNlXIAs+Yi4YHhSTn/otPqv1NFDB+V8Zjcb+Fk+tRQA
-         MQMQi5f92VpAhr9zMZVx3VbwQaG4DplEyamSExe5p0abMFrouVPHHPmpFu8eGe1IOH/j
-         uU7rsGx12NhzPo6e7Y+4Trkh9/c1YHAM8Q8Rynvzu3XAkgKo2WZXwZ8oYVeTVGU0fKl1
-         KkVvnG1YHxrcHIslOfCMVUNyE8es2aZVQNu3PctLqd0a2A4Anqr4GtpW5VmCxoniMSMJ
-         P4s/85iuJXK9ZZ3FPIzG+6+8VFgFSGeaVzm5wYKNCEG7BttPD1rT4dYjQt5lVqD4nZEc
-         OpfA==
+        d=sifive.com; s=google; t=1696874010; x=1697478810; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=IoyXQp0nB/IWm6dvckPcOr8vbJO99u9ZUrMCMrf5qWM=;
+        b=W6hbfG51KSE8SmoRlOvzHarduyHw+uacQfTIjRhy+IuzkLojulTu2wFbGmX8RG8v8I
+         ivBDl20M5J1n3s+j6KJrUdJUm+WY3PIaFpTkDwN9VQ6xm/hP5E2dIbdXxvWw5sdOn9Hq
+         FVOJ7dfzXgLH8wXElTZkqsNLjJHDvwEmj97H90an/AcACKXcKDNHy2ZPCCtnKpG9Bj3m
+         nVHq908ylvS3fygaj0vkE19Epvz4XBWO7FezcmowiOMzuZbI2DDhZVX1gKwG9Nl2CUtQ
+         XIF1YjwbrAbJjCo/X4YLblzpylINcS0YK5a2CAGB5wgn5vTTqg2VVT1k33vodvlLw7k2
+         ywEg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1696873394; x=1697478194;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
+        d=1e100.net; s=20230601; t=1696874010; x=1697478810;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=NnMTttrcelYaYIrt+NLGLTTRb9JsbmWtmliQHucd1xA=;
-        b=RmLWF8J77nSNTKI1PsgIQAf2zcZwf0mAlsYxLroYfzX+7ly+5pXsRCeu2FRTl0/kE6
-         PjD2EpKYc3Qm2nmvQUPQk9LnTf7Ze4Yp3o9aLtEAyxQGy1R8BNLcraF2ndEzEZDVrt18
-         R9/w0SeXkH3/emuRXvjnil2A5VLoIsItZI4fpixDrOjXyBAOz2aLBBa02iZGS1ySOGoZ
-         1lQSDVj+RToa7nJ2OokfehDrrIQKbfK3b2zIitIW/9cz4yliuWVPKrzBXqZYdofwOorz
-         oqXDlcfBRdI93SGNTDZAaG0aLqXKlKa5Z34dwbQ9m7HT6bHFfL7da/0MQ/La/uBKNX4p
-         sNmw==
-X-Gm-Message-State: AOJu0YzUxSVnk1OpQeJin86ES0uc+2wC1RTw19U3EJPTh8yXqRlZhRoo
-	Xy+5dOqTIgAppPTpR/VU+IrN698dVncDbC07J3k=
-X-Google-Smtp-Source: AGHT+IHZOPERIxv0UhvXDWOFJscOkAdsaQuB2oqGGE5poJEQl40iPqlD+Ja7r74zSfxA4QhVkNZiEA==
-X-Received: by 2002:a05:6808:18a1:b0:3ae:156f:d325 with SMTP id bi33-20020a05680818a100b003ae156fd325mr19459911oib.58.1696873394538;
-        Mon, 09 Oct 2023 10:43:14 -0700 (PDT)
-Received: from ghost (cpe-70-95-50-247.san.res.rr.com. [70.95.50.247])
-        by smtp.gmail.com with ESMTPSA id c20-20020a056808105400b003a40b3fce01sm1676687oih.10.2023.10.09.10.43.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 09 Oct 2023 10:43:14 -0700 (PDT)
-Date: Mon, 9 Oct 2023 10:43:10 -0700
-From: Charlie Jenkins <charlie@rivosinc.com>
-To: =?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] riscv: blacklist assembly symbols for kprobe
-Message-ID: <ZSQ7rp98jX4KiZCJ@ghost>
-References: <20231004131009.409193-1-cleger@rivosinc.com>
+        bh=IoyXQp0nB/IWm6dvckPcOr8vbJO99u9ZUrMCMrf5qWM=;
+        b=VWWDxbc/39fj/gZzfgitS8KDF7GYQPGIBtFSXrAhI2hn6Y7QeOaOkKD4NzqCqBv2L4
+         My0qWMhy2A9plbMJEqaz96U9yIpN0RYXNjWzGLP0iScllDMNS5j5JPPH1xjI3Y8A0RhH
+         xOJr1x4P6h4k+FA2g9ptaAc9vQA+dxQTAwWFCj7RvT6tZHc68EKyhdOkjzs0hrqFOrpk
+         FDWnKh2UPjj+gzSwyR9rSaar3wuzTSyo91M/N1bvXINfZs2LMgRwpGP2wqfnzwk3avFt
+         oZ+l8Abf1Jxr4tT8UzRZSe00uFTFtB0uUTL4XouK7lccoXC3ufrf+DHWfoZfKJoY4ulI
+         HcFg==
+X-Gm-Message-State: AOJu0YwoMXQxFh94Wzqr0qeIr73DyT+3qDhrmNL0BjQKrMXxZlnxMMD2
+	DJ7q87WgisEjkpH8JR7zV5o++w==
+X-Google-Smtp-Source: AGHT+IE1Qk4KpxGExPbP+Bwm/XXhpMnfLUgfDaerG1rDq19vZJtPM/OZ16TFeKYeE6po2KeQFV7LTw==
+X-Received: by 2002:a05:620a:16c9:b0:76f:f11:7d1 with SMTP id a9-20020a05620a16c900b0076f0f1107d1mr14894821qkn.77.1696874010272;
+        Mon, 09 Oct 2023 10:53:30 -0700 (PDT)
+Received: from ?IPV6:2600:1700:2000:b002:41c4:1832:a984:34e2? ([2600:1700:2000:b002:41c4:1832:a984:34e2])
+        by smtp.gmail.com with ESMTPSA id f10-20020a05620a15aa00b007659935ce64sm3681308qkk.71.2023.10.09.10.53.28
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 09 Oct 2023 10:53:29 -0700 (PDT)
+Message-ID: <2047b2c2-bf37-4c02-9297-d89f95863ed5@sifive.com>
+Date: Mon, 9 Oct 2023 12:53:28 -0500
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20231004131009.409193-1-cleger@rivosinc.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 1/4] riscv: Improve flush_tlb()
+Content-Language: en-US
+To: Alexandre Ghiti <alexghiti@rivosinc.com>
+Cc: Andrew Jones <ajones@ventanamicro.com>, Will Deacon <will@kernel.org>,
+ "Aneesh Kumar K . V" <aneesh.kumar@linux.ibm.com>,
+ Andrew Morton <akpm@linux-foundation.org>, Nick Piggin <npiggin@gmail.com>,
+ Peter Zijlstra <peterz@infradead.org>,
+ Mayuresh Chitale <mchitale@ventanamicro.com>,
+ Vincent Chen <vincent.chen@sifive.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ linux-arch@vger.kernel.org, linux-mm@kvack.org,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Samuel Holland <samuel@sholland.org>,
+ Lad Prabhakar <prabhakar.csengg@gmail.com>
+References: <20230911131224.61924-1-alexghiti@rivosinc.com>
+ <20230911131224.61924-2-alexghiti@rivosinc.com>
+From: Samuel Holland <samuel.holland@sifive.com>
+In-Reply-To: <20230911131224.61924-2-alexghiti@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231009_104317_279085_5B53B215 
-X-CRM114-Status: GOOD (  17.56  )
+X-CRM114-CacheID: sfid-20231009_105332_084430_CF6C49D6 
+X-CRM114-Status: GOOD (  18.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,97 +99,89 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 04, 2023 at 03:10:09PM +0200, Cl=E9ment L=E9ger wrote:
-> Adding kprobes on some assembly functions (mainly exception handling)
-> will result in crashes (either recursive trap or panic). To avoid such
-> errors, add ASM_NOKPROBE() macro which allow adding specific symbols
-> into the __kprobe_blacklist section and use to blacklist the following
-> symbols that showed to be problematic:
-> - handle_exception()
-> - ret_from_exception()
-> - handle_kernel_stack_overflow()
-> =
+On 2023-09-11 8:12 AM, Alexandre Ghiti wrote:
+> For now, flush_tlb() simply calls flush_tlb_mm() which results in a
 
-> Signed-off-by: Cl=E9ment L=E9ger <cleger@rivosinc.com>
+s/flush_tlb/tlb_flush/ here and in the subject.
+
+Otherwise:
+Reviewed-by: Samuel Holland <samuel.holland@sifive.com>
+
+> flush of the whole TLB. So let's use mmu_gather fields to provide a more
+> fine-grained flush of the TLB.
+> 
+> Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+> Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
 > ---
->  arch/riscv/include/asm/asm.h | 10 ++++++++++
->  arch/riscv/kernel/entry.S    |  3 +++
->  2 files changed, 13 insertions(+)
-> =
-
-> diff --git a/arch/riscv/include/asm/asm.h b/arch/riscv/include/asm/asm.h
-> index 114bbadaef41..9194e334de15 100644
-> --- a/arch/riscv/include/asm/asm.h
-> +++ b/arch/riscv/include/asm/asm.h
-> @@ -142,6 +142,16 @@
->  	REG_L x31, PT_T6(sp)
->  	.endm
->  =
-
-> +/* Annotate a function as being unsuitable for kprobes. */
-> +#ifdef CONFIG_KPROBES
-> +#define ASM_NOKPROBE(name)				\
-> +	.pushsection "_kprobe_blacklist", "aw";		\
-> +	RISCV_PTR name;					\
-> +	.popsection
-> +#else
-> +#define ASM_NOKPROBE(name)
+>  arch/riscv/include/asm/tlb.h      | 8 +++++++-
+>  arch/riscv/include/asm/tlbflush.h | 3 +++
+>  arch/riscv/mm/tlbflush.c          | 7 +++++++
+>  3 files changed, 17 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/riscv/include/asm/tlb.h b/arch/riscv/include/asm/tlb.h
+> index 120bcf2ed8a8..1eb5682b2af6 100644
+> --- a/arch/riscv/include/asm/tlb.h
+> +++ b/arch/riscv/include/asm/tlb.h
+> @@ -15,7 +15,13 @@ static void tlb_flush(struct mmu_gather *tlb);
+>  
+>  static inline void tlb_flush(struct mmu_gather *tlb)
+>  {
+> -	flush_tlb_mm(tlb->mm);
+> +#ifdef CONFIG_MMU
+> +	if (tlb->fullmm || tlb->need_flush_all)
+> +		flush_tlb_mm(tlb->mm);
+> +	else
+> +		flush_tlb_mm_range(tlb->mm, tlb->start, tlb->end,
+> +				   tlb_get_unmap_size(tlb));
 > +#endif
+>  }
+>  
+>  #endif /* _ASM_RISCV_TLB_H */
+> diff --git a/arch/riscv/include/asm/tlbflush.h b/arch/riscv/include/asm/tlbflush.h
+> index a09196f8de68..f5c4fb0ae642 100644
+> --- a/arch/riscv/include/asm/tlbflush.h
+> +++ b/arch/riscv/include/asm/tlbflush.h
+> @@ -32,6 +32,8 @@ static inline void local_flush_tlb_page(unsigned long addr)
+>  #if defined(CONFIG_SMP) && defined(CONFIG_MMU)
+>  void flush_tlb_all(void);
+>  void flush_tlb_mm(struct mm_struct *mm);
+> +void flush_tlb_mm_range(struct mm_struct *mm, unsigned long start,
+> +			unsigned long end, unsigned int page_size);
+>  void flush_tlb_page(struct vm_area_struct *vma, unsigned long addr);
+>  void flush_tlb_range(struct vm_area_struct *vma, unsigned long start,
+>  		     unsigned long end);
+> @@ -52,6 +54,7 @@ static inline void flush_tlb_range(struct vm_area_struct *vma,
+>  }
+>  
+>  #define flush_tlb_mm(mm) flush_tlb_all()
+> +#define flush_tlb_mm_range(mm, start, end, page_size) flush_tlb_all()
+>  #endif /* !CONFIG_SMP || !CONFIG_MMU */
+>  
+>  /* Flush a range of kernel pages */
+> diff --git a/arch/riscv/mm/tlbflush.c b/arch/riscv/mm/tlbflush.c
+> index 77be59aadc73..fa03289853d8 100644
+> --- a/arch/riscv/mm/tlbflush.c
+> +++ b/arch/riscv/mm/tlbflush.c
+> @@ -132,6 +132,13 @@ void flush_tlb_mm(struct mm_struct *mm)
+>  	__flush_tlb_range(mm, 0, -1, PAGE_SIZE);
+>  }
+>  
+> +void flush_tlb_mm_range(struct mm_struct *mm,
+> +			unsigned long start, unsigned long end,
+> +			unsigned int page_size)
+> +{
+> +	__flush_tlb_range(mm, start, end - start, page_size);
+> +}
 > +
->  #endif /* __ASSEMBLY__ */
->  =
+>  void flush_tlb_page(struct vm_area_struct *vma, unsigned long addr)
+>  {
+>  	__flush_tlb_range(vma->vm_mm, addr, PAGE_SIZE, PAGE_SIZE);
 
->  #endif /* _ASM_RISCV_ASM_H */
-> diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
-> index 143a2bb3e697..f24bc4eeedde 100644
-> --- a/arch/riscv/kernel/entry.S
-> +++ b/arch/riscv/kernel/entry.S
-> @@ -101,6 +101,7 @@ _save_context:
->  1:
->  	tail do_trap_unknown
->  SYM_CODE_END(handle_exception)
-> +ASM_NOKPROBE(handle_exception)
->  =
-
->  /*
->   * The ret_from_exception must be called with interrupt disabled. Here i=
-s the
-> @@ -167,6 +168,7 @@ SYM_CODE_START_NOALIGN(ret_from_exception)
->  	sret
->  #endif
->  SYM_CODE_END(ret_from_exception)
-> +ASM_NOKPROBE(ret_from_exception)
->  =
-
->  #ifdef CONFIG_VMAP_STACK
->  SYM_CODE_START_LOCAL(handle_kernel_stack_overflow)
-> @@ -254,6 +256,7 @@ restore_caller_reg:
->  	move a0, sp
->  	tail handle_bad_stack
->  SYM_CODE_END(handle_kernel_stack_overflow)
-> +ASM_NOKPROBE(handle_kernel_stack_overflow)
->  #endif
->  =
-
->  SYM_CODE_START(ret_from_fork)
-> -- =
-
-> 2.42.0
-> =
-
-> =
-
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
-
-Reviewed-by: Charlie Jenkins <charlie@rivosinc.com>
 
 _______________________________________________
 linux-riscv mailing list
