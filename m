@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DCE8E95A96
-	for <linux-riscv@archiver.kernel.org>; Mon,  9 Oct 2023 13:47:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35144E95A8E
+	for <linux-riscv@archiver.kernel.org>; Mon,  9 Oct 2023 13:52:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=h0rB9aacSziO9aJj4FiJFXHJ2++7fql4jd7Olzl5Lkg=; b=sGEWRMcAiQf7clcccc9laOT+2A
-	s/6jGwelQcG7IP8pk4SU6MgMMDAMjJIeZWIUiA1DK+P0ypRPBnQxRcAihAS+5TG2hCuWXCnnBecQE
-	bdI74dPkAsWCP0+YXBddRNAi8X6D2NrtCvuhL0UwuUUauaNgTI0/i7p/8aUY7otGl4g9vRxjGlR4K
-	xUeCHE+nyze/CqtmhhQH0RAEEscArGo6NjvaSwydqf0ZNBKIvpE5uGwlPVcq4xFhyuoMRLYH2BGKb
-	2v3R7jvO70BskKsXM4zAV6MCS+vcQawpdNWmXZ7gj685DTB+k1o0TmhJdbsyecDvEdJqJlxUWhBEG
-	K7+8i5bg==;
+	bh=mang4kkVLFNaBh9h+ULmZftXnPa53ST8Vi14Bi21pmQ=; b=yOjgz1fwxI4X9UOGjB3iUdTYX7
+	GSs3kslmA9m1c927dwwTVBqZVcanr5YWoAsSBuIRcJzIDUvceo/WtHUyLnDTDIW+WYE/Hlg1X/sDB
+	S2QNpd41B0nG95f+f1WNYn2Rbhm7sQyp+J3HE2xNwepz+Sq/lGh517nedKFAfArF/x7B9UvFoPEtB
+	U9xymt8WQm3dSdccED3th2Zsas3va9csGEr09/B44tbI2TYQ4pU80DqGvRWDYiu1UMCl+Dm6PrUnb
+	w22XtZwjksriNIbl1xQH6f+BZqjHcYYX2GrgZInEU6oaPqH9YfkUzfUXNQ9mXZztlFKlkqx0aBcsL
+	hyXSc4Wg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qpqb9-00AqcD-2L;
-	Mon, 09 Oct 2023 13:47:03 +0000
+	id 1qpqgM-00ArHr-30;
+	Mon, 09 Oct 2023 13:52:26 +0000
 Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qpqb6-00Aqah-2I
+	id 1qpqgJ-00ArHR-24
 	for linux-riscv@lists.infradead.org;
-	Mon, 09 Oct 2023 13:47:02 +0000
+	Mon, 09 Oct 2023 13:52:25 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1696859220; x=1728395220;
+  t=1696859543; x=1728395543;
   h=date:from:to:cc:subject:message-id:references:
    mime-version:in-reply-to;
-  bh=SlvDLYB0oglmklYG+xENDJiKBJ2G7iU9PK0HzxKFLAw=;
-  b=CZzsiW7rgBCMq9saiq9m6SCD0Ens1qfBSk1wlS308pWrk4dJbufNJSP2
-   pjvZ76qjC3T5hU11n0fe/KYxNokoaDf6jto2vC6v1O3VcZkAVCa+nHpEf
-   bR82+IjRd7nqmpF54C0n0PijpCKEDNV+dvLWzMpThQFi60haHmegwYf98
-   u0XATcUC01pqCIL31nZ+CwO4LO49s/cUxWKZv2Pv16Tra531fDfkvAAfT
-   NDQU3gpgzKmY2Lsb6f79ERCGYMFgq0+XjmhRqOtdnd8VkOT0SD5r6n2Q+
-   NDsY9hkyHypBbx2fS4dZUnYDTFxlsnoxFuKVp/PYJQSfcsPD+DrnXmyRl
-   A==;
-X-CSE-ConnectionGUID: 8CTYty34Syqm9xqn5/aKfw==
-X-CSE-MsgGUID: IysqB0iZTpy7oqmZ6t34yA==
+  bh=woWLvA+OZiwBOAnGAJHDSkgAYlJa502T4z/q/Xqpl9M=;
+  b=wNGl/KR7BoYCjqevRPbNLuuCiTPZsrJSWyqQoRlYrOi6I3gzxGteIF/c
+   kX88F6ZKXxXv0EKQscIxQSQ+FTsEOcta+rKsOfS6mH8e+SyrXEUyJar5H
+   JDZwdznL2VAqSj8E9xpI1ukJXnv7JBI4QyDf25pgyJyoVm4dnD30XyN+S
+   sWDQq6R9fSeOXa3UzGdKzhNOkZAkQLGg9qmsObYw5iDV3IoOWaRSn2fI9
+   FsY9l8x5EM9aezwdDVGzxSx0XzRG8QJIxvGifbsRqyUHVP63J0tuCb1Fk
+   5EzknoCYxzjA62fN5glNP0b5BDGleCmypYQgm7C6d/ntqrvzEnEOx/4Qy
+   g==;
+X-CSE-ConnectionGUID: M2UGz3wCSraKDoNm0f0NgQ==
+X-CSE-MsgGUID: kDZEEEfbRYGInoeHmZQt0Q==
 X-ThreatScanner-Verdict: Negative
 X-IronPort-AV: E=Sophos;i="6.03,210,1694761200"; 
-   d="asc'?scan'208";a="9487183"
+   d="asc'?scan'208";a="176451529"
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 09 Oct 2023 06:46:59 -0700
-Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 09 Oct 2023 06:52:17 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.87.72) by
+ chn-vm-ex02.mchp-main.com (10.10.87.72) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Mon, 9 Oct 2023 06:46:59 -0700
-Received: from wendy (10.10.85.11) by chn-vm-ex03.mchp-main.com (10.10.85.151)
+ 15.1.2507.21; Mon, 9 Oct 2023 06:52:17 -0700
+Received: from wendy (10.10.85.11) by chn-vm-ex02.mchp-main.com (10.10.85.144)
  with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
- Transport; Mon, 9 Oct 2023 06:46:55 -0700
-Date: Mon, 9 Oct 2023 14:46:35 +0100
+ Transport; Mon, 9 Oct 2023 06:52:13 -0700
+Date: Mon, 9 Oct 2023 14:51:52 +0100
 From: Conor Dooley <conor.dooley@microchip.com>
 To: Minda Chen <minda.chen@starfivetech.com>
 CC: Daire McNamara <daire.mcnamara@microchip.com>, Conor Dooley
@@ -72,16 +72,16 @@ CC: Daire McNamara <daire.mcnamara@microchip.com>, Conor Dooley
 	"Philipp Zabel" <p.zabel@pengutronix.de>, Mason Huo
 	<mason.huo@starfivetech.com>, Leyfoon Tan <leyfoon.tan@starfivetech.com>,
 	Kevin Xie <kevin.xie@starfivetech.com>
-Subject: Re: [PATCH v7 12/19] PCI: microchip: Add INTx and MSI event num to
- struct plda_event
-Message-ID: <20231009-remix-commodore-b034a3b71861@wendy>
+Subject: Re: [PATCH v7 13/19] PCI: microchip: Add get_events() callback
+ function
+Message-ID: <20231009-ecologist-postage-f4e6d96d77cd@wendy>
 References: <20230927100802.46620-1-minda.chen@starfivetech.com>
- <20230927100802.46620-13-minda.chen@starfivetech.com>
+ <20230927100802.46620-14-minda.chen@starfivetech.com>
 MIME-Version: 1.0
-In-Reply-To: <20230927100802.46620-13-minda.chen@starfivetech.com>
+In-Reply-To: <20230927100802.46620-14-minda.chen@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231009_064700_805352_EC6C63A3 
-X-CRM114-Status: GOOD (  18.57  )
+X-CRM114-CacheID: sfid-20231009_065223_743827_A61F483B 
+X-CRM114-Status: GOOD (  23.04  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,110 +93,131 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1793353376633210310=="
+Content-Type: multipart/mixed; boundary="===============2148712599716888088=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============1793353376633210310==
+--===============2148712599716888088==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="wD+DKiC4dNhhAd6L"
+	protocol="application/pgp-signature"; boundary="GRp9b0oKyCUZcQwq"
 Content-Disposition: inline
 
---wD+DKiC4dNhhAd6L
+--GRp9b0oKyCUZcQwq
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
 Hey,
 
-On Wed, Sep 27, 2023 at 06:07:55PM +0800, Minda Chen wrote:
-> The INTx and MSI interrupt event num is different
-> in Microchip and StarFive platform.
+On Wed, Sep 27, 2023 at 06:07:56PM +0800, Minda Chen wrote:
+> For different interrupts to event num mapping function,
+> add get_events() function pointer.
+>=20
+> Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
+> ---
+>  drivers/pci/controller/plda/pcie-microchip-host.c | 14 +++++++++++++-
+>  drivers/pci/controller/plda/pcie-plda.h           |  2 ++
+>  2 files changed, 15 insertions(+), 1 deletion(-)
+>=20
+> diff --git a/drivers/pci/controller/plda/pcie-microchip-host.c b/drivers/=
+pci/controller/plda/pcie-microchip-host.c
+> index fb09b6c34e01..875bdb03ce22 100644
+> --- a/drivers/pci/controller/plda/pcie-microchip-host.c
+> +++ b/drivers/pci/controller/plda/pcie-microchip-host.c
+> @@ -646,7 +646,7 @@ static void plda_handle_event(struct irq_desc *desc)
+> =20
+>  	chained_irq_enter(chip, desc);
+> =20
+> -	events =3D mc_get_events(port);
+> +	events =3D port->event_ops->get_events(port);
+> =20
+>  	for_each_set_bit(bit, &events, port->num_events)
+>  		generic_handle_domain_irq(port->event_domain, bit);
+> @@ -805,7 +805,12 @@ static int mc_request_event_irq(struct plda_pcie_rp =
+*plda, int event_irq,
+>  				0, event_cause[event].sym, plda);
+>  }
+> =20
+> +static const struct plda_event_ops mc_event_ops =3D {
+> +	.get_events =3D mc_get_events,
+> +};
+> +
+>  static const struct plda_event mc_event =3D {
+> +	.event_ops              =3D &mc_event_ops,
+>  	.request_event_irq      =3D mc_request_event_irq,
+>  	.intx_event             =3D EVENT_LOCAL_PM_MSI_INT_INTX,
+>  	.msi_event              =3D EVENT_LOCAL_PM_MSI_INT_MSI,
+> @@ -919,6 +924,11 @@ static int plda_init_interrupts(struct platform_devi=
+ce *pdev,
+>  	int i, intx_irq, msi_irq, event_irq;
+>  	int ret;
+> =20
+> +	if (!event->event_ops || !event->event_ops->get_events) {
+> +		dev_err(dev, "no get events ops\n");
+> +		return -EINVAL;
+> +	}
 
-BTW, please use the full 72 columns, not just 50, for your commit
-messages.
-
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Dumb question maybe, but is this actually possible to trigger?
+This code is in the Microchip driver, so I assume there's a future patch
+moving this code that could actually trigger the problem? If so, the
+motivation for making this generic should be mentioned in the commit
+message IMO.
 
 Thanks,
 Conor.
 
-
->=20
-> Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
-> ---
->  drivers/pci/controller/plda/pcie-microchip-host.c | 6 ++++--
->  drivers/pci/controller/plda/pcie-plda.h           | 2 ++
->  2 files changed, 6 insertions(+), 2 deletions(-)
->=20
-> diff --git a/drivers/pci/controller/plda/pcie-microchip-host.c b/drivers/=
-pci/controller/plda/pcie-microchip-host.c
-> index e3c7d5e66150..fb09b6c34e01 100644
-> --- a/drivers/pci/controller/plda/pcie-microchip-host.c
-> +++ b/drivers/pci/controller/plda/pcie-microchip-host.c
-> @@ -807,6 +807,8 @@ static int mc_request_event_irq(struct plda_pcie_rp *=
-plda, int event_irq,
-> =20
->  static const struct plda_event mc_event =3D {
->  	.request_event_irq      =3D mc_request_event_irq,
-> +	.intx_event             =3D EVENT_LOCAL_PM_MSI_INT_INTX,
-> +	.msi_event              =3D EVENT_LOCAL_PM_MSI_INT_MSI,
->  };
-> =20
->  static int plda_pcie_init_irq_domains(struct plda_pcie_rp *port)
-> @@ -947,7 +949,7 @@ static int plda_init_interrupts(struct platform_devic=
+> +
+>  	ret =3D plda_pcie_init_irq_domains(port);
+>  	if (ret) {
+>  		dev_err(dev, "failed creating IRQ domains\n");
+> @@ -929,6 +939,8 @@ static int plda_init_interrupts(struct platform_devic=
 e *pdev,
->  	}
+>  	if (irq < 0)
+>  		return -ENODEV;
 > =20
->  	intx_irq =3D irq_create_mapping(port->event_domain,
-> -				      EVENT_LOCAL_PM_MSI_INT_INTX);
-> +				      event->intx_event);
->  	if (!intx_irq) {
->  		dev_err(dev, "failed to map INTx interrupt\n");
->  		return -ENXIO;
-> @@ -957,7 +959,7 @@ static int plda_init_interrupts(struct platform_devic=
-e *pdev,
->  	irq_set_chained_handler_and_data(intx_irq, plda_handle_intx, port);
-> =20
->  	msi_irq =3D irq_create_mapping(port->event_domain,
-> -				     EVENT_LOCAL_PM_MSI_INT_MSI);
-> +				     event->msi_event);
->  	if (!msi_irq)
->  		return -ENXIO;
-> =20
+> +	port->event_ops =3D event->event_ops;
+> +
+>  	for (i =3D 0; i < port->num_events; i++) {
+>  		event_irq =3D irq_create_mapping(port->event_domain, i);
+>  		if (!event_irq) {
 > diff --git a/drivers/pci/controller/plda/pcie-plda.h b/drivers/pci/contro=
 ller/plda/pcie-plda.h
-> index 4e0712c9365e..af5e69718342 100644
+> index af5e69718342..48d7bc471137 100644
 > --- a/drivers/pci/controller/plda/pcie-plda.h
 > +++ b/drivers/pci/controller/plda/pcie-plda.h
-> @@ -156,6 +156,8 @@ struct plda_pcie_rp {
->  struct plda_event {
->  	int (*request_event_irq)(struct plda_pcie_rp *pcie,
->  				 int event_irq, int event);
-> +	int intx_event;
-> +	int msi_event;
+> @@ -149,11 +149,13 @@ struct plda_pcie_rp {
+>  	struct irq_domain *event_domain;
+>  	raw_spinlock_t lock;
+>  	struct plda_msi msi;
+> +	const struct plda_event_ops *event_ops;
+>  	void __iomem *bridge_addr;
+>  	int num_events;
 >  };
 > =20
->  irqreturn_t plda_event_handler(int irq, void *dev_id);
+>  struct plda_event {
+> +	const struct plda_event_ops *event_ops;
+>  	int (*request_event_irq)(struct plda_pcie_rp *pcie,
+>  				 int event_irq, int event);
+>  	int intx_event;
 > --=20
 > 2.17.1
 >=20
 
---wD+DKiC4dNhhAd6L
+--GRp9b0oKyCUZcQwq
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZSQEOwAKCRB4tDGHoIJi
-0vf7AP0f+KHqn88qjg0XQA9OArkRPsMZ5RNRAOJQ8uJiiVp75wEArXl7IgtlC7l9
-Voc6hFgZ+1ST01jjkJ5eKHnkn3g4rgw=
-=13zv
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZSQFeAAKCRB4tDGHoIJi
+0sQDAQCmZ0rXA250TxGxywJjsr6LKhJtGnFd+6HHyhxRHgHgZgD/cXM805IrCm9N
+65OncJLg0lDUUeiQLhzDEErT/hwwjgk=
+=9ZA0
 -----END PGP SIGNATURE-----
 
---wD+DKiC4dNhhAd6L--
+--GRp9b0oKyCUZcQwq--
 
 
---===============1793353376633210310==
+--===============2148712599716888088==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -207,5 +228,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============1793353376633210310==--
+--===============2148712599716888088==--
 
