@@ -4,48 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01AA9E95A8E
-	for <linux-riscv@archiver.kernel.org>; Mon,  9 Oct 2023 12:11:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FA83E95A91
+	for <linux-riscv@archiver.kernel.org>; Mon,  9 Oct 2023 12:11:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JPGUVfHzfAffogktxA4E9S3+RJgnOCYwCUe0N7RP8fw=; b=qsd1HLPGI67AkD
-	68G07N62aH2pLSkhBXyqRUZ1kzC0rXM6EyPgzjPMkqCGm0Ygmav7lSPZcTkvXbQadpc4Qc5dAS5Nr
-	Nro8gmMeMEpyIVbSX13iWvfeYLbq4DWu0KMkRzwXYC2rrjelEqShSbLwOz6IqjgKC3ySgMIfBb4wA
-	c6FtGECra6kNT3QDvnpnFbXn5BNqfThN8YTT5AXpI+7nkJznaU0kkYZOxXFW0Y7DI6lAV+teOfGtR
-	UvL1jWKQcbnVlR0I3JbJREqM3arw488CVTJSi3XrmEEE/9+ZFs19NP6ez086h5Aom6fR8HF+ruFH7
-	0EgV9iv3YIWvWLeSH8Ow==;
+	List-Owner; bh=oIV0vn7oPf1mxoTINSSnVCs8sGa5jp9Uyd6DmXVP/Sw=; b=I6g5v0WFg0UQHl
+	tMa7L4AjcOz03e9YoOFdh67imNe6+ww+sm8pW+ptweyRbSLxDOg/vjmO8431nSAN77G60kK4hOfP9
+	FAEK+ZT1nQ1Xdw2zwmOwAkBl30dtTT7s2JnR2mkDZdOLwNXjLf2xr6/kYvwACW1RHZDEtuso+r5uq
+	5BeHOfo/+4W3aCyldQ0OQ1tCIjzrdCrMiJVaUt/LrcbdP30DMelx+sLb/HhzHkt9a60GNyxl3bFkn
+	UFoCJAgFaDnRKjsdj+jfGFFShgiY+I6pQmSbaI29N//i7zYnOGKTY8L2Q4g0Q6oGVTng4WIMpiEuv
+	IkLzFeMuKOMyp1yjd5dw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qpp6c-00AZeX-1Q;
-	Mon, 09 Oct 2023 12:11:26 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1qpp6k-00AZmW-0L;
+	Mon, 09 Oct 2023 12:11:34 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qpp6X-00AZZ5-1x;
-	Mon, 09 Oct 2023 12:11:23 +0000
+	id 1qpp6f-00AZhF-2n;
+	Mon, 09 Oct 2023 12:11:31 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by ams.source.kernel.org (Postfix) with ESMTP id D91BFB80D95;
+	by sin.source.kernel.org (Postfix) with ESMTP id E19A5CE1391;
+	Mon,  9 Oct 2023 12:11:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AC675C433CB;
 	Mon,  9 Oct 2023 12:11:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 20477C433CA;
-	Mon,  9 Oct 2023 12:11:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1696853479;
-	bh=DHXrkEz4uaI5EG4HiHB3b7Wj+xS82Cz4YUQVewuBUzc=;
+	s=k20201202; t=1696853485;
+	bh=dnQiLWCQEIWy/Xq7xUVmoEvPZ7/L9XTfsPiddNnhH8A=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=EpeMe9VENZDj/tfvQ0h0WPh3VgDnpa8FPfRzTsdG29A7YqkP/rGRcPp4MReNm5Mqf
-	 XL+dh1tkTPB4tmAkGuvvezJZODKRqhlqty3Gtn7cSpzoHSdWiFys190IsLcRrA/qNQ
-	 XecFycrJnK5IPz64+hUm1PWC3XJhhkNVwgYteP1WFXK9SUK6ZNVHzk5fT1f7WPjvPE
-	 Lpk8pYGgHNsmDAPmrjiXzMhb5PyHYMJNl82tKcWBkPNT5r2VrKXhOHOt33yjDGk6eq
-	 spHqVknye6EbUuzvHgibZv9XZod9P3Km4O2q97/kcRhmrkrNvovuJgZXdp2FZqKihC
-	 brKSMTrfvdrtQ==
+	b=uW2YvwkTEs3ksNnBeyCkmHvcg7Hg45MTQOrvX344Mz095Y2nBmnaK61KvKyW5feOb
+	 f+HQRctmZfEFAzdsuUP4ETQaCQOOmd0zQw8Z4ksCz6K9hEhCwCPfvutNq6j2WD6vmj
+	 4pZr9m/47nVQFEVwotHX0Esp6jxSPTzu8BCaa0T9mYgV7uNgC2U8xiw1lhPXIW7knn
+	 ELoN/tObaoGVa+rdJP5Z5qYUZYF3VtUWJEpFVOSJFOS6A9HGzHFORbRPu9ErGrSjQC
+	 8zpmiTl07f7AolAPvTFvKuOG/xJLeHqxbUiM5buTP5J+4fA3i09lEyQKTacVUD5oPS
+	 grZRCB+QM3npg==
 From: Mark Brown <broonie@kernel.org>
-Date: Mon, 09 Oct 2023 13:08:40 +0100
-Subject: [PATCH v6 06/38] arm64/sysreg: Add new system registers for GCS
+Date: Mon, 09 Oct 2023 13:08:41 +0100
+Subject: [PATCH v6 07/38] arm64/sysreg: Add definitions for architected GCS
+ caps
 MIME-Version: 1.0
-Message-Id: <20231009-arm64-gcs-v6-6-78e55deaa4dd@kernel.org>
+Message-Id: <20231009-arm64-gcs-v6-7-78e55deaa4dd@kernel.org>
 References: <20231009-arm64-gcs-v6-0-78e55deaa4dd@kernel.org>
 In-Reply-To: <20231009-arm64-gcs-v6-0-78e55deaa4dd@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
@@ -68,20 +69,20 @@ Cc: "H.J. Lu" <hjl.tools@gmail.com>,
  linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-riscv@lists.infradead.org, Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.13-dev-0438c
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1873; i=broonie@kernel.org;
- h=from:subject:message-id; bh=DHXrkEz4uaI5EG4HiHB3b7Wj+xS82Cz4YUQVewuBUzc=;
- b=owGbwMvMwMWocq27KDak/QLjabUkhlTlt1Pdnvex9je8cc6rS7n+7EuY28QjQVenuUqu+v39/67u
- v8+cOhmNWRgYuRhkxRRZ1j7LWJUeLrF1/qP5r2AGsTKBTGHg4hSAiUS7sP+VElnKb/E8ODlTp/RMWX
- yO53Ph0HtNP65adFrrXilwX7k1Qt5A02hOr5hpm+XUFWeMHa6cOGYe58P+O4Yn5295ttf7iqUu79+7
- n5QLcajt/eKb4X7v90314LuXjRJWROgsEP+dlBBzs6HsQ87ixSujmj8yVfGf0w2PjjueIPGYp9y+uo
- Hltcxn9cmVJkeO/P7lda1206ejrkdqKqyZn/Ibz2WVYXC6Jlfy//+0o4cCTv/q2K99+/ObppUMhdZn
- V7uu5r2//UZ/WGlIb+NNjtmG0V7CLkV6mkHXZH2q/68zmbUn5PP0ZV02uRzMHSsdjqhdnFL4zSgoYL
- 2G0E2bRHdOcQGVI26OP/RjLf0TAA==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1361; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=dnQiLWCQEIWy/Xq7xUVmoEvPZ7/L9XTfsPiddNnhH8A=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBlI+2WHMOtW7oALvhLQJzuMUteJm/EdFfby1ez8IFL
+ vZyYW8OJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZSPtlgAKCRAk1otyXVSH0CRDB/
+ 44i2mEo1C6AV0kBavJlNrHUoe01OCdzz/4EZVGIvfLNMche/CoZDy2oB/+y3rrHCMkeSEwFG4KcFyC
+ VnY88Rj9OOm0uZVKN9lUzQ9Aboh+Bi3RgzyK8XcLr9nza0lytLsRy9LRhol8LKzq3qVAiv/79KB5mQ
+ 6qpMbIMPk0FLn6qsC/iAjW/tbSgEmSfH00+X8llt831T8OpphOjxb8HdOOpRpV34JrA44UIyFWAtxX
+ dkrGQX6Gpxd4DhjR16V1xYXaJiITXqvrJ1xhJf43u7igOOFiEW7N5vuix/L6mtmFwahxXcJFwM7/XT
+ FmiKMyTaKx8MiwzpDMZjLMwG5iuqwL
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231009_051121_935888_06E6F3F8 
-X-CRM114-Status: UNSURE (   8.32  )
+X-CRM114-CacheID: sfid-20231009_051130_255533_7CAE8986 
+X-CRM114-Status: UNSURE (   9.66  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -99,101 +100,46 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-FEAT_GCS introduces a number of new system registers. Add the registers
-available up to EL2 to sysreg as per DDI0601 2022-12.
+The architecture defines a format for guarded control stack caps, used
+to mark the top of an unused GCS in order to limit the potential for
+exploitation via stack switching. Add definitions associated with these.
 
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- arch/arm64/tools/sysreg | 55 +++++++++++++++++++++++++++++++++++++++++++++++++
- 1 file changed, 55 insertions(+)
+ arch/arm64/include/asm/sysreg.h | 20 ++++++++++++++++++++
+ 1 file changed, 20 insertions(+)
 
-diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
-index 76ce150e7347..6872bc2c26cd 100644
---- a/arch/arm64/tools/sysreg
-+++ b/arch/arm64/tools/sysreg
-@@ -1784,6 +1784,41 @@ Sysreg	SMCR_EL1	3	0	1	2	6
- Fields	SMCR_ELx
- EndSysreg
+diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
+index 38296579a4fd..6a550781d71e 100644
+--- a/arch/arm64/include/asm/sysreg.h
++++ b/arch/arm64/include/asm/sysreg.h
+@@ -994,6 +994,26 @@
  
-+SysregFields	GCSCR_ELx
-+Res0	63:10
-+Field	9	STREn
-+Field	8	PUSHMEn
-+Res0	7
-+Field	6	EXLOCKEN
-+Field	5	RVCHKEN
-+Res0	4:1
-+Field	0	PCRSEL
-+EndSysregFields
-+
-+Sysreg	GCSCR_EL1	3	0	2	5	0
-+Fields	GCSCR_ELx
-+EndSysreg
-+
-+SysregFields	GCSPR_ELx
-+Field	63:3	PTR
-+Res0	2:0
-+EndSysregFields
-+
-+Sysreg	GCSPR_EL1	3	0	2	5	1
-+Fields	GCSPR_ELx
-+EndSysreg
-+
-+Sysreg	GCSCRE0_EL1	3	0	2	5	2
-+Res0	63:11
-+Field	10	nTR
-+Field	9	STREn
-+Field	8	PUSHMEn
-+Res0	7:6
-+Field	5	RVCHKEN
-+Res0	4:1
-+Field	0	PCRSEL
-+EndSysreg
-+
- Sysreg	ALLINT	3	0	4	3	0
- Res0	63:14
- Field	13	ALLINT
-@@ -2014,6 +2049,10 @@ Field	4	DZP
- Field	3:0	BS
- EndSysreg
+ #define PIRx_ELx_PERM(idx, perm)	((perm) << ((idx) * 4))
  
-+Sysreg	GCSPR_EL0	3	3	2	5	1
-+Fields	GCSPR_ELx
-+EndSysreg
++/*
++ * Definitions for Guarded Control Stack
++ */
 +
- Sysreg	SVCR	3	3	4	2	2
- Res0	63:2
- Field	1	ZA
-@@ -2342,6 +2381,14 @@ Sysreg	SMCR_EL2	3	4	1	2	6
- Fields	SMCR_ELx
- EndSysreg
++#define GCS_CAP_ADDR_MASK		GENMASK(63, 12)
++#define GCS_CAP_ADDR_SHIFT		12
++#define GCS_CAP_ADDR_WIDTH		52
++#define GCS_CAP_ADDR(x)			FIELD_GET(GCS_CAP_ADDR_MASK, x)
++
++#define GCS_CAP_TOKEN_MASK		GENMASK(11, 0)
++#define GCS_CAP_TOKEN_SHIFT		0
++#define GCS_CAP_TOKEN_WIDTH		12
++#define GCS_CAP_TOKEN(x)		FIELD_GET(GCS_CAP_TOKEN_MASK, x)
++
++#define GCS_CAP_VALID_TOKEN		0x1
++#define GCS_CAP_IN_PROGRESS_TOKEN	0x5
++
++#define GCS_CAP(x)	((((unsigned long)x) & GCS_CAP_ADDR_MASK) | \
++					       GCS_CAP_VALID_TOKEN)
++
+ #define ARM64_FEATURE_FIELD_BITS	4
  
-+Sysreg	GCSCR_EL2	3	4	2	5	0
-+Fields	GCSCR_ELx
-+EndSysreg
-+
-+Sysreg	GCSPR_EL2	3	4	2	5	1
-+Fields	GCSPR_ELx
-+EndSysreg
-+
- Sysreg	DACR32_EL2	3	4	3	0	0
- Res0	63:32
- Field	31:30	D15
-@@ -2401,6 +2448,14 @@ Sysreg	SMCR_EL12	3	5	1	2	6
- Fields	SMCR_ELx
- EndSysreg
- 
-+Sysreg	GCSCR_EL12	3	5	2	5	0
-+Fields	GCSCR_ELx
-+EndSysreg
-+
-+Sysreg	GCSPR_EL12	3	5	2	5	1
-+Fields	GCSPR_ELx
-+EndSysreg
-+
- Sysreg	FAR_EL12	3	5	6	0	0
- Field	63:0	ADDR
- EndSysreg
+ /* Defined for compatibility only, do not add new users. */
 
 -- 
 2.30.2
