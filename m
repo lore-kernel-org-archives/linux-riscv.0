@@ -4,64 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEB49CD610B
-	for <linux-riscv@archiver.kernel.org>; Mon,  9 Oct 2023 16:44:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5EC9CD610A
+	for <linux-riscv@archiver.kernel.org>; Mon,  9 Oct 2023 16:46:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:Subject:From:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xml5rEXW0xeQXbgxi4RzsMjaIs135h0WfCn1ft0UNbI=; b=3QP4tVQtqhU5x5
-	L7j2F0yxA7MkX9j3bf2IFVSs8OGISAVYNdvJf6ysopdIu8XD4hyLPL8fikn1i2w+aiLAAv8cZs8j5
-	6tFxwYHRddBrOyDbrTz6Q/FfG6+FryggUO0Wf7XxNFK0iJSv3rVhX/YonmKlQYEjOjl0BLwKCc9H/
-	ba7GEI70WgYXJ1NotVPQqfxbnBch6KXznrw/6kJIAM5H+OuzbIgRPlQ1d9SwnWQswhNKJQAKsgHj8
-	VzOGt3q1mb8Od9R9B1RbiKC+wEqxbdDCQw7rV/R6lBJgM86Rnx8bjvUi9KUaMnhU+ed3MfDUHkMFf
-	QYD0YJn51VVqHVuleaaw==;
+	List-Owner; bh=nqT/dweeEmsVzX3E2KrnTMQkhuiRDldDMmYG3sDL++I=; b=KzN+UoAdKF1tyf
+	HPR+69Ccj4HNJF8UD18MLyuL+BHleHXod47V1s7QZlbG5qAHYRMsiHbHTYFCaeOyrzduKYkH4pfw9
+	3S+4BH5JsGSMUjX9cWcNmTIyn9Bxkt6GKIl4s8Cj60z/QqThIYLT0UrP3ZLKRSM1nuw1vrQz24M/k
+	b/4AxprS7CwAlZKYWC9vDxdAM8Wiax03kQXSqFJs9jc7gqCRdCxv0WGSEFa6RRuSDcwudB+9X/lgS
+	A/faG/GHpFsf8DdtISfL/LQ7LYurybW0q8UsLpojnkp/ss1oX/ees+XwVCkM7P7t+v1hqnFb2KiIJ
+	MLuEGDGcMCtObJi2J8MA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qptMv-00BDHw-2Z;
-	Mon, 09 Oct 2023 16:44:33 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qptMr-00BDFm-2g;
-	Mon, 09 Oct 2023 16:44:31 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 1E71E60FA6;
-	Mon,  9 Oct 2023 16:44:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F078CC433C9;
-	Mon,  9 Oct 2023 16:44:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1696869866;
-	bh=hih2ojuht8Q/T9suSdsZNAYc2MUvDRpGqPW8913YgAY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Fv81rrzfBlhmCSyzSbFm4f8JmVVlagKhI0OSyXRpR9/9h6b+FdXcgjHwMZf+cp2su
-	 mbqmY3gelrBeruWabdjhdJ7id0I+kYb4WQts1gPqLjS+3CJCbaChYfdPpuALshd0S2
-	 D0ujnmXLy7Y+ZKbyA/zoyhV0p0PlZ4oe0eSIh2/bG/xa0s8wb7AWDZcGyWM51/JUlA
-	 zGbn0/kqtcasGNaUv9ytjnTsHF9fztBTPtXE3lvmuDEhMnXarop6rBifKltQEQZBbh
-	 6dACfPxTF0tS/Qi+1I18u2riwu+RYVcpIqDkoZorHn1XiP07DP4IBEhM9xHDO58CAb
-	 sMMh+aXVY62tA==
-Date: Mon, 9 Oct 2023 09:44:24 -0700
-From: Nathan Chancellor <nathan@kernel.org>
-To: Masahiro Yamada <masahiroy@kernel.org>
-Cc: linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
-	linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org, linux-um@lists.infradead.org,
-	loongarch@lists.linux.dev, sparclinux@vger.kernel.org,
-	x86@kernel.org, Nick Desaulniers <ndesaulniers@google.com>,
-	Nicolas Schier <nicolas@fjasle.eu>
-Subject: Re: [PATCH 5/5] kbuild: unify no-compiler-targets and
- no-sync-config-targets
-Message-ID: <20231009164424.GB1153868@dev-arch.thelio-3990X>
-References: <20231009124210.1064021-1-masahiroy@kernel.org>
- <20231009124210.1064021-5-masahiroy@kernel.org>
+	id 1qptOV-00BDXw-2k;
+	Mon, 09 Oct 2023 16:46:11 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1qptOS-00BDX4-29
+	for linux-riscv@lists.infradead.org;
+	Mon, 09 Oct 2023 16:46:10 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A27161FB;
+	Mon,  9 Oct 2023 09:46:46 -0700 (PDT)
+Received: from [10.1.196.40] (e121345-lin.cambridge.arm.com [10.1.196.40])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 29A853F762;
+	Mon,  9 Oct 2023 09:46:04 -0700 (PDT)
+Message-ID: <74e81490-1765-4f13-9fee-04b58696bbde@arm.com>
+Date: Mon, 9 Oct 2023 17:45:59 +0100
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20231009124210.1064021-5-masahiroy@kernel.org>
+User-Agent: Mozilla Thunderbird
+From: Robin Murphy <robin.murphy@arm.com>
+Subject: Re: [PATCH 1/6] dma-direct: add depdenencies to
+ CONFIG_DMA_GLOBAL_POOL
+To: Christoph Hellwig <hch@lst.de>, Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: iommu@lists.linux.dev, Marek Szyprowski <m.szyprowski@samsung.com>,
+ Wei Fang <wei.fang@nxp.com>, Shenwei Wang <shenwei.wang@nxp.com>,
+ Clark Wang <xiaoning.wang@nxp.com>, NXP Linux Team <linux-imx@nxp.com>,
+ linux-m68k@lists.linux-m68k.org, netdev@vger.kernel.org,
+ Jim Quinlan <james.quinlan@broadcom.com>,
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ Linux-Renesas <linux-renesas-soc@vger.kernel.org>,
+ "Lad, Prabhakar" <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+ arm-soc <soc@kernel.org>
+References: <20231009074121.219686-1-hch@lst.de>
+ <20231009074121.219686-2-hch@lst.de>
+ <CAMuHMdWiYDQ5J7R7hPaVAYgXqJvpjdksoF6X-zHrJ_80Ly4XfQ@mail.gmail.com>
+ <20231009091625.GB22463@lst.de>
+ <CAMuHMdUZNewD-QC8J7MWSBP197Vc169meOjjK6=b7M11kVjUzg@mail.gmail.com>
+ <20231009094330.GA24836@lst.de>
+ <CAMuHMdV2FXdUHtjYW8JyXGBgHhR8De0vp3Ee77e6G8Vbs3gG8Q@mail.gmail.com>
+ <1cd44af1-10ac-465a-8d20-e0aa268e036f@arm.com>
+ <CAMuHMdXNX7+VLnSYhj=M9dTSTWLJqjS_WaT0ceMRUYoa5_MSeA@mail.gmail.com>
+ <20231009124805.GA7042@lst.de>
+Content-Language: en-GB
+In-Reply-To: <20231009124805.GA7042@lst.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231009_094429_974294_C1094FE2 
-X-CRM114-Status: GOOD (  14.77  )
+X-CRM114-CacheID: sfid-20231009_094608_750907_A109ED52 
+X-CRM114-Status: GOOD (  10.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,76 +76,32 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 09, 2023 at 09:42:10PM +0900, Masahiro Yamada wrote:
-> Now that vdso_install does not depend on any in-tree build artifact,
-> it no longer invokes a compiler, making no-compiler-targets the same
-> as no-sync-config-targets.
-> 
-> Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
-> ---
-> 
->  Makefile | 13 +------------
->  1 file changed, 1 insertion(+), 12 deletions(-)
-> 
-> diff --git a/Makefile b/Makefile
-> index 2170d56630e8..982b1ad33287 100644
-> --- a/Makefile
-> +++ b/Makefile
-> @@ -277,10 +277,6 @@ no-dot-config-targets := $(clean-targets) \
->  			 $(version_h) headers headers_% archheaders archscripts \
->  			 %asm-generic kernelversion %src-pkg dt_binding_check \
->  			 outputmakefile rustavailable rustfmt rustfmtcheck
-> -# Installation targets should not require compiler. Unfortunately, vdso_install
-> -# is an exception where build artifacts may be updated. This must be fixed.
-> -no-compiler-targets := $(no-dot-config-targets) install dtbs_install \
-> -			headers_install modules_install modules_sign kernelrelease image_name
->  no-sync-config-targets := $(no-dot-config-targets) %install modules_sign kernelrelease \
->  			  image_name
->  single-targets := %.a %.i %.ko %.lds %.ll %.lst %.mod %.o %.rsi %.s %.symtypes %/
-> @@ -288,7 +284,6 @@ single-targets := %.a %.i %.ko %.lds %.ll %.lst %.mod %.o %.rsi %.s %.symtypes %
->  config-build	:=
->  mixed-build	:=
->  need-config	:= 1
-> -need-compiler	:= 1
->  may-sync-config	:= 1
->  single-build	:=
->  
-> @@ -298,12 +293,6 @@ ifneq ($(filter $(no-dot-config-targets), $(MAKECMDGOALS)),)
->  	endif
->  endif
->  
-> -ifneq ($(filter $(no-compiler-targets), $(MAKECMDGOALS)),)
-> -	ifeq ($(filter-out $(no-compiler-targets), $(MAKECMDGOALS)),)
-> -		need-compiler :=
-> -	endif
-> -endif
-> -
+On 09/10/2023 1:48 pm, Christoph Hellwig wrote:
+> On Mon, Oct 09, 2023 at 01:10:26PM +0200, Geert Uytterhoeven wrote:
+>> RISCV_DMA_NONCOHERENT does not select DMA_GLOBAL_POOL,
+>> ARCH_R9A07G043 selects DMA_GLOBAL_POOL.
+>> RISCV_DMA_NONCOHERENT does select DMA_DIRECT_REMAP if MMU.
 
-MIPS and LoongArch seem to have grown a usage of need-compiler in
-4fe4a6374c4d ("MIPS: Only fiddle with CHECKFLAGS if `need-compiler'")
-and 54c2c9df083f ("LoongArch: Only fiddle with CHECKFLAGS if
-`need-compiler'"). With this removal, should those be updated as well?
+Bleh, guess I should have known better than to trust my Monday morning 
+memory without double-checking the code :)
 
->  ifneq ($(filter $(no-sync-config-targets), $(MAKECMDGOALS)),)
->  	ifeq ($(filter-out $(no-sync-config-targets), $(MAKECMDGOALS)),)
->  		may-sync-config :=
-> @@ -675,7 +664,7 @@ endif
->  
->  # Include this also for config targets because some architectures need
->  # cc-cross-prefix to determine CROSS_COMPILE.
-> -ifdef need-compiler
-> +ifdef may-sync-config
->  include $(srctree)/scripts/Makefile.compiler
->  endif
->  
-> -- 
-> 2.39.2
-> 
+> Yeah, and we'll basically need to split RISCV_DMA_NONCOHERENT into
+> an option for each type of non-coherent support.  This is why we
+> should never have added support for any of the non-standard versions,
+> as it's turning into a giant mess.
+
+Indeed the main point I was trying to get at is for ARCH_R9A07G043 (or 
+rather possibly ERRATA_ANDES_CMO) to not select RISCV_DMA_NONCOHERENT in 
+its current form, since that ending up selecting DMA_DIRECT_REMAP on a 
+platform which can't support it is the thing that's most obviously wrong.
+
+Thanks,
+Robin.
 
 _______________________________________________
 linux-riscv mailing list
