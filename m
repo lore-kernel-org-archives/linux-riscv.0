@@ -4,84 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF6A1E95A96
-	for <linux-riscv@archiver.kernel.org>; Mon,  9 Oct 2023 12:15:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC98FE95A91
+	for <linux-riscv@archiver.kernel.org>; Mon,  9 Oct 2023 12:16:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+VzLzt6T2jHlHCwNpKFTk0aCAFPoSS4HkEce9AQMRq8=; b=bXO89Zu3zZRhdS
-	lAYHWco9/cnO9SNqhKFxUCpoAGgN7tas2lSNRHQqFCQqrmZZYmKmjs/Xthfew9MImZLJh9DSfJsmH
-	LJbqIXHukTwhI1Wp5LiNX070xMjzZQAhOPuLUHfZypv3fMlSkEWLnIvG1UfIZqO0CHH8AFbd3AmuA
-	UR3EoT7y2bQAsqN507U8HnEVWgfS15rPvFf/oQO1l5h2M1P8nS1Hdp25JCNMjTTpZpj2QrH2SP/Te
-	sdTL3oM8942+p+Roq8tuxeAcOEwCw2N5FV8sOBUR4Es+/e0MEiAy+CTEJ51PpVx2DseksdcQB09iv
-	cIUPkxqSP+NZXQFLkwSQ==;
+	List-Owner; bh=SH3DE4AdeQvYlAfAHR85jgGDUm4H3jHmEgrzASpbBs4=; b=X8Lty1nZkgJc8T
+	K5iztbM3pezLi5EwQ1gjlnKl7uAEa3ujiYpFrcgjjbN8tMGQBR+UnHjJvu9fXR9gI4Ofb3rYaGLF0
+	cRQjQ88P8k/p0X/w+LzLo8bxKbVZKUKcLOnP7V1UzWwdcsPkktrdALk/1CL1ySgYFaAXdAPEpsfdU
+	uFBljadZOps0qgnddL5f1dp+gZRQDRkK5Nz/+DGoySno90qNtU+0H8YsEZytOGK/jwFPdMJy3dGKO
+	c0TGcCx8A2XahVnIUnJFTF6JoJ7XQXzHRn/fQAV8eI74oWZCtQzeGbfC7Z/PSRSknnuoise5F4wjR
+	UCmsin+5t7QdntKq72OQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qppAh-00Ae2b-3A;
-	Mon, 09 Oct 2023 12:15:39 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1qppBF-00AeZe-0D;
+	Mon, 09 Oct 2023 12:16:13 +0000
+Received: from mail-yw1-f170.google.com ([209.85.128.170])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qppA0-00AdF2-0H;
-	Mon, 09 Oct 2023 12:14:59 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by ams.source.kernel.org (Postfix) with ESMTP id 006DBB8112C;
-	Mon,  9 Oct 2023 12:14:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 28C23C433CD;
-	Mon,  9 Oct 2023 12:14:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1696853693;
-	bh=lG3KgbVIo1r1OqYBn7opAKflBQLCvcGKxyXVF2NNf4w=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=LCpUSFOkR+6HNf+7H6LErm6p63C38DjtwB7NmO9miYu4NewGsJUaSvWCFA+yL1Ht4
-	 uKrMAmAAMGWlUV9FfumkqSdFZuw7REbOJYcwp6s7RCaDZJW9I2RwRqKgLCwEpfH/CC
-	 kWIrzwXZ0O0/Gyj5NcNdmjvE5/CITaxxgYyuQ9GvN09ADutNSg0hDKp6xgF5EcE+u4
-	 852LRJIpid6HqN05CQ6l5AcNnwgp1Q0Ya3rrzh0ZlwoY9spW1J/dL/6c2EC5jmj5bm
-	 Xjd7/8nR9l0K4XfYJbIjrVND5DDfU0knyVYhimITR8eMdEZeL/MLU9q8MXkj2YntHt
-	 ffV6nkyR+Vkqw==
-From: Mark Brown <broonie@kernel.org>
-Date: Mon, 09 Oct 2023 13:09:11 +0100
-Subject: [PATCH v6 37/38] kselftest/arm64: Add a GCS stress test
+	id 1qppB5-00AePl-1E
+	for linux-riscv@lists.infradead.org;
+	Mon, 09 Oct 2023 12:16:09 +0000
+Received: by mail-yw1-f170.google.com with SMTP id 00721157ae682-5a7af20c488so1026787b3.1
+        for <linux-riscv@lists.infradead.org>; Mon, 09 Oct 2023 05:16:01 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1696853760; x=1697458560;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=dl00x9F8gW/xdOyelK9eYXeUORxvhqizJLBB30N7AGk=;
+        b=eP4WdjjTbBTIoHI+GAQ+PXJQr67GG8miQ34mnt9RNcPfvqTOLTN5OkU0dMVDqR/5UA
+         xNKsrU3o1QZYPV08KzpPmS4aiqSlfoxTKZ0FkvZecwotvecPXPVtTJeIchhMjQ91IQEs
+         kqqEWEkroQMwJgPhTU5D6TJbLbF9IiBn52mKGngsutt1c3zMk4zjOuAle++TUYWnZYXv
+         uHtMKDNgcD3iHpsKfMkRKzJeoE25kSbKyThTOcAKTjr77DAnSwp/OIrdzKlCIsOmNohQ
+         t9Y6SodTeM77VHCG7HlXSFvj8C2BRu+XeJbhJ1kOHMXQpUQ1sGNeshpZBGprIsMQayJy
+         TACA==
+X-Gm-Message-State: AOJu0YwTl6SVDKGus5BPrK4T9iLXR8veatCu4Ds1Y68F5yOZMFBNiSGN
+	rTV39+GBIVoq5hYsHEhTSKpLCpynP9q2DA==
+X-Google-Smtp-Source: AGHT+IHL6hojyIrCYQHnfRWk/grwtcHqUT1nCrpmNbgyFwzGqEJJ7aLeyNE6zuE6yTjtSmjCDmp6LQ==
+X-Received: by 2002:a0d:ef04:0:b0:583:d9de:8509 with SMTP id y4-20020a0def04000000b00583d9de8509mr15910028ywe.27.1696853759970;
+        Mon, 09 Oct 2023 05:15:59 -0700 (PDT)
+Received: from mail-yw1-f171.google.com (mail-yw1-f171.google.com. [209.85.128.171])
+        by smtp.gmail.com with ESMTPSA id l17-20020a0de211000000b005a50575b1c8sm3614763ywe.26.2023.10.09.05.15.59
+        for <linux-riscv@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 09 Oct 2023 05:15:59 -0700 (PDT)
+Received: by mail-yw1-f171.google.com with SMTP id 00721157ae682-5a505762c9dso54776267b3.2
+        for <linux-riscv@lists.infradead.org>; Mon, 09 Oct 2023 05:15:59 -0700 (PDT)
+X-Received: by 2002:a0d:d402:0:b0:59b:c847:bce0 with SMTP id
+ w2-20020a0dd402000000b0059bc847bce0mr16554853ywd.42.1696853759136; Mon, 09
+ Oct 2023 05:15:59 -0700 (PDT)
 MIME-Version: 1.0
-Message-Id: <20231009-arm64-gcs-v6-37-78e55deaa4dd@kernel.org>
-References: <20231009-arm64-gcs-v6-0-78e55deaa4dd@kernel.org>
-In-Reply-To: <20231009-arm64-gcs-v6-0-78e55deaa4dd@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
- Andrew Morton <akpm@linux-foundation.org>, Marc Zyngier <maz@kernel.org>, 
- Oliver Upton <oliver.upton@linux.dev>, James Morse <james.morse@arm.com>, 
- Suzuki K Poulose <suzuki.poulose@arm.com>, Arnd Bergmann <arnd@arndb.de>, 
- Oleg Nesterov <oleg@redhat.com>, Eric Biederman <ebiederm@xmission.com>, 
- Kees Cook <keescook@chromium.org>, Shuah Khan <shuah@kernel.org>, 
- "Rick P. Edgecombe" <rick.p.edgecombe@intel.com>, 
- Deepak Gupta <debug@rivosinc.com>, Ard Biesheuvel <ardb@kernel.org>, 
- Szabolcs Nagy <Szabolcs.Nagy@arm.com>
-Cc: "H.J. Lu" <hjl.tools@gmail.com>, 
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Florian Weimer <fweimer@redhat.com>, Christian Brauner <brauner@kernel.org>, 
- linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, 
- kvmarm@lists.linux.dev, linux-fsdevel@vger.kernel.org, 
- linux-arch@vger.kernel.org, linux-mm@kvack.org, 
- linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-riscv@lists.infradead.org, Mark Brown <broonie@kernel.org>
-X-Mailer: b4 0.13-dev-0438c
-X-Developer-Signature: v=1; a=openpgp-sha256; l=21150; i=broonie@kernel.org;
- h=from:subject:message-id; bh=lG3KgbVIo1r1OqYBn7opAKflBQLCvcGKxyXVF2NNf4w=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBlI+2ulq5T+J5CPLNXBcAUq/57iyAquzLzZTUw7gck
- fLcxSdGJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZSPtrgAKCRAk1otyXVSH0I6LCA
- CB16MXq3RcXDUK6q3EEA6QZzbcMFlrTXvdaO/BqeXJ2E7d5XNgwE6E8AEs2H9m+j8jzZrVvQEK35s3
- vwgGLJtHCSt0pxO5eOAaX5UFpUGL6rmVBpgj5iqjMW7HvyFtEXVSZRQXf+/FCk1UNxcDuSU5UyPzMQ
- m1zjRAGrmPrlmXWmXT9U4HNWpVxpa32pp8LZJ3QwuEjNWed7rJ+VknMvQy7bbvL66+e96Q/aSruWUL
- TG3ZPdDFFYmKvUORJlStQuXK6bP7dJrOGaZyD9lGBj9tCSYbGIMAfOWfHFI3Xq/8WYyziUsGJy4uvx
- F5GRWUiGPfSVqbLrnkeUu4eQYGxHk+
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+References: <20231009-approve-verbalize-ce9324858e76@wendy> <20231009-smog-gag-3ba67e68126b@wendy>
+In-Reply-To: <20231009-smog-gag-3ba67e68126b@wendy>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Mon, 9 Oct 2023 14:15:47 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdVc7VOvB86A7-TShhoqut6Y1ZvY0WSC8XpOEv8Bb2bA-Q@mail.gmail.com>
+Message-ID: <CAMuHMdVc7VOvB86A7-TShhoqut6Y1ZvY0WSC8XpOEv8Bb2bA-Q@mail.gmail.com>
+Subject: Re: [PATCH v3 4/6] riscv: dts: renesas: convert isa detection to new properties
+To: Conor Dooley <conor.dooley@microchip.com>
+Cc: linux-riscv@lists.indradead.org, conor@kernel.org, 
+	Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Chen-Yu Tsai <wens@csie.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	Daire McNamara <daire.mcnamara@microchip.com>, Geert Uytterhoeven <geert+renesas@glider.be>, 
+	Magnus Damm <magnus.damm@gmail.com>, Emil Renner Berthing <kernel@esmil.dk>, 
+	Jisheng Zhang <jszhang@kernel.org>, Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>, 
+	Chen Wang <unicorn_wang@outlook.com>, devicetree@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+	linux-renesas-soc@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231009_051456_473732_3233FC86 
-X-CRM114-Status: GOOD (  27.48  )
+X-CRM114-CacheID: sfid-20231009_051603_439398_BE1891FF 
+X-CRM114-Status: GOOD (  17.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,922 +91,38 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add a stress test which runs one more process than we have CPUs spinning
-through a very recursive function with frequent syscalls immediately prior
-to return and signals being injected every 100ms. The goal is to flag up
-any scheduling related issues, for example failure to ensure that barriers
-are inserted when moving a GCS using task to another CPU. The test runs for
-a configurable amount of time, defaulting to 10 seconds.
-
-Signed-off-by: Mark Brown <broonie@kernel.org>
----
- tools/testing/selftests/arm64/gcs/.gitignore       |   2 +
- tools/testing/selftests/arm64/gcs/Makefile         |   6 +-
- tools/testing/selftests/arm64/gcs/asm-offsets.h    |   0
- .../selftests/arm64/gcs/gcs-stress-thread.S        | 311 ++++++++++++
- tools/testing/selftests/arm64/gcs/gcs-stress.c     | 532 +++++++++++++++++++++
- 5 files changed, 850 insertions(+), 1 deletion(-)
-
-diff --git a/tools/testing/selftests/arm64/gcs/.gitignore b/tools/testing/selftests/arm64/gcs/.gitignore
-index 0c86f53f68ad..1e8d1f6b27f2 100644
---- a/tools/testing/selftests/arm64/gcs/.gitignore
-+++ b/tools/testing/selftests/arm64/gcs/.gitignore
-@@ -1,3 +1,5 @@
- basic-gcs
- libc-gcs
- gcs-locking
-+gcs-stress
-+gcs-stress-thread
-diff --git a/tools/testing/selftests/arm64/gcs/Makefile b/tools/testing/selftests/arm64/gcs/Makefile
-index 2173d6275956..d8b06ca51e22 100644
---- a/tools/testing/selftests/arm64/gcs/Makefile
-+++ b/tools/testing/selftests/arm64/gcs/Makefile
-@@ -6,7 +6,8 @@
- # nolibc.
- #
- 
--TEST_GEN_PROGS := basic-gcs libc-gcs gcs-locking
-+TEST_GEN_PROGS := basic-gcs libc-gcs gcs-locking gcs-stress
-+TEST_GEN_PROGS_EXTENDED := gcs-stress-thread
- 
- LDLIBS+=-lpthread
- 
-@@ -18,3 +19,6 @@ $(OUTPUT)/basic-gcs: basic-gcs.c
- 		-I../../../../../usr/include \
- 		-std=gnu99 -I../.. -g \
- 		-ffreestanding -Wall $^ -o $@ -lgcc
-+
-+$(OUTPUT)/gcs-stress-thread: gcs-stress-thread.S
-+	$(CC) -nostdlib $^ -o $@
-diff --git a/tools/testing/selftests/arm64/gcs/asm-offsets.h b/tools/testing/selftests/arm64/gcs/asm-offsets.h
-new file mode 100644
-index 000000000000..e69de29bb2d1
-diff --git a/tools/testing/selftests/arm64/gcs/gcs-stress-thread.S b/tools/testing/selftests/arm64/gcs/gcs-stress-thread.S
-new file mode 100644
-index 000000000000..4fe8695333e5
---- /dev/null
-+++ b/tools/testing/selftests/arm64/gcs/gcs-stress-thread.S
-@@ -0,0 +1,311 @@
-+// Program that loops for ever doing lots of recursions and system calls,
-+// intended to be used as part of a stress test for GCS context switching.
-+//
-+// Copyright 2015-2023 Arm Ltd
-+
-+#include <asm/unistd.h>
-+
-+#define sa_sz 32
-+#define sa_flags 8
-+#define sa_handler 0
-+#define sa_mask_sz 8
-+
-+#define si_code 8
-+
-+#define SIGINT 2
-+#define SIGABRT 6
-+#define SIGUSR1 10
-+#define SIGSEGV 11
-+#define SIGUSR2 12
-+#define SIGTERM 15
-+#define SEGV_CPERR 10
-+
-+#define SA_NODEFER 1073741824
-+#define SA_SIGINFO 4
-+#define ucontext_regs 184
-+
-+#define PR_SET_SHADOW_STACK_STATUS      72
-+# define PR_SHADOW_STACK_ENABLE         (1UL << 0)
-+
-+#define	GCSPR_EL0 S3_3_C2_C5_1
-+
-+.macro function name
-+	.macro endfunction
-+		.type \name, @function
-+		.purgem endfunction
-+	.endm
-+\name:
-+.endm
-+
-+// Print a single character x0 to stdout
-+// Clobbers x0-x2,x8
-+function putc
-+	str	x0, [sp, #-16]!
-+
-+	mov	x0, #1			// STDOUT_FILENO
-+	mov	x1, sp
-+	mov	x2, #1
-+	mov	x8, #__NR_write
-+	svc	#0
-+
-+	add	sp, sp, #16
-+	ret
-+endfunction
-+.globl	putc
-+
-+// Print a NUL-terminated string starting at address x0 to stdout
-+// Clobbers x0-x3,x8
-+function puts
-+	mov	x1, x0
-+
-+	mov	x2, #0
-+0:	ldrb	w3, [x0], #1
-+	cbz	w3, 1f
-+	add	x2, x2, #1
-+	b	0b
-+
-+1:	mov	w0, #1			// STDOUT_FILENO
-+	mov	x8, #__NR_write
-+	svc	#0
-+
-+	ret
-+endfunction
-+.globl	puts
-+
-+// Utility macro to print a literal string
-+// Clobbers x0-x4,x8
-+.macro puts string
-+	.pushsection .rodata.str1.1, "aMS", @progbits, 1
-+.L__puts_literal\@: .string "\string"
-+	.popsection
-+
-+	ldr	x0, =.L__puts_literal\@
-+	bl	puts
-+.endm
-+
-+// Print an unsigned decimal number x0 to stdout
-+// Clobbers x0-x4,x8
-+function putdec
-+	mov	x1, sp
-+	str	x30, [sp, #-32]!	// Result can't be > 20 digits
-+
-+	mov	x2, #0
-+	strb	w2, [x1, #-1]!		// Write the NUL terminator
-+
-+	mov	x2, #10
-+0:	udiv	x3, x0, x2		// div-mod loop to generate the digits
-+	msub	x0, x3, x2, x0
-+	add	w0, w0, #'0'
-+	strb	w0, [x1, #-1]!
-+	mov	x0, x3
-+	cbnz	x3, 0b
-+
-+	ldrb	w0, [x1]
-+	cbnz	w0, 1f
-+	mov	w0, #'0'		// Print "0" for 0, not ""
-+	strb	w0, [x1, #-1]!
-+
-+1:	mov	x0, x1
-+	bl	puts
-+
-+	ldr	x30, [sp], #32
-+	ret
-+endfunction
-+.globl	putdec
-+
-+// Print an unsigned decimal number x0 to stdout, followed by a newline
-+// Clobbers x0-x5,x8
-+function putdecn
-+	mov	x5, x30
-+
-+	bl	putdec
-+	mov	x0, #'\n'
-+	bl	putc
-+
-+	ret	x5
-+endfunction
-+.globl	putdecn
-+
-+// Fill x1 bytes starting at x0 with 0.
-+// Clobbers x1, x2.
-+function memclr
-+	mov	w2, #0
-+endfunction
-+.globl	memclr
-+	// fall through to memfill
-+
-+// Trivial memory fill: fill x1 bytes starting at address x0 with byte w2
-+// Clobbers x1
-+function memfill
-+	cmp	x1, #0
-+	b.eq	1f
-+
-+0:	strb	w2, [x0], #1
-+	subs	x1, x1, #1
-+	b.ne	0b
-+
-+1:	ret
-+endfunction
-+.globl	memfill
-+
-+// w0: signal number
-+// x1: sa_action
-+// w2: sa_flags
-+// Clobbers x0-x6,x8
-+function setsignal
-+	str	x30, [sp, #-((sa_sz + 15) / 16 * 16 + 16)]!
-+
-+	mov	w4, w0
-+	mov	x5, x1
-+	mov	w6, w2
-+
-+	add	x0, sp, #16
-+	mov	x1, #sa_sz
-+	bl	memclr
-+
-+	mov	w0, w4
-+	add	x1, sp, #16
-+	str	w6, [x1, #sa_flags]
-+	str	x5, [x1, #sa_handler]
-+	mov	x2, #0
-+	mov	x3, #sa_mask_sz
-+	mov	x8, #__NR_rt_sigaction
-+	svc	#0
-+
-+	cbz	w0, 1f
-+
-+	puts	"sigaction failure\n"
-+	b	abort
-+
-+1:	ldr	x30, [sp], #((sa_sz + 15) / 16 * 16 + 16)
-+	ret
-+endfunction
-+
-+
-+function tickle_handler
-+	// Perhaps collect GCSPR_EL0 here in future?
-+	ret
-+endfunction
-+
-+function terminate_handler
-+	mov	w21, w0
-+	mov	x20, x2
-+
-+	puts	"Terminated by signal "
-+	mov	w0, w21
-+	bl	putdec
-+	puts	", no error\n"
-+
-+	mov	x0, #0
-+	mov	x8, #__NR_exit
-+	svc	#0
-+endfunction
-+
-+function segv_handler
-+	// stash the siginfo_t *
-+	mov	x20, x1
-+
-+	// Disable GCS, we don't want additional faults logging things
-+	mov	x0, PR_SET_SHADOW_STACK_STATUS
-+	mov	x1, xzr
-+	mov	x2, xzr
-+	mov	x3, xzr
-+	mov	x4, xzr
-+	mov	x5, xzr
-+	mov	x8, #__NR_prctl
-+	svc	#0
-+
-+	puts	"Got SIGSEGV code "
-+
-+	ldr	x21, [x20, #si_code]
-+	mov	x0, x21
-+	bl	putdec
-+
-+	// GCS faults should have si_code SEGV_CPERR
-+	cmp	x21, #SEGV_CPERR
-+	bne	1f
-+
-+	puts	" (GCS violation)"
-+1:
-+	mov	x0, '\n'
-+	bl	putc
-+	b	abort
-+endfunction
-+
-+// Recurse x20 times
-+.macro recurse id
-+function recurse\id
-+	stp	x29, x30, [sp, #-16]!
-+	mov	x29, sp
-+
-+	cmp	x20, 0
-+	beq	1f
-+	sub	x20, x20, 1
-+	bl	recurse\id
-+
-+1:
-+	ldp	x29, x30, [sp], #16
-+
-+	// Do a syscall immediately prior to returning to try to provoke
-+	// scheduling and migration at a point where coherency issues
-+	// might trigger.
-+	mov	x8, #__NR_getpid
-+	svc	#0
-+
-+	ret
-+endfunction
-+.endmacro
-+
-+// Generate and use two copies so we're changing the GCS contents
-+recurse 1
-+recurse 2
-+
-+.globl _start
-+function _start
-+	// Run with GCS
-+	mov	x0, PR_SET_SHADOW_STACK_STATUS
-+	mov	x1, PR_SHADOW_STACK_ENABLE
-+	mov	x2, xzr
-+	mov	x3, xzr
-+	mov	x4, xzr
-+	mov	x5, xzr
-+	mov	x8, #__NR_prctl
-+	svc	#0
-+	cbz	x0, 1f
-+	puts	"Failed to enable GCS\n"
-+	b	abort
-+1:
-+
-+	mov	w0, #SIGTERM
-+	adr	x1, terminate_handler
-+	mov	w2, #SA_SIGINFO
-+	bl	setsignal
-+
-+	mov	w0, #SIGUSR1
-+	adr	x1, tickle_handler
-+	mov	w2, #SA_SIGINFO
-+	orr	w2, w2, #SA_NODEFER
-+	bl	setsignal
-+
-+	mov	w0, #SIGSEGV
-+	adr	x1, segv_handler
-+	mov	w2, #SA_SIGINFO
-+	orr	w2, w2, #SA_NODEFER
-+	bl	setsignal
-+
-+	puts	"Running\n"
-+
-+loop:
-+	// Small recursion depth so we're frequently flipping between
-+	// the two recursors and changing what's on the stack
-+	mov	x20, #5
-+	bl	recurse1
-+	mov	x20, #5
-+	bl	recurse2
-+	b	loop
-+endfunction
-+
-+abort:
-+	mov	x0, #255
-+	mov	x8, #__NR_exit
-+	svc	#0
-diff --git a/tools/testing/selftests/arm64/gcs/gcs-stress.c b/tools/testing/selftests/arm64/gcs/gcs-stress.c
-new file mode 100644
-index 000000000000..23fd8ec37bdc
---- /dev/null
-+++ b/tools/testing/selftests/arm64/gcs/gcs-stress.c
-@@ -0,0 +1,532 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Copyright (C) 2022-3 ARM Limited.
-+ */
-+
-+#define _GNU_SOURCE
-+#define _POSIX_C_SOURCE 199309L
-+
-+#include <errno.h>
-+#include <getopt.h>
-+#include <poll.h>
-+#include <signal.h>
-+#include <stdbool.h>
-+#include <stddef.h>
-+#include <stdio.h>
-+#include <stdlib.h>
-+#include <string.h>
-+#include <unistd.h>
-+#include <sys/auxv.h>
-+#include <sys/epoll.h>
-+#include <sys/prctl.h>
-+#include <sys/types.h>
-+#include <sys/uio.h>
-+#include <sys/wait.h>
-+#include <asm/hwcap.h>
-+
-+#include "../../kselftest.h"
-+
-+struct child_data {
-+	char *name, *output;
-+	pid_t pid;
-+	int stdout;
-+	bool output_seen;
-+	bool exited;
-+	int exit_status;
-+	int exit_signal;
-+};
-+
-+static int epoll_fd;
-+static struct child_data *children;
-+static struct epoll_event *evs;
-+static int tests;
-+static int num_children;
-+static bool terminate;
-+
-+static int startup_pipe[2];
-+
-+static int num_processors(void)
-+{
-+	long nproc = sysconf(_SC_NPROCESSORS_CONF);
-+	if (nproc < 0) {
-+		perror("Unable to read number of processors\n");
-+		exit(EXIT_FAILURE);
-+	}
-+
-+	return nproc;
-+}
-+
-+static void start_thread(struct child_data *child)
-+{
-+	int ret, pipefd[2], i;
-+	struct epoll_event ev;
-+
-+	ret = pipe(pipefd);
-+	if (ret != 0)
-+		ksft_exit_fail_msg("Failed to create stdout pipe: %s (%d)\n",
-+				   strerror(errno), errno);
-+
-+	child->pid = fork();
-+	if (child->pid == -1)
-+		ksft_exit_fail_msg("fork() failed: %s (%d)\n",
-+				   strerror(errno), errno);
-+
-+	if (!child->pid) {
-+		/*
-+		 * In child, replace stdout with the pipe, errors to
-+		 * stderr from here as kselftest prints to stdout.
-+		 */
-+		ret = dup2(pipefd[1], 1);
-+		if (ret == -1) {
-+			fprintf(stderr, "dup2() %d\n", errno);
-+			exit(EXIT_FAILURE);
-+		}
-+
-+		/*
-+		 * Duplicate the read side of the startup pipe to
-+		 * FD 3 so we can close everything else.
-+		 */
-+		ret = dup2(startup_pipe[0], 3);
-+		if (ret == -1) {
-+			fprintf(stderr, "dup2() %d\n", errno);
-+			exit(EXIT_FAILURE);
-+		}
-+
-+		/*
-+		 * Very dumb mechanism to clean open FDs other than
-+		 * stdio. We don't want O_CLOEXEC for the pipes...
-+		 */
-+		for (i = 4; i < 8192; i++)
-+			close(i);
-+
-+		/*
-+		 * Read from the startup pipe, there should be no data
-+		 * and we should block until it is closed.  We just
-+		 * carry on on error since this isn't super critical.
-+		 */
-+		ret = read(3, &i, sizeof(i));
-+		if (ret < 0)
-+			fprintf(stderr, "read(startp pipe) failed: %s (%d)\n",
-+				strerror(errno), errno);
-+		if (ret > 0)
-+			fprintf(stderr, "%d bytes of data on startup pipe\n",
-+				ret);
-+		close(3);
-+
-+		ret = execl("gcs-stress-thread", "gcs-stress-thread", NULL);
-+		fprintf(stderr, "execl(gcs-stress-thread) failed: %d (%s)\n",
-+			errno, strerror(errno));
-+
-+		exit(EXIT_FAILURE);
-+	} else {
-+		/*
-+		 * In parent, remember the child and close our copy of the
-+		 * write side of stdout.
-+		 */
-+		close(pipefd[1]);
-+		child->stdout = pipefd[0];
-+		child->output = NULL;
-+		child->exited = false;
-+		child->output_seen = false;
-+
-+		ev.events = EPOLLIN | EPOLLHUP;
-+		ev.data.ptr = child;
-+
-+		ret = asprintf(&child->name, "Thread-%d", child->pid);
-+		if (ret == -1)
-+			ksft_exit_fail_msg("asprintf() failed\n");
-+
-+		ret = epoll_ctl(epoll_fd, EPOLL_CTL_ADD, child->stdout, &ev);
-+		if (ret < 0) {
-+			ksft_exit_fail_msg("%s EPOLL_CTL_ADD failed: %s (%d)\n",
-+					   child->name, strerror(errno), errno);
-+		}
-+	}
-+
-+	ksft_print_msg("Started %s\n", child->name);
-+	num_children++;
-+}
-+
-+static bool child_output_read(struct child_data *child)
-+{
-+	char read_data[1024];
-+	char work[1024];
-+	int ret, len, cur_work, cur_read;
-+
-+	ret = read(child->stdout, read_data, sizeof(read_data));
-+	if (ret < 0) {
-+		if (errno == EINTR)
-+			return true;
-+
-+		ksft_print_msg("%s: read() failed: %s (%d)\n",
-+			       child->name, strerror(errno),
-+			       errno);
-+		return false;
-+	}
-+	len = ret;
-+
-+	child->output_seen = true;
-+
-+	/* Pick up any partial read */
-+	if (child->output) {
-+		strncpy(work, child->output, sizeof(work) - 1);
-+		cur_work = strnlen(work, sizeof(work));
-+		free(child->output);
-+		child->output = NULL;
-+	} else {
-+		cur_work = 0;
-+	}
-+
-+	cur_read = 0;
-+	while (cur_read < len) {
-+		work[cur_work] = read_data[cur_read++];
-+
-+		if (work[cur_work] == '\n') {
-+			work[cur_work] = '\0';
-+			ksft_print_msg("%s: %s\n", child->name, work);
-+			cur_work = 0;
-+		} else {
-+			cur_work++;
-+		}
-+	}
-+
-+	if (cur_work) {
-+		work[cur_work] = '\0';
-+		ret = asprintf(&child->output, "%s", work);
-+		if (ret == -1)
-+			ksft_exit_fail_msg("Out of memory\n");
-+	}
-+
-+	return false;
-+}
-+
-+static void child_output(struct child_data *child, uint32_t events,
-+			 bool flush)
-+{
-+	bool read_more;
-+
-+	if (events & EPOLLIN) {
-+		do {
-+			read_more = child_output_read(child);
-+		} while (read_more);
-+	}
-+
-+	if (events & EPOLLHUP) {
-+		close(child->stdout);
-+		child->stdout = -1;
-+		flush = true;
-+	}
-+
-+	if (flush && child->output) {
-+		ksft_print_msg("%s: %s<EOF>\n", child->name, child->output);
-+		free(child->output);
-+		child->output = NULL;
-+	}
-+}
-+
-+static void child_tickle(struct child_data *child)
-+{
-+	if (child->output_seen && !child->exited)
-+		kill(child->pid, SIGUSR1);
-+}
-+
-+static void child_stop(struct child_data *child)
-+{
-+	if (!child->exited)
-+		kill(child->pid, SIGTERM);
-+}
-+
-+static void child_cleanup(struct child_data *child)
-+{
-+	pid_t ret;
-+	int status;
-+	bool fail = false;
-+
-+	if (!child->exited) {
-+		do {
-+			ret = waitpid(child->pid, &status, 0);
-+			if (ret == -1 && errno == EINTR)
-+				continue;
-+
-+			if (ret == -1) {
-+				ksft_print_msg("waitpid(%d) failed: %s (%d)\n",
-+					       child->pid, strerror(errno),
-+					       errno);
-+				fail = true;
-+				break;
-+			}
-+
-+			if (WIFEXITED(status)) {
-+				child->exit_status = WEXITSTATUS(status);
-+				child->exited = true;
-+			}
-+
-+			if (WIFSIGNALED(status)) {
-+				child->exit_signal = WTERMSIG(status);
-+				ksft_print_msg("%s: Exited due to signal %d\n",
-+					       child->name);
-+				fail = true;
-+				child->exited = true;
-+			}
-+		} while (!child->exited);
-+	}
-+
-+	if (!child->output_seen) {
-+		ksft_print_msg("%s no output seen\n", child->name);
-+		fail = true;
-+	}
-+
-+	if (child->exit_status != 0) {
-+		ksft_print_msg("%s exited with error code %d\n",
-+			       child->name, child->exit_status);
-+		fail = true;
-+	}
-+
-+	ksft_test_result(!fail, "%s\n", child->name);
-+}
-+
-+static void handle_child_signal(int sig, siginfo_t *info, void *context)
-+{
-+	int i;
-+	bool found = false;
-+
-+	for (i = 0; i < num_children; i++) {
-+		if (children[i].pid == info->si_pid) {
-+			children[i].exited = true;
-+			children[i].exit_status = info->si_status;
-+			found = true;
-+			break;
-+		}
-+	}
-+
-+	if (!found)
-+		ksft_print_msg("SIGCHLD for unknown PID %d with status %d\n",
-+			       info->si_pid, info->si_status);
-+}
-+
-+static void handle_exit_signal(int sig, siginfo_t *info, void *context)
-+{
-+	int i;
-+
-+	/* If we're already exiting then don't signal again */
-+	if (terminate)
-+		return;
-+
-+	ksft_print_msg("Got signal, exiting...\n");
-+
-+	terminate = true;
-+
-+	/*
-+	 * This should be redundant, the main loop should clean up
-+	 * after us, but for safety stop everything we can here.
-+	 */
-+	for (i = 0; i < num_children; i++)
-+		child_stop(&children[i]);
-+}
-+
-+/* Handle any pending output without blocking */
-+static void drain_output(bool flush)
-+{
-+	int ret = 1;
-+	int i;
-+
-+	while (ret > 0) {
-+		ret = epoll_wait(epoll_fd, evs, tests, 0);
-+		if (ret < 0) {
-+			if (errno == EINTR)
-+				continue;
-+			ksft_print_msg("epoll_wait() failed: %s (%d)\n",
-+				       strerror(errno), errno);
-+		}
-+
-+		for (i = 0; i < ret; i++)
-+			child_output(evs[i].data.ptr, evs[i].events, flush);
-+	}
-+}
-+
-+static const struct option options[] = {
-+	{ "timeout",	required_argument, NULL, 't' },
-+	{ }
-+};
-+
-+int main(int argc, char **argv)
-+{
-+	int seen_children;
-+	bool all_children_started = false;
-+	int gcs_threads;
-+	int timeout = 10;
-+	int ret, cpus, i, c;
-+	struct sigaction sa;
-+
-+	while ((c = getopt_long(argc, argv, "t:", options, NULL)) != -1) {
-+		switch (c) {
-+		case 't':
-+			ret = sscanf(optarg, "%d", &timeout);
-+			if (ret != 1)
-+				ksft_exit_fail_msg("Failed to parse timeout %s\n",
-+						   optarg);
-+			break;
-+		default:
-+			ksft_exit_fail_msg("Unknown argument\n");
-+		}
-+	}
-+
-+	cpus = num_processors();
-+	tests = 0;
-+
-+	if (getauxval(AT_HWCAP2) & HWCAP2_GCS) {
-+		/* One extra thread, trying to trigger migrations */
-+		gcs_threads = cpus + 1;
-+		tests += gcs_threads;
-+	} else {
-+		gcs_threads = 0;
-+	}
-+
-+	ksft_print_header();
-+	ksft_set_plan(tests);
-+
-+	ksft_print_msg("%d CPUs, %d GCS threads\n",
-+		       cpus, gcs_threads);
-+
-+	if (!tests)
-+		ksft_exit_skip("No tests scheduled\n");
-+
-+	if (timeout > 0)
-+		ksft_print_msg("Will run for %ds\n", timeout);
-+	else
-+		ksft_print_msg("Will run until terminated\n");
-+
-+	children = calloc(sizeof(*children), tests);
-+	if (!children)
-+		ksft_exit_fail_msg("Unable to allocate child data\n");
-+
-+	ret = epoll_create1(EPOLL_CLOEXEC);
-+	if (ret < 0)
-+		ksft_exit_fail_msg("epoll_create1() failed: %s (%d)\n",
-+				   strerror(errno), ret);
-+	epoll_fd = ret;
-+
-+	/* Create a pipe which children will block on before execing */
-+	ret = pipe(startup_pipe);
-+	if (ret != 0)
-+		ksft_exit_fail_msg("Failed to create startup pipe: %s (%d)\n",
-+				   strerror(errno), errno);
-+
-+	/* Get signal handers ready before we start any children */
-+	memset(&sa, 0, sizeof(sa));
-+	sa.sa_sigaction = handle_exit_signal;
-+	sa.sa_flags = SA_RESTART | SA_SIGINFO;
-+	sigemptyset(&sa.sa_mask);
-+	ret = sigaction(SIGINT, &sa, NULL);
-+	if (ret < 0)
-+		ksft_print_msg("Failed to install SIGINT handler: %s (%d)\n",
-+			       strerror(errno), errno);
-+	ret = sigaction(SIGTERM, &sa, NULL);
-+	if (ret < 0)
-+		ksft_print_msg("Failed to install SIGTERM handler: %s (%d)\n",
-+			       strerror(errno), errno);
-+	sa.sa_sigaction = handle_child_signal;
-+	ret = sigaction(SIGCHLD, &sa, NULL);
-+	if (ret < 0)
-+		ksft_print_msg("Failed to install SIGCHLD handler: %s (%d)\n",
-+			       strerror(errno), errno);
-+
-+	evs = calloc(tests, sizeof(*evs));
-+	if (!evs)
-+		ksft_exit_fail_msg("Failed to allocated %d epoll events\n",
-+				   tests);
-+
-+	for (i = 0; i < gcs_threads; i++)
-+		start_thread(&children[i]);
-+
-+	/*
-+	 * All children started, close the startup pipe and let them
-+	 * run.
-+	 */
-+	close(startup_pipe[0]);
-+	close(startup_pipe[1]);
-+
-+	timeout *= 10;
-+	for (;;) {
-+		/* Did we get a signal asking us to exit? */
-+		if (terminate)
-+			break;
-+
-+		/*
-+		 * Timeout is counted in 100ms with no output, the
-+		 * tests print during startup then are silent when
-+		 * running so this should ensure they all ran enough
-+		 * to install the signal handler, this is especially
-+		 * useful in emulation where we will both be slow and
-+		 * likely to have a large set of VLs.
-+		 */
-+		ret = epoll_wait(epoll_fd, evs, tests, 100);
-+		if (ret < 0) {
-+			if (errno == EINTR)
-+				continue;
-+			ksft_exit_fail_msg("epoll_wait() failed: %s (%d)\n",
-+					   strerror(errno), errno);
-+		}
-+
-+		/* Output? */
-+		if (ret > 0) {
-+			for (i = 0; i < ret; i++) {
-+				child_output(evs[i].data.ptr, evs[i].events,
-+					     false);
-+			}
-+			continue;
-+		}
-+
-+		/* Otherwise epoll_wait() timed out */
-+
-+		/*
-+		 * If the child processes have not produced output they
-+		 * aren't actually running the tests yet.
-+		 */
-+		if (!all_children_started) {
-+			seen_children = 0;
-+
-+			for (i = 0; i < num_children; i++)
-+				if (children[i].output_seen ||
-+				    children[i].exited)
-+					seen_children++;
-+
-+			if (seen_children != num_children) {
-+				ksft_print_msg("Waiting for %d children\n",
-+					       num_children - seen_children);
-+				continue;
-+			}
-+
-+			all_children_started = true;
-+		}
-+
-+		ksft_print_msg("Sending signals, timeout remaining: %d00ms\n",
-+			       timeout);
-+
-+		for (i = 0; i < num_children; i++)
-+			child_tickle(&children[i]);
-+
-+		/* Negative timeout means run indefinitely */
-+		if (timeout < 0)
-+			continue;
-+		if (--timeout == 0)
-+			break;
-+	}
-+
-+	ksft_print_msg("Finishing up...\n");
-+	terminate = true;
-+
-+	for (i = 0; i < tests; i++)
-+		child_stop(&children[i]);
-+
-+	drain_output(false);
-+
-+	for (i = 0; i < tests; i++)
-+		child_cleanup(&children[i]);
-+
-+	drain_output(true);
-+
-+	ksft_print_cnts();
-+
-+	return 0;
-+}
-
--- 
-2.30.2
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgQ29ub3IsCgpPbiBNb24sIE9jdCA5LCAyMDIzIGF0IDExOjQ04oCvQU0gQ29ub3IgRG9vbGV5
+IDxjb25vci5kb29sZXlAbWljcm9jaGlwLmNvbT4gd3JvdGU6Cj4gQ29udmVydCB0aGUgUlovRml2
+ZSBkZXZpY2V0cmVlcyB0byB1c2UgdGhlIG5ldyBwcm9wZXJ0aWVzCj4gInJpc2N2LGlzYS1iYXNl
+IiAmICJyaXNjdixpc2EtZXh0ZW5zaW9ucyIuCj4gRm9yIGNvbXBhdGliaWxpdHkgd2l0aCBvdGhl
+ciBwcm9qZWN0cywgInJpc2N2LGlzYSIgcmVtYWlucy4KPgo+IFNpZ25lZC1vZmYtYnk6IENvbm9y
+IERvb2xleSA8Y29ub3IuZG9vbGV5QG1pY3JvY2hpcC5jb20+CgpUaGFua3MgZm9yIHlvdXIgcGF0
+Y2ghCgo+IC0tLSBhL2FyY2gvcmlzY3YvYm9vdC9kdHMvcmVuZXNhcy9yOWEwN2cwNDNmLmR0c2kK
+PiArKysgYi9hcmNoL3Jpc2N2L2Jvb3QvZHRzL3JlbmVzYXMvcjlhMDdnMDQzZi5kdHNpCj4gQEAg
+LTI0LDYgKzI0LDkgQEAgY3B1MDogY3B1QDAgewo+ICAgICAgICAgICAgICAgICAgICAgICAgIHJl
+ZyA9IDwweDA+Owo+ICAgICAgICAgICAgICAgICAgICAgICAgIHN0YXR1cyA9ICJva2F5IjsKPiAg
+ICAgICAgICAgICAgICAgICAgICAgICByaXNjdixpc2EgPSAicnY2NGltYWZkYyI7Cj4gKyAgICAg
+ICAgICAgICAgICAgICAgICAgcmlzY3YsaXNhLWJhc2UgPSAicnY2NGkiOwo+ICsgICAgICAgICAg
+ICAgICAgICAgICAgIHJpc2N2LGlzYS1leHRlbnNpb25zID0gImkiLCAibSIsICJhIiwgImYiLCAi
+ZCIsICJjIiwgInppY250ciIsICJ6aWNzciIsCj4gKyAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAiemlmZW5jZWkiLCAiemlocG0iOwoKTEdNVCwgc28KUmV2aWV3
+ZWQtYnk6IEdlZXJ0IFV5dHRlcmhvZXZlbiA8Z2VlcnQrcmVuZXNhc0BnbGlkZXIuYmU+CgpJIGNv
+dWxkIG5vdCByZXZpZXcgdGhlICJ6aSoiIHBhcnRzLCBhcyB0aGUgZG9jdW1lbnRhdGlvbiB0aGF0
+IEkgaGF2ZQpkb2VzIG5vdCBtZW50aW9uIHRoZXNlLgoKPiAgICAgICAgICAgICAgICAgICAgICAg
+ICBtbXUtdHlwZSA9ICJyaXNjdixzdjM5IjsKPiAgICAgICAgICAgICAgICAgICAgICAgICBpLWNh
+Y2hlLXNpemUgPSA8MHg4MDAwPjsKPiAgICAgICAgICAgICAgICAgICAgICAgICBpLWNhY2hlLWxp
+bmUtc2l6ZSA9IDwweDQwPjsKCkdye29ldGplLGVldGluZ31zLAoKICAgICAgICAgICAgICAgICAg
+ICAgICAgR2VlcnQKCi0tIApHZWVydCBVeXR0ZXJob2V2ZW4gLS0gVGhlcmUncyBsb3RzIG9mIExp
+bnV4IGJleW9uZCBpYTMyIC0tIGdlZXJ0QGxpbnV4LW02OGsub3JnCgpJbiBwZXJzb25hbCBjb252
+ZXJzYXRpb25zIHdpdGggdGVjaG5pY2FsIHBlb3BsZSwgSSBjYWxsIG15c2VsZiBhIGhhY2tlci4g
+QnV0CndoZW4gSSdtIHRhbGtpbmcgdG8gam91cm5hbGlzdHMgSSBqdXN0IHNheSAicHJvZ3JhbW1l
+ciIgb3Igc29tZXRoaW5nIGxpa2UgdGhhdC4KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAtLSBMaW51cyBUb3J2YWxkcwoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmlu
+ZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9s
+aW51eC1yaXNjdgo=
