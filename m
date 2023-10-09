@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5547EE95A91
-	for <linux-riscv@archiver.kernel.org>; Mon,  9 Oct 2023 12:42:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30F12E81E16
+	for <linux-riscv@archiver.kernel.org>; Mon,  9 Oct 2023 12:42:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gQcowqitKPjddPy3UOslkFjx5guJnrrOh9BsgIFWgM4=; b=CUhmk6/lasqucD
-	iTWwaPeijAJiiX/dR2EISOF6RFm8rpuhryOvBFQz8Z3ax6frqaJfVMRfqf56pqvooCNmNZLudi79i
-	awPhlouiJlBBQcUGVsTBKBQ/owub5rnijrZ4Bp5I5PlcRSvkHA43/fHWtUhtmrajm36BzUa3mZjMq
-	klm/Qds9KUM1Buv6Kw2j4awuFZxbt0zdzKoj3qJ9nY/fHoCXfmfD5rbwvvYAaotiYeFomIqUxrcmF
-	RjPLO9dPl6Yug8EFnO1D5QdN6NivNcxJ2jhijt0NT/Sv8HLCAB6CgYfJF5o2okev43KYcCb4oODNr
-	mXbtWEtPGHZz8I80lBDg==;
+	List-Owner; bh=lw58XxBZtOR7FFWBIp+3d6wSNGPy+wqSRGMctFYgTAs=; b=koVOYS3/HkYKpP
+	ndbcJxwMRCqfmdId5nyc4u805j+PCRf1VJ3u8/pOSAZre7W5UeD9F8zXm/r81dbBTQwc9rMS69SMa
+	ozwl7zeyuYqOSXkUaoAdvomQkDxbGxd8JrpEJAEzoMLe02PhMx30jnm4dXWrL81JkAhwoAWFV6Vep
+	CE3M1yKZgDejwuCzK4z+5flIDoJsGz1ygI3xQ746WSf9UgUdvEoCXhu5WFhKDQTq9XX8+LIzIMpCJ
+	bL0kL+8tJxSOIriy0UAFPcBqDuK+O94Jh2ar0lzAY1fhukBLYvbwE8PW8g2n4KD9htwo6vAOn0B3T
+	zQRjqxIc6SKXI6aZ/8Xg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qppaf-00Ahfg-2g;
-	Mon, 09 Oct 2023 12:42:29 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1qppar-00Ahpi-04;
+	Mon, 09 Oct 2023 12:42:41 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qppab-00AhcW-0r;
-	Mon, 09 Oct 2023 12:42:28 +0000
+	id 1qppaj-00Ahi7-3D;
+	Mon, 09 Oct 2023 12:42:35 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by ams.source.kernel.org (Postfix) with ESMTP id EED39B811A5;
-	Mon,  9 Oct 2023 12:42:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 160ADC433C7;
-	Mon,  9 Oct 2023 12:42:20 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id 6E92FCE13AE;
+	Mon,  9 Oct 2023 12:42:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5AD3BC433C8;
+	Mon,  9 Oct 2023 12:42:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1696855343;
-	bh=2pDAXsYdr6lnZaEYy+XyoiLH0SPTSNq4AwXsBcAaKjg=;
+	s=k20201202; t=1696855351;
+	bh=ohuZp0WsPxcwHw6R6rlObohasBZPv2zNfsGPMOVNB0w=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=OHYkpZWPOomWrfTFYsYVR0dUXhsAstX8BQkaIe3nW9TdyVFGMja92VWRyCVFwtvLu
-	 CbD7EBBZEDbE6fCV4YR61vYddvnMXW67ZL85pe26/hUqPjUmqu0OAa8XY0PvvwbenC
-	 /oGofIlRr4w/Og4GChSzkelChds0+PIHOQPVgEybQ6zx+9uKj1+hy9HriCG/xUVpot
-	 U3xkmlZXMutL2G9oSGHhPB7gSKKDzof5imbxXPmpSZKgOHnUaD+6xRQHglYQzxwJjW
-	 yT5ERsvwknSJqNYTvtNznli7Pq9cxsMmX8BJaFSR2Egmg1Nb1Tb44If/mAVcG+esbL
-	 kM3C1xQExPh2Q==
+	b=BKSDQENlvCmvcUrtGTpvgpXpECfR89ZihieZKhN8yFEcgvnaQah5u+fu1s9cT4cyh
+	 t0XXIrXBr5Wh2tHs5U1wgNNLvlJriRBgYeecMegYSMNkZLiT37eCLJlFIUbu7rxsbG
+	 5sr0In6kOsFUzhVpOudgXO5aL4REohZCiaJPgybNzfR2soQZC2ttQ0uYemp5lQ6Wtx
+	 vi8oA26zKj5teKiNkX8lGRKZNfEXHLCGSxdgSIRTbQ/cGXWeU3YnKa2qbLlIVXNKLs
+	 UbTjRun9wVsuKTpkgtho/Jv5qMGp9UmJAFMvr18c5+F3RNdavwcms6ANinS9j1avAn
+	 oEcB4ugnaUyQg==
 From: Masahiro Yamada <masahiroy@kernel.org>
 To: linux-kbuild@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -54,18 +54,19 @@ Cc: linux-kernel@vger.kernel.org,
 	sparclinux@vger.kernel.org,
 	x86@kernel.org,
 	Masahiro Yamada <masahiroy@kernel.org>,
-	Helge Deller <deller@gmx.de>,
-	"James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>
-Subject: [PATCH 3/5] parisc: remove broken vdso_install
-Date: Mon,  9 Oct 2023 21:42:08 +0900
-Message-Id: <20231009124210.1064021-3-masahiroy@kernel.org>
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Nicolas Schier <nicolas@fjasle.eu>
+Subject: [PATCH 5/5] kbuild: unify no-compiler-targets and no-sync-config-targets
+Date: Mon,  9 Oct 2023 21:42:10 +0900
+Message-Id: <20231009124210.1064021-5-masahiroy@kernel.org>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20231009124210.1064021-1-masahiroy@kernel.org>
 References: <20231009124210.1064021-1-masahiroy@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231009_054225_443280_11CD1D73 
-X-CRM114-Status: UNSURE (   8.80  )
+X-CRM114-CacheID: sfid-20231009_054234_201944_5FBD8BC4 
+X-CRM114-Status: UNSURE (   8.20  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -83,45 +84,61 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-'make ARCH=parisc vdso_install' has never worked. It attempts to
-descend into arch/parisc/kernel/vdso/, which does not exist.
-
-The command just fails:
-
-  scripts/Makefile.build:41: arch/parisc/kernel/vdso/Makefile: No such file or directory
-
-The second line is also meaningless because parisc does not define
-CONFIG_COMPAT_VDSO.
-
-It appears that this code was copied from another architecture without
-proper adaptation.
-
-Remove the broken code.
+Now that vdso_install does not depend on any in-tree build artifact,
+it no longer invokes a compiler, making no-compiler-targets the same
+as no-sync-config-targets.
 
 Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
 ---
 
- arch/parisc/Makefile | 7 -------
- 1 file changed, 7 deletions(-)
+ Makefile | 13 +------------
+ 1 file changed, 1 insertion(+), 12 deletions(-)
 
-diff --git a/arch/parisc/Makefile b/arch/parisc/Makefile
-index 968ebe17494c..4222fa73c34a 100644
---- a/arch/parisc/Makefile
-+++ b/arch/parisc/Makefile
-@@ -177,13 +177,6 @@ vdso_prepare: prepare0
- 	$(Q)$(MAKE) $(build)=arch/parisc/kernel/vdso32 include/generated/vdso32-offsets.h
+diff --git a/Makefile b/Makefile
+index 2170d56630e8..982b1ad33287 100644
+--- a/Makefile
++++ b/Makefile
+@@ -277,10 +277,6 @@ no-dot-config-targets := $(clean-targets) \
+ 			 $(version_h) headers headers_% archheaders archscripts \
+ 			 %asm-generic kernelversion %src-pkg dt_binding_check \
+ 			 outputmakefile rustavailable rustfmt rustfmtcheck
+-# Installation targets should not require compiler. Unfortunately, vdso_install
+-# is an exception where build artifacts may be updated. This must be fixed.
+-no-compiler-targets := $(no-dot-config-targets) install dtbs_install \
+-			headers_install modules_install modules_sign kernelrelease image_name
+ no-sync-config-targets := $(no-dot-config-targets) %install modules_sign kernelrelease \
+ 			  image_name
+ single-targets := %.a %.i %.ko %.lds %.ll %.lst %.mod %.o %.rsi %.s %.symtypes %/
+@@ -288,7 +284,6 @@ single-targets := %.a %.i %.ko %.lds %.ll %.lst %.mod %.o %.rsi %.s %.symtypes %
+ config-build	:=
+ mixed-build	:=
+ need-config	:= 1
+-need-compiler	:= 1
+ may-sync-config	:= 1
+ single-build	:=
+ 
+@@ -298,12 +293,6 @@ ifneq ($(filter $(no-dot-config-targets), $(MAKECMDGOALS)),)
+ 	endif
  endif
  
--PHONY += vdso_install
+-ifneq ($(filter $(no-compiler-targets), $(MAKECMDGOALS)),)
+-	ifeq ($(filter-out $(no-compiler-targets), $(MAKECMDGOALS)),)
+-		need-compiler :=
+-	endif
+-endif
 -
--vdso_install:
--	$(Q)$(MAKE) $(build)=arch/parisc/kernel/vdso $@
--	$(if $(CONFIG_COMPAT_VDSO), \
--		$(Q)$(MAKE) $(build)=arch/parisc/kernel/vdso32 $@)
--
- install: KBUILD_IMAGE := vmlinux
- zinstall: KBUILD_IMAGE := vmlinuz
- install zinstall:
+ ifneq ($(filter $(no-sync-config-targets), $(MAKECMDGOALS)),)
+ 	ifeq ($(filter-out $(no-sync-config-targets), $(MAKECMDGOALS)),)
+ 		may-sync-config :=
+@@ -675,7 +664,7 @@ endif
+ 
+ # Include this also for config targets because some architectures need
+ # cc-cross-prefix to determine CROSS_COMPILE.
+-ifdef need-compiler
++ifdef may-sync-config
+ include $(srctree)/scripts/Makefile.compiler
+ endif
+ 
 -- 
 2.39.2
 
