@@ -4,121 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F636E95A91
-	for <linux-riscv@archiver.kernel.org>; Mon,  9 Oct 2023 11:27:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0207E95A91
+	for <linux-riscv@archiver.kernel.org>; Mon,  9 Oct 2023 11:30:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=O/p1ejA/s9Q88tA/u7OboprUlb9+J86/SS+DF/3ubcM=; b=BaaYpn5jFbxiWL
-	e57/4bqWA/fHklKUo1IbtEzn5bDFwAsuMqVia5u52WV8lumyJumu6ZPG2Yc/xM0JOVXcTo5NmzV18
-	cGUtG3lJnPWLOAbLrBXY3+BPyLEVSpxJ3wT5SnujJlP79TO5N+v3DZQMB4ABMSIlcVVZC4GegeXa6
-	S23w4SsRLXXdzmJDgZIsq1Enw3kWYAwOL/SUmBjCc15TuHECFMx6rkrdG0iRIVB8BrXmHTIThVmyV
-	K+xn0yWDYiUuLw4hNku+28lhku0aAuUcRa1ZV0RKGrTOIeydZbOzN/HXgLjmbUNRhSrnag7a1CjiB
-	ctp+sOzTJkIJNVViwrPw==;
+	List-Owner; bh=jfA+Tp6HXXXeWEweiZ7c0wSLE9d7wVm0adFmSbM6GEI=; b=tXkkmxlc0jCA05
+	3UgqBmit/uPe/KxqxWLcqZ8E35wXbhDpn5/9E5GwclfYv01act+Eue114yvEZcxHepoXfF5l8iwhf
+	zEU72QVF5g4PkbyPr5lAfxZT6jtCq9KEzc3T2vfSXE0GlaIKwUNuCg1EszcJK0OsryLVBa7uSQBnb
+	V+jC3c/2AA1AaSDUO4gsR9a0M4VmCKr8eSICPYMyV6LjCNTR00+uZupJv5/vGVZoRZZssiI0ugDfy
+	5PkmOCoexkjcShceEzjyBpXvTuIp0tD2BUAsVKu3F6A4XC4Sabz7/8H6cWPA8g2YhUggV+g8jKVEp
+	utniE8Mojmv2+RagOHgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qpoQ7-00ASQ0-2h;
-	Mon, 09 Oct 2023 11:27:31 +0000
-Received: from mail-bn1nam02olkn2082a.outbound.protection.outlook.com ([2a01:111:f400:7eb2::82a] helo=NAM02-BN1-obe.outbound.protection.outlook.com)
+	id 1qpoT6-00AT5o-27;
+	Mon, 09 Oct 2023 11:30:36 +0000
+Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qpoQ4-00ASOL-2f
+	id 1qpoT1-00AT4r-2Z
 	for linux-riscv@lists.infradead.org;
-	Mon, 09 Oct 2023 11:27:30 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=jd4mhS2kTWW5mTXCOmwGUYA45O6Xm9vt457/2naqHHi0Q6ztsRSft6DBXF4RwIVN1CPHr8MMK+vxVYKLXH2JFJs55XHAwp6PaIXMF68UFhohe14CzG+dgy/Ib4PwwYN2OVQshFb0TcCzkEHOkJAQ8z/0LuTkyMY5esaL9e+8GtaLQvGWJ6tOjnmUfCFC4p2KwJDFFy9lDjwx9lSmJ5hg8NGlE0I4dK044bBLmZM1k8d7W5PCOMT+Z9IUCXwZI87r9NUVY5gkIF6MqQ65pFPUGJklrrG3BAqYA6YMdKaMOzbbDqj/sda7cnx1I0Qi72vlOh+lphXgHQjOEQ+bg/U/Kg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Jl6q8EOE+QklzaGMm/oPqAWsf3LDO5ZIFVK02dU5XuE=;
- b=WeEAjs2gbY/ljTutxgBcxHYBytqJ1XV1Qvsn4Ngj6iCpAmuvhy8zIBHyZ3/xrcauh2hVEus0l05iJeAtq51d5M/pHYogN3weqehB1RUthQh6RFPvM4LxCovcjOo/uotrV1ag8zCsOHhWurhwr5lk1Zd8g/qf5A4LLvk5/VEvv7Yd+QoGUmOYg7CTAp3uS7Dsv4NYW831pJSpF4ma/Kt+r+8ikBSMZgvOqQQ4Who+aWgPKiecsSLETluW7OzJp1oQOAkGBXuWFf4UGcDC3foBGDJGubA9WNGPuQ9SyXKhMW1tG+KjopxpIRXQipZ32d2oSPGHcRZ8UyxnajC4lDIL0A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Jl6q8EOE+QklzaGMm/oPqAWsf3LDO5ZIFVK02dU5XuE=;
- b=gTr25GUTYKZtWr/4Va6hCHIy1fzYP0WY3bv2UDYiKyq4WO/eM+AJg/T/EIFiXNIyr4I3UqXLUHHYvW/kzN5SSdnMfrMWPdjxBupbRwotuGpzSXP5US10xsVOqpLMsK1wQo5+gbosDtS9A//IlZYdhoyb3Rx7Q2ljQjXwhTY9Wr932WdSjsVGB6X749ve3OaLGp/u+ckIVBv2sEwJyUA8v5yvUkDqz+TJeG/IqtF4YouBSKUJZW1bZldqmZptVCwiGDh5uWrnOE+mhD206hyASeyMym4ssPWG0xHBDm0jUTyPy5FmPGav8RlfuncaXYnG/rOGh/FrWIWOmyC+m2aQVQ==
-Received: from IA1PR20MB4953.namprd20.prod.outlook.com (2603:10b6:208:3af::19)
- by PH0PR20MB6129.namprd20.prod.outlook.com (2603:10b6:510:2a2::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6838.37; Mon, 9 Oct
- 2023 11:27:20 +0000
-Received: from IA1PR20MB4953.namprd20.prod.outlook.com
- ([fe80::d050:882f:a8a7:8263]) by IA1PR20MB4953.namprd20.prod.outlook.com
- ([fe80::d050:882f:a8a7:8263%5]) with mapi id 15.20.6838.040; Mon, 9 Oct 2023
- 11:27:20 +0000
-From: Inochi Amaoto <inochiama@outlook.com>
-To: Chao Wei <chao.wei@sophgo.com>,
-	Chen Wang <unicorn_wang@outlook.com>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>
-Cc: Jisheng Zhang <jszhang@kernel.org>,
-	Inochi Amaoto <inochiama@outlook.com>,
-	devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 7/7] riscv: dts: sophgo: add Huashan Pi board device tree
-Date: Mon,  9 Oct 2023 19:26:38 +0800
-Message-ID: <IA1PR20MB4953857AA6B541C1C3218F66BBCEA@IA1PR20MB4953.namprd20.prod.outlook.com>
-X-Mailer: git-send-email 2.42.0
-In-Reply-To: <20231009112642.477337-1-inochiama@outlook.com>
-References: <IA1PR20MB49531C1C34C3E972DBBA4151BBCEA@IA1PR20MB4953.namprd20.prod.outlook.com>
- <20231009112642.477337-1-inochiama@outlook.com>
-X-TMN: [JrogtGcL1oKHfA62cN+wiAZbhjowZcaXHIEsqEIyb/I=]
-X-ClientProxiedBy: TY2PR04CA0010.apcprd04.prod.outlook.com
- (2603:1096:404:f6::22) To IA1PR20MB4953.namprd20.prod.outlook.com
- (2603:10b6:208:3af::19)
-X-Microsoft-Original-Message-ID: <20231009112642.477337-7-inochiama@outlook.com>
+	Mon, 09 Oct 2023 11:30:35 +0000
+Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-3226b8de467so4198034f8f.3
+        for <linux-riscv@lists.infradead.org>; Mon, 09 Oct 2023 04:30:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1696851030; x=1697455830; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from:references:cc
+         :to:content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=oLBX/yziRb2PUfPWxxwJn0GAVRK9QSVSo/MvAVRBq7Q=;
+        b=ux8Dtob6y/Fmx7f/QGZLsakpK7Ays7u7+tegE7EvzzSjiuS/DwHqZH1I36F8tK4HLF
+         Ou/RKAPXf+gU8BAey7GjdPYlSDpv9jsD0P2qqtA5ltvYtSqXuA9JjcWAPRnL2a7GFv0Y
+         4HWV1EZjBytJBKADZ3w0hKAiI1riLQoHN0r6Rn44QvEuk3FlmzEyupsmITLlNJQ0Dq6C
+         bZNm80x0LH4BYRF9LbaDyYrWiH7omD1Uk5gs2Rnr7bcU4rI1He7nD3B9BhvkEVY4SlOZ
+         S1hZ9lcrYeVRXmEfvKkKXsUy8ACfp/U7753KI89z1SAHnvvFGCmaN2mo7FP25uNo92v6
+         jiew==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1696851030; x=1697455830;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from:references:cc
+         :to:content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=oLBX/yziRb2PUfPWxxwJn0GAVRK9QSVSo/MvAVRBq7Q=;
+        b=WfWAGvuEsT1PPjWk7E3prLnWQ3dwRw3B8mb9PRGC7D+I+CbZqE4Hl3yetYTKHzHkQy
+         oS0TwWWNuZ8PMGbR37YPHqwfntS8vOa55BMQWWWIlaEtN3UkhKKY0OlgqnAiiTOi4UZA
+         klUYGyBEFZONTZjvTwRm+37JTuMRDCoKYhiX3ZtyGePsnpQ3GvDD0C4QjQspWcSBeBq+
+         EWgJTD6MKDRr7IISxAIsyezFRDXF+L5fwQAyptiOsxRBDwfAA1ZOBSFuOO/czjzAHKXC
+         bByy4ePGrmWAhI7VtHtiNo2eDtyp3yF4jo+3A8skIRnTmauPpuPriggzZfkArnLb0sxG
+         TQvg==
+X-Gm-Message-State: AOJu0Yy74+6Qc64w2fmebc+uay6Cw2ztNyMrXi8nuBeL2kd2zN6P8F7K
+	2oL47hVBwd/eNkEPCOMe+dM4Pg==
+X-Google-Smtp-Source: AGHT+IHldXl83VWQm6WUcVMv37jHdCwWQH6QFUJsNC10JMmMwDUd00MwttMPJlW57itSIlpz0c8QVg==
+X-Received: by 2002:a5d:4e49:0:b0:322:5d58:99c1 with SMTP id r9-20020a5d4e49000000b003225d5899c1mr13109139wrt.10.1696851030022;
+        Mon, 09 Oct 2023 04:30:30 -0700 (PDT)
+Received: from [192.168.1.197] (5-157-101-10.dyn.eolo.it. [5.157.101.10])
+        by smtp.gmail.com with ESMTPSA id m7-20020a7bce07000000b003fc16ee2864sm10945768wmc.48.2023.10.09.04.30.28
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 09 Oct 2023 04:30:29 -0700 (PDT)
+Message-ID: <195d2850-b004-481a-8ee1-5a73da0677a9@linaro.org>
+Date: Mon, 9 Oct 2023 13:30:27 +0200
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: IA1PR20MB4953:EE_|PH0PR20MB6129:EE_
-X-MS-Office365-Filtering-Correlation-Id: 3d7a42d5-8e81-434f-5b71-08dbc8bab2dc
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: aVwncFc/Qlrzb/dKawwHzNNu0riIdJU3e5uo49a3KgFYondXJSArljEK7Fk4o7wsPf1xEEooaaKpl2+vpaLUvxiNAFJlseWEc+zYSpBJ1uaj8aFwCR7MdkUbnNpJAwiV6KK5kPdIjN9AmcUeLozM2l8zzdnOkT9y/zWhI2CVQgMtWdnNPR4EM8omrxabMornDG8vxVIMt57ZNAnM4caaU2rnRzKq5zmUWQZRt3YfJUjv00HOKiSYHj3lzRuaapjkhhpyhY2a+8nxhA5q9hmgPFxV8KvovYlz2ia4Dg7BEObup3p7xO2VyUWLtSW92RgKFQtYy2EveMmyEOO+5IulIFj7K53HnX096PEnCGYQclqmvlGW2JodK496DCqxCZ2b2qfzZvdq0H8S5HxlaBN6dvXuaS+Umjb87e3BGd9oMyQDRw29vSq2OBhVZ3A4BhG/m/uo3VZ+4Wsbv+5nKTjaEvjb+gJgnAdJViBU0cjRBNN0NNu5Ldl0AKADpgQCJnrK5qIntUUNqlH2vtkkQrBwK8W7bVmbPywUMdMdLrNUknTlOUUnrLrVw3Tszn/UN/xCmQxQMIw9wTkMiZFz9l2psyGBZvvopy/CmzCBbDf1bKfuuEnz1KBCj0fT1qxAxQm8vWQLHm3klAx4l6QMfRagqCTuADae/p0TfiHgC+2nMXo=
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?fhtuuURLyUGAH6PHbB/vtwDMiJdqu9cuGUcdwkJyEXjXFDFUKW/d0R/4Ghky?=
- =?us-ascii?Q?3HYXuEX3hJrSu3BOHlFC2gnI3h5Cf+ni+SNkC0EbSfZ5NSaBo1BNXqGjlkce?=
- =?us-ascii?Q?pakjxRcL1E/FrSfT8hJHjmmiNGrWdTeA4dbh2w4CF2UMyswldjudytpTF++i?=
- =?us-ascii?Q?NfypT17MxxyXdddDbOIE5x809LkCH1bzxLWr37fAGM1BTsN53lnWyQHhOrqs?=
- =?us-ascii?Q?pFCTmXXwNg1BbLj+rv59jZur0WYeuURHCs3D5ZWQdWd6H+uAMDQ5T2UQdFqn?=
- =?us-ascii?Q?HDt0bRHVdAS5BDFzVHcvvBqu8AGe37LPQLN29PFfxsHN3oF/+P1YjYCaG94X?=
- =?us-ascii?Q?Ao39aAO+sDwjQ8l+99JS7lgAdzEHU+98ZDGpoOM7YimlP1vl/xgcj9D8utwB?=
- =?us-ascii?Q?tG1FRy/KCPteIUofmhnqRqiHVCJqIyDkw/+ta9szBD9Ls9dK+d74iFEwHAEt?=
- =?us-ascii?Q?R3PTFJNS5RgRT7SBnDxrfSjFxC2U8d3UD5AgjcCfg1W3oYi/ltcqCH6pwIqW?=
- =?us-ascii?Q?AkozvzoYI+ovP+BpxsuZPaxV4Jy4n17sRrsW3osrg3fIH6Y93Mvj1XMbOCGP?=
- =?us-ascii?Q?ScuEj17PEgHI69nHtbq0/hyLpQp4yZoLfFyPI428/wqRfmt5WWEdLs2D5BRq?=
- =?us-ascii?Q?HeaTlGOejheVUhMmT9BS+viiGlh65ZP7tmxxHVwepyRMUmqfjNkiOXClxGi/?=
- =?us-ascii?Q?P8UvaC/bfnKYDk04qyV8TAZRPp10olVgVE6oMWZU1eipo/fpiXJd/psmgz5F?=
- =?us-ascii?Q?zaeYARbcZHCOyheyo55DqS7rR+ArDd0wuZyLZxxEphkdvsMLXaFYtZhGkHKk?=
- =?us-ascii?Q?UtUfWI0DqHPBxhijbl5VP0Q4gA8nWszQdy44KfFuLY19wW8lJ1rK7+IgmQj3?=
- =?us-ascii?Q?OXAw/Mo3y8mBF9CgVTRfTKiCQouVMtyBBFQ7+mr56WC9MXp+hzU/z4gnxab+?=
- =?us-ascii?Q?tqkqxvyElv7vD0S4BXtEu9RAnRWt1KcSejS3wCoTnLrZCIXTtXA1PJCnCLC5?=
- =?us-ascii?Q?4mZNbZ/DKCL9ZlfNNG8mGVFO95yqRAOgAn3KlUMXcowkXNkxU7FZZgwj1vfm?=
- =?us-ascii?Q?jOWkI5JoBCIYfM8iAuxJxrqciTap253SwaXjnAyJITme/yuly9kcYf/jkxgn?=
- =?us-ascii?Q?i2Gg/4jw9Hx7K/Zr5o39Gs09QyKZlYk7NtxEr5OHLApu0Vwh2c7wsCTfGCVj?=
- =?us-ascii?Q?YDRJBhqZ/BOYb1YNi9G35EKlFXcphOL1+lhmH5rC7jIdWtQCHKkUDxJlXQ4?=
- =?us-ascii?Q?=3D?=
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3d7a42d5-8e81-434f-5b71-08dbc8bab2dc
-X-MS-Exchange-CrossTenant-AuthSource: IA1PR20MB4953.namprd20.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Oct 2023 11:27:20.3369
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR20MB6129
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/7] dt-bindings: interrupt-controller: Add SOPHGO
+ CV1812H plic
+Content-Language: en-US
+To: Inochi Amaoto <inochiama@outlook.com>,
+ Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
+ Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Conor Dooley <conor+dt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>
+Cc: Jisheng Zhang <jszhang@kernel.org>, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-riscv@lists.infradead.org
+References: <IA1PR20MB49531C1C34C3E972DBBA4151BBCEA@IA1PR20MB4953.namprd20.prod.outlook.com>
+ <IA1PR20MB49532BB419D59F21978A651BBBCEA@IA1PR20MB4953.namprd20.prod.outlook.com>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
+ 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
+ D2GYIS41Kv4Isx2dEFh+/Q==
+In-Reply-To: <IA1PR20MB49532BB419D59F21978A651BBBCEA@IA1PR20MB4953.namprd20.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231009_042728_871029_B6F87E39 
-X-CRM114-Status: GOOD (  12.57  )
+X-CRM114-CacheID: sfid-20231009_043031_835674_29174768 
+X-CRM114-Status: GOOD (  11.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,87 +144,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add initial device tree files for the Huashan Pi board.
+On 09/10/2023 13:26, Inochi Amaoto wrote:
+> Add compatible string for SOPHGO CV1812H plic.
+> 
+> Signed-off-by: Inochi Amaoto <inochiama@outlook.com>
+> ---
+>  .../bindings/interrupt-controller/sifive,plic-1.0.0.yaml         | 1 +
+>  1 file changed, 1 insertion(+)
 
-Note: The boot of CV1812H chip needs a rtos firmware for coprocessor to
-function properly. To make the soc happy, reserved the last 2M memory
-for the rtos firmware.
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-Signed-off-by: Inochi Amaoto <inochiama@outlook.com>
-Link: https://en.sophgo.com/product/introduce/huashan.html
-Link: https://en.sophgo.com/product/introduce/cv181xH.html
-Link: https://github.com/milkv-duo/duo-buildroot-sdk/blob/develop/build/boards/cv181x/cv1812h_wevb_0007a_emmc_huashan/memmap.py#L15
 ---
- arch/riscv/boot/dts/sophgo/Makefile           |  1 +
- .../boot/dts/sophgo/cv1812h-huashan-pi.dts    | 48 +++++++++++++++++++
- 2 files changed, 49 insertions(+)
- create mode 100644 arch/riscv/boot/dts/sophgo/cv1812h-huashan-pi.dts
 
-diff --git a/arch/riscv/boot/dts/sophgo/Makefile b/arch/riscv/boot/dts/sophgo/Makefile
-index 3fb65512c631..57ad82a61ea6 100644
---- a/arch/riscv/boot/dts/sophgo/Makefile
-+++ b/arch/riscv/boot/dts/sophgo/Makefile
-@@ -1,3 +1,4 @@
- # SPDX-License-Identifier: GPL-2.0
- dtb-$(CONFIG_ARCH_SOPHGO) += cv1800b-milkv-duo.dtb
-+dtb-$(CONFIG_ARCH_SOPHGO) += cv1812h-huashan-pi.dtb
- dtb-$(CONFIG_ARCH_SOPHGO) += sg2042-milkv-pioneer.dtb
-diff --git a/arch/riscv/boot/dts/sophgo/cv1812h-huashan-pi.dts b/arch/riscv/boot/dts/sophgo/cv1812h-huashan-pi.dts
-new file mode 100644
-index 000000000000..aa361f3a86bb
---- /dev/null
-+++ b/arch/riscv/boot/dts/sophgo/cv1812h-huashan-pi.dts
-@@ -0,0 +1,48 @@
-+// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-+/*
-+ * Copyright (C) 2023 Inochi Amaoto <inochiama@outlook.com>
-+ */
-+
-+/dts-v1/;
-+
-+#include "cv1812h.dtsi"
-+
-+/ {
-+	model = "Huashan Pi";
-+	compatible = "sophgo,huashan-pi", "sophgo,cv1812h";
-+
-+	aliases {
-+		gpio0 = &gpio0;
-+		gpio1 = &gpio1;
-+		gpio2 = &gpio2;
-+		gpio3 = &gpio3;
-+		serial0 = &uart0;
-+		serial1 = &uart1;
-+		serial2 = &uart2;
-+		serial3 = &uart3;
-+		serial4 = &uart4;
-+	};
-+
-+	chosen {
-+		stdout-path = "serial0:115200n8";
-+	};
-+
-+	reserved-memory {
-+		#address-cells = <1>;
-+		#size-cells = <1>;
-+		ranges;
-+
-+		coprocessor_rtos: region@8fe00000 {
-+			reg = <0x8fe00000 0x200000>;
-+			no-map;
-+		};
-+	};
-+};
-+
-+&osc {
-+	clock-frequency = <25000000>;
-+};
-+
-+&uart0 {
-+	status = "okay";
-+};
---
-2.42.0
+This is an automated instruction, just in case, because many review tags
+are being ignored. If you know the process, you can skip it (please do
+not feel offended by me posting it here - no bad intentions intended).
+If you do not know the process, here is a short explanation:
+
+Please add Acked-by/Reviewed-by/Tested-by tags when posting new
+versions, under or above your Signed-off-by tag. Tag is "received", when
+provided in a message replied to you on the mailing list. Tools like b4
+can help here. However, there's no need to repost patches *only* to add
+the tags. The upstream maintainer will do that for tags received on the
+version they apply.
+
+https://elixir.bootlin.com/linux/v6.5-rc3/source/Documentation/process/submitting-patches.rst#L577
+
+Best regards,
+Krzysztof
 
 
 _______________________________________________
