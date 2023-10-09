@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFC2ACD6139
-	for <linux-riscv@archiver.kernel.org>; Mon,  9 Oct 2023 21:20:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CE2BCD6139
+	for <linux-riscv@archiver.kernel.org>; Mon,  9 Oct 2023 21:20:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=omqH4ZlyuZyh+ipSL1aneSFq/y2L8BDYzBE76lmVnc8=; b=HHM328qPHvFnOT
-	4Th2WWTuiBMOCg5kbXrGP8xHw0XSDJvkJGxQhPGU/aO3i/GnybfWefzc4R2liri4dFkm+u+u9NU6R
-	bs1Xuxh1jrzFdQ05dPiJUIFvQwtTwd6hLv70ZBVQCSInDJi6u6Zxdve5xtawIgx6SL5UFp3719upF
-	0clkLJ9yX6a0tPjnrJtQ/DsjN1R3Zf1W3l1j6l7PJkmqmaxvRFc/hr+9sb4Gy7crFZcr77mHYwenn
-	Hg18CtiU9XFkPB69wWVRpU2FAEXHnydYtnBQk95k9OoDANaTXLOLc1rwWvE7I7wQrZemR/7HdgbIq
-	gFDU3WQAD++F/DIMIw8Q==;
+	List-Owner; bh=R1LAAqsebQNRzSMO9V4Z7FFprVVTPKMJtKK4xlQxis8=; b=O19g+8WcBr1ZIi
+	ISDaMVmApw4ulS3DLRN71AiVNSxoGU9N4spqdZbNWTbEYYUNlaftmIGXUrgChKs6UYSaJn6sjOZj+
+	m8F0JDdadPk+IafYwc7IDBuja6iHwDlFG7SBlbqhXFXYaWzACuGgzTYVOGTsI7WY80y/Qc4hUfPYJ
+	jstFPt6ut5ix3k+ZOo2Y7TVb/0HvXK33ahzufOMYT1Kx6npa7OSMBy9J94wYjkIx8zBrFN0UmOoPF
+	5tpRfXf/HGmrQJNm7A6c+KubyBE9qTgSlM4IyHXakOnIGI1BQHMkwP9LCtglvHH/Inzn1tb9tkjOF
+	14+P5uASPPdcChX0FyQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qpxfS-00Bdoe-0S;
-	Mon, 09 Oct 2023 21:19:58 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1qpxfd-00Bdu1-2q;
+	Mon, 09 Oct 2023 21:20:09 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qpxfM-00BdmZ-32;
-	Mon, 09 Oct 2023 21:19:55 +0000
+	id 1qpxfZ-00BdsI-0z;
+	Mon, 09 Oct 2023 21:20:07 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 0A53E60109;
-	Mon,  9 Oct 2023 21:19:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 11ACEC4339A;
-	Mon,  9 Oct 2023 21:19:40 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id 30C79CE1A49;
+	Mon,  9 Oct 2023 21:20:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2A1D1C433AB;
+	Mon,  9 Oct 2023 21:19:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1696886391;
-	bh=Y6nnyfmtTcWoPREzqbIFTBI+9WLOEmya+e4ZqStyynQ=;
+	s=k20201202; t=1696886402;
+	bh=+K/4NVGKJdI7fsqnuL3ShfcVKPQnZC5TVWEswMxGy9c=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=KIVyWshcorp4nyq4Qk8+l0N1N8+nlUOM6IHaO+AooXEfX9m85kJLXCLn75X4Qr9ox
-	 G4sPNTfqWNhVMkCj2BOx94nD/0py2qYjiSpQFth1je1eVBkTQ88qLiLMHg+b/babCq
-	 +LhuxXndG6txOrnhrIxYrR4rksZxoPuZOvtjtURC5mPPqGVCFSB8odMDjbooOR75+t
-	 aoDnY8GZzp+1s+3o84/onKNQTMcrpjC/XU1u6lNHnNpEsQXgX7ZpElKu3I1YwR9eSR
-	 sfTOjmKNG31tAW19dyOMjcoA1T271m2UFMWkp6F9XUTJ3PERoQ4K1KW4ad1WnkCYie
-	 SgV4Viirn0LbQ==
+	b=lDgDyRQdI9tvEdIhgSsvDC1PqgQ6mf5mw4Xm90EPIJyA2xs307RZxBfPUUIMxPBrm
+	 5+ria/QUhrLqkbyPA5hl2oRgYgQLGdt6Tn2KIgdLbXLIWavgrdNWu8UJSXwlWaU2V2
+	 5elM7/wYz1+90rmSxTjClRNJ3oPBKctrWLDlfPxqQDXywd1o1HoSFYonHQiQphj0ms
+	 rvJ11Y7c0DdpC0cYbdqckgyQMZ51B9+i4i25wRq9qV625CxtzVjzUSTNsLUqn/yJb2
+	 3bl/CRp6o4UOMyt9FrvRvYxGxCy2VeIwLbLyhjursXjwAr1W9VZzLA0UGz5Tz1IXYa
+	 wZama3UyqCcSQ==
 From: Arnd Bergmann <arnd@kernel.org>
 To: Thomas Zimmermann <tzimmermann@suse.de>,
 	linux-fbdev@vger.kernel.org,
@@ -94,19 +94,17 @@ Cc: Arnd Bergmann <arnd@arndb.de>,
 	linux-riscv@lists.infradead.org,
 	linux-sh@vger.kernel.org,
 	sparclinux@vger.kernel.org,
-	linux-hyperv@vger.kernel.org,
-	=?UTF-8?q?Philippe=20Mathieu-Daud=C3=A9?= <philmd@linaro.org>,
-	Palmer Dabbelt <palmer@rivosinc.com>
-Subject: [PATCH v3 4/9] vgacon, arch/*: remove unused screen_info definitions
-Date: Mon,  9 Oct 2023 23:18:40 +0200
-Message-Id: <20231009211845.3136536-5-arnd@kernel.org>
+	linux-hyperv@vger.kernel.org
+Subject: [PATCH v3 5/9] vgacon: remove screen_info dependency
+Date: Mon,  9 Oct 2023 23:18:41 +0200
+Message-Id: <20231009211845.3136536-6-arnd@kernel.org>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20231009211845.3136536-1-arnd@kernel.org>
 References: <20231009211845.3136536-1-arnd@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231009_141953_068621_7F6DB652 
-X-CRM114-Status: GOOD (  21.77  )
+X-CRM114-CacheID: sfid-20231009_142005_699886_B8407BAE 
+X-CRM114-Status: GOOD (  25.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,144 +116,306 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RnJvbTogQXJuZCBCZXJnbWFubiA8YXJuZEBhcm5kYi5kZT4KCkEgbnVtYmVyIG9mIGFyY2hpdGVj
-dHVyZXMgZWl0aGVyIGtlcHQgdGhlIHNjcmVlbl9pbmZvIGRlZmluaXRpb24gZm9yCmhpc3Rvcmlj
-YWwgcHVycG9zZXMgYXMgaXQgdXNlZCB0byBiZSByZXF1aXJlZCBieSB0aGUgZ2VuZXJpYyBWVCBj
-b2RlLCBvcgp0aGV5IGNvcGllZCBpdCBmcm9tIGFub3RoZXIgYXJjaGl0ZWN0dXJlIGluIG9yZGVy
-IHRvIGJ1aWxkIHRoZSBWR0EgY29uc29sZQpkcml2ZXIgaW4gYW4gYWxsbW9kY29uZmlnIGJ1aWxk
-LiBUaGUgbWlwcyBkZWZpbml0aW9uIGlzIHVzZWQgYnkgc29tZQpwbGF0Zm9ybXMsIGJ1dCB0aGUg
-aW5pdGlhbGl6YXRpb24gb24gamF6eiBpcyBub3QgbmVlZGVkLgoKTm93IHRoYXQgdmdhY29uIG5v
-IGxvbmdlciBidWlsZHMgb24gdGhlc2UgYXJjaGl0ZWN0dXJlcywgcmVtb3ZlIHRoZQpzdGFsZSBk
-ZWZpbml0aW9ucyBhbmQgaW5pdGlhbGl6YXRpb25zLgoKUmV2aWV3ZWQtYnk6IEphdmllciBNYXJ0
-aW5leiBDYW5pbGxhcyA8amF2aWVybUByZWRoYXQuY29tPgpSZXZpZXdlZC1ieTogVGhvbWFzIFpp
-bW1lcm1hbm4gPHR6aW1tZXJtYW5uQHN1c2UuZGU+ClJldmlld2VkLWJ5OiBQaGlsaXBwZSBNYXRo
-aWV1LURhdWTDqSA8cGhpbG1kQGxpbmFyby5vcmc+CkFja2VkLWJ5OiBEaW5oIE5ndXllbiA8ZGlu
-Z3V5ZW5Aa2VybmVsLm9yZz4KQWNrZWQtYnk6IE1heCBGaWxpcHBvdiA8amNtdmJrYmNAZ21haWwu
-Y29tPgpBY2tlZC1ieTogUGFsbWVyIERhYmJlbHQgPHBhbG1lckByaXZvc2luYy5jb20+CkFja2Vk
-LWJ5OiBHdW8gUmVuIDxndW9yZW5Aa2VybmVsLm9yZz4KQWNrZWQtYnk6IEhlbGdlIERlbGxlciA8
-ZGVsbGVyQGdteC5kZT4KU2lnbmVkLW9mZi1ieTogQXJuZCBCZXJnbWFubiA8YXJuZEBhcm5kYi5k
-ZT4KLS0tCiBhcmNoL2Nza3kva2VybmVsL3NldHVwLmMgICAgICAgICAgfCAxMiAtLS0tLS0tLS0t
-LS0KIGFyY2gvaGV4YWdvbi9rZXJuZWwvTWFrZWZpbGUgICAgICB8ICAyIC0tCiBhcmNoL2hleGFn
-b24va2VybmVsL3NjcmVlbl9pbmZvLmMgfCAgMyAtLS0KIGFyY2gvbWlwcy9qYXp6L3NldHVwLmMg
-ICAgICAgICAgICB8ICA5IC0tLS0tLS0tLQogYXJjaC9uaW9zMi9rZXJuZWwvc2V0dXAuYyAgICAg
-ICAgIHwgIDUgLS0tLS0KIGFyY2gvc2gva2VybmVsL3NldHVwLmMgICAgICAgICAgICB8ICA1IC0t
-LS0tCiBhcmNoL3NwYXJjL2tlcm5lbC9zZXR1cF8zMi5jICAgICAgfCAxMyAtLS0tLS0tLS0tLS0t
-CiBhcmNoL3NwYXJjL2tlcm5lbC9zZXR1cF82NC5jICAgICAgfCAxMyAtLS0tLS0tLS0tLS0tCiBh
-cmNoL3h0ZW5zYS9rZXJuZWwvc2V0dXAuYyAgICAgICAgfCAxMiAtLS0tLS0tLS0tLS0KIDkgZmls
-ZXMgY2hhbmdlZCwgNzQgZGVsZXRpb25zKC0pCiBkZWxldGUgbW9kZSAxMDA2NDQgYXJjaC9oZXhh
-Z29uL2tlcm5lbC9zY3JlZW5faW5mby5jCgpkaWZmIC0tZ2l0IGEvYXJjaC9jc2t5L2tlcm5lbC9z
-ZXR1cC5jIGIvYXJjaC9jc2t5L2tlcm5lbC9zZXR1cC5jCmluZGV4IDEwNmZiZjBiNmYzYjQuLjUx
-MDEyZTkwNzgwZDYgMTAwNjQ0Ci0tLSBhL2FyY2gvY3NreS9rZXJuZWwvc2V0dXAuYworKysgYi9h
-cmNoL2Nza3kva2VybmVsL3NldHVwLmMKQEAgLTgsMjIgKzgsMTAgQEAKICNpbmNsdWRlIDxsaW51
-eC9vZl9mZHQuaD4KICNpbmNsdWRlIDxsaW51eC9zdGFydF9rZXJuZWwuaD4KICNpbmNsdWRlIDxs
-aW51eC9kbWEtbWFwLW9wcy5oPgotI2luY2x1ZGUgPGxpbnV4L3NjcmVlbl9pbmZvLmg+CiAjaW5j
-bHVkZSA8YXNtL3NlY3Rpb25zLmg+CiAjaW5jbHVkZSA8YXNtL21tdV9jb250ZXh0Lmg+CiAjaW5j
-bHVkZSA8YXNtL3BnYWxsb2MuaD4KIAotI2lmZGVmIENPTkZJR19EVU1NWV9DT05TT0xFCi1zdHJ1
-Y3Qgc2NyZWVuX2luZm8gc2NyZWVuX2luZm8gPSB7Ci0JLm9yaWdfdmlkZW9fbGluZXMJPSAzMCwK
-LQkub3JpZ192aWRlb19jb2xzCT0gODAsCi0JLm9yaWdfdmlkZW9fbW9kZQk9IDAsCi0JLm9yaWdf
-dmlkZW9fZWdhX2J4CT0gMCwKLQkub3JpZ192aWRlb19pc1ZHQQk9IDEsCi0JLm9yaWdfdmlkZW9f
-cG9pbnRzCT0gOAotfTsKLSNlbmRpZgotCiBzdGF0aWMgdm9pZCBfX2luaXQgY3NreV9tZW1ibG9j
-a19pbml0KHZvaWQpCiB7CiAJdW5zaWduZWQgbG9uZyBsb3dtZW1fc2l6ZSA9IFBGTl9ET1dOKExP
-V01FTV9MSU1JVCAtIFBIWVNfT0ZGU0VUX09GRlNFVCk7CmRpZmYgLS1naXQgYS9hcmNoL2hleGFn
-b24va2VybmVsL01ha2VmaWxlIGIvYXJjaC9oZXhhZ29uL2tlcm5lbC9NYWtlZmlsZQppbmRleCBl
-NzNjYjMyMTYzMGVjLi4zZmRmOTM3ZWI1NzJlIDEwMDY0NAotLS0gYS9hcmNoL2hleGFnb24va2Vy
-bmVsL01ha2VmaWxlCisrKyBiL2FyY2gvaGV4YWdvbi9rZXJuZWwvTWFrZWZpbGUKQEAgLTE3LDUg
-KzE3LDMgQEAgb2JqLXkgKz0gdm1fdmVjdG9ycy5vCiBvYmotJChDT05GSUdfSEFTX0RNQSkgKz0g
-ZG1hLm8KIAogb2JqLSQoQ09ORklHX1NUQUNLVFJBQ0UpICs9IHN0YWNrdHJhY2UubwotCi1vYmot
-JChDT05GSUdfVkdBX0NPTlNPTEUpICs9IHNjcmVlbl9pbmZvLm8KZGlmZiAtLWdpdCBhL2FyY2gv
-aGV4YWdvbi9rZXJuZWwvc2NyZWVuX2luZm8uYyBiL2FyY2gvaGV4YWdvbi9rZXJuZWwvc2NyZWVu
-X2luZm8uYwpkZWxldGVkIGZpbGUgbW9kZSAxMDA2NDQKaW5kZXggMWUxY2ViMThiYWZlNy4uMDAw
-MDAwMDAwMDAwMAotLS0gYS9hcmNoL2hleGFnb24va2VybmVsL3NjcmVlbl9pbmZvLmMKKysrIC9k
-ZXYvbnVsbApAQCAtMSwzICswLDAgQEAKLSNpbmNsdWRlIDxsaW51eC9zY3JlZW5faW5mby5oPgot
-Ci1zdHJ1Y3Qgc2NyZWVuX2luZm8gc2NyZWVuX2luZm87CmRpZmYgLS1naXQgYS9hcmNoL21pcHMv
-amF6ei9zZXR1cC5jIGIvYXJjaC9taXBzL2phenovc2V0dXAuYwppbmRleCBlZTA0NDI2MWViMjIz
-Li4yMzA1OWVhZDc3M2ZjIDEwMDY0NAotLS0gYS9hcmNoL21pcHMvamF6ei9zZXR1cC5jCisrKyBi
-L2FyY2gvbWlwcy9qYXp6L3NldHVwLmMKQEAgLTEzLDcgKzEzLDYgQEAKICNpbmNsdWRlIDxsaW51
-eC9pbml0Lmg+CiAjaW5jbHVkZSA8bGludXgvaW9wb3J0Lmg+CiAjaW5jbHVkZSA8bGludXgvY29u
-c29sZS5oPgotI2luY2x1ZGUgPGxpbnV4L3NjcmVlbl9pbmZvLmg+CiAjaW5jbHVkZSA8bGludXgv
-cGxhdGZvcm1fZGV2aWNlLmg+CiAjaW5jbHVkZSA8bGludXgvc2VyaWFsXzgyNTAuaD4KICNpbmNs
-dWRlIDxsaW51eC9kbWEtbWFwcGluZy5oPgpAQCAtNzYsMTQgKzc1LDYgQEAgdm9pZCBfX2luaXQg
-cGxhdF9tZW1fc2V0dXAodm9pZCkKIAogCV9tYWNoaW5lX3Jlc3RhcnQgPSBqYXp6X21hY2hpbmVf
-cmVzdGFydDsKIAotI2lmZGVmIENPTkZJR19WVAotCXNjcmVlbl9pbmZvID0gKHN0cnVjdCBzY3Jl
-ZW5faW5mbykgewotCQkub3JpZ192aWRlb19jb2xzCT0gMTYwLAotCQkub3JpZ192aWRlb19saW5l
-cwk9IDY0LAotCQkub3JpZ192aWRlb19wb2ludHMJPSAxNiwKLQl9OwotI2VuZGlmCi0KIAlhZGRf
-cHJlZmVycmVkX2NvbnNvbGUoInR0eVMiLCAwLCAiOTYwMCIpOwogfQogCmRpZmYgLS1naXQgYS9h
-cmNoL25pb3MyL2tlcm5lbC9zZXR1cC5jIGIvYXJjaC9uaW9zMi9rZXJuZWwvc2V0dXAuYwppbmRl
-eCA4NTgyZWQ5NjU4NDQ3Li5kYTEyMmE1ZmE0M2IyIDEwMDY0NAotLS0gYS9hcmNoL25pb3MyL2tl
-cm5lbC9zZXR1cC5jCisrKyBiL2FyY2gvbmlvczIva2VybmVsL3NldHVwLmMKQEAgLTE5LDcgKzE5
-LDYgQEAKICNpbmNsdWRlIDxsaW51eC9tZW1ibG9jay5oPgogI2luY2x1ZGUgPGxpbnV4L2luaXRy
-ZC5oPgogI2luY2x1ZGUgPGxpbnV4L29mX2ZkdC5oPgotI2luY2x1ZGUgPGxpbnV4L3NjcmVlbl9p
-bmZvLmg+CiAKICNpbmNsdWRlIDxhc20vbW11X2NvbnRleHQuaD4KICNpbmNsdWRlIDxhc20vc2Vj
-dGlvbnMuaD4KQEAgLTM2LDEwICszNSw2IEBAIHN0YXRpYyBzdHJ1Y3QgcHRfcmVncyBmYWtlX3Jl
-Z3MgPSB7IDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsCiAJCQkJ
-CTAsIDAsIDAsIDAsIDAsIDAsCiAJCQkJCTB9OwogCi0jaWZkZWYgQ09ORklHX1ZUCi1zdHJ1Y3Qg
-c2NyZWVuX2luZm8gc2NyZWVuX2luZm87Ci0jZW5kaWYKLQogLyogQ29weSBhIHNob3J0IGhvb2sg
-aW5zdHJ1Y3Rpb24gc2VxdWVuY2UgdG8gdGhlIGV4Y2VwdGlvbiBhZGRyZXNzICovCiBzdGF0aWMg
-aW5saW5lIHZvaWQgY29weV9leGNlcHRpb25faGFuZGxlcih1bnNpZ25lZCBpbnQgYWRkcikKIHsK
-ZGlmZiAtLWdpdCBhL2FyY2gvc2gva2VybmVsL3NldHVwLmMgYi9hcmNoL3NoL2tlcm5lbC9zZXR1
-cC5jCmluZGV4IGIzZGEyNzU3ZmFhZjMuLjNkODA1MTUyOThkMjYgMTAwNjQ0Ci0tLSBhL2FyY2gv
-c2gva2VybmVsL3NldHVwLmMKKysrIGIvYXJjaC9zaC9rZXJuZWwvc2V0dXAuYwpAQCAtNyw3ICs3
-LDYgQEAKICAqICBDb3B5cmlnaHQgKEMpIDE5OTkgIE5paWJlIFl1dGFrYQogICogIENvcHlyaWdo
-dCAoQykgMjAwMiAtIDIwMTAgUGF1bCBNdW5kdAogICovCi0jaW5jbHVkZSA8bGludXgvc2NyZWVu
-X2luZm8uaD4KICNpbmNsdWRlIDxsaW51eC9pb3BvcnQuaD4KICNpbmNsdWRlIDxsaW51eC9pbml0
-Lmg+CiAjaW5jbHVkZSA8bGludXgvaW5pdHJkLmg+CkBAIC02OSwxMCArNjgsNiBAQCBFWFBPUlRf
-U1lNQk9MKGNwdV9kYXRhKTsKIHN0cnVjdCBzaF9tYWNoaW5lX3ZlY3RvciBzaF9tdiA9IHsgLm12
-X25hbWUgPSAiZ2VuZXJpYyIsIH07CiBFWFBPUlRfU1lNQk9MKHNoX212KTsKIAotI2lmZGVmIENP
-TkZJR19WVAotc3RydWN0IHNjcmVlbl9pbmZvIHNjcmVlbl9pbmZvOwotI2VuZGlmCi0KIGV4dGVy
-biBpbnQgcm9vdF9tb3VudGZsYWdzOwogCiAjZGVmaW5lIFJBTURJU0tfSU1BR0VfU1RBUlRfTUFT
-SwkweDA3RkYKZGlmZiAtLWdpdCBhL2FyY2gvc3BhcmMva2VybmVsL3NldHVwXzMyLmMgYi9hcmNo
-L3NwYXJjL2tlcm5lbC9zZXR1cF8zMi5jCmluZGV4IDM0ZWY3ZmViZjBkNTYuLmUzYjcyYTdiNDZk
-MzcgMTAwNjQ0Ci0tLSBhL2FyY2gvc3BhcmMva2VybmVsL3NldHVwXzMyLmMKKysrIGIvYXJjaC9z
-cGFyYy9rZXJuZWwvc2V0dXBfMzIuYwpAQCAtMTcsNyArMTcsNiBAQAogI2luY2x1ZGUgPGxpbnV4
-L2luaXRyZC5oPgogI2luY2x1ZGUgPGFzbS9zbXAuaD4KICNpbmNsdWRlIDxsaW51eC91c2VyLmg+
-Ci0jaW5jbHVkZSA8bGludXgvc2NyZWVuX2luZm8uaD4KICNpbmNsdWRlIDxsaW51eC9kZWxheS5o
-PgogI2luY2x1ZGUgPGxpbnV4L2ZzLmg+CiAjaW5jbHVkZSA8bGludXgvc2VxX2ZpbGUuaD4KQEAg
-LTUxLDE4ICs1MCw2IEBACiAKICNpbmNsdWRlICJrZXJuZWwuaCIKIAotc3RydWN0IHNjcmVlbl9p
-bmZvIHNjcmVlbl9pbmZvID0gewotCTAsIDAsCQkJLyogb3JpZy14LCBvcmlnLXkgKi8KLQkwLAkJ
-CS8qIHVudXNlZCAqLwotCTAsCQkJLyogb3JpZy12aWRlby1wYWdlICovCi0JMCwJCQkvKiBvcmln
-LXZpZGVvLW1vZGUgKi8KLQkxMjgsCQkJLyogb3JpZy12aWRlby1jb2xzICovCi0JMCwwLDAsCQkJ
-LyogZWdhX2F4LCBlZ2FfYngsIGVnYV9jeCAqLwotCTU0LAkJCS8qIG9yaWctdmlkZW8tbGluZXMg
-Ki8KLQkwLCAgICAgICAgICAgICAgICAgICAgICAvKiBvcmlnLXZpZGVvLWlzVkdBICovCi0JMTYg
-ICAgICAgICAgICAgICAgICAgICAgLyogb3JpZy12aWRlby1wb2ludHMgKi8KLX07Ci0KIC8qIFR5
-cGluZyBzeW5jIGF0IHRoZSBwcm9tIHByb21wdCBjYWxscyB0aGUgZnVuY3Rpb24gcG9pbnRlZCB0
-byBieQogICogcm9tdmVjLT5wdl9zeW5jaG9vayB3aGljaCBJIHNldCB0byB0aGUgZm9sbG93aW5n
-IGZ1bmN0aW9uLgogICogVGhpcyBzaG91bGQgc3luYyBhbGwgZmlsZXN5c3RlbXMgYW5kIHJldHVy
-biwgZm9yIG5vdyBpdCBqdXN0CmRpZmYgLS1naXQgYS9hcmNoL3NwYXJjL2tlcm5lbC9zZXR1cF82
-NC5jIGIvYXJjaC9zcGFyYy9rZXJuZWwvc2V0dXBfNjQuYwppbmRleCA2NTQ2Y2E5ZDRkM2YxLi42
-YTQ3OTdkZWMzNGI0IDEwMDY0NAotLS0gYS9hcmNoL3NwYXJjL2tlcm5lbC9zZXR1cF82NC5jCisr
-KyBiL2FyY2gvc3BhcmMva2VybmVsL3NldHVwXzY0LmMKQEAgLTE1LDcgKzE1LDYgQEAKICNpbmNs
-dWRlIDxsaW51eC9wdHJhY2UuaD4KICNpbmNsdWRlIDxhc20vc21wLmg+CiAjaW5jbHVkZSA8bGlu
-dXgvdXNlci5oPgotI2luY2x1ZGUgPGxpbnV4L3NjcmVlbl9pbmZvLmg+CiAjaW5jbHVkZSA8bGlu
-dXgvZGVsYXkuaD4KICNpbmNsdWRlIDxsaW51eC9mcy5oPgogI2luY2x1ZGUgPGxpbnV4L3NlcV9m
-aWxlLmg+CkBAIC02OCwxOCArNjcsNiBAQAogREVGSU5FX1NQSU5MT0NLKG5zODczMDNfbG9jayk7
-CiBFWFBPUlRfU1lNQk9MKG5zODczMDNfbG9jayk7CiAKLXN0cnVjdCBzY3JlZW5faW5mbyBzY3Jl
-ZW5faW5mbyA9IHsKLQkwLCAwLAkJCS8qIG9yaWcteCwgb3JpZy15ICovCi0JMCwJCQkvKiB1bnVz
-ZWQgKi8KLQkwLAkJCS8qIG9yaWctdmlkZW8tcGFnZSAqLwotCTAsCQkJLyogb3JpZy12aWRlby1t
-b2RlICovCi0JMTI4LAkJCS8qIG9yaWctdmlkZW8tY29scyAqLwotCTAsIDAsIDAsCQkvKiB1bnVz
-ZWQsIGVnYV9ieCwgdW51c2VkICovCi0JNTQsCQkJLyogb3JpZy12aWRlby1saW5lcyAqLwotCTAs
-ICAgICAgICAgICAgICAgICAgICAgIC8qIG9yaWctdmlkZW8taXNWR0EgKi8KLQkxNiAgICAgICAg
-ICAgICAgICAgICAgICAvKiBvcmlnLXZpZGVvLXBvaW50cyAqLwotfTsKLQogc3RhdGljIHZvaWQK
-IHByb21fY29uc29sZV93cml0ZShzdHJ1Y3QgY29uc29sZSAqY29uLCBjb25zdCBjaGFyICpzLCB1
-bnNpZ25lZCBpbnQgbikKIHsKZGlmZiAtLWdpdCBhL2FyY2gveHRlbnNhL2tlcm5lbC9zZXR1cC5j
-IGIvYXJjaC94dGVuc2Eva2VybmVsL3NldHVwLmMKaW5kZXggNTJkNmU0ODcwYTA0Yy4uYmRlYzRh
-NzczYWYwOSAxMDA2NDQKLS0tIGEvYXJjaC94dGVuc2Eva2VybmVsL3NldHVwLmMKKysrIGIvYXJj
-aC94dGVuc2Eva2VybmVsL3NldHVwLmMKQEAgLTE5LDcgKzE5LDYgQEAKICNpbmNsdWRlIDxsaW51
-eC9pbml0Lmg+CiAjaW5jbHVkZSA8bGludXgvbW0uaD4KICNpbmNsdWRlIDxsaW51eC9wcm9jX2Zz
-Lmg+Ci0jaW5jbHVkZSA8bGludXgvc2NyZWVuX2luZm8uaD4KICNpbmNsdWRlIDxsaW51eC9rZXJu
-ZWwuaD4KICNpbmNsdWRlIDxsaW51eC9wZXJjcHUuaD4KICNpbmNsdWRlIDxsaW51eC9yZWJvb3Qu
-aD4KQEAgLTQ5LDE3ICs0OCw2IEBACiAjaW5jbHVkZSA8YXNtL3RpbWV4Lmg+CiAjaW5jbHVkZSA8
-YXNtL3RyYXBzLmg+CiAKLSNpZiBkZWZpbmVkKENPTkZJR19WR0FfQ09OU09MRSkgfHwgZGVmaW5l
-ZChDT05GSUdfRFVNTVlfQ09OU09MRSkKLXN0cnVjdCBzY3JlZW5faW5mbyBzY3JlZW5faW5mbyA9
-IHsKLQkub3JpZ194ID0gMCwKLQkub3JpZ195ID0gMjQsCi0JLm9yaWdfdmlkZW9fY29scyA9IDgw
-LAotCS5vcmlnX3ZpZGVvX2xpbmVzID0gMjQsCi0JLm9yaWdfdmlkZW9faXNWR0EgPSAxLAotCS5v
-cmlnX3ZpZGVvX3BvaW50cyA9IDE2LAotfTsKLSNlbmRpZgotCiAjaWZkZWYgQ09ORklHX0JMS19E
-RVZfSU5JVFJECiBleHRlcm4gdW5zaWduZWQgbG9uZyBpbml0cmRfc3RhcnQ7CiBleHRlcm4gdW5z
-aWduZWQgbG9uZyBpbml0cmRfZW5kOwotLSAKMi4zOS4yCgoKX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4
-LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFp
-bG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+From: Arnd Bergmann <arnd@arndb.de>
+
+The vga console driver is fairly self-contained, and only used by
+architectures that explicitly initialize the screen_info settings.
+
+Chance every instance that picks the vga console by setting conswitchp
+to call a function instead, and pass a reference to the screen_info
+there.
+
+Reviewed-by: Javier Martinez Canillas <javierm@redhat.com>
+Acked-by: Khalid Azzi <khalid@gonehiking.org>
+Acked-by: Helge Deller <deller@gmx.de>
+Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+---
+ arch/alpha/kernel/setup.c      |  2 +-
+ arch/arm/kernel/setup.c        |  2 +-
+ arch/ia64/kernel/setup.c       |  2 +-
+ arch/mips/kernel/setup.c       |  2 +-
+ arch/x86/kernel/setup.c        |  2 +-
+ drivers/firmware/pcdp.c        |  2 +-
+ drivers/video/console/vgacon.c | 68 ++++++++++++++++++++--------------
+ include/linux/console.h        |  7 ++++
+ 8 files changed, 53 insertions(+), 34 deletions(-)
+
+diff --git a/arch/alpha/kernel/setup.c b/arch/alpha/kernel/setup.c
+index 85a679ce061c2..c004933468606 100644
+--- a/arch/alpha/kernel/setup.c
++++ b/arch/alpha/kernel/setup.c
+@@ -654,7 +654,7 @@ setup_arch(char **cmdline_p)
+ 
+ #ifdef CONFIG_VT
+ #if defined(CONFIG_VGA_CONSOLE)
+-	conswitchp = &vga_con;
++	vgacon_register_screen(&screen_info);
+ #endif
+ #endif
+ 
+diff --git a/arch/arm/kernel/setup.c b/arch/arm/kernel/setup.c
+index 5e965cb94dd66..67ba140794bf6 100644
+--- a/arch/arm/kernel/setup.c
++++ b/arch/arm/kernel/setup.c
+@@ -1197,7 +1197,7 @@ void __init setup_arch(char **cmdline_p)
+ 
+ #ifdef CONFIG_VT
+ #if defined(CONFIG_VGA_CONSOLE)
+-	conswitchp = &vga_con;
++	vgacon_register_screen(&screen_info);
+ #endif
+ #endif
+ 
+diff --git a/arch/ia64/kernel/setup.c b/arch/ia64/kernel/setup.c
+index d2c66efdde560..2c9283fcd3759 100644
+--- a/arch/ia64/kernel/setup.c
++++ b/arch/ia64/kernel/setup.c
+@@ -619,7 +619,7 @@ setup_arch (char **cmdline_p)
+ 		 * memory so we can avoid this problem.
+ 		 */
+ 		if (efi_mem_type(0xA0000) != EFI_CONVENTIONAL_MEMORY)
+-			conswitchp = &vga_con;
++			vgacon_register_screen(&screen_info);
+ # endif
+ 	}
+ #endif
+diff --git a/arch/mips/kernel/setup.c b/arch/mips/kernel/setup.c
+index 7c81366f26068..c395e2a5a2556 100644
+--- a/arch/mips/kernel/setup.c
++++ b/arch/mips/kernel/setup.c
+@@ -795,7 +795,7 @@ void __init setup_arch(char **cmdline_p)
+ 
+ #if defined(CONFIG_VT)
+ #if defined(CONFIG_VGA_CONSOLE)
+-	conswitchp = &vga_con;
++	vgacon_register_screen(&screen_info);
+ #endif
+ #endif
+ 
+diff --git a/arch/x86/kernel/setup.c b/arch/x86/kernel/setup.c
+index d3e43440369ce..8ae0478c24ccb 100644
+--- a/arch/x86/kernel/setup.c
++++ b/arch/x86/kernel/setup.c
+@@ -1168,7 +1168,7 @@ void __init setup_arch(char **cmdline_p)
+ #ifdef CONFIG_VT
+ #if defined(CONFIG_VGA_CONSOLE)
+ 	if (!efi_enabled(EFI_BOOT) || (efi_mem_type(0xa0000) != EFI_CONVENTIONAL_MEMORY))
+-		conswitchp = &vga_con;
++		vgacon_register_screen(&screen_info);
+ #endif
+ #endif
+ 	x86_init.oem.banner();
+diff --git a/drivers/firmware/pcdp.c b/drivers/firmware/pcdp.c
+index 715a45442d1cf..667a595373b2d 100644
+--- a/drivers/firmware/pcdp.c
++++ b/drivers/firmware/pcdp.c
+@@ -72,7 +72,7 @@ setup_vga_console(struct pcdp_device *dev)
+ 		return -ENODEV;
+ 	}
+ 
+-	conswitchp = &vga_con;
++	vgacon_register_screen(&screen_info);
+ 	printk(KERN_INFO "PCDP: VGA console\n");
+ 	return 0;
+ #else
+diff --git a/drivers/video/console/vgacon.c b/drivers/video/console/vgacon.c
+index 7ad047bcae171..8ef1579fa57fd 100644
+--- a/drivers/video/console/vgacon.c
++++ b/drivers/video/console/vgacon.c
+@@ -89,6 +89,8 @@ static int 		vga_video_font_height;
+ static int 		vga_scan_lines		__read_mostly;
+ static unsigned int 	vga_rolled_over; /* last vc_origin offset before wrap */
+ 
++static struct screen_info *vga_si;
++
+ static bool vga_hardscroll_enabled;
+ static bool vga_hardscroll_user_enable = true;
+ 
+@@ -153,8 +155,9 @@ static const char *vgacon_startup(void)
+ 	u16 saved1, saved2;
+ 	volatile u16 *p;
+ 
+-	if (screen_info.orig_video_isVGA == VIDEO_TYPE_VLFB ||
+-	    screen_info.orig_video_isVGA == VIDEO_TYPE_EFI) {
++	if (!vga_si ||
++	    vga_si->orig_video_isVGA == VIDEO_TYPE_VLFB ||
++	    vga_si->orig_video_isVGA == VIDEO_TYPE_EFI) {
+ 	      no_vga:
+ #ifdef CONFIG_DUMMY_CONSOLE
+ 		conswitchp = &dummy_con;
+@@ -164,29 +167,29 @@ static const char *vgacon_startup(void)
+ #endif
+ 	}
+ 
+-	/* boot_params.screen_info reasonably initialized? */
+-	if ((screen_info.orig_video_lines == 0) ||
+-	    (screen_info.orig_video_cols  == 0))
++	/* vga_si reasonably initialized? */
++	if ((vga_si->orig_video_lines == 0) ||
++	    (vga_si->orig_video_cols  == 0))
+ 		goto no_vga;
+ 
+ 	/* VGA16 modes are not handled by VGACON */
+-	if ((screen_info.orig_video_mode == 0x0D) ||	/* 320x200/4 */
+-	    (screen_info.orig_video_mode == 0x0E) ||	/* 640x200/4 */
+-	    (screen_info.orig_video_mode == 0x10) ||	/* 640x350/4 */
+-	    (screen_info.orig_video_mode == 0x12) ||	/* 640x480/4 */
+-	    (screen_info.orig_video_mode == 0x6A))	/* 800x600/4 (VESA) */
++	if ((vga_si->orig_video_mode == 0x0D) ||	/* 320x200/4 */
++	    (vga_si->orig_video_mode == 0x0E) ||	/* 640x200/4 */
++	    (vga_si->orig_video_mode == 0x10) ||	/* 640x350/4 */
++	    (vga_si->orig_video_mode == 0x12) ||	/* 640x480/4 */
++	    (vga_si->orig_video_mode == 0x6A))	/* 800x600/4 (VESA) */
+ 		goto no_vga;
+ 
+-	vga_video_num_lines = screen_info.orig_video_lines;
+-	vga_video_num_columns = screen_info.orig_video_cols;
++	vga_video_num_lines = vga_si->orig_video_lines;
++	vga_video_num_columns = vga_si->orig_video_cols;
+ 	vgastate.vgabase = NULL;
+ 
+-	if (screen_info.orig_video_mode == 7) {
++	if (vga_si->orig_video_mode == 7) {
+ 		/* Monochrome display */
+ 		vga_vram_base = 0xb0000;
+ 		vga_video_port_reg = VGA_CRT_IM;
+ 		vga_video_port_val = VGA_CRT_DM;
+-		if ((screen_info.orig_video_ega_bx & 0xff) != 0x10) {
++		if ((vga_si->orig_video_ega_bx & 0xff) != 0x10) {
+ 			static struct resource ega_console_resource =
+ 			    { .name	= "ega",
+ 			      .flags	= IORESOURCE_IO,
+@@ -223,12 +226,12 @@ static const char *vgacon_startup(void)
+ 		vga_vram_base = 0xb8000;
+ 		vga_video_port_reg = VGA_CRT_IC;
+ 		vga_video_port_val = VGA_CRT_DC;
+-		if ((screen_info.orig_video_ega_bx & 0xff) != 0x10) {
++		if ((vga_si->orig_video_ega_bx & 0xff) != 0x10) {
+ 			int i;
+ 
+ 			vga_vram_size = 0x8000;
+ 
+-			if (!screen_info.orig_video_isVGA) {
++			if (!vga_si->orig_video_isVGA) {
+ 				static struct resource ega_console_resource =
+ 				    { .name	= "ega",
+ 				      .flags	= IORESOURCE_IO,
+@@ -319,14 +322,14 @@ static const char *vgacon_startup(void)
+ 	    || vga_video_type == VIDEO_TYPE_VGAC
+ 	    || vga_video_type == VIDEO_TYPE_EGAM) {
+ 		vga_hardscroll_enabled = vga_hardscroll_user_enable;
+-		vga_default_font_height = screen_info.orig_video_points;
+-		vga_video_font_height = screen_info.orig_video_points;
++		vga_default_font_height = vga_si->orig_video_points;
++		vga_video_font_height = vga_si->orig_video_points;
+ 		/* This may be suboptimal but is a safe bet - go with it */
+ 		vga_scan_lines =
+ 		    vga_video_font_height * vga_video_num_lines;
+ 	}
+ 
+-	vgacon_xres = screen_info.orig_video_cols * VGA_FONTWIDTH;
++	vgacon_xres = vga_si->orig_video_cols * VGA_FONTWIDTH;
+ 	vgacon_yres = vga_scan_lines;
+ 
+ 	return display_desc;
+@@ -371,7 +374,7 @@ static void vgacon_init(struct vc_data *c, int init)
+ 	/* Only set the default if the user didn't deliberately override it */
+ 	if (global_cursor_default == -1)
+ 		global_cursor_default =
+-			!(screen_info.flags & VIDEO_FLAGS_NOCURSOR);
++			!(vga_si->flags & VIDEO_FLAGS_NOCURSOR);
+ }
+ 
+ static void vgacon_deinit(struct vc_data *c)
+@@ -589,7 +592,7 @@ static int vgacon_switch(struct vc_data *c)
+ {
+ 	int x = c->vc_cols * VGA_FONTWIDTH;
+ 	int y = c->vc_rows * c->vc_cell_height;
+-	int rows = screen_info.orig_video_lines * vga_default_font_height/
++	int rows = vga_si->orig_video_lines * vga_default_font_height/
+ 		c->vc_cell_height;
+ 	/*
+ 	 * We need to save screen size here as it's the only way
+@@ -609,7 +612,7 @@ static int vgacon_switch(struct vc_data *c)
+ 
+ 		if ((vgacon_xres != x || vgacon_yres != y) &&
+ 		    (!(vga_video_num_columns % 2) &&
+-		     vga_video_num_columns <= screen_info.orig_video_cols &&
++		     vga_video_num_columns <= vga_si->orig_video_cols &&
+ 		     vga_video_num_lines <= rows))
+ 			vgacon_doresize(c, c->vc_cols, c->vc_rows);
+ 	}
+@@ -1056,13 +1059,13 @@ static int vgacon_resize(struct vc_data *c, unsigned int width,
+ 		 * Ho ho!  Someone (svgatextmode, eh?) may have reprogrammed
+ 		 * the video mode!  Set the new defaults then and go away.
+ 		 */
+-		screen_info.orig_video_cols = width;
+-		screen_info.orig_video_lines = height;
++		vga_si->orig_video_cols = width;
++		vga_si->orig_video_lines = height;
+ 		vga_default_font_height = c->vc_cell_height;
+ 		return 0;
+ 	}
+-	if (width % 2 || width > screen_info.orig_video_cols ||
+-	    height > (screen_info.orig_video_lines * vga_default_font_height)/
++	if (width % 2 || width > vga_si->orig_video_cols ||
++	    height > (vga_si->orig_video_lines * vga_default_font_height)/
+ 	    c->vc_cell_height)
+ 		return -EINVAL;
+ 
+@@ -1092,8 +1095,8 @@ static void vgacon_save_screen(struct vc_data *c)
+ 		 * console initialization routines.
+ 		 */
+ 		vga_bootup_console = 1;
+-		c->state.x = screen_info.orig_x;
+-		c->state.y = screen_info.orig_y;
++		c->state.x = vga_si->orig_x;
++		c->state.y = vga_si->orig_y;
+ 	}
+ 
+ 	/* We can't copy in more than the size of the video buffer,
+@@ -1186,4 +1189,13 @@ const struct consw vga_con = {
+ };
+ EXPORT_SYMBOL(vga_con);
+ 
++void vgacon_register_screen(struct screen_info *si)
++{
++	if (!si || vga_si)
++		return;
++
++	conswitchp = &vga_con;
++	vga_si = si;
++}
++
+ MODULE_LICENSE("GPL");
+diff --git a/include/linux/console.h b/include/linux/console.h
+index e4fc6f7c14961..060be989ae261 100644
+--- a/include/linux/console.h
++++ b/include/linux/console.h
+@@ -101,6 +101,13 @@ extern const struct consw dummy_con;	/* dummy console buffer */
+ extern const struct consw vga_con;	/* VGA text console */
+ extern const struct consw newport_con;	/* SGI Newport console  */
+ 
++struct screen_info;
++#ifdef CONFIG_VGA_CONSOLE
++void vgacon_register_screen(struct screen_info *si);
++#else
++static inline void vgacon_register_screen(struct screen_info *si) { }
++#endif
++
+ int con_is_bound(const struct consw *csw);
+ int do_unregister_con_driver(const struct consw *csw);
+ int do_take_over_console(const struct consw *sw, int first, int last, int deflt);
+-- 
+2.39.2
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
