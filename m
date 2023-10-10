@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B2EECD8CA9
-	for <linux-riscv@archiver.kernel.org>; Tue, 10 Oct 2023 17:15:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29BA9CD8CA9
+	for <linux-riscv@archiver.kernel.org>; Tue, 10 Oct 2023 17:16:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2GokvN6kuiaQA0+RnyyYe1PxjB9wB4pPBIeeUIIleJk=; b=NOXtH8YpfVL5IY
-	eICrf+NQc4SFVKnS0WZrZh9EKtZlr7o0P1ZUPRp5GUFIuyrjQbqy63MhWo45vJ8g0JLZEkSPFOx+B
-	o0XHRKpbQaa01jz1UJjWmOmsK+Rl7xBUfN+kW8ouYQIbCZoXJCg1eZvsZoL5POzJO7rLeWSUxmhKU
-	dhFfJAksT90Q2hUFjATZZHA0UoGBYPfYtHupMfDcjfeW2OrEO/QFnQ7211ynVZS2WiyweGshr7DL7
-	+qL8beLkNtE1q81mKj6WS85IvGDftEfwPcvm758kkRsbGjeanTUCLNEOL1ELDPSRZR1Clo7TWTH74
-	4/AcIQWozcZkjNBVFv+w==;
+	List-Owner; bh=E9ykSnwFPRekWfmi50nOVX61/SbKB7v/KuUTwuMUrTU=; b=RIsY7q0610VAf0
+	cV6P4mhvjOHirjTF72mK8N3sntbROmpGwTutkmRbsyDmR+4JC5EAW2qwpUiOmyd3p2DAUMrGuk722
+	P9VdLoemjeXvcbrAtUVVG+ne72Oz3XQIHivshIdiyNMmMy3CcXRCfUtQKZkcRyjsBfW4dhAmf2Ah6
+	fxVb2kBBUJ4GviD5s/QePRUn2vNdCJbTT55MBmXwyDydoFG2LlrcsKLq+a+6KuKd3FzgK42hqMbvI
+	ECqLBDD+SNJLo9qNvdt9p5wbeDHcD5a3VIju3y3VRn61vL8SVSrUiblZ13EariATrxM2MMWfHx6oE
+	lm621zjqPQ5w/8byM1dg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qqGKh-00Dq5q-1a;
-	Tue, 10 Oct 2023 17:15:47 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1qqGL9-00DqDW-15;
+	Tue, 10 Oct 2023 17:16:15 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qqGKc-00Dq4U-3C;
-	Tue, 10 Oct 2023 17:15:45 +0000
+	id 1qqGL5-00DqC9-2x;
+	Tue, 10 Oct 2023 17:16:13 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by ams.source.kernel.org (Postfix) with ESMTP id 8DA13B81CD0;
-	Tue, 10 Oct 2023 17:15:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5F03DC433C7;
-	Tue, 10 Oct 2023 17:15:40 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTP id 70030B81D66;
+	Tue, 10 Oct 2023 17:16:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3D43AC433C8;
+	Tue, 10 Oct 2023 17:16:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1696958140;
-	bh=zjSBxk6UATy9y4pqLcR+ifaY1dYuZQpAMHpPto23JUA=;
+	s=korg; t=1696958169;
+	bh=a+x8Te5gzV4XxTKWewe7fEV8PtaF6rYm/cvaiuepDlQ=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=kdZiTe7HCo50JWD0c5xwApJlmA9waTfbHKBmCL81h7/HGrq4Cm8fJxyWIYw3pemxr
-	 r6Q7kWEFiWquLyBo30s1WMkjWM0VnBmGyDUJnb7X4iGGqYbdWxUnY+UMyQOHkZj8CB
-	 MQj4XFDDpT/q2vtHSuAn2tBPx9taEVwTSaFuCWwA=
-Date: Tue, 10 Oct 2023 19:15:38 +0200
+	b=KjfeGlF0UJ6DXx3oZyLRJVdL1oufvFQST3r9+ykMZsN12WhBXEReutobcTRYLrezP
+	 Z3JkUecNUZ5yAmukh+tnKP+MyQLL6iIrGVRsaOs1qSbPyefIvjdVU49uGoZgm7aaXD
+	 3o5aVSIERl4W5I36SXctSE0u3h4jVtHA+rxzX1g0=
+Date: Tue, 10 Oct 2023 19:16:07 +0200
 From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 To: Anup Patel <apatel@ventanamicro.com>
 Cc: Paolo Bonzini <pbonzini@redhat.com>,
@@ -50,16 +50,17 @@ Cc: Paolo Bonzini <pbonzini@redhat.com>,
 	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
 	linux-serial@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 3/6] RISC-V: KVM: Forward SBI DBCN extension to user-space
-Message-ID: <2023101048-attach-drift-d77b@gregkh>
+Subject: Re: [PATCH 4/6] tty/serial: Add RISC-V SBI debug console based
+ earlycon
+Message-ID: <2023101053-scholar-resolute-a9a0@gregkh>
 References: <20231010170503.657189-1-apatel@ventanamicro.com>
- <20231010170503.657189-4-apatel@ventanamicro.com>
+ <20231010170503.657189-5-apatel@ventanamicro.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20231010170503.657189-4-apatel@ventanamicro.com>
+In-Reply-To: <20231010170503.657189-5-apatel@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231010_101543_172701_2EC625AC 
-X-CRM114-Status: GOOD (  13.29  )
+X-CRM114-CacheID: sfid-20231010_101612_108963_00D7E588 
+X-CRM114-Status: GOOD (  14.80  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,53 +77,66 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 10, 2023 at 10:35:00PM +0530, Anup Patel wrote:
-> The SBI DBCN extension needs to be emulated in user-space
-
-Why?
-
-> so let
-> us forward console_puts() call to user-space.
-
-What could go wrong!
-
-Why does userspace have to get involved in a console message?  Why is
-this needed at all?  The kernel can not handle userspace consoles as
-obviously they have to be re-entrant and irq safe.
-
+On Tue, Oct 10, 2023 at 10:35:01PM +0530, Anup Patel wrote:
+> We extend the existing RISC-V SBI earlycon support to use the new
+> RISC-V SBI debug console extension.
 > 
 > Signed-off-by: Anup Patel <apatel@ventanamicro.com>
 > ---
->  arch/riscv/include/asm/kvm_vcpu_sbi.h |  1 +
->  arch/riscv/include/uapi/asm/kvm.h     |  1 +
->  arch/riscv/kvm/vcpu_sbi.c             |  4 ++++
->  arch/riscv/kvm/vcpu_sbi_replace.c     | 31 +++++++++++++++++++++++++++
->  4 files changed, 37 insertions(+)
+>  drivers/tty/serial/Kconfig              |  2 +-
+>  drivers/tty/serial/earlycon-riscv-sbi.c | 35 ++++++++++++++++++++++---
+>  2 files changed, 32 insertions(+), 5 deletions(-)
 > 
-> diff --git a/arch/riscv/include/asm/kvm_vcpu_sbi.h b/arch/riscv/include/asm/kvm_vcpu_sbi.h
-> index 8d6d4dce8a5e..a85f95eb6e85 100644
-> --- a/arch/riscv/include/asm/kvm_vcpu_sbi.h
-> +++ b/arch/riscv/include/asm/kvm_vcpu_sbi.h
-> @@ -69,6 +69,7 @@ extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_ipi;
->  extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_rfence;
->  extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_srst;
->  extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_hsm;
-> +extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_dbcn;
->  extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_experimental;
->  extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_vendor;
+> diff --git a/drivers/tty/serial/Kconfig b/drivers/tty/serial/Kconfig
+> index bdc568a4ab66..cec46091a716 100644
+> --- a/drivers/tty/serial/Kconfig
+> +++ b/drivers/tty/serial/Kconfig
+> @@ -87,7 +87,7 @@ config SERIAL_EARLYCON_SEMIHOST
 >  
-> diff --git a/arch/riscv/include/uapi/asm/kvm.h b/arch/riscv/include/uapi/asm/kvm.h
-> index 917d8cc2489e..60d3b21dead7 100644
-> --- a/arch/riscv/include/uapi/asm/kvm.h
-> +++ b/arch/riscv/include/uapi/asm/kvm.h
-> @@ -156,6 +156,7 @@ enum KVM_RISCV_SBI_EXT_ID {
->  	KVM_RISCV_SBI_EXT_PMU,
->  	KVM_RISCV_SBI_EXT_EXPERIMENTAL,
->  	KVM_RISCV_SBI_EXT_VENDOR,
-> +	KVM_RISCV_SBI_EXT_DBCN,
->  	KVM_RISCV_SBI_EXT_MAX,
+>  config SERIAL_EARLYCON_RISCV_SBI
+>  	bool "Early console using RISC-V SBI"
+> -	depends on RISCV_SBI_V01
+> +	depends on RISCV_SBI
+>  	select SERIAL_CORE
+>  	select SERIAL_CORE_CONSOLE
+>  	select SERIAL_EARLYCON
+> diff --git a/drivers/tty/serial/earlycon-riscv-sbi.c b/drivers/tty/serial/earlycon-riscv-sbi.c
+> index 27afb0b74ea7..b1da34e8d8cd 100644
+> --- a/drivers/tty/serial/earlycon-riscv-sbi.c
+> +++ b/drivers/tty/serial/earlycon-riscv-sbi.c
+> @@ -10,22 +10,49 @@
+>  #include <linux/serial_core.h>
+>  #include <asm/sbi.h>
+>  
+> +#ifdef CONFIG_RISCV_SBI_V01
+>  static void sbi_putc(struct uart_port *port, unsigned char c)
+>  {
+>  	sbi_console_putchar(c);
+>  }
+>  
+> -static void sbi_console_write(struct console *con,
+> -			      const char *s, unsigned n)
+> +static void sbi_0_1_console_write(struct console *con,
+> +				  const char *s, unsigned int n)
+>  {
+>  	struct earlycon_device *dev = con->data;
+>  	uart_console_write(&dev->port, s, n, sbi_putc);
+>  }
+> +#endif
+> +
+> +static void sbi_dbcn_console_write(struct console *con,
+> +				   const char *s, unsigned int n)
+> +{
+> +	phys_addr_t pa = __pa(s);
+> +
+> +	sbi_ecall(SBI_EXT_DBCN, SBI_EXT_DBCN_CONSOLE_WRITE,
+> +#ifdef CONFIG_32BIT
+> +		  n, pa, (u64)pa >> 32,
+> +#else
+> +		  n, pa, 0,
+> +#endif
 
-You just broke a user/kernel ABI here, why?
+Again, no #ifdef in .c files please.
 
 thanks,
 
