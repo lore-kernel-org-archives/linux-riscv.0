@@ -4,63 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CFC0CD8CA9
-	for <linux-riscv@archiver.kernel.org>; Tue, 10 Oct 2023 17:05:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9579CD8CAD
+	for <linux-riscv@archiver.kernel.org>; Tue, 10 Oct 2023 17:05:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=HiCh9wdHHCe+owrVPJeyzBIfjgTx1O5aCN4dOBzpZR8=; b=eI8ffrvq2EV8IL
-	X4ATxZmXSnHJOzDKELazn5fHRAINzJA+L88Et522dtRWsidOAOYgDbamw605CRquXCgNhw/A67T7v
-	KA2hHI8RhIbhL/fNCzWYTlJ56BRqdirDgVCDEmmfQcKd2gJ+sSqTpZZXSWebCm9ffcT9awIr6V17A
-	4fzd8gFXXMuMFFLZfQ4yr9p9hpTjkcNuCES6AoDlSVlxPBk0f8RNPaM545d9AjUlrgq4FAxSz8Jy1
-	nDJk1xFr7Hd0/SZL6mgkgITj2+XeRiBk1eF509XQ5mc6/vMMFLYEFSAV2mn1MhafNizI6F097O5ra
-	7a9akks2ZUIyQ4n/m0HA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=1Wv87bO5mUJcOUq11eiO+8vIsfFKGzPp/ZPnVZbVObk=; b=AHgrrx8l4MBbGE
+	RnwSu0KjKGeLdHr4au3A477rHgSXkCSaPtXN/TNs7agB7S9cy0L29xsMHDEMe3daH0RR8Ry0Wpguj
+	H6/HUwQFjcRzwFHP7xKw/TG1PVEKOjDG73DeiySk45ZN3jaJtb7hAM8CD18Of+h8zgmoaKV56JxK5
+	ASenSxDeObfe3dRs6AaRduqk9Qp7jzK21JAn/Ak8osODZqbP/pUznWNuCNLfr6A004nkY9Uy3+a8W
+	NzXrERWORVDKTD2dosBzavG8XmOoJNEplonIIchvM34+ZyxzXXRdLtH+FAQgdNRUQp9oET27uXtb8
+	rW1LpyPTIibxHkHZ35dQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qqGAd-00DoII-1b;
-	Tue, 10 Oct 2023 17:05:23 +0000
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+	id 1qqGAl-00DoOd-1S;
+	Tue, 10 Oct 2023 17:05:31 +0000
+Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qqGAY-00DoGM-0T
+	id 1qqGAj-00DoJN-06
 	for linux-riscv@lists.infradead.org;
-	Tue, 10 Oct 2023 17:05:22 +0000
-Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-1c5bf7871dcso43884155ad.1
-        for <linux-riscv@lists.infradead.org>; Tue, 10 Oct 2023 10:05:14 -0700 (PDT)
+	Tue, 10 Oct 2023 17:05:30 +0000
+Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-1c7373cff01so251075ad.1
+        for <linux-riscv@lists.infradead.org>; Tue, 10 Oct 2023 10:05:25 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1696957514; x=1697562314; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=WPT4Fkg+ojgLC0XZKWvgq9PlzRbEr2TYZf8y6H1Pt5Y=;
-        b=GrKnd3H4+8HpDqLOwAmB1fwAvBoAajq0mXSo5qo/pi1Z97UO58giMKhjpoga0h0tbU
-         DgBEPLZB5FVQLmz4IvraGrcvGVYHSLnmW35vaf14rKQnkwa0S5lAERaE4o5oX4kNyL5M
-         YFEHCeM/AjBPl7tV6n7/8hva2+w9/m8VoPghzOmyFSfeip1N3nT0+/EuolTwoUCXc/Oi
-         AzYmF9AEW66j8sB/4uUEeWPf0A7SqTn9QKsv1NMqkZDZsjQCSCtUCC1THiKaX2duQRqa
-         58737H18XMoRHHn10X+arI3HRPfV2yw9jIY2hlnMVhkrQpTF5K1+HRuZ3WNKSvpHfpF9
-         DhBw==
+        d=ventanamicro.com; s=google; t=1696957525; x=1697562325; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=l3lhlJZP7U6sfVX0rlDY0S8d2x8DhhVnWXy5WEJL0wg=;
+        b=gMHp+n2B3x2B2UYrPGyjpz6SnWiJTaq8NMGyU6+PzFmLKT95mmdq03e5wmLYoPijep
+         yr7OFdIHVchHBk5uj/zFLZ0y1zeErbG2iQHGc86NvuUFTAV06ZJzGC8v4cA1qJkJzBBQ
+         fsCPqX7yKvROQOKfcS6GeuzwVo8IX1S5M6q+mJxIdnqdJR/4BtxLkpOTQYRcNJ9wDsy4
+         EzsXI2RyU0/uD+8DJ5WUVtnmchcKZZXujYWRnMY0NuDf3VvjplC7siV7051RheioVn9J
+         kPBVr7DnbOI1GDdPFujRgGx6hDBGD6tUA0+/8rGQwOFIaqUNlDzOSPZ+HJB/cu6wbbXc
+         7w2w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1696957514; x=1697562314;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=WPT4Fkg+ojgLC0XZKWvgq9PlzRbEr2TYZf8y6H1Pt5Y=;
-        b=Cy6IkK2F7Zc5stvFS3Yyd0K1X7C+bRipHtAqPG6cLnfQhHB6K8tWXGaZlNFLB3Qquw
-         isnO93seqmnXPHc9i1SWcAQ+udp+mvMrfAiFsB0tbhwY1LfyG/VMbJ+owNZczqgAAiDg
-         9flJDBbcNu109RHMQzybjqdBUbRRy2AzVKp751OekUj3Y2t0xDWOB/L/ICE4TGvFLe8B
-         ZiDQhss5+crnN+Icb15oHpSla6S8HQUMGoXZ3qOubturaMb9aHtd2bVR1s4sLZkvtt/c
-         ERQhlS7KVuEqf1fDbmNuIX7a3rW38z2loaSoQpmNnNPvgnvzMhatZeeu1kB3mfhl1khG
-         Y6lQ==
-X-Gm-Message-State: AOJu0YwonOXR40B8Tjv65VJicVUQs7h+gIlDUG+kju9EJGYO99Lpbh29
-	w7ItIED09EZBL6c9BjsUUfCmGg==
-X-Google-Smtp-Source: AGHT+IFym/OscZjdiaKnZudFAiUw/7t8pHDcgobeGgruKdPyihzD8VGIHQ5tw7zHoHGLJR6WzQgjAQ==
-X-Received: by 2002:a17:902:eb46:b0:1c9:c5a6:1d00 with SMTP id i6-20020a170902eb4600b001c9c5a61d00mr895380pli.1.1696957513651;
-        Tue, 10 Oct 2023 10:05:13 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1696957525; x=1697562325;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=l3lhlJZP7U6sfVX0rlDY0S8d2x8DhhVnWXy5WEJL0wg=;
+        b=fGJdvg32voim5FZJ0raiV2SGwxU4CO/myML8M4AarYt7pjEvGH0wiaE1l5xhZ3kdeg
+         Ep9dO+UYlz1rIvezLgqkU1wnu+bFzOsKSL+mg7lWw4vMTuU2SgKXT1+JRl5F+U+B+OdW
+         eUQEZIIzityplzB51MJP7cz1IH7c1/2twzElLxmpXgtWhaHDeMrdIPL6LBZHQ+tyATHo
+         UTIVgp0jf0gyomwM8vVT7S1OizTaBpqpqWKlMZEbUmXXSo3fRj8lMhjJffwPQfdPZEQy
+         UDC+FDA7MDq5AHSy5SDFeNhy7EXjhHEoruPleDngf14Z+NdQJJ8Kbm9dKv2sDPEij9qy
+         JxTQ==
+X-Gm-Message-State: AOJu0YygjJ9QHWxcLbPqvUTozn1hMw5QhY4w/zfzCrMdFgguNTMuV6Nb
+	c737T1UgpUQxh45r08ir+qqtnQ==
+X-Google-Smtp-Source: AGHT+IG+mbNrQmt2GEYzZRkORnAD/EBo6KEPWJykcTVHm9mjjc11kbkmKKhIYwMGoWp8ra4yRmdzoQ==
+X-Received: by 2002:a17:902:d352:b0:1c6:de6:5eb4 with SMTP id l18-20020a170902d35200b001c60de65eb4mr18397397plk.13.1696957524587;
+        Tue, 10 Oct 2023 10:05:24 -0700 (PDT)
 Received: from anup-ubuntu-vm.localdomain ([103.97.165.210])
-        by smtp.gmail.com with ESMTPSA id w19-20020a1709027b9300b001b89536974bsm11979868pll.202.2023.10.10.10.05.08
+        by smtp.gmail.com with ESMTPSA id w19-20020a1709027b9300b001b89536974bsm11979868pll.202.2023.10.10.10.05.19
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 10 Oct 2023 10:05:12 -0700 (PDT)
+        Tue, 10 Oct 2023 10:05:24 -0700 (PDT)
 From: Anup Patel <apatel@ventanamicro.com>
 To: Paolo Bonzini <pbonzini@redhat.com>,
 	Atish Patra <atishp@atishpatra.org>,
@@ -77,15 +78,16 @@ Cc: Conor Dooley <conor@kernel.org>,
 	linuxppc-dev@lists.ozlabs.org,
 	linux-kernel@vger.kernel.org,
 	Anup Patel <apatel@ventanamicro.com>
-Subject: [PATCH 0/6] RISC-V SBI debug console extension support
-Date: Tue, 10 Oct 2023 22:34:57 +0530
-Message-Id: <20231010170503.657189-1-apatel@ventanamicro.com>
+Subject: [PATCH 2/6] RISC-V: KVM: Change the SBI specification version to v2.0
+Date: Tue, 10 Oct 2023 22:34:59 +0530
+Message-Id: <20231010170503.657189-3-apatel@ventanamicro.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20231010170503.657189-1-apatel@ventanamicro.com>
+References: <20231010170503.657189-1-apatel@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231010_100518_185114_FF3C5373 
-X-CRM114-Status: UNSURE (   9.15  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20231010_100529_068089_934483BD 
+X-CRM114-Status: GOOD (  10.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,38 +104,27 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This series adds support for SBI debug console extension in KVM RISC-V
-and Linux RISC-V.
+We will be implementing SBI DBCN extension for KVM RISC-V so let
+us change the KVM RISC-V SBI specification version to v2.0.
 
-To try these patches with KVM RISC-V, use KVMTOOL from riscv_sbi_dbcn_v1
-branch at: https://github.com/avpatel/kvmtool.git
+Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+---
+ arch/riscv/include/asm/kvm_vcpu_sbi.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-These patches can also be found in the riscv_sbi_dbcn_v1 branch at:
-https://github.com/avpatel/linux.git
-
-Anup Patel (5):
-  RISC-V: Add defines for SBI debug console extension
-  RISC-V: KVM: Change the SBI specification version to v2.0
-  RISC-V: KVM: Forward SBI DBCN extension to user-space
-  tty/serial: Add RISC-V SBI debug console based earlycon
-  RISC-V: Enable SBI based earlycon support
-
-Atish Patra (1):
-  tty: Add SBI debug console support to HVC SBI driver
-
- arch/riscv/configs/defconfig            |  1 +
- arch/riscv/configs/rv32_defconfig       |  1 +
- arch/riscv/include/asm/kvm_vcpu_sbi.h   |  3 +-
- arch/riscv/include/asm/sbi.h            |  7 +++
- arch/riscv/include/uapi/asm/kvm.h       |  1 +
- arch/riscv/kvm/vcpu_sbi.c               |  4 ++
- arch/riscv/kvm/vcpu_sbi_replace.c       | 31 ++++++++++
- drivers/tty/hvc/Kconfig                 |  2 +-
- drivers/tty/hvc/hvc_riscv_sbi.c         | 80 ++++++++++++++++++++++---
- drivers/tty/serial/Kconfig              |  2 +-
- drivers/tty/serial/earlycon-riscv-sbi.c | 35 +++++++++--
- 11 files changed, 153 insertions(+), 14 deletions(-)
-
+diff --git a/arch/riscv/include/asm/kvm_vcpu_sbi.h b/arch/riscv/include/asm/kvm_vcpu_sbi.h
+index cdcf0ff07be7..8d6d4dce8a5e 100644
+--- a/arch/riscv/include/asm/kvm_vcpu_sbi.h
++++ b/arch/riscv/include/asm/kvm_vcpu_sbi.h
+@@ -11,7 +11,7 @@
+ 
+ #define KVM_SBI_IMPID 3
+ 
+-#define KVM_SBI_VERSION_MAJOR 1
++#define KVM_SBI_VERSION_MAJOR 2
+ #define KVM_SBI_VERSION_MINOR 0
+ 
+ enum kvm_riscv_sbi_ext_status {
 -- 
 2.34.1
 
