@@ -4,63 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29BA9CD8CA9
-	for <linux-riscv@archiver.kernel.org>; Tue, 10 Oct 2023 17:16:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E3FFCD8CAE
+	for <linux-riscv@archiver.kernel.org>; Tue, 10 Oct 2023 18:17:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=E9ykSnwFPRekWfmi50nOVX61/SbKB7v/KuUTwuMUrTU=; b=RIsY7q0610VAf0
-	cV6P4mhvjOHirjTF72mK8N3sntbROmpGwTutkmRbsyDmR+4JC5EAW2qwpUiOmyd3p2DAUMrGuk722
-	P9VdLoemjeXvcbrAtUVVG+ne72Oz3XQIHivshIdiyNMmMy3CcXRCfUtQKZkcRyjsBfW4dhAmf2Ah6
-	fxVb2kBBUJ4GviD5s/QePRUn2vNdCJbTT55MBmXwyDydoFG2LlrcsKLq+a+6KuKd3FzgK42hqMbvI
-	ECqLBDD+SNJLo9qNvdt9p5wbeDHcD5a3VIju3y3VRn61vL8SVSrUiblZ13EariATrxM2MMWfHx6oE
-	lm621zjqPQ5w/8byM1dg==;
+	List-Owner; bh=1iBV4Y8bOri5e5Bcswzxly/mWe7M4X8X7M0f40h3sJQ=; b=S/989T+THcZUZv
+	d16iVXE48gviS0IJRUCyoKxaGndX1LHZNtIYqp7AhhHIeu2G89fiUyqMgqP0+XFn8B/Eoeo60Pz9L
+	x+MrRHV9kvMI0csP2qjOHIno4RLzNS6x0N3GeuOpz58yJ1repx5B1h8umgRQoZ7udfVSFd/osXqL5
+	7TgAIXVRSPZp+i2bJ/I44TV+kMjL4Kt2XidDC2gn/y+yCwwwuF5cTDl3tGUz6DsYUzl0cilP7fXOV
+	qOoPtzpFKsFmBFt0dl7Ffx/1zQXwv4KkcFzUS0hHbqdqfnyGT+ureeTt9CL008Y3QuBvNmwuIhy4U
+	GKwCPUeGvFCRTEI5wdcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qqGL9-00DqDW-15;
-	Tue, 10 Oct 2023 17:16:15 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1qqHHk-00Dw0G-2z;
+	Tue, 10 Oct 2023 18:16:48 +0000
+Received: from mail-lf1-x12e.google.com ([2a00:1450:4864:20::12e])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qqGL5-00DqC9-2x;
-	Tue, 10 Oct 2023 17:16:13 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by ams.source.kernel.org (Postfix) with ESMTP id 70030B81D66;
-	Tue, 10 Oct 2023 17:16:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3D43AC433C8;
-	Tue, 10 Oct 2023 17:16:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1696958169;
-	bh=a+x8Te5gzV4XxTKWewe7fEV8PtaF6rYm/cvaiuepDlQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=KjfeGlF0UJ6DXx3oZyLRJVdL1oufvFQST3r9+ykMZsN12WhBXEReutobcTRYLrezP
-	 Z3JkUecNUZ5yAmukh+tnKP+MyQLL6iIrGVRsaOs1qSbPyefIvjdVU49uGoZgm7aaXD
-	 3o5aVSIERl4W5I36SXctSE0u3h4jVtHA+rxzX1g0=
-Date: Tue, 10 Oct 2023 19:16:07 +0200
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: Anup Patel <apatel@ventanamicro.com>
-Cc: Paolo Bonzini <pbonzini@redhat.com>,
-	Atish Patra <atishp@atishpatra.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Jiri Slaby <jirislaby@kernel.org>, Conor Dooley <conor@kernel.org>,
-	Andrew Jones <ajones@ventanamicro.com>, kvm@vger.kernel.org,
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
-	linux-serial@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 4/6] tty/serial: Add RISC-V SBI debug console based
- earlycon
-Message-ID: <2023101053-scholar-resolute-a9a0@gregkh>
-References: <20231010170503.657189-1-apatel@ventanamicro.com>
- <20231010170503.657189-5-apatel@ventanamicro.com>
+	id 1qqHHg-00Dvzd-1z
+	for linux-riscv@lists.infradead.org;
+	Tue, 10 Oct 2023 18:16:46 +0000
+Received: by mail-lf1-x12e.google.com with SMTP id 2adb3069b0e04-5041335fb9cso7621758e87.0
+        for <linux-riscv@lists.infradead.org>; Tue, 10 Oct 2023 11:16:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1696961799; x=1697566599; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=hk9SwMR88JMFwRJz+djfLXKYapDC2RjUys/bs9HzW9I=;
+        b=e+PTHFfAL1pvhxkV0twVFjEAk7fMPO/OOdDNw9NOd3ogAXHMPIFiO25YEI2aRmUQPC
+         ni0PS49fJ50/nnL02vz2Fit/atUhV2Jbh3NEAk5i14IASu1vAGiyZU1OMg4quuKI8rd7
+         yf24xuhJvKHsiyitMy9VfXFac25LrDkDSpY81AlhBnkhqZduKWtLYfltHxM1aq+dCnlb
+         8nFaEuyMc+actev67LM0szPNh/6kA+6qxwdnmlX5oBb/kgd0Bg7y39ORe1VxnbkyV34s
+         ICuKP5SaWh3hv/XJV7tdgbL96gnbmgxzUe/hHJzLhi/f1u89NElBFahKBVsYRr4GqpPh
+         CtfQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1696961799; x=1697566599;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=hk9SwMR88JMFwRJz+djfLXKYapDC2RjUys/bs9HzW9I=;
+        b=ZHW2B+lFb4zTNCV5IH4pAxl9WGILEJXFPCNysD9qoAajqsbqe/rNDLK+DD31Rr02Po
+         y/6kD4UnhZnCvjcSWBRHKXCQs2q6/h75xBp7t2M5+ozOcwelKwyP1w/KZR8VnYWpfQsh
+         HmVmC8IbaQewrc15x4z282Zp+PkDyeslc1HsirItkgFc5C6Xpt2K0NXNKtlJwdMVmAia
+         7dQ2RGi47AizF4YmsmLNqsaQHCW2DMmKu1sTIAW7QJQgzbZhxSIcF3IjyAYlr7pkfk87
+         4z7fNtsxU559WWpBr99UgACDGESee8bUtKCbZBK1PFlXJ9uwOGs/Svo63ywjwZ91c2Ku
+         vIMQ==
+X-Gm-Message-State: AOJu0YyRRArqT5xHIO8YoWG5gpkj0nKtE5xvNhRFCk+CJaVK2JJJ540Z
+	z2g4SAcvFUFjWoUl13kL5w4UhUS0t+Mnol6iloMOsA3QMragDPL4
+X-Google-Smtp-Source: AGHT+IHBaIL056ATx7+QDHdvoX5mKkQRMB9X3/jeVHKBprEPjcfSgP/KWr1RL61ETL7III6oZ2S5W9nSjKYBi/fe4oA=
+X-Received: by 2002:a05:6512:1242:b0:500:a378:db71 with SMTP id
+ fb2-20020a056512124200b00500a378db71mr20960528lfb.57.1696961799540; Tue, 10
+ Oct 2023 11:16:39 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20231010170503.657189-5-apatel@ventanamicro.com>
+References: <20231010165101.14942-2-ajones@ventanamicro.com>
+In-Reply-To: <20231010165101.14942-2-ajones@ventanamicro.com>
+From: Evan Green <evan@rivosinc.com>
+Date: Tue, 10 Oct 2023 11:16:03 -0700
+Message-ID: <CALs-Hsva7Jt5rn2i0Ys22fZxpF_rpq8Lp1ANpE_5fSyHd=OPBw@mail.gmail.com>
+Subject: Re: [PATCH] RISC-V: hwprobe: Fix vDSO SIGSEGV
+To: Andrew Jones <ajones@ventanamicro.com>
+Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com, 
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, conor.dooley@microchip.com, 
+	apatel@ventanamicro.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231010_101612_108963_00D7E588 
-X-CRM114-Status: GOOD (  14.80  )
+X-CRM114-CacheID: sfid-20231010_111644_969089_2913312F 
+X-CRM114-Status: UNSURE (   7.92  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,77 +85,22 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 10, 2023 at 10:35:01PM +0530, Anup Patel wrote:
-> We extend the existing RISC-V SBI earlycon support to use the new
-> RISC-V SBI debug console extension.
-> 
-> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
-> ---
->  drivers/tty/serial/Kconfig              |  2 +-
->  drivers/tty/serial/earlycon-riscv-sbi.c | 35 ++++++++++++++++++++++---
->  2 files changed, 32 insertions(+), 5 deletions(-)
-> 
-> diff --git a/drivers/tty/serial/Kconfig b/drivers/tty/serial/Kconfig
-> index bdc568a4ab66..cec46091a716 100644
-> --- a/drivers/tty/serial/Kconfig
-> +++ b/drivers/tty/serial/Kconfig
-> @@ -87,7 +87,7 @@ config SERIAL_EARLYCON_SEMIHOST
->  
->  config SERIAL_EARLYCON_RISCV_SBI
->  	bool "Early console using RISC-V SBI"
-> -	depends on RISCV_SBI_V01
-> +	depends on RISCV_SBI
->  	select SERIAL_CORE
->  	select SERIAL_CORE_CONSOLE
->  	select SERIAL_EARLYCON
-> diff --git a/drivers/tty/serial/earlycon-riscv-sbi.c b/drivers/tty/serial/earlycon-riscv-sbi.c
-> index 27afb0b74ea7..b1da34e8d8cd 100644
-> --- a/drivers/tty/serial/earlycon-riscv-sbi.c
-> +++ b/drivers/tty/serial/earlycon-riscv-sbi.c
-> @@ -10,22 +10,49 @@
->  #include <linux/serial_core.h>
->  #include <asm/sbi.h>
->  
-> +#ifdef CONFIG_RISCV_SBI_V01
->  static void sbi_putc(struct uart_port *port, unsigned char c)
->  {
->  	sbi_console_putchar(c);
->  }
->  
-> -static void sbi_console_write(struct console *con,
-> -			      const char *s, unsigned n)
-> +static void sbi_0_1_console_write(struct console *con,
-> +				  const char *s, unsigned int n)
->  {
->  	struct earlycon_device *dev = con->data;
->  	uart_console_write(&dev->port, s, n, sbi_putc);
->  }
-> +#endif
-> +
-> +static void sbi_dbcn_console_write(struct console *con,
-> +				   const char *s, unsigned int n)
-> +{
-> +	phys_addr_t pa = __pa(s);
-> +
-> +	sbi_ecall(SBI_EXT_DBCN, SBI_EXT_DBCN_CONSOLE_WRITE,
-> +#ifdef CONFIG_32BIT
-> +		  n, pa, (u64)pa >> 32,
-> +#else
-> +		  n, pa, 0,
-> +#endif
-
-Again, no #ifdef in .c files please.
-
-thanks,
-
-greg k-h
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVHVlLCBPY3QgMTAsIDIwMjMgYXQgOTo1MeKAr0FNIEFuZHJldyBKb25lcyA8YWpvbmVzQHZl
+bnRhbmFtaWNyby5jb20+IHdyb3RlOgo+Cj4gQSBod3Byb2JlIHBhaXIga2V5IGlzIHNpZ25lZCwg
+YnV0IHRoZSBod3Byb2JlIHZEU08gZnVuY3Rpb24gd2FzCj4gb25seSBjaGVja2luZyB0aGF0IHRo
+ZSB1cHBlciBib3VuZCB3YXMgdmFsaWQuIEluIG9yZGVyIHRvIGhlbHAKPiBhdm9pZCB0aGlzIHR5
+cGUgb2YgcHJvYmxlbSBpbiB0aGUgZnV0dXJlLCBhbmQgaW4gYW50aWNpcGF0aW9uIG9mCj4gdGhp
+cyBjaGVjayBiZWNvbWluZyBtb3JlIGNvbXBsaWNhdGVkIHdpdGggc3BhcnNlIGtleXMsIGludHJv
+ZHVjZQo+IGFuZCB1c2UgYSAia2V5IGlzIHZhbGlkIiBwcmVkaWNhdGUgZnVuY3Rpb24gZm9yIHRo
+ZSBjaGVjay4KPgo+IEZpeGVzOiBhYTVhZjBhYTkwYmEgKCJSSVNDLVY6IEFkZCBod3Byb2JlIHZE
+U08gZnVuY3Rpb24gYW5kIGRhdGEiKQo+IFNpZ25lZC1vZmYtYnk6IEFuZHJldyBKb25lcyA8YWpv
+bmVzQHZlbnRhbmFtaWNyby5jb20+CgpSZXZpZXdlZC1ieTogRXZhbiBHcmVlbiA8ZXZhbkByaXZv
+c2luYy5jb20+CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+XwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9y
+ZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2
+Cg==
