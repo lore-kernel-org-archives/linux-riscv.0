@@ -4,91 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E000ECD8CAD
-	for <linux-riscv@archiver.kernel.org>; Tue, 10 Oct 2023 17:06:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC7A8CD8CAC
+	for <linux-riscv@archiver.kernel.org>; Tue, 10 Oct 2023 17:12:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VdCr8B7oHr25iajIgSqX/0oKpOg19tUluZV/6H0VBuo=; b=dNNRCOSseg5pCO
-	DWulSQnSlKMpq3FYM3Z0qNnXp6zqlanx6Fe6p5hRaEzfJSyjI525N9DflXw7kUN+5C1JCcxFsoMS0
-	HsuDeP6Lo8N7SzPcyMVZ1WtmAtwefhK2wFWfqYgLfkSRJm6hNsaVu5MrWpNK+v7jp1zvsMww6yL0m
-	OSUsofBAx8/JAxlzuO0QkVg75A6ZK1Cn/hBi4qk539hhQ5W3Jm3KHnET+Ax3zMKWjqVy0FHGeVB/M
-	WR8fr6uhGOcB9b71GMPtuuXdtIG1V7LIQJbShP4qevHmh/dwi/OUWsOYKbImAEFc4Q156VQpDPbiS
-	/VmlUycLh0/QvUEhp+Zg==;
+	List-Owner; bh=5jROuF3heoU3I+kJfyVQf2SB6/ZCx0uMCnZ8gTbgz1M=; b=m1imFk8BYw4NEO
+	bMhyj//Lyz7mYuGh9EOWGy8hDmJP21JwDcykvMAVpJh0F08m9gGTLSe0x9J/W1WOzKZqN4v5R6R5b
+	qpnuAdywplfn+MoUPf1uLiBCE8nLaf8rRL3MJ0j6frN1jbr3FUDj7O0qnc6FTVa17CiCTupt0mkOM
+	dzL3r4b/U0Pj8XsJ+hjMLs6qr4gtbftW0qcdSmPC1vndHLDRex+MYSmiTIE8uSb5xN6TH1jgvJf5A
+	OSXkRvS4X5ApHe39xt/gzGJoL5sodmJoLhjUEjtxxJgSEHBuPAkFTkc0Oq3sN41bn5XWyhkW8ztMX
+	UCcD9fQNOLKci1HqMkyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qqGB8-00DobD-0B;
-	Tue, 10 Oct 2023 17:05:54 +0000
-Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
+	id 1qqGHq-00DpY1-0O;
+	Tue, 10 Oct 2023 17:12:50 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qqGB3-00DoWI-3C
-	for linux-riscv@lists.infradead.org;
-	Tue, 10 Oct 2023 17:05:52 +0000
-Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-1c737d61a00so46484165ad.3
-        for <linux-riscv@lists.infradead.org>; Tue, 10 Oct 2023 10:05:47 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1696957546; x=1697562346; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=OF/0DZOVOE1sZojsrN9hmq2DR3MNn3xhzg86O8Xb4xI=;
-        b=VVtTzkP86Hq0nO/Ys4OM9sLKhXet1e8M9plvUqqWZNyWJC30/ZntsyzE57HgkkCKq9
-         Pr+yEpLVgDmLwdxA5znKH/O+ROKryZOZSQpqOv/udetxv5B732ia6HmDZTYnnS4zCUSw
-         EnDW+OyDbWRWA8gRXW93krhb5APId78YA2w/lOjCGktZieSb1Uqom3yOREFgRfEwTWNH
-         T0ye0OPWjIDIiwJYks8aEF6nXc9B98af1bVlNAf2ksJEJ7dVoDPczlrMXCLFNl7vKkvu
-         BF8OqpTCGCvBTjbYgWOtDdszYpvCbXEo8wHtbeo6rXMO/itGWT8BVv28up9b30lKxXvJ
-         hyxw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1696957546; x=1697562346;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=OF/0DZOVOE1sZojsrN9hmq2DR3MNn3xhzg86O8Xb4xI=;
-        b=X9AFBQAgV6uZjNUe0nv89dfssSa2LrNnF6NHs9YW/IMaoB3WGhC7L/U8+diOvdszTf
-         dfBHaVgWSaZ7kQIBvLHQ4YE51nTGh/GiN5kzD2h5ty53p1bZnceT+NVnngwh+WBgp9mx
-         uDi3++uxDJNQ89QtCc1mz06GC+x8Wr2AjI9jNFHF44ZDo8oPfyHeHmFq/TSio6bzfQld
-         81EA/nLmdBqeCMZRSppC3YizmXMsIu3yrp5Wz3iPoQ1HRIU8AWLanTBOKt+afn/tpSmM
-         az4WljUmagbNOsr5HhQI8idK/nsr4fxPvFlmFpV133q0EARKT1XM4Mvq/wcADGXTXrtK
-         dysA==
-X-Gm-Message-State: AOJu0YxTQjFs1AmTXBmGLN5U/EJlIxw5aDFLzmecc1iEmvRHWZvskOcX
-	yQNXHZpWxwftVNc27kmvSa0MSA==
-X-Google-Smtp-Source: AGHT+IEFOyqePTNhMFtIG9Pkb5PdZI4JBTY0AeRn/RM9+tKVmMklIxkKeQjOcYyUz8tcYu0GN0YOAQ==
-X-Received: by 2002:a17:903:230a:b0:1c7:7e00:8075 with SMTP id d10-20020a170903230a00b001c77e008075mr23570340plh.66.1696957546442;
-        Tue, 10 Oct 2023 10:05:46 -0700 (PDT)
-Received: from anup-ubuntu-vm.localdomain ([103.97.165.210])
-        by smtp.gmail.com with ESMTPSA id w19-20020a1709027b9300b001b89536974bsm11979868pll.202.2023.10.10.10.05.41
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 10 Oct 2023 10:05:45 -0700 (PDT)
-From: Anup Patel <apatel@ventanamicro.com>
-To: Paolo Bonzini <pbonzini@redhat.com>,
+	id 1qqGHm-00DpX0-0s;
+	Tue, 10 Oct 2023 17:12:47 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 72E43615AB;
+	Tue, 10 Oct 2023 17:12:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8E682C433C7;
+	Tue, 10 Oct 2023 17:12:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+	s=korg; t=1696957965;
+	bh=+k83Wr/EUECBDmTY4zF/z/iAjbCmN1Z0PcCaY918fko=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=h8/uqYlf08jWlRslIBjTFO+O3KgIK4hpU8keuMdttxUwK2/9BA0rrNe2DhBa7HpYl
+	 I/alfdg11rxUhylY0/9H2xtDI6H1yC7wPztb9/1hUE9ZzcSiPSz0b0kYJerOuVfCok
+	 WHXS5S9wReYUkDvdHstV1VmsH6cDy1VV/U/4BhNk=
+Date: Tue, 10 Oct 2023 19:12:42 +0200
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: Anup Patel <apatel@ventanamicro.com>
+Cc: Paolo Bonzini <pbonzini@redhat.com>,
 	Atish Patra <atishp@atishpatra.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>
-Cc: Conor Dooley <conor@kernel.org>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	kvm@vger.kernel.org,
-	kvm-riscv@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	linux-serial@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-kernel@vger.kernel.org,
-	Anup Patel <apatel@ventanamicro.com>
-Subject: [PATCH 6/6] RISC-V: Enable SBI based earlycon support
-Date: Tue, 10 Oct 2023 22:35:03 +0530
-Message-Id: <20231010170503.657189-7-apatel@ventanamicro.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20231010170503.657189-1-apatel@ventanamicro.com>
+	Jiri Slaby <jirislaby@kernel.org>, Conor Dooley <conor@kernel.org>,
+	Andrew Jones <ajones@ventanamicro.com>, kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+	linux-serial@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	linux-kernel@vger.kernel.org, Atish Patra <atishp@rivosinc.com>
+Subject: Re: [PATCH 5/6] tty: Add SBI debug console support to HVC SBI driver
+Message-ID: <2023101045-hazard-popcorn-7d19@gregkh>
 References: <20231010170503.657189-1-apatel@ventanamicro.com>
+ <20231010170503.657189-6-apatel@ventanamicro.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20231010170503.657189-6-apatel@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231010_100550_029219_8CA69045 
-X-CRM114-Status: UNSURE (   8.60  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20231010_101246_387795_DA222FDD 
+X-CRM114-Status: GOOD (  13.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,42 +76,45 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Let us enable SBI based earlycon support in defconfigs for both RV32
-and RV64 so that "earlycon=sbi" can be used again.
+On Tue, Oct 10, 2023 at 10:35:02PM +0530, Anup Patel wrote:
+> --- a/drivers/tty/hvc/hvc_riscv_sbi.c
+> +++ b/drivers/tty/hvc/hvc_riscv_sbi.c
+> @@ -15,6 +15,7 @@
+>  
+>  #include "hvc_console.h"
+>  
+> +#ifdef CONFIG_RISCV_SBI_V01
 
-Signed-off-by: Anup Patel <apatel@ventanamicro.com>
----
- arch/riscv/configs/defconfig      | 1 +
- arch/riscv/configs/rv32_defconfig | 1 +
- 2 files changed, 2 insertions(+)
+Please no #ifdef in a .c file, that's not a good style for Linux code at
+all.
 
-diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
-index ab86ec3b9eab..f82700da0056 100644
---- a/arch/riscv/configs/defconfig
-+++ b/arch/riscv/configs/defconfig
-@@ -132,6 +132,7 @@ CONFIG_SERIAL_8250_CONSOLE=y
- CONFIG_SERIAL_8250_DW=y
- CONFIG_SERIAL_OF_PLATFORM=y
- CONFIG_SERIAL_SH_SCI=y
-+CONFIG_SERIAL_EARLYCON_RISCV_SBI=y
- CONFIG_VIRTIO_CONSOLE=y
- CONFIG_HW_RANDOM=y
- CONFIG_HW_RANDOM_VIRTIO=y
-diff --git a/arch/riscv/configs/rv32_defconfig b/arch/riscv/configs/rv32_defconfig
-index 89b601e253a6..5721af39afd1 100644
---- a/arch/riscv/configs/rv32_defconfig
-+++ b/arch/riscv/configs/rv32_defconfig
-@@ -66,6 +66,7 @@ CONFIG_INPUT_MOUSEDEV=y
- CONFIG_SERIAL_8250=y
- CONFIG_SERIAL_8250_CONSOLE=y
- CONFIG_SERIAL_OF_PLATFORM=y
-+CONFIG_SERIAL_EARLYCON_RISCV_SBI=y
- CONFIG_VIRTIO_CONSOLE=y
- CONFIG_HW_RANDOM=y
- CONFIG_HW_RANDOM_VIRTIO=y
--- 
-2.34.1
+And what if you want to build the driver for both options here?  What
+will happen?
 
+> +static int hvc_sbi_dbcn_tty_put(uint32_t vtermno, const char *buf, int count)
+>  {
+> -	return PTR_ERR_OR_ZERO(hvc_alloc(0, 0, &hvc_sbi_ops, 16));
+> +	phys_addr_t pa;
+> +	struct sbiret ret;
+> +
+> +	if (is_vmalloc_addr(buf))
+> +		pa = page_to_phys(vmalloc_to_page(buf)) + offset_in_page(buf);
+> +	else
+> +		pa = __pa(buf);
+> +
+> +	ret = sbi_ecall(SBI_EXT_DBCN, SBI_EXT_DBCN_CONSOLE_WRITE,
+> +#ifdef CONFIG_32BIT
+> +		  count, pa, (u64)pa >> 32,
+> +#else
+> +		  count, pa, 0,
+> +#endif
+
+This is not how to do an api, sorry, again, please no #ifdef if you want
+to support this code for the next 20+ years.
+
+thanks,
+
+gre gk-h
 
 _______________________________________________
 linux-riscv mailing list
