@@ -4,89 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D3E7CD80BD
-	for <linux-riscv@archiver.kernel.org>; Tue, 10 Oct 2023 12:21:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5886CD8CA2
+	for <linux-riscv@archiver.kernel.org>; Tue, 10 Oct 2023 15:05:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Cc:Content-ID:Content-Description:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SCo+cWb/Kx9S/tSGYUfQaWUziAq7IvMWAA4JmBwPHJg=; b=wKc8DvQpUEcXzj
-	VgGaf2L/WmLA6BkGU1iruzjLMBEddgXtjZU+GM7asJX/9QO1RDH3WtpSOmH7Mr0CAYloK2fGB5o+x
-	R64m2Fr5JXxOGK9jjHV89SxPluw/WMrVC0yZbeMTjsMLqgxN6ESaoKR9wNqTUw/KGZTUXDZU+VeOV
-	PjRDoF+rO9vpEUMQIv2yRhMI9Ebkk1tbf0k5nn4qvNKN+I14HYbyHkhJjf7oVjZUP/1dE6E9hY5pe
-	bQ0QuH4D90wt05/QPsjSJA9JBaGOZ6n1zmryVuiWS4c0j+EAC2TBWdXbdrtSKzhZssfiOAU5h/27Y
-	8iE9XD6/J/oqrpc6cx8A==;
+	List-Owner; bh=ympFgnQpd8xK1QK9MnQyjuW10urQliuJsSJAYUZjVkA=; b=IIW4YPGsMa35Pk
+	ts91VYL4NMNpwnGVgKKUd1e+Bs8MccoDaCVqYpVvGdsF5IbnWvG1UEPL2V/ukCp99s2DoUKQoHsF/
+	LlEFSSsSVo/FOS5Eu8iYbTwwJdd3N013QWkgaTHBhXGfdxZdLST0YAdyx1W+6QpPbX3tEMGrri4vU
+	XB/b2j4YT8wt8Nefi8NYB1AuKWZe4b7xYpb7auGN0S5Kj0kCNdNmsLdZXtCFZiFdtTbgl2VjwoZ/p
+	afYArX01Ky2QYNPnaxshIxXnaUg6/YuRVeGEsGvaL1uWyBrcV9AeFyP5niNrEQ2IWfuvn+7uUsuO/
+	tpbfkKwKFMIIK1O5i56A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qqBjU-00DK6x-10;
-	Tue, 10 Oct 2023 12:21:04 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1qqEIh-00De2O-2U;
+	Tue, 10 Oct 2023 15:05:35 +0000
+Received: from mgamail.intel.com ([198.175.65.9])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qqBjQ-00DK5e-0j;
-	Tue, 10 Oct 2023 12:21:01 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by ams.source.kernel.org (Postfix) with ESMTP id B3602B81C0F;
-	Tue, 10 Oct 2023 12:20:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6DE79C433C9;
-	Tue, 10 Oct 2023 12:20:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1696940457;
-	bh=UxKiOjwRVBO8hPyVUUWzczAVTUMRjFlQkrN/ltCYT8k=;
-	h=Date:From:To:Subject:References:In-Reply-To:From;
-	b=z6owfJjLMQIFX2uC9sV/8w0Sqo46Pwrls0o6HMuGNTLpJ6j2UenvrZZUZyQPOk4e4
-	 J3ULbbvJmYW9SamstV3gX+7XoWSBjLaIAkObsItWXbwj4B3BwNurPGM/XAYXjZVith
-	 +in/PsQQCypXf3oYXYGwsK8NbTcgAuJuaCoH/RRg=
-Date: Tue, 10 Oct 2023 14:20:54 +0200
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: Arnd Bergmann <arnd@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	linux-fbdev@vger.kernel.org, dri-devel@lists.freedesktop.org,
-	Arnd Bergmann <arnd@arndb.de>,
-	"David S. Miller" <davem@davemloft.net>,
-	"K. Y. Srinivasan" <kys@microsoft.com>,
-	Ard Biesheuvel <ardb@kernel.org>, Borislav Petkov <bp@alien8.de>,
-	Brian Cain <bcain@quicinc.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	David Airlie <airlied@gmail.com>,
-	Deepak Rawat <drawat.floss@gmail.com>,
-	Dexuan Cui <decui@microsoft.com>, Dinh Nguyen <dinguyen@kernel.org>,
-	Guo Ren <guoren@kernel.org>, Haiyang Zhang <haiyangz@microsoft.com>,
-	Helge Deller <deller@gmx.de>, Huacai Chen <chenhuacai@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Javier Martinez Canillas <javierm@redhat.com>,
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
-	Khalid Aziz <khalid@gonehiking.org>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Matt Turner <mattst88@gmail.com>, Max Filippov <jcmvbkbc@gmail.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
+	id 1qqEIe-00De15-1N
+	for linux-riscv@lists.infradead.org;
+	Tue, 10 Oct 2023 15:05:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1696950333; x=1728486333;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=mdUyBSaObi/bh3BJzqLGOF381cKMFk0z6OBG3myfggs=;
+  b=kpvkPN3Mey088HsfZOfnEVZUBEAwsLZyJeb/HgifCXMJ8gRB30oK3URF
+   EEtmMJlWIIBNhrY79cSLwO0yqaWbjXVrZQksuYU42cVkDz3gf/FM56WMW
+   lvIz21VQHxaMe0nR5Po3zhRm2SUMw40JwETnKgoMWnSxrqlvVmWJFhUsi
+   YY4KkWSLRDeQRXjrHZIu+36KEaMXLMW9S+J6hf3mHA8NtXap63NR29Pqx
+   rT3HdGCHdEoWB5t1XEPxZKKA4RvbbOzdqIMxeJyNbgh/i7Cr8hV4ph7sV
+   rgEuGC50FEWE1dnmzFBJnacb15BwP7acaLxfy6ELz6+BHghhm3jh4RjXy
+   w==;
+X-IronPort-AV: E=McAfee;i="6600,9927,10859"; a="3007009"
+X-IronPort-AV: E=Sophos;i="6.03,213,1694761200"; 
+   d="scan'208";a="3007009"
+Received: from orsmga004.jf.intel.com ([10.7.209.38])
+  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Oct 2023 08:05:31 -0700
+X-ExtLoop1: 1
+X-IronPort-AV: E=McAfee;i="6600,9927,10859"; a="877255433"
+X-IronPort-AV: E=Sophos;i="6.03,213,1694761200"; 
+   d="scan'208";a="877255433"
+Received: from lkp-server02.sh.intel.com (HELO f64821696465) ([10.239.97.151])
+  by orsmga004.jf.intel.com with ESMTP; 10 Oct 2023 08:05:28 -0700
+Received: from kbuild by f64821696465 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1qqEIX-0000cO-1O;
+	Tue, 10 Oct 2023 15:05:25 +0000
+Date: Tue, 10 Oct 2023 23:04:58 +0800
+From: kernel test robot <lkp@intel.com>
+To: Charlie Jenkins <charlie@rivosinc.com>, linux-riscv@lists.infradead.org,
+	linux-mm@kvack.org, linux-kernel@vger.kernel.org
+Cc: oe-kbuild-all@lists.linux.dev, Eric Biederman <ebiederm@xmission.com>,
+	Kees Cook <keescook@chromium.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	WANG Xuerui <kernel@xen0n.name>, Wei Liu <wei.liu@kernel.org>,
-	Will Deacon <will@kernel.org>, x86@kernel.org,
-	linux-alpha@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-efi@vger.kernel.org,
-	linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
-	linux-ia64@vger.kernel.org, loongarch@lists.linux.dev,
-	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org, linux-sh@vger.kernel.org,
-	sparclinux@vger.kernel.org, linux-hyperv@vger.kernel.org
-Subject: Re: [PATCH v3 0/9] video: screen_info cleanups
-Message-ID: <2023101007-retread-spyglass-4b8c@gregkh>
-References: <20231009211845.3136536-1-arnd@kernel.org>
- <ZSU59yPUO_Fu39o5@phenom.ffwll.local>
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Charlie Jenkins <charlie@rivosinc.com>
+Subject: Re: [PATCH v2 2/2] riscv: Add tests for riscv module loading
+Message-ID: <202310102243.0Ab0xH1g-lkp@intel.com>
+References: <20231006-module_relocations-v2-2-47566453fedc@rivosinc.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <ZSU59yPUO_Fu39o5@phenom.ffwll.local>
+In-Reply-To: <20231006-module_relocations-v2-2-47566453fedc@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231010_052100_528456_6324FC9A 
-X-CRM114-Status: GOOD (  21.33  )
+X-CRM114-CacheID: sfid-20231010_080532_545020_1917214F 
+X-CRM114-Status: GOOD (  10.92  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,47 +90,80 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 10, 2023 at 01:48:07PM +0200, Daniel Vetter wrote:
-> On Mon, Oct 09, 2023 at 11:18:36PM +0200, Arnd Bergmann wrote:
-> > From: Arnd Bergmann <arnd@arndb.de>
-> > 
-> > v3 changelog
-> > 
-> > No real changes, just rebased for context changes, and picked up the Acks.
-> > 
-> > This now conflicts with the ia64 removal and introduces one new dependency
-> > on IA64, but that is harmless and trivial to deal with later.
-> > 
-> > Link: https://lore.kernel.org/lkml/20230719123944.3438363-1-arnd@kernel.org/
-> > ---
-> > v2 changelog
-> > 
-> > I refreshed the first four patches that I sent before with very minor
-> > updates, and then added some more to further disaggregate the use
-> > of screen_info:
-> > 
-> >  - I found that powerpc wasn't using vga16fb any more
-> > 
-> >  - vgacon can be almost entirely separated from the global
-> >    screen_info, except on x86
-> > 
-> >  - similarly, the EFI framebuffer initialization can be
-> >    kept separate, except on x86.
-> > 
-> > I did extensive build testing on arm/arm64/x86 and the normal built bot
-> > testing for the other architectures.
-> > 
-> > Which tree should this get merged through?
-> 
-> I guess if no one else volunteers (Greg maybe?) I can stuff this into
-> drm-misc ...
+Hi Charlie,
 
-Oh, hey, console code is for me, I keep forgetting.
+kernel test robot noticed the following build warnings:
 
-I can take it, looks like we have enough acks now, thanks for reminding
-me!
+[auto build test WARNING on 82714078aee4ccbd6ee7579d5a21f8a72155d0fb]
 
-greg k-h
+url:    https://github.com/intel-lab-lkp/linux/commits/Charlie-Jenkins/riscv-Add-remaining-module-relocations/20231007-084330
+base:   82714078aee4ccbd6ee7579d5a21f8a72155d0fb
+patch link:    https://lore.kernel.org/r/20231006-module_relocations-v2-2-47566453fedc%40rivosinc.com
+patch subject: [PATCH v2 2/2] riscv: Add tests for riscv module loading
+config: riscv-randconfig-002-20231010 (https://download.01.org/0day-ci/archive/20231010/202310102243.0Ab0xH1g-lkp@intel.com/config)
+compiler: riscv64-linux-gcc (GCC) 13.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20231010/202310102243.0Ab0xH1g-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202310102243.0Ab0xH1g-lkp@intel.com/
+
+All warnings (new ones prefixed by >>):
+
+>> arch/riscv/kernel/tests/module_test/test_module_linking_main.c:26:6: warning: no previous prototype for 'run_test_set' [-Wmissing-prototypes]
+      26 | void run_test_set(struct kunit *test)
+         |      ^~~~~~~~~~~~
+>> arch/riscv/kernel/tests/module_test/test_module_linking_main.c:39:6: warning: no previous prototype for 'run_test_sub' [-Wmissing-prototypes]
+      39 | void run_test_sub(struct kunit *test)
+         |      ^~~~~~~~~~~~
+>> arch/riscv/kernel/tests/module_test/test_module_linking_main.c:54:6: warning: no previous prototype for 'run_test_uleb' [-Wmissing-prototypes]
+      54 | void run_test_uleb(struct kunit *test)
+         |      ^~~~~~~~~~~~~
+
+
+vim +/run_test_set +26 arch/riscv/kernel/tests/module_test/test_module_linking_main.c
+
+    25	
+  > 26	void run_test_set(struct kunit *test)
+    27	{
+    28		int val32 = test_set32();
+    29		int val16 = test_set16();
+    30		int val8 = test_set8();
+    31		int val6 = test_set6();
+    32	
+    33		CHECK_EQ(val32, 0);
+    34		CHECK_EQ(val16, 0);
+    35		CHECK_EQ(val8, 0);
+    36		CHECK_EQ(val6, 0);
+    37	}
+    38	
+  > 39	void run_test_sub(struct kunit *test)
+    40	{
+    41		int val64 = test_sub64();
+    42		int val32 = test_sub32();
+    43		int val16 = test_sub16();
+    44		int val8 = test_sub8();
+    45		int val6 = test_sub6();
+    46	
+    47		CHECK_EQ(val64, 0);
+    48		CHECK_EQ(val32, 0);
+    49		CHECK_EQ(val16, 0);
+    50		CHECK_EQ(val8, 0);
+    51		CHECK_EQ(val6, 0);
+    52	}
+    53	
+  > 54	void run_test_uleb(struct kunit *test)
+    55	{
+    56		int valuleb = test_uleb();
+    57	
+    58		CHECK_EQ(valuleb, 0);
+    59	}
+    60	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
 _______________________________________________
 linux-riscv mailing list
