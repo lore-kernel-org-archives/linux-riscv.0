@@ -4,73 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 704A1CD68E3
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Oct 2023 08:35:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79603CD6E51
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Oct 2023 09:15:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=acxYm/e2DIxDWBW8blEi99RIMXHCM9i7wHIzl1jmj3w=; b=KAyV9/TVVa8lDR
-	ZEg4n4k89//5uZ0V2AGjxVvfASc63exeSteannyQSmLO4tRroOcGYVNvoJ6UrljVSSA6pXcM0/0Kq
-	eBOSqLDf1kh3W6VMgN0CZJ+CfsPu7pABd1TVGkJVVCwGL748gi5NSnIhi22aKvr3OPeIye2acuWkS
-	RH2LTlLrZveLKSkyQCjsQ9Lh+0dcKxf7nGd/vBEzEGAYSDqRyc6lkm+tZs4pwOg6xaXE4tKM6OaxM
-	rnQmhuye55wzIU3OF6ZHj1hZpyXFb9BzLWxdEJhYISMWuIK0gVHLiU/5rfregbUUC1l+vkiHyjc3D
-	xegCxN+RE76oOdYqLJxg==;
+	List-Owner; bh=yYts/+XJdTRf+AHlCqVxJlyvIu2yHakn23dGbwCiztc=; b=YfL4sH45bWihEk
+	PxMCOjcjTcT+qUGLezyJhow5xa3lFcz1AiQ4UDbtU0Jj1klxVJ2bqhSMFhLOSpArXQf0XDpZUedKr
+	rC1PTTjLgjcO0b9EM3sS8YFPajWq9zCZx6XyaqN0P59adR9ZR259QNoAHkCe88f1rTCNAVgxbNLi0
+	F1NH4xZAsxuHbjO/y6HsPsf0JyP7Ruy++7E/Xu09gs2f4Dn72aSynN+t0zk1VTGI4Un0SJbC/r97h
+	H2iJNAFia2BCiet7iDheeV34Q0TWnk1PFE9vuDrhTAiih6v3DV6Uz/QpIvckA2XEHNN32eWWaaykn
+	KfeONjzDpmRHQC8DsIxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qqUh3-00FEqC-16;
-	Wed, 11 Oct 2023 08:35:49 +0000
-Received: from bg4.exmail.qq.com ([43.154.221.58])
+	id 1qqVIz-00FJTO-1A;
+	Wed, 11 Oct 2023 09:15:01 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qqUgx-00FEou-2J
+	id 1qqVIw-00FJSk-1J
 	for linux-riscv@lists.infradead.org;
-	Wed, 11 Oct 2023 08:35:47 +0000
-X-QQ-mid: bizesmtp71t1697013251tdcqqafe
-Received: from localhost.localdomain ( [58.240.82.166])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Wed, 11 Oct 2023 16:34:09 +0800 (CST)
-X-QQ-SSF: 01200000000000B0B000000A0000000
-X-QQ-FEAT: FwowAM4HOqAVKxvoHOg+FFtkzyhqthXdQT4dyvq8RM0ldk9sx097/DTTVtTym
-	zDrumLi3wKzCr8HeAtYLjJAO0L0+aIbGeOa415C5O9jPe7FMnKkoUVvHuiA9aKuYc+9Q1aM
-	9cJ/snUP8/szBAD7Bjs3eaWzuqEX+BnI7N+51e2OV79N001z7CTBNMWbJqV+bykxn7ic2Q7
-	RRHq54a8wsMzE6aZmUluVyilqnAsv/dg/rJUBkGm4OBESBJw3+EzrA5i0dRI+0hK+/Dazvv
-	F6v2yTOubJMkx7Sf6/j1qLEQN3zoG54wpS3sggddPKE3seMGmKHz2Dx4zAl25vrsVzJFfqU
-	bs1DClkTvFRJjSLK+rmaGFnDXt4enoq7xPY3bzlojOIb1ZqDxL5jep7gSIHFg==
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 10839386821577447536
-From: Song Shuai <songshuaishuai@tinylab.org>
-To: paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	conor.dooley@microchip.com,
-	lihuafei1@huawei.com,
-	songshuaishuai@tinylab.org,
-	petr.tesarik.ext@huawei.com,
-	duwe@suse.de,
-	ribalda@chromium.org,
-	akpm@linux-foundation.org,
-	keescook@chromium.org,
-	hi@alyssa.is,
-	heiko@sntech.de,
-	alexghiti@rivosinc.com,
-	schwab@suse.de
-Cc: linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	kexec@lists.infradead.org
-Subject: [PATCH 2/2] riscv: kexec: Remove -fPIE for PURGATORY_CFLAGS
-Date: Wed, 11 Oct 2023 16:31:32 +0800
-Message-Id: <20231011083132.2428720-3-songshuaishuai@tinylab.org>
-X-Mailer: git-send-email 2.20.1
-In-Reply-To: <20231011083132.2428720-1-songshuaishuai@tinylab.org>
-References: <20231011083132.2428720-1-songshuaishuai@tinylab.org>
+	Wed, 11 Oct 2023 09:14:59 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-405361bba99so60835465e9.2
+        for <linux-riscv@lists.infradead.org>; Wed, 11 Oct 2023 02:14:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1697015696; x=1697620496; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=8dcsbzf8E/7eeyM/pc2wr1VcgxpBh3MPzSnBM0me6VQ=;
+        b=QpzOZlwnxVYM4xjlEFX9IsmRQ7GVsMofEB2LYE4ha5o1UdE5UgLmnsELZbZaK+AfgY
+         ysjhXNi/vwBddieOmlCDHQMxjxS1ePpIm8hESDZdbc/Y59F2qQ4ktx0jQtn8HrDwfeci
+         Vm3GzKpq3W1lbz5LbVurnTGKlAj8PVWHDli594b7cvm7L+ZGAry6ln18Dyd9lmyz7BjY
+         HSE1klBnTxTzBQnTdi8vNoEDhBDhbhKFGy0bp6VfCSO6gARG6ZERrSmOjFIlt0Waxgi7
+         f0AZUXpC3JNHlPPpWv7qlkj3bxzs5vVga9pMhfVtMQpjOAUPZ17/BDXBmS8LKnPvvI8z
+         49Vw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1697015696; x=1697620496;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=8dcsbzf8E/7eeyM/pc2wr1VcgxpBh3MPzSnBM0me6VQ=;
+        b=J9DJxv67xaLfzM5M68yRXWnwd0FmHUlGh6t4O7Qz4rzBu+NFbW5hEGFCe2vW2U9mrO
+         aM5KnbxaMkYdXOn/qkAItkb3tmJAAQe0eT/TxIB/1aqlznFKO5vhKfe4O3Hx3fv1d9j9
+         VOw51iGngxRI1oQp+GjxZn5cTPHEERMoALKFUTE7OenfsC2ruCRmAENVfN8SjH3PtgAj
+         vhunEjcD+1fric5i796Vc6E9PxJXSWAg772iZYIDMJ8cm9knNbbFB7peJVDoLfGiXMjS
+         OVmukChlnAl3SCKXBZP/LrZy9iAtDb5f4UvRaU2cRnoRsa8MvVbW4P8UJ0Pfo8oUf/0o
+         ERlQ==
+X-Gm-Message-State: AOJu0YwJMpC70Xpo1m5c9KNrXpV2yrZXu1XJLDrLoHQphFiwG9aqQlUu
+	dVsg1lRCTyv2wpwHuMU9KBKQGA==
+X-Google-Smtp-Source: AGHT+IFiH+YSs/NYge2HLcC7hKWSTqv0Z71LvtzWkhS94lL06dO+Ooh7J+MIlnk7hzzqpwtUN5jE7Q==
+X-Received: by 2002:a7b:cbd4:0:b0:401:b76d:3b8b with SMTP id n20-20020a7bcbd4000000b00401b76d3b8bmr18890887wmi.16.1697015696048;
+        Wed, 11 Oct 2023 02:14:56 -0700 (PDT)
+Received: from ?IPV6:2a05:6e02:1041:c10:de95:eca9:6b1e:b330? ([2a05:6e02:1041:c10:de95:eca9:6b1e:b330])
+        by smtp.googlemail.com with ESMTPSA id bg24-20020a05600c3c9800b004063c9f68f2sm13391034wmb.26.2023.10.11.02.14.54
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 11 Oct 2023 02:14:55 -0700 (PDT)
+Message-ID: <367c01e7-1096-47f2-a0da-920b0ea4b915@linaro.org>
+Date: Wed, 11 Oct 2023 11:14:54 +0200
 MIME-Version: 1.0
-X-QQ-SENDSIZE: 520
-Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrsz:qybglogicsvrsz4a-0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 -next 4/4] clocksource/timer-riscv: ACPI: Add
+ timer_cannot_wakeup_cpu
+Content-Language: en-US
+To: Sunil V L <sunilvl@ventanamicro.com>, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+ Thomas Gleixner <tglx@linutronix.de>, Andrew Jones
+ <ajones@ventanamicro.com>, Conor Dooley <conor.dooley@microchip.com>,
+ Anup Patel <apatel@ventanamicro.com>, Ard Biesheuvel <ardb@kernel.org>,
+ Alexandre Ghiti <alexghiti@rivosinc.com>,
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+ Atish Kumar Patra <atishp@rivosinc.com>
+References: <20230927170015.295232-1-sunilvl@ventanamicro.com>
+ <20230927170015.295232-5-sunilvl@ventanamicro.com>
+From: Daniel Lezcano <daniel.lezcano@linaro.org>
+In-Reply-To: <20230927170015.295232-5-sunilvl@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231011_013544_080558_8C80AC88 
-X-CRM114-Status: UNSURE (   8.17  )
+X-CRM114-CacheID: sfid-20231011_021458_452064_BDA5C9FC 
+X-CRM114-Status: UNSURE (   6.16  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -83,50 +99,20 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-With CONFIG_RELOCATABLE enabled, KBUILD_CFLAGS had a -fPIE option
-and then the purgatory/string.o was built to reference _ctype symbol
-via R_RISCV_GOT_HI20 relocations which can't be handled by purgatory.
-
-As a consequence, the kernel failed kexec_load_file() with:
-
-[  880.386562] kexec_image: The entry point of kernel at 0x80200000
-[  880.388650] kexec_image: Unknown rela relocation: 20
-[  880.389173] kexec_image: Error loading purgatory ret=-8
-
-So remove the -fPIE option for PURGATORY_CFLAGS to generate
-R_RISCV_PCREL_HI20 relocations type making puragtory work as it was.
-
-Fixes: 39b33072941f ("riscv: Introduce CONFIG_RELOCATABLE")
-Signed-off-by: Song Shuai <songshuaishuai@tinylab.org>
----
- arch/riscv/purgatory/Makefile | 4 ++++
- 1 file changed, 4 insertions(+)
-
-diff --git a/arch/riscv/purgatory/Makefile b/arch/riscv/purgatory/Makefile
-index 9e6476719abb..982fc8e77108 100644
---- a/arch/riscv/purgatory/Makefile
-+++ b/arch/riscv/purgatory/Makefile
-@@ -81,6 +81,10 @@ ifdef CONFIG_CFI_CLANG
- PURGATORY_CFLAGS_REMOVE		+= $(CC_FLAGS_CFI)
- endif
- 
-+ifdef CONFIG_RELOCATABLE
-+PURGATORY_CFLAGS_REMOVE		+= -fPIE
-+endif
-+
- CFLAGS_REMOVE_purgatory.o	+= $(PURGATORY_CFLAGS_REMOVE)
- CFLAGS_purgatory.o		+= $(PURGATORY_CFLAGS)
- 
--- 
-2.20.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gMjcvMDkvMjAyMyAxOTowMCwgU3VuaWwgViBMIHdyb3RlOgo+IFRoZSB0aW1lciBjYXBhYmls
+aXR5IHRvIHdha2V1cCB0aGUgY3B1IGlycmVzcGVjdGl2ZSBvZiBpdHMgaWRsZSBzdGF0ZSBpcwo+
+IHByb3ZpZGVkIGJ5IHRoZSBmbGFnIGluIFJIQ1QuIFVwZGF0ZSB0aGUgdGltZXIgY29kZSB0byBz
+ZXQgdGhpcyBmbGFnLgo+IAo+IFNpZ25lZC1vZmYtYnk6IFN1bmlsIFYgTCA8c3VuaWx2bEB2ZW50
+YW5hbWljcm8uY29tPgo+IC0tLQoKQXBwbGllZCwgdGhhbmtzCgotLSAKPGh0dHA6Ly93d3cubGlu
+YXJvLm9yZy8+IExpbmFyby5vcmcg4pSCIE9wZW4gc291cmNlIHNvZnR3YXJlIGZvciBBUk0gU29D
+cwoKRm9sbG93IExpbmFybzogIDxodHRwOi8vd3d3LmZhY2Vib29rLmNvbS9wYWdlcy9MaW5hcm8+
+IEZhY2Vib29rIHwKPGh0dHA6Ly90d2l0dGVyLmNvbS8jIS9saW5hcm9vcmc+IFR3aXR0ZXIgfAo8
+aHR0cDovL3d3dy5saW5hcm8ub3JnL2xpbmFyby1ibG9nLz4gQmxvZwoKCl9fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlz
+dApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQu
+b3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
