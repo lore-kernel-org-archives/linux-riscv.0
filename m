@@ -4,85 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3548BCDB47E
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Oct 2023 19:30:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F27ACDB47E
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Oct 2023 20:12:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:Mime-Version
-	:References:In-Reply-To:From:Reply-To:Cc:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7KXRxa00tQtu+9fJRb7Ai3bfLGktTwxMVZD1ROAipxo=; b=HcB3hxslreWUkN
-	ur9AGYDgH3TvbARK5yQp/X0B1UEWxV64L/1bED0EcJmjzwQ2QD/4am6xwMBHlzy3U4yOI/eW31wdC
-	JD/IeWtwyd/uNly6FAW+O5BaFtXz7gKoznRTsRkkFgC2cDPPjx8WdpSPAseMc5Ree3le2heQ7BtPK
-	VlrLukioUVvn7Mob9Tks0yUNYmcWRnHdhie05Af4JfLZ0+C7lCb2QFLq6RuDzA2CDp6ZBU0Vys/Y/
-	lItLv/Ujqe2paubOm8Vzp9reJ3eblWmnuCONCtPjtO/CmUwnA4T6x8QlQDlhsYpOzC9kDzPmywW7+
-	ciUXu7VCOS7kC+dU1Hug==;
+	List-Owner; bh=FHq8BG3trAAg2zA0csNfYq1wiDUuOBIxIiEWrYf+tWU=; b=trHwh0gilviO30
+	jsG6k0R837YdCapIwtxen+t/1MTnt1rAm1uSnpZWAh9Wqb2TM5odA7u1ywiT/dAkhdp8eRbvBqsKA
+	+Ci3JX2T8qaog2P/e5uVZYt1eZJGFev6Eak6Bkemocp4zpqlWuXkkveiTSdZPiEh6dm7vUsMTMWno
+	Kh4RIE4oHfF/fL2kGfB4ejcLo/7TsksyZ/iSGLVJYSPU8pdcBGKpvEEMwvWDSgVlXVdzE7H8i6EsU
+	7JwBXbvn0EzCwR00Ny0uYnKLMI3wHgGCLM0dlR698ATqcY7Tr6vUBrvOeefqWGpHXcbNpGXKeWasN
+	svtSZSSXB8IHv+Z6gjUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qqeu4-00GY5U-1m;
-	Wed, 11 Oct 2023 19:29:56 +0000
-Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
+	id 1qqfYw-00GcgR-0X;
+	Wed, 11 Oct 2023 20:12:10 +0000
+Received: from mout.kundenserver.de ([212.227.126.134])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qqeu0-00GY4y-28
-	for linux-riscv@lists.infradead.org;
-	Wed, 11 Oct 2023 19:29:54 +0000
-Received: from mail-ot1-f72.google.com (mail-ot1-f72.google.com [209.85.210.72])
+	id 1qqfYo-00GcfX-0S;
+	Wed, 11 Oct 2023 20:12:08 +0000
+Received: from leknes.fjasle.eu ([46.142.98.201]) by mrelayeu.kundenserver.de
+ (mreue010 [212.227.15.167]) with ESMTPSA (Nemesis) id
+ 1N8XkP-1rd3321Guf-014Paf; Wed, 11 Oct 2023 22:10:25 +0200
+Received: from localhost.fjasle.eu (kirkenes.fjasle.eu [10.10.0.5])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id 8B006404AA
-	for <linux-riscv@lists.infradead.org>; Wed, 11 Oct 2023 19:29:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20210705; t=1697052586;
-	bh=c9L/gsOrW6x7KgEWB0KPDKoh+ZY2YJ1yGC5weBaF9Kg=;
-	h=From:In-Reply-To:References:Mime-Version:Date:Message-ID:Subject:
-	 To:Content-Type;
-	b=b92dQYTSZp0at8d5TL38lQtCwPoPE1EDOWTH5QGlnwfxq8MUgfZjqgnHBKfWm7Knf
-	 baXpK+lXWCf9HuYE2ohF1iak42WTUY/0Ar21MTMzMZcLs3SdSm1HoO69xxFAaNuQmN
-	 uJeGisidho2moWq9j6Ash3HyrrFQGY0lJ2+mCX6LL43Pxez8vVRDBquggFIbtGVA2W
-	 e1R4xX9mflSPLszN+85FWG0RiZzkMcWZGnY7VqYckRxZHpAalMZVfK7nrzV7mEGwH9
-	 dogLDEJwwxVM0CDf+Sp1R+nHPfztByxOv2CeGjYlKfkkFm7T+RTNOhZwIT8C/btRgM
-	 mtjqF8Klc7lvg==
-Received: by mail-ot1-f72.google.com with SMTP id 46e09a7af769-6c664c09497so261109a34.2
-        for <linux-riscv@lists.infradead.org>; Wed, 11 Oct 2023 12:29:46 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1697052585; x=1697657385;
-        h=to:subject:message-id:date:mime-version:references:in-reply-to:from
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=c9L/gsOrW6x7KgEWB0KPDKoh+ZY2YJ1yGC5weBaF9Kg=;
-        b=Hm3kneFrX11ChuEtMCZKT/vgugacuOPNNN2d4U6bYy77S8/lJwxWuJJurDP172mF2g
-         bgfNEEp5ObNS0EsbZWO2WV+WyjF2rE9D5oC63S3PgEj5NTtltMeifvlQqb5tEgetKIbb
-         a1o2D1OGMNvRbpbx26KvgL+ssxJimT9e/NSm0+jYSvZc+cBiYQHHiwjUJfascbU/RXyR
-         6kMESMICfDbrC/4C6C7apXMdUqkD0e7HLOMYVBj4l1HDL07Cn/JO2aIyJT1lCcxE4dsc
-         dflOWrE13RrED+Dv2St6GqCdMg8vT8N6q4BmIohB8DxzbixHYjWi2knPOUTUHR88qrXG
-         1qlQ==
-X-Gm-Message-State: AOJu0YwABL7BxcEsCYxLrWLHhh0qd6d2Hq4ClYeIye0Tg3loMl4cWkuj
-	s6qqRpBbGC37YD23btOUakW8faqmeN3L3ISfvx1Jigs6YPA4mLGrObnDS6CPeowRRvpx3Hdjons
-	fWwLSYxtAP/E/dGLznRHHyAj/dYYyvAMl8lblALqC66GzVnEy1QOo3XOKXZ5I2Q==
-X-Received: by 2002:a05:6830:12d0:b0:6b9:8357:6150 with SMTP id a16-20020a05683012d000b006b983576150mr22651242otq.35.1697052585234;
-        Wed, 11 Oct 2023 12:29:45 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGCniG85JTchLTim5ooetQCv6XtCN2Hfw918Yim3tDO0dhAQSPYJeSPxd+7rlU/R7/wacdjyqykDfsDX6EHHOA=
-X-Received: by 2002:a05:6830:12d0:b0:6b9:8357:6150 with SMTP id
- a16-20020a05683012d000b006b983576150mr22651223otq.35.1697052585025; Wed, 11
- Oct 2023 12:29:45 -0700 (PDT)
-Received: from 348282803490 named unknown by gmailapi.google.com with
- HTTPREST; Wed, 11 Oct 2023 12:29:44 -0700
-From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-In-Reply-To: <20231011161414.L6wXZVDb@linutronix.de>
-References: <20231011161414.L6wXZVDb@linutronix.de>
-Mime-Version: 1.0
-Date: Wed, 11 Oct 2023 12:29:44 -0700
-Message-ID: <CAJM55Z-YoJnZi4CrwD66v1TaJoYz1jbX+QOFXUDjhm5C9tST0w@mail.gmail.com>
-Subject: Re: [PATCH] riscv: dts: starfive: visionfive 2: correct spi's ss pin
-To: Nam Cao <namcao@linuxtronix.de>, kernel@esmil.dk, conor@kernel.org, 
-	robh+dt@kernel.org, krzysztof.kozlowski+dt@linaro.org, 
-	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
-	william.qiu@starfivetech.com, linux-riscv@lists.infradead.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+	(Client did not present a certificate)
+	by leknes.fjasle.eu (Postfix) with ESMTPS id 9DCA03F840;
+	Wed, 11 Oct 2023 22:10:15 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=fjasle.eu; s=mail;
+	t=1697055016; bh=5Fr/47OcVCuPllaYQgCL+zdi7dPjAjL3MNWZhdULIc8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=5WImRH0w1AH69SJDHrWAjBqhWAtqvRtsHukVpQNPqSKcrMzjMa8QWAh7Sy2kg/Nii
+	 cNKr21hCCqvUTUPfee6kxSqzD2EW093Yu8e5H/j30R+OnBFpAlQ1Wl4y/NvNCujB6z
+	 7ZYgYAxnN9X+ortJfAYnkbWwxYwRsiCYWqBUTebE=
+Received: by localhost.fjasle.eu (Postfix, from userid 1000)
+	id ABC4A251E; Wed, 11 Oct 2023 22:10:14 +0200 (CEST)
+Date: Wed, 11 Oct 2023 22:10:14 +0200
+From: Nicolas Schier <nicolas@fjasle.eu>
+To: Masahiro Yamada <masahiroy@kernel.org>
+Cc: linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
+	linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org, linux-um@lists.infradead.org,
+	loongarch@lists.linux.dev, sparclinux@vger.kernel.org,
+	x86@kernel.org, Albert Ou <aou@eecs.berkeley.edu>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Andy Lutomirski <luto@kernel.org>, Borislav Petkov <bp@alien8.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Guo Ren <guoren@kernel.org>, "H. Peter Anvin" <hpa@zytor.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Huacai Chen <chenhuacai@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Vasily Gorbik <gor@linux.ibm.com>, WANG Xuerui <kernel@xen0n.name>,
+	Will Deacon <will@kernel.org>
+Subject: Re: [PATCH 4/5] kbuild: unify vdso_install rules
+Message-ID: <ZScBJp-nen5wDRkT@bergen.fjasle.eu>
+References: <20231009124210.1064021-1-masahiroy@kernel.org>
+ <20231009124210.1064021-4-masahiroy@kernel.org>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20231009124210.1064021-4-masahiroy@kernel.org>
+X-Operating-System: Debian GNU/Linux trixie/sid
+Jabber-ID: nicolas@jabber.no
+X-Provags-ID: V03:K1:GUfrfLlCUzJuMEjs4zRXdY1OuzE+qTNGx7LxKM1S1e9ReRxprWw
+ QTcaTBx+t0EkTRqYWkYL67T9+ycHGZaqicx6qJ56Gqgjv4SNCVgkolt4r+0ZEgWqOlo+M4w
+ O8j6dJv9DPnZVx+Re6NhFwDsF9/Jz5Qda20FlFD/v/59oC+e5T2V9+yc9jzxg8tnQCrfW6W
+ OrXnxMb3y1nL8PBSSLcbA==
+UI-OutboundReport: notjunk:1;M01:P0:qNyXQk5UllI=;y8DdQd/Ft0LT6jsPRdxBN+G4s3G
+ /dPQre51e0CezAsPaxbY0go4zVXCq8l3VMpkyVphD4Ebwcnjz+yzK136vs00yapmqCWX36hT/
+ NXmFHSZPlveUU24GlvQpwQSfgBPFheOuYdWZ35ro+lccjF8o31Ku/tPMdS9Pujb2cTCvxqNt1
+ YOrApfMBQsAPir8jbcWo2AgKTVph8uZ3jsZ3LCAcswn+cdhrq42B/LqbewNWUjiiwo5NovQ7X
+ KczDAQqgpbn9krt6MUFokSGSf3DvdFlDVMUKZGZgwbrZfOPuw/cOsdtbQ2xOIFPb8FOeGaU4s
+ RgBvvpLkUenKwOP64pryV/oQxby40IsynMJSdNBalDtN4+OBMp7xTvp4Yf3o+vZDiq4u+MezG
+ QfVIdR7NUXg8uRejQT7mhDc1iQdstXDgUTjxcYZ1i4wAdVyM+mlbmvg8RMHvE3TEUtYJu0ncX
+ tRgSfaauZifFKtrHuhbLXLavl3huWpgpu0RWAGz81ZsUpOhWCICM/mHV4FcpbP5T9CWTiBkis
+ mPZHClPSJs65ACtPtoxIsDkhpilDa5GshzZto25RU4ZIGsjGoqzVgp0iOnsXVecB/pM4AUuou
+ mwDo2Ma5gAipHcCF5iRss67DeGqV71qkwu/ptgiyW2DxZvLGkUr/h6qanW5CpLU4MHrTsm8hK
+ Cp+rJaZ5AYXBRGNj214Og75oBWIjsHuD4DYBxg8+rXMpyOx+x5ZtTkbWOnLFu8FwD89cmvH9v
+ KY3zlZ2a/om9/rt6NHMJllhWVKYOei5LUAspSIVv6BwmkUXg+6sT/x1OpzQmUUNpemJ733l0v
+ CkyBea3IC9dW/+Z7vwOLn8v7m049Ze4jE2lDVYGp9qKvbSMV/X2j9My9xYcX70Pb5JlP7OLGG
+ PMQHHGIOP5jvwVQ==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231011_122953_118224_C4EC394B 
-X-CRM114-Status: GOOD (  12.91  )
+X-CRM114-CacheID: sfid-20231011_131203_334126_B116B0FB 
+X-CRM114-Status: GOOD (  23.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,38 +116,69 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Nam Cao wrote:
-> The ss pin of spi0 is the same as sck pin. According to the
-> visionfive 2 documentation, it should be pin 49 instead of 48.
-
-Thanks! As far as I can tell this should make the 40pin header match the
-Raspberry Pi layout, so
-
-Reviewed-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-
->
-> Fixes: 74fb20c8f05d ("riscv: dts: starfive: Add spi node and pins configuration")
-> Signed-off-by: Nam Cao <namcao@linuxtronix.de>
+On Mon 09 Oct 2023 21:42:09 GMT, Masahiro Yamada wrote:
+> Currently, there is no standard implementation for vdso_install,
+> leading to various issues:
+> 
+>  1. Code duplication
+> 
+>     Many architectures duplicate similar code just for copying files
+>     to the install destination.
+> 
+>     Some architectures (arm, sparc, x86) create build-id symlinks,
+>     introducing more code duplication.
+> 
+>  2. Accidental updates of in-tree build artifacts
+> 
+>     The vdso_install rule depends on the vdso files to install.
+>     It may update in-tree build artifacts. This can be problematic,
+>     as explained in commit 19514fc665ff ("arm, kbuild: make
+>     "make install" not depend on vmlinux").
+> 
+>  3. Broken code in some architectures
+> 
+>     Makefile code is often copied from one architecture to another
+>     without proper adaptation or testing.
+> 
+>     The previous commits removed broken code from csky, UML, and parisc.
+> 
+>     Another issue is that 'make vdso_install' for ARCH=s390 installs
+>     vdso64, but not vdso32.
+> 
+> To address these problems, this commit introduces the generic vdso_install.
+> 
+> Architectures that support vdso_install need to define vdso-install-y
+> in arch/*/Makefile.
+> 
+> vdso-install-y lists the files to install. For example, arch/x86/Makefile
+> looks like this:
+> 
+>   vdso-install-$(CONFIG_X86_64)           += arch/x86/entry/vdso/vdso64.so.dbg
+>   vdso-install-$(CONFIG_X86_X32_ABI)      += arch/x86/entry/vdso/vdsox32.so.dbg
+>   vdso-install-$(CONFIG_X86_32)           += arch/x86/entry/vdso/vdso32.so.dbg
+>   vdso-install-$(CONFIG_IA32_EMULATION)   += arch/x86/entry/vdso/vdso32.so.dbg
+> 
+> These files will be installed to $(MODLIB)/vdso/ with the .dbg suffix,
+> if exists, stripped away.
+> 
+> vdso-install-y can optionally take the second field after the colon
+> separator. This is needed because some architectures install vdso
+> files as a different base name.
+> 
+> The following is a snippet from arch/arm64/Makefile.
+> 
+>   vdso-install-$(CONFIG_COMPAT_VDSO)      += arch/arm64/kernel/vdso32/vdso.so.dbg:vdso32.so
+> 
+> This will rename vdso.so.dbg to vdso32.so during installation. If such
+> architectures change their implementation so that the file names match,
+> this workaround will go away.
+> 
+> Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
 > ---
->  arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
-> index 12ebe9792356..2c02358abd71 100644
-> --- a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
-> +++ b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
-> @@ -431,7 +431,7 @@ GPOEN_ENABLE,
->  		};
->
->  		ss-pins {
-> -			pinmux = <GPIOMUX(48, GPOUT_SYS_SPI0_FSS,
-> +			pinmux = <GPIOMUX(49, GPOUT_SYS_SPI0_FSS,
->  					      GPOEN_ENABLE,
->  					      GPI_SYS_SPI0_FSS)>;
->  			bias-disable;
-> --
-> 2.39.2
->
+
+Thanks for cleaning this up!
+
+Reviewed-by: Nicolas Schier <nicolas@fjasle.eu>
 
 _______________________________________________
 linux-riscv mailing list
