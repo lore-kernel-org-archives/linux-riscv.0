@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2EC6CD6E5A
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Oct 2023 11:06:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5440ACD6E5C
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Oct 2023 11:06:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=GPVLkc1xU9z0X3QAj8Ty0CdS77QVdo1gH8OUuAdd/Wo=; b=yX6g3CBfoztlxQ
-	GHPL5aAeJw8q7QwPylTkCO5dawzKjNudUJH6cXOI3kio/PgpxsSRcpQ6AMFQsoZKgc7c6xFu3NDaC
-	SBGxgN6n7pIv5s/mZ+pl3FWw8dp5AJ3HrYz2fe/gKfH7EEuYteNAKKSPYeOw3gdbn/jsjnG6xIW4P
-	zWNW8hraoJXwpZmEYy96OTRqQwGgBDVpa+aZaCTZH/qzoDOVN2nVDC652qR6eC69/Wfbhb4GxZt/C
-	mLynIe+nOhxvlfbN1FUucLTl1htDKzDfZT7FO/XjoFEz8t7TLSJpz7GNiEI5TgMt4McF6IpkH9hqs
-	FtSG2MlxW8RO7huEtBxQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=n7V8flcDbJUVQOKhkATWr7ZOqlBLbK2pSRDtaU5u17A=; b=s2pnNC/gFOdytS
+	mjm0h8vEdBiSjONyOIPoTzrINURLpK9NBiHskK9vJ2j0cD9Wx3XCq05oAAcApXuUhTWPSKY74aVrm
+	WBNmPyAzPbaL3TKzzAwXHTYT21hotvN6wT09WbO3f/Fi7E6bS1ryXo/gMjtFoo1SV9zZ2eTAOgGFS
+	/jKOA1eqratPzxE+769KdzNLTFouuh82Ce2SoXpgAUkYKfM/VYh3bbL9Iv4Ue8LuwXGIOn1U3ZHWo
+	PFiaEdkeuF8vteYvKtUPOrNdoKCagwfLKQge5hevRQB4tkqnVYeuaw8o2/zCK2T2LFcze5te+MkC9
+	wMs+t10XWRSKoKiGDRVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qqX2J-00FgRy-2z;
+	id 1qqX2J-00FgRi-17;
 	Wed, 11 Oct 2023 11:05:55 +0000
 Received: from ex01.ufhost.com ([61.152.239.75])
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qqX2F-00FgH3-0X
+	id 1qqX2F-00FgH7-0t
 	for linux-riscv@lists.infradead.org;
-	Wed, 11 Oct 2023 11:05:54 +0000
+	Wed, 11 Oct 2023 11:05:53 +0000
 Received: from fd01.gateway.ufhost.com (fd01.gateway.ufhost.com [61.152.239.71])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
 	(Client did not present a certificate)
-	by ex01.ufhost.com (Postfix) with ESMTP id E9ADA24E2BC;
-	Wed, 11 Oct 2023 19:05:16 +0800 (CST)
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	by ex01.ufhost.com (Postfix) with ESMTP id AEA5324DFC2;
+	Wed, 11 Oct 2023 19:05:17 +0800 (CST)
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id A98CC24DEED;
-	Wed, 11 Oct 2023 19:05:16 +0800 (CST)
-Received: from EXMBX171.cuchost.com (172.16.6.91) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 11 Oct
- 2023 19:05:16 +0800
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 8357A24DFCE;
+	Wed, 11 Oct 2023 19:05:17 +0800 (CST)
+Received: from EXMBX171.cuchost.com (172.16.6.91) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 11 Oct
+ 2023 19:05:17 +0800
 Received: from ubuntu.localdomain (183.27.96.95) by EXMBX171.cuchost.com
  (172.16.6.91) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 11 Oct
- 2023 19:05:15 +0800
+ 2023 19:05:16 +0800
 From: Minda Chen <minda.chen@starfivetech.com>
 To: Conor Dooley <conor@kernel.org>, =?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?=
 	<kw@linux.com>, Rob Herring <robh+dt@kernel.org>, Bjorn Helgaas
@@ -57,18 +57,20 @@ CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
 	<mason.huo@starfivetech.com>, Leyfoon Tan <leyfoon.tan@starfivetech.com>,
 	Kevin Xie <kevin.xie@starfivetech.com>, Minda Chen
 	<minda.chen@starfivetech.com>
-Subject: [PATCH v8 0/22] Refactoring Microchip PCIe driver and add StarFive PCIe
-Date: Wed, 11 Oct 2023 19:04:52 +0800
-Message-ID: <20231011110514.107528-1-minda.chen@starfivetech.com>
+Subject: [PATCH v8 01/22] dt-bindings: PCI: Add PLDA XpressRICH PCIe host common properties
+Date: Wed, 11 Oct 2023 19:04:53 +0800
+Message-ID: <20231011110514.107528-2-minda.chen@starfivetech.com>
 X-Mailer: git-send-email 2.17.1
+In-Reply-To: <20231011110514.107528-1-minda.chen@starfivetech.com>
+References: <20231011110514.107528-1-minda.chen@starfivetech.com>
 MIME-Version: 1.0
 X-Originating-IP: [183.27.96.95]
 X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX171.cuchost.com
  (172.16.6.91)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231011_040551_497699_AC3915CF 
-X-CRM114-Status: GOOD (  19.34  )
+X-CRM114-CacheID: sfid-20231011_040551_601884_1B382C97 
+X-CRM114-Status: GOOD (  13.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,189 +87,188 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patchset final purpose is add PCIe driver for StarFive JH7110 SoC.
-JH7110 using PLDA XpressRICH PCIe IP. Microchip PolarFire Using the
-same IP and have commit their codes, which are mixed with PLDA
-controller codes and Microchip platform codes.
+Add PLDA XpressRICH PCIe host common properties dt-binding doc.
+Microchip PolarFire PCIe host using PLDA IP.
+Move common properties from Microchip PolarFire PCIe host
+to PLDA files.
 
-For re-use the PLDA controller codes, I request refactoring microchip
-codes, move PLDA common codes to PLDA files.
-Desigware and Cadence is good example for refactoring codes.
-
-----------------------------------------------------------
-The refactoring patches total number is 17,(patch 1-17)
-which do NOT contain changing logic of codes.
-
-These patches just contain three type basic operations.
-(rename, modify codes to support starfive platform, and moving to common file)
-If these patched are all be reviewed. They can be accepted first.
-
-Refactoring patches can be devided to different groups
-1. (patch 1- 3 is the prepare work of refactoring)
-patch1 is move PLDA XpressRICH PCIe host common properties dt-binding
-       docs from microchip,pcie-host.yaml
-patch2 is move PolarFire codes to PLDA directory.
-patch3 is move PLDA IP register macros to plda-pcie.h
-
-2. (patch4 - 6 is processing and re-use PCIe host instance)
-patch4 is add bridge_addr field to PCIe host instance.
-patch5 is rename data structure in microchip codes.
-patch6 is moving two data structures to head file
-
-3. (patch 7 - 9 are for re-use two PCIe setup function)
-patch7 is rename two setup functions in microchip codes, prepare to move
-to common file.
-patch8 is change the arguments of plda_pcie_setup_iomems()
-patch9 is move the two setup functions to common file pcie-plda-host.c
-
-4.(patch 10 - 17 are for re-use interupt processing codes)
-patch10 add a plda default event handler function.
-patch11 is rename the IRQ related functions, prepare to move to
-pcie-plda-host.c
-patch 12 - 16 is modify the interrupt event codes, preparing for support starfive
-and microchip two platforms.
-patch17 is move IRQ related functions to pcie-plda-host.c
-
-------------------------------------------------------------
-The remainder patches (patch 18 -22) are not refactoring patch.
-They are for adding StarFive codes and dont modify the microchip's
-codes.
-
-patch18 is set plda_event_handler to static.
-patch19 is Add PLDA event interrupt codes and IRQ domain ops.
-patch20 is add StarFive JH7110 PCIe dt-binding doc.
-patch21 is add StarFive JH7110 Soc PCIe codes.
-patch22 is Starfive dts config
-
-This patchset is base on v6.6-rc5
-
-previous version:
-v3:https://patchwork.kernel.org/project/linux-pci/cover/20230814082016.104181-1-minda.chen@starfivetech.com/
-v4:https://patchwork.kernel.org/project/linux-pci/cover/20230825090129.65721-1-minda.chen@starfivetech.com/
-v5:https://patchwork.kernel.org/project/linux-pci/cover/20230907091058.125630-1-minda.chen@starfivetech.com/
-v6:https://patchwork.kernel.org/project/linux-pci/cover/20230915102243.59775-1-minda.chen@starfivetech.com/
-v7:https://patchwork.kernel.org/project/linux-pci/cover/20230927100802.46620-1-minda.chen@starfivetech.com/
-
-change:
-  v8:
-    The patch description in cover-letter has been changed.
-
-    v7 patch 4 split to v8 patch 4 - 6.
-        (It is patches about re-use pcie host data structure, new patches just contain one
-	function modification. It is more reguluar and easier to review).
-
-    patch 7- 9: modify the commit messages and add reason of
-		modifcation.
-    patch10 : just new add a default event handler.
-              The PLDA event interrupt codes has been moved to patch19.
-    patch11- 17 :
-             Add review tag and add more commit messages to declear the
-	     reason of modifying the codes.
-    patch19: plda_handle_events() using bit mask macro. The function are
-	     easier to read.
-
-  v7:
-    patch19: fix the build warning.
-    patch21: Some format changes (Emil's comment)
-    patch22: change the pcie node sequences by alphabetical
-             delete the "interupt-parent" in pcie node.
-
-  v6:
-    v5 patch 4 split to patch 4 -9. New patches just contain one
-function modification. It is more reguluar.
-    patch 9: Just move the two setup functions only
-    patch 19 : draw a graph of PLDA local register, make it easier to
-review the codes.
-    v5 patch 7 split to patch 11- 17. Each patch just contain one
-function modification. It is more regular.
-    patch 11: rename IRQ related functions.
-    patch 12 - 16 : modify the events codes, total five patch.
-    patch 17: move IRQ related functions to pcie-plda-host.c
-    patch 18: Add new patch 18.
-    patch 21- 22 using "linux,pci-domain" dts setting.
-
-  v5:
-    patch 10 -17:
-    	- Some variables names changed (evt->event).
-    	- plda_handle_event() using a unify callback function to get events
-num.
-	- Add plda_event_ops data structure.
-    patch 21:
-	Add plda_event_ops instances.
-
-  v4:
-    patch 3:
-    	Copy the interrupt events macros to pcie-plda-host.c
-    patch 15:
-    	get_events() change in patch 7. Patch 8 is just move the codes.
-    other change:
-	All the functions in commit message add (). 
-  v3:
-    patch 2- 19:
-      - splite refactoring patches to multiple patch.
-      - rename plda_pcie to plda_pcie_rp. Maybe other vendor will
-        upstream PLDA ep codes.
-    patch 20:
-      - Remove the redundant reference.
-      - move the offset value to codes in starfive,stg-syscon
-      - change reset-gpio to prest-gpio.
-    patch 21:
-      - Add 100ms delay after preset for PCIe 6.0 spec.
-      - stg-syscon related modification.
-    patch 22:
-      - Add dts configure.
-
-
-Minda Chen (22):
-  dt-bindings: PCI: Add PLDA XpressRICH PCIe host common properties
-  PCI: microchip: Move pcie-microchip-host.c to plda directory
-  PCI: microchip: Move PLDA IP register macros to pcie-plda.h
-  PCI: microchip: Add bridge_addr field to struct mc_pcie
-  PCI: microchip: Rename two PCIe data structures
-  PCI: microchip: Move PCIe host data structure to plda-pcie.h
-  PCI: microchip: Rename two setup functions
-  PCI: microchip: Change the argument of plda_pcie_setup_iomems()
-  PCI: microchip: Move the setup functions to pcie-plda-host.c
-  PCI: plda: Add PLDA default event IRQ handler
-  PCI: microchip: Rename interrupt related functions
-  PCI: microchip: Add num_events field to struct plda_pcie_rp
-  PCI: microchip: Add request_event_irq() callback function
-  PCI: microchip: Add INTx and MSI event num to struct plda_event
-  PCI: microchip: Add get_events() callback function
-  PCI: microchip: Add event IRQ domain ops to struct plda_event
-  PCI: microchip: Move IRQ functions to pcie-plda-host.c
-  PCI: plda: Set plda_event_handler() to static
-  PCI: plda: Add event interrupt codes and IRQ domain ops
-  dt-bindings: PCI: Add StarFive JH7110 PCIe controller
-  PCI: starfive: Add JH7110 PCIe controller
-  riscv: dts: starfive: add PCIe dts configuration for JH7110
-
- .../bindings/pci/microchip,pcie-host.yaml     |  55 +-
- .../pci/plda,xpressrich3-axi-common.yaml      |  75 ++
- .../bindings/pci/starfive,jh7110-pcie.yaml    | 120 ++++
- MAINTAINERS                                   |  19 +-
- .../jh7110-starfive-visionfive-2.dtsi         |  64 ++
- arch/riscv/boot/dts/starfive/jh7110.dtsi      |  86 +++
- drivers/pci/controller/Kconfig                |   9 +-
- drivers/pci/controller/Makefile               |   2 +-
- drivers/pci/controller/plda/Kconfig           |  30 +
- drivers/pci/controller/plda/Makefile          |   4 +
- .../{ => plda}/pcie-microchip-host.c          | 602 ++--------------
- drivers/pci/controller/plda/pcie-plda-host.c  | 657 ++++++++++++++++++
- drivers/pci/controller/plda/pcie-plda.h       | 268 +++++++
- drivers/pci/controller/plda/pcie-starfive.c   | 448 ++++++++++++
- 14 files changed, 1835 insertions(+), 604 deletions(-)
+Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
+Reviewed-by: Hal Feng <hal.feng@starfivetech.com>
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+Reviewed-by: Rob Herring <robh@kernel.org>
+---
+ .../bindings/pci/microchip,pcie-host.yaml     | 55 +-------------
+ .../pci/plda,xpressrich3-axi-common.yaml      | 75 +++++++++++++++++++
+ 2 files changed, 76 insertions(+), 54 deletions(-)
  create mode 100644 Documentation/devicetree/bindings/pci/plda,xpressrich3-axi-common.yaml
- create mode 100644 Documentation/devicetree/bindings/pci/starfive,jh7110-pcie.yaml
- create mode 100644 drivers/pci/controller/plda/Kconfig
- create mode 100644 drivers/pci/controller/plda/Makefile
- rename drivers/pci/controller/{ => plda}/pcie-microchip-host.c (54%)
- create mode 100644 drivers/pci/controller/plda/pcie-plda-host.c
- create mode 100644 drivers/pci/controller/plda/pcie-plda.h
- create mode 100644 drivers/pci/controller/plda/pcie-starfive.c
 
-
-base-commit: 94f6f0550c625fab1f373bb86a6669b45e9748b3
+diff --git a/Documentation/devicetree/bindings/pci/microchip,pcie-host.yaml b/Documentation/devicetree/bindings/pci/microchip,pcie-host.yaml
+index f7a3c2636355..7c2d51221f65 100644
+--- a/Documentation/devicetree/bindings/pci/microchip,pcie-host.yaml
++++ b/Documentation/devicetree/bindings/pci/microchip,pcie-host.yaml
+@@ -10,21 +10,13 @@ maintainers:
+   - Daire McNamara <daire.mcnamara@microchip.com>
+ 
+ allOf:
+-  - $ref: /schemas/pci/pci-bus.yaml#
++  - $ref: plda,xpressrich3-axi-common.yaml#
+   - $ref: /schemas/interrupt-controller/msi-controller.yaml#
+ 
+ properties:
+   compatible:
+     const: microchip,pcie-host-1.0 # PolarFire
+ 
+-  reg:
+-    maxItems: 2
+-
+-  reg-names:
+-    items:
+-      - const: cfg
+-      - const: apb
+-
+   clocks:
+     description:
+       Fabric Interface Controllers, FICs, are the interface between the FPGA
+@@ -52,18 +44,6 @@ properties:
+     items:
+       pattern: '^fic[0-3]$'
+ 
+-  interrupts:
+-    minItems: 1
+-    items:
+-      - description: PCIe host controller
+-      - description: builtin MSI controller
+-
+-  interrupt-names:
+-    minItems: 1
+-    items:
+-      - const: pcie
+-      - const: msi
+-
+   ranges:
+     maxItems: 1
+ 
+@@ -71,39 +51,6 @@ properties:
+     minItems: 1
+     maxItems: 6
+ 
+-  msi-controller:
+-    description: Identifies the node as an MSI controller.
+-
+-  msi-parent:
+-    description: MSI controller the device is capable of using.
+-
+-  interrupt-controller:
+-    type: object
+-    properties:
+-      '#address-cells':
+-        const: 0
+-
+-      '#interrupt-cells':
+-        const: 1
+-
+-      interrupt-controller: true
+-
+-    required:
+-      - '#address-cells'
+-      - '#interrupt-cells'
+-      - interrupt-controller
+-
+-    additionalProperties: false
+-
+-required:
+-  - reg
+-  - reg-names
+-  - "#interrupt-cells"
+-  - interrupts
+-  - interrupt-map-mask
+-  - interrupt-map
+-  - msi-controller
+-
+ unevaluatedProperties: false
+ 
+ examples:
+diff --git a/Documentation/devicetree/bindings/pci/plda,xpressrich3-axi-common.yaml b/Documentation/devicetree/bindings/pci/plda,xpressrich3-axi-common.yaml
+new file mode 100644
+index 000000000000..31bb17b11e58
+--- /dev/null
++++ b/Documentation/devicetree/bindings/pci/plda,xpressrich3-axi-common.yaml
+@@ -0,0 +1,75 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/pci/plda,xpressrich3-axi-common.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: PLDA XpressRICH PCIe host common properties
++
++maintainers:
++  - Daire McNamara <daire.mcnamara@microchip.com>
++  - Kevin Xie <kevin.xie@starfivetech.com>
++
++description:
++  Generic PLDA XpressRICH PCIe host common properties.
++
++allOf:
++  - $ref: /schemas/pci/pci-bus.yaml#
++
++properties:
++  reg:
++    maxItems: 2
++
++  reg-names:
++    items:
++      - const: cfg
++      - const: apb
++
++  interrupts:
++    minItems: 1
++    items:
++      - description: PCIe host controller
++      - description: builtin MSI controller
++
++  interrupt-names:
++    minItems: 1
++    items:
++      - const: pcie
++      - const: msi
++
++  msi-controller:
++    description: Identifies the node as an MSI controller.
++
++  msi-parent:
++    description: MSI controller the device is capable of using.
++
++  interrupt-controller:
++    type: object
++    properties:
++      '#address-cells':
++        const: 0
++
++      '#interrupt-cells':
++        const: 1
++
++      interrupt-controller: true
++
++    required:
++      - '#address-cells'
++      - '#interrupt-cells'
++      - interrupt-controller
++
++    additionalProperties: false
++
++required:
++  - reg
++  - reg-names
++  - interrupts
++  - msi-controller
++  - "#interrupt-cells"
++  - interrupt-map-mask
++  - interrupt-map
++
++additionalProperties: true
++
++...
 -- 
 2.17.1
 
