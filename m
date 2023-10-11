@@ -4,102 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F27ACDB47E
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Oct 2023 20:12:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BDD3CDB47E
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Oct 2023 22:33:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FHq8BG3trAAg2zA0csNfYq1wiDUuOBIxIiEWrYf+tWU=; b=trHwh0gilviO30
-	jsG6k0R837YdCapIwtxen+t/1MTnt1rAm1uSnpZWAh9Wqb2TM5odA7u1ywiT/dAkhdp8eRbvBqsKA
-	+Ci3JX2T8qaog2P/e5uVZYt1eZJGFev6Eak6Bkemocp4zpqlWuXkkveiTSdZPiEh6dm7vUsMTMWno
-	Kh4RIE4oHfF/fL2kGfB4ejcLo/7TsksyZ/iSGLVJYSPU8pdcBGKpvEEMwvWDSgVlXVdzE7H8i6EsU
-	7JwBXbvn0EzCwR00Ny0uYnKLMI3wHgGCLM0dlR698ATqcY7Tr6vUBrvOeefqWGpHXcbNpGXKeWasN
-	svtSZSSXB8IHv+Z6gjUA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ddcBJO7+uXIzOGYN3rcxF+b+jhNwv3SLE7RBHkeLf28=; b=tbfzR4mMXu1sBEMmPkZxb/kOvE
+	2hxQslnAFCHV47z8Aa7KpraD+ZhluYmL2MH9qJALXld/Pqxw6LtVbWpDVx+hggegqZ3wNemCoG3LH
+	KrqHiuBkDml1BcZCxBIuZTH2X9m0NZnW0o9FC4TS7y+wTI6i+JvGYi4tpmdDP7giN3kVD9QaUI/iW
+	jiVmGNY9ffnY9NjnBk++18z8mkA+A3NhiQWlnuCGBPJHLI2CSfXcPOMFpmvGO8K5/sR2g+gVDuB+L
+	n9NG4dGpHEOEGsFJi9KEfErJM10cwzVxI96YD5E5xWYyz/k19Lw3fEbI4rgg2EWG4qdUTIyzfPyjo
+	+SQrK1Gg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qqfYw-00GcgR-0X;
-	Wed, 11 Oct 2023 20:12:10 +0000
-Received: from mout.kundenserver.de ([212.227.126.134])
+	id 1qqhlK-00GqQu-2I;
+	Wed, 11 Oct 2023 22:33:06 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qqfYo-00GcfX-0S;
-	Wed, 11 Oct 2023 20:12:08 +0000
-Received: from leknes.fjasle.eu ([46.142.98.201]) by mrelayeu.kundenserver.de
- (mreue010 [212.227.15.167]) with ESMTPSA (Nemesis) id
- 1N8XkP-1rd3321Guf-014Paf; Wed, 11 Oct 2023 22:10:25 +0200
-Received: from localhost.fjasle.eu (kirkenes.fjasle.eu [10.10.0.5])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(Client did not present a certificate)
-	by leknes.fjasle.eu (Postfix) with ESMTPS id 9DCA03F840;
-	Wed, 11 Oct 2023 22:10:15 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=fjasle.eu; s=mail;
-	t=1697055016; bh=5Fr/47OcVCuPllaYQgCL+zdi7dPjAjL3MNWZhdULIc8=;
+	id 1qqhlF-00GqQ7-38
+	for linux-riscv@lists.infradead.org;
+	Wed, 11 Oct 2023 22:33:04 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id 87DC4CE225D;
+	Wed, 11 Oct 2023 22:32:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4A44AC433C8;
+	Wed, 11 Oct 2023 22:32:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1697063577;
+	bh=rpGzTzUpWKI2zCDFka+c0ioQo+a/DBJfsLAIdNdjuUI=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=5WImRH0w1AH69SJDHrWAjBqhWAtqvRtsHukVpQNPqSKcrMzjMa8QWAh7Sy2kg/Nii
-	 cNKr21hCCqvUTUPfee6kxSqzD2EW093Yu8e5H/j30R+OnBFpAlQ1Wl4y/NvNCujB6z
-	 7ZYgYAxnN9X+ortJfAYnkbWwxYwRsiCYWqBUTebE=
-Received: by localhost.fjasle.eu (Postfix, from userid 1000)
-	id ABC4A251E; Wed, 11 Oct 2023 22:10:14 +0200 (CEST)
-Date: Wed, 11 Oct 2023 22:10:14 +0200
-From: Nicolas Schier <nicolas@fjasle.eu>
-To: Masahiro Yamada <masahiroy@kernel.org>
-Cc: linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
-	linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org, linux-um@lists.infradead.org,
-	loongarch@lists.linux.dev, sparclinux@vger.kernel.org,
-	x86@kernel.org, Albert Ou <aou@eecs.berkeley.edu>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Andy Lutomirski <luto@kernel.org>, Borislav Petkov <bp@alien8.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Guo Ren <guoren@kernel.org>, "H. Peter Anvin" <hpa@zytor.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Huacai Chen <chenhuacai@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Vasily Gorbik <gor@linux.ibm.com>, WANG Xuerui <kernel@xen0n.name>,
-	Will Deacon <will@kernel.org>
-Subject: Re: [PATCH 4/5] kbuild: unify vdso_install rules
-Message-ID: <ZScBJp-nen5wDRkT@bergen.fjasle.eu>
-References: <20231009124210.1064021-1-masahiroy@kernel.org>
- <20231009124210.1064021-4-masahiroy@kernel.org>
+	b=RgwE80uZx2VHum1n+jjrNufkljdEkPAzsOYFFi+djv3OMoGLKpDxSBPfAW8Iz+66t
+	 JgNRtiZkstmB9no/WSGc+A8UwwXixljCo/LJWVK8NCebMQNO6+wGE7g3yb/Zidwa1y
+	 1IjkVODjChMSlJ4msCiB6+durrgMsOIa+9mTc38l1pwWR76cHiCf5v+6CAwdBgMDmW
+	 n6KhjJdiVlC1/lf9YGqNK6/7h7s81gnwjggY6twtMfKzs/74qa/uZH1MSHvo1duNk6
+	 SAp+6mMP4irqnVrUeG5i0ClRLctYrcBOTpGT4xd7MPub4/O8hGlHPVA2gH/dCxNRON
+	 F5c0It7UtqBCA==
+Date: Wed, 11 Oct 2023 23:32:52 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+Cc: Nam Cao <namcao@linuxtronix.de>, kernel@esmil.dk, robh+dt@kernel.org,
+	krzysztof.kozlowski+dt@linaro.org, paul.walmsley@sifive.com,
+	palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	william.qiu@starfivetech.com, linux-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] riscv: dts: starfive: visionfive 2: correct spi's ss pin
+Message-ID: <20231011-bush-much-2b2b47a96c30@spud>
+References: <20231011161414.L6wXZVDb@linutronix.de>
+ <CAJM55Z-YoJnZi4CrwD66v1TaJoYz1jbX+QOFXUDjhm5C9tST0w@mail.gmail.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20231009124210.1064021-4-masahiroy@kernel.org>
-X-Operating-System: Debian GNU/Linux trixie/sid
-Jabber-ID: nicolas@jabber.no
-X-Provags-ID: V03:K1:GUfrfLlCUzJuMEjs4zRXdY1OuzE+qTNGx7LxKM1S1e9ReRxprWw
- QTcaTBx+t0EkTRqYWkYL67T9+ycHGZaqicx6qJ56Gqgjv4SNCVgkolt4r+0ZEgWqOlo+M4w
- O8j6dJv9DPnZVx+Re6NhFwDsF9/Jz5Qda20FlFD/v/59oC+e5T2V9+yc9jzxg8tnQCrfW6W
- OrXnxMb3y1nL8PBSSLcbA==
-UI-OutboundReport: notjunk:1;M01:P0:qNyXQk5UllI=;y8DdQd/Ft0LT6jsPRdxBN+G4s3G
- /dPQre51e0CezAsPaxbY0go4zVXCq8l3VMpkyVphD4Ebwcnjz+yzK136vs00yapmqCWX36hT/
- NXmFHSZPlveUU24GlvQpwQSfgBPFheOuYdWZ35ro+lccjF8o31Ku/tPMdS9Pujb2cTCvxqNt1
- YOrApfMBQsAPir8jbcWo2AgKTVph8uZ3jsZ3LCAcswn+cdhrq42B/LqbewNWUjiiwo5NovQ7X
- KczDAQqgpbn9krt6MUFokSGSf3DvdFlDVMUKZGZgwbrZfOPuw/cOsdtbQ2xOIFPb8FOeGaU4s
- RgBvvpLkUenKwOP64pryV/oQxby40IsynMJSdNBalDtN4+OBMp7xTvp4Yf3o+vZDiq4u+MezG
- QfVIdR7NUXg8uRejQT7mhDc1iQdstXDgUTjxcYZ1i4wAdVyM+mlbmvg8RMHvE3TEUtYJu0ncX
- tRgSfaauZifFKtrHuhbLXLavl3huWpgpu0RWAGz81ZsUpOhWCICM/mHV4FcpbP5T9CWTiBkis
- mPZHClPSJs65ACtPtoxIsDkhpilDa5GshzZto25RU4ZIGsjGoqzVgp0iOnsXVecB/pM4AUuou
- mwDo2Ma5gAipHcCF5iRss67DeGqV71qkwu/ptgiyW2DxZvLGkUr/h6qanW5CpLU4MHrTsm8hK
- Cp+rJaZ5AYXBRGNj214Og75oBWIjsHuD4DYBxg8+rXMpyOx+x5ZtTkbWOnLFu8FwD89cmvH9v
- KY3zlZ2a/om9/rt6NHMJllhWVKYOei5LUAspSIVv6BwmkUXg+6sT/x1OpzQmUUNpemJ733l0v
- CkyBea3IC9dW/+Z7vwOLn8v7m049Ze4jE2lDVYGp9qKvbSMV/X2j9My9xYcX70Pb5JlP7OLGG
- PMQHHGIOP5jvwVQ==
+In-Reply-To: <CAJM55Z-YoJnZi4CrwD66v1TaJoYz1jbX+QOFXUDjhm5C9tST0w@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231011_131203_334126_B116B0FB 
-X-CRM114-Status: GOOD (  23.35  )
+X-CRM114-CacheID: sfid-20231011_153302_202714_A5185983 
+X-CRM114-Status: GOOD (  18.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,76 +70,92 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============4612197579581506724=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon 09 Oct 2023 21:42:09 GMT, Masahiro Yamada wrote:
-> Currently, there is no standard implementation for vdso_install,
-> leading to various issues:
-> 
->  1. Code duplication
-> 
->     Many architectures duplicate similar code just for copying files
->     to the install destination.
-> 
->     Some architectures (arm, sparc, x86) create build-id symlinks,
->     introducing more code duplication.
-> 
->  2. Accidental updates of in-tree build artifacts
-> 
->     The vdso_install rule depends on the vdso files to install.
->     It may update in-tree build artifacts. This can be problematic,
->     as explained in commit 19514fc665ff ("arm, kbuild: make
->     "make install" not depend on vmlinux").
-> 
->  3. Broken code in some architectures
-> 
->     Makefile code is often copied from one architecture to another
->     without proper adaptation or testing.
-> 
->     The previous commits removed broken code from csky, UML, and parisc.
-> 
->     Another issue is that 'make vdso_install' for ARCH=s390 installs
->     vdso64, but not vdso32.
-> 
-> To address these problems, this commit introduces the generic vdso_install.
-> 
-> Architectures that support vdso_install need to define vdso-install-y
-> in arch/*/Makefile.
-> 
-> vdso-install-y lists the files to install. For example, arch/x86/Makefile
-> looks like this:
-> 
->   vdso-install-$(CONFIG_X86_64)           += arch/x86/entry/vdso/vdso64.so.dbg
->   vdso-install-$(CONFIG_X86_X32_ABI)      += arch/x86/entry/vdso/vdsox32.so.dbg
->   vdso-install-$(CONFIG_X86_32)           += arch/x86/entry/vdso/vdso32.so.dbg
->   vdso-install-$(CONFIG_IA32_EMULATION)   += arch/x86/entry/vdso/vdso32.so.dbg
-> 
-> These files will be installed to $(MODLIB)/vdso/ with the .dbg suffix,
-> if exists, stripped away.
-> 
-> vdso-install-y can optionally take the second field after the colon
-> separator. This is needed because some architectures install vdso
-> files as a different base name.
-> 
-> The following is a snippet from arch/arm64/Makefile.
-> 
->   vdso-install-$(CONFIG_COMPAT_VDSO)      += arch/arm64/kernel/vdso32/vdso.so.dbg:vdso32.so
-> 
-> This will rename vdso.so.dbg to vdso32.so during installation. If such
-> architectures change their implementation so that the file names match,
-> this workaround will go away.
-> 
-> Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
-> ---
 
-Thanks for cleaning this up!
+--===============4612197579581506724==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="+sLEwCn/NiZhi8Lq"
+Content-Disposition: inline
 
-Reviewed-by: Nicolas Schier <nicolas@fjasle.eu>
+
+--+sLEwCn/NiZhi8Lq
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+Hey,
+
+On Wed, Oct 11, 2023 at 12:29:44PM -0700, Emil Renner Berthing wrote:
+> Nam Cao wrote:
+> > The ss pin of spi0 is the same as sck pin. According to the
+> > visionfive 2 documentation, it should be pin 49 instead of 48.
+>=20
+> Thanks! As far as I can tell this should make the 40pin header match the
+> Raspberry Pi layout, so
+>=20
+> Reviewed-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+
+The lists (linux-riscv at least) never got this patch & I cannot find it
+in my inbox either. Can you send it "properly" please?
+
+Thanks,
+Conor.
+
+>=20
+> >
+> > Fixes: 74fb20c8f05d ("riscv: dts: starfive: Add spi node and pins confi=
+guration")
+> > Signed-off-by: Nam Cao <namcao@linuxtronix.de>
+> > ---
+> >  arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi | 2 +-
+> >  1 file changed, 1 insertion(+), 1 deletion(-)
+> >
+> > diff --git a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.=
+dtsi b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
+> > index 12ebe9792356..2c02358abd71 100644
+> > --- a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
+> > +++ b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
+> > @@ -431,7 +431,7 @@ GPOEN_ENABLE,
+> >  		};
+> >
+> >  		ss-pins {
+> > -			pinmux =3D <GPIOMUX(48, GPOUT_SYS_SPI0_FSS,
+> > +			pinmux =3D <GPIOMUX(49, GPOUT_SYS_SPI0_FSS,
+> >  					      GPOEN_ENABLE,
+> >  					      GPI_SYS_SPI0_FSS)>;
+> >  			bias-disable;
+> > --
+> > 2.39.2
+> >
+>=20
+
+--+sLEwCn/NiZhi8Lq
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZScilAAKCRB4tDGHoIJi
+0sywAP9Nrr1MHNLliPKjgEMuuMbqOMxreV5oWYOWnFVGNv2mygD/ZJYhrrFSnILM
+0G4VObLptqfC2y/vAVmYzmxrdDK7+wc=
+=zhxe
+-----END PGP SIGNATURE-----
+
+--+sLEwCn/NiZhi8Lq--
+
+
+--===============4612197579581506724==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============4612197579581506724==--
+
