@@ -4,83 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DD15CD6E71
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Oct 2023 13:56:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6DC8CD6E79
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Oct 2023 14:26:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Wc8QbgBVIr/yR17lbh9WVn4cQNrhwkun/moyHSkYfKM=; b=I/5b89u9eXSOCX
-	xk9NrO7mZnMW4sCBoVxmeJ2f/NVwKzqZiF/UHKyGmMyEQrt8AuN1+I8fpDqI7S+oj2uOuunK6li0S
-	ukmnVajK3sqiIZBRl0CWobxzT3xaYerA7QFYsedaZu2IlNj7G5XAlDj9qUL4o6Qj2Tl/QLOY3AtA9
-	KxUZXtnPn0YgAvfBLsOm5Ab0emwtopDWvgHViQ3mKzo2gPNJntKnHQxO4DI5XFliCMh8m+dEGP1+s
-	poq0m6k0pbi/Mu94lOGnlcCUa0SwggYLVUiU+57pucHJpKbiIsEkb0iSxNsaO9r2I8D71IYVvnGRm
-	Bc5NyNM8y7din0MMXDVA==;
+	List-Owner; bh=2wSJEYtKGoW5IGK1myijN4O1nwCcwitSQnQTGzt1ITs=; b=LMvXroLdRq3xzR
+	lpUL+dlHuBI9LfmTZURrADvaePFLx23sBaamWqrDveKk59exMpg0R1O4cycFu4zhHM+MJMbK1q6u1
+	25dh+rOGJGdwmQH2mRzZH/mExhaWaI97TkKhP+WOSby/st2QvbPMWkdpPdvPJevA71SCOEklX/fvm
+	NoKAjUWuJwyg8KQC1tSED7aMimbr4kyz7VJ2nBYv9ryoSYe4/uRb/mPdBshwdA7ZoXboETAEMyESS
+	fP2iTGrH6wvZLou7wwpf2zMeaX+GpZvusS7lGZ+cm6VxLz9VGzbjir8X+yL8vqIkhxaC9TPOz8Hmi
+	n85GkD9Mm0b6a6vAI1Mg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qqZhM-00G22x-04;
-	Wed, 11 Oct 2023 13:56:28 +0000
-Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
+	id 1qqa9z-00G5Zw-0O;
+	Wed, 11 Oct 2023 14:26:03 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qqZhH-00G1yM-0L
+	id 1qqa9u-00G5Wt-2a
 	for linux-riscv@lists.infradead.org;
-	Wed, 11 Oct 2023 13:56:25 +0000
-Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-32d569e73acso1449197f8f.1
-        for <linux-riscv@lists.infradead.org>; Wed, 11 Oct 2023 06:56:20 -0700 (PDT)
+	Wed, 11 Oct 2023 14:26:01 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-1c8a1541232so34918325ad.0
+        for <linux-riscv@lists.infradead.org>; Wed, 11 Oct 2023 07:25:57 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1697032579; x=1697637379; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=0bGzpuc+yeHSXu2C5TVrGEmMMhHJkLHx0wMD8H+kEnQ=;
-        b=lGN+Zc9lCy40Qf/zI/EutaRAhORrx48ZG2A4BC8+XaPeXBCBEuFOwEHdPZmwJTft4n
-         02RDE8vbwn4ZpFD6qCP+CHZeEO5HHE1kS8yusEixeiA0t2iowOvz9bMzEW4WujxhYBUC
-         kYs/izbSjXXXYgLsJNFt/Z+b6IqotyinmF8NKhg15sp6x7bI7MvC2MtTRrpujv2Q+ASX
-         IFhma9h2GB9ZOQYSqweXWo+C3PJrwy9gWytQEr66vtNY8KznuVy8w+LT2cYd4PpyS5zS
-         0lfpOUi1Qbspc8yhlITtV6bBn27pYGSlAozqNYDgqSDO9NCZSp5g4qLCkWmYnBkeGYfk
-         abiA==
+        d=linaro.org; s=google; t=1697034357; x=1697639157; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=l14hTncC5mvc9d55sNzpnO/j1EgvBAnkseX/eOj6QQ8=;
+        b=h+Pg7p4v0EpbFIA956InCLEOMXTTObnxMaRYzhwtt+LZ+B4iwgX0ZLIw04wa8woESF
+         /IerOFWcB3yOhTUngroVMWxFNT3YmRbxIy2/kNwjecEDsRoRzojdyMsCh87xtkHIb7Bg
+         uScsUBKvayuOIaukG+QGa8wFXxvO4hCgJz7u0AjchKA21fiAGjKROAzllXVexHprU0oF
+         9aZ2dqdm6pSCy77Y9++faxrgvZ8V6E8+vt7r0M8UG2TVJ8JToKYp406YayNordlLJ1Qj
+         2eg4GhGrNvuz0CztdGDYieWrFOZq8YQo57bCz4b8dCDrbSSpH2McBOubc+GM9RoMQSxA
+         5n6Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1697032579; x=1697637379;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=0bGzpuc+yeHSXu2C5TVrGEmMMhHJkLHx0wMD8H+kEnQ=;
-        b=gmcZhWyaUMNXdkAM19zp8rTLfOvXcl3BgB3Ox4KMTerF3ypRaf46Jhlh+T9IrjZEc+
-         b8V9ZaTqoWMKvXyV/eC98Td0doyXLde0w6ZZ5iSnQVLbi36D0XEGHgsQij4D262tooSH
-         xJKSnqp1YqxAQITgDfJ3nHei2mWWeCY/3NsLclxb+6wHQUoX4cSiN51T2MAWTyCiwWta
-         vto9Ol34WGtk/oNZdB3CzJ2xgONmXhI7A2m8bkXLYlSRtlgC2xq62tyGZAv21LtW8KnO
-         NXOjq0AFUqgWLu6GuTX8zzhtMIjgKUM5brqh2K1JkhlfXwEaG2/I8OFZdS4ZuhD6/jTY
-         DcyA==
-X-Gm-Message-State: AOJu0YzKc1hjuRWfTqrFZrRCB7XU2PmZ2SZ120se9WYmxAWQfZ1a5VL1
-	/drhTB9pxBcDjfReHNcaVcXykyojNYzxHU3W9Fo=
-X-Google-Smtp-Source: AGHT+IHsNJXOzAS0Kp7T6qwcd+JiVj50QZ/pbJoy+Pc6WMV8M13OgKVio1C2mziFO40GFqwhfw+5GQ==
-X-Received: by 2002:a5d:504e:0:b0:321:4c7e:45e3 with SMTP id h14-20020a5d504e000000b003214c7e45e3mr18490744wrt.11.1697032579350;
-        Wed, 11 Oct 2023 06:56:19 -0700 (PDT)
-Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id x11-20020a05600c21cb00b00405bbfd5d16sm17093633wmj.7.2023.10.11.06.56.18
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 11 Oct 2023 06:56:18 -0700 (PDT)
-From: Andrew Jones <ajones@ventanamicro.com>
-To: linux-riscv@lists.infradead.org
-Cc: paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	evan@rivosinc.com,
-	conor.dooley@microchip.com,
-	apatel@ventanamicro.com,
-	Palmer Dabbelt <palmer@rivosinc.com>
-Subject: [PATCH v1 6/6] RISC-V: selftests: Add which-cpus hwprobe test
-Date: Wed, 11 Oct 2023 15:56:17 +0200
-Message-ID: <20231011135610.122850-14-ajones@ventanamicro.com>
-X-Mailer: git-send-email 2.41.0
-In-Reply-To: <20231011135610.122850-8-ajones@ventanamicro.com>
-References: <20231011135610.122850-8-ajones@ventanamicro.com>
+        d=1e100.net; s=20230601; t=1697034357; x=1697639157;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=l14hTncC5mvc9d55sNzpnO/j1EgvBAnkseX/eOj6QQ8=;
+        b=WRh2jPJVmGSNCLVx+It/NU/u2aVH/SqO4y7qzGHZWU6/+qsYe6NumF8w7SQB5aSteH
+         3og7Tj50kkYZsSDNvTQjrJ02ERO1cqxjcr66vA2lm27R0tY30WTSE63AMCWQ/zGom64T
+         cA31RyQIpd+t27XDtsW8TD3GiABDfvur95bFD03yXWSXos2N/nMGHDZs2DKO7iM6mVLY
+         vzA+kQpirbMaqIEH1UskW5k3ka7vtdDyDqv0XaytV/2jx3Fwjviz7gI1SZtGnrWGozw2
+         Mp8HcAMFsIH44yWa8WTz/RHn5s+rH2OlqxrLZs5lRy+ktn12BluOifus8NHxb8gXWO3p
+         LFHg==
+X-Gm-Message-State: AOJu0Yx8Z9cChnXQzaDS8Nd6Ao7GMxnywawDy5gS7swH2/7w/U4NRHEW
+	f0qHT6NkSSXzPR+IkMOiJjgwuKvgSKNhL1ogcGg9aSPz+Ti4q2h4isI=
+X-Google-Smtp-Source: AGHT+IEWkxKy7XH4G4dusSIdv8F7TkD3FNAIrXX1NOI+wrbvLjl3cPagIDjlyQ3TAMp3+0VNOOg/I7dqaW8LUiMWIfQ=
+X-Received: by 2002:a17:903:248:b0:1c7:495c:87e0 with SMTP id
+ j8-20020a170903024800b001c7495c87e0mr25613343plh.37.1697034357305; Wed, 11
+ Oct 2023 07:25:57 -0700 (PDT)
 MIME-Version: 1.0
+References: <20231009103621.374412-1-vincent.guittot@linaro.org>
+ <20231009103621.374412-7-vincent.guittot@linaro.org> <ac8968b9-8463-4aa2-a38d-fc2b9137460d@arm.com>
+In-Reply-To: <ac8968b9-8463-4aa2-a38d-fc2b9137460d@arm.com>
+From: Vincent Guittot <vincent.guittot@linaro.org>
+Date: Wed, 11 Oct 2023 16:25:46 +0200
+Message-ID: <CAKfTPtBhXRk_Y-xiHn9_jQ1C_ALzbr3-KdwzcTCyupzJ4Gru5g@mail.gmail.com>
+Subject: Re: [PATCH v2 6/6] cpufreq/cppc: set the frequency used for capacity computation
+To: Pierre Gondois <pierre.gondois@arm.com>
+Cc: linux@armlinux.org.uk, catalin.marinas@arm.com, will@kernel.org, 
+	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
+	sudeep.holla@arm.com, gregkh@linuxfoundation.org, rafael@kernel.org, 
+	mingo@redhat.com, peterz@infradead.org, juri.lelli@redhat.com, 
+	dietmar.eggemann@arm.com, rostedt@goodmis.org, bsegall@google.com, 
+	mgorman@suse.de, bristot@redhat.com, vschneid@redhat.com, 
+	viresh.kumar@linaro.org, lukasz.luba@arm.com, ionela.voinescu@arm.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-pm@vger.kernel.org, 
+	conor.dooley@microchip.com, suagrfillet@gmail.com, ajones@ventanamicro.com, 
+	lftan@kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231011_065623_187181_97E2250C 
-X-CRM114-Status: GOOD (  22.85  )
+X-CRM114-CacheID: sfid-20231011_072558_839374_2D3D91D2 
+X-CRM114-Status: GOOD (  29.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,273 +97,103 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Test the RISCV_HWPROBE_WHICH_CPUS flag of hwprobe. The test also
-has a command line interface in order to get the cpu list for
-arbitrary hwprobe pairs.
+On Wed, 11 Oct 2023 at 12:27, Pierre Gondois <pierre.gondois@arm.com> wrote:
+>
+> Hello Vincent,
+>
+> On 10/9/23 12:36, Vincent Guittot wrote:
+> > cppc cpufreq driver can register an artificial energy model. In such case,
+> > it also have to register the frequency that is used to define the CPU
+> > capacity
+> >
+> > Signed-off-by: Vincent Guittot <vincent.guittot@linaro.org>
+> > ---
+> >   drivers/cpufreq/cppc_cpufreq.c | 18 ++++++++++++++++++
+> >   1 file changed, 18 insertions(+)
+> >
+> > diff --git a/drivers/cpufreq/cppc_cpufreq.c b/drivers/cpufreq/cppc_cpufreq.c
+> > index fe08ca419b3d..24c6ba349f01 100644
+> > --- a/drivers/cpufreq/cppc_cpufreq.c
+> > +++ b/drivers/cpufreq/cppc_cpufreq.c
+> > @@ -636,6 +636,21 @@ static int populate_efficiency_class(void)
+> >       return 0;
+> >   }
+> >
+> > +
+> > +static void cppc_cpufreq_set_capacity_ref_freq(struct cpufreq_policy *policy)
+> > +{
+> > +     struct cppc_perf_caps *perf_caps;
+> > +     struct cppc_cpudata *cpu_data;
+> > +     unsigned int ref_freq;
+> > +
+> > +     cpu_data = policy->driver_data;
+> > +     perf_caps = &cpu_data->perf_caps;
+> > +
+> > +     ref_freq = cppc_cpufreq_perf_to_khz(cpu_data, perf_caps->highest_perf);
+> > +
+> > +     per_cpu(capacity_ref_freq, policy->cpu) = ref_freq;
+>
+> 'capacity_ref_freq' seems to be updated only if CONFIG_ENERGY_MODEL is set. However in
+> [1], get_capacity_ref_freq() relies on 'capacity_ref_freq'. The cpufreq_schedutil governor
+> should have a valid 'capacity_ref_freq' value set if the CPPC cpufreq driver is used
+> without energy model I believe.
 
-Reviewed-by: Palmer Dabbelt <palmer@rivosinc.com>
-Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
----
- .../testing/selftests/riscv/hwprobe/Makefile  |   5 +-
- .../testing/selftests/riscv/hwprobe/hwprobe.c |  12 +-
- .../testing/selftests/riscv/hwprobe/hwprobe.h |  15 ++
- .../selftests/riscv/hwprobe/which-cpus.c      | 154 ++++++++++++++++++
- .../selftests/riscv/vector/vstate_prctl.c     |  10 +-
- 5 files changed, 175 insertions(+), 21 deletions(-)
- create mode 100644 tools/testing/selftests/riscv/hwprobe/hwprobe.h
- create mode 100644 tools/testing/selftests/riscv/hwprobe/which-cpus.c
+we can disable it by setting capacity_ref_freq to 0 so it will
+fallback on cpuinfo like intel and amd which uses default
+SCHED_CAPACITY_SCALE capacity
 
-diff --git a/tools/testing/selftests/riscv/hwprobe/Makefile b/tools/testing/selftests/riscv/hwprobe/Makefile
-index 5f614c3ba598..210a8d7325b0 100644
---- a/tools/testing/selftests/riscv/hwprobe/Makefile
-+++ b/tools/testing/selftests/riscv/hwprobe/Makefile
-@@ -2,9 +2,12 @@
- # Copyright (C) 2021 ARM Limited
- # Originally tools/testing/arm64/abi/Makefile
- 
--TEST_GEN_PROGS := hwprobe
-+TEST_GEN_PROGS := hwprobe which-cpus
- 
- include ../../lib.mk
- 
- $(OUTPUT)/hwprobe: hwprobe.c sys_hwprobe.S
- 	$(CC) -static -o$@ $(CFLAGS) $(LDFLAGS) $^
-+
-+$(OUTPUT)/which-cpus: which-cpus.c sys_hwprobe.S
-+	$(CC) -static -o$@ $(CFLAGS) $(LDFLAGS) $^
-diff --git a/tools/testing/selftests/riscv/hwprobe/hwprobe.c b/tools/testing/selftests/riscv/hwprobe/hwprobe.c
-index 56cdca53f54a..d53e0889b59e 100644
---- a/tools/testing/selftests/riscv/hwprobe/hwprobe.c
-+++ b/tools/testing/selftests/riscv/hwprobe/hwprobe.c
-@@ -1,17 +1,7 @@
- // SPDX-License-Identifier: GPL-2.0-only
--#include <stddef.h>
--#include <asm/hwprobe.h>
--
-+#include "hwprobe.h"
- #include "../../kselftest.h"
- 
--/*
-- * Rather than relying on having a new enough libc to define this, just do it
-- * ourselves.  This way we don't need to be coupled to a new-enough libc to
-- * contain the call.
-- */
--long riscv_hwprobe(struct riscv_hwprobe *pairs, size_t pair_count,
--		   size_t cpu_count, unsigned long *cpus, unsigned int flags);
--
- int main(int argc, char **argv)
- {
- 	struct riscv_hwprobe pairs[8];
-diff --git a/tools/testing/selftests/riscv/hwprobe/hwprobe.h b/tools/testing/selftests/riscv/hwprobe/hwprobe.h
-new file mode 100644
-index 000000000000..e3fccb390c4d
---- /dev/null
-+++ b/tools/testing/selftests/riscv/hwprobe/hwprobe.h
-@@ -0,0 +1,15 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+#ifndef SELFTEST_RISCV_HWPROBE_H
-+#define SELFTEST_RISCV_HWPROBE_H
-+#include <stddef.h>
-+#include <asm/hwprobe.h>
-+
-+/*
-+ * Rather than relying on having a new enough libc to define this, just do it
-+ * ourselves.  This way we don't need to be coupled to a new-enough libc to
-+ * contain the call.
-+ */
-+long riscv_hwprobe(struct riscv_hwprobe *pairs, size_t pair_count,
-+		   size_t cpusetsize, unsigned long *cpus, unsigned int flags);
-+
-+#endif
-diff --git a/tools/testing/selftests/riscv/hwprobe/which-cpus.c b/tools/testing/selftests/riscv/hwprobe/which-cpus.c
-new file mode 100644
-index 000000000000..82c121412dfc
---- /dev/null
-+++ b/tools/testing/selftests/riscv/hwprobe/which-cpus.c
-@@ -0,0 +1,154 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Copyright (c) 2023 Ventana Micro Systems Inc.
-+ *
-+ * Test the RISCV_HWPROBE_WHICH_CPUS flag of hwprobe. Also provides a command
-+ * line interface to get the cpu list for arbitrary hwprobe pairs.
-+ */
-+#define _GNU_SOURCE
-+#include <stdio.h>
-+#include <stdlib.h>
-+#include <string.h>
-+#include <sched.h>
-+#include <unistd.h>
-+#include <assert.h>
-+
-+#include "hwprobe.h"
-+#include "../../kselftest.h"
-+
-+static void help(void)
-+{
-+	printf("\n"
-+	       "which-cpus: [-h] [<key=value> [<key=value> ...]]\n\n"
-+	       "   Without parameters, tests the RISCV_HWPROBE_WHICH_CPUS flag of hwprobe.\n"
-+	       "   With parameters, where each parameter is a hwprobe pair written as\n"
-+	       "   <key=value>, outputs the cpulist for cpus which all match the given set\n"
-+	       "   of pairs.  'key' and 'value' should be in numeric form, e.g. 4=0x3b\n");
-+}
-+
-+static void print_cpulist(cpu_set_t *cpus)
-+{
-+	int start = 0, end = 0;
-+
-+	if (!CPU_COUNT(cpus)) {
-+		printf("cpus: None\n");
-+		return;
-+	}
-+
-+	printf("cpus:");
-+	for (int i = 0, c = 0; i < CPU_COUNT(cpus); i++, c++) {
-+		if (start != end && !CPU_ISSET(c, cpus))
-+			printf("-%d", end);
-+
-+		while (!CPU_ISSET(c, cpus))
-+			++c;
-+
-+		if (i != 0 && c == end + 1) {
-+			end = c;
-+			continue;
-+		}
-+
-+		printf("%c%d", i == 0 ? ' ' : ',', c);
-+		start = end = c;
-+	}
-+	if (start != end)
-+		printf("-%d", end);
-+	printf("\n");
-+}
-+
-+static void do_which_cpus(int argc, char **argv, cpu_set_t *cpus)
-+{
-+	struct riscv_hwprobe *pairs;
-+	int nr_pairs = argc - 1;
-+	char *start, *end;
-+	int rc;
-+
-+	pairs = malloc(nr_pairs * sizeof(struct riscv_hwprobe));
-+	assert(pairs);
-+
-+	for (int i = 0; i < nr_pairs; i++) {
-+		start = argv[i + 1];
-+		pairs[i].key = strtol(start, &end, 0);
-+		assert(end != start && *end == '=');
-+		start = end + 1;
-+		pairs[i].value = strtoul(start, &end, 0);
-+		assert(end != start && *end == '\0');
-+	}
-+
-+	rc = riscv_hwprobe(pairs, nr_pairs, sizeof(cpu_set_t), (unsigned long *)cpus, RISCV_HWPROBE_WHICH_CPUS);
-+	assert(rc == 0);
-+	print_cpulist(cpus);
-+	free(pairs);
-+}
-+
-+int main(int argc, char **argv)
-+{
-+	struct riscv_hwprobe pairs[2];
-+	cpu_set_t cpus_aff, cpus;
-+	__u64 ext0_all;
-+	long rc;
-+
-+	rc = sched_getaffinity(0, sizeof(cpu_set_t), &cpus_aff);
-+	assert(rc == 0);
-+
-+	if (argc > 1) {
-+		if (!strcmp(argv[1], "-h"))
-+			help();
-+		else
-+			do_which_cpus(argc, argv, &cpus_aff);
-+		return 0;
-+	}
-+
-+	ksft_print_header();
-+	ksft_set_plan(7);
-+
-+	pairs[0] = (struct riscv_hwprobe){ .key = RISCV_HWPROBE_KEY_BASE_BEHAVIOR, };
-+	rc = riscv_hwprobe(pairs, 1, 0, NULL, 0);
-+	assert(rc == 0 && pairs[0].key == RISCV_HWPROBE_KEY_BASE_BEHAVIOR &&
-+	       pairs[0].value == RISCV_HWPROBE_BASE_BEHAVIOR_IMA);
-+
-+	pairs[0] = (struct riscv_hwprobe){ .key = RISCV_HWPROBE_KEY_IMA_EXT_0, };
-+	rc = riscv_hwprobe(pairs, 1, 0, NULL, 0);
-+	assert(rc == 0 && pairs[0].key == RISCV_HWPROBE_KEY_IMA_EXT_0);
-+	ext0_all = pairs[0].value;
-+
-+	pairs[0] = (struct riscv_hwprobe){ .key = RISCV_HWPROBE_KEY_BASE_BEHAVIOR, .value = RISCV_HWPROBE_BASE_BEHAVIOR_IMA, };
-+	CPU_ZERO(&cpus);
-+	rc = riscv_hwprobe(pairs, 1, 0, (unsigned long *)&cpus, RISCV_HWPROBE_WHICH_CPUS);
-+	ksft_test_result(rc == -EINVAL, "no cpusetsize\n");
-+
-+	pairs[0] = (struct riscv_hwprobe){ .key = RISCV_HWPROBE_KEY_BASE_BEHAVIOR, .value = RISCV_HWPROBE_BASE_BEHAVIOR_IMA, };
-+	rc = riscv_hwprobe(pairs, 1, sizeof(cpu_set_t), NULL, RISCV_HWPROBE_WHICH_CPUS);
-+	ksft_test_result(rc == -EINVAL, "NULL cpus\n");
-+
-+	pairs[0] = (struct riscv_hwprobe){ .key = 0xbadc0de, };
-+	CPU_ZERO(&cpus);
-+	rc = riscv_hwprobe(pairs, 1, sizeof(cpu_set_t), (unsigned long *)&cpus, RISCV_HWPROBE_WHICH_CPUS);
-+	ksft_test_result(rc == 0 && CPU_COUNT(&cpus) == 0, "unknown key\n");
-+
-+	pairs[0] = (struct riscv_hwprobe){ .key = RISCV_HWPROBE_KEY_BASE_BEHAVIOR, .value = RISCV_HWPROBE_BASE_BEHAVIOR_IMA, };
-+	pairs[1] = (struct riscv_hwprobe){ .key = RISCV_HWPROBE_KEY_BASE_BEHAVIOR, .value = RISCV_HWPROBE_BASE_BEHAVIOR_IMA, };
-+	CPU_ZERO(&cpus);
-+	rc = riscv_hwprobe(pairs, 2, sizeof(cpu_set_t), (unsigned long *)&cpus, RISCV_HWPROBE_WHICH_CPUS);
-+	ksft_test_result(rc == 0, "duplicate keys\n");
-+
-+	pairs[0] = (struct riscv_hwprobe){ .key = RISCV_HWPROBE_KEY_BASE_BEHAVIOR, .value = RISCV_HWPROBE_BASE_BEHAVIOR_IMA, };
-+	pairs[1] = (struct riscv_hwprobe){ .key = RISCV_HWPROBE_KEY_IMA_EXT_0, .value = ext0_all, };
-+	CPU_ZERO(&cpus);
-+	rc = riscv_hwprobe(pairs, 2, sizeof(cpu_set_t), (unsigned long *)&cpus, RISCV_HWPROBE_WHICH_CPUS);
-+	ksft_test_result(rc == 0 && CPU_COUNT(&cpus) == sysconf(_SC_NPROCESSORS_ONLN), "set all cpus\n");
-+
-+	pairs[0] = (struct riscv_hwprobe){ .key = RISCV_HWPROBE_KEY_BASE_BEHAVIOR, .value = RISCV_HWPROBE_BASE_BEHAVIOR_IMA, };
-+	pairs[1] = (struct riscv_hwprobe){ .key = RISCV_HWPROBE_KEY_IMA_EXT_0, .value = ext0_all, };
-+	memcpy(&cpus, &cpus_aff, sizeof(cpu_set_t));
-+	rc = riscv_hwprobe(pairs, 2, sizeof(cpu_set_t), (unsigned long *)&cpus, RISCV_HWPROBE_WHICH_CPUS);
-+	ksft_test_result(rc == 0 && CPU_EQUAL(&cpus, &cpus_aff), "set all affinity cpus\n");
-+
-+	pairs[0] = (struct riscv_hwprobe){ .key = RISCV_HWPROBE_KEY_BASE_BEHAVIOR, .value = RISCV_HWPROBE_BASE_BEHAVIOR_IMA, };
-+	pairs[1] = (struct riscv_hwprobe){ .key = RISCV_HWPROBE_KEY_IMA_EXT_0, .value = ~ext0_all, };
-+	memcpy(&cpus, &cpus_aff, sizeof(cpu_set_t));
-+	rc = riscv_hwprobe(pairs, 2, sizeof(cpu_set_t), (unsigned long *)&cpus, RISCV_HWPROBE_WHICH_CPUS);
-+	ksft_test_result(rc == 0 && CPU_COUNT(&cpus) == 0, "clear all cpus\n");
-+
-+	ksft_finished();
-+}
-diff --git a/tools/testing/selftests/riscv/vector/vstate_prctl.c b/tools/testing/selftests/riscv/vector/vstate_prctl.c
-index b348b475be57..8dcd399ef7fc 100644
---- a/tools/testing/selftests/riscv/vector/vstate_prctl.c
-+++ b/tools/testing/selftests/riscv/vector/vstate_prctl.c
-@@ -1,20 +1,12 @@
- // SPDX-License-Identifier: GPL-2.0-only
- #include <sys/prctl.h>
- #include <unistd.h>
--#include <asm/hwprobe.h>
- #include <errno.h>
- #include <sys/wait.h>
- 
-+#include "../hwprobe/hwprobe.h"
- #include "../../kselftest.h"
- 
--/*
-- * Rather than relying on having a new enough libc to define this, just do it
-- * ourselves.  This way we don't need to be coupled to a new-enough libc to
-- * contain the call.
-- */
--long riscv_hwprobe(struct riscv_hwprobe *pairs, size_t pair_count,
--		   size_t cpu_count, unsigned long *cpus, unsigned int flags);
--
- #define NEXT_PROGRAM "./vstate_exec_nolibc"
- static int launch_test(int test_inherit)
- {
--- 
-2.41.0
+Could you provide me with more details about your platform ? I still
+try to understand how the cpu compute capacity is set up on your
+system. How do you set per_cpu cpu_scale variable ? we should set the
+ref freq at the same time
 
+>
+> Also 'capacity_ref_freq' seems to be set only for 'policy->cpu'. I believe it should
+> be set for the whole perf domain in case this 'policy->cpu' goes offline.
+>
+> Another thing, related my comment to [1] and to [2], for CPPC the max capacity matches
+> the boosting frequency. We have:
+>    'non-boosted max capacity' < 'boosted max capacity'.
+> -
+> If boosting is not enabled, the CPU utilization can still go above the 'non-boosted max
+> capacity'. The overutilization of the system seems to be triggered by comparing the CPU
+> util to the 'boosted max capacity'. So systems might not be detected as overutilized.
+
+As Peter mentioned, we have to decide what is the original compute
+capacity of your CPUs which is usually the sustainable max compute
+capacity, especially when using EAS and EM
+
+>
+> For the EAS energy computation, em_cpu_energy() tries to predict the frequency that will
+> be used. It is currently unknown to the function that the frequency request will be
+> clamped by __resolve_freq():
+> get_next_freq()
+> \-cpufreq_driver_resolve_freq()
+>    \-__resolve_freq()
+> This means that the energy computation might use boosting frequencies, which are not
+> available.
+>
+> Regards,
+> Pierre
+>
+> [1]: [PATCH v2 4/6] cpufreq/schedutil: use a fixed reference frequency
+> [2]: https://lore.kernel.org/lkml/20230905113308.GF28319@noisy.programming.kicks-ass.net/
+>
+> > +}
+> > +
+> >   static void cppc_cpufreq_register_em(struct cpufreq_policy *policy)
+> >   {
+> >       struct cppc_cpudata *cpu_data;
+> > @@ -643,6 +658,9 @@ static void cppc_cpufreq_register_em(struct cpufreq_policy *policy)
+> >               EM_ADV_DATA_CB(cppc_get_cpu_power, cppc_get_cpu_cost);
+> >
+> >       cpu_data = policy->driver_data;
+> > +
+> > +     cppc_cpufreq_set_capacity_ref_freq(policy);
+> > +
+> >       em_dev_register_perf_domain(get_cpu_device(policy->cpu),
+> >                       get_perf_level_count(policy), &em_cb,
+> >                       cpu_data->shared_cpu_map, 0);
 
 _______________________________________________
 linux-riscv mailing list
