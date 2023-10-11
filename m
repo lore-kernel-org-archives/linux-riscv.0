@@ -4,90 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79603CD6E51
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Oct 2023 09:15:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AB08CD6E54
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Oct 2023 10:28:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yYts/+XJdTRf+AHlCqVxJlyvIu2yHakn23dGbwCiztc=; b=YfL4sH45bWihEk
-	PxMCOjcjTcT+qUGLezyJhow5xa3lFcz1AiQ4UDbtU0Jj1klxVJ2bqhSMFhLOSpArXQf0XDpZUedKr
-	rC1PTTjLgjcO0b9EM3sS8YFPajWq9zCZx6XyaqN0P59adR9ZR259QNoAHkCe88f1rTCNAVgxbNLi0
-	F1NH4xZAsxuHbjO/y6HsPsf0JyP7Ruy++7E/Xu09gs2f4Dn72aSynN+t0zk1VTGI4Un0SJbC/r97h
-	H2iJNAFia2BCiet7iDheeV34Q0TWnk1PFE9vuDrhTAiih6v3DV6Uz/QpIvckA2XEHNN32eWWaaykn
-	KfeONjzDpmRHQC8DsIxg==;
+	List-Owner; bh=Eyo/TdxGtp9W49+W+ZlVCTA7i6nWeX7ttIfX3BosLNE=; b=RdeFsgI4KkSgmq
+	uDxvdGxJDibFBO3/j9s/cmFKseR/WRKvqVcfu0zXXJXaxrhvoJ8avUWJdo5/Z6yqX0gXlUO6LGtfF
+	H6Mfn/LwYye0fU7L7ZtGdgfZEWWF9/Mgo2RhK/D4t990djwlyP9lEdr/36EhUWbxQkJI02jErWic8
+	4afxRj2OQN4cLXzZAsON7XlMxhYw3QDosOH52+kvLzvmU4EeAxcQQzB7zPJo/m7C1eHqyVLg5c/2J
+	8MrO7v1cQC60VysKSiz94snUzHqgDKIjzpqutk/dPZxLiNreV2X9edjXHyB4VT2SvjEqnh2S5Ra7Z
+	6eNgoDsTE9EOp/WQAw1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qqVIz-00FJTO-1A;
-	Wed, 11 Oct 2023 09:15:01 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qqVIw-00FJSk-1J
-	for linux-riscv@lists.infradead.org;
-	Wed, 11 Oct 2023 09:14:59 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-405361bba99so60835465e9.2
-        for <linux-riscv@lists.infradead.org>; Wed, 11 Oct 2023 02:14:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1697015696; x=1697620496; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=8dcsbzf8E/7eeyM/pc2wr1VcgxpBh3MPzSnBM0me6VQ=;
-        b=QpzOZlwnxVYM4xjlEFX9IsmRQ7GVsMofEB2LYE4ha5o1UdE5UgLmnsELZbZaK+AfgY
-         ysjhXNi/vwBddieOmlCDHQMxjxS1ePpIm8hESDZdbc/Y59F2qQ4ktx0jQtn8HrDwfeci
-         Vm3GzKpq3W1lbz5LbVurnTGKlAj8PVWHDli594b7cvm7L+ZGAry6ln18Dyd9lmyz7BjY
-         HSE1klBnTxTzBQnTdi8vNoEDhBDhbhKFGy0bp6VfCSO6gARG6ZERrSmOjFIlt0Waxgi7
-         f0AZUXpC3JNHlPPpWv7qlkj3bxzs5vVga9pMhfVtMQpjOAUPZ17/BDXBmS8LKnPvvI8z
-         49Vw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1697015696; x=1697620496;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=8dcsbzf8E/7eeyM/pc2wr1VcgxpBh3MPzSnBM0me6VQ=;
-        b=J9DJxv67xaLfzM5M68yRXWnwd0FmHUlGh6t4O7Qz4rzBu+NFbW5hEGFCe2vW2U9mrO
-         aM5KnbxaMkYdXOn/qkAItkb3tmJAAQe0eT/TxIB/1aqlznFKO5vhKfe4O3Hx3fv1d9j9
-         VOw51iGngxRI1oQp+GjxZn5cTPHEERMoALKFUTE7OenfsC2ruCRmAENVfN8SjH3PtgAj
-         vhunEjcD+1fric5i796Vc6E9PxJXSWAg772iZYIDMJ8cm9knNbbFB7peJVDoLfGiXMjS
-         OVmukChlnAl3SCKXBZP/LrZy9iAtDb5f4UvRaU2cRnoRsa8MvVbW4P8UJ0Pfo8oUf/0o
-         ERlQ==
-X-Gm-Message-State: AOJu0YwJMpC70Xpo1m5c9KNrXpV2yrZXu1XJLDrLoHQphFiwG9aqQlUu
-	dVsg1lRCTyv2wpwHuMU9KBKQGA==
-X-Google-Smtp-Source: AGHT+IFiH+YSs/NYge2HLcC7hKWSTqv0Z71LvtzWkhS94lL06dO+Ooh7J+MIlnk7hzzqpwtUN5jE7Q==
-X-Received: by 2002:a7b:cbd4:0:b0:401:b76d:3b8b with SMTP id n20-20020a7bcbd4000000b00401b76d3b8bmr18890887wmi.16.1697015696048;
-        Wed, 11 Oct 2023 02:14:56 -0700 (PDT)
-Received: from ?IPV6:2a05:6e02:1041:c10:de95:eca9:6b1e:b330? ([2a05:6e02:1041:c10:de95:eca9:6b1e:b330])
-        by smtp.googlemail.com with ESMTPSA id bg24-20020a05600c3c9800b004063c9f68f2sm13391034wmb.26.2023.10.11.02.14.54
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 11 Oct 2023 02:14:55 -0700 (PDT)
-Message-ID: <367c01e7-1096-47f2-a0da-920b0ea4b915@linaro.org>
-Date: Wed, 11 Oct 2023 11:14:54 +0200
+	id 1qqWRe-00FTDI-38;
+	Wed, 11 Oct 2023 10:28:02 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1qqWRa-00FTAu-1q;
+	Wed, 11 Oct 2023 10:28:01 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 645B21477;
+	Wed, 11 Oct 2023 03:28:38 -0700 (PDT)
+Received: from [192.168.1.13] (unknown [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7BA1C3F762;
+	Wed, 11 Oct 2023 03:27:51 -0700 (PDT)
+Message-ID: <ac8968b9-8463-4aa2-a38d-fc2b9137460d@arm.com>
+Date: Wed, 11 Oct 2023 12:27:51 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 -next 4/4] clocksource/timer-riscv: ACPI: Add
- timer_cannot_wakeup_cpu
+Subject: Re: [PATCH v2 6/6] cpufreq/cppc: set the frequency used for capacity
+ computation
+To: Vincent Guittot <vincent.guittot@linaro.org>, linux@armlinux.org.uk,
+ catalin.marinas@arm.com, will@kernel.org, paul.walmsley@sifive.com,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, sudeep.holla@arm.com,
+ gregkh@linuxfoundation.org, rafael@kernel.org, mingo@redhat.com,
+ peterz@infradead.org, juri.lelli@redhat.com, dietmar.eggemann@arm.com,
+ rostedt@goodmis.org, bsegall@google.com, mgorman@suse.de,
+ bristot@redhat.com, vschneid@redhat.com, viresh.kumar@linaro.org,
+ lukasz.luba@arm.com, ionela.voinescu@arm.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-pm@vger.kernel.org
+Cc: conor.dooley@microchip.com, suagrfillet@gmail.com,
+ ajones@ventanamicro.com, lftan@kernel.org
+References: <20231009103621.374412-1-vincent.guittot@linaro.org>
+ <20231009103621.374412-7-vincent.guittot@linaro.org>
 Content-Language: en-US
-To: Sunil V L <sunilvl@ventanamicro.com>, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- Thomas Gleixner <tglx@linutronix.de>, Andrew Jones
- <ajones@ventanamicro.com>, Conor Dooley <conor.dooley@microchip.com>,
- Anup Patel <apatel@ventanamicro.com>, Ard Biesheuvel <ardb@kernel.org>,
- Alexandre Ghiti <alexghiti@rivosinc.com>,
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
- Atish Kumar Patra <atishp@rivosinc.com>
-References: <20230927170015.295232-1-sunilvl@ventanamicro.com>
- <20230927170015.295232-5-sunilvl@ventanamicro.com>
-From: Daniel Lezcano <daniel.lezcano@linaro.org>
-In-Reply-To: <20230927170015.295232-5-sunilvl@ventanamicro.com>
+From: Pierre Gondois <pierre.gondois@arm.com>
+In-Reply-To: <20231009103621.374412-7-vincent.guittot@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231011_021458_452064_BDA5C9FC 
-X-CRM114-Status: UNSURE (   6.16  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20231011_032758_713076_561EDAC7 
+X-CRM114-Status: GOOD (  18.93  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,20 +69,93 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMjcvMDkvMjAyMyAxOTowMCwgU3VuaWwgViBMIHdyb3RlOgo+IFRoZSB0aW1lciBjYXBhYmls
-aXR5IHRvIHdha2V1cCB0aGUgY3B1IGlycmVzcGVjdGl2ZSBvZiBpdHMgaWRsZSBzdGF0ZSBpcwo+
-IHByb3ZpZGVkIGJ5IHRoZSBmbGFnIGluIFJIQ1QuIFVwZGF0ZSB0aGUgdGltZXIgY29kZSB0byBz
-ZXQgdGhpcyBmbGFnLgo+IAo+IFNpZ25lZC1vZmYtYnk6IFN1bmlsIFYgTCA8c3VuaWx2bEB2ZW50
-YW5hbWljcm8uY29tPgo+IC0tLQoKQXBwbGllZCwgdGhhbmtzCgotLSAKPGh0dHA6Ly93d3cubGlu
-YXJvLm9yZy8+IExpbmFyby5vcmcg4pSCIE9wZW4gc291cmNlIHNvZnR3YXJlIGZvciBBUk0gU29D
-cwoKRm9sbG93IExpbmFybzogIDxodHRwOi8vd3d3LmZhY2Vib29rLmNvbS9wYWdlcy9MaW5hcm8+
-IEZhY2Vib29rIHwKPGh0dHA6Ly90d2l0dGVyLmNvbS8jIS9saW5hcm9vcmc+IFR3aXR0ZXIgfAo8
-aHR0cDovL3d3dy5saW5hcm8ub3JnL2xpbmFyby1ibG9nLz4gQmxvZwoKCl9fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlz
-dApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQu
-b3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+Hello Vincent,
+
+On 10/9/23 12:36, Vincent Guittot wrote:
+> cppc cpufreq driver can register an artificial energy model. In such case,
+> it also have to register the frequency that is used to define the CPU
+> capacity
+> 
+> Signed-off-by: Vincent Guittot <vincent.guittot@linaro.org>
+> ---
+>   drivers/cpufreq/cppc_cpufreq.c | 18 ++++++++++++++++++
+>   1 file changed, 18 insertions(+)
+> 
+> diff --git a/drivers/cpufreq/cppc_cpufreq.c b/drivers/cpufreq/cppc_cpufreq.c
+> index fe08ca419b3d..24c6ba349f01 100644
+> --- a/drivers/cpufreq/cppc_cpufreq.c
+> +++ b/drivers/cpufreq/cppc_cpufreq.c
+> @@ -636,6 +636,21 @@ static int populate_efficiency_class(void)
+>   	return 0;
+>   }
+>   
+> +
+> +static void cppc_cpufreq_set_capacity_ref_freq(struct cpufreq_policy *policy)
+> +{
+> +	struct cppc_perf_caps *perf_caps;
+> +	struct cppc_cpudata *cpu_data;
+> +	unsigned int ref_freq;
+> +
+> +	cpu_data = policy->driver_data;
+> +	perf_caps = &cpu_data->perf_caps;
+> +
+> +	ref_freq = cppc_cpufreq_perf_to_khz(cpu_data, perf_caps->highest_perf);
+> +
+> +	per_cpu(capacity_ref_freq, policy->cpu) = ref_freq;
+
+'capacity_ref_freq' seems to be updated only if CONFIG_ENERGY_MODEL is set. However in
+[1], get_capacity_ref_freq() relies on 'capacity_ref_freq'. The cpufreq_schedutil governor
+should have a valid 'capacity_ref_freq' value set if the CPPC cpufreq driver is used
+without energy model I believe.
+
+Also 'capacity_ref_freq' seems to be set only for 'policy->cpu'. I believe it should
+be set for the whole perf domain in case this 'policy->cpu' goes offline.
+
+Another thing, related my comment to [1] and to [2], for CPPC the max capacity matches
+the boosting frequency. We have:
+   'non-boosted max capacity' < 'boosted max capacity'.
+-
+If boosting is not enabled, the CPU utilization can still go above the 'non-boosted max
+capacity'. The overutilization of the system seems to be triggered by comparing the CPU
+util to the 'boosted max capacity'. So systems might not be detected as overutilized.
+
+For the EAS energy computation, em_cpu_energy() tries to predict the frequency that will
+be used. It is currently unknown to the function that the frequency request will be
+clamped by __resolve_freq():
+get_next_freq()
+\-cpufreq_driver_resolve_freq()
+   \-__resolve_freq()
+This means that the energy computation might use boosting frequencies, which are not
+available.
+
+Regards,
+Pierre
+
+[1]: [PATCH v2 4/6] cpufreq/schedutil: use a fixed reference frequency
+[2]: https://lore.kernel.org/lkml/20230905113308.GF28319@noisy.programming.kicks-ass.net/
+
+> +}
+> +
+>   static void cppc_cpufreq_register_em(struct cpufreq_policy *policy)
+>   {
+>   	struct cppc_cpudata *cpu_data;
+> @@ -643,6 +658,9 @@ static void cppc_cpufreq_register_em(struct cpufreq_policy *policy)
+>   		EM_ADV_DATA_CB(cppc_get_cpu_power, cppc_get_cpu_cost);
+>   
+>   	cpu_data = policy->driver_data;
+> +
+> +	cppc_cpufreq_set_capacity_ref_freq(policy);
+> +
+>   	em_dev_register_perf_domain(get_cpu_device(policy->cpu),
+>   			get_perf_level_count(policy), &em_cb,
+>   			cpu_data->shared_cpu_map, 0);
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
