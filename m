@@ -4,59 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 526B8CD6E59
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Oct 2023 10:28:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AC9BCD6E59
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Oct 2023 10:48:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=71iuxwCdMVlCiH8VQU4oPXOdTKuAAi9iddc+mtuTQvk=; b=Vn13kfi+NOu33n
-	R6NEni/0G+MCU0b8uFt3D3HyJiClDDbf/N7lVLYuESjvCs0YtokqOCSq+JtQp5h1S4E7rX3qTJiUy
-	xxr+3UIZiqvTbmd56S0EmeER3NbtEyH4GrL7XbkOi97ahC16nZ0XhzczJKscQxzULywl8h3HyhK0Z
-	4/i/i6QGGU8ib0s1G4jH+QM1SWMV6ug0H1lgsD4HszhECPCGPupKxJkq0kngwzpfdjktj6Bd3UMd/
-	W0Wwt6Aof/SuhnLNMde9iedjse24FS+M9wftXy+gzt1pZYCoYfKZk6JUq4jhFXTcq7DU/4niYU4tf
-	OopRGBSP/CCNKOthkKKQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:
+	Mime-Version:References:In-Reply-To:From:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=6iLJSTUL5iquKgyrtkrIqta/JzYseAqDHzQF2BLr3vI=; b=q4gj9RqhSt0IZM21hh3SEUI1Fi
+	OnsJf23wj6BwEJyQPcXezay6oXjkrmh18xpgqiKBox1c4QssrhozSGtdDT1U1v1aEvAt7m4F73S1G
+	q3vm6s3VfjxyPQq627EDcO0VOGp8HpbyDL0Ex8NsHz7wBh4ry4+yz9F9kiTkBQM+LgWpx6RsDWM1Y
+	dLyKnCWUeYPKpQz85JIogPP31gipk9G7kd67iqDGlOJ9qzYTKuxDelMe46qrCPgypiY+Z8MdIQf79
+	ODPEg/ONoHrfOU+Ggalq/SSOClcZqMfMY3eD+SphYeV/KGY0kh6msdCfL24CEm+ykP6VIbtl7Zirc
+	E5ejEApg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qqWRX-00FT9z-2M;
-	Wed, 11 Oct 2023 10:27:55 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qqWRT-00FT86-1z;
-	Wed, 11 Oct 2023 10:27:53 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0B6D6106F;
-	Wed, 11 Oct 2023 03:28:28 -0700 (PDT)
-Received: from [192.168.1.13] (unknown [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 296953F762;
-	Wed, 11 Oct 2023 03:27:41 -0700 (PDT)
-Message-ID: <142277eb-766e-4524-b507-c75bbc143ade@arm.com>
-Date: Wed, 11 Oct 2023 12:27:35 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/6] topology: add a new arch_scale_freq_reference
-Content-Language: en-US
-To: Vincent Guittot <vincent.guittot@linaro.org>, linux@armlinux.org.uk,
- catalin.marinas@arm.com, will@kernel.org, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, sudeep.holla@arm.com,
- gregkh@linuxfoundation.org, rafael@kernel.org, mingo@redhat.com,
- peterz@infradead.org, juri.lelli@redhat.com, dietmar.eggemann@arm.com,
- rostedt@goodmis.org, bsegall@google.com, mgorman@suse.de,
- bristot@redhat.com, vschneid@redhat.com, viresh.kumar@linaro.org,
- lukasz.luba@arm.com, ionela.voinescu@arm.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-pm@vger.kernel.org
-Cc: conor.dooley@microchip.com, suagrfillet@gmail.com,
- ajones@ventanamicro.com, lftan@kernel.org
-References: <20231009103621.374412-1-vincent.guittot@linaro.org>
- <20231009103621.374412-3-vincent.guittot@linaro.org>
-From: Pierre Gondois <pierre.gondois@arm.com>
-In-Reply-To: <20231009103621.374412-3-vincent.guittot@linaro.org>
+	id 1qqWlh-00Fa2H-13;
+	Wed, 11 Oct 2023 10:48:45 +0000
+Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1qqWld-00FZx3-2K
+	for linux-riscv@lists.infradead.org;
+	Wed, 11 Oct 2023 10:48:44 +0000
+Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com [209.85.222.200])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id EEC0140342
+	for <linux-riscv@lists.infradead.org>; Wed, 11 Oct 2023 10:48:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+	s=20210705; t=1697021316;
+	bh=cRzOcp0OjwkTIHvUDiChZJdp1mFmpW3qpQhjzVMaHqk=;
+	h=From:In-Reply-To:References:Mime-Version:Date:Message-ID:Subject:
+	 To:Cc:Content-Type;
+	b=eHb4G69uXwwxG8Pw+irPis5MOUYA/7derUDcrhQdu05Q8+N3M2dWQeFkcG39Lr7Yt
+	 7AguTN8XDyG4VWM86fYuxCb/DOF606cWVhBPQSfBr+2L2c9ZRNotrNcSoKYSwxMwqF
+	 g3oEhhXUL2Jc+GsmD45yCCjHPaAvmFp5OqcZU26G+cNARPXl0ne+P1nL2BKd0pBPKZ
+	 AcCkBtzJ2oMEh5hEaMa1gNThDwHakeNEPohV1S/WpUBq+YYhTxGtSV0EndJaWM2HL+
+	 LimDZBPq6Fq3dUznxVTxuxqnaf3DFu4SAYNhjr8QRbNbLsKu2cwZ5QGEnaLnHk7Kw9
+	 HL15FdofVmdzQ==
+Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-77574c4394aso762879585a.2
+        for <linux-riscv@lists.infradead.org>; Wed, 11 Oct 2023 03:48:36 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1697021316; x=1697626116;
+        h=content-transfer-encoding:cc:to:subject:message-id:date
+         :mime-version:references:in-reply-to:from:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=cRzOcp0OjwkTIHvUDiChZJdp1mFmpW3qpQhjzVMaHqk=;
+        b=IgTu2SmP5pEGBFgAQ27EFJaAnfO0gpnQ7y7z+F9591THKtbZ8KXBVhDpQ4aCakBQ5y
+         9nbsBbVMffGKgrr4xP3MvUUTjnl2OTJ7Saak68G39G95GRr7ndIPNFTnNz943X4aosEC
+         P0fiInBeXZkXe1q+fRvl6ltq7MA+upFbtcEe1nj0dxx5iY8zIfCThdf4PreabF1FDZ7v
+         dXtYFWKNU1xTvJ2wIivGmQ4fNyBYiDlZe+uuAVtslMfnEj9etbSYnA/shxvFYC1zUtsg
+         wzYVtmdJC1ShMyX8PUaY6OkOJyoFlGKuOzsnOwtHV44LdmrdkQGlUJZxNGQVyQUYsyH9
+         DxWA==
+X-Gm-Message-State: AOJu0YzJszdKLx3BbWNQm60ChegIMwsAwFpZ9HRPLtyhOfMo80zWzEUQ
+	V5crn8JBXTKb8B18CCs73lI7WZz98oIS6LO4YMiHDh0kR6Or0ebf3iMYVUmCLGn8sjTp4WsnP5y
+	DtPVzX/M7MoJa2gviZbY/z/vC6CTHJ+Rk1oW+MSwu3tXuJ8Wjo8LveAQlstR2kA==
+X-Received: by 2002:a05:620a:2add:b0:775:c0e4:aea4 with SMTP id bn29-20020a05620a2add00b00775c0e4aea4mr21219755qkb.66.1697021315976;
+        Wed, 11 Oct 2023 03:48:35 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IFjR/QUpj2CYkbaTJxRPuk6Ar7Wj1IXMKxOW26vNfAf9v6w4Kysa38u+jX8uIxVGyH9EiaIcAKLrY82+Cy46j0=
+X-Received: by 2002:a05:620a:2add:b0:775:c0e4:aea4 with SMTP id
+ bn29-20020a05620a2add00b00775c0e4aea4mr21219732qkb.66.1697021315660; Wed, 11
+ Oct 2023 03:48:35 -0700 (PDT)
+Received: from 348282803490 named unknown by gmailapi.google.com with
+ HTTPREST; Wed, 11 Oct 2023 03:48:35 -0700
+From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+In-Reply-To: <22EFF2C197DC5C5A+f82966f5-90cf-09a5-214e-4b0e87bc6064@tinylab.org>
+References: <20230914020044.1397356-1-songshuaishuai@tinylab.org>
+ <20230914020044.1397356-3-songshuaishuai@tinylab.org> <CAJM55Z8D3yJREg0+UtecW3wpgrGKxZYP73Pvbi2oaQfsZf4Gfw@mail.gmail.com>
+ <22EFF2C197DC5C5A+f82966f5-90cf-09a5-214e-4b0e87bc6064@tinylab.org>
+Mime-Version: 1.0
+Date: Wed, 11 Oct 2023 03:48:35 -0700
+Message-ID: <CAJM55Z8OebLJHg3mxk7y7Dw0z=JLgi4j17tQPf4-Mdd0BCQbaw@mail.gmail.com>
+Subject: Re: [PATCH 2/2] riscv: kexec_file: Support loading Image binary file
+To: Song Shuai <songshuaishuai@tinylab.org>, 
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>, paul.walmsley@sifive.com, 
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, lihuafei1@huawei.com, 
+	conor.dooley@microchip.com, liaochang1@huawei.com, ajones@ventanamicro.com, 
+	alexghiti@rivosinc.com, evan@rivosinc.com, sunilvl@ventanamicro.com, 
+	xianting.tian@linux.alibaba.com, samitolvanen@google.com, 
+	masahiroy@kernel.org, apatel@ventanamicro.com, jszhang@kernel.org, 
+	duwe@suse.de, eric.devolder@oracle.com
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231011_032751_772252_36EB2E05 
-X-CRM114-Status: GOOD (  32.20  )
+X-CRM114-CacheID: sfid-20231011_034842_193602_1838CE77 
+X-CRM114-Status: GOOD (  29.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,203 +102,133 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello Vincent,
-
-On 10/9/23 12:36, Vincent Guittot wrote:
-> Create a new method to get a unique and fixed max frequency. Currently
-> cpuinfo.max_freq or the highest (or last) state of performance domain are
-> used as the max frequency when computing the frequency for a level of
-> utilization but:
-> - cpuinfo_max_freq can change at runtime. boost is one example of
->    such change.
-> - cpuinfo.max_freq and last item of the PD can be different leading to
->    different results between cpufreq and energy model.
-> 
-> We need to save the reference frequency that has been used when computing
-> the CPUs capacity and use this fixed and coherent value to convert between
-> frequency and CPU's capacity.
-> 
-> In fact, we already save the frequency that has been used when computing
-> the capacity of each CPU. We extend the precision to save khZ instead of
-> Mhz currently and we modify the type to be aligned with other variables
-> used when converting frequency to capacity and the other way.
-> 
-> Signed-off-by: Vincent Guittot <vincent.guittot@linaro.org>
-> ---
->   arch/arm/include/asm/topology.h   |  1 +
->   arch/arm64/include/asm/topology.h |  1 +
->   arch/riscv/include/asm/topology.h |  1 +
->   drivers/base/arch_topology.c      | 29 ++++++++++++++---------------
->   include/linux/arch_topology.h     |  7 +++++++
->   5 files changed, 24 insertions(+), 15 deletions(-)
-> 
-> diff --git a/arch/arm/include/asm/topology.h b/arch/arm/include/asm/topology.h
-> index c7d2510e5a78..853c4f81ba4a 100644
-> --- a/arch/arm/include/asm/topology.h
-> +++ b/arch/arm/include/asm/topology.h
-> @@ -13,6 +13,7 @@
->   #define arch_set_freq_scale topology_set_freq_scale
->   #define arch_scale_freq_capacity topology_get_freq_scale
->   #define arch_scale_freq_invariant topology_scale_freq_invariant
-> +#define arch_scale_freq_ref topology_get_freq_ref
->   #endif
->   
->   /* Replace task scheduler's default cpu-invariant accounting */
-> diff --git a/arch/arm64/include/asm/topology.h b/arch/arm64/include/asm/topology.h
-> index 9fab663dd2de..a323b109b9c4 100644
-> --- a/arch/arm64/include/asm/topology.h
-> +++ b/arch/arm64/include/asm/topology.h
-> @@ -23,6 +23,7 @@ void update_freq_counters_refs(void);
->   #define arch_set_freq_scale topology_set_freq_scale
->   #define arch_scale_freq_capacity topology_get_freq_scale
->   #define arch_scale_freq_invariant topology_scale_freq_invariant
-> +#define arch_scale_freq_ref topology_get_freq_ref
->   
->   #ifdef CONFIG_ACPI_CPPC_LIB
->   #define arch_init_invariance_cppc topology_init_cpu_capacity_cppc
-> diff --git a/arch/riscv/include/asm/topology.h b/arch/riscv/include/asm/topology.h
-> index e316ab3b77f3..61183688bdd5 100644
-> --- a/arch/riscv/include/asm/topology.h
-> +++ b/arch/riscv/include/asm/topology.h
-> @@ -9,6 +9,7 @@
->   #define arch_set_freq_scale		topology_set_freq_scale
->   #define arch_scale_freq_capacity	topology_get_freq_scale
->   #define arch_scale_freq_invariant	topology_scale_freq_invariant
-> +#define arch_scale_freq_ref		topology_get_freq_ref
->   
->   /* Replace task scheduler's default cpu-invariant accounting */
->   #define arch_scale_cpu_capacity	topology_get_cpu_scale
-> diff --git a/drivers/base/arch_topology.c b/drivers/base/arch_topology.c
-> index b741b5ba82bd..9a073c2d2086 100644
-> --- a/drivers/base/arch_topology.c
-> +++ b/drivers/base/arch_topology.c
-> @@ -19,6 +19,7 @@
->   #include <linux/init.h>
->   #include <linux/rcupdate.h>
->   #include <linux/sched.h>
-> +#include <linux/units.h>
->   
->   #define CREATE_TRACE_POINTS
->   #include <trace/events/thermal_pressure.h>
-> @@ -26,7 +27,8 @@
->   static DEFINE_PER_CPU(struct scale_freq_data __rcu *, sft_data);
->   static struct cpumask scale_freq_counters_mask;
->   static bool scale_freq_invariant;
-> -static DEFINE_PER_CPU(u32, freq_factor) = 1;
-> +DEFINE_PER_CPU(unsigned long, capacity_ref_freq) = 1;
-> +EXPORT_PER_CPU_SYMBOL_GPL(capacity_ref_freq);
->   
->   static bool supports_scale_freq_counters(const struct cpumask *cpus)
->   {
-> @@ -170,9 +172,9 @@ DEFINE_PER_CPU(unsigned long, thermal_pressure);
->    * operating on stale data when hot-plug is used for some CPUs. The
->    * @capped_freq reflects the currently allowed max CPUs frequency due to
->    * thermal capping. It might be also a boost frequency value, which is bigger
-> - * than the internal 'freq_factor' max frequency. In such case the pressure
-> - * value should simply be removed, since this is an indication that there is
-> - * no thermal throttling. The @capped_freq must be provided in kHz.
-> + * than the internal 'capacity_ref_freq' max frequency. In such case the
-> + * pressure value should simply be removed, since this is an indication that
-> + * there is no thermal throttling. The @capped_freq must be provided in kHz.
->    */
->   void topology_update_thermal_pressure(const struct cpumask *cpus,
->   				      unsigned long capped_freq)
-> @@ -183,10 +185,7 @@ void topology_update_thermal_pressure(const struct cpumask *cpus,
->   
->   	cpu = cpumask_first(cpus);
->   	max_capacity = arch_scale_cpu_capacity(cpu);
-> -	max_freq = per_cpu(freq_factor, cpu);
-> -
-> -	/* Convert to MHz scale which is used in 'freq_factor' */
-> -	capped_freq /= 1000;
-> +	max_freq = arch_scale_freq_ref(cpu);
->   
->   	/*
->   	 * Handle properly the boost frequencies, which should simply clean
-> @@ -279,13 +278,13 @@ void topology_normalize_cpu_scale(void)
->   
->   	capacity_scale = 1;
->   	for_each_possible_cpu(cpu) {
-> -		capacity = raw_capacity[cpu] * per_cpu(freq_factor, cpu);
-> +		capacity = raw_capacity[cpu] * per_cpu(capacity_ref_freq, cpu);
->   		capacity_scale = max(capacity, capacity_scale);
->   	}
->   
->   	pr_debug("cpu_capacity: capacity_scale=%llu\n", capacity_scale);
->   	for_each_possible_cpu(cpu) {
-> -		capacity = raw_capacity[cpu] * per_cpu(freq_factor, cpu);
-> +		capacity = raw_capacity[cpu] * per_cpu(capacity_ref_freq, cpu);
->   		capacity = div64_u64(capacity << SCHED_CAPACITY_SHIFT,
->   			capacity_scale);
->   		topology_set_cpu_scale(cpu, capacity);
-> @@ -321,15 +320,15 @@ bool __init topology_parse_cpu_capacity(struct device_node *cpu_node, int cpu)
->   			cpu_node, raw_capacity[cpu]);
->   
->   		/*
-> -		 * Update freq_factor for calculating early boot cpu capacities.
-> +		 * Update capacity_ref_freq for calculating early boot cpu capacities.
->   		 * For non-clk CPU DVFS mechanism, there's no way to get the
->   		 * frequency value now, assuming they are running at the same
-> -		 * frequency (by keeping the initial freq_factor value).
-> +		 * frequency (by keeping the initial capacity_ref_freq value).
->   		 */
->   		cpu_clk = of_clk_get(cpu_node, 0);
->   		if (!PTR_ERR_OR_ZERO(cpu_clk)) {
-> -			per_cpu(freq_factor, cpu) =
-> -				clk_get_rate(cpu_clk) / 1000;
-> +			per_cpu(capacity_ref_freq, cpu) =
-> +				clk_get_rate(cpu_clk) / HZ_PER_KHZ;
->   			clk_put(cpu_clk);
->   		}
->   	} else {
-> @@ -411,7 +410,7 @@ init_cpu_capacity_callback(struct notifier_block *nb,
->   	cpumask_andnot(cpus_to_visit, cpus_to_visit, policy->related_cpus);
->   
->   	for_each_cpu(cpu, policy->related_cpus)
-> -		per_cpu(freq_factor, cpu) = policy->cpuinfo.max_freq / 1000;
-> +		per_cpu(capacity_ref_freq, cpu) = policy->cpuinfo.max_freq;
-
-It seems init_cpu_capacity_callback() is only called when a policy is created
-(cf. CPUFREQ_CREATE_POLICY). This means that CPU capacities are only updated
-in this specific case, eluding the cases where:
-- boost is enabled. 'policy->cpuinfo.max_freq' is updated in the cpufreq driver,
-   but it seems it doesn't have any consequence regarding CPU capacities.
-- a cpufreq driver is unplugged (e.g. rmmod cpufreq_driver.ko). In this case
-   the CPU capacities are only updated when plugging in the driver (e.g. insmod
-   cpufreq_driver.ko).
-
-Regards,
-Pierre
-
-
->   
->   	if (cpumask_empty(cpus_to_visit)) {
->   		topology_normalize_cpu_scale();
-> diff --git a/include/linux/arch_topology.h b/include/linux/arch_topology.h
-> index a07b510e7dc5..38ca6c76af56 100644
-> --- a/include/linux/arch_topology.h
-> +++ b/include/linux/arch_topology.h
-> @@ -27,6 +27,13 @@ static inline unsigned long topology_get_cpu_scale(int cpu)
->   
->   void topology_set_cpu_scale(unsigned int cpu, unsigned long capacity);
->   
-> +DECLARE_PER_CPU(unsigned long, capacity_ref_freq);
-> +
-> +static inline unsigned long topology_get_freq_ref(int cpu)
-> +{
-> +	return per_cpu(capacity_ref_freq, cpu);
-> +}
-> +
->   DECLARE_PER_CPU(unsigned long, arch_freq_scale);
->   
->   static inline unsigned long topology_get_freq_scale(int cpu)
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+U29uZyBTaHVhaSB3cm90ZToKPgo+Cj4g5ZyoIDIwMjMvOS8xNCAxNjozNywgRW1pbCBSZW5uZXIg
+QmVydGhpbmcg5YaZ6YGTOgo+ID4gU29uZyBTaHVhaSB3cm90ZToKPiA+PiBUaGlzIHBhdGNoIGNy
+ZWF0ZXMgaW1hZ2Vfa2V4ZWNfb3BzIHRvIGxvYWQgSW1hZ2UgYmluYXJ5IGZpbGUKPiA+PiBmb3Ig
+a2V4ZWNfZmlsZV9sb2FkKCkgc3lzY2FsbC4KPiA+Pgo+ID4+IFNpZ25lZC1vZmYtYnk6IFNvbmcg
+U2h1YWkgPHNvbmdzaHVhaXNodWFpQHRpbnlsYWIub3JnPgo+ID4+IC0tLQo+ID4+ICAgYXJjaC9y
+aXNjdi9pbmNsdWRlL2FzbS9pbWFnZS5oICAgICAgICAgfCAgMiArCj4gPj4gICBhcmNoL3Jpc2N2
+L2luY2x1ZGUvYXNtL2tleGVjLmggICAgICAgICB8ICAxICsKPiA+PiAgIGFyY2gvcmlzY3Yva2Vy
+bmVsL01ha2VmaWxlICAgICAgICAgICAgIHwgIDIgKy0KPiA+PiAgIGFyY2gvcmlzY3Yva2VybmVs
+L2tleGVjX2ltYWdlLmMgICAgICAgIHwgOTcgKysrKysrKysrKysrKysrKysrKysrKysrKysKPiA+
+PiAgIGFyY2gvcmlzY3Yva2VybmVsL21hY2hpbmVfa2V4ZWNfZmlsZS5jIHwgIDEgKwo+ID4+ICAg
+NSBmaWxlcyBjaGFuZ2VkLCAxMDIgaW5zZXJ0aW9ucygrKSwgMSBkZWxldGlvbigtKQo+ID4+ICAg
+Y3JlYXRlIG1vZGUgMTAwNjQ0IGFyY2gvcmlzY3Yva2VybmVsL2tleGVjX2ltYWdlLmMKPiA+Pgo+
+ID4+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2ltYWdlLmggYi9hcmNoL3Jp
+c2N2L2luY2x1ZGUvYXNtL2ltYWdlLmgKPiA+PiBpbmRleCBlMGIzMTlhZjM2ODEuLjg5MjdhNmVh
+MTEyNyAxMDA2NDQKPiA+PiAtLS0gYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2ltYWdlLmgKPiA+
+PiArKysgYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2ltYWdlLmgKPiA+PiBAQCAtMzAsNiArMzAs
+OCBAQAo+ID4+ICAgCQkJICAgICAgUklTQ1ZfSEVBREVSX1ZFUlNJT05fTUlOT1IpCj4gPj4KPiA+
+PiAgICNpZm5kZWYgX19BU1NFTUJMWV9fCj4gPj4gKyNkZWZpbmUgcmlzY3ZfaW1hZ2VfZmxhZ19m
+aWVsZChmbGFncywgZmllbGQpXAo+ID4+ICsJCQkgICAgICAgKCgoZmxhZ3MpID4+IGZpZWxkIyNf
+U0hJRlQpICYgZmllbGQjI19NQVNLKQo+ID4KPiA+IEhpIFNvbmcsCj4gPgo+ID4gVGhpcyBtYWNy
+byBpcyBhbG1vc3QgRklFTERfR0VUIGZyb20gbGludXgvYml0ZmllbGQuaCAuLgo+ID4KPiA+PiAg
+IC8qKgo+ID4+ICAgICogc3RydWN0IHJpc2N2X2ltYWdlX2hlYWRlciAtIHJpc2N2IGtlcm5lbCBp
+bWFnZSBoZWFkZXIKPiA+PiAgICAqIEBjb2RlMDoJCUV4ZWN1dGFibGUgY29kZQo+ID4+IGRpZmYg
+LS1naXQgYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2tleGVjLmggYi9hcmNoL3Jpc2N2L2luY2x1
+ZGUvYXNtL2tleGVjLmgKPiA+PiBpbmRleCA1MTg4MjVmZTQxNjAuLmI5ZWU4MzQ2Y2M4YyAxMDA2
+NDQKPiA+PiAtLS0gYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2tleGVjLmgKPiA+PiArKysgYi9h
+cmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2tleGVjLmgKPiA+PiBAQCAtNTYsNiArNTYsNyBAQCBleHRl
+cm4gcmlzY3Zfa2V4ZWNfbWV0aG9kIHJpc2N2X2tleGVjX25vcmVsb2NhdGU7Cj4gPj4KPiA+PiAg
+ICNpZmRlZiBDT05GSUdfS0VYRUNfRklMRQo+ID4+ICAgZXh0ZXJuIGNvbnN0IHN0cnVjdCBrZXhl
+Y19maWxlX29wcyBlbGZfa2V4ZWNfb3BzOwo+ID4+ICtleHRlcm4gY29uc3Qgc3RydWN0IGtleGVj
+X2ZpbGVfb3BzIGltYWdlX2tleGVjX29wczsKPiA+Pgo+ID4+ICAgc3RydWN0IHB1cmdhdG9yeV9p
+bmZvOwo+ID4+ICAgaW50IGFyY2hfa2V4ZWNfYXBwbHlfcmVsb2NhdGlvbnNfYWRkKHN0cnVjdCBw
+dXJnYXRvcnlfaW5mbyAqcGksCj4gPj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yva2VybmVsL01h
+a2VmaWxlIGIvYXJjaC9yaXNjdi9rZXJuZWwvTWFrZWZpbGUKPiA+PiBpbmRleCAxYzYyYzYzOWU4
+NzUuLjllY2JhMzIzMWEzNiAxMDA2NDQKPiA+PiAtLS0gYS9hcmNoL3Jpc2N2L2tlcm5lbC9NYWtl
+ZmlsZQo+ID4+ICsrKyBiL2FyY2gvcmlzY3Yva2VybmVsL01ha2VmaWxlCj4gPj4gQEAgLTg2LDcg
+Kzg2LDcgQEAgZW5kaWYKPiA+PiAgIG9iai0kKENPTkZJR19IT1RQTFVHX0NQVSkJKz0gY3B1LWhv
+dHBsdWcubwo+ID4+ICAgb2JqLSQoQ09ORklHX0tHREIpCQkrPSBrZ2RiLm8KPiA+PiAgIG9iai0k
+KENPTkZJR19LRVhFQ19DT1JFKQkrPSBrZXhlY19yZWxvY2F0ZS5vIGNyYXNoX3NhdmVfcmVncy5v
+IG1hY2hpbmVfa2V4ZWMubwo+ID4+IC1vYmotJChDT05GSUdfS0VYRUNfRklMRSkJKz0ga2V4ZWNf
+ZWxmLm8gbWFjaGluZV9rZXhlY19maWxlLm8KPiA+PiArb2JqLSQoQ09ORklHX0tFWEVDX0ZJTEUp
+CSs9IGtleGVjX2VsZi5vIGtleGVjX2ltYWdlLm8gbWFjaGluZV9rZXhlY19maWxlLm8KPiA+PiAg
+IG9iai0kKENPTkZJR19DUkFTSF9EVU1QKQkrPSBjcmFzaF9kdW1wLm8KPiA+PiAgIG9iai0kKENP
+TkZJR19DUkFTSF9DT1JFKQkrPSBjcmFzaF9jb3JlLm8KPiA+Pgo+ID4+IGRpZmYgLS1naXQgYS9h
+cmNoL3Jpc2N2L2tlcm5lbC9rZXhlY19pbWFnZS5jIGIvYXJjaC9yaXNjdi9rZXJuZWwva2V4ZWNf
+aW1hZ2UuYwo+ID4+IG5ldyBmaWxlIG1vZGUgMTAwNjQ0Cj4gPj4gaW5kZXggMDAwMDAwMDAwMDAw
+Li5iNmFhN2Y1OWJkNTMKPiA+PiAtLS0gL2Rldi9udWxsCj4gPj4gKysrIGIvYXJjaC9yaXNjdi9r
+ZXJuZWwva2V4ZWNfaW1hZ2UuYwo+ID4+IEBAIC0wLDAgKzEsOTcgQEAKPiA+PiArLy8gU1BEWC1M
+aWNlbnNlLUlkZW50aWZpZXI6IEdQTC0yLjAKPiA+PiArLyoKPiA+PiArICogUklTQy1WIEtleGVj
+IGltYWdlIGxvYWRlcgo+ID4+ICsgKgo+ID4+ICsgKi8KPiA+PiArCj4gPj4gKyNkZWZpbmUgcHJf
+Zm10KGZtdCkJImtleGVjX2ZpbGUoSW1hZ2UpOiAiIGZtdAo+ID4+ICsKPiA+PiArI2luY2x1ZGUg
+PGxpbnV4L2Vyci5oPgo+ID4+ICsjaW5jbHVkZSA8bGludXgvZXJybm8uaD4KPiA+PiArI2luY2x1
+ZGUgPGxpbnV4L2tlcm5lbC5oPgo+ID4+ICsjaW5jbHVkZSA8bGludXgva2V4ZWMuaD4KPiA+PiAr
+I2luY2x1ZGUgPGxpbnV4L3BlLmg+Cj4gPj4gKyNpbmNsdWRlIDxsaW51eC9zdHJpbmcuaD4KPiA+
+PiArI2luY2x1ZGUgPGFzbS9ieXRlb3JkZXIuaD4KPiA+PiArI2luY2x1ZGUgPGFzbS9pbWFnZS5o
+Pgo+ID4+ICsKPiA+PiArc3RhdGljIGludCBpbWFnZV9wcm9iZShjb25zdCBjaGFyICprZXJuZWxf
+YnVmLCB1bnNpZ25lZCBsb25nIGtlcm5lbF9sZW4pCj4gPj4gK3sKPiA+PiArCWNvbnN0IHN0cnVj
+dCByaXNjdl9pbWFnZV9oZWFkZXIgKmggPQo+ID4+ICsJCShjb25zdCBzdHJ1Y3QgcmlzY3ZfaW1h
+Z2VfaGVhZGVyICopKGtlcm5lbF9idWYpOwo+ID4+ICsKPiA+PiArCWlmICghaCB8fCAoa2VybmVs
+X2xlbiA8IHNpemVvZigqaCkpKQo+ID4+ICsJCXJldHVybiAtRUlOVkFMOwo+ID4+ICsKPiA+PiAr
+CS8qIEFjY29yZGluZyB0byBEb2N1bWVudGF0aW9uL3Jpc2N2L2Jvb3QtaW1hZ2UtaGVhZGVyLnJz
+dCwKPiA+PiArCSAqIHVzZSAibWFnaWMyIiBmaWVsZCB0byBjaGVjayB3aGVuIHZlcnNpb24gPj0g
+MC4yLgo+ID4+ICsJICovCj4gPj4gKwo+ID4+ICsJaWYgKGgtPnZlcnNpb24gPj0gUklTQ1ZfSEVB
+REVSX1ZFUlNJT04gJiYKPiA+PiArCSAgICBtZW1jbXAoJmgtPm1hZ2ljMiwgUklTQ1ZfSU1BR0Vf
+TUFHSUMyLCBzaXplb2YoaC0+bWFnaWMyKSkpCj4gPj4gKwkJcmV0dXJuIC1FSU5WQUw7Cj4gPj4g
+Kwo+ID4+ICsJcmV0dXJuIDA7Cj4gPj4gK30KPiA+PiArCj4gPj4gK3N0YXRpYyB2b2lkICppbWFn
+ZV9sb2FkKHN0cnVjdCBraW1hZ2UgKmltYWdlLAo+ID4+ICsJCQkJY2hhciAqa2VybmVsLCB1bnNp
+Z25lZCBsb25nIGtlcm5lbF9sZW4sCj4gPj4gKwkJCQljaGFyICppbml0cmQsIHVuc2lnbmVkIGxv
+bmcgaW5pdHJkX2xlbiwKPiA+PiArCQkJCWNoYXIgKmNtZGxpbmUsIHVuc2lnbmVkIGxvbmcgY21k
+bGluZV9sZW4pCj4gPj4gK3sKPiA+PiArCXN0cnVjdCByaXNjdl9pbWFnZV9oZWFkZXIgKmg7Cj4g
+Pj4gKwl1NjQgZmxhZ3M7Cj4gPj4gKwlib29sIGJlX2ltYWdlLCBiZV9rZXJuZWw7Cj4gPj4gKwlz
+dHJ1Y3Qga2V4ZWNfYnVmIGtidWY7Cj4gPj4gKwlpbnQgcmV0Owo+ID4+ICsKPiA+PiArCS8qIENo
+ZWNrIEltYWdlIGhlYWRlciAqLwo+ID4+ICsJaCA9IChzdHJ1Y3QgcmlzY3ZfaW1hZ2VfaGVhZGVy
+ICopa2VybmVsOwo+ID4+ICsJaWYgKCFoLT5pbWFnZV9zaXplKSB7Cj4gPj4gKwkJcmV0ID0gLUVJ
+TlZBTDsKPiA+PiArCQlnb3RvIG91dDsKPiA+PiArCX0KPiA+PiArCj4gPj4gKwkvKiBDaGVjayBl
+bmRpYW5uZXNzICovCj4gPj4gKwlmbGFncyA9IGxlNjRfdG9fY3B1KGgtPmZsYWdzKTsKPiA+PiAr
+CWJlX2ltYWdlID0gcmlzY3ZfaW1hZ2VfZmxhZ19maWVsZChmbGFncywgUklTQ1ZfSU1BR0VfRkxB
+R19CRSk7Cj4gPgo+ID4gLi5idXQgaGVyZSB5b3UncmUganVzdCB0ZXN0aW5nIGEgc2luZ2xlIGJp
+dCwgc28gc2luY2UgYmVfaW1hZ2UgaXMgYSBib29sIGl0Cj4gPiBjb3VsZCBqdXN0IGJlCj4gPiAJ
+YmVfaW1hZ2UgPSBmbGFncyAmIFJJU0NWX0lNQUdFX0ZMQUdfQkVfTUFTSzsKPiA+Cj4gPiAvRW1p
+bAo+IEhpIEVtaWwsCj4KPiBTb3JyeSBmb3IgdGhlIGRlbGF5ZWQgcmVzcG9uc2UsCj4KPiBUaGUg
+YGZsYWdzYCBmaWVsZCBjdXJyZW50bHkgb25seSBoYXMgYml0LTAgdG8gaW5kaWNhdGUgdGhlIGtl
+bnJlbAo+IGVuZGlhbm5lc3MsIHlvdXIgY29tbWVudCBsb29rcyBnb29kIGluIHRoaXMgY2FzZS4K
+Pgo+IFdoaWxlIGNvbnNpZGVyaW5nIHRoZSBmdXR1cmUgZXh0ZW5zaW9uIG9mIHRoZSBgZmxhZ3Ng
+IGZlaWxkLCB0aGUKPiByaXNjdl9pbWFnZV9mbGFnX2ZpZWxkKCkgaXMgbmVjY2Vzc2lyeSB0byBt
+YWtlIGNhbGxlcnMgdG8gcmVxdWlyZSB0aGUKPiBiaXRzIHRoZXkgd2FudC4KClJpZ2h0LCBidXQg
+cGxlYXNlIGRvbid0IGludmVudCB5b3VyIG93biBGSUVMRF9HRVQgdGhlbi4KCj4KPiBTbyBJIHBy
+ZWZlciB0byBrZWVwIHRoaXMgc25pcHBldC4KPiA+Cj4gPj4gKwliZV9rZXJuZWwgPSBJU19FTkFC
+TEVEKENPTkZJR19DUFVfQklHX0VORElBTik7Cj4gPj4gKwlpZiAoYmVfaW1hZ2UgIT0gYmVfa2Vy
+bmVsKSB7Cj4gPj4gKwkJcmV0ID0gLUVJTlZBTDsKPiA+PiArCQlnb3RvIG91dDsKPiA+PiArCX0K
+PiA+PiArCj4gPj4gKwkvKiBMb2FkIHRoZSBrZXJuZWwgaW1hZ2UgKi8KPiA+PiArCWtidWYuaW1h
+Z2UgPSBpbWFnZTsKPiA+PiArCWtidWYuYnVmX21pbiA9IDA7Cj4gPj4gKwlrYnVmLmJ1Zl9tYXgg
+PSBVTE9OR19NQVg7Cj4gPj4gKwlrYnVmLnRvcF9kb3duID0gZmFsc2U7Cj4gPj4gKwo+ID4+ICsJ
+a2J1Zi5idWZmZXIgPSBrZXJuZWw7Cj4gPj4gKwlrYnVmLmJ1ZnN6ID0ga2VybmVsX2xlbjsKPiA+
+PiArCWtidWYubWVtID0gS0VYRUNfQlVGX01FTV9VTktOT1dOOwo+ID4+ICsJa2J1Zi5tZW1zeiA9
+IGxlNjRfdG9fY3B1KGgtPmltYWdlX3NpemUpOwo+ID4+ICsJa2J1Zi5idWZfYWxpZ24gPSBsZTY0
+X3RvX2NwdShoLT50ZXh0X29mZnNldCk7Cj4gPj4gKwo+ID4+ICsJcmV0ID0ga2V4ZWNfYWRkX2J1
+ZmZlcigma2J1Zik7Cj4gPj4gKwlpZiAocmV0KSB7Cj4gPj4gKwkJcHJfZXJyKCJFcnJvciBhZGQg
+a2VybmVsIGltYWdlIHJldD0lZFxuIiwgcmV0KTsKPiA+PiArCQlnb3RvIG91dDsKPiA+PiArCX0K
+PiA+PiArCj4gPj4gKwlpbWFnZS0+c3RhcnQgPSBrYnVmLm1lbTsKPiA+PiArCj4gPj4gKwlwcl9p
+bmZvKCJMb2FkZWQga2VybmVsIGF0IDB4JWx4IGJ1ZnN6PTB4JWx4IG1lbXN6PTB4JWx4XG4iLAo+
+ID4+ICsJCQkJa2J1Zi5tZW0sIGtidWYuYnVmc3osIGtidWYubWVtc3opOwo+ID4+ICsKPiA+PiAr
+CXJldCA9IGxvYWRfZXh0cmFfc2VnbWVudHMoaW1hZ2UsIGtidWYubWVtLCBrYnVmLm1lbXN6LAo+
+ID4+ICsJCQkJICBpbml0cmQsIGluaXRyZF9sZW4sIGNtZGxpbmUsIGNtZGxpbmVfbGVuKTsKPiA+
+PiArCj4gPj4gK291dDoKPiA+PiArCXJldHVybiByZXQgPyBFUlJfUFRSKHJldCkgOiBOVUxMOwo+
+ID4+ICt9Cj4gPj4gKwo+ID4+ICtjb25zdCBzdHJ1Y3Qga2V4ZWNfZmlsZV9vcHMgaW1hZ2Vfa2V4
+ZWNfb3BzID0gewo+ID4+ICsJLnByb2JlID0gaW1hZ2VfcHJvYmUsCj4gPj4gKwkubG9hZCA9IGlt
+YWdlX2xvYWQsCj4gPj4gK307Cj4gPj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yva2VybmVsL21h
+Y2hpbmVfa2V4ZWNfZmlsZS5jIGIvYXJjaC9yaXNjdi9rZXJuZWwvbWFjaGluZV9rZXhlY19maWxl
+LmMKPiA+PiBpbmRleCBhZWRiOGMxNmEyODMuLjVkYzcwMDgzNGYxZSAxMDA2NDQKPiA+PiAtLS0g
+YS9hcmNoL3Jpc2N2L2tlcm5lbC9tYWNoaW5lX2tleGVjX2ZpbGUuYwo+ID4+ICsrKyBiL2FyY2gv
+cmlzY3Yva2VybmVsL21hY2hpbmVfa2V4ZWNfZmlsZS5jCj4gPj4gQEAgLTE3LDYgKzE3LDcgQEAK
+PiA+Pgo+ID4+ICAgY29uc3Qgc3RydWN0IGtleGVjX2ZpbGVfb3BzICogY29uc3Qga2V4ZWNfZmls
+ZV9sb2FkZXJzW10gPSB7Cj4gPj4gICAJJmVsZl9rZXhlY19vcHMsCj4gPj4gKwkmaW1hZ2Vfa2V4
+ZWNfb3BzLAo+ID4+ICAgCU5VTEwKPiA+PiAgIH07Cj4gPj4KPiA+PiAtLQo+ID4+IDIuMjAuMQo+
+ID4+Cj4gPj4KPiA+PiBfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fXwo+ID4+IGxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdAo+ID4+IGxpbnV4LXJpc2N2QGxpc3Rz
+LmluZnJhZGVhZC5vcmcKPiA+PiBodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xp
+c3RpbmZvL2xpbnV4LXJpc2N2Cj4gPgo+Cj4gLS0KPiBUaGFua3MKPiBTb25nIFNodWFpCj4KPgo+
+IF9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCj4gbGludXgt
+cmlzY3YgbWFpbGluZyBsaXN0Cj4gbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwo+IGh0
+dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YKCl9f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2
+IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0
+cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
