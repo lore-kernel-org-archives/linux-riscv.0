@@ -4,61 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E25FCDB46E
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Oct 2023 13:33:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A40CCDB482
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Oct 2023 13:33:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=z2LAh+H9BNmOI0GWddmxvVMeqyo2oAFMfkrHT55ONz8=; b=0PdnvzWeKqza0t2iv/2ojncCw1
-	IEjmgUncLAWqKFHjOn3wBMYJmAKt6DQd+M/DSW0KJJtBwvBQFRX/BjUvCO78aITCHfcf3TNi6CvOG
-	0lPXWGhjyAy4CoGHHw/agAQFTuzg7ghi3W0zIUwKXLV0mdsqB/8/0e7RwJ1yHsgvBcRW+DVxFiUwe
-	LPbefNGIbzWh1bvkGp+IQii/EfMgAHkCmMHdby4FW7E9yM2L63mFV+p7x5tDQJyA2+AzMlgKHqpfr
-	+d1JmOX1AY5ms7voQ9Nk6r3scvYptzphNytHRtcePpY80x9dSYxEL09MUGWWj4p9TuMgvPFUgv1F4
-	0Juj9Mdw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=mm/8l1pgbP8FUz96TgNMIljdU9E+5EHUz24dWV2+Cl0=; b=CyUfXqyVyAIfQJ
+	bx+ve8UDBBQzxPHWfkDsQecl67GYs9VNHBRvtGgX2v1N4h69Vd4CenqZdcwSBABJ3CCq8JotvBjDC
+	Uq2Ok1MmcGImvGjWieMt4eI337DS/zZow2HKbY0niv+Bj5SGC+iRqtsYwE15lcozZqjuI0H0pWgTz
+	9XK+n5pnItysGKIDBiLtfIJi9gYBz/NnODSC08LNm/Ju4W3C/KJdG3nLrDjkm1KlOYM1D08e3gW/I
+	5NkfVPGA7uauQ8SqnsVtbArmfrH6GTAAppzrLMYOZzW4aixvT1IaLiJI56pVWHgXqKDAuumVvagZf
+	8rlrYqDCOnRdWlLtoXgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qqvo9-0015WX-2L;
-	Thu, 12 Oct 2023 13:32:57 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1qqvoA-0015Wu-27;
+	Thu, 12 Oct 2023 13:32:58 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qqvo6-0015VO-28
+	id 1qqvo6-0015VS-34
 	for linux-riscv@lists.infradead.org;
 	Thu, 12 Oct 2023 13:32:56 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by ams.source.kernel.org (Postfix) with ESMTP id 71EDCB82464;
-	Thu, 12 Oct 2023 13:32:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E04AFC433C7;
-	Thu, 12 Oct 2023 13:32:48 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 1012861E4C;
+	Thu, 12 Oct 2023 13:32:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2C02BC433C9;
+	Thu, 12 Oct 2023 13:32:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1697117570;
-	bh=qolZQNc6Bw5PgOa0st+MAuZxKcRLKLw/+5Uav9w3oi8=;
+	s=k20201202; t=1697117572;
+	bh=ZZYhdnpgiENRM1+gW/Pd8plnr1hpMAWBo2o0iSfliZ4=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=GmvuLWLoej4pZgzWZKd+rJ2p+SYM8c6z/qUfVQz7/qqrKX0QQkovtZ+Q2ZpomqCYR
-	 xixSqzJAYandobrCitfU4a2hUrFHAjsduMaxYqi2qdBZ+TURFIaUN2x8C2m0A+b6zh
-	 5d8djxLIrDGcsm21F129JyS8HZVV112EPE0gaW6YSr2KmUtM8tqBzR4tAon+lfxTQB
-	 VhsVg41pEmnWwfW+eBLsP+78m4uqsGZvhexuM6AizC9w+7dfkC837HBx1wKgQasDTq
-	 HjevIXG0pHAeULz6iwMvLbMmCHznbw2YzFAW6XQ/iEKh4VWh2Z0jI/vFICR5cxDQF1
-	 xC+Q8RmMjqXUA==
-Date: Thu, 12 Oct 2023 14:32:46 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Andrew Jones <ajones@ventanamicro.com>
-Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
-	palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	leyfoon.tan@starfivetech.com, jeeheng.sia@starfivetech.com,
-	conor.dooley@microchip.com, apatel@ventanamicro.com
-Subject: Re: [PATCH v1 1/1] riscv: sbi: Introduce system suspend support
-Message-ID: <20231012-pulverize-founding-f459336028a2@spud>
-References: <20231012072148.7010-3-ajones@ventanamicro.com>
- <20231012072148.7010-4-ajones@ventanamicro.com>
- <20231012-powdery-demeanor-4d8dde576f24@spud>
+	b=GGOqHIgl+91RccrdW0Y93H+f5sYZ8tcCRAPCTsHHW9bgTNrGYg3T1er9zlL2i8IfF
+	 6/NARE2th7RDtUnbbhG1ZR2UvXeLiQDg4uN2arw79A5nGZIIiDz2r/3OrQRft2W1oC
+	 nU31cfkA0uqF4i1fYi91JPpE/5MA0DfT+nsS2JJf2d6LneifjHdFajva647tg50uyQ
+	 csFDl7evGenFjdYh+JlPxXMtxmOgRiiMhPywHi2AGj8RyN5jzz9u493MjkqrjXhJWO
+	 Y9iIUCYKF3+DL5hqoBWekq6jFNMiohkPyt2JpzHOwFjxGrLXI8L6e+H8ksuMpUSOk3
+	 gqO6IXUjH1NHw==
+Date: Thu, 12 Oct 2023 21:20:41 +0800
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Inochi Amaoto <inochiama@outlook.com>
+Cc: Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Chao Wei <chao.wei@sophgo.com>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Anup Patel <anup@brainfault.org>, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v2 0/7] Add Huashan Pi board support
+Message-ID: <ZSfyqaWsNh3mR26I@xhacker>
+References: <IA1PR20MB49531C1C34C3E972DBBA4151BBCEA@IA1PR20MB4953.namprd20.prod.outlook.com>
 MIME-Version: 1.0
-In-Reply-To: <20231012-powdery-demeanor-4d8dde576f24@spud>
+Content-Disposition: inline
+In-Reply-To: <IA1PR20MB49531C1C34C3E972DBBA4151BBCEA@IA1PR20MB4953.namprd20.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231012_063254_908468_531CEF7C 
-X-CRM114-Status: GOOD (  18.77  )
+X-CRM114-CacheID: sfid-20231012_063255_125935_17A70B4E 
+X-CRM114-Status: GOOD (  12.92  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,73 +77,54 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============9184605903218264370=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Mon, Oct 09, 2023 at 07:25:14PM +0800, Inochi Amaoto wrote:
+> Huashan Pi board is an embedded development platform based on the
+> CV1812H chip. Add minimal device tree files for this board.
+> Currently, it can boot to a basic shell.
+> 
+> NOTE: this series is based on the Jisheng's Milk-V Duo patch.
+> 
+> Link: https://en.sophgo.com/product/introduce/huashan.html
+> Link: https://en.sophgo.com/product/introduce/cv181xH.html
+> 
+> Changed from v1:
+> 1. split the patch into several patch and refactor them.
+> 
+> Inochi Amaoto (7):
+>   dt-bindings: interrupt-controller: Add SOPHGO CV1812H plic
+>   dt-bindings: timer: Add SOPHGO CV1812H clint
+>   dt-bindings: riscv: Add SOPHGO Huashan Pi board compatibles
+>   riscv: dts: sophgo: Separate common devices from cv1800b soc
+>   riscv: dts: sophgo: cv180x: Add gpio devices
+>   riscv: dts: sophgo: add initial CV1812H SoC device tree
+>   riscv: dts: sophgo: add Huashan Pi board device tree
 
---===============9184605903218264370==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="CQOr9NWImZpKyoom"
-Content-Disposition: inline
-
-
---CQOr9NWImZpKyoom
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Thu, Oct 12, 2023 at 02:30:02PM +0100, Conor Dooley wrote:
-> Yo,
->=20
-> On Thu, Oct 12, 2023 at 09:21:50AM +0200, Andrew Jones wrote:
-> > When the SUSP SBI extension is present it implies that the standard
-> > "suspend to RAM" type is available. Wire it up to the generic
-> > platform suspend support, also applying the already present support
-> > for non-retentive CPU suspend. When the kernel is built with
-> > CONFIG_SUSPEND, one can do 'echo mem > /sys/power/state' to suspend.
-> > Resumption will occur when a platform-specific wake-up event arrives.
-> >=20
-> > Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
->=20
-> > +static int __init sbi_system_suspend_init(void)
-> > +{
-> > +	if (!sbi_spec_is_0_1() && sbi_probe_extension(SBI_EXT_SUSP) > 0) {
->=20
-> Random thought I had reading this, was that it'll be possible to have a
-> firmware that implements SBI < 2.0 that provides the SUSP extension.
-> FWIW, I don't think that that is problematic, but maybe I am missing
-> something that would make it so.
-
-Hmm, next patch I look at is from Anup's debug console series, and he
-does check that the SBI implementation is at least version 2.0 before
-probing for the extension. We should probably have the same policy
-everywhere.
-
---CQOr9NWImZpKyoom
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZSf1fgAKCRB4tDGHoIJi
-0sLYAP9/IMXJXHLPAnP9iQdy2zlTfA5HEvzDLmI7Zmzly7fAEgD/fSNESmrPCyE3
-KyA2qossMvBAdPILsbLSWAm1puhYPgY=
-=Kk11
------END PGP SIGNATURE-----
-
---CQOr9NWImZpKyoom--
-
-
---===============9184605903218264370==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+For the patch series:
+Reviewed-by: Jisheng Zhang <jszhang@kernel.org>
+> 
+>  .../sifive,plic-1.0.0.yaml                    |  1 +
+>  .../devicetree/bindings/riscv/sophgo.yaml     |  4 +
+>  .../bindings/timer/sifive,clint.yaml          |  1 +
+>  arch/riscv/boot/dts/sophgo/Makefile           |  1 +
+>  arch/riscv/boot/dts/sophgo/cv1800b.dtsi       | 95 +------------------
+>  .../dts/sophgo/{cv1800b.dtsi => cv180x.dtsi}  | 91 ++++++++++++++----
+>  .../boot/dts/sophgo/cv1812h-huashan-pi.dts    | 48 ++++++++++
+>  arch/riscv/boot/dts/sophgo/cv1812h.dtsi       | 36 +++++++
+>  8 files changed, 165 insertions(+), 112 deletions(-)
+>  copy arch/riscv/boot/dts/sophgo/{cv1800b.dtsi => cv180x.dtsi} (58%)
+>  create mode 100644 arch/riscv/boot/dts/sophgo/cv1812h-huashan-pi.dts
+>  create mode 100644 arch/riscv/boot/dts/sophgo/cv1812h.dtsi
+> 
+> --
+> 2.42.0
+> 
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============9184605903218264370==--
-
