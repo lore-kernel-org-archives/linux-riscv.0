@@ -4,122 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20A8BCDB46E
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Oct 2023 12:50:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBDDFCDB46E
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Oct 2023 12:55:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kwe0sYP7H9to3OjgHlXFYUUBGgoVl3NrsbtjncFvfKQ=; b=DX+BZRXAqN9o+bwMIAisWD9+GJ
-	32FTPQP0biOBjEEnLrbpybbI509WRd7aX95/TJMrDl1HkFtZwXQL5Xr8KnlBl16qlGoDKr+iLk2hN
-	E1f6a4IlOgrT4ZMtwmaXWwgy1MtnTgTccr9T1cIK59qU/ak7pigfdGA7vbuLHF2iNaEuWdwt9DCMN
-	fyM1X1boqnEu6r3sU2XXzjK/PJmonBwChpd3rUUNOuTCnm3iLqY4uNRqu5JtFNhRKcd38W9Ixyg9M
-	u086PNcKOYk+03yerEk3nZKIJGou60JNnUfBBbbWa+oI1x7oOcwPbd4WqsluDdpzGbuBmF9EKcmKK
-	iI4Zkl3g==;
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=34cQURS2FFRevWhpoBYJCFzGE7CkvNJBD8uXAMGDguE=; b=M9bKCjpFI64fDE+/ToF31iAodv
+	PvZOkS3R7yNv0vbFcYJkKZEtwC1tjOZQYgNsUehRbug+TaupSMOkGdBHkC4UAiXouDRCuebgVOP43
+	mzdD3asQ461ROeLW2WdYnlB/HfZotD7QCm8K+H5QGpZ/2PpgzRLcL/OHY5ZosBc/gL4DmHyhR3T+D
+	YHYdFfDq7YpZdtLe8YLKYTTZaXa9F1ZLC37keDMStaEqaTwSk2Yz+qYg0jEK2qkap9/gVv3assFMV
+	XAjLcfaz5jQ3WrDGsYQxt4poJkYWxNYH4L6Jl5O2VkpGm7Eox7rE6S1uYG6xm/s93UZ1H9vuRIPZL
+	Un/w7Q5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qqv9N-0010OA-2g;
-	Thu, 12 Oct 2023 12:50:49 +0000
-Received: from mail-bmxind01olkn2082e.outbound.protection.outlook.com ([2a01:111:f403:7011::82e] helo=IND01-BMX-obe.outbound.protection.outlook.com)
+	id 1qqvEG-0011A4-2y;
+	Thu, 12 Oct 2023 12:55:52 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qqv9K-0010ME-1y
+	id 1qqvED-00118E-1o
 	for linux-riscv@lists.infradead.org;
-	Thu, 12 Oct 2023 12:50:48 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=FBhFvVb/k+XdGkzX6FXtgwXBFMB1oNmEMxIrnQpSpDjh0Ql+4mLoVEKjdoyHxDssMHQT37UP5IxZX2YWRtiClHAsjK6LevbKIbFENU8nvR/EinMFz0/hq3CJmxHQp6fxsaEjphqfrHiGrUI52wkKaGon+fwnqCmv4eOEqUbe9YOhMcUao3Tgl2Wr7jEYmxoFYP+Nfa+F1ZovGWG7mGOQvuhsaT6jJKxHH4h0bTf8cIXQl3kjfuivzzbdAMq/5v2/QrN9pxVZYh4KOGstXxQkYKZOYW2I2T5xABqpxrtAzcnLHKmmAoH87WdOXRdNo/0ou0YPh9LsYWdSkWoXyKVMsw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=fE1zJz2mmYdTr+VBJGXhDUQAqCLd/NL4x6PeEREpfiA=;
- b=HdhfxLeymz1lMw6j11KSlDWgB4GkWkv7PQQEQUoaAMv9kzSVOAbuNl+0YOsjEk64UDC9LHGq2gAriKYUUyWKuI4YfbptLo/WmxvJjZDkIKDeNdKNSXkqiFqkNzPrxJMv+A54EnLtesziQaOLk2REMjS7QydQUI/X0yEJVZlVDvHWR2sj2aJuX2lpCT907BaOUbmRJ8ET/w21DVlG8H87sEQeKofbbUagc3wih2d+yxSksgL4pZaN1ocz0rG4fYGkl1IDKyrvLc9geP0IFk0qWWBag0FJiCdZiXPUxW8/rf3TlYXso7EEj9hXD4zKbiUrg2JRIl66ZCj1bqnokTjueA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=fE1zJz2mmYdTr+VBJGXhDUQAqCLd/NL4x6PeEREpfiA=;
- b=ixv+ABKAbe5TNrvKOGaaoYMMPygC8fGKGHGVHxOYLJj4kAgl8qU7taFeTncIG+DQAJXIaQs7mb76tVxE+WHHTAfje710QGgvor/UnvCGswfoQg54Dueqstxt2Juxg5lClmV5aTqiXo/EajUxaaopDgaVx/jVTT9vGXmnACBK5q4kUXkGbOIUQ3USmGnUCagF8Ayv4uY1/hGb73zkpzTuOvrAcrIMDn6Ya+dwZW4iYsodEyPEEC9KHrtAu8r31VEmQedXeOw3S/hjmh1ykgWwClGo7XdNk9XZ2v6wjXm/oeyZQKO9W+x+MlJ/ek/dMwdI6qFWjLT0E3eltNNHB0gFNw==
-Received: from MA0P287MB0332.INDP287.PROD.OUTLOOK.COM (2603:1096:a01:ab::5) by
- PN0P287MB0411.INDP287.PROD.OUTLOOK.COM (2603:1096:c01:122::11) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.6863.45; Thu, 12 Oct 2023 12:50:24 +0000
-Received: from MA0P287MB0332.INDP287.PROD.OUTLOOK.COM
- ([fe80::efe9:8d54:281b:23f7]) by MA0P287MB0332.INDP287.PROD.OUTLOOK.COM
- ([fe80::efe9:8d54:281b:23f7%3]) with mapi id 15.20.6863.043; Thu, 12 Oct 2023
- 12:50:24 +0000
-Message-ID: <MA0P287MB0332C3CA4A3604BA7F7C340CFED3A@MA0P287MB0332.INDP287.PROD.OUTLOOK.COM>
-Date: Thu, 12 Oct 2023 20:50:18 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 4/7] riscv: dts: sophgo: Separate common devices from
- cv1800b soc
-To: Inochi Amaoto <inochiama@outlook.com>, Chao Wei <chao.wei@sophgo.com>,
- Conor Dooley <conor@kernel.org>, Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
-Cc: Jisheng Zhang <jszhang@kernel.org>, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, linux-riscv@lists.infradead.org
-References: <IA1PR20MB49531C1C34C3E972DBBA4151BBCEA@IA1PR20MB4953.namprd20.prod.outlook.com>
- <20231009112642.477337-1-inochiama@outlook.com>
- <IA1PR20MB49532560A3CA2670A0EAB846BBCEA@IA1PR20MB4953.namprd20.prod.outlook.com>
-From: Chen Wang <unicorn_wang@outlook.com>
-In-Reply-To: <IA1PR20MB49532560A3CA2670A0EAB846BBCEA@IA1PR20MB4953.namprd20.prod.outlook.com>
-X-TMN: [USmAh0k1e4tNgW/PzfNgykK3sYiyoR/C]
-X-ClientProxiedBy: SG2PR03CA0125.apcprd03.prod.outlook.com
- (2603:1096:4:91::29) To MA0P287MB0332.INDP287.PROD.OUTLOOK.COM
- (2603:1096:a01:ab::5)
-X-Microsoft-Original-Message-ID: <4430bb15-9856-4c1a-82bb-91e048771b5a@outlook.com>
+	Thu, 12 Oct 2023 12:55:51 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id B7A08CE2865;
+	Thu, 12 Oct 2023 12:55:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 89313C433C7;
+	Thu, 12 Oct 2023 12:55:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1697115347;
+	bh=SKw2eyCVGl2SOK29cOhaOTJX78MHbmbdv5hEMFDILAM=;
+	h=Date:From:To:List-Id:Cc:Subject:References:In-Reply-To:From;
+	b=oEfV7krVm7nMh/Fuq10B4HQXdze/4aCPchmajWiEJfvv6x2hV/Ylkx5zADHVSyiH9
+	 vziUrjHQ3Mb85HDiA0SKy9mK/m1qVPaBU+es2qBFjP5trMGmpMMMigC6nG7LEZee3N
+	 6/RwgUz+s2PpOUu2pA6CCLN/vBDaeyMs0vGEQ+8Sf+G3CsTC9BvCOuFxnh3lwgnS5p
+	 RANbhdtWy9UL+rXZPxIi9hfxw8EW133GGLWJ8p5lYHJ3Gils22MJCKoqMTsGwa6ik+
+	 K5sibSsPdf0XzDv0BoUan07YrXKc9LcFAWj/oAsbljDvH79iEgg2z+yxHb9WOK78m9
+	 r6pmRLvpl+XSw==
+Date: Thu, 12 Oct 2023 13:55:42 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: linux-renesas-soc@vger.kernel.org,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	soc@kernel.org
+Subject: Re: [PATCH v2] soc: renesas: make ARCH_R9A07G043 depend on required
+ options
+Message-ID: <20231012-very-resort-6f335fde7c21@spud>
+References: <20231012-pouch-parkway-7d26c04b3300@spud>
+ <CAMuHMdWRzoBgxxkF6kpxr4tpUM4BzHnMUmW3vDR_BrrXiKae5Q@mail.gmail.com>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MA0P287MB0332:EE_|PN0P287MB0411:EE_
-X-MS-Office365-Filtering-Correlation-Id: a7a10457-5c05-4a7d-f172-08dbcb21cca3
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: bC12LEMBDVtl0jc1eY0d5o0dJiDK/3hIns/qtQ0/uMbZnnso1/uc8zye2NKf0MnfE58H63t1MLaGiZGqsc2cCVj9Ezo0mM46ZzL0m4xme7ENufzqXsfeaIm2qhmXY/rKqHRP94h/9rfXdPICTw94YRCSQoql2CAbbomLdCZc4QO61bwEkeQSa2vOSz+4SlzIp5rKGe/JBj55bWXoRO522pkVkHZMbRPpqbEdQbaIw4DU/0JLpqaVJexOEMLNS2aDFj3LnfuIBW8SC3q/rrG6WcIvK2CvJLEePmhs98NiRKjG37i85eEee+mmCLhbSNqt4+WGMiMQGESQbI4YpAmf3lt2e6ow4Y1iY5BtbCGmuYfxeNSDtbmCYkCwIDH8kRANm83AUd4darp9Q1buFygnFJkSQoqFg+hK2TuRVlzQItg192H46s2UYN7rdRr2CU36reCIW2XFkJsi+nU3yBSe74S/ZdmQmMXO5s/KZYWW+th/ygJxlT3yp8WwPtaTT1WlDLrjJx6Clq5rURL0mZ3r/NRVFyCHWwIBYlIyCk4AuYQfEc8ZGwx32MWRO38JsVhi
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?bDM5K054MmhtU3d5M3FxTVhzMXg2UXdsUmQ1MmVnbWU1THVnS0ZaSGk0MUd5?=
- =?utf-8?B?aTM2R0t3WEl0NTJWTkl6TGNSZHA5S1E3aGJJeU5hc3EycUkrZmhGMm95VDNI?=
- =?utf-8?B?Tk5FRmJtb3NDaXBBU2Z3Y2ViaHhzTDhKMWdOUVlXQ2lnTnkxMnlwcTQyckQw?=
- =?utf-8?B?TldLM2VyWGVmcXJ0WlNpQkp1eURScmRDdVBnSURabXcvWm4zSUM4NWlWVWtE?=
- =?utf-8?B?RHhPZ2RKNHRLVlVqell0QlpvRUlMUGVLWFRBWDU0K292ckN5ZnQzdHhVZXFv?=
- =?utf-8?B?ZUcyWVdISWZGQ2NzaUR5djBwQnd4R01kTXBYZ05DYkF0eVJHeHlrZDZINTVE?=
- =?utf-8?B?NW1ISlVDNWMweDdLMUllY2tSVGdGaXJBSmNPeGVScUphRzRpWmQ3QWRlOTRZ?=
- =?utf-8?B?dGdrVno4bFFaWU1SdkRHSUV4aDFGYjYyc2VrSkhBWTA5MlhacllpQmNpQkVm?=
- =?utf-8?B?TjEwVXNxa3VKc2NRK3B6OHo1UGdRNFNmK2tCTTVSQ2o0YmsrQ2o5UXk1NFRV?=
- =?utf-8?B?TFNIYkdLdG1jSlYyZVNQUHNvTnlhZC80cUFiTTcxb3g0SE9keUJlaFo1RWh4?=
- =?utf-8?B?czJ1T2g4MFFlbUJyeUZQM3h4d1VOUkxJMytMV05qVjdjdGVHTTNLWEtHRk90?=
- =?utf-8?B?amMybTA0V1psQ3pYR0FDcjV5NFFoY2VjdUtQbXRocUpGelMvWTlOcjIzRUNj?=
- =?utf-8?B?c2FrejVleWVhVldDV2JUeWNQMFgxWU1oSjJ6b1p2TXlHL2xqMlcwWHEyVDdY?=
- =?utf-8?B?d1hONjJNRnZERGhWVFlFaSt1UnF5MERoQmI1ZGhPTW8xeW1laGhVdlpRb2p0?=
- =?utf-8?B?Sk52YzZnYTI4NmU1VEtPaFBsOVVVVWErb0lvVFlVUjI0L3VMZjd2QjVSZ3Uw?=
- =?utf-8?B?QXk4RmtFWEVLZEE2VG9tQi9HQTVhd01yeThrYWgrQzNsa20raVp5MTlVYzZM?=
- =?utf-8?B?MjZ5SndNejJSQnB4ZnJsTUZ1ejJsWUNrRnM1a0NUR1F6YWFlSFNLSTBwd0ZE?=
- =?utf-8?B?VW9WVUFtWitFQUY2YURNUzllNzh0bHZ3WTlacmU5dWZPRXFhWDB3ZlJwakhn?=
- =?utf-8?B?QVdGaE82bGhqQWp6NzhKUFlNOVIrT0dSS3RDSHYwMDJvbXZ2MmpWei9qbElL?=
- =?utf-8?B?L0VBa1QzM0Z5RHc2MlYvK1JiK0gvWmlSTWNneUp4RWdsUmFIOFpyOTlmaUZU?=
- =?utf-8?B?UWs1cFltODQ2VDlrWU13eGZwQ3JEd09kVnZOTDlKMUlmdjA0UGZ5Vk8vR1la?=
- =?utf-8?B?V09selEyVVd6MDRrWXMrTDJCTUticE5PYTF2U0JjKzRxSW1VQzhmZ0VHTTF4?=
- =?utf-8?B?YzNsdHJ0QWxCekM2Wjd1OWhNa3RKUU41amhaaG5ydnZzMERWRmh3UXZuellh?=
- =?utf-8?B?NnpCaDlBODFqUmdIa1pkKzVEa0NSVzEzZ1RHZkdCRUFDZU9SNnpRSXhaMVpR?=
- =?utf-8?B?c2sxd1RUQW1EUWphZHFtelpZeTh5OEZFQ2lWOVdCTTVZT3J5S0dMQW54QnhC?=
- =?utf-8?B?Z2lPNnErT1U3OXVoa05qaUNsdkFncVJ1cnFwQ0ozZyswZWowUjJnNWJvUm84?=
- =?utf-8?B?anlTQzhoa1IzTE8ycXl5WnpzMkxLaHBORGRFakpMR2dHUWZ5VUk1d3N4L2lL?=
- =?utf-8?Q?Q00BU5IMNV1rUekrTDgwx5XlHbLBNtA6FNN5dVNkh6gU=3D?=
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a7a10457-5c05-4a7d-f172-08dbcb21cca3
-X-MS-Exchange-CrossTenant-AuthSource: MA0P287MB0332.INDP287.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Oct 2023 12:50:24.1119
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PN0P287MB0411
+In-Reply-To: <CAMuHMdWRzoBgxxkF6kpxr4tpUM4BzHnMUmW3vDR_BrrXiKae5Q@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231012_055046_653539_7893C555 
-X-CRM114-Status: GOOD (  12.81  )
+X-CRM114-CacheID: sfid-20231012_055549_775032_E1D31CC8 
+X-CRM114-Status: GOOD (  15.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,194 +76,83 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: multipart/mixed; boundary="===============5894712400425034277=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
-On 2023/10/9 19:26, Inochi Amaoto wrote:
-> Move the cpu and the common peripherals of CV181x and CV180x to new file.
->
-> Signed-off-by: Inochi Amaoto <inochiama@outlook.com>
-> ---
->   arch/riscv/boot/dts/sophgo/cv1800b.dtsi       | 95 +------------------
->   .../dts/sophgo/{cv1800b.dtsi => cv180x.dtsi}  | 19 +---
->   2 files changed, 2 insertions(+), 112 deletions(-)
->   copy arch/riscv/boot/dts/sophgo/{cv1800b.dtsi => cv180x.dtsi} (80%)
+--===============5894712400425034277==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="EO9YkbE39monY2qy"
+Content-Disposition: inline
 
-LGTM
 
-Acked-by: Chen Wang <unicorn_wang@outlook.com>
+--EO9YkbE39monY2qy
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> diff --git a/arch/riscv/boot/dts/sophgo/cv1800b.dtsi b/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
-> index df40e87ee063..0904154f9829 100644
-> --- a/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
-> +++ b/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
-> @@ -3,106 +3,13 @@
->    * Copyright (C) 2023 Jisheng Zhang <jszhang@kernel.org>
->    */
->
-> -#include <dt-bindings/interrupt-controller/irq.h>
-> +#include "cv180x.dtsi"
->
->   / {
->   	compatible = "sophgo,cv1800b";
-> -	#address-cells = <1>;
-> -	#size-cells = <1>;
-> -
-> -	cpus: cpus {
-> -		#address-cells = <1>;
-> -		#size-cells = <0>;
-> -		timebase-frequency = <25000000>;
-> -
-> -		cpu0: cpu@0 {
-> -			compatible = "thead,c906", "riscv";
-> -			device_type = "cpu";
-> -			reg = <0>;
-> -			d-cache-block-size = <64>;
-> -			d-cache-sets = <512>;
-> -			d-cache-size = <65536>;
-> -			i-cache-block-size = <64>;
-> -			i-cache-sets = <128>;
-> -			i-cache-size = <32768>;
-> -			mmu-type = "riscv,sv39";
-> -			riscv,isa = "rv64imafdc";
-> -			riscv,isa-base = "rv64i";
-> -			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "zicntr", "zicsr",
-> -					       "zifencei", "zihpm";
-> -
-> -			cpu0_intc: interrupt-controller {
-> -				compatible = "riscv,cpu-intc";
-> -				interrupt-controller;
-> -				#address-cells = <0>;
-> -				#interrupt-cells = <1>;
-> -			};
-> -		};
-> -	};
-> -
-> -	osc: oscillator {
-> -		compatible = "fixed-clock";
-> -		clock-output-names = "osc_25m";
-> -		#clock-cells = <0>;
-> -	};
->
->   	soc {
-> -		compatible = "simple-bus";
->   		interrupt-parent = <&plic>;
-> -		#address-cells = <1>;
-> -		#size-cells = <1>;
-> -		dma-noncoherent;
-> -		ranges;
-> -
-> -		uart0: serial@4140000 {
-> -			compatible = "snps,dw-apb-uart";
-> -			reg = <0x04140000 0x100>;
-> -			interrupts = <44 IRQ_TYPE_LEVEL_HIGH>;
-> -			clocks = <&osc>;
-> -			reg-shift = <2>;
-> -			reg-io-width = <4>;
-> -			status = "disabled";
-> -		};
-> -
-> -		uart1: serial@4150000 {
-> -			compatible = "snps,dw-apb-uart";
-> -			reg = <0x04150000 0x100>;
-> -			interrupts = <45 IRQ_TYPE_LEVEL_HIGH>;
-> -			clocks = <&osc>;
-> -			reg-shift = <2>;
-> -			reg-io-width = <4>;
-> -			status = "disabled";
-> -		};
-> -
-> -		uart2: serial@4160000 {
-> -			compatible = "snps,dw-apb-uart";
-> -			reg = <0x04160000 0x100>;
-> -			interrupts = <46 IRQ_TYPE_LEVEL_HIGH>;
-> -			clocks = <&osc>;
-> -			reg-shift = <2>;
-> -			reg-io-width = <4>;
-> -			status = "disabled";
-> -		};
-> -
-> -		uart3: serial@4170000 {
-> -			compatible = "snps,dw-apb-uart";
-> -			reg = <0x04170000 0x100>;
-> -			interrupts = <47 IRQ_TYPE_LEVEL_HIGH>;
-> -			clocks = <&osc>;
-> -			reg-shift = <2>;
-> -			reg-io-width = <4>;
-> -			status = "disabled";
-> -		};
-> -
-> -		uart4: serial@41c0000 {
-> -			compatible = "snps,dw-apb-uart";
-> -			reg = <0x041c0000 0x100>;
-> -			interrupts = <48 IRQ_TYPE_LEVEL_HIGH>;
-> -			clocks = <&osc>;
-> -			reg-shift = <2>;
-> -			reg-io-width = <4>;
-> -			status = "disabled";
-> -		};
->
->   		plic: interrupt-controller@70000000 {
->   			compatible = "sophgo,cv1800b-plic", "thead,c900-plic";
-> diff --git a/arch/riscv/boot/dts/sophgo/cv1800b.dtsi b/arch/riscv/boot/dts/sophgo/cv180x.dtsi
-> similarity index 80%
-> copy from arch/riscv/boot/dts/sophgo/cv1800b.dtsi
-> copy to arch/riscv/boot/dts/sophgo/cv180x.dtsi
-> index df40e87ee063..ffaf51724c98 100644
-> --- a/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
-> +++ b/arch/riscv/boot/dts/sophgo/cv180x.dtsi
-> @@ -1,12 +1,12 @@
->   // SPDX-License-Identifier: (GPL-2.0 OR MIT)
->   /*
->    * Copyright (C) 2023 Jisheng Zhang <jszhang@kernel.org>
-> + * Copyright (C) 2023 Inochi Amaoto <inochiama@outlook.com>
->    */
->
->   #include <dt-bindings/interrupt-controller/irq.h>
->
->   / {
-> -	compatible = "sophgo,cv1800b";
->   	#address-cells = <1>;
->   	#size-cells = <1>;
->
-> @@ -48,7 +48,6 @@ osc: oscillator {
->
->   	soc {
->   		compatible = "simple-bus";
-> -		interrupt-parent = <&plic>;
->   		#address-cells = <1>;
->   		#size-cells = <1>;
->   		dma-noncoherent;
-> @@ -103,21 +102,5 @@ uart4: serial@41c0000 {
->   			reg-io-width = <4>;
->   			status = "disabled";
->   		};
-> -
-> -		plic: interrupt-controller@70000000 {
-> -			compatible = "sophgo,cv1800b-plic", "thead,c900-plic";
-> -			reg = <0x70000000 0x4000000>;
-> -			interrupts-extended = <&cpu0_intc 11>, <&cpu0_intc 9>;
-> -			interrupt-controller;
-> -			#address-cells = <0>;
-> -			#interrupt-cells = <2>;
-> -			riscv,ndev = <101>;
-> -		};
-> -
-> -		clint: timer@74000000 {
-> -			compatible = "sophgo,cv1800b-clint", "thead,c900-clint";
-> -			reg = <0x74000000 0x10000>;
-> -			interrupts-extended = <&cpu0_intc 3>, <&cpu0_intc 7>;
-> -		};
->   	};
->   };
-> --
-> 2.42.0
->
+On Thu, Oct 12, 2023 at 02:15:21PM +0200, Geert Uytterhoeven wrote:
+
+> > --- a/drivers/soc/renesas/Kconfig
+> > +++ b/drivers/soc/renesas/Kconfig
+> > @@ -340,10 +340,12 @@ if RISCV
+> >  config ARCH_R9A07G043
+> >         bool "RISC-V Platform support for RZ/Five"
+> >         depends on NONPORTABLE
+> > +       depends on RISCV_ALTERNATIVE
+> > +       depends on RISCV_SBI
+> >         select ARCH_RZG2L
+> > -       select AX45MP_L2_CACHE if RISCV_DMA_NONCOHERENT
+> > +       select AX45MP_L2_CACHE
+> >         select DMA_GLOBAL_POOL
+> > -       select ERRATA_ANDES if RISCV_SBI
+> > +       select ERRATA_ANDES
+> >         select ERRATA_ANDES_CMO if ERRATA_ANDES
+>=20
+> As ERRATA_ANDES is now selected unconditionally, the test
+> for it can be removed.  I can do that while applying.
+
+Yeah, I wasn't really sure whether to delete it or not. I shoulda
+mentioned it under the snip line I suppose. I had it in my head that
+keeping the if there made things less likely to fail if changes were
+made to the Kconfig stuff in arch/riscv, but this is pretty coupled
+and would likely blow up anyway.
+
+Go for it.
+
+Cheers,
+Conor.
+
+>=20
+> >         help
+> >           This enables support for the Renesas RZ/Five SoC.
+
+
+--EO9YkbE39monY2qy
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZSfszgAKCRB4tDGHoIJi
+0nfvAQCSeC2WKYXavG94sLVGW3mtXhE3Vb16roJku4vmgLP9MwEA+0Fl2ZWNhRjD
+7J5OVfXJpT8hGVH4bRW/sucSHBZAWQw=
+=0+xS
+-----END PGP SIGNATURE-----
+
+--EO9YkbE39monY2qy--
+
+
+--===============5894712400425034277==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============5894712400425034277==--
+
