@@ -4,63 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B12BCDB46E
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Oct 2023 14:53:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D973CDB46E
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Oct 2023 14:54:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=05kdRoPulh1odkT3bivftzb03kdfJd2mUAb6wl03Fb8=; b=uBWrUn+NCkXAVg
-	ZQ/qBUsAPzxyLOC5E9V6Zf5tkOIKzskCV5/4roJrBHzQHZquIbAHAFf0RQwuCYqkvP2+TxhSjw0pG
-	iQ3lAfa6DEGLciU0gIdHpOfaysdMZyM3NMEaIb8woWrWSkpTUhhtLRK5LAmCRFQOsBW1WQOSlmAWg
-	qxomT2rIE/8y0ykYF1Pw6kNa8sN3QoEWqS+X3HS1KxuyBH+tMupzyNeM9ZZoj400Seqy9beVMFx7Q
-	NF3kmalgbzY5TjxqBy1nWkYxe2Pz2yAl3D/Cw3WU/wUqeijfOWBC5XFLctGz/iDY1jW2s8fpP+dMP
-	gnWfg2qZV0HzwS6HN52A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:Cc:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eWrvInpqZaZjhFDF7qODklNw8THE5s1MF1OWwiZIqA0=; b=vnDpcIzFexqCnEt+4hyGNv2iDN
+	vPg1wXwOJB0Y51/hvHOpO3VY8o2SgpaA2uqMGC2jHnt6xHS9kwkxxa168NwUlwaurZKtKXvs6a7Y2
+	PyFBjMQ/OIfQcfdsDWjUjiqQrwISaVV+t+1YHAuVb3k9bGcsiNqH4ixPXT7FBlnuEsN7o9aElnaQz
+	PLVVuToYYfAlkDzLY7OqBGh8m7XoLHsz5xrluKLw9OcnCyjYvZPDbUw+/ahQNeeHP72dXmi5K5gwy
+	ANNraEOv/bkHn07F8FixksINNKdX46GhARuy1wZA4ypwIpUI+xIBulDqZ5wNneQgXl3+Jy9AQo342
+	pVqU6eig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qqx3j-001DxG-1U;
-	Thu, 12 Oct 2023 14:53:07 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1qqx52-001E5f-0f;
+	Thu, 12 Oct 2023 14:54:28 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qqx3c-001Dw4-1V
+	id 1qqx4y-001E4b-0I
 	for linux-riscv@lists.infradead.org;
-	Thu, 12 Oct 2023 14:53:05 +0000
+	Thu, 12 Oct 2023 14:54:26 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 57748CE2913;
-	Thu, 12 Oct 2023 14:52:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BDC7CC433C7;
-	Thu, 12 Oct 2023 14:52:52 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTP id 4B94CB82458;
+	Thu, 12 Oct 2023 14:54:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 96553C433C7;
+	Thu, 12 Oct 2023 14:54:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1697122375;
-	bh=IYDm8ofYKOZAFbxQa32MHYpNBNA79HhiV1G9gyxN4IQ=;
+	s=k20201202; t=1697122461;
+	bh=+ojXCG56gMjVZw+vx9Pj6zEubeSQNGY9Yfj0hYNQrvU=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=JVnBLfyrM0aoLkeHm29EX0fPCHIKaXsix+jYVpXjcHwoD7xcD0ZAM4ePIeH3yU/nD
-	 7yTfYPhRsbMS1Z3U2ReHBjOxva0twYJOmkJ/Tl6SjS3UbEmLX0VZznvXCE1E7FYoce
-	 L5F/CHl8HjKMXjx0V/xYH23HX3iR6Xg4RN928MsGT6hzzWnszfyJ1Qqv4RdtP8/A6Z
-	 r4KKIp/Ouw7+MS75BHr8TGm6NhdiW96up4OgOQhbZ84qzAsGjaLLs4VJZQQ4TU6EEW
-	 B+4CVRtgTCiBDpgvzM7Abf8cjcNXUQRF+0x+NkdYmUAa+IrcfkiBPg7GahJs80WXmp
-	 hTjR0Ulm1rJ1A==
-Date: Thu, 12 Oct 2023 22:40:46 +0800
-From: Jisheng Zhang <jszhang@kernel.org>
-To: Conor Dooley <conor@kernel.org>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Guo Ren <guoren@kernel.org>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 0/2] riscv: errata: thead: use riscv_nonstd_cache_ops
- for CMO
-Message-ID: <ZSgFbuD203L0XL4J@xhacker>
-References: <20231012141456.4078-1-jszhang@kernel.org>
- <ZSgA1BtMv/YDHzQX@xhacker>
- <20231012-remindful-coke-f9cfe950425f@spud>
+	b=iqiaPRzY62d+KCn53LW4SeKoB5rJrf8XYH/0uzqIfa+WEd6tvkNAvImgd25Eql9wm
+	 z9SfRMb3GsqCHUZiyrFhNSSR9eOR9DWiBiJALphEf+A+CboBiAb8nis1weMnpwdvZa
+	 mQEeZBoedIqE1bXF3we+nYFkHweXsTDXK6AnC6i1vyuCJvN0UEShPSfclDBRB/zTmK
+	 A7Rx/IhBWKziaV8gjoOEa1V6QyZyYYFqLiaKiSGBqKRWV1hFYRvJ38h1BCceYQtOn8
+	 RdYbxGhpJlllcCDQYeSXQGXbiTwQS+NoB6f+ktAc8O2hFHaWBZd9V16tJZWUC01r8u
+	 kH7rHVW6l27mg==
+Date: Thu, 12 Oct 2023 15:54:17 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Charlie Jenkins <charlie@rivosinc.com>
+Subject: Re: [PATCH v7 2/4] riscv: Checksum header
+Message-ID: <20231012-directory-drapery-fec6c7e2419d@spud>
+References: <20230919-optimize_checksum-v7-0-06c7d0ddd5d6@rivosinc.com>
+ <20230919-optimize_checksum-v7-2-06c7d0ddd5d6@rivosinc.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20231012-remindful-coke-f9cfe950425f@spud>
+In-Reply-To: <20230919-optimize_checksum-v7-2-06c7d0ddd5d6@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231012_075301_008695_AA36DEB5 
-X-CRM114-Status: GOOD (  23.58  )
+X-CRM114-CacheID: sfid-20231012_075424_449074_E1ECB326 
+X-CRM114-Status: GOOD (  24.44  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,55 +65,164 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: linux-arch@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>, Arnd Bergmann <arnd@arndb.de>, linux-kernel@vger.kernel.org, David Laight <David.Laight@aculab.com>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org
+Content-Type: multipart/mixed; boundary="===============4435737669001855464=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 12, 2023 at 03:36:28PM +0100, Conor Dooley wrote:
-> On Thu, Oct 12, 2023 at 10:21:08PM +0800, Jisheng Zhang wrote:
-> > On Thu, Oct 12, 2023 at 10:14:54PM +0800, Jisheng Zhang wrote:
-> > > Previously, we use alternative mechanism to dynamically patch
-> > > the CMO operations for THEAD C906/C910 during boot for performance
-> > > reason. But as pointed out by Arnd, "there is already a significant
-> > > cost in accessing the invalidated cache lines afterwards, which is
-> > > likely going to be much higher than the cost of an indirect branch".
-> > > And indeed, there's no performance difference with GMAC and EMMC per
-> > > my test on Sipeed Lichee Pi 4A board.
-> > > 
-> > > Use riscv_nonstd_cache_ops for THEAD C906/C910 CMO to simplify
-> > > the alternative code, and to acchieve Arnd's goal -- "I think
-> > > moving the THEAD ops at the same level as all nonstandard operations
-> > > makes sense, but I'd still leave CMO as an explicit fast path that
-> > > avoids the indirect branch. This seems like the right thing to do both
-> > > for readability and for platforms on which the indirect branch has a
-> > > noticeable overhead."
-> > > 
-> > > To make bisect easy, I use two patches here: patch1 does the conversion
-> > > which just mimics current CMO behavior via. riscv_nonstd_cache_ops, I
-> > > assume no functionalities changes. patch2 uses T-HEAD PA based CMO
-> > > instructions so that we don't need to covert PA to VA.
-> > > 
-> > > Hi Guo,
-> > > 
-> > > I didn't use wback_inv for wback as you suggested during v1 reviewing,
-> > > this can be left as future optimizations.
-> > > 
-> > > Thanks
-> > > 
-> > > since v2:
-> > >   - collect Reviewed-by tag
-> > 
-> > Oh, I missed the tag collection, but I know maintainers are using b4 which can
-> > collect and apply tags automatically ;). let me know if want a new
-> > version.
-> 
-> It doesn't collect tags (AFAIU) from earlier revisions though.
 
-oops I didn't know this before, just sent out v4 with real tag collection to
-make the merging progress smooth.
+--===============4435737669001855464==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="/uRjsvow0K0+ny7V"
+Content-Disposition: inline
+
+
+--/uRjsvow0K0+ny7V
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Tue, Sep 19, 2023 at 11:44:31AM -0700, Charlie Jenkins wrote:
+> Provide checksum algorithms that have been designed to leverage riscv
+> instructions such as rotate. In 64-bit, can take advantage of the larger
+> register to avoid some overflow checking.
+>=20
+> Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
+
+Same here,
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+
+I think there are some "issues" attributed to this patch by the
+automation - but they spurious. This diff here could not cause a
+drivers/block/drbd/drbd_bitmap.c:1271: warning: Function parameter or membe=
+r 'peer_device' not described in 'drbd_bm_write_copy_pages'
+after all.
+
+Cheers,
+Conor.
+
+> ---
+>  arch/riscv/include/asm/checksum.h | 79 +++++++++++++++++++++++++++++++++=
+++++++
+>  1 file changed, 79 insertions(+)
+>=20
+> diff --git a/arch/riscv/include/asm/checksum.h b/arch/riscv/include/asm/c=
+hecksum.h
+> new file mode 100644
+> index 000000000000..dc0dd89f2a13
+> --- /dev/null
+> +++ b/arch/riscv/include/asm/checksum.h
+> @@ -0,0 +1,79 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +/*
+> + * IP checksum routines
+> + *
+> + * Copyright (C) 2023 Rivos Inc.
+> + */
+> +#ifndef __ASM_RISCV_CHECKSUM_H
+> +#define __ASM_RISCV_CHECKSUM_H
+> +
+> +#include <linux/in6.h>
+> +#include <linux/uaccess.h>
+> +
+> +#define ip_fast_csum ip_fast_csum
+> +
+> +#include <asm-generic/checksum.h>
+> +
+> +/*
+> + * Quickly compute an IP checksum with the assumption that IPv4 headers =
+will
+> + * always be in multiples of 32-bits, and have an ihl of at least 5.
+> + * @ihl is the number of 32 bit segments and must be greater than or equ=
+al to 5.
+> + * @iph is assumed to be word aligned.
+> + */
+> +static inline __sum16 ip_fast_csum(const void *iph, unsigned int ihl)
+> +{
+> +	unsigned long csum =3D 0;
+> +	int pos =3D 0;
+> +
+> +	do {
+> +		csum +=3D ((const unsigned int *)iph)[pos];
+> +		if (IS_ENABLED(CONFIG_32BIT))
+> +			csum +=3D csum < ((const unsigned int *)iph)[pos];
+> +	} while (++pos < ihl);
+> +
+> +	/*
+> +	 * ZBB only saves three instructions on 32-bit and five on 64-bit so not
+> +	 * worth checking if supported without Alternatives.
+> +	 */
+> +	if (IS_ENABLED(CONFIG_RISCV_ISA_ZBB) &&
+> +	    IS_ENABLED(CONFIG_RISCV_ALTERNATIVE)) {
+> +		unsigned long fold_temp;
+> +
+> +		asm_volatile_goto(ALTERNATIVE("j %l[no_zbb]", "nop", 0,
+> +					      RISCV_ISA_EXT_ZBB, 1)
+> +		    :
+> +		    :
+> +		    :
+> +		    : no_zbb);
+> +
+> +		if (IS_ENABLED(CONFIG_32BIT)) {
+> +			asm(".option push				\n\
+> +			.option arch,+zbb				\n\
+> +				not	%[fold_temp], %[csum]		\n\
+> +				rori	%[csum], %[csum], 16		\n\
+> +				sub	%[csum], %[fold_temp], %[csum]	\n\
+> +			.option pop"
+> +			: [csum] "+r" (csum), [fold_temp] "=3D&r" (fold_temp));
+> +		} else {
+> +			asm(".option push				\n\
+> +			.option arch,+zbb				\n\
+> +				rori	%[fold_temp], %[csum], 32	\n\
+> +				add	%[csum], %[fold_temp], %[csum]	\n\
+> +				srli	%[csum], %[csum], 32		\n\
+> +				not	%[fold_temp], %[csum]		\n\
+> +				roriw	%[csum], %[csum], 16		\n\
+> +				subw	%[csum], %[fold_temp], %[csum]	\n\
+> +			.option pop"
+> +			: [csum] "+r" (csum), [fold_temp] "=3D&r" (fold_temp));
+> +		}
+> +		return csum >> 16;
+> +	}
+> +no_zbb:
+> +#ifndef CONFIG_32BIT
+> +	csum +=3D (csum >> 32) | (csum << 32);
+> +	csum >>=3D 32;
+> +#endif
+> +	return csum_fold((__force __wsum)csum);
+> +}
+> +
+> +#endif // __ASM_RISCV_CHECKSUM_H
+>=20
+> --=20
+> 2.42.0
+>=20
+
+--/uRjsvow0K0+ny7V
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZSgImQAKCRB4tDGHoIJi
+0vbVAPwKRp4UXBThl9GOTew5j0FmY9XGj3v2k798QY2F9FGN2QEA6p0JzpE5uOBn
+UP4ZzpdYbI/4Col0rf3CIiy6hz1TkA8=
+=R5LB
+-----END PGP SIGNATURE-----
+
+--/uRjsvow0K0+ny7V--
+
+
+--===============4435737669001855464==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============4435737669001855464==--
+
