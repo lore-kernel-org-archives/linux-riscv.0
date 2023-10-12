@@ -4,69 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CB68CDB46E
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Oct 2023 16:29:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56402CDB46E
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Oct 2023 16:32:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ik9+rHE9Su7Qdj0ihAa6JWSzHaJ4Cg64eVyW7gKqb+8=; b=mGAwoaw+p2vG169RAaZEK2RCz3
-	Gpcf3rxt/k6JYQejrYlifZdS/x9UpqYpTGTfvJZB3MnyBOwIAOU2oJ783SOqD2SHPDWWV+e3cit8L
-	UYyXu+HrbuhmitcwZ1Qmp3BrjMviIonNxXXHHyO/hdt5FVZl+jzqSk546Y3tfs37W16fSdzB1jir8
-	EGlZn4Agt/YtfCez8ez5ltxvqS+uf+SYA1ElslkseVsR3p4/blkgSGoK/vTvu96Ps3rmPPwjA0ZaP
-	cOqiOIk6dm3cEG6I7vb2Uk30UA5zeAaKyguYJDvh0JYJoGJcrKZw4HrAGlpTGd7UQfwUDYG1/kQA5
-	osWvjZrQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=rN3xFu7Xj69Fzk5sKAHV7j3Vt7IoVqHN58tpt7/1mAg=; b=EirmiHJbF3Bngt
+	+Oc4t9Xqw6CGu7NK7u/Mmc359cNWv9zp43O3gMbv5XmZzQR5w1cJpmuP/KUQeGuiLWCA6A86P1FMr
+	pIT0fYj/yfmZwEZhUQN1PJSx1cRksfp2GWJB5jJhh7IZ5w7YG+VETpeOJyMwfUqzulNzOP+2hXL1v
+	cDK7isQsaLQmUdUgQo7X86M7WJtgtaTKtzA0UWD8ve9Hc6232K0Io2a9iT2nQErOSIYTsCRTyaJH1
+	MtR4aAIjKpsDgXchruUuZOzhuzzsEYZO2+T23J2BOz5+9Jv9VpS0otmpoGz4hoej8sfEicH2+AZVq
+	n4uoA7+xHmPlQsUDm7ag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qqyYk-001Prf-1K;
-	Thu, 12 Oct 2023 16:29:14 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1qqybc-001QL7-2R;
+	Thu, 12 Oct 2023 16:32:12 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qqyYe-001Pp0-0k
+	id 1qqybZ-001QJJ-21
 	for linux-riscv@lists.infradead.org;
-	Thu, 12 Oct 2023 16:29:13 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 5934DCE29C7;
-	Thu, 12 Oct 2023 16:29:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BF45DC433C8;
-	Thu, 12 Oct 2023 16:29:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1697128145;
-	bh=xC1mXzF5lAfu+5mYdskcnzIaGOnEiU3VFyASPrevtvM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=c8hiXaZkCKatUJz1/0qcqXp9WjyV9gsXMVJhwv86zU3SI6zdV/iMxXdLsKNc9kK3+
-	 q7X27RY9b7xvJvqs5I0rFU12CvrqqmntOs5YPoK+1ZwJxSKEw9NK5UebFYY2W4FkaX
-	 i5Q6Km5oF8qcuOE2JyYCGBL7Aa55DtRe4P4m5FgUJrOW3o/XSQvgO6ZFph/Ro7DGFh
-	 EPsP4boudy0CMEXgfbCw2kchk3MChRJM9MUPpGuBlDccG+23Aggc5I5GMk442yD6/b
-	 OEWNEhLJ+p0umZHy1lmWDApEM2EaT7w+nz38OxJ5dI5w47HuKm0MiQKr24lpV37q6u
-	 zuGqqqvg68ReA==
-Date: Thu, 12 Oct 2023 17:29:00 +0100
-From: Conor Dooley <conor@kernel.org>
-To: =?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>
-Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
-	Palmer Dabbelt <palmer@rivosinc.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Albert Ou <aou@eecs.berkeley.edu>, Jonathan Corbet <corbet@lwn.net>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Evan Green <evan@rivosinc.com>
-Subject: Re: [PATCH v1 02/13] riscv: add ISA extension probing for Zv*
- extensions
-Message-ID: <20231012-acorn-recast-8e6bf08aac2a@spud>
+	Thu, 12 Oct 2023 16:32:11 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-406618d0991so12131345e9.2
+        for <linux-riscv@lists.infradead.org>; Thu, 12 Oct 2023 09:32:06 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1697128325; x=1697733125; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=zEFAq/CRrluRRtx0eqGeEhiSqDINW9W8p+WysscBUH0=;
+        b=nP4pOBWQBny66rOZh6da8PLeKgMhTdxwXHjXRrvCGd/zA8dtXYhU9HtdjfzHC07xHi
+         QRxnVnluOAqRKP6q4c8xi0w2R3P3zBejjL2njuo3TK1XFzbuMBi9OHo7ZyY7L5V7WhG1
+         NEn/4Sj1405whokBvjrr/n0296gO/rWHYGGNFerdrFZQGwXX0Xr12cubOeSiZmC9qVSr
+         J8VcDb43zb26JDugFms8TqPzUCWhdwBbvWZ1b8PjLy1dBDLgsxoO9Vm664h8KjmJc6yR
+         z+QMDddsO1lCdlkJR+VyVLB76u23fTURHe/S5BRdivEpy9S40iZygl2jWAWROQrjP4YN
+         MBnQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1697128325; x=1697733125;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=zEFAq/CRrluRRtx0eqGeEhiSqDINW9W8p+WysscBUH0=;
+        b=YwKSslAGgHjvN8JhOHx5/E1RaqQDeUykYbqzw6ZGzDzVFJ8RXO/g4sRFuQFBUWvcEp
+         gxUeOpCwNZmyUlDHwrXA90fp8tXYEnKzzCaHzhg9Vv/ump2yHABD0ibkPqR1vOKzRx4U
+         +rPACjt8MiHafrFFj+lemC1RtQziWmGP5s8saUJyH3U5R0av8aEdE5pqhiUSArFq7ecW
+         9sj09K5R27B738SkDl3NcyCcQUXRU8yqzCkM+ZPnQVivb/eesFPI3X9YLMgOCbfOJGg7
+         q4NlVhAheujkvIccXIHD/Loabxd0aReG6/DT9bOPDIwCpRITmFsAGED9HBeJ8K5t52Zl
+         7qVg==
+X-Gm-Message-State: AOJu0Yx4gx3spoO/FKH8aPkCgGRUfkVbKVbxQgGWZFubF+hQxRDxYFAm
+	2CfMFSx4rQlNLaCvmoaymOrhT6RUx+iZBGKK0uk=
+X-Google-Smtp-Source: AGHT+IEMnXKlbQXLsUFxh8NA3bzTb4Kdxrf5jq7K3WHmfryz76lj4mVKcCIgczcHf9l0kFfkjrarVg==
+X-Received: by 2002:a05:600c:3781:b0:405:1bfb:ff14 with SMTP id o1-20020a05600c378100b004051bfbff14mr20483223wmr.9.1697128325100;
+        Thu, 12 Oct 2023 09:32:05 -0700 (PDT)
+Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
+        by smtp.gmail.com with ESMTPSA id l40-20020a05600c1d2800b0040770ec2c19sm30176wms.10.2023.10.12.09.32.04
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 12 Oct 2023 09:32:04 -0700 (PDT)
+Date: Thu, 12 Oct 2023 18:32:03 +0200
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Conor Dooley <conor@kernel.org>
+Cc: =?utf-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>, 
+	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-doc@vger.kernel.org, Palmer Dabbelt <palmer@rivosinc.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Jonathan Corbet <corbet@lwn.net>, Evan Green <evan@rivosinc.com>
+Subject: Re: [PATCH v1 01/13] riscv: fatorize hwprobe ISA extension reporting
+Message-ID: <20231012-8d049a0366f3333ff4a3223b@orel>
 References: <20231011111438.909552-1-cleger@rivosinc.com>
- <20231011111438.909552-3-cleger@rivosinc.com>
- <b157edc4-a21f-40ac-8c9f-e989b34bb872@rivosinc.com>
- <20231012-darkness-neutron-fc1843ff05ff@spud>
- <7b71ff39-bbc0-4ba9-8b98-d36fa127316e@rivosinc.com>
+ <20231011111438.909552-2-cleger@rivosinc.com>
+ <20231012-matriarch-lunar-819c1d2d7996@spud>
 MIME-Version: 1.0
-In-Reply-To: <7b71ff39-bbc0-4ba9-8b98-d36fa127316e@rivosinc.com>
+Content-Disposition: inline
+In-Reply-To: <20231012-matriarch-lunar-819c1d2d7996@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231012_092908_611435_609BFAA6 
-X-CRM114-Status: GOOD (  44.27  )
+X-CRM114-CacheID: sfid-20231012_093209_668980_1F472230 
+X-CRM114-Status: GOOD (  23.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,240 +93,97 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============2523107379535861868=="
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Thu, Oct 12, 2023 at 02:53:43PM +0100, Conor Dooley wrote:
+> Drew,
+> =
 
---===============2523107379535861868==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="uhGoIgzh+d9/m8Ni"
-Content-Disposition: inline
+> On Wed, Oct 11, 2023 at 01:14:26PM +0200, Cl=E9ment L=E9ger wrote:
+> > Factorize ISA extension reporting by using a macro rather than
+> > copy/pasting extension names. This will allow adding new extensions more
+> > easily.
+> > =
 
+> > Signed-off-by: Cl=E9ment L=E9ger <cleger@rivosinc.com>
+> > ---
+> >  arch/riscv/kernel/sys_riscv.c | 26 ++++++++++++--------------
+> >  1 file changed, 12 insertions(+), 14 deletions(-)
+> > =
 
---uhGoIgzh+d9/m8Ni
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+> > diff --git a/arch/riscv/kernel/sys_riscv.c b/arch/riscv/kernel/sys_risc=
+v.c
+> > index 473159b5f303..5ce593ce07a4 100644
+> > --- a/arch/riscv/kernel/sys_riscv.c
+> > +++ b/arch/riscv/kernel/sys_riscv.c
+> > @@ -145,20 +145,18 @@ static void hwprobe_isa_ext0(struct riscv_hwprobe=
+ *pair,
+> >  	for_each_cpu(cpu, cpus) {
+> =
 
-Hey,
+> We were gonna add a comment here about when it is and is not safe to use
+> riscv_isa_extension_available() IIRC. Did that ever end up in a patch?
 
-On Thu, Oct 12, 2023 at 05:15:45PM +0200, Cl=E9ment L=E9ger wrote:
-> On 12/10/2023 16:10, Conor Dooley wrote:
-> > On Thu, Oct 12, 2023 at 03:17:14PM +0200, Cl=E9ment L=E9ger wrote:
-> >> On 11/10/2023 13:14, Cl=E9ment L=E9ger wrote:
-> >>> Add probing of some Zv* ISA extensions that are mentioned in "RISC-V
-> >>> Cryptography Extensions Volume II" [1]. These ISA extensions are the
-> >>> following:
-> >>>
-> >>> - Zvbb: Vector Basic Bit-manipulation
-> >>> - Zvbc: Vector Carryless Multiplication
-> >>> - Zvkb: Vector Cryptography Bit-manipulation
-> >>> - Zvkg: Vector GCM/GMAC.
-> >>> - Zvkned: NIST Suite: Vector AES Block Cipher
-> >>> - Zvknh[ab]: NIST Suite: Vector SHA-2 Secure Hash
-> >>> - Zvksed: ShangMi Suite: SM4 Block Cipher
-> >>> - Zvksh: ShangMi Suite: SM3 Secure Hash
-> >>> - Zvkn: NIST Algorithm Suite
-> >>> - Zvknc: NIST Algorithm Suite with carryless multiply
-> >>> - Zvkng: NIST Algorithm Suite with GCM.
-> >>> - Zvks: ShangMi Algorithm Suite
-> >>> - Zvksc: ShangMi Algorithm Suite with carryless multiplication
-> >>> - Zvksg: ShangMi Algorithm Suite with GCM.
-> >>> - Zvkt: Vector Data-Independent Execution Latency.
-> >>>
-> >>> [1] https://drive.google.com/file/d/1gb9OLH-DhbCgWp7VwpPOVrrY6f3oSJLL=
-/view
-> >>>
-> >>> Signed-off-by: Cl=E9ment L=E9ger <cleger@rivosinc.com>
-> >>> ---
-> >>>  arch/riscv/include/asm/hwcap.h | 16 ++++++++++++++++
-> >>>  arch/riscv/kernel/cpufeature.c | 16 ++++++++++++++++
-> >>>  2 files changed, 32 insertions(+)
-> >>>
-> >>> diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/=
-hwcap.h
-> >>> index b7b58258f6c7..4e46981ac6c8 100644
-> >>> --- a/arch/riscv/include/asm/hwcap.h
-> >>> +++ b/arch/riscv/include/asm/hwcap.h
-> >>> @@ -58,6 +58,22 @@
-> >>>  #define RISCV_ISA_EXT_ZICSR		40
-> >>>  #define RISCV_ISA_EXT_ZIFENCEI		41
-> >>>  #define RISCV_ISA_EXT_ZIHPM		42
-> >>> +#define RISCV_ISA_EXT_ZVBB		43
-> >>> +#define RISCV_ISA_EXT_ZVBC		44
-> >>> +#define RISCV_ISA_EXT_ZVKB		45
-> >>> +#define RISCV_ISA_EXT_ZVKG		46
-> >>> +#define RISCV_ISA_EXT_ZVKN		47
-> >>> +#define RISCV_ISA_EXT_ZVKNC		48
-> >>> +#define RISCV_ISA_EXT_ZVKNED		49
-> >>> +#define RISCV_ISA_EXT_ZVKNG		50
-> >>> +#define RISCV_ISA_EXT_ZVKNHA		51
-> >>> +#define RISCV_ISA_EXT_ZVKNHB		52
-> >>> +#define RISCV_ISA_EXT_ZVKS		53
-> >>> +#define RISCV_ISA_EXT_ZVKSC		54
-> >>> +#define RISCV_ISA_EXT_ZVKSED		55
-> >>> +#define RISCV_ISA_EXT_ZVKSH		56
-> >>> +#define RISCV_ISA_EXT_ZVKSG		57
-> >>
-> >> About Zvks/Zvkn, these extensions are actually shorthand for a few oth=
-er
-> >> sub-extensions, it is still not clear if it should be parsed as is.
-> >> There are multiple solutions:
-> >>
-> >> - Handle them as-is, simply enable the extension, if reported through
-> >> hwprobe, userspace will be responsible to detect the sub-extensions
-> >> (current approach)
-> >=20
-> > I dislike this, since in-kernel users will have to check for "parent" &
-> > "child" extensions.
-> >=20
-> >> - "Unfold" the extension in order to enable all the sub-extensions and
-> >> keep the main one (for instance for Zvkn, enable Zvkned, Zvknhb, Zvkb,
-> >> Zvkt, Zvkn)
-> >=20
-> > We threw together some code for this a few months ago after some
-> > discussion with some of your Rivos colleagues. The initial version of it
-> > was in this thread with Evan:
-> > https://lore.kernel.org/all/20230703-mangle-panning-75909ebbe30c@spud/
-> > and in a later iteration there was some more done by myself and Drew:
-> > https://lore.kernel.org/all/20230713-bootleg-tray-c5bfe58b5673@wendy/
-> > One of the versions ended up as the riscv-extensions-strings-scalar-cry=
-pto
-> > branch in my k.org repo:
-> > https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/log/?h=
-=3Driscv-extensions-strings-scalar-crypto
-> >=20
->=20
-> Thanks for these information ! I think your version to handle extension
-> group is pretty clean. Are you waiting for anything in particular except
-> a Signed-off: from Evan to submit that patch ?
+Yup, it's in [1]. But that series may be hung up on spec stuff, so maybe
+it'd be better for Cl=E9ment to integrate it. And, it appears we definitely
+need this macro, because it has now been suggested by three different
+people :-) (I later saw Samuel was first[2], but I hadn't seen his before
+submitting mine, otherwise I would have given him the credit.)
 
-Lack of a user. I was hoping that it'd go alongside the crypto extension
-stuff that needed it.
+[1] https://lore.kernel.org/all/20230918131518.56803-11-ajones@ventanamicro=
+.com/
+[2] https://lore.kernel.org/all/20230712084134.1648008-4-sameo@rivosinc.com/
 
-> If so, can I backport
-> this patch in my branch, gather Evan SoB and rebase my series on top of i=
-t ?
+Thanks,
+drew
 
-For sure.
+> =
 
-> > That crypto stuff has all gone quiet of late unfortunately. I wonder if
-> > Samuel is still working on it.
->=20
-> I talked with Samuel and we agreed on the following plan: I'll actually
-> carry on the bitmanip ISA part and he will resubmit the Zkr with
-> archrandom part.
+> >  		struct riscv_isainfo *isainfo =3D &hart_isa[cpu];
+> >  =
 
-:+1:
+> > -		if (riscv_isa_extension_available(isainfo->isa, ZBA))
+> > -			pair->value |=3D RISCV_HWPROBE_EXT_ZBA;
+> > -		else
+> > -			missing |=3D RISCV_HWPROBE_EXT_ZBA;
+> > -
+> > -		if (riscv_isa_extension_available(isainfo->isa, ZBB))
+> > -			pair->value |=3D RISCV_HWPROBE_EXT_ZBB;
+> > -		else
+> > -			missing |=3D RISCV_HWPROBE_EXT_ZBB;
+> > -
+> > -		if (riscv_isa_extension_available(isainfo->isa, ZBS))
+> > -			pair->value |=3D RISCV_HWPROBE_EXT_ZBS;
+> > -		else
+> > -			missing |=3D RISCV_HWPROBE_EXT_ZBS;
+> > +#define CHECK_ISA_EXT(__ext)							\
+> > +		do {								\
+> > +			if (riscv_isa_extension_available(isainfo->isa, __ext))	\
+> > +				pair->value |=3D RISCV_HWPROBE_EXT_##__ext;	\
+> > +			else							\
+> > +				missing |=3D RISCV_HWPROBE_EXT_##__ext;		\
+> > +		} while (false)							\
+> > +
+> > +		CHECK_ISA_EXT(ZBA);
+> > +		CHECK_ISA_EXT(ZBB);
+> > +		CHECK_ISA_EXT(ZBS);
+> > +#undef CHECK_ISA_EXT
+> >  	}
+> >  =
 
-> >> - "Unfold" but don't keep the extension "shorthand" in the ISA extensi=
-on
-> >> list (for instance for Zvkn, enable Zvkned, Zvknhb, Zvkb, Zvkt)
-> >=20
-> > But I would also be fine with this one from a pure in-kernel PoV.
->=20
-> Which is the case with your version FWIU (ie, only the child extensions
-> are visible).
+> >  	/* Now turn off reporting features if any CPU is missing it. */
+> > -- =
 
-Yeah, I think I might've done it intentionally so that the same thing
-appeared in /proc/cpuinfo whether the "parent" or all the "children"
-were provided in DT.
-
-(I wrote that stuff before hwprobe got merge I think)
-
-I think users would probably appreciate being able to poll for the whole
-extension, rather than the component parts. There's probably also some
-thoughts expressed in the two threads I linked, IIRC Evan and I did
-discuss some of the behaviour there. What to do if an extension later
-grows a subset springs to mind.
-
-Conor.
-
-> > I think it's likely to be annoying for users though, since they won't be
-> > able to poll for the "parent" unless we re-assemble the parents in
-> > hwprobe etc (eugh).
->=20
-> Indeed, and re-assembling the parent is IMHO duplication of the existing
-> information. Checking that the needed ISA extensions are present will be
-> simple enough (simple bitmask) so I'm not sure that re-assembling the
-> parents is necessary (But that's a personal statement and I'm pretty
-> sure others will like it to be provided directly).
->=20
-> Thanks,
->=20
-> Cl=E9ment
->=20
-> >=20
-> > - don't permit passing the "parents" at all, and only deal with the
-> >   "children". We can enforce this for DT, but not for ACPI, so probably
-> >   not a runner>
-> > Thanks,
-> > Conor.
-> >=20
-> >>
-> >> Thanks,
-> >>
-> >> Cl=E9ment
-> >>
-> >>> +#define RISCV_ISA_EXT_ZVKT		58
-> >>> =20
-> >>>  #define RISCV_ISA_EXT_MAX		64
-> >>> =20
-> >>> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufe=
-ature.c
-> >>> index 1cfbba65d11a..859d647f3ced 100644
-> >>> --- a/arch/riscv/kernel/cpufeature.c
-> >>> +++ b/arch/riscv/kernel/cpufeature.c
-> >>> @@ -174,6 +174,22 @@ const struct riscv_isa_ext_data riscv_isa_ext[] =
-=3D {
-> >>>  	__RISCV_ISA_EXT_DATA(zba, RISCV_ISA_EXT_ZBA),
-> >>>  	__RISCV_ISA_EXT_DATA(zbb, RISCV_ISA_EXT_ZBB),
-> >>>  	__RISCV_ISA_EXT_DATA(zbs, RISCV_ISA_EXT_ZBS),
-> >>> +	__RISCV_ISA_EXT_DATA(zvbb, RISCV_ISA_EXT_ZVBB),
-> >>> +	__RISCV_ISA_EXT_DATA(zvbc, RISCV_ISA_EXT_ZVBC),
-> >>> +	__RISCV_ISA_EXT_DATA(zvkb, RISCV_ISA_EXT_ZVKB),
-> >>> +	__RISCV_ISA_EXT_DATA(zvkg, RISCV_ISA_EXT_ZVKG),
-> >>> +	__RISCV_ISA_EXT_DATA(zvkn, RISCV_ISA_EXT_ZVKN),
-> >>> +	__RISCV_ISA_EXT_DATA(zvknc, RISCV_ISA_EXT_ZVKNC),
-> >>> +	__RISCV_ISA_EXT_DATA(zvkned, RISCV_ISA_EXT_ZVKNED),
-> >>> +	__RISCV_ISA_EXT_DATA(zvkng, RISCV_ISA_EXT_ZVKNG),
-> >>> +	__RISCV_ISA_EXT_DATA(zvknha, RISCV_ISA_EXT_ZVKNHA),
-> >>> +	__RISCV_ISA_EXT_DATA(zvknhb, RISCV_ISA_EXT_ZVKNHB),
-> >>> +	__RISCV_ISA_EXT_DATA(zvks, RISCV_ISA_EXT_ZVKS),
-> >>> +	__RISCV_ISA_EXT_DATA(zvksc, RISCV_ISA_EXT_ZVKSC),
-> >>> +	__RISCV_ISA_EXT_DATA(zvksed, RISCV_ISA_EXT_ZVKSED),
-> >>> +	__RISCV_ISA_EXT_DATA(zvksh, RISCV_ISA_EXT_ZVKSH),
-> >>> +	__RISCV_ISA_EXT_DATA(zvksg, RISCV_ISA_EXT_ZVKSG),
-> >>> +	__RISCV_ISA_EXT_DATA(zvkt, RISCV_ISA_EXT_ZVKT),
-> >>>  	__RISCV_ISA_EXT_DATA(smaia, RISCV_ISA_EXT_SMAIA),
-> >>>  	__RISCV_ISA_EXT_DATA(ssaia, RISCV_ISA_EXT_SSAIA),
-> >>>  	__RISCV_ISA_EXT_DATA(sscofpmf, RISCV_ISA_EXT_SSCOFPMF),
-
---uhGoIgzh+d9/m8Ni
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZSgezAAKCRB4tDGHoIJi
-0ubjAP43eYhqzD82t+pnhUwaKxv5boakeo7y/NYW2K0ObKQgxAEA9V/ihngeUMeC
-5NKv42ygzuK0/RP4Kf6+Vm39rMg3YQ0=
-=J32f
------END PGP SIGNATURE-----
-
---uhGoIgzh+d9/m8Ni--
+> > 2.42.0
+> > =
 
 
---===============2523107379535861868==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============2523107379535861868==--
-
