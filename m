@@ -4,56 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66734CDB482
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Oct 2023 14:51:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B12BCDB46E
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Oct 2023 14:53:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:Cc:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bRa4UgsL1JkP+PCsGOjbVq87jHdamRG83O72+jnBLoU=; b=LY28paYxUu670Be2LZ3/rwd6pR
-	2JYTl99ATc04Fxaq4FqMPWHM9a6Zmrj7sFDxn/CxC3NEF2HQ2qx794VF9Ce2NcheKTUsK8B7JDl0k
-	Dd1CKLiHThw9XBQEDrNlxdD4Nb9VoIgJ+wSygHV/tGda/fWxYCTUiDWvaeZ50kT3wDxKLKufuEuFT
-	SK62c4d8IDCsJPIpeqP2z7qa8Fn5DcRzHwe99UTLOdAMzNyAf1tVB+LsV7lsfGa+PIiCK4VHP8Fm3
-	dZVoJH4yU54rC+bCoyAvGFZYE+Vhg2vM4vU6uyJ4/6um8MkUBZfQbT2+ksoKDlHEuqxZ1fCUPenle
-	o/+a8RBg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=05kdRoPulh1odkT3bivftzb03kdfJd2mUAb6wl03Fb8=; b=uBWrUn+NCkXAVg
+	ZQ/qBUsAPzxyLOC5E9V6Zf5tkOIKzskCV5/4roJrBHzQHZquIbAHAFf0RQwuCYqkvP2+TxhSjw0pG
+	iQ3lAfa6DEGLciU0gIdHpOfaysdMZyM3NMEaIb8woWrWSkpTUhhtLRK5LAmCRFQOsBW1WQOSlmAWg
+	qxomT2rIE/8y0ykYF1Pw6kNa8sN3QoEWqS+X3HS1KxuyBH+tMupzyNeM9ZZoj400Seqy9beVMFx7Q
+	NF3kmalgbzY5TjxqBy1nWkYxe2Pz2yAl3D/Cw3WU/wUqeijfOWBC5XFLctGz/iDY1jW2s8fpP+dMP
+	gnWfg2qZV0HzwS6HN52A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qqx1p-001DjQ-1g;
-	Thu, 12 Oct 2023 14:51:09 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1qqx3j-001DxG-1U;
+	Thu, 12 Oct 2023 14:53:07 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qqx1m-001Dio-1f
+	id 1qqx3c-001Dw4-1V
 	for linux-riscv@lists.infradead.org;
-	Thu, 12 Oct 2023 14:51:07 +0000
+	Thu, 12 Oct 2023 14:53:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id C9A1761E63;
-	Thu, 12 Oct 2023 14:51:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 762A7C433CA;
-	Thu, 12 Oct 2023 14:51:03 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id 57748CE2913;
+	Thu, 12 Oct 2023 14:52:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BDC7CC433C7;
+	Thu, 12 Oct 2023 14:52:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1697122265;
-	bh=5AiZVeDGvVMMzOjXejlLspSrRouelQDKxA7XAhxJnas=;
+	s=k20201202; t=1697122375;
+	bh=IYDm8ofYKOZAFbxQa32MHYpNBNA79HhiV1G9gyxN4IQ=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=dB8tl3Z6BJ+PO1/HesfFNW+WQJk5CCvdZmDK6a2BOTBbPcKkooxLRLOqzZj0h07pV
-	 LmpoAwv9uaWH6OwmYrvCz39FTMZSlYnXsWJwynCLLVy2S8UXKGgNvDmbDA905OnI/w
-	 s7rtEUeeNAt06tIoAVgUu7ZdFwCvcWJ8TItK6AW+l83pQ2vtJJFG+7JGhr9P0218o3
-	 2iH3AXTpIzuFbbNnhtp8kSIvyKFutihIX+ar5/5ErBUC5ZKk9EMAEgAQRLWUYYTd4F
-	 k3gOp5cm4ne+ZbFIs3XbMPUeoZkZdEKm/2eXtrapRmbfqS0mHigk1FCgSJRiOpkoe+
-	 X92Hlk1B2PrTg==
-Date: Thu, 12 Oct 2023 15:51:01 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Charlie Jenkins <charlie@rivosinc.com>
-Subject: Re: [PATCH v7 3/4] riscv: Add checksum library
-Message-ID: <20231012-extradite-charbroil-32c0808c6669@spud>
-References: <20230919-optimize_checksum-v7-0-06c7d0ddd5d6@rivosinc.com>
- <20230919-optimize_checksum-v7-3-06c7d0ddd5d6@rivosinc.com>
+	b=JVnBLfyrM0aoLkeHm29EX0fPCHIKaXsix+jYVpXjcHwoD7xcD0ZAM4ePIeH3yU/nD
+	 7yTfYPhRsbMS1Z3U2ReHBjOxva0twYJOmkJ/Tl6SjS3UbEmLX0VZznvXCE1E7FYoce
+	 L5F/CHl8HjKMXjx0V/xYH23HX3iR6Xg4RN928MsGT6hzzWnszfyJ1Qqv4RdtP8/A6Z
+	 r4KKIp/Ouw7+MS75BHr8TGm6NhdiW96up4OgOQhbZ84qzAsGjaLLs4VJZQQ4TU6EEW
+	 B+4CVRtgTCiBDpgvzM7Abf8cjcNXUQRF+0x+NkdYmUAa+IrcfkiBPg7GahJs80WXmp
+	 hTjR0Ulm1rJ1A==
+Date: Thu, 12 Oct 2023 22:40:46 +0800
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Conor Dooley <conor@kernel.org>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Guo Ren <guoren@kernel.org>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 0/2] riscv: errata: thead: use riscv_nonstd_cache_ops
+ for CMO
+Message-ID: <ZSgFbuD203L0XL4J@xhacker>
+References: <20231012141456.4078-1-jszhang@kernel.org>
+ <ZSgA1BtMv/YDHzQX@xhacker>
+ <20231012-remindful-coke-f9cfe950425f@spud>
 MIME-Version: 1.0
-In-Reply-To: <20230919-optimize_checksum-v7-3-06c7d0ddd5d6@rivosinc.com>
+Content-Disposition: inline
+In-Reply-To: <20231012-remindful-coke-f9cfe950425f@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231012_075106_626552_8E26E2B9 
-X-CRM114-Status: GOOD (  16.32  )
+X-CRM114-CacheID: sfid-20231012_075301_008695_AA36DEB5 
+X-CRM114-Status: GOOD (  23.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,95 +72,55 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-arch@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>, Arnd Bergmann <arnd@arndb.de>, linux-kernel@vger.kernel.org, David Laight <David.Laight@aculab.com>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org
-Content-Type: multipart/mixed; boundary="===============7186457692420226887=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Thu, Oct 12, 2023 at 03:36:28PM +0100, Conor Dooley wrote:
+> On Thu, Oct 12, 2023 at 10:21:08PM +0800, Jisheng Zhang wrote:
+> > On Thu, Oct 12, 2023 at 10:14:54PM +0800, Jisheng Zhang wrote:
+> > > Previously, we use alternative mechanism to dynamically patch
+> > > the CMO operations for THEAD C906/C910 during boot for performance
+> > > reason. But as pointed out by Arnd, "there is already a significant
+> > > cost in accessing the invalidated cache lines afterwards, which is
+> > > likely going to be much higher than the cost of an indirect branch".
+> > > And indeed, there's no performance difference with GMAC and EMMC per
+> > > my test on Sipeed Lichee Pi 4A board.
+> > > 
+> > > Use riscv_nonstd_cache_ops for THEAD C906/C910 CMO to simplify
+> > > the alternative code, and to acchieve Arnd's goal -- "I think
+> > > moving the THEAD ops at the same level as all nonstandard operations
+> > > makes sense, but I'd still leave CMO as an explicit fast path that
+> > > avoids the indirect branch. This seems like the right thing to do both
+> > > for readability and for platforms on which the indirect branch has a
+> > > noticeable overhead."
+> > > 
+> > > To make bisect easy, I use two patches here: patch1 does the conversion
+> > > which just mimics current CMO behavior via. riscv_nonstd_cache_ops, I
+> > > assume no functionalities changes. patch2 uses T-HEAD PA based CMO
+> > > instructions so that we don't need to covert PA to VA.
+> > > 
+> > > Hi Guo,
+> > > 
+> > > I didn't use wback_inv for wback as you suggested during v1 reviewing,
+> > > this can be left as future optimizations.
+> > > 
+> > > Thanks
+> > > 
+> > > since v2:
+> > >   - collect Reviewed-by tag
+> > 
+> > Oh, I missed the tag collection, but I know maintainers are using b4 which can
+> > collect and apply tags automatically ;). let me know if want a new
+> > version.
+> 
+> It doesn't collect tags (AFAIU) from earlier revisions though.
 
---===============7186457692420226887==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="VacEKFf8B2xXnVnJ"
-Content-Disposition: inline
-
-
---VacEKFf8B2xXnVnJ
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-Hey,
-
-On Tue, Sep 19, 2023 at 11:44:32AM -0700, Charlie Jenkins wrote:
-> Provide a 32 and 64 bit version of do_csum. When compiled for 32-bit
-> will load from the buffer in groups of 32 bits, and when compiled for
-> 64-bit will load in groups of 64 bits.
->=20
-> Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
-> ---
->  arch/riscv/include/asm/checksum.h |  12 +++
->  arch/riscv/lib/Makefile           |   1 +
->  arch/riscv/lib/csum.c             | 217 ++++++++++++++++++++++++++++++++=
-++++++
->  3 files changed, 230 insertions(+)
->=20
-> diff --git a/arch/riscv/include/asm/checksum.h b/arch/riscv/include/asm/c=
-hecksum.h
-> index dc0dd89f2a13..7fcd07edb8b3 100644
-> --- a/arch/riscv/include/asm/checksum.h
-> +++ b/arch/riscv/include/asm/checksum.h
-> @@ -12,6 +12,18 @@
-> =20
->  #define ip_fast_csum ip_fast_csum
-> =20
-> +extern unsigned int do_csum(const unsigned char *buff, int len);
-> +#define do_csum do_csum
-> +
-> +/* Default version is sufficient for 32 bit */
-> +#ifdef CONFIG_64BIT
-> +#define _HAVE_ARCH_IPV6_CSUM
-> +__sum16 csum_ipv6_magic(const struct in6_addr *saddr,
-> +			const struct in6_addr *daddr,
-> +			__u32 len, __u8 proto, __wsum sum);
-> +#endif
-> +
-> +// Define riscv versions of functions before importing asm-generic/check=
-sum.h
-
-As a nit item, you're using two different one-line comment styles in
-this hunk. Otherwise, looks like you've addressed the things I didn't
-like, as much as was possible. You get an a-b, not an r-b since I've not
-reviewed the actual algorithm here.
-
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-
-Thanks,
-Conor.
-
---VacEKFf8B2xXnVnJ
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZSgH1QAKCRB4tDGHoIJi
-0h4WAQDwylCfzxPDoqr8tU1izNvd8jH06hOEnbBlIXVTGp5uoAEAkT0Xj8ctwWNV
-Ach6DncKx4c7MkjcvHe8OfU1sEoIdQA=
-=QVL8
------END PGP SIGNATURE-----
-
---VacEKFf8B2xXnVnJ--
-
-
---===============7186457692420226887==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+oops I didn't know this before, just sent out v4 with real tag collection to
+make the merging progress smooth.
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============7186457692420226887==--
-
