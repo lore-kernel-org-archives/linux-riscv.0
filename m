@@ -4,63 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC2D1CDB46E
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D67EACDB482
 	for <linux-riscv@archiver.kernel.org>; Thu, 12 Oct 2023 07:22:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Oq3itXZQcr+1mo4lUrMt92QOBEqO7Srer5+2ovqqVZg=; b=ElenYFSHPfc0gy
-	cDCrZlinJBaUa0YTEKL952PTpJPUhXRmSHHQzfaT2HHK9mdnUqgStAIGaQtSuStIORWtoltdUuqub
-	vSKwyugJXbMe3bchi3LMO9eyVUiFiYOoPhFJHRcsfgjCjKAlji7IznlWR86j3g7fw2PAHHjt00ZKF
-	LcjCWJib1t5HdhwQB4zgrv65AO4fI/nfI5CGTburCcTu23OmB6spPDmT+gSqQBYIUyEH2beunae6a
-	bHYaGns+t329fmXT0T3KVAb5ZZicrhLRq3lmncPI6jPuPRA2KGsSVT09cGd1n8euTmdCNkRwHCe7a
-	qD9cWoFOwULh3FiNW/Uw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=1GtRm4vDKUqO0nLtrNeTGLlYQh7dWSnCvael/nYLNMY=; b=ahhmDl9r48+tCn
+	R3y4PhEPmSdlcTZu2n6BZ6+i5Pk73gKWQCdjO+G4beAOuZ3F3bVVMP0pf9v5Mi2JDtnMqUUAmzQvU
+	DSOW/HedNzl+jZbLNtJ36b8uvZu1lyjvN1Q5rvj3jPp8DQ24bX8//XB2d6RsQhnzcKZ8gDqPy0QCx
+	z4622PkrivxCA2ZU2+qp63piXwo5SWtMmOcCetHKQcCuC/OTHC+bRT554jCQ2xGQSg2n7ZFVQQilC
+	uLCj4oV/XXBtv41PryUu9PRZqv1L3+lWb4UesPusQTAqfZKethXDujMOGdZyyYf6cmpRae+x+BdUe
+	4R3K3aBSs4i162tjFyCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qqq1C-0002QO-0Q;
-	Thu, 12 Oct 2023 07:22:02 +0000
-Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
+	id 1qqq1E-0002Qz-2X;
+	Thu, 12 Oct 2023 07:22:04 +0000
+Received: from mail-ed1-x52b.google.com ([2a00:1450:4864:20::52b])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qqq19-0002Oz-0Y
+	id 1qqq1A-0002PE-2k
 	for linux-riscv@lists.infradead.org;
-	Thu, 12 Oct 2023 07:22:01 +0000
-Received: by mail-ej1-x62a.google.com with SMTP id a640c23a62f3a-9b974955474so95657666b.1
-        for <linux-riscv@lists.infradead.org>; Thu, 12 Oct 2023 00:21:55 -0700 (PDT)
+	Thu, 12 Oct 2023 07:22:03 +0000
+Received: by mail-ed1-x52b.google.com with SMTP id 4fb4d7f45d1cf-5333fb34be3so1155726a12.1
+        for <linux-riscv@lists.infradead.org>; Thu, 12 Oct 2023 00:21:58 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1697095315; x=1697700115; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=FNR22MNTy9GUiTOoCQrFn0Gk1B8RN+IVgSZ+weiCTb0=;
-        b=g6wD+aSsTro30w02ZY9fJhMOAF6KpfLJ19d8ATfV+MaUKWZSAqalaCXd7fh14ZBfn3
-         pgSrs606+OKNxsHcpVA/8So6bK9buVSj4YWSwDgvKFi14l4zUSF9QvPRiGstkMGBl1ws
-         7OjrvTejeFUiEZr8uWz/OHFVElDUKHYo5VQipyV0Y2QuXePkKe4BQIWm+D2HF0hUgfFe
-         l//703iAZQdQsUZ+d8hf5Wm6zSwNLJCfcrigeHQumz2qs1ASOfUdOuxTtUzatjXo4V2I
-         R8CJYDD7ZvqwjviPF2Z7e/hijlXkLZZpA1WUpuqNE84WvBelXfoUBJ+EAg6JQ9rGfF4W
-         I8DA==
+        d=ventanamicro.com; s=google; t=1697095317; x=1697700117; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=SO8zOYxco8xfXjuaBznJStpI2AKGvZm9bzCbGMl1vrQ=;
+        b=D/ZveDLyYmPa9zW4Aqd6PU6wVf1hX9QltXwpa9ee75j4tVkEBhTOd/LFaKjUGve6HX
+         42l+g5CjMGtbch2oWDjlkItaC64Rs9gOkOBYt6yrBhWHcaeq25tMbMRwML6uSIVoa2go
+         JL0S/6Fj6sQb9O0SuSqU/ln6hsG3zKG2WQT5AndUK+vooDFroHe7wG/BPIIIfwHVOt0z
+         AiwizKqhxIvxNs4+Q59kgStFw4ti9S98+UpLxUEFb5W+W6q7vU7DHLo+2CkCEQsv1Q87
+         HXX94HjMOx7PWFlX8Xjod/8fXwIi4yhBfvh3nBgSwp6NVO+vnowYz1dbBf/ycZRF81vS
+         QX6w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1697095315; x=1697700115;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=FNR22MNTy9GUiTOoCQrFn0Gk1B8RN+IVgSZ+weiCTb0=;
-        b=hjoOWBSsSNgfef8u9Bjs3jyvbeKvb69hOc5J9eBrBS3Lf1wEoa/k8KwoMXMbeXjJpZ
-         V+GHhrIW6zvGd9mMTMPrhm1OCLk3DbWrcpe/Zls7L+EuWGjf2Ww/YmgPFsJwp94VNOHx
-         psA3SlV29kyxTlNoYFk2zRdamqei8kz7f4JmX1PhdR6qoGN/63n+sFd6+thjXs8CDnJ7
-         uC+sMBZc497w/F8VdlnA49F7qxDTmgm1UqLA0NwK+TjnmVmXcSJzZ6tsBLkRpk1BcwKu
-         pNRK+h5g3fetml+T19uHQazwSeWXLC6f4pS+iVKMcJj/wrThH1eqJr6TxIslg9rg8QLV
-         2irw==
-X-Gm-Message-State: AOJu0YzM4nj9D7aTGxhxa2j6XsEf0tAEUqiSADcX43KrS0k4Z/9BLUpZ
-	WMYyg660SARkMTsVlq8B5R307L5vs2yGJ5C1M40=
-X-Google-Smtp-Source: AGHT+IHPV576pMVKhIHLywSDt3A0TWh4uQs7uRALCNrThBfs09j51feRKtEmpIJe4LsOBiKMxTlfbw==
-X-Received: by 2002:a17:907:7711:b0:9b2:a96c:9290 with SMTP id kw17-20020a170907771100b009b2a96c9290mr20626195ejc.33.1697095314683;
-        Thu, 12 Oct 2023 00:21:54 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1697095317; x=1697700117;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=SO8zOYxco8xfXjuaBznJStpI2AKGvZm9bzCbGMl1vrQ=;
+        b=WNkYZ9zPqaVkGOUWcIJlvarjgel6CXNA2pxQ0LE6e1LRh8n72dTEQm9PshlrsYjmGx
+         Z/8HD76LnC/2e0yQmMq2OrFUcYGrsy1y7ZLHZ+PAWCUAqlEftOKACDTgmZhuIbolnS9m
+         VYW9+d24ytTKRxyquZHILiudNoCcgG02843f3LW08/4NYwmER8pMyClHQvtWndNy6s24
+         oeKEiD8w1fWRapI1b/oHLwAxFFG4CDTfL+BOmncVdSH+7nNHQBpSV33brZUcc0fBI4wu
+         edOCvOt8cVpPewmENjf1tp600TZ3252qdwO1i0alx9/INB/jkTnCs2JgfyKlLoob2n4R
+         2upg==
+X-Gm-Message-State: AOJu0YwPutV0CfsC8oRPucS8nl4LjeCsf8V+6A4IsGeewsx5o+qKBmZJ
+	baa+fqTw4yi2FbfN/zud0eaIA9iSyYmc/DIJrCw=
+X-Google-Smtp-Source: AGHT+IG4tKuUq5G8a/TnLB6f/RmMQs0+L453H5Q/yMoohqrw87dopvqASqPoofEJLmMayE8PKOPKgg==
+X-Received: by 2002:a17:906:8a67:b0:9a1:f3a6:b906 with SMTP id hy7-20020a1709068a6700b009a1f3a6b906mr20617751ejc.36.1697095316923;
+        Thu, 12 Oct 2023 00:21:56 -0700 (PDT)
 Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
-        by smtp.gmail.com with ESMTPSA id qq25-20020a17090720d900b00977cad140a8sm10745085ejb.218.2023.10.12.00.21.53
+        by smtp.gmail.com with ESMTPSA id gh18-20020a170906e09200b009786c8249d6sm10858680ejb.175.2023.10.12.00.21.55
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 12 Oct 2023 00:21:54 -0700 (PDT)
+        Thu, 12 Oct 2023 00:21:55 -0700 (PDT)
 From: Andrew Jones <ajones@ventanamicro.com>
 To: linux-riscv@lists.infradead.org
 Cc: paul.walmsley@sifive.com,
@@ -70,14 +71,16 @@ Cc: paul.walmsley@sifive.com,
 	jeeheng.sia@starfivetech.com,
 	conor.dooley@microchip.com,
 	apatel@ventanamicro.com
-Subject: [PATCH v1 0/1] riscv: Introduce system suspend support
-Date: Thu, 12 Oct 2023 09:21:49 +0200
-Message-ID: <20231012072148.7010-3-ajones@ventanamicro.com>
+Subject: [PATCH v1 1/1] riscv: sbi: Introduce system suspend support
+Date: Thu, 12 Oct 2023 09:21:50 +0200
+Message-ID: <20231012072148.7010-4-ajones@ventanamicro.com>
 X-Mailer: git-send-email 2.41.0
+In-Reply-To: <20231012072148.7010-3-ajones@ventanamicro.com>
+References: <20231012072148.7010-3-ajones@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231012_002159_217129_DF19044C 
-X-CRM114-Status: GOOD (  10.50  )
+X-CRM114-CacheID: sfid-20231012_002200_886964_8E1B087B 
+X-CRM114-Status: GOOD (  13.92  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,44 +97,130 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-OpenSBI v1.3 and later supports the SUSP SBI extension which has recently
-been frozen with the freezing of SBI 2.0. This one patch series adds
-system suspend support to Linux, which implements "suspend-to-RAM". To
-use it, build the kernel with CONFIG_SUSPEND, boot on a platform which
-supports system suspend, and then issue 'echo mem > /sys/power/state'.
-It's also possible to test this Linux support on a platform without
-system suspend by using OpenSBI's system suspend test support. To enable
-test support add
+When the SUSP SBI extension is present it implies that the standard
+"suspend to RAM" type is available. Wire it up to the generic
+platform suspend support, also applying the already present support
+for non-retentive CPU suspend. When the kernel is built with
+CONFIG_SUSPEND, one can do 'echo mem > /sys/power/state' to suspend.
+Resumption will occur when a platform-specific wake-up event arrives.
 
-      opensbi-domains {
-          compatible = "opensbi,domain,config";
-          system-suspend-test;
-      };
-
-to the chosen node of the device tree. With the test node present,
-OpenSBI will wait 5 seconds on a suspend and then kick a resume.
-
-Note: Resume may fail without the fix for probing misaligned access
-speed[1]. It's best to apply that fix before attempting system suspend.
-
-[1] https://lore.kernel.org/all/20230920193801.3035093-1-evan@rivosinc.com/
-
-Changes for v1:
-  - Rebase on v6.6-rc1 -- only minor Kconfig change needed
-
-Changes for RFC-v2:
-  - RISCV_SBI dependency [Conor]
-  - Rename SBI_EXT_SUSP_SUSPEND to SBI_EXT_SUSP_SYSTEM_SUSPEND and
-    SBI_SUSP_SLEEP_TYPE_SUSPEND to SBI_SUSP_SLEEP_TYPE_SUSPEND_TO_RAM [Ley Foon]
-
-Andrew Jones (1):
-  riscv: sbi: Introduce system suspend support
-
+Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
+---
  arch/riscv/Kconfig           |  5 ++++-
  arch/riscv/include/asm/sbi.h |  9 ++++++++
  arch/riscv/kernel/suspend.c  | 43 ++++++++++++++++++++++++++++++++++++
  3 files changed, 56 insertions(+), 1 deletion(-)
 
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index d607ab0f7c6d..a96368b662d8 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -63,7 +63,7 @@ config RISCV
+ 	select CLINT_TIMER if !MMU
+ 	select CLONE_BACKWARDS
+ 	select COMMON_CLK
+-	select CPU_PM if CPU_IDLE || HIBERNATION
++	select CPU_PM if CPU_IDLE || HIBERNATION || SUSPEND
+ 	select EDAC_SUPPORT
+ 	select FRAME_POINTER if PERF_EVENTS || (FUNCTION_TRACER && !DYNAMIC_FTRACE)
+ 	select GENERIC_ARCH_TOPOLOGY
+@@ -900,6 +900,9 @@ config PORTABLE
+ 	select MMU
+ 	select OF
+ 
++config ARCH_SUSPEND_POSSIBLE
++	def_bool RISCV_SBI
++
+ menu "Power management options"
+ 
+ source "kernel/power/Kconfig"
+diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
+index 5b4a1bf5f439..808ec1cb1d0d 100644
+--- a/arch/riscv/include/asm/sbi.h
++++ b/arch/riscv/include/asm/sbi.h
+@@ -29,6 +29,7 @@ enum sbi_ext_id {
+ 	SBI_EXT_RFENCE = 0x52464E43,
+ 	SBI_EXT_HSM = 0x48534D,
+ 	SBI_EXT_SRST = 0x53525354,
++	SBI_EXT_SUSP = 0x53555350,
+ 	SBI_EXT_PMU = 0x504D55,
+ 
+ 	/* Experimentals extensions must lie within this range */
+@@ -113,6 +114,14 @@ enum sbi_srst_reset_reason {
+ 	SBI_SRST_RESET_REASON_SYS_FAILURE,
+ };
+ 
++enum sbi_ext_susp_fid {
++	SBI_EXT_SUSP_SYSTEM_SUSPEND = 0,
++};
++
++enum sbi_ext_susp_sleep_type {
++	SBI_SUSP_SLEEP_TYPE_SUSPEND_TO_RAM = 0,
++};
++
+ enum sbi_ext_pmu_fid {
+ 	SBI_EXT_PMU_NUM_COUNTERS = 0,
+ 	SBI_EXT_PMU_COUNTER_GET_INFO,
+diff --git a/arch/riscv/kernel/suspend.c b/arch/riscv/kernel/suspend.c
+index 3c89b8ec69c4..0a0f4cf6dc58 100644
+--- a/arch/riscv/kernel/suspend.c
++++ b/arch/riscv/kernel/suspend.c
+@@ -4,8 +4,12 @@
+  * Copyright (c) 2022 Ventana Micro Systems Inc.
+  */
+ 
++#define pr_fmt(fmt) "suspend: " fmt
++
+ #include <linux/ftrace.h>
++#include <linux/suspend.h>
+ #include <asm/csr.h>
++#include <asm/sbi.h>
+ #include <asm/suspend.h>
+ 
+ void suspend_save_csrs(struct suspend_context *context)
+@@ -85,3 +89,42 @@ int cpu_suspend(unsigned long arg,
+ 
+ 	return rc;
+ }
++
++#ifdef CONFIG_RISCV_SBI
++static int sbi_system_suspend(unsigned long sleep_type,
++			      unsigned long resume_addr,
++			      unsigned long opaque)
++{
++	struct sbiret ret;
++
++	ret = sbi_ecall(SBI_EXT_SUSP, SBI_EXT_SUSP_SYSTEM_SUSPEND,
++			sleep_type, resume_addr, opaque, 0, 0, 0);
++	if (ret.error)
++		return sbi_err_map_linux_errno(ret.error);
++
++	return ret.value;
++}
++
++static int sbi_system_suspend_enter(suspend_state_t state)
++{
++	return cpu_suspend(SBI_SUSP_SLEEP_TYPE_SUSPEND_TO_RAM, sbi_system_suspend);
++}
++
++static const struct platform_suspend_ops sbi_system_suspend_ops = {
++	.valid = suspend_valid_only_mem,
++	.enter = sbi_system_suspend_enter,
++};
++
++static int __init sbi_system_suspend_init(void)
++{
++	if (!sbi_spec_is_0_1() && sbi_probe_extension(SBI_EXT_SUSP) > 0) {
++		pr_info("SBI SUSP extension detected\n");
++		if (IS_ENABLED(CONFIG_SUSPEND))
++			suspend_set_ops(&sbi_system_suspend_ops);
++	}
++
++	return 0;
++}
++
++arch_initcall(sbi_system_suspend_init);
++#endif /* CONFIG_RISCV_SBI */
 -- 
 2.41.0
 
