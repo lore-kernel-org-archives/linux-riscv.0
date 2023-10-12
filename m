@@ -4,83 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D67EACDB482
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Oct 2023 07:22:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65090CDB46E
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Oct 2023 07:24:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1GtRm4vDKUqO0nLtrNeTGLlYQh7dWSnCvael/nYLNMY=; b=ahhmDl9r48+tCn
-	R3y4PhEPmSdlcTZu2n6BZ6+i5Pk73gKWQCdjO+G4beAOuZ3F3bVVMP0pf9v5Mi2JDtnMqUUAmzQvU
-	DSOW/HedNzl+jZbLNtJ36b8uvZu1lyjvN1Q5rvj3jPp8DQ24bX8//XB2d6RsQhnzcKZ8gDqPy0QCx
-	z4622PkrivxCA2ZU2+qp63piXwo5SWtMmOcCetHKQcCuC/OTHC+bRT554jCQ2xGQSg2n7ZFVQQilC
-	uLCj4oV/XXBtv41PryUu9PRZqv1L3+lWb4UesPusQTAqfZKethXDujMOGdZyyYf6cmpRae+x+BdUe
-	4R3K3aBSs4i162tjFyCg==;
+	List-Owner; bh=H1MKM8jiuGwl5wN5YImWlydWuP+aoWNy+nSuroaFJMo=; b=NvzvEWdFxGUNYf
+	SHZymbsrTNEp5MazeI9Qo4AbU7ayU7hqqeq3hParrfMHBDj524SPz+vE3zGWgpZqBQvdKfYa+i5ro
+	T1aZ8OGTByzaytqMOKfWYkwdQvWGDkpLbdkk2Su5tZbkadFv9f3HASJCOG1xE36WgAFkDVAwdosbe
+	rDdMGQX+i01eine9opbqe+p3k2QAYY8Jz3C7Wv+rkKGxo4sZjEeElP+7dLAz4vCheaOXtv5KfTvVS
+	tX0xMQ+tDLOMvFV1Rv4InJvrmo4VIYDEd4liXEYq8alyUnPqTeW6wWrZpnhhtxRJhhrev3BWWPDgl
+	0fOXpW/DumXAppVx7eaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qqq1E-0002Qz-2X;
-	Thu, 12 Oct 2023 07:22:04 +0000
-Received: from mail-ed1-x52b.google.com ([2a00:1450:4864:20::52b])
+	id 1qqq3t-0002yE-1S;
+	Thu, 12 Oct 2023 07:24:49 +0000
+Received: from mout.gmx.net ([212.227.17.21])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qqq1A-0002PE-2k
-	for linux-riscv@lists.infradead.org;
-	Thu, 12 Oct 2023 07:22:03 +0000
-Received: by mail-ed1-x52b.google.com with SMTP id 4fb4d7f45d1cf-5333fb34be3so1155726a12.1
-        for <linux-riscv@lists.infradead.org>; Thu, 12 Oct 2023 00:21:58 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1697095317; x=1697700117; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=SO8zOYxco8xfXjuaBznJStpI2AKGvZm9bzCbGMl1vrQ=;
-        b=D/ZveDLyYmPa9zW4Aqd6PU6wVf1hX9QltXwpa9ee75j4tVkEBhTOd/LFaKjUGve6HX
-         42l+g5CjMGtbch2oWDjlkItaC64Rs9gOkOBYt6yrBhWHcaeq25tMbMRwML6uSIVoa2go
-         JL0S/6Fj6sQb9O0SuSqU/ln6hsG3zKG2WQT5AndUK+vooDFroHe7wG/BPIIIfwHVOt0z
-         AiwizKqhxIvxNs4+Q59kgStFw4ti9S98+UpLxUEFb5W+W6q7vU7DHLo+2CkCEQsv1Q87
-         HXX94HjMOx7PWFlX8Xjod/8fXwIi4yhBfvh3nBgSwp6NVO+vnowYz1dbBf/ycZRF81vS
-         QX6w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1697095317; x=1697700117;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=SO8zOYxco8xfXjuaBznJStpI2AKGvZm9bzCbGMl1vrQ=;
-        b=WNkYZ9zPqaVkGOUWcIJlvarjgel6CXNA2pxQ0LE6e1LRh8n72dTEQm9PshlrsYjmGx
-         Z/8HD76LnC/2e0yQmMq2OrFUcYGrsy1y7ZLHZ+PAWCUAqlEftOKACDTgmZhuIbolnS9m
-         VYW9+d24ytTKRxyquZHILiudNoCcgG02843f3LW08/4NYwmER8pMyClHQvtWndNy6s24
-         oeKEiD8w1fWRapI1b/oHLwAxFFG4CDTfL+BOmncVdSH+7nNHQBpSV33brZUcc0fBI4wu
-         edOCvOt8cVpPewmENjf1tp600TZ3252qdwO1i0alx9/INB/jkTnCs2JgfyKlLoob2n4R
-         2upg==
-X-Gm-Message-State: AOJu0YwPutV0CfsC8oRPucS8nl4LjeCsf8V+6A4IsGeewsx5o+qKBmZJ
-	baa+fqTw4yi2FbfN/zud0eaIA9iSyYmc/DIJrCw=
-X-Google-Smtp-Source: AGHT+IG4tKuUq5G8a/TnLB6f/RmMQs0+L453H5Q/yMoohqrw87dopvqASqPoofEJLmMayE8PKOPKgg==
-X-Received: by 2002:a17:906:8a67:b0:9a1:f3a6:b906 with SMTP id hy7-20020a1709068a6700b009a1f3a6b906mr20617751ejc.36.1697095316923;
-        Thu, 12 Oct 2023 00:21:56 -0700 (PDT)
-Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
-        by smtp.gmail.com with ESMTPSA id gh18-20020a170906e09200b009786c8249d6sm10858680ejb.175.2023.10.12.00.21.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 12 Oct 2023 00:21:55 -0700 (PDT)
-From: Andrew Jones <ajones@ventanamicro.com>
-To: linux-riscv@lists.infradead.org
-Cc: paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	leyfoon.tan@starfivetech.com,
-	jeeheng.sia@starfivetech.com,
-	conor.dooley@microchip.com,
-	apatel@ventanamicro.com
-Subject: [PATCH v1 1/1] riscv: sbi: Introduce system suspend support
-Date: Thu, 12 Oct 2023 09:21:50 +0200
-Message-ID: <20231012072148.7010-4-ajones@ventanamicro.com>
-X-Mailer: git-send-email 2.41.0
-In-Reply-To: <20231012072148.7010-3-ajones@ventanamicro.com>
-References: <20231012072148.7010-3-ajones@ventanamicro.com>
+	id 1qqq3q-0002xJ-1j;
+	Thu, 12 Oct 2023 07:24:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=gmx.de; s=s31663417;
+ t=1697095477; x=1697700277; i=deller@gmx.de;
+ bh=oXy5tX2J/Ph6eTM9bAGsgHUtEr/KjBOa9YKsIsb+zZo=;
+ h=X-UI-Sender-Class:Date:Subject:To:Cc:References:From:In-Reply-To;
+ b=RyEsuy/MOe7+0kyhqW5fyiLrNtgpGiIcosZ+Yvw2I1towJ5lpw/71QVowPMw2iGkSfYG1lCcX3c
+ Je+1IHNlE7kTz4gU5bwGssFPDS0SgG2M8YS/LEgM8w0p6siZd6vFj6GFNZn2TKbKMJrNTiy//ez7J
+ BWHEfo4AmOU19+TIkXKez5VI+LLLHx1vqbnfcm9Ob1rJ9TnlUN9BFrO2AFDGBA2GU3pcqDyRY6sEJ
+ 7xEgtkzBhhmLDMPw+aUp/0uIKiiDxgz8W4zq5e2P5ijjY6GUDiipzkw0zioaOviN7rc3mXYCksL2E
+ fVd6jyqzV7Vqq9xuqFbqpqijcdmVLA5uMf1Q==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from [192.168.20.60] ([94.134.153.231]) by mail.gmx.net (mrgmx104
+ [212.227.17.168]) with ESMTPSA (Nemesis) id 1Mk0JM-1rJKFJ2X96-00kRh2; Thu, 12
+ Oct 2023 09:24:37 +0200
+Message-ID: <d886d83a-87b4-428d-856e-9bbaa554563a@gmx.de>
+Date: Thu, 12 Oct 2023 09:24:36 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/5] parisc: remove broken vdso_install
+Content-Language: en-US
+To: Masahiro Yamada <masahiroy@kernel.org>, linux-kbuild@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-csky@vger.kernel.org, linux-parisc@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ linux-um@lists.infradead.org, loongarch@lists.linux.dev,
+ sparclinux@vger.kernel.org, x86@kernel.org,
+ "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>
+References: <20231009124210.1064021-1-masahiroy@kernel.org>
+ <20231009124210.1064021-3-masahiroy@kernel.org>
+From: Helge Deller <deller@gmx.de>
+Autocrypt: addr=deller@gmx.de; keydata=
+ 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
+In-Reply-To: <20231009124210.1064021-3-masahiroy@kernel.org>
+X-Provags-ID: V03:K1:UuRaX4Qyf+vUPdgU+tYXxohqJX86snYyiLQ1GLwyp69h7XprT7J
+ gIJCWxMLT7TqKQsMWUziQR7PpqexRnlVJX67B6UFqqJbheZPMEsh0SpQwpREUZ/Y3tt0CfN
+ kjZK7PN2+my2xbvTvkBpXNP34rbV4u+xF3gnjATHAkV27ITVERd44tDpb5ZQZgxCpiM+VDN
+ 9bEi/P7yFjW3vQAAdC8LA==
+UI-OutboundReport: notjunk:1;M01:P0:dv/izyBJz7w=;o5X8ff7JU/4ObAv70zN3D0eXcDJ
+ OVfsETuHPyw3nTXayRCSQOPexM75ofy/ywHIBwCbaVz3aXtDraxdIBPjGkx0ece6TfSHpAq8N
+ Xncx0BomXSTwi7heFKQy1Zo5VFQrovcVbBk6e/11NpG7PNIpZEd1ZXXPQJYLR9jnaSgzrepA6
+ j+LqSzqCjNakNJOOk3WnUTAldNR9Ge6O3H0i3Bu63mzofi5You9/hmHi+yybdfBIOhDtlU4Rd
+ D7M91OPVWpSgD3/+O//pmdtgBwhtCy+wMSAd0q6d+RqSjCuWULgLksUa95Ozn0ptf9ovP0U3a
+ aD0TmiHaggRj9CQOGILxGjvw2/ODYbWkFzZRoeIeEb0JspbccSNMbGLgE2sMdI8fFtOmMKTkO
+ efqooP33QDLhTYzLZ24pEnqej2ks6vbhnckjqk76gO9spWC0UwmU8H7siUv45VZYBIqWiIjUM
+ E7Mm5JgpLt7+dLilET0lvbjpU8vGWqpsEsqhqIOcPT6MH36M7CdPM7r9EA0x9bRWuTFPop5PC
+ doZt7uUewz9zq8qLH7b7piwrymrisWA3uTq9MW2USW2Jb4kd7TWQEIJvXfGUL/V61YnDHSavl
+ gui+DDcLya8/0lS1PZ2z3GkpFGkkfv6A5Krtg4thvjBQ7n8jQs59N/OF+P/ZKK2ka06NbK764
+ 60oq7csCNkPDpJan/HY5YOVvJKGE3YOQBDCkSRX8HKsmbKSz8eVDq47/ptiqyCD8e9Blw64Gb
+ qPVCYbmECBAHBUOm4cWWExMaHd9PRqzaO5jVo6CE0YtmYYW0lSkF0R37BGIRsjGJNgYTEiznA
+ DV1JSqTkjL3BbQ8DfdA6eF/OBoo4H/3zrE1hbQ0i69b6WI81gdwviBLE6sH/Xv7OuTbD94tWU
+ TE2nsqlAVkS7no9QaJgAgYsABy6qwO54aZEiJbVKRHf+ff/bMAxBjRPhCKIHS23TP9n8Iml2b
+ GuJX9A==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231012_002200_886964_8E1B087B 
-X-CRM114-Status: GOOD (  13.92  )
+X-CRM114-CacheID: sfid-20231012_002446_863859_1510BA6E 
+X-CRM114-Status: UNSURE (   9.20  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,138 +133,45 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-When the SUSP SBI extension is present it implies that the standard
-"suspend to RAM" type is available. Wire it up to the generic
-platform suspend support, also applying the already present support
-for non-retentive CPU suspend. When the kernel is built with
-CONFIG_SUSPEND, one can do 'echo mem > /sys/power/state' to suspend.
-Resumption will occur when a platform-specific wake-up event arrives.
+Hi Masahiro,
 
-Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
----
- arch/riscv/Kconfig           |  5 ++++-
- arch/riscv/include/asm/sbi.h |  9 ++++++++
- arch/riscv/kernel/suspend.c  | 43 ++++++++++++++++++++++++++++++++++++
- 3 files changed, 56 insertions(+), 1 deletion(-)
+On 10/9/23 14:42, Masahiro Yamada wrote:
+> 'make ARCH=parisc vdso_install' has never worked. It attempts to
+> descend into arch/parisc/kernel/vdso/, which does not exist.
+>
+> The command just fails:
+>
+>    scripts/Makefile.build:41: arch/parisc/kernel/vdso/Makefile: No such file or directory
+>
+> The second line is also meaningless because parisc does not define
+> CONFIG_COMPAT_VDSO.
+>
+> It appears that this code was copied from another architecture without
+> proper adaptation.
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index d607ab0f7c6d..a96368b662d8 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -63,7 +63,7 @@ config RISCV
- 	select CLINT_TIMER if !MMU
- 	select CLONE_BACKWARDS
- 	select COMMON_CLK
--	select CPU_PM if CPU_IDLE || HIBERNATION
-+	select CPU_PM if CPU_IDLE || HIBERNATION || SUSPEND
- 	select EDAC_SUPPORT
- 	select FRAME_POINTER if PERF_EVENTS || (FUNCTION_TRACER && !DYNAMIC_FTRACE)
- 	select GENERIC_ARCH_TOPOLOGY
-@@ -900,6 +900,9 @@ config PORTABLE
- 	select MMU
- 	select OF
- 
-+config ARCH_SUSPEND_POSSIBLE
-+	def_bool RISCV_SBI
-+
- menu "Power management options"
- 
- source "kernel/power/Kconfig"
-diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
-index 5b4a1bf5f439..808ec1cb1d0d 100644
---- a/arch/riscv/include/asm/sbi.h
-+++ b/arch/riscv/include/asm/sbi.h
-@@ -29,6 +29,7 @@ enum sbi_ext_id {
- 	SBI_EXT_RFENCE = 0x52464E43,
- 	SBI_EXT_HSM = 0x48534D,
- 	SBI_EXT_SRST = 0x53525354,
-+	SBI_EXT_SUSP = 0x53555350,
- 	SBI_EXT_PMU = 0x504D55,
- 
- 	/* Experimentals extensions must lie within this range */
-@@ -113,6 +114,14 @@ enum sbi_srst_reset_reason {
- 	SBI_SRST_RESET_REASON_SYS_FAILURE,
- };
- 
-+enum sbi_ext_susp_fid {
-+	SBI_EXT_SUSP_SYSTEM_SUSPEND = 0,
-+};
-+
-+enum sbi_ext_susp_sleep_type {
-+	SBI_SUSP_SLEEP_TYPE_SUSPEND_TO_RAM = 0,
-+};
-+
- enum sbi_ext_pmu_fid {
- 	SBI_EXT_PMU_NUM_COUNTERS = 0,
- 	SBI_EXT_PMU_COUNTER_GET_INFO,
-diff --git a/arch/riscv/kernel/suspend.c b/arch/riscv/kernel/suspend.c
-index 3c89b8ec69c4..0a0f4cf6dc58 100644
---- a/arch/riscv/kernel/suspend.c
-+++ b/arch/riscv/kernel/suspend.c
-@@ -4,8 +4,12 @@
-  * Copyright (c) 2022 Ventana Micro Systems Inc.
-  */
- 
-+#define pr_fmt(fmt) "suspend: " fmt
-+
- #include <linux/ftrace.h>
-+#include <linux/suspend.h>
- #include <asm/csr.h>
-+#include <asm/sbi.h>
- #include <asm/suspend.h>
- 
- void suspend_save_csrs(struct suspend_context *context)
-@@ -85,3 +89,42 @@ int cpu_suspend(unsigned long arg,
- 
- 	return rc;
- }
-+
-+#ifdef CONFIG_RISCV_SBI
-+static int sbi_system_suspend(unsigned long sleep_type,
-+			      unsigned long resume_addr,
-+			      unsigned long opaque)
-+{
-+	struct sbiret ret;
-+
-+	ret = sbi_ecall(SBI_EXT_SUSP, SBI_EXT_SUSP_SYSTEM_SUSPEND,
-+			sleep_type, resume_addr, opaque, 0, 0, 0);
-+	if (ret.error)
-+		return sbi_err_map_linux_errno(ret.error);
-+
-+	return ret.value;
-+}
-+
-+static int sbi_system_suspend_enter(suspend_state_t state)
-+{
-+	return cpu_suspend(SBI_SUSP_SLEEP_TYPE_SUSPEND_TO_RAM, sbi_system_suspend);
-+}
-+
-+static const struct platform_suspend_ops sbi_system_suspend_ops = {
-+	.valid = suspend_valid_only_mem,
-+	.enter = sbi_system_suspend_enter,
-+};
-+
-+static int __init sbi_system_suspend_init(void)
-+{
-+	if (!sbi_spec_is_0_1() && sbi_probe_extension(SBI_EXT_SUSP) > 0) {
-+		pr_info("SBI SUSP extension detected\n");
-+		if (IS_ENABLED(CONFIG_SUSPEND))
-+			suspend_set_ops(&sbi_system_suspend_ops);
-+	}
-+
-+	return 0;
-+}
-+
-+arch_initcall(sbi_system_suspend_init);
-+#endif /* CONFIG_RISCV_SBI */
--- 
-2.41.0
+Yes.
 
+> Remove the broken code.
+>
+> Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
+
+Thanks for cleaning this up and making it consistent across the architectures.
+
+Acked-by: Helge Deller <deller@gmx.de>  # parisc
+
+In case you do a v2 version of the patch, would you add to arch/parisc/Makefile
+(otherwise I can send a follow-up patch in the parisc git tree):
+
+vdso-install-y               += arch/parisc/kernel/vdso32/vdso32.so
+vdso-install-$(CONFIG_64BIT) += arch/parisc/kernel/vdso64/vdso64.so
+
+Thanks!
+Helge
 
 _______________________________________________
 linux-riscv mailing list
