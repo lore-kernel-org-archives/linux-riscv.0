@@ -4,87 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD49CCDB46E
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Oct 2023 09:46:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D33FCDB46E
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Oct 2023 10:29:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rx9LvOQbl9UwaeY7Zuf9ZUxvLZHndf8QjkvREKKXbTk=; b=36qouDJyDHT67q
-	S1DH5EPZ4FPOOquEFr3jspaCJjkj2DbT6z1mGd6NMulPT5FUln8SK+2CFg0fNzi2i/6hIXcuQmwWP
-	vzYtS3J33hdrnliTI15nm44b509X38oSy8WJxd/7GZKPEFl43s4noTyXquFDrQYNPNV3/2tFGFaFU
-	ocdiqo5zJ+0AI143RB+itVIcx9cIBbHSqcU5oDquSMqzkouyi6A1aPowCP+F3wmyF033ONekD1xom
-	5LmqS23o4r9eSikvHVBUpd1iE9ggrqmx6aun5xhoFYU449a7cYUGzJ8Hwpuj9sWP3fLbgWseaMd+9
-	jQJRNnihjg0TGNxk32fw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=wU6DEMpckBCjXQB/ItnakfBgf32ZpXWGFdh0YF9sMfg=; b=QwPVlYZ0C5XAFh
+	VUEkeO/Nneg1VpLHQ+aNXAU4x4brVgrCam7zZ9RMzuthWMY92Cg+lsktYY5v+06lax/8r2iar5Kmi
+	Q9Nl0HDwNs93BY7s/LNPn1ADV1LVMLyd9brpU40Fp0cTkTineSlYUVGuP2Xd8qi796xLbUevTNUjI
+	CWhcV4r06J7HHGL9eIOU5J2tFwm7UXHAHF+fAYOix6EkKo62BNDflp0pKb3x6jeaWuhy7M7b+OnSa
+	x77rWsO1pe0t7ROKICTTzodtI6wmu9GQQrG7POLpCjMoKPnWXo0U9wiIxcr5KFiGICU+e4xvMFUNx
+	y3XrxaIqkNBapFG6ml8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qqsHM-000R8K-2U;
-	Thu, 12 Oct 2023 09:46:52 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1qqswM-000fPH-0x;
+	Thu, 12 Oct 2023 10:29:14 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qqsHF-000R3y-0g
+	id 1qqswK-000fOt-0E
 	for linux-riscv@lists.infradead.org;
-	Thu, 12 Oct 2023 09:46:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1697104002;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ThRb+UcGK85QIazXPneMxqNNLJr2GRSmiyAMj75w/LA=;
-	b=jEKKiil1HnJmKjj3QJtC5ojt++wzPh0Sv8X7uSIPAlBIFV6RfW8Uk+XKUlKJV7e8APy0jn
-	TUaNLmsNCHNhL0JUhxOebSNifb315I80OQl/TpY39Cb0Cj3tJEFRBJUCHkY9JjELicvFZ8
-	7geZqB4m1VTzqCKBvX2vzQGYnRL1CW4=
-Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
- [209.85.128.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-437-ruYZKukwO6qwZF4l-7LOdA-1; Thu, 12 Oct 2023 05:46:41 -0400
-X-MC-Unique: ruYZKukwO6qwZF4l-7LOdA-1
-Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-4053a5c6a59so5274995e9.3
-        for <linux-riscv@lists.infradead.org>; Thu, 12 Oct 2023 02:46:41 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1697104000; x=1697708800;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=ThRb+UcGK85QIazXPneMxqNNLJr2GRSmiyAMj75w/LA=;
-        b=gBMlv9mV2OQHavpHwoAFBmPQXZ9/lUdNC+KrEGnLAjZlXsJObB6cOoUAHV4LWPhxlf
-         ZxTleCnjd5KNttdlD7wDZNjODttXRHpLscadhv6FxbRkrEpZyxtE0PLAj+4VdDt55vpO
-         I4eFHTcu4eoLQGQ92yopmNZuUGW4rV9SyYYfcW/k6MoMMLnnqp4StU6pwQDS9VZueSw9
-         tscXiBPLQYdXdtIpxx/3qrkZ3AHtYzGQ24dfqbUCDLA7zlF/AQwcEUoKUGV/QCed4Yc7
-         LqLFkBzpFYwg3yUN6ZQpUGJBsKCdrt+Q2AMOJvq1W0b0Z+2gZcPlPPu9qlQFgT5frC9w
-         nR8g==
-X-Gm-Message-State: AOJu0YylpG9+M9niJ2aE8ojSwrsWWjk+fht+8cmCZykF2Kv9OLv0GVfS
-	NRgFC91PbPQOe4Xwd439mGohullRmPJqs60PZ/VHwN+3IUkgEHJKtEd/gNYTyZbqAvmXYejHwx4
-	8xQSkGG7xvk1xDuKtWqCrsdznn4yK
-X-Received: by 2002:a7b:c851:0:b0:405:3252:fe2 with SMTP id c17-20020a7bc851000000b0040532520fe2mr20044588wml.14.1697104000203;
-        Thu, 12 Oct 2023 02:46:40 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHFoTJKOUlXNGuTxyVfpeYk3pzXXcIpsxixiWv56qeWL3YsmKEdqeyry4llLnNXWO3k3t8ZEA==
-X-Received: by 2002:a7b:c851:0:b0:405:3252:fe2 with SMTP id c17-20020a7bc851000000b0040532520fe2mr20044570wml.14.1697103999801;
-        Thu, 12 Oct 2023 02:46:39 -0700 (PDT)
-Received: from redhat.com ([2a06:c701:73d2:bf00:e379:826:5137:6b23])
-        by smtp.gmail.com with ESMTPSA id u6-20020a05600c00c600b00402ff8d6086sm18968884wmm.18.2023.10.12.02.46.38
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 12 Oct 2023 02:46:38 -0700 (PDT)
-Date: Thu, 12 Oct 2023 05:46:36 -0400
-From: "Michael S. Tsirkin" <mst@redhat.com>
-To: =?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@kernel.org>
-Cc: Gabriel Somlo <somlo@cmu.edu>, qemu-devel@nongnu.org,
-	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH] riscv, qemu_fw_cfg: Add support for RISC-V architecture
-Message-ID: <20231012054613-mutt-send-email-mst@kernel.org>
-References: <20231011114721.193732-1-bjorn@kernel.org>
+	Thu, 12 Oct 2023 10:29:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 678BE61D70;
+	Thu, 12 Oct 2023 10:29:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5C60CC433C8;
+	Thu, 12 Oct 2023 10:29:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1697106551;
+	bh=pUW2UZ0iy4cmzd6/+KDXWEa/Dy0ELBQNtzS85l2Lunk=;
+	h=From:To:Cc:Subject:Date:From;
+	b=brE3CEeTWq27Cqw8KEMugSZoqYW30hCkl4n/stfchAv4ITSXMFJSE8EKQRRAjCFrn
+	 AdOD0ZDpihTgzC9V36GYQ23NrFGDm186yigFclM080X2lmXPpu73yTJOCX3rAzbmBQ
+	 l1dLuvqQjCAGHodCUUS6ezGo9yVtSX1IpTTySYLGav7LZkrRo3q9CJfd9UQzvl02SL
+	 z7CJvRM4J0+Mtz6iKKAn0Vkniv80Rgt41ZvAdzMMyb3hubChs9OS7W0od5/E/A6/8R
+	 /ejjo5niRARbD4QXsCST7aVe8ZeTeYpy5vs0/OzMeDSBg/iSPe2yQJuaFSDhEwK3Lv
+	 SNnXAAoc66RIg==
+From: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>
+To: Gabriel Somlo <somlo@cmu.edu>,
+	"Michael S. Tsirkin" <mst@redhat.com>,
+	qemu-devel@nongnu.org
+Cc: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@rivosinc.com>,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Alistair Francis <alistair.francis@wdc.com>,
+	=?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>
+Subject: [PATCH v2] riscv, qemu_fw_cfg: Add support for RISC-V architecture
+Date: Thu, 12 Oct 2023 12:28:52 +0200
+Message-Id: <20231012102852.234442-1-bjorn@kernel.org>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
-In-Reply-To: <20231011114721.193732-1-bjorn@kernel.org>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
-Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231012_024645_339001_B210F7C9 
-X-CRM114-Status: GOOD (  20.04  )
+X-CRM114-CacheID: sfid-20231012_032912_196297_ACE752AC 
+X-CRM114-Status: GOOD (  12.00  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,84 +70,46 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 11, 2023 at 01:47:21PM +0200, Bj=F6rn T=F6pel wrote:
-> From: Bj=F6rn T=F6pel <bjorn@rivosinc.com>
-> =
-
-> Qemu fw_cfg support was missing for RISC-V, which made it hard to do
-> proper vmcore dumps from qemu.
-> =
-
-> Add the missing RISC-V arch-defines.
-> =
-
-> You can now do vmcore dumps from qemu. Add "-device vmcoreinfo" to the
-> qemu command-line. From the qemu montior:
->   (qemu) dump-guest-memory vmcore
-> =
-
-> The vmcore can now be used, e.g., with the "crash" utility.
-> =
-
-> Signed-off-by: Bj=F6rn T=F6pel <bjorn@rivosinc.com>
-> ---
-
-with typo fixed:
-
-Acked-by: Michael S. Tsirkin <mst@redhat.com>
-
-
->  drivers/firmware/Kconfig       | 2 +-
->  drivers/firmware/qemu_fw_cfg.c | 2 +-
->  2 files changed, 2 insertions(+), 2 deletions(-)
-> =
-
-> diff --git a/drivers/firmware/Kconfig b/drivers/firmware/Kconfig
-> index b59e3041fd62..f05ff56629b3 100644
-> --- a/drivers/firmware/Kconfig
-> +++ b/drivers/firmware/Kconfig
-> @@ -155,7 +155,7 @@ config RASPBERRYPI_FIRMWARE
->  =
-
->  config FW_CFG_SYSFS
->  	tristate "QEMU fw_cfg device support in sysfs"
-> -	depends on SYSFS && (ARM || ARM64 || PARISC || PPC_PMAC || SPARC || X86)
-> +	depends on SYSFS && (ARM || ARM64 || PARISC || PPC_PMAC || RISCV || SPA=
-RC || X86)
->  	depends on HAS_IOPORT_MAP
->  	default n
->  	help
-> diff --git a/drivers/firmware/qemu_fw_cfg.c b/drivers/firmware/qemu_fw_cf=
-g.c
-> index a69399a6b7c0..1448f61173b3 100644
-> --- a/drivers/firmware/qemu_fw_cfg.c
-> +++ b/drivers/firmware/qemu_fw_cfg.c
-> @@ -211,7 +211,7 @@ static void fw_cfg_io_cleanup(void)
->  =
-
->  /* arch-specific ctrl & data register offsets are not available in ACPI,=
- DT */
->  #if !(defined(FW_CFG_CTRL_OFF) && defined(FW_CFG_DATA_OFF))
-> -# if (defined(CONFIG_ARM) || defined(CONFIG_ARM64))
-> +# if (defined(CONFIG_ARM) || defined(CONFIG_ARM64) || defined(CONFIG_RIS=
-CV))
->  #  define FW_CFG_CTRL_OFF 0x08
->  #  define FW_CFG_DATA_OFF 0x00
->  #  define FW_CFG_DMA_OFF 0x10
-> =
-
-> base-commit: 1c8b86a3799f7e5be903c3f49fcdaee29fd385b5
-> -- =
-
-> 2.39.2
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+RnJvbTogQmrDtnJuIFTDtnBlbCA8Ympvcm5Acml2b3NpbmMuY29tPgoKUWVtdSBmd19jZmcgc3Vw
+cG9ydCB3YXMgbWlzc2luZyBmb3IgUklTQy1WLCB3aGljaCBtYWRlIGl0IGhhcmQgdG8gZG8KcHJv
+cGVyIHZtY29yZSBkdW1wcyBmcm9tIHFlbXUuCgpBZGQgdGhlIG1pc3NpbmcgUklTQy1WIGFyY2gt
+ZGVmaW5lcy4KCllvdSBjYW4gbm93IGRvIHZtY29yZSBkdW1wcyBmcm9tIHFlbXUuIEFkZCAiLWRl
+dmljZSB2bWNvcmVpbmZvIiB0byB0aGUKcWVtdSBjb21tYW5kLWxpbmUuIEZyb20gdGhlIHFlbXUg
+bW9uaXRvcjoKICAocWVtdSkgZHVtcC1ndWVzdC1tZW1vcnkgdm1jb3JlCgpUaGUgdm1jb3JlIGNh
+biBub3cgYmUgdXNlZCwgZS5nLiwgd2l0aCB0aGUgImNyYXNoIiB1dGlsaXR5LgoKQWNrZWQtYnk6
+ICJNaWNoYWVsIFMuIFRzaXJraW4iIDxtc3RAcmVkaGF0LmNvbT4KQWNrZWQtYnk6IEFsaXN0YWly
+IEZyYW5jaXMgPGFsaXN0YWlyLmZyYW5jaXNAd2RjLmNvbT4KVGVzdGVkLWJ5OiBDbMOpbWVudCBM
+w6lnZXIgPGNsZWdlckByaXZvc2luYy5jb20+ClNpZ25lZC1vZmYtYnk6IEJqw7ZybiBUw7ZwZWwg
+PGJqb3JuQHJpdm9zaW5jLmNvbT4KLS0tCnYyOiBGaXhlZCB0eXBvIChDbMOpbWVudCkKICAgIC4u
+LmFuZCBjb2xsZWN0ZWQgQS1iL1QtYnMKLS0tCiBkcml2ZXJzL2Zpcm13YXJlL0tjb25maWcgICAg
+ICAgfCAyICstCiBkcml2ZXJzL2Zpcm13YXJlL3FlbXVfZndfY2ZnLmMgfCAyICstCiAyIGZpbGVz
+IGNoYW5nZWQsIDIgaW5zZXJ0aW9ucygrKSwgMiBkZWxldGlvbnMoLSkKCmRpZmYgLS1naXQgYS9k
+cml2ZXJzL2Zpcm13YXJlL0tjb25maWcgYi9kcml2ZXJzL2Zpcm13YXJlL0tjb25maWcKaW5kZXgg
+YjU5ZTMwNDFmZDYyLi5mMDVmZjU2NjI5YjMgMTAwNjQ0Ci0tLSBhL2RyaXZlcnMvZmlybXdhcmUv
+S2NvbmZpZworKysgYi9kcml2ZXJzL2Zpcm13YXJlL0tjb25maWcKQEAgLTE1NSw3ICsxNTUsNyBA
+QCBjb25maWcgUkFTUEJFUlJZUElfRklSTVdBUkUKIAogY29uZmlnIEZXX0NGR19TWVNGUwogCXRy
+aXN0YXRlICJRRU1VIGZ3X2NmZyBkZXZpY2Ugc3VwcG9ydCBpbiBzeXNmcyIKLQlkZXBlbmRzIG9u
+IFNZU0ZTICYmIChBUk0gfHwgQVJNNjQgfHwgUEFSSVNDIHx8IFBQQ19QTUFDIHx8IFNQQVJDIHx8
+IFg4NikKKwlkZXBlbmRzIG9uIFNZU0ZTICYmIChBUk0gfHwgQVJNNjQgfHwgUEFSSVNDIHx8IFBQ
+Q19QTUFDIHx8IFJJU0NWIHx8IFNQQVJDIHx8IFg4NikKIAlkZXBlbmRzIG9uIEhBU19JT1BPUlRf
+TUFQCiAJZGVmYXVsdCBuCiAJaGVscApkaWZmIC0tZ2l0IGEvZHJpdmVycy9maXJtd2FyZS9xZW11
+X2Z3X2NmZy5jIGIvZHJpdmVycy9maXJtd2FyZS9xZW11X2Z3X2NmZy5jCmluZGV4IGE2OTM5OWE2
+YjdjMC4uMTQ0OGY2MTE3M2IzIDEwMDY0NAotLS0gYS9kcml2ZXJzL2Zpcm13YXJlL3FlbXVfZndf
+Y2ZnLmMKKysrIGIvZHJpdmVycy9maXJtd2FyZS9xZW11X2Z3X2NmZy5jCkBAIC0yMTEsNyArMjEx
+LDcgQEAgc3RhdGljIHZvaWQgZndfY2ZnX2lvX2NsZWFudXAodm9pZCkKIAogLyogYXJjaC1zcGVj
+aWZpYyBjdHJsICYgZGF0YSByZWdpc3RlciBvZmZzZXRzIGFyZSBub3QgYXZhaWxhYmxlIGluIEFD
+UEksIERUICovCiAjaWYgIShkZWZpbmVkKEZXX0NGR19DVFJMX09GRikgJiYgZGVmaW5lZChGV19D
+RkdfREFUQV9PRkYpKQotIyBpZiAoZGVmaW5lZChDT05GSUdfQVJNKSB8fCBkZWZpbmVkKENPTkZJ
+R19BUk02NCkpCisjIGlmIChkZWZpbmVkKENPTkZJR19BUk0pIHx8IGRlZmluZWQoQ09ORklHX0FS
+TTY0KSB8fCBkZWZpbmVkKENPTkZJR19SSVNDVikpCiAjICBkZWZpbmUgRldfQ0ZHX0NUUkxfT0ZG
+IDB4MDgKICMgIGRlZmluZSBGV19DRkdfREFUQV9PRkYgMHgwMAogIyAgZGVmaW5lIEZXX0NGR19E
+TUFfT0ZGIDB4MTAKCmJhc2UtY29tbWl0OiAxYzhiODZhMzc5OWY3ZTViZTkwM2MzZjQ5ZmNkYWVl
+MjlmZDM4NWI1Ci0tIAoyLjM5LjIKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMu
+aW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZv
+L2xpbnV4LXJpc2N2Cg==
