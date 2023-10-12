@@ -4,66 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8FB1CDB46E
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Oct 2023 09:42:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD49CCDB46E
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Oct 2023 09:46:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jGwmREthRMEdNnViw5hicSBpJTo7oJKbGOo5gWOkWvA=; b=2nYA4Pm72WlpDxKb/UCEBzzZR0
-	dPmvjFQAIFga05md8PflspS6qQWUxlHI/kJyfRULSSj86HaUVfmGqHUV04AIrkSA03jtebKXZ0xSy
-	ni2szQIG8RXhl9Jf0kZFeA+1M6k7/vXtA/ZBeav0GHJJZWM+YalMKtKq9D/sct9qMcRaqpd6Pcoaz
-	U2YVXKPDjBhfOkH6OykfZ7g+gEcpEXpPH/hWSBsOESTPE6wqrkYEUPhnbNsfClQEOXplE7qMuO5Tj
-	FFOOcK/jnkagFpfuTTc4EUWPwlXG65IXI1t5fVCMIpg4SxPgj1hyoqtJhE/g0I8hGn6xUy4Fi80wv
-	I46EKnsg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=rx9LvOQbl9UwaeY7Zuf9ZUxvLZHndf8QjkvREKKXbTk=; b=36qouDJyDHT67q
+	S1DH5EPZ4FPOOquEFr3jspaCJjkj2DbT6z1mGd6NMulPT5FUln8SK+2CFg0fNzi2i/6hIXcuQmwWP
+	vzYtS3J33hdrnliTI15nm44b509X38oSy8WJxd/7GZKPEFl43s4noTyXquFDrQYNPNV3/2tFGFaFU
+	ocdiqo5zJ+0AI143RB+itVIcx9cIBbHSqcU5oDquSMqzkouyi6A1aPowCP+F3wmyF033ONekD1xom
+	5LmqS23o4r9eSikvHVBUpd1iE9ggrqmx6aun5xhoFYU449a7cYUGzJ8Hwpuj9sWP3fLbgWseaMd+9
+	jQJRNnihjg0TGNxk32fw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qqsCZ-000QTH-1J;
-	Thu, 12 Oct 2023 09:41:55 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1qqsHM-000R8K-2U;
+	Thu, 12 Oct 2023 09:46:52 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qqsCV-000QSM-08
+	id 1qqsHF-000R3y-0g
 	for linux-riscv@lists.infradead.org;
-	Thu, 12 Oct 2023 09:41:53 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 7C5CE6169F;
-	Thu, 12 Oct 2023 09:41:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 96A3AC433C7;
-	Thu, 12 Oct 2023 09:41:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1697103710;
-	bh=nAvxg4KzDTsOzbMCukymkltoz6OpLA5eAEmEqSLDeDo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=J6ukDJkjIGjg/RETfSZR34lITrSLkGjMTs10FWMidORsXst2UcwuhUKktEpHVw/x4
-	 KE8uL0+mYE715Q7Njw5fsFQE0Hi5RHgHZB56P+t0h4gKQp7u17NugHvRF6b0gGP2VA
-	 PPE+wUXxwnHB/7tLGOVpNta73TM2Z5Z3PWVr3oUsRkmjIxwhEGJSTxy/Wn+mUBaCOS
-	 tO9mT4OjYk6y0RjiJ7b+vztMPyu0oSKq0PG5jLxqzNc4go2IwKTS7dEek3Esu6hynr
-	 M6ynK6gTSNbbEQoDoqVTKhbLUAeIKiP/y29XFrnrpEY/eiRoHPWgLT56PHV56koSzh
-	 yGDofdIX1v2tA==
-Date: Thu, 12 Oct 2023 10:41:45 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Inochi Amaoto <inochiama@outlook.com>
-Cc: Chen Wang <unicorn_wang@outlook.com>, Chao Wei <chao.wei@sophgo.com>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Jisheng Zhang <jszhang@kernel.org>, devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 6/7] riscv: dts: sophgo: add initial CV1812H SoC
- device tree
-Message-ID: <20231012-gratuity-siesta-b9e06b11be43@spud>
-References: <MA0P287MB03321A9E3F3D8415DB9552B5FECDA@MA0P287MB0332.INDP287.PROD.OUTLOOK.COM>
- <IA1PR20MB4953AD81686694CEA4F5FC6ABBCDA@IA1PR20MB4953.namprd20.prod.outlook.com>
+	Thu, 12 Oct 2023 09:46:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1697104002;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=ThRb+UcGK85QIazXPneMxqNNLJr2GRSmiyAMj75w/LA=;
+	b=jEKKiil1HnJmKjj3QJtC5ojt++wzPh0Sv8X7uSIPAlBIFV6RfW8Uk+XKUlKJV7e8APy0jn
+	TUaNLmsNCHNhL0JUhxOebSNifb315I80OQl/TpY39Cb0Cj3tJEFRBJUCHkY9JjELicvFZ8
+	7geZqB4m1VTzqCKBvX2vzQGYnRL1CW4=
+Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
+ [209.85.128.71]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-437-ruYZKukwO6qwZF4l-7LOdA-1; Thu, 12 Oct 2023 05:46:41 -0400
+X-MC-Unique: ruYZKukwO6qwZF4l-7LOdA-1
+Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-4053a5c6a59so5274995e9.3
+        for <linux-riscv@lists.infradead.org>; Thu, 12 Oct 2023 02:46:41 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1697104000; x=1697708800;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=ThRb+UcGK85QIazXPneMxqNNLJr2GRSmiyAMj75w/LA=;
+        b=gBMlv9mV2OQHavpHwoAFBmPQXZ9/lUdNC+KrEGnLAjZlXsJObB6cOoUAHV4LWPhxlf
+         ZxTleCnjd5KNttdlD7wDZNjODttXRHpLscadhv6FxbRkrEpZyxtE0PLAj+4VdDt55vpO
+         I4eFHTcu4eoLQGQ92yopmNZuUGW4rV9SyYYfcW/k6MoMMLnnqp4StU6pwQDS9VZueSw9
+         tscXiBPLQYdXdtIpxx/3qrkZ3AHtYzGQ24dfqbUCDLA7zlF/AQwcEUoKUGV/QCed4Yc7
+         LqLFkBzpFYwg3yUN6ZQpUGJBsKCdrt+Q2AMOJvq1W0b0Z+2gZcPlPPu9qlQFgT5frC9w
+         nR8g==
+X-Gm-Message-State: AOJu0YylpG9+M9niJ2aE8ojSwrsWWjk+fht+8cmCZykF2Kv9OLv0GVfS
+	NRgFC91PbPQOe4Xwd439mGohullRmPJqs60PZ/VHwN+3IUkgEHJKtEd/gNYTyZbqAvmXYejHwx4
+	8xQSkGG7xvk1xDuKtWqCrsdznn4yK
+X-Received: by 2002:a7b:c851:0:b0:405:3252:fe2 with SMTP id c17-20020a7bc851000000b0040532520fe2mr20044588wml.14.1697104000203;
+        Thu, 12 Oct 2023 02:46:40 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IHFoTJKOUlXNGuTxyVfpeYk3pzXXcIpsxixiWv56qeWL3YsmKEdqeyry4llLnNXWO3k3t8ZEA==
+X-Received: by 2002:a7b:c851:0:b0:405:3252:fe2 with SMTP id c17-20020a7bc851000000b0040532520fe2mr20044570wml.14.1697103999801;
+        Thu, 12 Oct 2023 02:46:39 -0700 (PDT)
+Received: from redhat.com ([2a06:c701:73d2:bf00:e379:826:5137:6b23])
+        by smtp.gmail.com with ESMTPSA id u6-20020a05600c00c600b00402ff8d6086sm18968884wmm.18.2023.10.12.02.46.38
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 12 Oct 2023 02:46:38 -0700 (PDT)
+Date: Thu, 12 Oct 2023 05:46:36 -0400
+From: "Michael S. Tsirkin" <mst@redhat.com>
+To: =?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@kernel.org>
+Cc: Gabriel Somlo <somlo@cmu.edu>, qemu-devel@nongnu.org,
+	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH] riscv, qemu_fw_cfg: Add support for RISC-V architecture
+Message-ID: <20231012054613-mutt-send-email-mst@kernel.org>
+References: <20231011114721.193732-1-bjorn@kernel.org>
 MIME-Version: 1.0
-In-Reply-To: <IA1PR20MB4953AD81686694CEA4F5FC6ABBCDA@IA1PR20MB4953.namprd20.prod.outlook.com>
+In-Reply-To: <20231011114721.193732-1-bjorn@kernel.org>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231012_024151_168359_0C985D59 
-X-CRM114-Status: GOOD (  20.59  )
+X-CRM114-CacheID: sfid-20231012_024645_339001_B210F7C9 
+X-CRM114-Status: GOOD (  20.04  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,122 +96,84 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4531581831113152287=="
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Wed, Oct 11, 2023 at 01:47:21PM +0200, Bj=F6rn T=F6pel wrote:
+> From: Bj=F6rn T=F6pel <bjorn@rivosinc.com>
+> =
 
---===============4531581831113152287==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="FbIlMY2V77DRQAG0"
-Content-Disposition: inline
+> Qemu fw_cfg support was missing for RISC-V, which made it hard to do
+> proper vmcore dumps from qemu.
+> =
 
+> Add the missing RISC-V arch-defines.
+> =
 
---FbIlMY2V77DRQAG0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+> You can now do vmcore dumps from qemu. Add "-device vmcoreinfo" to the
+> qemu command-line. From the qemu montior:
+>   (qemu) dump-guest-memory vmcore
+> =
 
-On Tue, Oct 10, 2023 at 03:53:54PM +0800, Inochi Amaoto wrote:
-> >On 2023/10/9 19:26, Inochi Amaoto wrote:
-> >> Add initial device tree for the CV1812H RISC-V SoC by SOPHGO.
-> >>
-> >> Signed-off-by: Inochi Amaoto <inochiama@outlook.com>
-> >> ---
-> >>   arch/riscv/boot/dts/sophgo/cv1812h.dtsi | 36 +++++++++++++++++++++++=
-++
-> >>   1 file changed, 36 insertions(+)
-> >>   create mode 100644 arch/riscv/boot/dts/sophgo/cv1812h.dtsi
-> >>
-> >> diff --git a/arch/riscv/boot/dts/sophgo/cv1812h.dtsi b/arch/riscv/boot=
-/dts/sophgo/cv1812h.dtsi
-> >> new file mode 100644
-> >> index 000000000000..3864d34b0100
-> >> --- /dev/null
-> >> +++ b/arch/riscv/boot/dts/sophgo/cv1812h.dtsi
-> >> @@ -0,0 +1,36 @@
-> >> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-> >> +/*
-> >> + * Copyright (C) 2023 Inochi Amaoto <inochiama@outlook.com>
-> >> + */
-> >> +
-> >> +#include <dt-bindings/interrupt-controller/irq.h>
-> >This include is not required.
->=20
-> Thx.
+> The vmcore can now be used, e.g., with the "crash" utility.
+> =
 
-I can drop this include on application. Is the rest of the series okay
-with you Chen Wang?
+> Signed-off-by: Bj=F6rn T=F6pel <bjorn@rivosinc.com>
+> ---
 
-Thanks,
-Conor.
+with typo fixed:
 
->=20
-> >> +#include "cv180x.dtsi"
-> >> +
-> >> +/ {
-> >> +    compatible =3D "sophgo,cv1812h";
-> >> +
-> >> +    memory@80000000 {
-> >> +        device_type =3D "memory";
-> >> +        reg =3D <0x80000000 0x10000000>;
-> >> +    };
-> >What's this defined for , I see this is different against cv1800b.
->=20
-> CV1812h have a embedded 256MB RAM. The cv1800b is 64MB, This is why the
-> size is different. I write this node here because the RAM is embedded
-> and fixed size, and leave it in the board DT is unnecessary.
->=20
-> >> +
-> >> +    soc {
-> >> +        interrupt-parent =3D <&plic>;
-> >> +
-> >> +        plic: interrupt-controller@70000000 {
-> >> +            compatible =3D "sophgo,cv1812h-plic", "thead,c900-plic";
-> >> +            reg =3D <0x70000000 0x4000000>;
-> >> +            interrupts-extended =3D <&cpu0_intc 11>, <&cpu0_intc 9>;
-> >> +            interrupt-controller;
-> >> +            #address-cells =3D <0>;
-> >> +            #interrupt-cells =3D <2>;
-> >> +            riscv,ndev =3D <101>;
-> >> +        };
-> >> +
-> >> +        clint: timer@74000000 {
-> >> +            compatible =3D "sophgo,cv1812h-clint", "thead,c900-clint";
-> >> +            reg =3D <0x74000000 0x10000>;
-> >> +            interrupts-extended =3D <&cpu0_intc 3>, <&cpu0_intc 7>;
-> >> +        };
-> >> +    };
-> >> +};
-> >> --
-> >> 2.42.0
-> >>
-> >
-
---FbIlMY2V77DRQAG0
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZSe/WQAKCRB4tDGHoIJi
-0v+pAP4ikxNXQFMmYKQCRI/ErSVgvlUuINpu2o2hajLuAX07cgEArhvqcOM2wd87
-QPOM8fdmk7XQQ2hWX5EpJjl9qMH89gQ=
-=JHNn
------END PGP SIGNATURE-----
-
---FbIlMY2V77DRQAG0--
+Acked-by: Michael S. Tsirkin <mst@redhat.com>
 
 
---===============4531581831113152287==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+>  drivers/firmware/Kconfig       | 2 +-
+>  drivers/firmware/qemu_fw_cfg.c | 2 +-
+>  2 files changed, 2 insertions(+), 2 deletions(-)
+> =
+
+> diff --git a/drivers/firmware/Kconfig b/drivers/firmware/Kconfig
+> index b59e3041fd62..f05ff56629b3 100644
+> --- a/drivers/firmware/Kconfig
+> +++ b/drivers/firmware/Kconfig
+> @@ -155,7 +155,7 @@ config RASPBERRYPI_FIRMWARE
+>  =
+
+>  config FW_CFG_SYSFS
+>  	tristate "QEMU fw_cfg device support in sysfs"
+> -	depends on SYSFS && (ARM || ARM64 || PARISC || PPC_PMAC || SPARC || X86)
+> +	depends on SYSFS && (ARM || ARM64 || PARISC || PPC_PMAC || RISCV || SPA=
+RC || X86)
+>  	depends on HAS_IOPORT_MAP
+>  	default n
+>  	help
+> diff --git a/drivers/firmware/qemu_fw_cfg.c b/drivers/firmware/qemu_fw_cf=
+g.c
+> index a69399a6b7c0..1448f61173b3 100644
+> --- a/drivers/firmware/qemu_fw_cfg.c
+> +++ b/drivers/firmware/qemu_fw_cfg.c
+> @@ -211,7 +211,7 @@ static void fw_cfg_io_cleanup(void)
+>  =
+
+>  /* arch-specific ctrl & data register offsets are not available in ACPI,=
+ DT */
+>  #if !(defined(FW_CFG_CTRL_OFF) && defined(FW_CFG_DATA_OFF))
+> -# if (defined(CONFIG_ARM) || defined(CONFIG_ARM64))
+> +# if (defined(CONFIG_ARM) || defined(CONFIG_ARM64) || defined(CONFIG_RIS=
+CV))
+>  #  define FW_CFG_CTRL_OFF 0x08
+>  #  define FW_CFG_DATA_OFF 0x00
+>  #  define FW_CFG_DMA_OFF 0x10
+> =
+
+> base-commit: 1c8b86a3799f7e5be903c3f49fcdaee29fd385b5
+> -- =
+
+> 2.39.2
+
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============4531581831113152287==--
-
