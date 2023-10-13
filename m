@@ -4,126 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CE52CDB47E
-	for <linux-riscv@archiver.kernel.org>; Fri, 13 Oct 2023 09:00:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66EE5CDB47E
+	for <linux-riscv@archiver.kernel.org>; Fri, 13 Oct 2023 09:08:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=g4N9M8F62ykAb0D5XulL4JjlbZWT9PxKHePahP/2AzQ=; b=kDgZCqa9kiXNP6
-	oVyyn+fNXQiM8EIcY8l0uWmFAh0Ll5J8RTaBuMXXdTVV2Ck5jPJ5o3J7OugyBPCD2bJyoGAAheVqb
-	7WlZOSF4cNHtRdYIMollVjunnB+jexbqLtFCGGHdDQsb9533urRc42XoAxu0KAAq59/+rXch2/Omg
-	LjpJQaYAuyNMB77bIAdVVoRO7ntKIrJVnG2FVhOCbRY+x8Ee42TwTRvcSLChV7ewNDWJQF5efyr6J
-	6JqQ3UvY7twwaR1Wrinzr+4CGBzSrv2gawquV5egNtPWx5WlQBAzLmwNhFqNUbUcDCdqEfQjJlbxl
-	mQ8T3XZ5tqwJwkLdyzhw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=E2DqfqQX09lNHGSvZtZvnpqjE1LATfKw4LCPjrLGFlw=; b=TePjFT8rIIqiE/AqGWGdx0lW3y
+	/4XJkvkqoMD7aSX0Q2W30+isLNO7aKpy1565kuFTVGsp0bra7H8ntOJ2Un2T0fETsG6Dqfsn/DhaO
+	ddj+THrKLhnkTZyX5Ip7D5UmFjlP3gXYnduzmM9B9mZk2tzFrgBxC7YxjF6omGCVWyNspEkHbr6Cv
+	28bw5iUtlAZAdJBQUyfUrOcz7BCY91oEzIj6IhnszDlAzP8qPLfs6GPAhQraD5TyZuK6D81ZAgDol
+	fPWN/KRud4EejOSjgHjHo7G5S35mBPEDTmss8ZBCEw+lfG3Hfe1tZhreDsCufBKmspWVJH9pBaWsj
+	BMt3WI2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qrE1x-002tK5-0E;
-	Fri, 13 Oct 2023 09:00:25 +0000
-Received: from mail-mw2nam10olkn20803.outbound.protection.outlook.com ([2a01:111:f400:7e89::803] helo=NAM10-MW2-obe.outbound.protection.outlook.com)
+	id 1qrE9q-002uEX-0X;
+	Fri, 13 Oct 2023 09:08:34 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qrE1u-002tJm-0X
+	id 1qrE9m-002uE1-0j
 	for linux-riscv@lists.infradead.org;
-	Fri, 13 Oct 2023 09:00:24 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=cd8CAuU9v/hTOzyvsj0fdB+3jBWFGvHG/p4qIHtOf3exIhg+1KYSIjnjBI8I3dgKETKqZ/IAGBFsdGhE72eiNWjAUe9y5LftD9uQ1uXTlO8iA7waSLh0oeuzKebiM5RKZuFeYDk2gGCqQ/TySa2EczEO/S+OMmqsrycqyBpFMLMLSyg23kT6H1i7HOo3trERDK/CjDFhvxxI5547Ja++Wn3k1Jt/L4dtmegrmgA4Kh+rqO4mt8UwlnmraNLp1s3lUnQ/VYF4ZQ3c1/F/qc+1EAto9B4JehWTtWERILK2iMIKpGQ92ehHtQCnAzoArf+3ldhrKonMUuwGafPvldU+Xw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=60D7mn+8FxRb1u3SLmCs4hXDwyMJ6PKH1RJiWuNLrE4=;
- b=TxqIWSpkpAEeS8CurjCZ5RUVRdu+0LBBby5Lze3BIVh2Q6vqO3Ou4piL7torgd3nI8ZpbrsmxcBxbaE23YtRWl3rgp9iE/3JtuJQoyp5SnLnqU1t+zDqCfardh4ydNfhDjUlJxI1tchxv9r3UxGa7Bw1UoaVa0zEr+i3tpQUo2AAW9pf5CeXtyqMELsDFFOl+7UO1ZONBlDSMd7R+9u8b7y9PPOCnKxd45dvYFlWMCizS48LmJQM/jwZkKlVCBKrNCa8E/ZTVa5ott+DjUoiNTrdnKyD/bDIFP5BgBly8q5IRI0tfOm3SWT0zG7S7OFw3hdaDRpB1ArwT0K1UJoW0A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=60D7mn+8FxRb1u3SLmCs4hXDwyMJ6PKH1RJiWuNLrE4=;
- b=BE4GViW7sxkqUejWT9fUXLvk4pWxOgzrA3oAIM9QwEc7YAqP6Fp9WKK2AlSQRUk3oXz4oYo4FB/PbgGweEOJUetL9TQ3MOGTsehWYxIX2aFqek5aAdb8h/tnun/DnikA+Io9sc+oWp6q9CViviwCiGw9+txcYkZPVFq9o79AF+lNIjAXMp2EQazM5yMFRdQoZU547EMDJE83N0h7MRdS/VKZXjxEL74qB0iM7FAnGmhAfeP51ifCRoLZz1bX062/72CRCmAYDiIqh/js91ij6ZSBEVPvjwX5qIu7i06YaNXlrUUQgPFLwuFTbooRM0wCcfciwylTw5n9G6P6yNtqLA==
-Received: from IA1PR20MB4953.namprd20.prod.outlook.com (2603:10b6:208:3af::19)
- by SA1PR20MB5347.namprd20.prod.outlook.com (2603:10b6:806:24e::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6863.37; Fri, 13 Oct
- 2023 09:00:17 +0000
-Received: from IA1PR20MB4953.namprd20.prod.outlook.com
- ([fe80::d050:882f:a8a7:8263]) by IA1PR20MB4953.namprd20.prod.outlook.com
- ([fe80::d050:882f:a8a7:8263%5]) with mapi id 15.20.6863.046; Fri, 13 Oct 2023
- 09:00:17 +0000
-From: Inochi Amaoto <inochiama@outlook.com>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	Inochi Amaoto <inochiama@outlook.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Marc Zyngier <maz@kernel.org>,
+	Fri, 13 Oct 2023 09:08:32 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 6975B62053;
+	Fri, 13 Oct 2023 09:08:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A1FE2C433C7;
+	Fri, 13 Oct 2023 09:08:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1697188109;
+	bh=D3SBs+wve8fXQDw91s7Zt3wTRdjNPe3bByL+Rc+UX4E=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=is2V4cvIWfVlw+zpdr+XW81rENFQj3+Dmw/xQxMg+FeWvTAnyJSlpa27QJCJJC3ZE
+	 o9/I0jpCjh33sgZ9eXE6SR5PU/b/33ZqACM/ZknutLz93xWWXs/aIw1bJ9y0nMa3kp
+	 1ffgTRsJS4vVmkvhm8dwSyxKXVDHGriwjtlDwpDZs07yh57q1iciR+0vLa7UBe7JwX
+	 RJfGEFRrX3FgE83zTDeluHBESuUMGJMnosSv4ieFWewGNbJxB/nrf5sdcZdai3UhS9
+	 sV7/A2/Bjzb31lgn0ocwOdl98j7Q9TABaYyBxBltVM7JL5ny+kVyrmRL2tPHOc0tir
+	 M13gHkt8RzWtA==
+Date: Fri, 13 Oct 2023 10:08:24 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Inochi Amaoto <inochiama@outlook.com>
+Cc: Chao Wei <chao.wei@sophgo.com>, Chen Wang <unicorn_wang@outlook.com>,
 	Rob Herring <robh+dt@kernel.org>,
 	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
-	Chao Wei <chao.wei@sophgo.com>,
-	Chen Wang <unicorn_wang@outlook.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Anup Patel <anup@brainfault.org>
-Cc: Jisheng Zhang <jszhang@kernel.org>,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v2 0/7] Add Huashan Pi board support
-Date: Fri, 13 Oct 2023 17:00:15 +0800
-Message-ID: <IA1PR20MB4953978B9C2C905DBD135507BBD2A@IA1PR20MB4953.namprd20.prod.outlook.com>
-X-Mailer: git-send-email 2.42.0
-In-Reply-To: <c3920f4e-9e93-4a33-b3af-cc30cf6c1fe3@linaro.org>
-References: <c3920f4e-9e93-4a33-b3af-cc30cf6c1fe3@linaro.org>
-X-TMN: [PIFFmjxz+frZ2Olbr2cXNFT7N3s7ywS9xEwDSOkSZPU=]
-X-ClientProxiedBy: BY5PR16CA0004.namprd16.prod.outlook.com
- (2603:10b6:a03:1a0::17) To IA1PR20MB4953.namprd20.prod.outlook.com
- (2603:10b6:208:3af::19)
-X-Microsoft-Original-Message-ID: <20231013090015.143002-1-inochiama@outlook.com>
+	Jisheng Zhang <jszhang@kernel.org>, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v2 4/7] riscv: dts: sophgo: Separate common devices from
+ cv1800b soc
+Message-ID: <20231013-catchable-wince-f24060feb639@spud>
+References: <IA1PR20MB49531C1C34C3E972DBBA4151BBCEA@IA1PR20MB4953.namprd20.prod.outlook.com>
+ <20231009112642.477337-1-inochiama@outlook.com>
+ <IA1PR20MB49532560A3CA2670A0EAB846BBCEA@IA1PR20MB4953.namprd20.prod.outlook.com>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: IA1PR20MB4953:EE_|SA1PR20MB5347:EE_
-X-MS-Office365-Filtering-Correlation-Id: 838b3660-9057-4e96-180b-08dbcbcad19c
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: 9e7dSCHKPKDDl8BoB+zWUMKjU+WWiH3xHFsMME5dEH/ic1VKkS/Psr/8yXtDsmGMdzPdDsuK9WXWjoX/sQOKkPl+sTy3gr9r6/jNwEDMMmLwf3XRYZ1OnxbHCAfiGluyv37DYhi+rR6C/zX8PHK99LeRXpDTern1d7JEy8dlL/qt8nkhC30hWYK8tHWJT8O7ZPYokbHkyRi+BXsVgCQjX6lDhB+ho1SryWXjGKypGeah9A8/8TXBeCAnqsQdIthQw+Q4Ik+0PebqOYYbe6IazbuDLWeDQpcqiRM2QKTX8FaxKwtjiUiqNYiWix7h29KlDsAMiW52noXQlIeX2CJysPPvaTFGMC+VkdHA+lCA5LV2KXFLWClfXcHZp4vqZE8mI7DE64AHmCZI7KvqHza6Hlb8o7qjZvoak7/PBjr3S0ONOHK1Aar055HVfcoUojaMQnX3WOVqWiua8f+HTetWABgDw3Vt1552CGH5aiiMCDs+kro0BSyNAZib2Vn/Gv/Qrxuc1l0vbs7UQUUmUusBvw12UGwEVL29qWAoiJ1oynWemrkU5oG/vecoHtoDyAqfe/otp8Xiar0jl3dq3vTIFQK69jcz05W+bOTHZPOF1Im85rWE8c9doJno2TaYRhBO
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?R9LE4bq7mm8hyB2YVlG+i3nzO0WC027gENxBcNtDHFz/SEZw775JNkqgQqeu?=
- =?us-ascii?Q?5VDP098x2ODaaJN1V43CDVB5qMx5eQoihfWErBn8Fvrcvvy/fioIUJbamPyR?=
- =?us-ascii?Q?Vlc31iPo31T1lmEl+WdEHqwJkw2idcgjXQHMsCrL2FdC6NAsEWx4PfO0fqn2?=
- =?us-ascii?Q?jusN+rwQhxPST+OhVcMBtbK6QpQHNxUk4uc4BkmrmE1yH8SqYN1mjS7jA/a4?=
- =?us-ascii?Q?VfPg+DmBzBoh2f9CLoly9aYgxIBs0lo81n3FhsJ5UgYqtzziRNhkSHXNbKvf?=
- =?us-ascii?Q?NF/YmXgaMT6D3KP31oDKb++50DO4kz+c/LVmBUmqd8NnqSBnks2P6ufqDfL2?=
- =?us-ascii?Q?+vkejx3VRR8ondAu7mw6UyRkIY+QBm44sGRSD/BWRxZaiwtm78+FAf2JEcY1?=
- =?us-ascii?Q?2iyCh5qi1xWk7FaP+robpxu+RrwRffYXbouZ8j3GuIGs7uVCbSx2bv+6HNpP?=
- =?us-ascii?Q?fIkJkW1rHajcnEKd2QmuMsxH6m0CzxcD8N83Py3qJhtLoZmatONUweKNrWbF?=
- =?us-ascii?Q?v2z4P6dkjJZvNhEMt/827kJpCS9nAlKJQuSY1gB/27PTOoF8aCsc+MjaFVr5?=
- =?us-ascii?Q?0gJWKHzjMML0ZJgWDLQW2Qc07eGchp83FdJeBnKwbIREjDnUnh8JtrSF+xy1?=
- =?us-ascii?Q?KuBcjXQljS/5AZVDXmaKJvineaSUltBfE0rqIrJgVjWVG6EdvE2SAcfwLBou?=
- =?us-ascii?Q?zCOoPA9f5C1piZIT4hRJYtenhqQpwHtpyXjRbW2/vs9QFfgPI6dZYqMpmC4K?=
- =?us-ascii?Q?nwjnmPbH5Sva76wpokU9PVopTKQ4wTrZ1X0bO4CWtROsGJ+F7eYroEGHJdUS?=
- =?us-ascii?Q?WxAJFpDxmvswHWbeCo1s1KGVNxncTDaQ6pH5YJ2CoytfButS9vX6UNzjhfsq?=
- =?us-ascii?Q?sydlLNsn+vm8yGgXwxC3lYssDt5Udm44eI4MpVov1iTlu2LMNmAnuV+dpTZr?=
- =?us-ascii?Q?LXTr18d2IwbRhS07R0ddccj/n0JnLu93nEqdFZENoyezmkvq6Vb5/verPt4P?=
- =?us-ascii?Q?WeWZ+MdM+z6ATG4Ge6enkMS+Ti+wccEcHajySw+8imDPSK4dUn+O8K+zRFyT?=
- =?us-ascii?Q?KKBBHZtinIU5zYDtPvhbD2qA746L1ouESckP6w5qgBeT85t/MAbkmhHxMYdN?=
- =?us-ascii?Q?sdyx1JQ1U5rnUgoV01tzPRpVvAhC0DE/mXMtoQdHx7+3EgDC6ABS42vBby6F?=
- =?us-ascii?Q?e7WBPb9AXZNDa6yFYUNA4V4d0b6V8dGKCeyNXQYi2E3Fwe0F6l2stTlL8lE?=
- =?us-ascii?Q?=3D?=
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 838b3660-9057-4e96-180b-08dbcbcad19c
-X-MS-Exchange-CrossTenant-AuthSource: IA1PR20MB4953.namprd20.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Oct 2023 09:00:17.4926
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR20MB5347
+In-Reply-To: <IA1PR20MB49532560A3CA2670A0EAB846BBCEA@IA1PR20MB4953.namprd20.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231013_020022_236328_64B5F796 
-X-CRM114-Status: UNSURE (   5.75  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20231013_020830_354777_EC9F58C8 
+X-CRM114-Status: GOOD (  23.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,27 +75,366 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============4423282667525407308=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
->On 09/10/2023 13:25, Inochi Amaoto wrote:
->> Huashan Pi board is an embedded development platform based on the
->> CV1812H chip. Add minimal device tree files for this board.
->> Currently, it can boot to a basic shell.
->>
->> NOTE: this series is based on the Jisheng's Milk-V Duo patch.
->
->Which is? This must be clear dependency - lore link.
->
->Best regards,
->Krzysztof
 
-https://lore.kernel.org/linux-riscv/c3920f4e-9e93-4a33-b3af-cc30cf6c1fe3@linaro.org/
-AFAIK, this is already merged.
+--===============4423282667525407308==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="HRy542+WJiRGwJph"
+Content-Disposition: inline
+
+
+--HRy542+WJiRGwJph
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+Yo,
+
+On Mon, Oct 09, 2023 at 07:26:35PM +0800, Inochi Amaoto wrote:
+> Move the cpu and the common peripherals of CV181x and CV180x to new file.
+>=20
+> Signed-off-by: Inochi Amaoto <inochiama@outlook.com>
+> ---
+>  arch/riscv/boot/dts/sophgo/cv1800b.dtsi       | 95 +------------------
+>  .../dts/sophgo/{cv1800b.dtsi =3D> cv180x.dtsi}  | 19 +---
+>  2 files changed, 2 insertions(+), 112 deletions(-)
+>  copy arch/riscv/boot/dts/sophgo/{cv1800b.dtsi =3D> cv180x.dtsi} (80%)
+>=20
+> diff --git a/arch/riscv/boot/dts/sophgo/cv1800b.dtsi b/arch/riscv/boot/dt=
+s/sophgo/cv1800b.dtsi
+> index df40e87ee063..0904154f9829 100644
+> --- a/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
+> +++ b/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
+> @@ -3,106 +3,13 @@
+>   * Copyright (C) 2023 Jisheng Zhang <jszhang@kernel.org>
+>   */
+>=20
+> -#include <dt-bindings/interrupt-controller/irq.h>
+> +#include "cv180x.dtsi"
+>=20
+>  / {
+>  	compatible =3D "sophgo,cv1800b";
+> -	#address-cells =3D <1>;
+> -	#size-cells =3D <1>;
+> -
+> -	cpus: cpus {
+> -		#address-cells =3D <1>;
+> -		#size-cells =3D <0>;
+> -		timebase-frequency =3D <25000000>;
+> -
+> -		cpu0: cpu@0 {
+> -			compatible =3D "thead,c906", "riscv";
+> -			device_type =3D "cpu";
+> -			reg =3D <0>;
+> -			d-cache-block-size =3D <64>;
+> -			d-cache-sets =3D <512>;
+> -			d-cache-size =3D <65536>;
+> -			i-cache-block-size =3D <64>;
+> -			i-cache-sets =3D <128>;
+> -			i-cache-size =3D <32768>;
+> -			mmu-type =3D "riscv,sv39";
+> -			riscv,isa =3D "rv64imafdc";
+> -			riscv,isa-base =3D "rv64i";
+> -			riscv,isa-extensions =3D "i", "m", "a", "f", "d", "c", "zicntr", "zic=
+sr",
+> -					       "zifencei", "zihpm";
+> -
+> -			cpu0_intc: interrupt-controller {
+> -				compatible =3D "riscv,cpu-intc";
+> -				interrupt-controller;
+> -				#address-cells =3D <0>;
+> -				#interrupt-cells =3D <1>;
+> -			};
+> -		};
+> -	};
+> -
+> -	osc: oscillator {
+> -		compatible =3D "fixed-clock";
+> -		clock-output-names =3D "osc_25m";
+> -		#clock-cells =3D <0>;
+> -	};
+>=20
+>  	soc {
+> -		compatible =3D "simple-bus";
+>  		interrupt-parent =3D <&plic>;
+> -		#address-cells =3D <1>;
+> -		#size-cells =3D <1>;
+> -		dma-noncoherent;
+> -		ranges;
+> -
+> -		uart0: serial@4140000 {
+> -			compatible =3D "snps,dw-apb-uart";
+> -			reg =3D <0x04140000 0x100>;
+> -			interrupts =3D <44 IRQ_TYPE_LEVEL_HIGH>;
+> -			clocks =3D <&osc>;
+> -			reg-shift =3D <2>;
+> -			reg-io-width =3D <4>;
+> -			status =3D "disabled";
+> -		};
+> -
+> -		uart1: serial@4150000 {
+> -			compatible =3D "snps,dw-apb-uart";
+> -			reg =3D <0x04150000 0x100>;
+> -			interrupts =3D <45 IRQ_TYPE_LEVEL_HIGH>;
+> -			clocks =3D <&osc>;
+> -			reg-shift =3D <2>;
+> -			reg-io-width =3D <4>;
+> -			status =3D "disabled";
+> -		};
+> -
+> -		uart2: serial@4160000 {
+> -			compatible =3D "snps,dw-apb-uart";
+> -			reg =3D <0x04160000 0x100>;
+> -			interrupts =3D <46 IRQ_TYPE_LEVEL_HIGH>;
+> -			clocks =3D <&osc>;
+> -			reg-shift =3D <2>;
+> -			reg-io-width =3D <4>;
+> -			status =3D "disabled";
+> -		};
+> -
+> -		uart3: serial@4170000 {
+> -			compatible =3D "snps,dw-apb-uart";
+> -			reg =3D <0x04170000 0x100>;
+> -			interrupts =3D <47 IRQ_TYPE_LEVEL_HIGH>;
+> -			clocks =3D <&osc>;
+> -			reg-shift =3D <2>;
+> -			reg-io-width =3D <4>;
+> -			status =3D "disabled";
+> -		};
+> -
+> -		uart4: serial@41c0000 {
+> -			compatible =3D "snps,dw-apb-uart";
+> -			reg =3D <0x041c0000 0x100>;
+> -			interrupts =3D <48 IRQ_TYPE_LEVEL_HIGH>;
+> -			clocks =3D <&osc>;
+> -			reg-shift =3D <2>;
+> -			reg-io-width =3D <4>;
+> -			status =3D "disabled";
+> -		};
+>=20
+>  		plic: interrupt-controller@70000000 {
+>  			compatible =3D "sophgo,cv1800b-plic", "thead,c900-plic";
+> diff --git a/arch/riscv/boot/dts/sophgo/cv1800b.dtsi b/arch/riscv/boot/dt=
+s/sophgo/cv180x.dtsi
+> similarity index 80%
+> copy from arch/riscv/boot/dts/sophgo/cv1800b.dtsi
+> copy to arch/riscv/boot/dts/sophgo/cv180x.dtsi
+> index df40e87ee063..ffaf51724c98 100644
+
+Firstly, this form of diff really threw me, I was quite confused for a
+few minutes. A copy plus a pair of diffs doesn't really make much sense,
+when the operation being carried is an extraction of some nodes to a
+different file.
+
+> --- a/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
+> +++ b/arch/riscv/boot/dts/sophgo/cv180x.dtsi
+> @@ -1,12 +1,12 @@
+>  // SPDX-License-Identifier: (GPL-2.0 OR MIT)
+>  /*
+>   * Copyright (C) 2023 Jisheng Zhang <jszhang@kernel.org>
+> + * Copyright (C) 2023 Inochi Amaoto <inochiama@outlook.com>
+
+Also, is moving around some bits of hw description really a
+copyrightable change?
+
+>   */
+>=20
+>  #include <dt-bindings/interrupt-controller/irq.h>
+>=20
+>  / {
+> -	compatible =3D "sophgo,cv1800b";
+>  	#address-cells =3D <1>;
+>  	#size-cells =3D <1>;
+>=20
+> @@ -48,7 +48,6 @@ osc: oscillator {
+>=20
+>  	soc {
+>  		compatible =3D "simple-bus";
+> -		interrupt-parent =3D <&plic>;
+>  		#address-cells =3D <1>;
+>  		#size-cells =3D <1>;
+>  		dma-noncoherent;
+> @@ -103,21 +102,5 @@ uart4: serial@41c0000 {
+>  			reg-io-width =3D <4>;
+>  			status =3D "disabled";
+>  		};
+> -
+> -		plic: interrupt-controller@70000000 {
+> -			compatible =3D "sophgo,cv1800b-plic", "thead,c900-plic";
+> -			reg =3D <0x70000000 0x4000000>;
+> -			interrupts-extended =3D <&cpu0_intc 11>, <&cpu0_intc 9>;
+> -			interrupt-controller;
+> -			#address-cells =3D <0>;
+> -			#interrupt-cells =3D <2>;
+> -			riscv,ndev =3D <101>;
+> -		};
+> -
+> -		clint: timer@74000000 {
+> -			compatible =3D "sophgo,cv1800b-clint", "thead,c900-clint";
+> -			reg =3D <0x74000000 0x10000>;
+> -			interrupts-extended =3D <&cpu0_intc 3>, <&cpu0_intc 7>;
+> -		};
+>  	};
+>  };
+
+What I wanted to comment on was this though - it seems that both the
+cv1800b and the cv1812h have identical plic and clint nodes, other than
+their compatibles? If that is the case, why create a cv1800b and a
+cv1812h specific file containing entirely new nodes, when overriding the
+compatible would be sufficient? Doubly so if the other SoCs in the
+cv18xx series are going to have identical layouts.
+
+I gave it a quick test locally with the below diff applied on top of
+this series - although I didn't make sure that I didn't re-order the
+plic & clint nodes, I just wanted to demonstrate what I had done.
+
+Cheers,
+Conor.
+
+-- 8< --
+
+diff --git a/arch/riscv/boot/dts/sophgo/cv1800b-milkv-duo.dts b/arch/riscv/=
+boot/dts/sophgo/cv1800b-milkv-duo.dts
+index 3af9e34b3bc7..a9d809a49e7a 100644
+--- a/arch/riscv/boot/dts/sophgo/cv1800b-milkv-duo.dts
++++ b/arch/riscv/boot/dts/sophgo/cv1800b-milkv-duo.dts
+@@ -5,7 +5,7 @@
+=20
+ /dts-v1/;
+=20
+-#include "cv1800b.dtsi"
++#include "cv180x.dtsi"
+=20
+ / {
+ 	model =3D "Milk-V Duo";
+diff --git a/arch/riscv/boot/dts/sophgo/cv1800b.dtsi b/arch/riscv/boot/dts/=
+sophgo/cv1800b.dtsi
+index 0904154f9829..e69de29bb2d1 100644
+--- a/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
++++ b/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
+@@ -1,30 +0,0 @@
+-// SPDX-License-Identifier: (GPL-2.0 OR MIT)
+-/*
+- * Copyright (C) 2023 Jisheng Zhang <jszhang@kernel.org>
+- */
+-
+-#include "cv180x.dtsi"
+-
+-/ {
+-	compatible =3D "sophgo,cv1800b";
+-
+-	soc {
+-		interrupt-parent =3D <&plic>;
+-
+-		plic: interrupt-controller@70000000 {
+-			compatible =3D "sophgo,cv1800b-plic", "thead,c900-plic";
+-			reg =3D <0x70000000 0x4000000>;
+-			interrupts-extended =3D <&cpu0_intc 11>, <&cpu0_intc 9>;
+-			interrupt-controller;
+-			#address-cells =3D <0>;
+-			#interrupt-cells =3D <2>;
+-			riscv,ndev =3D <101>;
+-		};
+-
+-		clint: timer@74000000 {
+-			compatible =3D "sophgo,cv1800b-clint", "thead,c900-clint";
+-			reg =3D <0x74000000 0x10000>;
+-			interrupts-extended =3D <&cpu0_intc 3>, <&cpu0_intc 7>;
+-		};
+-	};
+-};
+diff --git a/arch/riscv/boot/dts/sophgo/cv180x.dtsi b/arch/riscv/boot/dts/s=
+ophgo/cv180x.dtsi
+index 64ffb23d3626..1a2c44ba4de9 100644
+--- a/arch/riscv/boot/dts/sophgo/cv180x.dtsi
++++ b/arch/riscv/boot/dts/sophgo/cv180x.dtsi
+@@ -48,6 +48,7 @@ osc: oscillator {
+=20
+ 	soc {
+ 		compatible =3D "simple-bus";
++		interrupt-parent =3D <&plic>;
+ 		#address-cells =3D <1>;
+ 		#size-cells =3D <1>;
+ 		dma-noncoherent;
+@@ -174,5 +175,21 @@ uart4: serial@41c0000 {
+ 			reg-io-width =3D <4>;
+ 			status =3D "disabled";
+ 		};
++
++		plic: interrupt-controller@70000000 {
++			compatible =3D "sophgo,cv1800b-plic", "thead,c900-plic";
++			reg =3D <0x70000000 0x4000000>;
++			interrupts-extended =3D <&cpu0_intc 11>, <&cpu0_intc 9>;
++			interrupt-controller;
++			#address-cells =3D <0>;
++			#interrupt-cells =3D <2>;
++			riscv,ndev =3D <101>;
++		};
++
++		clint: timer@74000000 {
++			compatible =3D "sophgo,cv1800b-clint", "thead,c900-clint";
++			reg =3D <0x74000000 0x10000>;
++			interrupts-extended =3D <&cpu0_intc 3>, <&cpu0_intc 7>;
++		};
+ 	};
+ };
+diff --git a/arch/riscv/boot/dts/sophgo/cv1812h.dtsi b/arch/riscv/boot/dts/=
+sophgo/cv1812h.dtsi
+index 3864d34b0100..c0a8d3290cc8 100644
+--- a/arch/riscv/boot/dts/sophgo/cv1812h.dtsi
++++ b/arch/riscv/boot/dts/sophgo/cv1812h.dtsi
+@@ -15,22 +15,13 @@ memory@80000000 {
+ 	};
+=20
+ 	soc {
+-		interrupt-parent =3D <&plic>;
+=20
+ 		plic: interrupt-controller@70000000 {
+ 			compatible =3D "sophgo,cv1812h-plic", "thead,c900-plic";
+-			reg =3D <0x70000000 0x4000000>;
+-			interrupts-extended =3D <&cpu0_intc 11>, <&cpu0_intc 9>;
+-			interrupt-controller;
+-			#address-cells =3D <0>;
+-			#interrupt-cells =3D <2>;
+-			riscv,ndev =3D <101>;
+ 		};
+=20
+ 		clint: timer@74000000 {
+ 			compatible =3D "sophgo,cv1812h-clint", "thead,c900-clint";
+-			reg =3D <0x74000000 0x10000>;
+-			interrupts-extended =3D <&cpu0_intc 3>, <&cpu0_intc 7>;
+ 		};
+ 	};
+ };
+
+
+--HRy542+WJiRGwJph
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZSkJCAAKCRB4tDGHoIJi
+0hLjAP9uhdq/uFqw1y5AWsBajuIbbjWB6T8ehBPoOgeVL2rkRgD/WmLiknuSuAEI
+BQ55/MLUDoaZ5d+USumgf+i775N/UQg=
+=YNF8
+-----END PGP SIGNATURE-----
+
+--HRy542+WJiRGwJph--
+
+
+--===============4423282667525407308==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============4423282667525407308==--
+
