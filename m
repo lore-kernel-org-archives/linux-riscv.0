@@ -4,63 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5CE2CDB484
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Oct 2023 20:40:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DC9CCDB474
+	for <linux-riscv@archiver.kernel.org>; Fri, 13 Oct 2023 00:33:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
-	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kFgS57BpEuz6/P0uTMevvx5+VtCkOU6owXQ04W3lo6U=; b=i+TSLyQcM+qLQd
-	hAg1g4aqQR0rBdZiDWo61XhTs/S+6A7uexrKojXzsoHjZ7fZiS1WFqBZbthxcqlH0W5V76pYt37+k
-	/+fKB/0XLHzbp3Yfoksm2ObA3AmyiidIPjFlgBJ7zQBHb9B0zhb1rCDoFTi+XPow71PBq/aJKjGIg
-	mNX8D8+YUR5hg5jO3b3Qx3RwpJE9V0dS3YfKsx6Wf+0tTcUGMmQjUX7wGykAXSdb2WnrLjb4RJgnN
-	dUnymXJOtT2tOptFrzFpt1iSeJFt6wGs0K5To9JvkXBxM1pALv8n1smGq8bRAMyqsFfb7mqpRZn/p
-	2Hq2KOxqhvuLrG4/wjCg==;
+	List-Owner; bh=gRK+hBaaqtfQAfDQhTfNSXqkDLoijbg8FjJzXn6rlIg=; b=TQm+RQAhPr8huk
+	37CO0i4QorSgYNA98fqB5XLNs0BG9EIm+Qbok7hV3PsqM274530YGn0DOQ2jtPgze3U54osY2b2zF
+	f6j5lYObIr0siGMZQKaOsrYL3hS4N/TVGlbUck+kC5XFe4QIY+vWN7tgCJcMcB+ordImFei59LYE/
+	duEeuUArZhv/tKIk7hOr93H3ikxDOUjUQzGEBVUe5FSQ6bW7aYvmSp5eNsJDPaapKVAj8/utYZohl
+	9z9ntTHwopy2TfEuynwWVhiF8JS5j26a3wjRr0M2qJ1CfksgRdeXdJLvDacAhI3iG37jLgr8aCllU
+	2+7wcsL0IKALoiRB0QkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qr2Tw-001oVS-0H;
-	Thu, 12 Oct 2023 20:40:32 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1qr67Y-002BVi-2x;
+	Fri, 13 Oct 2023 00:33:40 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qr2Tq-001oTI-3B;
-	Thu, 12 Oct 2023 20:40:29 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 62B5461F6B;
-	Thu, 12 Oct 2023 20:40:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 50B19C433D9;
-	Thu, 12 Oct 2023 20:40:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1697143225;
-	bh=9KbQtT2qxorQkpHqYco5V41LAlQnh15tqWdih4fBMXA=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=GU3r0N2sfzWoDsLG+uAmN6p0ZSygLIlecg488h0SEJMLL90wTLvXXxr4SL+z7rdJm
-	 SMZi88JL+iohFArDgOQ3GjIF5yAtNdZRXy210WJ+jUcCWajE3iZhiqTvycuaFTeKu4
-	 TwPThhYfO4f/UKSjYY9LsH/aFW/ez1PYA+lkc0jkR4dEUUKhYKYo9kFiVqUl/yB8Xb
-	 LR2Ie3VZrXimbgg2AFmx+vclVtsQz8BLJLN4rfC/hFaBXI+rgb4nRrOzcBdSzHQo0J
-	 Y1SWxJsJQwgU2tLaT6kpWtfSVT2yEg7lDdp9OIrdB78VAtoxkwU5ycdEM+JoehAtah
-	 k+RHGua/B5z7Q==
-Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 332C4C595C3;
-	Thu, 12 Oct 2023 20:40:25 +0000 (UTC)
+	id 1qr67V-002BTx-1Z
+	for linux-riscv@lists.infradead.org;
+	Fri, 13 Oct 2023 00:33:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1697157210;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=16ake0/JJsC/X6fPrpFm7y1Me9MIldtPbCM7XyBYJoE=;
+	b=Bn06tV+PShpy1Vh8bqdN9fsFltxSE5aEMowLMmtpZNmkmXXQ0ChI3/kmx+NjwXs6j7rbj0
+	hPW0rlSkDQjyILyGizj+iID9TmlwrJvnjGBjibWAJcoHNiKfaeD1LouZRVZi3OeosnHAf9
+	BFVru4HfZf2qFeTL/arJ7zqgWvsfrro=
+Received: from mimecast-mx02.redhat.com (mx-ext.redhat.com [66.187.233.73])
+ by relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ us-mta-17-jsGili0QN4uVFKgnC2WNsg-1; Thu, 12 Oct 2023 20:33:13 -0400
+X-MC-Unique: jsGili0QN4uVFKgnC2WNsg-1
+Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com [10.11.54.6])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id BBB823C0C10D;
+	Fri, 13 Oct 2023 00:33:12 +0000 (UTC)
+Received: from localhost (unknown [10.72.112.83])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id A1F712157F5A;
+	Fri, 13 Oct 2023 00:33:11 +0000 (UTC)
+Date: Fri, 13 Oct 2023 08:33:08 +0800
+From: Baoquan He <bhe@redhat.com>
+To: palmer@rivosinc.com, Chen Jiahao <chenjiahao16@huawei.com>,
+	patchwork-bot+linux-riscv@kernel.org
+Cc: robh@kernel.org, aou@eecs.berkeley.edu, zephray@outlook.com,
+	alexghiti@rivosinc.com, thunder.leizhen@huawei.com,
+	bjorn@rivosinc.com, linux-kernel@vger.kernel.org,
+	conor.dooley@microchip.com, palmer@dabbelt.com, jszhang@kernel.org,
+	paul.walmsley@sifive.com, linux-riscv@lists.infradead.org,
+	akpm@linux-foundation.org, ajones@ventanamicro.com
+Subject: Re: [PATCH -next v2] riscv: kdump: fix crashkernel reserving problem
+ on RISC-V
+Message-ID: <ZSiQRDGLZk7lpakE@MiWiFi-R3L-srv>
+References: <20230925024333.730964-1-chenjiahao16@huawei.com>
+ <169714322507.23371.6628705957236576989.git-patchwork-notify@kernel.org>
 MIME-Version: 1.0
-Subject: Re: [PATCH -fixes] drivers: perf: Fix panic in riscv SBI mmap support
-From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <169714322520.23371.17105611293776534650.git-patchwork-notify@kernel.org>
-Date: Thu, 12 Oct 2023 20:40:25 +0000
-References: <20231006082010.11963-1-alexghiti@rivosinc.com>
-In-Reply-To: <20231006082010.11963-1-alexghiti@rivosinc.com>
-To: Alexandre Ghiti <alexghiti@rivosinc.com>
-Cc: linux-riscv@lists.infradead.org, atishp@atishpatra.org,
- anup@brainfault.org, will@kernel.org, mark.rutland@arm.com,
- paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
- ajones@ventanamicro.com, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
+Content-Disposition: inline
+In-Reply-To: <169714322507.23371.6628705957236576989.git-patchwork-notify@kernel.org>
+X-Scanned-By: MIMEDefang 3.1 on 10.11.54.6
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231012_134027_067271_47852D1F 
-X-CRM114-Status: UNSURE (   7.89  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20231012_173337_616902_27BFA19D 
+X-CRM114-Status: GOOD (  18.44  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,47 +87,77 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello:
+Hi,
 
-This patch was applied to riscv/linux.git (fixes)
-by Palmer Dabbelt <palmer@rivosinc.com>:
-
-On Fri,  6 Oct 2023 10:20:10 +0200 you wrote:
-> The following panic can happen when mmap is called before the pmu add
-> callback which sets the hardware counter index: this happens for example
-> with the following command `perf record --no-bpf-event -n kill`.
+On 10/12/23 at 08:40pm, patchwork-bot+linux-riscv@kernel.org wrote:
+> Hello:
 > 
-> [   99.461486] CPU: 1 PID: 1259 Comm: perf Tainted: G            E      6.6.0-rc4ubuntu-defconfig #2
-> [   99.461669] Hardware name: riscv-virtio,qemu (DT)
-> [   99.461748] epc : pmu_sbi_set_scounteren+0x42/0x44
-> [   99.462337]  ra : smp_call_function_many_cond+0x126/0x5b0
-> [   99.462369] epc : ffffffff809f9d24 ra : ffffffff800f93e0 sp : ff60000082153aa0
-> [   99.462407]  gp : ffffffff82395c98 tp : ff6000009a218040 t0 : ff6000009ab3a4f0
-> [   99.462425]  t1 : 0000000000000004 t2 : 0000000000000100 s0 : ff60000082153ab0
-> [   99.462459]  s1 : 0000000000000000 a0 : ff60000098869528 a1 : 0000000000000000
-> [   99.462473]  a2 : 000000000000001f a3 : 0000000000f00000 a4 : fffffffffffffff8
-> [   99.462488]  a5 : 00000000000000cc a6 : 0000000000000000 a7 : 0000000000735049
-> [   99.462502]  s2 : 0000000000000001 s3 : ffffffff809f9ce2 s4 : ff60000098869528
-> [   99.462516]  s5 : 0000000000000002 s6 : 0000000000000004 s7 : 0000000000000001
-> [   99.462530]  s8 : ff600003fec98bc0 s9 : ffffffff826c5890 s10: ff600003fecfcde0
-> [   99.462544]  s11: ff600003fec98bc0 t3 : ffffffff819e2558 t4 : ff1c000004623840
-> [   99.462557]  t5 : 0000000000000901 t6 : ff6000008feeb890
-> [   99.462570] status: 0000000200000100 badaddr: 0000000000000000 cause: 0000000000000003
-> [   99.462658] [<ffffffff809f9d24>] pmu_sbi_set_scounteren+0x42/0x44
-> [   99.462979] Code: 1060 4785 97bb 00d7 8fd9 9073 1067 6422 0141 8082 (9002) 0013
-> [   99.463335] Kernel BUG [#2]
+> This patch was applied to riscv/linux.git (fixes)
+> by Palmer Dabbelt <palmer@rivosinc.com>:
+
+This patches fixes a regression of one risc-v patch which Andrew picked
+into his akpm tree. Later, Andrew merged those two into one patch, now
+it shows up in next/master as:
+
+39365395046f riscv: kdump: use generic interface to simplify crashkernel reservation
+
+Maybe it can be droppped in risv-v git tree so as not to cause conflict
+when merging.
+
+Thanks
+Baoquan
+
 > 
-> [...]
+> On Mon, 25 Sep 2023 10:43:33 +0800 you wrote:
+> > When testing on risc-v QEMU environment with "crashkernel="
+> > parameter enabled, a problem occurred with the following
+> > message:
+> > 
+> > [    0.000000] crashkernel low memory reserved: 0xf8000000 - 0x100000000 (128 MB)
+> > [    0.000000] crashkernel reserved: 0x0000000177e00000 - 0x0000000277e00000 (4096 MB)
+> > [    0.000000] ------------[ cut here ]------------
+> > [    0.000000] WARNING: CPU: 0 PID: 0 at kernel/resource.c:779 __insert_resource+0x8e/0xd0
+> > [    0.000000] Modules linked in:
+> > [    0.000000] CPU: 0 PID: 0 Comm: swapper Not tainted 6.6.0-rc2-next-20230920 #1
+> > [    0.000000] Hardware name: riscv-virtio,qemu (DT)
+> > [    0.000000] epc : __insert_resource+0x8e/0xd0
+> > [    0.000000]  ra : insert_resource+0x28/0x4e
+> > [    0.000000] epc : ffffffff80017344 ra : ffffffff8001742e sp : ffffffff81203db0
+> > [    0.000000]  gp : ffffffff812ece98 tp : ffffffff8120dac0 t0 : ff600001f7ff2b00
+> > [    0.000000]  t1 : 0000000000000000 t2 : 3428203030303030 s0 : ffffffff81203dc0
+> > [    0.000000]  s1 : ffffffff81211e18 a0 : ffffffff81211e18 a1 : ffffffff81289380
+> > [    0.000000]  a2 : 0000000277dfffff a3 : 0000000177e00000 a4 : 0000000177e00000
+> > [    0.000000]  a5 : ffffffff81289380 a6 : 0000000277dfffff a7 : 0000000000000078
+> > [    0.000000]  s2 : ffffffff81289380 s3 : ffffffff80a0bac8 s4 : ff600001f7ff2880
+> > [    0.000000]  s5 : 0000000000000280 s6 : 8000000a00006800 s7 : 000000000000007f
+> > [    0.000000]  s8 : 0000000080017038 s9 : 0000000080038ea0 s10: 0000000000000000
+> > [    0.000000]  s11: 0000000000000000 t3 : ffffffff80a0bc00 t4 : ffffffff80a0bc00
+> > [    0.000000]  t5 : ffffffff80a0bbd0 t6 : ffffffff80a0bc00
+> > [    0.000000] status: 0000000200000100 badaddr: 0000000000000000 cause: 0000000000000003
+> > [    0.000000] [<ffffffff80017344>] __insert_resource+0x8e/0xd0
+> > [    0.000000] ---[ end trace 0000000000000000 ]---
+> > [    0.000000] Failed to add a Crash kernel resource at 177e00000
+> > 
+> > [...]
+> 
+> Here is the summary with links:
+>   - [-next,v2] riscv: kdump: fix crashkernel reserving problem on RISC-V
+>     https://git.kernel.org/riscv/c/1d6cd2146c2b
 
-Here is the summary with links:
-  - [-fixes] drivers: perf: Fix panic in riscv SBI mmap support
-    https://git.kernel.org/riscv/c/3fec323339a4
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
+> 
+> You are awesome, thank you!
+> -- 
+> Deet-doot-dot, I am a bot.
+> https://korg.docs.kernel.org/patchwork/pwbot.html
+> 
+> 
+> 
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
+> 
 
 
 _______________________________________________
