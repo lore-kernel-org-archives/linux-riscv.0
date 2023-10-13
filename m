@@ -4,73 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DC9CCDB474
-	for <linux-riscv@archiver.kernel.org>; Fri, 13 Oct 2023 00:33:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5356CCDB47E
+	for <linux-riscv@archiver.kernel.org>; Fri, 13 Oct 2023 03:48:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gRK+hBaaqtfQAfDQhTfNSXqkDLoijbg8FjJzXn6rlIg=; b=TQm+RQAhPr8huk
-	37CO0i4QorSgYNA98fqB5XLNs0BG9EIm+Qbok7hV3PsqM274530YGn0DOQ2jtPgze3U54osY2b2zF
-	f6j5lYObIr0siGMZQKaOsrYL3hS4N/TVGlbUck+kC5XFe4QIY+vWN7tgCJcMcB+ordImFei59LYE/
-	duEeuUArZhv/tKIk7hOr93H3ikxDOUjUQzGEBVUe5FSQ6bW7aYvmSp5eNsJDPaapKVAj8/utYZohl
-	9z9ntTHwopy2TfEuynwWVhiF8JS5j26a3wjRr0M2qJ1CfksgRdeXdJLvDacAhI3iG37jLgr8aCllU
-	2+7wcsL0IKALoiRB0QkA==;
+	List-Owner; bh=18LK6fGHcn6uzO+Gts6GhocD8Vz+2lv83nWVe7b3Vr4=; b=jzNlburOGPWrZq
+	toSzBkssm+wv26KyFcn6THJUbQKG/k7q+g8WeKA9ETFZAhdPiyTZSIIunnM9AYJwU3+nCqltdviiD
+	SIg2p1fNmOwETU1rzD5Mhp6LReLd4u078C9cLtxRkDvnGkwapIrxt8dhKyvSWwsZ3Aa69bAZxjRQi
+	1nPYQIdmQQGcL5IDTtgfzAInD7Gz4EV6b/8ZEBJspSEKLNrgDo1kHhWLbOmSu0iheErWeWOAVFnlt
+	gwiMl8Chp4vWSo0abCep928gRitbTu85qyA5xNJlNTBv+R1F/n3G0RrSvUxEJQOlf06xZXiicE3tQ
+	R85MVtFTaqPQgl0QBonw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qr67Y-002BVi-2x;
-	Fri, 13 Oct 2023 00:33:40 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1qr9A4-002PLv-29;
+	Fri, 13 Oct 2023 03:48:28 +0000
+Received: from mail-qk1-x733.google.com ([2607:f8b0:4864:20::733])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qr67V-002BTx-1Z
+	id 1qr9A2-002PL5-1w
 	for linux-riscv@lists.infradead.org;
-	Fri, 13 Oct 2023 00:33:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1697157210;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=16ake0/JJsC/X6fPrpFm7y1Me9MIldtPbCM7XyBYJoE=;
-	b=Bn06tV+PShpy1Vh8bqdN9fsFltxSE5aEMowLMmtpZNmkmXXQ0ChI3/kmx+NjwXs6j7rbj0
-	hPW0rlSkDQjyILyGizj+iID9TmlwrJvnjGBjibWAJcoHNiKfaeD1LouZRVZi3OeosnHAf9
-	BFVru4HfZf2qFeTL/arJ7zqgWvsfrro=
-Received: from mimecast-mx02.redhat.com (mx-ext.redhat.com [66.187.233.73])
- by relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-17-jsGili0QN4uVFKgnC2WNsg-1; Thu, 12 Oct 2023 20:33:13 -0400
-X-MC-Unique: jsGili0QN4uVFKgnC2WNsg-1
-Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com [10.11.54.6])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id BBB823C0C10D;
-	Fri, 13 Oct 2023 00:33:12 +0000 (UTC)
-Received: from localhost (unknown [10.72.112.83])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id A1F712157F5A;
-	Fri, 13 Oct 2023 00:33:11 +0000 (UTC)
-Date: Fri, 13 Oct 2023 08:33:08 +0800
-From: Baoquan He <bhe@redhat.com>
-To: palmer@rivosinc.com, Chen Jiahao <chenjiahao16@huawei.com>,
-	patchwork-bot+linux-riscv@kernel.org
-Cc: robh@kernel.org, aou@eecs.berkeley.edu, zephray@outlook.com,
-	alexghiti@rivosinc.com, thunder.leizhen@huawei.com,
-	bjorn@rivosinc.com, linux-kernel@vger.kernel.org,
-	conor.dooley@microchip.com, palmer@dabbelt.com, jszhang@kernel.org,
-	paul.walmsley@sifive.com, linux-riscv@lists.infradead.org,
-	akpm@linux-foundation.org, ajones@ventanamicro.com
-Subject: Re: [PATCH -next v2] riscv: kdump: fix crashkernel reserving problem
- on RISC-V
-Message-ID: <ZSiQRDGLZk7lpakE@MiWiFi-R3L-srv>
-References: <20230925024333.730964-1-chenjiahao16@huawei.com>
- <169714322507.23371.6628705957236576989.git-patchwork-notify@kernel.org>
+	Fri, 13 Oct 2023 03:48:27 +0000
+Received: by mail-qk1-x733.google.com with SMTP id af79cd13be357-77574dec71bso110737485a.2
+        for <linux-riscv@lists.infradead.org>; Thu, 12 Oct 2023 20:48:24 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sifive.com; s=google; t=1697168904; x=1697773704; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=e/bLx/QnF9DZpI8qQpke6z5SOkCwKTQG6V1/tyz21m0=;
+        b=e9uF33JA1fXvzCsuM0qEr+QpCPFYgmavXnJ5ihXXqJh/EBK8wcUDVR00HTAQ1TJkT0
+         Pj/dowlZW5qYjHRxXjupteY2GDInwdXE2o1NT0eCx6uw2s0tz3SLz9YY0tg2Z8R+MmAF
+         pcqvIF3nHT2Epcuql4h9aVmey0oDzFooeVQtLRVb4eC32nqJEmHQPEGESCaPA7EBYAIj
+         ARdTFjmDMezwZF/tzZiPTQQgnJqMRdeu6YpaIrzGXKcJ60hV3v0uM/bN+kithHL6WBJj
+         QtfrjVEhF0EvxtSntUiD7t09Z9KA2DtZZUpYNPiIV4Pw7zLMHQ4lMpBVAZST5R5R9Lxs
+         lVig==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1697168904; x=1697773704;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=e/bLx/QnF9DZpI8qQpke6z5SOkCwKTQG6V1/tyz21m0=;
+        b=G81VaIUO6M0NSvEAgpDXloG7ky6xPRGCjB1XlJ0gQjW4/VAMXefL5VDK2+BQlkaKck
+         JIghLgwbtLOyv+VwgwICrqzxdD3F1JII1cfYHE/tESEF2W6o8DZ4KbiVrFbgoM2PCzRB
+         43/M0cv8sXDT6A3SnkpSCuV9bEpHV46bNHNUs/b05a56OUiPrUiOBiVaulTUX1LS/ZUE
+         xRo68Ih/JWdF2TXAUn7JWfvS22e5pRYkG4cbjbpgZvsnxCzhR6nu8WTULfYlcVDBX9V4
+         c2NEqZLTIvcV4rZ4aFEkMH+F/cgq+EOteb8EYcePeN2kyE6sb0xHomfaok5uM9frj7nJ
+         A0HQ==
+X-Gm-Message-State: AOJu0YxhLMp493n6AWd3emmhL7RBGlj1X87vyaPnLhC3DrhenZEoC9aA
+	O9eDHIPemtsh8yKyf9d/d0bc0w==
+X-Google-Smtp-Source: AGHT+IGBCO2BhPBI7Egofzh2a/Bvg2YjU5mMORKm8p1D5BNV1E192Duha6OFKXXfdCrw6zDAMlopjw==
+X-Received: by 2002:ae9:f444:0:b0:774:2ab6:9cba with SMTP id z4-20020ae9f444000000b007742ab69cbamr1711977qkl.78.1697168904141;
+        Thu, 12 Oct 2023 20:48:24 -0700 (PDT)
+Received: from ?IPV6:2600:1700:2000:b002:4485:47bb:b3aa:6a7e? ([2600:1700:2000:b002:4485:47bb:b3aa:6a7e])
+        by smtp.gmail.com with ESMTPSA id t27-20020a05620a035b00b0076ef3e6e6a4sm312913qkm.42.2023.10.12.20.48.22
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 12 Oct 2023 20:48:23 -0700 (PDT)
+Message-ID: <6b3d63f1-89de-4bff-88ce-2da775d4a416@sifive.com>
+Date: Thu, 12 Oct 2023 22:48:22 -0500
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <169714322507.23371.6628705957236576989.git-patchwork-notify@kernel.org>
-X-Scanned-By: MIMEDefang 3.1 on 10.11.54.6
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 1/1] riscv: sbi: Introduce system suspend support
+Content-Language: en-US
+To: Andrew Jones <ajones@ventanamicro.com>, linux-riscv@lists.infradead.org
+Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+ leyfoon.tan@starfivetech.com, jeeheng.sia@starfivetech.com,
+ conor.dooley@microchip.com, apatel@ventanamicro.com
+References: <20231012072148.7010-3-ajones@ventanamicro.com>
+ <20231012072148.7010-4-ajones@ventanamicro.com>
+From: Samuel Holland <samuel.holland@sifive.com>
+In-Reply-To: <20231012072148.7010-4-ajones@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231012_173337_616902_27BFA19D 
-X-CRM114-Status: GOOD (  18.44  )
+X-CRM114-CacheID: sfid-20231012_204826_650940_10DFD413 
+X-CRM114-Status: GOOD (  10.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,77 +95,22 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-On 10/12/23 at 08:40pm, patchwork-bot+linux-riscv@kernel.org wrote:
-> Hello:
+On 2023-10-12 2:21 AM, Andrew Jones wrote:
+> When the SUSP SBI extension is present it implies that the standard
+> "suspend to RAM" type is available. Wire it up to the generic
+> platform suspend support, also applying the already present support
+> for non-retentive CPU suspend. When the kernel is built with
+> CONFIG_SUSPEND, one can do 'echo mem > /sys/power/state' to suspend.
+> Resumption will occur when a platform-specific wake-up event arrives.
 > 
-> This patch was applied to riscv/linux.git (fixes)
-> by Palmer Dabbelt <palmer@rivosinc.com>:
+> Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
+> ---
+>  arch/riscv/Kconfig           |  5 ++++-
+>  arch/riscv/include/asm/sbi.h |  9 ++++++++
+>  arch/riscv/kernel/suspend.c  | 43 ++++++++++++++++++++++++++++++++++++
+>  3 files changed, 56 insertions(+), 1 deletion(-)
 
-This patches fixes a regression of one risc-v patch which Andrew picked
-into his akpm tree. Later, Andrew merged those two into one patch, now
-it shows up in next/master as:
-
-39365395046f riscv: kdump: use generic interface to simplify crashkernel reservation
-
-Maybe it can be droppped in risv-v git tree so as not to cause conflict
-when merging.
-
-Thanks
-Baoquan
-
-> 
-> On Mon, 25 Sep 2023 10:43:33 +0800 you wrote:
-> > When testing on risc-v QEMU environment with "crashkernel="
-> > parameter enabled, a problem occurred with the following
-> > message:
-> > 
-> > [    0.000000] crashkernel low memory reserved: 0xf8000000 - 0x100000000 (128 MB)
-> > [    0.000000] crashkernel reserved: 0x0000000177e00000 - 0x0000000277e00000 (4096 MB)
-> > [    0.000000] ------------[ cut here ]------------
-> > [    0.000000] WARNING: CPU: 0 PID: 0 at kernel/resource.c:779 __insert_resource+0x8e/0xd0
-> > [    0.000000] Modules linked in:
-> > [    0.000000] CPU: 0 PID: 0 Comm: swapper Not tainted 6.6.0-rc2-next-20230920 #1
-> > [    0.000000] Hardware name: riscv-virtio,qemu (DT)
-> > [    0.000000] epc : __insert_resource+0x8e/0xd0
-> > [    0.000000]  ra : insert_resource+0x28/0x4e
-> > [    0.000000] epc : ffffffff80017344 ra : ffffffff8001742e sp : ffffffff81203db0
-> > [    0.000000]  gp : ffffffff812ece98 tp : ffffffff8120dac0 t0 : ff600001f7ff2b00
-> > [    0.000000]  t1 : 0000000000000000 t2 : 3428203030303030 s0 : ffffffff81203dc0
-> > [    0.000000]  s1 : ffffffff81211e18 a0 : ffffffff81211e18 a1 : ffffffff81289380
-> > [    0.000000]  a2 : 0000000277dfffff a3 : 0000000177e00000 a4 : 0000000177e00000
-> > [    0.000000]  a5 : ffffffff81289380 a6 : 0000000277dfffff a7 : 0000000000000078
-> > [    0.000000]  s2 : ffffffff81289380 s3 : ffffffff80a0bac8 s4 : ff600001f7ff2880
-> > [    0.000000]  s5 : 0000000000000280 s6 : 8000000a00006800 s7 : 000000000000007f
-> > [    0.000000]  s8 : 0000000080017038 s9 : 0000000080038ea0 s10: 0000000000000000
-> > [    0.000000]  s11: 0000000000000000 t3 : ffffffff80a0bc00 t4 : ffffffff80a0bc00
-> > [    0.000000]  t5 : ffffffff80a0bbd0 t6 : ffffffff80a0bc00
-> > [    0.000000] status: 0000000200000100 badaddr: 0000000000000000 cause: 0000000000000003
-> > [    0.000000] [<ffffffff80017344>] __insert_resource+0x8e/0xd0
-> > [    0.000000] ---[ end trace 0000000000000000 ]---
-> > [    0.000000] Failed to add a Crash kernel resource at 177e00000
-> > 
-> > [...]
-> 
-> Here is the summary with links:
->   - [-next,v2] riscv: kdump: fix crashkernel reserving problem on RISC-V
->     https://git.kernel.org/riscv/c/1d6cd2146c2b
-
-
-> 
-> You are awesome, thank you!
-> -- 
-> Deet-doot-dot, I am a bot.
-> https://korg.docs.kernel.org/patchwork/pwbot.html
-> 
-> 
-> 
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
-> 
+Tested-by: Samuel Holland <samuel.holland@sifive.com>
 
 
 _______________________________________________
