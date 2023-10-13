@@ -4,66 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2D20CDB47E
-	for <linux-riscv@archiver.kernel.org>; Fri, 13 Oct 2023 13:27:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 517F7CDB47E
+	for <linux-riscv@archiver.kernel.org>; Fri, 13 Oct 2023 14:13:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8mAineczqSVrRU/uq5zUOnM2n7m1b1YPvRHE8JHVQ38=; b=nqJjFII1J8SQP5T6lWAdgK7bsg
-	8MlJzgK3GsGEMZpsi0iF0+Y84SqjFbC0wPTOB1rODWxlYwzykS1ofKeB4kNuN93vVuNULej/E+4zk
-	6zmGLSi4UvgddSBrsLSwe4/i5xEh6N52mfdQIJL7/BUrz58eDc+Mf1Ncz3F9J5uXR2J25ftBdoDVP
-	Cg+O6FDLPJjaOsExHqRefdm6547MOUXlHGyRSbwefGMgUCfgm2jQMKY35sLWSe+Ih6RK9Qe8Egawq
-	q2ToBrxL5Uwf8MAuWfJcgJ0MQkwTFvFIM8CZ2uaqGCm/Qv+545NEHcuY27lWDgycVUnG5KtBfgCZI
-	vBpA3/Lw==;
+	MIME-Version:List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe
+	:List-Id:Message-ID:To:From:CC:Subject:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=oD1ItOnRWerd67SYgeypKd4qrMruDT2I9rMmnSLtKrI=; b=YO+
+	kCsh0uBj4k5SfR5tVGMmmspJT1er9WXJ6QwULyav6Yo1D3SPDlAxFlSPyxgp2mW9jCXorVMMboCL3
+	moRkKs2zc1E1PxT+aVVbzDHVIBRmatuRzqiXbf5ygRRPQvzxX/E6eGdBRuKmt0Bxz+Jhx962b0UiZ
+	N7soX9I2NNuywsWWT/4pvDGO0/ZwmfP3IRa1FV/gWtyqedFux1BGXxALai9ekVeFlVfG63qZq8/Jq
+	mSfQoN2/El7dTOI006KEmsrO5X4nJcwUD5LVlodD9BAp/5V9XIV+X7RsKXpFJnJF7jMcE0ZPxPaEF
+	/+SgPP6WyXo3vuNrctaIxwmo6qNDMrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qrICX-003VS4-1E;
-	Fri, 13 Oct 2023 13:27:37 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1qrIuY-003ZHL-0M;
+	Fri, 13 Oct 2023 14:13:06 +0000
+Received: from mail-ot1-x332.google.com ([2607:f8b0:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qrICT-003VRQ-2n
+	id 1qrIuT-003ZGd-33
 	for linux-riscv@lists.infradead.org;
-	Fri, 13 Oct 2023 13:27:36 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id CB56ACE3035;
-	Fri, 13 Oct 2023 13:27:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1F58AC433C7;
-	Fri, 13 Oct 2023 13:27:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1697203650;
-	bh=8rOhf3Ud5/yqiJiar6LgFzO4UZyCP5Pzkbe4G8SR2Xs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=rTqGHxLTjuAfpIYxm4GFKfmIhuQWXrqsVhtjkxgdouCAtb2X7H2E9uM9IOlpjUGB5
-	 ObKTF6pYaudxvMgEvhEwg2BWYEtrNG65q6G7ixjl9864k7aPGZ3d1E/VlndS1OjS5p
-	 X+d5xcFc6zqBdu93B1ndsn7Zb0NOrFMy5UKreODLIm6VIB+zR6TyB7opVVAXMTiSaH
-	 yBNGyS9TeeOYIRxhZTDURVDXGRRJChfZ5YDn2sEEaWG1oeaRH/QCaGm+oecwY3AX7P
-	 MV2PRFJ4S2PVOeKluI1JTSGObMaKviVWuUFIWb1lirvKGR56SHK1llnRlSnL/XPxAj
-	 PrY5e7nQUb6RQ==
-Date: Fri, 13 Oct 2023 14:27:25 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Inochi Amaoto <inochiama@outlook.com>
-Cc: Conor Dooley <conor+dt@kernel.org>, Chao Wei <chao.wei@sophgo.com>,
-	Chen Wang <unicorn_wang@outlook.com>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Jisheng Zhang <jszhang@kernel.org>, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v2 6/7] riscv: dts: sophgo: Separate common devices from
- cv1800b soc
-Message-ID: <20231013-tibia-anteater-d96425e1d912@spud>
-References: <20231013-catchable-wince-f24060feb639@spud>
- <IA1PR20MB4953434E04427C0940C8DCF5BBD2A@IA1PR20MB4953.namprd20.prod.outlook.com>
-MIME-Version: 1.0
-In-Reply-To: <IA1PR20MB4953434E04427C0940C8DCF5BBD2A@IA1PR20MB4953.namprd20.prod.outlook.com>
+	Fri, 13 Oct 2023 14:13:03 +0000
+Received: by mail-ot1-x332.google.com with SMTP id 46e09a7af769-6c62cb79b02so1309352a34.2
+        for <linux-riscv@lists.infradead.org>; Fri, 13 Oct 2023 07:13:00 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1697206379; x=1697811179; darn=lists.infradead.org;
+        h=message-id:to:from:cc:subject:date:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ZPn+q1R7Bbm5yJSzoIgb0X5A43/F3P8E+NQ5peN1/Dg=;
+        b=F+8s0fTkYNmGHg30ipl7+ta/ZSeAwxMlsTBPsHiZF+tf++X58F0aMnYRgFdYIUA+4i
+         9PxcXS+gLXiLjsrr/ZUnSVKQu8PrIjQgQuZIM+8XwT52R3HCG8iQrGr6E1YY82e/s1JT
+         4wtyF03FH2BBVel3U+I2Ee090O2KaVeLNJqP61iDgjRhxWeQex1zFqM2frMJncDHdOCE
+         a2tnxrAuLp5VYcJgZ42iw3qpx2xx0opJqIMSXQ3HUWhF5uVbeV36MouNsVrnkjXJYdrZ
+         Oyhv28NestMWcEhnRSP9+MD60NmdYl5HReWy9Y1GGippM7V+qnVN+JqnRCZfItl9vXgh
+         CEng==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1697206379; x=1697811179;
+        h=message-id:to:from:cc:subject:date:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=ZPn+q1R7Bbm5yJSzoIgb0X5A43/F3P8E+NQ5peN1/Dg=;
+        b=eOvfpQUF6eBeOyD203AqTGKHaq5127ybYT+3dJvVus2+AJarpFo0jdu6Zh1J5tW5BV
+         SVNOFLaT5tCvckqtuuCm/iFHyBkvVACmTf01mPHHcfxkG/2lhC62p8uckqxQirUMqAXG
+         DUSxq+bD0WwJTAGxB61MeWDXpq4mTloqj1a1o/5JkOH3cr5Ipj9Z94yRYF3c8VFoJYX9
+         zjAJN/EFf4DRRd0C4IJBt9KblribjNHvM1SYsVwzgeP4Tihqj8fUtvftLYMP+/7qY0nm
+         isV7s7LvBrTobAXtY5jIbjh2T41mmo4Gx7VugV5FGFWpU8mwDR0SrroRqHej7SIGMXKx
+         gzwg==
+X-Gm-Message-State: AOJu0YxMvP4pASazdpmur3iS51IwRpA5Nbb/9ILJo0gkH+9BWAx61zyl
+	iBLybrk/PLhuKx+n7dZegXKfdIEiqcIn12Swrxc=
+X-Google-Smtp-Source: AGHT+IGjaH5gAMnjJYZcDnnbZPWXOMd/g1sjCPPaHBL5Q0i2BJH7JwFx/KWpisY+rq1cjDVa8fyBlg==
+X-Received: by 2002:a05:6830:6a0c:b0:6ca:c677:4568 with SMTP id cz12-20020a0568306a0c00b006cac6774568mr7947800otb.10.1697206379633;
+        Fri, 13 Oct 2023 07:12:59 -0700 (PDT)
+Received: from localhost ([192.184.165.199])
+        by smtp.gmail.com with ESMTPSA id g20-20020a9d6b14000000b006b9b0a08fdasm669812otp.59.2023.10.13.07.12.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 13 Oct 2023 07:12:59 -0700 (PDT)
+Date: Fri, 13 Oct 2023 07:12:59 -0700 (PDT)
+X-Google-Original-Date: Fri, 13 Oct 2023 07:12:50 PDT (-0700)
+Subject: [GIT PULL] RISC-V Fixes for 6.6-rc6
+CC: linux-riscv@lists.infradead.org,        linux-kernel@vger.kernel.org
+From: Palmer Dabbelt <palmer@rivosinc.com>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Message-ID: <mhng-429a0f54-5269-417c-af90-7edef235cd7d@palmer-ri-x1c9>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231013_062734_273143_66C0C409 
-X-CRM114-Status: GOOD (  38.08  )
+X-CRM114-CacheID: sfid-20231013_071302_183940_31CE993F 
+X-CRM114-Status: UNSURE (   9.38  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,272 +82,92 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1419086383199457220=="
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="===============3268261087293463867=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+--===============3268261087293463867==
+Content-Type: text/plain
 
---===============1419086383199457220==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="Prj1YP5K/E7Nos1f"
-Content-Disposition: inline
+The following changes since commit 8eb8fe67e2c84324398f5983c41b4f831d0705b3:
 
+  riscv: errata: fix T-Head dcache.cva encoding (2023-09-12 13:58:40 -0700)
 
---Prj1YP5K/E7Nos1f
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+are available in the Git repository at:
 
-On Fri, Oct 13, 2023 at 05:52:03PM +0800, Inochi Amaoto wrote:
-> Sorry for the wrong title.
->=20
-> >Yo,
-> >
-> >On Mon, Oct 09, 2023 at 07:26:35PM +0800, Inochi Amaoto wrote:
-> >> Move the cpu and the common peripherals of CV181x and CV180x to new fi=
-le.
-> >>
-> >> Signed-off-by: Inochi Amaoto <inochiama@outlook.com>
-> >> ---
-> >>  arch/riscv/boot/dts/sophgo/cv1800b.dtsi       | 95 +------------------
-> >>  .../dts/sophgo/{cv1800b.dtsi =3D> cv180x.dtsi}  | 19 +---
-> >>  2 files changed, 2 insertions(+), 112 deletions(-)
-> >>  copy arch/riscv/boot/dts/sophgo/{cv1800b.dtsi =3D> cv180x.dtsi} (80%)
-> >>
-> >> diff --git a/arch/riscv/boot/dts/sophgo/cv1800b.dtsi b/arch/riscv/boot=
-/dts/sophgo/cv1800b.dtsi
-> >> index df40e87ee063..0904154f9829 100644
-> >> --- a/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
-> >> +++ b/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
-> >> @@ -3,106 +3,13 @@
-> >>   * Copyright (C) 2023 Jisheng Zhang <jszhang@kernel.org>
-> >>   */
-> >>
-> >> -#include <dt-bindings/interrupt-controller/irq.h>
-> >> +#include "cv180x.dtsi"
-> >>
-> >>  / {
-> >>  	compatible =3D "sophgo,cv1800b";
-> >> -	#address-cells =3D <1>;
-> >> -	#size-cells =3D <1>;
-> >> -
-> >> -	cpus: cpus {
-> >> -		#address-cells =3D <1>;
-> >> -		#size-cells =3D <0>;
-> >> -		timebase-frequency =3D <25000000>;
-> >> -
-> >> -		cpu0: cpu@0 {
-> >> -			compatible =3D "thead,c906", "riscv";
-> >> -			device_type =3D "cpu";
-> >> -			reg =3D <0>;
-> >> -			d-cache-block-size =3D <64>;
-> >> -			d-cache-sets =3D <512>;
-> >> -			d-cache-size =3D <65536>;
-> >> -			i-cache-block-size =3D <64>;
-> >> -			i-cache-sets =3D <128>;
-> >> -			i-cache-size =3D <32768>;
-> >> -			mmu-type =3D "riscv,sv39";
-> >> -			riscv,isa =3D "rv64imafdc";
-> >> -			riscv,isa-base =3D "rv64i";
-> >> -			riscv,isa-extensions =3D "i", "m", "a", "f", "d", "c", "zicntr", "=
-zicsr",
-> >> -					       "zifencei", "zihpm";
-> >> -
-> >> -			cpu0_intc: interrupt-controller {
-> >> -				compatible =3D "riscv,cpu-intc";
-> >> -				interrupt-controller;
-> >> -				#address-cells =3D <0>;
-> >> -				#interrupt-cells =3D <1>;
-> >> -			};
-> >> -		};
-> >> -	};
-> >> -
-> >> -	osc: oscillator {
-> >> -		compatible =3D "fixed-clock";
-> >> -		clock-output-names =3D "osc_25m";
-> >> -		#clock-cells =3D <0>;
-> >> -	};
-> >>
-> >>  	soc {
-> >> -		compatible =3D "simple-bus";
-> >>  		interrupt-parent =3D <&plic>;
-> >> -		#address-cells =3D <1>;
-> >> -		#size-cells =3D <1>;
-> >> -		dma-noncoherent;
-> >> -		ranges;
-> >> -
-> >> -		uart0: serial@4140000 {
-> >> -			compatible =3D "snps,dw-apb-uart";
-> >> -			reg =3D <0x04140000 0x100>;
-> >> -			interrupts =3D <44 IRQ_TYPE_LEVEL_HIGH>;
-> >> -			clocks =3D <&osc>;
-> >> -			reg-shift =3D <2>;
-> >> -			reg-io-width =3D <4>;
-> >> -			status =3D "disabled";
-> >> -		};
-> >> -
-> >> -		uart1: serial@4150000 {
-> >> -			compatible =3D "snps,dw-apb-uart";
-> >> -			reg =3D <0x04150000 0x100>;
-> >> -			interrupts =3D <45 IRQ_TYPE_LEVEL_HIGH>;
-> >> -			clocks =3D <&osc>;
-> >> -			reg-shift =3D <2>;
-> >> -			reg-io-width =3D <4>;
-> >> -			status =3D "disabled";
-> >> -		};
-> >> -
-> >> -		uart2: serial@4160000 {
-> >> -			compatible =3D "snps,dw-apb-uart";
-> >> -			reg =3D <0x04160000 0x100>;
-> >> -			interrupts =3D <46 IRQ_TYPE_LEVEL_HIGH>;
-> >> -			clocks =3D <&osc>;
-> >> -			reg-shift =3D <2>;
-> >> -			reg-io-width =3D <4>;
-> >> -			status =3D "disabled";
-> >> -		};
-> >> -
-> >> -		uart3: serial@4170000 {
-> >> -			compatible =3D "snps,dw-apb-uart";
-> >> -			reg =3D <0x04170000 0x100>;
-> >> -			interrupts =3D <47 IRQ_TYPE_LEVEL_HIGH>;
-> >> -			clocks =3D <&osc>;
-> >> -			reg-shift =3D <2>;
-> >> -			reg-io-width =3D <4>;
-> >> -			status =3D "disabled";
-> >> -		};
-> >> -
-> >> -		uart4: serial@41c0000 {
-> >> -			compatible =3D "snps,dw-apb-uart";
-> >> -			reg =3D <0x041c0000 0x100>;
-> >> -			interrupts =3D <48 IRQ_TYPE_LEVEL_HIGH>;
-> >> -			clocks =3D <&osc>;
-> >> -			reg-shift =3D <2>;
-> >> -			reg-io-width =3D <4>;
-> >> -			status =3D "disabled";
-> >> -		};
-> >>
-> >>  		plic: interrupt-controller@70000000 {
-> >>  			compatible =3D "sophgo,cv1800b-plic", "thead,c900-plic";
-> >> diff --git a/arch/riscv/boot/dts/sophgo/cv1800b.dtsi b/arch/riscv/boot=
-/dts/sophgo/cv180x.dtsi
-> >> similarity index 80%
-> >> copy from arch/riscv/boot/dts/sophgo/cv1800b.dtsi
-> >> copy to arch/riscv/boot/dts/sophgo/cv180x.dtsi
-> >> index df40e87ee063..ffaf51724c98 100644
-> >
-> >Firstly, this form of diff really threw me, I was quite confused for a
-> >few minutes. A copy plus a pair of diffs doesn't really make much sense,
-> >when the operation being carried is an extraction of some nodes to a
-> >different file.
-> >
->=20
-> I was told to use -C/-M/-B to generate patch, and the git format-patch
-> give me this wired output if I use -C, using -M seems no change from v1.
-> The -B output is also disappointing. Maybe I need to generate agaion?
+  git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-6.6-rc6
 
-I don't think generating it again is going to change the outcome & I
-don't really think the -C version of this patch makes much sense, it is
-hard to tell what has actually been moved.
+for you to fetch changes up to 3fec323339a4a9801a54e8b282eb571965b67b23:
 
-> The v1 version:
-> https://lore.kernel.org/linux-riscv/IA1PR20MB495360B632D106BBB833D82ABBCF=
-A@IA1PR20MB4953.namprd20.prod.outlook.com/
->=20
-> >> --- a/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
-> >> +++ b/arch/riscv/boot/dts/sophgo/cv180x.dtsi
-> >> @@ -1,12 +1,12 @@
-> >>  // SPDX-License-Identifier: (GPL-2.0 OR MIT)
-> >>  /*
-> >>   * Copyright (C) 2023 Jisheng Zhang <jszhang@kernel.org>
-> >> + * Copyright (C) 2023 Inochi Amaoto <inochiama@outlook.com>
-> >
-> >Also, is moving around some bits of hw description really a
-> >copyrightable change?
-> >
->=20
-> It seems to be a mistake when I splitting the patch from v1.
-> This copyright should in the next patch.
->=20
-> >>   */
-> >>
-> >>  #include <dt-bindings/interrupt-controller/irq.h>
-> >>
-> >>  / {
-> >> -	compatible =3D "sophgo,cv1800b";
-> >>  	#address-cells =3D <1>;
-> >>  	#size-cells =3D <1>;
-> >>
-> >> @@ -48,7 +48,6 @@ osc: oscillator {
-> >>
-> >>  	soc {
-> >>  		compatible =3D "simple-bus";
-> >> -		interrupt-parent =3D <&plic>;
-> >>  		#address-cells =3D <1>;
-> >>  		#size-cells =3D <1>;
-> >>  		dma-noncoherent;
-> >> @@ -103,21 +102,5 @@ uart4: serial@41c0000 {
-> >>  			reg-io-width =3D <4>;
-> >>  			status =3D "disabled";
-> >>  		};
-> >> -
-> >> -		plic: interrupt-controller@70000000 {
-> >> -			compatible =3D "sophgo,cv1800b-plic", "thead,c900-plic";
-> >> -			reg =3D <0x70000000 0x4000000>;
-> >> -			interrupts-extended =3D <&cpu0_intc 11>, <&cpu0_intc 9>;
-> >> -			interrupt-controller;
-> >> -			#address-cells =3D <0>;
-> >> -			#interrupt-cells =3D <2>;
-> >> -			riscv,ndev =3D <101>;
-> >> -		};
-> >> -
-> >> -		clint: timer@74000000 {
-> >> -			compatible =3D "sophgo,cv1800b-clint", "thead,c900-clint";
-> >> -			reg =3D <0x74000000 0x10000>;
-> >> -			interrupts-extended =3D <&cpu0_intc 3>, <&cpu0_intc 7>;
-> >> -		};
-> >>  	};
-> >>  };
-> >
-> >What I wanted to comment on was this though - it seems that both the
-> >cv1800b and the cv1812h have identical plic and clint nodes, other than
-> >their compatibles? If that is the case, why create a cv1800b and a
-> >cv1812h specific file containing entirely new nodes, when overriding the
-> >compatible would be sufficient? Doubly so if the other SoCs in the
-> >cv18xx series are going to have identical layouts.
-> >
-> >I gave it a quick test locally with the below diff applied on top of
-> >this series - although I didn't make sure that I didn't re-order the
-> >plic & clint nodes, I just wanted to demonstrate what I had done.
-> >
->=20
-> Thanks for demonstration. AFAIK, what you said is true. the most devices
-> of CV180x and CV181x are the same, including plic and clint. The reason I
-> used a new one is to identify these two devices without making the
-> compatible string confusing.
-> Should I change the binding name of plic and clint to "sophgo,cv1800-xxx"
-> to mark there are the same series? I think this can avoid this confusing
-> dt nodes.
+  drivers: perf: Fix panic in riscv SBI mmap support (2023-10-12 11:46:35 -0700)
 
-I personally don't find the compatibles (or the dt nodes) confusing, so
-I dunno. Having reusing the compatible is not something that I am a fan of
-either, since this seems to be a different soc (given the sram &
-coprocessor etc) even if the addresses of the peripherals are identical.
+----------------------------------------------------------------
+RISC-V Fixes for 6.6-rc6
 
---Prj1YP5K/E7Nos1f
-Content-Type: application/pgp-signature; name="signature.asc"
+* A handful of build fixes.
+* A fix to avoid mixing up user/kernel-mode breakpoints, which can
+  manifest as a hang when mixing k/uprobes with other breakpoint
+  sources.
+* A fix to avoid double-allocting crash kernel memory.
+* A fix for tracefs syscall name mangling, which was causing syscalls
+  not to show up in tracefs.
+* A fix to the perf driver to enable the hw events when selected, which
+  can trigger a BUG on some userspace access patterns.
 
------BEGIN PGP SIGNATURE-----
+----------------------------------------------------------------
+Sorry things were a bit slow for the last few weeks, I ended up getting COVID
+at the Cauldron and thus have been a bit out of it.  So this is a bit big for
+an rc6, but hopefully things are mostly back to normal for next week.
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZSlFvQAKCRB4tDGHoIJi
-0nrCAP0Z9KSrrpiDvlqLdMQ6UnyaXW/yq4HZ5ycnEImzpawa6gD/VkzeVOJKzBA8
-LwzP82QebpmhyXVN9U2uoFFav1BwfAY=
-=74+y
------END PGP SIGNATURE-----
+----------------------------------------------------------------
+Alexandre Ghiti (3):
+      riscv: kselftests: Fix mm build by removing testcases subdirectory
+      riscv: Fix ftrace syscall handling which are now prefixed with __riscv_
+      drivers: perf: Fix panic in riscv SBI mmap support
 
---Prj1YP5K/E7Nos1f--
+Andy Chiu (1):
+      riscv: signal: fix sigaltstack frame size checking
+
+Björn Töpel (1):
+      riscv: Only consider swbp/ss handlers for correct privileged mode
+
+Chen Jiahao (1):
+      riscv: kdump: fix crashkernel reserving problem on RISC-V
+
+Jiexun Wang (1):
+      RISC-V: Fix wrong use of CONFIG_HAVE_SOFTIRQ_ON_OWN_STACK
+
+Lad Prabhakar (1):
+      riscv: errata: andes: Makefile: Fix randconfig build issue
+
+Song Shuai (1):
+      riscv: Remove duplicate objcopy flag
+
+ arch/riscv/Makefile                                |  1 -
+ arch/riscv/errata/andes/Makefile                   |  4 ++++
+ arch/riscv/include/asm/ftrace.h                    | 21 ++++++++++++++++
+ arch/riscv/include/asm/kprobes.h                   | 11 ++++++++-
+ arch/riscv/include/asm/uprobes.h                   | 13 +++++++++-
+ arch/riscv/kernel/irq.c                            |  4 ++--
+ arch/riscv/kernel/setup.c                          | 13 ----------
+ arch/riscv/kernel/signal.c                         |  7 ------
+ arch/riscv/kernel/traps.c                          | 28 ++++++++++++++--------
+ drivers/perf/riscv_pmu.c                           |  3 ++-
+ drivers/perf/riscv_pmu_sbi.c                       | 16 ++++++++-----
+ tools/testing/selftests/riscv/mm/Makefile          |  6 ++---
+ .../riscv/mm/{testcases => }/mmap_bottomup.c       |  2 +-
+ .../riscv/mm/{testcases => }/mmap_default.c        |  2 +-
+ .../selftests/riscv/mm/{testcases => }/mmap_test.h |  0
+ .../selftests/riscv/mm/{testcases => }/run_mmap.sh |  0
+ 16 files changed, 84 insertions(+), 47 deletions(-)
+ rename tools/testing/selftests/riscv/mm/{testcases => }/mmap_bottomup.c (97%)
+ rename tools/testing/selftests/riscv/mm/{testcases => }/mmap_default.c (97%)
+ rename tools/testing/selftests/riscv/mm/{testcases => }/mmap_test.h (100%)
+ rename tools/testing/selftests/riscv/mm/{testcases => }/run_mmap.sh (100%)
 
 
---===============1419086383199457220==
+--===============3268261087293463867==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -351,5 +178,4 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============1419086383199457220==--
-
+--===============3268261087293463867==--
