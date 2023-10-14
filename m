@@ -4,68 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFDF5CDB465
-	for <linux-riscv@archiver.kernel.org>; Sat, 14 Oct 2023 09:29:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71611CDB474
+	for <linux-riscv@archiver.kernel.org>; Sat, 14 Oct 2023 10:55:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n8VSOJZVbHg2GoN4QXPFrF/rRD+RG1IWQJwzzCCs9F8=; b=tNyrGN2X4Xnh5N6tEArzMIupA5
-	j2U4aaPnZgoAYn8bdLvw0EgAUAvU+YZVvTcUGy+DmE2g0qtI3Xvc0CkFgj/dOl9XPNN9BXqWAreJm
-	zoolxbH2ZdyBcK8INzQxZfTvJP4mpNqua20Ox/REqcgnd805vygV6wZpUWy1ozi4Ekl0VGJsy8v0m
-	3iVSXvjBQ9CsU1yHohNMi3pPyHpGUWNTtZg/8JPcnfKe/NIIwI5WTh7mdSaNkPUFcvMBielu4PH+z
-	eC8xtgbSEfuup9bgblXCvc/s5fpBId21df4GbW6Kn83jBkaulAiCOvMjADb8/P2vGuxj6EfCu9mnw
-	aZIqH5dA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=TXCOApqC3FC9BIupUwcIBw+nWt+shf7djt6Hx24snTU=; b=Nd0mZ/vnqar09X
+	fHk8/xTj/p04Hw6flE9CSRy5rFohViqIfz0ndcVBisxOjviCVWZUcuwgLl2Kj6PFQl1juMpaBcapl
+	VXl05V4/kxrmm/bkVwZjdEvlVHgS8hUzjl6BqAzbVuEuUBm+nDysgZZSyTeQglEOOB8byLzR0rtaJ
+	vTkWjtK7J3jZbAjmQyqJ8fQHivhurGZSsCfspr0avf7HehvBraFMXd0wdM4Dt5+3kZIW6JVulagVM
+	Cyus5OU6LGXT7H1cJ9d9qJPTq5HUJjcYurOvs+8TwfQE1JxvOwbFeLOz4tzgIWxGgMvl/GHnPyR7h
+	K5cmfNM6/v/pB2FC8GKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qraxE-0052SX-2J;
-	Sat, 14 Oct 2023 09:29:04 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1qrcIK-005FPS-1o;
+	Sat, 14 Oct 2023 10:54:56 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qraxB-0052QU-36
-	for linux-riscv@lists.infradead.org;
-	Sat, 14 Oct 2023 09:29:03 +0000
+	id 1qrcIH-005FOH-1W;
+	Sat, 14 Oct 2023 10:54:54 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id C83F660A50;
-	Sat, 14 Oct 2023 09:28:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1F6E6C433C8;
-	Sat, 14 Oct 2023 09:28:51 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id DD5DD60686;
+	Sat, 14 Oct 2023 10:54:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0F994C433CD;
+	Sat, 14 Oct 2023 10:54:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1697275734;
-	bh=ZpEO1IMYtH2irsHJdzCqFNZXRTOe6izWzOLePcvLYVQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=bFcq0GjznydPaTONKjqfjV1+Nr7NZVwNPCQW5bLkxT1fQZovxY9n1S6AvO4BFzWuU
-	 TjR6cYOn61RQGer1aEsC4MPdJvFsGAslrjiZtzLUnGEUVNs91m9cmwvzq2qT5YNRcG
-	 l6zO8wCj9jejD8frT/V93xclYkS6S3IXunPiHuLvx2EL7DTPGOcqkrwE9GpJh3M1ZK
-	 bVFGRUI5GflYDnfCP5qrC+KThsY3q7iP4WZOoSlUM0lcAv1eUQc/UOZsCqUTEKyhVn
-	 hB0u8fypH9jkVxH2IVGTufXhjD17LMQI5jPHVb5xCgF+Hp2fDvLmB6JXCIV3gLeuV0
-	 n+y2+d3E6cfAw==
-Date: Sat, 14 Oct 2023 10:28:49 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Jisheng Zhang <jszhang@kernel.org>
-Cc: Inochi Amaoto <inochiama@outlook.com>, Chao Wei <chao.wei@sophgo.com>,
-	Chen Wang <unicorn_wang@outlook.com>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v2 4/7] riscv: dts: sophgo: Separate common devices from
- cv1800b soc
-Message-ID: <20231014-scooter-blurred-995313b571ea@spud>
-References: <IA1PR20MB49531C1C34C3E972DBBA4151BBCEA@IA1PR20MB4953.namprd20.prod.outlook.com>
- <20231009112642.477337-1-inochiama@outlook.com>
- <IA1PR20MB49532560A3CA2670A0EAB846BBCEA@IA1PR20MB4953.namprd20.prod.outlook.com>
- <20231013-catchable-wince-f24060feb639@spud>
- <ZSpZmsb29ZC5L9dS@xhacker>
+	s=k20201202; t=1697280892;
+	bh=OoujLaw6rocLtMAHQyTp6llYUxnsAujLu8prfeuatAA=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=UtecYPhaN4aqgCnBJW7qTsSPlBxit9sARXDoPhSf1Kk/GmGEQL1VeSFxnbFYXGR18
+	 u+p7kw1QNI0C9x3aIg2T/wSAIadl7XRd5hUY0wLRsExPzb0guUueXGu9RkQVaBhvRV
+	 zphn5f2Wt3FAYsybHa2AMZv/ooCqs+ueq6ulGcgEEPjUxXVBPK9HHTpxYvk6TQncWR
+	 +j34lmP2hzWulD6XT6fQSpG1bGA9yQR8qCHpoe/n2KA7XHY5nA52+jl/L4LOKE4CIK
+	 /xfhPoGdoZ1roeUF2VxKtsLaCHpbzU6AkM6N/KfVO/gqL0XnoThuJVRWM+k4R6By6U
+	 WdcHO6wmtsxKg==
+From: Masahiro Yamada <masahiroy@kernel.org>
+To: linux-kbuild@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-csky@vger.kernel.org,
+	linux-parisc@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	linux-um@lists.infradead.org,
+	loongarch@lists.linux.dev,
+	sparclinux@vger.kernel.org,
+	x86@kernel.org,
+	Masahiro Yamada <masahiroy@kernel.org>
+Subject: [PATCH v2 2/2] kbuild: unify no-compiler-targets and no-sync-config-targets
+Date: Sat, 14 Oct 2023 19:54:36 +0900
+Message-Id: <20231014105436.2119702-2-masahiroy@kernel.org>
+X-Mailer: git-send-email 2.39.2
+In-Reply-To: <20231014105436.2119702-1-masahiroy@kernel.org>
+References: <20231014105436.2119702-1-masahiroy@kernel.org>
 MIME-Version: 1.0
-In-Reply-To: <ZSpZmsb29ZC5L9dS@xhacker>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231014_022902_069462_9E6521AA 
-X-CRM114-Status: UNSURE (   9.17  )
+X-CRM114-CacheID: sfid-20231014_035453_550135_98332B03 
+X-CRM114-Status: UNSURE (   7.90  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -78,56 +76,73 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============7295119584216661328=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Now that vdso_install does not depend on any in-tree build artifact,
+it no longer needs a compiler, making no-compiler-targets the same
+as no-sync-config-targets.
 
---===============7295119584216661328==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="a/zpBNbMNsth1Q72"
-Content-Disposition: inline
+Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
+---
 
+Changes in v2:
+  - Revive need-compiler flag
 
---a/zpBNbMNsth1Q72
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+ Makefile | 13 ++-----------
+ 1 file changed, 2 insertions(+), 11 deletions(-)
 
-> Maybe this has been discussed before but I didn't find it. I'm wondering
-> the reason of adding each plic and clint binding for each SoC, can we
-> just use the thead,c900-plic for plic?
-> FWICT, arm gic dt usage follows this way, there's no binding for each SoC's
-> gic but directly use "arm,gic-v3" and so on.
+diff --git a/Makefile b/Makefile
+index 1ae5d5180f20..fed9a6cc3665 100644
+--- a/Makefile
++++ b/Makefile
+@@ -277,10 +277,6 @@ no-dot-config-targets := $(clean-targets) \
+ 			 $(version_h) headers headers_% archheaders archscripts \
+ 			 %asm-generic kernelversion %src-pkg dt_binding_check \
+ 			 outputmakefile rustavailable rustfmt rustfmtcheck
+-# Installation targets should not require compiler. Unfortunately, vdso_install
+-# is an exception where build artifacts may be updated. This must be fixed.
+-no-compiler-targets := $(no-dot-config-targets) install dtbs_install \
+-			headers_install modules_install modules_sign kernelrelease image_name
+ no-sync-config-targets := $(no-dot-config-targets) %install modules_sign kernelrelease \
+ 			  image_name
+ single-targets := %.a %.i %.ko %.lds %.ll %.lst %.mod %.o %.rsi %.s %.symtypes %/
+@@ -288,7 +284,6 @@ single-targets := %.a %.i %.ko %.lds %.ll %.lst %.mod %.o %.rsi %.s %.symtypes %
+ config-build	:=
+ mixed-build	:=
+ need-config	:= 1
+-need-compiler	:= 1
+ may-sync-config	:= 1
+ single-build	:=
+ 
+@@ -298,18 +293,14 @@ ifneq ($(filter $(no-dot-config-targets), $(MAKECMDGOALS)),)
+ 	endif
+ endif
+ 
+-ifneq ($(filter $(no-compiler-targets), $(MAKECMDGOALS)),)
+-	ifeq ($(filter-out $(no-compiler-targets), $(MAKECMDGOALS)),)
+-		need-compiler :=
+-	endif
+-endif
+-
+ ifneq ($(filter $(no-sync-config-targets), $(MAKECMDGOALS)),)
+ 	ifeq ($(filter-out $(no-sync-config-targets), $(MAKECMDGOALS)),)
+ 		may-sync-config :=
+ 	endif
+ endif
+ 
++need-compiler := $(may-sync-config)
++
+ ifneq ($(KBUILD_EXTMOD),)
+ 	may-sync-config :=
+ endif
+-- 
+2.39.2
 
-I'm not aware of why the gic-v3 is done like this, but having different
-compatibles allows differentiation between implementations/integrations
-of this interrupt controller. I think having that ability is especially
-helpful given T-Head have open-sourced a bunch of their IP.
-
---a/zpBNbMNsth1Q72
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZSpfUQAKCRB4tDGHoIJi
-0pX2AP4wYdW2thFcBTVUGxaO74xEyj4aQ1WBKWyE5D7v2uZ9JAEAkJn4LfRJBEGC
-c4In3tyIqVJS+5Y1dWIQO6WzcjO0tgk=
-=XuAN
------END PGP SIGNATURE-----
-
---a/zpBNbMNsth1Q72--
-
-
---===============7295119584216661328==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============7295119584216661328==--
-
