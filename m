@@ -4,101 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C3E5CDB465
-	for <linux-riscv@archiver.kernel.org>; Sat, 14 Oct 2023 22:01:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 042C2CDB482
+	for <linux-riscv@archiver.kernel.org>; Sun, 15 Oct 2023 12:23:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cyj8DKyRoNu+YsaVJINna94C+KBolcHeTbg9to0mImk=; b=VLu3kPdpmXA9TRiyGGFns9jgB7
-	fu0NTgkMhdQON7FT+2/zFejwBl8X6WBxVRnJd1QocJcToboY37Zigbh+nMdrpwlBv1QN9yDxENKya
-	whSq1wpCD0RuK5hmZXZECzdL5FhWnVp4hsEN2mH1McF91U1RHQWppnFZ5d56TeN0BpjfMtzANwkrv
-	0aVqSp507RxTnFwSBTfqEQHCqTkIugP9gfjZ+KjQJ6kq58fC6kfSi2RgH5hFTiUwH+/TgD8ftMthu
-	pe6HfUs4uq2b2lSfnn+/9XYZyKkTfzGSd76Wh66fjiaoqo+/F0FlbljNbIshQqZusbGNi21BHB5DZ
-	emTj/fmw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=jO8RAdvYNAja3+okfm14eZmi9exXNlSzhLQYw0bLjgw=; b=fxufHG90au6EPl
+	m3VBL12Kc5jo6GnCmHlyI0yeoTfcgL0eTjHh0UKCw3rZDSQJP6ePbgW5DG1YqM6LyLFCqr522iM9i
+	TUeYfgblOohuUX5xf+Ejy3rks46aJAy0K9AOoEoWG9pnITHoO/I1KlfUNzjdueeD3GX+gpAqGIYUe
+	6vC+Orki0PYLUwAy0HhLafwBScy2iZMhf/AlKvBWLb6kK6bK0uyC+lW8Z+erFcZRc/rC/v4CZ53qf
+	z4/RHL7byeUHSux5C7PoJPvBpihTMejSPphOSNMICuERJUiPrsiQgt54W5u9hopKoMNIpGi9w3pyX
+	8/NFDctAY/1NLjg6q0pQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qrmgs-005pkg-02;
-	Sat, 14 Oct 2023 22:00:58 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1qs098-0079NR-0K;
+	Sun, 15 Oct 2023 12:23:02 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qrmgn-005pjt-1f
+	id 1qs094-0079Ms-0n
 	for linux-riscv@lists.infradead.org;
-	Sat, 14 Oct 2023 22:00:56 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <ukl@pengutronix.de>)
-	id 1qrmfV-0001zq-2D; Sat, 14 Oct 2023 23:59:33 +0200
-Received: from [2a0a:edc0:0:900:1d::77] (helo=ptz.office.stw.pengutronix.de)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <ukl@pengutronix.de>)
-	id 1qrmfI-001hum-RA; Sat, 14 Oct 2023 23:59:20 +0200
-Received: from ukl by ptz.office.stw.pengutronix.de with local (Exim 4.94.2)
-	(envelope-from <ukl@pengutronix.de>)
-	id 1qrmfI-00GSU5-Fm; Sat, 14 Oct 2023 23:59:20 +0200
-Date: Sat, 14 Oct 2023 23:59:18 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
-To: soc@kernel.org
-Cc: Nishanth Menon <nm@ti.com>, Herve Codina <herve.codina@bootlin.com>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>,
-	Mateusz Holenko <mholenko@antmicro.com>,
-	Muhammad Usama Anjum <usama.anjum@collabora.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	"Conor.Dooley" <conor.dooley@microchip.com>,
-	Thierry Reding <thierry.reding@gmail.com>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	linux-riscv@lists.infradead.org,
-	Karol Gugala <kgugala@antmicro.com>,
-	Qiang Zhao <qiang.zhao@nxp.com>,
-	Hitomi Hasegawa <hasegawa-hitomi@fujitsu.com>,
-	Rob Herring <robh@kernel.org>, linux-samsung-soc@vger.kernel.org,
-	linux-aspeed@lists.ozlabs.org, Ruan Jinjie <ruanjinjie@huawei.com>,
-	Yinbo Zhu <zhuyinbo@loongson.cn>, Jon Hunter <jonathanh@nvidia.com>,
-	linux-rockchip@lists.infradead.org,
-	Gabriel Somlo <gsomlo@gmail.com>, Andy Gross <agross@kernel.org>,
-	Huisong Li <lihuisong@huawei.com>, Joel Stanley <joel@jms.id.au>,
-	Yang Yingliang <yangyingliang@huawei.com>,
-	Sumit Gupta <sumitg@nvidia.com>,
-	"zhang.songyi" <zhang.songyi@zte.com.cn>,
-	Zev Weiss <zev@bewilderbeest.net>, Arnd Bergmann <arnd@arndb.de>,
-	linux-pm@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-	Lubomir Rintel <lkundrak@v3.sk>, Krzysztof Halasa <khalasa@piap.pl>,
-	loongarch@lists.linux.dev, Santosh Shilimkar <ssantosh@kernel.org>,
-	linux-tegra@vger.kernel.org, Michal Simek <michal.simek@amd.com>,
-	linux-arm-kernel@lists.infradead.org,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Sun, 15 Oct 2023 12:22:59 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by ams.source.kernel.org (Postfix) with ESMTP id 01D11B80D69;
+	Sun, 15 Oct 2023 12:22:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 35753C433C8;
+	Sun, 15 Oct 2023 12:22:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1697372571;
+	bh=Vq1x8fNAr/F5R14kzqqNRk9z6bIRBIK9ilwYC/Yu/n8=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=KUUIcofa5nhhHisGxJQ1HY7JhZZ8wEN/koWoaRST6AsmY13ju+N3Uih7pphdxf8Ck
+	 TfP3h7NaqakIsIVlHTC3Aw34UuX0iPjcL0Jw7c3sceNbf7qfUEOAH+3NHz5bAS2T8n
+	 1HYGpgModnd2INeLjnamqfCSqa+jhfmJ4khpqgWEQepmUjiOHlsUjGSl0p/+GvbIqk
+	 fLjfVlEKB+zrMui7gpV13nIlDPisHHFYZ2lTkkrCFLmLuZOvIn3ibiR52HXfATT3V1
+	 IyDF3p/GtG1qSC3/GEfiE/qoD0mzPDEGbedNFcgfyq3Jyxgj9AUl9OD+Hidw7pG07J
+	 Q2QkkavLa0bZA==
+From: Conor Dooley <conor@kernel.org>
+To: linux-riscv@lists.indradead.org,
+	Conor Dooley <conor.dooley@microchip.com>
+Cc: conor@kernel.org,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
 	Daire McNamara <daire.mcnamara@microchip.com>,
-	linux-kernel@vger.kernel.org,
-	Shang XiaoJing <shangxiaojing@huawei.com>,
-	Leo Li <leoyang.li@nxp.com>,
-	Konrad Dybcio <konrad.dybcio@linaro.org>,
-	Andrew Jeffery <andrew@aj.id.au>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	linux-mediatek@lists.infradead.org,
-	Nick Alcock <nick.alcock@oracle.com>, linuxppc-dev@lists.ozlabs.org
-Subject: [GIT PULL] Convert drivers/soc to struct
- platform_driver::remove_new()
-Message-ID: <20231014215918.prqhkk7kp2vobe3a@pengutronix.de>
-References: <20230925095532.1984344-1-u.kleine-koenig@pengutronix.de>
- <CACPK8XeROYz_XaB3TvUhdXm7Vm8fjC8yU+mfvA58=_FiDrBy-g@mail.gmail.com>
- <1b2fddf8-c0a6-4afa-8ad0-f280dea1607f@app.fastmail.com>
- <f4hvrslynlgmxu4a2gogc5idvumskhaalxgwildy56yqk2wz7d@lkh4swkv52mi>
- <20230928061449.xxqhyyrg6e357dn2@pengutronix.de>
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	Jisheng Zhang <jszhang@kernel.org>,
+	Guo Ren <guoren@kernel.org>,
+	Fu Wei <wefu@redhat.com>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	linux-renesas-soc@vger.kernel.org
+Subject: Re: (subset) [PATCH v3 0/6] riscv,isa-extensions additions
+Date: Sun, 15 Oct 2023 13:22:02 +0100
+Message-Id: <20231015-qualifier-campus-97bf09059d51@spud>
+X-Mailer: git-send-email 2.39.2
+In-Reply-To: <20231009-approve-verbalize-ce9324858e76@wendy>
+References: <20231009-approve-verbalize-ce9324858e76@wendy>
 MIME-Version: 1.0
-In-Reply-To: <20230928061449.xxqhyyrg6e357dn2@pengutronix.de>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: ukl@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
+X-Developer-Signature: v=1; a=openpgp-sha256; l=870; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=JxLsg/nX2rHAa/nDvg2BonZ/j7ra8ax29aRGRmkFUGU=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDKnaN9MXZh9OfZttW3bgD9O9h39Tj8kd+3X1nVVa3eZTJ Yyh/zXzOkpZGMQ4GGTFFFkSb/e1SK3/47LDuectzBxWJpAhDFycAjCRacwM/93VTu1Mu3pe8cfd nZ0eCnMezgzT645bJ35u6ZRQL6/Pi0IYGVbu/cq9Z+JE6QsdR6fxuVx5UaU/rTfZWmCVugDX7tA 3fOwA
+X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231014_150053_734435_32321F60 
-X-CRM114-Status: GOOD (  39.17  )
+X-CRM114-CacheID: sfid-20231015_052258_451351_6A3C7B0A 
+X-CRM114-Status: GOOD (  11.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,180 +90,37 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6034419135921664659=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+From: Conor Dooley <conor.dooley@microchip.com>
 
---===============6034419135921664659==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="7gysnf7ldsm65nug"
-Content-Disposition: inline
+On Mon, 09 Oct 2023 10:37:44 +0100, Conor Dooley wrote:
+> Now with the RFC tag dropped. There are no changes here from "RFC v2",
+> other than the addition of tags that were provided along the way. I have
+> not added "Zfh" to the T-Head based stuff, as I can't actually read the
+> documentation that would show that they're encoding-for-encoding
+> compatible with the standard extension, since it is apparently only in
+> Chinese.
+> 
+> [...]
 
+The first 3 applied to riscv-dt-for-next, I expect the rest to go via
+their respective platform maintainers.
 
---7gysnf7ldsm65nug
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+[1/6] riscv: dts: microchip: convert isa detection to new properties
+      https://git.kernel.org/conor/c/561add0da6d3
+[2/6] riscv: dts: sifive: convert isa detection to new properties
+      https://git.kernel.org/conor/c/a54f42722e49
+[3/6] riscv: dts: starfive: convert isa detection to new properties
+      https://git.kernel.org/conor/c/81b5948cf1a7
 
-Hello Arnd,
-
-the following changes since commit 0bb80ecc33a8fb5a682236443c1e740d5c917d1d:
-
-  Linux 6.6-rc1 (2023-09-10 16:28:41 -0700)
-
-are available in the Git repository at:
-
-  https://git.pengutronix.de/git/ukl/linux tags/platform-remove-void-soc-fo=
-r-6.7-rc
-
-for you to fetch changes up to e77e6e3e909d33361c58af848a96e1f7f71ba7e4:
-
-  soc/pxa: ssp: Convert to platform remove callback returning void (2023-10=
--14 23:27:34 +0200)
-
-----------------------------------------------------------------
-Convert drivers/soc to struct platform_driver::remove_new()
-
-This PR contains the patches I sent in the series available at
-https://lore.kernel.org/all/20230925095532.1984344-1-u.kleine-koenig@pengut=
-ronix.de
-that were not yet picked up in next as of next-20231013.
-
-It converts all drivers below drivers/soc to let their remove callback
-return void. See commit 5c5a7680e67b ("platform: Provide a remove
-callback that returns no value") for the rationale.
-
-----------------------------------------------------------------
-
-On Thu, Sep 28, 2023 at 08:14:49AM +0200, Uwe Kleine-K=F6nig wrote:
-> On Wed, Sep 27, 2023 at 04:01:58PM -0700, Bjorn Andersson wrote:
-> > On Wed, Sep 27, 2023 at 10:43:16AM +0200, Arnd Bergmann wrote:
-> > > On Wed, Sep 27, 2023, at 04:25, Joel Stanley wrote:
-> > > > On Mon, 25 Sept 2023 at 09:55, Uwe Kleine-K=F6nig <u.kleine-koenig@=
-pengutronix.de> wrote:
-> > > >>
-> > > >> this series converts all platform drivers below drivers/soc to use
-> > > >> .remove_new(). The motivation is to get rid of an integer return c=
-ode
-> > > >> that is (mostly) ignored by the platform driver core and error pro=
-ne on
-> > > >> the driver side.
-> > > >>
-> > > >> See commit 5c5a7680e67b ("platform: Provide a remove callback that
-> > > >> returns no value") for an extended explanation and the eventual go=
-al.
-> > > >>
-> > > >> As there is no single maintainer team for drivers/soc, I suggest t=
-he
-> > > >> individual maintainers to pick up "their" patches.
-> > > >
-> > > > I'd be happy if Arnd merged the lot at once. Arnd, what do you thin=
-k?
-> > > >
-> > > > If that will be too messy then I understand. I have queued the aspe=
-ed
-> > > > ones locally and will push that out if we decide that's the best way
-> > > > to go.
-> > >=20
-> > > The main downside of merging it all at once through the soc tree
-> > > is that there may be patches that conflict with other work going on
-> > > in individual drivers.
-> > >=20
-> > > What I'd suggest doing here is:
-> > >=20
-> > > - have platform maintainers pick up patches for their drivers
-> > >   if that is their preference for any reason
-> >=20
-> > I'd prefer this for the qcom drivers at least, please let me know if you
-> > would like me to proceed.
->
-> I can send a pull request as Arnd suggested. So iff you want the qcom
-> drivers not be a part of that PR, just make sure they appear in next
-> during the next week. :-)
->
-> > > - get a pull request from Uwe for the soc tree for anything that has
-> > >  not been picked up in one or two weeks from now
-
-Here comes the promised PR. The qcom patches are among the set of
-patches dropped here as they are already in next.
-
-To state the obvious: This is merge window material and the idea is that
-it's pulled into armsoc and then included in the armsoc v6.7-rc1 PR to
-Linus Torvalds. I hope it's not too late for that already.
-
-Best regards and thanks
-Uwe
-
-Uwe Kleine-K=F6nig (12):
-      soc/fsl: dpaa2-console: Convert to platform remove callback returning=
- void
-      soc/fsl: cpm: qmc: Convert to platform remove callback returning void
-      soc/fsl: cpm: tsa: Convert to platform remove callback returning void
-      soc/fujitsu: a64fx-diag: Convert to platform remove callback returnin=
-g void
-      soc/hisilicon: kunpeng_hccs: Convert to platform remove callback retu=
-rning void
-      soc/ixp4xx: ixp4xx-npe: Convert to platform remove callback returning=
- void
-      soc/ixp4xx: ixp4xx-qmgr: Convert to platform remove callback returnin=
-g void
-      soc/litex: litex_soc_ctrl: Convert to platform remove callback return=
-ing void
-      soc/loongson: loongson2_guts: Convert to platform remove callback ret=
-urning void
-      soc/mediatek: mtk-devapc: Convert to platform remove callback returni=
-ng void
-      soc/mediatek: mtk-mmsys: Convert to platform remove callback returnin=
-g void
-      soc/pxa: ssp: Convert to platform remove callback returning void
-
- drivers/soc/fsl/dpaa2-console.c       | 6 ++----
- drivers/soc/fsl/qe/qmc.c              | 6 ++----
- drivers/soc/fsl/qe/tsa.c              | 5 ++---
- drivers/soc/fujitsu/a64fx-diag.c      | 6 ++----
- drivers/soc/hisilicon/kunpeng_hccs.c  | 6 ++----
- drivers/soc/ixp4xx/ixp4xx-npe.c       | 6 ++----
- drivers/soc/ixp4xx/ixp4xx-qmgr.c      | 5 ++---
- drivers/soc/litex/litex_soc_ctrl.c    | 5 ++---
- drivers/soc/loongson/loongson2_guts.c | 6 ++----
- drivers/soc/mediatek/mtk-devapc.c     | 6 ++----
- drivers/soc/mediatek/mtk-mmsys.c      | 6 ++----
- drivers/soc/pxa/ssp.c                 | 6 ++----
- 12 files changed, 24 insertions(+), 45 deletions(-)
-
---=20
-Pengutronix e.K.                           | Uwe Kleine-K=F6nig            |
-Industrial Linux Solutions                 | https://www.pengutronix.de/ |
-
---7gysnf7ldsm65nug
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmUrDzUACgkQj4D7WH0S
-/k5j4gf/bF9kgxVuSiift0gAwVEYG58vErpILxnhavoGUJkIvS/2rxDkuHmTNQ5X
-QalfUGigAoE8LztKGVtaC0Xx+ie+VRIk5mw7tId7GP1bfzJnrekEsnRe0feT2zy4
-2d7Jc3JZ2H+C31SObKtmKNcav5jLzXd8vN/RS+w/tj9/nE/paVB+kcHIX17ZPGE2
-zIumGo0OqOAmN6fNwoqyqQuy22i5ECmPHi9DAJkeOg4/Hu017wBfW2V/FvHA+eee
-KpnkXofsyZDqGCLvlNHd4qBQG/88+W7qcVxbCoDebo18y86tj2IbgeeFfbihxKLO
-lcwKEm4ptKtWDPzYdLgO7nELl73FRw==
-=h2pz
------END PGP SIGNATURE-----
-
---7gysnf7ldsm65nug--
-
-
---===============6034419135921664659==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Thanks,
+Conor.
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============6034419135921664659==--
-
