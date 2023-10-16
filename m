@@ -4,76 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EB98CDB465
-	for <linux-riscv@archiver.kernel.org>; Mon, 16 Oct 2023 13:30:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52D26CDB474
+	for <linux-riscv@archiver.kernel.org>; Mon, 16 Oct 2023 15:16:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+AzvwdvMeN1iXM8ICmlUaMqrqkWCpCymObmkSolUngY=; b=CaNkhehB5jbg0amvsdR9Drl/nr
-	gtHQID/2djewkfJKOwLxdWkaXHSArsk812cpr6itKtWbFgTh07NBNjiVvBtZy41qbJ+9AZkOefEHt
-	CI2XhEYI68kjqsWo0SoeVCvSiYAgO2V9os2JPIcIKSpnxhZLewRLTRQyJClXVTgfuw7bnaBHIrLS1
-	IK4HeRMLdiKqiw9Yxo6v2/4KN+eapxG2NdI+8aoNHKSLyVmOzabWow8UY9G26h7Bjcu8axpdKHfaz
-	s8B6HuTGYeG7ZsSz90hKVFJsQZDzNiUsAdzITy8pfbqyPkJ9nZb2FU4QwyIVOpYB814/NUDDgTHYZ
-	CWRvlqLg==;
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=DmuSo2QG70zS6unI+S2B+tsVefJ1eoHsow6+JvPPYDE=; b=Znu
+	IFXKob+PbU9v1ZkeH6amTMBja2QMH2d/dc99WS0zlJ6wOiirmP3XIXlJZfZqCLi/yQgzd+8inwaX3
+	Xelnjj1HNZIfuEzZ7tLmaYicxlOc4BSZOhdybK/bDeKACMTHRqKA8HV/4BevQVbdbdip5KfPcF6fe
+	AgFL+GDj0mAZul8S7aoTnA6mU71SjLoQgr+EKOnmRuERba1cJc5rvb9tbIzYpocidFZtJCBkXxaFC
+	TWNbW/VkH5qohURbdFI23ogP8wU/VTtUKk9mgzPVm2KTcrTMg0MJy0fA+XPkWF3JBI8yTxAC14HlS
+	jCu3qqYZlmkOYb9fFSiP3cPpX7sETIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qsNg7-009kED-0W;
-	Mon, 16 Oct 2023 13:30:39 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1qsPK7-009xD4-0a;
+	Mon, 16 Oct 2023 15:16:03 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qsNg4-009kDp-0T
+	id 1qsPK3-009xCK-1e
 	for linux-riscv@lists.infradead.org;
-	Mon, 16 Oct 2023 13:30:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1697463035; x=1728999035;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=L74gHPCkBuK8xNMGAh1zvXNAucTnSwRTolNX+SQdDIY=;
-  b=l5PCrf0OCqFSZsL1fYO3uU/sreExzp4aMm0gn4RbJzygmhrPmn+NBbZ6
-   ej1K4mktmD32Jv5DClYCliRM6w9QsGnjKFvO/nGbNlYcHzJZjtTDx9uER
-   BPlS2sMKilzDx1xVdzhbg2c+TBcNvpsoOdMg2dFs5+QS03MtYrVXLkQsS
-   oPEjI058+XPL+RWxa0uEO79r2tTN+BHQCRUbvJtF2FC7F/txUfVhlepDe
-   3ZTn/XxKPgv0jEcTOO32my/4EEnFymy/Cnd/8jufQWmFX5aUG9RfBNLOd
-   LJ5zh8zXtz5QBVzdRJAAIkbu39ed3lEwbcMEE4dIRVFmvgBqJuvlPPzav
-   w==;
-X-CSE-ConnectionGUID: 6cXb+oOzSa6V6Bq0KOVSUA==
-X-CSE-MsgGUID: LgC+lP7BTB+nfnKJPbMbig==
-X-ThreatScanner-Verdict: Negative
-X-IronPort-AV: E=Sophos;i="6.03,229,1694761200"; 
-   d="asc'?scan'208";a="10554384"
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa1.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 16 Oct 2023 06:30:34 -0700
-Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Mon, 16 Oct 2023 06:30:30 -0700
-Received: from wendy (10.10.85.11) by chn-vm-ex04.mchp-main.com (10.10.85.152)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
- Transport; Mon, 16 Oct 2023 06:30:29 -0700
-Date: Mon, 16 Oct 2023 14:30:07 +0100
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Nam Cao <namcao@linutronix.de>
-CC: Conor Dooley <conor@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Jia
- Jie Ho <jiajie.ho@starfivetech.com>, <linux-riscv@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH] riscv: Kconfig: Add select ARM_AMBA to SOC_STARFIVE
-Message-ID: <20231016-scrunch-sabotage-27e12b446c47@wendy>
-References: <20230525061836.79223-1-jiajie.ho@starfivetech.com>
- <20230709-rundown-unsettled-403e8bf5cca5@spud>
- <20231016132613.m8o1+AMG@linutronix.de>
+	Mon, 16 Oct 2023 15:16:01 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id 6D9D8CE111C;
+	Mon, 16 Oct 2023 15:15:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7A343C433C7;
+	Mon, 16 Oct 2023 15:15:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1697469356;
+	bh=vEzJGBXUu/OKelM/2/t55GZH/fvxsRTVz4U9XMjAYJ8=;
+	h=Date:From:List-Id:To:List-Id:Cc:Subject:From;
+	b=YIX69MX6AFf0/bu6OatlhiAjwC4MEyIKIxTk3Ozqu1q9tL4/MHIxWy1aWMGEPBiGP
+	 aw1O5RsnRLhShVeOii9u6GOTDS1Nzfgs26EDvA5Ofee8kj6Jx8iGYAwRVM1KUFfrjp
+	 eEczjpMPOPAMfP+L9GzVXW6d7A0ZbiWKe25GoleUefiWjhbnlrp0tIHFjh+4THIut5
+	 z8qCNB1EcIZdoVVG43O/0ddsmc4+wXwL+erFhmgjJXtxX3g/rI5ctxe6zGMWjUn4mp
+	 n50GjKWQ330NWAauSn7zd+uSLOmHqC6secgKYxBWf1k3XXEyfRR4Ihy5HXj7tCU0c0
+	 WKCSFfFD5s29g==
+Date: Mon, 16 Oct 2023 16:15:53 +0100
+From: Conor Dooley <conor@kernel.org>
+To: soc@kernel.org
+Cc: conor@kernel.org, palmer@dabbelt.com, linux-riscv@lists.infradead.org,
+	soc@kernel.org
+Subject: [GIT PULL] RISC-V SoC drivers for v6.7
+Message-ID: <20231016-predator-affiliate-e8affd3a7be9@spud>
 MIME-Version: 1.0
-In-Reply-To: <20231016132613.m8o1+AMG@linutronix.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231016_063036_308913_5C312A71 
-X-CRM114-Status: GOOD (  15.01  )
+X-CRM114-CacheID: sfid-20231016_081559_744728_130D1C8D 
+X-CRM114-Status: UNSURE (   9.12  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,63 +65,85 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8224227347705793255=="
+Content-Type: multipart/mixed; boundary="===============5499566540447124334=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============8224227347705793255==
+
+--===============5499566540447124334==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="MWRFTSvKhAmZnZ/b"
+	protocol="application/pgp-signature"; boundary="bXdUww3AwGtESCFa"
 Content-Disposition: inline
 
---MWRFTSvKhAmZnZ/b
-Content-Type: text/plain; charset=us-ascii
+
+--bXdUww3AwGtESCFa
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Mon, Oct 16, 2023 at 03:26:13PM +0200, Nam Cao wrote:
-> On Sun, Jul 09, 2023 at 11:10:47PM +0100, Conor Dooley wrote:
-> > From: Conor Dooley <conor.dooley@microchip.com>
-> >=20
-> > On Thu, 25 May 2023 14:18:36 +0800, Jia Jie Ho wrote:
-> > > Selects ARM_AMBA platform support for StarFive SoCs required by spi a=
-nd
-> > > crypto dma engine.
-> > >=20
-> > >=20
-> >=20
-> > Applied to riscv-soc-for-next, thanks!
-> >=20
-> > [1/1] riscv: Kconfig: Add select ARM_AMBA to SOC_STARFIVE
-> >       https://git.kernel.org/conor/c/1fcaaa1d489c
-> >=20
-> > Thanks,
-> > Conor.
->=20
-> Sorry if it's a stupid question, but did this patch get lost somehow? It
-> hasn't made it to Linus's tree, and there is this message in your tree:
-> "Notice: this object is not reachable from any branch."
+Hey Arnd,
 
-No, it is not a stupid question sadly. I screwed up and forgot to send a
-PR for that branch to Arnd, only realising _after_ the merge window had
-closed already. It'll be in 6.7, the branch got rebased so the hash is
-no longer valid.
+Please pull a small number of soc driver changes for 6.7
 
---MWRFTSvKhAmZnZ/b
+Thanks,
+Conor.
+
+The following changes since commit 0bb80ecc33a8fb5a682236443c1e740d5c917d1d:
+
+  Linux 6.6-rc1 (2023-09-10 16:28:41 -0700)
+
+are available in the Git repository at:
+
+  https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/ riscv-so=
+c-for-v6.7
+
+for you to fetch changes up to 22dedf8f4570897f15e156ac5547cef93e802182:
+
+  soc/microchip: mpfs-sys-controller: Convert to platform remove callback r=
+eturning void (2023-09-25 11:17:09 +0100)
+
+----------------------------------------------------------------
+RISC-V SoC drivers for v6.7
+
+Minor changes here only. There's the treewide remove callback work from
+Uwe, some of my own gradual conversion of SOC_ Kconfig options and a
+selection of the ARM AMBA protocol required for the crypto driver on
+StarFive JH7110 SoCs. The latter was supposed to be in v6.6, but I
+forgot to send a PR.
+
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+
+----------------------------------------------------------------
+Conor Dooley (1):
+      soc: sifive: replace SOC_FOO with ARCH_FOO
+
+Jia Jie Ho (1):
+      riscv: Kconfig: Add select ARM_AMBA to SOC_STARFIVE
+
+Uwe Kleine-K=F6nig (1):
+      soc/microchip: mpfs-sys-controller: Convert to platform remove callba=
+ck returning void
+
+ arch/riscv/Kconfig.socs                     | 1 +
+ drivers/soc/microchip/mpfs-sys-controller.c | 6 ++----
+ drivers/soc/sifive/Kconfig                  | 2 +-
+ 3 files changed, 4 insertions(+), 5 deletions(-)
+
+--bXdUww3AwGtESCFa
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZS063wAKCRB4tDGHoIJi
-0qJPAP4xIZq34xZVWYByUGebA+um/WpfShd4dQRjxtzcfVPaBwD/dI/ACmp8MGZU
-ycygHR0nvv/4WtirGpx8EI2eKvabOgo=
-=/5xt
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZS1TqQAKCRB4tDGHoIJi
+0sCiAP0Rh39/J4T9blHrzTWFRq8qSNmgKf/Fdebnsl3XEr/m3AEAgUOD8QICo8WL
+fpz0ZOhHz5ZChBEeUAcufTFuqv88OgY=
+=9+MA
 -----END PGP SIGNATURE-----
 
---MWRFTSvKhAmZnZ/b--
+--bXdUww3AwGtESCFa--
 
 
---===============8224227347705793255==
+--===============5499566540447124334==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -152,5 +154,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============8224227347705793255==--
+--===============5499566540447124334==--
 
