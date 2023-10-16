@@ -4,74 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97ACBCDB465
-	for <linux-riscv@archiver.kernel.org>; Mon, 16 Oct 2023 17:16:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08626CDB465
+	for <linux-riscv@archiver.kernel.org>; Mon, 16 Oct 2023 17:36:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WbpK0YFGQ7w+5RkbdmK169isKhrXXirmSHwjO/z9xCc=; b=yTvtyaRptVMoh7stNDzdOAOJfN
-	wjuIM8XxXXzDJBJWrPcDPcALVR+fBsAUM9qGssFNuDtp0dvz83tKqwGi3enhQIB486ut/9BJCT6py
-	D74tN/ccPpC1GgVy2B8Z7/YZfiiothyV5bY0vJQnhaxW1fP28azTYOWzE1dQI+H2oK+O+1k9Vxlm+
-	j5SGAw1EhlQ5MNS8CnNmDlO1Nc/1OiuC/1FsoHE0QJ6sSouZGewb0lvRckipAAWOZ5GhYfnEwQ5j0
-	NasXaFB02DylKFCtdqq2bNEAu/ZwTUqZn0XKVB4yafvF+GuzY6USsksIWMWKe+7lw9KZOn+ybi2/L
-	rwdIkQMw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=OZQOgn3XDXpMbiM4gWdVELu88SsextlhIZ0qTe+pJ2Q=; b=XOpwuYpcg/NtnN
+	pXs0RfnWkQ0JO68mAQFONnqZlEtjDr2e2H+93dyfnRkLgwd4PjmWTg+GLREslNaF9GUL9wf2uKDgj
+	jTbYGljLrtZ/rkfDlw1pVulurWx9kXOXlqqfzFFZm6ZkQk7zjCpxjJ4eIVKLBAcz9410W4ZfdTJF2
+	Op13OmylH8ShAa4odVyYnxVIZ3SWBPbDajpjJuut2bvp5h9ozujqubrvYKJHxSQROCfC1t2kjoKDh
+	y9Y3Qd9hk2OkQKvOdKX4ipZP7SJGR8Xc5jtZ/9rOzzBx666FuMSNoDn/q1znLDrE8cwOpbzTYZQcE
+	gczlf4DpSa6mwyrQbetw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qsRCf-00ADdU-0e;
-	Mon, 16 Oct 2023 17:16:29 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1qsRVv-00AF1m-15;
+	Mon, 16 Oct 2023 17:36:23 +0000
+Received: from mail-oa1-x2c.google.com ([2001:4860:4864:20::2c])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qsRCd-00ADdA-13
+	id 1qsRVs-00AF0L-1g
 	for linux-riscv@lists.infradead.org;
-	Mon, 16 Oct 2023 17:16:28 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 975AB60FC9;
-	Mon, 16 Oct 2023 17:16:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D9E5C433C8;
-	Mon, 16 Oct 2023 17:16:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1697476586;
-	bh=MRy3up7oqUohj1XgFS/GiBFKY4NG7WbUD1k/7sSM8yM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ipMf8FZsx8iTVB3wSbylZBSCHdrLB9w4rvDfkqnc8OEH92i+lx+zxbGvLA3SWLgf7
-	 inKovQXXDMyiOl88agX16f0oLzdYGl0f/kKBwYw79ppGjETfOyJ8krtmvDh8M+C7sR
-	 o1xcU2etDt1GGUk7m/x2cShFClEqOmPkkZT1XVfdJS5xgt6beKobBf+FlARHSh+9vt
-	 lP/OevPV6O3qMwS2fzL4p1WRYsP4pjlBRiAJHZ4IC6TVRZqftsbLYewdNCH3EIM0g7
-	 fsEq5bObLfsAlf2jYlRrxk6Kh53CEmpcwkdc9QoozbLHqM2eYAn9KDpqGNJSrXDFo5
-	 U0u0JM/pkIv8Q==
-Date: Mon, 16 Oct 2023 18:16:20 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Christoph Hellwig <hch@lst.de>
-Cc: Conor Dooley <conor.dooley@microchip.com>,
-	Greg Ungerer <gerg@linux-m68k.org>, iommu@lists.linux.dev,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Magnus Damm <magnus.damm@gmail.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Wei Fang <wei.fang@nxp.com>, Shenwei Wang <shenwei.wang@nxp.com>,
-	Clark Wang <xiaoning.wang@nxp.com>,
-	NXP Linux Team <linux-imx@nxp.com>, linux-m68k@lists.linux-m68k.org,
-	netdev@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-renesas-soc@vger.kernel.org,
-	Jim Quinlan <james.quinlan@broadcom.com>
-Subject: Re: [PATCH 01/12] riscv: RISCV_NONSTANDARD_CACHE_OPS shouldn't
- depend on RISCV_DMA_NONCOHERENT
-Message-ID: <20231016-outwit-bungee-b46cf212c292@spud>
-References: <20231016054755.915155-1-hch@lst.de>
- <20231016054755.915155-2-hch@lst.de>
- <20231016-walmart-egomaniac-dc4c63ea70a6@wendy>
- <20231016131716.GA26484@lst.de>
+	Mon, 16 Oct 2023 17:36:22 +0000
+Received: by mail-oa1-x2c.google.com with SMTP id 586e51a60fabf-1dcfb21f9d9so2925449fac.0
+        for <linux-riscv@lists.infradead.org>; Mon, 16 Oct 2023 10:36:18 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1697477777; x=1698082577; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=wPqNuOKCfINBcA4JkEYIZMV2tOMunrhVNGKlfAdiW0k=;
+        b=2AIM/VBEIe6XSyQMqAbl6yL1sQj8B5uID8FqYvZ6dVYBymYlQM31xDPEJJNjp0x5qo
+         P2gopHMfNGmGslyIq1/TtfD+Fb2FFF6qXHJzRtrpRWh3S7zbM8YAR5ja58pKlOnukgsD
+         bZZ1/cTd6SaseW1ACdYjR8xFLZQlfSekx4WHL/+t6AvJOpfydftjJfltvy2PgfIj34Ed
+         CYesaAEcIcIZzdht7UjEPbNL5p6JPt8kacsbAlwP8Uen36J/cyNM/L1PByWtNjo04DRy
+         9uZdEuPQzHlt3THCbzLR+7Zs2kAdAaUVu5CVXGdo0xow47ONDppoGUcpvTBuyJVoBdAa
+         P3OA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1697477777; x=1698082577;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=wPqNuOKCfINBcA4JkEYIZMV2tOMunrhVNGKlfAdiW0k=;
+        b=HaPDkwdo+k+fWOQHg/g5QUeqnLEUzHQ4zoKNNr1TV2jopLSbRs0QE1JR64chq8Tuw5
+         h5c5e3boq9ZrTOw02iOjEMSoYgHzO59eAut+ncpc6ct5n0EHwjY6uwG3OkIXbSP3CHbe
+         gRTC75aAHshw2gWnaHYb0kD9Wj5xKkp+k6SyOFQ9Q13DvOpW50MiUGf6P7M8ouGzEjKC
+         qQERFrqAluZRPKnUzjgBelwM/5e3aRrNGq0XZa3yptv2S2GSfxorXEyuGL1se4HMXVof
+         cQw18UyZiY2NImzL3BEVCf3CT1o6rsZUP2B59Mqv56WXS3kLVGcBoFej5bByLiXNtqbL
+         MWKg==
+X-Gm-Message-State: AOJu0Yz+dB8rfua6FeJ6YM68yGu31RP1ChSMWBjc/QeWNO2LZKtaSwSi
+	7VcP0cNweswoYlqg98JRI+tJgQ==
+X-Google-Smtp-Source: AGHT+IFjy7wWtg4cLzRfrDjTXhyzIN/arrlQSsc1LKoPaM1CIh1aS1d1idcXizO/mGXqU+9/QHsVCQ==
+X-Received: by 2002:a05:6871:5319:b0:1e9:9469:a858 with SMTP id hx25-20020a056871531900b001e99469a858mr16940767oac.39.1697477777557;
+        Mon, 16 Oct 2023 10:36:17 -0700 (PDT)
+Received: from charlie.ba.rivosinc.com ([64.71.180.162])
+        by smtp.gmail.com with ESMTPSA id lv15-20020a056871318f00b001e0fd4c9b9asm2092936oac.6.2023.10.16.10.36.16
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 16 Oct 2023 10:36:17 -0700 (PDT)
+From: Charlie Jenkins <charlie@rivosinc.com>
+Subject: [PATCH v3 0/2] riscv: Add remaining module relocations and tests
+Date: Mon, 16 Oct 2023 10:36:08 -0700
+Message-Id: <20231016-module_relocations-v3-0-a667fd6071e9@rivosinc.com>
 MIME-Version: 1.0
-In-Reply-To: <20231016131716.GA26484@lst.de>
+X-B4-Tracking: v=1; b=H4sIAIh0LWUC/23NSw6CMBCA4auQrq3pA1pw5T2MMdAOMglQ02KjI
+ dzdQowLw/KfzHwzkwAeIZBTNhMPEQO6MYU8ZMR09XgHijY1EUxIVrGSDs4+e7h56J2pp7QdaKu
+ kAasK3lhN0uHDQ4uvDb1cU3cYJuff24/I1+mX43KPi5wy2jTSlrnSoCt59hhdwNEcjRvIKkbxU
+ zhjalcRScl1oVReyBas+VOWZfkALPixp/0AAAA=
+To: linux-riscv@lists.infradead.org, linux-mm@kvack.org, 
+ linux-kernel@vger.kernel.org
+Cc: Eric Biederman <ebiederm@xmission.com>, 
+ Kees Cook <keescook@chromium.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Charlie Jenkins <charlie@rivosinc.com>
+X-Mailer: b4 0.12.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231016_101627_454856_8BA27829 
-X-CRM114-Status: GOOD (  23.61  )
+X-CRM114-CacheID: sfid-20231016_103620_664702_750DA3A4 
+X-CRM114-Status: GOOD (  10.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,88 +91,71 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============2777373068165453581=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+A handful of module relocations were missing, this patch includes the
+remaining ones. I also wrote some test cases to ensure that module
+loading works properly. Some relocations cannot be supported in the
+kernel, these include the ones that rely on thread local storage and
+dynamic linking.
 
---===============2777373068165453581==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="n9y3/cEO82Secmi+"
-Content-Disposition: inline
+ULEB128 handling is a bit special because SET and SUB relocations must
+happen together, and SET must happen before SUB. A psABI proposal [1]
+mandates that the first SET_ULEB128 that appears before a SUB_ULEB128
+is the associated SET_ULEB128.
 
+This can be tested by enabling KUNIT, RUNTIME_KERNEL_TESTING_MENU, and
+RISCV_MODULE_LINKING_KUNIT.
 
---n9y3/cEO82Secmi+
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+[1] https://github.com/riscv-non-isa/riscv-elf-psabi-doc/pull/403
 
-On Mon, Oct 16, 2023 at 03:17:16PM +0200, Christoph Hellwig wrote:
-> On Mon, Oct 16, 2023 at 01:49:41PM +0100, Conor Dooley wrote:
-> > Hey,
-> >=20
-> > On Mon, Oct 16, 2023 at 07:47:43AM +0200, Christoph Hellwig wrote:
-> > > RISCV_NONSTANDARD_CACHE_OPS is also used for the pmem cache maintenan=
-ce
-> > > helpers, which are built into the kernel unconditionally.
-> >=20
-> > You surely have better insight than I do here, but is this actually
-> > required?
-> > This patch seems to allow creation of a kernel where the cache
-> > maintenance operations could be used for pmem, but would be otherwise
-> > unavailable, which seems counter intuitive to me.
-> >
-> > Why would someone want to provide the pmem helpers with cache
-> > maintenance operations, but not provide them generally?
-> >=20
->=20
-> Even if all your periphals are cache coherent (very common on server
-> class hardware) you still need cache maintenance for pmem.  No need
-> to force the extra text size and runtime overhead for non-coherent DMA.
+Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
+---
+Changes in v3:
+- Add prototypes to test_module_linking_main as recommended by intel
+  zero day bot
+- Improve efficiency of ULEB128 pair matching
+- Link to v2: https://lore.kernel.org/r/20231006-module_relocations-v2-0-47566453fedc@rivosinc.com
 
-Ah, right.
+Changes in v2:
+- Added ULEB128 relocations
+- Link to v1: https://lore.kernel.org/r/20230913-module_relocations-v1-0-bb3d8467e793@rivosinc.com
 
-> > I also don't really understand what the unconditional nature of the pmem
-> > helpers has to do with anything, as this patch does not unconditionally
-> > provide any cache management operations, only relax the conditions under
-> > which the non-standard cache management operations can be provided.
->=20
-> They simply were broken if a platform had non-standard cache mem but
-> only coherent DMA before.  That's probably more a theoretical than
-> practial case, but still worth fixing.
+---
+Charlie Jenkins (2):
+      riscv: Add remaining module relocations
+      riscv: Add tests for riscv module loading
 
-And this part of it makes more sense with the above use-case explained.
+ arch/riscv/Kconfig.debug                           |   1 +
+ arch/riscv/include/uapi/asm/elf.h                  |   6 +-
+ arch/riscv/kernel/Makefile                         |   1 +
+ arch/riscv/kernel/module.c                         | 207 ++++++++++++++++++---
+ arch/riscv/kernel/tests/Kconfig.debug              |  32 ++++
+ arch/riscv/kernel/tests/Makefile                   |   1 +
+ arch/riscv/kernel/tests/module_test/Makefile       |  15 ++
+ .../tests/module_test/test_module_linking_main.c   |  78 ++++++++
+ arch/riscv/kernel/tests/module_test/test_set16.S   |  23 +++
+ arch/riscv/kernel/tests/module_test/test_set32.S   |  20 ++
+ arch/riscv/kernel/tests/module_test/test_set6.S    |  23 +++
+ arch/riscv/kernel/tests/module_test/test_set8.S    |  23 +++
+ arch/riscv/kernel/tests/module_test/test_sub16.S   |  22 +++
+ arch/riscv/kernel/tests/module_test/test_sub32.S   |  22 +++
+ arch/riscv/kernel/tests/module_test/test_sub6.S    |  22 +++
+ arch/riscv/kernel/tests/module_test/test_sub64.S   |  27 +++
+ arch/riscv/kernel/tests/module_test/test_sub8.S    |  22 +++
+ arch/riscv/kernel/tests/module_test/test_uleb128.S |  20 ++
+ 18 files changed, 539 insertions(+), 26 deletions(-)
+---
+base-commit: 4d320c2d9a2b22f53523a1b012cda17a50220965
+change-id: 20230908-module_relocations-f63ced651bd7
+-- 
+- Charlie
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-
-Thanks,
-Conor.
-
-
---n9y3/cEO82Secmi+
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZS1v5AAKCRB4tDGHoIJi
-0uu/AQDsd+QvHSok4Q8k4HHYfsUMrdFaeTVLhvRpSi+kRG+LLwD/T6ws6vJoKrWg
-ZkwzD5bj5QIZjaHiwVcDzL6nh9r1gAo=
-=qQsV
------END PGP SIGNATURE-----
-
---n9y3/cEO82Secmi+--
-
-
---===============2777373068165453581==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============2777373068165453581==--
-
