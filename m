@@ -4,28 +4,28 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA1DCCDB465
-	for <linux-riscv@archiver.kernel.org>; Mon, 16 Oct 2023 05:48:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 769B4CDB486
+	for <linux-riscv@archiver.kernel.org>; Mon, 16 Oct 2023 05:48:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bZ9HW9aaqP/v0Omt/oTWkOj//Yxz08fd35g6rZNDia4=; b=eW/MB3S/L3SqUJ
-	FqFEF8LQZCl5NMoAzhcFaspQCY80cGIRLeEAikGmKDkTHXcqlhozmJxFkgFVEWtY8uUeDzpxWIYpb
-	h7U9HmZBnRK78r/Cj3su9eRRdAIwytBePjek3mF6mFEULcbCUGFNvzrwKJAmmIj36VVd1lfbSrU4T
-	cOBmbhPUXYzFPQGybrvWN+XpvwgzxYY++gk90Pc9CbYG2MIFz49Q0mPfNRRlRFRBuFTqgmRSbELwj
-	UzFxvaCtUJtTsxerC6drQHPAPzjFN5bLPBhkNiiYXP6YzeYNAOBPAWbUitsIbEmeUU0uBa872pTYj
-	PCML5uneULeCawZRcwuA==;
+	List-Owner; bh=LkIS0EQLUPitaGXbwD5XW/ZJp0aJOEwQAemtvRplK/M=; b=ucD5wDUbXms9R9
+	hlf4/m+LwDH+r2asTmNU7DrlElmGce29YD1mYN4AeDfRsc7k9f83b3cRsA67l8XqlD2jYJA6+DMJF
+	OxzC19BgZb25+xeyzQAQRYAUIKmx2nifj5lEi/9MeCADJPyi3ThBGOvQS9g00p1IzBk2XfDsdeqkV
+	DXDyPRb6kcy+MTqF8vLgGvhXWqeuyWHLXFdUQzR7hqZCtmDeIEjWjXnP8ktHbmBX45qyN60l5I3TN
+	Km+XJdJ49/npLoKLt2Vb5MQS4aJP7U7mDhICzhr0IoYqY3I7Sq5dwYyjA+DRpIMgDnfj3uZOivwMY
+	YW0WVykG9FaOcTuZ6q0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qsGSY-008Qkb-2Y;
-	Mon, 16 Oct 2023 05:48:10 +0000
+	id 1qsGSa-008Qlp-3B;
+	Mon, 16 Oct 2023 05:48:12 +0000
 Received: from 2a02-8389-2341-5b80-39d3-4735-9a3c-88d8.cable.dynamic.v6.surfer.at ([2a02:8389:2341:5b80:39d3:4735:9a3c:88d8] helo=localhost)
 	by bombadil.infradead.org with esmtpsa (Exim 4.96 #2 (Red Hat Linux))
-	id 1qsGSW-008QiW-2B;
-	Mon, 16 Oct 2023 05:48:09 +0000
+	id 1qsGSZ-008Qjw-0N;
+	Mon, 16 Oct 2023 05:48:11 +0000
 From: Christoph Hellwig <hch@lst.de>
 To: Greg Ungerer <gerg@linux-m68k.org>,
 	iommu@lists.linux.dev
@@ -46,9 +46,9 @@ Cc: Paul Walmsley <paul.walmsley@sifive.com>,
 	linux-riscv@lists.infradead.org,
 	linux-renesas-soc@vger.kernel.org,
 	Jim Quinlan <james.quinlan@broadcom.com>
-Subject: [PATCH 04/12] soc: renesas: select RISCV_DMA_NONCOHERENT from ARCH_R9A07G043
-Date: Mon, 16 Oct 2023 07:47:46 +0200
-Message-Id: <20231016054755.915155-5-hch@lst.de>
+Subject: [PATCH 05/12] dma-direct: add depdenencies to CONFIG_DMA_GLOBAL_POOL
+Date: Mon, 16 Oct 2023 07:47:47 +0200
+Message-Id: <20231016054755.915155-6-hch@lst.de>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20231016054755.915155-1-hch@lst.de>
 References: <20231016054755.915155-1-hch@lst.de>
@@ -69,26 +69,28 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Selecting DMA_GLOBAL_POOL without the rest of the non-coherent DMA
-infrastructure does not make sense.
+CONFIG_DMA_GLOBAL_POOL can't be combined with other DMA coherent
+allocators.  Add dependencies to Kconfig to document this, and make
+kconfig complain about unment dependencies if someone tries.
 
 Signed-off-by: Christoph Hellwig <hch@lst.de>
 ---
- drivers/soc/renesas/Kconfig | 1 +
- 1 file changed, 1 insertion(+)
+ kernel/dma/Kconfig | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/drivers/soc/renesas/Kconfig b/drivers/soc/renesas/Kconfig
-index f1696d3b5018d0..ea473b4150dfa8 100644
---- a/drivers/soc/renesas/Kconfig
-+++ b/drivers/soc/renesas/Kconfig
-@@ -338,6 +338,7 @@ config ARCH_R9A07G043
- 	select ARCH_RZG2L
- 	select AX45MP_L2_CACHE
- 	select DMA_GLOBAL_POOL
-+	select RISCV_DMA_NONCOHERENT
- 	select ERRATA_ANDES if RISCV_SBI
- 	select ERRATA_ANDES_CMO if ERRATA_ANDES
+diff --git a/kernel/dma/Kconfig b/kernel/dma/Kconfig
+index f488997b071712..4524db877eba36 100644
+--- a/kernel/dma/Kconfig
++++ b/kernel/dma/Kconfig
+@@ -135,6 +135,8 @@ config DMA_COHERENT_POOL
  
+ config DMA_GLOBAL_POOL
+ 	select DMA_DECLARE_COHERENT
++	depends on !ARCH_HAS_DMA_SET_UNCACHED
++	depends on !DMA_DIRECT_REMAP
+ 	bool
+ 
+ config DMA_DIRECT_REMAP
 -- 
 2.39.2
 
