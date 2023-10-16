@@ -4,28 +4,28 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67D19CDB465
-	for <linux-riscv@archiver.kernel.org>; Mon, 16 Oct 2023 05:48:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DB46CDB482
+	for <linux-riscv@archiver.kernel.org>; Mon, 16 Oct 2023 05:48:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=jUJGYqk5kQWEMlBGORiuxtaQ8bQWnEa6/tmzpK+3kEI=; b=EZFZDol8jDNzr3
-	blxCXo+ThkpQNBXc2eJ7UfqR7osYJTg0qvN7xxc/ccznw9Md82nqaW4BwykV7S7eYTaZ2gQa/kN2u
-	IBvt8oNzlK/Mwbi2zXOa4oA5TnGZgLNznFA5HJh5b0a9dIgJtWaFH4JOHVMBOudvunKQ2In5YRWNJ
-	LD+/LrH2W5q/m++J2BKNAeeE2CTElF2Ua4XQlGyg1GHlpfuob+w17a8XF2p3kjkfWqOTojxhk5sW8
-	gcidLecpZvGLn8Ucv/rupudw2U2GTfXFLD+KivHCULmTF/+1Oa99uFdGoCq/jsppURr4rXtObJWmj
-	czrMsU7wS1LVCmt8CzYg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=7PM03P9f4XE/iioT0MF6jIc2Ax2Sd19C8iprZSZp5yc=; b=1lnJfFi1j0Ypwl
+	OKcpyj6cr1Gg96KwRxbD+LF/6E2fO4AUwriEgzs5WXTkm0IRlaAjStOQyVU1VPBkSCFi1vb/OaLpv
+	BWXfFow1w4Ae1kCxIFDZaTsZLDZhB2YKC03B7PRCwkJ0ZY7QjstPha8/FHj8FmfMiEyeF4ARtXuhK
+	cAmo+46OFnArI7QCydy+evKSUHply1jx5YaYOSBW0FPoeyRKGkY8EUs2Lb+pKMJwFvYgb/2c8GY6F
+	QI1K/kobFKc1061vVEDMtMScK9ogMAQcKf6ZL/GQM1Xn9s++W8fXml6nx80dha6D5RetNQdJy7s03
+	d+fRNN11hwZ0hAPBRzOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qsGSQ-008Qft-06;
-	Mon, 16 Oct 2023 05:48:02 +0000
+	id 1qsGSR-008Qge-27;
+	Mon, 16 Oct 2023 05:48:03 +0000
 Received: from 2a02-8389-2341-5b80-39d3-4735-9a3c-88d8.cable.dynamic.v6.surfer.at ([2a02:8389:2341:5b80:39d3:4735:9a3c:88d8] helo=localhost)
 	by bombadil.infradead.org with esmtpsa (Exim 4.96 #2 (Red Hat Linux))
-	id 1qsGSM-008Qdv-36;
-	Mon, 16 Oct 2023 05:47:59 +0000
+	id 1qsGSP-008QfY-1h;
+	Mon, 16 Oct 2023 05:48:01 +0000
 From: Christoph Hellwig <hch@lst.de>
 To: Greg Ungerer <gerg@linux-m68k.org>,
 	iommu@lists.linux.dev
@@ -46,10 +46,12 @@ Cc: Paul Walmsley <paul.walmsley@sifive.com>,
 	linux-riscv@lists.infradead.org,
 	linux-renesas-soc@vger.kernel.org,
 	Jim Quinlan <james.quinlan@broadcom.com>
-Subject: fix the non-coherent coldfire dma_alloc_coherent v2
-Date: Mon, 16 Oct 2023 07:47:42 +0200
-Message-Id: <20231016054755.915155-1-hch@lst.de>
+Subject: [PATCH 01/12] riscv: RISCV_NONSTANDARD_CACHE_OPS shouldn't depend on RISCV_DMA_NONCOHERENT
+Date: Mon, 16 Oct 2023 07:47:43 +0200
+Message-Id: <20231016054755.915155-2-hch@lst.de>
 X-Mailer: git-send-email 2.39.2
+In-Reply-To: <20231016054755.915155-1-hch@lst.de>
+References: <20231016054755.915155-1-hch@lst.de>
 MIME-Version: 1.0
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -67,23 +69,57 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi all,
+RISCV_NONSTANDARD_CACHE_OPS is also used for the pmem cache maintenance
+helpers, which are built into the kernel unconditionally.
 
-this is the next attempt to not return memory that is not DMA coherent
-on coldfire/m68knommu.  The last one needed more fixups in the fec
-driver, which this versions includes.  On top of that I've also added
-a few more cleanups to the core DMA allocation code.
+Signed-off-by: Christoph Hellwig <hch@lst.de>
+---
+ arch/riscv/Kconfig          | 1 -
+ drivers/cache/Kconfig       | 2 +-
+ drivers/soc/renesas/Kconfig | 2 +-
+ 3 files changed, 2 insertions(+), 3 deletions(-)
 
-Jim: any work to support the set_uncached and remap method for arm32
-should probably be based on this, and patch 3 should make that
-selection a little easier.
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index d607ab0f7c6daf..0ac0b538379718 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -277,7 +277,6 @@ config RISCV_DMA_NONCOHERENT
+ 
+ config RISCV_NONSTANDARD_CACHE_OPS
+ 	bool
+-	depends on RISCV_DMA_NONCOHERENT
+ 	help
+ 	  This enables function pointer support for non-standard noncoherent
+ 	  systems to handle cache management.
+diff --git a/drivers/cache/Kconfig b/drivers/cache/Kconfig
+index a57677f908f3ba..d6e5e3abaad8af 100644
+--- a/drivers/cache/Kconfig
++++ b/drivers/cache/Kconfig
+@@ -3,7 +3,7 @@ menu "Cache Drivers"
+ 
+ config AX45MP_L2_CACHE
+ 	bool "Andes Technology AX45MP L2 Cache controller"
+-	depends on RISCV_DMA_NONCOHERENT
++	depends on RISCV
+ 	select RISCV_NONSTANDARD_CACHE_OPS
+ 	help
+ 	  Support for the L2 cache controller on Andes Technology AX45MP platforms.
+diff --git a/drivers/soc/renesas/Kconfig b/drivers/soc/renesas/Kconfig
+index 12040ce116a551..880c544bb2dfda 100644
+--- a/drivers/soc/renesas/Kconfig
++++ b/drivers/soc/renesas/Kconfig
+@@ -335,7 +335,7 @@ config ARCH_R9A07G043
+ 	bool "RISC-V Platform support for RZ/Five"
+ 	depends on NONPORTABLE
+ 	select ARCH_RZG2L
+-	select AX45MP_L2_CACHE if RISCV_DMA_NONCOHERENT
++	select AX45MP_L2_CACHE
+ 	select DMA_GLOBAL_POOL
+ 	select ERRATA_ANDES if RISCV_SBI
+ 	select ERRATA_ANDES_CMO if ERRATA_ANDES
+-- 
+2.39.2
 
-Changes since v1:
- - sort out the dependency mess in RISCV
- - don't even built non-coherent DMA support for coldfire cores without
-   data caches
- - apply the fec workarounds to all coldfire platforms with data caches
- - add a trivial cleanup for m68k dma.c
 
 _______________________________________________
 linux-riscv mailing list
