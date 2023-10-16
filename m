@@ -4,28 +4,28 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03091CDB482
-	for <linux-riscv@archiver.kernel.org>; Mon, 16 Oct 2023 05:48:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA1DCCDB465
+	for <linux-riscv@archiver.kernel.org>; Mon, 16 Oct 2023 05:48:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=93lY04qsvPLMlU+nak62rla+0sCRA5MguT+iGGzG3yg=; b=xNbMAKYbHynfcP
-	YZtK/yqgoysk5RiZ8yMl/mwJpMmu/Y1mU0xwVtzqFAA2fEQMA5M5zY+BUIAWAUObXQCUSXkn6AMr8
-	7GYgMIuXxW8C4Ts3Y/S9W7GOMNXnQXPDMNCD/+aj9lnIM0SbRF58DetDghuCO6T0vq/KHmZqW9dds
-	O5gKYo/p7Bmvp1q+FPHXtM1ymP7ovD1gdxFkP17w+ehcSRxE2K9NZpz0rhf7A3BNw2wOulSDD4ocj
-	CmdZWUceJc5Y3hlNc0DtXnwjsQEY4HC/C50oz0xO2kCA5Qb2xYdOOtLaNBe+l3XWPa7Ti3+bIA2f2
-	lKbF/U77vGt6dTJzSTxw==;
+	List-Owner; bh=bZ9HW9aaqP/v0Omt/oTWkOj//Yxz08fd35g6rZNDia4=; b=eW/MB3S/L3SqUJ
+	FqFEF8LQZCl5NMoAzhcFaspQCY80cGIRLeEAikGmKDkTHXcqlhozmJxFkgFVEWtY8uUeDzpxWIYpb
+	h7U9HmZBnRK78r/Cj3su9eRRdAIwytBePjek3mF6mFEULcbCUGFNvzrwKJAmmIj36VVd1lfbSrU4T
+	cOBmbhPUXYzFPQGybrvWN+XpvwgzxYY++gk90Pc9CbYG2MIFz49Q0mPfNRRlRFRBuFTqgmRSbELwj
+	UzFxvaCtUJtTsxerC6drQHPAPzjFN5bLPBhkNiiYXP6YzeYNAOBPAWbUitsIbEmeUU0uBa872pTYj
+	PCML5uneULeCawZRcwuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qsGSV-008Qj1-30;
-	Mon, 16 Oct 2023 05:48:07 +0000
+	id 1qsGSY-008Qkb-2Y;
+	Mon, 16 Oct 2023 05:48:10 +0000
 Received: from 2a02-8389-2341-5b80-39d3-4735-9a3c-88d8.cable.dynamic.v6.surfer.at ([2a02:8389:2341:5b80:39d3:4735:9a3c:88d8] helo=localhost)
 	by bombadil.infradead.org with esmtpsa (Exim 4.96 #2 (Red Hat Linux))
-	id 1qsGSU-008QhF-0t;
-	Mon, 16 Oct 2023 05:48:06 +0000
+	id 1qsGSW-008QiW-2B;
+	Mon, 16 Oct 2023 05:48:09 +0000
 From: Christoph Hellwig <hch@lst.de>
 To: Greg Ungerer <gerg@linux-m68k.org>,
 	iommu@lists.linux.dev
@@ -46,9 +46,9 @@ Cc: Paul Walmsley <paul.walmsley@sifive.com>,
 	linux-riscv@lists.infradead.org,
 	linux-renesas-soc@vger.kernel.org,
 	Jim Quinlan <james.quinlan@broadcom.com>
-Subject: [PATCH 03/12] soc: renesas: ARCH_R9A07G043 depends on !RISCV_ISA_ZICBOM
-Date: Mon, 16 Oct 2023 07:47:45 +0200
-Message-Id: <20231016054755.915155-4-hch@lst.de>
+Subject: [PATCH 04/12] soc: renesas: select RISCV_DMA_NONCOHERENT from ARCH_R9A07G043
+Date: Mon, 16 Oct 2023 07:47:46 +0200
+Message-Id: <20231016054755.915155-5-hch@lst.de>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20231016054755.915155-1-hch@lst.de>
 References: <20231016054755.915155-1-hch@lst.de>
@@ -69,9 +69,8 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-ARCH_R9A07G043 has it's own non-standard global pool based DMA coherent
-allocator, which conflicts with the remap based RISCV_ISA_ZICBOM version.
-Add a proper dependency.
+Selecting DMA_GLOBAL_POOL without the rest of the non-coherent DMA
+infrastructure does not make sense.
 
 Signed-off-by: Christoph Hellwig <hch@lst.de>
 ---
@@ -79,17 +78,17 @@ Signed-off-by: Christoph Hellwig <hch@lst.de>
  1 file changed, 1 insertion(+)
 
 diff --git a/drivers/soc/renesas/Kconfig b/drivers/soc/renesas/Kconfig
-index 880c544bb2dfda..f1696d3b5018d0 100644
+index f1696d3b5018d0..ea473b4150dfa8 100644
 --- a/drivers/soc/renesas/Kconfig
 +++ b/drivers/soc/renesas/Kconfig
-@@ -334,6 +334,7 @@ if RISCV
- config ARCH_R9A07G043
- 	bool "RISC-V Platform support for RZ/Five"
- 	depends on NONPORTABLE
-+	depends on !RISCV_ISA_ZICBOM
+@@ -338,6 +338,7 @@ config ARCH_R9A07G043
  	select ARCH_RZG2L
  	select AX45MP_L2_CACHE
  	select DMA_GLOBAL_POOL
++	select RISCV_DMA_NONCOHERENT
+ 	select ERRATA_ANDES if RISCV_SBI
+ 	select ERRATA_ANDES_CMO if ERRATA_ANDES
+ 
 -- 
 2.39.2
 
