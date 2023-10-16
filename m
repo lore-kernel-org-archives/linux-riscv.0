@@ -4,78 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0C5BCDB465
-	for <linux-riscv@archiver.kernel.org>; Mon, 16 Oct 2023 16:50:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A5ACCDB465
+	for <linux-riscv@archiver.kernel.org>; Mon, 16 Oct 2023 17:10:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Mwa1haSWJx5gLPELUmABuBDoNSW4NHHmnbQsTMQzAHM=; b=kScuvq4wsT2Adl
-	I1H34HxzUuAL2O/H7exQYBP++MkTNbaUJdKEiid54eqgqZozeIrSX0rV0hEnUebwfEQyPmjhz0+gM
-	RgkOPl3QDxr42nuZVDr1sJEkAQbrFWJKt+0f856oyQ4DmaB53KFB7q/7VQB8o2AJpIntvwWuIEja3
-	VXlkqA3BAyWy4BM2ajw2eYkpAAXHe7YNgIw0nlZKNse4VWGiyvnLpzWx9VXeD67GuM7RQt0VLBY7r
-	8EIGEmR+jW97CY3eyqfKUe3vjlw2uiEMvW90jNrgFdCqqzFWa3w7foWTBWO6T9wcLkf196OT336El
-	bwEbrS5/GPQMs8VOmPAg==;
+	List-Owner; bh=p6X9j5aB2MfaqKe7q8+neTzjwoP3B0VJEG8Qx+MjUl4=; b=1xeKUO0fj/cy/h
+	F1m/iVXHYOD0aDaVFdSKNgS24izUDZjPU/5tS0UI51D+dY7V4HWXOzZR2SE9NUyif5KCfIUfKE7y6
+	Mh/AVkJS4l4PW1dZix5OKUZxU8ZJJJt+3ZNtHoYxu0XCy7+HrF4Xu0w39aXV++Xt1cKUqWVBn5Glz
+	5kDUe7vHcB5pwEmD1tBPQadLeJQowXWzsC2Uv0GRMllh3Zp0KU/HZwdY917GMUNF1G9XIP30WBg24
+	DRottDbSO6eKQG5+fFThGsTDhnIkjaW1RjcSEzbviWXVcme/jutvLaSSJaFn7hKGiMT32gd3x98SQ
+	5IFv2/US2V6t9PLZ2+gg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qsQnM-00AB0R-2y;
-	Mon, 16 Oct 2023 16:50:20 +0000
-Received: from mail-oo1-xc2a.google.com ([2607:f8b0:4864:20::c2a])
+	id 1qsR75-00ADHw-1i;
+	Mon, 16 Oct 2023 17:10:43 +0000
+Received: from mail-pf1-x435.google.com ([2607:f8b0:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qsQnJ-00AAz0-2f
+	id 1qsR71-00ADHE-1i
 	for linux-riscv@lists.infradead.org;
-	Mon, 16 Oct 2023 16:50:19 +0000
-Received: by mail-oo1-xc2a.google.com with SMTP id 006d021491bc7-57e40f0189aso2509482eaf.1
-        for <linux-riscv@lists.infradead.org>; Mon, 16 Oct 2023 09:50:16 -0700 (PDT)
+	Mon, 16 Oct 2023 17:10:42 +0000
+Received: by mail-pf1-x435.google.com with SMTP id d2e1a72fcca58-692d2e8c003so4377839b3a.1
+        for <linux-riscv@lists.infradead.org>; Mon, 16 Oct 2023 10:10:37 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1697475015; x=1698079815; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=771urCD3ivMrGFxRwO6FF0bHhNMWlumN7WHUnj5mC2E=;
-        b=C06tfosOTLoFMJAcdCQiqScQ9hL85IbKYlP2apQz6sIWSDR+c4BlIyMfDU2JW3VDil
-         USGpJZHof/MEsKcbckjwjBAhbeSeyWxOgz/z5h++PbErYN8qe29K64vjuPP1No0Xb9BX
-         HO3uhaeSiKkf0zVPwzpQ1BuaU2HQUEkci0hmP6nAIhoq9Lxx/lK2pR/frUJkEgghPjIo
-         9BTulDPBQsOoC7DyOE6pT/d42h9B+s3VGuebQmpHMqq8vvSaUie12lmzJzjOpzByj99e
-         VftjzmaJiuWnT/9M5LUpzhCtpaAoh5aKmNVFQ+ChubmyYO2QRCzL+RfZVZ2+qe9V3egw
-         WnQw==
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1697476237; x=1698081037; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=dEgoT4wnSbfKqiobyL8tOMupICht6HOuE8CfHQmqQMc=;
+        b=m6pt5M2ipaeZmeBnPEdbLAbLkK3jup5Vt7oP6sIVwEP8iaZZhgxtVDCDcsMzMoWbi8
+         jITO4pN8yn72AQ7YyO9SYq5okIt4KI+a3hJ6dEGQcCk5aHqsAkUNRpE0rzRO1l7KmaEH
+         /uDuCekjKqkeCo51k5wsEBhcDfY7DV8dL9SK6Ir1lHiToS/plthk9bNbQ9pz+6N5GWnp
+         7BAQdPHuYV194DfumTjOTYx2n49JxLyBPzvFayvQ0apQLX8UmkxqdJX1l2dl4J1YO2iO
+         uChthIXdgtzacjwp1efMWIf9QDqporqYDe3del0trOoIqda+fLndIkJ5f2c1zwWaGxCj
+         kz2Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1697475015; x=1698079815;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=771urCD3ivMrGFxRwO6FF0bHhNMWlumN7WHUnj5mC2E=;
-        b=bJOzbMjjew9b6A/V217VErafGqWhtFJMaw697+cSWHM9Hm6jq1LVFcmjR/EZPSD3xz
-         R1/yPIePt3EChyfMm9INxLbdBrwOctvIk+BUZegWnZwepA2zZj0Ws9OLmlv3VsJLJHLa
-         dee/Z0ZHTSycTEAjp6VsQSvtznb7YvlJRpxLkPqzHZulfiRlH3ZD7ebuHWAt0EEjqsQK
-         w4oNxpZh389/LRwBQPvWYBgw9mdBGRWgU+8Plwhiu62yVv/gbiqAm0nPOyAki6Vr6pwj
-         7oAZ0ST4SUDjb6vr98/gq3I3dUAJMFjn6ejvWujG/rQdT2hbXDAjzoEX+/c1V7Gv0DNl
-         xz1Q==
-X-Gm-Message-State: AOJu0YyfP+d90MWkGl5FqFfJxiqHzrSDHveuU5r2vuz+KE97B6sCgaHS
-	LL/t+0LrrOumtevvajyswT7nlUGROaLcKOi4U4M=
-X-Google-Smtp-Source: AGHT+IHj6pvcAY/EU6tBAGFPTeSDrRqJvly9AhUO9Z+1tZDpjcbVdOpa7xjrqxaz1DWdPrnVU3y4vw==
-X-Received: by 2002:a05:6358:18:b0:164:a5c0:46ac with SMTP id 24-20020a056358001800b00164a5c046acmr18820773rww.21.1697475015175;
-        Mon, 16 Oct 2023 09:50:15 -0700 (PDT)
-Received: from sunil-pc.Dlink ([106.51.188.78])
-        by smtp.gmail.com with ESMTPSA id t21-20020a056a0021d500b006b1e8f17b85sm111252pfj.201.2023.10.16.09.50.11
+        d=1e100.net; s=20230601; t=1697476237; x=1698081037;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=dEgoT4wnSbfKqiobyL8tOMupICht6HOuE8CfHQmqQMc=;
+        b=f7OlnSX+l+BJ3ebtr1bggpquUf2MsshZU/wRqQwVNw64+Sv28gGI/yJ3LUUg3KB+6G
+         +NI15SXaiwoDwaxX5fYysyIDyzJUYHuyoZQZfBDtQxNEsdmLDwCfpvTP1myMdXiLBf+D
+         2bTnjC1wHzbPN+3t8gf24RLtl2qwKa9u5fBEJwpINIfWWkqvR3DRyKI8my93xBZWfAhQ
+         8hf8ucAmWxwH18z5pCVAzsyfdfx+VM2yaRzQuKxIQfWpVDDax9cxjhwbISyHKI7G1vYY
+         YVKKhxDjJtPHHaX5DJ3FQoRcySiK1wruFhg+ipIYNhpx5b5Y4y0QHn7RZKwTR1BPzEVD
+         45Pw==
+X-Gm-Message-State: AOJu0Yx7j78KXEZiQjjnyWSLltAIku3Syvn4WOkAvFUJK9YlA+B3TOBc
+	1Okl10sGZVW7/HA6v5Oz/HxN8Q==
+X-Google-Smtp-Source: AGHT+IGguDhVITJIvhBzWf+6Op1xFKO1SJ/TmEkeSW6nK5Opr8475dRlcc4zfVYS/Ev4Bc6d7YnIDA==
+X-Received: by 2002:a05:6a20:6a03:b0:15a:6733:24e2 with SMTP id p3-20020a056a206a0300b0015a673324e2mr12179788pzk.25.1697476236976;
+        Mon, 16 Oct 2023 10:10:36 -0700 (PDT)
+Received: from x1 ([2601:1c2:1800:f680:619d:5ad3:44b1:eec4])
+        by smtp.gmail.com with ESMTPSA id k64-20020a632443000000b0057c44503835sm5910283pgk.65.2023.10.16.10.10.35
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 16 Oct 2023 09:50:14 -0700 (PDT)
-From: Sunil V L <sunilvl@ventanamicro.com>
-To: linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-acpi@vger.kernel.org
-Subject: [PATCH v3 -next 2/3] RISC-V: ACPI: RHCT: Add function to get CBO block sizes
-Date: Mon, 16 Oct 2023 22:19:57 +0530
-Message-Id: <20231016164958.1191529-3-sunilvl@ventanamicro.com>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20231016164958.1191529-1-sunilvl@ventanamicro.com>
-References: <20231016164958.1191529-1-sunilvl@ventanamicro.com>
+        Mon, 16 Oct 2023 10:10:36 -0700 (PDT)
+Date: Mon, 16 Oct 2023 10:10:33 -0700
+From: Drew Fustini <dfustini@baylibre.com>
+To: Conor Dooley <conor@kernel.org>
+Cc: Jisheng Zhang <jszhang@kernel.org>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] riscv: dts: thead: set dma-noncoherent to soc bus
+Message-ID: <ZS1uiXORq2IRPnId@x1>
+References: <20230912072232.2455-1-jszhang@kernel.org>
+ <20230912-trailing-pampered-52738ec6f009@spud>
+ <ZQHSLdPufI6CXApg@xhacker>
+ <20230913-faster-spotted-9df41a0d7787@spud>
+ <20230920-pesky-stalemate-88f5036b8084@wendy>
+ <ZQwL6fxi6IkUEIMc@xhacker>
+ <20230921-4a1fe80384e083c67f38dc27@fedora>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20230921-4a1fe80384e083c67f38dc27@fedora>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231016_095017_864391_EADFE206 
-X-CRM114-Status: GOOD (  15.59  )
+X-CRM114-CacheID: sfid-20231016_101039_783904_AD227531 
+X-CRM114-Status: GOOD (  30.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,156 +99,69 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Anup Patel <apatel@ventanamicro.com>, Albert Ou <aou@eecs.berkeley.edu>, "Rafael J . Wysocki" <rafael@kernel.org>, Atish Kumar Patra <atishp@rivosinc.com>, Conor Dooley <conor.dooley@microchip.com>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, Andrew Jones <ajones@ventanamicro.com>, Ard Biesheuvel <ardb@kernel.org>, Len Brown <lenb@kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Cache Block Operation (CBO) related block size in ACPI is provided by RHCT.
-Add support to read the CMO node in RHCT to get this information.
+On Thu, Sep 21, 2023 at 11:08:28AM +0100, Conor Dooley wrote:
+> On Thu, Sep 21, 2023 at 05:24:57PM +0800, Jisheng Zhang wrote:
+> > On Wed, Sep 20, 2023 at 09:36:19AM +0100, Conor Dooley wrote:
+> > > Hey Jisheng,
+> > > 
+> > > On Wed, Sep 13, 2023 at 04:44:18PM +0100, Conor Dooley wrote:
+> > > > On Wed, Sep 13, 2023 at 11:15:57PM +0800, Jisheng Zhang wrote:
+> > > > > On Tue, Sep 12, 2023 at 05:27:31PM +0100, Conor Dooley wrote:
+> > > > > > On Tue, Sep 12, 2023 at 03:22:32PM +0800, Jisheng Zhang wrote:
+> > > > > > > riscv select ARCH_DMA_DEFAULT_COHERENT by default, and th1520 isn't
+> > > > > > > dma coherent, so set dma-noncoherent to reflect this fact.
+> > > > > > > 
+> > > > > > > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+> > > > > > > Tested-by: Drew Fustini <dfustini@baylibre.com>
+> > > > > > > ---
+> > > > > > > 
+> > > > > > > Since v1:
+> > > > > > >  - rebase on v6.6-rc1
+> > > > > > >  - collect Tested-by tag
+> > > > > > 
+> > > > > > Does this mean you're expecting me to take this?
+> > > > > 
+> > > > > Hi Conor,
+> > > > > 
+> > > > > I think I will take this and send PR to soc people. The reason
+> > > > > I send v2 is the rebasing on new rc1 and v1 wasn't in linux-riscv
+> > > > > mailist due to typo;
+> > > > 
+> > > > Great, thanks. Please ask SFR to add your tree to linux-next.
+> > 
+> > Hi Conor,
+> > 
+> > I'm not sure how to do this. When MAINTAINERS patch is merged, send
+> > an email to Stephen Rothwell, are these steps correct?
+> 
+> Sorta, yeah. You don't need to have the MAINTAINERS patch merged first
+> though, just send him a link to your tree and the branch name(s) & he
+> will include it in linux-next.
+> 
+> > > I lost my main x86 box over the weekend (looks like probably a dead
+> > > motherboard), so I may have missed a response to this.
+> > > 
+> > > Did you see this email? Additionally, can you add that git tree to the
+> > > maintainers entry for the thead devicetrees?
+> > 
+> > I just created a tree in
+> > git://git.kernel.org/pub/scm/linux/kernel/git/jszhang/linux.git
+> > 
+> > But it needs time for cgit to take place. I will send a patch
+> > once it appears.
+> 
+> Looks to be there for me now. Thanks for doing this!
 
-Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
----
- arch/riscv/include/asm/acpi.h |  6 +++
- drivers/acpi/riscv/rhct.c     | 93 +++++++++++++++++++++++++++++++++++
- 2 files changed, 99 insertions(+)
+Hi Jisheng, I'm writing the cover letter for v2 of my th1520 mmc series
+and I am wondering if this dma-noncoherent patch is in any tree yet?
 
-diff --git a/arch/riscv/include/asm/acpi.h b/arch/riscv/include/asm/acpi.h
-index d5604d2073bc..7dad0cf9d701 100644
---- a/arch/riscv/include/asm/acpi.h
-+++ b/arch/riscv/include/asm/acpi.h
-@@ -66,6 +66,8 @@ int acpi_get_riscv_isa(struct acpi_table_header *table,
- 		       unsigned int cpu, const char **isa);
- 
- static inline int acpi_numa_get_nid(unsigned int cpu) { return NUMA_NO_NODE; }
-+void acpi_get_cbo_block_size(struct acpi_table_header *table, u32 *cbom_size,
-+			     u32 *cboz_size, u32 *cbop_size);
- #else
- static inline void acpi_init_rintc_map(void) { }
- static inline struct acpi_madt_rintc *acpi_cpu_get_madt_rintc(int cpu)
-@@ -79,6 +81,10 @@ static inline int acpi_get_riscv_isa(struct acpi_table_header *table,
- 	return -EINVAL;
- }
- 
-+static inline void acpi_get_cbo_block_size(struct acpi_table_header *table,
-+					   u32 *cbom_size, u32 *cboz_size,
-+					   u32 *cbop_size) { }
-+
- #endif /* CONFIG_ACPI */
- 
- #endif /*_ASM_ACPI_H*/
-diff --git a/drivers/acpi/riscv/rhct.c b/drivers/acpi/riscv/rhct.c
-index b280b3e9c7d9..105f1aaa3fac 100644
---- a/drivers/acpi/riscv/rhct.c
-+++ b/drivers/acpi/riscv/rhct.c
-@@ -8,6 +8,7 @@
- #define pr_fmt(fmt)     "ACPI: RHCT: " fmt
- 
- #include <linux/acpi.h>
-+#include <linux/bits.h>
- 
- static struct acpi_table_header *acpi_get_rhct(void)
- {
-@@ -81,3 +82,95 @@ int acpi_get_riscv_isa(struct acpi_table_header *table, unsigned int cpu, const
- 
- 	return -1;
- }
-+
-+static void acpi_parse_hart_info_cmo_node(struct acpi_table_rhct *rhct,
-+					  struct acpi_rhct_hart_info *hart_info,
-+					  u32 *cbom_size, u32 *cboz_size, u32 *cbop_size)
-+{
-+	u32 size_hartinfo = sizeof(struct acpi_rhct_hart_info);
-+	u32 size_hdr = sizeof(struct acpi_rhct_node_header);
-+	struct acpi_rhct_node_header *ref_node;
-+	struct acpi_rhct_cmo_node *cmo_node;
-+	u32 *hart_info_node_offset;
-+
-+	hart_info_node_offset = ACPI_ADD_PTR(u32, hart_info, size_hartinfo);
-+	for (int i = 0; i < hart_info->num_offsets; i++) {
-+		ref_node = ACPI_ADD_PTR(struct acpi_rhct_node_header,
-+					rhct, hart_info_node_offset[i]);
-+		if (ref_node->type == ACPI_RHCT_NODE_TYPE_CMO) {
-+			cmo_node = ACPI_ADD_PTR(struct acpi_rhct_cmo_node,
-+						ref_node, size_hdr);
-+			if (cbom_size && cmo_node->cbom_size <= 30) {
-+				if (!*cbom_size) {
-+					*cbom_size = BIT(cmo_node->cbom_size);
-+				} else if (*cbom_size !=
-+						BIT(cmo_node->cbom_size)) {
-+					pr_warn("CBOM size is not the same across harts\n");
-+				}
-+			}
-+
-+			if (cboz_size && cmo_node->cboz_size <= 30) {
-+				if (!*cboz_size) {
-+					*cboz_size = BIT(cmo_node->cboz_size);
-+				} else if (*cboz_size !=
-+						BIT(cmo_node->cboz_size)) {
-+					pr_warn("CBOZ size is not the same across harts\n");
-+				}
-+			}
-+
-+			if (cbop_size && cmo_node->cbop_size <= 30) {
-+				if (!*cbop_size) {
-+					*cbop_size = BIT(cmo_node->cbop_size);
-+				} else if (*cbop_size !=
-+						BIT(cmo_node->cbop_size)) {
-+					pr_warn("CBOP size is not the same across harts\n");
-+				}
-+			}
-+		}
-+	}
-+}
-+
-+/*
-+ * During early boot, the caller should call acpi_get_table() and pass its pointer to
-+ * these functions(and free up later). At run time, since this table can be used
-+ * multiple times, pass NULL so that the table remains in memory
-+ */
-+void acpi_get_cbo_block_size(struct acpi_table_header *table, u32 *cbom_size,
-+			     u32 *cboz_size, u32 *cbop_size)
-+{
-+	u32 size_hdr = sizeof(struct acpi_rhct_node_header);
-+	struct acpi_rhct_node_header *node, *end;
-+	struct acpi_rhct_hart_info *hart_info;
-+	struct acpi_table_rhct *rhct;
-+
-+	if (acpi_disabled)
-+		return;
-+
-+	if (table) {
-+		rhct = (struct acpi_table_rhct *)table;
-+	} else {
-+		rhct = (struct acpi_table_rhct *)acpi_get_rhct();
-+		if (!rhct)
-+			return;
-+	}
-+
-+	if (cbom_size)
-+		*cbom_size = 0;
-+
-+	if (cboz_size)
-+		*cboz_size = 0;
-+
-+	if (cbop_size)
-+		*cbop_size = 0;
-+
-+	end = ACPI_ADD_PTR(struct acpi_rhct_node_header, rhct, rhct->header.length);
-+	for (node = ACPI_ADD_PTR(struct acpi_rhct_node_header, rhct, rhct->node_offset);
-+	     node < end;
-+	     node = ACPI_ADD_PTR(struct acpi_rhct_node_header, node, node->length)) {
-+		if (node->type == ACPI_RHCT_NODE_TYPE_HART_INFO) {
-+			hart_info = ACPI_ADD_PTR(struct acpi_rhct_hart_info, node, size_hdr);
-+			acpi_parse_hart_info_cmo_node(rhct, hart_info, cbom_size,
-+						      cboz_size, cbop_size);
-+		}
-+	}
-+}
--- 
-2.39.2
-
+Thanks,
+Drew
 
 _______________________________________________
 linux-riscv mailing list
