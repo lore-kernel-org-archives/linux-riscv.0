@@ -4,84 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DC85CDB465
-	for <linux-riscv@archiver.kernel.org>; Mon, 16 Oct 2023 15:32:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 008D5CDB465
+	for <linux-riscv@archiver.kernel.org>; Mon, 16 Oct 2023 15:34:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=asLEh5eL0ZVh77bEcdoB/cEe70t0MbZ4DXyefWDbiUs=; b=YFaNQ61nONkzD7
-	ZzBKrTpJ7hK++vjN0FX+uEptkIC0bVyYq06gIKcbpZt3oo7FcEJHrAaMuCSNYbTQaTpIwemdTZ3VH
-	K7VhPWBPP/EcJSDqcjvbjLc0BdiAjI8d3LjV/m4U0M3bmTOBU8xr7K6GfoFJEHYs0gedRq1bvDcUT
-	5PVJ2Zod8njwhSr9EM9/7x3pnyUFZ5NyRKP8xqLi2xuG8guIx6s9sQQvdcuqFZESSotyP+LYtJxjc
-	mmVEV3L0RrzL/YT4uI5oHQHiLGtZnhab+s66KCXA7Awcndzl7pMynxMe1vnW/9ZNBhKfOSPRSTBDI
-	hSZaDGqfAF82ub2vHnlA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=/icbkc5B+e+vy3R67IRrqfn+bN+qHuLQY8oS8mN+9Kc=; b=Tna
+	41XTaQ7ilKq1ythvN6BNmZYxBPHMEkBgWTTOzQ1h7CaDdJ4+lj8gXNsHiBsC5mJdS3D73cha/8yE3
+	2GkTAv/P8xA1cjLgl/NGV2FFteRabQ8Qk+H300x0UEWVJdiqfgF2K1joiSNIWH7tUZnn815QbiPwN
+	J/rDizCkIkVUcUHVBLyftiYK9Ap+Tldx+LEz+8eiDh3IMf1BX9qhSXT07/Wqa+V9Dcl+mpJFeQJbV
+	AE6+VvKl/3NAh1kSzwKBPMT+jvmihb16HO7Sanrn7ZRefnUdVOQNDBMBBLA9RpULa5F4OI2Om6Bpu
+	rsOEH473XPwcILRGqlgWFEDf1wbLTzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qsPZv-009zEa-0p;
-	Mon, 16 Oct 2023 15:32:23 +0000
-Received: from mail-pf1-x432.google.com ([2607:f8b0:4864:20::432])
+	id 1qsPcD-009zrj-1K;
+	Mon, 16 Oct 2023 15:34:45 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qsPZq-009zCE-1T
+	id 1qsPc9-009zqR-1p
 	for linux-riscv@lists.infradead.org;
-	Mon, 16 Oct 2023 15:32:20 +0000
-Received: by mail-pf1-x432.google.com with SMTP id d2e1a72fcca58-6b709048d8eso1757885b3a.2
-        for <linux-riscv@lists.infradead.org>; Mon, 16 Oct 2023 08:32:15 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1697470335; x=1698075135; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=5pngVXoLiR/0bx1FlI0DnQePf5uJ9GAS4LvTh4IY1Rk=;
-        b=TOJ4TJMPgVRMSOUbYy3uK8Gqc37t0ES6RLPAwJ1UR+nILaG9+/lHKUGF7dmru2b9EC
-         WbD6dpnrPsBlfqwgfGYkn+2vewSitZ+lxtraeYBOEwI8lY4/pfAYVXKh4lslmYcIawIz
-         ohqeZnW9Gzn4BVLgfG2Fofq/xcVQdT1d0PU+wSK9q5FVlY/SxFB9kgrBsRixHJ6ADzpq
-         QpBWPUiksMVj9set6Mk+VuYpeROCoC4Ln9WjvXNxF0xtPFtcrK0+Tu3wDGhtQcpjmO9n
-         brUi9SCXxSkBff+zT5oYr8UXGNfsHO5SNmD38DwQW0KULK8cAgNx4I0ZiSltKkfp4wIQ
-         yIiQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1697470335; x=1698075135;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=5pngVXoLiR/0bx1FlI0DnQePf5uJ9GAS4LvTh4IY1Rk=;
-        b=YD1bOtaR9vfm0wyv3CruGYWRvkjxq2QU8CWmsudjPM+8H+rA+ro7qeA2BJSegWNy+i
-         AC941TjCIbrhq5TSHZ34MzGUIppPXNprHuFZ/ixTGfo3AeLAk7QDSAYr9BHMZgbFPnCq
-         EXx3Iv7+PKvn97Zv6PcocPJPxK9Emxw8ABJ1iMn1bEqgAG1HwsMkEImpo9xGodowioD/
-         QMMfVyM4zI39l9jdoTiIfTaoFPOTwOTFOaoZUR28e1I+rRdW3TXQfjWwetjOxis8XXoQ
-         UtUFOipFfjfKr2BmQwlnhbJ6N6PwJUx9Bz7T1qbHEyz2gFoO0Xj9HCWnwjQ844NYWBGL
-         ESNw==
-X-Gm-Message-State: AOJu0Yyn4lPkALKRVHbOqavZ40bc+1fh6pQnha0HRu+YuQt3h27v/QYU
-	hUwdCRYdNsHMHMOjEjwzTt/fkWdeJ4U28lslOZSjPw==
-X-Google-Smtp-Source: AGHT+IFftRs3dPcu6O0OhThxtR8bcXVQFGGiwi0Ct1Wsm4gD9N/FBldJtlh3k9It5AHC5p/u1BypsA1/wFruHNSEbyQ=
-X-Received: by 2002:a05:6a20:9793:b0:174:af85:954b with SMTP id
- hx19-20020a056a20979300b00174af85954bmr8954867pzc.22.1697470335048; Mon, 16
- Oct 2023 08:32:15 -0700 (PDT)
+	Mon, 16 Oct 2023 15:34:43 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id B3D65CE111C;
+	Mon, 16 Oct 2023 15:34:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C3B41C433C7;
+	Mon, 16 Oct 2023 15:34:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1697470479;
+	bh=Ds2WuOyqBFCFrqImUDhA0B8esqx1tka+afIYJqOBYFk=;
+	h=Date:From:List-Id:To:List-Id:Cc:Subject:From;
+	b=UzsPx/REdzv6JkEKi9DXyPFhVIhwfFDi4JSi40RDrHfxkuRiUoYaC7X8EMIIIY36g
+	 wEB7/JKPVr4D1FNMZOe9s+6Aof4MRNcUAMaTEK4PEAuWOcWNiD27KpFsQvbufrj/WO
+	 kO+66Td4m1JQAYrWVE1IZml85WHCNtR7HUHTEq4njf8oHys/kIHrh+3ICNOi9BaJYh
+	 +NuBrvZu+PGHCzyg80+8n6p+8/bw0BjFmGEiP7x7O3fvBEX/rZU00tPdTu9pUMOsF+
+	 FHSvFbGFmfN83GTXnSFgfgAOvaUW+7E+/JDO3KgDGR+XpkRoByyttLbX7aCS1+m0BJ
+	 ygIzL3z3Qx5oQ==
+Date: Mon, 16 Oct 2023 16:34:34 +0100
+From: Conor Dooley <conor@kernel.org>
+To: soc@kernel.org
+Cc: conor@kernel.org, palmer@dabbelt.com, linux-riscv@lists.infradead.org,
+	soc@kernel.org
+Subject: [GIT PULL] RISC-V Devicetrees for v6.7
+Message-ID: <20231016-filing-payroll-7aca51b8f1a3@spud>
 MIME-Version: 1.0
-References: <20231009103621.374412-7-vincent.guittot@linaro.org>
- <ac8968b9-8463-4aa2-a38d-fc2b9137460d@arm.com> <CAKfTPtBhXRk_Y-xiHn9_jQ1C_ALzbr3-KdwzcTCyupzJ4Gru5g@mail.gmail.com>
- <ZS0oyhbVDtXO1p5b@arm.com>
-In-Reply-To: <ZS0oyhbVDtXO1p5b@arm.com>
-From: Vincent Guittot <vincent.guittot@linaro.org>
-Date: Mon, 16 Oct 2023 17:32:03 +0200
-Message-ID: <CAKfTPtCg9aYnWsReT=xtznwkMMMEepj6j9z4J6_ST5oUv69aUA@mail.gmail.com>
-Subject: Re: [PATCH v2 6/6] cpufreq/cppc: set the frequency used for capacity computation
-To: Ionela Voinescu <ionela.voinescu@arm.com>
-Cc: Pierre Gondois <pierre.gondois@arm.com>, linux@armlinux.org.uk, catalin.marinas@arm.com, 
-	will@kernel.org, paul.walmsley@sifive.com, palmer@dabbelt.com, 
-	aou@eecs.berkeley.edu, sudeep.holla@arm.com, gregkh@linuxfoundation.org, 
-	rafael@kernel.org, mingo@redhat.com, peterz@infradead.org, 
-	juri.lelli@redhat.com, dietmar.eggemann@arm.com, rostedt@goodmis.org, 
-	bsegall@google.com, mgorman@suse.de, bristot@redhat.com, vschneid@redhat.com, 
-	viresh.kumar@linaro.org, lukasz.luba@arm.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, linux-pm@vger.kernel.org, 
-	conor.dooley@microchip.com, suagrfillet@gmail.com, ajones@ventanamicro.com, 
-	lftan@kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231016_083218_494664_F4B71700 
-X-CRM114-Status: GOOD (  55.43  )
+X-CRM114-CacheID: sfid-20231016_083441_958306_290F612B 
+X-CRM114-Status: GOOD (  16.49  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,178 +64,167 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============0644551745920325834=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Ionela,
 
-On Mon, 16 Oct 2023 at 14:13, Ionela Voinescu <ionela.voinescu@arm.com> wrote:
->
-> Hi both,
->
-> On Wednesday 11 Oct 2023 at 16:25:46 (+0200), Vincent Guittot wrote:
-> > On Wed, 11 Oct 2023 at 12:27, Pierre Gondois <pierre.gondois@arm.com> wrote:
-> > >
-> > > Hello Vincent,
-> > >
-> > > On 10/9/23 12:36, Vincent Guittot wrote:
-> > > > cppc cpufreq driver can register an artificial energy model. In such case,
-> > > > it also have to register the frequency that is used to define the CPU
-> > > > capacity
-> > > >
-> > > > Signed-off-by: Vincent Guittot <vincent.guittot@linaro.org>
-> > > > ---
-> > > >   drivers/cpufreq/cppc_cpufreq.c | 18 ++++++++++++++++++
-> > > >   1 file changed, 18 insertions(+)
-> > > >
-> > > > diff --git a/drivers/cpufreq/cppc_cpufreq.c b/drivers/cpufreq/cppc_cpufreq.c
-> > > > index fe08ca419b3d..24c6ba349f01 100644
-> > > > --- a/drivers/cpufreq/cppc_cpufreq.c
-> > > > +++ b/drivers/cpufreq/cppc_cpufreq.c
-> > > > @@ -636,6 +636,21 @@ static int populate_efficiency_class(void)
-> > > >       return 0;
-> > > >   }
-> > > >
-> > > > +
-> > > > +static void cppc_cpufreq_set_capacity_ref_freq(struct cpufreq_policy *policy)
-> > > > +{
-> > > > +     struct cppc_perf_caps *perf_caps;
-> > > > +     struct cppc_cpudata *cpu_data;
-> > > > +     unsigned int ref_freq;
-> > > > +
-> > > > +     cpu_data = policy->driver_data;
-> > > > +     perf_caps = &cpu_data->perf_caps;
-> > > > +
-> > > > +     ref_freq = cppc_cpufreq_perf_to_khz(cpu_data, perf_caps->highest_perf);
-> > > > +
-> > > > +     per_cpu(capacity_ref_freq, policy->cpu) = ref_freq;
-> > >
-> > > 'capacity_ref_freq' seems to be updated only if CONFIG_ENERGY_MODEL is set. However in
-> > > [1], get_capacity_ref_freq() relies on 'capacity_ref_freq'. The cpufreq_schedutil governor
-> > > should have a valid 'capacity_ref_freq' value set if the CPPC cpufreq driver is used
-> > > without energy model I believe.
-> >
-> > we can disable it by setting capacity_ref_freq to 0 so it will
-> > fallback on cpuinfo like intel and amd which uses default
-> > SCHED_CAPACITY_SCALE capacity
-> >
-> > Could you provide me with more details about your platform ? I still
-> > try to understand how the cpu compute capacity is set up on your
-> > system. How do you set per_cpu cpu_scale variable ? we should set the
-> > ref freq at the same time
-> >
->
-> Yes, the best place to set it would be in:
-> drivers/base/arch_topology.c: topology_init_cpu_capacity_cppc()
+--===============0644551745920325834==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="bU7VBiKcanaboKPm"
+Content-Disposition: inline
 
-Thanks. I didn't notice it
 
->
-> But:
->  - That function reuses topology_normalize_cpu_scale() and when called
->    it needs to have capacity_ref_freq = 1. So either capacity_ref_freq
->    needs to be set for each CPU after topology_normalize_cpu_scale() is
->    called or we should not call topology_normalize_cpu_scale() here and
->    just unpack a CPPC specific version of it in
->    topology_init_cpu_capacity_cppc(). The latter is probably better as
->    we avoid iterating through all CPUs a couple of times.
->
->  - When set, capacity_ref_freq needs to be a "frequency" (at least
->    in reference to the reference frequencies provided by CPPC). So
->    cppc_cpufreq_khz_to_perf() and cppc_cpufreq_perf_to_khz() would need
->    to move to drivers/acpi/cppc_acpi.c. They don't have any dependency
->    on cpufreq (policies) so that should be alright.
->
-> topology_init_cpu_capacity_cppc() is a better place to set
-> capacity_ref_freq because one can do it for each CPU, and it not only
+--bU7VBiKcanaboKPm
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-I agree, topology_init_cpu_capacity_cppc() is the best place to set
-capacity_ref_freq()
+Hey Arnd,
 
-> caters for the EAS case but also for frequency invariance, when
-> arch_set_freq_scale() is called, if no counters are supported.
->
-> When counters are supported, there are still two loose threads:
->  - amu_fie_setup(): Vincent, would you mind completely removing
->    cpufreq_get_hw_max_freq() and reusing arch_scale_freq_ref() here?
+Please pull some DT bits for 6.7, summary in the tag and all that jazz.
 
-I wonder if we can have a ordering dependency problem as both
-init_cpu_capacity_notifier() and init_amu_fie_notifier() are
-registered for the same CPUFREQ_POLICY_NOTIFIER event and I'm not sure
- it will happen in the right ordering
+Thanks,
+Conor.
 
->
->  - It would be nice if cppc_scale_freq_workfn() would use
->    arch_scale_freq_ref() as well, for consistency. But it would need
->    to be converted back to performance before use, so that would mean
->    extra work on the tick, which is not ideal.
+The following changes since commit 0bb80ecc33a8fb5a682236443c1e740d5c917d1d:
 
-This once seems more complex as it implies other arch that are not
-using arch_topology.c and would need more rework so I would prefer to
-make it a separate patchset
+  Linux 6.6-rc1 (2023-09-10 16:28:41 -0700)
 
-Thanks
-Vincent
+are available in the Git repository at:
 
->
-> Basically it would be good if what gets used for capacity
-> (arch_scale_freq_ref()) gets used for frequency invariance as well,
-> in all locations.
->
-> Thanks,
-> Ionela.
->
-> > >
-> > > Also 'capacity_ref_freq' seems to be set only for 'policy->cpu'. I believe it should
-> > > be set for the whole perf domain in case this 'policy->cpu' goes offline.
-> > >
-> > > Another thing, related my comment to [1] and to [2], for CPPC the max capacity matches
-> > > the boosting frequency. We have:
-> > >    'non-boosted max capacity' < 'boosted max capacity'.
-> > > -
-> > > If boosting is not enabled, the CPU utilization can still go above the 'non-boosted max
-> > > capacity'. The overutilization of the system seems to be triggered by comparing the CPU
-> > > util to the 'boosted max capacity'. So systems might not be detected as overutilized.
-> >
-> > As Peter mentioned, we have to decide what is the original compute
-> > capacity of your CPUs which is usually the sustainable max compute
-> > capacity, especially when using EAS and EM
-> >
-> > >
-> > > For the EAS energy computation, em_cpu_energy() tries to predict the frequency that will
-> > > be used. It is currently unknown to the function that the frequency request will be
-> > > clamped by __resolve_freq():
-> > > get_next_freq()
-> > > \-cpufreq_driver_resolve_freq()
-> > >    \-__resolve_freq()
-> > > This means that the energy computation might use boosting frequencies, which are not
-> > > available.
-> > >
-> > > Regards,
-> > > Pierre
-> > >
-> > > [1]: [PATCH v2 4/6] cpufreq/schedutil: use a fixed reference frequency
-> > > [2]: https://lore.kernel.org/lkml/20230905113308.GF28319@noisy.programming.kicks-ass.net/
-> > >
-> > > > +}
-> > > > +
-> > > >   static void cppc_cpufreq_register_em(struct cpufreq_policy *policy)
-> > > >   {
-> > > >       struct cppc_cpudata *cpu_data;
-> > > > @@ -643,6 +658,9 @@ static void cppc_cpufreq_register_em(struct cpufreq_policy *policy)
-> > > >               EM_ADV_DATA_CB(cppc_get_cpu_power, cppc_get_cpu_cost);
-> > > >
-> > > >       cpu_data = policy->driver_data;
-> > > > +
-> > > > +     cppc_cpufreq_set_capacity_ref_freq(policy);
-> > > > +
-> > > >       em_dev_register_perf_domain(get_cpu_device(policy->cpu),
-> > > >                       get_perf_level_count(policy), &em_cb,
-> > > >                       cpu_data->shared_cpu_map, 0);
+  https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/ tags/riscv-dt-for-v6.7
+
+for you to fetch changes up to 81b5948cf1a7ad49ba72fa0674710bd3f44deb9e:
+
+  riscv: dts: starfive: convert isa detection to new properties (2023-10-15 13:16:05 +0100)
+
+----------------------------------------------------------------
+RISC-V Devicetrees for v6.7
+
+StarFive:
+Things are a bit slower for StarFive this window, there's only the
+addition of audio related DT nodes to speak of here.
+
+Generic:
+The SiFive, StarFive and Microchip devicetrees have had my replacement
+ISA extension detection properties added. Unfortunately, the old
+"riscv,isa" property never defined exactly what the extensions it
+contained meant, and people were want to fill it in incorrectly (and
+call upstream kernel devs idiots for not doing the same). The new
+properties have explicit definitions and hopefully will stand up better
+to some of the variation from RVI.
+
+Sophgo:
+Two new SoCs, one is probably the first of several with up/down tuned
+variants, that have a pair of T-Head c906 cores and appear aimed at the
+IP camera, smart <insert whatever> etc markets. They are intended to run
+in AMP mode, with an RTOS on the less powerful core. The other is far
+more interesting to kernel developers however, the 64-core SG2042, with
+more recent c920 cores from T-Head at 2 GHz. For both, support is at a
+very basic stage - some of the same developers are working on them as
+other T-Head powered SoCs, but hopefully things will move beyond a basic
+console boot. The goal is for Chen Wang to take over maintaining the
+Sophgo support once they have some more experience with the process.
+
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+
+----------------------------------------------------------------
+Chen Wang (8):
+      riscv: Add SOPHGO SOC family Kconfig support
+      dt-bindings: vendor-prefixes: add milkv/sophgo
+      dt-bindings: riscv: add sophgo sg2042 bindings
+      dt-bindings: riscv: Add T-HEAD C920 compatibles
+      dt-bindings: interrupt-controller: Add Sophgo SG2042 PLIC
+      riscv: dts: add initial Sophgo SG2042 SoC device tree
+      riscv: dts: sophgo: add Milk-V Pioneer board device tree
+      riscv: defconfig: enable SOPHGO SoC
+
+Conor Dooley (4):
+      Merge initial Sophgo patches into riscv-dt-for-next
+      riscv: dts: microchip: convert isa detection to new properties
+      riscv: dts: sifive: convert isa detection to new properties
+      riscv: dts: starfive: convert isa detection to new properties
+
+Hal Feng (1):
+      riscv: dts: starfive: Add JH7110 PWM-DAC support
+
+Inochi Amaoto (2):
+      dt-bindings: timer: Add Sophgo sg2042 CLINT timer
+      dt-bindings: interrupt-controller: Add Sophgo sg2042 CLINT mswi
+
+Jisheng Zhang (5):
+      dt-bindings: interrupt-controller: Add SOPHGO CV1800B plic
+      dt-bindings: timer: Add SOPHGO CV1800B clint
+      dt-bindings: riscv: Add Milk-V Duo board compatibles
+      riscv: dts: sophgo: add initial CV1800B SoC device tree
+      riscv: dts: sophgo: add Milk-V Duo board device tree
+
+William Qiu (1):
+      riscv: dts: starfive: add assigned-clock* to limit frquency
+
+Xingyu Wu (2):
+      riscv: dts: starfive: pinfunc: Fix the pins name of I2STX1
+      riscv: dts: starfive: Add the nodes and pins of I2Srx/I2Stx0/I2Stx1
+
+ .../interrupt-controller/sifive,plic-1.0.0.yaml    |    2 +
+ .../thead,c900-aclint-mswi.yaml                    |   43 +
+ Documentation/devicetree/bindings/riscv/cpus.yaml  |    1 +
+ .../devicetree/bindings/riscv/sophgo.yaml          |   32 +
+ .../devicetree/bindings/timer/sifive,clint.yaml    |    1 +
+ .../bindings/timer/thead,c900-aclint-mtimer.yaml   |   43 +
+ .../devicetree/bindings/vendor-prefixes.yaml       |    4 +
+ MAINTAINERS                                        |    7 +
+ arch/riscv/Kconfig.socs                            |    5 +
+ arch/riscv/boot/dts/Makefile                       |    1 +
+ arch/riscv/boot/dts/microchip/mpfs.dtsi            |   15 +
+ arch/riscv/boot/dts/sifive/fu540-c000.dtsi         |   15 +
+ arch/riscv/boot/dts/sifive/fu740-c000.dtsi         |   15 +
+ arch/riscv/boot/dts/sophgo/Makefile                |    3 +
+ arch/riscv/boot/dts/sophgo/cv1800b-milkv-duo.dts   |   38 +
+ arch/riscv/boot/dts/sophgo/cv1800b.dtsi            |  123 ++
+ arch/riscv/boot/dts/sophgo/sg2042-cpus.dtsi        | 2000 ++++++++++++++++++++
+ .../riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts |   19 +
+ arch/riscv/boot/dts/sophgo/sg2042.dtsi             |  325 ++++
+ arch/riscv/boot/dts/starfive/jh7100.dtsi           |    6 +
+ arch/riscv/boot/dts/starfive/jh7110-pinfunc.h      |    4 +-
+ .../dts/starfive/jh7110-starfive-visionfive-2.dtsi |  111 ++
+ arch/riscv/boot/dts/starfive/jh7110.dtsi           |   93 +
+ arch/riscv/configs/defconfig                       |    3 +-
+ 24 files changed, 2906 insertions(+), 3 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/interrupt-controller/thead,c900-aclint-mswi.yaml
+ create mode 100644 Documentation/devicetree/bindings/riscv/sophgo.yaml
+ create mode 100644 Documentation/devicetree/bindings/timer/thead,c900-aclint-mtimer.yaml
+ create mode 100644 arch/riscv/boot/dts/sophgo/Makefile
+ create mode 100644 arch/riscv/boot/dts/sophgo/cv1800b-milkv-duo.dts
+ create mode 100644 arch/riscv/boot/dts/sophgo/cv1800b.dtsi
+ create mode 100644 arch/riscv/boot/dts/sophgo/sg2042-cpus.dtsi
+ create mode 100644 arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts
+ create mode 100644 arch/riscv/boot/dts/sophgo/sg2042.dtsi
+
+--bU7VBiKcanaboKPm
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZS1YCgAKCRB4tDGHoIJi
+0jULAP0WfmBzAx+f+DyqWrl1al+TlXz8VuYZNzRQp/7KcGFI9wD7BwO7rLm830Ds
+cIlPNfyB99JRj+fEwLe1MDxpPIou8g0=
+=nmgQ
+-----END PGP SIGNATURE-----
+
+--bU7VBiKcanaboKPm--
+
+
+--===============0644551745920325834==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============0644551745920325834==--
+
