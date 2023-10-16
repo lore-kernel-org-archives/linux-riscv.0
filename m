@@ -4,68 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2747CCDB465
-	for <linux-riscv@archiver.kernel.org>; Mon, 16 Oct 2023 09:33:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29790CDB482
+	for <linux-riscv@archiver.kernel.org>; Mon, 16 Oct 2023 10:14:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MQREAic/0ezCcwwolhxjYqdAxB99Xhqpzk1Igov4PFU=; b=HI+yaZUmEtF4NK
-	oDCPCn5xvhaF63f6vQP1KyuLMCsx3mAq+11DLD5Zt7dEpKBHtrUQ2/1k9LjrTDbQrG77QION+z6uV
-	mBIDCIfvUdfQoy28CHiNd0Py8+oV62anN99tN5xf91UKTGRZKT2eemcl8h9Yde0WKPoNWLbRCWlB2
-	LIJ/IMKAY87vzGU5JdIRLbpqiYomn2IQWeYVG18vHNNsJUHkff7PBaRbSmnA8HoANH2EYfDCE/tgO
-	2DkK7FRTcSpdqjfY+QLmSCSsxW4FgomP+ntuab6yUWHC06adRFqj+Vp9URUiV8XJNIqrgMYd6aKfO
-	FKgy5xUtTjRxtn53baUA==;
+	List-Owner; bh=+EMCIje2v6VG0fy60Ob4p6SL5OKjUVfV80MLczzwtfg=; b=SxW1IBcRqei8w6
+	P/Oa36BDY9brbTuI4n8J3avc2dTCjobIh6+q9ltWf/PG8zxGRTCrS/FSWq7UqrPi3tXpSK6rKD6Hj
+	TsLAldwXdzLe7YDcreZuAXmwUMuk8K7wuCzkjZpTTHEvP3hCZX/5uUZCTPwvY6Ubls4vitVr+G7Jb
+	ozAaykyE+uqX2hR3tWrDjnDabWisSIJF/XR9IENiKngeF3ALXW0IUj0TnedE+Y387lgc110t1sedK
+	PlRNWZmq0jk5Wh9pZ3WTvq5zOu/8o4uvtGT/Ak+etiTN0fyNxZFLkb3dFGWtEoSkVZEIRCvap5Bto
+	5Hakf7pXbBivsaXQYCjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qsJyr-0091w1-1W;
-	Mon, 16 Oct 2023 09:33:45 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
+	id 1qsKc7-0097f1-2I;
+	Mon, 16 Oct 2023 10:14:19 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qsJyn-0091sX-2Z
+	id 1qsKc2-0097Yl-2s
 	for linux-riscv@lists.infradead.org;
-	Mon, 16 Oct 2023 09:33:44 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	Mon, 16 Oct 2023 10:14:18 +0000
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id 4B68B24E43C;
-	Mon, 16 Oct 2023 17:33:17 +0800 (CST)
-Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 16 Oct
- 2023 17:33:17 +0800
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id A0FE118141;
+	Mon, 16 Oct 2023 18:13:47 +0800 (CST)
+Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 16 Oct
+ 2023 18:13:47 +0800
 Received: from [192.168.125.131] (183.27.98.194) by EXMBX061.cuchost.com
  (172.16.6.61) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 16 Oct
- 2023 17:33:16 +0800
-Message-ID: <d127c7ff-8883-4069-9cc9-407be1b6feaf@starfivetech.com>
-Date: Mon, 16 Oct 2023 17:27:10 +0800
+ 2023 18:13:46 +0800
+Message-ID: <4503625e-c696-4ed5-84b3-398bbb243162@starfivetech.com>
+Date: Mon, 16 Oct 2023 18:07:40 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v6 2/3] clocksource: Add JH7110 timer driver
 Content-Language: en-US
-To: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
-CC: <aou@eecs.berkeley.edu>, <conor@kernel.org>, <daniel.lezcano@linaro.org>,
-	<devicetree@vger.kernel.org>, <emil.renner.berthing@canonical.com>,
-	<krzysztof.kozlowski+dt@linaro.org>, <linux-kernel@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, <p.zabel@pengutronix.de>,
-	<palmer@dabbelt.com>, <paul.walmsley@sifive.com>, <robh+dt@kernel.org>,
-	<samin.guo@starfivetech.com>, <tglx@linutronix.de>,
-	<walker.chen@starfivetech.com>
+To: Emil Renner Berthing <emil.renner.berthing@canonical.com>, Daniel Lezcano
+	<daniel.lezcano@linaro.org>, Thomas Gleixner <tglx@linutronix.de>, "Walker
+ Chen" <walker.chen@starfivetech.com>
+CC: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>, "Rob
+ Herring" <robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Philipp Zabel <p.zabel@pengutronix.de>, Samin Guo
+	<samin.guo@starfivetech.com>, <linux-kernel@vger.kernel.org>, Conor Dooley
+	<conor@kernel.org>
 References: <20231012081015.33121-1-xingyu.wu@starfivetech.com>
  <20231012081015.33121-3-xingyu.wu@starfivetech.com>
- <338544e7-0be8-47c1-a7d7-89990da305d3@wanadoo.fr>
- <926ee8c7-fab9-49d5-831e-48c886c4bc44@starfivetech.com>
- <276ed249-9ee8-4dc9-871f-9c449eb00bcf@wanadoo.fr>
+ <CAJM55Z8_AwYdgBLcAs=C9W2UtZ0CVecGMS_D198A8j4DYFFxBw@mail.gmail.com>
+ <ec78d27e-8cc4-484e-aac9-e253498aa946@starfivetech.com>
+ <CAJM55Z9HCLWAB0G-froC1bEDk=DERQhKvSD7w+eQ_6a3J+74wg@mail.gmail.com>
 From: Xingyu Wu <xingyu.wu@starfivetech.com>
-In-Reply-To: <276ed249-9ee8-4dc9-871f-9c449eb00bcf@wanadoo.fr>
+In-Reply-To: <CAJM55Z9HCLWAB0G-froC1bEDk=DERQhKvSD7w+eQ_6a3J+74wg@mail.gmail.com>
 X-Originating-IP: [183.27.98.194]
 X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX061.cuchost.com
  (172.16.6.61)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231016_023342_289962_B6E4E898 
-X-CRM114-Status: GOOD (  20.36  )
+X-CRM114-CacheID: sfid-20231016_031415_449204_BBDEB2BE 
+X-CRM114-Status: GOOD (  27.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,116 +79,260 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMjAyMy8xMC8xNCAyOjAyLCBDaHJpc3RvcGhlIEpBSUxMRVQgd3JvdGU6Cj4gTGUgMTMvMTAv
-MjAyMyDDoCAxMTozNCwgWGluZ3l1IFd1IGEgw6ljcml0wqA6Cj4+IE9uIDIwMjMvMTAvMTMgMTo1
-MywgQ2hyaXN0b3BoZSBKQUlMTEVUIHdyb3RlOgo+Pj4gTGUgMTIvMTAvMjAyMyDDoCAxMDoxMCwg
-WGluZ3l1IFd1IGEgw6ljcml0wqA6Cj4+Pj4gQWRkIHRpbWVyIGRyaXZlciBmb3IgdGhlIFN0YXJG
-aXZlIEpINzExMCBTb0MuCj4+Pj4KPj4+PiBTaWduZWQtb2ZmLWJ5OiBYaW5neXUgV3UgPHhpbmd5
-dS53dS1iT05yTTQ1S1dGT1htTVhqSkJwV3FnLVhNRDV5SkRiZE1TdHUzY0xUY3ZWSXdAcHVibGlj
-LmdtYW5lLm9yZ2Uub3JnPgo+Pj4KPj4+IC4uLgo+Pgo+PiBJdCBsb29rcyBub3JtYWwgaW4gbXkg
-ZW1haWwgYW5kIHRoZSB3ZWIuIElzIHRoaXMgZHVlIHRvIHNvbWUgc2V0dGluZ3M/Cj4gCj4gSGks
-Cj4gCj4gSSB1c2UgZ21hbmUub3JnIGFuZCBhIG5ld3MgcmVhZGVyIChUaHVuZGVyYmlyZCkuCj4g
-R21hbmUgc29tZXRpbWVzIChub3QgYWx3YXlzISkgb2JmdXNjYXRlIGUtbWFpbCBhZGRyZXNzZXMu
-Cj4gCj4gRG8gbm90IHBheSBhdHRhbnRpb24gdG8gdGhlc2Ugc3RyYW5nZSByZXdyaXR0ZW4gYWRk
-cmVzc2VzLgo+IAo+Pgo+Pj4KPj4+PiArc3RhdGljIGludCBqaDcxMTBfdGltZXJfcHJvYmUoc3Ry
-dWN0IHBsYXRmb3JtX2RldmljZSAqcGRldikKPj4+PiArewo+Pj4+ICvCoMKgwqAgc3RydWN0IGpo
-NzExMF9jbGtldnQgKmNsa2V2dFtKSDcxMTBfVElNRVJfQ0hfTUFYXTsKPj4+PiArwqDCoMKgIGNo
-YXIgbmFtZVs0XTsKPj4+PiArwqDCoMKgIHN0cnVjdCBjbGsgKnBjbGs7Cj4+Pj4gK8KgwqDCoCBz
-dHJ1Y3QgcmVzZXRfY29udHJvbCAqcnN0Owo+Pj4+ICvCoMKgwqAgaW50IGNoOwo+Pj4+ICvCoMKg
-wqAgaW50IHJldDsKPj4+PiArwqDCoMKgIHZvaWQgX19pb21lbSAqYmFzZTsKPj4+PiArCj4+Pj4g
-K8KgwqDCoCBiYXNlID0gZGV2bV9wbGF0Zm9ybV9pb3JlbWFwX3Jlc291cmNlKHBkZXYsIDApOwo+
-Pj4+ICvCoMKgwqAgaWYgKElTX0VSUihiYXNlKSkKPj4+PiArwqDCoMKgwqDCoMKgwqAgcmV0dXJu
-IGRldl9lcnJfcHJvYmUoJnBkZXYtPmRldiwgUFRSX0VSUihiYXNlKSwKPj4+PiArwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCAiZmFpbGVkIHRvIG1hcCByZWdpc3RlcnNc
-biIpOwo+Pj4+ICsKPj4+PiArwqDCoMKgIHJzdCA9IGRldm1fcmVzZXRfY29udHJvbF9nZXRfZXhj
-bHVzaXZlKCZwZGV2LT5kZXYsICJhcGIiKTsKPj4+PiArwqDCoMKgIGlmIChJU19FUlIocnN0KSkK
-Pj4+PiArwqDCoMKgwqDCoMKgwqAgcmV0dXJuIGRldl9lcnJfcHJvYmUoJnBkZXYtPmRldiwgUFRS
-X0VSUihyc3QpLCAiZmFpbGVkIHRvIGdldCBhcGIgcmVzZXRcbiIpOwo+Pj4+ICsKPj4+PiArwqDC
-oMKgIHBjbGsgPSBkZXZtX2Nsa19nZXRfZW5hYmxlZCgmcGRldi0+ZGV2LCAiYXBiIik7Cj4+Pj4g
-K8KgwqDCoCBpZiAoSVNfRVJSKHBjbGspKQo+Pj4+ICvCoMKgwqDCoMKgwqDCoCByZXR1cm4gZGV2
-X2Vycl9wcm9iZSgmcGRldi0+ZGV2LCBQVFJfRVJSKHBjbGspLAo+Pj4+ICvCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgICJmYWlsZWQgdG8gZ2V0ICYgZW5hYmxlIGFwYiBj
-bG9ja1xuIik7Cj4+Pj4gKwo+Pj4+ICvCoMKgwqAgcmV0ID0gcmVzZXRfY29udHJvbF9kZWFzc2Vy
-dChyc3QpOwo+Pj4+ICvCoMKgwqAgaWYgKHJldCkKPj4+PiArwqDCoMKgwqDCoMKgwqAgcmV0dXJu
-IGRldl9lcnJfcHJvYmUoJnBkZXYtPmRldiwgcmV0LCAiZmFpbGVkIHRvIGRlYXNzZXJ0IGFwYiBy
-ZXNldFxuIik7Cj4+Pgo+Pj4gSGksCj4+Pgo+Pj4gSSdtIG5vdCB2ZXJ5IGZhbWlsaWFyIHdpdGgg
-dGhlIHJlc2V0X2NvbnRyb2xfW2RlXWFzc2VydCgpIGZ1bmN0aW9ucywgYnV0IHNob3VsZG4ndCB0
-aGlzIGJlIHVuZG9uZSBieSBhIHJlc2V0X2NvbnRyb2xfYXNzZXJ0KCkgY2FsbCBpZiBhbiBlcnJv
-ciBvY2N1cnMgbGF0ZXI/Cj4+Cj4+IEluIHRoaXMgY2FzZSwgdGhlIHJlc2V0IGNvbnRyb2xsZXIg
-aXMgc2V0IGZyb20gJ2Fzc2VydCcgc3RhdGUgdG8gJ2RlYXNzZXJ0JyBzdGF0ZS4gSWYgaXQgaXMg
-ZmFpbGVkIGFuZCBzdGlsbCAnYXNzZXJ0JyBzdGF0ZSwgSSBkb24ndCB0aGluayBpdCBuZWVkIHRv
-IGNhbGwgcmVzZXRfY29udHJvbF9hc3NlcnQoKS4KPiAKPiBFbWlsIGFscmVhZHkgZXhwbGFpbmVk
-IHdoYXQgSSBtZWFuZWQgKHNvcnJ5IGZvciBub3QgYmVpbmcgY2xlYXIgZW5vdWdoKS4KPiBJIGRv
-IGFncmVlIHdpdGggaGlzIHByb3Bvc2VkIGFwcHJvYWNoLgo+IAo+Pgo+Pj4KPj4+PiArCj4+Pj4g
-K8KgwqDCoCBmb3IgKGNoID0gMDsgY2ggPCBKSDcxMTBfVElNRVJfQ0hfTUFYOyBjaCsrKSB7Cj4+
-Pj4gK8KgwqDCoMKgwqDCoMKgIGNsa2V2dFtjaF0gPSBkZXZtX2t6YWxsb2MoJnBkZXYtPmRldiwg
-c2l6ZW9mKCpjbGtldnRbY2hdKSwgR0ZQX0tFUk5FTCk7Cj4+Pj4gK8KgwqDCoMKgwqDCoMKgIGlm
-ICghY2xrZXZ0W2NoXSkKPj4+PiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCByZXR1cm4gLUVOT01F
-TTsKPj4+PiArCj4+Pj4gK8KgwqDCoMKgwqDCoMKgIHNucHJpbnRmKG5hbWUsIHNpemVvZihuYW1l
-KSwgImNoJWQiLCBjaCk7Cj4+Pj4gKwo+Pj4+ICvCoMKgwqDCoMKgwqDCoCBjbGtldnRbY2hdLT5i
-YXNlID0gYmFzZSArIEpINzExMF9USU1FUl9DSF9CQVNFKGNoKTsKPj4+PiArwqDCoMKgwqDCoMKg
-wqAgLyogRW5zdXJlIHRpbWVyIGlzIGRpc2FibGVkICovCj4+Pj4gK8KgwqDCoMKgwqDCoMKgIGpo
-NzExMF90aW1lcl9kaXNhYmxlKGNsa2V2dFtjaF0pOwo+Pj4+ICsKPj4+PiArwqDCoMKgwqDCoMKg
-wqAgcnN0ID0gZGV2bV9yZXNldF9jb250cm9sX2dldF9leGNsdXNpdmUoJnBkZXYtPmRldiwgbmFt
-ZSk7Cj4+Pj4gK8KgwqDCoMKgwqDCoMKgIGlmIChJU19FUlIocnN0KSkKPj4+PiArwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoCByZXR1cm4gUFRSX0VSUihyc3QpOwo+Pj4+ICsKPj4+PiArwqDCoMKgwqDC
-oMKgwqAgY2xrZXZ0W2NoXS0+Y2xrID0gZGV2bV9jbGtfZ2V0X2VuYWJsZWQoJnBkZXYtPmRldiwg
-bmFtZSk7Cj4+Pj4gK8KgwqDCoMKgwqDCoMKgIGlmIChJU19FUlIoY2xrZXZ0W2NoXS0+Y2xrKSkK
-Pj4+PiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCByZXR1cm4gUFRSX0VSUihjbGtldnRbY2hdLT5j
-bGspOwo+Pj4+ICsKPj4+PiArwqDCoMKgwqDCoMKgwqAgcmV0ID0gcmVzZXRfY29udHJvbF9kZWFz
-c2VydChyc3QpOwo+Pj4+ICvCoMKgwqDCoMKgwqDCoCBpZiAocmV0KQo+Pj4+ICvCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgIHJldHVybiByZXQ7Cj4+Pgo+Pj4gU2FtZSBoZXJlLgo+Pj4KPj4+PiArCj4+
-Pj4gK8KgwqDCoMKgwqDCoMKgIGNsa2V2dFtjaF0tPmV2dC5pcnEgPSBwbGF0Zm9ybV9nZXRfaXJx
-KHBkZXYsIGNoKTsKPj4+PiArwqDCoMKgwqDCoMKgwqAgaWYgKGNsa2V2dFtjaF0tPmV2dC5pcnEg
-PCAwKQo+Pj4+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHJldHVybiBjbGtldnRbY2hdLT5ldnQu
-aXJxOwo+Pj4+ICsKPj4+PiArwqDCoMKgwqDCoMKgwqAgc25wcmludGYoY2xrZXZ0W2NoXS0+bmFt
-ZSwgc2l6ZW9mKGNsa2V2dFtjaF0tPm5hbWUpLCAiJXMuY2glZCIsIHBkZXYtPm5hbWUsIGNoKTsK
-Pj4+PiArwqDCoMKgwqDCoMKgwqAgamg3MTEwX2Nsb2NrZXZlbnRzX3JlZ2lzdGVyKGNsa2V2dFtj
-aF0pOwo+Pj4+ICsKPj4+PiArwqDCoMKgwqDCoMKgwqAgcmV0ID0gZGV2bV9yZXF1ZXN0X2lycSgm
-cGRldi0+ZGV2LCBjbGtldnRbY2hdLT5ldnQuaXJxLCBqaDcxMTBfdGltZXJfaW50ZXJydXB0LAo+
-Pj4+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBJUlFGX1RJ
-TUVSIHwgSVJRRl9JUlFQT0xMLAo+Pj4+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoCBjbGtldnRbY2hdLT5uYW1lLCAmY2xrZXZ0W2NoXS0+ZXZ0KTsKPj4+PiAr
-wqDCoMKgwqDCoMKgwqAgaWYgKHJldCkKPj4+PiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCByZXR1
-cm4gcmV0Owo+Pj4+ICsKPj4+PiArwqDCoMKgwqDCoMKgwqAgcmV0ID0gamg3MTEwX2Nsb2Nrc291
-cmNlX2luaXQoY2xrZXZ0W2NoXSk7Cj4+Pgo+Pj4gRG9lcyBzb21ldGhpbmcgc2hvdWxkIGJlIGRv
-bmUgaWYgdGhpcyBmYWlscz8KPj4+Cj4+PiBDSgo+Pgo+PiBZZXMsIGl0IHNob3VsZCBiZSBjYWxs
-IHJlc2V0X2NvbnRyb2xfYXNzZXJ0KCkgaGVyZSBhbmQgSSB3aWxsIGFkZCBpdCBpbiBuZXh0IHZl
-cnNpb24uCj4gCj4gTXkgcG9pbnQgd2FzIGZvciB0aGUgYWJvdmUgcmVzZXRfY29udHJvbF9hc3Nl
-cnQoKSBidXQgYWxzbyBmb3IgdGhlIHJlc291cmNlcyBhbGxvY2F0ZWQgd2l0aGluIHRoaXMgZm9y
-IGxvb3AuCj4gCj4gSSBoYXZlIG5vdCBjaGVja2VkIGFsbCBwYXRocywgYnV0IGluIGNhc2Ugb2Yg
-ZXJyb3IgaW4gdGhlIHByb2JlOgo+IMKgIC0gVGhlcmUgaXMgYW5vdGhlciByZXNldF9jb250cm9s
-X2RlYXNzZXJ0KCkKPiAKPiDCoCAtIGpoNzExMF9jbG9ja3NvdXJjZV9pbml0KCkgLS0+IGpoNzEx
-MF90aW1lcl9pbnRfaW5pdF9lbmFibGUoKSAtLT4gamg3MTEwX3RpbWVyX2VuYWJsZSgpCj4gwqDC
-oMKgIFNob3VsZCBqaDcxMTBfdGltZXJfZGlzYWJsZSgpIGJlIGNhbGxlZD8KPiAKPiDCoCAtIGpo
-NzExMF9jbG9ja3NvdXJjZV9pbml0KCkgLS0+IGNsb2Nrc291cmNlX3JlZ2lzdGVyX2h6KCkuCj4g
-wqDCoMKgIFNob3VsZCBjbG9ja3NvdXJjZV91bnJlZ2lzdGVyKCkgYmUgY2FsbGVkPwo+IAo+IElm
-IEknbSBjb3JyZWN0IGFuZCBkZXBlbmRpbmcgb24gaG93IHlvdSB1cGRhdGUgdGhlIGNvZGUsIGEg
-LnJlbW92ZSBmdW5jdGlvbiBtYXkgYmUgbmVlZGVkIGFzIHdlbGwuCj4gCj4gQ0oKPiAKCkdyZWF0
-LiBJJ20gZ29pbmcgdG8gYWRkIGEgYWN0aW9uIHdoaWNoIEVtaWwgaGFkIHNhaWQgdG8gZG8gdGhp
-cyBqb2Igd2hlbiByZW1vdmUgb3IgbWFrZSB0aGUgZXJyb3IgaW4gdGhlIGxvb3AuIAoKVGhhbmtz
-LApYaW5neXUgV3UKCj4+Cj4+Pgo+Pj4+ICvCoMKgwqDCoMKgwqDCoCBpZiAocmV0KQo+Pj4+ICvC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgIHJldHVybiByZXQ7Cj4+Pj4gK8KgwqDCoCB9Cj4+Pj4gKwo+
-Pj4+ICvCoMKgwqAgcmV0dXJuIDA7Cj4+Pj4gK30KPj4+PiArCj4+Pj4gK3N0YXRpYyBjb25zdCBz
-dHJ1Y3Qgb2ZfZGV2aWNlX2lkIGpoNzExMF90aW1lcl9tYXRjaFtdID0gewo+Pj4+ICvCoMKgwqAg
-eyAuY29tcGF0aWJsZSA9ICJzdGFyZml2ZSxqaDcxMTAtdGltZXIiLCB9LAo+Pj4+ICvCoMKgwqAg
-eyAvKiBzZW50aW5lbCAqLyB9Cj4+Pj4gK307Cj4+Pj4gK01PRFVMRV9ERVZJQ0VfVEFCTEUob2Ys
-IGpoNzExMF90aW1lcl9tYXRjaCk7Cj4+Pj4gKwo+Pj4+ICtzdGF0aWMgc3RydWN0IHBsYXRmb3Jt
-X2RyaXZlciBqaDcxMTBfdGltZXJfZHJpdmVyID0gewo+Pj4+ICvCoMKgwqAgLnByb2JlID0gamg3
-MTEwX3RpbWVyX3Byb2JlLAo+Pj4+ICvCoMKgwqAgLmRyaXZlciA9IHsKPj4+PiArwqDCoMKgwqDC
-oMKgwqAgLm5hbWUgPSAiamg3MTEwLXRpbWVyIiwKPj4+PiArwqDCoMKgwqDCoMKgwqAgLm9mX21h
-dGNoX3RhYmxlID0gamg3MTEwX3RpbWVyX21hdGNoLAo+Pj4+ICvCoMKgwqAgfSwKPj4+PiArfTsK
-Pj4+PiArbW9kdWxlX3BsYXRmb3JtX2RyaXZlcihqaDcxMTBfdGltZXJfZHJpdmVyKTsKPj4+PiAr
-Cj4+Pj4gK01PRFVMRV9BVVRIT1IoIlhpbmd5dSBXdSA8eGluZ3l1Lnd1LWJPTnJNNDVLV0ZPWG1N
-WGpKQnBXcWctWE1ENXlKRGJkTVJTNW42L1JraWFKQUBwdWJsaWMuZ21hbmUub3JnbmUub3JnPiIp
-Owo+Pj4+ICtNT0RVTEVfREVTQ1JJUFRJT04oIlN0YXJGaXZlIEpINzExMCB0aW1lciBkcml2ZXIi
-KTsKPj4+PiArTU9EVUxFX0xJQ0VOU0UoIkdQTCIpOwo+Pj4KPj4KPj4gVGhhbmtzLAo+PiBYaW5n
-eXUgV3UKPj4KPj4KPj4KPiAKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5m
-cmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xp
-bnV4LXJpc2N2Cg==
+On 2023/10/16 17:23, Emil Renner Berthing wrote:
+> Xingyu Wu wrote:
+>> On 2023/10/13 19:34, Emil Renner Berthing wrote:
+>> > Xingyu Wu wrote:
+>> >> Add timer driver for the StarFive JH7110 SoC.
+>> >>
+>> >> Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
+>> >> ---
+>> >>  MAINTAINERS                        |   7 +
+>> >>  drivers/clocksource/Kconfig        |  11 +
+>> >>  drivers/clocksource/Makefile       |   1 +
+>> >>  drivers/clocksource/timer-jh7110.c | 387 +++++++++++++++++++++++++++++
+>> >>  4 files changed, 406 insertions(+)
+>> >>  create mode 100644 drivers/clocksource/timer-jh7110.c
+>> >>
+>> >> diff --git a/MAINTAINERS b/MAINTAINERS
+>> >> index 6c4cce45a09d..1525f031d4a2 100644
+>> >> --- a/MAINTAINERS
+>> >> +++ b/MAINTAINERS
+>> >> @@ -20472,6 +20472,13 @@ S:	Maintained
+>> >>  F:	Documentation/devicetree/bindings/sound/starfive,jh7110-tdm.yaml
+>> >>  F:	sound/soc/starfive/jh7110_tdm.c
+>> >>
+>> >> +STARFIVE JH7110 TIMER DRIVER
+>> >> +M:	Samin Guo <samin.guo@starfivetech.com>
+>> >> +M:	Xingyu Wu <xingyu.wu@starfivetech.com>
+>> >> +S:	Supported
+>> >> +F:	Documentation/devicetree/bindings/timer/starfive,jh7110-timer.yaml
+>> >> +F:	drivers/clocksource/timer-jh7110.c
+>> >> +
+>> >>  STARFIVE JH71X0 CLOCK DRIVERS
+>> >>  M:	Emil Renner Berthing <kernel@esmil.dk>
+>> >>  M:	Hal Feng <hal.feng@starfivetech.com>
+>> >> diff --git a/drivers/clocksource/Kconfig b/drivers/clocksource/Kconfig
+>> >> index 0ba0dc4ecf06..821abcc1e517 100644
+>> >> --- a/drivers/clocksource/Kconfig
+>> >> +++ b/drivers/clocksource/Kconfig
+>> >> @@ -641,6 +641,17 @@ config RISCV_TIMER
+>> >>  	  is accessed via both the SBI and the rdcycle instruction.  This is
+>> >>  	  required for all RISC-V systems.
+>> >>
+>> >> +config STARFIVE_JH7110_TIMER
+>> >> +	bool "Timer for the STARFIVE JH7110 SoC"
+>> >> +	depends on ARCH_STARFIVE || COMPILE_TEST
+>> >> +	select TIMER_OF
+>> >> +	select CLKSRC_MMIO
+>> >> +	default ARCH_STARFIVE
+>> >> +	help
+>> >> +	  This enables the timer for StarFive JH7110 SoC. On RISC-V platform,
+>> >> +	  the system has started RISCV_TIMER, but you can also use this timer
+>> >> +	  which can provide four channels to do a lot more things on JH7110 SoC.
+>> >> +
+>> >>  config CLINT_TIMER
+>> >>  	bool "CLINT Timer for the RISC-V platform" if COMPILE_TEST
+>> >>  	depends on GENERIC_SCHED_CLOCK && RISCV
+>> >> diff --git a/drivers/clocksource/Makefile b/drivers/clocksource/Makefile
+>> >> index 368c3461dab8..b66ac05ec086 100644
+>> >> --- a/drivers/clocksource/Makefile
+>> >> +++ b/drivers/clocksource/Makefile
+>> >> @@ -80,6 +80,7 @@ obj-$(CONFIG_INGENIC_TIMER)		+= ingenic-timer.o
+>> >>  obj-$(CONFIG_CLKSRC_ST_LPC)		+= clksrc_st_lpc.o
+>> >>  obj-$(CONFIG_X86_NUMACHIP)		+= numachip.o
+>> >>  obj-$(CONFIG_RISCV_TIMER)		+= timer-riscv.o
+>> >> +obj-$(CONFIG_STARFIVE_JH7110_TIMER)	+= timer-jh7110.o
+>> >>  obj-$(CONFIG_CLINT_TIMER)		+= timer-clint.o
+>> >>  obj-$(CONFIG_CSKY_MP_TIMER)		+= timer-mp-csky.o
+>> >>  obj-$(CONFIG_GX6605S_TIMER)		+= timer-gx6605s.o
+>> >> diff --git a/drivers/clocksource/timer-jh7110.c b/drivers/clocksource/timer-jh7110.c
+>> >> new file mode 100644
+>> >> index 000000000000..914424368290
+>> >> --- /dev/null
+>> >> +++ b/drivers/clocksource/timer-jh7110.c
+>> >> @@ -0,0 +1,387 @@
+>> >> +// SPDX-License-Identifier: GPL-2.0
+>> >> +/*
+>> >> + * Starfive JH7110 Timer driver
+>> >> + *
+>> >> + * Copyright (C) 2022-2023 StarFive Technology Co., Ltd.
+>> >> + *
+>> >> + * Author:
+>> >> + * Xingyu Wu <xingyu.wu@starfivetech.com>
+>> >> + * Samin Guo <samin.guo@starfivetech.com>
+>> >> + */
+>> >> +
+>> >> +#include <linux/clk.h>
+>> >> +#include <linux/clockchips.h>
+>> >> +#include <linux/clocksource.h>
+>> >> +#include <linux/err.h>
+>> >> +#include <linux/interrupt.h>
+>> >> +#include <linux/io.h>
+>> >> +#include <linux/iopoll.h>
+>> >> +#include <linux/irq.h>
+>> >> +#include <linux/kernel.h>
+>> >> +#include <linux/module.h>
+>> >> +#include <linux/of.h>
+>> >> +#include <linux/of_device.h>
+>> >> +#include <linux/platform_device.h>
+>> >> +#include <linux/reset.h>
+>> >> +#include <linux/sched_clock.h>
+>> >> +
+>> >> +/* Bias: Ch0-0x0, Ch1-0x40, Ch2-0x80, and so on. */
+>> >> +#define JH7110_TIMER_CH_LEN		0x40
+>> >> +#define JH7110_TIMER_CH_BASE(x)		((x) * JH7110_TIMER_CH_LEN)
+>> >> +#define JH7110_TIMER_CH_MAX		4
+>> >> +
+>> >> +#define JH7110_CLOCK_SOURCE_RATING	200
+>> >> +#define JH7110_VALID_BITS		32
+>> >> +#define JH7110_DELAY_US			0
+>> >> +#define JH7110_TIMEOUT_US		10000
+>> >> +#define JH7110_CLOCKEVENT_RATING	300
+>> >> +#define JH7110_TIMER_MAX_TICKS		0xffffffff
+>> >> +#define JH7110_TIMER_MIN_TICKS		0xf
+>> >> +#define JH7110_TIMER_NAME_NUM		19
+>> >> +
+>> >> +#define JH7110_TIMER_INT_STATUS		0x00 /* RO[0:4]: Interrupt Status for channel0~4 */
+>> >> +#define JH7110_TIMER_CTL		0x04 /* RW[0]: 0-continuous run, 1-single run */
+>> >> +#define JH7110_TIMER_LOAD		0x08 /* RW: load value to counter */
+>> >> +#define JH7110_TIMER_ENABLE		0x10 /* RW[0]: timer enable register */
+>> >> +#define JH7110_TIMER_RELOAD		0x14 /* RW: write 1 or 0 both reload counter */
+>> >> +#define JH7110_TIMER_VALUE		0x18 /* RO: timer value register */
+>> >> +#define JH7110_TIMER_INT_CLR		0x20 /* RW: timer interrupt clear register */
+>> >> +#define JH7110_TIMER_INT_MASK		0x24 /* RW[0]: timer interrupt mask register */
+>> >> +#define JH7110_TIMER_INT_CLR_AVA_MASK	BIT(1)
+>> >> +
+>> >> +struct jh7110_clkevt {
+>> >> +	struct clock_event_device evt;
+>> >> +	struct clocksource cs;
+>> >> +	struct clk *clk;
+>> >> +	char name[JH7110_TIMER_NAME_NUM];
+>> >
+>> > Instead of this define maybe just use something like
+>> >
+>> > 	char name[sizeof("jh7110-timer.chX")];
+>> >
+>>
+>> Will fix.
+>>
+>> >> +	int irq;
+>> >
+>> > You wrote that you "dropped the extra copy of irq", but here you didn't.
+>>
+>> What I mean is to drop the local variable of irq in the probe. Do you mean to use a local variable instead this in the probe?
+> 
+> No, what I mean is that this field is no longer used, so you can delete it.
+> 
+
+OK, drop it here.
+
+>>
+>> >> +
+>> >> +static int jh7110_timer_probe(struct platform_device *pdev)
+>> >> +{
+>> >> +	struct jh7110_clkevt *clkevt[JH7110_TIMER_CH_MAX];
+>> >> +	char name[4];
+>> >> +	struct clk *pclk;
+>> >> +	struct reset_control *rst;
+>> >> +	int ch;
+>> >> +	int ret;
+>> >> +	void __iomem *base
+>> >> +
+>> >> +	base = devm_platform_ioremap_resource(pdev, 0);
+>> >> +	if (IS_ERR(base))
+>> >> +		return dev_err_probe(&pdev->dev, PTR_ERR(base),
+>> >> +				     "failed to map registers\n");
+>> >> +
+>> >> +	rst = devm_reset_control_get_exclusive(&pdev->dev, "apb");
+>> >> +	if (IS_ERR(rst))
+>> >> +		return dev_err_probe(&pdev->dev, PTR_ERR(rst), "failed to get apb reset\n");
+>> >> +
+>> >> +	pclk = devm_clk_get_enabled(&pdev->dev, "apb");
+>> >> +	if (IS_ERR(pclk))
+>> >> +		return dev_err_probe(&pdev->dev, PTR_ERR(pclk),
+>> >> +				     "failed to get & enable apb clock\n");
+>> >> +
+>> >> +	ret = reset_control_deassert(rst);
+>> >> +	if (ret)
+>> >> +		return dev_err_probe(&pdev->dev, ret, "failed to deassert apb reset\n");
+>> >> +
+>> >> +	for (ch = 0; ch < JH7110_TIMER_CH_MAX; ch++) {
+>> >> +		clkevt[ch] = devm_kzalloc(&pdev->dev, sizeof(*clkevt[ch]), GFP_KERNEL);
+>> >> +		if (!clkevt[ch])
+>> >> +			return -ENOMEM;
+>> >> +
+>> >> +		snprintf(name, sizeof(name), "ch%d", ch);
+>> >> +
+>> >> +		clkevt[ch]->base = base + JH7110_TIMER_CH_BASE(ch);
+>> >> +		/* Ensure timer is disabled */
+>> >> +		jh7110_timer_disable(clkevt[ch]);
+>> >> +
+>> >> +		rst = devm_reset_control_get_exclusive(&pdev->dev, name);
+>> >> +		if (IS_ERR(rst))
+>> >> +			return PTR_ERR(rst);
+>> >> +
+>> >> +		clkevt[ch]->clk = devm_clk_get_enabled(&pdev->dev, name);
+>> >> +		if (IS_ERR(clkevt[ch]->clk))
+>> >> +			return PTR_ERR(clkevt[ch]->clk);
+>> >> +
+>> >> +		ret = reset_control_deassert(rst);
+>> >> +		if (ret)
+>> >> +			return ret;
+>> >> +
+>> >> +		clkevt[ch]->evt.irq = platform_get_irq(pdev, ch);
+>> >> +		if (clkevt[ch]->evt.irq < 0)
+>> >> +			return clkevt[ch]->evt.irq;
+I should use a local variable of irq instead here. Right?
+
+>> >> +
+>> >> +		snprintf(clkevt[ch]->name, sizeof(clkevt[ch]->name), "%s.ch%d", pdev->name, ch);
+>> >> +		jh7110_clockevents_register(clkevt[ch]);
+>> >> +
+>> >> +		ret = devm_request_irq(&pdev->dev, clkevt[ch]->evt.irq, jh7110_timer_interrupt,
+>> >> +				       IRQF_TIMER | IRQF_IRQPOLL,
+>> >> +				       clkevt[ch]->name, &clkevt[ch]->evt);
+>> >> +		if (ret)
+>> >> +			return ret;
+>> >> +
+>> >> +		ret = jh7110_clocksource_init(clkevt[ch]);
+>> >> +		if (ret)
+>> >> +			return ret;
+>> >> +	}
+>> >> +
+>> >> +	return 0;
+>> >> +}
+>> >> +
+>> >> +static const struct of_device_id jh7110_timer_match[] = {
+>> >> +	{ .compatible = "starfive,jh7110-timer", },
+>> >> +	{ /* sentinel */ }
+>> >> +};
+>> >> +MODULE_DEVICE_TABLE(of, jh7110_timer_match);
+>> >> +
+>> >> +static struct platform_driver jh7110_timer_driver = {
+>> >> +	.probe = jh7110_timer_probe,
+>> >> +	.driver = {
+>> >> +		.name = "jh7110-timer",
+>> >> +		.of_match_table = jh7110_timer_match,
+>> >> +	},
+>> >> +};
+>> >> +module_platform_driver(jh7110_timer_driver);
+>> >> +
+>> >> +MODULE_AUTHOR("Xingyu Wu <xingyu.wu@starfivetech.com>");
+>> >> +MODULE_DESCRIPTION("StarFive JH7110 timer driver");
+>> >> +MODULE_LICENSE("GPL");
+>> >> --
+>> >> 2.25.1
+
+Thanks,
+Xingyu Wu
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
