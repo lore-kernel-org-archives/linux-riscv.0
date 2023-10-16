@@ -4,28 +4,28 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60006CDB483
-	for <linux-riscv@archiver.kernel.org>; Mon, 16 Oct 2023 05:48:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B2E6CDB465
+	for <linux-riscv@archiver.kernel.org>; Mon, 16 Oct 2023 05:48:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Dpjlx49oAtt9+zBqBwPCYGDrNRpRjdIhqCXUnQrbu5w=; b=LoJVvI997Rd9Oo
-	9oKXBzsKdMlLLBMQiX5dAeNb5B+5n4T9A3siPRhsW/THyQKNsor3iUWkZxU0RrnMB9nVkyHRyxkfl
-	0IFalhQEWWteWrROgNDP/sHL20jZyCm29fo8QF1RZsGrFSyuX5wUccIdpqE3ent6tjaWkl72IoHsD
-	OmhxSL96rVAKx5RcEeNDflcNaVMTQRyMR2ZFfaqh2MIsnMLkQLqtyY7CY2COWbQ44II9mX0jRgq/H
-	GrA1z67gWq5+ek/IvAxEqyqVi3Syqr6pO946inafEF6c2Fl7EQRaPO/X3TirkqSJObs0wZCwjM717
-	6qUkkyA4ErQH+48L8jdQ==;
+	List-Owner; bh=Gu8w68DoJ8caqO32Gqu/0slAOdPWpg72jL8NRv47nDY=; b=cq/+IOMkGTJm3I
+	ONbeCCoMvv75j7+KfhfGGecIWO3S1IEsDKsUaAy1xCuuBT3PvPSUxSZ063qeDZY1sbM18nBZnsZdC
+	rHsXi9hdu3ar14e+Kfwo5ly2NVBkSUo04W6wTeqzraQYtRor3LC9dCIC+qqdIWcxPjcaq1d01gYFP
+	Vt/RKZTbK3ySHa7nWoGqqVOtPJkhqDequIgSio9YuCvL3snKlbO6VUv8x1aO+PLMc4RCRHSEGikIr
+	N4iVB9qIo5oyGb5FcFfNnM3jOpRRgxSppkKlRg/Qm26FmRykWQQtrdc0DR942/iFt66hXzq3F8KM1
+	0DzHBoTMnfFM/UjR922Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qsGSl-008QxS-0r;
-	Mon, 16 Oct 2023 05:48:23 +0000
+	id 1qsGSn-008Qzq-36;
+	Mon, 16 Oct 2023 05:48:25 +0000
 Received: from 2a02-8389-2341-5b80-39d3-4735-9a3c-88d8.cable.dynamic.v6.surfer.at ([2a02:8389:2341:5b80:39d3:4735:9a3c:88d8] helo=localhost)
 	by bombadil.infradead.org with esmtpsa (Exim 4.96 #2 (Red Hat Linux))
-	id 1qsGSj-008Qua-13;
-	Mon, 16 Oct 2023 05:48:21 +0000
+	id 1qsGSl-008Qwm-2w;
+	Mon, 16 Oct 2023 05:48:24 +0000
 From: Christoph Hellwig <hch@lst.de>
 To: Greg Ungerer <gerg@linux-m68k.org>,
 	iommu@lists.linux.dev
@@ -46,9 +46,9 @@ Cc: Paul Walmsley <paul.walmsley@sifive.com>,
 	linux-riscv@lists.infradead.org,
 	linux-renesas-soc@vger.kernel.org,
 	Jim Quinlan <james.quinlan@broadcom.com>
-Subject: [PATCH 09/12] m68k: use the coherent DMA code for coldfire without data cache
-Date: Mon, 16 Oct 2023 07:47:51 +0200
-Message-Id: <20231016054755.915155-10-hch@lst.de>
+Subject: [PATCH 10/12] net: fec: use dma_alloc_noncoherent for data cache enabled coldfire
+Date: Mon, 16 Oct 2023 07:47:52 +0200
+Message-Id: <20231016054755.915155-11-hch@lst.de>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20231016054755.915155-1-hch@lst.de>
 References: <20231016054755.915155-1-hch@lst.de>
@@ -69,105 +69,151 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Coldfire cores configured without a data cache are DMA coherent and
-should thus simply use the simple coherent version of dma-direct.
+Coldfire platforms with data caches can't properly implement
+dma_alloc_coherent and currently just return noncoherent memory from
+dma_alloc_coherent.
 
-Introduce a new COLDFIRE_COHERENT_DMA Kconfig symbol as a convenient
-short hand for such configurations, and a M68K_NONCOHERENT_DMA symbol
-for all cases where we need to build non-coherent DMA infrastructure
-to simplify the Kconfig and code conditionals.
+The fec driver than works around this with a flush of all caches in the
+receive path. Make this hack a little less bad by using the explicit
+dma_alloc_noncoherent API and documenting the hacky cache flushes so
+that the DMA API level hack can be removed.
 
-Not building the non-coherent DMA code slightly reduces the code
-size for such configurations.
-
-Numers for m5249evb_defconfig below:
-
-  text	   data	    bss	    dec	    hex	filename
-2896158	 401052	  65392	3362602	 334f2a	vmlinux.before
-2895166	 400988	  65392	3361546	 334b0a	vmlinux.after
+Also replace the check for CONFIG_M532x for said hack with a check
+for COLDFIRE && !COLDFIRE_COHERENT_DMA.  While m532x is the only such
+platform with a fec module, this makes the code more consistent and
+easier to follow.
 
 Signed-off-by: Christoph Hellwig <hch@lst.de>
 ---
- arch/m68k/Kconfig         |  8 ++++----
- arch/m68k/Kconfig.cpu     | 12 ++++++++++++
- arch/m68k/kernel/Makefile |  2 +-
- arch/m68k/kernel/dma.c    |  2 +-
- 4 files changed, 18 insertions(+), 6 deletions(-)
+ drivers/net/ethernet/freescale/fec_main.c | 86 ++++++++++++++++++++---
+ 1 file changed, 76 insertions(+), 10 deletions(-)
 
-diff --git a/arch/m68k/Kconfig b/arch/m68k/Kconfig
-index 0430b8ba6b5cc6..6c585eae89f4dc 100644
---- a/arch/m68k/Kconfig
-+++ b/arch/m68k/Kconfig
-@@ -3,19 +3,19 @@ config M68K
- 	bool
- 	default y
- 	select ARCH_32BIT_OFF_T
--	select ARCH_DMA_ALLOC if !MMU || COLDFIRE
-+	select ARCH_DMA_ALLOC if M68K_NONCOHERENT_DMA && COLDFIRE
- 	select ARCH_HAS_BINFMT_FLAT
- 	select ARCH_HAS_CPU_FINALIZE_INIT if MMU
- 	select ARCH_HAS_CURRENT_STACK_POINTER
--	select ARCH_HAS_DMA_PREP_COHERENT if HAS_DMA && MMU && !COLDFIRE
--	select ARCH_HAS_SYNC_DMA_FOR_DEVICE if HAS_DMA
-+	select ARCH_HAS_DMA_PREP_COHERENT if M68K_NONCOHERENT_DMA && !COLDFIRE
-+	select ARCH_HAS_SYNC_DMA_FOR_DEVICE if M68K_NONCOHERENT_DMA
- 	select ARCH_HAVE_NMI_SAFE_CMPXCHG if RMW_INSNS
- 	select ARCH_MIGHT_HAVE_PC_PARPORT if ISA
- 	select ARCH_NO_PREEMPT if !COLDFIRE
- 	select ARCH_USE_MEMTEST if MMU_MOTOROLA
- 	select ARCH_WANT_IPC_PARSE_VERSION
- 	select BINFMT_FLAT_ARGVP_ENVP_ON_STACK
--	select DMA_DIRECT_REMAP if HAS_DMA && MMU && !COLDFIRE
-+	select DMA_DIRECT_REMAP if M68K_NONCOHERENT_DMA && !COLDFIRE
- 	select GENERIC_ATOMIC64
- 	select GENERIC_CPU_DEVICES
- 	select GENERIC_IOMAP
-diff --git a/arch/m68k/Kconfig.cpu b/arch/m68k/Kconfig.cpu
-index b826e9c677b2ae..e8905d38c714c4 100644
---- a/arch/m68k/Kconfig.cpu
-+++ b/arch/m68k/Kconfig.cpu
-@@ -535,3 +535,15 @@ config CACHE_COPYBACK
- 	  The ColdFire CPU cache is set into Copy-back mode.
- endchoice
- endif # HAVE_CACHE_CB
+diff --git a/drivers/net/ethernet/freescale/fec_main.c b/drivers/net/ethernet/freescale/fec_main.c
+index 77c8e9cfb44562..3fc3444402622b 100644
+--- a/drivers/net/ethernet/freescale/fec_main.c
++++ b/drivers/net/ethernet/freescale/fec_main.c
+@@ -406,6 +406,70 @@ static void fec_dump(struct net_device *ndev)
+ 	} while (bdp != txq->bd.base);
+ }
+ 
++/*
++ * Coldfire does not support DMA coherent allocations, and has historically used
++ * a band-aid with a manual flush in fec_enet_rx_queue.
++ */
++#if defined(CONFIG_COLDFIRE) && !defined(CONFIG_COLDFIRE_COHERENT_DMA)
++static void *fec_dma_alloc(struct device *dev, size_t size, dma_addr_t *handle,
++		gfp_t gfp)
++{
++	return dma_alloc_noncoherent(dev, size, handle, DMA_BIDIRECTIONAL, gfp);
++}
 +
-+# Coldfire cores that do not have a data cache configured can do coherent DMA.
-+config COLDFIRE_COHERENT_DMA
-+	bool
-+	default y
-+	depends on COLDFIRE
-+	depends on !HAVE_CACHE_CB && !CONFIG_CACHE_D && !CONFIG_CACHE_BOTH
++static void fec_dma_free(struct device *dev, size_t size, void *cpu_addr,
++		dma_addr_t handle)
++{
++	dma_free_noncoherent(dev, size, cpu_addr, handle, DMA_BIDIRECTIONAL);
++}
++#else /* CONFIG_COLDFIRE && !CONFIG_COLDFIRE_COHERENT_DMA */
++static void *fec_dma_alloc(struct device *dev, size_t size, dma_addr_t *handle,
++		gfp_t gfp)
++{
++	return dma_alloc_coherent(dev, size, handle, gfp);
++}
 +
-+config M68K_NONCOHERENT_DMA
-+	bool
-+	default y
-+	depends on HAS_DMA && !COLDFIRE_COHERENT_DMA
-diff --git a/arch/m68k/kernel/Makefile b/arch/m68k/kernel/Makefile
-index af015447dfb4c1..01fb69a5095f43 100644
---- a/arch/m68k/kernel/Makefile
-+++ b/arch/m68k/kernel/Makefile
-@@ -23,7 +23,7 @@ obj-$(CONFIG_MMU_MOTOROLA) += ints.o vectors.o
- obj-$(CONFIG_MMU_SUN3) += ints.o vectors.o
- obj-$(CONFIG_PCI) += pcibios.o
- 
--obj-$(CONFIG_HAS_DMA)	+= dma.o
-+obj-$(CONFIG_M68K_NONCOHERENT_DMA) += dma.o
- 
- obj-$(CONFIG_KEXEC)		+= machine_kexec.o relocate_kernel.o
- obj-$(CONFIG_BOOTINFO_PROC)	+= bootinfo_proc.o
-diff --git a/arch/m68k/kernel/dma.c b/arch/m68k/kernel/dma.c
-index 2e192a5df949bb..f83870cfa79b37 100644
---- a/arch/m68k/kernel/dma.c
-+++ b/arch/m68k/kernel/dma.c
-@@ -17,7 +17,7 @@
- 
- #include <asm/cacheflush.h>
- 
--#if defined(CONFIG_MMU) && !defined(CONFIG_COLDFIRE)
-+#ifndef CONFIG_COLDFIRE
- void arch_dma_prep_coherent(struct page *page, size_t size)
++static void fec_dma_free(struct device *dev, size_t size, void *cpu_addr,
++		dma_addr_t handle)
++{
++	dma_free_coherent(dev, size, cpu_addr, handle);
++}
++#endif /* !CONFIG_COLDFIRE && !CONFIG_COLDFIRE_COHERENT_DMA */
++
++struct fec_dma_devres {
++	size_t		size;
++	void		*vaddr;
++	dma_addr_t	dma_handle;
++};
++
++static void fec_dmam_release(struct device *dev, void *res)
++{
++	struct fec_dma_devres *this = res;
++
++	fec_dma_free(dev, this->size, this->vaddr, this->dma_handle);
++}
++
++static void *fec_dmam_alloc(struct device *dev, size_t size, dma_addr_t *handle,
++		gfp_t gfp)
++{
++	struct fec_dma_devres *dr;
++	void *vaddr;
++
++	dr = devres_alloc(fec_dmam_release, sizeof(*dr), gfp);
++	if (!dr)
++		return NULL;
++	vaddr = fec_dma_alloc(dev, size, handle, gfp);
++	if (!vaddr) {
++		devres_free(dr);
++		return NULL;
++	}
++	dr->vaddr = vaddr;
++	dr->dma_handle = *handle;
++	dr->size = size;
++	devres_add(dev, dr);
++	return vaddr;
++}
++
+ static inline bool is_ipv4_pkt(struct sk_buff *skb)
  {
- 	cache_push(page_to_phys(page), size);
+ 	return skb->protocol == htons(ETH_P_IP) && ip_hdr(skb)->version == 4;
+@@ -1660,7 +1724,11 @@ fec_enet_rx_queue(struct net_device *ndev, int budget, u16 queue_id)
+ 	}
+ #endif
+ 
+-#ifdef CONFIG_M532x
++#if defined(CONFIG_COLDFIRE) && !defined(CONFIG_COLDFIRE_COHERENT_DMA)
++	/*
++	 * Hacky flush of all caches instead of using the DMA API for the TSO
++	 * headers.
++	 */
+ 	flush_cache_all();
+ #endif
+ 	rxq = fep->rx_queue[queue_id];
+@@ -3288,10 +3356,9 @@ static void fec_enet_free_queue(struct net_device *ndev)
+ 	for (i = 0; i < fep->num_tx_queues; i++)
+ 		if (fep->tx_queue[i] && fep->tx_queue[i]->tso_hdrs) {
+ 			txq = fep->tx_queue[i];
+-			dma_free_coherent(&fep->pdev->dev,
+-					  txq->bd.ring_size * TSO_HEADER_SIZE,
+-					  txq->tso_hdrs,
+-					  txq->tso_hdrs_dma);
++			fec_dma_free(&fep->pdev->dev,
++				     txq->bd.ring_size * TSO_HEADER_SIZE,
++				     txq->tso_hdrs, txq->tso_hdrs_dma);
+ 		}
+ 
+ 	for (i = 0; i < fep->num_rx_queues; i++)
+@@ -3321,10 +3388,9 @@ static int fec_enet_alloc_queue(struct net_device *ndev)
+ 		txq->tx_stop_threshold = FEC_MAX_SKB_DESCS;
+ 		txq->tx_wake_threshold = FEC_MAX_SKB_DESCS + 2 * MAX_SKB_FRAGS;
+ 
+-		txq->tso_hdrs = dma_alloc_coherent(&fep->pdev->dev,
++		txq->tso_hdrs = fec_dma_alloc(&fep->pdev->dev,
+ 					txq->bd.ring_size * TSO_HEADER_SIZE,
+-					&txq->tso_hdrs_dma,
+-					GFP_KERNEL);
++					&txq->tso_hdrs_dma, GFP_KERNEL);
+ 		if (!txq->tso_hdrs) {
+ 			ret = -ENOMEM;
+ 			goto alloc_failed;
+@@ -4043,8 +4109,8 @@ static int fec_enet_init(struct net_device *ndev)
+ 	bd_size = (fep->total_tx_ring_size + fep->total_rx_ring_size) * dsize;
+ 
+ 	/* Allocate memory for buffer descriptors. */
+-	cbd_base = dmam_alloc_coherent(&fep->pdev->dev, bd_size, &bd_dma,
+-				       GFP_KERNEL);
++	cbd_base = fec_dmam_alloc(&fep->pdev->dev, bd_size, &bd_dma,
++				  GFP_KERNEL);
+ 	if (!cbd_base) {
+ 		ret = -ENOMEM;
+ 		goto free_queue_mem;
 -- 
 2.39.2
 
