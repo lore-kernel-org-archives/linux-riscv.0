@@ -4,63 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB6C3CDB474
-	for <linux-riscv@archiver.kernel.org>; Tue, 17 Oct 2023 09:03:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C61C9CDB474
+	for <linux-riscv@archiver.kernel.org>; Tue, 17 Oct 2023 10:38:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=AuVu25KTUUn4Pvq3/bDYGByeRYoTsDcmi2FS+tnkN38=; b=xGOIRPa8yHMenl
-	wkoh2yg/Fl1C4EcMeWH0z6ejdhpfsQ9DpvclAomtmnjwRAaJfL0HGG01PjID8QqZiyCyFIgwJDABD
-	yC6oDuihOJVACr5/4QshJufjEgcWq4i8Qldmoydn5MXPjL86MBsLXr8shGfaMi+lpBAg3zOuexppf
-	9ElYwJkyPodRLKOTYmbkMh6yOI6oIv/xZt03ydr4qAFxfAnLIXeXoVMTrXeWjNbQ62HhrpjxFwzog
-	WzGKLo3wIA4HlMcCyH/jWzcUwECJQiiOKO+U3/LknqKMYIhTZk/P9bffP+VYj6qXn4EhdtWbHAbw7
-	uXQGbK9TsgWGYyR2DY0A==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=SGTma3jyPZN5tag08GChb1C/DJFJtXFmFGhfWbDKCHs=; b=hqQFD2F1go5nyr
+	CtqHa/aWnKuopl6LQLuip+zti653IPxFXwRlaMCOJazjWW5W6t42qnC1pmEZQg7D+W3uUgRH00wws
+	DgRTkhcF5v2n/q/HI6p/dXfN979/eGxkT4w13bXVhhyukrwup3r4CKbeOtw+wCIjWOf0lUx+1NvXV
+	IauUEiAI6hh7pQPtkEVQJuIVUt1go4ssOMIn5gQ4CZNfxjS4FzY3B77uBLfCTscwf49Muyy8aOz6n
+	tSUpLIwvfVTOYT183Xyp3DJyCbcNSj6VLCXZEJz8ZGANA45gBsEbN6Uvis5az5KqOTLAK0UFNPZ/k
+	P06r92Mxi/HKgJzRLLMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qsfyd-00Blh9-1v;
-	Tue, 17 Oct 2023 09:02:59 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qsfyY-00Blel-1u;
-	Tue, 17 Oct 2023 09:02:57 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 838EC2F4;
-	Tue, 17 Oct 2023 02:03:30 -0700 (PDT)
-Received: from localhost (ionvoi01-desktop.cambridge.arm.com [10.2.78.69])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A5CA33F762;
-	Tue, 17 Oct 2023 02:02:49 -0700 (PDT)
-Date: Tue, 17 Oct 2023 10:02:48 +0100
-From: Ionela Voinescu <ionela.voinescu@arm.com>
-To: Vincent Guittot <vincent.guittot@linaro.org>
-Cc: Pierre Gondois <pierre.gondois@arm.com>, linux@armlinux.org.uk,
-	catalin.marinas@arm.com, will@kernel.org, paul.walmsley@sifive.com,
-	palmer@dabbelt.com, aou@eecs.berkeley.edu, sudeep.holla@arm.com,
-	gregkh@linuxfoundation.org, rafael@kernel.org, mingo@redhat.com,
-	peterz@infradead.org, juri.lelli@redhat.com,
-	dietmar.eggemann@arm.com, rostedt@goodmis.org, bsegall@google.com,
-	mgorman@suse.de, bristot@redhat.com, vschneid@redhat.com,
-	viresh.kumar@linaro.org, lukasz.luba@arm.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-pm@vger.kernel.org,
-	conor.dooley@microchip.com, suagrfillet@gmail.com,
-	ajones@ventanamicro.com, lftan@kernel.org
-Subject: Re: [PATCH v2 6/6] cpufreq/cppc: set the frequency used for capacity
- computation
-Message-ID: <ZS5NuK7rjVFM5tj8@arm.com>
-References: <20231009103621.374412-7-vincent.guittot@linaro.org>
- <ac8968b9-8463-4aa2-a38d-fc2b9137460d@arm.com>
- <CAKfTPtBhXRk_Y-xiHn9_jQ1C_ALzbr3-KdwzcTCyupzJ4Gru5g@mail.gmail.com>
- <ZS0oyhbVDtXO1p5b@arm.com>
- <CAKfTPtCg9aYnWsReT=xtznwkMMMEepj6j9z4J6_ST5oUv69aUA@mail.gmail.com>
+	id 1qshSp-00C6NU-27;
+	Tue, 17 Oct 2023 10:38:15 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1qshSm-00C6Mf-1q
+	for linux-riscv@lists.infradead.org;
+	Tue, 17 Oct 2023 10:38:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by ams.source.kernel.org (Postfix) with ESMTP id A7A9DB81D0A;
+	Tue, 17 Oct 2023 10:38:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BB2D4C433C7;
+	Tue, 17 Oct 2023 10:38:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1697539088;
+	bh=eKMGcZsMQDmh2XIngoO27ap1DpB5rplaSJR1DYg/pc8=;
+	h=From:To:Cc:Subject:Date:From;
+	b=QaRapYwkwmCacW8HwqsxWXC31f2QMHrz+w7jsl7pBJeh3K1VQZVYvfufrilHhTjXd
+	 0EIVa98dnYgBaBrqDHc7TADhJhFHjiXu7JSD1PqXI4coxWuxLdi0D7xwC/PyneKGa4
+	 uSuOVuIxzN0xP8r/KD1DWUcu0mS5vKmwrFFO20/dDsJtbFszzO26DLqZnKguMDRqVn
+	 JO5cl1x5GwyOfcEivSoIZUk33J1YlsXTFWde/19Todb+P0Ac2JSqx710uBa/yVKUVH
+	 kBOa9m8ejE3dLKufSJAgZJho+OKWZk/ZIFllJ+qZ0x1igUTuAekdovLlkbfN8psEua
+	 B8DHWxdhlylww==
+From: Masahiro Yamada <masahiroy@kernel.org>
+To: linux-kbuild@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Borislav Petkov <bp@alien8.de>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Ingo Molnar <mingo@redhat.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Nicolas Schier <nicolas@fjasle.eu>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	linux-mips@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linuxppc-dev@lists.ozlabs.org,
+	x86@kernel.org
+Subject: [PATCH 1/4] kbuild: remove ARCH_POSTLINK from module builds
+Date: Tue, 17 Oct 2023 19:37:39 +0900
+Message-Id: <20231017103742.130927-1-masahiroy@kernel.org>
+X-Mailer: git-send-email 2.40.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAKfTPtCg9aYnWsReT=xtznwkMMMEepj6j9z4J6_ST5oUv69aUA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231017_020254_723034_E66C2181 
-X-CRM114-Status: GOOD (  64.37  )
+X-CRM114-CacheID: sfid-20231017_033812_879614_5559B410 
+X-CRM114-Status: UNSURE (   7.90  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,198 +90,100 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
+The '%.ko' rule in arch/*/Makefile.postlink does nothing but call the
+'true' command.
 
-On Monday 16 Oct 2023 at 17:32:03 (+0200), Vincent Guittot wrote:
-> Hi Ionela,
-> 
-> On Mon, 16 Oct 2023 at 14:13, Ionela Voinescu <ionela.voinescu@arm.com> wrote:
-> >
-> > Hi both,
-> >
-> > On Wednesday 11 Oct 2023 at 16:25:46 (+0200), Vincent Guittot wrote:
-> > > On Wed, 11 Oct 2023 at 12:27, Pierre Gondois <pierre.gondois@arm.com> wrote:
-> > > >
-> > > > Hello Vincent,
-> > > >
-> > > > On 10/9/23 12:36, Vincent Guittot wrote:
-> > > > > cppc cpufreq driver can register an artificial energy model. In such case,
-> > > > > it also have to register the frequency that is used to define the CPU
-> > > > > capacity
-> > > > >
-> > > > > Signed-off-by: Vincent Guittot <vincent.guittot@linaro.org>
-> > > > > ---
-> > > > >   drivers/cpufreq/cppc_cpufreq.c | 18 ++++++++++++++++++
-> > > > >   1 file changed, 18 insertions(+)
-> > > > >
-> > > > > diff --git a/drivers/cpufreq/cppc_cpufreq.c b/drivers/cpufreq/cppc_cpufreq.c
-> > > > > index fe08ca419b3d..24c6ba349f01 100644
-> > > > > --- a/drivers/cpufreq/cppc_cpufreq.c
-> > > > > +++ b/drivers/cpufreq/cppc_cpufreq.c
-> > > > > @@ -636,6 +636,21 @@ static int populate_efficiency_class(void)
-> > > > >       return 0;
-> > > > >   }
-> > > > >
-> > > > > +
-> > > > > +static void cppc_cpufreq_set_capacity_ref_freq(struct cpufreq_policy *policy)
-> > > > > +{
-> > > > > +     struct cppc_perf_caps *perf_caps;
-> > > > > +     struct cppc_cpudata *cpu_data;
-> > > > > +     unsigned int ref_freq;
-> > > > > +
-> > > > > +     cpu_data = policy->driver_data;
-> > > > > +     perf_caps = &cpu_data->perf_caps;
-> > > > > +
-> > > > > +     ref_freq = cppc_cpufreq_perf_to_khz(cpu_data, perf_caps->highest_perf);
-> > > > > +
-> > > > > +     per_cpu(capacity_ref_freq, policy->cpu) = ref_freq;
-> > > >
-> > > > 'capacity_ref_freq' seems to be updated only if CONFIG_ENERGY_MODEL is set. However in
-> > > > [1], get_capacity_ref_freq() relies on 'capacity_ref_freq'. The cpufreq_schedutil governor
-> > > > should have a valid 'capacity_ref_freq' value set if the CPPC cpufreq driver is used
-> > > > without energy model I believe.
-> > >
-> > > we can disable it by setting capacity_ref_freq to 0 so it will
-> > > fallback on cpuinfo like intel and amd which uses default
-> > > SCHED_CAPACITY_SCALE capacity
-> > >
-> > > Could you provide me with more details about your platform ? I still
-> > > try to understand how the cpu compute capacity is set up on your
-> > > system. How do you set per_cpu cpu_scale variable ? we should set the
-> > > ref freq at the same time
-> > >
-> >
-> > Yes, the best place to set it would be in:
-> > drivers/base/arch_topology.c: topology_init_cpu_capacity_cppc()
-> 
-> Thanks. I didn't notice it
-> 
-> >
-> > But:
-> >  - That function reuses topology_normalize_cpu_scale() and when called
-> >    it needs to have capacity_ref_freq = 1. So either capacity_ref_freq
-> >    needs to be set for each CPU after topology_normalize_cpu_scale() is
-> >    called or we should not call topology_normalize_cpu_scale() here and
-> >    just unpack a CPPC specific version of it in
-> >    topology_init_cpu_capacity_cppc(). The latter is probably better as
-> >    we avoid iterating through all CPUs a couple of times.
-> >
-> >  - When set, capacity_ref_freq needs to be a "frequency" (at least
-> >    in reference to the reference frequencies provided by CPPC). So
-> >    cppc_cpufreq_khz_to_perf() and cppc_cpufreq_perf_to_khz() would need
-> >    to move to drivers/acpi/cppc_acpi.c. They don't have any dependency
-> >    on cpufreq (policies) so that should be alright.
-> >
-> > topology_init_cpu_capacity_cppc() is a better place to set
-> > capacity_ref_freq because one can do it for each CPU, and it not only
-> 
-> I agree, topology_init_cpu_capacity_cppc() is the best place to set
-> capacity_ref_freq()
-> 
-> > caters for the EAS case but also for frequency invariance, when
-> > arch_set_freq_scale() is called, if no counters are supported.
-> >
-> > When counters are supported, there are still two loose threads:
-> >  - amu_fie_setup(): Vincent, would you mind completely removing
-> >    cpufreq_get_hw_max_freq() and reusing arch_scale_freq_ref() here?
-> 
-> I wonder if we can have a ordering dependency problem as both
-> init_cpu_capacity_notifier() and init_amu_fie_notifier() are
-> registered for the same CPUFREQ_POLICY_NOTIFIER event and I'm not sure
->  it will happen in the right ordering
+Remove the meaningless code.
 
-Yes, you are right, this would be a problem for DT systems. With the
-implementation above, ACPI systems would obtain capacity_ref_freq on
-processor probe so it should be then available at policy creation when
-amu_fie_setup() would be called.
+Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
+---
 
-Initially I thought the only solution might be to move
-freq_inv_set_max_ratio() in the arch topology driver to the same
-callback that initialises capacity, but that quickly becomes ugly with
-making it support both DT and ACPI systems. And then there's the
-question on whether it belongs there.
+ arch/mips/Makefile.postlink    | 3 ---
+ arch/powerpc/Makefile.postlink | 3 ---
+ arch/riscv/Makefile.postlink   | 3 ---
+ arch/x86/Makefile.postlink     | 3 ---
+ scripts/Makefile.modfinal      | 5 +----
+ 5 files changed, 1 insertion(+), 16 deletions(-)
 
-But I think the better option is to wrap policy->cpuinfo.max_freq in
-another getter function which can be used in both amu_fie_setup() and
-init_cpu_capacity_callback(). This can be implemented in the
-arch topology driver and exposed to the architecture specific topology
-files.
+diff --git a/arch/mips/Makefile.postlink b/arch/mips/Makefile.postlink
+index 34e3bd71f3b0..6cfdc149d3bc 100644
+--- a/arch/mips/Makefile.postlink
++++ b/arch/mips/Makefile.postlink
+@@ -31,9 +31,6 @@ ifeq ($(CONFIG_RELOCATABLE),y)
+ 	$(call if_changed,relocs)
+ endif
+ 
+-%.ko: FORCE
+-	@true
+-
+ clean:
+ 	@true
+ 
+diff --git a/arch/powerpc/Makefile.postlink b/arch/powerpc/Makefile.postlink
+index 1f860b3c9bec..ae5a4256b03d 100644
+--- a/arch/powerpc/Makefile.postlink
++++ b/arch/powerpc/Makefile.postlink
+@@ -35,9 +35,6 @@ ifdef CONFIG_RELOCATABLE
+ 	$(call if_changed,relocs_check)
+ endif
+ 
+-%.ko: FORCE
+-	@true
+-
+ clean:
+ 	rm -f .tmp_symbols.txt
+ 
+diff --git a/arch/riscv/Makefile.postlink b/arch/riscv/Makefile.postlink
+index a46fc578b30b..829b9abc91f6 100644
+--- a/arch/riscv/Makefile.postlink
++++ b/arch/riscv/Makefile.postlink
+@@ -36,9 +36,6 @@ ifdef CONFIG_RELOCATABLE
+ 	$(call if_changed,relocs_strip)
+ endif
+ 
+-%.ko: FORCE
+-	@true
+-
+ clean:
+ 	@true
+ 
+diff --git a/arch/x86/Makefile.postlink b/arch/x86/Makefile.postlink
+index 936093d29160..fef2e977cc7d 100644
+--- a/arch/x86/Makefile.postlink
++++ b/arch/x86/Makefile.postlink
+@@ -34,9 +34,6 @@ ifeq ($(CONFIG_X86_NEED_RELOCS),y)
+ 	$(call cmd,strip_relocs)
+ endif
+ 
+-%.ko: FORCE
+-	@true
+-
+ clean:
+ 	@rm -f $(OUT_RELOCS)/vmlinux.relocs
+ 
+diff --git a/scripts/Makefile.modfinal b/scripts/Makefile.modfinal
+index b3a6aa8fbe8c..8568d256d6fb 100644
+--- a/scripts/Makefile.modfinal
++++ b/scripts/Makefile.modfinal
+@@ -28,14 +28,11 @@ quiet_cmd_cc_o_c = CC [M]  $@
+ %.mod.o: %.mod.c FORCE
+ 	$(call if_changed_dep,cc_o_c)
+ 
+-ARCH_POSTLINK := $(wildcard $(srctree)/arch/$(SRCARCH)/Makefile.postlink)
+-
+ quiet_cmd_ld_ko_o = LD [M]  $@
+       cmd_ld_ko_o +=							\
+ 	$(LD) -r $(KBUILD_LDFLAGS)					\
+ 		$(KBUILD_LDFLAGS_MODULE) $(LDFLAGS_MODULE)		\
+-		-T scripts/module.lds -o $@ $(filter %.o, $^);		\
+-	$(if $(ARCH_POSTLINK), $(MAKE) -f $(ARCH_POSTLINK) $@, true)
++		-T scripts/module.lds -o $@ $(filter %.o, $^)
+ 
+ quiet_cmd_btf_ko = BTF [M] $@
+       cmd_btf_ko = 							\
+-- 
+2.40.1
 
-I'm not sure if this might be worth leaving for another patchset as
-well. Let us know if you'd like us to help on theses ones.
-
-Thanks,
-Ionela.
-
-> 
-> >
-> >  - It would be nice if cppc_scale_freq_workfn() would use
-> >    arch_scale_freq_ref() as well, for consistency. But it would need
-> >    to be converted back to performance before use, so that would mean
-> >    extra work on the tick, which is not ideal.
-> 
-> This once seems more complex as it implies other arch that are not
-> using arch_topology.c and would need more rework so I would prefer to
-> make it a separate patchset
-> 
-> Thanks
-> Vincent
-> 
-> >
-> > Basically it would be good if what gets used for capacity
-> > (arch_scale_freq_ref()) gets used for frequency invariance as well,
-> > in all locations.
-> >
-> > Thanks,
-> > Ionela.
-> >
-> > > >
-> > > > Also 'capacity_ref_freq' seems to be set only for 'policy->cpu'. I believe it should
-> > > > be set for the whole perf domain in case this 'policy->cpu' goes offline.
-> > > >
-> > > > Another thing, related my comment to [1] and to [2], for CPPC the max capacity matches
-> > > > the boosting frequency. We have:
-> > > >    'non-boosted max capacity' < 'boosted max capacity'.
-> > > > -
-> > > > If boosting is not enabled, the CPU utilization can still go above the 'non-boosted max
-> > > > capacity'. The overutilization of the system seems to be triggered by comparing the CPU
-> > > > util to the 'boosted max capacity'. So systems might not be detected as overutilized.
-> > >
-> > > As Peter mentioned, we have to decide what is the original compute
-> > > capacity of your CPUs which is usually the sustainable max compute
-> > > capacity, especially when using EAS and EM
-> > >
-> > > >
-> > > > For the EAS energy computation, em_cpu_energy() tries to predict the frequency that will
-> > > > be used. It is currently unknown to the function that the frequency request will be
-> > > > clamped by __resolve_freq():
-> > > > get_next_freq()
-> > > > \-cpufreq_driver_resolve_freq()
-> > > >    \-__resolve_freq()
-> > > > This means that the energy computation might use boosting frequencies, which are not
-> > > > available.
-> > > >
-> > > > Regards,
-> > > > Pierre
-> > > >
-> > > > [1]: [PATCH v2 4/6] cpufreq/schedutil: use a fixed reference frequency
-> > > > [2]: https://lore.kernel.org/lkml/20230905113308.GF28319@noisy.programming.kicks-ass.net/
-> > > >
-> > > > > +}
-> > > > > +
-> > > > >   static void cppc_cpufreq_register_em(struct cpufreq_policy *policy)
-> > > > >   {
-> > > > >       struct cppc_cpudata *cpu_data;
-> > > > > @@ -643,6 +658,9 @@ static void cppc_cpufreq_register_em(struct cpufreq_policy *policy)
-> > > > >               EM_ADV_DATA_CB(cppc_get_cpu_power, cppc_get_cpu_cost);
-> > > > >
-> > > > >       cpu_data = policy->driver_data;
-> > > > > +
-> > > > > +     cppc_cpufreq_set_capacity_ref_freq(policy);
-> > > > > +
-> > > > >       em_dev_register_perf_domain(get_cpu_device(policy->cpu),
-> > > > >                       get_perf_level_count(policy), &em_cb,
-> > > > >                       cpu_data->shared_cpu_map, 0);
 
 _______________________________________________
 linux-riscv mailing list
