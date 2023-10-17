@@ -4,28 +4,28 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E6CDCDB484
-	for <linux-riscv@archiver.kernel.org>; Tue, 17 Oct 2023 13:59:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEC6DCDB482
+	for <linux-riscv@archiver.kernel.org>; Tue, 17 Oct 2023 13:59:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=oPU4+Q/8HykngUU7EuaKdIGp7yS5LHNh0JXuz4Q/xnw=; b=ihvySS2S4hEfEp
-	LD8WeawS6cVQyd7761xeSoBtdqMaqSTTjRgZqR78GiQzQec8pbkH98mhihb6FKUF+TD2SXIEz25b7
-	x5mHPilbTHMB5dCG+ZjVlNeIW8C/F52eKcvuz9JKaUB3dTiwLkgA2FMjgWeEgB2w93LXNiIAaVrIU
-	VbqNpbnMN6pPbM7U1yL9s766FYuRqiQFpfm2tf34khSHM483RolblW0IobCw9NUleewbCMoIY5dvk
-	TZvVIcqOqrSHawwzoxAxePKSsjOqfnXv4MK8elK28a/U1BlcYZ7WF9AKD08jD0u1E2Kt/MfS/VTLB
-	trjALWfBaNLJusED9qMg==;
+	List-Owner; bh=a0KBD4ukic7I2mlA0yswHd1GRVdMUNpf3+nnjvvqn8w=; b=Dph00gZ8NiK0rP
+	lMCpmNIZvhCQ4Lpw8GE7XHWWRdqUG7W1NVsHXuxFZzYrHmYnIkY+QGjY1yi3F8fnY2Kk7zDKdk7CX
+	YMcArX4C3rC2ee+n1qnurO5Chw2rBXcpnALUjWPWkza8XWmVQAGbYp4nSlKbGdfVX+Gl3iTvG2JUY
+	aqYbM2XTxGvxM1Rct5C9S9ZcPOKX2VYgVyyvYG+nEOelIZ9UhVBUM5ID8A7pgnoy3qasPdKV3wHWU
+	z/9Fo/xXUplVSRwVv2+vplKT7XFIdyJfxovqSnRih7rRxsKDtblfIWKPPpUGVJRZt2EtxL+TiDcSO
+	0578PrmKBBiQnopelQqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qskbi-00CTXJ-2I;
-	Tue, 17 Oct 2023 13:59:38 +0000
+	id 1qskbm-00CTXy-1C;
+	Tue, 17 Oct 2023 13:59:42 +0000
 Received: from 213-147-166-120.nat.highway.webapn.at ([213.147.166.120] helo=localhost)
 	by bombadil.infradead.org with esmtpsa (Exim 4.96 #2 (Red Hat Linux))
-	id 1qskbg-00CTWU-08;
-	Tue, 17 Oct 2023 13:59:36 +0000
+	id 1qskbk-00CTXE-18;
+	Tue, 17 Oct 2023 13:59:41 +0000
 From: Christoph Hellwig <hch@lst.de>
 To: Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
@@ -37,10 +37,12 @@ Cc: linux-riscv@lists.infradead.org,
 	Arnd Bergmann <arnd@arndb.de>,
 	Olof Johansson <olof@lixom.net>,
 	soc@kernel.org,
-	Conor Dooley <conor.dooley@microchip.com>
-Subject: [PATCH 1/3] riscv: RISCV_NONSTANDARD_CACHE_OPS shouldn't depend on RISCV_DMA_NONCOHERENT
-Date: Tue, 17 Oct 2023 15:59:24 +0200
-Message-Id: <20231017135926.1240101-2-hch@lst.de>
+	Conor Dooley <conor.dooley@microchip.com>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Subject: [PATCH 2/3] riscv: only select DMA_DIRECT_REMAP from RISCV_ISA_ZICBOM
+Date: Tue, 17 Oct 2023 15:59:25 +0200
+Message-Id: <20231017135926.1240101-3-hch@lst.de>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20231017135926.1240101-1-hch@lst.de>
 References: <20231017135926.1240101-1-hch@lst.de>
@@ -61,41 +63,37 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RISCV_NONSTANDARD_CACHE_OPS is also used for the pmem cache maintenance
-helpers, which are built into the kernel unconditionally.
+RISCV_DMA_NONCOHERENT is also used for whacky non-standard
+non-coherent ops that use different hooks in dma-direct.
 
 Signed-off-by: Christoph Hellwig <hch@lst.de>
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+Reviewed-by: Robin Murphy <robin.murphy@arm.com>
+Reviewed-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 ---
- arch/riscv/Kconfig    | 1 -
- drivers/cache/Kconfig | 2 +-
- 2 files changed, 1 insertion(+), 2 deletions(-)
+ arch/riscv/Kconfig | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index d607ab0f7c6daf..0ac0b538379718 100644
+index 0ac0b538379718..9c48fecc671918 100644
 --- a/arch/riscv/Kconfig
 +++ b/arch/riscv/Kconfig
-@@ -277,7 +277,6 @@ config RISCV_DMA_NONCOHERENT
+@@ -273,7 +273,6 @@ config RISCV_DMA_NONCOHERENT
+ 	select ARCH_HAS_SYNC_DMA_FOR_CPU
+ 	select ARCH_HAS_SYNC_DMA_FOR_DEVICE
+ 	select DMA_BOUNCE_UNALIGNED_KMALLOC if SWIOTLB
+-	select DMA_DIRECT_REMAP if MMU
  
  config RISCV_NONSTANDARD_CACHE_OPS
  	bool
--	depends on RISCV_DMA_NONCOHERENT
+@@ -549,6 +548,7 @@ config RISCV_ISA_ZICBOM
+ 	depends on RISCV_ALTERNATIVE
+ 	default y
+ 	select RISCV_DMA_NONCOHERENT
++	select DMA_DIRECT_REMAP
  	help
- 	  This enables function pointer support for non-standard noncoherent
- 	  systems to handle cache management.
-diff --git a/drivers/cache/Kconfig b/drivers/cache/Kconfig
-index a57677f908f3ba..d6e5e3abaad8af 100644
---- a/drivers/cache/Kconfig
-+++ b/drivers/cache/Kconfig
-@@ -3,7 +3,7 @@ menu "Cache Drivers"
- 
- config AX45MP_L2_CACHE
- 	bool "Andes Technology AX45MP L2 Cache controller"
--	depends on RISCV_DMA_NONCOHERENT
-+	depends on RISCV
- 	select RISCV_NONSTANDARD_CACHE_OPS
- 	help
- 	  Support for the L2 cache controller on Andes Technology AX45MP platforms.
+ 	   Adds support to dynamically detect the presence of the ZICBOM
+ 	   extension (Cache Block Management Operations) and enable its
 -- 
 2.39.2
 
