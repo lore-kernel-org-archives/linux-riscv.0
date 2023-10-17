@@ -4,91 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FAC6C41513
-	for <linux-riscv@archiver.kernel.org>; Tue, 17 Oct 2023 20:45:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AA1DCDB474
+	for <linux-riscv@archiver.kernel.org>; Tue, 17 Oct 2023 22:21:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:In-Reply-To:References:Message-Id:
-	MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0s/v8mPzdU2qO4sXxNcs360aTCR633kfnPpdqjKYFkk=; b=zMzFhxWMnmIRQf
-	5h31Ei/ks9Im7QtSqQ9vmlGrqOlw0vPY3L/1Q2WylXaL6rS7wq0/twhuQFBzgtFShcXIKLRL5RX8a
-	sjXlprGRWNWLAtLkeuVLf/ljFWXYZl0ZLtqqyjaZUFrE0fRViUQ9AEmjbxpjXVZw84ibWccBD+ca/
-	23ZxD+kMlQTQMKiaP87//6pisj6KF8UYeH8fS/WMlvKFC/+hkewhppMSTwbt89qBSAb8NWKdzS1vy
-	zN9hPRTkKZSG5dM4AcauewUClIz84QcIQfxNif1FGIW9pFZGxob44kAHFnJuoQTPVJjOxJbghILLS
-	FnHvBDZ0uogX3GTYFRTA==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
+	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=fhzUtE7BmI3SrVC9SU4iq78AkFquPGBsUakPJrrZQlI=; b=o+b9oWRLfXqgEd
+	hu7+3Il6GGgcJCsLjDpk5JY7TPozg4xWf0Gla4kq2yY6IorIZQS2au74C9APcOxudqxo4Z/Dz8uKv
+	o+vFVfWkhSOq5eDsIYluYJnDOU9B7ZciiiqA8OiwJGh3cFcuVdIbY0KSGZYLa7Q9/gka7OBfbRloZ
+	N9CM7a4+IqvTTSw+ohBTJ/IBrbAKH2UV4VYIuTWSK077ZPclaaqDuPPpd9A7YoV9b+dpsPSsoJodt
+	rer5OsqGJVZ4e/qFEu6R/ObCWJwKKTSSuRaqEW2lfMWAHCpOL/si9ZBkF45tZ/2QQdE9X0Iv9yaPo
+	IauOnocJjyByN9SXBGTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qsqwa-00DE6I-2h;
-	Tue, 17 Oct 2023 20:45:36 +0000
-Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
+	id 1qssRB-00DLj0-0U;
+	Tue, 17 Oct 2023 22:21:17 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qsqwW-00DE2K-1E
+	id 1qssR7-00DLiL-2Q
 	for linux-riscv@lists.infradead.org;
-	Tue, 17 Oct 2023 20:45:33 +0000
-Received: by mail-pj1-x1030.google.com with SMTP id 98e67ed59e1d1-27d45f5658fso3587894a91.3
-        for <linux-riscv@lists.infradead.org>; Tue, 17 Oct 2023 13:45:31 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1697575531; x=1698180331; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=bR/IFAv1lnI0y6g+8jA+bwtSS6VCFSGKbX2JFhOV5b0=;
-        b=g8PylTso0Q+wk1/3ULvJfgNltwQ9mFfSnHUhgiM9yQlNjEjHaC+wR/Baz+jXZ1tlfO
-         YQWMrLEwHwp0Yt8eOC7iH+eXRZ84sdN9IJWjuycEyVTvIs2+WMzcMImPNi/zLqc43ARl
-         NFOiYuWqQ+5+08e2sXmlPuleVqP+qPDn6Q6W/SHPhKyotMISRjFjlgNd5kTh9nkd0CDQ
-         0ZjJxj0+b0cAQB3IJhAQHGd3sIlbLVIymHUNdMlT/FxP/YhCIYw80g7QTvCUQzcYpJZB
-         A2z0AUNoyJGUz1HkGNyw7RVFM4tMKEOsMbf+Xs2LUd53hDc/XxiPiVgw7igOFNVo/Ib5
-         No1g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1697575531; x=1698180331;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=bR/IFAv1lnI0y6g+8jA+bwtSS6VCFSGKbX2JFhOV5b0=;
-        b=lUGHOxly4djF7rIXxysPREXW7UJOsMCEU+siUeJkVVwxRUSwel4QJeA6r6mHegBn2N
-         luT1QLfqrhKeda2qs1uZI2A9OWI2hTL419hJ3OzaCLMU687rAwPqND/TcgRqbdy1rqLb
-         Y1ysU4kxgKHIO6UWEvOUo29YhS3iaZ2tIGG5xmB2qHzJZEZHXCTOhKNXk3HRolJbZ8V9
-         frVUxxLxPAispuhR4l35uhRXUwPZBL1IZAARGK7yQPNsENLoRac67jajDdUGQmnrULNs
-         d8L4wOnahP8ODQjgyiuXOvNn1hcNHQfN2VZ2tiK6+rUBks4ya85F3hU49lzR8EH009Sj
-         FdIQ==
-X-Gm-Message-State: AOJu0Yww+wxBo3fwz9cOm1+NNHvkMlILqbqld34XhmXaEX2EU3zgJdvs
-	CGmSNoc0JXJJY0Z/QkZmU3c5Ww==
-X-Google-Smtp-Source: AGHT+IG73caoxqESTeHk5XR1yvgGOUSKaOSDSG943bozBwmE7lSRPCi9n15GPtaVf1K5N2iNcWWPlg==
-X-Received: by 2002:a17:90a:31b:b0:27d:50a:f8a6 with SMTP id 27-20020a17090a031b00b0027d050af8a6mr3293077pje.10.1697575530940;
-        Tue, 17 Oct 2023 13:45:30 -0700 (PDT)
-Received: from [127.0.1.1] ([2601:1c2:1800:f680:51d6:dcd6:63ef:52e9])
-        by smtp.gmail.com with ESMTPSA id w3-20020a17090a6b8300b0027b168cb011sm1906553pjj.56.2023.10.17.13.45.28
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Oct 2023 13:45:30 -0700 (PDT)
-From: Drew Fustini <dfustini@baylibre.com>
-Date: Tue, 17 Oct 2023 13:43:52 -0700
-Subject: [PATCH v2 6/7] riscv: dts: thead: Enable BeagleV Ahead eMMC
- controller
+	Tue, 17 Oct 2023 22:21:15 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id AA99961582;
+	Tue, 17 Oct 2023 22:21:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9FDADC433C8;
+	Tue, 17 Oct 2023 22:21:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1697581272;
+	bh=+fbBrH01A4z4Q/htd056bjoXXyg9yXR/YaOstQWBWjo=;
+	h=From:Date:Subject:To:Cc:From;
+	b=OvBREbvqWTLv87kM888ykcgWoXc/bBm5U4bLkAjHRzzwu0HCu+yxsPwzccwmB/70p
+	 /Crbggvcqv2MNC11GNGP8LUcppIg/pWJ3+jUSFEQTQdeU7Fz6MZimO9a4C2LIDE9YY
+	 SPShs0mx1Ksi1I37QH+zjzQSK4bRWcYFch9Pn65O6xI+flH0JOTaV5MbboXA5HMXQ3
+	 QxfH1TrbHJzqygTwWF5/YvV/tHijlMW6cPJpHYkjWjKz9q3uveFDuU/R90xVElhOK9
+	 PRmBru7IlVMPd+RFv6W8eZMgoYSIVP+nVkOsBTDcJ/17jnCCaUupUnhiNzshWcbW2r
+	 3hsJqF+ywwmHA==
+From: Nathan Chancellor <nathan@kernel.org>
+Date: Tue, 17 Oct 2023 15:21:04 -0700
+Subject: [PATCH v4] RISC-V: build: Allow LTO to be selected
 MIME-Version: 1.0
-Message-Id: <20231017-th1520-mmc-v2-6-4678c8cc4048@baylibre.com>
-References: <20231017-th1520-mmc-v2-0-4678c8cc4048@baylibre.com>
-In-Reply-To: <20231017-th1520-mmc-v2-0-4678c8cc4048@baylibre.com>
-To: Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh+dt@kernel.org>, 
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
- Conor Dooley <conor+dt@kernel.org>, Jisheng Zhang <jszhang@kernel.org>, 
- Adrian Hunter <adrian.hunter@intel.com>, Guo Ren <guoren@kernel.org>, 
- Fu Wei <wefu@redhat.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Conor Dooley <conor@kernel.org>
-X-Mailer: b4 0.12.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1697575515; l=933;
- i=dfustini@baylibre.com; s=20230430; h=from:subject:message-id;
- bh=vNFZt2gizhpsjzH9MAKHp09E78+qWWf2znY/lpZAKnk=;
- b=j5MwipA9159XueCAdESnb2EitXe9gLx6ENZSvmnLtlql41q832inr6iR4u+oaVwFG7pwLGGN0
- Vi3eKERq18FDVLSmbURSHVWxMLqysL2SMc3AwBaEAzRyYd2aeL6EEmC
-X-Developer-Key: i=dfustini@baylibre.com; a=ed25519;
- pk=p3GKE9XFmjhwAayAHG4U108yag7V8xQVd4zJLdW0g7g=
+Message-Id: <20231017-riscv-lto-v4-1-e7810b24e805@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAM8IL2UC/22OywqDMBREf6Vk3YQ8TBu78j+KixivGqqm3ATbI
+ v57o9BdNwMHZg6zkgjoIZLbaSUIi48+zBmK84m4wc49UN9mJpJLJThXFH10Cx1ToB0XqgFojTZ
+ XkvtPhM6/D9e9ztxhmGgaEOzPILkWe+hCs7KU0hgqaHq1kk1Q9ZP1I3Nh2l2Djyng57i1qN347
+ 8Gi8t5YZy/CFuCaonoAzjCygD2pt237Ak0WjA7fAAAA
+To: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
+ conor@kernel.org
+Cc: ndesaulniers@google.com, trix@redhat.com, samitolvanen@google.com, 
+ twd2.me@gmail.com, linux-riscv@lists.infradead.org, llvm@lists.linux.dev, 
+ patches@lists.linux.dev, Nathan Chancellor <nathan@kernel.org>
+X-Mailer: b4 0.13-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=5712; i=nathan@kernel.org;
+ h=from:subject:message-id; bh=6DF5TQYgQXh8UF8vonZlb3mmg4CViQmZyu8y06LElhY=;
+ b=owGbwMvMwCEmm602sfCA1DTG02pJDKn6HNf37nkcbPZf507Cd7mjsxrsJKLl1Qt5zdyYHuRNK
+ XjP+XBNRykLgxgHg6yYIkv1Y9XjhoZzzjLeODUJZg4rE8gQBi5OAZhIzwKG/3FG5ZyLM2L/e5Vf
+ ftY1XYNPi+nVI7W9dx8ubAzk7D5xdR8jw1PZVUuXfKrc4Hb0zZ2saONvEdzJ0xd5GoRb3py64ND
+ 63YwA
+X-Developer-Key: i=nathan@kernel.org; a=openpgp;
+ fpr=2437CB76E544CB6AB3D9DFD399739260CB6CB716
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231017_134532_417153_7B3BCDC3 
-X-CRM114-Status: UNSURE (   8.89  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20231017_152113_872852_76240C5A 
+X-CRM114-Status: GOOD (  18.96  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,52 +79,146 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, Drew Fustini <dfustini@baylibre.com>, Han Gao <gaohan@iscas.ac.cn>, linux-mmc@vger.kernel.org, linux-kernel@vger.kernel.org, Robert Nelson <robertcnelson@beagleboard.org>, Jason Kridner <jkridner@beagleboard.org>, Xi Ruoyao <xry111@xry111.site>, linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add properties to the emmc node and enable it and set the frequency for
-the sdhci clock.
+From: Wende Tan <twd2.me@gmail.com>
 
-Signed-off-by: Drew Fustini <dfustini@baylibre.com>
+Allow LTO to be selected for RISC-V, only when LLD >= 14, since there is
+an issue [1] in prior LLD versions that prevents LLD to generate proper
+machine code for RISC-V when writing `nop`s.
+
+To avoid boot failures in QEMU [2], '-mattr=+c' and '-mattr=+relax'
+need to be passed via '-mllvm' to ld.lld, as there appears to be an
+issue with LLVM's target-features and LTO [3], which can result in
+incorrect relocations to branch targets [4]. Once this is fixed in LLVM,
+it can be made conditional on affected ld.lld versions.
+
+Disable LTO for arch/riscv/kernel/pi, as llvm-objcopy expects an ELF
+object file when manipulating the files in that subfolder, rather than
+LLVM bitcode.
+
+[1] https://github.com/llvm/llvm-project/issues/50505, resolved by LLVM
+    commit e63455d5e0e5 ("[MC] Use local MCSubtargetInfo in writeNops")
+[2] https://github.com/ClangBuiltLinux/linux/issues/1942
+[3] https://github.com/llvm/llvm-project/issues/59350
+[4] https://github.com/llvm/llvm-project/issues/65090
+
+Tested-by: Wende Tan <twd2.me@gmail.com>
+Signed-off-by: Wende Tan <twd2.me@gmail.com>
+Co-developed-by: Nathan Chancellor <nathan@kernel.org>
+Signed-off-by: Nathan Chancellor <nathan@kernel.org>
 ---
- arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts | 14 ++++++++++++++
- 1 file changed, 14 insertions(+)
+Testing notes from Nathan:
 
-diff --git a/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts b/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
-index 70e8042c8304..bf55319ba950 100644
---- a/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
-+++ b/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
-@@ -52,6 +52,10 @@ &uart_sclk {
- 	clock-frequency = <100000000>;
- };
+I tested LLVM 14 through 18 with defconfig + full/thin LTO and
+allmodconfig + thin LTO. allmodconfig + thin LTO with LLVM 15 and 16
+shows
+
+  ld.lld: error: section size decrease is too large
+
+when linking vmlinux. This appears to be resolved in LLVM 17 with
+https://github.com/llvm/llvm-project/commit/9d37ea95df1b84cca9b5e954d8964c976a5e303e
+(I did not bisect but the commit message lines up with the issue). I
+kept the existing version check because defconfig worked fine but we may
+want to bump it to 17.0.0 if randconfigs trip over this.
+
+v4 now boots in QEMU for me with both full and thin LTO.
+
+Testing notes from Wende:
+
+I have tested enabling LTO for `defconfig`. The LLD took ~2m21s and ~3GiB
+on our Intel Xeon Gold 6140 server and produced an 18MiB Image. The image
+can boot to shell using an archriscv rootfs on QEMU.
+
+I have also tested it for `allyesconfig` without COMPILE_TEST, FTRACE,
+KASAN, and GCOV. The LLD took ~7h03m and ~335GiB on the server,
+successfully producing a 1.7GiB Image. Unfortunately, we cannot boot this
+image because the `create_kernel_page_table()` -> `alloc_pmd_early()` ->
+`BUG_ON()` logic limits the image to be < 1GiB. Maybe we can fix it in a
+separate patch further.
+
+Changes in v4:
+- Pass '-mattr=+c' and '-mattr=+relax' to ld.lld via '-mllvm' flags when
+  doing LTO due to LLVM not appearing to honor target-features when
+  performing LTO, which can result in incorrect branch targets. This
+  fixes boot with CONFIG_LTO_CLANG=y with LLVM 15.0.0+.
+- Tidy up commit message and move testing notes to below the fold, as it
+  is not too relevant to the git history and it makes the rest of the
+  message more of an imperative mood.
+- Link to v3: https://lore.kernel.org/r/20231003-riscv-lto-v3-1-8aca61a4ecb4@kernel.org
+
+Changes in v3:
+- Disable LTO in arch/riscv/kernel/pi/Makefile, which was added to the
+  kernel after the submission of v2. This change matches arm64.
+- Link to v2: https://lore.kernel.org/r/20220512205545.992288-1-twd2.me@gmail.com/
+
+Changes in v2:
+- Some textual changes suggested by Nick.
+- Drop the changes to `arch/riscv/Makefile`, since the LLVM issue is
+  filed and resolved.
+- Drop the unnecessary changes to `arch/riscv/kernel/vdso/Makefile`.
+- Link to v1: https://lore.kernel.org/r/20210719205208.1023221-1-twd2.me@gmail.com/
+---
+ arch/riscv/Kconfig            | 3 +++
+ arch/riscv/Makefile           | 5 +++++
+ arch/riscv/kernel/pi/Makefile | 3 +++
+ 3 files changed, 11 insertions(+)
+
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index d607ab0f7c6d..523640f7441e 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -46,6 +46,9 @@ config RISCV
+ 	select ARCH_SUPPORTS_CFI_CLANG
+ 	select ARCH_SUPPORTS_DEBUG_PAGEALLOC if MMU
+ 	select ARCH_SUPPORTS_HUGETLBFS if MMU
++	# LLD >= 14: https://github.com/llvm/llvm-project/issues/50505
++	select ARCH_SUPPORTS_LTO_CLANG if LLD_VERSION >= 140000
++	select ARCH_SUPPORTS_LTO_CLANG_THIN if LLD_VERSION >= 140000
+ 	select ARCH_SUPPORTS_PAGE_TABLE_CHECK if MMU
+ 	select ARCH_SUPPORTS_PER_VMA_LOCK if MMU
+ 	select ARCH_USE_MEMTEST
+diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
+index 1329e060c548..709400ceac60 100644
+--- a/arch/riscv/Makefile
++++ b/arch/riscv/Makefile
+@@ -52,6 +52,11 @@ ifndef CONFIG_AS_IS_LLVM
+ 	KBUILD_CFLAGS += -Wa,-mno-relax
+ 	KBUILD_AFLAGS += -Wa,-mno-relax
+ endif
++# LLVM has an issue with target-features and LTO: https://github.com/llvm/llvm-project/issues/59350
++# Ensure it is aware of linker relaxation with LTO, otherwise relocations may
++# be incorrect: https://github.com/llvm/llvm-project/issues/65090
++else ifeq ($(CONFIG_LTO_CLANG),y)
++	KBUILD_LDFLAGS += -mllvm -mattr=+c -mllvm -mattr=+relax
+ endif
+ endif
  
-+&sdhci_clk {
-+	clock-frequency = <198000000>;
-+};
+diff --git a/arch/riscv/kernel/pi/Makefile b/arch/riscv/kernel/pi/Makefile
+index 07915dc9279e..b75f150b923d 100644
+--- a/arch/riscv/kernel/pi/Makefile
++++ b/arch/riscv/kernel/pi/Makefile
+@@ -9,6 +9,9 @@ KBUILD_CFLAGS	:= $(subst $(CC_FLAGS_FTRACE),,$(KBUILD_CFLAGS)) -fpie \
+ 		   -fno-asynchronous-unwind-tables -fno-unwind-tables \
+ 		   $(call cc-option,-fno-addrsig)
+ 
++# Disable LTO
++KBUILD_CFLAGS	:= $(filter-out $(CC_FLAGS_LTO), $(KBUILD_CFLAGS))
 +
- &dmac0 {
- 	status = "okay";
- };
-@@ -59,3 +63,13 @@ &dmac0 {
- &uart0 {
- 	status = "okay";
- };
-+
-+&mmc0 {
-+	bus-width = <8>;
-+	max-frequency = <198000000>;
-+	mmc-hs400-1_8v;
-+	non-removable;
-+	no-sdio;
-+	no-sd;
-+	status = "okay";
-+};
+ KBUILD_CFLAGS	+= -mcmodel=medany
+ 
+ CFLAGS_cmdline_early.o += -D__NO_FORTIFY
 
+---
+base-commit: 8a749fd1a8720d4619c91c8b6e7528c0a355c0aa
+change-id: 20231003-riscv-lto-f013beed8587
+
+Best regards,
 -- 
-2.34.1
+Nathan Chancellor <nathan@kernel.org>
 
 
 _______________________________________________
