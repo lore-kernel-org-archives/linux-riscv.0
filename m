@@ -4,80 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80A29CDB474
-	for <linux-riscv@archiver.kernel.org>; Tue, 17 Oct 2023 10:45:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C382CDB483
+	for <linux-riscv@archiver.kernel.org>; Tue, 17 Oct 2023 10:48:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ID/WlagrbU20zP5dyPOiNAOjYGKZPyUCw3C4qfmzEWE=; b=i5eHFuHp8Pte2G
-	fTmnw4fUuoijQ/YY9nVGI8PjL8yg2+bh4uOuoMBPw58u9N3aV/AK05KEn2x4s7P+dRO15+3EzeDEJ
-	8l9oeY891FQ6Fdo8uCT43cQfmPtQUD+8IIsTR7dHV8NhVtB2Pyr2L62VWM1AOBr3uV6TlCa1BBEeV
-	75BKuKwdgrQ4fNKHrZOujicXThANwUsAWyn4CHcFCIln7X03cpkDxixfnABDgY9f6U4+MVeSL4RRs
-	Z6lfMU6Y7QwnIu80KDvXwEtwyKzihehnVDTOLijCd9kJr4VWY8QdbQPka6+zx64j0YvqJBi+2PgLw
-	PaYmoTfyk4FvvrDXXHMw==;
+	List-Owner; bh=34UYY14gFtxr41e/2sgT69cSfbuJ0qBm5AfShUYCq58=; b=XyfTUgO+raL1MX
+	xEjPhjMp1kL8dM1hBCuMPpLjJxZiAu3p0qopuF/zUrXNQYXxHX8bSQsEY0bK1aEJ4vdH0nHnthGdk
+	kwr/JtBl/OLrkpKUsbDkzGjnH9C3I0b8wktvwZVLh0NmNmPCljEM21IfnrxksgQAGbGxH2JGUPUF7
+	HWo3ePBvqPoXOJ5QYh10NWqlPTcbXfdMuegckl9y/HnCWFfTtn1UGGRvL2pJ4xuQ+thxPqaS25QJU
+	eyMAHBQzqVLf0ETbcpE/RaoQ+tCoBS1StOsF9AMK2qARlAGnh/vu1HGAncl2nEYThadpZshqMX3Y3
+	4fjrOHiPCXM98Cq1zcTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qshZO-00C77A-1b;
-	Tue, 17 Oct 2023 10:45:02 +0000
-Received: from mail-yb1-f175.google.com ([209.85.219.175])
+	id 1qshcD-00C7Rw-32;
+	Tue, 17 Oct 2023 10:47:57 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qshZL-00C75h-2f
+	id 1qshcA-00C7Q2-2D
 	for linux-riscv@lists.infradead.org;
-	Tue, 17 Oct 2023 10:45:01 +0000
-Received: by mail-yb1-f175.google.com with SMTP id 3f1490d57ef6-d9b2ca542e5so4416725276.3
-        for <linux-riscv@lists.infradead.org>; Tue, 17 Oct 2023 03:44:56 -0700 (PDT)
+	Tue, 17 Oct 2023 10:47:56 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-40684f53bfcso50270815e9.0
+        for <linux-riscv@lists.infradead.org>; Tue, 17 Oct 2023 03:47:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1697539671; x=1698144471; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=RjcRh1N6JNr8Pcg+MEQPWIJsmQZyQ2s3S9AGKYyRXZc=;
+        b=D5B9eof1cswHIMvwENJx/SS0OWi76KByy04ojYxRgt9ayLNi0fSZuP88j0cZoDyBMt
+         lu0QXs4SpRYuaQcMlDeOGGnKbt3uBOxsHgToCF2U+m13htvZEaKhcsOG53CDfxJQjIrG
+         pAjSn7C4nachsqZw/OGu030X4roKvAVDyhrKfWboZPnifJErDnJlJZ0+s9a5mJnFbdxH
+         vtQ7JDAgKxtLzTBCeldLx4AJcPQ4cN7sf9Kh8h9R8ngQW1wKWVlo3NjF+h8+hrfpm4HZ
+         XlGluYIRJG0Dv4eWPBr5/vSGFFA6PAcAG2SqyiJ7Qrr1NykykyEQkfvZNNh3gPb7Ow4S
+         iunA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1697539495; x=1698144295;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20230601; t=1697539671; x=1698144471;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=fPRdJ+3TN8Zmg5SzFNo5gq2GpoI/z77WwxmQGbYRfiU=;
-        b=oG/bBXay/db0fRZ/mQV6Tmv+1jtnfrwnnL++ZqCR+9/fnk+G8e1gcWaP9BZrK2e83M
-         cjkQvB0j7SIk42OjHtNZaqrbGU6uz5wBuzyALXk8JXiEAoCtzrXIQPypBD9lBlkszHmh
-         B5ndNYeLyfMmo7JUzsVuOU7GyUql68dYlwnlZMW+7QNFRey89czLpHru253Ayd5c9P+7
-         WzZ0Fa8a5oiqzpKEO+ySQ0NPlG95f8HZNoza90KJSEjAxj6YECLgpqP+ta4C0BW0iLhA
-         YJaYqF3ayXj+2x72obhkJ2UyBin3/w62DpQHG/iaeFXuFiFdnOInv5ckl6FQ2FN3dQCm
-         n6kA==
-X-Gm-Message-State: AOJu0YxH2SV3OvscYxEDGf1mQvaKVfq6La7O8xpL3E+Lf7AHPwFIub00
-	QAVX9G8FttKznPBMCngrxaQ+yNQQf5v+ng==
-X-Google-Smtp-Source: AGHT+IFZrhAmXBNyKDto6Kf82Gyep71EWyv+PDwhbCiSwXh5Ofzu00mgtO7bEkT2XWPiqQdpo6+T/Q==
-X-Received: by 2002:a25:abab:0:b0:d9a:dfd2:cce4 with SMTP id v40-20020a25abab000000b00d9adfd2cce4mr1900122ybi.55.1697539495365;
-        Tue, 17 Oct 2023 03:44:55 -0700 (PDT)
-Received: from mail-yw1-f170.google.com (mail-yw1-f170.google.com. [209.85.128.170])
-        by smtp.gmail.com with ESMTPSA id 187-20020a250ac4000000b00d9ac1f0e23csm417581ybk.56.2023.10.17.03.44.54
-        for <linux-riscv@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 17 Oct 2023 03:44:54 -0700 (PDT)
-Received: by mail-yw1-f170.google.com with SMTP id 00721157ae682-5a7e5dc8573so68078867b3.0
-        for <linux-riscv@lists.infradead.org>; Tue, 17 Oct 2023 03:44:54 -0700 (PDT)
-X-Received: by 2002:a81:4996:0:b0:592:ffc:c787 with SMTP id
- w144-20020a814996000000b005920ffcc787mr1937845ywa.30.1697539494112; Tue, 17
- Oct 2023 03:44:54 -0700 (PDT)
+        bh=RjcRh1N6JNr8Pcg+MEQPWIJsmQZyQ2s3S9AGKYyRXZc=;
+        b=kG9uedsM6IaCSAC4gnEfEwiGuhlbwK9Ce3QnyBcoaf6Amv7I5uuRJwVgW3gOPiaNg6
+         caQev6BJzx74dA5TBnMcqrSBDGLN8TeSm/BhF9yRlTBNaDqHk/pjiU7GCavepIB6yxQK
+         9i4K+uBtvNpNkIY6RVS0FTBcRMDN4iKzUevbJhdLBgnEtJEWuB2KAEbpcyQe2t1OJUck
+         RZcFRuIiZRujlmzRpPjn0BwTGE2qmov1ClUlEvVxyM3iwIvVl8GmqDaa8oZvz7TMTWpr
+         oeV8idyleAr9cYvn0CbTB9xkflZz/tuKUxYArPYDltwIL3nqFC8cPygUy7oemC0kb2mj
+         ftGA==
+X-Gm-Message-State: AOJu0YxejwrtmpJ4qv126J71XaueJRiC6scn1NCE8vER5881l6qgIM7O
+	YVIPkHzNKL1aVvTzbroGedE=
+X-Google-Smtp-Source: AGHT+IHa6VYjrXdNTELErxAtoD+OgvUVAgJ3jN2fr6hijG4I+yq3SFflEWN8bFurT86oWszx6BrAew==
+X-Received: by 2002:a05:600c:1d13:b0:407:90aa:8224 with SMTP id l19-20020a05600c1d1300b0040790aa8224mr1286563wms.16.1697539670492;
+        Tue, 17 Oct 2023 03:47:50 -0700 (PDT)
+Received: from prasmi.home ([2a00:23c8:2501:c701:e26d:77db:3f90:862b])
+        by smtp.gmail.com with ESMTPSA id a6-20020a05600c348600b0040652e8ca13sm9582037wmq.43.2023.10.17.03.47.49
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 17 Oct 2023 03:47:50 -0700 (PDT)
+From: Prabhakar <prabhakar.csengg@gmail.com>
+X-Google-Original-From: Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+To: Geert Uytterhoeven <geert+renesas@glider.be>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Linus Walleij <linus.walleij@linaro.org>
+Cc: Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-gpio@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org,
+	Biju Das <biju.das.jz@bp.renesas.com>,
+	Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>,
+	Prabhakar <prabhakar.csengg@gmail.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Subject: [PATCH v2 1/3] pinctrl: renesas: rzg2l: Include pinmap in RZG2L_GPIO_PORT_PACK() macro
+Date: Tue, 17 Oct 2023 11:46:36 +0100
+Message-Id: <20231017104638.201260-2-prabhakar.mahadev-lad.rj@bp.renesas.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20231017104638.201260-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+References: <20231017104638.201260-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
 MIME-Version: 1.0
-References: <20231016054755.915155-1-hch@lst.de> <20231016054755.915155-5-hch@lst.de>
- <20231016-pantyhose-tall-7565b6b20fb9@wendy> <20231016131745.GB26484@lst.de>
-In-Reply-To: <20231016131745.GB26484@lst.de>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Tue, 17 Oct 2023 12:44:41 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdXVZz=YWMAgzUzme-U3qxYeLdi66xw2CGubpesGy+ZjRw@mail.gmail.com>
-Message-ID: <CAMuHMdXVZz=YWMAgzUzme-U3qxYeLdi66xw2CGubpesGy+ZjRw@mail.gmail.com>
-Subject: Re: [PATCH 04/12] soc: renesas: select RISCV_DMA_NONCOHERENT from ARCH_R9A07G043
-To: Christoph Hellwig <hch@lst.de>
-Cc: Conor Dooley <conor.dooley@microchip.com>, Greg Ungerer <gerg@linux-m68k.org>, 
-	iommu@lists.linux.dev, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Conor Dooley <conor@kernel.org>, 
-	Magnus Damm <magnus.damm@gmail.com>, Robin Murphy <robin.murphy@arm.com>, 
-	Marek Szyprowski <m.szyprowski@samsung.com>, Wei Fang <wei.fang@nxp.com>, 
-	Shenwei Wang <shenwei.wang@nxp.com>, Clark Wang <xiaoning.wang@nxp.com>, 
-	NXP Linux Team <linux-imx@nxp.com>, linux-m68k@lists.linux-m68k.org, netdev@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, linux-renesas-soc@vger.kernel.org, 
-	Jim Quinlan <james.quinlan@broadcom.com>, arm-soc <soc@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231017_034459_865993_397379A3 
-X-CRM114-Status: GOOD (  18.15  )
+X-CRM114-CacheID: sfid-20231017_034754_725485_6C74CD7B 
+X-CRM114-Status: GOOD (  18.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,29 +100,219 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgQ2hyaXN0b3BoLAoKT24gTW9uLCBPY3QgMTYsIDIwMjMgYXQgMzoxN+KAr1BNIENocmlzdG9w
-aCBIZWxsd2lnIDxoY2hAbHN0LmRlPiB3cm90ZToKPiBPbiBNb24sIE9jdCAxNiwgMjAyMyBhdCAw
-MTo1Mjo1N1BNICswMTAwLCBDb25vciBEb29sZXkgd3JvdGU6Cj4gPiA+ICsgICBzZWxlY3QgUklT
-Q1ZfRE1BX05PTkNPSEVSRU5UCj4gPiA+ICAgICBzZWxlY3QgRVJSQVRBX0FOREVTIGlmIFJJU0NW
-X1NCSQo+ID4gPiAgICAgc2VsZWN0IEVSUkFUQV9BTkRFU19DTU8gaWYgRVJSQVRBX0FOREVTCj4g
-Pgo+ID4gU2luY2UgdGhpcyBLY29uZmlnIG1lbnUgaGFzIGNoYW5nZWQgYSBiaXQgaW4gbGludXgt
-bmV4dCwgdGhlIHNlbGVjdHMKPiA+IGFyZSB1bmNvbmRpdGlvbmFsIGhlcmUsIGFuZCBFUlJBVEFf
-QU5ERVNfQ01PIHdpbGwgaW4gdHVybiBzZWxlY3QKPiA+IFJJU0NWX0RNQV9OT05DT0hFUkVOVC4K
-Pgo+IE9oLCBsb29rcyBsaWtlIGFub3RoZXIgcGF0Y2ggbGFuZGVkIHRoZXJlIGluIGxpbnV4LW5l
-eHQuICBJIGhhZAo+IHdhaXRlZCBmb3IgdGhlIHByZXZpb3VzIG9uZSBnbyBnbyB1cHN0cmVhbSBp
-biAtcmM2LiAgTm90IHN1cmUKPiBob3cgdG8gYmVzdCBoYW5kbGUgdGhpcyBjb25mbGljdC4KCkkg
-dGhpbmsgdGhlIGVhc2llc3QgaXMgdG8gYXNrIHNvYyB0byBhcHBseSB0aGlzIHNlcmllcz8KCkdy
-e29ldGplLGVldGluZ31zLAoKICAgICAgICAgICAgICAgICAgICAgICAgR2VlcnQKCi0tIApHZWVy
-dCBVeXR0ZXJob2V2ZW4gLS0gVGhlcmUncyBsb3RzIG9mIExpbnV4IGJleW9uZCBpYTMyIC0tIGdl
-ZXJ0QGxpbnV4LW02OGsub3JnCgpJbiBwZXJzb25hbCBjb252ZXJzYXRpb25zIHdpdGggdGVjaG5p
-Y2FsIHBlb3BsZSwgSSBjYWxsIG15c2VsZiBhIGhhY2tlci4gQnV0CndoZW4gSSdtIHRhbGtpbmcg
-dG8gam91cm5hbGlzdHMgSSBqdXN0IHNheSAicHJvZ3JhbW1lciIgb3Igc29tZXRoaW5nIGxpa2Ug
-dGhhdC4KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAtLSBMaW51cyBUb3J2YWxkcwoK
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlz
-Y3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xp
-c3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+
+Currently we assume all the port pins are sequential ie always PX_0 to
+PX_n (n=1..7) exist, but on RZ/Five SoC we have additional pins P19_1 to
+P28_5 which have holes in them, for example only one pin on port19 is
+available and that is P19_1 and not P19_0. So to handle such cases
+include pinmap for each port which would indicate the pin availability
+on each port. As the pincount can be calculated based on pinmap drop this
+from RZG2L_GPIO_PORT_PACK() macro and update RZG2L_GPIO_PORT_GET_PINCNT()
+macro.
+
+Previously we had a max of 7 pins on each port but on RZ/Five Port-20
+has 8 pins, so move the single pin configuration to BIT(63).
+
+Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+---
+ drivers/pinctrl/renesas/pinctrl-rzg2l.c | 48 +++++++++++++------------
+ 1 file changed, 25 insertions(+), 23 deletions(-)
+
+diff --git a/drivers/pinctrl/renesas/pinctrl-rzg2l.c b/drivers/pinctrl/renesas/pinctrl-rzg2l.c
+index e6bf66fca074..b0aeeb5ef3fa 100644
+--- a/drivers/pinctrl/renesas/pinctrl-rzg2l.c
++++ b/drivers/pinctrl/renesas/pinctrl-rzg2l.c
+@@ -80,15 +80,17 @@
+  * n indicates number of pins in the port, a is the register index
+  * and f is pin configuration capabilities supported.
+  */
+-#define RZG2L_GPIO_PORT_PACK(n, a, f)	(((n) << 28) | ((a) << 20) | (f))
+-#define RZG2L_GPIO_PORT_GET_PINCNT(x)	(((x) & GENMASK(30, 28)) >> 28)
++#define RZG2L_GPIO_PORT_PACK(n, a, f)	(((n) > 0 ? ((u64)(GENMASK_ULL(((n) - 1 + 28), 28))) : 0) | \
++					 ((a) << 20) | (f))
++#define RZG2L_GPIO_PORT_GET_PINMAP(x)	(((x) & GENMASK_ULL(35, 28)) >> 28)
++#define RZG2L_GPIO_PORT_GET_PINCNT(x)  (hweight8(RZG2L_GPIO_PORT_GET_PINMAP((x))))
+ 
+ /*
+  * BIT(31) indicates dedicated pin, p is the register index while
+  * referencing to SR/IEN/IOLH/FILxx registers, b is the register bits
+  * (b * 8) and f is the pin configuration capabilities supported.
+  */
+-#define RZG2L_SINGLE_PIN		BIT(31)
++#define RZG2L_SINGLE_PIN		BIT(63)
+ #define RZG2L_SINGLE_PIN_PACK(p, b, f)	(RZG2L_SINGLE_PIN | \
+ 					 ((p) << 24) | ((b) << 20) | (f))
+ #define RZG2L_SINGLE_PIN_GET_BIT(x)	(((x) & GENMASK(22, 20)) >> 20)
+@@ -180,12 +182,12 @@ struct rzg2l_hwcfg {
+ 
+ struct rzg2l_dedicated_configs {
+ 	const char *name;
+-	u32 config;
++	u64 config;
+ };
+ 
+ struct rzg2l_pinctrl_data {
+ 	const char * const *port_pins;
+-	const u32 *port_pin_configs;
++	const u64 *port_pin_configs;
+ 	unsigned int n_ports;
+ 	const struct rzg2l_dedicated_configs *dedicated_pins;
+ 	unsigned int n_port_pins;
+@@ -286,7 +288,7 @@ static int rzg2l_pinctrl_set_mux(struct pinctrl_dev *pctldev,
+ 	pins = group->pins;
+ 
+ 	for (i = 0; i < group->num_pins; i++) {
+-		unsigned int *pin_data = pctrl->desc.pins[pins[i]].drv_data;
++		u64 *pin_data = pctrl->desc.pins[pins[i]].drv_data;
+ 		u32 off = RZG2L_PIN_CFG_TO_PORT_OFFSET(*pin_data);
+ 		u32 pin = RZG2L_PIN_ID_TO_PIN(pins[i]);
+ 
+@@ -536,13 +538,13 @@ static int rzg2l_dt_node_to_map(struct pinctrl_dev *pctldev,
+ }
+ 
+ static int rzg2l_validate_gpio_pin(struct rzg2l_pinctrl *pctrl,
+-				   u32 cfg, u32 port, u8 bit)
++				   u64 cfg, u32 port, u8 bit)
+ {
+-	u8 pincount = RZG2L_GPIO_PORT_GET_PINCNT(cfg);
++	u8 pinmap = RZG2L_GPIO_PORT_GET_PINMAP(cfg);
+ 	u32 off = RZG2L_PIN_CFG_TO_PORT_OFFSET(cfg);
+-	u32 data;
++	u64 data;
+ 
+-	if (bit >= pincount || port >= pctrl->data->n_port_pins)
++	if (!(pinmap & BIT(bit)) || port >= pctrl->data->n_port_pins)
+ 		return -EINVAL;
+ 
+ 	data = pctrl->data->port_pin_configs[port];
+@@ -743,7 +745,7 @@ static int rzg2l_pinctrl_pinconf_get(struct pinctrl_dev *pctldev,
+ 	enum pin_config_param param = pinconf_to_config_param(*config);
+ 	const struct rzg2l_hwcfg *hwcfg = pctrl->data->hwcfg;
+ 	const struct pinctrl_pin_desc *pin = &pctrl->desc.pins[_pin];
+-	unsigned int *pin_data = pin->drv_data;
++	u64 *pin_data = pin->drv_data;
+ 	unsigned int arg = 0;
+ 	u32 off, cfg;
+ 	int ret;
+@@ -840,7 +842,7 @@ static int rzg2l_pinctrl_pinconf_set(struct pinctrl_dev *pctldev,
+ 	const struct pinctrl_pin_desc *pin = &pctrl->desc.pins[_pin];
+ 	const struct rzg2l_hwcfg *hwcfg = pctrl->data->hwcfg;
+ 	struct rzg2l_pinctrl_pin_settings settings = pctrl->settings[_pin];
+-	unsigned int *pin_data = pin->drv_data;
++	u64 *pin_data = pin->drv_data;
+ 	enum pin_config_param param;
+ 	unsigned int i;
+ 	u32 cfg, off;
+@@ -1044,7 +1046,7 @@ static int rzg2l_gpio_request(struct gpio_chip *chip, unsigned int offset)
+ {
+ 	struct rzg2l_pinctrl *pctrl = gpiochip_get_data(chip);
+ 	const struct pinctrl_pin_desc *pin_desc = &pctrl->desc.pins[offset];
+-	u32 *pin_data = pin_desc->drv_data;
++	u64 *pin_data = pin_desc->drv_data;
+ 	u32 off = RZG2L_PIN_CFG_TO_PORT_OFFSET(*pin_data);
+ 	u32 port = RZG2L_PIN_ID_TO_PORT(offset);
+ 	u8 bit = RZG2L_PIN_ID_TO_PIN(offset);
+@@ -1076,7 +1078,7 @@ static void rzg2l_gpio_set_direction(struct rzg2l_pinctrl *pctrl, u32 offset,
+ 				     bool output)
+ {
+ 	const struct pinctrl_pin_desc *pin_desc = &pctrl->desc.pins[offset];
+-	unsigned int *pin_data = pin_desc->drv_data;
++	u64 *pin_data = pin_desc->drv_data;
+ 	u32 off = RZG2L_PIN_CFG_TO_PORT_OFFSET(*pin_data);
+ 	u8 bit = RZG2L_PIN_ID_TO_PIN(offset);
+ 	unsigned long flags;
+@@ -1097,7 +1099,7 @@ static int rzg2l_gpio_get_direction(struct gpio_chip *chip, unsigned int offset)
+ {
+ 	struct rzg2l_pinctrl *pctrl = gpiochip_get_data(chip);
+ 	const struct pinctrl_pin_desc *pin_desc = &pctrl->desc.pins[offset];
+-	unsigned int *pin_data = pin_desc->drv_data;
++	u64 *pin_data = pin_desc->drv_data;
+ 	u32 off = RZG2L_PIN_CFG_TO_PORT_OFFSET(*pin_data);
+ 	u8 bit = RZG2L_PIN_ID_TO_PIN(offset);
+ 
+@@ -1128,7 +1130,7 @@ static void rzg2l_gpio_set(struct gpio_chip *chip, unsigned int offset,
+ {
+ 	struct rzg2l_pinctrl *pctrl = gpiochip_get_data(chip);
+ 	const struct pinctrl_pin_desc *pin_desc = &pctrl->desc.pins[offset];
+-	unsigned int *pin_data = pin_desc->drv_data;
++	u64 *pin_data = pin_desc->drv_data;
+ 	u32 off = RZG2L_PIN_CFG_TO_PORT_OFFSET(*pin_data);
+ 	u8 bit = RZG2L_PIN_ID_TO_PIN(offset);
+ 	unsigned long flags;
+@@ -1161,7 +1163,7 @@ static int rzg2l_gpio_get(struct gpio_chip *chip, unsigned int offset)
+ {
+ 	struct rzg2l_pinctrl *pctrl = gpiochip_get_data(chip);
+ 	const struct pinctrl_pin_desc *pin_desc = &pctrl->desc.pins[offset];
+-	unsigned int *pin_data = pin_desc->drv_data;
++	u64 *pin_data = pin_desc->drv_data;
+ 	u32 off = RZG2L_PIN_CFG_TO_PORT_OFFSET(*pin_data);
+ 	u8 bit = RZG2L_PIN_ID_TO_PIN(offset);
+ 	u16 reg16;
+@@ -1246,7 +1248,7 @@ static const char * const rzg2l_gpio_names[] = {
+ 	"P48_0", "P48_1", "P48_2", "P48_3", "P48_4", "P48_5", "P48_6", "P48_7",
+ };
+ 
+-static const u32 r9a07g044_gpio_configs[] = {
++static const u64 r9a07g044_gpio_configs[] = {
+ 	RZG2L_GPIO_PORT_PACK(2, 0x10, RZG2L_MPXED_PIN_FUNCS),
+ 	RZG2L_GPIO_PORT_PACK(2, 0x11, RZG2L_MPXED_PIN_FUNCS),
+ 	RZG2L_GPIO_PORT_PACK(2, 0x12, RZG2L_MPXED_PIN_FUNCS),
+@@ -1298,7 +1300,7 @@ static const u32 r9a07g044_gpio_configs[] = {
+ 	RZG2L_GPIO_PORT_PACK(5, 0x40, RZG2L_MPXED_PIN_FUNCS),
+ };
+ 
+-static const u32 r9a07g043_gpio_configs[] = {
++static const u64 r9a07g043_gpio_configs[] = {
+ 	RZG2L_GPIO_PORT_PACK(4, 0x10, RZG2L_MPXED_PIN_FUNCS),
+ 	RZG2L_GPIO_PORT_PACK(5, 0x11, RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH0)),
+ 	RZG2L_GPIO_PORT_PACK(4, 0x12, RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH0)),
+@@ -1320,7 +1322,7 @@ static const u32 r9a07g043_gpio_configs[] = {
+ 	RZG2L_GPIO_PORT_PACK(6, 0x22, RZG2L_MPXED_PIN_FUNCS),
+ };
+ 
+-static const u32 r9a08g045_gpio_configs[] = {
++static const u64 r9a08g045_gpio_configs[] = {
+ 	RZG2L_GPIO_PORT_PACK(4, 0x20, RZG3S_MPXED_PIN_FUNCS(A)),			/* P0  */
+ 	RZG2L_GPIO_PORT_PACK(5, 0x30, RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IOLH_C |
+ 								PIN_CFG_IO_VMC_ETH0)),	/* P1 */
+@@ -1502,7 +1504,7 @@ static void rzg2l_gpio_irq_disable(struct irq_data *d)
+ 	struct rzg2l_pinctrl *pctrl = container_of(gc, struct rzg2l_pinctrl, gpio_chip);
+ 	unsigned int hwirq = irqd_to_hwirq(d);
+ 	const struct pinctrl_pin_desc *pin_desc = &pctrl->desc.pins[hwirq];
+-	unsigned int *pin_data = pin_desc->drv_data;
++	u64 *pin_data = pin_desc->drv_data;
+ 	u32 off = RZG2L_PIN_CFG_TO_PORT_OFFSET(*pin_data);
+ 	u8 bit = RZG2L_PIN_ID_TO_PIN(hwirq);
+ 	unsigned long flags;
+@@ -1529,7 +1531,7 @@ static void rzg2l_gpio_irq_enable(struct irq_data *d)
+ 	struct rzg2l_pinctrl *pctrl = container_of(gc, struct rzg2l_pinctrl, gpio_chip);
+ 	unsigned int hwirq = irqd_to_hwirq(d);
+ 	const struct pinctrl_pin_desc *pin_desc = &pctrl->desc.pins[hwirq];
+-	unsigned int *pin_data = pin_desc->drv_data;
++	u64 *pin_data = pin_desc->drv_data;
+ 	u32 off = RZG2L_PIN_CFG_TO_PORT_OFFSET(*pin_data);
+ 	u8 bit = RZG2L_PIN_ID_TO_PIN(hwirq);
+ 	unsigned long flags;
+@@ -1748,7 +1750,7 @@ static int rzg2l_pinctrl_register(struct rzg2l_pinctrl *pctrl)
+ 	const struct rzg2l_hwcfg *hwcfg = pctrl->data->hwcfg;
+ 	struct pinctrl_pin_desc *pins;
+ 	unsigned int i, j;
+-	u32 *pin_data;
++	u64 *pin_data;
+ 	int ret;
+ 
+ 	pctrl->desc.name = DRV_NAME;
+-- 
+2.34.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
