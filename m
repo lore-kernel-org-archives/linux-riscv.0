@@ -4,85 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 556ECCDB482
-	for <linux-riscv@archiver.kernel.org>; Tue, 17 Oct 2023 17:04:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8726ECDB482
+	for <linux-riscv@archiver.kernel.org>; Tue, 17 Oct 2023 17:42:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+ILvZltKmY+FvOzWZvgH9J2ay9kgyRXUKVa56t+Myhc=; b=Si5Nb+HzYlprlp
-	cKnqvYi1VLJRFl52nbP56xR0keGk6+QypSBQCCOJxSvK8aIo7Eu6wq2et4TcnlIAWUh6U1AY7B/qG
-	+KLJTqqFaRWVe/BIcYWA5sVrUptKQ9BvqLpv5xC638aHphRfg2BCZ7b3zmqHIGAfDbiNYZc/urIcr
-	uQAQowKKgbfITGkb3USHsZ3KSWvVz4jyNUZFcq7xaqTpjDddlekZ8tp2OtgwWmp0lzcMe9SnILFdT
-	4rE+QEIa1ATtwDaskevKrOsbrisnZaLVVLaNWUPS6a1mioEXd6md2rwrORsMQPYNTCDZ/XLC8nX79
-	lKqRvhbfR+cMOnkUuszw==;
+	List-Owner; bh=jT3oyejQC+/qtMwtw16Ng2VBk+yYEo/CQOat++Fi8E8=; b=edeswhokNONgtc
+	+hBqtqrc4GgRRITg3d8rHJv1gtj8vscdWQDHMlpcTTPgdH4CnmTaQWxqX3nS2mbnM4A3AsMyp5xyj
+	4bORDSjXlNmBwWZte5dQBKfNSQXHWyhu3u9/1LCljHmVK2xoEQWbOiJbc0bJMVOUhduWBNfel29Es
+	enroW56GbolN7tnYmNY81Q4hYFKQfQttLUg4fnGDfyCQoZTNC4bkH0D21Mc59i//H15O2AG5iqQFq
+	QuxLvHw+QWCKHkTyQtqVE8OGotD8O7RghpCHV4TWwV8Vs4kJ68rBuIH/nW8CBkiSVNlVgnovKUVQG
+	2M+iNPnpXymHRQMgQDbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qsnU9-00CsGA-0x;
-	Tue, 17 Oct 2023 17:04:01 +0000
-Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
+	id 1qso5f-00CvOn-2m;
+	Tue, 17 Oct 2023 17:42:47 +0000
+Received: from mail-oi1-x22c.google.com ([2607:f8b0:4864:20::22c])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qsnU6-00CsFS-0t
+	id 1qso5a-00CvNY-2E
 	for linux-riscv@lists.infradead.org;
-	Tue, 17 Oct 2023 17:03:59 +0000
-Received: by mail-ej1-x62d.google.com with SMTP id a640c23a62f3a-98377c5d53eso906481566b.0
-        for <linux-riscv@lists.infradead.org>; Tue, 17 Oct 2023 10:03:56 -0700 (PDT)
+	Tue, 17 Oct 2023 17:42:46 +0000
+Received: by mail-oi1-x22c.google.com with SMTP id 5614622812f47-3af65455e7fso4340843b6e.3
+        for <linux-riscv@lists.infradead.org>; Tue, 17 Oct 2023 10:42:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1697562235; x=1698167035; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=FXhmtE1WCmBrDAGjS0eBWsd0E/xae41wf+MbBCU4NSA=;
-        b=Or+FYlQt7Lr8Iak4STXk5R9bCxokZRer62kDRw+pbfKhxCd7PoRfmw2WSSaWrkj5Nf
-         m92rmVyo0ZfjmYpZqA0u/WPUE/gUuBJnr+h1ODbvaoIZ5F+tRdqRSWEBhA5BPThRWb5K
-         6G8CYdjiDQJACqCgS3DRpGVjzhhSxE5onknW74WJU4P5MoXEpM4bCClvzgdQb2aw4vkj
-         I/J4ZgB5Oa6FV+3kiPwc30ddSbMzGojPo2+1pxju2rzpdktAuvlpmudXjhCSnPA8jc7M
-         gor3XoM4+hHwFql5ZhfTf2a4BmUUX4BI9Sx4XbiSXBZGkXQ5aRpQ9u45lt3uvV0bmu9P
-         deKw==
+        d=sifive.com; s=google; t=1697564559; x=1698169359; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=rPz/XE7kyZI3rqX/gW9OA3u4MOOTZR6TB5rRl4itwhs=;
+        b=Ckh+qNKXBP0vpA3GGMF6DUdjoT5AzcrMIkw4kDuT2bGH4hOYUzAy6JCFICnIJ66NQM
+         ggjKn4lUhaOAhnKJ+yR0dJAUGLhc94HbnGHncWrmqqN6FyIAm/XHoHM+MP3QiqArmen3
+         6ozfHRMZvLVLO0vPNKyZRm9Adda6zKkykkRWWTE6eYt89eUlPNlBe3pOS94qx9FwjmED
+         PjDN9/OJmtmKIbRew5XIKf4TO2IyVnL1cmN6be5QtbCX0kvYmU9gbaknGCmWQ+3waKLj
+         Pe04bmoXQeR6LkxMyLoJdTUSSC6DOYsONkmaMeTf3K5sM9K4ZSjwdPgn8hAUZtyB6W9F
+         u7eQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1697562235; x=1698167035;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=FXhmtE1WCmBrDAGjS0eBWsd0E/xae41wf+MbBCU4NSA=;
-        b=XuH1kaVw37IeREbs7n8hTjWFHeAfOx7xs5xQOXX0hjjJquJGKbxEpLhw5e/tul863A
-         32QjQiZIzQCHkTchRA3GvuEsa+DCs9PUwaVNTajwoRNkh6Svn4cO+eMAmJBJnl5kQd+3
-         usSpch4SS12ZIj3n1zdqs5uTzmxkw28FoO7945iQZKQyUdrN8z5QDzuYq0KxtCU8T7c8
-         ROzywTU5IE8FEzppg70KFEZ3gwMf0eq8Qt7yJZ+4MPwszQ5CJJGF0STIGv1agIotuYNL
-         nYrQMJpe7KuAYGpj8bQ5JbIxtaUDqJIyEfLVTw5eKOSFQ88QNYN509WmWhwUuuUdByjA
-         XxZA==
-X-Gm-Message-State: AOJu0YzupZAY2KCQk7XYv+CWi6/4/vuiqiie1/svk9Bey0rgCdJztXiu
-	eZ4Sa6dfjbb8jroVYcsrHK+iIw==
-X-Google-Smtp-Source: AGHT+IGSL1p1dW58mi53fADPrMS0amj8i+XSKhwo/9G/kLwvyqkWgWFskajXHp22eZHGdYu7upCp7w==
-X-Received: by 2002:a17:907:2d0f:b0:9c1:edd8:43c1 with SMTP id gs15-20020a1709072d0f00b009c1edd843c1mr2248045ejc.51.1697562234710;
-        Tue, 17 Oct 2023 10:03:54 -0700 (PDT)
-Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id gz21-20020a170906f2d500b009ae0042e48bsm144903ejb.5.2023.10.17.10.03.53
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Oct 2023 10:03:54 -0700 (PDT)
-Date: Tue, 17 Oct 2023 19:03:53 +0200
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Sunil V L <sunilvl@ventanamicro.com>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-acpi@vger.kernel.org, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	"Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, 
-	Conor Dooley <conor.dooley@microchip.com>, Anup Patel <apatel@ventanamicro.com>, 
-	Ard Biesheuvel <ardb@kernel.org>, Atish Kumar Patra <atishp@rivosinc.com>
-Subject: Re: [PATCH v3 -next 2/3] RISC-V: ACPI: RHCT: Add function to get CBO
- block sizes
-Message-ID: <20231017-3518118151d433af9905238f@orel>
-References: <20231016164958.1191529-1-sunilvl@ventanamicro.com>
- <20231016164958.1191529-3-sunilvl@ventanamicro.com>
- <20231017-b394a120094eeee31693e9a7@orel>
- <ZS6qq1Y9bLZ868KI@sunil-laptop>
+        d=1e100.net; s=20230601; t=1697564559; x=1698169359;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=rPz/XE7kyZI3rqX/gW9OA3u4MOOTZR6TB5rRl4itwhs=;
+        b=HXjBl/l1zPm77LPfhtQZrZMmo5yDt9qxu1iDi33P7NX96jgkFDHARYupKtBU1YPwU7
+         9ur0rDw8UjXtjzd3TE65T6Hgbh1fOTuH4+b+vLXPlJsr+XdG/WUZ2nQp0qA1I0Jj1ju6
+         uS9U/PdL0hrSq9l4tbfkSNQ0OA+wqpumrRnC3OkBj6B07og3GVOK5ccGQ8OgorhDAQk3
+         yFuv12kO1AmfOOuj9y96n5q8DMdR25uoBFIw1G+cbj4jxuS0EM7yNHiBxV8xJSPSyr1k
+         ftg1S5A6uRx9j7rqySSmFBra+swGrIQM2do1sRWw2rYcQS0j0BhE7bDCJWtC7elxNO14
+         FhAQ==
+X-Gm-Message-State: AOJu0YwBFlyjzWdYBOlB2WCYAONZVHRsTl/4HHJv1KdrD1PnXjUw8C9j
+	e1LTF+H7eKruBcnHJ+gSTDG3YA==
+X-Google-Smtp-Source: AGHT+IFEfoBhjOQCm3H2dwONN2OZeU0Zpiqlzxa0ALnC7U/VrgPgviuWtLFU33wwArf5EqgRuHAO2w==
+X-Received: by 2002:a05:6808:170b:b0:3a7:37ae:4a47 with SMTP id bc11-20020a056808170b00b003a737ae4a47mr3577036oib.12.1697564558899;
+        Tue, 17 Oct 2023 10:42:38 -0700 (PDT)
+Received: from ?IPV6:2600:1700:2000:b002:95cc:ccc5:95bc:7d2c? ([2600:1700:2000:b002:95cc:ccc5:95bc:7d2c])
+        by smtp.gmail.com with ESMTPSA id g5-20020ac85805000000b00419cb97418bsm785313qtg.15.2023.10.17.10.42.37
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 17 Oct 2023 10:42:38 -0700 (PDT)
+Message-ID: <8905630a-30dc-4b22-9d6c-fd4af97728bf@sifive.com>
+Date: Tue, 17 Oct 2023 12:42:37 -0500
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <ZS6qq1Y9bLZ868KI@sunil-laptop>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/4] dt-bindings: dma: sf-pdma: add new compatible name
+Content-Language: en-US
+To: Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>
+Cc: shravan chippa <shravan.chippa@microchip.com>, green.wan@sifive.com,
+ vkoul@kernel.org, krzysztof.kozlowski+dt@linaro.org, palmer@dabbelt.com,
+ paul.walmsley@sifive.com, conor+dt@kernel.org, dmaengine@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, nagasuresh.relli@microchip.com,
+ praveen.kumar@microchip.com, Conor Dooley <conor.dooley@microchip.com>
+References: <20231003042215.142678-1-shravan.chippa@microchip.com>
+ <20231003042215.142678-3-shravan.chippa@microchip.com>
+ <20231004133021.GB2743005-robh@kernel.org>
+ <20231005-wanted-plausible-71dae05ccc7b@spud>
+From: Samuel Holland <samuel.holland@sifive.com>
+In-Reply-To: <20231005-wanted-plausible-71dae05ccc7b@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231017_100358_336644_CA4155AE 
-X-CRM114-Status: GOOD (  25.70  )
+X-CRM114-CacheID: sfid-20231017_104242_785601_2AB6FEA7 
+X-CRM114-Status: UNSURE (   9.57  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,97 +101,24 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 17, 2023 at 09:09:23PM +0530, Sunil V L wrote:
-> On Tue, Oct 17, 2023 at 10:37:41AM +0200, Andrew Jones wrote:
-> > On Mon, Oct 16, 2023 at 10:19:57PM +0530, Sunil V L wrote:
-> > > Cache Block Operation (CBO) related block size in ACPI is provided by RHCT.
-> > > Add support to read the CMO node in RHCT to get this information.
-> > > 
-> > > Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
-> > > ---
-> > >  arch/riscv/include/asm/acpi.h |  6 +++
-> > >  drivers/acpi/riscv/rhct.c     | 93 +++++++++++++++++++++++++++++++++++
-> > >  2 files changed, 99 insertions(+)
-> > > 
-> > > diff --git a/arch/riscv/include/asm/acpi.h b/arch/riscv/include/asm/acpi.h
-> > > index d5604d2073bc..7dad0cf9d701 100644
-> > > --- a/arch/riscv/include/asm/acpi.h
-> > > +++ b/arch/riscv/include/asm/acpi.h
-> > > @@ -66,6 +66,8 @@ int acpi_get_riscv_isa(struct acpi_table_header *table,
-> > >  		       unsigned int cpu, const char **isa);
-> > >  
-> > >  static inline int acpi_numa_get_nid(unsigned int cpu) { return NUMA_NO_NODE; }
-> > > +void acpi_get_cbo_block_size(struct acpi_table_header *table, u32 *cbom_size,
-> > > +			     u32 *cboz_size, u32 *cbop_size);
-> > >  #else
-> > >  static inline void acpi_init_rintc_map(void) { }
-> > >  static inline struct acpi_madt_rintc *acpi_cpu_get_madt_rintc(int cpu)
-> > > @@ -79,6 +81,10 @@ static inline int acpi_get_riscv_isa(struct acpi_table_header *table,
-> > >  	return -EINVAL;
-> > >  }
-> > >  
-> > > +static inline void acpi_get_cbo_block_size(struct acpi_table_header *table,
-> > > +					   u32 *cbom_size, u32 *cboz_size,
-> > > +					   u32 *cbop_size) { }
-> > > +
-> > >  #endif /* CONFIG_ACPI */
-> > >  
-> > >  #endif /*_ASM_ACPI_H*/
-> > > diff --git a/drivers/acpi/riscv/rhct.c b/drivers/acpi/riscv/rhct.c
-> > > index b280b3e9c7d9..105f1aaa3fac 100644
-> > > --- a/drivers/acpi/riscv/rhct.c
-> > > +++ b/drivers/acpi/riscv/rhct.c
-> > > @@ -8,6 +8,7 @@
-> > >  #define pr_fmt(fmt)     "ACPI: RHCT: " fmt
-> > >  
-> > >  #include <linux/acpi.h>
-> > > +#include <linux/bits.h>
-> > >  
-> > >  static struct acpi_table_header *acpi_get_rhct(void)
-> > >  {
-> > > @@ -81,3 +82,95 @@ int acpi_get_riscv_isa(struct acpi_table_header *table, unsigned int cpu, const
-> > >  
-> > >  	return -1;
-> > >  }
-> > > +
-> > > +static void acpi_parse_hart_info_cmo_node(struct acpi_table_rhct *rhct,
-> > > +					  struct acpi_rhct_hart_info *hart_info,
-> > > +					  u32 *cbom_size, u32 *cboz_size, u32 *cbop_size)
-> > > +{
-> > > +	u32 size_hartinfo = sizeof(struct acpi_rhct_hart_info);
-> > > +	u32 size_hdr = sizeof(struct acpi_rhct_node_header);
-> > > +	struct acpi_rhct_node_header *ref_node;
-> > > +	struct acpi_rhct_cmo_node *cmo_node;
-> > > +	u32 *hart_info_node_offset;
-> > > +
-> > > +	hart_info_node_offset = ACPI_ADD_PTR(u32, hart_info, size_hartinfo);
-> > > +	for (int i = 0; i < hart_info->num_offsets; i++) {
-> > > +		ref_node = ACPI_ADD_PTR(struct acpi_rhct_node_header,
-> > > +					rhct, hart_info_node_offset[i]);
-> > > +		if (ref_node->type == ACPI_RHCT_NODE_TYPE_CMO) {
-> > > +			cmo_node = ACPI_ADD_PTR(struct acpi_rhct_cmo_node,
-> > > +						ref_node, size_hdr);
-> > > +			if (cbom_size && cmo_node->cbom_size <= 30) {
-> > > +				if (!*cbom_size) {
-> > > +					*cbom_size = BIT(cmo_node->cbom_size);
-> > > +				} else if (*cbom_size !=
-> > > +						BIT(cmo_node->cbom_size)) {
-> > 
-> > No need to break the if line, we can go to 100 chars. And then, since both
-> > the if and else if arms only have single statements, all the {} can be
-> > dropped too. Same comment for cboz and cbop.
-> > 
-> Yeah, it is a side effect of working on repos with different coding
-> standards. It is interesting that checkpatch didn't recommend to remove
-> the braces. Let me fix it in next revision. Thanks!.
+Hi Conor,
 
-I think checkpatch is OK with single lines that get broken into multiple
-lines having braces around them. In fact, it may even be preferred. My
-suggestion is to not break the line though, so checkpatch would likely
-complain after turning these lines into true single lines.
+On 2023-10-05 5:54 AM, Conor Dooley wrote:
+> On Wed, Oct 04, 2023 at 08:30:21AM -0500, Rob Herring wrote:
+>> Any fallback is only useful if an OS only understanding the fallback 
+>> will work with the h/w. Does this h/w work without the driver changes?
+> 
+> Yes. 
+> I've been hoping that someone from SiFive would come along, and in
+> response to this patchset, tell us _why_ the driver does not make use of
+> out-of-order transfers to begin with.
 
-Thanks,
-drew
+I have raised this question internally. So far I have not seen anything to
+suggest we need strictly-ordered transfers either, but I still need to confirm this.
+
+Regards,
+Samuel
+
 
 _______________________________________________
 linux-riscv mailing list
