@@ -4,63 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C1EECDB482
-	for <linux-riscv@archiver.kernel.org>; Tue, 17 Oct 2023 10:48:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58398CDB474
+	for <linux-riscv@archiver.kernel.org>; Tue, 17 Oct 2023 10:48:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=xUWT3ymjN3cQo5AmueU1gtrxGGA30UysM5LGXYsIfIw=; b=sdYhNSUdqRqfRq
-	SBQg9T8/h0tqp2udA/ELoPJgMiBSBeHNB2ihHHDTx9H43MdPtwx+AMx67kM77OyOXk8yn70mwLRR9
-	NJo+XXM2ME6mFlKxPEP4d/q3praESFIO3DsdN94kOJYfmijP6J46Nqv7pagG79H2xVKM8aPFBq+EX
-	jly2YOksyQ59r0rsyReNqy1LlAkYidKTq43BxSVHa8FC5ztIsih1vhcgK9qT0sBgNSsNj2X/YgQnX
-	VenyB7rC7C8EpL9UISp9uoyj6DKx1NcUCl7UvRy+0/T6AYBkfqFrHcTjtOJCYv0Gu/xzDiCgJxDHX
-	rPrk11qy8mElhahJkoXw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=i4BF1B3dW2qQj4oqrMw9xT9c4Ej9OZhAWMFaUSX34GA=; b=xvYePUXfOP6pWC
+	3rI5TtbfGItIDHfFBa9AGPVOZAEvQtdMmnhOuFVMBuHn8MqPlB5B1an0/CsOWZcCmr1XjPe90fJnz
+	Ihua0ZO9AkEKWj/r4W3bbJM10PuU2dkBluD/XNq+rXa5eN7VWUvHcfEUBxWSG90NRUGpIeCIwjP/h
+	AODSH9rLuXfmxxvFUoW97X7qSMUKlWnVcowHioOplkM0qemKvNbFK0KO7cSJwKhhV3vxQKIHMxn7c
+	I/cdPoNsQBc7c4Qag5XEb2pzkpxXZvWD3kwQeGAzUppxXQmwbRRkxcB518scZ7wjX69ZEy8XPuvMW
+	OkWsE+mh6NS3xloVdIrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qshc9-00C7QF-0n;
-	Tue, 17 Oct 2023 10:47:53 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1qshcH-00C7Ub-2A;
+	Tue, 17 Oct 2023 10:48:01 +0000
+Received: from mail-lj1-x22c.google.com ([2a00:1450:4864:20::22c])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qshc6-00C7PC-25
+	id 1qshcD-00C7Ql-3A
 	for linux-riscv@lists.infradead.org;
-	Tue, 17 Oct 2023 10:47:52 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-4079ed65471so3681885e9.1
-        for <linux-riscv@lists.infradead.org>; Tue, 17 Oct 2023 03:47:47 -0700 (PDT)
+	Tue, 17 Oct 2023 10:47:59 +0000
+Received: by mail-lj1-x22c.google.com with SMTP id 38308e7fff4ca-2c4fdf94666so57048051fa.2
+        for <linux-riscv@lists.infradead.org>; Tue, 17 Oct 2023 03:47:55 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1697539666; x=1698144466; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=DngmYhquuUYsmqR6CkC7bFKb939k4yPlXBwM4OfGx8w=;
-        b=IoiM6ChxEzrez9NUNU278XQNr9I3OoWdAxN8j/04kvXKB2Hr5T9J5pfyZf7iPvOnHU
-         XMF/8DevWVxFGo3rKwdhjHpk5QpwE5qyzHGxlYnsq8t/Yl87uUDQ35/5QUdAbUc1AauL
-         XBpf49WvCFFKZclfYi5vgf3lz4P7BZIb5W+k7DFgaIIYK8/Sdup629K80ADEtouC1SBq
-         gftgURiEYTf+HgZzkjyCni7ikFXNerBGmNtAWQYRW/+uoTmq1g7W1fkWRItNz8gKJCFO
-         mBaevQwNaGmPlBi/Zt+jDWWMHOyze31tfzAWZy2OxY1n5y2JR1bMm24yWM14jKHcbYuS
-         FoiQ==
+        d=gmail.com; s=20230601; t=1697539674; x=1698144474; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=wW4HxCYnatcP/vztbzCLoFkbFaiPGRf9h2XT9nzoMiE=;
+        b=k8EUuBpZfulNrVN8/ElFeBUfQR1+SFa/+zrxs4L55OkoWQgz7QBx7/bsLHS64RhdDV
+         hSgJyaXpMVfkf/BHBum2htHKkwbEEnJI1E/bI3vChh+pChHeefayQ/oo2qPbs1zz2qbN
+         Arw90C7dwj60Tl/qp8SZjLbLYg4ygGQVtLbN760r9YreFLOlpoX/+F3yy28MNJbq13QX
+         /2HZxUL5uW1TmAF2o39DLN0fpnMssM4r96Qf9z6we5pc83YGG1CVORYGRer0LCEg5qXq
+         eF5LrKap/iNiDzli3wvyt1StjxzHxkvgNF0O7vcViECYA3JmcYgqmyy3NlL4rvfjdNG7
+         jz0g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1697539666; x=1698144466;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=DngmYhquuUYsmqR6CkC7bFKb939k4yPlXBwM4OfGx8w=;
-        b=GnIB5ABh6/lsO0dHRzVUUta0mMN8kxjeNjmk75A5UsyJ4Q/NijCfyWlyBQZOW4K+OS
-         FSFJ8pJ1aZpvHhA3bacgMLHoclDOXGiVSOwNt9G40iALT+StzeB0JRR8+BE5Jyb1EkY+
-         b9hhDVN7nrll1k+iEdtfMTde8czyp526SrO7knGT2at+BVyeW7WOV+tX7Qoh3fY75Geq
-         q5UY18zJdMAWsAwUfOc6ksxROe92b4TxUoYVH87uwKBAcoSGqARJkAKn6HxkzmUC3+eQ
-         PzDvGfv+kv6kTh0JdaT+doGVPR8MqynrgsDcPePGCu8vlOueJyiYLz95oJ+ojW4ajaT9
-         9sKA==
-X-Gm-Message-State: AOJu0YxTcBinjF1nutpZG5g+rKM+OkkK3CrKaR5RLrNkeBLCS2iLPr5W
-	VjjwZ3SYgKQ0xgIiVNsyeAM=
-X-Google-Smtp-Source: AGHT+IHdE/vTp1u3u+UEAzAp8nMSLvbdXoZx/WxT6B2rUO1tDVu3mSXH6yQaUgMhYEP9dUoXoGrdqQ==
-X-Received: by 2002:a05:600c:a01:b0:405:3f19:fc49 with SMTP id z1-20020a05600c0a0100b004053f19fc49mr1343875wmp.34.1697539665699;
-        Tue, 17 Oct 2023 03:47:45 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1697539674; x=1698144474;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=wW4HxCYnatcP/vztbzCLoFkbFaiPGRf9h2XT9nzoMiE=;
+        b=R3BVxsQEvS0QFTBaHecjfFkcFSnqPN2RQ76ooo1N1o3Sq7a9ZwaQem68eOD3l9Gxh0
+         +DAyluEu10BdfO8DUjzB0E3SLFZ672/1L41zFU5HSjH7NBkpV6zFrviCQvQcixkHWTcf
+         cZJrVeZxwWms8zFzyXYsXsWnIRpkD1MzJPMUPC48dW9yFOQflf9Y8xiHfwzvjcuOyUJ/
+         8z8x6VPiz/rqOZXfZ0OE4xO4wQTcn8MxBUFtNRUIB7bzsFDNwvKk4PUGZ/RaOb6MX5OU
+         zWVtk0twqMwz08QZQt9gZu7mUocdT+xVgEzfG+rPyMSiuKGIGowiPRCLem3nSWvh6uS8
+         BlkA==
+X-Gm-Message-State: AOJu0Ywy66OPNHQoceiBbg8HH1Wow8ga9ELuKY2Chvo7NMOkgr9VcJP+
+	DkLBoxC52eZHjyZXlsMJoOI=
+X-Google-Smtp-Source: AGHT+IEJPTcRkmP/L+efxr/73vVSzCydhcAMii3FSFXDwAm/r+Qq/fG4Jwxl694rQJqlTaV0diobhw==
+X-Received: by 2002:a2e:a98a:0:b0:2c5:72e:6ff9 with SMTP id x10-20020a2ea98a000000b002c5072e6ff9mr1913088ljq.6.1697539673656;
+        Tue, 17 Oct 2023 03:47:53 -0700 (PDT)
 Received: from prasmi.home ([2a00:23c8:2501:c701:e26d:77db:3f90:862b])
-        by smtp.gmail.com with ESMTPSA id a6-20020a05600c348600b0040652e8ca13sm9582037wmq.43.2023.10.17.03.47.44
+        by smtp.gmail.com with ESMTPSA id a6-20020a05600c348600b0040652e8ca13sm9582037wmq.43.2023.10.17.03.47.52
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Oct 2023 03:47:45 -0700 (PDT)
+        Tue, 17 Oct 2023 03:47:52 -0700 (PDT)
 From: Prabhakar <prabhakar.csengg@gmail.com>
 X-Google-Original-From: Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 To: Geert Uytterhoeven <geert+renesas@glider.be>,
@@ -78,14 +79,16 @@ Cc: Rob Herring <robh+dt@kernel.org>,
 	Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>,
 	Prabhakar <prabhakar.csengg@gmail.com>,
 	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Subject: [PATCH v2 0/3] Add missing port pins for RZ/Five SoC
-Date: Tue, 17 Oct 2023 11:46:35 +0100
-Message-Id: <20231017104638.201260-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+Subject: [PATCH v2 3/3] riscv: dts: renesas: r9a07g043f: Update gpio-ranges property
+Date: Tue, 17 Oct 2023 11:46:38 +0100
+Message-Id: <20231017104638.201260-4-prabhakar.mahadev-lad.rj@bp.renesas.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20231017104638.201260-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+References: <20231017104638.201260-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231017_034750_688459_38F3E8BD 
-X-CRM114-Status: UNSURE (   8.71  )
+X-CRM114-CacheID: sfid-20231017_034758_023879_A7FB0AA5 
+X-CRM114-Status: UNSURE (   9.25  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -105,29 +108,29 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 
-Hi Geert,
+On RZ/Five we have additional pins compared to the RZ/G2UL SoC so update
+the gpio-ranges property in RZ/Five SoC DTSI.
 
-This patch series intends to incorporate the absent port pins P19 to P28,
-which are exclusively available on the RZ/Five SoC.
+Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+---
+ arch/riscv/boot/dts/renesas/r9a07g043f.dtsi | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-Cheers,
-Prabhakar
-
-RFC -> v2:
-* Fixed review comments pointed by Geert & Biju
-
-RFC: https://lore.kernel.org/lkml/20230630120433.49529-3-prabhakar.mahadev-lad.rj@bp.renesas.com/T/
-
-Lad Prabhakar (3):
-  pinctrl: renesas: rzg2l: Include pinmap in RZG2L_GPIO_PORT_PACK()
-    macro
-  pinctrl: renesas: pinctrl-rzg2l: Add the missing port pins P19 to P28
-  riscv: dts: renesas: r9a07g043f: Update gpio-ranges property
-
- arch/riscv/boot/dts/renesas/r9a07g043f.dtsi |   4 +
- drivers/pinctrl/renesas/pinctrl-rzg2l.c     | 263 ++++++++++++++++++--
- 2 files changed, 242 insertions(+), 25 deletions(-)
-
+diff --git a/arch/riscv/boot/dts/renesas/r9a07g043f.dtsi b/arch/riscv/boot/dts/renesas/r9a07g043f.dtsi
+index b0796015e36b..e68a91c9fe77 100644
+--- a/arch/riscv/boot/dts/renesas/r9a07g043f.dtsi
++++ b/arch/riscv/boot/dts/renesas/r9a07g043f.dtsi
+@@ -42,6 +42,10 @@ cpu0_intc: interrupt-controller {
+ 	};
+ };
+ 
++&pinctrl {
++	gpio-ranges = <&pinctrl 0 0 232>;
++};
++
+ &soc {
+ 	dma-noncoherent;
+ 	interrupt-parent = <&plic>;
 -- 
 2.34.1
 
