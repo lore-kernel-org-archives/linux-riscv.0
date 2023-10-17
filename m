@@ -4,87 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8726ECDB482
-	for <linux-riscv@archiver.kernel.org>; Tue, 17 Oct 2023 17:42:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38C81CDB474
+	for <linux-riscv@archiver.kernel.org>; Tue, 17 Oct 2023 18:33:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jT3oyejQC+/qtMwtw16Ng2VBk+yYEo/CQOat++Fi8E8=; b=edeswhokNONgtc
-	+hBqtqrc4GgRRITg3d8rHJv1gtj8vscdWQDHMlpcTTPgdH4CnmTaQWxqX3nS2mbnM4A3AsMyp5xyj
-	4bORDSjXlNmBwWZte5dQBKfNSQXHWyhu3u9/1LCljHmVK2xoEQWbOiJbc0bJMVOUhduWBNfel29Es
-	enroW56GbolN7tnYmNY81Q4hYFKQfQttLUg4fnGDfyCQoZTNC4bkH0D21Mc59i//H15O2AG5iqQFq
-	QuxLvHw+QWCKHkTyQtqVE8OGotD8O7RghpCHV4TWwV8Vs4kJ68rBuIH/nW8CBkiSVNlVgnovKUVQG
-	2M+iNPnpXymHRQMgQDbw==;
+	List-Owner; bh=7IxTyEbvWhct/CdU1Iw8oEmrAzJXc+u5Z93OhigmMFI=; b=if8/kvjF8bG0Mr
+	62FR/olKh0JhSOSEzBg6XY9wKPbYH1FavYDPKbb8r00wI4ufnAdMeC5KNL8/8N/PxwAeVaYMrpeCH
+	eu1x/pCF/QDyn65+kMqzLdvCJdF9c5JC4LWIh+ALUNWlf6aXigobwZc50pC1Z7al3Ay5yrI85lnjL
+	5aiVRxqpPt0C6c1AU+vHcZUIlOgN6V9JALuy2NAS2VWwLsTjLfKVevSIgfuBroxRg49HY/0MeB+O0
+	Do4JXu4Rhh+2WFM4gPVgJkzbdPbCknPaYjAQKSzo/vYa7gkyvbRn496c4lojt6di3Idr1OBsfnj7a
+	8LX+Tli9kWUCY0kXnmdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qso5f-00CvOn-2m;
-	Tue, 17 Oct 2023 17:42:47 +0000
-Received: from mail-oi1-x22c.google.com ([2607:f8b0:4864:20::22c])
+	id 1qsosn-00Cz5D-2S;
+	Tue, 17 Oct 2023 18:33:33 +0000
+Received: from mail-qk1-x72b.google.com ([2607:f8b0:4864:20::72b])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qso5a-00CvNY-2E
+	id 1qsosl-00Cz4O-1W
 	for linux-riscv@lists.infradead.org;
-	Tue, 17 Oct 2023 17:42:46 +0000
-Received: by mail-oi1-x22c.google.com with SMTP id 5614622812f47-3af65455e7fso4340843b6e.3
-        for <linux-riscv@lists.infradead.org>; Tue, 17 Oct 2023 10:42:39 -0700 (PDT)
+	Tue, 17 Oct 2023 18:33:32 +0000
+Received: by mail-qk1-x72b.google.com with SMTP id af79cd13be357-775751c35d4so394254785a.0
+        for <linux-riscv@lists.infradead.org>; Tue, 17 Oct 2023 11:33:29 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1697564559; x=1698169359; darn=lists.infradead.org;
+        d=sifive.com; s=google; t=1697567609; x=1698172409; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=rPz/XE7kyZI3rqX/gW9OA3u4MOOTZR6TB5rRl4itwhs=;
-        b=Ckh+qNKXBP0vpA3GGMF6DUdjoT5AzcrMIkw4kDuT2bGH4hOYUzAy6JCFICnIJ66NQM
-         ggjKn4lUhaOAhnKJ+yR0dJAUGLhc94HbnGHncWrmqqN6FyIAm/XHoHM+MP3QiqArmen3
-         6ozfHRMZvLVLO0vPNKyZRm9Adda6zKkykkRWWTE6eYt89eUlPNlBe3pOS94qx9FwjmED
-         PjDN9/OJmtmKIbRew5XIKf4TO2IyVnL1cmN6be5QtbCX0kvYmU9gbaknGCmWQ+3waKLj
-         Pe04bmoXQeR6LkxMyLoJdTUSSC6DOYsONkmaMeTf3K5sM9K4ZSjwdPgn8hAUZtyB6W9F
-         u7eQ==
+        bh=AcBNvDPm+5lurRZbHk0V2IeK1x1A6vL27sfb3JeZGgA=;
+        b=e854N4C8U+4Bp/sqpDqwM8ld2GO59zfKPGHXGaP1ayTEBNVJ03ocXHKeBsOt7a0MlV
+         3XsfubldqgNS0YzdqW7Sh4l7ji2UtGTfXjeps/w4FXsFSWV4HoXzHBLxU015HWQPqqNf
+         h8CJ98Rgc3X5t7G8F7FDW99x2QlpiZDHvxvhFHNOaIOfMpuF9BroPg+VffRfpbBRRmuT
+         AUkxfeNDKhRUPdT/TQr9Wkz8ipoIfFDcc76WfxeGjumcQbR6mqG0jhdC9rgiAskyJALz
+         KbX/cpIfCoPnO3vMvFLEgsHToaWsOFuUBk4SCoxaSMlGPV+Z8w3gyNqP6MrlPYt6V7tq
+         X6pQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1697564559; x=1698169359;
+        d=1e100.net; s=20230601; t=1697567609; x=1698172409;
         h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=rPz/XE7kyZI3rqX/gW9OA3u4MOOTZR6TB5rRl4itwhs=;
-        b=HXjBl/l1zPm77LPfhtQZrZMmo5yDt9qxu1iDi33P7NX96jgkFDHARYupKtBU1YPwU7
-         9ur0rDw8UjXtjzd3TE65T6Hgbh1fOTuH4+b+vLXPlJsr+XdG/WUZ2nQp0qA1I0Jj1ju6
-         uS9U/PdL0hrSq9l4tbfkSNQ0OA+wqpumrRnC3OkBj6B07og3GVOK5ccGQ8OgorhDAQk3
-         yFuv12kO1AmfOOuj9y96n5q8DMdR25uoBFIw1G+cbj4jxuS0EM7yNHiBxV8xJSPSyr1k
-         ftg1S5A6uRx9j7rqySSmFBra+swGrIQM2do1sRWw2rYcQS0j0BhE7bDCJWtC7elxNO14
-         FhAQ==
-X-Gm-Message-State: AOJu0YwBFlyjzWdYBOlB2WCYAONZVHRsTl/4HHJv1KdrD1PnXjUw8C9j
-	e1LTF+H7eKruBcnHJ+gSTDG3YA==
-X-Google-Smtp-Source: AGHT+IFEfoBhjOQCm3H2dwONN2OZeU0Zpiqlzxa0ALnC7U/VrgPgviuWtLFU33wwArf5EqgRuHAO2w==
-X-Received: by 2002:a05:6808:170b:b0:3a7:37ae:4a47 with SMTP id bc11-20020a056808170b00b003a737ae4a47mr3577036oib.12.1697564558899;
-        Tue, 17 Oct 2023 10:42:38 -0700 (PDT)
+        bh=AcBNvDPm+5lurRZbHk0V2IeK1x1A6vL27sfb3JeZGgA=;
+        b=Ju1QhE7g1N61HhaSgzphcMWnNXN41wGI/UGe+Py6zKTGE7hnsY7CVSSGktymfvgf/7
+         biwAgZBFxBwUJWkmS/ISPuRqR6sElUFbbK0/TX1ztiIM54a/7M9ivpcAPlWipr9cxEfE
+         PeHhFgY+reh+VVNu9nBhY1q3F49Pcoh4yAVZGlu1rGS/RdIucCnWey6jGPya6BvyySVi
+         odmTWxCy+lbA9rKBhqOPAV6LQYPV9Ant6C65XIzaVMQ0FnWUjAgy7De5M3p8ZEIxWYkl
+         Jnc58hFA/6VxovleQIt5fEuEWbUjbAk1032phBt47IT1xY4UwOVYtqsIkdUIMFNb/Dn4
+         ydTw==
+X-Gm-Message-State: AOJu0YxvHbCB/6G/EAv8PoVPNxnDZ5YHCx08eq7AFissnT6CY6dPOu1C
+	BmAlv4Bg/U3Yclnvo31bzFpZbQ==
+X-Google-Smtp-Source: AGHT+IEhq81kqSuzy5uDqP7PO49OdWiRqBLX172oxXpXHG/RYxZodn51GvnKH+ECpR7nbBAhO+94Bg==
+X-Received: by 2002:a05:620a:1229:b0:76d:ada0:4c0 with SMTP id v9-20020a05620a122900b0076dada004c0mr2765787qkj.76.1697567608779;
+        Tue, 17 Oct 2023 11:33:28 -0700 (PDT)
 Received: from ?IPV6:2600:1700:2000:b002:95cc:ccc5:95bc:7d2c? ([2600:1700:2000:b002:95cc:ccc5:95bc:7d2c])
-        by smtp.gmail.com with ESMTPSA id g5-20020ac85805000000b00419cb97418bsm785313qtg.15.2023.10.17.10.42.37
+        by smtp.gmail.com with ESMTPSA id f22-20020a05620a12f600b00765aa3ffa07sm866623qkl.98.2023.10.17.11.33.27
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 17 Oct 2023 10:42:38 -0700 (PDT)
-Message-ID: <8905630a-30dc-4b22-9d6c-fd4af97728bf@sifive.com>
-Date: Tue, 17 Oct 2023 12:42:37 -0500
+        Tue, 17 Oct 2023 11:33:28 -0700 (PDT)
+Message-ID: <e5d2e96b-9b16-4aaf-9291-76d1d2222c44@sifive.com>
+Date: Tue, 17 Oct 2023 13:33:27 -0500
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/4] dt-bindings: dma: sf-pdma: add new compatible name
+Subject: Re: [PATCH v2 1/4] dmaengine: sf-pdma: Support
+ of_dma_controller_register()
 Content-Language: en-US
-To: Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>
-Cc: shravan chippa <shravan.chippa@microchip.com>, green.wan@sifive.com,
- vkoul@kernel.org, krzysztof.kozlowski+dt@linaro.org, palmer@dabbelt.com,
- paul.walmsley@sifive.com, conor+dt@kernel.org, dmaengine@vger.kernel.org,
- devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, nagasuresh.relli@microchip.com,
- praveen.kumar@microchip.com, Conor Dooley <conor.dooley@microchip.com>
+To: shravan chippa <shravan.chippa@microchip.com>, green.wan@sifive.com,
+ vkoul@kernel.org, robh+dt@kernel.org, krzysztof.kozlowski+dt@linaro.org,
+ palmer@dabbelt.com, paul.walmsley@sifive.com, conor+dt@kernel.org
+Cc: dmaengine@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ nagasuresh.relli@microchip.com, praveen.kumar@microchip.com
 References: <20231003042215.142678-1-shravan.chippa@microchip.com>
- <20231003042215.142678-3-shravan.chippa@microchip.com>
- <20231004133021.GB2743005-robh@kernel.org>
- <20231005-wanted-plausible-71dae05ccc7b@spud>
+ <20231003042215.142678-2-shravan.chippa@microchip.com>
 From: Samuel Holland <samuel.holland@sifive.com>
-In-Reply-To: <20231005-wanted-plausible-71dae05ccc7b@spud>
+In-Reply-To: <20231003042215.142678-2-shravan.chippa@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231017_104242_785601_2AB6FEA7 
-X-CRM114-Status: UNSURE (   9.57  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20231017_113331_542927_D29AECA1 
+X-CRM114-Status: GOOD (  23.53  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,23 +98,112 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Conor,
+Hi,
 
-On 2023-10-05 5:54 AM, Conor Dooley wrote:
-> On Wed, Oct 04, 2023 at 08:30:21AM -0500, Rob Herring wrote:
->> Any fallback is only useful if an OS only understanding the fallback 
->> will work with the h/w. Does this h/w work without the driver changes?
+On 2023-10-02 11:22 PM, shravan chippa wrote:
+> From: Shravan Chippa <shravan.chippa@microchip.com>
 > 
-> Yes. 
-> I've been hoping that someone from SiFive would come along, and in
-> response to this patchset, tell us _why_ the driver does not make use of
-> out-of-order transfers to begin with.
+> Update sf-pdma driver to adopt generic DMA device tree bindings.
+> It calls of_dma_controller_register() with sf-pdma specific
+> of_dma_xlate to get the generic DMA device tree helper support
+> and the DMA clients can look up the sf-pdma controller using
+> standard APIs.
+> 
+> Signed-off-by: Shravan Chippa <shravan.chippa@microchip.com>
+> ---
+>  drivers/dma/sf-pdma/sf-pdma.c | 44 +++++++++++++++++++++++++++++++++++
+>  1 file changed, 44 insertions(+)
+> 
+> diff --git a/drivers/dma/sf-pdma/sf-pdma.c b/drivers/dma/sf-pdma/sf-pdma.c
+> index d1c6956af452..06a0912a12a1 100644
+> --- a/drivers/dma/sf-pdma/sf-pdma.c
+> +++ b/drivers/dma/sf-pdma/sf-pdma.c
+> @@ -20,6 +20,7 @@
+>  #include <linux/mod_devicetable.h>
+>  #include <linux/dma-mapping.h>
+>  #include <linux/of.h>
+> +#include <linux/of_dma.h>
+>  #include <linux/slab.h>
+>  
+>  #include "sf-pdma.h"
+> @@ -490,6 +491,33 @@ static void sf_pdma_setup_chans(struct sf_pdma *pdma)
+>  	}
+>  }
+>  
+> +static struct dma_chan *sf_pdma_of_xlate(struct of_phandle_args *dma_spec,
+> +					 struct of_dma *ofdma)
+> +{
+> +	struct sf_pdma *pdma = ofdma->of_dma_data;
+> +	struct device *dev = pdma->dma_dev.dev;
+> +	struct sf_pdma_chan  *chan;
+> +	struct dma_chan *c;
+> +	u32 channel_id;
+> +
+> +	if (dma_spec->args_count != 1) {
+> +		dev_err(dev, "Bad number of cells\n");
+> +		return NULL;
+> +	}
+> +
+> +	channel_id = dma_spec->args[0];
+> +
+> +	chan = &pdma->chans[channel_id];
+> +
+> +	c = dma_get_slave_channel(&chan->vchan.chan);
 
-I have raised this question internally. So far I have not seen anything to
-suggest we need strictly-ordered transfers either, but I still need to confirm this.
+This does not look right to me. All of the channels in the controller are
+identical and support arbitrary addresses, so there is no need to use a specific
+physical channel. And unless Microchip has added something on top, the only way
+to trigger a transfer is through the MMIO interface, so there is no request ID
+to differentiate virtual channels either.
+
+So it seems to me that #dma-cells should really be 0, and this function should
+just call dma_get_any_slave_channel().
 
 Regards,
 Samuel
+
+> +	if (!c) {
+> +		dev_err(dev, "No more channels available\n");
+> +		return NULL;
+> +	}
+> +
+> +	return c;
+> +}
+> +
+>  static int sf_pdma_probe(struct platform_device *pdev)
+>  {
+>  	struct sf_pdma *pdma;
+> @@ -563,7 +591,20 @@ static int sf_pdma_probe(struct platform_device *pdev)
+>  		return ret;
+>  	}
+>  
+> +	ret = of_dma_controller_register(pdev->dev.of_node,
+> +					 sf_pdma_of_xlate, pdma);
+> +	if (ret < 0) {
+> +		dev_err(&pdev->dev,
+> +			"Can't register SiFive Platform OF_DMA. (%d)\n", ret);
+> +		goto err_unregister;
+> +	}
+> +
+>  	return 0;
+> +
+> +err_unregister:
+> +	dma_async_device_unregister(&pdma->dma_dev);
+> +
+> +	return ret;
+>  }
+>  
+>  static int sf_pdma_remove(struct platform_device *pdev)
+> @@ -583,6 +624,9 @@ static int sf_pdma_remove(struct platform_device *pdev)
+>  		tasklet_kill(&ch->err_tasklet);
+>  	}
+>  
+> +	if (pdev->dev.of_node)
+> +		of_dma_controller_free(pdev->dev.of_node);
+> +
+>  	dma_async_device_unregister(&pdma->dma_dev);
+>  
+>  	return 0;
 
 
 _______________________________________________
