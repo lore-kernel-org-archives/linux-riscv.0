@@ -4,86 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 447C8CDB47E
-	for <linux-riscv@archiver.kernel.org>; Wed, 18 Oct 2023 12:18:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 841EFCDB47E
+	for <linux-riscv@archiver.kernel.org>; Wed, 18 Oct 2023 12:37:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:
-	Mime-Version:References:In-Reply-To:From:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=1hY2UyLjDclwCGachtLWnWXWLWdLMtZgkCHrFAThRaM=; b=nCTRY5LAMYPZHrrGXS0M7Tza74
-	qwlj7ofM3c2QlA9YWOrUz9W/GyxAGf7ZOIAxiUSw9W+lmcSlpzVdPKjt9fUpC6yGMts/WwktmZDLl
-	GojCmkBgK6QLasw6P9cfDMYHi3MYZjBcgy8CR5uSodSPVqFajx8kyfZWWocD6KAIw1P73XO8qltIk
-	cItSPAxCQ7RcB34B0OLdKcOMPxlU+EgFPhedXN25zx2/Z+qXnRuQnHCTMQSBkY3J4DVPNxPQYHPpb
-	xiqz6mk/rbRTnIk9VbvqH365lWhPIX4bsiiTeGocA3z0ZclInbXFvXR9d0ZBLgE1TSJLebkgWj9Vs
-	zTbEkwcw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=TAco8BiMaF21edIqsACAXz5dhdIrjCfb1Hljh99d3vA=; b=0a67FVPJMUdLYs
+	7RZ3Z3NN30f5AQ9HN1e2lX9ZiUjuDnyb1WxzOSB5VmMK+9Ddj+5iE7PgVWmszbGkK+0OhKEz07gbd
+	GtpklFHUEFpS9ziruc5NICS+fuzk4WidG9sQ0Ra+nT8urAwuA6HFhgvMLe8hBe5L+t8CiY+lTgfnT
+	qQTpKEYy+03YYRhoAjrswTJg6Q3lOy9o8RX73p4A7JACsTzTXDozqI869euzvROU0Xw2/KnynHDN+
+	rrV8ob+xfx+iCI79CnB32m7Qlk6MDiA65lpPE898UL/hpGleYnuU5PnyYf+5/HH9RtQqaqQOE+aSZ
+	SVibPyp+hm+MoamcTlzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qt5Uu-00EdUD-38;
-	Wed, 18 Oct 2023 12:18:00 +0000
-Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
+	id 1qt5o3-00EgDV-0X;
+	Wed, 18 Oct 2023 12:37:47 +0000
+Received: from mail-dm6nam10olkn2082e.outbound.protection.outlook.com ([2a01:111:f400:7e88::82e] helo=NAM10-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qt5Uq-00EdSE-2L
+	id 1qt5o0-00EgCh-1A
 	for linux-riscv@lists.infradead.org;
-	Wed, 18 Oct 2023 12:17:59 +0000
-Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 76B193F12E
-	for <linux-riscv@lists.infradead.org>; Wed, 18 Oct 2023 12:17:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20210705; t=1697631466;
-	bh=9JEjALsOVS6EpRdOMeKAgdLdy8unJkD+oLph4vQm3Qc=;
-	h=From:In-Reply-To:References:Mime-Version:Date:Message-ID:Subject:
-	 To:Cc:Content-Type;
-	b=Z3N/gwhSu9jMPd7HziYBoeHmKdP1C1iUYpYc4scJzGp9MgsW3OxrKsT0HjdXKZSqj
-	 j9Qg/VHs7nZRDVv83xEqUuyM7QTXb5kMkUx0aXlCRSTc37Y4gl6z5Pitut38b8Sa3L
-	 xeV+FjA4dJsQ2ovEQ+rNB/iLkY2XdYvgyogQQ02DLmI8Mz/qZFCqWJKSJG5kKiSbU1
-	 Qha9vNuj74EyqQudEYuQaZQ1G+WrO6lQht8OvzS4ZCVkt5UCFVfhREQJKT+qZpY5tQ
-	 FWiYnMdBBmF//dQ8PlwDLyy7LyvsK4KRruo1i7HyGTDUGvgy3KkH6dSmDPjIyf169E
-	 shACBqv1X6qKQ==
-Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-4196a386347so78763551cf.1
-        for <linux-riscv@lists.infradead.org>; Wed, 18 Oct 2023 05:17:46 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1697631465; x=1698236265;
-        h=cc:to:subject:message-id:date:mime-version:references:in-reply-to
-         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=9JEjALsOVS6EpRdOMeKAgdLdy8unJkD+oLph4vQm3Qc=;
-        b=br4OmTSWyx/GtywNeuYhi0buz2/OzfypeSb6qhzyH21Pza4tAIgU1/RHm5/Q4QwRk/
-         QYZWJS59meUnks2TY9f8gVAbYT38nF9L1bnXsU5S5lqGdRqENUobJ96RD8IKPSzAcYs6
-         KyO7L7UaSxznetR705giL95OZMpgXyiG2fLwL+Ap15KzpSbAERnOZ29YNkHZnWt0rHe5
-         LRUGPzGZ7VRvda1g4Azibanriyx2mkC7lxfawcWzBlRzQ177qdSc9vP8wXwi+HvGCDJQ
-         Mib1CGD+72YDm6YpYFExg+6+k1HwOmurEbBtJbQugM2Oe9EtqgLf18ElUcX1wXAE6WJ3
-         fHaQ==
-X-Gm-Message-State: AOJu0YxN7HSheypmwhDlIEsbHbZ13EfCypeFrcM5vobvl/4uiclt0kOV
-	douQdFMES38Me9kRvRk+Rtn6/vk6cV9khrs6k41BaEk1WyUxHXtAKkg3mFcX1cAsDOAJtQxt6qX
-	p+BRMEZmDJLlioIKf+3KoYxE7dz2wI9y8OkxaO/c4XMIvynfTiD4u5NqBWY0s4g==
-X-Received: by 2002:ac8:5881:0:b0:417:a2f9:bba6 with SMTP id t1-20020ac85881000000b00417a2f9bba6mr6082683qta.60.1697631465495;
-        Wed, 18 Oct 2023 05:17:45 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGOT0ZujbVgQOYLg/oMo1KykMdjcWnmsK64lOmvJEgiod5XNn3HuH70ZaRIf/EMNLmMBA1vkrk9kJquGEF9OO8=
-X-Received: by 2002:ac8:5881:0:b0:417:a2f9:bba6 with SMTP id
- t1-20020ac85881000000b00417a2f9bba6mr6082652qta.60.1697631465119; Wed, 18 Oct
- 2023 05:17:45 -0700 (PDT)
-Received: from 348282803490 named unknown by gmailapi.google.com with
- HTTPREST; Wed, 18 Oct 2023 05:17:44 -0700
-From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-In-Reply-To: <20231017-module_relocations-v4-1-937f5ef316f0@rivosinc.com>
-References: <20231017-module_relocations-v4-0-937f5ef316f0@rivosinc.com> <20231017-module_relocations-v4-1-937f5ef316f0@rivosinc.com>
-Mime-Version: 1.0
-Date: Wed, 18 Oct 2023 05:17:44 -0700
-Message-ID: <CAJM55Z9xgyJoCX83hgwerF6SRo6yit8=0rmLzhF8Ju4TmZq3BA@mail.gmail.com>
-Subject: Re: [PATCH v4 1/2] riscv: Add remaining module relocations
-To: Charlie Jenkins <charlie@rivosinc.com>, linux-riscv@lists.infradead.org, 
-	linux-mm@kvack.org, linux-kernel@vger.kernel.org
-Cc: Eric Biederman <ebiederm@xmission.com>, Kees Cook <keescook@chromium.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Wed, 18 Oct 2023 12:37:45 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=kMgN4LkNnvpQT9hxxWeWZymNrFyS4rAsdsee2eOxW0AuxmpfrqFcskMab/+J4UURRKBuYi3x6dKinQBePIVW2YeWNNwBCItrdZIQ+jGjNnj1sLoiuVZDqbqJ8W0/yXnryDAn8F3s6kr/Rue3hUrFgHDUNR/XyBUT9MUFp/b/lyvaCcV/ZiHWJHsM6khJtlACGea1dEH+bcGErvtekv10uEbQW3n7busTPy8BR5JE8Jo5KTgdLe7C/nB0P9J23lUHYBaHq98IFI5Z05PqaSYqNQikcHjaVgIxG7QuxK9OLODFDnZpbA0Ydth/2Nrwv+9eyAQdgKShWgoyQbt+4zZb5Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=hr28upwkPn4oJyaNFmtTw6AwNt8aFNTRILMM4isSNuU=;
+ b=kuCwtsynjBQgO3mYaU7olvJizhq9YAoFIRt3VjOLB3gDRiOZE37y3MSVLva98AQ3TNbiiH6USAirMYjlN6rj2Nan5E3wC/zx+YuVWppDQVElt9X5Tcg0CChEUu2UrhspwyaWe3LSN4V2ZeMX4b3JdV6Zz1Yx7QVe2X3BIZcpjO/RgJGEQfGUV0OG/bBbyCcGgxUvnvdCLbeAlEwu3552fy7HUdNt2Gs7ZQOeaw3BHA7fuPqn6aDYQy38C/0mWcrVpncIswicyRkcWk0OrKKrYOFN/Us6QuLUaaKRcFZs5PLvNYOiipHSswD7wdjLiA8NUr06wzF5s+aCgCjqU0Ga1Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=hr28upwkPn4oJyaNFmtTw6AwNt8aFNTRILMM4isSNuU=;
+ b=TISroFgOzblwdGQ6r3e661giPKB4/OrsXPyrrpbvIS7jQ8p9UBNNxpPpMQgr5LH11tnOzQbzWRPHSI3gIfD33+K1EhByetmR0T30COIXIf6Hc00Cu4Y9345wcMT+RsPgC6CZEpJtyhgDbzzBc/eDzEJ52bmG5buAZHI7BWDoxEyaI6E6nQXXDTQGYHYBFSsmw1ooUmPxVQAHoFXHcdxnDWWDR42s4Fgs1iCgjv+X4Ja6/tDTYeAt8Pr8KLrvS0+2vWtMImNt/JJpVJAhsBB3LCpmWEDm8xrnF1IzOJ7tjGfiRKYqPTngVxBoYyuXlW3KtfXhnqVHbx3/C5T+g/WWFQ==
+Received: from IA1PR20MB4953.namprd20.prod.outlook.com (2603:10b6:208:3af::19)
+ by SA1PR20MB6049.namprd20.prod.outlook.com (2603:10b6:806:33d::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6863.44; Wed, 18 Oct
+ 2023 12:37:39 +0000
+Received: from IA1PR20MB4953.namprd20.prod.outlook.com
+ ([fe80::d050:882f:a8a7:8263]) by IA1PR20MB4953.namprd20.prod.outlook.com
+ ([fe80::d050:882f:a8a7:8263%5]) with mapi id 15.20.6907.021; Wed, 18 Oct 2023
+ 12:37:39 +0000
+From: Inochi Amaoto <inochiama@outlook.com>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	Inochi Amaoto <inochiama@outlook.com>,
+	Chao Wei <chao.wei@sophgo.com>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Conor Dooley <conor@kernel.org>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>
+Cc: Jisheng Zhang <jszhang@kernel.org>,
+	linux-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 4/8] riscv: dts: sophgo: Rename cv1800b device tree file
+Date: Wed, 18 Oct 2023 20:37:59 +0800
+Message-ID: <IA1PR20MB49530B8580E22AE664B8D59FBBD5A@IA1PR20MB4953.namprd20.prod.outlook.com>
+X-Mailer: git-send-email 2.42.0
+In-Reply-To: <4d98aa3b-003b-45e8-9a85-db07af73aa8a@linaro.org>
+References: <4d98aa3b-003b-45e8-9a85-db07af73aa8a@linaro.org>
+X-TMN: [ifCJSrGIM896K1uM6O8wjHxgtiRJSugNdnS72cuVje8=]
+X-ClientProxiedBy: SJ0PR05CA0064.namprd05.prod.outlook.com
+ (2603:10b6:a03:332::9) To IA1PR20MB4953.namprd20.prod.outlook.com
+ (2603:10b6:208:3af::19)
+X-Microsoft-Original-Message-ID: <20231018123800.1630336-1-inochiama@outlook.com>
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: IA1PR20MB4953:EE_|SA1PR20MB6049:EE_
+X-MS-Office365-Filtering-Correlation-Id: 49b19ba9-04ab-4492-f5fb-08dbcfd703c0
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: UDGfxsNKFsblgjQB5P1PVMLPwcQE0FMuuJHVzykrLd+Mlw9OSV1ykCrheyjOMHPz2T0j2FtuYVHr+hXySANYjd2Lh30CIjqZFy5HNxnQ+JTsetSAyzQsGL/mk3U+BYVAUG/RewG3MPxZk4TgSEqgbhKHsX1iQLjnQikKHi//qUtl9F9fNOxM3NQpzihyCmgItHEYdbZY8Q53M5l4ygfuyPPuxY/4anw2nYxBexm+U+BmxdajJvvOWV7ZW2YuE3/BP4+GLCPjy4hS8vbtb7gwYMa8sY/fKfha9isYYaIfFnTE2qns35s/r/KZxS6KGbYRuu6a/iRop2fRP9kqrey/IW2dsJ1FRCMCHRPWe9ZH2fZAQ3wdEjdHOFtgxoMlmSCopWBb4EBsMPk5IlFQPl43JETvAoNcBpMUPQ+X9Qm946l8cmvwKZ/pJKLo8y0sAHjfhlOI7WSK1cYe1g5xxgZsQK+3hi/Ecq9l8f3A7m83t71E4wAaTJBeLW3xgIm7mxajoXNQUPnnLku3i1ZyyC5huykcl3ErB3VyzBHIWtpKglKS9ptB8rE4dqb37zJDRs+WbNTN5Rep/Prf5247k0SwUr7K0ajpf1Owx69jCQyo3RL86zXOwQrCDAEcGs99a5Uu
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?7soomxCZwOpNEPlVGdvhVbd8mydGAcxUZb2VY+OLDYGmhfAvMySuYnXyCQYU?=
+ =?us-ascii?Q?eU3/JRw+KMYop3hu9FFzoTUSoM2fmJvkorCYGeWlGVTT22luCpq6BwXqwA6m?=
+ =?us-ascii?Q?YARCsK9V6hPg8+MPeHTm0OSBAzSFXsvVRB7zygsc8DX2R9qZcvxcyu0iHp5f?=
+ =?us-ascii?Q?muDyu8FHtvk+ryLpV8dNjwv++3X4lZebAG6hJtusSGMdWS06abmjNbIRXQxR?=
+ =?us-ascii?Q?Q4T8BNHDY9eDMvKir9GUgNJJtn1yE+/wgZeQk/egbKkA8HSIGE5tyFSqQQGj?=
+ =?us-ascii?Q?2mTuYthtCxQX286e5W1Hi6vXNSdisfGeDGbBdemD1JpmloikzVa5N0+oEcff?=
+ =?us-ascii?Q?2M4KurgPnx2OJIi4/4uWq5cWoU4bmnJACjwaUdBChEgAEHfFWH3guXEFI5FQ?=
+ =?us-ascii?Q?EDCp9IzGMik7J1I3XpFTdkM464NRUti/rt198TF5j/TUGfYy5gFYyv87vCWQ?=
+ =?us-ascii?Q?AeYTS+mXIebcf1oSDnyekK+qHN3s26zl0hJUVeUnxvRX8TRw4Rh8fIKb2waT?=
+ =?us-ascii?Q?xRdEmJgBXn3KbyC4Ieq8JJzHdvVbpUOPFabaU8nn6Bwhhkt1Is2tw+yC+JKW?=
+ =?us-ascii?Q?Y1NYI5igUInj++KEAkj/S3a4HvK+dLRe2XxaXamlsvHm/7Fkvfz8wRLZtYWr?=
+ =?us-ascii?Q?Lnu7O6yr4O5VBqjHh4ONdUeWSEOA1lQzxxwEe5TKpBRik2uDKS5wFDjhb2Ib?=
+ =?us-ascii?Q?rMdQY40blrI/ojl8TJ0fIhqkhhdnrm0mtsxU226zExjT3PO7KkJlX3dJq9H9?=
+ =?us-ascii?Q?hNVaxj2KWG8Gn56VYjSSEs8fXtiGdwCHI/U5nKuo7GlRcxZuNatKLb1bjRP1?=
+ =?us-ascii?Q?kPu+2L+pn2nX3yWGKAJGwmv/dYvrOBWSAr3x5wQtzthRB0UlebNrmSydcyL2?=
+ =?us-ascii?Q?aVC+X/HncdzBg1lcl9LlKs2ctAbU5BlvfDZyydgbs7MryRKYGCCxhCzKOJe3?=
+ =?us-ascii?Q?qppUxUFMAy3MXKuFCm7K4nQA5dLfko3xxE+FDX0HXl8lFNgeNlMaks4NiReE?=
+ =?us-ascii?Q?kh/W+sA9HepkY9vl4dJykKSeM9PfHrSL9QetZB4x4Q5Of7TFi/PJffyftOmy?=
+ =?us-ascii?Q?J07DJ74J5SBVb4JlpgwfHHIQrAaKCgijs7+Ol/StHTsHRa/xSc8OQbCUT0QZ?=
+ =?us-ascii?Q?giv/gApHN9D64uiSWl1s/ny2vSGPeLsD14iID/adb9uWE2/YhrqbvoItVRCL?=
+ =?us-ascii?Q?wXf6nrpfqGdny4DmkGMdJpuBL0gDz0eky/1Wa1V4uahL/Ei/krly/zKR8Wo?=
+ =?us-ascii?Q?=3D?=
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 49b19ba9-04ab-4492-f5fb-08dbcfd703c0
+X-MS-Exchange-CrossTenant-AuthSource: IA1PR20MB4953.namprd20.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Oct 2023 12:37:39.5039
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR20MB6049
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231018_051756_954878_D6C7E4CB 
-X-CRM114-Status: GOOD (  27.38  )
+X-CRM114-CacheID: sfid-20231018_053744_410133_14D5B524 
+X-CRM114-Status: GOOD (  12.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,325 +135,33 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Charlie Jenkins wrote:
-> Add all final module relocations and add error logs explaining the ones
-> that are not supported.
+>On 18/10/2023 13:31, Inochi Amaoto wrote:
+>> As CV180x and CV181x have the identical layouts, it is OK to use the
+>> cv1800b basic device tree for the whole series.
+>>
+>> Signed-off-by: Inochi Amaoto <inochiama@outlook.com>
+>> ---
+>>  arch/riscv/boot/dts/sophgo/{cv1800b.dtsi => cv18xx.dtsi} | 0
+>>  1 file changed, 0 insertions(+), 0 deletions(-)
+>>  rename arch/riscv/boot/dts/sophgo/{cv1800b.dtsi => cv18xx.dtsi} (100%)
+>>
 >
-> Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
-> ---
->  arch/riscv/include/uapi/asm/elf.h |   5 +-
->  arch/riscv/kernel/module.c        | 207 +++++++++++++++++++++++++++++++++-----
->  2 files changed, 186 insertions(+), 26 deletions(-)
+>If nothing breaks by this commit, means the file is not used, so how did
+>it end up in the kernel?
 >
-> diff --git a/arch/riscv/include/uapi/asm/elf.h b/arch/riscv/include/uapi/asm/elf.h
-> index d696d6610231..11a71b8533d5 100644
-> --- a/arch/riscv/include/uapi/asm/elf.h
-> +++ b/arch/riscv/include/uapi/asm/elf.h
-> @@ -49,6 +49,7 @@ typedef union __riscv_fp_state elf_fpregset_t;
->  #define R_RISCV_TLS_DTPREL64	9
->  #define R_RISCV_TLS_TPREL32	10
->  #define R_RISCV_TLS_TPREL64	11
-> +#define R_RISCV_IRELATIVE	58
->
->  /* Relocation types not used by the dynamic linker */
->  #define R_RISCV_BRANCH		16
-> @@ -81,7 +82,6 @@ typedef union __riscv_fp_state elf_fpregset_t;
->  #define R_RISCV_ALIGN		43
->  #define R_RISCV_RVC_BRANCH	44
->  #define R_RISCV_RVC_JUMP	45
-> -#define R_RISCV_LUI		46
->  #define R_RISCV_GPREL_I		47
->  #define R_RISCV_GPREL_S		48
->  #define R_RISCV_TPREL_I		49
-> @@ -93,6 +93,9 @@ typedef union __riscv_fp_state elf_fpregset_t;
->  #define R_RISCV_SET16		55
->  #define R_RISCV_SET32		56
->  #define R_RISCV_32_PCREL	57
-> +#define R_RISCV_PLT32		59
-> +#define R_RISCV_SET_ULEB128	60
-> +#define R_RISCV_SUB_ULEB128	61
->
->
->  #endif /* _UAPI_ASM_RISCV_ELF_H */
-> diff --git a/arch/riscv/kernel/module.c b/arch/riscv/kernel/module.c
-> index 7c651d55fcbd..e860726352ac 100644
-> --- a/arch/riscv/kernel/module.c
-> +++ b/arch/riscv/kernel/module.c
-> @@ -7,6 +7,7 @@
->  #include <linux/elf.h>
->  #include <linux/err.h>
->  #include <linux/errno.h>
-> +#include <linux/kernel.h>
->  #include <linux/moduleloader.h>
->  #include <linux/vmalloc.h>
->  #include <linux/sizes.h>
-> @@ -268,6 +269,12 @@ static int apply_r_riscv_align_rela(struct module *me, u32 *location,
->  	return -EINVAL;
->  }
->
-> +static int apply_r_riscv_add8_rela(struct module *me, u32 *location, Elf_Addr v)
-> +{
-> +	*(u8 *)location += (u8)v;
-> +	return 0;
-> +}
-> +
->  static int apply_r_riscv_add16_rela(struct module *me, u32 *location,
->  				    Elf_Addr v)
->  {
-> @@ -289,6 +296,12 @@ static int apply_r_riscv_add64_rela(struct module *me, u32 *location,
->  	return 0;
->  }
->
-> +static int apply_r_riscv_sub8_rela(struct module *me, u32 *location, Elf_Addr v)
-> +{
-> +	*(u8 *)location -= (u8)v;
-> +	return 0;
-> +}
-> +
->  static int apply_r_riscv_sub16_rela(struct module *me, u32 *location,
->  				    Elf_Addr v)
->  {
-> @@ -310,31 +323,149 @@ static int apply_r_riscv_sub64_rela(struct module *me, u32 *location,
->  	return 0;
->  }
->
-> -static int (*reloc_handlers_rela[]) (struct module *me, u32 *location,
-> -				Elf_Addr v) = {
-> -	[R_RISCV_32]			= apply_r_riscv_32_rela,
-> -	[R_RISCV_64]			= apply_r_riscv_64_rela,
-> -	[R_RISCV_BRANCH]		= apply_r_riscv_branch_rela,
-> -	[R_RISCV_JAL]			= apply_r_riscv_jal_rela,
-> -	[R_RISCV_RVC_BRANCH]		= apply_r_riscv_rvc_branch_rela,
-> -	[R_RISCV_RVC_JUMP]		= apply_r_riscv_rvc_jump_rela,
-> -	[R_RISCV_PCREL_HI20]		= apply_r_riscv_pcrel_hi20_rela,
-> -	[R_RISCV_PCREL_LO12_I]		= apply_r_riscv_pcrel_lo12_i_rela,
-> -	[R_RISCV_PCREL_LO12_S]		= apply_r_riscv_pcrel_lo12_s_rela,
-> -	[R_RISCV_HI20]			= apply_r_riscv_hi20_rela,
-> -	[R_RISCV_LO12_I]		= apply_r_riscv_lo12_i_rela,
-> -	[R_RISCV_LO12_S]		= apply_r_riscv_lo12_s_rela,
-> -	[R_RISCV_GOT_HI20]		= apply_r_riscv_got_hi20_rela,
-> -	[R_RISCV_CALL_PLT]		= apply_r_riscv_call_plt_rela,
-> -	[R_RISCV_CALL]			= apply_r_riscv_call_rela,
-> -	[R_RISCV_RELAX]			= apply_r_riscv_relax_rela,
-> -	[R_RISCV_ALIGN]			= apply_r_riscv_align_rela,
-> -	[R_RISCV_ADD16]			= apply_r_riscv_add16_rela,
-> -	[R_RISCV_ADD32]			= apply_r_riscv_add32_rela,
-> -	[R_RISCV_ADD64]			= apply_r_riscv_add64_rela,
-> -	[R_RISCV_SUB16]			= apply_r_riscv_sub16_rela,
-> -	[R_RISCV_SUB32]			= apply_r_riscv_sub32_rela,
-> -	[R_RISCV_SUB64]			= apply_r_riscv_sub64_rela,
-> +static int dynamic_linking_not_supported(struct module *me, u32 *location,
-> +					 Elf_Addr v)
-> +{
-> +	pr_err("%s: Dynamic linking not supported in kernel modules PC = %p\n",
-> +	       me->name, location);
-> +	return -EINVAL;
-> +}
-> +
-> +static int tls_not_supported(struct module *me, u32 *location, Elf_Addr v)
-> +{
-> +	pr_err("%s: Thread local storage not supported in kernel modules PC = %p\n",
-> +	       me->name, location);
-> +	return -EINVAL;
-> +}
-> +
-> +static int apply_r_riscv_sub6_rela(struct module *me, u32 *location, Elf_Addr v)
-> +{
-> +	*(u8 *)location = (*location - ((u8)v & 0x3F)) & 0x3F;
-> +	return 0;
-> +}
-> +
-> +static int apply_r_riscv_set6_rela(struct module *me, u32 *location, Elf_Addr v)
-> +{
-> +	*(u8 *)location = (*(u8 *)location & 0xc0) | ((u8)v & 0x3F);
-> +	return 0;
-> +}
-> +
-> +static int apply_r_riscv_set8_rela(struct module *me, u32 *location, Elf_Addr v)
-> +{
-> +	*(u8 *)location = (u8)v;
-> +	return 0;
-> +}
-> +
-> +static int apply_r_riscv_set16_rela(struct module *me, u32 *location,
-> +				    Elf_Addr v)
-> +{
-> +	*(u16 *)location = (u16)v;
-> +	return 0;
-> +}
-> +
-> +static int apply_r_riscv_set32_rela(struct module *me, u32 *location,
-> +				    Elf_Addr v)
-> +{
-> +	*(u32 *)location = (u32)v;
-> +	return 0;
-> +}
-> +
-> +static int apply_r_riscv_32_pcrel_rela(struct module *me, u32 *location,
-> +				       Elf_Addr v)
-> +{
-> +	*(u32 *)location = (u32)v;
-> +	return 0;
-> +}
-> +
-> +static int apply_r_riscv_plt32_rela(struct module *me, u32 *location,
-> +				    Elf_Addr v)
-> +{
-> +	*(u32 *)location = (u32)v;
-> +	return 0;
-> +}
-> +
-> +static int apply_r_riscv_set_uleb128(struct module *me, u32 *location, Elf_Addr v)
-> +{
-> +	/*
-> +	 * Relocation is only performed if R_RISCV_SET_ULEB128 is followed by
-> +	 * R_RISCV_SUB_ULEB128 so do computation there
-> +	 */
-> +	return 0;
-> +}
-> +
-> +static int apply_r_riscv_sub_uleb128(struct module *me, u32 *location, Elf_Addr v)
-> +{
-> +	if (v >= 128) {
-> +		pr_err("%s: uleb128 must be in [0, 127] (not %ld) at PC = %p\n",
-> +		       me->name, (unsigned long)v, location);
-> +		return -EINVAL;
-> +	}
-> +
-> +	*location = v;
-> +	return 0;
-> +}
-> +
-> +/*
-> + * Relocations defined in the riscv-elf-psabi-doc.
-> + * This handles static linking only.
-> + */
-> +static int (*reloc_handlers_rela[])(struct module *me, u32 *location,
-> +				    Elf_Addr v) = {
-> +	[R_RISCV_32] =			apply_r_riscv_32_rela,
-> +	[R_RISCV_64] =			apply_r_riscv_64_rela,
-> +	[R_RISCV_RELATIVE] =		dynamic_linking_not_supported,
-> +	[R_RISCV_COPY] =		dynamic_linking_not_supported,
-> +	[R_RISCV_JUMP_SLOT] =		dynamic_linking_not_supported,
-> +	[R_RISCV_TLS_DTPMOD32] =	dynamic_linking_not_supported,
-> +	[R_RISCV_TLS_DTPMOD64] =	dynamic_linking_not_supported,
-> +	[R_RISCV_TLS_DTPREL32] =	dynamic_linking_not_supported,
-> +	[R_RISCV_TLS_DTPREL64] =	dynamic_linking_not_supported,
-> +	[R_RISCV_TLS_TPREL32] =		dynamic_linking_not_supported,
-> +	[R_RISCV_TLS_TPREL64] =		dynamic_linking_not_supported,
-> +	/* 12-15 undefined */
-> +	[R_RISCV_BRANCH] =		apply_r_riscv_branch_rela,
-> +	[R_RISCV_JAL] =			apply_r_riscv_jal_rela,
-> +	[R_RISCV_CALL] =		apply_r_riscv_call_rela,
-> +	[R_RISCV_CALL_PLT] =		apply_r_riscv_call_plt_rela,
-> +	[R_RISCV_GOT_HI20] =		apply_r_riscv_got_hi20_rela,
-> +	[R_RISCV_TLS_GOT_HI20] =	tls_not_supported,
-> +	[R_RISCV_TLS_GD_HI20] =		tls_not_supported,
-> +	[R_RISCV_PCREL_HI20] =		apply_r_riscv_pcrel_hi20_rela,
-> +	[R_RISCV_PCREL_LO12_I] =	apply_r_riscv_pcrel_lo12_i_rela,
-> +	[R_RISCV_PCREL_LO12_S] =	apply_r_riscv_pcrel_lo12_s_rela,
-> +	[R_RISCV_HI20] =		apply_r_riscv_hi20_rela,
-> +	[R_RISCV_LO12_I] =		apply_r_riscv_lo12_i_rela,
-> +	[R_RISCV_LO12_S] =		apply_r_riscv_lo12_s_rela,
-> +	[R_RISCV_TPREL_HI20] =		tls_not_supported,
-> +	[R_RISCV_TPREL_LO12_I] =	tls_not_supported,
-> +	[R_RISCV_TPREL_LO12_S] =	tls_not_supported,
-> +	[R_RISCV_TPREL_ADD] =		tls_not_supported,
-> +	[R_RISCV_ADD8] =		apply_r_riscv_add8_rela,
-> +	[R_RISCV_ADD16] =		apply_r_riscv_add16_rela,
-> +	[R_RISCV_ADD32] =		apply_r_riscv_add32_rela,
-> +	[R_RISCV_ADD64] =		apply_r_riscv_add64_rela,
-> +	[R_RISCV_SUB8] =		apply_r_riscv_sub8_rela,
-> +	[R_RISCV_SUB16] =		apply_r_riscv_sub16_rela,
-> +	[R_RISCV_SUB32] =		apply_r_riscv_sub32_rela,
-> +	[R_RISCV_SUB64] =		apply_r_riscv_sub64_rela,
-> +	/* 41-42 reserved for future standard use */
-> +	[R_RISCV_ALIGN] =		apply_r_riscv_align_rela,
-> +	[R_RISCV_RVC_BRANCH] =		apply_r_riscv_rvc_branch_rela,
-> +	[R_RISCV_RVC_JUMP] =		apply_r_riscv_rvc_jump_rela,
-> +	/* 46-50 reserved for future standard use */
-> +	[R_RISCV_RELAX] =		apply_r_riscv_relax_rela,
-> +	[R_RISCV_SUB6] =		apply_r_riscv_sub6_rela,
-> +	[R_RISCV_SET6] =		apply_r_riscv_set6_rela,
-> +	[R_RISCV_SET8] =		apply_r_riscv_set8_rela,
-> +	[R_RISCV_SET16] =		apply_r_riscv_set16_rela,
-> +	[R_RISCV_SET32] =		apply_r_riscv_set32_rela,
-> +	[R_RISCV_32_PCREL] =		apply_r_riscv_32_pcrel_rela,
-> +	[R_RISCV_IRELATIVE] =		dynamic_linking_not_supported,
-> +	[R_RISCV_PLT32] =		apply_r_riscv_plt32_rela,
-> +	[R_RISCV_SET_ULEB128] =		apply_r_riscv_set_uleb128,
-> +	[R_RISCV_SUB_ULEB128] =		apply_r_riscv_sub_uleb128,
-> +	/* 62-191 reserved for future standard use */
-> +	/* 192-255 nonstandard ABI extensions  */
->  };
 
-Hi Charlie,
+This commit breaks the including file cv1800b-milkv-duo.dts, which is
+fixed in the next patch. For cv1800b, it only needs to set compatible
+strings. The cv1800b and cv1812h have identical layout.
 
-This is not a critique of this patch, but all these callbacks take a
-u32 *location and
-because of the compressed instructions this pointer may not be
-aligned, so a lot of
-the callbacks end up doing unaligned access which may fault to an
-M-mode handler on
-some platforms.
+I use this commit to avoid wired output provided by git and make the
+change more clear.
 
-I once sent a patch to fix this:
-https://lore.kernel.org/linux-riscv/20220224152456.493365-2-kernel@esmil.dk/
-
-Maybe that's something you want to look into while touching this code anyway.
-
-/Emil
 >
->  int apply_relocate_add(Elf_Shdr *sechdrs, const char *strtab,
-> @@ -348,6 +479,10 @@ int apply_relocate_add(Elf_Shdr *sechdrs, const char *strtab,
->  	unsigned int i, type;
->  	Elf_Addr v;
->  	int res;
-> +	bool uleb128_set_exists = false;
-> +	u32 *uleb128_set_loc;
-> +	unsigned long uleb128_set_sym_val;
-> +
->
->  	pr_debug("Applying relocate section %u to %u\n", relsec,
->  	       sechdrs[relsec].sh_info);
-> @@ -425,6 +560,28 @@ int apply_relocate_add(Elf_Shdr *sechdrs, const char *strtab,
->  				  me->name);
->  				return -EINVAL;
->  			}
-> +		} else if (type == R_RISCV_SET_ULEB128) {
-> +			if (uleb128_set_exists) {
-> +				pr_err("%s: riscv psABI requires the next ULEB128 relocation to come after a R_RISCV_SET_ULEB128 is an R_RISCV_SUB_ULEB128, not another R_RISCV_SET_ULEB128.\n",
-> +				       me->name);
-> +				return -EINVAL;
-> +			}
-> +			uleb128_set_exists = true;
-> +			uleb128_set_loc = location;
-> +			uleb128_set_sym_val =
-> +				((Elf_Sym *)sechdrs[symindex].sh_addr +
-> +					ELF_RISCV_R_SYM(rel[i].r_info))
-> +					->st_value +
-> +				rel[i].r_addend;
-> +		} else if (type == R_RISCV_SUB_ULEB128) {
-> +			if (uleb128_set_exists && uleb128_set_loc == location) {
-> +				/* Calculate set and subtraction */
-> +				v = uleb128_set_sym_val - v;
-> +			} else {
-> +				pr_err("%s: R_RISCV_SUB_ULEB128 must always be paired with the first R_RISCV_SET_ULEB128 that comes before it. PC = %p\n",
-> +				       me->name, location);
-> +				return -EINVAL;
-> +			}
->  		}
->
->  		res = handler(me, location, v);
->
-> --
-> 2.34.1
+>Best regards,
+>Krzysztof
 >
 >
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
