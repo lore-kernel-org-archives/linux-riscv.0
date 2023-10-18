@@ -4,121 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 841EFCDB47E
-	for <linux-riscv@archiver.kernel.org>; Wed, 18 Oct 2023 12:37:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7018FCDB483
+	for <linux-riscv@archiver.kernel.org>; Wed, 18 Oct 2023 12:40:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TAco8BiMaF21edIqsACAXz5dhdIrjCfb1Hljh99d3vA=; b=0a67FVPJMUdLYs
-	7RZ3Z3NN30f5AQ9HN1e2lX9ZiUjuDnyb1WxzOSB5VmMK+9Ddj+5iE7PgVWmszbGkK+0OhKEz07gbd
-	GtpklFHUEFpS9ziruc5NICS+fuzk4WidG9sQ0Ra+nT8urAwuA6HFhgvMLe8hBe5L+t8CiY+lTgfnT
-	qQTpKEYy+03YYRhoAjrswTJg6Q3lOy9o8RX73p4A7JACsTzTXDozqI869euzvROU0Xw2/KnynHDN+
-	rrV8ob+xfx+iCI79CnB32m7Qlk6MDiA65lpPE898UL/hpGleYnuU5PnyYf+5/HH9RtQqaqQOE+aSZ
-	SVibPyp+hm+MoamcTlzg==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=yxWlqbwg7gljJEh/FjV6UdYkNg2Ar/2pOZqgoAmjkxg=; b=utpMm2dyoCgRs5
+	HnTFLeJV1D+pXCZRb9fxwxVDahk7HLiUYxzFemH0739Dj4j6g4RntvDdDM6ZiYgt4mXLLPU+4YNEs
+	U4mm5fdN4/xPMRJ8xb3hGHO01JCp2BDK0tyTP05sQZgmwq76KgOHrQdIXpmf5QbldgC61mEvOyT9/
+	bmWQZDUhIGX4fk+BP9zg5DkssFIxe2/Ms8kJTNT6gHM++g1chrUoP6a3TDAKM0rz+1hurFHvlG4jV
+	yv9gibcqIzr9AmDswXExeadpVy4KpACHFAGPUUZEVfl9TuT9FtKJr/OyNRdkbpRNrRGTGuxxOMNKL
+	1Dm0wx7E2i+QDne28KEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qt5o3-00EgDV-0X;
-	Wed, 18 Oct 2023 12:37:47 +0000
-Received: from mail-dm6nam10olkn2082e.outbound.protection.outlook.com ([2a01:111:f400:7e88::82e] helo=NAM10-DM6-obe.outbound.protection.outlook.com)
+	id 1qt5qX-00EgXO-2K;
+	Wed, 18 Oct 2023 12:40:21 +0000
+Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qt5o0-00EgCh-1A
+	id 1qt5qU-00EgVi-2x
 	for linux-riscv@lists.infradead.org;
-	Wed, 18 Oct 2023 12:37:45 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=kMgN4LkNnvpQT9hxxWeWZymNrFyS4rAsdsee2eOxW0AuxmpfrqFcskMab/+J4UURRKBuYi3x6dKinQBePIVW2YeWNNwBCItrdZIQ+jGjNnj1sLoiuVZDqbqJ8W0/yXnryDAn8F3s6kr/Rue3hUrFgHDUNR/XyBUT9MUFp/b/lyvaCcV/ZiHWJHsM6khJtlACGea1dEH+bcGErvtekv10uEbQW3n7busTPy8BR5JE8Jo5KTgdLe7C/nB0P9J23lUHYBaHq98IFI5Z05PqaSYqNQikcHjaVgIxG7QuxK9OLODFDnZpbA0Ydth/2Nrwv+9eyAQdgKShWgoyQbt+4zZb5Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=hr28upwkPn4oJyaNFmtTw6AwNt8aFNTRILMM4isSNuU=;
- b=kuCwtsynjBQgO3mYaU7olvJizhq9YAoFIRt3VjOLB3gDRiOZE37y3MSVLva98AQ3TNbiiH6USAirMYjlN6rj2Nan5E3wC/zx+YuVWppDQVElt9X5Tcg0CChEUu2UrhspwyaWe3LSN4V2ZeMX4b3JdV6Zz1Yx7QVe2X3BIZcpjO/RgJGEQfGUV0OG/bBbyCcGgxUvnvdCLbeAlEwu3552fy7HUdNt2Gs7ZQOeaw3BHA7fuPqn6aDYQy38C/0mWcrVpncIswicyRkcWk0OrKKrYOFN/Us6QuLUaaKRcFZs5PLvNYOiipHSswD7wdjLiA8NUr06wzF5s+aCgCjqU0Ga1Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=hr28upwkPn4oJyaNFmtTw6AwNt8aFNTRILMM4isSNuU=;
- b=TISroFgOzblwdGQ6r3e661giPKB4/OrsXPyrrpbvIS7jQ8p9UBNNxpPpMQgr5LH11tnOzQbzWRPHSI3gIfD33+K1EhByetmR0T30COIXIf6Hc00Cu4Y9345wcMT+RsPgC6CZEpJtyhgDbzzBc/eDzEJ52bmG5buAZHI7BWDoxEyaI6E6nQXXDTQGYHYBFSsmw1ooUmPxVQAHoFXHcdxnDWWDR42s4Fgs1iCgjv+X4Ja6/tDTYeAt8Pr8KLrvS0+2vWtMImNt/JJpVJAhsBB3LCpmWEDm8xrnF1IzOJ7tjGfiRKYqPTngVxBoYyuXlW3KtfXhnqVHbx3/C5T+g/WWFQ==
-Received: from IA1PR20MB4953.namprd20.prod.outlook.com (2603:10b6:208:3af::19)
- by SA1PR20MB6049.namprd20.prod.outlook.com (2603:10b6:806:33d::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6863.44; Wed, 18 Oct
- 2023 12:37:39 +0000
-Received: from IA1PR20MB4953.namprd20.prod.outlook.com
- ([fe80::d050:882f:a8a7:8263]) by IA1PR20MB4953.namprd20.prod.outlook.com
- ([fe80::d050:882f:a8a7:8263%5]) with mapi id 15.20.6907.021; Wed, 18 Oct 2023
- 12:37:39 +0000
-From: Inochi Amaoto <inochiama@outlook.com>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	Inochi Amaoto <inochiama@outlook.com>,
-	Chao Wei <chao.wei@sophgo.com>,
-	Chen Wang <unicorn_wang@outlook.com>,
-	Conor Dooley <conor@kernel.org>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>
-Cc: Jisheng Zhang <jszhang@kernel.org>,
-	linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 4/8] riscv: dts: sophgo: Rename cv1800b device tree file
-Date: Wed, 18 Oct 2023 20:37:59 +0800
-Message-ID: <IA1PR20MB49530B8580E22AE664B8D59FBBD5A@IA1PR20MB4953.namprd20.prod.outlook.com>
-X-Mailer: git-send-email 2.42.0
-In-Reply-To: <4d98aa3b-003b-45e8-9a85-db07af73aa8a@linaro.org>
-References: <4d98aa3b-003b-45e8-9a85-db07af73aa8a@linaro.org>
-X-TMN: [ifCJSrGIM896K1uM6O8wjHxgtiRJSugNdnS72cuVje8=]
-X-ClientProxiedBy: SJ0PR05CA0064.namprd05.prod.outlook.com
- (2603:10b6:a03:332::9) To IA1PR20MB4953.namprd20.prod.outlook.com
- (2603:10b6:208:3af::19)
-X-Microsoft-Original-Message-ID: <20231018123800.1630336-1-inochiama@outlook.com>
+	Wed, 18 Oct 2023 12:40:20 +0000
+Received: by mail-pf1-x42f.google.com with SMTP id d2e1a72fcca58-6b77ab73c6fso3555534b3a.1
+        for <linux-riscv@lists.infradead.org>; Wed, 18 Oct 2023 05:40:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1697632814; x=1698237614; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=/x3uu9zf3l2rig8KiIUkNU7Cv7Jr5Is7Qpx6yKtZAfw=;
+        b=NsC4YBYUHJJ4kDawk7b2ZdNyS0Hjztnvjce/gySNsBCzj7l3ihF1RJf0AfCBwVvk0N
+         HPVjp1fAKng6z5BYSRoBaK3t3LruRpN2lmqB/scpKLRPfYz4AGSG880e/15I8k1N1qhH
+         ZG+qBW0XPmoUPEFXyrxH1oitIi52YCG2zpvLnUGJut5x8dYDCXsyu4MDEskbwMa6ArPJ
+         E/PxeyMBgLzARNGvbi+9PPqd1OwdE7Nvy1bCnN6DXULgjGxq/nxsnh7eEGUM0bM//2X/
+         USFrAs6pTUQMuP1SfqZId6m2cJTlW2Yy8iSAgDIx25mrEwJDCJr6aqmqUJfxnZp5EYZf
+         36nQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1697632814; x=1698237614;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=/x3uu9zf3l2rig8KiIUkNU7Cv7Jr5Is7Qpx6yKtZAfw=;
+        b=dnnIWefE5Y4PaeCIOqP3PKmeW+vaZ+b77AhryRilCDYcp9oLTjbDUJsS+hy1VB/pGR
+         c+77hZE14tAiUBPL85bKTcwxQWDtLg8CtXU2If9XaFt2hF5ptuUAx97CYSYDNcA2rRqR
+         hlN7tasus/+JrDtd5YknZf1Ris2y+aHXQJn52U+PLj8rEytjiAJEVdVib3p28NQ4f/xe
+         UxMKtYUp5a3n0e9Fj0ZggVDZDH2a0gD5eL1g3oSZVkJdiErW1TlRmG/HcJJ7+mEmzxo7
+         A6hn/wUgXyQreDgyoQi8CG+DGPE6pWKLpU0AyV1wZkAq9CuL78MO46VxnhLbpMbQjDcs
+         YfNg==
+X-Gm-Message-State: AOJu0YymhxtnxKp73DJDdUVnDWkQP4Nnozy4u6UDbP7pnMdThhahcs5J
+	DZy4f1cTlIeWywV1CgFh17CHH7jfLFKtK0Qz2Js=
+X-Google-Smtp-Source: AGHT+IGEnGeUGjTrjv2baYtR5a8vWsazPx3pLfK2Zn0Z8uBJVrUEphyrDMbgW79aJUk55uqnYKQ+WA==
+X-Received: by 2002:a05:6a21:190:b0:149:700e:f50a with SMTP id le16-20020a056a21019000b00149700ef50amr8044741pzb.29.1697632813642;
+        Wed, 18 Oct 2023 05:40:13 -0700 (PDT)
+Received: from sunil-pc.Dlink ([106.51.188.78])
+        by smtp.gmail.com with ESMTPSA id w190-20020a6382c7000000b005891f3af36asm1599267pgd.87.2023.10.18.05.40.10
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Oct 2023 05:40:13 -0700 (PDT)
+From: Sunil V L <sunilvl@ventanamicro.com>
+To: linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-acpi@vger.kernel.org
+Subject: [PATCH v4 -next 0/4] RISC-V: ACPI improvements
+Date: Wed, 18 Oct 2023 18:10:03 +0530
+Message-Id: <20231018124007.1306159-1-sunilvl@ventanamicro.com>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: IA1PR20MB4953:EE_|SA1PR20MB6049:EE_
-X-MS-Office365-Filtering-Correlation-Id: 49b19ba9-04ab-4492-f5fb-08dbcfd703c0
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: UDGfxsNKFsblgjQB5P1PVMLPwcQE0FMuuJHVzykrLd+Mlw9OSV1ykCrheyjOMHPz2T0j2FtuYVHr+hXySANYjd2Lh30CIjqZFy5HNxnQ+JTsetSAyzQsGL/mk3U+BYVAUG/RewG3MPxZk4TgSEqgbhKHsX1iQLjnQikKHi//qUtl9F9fNOxM3NQpzihyCmgItHEYdbZY8Q53M5l4ygfuyPPuxY/4anw2nYxBexm+U+BmxdajJvvOWV7ZW2YuE3/BP4+GLCPjy4hS8vbtb7gwYMa8sY/fKfha9isYYaIfFnTE2qns35s/r/KZxS6KGbYRuu6a/iRop2fRP9kqrey/IW2dsJ1FRCMCHRPWe9ZH2fZAQ3wdEjdHOFtgxoMlmSCopWBb4EBsMPk5IlFQPl43JETvAoNcBpMUPQ+X9Qm946l8cmvwKZ/pJKLo8y0sAHjfhlOI7WSK1cYe1g5xxgZsQK+3hi/Ecq9l8f3A7m83t71E4wAaTJBeLW3xgIm7mxajoXNQUPnnLku3i1ZyyC5huykcl3ErB3VyzBHIWtpKglKS9ptB8rE4dqb37zJDRs+WbNTN5Rep/Prf5247k0SwUr7K0ajpf1Owx69jCQyo3RL86zXOwQrCDAEcGs99a5Uu
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?7soomxCZwOpNEPlVGdvhVbd8mydGAcxUZb2VY+OLDYGmhfAvMySuYnXyCQYU?=
- =?us-ascii?Q?eU3/JRw+KMYop3hu9FFzoTUSoM2fmJvkorCYGeWlGVTT22luCpq6BwXqwA6m?=
- =?us-ascii?Q?YARCsK9V6hPg8+MPeHTm0OSBAzSFXsvVRB7zygsc8DX2R9qZcvxcyu0iHp5f?=
- =?us-ascii?Q?muDyu8FHtvk+ryLpV8dNjwv++3X4lZebAG6hJtusSGMdWS06abmjNbIRXQxR?=
- =?us-ascii?Q?Q4T8BNHDY9eDMvKir9GUgNJJtn1yE+/wgZeQk/egbKkA8HSIGE5tyFSqQQGj?=
- =?us-ascii?Q?2mTuYthtCxQX286e5W1Hi6vXNSdisfGeDGbBdemD1JpmloikzVa5N0+oEcff?=
- =?us-ascii?Q?2M4KurgPnx2OJIi4/4uWq5cWoU4bmnJACjwaUdBChEgAEHfFWH3guXEFI5FQ?=
- =?us-ascii?Q?EDCp9IzGMik7J1I3XpFTdkM464NRUti/rt198TF5j/TUGfYy5gFYyv87vCWQ?=
- =?us-ascii?Q?AeYTS+mXIebcf1oSDnyekK+qHN3s26zl0hJUVeUnxvRX8TRw4Rh8fIKb2waT?=
- =?us-ascii?Q?xRdEmJgBXn3KbyC4Ieq8JJzHdvVbpUOPFabaU8nn6Bwhhkt1Is2tw+yC+JKW?=
- =?us-ascii?Q?Y1NYI5igUInj++KEAkj/S3a4HvK+dLRe2XxaXamlsvHm/7Fkvfz8wRLZtYWr?=
- =?us-ascii?Q?Lnu7O6yr4O5VBqjHh4ONdUeWSEOA1lQzxxwEe5TKpBRik2uDKS5wFDjhb2Ib?=
- =?us-ascii?Q?rMdQY40blrI/ojl8TJ0fIhqkhhdnrm0mtsxU226zExjT3PO7KkJlX3dJq9H9?=
- =?us-ascii?Q?hNVaxj2KWG8Gn56VYjSSEs8fXtiGdwCHI/U5nKuo7GlRcxZuNatKLb1bjRP1?=
- =?us-ascii?Q?kPu+2L+pn2nX3yWGKAJGwmv/dYvrOBWSAr3x5wQtzthRB0UlebNrmSydcyL2?=
- =?us-ascii?Q?aVC+X/HncdzBg1lcl9LlKs2ctAbU5BlvfDZyydgbs7MryRKYGCCxhCzKOJe3?=
- =?us-ascii?Q?qppUxUFMAy3MXKuFCm7K4nQA5dLfko3xxE+FDX0HXl8lFNgeNlMaks4NiReE?=
- =?us-ascii?Q?kh/W+sA9HepkY9vl4dJykKSeM9PfHrSL9QetZB4x4Q5Of7TFi/PJffyftOmy?=
- =?us-ascii?Q?J07DJ74J5SBVb4JlpgwfHHIQrAaKCgijs7+Ol/StHTsHRa/xSc8OQbCUT0QZ?=
- =?us-ascii?Q?giv/gApHN9D64uiSWl1s/ny2vSGPeLsD14iID/adb9uWE2/YhrqbvoItVRCL?=
- =?us-ascii?Q?wXf6nrpfqGdny4DmkGMdJpuBL0gDz0eky/1Wa1V4uahL/Ei/krly/zKR8Wo?=
- =?us-ascii?Q?=3D?=
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 49b19ba9-04ab-4492-f5fb-08dbcfd703c0
-X-MS-Exchange-CrossTenant-AuthSource: IA1PR20MB4953.namprd20.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Oct 2023 12:37:39.5039
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR20MB6049
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231018_053744_410133_14D5B524 
-X-CRM114-Status: GOOD (  12.35  )
+X-CRM114-CacheID: sfid-20231018_054018_962572_71317C7C 
+X-CRM114-Status: GOOD (  12.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,38 +84,65 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: Anup Patel <apatel@ventanamicro.com>, Albert Ou <aou@eecs.berkeley.edu>, "Rafael J . Wysocki" <rafael@kernel.org>, Conor Dooley <conor.dooley@microchip.com>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, Andrew Jones <ajones@ventanamicro.com>, Len Brown <lenb@kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
->On 18/10/2023 13:31, Inochi Amaoto wrote:
->> As CV180x and CV181x have the identical layouts, it is OK to use the
->> cv1800b basic device tree for the whole series.
->>
->> Signed-off-by: Inochi Amaoto <inochiama@outlook.com>
->> ---
->>  arch/riscv/boot/dts/sophgo/{cv1800b.dtsi => cv18xx.dtsi} | 0
->>  1 file changed, 0 insertions(+), 0 deletions(-)
->>  rename arch/riscv/boot/dts/sophgo/{cv1800b.dtsi => cv18xx.dtsi} (100%)
->>
->
->If nothing breaks by this commit, means the file is not used, so how did
->it end up in the kernel?
->
+This series is a set of patches which were originally part of RFC v1 series
+[1] to add ACPI support in RISC-V interrupt controllers. Since these
+patches are independent of the interrupt controllers, creating this new
+series which helps to merge instead of waiting for big series.
 
-This commit breaks the including file cv1800b-milkv-duo.dts, which is
-fixed in the next patch. For cv1800b, it only needs to set compatible
-strings. The cv1800b and cv1812h have identical layout.
+This set of patches primarily adds support below ECR [2] which is approved
+by the ASWG and adds below features.
 
-I use this commit to avoid wired output provided by git and make the
-change more clear.
+- Get CBO block sizes from RHCT on ACPI based systems.
 
->
->Best regards,
->Krzysztof
->
->
+Additionally, the series contains a patch to improve acpi_os_ioremap().
+
+[1] - https://lore.kernel.org/lkml/20230803175202.3173957-1-sunilvl@ventanamicro.com/
+[2] - https://drive.google.com/file/d/1sKbOa8m1UZw1JkquZYe3F1zQBN1xXsaf/view?usp=sharing
+
+Changes since v3:
+	1) Added new patch to update return value of acpi_get_rhct() as suggested by Drew.
+	2) Formatting fixes as suggested by Drew.
+	3) Updated tags.
+
+Changes since v2:
+	1) Modified acpi_get_cbo_block_size() not to take cpu parameter
+	   but follow same pattern as DT (Feedback from Samuel and Drew)
+	2) Dropped timer patch from the series since it is already
+	   applied.
+	3) Selected ARCH_KEEP_MEMBLOCK only if ACPI (Feedback from
+	   Alex).
+	4) Added RB tags received so far except RHCT patch which has
+	   changed quite significantly from previous version.
+
+Changes since RFC v1:
+	1) Separated the patches from interrupt controller support series.
+	2) Addressed feedback from Andy and Drew.
+	3) Rebased to Palmer's for-next tree.
+	4) Added RB tags received on RFC v1.
+
+
+Sunil V L (4):
+  RISC-V: ACPI: Enhance acpi_os_ioremap with MMIO remapping
+  RISC-V: ACPI: Update the return value of acpi_get_rhct()
+  RISC-V: ACPI: RHCT: Add function to get CBO block sizes
+  RISC-V: cacheflush: Initialize CBO variables on ACPI systems
+
+ arch/riscv/Kconfig            |  1 +
+ arch/riscv/include/asm/acpi.h |  6 +++
+ arch/riscv/kernel/acpi.c      | 87 +++++++++++++++++++++++++++++++-
+ arch/riscv/mm/cacheflush.c    | 25 +++++++---
+ drivers/acpi/riscv/rhct.c     | 93 +++++++++++++++++++++++++++++++++--
+ 5 files changed, 201 insertions(+), 11 deletions(-)
+
+-- 
+2.39.2
+
 
 _______________________________________________
 linux-riscv mailing list
