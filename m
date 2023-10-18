@@ -4,69 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC8C3CDB483
-	for <linux-riscv@archiver.kernel.org>; Wed, 18 Oct 2023 14:15:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6EE1CDB47E
+	for <linux-riscv@archiver.kernel.org>; Wed, 18 Oct 2023 15:20:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UWHSq3UOlGzSM2ohdPvZIYFAjMZBXCgvMrRjmV61pa0=; b=Yoc0HO7iHc0I8D
-	SfCzIweOqBdyBXGdlb3YAT5JPdQ2jQDCfmBts5OFm/+L6QfPmEdpafnnA3KFoOxjctv7+gd2qsOqB
-	dHPLKQXu0DxGjquZMwTZYxyuBEDcMhhf9pG2iTuheSELmBRmAxQOLNl8wqonmflDzBIWjcWdok67K
-	5CGc1bXhZjA8eds1p0rWiE4hHuqHqa93GeYP5YydMFx/pUbQ4AEJ5hxTxrGLodtT8/BboZDnShdbl
-	zQoG5ixM3ypuMApR9c7nr7w68s1Nb+qv350V3OgQRbgREw52LCInjvoVJ78DAr+JFPBPNtMd/NmK1
-	gILCq8cTbbjxIgktwm6Q==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=2R0O4PQP8H63R7pHXDINv3V8l74PdixQEIQAG49eH7Y=; b=NEt3b/jI1yipn9
+	AE2VmRpixYS2LXlxyTaW4yZLqdLwXWnp0HhyZY5SjzrXitqqypVSmrc0IDEOcc/+yCi/emDZYu5MB
+	Pjwa9l0JPrcobuE+tCZA/cW/C3mLuQ3fot/9Xw27sdaM7l+dvU2k9YGp+zDvziKFKFaNg/c5XGahg
+	4MSq8y7FXR+m/JT1R6j1SslcvnuJxsFAQl53KL1iljI5x/+N3Q1KRDy4+jYxzQ5FmDwWH5Myg3eZF
+	hYqshOvVkzf9+4LelwBGapI7ZdiDhNsB+ym0LXKC4ktiCTz8nsLGSSDXhYEW4KGXE9P4zcsrgE0sj
+	BkIPcmqr041IQRnq7F8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qt7KH-00EsYp-1G;
-	Wed, 18 Oct 2023 14:15:09 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1qt8LB-00F1XI-13;
+	Wed, 18 Oct 2023 15:20:09 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qt7KE-00EsX3-1N
+	id 1qt8L8-00F1Wm-2l
 	for linux-riscv@lists.infradead.org;
-	Wed, 18 Oct 2023 14:15:08 +0000
+	Wed, 18 Oct 2023 15:20:08 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id C4231CE258F;
-	Wed, 18 Oct 2023 14:15:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 465E0C433B9;
-	Wed, 18 Oct 2023 14:15:03 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTP id BB32CB823DD;
+	Wed, 18 Oct 2023 15:20:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9464AC433C8;
+	Wed, 18 Oct 2023 15:20:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1697638504;
-	bh=14GQXwt2W7OgYXm3BLfldX+aT31k3vfoAlqbmW/xzcQ=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=lgYGAwgRWxMsckKEUqwOz7z+I27exn2vWDjtCuYDoXwDpRfKdIW6hoGs3tAvsVsyI
-	 X6+OaCjOT2znNCHu/HADbR0EJf3kxROOqSmkPx8ftt8Kf+pwNq+SqTdXSuatwME8d+
-	 iqywj38M7hzCZo7wsBRZv3dfd+IQeFWVNyELkqv7UJnJxj44AcUwoCxtBhAe3cyn0V
-	 YHdIyIZhFmhXDEp+cgEsjW7Q1t0k1/zT4fMCGD75UsddhxGOQySBWLZajSKBPvfb0Z
-	 Gm77K8yEeai8sw3QFSg1soBf1wiLrLyz3Nc79N7XctcdNOAJS0Ojojx9YTslkcLJR1
-	 Ewi6+OjgvTlvg==
-From: Sasha Levin <sashal@kernel.org>
-To: linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Cc: Anup Patel <apatel@ventanamicro.com>,
-	Dmitry Dunaev <dunaev@tecon.ru>,
-	Marc Zyngier <maz@kernel.org>,
-	Sasha Levin <sashal@kernel.org>,
-	tglx@linutronix.de,
-	paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH AUTOSEL 5.10 05/11] irqchip/riscv-intc: Mark all INTC nodes as initialized
-Date: Wed, 18 Oct 2023 10:14:47 -0400
-Message-Id: <20231018141455.1335353-5-sashal@kernel.org>
+	s=k20201202; t=1697642404;
+	bh=d9q2EGQopnbrrZB9hrsBcWEpKabaAuR6MB/YUqLsU4w=;
+	h=From:To:Cc:Subject:Date:From;
+	b=qWpvifiKtTK5o66piHOruftpghs50wXvOldPydTwAZWMgN9cLJfVLlvGl9Nucou7Q
+	 ecBxT7h/Yv5+/t4yVhUiWVSYN2rBDIXXboM51HEDPFpgYttQUCpZdh7en0zSaTHw8E
+	 6DyNmXSbBBt1qk2hmpZbB1eXVL2JdOlz+mbtMSfqgaQEaV4axi18xctWfmwJcwc+zu
+	 xJI0epn7jgszwmZbLlESdaczmIe7PxrQUmRdpP3sY68RaoSAWPA7WB9shIl++7+0iY
+	 ryu+JsPEw+Qu6jMHzajqLcdDgOltoj4CC1agv/doRuOoxHFL9MjV/+ieuT1TzsS8uO
+	 IMS1ILXONw1VA==
+From: Masahiro Yamada <masahiroy@kernel.org>
+To: linux-kbuild@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Nicolas Schier <n.schier@avm.de>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Borislav Petkov <bp@alien8.de>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Ingo Molnar <mingo@redhat.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Nicolas Schier <nicolas@fjasle.eu>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	bpf@vger.kernel.org,
+	linux-mips@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linuxppc-dev@lists.ozlabs.org,
+	x86@kernel.org
+Subject: [bpf-next PATCH v2 1/4] kbuild: remove ARCH_POSTLINK from module builds
+Date: Thu, 19 Oct 2023 00:19:47 +0900
+Message-Id: <20231018151950.205265-1-masahiroy@kernel.org>
 X-Mailer: git-send-email 2.40.1
-In-Reply-To: <20231018141455.1335353-1-sashal@kernel.org>
-References: <20231018141455.1335353-1-sashal@kernel.org>
 MIME-Version: 1.0
-X-stable: review
-X-Patchwork-Hint: Ignore
-X-stable-base: Linux 5.10.198
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231018_071506_640328_B58EFA97 
-X-CRM114-Status: GOOD (  12.76  )
+X-CRM114-CacheID: sfid-20231018_082007_183640_BA1261C7 
+X-CRM114-Status: UNSURE (   7.86  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,52 +92,100 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Anup Patel <apatel@ventanamicro.com>
+The '%.ko' rule in arch/*/Makefile.postlink does nothing but call the
+'true' command.
 
-[ Upstream commit e13cd66bd821be417c498a34928652db4ac6b436 ]
+Remove the meaningless code.
 
-The RISC-V INTC local interrupts are per-HART (or per-CPU) so we
-create INTC IRQ domain only for the INTC node belonging to the boot
-HART. This means only the boot HART INTC node will be marked as
-initialized and other INTC nodes won't be marked which results
-downstream interrupt controllers (such as PLIC, IMSIC and APLIC
-direct-mode) not being probed due to missing device suppliers.
-
-To address this issue, we mark all INTC node for which we don't
-create IRQ domain as initialized.
-
-Reported-by: Dmitry Dunaev <dunaev@tecon.ru>
-Signed-off-by: Anup Patel <apatel@ventanamicro.com>
-Signed-off-by: Marc Zyngier <maz@kernel.org>
-Link: https://lore.kernel.org/r/20230926102801.1591126-1-dunaev@tecon.ru
-Link: https://lore.kernel.org/r/20231003044403.1974628-4-apatel@ventanamicro.com
-Signed-off-by: Sasha Levin <sashal@kernel.org>
+Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
+Reviewed-by: Nicolas Schier <n.schier@avm.de>
 ---
- drivers/irqchip/irq-riscv-intc.c | 10 +++++++++-
- 1 file changed, 9 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/irqchip/irq-riscv-intc.c b/drivers/irqchip/irq-riscv-intc.c
-index 8017f6d32d52b..54c99441c1b54 100644
---- a/drivers/irqchip/irq-riscv-intc.c
-+++ b/drivers/irqchip/irq-riscv-intc.c
-@@ -109,8 +109,16 @@ static int __init riscv_intc_init(struct device_node *node,
- 	 * for each INTC DT node. We only need to do INTC initialization
- 	 * for the INTC DT node belonging to boot CPU (or boot HART).
- 	 */
--	if (riscv_hartid_to_cpuid(hartid) != smp_processor_id())
-+	if (riscv_hartid_to_cpuid(hartid) != smp_processor_id()) {
-+		/*
-+		 * The INTC nodes of each CPU are suppliers for downstream
-+		 * interrupt controllers (such as PLIC, IMSIC and APLIC
-+		 * direct-mode) so we should mark an INTC node as initialized
-+		 * if we are not creating IRQ domain for it.
-+		 */
-+		fwnode_dev_initialized(of_fwnode_handle(node), true);
- 		return 0;
-+	}
+(no changes since v1)
+
+ arch/mips/Makefile.postlink    | 3 ---
+ arch/powerpc/Makefile.postlink | 3 ---
+ arch/riscv/Makefile.postlink   | 3 ---
+ arch/x86/Makefile.postlink     | 3 ---
+ scripts/Makefile.modfinal      | 5 +----
+ 5 files changed, 1 insertion(+), 16 deletions(-)
+
+diff --git a/arch/mips/Makefile.postlink b/arch/mips/Makefile.postlink
+index 34e3bd71f3b0..6cfdc149d3bc 100644
+--- a/arch/mips/Makefile.postlink
++++ b/arch/mips/Makefile.postlink
+@@ -31,9 +31,6 @@ ifeq ($(CONFIG_RELOCATABLE),y)
+ 	$(call if_changed,relocs)
+ endif
  
- 	intc_domain = irq_domain_add_linear(node, BITS_PER_LONG,
- 					    &riscv_intc_domain_ops, NULL);
+-%.ko: FORCE
+-	@true
+-
+ clean:
+ 	@true
+ 
+diff --git a/arch/powerpc/Makefile.postlink b/arch/powerpc/Makefile.postlink
+index 1f860b3c9bec..ae5a4256b03d 100644
+--- a/arch/powerpc/Makefile.postlink
++++ b/arch/powerpc/Makefile.postlink
+@@ -35,9 +35,6 @@ ifdef CONFIG_RELOCATABLE
+ 	$(call if_changed,relocs_check)
+ endif
+ 
+-%.ko: FORCE
+-	@true
+-
+ clean:
+ 	rm -f .tmp_symbols.txt
+ 
+diff --git a/arch/riscv/Makefile.postlink b/arch/riscv/Makefile.postlink
+index a46fc578b30b..829b9abc91f6 100644
+--- a/arch/riscv/Makefile.postlink
++++ b/arch/riscv/Makefile.postlink
+@@ -36,9 +36,6 @@ ifdef CONFIG_RELOCATABLE
+ 	$(call if_changed,relocs_strip)
+ endif
+ 
+-%.ko: FORCE
+-	@true
+-
+ clean:
+ 	@true
+ 
+diff --git a/arch/x86/Makefile.postlink b/arch/x86/Makefile.postlink
+index 936093d29160..fef2e977cc7d 100644
+--- a/arch/x86/Makefile.postlink
++++ b/arch/x86/Makefile.postlink
+@@ -34,9 +34,6 @@ ifeq ($(CONFIG_X86_NEED_RELOCS),y)
+ 	$(call cmd,strip_relocs)
+ endif
+ 
+-%.ko: FORCE
+-	@true
+-
+ clean:
+ 	@rm -f $(OUT_RELOCS)/vmlinux.relocs
+ 
+diff --git a/scripts/Makefile.modfinal b/scripts/Makefile.modfinal
+index b3a6aa8fbe8c..8568d256d6fb 100644
+--- a/scripts/Makefile.modfinal
++++ b/scripts/Makefile.modfinal
+@@ -28,14 +28,11 @@ quiet_cmd_cc_o_c = CC [M]  $@
+ %.mod.o: %.mod.c FORCE
+ 	$(call if_changed_dep,cc_o_c)
+ 
+-ARCH_POSTLINK := $(wildcard $(srctree)/arch/$(SRCARCH)/Makefile.postlink)
+-
+ quiet_cmd_ld_ko_o = LD [M]  $@
+       cmd_ld_ko_o +=							\
+ 	$(LD) -r $(KBUILD_LDFLAGS)					\
+ 		$(KBUILD_LDFLAGS_MODULE) $(LDFLAGS_MODULE)		\
+-		-T scripts/module.lds -o $@ $(filter %.o, $^);		\
+-	$(if $(ARCH_POSTLINK), $(MAKE) -f $(ARCH_POSTLINK) $@, true)
++		-T scripts/module.lds -o $@ $(filter %.o, $^)
+ 
+ quiet_cmd_btf_ko = BTF [M] $@
+       cmd_btf_ko = 							\
 -- 
 2.40.1
 
