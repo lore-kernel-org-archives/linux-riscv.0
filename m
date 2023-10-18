@@ -4,84 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C84B9CDB47E
-	for <linux-riscv@archiver.kernel.org>; Wed, 18 Oct 2023 22:19:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28F48CDB483
+	for <linux-riscv@archiver.kernel.org>; Wed, 18 Oct 2023 22:51:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cQqxYkltt7pEUrr9Tq64fyaiDooTIx51lDIVyokE+sY=; b=S8ifRICAC0Uu0k
-	EhVnx/33qy0dRFllNEY20Hw7ddmr/JDOEbiqfK5owpfWVZyE7w1BwKgPj6beSvXipRbBDDZ+Jw0j7
-	6jCfDQLFmuHoSG9gYYxi+hdmKyDnfc0qZmAA20U8yVN7Giv6aieWFVelHuM9YdB4dQJTaPo7B/oB6
-	yWO2JpP86JN/KjTk0vgW/OL3QlYbRqkXQH+sr12iPepKq47YRHfJwm/iqsXVxkUNd3ToBXBNjUaap
-	59ivrQDHGGh4PJ1Of1L30PMscc7PDawY8mueW0QpQ7noQFy8K3ycrBHwtgg+ankgky5tUKJXyjC5p
-	ZXUYM6WJAtVt2uAfIZxA==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:MIME-Version:Message-Id:Date:Subject
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=m0zXfDROJYhTGP73sufXSpDH/B3N1TJUJCwjXUaCudY=; b=fIaxlQ+2Bkf7SN
+	F496plm5Olsv6Ko2TFBk8+1QvNSrzktR03ls5C0nGAD+wPc8xgwoJuiZruBn7ai3dnJivekYwx1hc
+	/hNssvIP16u+QIaV9ltXKhS1L/wcwgBUYEGMRDIWlhBNJ3B5Em2yMtu4q0sbI43E6vPidad1YRQNP
+	JCdAgdU2glbkm+20O6yWcQ/TuNeQbBwKHcEg6DLBhL5Gn6hJYoBRHnBAJHN060Hlu3b9zOxU7n9Or
+	oZo3NtRKb0R9eg5iGFhQ/Nh0EZ93oyq/5PpGt61PkAS112t26BJwQKl2rqNngO9Ci4O3sch9fBb9O
+	9QtL67lmHSV03COzGo8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qtEtO-00FoY4-0X;
-	Wed, 18 Oct 2023 22:19:54 +0000
-Received: from mail-qv1-xf30.google.com ([2607:f8b0:4864:20::f30])
+	id 1qtFNc-00Fr5q-1P;
+	Wed, 18 Oct 2023 22:51:08 +0000
+Received: from mail-ot1-x32a.google.com ([2607:f8b0:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qtEtJ-00FoX8-1u
+	id 1qtFNZ-00Fr53-0V
 	for linux-riscv@lists.infradead.org;
-	Wed, 18 Oct 2023 22:19:52 +0000
-Received: by mail-qv1-xf30.google.com with SMTP id 6a1803df08f44-66d0f945893so1462726d6.1
-        for <linux-riscv@lists.infradead.org>; Wed, 18 Oct 2023 15:19:47 -0700 (PDT)
+	Wed, 18 Oct 2023 22:51:07 +0000
+Received: by mail-ot1-x32a.google.com with SMTP id 46e09a7af769-6cd09f51fe0so562968a34.1
+        for <linux-riscv@lists.infradead.org>; Wed, 18 Oct 2023 15:51:04 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1697667587; x=1698272387; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=2jRC9HVva9g3R+13NnFT9VqaHyccZUivRNg5/IFJX6s=;
-        b=wVBa4NX7ZjtD4a2vDsfCzCA+b5XcfQfCkDnAlmOEXWlWRRO8IZw0T+ivYQCkqihQpW
-         vEx2UfVT23aju1EZERZi2irgozlAIoSGSGBqUxEJQ44tEClYQA6ftr0a4cWhFHYTPKHK
-         3EO0q6+vSZmlhostsXm+fCml5PmUMJGxSGSDU1pgzCpE6bfCaJFhIAOe7H7bzYy2urGa
-         Q99zotcSkVXWsQqycm7l8AFk67CohaUrp4XH0g5FgfufQAbgUn+uP4LK4d2LgRKFR4S2
-         hNHK8JhznJKEzea7Vz1FRKVtyk14JOuKRQVDzrVsTYIulZDPaxhj5fhX6H5DD+DmCCyZ
-         uidA==
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1697669464; x=1698274264; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=9/6gRB6PKN0zKg0UrM+QY05Z/ZteQMJLVCSifjerBXY=;
+        b=ACgdAr5bUDcbgcbg/VTLpnQeoHbvm1siSPBKTMXt++Cd/RAD/y8ZaJTNnu8ZpuFNyY
+         vRgIlervaDjM53N4KvKRrFN3j5qlxJUN+slYSoDDvqxmG17sF8MszO+k0ae2EvWNQs/L
+         sI1Mh7f2Dzd/E6lI7tO+tgDC17FsN/7yxM692h0n7v2FAMieAgh5f4uKBgrJDkaUWzbI
+         dUEdlsdnKnm19weGi3jJj0IAoeVVXr06m8nv4V60E87Y9slnIEzr1dXpwbQqThfLgqPB
+         McGFgA9hvpnXcCKBRe+peySGPCrXBGylgP/u4UFLeS3cQS5jonzG2j+gPyZJdgYSLCzx
+         swXw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1697667587; x=1698272387;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=2jRC9HVva9g3R+13NnFT9VqaHyccZUivRNg5/IFJX6s=;
-        b=X9NccXtSOSWQi2K0y3OiXYi6aNFwCInxQKriXUb1u2UNZ8PE6qDWGgvtwdpuEC5Zmc
-         YhrJ+ES0PJVkXhP+ek3Tv/T2DeLDqcABF7eW18V1ACQLCpFj3f6GzSsuEC3bXTCwHH+9
-         IspOijTTYHGal1qShWaP198byw+HdurB2sr3d7qwOvfwGvDJN6FB3VgmcofiKrkbG3zg
-         gbQJjwV9oiFt1SDB4khmlO+BoBeBQHi2eVNOSND5RWjVVEUuMGJXO6cx7XTDQSMcu1B7
-         vD6KTjPXULx4dRlBwvU6cEE//i9ebpRNABOqo1e+njYi0W40Z3MPMx7u6gsZ3vX/sJ4x
-         OdzA==
-X-Gm-Message-State: AOJu0YzljJBNuq8+vflcBd1GnTQ9oyqrwUEdxiXpNVxuuWzEOedmF/Ee
-	cSu2bw5e5lCQ0fXZh+ZBSBotXw==
-X-Google-Smtp-Source: AGHT+IEEmnCxAAe9vHxUiqgxlAvnjdO1EUng0/cO66uNrmeaXVf9bLQ/iB2o960SVloWr87MMFxH8Q==
-X-Received: by 2002:a0c:dd92:0:b0:65b:12bb:56cb with SMTP id v18-20020a0cdd92000000b0065b12bb56cbmr319625qvk.12.1697667587161;
-        Wed, 18 Oct 2023 15:19:47 -0700 (PDT)
-Received: from ghost ([208.116.208.98])
-        by smtp.gmail.com with ESMTPSA id da12-20020a05621408cc00b0064c9f754794sm280752qvb.86.2023.10.18.15.19.45
+        d=1e100.net; s=20230601; t=1697669464; x=1698274264;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=9/6gRB6PKN0zKg0UrM+QY05Z/ZteQMJLVCSifjerBXY=;
+        b=cW0qTGKyyi1PxEZhOWXm3V8kn0Lpr7UJYbf8oprZepULMF7A4jwXF9baAeM4hpLcnA
+         DV1nCtyVXiX8RmHyTS47k3vM/HPp4lH486jfXuQ/+uGFAvR221d+BNXKKDW57OrAixWz
+         JcXvtUb6bOP6xkZN6zW8tmnWCPgbymyNmE4mSDgnP72GdwP65RnZCDWeSM3IeLq7M8dD
+         bkbgwstbkWUDsGOYoqpCUIn4ScTlVDrUjEC6L6DuXtJCL8Z/KA38Vp3yAa9fORWj+7NF
+         1JGe933EhBzlpsZtdS5x8aSLTnZV7ljRTA9Ix4SpqJ6/5pdGqPyDYQvg8oh04cN3i4Qg
+         Q4QA==
+X-Gm-Message-State: AOJu0YyZ9lIU/4PkxBgkfiXGZa5ZJTPTCjexar6BD7t7d1BtWWKAeK+M
+	PmZ3wQ4OBT5KpKgpNSzUuzxeKQ==
+X-Google-Smtp-Source: AGHT+IHPM5SEb3p3yXI6+cmxTQEe9iGrXUotAOK1ZPi+82laCIzaDi0NMhLemTRTVTsPi8QNYprGKw==
+X-Received: by 2002:a9d:7398:0:b0:6ce:21c:28a9 with SMTP id j24-20020a9d7398000000b006ce021c28a9mr634585otk.34.1697669463891;
+        Wed, 18 Oct 2023 15:51:03 -0700 (PDT)
+Received: from charlie.ba.rivosinc.com ([64.71.180.162])
+        by smtp.gmail.com with ESMTPSA id r195-20020a4a37cc000000b00581e7506f2fsm641134oor.9.2023.10.18.15.51.02
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Oct 2023 15:19:46 -0700 (PDT)
-Date: Wed, 18 Oct 2023 15:19:43 -0700
+        Wed, 18 Oct 2023 15:51:03 -0700 (PDT)
 From: Charlie Jenkins <charlie@rivosinc.com>
-To: Andreas Schwab <schwab@linux-m68k.org>
-Cc: linux-riscv@lists.infradead.org, linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org,
-	Eric Biederman <ebiederm@xmission.com>,
-	Kees Cook <keescook@chromium.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>
-Subject: Re: [PATCH v4 1/2] riscv: Add remaining module relocations
-Message-ID: <ZTBZ/0Wfz/1oBwrl@ghost>
-References: <20231017-module_relocations-v4-0-937f5ef316f0@rivosinc.com>
- <20231017-module_relocations-v4-1-937f5ef316f0@rivosinc.com>
- <871qdr938h.fsf@igel.home>
+Subject: [PATCH v5 0/3] riscv: Add remaining module relocations and tests
+Date: Wed, 18 Oct 2023 15:51:00 -0700
+Message-Id: <20231018-module_relocations-v5-0-dfee32d4dfc3@rivosinc.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <871qdr938h.fsf@igel.home>
+X-B4-Tracking: v=1; b=H4sIAFRhMGUC/23NwWoDIRCA4VcJnmvQHR2zPeU9Qii7OjZCshZNJ
+ CHsu9ddQgnF4z/MfPNkmVKgzD43T5aohBziVEN/bJg9DdM38eBqs050IHqx45fobmf6SnSOdrj
+ W7cw9giWHWo7OsHr4k8iH+4oejrVPIV9jeqw/ilymL05CiyuSCz6O4HYKDZke9imUmMNktzZe2
+ CKW7k+RQmBT6aqijEZUGjw521DgTZFtBaoyIBrvUBhJfUNR74ppKqoqPRivyYNEL/4p8zz/Ai9
+ cJJSJAQAA
+To: linux-riscv@lists.infradead.org, linux-mm@kvack.org, 
+ linux-kernel@vger.kernel.org
+X-Mailer: b4 0.12.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231018_151949_631717_9A2C8B4D 
-X-CRM114-Status: GOOD (  10.49  )
+X-CRM114-CacheID: sfid-20231018_155105_211523_74952D55 
+X-CRM114-Status: GOOD (  11.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,29 +88,86 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: Albert Ou <aou@eecs.berkeley.edu>, Kees Cook <keescook@chromium.org>, Charlie Jenkins <charlie@rivosinc.com>, Andreas Schwab <schwab@linux-m68k.org>, Eric Biederman <ebiederm@xmission.com>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Emil Renner Berthing <emil.renner.berthing@canonical.com>, Emil Renner Berthing <kernel@esmil.dk>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 18, 2023 at 08:47:58PM +0200, Andreas Schwab wrote:
-> On Okt 17 2023, Charlie Jenkins wrote:
-> 
-> > +static int apply_r_riscv_sub6_rela(struct module *me, u32 *location, Elf_Addr v)
-> > +{
-> > +	*(u8 *)location = (*location - ((u8)v & 0x3F)) & 0x3F;
-> 
-> I think that should use *(u8*) on both sides.
+A handful of module relocations were missing, this patch includes the
+remaining ones. I also wrote some test cases to ensure that module
+loading works properly. Some relocations cannot be supported in the
+kernel, these include the ones that rely on thread local storage and
+dynamic linking.
 
-Yep, thank you.
+ULEB128 handling is a bit special because SET and SUB relocations must
+happen together, and SET must happen before SUB. A psABI proposal [1]
+mandates that the first SET_ULEB128 that appears before a SUB_ULEB128
+is the associated SET_ULEB128.
 
+This can be tested by enabling KUNIT, RUNTIME_KERNEL_TESTING_MENU, and
+RISCV_MODULE_LINKING_KUNIT.
+
+[1] https://github.com/riscv-non-isa/riscv-elf-psabi-doc/pull/403
+
+Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
+---
+Changes in v5:
+- Brought in patch by Emil and fixed it up to force little endian
+- Fixed up issues with apply_r_riscv_32_pcrel_rela and
+  apply_r_riscv_plt32_rela (Samuel)
+- Added u8 cast in apply_r_riscv_sub6_rela (Andreas) 
+- Link to v4: https://lore.kernel.org/r/20231017-module_relocations-v4-0-937f5ef316f0@rivosinc.com
+
+Changes in v4:
+- Complete removal of R_RISCV_RVC_LUI
+- Fix bug in R_RISCV_SUB6 linking
+- Only build ULEB128 tests if supported by toolchain
+- Link to v3: https://lore.kernel.org/r/20231016-module_relocations-v3-0-a667fd6071e9@rivosinc.com
+
+Changes in v3:
+- Add prototypes to test_module_linking_main as recommended by intel
+  zero day bot
+- Improve efficiency of ULEB128 pair matching
+- Link to v2: https://lore.kernel.org/r/20231006-module_relocations-v2-0-47566453fedc@rivosinc.com
+
+Changes in v2:
+- Added ULEB128 relocations
+- Link to v1: https://lore.kernel.org/r/20230913-module_relocations-v1-0-bb3d8467e793@rivosinc.com
+
+---
+Charlie Jenkins (2):
+      riscv: Add remaining module relocations
+      riscv: Add tests for riscv module loading
+
+Emil Renner Berthing (1):
+      riscv: Avoid unaligned access when relocating modules
+
+ arch/riscv/Kconfig.debug                           |   1 +
+ arch/riscv/include/uapi/asm/elf.h                  |   5 +-
+ arch/riscv/kernel/Makefile                         |   1 +
+ arch/riscv/kernel/module.c                         | 371 +++++++++++++++------
+ arch/riscv/kernel/tests/Kconfig.debug              |  35 ++
+ arch/riscv/kernel/tests/Makefile                   |   1 +
+ arch/riscv/kernel/tests/module_test/Makefile       |  15 +
+ .../tests/module_test/test_module_linking_main.c   |  85 +++++
+ arch/riscv/kernel/tests/module_test/test_set16.S   |  23 ++
+ arch/riscv/kernel/tests/module_test/test_set32.S   |  20 ++
+ arch/riscv/kernel/tests/module_test/test_set6.S    |  23 ++
+ arch/riscv/kernel/tests/module_test/test_set8.S    |  23 ++
+ arch/riscv/kernel/tests/module_test/test_sub16.S   |  22 ++
+ arch/riscv/kernel/tests/module_test/test_sub32.S   |  22 ++
+ arch/riscv/kernel/tests/module_test/test_sub6.S    |  22 ++
+ arch/riscv/kernel/tests/module_test/test_sub64.S   |  27 ++
+ arch/riscv/kernel/tests/module_test/test_sub8.S    |  22 ++
+ arch/riscv/kernel/tests/module_test/test_uleb128.S |  20 ++
+ 18 files changed, 637 insertions(+), 101 deletions(-)
+---
+base-commit: 4d320c2d9a2b22f53523a1b012cda17a50220965
+change-id: 20230908-module_relocations-f63ced651bd7
+-- 
 - Charlie
 
-> 
-> -- 
-> Andreas Schwab, schwab@linux-m68k.org
-> GPG Key fingerprint = 7578 EB47 D4E5 4D69 2510  2552 DF73 E780 A9DA AEC1
-> "And now for something completely different."
 
 _______________________________________________
 linux-riscv mailing list
