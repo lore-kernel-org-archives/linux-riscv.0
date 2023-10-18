@@ -4,62 +4,131 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F156CDB47E
-	for <linux-riscv@archiver.kernel.org>; Wed, 18 Oct 2023 11:36:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 023C4CDB47E
+	for <linux-riscv@archiver.kernel.org>; Wed, 18 Oct 2023 12:11:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9KmOCmSeBBzikgXaizT5ZoEj+DDGvCZPdGhqVLSUYZ8=; b=KXXSFF6UKC9tGiRTNZUXZWO7zN
-	O5EQZev7szmhHnPWwSWy4CoOt8yzZ52Rda2Lormxz3X5y9HktDQ/2YEHY2aom2FbXrmGEn4SN/C7Y
-	UP6JUrfACSUMshVA94/LRwK3w5ETyTnsWaxIZJdyqmFDVu2h5bHRgNVkQT39wVoPCt6jcqqCNul2J
-	4csm38NUhfT2A0VAkCDN2yc/GokDQ+o3KNqBW/i69PAhMVZezZ6CnMNNOJu5GyNM4djiINtpEoJse
-	CmBNbuWFMO6ZI9H1DepwVJo/E088Aync8/QkAH28jcs55mOC8GULNywIQUePWxlSF1N5ExcRgjYFG
-	lo3jSl/w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=XUIzwgqmfPLzeb7YXv9+aPiTuaBQlTQ0ezS8lITu5wM=; b=DTEmfU/vv2rWIU
+	0b24FvmrmL9yrdqyoP93IIV2eFD/ErO5i/IKVv7n7400NCkyesWCaSfaCuBKHHd5UyMJIL0TgrEQx
+	MJmI+7NVd2yIT/1nW9S0yCqOLJqxfptN7s2fctxYNMxsw/U4iThorO07/C2k7x2jYkA4s5nrvDAEu
+	IBlNT9Is28qGGs0RwBazLPfzuamBJc+vMMniFZ1cezuF+bgnsmGCe+S87DHZzEmdERatmtu3TxV2l
+	o5t/if7aF54XOv7vTU6ZyztXGl6CVxnSbbbMPMFp18WSc2QsIAyKb0ssHPClRgkbkgPzYz99CVhA7
+	68Kky3hxVH+M20sU136g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qt4qJ-00EZmv-34;
-	Wed, 18 Oct 2023 11:36:03 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1qt5Ol-00EcxG-2i;
+	Wed, 18 Oct 2023 12:11:39 +0000
+Received: from mail-ed1-x52b.google.com ([2a00:1450:4864:20::52b])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qt4qG-00EZmX-31
+	id 1qt5Oj-00Ecws-0k
 	for linux-riscv@lists.infradead.org;
-	Wed, 18 Oct 2023 11:36:02 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id E90906172D;
-	Wed, 18 Oct 2023 11:35:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BC5E6C433C7;
-	Wed, 18 Oct 2023 11:35:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1697628959;
-	bh=auqTNLipd3mDc/YcCEnSBeelbAAfYDDTuTo0Vv6a5uw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=M+Wdr4Euwkm2PmwDzKVGLB7zKPMBqG+ksDsnufCKVlZ6EonsZSvD3BSiU/bWdstEp
-	 UzDZ+9jBq9b8KdvbrVRIdd2UlsEA9S9jsX+okvK9KCpojusNi9AvAALCxzD3bOTI3W
-	 C6VhTmhaQveG2DE4rqAKHUqsK4ms5HfOS9TSuBzlxn4nkdw1RjQYK08mDSYq0+IXBB
-	 10JMFkBbldHjhABg4q0HmkYzc6oTVrcrbPFWuPHdKGubY+JB1N7k/5Ac7G/na/GxZT
-	 l75r0CBVjOfG0mE503xqPVEDRvcBPVxyuwGbPWFOePw60azeQM+RwbytU7L98eOILR
-	 m3m7YrOi2I3wQ==
-Date: Wed, 18 Oct 2023 12:35:55 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Charlie Jenkins <charlie@rivosinc.com>
-Cc: linux-riscv@lists.infradead.org, linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org,
-	Eric Biederman <ebiederm@xmission.com>,
-	Kees Cook <keescook@chromium.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>
-Subject: Re: [PATCH v4 0/2] riscv: Add remaining module relocations and tests
-Message-ID: <20231018-smite-bungee-f46b15b4ce6f@spud>
-References: <20231017-module_relocations-v4-0-937f5ef316f0@rivosinc.com>
+	Wed, 18 Oct 2023 12:11:38 +0000
+Received: by mail-ed1-x52b.google.com with SMTP id 4fb4d7f45d1cf-53e751aeb3cso7149531a12.2
+        for <linux-riscv@lists.infradead.org>; Wed, 18 Oct 2023 05:11:36 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1697631095; x=1698235895; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=JVts+iBQCVv1UHxFkA7zBcTMqp+dvdzDwbjSd4/uaJc=;
+        b=ym5svkDMzLgF7qs2WFfCDYwGCpTU0l54Sv54tjrOL2osUgbqtIHWNkpJAAc+LhrOJC
+         zisNLr6tcL+OQGOeQi9TZVPIrRyhM9coLcx7q0FUKWYRPJtZwwCVM1HQ4dOYjS5joKLX
+         wIc4VEA/QIFsjXKox6B6c1BJpK7n7uf6uqBkTlWKZmwElgAR5uYhUnS+fgxbL3ZdcrdD
+         6xB8lDW2PT8OX4z52j6c70jmio62lF+rbow6Sa1LDQyVKkCa0o1bf3ZW5B7yGkru+pK6
+         TrkW9nL68qV56LnIIJ65iykFCjg9BIcmJzEt5ia8VhVH80UlPpS7PHqWlmIVyJCUzO12
+         Q/HA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1697631095; x=1698235895;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=JVts+iBQCVv1UHxFkA7zBcTMqp+dvdzDwbjSd4/uaJc=;
+        b=tglZZUJaOnauOmFa7cSXUNxySGzjI0yTKdSbT1piVy+zhm7RKjsxUp1kw2ITKQ78YR
+         PfWhWVhFW4k3iQ7riZMMMcC3vQJNyvSbNsFLZEGvNF4TWybKV0YvGygOJhYxq6jjsx+d
+         QA8Ls/Pqnho0cAxwUYJiI4BAVNbJMPkqAePovvcR41RY7qRzK9iY4bnBk6e6gGYzu6m3
+         OnaGWAyva2Kagm/mUabQcOlGg4UGulaUPMzLAaSJXvNTdB5nvcqvLMB2/2yBfbgkMfWo
+         b5+Xchq/DmGA1mMLkRZ51j1FfWEofHqAbQKyIVsmDWjOMGdnApPLouoIonNLYEjstUqk
+         gsYQ==
+X-Gm-Message-State: AOJu0Yws2FrG8mh49xG2hQ+V+wX+RXxNPh3sQs739AuUxNmz//NpSQt+
+	xTpor5e/emq9TDSIu5hc+KO/1w==
+X-Google-Smtp-Source: AGHT+IFrdQ1lQL4DQcFqTn+e9xo8+CaW3xT2Oc7lRHHoyMUp+bTv9E1W6EFaJNtdO0Oz+FQybpd63A==
+X-Received: by 2002:a17:907:980c:b0:9be:2991:81fb with SMTP id ji12-20020a170907980c00b009be299181fbmr3754058ejc.36.1697631094755;
+        Wed, 18 Oct 2023 05:11:34 -0700 (PDT)
+Received: from [192.168.1.20] ([178.197.219.154])
+        by smtp.gmail.com with ESMTPSA id rn1-20020a170906d92100b0099d45ed589csm1540784ejb.125.2023.10.18.05.11.33
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 18 Oct 2023 05:11:34 -0700 (PDT)
+Message-ID: <4d98aa3b-003b-45e8-9a85-db07af73aa8a@linaro.org>
+Date: Wed, 18 Oct 2023 14:11:32 +0200
 MIME-Version: 1.0
-In-Reply-To: <20231017-module_relocations-v4-0-937f5ef316f0@rivosinc.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 4/8] riscv: dts: sophgo: Rename cv1800b device tree
+ file
+To: Inochi Amaoto <inochiama@outlook.com>, Chao Wei <chao.wei@sophgo.com>,
+ Chen Wang <unicorn_wang@outlook.com>, Conor Dooley <conor@kernel.org>,
+ Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
+Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <IA1PR20MB49538F60A390CA74EF1D16A2BBD5A@IA1PR20MB4953.namprd20.prod.outlook.com>
+ <IA1PR20MB4953267AE83D7E6FED7C06ADBBD5A@IA1PR20MB4953.namprd20.prod.outlook.com>
+Content-Language: en-US
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
+ 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
+ D2GYIS41Kv4Isx2dEFh+/Q==
+In-Reply-To: <IA1PR20MB4953267AE83D7E6FED7C06ADBBD5A@IA1PR20MB4953.namprd20.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231018_043601_059458_DB2EDCA7 
-X-CRM114-Status: GOOD (  18.66  )
+X-CRM114-CacheID: sfid-20231018_051137_280700_41880820 
+X-CRM114-Status: GOOD (  11.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,131 +140,31 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============0283058882290793242=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============0283058882290793242==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="1okcQQvN+RgqgcjX"
-Content-Disposition: inline
-
-
---1okcQQvN+RgqgcjX
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-Hey Charlie,
-
-On Tue, Oct 17, 2023 at 10:34:15PM -0700, Charlie Jenkins wrote:
-> A handful of module relocations were missing, this patch includes the
-> remaining ones. I also wrote some test cases to ensure that module
-> loading works properly. Some relocations cannot be supported in the
-> kernel, these include the ones that rely on thread local storage and
-> dynamic linking.
->=20
-> ULEB128 handling is a bit special because SET and SUB relocations must
-> happen together, and SET must happen before SUB. A psABI proposal [1]
-> mandates that the first SET_ULEB128 that appears before a SUB_ULEB128
-> is the associated SET_ULEB128.
->=20
-> This can be tested by enabling KUNIT, RUNTIME_KERNEL_TESTING_MENU, and
-> RISCV_MODULE_LINKING_KUNIT.
->=20
-> [1] https://github.com/riscv-non-isa/riscv-elf-psabi-doc/pull/403
->=20
-> Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
+On 18/10/2023 13:31, Inochi Amaoto wrote:
+> As CV180x and CV181x have the identical layouts, it is OK to use the
+> cv1800b basic device tree for the whole series.
+> 
+> Signed-off-by: Inochi Amaoto <inochiama@outlook.com>
 > ---
-> Changes in v4:
-> - Complete removal of R_RISCV_RVC_LUI
-> - Fix bug in R_RISCV_SUB6 linking
-> - Only build ULEB128 tests if supported by toolchain
-> - Link to v3: https://lore.kernel.org/r/20231016-module_relocations-v3-0-=
-a667fd6071e9@rivosinc.com
+>  arch/riscv/boot/dts/sophgo/{cv1800b.dtsi => cv18xx.dtsi} | 0
+>  1 file changed, 0 insertions(+), 0 deletions(-)
+>  rename arch/riscv/boot/dts/sophgo/{cv1800b.dtsi => cv18xx.dtsi} (100%)
+> 
 
-On patch 2/2:
-
-=2E./arch/riscv/kernel/tests/module_test/test_uleb128.S:18:17: error: unkno=
-wn relocation name
-=2E./arch/riscv/kernel/tests/module_test/test_uleb128.S:19:17: error: unkno=
-wn relocation name
-
-Same toolchain configuration in the patchwork automation as before.
-
-Cheers,
-Conor.
-
->=20
-> Changes in v3:
-> - Add prototypes to test_module_linking_main as recommended by intel
->   zero day bot
-> - Improve efficiency of ULEB128 pair matching
-> - Link to v2: https://lore.kernel.org/r/20231006-module_relocations-v2-0-=
-47566453fedc@rivosinc.com
->=20
-> Changes in v2:
-> - Added ULEB128 relocations
-> - Link to v1: https://lore.kernel.org/r/20230913-module_relocations-v1-0-=
-bb3d8467e793@rivosinc.com
->=20
-> ---
-> Charlie Jenkins (2):
->       riscv: Add remaining module relocations
->       riscv: Add tests for riscv module loading
->=20
->  arch/riscv/Kconfig.debug                           |   1 +
->  arch/riscv/include/uapi/asm/elf.h                  |   5 +-
->  arch/riscv/kernel/Makefile                         |   1 +
->  arch/riscv/kernel/module.c                         | 207 +++++++++++++++=
-+++---
->  arch/riscv/kernel/tests/Kconfig.debug              |  35 ++++
->  arch/riscv/kernel/tests/Makefile                   |   1 +
->  arch/riscv/kernel/tests/module_test/Makefile       |  15 ++
->  .../tests/module_test/test_module_linking_main.c   |  85 +++++++++
->  arch/riscv/kernel/tests/module_test/test_set16.S   |  23 +++
->  arch/riscv/kernel/tests/module_test/test_set32.S   |  20 ++
->  arch/riscv/kernel/tests/module_test/test_set6.S    |  23 +++
->  arch/riscv/kernel/tests/module_test/test_set8.S    |  23 +++
->  arch/riscv/kernel/tests/module_test/test_sub16.S   |  22 +++
->  arch/riscv/kernel/tests/module_test/test_sub32.S   |  22 +++
->  arch/riscv/kernel/tests/module_test/test_sub6.S    |  22 +++
->  arch/riscv/kernel/tests/module_test/test_sub64.S   |  27 +++
->  arch/riscv/kernel/tests/module_test/test_sub8.S    |  22 +++
->  arch/riscv/kernel/tests/module_test/test_uleb128.S |  20 ++
->  18 files changed, 548 insertions(+), 26 deletions(-)
-> ---
-> base-commit: 4d320c2d9a2b22f53523a1b012cda17a50220965
-> change-id: 20230908-module_relocations-f63ced651bd7
-> --=20
-> - Charlie
->=20
-
---1okcQQvN+RgqgcjX
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZS/DGwAKCRB4tDGHoIJi
-0gMDAP0WbgwU87WIuhP0GqZRc4filSavgJ3pf5gzvnAAYbBAPAEAuuKUU48p/pb4
-cjTzJOq1xJ30NhLxK8Npc0BLQvqxpwU=
-=tuJ6
------END PGP SIGNATURE-----
-
---1okcQQvN+RgqgcjX--
+If nothing breaks by this commit, means the file is not used, so how did
+it end up in the kernel?
 
 
---===============0283058882290793242==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Best regards,
+Krzysztof
+
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============0283058882290793242==--
-
