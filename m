@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28014C41513
-	for <linux-riscv@archiver.kernel.org>; Wed, 18 Oct 2023 14:13:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3728DCDB482
+	for <linux-riscv@archiver.kernel.org>; Wed, 18 Oct 2023 14:14:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jYcsoUJlYtCbLiBISz/PhFSDBJh9D8pdrWd+gqzkIBI=; b=rpkm3a1Kf5A5un
-	PmFwKe3co9qCdHM1sivTQXpt0+46dJrmKDgdQAuPI3Oh2moirP/dY4ipDCpOZR/sKXwRquOSujG9h
-	uTHEg1pRNf+zqI+0L1tmDQQq45fMAtaoBELHaVJhOvh2fK16LQGL5gNfr3lBDnNoApZzRcPSlrkkN
-	iFxisK1Pb2oWOI997ieCWkP4VGEMUP0R36e7fqhjDGzJDHQu2ahImW9s4Gkpe3wWi0md+IAH53bdJ
-	qnSHc0V1x4hj7hAv4cTukwhv+axMtp8O+AQumXzYY4+2s6i/IehCeAHOBZ1i/GXmLUGBihm557wyf
-	2WpmoGTW0EMwubGCZizg==;
+	List-Owner; bh=UWHSq3UOlGzSM2ohdPvZIYFAjMZBXCgvMrRjmV61pa0=; b=Q1t1I89URxDqqt
+	v37L0syXkm3Y9Z8rALBFomMd7PTS4bcgozJERnHzBK8bL+Ja5M3uBUsxPJuBCHNKUe2RUuVxpY5sd
+	JAxKMpdqWug8Nj1PqHWsDrzyf3KbD0+JJ+f9tzN1y0X5v0SLctOZBBXoZG3VIvNcSAkIC7up6wAPY
+	n2MMeyJqGvfBy2Oilo+u/9nRafLjNfFSyHo4TyQBa3xHLAIDlMd/h4VaPZYNB8FCjgRGdD/QBDVmg
+	3Fv3tJtEvI0YxOpuryH0zCvdsZ1AXCkEoEEVWiJ5h+WJMiniMOtfkfMQ4KhxdIHuGzqCt7T6315JH
+	LbftGVDYJmGivtKAU9Cw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qt7J4-00Erzp-2F;
-	Wed, 18 Oct 2023 14:13:54 +0000
+	id 1qt7Jm-00EsKx-22;
+	Wed, 18 Oct 2023 14:14:38 +0000
 Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qt7J1-00Ery0-2y
+	id 1qt7Jj-00EsIZ-0D
 	for linux-riscv@lists.infradead.org;
-	Wed, 18 Oct 2023 14:13:53 +0000
+	Wed, 18 Oct 2023 14:14:36 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id B5AECCE258E;
-	Wed, 18 Oct 2023 14:13:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2139EC43391;
-	Wed, 18 Oct 2023 14:13:47 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id 6E21BCE25CE;
+	Wed, 18 Oct 2023 14:14:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E5FAAC433C9;
+	Wed, 18 Oct 2023 14:14:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1697638428;
-	bh=4TpKUHbeJhydNfeTrWYik6Eg3Dy0qNg/mrIhNU3pthk=;
+	s=k20201202; t=1697638473;
+	bh=14GQXwt2W7OgYXm3BLfldX+aT31k3vfoAlqbmW/xzcQ=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=PJj+95CiCpKMwDNmB3N2QhB1MEptus1bGhcbvVg6dy4DuZE43KXCSakC1ukF59Xc0
-	 paLifneUXdcfY7NecgZyMWM7tpcJtsBpPuMhPyFLFAX1qKfcUHGF6sAHf3zMkbBgVl
-	 vILzSd7jZXzuPPGtnYQuakFHIVeVbx64JgsA4LEdmJATTaWHDKcBbo1J04fxrTNnk9
-	 V5XsijgCpSHNjMlrg7c7XUcrXhdSqkRc3n7CHSMZKExfRuSBmp7eIb3L9gdcYEptt8
-	 C0JnKRa77YhsF703Lpudjf+USurhqYOiK6hbJ9VYQXcuvFcaOL3URjQJ4L/Yv4Zgy8
-	 My9/xcJn0Q+pQ==
+	b=ZBfgYDlvStJOeSODE4hhSF9K6PyGBJmJK3fw/y5od01L9GwDj7WLfcxLKuRT3uVQc
+	 IvGzt5jDnJMHlNT2+nl5zaLKGNHVw/uiG5NY36GitlsMqmVl1sMNxdxlKRhIOrCCu2
+	 7mc8Rd8gVgtHLYwjOwsKnwpbRoICycRGvRa7fXWNVL5gJXC7cwMnIb6k0Yg4hgEObz
+	 fz+eMHoYocN9nbUbBSRgcHbFRK1mH+6T9zjiNYX9jZgDFCCZAKlKFjxpWv2mCb5C2A
+	 T78OWida+AEfYJOZVd8OIKlr2iDZvecf5yIE0mIIbWd/mtKF2dFxenyKsZqFCHAIHX
+	 QuR0JuUxes+5Q==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
@@ -54,18 +54,18 @@ Cc: Anup Patel <apatel@ventanamicro.com>,
 	palmer@dabbelt.com,
 	aou@eecs.berkeley.edu,
 	linux-riscv@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.1 11/19] irqchip/riscv-intc: Mark all INTC nodes as initialized
-Date: Wed, 18 Oct 2023 10:13:13 -0400
-Message-Id: <20231018141323.1334898-11-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 5.15 07/14] irqchip/riscv-intc: Mark all INTC nodes as initialized
+Date: Wed, 18 Oct 2023 10:14:07 -0400
+Message-Id: <20231018141416.1335165-7-sashal@kernel.org>
 X-Mailer: git-send-email 2.40.1
-In-Reply-To: <20231018141323.1334898-1-sashal@kernel.org>
-References: <20231018141323.1334898-1-sashal@kernel.org>
+In-Reply-To: <20231018141416.1335165-1-sashal@kernel.org>
+References: <20231018141416.1335165-1-sashal@kernel.org>
 MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
-X-stable-base: Linux 6.1.58
+X-stable-base: Linux 5.15.135
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231018_071352_128686_DC350C19 
+X-CRM114-CacheID: sfid-20231018_071435_276633_52D0F365 
 X-CRM114-Status: GOOD (  12.76  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -108,10 +108,10 @@ Signed-off-by: Sasha Levin <sashal@kernel.org>
  1 file changed, 9 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/irqchip/irq-riscv-intc.c b/drivers/irqchip/irq-riscv-intc.c
-index 499e5f81b3fe3..4b66850978e6e 100644
+index 8017f6d32d52b..54c99441c1b54 100644
 --- a/drivers/irqchip/irq-riscv-intc.c
 +++ b/drivers/irqchip/irq-riscv-intc.c
-@@ -110,8 +110,16 @@ static int __init riscv_intc_init(struct device_node *node,
+@@ -109,8 +109,16 @@ static int __init riscv_intc_init(struct device_node *node,
  	 * for each INTC DT node. We only need to do INTC initialization
  	 * for the INTC DT node belonging to boot CPU (or boot HART).
  	 */
