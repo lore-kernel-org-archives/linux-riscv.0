@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34B84CDB482
-	for <linux-riscv@archiver.kernel.org>; Wed, 18 Oct 2023 14:12:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28014C41513
+	for <linux-riscv@archiver.kernel.org>; Wed, 18 Oct 2023 14:13:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LVSGFs7XHnb0Nk34TEcnXBNBdLn7gUx3IyPqkfrWfBQ=; b=FusMMlOH3cBZaH
-	4GRHjKRJI7cS5kzpIAZjZ6UIG4xeE3mwvwB+1Zhr16dz84iiy8hxAcU7B8OPnMv/00Ql/wsJE6LOb
-	Twb80jzXc188RQNQa3+HIeM0bV2fdfBZ2iVy0aPNuiVdYpwzX0RS4MAQrRxtuDTySy+1y8gLlej3s
-	arDA/kA7tBS3QU86iDiIQz8CokvjqYzCWbHKEwo1ddNfF2defUW4CJpPF6+UxJFFeNraF3rmon14w
-	lght4mXZidsZqBzQGkHnUZWHjzywLxFDhg3HOQfX9rvMCNVahMqX8dsvXNKsy6IZBMp331pLi3aTK
-	s5wwjgOBOJ2LXvdDNC0w==;
+	List-Owner; bh=jYcsoUJlYtCbLiBISz/PhFSDBJh9D8pdrWd+gqzkIBI=; b=rpkm3a1Kf5A5un
+	PmFwKe3co9qCdHM1sivTQXpt0+46dJrmKDgdQAuPI3Oh2moirP/dY4ipDCpOZR/sKXwRquOSujG9h
+	uTHEg1pRNf+zqI+0L1tmDQQq45fMAtaoBELHaVJhOvh2fK16LQGL5gNfr3lBDnNoApZzRcPSlrkkN
+	iFxisK1Pb2oWOI997ieCWkP4VGEMUP0R36e7fqhjDGzJDHQu2ahImW9s4Gkpe3wWi0md+IAH53bdJ
+	qnSHc0V1x4hj7hAv4cTukwhv+axMtp8O+AQumXzYY4+2s6i/IehCeAHOBZ1i/GXmLUGBihm557wyf
+	2WpmoGTW0EMwubGCZizg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qt7Hy-00ErUW-22;
-	Wed, 18 Oct 2023 14:12:46 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1qt7J4-00Erzp-2F;
+	Wed, 18 Oct 2023 14:13:54 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qt7Hu-00ErQU-18
+	id 1qt7J1-00Ery0-2y
 	for linux-riscv@lists.infradead.org;
-	Wed, 18 Oct 2023 14:12:45 +0000
+	Wed, 18 Oct 2023 14:13:53 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by ams.source.kernel.org (Postfix) with ESMTP id F40E5B823A0;
-	Wed, 18 Oct 2023 14:12:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 86432C433C9;
-	Wed, 18 Oct 2023 14:12:39 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id B5AECCE258E;
+	Wed, 18 Oct 2023 14:13:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2139EC43391;
+	Wed, 18 Oct 2023 14:13:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1697638360;
-	bh=JIRr0gRvmQQNSAExZupPyrYT+vxJ3y/jlLLbi6tp3zs=;
+	s=k20201202; t=1697638428;
+	bh=4TpKUHbeJhydNfeTrWYik6Eg3Dy0qNg/mrIhNU3pthk=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=m4FTIJUzfpTKfXZDgkZlizOrzz8VN6duZcuSZ7hsDzK4cl8Yi9cVvH65JgusXP3r1
-	 XM5C8v0VrRka810qrXt65qsKc9CHVOrWv8KOEk7pxLghT2RDuiXMGacm7pWOQHmdOz
-	 guEGtTx8vCGWlF4GjIriLqC5HvpCW9Y4bApxmcJ5vqwJ/34Bo7WW+uZVvu6oZQb2OY
-	 nKfHqv1gx25BV+Ba+lV6gpHfEQYuHfLLPcW0E59aP8SeUHsli7InzHIp0fJQL2Kdj1
-	 MdD5vjR0ytfGZD7TQHg0ypYtGPmBKeKwP+D0YFNfTBNAGuApmaMpM8ZF1Uze4eox0H
-	 2JxaJ6t56VnHg==
+	b=PJj+95CiCpKMwDNmB3N2QhB1MEptus1bGhcbvVg6dy4DuZE43KXCSakC1ukF59Xc0
+	 paLifneUXdcfY7NecgZyMWM7tpcJtsBpPuMhPyFLFAX1qKfcUHGF6sAHf3zMkbBgVl
+	 vILzSd7jZXzuPPGtnYQuakFHIVeVbx64JgsA4LEdmJATTaWHDKcBbo1J04fxrTNnk9
+	 V5XsijgCpSHNjMlrg7c7XUcrXhdSqkRc3n7CHSMZKExfRuSBmp7eIb3L9gdcYEptt8
+	 C0JnKRa77YhsF703Lpudjf+USurhqYOiK6hbJ9VYQXcuvFcaOL3URjQJ4L/Yv4Zgy8
+	 My9/xcJn0Q+pQ==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
@@ -54,19 +54,19 @@ Cc: Anup Patel <apatel@ventanamicro.com>,
 	palmer@dabbelt.com,
 	aou@eecs.berkeley.edu,
 	linux-riscv@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.5 19/31] irqchip/riscv-intc: Mark all INTC nodes as initialized
-Date: Wed, 18 Oct 2023 10:11:36 -0400
-Message-Id: <20231018141151.1334501-19-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 6.1 11/19] irqchip/riscv-intc: Mark all INTC nodes as initialized
+Date: Wed, 18 Oct 2023 10:13:13 -0400
+Message-Id: <20231018141323.1334898-11-sashal@kernel.org>
 X-Mailer: git-send-email 2.40.1
-In-Reply-To: <20231018141151.1334501-1-sashal@kernel.org>
-References: <20231018141151.1334501-1-sashal@kernel.org>
+In-Reply-To: <20231018141323.1334898-1-sashal@kernel.org>
+References: <20231018141323.1334898-1-sashal@kernel.org>
 MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
-X-stable-base: Linux 6.5.7
+X-stable-base: Linux 6.1.58
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231018_071242_549461_709D77CD 
-X-CRM114-Status: GOOD (  12.73  )
+X-CRM114-CacheID: sfid-20231018_071352_128686_DC350C19 
+X-CRM114-Status: GOOD (  12.76  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,10 +108,10 @@ Signed-off-by: Sasha Levin <sashal@kernel.org>
  1 file changed, 9 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/irqchip/irq-riscv-intc.c b/drivers/irqchip/irq-riscv-intc.c
-index 4adeee1bc391f..e8d01b14ccdde 100644
+index 499e5f81b3fe3..4b66850978e6e 100644
 --- a/drivers/irqchip/irq-riscv-intc.c
 +++ b/drivers/irqchip/irq-riscv-intc.c
-@@ -155,8 +155,16 @@ static int __init riscv_intc_init(struct device_node *node,
+@@ -110,8 +110,16 @@ static int __init riscv_intc_init(struct device_node *node,
  	 * for each INTC DT node. We only need to do INTC initialization
  	 * for the INTC DT node belonging to boot CPU (or boot HART).
  	 */
@@ -127,8 +127,8 @@ index 4adeee1bc391f..e8d01b14ccdde 100644
  		return 0;
 +	}
  
- 	return riscv_intc_init_common(of_node_to_fwnode(node));
- }
+ 	intc_domain = irq_domain_add_linear(node, BITS_PER_LONG,
+ 					    &riscv_intc_domain_ops, NULL);
 -- 
 2.40.1
 
