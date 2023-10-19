@@ -4,66 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94883CDB465
-	for <linux-riscv@archiver.kernel.org>; Thu, 19 Oct 2023 09:15:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02D4ECDB465
+	for <linux-riscv@archiver.kernel.org>; Thu, 19 Oct 2023 09:17:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XiDqgk6ml+xcwnZcMMuTwwPBmrJFmoKmKMonKEKyzlg=; b=5Ddcy4ACRgaxrvMk4OgGUrvm2U
-	R543rlEdXr2kQDnDk9TnLYey2iQSzBWJqSMNcQz111BO8eZwMNz6bfGfpPhvRFJB7zPXieQHd8oxi
-	iR4M82byAbi3FOQNJ0ZHauLs+s66lf7OzVZR9CF3hsXkXMDxcOGK79knw4h7yiJl2h6S6DD3qy3/U
-	bZzKKl7K8RHasNlUDiN6T5DGOzv13wyvS7twmP4iiZCczXHDTUlw3aMbxyPQnSPiHoYTkLXWBpf2O
-	mbd8DurR6LYBUeIgl5fzVx2q0vfT5W6npXBseH/duu4uOjTa3SPfOmMH9vM8XaEXtDURmPeSGm36D
-	bRuuUltg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=APopzHbfCRZQzdzg6BwHbsK5VD+u36ACXWelBq4sKv4=; b=yNO/reBktIk6mH
+	Wb99b/hfnwjbE+7m5Z1twwALeYgzyVYqDMCC6TCx5LbeNLTh6EYH7HWJXNKwghhP6/f9gEH/bfBYQ
+	5Hg1NpFx0D6awyYHI0Ak8r/3JRgQcddkibgrtFHDcpv3aQXQlkb9LzsF+ZyHqvfqEyHBPcLtLxPk0
+	l722WxWuzc67F/UabRhjpQPdpDWH3FHCqditU1q0AdPZWmFXVllG+1ddG5zTMcDu21snCpLd/JQ/R
+	dQ8rVpDswVI26XT6kGk9XQLkcDMX/REhsV2gNl7GM2fTsTuuc6dpS2jvh+01fG0jW6WwXrSUkvd1l
+	fxuPKCCG7Dv4uCzeUMpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qtP8E-00GpXl-11;
-	Thu, 19 Oct 2023 09:15:54 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1qtP9r-00Gpu3-17;
+	Thu, 19 Oct 2023 09:17:35 +0000
+Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qtP8B-00GpW6-0q
+	id 1qtP9o-00Gps8-1V
 	for linux-riscv@lists.infradead.org;
-	Thu, 19 Oct 2023 09:15:52 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by ams.source.kernel.org (Postfix) with ESMTP id C8A69B82737;
-	Thu, 19 Oct 2023 09:15:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 49EB6C433C8;
-	Thu, 19 Oct 2023 09:15:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1697706949;
-	bh=0PZmpqxzGwjn9n6ql2tPU4w5KWFWK6hFe9b8EMIXp0Y=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Qn4cso2QxSqFLcdaSLL4PaFyhT0n0oa4FdmfJirYGFv8MXFfmmlEiae8SyXhLFXji
-	 y9a9X6458VyIY/U699BbkIhjBbswZehRPhU+z3/lKmCewZzXKhmBPBS/wDcWhTgMYQ
-	 mgVEyu/dzCUGG6wrpoPkoTxK1mR0TKbOZzlnO0hPMf0CC8Q4R/Mr1g4/CwVjrUesiy
-	 GmjL0nnjh7QOPw8khHaLgj9FgD/7S4ZpJN/bHTBfTphDNgbl7lHUaHQ+4OhVKfOkrk
-	 IPDNLI4LPyu4Y0uBR4DhPKF8/bS9xqw7r/r+JFg9PbekI4e26xUgETfBWrhXa7og4k
-	 RZzcCnnMFZmvA==
-Date: Thu, 19 Oct 2023 10:15:44 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Andrew Jones <ajones@ventanamicro.com>
-Cc: Anup Patel <apatel@ventanamicro.com>, linux-riscv@lists.infradead.org,
-	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	leyfoon.tan@starfivetech.com, jeeheng.sia@starfivetech.com,
-	conor.dooley@microchip.com
-Subject: Re: [PATCH v1 1/1] riscv: sbi: Introduce system suspend support
-Message-ID: <20231019-rice-stopping-c1c74396aa96@spud>
-References: <20231012072148.7010-3-ajones@ventanamicro.com>
- <20231012072148.7010-4-ajones@ventanamicro.com>
- <20231012-powdery-demeanor-4d8dde576f24@spud>
- <20231012-pulverize-founding-f459336028a2@spud>
- <20231012-0cb15beef3128da9f3bd3299@orel>
- <CAK9=C2VFi+jtNGo+dueXcG8iRW=r1z-c1P_8SRGAxaByW=8tuA@mail.gmail.com>
- <20231012-b5b2d068ef07fd574207cc15@orel>
- <20231019-7499e3153836cb6c6353e578@orel>
+	Thu, 19 Oct 2023 09:17:33 +0000
+Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-3296b49c546so5953490f8f.3
+        for <linux-riscv@lists.infradead.org>; Thu, 19 Oct 2023 02:17:29 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1697707048; x=1698311848; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=bcsnYpAdLM0em0FjxCCFcChvrh3CN3lWApFF37wa+JE=;
+        b=GakUo38F9o6kW4cwr+e5OFpHrTLU1RY9yWifI4seNAKKjPivtqQqBOU+4LXWdGntdo
+         P4eVFpjO9K2beNp/+nwH2P5WgfrnHGU06QjiIEj+WYhAepopuBVFXpYYuadQoDpEe6KT
+         B+8llwctZsNXyUa9H1rvHHxcz50kknWf+Hs9luFpB6S+Qa9BKKSojOj/9xOh0Lc12gvd
+         Pt0DxSy6+tzbfrbgOlGcXluN+YFAyGQMiExWs6oNipmzG+G7KN8U/6ezAQtr4JaLX0tW
+         RemDbsfCtr8sKcaCtEdieMdnVlktTzkjMfcoz0kKFa985tWuG1DhYPSmmjoVrFRCbBX0
+         5xNQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1697707048; x=1698311848;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=bcsnYpAdLM0em0FjxCCFcChvrh3CN3lWApFF37wa+JE=;
+        b=TuLKFNE4za4X3boZvvwyU/YFjPmI+7n0idJFXWcmNMoD73rkDeEmZJRqyoB2vAGYjk
+         QKm7ZiEIpH7USc52Oi+CGYwworXtmndez9V7phu39vBmGwiZYWM7wz4/5czh4Z0giomG
+         PX6wxIYOiUwqIy0QOuBNAZqlu9hE+ifTA8fPfY096iXQ1781RsjwCHoRt5l0njsbnm0B
+         oHM8mxoWHqOC5RdXQGdR1bbjdEsSCuFuwrZFVwDpp2ExGCitGbdWE6s+hJm31eAkja10
+         nEBrBkbybny4b5LkUDs26PaakGGJMEuqKi0WCEJIjZCqHdXslwZjp8cdKycTTDWqqidh
+         DkTA==
+X-Gm-Message-State: AOJu0YxHN8RoJN843TbA9nDhRJ7n+8IkR/3hP3/TyjM8Z/l6W8UYQj+W
+	akoFz7GNFLVIrzzCaWNyoL+6/w==
+X-Google-Smtp-Source: AGHT+IG8jOCLnI027DgY6Yx/fVy/qYUq7DqIReW1lUlcofpdY/Llx77hEFpM5sP3dOt6SenXND9+/w==
+X-Received: by 2002:adf:f74d:0:b0:32d:8da0:48d0 with SMTP id z13-20020adff74d000000b0032d8da048d0mr923979wrp.68.1697707048600;
+        Thu, 19 Oct 2023 02:17:28 -0700 (PDT)
+Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
+        by smtp.gmail.com with ESMTPSA id x8-20020adfec08000000b0032dbf6bf7a2sm3994451wrn.97.2023.10.19.02.17.27
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 19 Oct 2023 02:17:27 -0700 (PDT)
+Date: Thu, 19 Oct 2023 11:17:26 +0200
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Anup Patel <apatel@ventanamicro.com>
+Cc: Paolo Bonzini <pbonzini@redhat.com>, 
+	Atish Patra <atishp@atishpatra.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Jiri Slaby <jirislaby@kernel.org>, Conor Dooley <conor@kernel.org>, kvm@vger.kernel.org, 
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, linux-serial@vger.kernel.org, 
+	linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 4/8] RISC-V: KVM: Forward SBI DBCN extension to
+ user-space
+Message-ID: <20231019-7471d3927d94ab7158d61c6b@orel>
+References: <20231012051509.738750-1-apatel@ventanamicro.com>
+ <20231012051509.738750-5-apatel@ventanamicro.com>
 MIME-Version: 1.0
-In-Reply-To: <20231019-7499e3153836cb6c6353e578@orel>
+Content-Disposition: inline
+In-Reply-To: <20231012051509.738750-5-apatel@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231019_021551_630547_32E791DE 
-X-CRM114-Status: GOOD (  25.59  )
+X-CRM114-CacheID: sfid-20231019_021732_506044_F3376B35 
+X-CRM114-Status: GOOD (  19.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,93 +92,74 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8430074978253169196=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Thu, Oct 12, 2023 at 10:45:05AM +0530, Anup Patel wrote:
+> The frozen SBI v2.0 specification defines the SBI debug console
+> (DBCN) extension which replaces the legacy SBI v0.1 console
+> functions namely sbi_console_getchar() and sbi_console_putchar().
+> 
+> The SBI DBCN extension needs to be emulated in the KVM user-space
+> (i.e. QEMU-KVM or KVMTOOL) so we forward SBI DBCN calls from KVM
+> guest to the KVM user-space which can then redirect the console
+> input/output to wherever it wants (e.g. telnet, file, stdio, etc).
+> 
+> The SBI debug console is simply a early console available to KVM
+> guest for early prints and it does not intend to replace the proper
+> console devices such as 8250, VirtIO console, etc.
+> 
+> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+> ---
+>  arch/riscv/include/asm/kvm_vcpu_sbi.h |  1 +
+>  arch/riscv/include/uapi/asm/kvm.h     |  1 +
+>  arch/riscv/kvm/vcpu_sbi.c             |  4 ++++
+>  arch/riscv/kvm/vcpu_sbi_replace.c     | 32 +++++++++++++++++++++++++++
+>  4 files changed, 38 insertions(+)
+> 
+> diff --git a/arch/riscv/include/asm/kvm_vcpu_sbi.h b/arch/riscv/include/asm/kvm_vcpu_sbi.h
+> index c02bda5559d7..6a453f7f8b56 100644
+> --- a/arch/riscv/include/asm/kvm_vcpu_sbi.h
+> +++ b/arch/riscv/include/asm/kvm_vcpu_sbi.h
+> @@ -73,6 +73,7 @@ extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_ipi;
+>  extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_rfence;
+>  extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_srst;
+>  extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_hsm;
+> +extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_dbcn;
+>  extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_experimental;
+>  extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_vendor;
+>  
+> diff --git a/arch/riscv/include/uapi/asm/kvm.h b/arch/riscv/include/uapi/asm/kvm.h
+> index 917d8cc2489e..60d3b21dead7 100644
+> --- a/arch/riscv/include/uapi/asm/kvm.h
+> +++ b/arch/riscv/include/uapi/asm/kvm.h
+> @@ -156,6 +156,7 @@ enum KVM_RISCV_SBI_EXT_ID {
+>  	KVM_RISCV_SBI_EXT_PMU,
+>  	KVM_RISCV_SBI_EXT_EXPERIMENTAL,
+>  	KVM_RISCV_SBI_EXT_VENDOR,
+> +	KVM_RISCV_SBI_EXT_DBCN,
 
---===============8430074978253169196==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="2pieAQAF6W8hr21G"
-Content-Disposition: inline
+We should add this new register to the get-reg-list kselftest, i.e.
 
+diff --git a/tools/testing/selftests/kvm/riscv/get-reg-list.c b/tools/testing/selftests/kvm/riscv/get-reg-list.c
+index 234006d035c9..4a0f8a8cfbf8 100644
+--- a/tools/testing/selftests/kvm/riscv/get-reg-list.c
++++ b/tools/testing/selftests/kvm/riscv/get-reg-list.c
+@@ -565,6 +565,7 @@ static __u64 base_regs[] = {
+ 	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_SBI_EXT | KVM_REG_RISCV_SBI_SINGLE | KVM_RISCV_SBI_EXT_SRST,
+ 	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_SBI_EXT | KVM_REG_RISCV_SBI_SINGLE | KVM_RISCV_SBI_EXT_HSM,
+ 	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_SBI_EXT | KVM_REG_RISCV_SBI_SINGLE | KVM_RISCV_SBI_EXT_PMU,
++	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_SBI_EXT | KVM_REG_RISCV_SBI_SINGLE | KVM_RISCV_SBI_EXT_DBCN,
+ 	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_SBI_EXT | KVM_REG_RISCV_SBI_SINGLE | KVM_RISCV_SBI_EXT_EXPERIMENTAL,
+ 	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_SBI_EXT | KVM_REG_RISCV_SBI_SINGLE | KVM_RISCV_SBI_EXT_VENDOR,
+ 	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_SBI_EXT | KVM_REG_RISCV_SBI_MULTI_EN | 0,
 
---2pieAQAF6W8hr21G
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-
-Hey Drew, Anup,
-
-On Thu, Oct 19, 2023 at 10:36:50AM +0200, Andrew Jones wrote:
-
-> I was just reviewing the DBCN series and was about to raise my thoughts
-> there again about not being so strict about SBI implementation versions,
-> but then I thought some more about it. I guess we should be strict about
-> the version since it's otherwise not possible to any confidence that the
-> extension advertised is the extension described in the frozen/ratified
-> version of the spec (there could be implementations of draft spec versions
-> which are not compatible with the final version and those will have the
-> same extension ID).
-
-TBH, I don't think that having the version check is a sufficient test to
-stop things like that happening, but being insufficient does not make it
-not worthwhile.
-
-> The most confidence Linux can have in an SBI
-> extension's implementation being what it expects to be will come from
-> both the extension's presence and the SBI implementation's version
-> being at least as big as the version in which the extension was frozen.
-
-I am not sure what the status of the patches are on the OpenSBI side,
-but this is kinda how I feel about the Andestech PMU series. They're
-intending advertising having the PMU extension using the same interface
-as the standard PMU stuff - at least, that is the basis on which the
-kernel patches worked. The software doing the ecall to probe for support
-does really need to be able to trust that when it is told the extension
-is present that it is in fact the standard, or at least standard-compatible,
-extension.
-
-<20230906111455.4161641-1-peterlin@andestech.com> is the OpenSBI series
-implementing this and I voiced my objection to the kernel patches at
-https://lore.kernel.org/linux-riscv/20230911-worry-reformat-fbb5c473085d@wendy
-
-> Long story short, I'll change the above condition to look for 2.0 and
-> ask QEMU folks to put an OpenSBI binary which advertises 2.0 into its
-> repo as soon as possible.
-
-Cool, thanks.
-
-
-BTW Anup, do you think we could get the OpenSBI mailing lists archived
-on lore.kernel.org?
-
-Cheers,
-Conor.
-
---2pieAQAF6W8hr21G
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZTDzwAAKCRB4tDGHoIJi
-0s36AQCkNr8bboLhzSr8KpoJ3qOOOsVQWwQN7ZkeFbrF4fsjIgEA1RUcEPHNVs0B
-gMD3pVbQi8S5Mw70e00Y0QxXRGwP8gI=
-=7dWG
------END PGP SIGNATURE-----
-
---2pieAQAF6W8hr21G--
-
-
---===============8430074978253169196==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Thanks,
+drew
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============8430074978253169196==--
-
