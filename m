@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1A43CDB465
-	for <linux-riscv@archiver.kernel.org>; Thu, 19 Oct 2023 08:02:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3E7BCDB465
+	for <linux-riscv@archiver.kernel.org>; Thu, 19 Oct 2023 08:03:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/0/9zuytRWqHbHwOTmNQcp5j61AXASbqnDlilTRXxz0=; b=2WjN0B7rk5PX8a
-	32JVZFTJ2Xwjf6rx4KyVFrYt1SS468apd+UbwxfetLJmB5xM1WStPhjZ/zL6NGB3O8VAi85RFBJ/a
-	nXE1qdBw7G0Bh5/IvzAeSstDbIv/qm1IHjyMcO40MBU6cBliYE+w8sGk1Jns2ToksmxJy4c8nPdQ8
-	tULKhxjHm0T51MZ3u/2AVovrCmnXGcvTeHduV3UTPqt+C8E5slQtQD0vcfag4zfJdsAr0HKpc2mjz
-	ngmh4+0eaIL5o2Pp+sQ/+gn4Uhhw1gaSendOp9BgoNhiWWHu9w7/YopIQ4vnsP/mFS5kSGZPw3N4o
-	qxTYJBPGbDuoo+A8dSwA==;
+	List-Owner; bh=XVpwig/0I7QI3DfzAZwSWg5Fv3QCbENTW+/GL/ZVJS0=; b=WHaRraS7ic+E2d
+	p878PM2HNa5AkQeAr+wS827wgg0cPF2SFHykiymsgl73qnEzx+MdeIgR1mrTD7oyLTt7c/+57gzWP
+	HMwatVLxfJOtAJ4cxfw/VbbfWFg62xxcCoFJz2kB03Q5EgpPnBK22NiE5DOUABy63a0/E/82x4jM3
+	F/v+DTR+/CbCv7bQXzF0PHLoh1w1R0kLWyvUagSivrfpVHaaG3tUlbuemDj9Weq5nDf/urQozZvhY
+	d4x2o484LPoVkJdxEEfHJPUaJr03qRHBPD1BW+7PNir6nx7l9Xke0wRoXOMCD/UxCGxMdKpMq3uTu
+	6rYBxjOxGuV5CrSiRiJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qtNyk-00Gf0Z-00;
-	Thu, 19 Oct 2023 08:02:02 +0000
-Received: from mail-lj1-x230.google.com ([2a00:1450:4864:20::230])
+	id 1qtO0U-00GfOx-0L;
+	Thu, 19 Oct 2023 08:03:50 +0000
+Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qtNyg-00GeyU-2q
+	id 1qtO0R-00GfNO-1S
 	for linux-riscv@lists.infradead.org;
-	Thu, 19 Oct 2023 08:02:00 +0000
-Received: by mail-lj1-x230.google.com with SMTP id 38308e7fff4ca-2c50305c5c4so97404781fa.1
-        for <linux-riscv@lists.infradead.org>; Thu, 19 Oct 2023 01:01:56 -0700 (PDT)
+	Thu, 19 Oct 2023 08:03:48 +0000
+Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-32d9d8284abso4970415f8f.3
+        for <linux-riscv@lists.infradead.org>; Thu, 19 Oct 2023 01:03:47 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1697702515; x=1698307315; darn=lists.infradead.org;
+        d=ventanamicro.com; s=google; t=1697702626; x=1698307426; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=wThBUxBh7v0znNn0ZPl0WI7OQvkdGdCrZ1lZ3b6Zyy4=;
-        b=b6fRnYOSsEa7CMFStrHXm//RbWT/2bM1JQtGLVuXDeb1ZvRI33LcaH4HxvVGdkrtqi
-         sQfHc3l4V4vclTd5u4eEOOU0vskRkimi2ijYLUrDej26PIsQIY0KM2lGshc7h+3YCduf
-         RU08k2LdqVKUkntd/63FszVNVpra1UH0gfGRBxgEnUa7KylpJdNTmIyNyXOp0VnUpWfP
-         MAiXpZ3Q5NExZloyFxpr+8U1eHOYBrxh/jPaFCsaWL4KgNPjdPnzctro1pPYFLMPI4F6
-         /weHAQ++wXTMB8xezM8AoHOIsdCU8qBS7Tdu5W4qJct6xuoKvAmyjsko3Y1C3Xxvlkb4
-         +QGA==
+        bh=PH3CTrts87/bU27l3EN5JAWxWDeGWRQ9EMGON+8aZg4=;
+        b=Vz1BORO4g8PL2emicfgmH4TKr+iwfh65WqT5PMcqaJbdrhfOh2y8n20ZgYyBmu+Asl
+         lCKFxDEc4SYBbQTdksnMo/MgtjtWfctjSYRHd0sDigY9/EMmJvAz2CiiDdnCZruh3l4v
+         rjRymdwwTZle480s2VDrfhSrPw0oicrc4Zeh5ra9/TEuy1/8VfVHWslQDyZttHiyd8m5
+         DhFLmG0cPbkobSZbziolKE3WKYNFwToVIAFrCiGK7eORlgx8M1McilQyH+cwZPqqPzd0
+         HNhkAoIe1HbQr2OprhRvbFPiKZaXv6pgczPEeKT1GMaE8JNl6fST3AeiKUY+uQg7jzsw
+         GrUQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1697702515; x=1698307315;
+        d=1e100.net; s=20230601; t=1697702626; x=1698307426;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=wThBUxBh7v0znNn0ZPl0WI7OQvkdGdCrZ1lZ3b6Zyy4=;
-        b=Y0P+/1wnI63qj1vzr1rsRL1zZR35G/LxkPI24KA6egIYzCaQq/Q6wkJyZAiTBn9O10
-         5xPp1GC2PFx5Kbai7Xnwkm7VKg8xr3xdXG4EexVA6bN1VuwqeX+W9iD/nVAiZDromqHO
-         H2uuxjMVVrTZQ+53yHySkCSzYtf5C/BpLT1wZ2jrTVDipFMKfiY1vvBL/sHiKl2IE/Wh
-         jQBdlw6OL2/IqqAprPNJJeWY6uWh7/8syHYkzOizL9tuEeRozQfKzbjWy8eD+yIE7Z4E
-         U/3qCGubpDj2rKnB4CrQHAXKONJfY3KcfWPetZVeAFxlkNojL6/XwwUVkjjcOtvO25zn
-         80rg==
-X-Gm-Message-State: AOJu0Yw6EIpkKW8lIFYtZNBQoqYIdTwVGCNHPdJkjHZXL/O0L83Y13LU
-	MQ3AIWhNxqD5+5WvC2s4vggyCQ==
-X-Google-Smtp-Source: AGHT+IEkF+Ae4mUiCJOXGTWK+iVSfRk0ko7bvAOvA0qtVmbQYW0wA+W8atiyY1iQZ4X9vKJwGK3qXg==
-X-Received: by 2002:a2e:bc04:0:b0:2c5:13e8:e6dc with SMTP id b4-20020a2ebc04000000b002c513e8e6dcmr1149965ljf.31.1697702515155;
-        Thu, 19 Oct 2023 01:01:55 -0700 (PDT)
+        bh=PH3CTrts87/bU27l3EN5JAWxWDeGWRQ9EMGON+8aZg4=;
+        b=LNLupsrfNSE0NUGRILlrC/0HpjljzZlrbsPdnA0iVwSZJO9pnJjjIpvAORa78zRXep
+         KDqDc/daK+7yppX1GZqeQlxQgDKUIBAcH3zwTWMKH6RwoMfjMI9Rkj4cIAQpfg8rhgdl
+         JGkoaaaPc+YtmZwZfJTW2NoO5vzAsXY4dGdMKj3PHe+x61YIx5G9GDPa99dyy7wgGj1T
+         WSAoBCZUFhrIb6Wks0bdBBEU6Gs6HT3EBqCj1trCLYNjJcrD4qlVYmLB0vPhfbiu/hDy
+         vtQitj7bGdhQWUTDWj+auDi5uityF+qQUOzSaLHmznR+ktdIYxkL3RsDfuYXHyzHkzYF
+         x2Dg==
+X-Gm-Message-State: AOJu0YxbCB+ceFyThRe0n+MTA8imvWIr8TB2XphWvOZnDrY+bb88FByJ
+	a0sCOXFLZrHbwqcuTNA2bJ8pGQ==
+X-Google-Smtp-Source: AGHT+IHYgrLP95m19T8VV4j4IIENiIUl+y5B0n5FUWHPqZ/oM3kMO8SamCcDgZ0NeNrUiRnd8JBlpA==
+X-Received: by 2002:a05:6000:11c9:b0:31f:b120:143 with SMTP id i9-20020a05600011c900b0031fb1200143mr887639wrx.59.1697702625844;
+        Thu, 19 Oct 2023 01:03:45 -0700 (PDT)
 Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
-        by smtp.gmail.com with ESMTPSA id je6-20020a05600c1f8600b004063ea92492sm3790133wmb.22.2023.10.19.01.01.53
+        by smtp.gmail.com with ESMTPSA id c12-20020adfe70c000000b0031c6e1ea4c7sm3818471wrm.90.2023.10.19.01.03.45
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Oct 2023 01:01:54 -0700 (PDT)
-Date: Thu, 19 Oct 2023 10:01:53 +0200
+        Thu, 19 Oct 2023 01:03:45 -0700 (PDT)
+Date: Thu, 19 Oct 2023 10:03:44 +0200
 From: Andrew Jones <ajones@ventanamicro.com>
 To: Anup Patel <apatel@ventanamicro.com>
 Cc: Paolo Bonzini <pbonzini@redhat.com>, 
@@ -70,17 +70,17 @@ Cc: Paolo Bonzini <pbonzini@redhat.com>,
 	Jiri Slaby <jirislaby@kernel.org>, Conor Dooley <conor@kernel.org>, kvm@vger.kernel.org, 
 	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, linux-serial@vger.kernel.org, 
 	linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 4/8] RISC-V: KVM: Forward SBI DBCN extension to
- user-space
-Message-ID: <20231019-5e79c16a0731f60d862ddfff@orel>
+Subject: Re: [PATCH v2 5/8] RISC-V: Add inline version of
+ sbi_console_putchar/getchar() functions
+Message-ID: <20231019-61b3653a98a1c021623b091e@orel>
 References: <20231012051509.738750-1-apatel@ventanamicro.com>
- <20231012051509.738750-5-apatel@ventanamicro.com>
+ <20231012051509.738750-6-apatel@ventanamicro.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20231012051509.738750-5-apatel@ventanamicro.com>
+In-Reply-To: <20231012051509.738750-6-apatel@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231019_010158_916281_F4AC2864 
-X-CRM114-Status: GOOD (  23.33  )
+X-CRM114-CacheID: sfid-20231019_010347_493283_B4F016C2 
+X-CRM114-Status: GOOD (  16.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,110 +97,43 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 12, 2023 at 10:45:05AM +0530, Anup Patel wrote:
-> The frozen SBI v2.0 specification defines the SBI debug console
-> (DBCN) extension which replaces the legacy SBI v0.1 console
-> functions namely sbi_console_getchar() and sbi_console_putchar().
-> 
-> The SBI DBCN extension needs to be emulated in the KVM user-space
-> (i.e. QEMU-KVM or KVMTOOL) so we forward SBI DBCN calls from KVM
-> guest to the KVM user-space which can then redirect the console
-> input/output to wherever it wants (e.g. telnet, file, stdio, etc).
-> 
-> The SBI debug console is simply a early console available to KVM
-> guest for early prints and it does not intend to replace the proper
-> console devices such as 8250, VirtIO console, etc.
+On Thu, Oct 12, 2023 at 10:45:06AM +0530, Anup Patel wrote:
+> The functions sbi_console_putchar() and sbi_console_getchar() are
+> not defined when CONFIG_RISCV_SBI_V01 is disabled so let us add
+> inline version of these functions to avoid "#ifdef" on user side.
+
+nit: Here and in the summary I'd probably use the word "stub" instead of
+"inline version".
+
 > 
 > Signed-off-by: Anup Patel <apatel@ventanamicro.com>
 > ---
->  arch/riscv/include/asm/kvm_vcpu_sbi.h |  1 +
->  arch/riscv/include/uapi/asm/kvm.h     |  1 +
->  arch/riscv/kvm/vcpu_sbi.c             |  4 ++++
->  arch/riscv/kvm/vcpu_sbi_replace.c     | 32 +++++++++++++++++++++++++++
->  4 files changed, 38 insertions(+)
+>  arch/riscv/include/asm/sbi.h | 5 +++++
+>  1 file changed, 5 insertions(+)
 > 
-> diff --git a/arch/riscv/include/asm/kvm_vcpu_sbi.h b/arch/riscv/include/asm/kvm_vcpu_sbi.h
-> index c02bda5559d7..6a453f7f8b56 100644
-> --- a/arch/riscv/include/asm/kvm_vcpu_sbi.h
-> +++ b/arch/riscv/include/asm/kvm_vcpu_sbi.h
-> @@ -73,6 +73,7 @@ extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_ipi;
->  extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_rfence;
->  extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_srst;
->  extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_hsm;
-> +extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_dbcn;
->  extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_experimental;
->  extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_vendor;
+> diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
+> index 12dfda6bb924..cbcefa344417 100644
+> --- a/arch/riscv/include/asm/sbi.h
+> +++ b/arch/riscv/include/asm/sbi.h
+> @@ -271,8 +271,13 @@ struct sbiret sbi_ecall(int ext, int fid, unsigned long arg0,
+>  			unsigned long arg3, unsigned long arg4,
+>  			unsigned long arg5);
 >  
-> diff --git a/arch/riscv/include/uapi/asm/kvm.h b/arch/riscv/include/uapi/asm/kvm.h
-> index 917d8cc2489e..60d3b21dead7 100644
-> --- a/arch/riscv/include/uapi/asm/kvm.h
-> +++ b/arch/riscv/include/uapi/asm/kvm.h
-> @@ -156,6 +156,7 @@ enum KVM_RISCV_SBI_EXT_ID {
->  	KVM_RISCV_SBI_EXT_PMU,
->  	KVM_RISCV_SBI_EXT_EXPERIMENTAL,
->  	KVM_RISCV_SBI_EXT_VENDOR,
-> +	KVM_RISCV_SBI_EXT_DBCN,
->  	KVM_RISCV_SBI_EXT_MAX,
->  };
->  
-> diff --git a/arch/riscv/kvm/vcpu_sbi.c b/arch/riscv/kvm/vcpu_sbi.c
-> index 1b1cee86efda..bb76c3cf633f 100644
-> --- a/arch/riscv/kvm/vcpu_sbi.c
-> +++ b/arch/riscv/kvm/vcpu_sbi.c
-> @@ -66,6 +66,10 @@ static const struct kvm_riscv_sbi_extension_entry sbi_ext[] = {
->  		.ext_idx = KVM_RISCV_SBI_EXT_PMU,
->  		.ext_ptr = &vcpu_sbi_ext_pmu,
->  	},
-> +	{
-> +		.ext_idx = KVM_RISCV_SBI_EXT_DBCN,
-> +		.ext_ptr = &vcpu_sbi_ext_dbcn,
-> +	},
->  	{
->  		.ext_idx = KVM_RISCV_SBI_EXT_EXPERIMENTAL,
->  		.ext_ptr = &vcpu_sbi_ext_experimental,
-> diff --git a/arch/riscv/kvm/vcpu_sbi_replace.c b/arch/riscv/kvm/vcpu_sbi_replace.c
-> index 7c4d5d38a339..23b57c931b15 100644
-> --- a/arch/riscv/kvm/vcpu_sbi_replace.c
-> +++ b/arch/riscv/kvm/vcpu_sbi_replace.c
-> @@ -175,3 +175,35 @@ const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_srst = {
->  	.extid_end = SBI_EXT_SRST,
->  	.handler = kvm_sbi_ext_srst_handler,
->  };
-> +
-> +static int kvm_sbi_ext_dbcn_handler(struct kvm_vcpu *vcpu,
-> +				    struct kvm_run *run,
-> +				    struct kvm_vcpu_sbi_return *retdata)
-> +{
-> +	struct kvm_cpu_context *cp = &vcpu->arch.guest_context;
-> +	unsigned long funcid = cp->a6;
-> +
-> +	switch (funcid) {
-> +	case SBI_EXT_DBCN_CONSOLE_WRITE:
-> +	case SBI_EXT_DBCN_CONSOLE_READ:
-> +	case SBI_EXT_DBCN_CONSOLE_WRITE_BYTE:
-> +		/*
-> +		 * The SBI debug console functions are unconditionally
-> +		 * forwarded to the userspace.
-> +		 */
-> +		kvm_riscv_vcpu_sbi_forward(vcpu, run);
-> +		retdata->uexit = true;
-> +		break;
-> +	default:
-> +		retdata->err_val = SBI_ERR_NOT_SUPPORTED;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_dbcn = {
-> +	.extid_start = SBI_EXT_DBCN,
-> +	.extid_end = SBI_EXT_DBCN,
-> +	.default_unavail = true,
-> +	.handler = kvm_sbi_ext_dbcn_handler,
-> +};
+> +#ifdef CONFIG_RISCV_SBI_V01
+>  void sbi_console_putchar(int ch);
+>  int sbi_console_getchar(void);
+> +#else
+> +static inline void sbi_console_putchar(int ch) { }
+> +static inline int sbi_console_getchar(void) { return -1; }
+> +#endif
+>  long sbi_get_mvendorid(void);
+>  long sbi_get_marchid(void);
+>  long sbi_get_mimpid(void);
 > -- 
 > 2.34.1
 >
+
+Otherwise,
 
 Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
 
