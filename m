@@ -4,91 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8B17CDB483
-	for <linux-riscv@archiver.kernel.org>; Thu, 19 Oct 2023 12:30:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C033CDB482
+	for <linux-riscv@archiver.kernel.org>; Thu, 19 Oct 2023 12:51:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tWdQaBqTf7ZiyEa/ul4yCiXrwmE5vZi4XKsbOJ9cv3w=; b=HoYv+3FEeMaP3e
-	TsvJR9NluHDtYLxLWbZXC0SItYhs0huMP6bP8IqskmNdgimF28CKuTBwqAbbimBYe3R/gcalTKSG+
-	SQgSnVeRKxBSpOJKvyx/FV7Fh9y/foVt8cHkL/0SV+DR0EBXc8XmT8gNOxlLHFGygB9YPXOUGNODQ
-	3rk8NwwRwpIqbj/z3DkjePLCIPFt5pBuhH2ltJHk5U5SWnivBFQOhQATdPqon6YbTDIhi3S1JEszl
-	klD1mhpkValwKGXCcDNk4yufLPAgBUJIzwDdocXURK6OFbk7w0MJn7sU3TtPhoYPoh7/RHtvnxqvy
-	RyER79DC6KMVGK0Sx1KA==;
+	List-Owner; bh=UjZZji04omAtaRDJA5QDIBET0unswGt8t5VLi5/RbY8=; b=01rK4f+nTIu4Q3
+	BiUdRXmGML1EmJu8MehHHMIHUJEJcN2eJ0zn/NfIXgCKY5Yi1SXZc968yqdew1YevLxAg3fhXNF0t
+	tlCjyoaEI/oVMG6TUxUGydROUe0MeEsTZ3j1ts/mbr9Mvx4Fx1Q9+3TA2YSsqyO1kNYba/4sjvOWG
+	QiCl2/o2CnOQ4Nkb81+pJJLwxOaIxxQt5Bw2bfDVe3RbKFMrbHLWzNa8TbAsaI/mGeErRYFvpQ4vc
+	P+380rTKQWlbJDFqmxJ6yUBN7r1Wvy75hKc0fj1X3ne9LE1a6Xp0eI0QtFhjYq/5KSMHJwuC6X1Vq
+	aPX/BrvOUww/TjT8Qs4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qtSA5-00HKa9-39;
-	Thu, 19 Oct 2023 12:30:01 +0000
-Received: from mail-lj1-x22a.google.com ([2a00:1450:4864:20::22a])
+	id 1qtSUQ-00HN7a-2Q;
+	Thu, 19 Oct 2023 12:51:02 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qtSA2-00HKVb-0w
+	id 1qtSUO-00HN6e-0J
 	for linux-riscv@lists.infradead.org;
-	Thu, 19 Oct 2023 12:30:00 +0000
-Received: by mail-lj1-x22a.google.com with SMTP id 38308e7fff4ca-2c52289e900so9406441fa.0
-        for <linux-riscv@lists.infradead.org>; Thu, 19 Oct 2023 05:29:55 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1697718594; x=1698323394; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=nPQidXa+OYvo5Cuog4USzNI+/Xa6NAbmqLzTVYeaaGI=;
-        b=kQOlCw8Uxil7Ge1u3XHb5//pT0V9CFPiCuC2qojZIVpdTK/4K70fQSDVbf53jZDFy8
-         TBfKiFQxWICYMS36RL2Aht1JCqKGdmWBhuyl70RIYdevrKDJb05KrqlQUj8Q5wQRCC4q
-         vlc0hFxkxyO0eZTFlKWfFCxpVngHWkCv5qKQFZyQZShB93v5MTu2o6eyWCnnznUhkMUn
-         Sy1e8fb6Yn018t2zqtkQgLAAtLPK7O/1aZuioDA1V00aZRqerdTIKQ4vpngBCCEEivY0
-         BFrN00DNfbMwDjGXmckq1XqnhZFft6JVQCqIYSGUTmh0YY5LPzJDJ/4eC3NOd79/Lj6j
-         Jl+w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1697718594; x=1698323394;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=nPQidXa+OYvo5Cuog4USzNI+/Xa6NAbmqLzTVYeaaGI=;
-        b=iRQZLCDxIJq6aoHSS/ZOjcTEqDOfK2j0Njq8Z8NeLVRg8piUjWYo+eiWRyjCpSqbKT
-         ZFDMDqAYcBCQM1vileONZJxMsyZ4UFFWdiNMBIbeRcwfo6JsEcbkdkXA+tg2JKeIJS0D
-         MRaBfWZcanMrtoOV8N/kLWGaduGyK3hdXv7oC6FEnMevYmGelH8fUi85nD5PHL/2JhBx
-         /CjBiMdsLwcElOrYSRo0QrZEtyoFVzAHTgessAz68PEjg15Z6UIuA7JKHux1BIRTyTJ2
-         AmfaKaWHOz9vClSOz0hq8eTj+cVy6z581Jb0U/Dcp1ZvdAPfeC1TSh6vHcr8zOpCEUQW
-         a5jw==
-X-Gm-Message-State: AOJu0Yydfo1WRLuyyg677yYIMZlyzqEIM9M04J2WfkACMtsGg9o5MmI2
-	WKxR3sKvz1xdIFcGxOK4nFDFlQ==
-X-Google-Smtp-Source: AGHT+IHg7eVr9Vk42wp0GedexaXWPTTyyGtHpNE6XUvTGWZvO8GRkwynRbYeb/jJvG9OO4I66LWpjA==
-X-Received: by 2002:a2e:870a:0:b0:2c5:6ab:b817 with SMTP id m10-20020a2e870a000000b002c506abb817mr1417727lji.5.1697718593993;
-        Thu, 19 Oct 2023 05:29:53 -0700 (PDT)
-Received: from ?IPV6:2a01:e0a:999:a3a0:6933:1fe3:b858:3dde? ([2a01:e0a:999:a3a0:6933:1fe3:b858:3dde])
-        by smtp.gmail.com with ESMTPSA id l10-20020a1c790a000000b004063cced50bsm4266895wme.23.2023.10.19.05.29.53
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 19 Oct 2023 05:29:53 -0700 (PDT)
-Message-ID: <acd4c737-49ee-4038-890b-b2eba29f6460@rivosinc.com>
-Date: Thu, 19 Oct 2023 14:29:52 +0200
+	Thu, 19 Oct 2023 12:51:01 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id EFCECCE2C53;
+	Thu, 19 Oct 2023 12:50:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4A383C433C8;
+	Thu, 19 Oct 2023 12:50:53 +0000 (UTC)
+Message-ID: <572668b5-48b5-4bac-8712-75a5e2c096bd@linux-m68k.org>
+Date: Thu, 19 Oct 2023 22:50:50 +1000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 01/19] riscv: hwprobe: factorize hwprobe ISA extension
- reporting
-To: Conor Dooley <conor@kernel.org>
-Cc: Evan Green <evan@rivosinc.com>, linux-riscv@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-doc@vger.kernel.org, Palmer Dabbelt <palmer@rivosinc.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Albert Ou <aou@eecs.berkeley.edu>, Jonathan Corbet <corbet@lwn.net>,
- Andrew Jones <ajones@ventanamicro.com>, Samuel Ortiz <sameo@rivosinc.com>
-References: <20231017131456.2053396-1-cleger@rivosinc.com>
- <20231017131456.2053396-2-cleger@rivosinc.com>
- <CALs-HssL=wNwj9nRuZwpZhy1CB9p9-X=OqgwBw9zvgA7hA4fEg@mail.gmail.com>
- <20231018-scrap-bankable-a0f321d97a46@spud>
- <20231018-flagpole-footpad-07a6228485f3@spud>
- <844f6f35-3125-4014-852c-9ad7aee19ddc@rivosinc.com>
- <20231019-flatten-showbiz-127b2e917a7a@spud>
+Subject: Re: [PATCH 09/12] m68k: use the coherent DMA code for coldfire
+ without data cache
 Content-Language: en-US
-From: =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>
-In-Reply-To: <20231019-flatten-showbiz-127b2e917a7a@spud>
+To: Christoph Hellwig <hch@lst.de>, iommu@lists.linux.dev
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Conor Dooley <conor@kernel.org>,
+ Geert Uytterhoeven <geert+renesas@glider.be>,
+ Magnus Damm <magnus.damm@gmail.com>, Robin Murphy <robin.murphy@arm.com>,
+ Marek Szyprowski <m.szyprowski@samsung.com>,
+ Geert Uytterhoeven <geert@linux-m68k.org>, Wei Fang <wei.fang@nxp.com>,
+ Shenwei Wang <shenwei.wang@nxp.com>, Clark Wang <xiaoning.wang@nxp.com>,
+ NXP Linux Team <linux-imx@nxp.com>, linux-m68k@lists.linux-m68k.org,
+ netdev@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-renesas-soc@vger.kernel.org, Jim Quinlan <james.quinlan@broadcom.com>
+References: <20231016054755.915155-1-hch@lst.de>
+ <20231016054755.915155-10-hch@lst.de>
+From: Greg Ungerer <gerg@linux-m68k.org>
+In-Reply-To: <20231016054755.915155-10-hch@lst.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231019_052958_554713_54091F1E 
-X-CRM114-Status: GOOD (  26.49  )
+X-CRM114-CacheID: sfid-20231019_055100_472682_8BAF8AF5 
+X-CRM114-Status: GOOD (  20.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,95 +68,123 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-CgpPbiAxOS8xMC8yMDIzIDEyOjIyLCBDb25vciBEb29sZXkgd3JvdGU6Cj4gT24gVGh1LCBPY3Qg
-MTksIDIwMjMgYXQgMDk6MjY6MzFBTSArMDIwMCwgQ2zDqW1lbnQgTMOpZ2VyIHdyb3RlOgo+Pgo+
-Pgo+PiBPbiAxOC8xMC8yMDIzIDE5OjM2LCBDb25vciBEb29sZXkgd3JvdGU6Cj4+PiBPbiBXZWQs
-IE9jdCAxOCwgMjAyMyBhdCAwNjozMzozNFBNICswMTAwLCBDb25vciBEb29sZXkgd3JvdGU6Cj4+
-Pj4gT24gV2VkLCBPY3QgMTgsIDIwMjMgYXQgMTA6MjQ6MTVBTSAtMDcwMCwgRXZhbiBHcmVlbiB3
-cm90ZToKPj4+Pj4gT24gVHVlLCBPY3QgMTcsIDIwMjMgYXQgNjoxNeKAr0FNIENsw6ltZW50IEzD
-qWdlciA8Y2xlZ2VyQHJpdm9zaW5jLmNvbT4gd3JvdGU6Cj4+Pj4+Pgo+Pj4+Pj4gRmFjdG9yaXpl
-IElTQSBleHRlbnNpb24gcmVwb3J0aW5nIGJ5IHVzaW5nIGEgbWFjcm8gcmF0aGVyIHRoYW4KPj4+
-Pj4+IGNvcHkvcGFzdGluZyBleHRlbnNpb24gbmFtZXMuIFRoaXMgd2lsbCBhbGxvdyBhZGRpbmcg
-bmV3IGV4dGVuc2lvbnMgbW9yZQo+Pj4+Pj4gZWFzaWx5Lgo+Pj4+Pj4KPj4+Pj4+IFNpZ25lZC1v
-ZmYtYnk6IENsw6ltZW50IEzDqWdlciA8Y2xlZ2VyQHJpdm9zaW5jLmNvbT4KPj4+Pj4+IC0tLQo+
-Pj4+Pj4gIGFyY2gvcmlzY3Yva2VybmVsL3N5c19yaXNjdi5jIHwgMzIgKysrKysrKysrKysrKysr
-KysrLS0tLS0tLS0tLS0tLS0KPj4+Pj4+ICAxIGZpbGUgY2hhbmdlZCwgMTggaW5zZXJ0aW9ucygr
-KSwgMTQgZGVsZXRpb25zKC0pCj4+Pj4+Pgo+Pj4+Pj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yv
-a2VybmVsL3N5c19yaXNjdi5jIGIvYXJjaC9yaXNjdi9rZXJuZWwvc3lzX3Jpc2N2LmMKPj4+Pj4+
-IGluZGV4IDQ3MzE1OWI1ZjMwMy4uZTIwNzg3NGU2ODZlIDEwMDY0NAo+Pj4+Pj4gLS0tIGEvYXJj
-aC9yaXNjdi9rZXJuZWwvc3lzX3Jpc2N2LmMKPj4+Pj4+ICsrKyBiL2FyY2gvcmlzY3Yva2VybmVs
-L3N5c19yaXNjdi5jCj4+Pj4+PiBAQCAtMTQ1LDIwICsxNDUsMjQgQEAgc3RhdGljIHZvaWQgaHdw
-cm9iZV9pc2FfZXh0MChzdHJ1Y3QgcmlzY3ZfaHdwcm9iZSAqcGFpciwKPj4+Pj4+ICAgICAgICAg
-Zm9yX2VhY2hfY3B1KGNwdSwgY3B1cykgewo+Pj4+Pj4gICAgICAgICAgICAgICAgIHN0cnVjdCBy
-aXNjdl9pc2FpbmZvICppc2FpbmZvID0gJmhhcnRfaXNhW2NwdV07Cj4+Pj4+Pgo+Pj4+Pj4gLSAg
-ICAgICAgICAgICAgIGlmIChyaXNjdl9pc2FfZXh0ZW5zaW9uX2F2YWlsYWJsZShpc2FpbmZvLT5p
-c2EsIFpCQSkpCj4+Pj4+PiAtICAgICAgICAgICAgICAgICAgICAgICBwYWlyLT52YWx1ZSB8PSBS
-SVNDVl9IV1BST0JFX0VYVF9aQkE7Cj4+Pj4+PiAtICAgICAgICAgICAgICAgZWxzZQo+Pj4+Pj4g
-LSAgICAgICAgICAgICAgICAgICAgICAgbWlzc2luZyB8PSBSSVNDVl9IV1BST0JFX0VYVF9aQkE7
-Cj4+Pj4+PiAtCj4+Pj4+PiAtICAgICAgICAgICAgICAgaWYgKHJpc2N2X2lzYV9leHRlbnNpb25f
-YXZhaWxhYmxlKGlzYWluZm8tPmlzYSwgWkJCKSkKPj4+Pj4+IC0gICAgICAgICAgICAgICAgICAg
-ICAgIHBhaXItPnZhbHVlIHw9IFJJU0NWX0hXUFJPQkVfRVhUX1pCQjsKPj4+Pj4+IC0gICAgICAg
-ICAgICAgICBlbHNlCj4+Pj4+PiAtICAgICAgICAgICAgICAgICAgICAgICBtaXNzaW5nIHw9IFJJ
-U0NWX0hXUFJPQkVfRVhUX1pCQjsKPj4+Pj4+IC0KPj4+Pj4+IC0gICAgICAgICAgICAgICBpZiAo
-cmlzY3ZfaXNhX2V4dGVuc2lvbl9hdmFpbGFibGUoaXNhaW5mby0+aXNhLCBaQlMpKQo+Pj4+Pj4g
-LSAgICAgICAgICAgICAgICAgICAgICAgcGFpci0+dmFsdWUgfD0gUklTQ1ZfSFdQUk9CRV9FWFRf
-WkJTOwo+Pj4+Pj4gLSAgICAgICAgICAgICAgIGVsc2UKPj4+Pj4+IC0gICAgICAgICAgICAgICAg
-ICAgICAgIG1pc3NpbmcgfD0gUklTQ1ZfSFdQUk9CRV9FWFRfWkJTOwo+Pj4+Pj4gKyNkZWZpbmUg
-Q0hFQ0tfSVNBX0VYVChfX2V4dCkgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICBcCj4+Pj4+PiArICAgICAgICAgICAgICAgZG8geyAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFwKPj4+Pj4+ICsg
-ICAgICAgICAgICAgICAgICAgICAgIGlmIChyaXNjdl9pc2FfZXh0ZW5zaW9uX2F2YWlsYWJsZShp
-c2FpbmZvLT5pc2EsIF9fZXh0KSkgXAo+Pj4+Pj4gKyAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICBwYWlyLT52YWx1ZSB8PSBSSVNDVl9IV1BST0JFX0VYVF8jI19fZXh0OyAgICAgICBcCj4+
-Pj4+PiArICAgICAgICAgICAgICAgICAgICAgICBlbHNlICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgIFwKPj4+Pj4+ICsgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgbWlzc2luZyB8PSBSSVNDVl9IV1BST0JFX0VYVF8jI19fZXh0OyAgICAgICAg
-ICAgXAo+Pj4+Pj4gKyAgICAgICAgICAgICAgIH0gd2hpbGUgKGZhbHNlKQo+Pj4+Pj4gKwo+Pj4+
-Pj4gKyAgICAgICAgICAgICAgIC8qCj4+Pj4+PiArICAgICAgICAgICAgICAgICogT25seSB1c2Ug
-Q0hFQ0tfSVNBX0VYVCgpIGZvciBleHRlbnNpb25zIHdoaWNoIGNhbiBiZSBleHBvc2VkCj4+Pj4+
-PiArICAgICAgICAgICAgICAgICogdG8gdXNlcnNwYWNlLCByZWdhcmRsZXNzIG9mIHRoZSBrZXJu
-ZWwncyBjb25maWd1cmF0aW9uLCBhcyBubwo+Pj4+Pj4gKyAgICAgICAgICAgICAgICAqIG90aGVy
-IGNoZWNrcywgYmVzaWRlcyBwcmVzZW5jZSBpbiB0aGUgaGFydF9pc2EgYml0bWFwLCBhcmUKPj4+
-Pj4+ICsgICAgICAgICAgICAgICAgKiBtYWRlLgo+Pj4+Pgo+Pj4+PiBUaGlzIGNvbW1lbnQgYWxs
-dWRlcyB0byBhIGRhbmdlcm91cyB0cmFwLCBidXQgSSdtIGhhdmluZyB0cm91YmxlCj4+Pj4+IHVu
-ZGVyc3RhbmRpbmcgd2hhdCBpdCBpcy4KPj4+Pgo+Pj4+IFlvdSBjYW5ub3QsIGZvciBleGFtcGxl
-LCB1c2UgdGhpcyBmb3IgY29tbXVuaWNhdGluZyB0aGUgcHJlc2VuY2Ugb2YgRiBvcgo+Pj4+IEQs
-IHNpbmNlIHRoZXkgcmVxdWlyZSBhIGNvbmZpZyBvcHRpb24gdG8gYmUgc2V0IGJlZm9yZSB0aGVp
-ciB1c2UgaXMKPj4+PiBzYWZlLgo+Pj4KPj4+IEZ1bm5pbHkgZW5vdWdoLCB0aGlzIGNvbW1lbnQg
-aXMgaW1tZWRpYXRlbHkgY29udHJhZGljdGVkIGJ5IHRoZSB2ZWN0b3IKPj4+IHN1YnNldCBleHRl
-bnNpb25zLCB3aGVyZSB0aGVzZSBDSEVDS19JU0FfRVhUKCkgbWFjcm9zIGFyZSB1c2VkIHdyYXBw
-ZWQKPj4+IGluIGhhc192ZWN0b3IoKS4gVGhlIGNvZGUgbG9va3MgdmFsaWQgdG8gbWUsIHNpbmNl
-IGhhc192ZWN0b3IoKSBjb250YWlucwo+Pj4gdGhlIEtjb25maWcgY2hlY2ssIGJ1dCBkb2VzIGZs
-eSBpbiB0aGUgZmFjZSBvZiB0aGlzIGNvbW1lbnQuCj4gCj4+IFllcywgdGhlIEtDb25maWcgY2hl
-Y2tzIGFyZSBhbHJlYWR5IGRvbmUgYnkgdGhlIGhlYWRlcnMsIGFkZGluZyAjaWZkZWYKPj4gd291
-bGQgYmUgcmVkdW5kYW50IGV2ZW4gaWYgbW9yZSBjb2hlcmVudCB3aXRoIHRoZSBjb21tZW50Cj4g
-Cj4gSSBkb24ndCByZWFsbHkgdW5kZXJzdGFuZCB3aGF0IHRoZSBmaXJzdCBwYXJ0IG9mIHRoaXMg
-bWVhbnMsIG9yIHdoeSB1c2luZwo+IGF2b2lkYWJsZSBpZmRlZmZlcnkgaGVyZSB3b3VsZCBiZSBk
-ZXNpcmFibGUuCgpTb3JyeSwgSSB3YXMgbm90IGNsZWFyIGVub3VnaC4gV2hhdCBJIG1lYW50IGlz
-IHRoYXQgdGhlIGhhc19mcHUoKSBhbmQKaGFzX3ZlY3RvcigpIGZ1bmN0aW9ucyBhcmUgYWxyZWFk
-eSBpZmRlZidkIGluIGhlYWRlcnMgYmFzZWQgb24gdGhlCktDb25maWcgb3B0aW9ucyBmb3IgdGhl
-aXIgc3VwcG9ydCAoQ09ORklHX0ZQVS9DT05GSUdfUklTQ1ZfSVNBX1YpIFNvIGluCnRoZSBlbmQs
-IHVzaW5nIGlmZGVmIGhlcmUgaW4gaHdwcm9iZV9pc2FfZXh0MCgpIHdvdWxkIGJlIHJlZHVuZGFu
-dC4KCj4gCj4+IEJUVywgd291bGRuJ3QKPj4gaXQgbWFrZSBtb3JlIHNlbnNlIHRvIGdldCByaWQg
-b3V0IG9mIHRoZSB1bnN1cHBvcnRlZCBleHRlbnNpb25zIGRpcmVjdGx5Cj4+IGF0IElTQSBzdHJp
-bmcgcGFyc2luZyA/IGllLCBpZiBrZXJuZWwgaXMgY29tcGlsZWQgd2l0aG91dCBWIHN1cHBvcnQs
-Cj4+IHRoZW4gZG8gbm90IHNldCB0aGUgYml0cyBjb3JyZXNwb25kaW5nIHRvIHRoZXNlIGluIHRo
-ZSByaXNjdl9pc2FfZXh0W10KPj4gYXJyYXkgPyBCdXQgdGhlIGluaXRpYWwgaW50ZW50IHdhcyBw
-cm9iYWJseSB0byBiZSBhYmxlIHRvIHJlcG9ydCB0aGUKPj4gZnVsbCBzdHJpbmcgdGhyb3VnaCBj
-cHVpbmZvLgo+IAo+IFllYWgsIGh5c3RlcmljYWwgcmFpc2lucyBJIGd1ZXNzLCBpdCdzIGFsd2F5
-cyBiZWVuIHRoYXQgd2F5LiBJIGRvbid0Cj4gdGhpbmsgYW55b25lIG9yaWdpbmFsbHkgdGhvdWdo
-dCBhYm91dCBzdWNoIGNvbmZpZ3VyYXRpb25zIGFuZCB0aGF0IGlzCj4gaG93IHRoZSBjcHVpbmZv
-IHN0dWZmIGJlaGF2ZXMuIEkgc3Ryb25nbHkgZGlzbGlrZSB0aGUKPiByaXNjdl9pc2FfZXh0ZW5z
-aW9uX2F2YWlsYWJsZSgpIGludGVyZmFjZSwgYnV0IG9uZSBvZiBEcmV3J3MgcGF0Y2hlcwo+IGRv
-ZXMgYXQgbGVhc3QgaW1wcm92ZSB0aGluZ3MgYSBiaXQuIEtpbmRhIHdhaXRpbmcgZm9yIHNvbWUg
-b2YgdGhlCj4gcGF0Y2hlcyBpbiBmbGlnaHQgdG8gc2V0dGxlIGRvd24gYmVmb3JlIGRlY2lkaW5n
-IGlmIEkgd2FudCB0byByZWZhY3Rvcgo+IHN0dWZmIHRvIGJlIGxlc3Mgb2YgYSBwb3RlbnRpYWwg
-Zm9yIHNob290aW5nIG9uZXNlbGYgaW4gdGhlIGZvb3QuCgpNYWtlIHNlbnNlLgoKQ2zDqW1lbnQK
-Cl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJp
-c2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9s
-aXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+Hi Christoph,
+
+On 16/10/23 15:47, Christoph Hellwig wrote:
+> Coldfire cores configured without a data cache are DMA coherent and
+> should thus simply use the simple coherent version of dma-direct.
+> 
+> Introduce a new COLDFIRE_COHERENT_DMA Kconfig symbol as a convenient
+> short hand for such configurations, and a M68K_NONCOHERENT_DMA symbol
+> for all cases where we need to build non-coherent DMA infrastructure
+> to simplify the Kconfig and code conditionals.
+> 
+> Not building the non-coherent DMA code slightly reduces the code
+> size for such configurations.
+> 
+> Numers for m5249evb_defconfig below:
+> 
+>    text	   data	    bss	    dec	    hex	filename
+> 2896158	 401052	  65392	3362602	 334f2a	vmlinux.before
+> 2895166	 400988	  65392	3361546	 334b0a	vmlinux.after
+> 
+> Signed-off-by: Christoph Hellwig <hch@lst.de>
+> ---
+>   arch/m68k/Kconfig         |  8 ++++----
+>   arch/m68k/Kconfig.cpu     | 12 ++++++++++++
+>   arch/m68k/kernel/Makefile |  2 +-
+>   arch/m68k/kernel/dma.c    |  2 +-
+>   4 files changed, 18 insertions(+), 6 deletions(-)
+> 
+> diff --git a/arch/m68k/Kconfig b/arch/m68k/Kconfig
+> index 0430b8ba6b5cc6..6c585eae89f4dc 100644
+> --- a/arch/m68k/Kconfig
+> +++ b/arch/m68k/Kconfig
+> @@ -3,19 +3,19 @@ config M68K
+>   	bool
+>   	default y
+>   	select ARCH_32BIT_OFF_T
+> -	select ARCH_DMA_ALLOC if !MMU || COLDFIRE
+> +	select ARCH_DMA_ALLOC if M68K_NONCOHERENT_DMA && COLDFIRE
+>   	select ARCH_HAS_BINFMT_FLAT
+>   	select ARCH_HAS_CPU_FINALIZE_INIT if MMU
+>   	select ARCH_HAS_CURRENT_STACK_POINTER
+> -	select ARCH_HAS_DMA_PREP_COHERENT if HAS_DMA && MMU && !COLDFIRE
+> -	select ARCH_HAS_SYNC_DMA_FOR_DEVICE if HAS_DMA
+> +	select ARCH_HAS_DMA_PREP_COHERENT if M68K_NONCOHERENT_DMA && !COLDFIRE
+> +	select ARCH_HAS_SYNC_DMA_FOR_DEVICE if M68K_NONCOHERENT_DMA
+>   	select ARCH_HAVE_NMI_SAFE_CMPXCHG if RMW_INSNS
+>   	select ARCH_MIGHT_HAVE_PC_PARPORT if ISA
+>   	select ARCH_NO_PREEMPT if !COLDFIRE
+>   	select ARCH_USE_MEMTEST if MMU_MOTOROLA
+>   	select ARCH_WANT_IPC_PARSE_VERSION
+>   	select BINFMT_FLAT_ARGVP_ENVP_ON_STACK
+> -	select DMA_DIRECT_REMAP if HAS_DMA && MMU && !COLDFIRE
+> +	select DMA_DIRECT_REMAP if M68K_NONCOHERENT_DMA && !COLDFIRE
+>   	select GENERIC_ATOMIC64
+>   	select GENERIC_CPU_DEVICES
+>   	select GENERIC_IOMAP
+> diff --git a/arch/m68k/Kconfig.cpu b/arch/m68k/Kconfig.cpu
+> index b826e9c677b2ae..e8905d38c714c4 100644
+> --- a/arch/m68k/Kconfig.cpu
+> +++ b/arch/m68k/Kconfig.cpu
+> @@ -535,3 +535,15 @@ config CACHE_COPYBACK
+>   	  The ColdFire CPU cache is set into Copy-back mode.
+>   endchoice
+>   endif # HAVE_CACHE_CB
+> +
+> +# Coldfire cores that do not have a data cache configured can do coherent DMA.
+> +config COLDFIRE_COHERENT_DMA
+> +	bool
+> +	default y
+> +	depends on COLDFIRE
+> +	depends on !HAVE_CACHE_CB && !CONFIG_CACHE_D && !CONFIG_CACHE_BOTH
+                                       ^^^^^^             ^^^^^^
+
+This needs to be "depends on !HAVE_CACHE_CB && !CACHE_D && !CACHE_BOTH".
+
+Regards
+Greg
+
+
+> +
+> +config M68K_NONCOHERENT_DMA
+> +	bool
+> +	default y
+> +	depends on HAS_DMA && !COLDFIRE_COHERENT_DMA
+> diff --git a/arch/m68k/kernel/Makefile b/arch/m68k/kernel/Makefile
+> index af015447dfb4c1..01fb69a5095f43 100644
+> --- a/arch/m68k/kernel/Makefile
+> +++ b/arch/m68k/kernel/Makefile
+> @@ -23,7 +23,7 @@ obj-$(CONFIG_MMU_MOTOROLA) += ints.o vectors.o
+>   obj-$(CONFIG_MMU_SUN3) += ints.o vectors.o
+>   obj-$(CONFIG_PCI) += pcibios.o
+>   
+> -obj-$(CONFIG_HAS_DMA)	+= dma.o
+> +obj-$(CONFIG_M68K_NONCOHERENT_DMA) += dma.o
+>   
+>   obj-$(CONFIG_KEXEC)		+= machine_kexec.o relocate_kernel.o
+>   obj-$(CONFIG_BOOTINFO_PROC)	+= bootinfo_proc.o
+> diff --git a/arch/m68k/kernel/dma.c b/arch/m68k/kernel/dma.c
+> index 2e192a5df949bb..f83870cfa79b37 100644
+> --- a/arch/m68k/kernel/dma.c
+> +++ b/arch/m68k/kernel/dma.c
+> @@ -17,7 +17,7 @@
+>   
+>   #include <asm/cacheflush.h>
+>   
+> -#if defined(CONFIG_MMU) && !defined(CONFIG_COLDFIRE)
+> +#ifndef CONFIG_COLDFIRE
+>   void arch_dma_prep_coherent(struct page *page, size_t size)
+>   {
+>   	cache_push(page_to_phys(page), size);
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
