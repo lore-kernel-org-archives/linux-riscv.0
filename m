@@ -4,58 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB884CDB465
-	for <linux-riscv@archiver.kernel.org>; Thu, 19 Oct 2023 14:02:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBA41CDB465
+	for <linux-riscv@archiver.kernel.org>; Thu, 19 Oct 2023 14:03:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=0+SyYFGBtLL0r090GUEwaKelnZMAXy7Vtt0cnTkXqM4=; b=jL2AKIxNtlO8ol
-	TUi62wbX/cA+J/aWOclK+UBVJo+5/q6z8FA8hHtFn6CXZpoONPTDMnpVa3pDT9PRSAYDmzdH4Isly
-	/CBWCGyh15uaGQ7dK1TsbjETk+ixX9TV2RJOGXxaMuwxGdIFFtiMahneoQvqWJ4Nae26bv1SO6UsV
-	FlU1rKNzztA4M30QVVvx/wOG/Ue0gtE/lw5Rynn/Ami/2o99DyM3dOv48uVTYqoYufcSIutOQFuvb
-	xzpgZwF7EmuLaEimcxckbrh613KOazUlNcM/d4PFQ5ja6Cd7t7qd0p47UiOaxtTlRsFjJf0iFxQHB
-	zvz1LordRxZZ5HhHtZ/Q==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=ZygxALYCYtqdS6SEdq0rSwceIaDT2BUQkC42jIX7E48=; b=l9zPR6bl1SK1EC
+	j8PoL3tZ9guiKfzr9JKxCFBwG/IdYODccUezoeZSNGtrhir2iHW/mmqGpk62GGQt2tylXjCkbx6Ap
+	tvzqMPB3Rb4JTTE27n2Zgc51lMHEXagAdWFVpRS/Ths09mr2LHFYnjtLuNyaPrZhdYEhCZRgOnltD
+	InedmUUactSzjYT6Fxdcsxu00AyuFVqGMob+vVKGskcqfyvE3rMZ+8QGdjLRaWW+hu2CfWUAtY1bq
+	/YE6hS8vgaw1h/l1eGyDDwmV/xVZs/nr4n9TNY7AgdkoPJU8/mr8kJNA/GFrKVFN/MTH5H2kRcAma
+	d/41tc1TlIUPxCZ8LkcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qtTbl-000070-0V;
-	Thu, 19 Oct 2023 14:02:41 +0000
-Received: from 60-248-80-70.hinet-ip.hinet.net ([60.248.80.70] helo=Atcsqr.andestech.com)
+	id 1qtTcD-0000EZ-1k;
+	Thu, 19 Oct 2023 14:03:09 +0000
+Received: from mail-lf1-x12f.google.com ([2a00:1450:4864:20::12f])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qtTbi-00005s-1z
+	id 1qtTcA-0000DP-2O
 	for linux-riscv@lists.infradead.org;
-	Thu, 19 Oct 2023 14:02:40 +0000
-Received: from mail.andestech.com (ATCPCS16.andestech.com [10.0.1.222])
-	by Atcsqr.andestech.com with ESMTP id 39JE2DB1028894;
-	Thu, 19 Oct 2023 22:02:13 +0800 (+08)
-	(envelope-from peterlin@andestech.com)
-Received: from swlinux02.andestech.com (10.0.15.183) by ATCPCS16.andestech.com
- (10.0.1.222) with Microsoft SMTP Server id 14.3.498.0; Thu, 19 Oct 2023
- 22:02:13 +0800
-From: Yu Chien Peter Lin <peterlin@andestech.com>
-To: <conor@kernel.org>, <robh+dt@kernel.org>,
-        <krzysztof.kozlowski+dt@linaro.org>, <paul.walmsley@sifive.com>,
-        <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
-        <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>
-CC: <prabhakar.mahadev-lad.rj@bp.renesas.com>, <tim609@andestech.com>,
-        <dylan@andestech.com>, <locus84@andestech.com>, <dminus@andestech.com>,
-        "Yu
- Chien Peter Lin" <peterlin@andestech.com>
-Subject: [PATCH v2 05/10] dt-bindings: riscv: Add andestech,cpu-intc to interrupt-controller
-Date: Thu, 19 Oct 2023 21:59:05 +0800
-Message-ID: <20231019135905.3658215-1-peterlin@andestech.com>
-X-Mailer: git-send-email 2.34.1
+	Thu, 19 Oct 2023 14:03:08 +0000
+Received: by mail-lf1-x12f.google.com with SMTP id 2adb3069b0e04-507a3b8b113so7411956e87.0
+        for <linux-riscv@lists.infradead.org>; Thu, 19 Oct 2023 07:03:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1697724184; x=1698328984; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=hd/FLevx18XhR5UIn9smwlv93JRL3lzcOo0hNfovrwU=;
+        b=ftaxJ8UycESTXhByzSPJO3n83ECkxgWv2S14mra1sTVI0De7pU0z+clIG3yiDP+Kbn
+         f0MbrBOAF3q/spkIgfydSZHAhtzJ+yVUxjPTSXsIirH0AHVafXPyFHzNpbkX8NKxafWm
+         KrFlJou66ivyo+2vtVg/pYIvvaDuejzJae1uQRcxxTBwinErXB1x9zz/wOfM++3+5n+I
+         eMzGRsHd0TrXBb8SZR9gyJD6KmKrrRHMB21mc6mgsYLh34Mp45OSQk/xQRC4xc551zej
+         3uu6JIJeoL9E9d+Vn0l1m4oc0dpCheDNC3RGu1dFVuG40T4Gt68MyL85gZWGyhTj9t/V
+         uy6w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1697724184; x=1698328984;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=hd/FLevx18XhR5UIn9smwlv93JRL3lzcOo0hNfovrwU=;
+        b=fg1GQNiqSIOQaD7wo1lvpkneJBXVfAGejiewEHlOGop9pKIVqx7KiDTW1JwXZC3Ogw
+         6xC/6TY8sCgjXzwFP/rQDVPtUOZT8mT6d1sIZTckLU+c6zMVPWVNQsLqSxs0OcgA50f7
+         nKknzWB5VfP3uEvWRUfLtZvt/X4mj1oaycb3XwpkKeOj9kbXrL+Gmw7c7xrlg29t7cAq
+         cyLLLJY/VJ/YD136D1BTQRsZwn7zpY4GFjGxN196IVd2RSzP3cc4NgpNThAkmkoOmcwn
+         qMFWvOtQVF1Pr8AF3lw07x/Yo3zFB4FSdWnsSbcp8hGnBjLmJILpHJHFnsYdOQlWf798
+         pbSg==
+X-Gm-Message-State: AOJu0YyGjA77gTNki8dBCtEvInbaEOBB0vMrelPbrZwL+R+SeRsPsjCt
+	dtC2q3KL9YjEkSP6GrypeR/CZA==
+X-Google-Smtp-Source: AGHT+IEreDwOMoW56yjrW09GCEE/pI+6cCamWfZVDmTeqTnMJ6ObGDZTCddBTRTbchZ8BncLsOt9fw==
+X-Received: by 2002:ac2:5a04:0:b0:507:b993:bb86 with SMTP id q4-20020ac25a04000000b00507b993bb86mr1486713lfn.66.1697724183683;
+        Thu, 19 Oct 2023 07:03:03 -0700 (PDT)
+Received: from alex-rivos.ba.rivosinc.com (amontpellier-656-1-456-62.w92-145.abo.wanadoo.fr. [92.145.124.62])
+        by smtp.gmail.com with ESMTPSA id q9-20020a05600000c900b0032d8eecf901sm4567033wrx.3.2023.10.19.07.03.02
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 19 Oct 2023 07:03:03 -0700 (PDT)
+From: Alexandre Ghiti <alexghiti@rivosinc.com>
+To: Will Deacon <will@kernel.org>,
+	"Aneesh Kumar K . V" <aneesh.kumar@linux.ibm.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Nick Piggin <npiggin@gmail.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Mayuresh Chitale <mchitale@ventanamicro.com>,
+	Vincent Chen <vincent.chen@sifive.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	linux-arch@vger.kernel.org,
+	linux-mm@kvack.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Samuel Holland <samuel@sholland.org>,
+	Lad Prabhakar <prabhakar.csengg@gmail.com>
+Subject: [PATCH v5 1/4] riscv: Improve tlb_flush()
+Date: Thu, 19 Oct 2023 16:01:48 +0200
+Message-Id: <20231019140151.21629-2-alexghiti@rivosinc.com>
+X-Mailer: git-send-email 2.39.2
+In-Reply-To: <20231019140151.21629-1-alexghiti@rivosinc.com>
+References: <20231019140151.21629-1-alexghiti@rivosinc.com>
 MIME-Version: 1.0
-X-Originating-IP: [10.0.15.183]
-X-DNSRBL: 
-X-MAIL: Atcsqr.andestech.com 39JE2DB1028894
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231019_070239_087861_6DA0DE7C 
-X-CRM114-Status: UNSURE (   7.37  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20231019_070306_783599_7D92D896 
+X-CRM114-Status: GOOD (  12.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,39 +100,86 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, Alexandre Ghiti <alexghiti@rivosinc.com>, Andrew Jones <ajones@ventanamicro.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add "andestech,cpu-intc" compatible string for Andes INTC which
-provides Andes-specific IRQ chip functions.
+For now, tlb_flush() simply calls flush_tlb_mm() which results in a
+flush of the whole TLB. So let's use mmu_gather fields to provide a more
+fine-grained flush of the TLB.
 
-Signed-off-by: Yu Chien Peter Lin <peterlin@andestech.com>
+Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+Reviewed-by: Samuel Holland <samuel.holland@sifive.com>
+Tested-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com> # On RZ/Five SMARC
 ---
-Changes v1 -> v2:
-  - New patch
----
- Documentation/devicetree/bindings/riscv/cpus.yaml | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+ arch/riscv/include/asm/tlb.h      | 8 +++++++-
+ arch/riscv/include/asm/tlbflush.h | 3 +++
+ arch/riscv/mm/tlbflush.c          | 7 +++++++
+ 3 files changed, 17 insertions(+), 1 deletion(-)
 
-diff --git a/Documentation/devicetree/bindings/riscv/cpus.yaml b/Documentation/devicetree/bindings/riscv/cpus.yaml
-index 97e8441eda1c..5b216e11c69f 100644
---- a/Documentation/devicetree/bindings/riscv/cpus.yaml
-+++ b/Documentation/devicetree/bindings/riscv/cpus.yaml
-@@ -99,7 +99,9 @@ properties:
-         const: 1
+diff --git a/arch/riscv/include/asm/tlb.h b/arch/riscv/include/asm/tlb.h
+index 120bcf2ed8a8..1eb5682b2af6 100644
+--- a/arch/riscv/include/asm/tlb.h
++++ b/arch/riscv/include/asm/tlb.h
+@@ -15,7 +15,13 @@ static void tlb_flush(struct mmu_gather *tlb);
  
-       compatible:
--        const: riscv,cpu-intc
-+        enum:
-+          - riscv,cpu-intc
-+          - andestech,cpu-intc
+ static inline void tlb_flush(struct mmu_gather *tlb)
+ {
+-	flush_tlb_mm(tlb->mm);
++#ifdef CONFIG_MMU
++	if (tlb->fullmm || tlb->need_flush_all)
++		flush_tlb_mm(tlb->mm);
++	else
++		flush_tlb_mm_range(tlb->mm, tlb->start, tlb->end,
++				   tlb_get_unmap_size(tlb));
++#endif
+ }
  
-       interrupt-controller: true
+ #endif /* _ASM_RISCV_TLB_H */
+diff --git a/arch/riscv/include/asm/tlbflush.h b/arch/riscv/include/asm/tlbflush.h
+index a09196f8de68..f5c4fb0ae642 100644
+--- a/arch/riscv/include/asm/tlbflush.h
++++ b/arch/riscv/include/asm/tlbflush.h
+@@ -32,6 +32,8 @@ static inline void local_flush_tlb_page(unsigned long addr)
+ #if defined(CONFIG_SMP) && defined(CONFIG_MMU)
+ void flush_tlb_all(void);
+ void flush_tlb_mm(struct mm_struct *mm);
++void flush_tlb_mm_range(struct mm_struct *mm, unsigned long start,
++			unsigned long end, unsigned int page_size);
+ void flush_tlb_page(struct vm_area_struct *vma, unsigned long addr);
+ void flush_tlb_range(struct vm_area_struct *vma, unsigned long start,
+ 		     unsigned long end);
+@@ -52,6 +54,7 @@ static inline void flush_tlb_range(struct vm_area_struct *vma,
+ }
  
+ #define flush_tlb_mm(mm) flush_tlb_all()
++#define flush_tlb_mm_range(mm, start, end, page_size) flush_tlb_all()
+ #endif /* !CONFIG_SMP || !CONFIG_MMU */
+ 
+ /* Flush a range of kernel pages */
+diff --git a/arch/riscv/mm/tlbflush.c b/arch/riscv/mm/tlbflush.c
+index 77be59aadc73..fa03289853d8 100644
+--- a/arch/riscv/mm/tlbflush.c
++++ b/arch/riscv/mm/tlbflush.c
+@@ -132,6 +132,13 @@ void flush_tlb_mm(struct mm_struct *mm)
+ 	__flush_tlb_range(mm, 0, -1, PAGE_SIZE);
+ }
+ 
++void flush_tlb_mm_range(struct mm_struct *mm,
++			unsigned long start, unsigned long end,
++			unsigned int page_size)
++{
++	__flush_tlb_range(mm, start, end - start, page_size);
++}
++
+ void flush_tlb_page(struct vm_area_struct *vma, unsigned long addr)
+ {
+ 	__flush_tlb_range(vma->vm_mm, addr, PAGE_SIZE, PAGE_SIZE);
 -- 
-2.34.1
+2.39.2
 
 
 _______________________________________________
