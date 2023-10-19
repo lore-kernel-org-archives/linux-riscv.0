@@ -4,86 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C29BCDB465
-	for <linux-riscv@archiver.kernel.org>; Thu, 19 Oct 2023 17:08:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7906CDB465
+	for <linux-riscv@archiver.kernel.org>; Thu, 19 Oct 2023 17:17:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0rbNDuUZslHzaP+ycikZt7ldr+iK7R+L7eSTi3YS6Aw=; b=un6x1YTTq9DFFvF9uDZv50gOEi
-	xPYNHqEzJZjz3scjq6DcK04tKAdHSDtR3v6giZl6SMlAnjNRxgco9f+1yTKZ08necr8ZKyJXlvpfh
-	TUsDKT9BD/R9BXnel7srQwDEA25yDeMnGMOllLGeoT7hqjSqxKbaUs32FKbtCjOR2NZgQXIKT5F4W
-	x+6F3UgilLDKF3c7f3JGhxG+fo0jcMti7n/eveT9DpXhclOz7nqXUa2u6Gvf7Z6y+p3Gqufq18/Qt
-	hycfCQ9br7MmkbuEJiE1WbCcdvzxkOx4ztOFlZCupOuuQhZBvyP+g3Eqp0ZVSPxlgGuCK1ryIx3/u
-	79EHEkjg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=mc2s0Y7qS2AxID6R4JKN6gIt8BmNIpeoJP6geK6mOzc=; b=ozVGMe9GdoP9ad
+	+16giaAf1vcGvuRoEywVVSn7JYay8nK/KVbTmbPPFomsDfCjz282MtNBkKUNNDtYEM3X45aDsz4r2
+	2VN0t+4JxExg2XcDHtM7req/kxq/VnD6Jzca2woQLxTVEXIkC9egsClLY3aqIAJZQ/XAch19zsdUh
+	XOJ/XekoakO8GrtPkgIULSZoxcMsFv7tE0enRDJNolh5HpBxcnIrzrL347v3I2Cbi/9yBPogZod7N
+	CS9rQvJKZlma1xV2NAsIkkYDgTpxw/roscO5BU+PR/fSCpbZRZT0tjpesMMj7tXSVxnZrql2hzTII
+	eoHYcqyvc9853JJNtbOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qtWVW-000OLW-2a;
-	Thu, 19 Oct 2023 17:08:26 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1qtWeE-000P38-3A;
+	Thu, 19 Oct 2023 17:17:26 +0000
+Received: from mail-ed1-x530.google.com ([2a00:1450:4864:20::530])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qtWVT-000OJR-1H;
-	Thu, 19 Oct 2023 17:08:24 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id E946D61BF8;
-	Thu, 19 Oct 2023 17:08:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A6BCAC433C8;
-	Thu, 19 Oct 2023 17:08:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1697735301;
-	bh=pG0Qit3AqQuyW6KGy3cTGUjC4taxXCYceYbhQqKPpi0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=iuYT4D0VMaEuj+thGqbHAXol5XSAP+gpQW0FvmhrZUDfxLXv+/ZVEXa7HboYTdjfS
-	 6IW13fpGKYOraD3SUYgFKSKngtaiTn4eZnS5/t4No3Bd9JUpA/YN36SlzCfxP3r8Qo
-	 GSGIhhQuUcl2bZWr7R2xIlGjz0vg5FexGBIpOTGda3+rKYYtVhgWVsIhxkX6hbI0gm
-	 mcLC1qwZc2f1UoNDZu97OVSCneDpDNOnMk0J/9pg1MhLPNaMhehC5h9M8hK61gX85H
-	 oCvpdUL6LgDGxSu2UPoMDo+pZMMxQOrswwQOGCVnwHabAhbK25KaSViVEB0JO0/a2D
-	 NKmdSxXCL95kQ==
-Date: Thu, 19 Oct 2023 18:08:12 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Szabolcs Nagy <Szabolcs.Nagy@arm.com>, Will Deacon <will@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	James Morse <james.morse@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Arnd Bergmann <arnd@arndb.de>, Oleg Nesterov <oleg@redhat.com>,
-	Eric Biederman <ebiederm@xmission.com>,
-	Kees Cook <keescook@chromium.org>, Shuah Khan <shuah@kernel.org>,
-	"Rick P. Edgecombe" <rick.p.edgecombe@intel.com>,
-	Deepak Gupta <debug@rivosinc.com>, Ard Biesheuvel <ardb@kernel.org>,
-	"H.J. Lu" <hjl.tools@gmail.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
-	kvmarm@lists.linux.dev, linux-fsdevel@vger.kernel.org,
-	linux-arch@vger.kernel.org, linux-mm@kvack.org,
-	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v4 03/36] arm64/gcs: Document the ABI for Guarded Control
- Stacks
-Message-ID: <8a158486-f0b9-4f25-b673-998726a40528@sirena.org.uk>
-References: <aaea542c-929c-4c9b-8caa-ca67e0eb9c1e@sirena.org.uk>
- <ZOTnL1SDJWZjHPUW@arm.com>
- <43ec219d-bf20-47b8-a5f8-32bc3b64d487@sirena.org.uk>
- <ZOXa98SqwYPwxzNP@arm.com>
- <ZOYFazB1gYjzDRdA@arm.com>
- <ZRWw7aa3C0LlMPTH@arm.com>
- <38edb5c3-367e-4ab7-8cb7-aa1a5c0e330c@sirena.org.uk>
- <ZRvUxLgMse8QYlGS@arm.com>
- <a7d2fd66-c06b-4033-bca2-4b14afc4904f@sirena.org.uk>
- <ZR7w/mr0xZbpIPc5@arm.com>
+	id 1qtWeB-000P2e-2I
+	for linux-riscv@lists.infradead.org;
+	Thu, 19 Oct 2023 17:17:25 +0000
+Received: by mail-ed1-x530.google.com with SMTP id 4fb4d7f45d1cf-53e751aeb3cso9657307a12.2
+        for <linux-riscv@lists.infradead.org>; Thu, 19 Oct 2023 10:17:20 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1697735839; x=1698340639; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=BARIemSwg2ER9/cXepbznbtP0D0n2Ke2bHxQ2VOoXIo=;
+        b=Vks2FtYdRL0iTDsOe+OD6w0ZYt0XCKuggBy9d2rVXndE5TxVDt0weKhcEXhVH7JHd0
+         QKTSKNMWx7tcFRrO04x7KUudLD5/bkYtz3TYBsXLzrpZ1yUBaWlgRzpr6V98vAiNx8bj
+         +vdue/Mgdbk268L1mxIf90XhWt7fUmOzYF3CS9V4benw5XhIwvMfPENOi7P6gtVV4nK4
+         fLJnGD8skOawarESBsFg19GOy6EhAPG8TyuJwOVg7PifGgRR2YN/KwlUzJdLAE1aLL13
+         zYpM0V8QtOen+PC+/bf2dVAcV8hsPlrPc9oOJWgm2jKt3uYuF1f5pAfhMWecjldkW/xK
+         ilTw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1697735839; x=1698340639;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=BARIemSwg2ER9/cXepbznbtP0D0n2Ke2bHxQ2VOoXIo=;
+        b=hWBQpw2JKp4zmpfmANnL0e/SyBvL0fX0q6wm/tVdZWa96v/VuTe5YEioegsE+K4uTy
+         KFPUiTA4gy+dcUTzoC8EKynXb/vEgRH3F+LuJyTXJOm4A1ynJP5+1jUq60MrplDr574p
+         Vz6XGBB8gVHn5HR6oAmdRv8x1rA74HCfD3NaZf8BECu5LeG3bjxrAf/SCT49yh4lN7ZP
+         4drqxh52UhNqhHZOwJ0Im+/8QkQ7+Nm56vzsWpGDMpGuaM0Fplnut9FNF1AfrrY0s1Vp
+         W7Mi87c4k0xJWD5tGqzSWQELNyEKnIvZlHODjQh686TH7c6LVsonIwx7eSEv2uI+q4e8
+         D6YQ==
+X-Gm-Message-State: AOJu0YyNta26L0pBcv4vi7z3pNV7yigeEaXVxlsSh1Uaa3Q0qtICqpYx
+	g+HU40xOhkuRpuZ4OPawFD5cYaYHKePSBSfZ/uY=
+X-Google-Smtp-Source: AGHT+IFqT40WVP8Z+ClgNfUSSEgUV7SlC+UF1zZ0Cw9qc6IQiADSBkbYmmCZqgnBA5pxm8Jmxv25xw==
+X-Received: by 2002:a50:d08f:0:b0:53d:b6ac:5f64 with SMTP id v15-20020a50d08f000000b0053db6ac5f64mr2317965edd.18.1697735839113;
+        Thu, 19 Oct 2023 10:17:19 -0700 (PDT)
+Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
+        by smtp.gmail.com with ESMTPSA id cn27-20020a0564020cbb00b0053eec17c889sm4752506edb.23.2023.10.19.10.17.17
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 19 Oct 2023 10:17:17 -0700 (PDT)
+Date: Thu, 19 Oct 2023 19:16:48 +0200
+From: Andrew Jones <ajones@ventanamicro.com>
+To: linux-riscv@lists.infradead.org
+Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
+	evan@rivosinc.com, conor.dooley@microchip.com, apatel@ventanamicro.com
+Subject: Re: [PATCH v1 3/6] RISC-V: hwprobe: Introduce which-cpus flag
+Message-ID: <20231019-ff7817229eb2cc818ea08fe5@orel>
+References: <20231011135610.122850-8-ajones@ventanamicro.com>
+ <20231011135610.122850-11-ajones@ventanamicro.com>
 MIME-Version: 1.0
-In-Reply-To: <ZR7w/mr0xZbpIPc5@arm.com>
-X-Cookie: Beware of dog.
+Content-Disposition: inline
+In-Reply-To: <20231011135610.122850-11-ajones@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231019_100823_543137_6AD30F46 
-X-CRM114-Status: GOOD (  16.62  )
+X-CRM114-CacheID: sfid-20231019_101723_756672_16005164 
+X-CRM114-Status: GOOD (  21.98  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,137 +87,121 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============7226180898542371437=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Wed, Oct 11, 2023 at 03:56:14PM +0200, Andrew Jones wrote:
+...
+> diff --git a/arch/riscv/kernel/vdso/hwprobe.c b/arch/riscv/kernel/vdso/hwprobe.c
+> index 026b7645c5ab..e6c324d64544 100644
+> --- a/arch/riscv/kernel/vdso/hwprobe.c
+> +++ b/arch/riscv/kernel/vdso/hwprobe.c
+> @@ -3,6 +3,7 @@
+>   * Copyright 2023 Rivos, Inc
+>   */
+>  
+> +#include <linux/string.h>
+>  #include <linux/types.h>
+>  #include <vdso/datapage.h>
+>  #include <vdso/helpers.h>
+> @@ -11,14 +12,9 @@ extern int riscv_hwprobe(struct riscv_hwprobe *pairs, size_t pair_count,
+>  			 size_t cpusetsize, unsigned long *cpus,
+>  			 unsigned int flags);
+>  
+> -/* Add a prototype to avoid -Wmissing-prototypes warning. */
+> -int __vdso_riscv_hwprobe(struct riscv_hwprobe *pairs, size_t pair_count,
+> -			 size_t cpusetsize, unsigned long *cpus,
+> -			 unsigned int flags);
+> -
+> -int __vdso_riscv_hwprobe(struct riscv_hwprobe *pairs, size_t pair_count,
+> -			 size_t cpusetsize, unsigned long *cpus,
+> -			 unsigned int flags)
+> +static int riscv_vdso_get_values(struct riscv_hwprobe *pairs, size_t pair_count,
+> +				 size_t cpusetsize, unsigned long *cpus,
+> +				 unsigned int flags)
+>  {
+>  	const struct vdso_data *vd = __arch_get_vdso_data();
+>  	const struct arch_vdso_data *avd = &vd->arch_data;
+> @@ -50,3 +46,59 @@ int __vdso_riscv_hwprobe(struct riscv_hwprobe *pairs, size_t pair_count,
+>  
+>  	return 0;
+>  }
+> +
+> +static int riscv_vdso_get_cpus(struct riscv_hwprobe *pairs, size_t pair_count,
+> +			       size_t cpusetsize, unsigned long *cpus,
+> +			       unsigned int flags)
+> +{
+> +	const struct vdso_data *vd = __arch_get_vdso_data();
+> +	const struct arch_vdso_data *avd = &vd->arch_data;
+> +	struct riscv_hwprobe *p = pairs;
+> +	struct riscv_hwprobe *end = pairs + pair_count;
+> +	bool clear_all = false;
+> +
+> +	if (!cpusetsize || !cpus)
+> +		return -EINVAL;
+> +
+> +	if (flags != RISCV_HWPROBE_WHICH_CPUS || !avd->homogeneous_cpus)
+> +		return riscv_hwprobe(pairs, pair_count, cpusetsize, cpus, flags);
+> +
+> +	while (p < end) {
+> +		if (riscv_hwprobe_key_is_valid(p->key)) {
+> +			struct riscv_hwprobe t = {
+> +				.key = p->key,
+> +				.value = avd->all_cpu_hwprobe_values[p->key],
+> +			};
+> +
+> +			if (!riscv_hwprobe_pair_cmp(&t, p))
+> +				clear_all = true;
+> +		} else {
+> +			clear_all = true;
+> +			p->key = -1;
+> +			p->value = 0;
+> +		}
+> +		p++;
+> +	}
+> +
+> +	if (clear_all)
+> +		memset(cpus, 0, cpusetsize);
 
---===============7226180898542371437==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="kNvCjmZsgc4H4SyY"
-Content-Disposition: inline
+This memset will go away in v2. It wasn't very smart of me to put it there
+in the first place as there's no memset available to vdso code, which
+means it would segfault when attempting to use it. My initial testing
+failed to find this, because I had forgotten that avd->homogeneous_cpus
+would be false on a default QEMU machine since it doesn't set mvendorid to
+anything. I actually found this problem when trying to add a memcmp which
+wasn't skipped with !avd->homogeneous_cpus, and that promptly segfaulted.
+(I won't be adding that memcmp either :-)
 
+Thanks,
+drew
 
---kNvCjmZsgc4H4SyY
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-
-On Thu, Oct 05, 2023 at 06:23:10PM +0100, Catalin Marinas wrote:
-
-> I haven't checked how many clone() or clone3() uses outside the libc are
-> (I tried some quick search in Debian but did not dig into the specifics
-> to see how generic that code is). I agree that having to change valid
-> cases outside of libc is not ideal. Even if we have the same clone3()
-> interface for x86 and arm64, we'd have other architectures that need
-> #ifdef'ing.
-
-FTR the set of Debian source packages that have references to the string
-__NR_clone (which picks up clone3 too) is below.  At least some (eg,
-kore) just have things that look like a copy of the syscall table rather
-than things that look like calls, though equally it's likely we're
-missing some.
-
-aflplusplus
-android-platform-tools
-binutils-avr
-box64
-brltty
-bubblewrap
-chromium
-chrony
-crash
-criu
-crun
-dietlibc
-elogind
-emscripten
-fakeroot-ng
-falcosecurity-libs
-firefox
-firefox-esr
-flatpak
-gcc-9
-gcc-10
-gcc-11
-gcc-12
-gcc-13
-gcc-arm-none-eabi
-gcc-snapshot
-gdb-msp430
-glibc
-gnumach
-hurd
-klibc
-kore
-libpod
-libseccomp
-linux
-llvm-toolchain-14
-llvm-toolchain-15
-llvm-toolchain-16
-lxc
-lxcfs
-lxd
-musl
-newlib
-notcurses
-purelibc
-pwntools
-qemu
-qt6-base
-qt6-webengine
-qtbase-opensource-src
-qtbase-opensource-src-gles
-qtwebengine-opensource-src
-radare2
-rumur
-rustc
-rust-linux-raw-sys
-rust-rustix
-strace
-stress-ng
-swtpm
-systemd
-systemtap
-termpaint
-thunderbird
-tor
-uclibc
-umview
-valgrind
-vsftpd
-wasi-libc
-webkit2gtk
-wpewebkit
-
---kNvCjmZsgc4H4SyY
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmUxYnsACgkQJNaLcl1U
-h9BPuwf/ckJjx9BnOVP9ZzZPFpa7pKsXZe4D8gbrhkTsTNPX6DKdD77294DX72gh
-Q3LR3m5Xdw3nFoR/pP6cUgZ24o8sV/iUz8fLdBvuOOnemVmgoPIRcB/TNueOcq9P
-1rIwQ44UzdUfxc/5Ny1QKCvurTnCs4dFc3Llt0GdVvDy+Ec6FK9hX/Wwe48hsvLr
-6kDkKqvYz3IF3xnnTmGyHxD7EdaHnYPHrU8mWr33e1j8/MWMn6ywGyCRV6ZgrQxW
-VuTTod0EwhsDlW/u8yYNGmLBirZQszpmt3Wp2QCv4vcjHbjxa+xh7SYq8P5BNRj3
-ZgUagp/WsyNXXW6iGiQlgqb1YHdFdg==
-=ZvaR
------END PGP SIGNATURE-----
-
---kNvCjmZsgc4H4SyY--
-
-
---===============7226180898542371437==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+> +
+> +	return 0;
+> +}
+> +
+> +/* Add a prototype to avoid -Wmissing-prototypes warning. */
+> +int __vdso_riscv_hwprobe(struct riscv_hwprobe *pairs, size_t pair_count,
+> +			 size_t cpusetsize, unsigned long *cpus,
+> +			 unsigned int flags);
+> +
+> +int __vdso_riscv_hwprobe(struct riscv_hwprobe *pairs, size_t pair_count,
+> +			 size_t cpusetsize, unsigned long *cpus,
+> +			 unsigned int flags)
+> +{
+> +	if (flags & RISCV_HWPROBE_WHICH_CPUS)
+> +		return riscv_vdso_get_cpus(pairs, pair_count, cpusetsize,
+> +					   cpus, flags);
+> +
+> +	return riscv_vdso_get_values(pairs, pair_count, cpusetsize,
+> +				     cpus, flags);
+> +}
+> -- 
+> 2.41.0
+> 
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============7226180898542371437==--
-
