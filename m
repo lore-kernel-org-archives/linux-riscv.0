@@ -4,94 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9ADD0CDB482
-	for <linux-riscv@archiver.kernel.org>; Thu, 19 Oct 2023 14:06:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3D23CDB465
+	for <linux-riscv@archiver.kernel.org>; Thu, 19 Oct 2023 14:07:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gow8ZiM9/iNZyrRsXClRHqcYVSVzPTfq9r5Lev9yHQM=; b=OS1nWUHNiLXUUD
-	J7cVS4FLaLVGUwNDDMnBeFox1naDcyQ5Ir4ZCoew51QaP8+INE0LE8Axnzf4Mi9/NgtkYnd3zw/1b
-	0mT6U5XrEi4Ot9VJe3YmbHVOpOIlGUsYQucIE53xJHvBlxUQKNH8jEyllOLRaRfq78fHuI/ASa388
-	Bw4g4Wn1YFnbQqv01YCX90zJONaGWPkIRqwzGt6uYlr6EjsSrDLHiptor9bk2y7T2MCdhMGiEirF7
-	kQN1mcXvmRKtAdcgVRJBLo4FotMeDIQT2/eh77WIJIxWttCFq5BAD9h+mVtMdaKuubZ74sgSB3/Em
-	ikhbHtrjJ5F/fqFAkO0Q==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=i4yY7Nj2BpQez6hCyBmsbvoyJX9AD7AGKIMAOo9GYyI=; b=tVF1wvJBM+pNq6
+	JUjlG5clAb3NnlCXh/mXj4KNYKE3SzV8zbXsPOzPmjKnzSBrrFQO1N0tTg/HcJ2nI7LpUKs2J5ECt
+	7EOcHPcoskvVnI8/CywjBVf0rIWl2E/4K05RKQeIoeUmooU4k2ciiSEv132IIg5Glnk8z56DhydtD
+	yCtqTBZnLmjAbDoQvcPxoAnFPu6L78XAF/OHm7EGH7pau0N4Mp22hAo4C8l/Gnp7Qpx8zediAlEC3
+	Twh+VQDAvqSVLA6vH+ad+HaMocuf6K/DhUQUO0CVlzWUYkV6fgKS1eDFuCdWcky9uVfg1lQm7x18/
+	457KqK/5RjOtfxIMJ22w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qtTfG-0001Or-35;
-	Thu, 19 Oct 2023 14:06:18 +0000
-Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
+	id 1qtTga-0001kR-3C;
+	Thu, 19 Oct 2023 14:07:40 +0000
+Received: from 60-248-80-70.hinet-ip.hinet.net ([60.248.80.70] helo=Atcsqr.andestech.com)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qtTfE-0001Ml-0T
+	id 1qtTgX-0001iK-00
 	for linux-riscv@lists.infradead.org;
-	Thu, 19 Oct 2023 14:06:17 +0000
-Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-32d9552d765so6219071f8f.2
-        for <linux-riscv@lists.infradead.org>; Thu, 19 Oct 2023 07:06:15 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1697724375; x=1698329175; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=kwR/Ke20NAcUS81IhTmctZxyEuc+6gPtGwlWuG8Kglw=;
-        b=QtSPGKEwJzhjNTETm1+QognODAPGJEfdPvm1K6XksMRqJepgLAGIv5i9cvaMn8DAcI
-         BAKMGLh/3+kesva4XHRPobnJBMPx0EWH/jvkuouw5ZKEKeqt36x+oG7iTT0JfvQqQ0vL
-         kEoz7VOQ4ZqMeOZCzaXN2/OQWZy1cDsyJpA/Pff6FfpM3D5TilKvBTZpUq5GqT6SM38o
-         JbJq7F1Orcny4AxUA/GwJp4EfUD3sAAhcUXETPScwmBb1aIENUXqjM63vON/cGO5T4X1
-         KnvS3/H3WfY4CTHR4MHzvMb8aJRJZUuYyTGVkH3rGk9Kc7kgzSyMJqCAKZGeW0cF+SQs
-         /4SA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1697724375; x=1698329175;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=kwR/Ke20NAcUS81IhTmctZxyEuc+6gPtGwlWuG8Kglw=;
-        b=C2zcqAs539o8KwWLv/5ZZ0ihV2rbM+6dtA6MFxtPjoR8kfiAyZDaYDelrAggmJ5D63
-         G/Lta/nM4ufiAP7CywXKVYL57KFbl1mf/L8Z45yvdRF/M9gm5R4EvBmESMLiAH1R+IVA
-         u5qDDfzqIUqyJGGT5TBtAgYaNebsV/rrSJksTV44VLL37XQFEI7GVQCJ5WHQf8vsPiHT
-         7r7pSAZHa5fdFeThqOMu87nBPCsPCj9cJBmi6CuizCTKWFVWXkF+c+DtGEBsQBa7gg7w
-         gG632wtOOpubSJoKBtQO4v4b6o07yLL/bfBBVhuHfTtiASLNuJ7wKJCnul040wvmFfJJ
-         A5cg==
-X-Gm-Message-State: AOJu0YyJQllsUg6S6I2PBozMPkqe04WE0POycWKobP9EXVgp4KtJ4PQC
-	wR4sqmFfWNTivrLQoCpFeeGeZw==
-X-Google-Smtp-Source: AGHT+IEj56EYfD3VGGct58Hoxz0IsXjkWxjSdBpSEK26F7D/MeS2KrVfdBwf1rOZcSIiBfUvUcP6qg==
-X-Received: by 2002:a5d:6e0b:0:b0:32d:8505:b9d7 with SMTP id h11-20020a5d6e0b000000b0032d8505b9d7mr1610093wrz.43.1697724374647;
-        Thu, 19 Oct 2023 07:06:14 -0700 (PDT)
-Received: from alex-rivos.ba.rivosinc.com (amontpellier-656-1-456-62.w92-145.abo.wanadoo.fr. [92.145.124.62])
-        by smtp.gmail.com with ESMTPSA id u11-20020a5d514b000000b0032db4825495sm4572197wrt.22.2023.10.19.07.06.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Oct 2023 07:06:14 -0700 (PDT)
-From: Alexandre Ghiti <alexghiti@rivosinc.com>
-To: Will Deacon <will@kernel.org>,
-	"Aneesh Kumar K . V" <aneesh.kumar@linux.ibm.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Nick Piggin <npiggin@gmail.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Mayuresh Chitale <mchitale@ventanamicro.com>,
-	Vincent Chen <vincent.chen@sifive.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	linux-arch@vger.kernel.org,
-	linux-mm@kvack.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Samuel Holland <samuel@sholland.org>,
-	Lad Prabhakar <prabhakar.csengg@gmail.com>
-Cc: Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Subject: [PATCH v5 4/4] riscv: Improve flush_tlb_kernel_range()
-Date: Thu, 19 Oct 2023 16:01:51 +0200
-Message-Id: <20231019140151.21629-5-alexghiti@rivosinc.com>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20231019140151.21629-1-alexghiti@rivosinc.com>
-References: <20231019140151.21629-1-alexghiti@rivosinc.com>
+	Thu, 19 Oct 2023 14:07:39 +0000
+Received: from mail.andestech.com (ATCPCS16.andestech.com [10.0.1.222])
+	by Atcsqr.andestech.com with ESMTP id 39JE6b0i034309;
+	Thu, 19 Oct 2023 22:06:37 +0800 (+08)
+	(envelope-from peterlin@andestech.com)
+Received: from swlinux02.andestech.com (10.0.15.183) by ATCPCS16.andestech.com
+ (10.0.1.222) with Microsoft SMTP Server id 14.3.498.0; Thu, 19 Oct 2023
+ 22:06:33 +0800
+From: Yu Chien Peter Lin <peterlin@andestech.com>
+To: <peterz@infradead.org>, <mingo@redhat.com>, <acme@kernel.org>,
+        <mark.rutland@arm.com>, <alexander.shishkin@linux.intel.com>,
+        <jolsa@kernel.org>, <namhyung@kernel.org>, <irogers@google.com>,
+        <adrian.hunter@intel.com>, <paul.walmsley@sifive.com>,
+        <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <ycliang@andestech.com>,
+        <peterlin@andestech.com>, <dminus@andestech.com>, <n.shubin@yadro.com>,
+        <locus84@andestech.com>, <linux-kernel@vger.kernel.org>,
+        <linux-perf-users@vger.kernel.org>, <linux-riscv@lists.infradead.org>
+CC: <prabhakar.mahadev-lad.rj@bp.renesas.com>, <tim609@andestech.com>,
+        <dylan@andestech.com>
+Subject: [PATCH v2 10/10] riscv: andes: Support symbolic FW and HW raw events
+Date: Thu, 19 Oct 2023 22:03:25 +0800
+Message-ID: <20231019140325.3660923-1-peterlin@andestech.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
+X-Originating-IP: [10.0.15.183]
+X-DNSRBL: 
+X-MAIL: Atcsqr.andestech.com 39JE6b0i034309
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231019_070616_182887_1058636C 
-X-CRM114-Status: GOOD (  17.38  )
+X-CRM114-CacheID: sfid-20231019_070737_473400_BA091E9B 
+X-CRM114-Status: GOOD (  11.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,119 +72,394 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This function used to simply flush the whole tlb of all harts, be more
-subtile and try to only flush the range.
+From: Locus Wei-Han Chen <locus84@andestech.com>
 
-The problem is that we can only use PAGE_SIZE as stride since we don't know
-the size of the underlying mapping and then this function will be improved
-only if the size of the region to flush is < threshold * PAGE_SIZE.
+This patch adds the Andes AX45 JSON files in the perf tool,
+allowing perf to be used with symbolic event names.
 
-Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
-Tested-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com> # On RZ/Five SMARC
+Signed-off-by: Locus Wei-Han Chen <locus84@andestech.com>
+Reviewed-by: Yu Chien Peter Lin <peterlin@andestech.com>
+Reviewed-by: Charles Ci-Jyun Wu <dminus@andestech.com>
+Reviewed-by: Leo Yu-Chi Liang <ycliang@andestech.com>
 ---
- arch/riscv/include/asm/tlbflush.h | 11 ++++++-----
- arch/riscv/mm/tlbflush.c          | 33 ++++++++++++++++++++++---------
- 2 files changed, 30 insertions(+), 14 deletions(-)
+Changes v1 -> v2:
+  - No change
+---
+ .../arch/riscv/andes/ax45/firmware.json       |  68 ++++++++++
+ .../arch/riscv/andes/ax45/instructions.json   | 127 ++++++++++++++++++
+ .../arch/riscv/andes/ax45/memory.json         |  57 ++++++++
+ .../arch/riscv/andes/ax45/microarch.json      |  77 +++++++++++
+ tools/perf/pmu-events/arch/riscv/mapfile.csv  |   1 +
+ 5 files changed, 330 insertions(+)
+ create mode 100644 tools/perf/pmu-events/arch/riscv/andes/ax45/firmware.json
+ create mode 100644 tools/perf/pmu-events/arch/riscv/andes/ax45/instructions.json
+ create mode 100644 tools/perf/pmu-events/arch/riscv/andes/ax45/memory.json
+ create mode 100644 tools/perf/pmu-events/arch/riscv/andes/ax45/microarch.json
 
-diff --git a/arch/riscv/include/asm/tlbflush.h b/arch/riscv/include/asm/tlbflush.h
-index 170a49c531c6..8f3418c5f172 100644
---- a/arch/riscv/include/asm/tlbflush.h
-+++ b/arch/riscv/include/asm/tlbflush.h
-@@ -40,6 +40,7 @@ void flush_tlb_mm_range(struct mm_struct *mm, unsigned long start,
- void flush_tlb_page(struct vm_area_struct *vma, unsigned long addr);
- void flush_tlb_range(struct vm_area_struct *vma, unsigned long start,
- 		     unsigned long end);
-+void flush_tlb_kernel_range(unsigned long start, unsigned long end);
- #ifdef CONFIG_TRANSPARENT_HUGEPAGE
- #define __HAVE_ARCH_FLUSH_PMD_TLB_RANGE
- void flush_pmd_tlb_range(struct vm_area_struct *vma, unsigned long start,
-@@ -56,15 +57,15 @@ static inline void flush_tlb_range(struct vm_area_struct *vma,
- 	local_flush_tlb_all();
- }
- 
--#define flush_tlb_mm(mm) flush_tlb_all()
--#define flush_tlb_mm_range(mm, start, end, page_size) flush_tlb_all()
--#endif /* !CONFIG_SMP || !CONFIG_MMU */
--
- /* Flush a range of kernel pages */
- static inline void flush_tlb_kernel_range(unsigned long start,
- 	unsigned long end)
- {
--	flush_tlb_all();
-+	local_flush_tlb_all();
- }
- 
-+#define flush_tlb_mm(mm) flush_tlb_all()
-+#define flush_tlb_mm_range(mm, start, end, page_size) flush_tlb_all()
-+#endif /* !CONFIG_SMP || !CONFIG_MMU */
-+
- #endif /* _ASM_RISCV_TLBFLUSH_H */
-diff --git a/arch/riscv/mm/tlbflush.c b/arch/riscv/mm/tlbflush.c
-index c27ba720e35f..7e182f2bc0ab 100644
---- a/arch/riscv/mm/tlbflush.c
-+++ b/arch/riscv/mm/tlbflush.c
-@@ -97,19 +97,27 @@ static void __flush_tlb_range(struct mm_struct *mm, unsigned long start,
- 			      unsigned long size, unsigned long stride)
- {
- 	struct flush_tlb_range_data ftd;
--	struct cpumask *cmask = mm_cpumask(mm);
-+	struct cpumask *cmask, full_cmask;
- 	unsigned long asid = FLUSH_TLB_NO_ASID;
--	unsigned int cpuid;
- 	bool broadcast;
- 
--	if (cpumask_empty(cmask))
--		return;
-+	if (mm) {
-+		unsigned int cpuid;
-+
-+		cmask = mm_cpumask(mm);
-+		if (cpumask_empty(cmask))
-+			return;
- 
--	cpuid = get_cpu();
--	/* check if the tlbflush needs to be sent to other CPUs */
--	broadcast = cpumask_any_but(cmask, cpuid) < nr_cpu_ids;
-+		cpuid = get_cpu();
-+		/* check if the tlbflush needs to be sent to other CPUs */
-+		broadcast = cpumask_any_but(cmask, cpuid) < nr_cpu_ids;
-+	} else {
-+		cpumask_setall(&full_cmask);
-+		cmask = &full_cmask;
-+		broadcast = true;
+diff --git a/tools/perf/pmu-events/arch/riscv/andes/ax45/firmware.json b/tools/perf/pmu-events/arch/riscv/andes/ax45/firmware.json
+new file mode 100644
+index 000000000000..9b4a032186a7
+--- /dev/null
++++ b/tools/perf/pmu-events/arch/riscv/andes/ax45/firmware.json
+@@ -0,0 +1,68 @@
++[
++  {
++    "ArchStdEvent": "FW_MISALIGNED_LOAD"
++  },
++  {
++    "ArchStdEvent": "FW_MISALIGNED_STORE"
++  },
++  {
++    "ArchStdEvent": "FW_ACCESS_LOAD"
++  },
++  {
++    "ArchStdEvent": "FW_ACCESS_STORE"
++  },
++  {
++    "ArchStdEvent": "FW_ILLEGAL_INSN"
++  },
++  {
++    "ArchStdEvent": "FW_SET_TIMER"
++  },
++  {
++    "ArchStdEvent": "FW_IPI_SENT"
++  },
++  {
++    "ArchStdEvent": "FW_IPI_RECEIVED"
++  },
++  {
++    "ArchStdEvent": "FW_FENCE_I_SENT"
++  },
++  {
++    "ArchStdEvent": "FW_FENCE_I_RECEIVED"
++  },
++  {
++    "ArchStdEvent": "FW_SFENCE_VMA_SENT"
++  },
++  {
++    "ArchStdEvent": "FW_SFENCE_VMA_RECEIVED"
++  },
++  {
++    "ArchStdEvent": "FW_SFENCE_VMA_RECEIVED"
++  },
++  {
++    "ArchStdEvent": "FW_SFENCE_VMA_ASID_RECEIVED"
++  },
++  {
++    "ArchStdEvent": "FW_HFENCE_GVMA_SENT"
++  },
++  {
++    "ArchStdEvent": "FW_HFENCE_GVMA_RECEIVED"
++  },
++  {
++    "ArchStdEvent": "FW_HFENCE_GVMA_VMID_SENT"
++  },
++  {
++    "ArchStdEvent": "FW_HFENCE_GVMA_VMID_RECEIVED"
++  },
++  {
++    "ArchStdEvent": "FW_HFENCE_VVMA_SENT"
++  },
++  {
++    "ArchStdEvent": "FW_HFENCE_VVMA_RECEIVED"
++  },
++  {
++    "ArchStdEvent": "FW_HFENCE_VVMA_ASID_SENT"
++  },
++  {
++    "ArchStdEvent": "FW_HFENCE_VVMA_ASID_RECEIVED"
++  }
++]
+diff --git a/tools/perf/pmu-events/arch/riscv/andes/ax45/instructions.json b/tools/perf/pmu-events/arch/riscv/andes/ax45/instructions.json
+new file mode 100644
+index 000000000000..713a08c1a40f
+--- /dev/null
++++ b/tools/perf/pmu-events/arch/riscv/andes/ax45/instructions.json
+@@ -0,0 +1,127 @@
++[
++	{
++		"EventCode": "0x10",
++		"EventName": "cycle_count",
++		"BriefDescription": "Cycle count"
++	},
++	{
++		"EventCode": "0x20",
++		"EventName": "inst_count",
++		"BriefDescription": "Retired instruction count"
++	},
++	{
++		"EventCode": "0x30",
++		"EventName": "int_load_inst",
++		"BriefDescription": "Integer load instruction count"
++	},
++	{
++		"EventCode": "0x40",
++		"EventName": "int_store_inst",
++		"BriefDescription": "Integer store instruction count"
++	},
++	{
++		"EventCode": "0x50",
++		"EventName": "atomic_inst",
++		"BriefDescription": "Atomic instruction count"
++	},
++	{
++		"EventCode": "0x60",
++		"EventName": "sys_inst",
++		"BriefDescription": "System instruction count"
++	},
++	{
++		"EventCode": "0x70",
++		"EventName": "int_compute_inst",
++		"BriefDescription": "Integer computational instruction count"
++	},
++	{
++		"EventCode": "0x80",
++		"EventName": "condition_br",
++		"BriefDescription": "Conditional branch instruction count"
++	},
++	{
++		"EventCode": "0x90",
++		"EventName": "taken_condition_br",
++		"BriefDescription": "Taken conditional branch instruction count"
++	},
++	{
++		"EventCode": "0xA0",
++		"EventName": "jal_inst",
++		"BriefDescription": "JAL instruction count"
++	},
++	{
++		"EventCode": "0xB0",
++		"EventName": "jalr_inst",
++		"BriefDescription": "JALR instruction count"
++	},
++	{
++		"EventCode": "0xC0",
++		"EventName": "ret_inst",
++		"BriefDescription": "Return instruction count"
++	},
++	{
++		"EventCode": "0xD0",
++		"EventName": "control_trans_inst",
++		"BriefDescription": "Control transfer instruction count"
++	},
++	{
++		"EventCode": "0xE0",
++		"EventName": "ex9_inst",
++		"BriefDescription": "EXEC.IT instruction count"
++	},
++	{
++		"EventCode": "0xF0",
++		"EventName": "int_mul_inst",
++		"BriefDescription": "Integer multiplication instruction count"
++	},
++	{
++		"EventCode": "0x100",
++		"EventName": "int_div_rem_inst",
++		"BriefDescription": "Integer division/remainder instruction count"
++	},
++	{
++		"EventCode": "0x110",
++		"EventName": "float_load_inst",
++		"BriefDescription": "Floating-point load instruction count"
++	},
++	{
++		"EventCode": "0x120",
++		"EventName": "float_store_inst",
++		"BriefDescription": "Floating-point store instruction count"
++	},
++	{
++		"EventCode": "0x130",
++		"EventName": "float_add_sub_inst",
++		"BriefDescription": "Floating-point addition/subtraction instruction count"
++	},
++	{
++		"EventCode": "0x140",
++		"EventName": "float_mul_inst",
++		"BriefDescription": "Floating-point multiplication instruction count"
++	},
++	{
++		"EventCode": "0x150",
++		"EventName": "float_fused_muladd_inst",
++		"BriefDescription": "Floating-point fused multiply-add instruction count"
++	},
++	{
++		"EventCode": "0x160",
++		"EventName": "float_div_sqrt_inst",
++		"BriefDescription": "Floating-point division or square-root instruction count"
++	},
++	{
++		"EventCode": "0x170",
++		"EventName": "other_float_inst",
++		"BriefDescription": "Other floating-point instruction count"
++	},
++	{
++		"EventCode": "0x180",
++		"EventName": "int_mul_add_sub_inst",
++		"BriefDescription": "Integer multiplication and add/sub instruction count"
++	},
++	{
++		"EventCode": "0x190",
++		"EventName": "retired_ops",
++		"BriefDescription": "Retired operation count"
 +	}
- 
--	if (static_branch_unlikely(&use_asid_allocator))
-+	if (static_branch_unlikely(&use_asid_allocator) && mm)
- 		asid = atomic_long_read(&mm->context.id) & asid_mask;
- 
- 	if (broadcast) {
-@@ -128,7 +136,8 @@ static void __flush_tlb_range(struct mm_struct *mm, unsigned long start,
- 		local_flush_tlb_range_asid(start, size, stride, asid);
- 	}
- 
--	put_cpu();
-+	if (mm)
-+		put_cpu();
- }
- 
- void flush_tlb_mm(struct mm_struct *mm)
-@@ -181,6 +190,12 @@ void flush_tlb_range(struct vm_area_struct *vma, unsigned long start,
- 
- 	__flush_tlb_range(vma->vm_mm, start, end - start, stride_size);
- }
-+
-+void flush_tlb_kernel_range(unsigned long start, unsigned long end)
-+{
-+	__flush_tlb_range(NULL, start, end - start, PAGE_SIZE);
-+}
-+
- #ifdef CONFIG_TRANSPARENT_HUGEPAGE
- void flush_pmd_tlb_range(struct vm_area_struct *vma, unsigned long start,
- 			unsigned long end)
++]
+diff --git a/tools/perf/pmu-events/arch/riscv/andes/ax45/memory.json b/tools/perf/pmu-events/arch/riscv/andes/ax45/memory.json
+new file mode 100644
+index 000000000000..c7401b526c77
+--- /dev/null
++++ b/tools/perf/pmu-events/arch/riscv/andes/ax45/memory.json
+@@ -0,0 +1,57 @@
++[
++	{
++		"EventCode": "0x01",
++		"EventName": "ilm_access",
++		"BriefDescription": "ILM access"
++	},
++	{
++		"EventCode": "0x11",
++		"EventName": "dlm_access",
++		"BriefDescription": "DLM access"
++	},
++	{
++		"EventCode": "0x21",
++		"EventName": "icache_access",
++		"BriefDescription": "ICACHE access"
++	},
++	{
++		"EventCode": "0x31",
++		"EventName": "icache_miss",
++		"BriefDescription": "ICACHE miss"
++	},
++	{
++		"EventCode": "0x41",
++		"EventName": "dcache_access",
++		"BriefDescription": "DCACHE access"
++	},
++	{
++		"EventCode": "0x51",
++		"EventName": "dcache_miss",
++		"BriefDescription": "DCACHE miss"
++	},
++	{
++		"EventCode": "0x61",
++		"EventName": "dcache_load_access",
++		"BriefDescription": "DCACHE load access"
++	},
++	{
++		"EventCode": "0x71",
++		"EventName": "dcache_load_miss",
++		"BriefDescription": "DCACHE load miss"
++	},
++	{
++		"EventCode": "0x81",
++		"EventName": "dcache_store_access",
++		"BriefDescription": "DCACHE store access"
++	},
++	{
++		"EventCode": "0x91",
++		"EventName": "dcache_store_miss",
++		"BriefDescription": "DCACHE store miss"
++	},
++	{
++		"EventCode": "0xA1",
++		"EventName": "dcache_wb",
++		"BriefDescription": "DCACHE writeback"
++	}
++]
+diff --git a/tools/perf/pmu-events/arch/riscv/andes/ax45/microarch.json b/tools/perf/pmu-events/arch/riscv/andes/ax45/microarch.json
+new file mode 100644
+index 000000000000..a6d378cbaa74
+--- /dev/null
++++ b/tools/perf/pmu-events/arch/riscv/andes/ax45/microarch.json
+@@ -0,0 +1,77 @@
++[
++	{
++		"EventCode": "0xB1",
++		"EventName": "cycle_wait_icache_fill",
++		"BriefDescription": "Cycles waiting for ICACHE fill data"
++	},
++	{
++		"EventCode": "0xC1",
++		"EventName": "cycle_wait_dcache_fill",
++		"BriefDescription": "Cycles waiting for DCACHE fill data"
++	},
++	{
++		"EventCode": "0xD1",
++		"EventName": "uncached_ifetch_from_bus",
++		"BriefDescription": "Uncached ifetch data access from bus"
++	},
++	{
++		"EventCode": "0xE1",
++		"EventName": "uncached_load_from_bus",
++		"BriefDescription": "Uncached load data access from bus"
++	},
++	{
++		"EventCode": "0xF1",
++		"EventName": "cycle_wait_uncached_ifetch",
++		"BriefDescription": "Cycles waiting for uncached ifetch data from bus"
++	},
++	{
++		"EventCode": "0x101",
++		"EventName": "cycle_wait_uncached_load",
++		"BriefDescription": "Cycles waiting for uncached load data from bus"
++	},
++	{
++		"EventCode": "0x111",
++		"EventName": "main_itlb_access",
++		"BriefDescription": "Main ITLB access"
++	},
++	{
++		"EventCode": "0x121",
++		"EventName": "main_itlb_miss",
++		"BriefDescription": "Main ITLB miss"
++	},
++	{
++		"EventCode": "0x131",
++		"EventName": "main_dtlb_access",
++		"BriefDescription": "Main DTLB access"
++	},
++	{
++		"EventCode": "0x141",
++		"EventName": "main_dtlb_miss",
++		"BriefDescription": "Main DTLB miss"
++	},
++	{
++		"EventCode": "0x151",
++		"EventName": "cycle_wait_itlb_fill",
++		"BriefDescription": "Cycles waiting for Main ITLB fill data"
++	},
++	{
++		"EventCode": "0x161",
++		"EventName": "pipe_stall_cycle_dtlb_miss",
++		"BriefDescription": "Pipeline stall cycles caused by Main DTLB miss"
++	},
++	{
++		"EventCode": "0x02",
++		"EventName": "mispredict_condition_br",
++		"BriefDescription": "Misprediction of conditional branches"
++	},
++	{
++		"EventCode": "0x12",
++		"EventName": "mispredict_take_condition_br",
++		"BriefDescription": "Misprediction of taken conditional branches"
++	},
++	{
++		"EventCode": "0x22",
++		"EventName": "mispredict_target_ret_inst",
++		"BriefDescription": "Misprediction of targets of Return instructions"
++	}
++]
+diff --git a/tools/perf/pmu-events/arch/riscv/mapfile.csv b/tools/perf/pmu-events/arch/riscv/mapfile.csv
+index c61b3d6ef616..5bf09af14c1b 100644
+--- a/tools/perf/pmu-events/arch/riscv/mapfile.csv
++++ b/tools/perf/pmu-events/arch/riscv/mapfile.csv
+@@ -15,3 +15,4 @@
+ #
+ #MVENDORID-MARCHID-MIMPID,Version,Filename,EventType
+ 0x489-0x8000000000000007-0x[[:xdigit:]]+,v1,sifive/u74,core
++0x31e-0x8000000000008a45-0x[[:xdigit:]]+,v1,andes/ax45,core
 -- 
-2.39.2
+2.34.1
 
 
 _______________________________________________
