@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AF16CDB483
-	for <linux-riscv@archiver.kernel.org>; Thu, 19 Oct 2023 07:58:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1A43CDB465
+	for <linux-riscv@archiver.kernel.org>; Thu, 19 Oct 2023 08:02:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=drBv1uo5dgFE3SQvEjn2bxV22o2qqvGjB4b0VN2Cc9A=; b=QU99cBZ+2shqoO
-	8MJCjIwCk3JDygJTq7ijoqyLIiKx2UhlbPsgT0jW16WMaQ3OX8/lXqHE1cWgttUG3WAVrsOvAazKM
-	Uz3Jp/XEx62koaGH+Mo2KznFbskhCVR1IDclezTccMb0f462agb0VA+eOf/sc6/0M7IERNk6qHmK3
-	lImH6SDv8T/p+0l1jNc1J0xo3PhhgOC9NLPz0Nhm9d3A+QmW1Lk1VSBFHmkVSFXzRcdVCcxNTzFT0
-	YJDfzcXb0smlZ+6zkKy5i5BsknnXDJx3GhLNtwFa+44Lo/eoWMNjQow6gQ2Jls9M8nAU2SstUoHzt
-	7VNmaMsKAEO+FLcfHoHQ==;
+	List-Owner; bh=/0/9zuytRWqHbHwOTmNQcp5j61AXASbqnDlilTRXxz0=; b=2WjN0B7rk5PX8a
+	32JVZFTJ2Xwjf6rx4KyVFrYt1SS468apd+UbwxfetLJmB5xM1WStPhjZ/zL6NGB3O8VAi85RFBJ/a
+	nXE1qdBw7G0Bh5/IvzAeSstDbIv/qm1IHjyMcO40MBU6cBliYE+w8sGk1Jns2ToksmxJy4c8nPdQ8
+	tULKhxjHm0T51MZ3u/2AVovrCmnXGcvTeHduV3UTPqt+C8E5slQtQD0vcfag4zfJdsAr0HKpc2mjz
+	ngmh4+0eaIL5o2Pp+sQ/+gn4Uhhw1gaSendOp9BgoNhiWWHu9w7/YopIQ4vnsP/mFS5kSGZPw3N4o
+	qxTYJBPGbDuoo+A8dSwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qtNut-00GeeD-1K;
-	Thu, 19 Oct 2023 07:58:03 +0000
-Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
+	id 1qtNyk-00Gf0Z-00;
+	Thu, 19 Oct 2023 08:02:02 +0000
+Received: from mail-lj1-x230.google.com ([2a00:1450:4864:20::230])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qtNup-00GedJ-2N
+	id 1qtNyg-00GeyU-2q
 	for linux-riscv@lists.infradead.org;
-	Thu, 19 Oct 2023 07:58:01 +0000
-Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-32d9cb5e0fcso5150418f8f.0
-        for <linux-riscv@lists.infradead.org>; Thu, 19 Oct 2023 00:57:58 -0700 (PDT)
+	Thu, 19 Oct 2023 08:02:00 +0000
+Received: by mail-lj1-x230.google.com with SMTP id 38308e7fff4ca-2c50305c5c4so97404781fa.1
+        for <linux-riscv@lists.infradead.org>; Thu, 19 Oct 2023 01:01:56 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1697702277; x=1698307077; darn=lists.infradead.org;
+        d=ventanamicro.com; s=google; t=1697702515; x=1698307315; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=BaT0UAyyKtssFxQND155cWxNkiluUWACURFJFcXVWDk=;
-        b=OH+dxqY3zuv0nV6mBa9TSXoaay5vSkbHb2iG92APhNBOtaIvjyn2K+96GMaiRfzZyx
-         9btT+mfKuJiia8QOvwp0ocPaUK9JwgjZNvm1WpsnI0mY+FRu187wz3shlAHljkVpC/ai
-         0lt0gLKVq4sqJBwIi/EY9WweS6Ndz4TVUVf6Ge41SpZVQp0BOWd9VZZHMuuHC0v3DIa7
-         2Vd2wEM20Ncm4nIst66PW5dy635Rj4tfB78TFqkYf4cUViY44vXvU7EhXkYGn1hHXNbt
-         clWAQ7eAvKZXVo5W1c68tL1ACw3mmtQCGBHHkbSY9WoQWo5D+VyV2JYq5veXFPZYKmdU
-         j14A==
+        bh=wThBUxBh7v0znNn0ZPl0WI7OQvkdGdCrZ1lZ3b6Zyy4=;
+        b=b6fRnYOSsEa7CMFStrHXm//RbWT/2bM1JQtGLVuXDeb1ZvRI33LcaH4HxvVGdkrtqi
+         sQfHc3l4V4vclTd5u4eEOOU0vskRkimi2ijYLUrDej26PIsQIY0KM2lGshc7h+3YCduf
+         RU08k2LdqVKUkntd/63FszVNVpra1UH0gfGRBxgEnUa7KylpJdNTmIyNyXOp0VnUpWfP
+         MAiXpZ3Q5NExZloyFxpr+8U1eHOYBrxh/jPaFCsaWL4KgNPjdPnzctro1pPYFLMPI4F6
+         /weHAQ++wXTMB8xezM8AoHOIsdCU8qBS7Tdu5W4qJct6xuoKvAmyjsko3Y1C3Xxvlkb4
+         +QGA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1697702277; x=1698307077;
+        d=1e100.net; s=20230601; t=1697702515; x=1698307315;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=BaT0UAyyKtssFxQND155cWxNkiluUWACURFJFcXVWDk=;
-        b=Z4tIibVdvFdAga5bvdgzy7zLI+8lNYhEagw8pQpo9PjjUBetifVgP8Ou/guSssR4uC
-         b4Tx+ZEvbyDjl3ZwXqDr3qxSxpUscj/k02FrQDkpiAONPFgi7/VQDkS/kR2iQYGUfCLH
-         CFvJrtBJZnD6o73bCH5gyLkInUgxFt9R4cEeG2iUZ4PqfoSOhNhjNXLphYVPbh+D60CF
-         wNyZ4EnDoUR09esOoRndBggvAZQ+flyYZTmzNvTi6ZvxNEmNqAbBviD+fIiqHfGAgein
-         2adn1cebpQu0eshBpS4SHE6J36V6SHS9R9dXarc6DJ5ClAa2bds+MhYql1VzXKDCSh2L
-         0GGg==
-X-Gm-Message-State: AOJu0YzRiHDGQszSjvfn2mUTsL93/ZwbX4Xh3LK0at5boNpuTStkMj9X
-	s+7iUe1rDVJNbaUWqJMvHB64/w==
-X-Google-Smtp-Source: AGHT+IEK/SMb4NUNaf8d2WXTwiv7iPTtR4vQFuKO9GOmaPzBWNUEn6ZcPIJGemg9D6f0QM31YvDQsw==
-X-Received: by 2002:adf:f9cd:0:b0:32d:a335:e33d with SMTP id w13-20020adff9cd000000b0032da335e33dmr887824wrr.58.1697702277126;
-        Thu, 19 Oct 2023 00:57:57 -0700 (PDT)
+        bh=wThBUxBh7v0znNn0ZPl0WI7OQvkdGdCrZ1lZ3b6Zyy4=;
+        b=Y0P+/1wnI63qj1vzr1rsRL1zZR35G/LxkPI24KA6egIYzCaQq/Q6wkJyZAiTBn9O10
+         5xPp1GC2PFx5Kbai7Xnwkm7VKg8xr3xdXG4EexVA6bN1VuwqeX+W9iD/nVAiZDromqHO
+         H2uuxjMVVrTZQ+53yHySkCSzYtf5C/BpLT1wZ2jrTVDipFMKfiY1vvBL/sHiKl2IE/Wh
+         jQBdlw6OL2/IqqAprPNJJeWY6uWh7/8syHYkzOizL9tuEeRozQfKzbjWy8eD+yIE7Z4E
+         U/3qCGubpDj2rKnB4CrQHAXKONJfY3KcfWPetZVeAFxlkNojL6/XwwUVkjjcOtvO25zn
+         80rg==
+X-Gm-Message-State: AOJu0Yw6EIpkKW8lIFYtZNBQoqYIdTwVGCNHPdJkjHZXL/O0L83Y13LU
+	MQ3AIWhNxqD5+5WvC2s4vggyCQ==
+X-Google-Smtp-Source: AGHT+IEkF+Ae4mUiCJOXGTWK+iVSfRk0ko7bvAOvA0qtVmbQYW0wA+W8atiyY1iQZ4X9vKJwGK3qXg==
+X-Received: by 2002:a2e:bc04:0:b0:2c5:13e8:e6dc with SMTP id b4-20020a2ebc04000000b002c513e8e6dcmr1149965ljf.31.1697702515155;
+        Thu, 19 Oct 2023 01:01:55 -0700 (PDT)
 Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
-        by smtp.gmail.com with ESMTPSA id i3-20020a5d6303000000b0032db4e660d9sm3831000wru.56.2023.10.19.00.57.55
+        by smtp.gmail.com with ESMTPSA id je6-20020a05600c1f8600b004063ea92492sm3790133wmb.22.2023.10.19.01.01.53
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Oct 2023 00:57:56 -0700 (PDT)
-Date: Thu, 19 Oct 2023 09:57:55 +0200
+        Thu, 19 Oct 2023 01:01:54 -0700 (PDT)
+Date: Thu, 19 Oct 2023 10:01:53 +0200
 From: Andrew Jones <ajones@ventanamicro.com>
 To: Anup Patel <apatel@ventanamicro.com>
 Cc: Paolo Bonzini <pbonzini@redhat.com>, 
@@ -70,17 +70,17 @@ Cc: Paolo Bonzini <pbonzini@redhat.com>,
 	Jiri Slaby <jirislaby@kernel.org>, Conor Dooley <conor@kernel.org>, kvm@vger.kernel.org, 
 	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, linux-serial@vger.kernel.org, 
 	linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 3/8] RISC-V: KVM: Allow some SBI extensions to be
- disabled by default
-Message-ID: <20231019-1e6f411e1cbc4a3b0fbff3f5@orel>
+Subject: Re: [PATCH v2 4/8] RISC-V: KVM: Forward SBI DBCN extension to
+ user-space
+Message-ID: <20231019-5e79c16a0731f60d862ddfff@orel>
 References: <20231012051509.738750-1-apatel@ventanamicro.com>
- <20231012051509.738750-4-apatel@ventanamicro.com>
+ <20231012051509.738750-5-apatel@ventanamicro.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20231012051509.738750-4-apatel@ventanamicro.com>
+In-Reply-To: <20231012051509.738750-5-apatel@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231019_005759_780641_A0AC696A 
-X-CRM114-Status: GOOD (  37.64  )
+X-CRM114-CacheID: sfid-20231019_010158_916281_F4AC2864 
+X-CRM114-Status: GOOD (  23.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,174 +97,112 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 12, 2023 at 10:45:04AM +0530, Anup Patel wrote:
-> Currently, all SBI extensions are enabled by default which is
-> problematic for SBI extensions (such as DBCN) which are forwarded
-> to the KVM user-space because we might have an older KVM user-space
-> which is not aware/ready to handle newer SBI extensions. Ideally,
-> the SBI extensions forwarded to the KVM user-space must be
-> disabled by default.
+On Thu, Oct 12, 2023 at 10:45:05AM +0530, Anup Patel wrote:
+> The frozen SBI v2.0 specification defines the SBI debug console
+> (DBCN) extension which replaces the legacy SBI v0.1 console
+> functions namely sbi_console_getchar() and sbi_console_putchar().
 > 
-> To address above, we allow certain SBI extensions to be disabled
-> by default so that KVM user-space must explicitly enable such
-> SBI extensions to receive forwarded calls from Guest VCPU.
+> The SBI DBCN extension needs to be emulated in the KVM user-space
+> (i.e. QEMU-KVM or KVMTOOL) so we forward SBI DBCN calls from KVM
+> guest to the KVM user-space which can then redirect the console
+> input/output to wherever it wants (e.g. telnet, file, stdio, etc).
+> 
+> The SBI debug console is simply a early console available to KVM
+> guest for early prints and it does not intend to replace the proper
+> console devices such as 8250, VirtIO console, etc.
 > 
 > Signed-off-by: Anup Patel <apatel@ventanamicro.com>
 > ---
->  arch/riscv/include/asm/kvm_vcpu_sbi.h |  4 +++
->  arch/riscv/kvm/vcpu.c                 |  6 ++++
->  arch/riscv/kvm/vcpu_sbi.c             | 45 ++++++++++++++++-----------
->  3 files changed, 36 insertions(+), 19 deletions(-)
+>  arch/riscv/include/asm/kvm_vcpu_sbi.h |  1 +
+>  arch/riscv/include/uapi/asm/kvm.h     |  1 +
+>  arch/riscv/kvm/vcpu_sbi.c             |  4 ++++
+>  arch/riscv/kvm/vcpu_sbi_replace.c     | 32 +++++++++++++++++++++++++++
+>  4 files changed, 38 insertions(+)
 > 
 > diff --git a/arch/riscv/include/asm/kvm_vcpu_sbi.h b/arch/riscv/include/asm/kvm_vcpu_sbi.h
-> index 8d6d4dce8a5e..c02bda5559d7 100644
+> index c02bda5559d7..6a453f7f8b56 100644
 > --- a/arch/riscv/include/asm/kvm_vcpu_sbi.h
 > +++ b/arch/riscv/include/asm/kvm_vcpu_sbi.h
-> @@ -35,6 +35,9 @@ struct kvm_vcpu_sbi_return {
->  struct kvm_vcpu_sbi_extension {
->  	unsigned long extid_start;
->  	unsigned long extid_end;
-> +
-> +	bool default_unavail;
-> +
->  	/**
->  	 * SBI extension handler. It can be defined for a given extension or group of
->  	 * extension. But it should always return linux error codes rather than SBI
-> @@ -59,6 +62,7 @@ int kvm_riscv_vcpu_get_reg_sbi_ext(struct kvm_vcpu *vcpu,
->  const struct kvm_vcpu_sbi_extension *kvm_vcpu_sbi_find_ext(
->  				struct kvm_vcpu *vcpu, unsigned long extid);
->  int kvm_riscv_vcpu_sbi_ecall(struct kvm_vcpu *vcpu, struct kvm_run *run);
-> +void kvm_riscv_vcpu_sbi_init(struct kvm_vcpu *vcpu);
+> @@ -73,6 +73,7 @@ extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_ipi;
+>  extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_rfence;
+>  extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_srst;
+>  extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_hsm;
+> +extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_dbcn;
+>  extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_experimental;
+>  extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_vendor;
 >  
->  #ifdef CONFIG_RISCV_SBI_V01
->  extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_v01;
-> diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
-> index c061a1c5fe98..e087c809073c 100644
-> --- a/arch/riscv/kvm/vcpu.c
-> +++ b/arch/riscv/kvm/vcpu.c
-> @@ -141,6 +141,12 @@ int kvm_arch_vcpu_create(struct kvm_vcpu *vcpu)
->  	if (rc)
->  		return rc;
->  
-> +	/*
-> +	 * Setup SBI extensions
-> +	 * NOTE: This must be the last thing to be initialized.
-> +	 */
-> +	kvm_riscv_vcpu_sbi_init(vcpu);
-
-With this, we no longer defer probing to the first access (whether that's
-by the guest or KVM userspace). With our current small set of SBI
-extensions where only a single one has a probe function, then this
-simpler approach is good enough. We can always go back to the lazy
-approach later if needed.
-
-> +
->  	/* Reset VCPU */
->  	kvm_riscv_reset_vcpu(vcpu);
+> diff --git a/arch/riscv/include/uapi/asm/kvm.h b/arch/riscv/include/uapi/asm/kvm.h
+> index 917d8cc2489e..60d3b21dead7 100644
+> --- a/arch/riscv/include/uapi/asm/kvm.h
+> +++ b/arch/riscv/include/uapi/asm/kvm.h
+> @@ -156,6 +156,7 @@ enum KVM_RISCV_SBI_EXT_ID {
+>  	KVM_RISCV_SBI_EXT_PMU,
+>  	KVM_RISCV_SBI_EXT_EXPERIMENTAL,
+>  	KVM_RISCV_SBI_EXT_VENDOR,
+> +	KVM_RISCV_SBI_EXT_DBCN,
+>  	KVM_RISCV_SBI_EXT_MAX,
+>  };
 >  
 > diff --git a/arch/riscv/kvm/vcpu_sbi.c b/arch/riscv/kvm/vcpu_sbi.c
-> index 9cd97091c723..1b1cee86efda 100644
+> index 1b1cee86efda..bb76c3cf633f 100644
 > --- a/arch/riscv/kvm/vcpu_sbi.c
 > +++ b/arch/riscv/kvm/vcpu_sbi.c
-> @@ -155,14 +155,8 @@ static int riscv_vcpu_set_sbi_ext_single(struct kvm_vcpu *vcpu,
->  	if (!sext)
->  		return -ENOENT;
->  
-> -	/*
-> -	 * We can't set the extension status to available here, since it may
-> -	 * have a probe() function which needs to confirm availability first,
-> -	 * but it may be too early to call that here. We can set the status to
-> -	 * unavailable, though.
-> -	 */
-> -	if (!reg_val)
-> -		scontext->ext_status[sext->ext_idx] =
-> +	scontext->ext_status[sext->ext_idx] = (reg_val) ?
-> +			KVM_RISCV_SBI_EXT_AVAILABLE :
->  			KVM_RISCV_SBI_EXT_UNAVAILABLE;
-
-We're missing the change to riscv_vcpu_get_sbi_ext_single() which should
-also drop the comment block explaining the limits to status knowledge
-without initial probing (which we now do) and then just check for
-available, i.e.
-
-diff --git a/arch/riscv/kvm/vcpu_sbi.c b/arch/riscv/kvm/vcpu_sbi.c
-index bb76c3cf633f..92c42d9aba1c 100644
---- a/arch/riscv/kvm/vcpu_sbi.c
-+++ b/arch/riscv/kvm/vcpu_sbi.c
-@@ -186,15 +186,8 @@ static int riscv_vcpu_get_sbi_ext_single(struct kvm_vcpu *vcpu,
- 	if (!sext)
- 		return -ENOENT;
- 
--	/*
--	 * If the extension status is still uninitialized, then we should probe
--	 * to determine if it's available, but it may be too early to do that
--	 * here. The best we can do is report that the extension has not been
--	 * disabled, i.e. we return 1 when the extension is available and also
--	 * when it only may be available.
--	 */
--	*reg_val = scontext->ext_status[sext->ext_idx] !=
--				KVM_RISCV_SBI_EXT_UNAVAILABLE;
-+	*reg_val = scontext->ext_status[sext->ext_idx] ==
-+				KVM_RISCV_SBI_EXT_AVAILABLE;
- 
- 	return 0;
- }
-
->  
->  	return 0;
-> @@ -337,18 +331,8 @@ const struct kvm_vcpu_sbi_extension *kvm_vcpu_sbi_find_ext(
->  			    scontext->ext_status[entry->ext_idx] ==
->  						KVM_RISCV_SBI_EXT_AVAILABLE)
->  				return ext;
-> -			if (scontext->ext_status[entry->ext_idx] ==
-> -						KVM_RISCV_SBI_EXT_UNAVAILABLE)
-> -				return NULL;
-> -			if (ext->probe && !ext->probe(vcpu)) {
-> -				scontext->ext_status[entry->ext_idx] =
-> -					KVM_RISCV_SBI_EXT_UNAVAILABLE;
-> -				return NULL;
-> -			}
->  
-> -			scontext->ext_status[entry->ext_idx] =
-> -				KVM_RISCV_SBI_EXT_AVAILABLE;
-> -			return ext;
-> +			return NULL;
->  		}
->  	}
->  
-> @@ -419,3 +403,26 @@ int kvm_riscv_vcpu_sbi_ecall(struct kvm_vcpu *vcpu, struct kvm_run *run)
->  
->  	return ret;
->  }
+> @@ -66,6 +66,10 @@ static const struct kvm_riscv_sbi_extension_entry sbi_ext[] = {
+>  		.ext_idx = KVM_RISCV_SBI_EXT_PMU,
+>  		.ext_ptr = &vcpu_sbi_ext_pmu,
+>  	},
+> +	{
+> +		.ext_idx = KVM_RISCV_SBI_EXT_DBCN,
+> +		.ext_ptr = &vcpu_sbi_ext_dbcn,
+> +	},
+>  	{
+>  		.ext_idx = KVM_RISCV_SBI_EXT_EXPERIMENTAL,
+>  		.ext_ptr = &vcpu_sbi_ext_experimental,
+> diff --git a/arch/riscv/kvm/vcpu_sbi_replace.c b/arch/riscv/kvm/vcpu_sbi_replace.c
+> index 7c4d5d38a339..23b57c931b15 100644
+> --- a/arch/riscv/kvm/vcpu_sbi_replace.c
+> +++ b/arch/riscv/kvm/vcpu_sbi_replace.c
+> @@ -175,3 +175,35 @@ const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_srst = {
+>  	.extid_end = SBI_EXT_SRST,
+>  	.handler = kvm_sbi_ext_srst_handler,
+>  };
 > +
-> +void kvm_riscv_vcpu_sbi_init(struct kvm_vcpu *vcpu)
+> +static int kvm_sbi_ext_dbcn_handler(struct kvm_vcpu *vcpu,
+> +				    struct kvm_run *run,
+> +				    struct kvm_vcpu_sbi_return *retdata)
 > +{
-> +	struct kvm_vcpu_sbi_context *scontext = &vcpu->arch.sbi_context;
-> +	const struct kvm_riscv_sbi_extension_entry *entry;
-> +	const struct kvm_vcpu_sbi_extension *ext;
-> +	int i;
+> +	struct kvm_cpu_context *cp = &vcpu->arch.guest_context;
+> +	unsigned long funcid = cp->a6;
 > +
-> +	for (i = 0; i < ARRAY_SIZE(sbi_ext); i++) {
-> +		entry = &sbi_ext[i];
-> +		ext = entry->ext_ptr;
-> +
-> +		if (ext->probe && !ext->probe(vcpu)) {
-> +			scontext->ext_status[entry->ext_idx] =
-> +				KVM_RISCV_SBI_EXT_UNAVAILABLE;
-> +			continue;
-> +		}
-> +
-> +		scontext->ext_status[entry->ext_idx] = ext->default_unavail ?
-> +					KVM_RISCV_SBI_EXT_UNAVAILABLE :
-> +					KVM_RISCV_SBI_EXT_AVAILABLE;
+> +	switch (funcid) {
+> +	case SBI_EXT_DBCN_CONSOLE_WRITE:
+> +	case SBI_EXT_DBCN_CONSOLE_READ:
+> +	case SBI_EXT_DBCN_CONSOLE_WRITE_BYTE:
+> +		/*
+> +		 * The SBI debug console functions are unconditionally
+> +		 * forwarded to the userspace.
+> +		 */
+> +		kvm_riscv_vcpu_sbi_forward(vcpu, run);
+> +		retdata->uexit = true;
+> +		break;
+> +	default:
+> +		retdata->err_val = SBI_ERR_NOT_SUPPORTED;
 > +	}
+> +
+> +	return 0;
 > +}
+> +
+> +const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_dbcn = {
+> +	.extid_start = SBI_EXT_DBCN,
+> +	.extid_end = SBI_EXT_DBCN,
+> +	.default_unavail = true,
+> +	.handler = kvm_sbi_ext_dbcn_handler,
+> +};
 > -- 
 > 2.34.1
 >
 
-Thanks,
-drew
+Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
 
 _______________________________________________
 linux-riscv mailing list
