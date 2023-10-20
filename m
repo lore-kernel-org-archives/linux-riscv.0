@@ -4,73 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 507FBCDB474
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 Oct 2023 15:32:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AD98C00A98
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 Oct 2023 15:34:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=J7BiKsOzeQ/4MM4istfd83B8zreVxvIVu2kdpulKHD0=; b=fpPhYkXsFQqNBg
-	ElQIMVqlvWwUlvMQXFqgpG8LLcBXQedevcrFIFNQL83cSsKLP1cmc11X2DGNAnOI9euyqoFABjeHh
-	c7wvw8M7ja/5I+MzwsciTjfZMfiHElUte4luAWWOeKMpo+Ff/85AQ7arkiHW94U3gkuVC6Jhxs70a
-	MvPSj+rxx1rT8SP0d90FQFyxe1T6tEJkJtThlinW6t1TQYfixMfnXOcc7grZ9TatUuvRpwCGlXqaM
-	zodjxPYmgAeW8fyikgHahsA9/rkL85ofQcerlH5VYtnzbTICWx6kWk3+8aCt+7FahegxvFsAJF9ET
-	2yQUtmeN8NH7AbDQX65Q==;
+	List-Owner; bh=OmUoRJYXZzgdhwoZotRCCMqq4d5WeB2ztc5CCLUfoLE=; b=qyz20LI1hE6TZy
+	On9pS1ZrK2tOf+g0Gbf48ZMmgecDoVa4ObkOxN0jqvKAbtfQpxilfsb8Whf2NnLeE+Z2XtO2/b76b
+	8ntQo0fpaYLdToJECe/sJY6IjyCUnUFJCSzjdcjtl9mvVruX8aSrzBy1xyUo0gK1moxaBXMKGvbvN
+	O7JiLsS8Osfjg8dmBvFFGCLEgihKBTYnZ6RGKaeIdlodEfUiE1ON4sfyEvI94t5QfocCf9k/R/mWa
+	vRK208TaFi5YrbmdLKlK58Mk6a8v2Tv3QPDmuFonjpaMTy2iaSbmrvioAlcSN2AfsdenKS9oC5d+8
+	25LJfwV70piUOxHMQrhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qtrUN-002cE2-0K;
-	Fri, 20 Oct 2023 15:32:39 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1qtrWF-002cPG-2g;
+	Fri, 20 Oct 2023 15:34:35 +0000
+Received: from mail-io1-xd2d.google.com ([2607:f8b0:4864:20::d2d])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qtrUI-002cBw-2M;
-	Fri, 20 Oct 2023 15:32:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=oeGZC/GFFZBHPdyj3JvOUApGMDrwTjGZ7XC00CXwh5Q=; b=EoNYPhJ6ubRySWuuhtVBiIyqDD
-	Zbsgv90x3JwfNxoehfPQaO6I+KGkUNZSC7RsTD9YG3dPGEgVlBJBfyQekKs/F9QoRNwGxVI9niq+t
-	4EwPvXp0Xlxh4Nz+MDrYoFyWSOlaRzLrjC3UQfxkQrXF/G8dElJu0zei7KTU02SrThLMwLxChW8jo
-	9WTeoxMqRvv4l594/V8RM0UnYFESz4aaQkJbPNc5HjQWXBSAb58kGhSaJtqrkbsCnq8Sf6kUbRJPB
-	Vue1W8Z9Q67PVPGUVdza6LfZNSP8Q3soDQTcfwzRHdETs0/rtO7CD4oHLq90sMIrPRZPBwEoQvgAH
-	CD3ZYC/A==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:41310)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1qtrU4-0000b5-0E;
-	Fri, 20 Oct 2023 16:32:20 +0100
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.94.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1qtrU1-0001e6-HL; Fri, 20 Oct 2023 16:32:17 +0100
-Date: Fri, 20 Oct 2023 16:32:17 +0100
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-Cc: James Morse <james.morse@arm.com>, linux-pm@vger.kernel.org,
-	loongarch@lists.linux.dev, linux-acpi@vger.kernel.org,
-	linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org, kvmarm@lists.linux.dev,
-	x86@kernel.org, Salil Mehta <salil.mehta@huawei.com>,
-	Jean-Philippe Brucker <jean-philippe@linaro.org>,
-	jianyong.wu@arm.com, justin.he@arm.com
-Subject: Re: [RFC PATCH v2 14/35] ACPI: Only enumerate enabled (or
- functional) devices
-Message-ID: <ZTKdgUu/wubKfdef@shell.armlinux.org.uk>
-References: <20230913163823.7880-1-james.morse@arm.com>
- <20230913163823.7880-15-james.morse@arm.com>
- <20230914132732.00006908@Huawei.com>
- <20230914140940.00001417@Huawei.com>
+	id 1qtrWC-002cOk-1x
+	for linux-riscv@lists.infradead.org;
+	Fri, 20 Oct 2023 15:34:34 +0000
+Received: by mail-io1-xd2d.google.com with SMTP id ca18e2360f4ac-7a69a71cc1dso38650039f.0
+        for <linux-riscv@lists.infradead.org>; Fri, 20 Oct 2023 08:34:30 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1697816070; x=1698420870; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=V84nzu//9Ccx1eMGnmV3Yd2nV/swh6SKrL0rqKbIxJY=;
+        b=XeqSZA3ERbwvgjsjfknX12GZ6mwKUC5RlYbkUn4ss/JI52riDrhG/aH8pSfBHgAP/L
+         Nq8sEonaNikVDe7wHPJozABafWxz8Xn4vyFfdNxyrG6LcW4pBiaBPtj6uSdmEt2EDwGR
+         7EZ0lu/SoMDnmn/hP1JSccq2q904CaDwEieIWsANjlIigP2sAmczUFU8vuKro4kiNR1B
+         ICxqid3mh7jk7aCVx/EDPBNpzlqjN93f2D7ZFx1OqpYW5WSyAKVcwxTWrUVNBadT0b2B
+         kXeqZOQ5U6YMNCrhfYSf8EYfFck0ALyZMSQKDkHytvLrlb/jsFDbtE4oZeLYy/d1nPPE
+         BkAw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1697816070; x=1698420870;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=V84nzu//9Ccx1eMGnmV3Yd2nV/swh6SKrL0rqKbIxJY=;
+        b=hTdEmdi/qcgcCebz00PTZSVnjKEljGRb1m4wIijHQtQbme6RPWzDUdD8AIannEdzaF
+         RxwdifI/SKsWW/qvRcVS+7D4ctc/6EtEUfwo/ym7oXBoSbT779Dwzh4rc97smI3Ff+Gh
+         yTrxbpBk8I+g1Hmc9sEP7jOkyQgNEeHWwaGLISS6dSDA1dLp9Q4jjMWal/Gbp4BsNFT9
+         nlrXTtFewvaRNwpWT1fB9SnQAp4dnzd4EyEC4UemWsNRGFJIRPfGBXB9wUDDqajE/6Ft
+         DCUwratAaA6FXX3C2WiWv+V8/T/2W2aps3BFIw6/ByV7dyFpxVaHTJV+j97VnOmToYIz
+         m9rQ==
+X-Gm-Message-State: AOJu0YwABAiKdAhtRUhci+MH1iF+1MscUvEMk9IHt73hd9sM+u0WZyyc
+	dEQlLlJ3E5AQcEBeDFDKXsCNaFwFRF5P/P03f6baoA==
+X-Google-Smtp-Source: AGHT+IE4AmkczySvssaZLBoqaDR6DLJEyO82ucexzFqv5S6VyCKkYLRm7Z+wA7GdZpfQZh0uzq46vH0BJ0c5Cq0hpAg=
+X-Received: by 2002:a05:6e02:1547:b0:352:5ff6:5484 with SMTP id
+ j7-20020a056e02154700b003525ff65484mr2576435ilu.28.1697816069731; Fri, 20 Oct
+ 2023 08:34:29 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230914140940.00001417@Huawei.com>
+References: <20231003044403.1974628-1-apatel@ventanamicro.com>
+ <87o7gu7mo9.fsf@all.your.base.are.belong.to.us> <CAK9=C2XMzzYri8TNBASKqc-VmJWjGdoOHy-fczksfkU0ahhgOQ@mail.gmail.com>
+ <87h6mlbryy.fsf@all.your.base.are.belong.to.us> <CAK9=C2VE9-L49tMKHjSTGDSpOFZGZw14LtD1V4GMXGiVQ-A=ng@mail.gmail.com>
+ <87o7gtpdb4.fsf@all.your.base.are.belong.to.us>
+In-Reply-To: <87o7gtpdb4.fsf@all.your.base.are.belong.to.us>
+From: Anup Patel <apatel@ventanamicro.com>
+Date: Fri, 20 Oct 2023 21:04:18 +0530
+Message-ID: <CAK9=C2WVkbDtz9uZTNjEcJzKQ44cHLR=+nSVZZmSptzL_U4NNA@mail.gmail.com>
+Subject: Re: [PATCH v10 00/15] Linux RISC-V AIA Support
+To: =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231020_083234_935192_5D1DE3B3 
-X-CRM114-Status: GOOD (  42.90  )
+X-CRM114-CacheID: sfid-20231020_083432_656678_849E5FAA 
+X-CRM114-Status: GOOD (  55.99  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,236 +84,175 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Saravana Kannan <saravanak@google.com>, Marc Zyngier <maz@kernel.org>, Anup Patel <anup@brainfault.org>, Atish Patra <atishp@atishpatra.org>, linux-kernel@vger.kernel.org, Rob Herring <robh+dt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley <paul.walmsley@sifive.com>, Thomas Gleixner <tglx@linutronix.de>, Frank Rowand <frowand.list@gmail.com>, linux-riscv@lists.infradead.org, Andrew Jones <ajones@ventanamicro.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 14, 2023 at 02:09:40PM +0100, Jonathan Cameron wrote:
-> On Thu, 14 Sep 2023 13:27:32 +0100
-> Jonathan Cameron <Jonathan.Cameron@Huawei.com> wrote:
-> 
-> > On Wed, 13 Sep 2023 16:38:02 +0000
-> > James Morse <james.morse@arm.com> wrote:
-> > 
-> > > Today the ACPI enumeration code 'visits' all devices that are present.
-> > > 
-> > > This is a problem for arm64, where CPUs are always present, but not
-> > > always enabled. When a device-check occurs because the firmware-policy
-> > > has changed and a CPU is now enabled, the following error occurs:
-> > > | acpi ACPI0007:48: Enumeration failure
-> > > 
-> > > This is ultimately because acpi_dev_ready_for_enumeration() returns
-> > > true for a device that is not enabled. The ACPI Processor driver
-> > > will not register such CPUs as they are not 'decoding their resources'.
-> > > 
-> > > Change acpi_dev_ready_for_enumeration() to also check the enabled bit.
-> > > ACPI allows a device to be functional instead of maintaining the
-> > > present and enabled bit. Make this behaviour an explicit check with
-> > > a reference to the spec, and then check the present and enabled bits.  
-> > 
-> > "and the" only applies if the functional route hasn't been followed
-> > "if not this case check the present and enabled bits."
-> > 
-> > > This is needed to avoid enumerating present && functional devices that
-> > > are not enabled.
-> > > 
-> > > Signed-off-by: James Morse <james.morse@arm.com>
-> > > ---
-> > > If this change causes problems on deployed hardware, I suggest an
-> > > arch opt-in: ACPI_IGNORE_STA_ENABLED, that causes
-> > > acpi_dev_ready_for_enumeration() to only check the present bit.
-> > > ---
-> > >  drivers/acpi/device_pm.c    |  2 +-
-> > >  drivers/acpi/device_sysfs.c |  2 +-
-> > >  drivers/acpi/internal.h     |  1 -
-> > >  drivers/acpi/property.c     |  2 +-
-> > >  drivers/acpi/scan.c         | 23 +++++++++++++----------
-> > >  5 files changed, 16 insertions(+), 14 deletions(-)
-> > > 
-> > > diff --git a/drivers/acpi/device_pm.c b/drivers/acpi/device_pm.c
-> > > index f007116a8427..76c38478a502 100644
-> > > --- a/drivers/acpi/device_pm.c
-> > > +++ b/drivers/acpi/device_pm.c
-> > > @@ -313,7 +313,7 @@ int acpi_bus_init_power(struct acpi_device *device)
-> > >  		return -EINVAL;
-> > >  
-> > >  	device->power.state = ACPI_STATE_UNKNOWN;
-> > > -	if (!acpi_device_is_present(device)) {
-> > > +	if (!acpi_dev_ready_for_enumeration(device)) {
-> > >  		device->flags.initialized = false;
-> > >  		return -ENXIO;
-> > >  	}
-> > > diff --git a/drivers/acpi/device_sysfs.c b/drivers/acpi/device_sysfs.c
-> > > index b9bbf0746199..16e586d74aa2 100644
-> > > --- a/drivers/acpi/device_sysfs.c
-> > > +++ b/drivers/acpi/device_sysfs.c
-> > > @@ -141,7 +141,7 @@ static int create_pnp_modalias(const struct acpi_device *acpi_dev, char *modalia
-> > >  	struct acpi_hardware_id *id;
-> > >  
-> > >  	/* Avoid unnecessarily loading modules for non present devices. */
-> > > -	if (!acpi_device_is_present(acpi_dev))
-> > > +	if (!acpi_dev_ready_for_enumeration(acpi_dev))
-> > >  		return 0;
-> > >  
-> > >  	/*
-> > > diff --git a/drivers/acpi/internal.h b/drivers/acpi/internal.h
-> > > index 866c7c4ed233..a1b45e345bcc 100644
-> > > --- a/drivers/acpi/internal.h
-> > > +++ b/drivers/acpi/internal.h
-> > > @@ -107,7 +107,6 @@ int acpi_device_setup_files(struct acpi_device *dev);
-> > >  void acpi_device_remove_files(struct acpi_device *dev);
-> > >  void acpi_device_add_finalize(struct acpi_device *device);
-> > >  void acpi_free_pnp_ids(struct acpi_device_pnp *pnp);
-> > > -bool acpi_device_is_present(const struct acpi_device *adev);
-> > >  bool acpi_device_is_battery(struct acpi_device *adev);
-> > >  bool acpi_device_is_first_physical_node(struct acpi_device *adev,
-> > >  					const struct device *dev);
-> > > diff --git a/drivers/acpi/property.c b/drivers/acpi/property.c
-> > > index 413e4fcadcaf..e03f00b98701 100644
-> > > --- a/drivers/acpi/property.c
-> > > +++ b/drivers/acpi/property.c
-> > > @@ -1418,7 +1418,7 @@ static bool acpi_fwnode_device_is_available(const struct fwnode_handle *fwnode)
-> > >  	if (!is_acpi_device_node(fwnode))
-> > >  		return false;
-> > >  
-> > > -	return acpi_device_is_present(to_acpi_device_node(fwnode));
-> > > +	return acpi_dev_ready_for_enumeration(to_acpi_device_node(fwnode));
-> > >  }
-> > >  
-> > >  static const void *
-> > > diff --git a/drivers/acpi/scan.c b/drivers/acpi/scan.c
-> > > index 17ab875a7d4e..f898591ce05f 100644
-> > > --- a/drivers/acpi/scan.c
-> > > +++ b/drivers/acpi/scan.c
-> > > @@ -304,7 +304,7 @@ static int acpi_scan_device_check(struct acpi_device *adev)
-> > >  	int error;
-> > >  
-> > >  	acpi_bus_get_status(adev);
-> > > -	if (acpi_device_is_present(adev)) {
-> > > +	if (acpi_dev_ready_for_enumeration(adev)) {
-> > >  		/*
-> > >  		 * This function is only called for device objects for which
-> > >  		 * matching scan handlers exist.  The only situation in which
-> > > @@ -338,7 +338,7 @@ static int acpi_scan_bus_check(struct acpi_device *adev, void *not_used)
-> > >  	int error;
-> > >  
-> > >  	acpi_bus_get_status(adev);
-> > > -	if (!acpi_device_is_present(adev)) {
-> > > +	if (!acpi_dev_ready_for_enumeration(adev)) {
-> > >  		acpi_scan_device_not_enumerated(adev);
-> > >  		return 0;
-> > >  	}
-> > > @@ -1908,11 +1908,6 @@ static bool acpi_device_should_be_hidden(acpi_handle handle)
-> > >  	return true;
-> > >  }
-> > >  
-> > > -bool acpi_device_is_present(const struct acpi_device *adev)
-> > > -{
-> > > -	return adev->status.present || adev->status.functional;
-> > > -}
-> > > -
-> > >  static bool acpi_scan_handler_matching(struct acpi_scan_handler *handler,
-> > >  				       const char *idstr,
-> > >  				       const struct acpi_device_id **matchid)
-> > > @@ -2375,16 +2370,24 @@ EXPORT_SYMBOL_GPL(acpi_dev_clear_dependencies);
-> > >   * acpi_dev_ready_for_enumeration - Check if the ACPI device is ready for enumeration
-> > >   * @device: Pointer to the &struct acpi_device to check
-> > >   *
-> > > - * Check if the device is present and has no unmet dependencies.
-> > > + * Check if the device is functional or enabled and has no unmet dependencies.
-> > >   *
-> > > - * Return true if the device is ready for enumeratino. Otherwise, return false.
-> > > + * Return true if the device is ready for enumeration. Otherwise, return false.
-> > >   */
-> > >  bool acpi_dev_ready_for_enumeration(const struct acpi_device *device)
-> > >  {
-> > >  	if (device->flags.honor_deps && device->dep_unmet)
-> > >  		return false;
-> > >  
-> > > -	return acpi_device_is_present(device);
-> > > +	/*
-> > > +	 * ACPI 6.5's 6.3.7 "_STA (Device Status)" allows firmware to return
-> > > +	 * (!present && functional) for certain types of devices that should be
-> > > +	 * enumerated.  
-> > 
-> > I'd call out the fact that enumeration isn't same as "device driver should be loaded"
-> > which is the thing that functional is supposed to indicate should not happen.
-> > 
-> > > +	 */
-> > > +	if (!device->status.present && !device->status.enabled)  
-> > 
-> > In theory no need to check !enabled if !present
-> > "If bit [0] is cleared, then bit 1 must also be cleared (in other words, a device that is not present cannot be enabled)."
-> > We could report an ACPI bug if that's seen.  If that bug case is ignored this code can
-> > become the simpler.
-> > 
-> > 	if (device->status.present)
-> > 		return device->status_enabled;
-> > 	else
-> > 		return device->status.functional;
-> > 
-> > Or the following also valid here (as functional should be set for enabled present devices
-> > unless they failed diagnostics).
-> > 
-> > 	if (dev->status.functional)
-> > 		return true;
-> > 	return device->status.present && device->status.enabled;
-> > 
-> > On assumption we want to enumerate dead devices for debug purposes...
-> Actually ignore this.  Could have weird race with present, functional true,
-> but enabled not quite set - despite the device being there and self
-> tests having passed.
-
-Are you suggesting to ignore you're entire suggestion or just this
-suggestion and go with the first one?
-
-So, the code was originally effectively:
-
-	return adev->status.present || adev->status.functional;
-
-So it has the truth table:
-
-present	functional	result
-false	false		false
-false	true		true
-true	don't care	true
-
-James' replacement code makes this:
-
-	if (!device->status.present && !device->status.enabled)
-		return device->status.functional;
-
-	return device->status.present && device->status.enabled;
-
-giving:
-
-present	enabled	functional	result
-false	false	false		false
-false	false	true		true
-false	true	don't care	false	<== invalid according to spec
-true	false	don't care	false
-true	true	don't care	true
-
-So, I think what you're getting at is that we want the logic to be
-according to the above table, but simplified, not caring about the
-invalid state too much?
-
-In which case, I would suggest going with your first suggestion, in
-other words:
-
-	if (device->status.present)
-		return device->status.enabled;
-	else
-		return device->status.functional;
-
-Yes?
-
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gRnJpLCBPY3QgMjAsIDIwMjMgYXQgODoxMOKAr1BNIEJqw7ZybiBUw7ZwZWwgPGJqb3JuQGtl
+cm5lbC5vcmc+IHdyb3RlOgo+Cj4gQW51cCBQYXRlbCA8YXBhdGVsQHZlbnRhbmFtaWNyby5jb20+
+IHdyaXRlczoKPgo+ID4gT24gRnJpLCBPY3QgMjAsIDIwMjMgYXQgMjoxN+KAr1BNIEJqw7ZybiBU
+w7ZwZWwgPGJqb3JuQGtlcm5lbC5vcmc+IHdyb3RlOgo+ID4+Cj4gPj4gVGhhbmtzIGZvciB0aGUg
+cXVpY2sgcmVwbHkhCj4gPj4KPiA+PiBBbnVwIFBhdGVsIDxhcGF0ZWxAdmVudGFuYW1pY3JvLmNv
+bT4gd3JpdGVzOgo+ID4+Cj4gPj4gPiBPbiBUaHUsIE9jdCAxOSwgMjAyMyBhdCA3OjEz4oCvUE0g
+QmrDtnJuIFTDtnBlbCA8Ympvcm5Aa2VybmVsLm9yZz4gd3JvdGU6Cj4gPj4gPj4KPiA+PiA+PiBI
+aSBBbnVwLAo+ID4+ID4+Cj4gPj4gPj4gQW51cCBQYXRlbCA8YXBhdGVsQHZlbnRhbmFtaWNyby5j
+b20+IHdyaXRlczoKPiA+PiA+Pgo+ID4+ID4+ID4gVGhlIFJJU0MtViBBSUEgc3BlY2lmaWNhdGlv
+biBpcyByYXRpZmllZCBhcy1wZXIgdGhlIFJJU0MtViBpbnRlcm5hdGlvbmFsCj4gPj4gPj4gPiBw
+cm9jZXNzLiBUaGUgbGF0ZXN0IHJhdGlmaWVkIEFJQSBzcGVjaWZjYXRpb24gY2FuIGJlIGZvdW5k
+IGF0Ogo+ID4+ID4+ID4gaHR0cHM6Ly9naXRodWIuY29tL3Jpc2N2L3Jpc2N2LWFpYS9yZWxlYXNl
+cy9kb3dubG9hZC8xLjAvcmlzY3YtaW50ZXJydXB0cy0xLjAucGRmCj4gPj4gPj4gPgo+ID4+ID4+
+ID4gQXQgYSBoaWdoLWxldmVsLCB0aGUgQUlBIHNwZWNpZmljYXRpb24gYWRkcyB0aHJlZSB0aGlu
+Z3M6Cj4gPj4gPj4gPiAxKSBBSUEgQ1NScwo+ID4+ID4+ID4gICAgLSBJbXByb3ZlZCBsb2NhbCBp
+bnRlcnJ1cHQgc3VwcG9ydAo+ID4+ID4+ID4gMikgSW5jb21pbmcgTWVzc2FnZSBTaWduYWxlZCBJ
+bnRlcnJ1cHQgQ29udHJvbGxlciAoSU1TSUMpCj4gPj4gPj4gPiAgICAtIFBlci1IQVJUIE1TSSBj
+b250cm9sbGVyCj4gPj4gPj4gPiAgICAtIFN1cHBvcnQgTVNJIHZpcnR1YWxpemF0aW9uCj4gPj4g
+Pj4gPiAgICAtIFN1cHBvcnQgSVBJIGFsb25nIHdpdGggdmlydHVhbGl6YXRpb24KPiA+PiA+PiA+
+IDMpIEFkdmFuY2VkIFBsYXRmb3JtLUxldmVsIEludGVycnVwdCBDb250cm9sbGVyIChBUExJQykK
+PiA+PiA+PiA+ICAgIC0gV2lyZWQgaW50ZXJydXB0IGNvbnRyb2xsZXIKPiA+PiA+PiA+ICAgIC0g
+SW4gTVNJLW1vZGUsIGNvbnZlcnRzIHdpcmVkIGludGVycnVwdCBpbnRvIE1TSXMgKGkuZS4gTVNJ
+IGdlbmVyYXRvcikKPiA+PiA+PiA+ICAgIC0gSW4gRGlyZWN0LW1vZGUsIGluamVjdHMgZXh0ZXJu
+YWwgaW50ZXJydXB0cyBkaXJlY3RseSBpbnRvIEhBUlRzCj4gPj4gPj4KPiA+PiA+PiBUaGFua3Mg
+Zm9yIHdvcmtpbmcgb24gdGhlIEFJQSBzdXBwb3J0ISBJIGhhZCBhIGxvb2sgYXQgdGhlIHNlcmll
+cywgYW5kCj4gPj4gPj4gaGF2ZSBzb21lIGNvbmNlcm5zIGFib3V0IGludGVycnVwdCBJRCBhYnN0
+cmFjdGlvbi4KPiA+PiA+Pgo+ID4+ID4+IEEgYml0IG9mIGJhY2tncm91bmQsIGZvciByZWFkZXJz
+IG5vdCBmYW1pbGlhciB3aXRoIHRoZSBBSUEgZGV0YWlscy4KPiA+PiA+Pgo+ID4+ID4+IElNU0lD
+IGFsbG93cyBmb3IgMjA0NyB1bmlxdWUgTVNJICgibXNpLWlycSIpIHNvdXJjZXMgcGVyIGhhcnQs
+IGFuZAo+ID4+ID4+IGVhY2ggTVNJIGlzIGRlZGljYXRlZCB0byBhIGNlcnRhaW4gaGFydC4gVGhl
+IHNlcmllcyB0YWtlcyB0aGUgYXBwcm9hY2gKPiA+PiA+PiB0byBzYXkgdGhhdCB0aGVyZSBhcmUs
+IGUuZy4sIDIwNDcgaW50ZXJydXB0cyAoImxueC1pcnEiKSBnbG9iYWxseS4KPiA+PiA+PiBFYWNo
+IGxueC1pcnEgY29uc2lzdHMgb2YgI2hhcnRzICogbXNpLWlycSAtLSBhIHNsaWNlIC0tIGFuZCBp
+biB0aGUKPiA+PiA+PiBzbGljZSBvbmx5ICpvbmUqIG1zaS1pcnEgaXMgYWN1dGFsbHkgdXNlZC4K
+PiA+PiA+Pgo+ID4+ID4+IFRoaXMgc2NoZW1lIG1ha2VzIGFmZmluaXR5IGNoYW5nZXMgbW9yZSBy
+b2J1c3QsIGJlY2F1c2UgdGhlIGludGVycnVwdAo+ID4+ID4+IHNvdXJjZXMgb24gIm90aGVyIiBo
+YXJ0cyBhcmUgcHJlLWFsbG9jYXRlZC4gT24gdGhlIG90aGVyIGhhbmQgaXQKPiA+PiA+PiByZXF1
+aXJlcyB0byBwcm9wYWdhdGUgaXJxIG1hc2tpbmcgdG8gb3RoZXIgaGFydHMgdmlhIElQSXMgKHRo
+aXMgaXMKPiA+PiA+PiBtb3N0bHkgZG9uZSB1cCBzZXR1cC90ZWFyIGRvd24pLiBJdCdzIGFsc28g
+d2FzdGVmdWwsIGJlY2F1c2UgbXNpLWlycXMKPiA+PiA+PiBhcmUgaG9nZ2VkLCBhbmQgY2Fubm90
+IGJlIHVzZWQuCj4gPj4gPj4KPiA+PiA+PiBDb250ZW1wb3Jhcnkgc3RvcmFnZS9uZXR3b3JraW5n
+IGRyaXZlcnMgdXN1YWxseSB1c2VzIHF1ZXVlcyBwZXIgY29yZQo+ID4+ID4+IChvciBhIHN1Yi1z
+ZXQgb2YgY29yZXMpLiBUaGUgY3VycmVudCBzY2hlbWUgd2FzdGVzIGEgbG90IG9mIG1zaS1pcnFz
+Lgo+ID4+ID4+IElmIHdlIGluc3RlYWQgdXNlZCBhIHNjaGVtZSB3aGVyZSAibXNpLWlycSA9PSBs
+bngtaXJxIiwgaW5zdGVhZCBvZgo+ID4+ID4+ICJsbnEtaXJxID0ge2hhcnQgMDttc2ktaXJxIHgg
+LCAuLi4gaGFydCBOO21zaS1pcnEgeH0iLCB0aGVyZSB3b3VsZCBiZQo+ID4+ID4+IGEgbG90IE1T
+SXMgZm9yIG90aGVyIHVzZXJzLiAxLTEgdnMgMS1OLiBFLmcuLCBpZiBhIHN0b3JhZ2UgZGV2aWNl
+Cj4gPj4gPj4gd291bGQgbGlrZSB0byB1c2UgNSBxdWV1ZXMgKDUgY29yZXMpIG9uIGEgMTI4IGNv
+cmUgc3lzdGVtLCB0aGUgY3VycmVudAo+ID4+ID4+IHNjaGVtZSB3b3VsZCBjb25zdW1lIDUgKiAx
+MjggTVNJcywgaW5zdGVhZCBvZiBqdXN0IDUuCj4gPj4gPj4KPiA+PiA+PiBPbiB0aGUgcGx1cyBz
+aWRlOgo+ID4+ID4+ICogQ2hhbmdpbmcgaW50ZXJydXB0cyBhZmZpbml0eSB3aWxsIG5ldmVyIGZh
+aWwsIGJlY2F1c2UgdGhlIGludGVycnVwdHMKPiA+PiA+PiAgIG9uIGVhY2ggaGFydCBpcyBwcmUt
+YWxsb2NhdGVkLgo+ID4+ID4+Cj4gPj4gPj4gT24gdGhlIG5lZ2F0aXZlIHNpZGU6Cj4gPj4gPj4g
+KiBXYXN0ZWZ1bCBpbnRlcnJ1cHQgdXNhZ2UsIGFuZCBhIHN5c3RlbSBjYW4gcG90aWVudGlhbGx5
+ICJydW4gb3V0IiBvZgo+ID4+ID4+ICAgaW50ZXJydXB0cy4gRXNwZWNpYWxseSBmb3IgbWFueSBj
+b3JlIHN5c3RlbXMuCj4gPj4gPj4gKiBJbnRlcnJ1cHQgbWFza2luZyBuZWVkIHRvIHByb2FnYXRl
+IHRvIGhhcnRzIHZpYSBJUElzICh0aGVyZSdzIG5vCj4gPj4gPj4gICBicm9hZGNhc3QgY3NyIGlu
+IElNU0lDKSwgYW5kIGEgbW9yZSBjb21wbGV4IGxvY2tpbmcgc2NoZW1lIElNU0lDCj4gPj4gPj4K
+PiA+PiA+PiBTdW1tYXJ5Ogo+ID4+ID4+IFRoZSBjdXJyZW50IHNlcmllcyBjYXBzIHRoZSBudW1i
+ZXIgb2YgZ2xvYmFsIGludGVycnVwdHMgdG8gbWF4aW11bQo+ID4+ID4+IDIwNDcgTVNJcyBmb3Ig
+YWxsIGNvcmVzICh3aG9sZSBzeXN0ZW0pLiBBIGJldHRlciBzY2hlbWUsIElNTywgd291bGQgYmUK
+PiA+PiA+PiB0byBleHBvc2UgMjA0NyAqICNoYXJ0cyB1bmlxdWUgTVNJcy4KPiA+PiA+Pgo+ID4+
+ID4+IEkgdGhpbmsgdGhpcyBjb3VsZCBzaW1wbGlmeS9yZW1vdmUoPykgdGhlIGxvY2tpbmcgYXMg
+d2VsbC4KPiA+PiA+Cj4gPj4gPiBFeHBvc2luZyAyMDQ3ICogI2hhcnRzIHVuaXF1ZSBNU0lzIGhh
+cyBtdWx0aXBsZSBpc3N1ZXM6Cj4gPj4gPiAxKSBUaGUgaXJxX3NldF9hZmZpbml0eSgpIGRvZXMg
+bm90IHdvcmsgZm9yIE1TSXMgYmVjYXVzZSBlYWNoCj4gPj4gPiAgICAgIElSUSBpcyBub3QgdGll
+ZCB0byBhIHBhcnRpY3VsYXIgSEFSVC4gVGhpcyBtZWFucyB3ZSBjYW4ndAo+ID4+ID4gICAgICBi
+YWxhbmNlIHRoZSBJUlEgcHJvY2Vzc2luZyBsb2FkIGFtb25nIEhBUlRzLgo+ID4+Cj4gPj4gWWVz
+LCB5b3UgY2FuIGJhbGFuY2UuIEluIHlvdXIgY29kZSwgZWFjaCAqYWN0aXZlKiBNU0kgaXMgc3Rp
+bGwKPiA+PiBib3VuZC9hY3RpdmUgdG8gYSBzcGVjaWZpYyBoYXJkIHRvZ2V0aGVyIHdpdGggdGhl
+IGFmZmluaXR5IG1hc2suIEluIGFuCj4gPj4gMS0xIG1vZGVsIHlvdSB3b3VsZCBzdGlsbCBuZWVk
+IHRvIHRyYWNrIHRoZSBhZmZpbml0eSBtYXNrLCBidXQgdGhlCj4gPj4gaXJxX3NldF9hZmZpbml0
+eSgpIHdvdWxkIGJlIGRpZmZlcmVudC4gSXQgd291bGQgdHJ5IHRvIGFsbG9jYXRlIGEgbmV3Cj4g
+Pj4gTVNJIGZyb20gdGhlIHRhcmdldCBDUFUsIGFuZCB0aGVuIHN3aXRjaCB0byBoYXZpbmcgdGhh
+dCBNU0kgYWN0aXZlLgo+ID4+Cj4gPj4gVGhhdCdzIHdoYXQgeDg2IGRvZXMgQUZBSVUsIHdoaWNo
+IGlzIGFsc28gY29uc3RyYWluZWQgYnkgdGhlICMgb2YKPiA+PiBhdmFpbGFibGUgTVNJcy4KPiA+
+Pgo+ID4+IFRoZSBkb3duc2lkZSwgYXMgSSBwb2ludGVkIG91dCwgaXMgdGhhdCB0aGUgc2V0IGFm
+ZmluaXR5IGFjdGlvbiBjYW4KPiA+PiBmYWlsIGZvciBhIGNlcnRhaW4gdGFyZ2V0IENQVS4KPiA+
+Cj4gPiBZZXMsIGlycV9zZXRfYWZmaW5pdHkoKSBjYW4gZmFpbCBmb3IgdGhlIHN1Z2dlc3RlZCBh
+cHByb2FjaCBwbHVzIGZvcgo+ID4gUklTQy1WIEFJQSwgb25lIEhBUlQgZG9lcyBub3QgaGF2ZSBh
+Y2Nlc3MgdG8gb3RoZXIgSEFSVHMKPiA+IE1TSSBlbmFibGUvZGlzYWJsZSBiaXRzIHNvIHRoZSBh
+cHByb2FjaCB3aWxsIGFsc28gaW52b2x2ZSBJUEkuCj4KPiBDb3JyZWN0LCBidXQgdGhlIGN1cnJl
+bnQgc2VyaWVzIGRvZXMgYSBicm9hZGNhc3QgdG8gYWxsIGNvcmVzLCB3aGVyZSB0aGUKPiAxLTEg
+YXBwcm9hY2ggaXMgYXQgbW9zdCBhbiBJUEkgdG8gYSBzaW5nbGUgY29yZS4KPgo+IDEyOCtjIG1h
+Y2hpbmVzIGFyZSBnZXR0aW5nIG1vcmUgY29tbW9uLCBhbmQgeW91IGhhdmUgZGV2aWNlcyB0aGF0
+IHlvdQo+IGJyaW5nIHVwL2Rvd24gb24gYSBwZXItY29yZSBiYXNpcy4gQnJvYWRjYXN0aW5nIElQ
+SXMgdG8gYWxsIGNvcmVzLCB3aGVuCj4gZGVhbGluZyB3aXRoIGEgcGVyLWNvcmUgYWN0aXZpdHkg
+aXMgYSBwcmV0dHkgbm9pc3kgbmVpZ2hib3IuCgpCcm9hZGNhc3QgSVBJIGluIHRoZSBjdXJyZW50
+IGFwcHJvYWNoIGlzIG9ubHkgZG9uZSB1cG9uIE1TSSBtYXNrL3VubWFzawpvcGVyYXRpb24uIEl0
+IGlzIG5vdCBkb25lIHVwb24gc2V0X2FmZmluaXR5KCkgb2YgaW50ZXJydXB0IGhhbmRsaW5nLgoK
+Pgo+IFRoaXMgY291bGQgYmUgZml4ZWQgaW4gdGhlIGV4aXN0aW5nIDEtbiBhcHByb2FjaCwgYnkg
+bm90IHJlcXVpcmUgdG8gc3luYwo+IHRoZSBjb3JlcyB0aGF0IGFyZSBub3QgaGFuZGxpbmcgdGhl
+IE1TSSBpbiBxdWVzdGlvbi4gIkxhenkgZGlzYWJsZSIKCkluY29ycmVjdC4gVGhlIGFwcHJvYWNo
+IHlvdSBhcmUgc3VnZ2VzdGluZyBpbnZvbHZlcyBhbiBJUEkgdXBvbiBldmVyeQppcnFfc2V0X2Fm
+ZmluaXR5KCkuIFRoaXMgaXMgYmVjYXVzZSBhIEhBUlQgY2FuIG9ubHkgZW5hYmxlIGl0J3Mgb3du
+Ck1TSSBJRCBzbyB3aGVuIGFuIElSUSBpcyBtb3ZlZCB0byBmcm9tIEhBUlQgQSB0byBIQVJUIEIg
+d2l0aAphIGRpZmZlcmVudCBJRCBYIG9uIEhBUlQgQiB0aGVuIHdlIHdpbGwgbmVlZCBhbiBJUEkg
+aW4gaXJxX3NldF9hZmZpbml0KCkKdG8gZW5hYmxlIElEIFggb24gSEFSVCBCLgoKPgo+ID4+ID4g
+MikgQWxsIHdpcmVkIElSUXMgZm9yIEFQTElDIE1TSS1tb2RlIHdpbGwgYWxzbyB0YXJnZXQgYQo+
+ID4+ID4gICAgIGZpeGVkIEhBUlQgaGVuY2UgaXJxX3NldF9hZmZpbml0eSgpIHdvbid0IHdvcmsg
+Zm9yIHdpcmVkCj4gPj4gPiAgICAgSVJRcyBhcyB3ZWxsLgo+ID4+Cj4gPj4gSSdtIG5vdCBmb2xs
+b3dpbmcgaGVyZS4gV2h5IHdvdWxkIEFQTElDIHB1dCBhIGNvbnN0cmFpbnQgaGVyZT8gSSBoYWQg
+YQo+ID4+IGxvb2sgYXQgdGhlIHNwZWNzLCBhbmQgSSBkaWRuJ3Qgc2VlIGFueXRoaW5nIHN1cHBv
+cnRpbmcgdGhlIGN1cnJlbnQKPiA+PiBzY2hlbWUgZXhwbGljaXRseS4KPiA+Cj4gPiBMZXRzIHNh
+eSB0aGUgbnVtYmVyIG9mIEFQTElDIHdpcmVkIGludGVycnVwdHMgIGFyZSBncmVhdGVyIHRoYW4g
+dGhlCj4gPiBudW1iZXIgb2YgcGVyLUNQVSBJTVNJQyBJRHMuIEluIHRoaXMgY2FzZSwgaWYgYWxs
+IHdpcmVkIGludGVycnVwdHMgYXJlCj4gPiBtb3ZlZCB0byBhIHBhcnRpY3VsYXIgQ1BVIHRoZW4g
+aXJxX3NldF9hZmZpbml0eSgpIHdpbGwgZmFpbCBmb3Igc29tZSBvZgo+ID4gdGhlIHdpcmVkIGlu
+dGVycnVwdHMuCj4KPiBSaWdodCwgaXQncyB0aGUgY2FzZSBvZiAiZnVsbCByZW1vdGUgQ1BVIiBh
+Z2Fpbi4gVGhhbmtzIGZvciBjbGVhcmluZwo+IHRoYXQgdXAuCj4KPiA+PiA+IFRoZSBpZGVhIG9m
+IHRyZWF0aW5nIHBlci1IQVJUIE1TSXMgYXMgc2VwYXJhdGUgSVJRcyBoYXMKPiA+PiA+IGJlZW4g
+ZGlzY3Vzc2VkIGluIHRoZSBwYXN0Lgo+ID4+Cj4gPj4gQWhhISBJIHRyaWVkIHRvIGxvb2sgZm9y
+IGl0IGluIGxvcmUsIGJ1dCBkaWRuJ3QgZmluZCBhbnkuIENvdWxkIHlvdQo+ID4+IHBvaW50IG1l
+IHRvIHRob3NlIGRpc2N1c3Npb25zPwo+ID4KPiA+IFRoaXMgd2FzIGRvbmUgMiB5ZWFycyBiYWNr
+IGluIHRoZSBBSUEgVEcgbWVldGluZyB3aGVuIHdlIHdlcmUKPiA+IGRvaW5nIHRoZSBQb0MgZm9y
+IEFJQSBzcGVjLgo+Cj4gQWgsIHRvbyBiYWQuIFRoYW5rcyByZWdhcmRsZXNzLgo+Cj4gPj4gTXkg
+Y29uY2VybiBpcyBpbnRlcnJ1cHRzIGJlY29tZSBhIHNjYXJjZSByZXNvdXJjZSB3aXRoIHRoaXMK
+PiA+PiBpbXBsZW1lbnRhdGlvbiwgYnV0IG1heWJlIG15IHZpZXcgaXMgaW5jb3JyZWN0LiBJJ3Zl
+IHNlZW4gYmFyZS1tZXRhbAo+ID4+IHg4NiBzeXN0ZW1zIChubyBWTXMpIHdpdGggfjIwMCBjb3Jl
+cywgYW5kIH4yMDAwIGludGVycnVwdHMsIGJ1dCBtYXliZQo+ID4+IHRoYXQgaXMgY29uc2lkZXJl
+ZCAiYSBsb3Qgb2YgaW50ZXJydXB0cyIuCj4gPj4KPiA+PiBBcyBsb25nIGFzIHdlIGRvbid0IGdl
+dCBpbnRvIHNjZW5hcmlvcyB3aGVyZSB3ZSdyZSBydW5uaW5nIG91dCBvZgo+ID4+IGludGVycnVw
+dHMsIGR1ZSB0byB0aGUgc29mdHdhcmUgZGVzaWduLgo+ID4+Cj4gPgo+ID4gVGhlIGN1cnJlbnQg
+YXBwcm9hY2ggaXMgc2ltcGxlciBhbmQgZW5zdXJlcyBpcnFfc2V0X2FmZmluaXR5Cj4gPiBhbHdh
+eXMgd29ya3MuIFRoZSBsaW1pdCBvZiBtYXggMjA0NyBJRHMgaXMgc3VmZmljaWVudCBmb3IgbWFu
+eQo+ID4gc3lzdGVtcyAoaWYgbm90IGFsbCkuCj4KPiBMZXQgbWUgZ2l2ZSB5b3UgYW5vdGhlciB2
+aWV3LiBPbiBhIDEyOGMgc3lzdGVtIGVhY2ggY29yZSBoYXMgfjE2IHVuaXF1ZQo+IGludGVycnVw
+dHMgZm9yIGRpc3Bvc2FsLiBFLmcuIHRoZSBJbnRlbCBFODAwIE5JQyBoYXMgbW9yZSB0aGFuIDIw
+NDgKPiBuZXR3b3JrIHF1ZXVlIHBhaXJzIGZvciBlYWNoIFBGLgoKQ2xlYXJseSwgdGhpcyBleGFt
+cGxlIGlzIGEgaHlwb3RoZXRpY2FsIGFuZCByZXByZXNlbnRzIGEgcG9vcmx5CmRlc2lnbmVkIHBs
+YXRmb3JtLgoKSGF2aW5nIGp1c3QgMTYgSURzIHBlci1Db3JlIGlzIGEgdmVyeSBwb29yIGRlc2ln
+biBjaG9pY2UuIEluIGZhY3QsIHRoZQpTZXJ2ZXIgU29DIHNwZWMgbWFuZGF0ZXMgYSBtaW5pbXVt
+IDI1NSBJRHMuCgpSZWdhcmRpbmcgTklDcyB3aGljaCBzdXBwb3J0IGEgbGFyZ2UgbnVtYmVyIG9m
+IHF1ZXVlcywgdGhlIGRyaXZlcgp3aWxsIHR5cGljYWxseSBlbmFibGUgb25seSBvbmUgcXVldWUg
+cGVyLWNvcmUgYW5kIHNldCB0aGUgYWZmaW5pdHkgdG8Kc2VwYXJhdGUgY29yZXMuIFdlIGhhdmUg
+dXNlci1zcGFjZSBkYXRhIHBsYW5lIGFwcGxpY2F0aW9ucyBiYXNlZApvbiBEUERLIHdoaWNoIGFy
+ZSBjYXBhYmxlIG9mIHVzaW5nIGEgbGFyZ2UgbnVtYmVyIG9mIE5JQyBxdWV1ZXMKYnV0IHRoZXNl
+IGFwcGxpY2F0aW9ucyBhcmUgcG9sbGluZyBiYXNlZCBhbmQgZG9uJ3QgdXNlIE1TSXMuCgo+Cj4g
+PiBXaGVuIHdlIGVuY291bnRlciBhIHN5c3RlbSByZXF1aXJpbmcgYSBsYXJnZSBudW1iZXIgb2Yg
+TVNJcywKPiA+IHdlIGNhbiBlaXRoZXI6Cj4gPiAxKSBFeHRlbmQgdGhlIEFJQSBzcGVjIHRvIHN1
+cHBvcnQgZ3JlYXRlciB0aGFuIDIwNDcgSURzCj4gPiAyKSBSZS10aGluayB0aGUgYXBwcm9hY2gg
+aW4gdGhlIElNU0lDIGRyaXZlcgo+ID4KPiA+IFRoZSBjaG9pY2UgYmV0d2VlbiAjMSBhbmQgIzIg
+YWJvdmUgZGVwZW5kcyBvbiB0aGUKPiA+IGd1YXJhbnRlZXMgd2Ugd2FudCBmb3IgaXJxX3NldF9h
+ZmZpbml0eSgpLgo+Cj4gVGhlIGlycV9zZXRfYWZmaW5pdHkoKSBiZWhhdmlvciBpcyBiZXR0ZXIg
+d2l0aCB0aGlzIHNlcmllcywgYnV0IEkgdGhpbmsKPiB0aGUgb3RoZXIgZG93bnNpZGVzOiBudW1i
+ZXIgb2YgYXZhaWxhYmxlIGludGVycnVwdCBzb3VyY2VzLCBhbmQgSVBJCj4gYnJvYWRjYXN0IGFy
+ZSB3b3JzZS4KClRoZSBJUEkgb3ZlcmhlYWQgaW4gdGhlIGFwcHJvYWNoIHlvdSBhcmUgc3VnZ2Vz
+dGluZyB3aWxsIGJlCmV2ZW4gYmFkIGNvbXBhcmVkIHRvIHRoZSBJUEkgb3ZlcmhlYWQgb2YgdGhl
+IGN1cnJlbnQgYXBwcm9hY2gKYmVjYXVzZSB3ZSB3aWxsIGVuZC11cCBkb2luZyBJUEkgdXBvbiBl
+dmVyeSBpcnFfc2V0X2FmZmluaXR5KCkKaW4gdGhlIHN1Z2dlc3RlZCBhcHByb2FjaCBjb21wYXJl
+ZCB0byBkb2luZyBJUEkgdXBvbiBldmVyeQptYXNrL3VubWFzayBpbiB0aGUgY3VycmVudCBhcHBy
+b2FjaC4KClRoZSBiaWdnZXN0IGFkdmFudGFnZSBvZiB0aGUgY3VycmVudCBhcHByb2FjaCBpcyBh
+IHJlbGlhYmxlCmlycV9zZXRfYWZmaW5pdHkoKSB3aGljaCBpcyBhIHZlcnkgdmFsdWFibGUgdGhp
+bmcgdG8gaGF2ZS4KCkFSTSBzeXN0ZW1zIGVhc2lseSBzdXBwb3J0IGEgbGFyZ2UgbnVtYmVyIG9m
+IExQSXMgcGVyLWNvcmUuCkZvciBleGFtcGxlLCBHSUMtNzAwIHN1cHBvcnRzIDU2MDAwIExQSXMg
+cGVyLWNvcmUuCihSZWZlciwgaHR0cHM6Ly9kZXZlbG9wZXIuYXJtLmNvbS9kb2N1bWVudGF0aW9u
+LzEwMTUxNi8wMzAwL0Fib3V0LXRoZS1HSUMtNzAwL0ZlYXR1cmVzKQoKSW4gdGhlIFJJU0MtViB3
+b3JsZCwgd2UgY2FuIGVhc2lseSBkZWZpbmUgYSBzbWFsbCBmYXN0IHRyYWNrCmV4dGVuc2lvbiBi
+YXNlZCBvbiBTKmNzcmluZCBleHRlbnNpb24gd2hpY2ggY2FuIGFsbG93IGEKbGFyZ2UgbnVtYmVy
+IG9mIElNU0lDIElEcyBwZXItY29yZS4KCkluc3RlYWQgb2YgYWRkcmVzc2luZyBwcm9ibGVtcyBv
+biBhIGh5cG90aGV0aWNhbCBzeXN0ZW0sCkkgc3VnZ2VzdCB3ZSBnbyBhaGVhZCB3aXRoIHRoZSBj
+dXJyZW50IGFwcHJvYWNoIGFuZCBkZWFsCndpdGggYSBzeXN0ZW0gaGF2aW5nIE1TSSBvdmVyLXN1
+YnNjcmlwdGlvbiB3aGVuIHN1Y2ggYQpzeXN0ZW0gc2hvd3MgdXAuCgpSZWdhcmRzLApBbnVwCgpf
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNj
+diBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlz
+dHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
