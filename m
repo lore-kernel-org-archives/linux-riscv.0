@@ -4,83 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BA19CDB474
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 Oct 2023 08:15:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D11CCDB47E
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 Oct 2023 08:18:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Lub+FRoMSS7bsVnsxypmFuEGmZSnVclrkG5UqTtz/1U=; b=2Ji/eLzhktRCvA
-	CVk6YYy0wtJZM+pWZQ7SKwIfet1fREQYbV+VQSIlX9aGfkKVKGDqdJoiaWyfqy2Z8yu0sJlnbATjV
-	B7tEOR50mFeDZa+J+ui3mN9aLRE1RyrFq5MrU2Ht7MBDCBuOOk5apxy+IFWg2GsZo9rqoIcKah8e0
-	nJt6IwY4HA/cnQ5dzeC/5zLTW1JK8rlYo8JFvlA8+ZCqo4k9J/bgcE/rEnwfp6U4fM/WkSu/1DPtK
-	zNg4qggpaQZ39Rgx+mf11QEl9bvVwN+O4Vjg83+kbhu/FIgsZaKLJz44+kpg5MeEinyCQpyTPZMTd
-	WWLNAbqd37SLrvAhQbOg==;
+	List-Owner; bh=CJALhYHf85ENTuKyjPIo+q/eB99dkisCeMyZ97rnL/c=; b=I2jz3zT0v4A5ex
+	+vby37qgcooSaV7j5Kt0+BX8y/MT7nmt6dhe+W2Ob7XM3JpLObt0Bc7PHdAbARF+ZPBY+HLmP8YZo
+	1WebdPd0JZqIeKYGJBpEiqlfhOUXuscy1gZBhqiY0CbBLoBg7Atcp2ZP75v0JUimUnoxYeguZ4VI5
+	vLMLoXRcd7bXYeMcqqyfpEccBavfLv9rePhu1qOwSANuEtEOs8LQ6LjfsbykbuZhlROtbNnZuYIsE
+	a1L8zWB4mtDL9pkWlSJjR9NsoYrqCV0wEWIFa5Knx5Wmi3Ao2B9fokLiLY1cjlKAFWOSFH17f2bPy
+	sdaIdLWoWYS48nX3Vk6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qtkf3-001Wud-2F;
-	Fri, 20 Oct 2023 08:15:13 +0000
-Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
+	id 1qtki7-001XHz-35;
+	Fri, 20 Oct 2023 08:18:23 +0000
+Received: from 60-248-80-70.hinet-ip.hinet.net ([60.248.80.70] helo=Atcsqr.andestech.com)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qtkf0-001WtU-1j
+	id 1qtki4-001XGv-2d
 	for linux-riscv@lists.infradead.org;
-	Fri, 20 Oct 2023 08:15:11 +0000
-Received: by mail-ed1-x52c.google.com with SMTP id 4fb4d7f45d1cf-53dfc28a2afso681473a12.1
-        for <linux-riscv@lists.infradead.org>; Fri, 20 Oct 2023 01:15:09 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1697789708; x=1698394508; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=I9mLk3QRlIYO5dYhhdXhtQWG8pCu0/EaP/qTEbU6WOs=;
-        b=o6P385qgE3yx3I/HDdP/gWfvS8wIbvT0+CKeDRfOdlRmKinmG6pw73awwhBgDcYO/f
-         2Bsxf7Ff5/Iq/zKQrBWMA6Ez63MwRtpvgWGkRwbw19rd7qyf8oSF+gIwJucLCEssLG19
-         JaKnlzJ4MVwHxf0kDWQGbttC9Uf1C8wK1qgm7FI8KqaHQJ+GyUzjBTNVmdape7zbdgLt
-         qDU9bDktJL77/wzxFLeeVoP/b59hzCpONPMxXkPp/TlWE/SojHrGbZfQrdpQ2KkOl/eU
-         eAvaq5tO4DkIAhWeggiXPoksLcxOS3CZWlxtBkSwyhmjXITqEWrzl4Fm7ZEH+HpLE+dm
-         ZzXw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1697789708; x=1698394508;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=I9mLk3QRlIYO5dYhhdXhtQWG8pCu0/EaP/qTEbU6WOs=;
-        b=uaa+oc53tWSxh9EeuHhZZFJVo5vGSQeLRDn2gghPmhjrD253c5bxDFbowhtbTSmPcs
-         J4H7RADcxXmxddKFk0xeotBocnICpXuuEXAmQ0LZI0/3Uf6gopQ7RnFZYGqU0fQ0WfEA
-         gMjnZJtiQ+/j/IDaU06KZuQu5P1nAlyKElpO0ZAjP3QsiZ5HHUqmzr6nrKMgLeJ1wnIb
-         6ooNScq9DQqrn8aKuEWWc08VHXAox+wfKlXywLQPpUpHPnA38AvyQXGU3fuv2f6+daMH
-         Os7WEybcNwyP/5yZkqHwNJ2ZDBUAfF2ILagsi7ZUwJFHaPtUIJyVnW6NzcC3I5qV8L2v
-         FQUQ==
-X-Gm-Message-State: AOJu0YwteeDvrcnqyrpEWe/OuTb4Kf06cWtpw4YKwUtF/vZiqtXLAgYE
-	ps+E2IzbvefMxJgjW6OaCF9cjg==
-X-Google-Smtp-Source: AGHT+IFxDBdUK0jjgrdu/5lSvIddhM3Qd3L9VVDVSECPo1+jfo3eLrczA0b0wVyjpO8bPpxHApIM6Q==
-X-Received: by 2002:a17:906:ef0e:b0:9b2:bb02:a543 with SMTP id f14-20020a170906ef0e00b009b2bb02a543mr922414ejs.74.1697789707967;
-        Fri, 20 Oct 2023 01:15:07 -0700 (PDT)
-Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id h25-20020a170906261900b0099cc36c4681sm994192ejc.157.2023.10.20.01.15.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Oct 2023 01:15:07 -0700 (PDT)
-Date: Fri, 20 Oct 2023 10:15:06 +0200
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Anup Patel <apatel@ventanamicro.com>
-Cc: Paolo Bonzini <pbonzini@redhat.com>, 
-	Atish Patra <atishp@atishpatra.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Jiri Slaby <jirislaby@kernel.org>, Conor Dooley <conor@kernel.org>, kvm@vger.kernel.org, 
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, linux-serial@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 5/9] KVM: riscv: selftests: Add SBI DBCN extension to
- get-reg-list test
-Message-ID: <20231020-825e5e2e7d355330a93f1194@orel>
-References: <20231020072140.900967-1-apatel@ventanamicro.com>
- <20231020072140.900967-6-apatel@ventanamicro.com>
+	Fri, 20 Oct 2023 08:18:22 +0000
+Received: from mail.andestech.com (ATCPCS16.andestech.com [10.0.1.222])
+	by Atcsqr.andestech.com with ESMTP id 39K8HjXK009119;
+	Fri, 20 Oct 2023 16:17:45 +0800 (+08)
+	(envelope-from peterlin@andestech.com)
+Received: from APC323 (10.0.12.98) by ATCPCS16.andestech.com (10.0.1.222) with
+ Microsoft SMTP Server id 14.3.498.0; Fri, 20 Oct 2023 16:17:43 +0800
+Date: Fri, 20 Oct 2023 16:17:43 +0800
+From: Yu-Chien Peter Lin <peterlin@andestech.com>
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+CC: <geert+renesas@glider.be>, <magnus.damm@gmail.com>, <robh+dt@kernel.org>,
+        <krzysztof.kozlowski+dt@linaro.org>, <conor+dt@kernel.org>,
+        <paul.walmsley@sifive.com>, <palmer@dabbelt.com>,
+        <aou@eecs.berkeley.edu>, <linux-renesas-soc@vger.kernel.org>,
+        <devicetree@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+        <linux-kernel@vger.kernel.org>,
+        <prabhakar.mahadev-lad.rj@bp.renesas.com>, <tim609@andestech.com>,
+        <dylan@andestech.com>, <locus84@andestech.com>, <dminus@andestech.com>
+Subject: Re: [PATCH v2 04/10] riscv: dts: renesas: r9a07g043f: Update
+ compatible string to use Andes INTC
+Message-ID: <ZTI3p82DLgKEo65D@APC323>
+References: <20231019135810.3657665-1-peterlin@andestech.com>
+ <CAMuHMdX+8RUpmhbcBjohZ5oF+wtakfNpwrxGFbZJvTN8_aJv9g@mail.gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20231020072140.900967-6-apatel@ventanamicro.com>
+In-Reply-To: <CAMuHMdX+8RUpmhbcBjohZ5oF+wtakfNpwrxGFbZJvTN8_aJv9g@mail.gmail.com>
+User-Agent: Mutt/2.2.10 (2023-03-25)
+X-Originating-IP: [10.0.12.98]
+X-DNSRBL: 
+X-MAIL: Atcsqr.andestech.com 39K8HjXK009119
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231020_011510_580694_EC3E5396 
-X-CRM114-Status: GOOD (  15.24  )
+X-CRM114-CacheID: sfid-20231020_011821_288396_CAFD3262 
+X-CRM114-Status: GOOD (  23.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,47 +70,42 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 20, 2023 at 12:51:36PM +0530, Anup Patel wrote:
-> We have a new SBI debug console (DBCN) extension supported by in-kernel
-> KVM so let us add this extension to get-reg-list test.
-> 
-> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
-> ---
->  tools/testing/selftests/kvm/riscv/get-reg-list.c | 2 ++
->  1 file changed, 2 insertions(+)
-> 
-> diff --git a/tools/testing/selftests/kvm/riscv/get-reg-list.c b/tools/testing/selftests/kvm/riscv/get-reg-list.c
-> index 234006d035c9..6bedaea95395 100644
-> --- a/tools/testing/selftests/kvm/riscv/get-reg-list.c
-> +++ b/tools/testing/selftests/kvm/riscv/get-reg-list.c
-> @@ -394,6 +394,7 @@ static const char *sbi_ext_single_id_to_str(__u64 reg_off)
->  		KVM_SBI_EXT_ARR(KVM_RISCV_SBI_EXT_PMU),
->  		KVM_SBI_EXT_ARR(KVM_RISCV_SBI_EXT_EXPERIMENTAL),
->  		KVM_SBI_EXT_ARR(KVM_RISCV_SBI_EXT_VENDOR),
-> +		KVM_SBI_EXT_ARR(KVM_RISCV_SBI_EXT_DBCN),
->  	};
->  
->  	if (reg_off >= ARRAY_SIZE(kvm_sbi_ext_reg_name))
-> @@ -567,6 +568,7 @@ static __u64 base_regs[] = {
->  	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_SBI_EXT | KVM_REG_RISCV_SBI_SINGLE | KVM_RISCV_SBI_EXT_PMU,
->  	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_SBI_EXT | KVM_REG_RISCV_SBI_SINGLE | KVM_RISCV_SBI_EXT_EXPERIMENTAL,
->  	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_SBI_EXT | KVM_REG_RISCV_SBI_SINGLE | KVM_RISCV_SBI_EXT_VENDOR,
-> +	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_SBI_EXT | KVM_REG_RISCV_SBI_SINGLE | KVM_RISCV_SBI_EXT_DBCN,
->  	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_SBI_EXT | KVM_REG_RISCV_SBI_MULTI_EN | 0,
->  	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_SBI_EXT | KVM_REG_RISCV_SBI_MULTI_DIS | 0,
->  };
-> -- 
-> 2.34.1
->
-
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgR2VlcnQsCgpPbiBGcmksIE9jdCAyMCwgMjAyMyBhdCAwOToyNjozMUFNICswMjAwLCBHZWVy
+dCBVeXR0ZXJob2V2ZW4gd3JvdGU6Cj4gSGkgWXUsCj4gCj4gT24gVGh1LCBPY3QgMTksIDIwMjMg
+YXQgNDowMeKAr1BNIFl1IENoaWVuIFBldGVyIExpbgo+IDxwZXRlcmxpbkBhbmRlc3RlY2guY29t
+PiB3cm90ZToKPiA+IFRoZSBBbmRlcyBJTlRDIGFsbG93cyBBWDQ1TVAgY29yZXMgdG8gaGFuZGxl
+IGN1c3RvbSBsb2NhbAo+ID4gaW50ZXJydXB0cywgc3VjaCBhcyB0aGUgcGVyZm9ybWFuY2UgbW9u
+aXRvciBvdmVyZmxvdyBpbnRlcnJ1cHQuCj4gPgo+ID4gU2lnbmVkLW9mZi1ieTogWXUgQ2hpZW4g
+UGV0ZXIgTGluIDxwZXRlcmxpbkBhbmRlc3RlY2guY29tPgo+ID4gLS0tCj4gPiBDaGFuZ2VzIHYx
+IC0+IHYyOgo+ID4gICAtIE5ldyBwYXRjaAo+IAo+IFRoYW5rcyBmb3IgeW91ciBwYXRjaCEKPiAK
+PiA+IC0tLSBhL2FyY2gvcmlzY3YvYm9vdC9kdHMvcmVuZXNhcy9yOWEwN2cwNDNmLmR0c2kKPiA+
+ICsrKyBiL2FyY2gvcmlzY3YvYm9vdC9kdHMvcmVuZXNhcy9yOWEwN2cwNDNmLmR0c2kKPiA+IEBA
+IC0zNyw3ICszNyw3IEBAIGNwdTA6IGNwdUAwIHsKPiA+Cj4gPiAgICAgICAgICAgICAgICAgICAg
+ICAgICBjcHUwX2ludGM6IGludGVycnVwdC1jb250cm9sbGVyIHsKPiA+ICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgI2ludGVycnVwdC1jZWxscyA9IDwxPjsKPiA+IC0gICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgY29tcGF0aWJsZSA9ICJyaXNjdixjcHUtaW50YyI7Cj4gPiAr
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGNvbXBhdGlibGUgPSAiYW5kZXN0ZWNoLGNw
+dS1pbnRjIjsKPiAKPiBUaGlzIGNvbXBhdGlibGUgdmFsdWUgaXMgbm90IGRvY3VtZW50ZWQuICBQ
+ZXJoYXBzIGl0IHdhcyBpbnRyb2R1Y2VkCj4gaW4gYW4gZWFybGllciBwYXRjaCBpbiB0aGUgc2Vy
+aWVzLCB0byB3aGljaCBJIHdhcyBub3QgQ0NlZD8KPiAKPiBUaHJlYWRpbmcgaXMgYnJva2VuLCBz
+byBJIGNhbid0IGVhc2lseSBmaW5kIHRoZSB3aG9sZSBzZXJpZXMgaW4gbG9yZToKPiBodHRwczov
+L2xvcmUua2VybmVsLm9yZy9hbGwvMjAyMzEwMTkxMzU4MTAuMzY1NzY2NS0xLXBldGVybGluQGFu
+ZGVzdGVjaC5jb20vCgpTb3JyeSwgSSdsbCBzZW5kIFBBVENIIHYzIHdpdGggc29tZSBmaXhlcy4K
+VGhhbmtzIGZvciByZW1pbmRpbmcgbWUgb2YgdGhpcy4KCkJlc3QgcmVnYXJkcywKUGV0ZXIgTGlu
+Cgo+ID4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBpbnRlcnJ1cHQtY29udHJvbGxl
+cjsKPiA+ICAgICAgICAgICAgICAgICAgICAgICAgIH07Cj4gPiAgICAgICAgICAgICAgICAgfTsK
+PiAKPiBHcntvZXRqZSxlZXRpbmd9cywKPiAKPiAgICAgICAgICAgICAgICAgICAgICAgICBHZWVy
+dAo+IAo+IC0tIAo+IEdlZXJ0IFV5dHRlcmhvZXZlbiAtLSBUaGVyZSdzIGxvdHMgb2YgTGludXgg
+YmV5b25kIGlhMzIgLS0gZ2VlcnRAbGludXgtbTY4ay5vcmcKPiAKPiBJbiBwZXJzb25hbCBjb252
+ZXJzYXRpb25zIHdpdGggdGVjaG5pY2FsIHBlb3BsZSwgSSBjYWxsIG15c2VsZiBhIGhhY2tlci4g
+QnV0Cj4gd2hlbiBJJ20gdGFsa2luZyB0byBqb3VybmFsaXN0cyBJIGp1c3Qgc2F5ICJwcm9ncmFt
+bWVyIiBvciBzb21ldGhpbmcgbGlrZSB0aGF0Lgo+ICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgLS0gTGludXMgVG9ydmFsZHMKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0
+cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGlu
+Zm8vbGludXgtcmlzY3YK
