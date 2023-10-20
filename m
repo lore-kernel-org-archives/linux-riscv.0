@@ -4,82 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F256C001DF
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 Oct 2023 10:20:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEF32CDB47E
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 Oct 2023 10:27:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rPNVPm7U7uNJ1UYMdWtEHZ2Fu+0DarHAJ2kT3ntP/GI=; b=tPzT3AriUX5XUg
-	WkusvozCMuzFa06i+1DzRjo301MWHYkNkUx40ocYvLrCW7m53PI8me5ANfFAWXD8bE9WLgcORL7CA
-	EANYyCTEyUCamrfaYUXXtALnLiTVHXXcyH2F13lt9l8mZbkZW8bIlFqozrH/D9OYpgp0jlfEpcujc
-	QB4U/RJyM7z3ybgij1EDhP+xKMO1FZLhHIasmkqgeWuBixm4N9pD6ATeQ/Dsm7pFA3/+n52qumR8e
-	0o7welCn1fsQUSYJemZPontUiHlmYWyv2swiQ5f0ZV3DD418/oR+t9PuZ+VGmefTvyUeAjMrl7sRU
-	eVz5kb3P+XGb5K4mjD4A==;
+	List-Owner; bh=juAHsvWm74Wxm2zPkg5P3tOIn8kippxp3FNjzMmoP4k=; b=VIIlJ4Mp9MAWoz
+	7Uy/8wTvn5SO7lPaf0tXeemG0F+VZRvO/8jBPGaSkS/2WtAHjHo69pGl9tkyXoRBPGVypf72OSEu6
+	e2OO5HImdI4HfGmWuqtKovVaYaVVCaNyYaTES86oYFx+vCDI0PT7CtjQJ9SJDznbf9MRNhOHg/ztO
+	SWAP8K0FYr0H6tw+OaJqON4CBQzC0yufK6FET4lygalBPYhtuaNMz85IdVtgIuTluWy8N8chFqgpL
+	1xDScyw6fRN/a83Zi81jD/nzavXZh7ZzRgtAhH8E3Tffy2z8uTt89Pc0yDV8LEQVa/PtIjnrM76Po
+	Opj6h8dMaFT6fdf8FwWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qtmbi-001lTS-0L;
-	Fri, 20 Oct 2023 10:19:54 +0000
-Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
+	id 1qtmiz-001lzi-0R;
+	Fri, 20 Oct 2023 10:27:25 +0000
+Received: from mail-ej1-x630.google.com ([2a00:1450:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qtmbe-001lSi-30
+	id 1qtmiv-001lzG-2Z
 	for linux-riscv@lists.infradead.org;
-	Fri, 20 Oct 2023 10:19:52 +0000
-Received: by mail-ed1-x533.google.com with SMTP id 4fb4d7f45d1cf-53e08e439c7so941533a12.0
-        for <linux-riscv@lists.infradead.org>; Fri, 20 Oct 2023 03:19:46 -0700 (PDT)
+	Fri, 20 Oct 2023 10:27:23 +0000
+Received: by mail-ej1-x630.google.com with SMTP id a640c23a62f3a-9c603e235d1so96389166b.3
+        for <linux-riscv@lists.infradead.org>; Fri, 20 Oct 2023 03:27:19 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1697797185; x=1698401985; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=iWVWVksSmm7aQ8JRN/GkgbGDZnVlaVxnvyhSePbu/vg=;
-        b=Rc8Jz5I8O0EOlFYQp5XYrBnj08zAxyooXwMlgRxMR93xn0eyekbEhBQi2DeAiib+ft
-         fVWmZijupj1b2iFHPfJ9rCbj1oiNpwgrjdd0iSRAkyM66lejoTgE2OnEoHVurOvn7R1m
-         u62VKkCwKTke+32OZpw5vcoFBuHCM4RuV2GZAAQAFwL0+l2ZhhDikOKxqPatSSLziRVl
-         dpn3UnQQo5FLkvASFypBj44/LfFOVeNONeyoaPbYi9sSEl7oYqp08cSN2sndY8R9pJOc
-         iTxr7p6wiwdEQO6luEUFoyPoiv40jXLETiInEIbMHS3IhOAG5XZH3RUW5KrFJP78OzEu
-         enCQ==
+        d=ventanamicro.com; s=google; t=1697797638; x=1698402438; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=O9G9iqXSn4bIWBu+1DJE9aW2IMSJDKBdGcQ03iTHUdg=;
+        b=fiqqrd2FldpLtvWn9FXzNFtI/fw++wccAJwI9nWMu0JxXSq/m1wHxOIWMgqeJFo6ho
+         1dHf8KJRphXYlgzsenzZoPMOFeMhsPqRqhZyEqpMp5FrdBpnoniehC4AsNPfse1MF9Nm
+         zVqqE1N0HvRuHNyc03h5xCVrWCRfvIQA1s1LoZ50/RzliJ0GUhGqERMNwbIcfHg+eKUn
+         Tf+9oY3ykUO4HwHlL6sJcnvEMvo2G2jed19IxXiWkVRN2KuQHnX3EbwUz07AQ+mujfWS
+         kH2cX880r/g82p+kBKBKM5pMxNigl9BzPIv493UW5q6+m8qg+nfvKRLdo9xjtsJa5gt3
+         NmYQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1697797185; x=1698401985;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=iWVWVksSmm7aQ8JRN/GkgbGDZnVlaVxnvyhSePbu/vg=;
-        b=RHq/AkFRQCYAs1RBlbwQjORSKcd2Hu5f/0sRuZ+Qj9j+lYrA9bYaS8mfNr4dg7F/ih
-         0SyyW2SRLnH44OkXIHNpLBeZa8kusjw3FuGnAVHrCb/iySDevEn+eofIEqZQ5nwV4L6M
-         6nTaqgPOhCohasaHUmTNy4ATQbJKLeH30B/3GGbLDyrk1Ilcz7yj/yM6MgjCb4tQfIaK
-         2quQPd/43QDJeC1HIbNzWLM2wvrVI7+j1VIoiJYdpz9vHKM45i1XmPgsF2Qj3RhgZIYM
-         3/qC3xPulIVcdyA6T/Xr5OQGxbUyjv14M7M4O59NtgFqr8o2a+ao0arT01P5+Ggtu4Ei
-         Q9EQ==
-X-Gm-Message-State: AOJu0YwvhCEfcaTCfsZBQekt/GWTQCpPLTZPZFdPoeWOeRnUkGLHrhrV
-	J5YYFEym2fuo4i9iQcxQFJ8=
-X-Google-Smtp-Source: AGHT+IEYDM00ovAEg4QMqc90xhxNrwrKs2WgwkwKPDXq88HvEkyFavLOpnaV4/ZOSlMz8RWjiaA4CA==
-X-Received: by 2002:a17:906:7956:b0:9be:e153:3b82 with SMTP id l22-20020a170906795600b009bee1533b82mr912336ejo.17.1697797185221;
-        Fri, 20 Oct 2023 03:19:45 -0700 (PDT)
-Received: from andrea ([109.54.114.151])
-        by smtp.gmail.com with ESMTPSA id e27-20020a170906749b00b0097404f4a124sm1212696ejl.2.2023.10.20.03.19.43
+        d=1e100.net; s=20230601; t=1697797638; x=1698402438;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=O9G9iqXSn4bIWBu+1DJE9aW2IMSJDKBdGcQ03iTHUdg=;
+        b=GB4IirsaRbUgyjeSqFJ3jFuHpGUe4nqgOR/09vs/yWdg5eJ4vIhr8mHJVLftw7JoJv
+         jsZuCO/Q6qAbg25XKQTT+gjin/QEyFLjBat3OgYztjoyZ9+xJDxH72avSNLf0D3QF0gx
+         NbzHwrccN6menCcXZFZFJQVwBmeNzZWj9K9MxSYb4omeLS/YgYKVRzxm/XGqeRsP8hBB
+         oe7qV36AgNZEVpfZAnwr7LeYrgc5UdLNAMY9agCP+kfB3GMprsuUbNO9OMVdWB7q+22w
+         aYqzL5Qlu4VD4szdt7W/UgMrCmhJqN6RH0ZdJCSVcCl9e1m3Ag86p0lOZGEScXKfYu4T
+         FDLQ==
+X-Gm-Message-State: AOJu0YyqL9xH5B9sXVthImozIe549SFD5EXzTM2xe5dLZq0dwVn1lKBT
+	Ulkwg7INYn5MkV5kw+dRd4WH9Q==
+X-Google-Smtp-Source: AGHT+IHZl6pUqwMf9CFUA2xEvYwgpCp82Av0Lk//UAONUT1SVS4Axb4Qd2P3hrYxgtOT7flTfwUbaA==
+X-Received: by 2002:a17:907:3f85:b0:9be:6ff7:128a with SMTP id hr5-20020a1709073f8500b009be6ff7128amr1087855ejc.67.1697797637704;
+        Fri, 20 Oct 2023 03:27:17 -0700 (PDT)
+Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
+        by smtp.gmail.com with ESMTPSA id a19-20020a1709065f9300b0099e12a49c8fsm1215456eju.173.2023.10.20.03.27.16
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Oct 2023 03:19:44 -0700 (PDT)
-Date: Fri, 20 Oct 2023 12:19:38 +0200
-From: Andrea Parri <parri.andrea@gmail.com>
-To: Christoph =?iso-8859-1?Q?M=FCllner?= <christoph.muellner@vrull.eu>
-Cc: Heiko Stuebner <heiko@sntech.de>, linux-riscv@lists.infradead.org,
-	palmer@dabbelt.com, paul.walmsley@sifive.com,
-	linux-kernel@vger.kernel.org, David.Laight@aculab.com,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Conor Dooley <conor@kernel.org>
-Subject: Re: [PATCH v3 0/2] Add Zawrs support and use it for spinlocks
-Message-ID: <ZTJUOji+B+dDbMKh@andrea>
-References: <20230521114715.955823-1-heiko.stuebner@vrull.eu>
- <ZTE7eUyrb8+J+ORB@andrea>
- <CAEg0e7jkTOn1pjO=+GaiCZJ9_Yd2NcB1GMG=Q6m3-r0+Q0OjGQ@mail.gmail.com>
+        Fri, 20 Oct 2023 03:27:17 -0700 (PDT)
+Date: Fri, 20 Oct 2023 12:27:16 +0200
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Conor Dooley <conor@kernel.org>
+Cc: =?utf-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>, 
+	Evan Green <evan@rivosinc.com>, linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, Palmer Dabbelt <palmer@rivosinc.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Jonathan Corbet <corbet@lwn.net>, Samuel Ortiz <sameo@rivosinc.com>
+Subject: Re: [PATCH v2 01/19] riscv: hwprobe: factorize hwprobe ISA extension
+ reporting
+Message-ID: <20231020-cee6ba8c9b3dc3c2a984fbb5@orel>
+References: <20231017131456.2053396-1-cleger@rivosinc.com>
+ <20231017131456.2053396-2-cleger@rivosinc.com>
+ <CALs-HssL=wNwj9nRuZwpZhy1CB9p9-X=OqgwBw9zvgA7hA4fEg@mail.gmail.com>
+ <20231018-scrap-bankable-a0f321d97a46@spud>
+ <20231018-flagpole-footpad-07a6228485f3@spud>
+ <844f6f35-3125-4014-852c-9ad7aee19ddc@rivosinc.com>
+ <20231019-flatten-showbiz-127b2e917a7a@spud>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <CAEg0e7jkTOn1pjO=+GaiCZJ9_Yd2NcB1GMG=Q6m3-r0+Q0OjGQ@mail.gmail.com>
+In-Reply-To: <20231019-flatten-showbiz-127b2e917a7a@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231020_031950_996821_6AAB2159 
-X-CRM114-Status: GOOD (  12.53  )
+X-CRM114-CacheID: sfid-20231020_032721_858397_8B4E1362 
+X-CRM114-Status: GOOD (  17.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,34 +98,35 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-(Removing Heiko's @vrull address from Cc:, since it seemed to bounce, keeping
- his @sntech address.)
+On Thu, Oct 19, 2023 at 11:22:26AM +0100, Conor Dooley wrote:
+> On Thu, Oct 19, 2023 at 09:26:31AM +0200, Cl=E9ment L=E9ger wrote:
+...
+> > BTW, wouldn't
+> > it make more sense to get rid out of the unsupported extensions directly
+> > at ISA string parsing ? ie, if kernel is compiled without V support,
+> > then do not set the bits corresponding to these in the riscv_isa_ext[]
+> > array ? But the initial intent was probably to be able to report the
+> > full string through cpuinfo.
+> =
 
-> I had a quick look at your changes, and they look good to me.
+> Yeah, hysterical raisins I guess, it's always been that way. I don't
+> think anyone originally thought about such configurations and that is
+> how the cpuinfo stuff behaves. I strongly dislike the
+> riscv_isa_extension_available() interface, but one of Drew's patches
+> does at least improve things a bit. Kinda waiting for some of the
+> patches in flight to settle down before deciding if I want to refactor
+> stuff to be less of a potential for shooting oneself in the foot.
 
-Great.  Thank you for looking them over.
+And I recall promising to try and do something with it too, but that
+promise got buried under other promises... It's still on the TODO, at
+least!
 
-> Did you agree with Palmer about testing requirements?
-> I.e., do we need to run this on hardware that implements Zawrs in a
-> non-trivial way?
-
-I didn't quite discuss such specific requirements or hardware implementations,
-but I agree that's a valid concern.  Not that I currently have access to such
-hardware; any further inputs/data will be appreciated.
-
-> I can try to raise the priority on this here, but can't promise anything.
-> For me it is also ok if you take over this patchset.
-
-Thanks.  Either way works for me.  No urgency from my side.  I'd say - let us
-leave this up to the community/other reviewers.  (IIUC, Palmer was recovering
-from a certain flu and might need more time than usual to get back here.)
-
-  Andrea
+drew
 
 _______________________________________________
 linux-riscv mailing list
