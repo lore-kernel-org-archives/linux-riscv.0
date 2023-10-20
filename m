@@ -4,70 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF8B2C001DF
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 Oct 2023 11:25:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92212CDB474
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 Oct 2023 11:45:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=v91IVMJJUsBnCK7d32EDfBl4+UZrEcx52hfI1ZjKISQ=; b=Jy6LQTHZuvG5UlLojf1QrtUASZ
-	UZQ42hvI9U80vJYj5R8KfB5UD3e7lDtAf8rd133TO+nBhY2WTq20BweHsLoXLTiOaLRE1ZRfKY4vf
-	KMzNEqww9aVMrqI76IECR29/nMDoEg0pXi+/p5bRXPNQjtY3ZT4rHdzvUcQat/qyKE40yqpeXYfQL
-	tGWPt7Vc6vt1YN3RBUFLr/LEamdbviC568ORAKaNun+rXYwf7XAueubKdUeCjErjEzKNOVLeQ6zDp
-	w2lJFO0iWZH9RzM7x+tzGoOq0jFKGtI1T4VxhgHkLvnuugy7jq+dCZ1o6nG8s7fxAcGPiTacqhSH6
-	dnS7B4hg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=L4ZI3/Qn9lps1x8ROMObJFbI9yw9vwNUBgw0tAS2DcI=; b=eu/IpniK+ZBbJH
+	UbPHgQ70b7Wck7dBZMeMQyd7MDRNW7K2CTfzsSbbenmZgx+Smwm2YBLc+ZDMgR1xTM+xomlhdGY2f
+	KFonBJqcWcch7NNj0FeqJ0p9hNtxFAekLi+6xEFNMCTOnM8rerqhOTO317DtbcaI9taUGy9FQlYBT
+	W6Mg3mQD7taeZdXX/AhFrqe6yrsnDws0VFas2+zuJqbekHkPaPF+Z8FUgmK3DO7PlePi+9YMPO9G1
+	0haC+4qYAAQPNAZlGMxw5O5HovY0uKJ9AnmXm7rAXs8Z/ALD4kTl5PvicI5aRczstMvh9NubYDEbu
+	g4A96PGUUb4NI02is2yg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qtndY-0028JY-0r;
-	Fri, 20 Oct 2023 11:25:52 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qtndU-0028J9-1G
+	id 1qtnwq-002AtB-2j;
+	Fri, 20 Oct 2023 11:45:48 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1qtmz9-001pXr-0Q
 	for linux-riscv@lists.infradead.org;
-	Fri, 20 Oct 2023 11:25:51 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <ukl@pengutronix.de>)
-	id 1qtndR-0001Bn-9w; Fri, 20 Oct 2023 13:25:45 +0200
-Received: from [2a0a:edc0:0:900:1d::77] (helo=ptz.office.stw.pengutronix.de)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <ukl@pengutronix.de>)
-	id 1qtndM-0030sC-8R; Fri, 20 Oct 2023 13:25:40 +0200
-Received: from ukl by ptz.office.stw.pengutronix.de with local (Exim 4.94.2)
-	(envelope-from <ukl@pengutronix.de>)
-	id 1qtndL-002U6o-TM; Fri, 20 Oct 2023 13:25:39 +0200
-Date: Fri, 20 Oct 2023 13:25:39 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
-To: William Qiu <william.qiu@starfivetech.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-pwm@vger.kernel.org,
-	Emil Renner Berthing <kernel@esmil.dk>,
-	Rob Herring <robh+dt@kernel.org>,
-	Thierry Reding <thierry.reding@gmail.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Hal Feng <hal.feng@starfivetech.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>
-Subject: Re: [PATCH v6 2/4] pwm: opencores: Add PWM driver support
-Message-ID: <20231020112539.gctx5uj2rrhryulo@pengutronix.de>
-References: <20231020103741.557735-1-william.qiu@starfivetech.com>
- <20231020103741.557735-3-william.qiu@starfivetech.com>
+	Fri, 20 Oct 2023 10:44:13 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 4E23E24E13F;
+	Fri, 20 Oct 2023 18:43:47 +0800 (CST)
+Received: from EXMBX171.cuchost.com (172.16.6.91) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 20 Oct
+ 2023 18:43:47 +0800
+Received: from ubuntu.localdomain (183.27.99.123) by EXMBX171.cuchost.com
+ (172.16.6.91) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 20 Oct
+ 2023 18:43:45 +0800
+From: Minda Chen <minda.chen@starfivetech.com>
+To: Conor Dooley <conor@kernel.org>, =?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?=
+	<kw@linux.com>, Rob Herring <robh+dt@kernel.org>, Bjorn Helgaas
+	<bhelgaas@google.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, "Daire
+ McNamara" <daire.mcnamara@microchip.com>, Emil Renner Berthing
+	<emil.renner.berthing@canonical.com>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>
+CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, <linux-pci@vger.kernel.org>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Philipp Zabel <p.zabel@pengutronix.de>, Mason Huo
+	<mason.huo@starfivetech.com>, Leyfoon Tan <leyfoon.tan@starfivetech.com>,
+	Kevin Xie <kevin.xie@starfivetech.com>, Minda Chen
+	<minda.chen@starfivetech.com>
+Subject: [PATCH v9 05/20] PCI: microchip: Rename two PCIe data structures
+Date: Fri, 20 Oct 2023 18:43:26 +0800
+Message-ID: <20231020104341.63157-6-minda.chen@starfivetech.com>
+X-Mailer: git-send-email 2.17.1
+In-Reply-To: <20231020104341.63157-1-minda.chen@starfivetech.com>
+References: <20231020104341.63157-1-minda.chen@starfivetech.com>
 MIME-Version: 1.0
-In-Reply-To: <20231020103741.557735-3-william.qiu@starfivetech.com>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: ukl@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
+X-Originating-IP: [183.27.99.123]
+X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX171.cuchost.com
+ (172.16.6.91)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231020_042548_742371_CB7FA08E 
-X-CRM114-Status: GOOD (  43.77  )
+X-CRM114-CacheID: sfid-20231020_034407_656735_EF10624C 
+X-CRM114-Status: GOOD (  21.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,446 +77,366 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3285746268121393324=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Add PLDA PCIe related data structures by rename
+data structure name from mc_* to plda_*.
 
---===============3285746268121393324==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="cz4qfrvhjfgpon2x"
-Content-Disposition: inline
+axi_base_addr is stayed in struct mc_pcie for it
+is microchip its own data.
 
+The event interrupt codes is still using struct
+mc_pcie because the event interrupt codes can not
+be re-used.
 
---cz4qfrvhjfgpon2x
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+The modification includes:
+mc_pcie --> plda_pcie_rp (Get most of data members)
+mc_msi  --> plda_msi
 
-Hello,
+Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+---
+ .../pci/controller/plda/pcie-microchip-host.c | 96 ++++++++++---------
+ 1 file changed, 53 insertions(+), 43 deletions(-)
 
-On Fri, Oct 20, 2023 at 06:37:39PM +0800, William Qiu wrote:
-> Add Pulse Width Modulation driver support for OpenCores.
->=20
-> Co-developed-by: Hal Feng <hal.feng@starfivetech.com>
-> Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
-> Signed-off-by: William Qiu <william.qiu@starfivetech.com>
-> ---
->  MAINTAINERS              |   7 ++
->  drivers/pwm/Kconfig      |  11 ++
->  drivers/pwm/Makefile     |   1 +
->  drivers/pwm/pwm-ocores.c | 211 +++++++++++++++++++++++++++++++++++++++
->  4 files changed, 230 insertions(+)
->  create mode 100644 drivers/pwm/pwm-ocores.c
->=20
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 6c4cce45a09d..321af8fa7aad 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -16003,6 +16003,13 @@ F:	Documentation/i2c/busses/i2c-ocores.rst
->  F:	drivers/i2c/busses/i2c-ocores.c
->  F:	include/linux/platform_data/i2c-ocores.h
->=20
-> +OPENCORES PWM DRIVER
-> +M:	William Qiu <william.qiu@starfivetech.com>
-> +M:	Hal Feng <hal.feng@starfivetech.com>
-> +S:	Supported
-> +F:	Documentation/devicetree/bindings/pwm/opencores,pwm-ocores.yaml
-> +F:	drivers/pwm/pwm-ocores.c
-> +
->  OPENRISC ARCHITECTURE
->  M:	Jonas Bonn <jonas@southpole.se>
->  M:	Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>
-> diff --git a/drivers/pwm/Kconfig b/drivers/pwm/Kconfig
-> index 8ebcddf91f7b..cbfbf227d957 100644
-> --- a/drivers/pwm/Kconfig
-> +++ b/drivers/pwm/Kconfig
-> @@ -434,6 +434,17 @@ config PWM_NTXEC
->  	  controller found in certain e-book readers designed by the original
->  	  design manufacturer Netronix.
->=20
-> +config PWM_OCORES
-> +	tristate "Opencores PWM support"
-> +	depends on HAS_IOMEM && OF
-> +	depends on COMMON_CLK && RESET_CONTROLLER
+diff --git a/drivers/pci/controller/plda/pcie-microchip-host.c b/drivers/pci/controller/plda/pcie-microchip-host.c
+index 60870ee1f1c9..3dc4d4ca9d0c 100644
+--- a/drivers/pci/controller/plda/pcie-microchip-host.c
++++ b/drivers/pci/controller/plda/pcie-microchip-host.c
+@@ -22,7 +22,7 @@
+ #include "pcie-plda.h"
+ 
+ /* Number of MSI IRQs */
+-#define MC_MAX_NUM_MSI_IRQS			32
++#define PLDA_MAX_NUM_MSI_IRQS			32
+ 
+ /* PCIe Bridge Phy and Controller Phy offsets */
+ #define MC_PCIE1_BRIDGE_ADDR			0x00008000u
+@@ -179,25 +179,29 @@ struct event_map {
+ 	u32 event_bit;
+ };
+ 
+-struct mc_msi {
++struct plda_msi {
+ 	struct mutex lock;		/* Protect used bitmap */
+ 	struct irq_domain *msi_domain;
+ 	struct irq_domain *dev_domain;
+ 	u32 num_vectors;
+ 	u64 vector_phy;
+-	DECLARE_BITMAP(used, MC_MAX_NUM_MSI_IRQS);
++	DECLARE_BITMAP(used, PLDA_MAX_NUM_MSI_IRQS);
+ };
+ 
+-struct mc_pcie {
+-	void __iomem *axi_base_addr;
++struct plda_pcie_rp {
+ 	struct device *dev;
+ 	struct irq_domain *intx_domain;
+ 	struct irq_domain *event_domain;
+ 	raw_spinlock_t lock;
+-	struct mc_msi msi;
++	struct plda_msi msi;
+ 	void __iomem *bridge_addr;
+ };
+ 
++struct mc_pcie {
++	struct plda_pcie_rp plda;
++	void __iomem *axi_base_addr;
++};
++
+ struct cause {
+ 	const char *sym;
+ 	const char *str;
+@@ -313,7 +317,7 @@ static struct mc_pcie *port;
+ 
+ static void mc_pcie_enable_msi(struct mc_pcie *port, void __iomem *ecam)
+ {
+-	struct mc_msi *msi = &port->msi;
++	struct plda_msi *msi = &port->plda.msi;
+ 	u16 reg;
+ 	u8 queue_size;
+ 
+@@ -336,10 +340,10 @@ static void mc_pcie_enable_msi(struct mc_pcie *port, void __iomem *ecam)
+ 
+ static void mc_handle_msi(struct irq_desc *desc)
+ {
+-	struct mc_pcie *port = irq_desc_get_handler_data(desc);
++	struct plda_pcie_rp *port = irq_desc_get_handler_data(desc);
+ 	struct irq_chip *chip = irq_desc_get_chip(desc);
+ 	struct device *dev = port->dev;
+-	struct mc_msi *msi = &port->msi;
++	struct plda_msi *msi = &port->msi;
+ 	void __iomem *bridge_base_addr = port->bridge_addr;
+ 	unsigned long status;
+ 	u32 bit;
+@@ -364,7 +368,7 @@ static void mc_handle_msi(struct irq_desc *desc)
+ 
+ static void mc_msi_bottom_irq_ack(struct irq_data *data)
+ {
+-	struct mc_pcie *port = irq_data_get_irq_chip_data(data);
++	struct plda_pcie_rp *port = irq_data_get_irq_chip_data(data);
+ 	void __iomem *bridge_base_addr = port->bridge_addr;
+ 	u32 bitpos = data->hwirq;
+ 
+@@ -373,7 +377,7 @@ static void mc_msi_bottom_irq_ack(struct irq_data *data)
+ 
+ static void mc_compose_msi_msg(struct irq_data *data, struct msi_msg *msg)
+ {
+-	struct mc_pcie *port = irq_data_get_irq_chip_data(data);
++	struct plda_pcie_rp *port = irq_data_get_irq_chip_data(data);
+ 	phys_addr_t addr = port->msi.vector_phy;
+ 
+ 	msg->address_lo = lower_32_bits(addr);
+@@ -400,8 +404,8 @@ static struct irq_chip mc_msi_bottom_irq_chip = {
+ static int mc_irq_msi_domain_alloc(struct irq_domain *domain, unsigned int virq,
+ 				   unsigned int nr_irqs, void *args)
+ {
+-	struct mc_pcie *port = domain->host_data;
+-	struct mc_msi *msi = &port->msi;
++	struct plda_pcie_rp *port = domain->host_data;
++	struct plda_msi *msi = &port->msi;
+ 	unsigned long bit;
+ 
+ 	mutex_lock(&msi->lock);
+@@ -425,8 +429,8 @@ static void mc_irq_msi_domain_free(struct irq_domain *domain, unsigned int virq,
+ 				   unsigned int nr_irqs)
+ {
+ 	struct irq_data *d = irq_domain_get_irq_data(domain, virq);
+-	struct mc_pcie *port = irq_data_get_irq_chip_data(d);
+-	struct mc_msi *msi = &port->msi;
++	struct plda_pcie_rp *port = irq_data_get_irq_chip_data(d);
++	struct plda_msi *msi = &port->msi;
+ 
+ 	mutex_lock(&msi->lock);
+ 
+@@ -456,11 +460,11 @@ static struct msi_domain_info mc_msi_domain_info = {
+ 	.chip = &mc_msi_irq_chip,
+ };
+ 
+-static int mc_allocate_msi_domains(struct mc_pcie *port)
++static int mc_allocate_msi_domains(struct plda_pcie_rp *port)
+ {
+ 	struct device *dev = port->dev;
+ 	struct fwnode_handle *fwnode = of_node_to_fwnode(dev->of_node);
+-	struct mc_msi *msi = &port->msi;
++	struct plda_msi *msi = &port->msi;
+ 
+ 	mutex_init(&port->msi.lock);
+ 
+@@ -484,7 +488,7 @@ static int mc_allocate_msi_domains(struct mc_pcie *port)
+ 
+ static void mc_handle_intx(struct irq_desc *desc)
+ {
+-	struct mc_pcie *port = irq_desc_get_handler_data(desc);
++	struct plda_pcie_rp *port = irq_desc_get_handler_data(desc);
+ 	struct irq_chip *chip = irq_desc_get_chip(desc);
+ 	struct device *dev = port->dev;
+ 	void __iomem *bridge_base_addr = port->bridge_addr;
+@@ -511,7 +515,7 @@ static void mc_handle_intx(struct irq_desc *desc)
+ 
+ static void mc_ack_intx_irq(struct irq_data *data)
+ {
+-	struct mc_pcie *port = irq_data_get_irq_chip_data(data);
++	struct plda_pcie_rp *port = irq_data_get_irq_chip_data(data);
+ 	void __iomem *bridge_base_addr = port->bridge_addr;
+ 	u32 mask = BIT(data->hwirq + PM_MSI_INT_INTX_SHIFT);
+ 
+@@ -520,7 +524,7 @@ static void mc_ack_intx_irq(struct irq_data *data)
+ 
+ static void mc_mask_intx_irq(struct irq_data *data)
+ {
+-	struct mc_pcie *port = irq_data_get_irq_chip_data(data);
++	struct plda_pcie_rp *port = irq_data_get_irq_chip_data(data);
+ 	void __iomem *bridge_base_addr = port->bridge_addr;
+ 	unsigned long flags;
+ 	u32 mask = BIT(data->hwirq + PM_MSI_INT_INTX_SHIFT);
+@@ -535,7 +539,7 @@ static void mc_mask_intx_irq(struct irq_data *data)
+ 
+ static void mc_unmask_intx_irq(struct irq_data *data)
+ {
+-	struct mc_pcie *port = irq_data_get_irq_chip_data(data);
++	struct plda_pcie_rp *port = irq_data_get_irq_chip_data(data);
+ 	void __iomem *bridge_base_addr = port->bridge_addr;
+ 	unsigned long flags;
+ 	u32 mask = BIT(data->hwirq + PM_MSI_INT_INTX_SHIFT);
+@@ -625,21 +629,22 @@ static u32 local_events(struct mc_pcie *port)
+ 	return val;
+ }
+ 
+-static u32 get_events(struct mc_pcie *port)
++static u32 get_events(struct plda_pcie_rp *port)
+ {
++	struct mc_pcie *mc_port = container_of(port, struct mc_pcie, plda);
+ 	u32 events = 0;
+ 
+-	events |= pcie_events(port);
+-	events |= sec_errors(port);
+-	events |= ded_errors(port);
+-	events |= local_events(port);
++	events |= pcie_events(mc_port);
++	events |= sec_errors(mc_port);
++	events |= ded_errors(mc_port);
++	events |= local_events(mc_port);
+ 
+ 	return events;
+ }
+ 
+ static irqreturn_t mc_event_handler(int irq, void *dev_id)
+ {
+-	struct mc_pcie *port = dev_id;
++	struct plda_pcie_rp *port = dev_id;
+ 	struct device *dev = port->dev;
+ 	struct irq_data *data;
+ 
+@@ -655,7 +660,7 @@ static irqreturn_t mc_event_handler(int irq, void *dev_id)
+ 
+ static void mc_handle_event(struct irq_desc *desc)
+ {
+-	struct mc_pcie *port = irq_desc_get_handler_data(desc);
++	struct plda_pcie_rp *port = irq_desc_get_handler_data(desc);
+ 	unsigned long events;
+ 	u32 bit;
+ 	struct irq_chip *chip = irq_desc_get_chip(desc);
+@@ -672,12 +677,13 @@ static void mc_handle_event(struct irq_desc *desc)
+ 
+ static void mc_ack_event_irq(struct irq_data *data)
+ {
+-	struct mc_pcie *port = irq_data_get_irq_chip_data(data);
++	struct plda_pcie_rp *port = irq_data_get_irq_chip_data(data);
++	struct mc_pcie *mc_port = container_of(port, struct mc_pcie, plda);
+ 	u32 event = data->hwirq;
+ 	void __iomem *addr;
+ 	u32 mask;
+ 
+-	addr = port->axi_base_addr + event_descs[event].base +
++	addr = mc_port->axi_base_addr + event_descs[event].base +
+ 		event_descs[event].offset;
+ 	mask = event_descs[event].mask;
+ 	mask |= event_descs[event].enb_mask;
+@@ -687,13 +693,14 @@ static void mc_ack_event_irq(struct irq_data *data)
+ 
+ static void mc_mask_event_irq(struct irq_data *data)
+ {
+-	struct mc_pcie *port = irq_data_get_irq_chip_data(data);
++	struct plda_pcie_rp *port = irq_data_get_irq_chip_data(data);
++	struct mc_pcie *mc_port = container_of(port, struct mc_pcie, plda);
+ 	u32 event = data->hwirq;
+ 	void __iomem *addr;
+ 	u32 mask;
+ 	u32 val;
+ 
+-	addr = port->axi_base_addr + event_descs[event].base +
++	addr = mc_port->axi_base_addr + event_descs[event].base +
+ 		event_descs[event].mask_offset;
+ 	mask = event_descs[event].mask;
+ 	if (event_descs[event].enb_mask) {
+@@ -717,13 +724,14 @@ static void mc_mask_event_irq(struct irq_data *data)
+ 
+ static void mc_unmask_event_irq(struct irq_data *data)
+ {
+-	struct mc_pcie *port = irq_data_get_irq_chip_data(data);
++	struct plda_pcie_rp *port = irq_data_get_irq_chip_data(data);
++	struct mc_pcie *mc_port = container_of(port, struct mc_pcie, plda);
+ 	u32 event = data->hwirq;
+ 	void __iomem *addr;
+ 	u32 mask;
+ 	u32 val;
+ 
+-	addr = port->axi_base_addr + event_descs[event].base +
++	addr = mc_port->axi_base_addr + event_descs[event].base +
+ 		event_descs[event].mask_offset;
+ 	mask = event_descs[event].mask;
+ 
+@@ -811,7 +819,7 @@ static int mc_pcie_init_clks(struct device *dev)
+ 	return 0;
+ }
+ 
+-static int mc_pcie_init_irq_domains(struct mc_pcie *port)
++static int mc_pcie_init_irq_domains(struct plda_pcie_rp *port)
+ {
+ 	struct device *dev = port->dev;
+ 	struct device_node *node = dev->of_node;
+@@ -889,7 +897,7 @@ static void mc_pcie_setup_window(void __iomem *bridge_base_addr, u32 index,
+ }
+ 
+ static int mc_pcie_setup_windows(struct platform_device *pdev,
+-				 struct mc_pcie *port)
++				 struct plda_pcie_rp *port)
+ {
+ 	void __iomem *bridge_base_addr = port->bridge_addr;
+ 	struct pci_host_bridge *bridge = platform_get_drvdata(pdev);
+@@ -970,7 +978,7 @@ static void mc_disable_interrupts(struct mc_pcie *port)
+ 	writel_relaxed(GENMASK(31, 0), bridge_base_addr + ISTATUS_HOST);
+ }
+ 
+-static int mc_init_interrupts(struct platform_device *pdev, struct mc_pcie *port)
++static int mc_init_interrupts(struct platform_device *pdev, struct plda_pcie_rp *port)
+ {
+ 	struct device *dev = &pdev->dev;
+ 	int irq;
+@@ -1043,12 +1051,12 @@ static int mc_platform_init(struct pci_config_window *cfg)
+ 	mc_pcie_enable_msi(port, cfg->win);
+ 
+ 	/* Configure non-config space outbound ranges */
+-	ret = mc_pcie_setup_windows(pdev, port);
++	ret = mc_pcie_setup_windows(pdev, &port->plda);
+ 	if (ret)
+ 		return ret;
+ 
+ 	/* Address translation is up; safe to enable interrupts */
+-	ret = mc_init_interrupts(pdev, port);
++	ret = mc_init_interrupts(pdev, &port->plda);
+ 	if (ret)
+ 		return ret;
+ 
+@@ -1059,6 +1067,7 @@ static int mc_host_probe(struct platform_device *pdev)
+ {
+ 	struct device *dev = &pdev->dev;
+ 	void __iomem *bridge_base_addr;
++	struct plda_pcie_rp *plda;
+ 	int ret;
+ 	u32 val;
+ 
+@@ -1066,7 +1075,8 @@ static int mc_host_probe(struct platform_device *pdev)
+ 	if (!port)
+ 		return -ENOMEM;
+ 
+-	port->dev = dev;
++	plda = &port->plda;
++	plda->dev = dev;
+ 
+ 	port->axi_base_addr = devm_platform_ioremap_resource(pdev, 1);
+ 	if (IS_ERR(port->axi_base_addr))
+@@ -1075,7 +1085,7 @@ static int mc_host_probe(struct platform_device *pdev)
+ 	mc_disable_interrupts(port);
+ 
+ 	bridge_base_addr = port->axi_base_addr + MC_PCIE_BRIDGE_ADDR;
+-	port->bridge_addr = bridge_base_addr;
++	plda->bridge_addr = bridge_base_addr;
+ 
+ 	/* Allow enabling MSI by disabling MSI-X */
+ 	val = readl(bridge_base_addr + PCIE_PCI_IRQ_DW0);
+@@ -1087,10 +1097,10 @@ static int mc_host_probe(struct platform_device *pdev)
+ 	val &= NUM_MSI_MSGS_MASK;
+ 	val >>= NUM_MSI_MSGS_SHIFT;
+ 
+-	port->msi.num_vectors = 1 << val;
++	plda->msi.num_vectors = 1 << val;
+ 
+ 	/* Pick vector address from design */
+-	port->msi.vector_phy = readl_relaxed(bridge_base_addr + IMSI_ADDR);
++	plda->msi.vector_phy = readl_relaxed(bridge_base_addr + IMSI_ADDR);
+ 
+ 	ret = mc_pcie_init_clks(dev);
+ 	if (ret) {
+-- 
+2.17.1
 
-Would it make sense to add something like:
-
-	depends on ARCH_SOMETHING || COMPILE_TEST
-
-here?
-
-> +	help
-> +	  If you say yes to this option, support will be included for the
-> +	  OpenCores PWM. For details see https://opencores.org/projects/ptc.
-> +
-> +	  To compile this driver as a module, choose M here: the module
-> +	  will be called pwm-ocores.
-> +
->  config PWM_OMAP_DMTIMER
->  	tristate "OMAP Dual-Mode Timer PWM support"
->  	depends on OF
-> diff --git a/drivers/pwm/Makefile b/drivers/pwm/Makefile
-> index c822389c2a24..542b98202153 100644
-> --- a/drivers/pwm/Makefile
-> +++ b/drivers/pwm/Makefile
-> @@ -39,6 +39,7 @@ obj-$(CONFIG_PWM_MICROCHIP_CORE)	+=3D pwm-microchip-cor=
-e.o
->  obj-$(CONFIG_PWM_MTK_DISP)	+=3D pwm-mtk-disp.o
->  obj-$(CONFIG_PWM_MXS)		+=3D pwm-mxs.o
->  obj-$(CONFIG_PWM_NTXEC)		+=3D pwm-ntxec.o
-> +obj-$(CONFIG_PWM_OCORES)	+=3D pwm-ocores.o
->  obj-$(CONFIG_PWM_OMAP_DMTIMER)	+=3D pwm-omap-dmtimer.o
->  obj-$(CONFIG_PWM_PCA9685)	+=3D pwm-pca9685.o
->  obj-$(CONFIG_PWM_PXA)		+=3D pwm-pxa.o
-> diff --git a/drivers/pwm/pwm-ocores.c b/drivers/pwm/pwm-ocores.c
-> new file mode 100644
-> index 000000000000..7a510de4e063
-> --- /dev/null
-> +++ b/drivers/pwm/pwm-ocores.c
-> @@ -0,0 +1,211 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * OpenCores PWM Driver
-> + *
-> + * https://opencores.org/projects/ptc
-> + *
-> + * Copyright (C) 2018-2023 StarFive Technology Co., Ltd.
-> + */
-
-Please add a section here describing the hardware limitations. Please
-stick to the format used e.g. in drivers/pwm/pwm-sl28cpld.c to make this
-easy to grep for. It should mention for example that the hardware can
-only do inverted polarity.
-
-> +
-> +#include <linux/clk.h>
-> +#include <linux/io.h>
-> +#include <linux/module.h>
-> +#include <linux/of.h>
-> +#include <linux/of_device.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/pwm.h>
-> +#include <linux/reset.h>
-> +#include <linux/slab.h>
-> +
-> +#define REG_OCPWM_CNTR(base)	((base))
-> +#define REG_OCPWM_HRC(base)	((base) + 0x4)
-> +#define REG_OCPWM_LRC(base)	((base) + 0x8)
-> +#define REG_OCPWM_CTRL(base)	((base) + 0xC)
-
-This is unusual, I would skip base here and do the addition explicitly
-in some static inline helpers like:
-
-	static inline ocores_writel(struct ocores_pwm_device *, unsigned int offse=
-t, u32 val);
-
-> +/* OCPWM_CTRL register bits*/
-> +#define OCPWM_EN      BIT(0)
-> +#define OCPWM_ECLK    BIT(1)
-> +#define OCPWM_NEC     BIT(2)
-> +#define OCPWM_OE      BIT(3)
-> +#define OCPWM_SIGNLE  BIT(4)
-> +#define OCPWM_INTE    BIT(5)
-> +#define OCPWM_INT     BIT(6)
-> +#define OCPWM_CNTRRST BIT(7)
-> +#define OCPWM_CAPTE   BIT(8)
-
-I like register bit fields being named with the register as prefix, so I
-suggest:
-
-	#define	REG_OCPWM_CTRL_EN	BIT(0)
-	...
-
-> +
-> +struct ocores_pwm_device {
-> +	struct pwm_chip chip;
-> +	struct clk *clk;
-> +	struct reset_control *rst;
-> +	const struct ocores_pwm_data *data;
-> +	void __iomem *regs;
-> +	u32 clk_rate; /* PWM APB clock frequency */
-> +};
-> +
-> +struct ocores_pwm_data {
-> +	void __iomem *(*get_ch_base)(void __iomem *base, unsigned int channel);
-
-It might be worth to mark this with the function attribute const.
-
-> +};
-> +
-> +static inline struct ocores_pwm_device *
-> +chip_to_ocores(struct pwm_chip *chip)
-
-These two lines can go in a single one.
-
-> +
-
-please drop this empty line.
-
-> +{
-> +	return container_of(chip, struct ocores_pwm_device, chip);
-> +}
-> +
-> +void __iomem *starfive_jh71x0_get_ch_base(void __iomem *base,
-> +					  unsigned int channel)
-> +{
-> +	return base + (channel > 3 ? channel % 4 * 0x10 + (1 << 15) : channel *=
- 0x10);
-
-Maybe make this:
-
-	unsigned int offset =3D
-		(channel > 3 ? 1 << 15 : 0) +
-		(channel & 3) * 0x10
-	...
-
-or even:
-
-	unsigned int offset =3D (channel & 4) << 13 + (channel & 3) * 0x10;
-
-The former is easier to read, the latter might be compiled to faster
-code.
-
-Alternatively: Is it easier/sensible to model the jh71x0 hardware as two
-PWM chips with 4 lines each?
-
-> +}
-> +
-> +static int ocores_pwm_get_state(struct pwm_chip *chip,
-> +				struct pwm_device *dev,
-> +				struct pwm_state *state)
-> +{
-> +	struct ocores_pwm_device *pwm =3D chip_to_ocores(chip);
-
-Please use "pwm" for variables of type struct pwm_device and pick
-something different for ocores_pwm_device variables. I suggest something
-like "ddata" or "opd".
-
-> +	void __iomem *base =3D pwm->data->get_ch_base ?
-> +			     pwm->data->get_ch_base(pwm->regs, dev->hwpwm) : pwm->regs;
-> +	u32 period_data, duty_data, ctrl_data;
-> +
-> +	period_data =3D readl(REG_OCPWM_LRC(base));
-> +	duty_data =3D readl(REG_OCPWM_HRC(base));
-> +	ctrl_data =3D readl(REG_OCPWM_CTRL(base));
-> +
-> +	state->period =3D DIV_ROUND_CLOSEST_ULL((u64)period_data * NSEC_PER_SEC=
-, pwm->clk_rate);
-> +	state->duty_cycle =3D DIV_ROUND_CLOSEST_ULL((u64)duty_data * NSEC_PER_S=
-EC, pwm->clk_rate);
-
-Please test your driver with PWM_DEBUG enabled. The rounding is wrong
-here.
-
-> +	state->polarity =3D PWM_POLARITY_INVERSED;
-> +	state->enabled =3D (ctrl_data & OCPWM_EN) ? true : false;
-> +
-> +	return 0;
-> +}
-> +
-> +static int ocores_pwm_apply(struct pwm_chip *chip,
-> +			    struct pwm_device *dev,
-> +			    const struct pwm_state *state)
-> +{
-> +	struct ocores_pwm_device *pwm =3D chip_to_ocores(chip);
-> +	void __iomem *base =3D pwm->data->get_ch_base ?
-> +			     pwm->data->get_ch_base(pwm->regs, dev->hwpwm) : pwm->regs;
-> +	u32 period_data, duty_data, ctrl_data =3D 0;
-> +
-> +	if (state->polarity !=3D PWM_POLARITY_INVERSED)
-> +		return -EINVAL;
-> +
-> +	period_data =3D DIV_ROUND_CLOSEST_ULL(state->period * pwm->clk_rate,
-
-this multiplication might overflow. And also wrong rounding. I didn't
-check, but maybe DIV_ROUND_CLOSEST_ULL might return a value > U32_MAX?
-
-> +					    NSEC_PER_SEC);
-> +	duty_data =3D DIV_ROUND_CLOSEST_ULL(state->duty_cycle * pwm->clk_rate,
-> +					  NSEC_PER_SEC);
-> +
-> +	writel(period_data, REG_OCPWM_LRC(base));
-> +	writel(duty_data, REG_OCPWM_HRC(base));
-> +	writel(0,  REG_OCPWM_CNTR(base));
-
-s/  / /
-
-I assume this is "glitchy", i.e. after updating the REG_OCPWM_LRC and
-before updating REG_OCPWM_HRC the signal emitted might be a mixture
-between old and new state? This should be mentioned in the Limitations
-section I mentioned above. Also mention that the currently running
-period is not completed and how the output behave if the hardware is
-disabled.
-
-> +
-> +	ctrl_data =3D readl(REG_OCPWM_CTRL(base));
-> +	if (state->enabled)
-> +		writel(ctrl_data | OCPWM_EN | OCPWM_OE, REG_OCPWM_CTRL(base));
-> +	else
-> +		writel(ctrl_data & ~(OCPWM_EN | OCPWM_OE), REG_OCPWM_CTRL(base));
-> +
-> +	return 0;
-> +}
-> +
-> +static const struct pwm_ops ocores_pwm_ops =3D {
-> +	.get_state	=3D ocores_pwm_get_state,
-> +	.apply		=3D ocores_pwm_apply,
-> +	.owner		=3D THIS_MODULE,
-
-The assignment to .owner should be dropped. (See commit
-384461abcab6602abc06c2dfb8fb99beeeaa12b0)
-
-> +};
-> +
-> +static const struct ocores_pwm_data jh71x0_pwm_data =3D {
-> +	.get_ch_base =3D starfive_jh71x0_get_ch_base,
-> +};
-> +
-> +static const struct of_device_id ocores_pwm_of_match[] =3D {
-> +	{ .compatible =3D "opencores,pwm-ocores" },
-> +	{ .compatible =3D "starfive,jh71x0-pwm", .data =3D &jh71x0_pwm_data},
-> +	{ /* sentinel */ }
-> +};
-> +MODULE_DEVICE_TABLE(of, ocores_pwm_of_match);
-> +
-> +static int ocores_pwm_probe(struct platform_device *pdev)
-> +{
-> +	const struct of_device_id *id;
-> +	struct device *dev =3D &pdev->dev;
-> +	struct ocores_pwm_device *pwm;
-> +	struct pwm_chip *chip;
-> +	int ret;
-> +
-> +	id =3D of_match_device(ocores_pwm_of_match, dev);
-> +	if (!id)
-> +		return -EINVAL;
-> +
-> +	pwm =3D devm_kzalloc(dev, sizeof(*pwm), GFP_KERNEL);
-> +	if (!pwm)
-> +		return -ENOMEM;
-> +
-> +	pwm->data =3D id->data;
-> +	chip =3D &pwm->chip;
-> +	chip->dev =3D dev;
-> +	chip->ops =3D &ocores_pwm_ops;
-> +	chip->npwm =3D 8;
-> +	chip->of_pwm_n_cells =3D 3;
-> +
-> +	pwm->regs =3D devm_platform_ioremap_resource(pdev, 0);
-> +	if (IS_ERR(pwm->regs))
-> +		return dev_err_probe(dev, PTR_ERR(pwm->regs),
-> +				     "Unable to map IO resources\n");
-> +
-> +	pwm->clk =3D devm_clk_get_enabled(dev, NULL);
-> +	if (IS_ERR(pwm->clk))
-> +		return dev_err_probe(dev, PTR_ERR(pwm->clk),
-> +				     "Unable to get pwm's clock\n");
-> +
-> +	pwm->rst =3D devm_reset_control_get_optional_exclusive(dev, NULL);
-> +	reset_control_deassert(pwm->rst);
-> +
-> +	pwm->clk_rate =3D clk_get_rate(pwm->clk);
-> +	if (pwm->clk_rate <=3D 0) {
-> +		dev_warn(dev, "Failed to get APB clock rate\n");
-> +		return -EINVAL;
-
-dev_err_probe() here, too? Missing call to reset_control_assert().
-
-> +	}
-> +
-> +	ret =3D devm_pwmchip_add(dev, chip);
-> +	if (ret < 0) {
-> +		dev_err(dev, "Cannot register PTC: %d\n", ret);
-
-dev_err_probe()
-
-> +		clk_disable_unprepare(pwm->clk);
-
-This is wrong, devm_clk_get_enabled() cares for that.
-
-> +		reset_control_assert(pwm->rst);
-> +		return ret;
-> +	}
-> +
-> +	platform_set_drvdata(pdev, pwm);
-> +
-> +	return 0;
-
-If you call platform_set_drvdata() earlier you can just return ret here
-and drop the return in the error path above.
-
-> +}
-> +
-> +static int ocores_pwm_remove(struct platform_device *dev)
-> +{
-> +	struct ocores_pwm_device *pwm =3D platform_get_drvdata(dev);
-> +
-> +	reset_control_assert(pwm->rst);
-> +	clk_disable_unprepare(pwm->clk);
-
-Wrong in the same way as the call in .probe()'s error path.
-
-> +
-> +	return 0;
-> +}
-> +
-> +static struct platform_driver ocores_pwm_driver =3D {
-> +	.probe =3D ocores_pwm_probe,
-> +	.remove =3D ocores_pwm_remove,
-
-Please use .remove_new
-
-> +	.driver =3D {
-> +		.name =3D "ocores-pwm",
-> +		.of_match_table =3D ocores_pwm_of_match,
-> +	},
-> +};
-> +module_platform_driver(ocores_pwm_driver);
-> +
-> +MODULE_AUTHOR("Jieqin Chen");
-
-Jieqin Chen !=3D William Qiu ?
-
-> +MODULE_AUTHOR("Hal Feng <hal.feng@starfivetech.com>");
-> +MODULE_DESCRIPTION("OpenCores PWM PTC driver");
-> +MODULE_LICENSE("GPL");
-
-Best regards
-Uwe
-
---=20
-Pengutronix e.K.                           | Uwe Kleine-K=F6nig            |
-Industrial Linux Solutions                 | https://www.pengutronix.de/ |
-
---cz4qfrvhjfgpon2x
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmUyY7IACgkQj4D7WH0S
-/k5iYQf/XPI8jg0Yioe9vRiMsV63QKHwO2rqSB1+I7g0tRVqfP/mIVhLdwZ4YPew
-RQo4dn0sfLO258eCXClGcEZaiIKgxcaO8gxZscrt5W3K4Ir8d/7mRE/fkyvNgS0T
-LyZsbE5hYCa9t6GS1D7qWkmxS69v8uAhEjSXJbuI1OCv3A7Xu2SJbfkS3lUr1I80
-qE58kx4yUwVjrr2r5Ar5FCRzoxdtcPFi3mNu30BOwu6tsCV8C4mRnDpCTWWt6u3P
-LeXxcDb62aM0EahuLRruDvCTYET7ekXJ3MnTjPKGNMmcE5HtETZB9PLFUT5yImn8
-zjWX9yH/Oy/vciK9K37CmMmSlZMJlA==
-=bGrp
------END PGP SIGNATURE-----
-
---cz4qfrvhjfgpon2x--
-
-
---===============3285746268121393324==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============3285746268121393324==--
-
