@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07303C0032E
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 Oct 2023 13:19:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68C7EC001DF
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 Oct 2023 13:19:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=P/DMjY2XcSWjfzcqrnG5FA9yae5X5jGBCGGgOz6CqDg=; b=hD2EOiokMRBQ7C
-	HPGHN0cB5N0MbzIWouUewS8/30QPnrgGn+1xjlZx5nlTQHdONh+n6mz8OEjKZ63yxQqq0nSuIuDIL
-	JuB59Vzk+x5k7BIr2iSVr9ona7nGXVzlhwRHwwWr7ySGqIRanxDj0TMAPAuMTkhbnyA6kym0X6eJh
-	QzAETzCW6UDynBd/03vFi4eQfMhOHrQBULnuFxV3Lp4k9tRz0+GUvliN+Pbv/AwAUAC23fnmZeOwN
-	pjfTe1uKg7TNRUA2tDATvtk/l7qB2/A3cmr7Yd27edbSuarigDu9v8h/V7a0OpM/jig8pJtTYEVvW
-	B5NaOl3arpcViqijSfGw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=rLyFzCm/jIB5mRP91UYjaUWPqOMTOGUMYjaGfb757Ks=; b=MVHsf3scAtqOfd
+	A99dxpOo2jJM0siK7dALv2QAXdqNYXGOeExkZrM/AKWBG9q2MEdSGrC0BDjnyI0Pv1UI/EtmXHHBE
+	hdl7zLZy7rnhVLK+zLN4FTq3xRcW6K2CgP8XwcPOktFCQ+SKFcnvk1v/+r8n45FZfPgbPWsf65Gh9
+	GmmNE3u2LiclHi6TJYmtbTyZiXeICdUbgxOwMxtGJQvfPdOSj3Qhi3STNSdEom8hmVwSu3fr2LVuL
+	8Wb6uhBTQIl6vhhslmpyKg+OrjkaZOLAPR19IDbNhelutJjKw3Ff3j+Y27AV1qwJq9hq4NFUJzZyc
+	1HbxbHTbPD9GQDHl82zw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qtpPa-002LzC-0U;
-	Fri, 20 Oct 2023 13:19:34 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1qtpPi-002M2P-1X;
+	Fri, 20 Oct 2023 13:19:42 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qtpPT-002LwM-20
+	id 1qtpPf-002M0F-0c
 	for linux-riscv@lists.infradead.org;
-	Fri, 20 Oct 2023 13:19:29 +0000
+	Fri, 20 Oct 2023 13:19:40 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 188A8CE383A;
-	Fri, 20 Oct 2023 13:19:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4ABBCC433C7;
-	Fri, 20 Oct 2023 13:19:16 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id B999BCE2A66;
+	Fri, 20 Oct 2023 13:19:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EB5FFC433C9;
+	Fri, 20 Oct 2023 13:19:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1697807959;
-	bh=IFYZh0PK+ZqTUr1k/dLRLjLE8s8/0wnHFTC9pViaxh8=;
-	h=From:List-Id:To:Cc:Subject:Date:From;
-	b=gGP7QqDorJF7t5G71u09Yc+IU9HlEG+VSJtLubkKzLvteYGyVHleNncd2/UgRbfSe
-	 a41Qnjk880C2g6j26vhCD0/1omgZTYhsTU+gQwOfl8c7AoTlFPAFIgfFXl5vCs5klv
-	 jK5TEHBRJV+BGMS0RTRsSuN5zbewfAnsi9Ez7XDOQGib473/MTX8TVnOMzZfP26tbl
-	 kL6HeC5CT9MMt3umwpowiqvNVLW30esvOyaaQD3FtM8aQ/6jShJ/GkR+rZ9B1q0SbJ
-	 7mK5VilHFL9cryhGZsP4b2eRsUXChZy0B9ziuiER9rQVBVWsDqiWBEmdZhaRbpWQ84
-	 WjMKG3JlKh2xQ==
+	s=k20201202; t=1697807976;
+	bh=wUfcAwVLdJLWQ59pK55y36rkG58zLUUKiGpO+djR8pw=;
+	h=From:List-Id:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=UnLk/WUF84EUQpsMUd6yNJjo42cnb7280J89gX5Aj3jbS+UrSLYGWoS4HqAfTIbN1
+	 tBRqyXAEns5KJMk0MrhFAMpo0Ob22UDy9eGtHKJyTyZ5AHYzOmFbRb1aniOt4E0/L6
+	 1JN0r369Tqho4U6WftH0XMA+NMv59JcrsztYiU8K5FJofaqh3avWYYi0b4wGc9I7Gb
+	 0OZgrjRcB2+J+CmWMr9cyKPd19k+h6/6ljM0CcwVXcSXvhez7kokuIDgcOcjXM0h8C
+	 aYJ6u4GjawepamMaRPyaqnI+uw4MvtyvuUqxzGm+xL7Tp1Y+I6H5sfoaqvCq9Cw3fd
+	 6gXDYnMmcGbbQ==
 From: Conor Dooley <conor@kernel.org>
 To: soc@kernel.org
 Cc: conor@kernel.org,
@@ -59,16 +59,18 @@ Cc: conor@kernel.org,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-fpga@vger.kernel.org
-Subject: [PATCH v3 0/6] PolarFire SoC Auto Update Support
-Date: Fri, 20 Oct 2023 14:18:38 +0100
-Message-Id: <20231020-agreeably-filing-3d48708e6262@spud>
+Subject: [PATCH v3 4/6] soc: microchip: mpfs: add auto-update subdev to system controller
+Date: Fri, 20 Oct 2023 14:18:42 +0100
+Message-Id: <20231020-greedless-raffle-ce74c897e505@spud>
 X-Mailer: git-send-email 2.39.2
+In-Reply-To: <20231020-agreeably-filing-3d48708e6262@spud>
+References: <20231020-agreeably-filing-3d48708e6262@spud>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3656; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=Sx7XDhJn2vtaqpSQPM4WYWdT2f14tTpPwy2yBjd+DQQ=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDKlGdfJNElr5KoEZIY5Fs+O5rDWZtk1m+Gnj8+d2bHtZK Lva1AMdpSwMYhwMsmKKLIm3+1qk1v9x2eHc8xZmDisTyBAGLk4BmMh0D4b/ji2KjFdXcYtekpw7 qUxSVd6t6ujhOl5twdrG54afJKZZMfyzLy3SbvqVenSpbHL+r5u7ThYfbXvaGhrL9q/079dijmY eAA==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1866; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=BV6yRDmsm+YeyYo9mK3USWNMRZ0WU1kcSJPydVNBRrE=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDKlGdbo9npwyhrsLahMe77zPm7XKgqPNU/dg20cBh0071 Gf0iF/pKGVhEONgkBVTZEm83dcitf6Pyw7nnrcwc1iZQIYwcHEKwETecjH8j5SyWfmq7qbUjKf9 qyy6jb1Oz1wQnPCt5OHTCy0v9yk1PWRk2O20eXP+rbCrmokLD2ap8PSmC81b1Hdkscbid4r+x+N 5WQE=
 X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231020_061928_018984_E2CED628 
-X-CRM114-Status: GOOD (  21.15  )
+X-CRM114-CacheID: sfid-20231020_061939_582491_5183E9AC 
+X-CRM114-Status: GOOD (  15.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,88 +89,56 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Conor Dooley <conor.dooley@microchip.com>
 
-Hey all,
+The PolarFire SoC's system controller offers the ability to re-program
+the FPGA from a user application via two, related, mechanisms.
+In-Application Programming (IAP) is not ideal for use in Linux, as it
+will immediately take down the system when requested. Auto Update is
+preferred, as it will only take affect at device power up*, allowing the
+OS (and potential applications in AMP) to be shut down gracefully.
 
-This patchset adds support for the "Auto Update" feature on PolarFire
-SoC that allows for writing an FPGA bistream to the SPI flash connected
-to the system controller.
-On powercycle (or reboot depending on how the firmware implements the
-openSBI SRST extension) "Auto Update" will take place, and program the
-FPGA with the contents of the SPI flash - provided that that image is
-valid and an actual upgrade from that already programmed.
+* Auto Update occurs at device initialisation, which can also be
+  triggered by device reset - possible with the v2023.02 version of the
+  Hart Software Services (HSS) and reference design.
 
-Previously this driver was added to the FPGA subsystem, but as there is
-no capability for dynamic reconfiguration due to the device reset
-requirement, the FPGA manager framework is not actually used by the
-driver. As a result, the FPGA maintainers did not think it belonged in
-that directory, and after speaking to Arnd, I have put it in
-drivers/firmware/microchip instead. Otherwise, very little has changed
-here, compared to the previous submission.
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+---
+ drivers/soc/microchip/mpfs-sys-controller.c | 9 +++++++--
+ 1 file changed, 7 insertions(+), 2 deletions(-)
 
-If this is acceptable, I can add this to my eventual SoC drivers pull
-request for v6.8.
-
-Cheers,
-Conor.
-
-Changes in v3:
-- Move the driver to drivers/firmware
-- Rename the firmware upload device: s/mpfs_bitstream/mpfs-auto-update/
-- Fix the clock parentage for the qspi node added in this series
-- https://lore.kernel.org/linux-fpga/ZDlJxrybiWy3Mk4Y@yilunxu-OptiPlex-7050/
-
-Changes in v2:
-- per Russ' suggestion, the driver has been switched to using the
-  firmware-upload API rather than the fpga one
-- as a result of that change, the structure of the driver has changed
-  significantly, although most of that is reshuffling existing code
-  around
-- check if the upgrade is possible in probe and fail if it isn't
-- only write the image index if it is not already set
-- delete the now unneeded debugfs bits
-
-CC: Arnd Bergmann <arnd@arndb.de>
-CC: Conor Dooley <conor.dooley@microchip.com>
-CC: Daire McNamara <daire.mcnamara@microchip.com>
-CC: Rob Herring <robh+dt@kernel.org>
-CC: Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>
-CC: Moritz Fischer <mdf@kernel.org>
-CC: Wu Hao <hao.wu@intel.com>
-CC: Xu Yilun <yilun.xu@intel.com>
-CC: Tom Rix <trix@redhat.com>
-CC: Russ Weight <russell.h.weight@intel.com>
-CC: linux-riscv@lists.infradead.org
-CC: devicetree@vger.kernel.org
-CC: linux-kernel@vger.kernel.org
-CC: linux-fpga@vger.kernel.org
-CC: soc@kernel.org
-
-Conor Dooley (6):
-  dt-bindings: soc: microchip: add a property for system controller
-    flash
-  soc: microchip: mpfs: enable access to the system controller's flash
-  soc: microchip: mpfs: print service status in warning message
-  soc: microchip: mpfs: add auto-update subdev to system controller
-  firmware: microchip: add PolarFire SoC Auto Update support
-  riscv: dts: microchip: add the mpfs' system controller qspi &
-    associated flash
-
- .../microchip,mpfs-sys-controller.yaml        |  10 +
- .../boot/dts/microchip/mpfs-icicle-kit.dts    |  21 +
- arch/riscv/boot/dts/microchip/mpfs.dtsi       |  17 +
- drivers/firmware/Kconfig                      |   1 +
- drivers/firmware/Makefile                     |   1 +
- drivers/firmware/microchip/Kconfig            |  12 +
- drivers/firmware/microchip/Makefile           |   3 +
- drivers/firmware/microchip/mpfs-auto-update.c | 494 ++++++++++++++++++
- drivers/soc/microchip/Kconfig                 |   1 +
- drivers/soc/microchip/mpfs-sys-controller.c   |  33 +-
- include/soc/microchip/mpfs.h                  |   2 +
- 11 files changed, 592 insertions(+), 3 deletions(-)
- create mode 100644 drivers/firmware/microchip/Kconfig
- create mode 100644 drivers/firmware/microchip/Makefile
- create mode 100644 drivers/firmware/microchip/mpfs-auto-update.c
-
+diff --git a/drivers/soc/microchip/mpfs-sys-controller.c b/drivers/soc/microchip/mpfs-sys-controller.c
+index f363f13567f0..35c03ded8501 100644
+--- a/drivers/soc/microchip/mpfs-sys-controller.c
++++ b/drivers/soc/microchip/mpfs-sys-controller.c
+@@ -118,7 +118,11 @@ static struct platform_device subdevs[] = {
+ 	{
+ 		.name		= "mpfs-generic-service",
+ 		.id		= -1,
+-	}
++	},
++	{
++		.name		= "mpfs-auto-update",
++		.id		= -1,
++	},
+ };
+ 
+ static int mpfs_sys_controller_probe(struct platform_device *pdev)
+@@ -160,7 +164,6 @@ static int mpfs_sys_controller_probe(struct platform_device *pdev)
+ 
+ 	platform_set_drvdata(pdev, sys_controller);
+ 
+-	dev_info(&pdev->dev, "Registered MPFS system controller\n");
+ 
+ 	for (i = 0; i < ARRAY_SIZE(subdevs); i++) {
+ 		subdevs[i].dev.parent = dev;
+@@ -168,6 +171,8 @@ static int mpfs_sys_controller_probe(struct platform_device *pdev)
+ 			dev_warn(dev, "Error registering sub device %s\n", subdevs[i].name);
+ 	}
+ 
++	dev_info(&pdev->dev, "Registered MPFS system controller\n");
++
+ 	return 0;
+ }
+ 
 -- 
 2.39.2
 
