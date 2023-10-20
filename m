@@ -4,40 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECF48CDB47E
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 Oct 2023 10:44:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DD54CDB474
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 Oct 2023 10:45:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9hxSG1HfyI3FApqg1VEKKPhuU50BnGn0rb0X5rEEtJY=; b=qh6CVDLTS7Dq9u
-	YrF18x7lku5myzGnkUxDCEC3E4aFUrjSdUCZXYq2H/SsqT3Sd76sfL66AgSoI3zCRUPLZ69/GlSej
-	2ua4P7VsFPUt/5d3DwC+aA7+jqxW9tPCrKK7B3uOFvwKChNxalHD1VrnGQ3CfF1ighjNaTCFDEKzr
-	u5oFEi0zT53uPJTOUk7O2dnVpLQETC8jTAwqVHsNOHKdB5pR9fJWqwSsvvdBS6RAr4Z03qDwHlhGx
-	t9numyOuaOAR9Q5Rs5LhxdyPMMcFHeXpAmNKzkjSLChRDEQkx579IIhY7eENzEY/qlB0VvaB2Z7cf
-	cOOGbE6SDIX/N+avSxYw==;
+	List-Owner; bh=jcuN4scVcHKbqTJzQ6ysJbO+ayM/IyKhGu4/a+otjIA=; b=P/RsAI+isVi9ch
+	CMP91KRXInoOw1vIhbUZSc7Ms5ABbZUAPPlazmf0Z4d60c4XXdEczSyy86dFWeUqEivFAuuTMz+4m
+	KmFZed+UNYVMvL1N/muE+A+P/knhjAOAQLx9yEQuUx1yrU0g+3MvC4nkOb/u3UxvjjxFb5LVCD7Cx
+	UHWHjalH96C/cmEY6K2BmGRSDA6qRokCyNoIbAqoK5jio71B0GjVgOUo0fjIgFJhKyX8NVO/uwtnp
+	O4NRRN7WWQlKQhvQEJXUjAgRNRKlnURlK9kuLV9Izu35cHJ26/esDCRPsxZ6a6tMcbxTARBRMFqAE
+	hKz2L8M3jacCDv55DrzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qtmzh-001qNt-1K;
-	Fri, 20 Oct 2023 10:44:41 +0000
+	id 1qtn0L-001qzW-2C;
+	Fri, 20 Oct 2023 10:45:21 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1qtn0J-001qx2-1u
+	for linux-riscv@bombadil.infradead.org;
+	Fri, 20 Oct 2023 10:45:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:MIME-Version:References:
+	In-Reply-To:Message-ID:Date:Subject:CC:To:From:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=08IV1Om71nfrSoRfBuffC6ZG6XtD86pPKGmCb9ER+FM=; b=Aa5Q9zfyWp1dtssbBUSfB9dXqc
+	ViHeXI4VmkhNwr/HaoikPtHBXJBvTyshmQD5lEy6y7R4deTCvfyd5vtLjRTc7ZclQ5ADHor7FH0MR
+	J1GkQAo/aSbVyKFCHIEZz55NeFUYM3jJrGD5crWb5jLlfGmtz0wKtuje27eGcEI1PzkYtwU+p4sg8
+	lZ0z+x1v2VTG6RusatrAN5SYs6LDl1nvfEimNraIvqyAwgqomu9oTDm430zLRSxQ8hEmSkCb/ft2M
+	jJzb4dQ7cdULJi5NrTenmnTtedCz+iBYpUW2qTIX61PqpsO/2kzBr8Ew1xeN6Kts7YRoQwvdrTPlT
+	/9PRCEeQ==;
 Received: from fd01.gateway.ufhost.com ([61.152.239.71])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qtmzY-001q0l-0q
+	by desiato.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1qtn0A-00AxWJ-07
 	for linux-riscv@lists.infradead.org;
-	Fri, 20 Oct 2023 10:44:33 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	Fri, 20 Oct 2023 10:45:14 +0000
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 2E0AC24E1BB;
-	Fri, 20 Oct 2023 18:43:54 +0800 (CST)
-Received: from EXMBX171.cuchost.com (172.16.6.91) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 20 Oct
- 2023 18:43:54 +0800
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 53BF380A4;
+	Fri, 20 Oct 2023 18:43:58 +0800 (CST)
+Received: from EXMBX171.cuchost.com (172.16.6.91) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 20 Oct
+ 2023 18:43:58 +0800
 Received: from ubuntu.localdomain (183.27.99.123) by EXMBX171.cuchost.com
  (172.16.6.91) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 20 Oct
- 2023 18:43:52 +0800
+ 2023 18:43:56 +0800
 From: Minda Chen <minda.chen@starfivetech.com>
 To: Conor Dooley <conor@kernel.org>, =?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?=
 	<kw@linux.com>, Rob Herring <robh+dt@kernel.org>, Bjorn Helgaas
@@ -52,9 +67,9 @@ CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
 	<mason.huo@starfivetech.com>, Leyfoon Tan <leyfoon.tan@starfivetech.com>,
 	Kevin Xie <kevin.xie@starfivetech.com>, Minda Chen
 	<minda.chen@starfivetech.com>
-Subject: [PATCH v9 13/20] PCI: microchip: Add INTx and MSI event num to struct plda_event
-Date: Fri, 20 Oct 2023 18:43:34 +0800
-Message-ID: <20231020104341.63157-14-minda.chen@starfivetech.com>
+Subject: [PATCH v9 18/20] dt-bindings: PCI: Add StarFive JH7110 PCIe controller
+Date: Fri, 20 Oct 2023 18:43:39 +0800
+Message-ID: <20231020104341.63157-19-minda.chen@starfivetech.com>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20231020104341.63157-1-minda.chen@starfivetech.com>
 References: <20231020104341.63157-1-minda.chen@starfivetech.com>
@@ -64,8 +79,8 @@ X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX171.cuchost.com
  (172.16.6.91)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231020_034432_660498_6D6E52C7 
-X-CRM114-Status: GOOD (  12.82  )
+X-CRM114-CacheID: sfid-20231020_114510_978930_C9AE3315 
+X-CRM114-Status: GOOD (  11.76  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,60 +97,144 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The INTx and MSI interrupt event num is different in Microchip and
-StarFive platform.
+Add StarFive JH7110 SoC PCIe controller dt-bindings.
+JH7110 using PLDA XpressRICH PCIe host controller IP.
 
 Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Reviewed-by: Hal Feng <hal.feng@starfivetech.com>
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+Reviewed-by: Rob Herring <robh@kernel.org>
 ---
- drivers/pci/controller/plda/pcie-microchip-host.c | 6 ++++--
- drivers/pci/controller/plda/pcie-plda.h           | 2 ++
- 2 files changed, 6 insertions(+), 2 deletions(-)
+ .../bindings/pci/starfive,jh7110-pcie.yaml    | 120 ++++++++++++++++++
+ 1 file changed, 120 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/pci/starfive,jh7110-pcie.yaml
 
-diff --git a/drivers/pci/controller/plda/pcie-microchip-host.c b/drivers/pci/controller/plda/pcie-microchip-host.c
-index c95ef4679fc5..e57827bdb4b3 100644
---- a/drivers/pci/controller/plda/pcie-microchip-host.c
-+++ b/drivers/pci/controller/plda/pcie-microchip-host.c
-@@ -813,6 +813,8 @@ static int mc_request_event_irq(struct plda_pcie_rp *plda, int event_irq,
- 
- static const struct plda_event mc_event = {
- 	.request_event_irq = mc_request_event_irq,
-+	.intx_event        = EVENT_LOCAL_PM_MSI_INT_INTX,
-+	.msi_event         = EVENT_LOCAL_PM_MSI_INT_MSI,
- };
- 
- static int plda_pcie_init_irq_domains(struct plda_pcie_rp *port)
-@@ -953,7 +955,7 @@ static int plda_init_interrupts(struct platform_device *pdev,
- 	}
- 
- 	intx_irq = irq_create_mapping(port->event_domain,
--				      EVENT_LOCAL_PM_MSI_INT_INTX);
-+				      event->intx_event);
- 	if (!intx_irq) {
- 		dev_err(dev, "failed to map INTx interrupt\n");
- 		return -ENXIO;
-@@ -963,7 +965,7 @@ static int plda_init_interrupts(struct platform_device *pdev,
- 	irq_set_chained_handler_and_data(intx_irq, plda_handle_intx, port);
- 
- 	msi_irq = irq_create_mapping(port->event_domain,
--				     EVENT_LOCAL_PM_MSI_INT_MSI);
-+				     event->msi_event);
- 	if (!msi_irq)
- 		return -ENXIO;
- 
-diff --git a/drivers/pci/controller/plda/pcie-plda.h b/drivers/pci/controller/plda/pcie-plda.h
-index 28ed1374e1de..fba7343f9a96 100644
---- a/drivers/pci/controller/plda/pcie-plda.h
-+++ b/drivers/pci/controller/plda/pcie-plda.h
-@@ -124,6 +124,8 @@ struct plda_pcie_rp {
- struct plda_event {
- 	int (*request_event_irq)(struct plda_pcie_rp *pcie,
- 				 int event_irq, int event);
-+	int intx_event;
-+	int msi_event;
- };
- 
- void plda_pcie_setup_window(void __iomem *bridge_base_addr, u32 index,
+diff --git a/Documentation/devicetree/bindings/pci/starfive,jh7110-pcie.yaml b/Documentation/devicetree/bindings/pci/starfive,jh7110-pcie.yaml
+new file mode 100644
+index 000000000000..67151aaa3948
+--- /dev/null
++++ b/Documentation/devicetree/bindings/pci/starfive,jh7110-pcie.yaml
+@@ -0,0 +1,120 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/pci/starfive,jh7110-pcie.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: StarFive JH7110 PCIe host controller
++
++maintainers:
++  - Kevin Xie <kevin.xie@starfivetech.com>
++
++allOf:
++  - $ref: plda,xpressrich3-axi-common.yaml#
++
++properties:
++  compatible:
++    const: starfive,jh7110-pcie
++
++  clocks:
++    items:
++      - description: NOC bus clock
++      - description: Transport layer clock
++      - description: AXI MST0 clock
++      - description: APB clock
++
++  clock-names:
++    items:
++      - const: noc
++      - const: tl
++      - const: axi_mst0
++      - const: apb
++
++  resets:
++    items:
++      - description: AXI MST0 reset
++      - description: AXI SLAVE0 reset
++      - description: AXI SLAVE reset
++      - description: PCIE BRIDGE reset
++      - description: PCIE CORE reset
++      - description: PCIE APB reset
++
++  reset-names:
++    items:
++      - const: mst0
++      - const: slv0
++      - const: slv
++      - const: brg
++      - const: core
++      - const: apb
++
++  starfive,stg-syscon:
++    $ref: /schemas/types.yaml#/definitions/phandle-array
++    description:
++      The phandle to System Register Controller syscon node.
++
++  perst-gpios:
++    description: GPIO controlled connection to PERST# signal
++    maxItems: 1
++
++  phys:
++    description:
++      Specified PHY is attached to PCIe controller.
++    maxItems: 1
++
++required:
++  - clocks
++  - resets
++  - starfive,stg-syscon
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/gpio/gpio.h>
++    soc {
++        #address-cells = <2>;
++        #size-cells = <2>;
++
++        pcie@940000000 {
++            compatible = "starfive,jh7110-pcie";
++            reg = <0x9 0x40000000 0x0 0x10000000>,
++                  <0x0 0x2b000000 0x0 0x1000000>;
++            reg-names = "cfg", "apb";
++            #address-cells = <3>;
++            #size-cells = <2>;
++            #interrupt-cells = <1>;
++            device_type = "pci";
++            ranges = <0x82000000  0x0 0x30000000  0x0 0x30000000 0x0 0x08000000>,
++                     <0xc3000000  0x9 0x00000000  0x9 0x00000000 0x0 0x40000000>;
++            starfive,stg-syscon = <&stg_syscon>;
++            bus-range = <0x0 0xff>;
++            interrupt-parent = <&plic>;
++            interrupts = <56>;
++            interrupt-map-mask = <0x0 0x0 0x0 0x7>;
++            interrupt-map = <0x0 0x0 0x0 0x1 &pcie_intc0 0x1>,
++                            <0x0 0x0 0x0 0x2 &pcie_intc0 0x2>,
++                            <0x0 0x0 0x0 0x3 &pcie_intc0 0x3>,
++                            <0x0 0x0 0x0 0x4 &pcie_intc0 0x4>;
++            msi-controller;
++            clocks = <&syscrg 86>,
++                     <&stgcrg 10>,
++                     <&stgcrg 8>,
++                     <&stgcrg 9>;
++            clock-names = "noc", "tl", "axi_mst0", "apb";
++            resets = <&stgcrg 11>,
++                     <&stgcrg 12>,
++                     <&stgcrg 13>,
++                     <&stgcrg 14>,
++                     <&stgcrg 15>,
++                     <&stgcrg 16>;
++            perst-gpios = <&gpios 26 GPIO_ACTIVE_LOW>;
++            phys = <&pciephy0>;
++
++            pcie_intc0: interrupt-controller {
++                #address-cells = <0>;
++                #interrupt-cells = <1>;
++                interrupt-controller;
++            };
++        };
++    };
 -- 
 2.17.1
 
