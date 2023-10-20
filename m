@@ -4,60 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66A2FCDB474
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 Oct 2023 08:20:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82ED4CDB47E
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 Oct 2023 08:31:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Q126efqcXdIVmtStawohPpKyqzqGnzasR1/5zo61pVA=; b=M4EkLUxdiqOVjA
-	Flmps/c4HnQ10hbU6xbUdLsysn27hKAA/e6BBt5puTe/fFMp5JdKQifCnFyBmwNSUX0Dl/tKlcqO2
-	zJwspkoV/m1ejGdl+xHW3fD7CaJhmWFxDpbN74CyMUfV/kttt2GZBN1/hSEsU19JclMOXkbHwVfgT
-	Xajg6b+TexUYkk1mTsx91Ex68JlQs4kZ7oegKLgOxfhkQPud2Pa7olw/2DCeQbM9kJ6EQGQzW/fMY
-	1Kang8B6FEUHvjp1nnBJmglMR1YW8Eibhbp3dQctp5fBBaIMCFKUso8rdylZxPdb6i9scO1eCaG5K
-	i57g09FaFrfGulkzQBPw==;
+	List-Owner; bh=rsBdVP8Er2BY3uVwcfQK2f956DE3LU6xu98LkT2sR9E=; b=3u0ylEGK45oCoI
+	jfRmRNboB/dv+JZKDrYrIc1LqUz4kL9BGCLNyoWSQTqhjDrwzEn7RwhIqgBr+STYarclmdqspB1e4
+	+rst6I6VBwG6ryRbWddBhkMG3/QW/J7ArNmNOJbziC0F0QdR+oV7dOAwDWb84btOflCsx9/I/RcbV
+	he/ojlhZcPGebhxzwaf6Pi3hl5m+/zLVv9by63abS0g1Dc+QZGknYn6o9TFeqvVnmtBF8sJ5Sdum+
+	4C72/8/55x/JRQFcK+a8kUfx8fXKBncbp+RpzImEf8ZFRCNnhI2bSQ16ks7jZd6QiPSyZmV3PVFyi
+	LG+uHZUfZUw3A9C+Zoug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qtkkS-001XyI-00;
-	Fri, 20 Oct 2023 08:20:48 +0000
+	id 1qtkue-001ZCz-1o;
+	Fri, 20 Oct 2023 08:31:20 +0000
 Received: from 60-248-80-70.hinet-ip.hinet.net ([60.248.80.70] helo=Atcsqr.andestech.com)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qtkkO-001Xwg-1R
-	for linux-riscv@lists.infradead.org;
-	Fri, 20 Oct 2023 08:20:46 +0000
+	id 1qtkua-001ZAz-2O;
+	Fri, 20 Oct 2023 08:31:19 +0000
 Received: from mail.andestech.com (ATCPCS16.andestech.com [10.0.1.222])
-	by Atcsqr.andestech.com with ESMTP id 39K8KHU0009756;
-	Fri, 20 Oct 2023 16:20:17 +0800 (+08)
+	by Atcsqr.andestech.com with ESMTP id 39K8UpJf015318;
+	Fri, 20 Oct 2023 16:30:51 +0800 (+08)
 	(envelope-from peterlin@andestech.com)
 Received: from APC323 (10.0.12.98) by ATCPCS16.andestech.com (10.0.1.222) with
- Microsoft SMTP Server id 14.3.498.0; Fri, 20 Oct 2023 16:20:15 +0800
-Date: Fri, 20 Oct 2023 16:20:15 +0800
+ Microsoft SMTP Server id 14.3.498.0; Fri, 20 Oct 2023 16:30:49 +0800
+Date: Fri, 20 Oct 2023 16:30:46 +0800
 From: Yu-Chien Peter Lin <peterlin@andestech.com>
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-CC: <magnus.damm@gmail.com>, <robh+dt@kernel.org>,
-        <krzysztof.kozlowski+dt@linaro.org>, <conor+dt@kernel.org>,
-        <paul.walmsley@sifive.com>, <palmer@dabbelt.com>,
-        <aou@eecs.berkeley.edu>, <linux-renesas-soc@vger.kernel.org>,
-        <devicetree@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
-        <linux-kernel@vger.kernel.org>,
-        <prabhakar.mahadev-lad.rj@bp.renesas.com>, <tim609@andestech.com>,
-        <dylan@andestech.com>, <locus84@andestech.com>, <dminus@andestech.com>
-Subject: Re: [PATCH v2 09/10] riscv: dts: renesas: Add Andes PMU extension
-Message-ID: <ZTI4P9KIfS58WKuU@APC323>
-References: <20231019140232.3660375-1-peterlin@andestech.com>
- <CAMuHMdW1Ua4skxtT+9kyoSDiqt2kNiNG-1jHE8rf4+b14hX4Vg@mail.gmail.com>
+To: Conor Dooley <conor@kernel.org>
+Subject: Re: [RFC PATCH v2 08/10] perf: RISC-V: Introduce Andes PMU for perf
+ event sampling
+Message-ID: <ZTI6k00Z1la8EmtR@APC323>
+References: <20231019140156.3660000-1-peterlin@andestech.com>
+ <20231019-daybed-preschool-8663d5a86798@spud>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <CAMuHMdW1Ua4skxtT+9kyoSDiqt2kNiNG-1jHE8rf4+b14hX4Vg@mail.gmail.com>
+In-Reply-To: <20231019-daybed-preschool-8663d5a86798@spud>
 User-Agent: Mutt/2.2.10 (2023-03-25)
 X-Originating-IP: [10.0.12.98]
 X-DNSRBL: 
-X-MAIL: Atcsqr.andestech.com 39K8KHU0009756
+X-MAIL: Atcsqr.andestech.com 39K8UpJf015318
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231020_012044_923202_6296F0D4 
-X-CRM114-Status: GOOD (  23.84  )
+X-CRM114-CacheID: sfid-20231020_013117_215318_F25B80A0 
+X-CRM114-Status: GOOD (  18.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,45 +61,76 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: mark.rutland@arm.com, heiko@sntech.de, atishp@atishpatra.org, conor.dooley@microchip.com, jszhang@kernel.org, linux-riscv@lists.infradead.org, will@kernel.org, anup@brainfault.org, dminus@andestech.com, dylan@andestech.com, ajones@ventanamicro.com, aou@eecs.berkeley.edu, locus84@andestech.com, prabhakar.mahadev-lad.rj@bp.renesas.com, tim609@andestech.com, paul.walmsley@sifive.com, linux-arm-kernel@lists.infradead.org, Leo
+ Yu-Chi Liang <ycliang@andestech.com>, linux-kernel@vger.kernel.org, evan@rivosinc.com, palmer@dabbelt.com
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgR2VlcnQsCgpPbiBGcmksIE9jdCAyMCwgMjAyMyBhdCAwOTozMjo0NUFNICswMjAwLCBHZWVy
-dCBVeXR0ZXJob2V2ZW4gd3JvdGU6Cj4gSGkgUGV0ZXIsCj4gCj4gT24gVGh1LCBPY3QgMTksIDIw
-MjMgYXQgNDowNeKAr1BNIFl1IENoaWVuIFBldGVyIExpbgo+IDxwZXRlcmxpbkBhbmRlc3RlY2gu
-Y29tPiB3cm90ZToKPiA+IEFkZCAieGFuZGVzcG11IiB0byBJU0EgZXh0ZW5zaW9ucywgdGhlIFNC
-SSBQTVUgZHJpdmVyIHdpbGwKPiA+IHByb2JlIHRoZSBleHRlbnNpb24gYW5kIHVzZSB0aGUgbm9u
-LXN0YW5kYXJkIGlycSBzb3VyY2UuCj4gPgo+ID4gU2lnbmVkLW9mZi1ieTogWXUgQ2hpZW4gUGV0
-ZXIgTGluIDxwZXRlcmxpbkBhbmRlc3RlY2guY29tPgo+ID4gLS0tCj4gPiBDaGFuZ2VzIHYxIC0+
-IHYyOgo+ID4gICAtIE5ldyBwYXRjaAo+IAo+IFRoYW5rcyBmb3IgeW91ciBwYXRjaCEKPiAKPiA+
-IC0tLSBhL2FyY2gvcmlzY3YvYm9vdC9kdHMvcmVuZXNhcy9yOWEwN2cwNDNmLmR0c2kKPiA+ICsr
-KyBiL2FyY2gvcmlzY3YvYm9vdC9kdHMvcmVuZXNhcy9yOWEwN2cwNDNmLmR0c2kKPiA+IEBAIC0y
-Niw3ICsyNiw3IEBAIGNwdTA6IGNwdUAwIHsKPiA+ICAgICAgICAgICAgICAgICAgICAgICAgIHJp
-c2N2LGlzYSA9ICJydjY0aW1hZmRjIjsKPiA+ICAgICAgICAgICAgICAgICAgICAgICAgIHJpc2N2
-LGlzYS1iYXNlID0gInJ2NjRpIjsKPiA+ICAgICAgICAgICAgICAgICAgICAgICAgIHJpc2N2LGlz
-YS1leHRlbnNpb25zID0gImkiLCAibSIsICJhIiwgImYiLCAiZCIsICJjIiwgInppY250ciIsICJ6
-aWNzciIsCj4gPiAtICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICJ6aWZlbmNlaSIsICJ6aWhwbSI7Cj4gPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICJ6aWZlbmNlaSIsICJ6aWhwbSIsICJ4YW5kZXNwbXUiOwo+ID4gICAg
-ICAgICAgICAgICAgICAgICAgICAgbW11LXR5cGUgPSAicmlzY3Ysc3YzOSI7Cj4gPiAgICAgICAg
-ICAgICAgICAgICAgICAgICBpLWNhY2hlLXNpemUgPSA8MHg4MDAwPjsKPiA+ICAgICAgICAgICAg
-ICAgICAgICAgICAgIGktY2FjaGUtbGluZS1zaXplID0gPDB4NDA+Owo+IAo+IFRoaXMgZXh0ZW5z
-aW9uIGlzIG5vdCBkb2N1bWVudGVkIGluCj4gRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRp
-bmdzL3Jpc2N2L2V4dGVuc2lvbnMueWFtbC4gUGVyaGFwcyBpdCB3YXMKPiBpbnRyb2R1Y2VkIGlu
-IGFuIGVhcmxpZXIgcGF0Y2ggaW4gdGhlIHNlcmllcywgdG8gd2hpY2ggSSB3YXMgbm90IENDZWQ/
-CgpZZXMsIEkgbWlzc2VkIGFkZGluZyB0aGUgZXh0ZW5zaW9uIHRvIGR0IGJpbmRpbmdzLgpUaGFu
-a3MgZm9yIHRoZSBwb2ludGVyLgoKQmVzdCByZWdhcmRzLApQZXRlciBMaW4KCj4gCj4gVGhyZWFk
-aW5nIGlzIGJyb2tlbiwgc28gSSBjYW4ndCBlYXNpbHkgZmluZCB0aGUgd2hvbGUgc2VyaWVzIGlu
-IGxvcmU6Cj4gaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvYWxsLzIwMjMxMDE5MTQwMjMyLjM2NjAz
-NzUtMS1wZXRlcmxpbkBhbmRlc3RlY2guY29tLwo+IAo+IEdye29ldGplLGVldGluZ31zLAo+IAo+
-ICAgICAgICAgICAgICAgICAgICAgICAgIEdlZXJ0Cj4gCj4gLS0gCj4gR2VlcnQgVXl0dGVyaG9l
-dmVuIC0tIFRoZXJlJ3MgbG90cyBvZiBMaW51eCBiZXlvbmQgaWEzMiAtLSBnZWVydEBsaW51eC1t
-NjhrLm9yZwo+IAo+IEluIHBlcnNvbmFsIGNvbnZlcnNhdGlvbnMgd2l0aCB0ZWNobmljYWwgcGVv
-cGxlLCBJIGNhbGwgbXlzZWxmIGEgaGFja2VyLiBCdXQKPiB3aGVuIEknbSB0YWxraW5nIHRvIGpv
-dXJuYWxpc3RzIEkganVzdCBzYXkgInByb2dyYW1tZXIiIG9yIHNvbWV0aGluZyBsaWtlIHRoYXQu
-Cj4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAtLSBMaW51cyBUb3J2YWxkcwoKX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3Yg
-bWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3Rz
-LmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+Hi Conor,
+
+On Thu, Oct 19, 2023 at 05:02:18PM +0100, Conor Dooley wrote:
+> On Thu, Oct 19, 2023 at 10:01:56PM +0800, Yu Chien Peter Lin wrote:
+> > The Andes PMU extension provides the same mechanism as Sscofpmf,
+> > allowing us to reuse the SBI PMU driver to support event sampling
+> > and mode filtering.
+> > 
+> > To make use of this custom PMU extension, "xandespmu" needs
+> > to be appended to the riscv,isa-extensions for each cpu node
+> > in device-tree, and enable CONFIG_ANDES_CUSTOM_PMU.
+> > 
+> > Signed-off-by: Yu Chien Peter Lin <peterlin@andestech.com>
+> > Reviewed-by: Charles Ci-Jyun Wu <dminus@andestech.com>
+> > Reviewed-by: Leo Yu-Chi Liang <ycliang@andestech.com>
+> > Co-developed-by: Locus Wei-Han Chen <locus84@andestech.com>
+> > Signed-off-by: Locus Wei-Han Chen <locus84@andestech.com>
+> > ---
+> > Changes v1 -> v2:
+> >   - New patch
+> > ---
+> >  arch/riscv/include/asm/hwcap.h |  1 +
+> >  arch/riscv/kernel/cpufeature.c |  1 +
+> >  drivers/perf/Kconfig           | 14 ++++++++++++++
+> >  drivers/perf/riscv_pmu_sbi.c   | 35 +++++++++++++++++++++++++++++-----
+> >  4 files changed, 46 insertions(+), 5 deletions(-)
+> > 
+> > diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
+> > index d3082391c901..eecfe95d5050 100644
+> > --- a/arch/riscv/include/asm/hwcap.h
+> > +++ b/arch/riscv/include/asm/hwcap.h
+> > @@ -59,6 +59,7 @@
+> >  #define RISCV_ISA_EXT_ZIFENCEI		41
+> >  #define RISCV_ISA_EXT_ZIHPM		42
+> >  #define RISCV_ISA_EXT_XTHEADPMU		43
+> > +#define RISCV_ISA_EXT_XANDESPMU		44
+> >  
+> >  #define RISCV_ISA_EXT_MAX		64
+> >  
+> > diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+> > index 4a3fb017026c..a8e71c6dfb3e 100644
+> > --- a/arch/riscv/kernel/cpufeature.c
+> > +++ b/arch/riscv/kernel/cpufeature.c
+> > @@ -182,6 +182,7 @@ const struct riscv_isa_ext_data riscv_isa_ext[] = {
+> >  	__RISCV_ISA_EXT_DATA(svnapot, RISCV_ISA_EXT_SVNAPOT),
+> >  	__RISCV_ISA_EXT_DATA(svpbmt, RISCV_ISA_EXT_SVPBMT),
+> >  	__RISCV_ISA_EXT_DATA(xtheadpmu, RISCV_ISA_EXT_XTHEADPMU),
+> > +	__RISCV_ISA_EXT_DATA(xandespmu, RISCV_ISA_EXT_XANDESPMU),
+> 
+> This does not following the ordering convention (see the comment above
+> this datastructure) and is not documented in the dt-binding AFAICT.
+
+OK, will insert the xandespmu here.
+
+Thanks,
+Peter Lin
+
+> Cheers,
+> Conor.
+
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
