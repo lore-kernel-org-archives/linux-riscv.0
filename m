@@ -4,56 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F796CDB474
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 Oct 2023 08:06:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 897A3CDB474
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 Oct 2023 08:09:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=D8XTY5Qlkelvvf4RiZSh+GeEVjCj/I3J62QEA678ZK8=; b=xsn8qACvI5RfNV
-	WG7gexESV2YaJ8Ygy/vKeUk5kXCn50gGwQCA0knLi/Q2xxQU56Lla97zNEx7XwBJy21eLQIm4tszR
-	TSXkFnD2ngP5KMSHVmzpwvn7OcRmjVgEqHkbwAEnosulAh2jxbvCuiWHOFxG754ejMY8Ny4Xdy+7E
-	zLaxzxOmxtf8XP0gqsU+DQdixMCqzmfpCgQeBWSEWQy6zy28cgy9WQ1q4Al9UsXMX3+//C5UuLUP7
-	fYljfZRkTzu6AOR1u8jJlOJFzszf3I0dkI++l9NBWLlJsOG9ckqkWgZgt6CPrCE3xQmLb6ReoCB0L
-	l5aQPnWHKWblhRgcuc9A==;
+	List-Owner; bh=M9lcyBvWV/cejeQNQvy+YRog43IFxdIU5oYrZjtNeZU=; b=a8gdT1CTLK9Kq9
+	nosRa6+DkVZAzc1Fz9rsI3/IjogcTBc9krBPJn+RkmfDuOxtvhDfOMXb9A5fNCO5IiGJKzU3Qlc7G
+	DPomMieayNV4GwB/UP3oHmGvrEb+RuaNrKfuQibvp5ZjmTYdDqkm0D9DMk9TVM6+BPFasjUJGtCln
+	tyWEEuidHGHUF5k6Lm8N0LFlYGWiEIcJ8gTB2QGsIfY7LFp8T2WyVu7Y37FnnRdXUtZ0gDXwHuFTQ
+	tOH+Aa6uTFdwBZ08NVq78O9auv4KNExsFPz/2H8POG8Jaumf87gTRaLiSqXOEKxPNeOPGiqaLTZ/k
+	XP7rNHdqxKs2k+SOgYmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qtkWX-001W5j-1T;
-	Fri, 20 Oct 2023 08:06:25 +0000
+	id 1qtkYw-001WLb-35;
+	Fri, 20 Oct 2023 08:08:54 +0000
 Received: from 60-248-80-70.hinet-ip.hinet.net ([60.248.80.70] helo=Atcsqr.andestech.com)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qtkWT-001W4n-29
+	id 1qtkYu-001WKm-1d
 	for linux-riscv@lists.infradead.org;
-	Fri, 20 Oct 2023 08:06:24 +0000
+	Fri, 20 Oct 2023 08:08:54 +0000
 Received: from mail.andestech.com (ATCPCS16.andestech.com [10.0.1.222])
-	by Atcsqr.andestech.com with ESMTP id 39K85otO098746;
-	Fri, 20 Oct 2023 16:05:50 +0800 (+08)
+	by Atcsqr.andestech.com with ESMTP id 39K88Sw2002009;
+	Fri, 20 Oct 2023 16:08:28 +0800 (+08)
 	(envelope-from peterlin@andestech.com)
 Received: from APC323 (10.0.12.98) by ATCPCS16.andestech.com (10.0.1.222) with
- Microsoft SMTP Server id 14.3.498.0; Fri, 20 Oct 2023 16:05:49 +0800
-Date: Fri, 20 Oct 2023 16:05:45 +0800
+ Microsoft SMTP Server id 14.3.498.0; Fri, 20 Oct 2023 16:08:27 +0800
+Date: Fri, 20 Oct 2023 16:08:27 +0800
 From: Yu-Chien Peter Lin <peterlin@andestech.com>
-To: Conor Dooley <conor@kernel.org>
-CC: <paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
-        <linux-riscv@lists.infradead.org>,
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+CC: <conor@kernel.org>, <robh+dt@kernel.org>,
+        <krzysztof.kozlowski+dt@linaro.org>, <paul.walmsley@sifive.com>,
+        <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
+        <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>,
         <prabhakar.mahadev-lad.rj@bp.renesas.com>, <tim609@andestech.com>,
         <dylan@andestech.com>, <locus84@andestech.com>, <dminus@andestech.com>
-Subject: Re: [PATCH v2 00/10] Support Andes PMU extension
-Message-ID: <ZTI02VmswE5eR-_0@APC323>
-References: <20231019135238.3654285-1-peterlin@andestech.com>
- <20231019-cargo-outright-1c0a34431626@spud>
+Subject: Re: [PATCH v2 05/10] dt-bindings: riscv: Add andestech,cpu-intc to
+ interrupt-controller
+Message-ID: <ZTI1ex8xlif7w8tM@APC323>
+References: <20231019135905.3658215-1-peterlin@andestech.com>
+ <ba3ac1b2-d924-44cb-97dd-6af65a1db7a8@linaro.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20231019-cargo-outright-1c0a34431626@spud>
+In-Reply-To: <ba3ac1b2-d924-44cb-97dd-6af65a1db7a8@linaro.org>
 User-Agent: Mutt/2.2.10 (2023-03-25)
 X-Originating-IP: [10.0.12.98]
 X-DNSRBL: 
-X-MAIL: Atcsqr.andestech.com 39K85otO098746
+X-MAIL: Atcsqr.andestech.com 39K88Sw2002009
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231020_010622_165291_234779AB 
-X-CRM114-Status: GOOD (  13.02  )
+X-CRM114-CacheID: sfid-20231020_010852_983913_DB6F4CD9 
+X-CRM114-Status: GOOD (  14.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,34 +74,46 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 19, 2023 at 03:51:00PM +0100, Conor Dooley wrote:
-> On Thu, Oct 19, 2023 at 09:52:38PM +0800, Yu Chien Peter Lin wrote:
-> > Hi All,
+On Fri, Oct 20, 2023 at 09:00:03AM +0200, Krzysztof Kozlowski wrote:
+> On 19/10/2023 15:59, Yu Chien Peter Lin wrote:
+> > Add "andestech,cpu-intc" compatible string for Andes INTC which
+> > provides Andes-specific IRQ chip functions.
 > > 
-> > This patch series introduces the Andes PMU extension, which serves
-> > the same purpose as Sscofpmf. In this version we use FDT-based
-> > probing and the CONFIG_ANDES_CUSTOM_PMU to enable perf sampling
-> > and filtering support.
+> > Signed-off-by: Yu Chien Peter Lin <peterlin@andestech.com>
+> > ---
+> > Changes v1 -> v2:
+> >   - New patch
+> > ---
+> >  Documentation/devicetree/bindings/riscv/cpus.yaml | 4 +++-
+> >  1 file changed, 3 insertions(+), 1 deletion(-)
 > > 
-> > Its non-standard local interrupt is assigned to bit 18 in the
-> > custom S-mode local interrupt pending CSR (slip), while the
-> > interrupt cause is (256 + 18).
+> > diff --git a/Documentation/devicetree/bindings/riscv/cpus.yaml b/Documentation/devicetree/bindings/riscv/cpus.yaml
+> > index 97e8441eda1c..5b216e11c69f 100644
+> > --- a/Documentation/devicetree/bindings/riscv/cpus.yaml
+> > +++ b/Documentation/devicetree/bindings/riscv/cpus.yaml
+> > @@ -99,7 +99,9 @@ properties:
+> >          const: 1
+> >  
+> >        compatible:
+> > -        const: riscv,cpu-intc
+> > +        enum:
+> > +          - riscv,cpu-intc
+> > +          - andestech,cpu-intc
 > 
-> Chief, you gotta thread your patchsets. It seems like every mail in this
-> series has been sent individually, which is going to break tools like
-> b4 and the automated testing on patchwork.
+> Keep alphabetical order. Do not add stuff to the end of the lists. This
+> is a generic rule. Everywhere.
 
-Hi Conor,
+Hi Krzysztof,
 
-Sure, thanks for taking care of this!
+Thansk for pointing this out.
+Will fix this in PATCH v3.
 
-Regards,
+Best regards,
 Peter Lin
 
-> Cheers,
-> Conor.
-
-
+> Best regards,
+> Krzysztof
+> 
 
 _______________________________________________
 linux-riscv mailing list
