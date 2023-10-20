@@ -4,66 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B6F9C001DF
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 Oct 2023 10:38:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43671C25B42
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 Oct 2023 10:44:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9yjGkKtYhNzCL2THjDA6CdJtNsR/8mp+DkTKSoggjGg=; b=TV7RE4APf3Byt5
-	u0ADAwyyM62lQ6XGluYlseUVIlWc2CEAxmJ0YAOVfJ9BKSyb9ll6a9lpIZYYlo8+QW7jC/9w2eADN
-	3MoQCbCK3TWTkdhfgPdAx887ZgoBsH4GZZlsw5pHRpbvVawbfdfSDNXETEziZF+P1o5b94OxAeO0B
-	6hSdEhWZhULZJzhqSc2g2dhnwydZcspuTnXKQSMZOjZD0Muc9BApuLlIQEJwXxqYxz4U4OiLvJjqY
-	iFMDYuq++Mj+U1pXYXzI2Ubt5rSuDM9DhQadSZlPTMQ0gOW2HBS3G0YbbPM1jAIKt0ebkcjLNZzN7
-	DZo1ziqH2Ib2FtWdlXsQ==;
+	List-Owner; bh=Ug1dXOPO1q7UOOpR72jde60hamLSYpgbxLoxLHC4XDc=; b=rM3CJN9TVsNxHG
+	HeO+JpBdmLw0Mugbig5abn8ZZatRj3VbC0CZcHww9HBEbcDfbymQJ6qPL6B9faVRBDBdngo0JzZl8
+	OAFIsi987H2/gF41yzLBtYkiGe8iEuDhVDduRK589BU+BA75tg93ySKbjag2pcUthTpUO5s0pKrkU
+	DBGeaafn18GT5nGYAP9TfWAptz7N30+X2sEQ0QU8XmELu4vztIXc1s6mDajk72BQc9ACt47v+752C
+	nWekHJCa5kH61qMPZgGS+pg41YZ5q6/N8wzR0TGAebJRHWqONsgeCTaaSeuUVSxE/YTeJERYMvA5A
+	2Flp9OjJvHHFVkuHjasw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qtmto-001nUz-2e;
-	Fri, 20 Oct 2023 10:38:36 +0000
+	id 1qtmz4-001pdu-1u;
+	Fri, 20 Oct 2023 10:44:02 +0000
 Received: from ex01.ufhost.com ([61.152.239.75])
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qtmtk-001nKl-04
+	id 1qtmz0-001pWd-2i
 	for linux-riscv@lists.infradead.org;
-	Fri, 20 Oct 2023 10:38:35 +0000
+	Fri, 20 Oct 2023 10:44:01 +0000
 Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
 	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id 560D124E35A;
-	Fri, 20 Oct 2023 18:37:46 +0800 (CST)
-Received: from EXMBX168.cuchost.com (172.16.6.78) by EXMBX166.cuchost.com
+	by ex01.ufhost.com (Postfix) with ESMTP id 193D024E35D;
+	Fri, 20 Oct 2023 18:43:49 +0800 (CST)
+Received: from EXMBX171.cuchost.com (172.16.6.91) by EXMBX166.cuchost.com
  (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 20 Oct
- 2023 18:37:46 +0800
-Received: from williamqiu-virtual-machine.starfivetech.com (171.223.208.138)
- by EXMBX168.cuchost.com (172.16.6.78) with Microsoft SMTP Server (TLS) id
- 15.0.1497.42; Fri, 20 Oct 2023 18:37:45 +0800
-From: William Qiu <william.qiu@starfivetech.com>
-To: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, <linux-pwm@vger.kernel.org>
-CC: Emil Renner Berthing <kernel@esmil.dk>, Rob Herring <robh+dt@kernel.org>,
-	Thierry Reding <thierry.reding@gmail.com>, Philipp Zabel
-	<p.zabel@pengutronix.de>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor+dt@kernel.org>,
-	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>, "Hal
- Feng" <hal.feng@starfivetech.com>, Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
-	William Qiu <william.qiu@starfivetech.com>
-Subject: [PATCH v6 3/4] riscv: dts: starfive: jh7110: Add PWM node and pins configuration
-Date: Fri, 20 Oct 2023 18:37:40 +0800
-Message-ID: <20231020103741.557735-4-william.qiu@starfivetech.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20231020103741.557735-1-william.qiu@starfivetech.com>
-References: <20231020103741.557735-1-william.qiu@starfivetech.com>
+ 2023 18:43:49 +0800
+Received: from ubuntu.localdomain (183.27.99.123) by EXMBX171.cuchost.com
+ (172.16.6.91) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 20 Oct
+ 2023 18:43:47 +0800
+From: Minda Chen <minda.chen@starfivetech.com>
+To: Conor Dooley <conor@kernel.org>, =?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?=
+	<kw@linux.com>, Rob Herring <robh+dt@kernel.org>, Bjorn Helgaas
+	<bhelgaas@google.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, "Daire
+ McNamara" <daire.mcnamara@microchip.com>, Emil Renner Berthing
+	<emil.renner.berthing@canonical.com>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>
+CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, <linux-pci@vger.kernel.org>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Philipp Zabel <p.zabel@pengutronix.de>, Mason Huo
+	<mason.huo@starfivetech.com>, Leyfoon Tan <leyfoon.tan@starfivetech.com>,
+	Kevin Xie <kevin.xie@starfivetech.com>, Minda Chen
+	<minda.chen@starfivetech.com>
+Subject: [PATCH v9 07/20] PCI: microchip: Rename two setup functions
+Date: Fri, 20 Oct 2023 18:43:28 +0800
+Message-ID: <20231020104341.63157-8-minda.chen@starfivetech.com>
+X-Mailer: git-send-email 2.17.1
+In-Reply-To: <20231020104341.63157-1-minda.chen@starfivetech.com>
+References: <20231020104341.63157-1-minda.chen@starfivetech.com>
 MIME-Version: 1.0
-X-Originating-IP: [171.223.208.138]
-X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX168.cuchost.com
- (172.16.6.78)
+X-Originating-IP: [183.27.99.123]
+X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX171.cuchost.com
+ (172.16.6.91)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231020_033832_389860_9A35FE01 
-X-CRM114-Status: UNSURE (   8.94  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20231020_034359_190310_BE2B601B 
+X-CRM114-Status: GOOD (  13.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,78 +82,81 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add OpenCores PWM controller node and add PWM pins configuration
-on VisionFive 2 board.
+Rename two setup functions to plda prefix.
+Prepare to re-use these two setup function.
 
-Signed-off-by: William Qiu <william.qiu@starfivetech.com>
-Reviewed-by: Hal Feng <hal.feng@starfivetech.com>
+For two setup functions names are similar, rename
+mc_pcie_setup_windows() to plda_pcie_setup_iomems()
+
+Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- .../jh7110-starfive-visionfive-2.dtsi         | 22 +++++++++++++++++++
- arch/riscv/boot/dts/starfive/jh7110.dtsi      |  9 ++++++++
- 2 files changed, 31 insertions(+)
+ .../pci/controller/plda/pcie-microchip-host.c | 24 +++++++++----------
+ 1 file changed, 12 insertions(+), 12 deletions(-)
 
-diff --git a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
-index 12ebe9792356..63d16a6a4e12 100644
---- a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
-+++ b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
-@@ -268,6 +268,12 @@ reserved-data@600000 {
- 	};
- };
+diff --git a/drivers/pci/controller/plda/pcie-microchip-host.c b/drivers/pci/controller/plda/pcie-microchip-host.c
+index 261147a0a446..4877d130ee4c 100644
+--- a/drivers/pci/controller/plda/pcie-microchip-host.c
++++ b/drivers/pci/controller/plda/pcie-microchip-host.c
+@@ -838,9 +838,9 @@ static int mc_pcie_init_irq_domains(struct plda_pcie_rp *port)
+ 	return mc_allocate_msi_domains(port);
+ }
  
-+&pwm {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pwm_pins>;
-+	status = "okay";
-+};
-+
- &spi0 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&spi0_pins>;
-@@ -402,6 +408,22 @@ GPOEN_SYS_SDIO1_DATA3,
- 		};
- 	};
+-static void mc_pcie_setup_window(void __iomem *bridge_base_addr, u32 index,
+-				 phys_addr_t axi_addr, phys_addr_t pci_addr,
+-				 size_t size)
++static void plda_pcie_setup_window(void __iomem *bridge_base_addr, u32 index,
++				   phys_addr_t axi_addr, phys_addr_t pci_addr,
++				   size_t size)
+ {
+ 	u32 atr_sz = ilog2(size) - 1;
+ 	u32 val;
+@@ -876,8 +876,8 @@ static void mc_pcie_setup_window(void __iomem *bridge_base_addr, u32 index,
+ 	writel(0, bridge_base_addr + ATR0_PCIE_WIN0_SRC_ADDR);
+ }
  
-+	pwm_pins: pwm-0 {
-+		pwm-pins {
-+			pinmux = <GPIOMUX(46, GPOUT_SYS_PWM_CHANNEL0,
-+					      GPOEN_SYS_PWM0_CHANNEL0,
-+					      GPI_NONE)>,
-+				 <GPIOMUX(59, GPOUT_SYS_PWM_CHANNEL1,
-+					      GPOEN_SYS_PWM0_CHANNEL1,
-+					      GPI_NONE)>;
-+			bias-disable;
-+			drive-strength = <12>;
-+			input-disable;
-+			input-schmitt-disable;
-+			slew-rate = <0>;
-+		};
-+	};
-+
- 	spi0_pins: spi0-0 {
- 		mosi-pins {
- 			pinmux = <GPIOMUX(52, GPOUT_SYS_SPI0_TXD,
-diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-index e85464c328d0..4024165d4538 100644
---- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
-+++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-@@ -736,6 +736,15 @@ spi6: spi@120a0000 {
- 			status = "disabled";
- 		};
+-static int mc_pcie_setup_windows(struct platform_device *pdev,
+-				 struct plda_pcie_rp *port)
++static int plda_pcie_setup_iomems(struct platform_device *pdev,
++				  struct plda_pcie_rp *port)
+ {
+ 	void __iomem *bridge_base_addr = port->bridge_addr;
+ 	struct pci_host_bridge *bridge = platform_get_drvdata(pdev);
+@@ -888,9 +888,9 @@ static int mc_pcie_setup_windows(struct platform_device *pdev,
+ 	resource_list_for_each_entry(entry, &bridge->windows) {
+ 		if (resource_type(entry->res) == IORESOURCE_MEM) {
+ 			pci_addr = entry->res->start - entry->offset;
+-			mc_pcie_setup_window(bridge_base_addr, index,
+-					     entry->res->start, pci_addr,
+-					     resource_size(entry->res));
++			plda_pcie_setup_window(bridge_base_addr, index,
++					       entry->res->start, pci_addr,
++					       resource_size(entry->res));
+ 			index++;
+ 		}
+ 	}
+@@ -1023,15 +1023,15 @@ static int mc_platform_init(struct pci_config_window *cfg)
+ 	int ret;
  
-+		pwm: pwm@120d0000 {
-+			compatible = "starfive,jh71x0-pwm";
-+			reg = <0x0 0x120d0000 0x0 0x10000>;
-+			clocks = <&syscrg JH7110_SYSCLK_PWM_APB>;
-+			resets = <&syscrg JH7110_SYSRST_PWM_APB>;
-+			#pwm-cells = <3>;
-+			status = "disabled";
-+		};
-+
- 		sfctemp: temperature-sensor@120e0000 {
- 			compatible = "starfive,jh7110-temp";
- 			reg = <0x0 0x120e0000 0x0 0x10000>;
+ 	/* Configure address translation table 0 for PCIe config space */
+-	mc_pcie_setup_window(bridge_base_addr, 0, cfg->res.start,
+-			     cfg->res.start,
+-			     resource_size(&cfg->res));
++	plda_pcie_setup_window(bridge_base_addr, 0, cfg->res.start,
++			       cfg->res.start,
++			       resource_size(&cfg->res));
+ 
+ 	/* Need some fixups in config space */
+ 	mc_pcie_enable_msi(port, cfg->win);
+ 
+ 	/* Configure non-config space outbound ranges */
+-	ret = mc_pcie_setup_windows(pdev, &port->plda);
++	ret = plda_pcie_setup_iomems(pdev, &port->plda);
+ 	if (ret)
+ 		return ret;
+ 
 -- 
-2.34.1
+2.17.1
 
 
 _______________________________________________
