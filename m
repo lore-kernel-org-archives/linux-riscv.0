@@ -4,54 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF3C1C001DF
-	for <linux-riscv@archiver.kernel.org>; Sun, 22 Oct 2023 09:10:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B09ABC001DF
+	for <linux-riscv@archiver.kernel.org>; Sun, 22 Oct 2023 14:42:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pmXCphHvnPzG7J4HGXzR/jMmij18zESU6vpCqisDrTg=; b=OX9HETrbxj1Bq+
-	MvPN6RdZ/vsvybMdoNYK0QBzXbo7cgywrIgGFcy6dfjUQhoeTLvrB747mxrRx+iSm/RnRYaTM9uo+
-	DJrYzCJAcUeGiKMPLhLyvrp4t1R+bfh9Hqa/rI8ljYfvzmmyPOEPxNgGPvufnowMNm+iFX2CtlF9g
-	kwIt+4L6As6P86m18Tkoz7WuQ3A7sSCarVD/Z2YNWH8DprxNFalEwnrqhfZyxCycM8gFCUvH9CEZ/
-	AxfZ0qdyo1/YslsRgXndtpciiTugmb8ZPOdWwZrHfAaxsdy4tYUruAGLgFq1Z+r9Hc7lC+tAcy7I2
-	qIET0OTKW5Pq8kzr/AAw==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=WN1EjkhRX0+nA+pVcN8RXYEYK0pGom/AOiCe2yJyfCw=; b=Q3G7rPkeaZINKd
+	/MRJPvrfwzAoMNKCv5ZCx0RVoPJs2GKQf+jYGq8zjeqINONDw/KjRJM23PQQdgQyoGnHKcp/l3Aiv
+	ZlGjTzb/pgQ/zO1B9D5cNdp0vNU0YzIFdH4GzOAnvKpF3iRLQiznhVkvUIVN/z5mEeyBQkzmvWJBu
+	nMw0paz/Jaz/GdsA4cUvuDG1PY7tve3rQJitNIkylkPbco3LkaKlhQ3hC85E7bOFF0tchhyOZHBh8
+	C9zy/5WxuAmUZkjajzyeEUJRC958s/snw1bxUH71AWbzvYXqS6ybVa/mXG/ihGEhUhqu2CJEoBSSn
+	mXQWJR5Q3KlftY2djI9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1quUTP-0057DU-0w;
-	Sun, 22 Oct 2023 09:10:15 +0000
-Received: from 60-248-80-70.hinet-ip.hinet.net ([60.248.80.70] helo=Atcsqr.andestech.com)
+	id 1quZf1-005ZDG-0U;
+	Sun, 22 Oct 2023 14:42:35 +0000
+Received: from mail-lj1-x22a.google.com ([2a00:1450:4864:20::22a])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1quUTL-0057Cx-0q;
-	Sun, 22 Oct 2023 09:10:13 +0000
-Received: from mail.andestech.com (ATCPCS16.andestech.com [10.0.1.222])
-	by Atcsqr.andestech.com with ESMTP id 39M99FBx063388;
-	Sun, 22 Oct 2023 17:09:15 +0800 (+08)
-	(envelope-from peterlin@andestech.com)
-Received: from APC323 (10.0.12.98) by ATCPCS16.andestech.com (10.0.1.222) with
- Microsoft SMTP Server id 14.3.498.0; Sun, 22 Oct 2023 17:09:12 +0800
-Date: Sun, 22 Oct 2023 17:09:09 +0800
-From: Yu-Chien Peter Lin <peterlin@andestech.com>
-To: Conor Dooley <conor@kernel.org>
-Subject: Re: [RFC PATCH v2 07/10] perf: RISC-V: Move T-Head PMU to CPU
- feature alternative framework
-Message-ID: <ZTTmtVnZrioRWpJx@APC323>
-References: <20231019140119.3659651-1-peterlin@andestech.com>
- <20231019-predator-quartet-e56f43d5aa8d@spud>
- <ZTJAYqk_DnrR9-Sc@APC323>
- <20231020-snippet-diffusive-1a6052d52aae@spud>
+	id 1quZex-005ZCV-34
+	for linux-riscv@lists.infradead.org;
+	Sun, 22 Oct 2023 14:42:33 +0000
+Received: by mail-lj1-x22a.google.com with SMTP id 38308e7fff4ca-2b9d07a8d84so31962651fa.3
+        for <linux-riscv@lists.infradead.org>; Sun, 22 Oct 2023 07:42:30 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1697985748; x=1698590548; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=i2jxN58Rd50B5qNlzzl+HgDNo1YZPDCqE37ZPo/QrR8=;
+        b=W2NQFze/0Ey5zUwPSiBuQyyJvNirJ0HZCWg8Hhpz35qI5MTnMllqRTPGc/tek7IY+L
+         QzzDJvoCs53qoQV+Rm5C05osn7/s2sg4xybR8RUgs3Nr7tg/DaTVMrmbpa1TkkGfsbvK
+         zHKusX+Ov1siicmEtQAwZ8HJKzUQB6f1DK/056pl352oX0AhZiQ9VWB60HGtlu3GnsKJ
+         5TxrMI5Fy+CUu7jJgdff1k+BsWSs6UlJ297eZUQF011BSnGD13Z32ApLmvoUo0GBnPmr
+         bxwqkSO59EErB39OzPZ7byLNN2NDg1dtKVw3sdoINXDkYhHQHQHHOm/4gb9NYKEm34JB
+         +2nQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1697985748; x=1698590548;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=i2jxN58Rd50B5qNlzzl+HgDNo1YZPDCqE37ZPo/QrR8=;
+        b=dIBpnxEcT6hgep+Y+5QWQA7/mY1aV05QNIr4D3ju5DP/6mruPcO1VhrEnb4yhR5nj3
+         MBJXkoQk2kg22OMSOIXxrCImTDMIB+0j7GsGNNMGCqnBmE8Qd1LICk9gdOVlH/xnoj+y
+         hNzlES+4KQMOjmavHxEyVuiiKxKwoiamOBcUicUdVfuPfl2JPPgP2vNYZBspqkUOXvOr
+         AmHvHXYm8I5ZAof9fo2YXp/ZhbEe2jkCFVoMAVjpPLjiHhQBKhQD85fuHBM+0RdkMlMo
+         nR6+i+x3p0vH9B3eiWobr8G1gMFBaX4dj7r62X2LC3ikuZnwOIgWiRQHNvjWgCjvPeFS
+         cuEQ==
+X-Gm-Message-State: AOJu0YyzEx5wxjPEGY9vs2r74VXMQOBOMFm90SK2xcjSydlTsB93urNG
+	63jXUNHeyg+nVzS029JIpiwYYA==
+X-Google-Smtp-Source: AGHT+IF4DjTi8VI5kLF6HbYNHbRd4ens1x/g/+IRCor29hYZcgSeulBALYpy478UxCsdxjTinUPj5w==
+X-Received: by 2002:a05:651c:1025:b0:2c0:1bf9:3c94 with SMTP id w5-20020a05651c102500b002c01bf93c94mr4262023ljm.50.1697985748380;
+        Sun, 22 Oct 2023 07:42:28 -0700 (PDT)
+Received: from alex-rivos.ba.rivosinc.com (amontpellier-656-1-456-62.w92-145.abo.wanadoo.fr. [92.145.124.62])
+        by smtp.gmail.com with ESMTPSA id iv15-20020a05600c548f00b00405c7591b09sm7115935wmb.35.2023.10.22.07.42.27
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 22 Oct 2023 07:42:27 -0700 (PDT)
+From: Alexandre Ghiti <alexghiti@rivosinc.com>
+To: Atish Patra <atishp@atishpatra.org>,
+	Anup Patel <anup@brainfault.org>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	linux-riscv@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: =?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>
+Subject: [PATCH -fixes] drivers: perf: Do not broadcast to other cpus when starting a counter
+Date: Sun, 22 Oct 2023 16:42:20 +0200
+Message-Id: <20231022144220.109469-1-alexghiti@rivosinc.com>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20231020-snippet-diffusive-1a6052d52aae@spud>
-User-Agent: Mutt/2.2.10 (2023-03-25)
-X-Originating-IP: [10.0.12.98]
-X-DNSRBL: 
-X-MAIL: Atcsqr.andestech.com 39M99FBx063388
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231022_021012_080823_7ED5880C 
-X-CRM114-Status: GOOD (  40.74  )
+X-CRM114-CacheID: sfid-20231022_074231_987220_5519B83C 
+X-CRM114-Status: GOOD (  10.67  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,112 +94,90 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, heiko@sntech.de, atishp@atishpatra.org, conor.dooley@microchip.com, guoren@kernel.org, jszhang@kernel.org, linux-riscv@lists.infradead.org, will@kernel.org, samuel@sholland.org, anup@brainfault.org, dminus@andestech.com, dylan@andestech.com, ajones@ventanamicro.com, aou@eecs.berkeley.edu, prabhakar.mahadev-lad.rj@bp.renesas.com, locus84@andestech.com, tim609@andestech.com, paul.walmsley@sifive.com, linux-arm-kernel@lists.infradead.org, rdunlap@infradead.org, linux-kernel@vger.kernel.org, evan@rivosinc.com, palmer@dabbelt.com
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Conor,
-
-On Fri, Oct 20, 2023 at 10:05:20AM +0100, Conor Dooley wrote:
-> On Fri, Oct 20, 2023 at 04:54:58PM +0800, Yu-Chien Peter Lin wrote:
-> > On Thu, Oct 19, 2023 at 05:13:00PM +0100, Conor Dooley wrote:
-> > > On Thu, Oct 19, 2023 at 10:01:19PM +0800, Yu Chien Peter Lin wrote:
-> > > 
-> > > $subject: perf: RISC-V: Move T-Head PMU to CPU feature alternative framework
-> > > 
-> > > IMO, this should be "RISC-V, perf:" or just "RISC-V" as the changes
-> > > being made to the arch code are far more meaningful than those
-> > > elsewhere.
-> > 
-> > OK will update the subject to "RISC-V:"
-> > 
-> > > > The custom PMU extension was developed to support perf event sampling
-> > > > prior to the ratification of Sscofpmf. Instead of utilizing the standard
-> > > > bits and CSR of Sscofpmf, a set of custom CSRs is added. So we may
-> > > > consider it as a CPU feature rather than an erratum.
-> > > > 
-> > > > T-Head cores need to append "xtheadpmu" to the riscv,isa-extensions
-> > > > for each cpu node in device tree, and enable CONFIG_THEAD_CUSTOM_PMU
-> > > > for proper functioning as of this commit.
-> > > 
-> > > And in doing so, you regress break perf for existing DTs :(
-> > > You didn't add the property to existing DTS in-kernel either, so if this
-> > > series was applied, perf would just entirely stop working, no?
-> > 
-> > Only `perf record/top` stop working I think.
-> > 
-> > There are too many users out there, and don't have the boards to
-> > test, so leave those DTS unchanged, it would be great if T-Head
-> > community could help to check/update their DTS.
-> 
-> So, there are too many users to add xtheadpmu to the devicetrees, but
-> not too many users to make changes that will cause a regression?
-> I'm not following the logic here, sorry.
-
-humm, I'll try. I assume that the sun20i-d1s.dtsi is all I need
-to update for T-Head PMU.
-
-> > > > Signed-off-by: Yu Chien Peter Lin <peterlin@andestech.com>
-> > > > ---
-> > > > Hi All,
-> > > > 
-> > > > This is in preparation for introducing other PMU alternative.
-> > > > We follow Conor's suggestion [1] to use cpu feature alternative
-> > > > framework rather than errta, if you want to stick with errata
-> > > > alternative or have other issues, please let me know. Thanks.
-> > > 
-> > > Personally, I like this conversion, but it is going to regress support
-> > > for perf on any T-Head cores which may be a bitter pill to get people to
-> > > actually accept...
-> > > Perhaps we could add this "improved" detection in parallel, and
-> > > eventually remove the m*id based stuff in the future.
-> > > 
-> > > > [1] https://patchwork.kernel.org/project/linux-riscv/patch/20230907021635.1002738-4-peterlin@andestech.com/#25503860
-> > > > 
-> > > > Changes v1 -> v2:
-> > > >   - New patch
-> > > > ---
-> 
-> > > > @@ -805,7 +816,8 @@ static int pmu_sbi_setup_irqs(struct riscv_pmu *pmu, struct platform_device *pde
-> > > >  	if (riscv_isa_extension_available(NULL, SSCOFPMF)) {
-> > > >  		riscv_pmu_irq_num = RV_IRQ_PMU;
-> > > >  		riscv_pmu_use_irq = true;
-> > > > -	} else if (IS_ENABLED(CONFIG_ERRATA_THEAD_PMU) &&
-> > > > +	} else if (riscv_isa_extension_available(NULL, XTHEADPMU) &&
-> > > > +		   IS_ENABLED(CONFIG_THEAD_CUSTOM_PMU) &&
-> > > >  		   riscv_cached_mvendorid(0) == THEAD_VENDOR_ID &&
-> > > >  		   riscv_cached_marchid(0) == 0 &&
-> > > >  		   riscv_cached_mimpid(0) == 0) {
-> > > 
-> > > Can all of the m*id checks be removed, since the firmware is now
-> > > explicitly telling us that the T-Head PMU is supported?
-> > 
-> > I can only comfirm that boards with "allwinner,sun20i-d1" compatible
-> > string uses the T-Head PMU device callbacks.
-> 
-> I'm not sure how that is an answer to my question.
-
-Sorry for that unclear answer.
-Yes, I agree we no longer need to check the m*id here.
-
-In OpenSBI, it appears that allwinner D1 is the only platform that
-has T-Head PMU support, the other T-Head platforms need to ensure
-that the callbacks [1] are registered in order to work with SBI
-PMU driver in kernel.
-
-Regards,
-Peter Lin
-
-[1] https://github.com/riscv-software-src/opensbi/blob/v1.3.1/platform/generic/allwinner/sun20i-d1.c#L263-L272
-
-> Thanks,
-> Conor.
-
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+VGhpcyBjb21tYW5kOgoKJCBwZXJmIHJlY29yZCAtZSBjeWNsZXM6ayAtZSBpbnN0cnVjdGlvbnM6
+ayAtYyAxMDAwMCAtbSA2NE0gZGQgaWY9L2Rldi96ZXJvIG9mPS9kZXYvbnVsbCBjb3VudD0xMDAw
+CgpnaXZlcyByaXNlIHRvIHRoaXMga2VybmVsIHdhcm5pbmc6CgpbICA0NDQuMzY0Mzk1XSBXQVJO
+SU5HOiBDUFU6IDAgUElEOiAxMDQgYXQga2VybmVsL3NtcC5jOjc3NSBzbXBfY2FsbF9mdW5jdGlv
+bl9tYW55X2NvbmQrMHg0MmMvMHg0MzYKWyAgNDQ0LjM2NDUxNV0gTW9kdWxlcyBsaW5rZWQgaW46
+ClsgIDQ0NC4zNjQ2NTddIENQVTogMCBQSUQ6IDEwNCBDb21tOiBwZXJmLWV4ZWMgTm90IHRhaW50
+ZWQgNi42LjAtcmM2LTAwMDUxLWczOTFkZjgyZThlYzMtZGlydHkgIzczClsgIDQ0NC4zNjQ3NzFd
+IEhhcmR3YXJlIG5hbWU6IHJpc2N2LXZpcnRpbyxxZW11IChEVCkKWyAgNDQ0LjM2NDg2OF0gZXBj
+IDogc21wX2NhbGxfZnVuY3Rpb25fbWFueV9jb25kKzB4NDJjLzB4NDM2ClsgIDQ0NC4zNjQ5MTdd
+ICByYSA6IG9uX2VhY2hfY3B1X2NvbmRfbWFzaysweDIwLzB4MzIKWyAgNDQ0LjM2NDk0OF0gZXBj
+IDogZmZmZmZmZmY4MDA5ZjllMCByYSA6IGZmZmZmZmZmODAwOWZhNWEgc3AgOiBmZjIwMDAwMDAw
+MDAzODAwClsgIDQ0NC4zNjQ5NjZdICBncCA6IGZmZmZmZmZmODE1MDBhYTAgdHAgOiBmZjYwMDAw
+MDAyYjgzMDAwIHQwIDogZmYyMDAwMDAwMDAwMzhjMApbICA0NDQuMzY0OTgyXSAgdDEgOiBmZmZm
+ZmZmZjgxNTAyMWYwIHQyIDogMDAwMDAwMDAwMDAwMDAxZiBzMCA6IGZmMjAwMDAwMDAwMDM4YjAK
+WyAgNDQ0LjM2NDk5OF0gIHMxIDogZmY2MDAwMDAwMmM1NGQ5OCBhMCA6IGZmNjAwMDAwMDJhNzM5
+NDAgYTEgOiAwMDAwMDAwMDAwMDAwMDAwClsgIDQ0NC4zNjUwMTNdICBhMiA6IDAwMDAwMDAwMDAw
+MDAwMDAgYTMgOiAwMDAwMDAwMDAwMDAwMDAzIGE0IDogMDAwMDAwMDAwMDAwMDEwMApbICA0NDQu
+MzY1MDI5XSAgYTUgOiAwMDAwMDAwMDAwMDEwMTAwIGE2IDogMDAwMDAwMDAwMGYwMDAwMCBhNyA6
+IDAwMDAwMDAwMDAwMDAwMDAKWyAgNDQ0LjM2NTA0NF0gIHMyIDogMDAwMDAwMDAwMDAwMDAwMCBz
+MyA6IGZmZmZmZmZmZmZmZmZmZmYgczQgOiBmZjYwMDAwMDAyYzU0ZDk4ClsgIDQ0NC4zNjUwNjBd
+ICBzNSA6IGZmZmZmZmZmODE1Mzk2MTAgczYgOiBmZmZmZmZmZjgwYzIwYzQ4IHM3IDogMDAwMDAw
+MDAwMDAwMDAwMApbICA0NDQuMzY1MDc1XSAgczggOiAwMDAwMDAwMDAwMDAwMDAwIHM5IDogMDAw
+MDAwMDAwMDAwMDAwMSBzMTA6IDAwMDAwMDAwMDAwMDAwMDEKWyAgNDQ0LjM2NTA5MF0gIHMxMTog
+ZmZmZmZmZmY4MDA5OTM5NCB0MyA6IDAwMDAwMDAwMDAwMDAwMDMgdDQgOiAwMDAwMDAwMGVhYzBj
+NmU2ClsgIDQ0NC4zNjUxMDRdICB0NSA6IDAwMDAwMDA0MDAwMDAwMDAgdDYgOiBmZjYwMDAwMDAy
+ZTAxMGQwClsgIDQ0NC4zNjUxMjBdIHN0YXR1czogMDAwMDAwMDIwMDAwMDEwMCBiYWRhZGRyOiAw
+MDAwMDAwMDAwMDAwMDAwIGNhdXNlOiAwMDAwMDAwMDAwMDAwMDAzClsgIDQ0NC4zNjUyMjZdIFs8
+ZmZmZmZmZmY4MDA5ZjllMD5dIHNtcF9jYWxsX2Z1bmN0aW9uX21hbnlfY29uZCsweDQyYy8weDQz
+NgpbICA0NDQuMzY1Mjk1XSBbPGZmZmZmZmZmODAwOWZhNWE+XSBvbl9lYWNoX2NwdV9jb25kX21h
+c2srMHgyMC8weDMyClsgIDQ0NC4zNjUzMTFdIFs8ZmZmZmZmZmY4MDZlOTBkYz5dIHBtdV9zYmlf
+Y3RyX3N0YXJ0KzB4N2EvMHhhYQpbICA0NDQuMzY1MzI3XSBbPGZmZmZmZmZmODA2ZTg4MGM+XSBy
+aXNjdl9wbXVfc3RhcnQrMHg0OC8weDY2ClsgIDQ0NC4zNjUzMzldIFs8ZmZmZmZmZmY4MDEyMTEx
+YT5dIHBlcmZfYWRqdXN0X2ZyZXFfdW50aHJfY29udGV4dCsweDE5Ni8weDFhYwpbICA0NDQuMzY1
+MzU2XSBbPGZmZmZmZmZmODAxMjM3YWE+XSBwZXJmX2V2ZW50X3Rhc2tfdGljaysweDc4LzB4OGMK
+WyAgNDQ0LjM2NTM2OF0gWzxmZmZmZmZmZjgwMDNmYWY0Pl0gc2NoZWR1bGVyX3RpY2srMHhlNi8w
+eDI1ZQpbICA0NDQuMzY1MzgzXSBbPGZmZmZmZmZmODAwOGEwNDI+XSB1cGRhdGVfcHJvY2Vzc190
+aW1lcysweDgwLzB4OTYKWyAgNDQ0LjM2NTM5OF0gWzxmZmZmZmZmZjgwMDk5MWVjPl0gdGlja19z
+Y2hlZF9oYW5kbGUrMHgyNi8weDUyClsgIDQ0NC4zNjU0MTBdIFs8ZmZmZmZmZmY4MDA5OTNlND5d
+IHRpY2tfc2NoZWRfdGltZXIrMHg1MC8weDk4ClsgIDQ0NC4zNjU0MjJdIFs8ZmZmZmZmZmY4MDA4
+YTZhYT5dIF9faHJ0aW1lcl9ydW5fcXVldWVzKzB4MTI2LzB4MThhClsgIDQ0NC4zNjU0MzNdIFs8
+ZmZmZmZmZmY4MDA4YjM1MD5dIGhydGltZXJfaW50ZXJydXB0KzB4Y2UvMHgxZGEKWyAgNDQ0LjM2
+NTQ0NF0gWzxmZmZmZmZmZjgwNmNkYzYwPl0gcmlzY3ZfdGltZXJfaW50ZXJydXB0KzB4MzAvMHgz
+YQpbICA0NDQuMzY1NDU3XSBbPGZmZmZmZmZmODAwNmFmYTY+XSBoYW5kbGVfcGVyY3B1X2Rldmlk
+X2lycSsweDgwLzB4MTE0ClsgIDQ0NC4zNjU0NzBdIFs8ZmZmZmZmZmY4MDA2NWI4Mj5dIGdlbmVy
+aWNfaGFuZGxlX2RvbWFpbl9pcnErMHgxYy8weDJhClsgIDQ0NC4zNjU0ODNdIFs8ZmZmZmZmZmY4
+MDQ1ZmFlYz5dIHJpc2N2X2ludGNfaXJxKzB4MmUvMHg0NgpbICA0NDQuMzY1NDk3XSBbPGZmZmZm
+ZmZmODA4YTljNjI+XSBoYW5kbGVfcmlzY3ZfaXJxKzB4NGEvMHg3NApbICA0NDQuMzY1NTIxXSBb
+PGZmZmZmZmZmODA4YWE3NjA+XSBkb19pcnErMHg3Yy8weDdlClsgIDQ0NC4zNjU3OTZdIC0tLVsg
+ZW5kIHRyYWNlIDAwMDAwMDAwMDAwMDAwMDAgXS0tLQoKVGhhdCdzIGJlY2F1c2UgdGhlIGZpeCBp
+biBjb21taXQgM2ZlYzMyMzMzOWE0ICgiZHJpdmVyczogcGVyZjogRml4IHBhbmljCmluIHJpc2N2
+IFNCSSBtbWFwIHN1cHBvcnQiKSB3YXMgd3Jvbmcgc2luY2UgdGhlcmUgaXMgbm8gbmVlZCB0byBi
+cm9hZGNhc3QKdG8gb3RoZXIgY3B1cyB3aGVuIHN0YXJ0aW5nIGEgY291bnRlciwgdGhhdCdzIG9u
+bHkgbmVlZGVkIGluIG1tYXAgd2hlbgp0aGUgY291bnRlcnMgY291bGQgaGF2ZSBhbHJlYWR5IGJl
+ZW4gc3RhcnRlZCBvbiBvdGhlciBjcHVzLCBzbyBzaW1wbHkKcmVtb3ZlIHRoaXMgYnJvYWRjYXN0
+LgoKRml4ZXM6IDNmZWMzMjMzMzlhNCAoImRyaXZlcnM6IHBlcmY6IEZpeCBwYW5pYyBpbiByaXNj
+diBTQkkgbW1hcCBzdXBwb3J0IikKU2lnbmVkLW9mZi1ieTogQWxleGFuZHJlIEdoaXRpIDxhbGV4
+Z2hpdGlAcml2b3NpbmMuY29tPgpUZXN0ZWQtYnk6IENsw6ltZW50IEzDqWdlciA8Y2xlZ2VyQHJp
+dm9zaW5jLmNvbT4KLS0tCiBkcml2ZXJzL3BlcmYvcmlzY3ZfcG11X3NiaS5jIHwgNiArKy0tLS0K
+IDEgZmlsZSBjaGFuZ2VkLCAyIGluc2VydGlvbnMoKyksIDQgZGVsZXRpb25zKC0pCgpkaWZmIC0t
+Z2l0IGEvZHJpdmVycy9wZXJmL3Jpc2N2X3BtdV9zYmkuYyBiL2RyaXZlcnMvcGVyZi9yaXNjdl9w
+bXVfc2JpLmMKaW5kZXggOTZjN2Y2NzBjOGYwLi40MzlkYTQ5ZGQwYTkgMTAwNjQ0Ci0tLSBhL2Ry
+aXZlcnMvcGVyZi9yaXNjdl9wbXVfc2JpLmMKKysrIGIvZHJpdmVycy9wZXJmL3Jpc2N2X3BtdV9z
+YmkuYwpAQCAtNTQzLDggKzU0Myw3IEBAIHN0YXRpYyB2b2lkIHBtdV9zYmlfY3RyX3N0YXJ0KHN0
+cnVjdCBwZXJmX2V2ZW50ICpldmVudCwgdTY0IGl2YWwpCiAKIAlpZiAoKGh3Yy0+ZmxhZ3MgJiBQ
+RVJGX0VWRU5UX0ZMQUdfVVNFUl9BQ0NFU1MpICYmCiAJICAgIChod2MtPmZsYWdzICYgUEVSRl9F
+VkVOVF9GTEFHX1VTRVJfUkVBRF9DTlQpKQotCQlvbl9lYWNoX2NwdV9tYXNrKG1tX2NwdW1hc2so
+ZXZlbnQtPm93bmVyLT5tbSksCi0JCQkJIHBtdV9zYmlfc2V0X3Njb3VudGVyZW4sICh2b2lkICop
+ZXZlbnQsIDEpOworCQlwbXVfc2JpX3NldF9zY291bnRlcmVuKCh2b2lkICopZXZlbnQpOwogfQog
+CiBzdGF0aWMgdm9pZCBwbXVfc2JpX2N0cl9zdG9wKHN0cnVjdCBwZXJmX2V2ZW50ICpldmVudCwg
+dW5zaWduZWQgbG9uZyBmbGFnKQpAQCAtNTU0LDggKzU1Myw3IEBAIHN0YXRpYyB2b2lkIHBtdV9z
+YmlfY3RyX3N0b3Aoc3RydWN0IHBlcmZfZXZlbnQgKmV2ZW50LCB1bnNpZ25lZCBsb25nIGZsYWcp
+CiAKIAlpZiAoKGh3Yy0+ZmxhZ3MgJiBQRVJGX0VWRU5UX0ZMQUdfVVNFUl9BQ0NFU1MpICYmCiAJ
+ICAgIChod2MtPmZsYWdzICYgUEVSRl9FVkVOVF9GTEFHX1VTRVJfUkVBRF9DTlQpKQotCQlvbl9l
+YWNoX2NwdV9tYXNrKG1tX2NwdW1hc2soZXZlbnQtPm93bmVyLT5tbSksCi0JCQkJIHBtdV9zYmlf
+cmVzZXRfc2NvdW50ZXJlbiwgKHZvaWQgKilldmVudCwgMSk7CisJCXBtdV9zYmlfc2V0X3Njb3Vu
+dGVyZW4oKHZvaWQgKilldmVudCk7CiAKIAlyZXQgPSBzYmlfZWNhbGwoU0JJX0VYVF9QTVUsIFNC
+SV9FWFRfUE1VX0NPVU5URVJfU1RPUCwgaHdjLT5pZHgsIDEsIGZsYWcsIDAsIDAsIDApOwogCWlm
+IChyZXQuZXJyb3IgJiYgKHJldC5lcnJvciAhPSBTQklfRVJSX0FMUkVBRFlfU1RPUFBFRCkgJiYK
+LS0gCjIuMzkuMgoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQu
+b3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlz
+Y3YK
