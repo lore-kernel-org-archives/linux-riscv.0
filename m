@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87A75C25B43
-	for <linux-riscv@archiver.kernel.org>; Sun, 22 Oct 2023 15:23:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D81CCDB474
+	for <linux-riscv@archiver.kernel.org>; Sun, 22 Oct 2023 15:23:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:To
-	:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=kAFf7cW5NltV1AuFQR3n+q+9NiuMZyXi6qlQm6N4dDM=; b=BReFBG/nDCvggV
-	GsnNyaV8Sm6bDnAKgUCOz6VNGsZt9xD0fp5gYUC9cNk39MdfZLRWzR4rvBM0LUaTBPJ0OB+ypEp2k
-	Y68cvXXBv4WfiMasjTCJl+7ww4U6WCVuMQWqNnIH8JvL8j5KCbCLEkBjmY3PAscg0wUWRU71Bc57m
-	1JtM1sk2pT0JVZKcApdnfxryF/4CMzwD68FQnQYT1ycDmyGZIpSANa7tqB8HYLPhcmWGeGh3kogIr
-	CQQ/v9E28BcCjhuZYqqGvWiXX+seetzhxXv7iRb7+gneHpjJNPu9PuCgq2qH6u4Wtnk11FmGJKL/z
-	PaFDyrMZW57wHXx+/pnw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=fVeibpifKSV6yRVNb8iABbQF6voAo64CCi1bfqT9efo=; b=uJ72hrajDy6mi3
+	dkbHHkjacxiUpqb48rSvQizlI9JM4GoN0px/5pzjt8cfF0Kefeejt7f17wr2GUvw670yPiHh9sr5I
+	s8lyP7vV3BfN7SDAUsgmfVIj+GDQJbxHxy5o//twzbXMM7oMsbg26YQPSWf/SQDfza6XLovtdRsI2
+	I4ITM+WHxksoBSk99L4ezHyqBU/mJWPf+5xNQEk2EYMuFcJXcizZa3esjQl2t7zKUTU84kTYNlP7R
+	wIuPch5UFPKXeIBWQ8HRRw0dZQ140f+E1znLMKSC5ejF41ktL3PMuk2iN9NSReMzvo4MNIsgGBtQk
+	jhAOsOw+vBOlGj01Lb/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1quaIz-005bZw-1n;
-	Sun, 22 Oct 2023 15:23:53 +0000
+	id 1quaIw-005bY7-0P;
+	Sun, 22 Oct 2023 15:23:50 +0000
 Received: from 60-248-80-70.hinet-ip.hinet.net ([60.248.80.70] helo=Atcsqr.andestech.com)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1quaIk-005bUp-1B;
+	id 1quaIk-005bUq-1B;
 	Sun, 22 Oct 2023 15:23:41 +0000
 Received: from mail.andestech.com (ATCPCS16.andestech.com [10.0.1.222])
-	by Atcsqr.andestech.com with ESMTP id 39MFME8t032658;
-	Sun, 22 Oct 2023 23:22:14 +0800 (+08)
+	by Atcsqr.andestech.com with ESMTP id 39MFMOhW032691;
+	Sun, 22 Oct 2023 23:22:24 +0800 (+08)
 	(envelope-from peterlin@andestech.com)
 Received: from swlinux02.andestech.com (10.0.15.183) by ATCPCS16.andestech.com
  (10.0.1.222) with Microsoft SMTP Server id 14.3.498.0; Sun, 22 Oct 2023
- 23:22:12 +0800
+ 23:22:20 +0800
 From: Yu Chien Peter Lin <peterlin@andestech.com>
 To: <acme@kernel.org>, <adrian.hunter@intel.com>, <ajones@ventanamicro.com>,
         <alexander.shishkin@linux.intel.com>, <andre.przywara@arm.com>,
@@ -56,17 +56,19 @@ To: <acme@kernel.org>, <adrian.hunter@intel.com>, <ajones@ventanamicro.com>,
         <sunilvl@ventanamicro.com>, <tglx@linutronix.de>,
         <tim609@andestech.com>, <uwu@icenowy.me>, <wens@csie.org>,
         <will@kernel.org>, <ycliang@andestech.com>
-Subject: [PATCH v3 00/13] Support Andes PMU extension
-Date: Sun, 22 Oct 2023 23:18:45 +0800
-Message-ID: <20231022151858.2479969-1-peterlin@andestech.com>
+Subject: [RFC PATCH v3 02/13] irqchip/riscv-intc: Allow large non-standard hwirq number
+Date: Sun, 22 Oct 2023 23:18:47 +0800
+Message-ID: <20231022151858.2479969-3-peterlin@andestech.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20231022151858.2479969-1-peterlin@andestech.com>
+References: <20231022151858.2479969-1-peterlin@andestech.com>
 MIME-Version: 1.0
 X-Originating-IP: [10.0.15.183]
 X-DNSRBL: 
-X-MAIL: Atcsqr.andestech.com 39MFME8t032658
+X-MAIL: Atcsqr.andestech.com 39MFMOhW032691
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231022_082338_856130_EFF30B0A 
-X-CRM114-Status: GOOD (  10.70  )
+X-CRM114-CacheID: sfid-20231022_082338_862488_39AAD3CF 
+X-CRM114-Status: GOOD (  10.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,85 +80,51 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi All,
-
-This patch series introduces the Andes PMU extension, which serves
-the same purpose as Sscofpmf. In this version we use FDT-based
-probing and the CONFIG_ANDES_CUSTOM_PMU to enable perf sampling
-and filtering support.
-
-Its non-standard local interrupt is assigned to bit 18 in the
-custom S-mode local interrupt enable/pending registers (slie/slip),
-while the interrupt cause is (256 + 18).
-
-The feature needs the PMU device registered in OpenSBI.
-The OpenSBI and Linux patches can be found on Andes Technology GitHub
-- https://github.com/andestech/opensbi/commits/andes-pmu-support-v2
-- https://github.com/andestech/linux/commits/andes-pmu-support-v3
-
-The PMU device tree node used on AX45MP:
-- https://github.com/andestech/opensbi/blob/andes-pmu-support-v2/docs/pmu_support.md#example-3
-
-Tested hardware:
-- ASUS  Tinker-V (RZ/Five, AX45MP single core)
-- Andes AE350    (AX45MP quad core)
-
-Locus Wei-Han Chen (1):
-  riscv: andes: Support symbolic FW and HW raw events
-
-Yu Chien Peter Lin (12):
-  riscv: errata: Rename defines for Andes
-  irqchip/riscv-intc: Allow large non-standard hwirq number
-  irqchip/riscv-intc: Introduce Andes IRQ chip
-  dt-bindings: riscv: Add Andes interrupt controller compatible string
-  riscv: dts: renesas: r9a07g043f: Update compatible string to use Andes
-    INTC
-  perf: RISC-V: Eliminate redundant IRQ enable/disable operations
-  RISC-V: Move T-Head PMU to CPU feature alternative framework
-  perf: RISC-V: Introduce Andes PMU for perf event sampling
-  dt-bindings: riscv: Add T-Head PMU extension description
-  dt-bindings: riscv: Add Andes PMU extension description
-  riscv: dts: allwinner: Add T-Head PMU extension
-  riscv: dts: renesas: Add Andes PMU extension
-
- .../devicetree/bindings/riscv/cpus.yaml       |   7 +-
- .../devicetree/bindings/riscv/extensions.yaml |  13 ++
- arch/riscv/Kconfig.errata                     |  13 --
- arch/riscv/boot/dts/allwinner/sun20i-d1s.dtsi |   2 +-
- arch/riscv/boot/dts/renesas/r9a07g043f.dtsi   |   4 +-
- arch/riscv/errata/andes/errata.c              |  10 +-
- arch/riscv/errata/thead/errata.c              |  19 ---
- arch/riscv/include/asm/errata_list.h          |  19 +--
- arch/riscv/include/asm/hwcap.h                |   2 +
- arch/riscv/include/asm/vendorid_list.h        |   2 +-
- arch/riscv/kernel/alternative.c               |   2 +-
- arch/riscv/kernel/cpufeature.c                |   2 +
- drivers/irqchip/irq-riscv-intc.c              |  63 +++++++--
- drivers/perf/Kconfig                          |  27 ++++
- drivers/perf/riscv_pmu_sbi.c                  |  51 +++++--
- include/linux/irqchip/irq-riscv-intc.h        |  12 ++
- .../arch/riscv/andes/ax45/firmware.json       |  68 ++++++++++
- .../arch/riscv/andes/ax45/instructions.json   | 127 ++++++++++++++++++
- .../arch/riscv/andes/ax45/memory.json         |  57 ++++++++
- .../arch/riscv/andes/ax45/microarch.json      |  77 +++++++++++
- tools/perf/pmu-events/arch/riscv/mapfile.csv  |   1 +
- 21 files changed, 499 insertions(+), 79 deletions(-)
- create mode 100644 include/linux/irqchip/irq-riscv-intc.h
- create mode 100644 tools/perf/pmu-events/arch/riscv/andes/ax45/firmware.json
- create mode 100644 tools/perf/pmu-events/arch/riscv/andes/ax45/instructions.json
- create mode 100644 tools/perf/pmu-events/arch/riscv/andes/ax45/memory.json
- create mode 100644 tools/perf/pmu-events/arch/riscv/andes/ax45/microarch.json
-
--- 
-2.34.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+Q3VycmVudGx5LCB0aGUgaW1wbGVtZW50YXRpb24gb2YgdGhlIFJJU0MtViBJTlRDIGRyaXZlciB1
+c2VzIHRoZQppbnRlcnJ1cHQgY2F1c2UgYXMgaHdpcnEgYW5kIGhhcyBhIGxpbWl0YXRpb24gb2Yg
+c3VwcG9ydGluZyBhCm1heGltdW0gb2YgNjQgaHdpcnFzLiBIb3dldmVyLCBhY2NvcmRpbmcgdG8g
+dGhlIHByaXZpbGVnZWQgc3BlYywKaW50ZXJydXB0IGNhdXNlcyA+PSAxNiBhcmUgZGVmaW5lZCBm
+b3IgcGxhdGZvcm0gdXNlLgoKVGhpcyBsaW1pdGF0aW9uIHByZXZlbnRzIHVzIGZyb20gZnVsbHkg
+dXRpbGl6aW5nIHRoZSBhdmFpbGFibGUKbG9jYWwgaW50ZXJydXB0IHNvdXJjZXMuIEFkZGl0aW9u
+YWxseSwgdGhlIGh3aXJxcyB1c2VkIG9uIFJJU0MtVgphcmUgc3BhcnNlLCB3aXRoIG9ubHkgaW50
+ZXJydXB0IG51bWJlcnMgMSwgNSBhbmQgOSAocGx1cyBTc2NvZnBtZgpvciBULUhlYWQncyBQTVUg
+aXJxKSBiZWluZyBjdXJyZW50bHkgdXNlZCBmb3Igc3VwZXJ2aXNvciBtb2RlLgoKVGhlIHBhdGNo
+IHN3aXRjaGVzIHRvIHVzaW5nIGlycV9kb21haW5fY3JlYXRlX3RyZWUoKSB3aGljaApjcmVhdGVz
+IHRoZSByYWRpeCB0cmVlIG1hcCwgYWxsb3dpbmcgdXMgdG8gaGFuZGxlIGEgbGFyZ2VyCm51bWJl
+ciBvZiBod2lycXMuCgpTaWduZWQtb2ZmLWJ5OiBZdSBDaGllbiBQZXRlciBMaW4gPHBldGVybGlu
+QGFuZGVzdGVjaC5jb20+ClJldmlld2VkLWJ5OiBDaGFybGVzIENpLUp5dW4gV3UgPGRtaW51c0Bh
+bmRlc3RlY2guY29tPgpSZXZpZXdlZC1ieTogTGVvIFl1LUNoaSBMaWFuZyA8eWNsaWFuZ0BhbmRl
+c3RlY2guY29tPgotLS0KQ2hhbmdlcyB2MSAtPiB2MjoKICAtIEZpeGVkIGlycSBtYXBwaW5nIGZh
+aWx1cmUgY2hlY2tpbmcgKHN1Z2dlc3RlZCBieSBDbMOpbWVudCBhbmQgQW51cCkKQ2hhbmdlcyB2
+MiAtPiB2MzoKICAtIE5vIGNoYW5nZQotLS0KIGRyaXZlcnMvaXJxY2hpcC9pcnEtcmlzY3YtaW50
+Yy5jIHwgMTIgKysrKy0tLS0tLS0tCiAxIGZpbGUgY2hhbmdlZCwgNCBpbnNlcnRpb25zKCspLCA4
+IGRlbGV0aW9ucygtKQoKZGlmZiAtLWdpdCBhL2RyaXZlcnMvaXJxY2hpcC9pcnEtcmlzY3YtaW50
+Yy5jIGIvZHJpdmVycy9pcnFjaGlwL2lycS1yaXNjdi1pbnRjLmMKaW5kZXggZThkMDFiMTRjY2Rk
+Li43OWQwNDkxMDUzODQgMTAwNjQ0Ci0tLSBhL2RyaXZlcnMvaXJxY2hpcC9pcnEtcmlzY3YtaW50
+Yy5jCisrKyBiL2RyaXZlcnMvaXJxY2hpcC9pcnEtcmlzY3YtaW50Yy5jCkBAIC0yNCwxMCArMjQs
+OCBAQCBzdGF0aWMgYXNtbGlua2FnZSB2b2lkIHJpc2N2X2ludGNfaXJxKHN0cnVjdCBwdF9yZWdz
+ICpyZWdzKQogewogCXVuc2lnbmVkIGxvbmcgY2F1c2UgPSByZWdzLT5jYXVzZSAmIH5DQVVTRV9J
+UlFfRkxBRzsKIAotCWlmICh1bmxpa2VseShjYXVzZSA+PSBCSVRTX1BFUl9MT05HKSkKLQkJcGFu
+aWMoInVuZXhwZWN0ZWQgaW50ZXJydXB0IGNhdXNlIik7Ci0KLQlnZW5lcmljX2hhbmRsZV9kb21h
+aW5faXJxKGludGNfZG9tYWluLCBjYXVzZSk7CisJaWYgKGdlbmVyaWNfaGFuZGxlX2RvbWFpbl9p
+cnEoaW50Y19kb21haW4sIGNhdXNlKSkKKwkJcHJfd2FybigiRmFpbGVkIHRvIGhhbmRsZSBpbnRl
+cnJ1cHQgKGNhdXNlOiAlbGQpXG4iLCBjYXVzZSk7CiB9CiAKIC8qCkBAIC0xMTcsOCArMTE1LDgg
+QEAgc3RhdGljIGludCBfX2luaXQgcmlzY3ZfaW50Y19pbml0X2NvbW1vbihzdHJ1Y3QgZndub2Rl
+X2hhbmRsZSAqZm4pCiB7CiAJaW50IHJjOwogCi0JaW50Y19kb21haW4gPSBpcnFfZG9tYWluX2Ny
+ZWF0ZV9saW5lYXIoZm4sIEJJVFNfUEVSX0xPTkcsCi0JCQkJCSAgICAgICAmcmlzY3ZfaW50Y19k
+b21haW5fb3BzLCBOVUxMKTsKKwlpbnRjX2RvbWFpbiA9IGlycV9kb21haW5fY3JlYXRlX3RyZWUo
+Zm4sICZyaXNjdl9pbnRjX2RvbWFpbl9vcHMsCisJCQkJCSAgICAgTlVMTCk7CiAJaWYgKCFpbnRj
+X2RvbWFpbikgewogCQlwcl9lcnIoInVuYWJsZSB0byBhZGQgSVJRIGRvbWFpblxuIik7CiAJCXJl
+dHVybiAtRU5YSU87CkBAIC0xMzIsOCArMTMwLDYgQEAgc3RhdGljIGludCBfX2luaXQgcmlzY3Zf
+aW50Y19pbml0X2NvbW1vbihzdHJ1Y3QgZndub2RlX2hhbmRsZSAqZm4pCiAKIAlyaXNjdl9zZXRf
+aW50Y19od25vZGVfZm4ocmlzY3ZfaW50Y19od25vZGUpOwogCi0JcHJfaW5mbygiJWQgbG9jYWwg
+aW50ZXJydXB0cyBtYXBwZWRcbiIsIEJJVFNfUEVSX0xPTkcpOwotCiAJcmV0dXJuIDA7CiB9CiAK
+LS0gCjIuMzQuMQoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQu
+b3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlz
+Y3YK
