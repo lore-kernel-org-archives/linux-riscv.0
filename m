@@ -4,63 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6ACBC001E0
-	for <linux-riscv@archiver.kernel.org>; Sat, 21 Oct 2023 16:46:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF3C1C001DF
+	for <linux-riscv@archiver.kernel.org>; Sun, 22 Oct 2023 09:10:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=f8EkpwZKa+sHTk199pKOTBtkSrgG1OhzAOQrXp3ydS4=; b=dUelPqueTY0CqB
-	lIkKFEuZl90rF3QjlCUtZixuyjJav3kBzd1mPomREHmgr6609vVmt2kA75rorsOR86z9MYBKVyXkO
-	veIG6vqmtTSaZ1PfoSITjNS0Efdb8zvycHrwAPyDpiQTiVNeptEeUB/i8Hvt9nFW3gz35+WwQ3sK1
-	JJP6KKizWmDzbW/P9avPqs/7Sy5hAUCsnmywM3bp8DF/z4Qc5oktPdWi3BPBm1vSFnrPuAIE3Xnzp
-	3lDcPRCP+k9B8pROQumALTiKUeFVmnqUO+YWDylqgKj3NqPILqHU65oyf+XL8vjCRMGcYIzTaX4Xw
-	hZOxq/CDp6pjmiCdb35A==;
+	List-Owner; bh=pmXCphHvnPzG7J4HGXzR/jMmij18zESU6vpCqisDrTg=; b=OX9HETrbxj1Bq+
+	MvPN6RdZ/vsvybMdoNYK0QBzXbo7cgywrIgGFcy6dfjUQhoeTLvrB747mxrRx+iSm/RnRYaTM9uo+
+	DJrYzCJAcUeGiKMPLhLyvrp4t1R+bfh9Hqa/rI8ljYfvzmmyPOEPxNgGPvufnowMNm+iFX2CtlF9g
+	kwIt+4L6As6P86m18Tkoz7WuQ3A7sSCarVD/Z2YNWH8DprxNFalEwnrqhfZyxCycM8gFCUvH9CEZ/
+	AxfZ0qdyo1/YslsRgXndtpciiTugmb8ZPOdWwZrHfAaxsdy4tYUruAGLgFq1Z+r9Hc7lC+tAcy7I2
+	qIET0OTKW5Pq8kzr/AAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1quF7O-004Fv4-1B;
-	Sat, 21 Oct 2023 16:46:30 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1quUTP-0057DU-0w;
+	Sun, 22 Oct 2023 09:10:15 +0000
+Received: from 60-248-80-70.hinet-ip.hinet.net ([60.248.80.70] helo=Atcsqr.andestech.com)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1quF7I-004Fto-27;
-	Sat, 21 Oct 2023 16:46:28 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by ams.source.kernel.org (Postfix) with ESMTP id 3D245B80EF5;
-	Sat, 21 Oct 2023 16:46:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0E9B7C433C7;
-	Sat, 21 Oct 2023 16:46:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1697906782;
-	bh=QA1JELgGP1CsBBp3+FEwheuuXUtC5NcVTyALFKgjWxs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=jWi3ztDgfd2In+Cpk7pjAzhuWb6ZKaeBrI7z2dT43VzEA+KWNpCKeBuH13HC6D1xN
-	 v4z+lbijsAF5WzYCOv3kZwvJuv5z3nMT40wExGeDPZT213BSk9cJjnG76st2LiltCA
-	 Qo/Lt6pgpi2+9muYtK8s2EAJ4Nfkr01oT948vwqc=
-Date: Sat, 21 Oct 2023 18:46:19 +0200
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: Anup Patel <apatel@ventanamicro.com>
-Cc: Paolo Bonzini <pbonzini@redhat.com>,
-	Atish Patra <atishp@atishpatra.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Jiri Slaby <jirislaby@kernel.org>, Conor Dooley <conor@kernel.org>,
-	Andrew Jones <ajones@ventanamicro.com>, kvm@vger.kernel.org,
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
-	linux-serial@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	linux-kernel@vger.kernel.org, Atish Patra <atishp@rivosinc.com>
-Subject: Re: [PATCH v3 8/9] tty: Add SBI debug console support to HVC SBI
- driver
-Message-ID: <2023102153-retread-narrow-54ee@gregkh>
-References: <20231020072140.900967-1-apatel@ventanamicro.com>
- <20231020072140.900967-9-apatel@ventanamicro.com>
+	id 1quUTL-0057Cx-0q;
+	Sun, 22 Oct 2023 09:10:13 +0000
+Received: from mail.andestech.com (ATCPCS16.andestech.com [10.0.1.222])
+	by Atcsqr.andestech.com with ESMTP id 39M99FBx063388;
+	Sun, 22 Oct 2023 17:09:15 +0800 (+08)
+	(envelope-from peterlin@andestech.com)
+Received: from APC323 (10.0.12.98) by ATCPCS16.andestech.com (10.0.1.222) with
+ Microsoft SMTP Server id 14.3.498.0; Sun, 22 Oct 2023 17:09:12 +0800
+Date: Sun, 22 Oct 2023 17:09:09 +0800
+From: Yu-Chien Peter Lin <peterlin@andestech.com>
+To: Conor Dooley <conor@kernel.org>
+Subject: Re: [RFC PATCH v2 07/10] perf: RISC-V: Move T-Head PMU to CPU
+ feature alternative framework
+Message-ID: <ZTTmtVnZrioRWpJx@APC323>
+References: <20231019140119.3659651-1-peterlin@andestech.com>
+ <20231019-predator-quartet-e56f43d5aa8d@spud>
+ <ZTJAYqk_DnrR9-Sc@APC323>
+ <20231020-snippet-diffusive-1a6052d52aae@spud>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20231020072140.900967-9-apatel@ventanamicro.com>
+In-Reply-To: <20231020-snippet-diffusive-1a6052d52aae@spud>
+User-Agent: Mutt/2.2.10 (2023-03-25)
+X-Originating-IP: [10.0.12.98]
+X-DNSRBL: 
+X-MAIL: Atcsqr.andestech.com 39M99FBx063388
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231021_094624_962535_6424815E 
-X-CRM114-Status: GOOD (  21.07  )
+X-CRM114-CacheID: sfid-20231022_021012_080823_7ED5880C 
+X-CRM114-Status: GOOD (  40.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,114 +63,110 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: mark.rutland@arm.com, heiko@sntech.de, atishp@atishpatra.org, conor.dooley@microchip.com, guoren@kernel.org, jszhang@kernel.org, linux-riscv@lists.infradead.org, will@kernel.org, samuel@sholland.org, anup@brainfault.org, dminus@andestech.com, dylan@andestech.com, ajones@ventanamicro.com, aou@eecs.berkeley.edu, prabhakar.mahadev-lad.rj@bp.renesas.com, locus84@andestech.com, tim609@andestech.com, paul.walmsley@sifive.com, linux-arm-kernel@lists.infradead.org, rdunlap@infradead.org, linux-kernel@vger.kernel.org, evan@rivosinc.com, palmer@dabbelt.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 20, 2023 at 12:51:39PM +0530, Anup Patel wrote:
-> From: Atish Patra <atishp@rivosinc.com>
+Hi Conor,
+
+On Fri, Oct 20, 2023 at 10:05:20AM +0100, Conor Dooley wrote:
+> On Fri, Oct 20, 2023 at 04:54:58PM +0800, Yu-Chien Peter Lin wrote:
+> > On Thu, Oct 19, 2023 at 05:13:00PM +0100, Conor Dooley wrote:
+> > > On Thu, Oct 19, 2023 at 10:01:19PM +0800, Yu Chien Peter Lin wrote:
+> > > 
+> > > $subject: perf: RISC-V: Move T-Head PMU to CPU feature alternative framework
+> > > 
+> > > IMO, this should be "RISC-V, perf:" or just "RISC-V" as the changes
+> > > being made to the arch code are far more meaningful than those
+> > > elsewhere.
+> > 
+> > OK will update the subject to "RISC-V:"
+> > 
+> > > > The custom PMU extension was developed to support perf event sampling
+> > > > prior to the ratification of Sscofpmf. Instead of utilizing the standard
+> > > > bits and CSR of Sscofpmf, a set of custom CSRs is added. So we may
+> > > > consider it as a CPU feature rather than an erratum.
+> > > > 
+> > > > T-Head cores need to append "xtheadpmu" to the riscv,isa-extensions
+> > > > for each cpu node in device tree, and enable CONFIG_THEAD_CUSTOM_PMU
+> > > > for proper functioning as of this commit.
+> > > 
+> > > And in doing so, you regress break perf for existing DTs :(
+> > > You didn't add the property to existing DTS in-kernel either, so if this
+> > > series was applied, perf would just entirely stop working, no?
+> > 
+> > Only `perf record/top` stop working I think.
+> > 
+> > There are too many users out there, and don't have the boards to
+> > test, so leave those DTS unchanged, it would be great if T-Head
+> > community could help to check/update their DTS.
 > 
-> RISC-V SBI specification supports advanced debug console
-> support via SBI DBCN extension.
+> So, there are too many users to add xtheadpmu to the devicetrees, but
+> not too many users to make changes that will cause a regression?
+> I'm not following the logic here, sorry.
+
+humm, I'll try. I assume that the sun20i-d1s.dtsi is all I need
+to update for T-Head PMU.
+
+> > > > Signed-off-by: Yu Chien Peter Lin <peterlin@andestech.com>
+> > > > ---
+> > > > Hi All,
+> > > > 
+> > > > This is in preparation for introducing other PMU alternative.
+> > > > We follow Conor's suggestion [1] to use cpu feature alternative
+> > > > framework rather than errta, if you want to stick with errata
+> > > > alternative or have other issues, please let me know. Thanks.
+> > > 
+> > > Personally, I like this conversion, but it is going to regress support
+> > > for perf on any T-Head cores which may be a bitter pill to get people to
+> > > actually accept...
+> > > Perhaps we could add this "improved" detection in parallel, and
+> > > eventually remove the m*id based stuff in the future.
+> > > 
+> > > > [1] https://patchwork.kernel.org/project/linux-riscv/patch/20230907021635.1002738-4-peterlin@andestech.com/#25503860
+> > > > 
+> > > > Changes v1 -> v2:
+> > > >   - New patch
+> > > > ---
 > 
-> Extend the HVC SBI driver to support it.
+> > > > @@ -805,7 +816,8 @@ static int pmu_sbi_setup_irqs(struct riscv_pmu *pmu, struct platform_device *pde
+> > > >  	if (riscv_isa_extension_available(NULL, SSCOFPMF)) {
+> > > >  		riscv_pmu_irq_num = RV_IRQ_PMU;
+> > > >  		riscv_pmu_use_irq = true;
+> > > > -	} else if (IS_ENABLED(CONFIG_ERRATA_THEAD_PMU) &&
+> > > > +	} else if (riscv_isa_extension_available(NULL, XTHEADPMU) &&
+> > > > +		   IS_ENABLED(CONFIG_THEAD_CUSTOM_PMU) &&
+> > > >  		   riscv_cached_mvendorid(0) == THEAD_VENDOR_ID &&
+> > > >  		   riscv_cached_marchid(0) == 0 &&
+> > > >  		   riscv_cached_mimpid(0) == 0) {
+> > > 
+> > > Can all of the m*id checks be removed, since the firmware is now
+> > > explicitly telling us that the T-Head PMU is supported?
+> > 
+> > I can only comfirm that boards with "allwinner,sun20i-d1" compatible
+> > string uses the T-Head PMU device callbacks.
 > 
-> Signed-off-by: Atish Patra <atishp@rivosinc.com>
-> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
-> ---
->  drivers/tty/hvc/Kconfig         |  2 +-
->  drivers/tty/hvc/hvc_riscv_sbi.c | 82 ++++++++++++++++++++++++++++++---
->  2 files changed, 76 insertions(+), 8 deletions(-)
-> 
-> diff --git a/drivers/tty/hvc/Kconfig b/drivers/tty/hvc/Kconfig
-> index 4f9264d005c0..6e05c5c7bca1 100644
-> --- a/drivers/tty/hvc/Kconfig
-> +++ b/drivers/tty/hvc/Kconfig
-> @@ -108,7 +108,7 @@ config HVC_DCC_SERIALIZE_SMP
->  
->  config HVC_RISCV_SBI
->  	bool "RISC-V SBI console support"
-> -	depends on RISCV_SBI_V01
-> +	depends on RISCV_SBI
->  	select HVC_DRIVER
->  	help
->  	  This enables support for console output via RISC-V SBI calls, which
-> diff --git a/drivers/tty/hvc/hvc_riscv_sbi.c b/drivers/tty/hvc/hvc_riscv_sbi.c
-> index 31f53fa77e4a..56da1a4b5aca 100644
-> --- a/drivers/tty/hvc/hvc_riscv_sbi.c
-> +++ b/drivers/tty/hvc/hvc_riscv_sbi.c
-> @@ -39,21 +39,89 @@ static int hvc_sbi_tty_get(uint32_t vtermno, char *buf, int count)
->  	return i;
->  }
->  
-> -static const struct hv_ops hvc_sbi_ops = {
-> +static const struct hv_ops hvc_sbi_v01_ops = {
->  	.get_chars = hvc_sbi_tty_get,
->  	.put_chars = hvc_sbi_tty_put,
->  };
->  
-> -static int __init hvc_sbi_init(void)
-> +static int hvc_sbi_dbcn_tty_put(uint32_t vtermno, const char *buf, int count)
->  {
-> -	return PTR_ERR_OR_ZERO(hvc_alloc(0, 0, &hvc_sbi_ops, 16));
-> +	phys_addr_t pa;
-> +	struct sbiret ret;
-> +
-> +	if (is_vmalloc_addr(buf)) {
-> +		pa = page_to_phys(vmalloc_to_page(buf)) + offset_in_page(buf);
-> +		if (PAGE_SIZE < (offset_in_page(buf) + count))
-> +			count = PAGE_SIZE - offset_in_page(buf);
-> +	} else {
-> +		pa = __pa(buf);
-> +	}
-> +
-> +	if (IS_ENABLED(CONFIG_32BIT))
-> +		ret = sbi_ecall(SBI_EXT_DBCN, SBI_EXT_DBCN_CONSOLE_WRITE,
-> +				count, lower_32_bits(pa), upper_32_bits(pa),
-> +				0, 0, 0);
-> +	else
-> +		ret = sbi_ecall(SBI_EXT_DBCN, SBI_EXT_DBCN_CONSOLE_WRITE,
-> +				count, pa, 0, 0, 0, 0);
+> I'm not sure how that is an answer to my question.
 
-Again, you need a helper function here to keep you from having to keep
-this all in sync.
+Sorry for that unclear answer.
+Yes, I agree we no longer need to check the m*id here.
 
-> +	if (ret.error)
-> +		return 0;
-> +
-> +	return count;
->  }
-> -device_initcall(hvc_sbi_init);
->  
-> -static int __init hvc_sbi_console_init(void)
-> +static int hvc_sbi_dbcn_tty_get(uint32_t vtermno, char *buf, int count)
->  {
-> -	hvc_instantiate(0, 0, &hvc_sbi_ops);
-> +	phys_addr_t pa;
-> +	struct sbiret ret;
-> +
-> +	if (is_vmalloc_addr(buf)) {
-> +		pa = page_to_phys(vmalloc_to_page(buf)) + offset_in_page(buf);
-> +		if (PAGE_SIZE < (offset_in_page(buf) + count))
-> +			count = PAGE_SIZE - offset_in_page(buf);
-> +	} else {
-> +		pa = __pa(buf);
-> +	}
-> +
-> +	if (IS_ENABLED(CONFIG_32BIT))
-> +		ret = sbi_ecall(SBI_EXT_DBCN, SBI_EXT_DBCN_CONSOLE_READ,
-> +				count, lower_32_bits(pa), upper_32_bits(pa),
-> +				0, 0, 0);
-> +	else
-> +		ret = sbi_ecall(SBI_EXT_DBCN, SBI_EXT_DBCN_CONSOLE_READ,
-> +				count, pa, 0, 0, 0, 0);
+In OpenSBI, it appears that allwinner D1 is the only platform that
+has T-Head PMU support, the other T-Head platforms need to ensure
+that the callbacks [1] are registered in order to work with SBI
+PMU driver in kernel.
 
-And here too.
+Regards,
+Peter Lin
 
-thanks,
+[1] https://github.com/riscv-software-src/opensbi/blob/v1.3.1/platform/generic/allwinner/sun20i-d1.c#L263-L272
 
-greg k-h
+> Thanks,
+> Conor.
+
+
 
 _______________________________________________
 linux-riscv mailing list
