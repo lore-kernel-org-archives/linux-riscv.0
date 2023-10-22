@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96CB7C00A8F
-	for <linux-riscv@archiver.kernel.org>; Sun, 22 Oct 2023 15:23:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34CCBC25B42
+	for <linux-riscv@archiver.kernel.org>; Sun, 22 Oct 2023 15:23:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pg9GXr9k+NK6dD1bRdtSYbK35kx+riYHM49lZJlFqlI=; b=x1DyMuQ7+ByO2r
-	WGOjMQpo5RY+9AhfWIGfJyVQv3klohtiR/ey5Tgn3Lbgy3Vj7Q2Mz1BdQWHsuUERgOe/KGS5s6caE
-	eT6Jhg+l7os9jJD3ZPFmOhCdFzdC/goVFcFWqeEwtDLLhgRrv6QHWfSMp9y7j61oGKY6Se7A42XkM
-	YiD9hJ0CkW8lW/KmkTJb+Fb6QIr+CV/vvevRvaE/nV+MMEDYAGfQFhvd7fK/8E6xMXW+RJsf9FebS
-	hZoBj8MvhSOIUJQb02BG5cfrDUm6i/gaFRt4oFkK16FFv6n53xLO3YKkmw5hZWXEqpm4tU+lRL2eE
-	ll/M3P7XeNYCk0ufh2SA==;
+	List-Owner; bh=J6PPLM6KDNNgG1OzoYr1QcKRidtvxTUpAWVfKKXh69w=; b=CRVhEa8B5YpO0+
+	G8w5ixSXMzIKa88ufCmFJzZjcgzWvLFG4Wy5MCa8O7yXqkOMhQ2vKT4cgUQ7dc/8ZTP8icXrSrL67
+	MdNwmcGQy6bnoBuq8CK1v5gv54gwZOCzV0N6pK05v/JMlYUVLi+cag0WK0/Cynupfc9WEfHNyp592
+	lCcCLaetwE2qaJIzHNkqKRuKuAkfuoa5yEdiZ0WjbcbZ844BJjQxV2qMhfgUDG1Gi7lqd5XjxST1n
+	13G1sW0AGgoz9K3VSBj1p8DSQsC0ZJThP66J83xWH/uoqU3wFPTxI3LvG8tjGlx0I1D86bb2rweFc
+	HeJ62SgC5T9d8HlkDL5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1quaIx-005bZ9-2R;
-	Sun, 22 Oct 2023 15:23:51 +0000
+	id 1quaIy-005bZP-1T;
+	Sun, 22 Oct 2023 15:23:52 +0000
 Received: from 60-248-80-70.hinet-ip.hinet.net ([60.248.80.70] helo=Atcsqr.andestech.com)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1quaIm-005bUv-02;
+	id 1quaIk-005bUs-1B;
 	Sun, 22 Oct 2023 15:23:41 +0000
 Received: from mail.andestech.com (ATCPCS16.andestech.com [10.0.1.222])
-	by Atcsqr.andestech.com with ESMTP id 39MFMdii032740;
-	Sun, 22 Oct 2023 23:22:39 +0800 (+08)
+	by Atcsqr.andestech.com with ESMTP id 39MFMTJX032707;
+	Sun, 22 Oct 2023 23:22:29 +0800 (+08)
 	(envelope-from peterlin@andestech.com)
 Received: from swlinux02.andestech.com (10.0.15.183) by ATCPCS16.andestech.com
  (10.0.1.222) with Microsoft SMTP Server id 14.3.498.0; Sun, 22 Oct 2023
- 23:22:35 +0800
+ 23:22:25 +0800
 From: Yu Chien Peter Lin <peterlin@andestech.com>
 To: <acme@kernel.org>, <adrian.hunter@intel.com>, <ajones@ventanamicro.com>,
         <alexander.shishkin@linux.intel.com>, <andre.przywara@arm.com>,
@@ -56,20 +56,19 @@ To: <acme@kernel.org>, <adrian.hunter@intel.com>, <ajones@ventanamicro.com>,
         <sunilvl@ventanamicro.com>, <tglx@linutronix.de>,
         <tim609@andestech.com>, <uwu@icenowy.me>, <wens@csie.org>,
         <will@kernel.org>, <ycliang@andestech.com>
-Subject: [PATCH v3 05/13] riscv: dts: renesas: r9a07g043f: Update compatible string to use Andes INTC
-Date: Sun, 22 Oct 2023 23:18:50 +0800
-Message-ID: <20231022151858.2479969-6-peterlin@andestech.com>
+Subject: [RFC PATCH v3 03/13] irqchip/riscv-intc: Introduce Andes IRQ chip
+Date: Sun, 22 Oct 2023 23:18:48 +0800
+Message-ID: <20231022151858.2479969-4-peterlin@andestech.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20231022151858.2479969-1-peterlin@andestech.com>
 References: <20231022151858.2479969-1-peterlin@andestech.com>
 MIME-Version: 1.0
 X-Originating-IP: [10.0.15.183]
 X-DNSRBL: 
-X-MAIL: Atcsqr.andestech.com 39MFMdii032740
+X-MAIL: Atcsqr.andestech.com 39MFMTJX032707
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231022_082340_513151_50FF6DC7 
-X-CRM114-Status: UNSURE (   7.98  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20231022_082338_863014_45D0765B 
+X-CRM114-Status: GOOD (  18.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,32 +85,144 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The Andes INTC allows AX45MP cores to handle custom local
-interrupts, such as the performance monitor overflow interrupt.
+This commit adds support for the Andes IRQ chip, which provides
+IRQ mask/unmask functions to access the custom CSR (SLIE)
+where the non-standard S-mode local interrupt enable bits are
+located.
+
+The Andes INTC requires the "andestech,cpu-intc" compatible string
+to be present in interrupt-controller of cpu node. e.g.,
+
+  cpu0: cpu@0 {
+      compatible = "andestech,ax45mp", "riscv";
+      ...
+      cpu0-intc: interrupt-controller {
+          #interrupt-cells = <0x01>;
+          compatible = "andestech,cpu-intc", "riscv,cpu-intc";
+          interrupt-controller;
+      };
+  };
 
 Signed-off-by: Yu Chien Peter Lin <peterlin@andestech.com>
+Reviewed-by: Charles Ci-Jyun Wu <dminus@andestech.com>
+Reviewed-by: Leo Yu-Chi Liang <ycliang@andestech.com>
 ---
 Changes v1 -> v2:
   - New patch
 Changes v2 -> v3:
-  - Fixed possible compatibles for Andes INTC
+  - Return -ENXIO if no valid compatible INTC found
+  - Allow falling back to generic RISC-V INTC
 ---
- arch/riscv/boot/dts/renesas/r9a07g043f.dtsi | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/irqchip/irq-riscv-intc.c       | 51 +++++++++++++++++++++++++-
+ include/linux/irqchip/irq-riscv-intc.h | 12 ++++++
+ 2 files changed, 61 insertions(+), 2 deletions(-)
+ create mode 100644 include/linux/irqchip/irq-riscv-intc.h
 
-diff --git a/arch/riscv/boot/dts/renesas/r9a07g043f.dtsi b/arch/riscv/boot/dts/renesas/r9a07g043f.dtsi
-index 8a726407fb76..dfe27550af11 100644
---- a/arch/riscv/boot/dts/renesas/r9a07g043f.dtsi
-+++ b/arch/riscv/boot/dts/renesas/r9a07g043f.dtsi
-@@ -37,7 +37,7 @@ cpu0: cpu@0 {
+diff --git a/drivers/irqchip/irq-riscv-intc.c b/drivers/irqchip/irq-riscv-intc.c
+index 79d049105384..a0efd645a142 100644
+--- a/drivers/irqchip/irq-riscv-intc.c
++++ b/drivers/irqchip/irq-riscv-intc.c
+@@ -13,6 +13,7 @@
+ #include <linux/irq.h>
+ #include <linux/irqchip.h>
+ #include <linux/irqdomain.h>
++#include <linux/irqchip/irq-riscv-intc.h>
+ #include <linux/interrupt.h>
+ #include <linux/module.h>
+ #include <linux/of.h>
+@@ -45,6 +46,26 @@ static void riscv_intc_irq_unmask(struct irq_data *d)
+ 	csr_set(CSR_IE, BIT(d->hwirq));
+ }
  
- 			cpu0_intc: interrupt-controller {
- 				#interrupt-cells = <1>;
--				compatible = "riscv,cpu-intc";
-+				compatible = "andestech,cpu-intc", "riscv,cpu-intc";
- 				interrupt-controller;
- 			};
- 		};
++static void andes_intc_irq_mask(struct irq_data *d)
++{
++	unsigned int mask = BIT(d->hwirq % BITS_PER_LONG);
++
++	if (d->hwirq < ANDES_SLI_CAUSE_BASE)
++		csr_clear(CSR_IE, mask);
++	else
++		csr_clear(ANDES_CSR_SLIE, mask);
++}
++
++static void andes_intc_irq_unmask(struct irq_data *d)
++{
++	unsigned int mask = BIT(d->hwirq % BITS_PER_LONG);
++
++	if (d->hwirq < ANDES_SLI_CAUSE_BASE)
++		csr_set(CSR_IE, mask);
++	else
++		csr_set(ANDES_CSR_SLIE, mask);
++}
++
+ static void riscv_intc_irq_eoi(struct irq_data *d)
+ {
+ 	/*
+@@ -68,12 +89,37 @@ static struct irq_chip riscv_intc_chip = {
+ 	.irq_eoi = riscv_intc_irq_eoi,
+ };
+ 
++static struct irq_chip andes_intc_chip = {
++	.name = "RISC-V INTC",
++	.irq_mask = andes_intc_irq_mask,
++	.irq_unmask = andes_intc_irq_unmask,
++	.irq_eoi = riscv_intc_irq_eoi,
++};
++
+ static int riscv_intc_domain_map(struct irq_domain *d, unsigned int irq,
+ 				 irq_hw_number_t hwirq)
+ {
++	struct fwnode_handle *fn = riscv_get_intc_hwnode();
++	struct irq_chip *chip;
++	const char *cp;
++	int rc;
++
+ 	irq_set_percpu_devid(irq);
+-	irq_domain_set_info(d, irq, hwirq, &riscv_intc_chip, d->host_data,
+-			    handle_percpu_devid_irq, NULL, NULL);
++
++	rc = fwnode_property_read_string(fn, "compatible", &cp);
++	if (rc)
++		return rc;
++
++	if (strcmp(cp, "riscv,cpu-intc") == 0)
++		chip = &riscv_intc_chip;
++	else if (strcmp(cp, "andestech,cpu-intc") == 0)
++		chip = &andes_intc_chip;
++	else
++		return -ENXIO;
++
++	irq_domain_set_info(d, irq, hwirq, chip,
++			    d->host_data, handle_percpu_devid_irq, NULL,
++			    NULL);
+ 
+ 	return 0;
+ }
+@@ -166,6 +212,7 @@ static int __init riscv_intc_init(struct device_node *node,
+ }
+ 
+ IRQCHIP_DECLARE(riscv, "riscv,cpu-intc", riscv_intc_init);
++IRQCHIP_DECLARE(andes, "andestech,cpu-intc", riscv_intc_init);
+ 
+ #ifdef CONFIG_ACPI
+ 
+diff --git a/include/linux/irqchip/irq-riscv-intc.h b/include/linux/irqchip/irq-riscv-intc.h
+new file mode 100644
+index 000000000000..87c105b5b545
+--- /dev/null
++++ b/include/linux/irqchip/irq-riscv-intc.h
+@@ -0,0 +1,12 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * Copyright (C) 2023 Andes Technology Corporation
++ */
++#ifndef __INCLUDE_LINUX_IRQCHIP_IRQ_RISCV_INTC_H
++#define __INCLUDE_LINUX_IRQCHIP_IRQ_RISCV_INTC_H
++
++#define ANDES_SLI_CAUSE_BASE	256
++#define ANDES_CSR_SLIE		0x9c4
++#define ANDES_CSR_SLIP		0x9c5
++
++#endif /* __INCLUDE_LINUX_IRQCHIP_IRQ_RISCV_INTC_H */
 -- 
 2.34.1
 
