@@ -4,58 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF0CBCDB474
-	for <linux-riscv@archiver.kernel.org>; Sun, 22 Oct 2023 15:54:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 395E6CDB474
+	for <linux-riscv@archiver.kernel.org>; Sun, 22 Oct 2023 18:01:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=mthpoITAa94bE/j9DQc7a/gP3ZfaVz7l/BuIFB6T2VQ=; b=os6BPrrN/q3Ch9
-	cG1nqaoPcYlGcA7WldHsLy4B6wzFTcloB52N0h2GOxIx90/jQavJt4Zt/4PJTa97h6YvY8SYcTKfQ
-	NvXP95qRdrxiBAugCdILPiHBCJRyiD929a82uyZRtW7HYoW1bpMroBtpk28fNtEqqzGnocsMr1oJB
-	nHmyHAhPho0FkBMFFHa19wi9seBtPzSwMqE7KhKp38BV/wcJAMFy88QwPs00t66Md35KYPB+AnrCt
-	acz+KjxE07efZk7pASNYQ9QrpLGuOS6p6pGYnGrQeGtoKfy+XqpsiHclV1bWhVq9sDSPgp1DopCfd
-	LnCRnAlLFPKIUkuvzk3w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:Cc:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UgE1DeqpNmkGJfZmTeUXdZmadkp3G/DlLC8lj+Y56X4=; b=I4Qf4hfuVKSJKqpCnxG5VmU3hS
+	VxVTC1cw8WKKFlZFwrb8xk79Nx3CXjPLDp4vdGXEpLhW7tFLwMVh1LAwauaFFwQ0g4gIQQAskT1Yd
+	sg9j7l2maa2Lqnwrerr5KE9ZuzABBT3UWqbQ3R2k84mpDH/iOzEoJuKFruhwd6rc/aPQeMKrPRrSG
+	Yexaj7h6qO0ydauUdd6DD1m4WbittpwVIjq29y3LDWFr42HpURwb2QLFGpcjJaNlEPjkpaKSqo4uA
+	Qk5d61Zlanaqe4dIhzAwQ3NpHY5wbTAnRROGN1DAF5OWoR5dTTy1Wk5ZERrvvtUHPry3EopB08+Rh
+	AcBkbNgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1quam3-005dhL-1o;
-	Sun, 22 Oct 2023 15:53:55 +0000
+	id 1quckt-005mgd-05;
+	Sun, 22 Oct 2023 18:00:51 +0000
 Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1quam0-005dgP-11
-	for linux-riscv@lists.infradead.org;
-	Sun, 22 Oct 2023 15:53:53 +0000
+	id 1quckn-005meu-2j;
+	Sun, 22 Oct 2023 18:00:48 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by ams.source.kernel.org (Postfix) with ESMTP id 11D7EB811C3;
-	Sun, 22 Oct 2023 15:53:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 70EE4C433C8;
-	Sun, 22 Oct 2023 15:53:48 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTP id AF4AFB80D7D;
+	Sun, 22 Oct 2023 18:00:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8EED4C433C8;
+	Sun, 22 Oct 2023 18:00:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1697990029;
-	bh=OHIHSJz2egyZVm9tXlqMmwRR01/RrOpSIeoHXrWG/FU=;
-	h=From:List-Id:To:Cc:Subject:Date:From;
-	b=Si8mMiwl5GJYA7QK4XihFid4XOTJvwoyq9d1X+V7RlG6orxPX6sFGnKTa0EtHqc9o
-	 suFL8RbIFO+tiNNpM80EqEmvK31pvfmxEnQdeUbbODYVxfSTyNzexf4MJv4jdTxMp0
-	 bbAA2mrmKNLgSkqhSYEAmAb2UvXZIc2MRhMMcjLVl+A1fyMVfGv/eOpvVKP289f1oF
-	 Kxz6COpeoC0iUrBckdjdItE22Q9JHP87YkFUhRNpUgkb20pz9Q71oxPLLEVzZniZsT
-	 BuA5qoADqV1ENx+OySnIg0LrsGL2jETAIvvcoz5Fa/99eKLqsAnvT4UtRI2GWxqR2Z
-	 D/WJF2viqSurQ==
-From: Jisheng Zhang <jszhang@kernel.org>
-To: soc@kernel.org
-Cc: linux-riscv@lists.infradead.org,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Guo Ren <guoren@kernel.org>
-Subject: [PATCH] riscv: dts: thead: convert isa detection to new properties
-Date: Sun, 22 Oct 2023 23:41:35 +0800
-Message-Id: <20231022154135.3746-1-jszhang@kernel.org>
-X-Mailer: git-send-email 2.40.0
+	s=k20201202; t=1697997639;
+	bh=9wO5luQQA8YamZzHgZ2c+8fPusMyrapaaEYIJ6WW7d4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=hCvWET6DpMgtWpc4RTvFqtnFe/lRb3pvOTc1BbmpzD7II1ggf9IjdzX1rT13qkC/W
+	 CceP0hWDUW4bxZqJJCAh2iXQcjGJ4IY9xombM9nW4mmBLJ30cEEfy4iGkkWw27YAhP
+	 9nkhlXCuiwMRr9FMucNlHHRApkm/bV71zVP042GkU4jCckh7fTETl4l2VDGocODOtD
+	 iVm0eOPrPBAkYRCFBcQv52qjHDEKwKfpOsGo73uG+ZI2FRJ4cs4yyzHVT0xb2zoCN4
+	 cTBMUO5QxyRTGCh4NlNoSsFmyF94GjaZ8+XRzAAgsll0kYuiTTmX700T/uYhBOkJy2
+	 vdOJEVOK7HDjg==
+Date: Sun, 22 Oct 2023 19:00:28 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Yu Chien Peter Lin <peterlin@andestech.com>
+Subject: Re: [PATCH v3 00/13] Support Andes PMU extension
+Message-ID: <20231022-cabana-crate-503b6e8d0481@spud>
+References: <20231022151858.2479969-1-peterlin@andestech.com>
 MIME-Version: 1.0
+In-Reply-To: <20231022151858.2479969-1-peterlin@andestech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231022_085352_510418_E226700D 
-X-CRM114-Status: UNSURE (   7.14  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20231022_110046_149599_30D1E1CB 
+X-CRM114-Status: GOOD (  13.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,81 +63,94 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: mark.rutland@arm.com, irogers@google.com, heiko@sntech.de, geert+renesas@glider.be, alexander.shishkin@linux.intel.com, paul.walmsley@sifive.com, linux-kernel@vger.kernel.org, conor.dooley@microchip.com, guoren@kernel.org, krzysztof.kozlowski+dt@linaro.org, linux-riscv@lists.infradead.org, will@kernel.org, linux-renesas-soc@vger.kernel.org, tim609@andestech.com, samuel@sholland.org, anup@brainfault.org, dminus@andestech.com, magnus.damm@gmail.com, jernej.skrabec@gmail.com, peterz@infradead.org, wens@csie.org, mingo@redhat.com, jszhang@kernel.org, linux-sunxi@lists.linux.dev, ajones@ventanamicro.com, devicetree@vger.kernel.org, conor+dt@kernel.org, aou@eecs.berkeley.edu, andre.przywara@arm.com, locus84@andestech.com, acme@kernel.org, prabhakar.mahadev-lad.rj@bp.renesas.com, robh+dt@kernel.org, atishp@atishpatra.org, namhyung@kernel.org, tglx@linutronix.de, linux-arm-kernel@lists.infradead.org, ycliang@andestech.com, n.shubin@yadro.com, rdunlap@infradead.org, adrian.hunter@intel.com, linux-perf-users@vger.kernel.org, evan@rivosinc.com, palmer@dabbelt.com, jolsa@kernel.org
+Content-Type: multipart/mixed; boundary="===============2516339456439628989=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Conor Dooley <conor.dooley@microchip.com>
 
-Convert the th1520 devicetrees to use the new properties
-"riscv,isa-base" & "riscv,isa-extensions".
-For compatibility with other projects, "riscv,isa" remains.
+--===============2516339456439628989==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="kQihSqwF+AlYNzqS"
+Content-Disposition: inline
 
-Reviewed-by: Jisheng Zhang <jszhang@kernel.org>
-Acked-by: Guo Ren <guoren@kernel.org>
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
----
 
-Hi Arnd,
+--kQihSqwF+AlYNzqS
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-This is the only one thead patch for v6.7, could you please apply it
-directly?
+Hey,
 
-Thanks in advance
+On Sun, Oct 22, 2023 at 11:18:45PM +0800, Yu Chien Peter Lin wrote:
+> Hi All,
+>=20
+> This patch series introduces the Andes PMU extension, which serves
+> the same purpose as Sscofpmf. In this version we use FDT-based
+> probing and the CONFIG_ANDES_CUSTOM_PMU to enable perf sampling
+> and filtering support.
+>=20
+> Its non-standard local interrupt is assigned to bit 18 in the
+> custom S-mode local interrupt enable/pending registers (slie/slip),
+> while the interrupt cause is (256 + 18).
+>=20
+> The feature needs the PMU device registered in OpenSBI.
+> The OpenSBI and Linux patches can be found on Andes Technology GitHub
+> - https://github.com/andestech/opensbi/commits/andes-pmu-support-v2
+> - https://github.com/andestech/linux/commits/andes-pmu-support-v3
+>=20
+> The PMU device tree node used on AX45MP:
+> - https://github.com/andestech/opensbi/blob/andes-pmu-support-v2/docs/pmu=
+_support.md#example-3
+>=20
+> Tested hardware:
+> - ASUS  Tinker-V (RZ/Five, AX45MP single core)
+> - Andes AE350    (AX45MP quad core)
+>=20
+> Locus Wei-Han Chen (1):
+>   riscv: andes: Support symbolic FW and HW raw events
+>=20
+> Yu Chien Peter Lin (12):
+>   riscv: errata: Rename defines for Andes
+>   irqchip/riscv-intc: Allow large non-standard hwirq number
+>   irqchip/riscv-intc: Introduce Andes IRQ chip
+>   dt-bindings: riscv: Add Andes interrupt controller compatible string
+>   riscv: dts: renesas: r9a07g043f: Update compatible string to use Andes
+>     INTC
+>   perf: RISC-V: Eliminate redundant IRQ enable/disable operations
+>   RISC-V: Move T-Head PMU to CPU feature alternative framework
+>   perf: RISC-V: Introduce Andes PMU for perf event sampling
+>   dt-bindings: riscv: Add T-Head PMU extension description
+>   dt-bindings: riscv: Add Andes PMU extension description
+>   riscv: dts: allwinner: Add T-Head PMU extension
+>   riscv: dts: renesas: Add Andes PMU extension
 
- arch/riscv/boot/dts/thead/th1520.dtsi | 12 ++++++++++++
- 1 file changed, 12 insertions(+)
+You only sent 5 of these patches FYI.
 
-diff --git a/arch/riscv/boot/dts/thead/th1520.dtsi b/arch/riscv/boot/dts/thead/th1520.dtsi
-index ce708183b6f6..723f65487246 100644
---- a/arch/riscv/boot/dts/thead/th1520.dtsi
-+++ b/arch/riscv/boot/dts/thead/th1520.dtsi
-@@ -20,6 +20,9 @@ c910_0: cpu@0 {
- 			compatible = "thead,c910", "riscv";
- 			device_type = "cpu";
- 			riscv,isa = "rv64imafdc";
-+			riscv,isa-base = "rv64i";
-+			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "zicntr", "zicsr",
-+					       "zifencei", "zihpm";
- 			reg = <0>;
- 			i-cache-block-size = <64>;
- 			i-cache-size = <65536>;
-@@ -41,6 +44,9 @@ c910_1: cpu@1 {
- 			compatible = "thead,c910", "riscv";
- 			device_type = "cpu";
- 			riscv,isa = "rv64imafdc";
-+			riscv,isa-base = "rv64i";
-+			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "zicntr", "zicsr",
-+					       "zifencei", "zihpm";
- 			reg = <1>;
- 			i-cache-block-size = <64>;
- 			i-cache-size = <65536>;
-@@ -62,6 +68,9 @@ c910_2: cpu@2 {
- 			compatible = "thead,c910", "riscv";
- 			device_type = "cpu";
- 			riscv,isa = "rv64imafdc";
-+			riscv,isa-base = "rv64i";
-+			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "zicntr", "zicsr",
-+					       "zifencei", "zihpm";
- 			reg = <2>;
- 			i-cache-block-size = <64>;
- 			i-cache-size = <65536>;
-@@ -83,6 +92,9 @@ c910_3: cpu@3 {
- 			compatible = "thead,c910", "riscv";
- 			device_type = "cpu";
- 			riscv,isa = "rv64imafdc";
-+			riscv,isa-base = "rv64i";
-+			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "zicntr", "zicsr",
-+					       "zifencei", "zihpm";
- 			reg = <3>;
- 			i-cache-block-size = <64>;
- 			i-cache-size = <65536>;
--- 
-2.40.0
+--kQihSqwF+AlYNzqS
+Content-Type: application/pgp-signature; name="signature.asc"
 
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZTVjPAAKCRB4tDGHoIJi
+0o+CAQCs8vdPe2eoLkFKb2hs5d1cvV8J9PlrQHw0kqccpMHL3AD8CQBoM5Sk3hvM
+Gz9PBQeo9LO29BJjkL9Q/nthrSlgIw0=
+=9vNu
+-----END PGP SIGNATURE-----
+
+--kQihSqwF+AlYNzqS--
+
+
+--===============2516339456439628989==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============2516339456439628989==--
+
