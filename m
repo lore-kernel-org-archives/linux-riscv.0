@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7198DCDB474
-	for <linux-riscv@archiver.kernel.org>; Mon, 23 Oct 2023 08:30:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C66E7C001E0
+	for <linux-riscv@archiver.kernel.org>; Mon, 23 Oct 2023 08:30:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JysFqVdfENDyPf5ltNOKFgDFqnkufuI3AvrQvp7XI+k=; b=VFpmhmf4OOF3TG
-	/lkduIfJs9nnDNn4NNx+TA9r5WHBGsgnQqMuqufPuWEIGnZb8KHkmgGU1nLR0rn2a8MEboOknYePm
-	hPZiWx6aDFVHQY85r5eQPu1cCLLduEfNaTxy4F3sHY1gV13clIG/T+8TlbRqa7VRa0T/i3L/dh4NM
-	NwlMlfwv7Ge2GbTqpM+eKOJ0ORGkhtAI2LekR6Sv4wo/d3tW+SfceyzSx+o6vE+/VLWRudNemWmNN
-	G35cgT776UAVvg6drC0gODoMIgvHIt746+pvwZxvXUvVN+3CO1c2f/CpOh605TSeY1SVaS7IeG9PV
-	GQa0AkpWdCHTNPNAV+zw==;
+	List-Owner; bh=lE5jjWbA+kBHJmnkajQZYgjRQISpPEXsYteJhDNbIj4=; b=0xKQD0zx1P2zeL
+	pEilhEMUP5G5zwRse9iiJJnN9sA2ptr1wF8LC09tIb5LRwyW+vtWFlKwFUz0P2Ik5T7e1zH0JPrOA
+	vva+KyFH/eizs10UXB6p0jGKMrqW7wHskmxNXW7uSrcV5Oy5TPE1X/jYglwSAp+pcBIA8Un04uqRn
+	ebRAYAZxjC3jOvAzSn3vIMWrfv7u+M0YZee435pba7KGRMYXXQyShmLZPGKrtIW7tATwcpLrriKGC
+	GzpSJE5M1DfmHPzr5I8v/HVaQ0HYrjGCDs2H9/L7ia2w0z9npXAdfw190SUpRH6UKflg3JlvaUpMB
+	ui5lgrz1lb+UG4MFjw3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1quqKR-006lLl-1d;
-	Mon, 23 Oct 2023 08:30:27 +0000
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+	id 1quqKX-006lOl-1J;
+	Mon, 23 Oct 2023 08:30:33 +0000
+Received: from mail-pf1-x430.google.com ([2607:f8b0:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1quqKO-006lK3-3C
+	id 1quqKV-006lMo-1H
 	for linux-riscv@lists.infradead.org;
-	Mon, 23 Oct 2023 08:30:26 +0000
-Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-1c9e06f058bso29330325ad.0
-        for <linux-riscv@lists.infradead.org>; Mon, 23 Oct 2023 01:30:24 -0700 (PDT)
+	Mon, 23 Oct 2023 08:30:32 +0000
+Received: by mail-pf1-x430.google.com with SMTP id d2e1a72fcca58-6b87c1edfd5so2169689b3a.1
+        for <linux-riscv@lists.infradead.org>; Mon, 23 Oct 2023 01:30:29 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1698049823; x=1698654623; darn=lists.infradead.org;
+        d=bytedance.com; s=google; t=1698049829; x=1698654629; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=0DBuRxeBwydw4BwBQS/PBMNuUJKwvOuK50YBTu/VQqs=;
-        b=fSJk8zMYngAD5EGJ4K0FP25izTLvroaccnT5B6kysHgklXot5Jd74NCsRtc89bveEO
-         +z8zH88Ib0SsbxvF2QXOFLgpRU0l1v/iENSdpJV6XJvil8xqYnwB+patPlkGGZCVxLLg
-         nHiBu1jh4tf8/maing9yKR+oAVzbXngjCjCgRgX6nhUqrnzKFfG3ET9R3WGO0PQBgxW+
-         HvtxZvzdgWny2QENtTfzZHjQl4/oIerWRl/33c5tdV9C1hxSHuUi403+XOowoMn0u7+u
-         0xTzWvYVd/FW/v8yFoGM04Y2mrb7uiHQMQL20DFqYA9+sXAm1wuqmmUvAd/UVJFmrMcf
-         jfSg==
+        bh=qwqRYcNnh3bL2bnUHbsBXwm7mmQqzZo0pVLQzAgbeF0=;
+        b=Qu2p3HQSi7SIzmTcWU49W2O6uPKqT3+OmWOzzQrK6f79s7heXjBgYp35v7elqlldGR
+         Ay/uSh96T5mpK5MGhYLGKQvln0tc/twnag18mpGI6w8P5C9HQNJ/vl1eSiZ557Sbzhll
+         YACXL5BEFSFYlnvYnOLDquicEceB3ikflneGK2m1rLGJeDT5Li3HP7rT4iV9PfPbz5az
+         Bza1bvNTapGU2v8Ec/71wWzc7Y2Q+WNM3Z8niP8aqDYEqRAVVNKWUcbzV4HH9LgkgrNM
+         aSDU4x8c5o01WYua8la28p5hTSqUau2w2G0rRy8PKRQjTmtqYPY4ZDeGWMhIdj6+fdmV
+         B3Xw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1698049823; x=1698654623;
+        d=1e100.net; s=20230601; t=1698049829; x=1698654629;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=0DBuRxeBwydw4BwBQS/PBMNuUJKwvOuK50YBTu/VQqs=;
-        b=YutzziCu3djhoXlFyX0xbyn5Lj8XDWm/TzI5wjaKzQWpprA6qdKVFXx3ygqUWiZntH
-         Sxb4q/vKGdVpQ4JXj/Hnw3CGQCgDiAMnVJeAzO+uUqZtdRFFDbLXWuX6r7bvt6eT0g1u
-         sfJpRXk80Kv21yi+whCiq1lXCWHyXMHYRBQVR3CitnrijLAiw2dMtefqSu6aTA1UNZSw
-         QlBQHV7v5UCThq6uSd4rgmocSjXMojarDJsRSkLT7LZ1a5JFue4YuFXz89Qldv8yH9op
-         W/dynylYL0fVFvC19NwyTi7W+1wYK56NmlLn93biwhKNbELBAUMAptA3NEMAp7fuVC7N
-         4D3w==
-X-Gm-Message-State: AOJu0YwsaF8ERpaz8cq4q9TQuUn1YahIyh2ICwViYyRIHr56A17i/qaJ
-	aWaBbMOfZ1CDcow0kzIV8XFlfA==
-X-Google-Smtp-Source: AGHT+IFbYL9LzR1f7qPWMFMhpIw/jq2fW6XuDR85z/dEj8js9eHh6BWdpBWgonHNNRMuACn/U0IMZw==
-X-Received: by 2002:a17:903:32d2:b0:1c6:d0a:cf01 with SMTP id i18-20020a17090332d200b001c60d0acf01mr16447416plr.11.1698049823515;
-        Mon, 23 Oct 2023 01:30:23 -0700 (PDT)
+        bh=qwqRYcNnh3bL2bnUHbsBXwm7mmQqzZo0pVLQzAgbeF0=;
+        b=UCB91yC1AeE6+pwx8813oeXraoY/3p0lLi23NLc8AQV0+xJrbQP58aDBn032zYKF9M
+         KG7avVmdwRh/quoevdvo+W5Tx8Li4Ewyy19tzI5PFfz1MDQcefl5qD9rs8u20s+uzetP
+         FUQsNXyt+19PHXVdUBwHA/ljEC1RwsodgfMQJryd0Iv0Pkl8aBsYeXTyB3RsZ8BuiLZC
+         PLBoJ5lRdn/aYPtoGTzUKwiGqLyBctOjc+h1vj0QWhIgtd+tbqudtSFnSA/eO/DBgrBt
+         39zaPVdZfGlPoZHlNP4XeKGtfJZuc3NaDfXkw3xXxiB/pep6z5GPIBxS0LBJqGmxnbe7
+         P1pQ==
+X-Gm-Message-State: AOJu0YzW8NNY5Evk6HsVQupJ30ywBzbhvIVFHdNJ3zQyaR77SJiiuubA
+	qI8or2+JyRFC0M3n6yqdMpBUJQ==
+X-Google-Smtp-Source: AGHT+IGyFbUXBRXdZQh2eZcjKZcfVc6v/Ld3/FBhlNzBXs9NtpZ6v0cDf/3miDn1ZPth5cbBQ//TYA==
+X-Received: by 2002:a05:6a21:498b:b0:17b:d39c:1d6 with SMTP id ax11-20020a056a21498b00b0017bd39c01d6mr5328684pzc.30.1698049829431;
+        Mon, 23 Oct 2023 01:30:29 -0700 (PDT)
 Received: from J9GPGXL7NT.bytedance.net ([203.208.167.147])
-        by smtp.gmail.com with ESMTPSA id d15-20020a170903230f00b001b8b07bc600sm5415805plh.186.2023.10.23.01.30.18
+        by smtp.gmail.com with ESMTPSA id d15-20020a170903230f00b001b8b07bc600sm5415805plh.186.2023.10.23.01.30.23
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Mon, 23 Oct 2023 01:30:23 -0700 (PDT)
+        Mon, 23 Oct 2023 01:30:28 -0700 (PDT)
 From: Xu Lu <luxu.kernel@bytedance.com>
 To: paul.walmsley@sifive.com,
 	palmer@dabbelt.com,
@@ -79,16 +79,17 @@ Cc: dengliang.1214@bytedance.com,
 	linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	Xu Lu <luxu.kernel@bytedance.com>
-Subject: [RFC 11/12] riscv: Request pmu overflow interrupt as NMI
-Date: Mon, 23 Oct 2023 16:29:10 +0800
-Message-Id: <20231023082911.23242-12-luxu.kernel@bytedance.com>
+Subject: [RFC 12/12] riscv: Enable CONFIG_RISCV_PSEUDO_NMI in default
+Date: Mon, 23 Oct 2023 16:29:11 +0800
+Message-Id: <20231023082911.23242-13-luxu.kernel@bytedance.com>
 X-Mailer: git-send-email 2.39.3 (Apple Git-145)
 In-Reply-To: <20231023082911.23242-1-luxu.kernel@bytedance.com>
 References: <20231023082911.23242-1-luxu.kernel@bytedance.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231023_013025_031297_77F893B5 
-X-CRM114-Status: GOOD (  11.94  )
+X-CRM114-CacheID: sfid-20231023_013031_436360_73706B75 
+X-CRM114-Status: UNSURE (   8.86  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,87 +106,27 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This commit registers pmu overflow interrupt as NMI to improve the accuracy
-of perf sampling.
+This commit enables CONFIG_RISCV_PSEUDO_NMI in default. Now pseudo NMI
+feature is defaultly enabled on RISC-V.
 
 Signed-off-by: Xu Lu <luxu.kernel@bytedance.com>
 ---
- arch/riscv/include/asm/irqflags.h |  2 +-
- drivers/perf/riscv_pmu_sbi.c      | 23 +++++++++++++++++++----
- 2 files changed, 20 insertions(+), 5 deletions(-)
+ arch/riscv/Kconfig | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/riscv/include/asm/irqflags.h b/arch/riscv/include/asm/irqflags.h
-index 6a709e9c69ca..be840e297559 100644
---- a/arch/riscv/include/asm/irqflags.h
-+++ b/arch/riscv/include/asm/irqflags.h
-@@ -12,7 +12,7 @@
- 
- #ifdef CONFIG_RISCV_PSEUDO_NMI
- 
--#define __ALLOWED_NMI_MASK			0
-+#define __ALLOWED_NMI_MASK			BIT(IRQ_PMU_OVF)
- #define ALLOWED_NMI_MASK			(__ALLOWED_NMI_MASK & irqs_enabled_ie)
- 
- static inline bool nmi_allowed(int irq)
-diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
-index 995b501ec721..85abb7dd43b9 100644
---- a/drivers/perf/riscv_pmu_sbi.c
-+++ b/drivers/perf/riscv_pmu_sbi.c
-@@ -760,6 +760,7 @@ static irqreturn_t pmu_sbi_ovf_handler(int irq, void *dev)
- 
- static int pmu_sbi_starting_cpu(unsigned int cpu, struct hlist_node *node)
- {
-+	int ret = 0;
- 	struct riscv_pmu *pmu = hlist_entry_safe(node, struct riscv_pmu, node);
- 	struct cpu_hw_events *cpu_hw_evt = this_cpu_ptr(pmu->hw_events);
- 
-@@ -778,20 +779,30 @@ static int pmu_sbi_starting_cpu(unsigned int cpu, struct hlist_node *node)
- 	if (riscv_pmu_use_irq) {
- 		cpu_hw_evt->irq = riscv_pmu_irq;
- 		csr_clear(CSR_IP, BIT(riscv_pmu_irq_num));
--#ifndef CONFIG_RISCV_PSEUDO_NMI
-+#ifdef CONFIG_RISCV_PSEUDO_NMI
-+		ret = prepare_percpu_nmi(riscv_pmu_irq);
-+		if (ret != 0) {
-+			pr_err("Failed to prepare percpu nmi:%d\n", ret);
-+			return ret;
-+		}
-+		enable_percpu_nmi(riscv_pmu_irq, IRQ_TYPE_NONE);
-+#else
- 		csr_set(CSR_IE, BIT(riscv_pmu_irq_num));
--#endif
- 		enable_percpu_irq(riscv_pmu_irq, IRQ_TYPE_NONE);
-+#endif
- 	}
- 
--	return 0;
-+	return ret;
- }
- 
- static int pmu_sbi_dying_cpu(unsigned int cpu, struct hlist_node *node)
- {
- 	if (riscv_pmu_use_irq) {
-+#ifdef CONFIG_RISCV_PSEUDO_NMI
-+		disable_percpu_nmi(riscv_pmu_irq);
-+		teardown_percpu_nmi(riscv_pmu_irq);
-+#else
- 		disable_percpu_irq(riscv_pmu_irq);
--#ifndef CONFIG_RISCV_PSEUDO_NMI
- 		csr_clear(CSR_IE, BIT(riscv_pmu_irq_num));
- #endif
- 	}
-@@ -835,7 +846,11 @@ static int pmu_sbi_setup_irqs(struct riscv_pmu *pmu, struct platform_device *pde
- 		return -ENODEV;
- 	}
- 
-+#ifdef CONFIG_RISCV_PSEUDO_NMI
-+	ret = request_percpu_nmi(riscv_pmu_irq, pmu_sbi_ovf_handler, "riscv-pmu", hw_events);
-+#else
- 	ret = request_percpu_irq(riscv_pmu_irq, pmu_sbi_ovf_handler, "riscv-pmu", hw_events);
-+#endif
- 	if (ret) {
- 		pr_err("registering percpu irq failed [%d]\n", ret);
- 		return ret;
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index 487e4293f31e..ecccdc91563f 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -672,7 +672,7 @@ config RISCV_BOOT_SPINWAIT
+ config RISCV_PSEUDO_NMI
+ 	bool "Support for NMI-like interrupts"
+ 	depends on !RISCV_M_MODE
+-	default n
++	default y
+ 	help
+ 	  Adds support for mimicking Non-Maskable Interrupts through the use of
+ 	  CSR_IE register.
 -- 
 2.20.1
 
