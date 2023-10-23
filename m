@@ -4,91 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 444B9C25B47
-	for <linux-riscv@archiver.kernel.org>; Mon, 23 Oct 2023 21:07:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58612C25B45
+	for <linux-riscv@archiver.kernel.org>; Mon, 23 Oct 2023 21:16:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:In-Reply-To:References:Message-Id:
-	MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jZNcypdFNQGdQ8MqmnyaFb3GcT8ghodCK6e1fMwGat0=; b=Hn9JHKAYKAoFkQ
-	FIg1Sdo+oCcRGY1PLQ8085CRnrqtAYh2Wma1lhF4mhI2F7yZIKGsDPAX+w1Xk6F9hmZFl2oU+BtPX
-	S0jZUGZzseykZSd3NEfOzK5irSYhQqxSzpi38+1CG7D30/G1PIOxoioFgI8HlgKUg2GlTnaXu3Z4a
-	CGDQ7WG78NucYd/k3XUJ99tTA6ukvGW1/LW1uWxrNWSDmZKXy9EO/6Iz5l4zqVy+VFQ+zRDyvXLMr
-	1F3WgBrl4K6DdEpqVooipWSwAQPp42avnHKA7JdH1xrn+GZ/ZdYRFb9+MMBRqMJ4iJyYiF6JeqEip
-	SXtgzen9ymVKThK/9/PA==;
+	List-Owner; bh=qhstfav/ZQDu/o9BHmNHa60pfmP5R+5KU+9pzQM3OpE=; b=NiEEBA2v5Gyxwa
+	lwtncrUSscHfRkEWCZLuvdsU+b7JYP8z37Q6ry+yDJdy5nOOahj4ogVEwa6NCYgQ8Y7RPM9+Q+pgJ
+	57mco6iHhQYSjxxpo6jlPk6SxLJ+lJxcGEdgqXmvTlZtQcdtaeTVOxwl53Fd4aMZ9KUm5y/VbOo6s
+	tmr/a7MSjblNaoDXLpZlvnx8GELx00rABh5j1AjCnR+tHTpMe/mW+iVTZ3+y5poqOCwvxg5VXpR4G
+	RQC+U0IjqGW7QaxgD4jLVKk2eXH6oomjDEBa/J8C1VZhTmTkEdPChjfWGOZ9bKEyVPoLyiH7sESGf
+	RhVqkWVAvchfHbRDQayg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qv28y-008HbA-1N;
-	Mon, 23 Oct 2023 21:07:24 +0000
-Received: from mail-pf1-x435.google.com ([2607:f8b0:4864:20::435])
+	id 1qv2He-008Ii1-33;
+	Mon, 23 Oct 2023 21:16:22 +0000
+Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qv28u-008HXS-2n
+	id 1qv2Hb-008IhQ-04
 	for linux-riscv@lists.infradead.org;
-	Mon, 23 Oct 2023 21:07:22 +0000
-Received: by mail-pf1-x435.google.com with SMTP id d2e1a72fcca58-692c02adeefso2891018b3a.3
-        for <linux-riscv@lists.infradead.org>; Mon, 23 Oct 2023 14:07:20 -0700 (PDT)
+	Mon, 23 Oct 2023 21:16:21 +0000
+Received: by mail-pf1-x42e.google.com with SMTP id d2e1a72fcca58-694ed847889so3108172b3a.2
+        for <linux-riscv@lists.infradead.org>; Mon, 23 Oct 2023 14:16:18 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1698095240; x=1698700040; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=DnDZGk512Fn6FcfRLVRqtgZTjSOOBJwTCzWACAW0uhY=;
-        b=ZMvRHqKqG1II2/Uq4YlnvbG1OTUZhcbuFX0qCplVBIejNwleL9vk7ysiRL8sEeBv5X
-         XtANRL6pql/sIdKeUDliInFmRdeECn0kKs9mDbBvPVDwOF/9ZlZva1HuXRpKQrIRaASh
-         WJRIqXKDuKy9BciqCV54KwdFN4fQcXeu6SNhQp34/nwCSBVkdv6kxEotFjnoOcqpQlDU
-         P3ERR7Ji8B65EkNSBvygvoxrUn+Fe81xPhQDO3UAO7K2WahowYwr3FJs+lPFHGqt41Yu
-         F6KuVTKAM2+PN76GHQcbQK/VzFn2em4fa9ab73Lf4t8Bmo5NkuYK2EscNAVVVsdwlZHo
-         xibg==
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1698095777; x=1698700577; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=zvhazaZM9RfI4iJsfgktcPhLE+7qHteXIMbKad1YWwM=;
+        b=V/OWV2b8KrrDqsrxOxzd9H0eFf/ekJ7X0TF5RAJNh/BCq4ntQVH0pT4jo16flC69c5
+         ds4jVjEpojw7oz1dxN3wL/1u/ePzNHvs9f4cNBKSSmrnv3q3z48edyPa7l8LB7luYNAh
+         WucJfKxbMgEVJr9rfB6loISl/Fv2wRg1Sw4ENvFsdo0fuRxoyTuC383mWddUo2/82vd4
+         cUMd1Hhtv/+xnQVVz5TpCLWY5a1W6h3j9QyVAljakQUDcOm6aIoMv+PJC8rJORm6OyLx
+         K7I35FItUYaJkxNCaC7mMZ3fAgix91oBgjPWbyrDxRevDkss9H70M9rQf4aiPTxPh8Ec
+         FDGg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1698095240; x=1698700040;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=DnDZGk512Fn6FcfRLVRqtgZTjSOOBJwTCzWACAW0uhY=;
-        b=iXofkFaHnLrJLghb9UY+Zk66L5/ObyZiL279kQ0KPWFYSdqsZG0xBU1V8Us6a9RhtX
-         UkTShggIeeGFs4KtxC7YsPwTVtdk7aXtKB2YMbbut0p0IKvCDbtpGhvq6AeJV2cRcF3a
-         aaqTElm4ziNGUnur8Mrn42iAS6n5chvZIVHUDJDI+VmIZzqdWWQJDiWuBsrkb1uo1GXV
-         CVH/WdEBRBfJ/g1l8y+HUflYhMV2pNShRfrkPpoXaq6EweFkf5fs6PJKcwBqYo5Lv8/q
-         RTB1Z96MbGEVVw+xVKK4nlmXG8cfo3U5EvrS8EffON8anIHmF1O+nW5KQ37KjPdFn6PV
-         mGfw==
-X-Gm-Message-State: AOJu0Yzw6gVWMtbcTH0LsRGN5giAg7xYWD4Kh7zfLWLCibpWcQPKZwD8
-	0bTorVM5G6ThgcSZjfKqGAgZdw==
-X-Google-Smtp-Source: AGHT+IFy9i3wiRv7RsL2aaRs6W12U8SLHVKjHe5u5szPZ8Mmj2tmiOgWQEONmuRJ4KzzhMNyDRzMng==
-X-Received: by 2002:a05:6a00:1896:b0:6be:2bfa:6290 with SMTP id x22-20020a056a00189600b006be2bfa6290mr9584374pfh.8.1698095240362;
-        Mon, 23 Oct 2023 14:07:20 -0700 (PDT)
-Received: from [127.0.1.1] ([2601:1c2:1800:f680:b9a0:8714:407c:4146])
-        by smtp.gmail.com with ESMTPSA id k28-20020aa79d1c000000b006bde2480806sm6573066pfp.47.2023.10.23.14.07.18
+        d=1e100.net; s=20230601; t=1698095777; x=1698700577;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=zvhazaZM9RfI4iJsfgktcPhLE+7qHteXIMbKad1YWwM=;
+        b=uPxSbD8/kuN0MhgqRM+9PL/p2ekW4ZZz8dCFJ+T/Hk05oeH8xu/OB5/MIwHkPBZe1A
+         tzGyW/+PK7uyJJ80D5wWO385M2HleUo3wccUKqAu3DnrKkfydUp7subtBqRkTcSOzCFf
+         +PusFyyVrVknhTEGXulMOB/Q5W1PRbNCb1zjTDyEMV0fv8C89ohBvLNBFV0wnn+3DtGj
+         IJi3YfHxvXQKHPgiH6NuMPEjm5ZpiIVvYkeUC+frYnkz2W5LVQ4xKj5pc9pls1ur+HFV
+         dBx6RDZbhTLcY2l1XaDAU0aOe9WVW/asY9Si9uKM0zjA9fxHzmLsEZNlRRYhQaKHUThv
+         jasA==
+X-Gm-Message-State: AOJu0YxTNPq3HjqX/1gmR6gdoZ2pFLVkAvOdHPbEcuPZe25xdZB56P88
+	osyDsKi8IpMGSYz/R5kX261sIg==
+X-Google-Smtp-Source: AGHT+IHHOa6b8isYHkqmJjQq3xCd6kvCalcUdzFL2r7jyGX64Eq4yPLeQJvZ+MMD0KyWAU4/1ldzgw==
+X-Received: by 2002:a05:6a00:a0b:b0:6bd:9281:9453 with SMTP id p11-20020a056a000a0b00b006bd92819453mr9522592pfh.9.1698095777579;
+        Mon, 23 Oct 2023 14:16:17 -0700 (PDT)
+Received: from x1 ([2601:1c2:1800:f680:b9a0:8714:407c:4146])
+        by smtp.gmail.com with ESMTPSA id f18-20020aa79692000000b00690c52267easm6535133pfk.40.2023.10.23.14.16.15
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Oct 2023 14:07:20 -0700 (PDT)
+        Mon, 23 Oct 2023 14:16:17 -0700 (PDT)
+Date: Mon, 23 Oct 2023 14:16:14 -0700
 From: Drew Fustini <dfustini@baylibre.com>
-Date: Mon, 23 Oct 2023 14:07:08 -0700
-Subject: [PATCH v3 7/7] riscv: dts: thead: Enable LicheePi 4A eMMC and
- microSD
+To: Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Jisheng Zhang <jszhang@kernel.org>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Conor Dooley <conor@kernel.org>
+Subject: Re: [PATCH v3 0/7] RISC-V: Add MMC support for TH1520 boards
+Message-ID: <ZTbini/VyDxHMyrm@x1>
+References: <20231023-th1520-mmc-v3-0-23850668d208@baylibre.com>
 MIME-Version: 1.0
-Message-Id: <20231023-th1520-mmc-v3-7-abc5e7491166@baylibre.com>
-References: <20231023-th1520-mmc-v3-0-abc5e7491166@baylibre.com>
-In-Reply-To: <20231023-th1520-mmc-v3-0-abc5e7491166@baylibre.com>
-To: Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh+dt@kernel.org>, 
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
- Conor Dooley <conor+dt@kernel.org>, Jisheng Zhang <jszhang@kernel.org>, 
- Adrian Hunter <adrian.hunter@intel.com>, Guo Ren <guoren@kernel.org>, 
- Fu Wei <wefu@redhat.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Conor Dooley <conor@kernel.org>
-X-Mailer: b4 0.12.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1698095224; l=1102;
- i=dfustini@baylibre.com; s=20230430; h=from:subject:message-id;
- bh=vZkA/Rp2zWEJvsAGA/badfpHmHgx6/3DqqLzYe2IxQc=;
- b=ax5AGQOb4EokTCr2I432j5nbW8QaPOXuJavEGggSs1ADU93cWqll3c1fgKxLtJr4V7cVFFlVf
- 3vhc56vd56WA2rIDPUGnxPWzgbBzvgjFKNJQh0b6hnAKjzBdq1stbeQ
-X-Developer-Key: i=dfustini@baylibre.com; a=ed25519;
- pk=p3GKE9XFmjhwAayAHG4U108yag7V8xQVd4zJLdW0g7g=
+Content-Disposition: inline
+In-Reply-To: <20231023-th1520-mmc-v3-0-23850668d208@baylibre.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231023_140720_909656_3A6A9330 
-X-CRM114-Status: UNSURE (   9.53  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20231023_141619_084571_B5FFBB6F 
+X-CRM114-Status: GOOD (  24.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,59 +92,54 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, Drew Fustini <dfustini@baylibre.com>, Han Gao <gaohan@iscas.ac.cn>, linux-mmc@vger.kernel.org, linux-kernel@vger.kernel.org, Robert Nelson <robertcnelson@beagleboard.org>, Jason Kridner <jkridner@beagleboard.org>, Xi Ruoyao <xry111@xry111.site>, linux-riscv@lists.infradead.org
+Cc: devicetree@vger.kernel.org, Han Gao <gaohan@iscas.ac.cn>, linux-mmc@vger.kernel.org, linux-kernel@vger.kernel.org, Robert Nelson <robertcnelson@beagleboard.org>, Jason Kridner <jkridner@beagleboard.org>, Xi Ruoyao <xry111@xry111.site>, linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add mmc0 properties for the eMMC device and add mmc1 properties for
-the microSD slot. Set the frequency for the sdhci clock.
+On Mon, Oct 23, 2023 at 01:33:02PM -0700, Drew Fustini wrote:
+> This series adds support for the MMC controller in the T-Head TH1520
+> SoC, and it enables the eMMC and microSD slot on both the BeagleV
+> Ahead and the Sipeed LicheePi 4A.
+> 
+> I tested on top of v6.6-rc6 with riscv defconfig. I was able to boot
+> both the Ahead [1] and LPi4a [2] from eMMC. The following prerequisites
+> are required:
+> 
+>   [PATCH v2] riscv: dts: thead: set dma-noncoherent to soc bus [3]
+> 
+> I pushed a branch [4] with this patch series and the above patch for
+> those that find a git branch easier to test.
+> 
+> Note: I have only tested eMMC and microSD. I have not yet configured
+> or tested the mmc controller used for SDIO WiFi yet.
+> 
+> References:
+> [1] https://gist.github.com/pdp7/7850027e8d256b6fd9cd53080240f0f6
+> [2] https://gist.github.com/pdp7/fae4637378426723508b679420a0a5a1
+> [3] https://lore.kernel.org/linux-riscv/20230912072232.2455-1-jszhang@kernel.org/
+> [4] https://github.com/pdp7/linux/tree/b4/th1520-mmc
+> 
+> Changes in PATCH v3:
+> - always call th1520_sdhci_set_phy() in th1520_set_uhs_signaling()
+>   and not only when timing is MMC_TIMING_MMC_HS400. This allows the
+>   microSD slot to work as th1520_phy_3_3v_init() is called from
+>   th1520_sdhci_set_phy().
+> - add mmc1 node for mmc controller connected to the microSD slot
+> - add enable mmc1 and add properties for microSD on the Ahead and LPi4A
 
-Signed-off-by: Drew Fustini <dfustini@baylibre.com>
----
- .../boot/dts/thead/th1520-lichee-module-4a.dtsi      | 20 ++++++++++++++++++++
- 1 file changed, 20 insertions(+)
+My apologies for sending this v3 series prematurely. I wanted to send
+out the fix above that enabled microSD to work but I failed to address
+the feedback from Adrian and Jisheng on v2 [1] and I also failed to
+applied the tags from v2. I will address those in a v4 but I'll wait a
+few days in case there is any feedback on the th1520_set_uhs_signaling()
+change above.
 
-diff --git a/arch/riscv/boot/dts/thead/th1520-lichee-module-4a.dtsi b/arch/riscv/boot/dts/thead/th1520-lichee-module-4a.dtsi
-index a802ab110429..94f1741435a5 100644
---- a/arch/riscv/boot/dts/thead/th1520-lichee-module-4a.dtsi
-+++ b/arch/riscv/boot/dts/thead/th1520-lichee-module-4a.dtsi
-@@ -29,6 +29,10 @@ &apb_clk {
- 	clock-frequency = <62500000>;
- };
- 
-+&sdhci_clk {
-+	clock-frequency = <198000000>;
-+};
-+
- &uart_sclk {
- 	clock-frequency = <100000000>;
- };
-@@ -36,3 +40,19 @@ &uart_sclk {
- &dmac0 {
- 	status = "okay";
- };
-+
-+&mmc0 {
-+	bus-width = <8>;
-+	max-frequency = <198000000>;
-+	mmc-hs400-1_8v;
-+	non-removable;
-+	no-sdio;
-+	no-sd;
-+	status = "okay";
-+};
-+
-+&mmc1 {
-+	max-frequency = <198000000>;
-+	bus-width = <4>;
-+	status = "okay";
-+};
+Thank you,
+Drew
 
--- 
-2.34.1
-
+[1] https://lore.kernel.org/r/20231017-th1520-mmc-v2-0-4678c8cc4048@baylibre.com
 
 _______________________________________________
 linux-riscv mailing list
