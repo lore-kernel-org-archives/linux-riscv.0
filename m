@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 491B5C25B41
-	for <linux-riscv@archiver.kernel.org>; Mon, 23 Oct 2023 08:30:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2D23C001E0
+	for <linux-riscv@archiver.kernel.org>; Mon, 23 Oct 2023 08:30:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/MoE5DawG/oz1HpT0S8jQR+4EIXK6eC4KV/wdNxp8ZY=; b=FRriEvLQ6DSNML
-	82XodiPM+YsA/NE4TwJAvgS8sf00r+RJMyxyIZIUzo0gx5mDmVzNyRLOniEhGuXiIwNh+po1sM8Ja
-	jT6kp1aEO00Pa7eXjGAz9rult/aSuuIPX9DOOkmMX5jwV8krf2aBpqN9TWHgxAlXxVnAbPdBVKZj9
-	f8VnUTYrfxVYrbW5+ZeiZwlJkAt0g6JqpQytNWIN419zZbiiOnJ9QD+KFjQKWVlt7HtCHxFQtfRss
-	K+Pq6V4XUV7tjqVggRA6K9AwuEzEprUdQFyz4SFOtpY+xHtu4QPmjOUqbWpdficgazLdyUOu5ChWV
-	EyIW8k949kKEgqGQQHvA==;
+	List-Owner; bh=F/YNTRnHw0yOQaL0ss/iiCJGRfZCwUYRWDFd0ewvW7g=; b=Rf13uCR1i//nk7
+	Zijj/lG2Dd52fW97dmBj9Gu9Q/EP8r6zb3tFMcvPasMGSiVg3cEfoCPAdzh9xV2ObDKBKDCWPcaUo
+	L4n9TjxUW/7ywHG4Ot5VDydmlRo8b5svyLQA7qwbCNGSp1bpqTIsWgOLPdDcGNXOiD+8yvweuK8hR
+	aTrbFGTHthh3W2guVv0o+hglYBVhgRcgisVov85IrGDGEbD85xU3HTx8I3/BvCHgRMJfp3iGXqzlu
+	duVrTYRpF8Nk9MG38XLKAzkoa3Nu2qJf9H03Sy7RmAJqDtyI/RpzG34jAnxVeRqVgH1y3mVwm56H0
+	TrtZHr1dPL1IDpzTsQtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1quqJv-006l4i-1z;
-	Mon, 23 Oct 2023 08:29:55 +0000
-Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
+	id 1quqJy-006l6O-1E;
+	Mon, 23 Oct 2023 08:29:58 +0000
+Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1quqJs-006l1t-1F
+	id 1quqJv-006l4e-20
 	for linux-riscv@lists.infradead.org;
-	Mon, 23 Oct 2023 08:29:53 +0000
-Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-1bdf4752c3cso15992655ad.2
-        for <linux-riscv@lists.infradead.org>; Mon, 23 Oct 2023 01:29:49 -0700 (PDT)
+	Mon, 23 Oct 2023 08:29:57 +0000
+Received: by mail-pf1-x42a.google.com with SMTP id d2e1a72fcca58-68fb85afef4so2396866b3a.1
+        for <linux-riscv@lists.infradead.org>; Mon, 23 Oct 2023 01:29:55 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1698049789; x=1698654589; darn=lists.infradead.org;
+        d=bytedance.com; s=google; t=1698049795; x=1698654595; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=4WLOSQOA5Tm0Adw6Ut8ujQkn4XXYrNjbdXHKCGaB3LM=;
-        b=MzCZPuLXMvd+nGO85zng0yKUML8RkiunMimT2sA0QZGYs3LL2SMlR73FZm3MAT+Cb4
-         yY67oXLZoWnc4hVf5wCmmuDqhqBh+nKowl+jZnTx2cUZrlqL7DqPvPKEc5J9S+8wPftD
-         J59dZRxsaRX/MvVb8kG/AepMuftaWRxui6+GfsUdp4gJ6HrQfa9aJTFfKVGsX+I1UYwt
-         1f6cz3FlcWo6gu+4rocIa9qFdHXxrZbNWnu+CM7ShH6Y38JcYvmLfva7deECp0o/y64z
-         txs55bIA+ni0AKVzAfqiDdj5HEBqH/eKBSk/yUxIPiRlHSH0qHcfIO/DfKwQH+37inKW
-         rvOA==
+        bh=AUO1/BVdvM4H5C6LBNItdP0IIJipRGNxmDV7eD7nopg=;
+        b=YOEkYWaJX4J6nQH/j/ix0gyM0HNFxdvdxB3PPUu483b2ogm/0WrxAWTpoLuY0mY6ui
+         yyXAz1xLRTNuALQfkeQDpj51w2dtws8vQOT5S4Tx+xSYqoOhnjGpiBWUh/Cwic7QIbyr
+         HS07uV2uJZsMW6r8TfD204CKZRsHjkbCxVN34Gr2fEasxw7I7QSDKklXjq0ixfaXRsO6
+         HnT2N6CYAeQsjDWeZM9tNdMTrrVMpXQHdE0YY+U9GKKsTDsoq1XlWlb7LfrriTLoQhLg
+         ow8WuC4PGQDtwgTkWf3iEeQwVqtEMBBh2cVEcQ+CGr/svbCWMg53saZIiJqIlyodW21C
+         XIpw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1698049789; x=1698654589;
+        d=1e100.net; s=20230601; t=1698049795; x=1698654595;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=4WLOSQOA5Tm0Adw6Ut8ujQkn4XXYrNjbdXHKCGaB3LM=;
-        b=V53zWPrgxVperzdYvroWe8rIbyJK6ljB/zuhCkYCmRF+XcB+BPULO00btPcsW8/+0t
-         IliJV1sRNkYlMrIo1/N6kX07Ry6GessqJ+j9eGKAtSJWGhe+88AH1nrYlOho6Ge3YuiP
-         0AQ4yn8MVY2CNiQmp+QjlyB3idB94QmXKG5UAfCZhpN8jyRkHQHT+8nEEpDwPL2dJJcg
-         B+U+DjHExQdyPduoNVDmyVl726QEA4gjOqUTeEzXixiwlo9CZXGnINz1lJYzjOuQgUQq
-         5C/31D1pekj1Pi86jdUh6my9sBMDk+dIkJA8CBkjV7daTNWeRGeDIzOTlNDyVV1ZzO3K
-         La8Q==
-X-Gm-Message-State: AOJu0Yws4R4Mm3MjZYVRzbuiaBsBTlPcRqc0GWiHf2MOsLFS/Qc//tW9
-	HHkb5H8efhZ9eiJEVv3mW8ozUA==
-X-Google-Smtp-Source: AGHT+IHnm6GiYKkee1BBGlEg9/2GVy9OXofYG3BGHLaj+6z7TyuT5to3Ev1GjwdsT/XgsL2yDJJgGg==
-X-Received: by 2002:a17:902:e548:b0:1c9:b187:4d84 with SMTP id n8-20020a170902e54800b001c9b1874d84mr8674687plf.14.1698049789506;
-        Mon, 23 Oct 2023 01:29:49 -0700 (PDT)
+        bh=AUO1/BVdvM4H5C6LBNItdP0IIJipRGNxmDV7eD7nopg=;
+        b=X9Pq3tG8tICGhFOKBkKEnvMnzMIFZ5VsNDNyu/duvrsAzigzp/+JM2G7wlcEzCoDRn
+         ZvyHU8uBuJNebN6sV06CA+r1cUVT4yQGsEULCkFYcrLbvQ7QFSslwDAIqg6WDlrGi2qo
+         +MMFAvrmqNAzUwJteZF/tJjCNg3RLPGGQKNnH9T4FzfmCPwQOKk/aoBJSyPnnovq5s7z
+         092YRCRp9+q/IeY16rW4kbjHPAtzCM4CfvyzGfwevNkslZaSQYTxdDtd4oZZVqq8X6iC
+         /M4pvvm0i3Ywq/lcCMKX9a08p7xOMZh0aSis2N90WC/nhk6Cnkiecr/9bYZzCRWtEQWF
+         if9Q==
+X-Gm-Message-State: AOJu0YxaPapKIR5YIPWemdQk1oUNjWGOxYoUt6iVgme+AMxBl8/3O8WR
+	cgJnAU0UPYRJFIlUfTB7KFSywA==
+X-Google-Smtp-Source: AGHT+IEuewyI9+tw5QJUm2oN6guHecDPjWsmm8bO+1FZNslxYqHTr+PcfG3+59e4kYZAI8n0lGmkLw==
+X-Received: by 2002:a05:6a20:2615:b0:151:7d4c:899c with SMTP id i21-20020a056a20261500b001517d4c899cmr4935811pze.25.1698049795184;
+        Mon, 23 Oct 2023 01:29:55 -0700 (PDT)
 Received: from J9GPGXL7NT.bytedance.net ([203.208.167.147])
-        by smtp.gmail.com with ESMTPSA id d15-20020a170903230f00b001b8b07bc600sm5415805plh.186.2023.10.23.01.29.44
+        by smtp.gmail.com with ESMTPSA id d15-20020a170903230f00b001b8b07bc600sm5415805plh.186.2023.10.23.01.29.49
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Mon, 23 Oct 2023 01:29:49 -0700 (PDT)
+        Mon, 23 Oct 2023 01:29:54 -0700 (PDT)
 From: Xu Lu <luxu.kernel@bytedance.com>
 To: paul.walmsley@sifive.com,
 	palmer@dabbelt.com,
@@ -79,16 +79,16 @@ Cc: dengliang.1214@bytedance.com,
 	linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	Xu Lu <luxu.kernel@bytedance.com>
-Subject: [RFC 05/12] riscv: kvm: Switch back to CSR_STATUS masking when entering guest
-Date: Mon, 23 Oct 2023 16:29:04 +0800
-Message-Id: <20231023082911.23242-6-luxu.kernel@bytedance.com>
+Subject: [RFC 06/12] riscv: Allow requesting irq as pseudo NMI
+Date: Mon, 23 Oct 2023 16:29:05 +0800
+Message-Id: <20231023082911.23242-7-luxu.kernel@bytedance.com>
 X-Mailer: git-send-email 2.39.3 (Apple Git-145)
 In-Reply-To: <20231023082911.23242-1-luxu.kernel@bytedance.com>
 References: <20231023082911.23242-1-luxu.kernel@bytedance.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231023_012952_424950_382D4C35 
-X-CRM114-Status: GOOD (  10.27  )
+X-CRM114-CacheID: sfid-20231023_012955_666345_2A554591 
+X-CRM114-Status: GOOD (  10.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,89 +105,102 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-When kvm enters vcpu, it first disables local irqs before preparing vcpu
-context and uses SRET instruction to enter guest mode after vcpu context
-is ready, which automatically restores guest's irq status. However, after
-we switch to CSR_IE masking for interrupt disabling, the SRET instruction
-itself can not restore guest's irq status correctly as interrupts are
-still masked by CSR_IE.
-
-This commit handles this special case by switching to traditional
-CSR_STATUS way to disable irqs before entering guest mode.
+This commit implements pseudo NMI callbacks for riscv_intc_irq chip. We
+use an immediate macro to denote NMIs of each cpu. Each bit of it
+represents an irq. Bit 1 means corresponding irq is registered as NMI
+while bit 0 means not.
 
 Signed-off-by: Xu Lu <luxu.kernel@bytedance.com>
+Signed-off-by: Hangjing Li <lihangjing@bytedance.com>
+Reviewed-by: Liang Deng <dengliang.1214@bytedance.com>
+Reviewed-by: Yu Li <liyu.yukiteru@bytedance.com>
 ---
- arch/riscv/include/asm/irqflags.h |  3 +++
- arch/riscv/kvm/vcpu.c             | 18 +++++++++++++-----
- 2 files changed, 16 insertions(+), 5 deletions(-)
+ arch/riscv/include/asm/irqflags.h | 17 ++++++++++++++
+ drivers/irqchip/irq-riscv-intc.c  | 38 +++++++++++++++++++++++++++++++
+ 2 files changed, 55 insertions(+)
 
 diff --git a/arch/riscv/include/asm/irqflags.h b/arch/riscv/include/asm/irqflags.h
-index e0ff37315178..60c19f8b57f0 100644
+index 60c19f8b57f0..9700a17a003a 100644
 --- a/arch/riscv/include/asm/irqflags.h
 +++ b/arch/riscv/include/asm/irqflags.h
-@@ -64,6 +64,9 @@ static inline void arch_local_irq_restore(unsigned long flags)
- 	csr_write(CSR_IE, flags);
- }
+@@ -12,6 +12,23 @@
  
-+#define local_irq_enable_vcpu_run		local_irq_switch_on
-+#define local_irq_disable_vcpu_run		local_irq_switch_off
-+
- #else /* CONFIG_RISCV_PSEUDO_NMI */
+ #ifdef CONFIG_RISCV_PSEUDO_NMI
  
- /* read interrupt enabled status */
-diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
-index 82229db1ce73..233408247da7 100644
---- a/arch/riscv/kvm/vcpu.c
-+++ b/arch/riscv/kvm/vcpu.c
-@@ -621,6 +621,14 @@ static void noinstr kvm_riscv_vcpu_enter_exit(struct kvm_vcpu *vcpu)
- 	guest_state_exit_irqoff();
- }
- 
-+#ifndef local_irq_enable_vcpu_run
-+#define local_irq_enable_vcpu_run		local_irq_enable
-+#endif
++#define __ALLOWED_NMI_MASK			0
++#define ALLOWED_NMI_MASK			(__ALLOWED_NMI_MASK & irqs_enabled_ie)
 +
-+#ifndef local_irq_disable_vcpu_run
-+#define local_irq_disable_vcpu_run		local_irq_disable
-+#endif
++static inline bool nmi_allowed(int irq)
++{
++	return (BIT(irq) & ALLOWED_NMI_MASK);
++}
 +
- int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
++static inline bool is_nmi(int irq)
++{
++	return (BIT(irq) & ALLOWED_NMI_MASK);
++}
++
++static inline void set_nmi(int irq) {}
++
++static inline void unset_nmi(int irq) {}
++
+ static inline void local_irq_switch_on(void)
  {
- 	int ret;
-@@ -685,7 +693,7 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
- 			continue;
- 		}
+ 	csr_set(CSR_STATUS, SR_IE);
+diff --git a/drivers/irqchip/irq-riscv-intc.c b/drivers/irqchip/irq-riscv-intc.c
+index 7fad1ba37e5c..83a0a744fce6 100644
+--- a/drivers/irqchip/irq-riscv-intc.c
++++ b/drivers/irqchip/irq-riscv-intc.c
+@@ -67,11 +67,49 @@ static void riscv_intc_irq_eoi(struct irq_data *d)
+ 	 */
+ }
  
--		local_irq_disable();
-+		local_irq_disable_vcpu_run();
++#ifdef CONFIG_RISCV_PSEUDO_NMI
++
++static int riscv_intc_irq_nmi_setup(struct irq_data *d)
++{
++	unsigned int hwirq = d->hwirq;
++	struct irq_desc *desc = irq_to_desc(d->irq);
++
++	if (WARN_ON((hwirq >= BITS_PER_LONG) || !nmi_allowed(hwirq)))
++		return -EINVAL;
++
++	desc->handle_irq = handle_percpu_devid_fasteoi_nmi;
++	set_nmi(hwirq);
++
++	return 0;
++}
++
++static void riscv_intc_irq_nmi_teardown(struct irq_data *d)
++{
++	unsigned int hwirq = d->hwirq;
++	struct irq_desc *desc = irq_to_desc(d->irq);
++
++	if (WARN_ON(hwirq >= BITS_PER_LONG))
++		return;
++
++	if (WARN_ON(!is_nmi(hwirq)))
++		return;
++
++	desc->handle_irq = handle_percpu_devid_irq;
++	unset_nmi(hwirq);
++}
++
++#endif /* CONFIG_RISCV_PSEUDO_NMI */
++
+ static struct irq_chip riscv_intc_chip = {
+ 	.name = "RISC-V INTC",
+ 	.irq_mask = riscv_intc_irq_mask,
+ 	.irq_unmask = riscv_intc_irq_unmask,
+ 	.irq_eoi = riscv_intc_irq_eoi,
++#ifdef CONFIG_RISCV_PSEUDO_NMI
++	.irq_nmi_setup = riscv_intc_irq_nmi_setup,
++	.irq_nmi_teardown = riscv_intc_irq_nmi_teardown,
++	.flags = IRQCHIP_SUPPORTS_NMI,
++#endif
+ };
  
- 		/*
- 		 * Ensure we set mode to IN_GUEST_MODE after we disable
-@@ -712,7 +720,7 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
- 		    kvm_request_pending(vcpu) ||
- 		    xfer_to_guest_mode_work_pending()) {
- 			vcpu->mode = OUTSIDE_GUEST_MODE;
--			local_irq_enable();
-+			local_irq_enable_vcpu_run();
- 			preempt_enable();
- 			kvm_vcpu_srcu_read_lock(vcpu);
- 			continue;
-@@ -757,12 +765,12 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
- 		 * recognised, so we just hope that the CPU takes any pending
- 		 * interrupts between the enable and disable.
- 		 */
--		local_irq_enable();
--		local_irq_disable();
-+		local_irq_enable_vcpu_run();
-+		local_irq_disable_vcpu_run();
- 
- 		guest_timing_exit_irqoff();
- 
--		local_irq_enable();
-+		local_irq_enable_vcpu_run();
- 
- 		preempt_enable();
- 
+ static int riscv_intc_domain_map(struct irq_domain *d, unsigned int irq,
 -- 
 2.20.1
 
