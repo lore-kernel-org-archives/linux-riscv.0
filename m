@@ -4,61 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81B51C25B46
-	for <linux-riscv@archiver.kernel.org>; Mon, 23 Oct 2023 17:00:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35860C25B46
+	for <linux-riscv@archiver.kernel.org>; Mon, 23 Oct 2023 17:14:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9398x2Jkw6AP5bny5Vj7JjUXecUsYtiS8xGaDGC0XZA=; b=MccV2VSpZkjaJ0
-	uLW4nd7xkBdYv42+6+RpR4SBsSKcZ2m9833oQQs9TVyzQvfxONfTPgyNKf8BxSSL9hBXjW7W8pgzW
-	NS5nhqZgDhbbXage2ys4aeb2iKD4fEzfncYulbz3DLM48ZdYrNiKlV9e/WloC9MuuyslnzxV2M4Mk
-	IZusJRGl9pxlWy1PC1UBh0WEYX9evYHl1XwHcYR26WWvyDI3Zk1SngA25YY4FDfoJl7IdgkjSYN3g
-	lUab8JxWFamWTbRmXN7xMRINjB17w7bhoCo94wC2vqLCNnDRbhHK5QoU/fp6YlwV4F74A3JMWxEhX
-	Zfz+b2npIEzkcwJthwrQ==;
+	List-Owner; bh=nXG9JRZ2f4W/rPfmYMNyt+XnjKByoGaJnuH3zkIobfI=; b=gDcGMqK3AKa4Pr
+	6zxVlm5WJx4BXVsvRw9SuYv/OBNJgdjHispPuqPmIpARBQ51wfUqMZf2aNo4SbgEGaCOO2E/g8agU
+	Xi7Ct3ibkLCvpmyFKxzuiRykEoLiurWQjkvaL7PMnp9l4TrN6Pls+tbzGVfIV5l98TLddSWVxJKNd
+	cnURCPAEP1xGX0vznWDLMtaMDY7k1hvAEi3iG5h9zOmBDDify/FkIYdlw/lP0paewbJ499jVCiABN
+	fW48C3AnKZnFO13Zqhpt+5sUq3CmH2li/wkfc0RWCLOnndQyW1x3JZDFt8jhdUF1B9s+00n0H/qnK
+	Jttih3Fc+lmCUU9GOTkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1quyHv-007sbR-32;
-	Mon, 23 Oct 2023 17:00:23 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1quyVg-007u1k-2I;
+	Mon, 23 Oct 2023 17:14:36 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1quyHt-007sb4-0b
-	for linux-riscv@lists.infradead.org;
-	Mon, 23 Oct 2023 17:00:22 +0000
+	id 1quyVc-007tz4-27;
+	Mon, 23 Oct 2023 17:14:34 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id A4319625D9;
-	Mon, 23 Oct 2023 17:00:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 37C51C433C7;
-	Mon, 23 Oct 2023 17:00:19 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 043BD625F2;
+	Mon, 23 Oct 2023 17:14:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 43161C433C9;
+	Mon, 23 Oct 2023 17:14:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1698080420;
-	bh=g1G7yWysf4/vpcAzIOKI3rb5OX5zd6qjlbvDZhuGXes=;
-	h=Date:From:To:List-Id:Cc:Subject:References:In-Reply-To:From;
-	b=nUG2xBJdy02m9wKb22uypTnntGmEen+0EJfuFCoOsj/4Acln1BlcNEIB/1UxxJIDg
-	 PX9LJ2sBxbFexhQebotRRXHCTOegkIL/s+/tsD2jer3WwBA0ZEoAJpp5z8/cGOMPgK
-	 1KLgWe5gqKwBr4zNqPjYKzONmgTlJGc7+J/Pd+Dg3QO1rsQEpirlR4lMQNfb09Z94t
-	 zlXZJltllVB02/W5Bio2LXmxyKS0y0BtcOrbNNiQVN5p0IWczY0z+PlwAia2BrzIwn
-	 qQVmcBS0x3pUBugC9is8ZTorbMjsSlBdTXPC6mHw1iXtFPt2o5xn1TclSvBvOvMUK2
-	 kD66lhz5Ee1Kw==
-Date: Tue, 24 Oct 2023 00:48:07 +0800
-From: Jisheng Zhang <jszhang@kernel.org>
-To: Conor Dooley <conor@kernel.org>
-Cc: soc@kernel.org, linux-riscv@lists.infradead.org,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Guo Ren <guoren@kernel.org>
-Subject: Re: [PATCH] riscv: dts: thead: convert isa detection to new
- properties
-Message-ID: <ZTajxzpNbPF9WS0X@xhacker>
-References: <20231022154135.3746-1-jszhang@kernel.org>
- <20231023-factor-unashamed-2fd76c2ad02b@spud>
+	s=k20201202; t=1698081270;
+	bh=Ja8s9hHWNsMl9rR/A2vkVRwGBByDHecu9TUfTmLK5O0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=MeuEwtvuDFO5yp5iwwuVEJNzg9RfG0g2iSphmorTs1YHktZPSgAIBmOgSnoaQJdHm
+	 nUlWIMj2sV40TRQksuLqdyoEUZOrZ4YgskSrGgA2/nhb9IFL78IFLLm5ChkY8qJxOI
+	 XvSk9ecB7rzX1Id68w7pVTn+QD7K44RzxoL0JXDRTA8j3sh2U4yTDlfwo97LvPAH00
+	 RUnsGssWWAdudZuWTwU1hLYa0ovrTsWm97cFrfjCEL0C5VQBb75ldMMm5wnopS8rdo
+	 ma5otrvqzXBMC9YyKDYNnhopzPnGbtq133bDGxB7c+u2v5Gw+ZIgVNda5UvccMxt+p
+	 Sq/U+bn87cRzw==
+Date: Mon, 23 Oct 2023 18:14:20 +0100
+From: Will Deacon <will@kernel.org>
+To: Mike Rapoport <rppt@kernel.org>
+Cc: linux-kernel@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>,
+	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	"David S. Miller" <davem@davemloft.net>,
+	Dinh Nguyen <dinguyen@kernel.org>,
+	Heiko Carstens <hca@linux.ibm.com>, Helge Deller <deller@gmx.de>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Kent Overstreet <kent.overstreet@linux.dev>,
+	Luis Chamberlain <mcgrof@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nadav Amit <nadav.amit@gmail.com>,
+	"Naveen N. Rao" <naveen.n.rao@linux.ibm.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Puranjay Mohan <puranjay12@gmail.com>,
+	Rick Edgecombe <rick.p.edgecombe@intel.com>,
+	Russell King <linux@armlinux.org.uk>, Song Liu <song@kernel.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Thomas Gleixner <tglx@linutronix.de>, bpf@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
+	linux-mm@kvack.org, linux-modules@vger.kernel.org,
+	linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev,
+	netdev@vger.kernel.org, sparclinux@vger.kernel.org, x86@kernel.org
+Subject: Re: [PATCH v3 04/13] mm/execmem, arch: convert remaining overrides
+ of module_alloc to execmem
+Message-ID: <20231023171420.GA4041@willie-the-truck>
+References: <20230918072955.2507221-1-rppt@kernel.org>
+ <20230918072955.2507221-5-rppt@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20231023-factor-unashamed-2fd76c2ad02b@spud>
+In-Reply-To: <20230918072955.2507221-5-rppt@kernel.org>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231023_100021_267031_D632A767 
-X-CRM114-Status: GOOD (  12.50  )
+X-CRM114-CacheID: sfid-20231023_101432_784783_62E2290D 
+X-CRM114-Status: GOOD (  34.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,40 +99,199 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 23, 2023 at 09:27:07AM +0100, Conor Dooley wrote:
-> On Sun, Oct 22, 2023 at 11:41:35PM +0800, Jisheng Zhang wrote:
-> > From: Conor Dooley <conor.dooley@microchip.com>
-> > 
-> > Convert the th1520 devicetrees to use the new properties
-> > "riscv,isa-base" & "riscv,isa-extensions".
-> > For compatibility with other projects, "riscv,isa" remains.
-> > 
-> > Reviewed-by: Jisheng Zhang <jszhang@kernel.org>
-> > Acked-by: Guo Ren <guoren@kernel.org>
-> > Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-> > ---
-> > 
-> > Hi Arnd,
-> > 
-> > This is the only one thead patch for v6.7, could you please apply it
-> > directly?
+Hi Mike,
+
+On Mon, Sep 18, 2023 at 10:29:46AM +0300, Mike Rapoport wrote:
+> From: "Mike Rapoport (IBM)" <rppt@kernel.org>
 > 
-> FYI, this is missing your signoff, since you are resending my patch.
+> Extend execmem parameters to accommodate more complex overrides of
+> module_alloc() by architectures.
 > 
+> This includes specification of a fallback range required by arm, arm64
+> and powerpc and support for allocation of KASAN shadow required by
+> arm64, s390 and x86.
+> 
+> The core implementation of execmem_alloc() takes care of suppressing
+> warnings when the initial allocation fails but there is a fallback range
+> defined.
+> 
+> Signed-off-by: Mike Rapoport (IBM) <rppt@kernel.org>
+> ---
+>  arch/arm/kernel/module.c     | 38 ++++++++++++---------
+>  arch/arm64/kernel/module.c   | 57 ++++++++++++++------------------
+>  arch/powerpc/kernel/module.c | 52 ++++++++++++++---------------
+>  arch/s390/kernel/module.c    | 52 +++++++++++------------------
+>  arch/x86/kernel/module.c     | 64 +++++++++++-------------------------
+>  include/linux/execmem.h      | 14 ++++++++
+>  mm/execmem.c                 | 43 ++++++++++++++++++++++--
+>  7 files changed, 167 insertions(+), 153 deletions(-)
 
-Hi Conor,
+[...]
 
-Today I noticed that Arnd has tagged for-next for 6.7, so I guess I
-missed the 6.7 PR, sorry. And I also noticed that Arnd has queued the
-thead dma-noncoherent patch for 6.7(which is expected in rc7 :) because
-I didn't explictly mark the target. I will take care this kind of
-PR/directly_merge target in future.
+> diff --git a/arch/arm64/kernel/module.c b/arch/arm64/kernel/module.c
+> index dd851297596e..cd6320de1c54 100644
+> --- a/arch/arm64/kernel/module.c
+> +++ b/arch/arm64/kernel/module.c
+> @@ -20,6 +20,7 @@
+>  #include <linux/random.h>
+>  #include <linux/scs.h>
+>  #include <linux/vmalloc.h>
+> +#include <linux/execmem.h>
+>  
+>  #include <asm/alternative.h>
+>  #include <asm/insn.h>
+> @@ -108,46 +109,38 @@ static int __init module_init_limits(void)
+>  
+>  	return 0;
+>  }
+> -subsys_initcall(module_init_limits);
+>  
+> -void *module_alloc(unsigned long size)
+> +static struct execmem_params execmem_params __ro_after_init = {
+> +	.ranges = {
+> +		[EXECMEM_DEFAULT] = {
+> +			.flags = EXECMEM_KASAN_SHADOW,
+> +			.alignment = MODULE_ALIGN,
+> +		},
+> +	},
+> +};
+> +
+> +struct execmem_params __init *execmem_arch_params(void)
+>  {
+> -	void *p = NULL;
+> +	struct execmem_range *r = &execmem_params.ranges[EXECMEM_DEFAULT];
+>  
+> -	/*
+> -	 * Where possible, prefer to allocate within direct branch range of the
+> -	 * kernel such that no PLTs are necessary.
+> -	 */
 
-I expected a large dt and driver changes in the comming development window,
-for example, usb/eth/emmc and so on, so I'll queue your patch into my
-for-next tree once linux6.7-rc1 is released.
+Why are you removing this comment? I think you could just move it next
+to the part where we set a 128MiB range.
 
-Thanks
+> -	if (module_direct_base) {
+> -		p = __vmalloc_node_range(size, MODULE_ALIGN,
+> -					 module_direct_base,
+> -					 module_direct_base + SZ_128M,
+> -					 GFP_KERNEL | __GFP_NOWARN,
+> -					 PAGE_KERNEL, 0, NUMA_NO_NODE,
+> -					 __builtin_return_address(0));
+> -	}
+> +	module_init_limits();
+
+Hmm, this used to be run from subsys_initcall(), but now you're running
+it _really_ early, before random_init(), so randomization of the module
+space is no longer going to be very random if we don't have early entropy
+from the firmware or the CPU, which is likely to be the case on most SoCs.
+
+>  
+> -	if (!p && module_plt_base) {
+> -		p = __vmalloc_node_range(size, MODULE_ALIGN,
+> -					 module_plt_base,
+> -					 module_plt_base + SZ_2G,
+> -					 GFP_KERNEL | __GFP_NOWARN,
+> -					 PAGE_KERNEL, 0, NUMA_NO_NODE,
+> -					 __builtin_return_address(0));
+> -	}
+> +	r->pgprot = PAGE_KERNEL;
+>  
+> -	if (!p) {
+> -		pr_warn_ratelimited("%s: unable to allocate memory\n",
+> -				    __func__);
+> -	}
+> +	if (module_direct_base) {
+> +		r->start = module_direct_base;
+> +		r->end = module_direct_base + SZ_128M;
+>  
+> -	if (p && (kasan_alloc_module_shadow(p, size, GFP_KERNEL) < 0)) {
+> -		vfree(p);
+> -		return NULL;
+> +		if (module_plt_base) {
+> +			r->fallback_start = module_plt_base;
+> +			r->fallback_end = module_plt_base + SZ_2G;
+> +		}
+> +	} else if (module_plt_base) {
+> +		r->start = module_plt_base;
+> +		r->end = module_plt_base + SZ_2G;
+>  	}
+>  
+> -	/* Memory is intended to be executable, reset the pointer tag. */
+> -	return kasan_reset_tag(p);
+> +	return &execmem_params;
+>  }
+>  
+>  enum aarch64_reloc_op {
+
+[...]
+
+> diff --git a/include/linux/execmem.h b/include/linux/execmem.h
+> index 44e213625053..806ad1a0088d 100644
+> --- a/include/linux/execmem.h
+> +++ b/include/linux/execmem.h
+> @@ -32,19 +32,33 @@ enum execmem_type {
+>  	EXECMEM_TYPE_MAX,
+>  };
+>  
+> +/**
+> + * enum execmem_module_flags - options for executable memory allocations
+> + * @EXECMEM_KASAN_SHADOW:	allocate kasan shadow
+> + */
+> +enum execmem_range_flags {
+> +	EXECMEM_KASAN_SHADOW	= (1 << 0),
+> +};
+> +
+>  /**
+>   * struct execmem_range - definition of a memory range suitable for code and
+>   *			  related data allocations
+>   * @start:	address space start
+>   * @end:	address space end (inclusive)
+> + * @fallback_start:	start of the range for fallback allocations
+> + * @fallback_end:	end of the range for fallback allocations (inclusive)
+>   * @pgprot:	permissions for memory in this address space
+>   * @alignment:	alignment required for text allocations
+> + * @flags:	options for memory allocations for this range
+>   */
+>  struct execmem_range {
+>  	unsigned long   start;
+>  	unsigned long   end;
+> +	unsigned long   fallback_start;
+> +	unsigned long   fallback_end;
+>  	pgprot_t        pgprot;
+>  	unsigned int	alignment;
+> +	enum execmem_range_flags flags;
+>  };
+>  
+>  /**
+> diff --git a/mm/execmem.c b/mm/execmem.c
+> index f25a5e064886..a8c2f44d0133 100644
+> --- a/mm/execmem.c
+> +++ b/mm/execmem.c
+> @@ -11,12 +11,46 @@ static void *execmem_alloc(size_t size, struct execmem_range *range)
+>  {
+>  	unsigned long start = range->start;
+>  	unsigned long end = range->end;
+> +	unsigned long fallback_start = range->fallback_start;
+> +	unsigned long fallback_end = range->fallback_end;
+>  	unsigned int align = range->alignment;
+>  	pgprot_t pgprot = range->pgprot;
+> +	bool kasan = range->flags & EXECMEM_KASAN_SHADOW;
+> +	unsigned long vm_flags  = VM_FLUSH_RESET_PERMS;
+> +	bool fallback  = !!fallback_start;
+> +	gfp_t gfp_flags = GFP_KERNEL;
+> +	void *p;
+>  
+> -	return __vmalloc_node_range(size, align, start, end,
+> -				   GFP_KERNEL, pgprot, VM_FLUSH_RESET_PERMS,
+> -				   NUMA_NO_NODE, __builtin_return_address(0));
+> +	if (PAGE_ALIGN(size) > (end - start))
+> +		return NULL;
+> +
+> +	if (kasan)
+> +		vm_flags |= VM_DEFER_KMEMLEAK;
+
+Hmm, I don't think we passed this before on arm64, should we have done?
+
+Will
 
 _______________________________________________
 linux-riscv mailing list
