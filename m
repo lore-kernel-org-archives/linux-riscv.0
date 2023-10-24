@@ -4,58 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE834C25B71
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 Oct 2023 15:43:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2671CC00A8F
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 Oct 2023 16:02:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CKxvz3mEcNFkaTgXesvsIUzTPZIdwDKGj1NzuFJlaas=; b=U2D8VOeL5znd8a
-	C0U5A9tEWwOSsT/gxdDVlUAatKlmxJiiJiATCfCbrMLc3AepLUMv6/J7JewJzQZtD4Dgvi41THeYn
-	CtGajz4Fu7xMTQe2cZRAOsggddUtZwYo6bB8S3wXZhZlOKaYOFO5T55bBALVOo7vaA5+rIYEnFASK
-	WQ5CyUSlRwr52OcUVZ/zR7UF0ZVPu0E2kSczUCEf+qtkG9dT/VPWdJC/sFlxvaG94qZUujdQ8ZgiQ
-	kOc5xTvoWlzb1VkIqxRiPI6z/oKKJNvncs1D63hqaWMVIlaPFq9T6KpUTgsUIWmyM3Tv5KYfNBoPf
-	jHVzV2EDxESMiKInfinQ==;
+	List-Owner; bh=1tJHm/KGFsVtNIUsVAE0XInupFGPSMQZZHgDWbPBBaM=; b=GxPHRuYTizlULk
+	STvbWTqFOk/EVMIHfYp7+Q/gEFgkW5CBn0M4R1pzfUgMFtzRNC83GuViYjfpKqmLnk3syIfReo3i9
+	u4pCEdEXPzrD9SFxrk8vTNEdw4Vxv0Z/b0Cfuf4I5stIZZTY5e3auhs716/hLr2oI1ns5vTLmSmw4
+	LAhUliuUNRvwTznYnWHGH3jp4qWJUnZXyeoi5PLgYg6v1VnyiS924rRAMIyaB67kF4QJT76PjPQ0h
+	a/5lRjaTeHQFHlW7FrffH0Q34FJ6tgbqgv32iH7vbNjuN3lKcdN0LtbrVv7Ix30fcIOKYA+Io1OVY
+	a9e8YZmN6xbgqCRc0QKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qvJYb-00AMtl-2o;
-	Tue, 24 Oct 2023 15:43:01 +0000
-Received: from mgamail.intel.com ([134.134.136.24])
+	id 1qvJrb-00APYb-0t;
+	Tue, 24 Oct 2023 16:02:39 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qvJYY-00AMsq-2v;
-	Tue, 24 Oct 2023 15:43:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1698162178; x=1729698178;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=TR0MsODDCDld/9hD7QPnERhiZ/gxH5leUiM0oaDfwbI=;
-  b=hJ+3iO4crjq3S11tzx3SMZttiJTl2uZkOF8apQY0S8qba8Qk6pqzw7to
-   br69v2YMIKGTeymIV6Z2uA/0OJN/sJr7pRRTqbjCfjZzvGhvJ4Fw36VQw
-   NXekZIuPBNu41ZxznyVL8r25LZyd7fLEYV9Iy7Js3vg8vr4f7jwg0Wl77
-   Cf9zpHxYsTg7qWzFJGRjGbjYSy+rBl/Rgb/X/xnO/F1Bl7NX9ZtT18Lvw
-   D71+CpRO4TzuCS1snVpodI1zYhn1PrpgH4ahhv9UfsDqZk1MmbiJIfX5l
-   OswzeXeJnrXJwUyQDesDeXFL4YZ58VzCVu0Gfi0oJaeywVBPAr2qXsnGl
-   w==;
-X-IronPort-AV: E=McAfee;i="6600,9927,10873"; a="389946489"
-X-IronPort-AV: E=Sophos;i="6.03,248,1694761200"; 
-   d="scan'208";a="389946489"
-Received: from fmsmga005.fm.intel.com ([10.253.24.32])
-  by orsmga102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Oct 2023 08:36:50 -0700
-X-ExtLoop1: 1
-X-IronPort-AV: E=McAfee;i="6600,9927,10873"; a="1089891583"
-X-IronPort-AV: E=Sophos;i="6.03,248,1694761200"; 
-   d="scan'208";a="1089891583"
-Received: from smile.fi.intel.com ([10.237.72.54])
-  by fmsmga005.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Oct 2023 08:32:44 -0700
-Received: from andy by smile.fi.intel.com with local (Exim 4.97-RC3)
-	(envelope-from <andriy.shevchenko@linux.intel.com>)
-	id 1qvJOa-00000008Jsh-3eUI;
-	Tue, 24 Oct 2023 18:32:40 +0300
-Date: Tue, 24 Oct 2023 18:32:40 +0300
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+	id 1qvJrX-00APX6-2E;
+	Tue, 24 Oct 2023 16:02:37 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id CA2D2CE2288;
+	Tue, 24 Oct 2023 16:02:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7C019C433C7;
+	Tue, 24 Oct 2023 16:02:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+	s=korg; t=1698163353;
+	bh=F7gFThJKXxRz67KtPOHXZ1MPyn546aHaKsuQ7HB3hqg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=G0VPiT0NaPFcpVExXTrkeNQPAO04ohPxAd37DPcoJLpOtXMCCjTbSvuBTvMKm6fKL
+	 7+97TChy1Rw9XyE2D4xj290syTx4P7Q0qI+cUomEuI1s01Fdc+0+On0HONlKTWh43O
+	 JYqW/Fa9n5BmP1kwOrdU1rcoFgbCPjndXNvWvCiA=
+Date: Tue, 24 Oct 2023 18:02:30 +0200
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 To: Russell King <rmk+kernel@armlinux.org.uk>
 Cc: linux-pm@vger.kernel.org, loongarch@lists.linux.dev,
 	linux-acpi@vger.kernel.org, linux-arch@vger.kernel.org,
@@ -67,24 +51,23 @@ Cc: linux-pm@vger.kernel.org, loongarch@lists.linux.dev,
 	Jean-Philippe Brucker <jean-philippe@linaro.org>,
 	jianyong.wu@arm.com, justin.he@arm.com,
 	James Morse <james.morse@arm.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	"Rafael J. Wysocki" <rafael@kernel.org>,
 	Yury Norov <yury.norov@gmail.com>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
 	Rasmus Villemoes <linux@rasmusvillemoes.dk>,
 	Thomas Gleixner <tglx@linutronix.de>,
 	Peter Zijlstra <peterz@infradead.org>
 Subject: Re: [PATCH 38/39] cpumask: Add enabled cpumask for present CPUs that
  can be brought online
-Message-ID: <ZTfjmM3nmeh+D5w/@smile.fi.intel.com>
+Message-ID: <2023102411-ascent-plot-04fd@gregkh>
 References: <ZTffkAdOqL2pI2la@shell.armlinux.org.uk>
  <E1qvJBk-00AqSW-R8@rmk-PC.armlinux.org.uk>
 MIME-Version: 1.0
 Content-Disposition: inline
 In-Reply-To: <E1qvJBk-00AqSW-R8@rmk-PC.armlinux.org.uk>
-Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231024_084259_069917_169C16F8 
-X-CRM114-Status: GOOD (  14.95  )
+X-CRM114-CacheID: sfid-20231024_090235_921213_186DCC37 
+X-CRM114-Status: GOOD (  20.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,9 +98,30 @@ On Tue, Oct 24, 2023 at 04:19:24PM +0100, Russell King wrote:
 > With only the offline and present files, user-space is unable to
 > determine which CPUs it can try to bring online. Add a new CPU mask
 > that shows this based on all the registered CPUs.
-
-...
-
+> 
+> Signed-off-by: James Morse <james.morse@arm.com>
+> ---
+>  drivers/base/cpu.c      | 10 ++++++++++
+>  include/linux/cpumask.h | 25 +++++++++++++++++++++++++
+>  kernel/cpu.c            |  3 +++
+>  3 files changed, 38 insertions(+)
+> 
+> diff --git a/drivers/base/cpu.c b/drivers/base/cpu.c
+> index 2b9cb2667654..f8bf1d4c7d71 100644
+> --- a/drivers/base/cpu.c
+> +++ b/drivers/base/cpu.c
+> @@ -95,6 +95,7 @@ void unregister_cpu(struct cpu *cpu)
+>  {
+>  	int logical_cpu = cpu->dev.id;
+>  
+> +	set_cpu_enabled(logical_cpu, false);
+>  	unregister_cpu_under_node(logical_cpu, cpu_to_node(logical_cpu));
+>  
+>  	device_unregister(&cpu->dev);
+> @@ -273,6 +274,13 @@ static ssize_t print_cpus_offline(struct device *dev,
+>  }
+>  static DEVICE_ATTR(offline, 0444, print_cpus_offline, NULL);
+>  
 > +static ssize_t print_cpus_enabled(struct device *dev,
 > +				  struct device_attribute *attr, char *buf)
 > +{
@@ -125,13 +129,12 @@ On Tue, Oct 24, 2023 at 04:19:24PM +0100, Russell King wrote:
 > +}
 > +static DEVICE_ATTR(enabled, 0444, print_cpus_enabled, NULL);
 
-Hmm... DEVICE_ATTR_RO() ?
+This needs to be documented somewhere in Documentation/ABI/ did I miss
+that patch?
 
--- 
-With Best Regards,
-Andy Shevchenko
+thanks,
 
-
+greg k-h
 
 _______________________________________________
 linux-riscv mailing list
