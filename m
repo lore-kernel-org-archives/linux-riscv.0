@@ -4,72 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BE3FC07545
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 Oct 2023 17:53:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6BF9C00A8F
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 Oct 2023 18:04:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=M3Bit1jiEsDyNWIL/T+7MzJ8I3wvSmkZOlBgaMrGNu0=; b=yA9w+ot8+Xcqn1
-	b/Tozi8SM97FQNOuwjqLDcjXcK5iuvFJyIb5a9tnBp8clZQaB4YnZrZPuRfwXn1drMj8NYDL5u/7R
-	bjFMrVCfqCEe4Aqe0Qm5PWRvRLmoMnBT2ancLvRYdyNpD/c32yfqHwojSoIF7UWBWouCVVd5oyopY
-	Rk/rfJgiH9qORn9Mf+3Yyd27V/IDwjqXzIIxWnqPByEAnCN3lTTNgaYX3VyTRIKYucGA7fNVIExva
-	pLDBu0eep5hsioAO75ROOFMiLv+w10WBlOxJc9JZnCzF3RVAV3sXs/+iz/h1PfpXMN9E420w8QwkG
-	EMqAQ3jL8VIhdxSxxNLw==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=W8J/mFlJi9p0F3zpDmYgjnU9fE/WgRqwN57rkMiNz1E=; b=bTtSIAkkwpllhz
+	RJPam17iRkkQ0fKjHLIwc4syYYYAzDVZrcn8Ajp9kVIPExhwYxwZYIgO9HsvxlubFdIiVFWctVs2J
+	MOlXBl0dEKBcaaIpEsrw8qIeu8cJPLf6n2hrlmxzBmmxhKvTY8WUoYk6EAn0VgDiCxX5WBfa2Jb4H
+	l6f7fxRlC4yTxwQjaGuilCGQ/5sebBHrkAQHz7VLHEH77QzoOTDTgErrjD6QPtBgvAvPrXqJknVRZ
+	IfRyZS2troFT124zPwLAk3cfJOeDbIogJhsaNZvIQQa/kRr+lm0OgUvYuxZUnYazlnH/zJ0kTrRuQ
+	Ptkk50iXAkX44O48Lagg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qvLaQ-00Aca5-3A;
-	Tue, 24 Oct 2023 17:53:02 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1qvLl1-00AdGG-1B;
+	Tue, 24 Oct 2023 18:03:59 +0000
+Received: from mail-lj1-x22d.google.com ([2a00:1450:4864:20::22d])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qvLaN-00AcYk-1f
+	id 1qvLky-00AdFD-0P
 	for linux-riscv@lists.infradead.org;
-	Tue, 24 Oct 2023 17:53:01 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id E3279CE2773;
-	Tue, 24 Oct 2023 17:52:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CEBD1C433C7;
-	Tue, 24 Oct 2023 17:52:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1698169976;
-	bh=KUF7e+OQ3Cmah38SMoodhEwyDPQhM9qKHEvTf9JRMLA=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=szEiV2H2y6V69DSMmIjRsYCrp7HLNV/OYuRJb36ATW03CYFhw7JwfTZ7CE3WiiunT
-	 IoMGGD+iW3gjfdM5coQnjSmuYY57kaitDfZG+vVWYuEmpF/W/TrEudTZP5J3hDKRpz
-	 nTzMTiUHC3esNZ+ZqhB+LxOwRpxcbNgCohlcUegpEXuT3LncyOCpGY3CCJUvOThe/h
-	 hyN+7Dv1qPOApEdX2Xif3Rbb72hl53NwpT/I2Bf0OHRQZaNG0VYw8ZDsqi4wy2zq2P
-	 ixonxQTg+4Y7pKbQo8XdnBSzp/FiAHOgGLpH/jRqE2WRPdazUQFCecbe7oiv5iB+zU
-	 xqeGovmWrEOTg==
-Date: Tue, 24 Oct 2023 12:52:53 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Minda Chen <minda.chen@starfivetech.com>
-Cc: Conor Dooley <conor@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Rob Herring <robh+dt@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-pci@vger.kernel.org,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Mason Huo <mason.huo@starfivetech.com>,
-	Leyfoon Tan <leyfoon.tan@starfivetech.com>,
-	Kevin Xie <kevin.xie@starfivetech.com>
-Subject: Re: [PATCH v9 19/20] PCI: starfive: Add JH7110 PCIe controller
-Message-ID: <20231024175253.GA1662387@bhelgaas>
+	Tue, 24 Oct 2023 18:03:58 +0000
+Received: by mail-lj1-x22d.google.com with SMTP id 38308e7fff4ca-2bbbe81185dso11679571fa.0
+        for <linux-riscv@lists.infradead.org>; Tue, 24 Oct 2023 11:03:54 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1698170633; x=1698775433; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=eEONOSfW6QqBefI1upMEyQojVOQZ6IVElQgRfFuaf7Y=;
+        b=0B7l9HKLrpv/Cke5qdBZ3FMWEMe8u9+zKewNXUO+WOFFC8Zswss1fYfKtOUOI8E07t
+         mkdqiIQ4hX+us1TjalOTI+aHp2TDlFBEwv4hs6FaX1h1ClB/7NKgbzJx7Oknvt4VqAF4
+         f9rzK49Ggd+Dhi93Bb3lu6Y3N2srae1YjyQUKCSFr80pPNNqtgH8B3cK5NeR3QPAm1me
+         TteGqiCTBLGAr+VQZtUqk2FgZu4S12bSrT0wo2JzVsQiUL0AMN4KeGLMkV7sHTK3peIQ
+         wH20MC+7UYqWrz9QZaxMIP1fSjUM8bwa0w9Vga6J1WuDyva7Qais4P8tT/SQ59hJKDxb
+         F3aA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1698170633; x=1698775433;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=eEONOSfW6QqBefI1upMEyQojVOQZ6IVElQgRfFuaf7Y=;
+        b=UNShX8VKZqFnFLpQC8Qnrx8HiY/Ov3CwZcwalMOqJqUqzqUDolA6rCRVXgI5p0ibbs
+         BMC0cx2HLqMEFol0ISACcbl0DgBWuVmNQ70RAfC60l9SCdh/5q9jQA2SYpPWoyDGEa9u
+         Q1UOnLkDkdqcccGRZPTR/4jk70Ztfdy3AtWbjwXArNM9JEc96NO8DZKz1cfRgQTf2TLW
+         rx0ZX68yGSnK4wDiDBgStAmSkgaWEVNRbajSQa1K3uQvJv2qHDDqk1QYGnnWPkj9C+3H
+         1HBMlJopF/LBoJuMsVfDaOXxY24IO8QAuptHWfSXxfMGSfpRmR6kfaj+9m64XptHhT+f
+         USZg==
+X-Gm-Message-State: AOJu0Yz3YbLV72qPl0+z29TzgTIK7dTj2/srOCP5Pd98FS1/MMd4eGZg
+	hAdFY9L3Vh4GnYaWNJJAz+H6RQ==
+X-Google-Smtp-Source: AGHT+IHG9OjT799vBD3twtVwoDjSUtel3HWPnH4sumZmGMlI+6kjh9AOjNTruwRaRqCbCawkAtVdGA==
+X-Received: by 2002:a2e:a179:0:b0:2bc:d505:2bf3 with SMTP id u25-20020a2ea179000000b002bcd5052bf3mr8734627ljl.1.1698170633475;
+        Tue, 24 Oct 2023 11:03:53 -0700 (PDT)
+Received: from ?IPV6:2a01:e0a:999:a3a0:9f43:3ca4:162c:d540? ([2a01:e0a:999:a3a0:9f43:3ca4:162c:d540])
+        by smtp.gmail.com with ESMTPSA id n1-20020a5d4001000000b0032dc1fc84f2sm10498034wrp.46.2023.10.24.11.03.52
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 24 Oct 2023 11:03:52 -0700 (PDT)
+Message-ID: <da308888-0e47-4ca4-b318-8f089421dc0b@rivosinc.com>
+Date: Tue, 24 Oct 2023 20:03:52 +0200
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20231020104341.63157-20-minda.chen@starfivetech.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/5] riscv: Use SYM_*() assembly macros instead of
+ deprecated ones
+To: Andrew Jones <ajones@ventanamicro.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Anup Patel <anup@brainfault.org>, Atish Patra <atishp@atishpatra.org>,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ kvm@vger.kernel.org, kvm-riscv@lists.infradead.org
+References: <20231024132655.730417-1-cleger@rivosinc.com>
+ <20231024132655.730417-3-cleger@rivosinc.com>
+ <20231024-e122c317599cd4c6db53c015@orel>
+Content-Language: en-US
+From: =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>
+In-Reply-To: <20231024-e122c317599cd4c6db53c015@orel>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231024_105259_927066_03B807AA 
-X-CRM114-Status: GOOD (  30.37  )
+X-CRM114-CacheID: sfid-20231024_110356_730190_21D94BD4 
+X-CRM114-Status: GOOD (  11.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,173 +94,36 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 20, 2023 at 06:43:40PM +0800, Minda Chen wrote:
-> Add StarFive JH7110 SoC PCIe controller platform
-> driver codes, JH7110 with PLDA host PCIe core.
-
-Wrap all your commit logs to fill about 75 columns (as suggested
-before).  "git log" adds a few spaces, so if you fill to 75 columns,
-the result will still fit in a default 80 column window.
-
-> +config PCIE_STARFIVE_HOST
-> +	tristate "StarFive PCIe host controller"
-> +	depends on OF && PCI_MSI
-> +	select PCIE_PLDA_HOST
-> +	help
-> +	  Say Y here if you want to support the StarFive PCIe controller
-> +	  in host mode. StarFive PCIe controller uses PLDA PCIe
-> +	  core.
-
-Add blank line between paragraphs.  Wrap to fill 75-78 columns.
-
-> +	  If you choose to build this driver as module it will
-> +	  be dynamically linked and module will be called
-> +	  pcie-starfive.ko
-
-> +++ b/drivers/pci/controller/plda/pcie-plda.h
-> @@ -6,14 +6,26 @@
->  #ifndef _PCIE_PLDA_H
->  #define _PCIE_PLDA_H
->  
-> +#include <linux/phy/phy.h>
-
-I don't think you need to #include this.  In this file you only use a
-pointer to struct phy, so declaring the struct should be enough, e.g.,
-
-  struct phy;
-
-You will have to #include it in pcie-starfive.c where you actually
-*use* phy, of course.
-
-> +#define CONFIG_SPACE_ADDR			0x1000u
-
-This looks like an *offset* that you add to ->bridge_addr.  Adding two
-addresses together doesn't really make sense.
-
-> +static int starfive_pcie_config_write(struct pci_bus *bus, unsigned int devfn,
-> +				      int where, int size, u32 value)
-> +{
-> +	if (starfive_pcie_hide_rc_bar(bus, devfn, where))
-> +		return PCIBIOS_BAD_REGISTER_NUMBER;
-
-I think this should probably return PCIBIOS_SUCCESSFUL.  There's
-nothing wrong with the register number; you just want to pretend that
-it's hardwired to zero.  That means ignore writes and always return 0
-for reads.
-
-> +	return pci_generic_config_write(bus, devfn, where, size, value);
-> +}
-> +
-> +static int starfive_pcie_config_read(struct pci_bus *bus, unsigned int devfn,
-> +				     int where, int size, u32 *value)
-> +{
-> +	if (starfive_pcie_hide_rc_bar(bus, devfn, where))
-> +		return PCIBIOS_BAD_REGISTER_NUMBER;
-
-Set *value to zero and return PCIBIOS_SUCCESSFUL.
-
-> +	return pci_generic_config_read(bus, devfn, where, size, value);
-> +}
-> +
-> +static int starfive_pcie_parse_dt(struct starfive_jh7110_pcie *pcie, struct device *dev)
-
-95% of this driver (and the rest of drivers/pci) is wrapped to fit in
-80 columns, e.g.,
-
-  static int starfive_pcie_parse_dt(struct starfive_jh7110_pcie *pcie,
-                                    struct device *dev)
-
-> +	domain_nr = of_get_pci_domain_nr(dev->of_node);
-> +
-> +	if (domain_nr < 0 || domain_nr > 1)
-> +		return dev_err_probe(dev, -ENODEV,
-> +				     "failed to get valid pcie id\n");
-
-"id" is too generic and doesn't hint about where the problem is.
-Update the message ("pcie id") to mention "domain" so it corresponds
-with the source ("linux,pci-domain" from DT).
-
-> +	ret = reset_control_deassert(pcie->resets);
-> +	if (ret) {
-> +		clk_bulk_disable_unprepare(pcie->num_clks, pcie->clks);
-> +		dev_err_probe(dev, ret, "failed to resets\n");
-
-"failed to ... resets" is missing a word.  "Failed to deassert
-resets", I guess?
-
-> +	/* Ensure that PERST has been asserted for at least 100 ms,
-> +	 * the sleep value is T_PVPERL from PCIe CEM spec r2.0 (Table 2-4)
-> +	 */
-
-Use multiline comment formatting (also below):
-
-  /*
-   * Ensure ...
-   */
-
-> +	msleep(100);
-> +	if (pcie->reset_gpio)
-> +		gpiod_set_value_cansleep(pcie->reset_gpio, 0);
-> +
-> +	/* As the requirement in PCIe base spec r6.0, system (<=5GT/s) must
-> +	 * wait a minimum of 100 ms following exit from a conventional reset
-> +	 * before sending a configuration request to the device.
-
-Mention sec 6.6.1, where (I think) this value comes from.  Eventually
-we should make a #define for this because it's not specific to any one
-PCIe controller.
-
-> +	msleep(100);
-> +
-> +	if (starfive_pcie_host_wait_for_link(pcie))
-> +		dev_info(dev, "port link down\n");
-> +
-> +	return ret;
-
-We know the value here, so return it explicitly:
-
-  return 0;
-
-> +static int starfive_pcie_suspend_noirq(struct device *dev)
-> +{
-> +	struct starfive_jh7110_pcie *pcie = dev_get_drvdata(dev);
-> +
-> +	if (!pcie)
-> +		return 0;
-
-How could it happen that "pcie" is zero?  I think it could only happen
-if there were a driver bug or a memory corruption.  Either way, we
-should remove the check so we take a NULL pointer fault and find out
-about the problem.
-
-> +static int starfive_pcie_resume_noirq(struct device *dev)
-> +{
-> +	struct starfive_jh7110_pcie *pcie = dev_get_drvdata(dev);
-> +	int ret;
-> +
-> +	ret = starfive_pcie_enable_phy(dev, &pcie->plda);
-> +	if (ret)
-> +		return ret;
-> +
-> +	ret = clk_bulk_prepare_enable(pcie->num_clks, pcie->clks);
-> +	if (ret) {
-> +		dev_err(dev, "failed to enable clocks\n");
-> +		starfive_pcie_disable_phy(&pcie->plda);
-> +		return ret;
-> +	}
-> +
-> +	return ret;
-
-  return 0;
-
-Bjorn
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+CgpPbiAyNC8xMC8yMDIzIDE3OjIzLCBBbmRyZXcgSm9uZXMgd3JvdGU6Cj4gT24gVHVlLCBPY3Qg
+MjQsIDIwMjMgYXQgMDM6MjY6NTJQTSArMDIwMCwgQ2zDqW1lbnQgTMOpZ2VyIHdyb3RlOgo+IC4u
+Lgo+PiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9saWIvdWFjY2Vzcy5TIGIvYXJjaC9yaXNjdi9s
+aWIvdWFjY2Vzcy5TCj4+IGluZGV4IDA5YjQ3ZWJhY2YyZS4uM2FiNDM4ZjMwZDEzIDEwMDY0NAo+
+PiAtLS0gYS9hcmNoL3Jpc2N2L2xpYi91YWNjZXNzLlMKPj4gKysrIGIvYXJjaC9yaXNjdi9saWIv
+dWFjY2Vzcy5TCj4+IEBAIC0xMCw4ICsxMCw3IEBACj4+ICAJX2FzbV9leHRhYmxlCTEwMGIsIFxs
+YmwKPj4gIAkuZW5kbQo+PiAgCj4+IC1FTlRSWShfX2FzbV9jb3B5X3RvX3VzZXIpCj4+IC1FTlRS
+WShfX2FzbV9jb3B5X2Zyb21fdXNlcikKPj4gK1NZTV9GVU5DX1NUQVJUKF9fYXNtX2NvcHlfdG9f
+dXNlcikKPj4gIAo+PiAgCS8qIEVuYWJsZSBhY2Nlc3MgdG8gdXNlciBtZW1vcnkgKi8KPj4gIAls
+aSB0NiwgU1JfU1VNCj4+IEBAIC0xODEsMTMgKzE4MCwxMyBAQCBFTlRSWShfX2FzbV9jb3B5X2Zy
+b21fdXNlcikKPj4gIAljc3JjIENTUl9TVEFUVVMsIHQ2Cj4+ICAJc3ViIGEwLCB0NSwgYTAKPj4g
+IAlyZXQKPj4gLUVORFBST0MoX19hc21fY29weV90b191c2VyKQo+PiAtRU5EUFJPQyhfX2FzbV9j
+b3B5X2Zyb21fdXNlcikKPj4gK1NZTV9GVU5DX0VORChfX2FzbV9jb3B5X3RvX3VzZXIpCj4+ICBF
+WFBPUlRfU1lNQk9MKF9fYXNtX2NvcHlfdG9fdXNlcikKPj4gK1NZTV9GVU5DX0FMSUFTKF9fYXNt
+X2NvcHlfZnJvbV91c2VyLCBfX2FzbV9jb3B5X3RvX3VzZXIpCj4+ICBFWFBPUlRfU1lNQk9MKF9f
+YXNtX2NvcHlfZnJvbV91c2VyKQo+IAo+IEkgZGlkbid0IHNlZSBhbnkgY29tbWVudCBhYm91dCB0
+aGUgc2hhcmluZyBvZiBkZWJ1ZyBpbmZvIGFtb25nIGJvdGggdGhlCj4gZnJvbSBhbmQgdG8gZnVu
+Y3Rpb25zLiBBc3N1bWluZyBpdCBpc24ndCBjb25mdXNpbmcgaW4gc29tZSB3YXksIHRoZW4KCkhp
+IEFuZHJldywKCkkgZGlkIHNvbWUgdGVzdGluZyB3aXRoIGdkYiBhbmQgaXQgc2VlbXMgdG8gY29y
+cmVjdGx5IGFzc3VtZSB0aGF0Cl9fYXNtX2NvcHlfdG9fdXNlciBtYXBzIHRvIF9fYXNtX2NvcHlf
+ZnJvbV91c2VyIGZvciBkZWJ1Z2dpbmcuIFRoZSBiYXNpYwp0ZXN0cyB0aGF0IEkgZGlkIChicmVh
+a3BvaW50cywgZGlzYXNtLCBldGMpIHNlZW1zIHRvIHNob3cgbm8gc2lnbiBvZgpwcm9ibGVtcyBm
+b3IgZGVidWdnaW5nLiBXZXJlIHlvdSB0aGlua2luZyBhYm91dCBvdGhlciB0aGluZ3Mgc3BlY2lm
+aWNhbGx5ID8KClRoYW5rcywKCkNsw6ltZW50Cgo+IAo+IFJldmlld2VkLWJ5OiBBbmRyZXcgSm9u
+ZXMgPGFqb25lc0B2ZW50YW5hbWljcm8uY29tPgo+IAo+IFRoYW5rcywKPiBkcmV3CgpfX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWls
+aW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5m
+cmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
