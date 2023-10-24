@@ -4,92 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16999C07545
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 Oct 2023 12:16:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49DA8C07545
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 Oct 2023 12:17:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:
-	Mime-Version:References:In-Reply-To:From:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=1i9z5POpUmA6SffDysEt37YQTIRTCSHjSUHwDmkb47A=; b=Dz3oWVvsib8iiUT0meJ0mDojeh
-	BIqzsLcz8RyqKOdtUISmRikszdzLeeGpISVX9eJZ6kqVMXq9fRqB/JZfF27A4CXNgB/fCLFZ+AE3l
-	McVr2Ob8CbRZB21Or5Aebyq0UGE8Gozi6clf2+BLvk4AUlAQQ9U/bQLGG9wJONaK8mk9TzLQ5+LBZ
-	O2LMTh6Fm7U8JObaP+HoAUk75W9krbqbyZRq7FRuv93LVoVSYiLdK8ex/KPWsGMcmU49wdauylEkT
-	D/H5rvyFf2pfGv8foeXdp/hrwI1KCx2J8B+snQ4JvZft2nLF+/ROKPW+JlX39n9opKJUzwYvceCsC
-	EjJaYvMw==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=HVa4FVq2r6fvkLHz4R3cpXfQEr/lDl20m0qULxsdeq0=; b=2uAHjZd35GQq6A
+	jA2CgxF1p9Z1iaReoW+hQD2HXlQ5RE+64vbeEQwQi+GONOu4tsT6ZAhQjxmgeT2426uVXED3KRBYh
+	67sH25vSx9qw7b27PkBAfdeES1n5VpVqAWSs1Ug6Aw9nP6uc0jn1+FklwaeTVdpuFU7Pkln1AMwaS
+	rSkKu1ZvYS0QaTUEcY/wwMwmvWK6glGDvaW6bCkiRdvIAUpUgPq3faI+W3MxxVYaFxmVn+PUvw68N
+	bM9wP9iCoFa2ubJ1t+5HjsoNxY38WNZChOarRWINEcnVh1bwp65wqqYiCHk20pdXFV6ve+r1IuyD2
+	dgYQJvFPh7u0lO5PLJCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qvGKs-009jfy-2u;
-	Tue, 24 Oct 2023 12:16:38 +0000
-Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
+	id 1qvGLt-009joY-09;
+	Tue, 24 Oct 2023 12:17:41 +0000
+Received: from mail-lj1-x22c.google.com ([2a00:1450:4864:20::22c])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qvGKp-009jeY-1I
+	id 1qvGLq-009jn9-1X
 	for linux-riscv@lists.infradead.org;
-	Tue, 24 Oct 2023 12:16:37 +0000
-Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 65D803F443
-	for <linux-riscv@lists.infradead.org>; Tue, 24 Oct 2023 12:16:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20210705; t=1698149787;
-	bh=thwvxYYMUVPSY3nzBc7xApM08Kssn5NAFL9o/BCJG0g=;
-	h=From:In-Reply-To:References:Mime-Version:Date:Message-ID:Subject:
-	 To:Cc:Content-Type;
-	b=nZSj4IliyasfjvdC4ZPXWVk4QNzAZMC4s2MadTa0AMCKlyPrLhK5znrt/M9U7BPKg
-	 tt3gZObdEneza01sXSXHsFl8poxyaUo/w3/1gTrrVuhqwvqXvSt1o2XNtq9TIotWGB
-	 3GojfzMSgSTFbLTmAb8j1jO68hOuNuGdA6XbDwDiATUqzkHTEpq3fDVbbeSOufbWHN
-	 ggvkIkgmtifj5iYtmbaxWf47IIOtt0mRRMM/TCqfTrV+f6BLrYbqcgR4nPBvtei3DF
-	 IABJGa3LgNJ/wKyvo/jBIE6qFWswb+OKhGCiBNuGJZXHaH7VJVlIE8NkGLW4oDdHjG
-	 mG36JgrDIcadw==
-Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-41e16b279ffso39727081cf.0
-        for <linux-riscv@lists.infradead.org>; Tue, 24 Oct 2023 05:16:27 -0700 (PDT)
+	Tue, 24 Oct 2023 12:17:39 +0000
+Received: by mail-lj1-x22c.google.com with SMTP id 38308e7fff4ca-2c59a4dcdacso1351221fa.1
+        for <linux-riscv@lists.infradead.org>; Tue, 24 Oct 2023 05:17:35 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1698149854; x=1698754654; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=ywtG2aeiT8ekMrOBNJIRKZ2eAujslOOqomAOrufM1SU=;
+        b=miRknNgENVLwTOZflWggpWj7PBMwHg7NMjcUohMKmMnwmVRscfoMkbth4GXMvc+3U7
+         aAwgAlG0Xj5Qhv/cLBdcsfbynFH6U4xPwJ6yEruZ+yNRjKoRwb+naMoSOiMoQzOCQaU8
+         TTYWY0VVCvcJj/LBHwvFBeJjshCQzgEkbxX7RYtDzM0RVDVtVLWaq5J8p0X7TphMjFWQ
+         ikuAZ4UZpoRCyNQU6GjI35OM50CYMuUH+cfzMu2G0C0RWRavKHlLb4z3Ot8fdo5TvaFy
+         m4FF59DkuR2jYxLJDsC2fstK+xGZ265Fb0fiG/Kx2SrIoU0/AA4lldmktrpXeM5yBjgl
+         WyJw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1698149786; x=1698754586;
-        h=cc:to:subject:message-id:date:mime-version:references:in-reply-to
-         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=thwvxYYMUVPSY3nzBc7xApM08Kssn5NAFL9o/BCJG0g=;
-        b=mFT736WaDav9MkliNPHMsz6tES+5fRRKQqbgR1VmltdTHPQjyFr6hIb+6WnQnYzqWt
-         c0VQ36pQWrxpQmo96nSy0sTb/8JBZyOYgWLR12jX7rQra2YkHNMHnmlabuZ3vY/O0pNe
-         eCR8ljD6W0MCo9sD5+KurvXfPkLlUDEjxO3d7/s4E2KYG4AhJRJkBH1GtQXFQRmMTzlf
-         8T9a/LBaHleFqmgS0RL8gvFSq6ifdwaahTR7xIrzJ3fkOyxHZ536eYVk5+AzBDSLYu3i
-         IylCVmtedRda6n0gqYQYKwBrTL5cxZvSVjIvGF18hk8G9BJJHrBGvha38ItYqMyVwLt/
-         XRNg==
-X-Gm-Message-State: AOJu0YyB55yxX8Ag0pqByYptdAFOwljWZIWfx75DE9ALla4L6ba1dSFe
-	I+W/AA65sAaP3A1FMsaM4eRGcjtQ9WQj+prwtQ0n7MS6l1eOw21acJGLgQul+PUwWHPZT0ORUlT
-	E66mI8UtAqcKRPFiTm+pH71GB0s7duVITRWyq05Vz4uka4KtFlln+X8zw8atOfA==
-X-Received: by 2002:a05:622a:2d2:b0:418:152d:bf4 with SMTP id a18-20020a05622a02d200b00418152d0bf4mr13460096qtx.51.1698149786530;
-        Tue, 24 Oct 2023 05:16:26 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IEOE0qGS2pSUMsJf2A8W5Ex0DMIs+jJV1IcL5+p/qejHg+bJIzitFRzRk24ZJkjngpmMhUlqv5mwknRsepuX1A=
-X-Received: by 2002:a05:622a:2d2:b0:418:152d:bf4 with SMTP id
- a18-20020a05622a02d200b00418152d0bf4mr13460067qtx.51.1698149786276; Tue, 24
- Oct 2023 05:16:26 -0700 (PDT)
-Received: from 348282803490 named unknown by gmailapi.google.com with
- HTTPREST; Tue, 24 Oct 2023 05:16:25 -0700
-From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-In-Reply-To: <20231023-th1520-mmc-v3-6-abc5e7491166@baylibre.com>
-References: <20231023-th1520-mmc-v3-0-abc5e7491166@baylibre.com> <20231023-th1520-mmc-v3-6-abc5e7491166@baylibre.com>
-Mime-Version: 1.0
-Date: Tue, 24 Oct 2023 05:16:25 -0700
-Message-ID: <CAJM55Z-OBUsnybSLTxB8RHwsYuWhsMKVH3x8ana4=LeZ98Yv1Q@mail.gmail.com>
-Subject: Re: [PATCH v3 6/7] riscv: dts: thead: Enable BeagleV Ahead eMMC and microSD
-To: Drew Fustini <dfustini@baylibre.com>, Ulf Hansson <ulf.hansson@linaro.org>, 
-	Rob Herring <robh+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Jisheng Zhang <jszhang@kernel.org>, Adrian Hunter <adrian.hunter@intel.com>, 
-	Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Conor Dooley <conor@kernel.org>
-Cc: devicetree@vger.kernel.org, Han Gao <gaohan@iscas.ac.cn>, 
-	linux-mmc@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Robert Nelson <robertcnelson@beagleboard.org>, Jason Kridner <jkridner@beagleboard.org>, 
-	Xi Ruoyao <xry111@xry111.site>, linux-riscv@lists.infradead.org
+        d=1e100.net; s=20230601; t=1698149854; x=1698754654;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ywtG2aeiT8ekMrOBNJIRKZ2eAujslOOqomAOrufM1SU=;
+        b=vAPwXj+VDxV+Nmsrhd7cOBOxFAl1SJ/mmpNa6YMSD/tYhG4OoZOitXdnqC4DJMv3S2
+         LV6w1K2zkDNv8fxB2YTDw1alfJZIfbDhB+e//enCYTqiZbGafEcTSXrC7BGj3WbWDJDv
+         W/GvI/eiTVPVx8o1odXB9h9GPX6MkKKD3KNZ7Eo7KwqsLghUEG/8ES1txFF9LSNqwRBS
+         F9pU1rVQVM6pDTmoOJLmladaDfiv85hXD5CIrA3c6TzMgi8IcxA50sXhgjKY0bY2CNFC
+         ieahYSS5JuQyZqh1qMbADsBQ3L6fu+EmZrumGEhrX3vOMLBFwobHKIFlvhOaK57cC9Hu
+         p6LA==
+X-Gm-Message-State: AOJu0Yyts3JV91mX5sKoErRjDHGwRFu2rJAIxWr0r9DVkApi7DEe+01L
+	4B6H3vgX6f6MffLd9xl3SsTVBA==
+X-Google-Smtp-Source: AGHT+IE6d/oSgQ9Dz+s2s/99KBYyI90JUkFW07BAyv9IhWTLc2F/oa76kzHgi2ODHuo+aGO9M6mljQ==
+X-Received: by 2002:a05:651c:1699:b0:2c0:cfa:a1a0 with SMTP id bd25-20020a05651c169900b002c00cfaa1a0mr8057527ljb.46.1698149854070;
+        Tue, 24 Oct 2023 05:17:34 -0700 (PDT)
+Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
+        by smtp.gmail.com with ESMTPSA id o12-20020a05600c4fcc00b0040775501256sm11871874wmq.16.2023.10.24.05.17.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Oct 2023 05:17:33 -0700 (PDT)
+Date: Tue, 24 Oct 2023 14:17:32 +0200
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Anup Patel <apatel@ventanamicro.com>
+Subject: Re: [PATCH v11 05/14] irqchip/riscv-intc: Add support for RISC-V AIA
+Message-ID: <20231024-4aa004731cc3edf5f6e51031@orel>
+References: <20231023172800.315343-1-apatel@ventanamicro.com>
+ <20231023172800.315343-6-apatel@ventanamicro.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20231023172800.315343-6-apatel@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231024_051635_859780_027325B2 
-X-CRM114-Status: GOOD (  15.75  )
+X-CRM114-CacheID: sfid-20231024_051738_509225_E4529C8F 
+X-CRM114-Status: GOOD (  12.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,75 +85,30 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Saravana Kannan <saravanak@google.com>, Marc Zyngier <maz@kernel.org>, Anup Patel <anup@brainfault.org>, Atish Patra <atishp@atishpatra.org>, linux-kernel@vger.kernel.org, =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>, Rob Herring <robh+dt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley <paul.walmsley@sifive.com>, Thomas Gleixner <tglx@linutronix.de>, Frank Rowand <frowand.list@gmail.com>, linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Drew Fustini wrote:
-> Add mmc0 properties for the eMMC device and add mmc1 properties for
-> the microSD slot. Set the frequency for the sdhci clock.
->
-> Signed-off-by: Drew Fustini <dfustini@baylibre.com>
+On Mon, Oct 23, 2023 at 10:57:51PM +0530, Anup Patel wrote:
+> The RISC-V advanced interrupt architecture (AIA) extends the per-HART
+> local interrupts in following ways:
+> 1. Minimum 64 local interrupts for both RV32 and RV64
+> 2. Ability to process multiple pending local interrupts in same
+>    interrupt handler
+> 3. Priority configuration for each local interrupts
+> 4. Special CSRs to configure/access the per-HART MSI controller
+> 
+> We add support for #1 and #2 described above in the RISC-V intc driver.
+> 
+> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
 > ---
->  arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts | 20 ++++++++++++++++++++
->  1 file changed, 20 insertions(+)
+>  drivers/irqchip/irq-riscv-intc.c | 34 ++++++++++++++++++++++++++------
+>  1 file changed, 28 insertions(+), 6 deletions(-)
 >
-> diff --git a/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts b/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
-> index 70e8042c8304..c4e748827889 100644
-> --- a/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
-> +++ b/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
-> @@ -52,6 +52,10 @@ &uart_sclk {
->  	clock-frequency = <100000000>;
->  };
->
-> +&sdhci_clk {
-> +	clock-frequency = <198000000>;
-> +};
-> +
->  &dmac0 {
->  	status = "okay";
->  };
-> @@ -59,3 +63,19 @@ &dmac0 {
->  &uart0 {
->  	status = "okay";
->  };
-> +
-> +&mmc0 {
-> +	bus-width = <8>;
-> +	max-frequency = <198000000>;
-> +	mmc-hs400-1_8v;
-> +	non-removable;
-> +	no-sdio;
-> +	no-sd;
-> +	status = "okay";
-> +};
-> +
-> +&mmc1 {
-> +	max-frequency = <198000000>;
-> +	bus-width = <4>;
-> +	status = "okay";
-> +};
 
-Hi Drew,
-
-For the StarFive device tree files we've agreed on sorting by / node, clock
-references, and then other node references alphabetically. I'm not
-insisting you should do the same, but it would be nice with some system to make
-it clear where new node refences should go. Or maybe I'm just not seeing the
-system you're already following.
-
-/Emil
-
->
-> --
-> 2.34.1
->
->
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
 
 _______________________________________________
 linux-riscv mailing list
