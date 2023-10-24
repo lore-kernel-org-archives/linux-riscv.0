@@ -4,93 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5332C07545
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 Oct 2023 13:18:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94E89C07545
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 Oct 2023 13:28:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Date:References:
-	In-Reply-To:Message-Id:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=G2UT8gWRO+xspfMLHSr1gpRoVtco5x2qnWFx/MvStjE=; b=opA28suHopTYP4
-	6fJKzy7y+fqUG01xe4BiUxyq9bYiyv9ihCKiLQMDAId6V/VDUbLd9Dj2cw43vD918ssnFPYx5YHph
-	a8ZqAjT8XsXBGMSemm24HPBOqAKepXK10a2UJYGWRDffafQjDAf9S1R/z+yUM5z/uLx0NyJqCJsyi
-	urbtup/AG33KkN8TPB3LFW+gnt6RQHbWi4K/3b7Dpij0t/D31qt0o/zfNd/Cytdr5sRddl8Pqk6LF
-	3GXyUoCJjgfpG4VwQdcncARewDQ7p3f4D5+8L7P/NlRULXEImNvuak4kQZlDD5kS0itDEL9/cuOEU
-	VVTHCBP0kKIcaMHOCvKQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=iKs1GCyWvBTVvAhzVH+E1vJLUaWs8uH+Mm1QY8LsPgA=; b=AuO5UIzUrDoSbM
+	oCEfjpBqEC2tLWrsGXk2UnbMpzLcnVlOulTMIFvZbyLaDx9WK+VZ0IfeO61Gweoo6sViQFZFuiWXF
+	huvQ2Hz/HyYgc3tNDXBzEwOVEHNHvwfu4vIOkVthe2EhqbMiOXC738M24l9cyHydlCa/GroK+XR9O
+	660YWxlNFNctboCkO/ngSUfwBIiFRxAXXd9U2eWhZbp8oy/dksRnuuPU+P1CdGRQP/j/X4GUsOBvh
+	LRrpWtNAVgsR1R6U2Dgqgy0v29cPUJH/JzcA8FIe7Ev/N73kJ3mOiZ0DBCQojJSd+OvBQc6EQEvCa
+	FmDq1u7HIxM9Xnk+bbRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qvHIH-009ud2-1A;
-	Tue, 24 Oct 2023 13:18:01 +0000
-Received: from out5-smtp.messagingengine.com ([66.111.4.29])
+	id 1qvHRs-009wlU-1C;
+	Tue, 24 Oct 2023 13:27:56 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qvHID-009ub5-1c;
-	Tue, 24 Oct 2023 13:17:59 +0000
-Received: from compute5.internal (compute5.nyi.internal [10.202.2.45])
-	by mailout.nyi.internal (Postfix) with ESMTP id CEEBB5C017D;
-	Tue, 24 Oct 2023 09:17:51 -0400 (EDT)
-Received: from imap51 ([10.202.2.101])
-  by compute5.internal (MEProxy); Tue, 24 Oct 2023 09:17:51 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-type:content-type:date:date:from:from:in-reply-to
-	:in-reply-to:message-id:mime-version:references:reply-to:sender
-	:subject:subject:to:to; s=fm2; t=1698153471; x=1698239871; bh=ju
-	LUN5EOf1oun38yO5yy2NS/PjvfZz4177Yn5+hz4yQ=; b=n5JuawavBckG+td4zd
-	9bgRwuRpqQu0e1li/e77umwTpwdBwy0DLjFX3CyNt7mh81Xb8VYW0gXvlCFWRw6B
-	hj+fijwsz4eR49wI1VEhiMuAzHMpeRbELUPOmwyMHvqXjYp/QUR+9/Se6UYL+T4L
-	WDLTJHnW+8emUnHY2/S3SYHChMwDWnqqUAr12P0GwcRPCfjHc/Vx6zet1zUiY9Ab
-	QW3noxYanY1quUXitS/QIyprE60azjurUOVXm3jRf8IdUBLJOPQUfQwF1h0Y5NGi
-	6gLzeDZxr2RnAK37E9QNOt1pBZVPzuFw/z/XlaaIMV9UrlXcEYm5x7VM6gugIv8o
-	UBfw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-type:content-type:date:date
-	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
-	:message-id:mime-version:references:reply-to:sender:subject
-	:subject:to:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender
-	:x-sasl-enc; s=fm3; t=1698153471; x=1698239871; bh=juLUN5EOf1oun
-	38yO5yy2NS/PjvfZz4177Yn5+hz4yQ=; b=ho066+fpz4vqxQspl7eYkBvf670M0
-	QafoG/BnV/LA3QmmYpX25gHOuy6e1KX2q/EJoviBgTiQ8bEtGXhlgixr0PdEtdHP
-	UdgVO0ss1ZYKXyYAaPFpHpAb7uNyOApEx16iBFvqNHtzguv2pCDNgoXgDvDBXbx2
-	Eum49PB45Qv1wQwNAXunVGDvSL4OeJfcTdyC4QaVURCUcVN4eVgopaLx8oMT2E7V
-	cq9G95XNfiV1VTUkmn6go/PuJpp4x55ovVtU75KGke9BYIzfPM9PljR5ZiBtKHN/
-	HPitZ1g+BQNBBD4GmNtyUC4pTpD3oY2cjimFc6ZnqS4klc1L3cWmqG2ZQ==
-X-ME-Sender: <xms:_8M3ZWnJnKjq_-kk6s0hEnizc7y7AA36OyfNpqdFxNL3KSw6-4sY1Q>
-    <xme:_8M3Zd0zeKpSAD9_8WXmQGhYKMSP-M1Q-xFKuHbxpV6DepRGPaO4shdXDsw2hw3Al
-    eIRSW-rISm1gEikWDE>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvkedrkeekgdeiudcutefuodetggdotefrodftvf
-    curfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfghnecu
-    uegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenuc
-    fjughrpefofgggkfgjfhffhffvvefutgesthdtredtreertdenucfhrhhomhepfdetrhhn
-    ugcuuegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrghtth
-    gvrhhnpeffheeugeetiefhgeethfejgfdtuefggeejleehjeeutefhfeeggefhkedtkeet
-    ffenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegrrh
-    hnugesrghrnhgusgdruggv
-X-ME-Proxy: <xmx:_8M3ZUr74gAI76OAf2EDNunWuT_V6DLiFSCudIcNRc7aC5BeecLhVA>
-    <xmx:_8M3ZanmhGeqVetdMi6TitKDZMbJNC4wsgyPPj9eM5Vi7_rKEQrMbQ>
-    <xmx:_8M3ZU3Q4egefEBR3jYS0LbN2LFQKF0qlsVLKvLUFuM8mUjpwbnnCQ>
-    <xmx:_8M3ZVJKz9SsDBha72wGsT4j53_R7egs9Gz0MK1aBidGMKZdv-co3Q>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.nyi.internal (Postfix, from userid 501)
-	id 5ADF0B60089; Tue, 24 Oct 2023 09:17:51 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
-User-Agent: Cyrus-JMAP/3.9.0-alpha0-1048-g9229b632c5-fm-20231019.001-g9229b632
+	id 1qvHRo-009wjQ-34
+	for linux-riscv@lists.infradead.org;
+	Tue, 24 Oct 2023 13:27:54 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-408fd07bb78so2448265e9.1
+        for <linux-riscv@lists.infradead.org>; Tue, 24 Oct 2023 06:27:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1698154071; x=1698758871; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=p7NxDbO7GUxLbtod+vtUf5vVuxdvzarRCEG44wnrlEM=;
+        b=dd82eUWWUrfRCIB7xjhA2Sha6dC4WM1yhz+2a0Kdnh2IKvOvQZX1GrnS/DAFEmUDOa
+         PH6e3W8tHf2gtESpBHBw0dSgfByEWoEEyFmE6ovvVm6iE5dJHH5wEl9tNY4FUZX+SnG1
+         8EZ3kxVexWw/5HFD1PuiuiSVR/WP/Qors8/UeDBpGEY3r0NwRmQHAfEFlDdDdId5Um4a
+         WqhWKagw3w3YXkELWThQKtmE/Jx10A+SZgZ/6HM0xFZn5A8pr9Vx6m+2ho0F7t58xJFf
+         hT0n4Ysh1CmfAgomVR7rHIsMfDcBmx+8or9613Rb8CYmdiCVFn7JGrqUzy1g/zktuj6c
+         KzRQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1698154071; x=1698758871;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=p7NxDbO7GUxLbtod+vtUf5vVuxdvzarRCEG44wnrlEM=;
+        b=PmuQ9hySGiNTI+0KMe2yKs7TsoR9MqDgqsKUMrhZrBLsj9rEbAa0QRo6BvqBgz37xX
+         GErJuc++sbXLtWhIY95MEiv9+ZTMCnPUfgUFZPPbWn3jxRy50DjZUKZpgO7J2MOIq3tN
+         fAWSYOBFSpryfyzsgSaGouGoLuK8EywUWtj7FqwSRukYqqhcNcF2lUspc+EhLXlfDS+D
+         UwrCrxJp2xcryHs8hi1JObHBdOW7+mVELHPSXjA0MTbPrLAR4CjDmndFu9S+I4AlIMA5
+         JsuPjPVMOR4TbOF+gRmSxshTGy0Z2/foBKWgJJRxFefZY7Q/RVuULoN5aDYcS1HfKqTv
+         3lPA==
+X-Gm-Message-State: AOJu0YwPX6AXgYyu8jnmTT4UxUcuV3vPi7wXY90zmOJI3CCWq0uzCWPg
+	9bmv4O6vHUj7CSHeXMLPLGXcNQ==
+X-Google-Smtp-Source: AGHT+IH77/PUgfFp7lhNctpa+rJkehqrdIV97sCBXLPajMuJnwUEvoVFCh76kpQkxXAlg1/QWfUznw==
+X-Received: by 2002:a05:600c:2293:b0:403:334:fb0d with SMTP id 19-20020a05600c229300b004030334fb0dmr9098071wmf.4.1698154071124;
+        Tue, 24 Oct 2023 06:27:51 -0700 (PDT)
+Received: from carbon-x1.. ([2a01:e0a:999:a3a0:597d:e2c5:6741:bac9])
+        by smtp.gmail.com with ESMTPSA id c17-20020a5d4151000000b0032d87b13240sm10034964wrq.73.2023.10.24.06.27.50
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Oct 2023 06:27:50 -0700 (PDT)
+From: =?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Anup Patel <anup@brainfault.org>,
+	Atish Patra <atishp@atishpatra.org>,
+	Andrew Jones <ajones@ventanamicro.com>
+Cc: =?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org
+Subject: [PATCH v2 0/5] riscv: cleanup assembly usage of ENTRY()/END() and use local labels
+Date: Tue, 24 Oct 2023 15:26:50 +0200
+Message-ID: <20231024132655.730417-1-cleger@rivosinc.com>
+X-Mailer: git-send-email 2.42.0
 MIME-Version: 1.0
-Message-Id: <b71034f4-5cdc-44e0-b72f-1a8ffae0593e@app.fastmail.com>
-In-Reply-To: <ZTe8NOgAjvKDA6z0@MiWiFi-R3L-srv>
-References: <20231023110308.1202042-1-arnd@kernel.org>
- <ZTe8NOgAjvKDA6z0@MiWiFi-R3L-srv>
-Date: Tue, 24 Oct 2023 15:17:30 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Baoquan He" <bhe@redhat.com>
-Cc: "Vivek Goyal" <vgoyal@redhat.com>,
- "Andrew Morton" <akpm@linux-foundation.org>, linux-kernel@vger.kernel.org,
- kexec@lists.infradead.org, x86@kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- linux-crypto@vger.kernel.org, eric_devolder@yahoo.com
-Subject: Re: [PATCH 1/2] kexec: fix KEXEC_FILE dependencies
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231024_061757_770640_77EE46AA 
-X-CRM114-Status: GOOD (  23.97  )
+X-CRM114-CacheID: sfid-20231024_062753_228505_780E0135 
+X-CRM114-Status: GOOD (  11.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,123 +92,51 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 24, 2023, at 14:44, Baoquan He wrote:
-> Just add people and mailing list to CC since I didn't find this mail in
-> my box, just drag it via 'b4 am'.
->
-> On 10/23/23 at 01:01pm, Arnd Bergmann wrote:
-> ......
-
->> diff --git a/kernel/Kconfig.kexec b/kernel/Kconfig.kexec
->> index 7aff28ded2f48..bfc636d64ff2b 100644
->> --- a/kernel/Kconfig.kexec
->> +++ b/kernel/Kconfig.kexec
->> @@ -36,6 +36,7 @@ config KEXEC
->>  config KEXEC_FILE
->>  	bool "Enable kexec file based system call"
->>  	depends on ARCH_SUPPORTS_KEXEC_FILE
->> +	depends on CRYPTO_SHA256=y || !ARCH_SUPPORTS_KEXEC_PURGATORY
->
-> I am not sure if the logic is correct. In theory, kexec_file code
-> utilizes purgatory to verify the checksum digested during kernel loading
-> when try to jump to the kernel. That means kexec_file depends on
-> purgatory, but not contrary?
-
-The expression I wrote is a bit confusing, but I think this just
-keeps the existing behavior:
-
-- on architectures that select ARCH_SUPPORTS_KEXEC_PURGATORY
-  (powerpc, riscv, s390 and x86), we also require CRYPTO_SHA256
-  to be built-in.
-- on architectures that do not have ARCH_SUPPORTS_KEXEC_PURGATORY
-  (arm64 and parisc), CRYPTO_SHA256 is not used and can be disabled
-  or =m.
-
-Since ARCH_SUPPORTS_KEXEC_PURGATORY is a 'bool' symbol, it could
-be written as
-
-depends on (ARCH_SUPPORTS_KEXEC_PURGATORY && CRYPTO_SHA256=y) \
-           || !ARCH_SUPPORTS_KEXEC_PURGATORY
-
-if you find that clearer. I see that the second patch
-actually gets this wrong, it should actually do
-
-select CRYPTO if ARCH_SUPPORTS_KEXEC_PURGATORY
-select CRYPTO_SHA256 if ARCH_SUPPORTS_KEXEC_PURGATORY
-
-> With these changes, we can achieve the goal to avoid building issue,
-> whereas the code logic becomes confusing. E.g people could disable
-> CONFIG_KEXEC_FILE, but still get purgatory code built in which is
-> totally useless.
->
-> Not sure if I think too much over this.
-
-I see your point here, and I would suggest changing the
-CONFIG_ARCH_SUPPORTS_KEXEC_PURGATORY symbol to just indicate
-the availability of the purgatory code for the arch, rather
-than actually controlling the code itself. I already mentioned
-this for s390, but riscv would need the same thing on top.
-
-I think the change below should address your concern.
-
-     Arnd
-
-diff --git a/arch/riscv/kernel/elf_kexec.c b/arch/riscv/kernel/elf_kexec.c
-index e60fbd8660c4..3ac341d296db 100644
---- a/arch/riscv/kernel/elf_kexec.c
-+++ b/arch/riscv/kernel/elf_kexec.c
-@@ -266,7 +266,7 @@ static void *elf_kexec_load(struct kimage *image, char *kernel_buf,
-                cmdline = modified_cmdline;
-        }
- 
--#ifdef CONFIG_ARCH_SUPPORTS_KEXEC_PURGATORY
-+#ifdef CONFIG_KEXEC_FILE
-        /* Add purgatory to the image */
-        kbuf.top_down = true;
-        kbuf.mem = KEXEC_BUF_MEM_UNKNOWN;
-@@ -280,7 +280,7 @@ static void *elf_kexec_load(struct kimage *image, char *kernel_buf,
-                                             sizeof(kernel_start), 0);
-        if (ret)
-                pr_err("Error update purgatory ret=%d\n", ret);
--#endif /* CONFIG_ARCH_SUPPORTS_KEXEC_PURGATORY */
-+#endif /* CONFIG_KEXEC_FILE */
- 
-        /* Add the initrd to the image */
-        if (initrd != NULL) {
-diff --git a/arch/riscv/Kbuild b/arch/riscv/Kbuild
-index d25ad1c19f88..ab181d187c23 100644
---- a/arch/riscv/Kbuild
-+++ b/arch/riscv/Kbuild
-@@ -5,7 +5,7 @@ obj-$(CONFIG_BUILTIN_DTB) += boot/dts/
- obj-y += errata/
- obj-$(CONFIG_KVM) += kvm/
- 
--obj-$(CONFIG_ARCH_SUPPORTS_KEXEC_PURGATORY) += purgatory/
-+obj-$(CONFIG_KEXEC_FILE) += purgatory/
- 
- # for cleaning
- subdir- += boot
-diff --git a/arch/s390/Kbuild b/arch/s390/Kbuild
-index a5d3503b353c..361aa01dbd49 100644
---- a/arch/s390/Kbuild
-+++ b/arch/s390/Kbuild
-@@ -7,7 +7,7 @@ obj-$(CONFIG_S390_HYPFS)        += hypfs/
- obj-$(CONFIG_APPLDATA_BASE)    += appldata/
- obj-y                          += net/
- obj-$(CONFIG_PCI)              += pci/
--obj-$(CONFIG_ARCH_SUPPORTS_KEXEC_PURGATORY) += purgatory/
-+obj-$(CONFIG_KEXEC_FILE)       += purgatory/
- 
- # for cleaning
- subdir- += boot tools
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+VGhpcyBzZXJpZXMgZG9lcyBhIGNsZWFudXAgb2YgYWxsIEVOVFJZKCkvRU5EKCkgbWFjcm9zIHRo
+YXQgYXJlIHVzZWQgaW4KYXJjaC9yaXNjdi8gYXMgd2VsbCBhcyB1c2Ugb2YgbG9jYWwgbGFiZWxz
+LiBUaGlzIGFsbG93cyB0byByZW1vdmUgdGhlCnVzZSBvZiB0aGUgbm93IGRlcHJlY2F0ZWQgRU5U
+UlkoKS9FTkQoKS9XRUFLKCkgbWFjcm9zIGFzIHdlbGwgYXMgdXNpbmcKdGhlIG5ldyBTWU1fKigp
+IG9uZXMgd2hpY2ggcHJvdmlkZSBhIGJldHRlciB1bmRlcnN0YW5kaW5nIG9mIHdoYXQgaXMKbWVh
+bnQgdG8gYmUgYW5ub3RhdGVkLiBTb21lIHdyb25nIHVzYWdlIG9mIFNZTV9GVU5DX1NUQVJUKCkg
+YXJlIGFsc28KZml4ZWQgaW4gdGhpcyBzZXJpZXMgYnkgdXNpbmcgdGhlIGNvcnJlY3QgYW5ub3Rh
+dGlvbnMuIEZpbmFsbHkgYSBmZXcKbGFiZWxzIHRoYXQgd2VyZSBtZWFudCB0byBiZSBsb2NhbCBo
+YXZlIGJlZW4gcmVuYW1lZCB0byB1c2UgdGhlIC5MCnN1ZmZpeCBhbmQgdGh1cyBub3QgdG8gYmUg
+ZW1pdHRlZCBhcyB2aXNpYmxlIHN5bWJvbHMuCgpOb3RlOiB0aGUgcGF0Y2hlcyBoYXZlIGJlZW4g
+c3BsaXQgYmV0d2VlbiBhcmNoL3Jpc2N2LyBhbmQKYXJjaC9yaXNjdi9rdm0vIGR1ZSB0byBoYXZp
+bmcgZGlmZmVyZW50IG1haW50YWluZXJzLgoKLS0tCgpDaGFuZ2VzIGluIFYyOgogLSBSZW1vdmUg
+ZHVwbGljYXRlZCBTWU1fRlVOQ19FTkQobWVtbW92ZSkKIC0gVXNlIFNZTV9EQVRBIGZvciBzaW1w
+bGUgLnF1YWQgdXNhZ2UKIC0gQWRkZWQgQW5kcmV3IFJiOgoKQ2zDqW1lbnQgTMOpZ2VyICg1KToK
+ICByaXNjdjogdXNlICIuTCIgbG9jYWwgbGFiZWxzIGluIGFzc2VtYmx5IHdoZW4gYXBwbGljYWJs
+ZQogIHJpc2N2OiBVc2UgU1lNXyooKSBhc3NlbWJseSBtYWNyb3MgaW5zdGVhZCBvZiBkZXByZWNh
+dGVkIG9uZXMKICByaXNjdjoga2VybmVsOiBVc2UgY29ycmVjdCBTWU1fREFUQV8qKCkgbWFjcm8g
+Zm9yIGRhdGEKICByaXNjdjoga3ZtOiBVc2UgU1lNXyooKSBhc3NlbWJseSBtYWNyb3MgaW5zdGVh
+ZCBvZiBkZXByZWNhdGVkIG9uZXMKICByaXNjdjoga3ZtOiB1c2UgIi5MIiBsb2NhbCBsYWJlbHMg
+aW4gYXNzZW1ibHkgd2hlbiBhcHBsaWNhYmxlCgogYXJjaC9yaXNjdi9rZXJuZWwvY29weS11bmFs
+aWduZWQuUyAgICAgICAgICAgIHwgIDggKy0tCiBhcmNoL3Jpc2N2L2tlcm5lbC9lbnRyeS5TICAg
+ICAgICAgICAgICAgICAgICAgfCAxOSArKystLS0tCiBhcmNoL3Jpc2N2L2tlcm5lbC9mcHUuUyAg
+ICAgICAgICAgICAgICAgICAgICAgfCAgOCArLS0KIGFyY2gvcmlzY3Yva2VybmVsL2hlYWQuUyAg
+ICAgICAgICAgICAgICAgICAgICB8IDMwICsrKysrLS0tLS0KIGFyY2gvcmlzY3Yva2VybmVsL2hp
+YmVybmF0ZS1hc20uUyAgICAgICAgICAgICB8IDEyICsrLS0KIGFyY2gvcmlzY3Yva2VybmVsL21j
+b3VudC1keW4uUyAgICAgICAgICAgICAgICB8IDIwICsrKy0tLS0KIGFyY2gvcmlzY3Yva2VybmVs
+L21jb3VudC5TICAgICAgICAgICAgICAgICAgICB8IDE4ICsrKy0tLQogYXJjaC9yaXNjdi9rZXJu
+ZWwvcHJvYmVzL3JldGhvb2tfdHJhbXBvbGluZS5TIHwgIDQgKy0KIGFyY2gvcmlzY3Yva2VybmVs
+L3N1c3BlbmRfZW50cnkuUyAgICAgICAgICAgICB8ICA0ICstCiBhcmNoL3Jpc2N2L2tlcm5lbC92
+ZHNvL2ZsdXNoX2ljYWNoZS5TICAgICAgICAgfCAgNCArLQogYXJjaC9yaXNjdi9rZXJuZWwvdmRz
+by9nZXRjcHUuUyAgICAgICAgICAgICAgIHwgIDQgKy0KIGFyY2gvcmlzY3Yva2VybmVsL3Zkc28v
+cnRfc2lncmV0dXJuLlMgICAgICAgICB8ICA0ICstCiBhcmNoL3Jpc2N2L2tlcm5lbC92ZHNvL3N5
+c19od3Byb2JlLlMgICAgICAgICAgfCAgNCArLQogYXJjaC9yaXNjdi9rdm0vdmNwdV9zd2l0Y2gu
+UyAgICAgICAgICAgICAgICAgIHwgMzIgKysrKystLS0tLS0KIGFyY2gvcmlzY3YvbGliL21lbWNw
+eS5TICAgICAgICAgICAgICAgICAgICAgICB8ICA2ICstCiBhcmNoL3Jpc2N2L2xpYi9tZW1tb3Zl
+LlMgICAgICAgICAgICAgICAgICAgICAgfCA1NyArKysrKysrKystLS0tLS0tLS0tCiBhcmNoL3Jp
+c2N2L2xpYi9tZW1zZXQuUyAgICAgICAgICAgICAgICAgICAgICAgfCAgNiArLQogYXJjaC9yaXNj
+di9saWIvdWFjY2Vzcy5TICAgICAgICAgICAgICAgICAgICAgIHwgMTEgKystLQogYXJjaC9yaXNj
+di9wdXJnYXRvcnkvZW50cnkuUyAgICAgICAgICAgICAgICAgIHwgMTYgKystLS0tCiAxOSBmaWxl
+cyBjaGFuZ2VkLCAxMjQgaW5zZXJ0aW9ucygrKSwgMTQzIGRlbGV0aW9ucygtKQoKLS0gCjIuNDIu
+MAoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4
+LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6
+Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
