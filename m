@@ -4,92 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E747C07545
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 Oct 2023 04:11:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76041C07545
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 Oct 2023 05:32:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UtChXrBWwhiP7BlVDocO5JqkwaIQQOjI2PDmlZXc1so=; b=PNDSxDaXs1/38/
-	bshrksVU8p1WRi/3oBr49lf+W1PMMGVj+xDMjLAQy31qVMiCcjt9AjVPRh1H6T1tS17LVhxEKyZcr
-	o+Tg6PGJtseqQsRWs+FmsUrAed7IFIMGqPOwJNUHqSdKieXUERzS/WIPNMSF+aYpJe3GPtPkt8jFv
-	BCcZ+aghU6iPcuDgMSFJyD9Rdl1i7sBLs5crxVIYRD4gg9e6hoK24cyfJ9tkGYpkgUqlJxTDfONRy
-	Ig80MrUB5RGCgWW2hQ2pAtmcnSm6zZEojngd2xG5s9LIvsjs7ba8zqeLjR9zLlNTz89YT0NbIL5hQ
-	rEQv2Q/OcFFFvnvtUDwA==;
+	List-Owner; bh=4g/g7Vj3Eio8m/JmNhuow0p5QSvVtHTngru67gMT2WY=; b=VVeBaAtSlcJCGP
+	hh9qQ/KykJSoiSHetu1NhTsjEmxbBuWIfW+suJWPBoPM2wG1HvpOmang/fp69hwwS28QPadrUfBfa
+	acoNtpMjUReP6vUIC0TDSNqX+Vvt4GDni4ODdAKhRr0V9XESCFTzcF346i2sqtcA1b0k6JGO8G5pj
+	BmvhAAbbXKU4GzRAUZsUt4ydPqVrCWklNMgJEXVNKij32TI8Iq2wGuMOfbOhkYj5aKJ773+TVXTfU
+	ijFmu9XhFXXdysWJEulmPL1Hnatbv2UTPwuBNDx5Zt3y3yRuRen5HwKQJTmuhrgV6oUMvIoGHpwUV
+	iVmkcNXaxEke3M0cj3Gg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qv8l5-008mHW-2p;
-	Tue, 24 Oct 2023 04:11:11 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1qvA1J-008tYZ-0f;
+	Tue, 24 Oct 2023 05:32:01 +0000
+Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qv8l2-008mEM-2a
+	id 1qvA1G-008tXw-0c
 	for linux-riscv@lists.infradead.org;
-	Tue, 24 Oct 2023 04:11:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1698120662;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=caernG/TBksc+n5E7N1NZ2+jzhSZWw1AOXk83LPtKCQ=;
-	b=DxDd6aAX6buOOG5PBWOxVj1/naCsfbH3Thg+POdOlrMZq1NL9zGmJtkuCWz9b1PS84+TL9
-	IBfHe/WLUinWa0mp4bRBwIN1xQlJKiMkZLDV5/P61Dy8nvogTA6fSDpVs8sFEXY7x6qo3W
-	jUvL+YS2sbgj2OVjWOoX5rU/jJPg1fQ=
-Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
- [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-133-x4-R9quaNDOSNfhk7mjDJQ-1; Tue, 24 Oct 2023 00:10:56 -0400
-X-MC-Unique: x4-R9quaNDOSNfhk7mjDJQ-1
-Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.rdu2.redhat.com [10.11.54.2])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 0393D185A790;
-	Tue, 24 Oct 2023 04:10:55 +0000 (UTC)
-Received: from localhost (unknown [10.72.112.15])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id A05BD40C6F79;
-	Tue, 24 Oct 2023 04:10:53 +0000 (UTC)
-Date: Tue, 24 Oct 2023 12:10:51 +0800
-From: Baoquan He <bhe@redhat.com>
-To: Arnd Bergmann <arnd@kernel.org>
-Cc: Vivek Goyal <vgoyal@redhat.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	"David S . Miller" <davem@davemloft.net>,
-	linux-crypto@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Tue, 24 Oct 2023 05:31:59 +0000
+Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-6bd73395bceso2992314b3a.0
+        for <linux-riscv@lists.infradead.org>; Mon, 23 Oct 2023 22:31:55 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1698125514; x=1698730314; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=TMgZBMWXzo4q6vwznsY5I4wwZsoXDFPKydTpbp5gDQw=;
+        b=paWHUYSSstaJRgFBNvsGEaL/O4/gkNix8kbelIsJzZDL09PVQzq9bnC6Zj+9GQXIDH
+         jmRqqWy0I1w2NafDbZ9gLdZwDylQY2BiJA84qHK8wTqX/xGLSqZUDqHMv7U7nwXm/lPm
+         kSOVgskdaou7ZEWCnBnz+/6ksb0exkJf2en3L8KHiGGp/wiGBSwBnAKMKda3AoxywtVY
+         v2+jRO2LPlzMRG7GpBCtrN/9Aeed8zK3lzwge85boalcazsKmdN9ZEMaK+NcDQUmMebt
+         Eu61OQ8ZhLbPT/3vlxBSPZV3JjEHTvSjU/3H+R9yi6weuUHY2oEUL8dcehjaoqTaGcq0
+         +SBw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1698125514; x=1698730314;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=TMgZBMWXzo4q6vwznsY5I4wwZsoXDFPKydTpbp5gDQw=;
+        b=ZQXN5LtyICCCv5QP2xQK5WU1qTIgwdB4cVaSfyfTKGUSG4nuw8RuBO8ypSY4eswiv9
+         hP5F2fu5U6YC7eFc3XbRjWDsYMWPYPgy7PnSeNXLC9uRbbzqeHl0lwtb3wumVResR1Rh
+         qg2fJoHYOV3yvUwMhjOby4W42+PGHbdHY22/Zhvjt/lMsOS3/iL4vUcasYzPaXL9Pj8j
+         9l6D7w4Y/0y2AA/nQB7EuS/7RhvLRrcKQbml3xID/5jNT+3jcwHn0eek0thE7ynd/QXD
+         ih4L44jm7/Y0u8dXcIK+DbTkezf94w0dZJ8CSv+lKi0p0YT7QXmnEcj78FWwSG35kCez
+         uccA==
+X-Gm-Message-State: AOJu0Yyo9UzS2qTPm896vAiyMUr/xn4BhC7sUjXEe0BDT0WPI9R+1I9z
+	lH3Wf2uNKcK3rxR4HF/35NnaCA==
+X-Google-Smtp-Source: AGHT+IEXabVD0I42LfRfAleaLrDfaEeikt+nTW/LvpW+v1yM0hF9QKpCxuvRXO4yGRldBbG6ljXApg==
+X-Received: by 2002:a05:6a20:7348:b0:17b:2c56:70bc with SMTP id v8-20020a056a20734800b0017b2c5670bcmr2083668pzc.10.1698125514459;
+        Mon, 23 Oct 2023 22:31:54 -0700 (PDT)
+Received: from sunil-laptop ([2409:4071:6e9d:1e7:259:d68d:db3b:3cc])
+        by smtp.gmail.com with ESMTPSA id y15-20020aa79aef000000b0068883728c16sm7216982pfp.144.2023.10.23.22.31.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Oct 2023 22:31:53 -0700 (PDT)
+Date: Tue, 24 Oct 2023 11:01:37 +0530
+From: Sunil V L <sunilvl@ventanamicro.com>
+To: Anup Patel <apatel@ventanamicro.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
 	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Eric DeVolder <eric.devolder@oracle.com>,
-	"Peter Zijlstra (Intel)" <peterz@infradead.org>,
-	Ard Biesheuvel <ardb@kernel.org>, linuxppc-dev@lists.ozlabs.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org, Hari Bathini <hbathini@linux.ibm.com>,
-	Costa Shulyupin <costa.shul@redhat.com>
-Subject: Re: [PATCH 2/2] kexec: select CRYPTO from KEXEC_FILE instead of
- depending on it
-Message-ID: <ZTdDy8ScUPxJOBHs@MiWiFi-R3L-srv>
-References: <20231023110308.1202042-1-arnd@kernel.org>
- <20231023110308.1202042-2-arnd@kernel.org>
- <ZTdALtO2rN4FaneC@MiWiFi-R3L-srv>
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Frank Rowand <frowand.list@gmail.com>,
+	Conor Dooley <conor+dt@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	=?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>,
+	Atish Patra <atishp@atishpatra.org>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Saravana Kannan <saravanak@google.com>,
+	Anup Patel <anup@brainfault.org>, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
+Subject: Re: [PATCH v11 12/14] irqchip/riscv-aplic: Add support for MSI-mode
+Message-ID: <ZTdWueglO1iXuS1D@sunil-laptop>
+References: <20231023172800.315343-1-apatel@ventanamicro.com>
+ <20231023172800.315343-13-apatel@ventanamicro.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <ZTdALtO2rN4FaneC@MiWiFi-R3L-srv>
-X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.2
+In-Reply-To: <20231023172800.315343-13-apatel@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231023_211108_910519_82959229 
-X-CRM114-Status: GOOD (  28.63  )
+X-CRM114-CacheID: sfid-20231023_223158_233674_381F6B1A 
+X-CRM114-Status: GOOD (  14.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,66 +103,56 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 10/24/23 at 11:55am, Baoquan He wrote:
-> On 10/23/23 at 01:01pm, Arnd Bergmann wrote:
-> > From: Arnd Bergmann <arnd@arndb.de>
-> > 
-> > All other users of crypto code use 'select' instead of 'depends on',
-> > so do the same thing with KEXEC_FILE for consistency.
-> > 
-> > In practice this makes very little difference as kernels with kexec
-> > support are very likely to also include some other feature that already
-> > selects both crypto and crypto_sha256, but being consistent here helps
-> > for usability as well as to avoid potential circular dependencies.
-> > 
-> > This reverts the dependency back to what it was originally before commit
-> > 74ca317c26a3f ("kexec: create a new config option CONFIG_KEXEC_FILE for
-> > new syscall"), which changed changed it with the comment "This should
->                        ~~~~~~~~~~~~~~ typo
-> > be safer as "select" is not recursive", but that appears to have been
-> > done in error, as "select" is indeed recursive, and there are no other
-> > dependencies that prevent CRYPTO_SHA256 from being selected here.
-> > 
-> > Fixes: 74ca317c26a3f ("kexec: create a new config option CONFIG_KEXEC_FILE for new syscall")
-> > Cc: Herbert Xu <herbert@gondor.apana.org.au>
-> > Cc: "David S. Miller" <davem@davemloft.net>
-> > Cc: linux-crypto@vger.kernel.org
-> > Signed-off-by: Arnd Bergmann <arnd@arndb.de>
-> > ---
-> >  kernel/Kconfig.kexec | 3 ++-
-> >  1 file changed, 2 insertions(+), 1 deletion(-)
-> 
-> LGTM,
-> 
-> Acked-by: Baoquan He <bhe@redhat.com>
+Hi Anup,
 
-Sorry, the patch 1/2 is not sent to me and kexec mailing list, so I
-didn't get the intention of the entire patchset. I need hold the ack
-until I read the patch 1. I have some concerns about patch 1 if I didn't
-misunderstand it. Will come back later when patch 1 reviewing is
-finished.
-
+On Mon, Oct 23, 2023 at 10:57:58PM +0530, Anup Patel wrote:
+> The RISC-V advanced platform-level interrupt controller (APLIC) has
+> two modes of operation: 1) Direct mode and 2) MSI mode.
+> (For more details, refer https://github.com/riscv/riscv-aia)
 > 
-> > 
-> > diff --git a/kernel/Kconfig.kexec b/kernel/Kconfig.kexec
-> > index bfc636d64ff2b..51f719af10e79 100644
-> > --- a/kernel/Kconfig.kexec
-> > +++ b/kernel/Kconfig.kexec
-> > @@ -36,7 +36,8 @@ config KEXEC
-> >  config KEXEC_FILE
-> >  	bool "Enable kexec file based system call"
-> >  	depends on ARCH_SUPPORTS_KEXEC_FILE
-> > -	depends on CRYPTO_SHA256=y || !ARCH_SUPPORTS_KEXEC_PURGATORY
-> > +	select CRYPTO
-> > +	select CRYPTO_SHA256
-> >  	select KEXEC_CORE
-> >  	help
-> >  	  This is new version of kexec system call. This system call is
-> > -- 
-> > 2.39.2
-> > 
+> In APLIC MSI-mode, wired interrupts are forwared as message signaled
+> interrupts (MSIs) to CPUs via IMSIC.
 > 
+> We extend the existing APLIC irqchip driver to support MSI-mode for
+> RISC-V platforms having both wired interrupts and MSIs.
+> 
+> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+> ---
+[...]
+> +int aplic_msi_setup(struct device *dev, void __iomem *regs)
+> +{
+> +	const struct imsic_global_config *imsic_global;
+> +	struct irq_domain *irqdomain;
+> +	struct aplic_priv *priv;
+> +	struct aplic_msicfg *mc;
+> +	phys_addr_t pa;
+> +	int rc;
+> +
+> +	priv = devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
+> +	if (!priv)
+> +		return -ENOMEM;
+> +
+> +	rc = aplic_setup_priv(priv, dev, regs);
+> +	if (!priv) {
+This should check rc instead of priv.
 
+> +		dev_err(dev, "failed to create APLIC context\n");
+> +		return rc;
+> +	}
+> +	mc = &priv->msicfg;
+> +
+> +	/*
+> +	 * The APLIC outgoing MSI config registers assume target MSI
+> +	 * controller to be RISC-V AIA IMSIC controller.
+> +	 */
+> +	imsic_global = imsic_get_global_config();
+> +	if (!imsic_global) {
+> +		dev_err(dev, "IMSIC global config not found\n");
+> +		return -ENODEV;
+For all error return paths, priv should be freed.
+
+Thanks,
+Sunil
 
 _______________________________________________
 linux-riscv mailing list
