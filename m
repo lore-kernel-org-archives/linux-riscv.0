@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9656C00A8F
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 Oct 2023 15:19:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23D34C07545
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 Oct 2023 15:19:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:MIME-Version:Subject:Cc
 	:To:From:References:In-Reply-To:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=aVSm2Dw2Z1A/F2nxeIyIBBX4etfSAqZUDZzcyXpB+9k=; b=nftfgn3RX1bB8v
-	/mznoVaXLoyiwosPdgfiAUMDBtkVNxDXcjP7PEOSxhreOwJckaj1lOUEyqe5cAn1aig2mBBWNm5DZ
-	1lHXvKYTauSWbV+X0v+5rCAkA+6SgrWdJ8IfnVE4aLUJ9p+S3GyVF4GZSTItiBEDzMqFRdnVwzjEv
-	10QZduDfhI75mYV9zDJXWhFFCLsrd4ad6ShofHVYo0/IFA0C1Y8e4EU68s5WH58ru1ExjdQRvVGKQ
-	s7+hrCw6Lg9+JGhY49hfNkdvZuhLepL2MWoVWhHxlZdLH7Wp8Fl1SKaCaW4HE4GOxlkHwkZ9MLvGk
-	CnekbcivlJmZdd2EPpUQ==;
+	List-Owner; bh=dPDqTtCWHyNLdpyunpdAWSxeKanVyiVfGoP/V5jYU6A=; b=IAWjOaBS4fFAai
+	yON6dQw+DHmp6oMtR1PMkQlNL02v2hvRmVQ2tJFFGOHKrXzoGlTyJLSQ4y0D2I+GLJv+GblSLhg0h
+	tmrq3JEU2ayrGjM42Wrasu3tcvgSAGD+cGlR2pqDp2hlS8C7wTrDN/hWuR3ZgQeNSn8a+NE8uil59
+	0EHfLLhZFTnrVL1onW4O2fSKgQaLMMD+Tnz6jvwJlBJ4WF6jqrpxUo9VnhO28+jNYCdka53GerM0A
+	ASb45IkZnFogGh6QqAqEU1PJ90hv632urjw0Kg5Y11GcNVy2yGKSLBI7RusVNbzD1lb9AjN8LUrkN
+	1twtDAEBn+JANj/3Pg3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qvJBJ-00AGkU-1B;
-	Tue, 24 Oct 2023 15:18:57 +0000
+	id 1qvJBR-00AGro-03;
+	Tue, 24 Oct 2023 15:19:05 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qvJA7-00AFXr-0B;
-	Tue, 24 Oct 2023 15:17:45 +0000
+	id 1qvJAL-00AFnc-1C;
+	Tue, 24 Oct 2023 15:17:59 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
 	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=XGhpKk09pdERl3TLuSkcjp8wddtxgCnM/F8wNa+d4Ds=; b=BaRzQs9RvF3vLCxNwFRxtjE6ks
-	wG2NaWwkOXyUT2VHE/A3pWr8BxpYPLcrVCvY7kZ8127m2eL2srXo4sXT7vfm30D5MBa/Bw1gIh1hD
-	v9aK0QW1Gfhj89CyI+h0062CIXcrogZdeY5hrauhc8Ep5dLRrMsSDBLjZwqa9uOI00kgtTDaXWyJ/
-	Cs/eEoRzj/niuEj9vq34jJwjfsrdLFMkKMbHbKWilyR5CO6KkvKlUabW/kgmZff9YrW8EeJJWVAMX
-	HxcW7NNOFovYMbqcpXDvqlfORQ00w00zpq6D/oEnhIchOBNNPRAw5GSIm3ujZTIICK23YJBZ3lrLZ
-	pW687WYA==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:33446 helo=rmk-PC.armlinux.org.uk)
+	bh=f8OrWLTaCGNbyVq/WoK3vwhwe5TfGCU6KyuaNwPXnrU=; b=bJbyRc7Voy4fwHRY8NIy9J4xJZ
+	mwUWqP+2nWJKN3W9uCIOui8ux2O5HcsT3RVb3xiBJuAqTY2cNcK5nzoBqWE4/ycvmFAJpNnf4bA8h
+	qS6+8DejaAkeGViUjqfLxXl334/8VTictns9i6JOFpScnbqtwK7nzVYjJxhK0vtzPsxQR7Xl+c2ZG
+	RiEBG3yjV5XpdpPgkL0inVPG3lrvSMldmrmg1hPEzzpZk/ioVj1/7TccroSc0LlgLoFDynWb1vnk7
+	2EXkm6UTat1uwOSl61TpruZcEB7rwSFQ0RgHz+uNmUJMvzbyTeimw9+06WbX6cud7MpbLSg0idSZo
+	8RrA77Zw==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:36706 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <rmk@armlinux.org.uk>)
-	id 1qvJ9z-0004Ql-0y;
-	Tue, 24 Oct 2023 16:17:35 +0100
+	id 1qvJA9-0004RY-1o;
+	Tue, 24 Oct 2023 16:17:45 +0100
 Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
 	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1qvJA0-00AqQU-Or; Tue, 24 Oct 2023 16:17:36 +0100
+	id 1qvJAB-00AqQg-1h; Tue, 24 Oct 2023 16:17:47 +0100
 In-Reply-To: <ZTffkAdOqL2pI2la@shell.armlinux.org.uk>
 References: <ZTffkAdOqL2pI2la@shell.armlinux.org.uk>
 From: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
@@ -68,18 +68,17 @@ Cc: Salil Mehta <salil.mehta@huawei.com>,
 	 jianyong.wu@arm.com,
 	 justin.he@arm.com,
 	 James Morse <james.morse@arm.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>
-Subject: [PATCH 17/39] arch_topology: Make register_cpu_capacity_sysctl()
- tolerant to late CPUs
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Len Brown <lenb@kernel.org>
+Subject: [PATCH 19/39] ACPI: processor: Add support for processors described
+ as container packages
 MIME-Version: 1.0
 Content-Disposition: inline
-Message-Id: <E1qvJA0-00AqQU-Or@rmk-PC.armlinux.org.uk>
-Date: Tue, 24 Oct 2023 16:17:36 +0100
+Message-Id: <E1qvJAB-00AqQg-1h@rmk-PC.armlinux.org.uk>
+Date: Tue, 24 Oct 2023 16:17:47 +0100
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231024_081743_116260_18CCBEDD 
-X-CRM114-Status: GOOD (  13.66  )
+X-CRM114-CacheID: sfid-20231024_081757_505954_1B345C4C 
+X-CRM114-Status: GOOD (  13.99  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,80 +97,69 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: James Morse <james.morse@arm.com>
 
-register_cpu_capacity_sysctl() adds a property to sysfs that describes
-the CPUs capacity. This is done from a subsys_initcall() that assumes
-all possible CPUs are registered.
+ACPI has two ways of describing processors in the DSDT. Either as a device
+object with HID ACPI0007, or as a type 'C' package inside a Processor
+Container. The ACPI processor driver probes CPUs described as devices, but
+not those described as packages.
 
-With CPU hotplug, possible CPUs aren't registered until they become
-present, (or for arm64 enabled). This leads to messages during boot:
-| register_cpu_capacity_sysctl: too early to get CPU1 device!
-and once these CPUs are added to the system, the file is missing.
+Duplicate descriptions are not allowed, the ACPI processor driver already
+parses the UID from both devices and containers. acpi_processor_get_info()
+returns an error if the UID exists twice in the DSDT.
 
-Move this to a cpuhp callback, so that the file is created once
-CPUs are brought online. This covers CPUs that are added late by
-mechanisms like hotplug.
-One observable difference is the file is now missing for offline CPUs.
+The missing probe for CPUs described as packages creates a problem for
+moving the cpu_register() calls into the acpi_processor driver, as CPUs
+described like this don't get registered, leading to errors from other
+subsystems when they try to add new sysfs entries to the CPU node.
+(e.g. topology_sysfs_init()'s use of topology_add_dev() via cpuhp)
+
+To fix this, parse the processor container and call acpi_processor_add()
+for each processor that is discovered like this. The processor container
+handler is added with acpi_scan_add_handler(), so no detach call will
+arrive.
+
+Qemu TCG describes CPUs using packages in a processor container.
 
 Signed-off-by: James Morse <james.morse@arm.com>
 ---
-If the offline CPUs thing is a problem for the tools that consume
-this value, we'd need to move cpu_capacity to be part of cpu.c's
-common_cpu_attr_groups.
----
- drivers/base/arch_topology.c | 38 ++++++++++++++++++++++++------------
- 1 file changed, 26 insertions(+), 12 deletions(-)
+ drivers/acpi/acpi_processor.c | 22 ++++++++++++++++++++++
+ 1 file changed, 22 insertions(+)
 
-diff --git a/drivers/base/arch_topology.c b/drivers/base/arch_topology.c
-index b741b5ba82bd..9ccb7daee78e 100644
---- a/drivers/base/arch_topology.c
-+++ b/drivers/base/arch_topology.c
-@@ -220,20 +220,34 @@ static DECLARE_WORK(update_topology_flags_work, update_topology_flags_workfn);
+diff --git a/drivers/acpi/acpi_processor.c b/drivers/acpi/acpi_processor.c
+index 4fe2ef54088c..6a542e0ce396 100644
+--- a/drivers/acpi/acpi_processor.c
++++ b/drivers/acpi/acpi_processor.c
+@@ -626,9 +626,31 @@ static struct acpi_scan_handler processor_handler = {
+ 	},
+ };
  
- static DEVICE_ATTR_RO(cpu_capacity);
- 
--static int register_cpu_capacity_sysctl(void)
-+static int cpu_capacity_sysctl_add(unsigned int cpu)
++static acpi_status acpi_processor_container_walk(acpi_handle handle,
++						 u32 lvl,
++						 void *context,
++						 void **rv)
++{
++	struct acpi_device *adev;
++	acpi_status status;
++
++	adev = acpi_get_acpi_dev(handle);
++	if (!adev)
++		return AE_ERROR;
++
++	status = acpi_processor_add(adev, &processor_device_ids[0]);
++	acpi_put_acpi_dev(adev);
++
++	return status;
++}
++
+ static int acpi_processor_container_attach(struct acpi_device *dev,
+ 					   const struct acpi_device_id *id)
  {
--	int i;
--	struct device *cpu;
-+	struct device *cpu_dev = get_cpu_device(cpu);
- 
--	for_each_possible_cpu(i) {
--		cpu = get_cpu_device(i);
--		if (!cpu) {
--			pr_err("%s: too early to get CPU%d device!\n",
--			       __func__, i);
--			continue;
--		}
--		device_create_file(cpu, &dev_attr_cpu_capacity);
--	}
-+	if (!cpu_dev)
-+		return -ENOENT;
++	acpi_walk_namespace(ACPI_TYPE_PROCESSOR, dev->handle,
++			    ACPI_UINT32_MAX, acpi_processor_container_walk,
++			    NULL, NULL, NULL);
 +
-+	device_create_file(cpu_dev, &dev_attr_cpu_capacity);
-+
-+	return 0;
-+}
-+
-+static int cpu_capacity_sysctl_remove(unsigned int cpu)
-+{
-+	struct device *cpu_dev = get_cpu_device(cpu);
-+
-+	if (!cpu_dev)
-+		return -ENOENT;
-+
-+	device_remove_file(cpu_dev, &dev_attr_cpu_capacity);
-+
-+	return 0;
-+}
-+
-+static int register_cpu_capacity_sysctl(void)
-+{
-+	cpuhp_setup_state(CPUHP_AP_ONLINE_DYN, "topology/cpu-capacity",
-+			  cpu_capacity_sysctl_add, cpu_capacity_sysctl_remove);
- 
- 	return 0;
+ 	return 1;
  }
+ 
 -- 
 2.30.2
 
