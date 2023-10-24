@@ -4,63 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8778C00A8F
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 Oct 2023 15:20:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60D56C07545
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 Oct 2023 15:20:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:MIME-Version:Subject:Cc
 	:To:From:References:In-Reply-To:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=o5PEKtkhg6BorEmbaAkFQ9M2VBs4VIEyepHRFZbe1qs=; b=sKkCzk3vMGi7iB
-	m6VUrnf/3W1nV+KnUWMkHFn67GyPV3Cnr81N7xYFeRizkx8fCuHCxFspEJTefWy0DPuLJ+i+v61ae
-	UJtIsH+YKJpzVCHG5xMfuymrJaqAVFBInXvsP7eIvr6xcwUdFv5xBvLdtI9fYACeULqd2PZlaVY1I
-	Ymb+WJPR0gN5u2pUZJMucLvwiv1xg4GsZs+3NWn132WDUu5DTAf8YOSfJQVOTiEUuvFZ2LTleOTMz
-	lETIAlbmhzAWuyzwbvNu65f++fPTeqGmJrlQQyZTFHIoZwPJjfackrr8+53wvhyVzPruWj+ILrhyH
-	Jd1rxHELiWLL2rgiNvGQ==;
+	List-Owner; bh=ZfF79OHhGx7SPXtjy5ZECe3h/46bY7BC+bOhS2wAqu4=; b=jeIuHsTEkyfo6w
+	BIeXA3Dav7/sBMgtNBHqYVB8jWUn4UGIrAuW6w2FRHeXwUiPTpFN281am7BMR8CpNb0VNL7niMJ0e
+	8n5eR31D48yK1xrDXnCjOxuDguvAkvD5w2cXGyYJm/KLpedZuA2oyH5uYp6jkiQpqS7sfpDMhutlG
+	Pm4FPvZSJV5s/FLQN/aOYUZxZ411OTR92H/xc/rhOavSSgKn86dx6p8T/nkvzHUhpx2dgaPN7yqry
+	74BR7xKANqiEDfFP/F/1YUpmt2zE1oyPERjGnprOou7tUn3os8eXagnrM3JtG9zA0R7TNc/DuG2J1
+	sfIu5yYiwtPVuXLDuz/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qvJCb-00AHyv-1P;
-	Tue, 24 Oct 2023 15:20:17 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qvJAx-00AGPT-2x;
-	Tue, 24 Oct 2023 15:18:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Date:Sender:Message-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description;
-	bh=4b5HegDKciHN9mls7Lc2XkvXRncQJquMBML+u/Mzhus=; b=XN4PKer1A8KCC+iMBOn9ITcaiy
-	dsKuXPdTYPn14cZ4dBR/ypl4Zi4zlBpGMrNhTRMWZiVsnEI+Y8bvei2A3HYcoCuVNl11POTAqTsBd
-	bzuvRrrLSs4nZG+0A0guwSNnZVTV5IeCuxNKAIcgHgqbVnM/OlERLvhat/0Qc45WcFgMoRx+6eSkf
-	b09/Zx2QxoiwQEAsbnRq6Pz5BkTg+kPPUvC4EOc2bcodo8c1ZZvIc33d/VQ0pNzGQGyJaYs4ZmUuR
-	WymJFG1h/DK5M8PWA3fEVmNilRtQ6T2gW1gHm9lZtbNsJmZDEkO1pneVNCmodOS1SN6ijSTyQg9+1
-	m7MiMiXQ==;
+	id 1qvJCj-00AI58-0J;
+	Tue, 24 Oct 2023 15:20:25 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
-	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qvJAt-00FbHJ-1k;
-	Tue, 24 Oct 2023 15:18:34 +0000
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1qvJAv-00AGN5-2s;
+	Tue, 24 Oct 2023 15:18:37 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
 	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=4b5HegDKciHN9mls7Lc2XkvXRncQJquMBML+u/Mzhus=; b=uc2nzMrUE3t/feqmNPw6wzUhwD
-	zNyvrYknjodQxhuBS9Y/uZVr2Fhh1qDmAQ3jFj85Tbg1Cpvv0zPd62W4gvQkUb5mYiKLs0H6yjrC5
-	PlsAMVktgdo6rE0Ziby+VQG0SIOKigLfdK/FcAFabzkFXd07BmFDxdCSRI9dTnZYYgzgm5VHObd8t
-	lNJx81+9Naw4KOZvpgyTYTYhpeGZ1x7Se8E/np25G4B2DG2N3PCcZKrqV7OV1XNQXJ6tHscUNEzDO
-	9yV3ztYshVstk1Xc8sho4zuDFgcCVNRjzr2L1QP/LfXrFIr84zinCAaf3DISEiLFVEhhS8LRYlppY
-	PZEWtDgQ==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:57442 helo=rmk-PC.armlinux.org.uk)
+	bh=vECmaHWgtT+VWGMDLxY5TxzMLfeNlC2K5UVE+IQcxNw=; b=Y78pzseSLXCscQxrNvh+BfkBuo
+	iHV71gI40WanxTsErZdNb9quyQWhQJfLgKj0dZgYISDmpx/5IutyGYcZdPYkBt6bXNLM6NcrY56d5
+	S3Iv0fOs6APQjOulpNE2+1dpIhqEsqj21Z/K96aS5iZMA5abAE27dds2TKlXTyBFyrJNsopay/QyE
+	qs+mql4k3z2M/nX3yCGk9OIcqI/AdypnXyq3Zdm0HUn1/hPVQDrNTUeIjn4UQ8cxHj8VST3lFMzBW
+	5Tr1SPZgh7okEjTYowxX0x9EPv9HNC2jVc5Zo2621tCc1bYf+26YvF+uB01IEEaFe5zcuPauPUHXe
+	P6/73H1Q==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:50182 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <rmk@armlinux.org.uk>)
-	id 1qvJAZ-0004T9-19;
-	Tue, 24 Oct 2023 16:18:11 +0100
+	id 1qvJAP-0004SH-0J;
+	Tue, 24 Oct 2023 16:18:01 +0100
 Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
 	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1qvJAa-00AqRA-Pt; Tue, 24 Oct 2023 16:18:12 +0100
+	id 1qvJAQ-00AqQy-G0; Tue, 24 Oct 2023 16:18:02 +0100
 In-Reply-To: <ZTffkAdOqL2pI2la@shell.armlinux.org.uk>
 References: <ZTffkAdOqL2pI2la@shell.armlinux.org.uk>
 From: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
@@ -82,17 +68,26 @@ Cc: Salil Mehta <salil.mehta@huawei.com>,
 	 jianyong.wu@arm.com,
 	 justin.he@arm.com,
 	 James Morse <james.morse@arm.com>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"H. Peter Anvin" <hpa@zytor.com>,
 	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Len Brown <lenb@kernel.org>
-Subject: [PATCH 24/39] ACPI: Move acpi_bus_trim_one() before
- acpi_scan_hot_remove()
+	Len Brown <lenb@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>
+Subject: [PATCH 22/39] ACPI: Rename ACPI_HOTPLUG_CPU to include 'present'
 MIME-Version: 1.0
 Content-Disposition: inline
-Message-Id: <E1qvJAa-00AqRA-Pt@rmk-PC.armlinux.org.uk>
-Date: Tue, 24 Oct 2023 16:18:12 +0100
+Message-Id: <E1qvJAQ-00AqQy-G0@rmk-PC.armlinux.org.uk>
+Date: Tue, 24 Oct 2023 16:18:02 +0100
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231024_161831_724086_3280E3EA 
-X-CRM114-Status: GOOD (  13.83  )
+X-CRM114-CacheID: sfid-20231024_081834_126869_A7ED299F 
+X-CRM114-Status: GOOD (  19.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,115 +106,290 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: James Morse <james.morse@arm.com>
 
-A subsequent patch will change acpi_scan_hot_remove() to call
-acpi_bus_trim_one() instead of acpi_bus_trim(), meaning it can no longer
-rely on the prototype in the header file.
+The code behind ACPI_HOTPLUG_CPU allows a not-present CPU to become
+present. This isn't the only use of HOTPLUG_CPU. On arm64 and riscv
+CPUs can be taken offline as a power saving measure.
 
-Move these functions further up the file.
-No change in behaviour.
+On arm64 an offline CPU may be disabled by firmware, preventing it from
+being brought back online, but it remains present throughout.
+
+Adding code to prevent user-space trying to online these disabled CPUs
+needs some additional terminology.
+
+Rename the Kconfig symbol CONFIG_ACPI_HOTPLUG_PRESENT_CPU to reflect
+that it makes possible CPUs present.
+
+HOTPLUG_CPU is untouched as this is only about the ACPI mechanism.
 
 Signed-off-by: James Morse <james.morse@arm.com>
-Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-Reviewed-by: Gavin Shan <gshan@redhat.com>
 Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 ---
- drivers/acpi/scan.c | 76 ++++++++++++++++++++++-----------------------
- 1 file changed, 38 insertions(+), 38 deletions(-)
+Changes since RFC v2:
+ * Add Loongarch update
+---
+ arch/ia64/Kconfig                          |  2 +-
+ arch/ia64/include/asm/acpi.h               |  2 +-
+ arch/ia64/kernel/acpi.c                    |  6 +++---
+ arch/ia64/kernel/setup.c                   |  2 +-
+ arch/loongarch/Kconfig                     |  2 +-
+ arch/loongarch/configs/loongson3_defconfig |  2 +-
+ arch/loongarch/kernel/acpi.c               |  4 ++--
+ arch/x86/Kconfig                           |  2 +-
+ arch/x86/kernel/acpi/boot.c                |  4 ++--
+ drivers/acpi/Kconfig                       |  4 ++--
+ drivers/acpi/acpi_processor.c              | 10 +++++-----
+ include/linux/acpi.h                       |  6 +++---
+ 12 files changed, 23 insertions(+), 23 deletions(-)
 
-diff --git a/drivers/acpi/scan.c b/drivers/acpi/scan.c
-index 06e9bb4a633f..4343888c76d5 100644
---- a/drivers/acpi/scan.c
-+++ b/drivers/acpi/scan.c
-@@ -244,6 +244,44 @@ static int acpi_scan_try_to_offline(struct acpi_device *device)
+diff --git a/arch/ia64/Kconfig b/arch/ia64/Kconfig
+index 06692e1c7c62..3b30305407ac 100644
+--- a/arch/ia64/Kconfig
++++ b/arch/ia64/Kconfig
+@@ -16,7 +16,7 @@ config IA64
+ 	select ARCH_MIGHT_HAVE_PC_PARPORT
+ 	select ARCH_MIGHT_HAVE_PC_SERIO
+ 	select ACPI
+-	select ACPI_HOTPLUG_CPU if ACPI_PROCESSOR && HOTPLUG_CPU
++	select ACPI_HOTPLUG_PRESENT_CPU if ACPI_PROCESSOR && HOTPLUG_CPU
+ 	select ACPI_NUMA if NUMA
+ 	select ARCH_ENABLE_MEMORY_HOTPLUG
+ 	select ARCH_ENABLE_MEMORY_HOTREMOVE
+diff --git a/arch/ia64/include/asm/acpi.h b/arch/ia64/include/asm/acpi.h
+index 58500a964238..482ea994d1e1 100644
+--- a/arch/ia64/include/asm/acpi.h
++++ b/arch/ia64/include/asm/acpi.h
+@@ -52,7 +52,7 @@ extern unsigned int is_cpu_cpei_target(unsigned int cpu);
+ extern void set_cpei_target_cpu(unsigned int cpu);
+ extern unsigned int get_cpei_target_cpu(void);
+ extern void prefill_possible_map(void);
+-#ifdef CONFIG_ACPI_HOTPLUG_CPU
++#ifdef CONFIG_ACPI_HOTPLUG_PRESENT_CPU
+ extern int additional_cpus;
+ #else
+ #define additional_cpus 0
+diff --git a/arch/ia64/kernel/acpi.c b/arch/ia64/kernel/acpi.c
+index 41e8fe55cd98..381ce50fa54c 100644
+--- a/arch/ia64/kernel/acpi.c
++++ b/arch/ia64/kernel/acpi.c
+@@ -194,7 +194,7 @@ acpi_parse_plat_int_src(union acpi_subtable_headers * header,
  	return 0;
  }
  
-+static int acpi_bus_trim_one(struct acpi_device *adev, void *not_used)
-+{
-+	struct acpi_scan_handler *handler = adev->handler;
-+
-+	acpi_dev_for_each_child_reverse(adev, acpi_bus_trim_one, NULL);
-+
-+	adev->flags.match_driver = false;
-+	if (handler) {
-+		if (handler->detach)
-+			handler->detach(adev);
-+
-+		adev->handler = NULL;
-+	} else {
-+		device_release_driver(&adev->dev);
-+	}
-+	/*
-+	 * Most likely, the device is going away, so put it into D3cold before
-+	 * that.
-+	 */
-+	acpi_device_set_power(adev, ACPI_STATE_D3_COLD);
-+	adev->flags.initialized = false;
-+	acpi_device_clear_enumerated(adev);
-+
-+	return 0;
-+}
-+
-+/**
-+ * acpi_bus_trim - Detach scan handlers and drivers from ACPI device objects.
-+ * @adev: Root of the ACPI namespace scope to walk.
-+ *
-+ * Must be called under acpi_scan_lock.
-+ */
-+void acpi_bus_trim(struct acpi_device *adev)
-+{
-+	acpi_bus_trim_one(adev, NULL);
-+}
-+EXPORT_SYMBOL_GPL(acpi_bus_trim);
-+
- static int acpi_scan_hot_remove(struct acpi_device *device)
+-#ifdef CONFIG_HOTPLUG_CPU
++#ifdef CONFIG_ACPI_HOTPLUG_PRESENT_CPU
+ unsigned int can_cpei_retarget(void)
  {
- 	acpi_handle handle = device->handle;
-@@ -2507,44 +2545,6 @@ int acpi_bus_scan(acpi_handle handle)
+ 	extern int cpe_vector;
+@@ -711,7 +711,7 @@ int acpi_isa_irq_to_gsi(unsigned isa_irq, u32 *gsi)
+ /*
+  *  ACPI based hotplug CPU support
+  */
+-#ifdef CONFIG_ACPI_HOTPLUG_CPU
++#ifdef CONFIG_ACPI_HOTPLUG_PRESENT_CPU
+ int acpi_map_cpu2node(acpi_handle handle, int cpu, int physid)
+ {
+ #ifdef CONFIG_ACPI_NUMA
+@@ -820,7 +820,7 @@ int acpi_unmap_cpu(int cpu)
+ 	return (0);
  }
- EXPORT_SYMBOL(acpi_bus_scan);
+ EXPORT_SYMBOL(acpi_unmap_cpu);
+-#endif				/* CONFIG_ACPI_HOTPLUG_CPU */
++#endif				/* CONFIG_ACPI_HOTPLUG_PRESENT_CPU */
  
--static int acpi_bus_trim_one(struct acpi_device *adev, void *not_used)
--{
--	struct acpi_scan_handler *handler = adev->handler;
--
--	acpi_dev_for_each_child_reverse(adev, acpi_bus_trim_one, NULL);
--
--	adev->flags.match_driver = false;
--	if (handler) {
--		if (handler->detach)
--			handler->detach(adev);
--
--		adev->handler = NULL;
--	} else {
--		device_release_driver(&adev->dev);
--	}
--	/*
--	 * Most likely, the device is going away, so put it into D3cold before
--	 * that.
--	 */
--	acpi_device_set_power(adev, ACPI_STATE_D3_COLD);
--	adev->flags.initialized = false;
--	acpi_device_clear_enumerated(adev);
--
--	return 0;
--}
--
--/**
-- * acpi_bus_trim - Detach scan handlers and drivers from ACPI device objects.
-- * @adev: Root of the ACPI namespace scope to walk.
-- *
-- * Must be called under acpi_scan_lock.
-- */
--void acpi_bus_trim(struct acpi_device *adev)
--{
--	acpi_bus_trim_one(adev, NULL);
--}
--EXPORT_SYMBOL_GPL(acpi_bus_trim);
--
- int acpi_bus_register_early_device(int type)
+ #ifdef CONFIG_ACPI_NUMA
+ static acpi_status acpi_map_iosapic(acpi_handle handle, u32 depth,
+diff --git a/arch/ia64/kernel/setup.c b/arch/ia64/kernel/setup.c
+index 5a55ac82c13a..44591716d07b 100644
+--- a/arch/ia64/kernel/setup.c
++++ b/arch/ia64/kernel/setup.c
+@@ -569,7 +569,7 @@ setup_arch (char **cmdline_p)
+ #ifdef CONFIG_ACPI_NUMA
+ 	acpi_numa_init();
+ 	acpi_numa_fixup();
+-#ifdef CONFIG_ACPI_HOTPLUG_CPU
++#ifdef CONFIG_ACPI_HOTPLUG_PRESENT_CPU
+ 	prefill_possible_map();
+ #endif
+ 	per_cpu_scan_finalize((cpumask_empty(&early_cpu_possible_map) ?
+diff --git a/arch/loongarch/Kconfig b/arch/loongarch/Kconfig
+index 5bed51adc68c..754c22214c4c 100644
+--- a/arch/loongarch/Kconfig
++++ b/arch/loongarch/Kconfig
+@@ -5,7 +5,7 @@ config LOONGARCH
+ 	select ACPI
+ 	select ACPI_GENERIC_GSI if ACPI
+ 	select ACPI_MCFG if ACPI
+-	select ACPI_HOTPLUG_CPU if ACPI_PROCESSOR && HOTPLUG_CPU
++	select ACPI_HOTPLUG_PRESENT_CPU if ACPI_PROCESSOR && HOTPLUG_CPU
+ 	select ACPI_PPTT if ACPI
+ 	select ACPI_SYSTEM_POWER_STATES_SUPPORT	if ACPI
+ 	select ARCH_BINFMT_ELF_STATE
+diff --git a/arch/loongarch/configs/loongson3_defconfig b/arch/loongarch/configs/loongson3_defconfig
+index a3b52aaa83b3..ef3bc76313e4 100644
+--- a/arch/loongarch/configs/loongson3_defconfig
++++ b/arch/loongarch/configs/loongson3_defconfig
+@@ -59,7 +59,7 @@ CONFIG_ACPI_SPCR_TABLE=y
+ CONFIG_ACPI_TAD=y
+ CONFIG_ACPI_DOCK=y
+ CONFIG_ACPI_IPMI=m
+-CONFIG_ACPI_HOTPLUG_CPU=y
++CONFIG_ACPI_HOTPLUG_PRESENT_CPU=y
+ CONFIG_ACPI_PCI_SLOT=y
+ CONFIG_ACPI_HOTPLUG_MEMORY=y
+ CONFIG_EFI_ZBOOT=y
+diff --git a/arch/loongarch/kernel/acpi.c b/arch/loongarch/kernel/acpi.c
+index 8e00a754e548..dfa56119b56f 100644
+--- a/arch/loongarch/kernel/acpi.c
++++ b/arch/loongarch/kernel/acpi.c
+@@ -288,7 +288,7 @@ void __init arch_reserve_mem_area(acpi_physical_address addr, size_t size)
+ 	memblock_reserve(addr, size);
+ }
+ 
+-#ifdef CONFIG_ACPI_HOTPLUG_CPU
++#ifdef CONFIG_ACPI_HOTPLUG_PRESENT_CPU
+ 
+ #include <acpi/processor.h>
+ 
+@@ -340,4 +340,4 @@ int acpi_unmap_cpu(int cpu)
+ }
+ EXPORT_SYMBOL(acpi_unmap_cpu);
+ 
+-#endif /* CONFIG_ACPI_HOTPLUG_CPU */
++#endif /* CONFIG_ACPI_HOTPLUG_PRESENT_CPU */
+diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
+index a11c0aea5176..2a859f597a94 100644
+--- a/arch/x86/Kconfig
++++ b/arch/x86/Kconfig
+@@ -60,7 +60,7 @@ config X86
+ 	#
+ 	select ACPI_LEGACY_TABLES_LOOKUP	if ACPI
+ 	select ACPI_SYSTEM_POWER_STATES_SUPPORT	if ACPI
+-	select ACPI_HOTPLUG_CPU			if ACPI_PROCESSOR && HOTPLUG_CPU
++	select ACPI_HOTPLUG_PRESENT_CPU		if ACPI_PROCESSOR && HOTPLUG_CPU
+ 	select ARCH_32BIT_OFF_T			if X86_32
+ 	select ARCH_CLOCKSOURCE_INIT
+ 	select ARCH_CORRECT_STACKTRACE_ON_KRETPROBE
+diff --git a/arch/x86/kernel/acpi/boot.c b/arch/x86/kernel/acpi/boot.c
+index 2a0ea38955df..84dd4133754b 100644
+--- a/arch/x86/kernel/acpi/boot.c
++++ b/arch/x86/kernel/acpi/boot.c
+@@ -814,7 +814,7 @@ static void __init acpi_set_irq_model_ioapic(void)
+ /*
+  *  ACPI based hotplug support for CPU
+  */
+-#ifdef CONFIG_ACPI_HOTPLUG_CPU
++#ifdef CONFIG_ACPI_HOTPLUG_PRESENT_CPU
+ #include <acpi/processor.h>
+ 
+ static int acpi_map_cpu2node(acpi_handle handle, int cpu, int physid)
+@@ -863,7 +863,7 @@ int acpi_unmap_cpu(int cpu)
+ 	return (0);
+ }
+ EXPORT_SYMBOL(acpi_unmap_cpu);
+-#endif				/* CONFIG_ACPI_HOTPLUG_CPU */
++#endif				/* CONFIG_ACPI_HOTPLUG_PRESENT_CPU */
+ 
+ int acpi_register_ioapic(acpi_handle handle, u64 phys_addr, u32 gsi_base)
  {
- 	struct acpi_device *device = NULL;
+diff --git a/drivers/acpi/Kconfig b/drivers/acpi/Kconfig
+index 8456d48ba702..417f9f3077d2 100644
+--- a/drivers/acpi/Kconfig
++++ b/drivers/acpi/Kconfig
+@@ -305,7 +305,7 @@ config ACPI_IPMI
+ 	  To compile this driver as a module, choose M here:
+ 	  the module will be called as acpi_ipmi.
+ 
+-config ACPI_HOTPLUG_CPU
++config ACPI_HOTPLUG_PRESENT_CPU
+ 	bool
+ 	depends on ACPI_PROCESSOR && HOTPLUG_CPU
+ 	select ACPI_CONTAINER
+@@ -399,7 +399,7 @@ config ACPI_PCI_SLOT
+ 
+ config ACPI_CONTAINER
+ 	bool "Container and Module Devices"
+-	default (ACPI_HOTPLUG_MEMORY || ACPI_HOTPLUG_CPU)
++	default (ACPI_HOTPLUG_MEMORY || ACPI_HOTPLUG_PRESENT_CPU)
+ 	help
+ 	  This driver supports ACPI Container and Module devices (IDs
+ 	  ACPI0004, PNP0A05, and PNP0A06).
+diff --git a/drivers/acpi/acpi_processor.c b/drivers/acpi/acpi_processor.c
+index e7ed4730cbbe..c8e960ff0aca 100644
+--- a/drivers/acpi/acpi_processor.c
++++ b/drivers/acpi/acpi_processor.c
+@@ -183,7 +183,7 @@ static void __init acpi_pcc_cpufreq_init(void) {}
+ #endif /* CONFIG_X86 */
+ 
+ /* Initialization */
+-#ifdef CONFIG_ACPI_HOTPLUG_CPU
++#ifdef CONFIG_ACPI_HOTPLUG_PRESENT_CPU
+ static int acpi_processor_hotadd_init(struct acpi_processor *pr)
+ {
+ 	unsigned long long sta;
+@@ -228,7 +228,7 @@ static inline int acpi_processor_hotadd_init(struct acpi_processor *pr)
+ {
+ 	return -ENODEV;
+ }
+-#endif /* CONFIG_ACPI_HOTPLUG_CPU */
++#endif /* CONFIG_ACPI_HOTPLUG_PRESENT_CPU */
+ 
+ static int acpi_processor_get_info(struct acpi_device *device)
+ {
+@@ -461,7 +461,7 @@ static int acpi_processor_add(struct acpi_device *device,
+ 	return result;
+ }
+ 
+-#ifdef CONFIG_ACPI_HOTPLUG_CPU
++#ifdef CONFIG_ACPI_HOTPLUG_PRESENT_CPU
+ /* Removal */
+ static void acpi_processor_remove(struct acpi_device *device)
+ {
+@@ -505,7 +505,7 @@ static void acpi_processor_remove(struct acpi_device *device)
+ 	free_cpumask_var(pr->throttling.shared_cpu_map);
+ 	kfree(pr);
+ }
+-#endif /* CONFIG_ACPI_HOTPLUG_CPU */
++#endif /* CONFIG_ACPI_HOTPLUG_PRESENT_CPU */
+ 
+ #ifdef CONFIG_ARCH_MIGHT_HAVE_ACPI_PDC
+ bool __init processor_physically_present(acpi_handle handle)
+@@ -630,7 +630,7 @@ static const struct acpi_device_id processor_device_ids[] = {
+ static struct acpi_scan_handler processor_handler = {
+ 	.ids = processor_device_ids,
+ 	.attach = acpi_processor_add,
+-#ifdef CONFIG_ACPI_HOTPLUG_CPU
++#ifdef CONFIG_ACPI_HOTPLUG_PRESENT_CPU
+ 	.detach = acpi_processor_remove,
+ #endif
+ 	.hotplug = {
+diff --git a/include/linux/acpi.h b/include/linux/acpi.h
+index ebfea7bf663d..48ee36086577 100644
+--- a/include/linux/acpi.h
++++ b/include/linux/acpi.h
+@@ -321,12 +321,12 @@ static inline int acpi_processor_evaluate_cst(acpi_handle handle, u32 cpu,
+ }
+ #endif
+ 
+-#ifdef CONFIG_ACPI_HOTPLUG_CPU
++#ifdef CONFIG_ACPI_HOTPLUG_PRESENT_CPU
+ /* Arch dependent functions for cpu hotplug support */
+ int acpi_map_cpu(acpi_handle handle, phys_cpuid_t physid, u32 acpi_id,
+ 		 int *pcpu);
+ int acpi_unmap_cpu(int cpu);
+-#endif /* CONFIG_ACPI_HOTPLUG_CPU */
++#endif /* CONFIG_ACPI_HOTPLUG_PRESENT_CPU */
+ 
+ #ifdef CONFIG_ACPI_HOTPLUG_IOAPIC
+ int acpi_get_ioapic_id(acpi_handle handle, u32 gsi_base, u64 *phys_addr);
+@@ -649,7 +649,7 @@ static inline u32 acpi_osc_ctx_get_cxl_control(struct acpi_osc_context *context)
+ #define ACPI_GSB_ACCESS_ATTRIB_RAW_PROCESS	0x0000000F
+ 
+ /* Enable _OST when all relevant hotplug operations are enabled */
+-#if defined(CONFIG_ACPI_HOTPLUG_CPU) &&			\
++#if defined(CONFIG_ACPI_HOTPLUG_PRESENT_CPU) &&			\
+ 	defined(CONFIG_ACPI_HOTPLUG_MEMORY) &&		\
+ 	defined(CONFIG_ACPI_CONTAINER)
+ #define ACPI_HOTPLUG_OST
 -- 
 2.30.2
 
