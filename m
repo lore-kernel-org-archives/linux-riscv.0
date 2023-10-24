@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25B54C07545
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 Oct 2023 15:17:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E687C00A8F
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 Oct 2023 15:17:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:MIME-Version:Subject:Cc
 	:To:From:References:In-Reply-To:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=sfH/4e1gowu4oOoHZ1ma5i1bGbuImrCsS6mMk7oVp7I=; b=UQxTAiFnM2qryz
-	S425rgk5aRgickW3k1+ezDeRoqJrh3G2ZTnY5j70ixU2HvTFevQxUTdpTX1xZMbIG3vqQi+4rmKsJ
-	2DNfUjOC9cdZuX16Ui9XQ795k9FpqtLbXRZyfnSXXeo2rz/hVkCM/lM7to0XayDeajJLX/KEIWZuo
-	1uVna4nl0DheuhJx0PxVYecFqHVVPYcwB2q87m37hCQlA+iPTJI01UamJDFLGT4oQan1zdNwDGGKg
-	0eHxTDLkeaexhUDzchY677JGFDH1LyyIBIPiSojRliqPPDhjJAQUg9S5QqO/4+noNMwiDnW40n+oi
-	I0maXtKz1Z5T/VU5A1Sw==;
+	List-Owner; bh=cv8Zri68E+Bj1ISf0Ip8ipGyP7roZro6sRw4UUm0q4U=; b=OFDc6yubHu/pTU
+	PSNNGDlpbG5fHZzAkdDcps8KfQlSLi7OYZWq5mEHbVjK73CKStaGtGZKZ9GmHi7vkxv8lcS7Px33d
+	Eq/scO3sFsC8JrFpb7J8JUGWVhBSAvxaFkR9HmDJ9c3VhuRcYO+pOmct/lK5ceafw+itjqNqeN3y9
+	smS+PmjG0UbgJXVjg+cVws/oZCZjrfc28Mq/DfHRuaWkm3MOTsDJg7MAv6FW/AquQ+dUstp0A/0VK
+	V+52wfqG1DdMgRTjqHy5PGBYdlsBpciAWfG7+KUhCrOTG2vkyN13BihaS4q9D1k/4goyOAFZNg3Gs
+	1l91jVEFoQPO6cXa2H9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qvJ9h-00AFAz-0E;
-	Tue, 24 Oct 2023 15:17:17 +0000
+	id 1qvJ9r-00AFMx-32;
+	Tue, 24 Oct 2023 15:17:27 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qvJ9T-00AEzW-1N;
-	Tue, 24 Oct 2023 15:17:04 +0000
+	id 1qvJ9Y-00AF32-2o;
+	Tue, 24 Oct 2023 15:17:10 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
 	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=Bek5t65Mv3fYDdKvQVrQkwjkk4n1DGH+oZrcfOeVS74=; b=e+a+n+ASBkVUcxCKNzpfu1MolF
-	8w3zyx+g85QSlzdy5H0mrU0khmmN6+phJ/d1ilAaVgAxdRja2NJyqqQSe6MjCYf4PaN7Qmt9ix00H
-	FcOjtcEft9LjrZGlx+1xevB+BsQkErxYtUQROPxSX5u0NBISJ7jMaJlR4hmMxIQr6ow5t+yKlBYOk
-	3ynqwE+Zdn4aQqykomLvfhAtQEUKx7CWIz/hJvJWE2QFI3nfCzxf0SDSehJ+NtkzAWY6c+GN/2+lS
-	4v5DUvmChM28afv37423PGfptGVcfCKLVQqGMOEDPRbYexCtdBfCRVxpLWLTG3qttpIM72t3LM+UU
-	U6ykb5Sg==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:50818 helo=rmk-PC.armlinux.org.uk)
+	bh=B2mYLeaTLi2RKWi068dxPknxY80IYTqbrhnkvkRDiuE=; b=I70Rxnbd6kfHWLvzXhKgA6tn59
+	7ODI34RGOfhy5ueFd9D+0uNxcfVW2BD2uVOCNlByiACzQ4c1o+1dx3I1LWYh5JIwh+iEmuo6y1p7r
+	RpgJ4IC9aWhs7ujI+XgqNVlu+DXNDM8jFJuA7lJKxREszppfR3Txvb6XX9H7k3LEXCLQxhNciZqt/
+	saTsEAO85uB+OYAdOuoJdRTYGAm8hx8kAcwQNYSS+NSJtU5ExBi5TwmSaFTSeacrCna1j33jelM53
+	RmmJmKJ3SZ4UIJLOoW+5j18YgED6g79C6l2naF896U7b7AcQ5Fa1edwSBkBUOltI94tRjfLU9QtZ8
+	c1OMvi/g==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:56504 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <rmk@armlinux.org.uk>)
-	id 1qvJ99-0004Ms-2a;
-	Tue, 24 Oct 2023 16:16:43 +0100
+	id 1qvJ9K-0004Nb-0X;
+	Tue, 24 Oct 2023 16:16:54 +0100
 Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
 	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1qvJ9B-00AqPS-9x; Tue, 24 Oct 2023 16:16:45 +0100
+	id 1qvJ9L-00AqPe-JF; Tue, 24 Oct 2023 16:16:55 +0100
 In-Reply-To: <ZTffkAdOqL2pI2la@shell.armlinux.org.uk>
 References: <ZTffkAdOqL2pI2la@shell.armlinux.org.uk>
-From: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
 To: linux-pm@vger.kernel.org,
 	 loongarch@lists.linux.dev,
 	 linux-acpi@vger.kernel.org,
@@ -69,18 +69,17 @@ Cc: Salil Mehta <salil.mehta@huawei.com>,
 	 justin.he@arm.com,
 	 James Morse <james.morse@arm.com>,
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Peter Zijlstra <peterz@infradead.org>
-Subject: [PATCH 07/39] drivers: base: Allow parts of GENERIC_CPU_DEVICES to be
- overridden
+	"Rafael J. Wysocki" <rafael@kernel.org>
+Subject: [PATCH 09/39] drivers: base: remove unnecessary call to
+ register_cpu_under_node()
 MIME-Version: 1.0
 Content-Disposition: inline
-Message-Id: <E1qvJ9B-00AqPS-9x@rmk-PC.armlinux.org.uk>
-Date: Tue, 24 Oct 2023 16:16:45 +0100
+Message-Id: <E1qvJ9L-00AqPe-JF@rmk-PC.armlinux.org.uk>
+Date: Tue, 24 Oct 2023 16:16:55 +0100
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231024_081703_477918_1D0796DE 
-X-CRM114-Status: GOOD (  13.07  )
+X-CRM114-CacheID: sfid-20231024_081708_909738_1FD07C65 
+X-CRM114-Status: UNSURE (   9.03  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,79 +96,50 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: James Morse <james.morse@arm.com>
+Since "drivers: base: Move cpu_dev_init() after node_dev_init()", we
+can remove some redundant code.
 
-Architectures often have extra per-cpu work that needs doing
-before a CPU is registered, often to determine if a CPU is
-hotpluggable.
+node_dev_init() will walk through the nodes calling register_one_node()
+on each. This will trickle down to __register_one_node() which walks
+all present CPUs, calling register_cpu_under_node() on each.
 
-To allow the ACPI architectures to use GENERIC_CPU_DEVICES, move
-the cpu_register() call into arch_register_cpu(), which is made __weak
-so architectures with extra work can override it.
-This aligns with the way x86, ia64 and loongarch register hotplug CPUs
-when they become present.
+register_cpu_under_node() will call get_cpu_device(cpu) for each, which
+will return NULL until the CPU is registered using register_cpu(). This
+now happens _after_ node_dev_init().
 
-Signed-off-by: James Morse <james.morse@arm.com>
+Therefore, calling register_cpu_under_node() from __register_one_node()
+becomes a no-op, and can be removed.
+
 Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 ---
-Changes since RFC:
- * Dropped __init from x86/ia64 arch_register_cpu()
-Changes since RFC v2:
- * Dropped unnecessary Loongarch asm/cpu.h changes
----
- drivers/base/cpu.c  | 14 ++++++++++----
- include/linux/cpu.h |  4 ++++
- 2 files changed, 14 insertions(+), 4 deletions(-)
+ drivers/base/node.c | 7 -------
+ 1 file changed, 7 deletions(-)
 
-diff --git a/drivers/base/cpu.c b/drivers/base/cpu.c
-index 34b48f660b6b..579064fda97b 100644
---- a/drivers/base/cpu.c
-+++ b/drivers/base/cpu.c
-@@ -525,19 +525,25 @@ bool cpu_is_hotpluggable(unsigned int cpu)
- EXPORT_SYMBOL_GPL(cpu_is_hotpluggable);
- 
- #ifdef CONFIG_GENERIC_CPU_DEVICES
--static DEFINE_PER_CPU(struct cpu, cpu_devices);
-+DEFINE_PER_CPU(struct cpu, cpu_devices);
-+
-+int __weak arch_register_cpu(int cpu)
-+{
-+	return register_cpu(&per_cpu(cpu_devices, cpu), cpu);
-+}
- #endif
- 
- static void __init cpu_dev_register_generic(void)
+diff --git a/drivers/base/node.c b/drivers/base/node.c
+index 493d533f8375..4d5ac7cf8757 100644
+--- a/drivers/base/node.c
++++ b/drivers/base/node.c
+@@ -867,7 +867,6 @@ void register_memory_blocks_under_node(int nid, unsigned long start_pfn,
+ int __register_one_node(int nid)
  {
--#ifdef CONFIG_GENERIC_CPU_DEVICES
- 	int i;
+ 	int error;
+-	int cpu;
  
-+	if (!IS_ENABLED(CONFIG_GENERIC_CPU_DEVICES))
-+		return;
-+
- 	for_each_present_cpu(i) {
--		if (register_cpu(&per_cpu(cpu_devices, i), i))
-+		if (arch_register_cpu(i))
- 			panic("Failed to register CPU device");
- 	}
--#endif
- }
+ 	node_devices[nid] = kzalloc(sizeof(struct node), GFP_KERNEL);
+ 	if (!node_devices[nid])
+@@ -875,12 +874,6 @@ int __register_one_node(int nid)
  
- #ifdef CONFIG_GENERIC_CPU_VULNERABILITIES
-diff --git a/include/linux/cpu.h b/include/linux/cpu.h
-index eb768a866fe3..e117c06e0c6b 100644
---- a/include/linux/cpu.h
-+++ b/include/linux/cpu.h
-@@ -88,6 +88,10 @@ extern ssize_t arch_cpu_probe(const char *, size_t);
- extern ssize_t arch_cpu_release(const char *, size_t);
- #endif
+ 	error = register_node(node_devices[nid], nid);
  
-+#ifdef CONFIG_GENERIC_CPU_DEVICES
-+DECLARE_PER_CPU(struct cpu, cpu_devices);
-+#endif
-+
- /*
-  * These states are not related to the core CPU hotplug mechanism. They are
-  * used by various (sub)architectures to track internal state
+-	/* link cpu under this node */
+-	for_each_present_cpu(cpu) {
+-		if (cpu_to_node(cpu) == nid)
+-			register_cpu_under_node(cpu, nid);
+-	}
+-
+ 	INIT_LIST_HEAD(&node_devices[nid]->access_list);
+ 	node_init_caches(nid);
+ 
 -- 
 2.30.2
 
