@@ -4,210 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 113E8C07545
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 Oct 2023 11:39:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BFDAC25B6D
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 Oct 2023 11:46:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
-	References:Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0JRYHIxENZxslrZxJkJ7dEPsVKqXyzb6IcLhhKMr62k=; b=T/6vvoFjkeIFwl
-	LLqgmD8Z4xru+4xtmqFmtz6fg4F73xQNm54soAku3Ia+f1j+eKuLdwjsK3yl1FOTAv3GBc4e7osyD
-	VJoKAizgXSa47Lxr8CR2Ptw2etJ082bfUTCzZlJFLnkb5cof9AxGn+htormWoWiKtrIH0UOIUQ2W7
-	rUksmEa2fK7fby84WFzvI8sVmqMgW+VjdSOxuBW0D/fkZ1B7nSb/SeSAVaf0af5maYrxS9He55e0L
-	75wOPEdpYP7u9U2WR9qbRObfGW2Mmz6m+km+ZQR+QPcc98P3lKL7G3DCLJxwclCffWfG2jr3jdbWo
-	Z6cINqHmepEqt2Aclk9w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wNwwu3TrsSs9gegGWgtcH2fVWmuAQ8ded6+UtIeRLz4=; b=zcMCeOxc2IMBfHqwKwQkacJQq6
+	4Z7VP67Inv3SQpLEO6RxvRSaf0rkIOzVoLxWG7O/KwiTOQuwySCT+KJA9/puq9uEnrwBWxuA97xIm
+	5lHlT97k0QxehrhbRK4VLRw0jz3ny6oD73LepWrH3sNFrfDOd0jVJy4dwkWFu5W3LSo1nF7Btw5gH
+	x5Qwh1YY3wxq0q/VGA0H0bp67Ons7v3IdpSL0COfFAjylqfB4M9+QUX41H+tANKoMWhSQEEx86pSu
+	CiC2Z9dai4xhz2wKwsI96uHh0YIugfluOS3WiLA0Qb29r2zoxmejcTteEzkXxQirLYhnrfoPZwt8l
+	asu/O9aw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qvFkm-009fEN-2m;
-	Tue, 24 Oct 2023 11:39:20 +0000
-Received: from mx0a-00069f02.pphosted.com ([205.220.165.32])
+	id 1qvFrF-009gJV-15;
+	Tue, 24 Oct 2023 11:46:01 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qvFkk-009fDM-0P;
-	Tue, 24 Oct 2023 11:39:19 +0000
-Received: from pps.filterd (m0333521.ppops.net [127.0.0.1])
-	by mx0b-00069f02.pphosted.com (8.17.1.19/8.17.1.19) with ESMTP id 39O7JxMk031526;
-	Tue, 24 Oct 2023 11:38:47 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=from : to : cc :
- subject : date : message-id : references : in-reply-to : content-type :
- content-id : content-transfer-encoding : mime-version; s=corp-2023-03-30;
- bh=yAU6WPEXqqjm4WdYmImTfqb3RgTdvBnhBqt70wrmvIc=;
- b=p6XD/5ZUfbizbABbgyLrk3BWbd/HUAVpI5YlNnoKTbWi573o271zHzUPMIsmBweu9quC
- h/aGqioP79afpJype3TrILkaHAWW6ye1IfAIgVNiR2OE1a1c9udJQvCM2kPFUYYlv9oj
- jbPpKNE3wW0dgpioRaCHj9Mpq0cmjXMyZQjHosolw6caZo7UgAOQl1n8piJByUxgIdhc
- CUMHoIe2NoqhSoBYt4HnwiKWAUI8mB0agotJzNI5LQSDKBFEKfR098WmXt4zTLdt2470
- OjVKEnX+T1Q6xw8KohdGnwlcmNo8cTVtY09swLG6rYaFu7neqP+eHEH7O/oe5y18i0A0 Rw== 
-Received: from phxpaimrmta01.imrmtpd1.prodappphxaev1.oraclevcn.com (phxpaimrmta01.appoci.oracle.com [138.1.114.2])
-	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 3tv5jbd9qx-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 24 Oct 2023 11:38:47 +0000
-Received: from pps.filterd (phxpaimrmta01.imrmtpd1.prodappphxaev1.oraclevcn.com [127.0.0.1])
-	by phxpaimrmta01.imrmtpd1.prodappphxaev1.oraclevcn.com (8.17.1.19/8.17.1.19) with ESMTP id 39O9umO3015094;
-	Tue, 24 Oct 2023 11:38:42 GMT
-Received: from nam12-mw2-obe.outbound.protection.outlook.com (mail-mw2nam12lp2040.outbound.protection.outlook.com [104.47.66.40])
-	by phxpaimrmta01.imrmtpd1.prodappphxaev1.oraclevcn.com (PPS) with ESMTPS id 3tv5355kqp-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 24 Oct 2023 11:38:42 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=dzzkb0zydgsYBA+4Xoz+PoIavO6ku78Qc3iPkFbsE1Sl2BX/GTgwndME40dckV4DUtcJ4LfUClZhdP/Fs8v7zypS9Q46QRWjTXrhLfw9ABxaiobyfqIkwUt/6Jxf1g9Fhd4qFBOEPjmq/MNzofnuQ0HR7HmWPuF5z8f8CtANYFRdFYy8Z/VY4Z7dP3aTCjQtNbXd2VcbTl784btw5vcOqDIj/4B5bBIQHhePLLtkFDDupLT2wGUcZzPWrARJ+A7mME4sYpZMQBVm4ponkbOLZAUOpCHqUOSvUZgbT3qxCe/hq7T6frcB7SPmd/gf5NbZe+tg5oU/xTBWGsafIOmd1A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=yAU6WPEXqqjm4WdYmImTfqb3RgTdvBnhBqt70wrmvIc=;
- b=DRn7lgaElvpgHjimnGqtGdryh19dB9e87dtVs96rCtnupv030ZsDZ83vb++TeFI+eEdeLnb9RMi3WNAehYf0oHzGYimHw6k6x4SHNCZv8rGODBfJkTqqpvZWnsEJ/p1sqJsVEX6oz0+0lglm3Dd56UYYv4JWCuPSgOCJ6YBDflfWWn6RCBg+Aj9/c7tSggjqfMdjlqGZS2DGch82F1Iz8QtDTUrTkWrQMJpWI+87gwPsvFt1d95jXERzYxSQHA+7mUICYp3TgirRZ4vMcqWzKOBElhxyDo8l9iomLzGt8EGkN6Q910JKiril+IGVbWUoNwOQk40tns3YBB0VBMA4mw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oracle.com; dmarc=pass action=none header.from=oracle.com;
- dkim=pass header.d=oracle.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=oracle.onmicrosoft.com; s=selector2-oracle-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=yAU6WPEXqqjm4WdYmImTfqb3RgTdvBnhBqt70wrmvIc=;
- b=n7Jw8ZCMS5hK/EGT9sAHehVhfn8KT1ayMtt20vztWEgrEAsBU2TG4Y5z5siwVY9+OwvrFJw7cEnAzAbXoTYvSxmRWNwHHGpvGvIIQEBtxHYnWJkxEg6+2eDDtrwdrzHpPwSrxN6fuHMfHQGk1MK42Aqq9hUx+5F4vsEXatfaDdg=
-Received: from PH0PR10MB5433.namprd10.prod.outlook.com (2603:10b6:510:e0::9)
- by PH0PR10MB6984.namprd10.prod.outlook.com (2603:10b6:510:288::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6907.31; Tue, 24 Oct
- 2023 11:38:39 +0000
-Received: from PH0PR10MB5433.namprd10.prod.outlook.com
- ([fe80::a39e:b72:a65a:a518]) by PH0PR10MB5433.namprd10.prod.outlook.com
- ([fe80::a39e:b72:a65a:a518%4]) with mapi id 15.20.6907.032; Tue, 24 Oct 2023
- 11:38:39 +0000
-From: Miguel Luis <miguel.luis@oracle.com>
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-CC: "linux-pm@vger.kernel.org" <linux-pm@vger.kernel.org>,
-        "loongarch@lists.linux.dev" <loongarch@lists.linux.dev>,
-        "linux-acpi@vger.kernel.org" <linux-acpi@vger.kernel.org>,
-        "linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>,
-        "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-        "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>,
-        "linux-riscv@lists.infradead.org"
-	<linux-riscv@lists.infradead.org>,
-        "kvmarm@lists.linux.dev"
-	<kvmarm@lists.linux.dev>,
-        "x86@kernel.org" <x86@kernel.org>, James Morse
-	<james.morse@arm.com>,
-        Salil Mehta <salil.mehta@huawei.com>,
-        Jonathan Cameron
-	<Jonathan.Cameron@huawei.com>,
-        Jean-Philippe Brucker
-	<jean-philippe@linaro.org>,
-        "jianyong.wu@arm.com" <jianyong.wu@arm.com>,
-        "justin.he@arm.com" <justin.he@arm.com>,
-        "Rafael J. Wysocki"
-	<rafael@kernel.org>, Len Brown <lenb@kernel.org>
-Subject: Re: [PATCH] ACPI: Rename acpi_scan_device_not_present() to be about
- enumeration
-Thread-Topic: [PATCH] ACPI: Rename acpi_scan_device_not_present() to be about
- enumeration
-Thread-Index: AQHaA4XrE/IZIk/4qEmFw9b0m3YY3LBYvtMAgAAUroCAAAKpAA==
-Date: Tue, 24 Oct 2023 11:38:39 +0000
-Message-ID: <E2E02CC9-83E6-42A6-8450-000539930EDD@oracle.com>
-References: <E1qtuWW-00AQ7P-0W@rmk-PC.armlinux.org.uk>
- <5589E5A5-9F97-416A-9C48-9828B0BE58CD@oracle.com>
- <ZTeqeRRbJgEdbMV3@shell.armlinux.org.uk>
-In-Reply-To: <ZTeqeRRbJgEdbMV3@shell.armlinux.org.uk>
-Accept-Language: en-GB, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: PH0PR10MB5433:EE_|PH0PR10MB6984:EE_
-x-ms-office365-filtering-correlation-id: 5682f942-1ffd-4cff-88f4-08dbd485c456
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: zzbVkzWCEqANZm4V6gADfAIEMWOFGbi9DnYYqIydmn9KMB137/gjqUg3041wUdCvDvkcoiAvFAOi6JkKIPeLk2bX41Qm5hagx0A0SQpjhPkRe42sMXQbGxzdZhhuOdvKybuyRzevAgS1Yjb7T5STBilXK62V8AP9Jg+LRDyb+6r0lQz09gO/JR1LShfT1BPZGX/z/nH6/Us5Njt/SbiKc2LB5c5x1PuOI2/qfolo7du2IMYkebQXR0QD28DmUmhmBlQm4zOoGTN5BE1etkcI7VSjs2ACeGSrZMafAww8hqDyt09qSWrPEpVAYADFt7/nqNcVIrkr0UCyv/+ybTdqwC+RjetxbqtUjK6PhaDmPRzZm50G1N37hle/uOfOSIvkfGDwXgcfac23qRUM3IJuvEDrL/pl4YLmcXJXk1tSqKIJ+fQCdy6zasDatzeQRSNIM/5WmruPRuCqxnQIjGYmurwOagwSIPukHAshS68pWpSXt49CYLMWhWklgIvlUZksS1vpDF/IyjU9CmAygwakqswSJqlJ0uEb603fCzjG495zKaSghcedWeig0fKcidES0YWK61DK/iQHD544O2lR9KTgItLfcRG6otoArPj2bEShSnYhWLblB1rLqoXCSw82
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH0PR10MB5433.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230031)(396003)(366004)(39860400002)(376002)(136003)(346002)(230922051799003)(64100799003)(451199024)(1800799009)(186009)(41300700001)(2906002)(38100700002)(66476007)(54906003)(64756008)(66446008)(122000001)(66946007)(316002)(66556008)(76116006)(6916009)(2616005)(478600001)(71200400001)(6506007)(6486002)(53546011)(966005)(6512007)(44832011)(91956017)(86362001)(7416002)(36756003)(5660300002)(33656002)(8676002)(4326008)(8936002)(38070700009)(26005)(45980500001);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?TFFHVS9vdkZBS252VG5ocU1oMVBHRTJ0YnZhSkR5a1k2c0ZDdzMzYlBwTXFy?=
- =?utf-8?B?c1R2cEpEQmRRNWxmUDRRbVp2NTlTMjQwQTJJa2dDejA2aDhKVHE3V2RrY2Nz?=
- =?utf-8?B?WE9ybVF5dnZBc0w4akJXMC9yUmNJS3RRazlWTHI0MHZHSDN5OWdiWEY0QkQr?=
- =?utf-8?B?eXdNQmdWODV0UlpreDltWTFsbUFPeWsyNWJPQ1J6cUQzTmZPWE9OQ3NzQ0dX?=
- =?utf-8?B?djBqTWtBZlpxTXpBQWpycktsMEhRZS9hbzVnV29DaFRteks3Q3BQTXViMUtZ?=
- =?utf-8?B?T3poUFdnN2NyNFMrVjVPQmlNcDdlM0VONUZFa0FTcmIxcFlVRjdBUkdwRlhY?=
- =?utf-8?B?cWV5VGcya1NESk9leWV4Nytha3RsVkNNSjVtTmx1YTJySE9vL2NJUm1qOE83?=
- =?utf-8?B?RXQ2SzVQWHpHR2JVZXdKZzl3UXFNaTFkWmZGaVNzMnpFNFUzdlVVb0xBNWxz?=
- =?utf-8?B?VkVoYjNEY2xTbHlYZThvV2hQMkF1NGNrVytqYlNIbmpVemZzUktyL2dtN0F5?=
- =?utf-8?B?M0V2SGQ4S1hBVy90eGg1a0lZdDJjYXlaU2NZbnNWQjdSNVdsUTZyc1BDc1A5?=
- =?utf-8?B?WFZMbHFNeEZaelRkUjgrTHBEanZ1emh0NDdNWFEzaEQrZEhKV00yVG5KY2Jw?=
- =?utf-8?B?VGRPV0hNTGc2UlpSQXYvQ29aZ1llVnBaNStyNk10ZEFUc1Frd0NQSkVCZlFj?=
- =?utf-8?B?V3lnNkx2QnU3b1ZoMEVjekYwb2pjWENtSUtUekMxUXkwWG9NN1BrYU10bzBp?=
- =?utf-8?B?U1I5STcyc1RVWU42azVOTUVZZWM0YnMrRGZpSlVYQ09xZ3M1Z0ZFRkM4TU9i?=
- =?utf-8?B?WHpZM2dvQVdqYW43Y202UDc2VGRXYmxSMzQ5MGk1aVhESko4SllYT1IrU2sv?=
- =?utf-8?B?UWVyY2NpUHJkYldydE15REZDemhUZ2FVcnFabnB0YmNlYnhuUHp3T3l1ZTFv?=
- =?utf-8?B?cGVoVWZpYS8relNYQTB5YWp5OEF2Z0ZKZ0tQVGd1QW1GM3ZSUTNVM2h4L0xa?=
- =?utf-8?B?R1YrbFNLYlVmWlVUSXYyalI1MWpvV2xqSDBBMWpycFY1V2UxWkZ1bm15QVBx?=
- =?utf-8?B?cjM3TktoL3pxeVY0UnhoWm1FTytmeUdiNk1WVmJyNDlFM1pNY0pQZktFOE9w?=
- =?utf-8?B?RkZCMHBpaHlXVkh3L2RaV0ZSaUM4eDAyaTdGYVNjUWdac1daOUpydWFvN3RB?=
- =?utf-8?B?L1VQTmN0SnJKY2hOMFpNVmREY1psTTBFVENPZUxFazdZa00wZXlQT3VhZEM4?=
- =?utf-8?B?bFphR2liaUw5UlJxVkEvY3JlOSticG1iSnNqaGx6STNVdStwdzgxdUZVTjR0?=
- =?utf-8?B?Q1d0ODhqSTZQcjZBdDJLbzJFT0JGcjVKZTZFRjhldnkvRW1mVDJFOFYyTEVt?=
- =?utf-8?B?a2h1TDBXZ3J2dy80dmlVWFAvRy9VNkoxcTFaRmZveHdXM1FCZXFrNGRsR2lX?=
- =?utf-8?B?VlgzSDgvOVNsRDNSUSsxa2h4WXN2UjN0VEMvVmJkYXVRbG5UNU5HM3ljY0pF?=
- =?utf-8?B?ellLanZNQmlDaEdSMDZqTkxyVldmL2htL1VPYVBTcVNic3RHZGFXS05MQXgy?=
- =?utf-8?B?cmR6QzVrVVZXVkE0ZTJ5Z1lMbS9vZ21PY2c0UVZJRk1tUWg2TnFJbWsvL3BR?=
- =?utf-8?B?Zjg4Z01KMENkWkxuSElTSU1LOEYyVnJVWkk0ZEpSMjFBYVB0NkV0UnRPL0xF?=
- =?utf-8?B?YXhhdGhraFN6QWY1Y010amZ5b2hYTDhsZHVQVWVTZ3VjUTR2Y0o4ZGlpOXIw?=
- =?utf-8?B?elB1Z2ZUQ0l0TTdWUExMcitramZDQ0xsbjMzaTd6b21wRFQ2azN2azdXREU2?=
- =?utf-8?B?UzZPZ2FjUVRzS2ZQUCsyTlp6cXl5NlhiandoS2IzRjBwWllMelRoTmUxMnJJ?=
- =?utf-8?B?SE9hWTJ4WXpodm9SRS9zTlZLMy9iNkdLdzByYTNzY3FPcFMvOFJ4UHRsZUgz?=
- =?utf-8?B?K01pWWtTQXlTMk9PQ0ROcitGeWN1aURXOGF1YkJxUzVJcHBKUWsyRlh0SVcz?=
- =?utf-8?B?WVh1bnRTSXZ4WkdmVVFxMEozZ3F1VXNtWG5wZXBoT2UyOVlUTnJHM1lTZ2F5?=
- =?utf-8?B?VHQ3cUVSZG1nclF5dm5HTXlPOE53SHE3dXNuTmFFZnEvOHVxK2t4OFNKV0kr?=
- =?utf-8?B?aFVLMFVUQUtuMWFGTUJrcVVFbTVHQmluTjJHQ2FSSTFuNFZsKzl3NmlqMVE4?=
- =?utf-8?B?Nmc9PQ==?=
-Content-ID: <7E587084CFE69D47BCD75793A759C85F@namprd10.prod.outlook.com>
+	id 1qvFrC-009gH5-0x
+	for linux-riscv@lists.infradead.org;
+	Tue, 24 Oct 2023 11:46:00 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <ukl@pengutronix.de>)
+	id 1qvFr8-0000Fe-N7; Tue, 24 Oct 2023 13:45:54 +0200
+Received: from [2a0a:edc0:0:900:1d::77] (helo=ptz.office.stw.pengutronix.de)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <ukl@pengutronix.de>)
+	id 1qvFr5-003vwf-5s; Tue, 24 Oct 2023 13:45:51 +0200
+Received: from ukl by ptz.office.stw.pengutronix.de with local (Exim 4.94.2)
+	(envelope-from <ukl@pengutronix.de>)
+	id 1qvFr4-005Dz2-SD; Tue, 24 Oct 2023 13:45:50 +0200
+Date: Tue, 24 Oct 2023 13:45:45 +0200
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
+To: William Qiu <william.qiu@starfivetech.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-pwm@vger.kernel.org,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	Rob Herring <robh+dt@kernel.org>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Hal Feng <hal.feng@starfivetech.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>
+Subject: Re: [PATCH v6 2/4] pwm: opencores: Add PWM driver support
+Message-ID: <20231024114545.73ljfceuon2blkxz@pengutronix.de>
+References: <20231020103741.557735-1-william.qiu@starfivetech.com>
+ <20231020103741.557735-3-william.qiu@starfivetech.com>
+ <20231020112539.gctx5uj2rrhryulo@pengutronix.de>
+ <b2ef7299-5d5a-4ef7-89fd-04b6130cb227@starfivetech.com>
 MIME-Version: 1.0
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: =?utf-8?B?dzJMOUZkdTE4U1BwZzBvcTlTNGYydkQ4Y3U4S2lZSDYzeFRWclhrSU1vZ3BS?=
- =?utf-8?B?T1VnaFNjOGQ3UEhKR1FPVWpFbDlNQ3F4U2RudnRaQjFRSXNTY3FCbkU1MjV5?=
- =?utf-8?B?aG9zQ1hpYWtyTytRcE53UGlLMG1aQ2NPcHRCYWlrVllCdmtYSGpydTlqTGRw?=
- =?utf-8?B?N2o0bUxrUWpNdTBDNDRpWHl1eE96QU9nNzVhdWpsN0w2SndwZEE3NUIwVWUv?=
- =?utf-8?B?QkVvcVd2N2Yva0h2SjlRQjlpbnN4anlYa21hYUZqeEttQkRCUExIekZOb05C?=
- =?utf-8?B?ZGRSUTU4K0FRQUVhSlhSRk9FZHMySTdvZ1lsb0Y2KzYzTURXNDN0ZW90aUxW?=
- =?utf-8?B?SnFXNlpqR2pxcWw0OTRTSCtaNmkxTFBYYU1RbFlQU2xaL2V5NUNGTDBubFBF?=
- =?utf-8?B?VEFMd2J1NzZHRWs5T3NGeEVnVi9saUN4TWpPWSt0V1VQRzk4TDR0blkzNnhW?=
- =?utf-8?B?dWxSNlFVY0xibVZ5aG5Gc0kvZ3RITlBvQ1JzOUxnaC94ZDBtTTZzbUFVSHlT?=
- =?utf-8?B?ZS91U25YZVpUajUzRHIwZEsrc1RxUjdyaFVRMTQzakhjcnF3U3R6ckpLOUxt?=
- =?utf-8?B?ditxQXBpRzRCblM2UnJDWTJ4SWNrWWgwYlFTeG94RE01cXZQYVVXeStWQXNW?=
- =?utf-8?B?cmswQUQxUkN5Z1pwaVdhYUd5REZKTzA1b2JYa0ErdmNOb2xSbUdCb2t1c1lE?=
- =?utf-8?B?aVRJMm5UaktYdVROeCtZSURVcmtRc3c2bElnbmd0SkVoVHo1cXowNTBmWDZq?=
- =?utf-8?B?RlE2elZSK2tYVVl2d05JUkswcHcvdytKOWEyakZiR0RWM2ZDR0d6SmdIM0tC?=
- =?utf-8?B?Y1BrMk80cHhQVHVJdTJZakYwNVFBdUdpeHFoa2hSMktyOXVaM0x4VHB1MWw1?=
- =?utf-8?B?VU1VeHZiV1dHdlk2Y2RjYzZpeG9kRDBsRHBQL2JVMU1xNC9hSzBNTkRjcW5N?=
- =?utf-8?B?dmVkWkNSN1VtbzVXdG9OVGE3M3hCeWR4US9JWXFVMHUwZm9zYk1nOXZwdGJK?=
- =?utf-8?B?b2R6M2JKazl2OHpWUHpTV3FZandrdmlPcUtDUkpFRHllaER2cysvZGNGeUxC?=
- =?utf-8?B?bjNpUlVHa3lkaWl1K3FiWWwySFZqT2JrcmxPcThxN0NlcFZ4Qmp5clptM2tz?=
- =?utf-8?B?NGVyYjNqZ1V1bEVZdjg2cFp1OG9FUW52VGJHbkxwcUV0U0dZSDBWZzNwejhw?=
- =?utf-8?B?SWp2Nm1kSDRUakszVnh6aTh5eHpxZVg3dmdqR0NTMXFEeVM4VUJHMWZ6bGts?=
- =?utf-8?B?bzFjM0dXTFY5YUs4TS9EQW5uQTNjelNYMURLT2hRbmZqcGpEOFZlWVcvYUFh?=
- =?utf-8?B?YUJ6bHRJM3hHUVk5eG5aL2VLY0Y1OXBXZlRZK0lkS1pkSTAxZVRmTE9USlU2?=
- =?utf-8?B?WVpyZnBORUhjb2c9PQ==?=
-X-OriginatorOrg: oracle.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: PH0PR10MB5433.namprd10.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5682f942-1ffd-4cff-88f4-08dbd485c456
-X-MS-Exchange-CrossTenant-originalarrivaltime: 24 Oct 2023 11:38:39.2506
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: /wgBq8hXqXuJrVObYCzftURBt3gXqmUjy8lkn9X7j2XJ/AeO/ymYvjO03omOTD17xAuuOCu/f0i3+lyigJryhw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR10MB6984
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.272,Aquarius:18.0.980,Hydra:6.0.619,FMLib:17.11.176.26
- definitions=2023-10-24_11,2023-10-24_01,2023-05-22_02
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 phishscore=0 mlxlogscore=958
- bulkscore=0 mlxscore=0 spamscore=0 malwarescore=0 suspectscore=0
- adultscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.12.0-2310170001 definitions=main-2310240098
-X-Proofpoint-GUID: df1Kz_C9Z-Tqy4h7LLz-PUW1IfStV9s0
-X-Proofpoint-ORIG-GUID: df1Kz_C9Z-Tqy4h7LLz-PUW1IfStV9s0
+In-Reply-To: <b2ef7299-5d5a-4ef7-89fd-04b6130cb227@starfivetech.com>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: ukl@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231024_043918_171985_96431E65 
-X-CRM114-Status: GOOD (  25.00  )
+X-CRM114-CacheID: sfid-20231024_044558_336007_CF0F7BD3 
+X-CRM114-Status: GOOD (  32.04  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -219,41 +81,164 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============3209079802459897181=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgUnVzc2VsbCwNCg0KPiBPbiAyNCBPY3QgMjAyMywgYXQgMTE6MjgsIFJ1c3NlbGwgS2luZyAo
-T3JhY2xlKSA8bGludXhAYXJtbGludXgub3JnLnVrPiB3cm90ZToNCj4gDQo+IE9uIFR1ZSwgT2N0
-IDI0LCAyMDIzIGF0IDEwOjE1OjA3QU0gKzAwMDAsIE1pZ3VlbCBMdWlzIHdyb3RlOg0KPj4gSGkg
-UnVzc2VsbCwNCj4+IA0KPj4+IE9uIDIwIE9jdCAyMDIzLCBhdCAxODo0NywgUnVzc2VsbCBLaW5n
-IDxybWsra2VybmVsQGFybWxpbnV4Lm9yZy51az4gd3JvdGU6DQo+Pj4gDQo+Pj4gRnJvbTogSmFt
-ZXMgTW9yc2UgPGphbWVzLm1vcnNlQGFybS5jb20+DQo+Pj4gDQo+Pj4gYWNwaV9zY2FuX2Rldmlj
-ZV9ub3RfcHJlc2VudCgpIGlzIGNhbGxlZCB3aGVuIGEgZGV2aWNlIGluIHRoZQ0KPj4+IGhpZXJh
-cmNoeSBpcyBub3QgYXZhaWxhYmxlIGZvciBlbnVtZXJhdGlvbi4gSGlzdG9yaWNhbGx5IGVudW1l
-cmF0aW9uDQo+Pj4gd2FzIG9ubHkgYmFzZWQgb24gd2hldGhlciB0aGUgZGV2aWNlIHdhcyBwcmVz
-ZW50Lg0KPj4+IA0KPj4+IFRvIGFkZCBzdXBwb3J0IGZvciBvbmx5IGVudW1lcmF0aW5nIGRldmlj
-ZXMgdGhhdCBhcmUgYm90aCBwcmVzZW50DQo+Pj4gYW5kIGVuYWJsZWQsIHRoaXMgaGVscGVyIHNo
-b3VsZCBiZSByZW5hbWVkLiBJdCB3YXMgb25seSBldmVyIGFib3V0DQo+Pj4gZW51bWVyYXRpb24s
-IHJlbmFtZSBpdCBhY3BpX3NjYW5fZGV2aWNlX25vdF9lbnVtZXJhdGVkKCkuDQo+Pj4gDQo+Pj4g
-Tm8gY2hhbmdlIGluIGJlaGF2aW91ciBpcyBpbnRlbmRlZC4NCj4+PiANCj4+PiBTaWduZWQtb2Zm
-LWJ5OiBKYW1lcyBNb3JzZSA8amFtZXMubW9yc2VAYXJtLmNvbT4NCj4+PiBSZXZpZXdlZC1ieTog
-R2F2aW4gU2hhbiA8Z3NoYW5AcmVkaGF0LmNvbT4NCj4+PiBTaWduZWQtb2ZmLWJ5OiBSdXNzZWxs
-IEtpbmcgKE9yYWNsZSkgPHJtaytrZXJuZWxAYXJtbGludXgub3JnLnVrPg0KPj4gDQo+PiBGaXhl
-czogNDQzZmM4MjAyMjcyICgiQUNQSSAvIGhvdHBsdWc6IFJld29yayBnZW5lcmljIGNvZGUgdG8g
-aGFuZGxlIHN1cHJpc2UgcmVtb3ZhbHPigJ0pID8NCj4gDQo+IEknbSBub3Qgc3VyZSBhIHBhdGNo
-IHRoYXQgaXMgbWVyZWx5IHJlbmFtaW5nIGEgZnVuY3Rpb24gc2hvdWxkIGV2ZXINCj4gaGF2ZSBh
-IEZpeGVzIHRhZywgc2luY2UgaXQncyBqdXN0IGEgbmFtaW5nIGlzc3VlLCBpdCBkb2Vzbid0IGZp
-eCBhDQo+IGJ1ZywgY2hhbmdlIGZ1bmN0aW9uYWxpdHkgb3IgYW55dGhpbmcgbGlrZSB0aGF0Lg0K
-PiANCj4gSSB3b3VsZCBzdWdnZXN0IHRoYXQgdGhlcmUgd291bGQgbmVlZCB0byBiZSBnb29kIHJl
-YXNvbiB3aHkgc3VjaCBhDQo+IHBhdGNoIHNob3VsZCBiZSBiYWNrcG9ydGVkIHRvIHN0YWJsZSBr
-ZXJuZWxzIC0gZm9yIGV4YW1wbGUsIHNvbWV0aGluZw0KPiBlbHNlIHRoYXQgZG9lcyBmaXggYSB1
-c2VyIHZpc2libGUgYnVnIHJlcXVpcmVzIHRoaXMgY2hhbmdlLg0KPiANCg0KVW5kZXJzdG9vZC4g
-VGhhbmtzIGZvciBjbGFyaWZ5aW5nIQ0KDQpNaWd1ZWwNCg0KPiBUaGFua3MuDQo+IA0KPiAtLSAN
-Cj4gUk1LJ3MgUGF0Y2ggc3lzdGVtOiBodHRwczovL3d3dy5hcm1saW51eC5vcmcudWsvZGV2ZWxv
-cGVyL3BhdGNoZXMvDQo+IEZUVFAgaXMgaGVyZSEgODBNYnBzIGRvd24gMTBNYnBzIHVwLiBEZWNl
-bnQgY29ubmVjdGl2aXR5IGF0IGxhc3QhDQoNCg0KX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2
-QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9s
-aXN0aW5mby9saW51eC1yaXNjdgo=
+
+--===============3209079802459897181==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="w2zicncd2z4lq4pb"
+Content-Disposition: inline
+
+
+--w2zicncd2z4lq4pb
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+Hello William,
+
+On Tue, Oct 24, 2023 at 05:16:49PM +0800, William Qiu wrote:
+> On 2023/10/20 19:25, Uwe Kleine-K=F6nig wrote:
+> > Hello,
+> >=20
+> > On Fri, Oct 20, 2023 at 06:37:39PM +0800, William Qiu wrote:
+> >> Add Pulse Width Modulation driver support for OpenCores.
+> >>=20
+> >> Co-developed-by: Hal Feng <hal.feng@starfivetech.com>
+> >> Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
+> >> Signed-off-by: William Qiu <william.qiu@starfivetech.com>
+> >> ---
+> >>  MAINTAINERS              |   7 ++
+> >>  drivers/pwm/Kconfig      |  11 ++
+> >>  drivers/pwm/Makefile     |   1 +
+> >>  drivers/pwm/pwm-ocores.c | 211 +++++++++++++++++++++++++++++++++++++++
+> >>  4 files changed, 230 insertions(+)
+> >>  create mode 100644 drivers/pwm/pwm-ocores.c
+> >>=20
+> >> diff --git a/MAINTAINERS b/MAINTAINERS
+> >> index 6c4cce45a09d..321af8fa7aad 100644
+> >> --- a/MAINTAINERS
+> >> +++ b/MAINTAINERS
+> >> @@ -16003,6 +16003,13 @@ F:	Documentation/i2c/busses/i2c-ocores.rst
+> >>  F:	drivers/i2c/busses/i2c-ocores.c
+> >>  F:	include/linux/platform_data/i2c-ocores.h
+> >>=20
+> >> +OPENCORES PWM DRIVER
+> >> +M:	William Qiu <william.qiu@starfivetech.com>
+> >> +M:	Hal Feng <hal.feng@starfivetech.com>
+> >> +S:	Supported
+> >> +F:	Documentation/devicetree/bindings/pwm/opencores,pwm-ocores.yaml
+> >> +F:	drivers/pwm/pwm-ocores.c
+> >> +
+> >>  OPENRISC ARCHITECTURE
+> >>  M:	Jonas Bonn <jonas@southpole.se>
+> >>  M:	Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>
+> >> diff --git a/drivers/pwm/Kconfig b/drivers/pwm/Kconfig
+> >> index 8ebcddf91f7b..cbfbf227d957 100644
+> >> --- a/drivers/pwm/Kconfig
+> >> +++ b/drivers/pwm/Kconfig
+> >> @@ -434,6 +434,17 @@ config PWM_NTXEC
+> >>  	  controller found in certain e-book readers designed by the original
+> >>  	  design manufacturer Netronix.
+> >>=20
+> >> +config PWM_OCORES
+> >> +	tristate "Opencores PWM support"
+> >> +	depends on HAS_IOMEM && OF
+> >> +	depends on COMMON_CLK && RESET_CONTROLLER
+> >=20
+> > Would it make sense to add something like:
+> >=20
+> > 	depends on ARCH_SOMETHING || COMPILE_TEST
+> >=20
+> > here?
+> >=20
+> But there is no mention of architectural limitations in the OpenCores's
+> specification.
+
+I already guessed that. Still it probably makes no sense to enable that
+option on most machines. The PWM device found in i.MX SoCs can
+theoretically also be implemented on AT91 or S390x. In practice it
+isn't, so there is a dependency on ARCH_MXC || COMPILE_TEST.
+
+Consider the role of someone who does a kernel bump for a certain
+machine (on one end of the spectrum) or a distribution kernel (on the
+other end).
+
+If you take a 6.5 x86_64 allmodconfig + COMPILE_TEST=3Dn and upgrade to
+v6.6-rc7 and do an oldconfig, you get 90 questions[1].
+
+Just looking quickly through this list, among them are:
+
+	DRM support for Loongson Graphics (DRM_LOONGSON) [N/m/?] (NEW)=20
+	Xilinx AXI DMAS Engine (XILINX_DMA) [N/m/y/?] (NEW)
+	Clock driver for Renesas VersaClock 3 devices (COMMON_CLK_VC3) [N/m/y/?] (=
+NEW)
+	Realtek RT1017 SDCA Codec - SDW (SND_SOC_RT1017_SDCA_SDW) [N/m/?] (NEW)
+
+I didn't check in detail and maybe one or the other is valid on x86_64,
+but I'd be surprised if you find two that are sensible to enable on
+x86_64 to support a real machine.
+
+While I think Kconfig cannot be held responsible to only allow
+generating "real world sensible" configurations, we should work a bit
+harder to rule out the obvious violators and make it easy for people
+configuring the kernel where sensible.
+
+In my book it's better to have a too strong dependency at first for a
+new driver (but allow it with COMPILE_TEST). Someone who as a device
+needing that driver will find it out and speak up. However if you allow
+to enable the driver everywhere, many people will disable the driver
+(maybe using yes '' | make oldconfig), some will spend time to research
+about this option to find which machines actually have such a device and
+if the machine(s) they care about are in this set. This is a waste of
+time and opportunities. (And note, this isn't only about people spending
+time to decide if they enable or disable PWM_OCORES, this is also about
+people who use yes '' because there are too many questions and so they
+might miss the handful of useful ones.)
+
+Best regards
+Uwe
+
+[1] measured using
+
+	yes '' | make oldconfig
+
+and counting the occurrences of "(NEW)".
+
+--=20
+Pengutronix e.K.                           | Uwe Kleine-K=F6nig            |
+Industrial Linux Solutions                 | https://www.pengutronix.de/ |
+
+--w2zicncd2z4lq4pb
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmU3rmQACgkQj4D7WH0S
+/k5J/Qf+NrB4b444Ylur3Cvou63Nqg11EseoPk/INOD1fQCFZc/DgsqpNDFCfOcr
+8Z+nDdgC1dDs024syUcHnjgMK0ssOP6qBTNJ0OKUpkk+kS+E0grO2U5iZcMGpLtc
+e/ZMQ0fepTQ3PasKQdJ0PpgfMjkDVHTdEL9YwxW/RAm0IJsq7dwnRDQPVRtxrNlr
+oRvKzcODshrZX2C+3FQqCCIVhk2oySokKzCRGC0RHA1kLSf1aujl8wIs7/d9jlcy
+8dv/boJGK/pqtQFKHmtAYAqDC8KzbMiHNgdaOwLla+y+HrI74xsB18BXJM/zARW6
+sHBLPQDsmP7NCAVB+pjYC+s9KbnJAg==
+=FO4l
+-----END PGP SIGNATURE-----
+
+--w2zicncd2z4lq4pb--
+
+
+--===============3209079802459897181==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============3209079802459897181==--
+
