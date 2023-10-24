@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F34C1C25B48
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 Oct 2023 15:21:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE083C07545
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 Oct 2023 15:21:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:MIME-Version:Subject:Cc
 	:To:From:References:In-Reply-To:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Lob5aExvo4n6402Au0GGOyTc2AXpfBcGaVeX9H/gaD4=; b=lpPGhKbhR9zt4O
-	BQfhq7pm3O6LE8mjsLMDY+PYBXuYSY+10Dz1/Fef+Q3/Ht1GFLd8kY3CltjarhKaKc4mB0LSc6uvA
-	ofFo49Ii5KXAQUNjieXg/VtdUDuXcG8Emy58HQaaqIGDr31YVPzugbwQhXo2Z6mBLP3vZSwiUNnyr
-	gNpLuPfgcJsVmr8YsH/Yevb4hdepfTQulEDTi9mlpJ9/OqV3jUpGnlx5TV6JyDcN1Rt2a2KQTexev
-	Uxids3EbFHG4SZj097sv3OW+Qw+ft/i81+DwYT7lklZxzQ5dijD9DqgihBGtF2E6dKwnR7RN7eRo+
-	5osSEIUO8m7gtbaHuCwQ==;
+	List-Owner; bh=kHfi/Pg4X7IWM/n4OQ2FEdhu7IUqpmNntQ7JMeHljxo=; b=r1mrAALX+i4wgE
+	Rq/p0/AhVMpOtm1Gqw0IyGlMsqB9zuUabIBQ4rdE08Lfj3G6ut7JgdM78Ny9/13L3Ykim/UqbgjSU
+	Ui86gSylQn33STx0ZgcEADpueWxOmo6QlXweDDTWnsC6C28Ufl3MBCf9bhxPE7KEyQkbLhD4B2QM3
+	zxfn5HtsP/K98k0HWhribTcNYysSyADuRBxNJ1PYw3aiEe6LEPuvQga3AEa1vvK3gkVXWQfjyBriS
+	cc6dFAeRwZh9J1DEP81A4+udowSMPGuVPhXTV7HCpm6WpUHUNfGkUWMAbcWZ/qv8WFO77amLQYarR
+	d0Sw9S35Md4aNkWrbXNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qvJDB-00AIRb-1E;
-	Tue, 24 Oct 2023 15:20:53 +0000
+	id 1qvJDN-00AIbx-1q;
+	Tue, 24 Oct 2023 15:21:05 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qvJB7-00AGZR-2i;
-	Tue, 24 Oct 2023 15:18:45 +0000
+	id 1qvJBE-00AGeu-0f;
+	Tue, 24 Oct 2023 15:18:52 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Date:Sender:Message-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description;
-	bh=CNWnC0tTNPuhROu5TZS+GHZycyp85uHcS0xNgApILVE=; b=ckPiwQFecGpoauE7oZ1OhyRBW9
-	rLjrE+7P4yxRTPK/sFpU5Gmgc8pkX7UvY3b3BuPAlF9Lg1YdQcl15ZKe0klP0UWn7RkE9oCSWTzLB
-	GNeMMu5NUmxIWUsLIYacEtjgkcscTEJKaDMgI2neP7VKyJ4PwP2jmIyEG1NY+iAIl7m0Y2u4+ch47
-	6ygzhTqawUfS11EE0kJ3D3YXRzldiEFtFdBTfs7T6+6035NscLOmfyOZ3/s6A80tfut0t8WDke05h
-	gH7Rx9/Mzyag1HNqrTkrdxELgqWcHpKPQFeCsuYxo86BFAywbGB084DGIcWhmmhMZblwuwU2jqIP2
-	NxDxcpjw==;
+	bh=Ze2TRVkRqR4drLEJGzW55W0BbOj7xe/gYvcpwrw1jmo=; b=psQnCHcjR2drfDPlc56XmqvI6p
+	O46XE8GyKeBpmihjvlH1aDYBbYNQbBalNAScyC+XyX9wucUU/jWTAazv17cTuQdmT6+gPSOsWPYly
+	8TWJoVUfFhWMY3jzeICEFsAKPTF5smQegB2y/9iBlpRc9TNiQGH+ZIykVRF3Kb+ZT580v5wJm3iuC
+	fck0h2PMxpSxBuxjm+Vaayvj81Gk22cLwq/PfrE5peDsr4WH4OMQKxlApNAlztmR4roGJtX6Df6mu
+	PfEzrrSSWYTyiPEVywt8qC0pqLS+M/pWwERth0nId5sHSYNWqxiHwPZzh4+yd8nA6GR+kimF3VYwu
+	oNy4z2mQ==;
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qvJB3-00FbIy-1U;
-	Tue, 24 Oct 2023 15:18:44 +0000
+	id 1qvJB9-00FbJN-37;
+	Tue, 24 Oct 2023 15:18:50 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
 	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=CNWnC0tTNPuhROu5TZS+GHZycyp85uHcS0xNgApILVE=; b=auysF/6+X5CraAmh0uKYn72RQz
-	MfQ+xLXff/KeM/31BhutwoZlcL72VsQbyxNYq3dpn94RmvR3gmzahgotSLculfToabojp6EEyZ2qn
-	gXb3+IOXviSlZB5Ikl332rb1KTNxRoI5072LJ+ChkAjxkM27BbXg+AqqA/PxH+e2ygHzHJSJHw6SU
-	vLfpoLPWMHOeYX4g2KpWnoemI9zro0jUoTZLXP6R2edTeTUsYq8Ze5avqgEzJbM5Ei4p0XiHDyeVz
-	GHzWsDQ1wGF4QbSlov9XA7q6VRoK6bL26dLVpFHWC461tnoZhCn0U3vH5yjb9eMKKJF6sg9i97tGe
-	V+h4AODw==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:53116 helo=rmk-PC.armlinux.org.uk)
+	bh=Ze2TRVkRqR4drLEJGzW55W0BbOj7xe/gYvcpwrw1jmo=; b=1BmU+vUn4GikmkewZzDHoWl5+Y
+	sptyk9FERjGoMsJAO6GSWaifU/ae1beO70C0qhMz/nh1TlRlNjHQGNfzuVFnpgQc8SNI3lVPnHrzc
+	62hKZW4Tsh4Vz1e1hdlkXksXJFqHADvVc26xFsLFrPR1P1OGFaFvTA/4YJHMAOLcEBlOqk0b7e9Ll
+	iG+Eq0iGfk5quCF6eH3dEmD5LSs8+y1u8epmvD+DHvWN+7tZrLt0FaOaSA7WDXeyIIovHpeAbhPZ7
+	za3T13nIB8VMDBLdyXJ1FN7n4bHMjDRWiRrupoRHFDuES2TMrfKpry5bGdvFd1vc/PPuKBInWP6Z6
+	EsOp6ZPA==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:47602 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <rmk@armlinux.org.uk>)
-	id 1qvJAt-0004UN-31;
-	Tue, 24 Oct 2023 16:18:32 +0100
+	id 1qvJB4-0004V1-0d;
+	Tue, 24 Oct 2023 16:18:42 +0100
 Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
 	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1qvJAv-00AqRY-CI; Tue, 24 Oct 2023 16:18:33 +0100
+	id 1qvJB5-00AqRk-M6; Tue, 24 Oct 2023 16:18:43 +0100
 In-Reply-To: <ZTffkAdOqL2pI2la@shell.armlinux.org.uk>
 References: <ZTffkAdOqL2pI2la@shell.armlinux.org.uk>
 From: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
@@ -82,17 +82,16 @@ Cc: Salil Mehta <salil.mehta@huawei.com>,
 	 jianyong.wu@arm.com,
 	 justin.he@arm.com,
 	 James Morse <james.morse@arm.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Len Brown <lenb@kernel.org>
-Subject: [PATCH 28/39] ACPI: Warn when the present bit changes but the feature
- is not enabled
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>
+Subject: [PATCH 30/39] arm64: acpi: Move get_cpu_for_acpi_id() to a header
 MIME-Version: 1.0
 Content-Disposition: inline
-Message-Id: <E1qvJAv-00AqRY-CI@rmk-PC.armlinux.org.uk>
-Date: Tue, 24 Oct 2023 16:18:33 +0100
+Message-Id: <E1qvJB5-00AqRk-M6@rmk-PC.armlinux.org.uk>
+Date: Tue, 24 Oct 2023 16:18:43 +0100
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231024_161841_650899_929C1911 
-X-CRM114-Status: GOOD (  12.83  )
+X-CRM114-CacheID: sfid-20231024_161848_176963_9B9901AB 
+X-CRM114-Status: GOOD (  11.67  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,54 +110,67 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: James Morse <james.morse@arm.com>
 
-ACPI firmware can trigger the events to add and remove CPUs, but the
-OS may not support this.
+ACPI identifies CPUs by UID. get_cpu_for_acpi_id() maps the ACPI UID
+to the linux CPU number.
 
-Print an error message when this happens.
+The helper to retrieve this mapping is only available in arm64's numa
+code.
 
-This gives early warning on arm64 systems that don't support
-CONFIG_ACPI_HOTPLUG_PRESENT_CPU, as making CPUs not present has
-side effects for other parts of the system.
+Move it to live next to get_acpi_id_for_cpu().
 
 Signed-off-by: James Morse <james.morse@arm.com>
 Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
 Reviewed-by: Gavin Shan <gshan@redhat.com>
 Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 ---
-Changes since RFC v2:
- * Update commit message with suggestion from Gavin Shan
----
- drivers/acpi/acpi_processor.c | 8 ++++++--
- 1 file changed, 6 insertions(+), 2 deletions(-)
+ arch/arm64/include/asm/acpi.h | 11 +++++++++++
+ arch/arm64/kernel/acpi_numa.c | 11 -----------
+ 2 files changed, 11 insertions(+), 11 deletions(-)
 
-diff --git a/drivers/acpi/acpi_processor.c b/drivers/acpi/acpi_processor.c
-index 19fceb3ec4e2..b7a94c1348b0 100644
---- a/drivers/acpi/acpi_processor.c
-+++ b/drivers/acpi/acpi_processor.c
-@@ -189,8 +189,10 @@ static int acpi_processor_make_present(struct acpi_processor *pr)
- 	acpi_status status;
- 	int ret;
+diff --git a/arch/arm64/include/asm/acpi.h b/arch/arm64/include/asm/acpi.h
+index 6792a1f83f2a..bc9a6656fc0c 100644
+--- a/arch/arm64/include/asm/acpi.h
++++ b/arch/arm64/include/asm/acpi.h
+@@ -119,6 +119,17 @@ static inline u32 get_acpi_id_for_cpu(unsigned int cpu)
+ 	return	acpi_cpu_get_madt_gicc(cpu)->uid;
+ }
  
--	if (!IS_ENABLED(CONFIG_ACPI_HOTPLUG_PRESENT_CPU))
-+	if (!IS_ENABLED(CONFIG_ACPI_HOTPLUG_PRESENT_CPU)) {
-+		pr_err_once("Changing CPU present bit is not supported\n");
- 		return -ENODEV;
-+	}
++static inline int get_cpu_for_acpi_id(u32 uid)
++{
++	int cpu;
++
++	for (cpu = 0; cpu < nr_cpu_ids; cpu++)
++		if (uid == get_acpi_id_for_cpu(cpu))
++			return cpu;
++
++	return -EINVAL;
++}
++
+ static inline void arch_fix_phys_package_id(int num, u32 slot) { }
+ void __init acpi_init_cpus(void);
+ int apei_claim_sea(struct pt_regs *regs);
+diff --git a/arch/arm64/kernel/acpi_numa.c b/arch/arm64/kernel/acpi_numa.c
+index e51535a5f939..0c036a9a3c33 100644
+--- a/arch/arm64/kernel/acpi_numa.c
++++ b/arch/arm64/kernel/acpi_numa.c
+@@ -34,17 +34,6 @@ int __init acpi_numa_get_nid(unsigned int cpu)
+ 	return acpi_early_node_map[cpu];
+ }
  
- 	if (invalid_phys_cpuid(pr->phys_id))
- 		return -ENODEV;
-@@ -462,8 +464,10 @@ static void acpi_processor_make_not_present(struct acpi_device *device)
+-static inline int get_cpu_for_acpi_id(u32 uid)
+-{
+-	int cpu;
+-
+-	for (cpu = 0; cpu < nr_cpu_ids; cpu++)
+-		if (uid == get_acpi_id_for_cpu(cpu))
+-			return cpu;
+-
+-	return -EINVAL;
+-}
+-
+ static int __init acpi_parse_gicc_pxm(union acpi_subtable_headers *header,
+ 				      const unsigned long end)
  {
- 	struct acpi_processor *pr;
- 
--	if (!IS_ENABLED(CONFIG_ACPI_HOTPLUG_PRESENT_CPU))
-+	if (!IS_ENABLED(CONFIG_ACPI_HOTPLUG_PRESENT_CPU)) {
-+		pr_err_once("Changing CPU present bit is not supported");
- 		return;
-+	}
- 
- 	pr = acpi_driver_data(device);
- 	if (pr->id >= nr_cpu_ids)
 -- 
 2.30.2
 
