@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD4E7C25B6F
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 Oct 2023 15:17:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25B54C07545
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 Oct 2023 15:17:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:MIME-Version:Subject:Cc
 	:To:From:References:In-Reply-To:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=k4Wnjyad5xBKmB9QoATW8nvbYUFhpVRZTyJGNQvJSdo=; b=nI1TH11C1DATJ3
-	f/nqC1EURePspFCZVrKBtBBmguhrZlYP/M9DHmUbCORHxuzFaZhkzMEgzySQaw3ckMcD8iUDSE1fC
-	zsaotoT6XqAi6F8jHLDnvBqpFM28ACCgC+pfKDCW4gqI0rKzqLtV1RoH30b9RGC6qm+rvXesJU+za
-	zIqyiSiULU6Iw4PpbF8Trgelx7uSC9+H4nkDZ+3RFygzHh1CA8WJdf4U+jm7fAmNrA3gitWJh7l5n
-	Q1s8zdWG1EMm2UWyjt4QA5kpmCtHA43hAyRIYygFxYttfKLFuKhU9MLKAERllehkObKATR82LPD7C
-	H/Fso0RDKx6TFo3KkKbg==;
+	List-Owner; bh=sfH/4e1gowu4oOoHZ1ma5i1bGbuImrCsS6mMk7oVp7I=; b=UQxTAiFnM2qryz
+	S425rgk5aRgickW3k1+ezDeRoqJrh3G2ZTnY5j70ixU2HvTFevQxUTdpTX1xZMbIG3vqQi+4rmKsJ
+	2DNfUjOC9cdZuX16Ui9XQ795k9FpqtLbXRZyfnSXXeo2rz/hVkCM/lM7to0XayDeajJLX/KEIWZuo
+	1uVna4nl0DheuhJx0PxVYecFqHVVPYcwB2q87m37hCQlA+iPTJI01UamJDFLGT4oQan1zdNwDGGKg
+	0eHxTDLkeaexhUDzchY677JGFDH1LyyIBIPiSojRliqPPDhjJAQUg9S5QqO/4+noNMwiDnW40n+oi
+	I0maXtKz1Z5T/VU5A1Sw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qvJ9Z-00AF57-0q;
-	Tue, 24 Oct 2023 15:17:09 +0000
+	id 1qvJ9h-00AFAz-0E;
+	Tue, 24 Oct 2023 15:17:17 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qvJ9R-00AExv-0g;
-	Tue, 24 Oct 2023 15:17:02 +0000
+	id 1qvJ9T-00AEzW-1N;
+	Tue, 24 Oct 2023 15:17:04 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
 	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=AMLeOPj97UWFUJITi7pviQd/DMBECoV/Ju2iA1XroZM=; b=mxPntmpg+nEHDjRmzpd5O3z9K7
-	WUwkWle8Mntjvito/Q6AyeiKU0JJkuOOHLgdC+pMWhCqzdUlIXgNPjpUYB6oY3gGZxAMiWNt1bZOH
-	2YC9hXxoB7hduLK8UNf7LqWiD/7Fd8hlR3YVS4Y9P5hyFXed3cHMKPciDi6MemZBlzsozHQkim2HR
-	6qKzKSumIcwcgcZLWbQrCh3hGvB63TWyhNQGcs6xMSUhxytx/HNtI5/Ud42lsRN6fhskAMwbnFbps
-	U+/WBaTUebH+fM94MiJJySsK509B2IIMEEiUlrIgrpjyFaah3I05d3FkgSwKD9vXxYCyEZVtJDiuT
-	b9pFWHgQ==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:50820 helo=rmk-PC.armlinux.org.uk)
+	bh=Bek5t65Mv3fYDdKvQVrQkwjkk4n1DGH+oZrcfOeVS74=; b=e+a+n+ASBkVUcxCKNzpfu1MolF
+	8w3zyx+g85QSlzdy5H0mrU0khmmN6+phJ/d1ilAaVgAxdRja2NJyqqQSe6MjCYf4PaN7Qmt9ix00H
+	FcOjtcEft9LjrZGlx+1xevB+BsQkErxYtUQROPxSX5u0NBISJ7jMaJlR4hmMxIQr6ow5t+yKlBYOk
+	3ynqwE+Zdn4aQqykomLvfhAtQEUKx7CWIz/hJvJWE2QFI3nfCzxf0SDSehJ+NtkzAWY6c+GN/2+lS
+	4v5DUvmChM28afv37423PGfptGVcfCKLVQqGMOEDPRbYexCtdBfCRVxpLWLTG3qttpIM72t3LM+UU
+	U6ykb5Sg==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:50818 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <rmk@armlinux.org.uk>)
-	id 1qvJ9F-0004NE-01;
-	Tue, 24 Oct 2023 16:16:49 +0100
+	id 1qvJ99-0004Ms-2a;
+	Tue, 24 Oct 2023 16:16:43 +0100
 Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
 	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1qvJ9G-00AqPY-EY; Tue, 24 Oct 2023 16:16:50 +0100
+	id 1qvJ9B-00AqPS-9x; Tue, 24 Oct 2023 16:16:45 +0100
 In-Reply-To: <ZTffkAdOqL2pI2la@shell.armlinux.org.uk>
 References: <ZTffkAdOqL2pI2la@shell.armlinux.org.uk>
 From: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
@@ -69,16 +69,18 @@ Cc: Salil Mehta <salil.mehta@huawei.com>,
 	 justin.he@arm.com,
 	 James Morse <james.morse@arm.com>,
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>
-Subject: [PATCH 08/39] drivers: base: Move cpu_dev_init() after
- node_dev_init()
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Peter Zijlstra <peterz@infradead.org>
+Subject: [PATCH 07/39] drivers: base: Allow parts of GENERIC_CPU_DEVICES to be
+ overridden
 MIME-Version: 1.0
 Content-Disposition: inline
-Message-Id: <E1qvJ9G-00AqPY-EY@rmk-PC.armlinux.org.uk>
-Date: Tue, 24 Oct 2023 16:16:50 +0100
+Message-Id: <E1qvJ9B-00AqPS-9x@rmk-PC.armlinux.org.uk>
+Date: Tue, 24 Oct 2023 16:16:45 +0100
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231024_081701_248614_36A34AE2 
-X-CRM114-Status: GOOD (  10.03  )
+X-CRM114-CacheID: sfid-20231024_081703_477918_1D0796DE 
+X-CRM114-Status: GOOD (  13.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,38 +99,77 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: James Morse <james.morse@arm.com>
 
-NUMA systems require the node descriptions to be ready before CPUs are
-registered. This is so that the node symlinks can be created in sysfs.
+Architectures often have extra per-cpu work that needs doing
+before a CPU is registered, often to determine if a CPU is
+hotpluggable.
 
-Currently no NUMA platform uses GENERIC_CPU_DEVICES, meaning that CPUs
-are registered by arch code, instead of cpu_dev_init().
-
-Move cpu_dev_init() after node_dev_init() so that NUMA architectures
-can use GENERIC_CPU_DEVICES.
+To allow the ACPI architectures to use GENERIC_CPU_DEVICES, move
+the cpu_register() call into arch_register_cpu(), which is made __weak
+so architectures with extra work can override it.
+This aligns with the way x86, ia64 and loongarch register hotplug CPUs
+when they become present.
 
 Signed-off-by: James Morse <james.morse@arm.com>
 Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 ---
-Note: Jonathan's comment still needs addressing - see
-  https://lore.kernel.org/r/20230914121612.00006ac7@Huawei.com
+Changes since RFC:
+ * Dropped __init from x86/ia64 arch_register_cpu()
+Changes since RFC v2:
+ * Dropped unnecessary Loongarch asm/cpu.h changes
 ---
- drivers/base/init.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/base/cpu.c  | 14 ++++++++++----
+ include/linux/cpu.h |  4 ++++
+ 2 files changed, 14 insertions(+), 4 deletions(-)
 
-diff --git a/drivers/base/init.c b/drivers/base/init.c
-index 397eb9880cec..c4954835128c 100644
---- a/drivers/base/init.c
-+++ b/drivers/base/init.c
-@@ -35,8 +35,8 @@ void __init driver_init(void)
- 	of_core_init();
- 	platform_bus_init();
- 	auxiliary_bus_init();
--	cpu_dev_init();
- 	memory_dev_init();
- 	node_dev_init();
-+	cpu_dev_init();
- 	container_dev_init();
+diff --git a/drivers/base/cpu.c b/drivers/base/cpu.c
+index 34b48f660b6b..579064fda97b 100644
+--- a/drivers/base/cpu.c
++++ b/drivers/base/cpu.c
+@@ -525,19 +525,25 @@ bool cpu_is_hotpluggable(unsigned int cpu)
+ EXPORT_SYMBOL_GPL(cpu_is_hotpluggable);
+ 
+ #ifdef CONFIG_GENERIC_CPU_DEVICES
+-static DEFINE_PER_CPU(struct cpu, cpu_devices);
++DEFINE_PER_CPU(struct cpu, cpu_devices);
++
++int __weak arch_register_cpu(int cpu)
++{
++	return register_cpu(&per_cpu(cpu_devices, cpu), cpu);
++}
+ #endif
+ 
+ static void __init cpu_dev_register_generic(void)
+ {
+-#ifdef CONFIG_GENERIC_CPU_DEVICES
+ 	int i;
+ 
++	if (!IS_ENABLED(CONFIG_GENERIC_CPU_DEVICES))
++		return;
++
+ 	for_each_present_cpu(i) {
+-		if (register_cpu(&per_cpu(cpu_devices, i), i))
++		if (arch_register_cpu(i))
+ 			panic("Failed to register CPU device");
+ 	}
+-#endif
  }
+ 
+ #ifdef CONFIG_GENERIC_CPU_VULNERABILITIES
+diff --git a/include/linux/cpu.h b/include/linux/cpu.h
+index eb768a866fe3..e117c06e0c6b 100644
+--- a/include/linux/cpu.h
++++ b/include/linux/cpu.h
+@@ -88,6 +88,10 @@ extern ssize_t arch_cpu_probe(const char *, size_t);
+ extern ssize_t arch_cpu_release(const char *, size_t);
+ #endif
+ 
++#ifdef CONFIG_GENERIC_CPU_DEVICES
++DECLARE_PER_CPU(struct cpu, cpu_devices);
++#endif
++
+ /*
+  * These states are not related to the core CPU hotplug mechanism. They are
+  * used by various (sub)architectures to track internal state
 -- 
 2.30.2
 
